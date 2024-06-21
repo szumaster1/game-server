@@ -80,7 +80,6 @@ enum class FacialExpression(val animationId: Int) {
     STRUGGLE(9865),
     CALM_TALK(9810),
     MAD(9789),
-    HEAD_SHAKE(9793),
     CALM(9805),
     CHEER_YES(9864),
 
