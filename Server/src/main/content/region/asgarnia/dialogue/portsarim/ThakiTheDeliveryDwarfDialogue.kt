@@ -1,0 +1,32 @@
+package content.region.asgarnia.dialogue.portsarim
+
+import core.api.consts.NPCs
+import core.game.dialogue.Dialogue
+import core.game.dialogue.FacialExpression
+import core.game.node.entity.npc.NPC
+import core.game.node.entity.player.Player
+import core.plugin.Initializable
+import core.utilities.END_DIALOGUE
+
+@Initializable
+class ThakiTheDeliveryDwarfDialogue(player: Player? = null) : Dialogue(player) {
+
+    override fun open(vararg args: Any): Boolean {
+        npc = args[0] as NPC
+        npc(FacialExpression.OLD_NORMAL, "Arrr!").also { stage = 0 }
+        return true
+    }
+
+    override fun handle(interfaceId: Int, buttonId: Int): Boolean {
+        when (stage) {
+            0 -> player(FacialExpression.HAPPY, "Hi little fellow.").also { stage++ }
+            1 -> npc(FacialExpression.OLD_NORMAL, "What did you just say to me!?").also { stage++ }
+            2 -> player(FacialExpression.GUILTY, "Arrr! nothing, nothing at all..").also { stage = END_DIALOGUE }
+        }
+        return true
+    }
+
+    override fun getIds(): IntArray {
+        return intArrayOf(NPCs.THAKI_THE_DELIVERY_DWARF_7115)
+    }
+}

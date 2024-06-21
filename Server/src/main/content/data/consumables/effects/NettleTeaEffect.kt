@@ -1,0 +1,20 @@
+package content.data.consumables.effects
+
+import core.game.consumable.ConsumableEffect
+import core.game.node.entity.player.Player
+
+class NettleTeaEffect : ConsumableEffect() {
+
+    override fun activate(p: Player) {
+        val effect = if (p.getSkills().lifepoints < p.getSkills().maximumLifepoints) MultiEffect(HealingEffect(3), EnergyEffect(5)) else HealingEffect(3)
+        effect.activate(p)
+    }
+
+    override fun getHealthEffectValue(player: Player): Int {
+        return HEALING
+    }
+
+    companion object {
+        private const val HEALING = 3
+    }
+}

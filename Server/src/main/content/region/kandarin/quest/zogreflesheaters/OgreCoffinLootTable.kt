@@ -1,0 +1,55 @@
+package content.region.kandarin.quest.zogreflesheaters
+
+import core.api.consts.Items
+import core.api.consts.Scenery
+import core.api.utils.WeightBasedTable
+import core.api.utils.WeightedItem
+
+enum class OgreCoffinLootTable(val sceneryId: IntArray, val table: WeightBasedTable) {
+    OGRE_COFFIN(intArrayOf(Scenery.OGRE_COFFIN_6848, Scenery.OGRE_COFFIN_6850),
+        WeightBasedTable.create(
+            WeightedItem(Items.COINS_995, 10, 20, 10.0),
+            WeightedItem(Items.BRONZE_AXE_1351, 1, 1, 10.0),
+            WeightedItem(Items.IRON_AXE_1349, 1, 1, 10.0),
+            WeightedItem(Items.STEEL_AXE_1353, 1, 1, 10.0),
+            WeightedItem(Items.BRONZE_PICKAXE_1265, 1, 1, 10.0),
+            WeightedItem(Items.IRON_PICKAXE_1267, 1, 1, 10.0),
+            WeightedItem(Items.STEEL_PICKAXE_1269, 1, 1, 10.0),
+            WeightedItem(Items.BRONZE_DAGGER_1205, 1, 1, 10.0),
+            WeightedItem(Items.IRON_DAGGER_1203, 1, 1, 10.0),
+            WeightedItem(Items.STEEL_DAGGER_1207, 1, 1, 10.0),
+            WeightedItem(Items.BRONZE_NAILS_4819, 1, 21, 10.0),
+            WeightedItem(Items.IRON_NAILS_4820, 1, 18, 8.0),
+            WeightedItem(Items.STEEL_NAILS_1539, 1, 13, 8.0),
+            WeightedItem(Items.BLACK_NAILS_4821, 1, 13, 5.0),
+            WeightedItem(Items.KNIFE_946, 1, 1, 10.0),
+            WeightedItem(Items.RUSTY_SWORD_686, 1, 1, 5.0),
+            WeightedItem(Items.LEATHER_BODY_1129, 1, 1, 10.0),
+            WeightedItem(Items.DAMAGED_ARMOUR_697, 1, 1, 5.0),
+            WeightedItem(Items.TINDERBOX_590, 1, 1, 10.0),
+            WeightedItem(Items.BUTTONS_688, 1, 1, 10.0),
+            WeightedItem(Items.UNCUT_OPAL_1625, 1, 1, 10.0),
+            WeightedItem(Items.UNCUT_JADE_1627, 1, 1, 10.0),
+            WeightedItem(Items.GRIMY_LANTADYME_2485, 1, 1, 1.0),
+            WeightedItem(Items.ZOGRE_BONES_4812, 1, 1, 10.0),
+            WeightedItem(Items.FAYRG_BONES_4830, 1, 1, 10.0),
+            WeightedItem(Items.RAURG_BONES_4832, 1, 1, 10.0),
+            WeightedItem(Items.OURG_BONES_4834, 1, 1, 1.0)
+        ).insertEasyClue(2.0)
+    );
+
+    companion object {
+
+        val coffinMap = HashMap<Int, WeightBasedTable>()
+
+        init {
+            OgreCoffinLootTable.values().forEach {
+                it.sceneryId.forEach { id -> coffinMap[id] = it.table }
+            }
+        }
+
+        fun forId(id: Int): WeightBasedTable? {
+            return coffinMap[id]
+        }
+    }
+}

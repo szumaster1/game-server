@@ -1,0 +1,32 @@
+package content.region.desert.handlers
+
+import core.api.*
+import core.api.consts.Items
+import core.api.consts.NPCs
+import core.game.interaction.IntType
+import core.game.interaction.InteractionListener
+import core.game.node.item.Item
+
+class ShantayPassListeners : InteractionListener {
+
+
+    companion object {
+        private const val SHANTAY_NPC = NPCs.SHANTAY_836
+        private const val SHANTAY_PASS_TICKET = Items.SHANTAY_PASS_1854
+        private const val COINS = Items.COINS_995
+    }
+
+    override fun defineListeners() {
+
+        on(SHANTAY_NPC, IntType.NPC, "buy-pass") { player, node ->
+            face(node.asNpc(), player, 2)
+            if (removeItem(player, Item(COINS, 5))) {
+                sendItemDialogue(player, SHANTAY_PASS_TICKET, "You purchase a Shantay Pass.")
+                addItemOrDrop(player, SHANTAY_PASS_TICKET)
+            } else {
+                sendPlayerDialogue(player, "Sorry, I don't seem to have enough money.")
+            }
+            return@on true
+        }
+    }
+}

@@ -1,0 +1,58 @@
+package content.global.skill.combat.summoning.familiar.npc
+
+import content.global.skill.combat.summoning.familiar.Familiar
+import content.global.skill.combat.summoning.familiar.FamiliarSpecial
+import core.api.consts.Items
+import core.api.consts.NPCs
+import core.api.sendMessage
+import core.game.node.entity.combat.equipment.WeaponInterface
+import core.game.node.entity.player.Player
+import core.game.node.item.Item
+import core.plugin.Initializable
+
+@Initializable
+class SpiritCobraNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.SPIRIT_COBRA_6802) : Familiar(owner, id, 5600, 12015, 3, WeaponInterface.STYLE_ACCURATE) {
+
+    override fun construct(owner: Player, id: Int): Familiar {
+        return SpiritCobraNPC(owner, id)
+    }
+
+    override fun specialMove(special: FamiliarSpecial): Boolean {
+        val item = special.node as Item
+        val egg = Egg.forEgg(item)
+        if (egg == null) {
+            sendMessage(owner, "You can't use the special move on this item.")
+            return false
+        }
+        owner.inventory.replace(egg.product, item.slot)
+        return true
+    }
+
+    override fun getIds(): IntArray {
+        return intArrayOf(NPCs.SPIRIT_COBRA_6802, NPCs.SPIRIT_COBRA_6803)
+    }
+
+
+    enum class Egg(val egg: Item, val product: Item) {
+        COCKATRICE(Item(Items.EGG_1944), Item(Items.COCKATRICE_EGG_12109)),
+        SARATRICE(Item(Items.BLUE_EGG_10533), Item(Items.SARATRICE_EGG_12113)),
+        ZAMATRICE(Item(Items.RED_EGG_10532), Item(Items.ZAMATRICE_EGG_12115)),
+        GUTHATRICE(Item(Items.GREEN_EGG_10531), Item(Items.GUTHATRICE_EGG_12111)),
+        CORACATRICE(Item(Items.RAVEN_EGG_11964), Item(Items.CORAXATRICE_EGG_12119)),
+        PENGATRICE(Item(Items.PENGUIN_EGG_12483), Item(Items.PENGATRICE_EGG_12117)),
+        VULATRICE(Item(Items.VULTURE_EGG_11965), Item(Items.VULATRICE_EGG_12121));
+
+
+        companion object {
+
+            fun forEgg(item: Item): Egg? {
+                for (egg in values()) {
+                    if (egg.egg.id == item.id) {
+                        return egg
+                    }
+                }
+                return null
+            }
+        }
+    }
+}

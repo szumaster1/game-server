@@ -1,0 +1,60 @@
+/* package content.region.miscquest.inpyreneed
+
+
+import core.api.consts.Vars
+import core.api.addItemOrDrop
+import core.api.rewardXP
+import core.api.setVarbit
+import core.game.node.entity.player.Player
+import core.game.node.entity.player.link.quest.Quest
+import core.game.node.entity.skill.Skills
+import core.plugin.Initializable
+
+@Initializable
+class InPyreNeed : Quest("In Pyre Need", 162, 161, 1, Vars.VARBIT_QUEST_IN_PYRE_NEED_5761, 0, 1, 30) {
+    override fun drawJournal(player: Player?, stage: Int) {
+        super.drawJournal(player, stage)
+        var line = 11
+        player ?: return
+
+        if (stage == 100) {
+            line++
+            line(player, "<col=FF0000>QUEST COMPLETE!", line, false)
+        }
+    }
+
+    override fun finish(player: Player?) {
+        super.finish(player)
+        player ?: return
+        var ln = 10
+
+        player.packetDispatch.sendItemZoomOnInterface(Items.PHOENIX_QUILL_14616, 230, 277, 5)
+        player.packetDispatch.sendString("You have completed In Pyre Need!", 277, 4)
+
+        drawReward(player, "1 Quest Point", ln++)
+        drawReward(player, "14,400 Firemaking XP", ln++)
+        drawReward(player, "12,500 Fletching XP", ln++)
+        drawReward(player, "11,556 Crafting XP", ln++)
+        rewardXP(player, Skills.FIREMAKING, 14400.0)
+        rewardXP(player, Skills.FLETCHING, 12500.0)
+        rewardXP(player, Skills.CRAFTING, 11556.0)
+        addItemOrDrop(player, Items.PHOENIX_QUILL_14616, 5)
+        setVarbit(player, Vars.VARBIT_QUEST_IN_PYRE_NEED_5761, 30, true)
+    }
+
+    override fun newInstance(`object`: Any?): Quest {
+        return this
+    }
+
+}
+//1 quest point
+//14,400 Firemaking experience
+//12,500 Fletching experience
+//11,556 Crafting experience
+//5 phoenix quills worth 126,065
+//Access to the Phoenix Lair once per day; which is a Distraction and Diversion
+//The chance to receive a Phoenix eggling pet while doing the Phoenix Lair.
+//Raising the pet requires level 72 Summoning. Players without level 72 Summoning will receive a phoenix egg instead, which they can later hatch at the required level.
+//2 Treasure Hunter keys (Ironman accounts will not receive these)
+
+ */

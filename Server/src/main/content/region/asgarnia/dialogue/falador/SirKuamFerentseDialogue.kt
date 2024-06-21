@@ -1,0 +1,21 @@
+package content.region.asgarnia.dialogue.falador
+
+import content.region.asgarnia.quest.recruitmentdrive.dialogue.SirKuamFerentseDialogueFile
+import core.api.consts.NPCs
+import core.api.openDialogue
+import core.game.dialogue.Dialogue
+import core.game.node.entity.player.Player
+import core.plugin.Initializable
+
+@Initializable
+class SirKuamFerentseDialogue(player: Player? = null) : Dialogue(player) {
+
+    override fun handle(interfaceId: Int, buttonId: Int): Boolean {
+        openDialogue(player, SirKuamFerentseDialogueFile(), npc)
+        return true
+    }
+
+    override fun getIds(): IntArray {
+        return intArrayOf(NPCs.SIR_KUAM_FERENTSE_2284)
+    }
+}

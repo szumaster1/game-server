@@ -1,0 +1,148 @@
+package content.global.skill.support.construction.decoration.chapel;
+
+import content.global.skill.combat.prayer.Bones;
+import core.api.consts.Sounds;
+import core.cache.def.impl.SceneryDefinition;
+import core.game.interaction.NodeUsageEvent;
+import core.game.interaction.UseWithHandler;
+import core.game.node.entity.player.Player;
+import core.game.node.entity.skill.Skills;
+import core.game.node.item.Item;
+import core.game.node.scenery.Scenery;
+import core.game.system.task.Pulse;
+import core.game.world.map.Location;
+import core.game.world.map.RegionManager;
+import core.game.world.update.flag.context.Animation;
+import core.game.world.update.flag.context.Graphic;
+import core.plugin.Initializable;
+import core.plugin.Plugin;
+
+import static core.api.ContentAPIKt.playAudio;
+import static core.api.ContentAPIKt.submitIndividualPulse;
+
+/**
+ * The Bone offer plugin.
+ */
+@Initializable
+public class BoneOfferPlugin extends UseWithHandler {
+
+    private final Graphic GFX = new Graphic(624);
+
+    private final Animation ANIM = new Animation(896);
+
+    /**
+     * Instantiates a new Bone offer plugin.
+     */
+    public BoneOfferPlugin() {
+        super(526, 2859, 528, 3183, 3179, 530, 532, 3125, 4812, 3123, 534, 6812, 536, 4830, 4832, 6729, 4834, 14693);
+    }
+
+    @Override
+    public Plugin<Object> newInstance(Object arg) throws Throwable {
+        addHandler(13185, OBJECT_TYPE, this);
+        addHandler(13188, OBJECT_TYPE, this);
+        addHandler(13191, OBJECT_TYPE, this);
+        addHandler(13194, OBJECT_TYPE, this);
+        addHandler(13197, OBJECT_TYPE, this);
+        return this;
+    }
+
+    @Override
+    public boolean handle(NodeUsageEvent event) {
+        Player player = event.getPlayer();
+        Scenery left = null;
+        Scenery right = null;
+        if (event.getUsedWith().asScenery().getRotation() % 2 == 0) {
+            left = RegionManager.getObject(event.getUsedWith().getLocation().getZ(), event.getUsedWith().getLocation().getX() + 3, event.getUsedWith().getLocation().getY());
+            right = RegionManager.getObject(event.getUsedWith().getLocation().getZ(), event.getUsedWith().getLocation().getX() - 2, event.getUsedWith().getLocation().getY());
+        } else {
+            left = RegionManager.getObject(event.getUsedWith().getLocation().getZ(), event.getUsedWith().getLocation().getX(), event.getUsedWith().getLocation().getY() + 3);
+            right = RegionManager.getObject(event.getUsedWith().getLocation().getZ(), event.getUsedWith().getLocation().getX(), event.getUsedWith().getLocation().getY() - 2);
+        }
+        Bones b = Bones.forId(event.getUsedItem().getId());
+        if (b != null) {
+            worship(player, event.getUsedWith().asScenery(), left, right, b);
+        }
+        return true;
+    }
+
+    private void worship(final Player player, final Scenery altar, final Scenery left, final Scenery right, final Bones b) {
+        if (player.getIronmanManager().isIronman() && !player.getHouseManager().isInHouse(player)) {
+            player.sendMessage("You cannot do this on someone else's altar.");
+            return;
+        }
+        final Location start = player.getLocation();
+
+        Location gfxLoc = player.getLocation().transform(player.getDirection(), 1);
+
+        submitIndividualPulse(player, new Pulse(1) {
+            int counter = 0;
+
+            @Override
+            public boolean pulse() {
+                counter++;
+                if (counter == 1 || counter % 5 == 0) {
+                    if (player.getInventory().remove(new Item(b.getItemId()))) {
+                        player.animate(ANIM);
+                        playAudio(player, Sounds.POH_OFFER_BONES_958);
+                        player.getPacketDispatch().sendPositionedGraphics(GFX, gfxLoc);
+                        player.sendMessage(getMessage(isLit(left), isLit(right)));
+                        player.getSkills().addExperience(Skills.PRAYER, b.getExperience() * getMod(altar, isLit(left), isLit(right)));
+                    }
+                }
+                return !player.getLocation().equals(start) || !player.getInventory().containsItem(new Item(b.getItemId()));
+
+            }
+
+        });
+
+    }
+
+    private boolean isLit(Scenery obj) {
+        return obj != null && obj.getId() != 15271 && SceneryDefinition.forId(obj.getId()).getOptions() != null && !SceneryDefinition.forId(obj.getId()).hasAction("light");
+    }
+
+    private double getBase(Scenery altar) {
+        double base = 150.0;
+        if (altar == null) {
+            return base;
+        }
+        switch (altar.getId()) {
+            case 13182:
+                base = 110.0;
+                break;
+            case 13185:
+                base = 125.0;
+                break;
+            case 13188:
+                base = 150.0;
+                break;
+            case 13191:
+                base = 175.0;
+                break;
+            case 13194:
+                base = 200.0;
+                break;
+            case 13197:
+                base = 250.0;
+                break;
+        }
+        return base;
+    }
+
+    private double getMod(Scenery altar, boolean isLeft, boolean isRight) {
+        double total = getBase(altar);
+        if (isLeft) {
+            total += 50.0;
+        }
+        if (isRight) {
+            total += 50.0;
+        }
+        return (total / 100);
+    }
+
+    private String getMessage(boolean isLeft, boolean isRight) {
+        return isLeft && isRight ? "The gods are very pleased with your offering." : isLeft || isRight ? "The gods are pleased with your offering." : "The gods accept your offering.";
+    }
+
+}

@@ -1,0 +1,33 @@
+package content.region.asgarnia.dialogue.falador.gangofthieves
+
+import core.api.consts.NPCs
+import core.game.dialogue.Dialogue
+import core.game.dialogue.FacialExpression
+import core.game.node.entity.npc.NPC
+import core.game.node.entity.player.Player
+import core.plugin.Initializable
+
+@Initializable
+class JeffDialogue(player: Player? = null) : Dialogue(player) {
+
+    override fun open(vararg args: Any?): Boolean {
+        npc = args[0] as NPC
+        npc(FacialExpression.HALF_GUILTY, "Tell me, is the guard still watching us?")
+        stage = 0
+        return true
+    }
+
+    override fun handle(interfaceId: Int, buttonId: Int): Boolean {
+        when (stage) {
+            0 -> player(FacialExpression.HALF_GUILTY, "Why would you care if there's a guard watching you?").also { stage++ }
+            1 -> npc(FacialExpression.HALF_GUILTY, "Oh, forget it.").also { stage++ }
+            2 -> end()
+        }
+        return true
+    }
+
+    override fun getIds(): IntArray {
+        return intArrayOf(NPCs.JEFF_3240)
+    }
+
+}

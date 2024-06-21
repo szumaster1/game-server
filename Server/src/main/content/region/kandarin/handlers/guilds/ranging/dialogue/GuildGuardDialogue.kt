@@ -1,0 +1,28 @@
+package content.region.kandarin.handlers.guilds.ranging.dialogue
+
+import core.api.consts.NPCs
+import core.game.dialogue.Dialogue
+import core.game.node.entity.player.Player
+import core.plugin.Initializable
+import core.utilities.END_DIALOGUE
+
+@Initializable
+class GuildGuardDialogue(player: Player? = null) : Dialogue(player) {
+
+    override fun open(vararg args: Any): Boolean {
+        player("Hello there.").also { stage = 0 }
+        return true
+    }
+
+    override fun handle(interfaceId: Int, buttonId: Int): Boolean {
+        when (stage) {
+            0 -> npc("Greetings, traveller. Enjoy the time at the Ranging", "Guild.").also { stage = END_DIALOGUE }
+
+        }
+        return true
+    }
+
+    override fun getIds(): IntArray {
+        return intArrayOf(NPCs.GUARD_678)
+    }
+}

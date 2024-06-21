@@ -1,0 +1,354 @@
+package content.region.misthalin.quest.free.restlessghost.dialogue
+
+import content.region.misthalin.quest.free.restlessghost.RestlessGhost
+import core.api.*
+import core.api.consts.Components
+import core.game.dialogue.Dialogue
+import core.game.node.entity.npc.NPC
+import core.game.node.entity.player.Player
+import core.plugin.Initializable
+
+@Initializable
+class FatherAereckDialogue(player: Player? = null) : Dialogue(player) {
+
+    override fun open(vararg args: Any): Boolean {
+        npc = args[0] as NPC
+        val questStage = getQuestStage(player, RestlessGhost.NAME)
+        if (questStage == 10) {
+            npc("Have you got rid of the ghost yet?")
+            stage = 520
+            return true
+        }
+        if (questStage == 20) {
+            player("I had a talk with Father Urhney. He has given me this", "funny amulet to talk to the ghost with.")
+            stage = 530
+            return true
+        }
+        if (questStage == 30) {
+            player(
+                "I've found out that the ghost's corpse has lost its skull.",
+                "If I can find the skull, the ghost should leave."
+            )
+            stage = 540
+            return true
+        }
+        if (questStage == 40) {
+            player("I've finally found the ghost's skull!")
+            stage = 550
+            return true
+        }
+        npc("Welcome to the church of holy Saradomin, my", "friend! What can I do for you today?")
+        stage = 0
+        return true
+    }
+
+    override fun handle(interfaceId: Int, buttonId: Int): Boolean {
+        when (stage) {
+            0 -> if (isQuestComplete(player, "The Restless Ghost")) {
+                setTitle(player, 3)
+                sendDialogueOptions(player, "What would you like to say?", "Can you change my gravestone now?", "Who's Saradomin?", "Nice place you've got here.")
+                stage = 1
+            } else {
+                setTitle(player, 4)
+                sendDialogueOptions(player, "What would you like to say?", "Can you change my gravestone now?", "Who's Saradomin?", "Nice place you've got here.", "I'm looking for a quest.")
+                stage = 500
+            }
+
+            500 -> when (buttonId) {
+                1 -> {
+                    npc("Certainly. All proceeds are donated to the", "Varrockian Guards' Widows & Orphans Fund.")
+                    stage = 10
+                }
+
+                2 -> {
+                    npc("Surely you have heard of our god, Saradomin?")
+                    stage = 20
+                }
+
+                3 -> {
+                    npc("It is, isn't it? It was built over two centuries ago.")
+                    stage = 300
+                }
+
+                4 -> {
+                    player("I'm looking for a quest.")
+                    stage = 505
+                }
+            }
+
+            505 -> {
+                npc("That's lucky, I need someone to do a quest for me.")
+                stage = 506
+            }
+
+            506 -> {
+                options("Ok, let me help then.", "Sorry, I don't have time right now.")
+                stage = 507
+            }
+
+            507 -> when (buttonId) {
+                1 -> {
+                    player("Ok, let me help then.")
+                    stage = 510
+                }
+
+                2 -> {
+                    player("Sorry, I don't have time right now.")
+                    stage = 508
+                }
+            }
+
+            508 -> {
+                npc("Oh well. If you do have some spare time on your", "hands, come back and talk to me.")
+                stage = 509
+            }
+
+            509 -> end()
+            510 -> {
+                player.getQuestRepository().getQuest(RestlessGhost.NAME).start(player)
+                player.getQuestRepository().syncronizeTab(player)
+                npc(
+                    "Thank you. The problem is, there is a ghost in the",
+                    "church graveyard. I would like you to get rid of it."
+                )
+                stage = 511
+            }
+
+            511 -> {
+                npc("If you need any help, my friend Father Urhney is an", "expert on ghosts.")
+                stage = 512
+            }
+
+            512 -> {
+                npc(
+                    "I believe he is currently living as a hermit in Lumbridge",
+                    "swamp. He has a little shack in the south-west of the",
+                    "swamps."
+                )
+                stage = 513
+            }
+
+            513 -> {
+                npc(
+                    "Exit the graveyard through the south gate to reach the",
+                    "swamp. I'm sure if you told him that I sent you he'd",
+                    "be willing to help."
+                )
+                stage = 514
+            }
+
+            514 -> {
+                npc("My name is Father Aereck by the way. Pleased to", "meet you.")
+                stage = 515
+            }
+
+            515 -> {
+                player("Likewise.")
+                stage = 516
+            }
+
+            516 -> {
+                npc("Take care travelling through the swamps, I have heard", "they can be quite dangerous.")
+                stage = 517
+            }
+
+            517 -> {
+                player("I will, thanks.")
+                stage = 518
+            }
+
+            518 -> end()
+            520 -> if (!player.gameAttributes.attributes.containsKey("restless-ghost:urhney")) {
+                player("I can't find Father Urhney at the moment.")
+                stage = 521
+            }
+
+            521 -> {
+                npc("Well, you can get to the swamp he lives in by going", "south through the cemetery.")
+                stage = 522
+            }
+
+            522 -> {
+                npc(
+                    "You'll have to go right into the western depths of the",
+                    "swamp, near the coastline. That is where his house is."
+                )
+                stage = 523
+            }
+
+            523 -> end()
+            530 -> {
+                npc(
+                    "I always wondered what that amulet was... Well, I hope",
+                    "it's useful. Tell me when you get rid of the ghost!"
+                )
+                stage = 531
+            }
+
+            531 -> end()
+            540 -> {
+                npc("That WOULD explain it.")
+                stage = 541
+            }
+
+            541 -> {
+                npc("Hmmmmm. Well, I haven't seen any skulls.")
+                stage = 542
+            }
+
+            542 -> {
+                player("Yes, I think a warlock has stolen it.")
+                stage = 543
+            }
+
+            543 -> {
+                npc("I hate warlocks.")
+                stage = 544
+            }
+
+            544 -> {
+                npc("Ah well, good luck!")
+                stage = 545
+            }
+
+            545 -> end()
+            550 -> {
+                npc("Great! Put it in the ghost's coffin and see what", "happens!")
+                stage = 545
+            }
+
+            1 -> when (buttonId) {
+                1 -> {
+                    npc("Certainly. All proceeds are donated to the", "Varrockian Guards' Widows & Orphans Fund.")
+                    stage = 10
+                }
+
+                2 -> {
+                    npc("Surely you have heard of our god, Saradomin?")
+                    stage = 20
+                }
+
+                3 -> {
+                    npc("It is, isn't it? It was built over two centuries ago.")
+                    stage = 300
+                }
+            }
+
+            10 -> {
+                end()
+                openInterface(player, Components.GRAVESTONE_SHOP_652)
+            }
+
+            20 -> {
+                npc(
+                    "He who created the forces of goodness and purity in this",
+                    "world? I cannot believe your ignorance!"
+                )
+                stage = 21
+            }
+
+            21 -> {
+                npc("This is the god with more followers than any other ...at", "least in this part of the world.")
+                stage = 22
+            }
+
+            22 -> {
+                npc("He who forged the world as we know it, along with his", "brothers Guthix and Zamorak?")
+                stage = 23
+            }
+
+            23 -> {
+                options("Oh, THAT Saradomin.", "Oh, sorry, I'm not from this world.")
+                stage = 24
+            }
+
+            24 -> when (buttonId) {
+                1 -> {
+                    npc("There is only one Saradomin.")
+                    stage = 200
+                }
+
+                2 -> {
+                    npc("...")
+                    stage = 250
+                }
+            }
+
+            200 -> {
+                player("Yeah. I, uh, thought you said something else.")
+                stage = 201
+            }
+
+            201 -> end()
+            250 -> {
+                npc("That's...strange.")
+                stage = 251
+            }
+
+            251 -> {
+                npc("I thought things not from this world were all, you know,", "slime and tentacles.")
+                stage = 270
+            }
+
+            270 -> {
+                options("Not me.", "I am! Do you like my disguise?")
+                stage = 271
+            }
+
+            271 -> when (buttonId) {
+                1 -> {
+                    npc("Well, I can see that. Still, there's something special about", "you.")
+                    stage = 253
+                }
+
+                2 -> {
+                    npc(
+                        "Argh! Avaunt, foul creature from another dimension!",
+                        "Avaunt! Begone in the name of Saradomin!"
+                    )
+                    stage = 291
+                }
+            }
+
+            291 -> {
+                player("Okay, okay, I was only joking!")
+                stage = 292
+            }
+
+            292 -> end()
+            253 -> {
+                player("Thanks, I think.")
+                stage = 254
+            }
+
+            254 -> end()
+            300 -> end()
+            570 -> {
+                player( "Yes, I have!")
+                stage = 571
+            }
+
+            571 -> {
+                npc("Thank you for getting rid of that awful ghost for me!",
+                    "May Saradomin always smile upon you!"
+                )
+                stage = 572
+            }
+
+            572 -> {
+                player("I'm looking for a new quest.")
+                stage = 573
+            }
+
+            573 -> {
+                npc( "Sorry, I only had the one quest.")
+                stage = 300
+            }
+        }
+        return true
+    }
+
+    override fun getIds(): IntArray {
+        return intArrayOf(456)
+    }
+}

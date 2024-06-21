@@ -1,0 +1,42 @@
+package content.global.skill.combat.summoning.familiar.npc
+
+import content.global.skill.combat.summoning.familiar.Familiar
+import content.global.skill.combat.summoning.familiar.FamiliarSpecial
+import content.global.skill.combat.summoning.familiar.Forager
+import core.api.applyPoison
+import core.api.consts.Items
+import core.api.consts.NPCs
+import core.game.node.entity.impl.Projectile
+import core.game.node.entity.player.Player
+import core.game.node.item.Item
+import core.game.world.update.flag.context.Animation
+import core.game.world.update.flag.context.Graphic
+import core.plugin.Initializable
+import core.utilities.RandomFunction
+
+@Initializable
+class StrangerPlantNPC(owner: Player? = null, id: Int = NPCs.STRANGER_PLANT_6827) : Forager(owner, id, 4900, 12045, 6, Item(Items.STRANGE_FRUIT_464)) {
+
+    override fun construct(owner: Player, id: Int): Familiar {
+        return StrangerPlantNPC(owner, id)
+    }
+
+    override fun specialMove(special: FamiliarSpecial): Boolean {
+        if (!canCombatSpecial(special.target)) {
+            return false
+        }
+        val target = special.target
+        if (RandomFunction.random(2) == 1) {
+            applyPoison(target, owner, 20)
+        }
+        animate(Animation.create(8211))
+        Projectile.ranged(this, target, 1508, 50, 40, 1, 45).send()
+        target.graphics(Graphic.create(1511))
+        sendFamiliarHit(target, 2)
+        return false
+    }
+
+    override fun getIds(): IntArray {
+        return intArrayOf(NPCs.STRANGER_PLANT_6827, NPCs.STRANGER_PLANT_6828)
+    }
+}

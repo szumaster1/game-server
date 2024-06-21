@@ -1,0 +1,65 @@
+package content.region.fremennik.handlers.neitiznot;
+
+import content.global.skill.production.crafting.armour.YakArmourPlugin;
+import content.region.fremennik.dialogue.neitiznot.MawnisBurowgarDialogue;
+import content.region.fremennik.dialogue.neitiznot.ThakkradYakDialogue;
+import core.game.interaction.Option;
+import core.game.node.Node;
+import core.game.node.entity.Entity;
+import core.game.node.entity.player.Player;
+import core.game.world.map.zone.MapZone;
+import core.game.world.map.zone.ZoneBuilder;
+import core.plugin.ClassScanner;
+import core.plugin.Initializable;
+import core.plugin.Plugin;
+
+/**
+ * The Neitiznot zone.
+ */
+@Initializable
+public class NeitiznotZone extends MapZone implements Plugin<Object> {
+
+    /**
+     * Instantiates a new Neitiznot zone.
+     */
+    public NeitiznotZone() {
+        super("Neitiznot zone", true);
+    }
+
+    @Override
+    public Plugin<Object> newInstance(Object arg) throws Throwable {
+        ZoneBuilder.configure(this);
+        ClassScanner.definePlugins(new MawnisBurowgarDialogue(), new ThakkradYakDialogue(), new YakArmourPlugin(), new YakArmourPlugin());
+        return this;
+    }
+
+    @Override
+    public boolean interact(Entity e, Node target, Option option) {
+        if (e instanceof Player) {
+            Player player = e.asPlayer();
+            switch (target.getId()) {
+                case 21301:
+                    player.getBank().open();
+                    return true;
+                case 5506:
+                    if (option.getName().equals("Craft-goods")) {
+                        player.getDialogueInterpreter().open("thakkrad-yak");
+                        return true;
+                    }
+                    break;
+            }
+        }
+        return super.interact(e, target, option);
+    }
+
+    @Override
+    public Object fireEvent(String identifier, Object... args) {
+        return null;
+    }
+
+    @Override
+    public void configure() {
+        registerRegion(9275);
+    }
+
+}

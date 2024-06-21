@@ -1,0 +1,84 @@
+package content.global.skill.support.agility.shortcuts
+
+import content.global.skill.support.agility.AgilityHandler
+import content.global.skill.support.agility.AgilityShortcut
+import core.api.consts.Sounds
+import core.api.lock
+import core.api.playAudio
+import core.api.sendMessage
+import core.game.node.entity.player.Player
+import core.game.node.scenery.Scenery
+import core.game.system.task.Pulse
+import core.game.world.GameWorld
+import core.game.world.update.flag.context.Animation
+import core.plugin.Initializable
+import core.plugin.Plugin
+
+@Initializable
+class PipeShortcut : AgilityShortcut {
+    constructor() : super(intArrayOf(), 0, 0.0, "")
+    constructor(ids: IntArray?, level: Int, experience: Double, vararg options: String?) : super(
+        ids, level, experience, *options
+    )
+
+    override fun newInstance(arg: Any?): Plugin<Any> {
+        configure(PipeShortcut(intArrayOf(2290), 49, 0.0, "squeeze-through")) //Yanille Dungeon
+        configure(PipeShortcut(intArrayOf(5099), 22, 8.5, "squeeze-through")) //Brimhaven Dungeon Pipe Red Dragons -> Black Demons
+        configure(PipeShortcut(intArrayOf(5100), 34, 10.0, "squeeze-through")) //Brimhaven Dungeon Pipe Moss Giants -> Moss Giants
+        configure(PipeShortcut(intArrayOf(9293), 70, 10.0, "squeeze-through")) //Taverley Dungeon
+        configure(PipeShortcut(intArrayOf(20210), 35, 10.0, "squeeze-through")) //Barbarian Outpost
+        configure(PipeShortcut(intArrayOf(29370), 51, 10.0, "squeeze-through")) //Edgeville Dungeon
+        return this
+    }
+
+    override fun run(player: Player, obj: Scenery, option: String, failed: Boolean) {
+        GameWorld.Pulser.submit(object : Pulse(1, player) {
+            override fun pulse(): Boolean {
+                when (obj.id) {
+                    2290, 9293 -> {
+                        player.lock(7)
+                        AgilityHandler.forceWalk(player, -1, player.location, pipeDestination(player, obj, 6), Animation.create(10580), 10, 0.0, null)
+                        player.animate(Animation(844), 4)
+                        player.animate(Animation(10579), 5)
+                        playAudio(player, Sounds.SQUEEZE_OUT_2490, 5)
+                        return true
+                    }
+
+                    5099, 5100 -> {
+                        player.lock(5)
+                        AgilityHandler.forceWalk(player, -1, player.location, pipeDestination(player, obj, 7), Animation.create(10580), 10, 0.0, null)
+                        player.animate(Animation(844), 5)
+                        player.animate(Animation(10579), 6)
+                        playAudio(player, Sounds.SQUEEZE_OUT_2490, 6)
+                        return true
+                    }
+
+
+                    20210 -> {
+                        if (player.location.x != 2552) {
+                            sendMessage(player, "I can't get into this pipe at that angle.")
+                            return true
+                        }
+                        lock(player, 3)
+                        AgilityHandler.forceWalk(player, -1, player.location, pipeDestination(player, obj, 3), Animation.create(10580), 15, 0.0, null)
+                        return true
+                    }
+
+                    29370 -> {
+                        if (player.location.y != 9906) {
+                            sendMessage(player, "I can't get into this pipe at that angle.")
+                            return true
+                        }
+                        lock(player, 7)
+                        AgilityHandler.forceWalk(player, -1, player.location, pipeDestination(player, obj, 6), Animation.create(10580), 10, 0.0, null)
+                        player.animate(Animation(844), 4)
+                        player.animate(Animation(10579), 5)
+                        playAudio(player, Sounds.SQUEEZE_OUT_2490, 5)
+                        return true
+                    }
+                }
+                return false
+            }
+        })
+    }
+}

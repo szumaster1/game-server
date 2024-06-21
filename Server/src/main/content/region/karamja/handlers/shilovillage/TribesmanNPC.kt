@@ -1,0 +1,27 @@
+package content.region.karamja.handlers.shilovillage
+
+import core.api.applyPoison
+import core.api.consts.NPCs
+import core.game.node.entity.Entity
+import core.game.node.entity.combat.BattleState
+import core.game.node.entity.npc.NPC
+import core.game.node.entity.npc.NPCBehavior
+import core.utilities.RandomFunction
+
+class TribesmanNPC : NPCBehavior(*TRIBESMAN_NPC) {
+
+    companion object {
+        private val TRIBESMAN_NPC = intArrayOf(NPCs.TRIBESMAN_191, NPCs.TRIBESMAN_2496, NPCs.TRIBESMAN_2497)
+    }
+
+    // It can be found in Karamja near Tai Bwo Wannai.
+    // It is crucial to remember that Tribesmen can poison you.
+    // Source: https://runescape.wiki/w/Wandering_warrior?oldid=1994276
+
+    override fun beforeAttackFinalized(self: NPC, victim: Entity, state: BattleState) {
+        state.estimatedHit = RandomFunction.getRandom(6)
+
+        if (RandomFunction.roll(10))
+            applyPoison(victim, self, 21)
+    }
+}

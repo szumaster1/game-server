@@ -1,0 +1,68 @@
+package content.region.misthalin.quest.member.whatliesbelow;
+
+import core.game.node.entity.combat.BattleState;
+import core.game.node.entity.npc.AbstractNPC;
+import core.game.world.map.Location;
+
+public class KingRoaldNPC extends AbstractNPC {
+
+    private WhatLiesBelowCutscene cutscene;
+
+    public KingRoaldNPC(int id, Location location) {
+        super(id, location);
+    }
+
+    public KingRoaldNPC() {
+        super(-1, null);
+    }
+
+    @Override
+    public AbstractNPC construct(int id, Location location, Object... objects) {
+        return new KingRoaldNPC(id, location);
+    }
+
+    @Override
+    public void checkImpact(BattleState state) {
+        int lp = getSkills().getLifepoints();
+        if (state.getEstimatedHit() > -1) {
+            if (lp - state.getEstimatedHit() < 1) {
+                state.setEstimatedHit(0);
+                if (lp > 1) {
+                    state.setEstimatedHit(lp - 1);
+                }
+            }
+        }
+        if (state.getSecondaryHit() > -1) {
+            if (lp - state.getSecondaryHit() < 1) {
+                state.setSecondaryHit(0);
+                if (lp > 1) {
+                    state.setSecondaryHit(lp - 1);
+                }
+            }
+        }
+        int totalHit = state.getEstimatedHit() + state.getSecondaryHit();
+        if (lp - totalHit < 1) {
+            state.setEstimatedHit(0);
+            state.setSecondaryHit(0);
+        }
+        if (lp <= 1 && !getAttribute("message", false)) {
+            setAttribute("message", true);
+            cutscene.getPlayer().sendMessage("Now would be a good time to summon Zaff!");
+        }
+    }
+
+    /**
+     * Sets cutscene.
+     *
+     * @param cutscene the cutscene
+     */
+    public void setCutscene(WhatLiesBelowCutscene cutscene) {
+        this.cutscene = cutscene;
+    }
+
+    @Override
+    public int[] getIds() {
+        return new int[]{5838};
+    }
+
+}

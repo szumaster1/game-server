@@ -1,0 +1,25 @@
+package content.minigame.stealingcreation
+
+import core.api.consts.NPCs
+import core.api.sendDialogue
+import core.game.dialogue.Dialogue
+import core.game.node.entity.player.Player
+import core.game.world.GameWorld
+import core.utilities.END_DIALOGUE
+
+class HeadMysticDialogue(player: Player? = null) : Dialogue(player) {
+
+    override fun handle(interfaceId: Int, buttonId: Int): Boolean {
+        when (stage) {
+            0 -> if (!GameWorld.settings!!.isMembers)
+                sendDialogue(player!!, "I'll only talk to you in a members' only world.").also { stage = END_DIALOGUE }
+
+        }
+        return true
+    }
+
+    override fun getIds(): IntArray {
+        return intArrayOf(NPCs.HEAD_MYSTIC_8227)
+    }
+
+}

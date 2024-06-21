@@ -1,0 +1,54 @@
+package content.global.skill.support.construction.decoration.bedroom
+
+import core.api.*
+import core.api.consts.Items
+import core.game.interaction.IntType
+import core.game.interaction.InteractionListener
+import core.game.interaction.QueueStrength
+import core.game.node.entity.skill.Skills
+import core.game.node.item.Item
+import core.game.node.scenery.Scenery
+import core.game.node.scenery.SceneryBuilder
+import core.game.world.update.flag.context.Animation
+import core.api.consts.Scenery as Object
+
+class FireplaceListener : InteractionListener {
+
+    private val animationId: Animation = Animation.create(3658)
+    private val fireplaceIds = intArrayOf(Object.CLAY_FIREPLACE_13609, Object.LIMESTONE_FIREPLACE_13611, Object.MARBLE_FIREPLACE_13613)
+
+    override fun defineListeners() {
+        on(fireplaceIds, IntType.SCENERY, "light") { player, node ->
+            val n = node.asScenery()
+
+            if (!anyInInventory(player, Items.LOGS_1511, Items.TINDERBOX_590)) {
+                sendMessage(player, "You need some logs and a tinderbox in order to light the fireplace.")
+                return@on true
+            }
+
+            if (!inInventory(player, Items.LOGS_1511, 1)) {
+                sendMessage(player, "You need some logs in order to light the fireplace.")
+                return@on true
+            }
+
+            if (!inInventory(player, Items.TINDERBOX_590, 1)) {
+                sendMessage(player, "You need a tinderbox in order to light the fireplace.")
+                return@on true
+            }
+
+            lock(player, 3)
+            animate(player, animationId)
+            queueScript(player, 2, QueueStrength.SOFT) {
+                if (!node.isActive) {
+                    return@queueScript stopExecuting(player)
+                }
+                removeItem(player, Item(Items.LOGS_1511, 1), Container.INVENTORY)
+                rewardXP(player, Skills.FIREMAKING, 80.0)
+                SceneryBuilder.replace(Scenery(n.id, n.location), Scenery(n.id + 1, n.location, n.rotation), 1000)
+                sendMessage(player, "You light the fireplace.")
+                return@queueScript stopExecuting(player)
+            }
+            return@on true
+        }
+    }
+}

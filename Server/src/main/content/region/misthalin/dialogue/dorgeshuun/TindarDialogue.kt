@@ -1,0 +1,44 @@
+package content.region.misthalin.dialogue.dorgeshuun
+
+import core.api.*
+import core.game.dialogue.Dialogue
+import core.game.dialogue.FacialExpression
+import core.game.node.entity.player.Player
+import core.game.node.item.Item
+import core.plugin.Initializable
+import core.utilities.END_DIALOGUE
+import core.utilities.START_DIALOGUE
+import core.api.consts.Items
+import core.api.consts.NPCs
+
+@Initializable
+class TindarDialogue(player: Player? = null) : Dialogue(player) {
+    override fun handle(interfaceId: Int, buttonId: Int): Boolean {
+        when (stage) {
+            START_DIALOGUE -> npcl(FacialExpression.OLD_NORMAL, "Creeespy frogs' legs! Get your creeeespy frogs' legs! You want some crispy frogs' legs? Just 10gp.").also { stage++ }
+            1 -> options("Yes please.", "No thanks.").also { stage++ }
+            2 -> when (buttonId) {
+                1 -> playerl(FacialExpression.FRIENDLY, "Yes please.").also { stage++ }
+                2 -> playerl(FacialExpression.NEUTRAL, "No thanks.").also { stage = 4 }
+            }
+            3 -> {
+                end()
+                if(freeSlots(player) == 0){
+                    npcl(FacialExpression.OLD_NORMAL, "Looks like your hands are full. You'll have to free up some inventory space before I sell you anything.")
+                } else if(amountInInventory(player, Items.COINS_995) < 10){
+                    player("But I don't have enough money on me.")
+                } else {
+                    npcl(FacialExpression.OLD_NORMAL, "There you go.")
+                    removeItem(player, Item(Items.COINS_995, 10), Container.INVENTORY)
+                    addItem(player, Items.COATED_FROGS_LEGS_10963)
+                }
+            }
+            4 -> npcl(FacialExpression.OLD_NORMAL, "Have a good day!").also { stage = END_DIALOGUE }
+        }
+        return true
+    }
+
+    override fun getIds(): IntArray {
+        return intArrayOf(NPCs.TINDAR_5795)
+    }
+}

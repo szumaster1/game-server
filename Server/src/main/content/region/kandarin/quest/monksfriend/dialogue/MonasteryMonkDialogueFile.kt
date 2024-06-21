@@ -1,0 +1,22 @@
+package content.region.kandarin.quest.monksfriend.dialogue
+
+import core.api.getQuestStage
+import core.game.dialogue.DialogueFile
+import core.game.dialogue.FacialExpression
+import core.utilities.END_DIALOGUE
+
+class MonasteryMonkDialogueFile : DialogueFile() {
+
+    override fun handle(componentID: Int, buttonID: Int) {
+        var questStage = getQuestStage(player!!, "Monk's Friend")
+        if (questStage < 100) {
+            when (stage) {
+                0 -> npcl(FacialExpression.FRIENDLY, "*yawn*").also { stage = END_DIALOGUE }
+            }
+        } else {
+            when (stage) {
+                0 -> npcl(FacialExpression.HAPPY, "Can't wait for the party!").also { stage = END_DIALOGUE }
+            }
+        }
+    }
+}

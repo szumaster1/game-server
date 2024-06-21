@@ -1,0 +1,403 @@
+package content.region.morytania.quest.ghostsahoy
+
+import content.region.morytania.quest.ghostsahoy.GAUtils.jumpRockPath
+import content.region.morytania.quest.ghostsahoy.GiantLobsterNPC.Companion.spawnGiantLobster
+import content.region.morytania.quest.ghostsahoy.dialogue.RobinDialogueFile
+import core.api.*
+import core.api.consts.*
+import core.game.dialogue.DialogueFile
+import core.game.global.action.DoorActionHandler
+import core.game.interaction.IntType
+import core.game.interaction.InteractionListener
+import core.game.interaction.InterfaceListener
+import core.game.node.entity.npc.NPC
+import core.game.node.item.Item
+import core.game.world.map.Location
+import core.utilities.END_DIALOGUE
+
+class GhostsAhoyListeners : InteractionListener, InterfaceListener {
+
+    override fun defineListeners() {
+
+        /*
+            Doors leads to coffin which contains Robes of Necrovarus.
+         */
+
+        on(Scenery.DOOR_5244, IntType.SCENERY, "open") { player, node ->
+            if (inInventory(player, Items.BONE_KEY_4272)) {
+                DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
+                if (player.location.x == 3655) {
+                    sendMessage(player, "You unlock the door.")
+                }
+            } else {
+                openDialogue(player, object : DialogueFile() {
+                    override fun handle(componentID: Int, buttonID: Int) {
+                        npc = NPC(NPCs.GHOST_DISCIPLE_1686)
+                        when (stage) {
+                            0 -> if (!inEquipment(player, Items.GHOSTSPEAK_AMULET_552)) {
+                                npc("Woooo wooooo woooo").also { stage = 3 }
+                            } else {
+                                npc("What are you doing going in there?").also { stage++ }
+                            }
+
+                            1 -> player("Err, I was just curious...").also { stage++ }
+                            2 -> npc("Inside that room is a coffin, inside which lie", "the mortal remains of our most glorious master,", "Necrovarus. None may enter.").also { stage = END_DIALOGUE }
+
+                            3 -> sendDialogue(player, "You get the general impression that the ghost doesn't want you to open the door.").also { stage = END_DIALOGUE }
+                        }
+                    }
+                })
+            }
+            return@on false
+        }
+
+        /*
+            Interaction with coffin.
+         */
+
+        on(Scenery.COFFIN_5278, IntType.SCENERY, "open") { player, node ->
+            sendMessage(player, "The coffin creaks open...")
+            replaceScenery(node.asScenery(), Scenery.COFFIN_5279, 100, node.location)
+            return@on true
+        }
+
+        on(Scenery.COFFIN_5279, IntType.SCENERY, "close") { _, node ->
+            replaceScenery(node.asScenery(), Scenery.COFFIN_5278, -1, node.location)
+            return@on true
+        }
+
+        on(Scenery.COFFIN_5279, IntType.SCENERY, "search") { player, _ ->
+            if (!inInventory(player, Items.MYSTICAL_ROBES_4247)) {
+                sendItemDialogue(player, Items.MYSTICAL_ROBES_4247, "You take the Robes of Necrovarus from the remains of his mortal body.")
+                addItemOrDrop(player, Items.MYSTICAL_ROBES_4247)
+            } else {
+                sendMessage(player, "You search the coffin and find nothing.")
+            }
+            return@on true
+        }
+
+        /*
+            Petition form.
+         */
+
+        on(Items.PETITION_FORM_4283, IntType.ITEM, "count", "drop") { player, node ->
+            val score = getAttribute(player, GAUtils.petitionsigns, 0)
+            when (getUsedOption(player)) {
+                "count" -> {
+                    if (score == 0) {
+                        sendMessage(player, "You haven't got any signatures yet.")
+                    } else {
+                        sendMessage(player, "You have obtained $score signatures.")
+                    }
+                }
+
+                "drop" -> {
+                    if (!removeItem(player, node.asItem())) {
+                        sendMessage(player, "Nothing interesting happens.")
+                    } else {
+                        sendMessage(player, "You drop the petition form; it blows away in the wind.")
+                        setAttribute(player, GAUtils.petitionsigns, 0)
+                    }
+                }
+            }
+
+            return@on true
+        }
+
+        /*
+            Rock path lead to chest which contains map scraps.
+         */
+
+        on(Scenery.ROCK_5269, IntType.SCENERY, "jump-to") { player, node ->
+            jumpRockPath(player)
+            if (!player.location.withinDistance(node.location, 1)) return@on false
+            runTask(player, 2) {
+                when (player.location) {
+                    Location(3605, 3550, 0) -> teleport(player, Location(3602, 3550, 0))
+                    Location(3601, 3550, 0) -> teleport(player, Location(3604, 3550, 0))
+                    Location(3600, 3552, 0) -> teleport(player, Location(3597, 3552, 0))
+                    Location(3596, 3552, 0) -> teleport(player, Location(3599, 3552, 0))
+                    Location(3595, 3553, 0) -> teleport(player, Location(3595, 3556, 0))
+                    Location(3595, 3557, 0) -> teleport(player, Location(3595, 3554, 0))
+                    Location(3597, 3558, 0) -> teleport(player, Location(3597, 3561, 0))
+                    Location(3597, 3562, 0) -> teleport(player, Location(3597, 3559, 0))
+                    Location(3598, 3564, 0) -> teleport(player, Location(3601, 3564, 0))
+                    Location(3602, 3564, 0) -> teleport(player, Location(3599, 3564, 0))
+                    else -> sendMessage(player.asPlayer(), "That's too far to jump!")
+                }
+            }
+            return@on true
+        }
+
+        /*
+            Connect scraps for completed map.
+         */
+
+        onUseWith(IntType.ITEM, Items.MAP_SCRAP_4276, Items.MAP_SCRAP_4275) { player, used, with ->
+            if (!anyInInventory(player, Items.MAP_SCRAP_4274, Items.MAP_SCRAP_4275, Items.MAP_SCRAP_4276)) {
+                sendDialogue(player, "You don't have all the pieces of the map yet.")
+                return@onUseWith false
+            }
+
+            if (inInventory(player, Items.MAP_SCRAP_4274) && removeItem(player, Items.MAP_SCRAP_4274) && removeItem(player, used.asItem()) && removeItem(player, with.asItem())) {
+                sendItemDialogue(player, Items.TREASURE_MAP_4277, "You piece the three map scraps together to form a complete map.")
+                addItemOrDrop(player, Items.TREASURE_MAP_4277)
+            }
+            return@onUseWith true
+        }
+
+        /*
+            Interaction with completed map.
+         */
+
+        on(Items.TREASURE_MAP_4277, IntType.ITEM, "read") { player, _ ->
+            openInterface(player, Components.AHOY_ISLANDMAP_8)
+            return@on true
+        }
+
+        /*
+            Dig for Book of Haricanto.
+         */
+
+        onDig(Location(3803, 3530, 0)) { player ->
+            val hasBook = hasAnItem(player, Items.BOOK_OF_HARICANTO_4248).container != null
+            if (!hasBook) {
+                sendItemDialogue(player, Items.BOOK_OF_HARICANTO_4248, "You unearth the Book of Haricanto.")
+                addItemOrDrop(player, Items.BOOK_OF_HARICANTO_4248)
+            } else {
+                sendMessage(player, "You dig but find nothing.")
+            }
+            return@onDig
+        }
+
+
+        /*
+            Ship model interactions.
+         */
+
+        on(GAUtils.shipModel, IntType.ITEM, "repair") { player, _ ->
+            sendDialogue(player, "You need some silk to replace the flag, something to sew it to the boat, and something to cut the flag to the right size.")
+            return@on true
+        }
+
+        on(GAUtils.silkShipModel, IntType.ITEM, "inspect") { player, _ ->
+            val shipFlagColor = getAttribute(player, GAUtils.shipFlag, "")
+            val shipBottomColor = getAttribute(player, GAUtils.shipBottom, "")
+            val shipSkullColor = getAttribute(player, GAUtils.shipSkull, "")
+            sendItemDialogue(player, Items.MODEL_SHIP_4254, "The top of the flag is $shipFlagColor. The skull emblem is $shipSkullColor. The bottom of the flag is $shipBottomColor.")
+            return@on true
+        }
+
+        onUseWith(IntType.ITEM, Items.SILK_950, Items.MODEL_SHIP_4253) { player, used, with ->
+            if (removeItem(player, used.asItem()) && removeItem(player, with.asItem())) {
+                sendItemDialogue(player, Items.MODEL_SHIP_4254, "You replace the toy boat's missing flag.")
+                addItemOrDrop(player, Items.MODEL_SHIP_4254)
+            } else {
+                sendMessage(player, "Nothing interesting happens.")
+            }
+            return@onUseWith true
+        }
+
+        onUseWith(IntType.ITEM, intArrayOf(Items.RED_DYE_1763, Items.YELLOW_DYE_1765, Items.BLUE_DYE_1767), Items.MODEL_SHIP_4254) { player, node, _ ->
+            setAttribute(player, GAUtils.colorMatching, 0)
+            if (getAttribute(player, GAUtils.colorMatching, 0) == 3) {
+                setAttribute(player, GAUtils.rightShip, 1)
+            }
+            openDialogue(player, object : DialogueFile() {
+                override fun handle(componentID: Int, buttonID: Int) {
+                    when (stage) {
+                        0 -> {
+                            setTitle(player, 3)
+                            sendDialogueOptions(player, "Which part of the flag do you want to dye?", "Top half", "Bottom half", "Skull emblem")
+                            stage++
+                        }
+
+                        1 -> when (buttonID) {
+                            1 -> when {
+                                removeItem(player, Item(Items.YELLOW_DYE_1765, 1)) -> {
+                                    sendItemDialogue(player, GAUtils.shipModel, "You dye the top of the flag yellow.")
+                                    setAttribute(player, GAUtils.shipFlag, "yellow")
+                                }
+
+                                removeItem(player, Item(Items.BLUE_DYE_1767, 1)) -> {
+                                    sendItemDialogue(player, GAUtils.shipModel, "You dye the top of the flag blue.")
+                                    setAttribute(player, GAUtils.shipFlag, "blue")
+                                }
+
+                                removeItem(player, Item(Items.RED_DYE_1763, 1)) -> {
+                                    sendItemDialogue(player, GAUtils.shipModel, "You dye the top of the flag red.")
+                                    setAttribute(player, GAUtils.shipFlag, "red")
+                                }
+                            }
+
+                            2 -> when {
+                                removeItem(player, Item(Items.YELLOW_DYE_1765, 1)) -> {
+                                    sendItemDialogue(player, GAUtils.shipModel, "You dye the bottom of the flag yellow.")
+                                    setAttribute(player, GAUtils.shipBottom, "yellow")
+                                }
+
+                                removeItem(player, Item(Items.BLUE_DYE_1767, 1)) -> {
+                                    sendItemDialogue(player, GAUtils.shipModel, "You dye the bottom of the flag blue.")
+                                    setAttribute(player, GAUtils.shipBottom, "blue")
+                                }
+
+                                removeItem(player, Item(Items.RED_DYE_1763, 1)) -> {
+                                    sendItemDialogue(player, GAUtils.shipModel, "You dye the bottom of the flag red.")
+                                    setAttribute(player, GAUtils.shipBottom, "red")
+                                }
+                            }
+
+                            3 -> when {
+                                removeItem(player, Item(Items.YELLOW_DYE_1765, 1)) -> {
+                                    sendItemDialogue(player, GAUtils.shipModel, "You dye the skull emblem yellow.")
+                                    setAttribute(player, GAUtils.shipSkull, "yellow")
+                                }
+
+                                removeItem(player, Item(Items.BLUE_DYE_1767, 1)) -> {
+                                    sendItemDialogue(player, GAUtils.shipModel, "You dye the skull emblem blue.")
+                                    setAttribute(player, GAUtils.shipSkull, "blue")
+                                }
+
+                                removeItem(player, Item(Items.RED_DYE_1763, 1)) -> {
+                                    sendItemDialogue(player, GAUtils.shipModel, "You dye the skull emblem red.")
+                                    setAttribute(player, GAUtils.shipSkull, "red")
+                                }
+                            }
+                        }
+                    }
+                }
+            }, node.asItem())
+            return@onUseWith true
+        }
+
+        /*
+            Plank Rock Island (5285) to ship.
+         */
+
+        on(intArrayOf(Scenery.GANGPLANK_5286, Scenery.GANGPLANK_5285), IntType.SCENERY, "cross") { player, node ->
+            teleport(player, if (node.id == 5285) Location(3605, 3548, 0) else Location(3605, 3545, 1))
+            sendMessage(player, "You cross the gangplank.")
+            return@on true
+        }
+
+        on(Scenery.CLOSED_CHEST_5272, IntType.SCENERY, "open") { player, _ ->
+            // Open chest under the ship.
+            if (inBorders(player, 3619, 3543, 3617, 3541)) {
+                animate(player, Animations.HUMAN_OPEN_CHEST_536)
+                addScenery(Scenery.OPEN_CHEST_5273, Location(3618, 3542, 0), 0, 10)
+                removeScenery(core.game.node.scenery.Scenery(Scenery.CLOSED_CHEST_5270, Location(3618, 3542, 0)))
+            }
+            // Open chest on Rock island.
+            else {
+                animate(player, Animations.HUMAN_OPEN_CHEST_536)
+                addScenery(Scenery.OPEN_CHEST_5273, Location(3606, 3564, 0), 3, 10)
+                removeScenery(core.game.node.scenery.Scenery(Scenery.CLOSED_CHEST_5272, Location(3606, 3564, 0)))
+            }
+            return@on true
+        }
+
+        /*
+            Ship chest near Old Man.
+         */
+
+        onUseWith(IntType.SCENERY, Items.CHEST_KEY_2404, Scenery.CLOSED_CHEST_5270) { player, _, _ ->
+            animate(player, Animations.HUMAN_OPEN_CHEST_536)
+            removeItem(player, Items.CHEST_KEY_2404)
+            sendItemDialogue(player, Items.CHEST_KEY_2404, "You unlock the chest.")
+            addScenery(Scenery.OPEN_CHEST_5273, Location(3619, 3545, 1), 2, 10)
+            removeScenery(core.game.node.scenery.Scenery(Scenery.CLOSED_CHEST_5270, Location(3619, 3545, 1)))
+            return@onUseWith true
+        }
+
+        on(Scenery.OPEN_CHEST_5273, IntType.SCENERY, "close") { player, _ ->
+            // Close chest on Rock island.
+            if (inBorders(player, 3604, 3563, 3607, 3565)) {
+                addScenery(Scenery.CLOSED_CHEST_5270, Location(3606, 3564, 0), 3, 10)
+                removeScenery(core.game.node.scenery.Scenery(Scenery.OPEN_CHEST_5273, Location(3606, 3564, 0)))
+            }
+            // Close chest under the ship.
+            else if (inBorders(player, 3619, 3543, 3617, 3541)) {
+                addScenery(Scenery.CLOSED_CHEST_5270, Location(3618, 3542, 0), 0, 10)
+                removeScenery(core.game.node.scenery.Scenery(Scenery.OPEN_CHEST_5273, Location(3618, 3542, 0)))
+            } else {
+                addScenery(Scenery.CLOSED_CHEST_5270, Location(3619, 3545, 1), 2, 10)
+                removeScenery(core.game.node.scenery.Scenery(Scenery.OPEN_CHEST_5273, Location(3619, 3545, 1)))
+            }
+            return@on true
+        }
+
+        on(Scenery.OPEN_CHEST_5273, IntType.SCENERY, "search") { player, _ ->
+            val hasMapScrap1 = hasAnItem(player, Items.MAP_SCRAP_4274).container != null
+            val hasMapScrap2 = hasAnItem(player, Items.MAP_SCRAP_4276).container != null
+            val hasMapScrap3 = hasAnItem(player, Items.MAP_SCRAP_4275).container != null
+            if (inBorders(player, 3618, 3544, 3620, 3546)) {
+                // Search for scrap near Old Man.
+                if (!hasMapScrap1 && freeSlots(player) > 1) {
+                    addItem(player, Items.MAP_SCRAP_4274, 1)
+                    sendItemDialogue(player, Items.MAP_SCRAP_4274, "You find a piece of a map inside the chest.")
+                } else if (!hasMapScrap1 && freeSlots(player) < 1) {
+                    sendItemDialogue(player, Items.MAP_SCRAP_4274, "You unlock the chest and find a map inside but you don't have enough room to take it.")
+                } else if (hasMapScrap1 && freeSlots(player) > 1) {
+                    sendDialogue(player, "You already have the map from this chest.")
+                }
+            } else if (inBorders(player, 3604, 3563, 3607, 3565)) {
+                // Search for scrap on Rock island.
+                if (!hasMapScrap2 && freeSlots(player) > 1) {
+                    addItem(player, Items.MAP_SCRAP_4276, 1)
+                    sendItemDialogue(player, Items.MAP_SCRAP_4276, "You find a piece of a map inside the chest.")
+                } else if (!hasMapScrap2 && freeSlots(player) < 1) {
+                    sendItemDialogue(player, Items.MAP_SCRAP_4276, "You find a map inside but you don't have enough room to take it.")
+                } else if (hasMapScrap2 && freeSlots(player) > 1) {
+                    sendDialogue(player, "You already have the map from this chest.")
+                }
+            } else if (inBorders(player, 3619, 3543, 3617, 3541)) {
+                // Search for scrap under the ship.
+                if (getAttribute(player, GAUtils.lastMapScrap, false)) {
+                    if (!hasMapScrap3 && freeSlots(player) > 1) {
+                        addItem(player, Items.MAP_SCRAP_4275, 1)
+                        sendItemDialogue(player, Items.MAP_SCRAP_4275, "You find a piece of a map inside the chest.")
+                    } else if (!hasMapScrap2 && freeSlots(player) < 1) {
+                        sendItemDialogue(player, Items.MAP_SCRAP_4275, "You find a map inside but you don't have enough room to take it.")
+                    } else if (hasMapScrap2 && freeSlots(player) > 1) {
+                        sendDialogue(player, "You already have the map from this chest.")
+                    }
+                } else {
+                    spawnGiantLobster(player)
+                }
+            }
+            return@on true
+        }
+    }
+
+    override fun defineInterfaceListeners() {
+
+        onOpen(Components.AHOY_BLACKOUT_7) { player, _ ->
+            if (!inBorders(player, 3788, 3556, 3797, 3562)) {
+                setInterfaceText(player, "After a long boat trip you arrive at Dragontooth Island...", Components.AHOY_BLACKOUT_7, 1)
+            } else {
+                setInterfaceText(player, "After a long boat trip you return to Port Phasmatys...", Components.AHOY_BLACKOUT_7, 1)
+            }
+            return@onOpen true
+        }
+
+        /*
+         *  "You've won the game of Runedraw!"
+         *  "You've lost the game of Runedraw."
+         *  removeItem(player, Items.OAK_LONGBOW_845)
+         *  addItemOrDrop(player, Items.SIGNED_OAK_BOW_4236)
+         *  setQuestStage(player, "Ghosts Ahoy", 0)
+         *  "You have obtained 8 signatures.
+         */
+
+        onClose(Components.AHOY_RUNEDRAW_9) { player, _ ->
+            sendMessage(player, "You've won the game of Runedraw!")
+            setAttribute(player, GAUtils.getSignedBow, true)
+            setQuestStage(player, "Ghosts Ahoy", 11)
+            openDialogue(player, RobinDialogueFile())
+            return@onClose true
+        }
+
+    }
+
+
+}

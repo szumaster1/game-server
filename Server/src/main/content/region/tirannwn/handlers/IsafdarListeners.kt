@@ -1,0 +1,42 @@
+package content.region.tirannwn.handlers
+
+import core.api.*
+import core.api.consts.Items
+import core.api.consts.Scenery
+import core.game.interaction.IntType
+import core.game.interaction.InteractionListener
+import core.game.world.map.Location
+
+class IsafdarListeners : InteractionListener {
+
+    companion object {
+        val outside: Location = Location.create(2312, 3217, 0)
+        val inside: Location = Location.create(2314, 9624, 0)
+    }
+
+    override fun defineListeners() {
+
+        on(Scenery.CAVE_ENTRANCE_4006, IntType.SCENERY, "enter") { player, _ ->
+            teleport(player, inside)
+            return@on true
+        }
+
+        on(Scenery.CAVE_EXIT_4007, IntType.SCENERY, "exit") { player, _ ->
+            teleport(player, outside)
+            return@on true
+        }
+
+        on(Scenery.BOOKCASE_8752, IntType.SCENERY, "search") { player, _ ->
+            if (!inInventory(player, Items.PRIFDDINAS_HISTORY_6073)) {
+                sendMessage(player, "You search the bookshelves...")
+                sendMessageWithDelay(player, "and find a book named 'Prifddinas History'.", 1)
+                addItem(player, Items.PRIFDDINAS_HISTORY_6073)
+            } else {
+                sendMessage(player, "You search the bookshelves...")
+                sendMessageWithDelay(player,"You don't find anything interesting.", 1)
+            }
+            return@on true
+        }
+    }
+
+}
