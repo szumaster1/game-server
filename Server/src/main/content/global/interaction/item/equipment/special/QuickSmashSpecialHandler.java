@@ -40,7 +40,6 @@ public final class QuickSmashSpecialHandler extends MeleeSwingHandler implements
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
         CombatStyle.MELEE.getSwingHandler().register(4153, this);
-        CombatStyle.MELEE.getSwingHandler().register(14792, this);
         return this;
     }
 

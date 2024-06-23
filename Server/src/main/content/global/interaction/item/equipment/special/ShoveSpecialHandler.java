@@ -47,7 +47,6 @@ public final class ShoveSpecialHandler extends MeleeSwingHandler implements Plug
         CombatStyle.MELEE.getSwingHandler().register(5716, this);
         CombatStyle.MELEE.getSwingHandler().register(5730, this);
         CombatStyle.MELEE.getSwingHandler().register(11716, this);
-        CombatStyle.MELEE.getSwingHandler().register(14662, this);
         return this;
     }
 
