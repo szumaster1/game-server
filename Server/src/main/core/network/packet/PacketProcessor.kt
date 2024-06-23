@@ -34,7 +34,7 @@ import core.game.ge.GrandExchange.Companion.getOfferStats
 import core.game.ge.GrandExchange.Companion.getRecommendedPrice
 import core.game.ge.GrandExchangeOffer
 import core.game.ge.PriceIndex
-import content.global.interaction.iface.StockMarketInterfaceListener
+import content.global.handlers.iface.StockMarketInterfaceListener
 import content.global.skill.combat.magic.SpellListener
 import content.global.skill.combat.magic.SpellListeners
 import content.global.skill.combat.magic.SpellUtils

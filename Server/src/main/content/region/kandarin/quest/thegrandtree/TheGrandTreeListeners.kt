@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.thegrandtree
 
-import content.global.interaction.iface.ScrollInterface
+import content.global.handlers.iface.ScrollInterface
 import content.region.kandarin.quest.thegrandtree.cutscene.BlackDemonCutscene
 import content.region.kandarin.quest.thegrandtree.dialogue.KingNarnodeDialogueFile
 import content.region.kandarin.quest.thegrandtree.dialogue.KingNarnodeUnderGroundDialogue

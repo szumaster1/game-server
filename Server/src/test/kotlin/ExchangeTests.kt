@@ -1,5 +1,5 @@
 import core.api.consts.Items
-import content.global.interaction.iface.StockMarketInterfaceListener
+import content.global.handlers.iface.StockMarketInterfaceListener
 import core.game.ge.*
 import core.game.node.item.Item
 import kotlinx.coroutines.GlobalScope

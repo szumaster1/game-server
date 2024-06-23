@@ -1,6 +1,6 @@
 package core.game.system.command.sets
 
-import content.global.interaction.iface.BookInterfaceListener
+import content.global.handlers.iface.BookInterfaceListener
 import core.api.*
 import core.game.node.entity.player.Player
 import core.game.system.command.Privilege

@@ -1,6 +1,6 @@
 package core.game.world.map.zone.impl;
 
-import content.global.interaction.item.equipment.gloves.BrawlingGloves;
+import content.global.handlers.item.equipment.gloves.BrawlingGloves;
 import content.global.skill.combat.summoning.familiar.Familiar;
 import content.region.wilderness.handlers.DeepWildyThreat;
 import core.api.consts.NPCs;

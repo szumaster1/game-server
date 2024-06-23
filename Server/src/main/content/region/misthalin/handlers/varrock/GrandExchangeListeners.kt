@@ -1,7 +1,7 @@
 package content.region.misthalin.handlers.varrock
 
-import content.global.interaction.iface.ExchangeItemSetsListener
-import content.global.interaction.iface.StockMarketInterfaceListener
+import content.global.handlers.iface.ExchangeItemSetsListener
+import content.global.handlers.iface.StockMarketInterfaceListener
 import core.api.getUsedOption
 import core.api.openDialogue
 import core.game.ge.GEGuidePrice

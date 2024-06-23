@@ -1,6 +1,6 @@
 package core.game.node.entity.combat
 
-import content.global.interaction.item.equipment.special.SalamanderSwingHandler
+import content.global.handlers.item.equipment.special.SalamanderSwingHandler
 import content.global.random.RandomEventNPC
 import core.api.*
 import core.game.container.impl.EquipmentContainer

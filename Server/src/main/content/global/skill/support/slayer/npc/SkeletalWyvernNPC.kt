@@ -1,6 +1,6 @@
 package content.global.skill.support.slayer.npc
 
-import content.global.interaction.item.equipment.special.DragonfireSwingHandler
+import content.global.handlers.item.equipment.special.DragonfireSwingHandler
 import content.global.skill.support.slayer.Tasks
 import core.api.consts.Items
 import core.game.node.entity.combat.CombatStyle

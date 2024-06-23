@@ -2,9 +2,9 @@ package core.game.system.command.sets
 
 import content.data.BossKillCounter
 import content.global.activity.treasuretrails.TreasureTrailManager
-import content.global.interaction.iface.BookInterfaceListener
-import content.global.interaction.iface.Page
-import content.global.interaction.iface.PageSet
+import content.global.handlers.iface.BookInterfaceListener
+import content.global.handlers.iface.Page
+import content.global.handlers.iface.PageSet
 import content.global.skill.support.slayer.SlayerManager
 import core.api.setAttribute
 import core.game.node.entity.player.Player

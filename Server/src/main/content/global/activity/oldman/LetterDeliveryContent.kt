@@ -1,10 +1,9 @@
 package content.global.activity.oldman
 
-import content.global.interaction.iface.ScrollInterface
-import content.global.interaction.iface.ScrollLine
+import content.global.handlers.iface.ScrollInterface
+import content.global.handlers.iface.ScrollLine
 import core.api.consts.Components
 import core.api.consts.NPCs
-import core.api.openInterface
 import core.api.setAttribute
 import core.game.node.entity.player.Player
 

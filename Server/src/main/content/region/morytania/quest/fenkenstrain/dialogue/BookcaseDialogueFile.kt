@@ -1,10 +1,10 @@
 package content.region.morytania.quest.fenkenstrain.dialogue
 
 import core.api.consts.Items
-import content.global.interaction.iface.BookInterfaceListener
-import content.global.interaction.iface.BookLine
-import content.global.interaction.iface.Page
-import content.global.interaction.iface.PageSet
+import content.global.handlers.iface.BookInterfaceListener
+import content.global.handlers.iface.BookLine
+import content.global.handlers.iface.Page
+import content.global.handlers.iface.PageSet
 import core.api.*
 import core.game.dialogue.DialogueFile
 import core.game.node.entity.player.Player

@@ -1,6 +1,6 @@
 package content.global.skill.support.construction.decoration.study
 
-import content.global.interaction.item.TeleTabs
+import content.global.handlers.item.TeleTabs
 import content.global.skill.support.construction.Decoration
 import core.api.*
 import core.api.consts.Components

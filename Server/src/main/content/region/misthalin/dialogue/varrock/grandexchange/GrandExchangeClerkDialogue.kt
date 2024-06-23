@@ -1,8 +1,8 @@
 package content.region.misthalin.dialogue.varrock.grandexchange
 
 import core.api.consts.NPCs
-import content.global.interaction.iface.ExchangeItemSetsListener
-import content.global.interaction.iface.StockMarketInterfaceListener
+import content.global.handlers.iface.ExchangeItemSetsListener
+import content.global.handlers.iface.StockMarketInterfaceListener
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.ge.GrandExchangeRecords.Companion.getInstance

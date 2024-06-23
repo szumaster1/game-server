@@ -1,8 +1,8 @@
 package content.region.kandarin.quest.ew1.util
 
-import content.global.interaction.iface.BookLine
-import content.global.interaction.iface.Page
-import content.global.interaction.iface.PageSet
+import content.global.handlers.iface.BookLine
+import content.global.handlers.iface.Page
+import content.global.handlers.iface.PageSet
 import core.api.getVarbit
 import core.game.node.entity.player.Player
 

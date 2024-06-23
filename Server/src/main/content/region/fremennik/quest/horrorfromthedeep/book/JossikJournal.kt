@@ -1,9 +1,9 @@
 package content.region.fremennik.quest.horrorfromthedeep.book
 
-import content.global.interaction.iface.BookInterfaceListener
-import content.global.interaction.iface.BookLine
-import content.global.interaction.iface.Page
-import content.global.interaction.iface.PageSet
+import content.global.handlers.iface.BookInterfaceListener
+import content.global.handlers.iface.BookLine
+import content.global.handlers.iface.Page
+import content.global.handlers.iface.PageSet
 import core.api.consts.Items
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

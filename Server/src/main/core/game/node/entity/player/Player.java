@@ -1,6 +1,6 @@
 package core.game.node.entity.player;
 
-import content.global.interaction.item.equipment.special.SalamanderSwingHandler;
+import content.global.handlers.item.equipment.special.SalamanderSwingHandler;
 import content.global.skill.production.runecrafting.PouchManager;
 import core.api.EquipmentSlot;
 import core.game.component.Component;
@@ -18,7 +18,7 @@ import core.game.node.entity.combat.BattleState;
 import core.game.node.entity.combat.CombatStyle;
 import core.game.node.entity.combat.DeathTask;
 import core.game.node.entity.combat.ImpactHandler.HitsplatType;
-import content.global.interaction.item.equipment.special.ChinchompaSwingHandler;
+import content.global.handlers.item.equipment.special.ChinchompaSwingHandler;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.info.*;
 import core.game.node.entity.player.info.login.LoginConfiguration;
@@ -66,7 +66,7 @@ import proto.management.PlayerStatusUpdate;
 import core.GlobalStats;
 import core.ServerConstants;
 import core.game.node.entity.combat.CombatSwingHandler;
-import content.global.interaction.item.equipment.EquipmentDegrader;
+import content.global.handlers.item.equipment.EquipmentDegrader;
 import core.game.node.entity.combat.graves.Grave;
 import core.game.node.entity.combat.graves.GraveController;
 import core.game.node.entity.player.info.login.PlayerSaver;

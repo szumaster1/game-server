@@ -1,6 +1,6 @@
 package content.region.misthalin.handlers.varrock
 
-import content.global.interaction.iface.FairyRing
+import content.global.handlers.iface.FairyRing
 import content.global.skill.combat.magic.TeleportMethod
 import content.global.skill.combat.prayer.Bones
 import content.global.travel.CanoeListeners

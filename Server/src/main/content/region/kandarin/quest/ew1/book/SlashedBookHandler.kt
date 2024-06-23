@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.ew1.book
 
-import content.global.interaction.iface.BookInterfaceListener
+import content.global.handlers.iface.BookInterfaceListener
 import content.region.kandarin.quest.ew1.util.EWUtils
 import core.api.consts.Items
 import core.game.interaction.IntType

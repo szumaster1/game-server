@@ -1,7 +1,7 @@
 package content.region.kandarin.handlers.seersvillage
 
-import content.global.interaction.iface.FairyRing
-import content.global.interaction.item.withnpc.ChaliceOnKingArthurListener
+import content.global.handlers.iface.FairyRing
+import content.global.handlers.item.withnpc.ChaliceOnKingArthurListener
 import content.region.kandarin.quest.holygrail.dialogue.GalahadHolyGrailDialogueFile
 import content.region.kandarin.quest.scorpcather.dialogue.ThormacDialogueFile
 import core.api.*

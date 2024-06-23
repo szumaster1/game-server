@@ -1,6 +1,6 @@
 package content.region.misthalin.quest.free.dragonslayer.npc;
 
-import content.global.interaction.item.equipment.special.DragonfireSwingHandler;
+import content.global.handlers.item.equipment.special.DragonfireSwingHandler;
 import content.region.misthalin.quest.free.dragonslayer.DragonSlayer;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.BattleState;

@@ -1,6 +1,6 @@
 package content.region.kandarin.quest.thegrandtree
 
-import content.global.interaction.iface.ScrollLine
+import content.global.handlers.iface.ScrollLine
 import content.region.kandarin.quest.thegrandtree.dialogue.FemiCartDialogueFile
 import core.api.*
 import core.api.consts.Items

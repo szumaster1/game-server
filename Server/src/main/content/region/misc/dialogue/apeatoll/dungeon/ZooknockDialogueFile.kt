@@ -1,6 +1,6 @@
 package content.region.misc.dialogue.apeatoll.dungeon
 
-import content.global.interaction.item.withnpc.ZooknockEnchantBarsListener
+import content.global.handlers.item.withnpc.ZooknockEnchantBarsListener
 import core.api.addItemOrDrop
 import core.api.consts.Items
 import core.api.sendDoubleItemDialogue

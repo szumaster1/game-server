@@ -3,7 +3,7 @@ package core.api
 import com.moandjiezana.toml.Toml
 import content.data.consumables.*
 import content.data.skill.SkillingTool
-import content.global.interaction.iface.StockMarketInterfaceListener
+import content.global.handlers.iface.StockMarketInterfaceListener
 import content.global.skill.combat.summoning.familiar.BurdenBeast
 import content.global.skill.support.slayer.SlayerManager
 import content.global.skill.support.slayer.Tasks

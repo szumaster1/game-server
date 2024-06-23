@@ -116,7 +116,7 @@ class CombatTests {
 
     @Test
     fun chinchompaSwingHandlerIgnoresStatsForDamage() {
-        val handler = content.global.interaction.item.equipment.special.ChinchompaSwingHandler()
+        val handler = content.global.handlers.item.equipment.special.ChinchompaSwingHandler()
 
         TestUtils.getMockPlayer("chinchompaStatTest").use { p ->
             val damageBaseline = handler.calculateHit(p, p, 1.0)

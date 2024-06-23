@@ -1,6 +1,6 @@
 package core.game.system.command.sets
 
-import content.global.interaction.item.SpadeDigListener
+import content.global.handlers.item.SpadeDigListener
 import content.region.misc.handlers.tutorial.CharacterDesign
 import core.api.*
 import core.game.dialogue.DialogueFile

@@ -1,6 +1,6 @@
 package content.global.activity.oldman
 
-import content.global.interaction.iface.ScrollInterface
+import content.global.handlers.iface.ScrollInterface
 import core.api.consts.Components
 import core.api.consts.Items
 import core.api.consts.NPCs

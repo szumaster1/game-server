@@ -1,6 +1,6 @@
 package content.global.skill.support.slayer
 
-import content.global.interaction.item.equipment.gloves.FOGGlovesManager
+import content.global.handlers.item.equipment.gloves.FOGGlovesManager
 import core.api.*
 import core.api.consts.Items
 import core.cache.def.impl.NPCDefinition

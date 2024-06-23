@@ -1,6 +1,6 @@
 package content.global.dialogue
 
-import content.global.interaction.npc.BankerNPC
+import content.global.handlers.npc.BankerNPC
 import core.api.*
 import core.api.consts.Items
 import core.api.consts.NPCs

@@ -1,6 +1,6 @@
 package content.region.wilderness.handlers
 
-import content.global.interaction.iface.warning.WildernessWarningInterface
+import content.global.handlers.iface.warning.WildernessWarningInterface
 import core.api.openInterface
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener

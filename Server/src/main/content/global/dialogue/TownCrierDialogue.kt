@@ -1,6 +1,6 @@
 package content.global.dialogue
 
-import content.global.interaction.item.book.GeneralRuleBook.Companion.openBook
+import content.global.handlers.item.book.GeneralRuleBook.Companion.openBook
 import core.api.*
 import core.api.consts.NPCs
 import core.game.dialogue.Dialogue

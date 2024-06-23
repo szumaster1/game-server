@@ -1,7 +1,7 @@
 package content.region.wilderness.handlers.npc;
 
 import content.data.BossKillCounter;
-import content.global.interaction.item.equipment.special.DragonfireSwingHandler;
+import content.global.handlers.item.equipment.special.DragonfireSwingHandler;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.BattleState;
 import core.game.node.entity.combat.CombatStyle;

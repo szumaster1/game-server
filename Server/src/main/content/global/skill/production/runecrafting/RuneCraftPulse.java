@@ -1,6 +1,6 @@
 package content.global.skill.production.runecrafting;
 
-import content.global.interaction.item.equipment.gloves.FOGGlovesManager;
+import content.global.handlers.item.equipment.gloves.FOGGlovesManager;
 import core.ServerConstants;
 import core.api.consts.Items;
 import core.api.consts.Sounds;

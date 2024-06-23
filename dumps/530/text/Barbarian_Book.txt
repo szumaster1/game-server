@@ -1,8 +1,8 @@
 package content.global.skill.barbarian
 
-import content.global.interaction.inter.BookLine
-import content.global.interaction.inter.Page
-import content.global.interaction.inter.PageSet
+import content.global.handlers.inter.BookLine
+import content.global.handlers.inter.Page
+import content.global.handlers.inter.PageSet
 import core.tools.BLUE
 
 object BarbarianTraining {

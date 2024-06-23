@@ -3,7 +3,7 @@ package content
 import TestUtils
 import core.api.consts.Items
 import core.api.consts.NPCs
-import content.global.interaction.npc.ChromaticDragonBehavior
+import content.global.handlers.npc.ChromaticDragonBehavior
 import core.ServerConstants
 import core.api.utils.NPCDropTable
 import core.api.utils.WeightedItem
