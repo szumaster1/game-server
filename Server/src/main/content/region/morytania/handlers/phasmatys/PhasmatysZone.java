@@ -1,8 +1,8 @@
 package content.region.morytania.handlers.phasmatys;
 
 import content.global.skill.combat.prayer.Bones;
-import content.region.morytania.dialogue.phasmatys.NecrovarusDialogue;
-import content.region.morytania.handlers.npc.GravingasNPC;
+import core.api.consts.NPCs;
+import core.api.consts.Sounds;
 import core.game.global.action.ClimbActionHandler;
 import core.game.interaction.Option;
 import core.game.node.Node;
@@ -18,11 +18,8 @@ import core.game.world.map.zone.MapZone;
 import core.game.world.map.zone.ZoneBorders;
 import core.game.world.map.zone.ZoneBuilder;
 import core.game.world.update.flag.context.Animation;
-import core.plugin.ClassScanner;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
-import core.api.consts.NPCs;
-import core.api.consts.Sounds;
 
 import static core.api.ContentAPIKt.playAudio;
 import static core.api.ContentAPIKt.sendMessage;
@@ -41,8 +38,6 @@ public final class PhasmatysZone extends MapZone implements Plugin<Object> {
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
         ZoneBuilder.configure(this);
-        ClassScanner.definePlugin(new GravingasNPC());
-        ClassScanner.definePlugin(new NecrovarusDialogue());
         return this;
     }
 

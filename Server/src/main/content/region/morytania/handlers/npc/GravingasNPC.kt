@@ -1,11 +1,12 @@
 package content.region.morytania.handlers.npc
 
 import core.api.consts.NPCs
-import core.game.node.entity.npc.AbstractNPC
-import core.game.world.map.Location
+import core.api.sendChat
+import core.game.node.entity.npc.NPC
+import core.game.node.entity.npc.NPCBehavior
 import core.utilities.RandomFunction
 
-class GravingasNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
+class GravingasNPC : NPCBehavior(NPCs.GRAVINGAS_1685) {
 
     private val forceChat = arrayOf(
         "Down with Necrovaus!!",
@@ -18,19 +19,10 @@ class GravingasNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, lo
         "Don't stay silent - victory in numbers!!"
     )
 
-    override fun handleTickActions() {
-        super.handleTickActions()
-        if (RandomFunction.random(45) == 5) {
-            sendChat(forceChat[RandomFunction.random(forceChat.size)])
+    override fun tick(self: NPC): Boolean {
+        if (RandomFunction.roll(25)) {
+            sendChat(self, forceChat[RandomFunction.random(forceChat.size)])
         }
+        return true
     }
-
-    override fun construct(id: Int, location: Location, vararg objects: Any): AbstractNPC {
-        return GravingasNPC(id, location)
-    }
-
-    override fun getIds(): IntArray {
-        return intArrayOf(NPCs.GRAVINGAS_1685)
-    }
-
 }

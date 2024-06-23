@@ -18,32 +18,17 @@ import static core.api.ContentAPIKt.setVarp;
 public final class ChestViewer {
 
     private static final Object[] BEING_DROPPED = new Object[]{"", "", "", "", "", "", "", "", "", -1, 0, 39, 6, 92, 647 << 16 | 27};
-
     private static final Object[] READY_TO_DROP = new Object[]{"", "", "", "", "", "", "", "", "", -1, 0, 39, 6, 91, 647 << 16 | 28};
-
     private static final Object[] ACCEPT = new Object[]{"", "", "", "", "Withdraw-X", "Withdraw-All", "Withdraw-10", "Withdraw-5", "Withdraw-1", -1, 0, 4, 10, 90, 647 << 16 | 29};
-
     private final static Object[] INV_OPTIONS = new Object[]{"", "", "", "", "Deposit-X", "Deposit-All", "Deposit-10", "Deposit-5", "Deposit", -1, 0, 7, 4, 94, 648 << 16};
-
     private final Player player;
-
     private final DepositContainer container;
 
-    /**
-     * Instantiates a new Chest viewer.
-     *
-     * @param player the player
-     */
     public ChestViewer(Player player) {
         this.player = player;
         this.container = new DepositContainer(player);
     }
 
-    /**
-     * View chest viewer.
-     *
-     * @return the chest viewer
-     */
     public ChestViewer view() {
         container.open();
         player.getInventory().refresh();
@@ -58,12 +43,6 @@ public final class ChestViewer {
         return this;
     }
 
-    /**
-     * Update.
-     *
-     * @param type  the type
-     * @param event the event
-     */
     public void update(int type, ContainerEvent event) {
         if (event == null) {
             player.getPacketDispatch().sendIfaceSettings(1278, 27, 647, 0, 10);
@@ -72,11 +51,11 @@ public final class ChestViewer {
             switch (type) {
                 case 0:
                     player.getPacketDispatch().sendRunScript(150, "IviiiIsssssssss", BEING_DROPPED);
-                    PacketRepository.send(ContainerPacket.class, new ContainerContext(player, -1, -2, 92, PartyRoomPlugin.getChestQueue().toArray(), 10, false));
+                    PacketRepository.send(ContainerPacket.class, new ContainerContext(player, -1, -2, 92, PartyRoomOptions.chestQueue.toArray(), 10, false));
                     break;
                 case 1:
                     player.getPacketDispatch().sendRunScript(150, "IviiiIsssssssss", READY_TO_DROP);
-                    PacketRepository.send(ContainerPacket.class, new ContainerContext(player, -1, -2, 91, PartyRoomPlugin.getPartyChest().toArray(), 10, false));
+                    PacketRepository.send(ContainerPacket.class, new ContainerContext(player, -1, -2, 91, PartyRoomOptions.chestQueue.toArray(), 10, false));
                     break;
                 case 2:
                     player.getPacketDispatch().sendRunScript(150, "IviiiIsssssssss", ACCEPT);
@@ -86,44 +65,27 @@ public final class ChestViewer {
         }
     }
 
-    /**
-     * Accept.
-     */
     public void accept() {
-        if (PartyRoomPlugin.getChestQueue().itemCount() + getContainer().itemCount() > 215) {
+        if (PartyRoomOptions.chestQueue.itemCount() + getContainer().itemCount() > 215) {
             player.sendMessage("The chest is full.");
             return;
         }
-        PartyRoomPlugin.getChestQueue().addAll(getContainer());
+        PartyRoomOptions.chestQueue.addAll(getContainer());
         getContainer().clear();
         PacketRepository.send(ContainerPacket.class, new ContainerContext(player, -1, -2, 90, new Item[]{}, 10, false));
-        PartyRoomPlugin.update(0, null);
-        PartyRoomPlugin.update(1, null);
+        PartyRoomOptions.update(0, null);
+        PartyRoomOptions.update(1, null);
     }
 
-    /**
-     * Gets container.
-     *
-     * @return the container
-     */
     public DepositContainer getContainer() {
         return container;
     }
 
-    /**
-     * Gets player.
-     *
-     * @return the player
-     */
     public Player getPlayer() {
         return player;
     }
 
-    /**
-     * The Chest close event.
-     */
     public class ChestCloseEvent implements CloseEvent {
-
 
         private boolean given = false;
 
@@ -135,42 +97,24 @@ public final class ChestViewer {
                 container.clear();
                 player.removeExtension(ChestViewer.class);
                 player.getInterfaceManager().closeSingleTab();
-                PartyRoomPlugin.getViewers().remove(player.getName());
+                PartyRoomOptions.getViewers().remove(player.getName());
             }
             return true;
         }
 
     }
 
-    /**
-     * The Deposit container.
-     */
     public class DepositContainer extends Container {
 
-
         private final Player player;
-
-
         private final PartyDepositListener listener;
 
-
-        /**
-         * Instantiates a new Deposit container.
-         *
-         * @param player the player
-         */
         public DepositContainer(Player player) {
             super(8, ContainerType.DEFAULT, SortType.ID);
             super.getListeners().add(listener = new PartyDepositListener(player));
             this.player = player;
         }
 
-
-        /**
-         * Open deposit container.
-         *
-         * @return the deposit container
-         */
         public DepositContainer open() {
             super.refresh();
             player.getInventory().getListeners().add(listener);
@@ -180,13 +124,6 @@ public final class ChestViewer {
             return this;
         }
 
-
-        /**
-         * Add item.
-         *
-         * @param slot   the slot
-         * @param amount the amount
-         */
         public void addItem(int slot, int amount) {
             if (slot < 0 || slot > player.getInventory().capacity() || amount < 1) {
                 return;
@@ -215,18 +152,11 @@ public final class ChestViewer {
             if (super.add(item) && player.getInventory().remove(item)) {
                 listener.update(this, null);
                 player.getInventory().update();
-                PartyRoomPlugin.update(0, null);
-                PartyRoomPlugin.update(1, null);
+                PartyRoomOptions.update(0, null);
+                PartyRoomOptions.update(1, null);
             }
         }
 
-
-        /**
-         * Take item.
-         *
-         * @param slot   the slot
-         * @param amount the amount
-         */
         public void takeItem(int slot, int amount) {
             if (slot < 0 || slot > super.capacity() || amount <= 0) {
                 return;
@@ -264,23 +194,15 @@ public final class ChestViewer {
                 player.getInventory().add(add);
                 PacketRepository.send(ContainerPacket.class, new ContainerContext(player, -1, -2, 94, player.getInventory(), false));
             }
-            PartyRoomPlugin.update(0, null);
-            PartyRoomPlugin.update(1, null);
+            PartyRoomOptions.update(0, null);
+            PartyRoomOptions.update(1, null);
         }
 
 
         private
         class PartyDepositListener implements ContainerListener {
-
-
             private final Player player;
 
-
-            /**
-             * Instantiates a new Party deposit listener.
-             *
-             * @param player the player
-             */
             public PartyDepositListener(Player player) {
                 this.player = player;
             }

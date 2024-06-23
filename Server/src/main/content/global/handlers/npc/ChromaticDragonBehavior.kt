@@ -10,14 +10,18 @@ import core.game.node.item.Item
 import core.utilities.RandomFunction
 
 class ChromaticDragonBehavior : NPCBehavior(*greenDragons, *blueDragons, *redDragons, *blackDragons) {
+
     override fun onDropTableRolled(self: NPC, killer: Entity, drops: ArrayList<Item>) {
         val removeList = ArrayList<Item>()
         for (item in drops) {
             when (item.id) {
-                Items.BLACK_DRAGON_EGG_12480, Items.RED_DRAGON_EGG_12477, Items.BLUE_DRAGON_EGG_12478, Items.GREEN_DRAGON_EGG_12479 -> removeList.add(item)
+                Items.BLACK_DRAGON_EGG_12480,
+                Items.RED_DRAGON_EGG_12477,
+                Items.BLUE_DRAGON_EGG_12478,
+                Items.GREEN_DRAGON_EGG_12479 -> removeList.add(item)
             }
         }
-        drops.removeAll(removeList)
+        drops.removeAll(removeList.toSet())
         if (killer.skills.getStaticLevel(Skills.SUMMONING) >= 99 && RandomFunction.roll(EGG_RATE)) drops.add(
             when (self.id) {
                 in greenDragons -> Item(Items.GREEN_DRAGON_EGG_12479)

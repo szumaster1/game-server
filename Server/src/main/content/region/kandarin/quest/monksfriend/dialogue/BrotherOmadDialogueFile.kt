@@ -153,7 +153,7 @@ class BrotherOmadDialogueFile : DialogueFile() {
         val brotherOmad: NPC? = RegionManager.getNpc(Location(2604, 3209, 0), 279, 6)
         val monk: NPC? = RegionManager.getNpc(Location(2609, 3207, 0), 281, 6)
 
-        // Spawn balloons when PartyRoom code is fixed.
+        // Spawn balloons when PartyRoomOption code is fixed.
 
         Pulser.submit(object : Pulse(1) {
             var count = 0
