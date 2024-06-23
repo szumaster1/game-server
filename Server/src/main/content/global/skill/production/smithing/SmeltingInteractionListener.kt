@@ -3,6 +3,7 @@ package content.global.skill.production.smithing
 import content.global.skill.production.smithing.data.Bar
 import core.api.*
 import core.api.consts.*
+import core.game.dialogue.FacialExpression
 import core.game.event.ResourceProducedEvent
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
@@ -10,7 +11,9 @@ import core.game.interaction.QueueStrength
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.entity.skill.Skills
+import core.game.world.GameWorld
 import core.game.world.update.flag.context.Animation
+import core.utilities.END_DIALOGUE
 
 class SmeltingInteractionListener : InteractionListener {
 
@@ -35,7 +38,12 @@ class SmeltingInteractionListener : InteractionListener {
 
         onUseWith(IntType.SCENERY, ids, *furnaceIDs) { player, _, with ->
             if (with.asScenery().id == Scenery.FURNACE_26814 && !isDiaryComplete(player, DiaryType.VARROCK, 0)) {
-                sendMessage(player, rejectMessage)
+                if (!GameWorld.settings!!.isMembers) {
+                    sendNPCDialogue(player, NPCs.JEFFERY_6298, "Keep away from that! It's dangerous!")
+                } else {
+                    sendNPCDialogue(player, NPCs.JEFFERY_6298, "You want to use my furnace? No one can use my furnace! Only I can use my furnace!", FacialExpression.ANNOYED)
+                    sendMessage(player, rejectMessage)
+                }
                 return@onUseWith false
             }
             show(player)
