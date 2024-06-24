@@ -1,9 +1,9 @@
-package content.global.random.event.supriseexam
+package content.global.random.event.surpriseexam
 
 import core.game.dialogue.DialogueFile
 import core.utilities.END_DIALOGUE
 
-class SupriseExamDoorDialogue(val preExam: Boolean) : DialogueFile() {
+class SurpriseExamDoorDialogue(val preExam: Boolean) : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
         stage = if (preExam) {

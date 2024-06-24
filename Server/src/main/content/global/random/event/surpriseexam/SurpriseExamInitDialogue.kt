@@ -1,15 +1,16 @@
-package content.global.random.event.supriseexam
+package content.global.random.event.surpriseexam
 
 import core.ServerConstants
 import core.api.getAttribute
 import core.api.registerLogoutListener
+import core.api.sendMessageWithDelay
 import core.game.dialogue.DialogueFile
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.TeleportManager
 import core.game.system.timer.impl.AntiMacro
 import core.game.world.map.Location
 
-class MOMsupriseexamDialogue(val type: String) : DialogueFile() {
+class SurpriseExamInitDialogue(val type: String) : DialogueFile() {
 
     val CHOICE_STAGE = 50000
 
@@ -25,6 +26,7 @@ class MOMsupriseexamDialogue(val type: String) : DialogueFile() {
                     1 -> {
                         end()
                         teleport(player!!, type)
+                        sendMessageWithDelay(player!!, "Answer three out of six questions correctly to be teleported back where you came from.", 1)
                         AntiMacro.terminateEventNpc(player!!)
                     }
 
@@ -40,10 +42,10 @@ class MOMsupriseexamDialogue(val type: String) : DialogueFile() {
     fun teleport(player: Player, type: String) {
         when (type) {
             "sexam" -> {
-                player.setAttribute(SupriseExamUtils.SE_KEY_LOC, player.location)
+                player.setAttribute(SurpriseExamUtils.SE_KEY_LOC, player.location)
 
-                registerLogoutListener(player, SupriseExamUtils.SE_LOGOUT_KEY) { p ->
-                    p.location = getAttribute(p, SupriseExamUtils.SE_KEY_LOC, ServerConstants.HOME_LOCATION)
+                registerLogoutListener(player, SurpriseExamUtils.SE_LOGOUT_KEY) { p ->
+                    p.location = getAttribute(p, SurpriseExamUtils.SE_KEY_LOC, ServerConstants.HOME_LOCATION)
                 }
 
                 core.api.teleport(player, Location(1886, 5025, 0), TeleportManager.TeleportType.NORMAL)

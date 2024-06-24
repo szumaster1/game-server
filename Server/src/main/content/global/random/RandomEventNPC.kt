@@ -1,6 +1,6 @@
 package content.global.random
 
-import content.global.random.event.supriseexam.MOMsupriseexamNPC
+import content.global.random.event.surpriseexam.SurpriseExamInitNPC
 import core.api.poofClear
 import core.api.utils.WeightBasedTable
 import core.game.interaction.MovementPulse
@@ -28,7 +28,7 @@ abstract class RandomEventNPC(id: Int) : NPC(id) {
 
     open fun create(player: Player, loot: WeightBasedTable? = null, type: String = ""): RandomEventNPC {
         val event = this::class.createInstance()
-        if (event is MOMsupriseexamNPC) event.type = type
+        if (event is SurpriseExamInitNPC) event.type = type
         event.loot = loot
         event.player = player
         event.spawnLocation = RegionManager.getSpawnLocation(player, this)

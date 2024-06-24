@@ -1,4 +1,4 @@
-package content.global.random.event.supriseexam
+package content.global.random.event.surpriseexam
 
 import content.global.handlers.iface.plugins.ExperienceInterfacePlugin
 import core.api.*
@@ -10,7 +10,7 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.world.map.Location
 
-class SupriseExamListeners : InteractionListener {
+class SurpriseExamListeners : InteractionListener {
 
     val MORDAUT = NPCs.MR_MORDAUT_6117
     val BOOK_OF_KNOWLEDGE = Items.BOOK_OF_KNOWLEDGE_11640
@@ -18,25 +18,25 @@ class SupriseExamListeners : InteractionListener {
 
         on(MORDAUT, IntType.NPC, "talk-to") { player, node ->
             face(player, Location.create(1886, 5024, 0))
-            val examComplete = getAttribute(player, SupriseExamUtils.SE_KEY_CORRECT, 0) == 3
-            openDialogue(player, MordautDialogue(examComplete), node.asNpc())
+            val examComplete = getAttribute(player, SurpriseExamUtils.SE_KEY_CORRECT, 0) == 3
+            openDialogue(player, MrMordautDialogue(examComplete), node.asNpc())
             return@on true
         }
 
-        on(SupriseExamUtils.SE_DOORS, IntType.SCENERY, "open") { player, node ->
-            val correctDoor = getAttribute(player, SupriseExamUtils.SE_DOOR_KEY, -1)
+        on(SurpriseExamUtils.SE_DOORS, IntType.SCENERY, "open") { player, node ->
+            val correctDoor = getAttribute(player, SurpriseExamUtils.SE_DOOR_KEY, -1)
 
             if (correctDoor == -1) {
-                openDialogue(player, SupriseExamDoorDialogue(true))
+                openDialogue(player, SurpriseExamDoorDialogue(true))
                 return@on true
             }
 
             if (node.id == correctDoor) {
-                SupriseExamUtils.cleanup(player)
+                SurpriseExamUtils.cleanup(player)
                 return@on true
             }
 
-            openDialogue(player, SupriseExamDoorDialogue(false))
+            openDialogue(player, SurpriseExamDoorDialogue(false))
             return@on true
         }
 
