@@ -13,14 +13,23 @@ import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.entity.skill.Skills
 import core.game.world.GameWorld
 import core.game.world.update.flag.context.Animation
-import core.utilities.END_DIALOGUE
 
 class SmeltingInteractionListener : InteractionListener {
 
     override fun defineListeners() {
         on(IntType.SCENERY, "smelt", "smelt-ore") { player, node ->
             if (node.id == Scenery.FURNACE_26814 && !isDiaryComplete(player, DiaryType.VARROCK, 0)) {
-                sendMessage(player, rejectMessage)
+                if (!GameWorld.settings!!.isMembers) {
+                    sendNPCDialogue(player, NPCs.JEFFERY_6298, "Keep away from that! It's dangerous!")
+                } else {
+                    sendNPCDialogue(player, NPCs.JEFFERY_6298, "You want to use my furnace?", FacialExpression.HALF_ASKING)
+                    addDialogueAction(player) { player, button ->
+                        if(button >= 1) {
+                            sendNPCDialogue(player, NPCs.JEFFERY_6298, "No one can use my furnace! Only I can use my furnace!", FacialExpression.ANNOYED)
+                        }
+                    }
+                    sendMessage(player, rejectMessage)
+                }
                 return@on true
             }
             show(player)
@@ -41,8 +50,12 @@ class SmeltingInteractionListener : InteractionListener {
                 if (!GameWorld.settings!!.isMembers) {
                     sendNPCDialogue(player, NPCs.JEFFERY_6298, "Keep away from that! It's dangerous!")
                 } else {
-                    sendNPCDialogue(player, NPCs.JEFFERY_6298, "You want to use my furnace? No one can use my furnace! Only I can use my furnace!", FacialExpression.ANNOYED)
-                    sendMessage(player, rejectMessage)
+                    sendNPCDialogue(player, NPCs.JEFFERY_6298, "You want to use my furnace?", FacialExpression.HALF_ASKING)
+                    addDialogueAction(player) { player, button ->
+                        if(button >= 1) {
+                            sendNPCDialogue(player, NPCs.JEFFERY_6298, "No one can use my furnace! Only I can use my furnace!", FacialExpression.ANNOYED)
+                        }
+                    }
                 }
                 return@onUseWith false
             }

@@ -14,7 +14,7 @@ import core.plugin.Initializable
 import core.utilities.END_DIALOGUE
 
 @Initializable
-class JeffreyDialogue(player: Player? = null) : Dialogue(player) {
+class JefferyDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
@@ -26,7 +26,7 @@ class JeffreyDialogue(player: Player? = null) : Dialogue(player) {
         when (stage) {
             0 -> options("Who was that love poem for?", "I want to use the furnace.", "Er, nothing.").also { stage++ }
             1 -> when (buttonId) {
-                1 -> npc(FacialExpression.HALF_GUILTY, "My name is Hari.").also { stage = 10 }
+                1 -> npcl(FacialExpression.SUSPICIOUS, "It, er, it didn't work out well.").also { stage = 17 }
                 2 -> if (!GameWorld.settings!!.isMembers) {
                     npc(FacialExpression.ANNOYED, "You want to use my furnace? No one can use my furnace!", "Only I can use my furnace!").also { stage = END_DIALOGUE }
                 } else {
@@ -36,6 +36,7 @@ class JeffreyDialogue(player: Player? = null) : Dialogue(player) {
                         npc("You seem exceptional enough. Go ahead.").also { stage = 6 }
                     }
                 }
+                3 -> player("Er, nothing.").also { stage = END_DIALOGUE }
             }
             2 -> npcl(FacialExpression.CALM_TALK, "I only let exceptional people use my furnace. You don't look exceptional to me.").also { stage++ }
             3 -> playerl(FacialExpression.HALF_ASKING, "How do I become exceptional?").also { stage++ }
@@ -54,6 +55,7 @@ class JeffreyDialogue(player: Player? = null) : Dialogue(player) {
             14 -> playerl(FacialExpression.NOD_YES, "Oh, right. Yes, I see. Okay, thanks.").also { stage = END_DIALOGUE }
             15 -> playerl(FacialExpression.FRIENDLY, "Oh, that's useful. That should save me a fair bit of time. Thanks very much.").also { stage++ }
             16 -> npc("Stay exceptional!").also { stage = END_DIALOGUE }
+            17 -> npcl(FacialExpression.HALF_GUILTY, "I don't want to talk about it! Leave me alone!").also { stage = END_DIALOGUE }
         }
         return true
     }

@@ -8,7 +8,7 @@ import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 
 val FURNACE_AREA = ZoneBorders(3104, 3498, 3108, 3502)
-class JeffreyNPC : NPCBehavior(NPCs.JEFFERY_6298) {
+class JefferyNPC : NPCBehavior(NPCs.JEFFERY_6298) {
 
     override fun onCreation(self: NPC) {
         if (inBorders(self, FURNACE_AREA)) {
@@ -18,8 +18,8 @@ class JeffreyNPC : NPCBehavior(NPCs.JEFFERY_6298) {
                 Location.create(3107, 3502, 0),
                 Location.create(3106, 3502, 0),
                 Location.create(3106, 3500, 0)
-            ).random()
-            self.configureMovementPath(movementPath)
+            )
+            self.configureMovementPath(*movementPath)
             self.isWalks = true
         }
     }
