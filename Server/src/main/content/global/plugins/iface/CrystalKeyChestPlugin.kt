@@ -17,9 +17,7 @@ class CrystalKeyChestPlugin : ComponentPlugin {
         this.player = player
     }
 
-
-    @Throws(Throwable::class)
-    override fun newInstance(arg: Any): Plugin<Any> {
+    override fun newInstance(arg: Any?): Plugin<Any> {
         ComponentDefinition.put(CHEST_INTERFACE, this)
         return this
     }

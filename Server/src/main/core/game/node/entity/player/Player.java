@@ -655,11 +655,6 @@ public class Player extends Entity {
         if (this.isArtificial() && killer instanceof NPC) {
             return;
         }
-        if (killer instanceof Player && getWorldTicks() - killer.getAttribute("/save:last-murder-news", 0) >= 500) {
-            Item wep = getItemFromEquipment((Player) killer, EquipmentSlot.WEAPON);
-            sendNews(killer.getUsername() + " has murdered " + getUsername() + " with " + (wep == null ? "their fists." : (StringUtils.isPlusN(wep.getName()) ? "an " : "a ") + wep.getName()));
-            killer.setAttribute("/save:last-murder-news", getWorldTicks());
-        }
         getPacketDispatch().sendMessage("Oh dear, you are dead!");
         incrementAttribute("/save:" + STATS_BASE + ":" + STATS_DEATHS);
 
@@ -669,7 +664,6 @@ public class Player extends Entity {
             if (this.getIronmanManager().getMode().equals(IronmanMode.HARDCORE)) { //if this was checkRestriction, ultimate irons would be moved to HARDCORE_DEAD as well
                 String gender = this.isMale() ? "man " : "woman ";
                 if (getAttributes().containsKey("permadeath")) {
-                    Repository.sendNews("Permadeath Hardcore Iron" + gender + " " + this.getUsername() + " has fallen. Total Level: " + this.getSkills().getTotalLevel()); // Not enough room for XP
                     equipment.clear();
                     inventory.clear();
                     bank.clear();
@@ -685,7 +679,6 @@ public class Player extends Entity {
                     clear();
                     return;
                 } else {
-                    Repository.sendNews("Hardcore Iron " + gender + " " + this.getUsername() + " has fallen. Total Level: " + this.getSkills().getTotalLevel()); // Not enough room for XP
                     this.getIronmanManager().setMode(IronmanMode.STANDARD);
                     asPlayer().getSavedData().getActivityData().setHardcoreDeath(true);
                     this.sendMessage("You have fallen as a Hardcore Iron Man, your Hardcore status has been revoked.");
