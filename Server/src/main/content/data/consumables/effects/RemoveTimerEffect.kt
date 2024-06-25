@@ -9,4 +9,5 @@ class RemoveTimerEffect (val identifier: String) : ConsumableEffect() {
     override fun activate (p: Player) {
         removeTimer (p, identifier)
     }
+
 }

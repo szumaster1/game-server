@@ -18,4 +18,5 @@ class RockCakeEffect : ConsumableEffect() {
     companion object {
         private val effect = DamageEffect(10.0, true)
     }
+
 }

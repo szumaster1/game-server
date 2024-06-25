@@ -4,7 +4,7 @@ import core.game.consumable.ConsumableEffect
 import core.game.node.entity.combat.ImpactHandler
 import core.game.node.entity.player.Player
 
-class PoisonEffect(private val amount: Int) : ConsumableEffect() {
+class PoisonEffect(var amount: Int) : ConsumableEffect() {
 
     override fun activate(p: Player) {
         p.impactHandler.manualHit(p, amount, ImpactHandler.HitsplatType.POISON)

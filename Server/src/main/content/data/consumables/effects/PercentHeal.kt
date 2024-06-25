@@ -6,6 +6,7 @@ import kotlin.math.floor
 import kotlin.math.min
 
 class PercentHeal(base: Int, percent: Double) : ConsumableEffect() {
+
     var base: Int = 0
     var percent: Double = 0.0
 

@@ -3,13 +3,13 @@ package content.data.consumables.effects
 import core.game.consumable.ConsumableEffect
 import core.game.node.entity.player.Player
 
-class SkillEffect(private val skill_slot: Int, private val base: Double, private val bonus: Double) : ConsumableEffect() {
+class SkillEffect(var skillSlot: Int, var base: Double, var bonus: Double) : ConsumableEffect() {
 
     override fun activate(p: Player) {
         val skills = p.getSkills()
-        val slevel = skills.getStaticLevel(skill_slot)
+        val slevel = skills.getStaticLevel(skillSlot)
         val delta = (base + (bonus * slevel)).toInt()
-        skills.updateLevel(skill_slot, delta, if (delta >= 0) slevel + delta else 0)
+        skills.updateLevel(skillSlot, delta, if (delta >= 0) slevel + delta else 0)
     }
 
 }

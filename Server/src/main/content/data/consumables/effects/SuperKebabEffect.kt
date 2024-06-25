@@ -5,7 +5,6 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.utilities.RandomFunction
 
-
 class SuperKebabEffect : ConsumableEffect() {
 
     override fun activate(p: Player) {

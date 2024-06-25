@@ -4,7 +4,8 @@ import core.game.consumable.ConsumableEffect
 import core.game.node.entity.player.Player
 import core.utilities.RandomFunction
 
-class RandomHealthEffect(private val a: Int, private val b: Int) : ConsumableEffect() {
+class RandomHealthEffect(val a: Int, val b: Int) : ConsumableEffect() {
+
     override fun activate(p: Player) {
         val effect: ConsumableEffect
         val healthEffectValue = getHealthEffectValue(p)
@@ -19,4 +20,5 @@ class RandomHealthEffect(private val a: Int, private val b: Int) : ConsumableEff
     override fun getHealthEffectValue(player: Player): Int {
         return RandomFunction.random(a, b)
     }
+
 }

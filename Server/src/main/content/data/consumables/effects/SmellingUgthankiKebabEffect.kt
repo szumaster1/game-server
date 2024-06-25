@@ -5,6 +5,7 @@ import core.game.node.entity.player.Player
 import core.utilities.RandomFunction
 
 class SmellingUgthankiKebabEffect : ConsumableEffect() {
+
     override fun activate(p: Player) {
         if (RandomFunction.nextInt(100) < PERCENTAGE) {
             effect.activate(p)
@@ -20,4 +21,5 @@ class SmellingUgthankiKebabEffect : ConsumableEffect() {
         private const val HEALING = 9
         private val effect = HealingEffect(HEALING)
     }
+
 }

@@ -3,10 +3,8 @@ package content.data.consumables.effects
 import core.game.consumable.ConsumableEffect
 import core.game.node.entity.player.Player
 
-/**
- * The Ugthanki kebab effect.
- */
 class UgthankiKebabEffect : ConsumableEffect() {
+
     override fun activate(p: Player) {
         if (p.getSkills().lifepoints < p.getSkills().maximumLifepoints) {
             p.sendChat("Yum!")
@@ -22,4 +20,5 @@ class UgthankiKebabEffect : ConsumableEffect() {
         private const val HEALING = 19
         private val effect = HealingEffect(HEALING)
     }
+
 }

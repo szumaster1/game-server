@@ -19,4 +19,5 @@ class RestoreEffect(var base: Double, var bonus: Double) : ConsumableEffect() {
             }
         }
     }
+
 }

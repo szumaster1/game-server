@@ -4,10 +4,10 @@ import core.game.consumable.ConsumableEffect
 import core.game.node.entity.player.Player
 import core.utilities.RandomFunction
 
-class RandomEnergyEffect(val a: Int, val b: Int) : ConsumableEffect() {
+class RandomSkillEffect(val skillSlot: Int, val a: Int, val b: Int) : ConsumableEffect() {
 
     override fun activate(p: Player) {
-        val effect = EnergyEffect(RandomFunction.random(a, b))
+        val effect = SkillEffect(skillSlot, RandomFunction.random(a, b).toDouble(), 0.0)
         effect.activate(p)
     }
 

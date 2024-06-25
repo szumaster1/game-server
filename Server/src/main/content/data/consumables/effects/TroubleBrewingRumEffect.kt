@@ -5,7 +5,8 @@ import core.game.node.entity.player.Player
 import core.game.system.task.Pulse
 import core.game.world.map.Location
 
-class TroubleBrewingRumEffect(private val forceChatMessage: String) : ConsumableEffect() {
+class TroubleBrewingRumEffect(val forceChatMessage: String) : ConsumableEffect() {
+
     override fun activate(p: Player) {
         val teleportation: Pulse = object : Pulse(6) {
             override fun pulse(): Boolean {
