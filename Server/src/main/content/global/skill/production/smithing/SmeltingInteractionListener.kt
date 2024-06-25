@@ -11,6 +11,7 @@ import core.game.interaction.QueueStrength
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.entity.skill.Skills
+import core.game.node.item.Item
 import core.game.world.GameWorld
 import core.game.world.update.flag.context.Animation
 
@@ -72,12 +73,10 @@ class SmeltingInteractionListener : InteractionListener {
                 sendPlainDialogue(player,false, "<b>You do not have the required ores to make this bar.</b>")
                 return@onUseWith false
             }
-            if(removeItem(player, used.asItem())) {
+            if(removeItem(player, Item(Items.TIN_ORE_438, 1)) && removeItem(player, Item(Items.COPPER_ORE_436, 1))) {
                 animate(player, smeltAnimation)
                 playAudio(player, soundEffect, 1)
-                queueScript(player, 3, QueueStrength.SOFT) {
-                    removeItem(player, Items.TIN_ORE_438)
-                    removeItem(player, Items.COPPER_ORE_436)
+                queueScript(player, 4, QueueStrength.SOFT) {
                     addItem(player, Items.BRONZE_BAR_2349)
                     rewardXP(player, Skills.SMITHING, Bar.BRONZE.experience)
                     player.dispatch(ResourceProducedEvent(Bar.BRONZE.product.id, 1, used.asItem(), original = if(used.id != Items.TIN_ORE_438) Items.COPPER_ORE_436 else Items.TIN_ORE_438))

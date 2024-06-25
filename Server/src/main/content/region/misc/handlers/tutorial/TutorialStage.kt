@@ -495,8 +495,8 @@ object TutorialStage {
                         true,
                         "${BLUE}Talk with the Quest Guide.",
                         "",
-                        "He will tell you all about quests.",
-                        ""
+                        "",
+                        "He will tell you all about quests."
                     )
                 )
             }
