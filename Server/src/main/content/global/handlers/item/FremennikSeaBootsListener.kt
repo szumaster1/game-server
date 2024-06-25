@@ -14,8 +14,8 @@ import core.game.node.entity.npc.NPC
 class FremennikSeaBootsListener : InteractionListener {
 
 
-    private val seaBoots = intArrayOf(14571, 14572, 14573)
-    private val enchantedLyre = intArrayOf(3691, 6125, 6126, 6127, 14590, 14591)
+    private val seaBoots = intArrayOf(Items.FREMENNIK_SEA_BOOTS_1_14571, Items.FREMENNIK_SEA_BOOTS_2_14572, Items.FREMENNIK_SEA_BOOTS_3_14573)
+    private val enchantedLyre = intArrayOf(Items.ENCHANTED_LYRE1_3691, Items.ENCHANTED_LYRE2_6125, Items.ENCHANTED_LYRE3_6126, Items.ENCHANTED_LYRE4_6127, Items.ENCHANTED_LYRE5_14590, Items.ENCHANTED_LYRE6_14591)
 
     override fun defineListeners() {
         on(seaBoots, IntType.ITEM, "operate") { player, _ ->
@@ -116,7 +116,7 @@ class FremennikSeaBootsListener : InteractionListener {
                             }
                         }
 
-                        7 -> interpreter!!.sendItemMessage(Items.FREMENNIK_SEA_BOOTS_1_14571, "If you speak to Peer the Seer, he will deposit items into your bank. The Fossegrimen's enchantment will give your lyre extra charges, if you make her an offering in person.").also { stage = 0 }
+                        7 -> interpreter!!.sendItemMessage(Items.FREMENNIK_SEA_BOOTS_1_14571, "If you speak to Peer the Seer, he will deposit items into", "your bank. The Fossegrimen's enchantment will give", "your lyre extra charges, if you make her an offering in","person.").also { stage = 0 }
 
                         8 -> {
                             setTitle(player, 2)
@@ -142,7 +142,7 @@ class FremennikSeaBootsListener : InteractionListener {
                         }
 
                         10 -> {
-                            interpreter!!.sendItemMessage(Items.FREMENNIK_SEA_BOOTS_2_14572, "If you speak to Peer the Seer, he will deposit items into your bank. The Fossegrimen's enchantment will give your lyre extra charges, if you make her an offering in person.")
+                            interpreter!!.sendItemMessage(Items.FREMENNIK_SEA_BOOTS_2_14572, "If you speak to Peer the Seer, he will deposit items into", "your bank. The Fossegrimen's enchantment will give", "your lyre extra charges, if you make her an offering in","person.")
                             stage++
                         }
 
@@ -182,7 +182,7 @@ class FremennikSeaBootsListener : InteractionListener {
                         }
 
                         15 -> {
-                            interpreter!!.sendItemMessage(Items.FREMENNIK_SEA_BOOTS_3_14573, "If you speak to Peer the Seer, he will deposit items into your bank. The Fossegrimen's enchantment will give your lyre extra charges, if you make her an offering in person.")
+                            interpreter!!.sendItemMessage(Items.FREMENNIK_SEA_BOOTS_3_14573, "If you speak to Peer the Seer, he will deposit items into", "your bank. The Fossegrimen's enchantment will give", "your lyre extra charges, if you make her an offering in","person.")
                             stage++
                         }
 
