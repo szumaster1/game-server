@@ -1,6 +1,6 @@
 package content.global.handlers.npc
 
-import content.global.handlers.scenery.bank.BankBoothListener
+import content.global.handlers.scenery.BankBoothListener
 import core.api.*
 import core.api.consts.NPCs
 import core.game.interaction.IntType

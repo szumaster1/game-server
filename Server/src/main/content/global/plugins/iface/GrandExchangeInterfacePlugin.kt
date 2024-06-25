@@ -1,0 +1,197 @@
+package content.global.plugins.iface
+
+import content.global.handlers.iface.StockMarketInterfaceListener.Companion.withdraw
+import core.api.consts.Components
+import core.api.consts.Sounds
+import core.api.playAudio
+import core.cache.def.impl.CS2Mapping
+import core.cache.def.impl.ItemDefinition
+import core.game.component.Component
+import core.game.component.ComponentDefinition
+import core.game.component.ComponentPlugin
+import core.game.ge.GEGuidePrice.GuideType
+import core.game.ge.GEItemSet
+import core.game.ge.GrandExchangeOffer
+import core.game.ge.GrandExchangeRecords.Companion.getInstance
+import core.game.node.entity.player.Player
+import core.game.node.item.Item
+import core.game.system.task.Pulse
+import core.game.world.GameWorld.Pulser
+import core.network.packet.PacketRepository
+import core.network.packet.context.ContainerContext
+import core.network.packet.outgoing.ContainerPacket
+import core.plugin.Initializable
+import core.plugin.Plugin
+
+@Initializable
+class GrandExchangeInterfacePlugin : ComponentPlugin() {
+
+    /* Main interface.
+     * ComponentDefinition.put(105, this);
+     * Selling tab.
+     * ComponentDefinition.put(107, this);
+     */
+
+    override fun newInstance(arg: Any?): Plugin<Any> {
+        ComponentDefinition.put(Components.STOCKCOLLECT_109, this) // Collection interface
+        ComponentDefinition.put(Components.OBJDIALOG_389, this) // Search interface
+        ComponentDefinition.put(Components.EXCHANGE_SETS_SIDE_644, this) // Item sets inventory interface
+        ComponentDefinition.put(Components.EXCHANGE_ITEMSETS_645, this) // Item sets interface
+        ComponentDefinition.put(Components.EXCHANGE_GUIDE_PRICE_642, this) // Guide Prices interface.
+        return this
+    }
+
+    override fun handle(
+        player: Player,
+        component: Component,
+        opcode: Int,
+        button: Int,
+        slot: Int,
+        itemId: Int
+    ): Boolean {
+        Pulser.submit(object : Pulse(1, player) {
+            override fun pulse(): Boolean {
+                when (component.id) {
+                    Components.EXCHANGE_SETS_SIDE_644, Components.EXCHANGE_ITEMSETS_645 -> {
+                        handleItemSet(player, component, opcode, button, slot, itemId)
+                        return true
+                    }
+
+                    Components.OBJDIALOG_389 -> {
+                        handleSearchInterface(player, opcode, button, slot, itemId)
+                        return true
+                    }
+
+                    Components.STOCKCOLLECT_109 -> {
+                        handleCollectionBox(player, opcode, button, slot, itemId)
+                        return true
+                    }
+
+                    Components.EXCHANGE_GUIDE_PRICE_642 -> {
+                        handleGuidePrice(player, opcode, button, slot, itemId)
+                        return true
+                    }
+                }
+                return true
+            }
+        })
+        return true
+    }
+
+    fun handleSearchInterface(player: Player, opcode: Int, button: Int, slot: Int, itemId: Int): Boolean {
+        when (button) {
+            10 -> {
+                player.interfaceManager.closeChatbox()
+                return true
+            }
+        }
+        return false
+    }
+
+    fun handleCollectionBox(player: Player?, opcode: Int, button: Int, slot: Int, itemId: Int): Boolean {
+        var index = -1
+        when (button) {
+            18, 23, 28 -> index = (button - 18) shr 2
+            36, 44, 52 -> index = 3 + ((button - 36) shr 3)
+        }
+        var offer: GrandExchangeOffer? = null
+        val records = getInstance(player)
+        if (index > -1 && (records.getOffer(records.offerRecords[index]).also { offer = it }) != null) {
+            withdraw(player!!, offer!!, slot shr 1)
+        }
+        return true
+    }
+
+    private fun handleItemSet(player: Player, component: Component, opcode: Int, button: Int, slot: Int, itemId: Int) {
+        if (button != 16 && button != 0) {
+            return
+        }
+        val inventory = component.id == 644
+        if (slot < 0 || slot >= (if (inventory) 28 else GEItemSet.values().size)) {
+            return
+        }
+
+        val item: Item?
+        val set: GEItemSet?
+        if (inventory) {
+            item = player.inventory[slot]
+            if (item == null) return
+            set = GEItemSet.forId(item.id)
+            if (set == null) return
+        } else {
+            set = GEItemSet.values()[slot]
+            item = Item(set.itemId)
+        }
+
+        if (opcode != 127 && inventory && set == null) {
+            player.packetDispatch.sendMessage("This isn't a set item.")
+            return
+        }
+        when (opcode) {
+            124 -> player.packetDispatch.sendMessage(item.definition.examine)
+            196 -> {
+                if (inventory) {
+                    if (player.inventory.freeSlots() < set.components.size - 1) {
+                        player.packetDispatch.sendMessage("You don't have enough inventory space for the component parts.")
+                        return
+                    }
+                    if (!player.inventory.remove(item, false)) {
+                        return
+                    }
+                    for (id in set.components) {
+                        player.inventory.add(Item(id, 1))
+                    }
+                    player.inventory.refresh()
+                    player.packetDispatch.sendMessage("You successfully traded your set for its component items!")
+                } else {
+                    if (!player.inventory.containItems(*set.components)) {
+                        player.packetDispatch.sendMessage("You don't have the parts that make up this set.")
+                    }
+                    for (id in set.components) {
+                        player.inventory.remove(Item(id, 1), false)
+                    }
+                    player.inventory.add(item)
+                    player.inventory.refresh()
+                    player.packetDispatch.sendMessage("You successfully traded your item components for a set!")
+                }
+                playAudio(player, Sounds.GE_TRADE_OK_4044)
+                PacketRepository.send(
+                    ContainerPacket::class.java,
+                    ContainerContext(player, -1, -2, player.getAttribute("container-key", 93), player.inventory, false)
+                )
+            }
+
+            155 -> {
+                val mapping = CS2Mapping.forId(1089)
+                if (mapping != null && set != null) {
+                    player.packetDispatch.sendMessage(mapping.map[set.itemId] as String?)
+                }
+            }
+        }
+    }
+
+    private fun handleGuidePrice(player: Player, opcode: Int, buttonId: Int, slot: Int, itemId: Int) {
+        when (opcode) {
+            155 -> {
+                val type = player.getAttribute<GuideType>("guide-price", null) ?: return
+                var subtract = 0
+                if (buttonId >= 15 && buttonId <= 23) {
+                    subtract = 15
+                }
+                if (buttonId >= 43 && buttonId <= 57) {
+                    subtract = 43
+                }
+                if (buttonId >= 89 && buttonId <= 103) {
+                    subtract = 89
+                }
+                if (buttonId >= 135 && buttonId <= 144) {
+                    subtract = 135
+                }
+                if (buttonId >= 167 && buttonId <= 182) {
+                    subtract = 167
+                }
+                player.packetDispatch.sendMessage(ItemDefinition.forId(type.items[buttonId - subtract].item).examine)
+            }
+        }
+    }
+}

@@ -439,6 +439,7 @@ object Components {
     const val KINGS_LETTER_V2_463 = 463
     const val EMOTES_464 = 464
     const val EW2_SWITCH_DIAGRAM_466 = 466
+    const val DIANGO_RECLAIMABLE_468 = 468
     const val ZEP_BALLOON_MAP_469 = 469
     const val ZEP_INTERFACE_470 = 470
     const val ZEP_INTERFACE_SIDE_471 = 471
@@ -541,6 +542,7 @@ object Components {
     const val DUEL2_SCOREBOARD_632 = 632
     const val DUEL2_CHALLENGEOVERLAY_638 = 638
     const val DUEL2_SELECT_TYPE_640 = 640
+    const val EXCHANGE_GUIDE_PRICE_642 = 642
     const val EXCHANGE_HISTORY_643 = 643
     const val EXCHANGE_SETS_SIDE_644 = 644
     const val EXCHANGE_ITEMSETS_645 = 645
@@ -551,6 +553,7 @@ object Components {
     const val BOUNTY_OVERLAY_653 = 653
     const val BOUNTY_OVERLAY_WAITING_656 = 656
     const val BOUNTY_WARNING_657 = 657
+    const val SNOWGLOBE_INTERFACE_659 = 659
     const val LORE_STATS_SIDE_662 = 662
     const val LORE_CATS_SIDE_663 = 663
     const val LORE_BANK_SIDE_665 = 665
@@ -576,6 +579,7 @@ object Components {
     const val CARPET_TICKET_729 = 729
     const val FAIRY_RINGS_734 = 734
     const val FAIRY_TRAVEL_LOG_735 = 735
+    const val GAME_INTERFACE_740 = 740
     const val GRAPHICS_OPTIONS_742 = 742
     const val SOUND_OPTIONS_743 = 743
     const val LOGINSCREEN_744 = 744

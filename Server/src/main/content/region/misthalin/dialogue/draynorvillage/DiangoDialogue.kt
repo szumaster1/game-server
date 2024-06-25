@@ -1,6 +1,6 @@
 package content.region.misthalin.dialogue.draynorvillage
 
-import content.global.handlers.item.plugins.DiangoReclaimInterfacePlugin
+import content.global.plugins.iface.DiangoReclaimInterfacePlugin
 import core.api.openNpcShop
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression

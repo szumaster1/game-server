@@ -3,7 +3,7 @@ package content.global.skill.production.smithing
 import content.global.skill.production.smithing.data.Bar
 import content.global.skill.production.smithing.item.CannonballPulse
 import content.global.skill.production.smithing.item.DragonfireShieldPulse
-import content.global.skill.production.smithing.item.GodswordAssemblePulse
+import content.global.skill.production.smithing.item.GodswordAssemblingPulse
 import content.global.skill.skillcape.SkillcapePerks
 import core.api.*
 import core.api.consts.Animations
@@ -105,7 +105,7 @@ class SmithingInteractionListener : InteractionListener {
             sendPlainDialogue(player, false, "You set to work trying to fix the ancient shield.")
             addDialogueAction(player) { player, button ->
                 if (button >= 3) {
-                    submitIndividualPulse(player, GodswordAssemblePulse(player, used.asItem()))
+                    submitIndividualPulse(player, GodswordAssemblingPulse(player, used.asItem()))
                     return@addDialogueAction
                 }
             }

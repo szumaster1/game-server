@@ -7,6 +7,7 @@ import core.api.consts.Items
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
+import core.game.node.entity.player.link.TeleportManager
 import core.game.system.task.Pulse
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Graphic
@@ -14,6 +15,10 @@ import core.game.world.update.flag.context.Graphic
 class SkullSceptreListener : InteractionListener {
 
     override fun defineListeners() {
+
+        /*
+         * Skull sceptre options interaction.
+         */
         on(SKULL_SCEPTRE, IntType.ITEM, "invoke", "divine", "operate") { player, node ->
             when (getUsedOption(player)) {
                 "invoke" -> {
@@ -55,10 +60,10 @@ class SkullSceptreListener : InteractionListener {
     private fun sceptreTeleport(player: Player) {
         lock(player, 3)
         animate(player, ANIMATION)
-        submitIndividualPulse(player, object : Pulse(1, player) {
+        Graphic.send(Graphic(GRAPHIC, 100), player.location)
+        submitIndividualPulse(player, object : Pulse(2, player) {
             override fun pulse(): Boolean {
-                Graphic.send(Graphic(GRAPHIC, 100), player.location)
-                teleport(player, DESTINATION)
+                teleport(player, DESTINATION, TeleportManager.TeleportType.INSTANT)
                 return true
             }
         })
