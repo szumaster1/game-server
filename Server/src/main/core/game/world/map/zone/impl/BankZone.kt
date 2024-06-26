@@ -91,6 +91,6 @@ class BankZone : MapZone("bank", true) {
     }
 
     fun getRestrictions(): Array<ZoneRestriction> {
-        return arrayOf(ZoneRestriction.FIRES)
+        return arrayOf(ZoneRestriction.FIRES, ZoneRestriction.CANNON)
     }
 }
