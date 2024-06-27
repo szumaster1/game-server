@@ -1,10 +1,13 @@
 package content.global.random.event.drilldemon
 
 import core.api.*
+import core.api.consts.Animations
+import core.api.consts.Components
 import core.api.consts.Items
 import core.api.consts.NPCs
 import core.game.interaction.QueueStrength
 import core.game.node.entity.player.Player
+import core.game.node.entity.player.link.TeleportManager
 import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 import core.game.world.update.flag.context.Animation
@@ -24,10 +27,10 @@ object DrillDemonUtils {
 
     fun teleport(player: Player) {
         setAttribute(player, DD_KEY_RETURN_LOC, player.location)
-        teleport(player, Location.create(3163, 4819, 0))
+        teleport(player, Location.create(3163, 4819, 0), TeleportManager.TeleportType.NORMAL)
         player.interfaceManager.closeDefaultTabs()
-        setComponentVisibility(player, 548, 69, true)
-        setComponentVisibility(player, 746, 12, true)
+        setComponentVisibility(player, Components.TOPLEVEL_548, 69, true)
+        setComponentVisibility(player, Components.TOPLEVEL_FULLSCREEN_746, 12, true)
     }
 
     fun changeSignsAndAssignTask(player: Player) {
@@ -65,22 +68,22 @@ object DrillDemonUtils {
     fun cleanup(player: Player) {
         player.locks.unlockTeleport()
         unlock(player)
-        teleport(player, getAttribute(player, DD_KEY_RETURN_LOC, Location.create(3222, 3218, 0)))
+        teleport(player, getAttribute(player, DD_KEY_RETURN_LOC, Location.create(3222, 3218, 0)), TeleportManager.TeleportType.NORMAL)
         removeAttribute(player, DD_KEY_RETURN_LOC)
         removeAttribute(player, DD_KEY_TASK)
         removeAttribute(player, DD_CORRECT_OFFSET)
         removeAttribute(player, DD_CORRECT_COUNTER)
         player.interfaceManager.openDefaultTabs()
-        setComponentVisibility(player, 548, 69, false)
-        setComponentVisibility(player, 746, 12, false)
+        setComponentVisibility(player, Components.TOPLEVEL_548, 69, false)
+        setComponentVisibility(player, Components.TOPLEVEL_FULLSCREEN_746, 12, false)
     }
 
     fun animationForTask(task: Int): Animation {
         return when (task) {
-            DD_SIGN_SITUP -> Animation(2763)
-            DD_SIGN_PUSHUP -> Animation(2762)
-            DD_SIGN_JUMP -> Animation(2761)
-            DD_SIGN_JOG -> Animation(2764)
+            DD_SIGN_SITUP -> Animation(Animations.SIT_UPS_FROM_DRILL_DEMON_EVENT_2763)
+            DD_SIGN_PUSHUP -> Animation(Animations.PUSH_UPS_FROM_DRILL_DEMON_EVENT_2762)
+            DD_SIGN_JUMP -> Animation(Animations.JUMPS_FROM_DRILL_DEMON_EVENT_2761)
+            DD_SIGN_JOG -> Animation(Animations.RUNNING_IN_PLACE_FROM_DRILL_DEMON_EVENT_2764)
             else -> Animation(-1)
         }
     }

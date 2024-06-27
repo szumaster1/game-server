@@ -1,14 +1,17 @@
 package content.global.random.event.drilldemon
 
 import core.api.*
+import core.api.consts.Components
 import core.api.consts.NPCs
 import core.api.consts.Sounds
+import core.game.dialogue.FacialExpression
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.interaction.QueueStrength
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
+import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 import core.game.world.map.zone.ZoneRestriction
 import core.utilities.secondsToTicks
@@ -21,7 +24,7 @@ class DrillDemonListeners : InteractionListener, MapArea {
             if (inBorders(player, DrillDemonUtils.DD_AREA)) {
                 openDialogue(player, SergeantDamienDialogue(isCorrect = true), DrillDemonUtils.DD_NPC)
             } else {
-                sendDialogue(player, "Sergeant Damien is not interested in talking.")
+                sendNPCDialogue(player, NPCs.SERGEANT_DAMIEN_2790, "I Haven't given you the order yet, worm!", FacialExpression.OLD_DEFAULT)
             }
             return@on true
         }
@@ -30,7 +33,7 @@ class DrillDemonListeners : InteractionListener, MapArea {
             val correctTask =
                 getAttribute(player, DrillDemonUtils.DD_KEY_TASK, -1)
             if (correctTask == -1) {
-                sendMessage(player, "You can't do that right now.")
+                sendPlainDialogue(player, true, "Follow Sergeant Damien's orders!")
                 return@on true
             }
 
@@ -89,7 +92,7 @@ class DrillDemonListeners : InteractionListener, MapArea {
         if (entity is Player) {
             entity.asPlayer().interfaceManager.closeDefaultTabs()
             entity.locks.lockTeleport(1000000)
-            setComponentVisibility(entity.asPlayer(), 548, 69, true)
+            setComponentVisibility(entity.asPlayer(), Components.TOPLEVEL_548, 69, true)
             setComponentVisibility(entity.asPlayer(), 746, 12, true)
         }
     }

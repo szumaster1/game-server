@@ -7,6 +7,7 @@ import core.api.utils.WeightBasedTable
 import core.game.interaction.QueueStrength
 import core.game.node.entity.npc.NPC
 import core.game.system.timer.impl.AntiMacro
+import core.utilities.RED
 import core.utilities.secondsToTicks
 
 class SergeantDamienNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs.SERGEANT_DAMIEN_2790) {
@@ -17,14 +18,27 @@ class SergeantDamienNPC(override var loot: WeightBasedTable? = null) : RandomEve
         queueScript(player, 4, QueueStrength.SOFT) { stage: Int ->
             when (stage) {
                 0 -> {
-                    lock(player, secondsToTicks(30))
                     DrillDemonUtils.teleport(player)
                     AntiMacro.terminateEventNpc(player)
                     return@queueScript delayScript(player, 2)
                 }
 
                 1 -> {
-                    openDialogue(player, SergeantDamienDialogue(isCorrect = true, eventStart = true), NPCs.SERGEANT_DAMIEN_2790)
+                    if (!player.musicPlayer.hasUnlocked(418)) {
+                        sendDialogueLines(player, RED + "You have unlocked a new music track: Corporal Punishment.")
+                        player.musicPlayer.unlock(418)
+                        addDialogueAction(player) { player, button ->
+                            if (button >= 1) {
+                                openDialogue(
+                                    player,
+                                    SergeantDamienDialogue(isCorrect = true, eventStart = true),
+                                    NPCs.SERGEANT_DAMIEN_2790
+                                )
+                            }
+                        }
+                    } else {
+                        openDialogue(player, SergeantDamienDialogue(isCorrect = true, eventStart = true), NPCs.SERGEANT_DAMIEN_2790)
+                    }
                     return@queueScript stopExecuting(player)
                 }
 

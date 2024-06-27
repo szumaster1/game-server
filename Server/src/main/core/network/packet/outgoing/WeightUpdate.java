@@ -10,11 +10,11 @@ import core.network.packet.context.PlayerContext;
  */
 public final class WeightUpdate implements OutgoingPacket<PlayerContext> {
 
-	@Override
-	public void send(PlayerContext context) {
-		IoBuffer buffer = new IoBuffer(174);
-		buffer.putShort((int) context.getPlayer().getSettings().getWeight());
-		// TODO context.getPlayer().getSession().write(buffer);
-	}
+    @Override
+    public void send(PlayerContext context) {
+        IoBuffer buffer = new IoBuffer(174);
+        buffer.putShort((int) context.getPlayer().getSettings().getWeight());
+    //    context.getPlayer().getSession().write(buffer);
+    }
 
 }

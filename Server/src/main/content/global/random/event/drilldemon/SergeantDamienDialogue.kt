@@ -1,13 +1,12 @@
 package content.global.random.event.drilldemon
 
-import core.api.consts.Items
+import core.api.*
+import core.api.consts.Components
 import core.api.consts.NPCs
-import core.api.getAttribute
-import core.api.sendItemDialogue
-import core.api.unlock
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
+import core.utilities.DARK_RED
 import core.utilities.END_DIALOGUE
 
 class SergeantDamienDialogue(var isCorrect: Boolean = false, var eventStart: Boolean = false) : DialogueFile() {
@@ -17,20 +16,20 @@ class SergeantDamienDialogue(var isCorrect: Boolean = false, var eventStart: Boo
         when (stage) {
             0 -> {
                 if (correctCounter >= 4) {
-                    npcl(FacialExpression.OLD_NORMAL, "Well I'll be, you actually did it private. Now take this and get yourself out of my sight.")
+                    npc(FacialExpression.OLD_NORMAL, "Well I'll be, you actually did it, private.", "Now take a reward and get out of my sight.")
                     stage = 100
                 } else if (eventStart) {
-                    npcl(FacialExpression.OLD_NORMAL, "Move yourself private! Follow my orders and you may, just may, leave here in a fit state for my corps!")
+                    npc(FacialExpression.OLD_NORMAL, "You can get back to your business in a minute, private.", "Now, listen up...").also { stage++ }
                     DrillDemonUtils.changeSignsAndAssignTask(player!!)
                     stage = 0
                     eventStart = false
                 } else {
                     npcl(
                         FacialExpression.OLD_NORMAL, when (getAttribute(player!!, DrillDemonUtils.DD_KEY_TASK, -1)) {
-                            DrillDemonUtils.DD_SIGN_JOG -> if (!isCorrect) "Wrong exercise, worm! Get yourself over there and jog on that mat private!" else "Get yourself over there and jog on that mat private!"
-                            DrillDemonUtils.DD_SIGN_JUMP -> if (!isCorrect) "Wrong exercise, worm! I want to see you on that mat doing star jumps private!" else "I want to see you on that mat doing star jumps private!"
-                            DrillDemonUtils.DD_SIGN_PUSHUP -> if (!isCorrect) "Wrong exercise, worm! Drop and give me push ups on that mat private!" else "Drop and give me push ups on that mat private!"
-                            DrillDemonUtils.DD_SIGN_SITUP -> if (!isCorrect) "Wrong exercise, worm! Get on that mat and give me sit ups private!" else "Get on that mat and give me sit ups private!"
+                            DrillDemonUtils.DD_SIGN_JOG -> if (!isCorrect) "Wrong exercise, worm! I want to see you jogging on the spot!" else "I want to see you jogging on the spot!"
+                            DrillDemonUtils.DD_SIGN_JUMP -> if (!isCorrect) "Wrong exercise, worm! I want to see some star jumps, private!" else "I want to see some star jumps, private!"
+                            DrillDemonUtils.DD_SIGN_PUSHUP -> if (!isCorrect) "Wrong exercise, worm! Drop and give me push ups, private!" else "Drop and give me push ups, private!"
+                            DrillDemonUtils.DD_SIGN_SITUP -> if (!isCorrect) "Wrong exercise, worm! Get down and give me sit ups, private!" else "Get down and give me sit ups, private!"
                             else -> ""
                         }
                     )
@@ -41,12 +40,29 @@ class SergeantDamienDialogue(var isCorrect: Boolean = false, var eventStart: Boo
 
             1 -> {
                 end()
-                when (getAttribute(player!!, DrillDemonUtils.DD_KEY_TASK, -1)) {
-                    DrillDemonUtils.DD_SIGN_JOG -> sendItemDialogue(player!!, Items.RUN_10947, "Go to this mat and jog on the spot!")
-                    DrillDemonUtils.DD_SIGN_JUMP -> sendItemDialogue(player!!, Items.STARJUMP_10949, "Go to this mat and do some starjumps!")
-                    DrillDemonUtils.DD_SIGN_PUSHUP -> sendItemDialogue(player!!, Items.PUSHUP_10946, "Go to this mat and do some pushups!")
-                    DrillDemonUtils.DD_SIGN_SITUP -> sendItemDialogue(player!!, Items.SITUP_10948, "Go to this mat and do some sit ups!")
-                }
+                openInterface(player!!, Components.DOUBLEOBJBOX_131)
+                sendModelOnInterface(
+                    player!!, Components.DOUBLEOBJBOX_131, 2,
+                    when (getAttribute(player!!, DrillDemonUtils.DD_KEY_TASK, -1)) {
+                        DrillDemonUtils.DD_SIGN_JOG -> 23216
+                        DrillDemonUtils.DD_SIGN_JUMP -> 23218
+                        DrillDemonUtils.DD_SIGN_PUSHUP -> 23215
+                        DrillDemonUtils.DD_SIGN_SITUP -> 23217
+                        else -> -1
+                    }, -1
+                )
+                setComponentVisibility(player!!, Components.DOUBLEOBJBOX_131, 3, true)
+                sendAngleOnInterface(player!!, Components.DOUBLEOBJBOX_131, 2, 2800, 0, 0)
+                setInterfaceText(
+                    player!!,
+                    when (getAttribute(player!!, DrillDemonUtils.DD_KEY_TASK, -1)) {
+                        DrillDemonUtils.DD_SIGN_JOG -> "Go to$DARK_RED this mat</col> and jog on the spot!"
+                        DrillDemonUtils.DD_SIGN_JUMP -> "Go to$DARK_RED this mat</col> and do some starjumps!"
+                        DrillDemonUtils.DD_SIGN_PUSHUP -> "Go to$DARK_RED this mat</col> and do some pushups!"
+                        DrillDemonUtils.DD_SIGN_SITUP -> "Go to$DARK_RED this mat</col> and do some sit ups!"
+                        else -> ""
+                    }, Components.DOUBLEOBJBOX_131, 1
+                )
                 stage = END_DIALOGUE
             }
 

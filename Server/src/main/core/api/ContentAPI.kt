@@ -1819,7 +1819,29 @@ fun clearInventoryAndEquipment(player: Player) {
 fun sendItemOnInterface(player: Player, iface: Int, child: Int, item: Int, amount: Int = 1) {
     player.packetDispatch.sendItemOnInterface(item, amount, iface, child)
 }
+/**
+ * Sends an model to a specific child on an interface.
+ * @param player The player to send the packet to.
+ * @param iface  The ID of the interface to send the item onto.
+ * @Param child  The index of the child on the interface to send the item onto.
+ * @param model  The ID of the model to send.
+ * @param zoom   The amount of zoom to apply to the item - defaults to 1
+ */
+fun sendModelOnInterface(player: Player, iface: Int, child: Int, model: Int, zoom: Int = 1) {
+    player.packetDispatch.sendModelOnInterface(model, iface, child, zoom)
+}
 
+/**
+ * Sends an model to a specific child on an interface.
+ * @param player The player to send the packet to.
+ * @param iface  The ID of the interface to send the item onto.
+ * @Param child  The index of the child on the interface to send the item onto.
+ * @param pitch  The model axis (up/down).
+ * @param yaw    The model axis (left/right).
+ */
+fun sendAngleOnInterface(player: Player, iface: Int, child: Int, zoom: Int, pitch: Int, yaw: Int) {
+    player.packetDispatch.sendAngleOnInterface(iface, child, zoom, pitch, yaw)
+}
 /**
  * Sends a dialogue box with a single item and some text.
  * @param player  The player to send it to.
