@@ -25,7 +25,8 @@ class SurpriseExamNPC(var type: String = "", override var loot: WeightBasedTable
                         p.location = getAttribute(p, SurpriseExamUtils.SE_KEY_LOC, ServerConstants.HOME_LOCATION)
                     }
                     teleport(player, Location(1886, 5025, 0), TeleportManager.TeleportType.NORMAL)
-                    sendMessageWithDelay(player, "Answer three out of six questions correctly to be teleported back where you came from.", 3)
+                    sendMessageWithDelay(player, "Answer three out of six questions correctly to be teleported back where you", 3)
+                    sendMessageWithDelay(player,"came from.", 3)
                     AntiMacro.terminateEventNpc(player)
                     return@queueScript keepRunning(player)
                 }
