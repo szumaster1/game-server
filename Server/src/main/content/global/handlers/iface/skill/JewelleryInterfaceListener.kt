@@ -1,7 +1,7 @@
 package content.global.handlers.iface.skill
 
-import content.global.skill.production.crafting.jewellery.JewelleryCrafting.JewelleryItem
-import content.global.skill.production.crafting.jewellery.JewelleryCrafting.make
+import content.global.skill.production.crafting.data.JewelleryData.JewelleryItem
+import content.global.skill.production.crafting.data.JewelleryData.make
 import content.global.skill.support.slayer.SlayerManager.Companion.getInstance
 import core.api.consts.Components
 import core.api.inInventory

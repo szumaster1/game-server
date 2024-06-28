@@ -842,19 +842,19 @@ public enum SkillingResource {
     /**
      * Limestone 0 skilling resource.
      */
-    LIMESTONE_0(4027, 10, 0.2, 10 | 20 << 16, 26.5, 3211, 1, "limestone", null, 12564, Skills.MINING),
+    LIMESTONE_0(4027, 10, 0.2, 10 | 20 << 16, 26.5, 3211, 1, "limestone", null, 4028, Skills.MINING),
     /**
      * Limestone 1 skilling resource.
      */
-    LIMESTONE_1(4028, 10, 0.2, 10 | 20 << 16, 26.5, 3211, 1, "limestone", null, 12565, Skills.MINING),
+    LIMESTONE_1(4028, 10, 0.2, 10 | 20 << 16, 26.5, 3211, 1, "limestone", null, 4029, Skills.MINING),
     /**
      * Limestone 2 skilling resource.
      */
-    LIMESTONE_2(4029, 10, 0.2, 10 | 20 << 16, 26.5, 3211, 1, "limestone", null, 12566, Skills.MINING),
+    LIMESTONE_2(4029, 10, 0.2, 10 | 20 << 16, 26.5, 3211, 1, "limestone", null, 4030, Skills.MINING),
     /**
      * Limestone 3 skilling resource.
      */
-    LIMESTONE_3(4030, 10, 0.2, 10 | 20 << 16, 26.5, 3211, 1, "limestone", null, 12567, Skills.MINING),
+    LIMESTONE_3(4030, 10, 0.2, 10 | 20 << 16, 26.5, 3211, 1, "limestone", null, 4027, Skills.MINING),
 
     /**
      * The Blurite ore 0.

@@ -1,0 +1,96 @@
+package content.global.skill.production.crafting.data
+
+import core.api.*
+import core.api.consts.Components
+import core.api.consts.Items
+import core.game.component.Component
+import core.game.node.entity.player.Player
+import core.game.node.entity.player.link.diary.DiaryType
+import core.game.node.item.Item
+
+enum class TanningData(
+    val button: Int,
+    val item: Int,
+    val product: Int
+) {
+    SOFT_LEATHER(1, Items.COWHIDE_1739, Items.LEATHER_1741),
+    HARD_LEATHER(2, Items.COWHIDE_1739, Items.HARD_LEATHER_1743),
+    SNAKESKIN(3, Items.SNAKE_HIDE_6287, Items.SNAKESKIN_6289),
+    SNAKESKIN2(4, Items.SNAKE_HIDE_7801, Items.SNAKESKIN_6289),
+    GREEN_DHIDE(5, Items.GREEN_DRAGONHIDE_1753, Items.GREEN_D_LEATHER_1745),
+    BLUEDHIDE(6, Items.BLUE_DRAGONHIDE_1751, Items.BLUE_D_LEATHER_2505),
+    REDDHIDE(7, Items.RED_DRAGONHIDE_1749, Items.RED_DRAGON_LEATHER_2507),
+    BLACKDHIDE(8, Items.BLACK_DRAGONHIDE_1747, Items.BLACK_D_LEATHER_2509);
+
+
+    companion object {
+        @JvmStatic
+        fun forId(id: Int): TanningData? {
+            for (def in values()) {
+                if (def.button == id) {
+                    return def
+                }
+            }
+            return null
+        }
+        @JvmStatic
+        fun forItemId(id: Int): TanningData? {
+            for (def in values()) {
+                if (def.item == id) {
+                    return def
+                }
+            }
+            return null
+        }
+
+        @JvmStatic
+        fun open(player: Player, npc: Int) {
+            player.interfaceManager.open(Component(Components.TANNER_324))
+        }
+
+        @JvmStatic
+        fun tan(player: Player, amount: Int, def: TanningData) {
+            var amount = amount
+            if (amount > player.inventory.getAmount(Item(def.item))) {
+                amount = player.inventory.getAmount(Item(def.item))
+            }
+            var coins = 0
+            coins = if (def == SOFT_LEATHER) {
+                1
+            } else if (def == HARD_LEATHER) {
+                3
+            } else if (def == SNAKESKIN) {
+                20
+            } else if (def == SNAKESKIN2) {
+                15
+            } else {
+                20
+            }
+            if (amount == 0) {
+                return
+            }
+            if (!inInventory(player, def.item, amount)) {
+                sendMessage(player, "You don't have any " + getItemName(def.item).lowercase() + " to tan.")
+                return
+            }
+            player.interfaceManager.close()
+            if (!inInventory(player, Items.COINS_995, coins * amount)) {
+                sendMessage(player, "You don't have enough coins to tan that many.")
+                return
+            }
+            if (removeItem(player, Item(Items.COINS_995, coins * amount)) && removeItem(player, Item(def.item, amount))) {
+                addItem(player, def.product, amount)
+                if (amount > 1) {
+                    sendMessage(player, "The tanner tans " + amount + " " + getItemName(def.item).lowercase() + "s for you.")
+                } else {
+                    sendMessage(player, "The tanner tans your " + getItemName(def.item).lowercase() + ".")
+                }
+                if (def == SOFT_LEATHER) {
+                    finishDiaryTask(player, DiaryType.LUMBRIDGE, 1, 2)
+                }
+            } else {
+                sendMessage(player, "You don't have enough coins to tan that many.")
+            }
+        }
+    }
+}

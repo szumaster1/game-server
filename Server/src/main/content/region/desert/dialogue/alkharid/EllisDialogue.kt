@@ -1,6 +1,6 @@
 package content.region.desert.dialogue.alkharid
 
-import content.global.skill.production.crafting.TanningProduct
+import content.global.skill.production.crafting.data.TanningData
 import core.api.consts.NPCs
 import core.api.inInventory
 import core.game.dialogue.Dialogue
@@ -24,7 +24,7 @@ class EllisDialogue(player: Player? = null) : Dialogue(player) {
             0 -> {
                 var hasHides = false
 
-                for (tanningProduct in TanningProduct.values()) {
+                for (tanningProduct in TanningData.values()) {
                     if (inInventory(player, tanningProduct.item)) {
                         hasHides = true
                         break
@@ -44,7 +44,7 @@ class EllisDialogue(player: Player? = null) : Dialogue(player) {
                 2 -> playerl(FacialExpression.NEUTRAL, "No thanks.").also { stage = 13 }
             }
 
-            12 -> end().also { TanningProduct.open(player, NPCs.ELLIS_2824) }
+            12 -> end().also { TanningData.open(player, NPCs.ELLIS_2824) }
             13 -> npcl(FacialExpression.FRIENDLY, "Very well, @g[sir,madam], as you wish.").also { stage = END_DIALOGUE }
 
             20 -> when (buttonId) {

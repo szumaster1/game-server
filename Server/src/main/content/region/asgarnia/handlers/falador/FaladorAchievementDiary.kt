@@ -2,7 +2,7 @@ package content.region.asgarnia.handlers.falador
 
 import content.global.handlers.iface.FairyRing
 import content.global.skill.gathering.farming.FarmingPatch
-import content.global.skill.production.crafting.lightsources.LightSources
+import content.global.skill.production.crafting.data.LightSourceData
 import content.region.asgarnia.dialogue.falador.RisingSunInnBartenderDialogue
 import core.api.*
 import core.api.consts.Items
@@ -333,7 +333,7 @@ class FaladorAchievementDiary : DiaryEventHookBase(DiaryType.FALADOR) {
 
     override fun onLightSourceLit(player: Player, event: LitLightSourceEvent) {
         when {
-            inBorders(player, CHEMIST_AREA) && (event.litLightSourceId == LightSources.BULLSEYE_LANTERN.litID) -> {
+            inBorders(player, CHEMIST_AREA) && (event.litLightSourceId == LightSourceData.BULLSEYE_LANTERN.litId) -> {
                 finishTask(
                     player,
                     DiaryLevel.MEDIUM,

@@ -1,6 +1,6 @@
 package content.region.kandarin.handlers.guilds.ranging.dialogue
 
-import content.global.skill.production.crafting.TanningProduct
+import content.global.skill.production.crafting.data.TanningData
 import core.api.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player
@@ -51,7 +51,7 @@ class LeatherWorkerDialogue(player: Player? = null) : Dialogue(player) {
 
             12 -> {
                 end()
-                TanningProduct.open(player, 680)
+                TanningData.open(player, 680)
             }
 
             20 -> {

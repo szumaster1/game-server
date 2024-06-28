@@ -1,6 +1,6 @@
 package content.region.fremennik.handlers.neitiznot;
 
-import content.global.skill.production.crafting.armour.YakArmourPlugin;
+import content.global.skill.production.crafting.handlers.YakArmourCraftingHandler;
 import content.region.fremennik.dialogue.neitiznot.MawnisBurowgarDialogue;
 import content.region.fremennik.dialogue.neitiznot.ThakkradYakDialogue;
 import core.game.interaction.Option;
@@ -29,7 +29,7 @@ public class NeitiznotZone extends MapZone implements Plugin<Object> {
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
         ZoneBuilder.configure(this);
-        ClassScanner.definePlugins(new MawnisBurowgarDialogue(), new ThakkradYakDialogue(), new YakArmourPlugin(), new YakArmourPlugin());
+        ClassScanner.definePlugins(new MawnisBurowgarDialogue(), new ThakkradYakDialogue(), new YakArmourCraftingHandler(), new YakArmourCraftingHandler());
         return this;
     }
 

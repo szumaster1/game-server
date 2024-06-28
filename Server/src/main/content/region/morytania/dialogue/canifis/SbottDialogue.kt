@@ -1,7 +1,7 @@
 package content.region.morytania.dialogue.canifis
 
 import core.api.consts.NPCs
-import content.global.skill.production.crafting.TanningProduct
+import content.global.skill.production.crafting.data.TanningData
 import core.api.inInventory
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
@@ -24,7 +24,7 @@ class SbottDialogue(player: Player? = null) : Dialogue(player) {
             0 -> npc(FacialExpression.HAPPY, "Soft leather - 1 gp per hide", "Hard leather - 3 gp per hide", "Snakeskins - 20 gp per hide", "Dragon leather - 20 gp per hide.").also { stage++ }
             1 -> {
                 var hasHides = false
-                for (tanningProduct in TanningProduct.values()) {
+                for (tanningProduct in TanningData.values()) {
                     if (inInventory(player, tanningProduct.item)) {
                         hasHides = true
                         break
@@ -44,7 +44,7 @@ class SbottDialogue(player: Player? = null) : Dialogue(player) {
                 2 -> playerl(FacialExpression.NEUTRAL, "No thanks.").also { stage = 13 }
             }
 
-            12 -> end().also { TanningProduct.open(player, NPCs.SBOTT_1041) }
+            12 -> end().also { TanningData.open(player, NPCs.SBOTT_1041) }
             13 -> npcl(FacialExpression.FRIENDLY, "Very well, @g[sir,madam], as you wish.").also { stage = END_DIALOGUE }
         }
 

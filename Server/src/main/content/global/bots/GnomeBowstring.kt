@@ -1,7 +1,7 @@
 package content.global.bots
 
-import content.global.skill.production.crafting.spinning.SpinningItem
-import content.global.skill.production.crafting.spinning.SpinningPulse
+import content.global.skill.production.crafting.data.SpinningData
+import content.global.skill.production.crafting.item.SpinningPulse
 import core.api.consts.Items
 import core.api.freeSlots
 import core.game.bots.*
@@ -90,7 +90,7 @@ class GnomeBowstring : Script() {
             State.SPINNING -> {
                 bot.pulseManager.run(
                     SpinningPulse(
-                        bot, Item(Items.FLAX_1779), bot.inventory.getAmount(Items.FLAX_1779), SpinningItem.FLAX
+                        bot, Item(Items.FLAX_1779), bot.inventory.getAmount(Items.FLAX_1779), SpinningData.FLAX
                     )
                 )
                 sLadderSwitch = true

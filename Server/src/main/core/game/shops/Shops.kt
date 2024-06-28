@@ -1,6 +1,6 @@
 package core.game.shops
 
-import content.global.skill.production.crafting.TanningProduct
+import content.global.skill.production.crafting.data.TanningData
 import core.ServerConstants
 import core.api.*
 import core.game.ge.GrandExchange
@@ -126,7 +126,7 @@ class Shops : StartupListener, TickListener, InteractionListener, InterfaceListe
         on(IntType.NPC, "trade", "shop") { player, node ->
             val npc = node as NPC
             if (npc.id == 2824 || npc.id == 1041 || npc.id == 804) {
-                TanningProduct.open(player, npc.id)
+                TanningData.open(player, npc.id)
                 return@on true
             }
             if (npc.id == 7601) {

@@ -1,8 +1,8 @@
 package content.global.handlers.iface.skill
 
-import content.global.skill.production.crafting.armour.LeatherCrafting
-import content.global.skill.production.crafting.armour.LeatherCrafting.SoftLeather
-import content.global.skill.production.crafting.armour.SoftCraftPulse
+import content.global.skill.production.crafting.data.LeatherData
+import content.global.skill.production.crafting.data.LeatherData.SoftLeather
+import content.global.skill.production.crafting.item.SoftCraftPulse
 import core.api.consts.Components
 import core.api.sendInputDialogue
 import core.api.submitIndividualPulse
@@ -18,18 +18,30 @@ class CraftingLeatherInterfaceListener : InterfaceListener {
             when (opcode) {
                 155 -> amount = 1
                 196 -> amount = 5
-                124 -> amount = player.inventory.getAmount(Item(LeatherCrafting.LEATHER))
+                124 -> amount = player.inventory.getAmount(Item(LeatherData.LEATHER))
                 199 -> {
                     sendInputDialogue(player, true, "Enter the amount:") { value: Any ->
                         submitIndividualPulse(
                             player,
-                            SoftCraftPulse(player, Item(LeatherCrafting.LEATHER), soft, value as Int)
+                            SoftCraftPulse(
+                                player,
+                                Item(LeatherData.LEATHER),
+                                soft,
+                                value as Int
+                            )
                         )
                     }
                     return@on true
                 }
             }
-            player.pulseManager.run(SoftCraftPulse(player, null, soft, amount))
+            player.pulseManager.run(
+                SoftCraftPulse(
+                    player,
+                    null,
+                    soft,
+                    amount
+                )
+            )
             return@on true
         }
     }

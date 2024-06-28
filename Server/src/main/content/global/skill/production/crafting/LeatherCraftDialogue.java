@@ -1,8 +1,8 @@
 package content.global.skill.production.crafting;
 
-import content.global.skill.production.crafting.armour.DragonCraftPulse;
-import content.global.skill.production.crafting.armour.HardCraftPulse;
-import content.global.skill.production.crafting.armour.LeatherCrafting;
+import content.global.skill.production.crafting.data.LeatherData;
+import content.global.skill.production.crafting.item.DragonCraftPulse;
+import content.global.skill.production.crafting.item.HardCraftPulse;
 import core.api.InputType;
 import core.cache.def.impl.ItemDefinition;
 import core.game.component.Component;
@@ -14,27 +14,12 @@ import kotlin.Unit;
 
 import static core.api.ContentAPIKt.sendInputDialogue;
 
-/**
- * The Leather craft dialogue.
- */
 @Initializable
 public final class LeatherCraftDialogue extends Dialogue {
 
     private String type = "";
-
     private int leather;
-
-    /**
-     * Instantiates a new Leather craft dialogue.
-     */
-    public LeatherCraftDialogue() {
-    }
-
-    /**
-     * Instantiates a new Leather craft dialogue.
-     *
-     * @param player the player
-     */
+    public LeatherCraftDialogue() {}
     public LeatherCraftDialogue(Player player) {
         super(player);
     }
@@ -57,25 +42,25 @@ public final class LeatherCraftDialogue extends Dialogue {
             leather = (int) args[1];
             player.getInterfaceManager().openChatbox(component);
             int[] index = new int[3];
-            if (leather == LeatherCrafting.GREEN_LEATHER) {
-                index[0] = LeatherCrafting.DragonHide.GREEN_D_HIDE_BODY.getProduct();
-                index[1] = LeatherCrafting.DragonHide.GREEN_D_HIDE_VAMBS.getProduct();
-                index[2] = LeatherCrafting.DragonHide.GREEN_D_HIDE_CHAPS.getProduct();
+            if (leather == LeatherData.GREEN_LEATHER) {
+                index[0] = LeatherData.DragonHide.GREEN_D_HIDE_BODY.product;
+                index[1] = LeatherData.DragonHide.GREEN_D_HIDE_VAMBS.product;
+                index[2] = LeatherData.DragonHide.GREEN_D_HIDE_CHAPS.product;
             }
-            if (leather == LeatherCrafting.BLUE_LEATHER) {
-                index[0] = LeatherCrafting.DragonHide.BLUE_D_HIDE_BODY.getProduct();
-                index[1] = LeatherCrafting.DragonHide.BLUE_D_HIDE_VAMBS.getProduct();
-                index[2] = LeatherCrafting.DragonHide.BLUE_D_HIDE_CHAPS.getProduct();
+            if (leather == LeatherData.BLUE_LEATHER) {
+                index[0] = LeatherData.DragonHide.BLUE_D_HIDE_BODY.product;
+                index[1] = LeatherData.DragonHide.BLUE_D_HIDE_VAMBS.product;
+                index[2] = LeatherData.DragonHide.BLUE_D_HIDE_CHAPS.product;
             }
-            if (leather == LeatherCrafting.RED_LEATHER) {
-                index[0] = LeatherCrafting.DragonHide.RED_D_HIDE_BODY.getProduct();
-                index[1] = LeatherCrafting.DragonHide.RED_D_HIDE_VAMBS.getProduct();
-                index[2] = LeatherCrafting.DragonHide.RED_D_HIDE_CHAPS.getProduct();
+            if (leather == LeatherData.RED_LEATHER) {
+                index[0] = LeatherData.DragonHide.RED_D_HIDE_BODY.product;
+                index[1] = LeatherData.DragonHide.RED_D_HIDE_VAMBS.product;
+                index[2] = LeatherData.DragonHide.RED_D_HIDE_CHAPS.product;
             }
-            if (leather == LeatherCrafting.BLACK_LEATHER) {
-                index[0] = LeatherCrafting.DragonHide.BLACK_D_HIDE_BODY.getProduct();
-                index[1] = LeatherCrafting.DragonHide.BLACK_D_HIDE_VAMBS.getProduct();
-                index[2] = LeatherCrafting.DragonHide.BLACK_D_HIDE_CHAPS.getProduct();
+            if (leather == LeatherData.BLACK_LEATHER) {
+                index[0] = LeatherData.DragonHide.BLACK_D_HIDE_BODY.product;
+                index[1] = LeatherData.DragonHide.BLACK_D_HIDE_VAMBS.product;
+                index[2] = LeatherData.DragonHide.BLACK_D_HIDE_CHAPS.product;
             }
             player.getPacketDispatch().sendItemZoomOnInterface(index[0], 175, 304, 2);
             player.getPacketDispatch().sendItemZoomOnInterface(index[1], 175, 304, 3);
@@ -107,7 +92,7 @@ public final class LeatherCraftDialogue extends Dialogue {
                         });
                         return true;
                     case 2:
-                        amt = player.getInventory().getAmount(new Item(LeatherCrafting.HARD_LEATHER));
+                        amt = player.getInventory().getAmount(new Item(LeatherData.HARD_LEATHER));
                         break;
                 }
                 player.getPulseManager().run(new HardCraftPulse(player, null, amt));
@@ -123,52 +108,52 @@ public final class LeatherCraftDialogue extends Dialogue {
                 if (buttonId > 11 && buttonId < 16) {
                     index = 3;
                 }
-                LeatherCrafting.DragonHide hide = null;
+                LeatherData.DragonHide hide = null;
                 if (index == 1) {
                     switch (leather) {
-                        case LeatherCrafting.GREEN_LEATHER:
-                            hide = LeatherCrafting.DragonHide.GREEN_D_HIDE_BODY;
+                        case LeatherData.GREEN_LEATHER:
+                            hide = LeatherData.DragonHide.GREEN_D_HIDE_BODY;
                             break;
-                        case LeatherCrafting.BLUE_LEATHER:
-                            hide = LeatherCrafting.DragonHide.BLUE_D_HIDE_BODY;
+                        case LeatherData.BLUE_LEATHER:
+                            hide = LeatherData.DragonHide.BLUE_D_HIDE_BODY;
                             break;
-                        case LeatherCrafting.RED_LEATHER:
-                            hide = LeatherCrafting.DragonHide.RED_D_HIDE_BODY;
+                        case LeatherData.RED_LEATHER:
+                            hide = LeatherData.DragonHide.RED_D_HIDE_BODY;
                             break;
-                        case LeatherCrafting.BLACK_LEATHER:
-                            hide = LeatherCrafting.DragonHide.BLACK_D_HIDE_BODY;
+                        case LeatherData.BLACK_LEATHER:
+                            hide = LeatherData.DragonHide.BLACK_D_HIDE_BODY;
                             break;
                     }
                 }
                 if (index == 2) {
                     switch (leather) {
-                        case LeatherCrafting.GREEN_LEATHER:
-                            hide = LeatherCrafting.DragonHide.GREEN_D_HIDE_VAMBS;
+                        case LeatherData.GREEN_LEATHER:
+                            hide = LeatherData.DragonHide.GREEN_D_HIDE_VAMBS;
                             break;
-                        case LeatherCrafting.BLUE_LEATHER:
-                            hide = LeatherCrafting.DragonHide.BLUE_D_HIDE_VAMBS;
+                        case LeatherData.BLUE_LEATHER:
+                            hide = LeatherData.DragonHide.BLUE_D_HIDE_VAMBS;
                             break;
-                        case LeatherCrafting.RED_LEATHER:
-                            hide = LeatherCrafting.DragonHide.RED_D_HIDE_VAMBS;
+                        case LeatherData.RED_LEATHER:
+                            hide = LeatherData.DragonHide.RED_D_HIDE_VAMBS;
                             break;
-                        case LeatherCrafting.BLACK_LEATHER:
-                            hide = LeatherCrafting.DragonHide.BLACK_D_HIDE_VAMBS;
+                        case LeatherData.BLACK_LEATHER:
+                            hide = LeatherData.DragonHide.BLACK_D_HIDE_VAMBS;
                             break;
                     }
                 }
                 if (index == 3) {
                     switch (leather) {
-                        case LeatherCrafting.GREEN_LEATHER:
-                            hide = LeatherCrafting.DragonHide.GREEN_D_HIDE_CHAPS;
+                        case LeatherData.GREEN_LEATHER:
+                            hide = LeatherData.DragonHide.GREEN_D_HIDE_CHAPS;
                             break;
-                        case LeatherCrafting.BLUE_LEATHER:
-                            hide = LeatherCrafting.DragonHide.BLUE_D_HIDE_CHAPS;
+                        case LeatherData.BLUE_LEATHER:
+                            hide = LeatherData.DragonHide.BLUE_D_HIDE_CHAPS;
                             break;
-                        case LeatherCrafting.RED_LEATHER:
-                            hide = LeatherCrafting.DragonHide.RED_D_HIDE_CHAPS;
+                        case LeatherData.RED_LEATHER:
+                            hide = LeatherData.DragonHide.RED_D_HIDE_CHAPS;
                             break;
-                        case LeatherCrafting.BLACK_LEATHER:
-                            hide = LeatherCrafting.DragonHide.BLACK_D_HIDE_CHAPS;
+                        case LeatherData.BLACK_LEATHER:
+                            hide = LeatherData.DragonHide.BLACK_D_HIDE_CHAPS;
                             break;
                     }
                 }
@@ -191,7 +176,7 @@ public final class LeatherCraftDialogue extends Dialogue {
                     case 4:
                     case 8:
                     case 12:
-                        final LeatherCrafting.DragonHide hidee = hide;
+                        final LeatherData.DragonHide hidee = hide;
                         if (hidee == null) {
                             return false;
                         }

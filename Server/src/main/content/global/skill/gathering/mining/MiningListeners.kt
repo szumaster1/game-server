@@ -30,13 +30,20 @@ class MiningListeners : InteractionListener {
     override fun defineListeners() {
 
         /*
-            Mine interaction.
+         * Mining interaction.
          */
 
-        defineInteraction(IntType.SCENERY, MiningNode.values().map { it.id }.toIntArray(), "mine", persistent = true, allowedDistance = 1, handler = ::handleMining)
+        defineInteraction(
+            IntType.SCENERY,
+            MiningNode.values().map { it.id }.toIntArray(),
+            "mine",
+            persistent = true,
+            allowedDistance = 1,
+            handler = ::handleMining
+        )
 
         /*
-            Prospect interaction.
+         *  Prospect interaction.
          */
 
         on(IntType.SCENERY, "prospect") { player, node ->
@@ -86,7 +93,7 @@ class MiningListeners : InteractionListener {
         }
 
         /*
-            Repair interaction.
+         *  Repair interaction.
          */
 
         onUseWith(IntType.ITEM, PICKAXE_HANDLE, *BROKEN_PICKAXES) { player, used, with ->
@@ -157,7 +164,7 @@ class MiningListeners : InteractionListener {
             return delayScript(player, getDelay())
 
         /*
-            Reward logic.
+         *  Reward logic.
          */
 
         var reward = resource!!.reward
@@ -169,14 +176,14 @@ class MiningListeners : InteractionListener {
             player.dispatch(ResourceProducedEvent(reward, rewardAmount, node))
 
             /*
-                Reward mining experience.
+             *  Reward mining experience.
              */
 
             val experience = resource.experience * rewardAmount
             rewardXP(player, Skills.MINING, experience)
 
             /*
-                If player is wearing Bracelet of Clay, soften.
+             *  If player is wearing Bracelet of Clay, soften.
              */
 
             if (reward == Items.CLAY_434) {
@@ -204,7 +211,7 @@ class MiningListeners : InteractionListener {
             else getItemName(reward).lowercase()
 
             /*
-                Send the message for the resource reward.
+             *  Send the message for the resource reward.
              */
 
             if (isGems) {
@@ -218,7 +225,7 @@ class MiningListeners : InteractionListener {
             }
 
             /*
-                Give the mining reward, increment 'rocks mined' attribute.
+             *  Give the mining reward, increment 'rocks mined' attribute.
              */
 
             if (addItem(player, reward, rewardAmount)) {
@@ -227,7 +234,7 @@ class MiningListeners : InteractionListener {
             }
 
             /*
-                Calculate bonus gem chance while mining.
+             *  Calculate bonus gem chance while mining.
              */
 
             if (!isEssence) {
@@ -254,8 +261,22 @@ class MiningListeners : InteractionListener {
             }
 
             /*
-                Transform ore to depleted version.
+             * Handling limestone.
              */
+
+            if(resource.id == 4030 && !isEssence && resource.respawnRate != 0) {
+                removeScenery(node as Scenery)
+                runTask(player, resource.respawnDuration) {
+                    SceneryBuilder.add(Scenery(4027, node.location))
+                }
+                node.isActive = false
+                return true
+            }
+
+            /*
+             *  Transform ore to depleted version.
+             */
+
             if (!isEssence && resource.respawnRate != 0) {
                 SceneryBuilder.replace(node as Scenery, Scenery(resource.emptyId, node.getLocation(), node.type, node.rotation), resource.respawnDuration)
                 node.setActive(false)

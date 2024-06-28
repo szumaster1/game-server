@@ -59,7 +59,7 @@ class SandSourceListener : InteractionListener {
                             override fun pulse(): Boolean {
                                 addScenery(
                                     if (inBorders(player, getRegionBorders(11310)))
-                                        with.id - 2 else with.id - 1, with.location
+                                        with.id - 2 else with.id - 1, with.location, with.direction.ordinal
                                 )
                                 return true
                             }

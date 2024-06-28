@@ -443,19 +443,19 @@ public enum MiningNode {
      * Limestone 0 mining node.
      */
 //Limestone
-    LIMESTONE_0(4027, 12564, (byte) 4), // full.id + 1
+    LIMESTONE_0(4027, 4028, (byte) 4),
     /**
      * Limestone 1 mining node.
      */
-    LIMESTONE_1(4028, 12565, (byte) 4), // full.id + 1
+    LIMESTONE_1(4028, 4029, (byte) 4),
     /**
      * Limestone 2 mining node.
      */
-    LIMESTONE_2(4029, 12566, (byte) 4), // full.id + 1
+    LIMESTONE_2(4029, 4030, (byte) 4),
     /**
      * Limestone 3 mining node.
      */
-    LIMESTONE_3(4030, 12567, (byte) 4), // full to empty rock and return to 4027
+    LIMESTONE_3(4030, 4027, (byte) 4),
 
     /**
      * Blurite ore 0 mining node.

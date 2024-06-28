@@ -1,6 +1,6 @@
 package content.region.misc.dialogue.keldagrim
 
-import content.global.skill.production.crafting.gem.Gems
+import content.global.skill.production.crafting.data.GemData
 import core.game.dialogue.Dialogue
 import core.game.dialogue.DialogueInterpreter
 import core.game.dialogue.FacialExpression
@@ -64,12 +64,12 @@ class MagicDoorDialogue(player: Player? = null) : Dialogue(player) {
                 }
             }
 
-            10 -> if (!player.inventory.containsItem(Gems.DIAMOND.gem)) {
+            10 -> if (!player.inventory.containsItem(GemData.DIAMOND.gem)) {
                 player("...but...")
                 stage = 11
             } else {
                 end()
-                if (player.inventory.remove(Gems.DIAMOND.gem)) {
+                if (player.inventory.remove(GemData.DIAMOND.gem)) {
                     DoorActionHandler.handleAutowalkDoor(player, door)
                     player.packetDispatch.sendMessage("You give the doorman a diamond.")
                 }
