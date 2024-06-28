@@ -82,11 +82,11 @@ class SawmillPlankInterfacePlugin : ComponentPlugin() {
             }
         }
     }
+}
 
-    enum class Plank(val log: Item, val plank: Item, val price: Int) {
-        WOOD(Item(Items.LOGS_1511), Item(Items.PLANK_960), 100),
-        OAK(Item(Items.OAK_LOGS_1521), Item(Items.OAK_PLANK_8778), 250),
-        TEAK(Item(Items.TEAK_LOGS_6333), Item(Items.TEAK_PLANK_8780), 500),
-        MAHOGANY(Item(Items.MAHOGANY_LOGS_6332), Item(Items.MAHOGANY_PLANK_8782), 1500)
-    }
+enum class Plank(val log: Item, val plank: Item, val price: Int) {
+    WOOD(Item(Items.LOGS_1511), Item(Items.PLANK_960), 100),
+    OAK(Item(Items.OAK_LOGS_1521), Item(Items.OAK_PLANK_8778), 250),
+    TEAK(Item(Items.TEAK_LOGS_6333), Item(Items.TEAK_PLANK_8780), 500),
+    MAHOGANY(Item(Items.MAHOGANY_LOGS_6332), Item(Items.MAHOGANY_PLANK_8782), 1500)
 }
