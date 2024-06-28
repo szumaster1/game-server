@@ -94,6 +94,7 @@ public final class MultiwayCombatZone extends MapZone {
 		registerRegion(12590); //desert bandits
 		register(new ZoneBorders(2855, 9928, 2880, 9968));
 		registerRegion(11318);
+        register(new ZoneBorders(2685, 2685, 2825, 2825));
 	}
 
 	@Override

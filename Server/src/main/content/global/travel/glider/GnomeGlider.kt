@@ -12,6 +12,7 @@ enum class GnomeGlider(val button: Int, val location: Location, val config: Int,
     LEMANTO_ADRA(18, Location.create(3321, 3427, 0), 3, -1),
     AR_HEWO(19, Location.create(3278, 3212, 0), 4, NPCs.CAPTAIN_KLEMFOODLE_3812),
     LEMANTOLLY_UNDRI(20, Location.create(2544, 2970, 0), 10, NPCs.GNORMADIUM_AVLAFRIM_1800),
+    CRASH_ISLAND(14, Location.create(2894, 2726, 0), 8, NPCs.CAPTAIN_ERRDO_3811),
     GANDIUS(15, Location.create(2972, 2969, 0), 8, NPCs.CAPTAIN_ERRDO_3811);
 
     companion object {

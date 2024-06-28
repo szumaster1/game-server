@@ -5,6 +5,7 @@ import content.region.kandarin.quest.thegrandtree.cutscene.BlackDemonCutscene
 import content.region.kandarin.quest.thegrandtree.dialogue.KingNarnodeDialogueFile
 import content.region.kandarin.quest.thegrandtree.dialogue.KingNarnodeUnderGroundDialogue
 import content.region.kandarin.quest.thegrandtree.dialogue.ShipyardWorkerDialogueFile
+import content.region.karamja.quest.monkeymadness.dialogue.KingNarnodeMonkeyMadnessDialogue
 import core.api.*
 import core.api.consts.Components
 import core.api.consts.Items
@@ -44,10 +45,11 @@ class TheGrandTreeListeners : InteractionListener {
     override fun defineListeners() {
         on(NPCs.KING_NARNODE_SHAREEN_670, IntType.NPC, "talk-to") { player, npc ->
             val aboveground = 9782
-            if (player.location.regionId == aboveground)
-                openDialogue(player, KingNarnodeDialogueFile(), npc)
-            else
-                openDialogue(player, KingNarnodeUnderGroundDialogue(), npc)
+            when {
+                getQuestStage(player, "The Grand Tree") == 100 -> openDialogue(player, KingNarnodeMonkeyMadnessDialogue(), npc)
+                player.location.regionId == aboveground -> openDialogue(player, KingNarnodeUnderGroundDialogue(), npc)
+                player.location.regionId != aboveground -> openDialogue(player, KingNarnodeUnderGroundDialogue(), npc)
+            }
             return@on true
         }
 

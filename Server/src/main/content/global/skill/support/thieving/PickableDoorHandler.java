@@ -23,17 +23,12 @@ import java.util.List;
 import static core.api.ContentAPIKt.playAudio;
 import static core.api.ContentAPIKt.sendMessage;
 
-/**
- * The Pickable door handler.
- */
 @Initializable
 public class PickableDoorHandler extends OptionHandler {
     private static final Item LOCK_PICK = new Item(1523);
     private static final List<PickableDoor> pickableDoors = new ArrayList<>(20);
-    private static final int[] DOORS = new int[]{42028, 2550, 2551, 2554, 2555, 2556, 2557, 2558, 2559, 5501, 7246, 9565, 13314, 13317, 13320, 13323, 13326, 13344, 13345, 13346, 13347, 13348, 13349, 15759, 34005, 34805, 34806, 34812};
-    /**
-     * The Door.
-     */
+    private static final int[] DOORS = new int[]{42028, 2550, 2551, 2554, 2555, 2556, 2557, 2558, 2559, 5501, 7246, 9565, 13314, 13317, 13320, 13323, 13326, 13344, 13345, 13346, 13347, 13348, 13349, 15759, 34005, 34805, 34806, 34812, 4799};
+
     PickableDoor door;
 
     @Override
@@ -103,44 +98,13 @@ public class PickableDoorHandler extends OptionHandler {
         return null;
     }
 
-    /**
-     * The Pickable door.
-     */
     public class PickableDoor {
-        /**
-         * The locations of the door.
-         */
         private final Location[] locations;
-
-        /**
-         * The level.
-         */
         private final int level;
-
-        /**
-         * The experience required.
-         */
         private final double experience;
-
-        /**
-         * If it requires a lockpick.
-         */
         private final boolean lockpick;
-
-        /**
-         * If the door should be flipped around when checking for which side requires lockpicking.
-         */
         private final boolean flipped;
 
-        /**
-         * Constructs a new {@code PickableDoor} {@code Object}.
-         *
-         * @param locations  the locations.
-         * @param level      the level.
-         * @param experience the experience.
-         * @param lockpick   the lock pick.
-         * @param flipped    the door to be flipped when lockpicking.
-         */
         public PickableDoor(final Location[] locations, int level, double experience, boolean lockpick, boolean flipped) {
             this.locations = locations;
             this.level = level;
@@ -149,44 +113,18 @@ public class PickableDoorHandler extends OptionHandler {
             this.flipped = flipped;
         }
 
-        /**
-         * Constructs a new {@code PickableDoor} {@code Object}.
-         *
-         * @param locations  the locations.
-         * @param level      the level.
-         * @param experience the experience.
-         * @param lockpick   the lock pick.
-         */
         public PickableDoor(final Location[] locations, int level, double experience, boolean lockpick) {
             this(locations, level, experience, lockpick, false);
         }
 
-        /**
-         * Constructs a new {@code PickableDoor} {@code Object}.
-         *
-         * @param locations  the locations
-         * @param level      the level.
-         * @param experience the experience.
-         */
         public PickableDoor(Location[] locations, int level, double experience) {
             this(locations, level, experience, false);
         }
 
-        /**
-         * Gets the location.
-         *
-         * @return The location.
-         */
         public Location[] getLocations() {
             return locations;
         }
 
-        /**
-         * Opens a pickable door.
-         *
-         * @param player the player.
-         * @param object the object.
-         */
         public void open(Player player, Scenery object) {
             if (isInside(player, object) != flipped) {
                 DoorActionHandler.handleAutowalkDoor(player, object);
@@ -196,12 +134,6 @@ public class PickableDoorHandler extends OptionHandler {
             }
         }
 
-        /**
-         * Picks a lock on a door.
-         *
-         * @param player the player.
-         * @param object the object.
-         */
         public void pickLock(Player player, Scenery object) {
             boolean success = RandomFunction.random(12) >= 4;
             if (isInside(player, object) != flipped) {
@@ -227,13 +159,6 @@ public class PickableDoorHandler extends OptionHandler {
             player.getPacketDispatch().sendMessage("You " + (success ? "manage" : "fail") + " to pick the lock.");
         }
 
-        /**
-         * Checks if we're behind the door/inside the building.
-         *
-         * @param player the player.
-         * @param object the object.
-         * @return {@code True} if so.
-         */
         private boolean isInside(Player player, Scenery object) {
             boolean inside = false;
             Direction dir = Direction.getLogicalDirection(player.getLocation(), object.getLocation());
@@ -248,29 +173,12 @@ public class PickableDoorHandler extends OptionHandler {
             return inside;
         }
 
-        /**
-         * Gets the level.
-         *
-         * @return The level.
-         */
         public int getLevel() {
             return level;
         }
-
-        /**
-         * Gets the experience.
-         *
-         * @return The experience.
-         */
         public double getExperience() {
             return experience;
         }
-
-        /**
-         * Gets the lockpick.
-         *
-         * @return The lockpick.
-         */
         public boolean isLockpick() {
             return lockpick;
         }
