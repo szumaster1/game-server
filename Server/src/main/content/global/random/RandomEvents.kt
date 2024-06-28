@@ -18,7 +18,7 @@ import content.global.random.event.sandwichlady.SandwichLadyRENPC
 import content.global.random.event.securityguard.SecurityGuardNPC
 import content.global.random.event.shade.ShadeRENPC
 import content.global.random.event.strangeplant.StrangePlantNPC
-import content.global.random.event.surpriseexam.SurpriseExamInitNPC
+import content.global.random.event.surpriseexam.SurpriseExamNPC
 import content.global.random.event.swarm.SwarmNPC
 import content.global.random.event.treespirit.TreeSpiritRENPC
 import content.global.random.event.zombie.ZombieRENPC
@@ -41,7 +41,7 @@ enum class RandomEvents(
     KISS_THE_FROG(npc = FrogHeraldNPC()),
     EVIL_BOB(npc = EvilBobNPC(), skillIds = intArrayOf(Skills.FISHING, Skills.MAGIC)),
     EVIL_TWIN(npc = EvilTwinNPC()),
-    SURPRISE_EXAM(npc = SurpriseExamInitNPC(), type = "sexam"),
+    SURPRISE_EXAM(npc = SurpriseExamNPC(), type = "sexam"),
     SWARM(npc = SwarmNPC()),
     SECURITY_GUARD(npc = SecurityGuardNPC(), skillIds = intArrayOf(Skills.ATTACK, Skills.STRENGTH, Skills.DEFENCE, Skills.RANGE, Skills.PRAYER, Skills.HITPOINTS, Skills.SUMMONING), loot = CERTER.loot),
     DRUNKEN_DWARF(npc = DrunkenDwarfNPC(), skillIds = intArrayOf(Skills.STRENGTH, Skills.DEFENCE, Skills.ATTACK, Skills.RANGE, Skills.HITPOINTS)),

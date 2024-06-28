@@ -9,7 +9,7 @@ import core.api.sendMessage
 import core.game.interaction.InterfaceListener
 import core.game.node.entity.npc.NPC
 
-class SurpriseExamPatternInterface : InterfaceListener {
+class SurpriseExamInterface : InterfaceListener {
 
     val COMPONENT = Components.PATTERN_NEXT_103
 

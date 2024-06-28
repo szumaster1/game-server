@@ -1,11 +1,13 @@
 package content.global.random.event.surpriseexam
 
+import core.api.consts.NPCs
 import core.api.getAttribute
 import core.api.openDialogue
 import core.api.openInterface
 import core.game.component.Component
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
+import core.game.node.entity.npc.NPC
 import core.utilities.END_DIALOGUE
 
 class MrMordautDialogue(
@@ -13,6 +15,7 @@ class MrMordautDialogue(
 ) : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
+        npc = NPC(NPCs.MR_MORDAUT_6117)
         if (examComplete) {
             if (getAttribute(player!!, SurpriseExamUtils.SE_DOOR_KEY, -1) == -1) {
                 SurpriseExamUtils.pickRandomDoor(player!!)
@@ -23,7 +26,7 @@ class MrMordautDialogue(
                 2189 -> "blue star"
                 2192 -> "purple circle"
                 2193 -> "green square"
-                else -> "REEEEEEEEEEEEEEEE"//implement yourself.
+                else -> ""
             }
             when(stage++) {
                 0 -> npc("WELL DONE!","You've proven your aptitude for pattern recognition.","You'll receive a prize when you leave the classroom.")
@@ -57,6 +60,9 @@ class MrMordautDialogue(
             }
 
         } else {
+            /*
+             * If player log out: "Let's continue, "${player!!.username}"
+             */
             when (stage++) {
                 0 -> npcl("Ah, It's you, ${player!!.username}. You've been slacking in your studies, so it's time for an exam.")
                 1 -> npc("There are two types of question. The first type","requires you to find the next object in a pattern.")

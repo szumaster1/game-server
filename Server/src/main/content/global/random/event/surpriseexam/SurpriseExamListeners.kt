@@ -27,7 +27,7 @@ class SurpriseExamListeners : InteractionListener {
             val correctDoor = getAttribute(player, SurpriseExamUtils.SE_DOOR_KEY, -1)
 
             if (correctDoor == -1) {
-                openDialogue(player, SurpriseExamDoorDialogue(true))
+                sendDialogue(player, "I should probably speak with Mr. Mordaut first.")
                 return@on true
             }
 
@@ -36,7 +36,7 @@ class SurpriseExamListeners : InteractionListener {
                 return@on true
             }
 
-            openDialogue(player, SurpriseExamDoorDialogue(false))
+            sendDialogue(player, "The door won't budge. Perhaps I should, ask for directions.")
             return@on true
         }
 
