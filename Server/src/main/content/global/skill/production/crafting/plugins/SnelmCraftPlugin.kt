@@ -40,15 +40,15 @@ class SnelmCraftPlugin : UseWithHandler(Items.CHISEL_1755) {
 
     companion object {
         private val DATA = arrayOf(
-            intArrayOf(3345, 3327),
-            intArrayOf(3355, 3337),
-            intArrayOf(3349, 3341),
-            intArrayOf(3341, 3359),
-            intArrayOf(3347, 3329),
-            intArrayOf(3357, 3339),
-            intArrayOf(3351, 3333),
-            intArrayOf(3361, 3343),
-            intArrayOf(3353, 3335)
+            intArrayOf(Items.BLAMISH_MYRE_SHELL_3345, Items.MYRE_SNELM_3327),
+            intArrayOf(Items.BLAMISH_MYRE_SHELL_3355, Items.MYRE_SNELM_3337),
+            intArrayOf(Items.BLAMISH_OCHRE_SHELL_3349, Items.OCHRE_SNELM_3341),
+            intArrayOf(Items.OCHRE_SNELM_3341, Items.BLAMISH_OCHRE_SHELL_3359),
+            intArrayOf(Items.BLAMISH_RED_SHELL_3347, Items.BLOODNTAR_SNELM_3329),
+            intArrayOf(Items.BLAMISH_RED_SHELL_3357, Items.BLOODNTAR_SNELM_3339),
+            intArrayOf(Items.BLAMISH_BLUE_SHELL_3351, Items.BRUISE_BLUE_SNELM_3333),
+            intArrayOf(Items.BLAMISH_BLUE_SHELL_3361, Items.SACRED_OIL3_3433),
+            intArrayOf(Items.BLAMISH_BARK_SHELL_3353, Items.BROKEN_BARK_SNELM_3335)
         )
     }
 }
