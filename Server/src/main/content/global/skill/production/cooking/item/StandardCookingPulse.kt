@@ -58,7 +58,7 @@ open class StandardCookingPulse(
              * Handle Cook's Assistant range.
              */
             if (scenery.id == LUMBRIDGE_RANGE && !isQuestComplete(player, "Cook's Assistant")) {
-                sendMessage(player, "That requires completion of the Cook's Assistant quest in order to use it.")
+                sendDialogue(player, "That requires completion of the Cook's Assistant quest in order to use it.")
                 return false
             }
 
