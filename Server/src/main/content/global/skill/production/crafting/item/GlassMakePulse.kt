@@ -8,7 +8,7 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.game.system.task.Pulse
 
-class GlassMakePulse(private val player: Player, private val product: Int, private var amount: Int) : Pulse() {
+class GlassMakePulse(private val player: Player, val product: Int, private var amount: Int) : Pulse() {
 
     override fun pulse(): Boolean {
         if (amount < 1) return true

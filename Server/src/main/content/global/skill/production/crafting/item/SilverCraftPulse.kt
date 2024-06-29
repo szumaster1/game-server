@@ -12,10 +12,10 @@ import core.game.node.scenery.Scenery
 import core.game.system.task.Pulse
 
 class SilverCraftPulse(
-    private val player: Player,
-    private val product: SilverData,
-    private val furnace: Scenery,
-    private var amount: Int
+    val player: Player,
+    val product: SilverData,
+    val furnace: Scenery,
+    var amount: Int
 ) : Pulse() {
     override fun pulse(): Boolean {
         if (amount < 1) return true

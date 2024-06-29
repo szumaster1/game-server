@@ -16,15 +16,15 @@ import core.game.world.update.flag.context.Animation
 class JewelleryCraftPulse(
     player: Player?,
     node: Item?,
-    private val type: JewelleryData.JewelleryItem,
-    private var amount: Int
+    val type: JewelleryData.JewelleryItem,
+    var amount: Int
 ) : SkillPulse<Item?>(player, node) {
 
     companion object {
         private val ANIMATION = Animation(Animations.HUMAN_FURNACE_SMELTING_3243)
     }
 
-    private var ticks = 0
+    var ticks = 0
     override fun checkRequirements(): Boolean {
         return getStatLevel(player, Skills.CRAFTING) >= type.level
     }

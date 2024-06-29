@@ -1,6 +1,6 @@
 package content.region.karamja.quest.junglepotion;
 
-import content.global.skill.production.herblore.Herbs;
+import content.global.skill.production.herblore.data.Herb;
 import content.region.karamja.quest.junglepotion.dialogue.TrufitusDialogue;
 import content.region.karamja.quest.junglepotion.plugin.JunglePotionPlugin;
 import core.api.consts.Vars;
@@ -78,7 +78,7 @@ public final class JunglePotion extends Quest {
         super.finish(player);
         player.getPacketDispatch().sendString("1 Quest Point", 277, 8 + 2);
         player.getPacketDispatch().sendString("775 Herblore XP", 277, 9 + 2);
-        player.getPacketDispatch().sendItemZoomOnInterface(Herbs.VOLENCIA_MOSS.getProduct().getId(), 235, 277, 3 + 2);
+        player.getPacketDispatch().sendItemZoomOnInterface(Herb.VOLENCIA_MOSS.getProduct().getId(), 235, 277, 3 + 2);
         player.getSkills().addExperience(Skills.HERBLORE, 775);
         player.getQuestRepository().syncronizeTab(player);
         setVarbit(player, 897, 2);
@@ -103,7 +103,7 @@ public final class JunglePotion extends Quest {
         /**
          * The Jungle vine.
          */
-        JUNGLE_VINE(2575, Herbs.SNAKE_WEED, 10, "It grows near vines in an area to the south west where", "the ground turns soft and the water kisses your feet.") {
+        JUNGLE_VINE(2575, Herb.SNAKE_WEED, 10, "It grows near vines in an area to the south west where", "the ground turns soft and the water kisses your feet.") {
             @Override
             public void search(final Player player, final Scenery object) {
                 final Animation animation = Animation.create(2094);
@@ -127,19 +127,19 @@ public final class JunglePotion extends Quest {
         /**
          * The Palm tree.
          */
-        PALM_TREE(2577, Herbs.ARDRIGAL, 20, "You are looking for Ardrigal. It is related to the palm", "and grows in its brothers shady profusion."),
+        PALM_TREE(2577, Herb.ARDRIGAL, 20, "You are looking for Ardrigal. It is related to the palm", "and grows in its brothers shady profusion."),
         /**
          * The Sito foil.
          */
-        SITO_FOIL(2579, Herbs.SITO_FOIL, 30, "You are looking for Sito Foil, and it grows best where", "the ground has been blackened by the living flame."),
+        SITO_FOIL(2579, Herb.SITO_FOIL, 30, "You are looking for Sito Foil, and it grows best where", "the ground has been blackened by the living flame."),
         /**
          * The Volencia moss.
          */
-        VOLENCIA_MOSS(2581, Herbs.VOLENCIA_MOSS, 40, "You are looking for Volencia Moss. It clings to rocks", "for its existence. It is difficult to see, so you must", "search for it well."),
+        VOLENCIA_MOSS(2581, Herb.VOLENCIA_MOSS, 40, "You are looking for Volencia Moss. It clings to rocks", "for its existence. It is difficult to see, so you must", "search for it well."),
         /**
          * The Rogues purse.
          */
-        ROGUES_PURSE(32106, Herbs.ROGUES_PUSE, 50, "It inhabits the darkness of the underground, and grows", "in the caverns to the north. A secret entrance to the", "caverns is set into the northern cliffs, be careful Bwana.") {
+        ROGUES_PURSE(32106, Herb.ROGUES_PUSE, 50, "It inhabits the darkness of the underground, and grows", "in the caverns to the north. A secret entrance to the", "caverns is set into the northern cliffs, be careful Bwana.") {
             @Override
             public void search(final Player player, final Scenery object) {
                 final Animation animation = Animation.create(2097);
@@ -164,7 +164,7 @@ public final class JunglePotion extends Quest {
         private final int objectId;
 
 
-        private final Herbs herb;
+        private final Herb herb;
 
 
         private final int stage;
@@ -173,7 +173,7 @@ public final class JunglePotion extends Quest {
         private final String[] clue;
 
 
-        JungleObjective(int objectId, Herbs herb, int stage, final String... clue) {
+        JungleObjective(int objectId, Herb herb, int stage, final String... clue) {
             this.objectId = objectId;
             this.herb = herb;
             this.stage = stage;
@@ -273,7 +273,7 @@ public final class JunglePotion extends Quest {
          *
          * @return the herb
          */
-        public Herbs getHerb() {
+        public Herb getHerb() {
             return herb;
         }
 

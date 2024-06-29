@@ -10,6 +10,7 @@ import core.game.node.Node
 import core.game.node.entity.player.Player
 
 class SilverStringingListener : InteractionListener {
+
     companion object {
         private val STRINGABLE_PRODUCTS = intArrayOf(
             Items.UNSTRUNG_SYMBOL_1714,

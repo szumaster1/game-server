@@ -1,7 +1,9 @@
 package content.global.skill.production.crafting.plugins
 
 import content.global.skill.production.crafting.data.JewelleryData
+import core.api.consts.Components
 import core.api.consts.Items
+import core.api.consts.Scenery
 import core.api.inInventory
 import core.api.sendItemOnInterface
 import core.game.interaction.NodeUsageEvent
@@ -10,7 +12,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 @Initializable
-class JewelleryCraftPlugin : UseWithHandler(2357, 2365) {
+class JewelleryCraftPlugin : UseWithHandler(Items.GOLD_BAR_2357, Items.PERFECT_GOLD_BAR_2365) {
 
     override fun newInstance(arg: Any?): Plugin<Any> {
         for (i in IDS) {
@@ -22,17 +24,17 @@ class JewelleryCraftPlugin : UseWithHandler(2357, 2365) {
     override fun handle(event: NodeUsageEvent?): Boolean {
         event ?: return false
         JewelleryData.open(event.player).also {
-            if (inInventory(event.player, 2365) && inInventory(event.player, Items.RING_MOULD_1592) && inInventory(event.player, Items.RUBY_1603)) {
-                sendItemOnInterface(event.player, 446, 25, 773, 1)
+            if (inInventory(event.player, Items.PERFECT_GOLD_BAR_2365) && inInventory(event.player, Items.RING_MOULD_1592) && inInventory(event.player, Items.RUBY_1603)) {
+                sendItemOnInterface(event.player, Components.CRAFTING_GOLD_446, 25, Items.PERFECT_RING_773, 1)
             }
-            if (inInventory(event.player, 2365) && inInventory(event.player, Items.NECKLACE_MOULD_1597) && inInventory(event.player, Items.RUBY_1603)) {
-                sendItemOnInterface(event.player, 446, 47, 774, 1)
+            if (inInventory(event.player, Items.PERFECT_GOLD_BAR_2365) && inInventory(event.player, Items.NECKLACE_MOULD_1597) && inInventory(event.player, Items.RUBY_1603)) {
+                sendItemOnInterface(event.player, Components.CRAFTING_GOLD_446, 47, Items.PERFECT_NECKLACE_774, 1)
             }
         }
         return true
     }
 
     companion object {
-        private val IDS = intArrayOf(4304, 6189, 11010, 11666, 12100, 12809, 18497, 26814, 30021, 30510, 36956, 37651)
+        private val IDS = intArrayOf(Scenery.FURNACE_4304, Scenery.FURNACE_6189, Scenery.FURNACE_11010, Scenery.FURNACE_11666, Scenery.FURNACE_12100, Scenery.FURNACE_12809, Scenery.FURNACE_18497, Scenery.FURNACE_26814, Scenery.FURNACE_30021, Scenery.FURNACE_30510, Scenery.FURNACE_36956, Scenery.FURNACE_37651)
     }
 }

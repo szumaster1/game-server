@@ -1,6 +1,6 @@
 package content.minigame.pestcontrol;
 
-import content.global.skill.production.herblore.Herbs;
+import content.global.skill.production.herblore.data.Herb;
 import core.cache.def.impl.ItemDefinition;
 import core.game.component.Component;
 import core.game.component.ComponentDefinition;
@@ -226,7 +226,7 @@ public final class PCRewardInterface extends ComponentPlugin {
 
         PRAYER(Skills.PRAYER, new int[]{16, 40, 55, 62}),
 
-        HERB_PACK("Herb Pack", 30, new Item[]{Herbs.HARRALANDER.getHerb(), Herbs.RANARR.getHerb(), Herbs.TOADFLAX.getHerb(), Herbs.IRIT.getHerb(), Herbs.AVANTOE.getHerb(), Herbs.KWUARM.getHerb(), Herbs.GUAM.getHerb(), Herbs.MARRENTILL.getHerb()}, new int[]{32, 45}) {
+        HERB_PACK("Herb Pack", 30, new Item[]{Herb.HARRALANDER.getHerb(), Herb.RANARR.getHerb(), Herb.TOADFLAX.getHerb(), Herb.IRIT.getHerb(), Herb.AVANTOE.getHerb(), Herb.KWUARM.getHerb(), Herb.GUAM.getHerb(), Herb.MARRENTILL.getHerb()}, new int[]{32, 45}) {
             @Override
             public boolean checkItemRequirement(final Player player, final int option) {
                 if (player.getSkills().getLevel(Skills.HERBLORE) < 25) {
