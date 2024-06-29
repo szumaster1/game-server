@@ -1,71 +1,33 @@
-package content.global.skill.production.cooking.dairy;
+package content.global.skill.production.cooking.dairy
 
-import core.api.consts.Items;
-import core.game.node.item.Item;
+import core.api.consts.Items
+import core.game.node.item.Item
+import java.util.*
 
-import java.util.Arrays;
+enum class DairyProduct(
+    val level: Int,
+    val experience: Double,
+    val product: Item, inputs: Array<Int>
+) {
+    POT_OF_CREAM(
+        level = 21,
+        experience = 18.0,
+        product = Item(Items.POT_OF_CREAM_2130, 1),
+        inputs = arrayOf(Items.BUCKET_OF_MILK_1927)
+    ),
+    PAT_OF_BUTTER(
+        level = 38,
+        experience = 40.5,
+        product = Item(Items.PAT_OF_BUTTER_6697, 1),
+        inputs = arrayOf(Items.BUCKET_OF_MILK_1927, Items.POT_OF_CREAM_2130)
+    ),
+    CHEESE(
+        level = 48,
+        experience = 64.0,
+        product = Item(Items.CHEESE_1985, 1),
+        inputs = arrayOf(Items.BUCKET_OF_MILK_1927, Items.POT_OF_CREAM_2130, Items.PAT_OF_BUTTER_6697)
+    );
 
-/**
- * The enum Dairy product.
- */
-public enum DairyProduct {
-    /**
-     * The Pot of cream.
-     */
-    POT_OF_CREAM(21, 18, new Item(Items.POT_OF_CREAM_2130, 1), new Integer[]{Items.BUCKET_OF_MILK_1927}),
-    /**
-     * The Pat of butter.
-     */
-    PAT_OF_BUTTER(38, 40.5, new Item(Items.PAT_OF_BUTTER_6697, 1), new Integer[]{Items.BUCKET_OF_MILK_1927, Items.POT_OF_CREAM_2130}),
-    /**
-     * The Cheese.
-     */
-    CHEESE(48, 64, new Item(Items.CHEESE_1985, 1), new Integer[]{Items.BUCKET_OF_MILK_1927, Items.POT_OF_CREAM_2130, Items.PAT_OF_BUTTER_6697});
-    private final Item product;
-    private final int level;
-    private final double experience;
-    private final Item[] inputs;
-
-    DairyProduct(int level, double experience, Item product, Integer[] inputs) {
-        this.level = level;
-        this.experience = experience;
-        this.product = product;
-        this.inputs = Arrays.stream(inputs).map(id -> new Item(id, 1)).toArray(len -> new Item[len]);
-    }
-
-    /**
-     * Gets product.
-     *
-     * @return the product
-     */
-    public Item getProduct() {
-        return product;
-    }
-
-    /**
-     * Gets level.
-     *
-     * @return the level
-     */
-    public int getLevel() {
-        return level;
-    }
-
-    /**
-     * Gets experience.
-     *
-     * @return the experience
-     */
-    public double getExperience() {
-        return experience;
-    }
-
-    /**
-     * Get inputs item [ ].
-     *
-     * @return the item [ ]
-     */
-    public Item[] getInputs() {
-        return inputs;
-    }
+    val inputs: Array<Item?> =
+        Arrays.stream(inputs).map { id: Int? -> Item(id!!, 1) }.toArray { len: Int -> arrayOfNulls(len) }
 }

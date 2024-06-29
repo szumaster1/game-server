@@ -1,6 +1,7 @@
 package content.region.misthalin.quest.member.losttribe.handlers
 
 import core.api.consts.Components
+import core.api.consts.Scenery
 import core.api.openInterface
 import core.cache.def.impl.SceneryDefinition
 import core.game.interaction.OptionHandler
@@ -15,7 +16,7 @@ import core.plugin.Plugin
 class CaveRockHandler : OptionHandler() {
 
     override fun newInstance(arg: Any?): Plugin<Any> {
-        for (i in 6921..6924) {
+        for (i in Scenery.SYMBOL_6921..Scenery.SYMBOL_6924) {
             SceneryDefinition.forId(i).handlers["option:look-at"] = this
         }
         return this
@@ -24,10 +25,10 @@ class CaveRockHandler : OptionHandler() {
     override fun handle(player: Player?, node: Node?, option: String?): Boolean {
         player ?: return false
         when (node?.id) {
-            6921 -> showRock(player, 6923)
-            6922 -> showRock(player, 6924)
-            6923 -> showRock(player, 6922)
-            6924 -> showRock(player, 6927)
+            Scenery.SYMBOL_6921 -> showRock(player, Scenery.SYMBOL_6923)
+            Scenery.SYMBOL_6922 -> showRock(player, Scenery.SYMBOL_6924)
+            Scenery.SYMBOL_6923 -> showRock(player, Scenery.SYMBOL_6922)
+            Scenery.SYMBOL_6924 -> showRock(player, Scenery.BIG_BIG_BOULDER_6927)
         }
         return true
     }

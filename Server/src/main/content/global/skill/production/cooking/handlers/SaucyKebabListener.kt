@@ -13,9 +13,11 @@ class SaucyKebabListener : InteractionListener {
     private val KEBABS = intArrayOf(Items.KEBAB_1971, Items.UGTHANKI_KEBAB_1883, Items.UGTHANKI_KEBAB_1885)
 
     override fun defineListeners() {
-        // https://runescape.wiki/w/Ugthanki_kebab?oldid=2077970 | add
-        // https://runescape.wiki/w/Red_hot_sauce?oldid=1936150
-        // https://www.youtube.com/watch?v=SnKCK41qMjg&ab_channel=guthixking6
+        /*
+         * https://runescape.wiki/w/Ugthanki_kebab?oldid=2077970 | add
+         * https://runescape.wiki/w/Red_hot_sauce?oldid=1936150
+         * https://www.youtube.com/watch?v=SnKCK41qMjg&ab_channel=guthixking6
+         */
 
         onUseWith(IntType.ITEM, Items.RED_HOT_SAUCE_4610, *KEBABS) { player, used, with ->
             if (removeItem(player, used.asItem()) && removeItem(player, with.asItem())) {

@@ -6,21 +6,11 @@ import core.game.node.item.Item;
 import core.game.system.task.Pulse;
 import core.utilities.RandomFunction;
 
-/**
- * The Wine fermenting pulse.
- */
 public final class WineFermentingPulse extends Pulse {
 
     private final Player player;
-
     private int count;
 
-    /**
-     * Instantiates a new Wine fermenting pulse.
-     *
-     * @param delay  the delay
-     * @param player the player
-     */
     public WineFermentingPulse(int delay, final Player player) {
         super(delay);
         this.player = player;
@@ -63,11 +53,6 @@ public final class WineFermentingPulse extends Pulse {
         return false;
     }
 
-    /**
-     * Gets player.
-     *
-     * @return the player
-     */
     public Player getPlayer() {
         return player;
     }

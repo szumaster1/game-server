@@ -1,10 +1,8 @@
 package content.region.misthalin.quest.member.losttribe.handlers
 
 import content.data.skill.SkillingTool
-import core.api.sendDialogue
-import core.api.sendItemDialogue
-import core.api.setAttribute
-import core.api.setVarbit
+import core.api.*
+import core.api.consts.Items
 import core.game.interaction.NodeUsageEvent
 import core.game.interaction.UseWithHandler
 import core.game.node.entity.skill.Skills
@@ -14,7 +12,14 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 @Initializable
-class PickaxeOnRubble : UseWithHandler(1265, 1267, 1269, 1271, 1273, 1275) {
+class PickaxeOnRubbleHandler : UseWithHandler(
+    Items.BRONZE_PICKAXE_1265,
+    Items.IRON_PICKAXE_1267,
+    Items.STEEL_PICKAXE_1269,
+    Items.MITHRIL_PICKAXE_1273,
+    Items.ADAMANT_PICKAXE_1271,
+    Items.RUNE_PICKAXE_1275
+) {
 
     override fun newInstance(arg: Any?): Plugin<Any> {
         for (id in arrayOf(6898, 6903, 6904, 6905)) {
@@ -37,7 +42,7 @@ class PickaxeOnRubble : UseWithHandler(1265, 1267, 1269, 1271, 1273, 1275) {
             return true
         }
 
-        if (player.skills.getLevel(Skills.MINING) < 13) {
+        if (getStatLevel(player, Skills.MINING) < 13) {
             sendDialogue(player, "You need 13 mining to break through.")
             return true
         }

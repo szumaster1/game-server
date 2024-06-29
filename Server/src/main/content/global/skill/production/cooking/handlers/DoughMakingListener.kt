@@ -10,6 +10,7 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
 class DoughMakingListener : InteractionListener {
+
     companion object {
         private val FULL_WATER_CONTAINERS_TO_EMPTY_CONTAINERS = hashMapOf(
             Items.BUCKET_OF_WATER_1929 to Items.BUCKET_1925,
@@ -25,8 +26,7 @@ class DoughMakingListener : InteractionListener {
         }
     }
 
-    private
-    class DoughMakeDialogue(val waterContainer: Item, val flourContainer: Item) : DialogueFile() {
+    private class DoughMakeDialogue(val waterContainer: Item, val flourContainer: Item) : DialogueFile() {
         companion object {
             private const val STAGE_PRESENT_OPTIONS = 0
             private const val STAGE_PROCESS_OPTION = 1
@@ -43,47 +43,26 @@ class DoughMakingListener : InteractionListener {
         override fun handle(componentID: Int, buttonID: Int) {
             when (stage) {
                 STAGE_PRESENT_OPTIONS -> {
-                    player!!.dialogueInterpreter.sendOptions(
-                        "What do you wish to make?",
-                        *(DoughProduct.values().map { "${it.itemName}." }.toTypedArray())
-                    ).also { stage++ }
+                    sendDialogueOptions(player!!, "What do you wish to make?", *(DoughProduct.values().map { "${it.itemName}." }.toTypedArray())).also { stage++ }
                 }
-
                 STAGE_PROCESS_OPTION -> runTask(player!!, 1) {
                     end()
                     val selectedDoughProduct = DoughProduct.values()[buttonID - 1]
                     if (hasLevelDyn(player!!, Skills.COOKING, selectedDoughProduct.requiredCookingLevel)) {
                         if (freeSlots(player!!) < 1) {
-                            sendMessage(
-                                player!!,
-                                "Not enough space in your inventory."
-                            )
+                            sendMessage(player!!, "Not enough space in your inventory.")
                             return@runTask
                         }
-
                         if (removeItem(player!!, waterContainer) && removeItem(player!!, flourContainer)) {
                             addItem(player!!, selectedDoughProduct.itemId)
                             player!!.dispatch(ResourceProducedEvent(selectedDoughProduct.itemId, 1, player!!))
-
                             val emptyWaterContainerId = FULL_WATER_CONTAINERS_TO_EMPTY_CONTAINERS[waterContainer.id]!!
                             addItem(player!!, emptyWaterContainerId)
-
                             addItem(player!!, Items.EMPTY_POT_1931)
-
-                            sendMessage(
-                                player!!,
-                                "You mix the flower and the water to make some ${
-                                    selectedDoughProduct.itemName.lowercase()
-                                }."
-                            )
+                            sendMessage(player!!, "You mix the flower and the water to make some ${selectedDoughProduct.itemName.lowercase()}.")
                         }
                     } else {
-                        sendDialogue(
-                            player!!,
-                            "You need a Cooking level of at least ${selectedDoughProduct.requiredCookingLevel} in order to make ${
-                                selectedDoughProduct.itemName.lowercase()
-                            }."
-                        )
+                        sendDialogue(player!!, "You need a Cooking level of at least ${selectedDoughProduct.requiredCookingLevel} in order to make ${selectedDoughProduct.itemName.lowercase()}.")
                     }
                 }
             }

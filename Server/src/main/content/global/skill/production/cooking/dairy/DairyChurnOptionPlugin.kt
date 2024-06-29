@@ -1,36 +1,35 @@
-package content.global.skill.production.cooking.dairy;
+package content.global.skill.production.cooking.dairy
 
-import core.cache.def.impl.SceneryDefinition;
-import core.game.interaction.OptionHandler;
-import core.game.node.Node;
-import core.game.node.entity.player.Player;
-import core.plugin.Initializable;
-import core.plugin.Plugin;
+import core.api.consts.Items
+import core.api.consts.Scenery
+import core.api.inInventory
+import core.api.sendMessage
+import core.cache.def.impl.SceneryDefinition
+import core.game.interaction.OptionHandler
+import core.game.node.Node
+import core.game.node.entity.player.Player
+import core.plugin.Initializable
+import core.plugin.Plugin
 
-/**
- * The Dairy churn option plugin.
- */
 @Initializable
-public final class DairyChurnOptionPlugin extends OptionHandler {
+class DairyChurnOptionPlugin : OptionHandler() {
 
-    @Override
-    public Plugin<Object> newInstance(Object arg) throws Throwable {
-        SceneryDefinition.forId(10093).getHandlers().put("option:churn", this);
-        SceneryDefinition.forId(10094).getHandlers().put("option:churn", this);
-        SceneryDefinition.forId(25720).getHandlers().put("option:churn", this);
-        SceneryDefinition.forId(34800).getHandlers().put("option:churn", this);
-        SceneryDefinition.forId(35931).getHandlers().put("option:churn", this);
-        return this;
+    override fun newInstance(arg: Any?): Plugin<Any> {
+        SceneryDefinition.forId(Scenery.DAIRY_CHURN_10093).handlers["option:churn"] = this
+        SceneryDefinition.forId(Scenery.DAIRY_CHURN_10094).handlers["option:churn"] = this
+        SceneryDefinition.forId(Scenery.DAIRY_CHURN_25720).handlers["option:churn"] = this
+        SceneryDefinition.forId(Scenery.DAIRY_CHURN_34800).handlers["option:churn"] = this
+        SceneryDefinition.forId(Scenery.DAIRY_CHURN_35931).handlers["option:churn"] = this
+        return this
     }
 
-    @Override
-    public boolean handle(Player player, Node node, String option) {
-        if (!player.getInventory().contains(1927, 1) && !player.getInventory().contains(2130, 1) && !player.getInventory().contains(6697, 1)) {
-            player.getPacketDispatch().sendMessage("You need some milk, cream or butter to use in the churn.");
-            return true;
+    override fun handle(player: Player, node: Node, option: String): Boolean {
+        if (!inInventory(player, Items.BUCKET_OF_MILK_1927, 1) && !inInventory(player, Items.POT_OF_CREAM_2130, 1) && !inInventory(player, Items.PAT_OF_BUTTER_6697, 1)) {
+            sendMessage(player, "You need some milk, cream or butter to use in the churn.")
+            return true
         }
-        player.getDialogueInterpreter().open(984374);
-        return true;
+        player.dialogueInterpreter.open(984374)
+        return true
     }
 
 }

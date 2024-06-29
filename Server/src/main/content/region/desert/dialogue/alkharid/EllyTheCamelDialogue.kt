@@ -1,6 +1,7 @@
 package content.region.desert.dialogue.alkharid
 
 import core.api.consts.NPCs
+import core.api.consts.Sounds
 import core.api.playAudio
 import core.api.sendMessage
 import core.game.dialogue.Dialogue
@@ -27,7 +28,7 @@ class EllyTheCamelDialogue(player: Player? = null) : Dialogue(player) {
         when (stage) {
             0 -> {
                 end()
-                playAudio(player, 327)
+                playAudio(player, Sounds.CAMEL_DISGRUNTLED_327)
                 sendMessage(player, "The camel tries to stomp on your foot, but you pull it back quickly.")
             }
         }

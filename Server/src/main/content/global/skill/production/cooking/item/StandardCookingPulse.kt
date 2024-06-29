@@ -17,15 +17,15 @@ import core.game.node.scenery.Scenery
 import core.game.system.task.Pulse
 import core.game.world.update.flag.context.Animation
 import core.utilities.RandomFunction
-import java.util.*
 
 open class StandardCookingPulse(
     open val player: Player,
-    val scenery: Scenery,
+    open val scenery: Scenery,
     open val initial: Int,
     open val product: Int,
     open var amount: Int
 ) : Pulse() {
+
     private var experience = 0.0
     private var burned = false
 
@@ -58,10 +58,10 @@ open class StandardCookingPulse(
              * Handle Cook's Assistant range.
              */
             if (scenery.id == LUMBRIDGE_RANGE && !isQuestComplete(player, "Cook's Assistant")) {
+                sendMessage(player, "That requires completion of the Cook's Assistant quest in order to use it.")
                 return false
             }
 
-            //check level
             if (getStatLevel(player, Skills.COOKING) < properties!!.level) {
                 sendDialogue(player, "You need a cooking level of " + properties!!.level + " to cook this.")
                 return false
@@ -79,7 +79,7 @@ open class StandardCookingPulse(
 
     open fun reward(): Boolean {
         if (delay == 1) {
-            var delay = if (scenery.name.lowercase(Locale.getDefault()).contains("range")) 5 else 4
+            var delay = if (scenery.name.lowercase().contains("range")) 5 else 4
             if (isActive(SkillcapePerks.HASTY_COOKING, player)) {
                 delay -= 1
             }
@@ -95,7 +95,7 @@ open class StandardCookingPulse(
         return amount < 1
     }
 
-    open fun isBurned(player: Player, `object`: Scenery, food: Int): Boolean {
+    open fun isBurned(player: Player, scenery: Scenery, food: Int): Boolean {
         val hasGauntlets = player.equipment.containsItem(Item(Items.COOKING_GAUNTLETS_775))
         var effectiveCookingLevel = player.getSkills().getLevel(Skills.COOKING)
         if (isActive(SkillcapePerks.HASTY_COOKING, player)) {
@@ -110,13 +110,12 @@ open class StandardCookingPulse(
             val successValues = CookableItems.gauntletValues[food]
             low = successValues!![0]
             high = successValues[1]
-        } else if (`object`.id == LUMBRIDGE_RANGE) {
-            val successValues =
-                CookableItems.lumbridgeRangeValues.getOrDefault(food, intArrayOf(item.lowRange, item.highRange))
+        } else if (scenery.id == LUMBRIDGE_RANGE) {
+            val successValues = CookableItems.lumbridgeRangeValues.getOrDefault(food, intArrayOf(item.lowRange, item.highRange))
             low = successValues[0]
             high = successValues[1]
         } else {
-            val isFire = `object`.name.lowercase(Locale.getDefault()).contains("fire")
+            val isFire = scenery.name.lowercase().contains("fire")
             low = if (isFire) item.low else item.lowRange
             high = if (isFire) item.high else item.highRange
         }
@@ -194,8 +193,6 @@ open class StandardCookingPulse(
             return ""
         }
 
-
-
         return if (!burned && food.name.startsWith(("Uncooked"))) {
             "You manage to cook some " + food.name.replace("Raw ", "") + "."
         } else {
@@ -203,8 +200,8 @@ open class StandardCookingPulse(
         }
     }
 
-    private fun getAnimation(`object`: Scenery): Animation {
-        return if (!`object`.name.equals("fire", ignoreCase = true)) RANGE_ANIMATION else FIRE_ANIMATION
+    private fun getAnimation(scenery: Scenery): Animation {
+        return if (!scenery.name.equals("fire", ignoreCase = true)) RANGE_ANIMATION else FIRE_ANIMATION
     }
 
     companion object {
