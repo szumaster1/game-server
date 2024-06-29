@@ -9,6 +9,8 @@ import core.game.node.item.Item;
 import core.plugin.Initializable;
 import core.utilities.RandomFunction;
 
+import static core.api.ContentAPIKt.addItemOrBank;
+
 /**
  * The Gertrudes cat.
  */
@@ -83,8 +85,11 @@ public class GertrudesCat extends Quest {
         player.getSkills().addExperience(Skills.COOKING, 1525);
         player.getPacketDispatch().sendItemZoomOnInterface(kitten.getId(), 240, 277, 3 + 2);
         setStage(player, 100);
-        player.getInventory().add(kitten);
-        player.getFamiliarManager().summon(kitten, true);
+        if (player.getFamiliarManager().hasFamiliar()) {
+            addItemOrBank(player, kitten.getId(), 1);
+        } else {
+            player.getFamiliarManager().summon(kitten, true, false);
+        }
         final Item cake = new Item(1897);
         final Item stew = new Item(2003);
         if (!player.getInventory().add(cake)) {

@@ -12,7 +12,7 @@ import core.game.world.map.Location
 
 object PinballUtils {
     const val PINBALL_LOGOUT = "pinball-logout"
-    const val PINBALL_SAVE_LOCATION = "pinball-location"
+    const val PINBALL_SAVE_LOCATION = "/save:original-loc"
     const val PINBALL_EVENT_START = "pinball-event-start"
     const val PILLAR_TOUCHED = "pinball-clicked"
     const val PINBALL_SCORE = "pinball-event-score"

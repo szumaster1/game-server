@@ -16,7 +16,7 @@ object GraveUtils {
     // attributes
     const val LEO_TASK = "gravedigger:task"
     const val LEO_COFFIN_POINTS = "gravedigger:points"
-    const val LEO_LOCATION = "gravedigger:location"
+    const val LEO_LOCATION = "/save:original-loc"
     const val LEO_LOGOUT = "gravedigger:logout"
 
     val items = intArrayOf(7597, 7598, 7599, 7600, 7601, 7602, 7603, 7604, 7605, 7606, 7607, 7608, 7609, 7610, 7611, 7612, 7613, 7614, 7615, 7616, 7617, 7618, 7619)

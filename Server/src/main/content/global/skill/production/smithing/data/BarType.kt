@@ -7,13 +7,41 @@ enum class BarType(
     val experience: Double,
     val barName: String
 ) {
-    BRONZE(Items.BRONZE_BAR_2349, 12.5, "Bronze Smithing"),
-    BLURITE(Items.BLURITE_BAR_9467, 16.0, "Blurite Smithing"),
-    IRON(Items.IRON_BAR_2351, 25.0, "Iron Smithing"),
-    STEEL(Items.STEEL_BAR_2353, 37.5, "Steel Smithing"),
-    MITHRIL(Items.MITHRIL_BAR_2359, 50.0, "Mithril Smithing"),
-    ADAMANT(Items.ADAMANTITE_BAR_2361, 62.5, "Adamant Smithing"),
-    RUNITE(Items.RUNITE_BAR_2363, 75.0, "Runite Smithing");
+    BRONZE(
+        bar = Items.BRONZE_BAR_2349,
+        experience = 12.5,
+        barName = "Bronze Smithing"
+    ),
+    BLURITE(
+        bar = Items.BLURITE_BAR_9467,
+        experience = 16.0,
+        barName = "Blurite Smithing"
+    ),
+    IRON(
+        bar = Items.IRON_BAR_2351,
+        experience = 25.0,
+        barName = "Iron Smithing"
+    ),
+    STEEL(
+        bar = Items.STEEL_BAR_2353,
+        experience = 37.5,
+        barName = "Steel Smithing"
+    ),
+    MITHRIL(
+        bar = Items.MITHRIL_BAR_2359,
+        experience = 50.0,
+        barName = "Mithril Smithing"
+    ),
+    ADAMANT(
+        bar = Items.ADAMANTITE_BAR_2361,
+        experience = 62.5,
+        barName = "Adamant Smithing"
+    ),
+    RUNITE(
+        bar = Items.RUNITE_BAR_2363,
+        experience = 75.0,
+        barName = "Runite Smithing"
+    );
 
     companion object {
 

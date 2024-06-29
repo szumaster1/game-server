@@ -19,7 +19,7 @@ object MimeUtils {
     val PLAYER_LOCATION = Location(2007, 4761, 0)
     val SCENERY_LOCATION = Location(2010, 4761, 0)
 
-    const val TELEPORT_ATTRIBUTE = "mime:save-location"
+    const val TELEPORT_ATTRIBUTE = "/save:original-loc"
     const val LOGOUT_ATTRIBUTE = "mime:save-location"
     const val EMOTE_ATTRIBUTE = "mime:emote"
     const val COPY_ATTRIBUTE = "mime:emote-copy"

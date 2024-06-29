@@ -10,11 +10,13 @@ import core.utilities.RandomFunction
 
 object FreakUtils {
     const val freakNpc = NPCs.FREAKY_FORESTER_2458
-    const val freakPreviousLoc = "/save:freakyf:location"
+    const val freakPreviousLoc = "/save:original-loc"
     const val freakTask = "/save:freakyf:task"
     const val freakComplete = "/save:freakyf:complete"
     const val pheasantKilled = "freakyf:killed"
+
     val freakArea = ZoneBorders(2587, 4758, 2616, 4788)
+
     fun giveFreakTask(player: Player) {
         when (RandomFunction.getRandom(4)) {
             0 -> setAttribute(player, freakTask, NPCs.PHEASANT_2459)

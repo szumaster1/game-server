@@ -139,24 +139,16 @@ public final class LoginConfiguration {
             player.getEmoteManager().unlock(Emotes.SAFETY_FIRST);
         }
         for (Item item : player.getEquipment().toArray()) {
-            //Run equip hooks for all items equipped on login.
-            //We should have already been doing this.
-            //Frankly, I don't even want to imagine the number of bugs us *not* doing this has caused.
+            /*
+             *  Run equip hooks for all items equipped on login.
+             *  We should have already been doing this.
+             *  Frankly, I don't even want to imagine the number of bugs us *not* doing this has caused.
+             */
             if (item == null) continue;
             player.getEquipment().remove(item);
             if (!InteractionListeners.run(item.getId(), player, item, true) || !player.getEquipment().add(item, true, false)) {
-                if (player.getInventory().add(item))
-                    player.sendMessage(colorize("%RAs you can no longer wear " + item.getName() + ", it has been unequipped."));
-                else if (player.getBankPrimary().add(item))
-                    player.sendMessage(colorize("%RAs you can no longer wear " + item.getName() + ", it has been sent to your bank."));
-                else if (player.getBankSecondary().add(item))
-                    player.sendMessage(colorize("%RAs you can no longer wear " + item.getName() + ", it has been sent to your secondary bank."));
-                else {
-                    player.sendMessage(colorize("%RAs you can no longer wear " + item.getName() + ", and your inventory and both banks are full,"));
-                    player.sendMessage(colorize("%RIt has been placed on the ground under your feet. Don't forget to grab it."));
-                    player.sendMessage("(Also, consider cleaning out your banks maybe? I mean jesus.)");
-                    GroundItemManager.create(item, player);
-                }
+                player.sendMessage(colorize("%RAs you can no longer wear " + item.getName() + ", it has been unequipped."));
+                addItemOrBank(player, item.getId(), item.getAmount());
             }
         }
         SpellBookManager.SpellBook currentSpellBook = SpellBookManager.SpellBook.forInterface(player.getSpellBookManager().getSpellBook());
@@ -168,18 +160,22 @@ public final class LoginConfiguration {
             player.getSpellBookManager().setSpellBook(SpellBookManager.SpellBook.MODERN);
         }
         player.getSpellBookManager().update(player);
-        // 1050 is checked client-side for making piety/chivalry disallowed sfx, likely due to the minigame requirement.
-        // Set it here unconditionally until the minigame is implemented.
+        /*
+         * 1050 is checked client-side for making piety/chivalry disallowed sfx, likely due to the minigame requirement.
+         * Set it here unconditionally until the minigame is implemented.
+         */
         setVarbit(player, 3909, 8, false);
-        if (ServerConstants.RULES_AND_INFO_ENABLED) {
-        }
-        // RulesAndInfo.openFor(player);
-		/*if (GameWorld.getSettings().isPvp()) {
-			player.getPacketDispatch().sendString("", 226, 1);
-		}*/
-        /*if (TutorialSession.getExtension(player).getStage() != 73) {
-            TutorialStage.load(player, TutorialSession.getExtension(player).getStage(), true);
-        }*/
+        /*
+         * if (ServerConstants.RULES_AND_INFO_ENABLED) {
+         * }
+         * RulesAndInfo.openFor(player);
+         * if (GameWorld.getSettings().isPvp()) {
+         * 	player.getPacketDispatch().sendString("", 226, 1);
+         * }
+         * if (TutorialSession.getExtension(player).getStage() != 73) {
+         *     TutorialStage.load(player, TutorialSession.getExtension(player).getStage(), true);
+         * }
+         */
     }
 
     /**
@@ -217,13 +213,14 @@ public final class LoginConfiguration {
             return;
         }
         player.getPacketDispatch().sendMessage("Welcome to " + GameWorld.getSettings().getName() + ".");
-        //player.getPacketDispatch().sendMessage("You are currently playing in beta version 1.2");
         if (player.getDetails().isMuted()) {
             player.getPacketDispatch().sendMessage("You are muted.");
             player.getPacketDispatch().sendMessage("To prevent further mutes please read the rules.");
         }
-//		ResourceAIPManager.get().load(player);
-//		ResourceAIPManager.get().save(player);
+        /*
+         *  ResourceAIPManager.get().load(player);
+         *  ResourceAIPManager.get().save(player);
+         */
     }
 
     /**

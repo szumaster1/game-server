@@ -13,7 +13,7 @@ import core.game.system.task.Pulse
 
 object SurpriseExamUtils {
 
-    val SE_KEY_LOC = "surpriseexam:loc"
+    val SE_KEY_LOC = "/save:original-loc"
     val SE_KEY_INDEX = "surpriseexam:index"
     val SE_LOGOUT_KEY = "surprise_exam"
     val SE_DOOR_KEY = "surpriseexam:door"

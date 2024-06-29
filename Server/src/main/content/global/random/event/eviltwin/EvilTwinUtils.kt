@@ -27,7 +27,7 @@ object EvilTwinUtils {
     val randomEvent = "/save:evil_twin:random"
     val doorDialogue = "evil_twin:door-interact"
     val talkBefore = "evil_twin:npc-interact"
-    val originalLocation = "/save:evil_twin:original-loc"
+    val originalLocation = "/save:original-loc"
     val logout = "/save:evil_twin:logout"
     val crane_x_loc = "/save:evil_twin:ccx"
     val crane_y_loc = "/save:evil_twin:ccy"

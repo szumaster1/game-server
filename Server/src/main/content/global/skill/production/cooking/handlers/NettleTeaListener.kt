@@ -77,7 +77,7 @@ class NettleTeaListener : InteractionListener {
         }
 
         /*
-         * Added milk to nettle tea (bowl)
+         * Added milk to nettle tea (bowl).
          */
         onUseWith(IntType.ITEM, Items.BUCKET_OF_MILK_1927, Items.NETTLE_TEA_4239) { player, used, with ->
             if (removeItem(player, used.asItem()) && removeItem(player, with.asItem())) {

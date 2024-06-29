@@ -15,7 +15,7 @@ import core.game.world.update.flag.context.Graphic
 
 object FrogUtils {
     const val ATTRIBUTE_FROG_RANDOM_EVENT = "frog:task"
-    const val ATTRIBUTE_FROG_LOCATION = "frog:location"
+    const val ATTRIBUTE_FROG_LOCATION = "/save:original-loc"
     const val ATTRIBUTE_FROG_LOGOUT = "frog:logout"
     const val ATTRIBUTE_FROG_TASK_FAIL = "frog:fail"
 

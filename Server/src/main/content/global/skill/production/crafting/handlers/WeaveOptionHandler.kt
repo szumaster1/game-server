@@ -1,6 +1,7 @@
 package content.global.skill.production.crafting.handlers
 
 import core.api.*
+import core.api.consts.Animations
 import core.api.consts.Items
 import core.cache.def.impl.SceneryDefinition
 import core.game.dialogue.SkillDialogueHandler
@@ -35,7 +36,8 @@ class WeaveOptionHandler : OptionHandler() {
         return true
     }
 
-    class WeavePulse(player: Player?, node: Scenery?, private val type: WeavingItem, private var amount: Int) : SkillPulse<Scenery?>(player, node) {
+    class WeavePulse(player: Player?, node: Scenery?, private val type: WeavingItem, private var amount: Int) :
+        SkillPulse<Scenery?>(player, node) {
 
         private var ticks = 0
         override fun checkRequirements(): Boolean {
@@ -43,7 +45,7 @@ class WeaveOptionHandler : OptionHandler() {
                 sendMessage(player, "You need a Crafting level of at least " + type.level + " in order to do this.")
                 return false
             }
-            if (!player.inventory.containsItem(type.required)) {
+            if (!inInventory(player, type.required.id)) {
                 sendMessage(player, "You need " + type.required.amount + " " + type.required.name.lowercase().replace("ball", "balls") + (if (type == WeavingItem.SACK) "s" else if (type == WeavingItem.CLOTH) "" else "es") + " to weave " + (if (StringUtils.isPlusN(type.product.name.lowercase())) "an" else "a") + " " + type.product.name.lowercase() + ".")
                 return false
             }
@@ -61,7 +63,7 @@ class WeaveOptionHandler : OptionHandler() {
                 return false
             }
             if (removeItem(player, type.required)) {
-                player.inventory.add(type.product)
+                addItem(player, type.product.id)
                 rewardXP(player, Skills.CRAFTING, type.experience)
                 sendMessage(
                     player,
@@ -80,14 +82,28 @@ class WeaveOptionHandler : OptionHandler() {
         }
 
         companion object {
-            private val ANIMATION = Animation(2270)
+            private const val ANIMATION = Animations.PULLING_ROPE_2270
         }
     }
 
     enum class WeavingItem(val product: Item, val required: Item, val level: Int, val experience: Double) {
-        SACK(Item(Items.EMPTY_SACK_5418), Item(Items.JUTE_FIBRE_5931, 4), 21, 38.0),
-        BASKET(Item(Items.BASKET_5376), Item(Items.WILLOW_BRANCH_5933, 6), 36, 56.0),
-        CLOTH(Item(Items.STRIP_OF_CLOTH_3224), Item(Items.BALL_OF_WOOL_1759, 4), 10, 12.0)
-
+        SACK(
+            product = Item(Items.EMPTY_SACK_5418),
+            required = Item(Items.JUTE_FIBRE_5931, 4),
+            level = 21,
+            experience = 38.0
+        ),
+        BASKET(
+            product = Item(Items.BASKET_5376),
+            required = Item(Items.WILLOW_BRANCH_5933, 6),
+            level = 36,
+            experience = 56.0
+        ),
+        CLOTH(
+            product = Item(Items.STRIP_OF_CLOTH_3224),
+            required = Item(Items.BALL_OF_WOOL_1759, 4),
+            level = 10,
+            experience = 12.0
+        )
     }
 }

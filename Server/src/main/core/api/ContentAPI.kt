@@ -341,6 +341,26 @@ fun addItem(player: Player, id: Int, amount: Int = 1, container: Container = Con
 }
 
 /**
+ * Add an item with a variable quantity or bank it if a player does not have enough space, or drop it if that still doesn't work
+ * @param player    The player whose inventory to add to
+ * @param id        The ID of the item to add to the player's inventory
+ * @param amount    The amount of the ID to add to the player's inventory, defaults to 1
+ */
+fun addItemOrBank(player: Player, id: Int, amount: Int = 1) {
+    val item = Item(id, amount)
+    if (!player.inventory.add(item)) {
+        if (player.bankPrimary.add(item)) {
+            sendMessage(player, colorize("%RThe ${item.name} has been sent to your bank."))
+        } else if (player.bankSecondary.add(item)) {
+            sendMessage(player, colorize("%RThe ${item.name} has been sent to your secondary bank."))
+        } else {
+            GroundItemManager.create(item, player)
+            sendMessage(player, colorize("%RAs your inventory and bank account(s) are all full, the ${item.name} has been placed on the ground under your feet. Don't forget to grab it. (Also consider cleaning out some stuff, maybe? I mean, Jesus!)"))
+        }
+    }
+}
+
+/**
  * Replaces the item in the given slot in the given container with the given item.
  * @param player    the player whose container to modify
  * @param slot      the slot to use

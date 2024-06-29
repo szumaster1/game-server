@@ -1,5 +1,6 @@
 package content.global.skill.production.cooking.dairy
 
+import content.global.skill.production.cooking.item.DairyChurnPulse
 import core.api.consts.Components
 import core.api.consts.Items
 import core.api.openChatbox

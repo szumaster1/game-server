@@ -1,5 +1,6 @@
-package content.global.skill.production.cooking.dairy
+package content.global.skill.production.cooking.item
 
+import content.global.skill.production.cooking.dairy.DairyProduct
 import core.api.*
 import core.api.consts.Animations
 import core.api.consts.Items

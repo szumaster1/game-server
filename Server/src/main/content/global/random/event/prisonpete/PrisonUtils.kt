@@ -22,7 +22,7 @@ object PrisonUtils {
     const val POP_KEY = "/save:prisonpete:pop-animals"
     const val POP_KEY_FALSE = "/save:prisonpete:pop-incorrect"
     const val POP_KEY_VALUE = "/save:prisonpete:value"
-    const val PREVIOUS_LOCATION = "prisonpete:location"
+    const val PREVIOUS_LOCATION = "/save:original-loc"
 
     val ANIMAL_ID = intArrayOf(3119, 3120, 3121, 3122)
     val PRISON_ZONE = ZoneBorders(2075, 4458, 2096, 4474)

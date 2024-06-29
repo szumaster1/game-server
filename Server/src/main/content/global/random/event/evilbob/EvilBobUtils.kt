@@ -13,7 +13,7 @@ import core.utilities.RandomFunction
 
 
 object EvilBobUtils {
-    const val prevLocation = "/save:evilbob:prevlocation"
+    const val prevLocation = "/save:original-loc"
     const val eventComplete = "/save:evilbob:eventcomplete"
     const val assignedFishingZone = "/save:evilbob:fishingzone"
     const val fishCaught = "evilbob:fishcaught"

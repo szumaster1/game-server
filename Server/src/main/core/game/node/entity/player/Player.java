@@ -684,7 +684,7 @@ public class Player extends Entity {
                     this.sendMessage("You have fallen as a Hardcore Iron Man, your Hardcore status has been revoked.");
                 }
             }
-            GroundItemManager.create(new Item(526), getLocation(), k);
+            GroundItemManager.create(new Item(Items.BONES_526), this.getAttribute("/save:original-loc",location), k);
             final Container[] c = DeathTask.getContainers(this);
 
             for (Item i : getEquipment().toArray()) {
@@ -737,6 +737,10 @@ public class Player extends Entity {
         }
         skullManager.setSkulled(false);
         removeAttribute("combat-time");
+        removeAttribute("original-loc");
+        interfaceManager.openDefaultTabs();
+        setComponentVisibility(this, 548, 69, false);
+        setComponentVisibility(this, 746, 12, false);
         getPrayer().reset();
         super.finalizeDeath(killer);
         appearance.sync();

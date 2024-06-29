@@ -9,7 +9,7 @@ import core.game.world.map.Location
 
 object QuizUtils {
 
-    const val PLAYER_LOCATION = "/save:quizmaster:location"
+    const val PLAYER_LOCATION = "/save:original-loc"
 
     val COINS = Item(Items.COINS_995, 1000)
     val MYSTERY_BOX = Item(Items.MYSTERY_BOX_6199)
