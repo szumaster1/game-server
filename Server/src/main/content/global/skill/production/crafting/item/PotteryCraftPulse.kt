@@ -57,7 +57,7 @@ class PotteryCraftPulse(player: Player?, node: Item?, var amount: Int, val potte
     }
 
     companion object {
-        private val ANIMATION = Animation.create(Animations.HUMAN_COOKING_RANGE_896)
+        private val ANIMATION = Animation.create(Animations.USE_FURNACE_3243)
         private val SOFT_CLAY = Item(Items.SOFT_CLAY_1761)
     }
 }

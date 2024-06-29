@@ -23,20 +23,20 @@ class GemCutPlugin : UseWithHandler(
 ) {
 
     override fun newInstance(arg: Any?): Plugin<Any> {
-        addHandler(1755, ITEM_TYPE, this)
+        addHandler(Items.CHISEL_1755, ITEM_TYPE, this)
         return this
     }
 
     override fun handle(event: NodeUsageEvent): Boolean {
         val player = event.player
         val gem = GemData.forId(if (event.usedItem.id == Items.CHISEL_1755) event.baseItem else event.usedItem)
-        val handler: SkillDialogueHandler = object : SkillDialogueHandler(player, SkillDialogue.ONE_OPTION, gem.gem) {
+        val handler: SkillDialogueHandler = object : SkillDialogueHandler(player, SkillDialogue.ONE_OPTION, gem!!.gem) {
             override fun create(amount: Int, index: Int) {
-                player.pulseManager.run(GemCutPulse(player, gem.uncut, amount, gem))
+                player.pulseManager.run(GemCutPulse(player, gem!!.uncut, amount, gem))
             }
 
             override fun getAll(index: Int): Int {
-                return player.inventory.getAmount(gem.uncut)
+                return player.inventory.getAmount(gem!!.uncut)
             }
         }
         if (player.inventory.getAmount(gem.uncut) == 1) {

@@ -2,6 +2,7 @@ package content.global.skill.production.crafting.plugins
 
 import content.global.skill.production.crafting.item.SnelmCraftPulse
 import core.api.consts.Items
+import core.api.lock
 import core.game.interaction.NodeUsageEvent
 import core.game.interaction.UseWithHandler
 import core.plugin.Initializable
@@ -11,9 +12,9 @@ import core.plugin.Plugin
 class SnelmCraftPlugin : UseWithHandler(Items.CHISEL_1755) {
 
     override fun newInstance(arg: Any?): Plugin<Any> {
-        for (datum in DATA) {
-            for (k in datum.indices) {
-                addHandler(datum[0], ITEM_TYPE, this)
+        for (data in DATA) {
+            for (item in data.indices) {
+                addHandler(data[0], ITEM_TYPE, this)
             }
         }
         return this
@@ -22,10 +23,10 @@ class SnelmCraftPlugin : UseWithHandler(Items.CHISEL_1755) {
     override fun handle(event: NodeUsageEvent): Boolean {
         val player = event.player
         var snelm: IntArray? = null
-        for (datum in DATA) {
-            for (k in datum.indices) {
-                if (datum[0] == event.usedItem.id) {
-                    snelm = datum
+        for (data in DATA) {
+            for (item in data.indices) {
+                if (data[0] == event.usedItem.id) {
+                    snelm = data
                     break
                 }
             }
@@ -33,7 +34,7 @@ class SnelmCraftPlugin : UseWithHandler(Items.CHISEL_1755) {
         if (snelm == null) {
             return false
         }
-        player.lock(1)
+        lock(player, 1)
         player.pulseManager.run(SnelmCraftPulse(player, event.usedItem, snelm))
         return true
     }
