@@ -15,15 +15,6 @@ import kotlin.math.min
 
 class BalloonCraftingListener : InteractionListener {
 
-    companion object {
-        private val dyesId = OrigamiData.values().map { it.requiredDye }.toIntArray()
-        private val balloonId = OrigamiData.values().map { it.ballonId }.toIntArray()
-        private const val defaultBalloon = Items.ORIGAMI_BALLOON_9934
-        private const val balloonStructure = Items.BALLOON_STRUCTURE_9933
-        private const val craftAnim = Animations.HUMAN_CRAFT_ORIGAMI_BALLOON_5140
-        private const val releaseAnim = Animations.HUMAN_RELEASE_A_BALLOON_5142
-    }
-
     override fun defineListeners() {
 
         onUseWith(IntType.ITEM, Items.PAPYRUS_970, Items.BALL_OF_WOOL_1759) { player, used, wool ->
@@ -92,4 +83,14 @@ class BalloonCraftingListener : InteractionListener {
             return@onUseWith true
         }
     }
+
+    companion object {
+        private val dyesId = OrigamiData.values().map { it.requiredDye }.toIntArray()
+        private val balloonId = OrigamiData.values().map { it.ballonId }.toIntArray()
+        private const val defaultBalloon = Items.ORIGAMI_BALLOON_9934
+        private const val balloonStructure = Items.BALLOON_STRUCTURE_9933
+        private const val craftAnim = Animations.HUMAN_CRAFT_ORIGAMI_BALLOON_5140
+        private const val releaseAnim = Animations.HUMAN_RELEASE_A_BALLOON_5142
+    }
+
 }

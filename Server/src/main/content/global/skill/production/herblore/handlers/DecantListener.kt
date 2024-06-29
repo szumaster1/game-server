@@ -11,10 +11,6 @@ import core.game.node.item.Item
 
 class DecantListener : InteractionListener {
 
-    companion object {
-        val potions = Consumables.potions.toIntArray()
-    }
-
     override fun defineListeners() {
         on(IntType.NPC, "decant") { player, node ->
             val (toRemove, toAdd) = decantContainer(player.inventory)
@@ -102,4 +98,9 @@ class DecantListener : InteractionListener {
             return@onUseWith true
         }
     }
+
+    companion object {
+        val potions = Consumables.potions.toIntArray()
+    }
+
 }

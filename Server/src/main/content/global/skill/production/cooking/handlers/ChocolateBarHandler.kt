@@ -1,4 +1,4 @@
-package content.global.skill.production.cooking
+package content.global.skill.production.cooking.handlers
 
 import core.api.consts.Items
 import core.game.interaction.NodeUsageEvent
@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 @Initializable
-class ChocolateBarCutter : UseWithHandler(946) {
+class ChocolateBarHandler : UseWithHandler(946) {
     override fun newInstance(arg: Any?): Plugin<Any> {
         addHandler(1973, ITEM_TYPE, this)
         return this

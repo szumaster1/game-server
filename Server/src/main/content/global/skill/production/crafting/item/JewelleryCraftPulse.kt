@@ -1,17 +1,13 @@
 package content.global.skill.production.crafting.item
 
 import content.global.skill.production.crafting.data.JewelleryData
-import core.api.animate
+import core.api.*
 import core.api.consts.Animations
 import core.api.consts.Sounds
-import core.api.getStatLevel
-import core.api.playAudio
-import core.api.rewardXP
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
-import core.game.world.update.flag.context.Animation
 
 class JewelleryCraftPulse(
     player: Player?,
@@ -21,7 +17,7 @@ class JewelleryCraftPulse(
 ) : SkillPulse<Item?>(player, node) {
 
     companion object {
-        private val ANIMATION = Animation(Animations.HUMAN_FURNACE_SMELTING_3243)
+        private const val ANIMATION = Animations.HUMAN_FURNACE_SMELTING_3243
     }
 
     var ticks = 0
@@ -42,7 +38,7 @@ class JewelleryCraftPulse(
         }
         if (player.inventory.remove(*items)) {
             val item = Item(type.sendItem)
-            player.inventory.add(item)
+            addItem(player, item.id)
             rewardXP(player, Skills.CRAFTING, type.experience)
         }
         amount--

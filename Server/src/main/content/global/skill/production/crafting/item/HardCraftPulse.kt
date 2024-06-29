@@ -6,11 +6,11 @@ import content.global.skill.production.crafting.data.LeatherData.isLastThread
 import content.global.skill.production.crafting.data.LeatherData.removeThread
 import core.api.*
 import core.api.consts.Animations
+import core.api.consts.Items
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
-import core.game.world.update.flag.context.Animation
 
 class HardCraftPulse(player: Player?, node: Item?, var amount: Int) : SkillPulse<Item?>(player, node) {
 
@@ -27,7 +27,7 @@ class HardCraftPulse(player: Player?, node: Item?, var amount: Int) : SkillPulse
         if (!inInventory(player,LeatherData.HARD_LEATHER, 1)) {
             return false
         }
-        if (!player.inventory.containsItem(LeatherData.THREAD)) {
+        if (!inInventory(player, LeatherData.THREAD.id)) {
             sendDialogue(player, "You need thread to make this.")
             return false
         }
@@ -45,9 +45,9 @@ class HardCraftPulse(player: Player?, node: Item?, var amount: Int) : SkillPulse
         if (++ticks % 5 != 0) {
             return false
         }
-        if (player.inventory.remove(Item(LeatherData.HARD_LEATHER))) {
-            val item = Item(1131)
-            player.inventory.add(item)
+        if (removeItem(player, Item(LeatherData.HARD_LEATHER))) {
+            val item = Item(Items.HARDLEATHER_BODY_1131)
+            addItem(player, item.id)
             rewardXP(player, Skills.CRAFTING, 35.0)
             decayThread(player)
             if (isLastThread(player)) {
@@ -59,6 +59,6 @@ class HardCraftPulse(player: Player?, node: Item?, var amount: Int) : SkillPulse
     }
 
     companion object {
-        private val ANIMATION = Animation.create(Animations.CRAFT_LEATHER_1249)
+        private const val ANIMATION = Animations.CRAFT_LEATHER_1249
     }
 }

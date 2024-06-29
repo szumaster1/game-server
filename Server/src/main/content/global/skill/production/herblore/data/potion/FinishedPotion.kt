@@ -14,8 +14,8 @@ enum class FinishedPotion(
     ATTACK_POTION(
         unfinished = UnfinishedPotion.GUAM,
         ingredient = Item(Items.EYE_OF_NEWT_221),
-        3,
-        25.0,
+        level = 3,
+        experience = 25.0,
         potion = Item(Items.ATTACK_POTION3_121)
     ),
     ANTIPOISON_POTION(
@@ -175,8 +175,8 @@ enum class FinishedPotion(
     ZAMORAK_BREW(
         unfinished = UnfinishedPotion.TORSTOL,
         ingredient = Item(Items.JANGERBERRIES_247),
-        78,
-        175.0,
+        level = 78,
+        experience = 175.0,
         potion = Item(Items.ZAMORAK_BREW3_189)
     ),
     SARADOMIN_BREW(

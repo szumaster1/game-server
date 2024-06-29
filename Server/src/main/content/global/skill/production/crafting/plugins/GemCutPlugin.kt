@@ -2,6 +2,7 @@ package content.global.skill.production.crafting.plugins
 
 import content.global.skill.production.crafting.data.GemData
 import content.global.skill.production.crafting.item.GemCutPulse
+import core.api.amountInInventory
 import core.api.consts.Items
 import core.game.dialogue.SkillDialogueHandler
 import core.game.interaction.NodeUsageEvent
@@ -36,10 +37,10 @@ class GemCutPlugin : UseWithHandler(
             }
 
             override fun getAll(index: Int): Int {
-                return player.inventory.getAmount(gem!!.uncut)
+                return amountInInventory(player, gem!!.uncut.id)
             }
         }
-        if (player.inventory.getAmount(gem.uncut) == 1) {
+        if (amountInInventory(player, gem.uncut.id) == 1) {
             handler.create(0, 1)
         } else {
             handler.open()

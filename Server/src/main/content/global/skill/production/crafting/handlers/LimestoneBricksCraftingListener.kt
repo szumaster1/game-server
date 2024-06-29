@@ -45,17 +45,11 @@ class LimestoneBricksCraftingListener : InteractionListener {
                             if (succeeded) {
                                 rewardXP(player, Skills.CRAFTING, 6.0)
                                 addItem(player, Items.LIMESTONE_BRICK_3420)
-                                sendMessage(
-                                    player,
-                                    "You use the chisel on the limestone and carve it into a building block."
-                                )
+                                sendMessage(player, "You use the chisel on the limestone and carve it into a building block.")
                             } else {
                                 rewardXP(player, Skills.CRAFTING, 1.5)
                                 addItem(player, Items.ROCK_968)
-                                sendMessage(
-                                    player,
-                                    "You use the chisel on the limestone but fail to carve it into a building block."
-                                )
+                                sendMessage(player, "You use the chisel on the limestone but fail to carve it into a building block.")
                             }
                         }
                     }
@@ -74,7 +68,6 @@ class LimestoneBricksCraftingListener : InteractionListener {
         val MAXIMUM_SUCCESS_LEVEL = 40
         val BASE_SUCCESS_PROBABILITY = 0.75
         val MAXIMUM_SUCCESS_PROBABILITY = 1.0
-
         val spreadSuccess = MAXIMUM_SUCCESS_PROBABILITY - BASE_SUCCESS_PROBABILITY
         val successPerLevel = spreadSuccess / MAXIMUM_SUCCESS_LEVEL
     }

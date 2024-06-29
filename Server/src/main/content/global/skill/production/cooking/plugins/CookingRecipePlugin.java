@@ -1,4 +1,4 @@
-package content.global.skill.production.cooking;
+package content.global.skill.production.cooking.plugins;
 
 import content.global.skill.production.cooking.recipe.Recipe;
 import core.game.dialogue.SkillDialogueHandler;

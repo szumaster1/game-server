@@ -1,4 +1,4 @@
-package content.global.skill.production.cooking;
+package content.global.skill.production.cooking.plugins;
 
 import core.api.consts.Items;
 import core.game.interaction.NodeUsageEvent;

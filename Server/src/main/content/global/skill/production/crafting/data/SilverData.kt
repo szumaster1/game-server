@@ -21,15 +21,87 @@ enum class SilverData(
     val xpReward: Double,
     val strungId: Int
 ) {
-    HOLY(BUTTON_UNBLESSED, Items.HOLY_MOULD_1599, Items.UNSTRUNG_SYMBOL_1714, 1, 16, 50.0, Items.UNBLESSED_SYMBOL_1716),
-    UNHOLY(BUTTON_UNHOLY, Items.UNHOLY_MOULD_1594, Items.UNSTRUNG_EMBLEM_1720, 1, 17, 50.0, Items.UNHOLY_SYMBOL_1724),
-    SICKLE(BUTTON_SICKLE, Items.SICKLE_MOULD_2976, Items.SILVER_SICKLE_2961, 1, 18, 50.0, -1),
-    TIARA(BUTTON_TIARA, Items.TIARA_MOULD_5523, Items.TIARA_5525, 1, 23, 52.5, -1),
-    SILVTHRIL_CHAIN(BUTTON_SILVTHRIL_CHAIN, Items.CHAIN_LINK_MOULD_13153, Items.SILVTHRIL_CHAIN_13154, 1, 47, 100.0, -1),
-    LIGHTNING_ROD(BUTTON_LIGHTNING_ROD, Items.CONDUCTOR_MOULD_4200, Items.CONDUCTOR_4201, 1, 20, 50.0, -1),
-    SILVTHRILL_ROD(BUTTON_SILVTHRILL_ROD, Items.ROD_CLAY_MOULD_7649, Items.SILVTHRILL_ROD_7637, 1, 25, 55.0, -1),
-    CROSSBOW_BOLTS(BUTTON_CROSSBOW_BOLTS, Items.BOLT_MOULD_9434, Items.SILVER_BOLTS_UNF_9382, 10, 21, 50.0, -1),
-    DEMONIC_SIGIL(BUTTON_DEMONIC_SIGIL, Items.DEMONIC_SIGIL_MOULD_6747, Items.DEMONIC_SIGIL_6748, 1, 30, 50.00, -1);
+    HOLY(
+        buttonId = BUTTON_UNBLESSED,
+        requiredItemId = Items.HOLY_MOULD_1599,
+        producedItemId = Items.UNSTRUNG_SYMBOL_1714,
+        amountProduced = 1,
+        minimumLevel = 16,
+        xpReward = 50.0,
+        strungId = Items.UNBLESSED_SYMBOL_1716
+    ),
+    UNHOLY(
+        buttonId = BUTTON_UNHOLY,
+        requiredItemId = Items.UNHOLY_MOULD_1594,
+        producedItemId = Items.UNSTRUNG_EMBLEM_1720,
+        amountProduced = 1,
+        minimumLevel = 17,
+        xpReward = 50.0,
+        strungId = Items.UNHOLY_SYMBOL_1724
+    ),
+    SICKLE(
+        buttonId = BUTTON_SICKLE,
+        requiredItemId = Items.SICKLE_MOULD_2976,
+        producedItemId = Items.SILVER_SICKLE_2961,
+        amountProduced = 1,
+        minimumLevel = 18,
+        xpReward = 50.0,
+        strungId = -1
+    ),
+    TIARA(
+        buttonId = BUTTON_TIARA,
+        requiredItemId = Items.TIARA_MOULD_5523,
+        producedItemId = Items.TIARA_5525,
+        amountProduced = 1,
+        minimumLevel = 23,
+        xpReward = 52.5,
+        strungId = -1
+    ),
+    SILVTHRIL_CHAIN(
+        buttonId = BUTTON_SILVTHRIL_CHAIN,
+        requiredItemId = Items.CHAIN_LINK_MOULD_13153,
+        producedItemId = Items.SILVTHRIL_CHAIN_13154,
+        amountProduced = 1,
+        minimumLevel = 47,
+        xpReward = 100.0,
+        strungId = -1
+    ),
+    LIGHTNING_ROD(
+        buttonId = BUTTON_LIGHTNING_ROD,
+        requiredItemId = Items.CONDUCTOR_MOULD_4200,
+        producedItemId = Items.CONDUCTOR_4201,
+        amountProduced = 1,
+        minimumLevel = 20,
+        xpReward = 50.0,
+        strungId = -1
+    ),
+    SILVTHRILL_ROD(
+        buttonId = BUTTON_SILVTHRILL_ROD,
+        requiredItemId = Items.ROD_CLAY_MOULD_7649,
+        producedItemId = Items.SILVTHRILL_ROD_7637,
+        amountProduced = 1,
+        minimumLevel = 25,
+        xpReward = 55.0,
+        strungId = -1
+    ),
+    CROSSBOW_BOLTS(
+        buttonId = BUTTON_CROSSBOW_BOLTS,
+        requiredItemId = Items.BOLT_MOULD_9434,
+        producedItemId = Items.SILVER_BOLTS_UNF_9382,
+        amountProduced = 10,
+        minimumLevel = 21,
+        xpReward = 50.0,
+        strungId = -1
+    ),
+    DEMONIC_SIGIL(
+        buttonId = BUTTON_DEMONIC_SIGIL,
+        requiredItemId = Items.DEMONIC_SIGIL_MOULD_6747,
+        producedItemId = Items.DEMONIC_SIGIL_6748,
+        amountProduced = 1,
+        minimumLevel = 30,
+        xpReward = 50.00,
+        strungId = -1
+    );
 
     companion object {
         private val BUTTON_MAP = HashMap<Int, SilverData>()

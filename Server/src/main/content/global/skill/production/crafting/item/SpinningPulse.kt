@@ -3,6 +3,7 @@ package content.global.skill.production.crafting.item
 import content.global.skill.production.crafting.data.SpinningData
 import core.api.*
 import core.api.consts.Animations
+import core.api.consts.Items
 import core.api.consts.Sounds
 import core.game.container.impl.EquipmentContainer
 import core.game.node.entity.player.Player
@@ -39,7 +40,7 @@ class SpinningPulse(player: Player?, node: Item?, var amount: Int, val type: Spi
 
     override fun reward(): Boolean {
         var tickThreshhold = 4
-        if ((player.achievementDiaryManager.getDiary(DiaryType.SEERS_VILLAGE).isComplete(2) && player.location.withinDistance(Location.create(2711, 3471, 1)) && player.equipment[EquipmentContainer.SLOT_HAT] != null) && player.equipment[EquipmentContainer.SLOT_HAT].id == 14631) {
+        if ((player.achievementDiaryManager.getDiary(DiaryType.SEERS_VILLAGE).isComplete(2) && withinDistance(player, Location(2711, 3471, 1)) && player.equipment[EquipmentContainer.SLOT_HAT] != null) && player.equipment[EquipmentContainer.SLOT_HAT].id == Items.SEERS_HEADBAND_14631) {
             tickThreshhold = 2
         }
         if (++ticks % tickThreshhold != 0) {
@@ -53,12 +54,12 @@ class SpinningPulse(player: Player?, node: Item?, var amount: Int, val type: Spi
             /*
              * Seers achievement diary.
              */
-            if (player.viewport.region.id == 10806 && !player.achievementDiaryManager.getDiary(DiaryType.SEERS_VILLAGE).isComplete(0, 4)) {
+            if (player.viewport.region.id == 10806 && !hasDiaryTaskComplete(player, DiaryType.SEERS_VILLAGE, 0, 4)) {
                 if (player.getAttribute("diary:seers:bowstrings-spun", 0) >= 4) {
                     setAttribute(player, "/save:diary:seers:bowstrings-spun", 5)
                     finishDiaryTask(player, DiaryType.SEERS_VILLAGE, 0, 4)
                 } else {
-                    setAttribute(player, "/save:diary:seers:bowstrings-spun", player.getAttribute("diary:seers:bowstrings-spun", 0) + 1)
+                    setAttribute(player, "/save:diary:seers:bowstrings-spun", getAttribute(player, "diary:seers:bowstrings-spun", 0) + 1)
                 }
             }
         }

@@ -12,21 +12,21 @@ class GenericPotion(
     companion object {
         fun transform(potion: UnfinishedPotion): GenericPotion {
             return GenericPotion(
-                potion.base,
-                potion.ingredient,
-                potion.level,
-                0.0,
-                potion.potion
+                base = potion.base,
+                ingredient = potion.ingredient,
+                level = potion.level,
+                experience = 0.0,
+                product = potion.potion
             )
         }
 
         fun transform(potion: FinishedPotion): GenericPotion {
             return GenericPotion(
-                potion.unfinished.potion,
-                potion.ingredient,
-                potion.level,
-                potion.experience,
-                potion.potion
+                base = potion.unfinished.potion,
+                ingredient = potion.ingredient,
+                level = potion.level,
+                experience = potion.experience,
+                product = potion.potion
             )
         }
     }

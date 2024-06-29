@@ -102,7 +102,7 @@ public final class SlayerMasterDialogue extends Dialogue {
                     }
                     break;
                 case 440:
-                    npc("I can imagine! I expect you'll be wanting a reward for", "your hard efforts, eh?");
+                    npc(getExpression(master), "I can imagine! I expect you'll be wanting a reward for", "your hard efforts, eh?");
                     stage++;
                     break;
                 case 441:
@@ -111,7 +111,7 @@ public final class SlayerMasterDialogue extends Dialogue {
                     break;
                 case 442:
                     AchievementDiary.grantReplacement(player, DiaryType.VARROCK, level);
-                    npc("I'm happy to say that you've done well, so I will reward", "you suitably for your work.");
+                    npc(getExpression(master), "I'm happy to say that you've done well, so I will reward", "you suitably for your work.");
                     stage++;
                     break;
                 case 443:
@@ -124,35 +124,35 @@ public final class SlayerMasterDialogue extends Dialogue {
                     break;
                 case 450:
                     AchievementDiary.grantReplacement(player, DiaryType.VARROCK, level);
-                    npc("You better be more careful this time.");
+                    npc(getExpression(master),"You better be more careful this time.");
                     stage = -1;
                     break;
                 case 410:
-                    npc("It's a diary that helps you keep track of particular", "achievements. Here in Varrock it can help you", "discover some quite useful things. Eventually, with", "enough exploration, the people of Varrock will reward");
+                    npc(getExpression(master),"It's a diary that helps you keep track of particular", "achievements. Here in Varrock it can help you", "discover some quite useful things. Eventually, with", "enough exploration, the people of Varrock will reward");
                     stage++;
                     break;
                 case 411:
-                    npc("you.");
+                    npc(getExpression(master),"you.");
                     stage++;
                     break;
                 case 412:
-                    npc("You can see what tasks you have listed by clicking on", "the green button in the Quest List.");
+                    npc(getExpression(master),"You can see what tasks you have listed by clicking on", "the green button in the Quest List.");
                     stage = -1;
                     break;
                 case 420:
-                    npc("Well, there's three different levels of Varrock Armour,", "which match up with the three levels of difficulty. Each", "has the same rewards as the previous level, and an", "additional one too... but I won't spoil your surprise.");
+                    npc(getExpression(master),"Well, there's three different levels of Varrock Armour,", "which match up with the three levels of difficulty. Each", "has the same rewards as the previous level, and an", "additional one too... but I won't spoil your surprise.");
                     stage++;
                     break;
                 case 421:
-                    npc("Rest assured, the people of Varrock are happy to see", "you visiting the land.");
+                    npc(getExpression(master),"Rest assured, the people of Varrock are happy to see", "you visiting the land.");
                     stage = -1;
                     break;
                 case 430:
-                    npc("Just complete the tasks so they're all ticked off, then", "you can claim your reward. Most of them are", "straightforward; you might find some require quests to", "be started, if not finished.");
+                    npc(getExpression(master),"Just complete the tasks so they're all ticked off, then", "you can claim your reward. Most of them are", "straightforward; you might find some require quests to", "be started, if not finished.");
                     stage++;
                     break;
                 case 431:
-                    npc("To claim the different Varrock Armour, speak to Vannaka", "Rat Burgis, and myself.");
+                    npc(getExpression(master),"To claim the different Varrock Armour, speak to Vannaka", "Rat Burgis, and myself.");
                     stage = -1;
                     break;
                 case 50:
@@ -373,7 +373,7 @@ public final class SlayerMasterDialogue extends Dialogue {
                 }
                 break;
             case 8000:// avas.
-                npc("Ahh, you came to the right man, odd things, those trees.", "What is it you are needing exactly?");
+                npc(getExpression(master),"Ahh, you came to the right man, odd things, those trees.", "What is it you are needing exactly?");
                 stage++;
                 break;
             case 8001:
@@ -381,11 +381,11 @@ public final class SlayerMasterDialogue extends Dialogue {
                 stage++;
                 break;
             case 8002:
-                npc("Sounds like you need a blessed axe. No one really", "makes them, though these days.");
+                npc(getExpression(master),"Sounds like you need a blessed axe. No one really", "makes them, though these days.");
                 stage++;
                 break;
             case 8003:
-                npc("If you can give me a mithril axe and a holy symbol of", "Saradomin I can let you have my axe. I'll make myself", "a new one when no one is pestering me for Slayer", "tasks.");
+                npc(getExpression(master),"If you can give me a mithril axe and a holy symbol of", "Saradomin I can let you have my axe. I'll make myself", "a new one when no one is pestering me for Slayer", "tasks.");
                 stage++;
                 break;
             case 8004:
@@ -398,11 +398,11 @@ public final class SlayerMasterDialogue extends Dialogue {
                 break;
             case 8006:
                 if (player.hasItem(new Item(10491))) {
-                    npc("You already have an axe.");
+                    npc(getExpression(master), "You already have an axe.");
                     stage = 999;
                     break;
                 }
-                npc("I can make an axe for you now, if you wish.", "Remember, it will be no use for normal wooducutting", "after I have added the silver edge.");
+                npc(getExpression(master), "I can make an axe for you now, if you wish.", "Remember, it will be no use for normal wooducutting", "after I have added the silver edge.");
                 stage++;
                 break;
             case 8007:
@@ -411,18 +411,18 @@ public final class SlayerMasterDialogue extends Dialogue {
                 break;
             case 8008:
                 if (!player.getInventory().containsItem(MITHRIL_AXE)) {
-                    npc("You'll need to hand over both a mithril axe and a holy", "symbol of Saradomin. You don't have an axe in your", "pack, so I'm not able to help.");
+                    npc(getExpression(master), "You'll need to hand over both a mithril axe and a holy", "symbol of Saradomin. You don't have an axe in your", "pack, so I'm not able to help.");
                     stage = 999;
                     break;
                 }
                 if (!player.getInventory().containsItem(HOLY_SYMBOL)) {
-                    npc("You'll need to hand over both a mithril axe and a holy", "symbol of Saradomin. You don't have a holy symbol in", "your pack, so I'm not able to help.");
+                    npc(getExpression(master), "You'll need to hand over both a mithril axe and a holy", "symbol of Saradomin. You don't have a holy symbol in", "your pack, so I'm not able to help.");
                     stage = 999;
                     break;
                 }
                 if (player.getInventory().remove(MITHRIL_AXE, HOLY_SYMBOL)) {
                     player.getInventory().add(new Item(10491));
-                    npc("Here's a new axe; may it serve you well.");
+                    npc(getExpression(master), "Here's a new axe; may it serve you well.");
                     stage = 999;
                 }
                 break;
@@ -570,7 +570,7 @@ public final class SlayerMasterDialogue extends Dialogue {
                 }
                 break;
             case 907:
-                npc("You bet, " + player.getUsername() + "! Right when you give me 99000 coins.");
+                npc(getExpression(master), "You bet, " + player.getUsername() + "! Right when you give me 99000 coins.");
                 stage = 908;
                 break;
             case 908:
@@ -600,7 +600,7 @@ public final class SlayerMasterDialogue extends Dialogue {
                     return true;
                 }
                 if (player.getInventory().remove(COINS) && player.getInventory().add(ITEMS)) {
-                    npc("Have fun with it.");
+                    npc(getExpression(master), "Have fun with it.");
                     stage = 999;
                 } else {
                     player("I don't seem to have enough coins with", "me at this time.");

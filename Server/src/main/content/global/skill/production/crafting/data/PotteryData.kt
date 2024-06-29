@@ -1,13 +1,42 @@
 package content.global.skill.production.crafting.data
 
+import core.api.consts.Items
 import core.game.node.item.Item
 
 enum class PotteryData(val unfinished: Item, val product: Item, val level: Int, val exp: Double, val fireExp: Double) {
-    POT(Item(1787), Item(1931), 1, 6.3, 6.3),
-    DISH(Item(1789), Item(2313), 7, 15.0, 10.0),
-    BOWL(Item(1791), Item(1923), 8, 18.0, 15.0),
-    PLANT(Item(5352), Item(5350), 19, 20.0, 17.5),
-    LID(Item(4438), Item(4440), 25, 20.0, 20.0);
+    POT(
+        unfinished = Item(Items.UNFIRED_POT_1787),
+        product = Item(Items.EMPTY_POT_1931),
+        level = 1,
+        exp = 6.3,
+        fireExp = 6.3
+    ),
+    DISH(
+        unfinished = Item(Items.UNFIRED_PIE_DISH_1789),
+        product = Item(Items.PIE_DISH_2313),
+        level = 7,
+        exp = 15.0,
+        fireExp = 10.0
+    ),
+    BOWL(unfinished = Item(Items.UNFIRED_BOWL_1791),
+        product = Item(Items.BOWL_1923),
+        level = 8, 18.0,
+        fireExp = 15.0
+    ),
+    PLANT(
+        unfinished = Item(Items.UNFIRED_PLANT_POT_5352),
+        product = Item(Items.PLANT_POT_5350),
+        level = 19,
+        exp = 20.0,
+        fireExp = 17.5
+    ),
+    LID(
+        unfinished = Item(Items.UNFIRED_POT_LID_4438),
+        product = Item(Items.POT_LID_4440),
+        level = 25,
+        exp = 20.0,
+        fireExp = 20.0
+    );
 
     companion object {
         @JvmStatic

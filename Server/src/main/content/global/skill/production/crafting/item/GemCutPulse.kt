@@ -22,10 +22,10 @@ class GemCutPulse(player: Player?, item: Item?, var amount: Int, val gem: GemDat
             sendMessage(player, "You need a crafting level of " + gem.level + " to craft this gem.")
             return false
         }
-        if (!player.inventory.containsItem(CHISEL)) {
+        if (!inInventory(player, CHISEL)) {
             return false
         }
-        if (!player.inventory.containsItem(gem.uncut)) {
+        if (!inInventory(player, gem.uncut.id)) {
             return false
         }
         return true
@@ -39,9 +39,9 @@ class GemCutPulse(player: Player?, item: Item?, var amount: Int, val gem: GemDat
     }
 
     override fun reward(): Boolean {
-        if (player.inventory.remove(gem.uncut)) {
+        if (removeItem(player, gem.uncut)) {
             val item = gem.gem
-            player.inventory.add(item)
+            addItem(player, item.id)
             rewardXP(player, Skills.CRAFTING, gem.exp)
         }
         amount--
@@ -49,6 +49,6 @@ class GemCutPulse(player: Player?, item: Item?, var amount: Int, val gem: GemDat
     }
 
     companion object {
-        private val CHISEL = Item(Items.CHISEL_1755)
+        private const val CHISEL = Items.CHISEL_1755
     }
 }

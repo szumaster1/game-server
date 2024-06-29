@@ -2,6 +2,7 @@ package content.global.skill.production.crafting.handlers
 
 import content.global.skill.production.crafting.data.SnakeskinData
 import content.global.skill.production.crafting.item.SnakeskinCraftPulse
+import core.api.amountInInventory
 import core.api.consts.Items
 import core.game.dialogue.SkillDialogueHandler
 import core.game.interaction.IntType
@@ -25,7 +26,7 @@ class SnakeskinListener : InteractionListener {
                 }
 
                 override fun getAll(index: Int): Int {
-                    return player.inventory.getAmount(Item(Items.SNAKESKIN_6289))
+                    return amountInInventory(player, Items.SNAKESKIN_6289)
                 }
 
                 public override fun getName(item: Item): String {

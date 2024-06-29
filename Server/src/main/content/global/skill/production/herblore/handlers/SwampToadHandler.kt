@@ -12,6 +12,7 @@ import core.plugin.Plugin
 
 @Initializable
 class SwampToadHandler : OptionHandler() {
+
     override fun newInstance(arg: Any?): Plugin<Any> {
         ItemDefinition.setOptionHandler("remove-legs", this)
         return this

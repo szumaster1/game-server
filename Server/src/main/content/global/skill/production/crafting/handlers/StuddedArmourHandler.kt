@@ -1,5 +1,7 @@
 package content.global.skill.production.crafting.handlers
 
+import core.api.*
+import core.api.consts.Animations
 import core.api.consts.Items
 import core.game.dialogue.SkillDialogueHandler
 import core.game.interaction.NodeUsageEvent
@@ -32,10 +34,10 @@ class StuddedArmourHandler : UseWithHandler(Items.STEEL_STUDS_2370) {
                 }
 
                 override fun getAll(index: Int): Int {
-                    return player.inventory.getAmount(STEEL_STUDS)
+                    return amountInInventory(player, STEEL_STUDS.id)
                 }
             }
-        if (player.inventory.getAmount(armour.item) == 1) {
+        if (amountInInventory(player, armour.item.id) == 1) {
             handler.create(1, 0)
         } else {
             handler.open()
@@ -44,8 +46,8 @@ class StuddedArmourHandler : UseWithHandler(Items.STEEL_STUDS_2370) {
     }
 
     enum class StuddedArmour(val item: Item, val studded: Item, val level: Int, val experience: Double) {
-        CHAPS(Item(1095), Item(1097), 44, 42.0),
-        BODY(Item(1129), Item(1133), 41, 40.0);
+        CHAPS(Item(Items.LEATHER_CHAPS_1095), Item(Items.STUDDED_CHAPS_1097), 44, 42.0),
+        BODY(Item(Items.LEATHER_BODY_1129), Item(Items.STUDDED_BODY_1133), 41, 40.0);
 
         companion object {
             fun forItem(item: Item): StuddedArmour? {
@@ -59,24 +61,25 @@ class StuddedArmourHandler : UseWithHandler(Items.STEEL_STUDS_2370) {
         }
     }
 
-    class StudArmourPulse(player: Player?, node: Item?, private val armour: StuddedArmour?, private var amount: Int) :
-        SkillPulse<Item?>(player, node) {
+    class StudArmourPulse(player: Player?, node: Item?, private val armour: StuddedArmour?, private var amount: Int) : SkillPulse<Item?>(player, node) {
+
         private var ticks = 0
+
         override fun checkRequirements(): Boolean {
-            if (player.getSkills().getLevel(Skills.CRAFTING) < armour!!.level) {
-                player.packetDispatch.sendMessage("You need a Crafting level of at least " + armour.level + " to do this.")
+            if (getStatLevel(player, Skills.CRAFTING) < armour!!.level) {
+                sendMessage(player, "You need a Crafting level of at least " + armour.level + " to do this.")
                 return false
             }
-            if (!player.inventory.containsItem(STEEL_STUDS)) {
-                player.packetDispatch.sendMessage("You need studs in order to make studded armour.")
+            if (!inInventory(player, STEEL_STUDS.id)) {
+                sendMessage(player, "You need studs in order to make studded armour.")
                 return false
             }
-            return player.inventory.containsItem(armour.item)
+            return inInventory(player, armour.item.id)
         }
 
         override fun animate() {
             if (ticks % 5 == 0) {
-                player.animate(ANIMATION)
+                animate(player, ANIMATION)
             }
         }
 
@@ -86,8 +89,8 @@ class StuddedArmourHandler : UseWithHandler(Items.STEEL_STUDS_2370) {
             }
             if (player.inventory.remove(armour!!.item, STEEL_STUDS)) {
                 player.inventory.add(armour.studded)
-                player.getSkills().addExperience(Skills.CRAFTING, armour.experience, true)
-                player.packetDispatch.sendMessage("You make a " + armour.studded.name.lowercase() + ".")
+                rewardXP(player, Skills.CRAFTING, armour.experience)
+                sendMessage(player, "You make a " + armour.studded.name.lowercase() + ".")
             }
             amount--
             return amount < 1
@@ -95,16 +98,16 @@ class StuddedArmourHandler : UseWithHandler(Items.STEEL_STUDS_2370) {
 
         override fun message(type: Int) {
             when (type) {
-                0 -> player.packetDispatch.sendMessage("You use the studs with the " + node!!.name.lowercase() + ".")
+                0 -> sendMessage(player, "You use the studs with the " + node!!.name.lowercase() + ".")
             }
         }
 
         companion object {
-            private val ANIMATION = Animation.create(1249)
+            private val ANIMATION = Animation.create(Animations.CRAFT_LEATHER_1249)
         }
     }
 
     companion object {
-        private val STEEL_STUDS = Item(2370)
+        private val STEEL_STUDS = Item(Items.STEEL_STUDS_2370)
     }
 }

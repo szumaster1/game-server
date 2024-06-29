@@ -52,7 +52,7 @@ class WeaveOptionHandler : OptionHandler() {
 
         override fun animate() {
             if (ticks % 5 == 0) {
-                player.animate(ANIMATION)
+                animate(player, ANIMATION)
             }
         }
 

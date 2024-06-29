@@ -12,7 +12,6 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
-import core.game.world.update.flag.context.Animation
 import core.utilities.StringUtils
 
 class DragonCraftPulse(player: Player?, node: Item?, val hide: DragonHide, var amount: Int) : SkillPulse<Item?>(player, node) {
@@ -25,18 +24,18 @@ class DragonCraftPulse(player: Player?, node: Item?, val hide: DragonHide, var a
             amount = 0
             return false
         }
-        if (!player.inventory.contains(LeatherData.NEEDLE, 1)) {
+        if (!inInventory(player, LeatherData.NEEDLE, 1)) {
             sendDialogue(player,"You need a needle to make this.")
             amount = 0
             return false
         }
-        if (!player.inventory.containsItem(LeatherData.THREAD)) {
+        if (!inInventory(player, LeatherData.THREAD.id)) {
             sendDialogue(player,"You need thread to make this.")
             amount = 0
             return false
         }
-        if (!player.inventory.contains(hide.leather, hide.amount)) {
-            sendDialogue(player,"You need " + hide.amount + " " + ItemDefinition.forId(hide.leather).name.lowercase() + " to make this.")
+        if (!inInventory(player, hide.leather, hide.amount)) {
+            sendDialogue(player,"You need " + hide.amount + " " + getItemName(hide.leather).lowercase() + " to make this.")
             amount = 0
             return false
         }
@@ -61,7 +60,7 @@ class DragonCraftPulse(player: Player?, node: Item?, val hide: DragonHide, var a
                 sendMessage(player, "You make " + (if (StringUtils.isPlusN(getItemName(hide.product).lowercase())) "an" else "a") + " " + getItemName(hide.product).lowercase() + ".")
             }
             val item = Item(hide.product)
-            player.inventory.add(item)
+            addItem(player, item.id)
             rewardXP(player, Skills.CRAFTING, hide.experience)
             decayThread(player)
             if (isLastThread(player)) {
@@ -75,6 +74,6 @@ class DragonCraftPulse(player: Player?, node: Item?, val hide: DragonHide, var a
     override fun message(type: Int) {}
 
     companion object {
-        private val ANIMATION = Animation.create(Animations.CRAFT_LEATHER_1249)
+        private const val ANIMATION = Animations.CRAFT_LEATHER_1249
     }
 }

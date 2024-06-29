@@ -1,6 +1,5 @@
 package content.global.skill.production.smithing.item
 
-import content.global.skill.skillcape.SkillcapePerks
 import core.api.*
 import core.api.consts.Animations
 import core.api.consts.Items

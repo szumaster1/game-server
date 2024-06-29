@@ -26,7 +26,8 @@ public final class PotteryPlugin extends UseWithHandler {
         Scenery.POTTERY_OVEN_2643,
         Scenery.POTTERY_OVEN_4308,
         Scenery.POTTERY_OVEN_11601,
-        Scenery.POTTERY_OVEN_34802};
+        Scenery.POTTERY_OVEN_34802
+    };
 
     public PotteryPlugin() {
         super(Items.SOFT_CLAY_1761);

@@ -8,8 +8,6 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
-import core.game.world.update.flag.context.Animation
-import java.util.*
 
 class HerbTarPulse(player: Player?, node: Item?, val tar: Tar, private var amount: Int) :
     SkillPulse<Item?>(player, node) {
@@ -27,7 +25,7 @@ class HerbTarPulse(player: Player?, node: Item?, val tar: Tar, private var amoun
             sendMessage(player, "You need Pestle and Mortar in order to crush the herb.")
             return false
         }
-        if (!player.inventory.containsItem(SWAMP_TAR)) {
+        if (!inInventory(player, Items.SWAMP_TAR_1939, 15)) {
             sendMessage(player, "You need at least 15 swamp tar in order to do this.")
             return false
         }
@@ -43,10 +41,10 @@ class HerbTarPulse(player: Player?, node: Item?, val tar: Tar, private var amoun
             delay = 4
             return false
         }
-        if (player.inventory.containsItem(SWAMP_TAR) && player.inventory.containsItem(tar.ingredient) && player.inventory.remove(SWAMP_TAR) && player.inventory.remove(tar.ingredient)) {
+        if (inInventory(player, Items.SWAMP_TAR_1939, 15) && inInventory(player, tar.ingredient.id) && removeItem(player, Item(Items.SWAMP_TAR_1939, 15)) && removeItem(player, tar.ingredient)) {
             addItem(player, tar.tar.id, 15)
             rewardXP(player, Skills.HERBLORE, tar.experience)
-            sendMessage(player, "You add the " + tar.ingredient.name.lowercase(Locale.getDefault()).replace("clean", "").trim { it <= ' ' } + " to the swamp tar.")
+            sendMessage(player, "You add the " + tar.ingredient.name.lowercase().replace("clean", "").trim { it <= ' ' } + " to the swamp tar.")
         } else {
             return true
         }
@@ -57,8 +55,7 @@ class HerbTarPulse(player: Player?, node: Item?, val tar: Tar, private var amoun
     override fun message(type: Int) {}
 
     companion object {
-        private val ANIMATION = Animation(Animations.PESTLE_MORTAR_364)
-        private val PESTLE_AND_MORTAR = Items.PESTLE_AND_MORTAR_233
-        private val SWAMP_TAR = Item(Items.SWAMP_TAR_1939, 15)
+        private const val ANIMATION = Animations.PESTLE_MORTAR_364
+        private const val PESTLE_AND_MORTAR = Items.PESTLE_AND_MORTAR_233
     }
 }

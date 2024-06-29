@@ -1,5 +1,7 @@
 package content.global.skill.production.crafting.data
 
+import core.api.consts.Items
+
 enum class SpinningData(
     val button: Int,
     val need: Int,
@@ -7,17 +9,82 @@ enum class SpinningData(
     val level: Int,
     val exp: Double
 ) {
-    WOOL(19, 1737, 1759, 1, 2.5),
-    FLAX(17, 1779, 1777, 10, 15.0),
-    ROOT(23, 6051, 6038, 19, 30.0),
-    ROOT1(23, 6043, 6038, 19, 30.0),
-    ROOT2(23, 6045, 6038, 19, 30.0),
-    ROOT3(23, 6047, 6038, 19, 30.0),
-    ROOT4(23, 6049, 6038, 19, 30.0),
-    ROOT5(23, 6053, 6038, 19, 30.0),
-    SINEW(27, 9436, 9438, 10, 15.0),
-    TREE_ROOTS(31, 6043, 9438, 10, 15.0),
-    YAK(35, 10814, 954, 30, 25.0);
+    WOOL(
+        button = 19,
+        need = Items.WOOL_1737,
+        product = Items.BALL_OF_WOOL_1759,
+        level = 1,
+        exp = 2.5),
+    FLAX(
+        button = 17,
+        need = Items.FLAX_1779,
+        product = Items.BOW_STRING_1777,
+        level = 10,
+        exp = 15.0
+    ),
+    ROOT(
+        button = 23,
+        need = Items.MAGIC_ROOTS_6051,
+        product = Items.MAGIC_STRING_6038,
+        level = 19,
+        exp = 30.0
+    ),
+    ROOT1(
+        button = 23,
+        need = Items.OAK_ROOTS_6043,
+        product = Items.MAGIC_STRING_6038,
+        level = 19,
+        exp = 30.0
+    ),
+    ROOT2(
+        button = 23,
+        need = Items.WILLOW_ROOTS_6045,
+        product = Items.MAGIC_STRING_6038,
+        level = 19,
+        exp = 30.0
+    ),
+    ROOT3(
+        button = 23,
+        need = Items.MAPLE_ROOTS_6047,
+        product = Items.MAGIC_STRING_6038,
+        level = 19,
+        exp = 30.0
+    ),
+    ROOT4(
+        button = 23,
+        need = Items.YEW_ROOTS_6049,
+        product = Items.MAGIC_STRING_6038,
+        level = 19,
+        exp = 30.0
+    ),
+    ROOT5(
+        button = 23,
+        need = Items.SPIRIT_ROOTS_6053,
+        product = Items.MAGIC_STRING_6038,
+        level = 19,
+        exp = 30.0
+    ),
+    SINEW(
+        button = 27,
+        need = Items.SINEW_9436,
+        product = Items.CROSSBOW_STRING_9438,
+        level = 10,
+        exp = 15.0
+    ),
+    TREE_ROOTS(
+        button = 31,
+        need = Items.OAK_ROOTS_6043,
+        product = Items.CROSSBOW_STRING_9438,
+        level = 10,
+        exp = 15.0
+    ),
+    YAK(
+        button = 35,
+        need = Items.HAIR_10814,
+        product = Items.ROPE_954,
+        level = 30,
+        exp = 25.0
+    );
 
 
     companion object {

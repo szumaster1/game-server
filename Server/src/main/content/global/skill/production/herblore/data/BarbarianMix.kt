@@ -98,7 +98,7 @@ enum class BarbarianMix {
         item = Items.SUPER_ENERGY2_3020,
         level = 56,
         product = Items.SUP_ENERGY_MIX2_11481,
-        42.0,
+        exp = 42.0,
         both = false
     ),
     HUNTER_POTION(

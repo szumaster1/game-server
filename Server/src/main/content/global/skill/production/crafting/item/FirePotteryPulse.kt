@@ -9,8 +9,6 @@ import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.world.map.Location
-import core.game.world.update.flag.context.Animation
-import java.util.*
 
 class FirePotteryPulse(player: Player?, node: Item?, val pottery: PotteryData, var amount: Int) : SkillPulse<Item?>(player, node) {
 
@@ -20,8 +18,8 @@ class FirePotteryPulse(player: Player?, node: Item?, val pottery: PotteryData, v
             sendMessage(player, "You need a crafting level of " + pottery.level + " in order to do this.")
             return false
         }
-        if (!player.inventory.containsItem(pottery.unfinished)) {
-            sendMessage(player, "You need a " + pottery.name.lowercase(Locale.getDefault()) + "in order to do this.")
+        if (!inInventory(player, pottery.unfinished.id)) {
+            sendMessage(player, "You need a " + pottery.name.lowercase() + "in order to do this.")
             return false
         }
         return true
@@ -29,7 +27,7 @@ class FirePotteryPulse(player: Player?, node: Item?, val pottery: PotteryData, v
 
     override fun animate() {
         if (ticks % 5 == 0) {
-            player.animate(ANIMATION)
+            animate(player, ANIMATION)
         }
     }
 
@@ -37,9 +35,9 @@ class FirePotteryPulse(player: Player?, node: Item?, val pottery: PotteryData, v
         if (++ticks % 5 != 0) {
             return false
         }
-        if (player.inventory.remove(pottery.unfinished)) {
+        if (removeItem(player, pottery.unfinished)) {
             val item = pottery.product
-            player.inventory.add(item)
+            addItem(player, item.id)
             rewardXP(player, Skills.CRAFTING, pottery.fireExp)
             sendMessage(player, "You put the " + pottery.unfinished.name.lowercase() + " in the oven.")
             sendMessage(player, "You remove a " + pottery.product.name.lowercase() + " from the oven.")
@@ -54,7 +52,7 @@ class FirePotteryPulse(player: Player?, node: Item?, val pottery: PotteryData, v
              * Fire a pot in the kiln in the Barbarian Village potter's house.
              */
             if (pottery == PotteryData.POT && withinDistance(player, Location(3085, 3408, 0))) {
-                player.achievementDiaryManager.finishTask(player, DiaryType.LUMBRIDGE, 0, 8)
+                finishDiaryTask(player, DiaryType.LUMBRIDGE, 0, 8)
             }
         }
         amount--
@@ -62,6 +60,6 @@ class FirePotteryPulse(player: Player?, node: Item?, val pottery: PotteryData, v
     }
 
     companion object {
-        private val ANIMATION = Animation(Animations.OLD_FURNACE_ANIMATION_899)
+        private const val ANIMATION = Animations.USE_FURNACE_3243
     }
 }

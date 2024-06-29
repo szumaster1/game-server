@@ -12,7 +12,6 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
-import core.game.world.update.flag.context.Animation
 
 class SnakeskinCraftPulse(player: Player?, node: Item?, var amount: Int, val skin: SnakeskinData) : SkillPulse<Item?>(player, node) {
 
@@ -26,8 +25,8 @@ class SnakeskinCraftPulse(player: Player?, node: Item?, var amount: Int, val ski
         if (!inInventory(player, LeatherData.NEEDLE, 1)) {
             return false
         }
-        if (!player.inventory.containsItem(LeatherData.THREAD)) {
-            player.dialogueInterpreter.sendDialogue("You need thread to make this.")
+        if (!inInventory(player, LeatherData.THREAD.id)) {
+            sendDialogue(player, "You need thread to make this.")
             return false
         }
         if (!inInventory(player, Items.SNAKESKIN_6289, skin.requiredAmount)) {
@@ -50,7 +49,7 @@ class SnakeskinCraftPulse(player: Player?, node: Item?, var amount: Int, val ski
         }
         if (removeItem(player, Item(Items.SNAKESKIN_6289, skin.requiredAmount))) {
             val item = skin.product
-            player.inventory.add(item)
+            addItem(player, item.id)
             rewardXP(player, Skills.CRAFTING, skin.experience)
             decayThread(player)
             if (isLastThread(player)) {
@@ -62,6 +61,6 @@ class SnakeskinCraftPulse(player: Player?, node: Item?, var amount: Int, val ski
     }
 
     companion object {
-        private val ANIMATION = Animation.create(Animations.CRAFT_LEATHER_1249)
+        private const val ANIMATION = Animations.CRAFT_LEATHER_1249
     }
 }

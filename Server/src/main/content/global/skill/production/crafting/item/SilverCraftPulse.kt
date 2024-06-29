@@ -17,6 +17,7 @@ class SilverCraftPulse(
     val furnace: Scenery,
     var amount: Int
 ) : Pulse() {
+
     override fun pulse(): Boolean {
         if (amount < 1) return true
 

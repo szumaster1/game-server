@@ -20,6 +20,7 @@ import kotlin.math.roundToInt
 
 @Initializable
 class GrindItemHandler : UseWithHandler(Items.PESTLE_AND_MORTAR_233) {
+
     override fun newInstance(arg: Any?): Plugin<Any> {
         for (grind in GrindingItem.values()) {
             for (i in grind.items) {

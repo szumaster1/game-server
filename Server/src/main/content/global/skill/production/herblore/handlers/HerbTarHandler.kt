@@ -14,7 +14,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 @Initializable
-class HerbTarHandler : UseWithHandler(1939) {
+class HerbTarHandler : UseWithHandler(Items.SWAMP_TAR_1939) {
 
     override fun newInstance(arg: Any?): Plugin<Any> {
         for (tar in Tar.values()) {

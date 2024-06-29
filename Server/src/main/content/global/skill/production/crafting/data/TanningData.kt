@@ -13,14 +13,46 @@ enum class TanningData(
     val item: Int,
     val product: Int
 ) {
-    SOFT_LEATHER(1, Items.COWHIDE_1739, Items.LEATHER_1741),
-    HARD_LEATHER(2, Items.COWHIDE_1739, Items.HARD_LEATHER_1743),
-    SNAKESKIN(3, Items.SNAKE_HIDE_6287, Items.SNAKESKIN_6289),
-    SNAKESKIN2(4, Items.SNAKE_HIDE_7801, Items.SNAKESKIN_6289),
-    GREEN_DHIDE(5, Items.GREEN_DRAGONHIDE_1753, Items.GREEN_D_LEATHER_1745),
-    BLUEDHIDE(6, Items.BLUE_DRAGONHIDE_1751, Items.BLUE_D_LEATHER_2505),
-    REDDHIDE(7, Items.RED_DRAGONHIDE_1749, Items.RED_DRAGON_LEATHER_2507),
-    BLACKDHIDE(8, Items.BLACK_DRAGONHIDE_1747, Items.BLACK_D_LEATHER_2509);
+    SOFT_LEATHER(
+        button = 1,
+        item = Items.COWHIDE_1739,
+        product = Items.LEATHER_1741
+    ),
+    HARD_LEATHER(
+        button = 2,
+        item = Items.COWHIDE_1739,
+        product = Items.HARD_LEATHER_1743
+    ),
+    SNAKESKIN(
+        button = 3,
+        item = Items.SNAKE_HIDE_6287,
+        product = Items.SNAKESKIN_6289
+    ),
+    SNAKESKIN2(
+        button = 4,
+        item = Items.SNAKE_HIDE_7801,
+        product = Items.SNAKESKIN_6289
+    ),
+    GREEN_DHIDE(
+        button = 5,
+        item = Items.GREEN_DRAGONHIDE_1753,
+        product = Items.GREEN_D_LEATHER_1745
+    ),
+    BLUEDHIDE(
+        button = 6,
+        item = Items.BLUE_DRAGONHIDE_1751,
+        product = Items.BLUE_D_LEATHER_2505
+    ),
+    REDDHIDE(
+        button = 7,
+        item = Items.RED_DRAGONHIDE_1749,
+        product = Items.RED_DRAGON_LEATHER_2507
+    ),
+    BLACKDHIDE(
+        button = 8,
+        item = Items.BLACK_DRAGONHIDE_1747,
+        product = Items.BLACK_D_LEATHER_2509
+    );
 
 
     companion object {
@@ -33,6 +65,7 @@ enum class TanningData(
             }
             return null
         }
+
         @JvmStatic
         fun forItemId(id: Int): TanningData? {
             for (def in values()) {
@@ -78,10 +111,17 @@ enum class TanningData(
                 sendMessage(player, "You don't have enough coins to tan that many.")
                 return
             }
-            if (removeItem(player, Item(Items.COINS_995, coins * amount)) && removeItem(player, Item(def.item, amount))) {
+            if (removeItem(player, Item(Items.COINS_995, coins * amount)) && removeItem(
+                    player,
+                    Item(def.item, amount)
+                )
+            ) {
                 addItem(player, def.product, amount)
                 if (amount > 1) {
-                    sendMessage(player, "The tanner tans " + amount + " " + getItemName(def.item).lowercase() + "s for you.")
+                    sendMessage(
+                        player,
+                        "The tanner tans " + amount + " " + getItemName(def.item).lowercase() + "s for you."
+                    )
                 } else {
                     sendMessage(player, "The tanner tans your " + getItemName(def.item).lowercase() + ".")
                 }

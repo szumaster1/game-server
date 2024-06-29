@@ -1,4 +1,4 @@
-package content.global.skill.production.cooking
+package content.global.skill.production.cooking.handlers
 
 import core.api.*
 import core.api.consts.Items

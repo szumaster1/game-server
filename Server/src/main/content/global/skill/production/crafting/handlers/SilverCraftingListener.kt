@@ -53,7 +53,7 @@ class SilverCraftingListener : InterfaceListener, InteractionListener {
             if (!inInventory(player, product.requiredItemId)) {
                 sendMessage(
                     player,
-                    "You need a ${itemDefinition(product.requiredItemId).name.lowercase()} to make this item."
+                    "You need a ${getItemName(product.requiredItemId).lowercase()} to make this item."
                 )
                 return@on true
             }
@@ -93,7 +93,6 @@ class SilverCraftingListener : InterfaceListener, InteractionListener {
 
     private fun make(player: Player, product: SilverData, amount: Int) {
         closeInterface(player)
-
         submitIndividualPulse(
             player,
             SilverCraftPulse(

@@ -29,7 +29,7 @@ class SoftCraftPulse(player: Player?, node: Item?, val soft: SoftLeather, var am
         if (!inInventory(player, LeatherData.LEATHER, 1)) {
             return false
         }
-        if (!player.inventory.containsItem(LeatherData.THREAD)) {
+        if (!inInventory(player, LeatherData.THREAD.id)) {
             sendDialogue(player, "You need thread to make this.")
             amount = 0
             return false

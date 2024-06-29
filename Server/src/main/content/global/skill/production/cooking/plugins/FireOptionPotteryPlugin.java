@@ -1,4 +1,4 @@
-package content.global.skill.production.cooking;
+package content.global.skill.production.cooking.plugins;
 
 import core.cache.def.impl.SceneryDefinition;
 import core.game.interaction.OptionHandler;

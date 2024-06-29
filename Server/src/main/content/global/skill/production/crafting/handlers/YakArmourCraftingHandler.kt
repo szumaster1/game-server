@@ -32,7 +32,7 @@ class YakArmourCraftingHandler : UseWithHandler(Items.NEEDLE_1733) {
                 }
 
                 override fun getAll(index: Int): Int {
-                    return player.inventory.getAmount(event.usedItem)
+                    return amountInInventory(event.player, event.usedItem.id)
                 }
             }
         dialogue.open()
@@ -51,7 +51,7 @@ class YakArmourCraftingHandler : UseWithHandler(Items.NEEDLE_1733) {
             if (!inInventory(player, LeatherData.NEEDLE, 1)) {
                 return false
             }
-            if (!player.inventory.containsItem(LeatherData.THREAD)) {
+            if (!inInventory(player, LeatherData.THREAD.id)) {
                 sendDialogue(player, "You need some thread to make anything out of leather.")
                 return false
             }
@@ -74,8 +74,8 @@ class YakArmourCraftingHandler : UseWithHandler(Items.NEEDLE_1733) {
             if (++ticks % 5 != 0) {
                 return false
             }
-            val reqAmount = if (index == 1) 2 else 1
-            if (player.inventory.remove(Item(Items.CURED_YAK_HIDE_10820, reqAmount))) {
+            val requiredAmount = if (index == 1) 2 else 1
+            if (removeItem(player, Item(Items.CURED_YAK_HIDE_10820, requiredAmount))) {
                 player.inventory.add(node)
                 rewardXP(player, Skills.CRAFTING, 32.0)
                 decayThread(player)
