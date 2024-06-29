@@ -4,6 +4,7 @@ import core.api.*
 import core.api.consts.Animations
 import core.api.consts.Graphics
 import core.api.consts.Items
+import core.api.consts.NPCs
 import core.game.dialogue.DialogueAction
 import core.game.node.entity.player.Player
 import core.game.node.item.GroundItemManager
@@ -14,13 +15,28 @@ import core.game.world.GameWorld
 import core.game.world.update.flag.context.Graphic
 import core.utilities.StringUtils
 
-/**
- * @author Vexia
- */
 enum class GodType(val cape: Item, val staff: Item, val statueId: Int, val npcId: Int, val dropMessage: String) {
-    SARADOMIN(Item(Items.SARADOMIN_CAPE_2412), Item(Items.SARADOMIN_STAFF_2415), 2873, 913, "The cape disappears in a flash of light as it touches the ground."),
-    GUTHIX(Item(Items.GUTHIX_CAPE_2413), Item(Items.GUTHIX_STAFF_2416), 2875, 914, "The cape disintegrates as it touches the earth."),
-    ZAMORAK(Item(Items.ZAMORAK_CAPE_2414), Item(Items.ZAMORAK_STAFF_2417), 2874, 912, "The cape ignites and burns up as it touches the ground.");
+    SARADOMIN(
+        cape = Item(Items.SARADOMIN_CAPE_2412),
+        staff = Item(Items.SARADOMIN_STAFF_2415),
+        statueId = 2873,
+        npcId = NPCs.BATTLE_MAGE_913,
+        dropMessage = "The cape disappears in a flash of light as it touches the ground."
+    ),
+    GUTHIX(
+        cape = Item(Items.GUTHIX_CAPE_2413),
+        staff = Item(Items.GUTHIX_STAFF_2416),
+        statueId = 2875,
+        npcId = NPCs.BATTLE_MAGE_914,
+        dropMessage = "The cape disintegrates as it touches the earth."
+    ),
+    ZAMORAK(
+        cape = Item(Items.ZAMORAK_CAPE_2414),
+        staff = Item(Items.ZAMORAK_STAFF_2417),
+        statueId = 2874,
+        npcId = NPCs.BATTLE_MAGE_912,
+        dropMessage = "The cape ignites and burns up as it touches the ground."
+    );
 
     fun pray(player: Player, statue: Scenery) {
         if (hasAny(player)) {
@@ -42,7 +58,7 @@ enum class GodType(val cape: Item, val staff: Item, val statueId: Int, val npcId
                         if (g == null) {
                             GroundItemManager.create(cape, loc, player)
                         }
-                        sendGraphics(Graphic(Graphics.GIVE_THANKS_86, 0, 0),  loc)
+                        sendGraphics(Graphic(Graphics.GIVE_THANKS_86, 0, 0), loc)
                         return true
                     }
                 })

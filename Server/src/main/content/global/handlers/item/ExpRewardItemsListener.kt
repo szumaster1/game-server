@@ -20,25 +20,25 @@ class ExpRewardItemsListener : InteractionListener {
             setAttribute(player, "caller") { skill: Int, _: Player ->
                 setAttribute(player, "xp_reward_item", node)
                 val lamp = Lamps.forItem(player.getAttribute("xp_reward_item", Item(Items.LAMP_2528)))
-                if (getStatLevel(player, skill) < lamp!!.levelRequirement) {
-                    sendMessage(player, "You need at least " + lamp.levelRequirement + " " + Skills.SKILL_NAME[skill] + " to do this.")
+                if (getStatLevel(player, skill) < lamp!!.levelRequired) {
+                    sendMessage(player, "You need at least " + lamp.levelRequired + " " + Skills.SKILL_NAME[skill] + " to do this.")
                 } else {
                     if (removeItem(player, player.getAttribute<Any>("xp_reward_item") as Item)) {
                         if (lamp == Lamps.GENIE_LAMP) {
                             rewardXP(player, skill, (getStatLevel(player, skill) * 10).toDouble())
                         } else {
-                            rewardXP(player, skill, lamp.exp.toDouble())
+                            rewardXP(player, skill, lamp.experience.toDouble())
                             if (lamp.item in intArrayOf(9656, 9657, 9658, 13160, 13161, 13162)) {
                                 player.dialogueInterpreter.sendPlainMessage(
                                     false,
                                     BLUE + "You read a fascinating chapter and earn experience!",
-                                    "You have been awarded " + lamp.exp + " " + Skills.SKILL_NAME[skill] + " experience!"
+                                    "You have been awarded " + lamp.experience + " " + Skills.SKILL_NAME[skill] + " experience!"
                                 )
                             } else {
                                 player.dialogueInterpreter.sendPlainMessage(
                                     false,
                                     BLUE + "Your wish has been granted!",
-                                    "You have been awarded " + lamp.exp + " " + Skills.SKILL_NAME[skill] + " experience!"
+                                    "You have been awarded " + lamp.experience + " " + Skills.SKILL_NAME[skill] + " experience!"
                                 )
                             }
                         }
