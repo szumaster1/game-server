@@ -29,9 +29,9 @@ object GoblinFollower {
             override fun pulse(): Boolean {
                 when (counter++) {
                     0 -> openInterface(player, Components.FADE_TO_BLACK_120)
-                    6 -> player.properties.teleportLocation = location
-                    7 -> closeInterface(player)
-                    8 -> openInterface(player, Components.FADE_FROM_BLACK_170)
+                    5 -> player.properties.teleportLocation = location
+                    6 -> closeInterface(player)
+                    7 -> openInterface(player, Components.FADE_FROM_BLACK_170)
                     9 -> closeInterface(player).also { return true }
                 }
                 return false
