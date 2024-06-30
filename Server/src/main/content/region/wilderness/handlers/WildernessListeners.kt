@@ -1,6 +1,6 @@
 package content.region.wilderness.handlers
 
-import content.global.handlers.iface.warning.WildernessWarningInterface
+import content.global.handlers.iface.WarningInterfaceListener
 import core.api.openInterface
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
@@ -50,6 +50,6 @@ class WildernessListeners : InteractionListener {
                 }
             }
         }
-        WildernessWarningInterface.handleDitch(player)
+        WarningInterfaceListener.handleDitch(player)
     }
 }
