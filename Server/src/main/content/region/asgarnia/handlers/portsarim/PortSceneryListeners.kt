@@ -6,8 +6,8 @@ import core.api.consts.Scenery
 import core.game.global.action.ClimbActionHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
+import core.game.interaction.QueueStrength
 import core.game.node.entity.player.Player
-import core.game.node.entity.player.link.TeleportManager
 import core.game.world.map.Location
 import core.game.world.repository.Repository.findNPC
 import core.game.world.update.flag.context.Animation
@@ -23,9 +23,33 @@ class PortSceneryListeners : InteractionListener {
             return@on true
         }
 
+        on(Scenery.GANGPLANK_69, IntType.SCENERY, "cross"){ player, _ ->
+            player.dialogueInterpreter.open(NPCs.ARHEIN_563, findNPC(NPCs.ARHEIN_563), true)
+            return@on true
+        }
+
+        on(Scenery.GANGPLANK_2593, IntType.SCENERY, "cross"){ player, _ ->
+            if (isQuestComplete(player, "Dragon Slayer")) {
+                player.dialogueInterpreter.open(NPCs.KLARENSE_744, findNPC(NPCs.KLARENSE_744), true)
+                return@on true
+            }
+            if (!player.getSavedData().questData.getDragonSlayerAttribute("ship")) {
+                openDialogue(player, NPCs.KLARENSE_744, findNPC(NPCs.KLARENSE_744)!!, true)
+            } else {
+                sendMessage(player,"You board the ship.")
+                cross(player, Location(3047, 3207, 1))
+            }
+            return@on true
+        }
+
+        on(Scenery.GANGPLANK_11209, IntType.SCENERY, "cross"){ player, _ ->
+            sendDialogueLines(player,"I don't think that whoever owns this ship will be happy", "with me wandering all over it.")
+            return@on true
+        }
+
         on(PLANK, IntType.SCENERY, "cross") { player, node ->
+            forceMove(player, player.location, node.location, 0, 30, null, 819)
             if(getUsedOption(player) == "cross") when(node.id) {
-                69 -> player.dialogueInterpreter.open(563, findNPC(563), true)
                 2081 -> cross(player, KARAMJA[0])
                 2082 -> cross(player, KARAMJA[1])
                 2083 -> cross(player, PORT_SARIM[4])
@@ -38,20 +62,7 @@ class PortSceneryListeners : InteractionListener {
                 2413 -> cross(player, PORT_SARIM[1])
                 2414 -> cross(player, ENTRANA[0])
                 2415 -> cross(player, ENTRANA[1])
-                2593 -> {
-                    if (isQuestComplete(player, "Dragon Slayer")) {
-                        player.dialogueInterpreter.open(NPCs.KLARENSE_744, findNPC(NPCs.KLARENSE_744), true)
-                        return@on true
-                    }
-                    if (!player.getSavedData().questData.getDragonSlayerAttribute("ship")) {
-                        openDialogue(player, NPCs.KLARENSE_744, findNPC(NPCs.KLARENSE_744)!!, true)
-                    } else {
-                        sendMessage(player,"You board the ship.")
-                        cross(player, Location(3047, 3207, 1))
-                    }
-                }
-                2594 -> cross(player, Location.create(3047, 3204, 0))
-                11209 -> sendDialogueLines(player,"I don't think that whoever owns this ship will be happy", "with me wandering all over it.")
+                2594 -> cross(player, Location(3047, 3204, 0))
                 11211 -> cross(player, MOS_SHIP[0])
                 11212 -> cross(player, MOS_SHIP[1])
                 14304 -> cross(player, PORT_SARIM[6]).also { sendMessage(player,"You board the ship.") }
@@ -80,7 +91,7 @@ class PortSceneryListeners : InteractionListener {
     }
 
     companion object {
-        private val PLANK = intArrayOf(69, 2081, 2082, 2083, 2084, 2085, 2086, 2087, 2088, 2412, 2413, 2414, 2415, 2593, 2594, 11209, 11211, 11212, 14304, 14305, 14306, 14307, 17392, 17393, 17394, 17395, 17398, 17399, 17400, 17401, 17402, 17403, 17404, 17405, 17406, 17407, 17408, 17409)
+        private val PLANK = intArrayOf(2081, 2082, 2083, 2084, 2085, 2086, 2087, 2088, 2412, 2413, 2414, 2415, 2594, 11211, 11212, 14304, 14305, 14306, 14307, 17392, 17393, 17394, 17395, 17398, 17399, 17400, 17401, 17402, 17403, 17404, 17405, 17406, 17407, 17408, 17409)
         private val LADDER = intArrayOf(Scenery.LADDER_2590, Scenery.LADDER_2592)
         private val PORT_SARIM = arrayOf(Location(3048, 3231, 1), Location.create(3048, 3234, 0), Location(3038, 3192, 0), Location(3038, 3189, 1), Location(3032, 3217, 1), Location(3029, 3217, 0), Location(3041, 3199, 1), Location(3041, 3202, 0))
         private val ENTRANA = arrayOf(Location(2834, 3331, 1), Location(2834, 3335, 0))
@@ -99,7 +110,11 @@ class PortSceneryListeners : InteractionListener {
          * 17.07.2009
          */
         fun cross(player: Player, location: Location?) {
-            location?.let { forceMove(player, player.location, it, 0, 80, null, 819) }
+            stopWalk(player)
+            queueScript(player, 1, QueueStrength.STRONG) {
+                player.properties.teleportLocation = location
+                return@queueScript stopExecuting(player)
+            }
         }
     }
 }
