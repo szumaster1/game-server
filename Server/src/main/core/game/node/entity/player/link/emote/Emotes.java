@@ -15,6 +15,7 @@ import core.game.world.update.flag.context.Graphic;
 import core.api.consts.Animations;
 import core.api.consts.Items;
 
+import static core.api.ContentAPIKt.playJingle;
 import static core.api.ContentAPIKt.setAttribute;
 
 /**
@@ -199,11 +200,11 @@ public enum Emotes {
         @Override
         public void play(Player player) {
             if (!player.getAchievementDiaryManager().hasCompletedTask(DiaryType.FALADOR, 1, 8) &&
-                    player.getLocation().equals(new Location(2997, 3374, 0)) &&
-                    player.getDirection() == Direction.SOUTH &&
-                    player.getEquipment().get(EquipmentContainer.SLOT_HAT).getId() == Items.INITIATE_SALLET_5574 &&
-                    player.getEquipment().get(EquipmentContainer.SLOT_CHEST).getId() == Items.INITIATE_HAUBERK_5575 &&
-                    player.getEquipment().get(EquipmentContainer.SLOT_LEGS).getId() == Items.INITIATE_CUISSE_5576) {
+                player.getLocation().equals(new Location(2997, 3374, 0)) &&
+                player.getDirection() == Direction.SOUTH &&
+                player.getEquipment().get(EquipmentContainer.SLOT_HAT).getId() == Items.INITIATE_SALLET_5574 &&
+                player.getEquipment().get(EquipmentContainer.SLOT_CHEST).getId() == Items.INITIATE_HAUBERK_5575 &&
+                player.getEquipment().get(EquipmentContainer.SLOT_LEGS).getId() == Items.INITIATE_CUISSE_5576) {
                 forceEmote(player, Animation.create(2112), null);
                 player.getAchievementDiaryManager().finishTask(player, DiaryType.FALADOR, 1, 8);
                 return;
@@ -331,8 +332,12 @@ public enum Emotes {
     /**
      * The Air guitar.
      */
-    AIR_GUITAR(41, Animation.create(2414), Graphic.create(1537), "This emote can be accessed by unlocking 200 pieces of music."),
-    /**
+    AIR_GUITAR(41, Animation.create(2414), Graphic.create(1537), "This emote can be accessed by unlocking 200 pieces of music.") {
+        public void play(Player player) {
+            playJingle(player, 302);
+            super.play(player);
+        }
+    },    /**
      * The Safety first.
      */
     SAFETY_FIRST(42, Animation.create(8770), Graphic.create(1553), "You can't use this emote yet. Visit the Stronghold of Player safety to<br>unlock it."),

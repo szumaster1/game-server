@@ -25,7 +25,7 @@ class CaptainBarnabyDialogue : DialogueFile() {
                 if (removeItem(player!!, Item(Items.COINS_995, 30))) {
                     sendMessage(player!!, "You pay 30 coins and board the ship.")
                     playJingle(player!!, 171)
-                    Ships.ARDOUGNE_TO_BRIMHAVEN.sail(player)
+                    Ships.ARDOUGNE_TO_BRIMHAVEN.sail(player!!)
                     stage = END_DIALOGUE
                 } else {
                     playerl("Sorry, I don't seem to have enough coins.").also { stage = END_DIALOGUE }

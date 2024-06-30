@@ -3,7 +3,7 @@ package content.region.misthalin.handlers.varrock
 import content.global.handlers.iface.FairyRing
 import content.global.skill.combat.magic.TeleportMethod
 import content.global.skill.combat.prayer.Bones
-import content.global.travel.CanoeListeners
+import content.global.travel.canoe.CanoeListeners
 import content.region.misthalin.dialogue.varrock.BennyDialogue
 import content.region.misthalin.dialogue.varrock.ElsieDialogue
 import content.region.misthalin.dialogue.varrock.museum.CuratorHaigHalenDialogue

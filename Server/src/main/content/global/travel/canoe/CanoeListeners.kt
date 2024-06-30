@@ -1,4 +1,4 @@
-package content.global.travel
+package content.global.travel.canoe
 
 import content.data.skill.SkillingTool
 import core.api.*

@@ -1,4 +1,4 @@
-package content.global.travel
+package content.global.travel.balloon
 
 import core.api.*
 import core.api.consts.Components
