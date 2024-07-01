@@ -19,9 +19,9 @@ class WatermelonOnSackListener : InteractionListener {
                 removeItem(player, watermelon)
                 addItem(player, scarecrow)
                 rewardXP(player, Skills.FARMING, 25.0)
-                sendMessage(player, "You stab the watermelon on top of the spear, finishing your scarecrow")
+                sendMessage(player, "You stab the watermelon on top of the spear, finishing your scarecrow.")
             } else {
-                sendMessage(player, "Your Farming level is not high enough to do this")
+                sendMessage(player, "Your Farming level is not high enough to do this.")
             }
             return@onUseWith true
         }
