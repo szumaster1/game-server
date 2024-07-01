@@ -1,29 +1,149 @@
 package content.global.skill.gathering.fishing
 
+import content.global.skill.gathering.fishing.data.Fish
 import core.api.*
+import core.api.consts.Animations
 import core.api.consts.Items
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.game.world.update.flag.context.Animation
 import core.utilities.RandomFunction
 
-enum class FishingOption(val tool: Int, val level: Int, val animation: Animation, val bait: IntArray?, val option: String, vararg val fish: Fish) {
-    CRAYFISH_CAGE(Items.CRAYFISH_CAGE_13431, 1, Animation(10009), null, "cage", Fish.CRAYFISH),
-    SMALL_NET(Items.SMALL_FISHING_NET_303, 1, Animation(621), null, "net", Fish.SHRIMP, Fish.ANCHOVIE),
-    BAIT(Items.FISHING_ROD_307, 5, Animation(622), intArrayOf(Items.FISHING_BAIT_313), "bait", Fish.SARDINE, Fish.HERRING),
-    LURE(Items.FLY_FISHING_ROD_309, 20, Animation(622), intArrayOf(Items.FEATHER_314, Items.STRIPY_FEATHER_10087), "lure", Fish.TROUT, Fish.SALMON, Fish.RAINBOW_FISH),
-    PIKE_BAIT(Items.FISHING_ROD_307, 25, Animation(622), intArrayOf(Items.FISHING_BAIT_313), "bait", Fish.PIKE),
-    LOBSTER_CAGE(Items.LOBSTER_POT_301, 40, Animation(619), null, "cage", Fish.LOBSTER),
-    HARPOON(Items.HARPOON_311, 35, Animation(618), null, "harpoon", Fish.TUNA, Fish.SWORDFISH),
-    BARB_HARPOON(Items.BARB_TAIL_HARPOON_10129, 35, Animation(618), null, "harpoon", Fish.TUNA, Fish.SWORDFISH),
-    BIG_NET(Items.BIG_FISHING_NET_305, 16, Animation(620), null, "net", Fish.MACKEREL, Fish.COD, Fish.BASS, Fish.SEAWEED),
-    SHARK_HARPOON(Items.HARPOON_311, 76, Animation(618), null, "harpoon", Fish.SHARK),
-    MONKFISH_NET(Items.SMALL_FISHING_NET_303, 62, Animation(621), null, "net", Fish.MONKFISH),
-    MORTMYRE_ROD(Items.FISHING_ROD_307, 5, Animation(622), intArrayOf(Items.FISHING_BAIT_313), "bait", Fish.SLIMY_EEL),
-    LUMBDSWAMP_ROD(Items.FISHING_ROD_307, 5, Animation(622), intArrayOf(Items.FISHING_BAIT_313), "bait", Fish.SLIMY_EEL, Fish.FROG_SPAWN),
-    KBWANJI_NET(Items.SMALL_FISHING_NET_303, 5, Animation(621), null, "net", Fish.KARAMBWANJI),
-    KARAMBWAN_VES(Items.KARAMBWAN_VESSEL_3157, 65, Animation(1193), intArrayOf((Items.RAW_KARAMBWANJI_3150)), "fish", Fish.KARAMBWAN),
-    OILY_FISHING_ROD(Items.OILY_FISHING_ROD_1585, 53, Animation(622), intArrayOf(Items.FISHING_BAIT_313), "bait", Fish.LAVA_EEL);
+enum class FishingOption(
+    val tool: Int,
+    val level: Int,
+    val animation: Animation,
+    val bait: IntArray?,
+    val option: String,
+    vararg val fish: Fish
+) {
+    CRAYFISH_CAGE(
+        tool = Items.CRAYFISH_CAGE_13431,
+        level = 1,
+        animation = Animation(Animations.USING_CRAYFISH_CAGE_10009),
+        bait = null,
+        option = "cage",
+        Fish.CRAYFISH
+    ),
+    SMALL_NET(
+        tool = Items.SMALL_FISHING_NET_303,
+        level = 1,
+        animation = Animation(Animations.NET_FISHING_621),
+        bait = null,
+        option = "net",
+        Fish.SHRIMP, Fish.ANCHOVIE
+    ),
+    BAIT(
+        tool = Items.FISHING_ROD_307,
+        level = 5,
+        animation = Animation(Animations.ROD_FISHING_622),
+        bait = intArrayOf(Items.FISHING_BAIT_313),
+        option = "bait",
+        Fish.SARDINE, Fish.HERRING
+    ),
+    LURE(
+        tool = Items.FLY_FISHING_ROD_309,
+        level = 20,
+        animation = Animation(Animations.ROD_FISHING_622),
+        bait = intArrayOf(Items.FEATHER_314, Items.STRIPY_FEATHER_10087),
+        option = "lure",
+        Fish.TROUT, Fish.SALMON, Fish.RAINBOW_FISH
+    ),
+    PIKE_BAIT(
+        tool = Items.FISHING_ROD_307,
+        level = 25,
+        animation = Animation(Animations.ROD_FISHING_622),
+        bait = intArrayOf(Items.FISHING_BAIT_313),
+        option = "bait",
+        Fish.PIKE
+    ),
+    LOBSTER_CAGE(
+        tool = Items.LOBSTER_POT_301,
+        level = 40,
+        animation = Animation(Animations.LOBSTER_CAGE_FISHING_619),
+        bait = null,
+        option = "cage",
+        Fish.LOBSTER
+    ),
+    HARPOON(
+        tool = Items.HARPOON_311,
+        level = 35,
+        animation = Animation(Animations.HARPOON_FISHING_618),
+        bait = null,
+        option = "harpoon",
+        Fish.TUNA, Fish.SWORDFISH
+    ),
+    BARB_HARPOON(
+        tool = Items.BARB_TAIL_HARPOON_10129,
+        level = 35,
+        animation = Animation(Animations.HARPOON_FISHING_618),
+        bait = null,
+        option = "harpoon",
+        Fish.TUNA, Fish.SWORDFISH
+    ),
+    BIG_NET(
+        tool = Items.BIG_FISHING_NET_305,
+        level = 16,
+        animation = Animation(Animations.NET_FISHING_620),
+        bait = null,
+        option = "net",
+        Fish.MACKEREL, Fish.COD, Fish.BASS, Fish.SEAWEED
+    ),
+    SHARK_HARPOON(
+        tool = Items.HARPOON_311,
+        level = 76,
+        animation = Animation(Animations.HARPOON_FISHING_618),
+        bait = null,
+        option = "harpoon",
+        Fish.SHARK
+    ),
+    MONKFISH_NET(
+        tool = Items.SMALL_FISHING_NET_303,
+        level = 62,
+        animation = Animation(Animations.NET_FISHING_621),
+        bait = null,
+        option = "net",
+        Fish.MONKFISH
+    ),
+    MORTMYRE_ROD(
+        tool = Items.FISHING_ROD_307,
+        level = 5,
+        animation = Animation(Animations.ROD_FISHING_622),
+        bait = intArrayOf(Items.FISHING_BAIT_313),
+        option = "bait",
+        Fish.SLIMY_EEL
+    ),
+    LUMBDSWAMP_ROD(
+        tool = Items.FISHING_ROD_307,
+        level = 5,
+        animation = Animation(Animations.ROD_FISHING_622),
+        bait = intArrayOf(Items.FISHING_BAIT_313),
+        option = "bait",
+        Fish.SLIMY_EEL, Fish.FROG_SPAWN
+    ),
+    KBWANJI_NET(
+        tool = Items.SMALL_FISHING_NET_303, level = 5,
+        animation = Animation(Animations.NET_FISHING_621),
+        bait = null,
+        option = "net",
+        Fish.KARAMBWANJI
+    ),
+    KARAMBWAN_VES(
+        tool = Items.KARAMBWAN_VESSEL_3157,
+        level = 65,
+        animation = Animation(Animations.FISHING_WITH_KARAMBWAN_VESSEL_1193),
+        bait = intArrayOf((Items.RAW_KARAMBWANJI_3150)),
+        option = "fish",
+        Fish.KARAMBWAN
+    ),
+    OILY_FISHING_ROD(
+        tool = Items.OILY_FISHING_ROD_1585,
+        level = 53,
+        animation = Animation(Animations.ROD_FISHING_622),
+        bait = intArrayOf(Items.FISHING_BAIT_313),
+        option = "bait",
+        Fish.LAVA_EEL
+    );
 
     companion object {
         private val nameMap: HashMap<String, FishingOption> = HashMap()

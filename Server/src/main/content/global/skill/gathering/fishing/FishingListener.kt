@@ -3,6 +3,7 @@ package content.global.skill.gathering.fishing
 
 import content.global.handlers.item.equipment.gloves.FOGGlovesManager
 import content.global.skill.combat.summoning.familiar.Forager
+import content.global.skill.gathering.fishing.data.Fish
 import content.global.skill.skillcape.SkillcapePerks
 import content.global.skill.skillcape.SkillcapePerks.Companion.isActive
 import core.api.*

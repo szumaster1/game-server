@@ -1,7 +1,7 @@
 package content.global.skill.gathering.fishing
 
-
 import content.global.skill.combat.summoning.familiar.Forager
+import content.global.skill.gathering.fishing.data.Fish
 import content.global.skill.skillcape.SkillcapePerks
 import content.global.skill.skillcape.SkillcapePerks.Companion.isActive
 import core.api.*
@@ -19,23 +19,12 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld.Pulser
 import core.game.world.map.Location
 import core.game.world.map.path.Pathfinder
-import core.game.world.update.flag.context.Animation
 import core.utilities.RandomFunction
 import core.utilities.colorize
 
-
-/**
- * Handles a fishing pulse.
- */
 class FishingPulse(player: Player?, npc: NPC, private val option: FishingOption?) : SkillPulse<NPC?>(player, npc) {
-    /**
-     * Represents the fish type.
-     */
-    private var fish: Fish? = null
 
-    /**
-     * Represents the base location the npc was at.
-     */
+    private var fish: Fish? = null
     private val location: Location = npc.location
 
     override fun start() {
@@ -90,7 +79,7 @@ class FishingPulse(player: Player?, npc: NPC, private val option: FishingOption?
 
     override fun animate() {
         if (isBareHanded(player)) {
-            player.animate(Animation(6709))
+            animate(player, 6709)
             Pulser.submit(object : Pulse(1) {
                 var counter = 0
                 override fun pulse(): Boolean {
@@ -101,7 +90,7 @@ class FishingPulse(player: Player?, npc: NPC, private val option: FishingOption?
                 }
             })
         } else {
-            player.animate(option!!.animation)
+            animate(player, option!!.animation)
         }
     }
 
@@ -120,12 +109,12 @@ class FishingPulse(player: Player?, npc: NPC, private val option: FishingOption?
                 val item = fish!!
                 if (isActive(SkillcapePerks.GREAT_AIM, player) && RandomFunction.random(100) <= 5) {
                     addItem(player, item.id)
-                    player.sendMessage(colorize("%RYour expert aim catches you a second fish."))
+                    sendMessage(player, colorize("%RYour expert aim catches you a second fish."))
                 }
                 addItem(player, item.id)
                 var fishCaught = player.getAttribute(STATS_BASE + ":" + STATS_FISH, 0)
-                player.setAttribute("/save:$STATS_BASE:$STATS_FISH", ++fishCaught)
-                player.skills.addExperience(Skills.FISHING, fish!!.experience, true)
+                setAttribute(player, "/save:$STATS_BASE:$STATS_FISH", ++fishCaught)
+                rewardXP(player, Skills.FISHING, fish!!.experience)
                 message(2)
             }
         }

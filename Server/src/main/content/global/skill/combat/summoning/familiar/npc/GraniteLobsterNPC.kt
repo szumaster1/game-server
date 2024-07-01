@@ -3,7 +3,7 @@ package content.global.skill.combat.summoning.familiar.npc
 import content.global.skill.combat.summoning.familiar.Familiar
 import content.global.skill.combat.summoning.familiar.FamiliarSpecial
 import content.global.skill.combat.summoning.familiar.Forager
-import content.global.skill.gathering.fishing.Fish.Companion.forItem
+import content.global.skill.gathering.fishing.data.Fish.Companion.forItem
 import core.api.consts.Items
 import core.api.consts.NPCs
 import core.game.node.entity.impl.Projectile

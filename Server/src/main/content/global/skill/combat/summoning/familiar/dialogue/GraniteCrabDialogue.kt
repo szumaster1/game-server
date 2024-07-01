@@ -1,6 +1,6 @@
 package content.global.skill.combat.summoning.familiar.dialogue
 
-import content.global.skill.gathering.fishing.Fish
+import content.global.skill.gathering.fishing.data.Fish
 import core.api.anyInInventory
 import core.api.consts.NPCs
 import core.game.dialogue.Dialogue

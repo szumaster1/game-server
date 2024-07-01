@@ -3,7 +3,7 @@ package content.global.skill.combat.summoning.familiar.npc;
 import content.data.consumables.Consumables;
 import content.global.skill.combat.summoning.familiar.Familiar;
 import content.global.skill.combat.summoning.familiar.FamiliarSpecial;
-import content.global.skill.gathering.fishing.Fish;
+import content.global.skill.gathering.fishing.data.Fish;
 import content.global.skill.production.cooking.CookableItems;
 import core.game.consumable.Consumable;
 import core.game.interaction.NodeUsageEvent;
