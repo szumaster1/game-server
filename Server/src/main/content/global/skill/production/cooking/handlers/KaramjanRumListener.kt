@@ -16,6 +16,7 @@ class KaramjanRumListener : InteractionListener {
         /*
          * Sliced-banana version.
          */
+
         onUseWith(IntType.ITEM, Items.SLICED_BANANA_3162, Items.KARAMJAN_RUM_431) { player, used, with ->
             if (removeItem(player, used.asItem()) && removeItem(player, with.asItem())) {
                 animate(player, Animations.HUMAN_USE_BANANA_WITH_KARAMJAN_RUM_1195)
@@ -30,6 +31,7 @@ class KaramjanRumListener : InteractionListener {
         /*
          * Banana version.
          */
+
         onUseWith(IntType.ITEM, Items.BANANA_1963, Items.KARAMJAN_RUM_431) { player, used, with ->
             if (removeItem(player, used.asItem()) && removeItem(player, with.asItem())) {
                 animate(player, Animations.HUMAN_USE_BANANA_WITH_KARAMJAN_RUM_1195)

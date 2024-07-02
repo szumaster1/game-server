@@ -1,8 +1,10 @@
 package content.global.skill.production.cooking.handlers
 
-import content.global.skill.production.cooking.fermenting.WineFermentingPulse
-import core.api.*
+import core.api.addItem
 import core.api.consts.Items
+import core.api.getStatLevel
+import core.api.removeItem
+import core.api.sendDialogue
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.skill.Skills
@@ -14,7 +16,7 @@ class SkeweredFoodListener : InteractionListener {
 
     override fun defineListeners() {
         onUseWith(IntType.ITEM, Items.IRON_SPIT_7225, *skeweredFood) { player, used, with ->
-            if (player.getSkills().getLevel(Skills.FIREMAKING) < 20) {
+            if (getStatLevel(player, Skills.FIREMAKING) < 20) {
                 sendDialogue(player, "You meed a Firemaking level of at least 20 in order to do this.")
                 return@onUseWith false
             }
@@ -35,7 +37,7 @@ enum class SkeweredSet(val raw: Item, val product: Item) {
 
 
     companion object {
-
+        @JvmStatic
         fun forItem(item: Item): SkeweredSet? {
             for (set in values()) {
                 if (set.raw.id == item.id) {

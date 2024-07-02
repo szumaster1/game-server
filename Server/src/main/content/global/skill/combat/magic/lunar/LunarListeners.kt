@@ -447,10 +447,10 @@ class LunarListeners : SpellListener("lunar"), Commands {
                 val pie = CookableItems.forId(item.id)
                 visualizeSpell(player, 4413, 746, 75, Sounds.LUNAR_BAKE_PIE_2879)
                 addXP(player,60.0)
-                player.skills.addExperience(Skills.COOKING,pie.experience)
+                player.skills.addExperience(Skills.COOKING,pie!!.experience)
                 setDelay(player,false)
                 player.inventory.remove(item)
-                player.inventory.add(Item(pie.cooked))
+                player.inventory.add(Item(pie!!.cooked))
                 playerPies.remove(item)
                 if(playerPies.isNotEmpty()) removeRunes(player,false) else removeRunes(player,true)
                 return false

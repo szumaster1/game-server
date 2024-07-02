@@ -7,17 +7,13 @@ import core.game.node.item.Item;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
-/**
- * The Coconut make plugin.
- */
+
 @Initializable
 public final class CoconutMakePlugin extends UseWithHandler {
 
     private static final Item[] ITEMS = new Item[]{new Item(5974, 1), new Item(5976, 1), new Item(229), new Item(5935, 1), new Item(5978)};
 
-    /**
-     * Instantiates a new Coconut make plugin.
-     */
+
     public CoconutMakePlugin() {
         super(5974, 5976);
     }

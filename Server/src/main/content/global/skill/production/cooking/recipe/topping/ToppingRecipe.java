@@ -1,21 +1,15 @@
 package content.global.skill.production.cooking.recipe.topping;
 
 import content.global.skill.production.cooking.recipe.Recipe;
+import core.api.consts.Items;
 import core.game.interaction.NodeUsageEvent;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.skill.Skills;
 import core.game.node.item.Item;
 
-/**
- * The Topping recipe.
- */
 public abstract class ToppingRecipe extends Recipe {
 
-
-    /**
-     * The constant BOWL.
-     */
-    protected static final Item BOWL = new Item(1923);
+    protected static final Item BOWL = new Item(Items.BOWL_1923);
 
     @Override
     public void mix(final Player player, final NodeUsageEvent event) {
@@ -42,18 +36,8 @@ public abstract class ToppingRecipe extends Recipe {
         return true;
     }
 
-    /**
-     * Gets level.
-     *
-     * @return the level
-     */
     public abstract int getLevel();
 
-    /**
-     * Gets experience.
-     *
-     * @return the experience
-     */
     public abstract double getExperience();
 
 }

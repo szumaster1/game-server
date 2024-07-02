@@ -4,20 +4,18 @@ import content.global.skill.production.cooking.CookingRewrite.Companion.cook
 import core.api.*
 import core.api.consts.Components
 import core.api.consts.Items
-import core.cache.def.impl.ItemDefinition
 import core.game.dialogue.DialogueFile
 import core.game.node.scenery.Scenery
-import core.network.packet.PacketRepository
-import core.network.packet.context.ChildPositionContext
-import core.network.packet.outgoing.RepositionChild
 import core.utilities.START_DIALOGUE
 
 class CookingDialogue(vararg val args: Any) : DialogueFile() {
+
     var initial = 0
     var product = 0
     var scenery: Scenery? = null
     var sinew = false
     var itemid = 0
+
     override fun handle(componentID: Int, buttonID: Int) {
         when (stage) {
             START_DIALOGUE -> {
@@ -30,7 +28,7 @@ class CookingDialogue(vararg val args: Any) : DialogueFile() {
                              */
                             product = CookableItems.getIntentionalBurn(initial).id
                         } else {
-                            product = CookableItems.forId(initial).cooked
+                            product = CookableItems.forId(initial)!!.cooked
                         }
                         scenery = args[1] as Scenery
                     }
@@ -77,7 +75,7 @@ class CookingDialogue(vararg val args: Any) : DialogueFile() {
                     }
 
                     2 -> {
-                        product = CookableItems.forId(initial).cooked
+                        product = CookableItems.forId(initial)!!.cooked
                         display()
                     }
                 }
@@ -92,7 +90,7 @@ class CookingDialogue(vararg val args: Any) : DialogueFile() {
 
                     2 -> {
                         end()
-                        cook(player!!, scenery, initial, CookableItems.forId(initial).cooked, 1)
+                        cook(player!!, scenery, initial, CookableItems.forId(initial)!!.cooked, 1)
                     }
                 }
             }
@@ -111,25 +109,24 @@ class CookingDialogue(vararg val args: Any) : DialogueFile() {
 
     fun display() {
         sendItemZoomOnInterface(player!!, Components.SKILL_COOKMANY_307, 2, initial, 160)
-        setInterfaceText(player!!, "<br><br><br><br>${ItemDefinition.forId(initial).name}", Components.SKILL_COOKMANY_307, 6)
+        setInterfaceText(player!!, "<br><br><br><br>${getItemName(initial)}", Components.SKILL_COOKMANY_307, 6)
 
         /*
          * Swords sprite.
          */
-        PacketRepository.send(RepositionChild::class.java, ChildPositionContext(player!!, Components.SKILL_COOKMANY_307, 0, 12, 15))
-        PacketRepository.send(RepositionChild::class.java, ChildPositionContext(player!!, Components.SKILL_COOKMANY_307, 1, 431, 15))
+        setInterfaceSprite(player!!, Components.SKILL_COOKMANY_307, 0, 12, 15)
+        setInterfaceSprite(player!!, Components.SKILL_COOKMANY_307, 1, 431, 15)
         /*
          * "How many would you like to cook?".
          */
-        PacketRepository.send(RepositionChild::class.java, ChildPositionContext(player!!, Components.SKILL_COOKMANY_307, 7, 0, 12))
+        setInterfaceSprite(player!!, Components.SKILL_COOKMANY_307, 7, 0, 12)
         /*
          * Right click context menu boxes.
          */
-        PacketRepository.send(RepositionChild::class.java, ChildPositionContext(player!!, Components.SKILL_COOKMANY_307, 3, 58, 27))
-        PacketRepository.send(RepositionChild::class.java, ChildPositionContext(player!!, Components.SKILL_COOKMANY_307, 4, 58, 27))
-        PacketRepository.send(RepositionChild::class.java, ChildPositionContext(player!!, Components.SKILL_COOKMANY_307, 5, 58, 27))
-        PacketRepository.send(RepositionChild::class.java, ChildPositionContext(player!!, Components.SKILL_COOKMANY_307, 6, 58, 27))
-
+        setInterfaceSprite(player!!, Components.SKILL_COOKMANY_307, 3, 58, 27)
+        setInterfaceSprite(player!!, Components.SKILL_COOKMANY_307, 4, 58, 27)
+        setInterfaceSprite(player!!, Components.SKILL_COOKMANY_307, 5, 58, 27)
+        setInterfaceSprite(player!!, Components.SKILL_COOKMANY_307, 6, 58, 27)
         openChatbox(player!!, Components.SKILL_COOKMANY_307)
         stage = 1
     }

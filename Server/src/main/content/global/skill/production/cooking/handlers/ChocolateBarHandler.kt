@@ -1,7 +1,11 @@
 package content.global.skill.production.cooking.handlers
 
+import core.api.addItem
+import core.api.amountInInventory
+import core.api.animate
 import core.api.consts.Animations
 import core.api.consts.Items
+import core.api.removeItem
 import core.game.interaction.NodeUsageEvent
 import core.game.interaction.UseWithHandler
 import core.game.node.item.Item
@@ -25,10 +29,10 @@ class ChocolateBarHandler : UseWithHandler(Items.KNIFE_946) {
             val cut_animation = Animation(Animations.CUTTING_CHOCOLATE_BAR_1989)
             override fun pulse(): Boolean {
                 super.setDelay(4)
-                val amount = player.inventory.getAmount(Items.CHOCOLATE_BAR_1973)
-                if (amount > 0) player.inventory.remove(Item(Items.CHOCOLATE_BAR_1973)).also {
-                    player.animator.animate(cut_animation);
-                    player.inventory.add(Item(Items.CHOCOLATE_DUST_1975))
+                val amount = amountInInventory(player, Items.CHOCOLATE_BAR_1973)
+                if (amount > 0) removeItem(player, Item(Items.CHOCOLATE_BAR_1973)).also {
+                    animate(player, cut_animation);
+                    addItem(player, Items.CHOCOLATE_DUST_1975)
                 }
                 return amount <= 0
             }

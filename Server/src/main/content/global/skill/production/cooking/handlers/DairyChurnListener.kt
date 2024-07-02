@@ -10,12 +10,11 @@ import core.game.interaction.InteractionListener
 class DairyChurnListener : InteractionListener {
 
     override fun defineListeners() {
-        on(CHURN, IntType.SCENERY, "churn") { player, node ->
+        on(CHURN, IntType.SCENERY, "churn") { player, _ ->
             if (!inInventory(player, Items.BUCKET_OF_MILK_1927, 1) && !inInventory(player, Items.POT_OF_CREAM_2130, 1) && !inInventory(player, Items.PAT_OF_BUTTER_6697, 1)) {
                 sendMessage(player, "You need some milk, cream or butter to use in the churn.")
                 return@on true
             }
-
             player.dialogueInterpreter.open(984374)
             return@on true
         }

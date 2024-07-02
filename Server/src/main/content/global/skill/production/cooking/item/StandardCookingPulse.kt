@@ -111,13 +111,13 @@ open class StandardCookingPulse(
             low = successValues!![0]
             high = successValues[1]
         } else if (scenery.id == LUMBRIDGE_RANGE) {
-            val successValues = CookableItems.lumbridgeRangeValues.getOrDefault(food, intArrayOf(item.lowRange, item.highRange))
+            val successValues = CookableItems.lumbridgeRangeValues.getOrDefault(food, intArrayOf(item!!.lowRange, item.highRange))
             low = successValues[0]
             high = successValues[1]
         } else {
             val isFire = scenery.name.lowercase().contains("fire")
-            low = if (isFire) item.low else item.lowRange
-            high = if (isFire) item.high else item.highRange
+            low = if (isFire) item!!.low else item!!.lowRange
+            high = if (isFire) item!!.high else item!!.highRange
         }
         val host_ratio = RandomFunction.randomDouble(100.0)
         val client_ratio = RandomFunction.getSkillSuccessChance(low.toDouble(), high.toDouble(), effectiveCookingLevel)

@@ -1,23 +1,17 @@
 package content.global.skill.production.cooking.recipe.potato;
 
 import content.global.skill.production.cooking.recipe.Recipe;
+import core.api.consts.Items;
 import core.game.interaction.NodeUsageEvent;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.skill.Skills;
 import core.game.node.item.Item;
 
-/**
- * The Potato recipe.
- */
 public abstract class PotatoRecipe extends Recipe {
 
-    private static final Item POTATO_WITH_BUTTER = new Item(6703);
+    private static final Item POTATO_WITH_BUTTER = new Item(Items.POTATO_WITH_BUTTER_6703);
 
-
-    /**
-     * The constant BOWL.
-     */
-    protected static final Item BOWL = new Item(1923);
+    protected static final Item BOWL = new Item(Items.BOWL_1923);
 
     @Override
     public void mix(final Player player, final NodeUsageEvent event) {
@@ -52,24 +46,9 @@ public abstract class PotatoRecipe extends Recipe {
         return true;
     }
 
-    /**
-     * Is topping boolean.
-     *
-     * @return the boolean
-     */
     public abstract boolean isTopping();
 
-    /**
-     * Gets level.
-     *
-     * @return the level
-     */
     public abstract int getLevel();
 
-    /**
-     * Gets experience.
-     *
-     * @return the experience
-     */
     public abstract double getExperience();
 }

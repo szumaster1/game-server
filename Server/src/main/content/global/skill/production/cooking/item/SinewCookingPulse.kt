@@ -18,7 +18,7 @@ class SinewCookingPulse(
         return super.checkRequirements()
     }
 
-    override fun isBurned(player: Player, `object`: Scenery, food: Int): Boolean {
+    override fun isBurned(player: Player, scenery: Scenery, food: Int): Boolean {
         return false
     }
 

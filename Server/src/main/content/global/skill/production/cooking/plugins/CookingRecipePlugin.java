@@ -14,15 +14,11 @@ import core.plugin.Plugin;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * The Cooking recipe plugin.
- */
+
 @Initializable
 public final class CookingRecipePlugin extends UseWithHandler {
 
-    /**
-     * Instantiates a new Cooking recipe plugin.
-     */
+
     public CookingRecipePlugin() {
         super(getAllowedNodes());
     }
@@ -40,7 +36,7 @@ public final class CookingRecipePlugin extends UseWithHandler {
     @Override
     public boolean handle(NodeUsageEvent event) {
         Recipe recipe = null;
-        // TODO: Transitioning to a Listener would save an O(n) pass through the recipes list on every use-with
+
         for (Recipe temp : Recipe.RECIPES) {
             if (temp.isSingular()) {
                 if (temp.getBase().getId() == event.getUsedItem().getId() || temp.getBase().getId() == event.getBaseItem().getId()) {
@@ -59,8 +55,11 @@ public final class CookingRecipePlugin extends UseWithHandler {
                         part = temp.getParts()[k];
                         ingredient = temp.getIngredients()[i];
                         if (part.getId() == event.getUsedItem().getId() && ingredient.getId() == event.getBaseItem().getId() || part.getId() == event.getBaseItem().getId() && ingredient.getId() == event.getUsedItem().getId()) {
-                            if (k == i) {// represents that this ingredient can
-                                // mix with the other.
+                            if (k == i) {
+                                /*
+                                 * represents that this ingredient can
+                                 * mix with the other.
+                                 */
                                 recipe = temp;
                                 break;
                             }

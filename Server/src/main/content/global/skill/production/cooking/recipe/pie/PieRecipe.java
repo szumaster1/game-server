@@ -1,19 +1,13 @@
 package content.global.skill.production.cooking.recipe.pie;
 
 import content.global.skill.production.cooking.recipe.Recipe;
+import core.api.consts.Items;
 import core.game.interaction.NodeUsageEvent;
 import core.game.node.item.Item;
 
-/**
- * The Pie recipe.
- */
 public abstract class PieRecipe extends Recipe {
 
-
-    /**
-     * The constant PIE_SHELL.
-     */
-    protected static final Item PIE_SHELL = new Item(2315);
+    protected static final Item PIE_SHELL = new Item(Items.PIE_SHELL_2315);
 
     @Override
     public Item[] getParts() {
@@ -27,7 +21,7 @@ public abstract class PieRecipe extends Recipe {
 
     @Override
     public String getMixMessage(final NodeUsageEvent event) {
-        return "You fill the pie with " + (event.getBaseItem().getId() == 2315 ? event.getUsedItem().getName().toLowerCase() : event.getBaseItem().getName().toLowerCase()) + ".";
+        return "You fill the pie with " + (event.getBaseItem().getId() == Items.PIE_SHELL_2315 ? event.getUsedItem().getName().toLowerCase() : event.getBaseItem().getName().toLowerCase()) + ".";
     }
 
     @Override

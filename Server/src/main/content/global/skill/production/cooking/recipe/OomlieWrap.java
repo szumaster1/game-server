@@ -6,9 +6,6 @@ import core.game.node.entity.player.Player;
 import core.game.node.entity.skill.Skills;
 import core.game.node.item.Item;
 
-/**
- * The Oomlie wrap.
- */
 public class OomlieWrap extends Recipe {
     private static final Item OOMLIE_WRAP = new Item(Items.WRAPPED_OOMLIE_2341);
     private static final Item RAW_OOMLIE = new Item(Items.RAW_OOMLIE_2337);
