@@ -20,10 +20,15 @@ class GhostsAhoyListeners : InteractionListener, InterfaceListener {
     override fun defineListeners() {
 
         /*
-            Doors leads to coffin which contains Robes of Necrovarus.
+            #1 Doors leads to coffin which contains Robes of Necrovarus.
+            #2 Doors leads to Old Crone NPC.
          */
 
         on(Scenery.DOOR_5244, IntType.SCENERY, "open") { player, node ->
+            if(node.location == Location(3461,3555,0)){
+                DoorActionHandler.handleDoor(player, node.asScenery())
+                return@on true
+            }
             if (inInventory(player, Items.BONE_KEY_4272)) {
                 DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
                 if (player.location.x == 3655) {

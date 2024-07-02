@@ -221,7 +221,7 @@ public class WoodcuttingPulse extends Pulse {
         //OSRS: https://oldschool.runescape.wiki/w/Woodcutting scroll down to the mechanics section
         //RS3 : https://runescape.wiki/w/Woodcutting scroll down to the mechanics section, and expand the tree felling chances table
         if (resource.getRespawnRate() > 0) {
-            if (RandomFunction.roll(8) || resource.identifier == 1 || resource.identifier == 2 || resource.identifier == 3 || resource.identifier == 6) {
+            if (RandomFunction.roll(8) || resource.identifier == 1 || resource.identifier == 2 || resource.identifier == 3 || resource.identifier == 6 || resource.identifier == 19) {
                 if (resource.isFarming()) {
                     FarmingPatch fPatch = FarmingPatch.forObject(node.asScenery());
                     if (fPatch != null) {

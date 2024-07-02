@@ -395,58 +395,24 @@ public enum WoodcuttingNode {
      * Dramen tree woodcutting node.
      */
 //Dramen
-    DRAMEN_TREE(1292, -1, (byte) 18);
+    DRAMEN_TREE(1292, -1, (byte) 18),
 
+    WINDSWEPT_TREE(18137, 1353, (byte) 19);
 
-    /**
-     * The Full.
-     */
-    int full, /**
-     * Empty woodcutting node.
-     */
-    empty, /**
-     * Reward woodcutting node.
-     */
-    reward, /**
-     * Respawn rate woodcutting node.
-     */
-    respawnRate, /**
-     * Level woodcutting node.
-     */
-    level, /**
-     * Reward amount woodcutting node.
-     */
+    int full,
+    empty,
+    reward,
+    respawnRate,
+    level,
     rewardAmount;
-    /**
-     * The Experience.
-     */
-    double experience, /**
-     * Rate woodcutting node.
-     */
+    double experience,
     rate;
-    /**
-     * The Identifier.
-     */
+
     public byte identifier;
-    /**
-     * The Farming.
-     */
     boolean farming;
-    /**
-     * The Base low.
-     */
     public double baseLow = 2;
-    /**
-     * The Base high.
-     */
     public double baseHigh = 6;
-    /**
-     * The Tier mod low.
-     */
     public double tierModLow = 1;
-    /**
-     * The Tier mod high.
-     */
     public double tierModHigh = 3;
 
     WoodcuttingNode(int full, int empty, byte identifier) {
@@ -628,6 +594,14 @@ public enum WoodcuttingNode {
                 baseHigh = 255;
                 tierModLow = 0;
                 tierModHigh = 0;
+                break;
+            case 19:
+                reward = 11035;
+                respawnRate = 50 | 100 << 16;
+                rate = 0.05;
+                experience = 1;
+                level = 50;
+                this.rewardAmount = 1;
                 break;
             case 30:
                 reward = 3692;
