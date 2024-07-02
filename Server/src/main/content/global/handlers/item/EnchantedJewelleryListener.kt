@@ -3,7 +3,9 @@ package content.global.handlers.item
 import content.data.EnchantedJewellery
 import core.api.consts.Items
 import core.api.openDialogue
+import core.api.sendDialogueOptions
 import core.api.sendMessage
+import core.api.setTitle
 import core.game.dialogue.DialogueFile
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
@@ -54,7 +56,8 @@ class EnchantedJewelleryListener : InteractionListener {
         override fun handle(componentID: Int, buttonID: Int) {
             when (stage) {
                 START_DIALOGUE -> {
-                    interpreter!!.sendOptions("Where would you like to go?", *jewellery.options)
+                    setTitle(player!!, jewellery.options.size)
+                    sendDialogueOptions(player!!, "Where would you like to teleport to?", *jewellery.options)
                     stage++
                 }
                 1 -> {

@@ -300,6 +300,10 @@ public final class HouseManager {
      * @param enable If the building mode should be enabled.
      */
     public void toggleBuildingMode(Player player, boolean enable) {
+        /*
+         * 27.08.2009
+         * "You cannot enter building mode if there are other players in the house."
+         */
         if (!isInHouse(player)) {
             player.getPacketDispatch().sendMessage("Building mode really only helps if you're in a house.");
             return;

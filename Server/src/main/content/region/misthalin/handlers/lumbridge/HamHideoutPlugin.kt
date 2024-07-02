@@ -1,6 +1,7 @@
 package content.region.misthalin.handlers.lumbridge
 
 import core.api.getVarp
+import core.api.sendMessage
 import core.api.setVarp
 import core.cache.def.impl.SceneryDefinition
 import core.game.global.action.ClimbActionHandler
@@ -37,6 +38,7 @@ class HamHideoutPlugin : OptionHandler() {
                     return true
                 }
                 ClimbActionHandler.climbLadder(player, node as Scenery, option)
+                sendMessage(player, "You leave the HAM Fanatics' Camp.")
                 return true
             }
 
@@ -56,7 +58,11 @@ class HamHideoutPlugin : OptionHandler() {
 
                 "close" -> setVarp(player, 174, 0)
                 "climb-down" -> when (id) {
-                    5491 -> player.properties.teleportLocation = Location.create(3149, 9652, 0)
+                    5491 -> {
+                        player.properties.teleportLocation = Location.create(3149, 9652, 0)
+                        sendMessage(player, "You climb down through the trapdoor...")
+                        sendMessage(player, "...and enter a dimly lit cavern area.")
+                    }
                 }
 
                 "pick-lock" -> {

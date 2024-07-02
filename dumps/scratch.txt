@@ -1,0 +1,43 @@
+Date of dialogue: 19.07.2010
+
+0 -> npc(FacialExpression.HAPPY, "Hello! Would you like to trade? I've a variety of wares!", "for sale, as well as a special supply of pineapples and", "seaweed!")
+1 -> showTopics(
+    Topic("Let's Trade.", 7),
+    Topic("Can I buy some seaweed?", 2),
+    Topic("Can I buy some pineapples?", 5),
+    Topic("No thank you.", END_DIALOGUE),
+    Topic("Is that your ship?", -)
+)
+2 -> "You certainly can! I've [amount] at the moment and they","cost 2 coins each. How many would you like?"
+3 -> Arhein has [amount] seaweed. You can afford [amount].
+4 -> "Here you go! Pleasure doing business with you!"
+
+5 -> "Can I buy some pineaplles?"
+6 -> "You certainly can! I've [amount] in stock, going for 2","coins each. How many would you like?"
+7 -> Arhein has [amount] pineapples. You can afford [amount].
+8 -> "Here you go! I've run out for now.","Come again tommorow and I should have more."
+
+
+Date of dialogue: 16.06.2009
+
+0 -> npc(FacialExpression.HAPPY, "Hello! Would you like to trade? I've a variety of wares!")
+1 -> showTopics(
+    Topic("Yes.", 7),
+    Topic("I hear you sell seaweed...", 2),
+    Topic("Someone told me you sell pineapples...", 900),
+    Topic("No thank you.", END_DIALOGUE),
+    Topic("Is that your ship?", 100)
+)
+
+2 -> "I certainly do! I've [amount] at the moment and they cost 2","coins each. How many would you like?"
+3 -> Enter amount:
+4 -> "You can take [amount] seaweed, which comes to [amount * 2] coins in","total." [NEUTRAL]
+5 -> addItem(player, Items.SEAWEED) .also {  "Here you go!", "Pleasure doing business with you!" } [NEUTRAL]
+"Here you go! I've run out for now. Come again","tomorrow and I should have more."
+
+18.04.2009
+
+Pickpocket H.A.M Members
+sendChat(node.asNpc(), "We deal harshly with thieves around here!")
+sendMessage(player, "${node.name}: We deal harshly with thieves around here!")
+sendMessage(player, "You're beaten unconscious and bundled out of the HAM Camp.")

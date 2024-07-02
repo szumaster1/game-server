@@ -306,7 +306,7 @@ class ZaffDialogue : OptionHandler() {
                         stage = 2
                         return true
                     }
-                    sendNPCDialogue(player, NPCs.ZAFF_546, "Battlestaves cost 7,000 gold pieces each. I have ${maxStaffs - ammount} left. How many would you like to buy?", FacialExpression.HALF_GUILTY)
+                    sendNPCDialogueLines(player, NPCs.ZAFF_546, FacialExpression.HAPPY, false, "Battlestaves cost 7,000 gold pieces each. I have ${maxStaffs - ammount} left.","How many would you like to buy?")
                     stage = 1
                 }
 

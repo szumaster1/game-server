@@ -70,7 +70,8 @@ class ArheinDialogue(player: Player? = null) : Dialogue(player) {
             npcl(FacialExpression.ANGRY, "Hey buddy! Get away from my ship alright?")
             stage = 701
         } else {
-            npcl(FacialExpression.HAPPY, "Hello! Would you like to trade? I've a variety of wares for sale!")
+            npc(FacialExpression.HAPPY, "Hello! Would you like to trade? I've a variety of wares!",
+                "for sale, as well as a special supply of pineapples and", "seaweed!")
             stage = 1
         }
         return true
@@ -80,8 +81,8 @@ class ArheinDialogue(player: Player? = null) : Dialogue(player) {
         when (stage) {
             1 -> showTopics(
                 Topic("Let's Trade.", 7),
-                Topic("I hear that you sell pineapples.", 800),
-                Topic("I hear that you sell seaweed.", 900),
+                Topic("Can I buy some seaweed?", 800),
+                Topic("Can I buy some pineapples?", 900),
                 Topic("No thank you.", END_DIALOGUE),
                 Topic("Is that your ship?", 100)
             )
@@ -91,30 +92,17 @@ class ArheinDialogue(player: Player? = null) : Dialogue(player) {
                 openNpcShop(player, NPCs.ARHEIN_563)
             }
 
-            100 -> npcl(
-                FacialExpression.NEUTRAL,
-                "Yes, I use it to make deliveries to my customers up and down the coast. These crates here are all ready for my next trip."
-            ).also { stage++ }
+            100 -> npcl(FacialExpression.NEUTRAL, "Yes, I use it to make deliveries to my customers up and down the coast. These crates here are all ready for my next trip.").also { stage++ }
 
             101 -> showTopics(
                 Topic("Where do you deliver to?", 120),
                 Topic("Are you rich then?", 110),
-                IfTopic(
-                    "Do you deliver to the fort just down the coast?",
-                    500,
-                    getQuestStage(player!!, "Merlin's Crystal") == 30
-                )
+                IfTopic("Do you deliver to the fort just down the coast?", 500, getQuestStage(player!!, "Merlin's Crystal") == 30)
             )
 
-            110 -> npcl(
-                FacialExpression.NEUTRAL,
-                "Business is going reasonably well... I wouldn't say I was the richest of merchants ever, but I'm doing fairly well all things considered."
-            ).also { stage = END_DIALOGUE }
+            110 -> npcl(FacialExpression.NEUTRAL, "Business is going reasonably well... I wouldn't say I was the richest of merchants ever, but I'm doing fairly well all things considered.").also { stage = END_DIALOGUE }
 
-            120 -> npcl(
-                FacialExpression.NEUTRAL,
-                "Various places up and down the coast. Mostly Karamja and Port Sarim."
-            ).also { stage++ }
+            120 -> npcl(FacialExpression.NEUTRAL, "Various places up and down the coast. Mostly Karamja and Port Sarim.").also { stage++ }
 
             121 -> showTopics(
                 Topic("I don't suppose I could get a lift anywhere?", 140),
@@ -122,23 +110,10 @@ class ArheinDialogue(player: Player? = null) : Dialogue(player) {
             )
 
             130 -> npcl(FacialExpression.HAPPY, "Thanks buddy!").also { stage = END_DIALOGUE }
-            140 -> npcl(
-                FacialExpression.GUILTY,
-                "Sorry pal, but I'm afraid I'm not quite ready to sail yet."
-            ).also { stage++ }
+            140 -> npcl(FacialExpression.GUILTY, "Sorry pal, but I'm afraid I'm not quite ready to sail yet.").also { stage++ }
+            141 -> npcl(FacialExpression.NEUTRAL, "I'm waiting on a big delivery of candles which I need to deliver further along the coast.").also { stage = END_DIALOGUE }
 
-            141 -> npcl(
-                FacialExpression.NEUTRAL,
-                "I'm waiting on a big delivery of candles which I need to deliver further along the coast."
-            ).also { stage = END_DIALOGUE }
-
-            500 -> npcl(
-                FacialExpression.HAPPY,
-                "Yes, I do have orders to deliver there from time to time. I think I may have some bits and pieces for them when I leave here next actually."
-            ).also {
-                stage++
-            }
-
+            500 -> npcl(FacialExpression.HAPPY, "Yes, I do have orders to deliver there from time to time. I think I may have some bits and pieces for them when I leave here next actually.").also { stage++ }
             501 -> {
                 showTopics(
                     Topic(FacialExpression.NEUTRAL, "Can you drop me off on the way down please?", 502),
@@ -146,36 +121,17 @@ class ArheinDialogue(player: Player? = null) : Dialogue(player) {
                 )
             }
 
-            502 -> {
-                npcl(
-                    FacialExpression.FRIENDLY,
-                    "I don't think Sir Mordred would like that. He wants as few outsiders visiting as possible. I wouldn't want to lose his business."
-                ).also { stage = END_DIALOGUE }
-            }
-
-            505 -> {
-                npcl(
-                    FacialExpression.FRIENDLY,
-                    "Hey, you gotta take business where you can find it these days! Besides, if I didn't supply them, someone else would."
-                )
-                stage = END_DIALOGUE
-            }
-
+            502 -> npcl(FacialExpression.FRIENDLY, "I don't think Sir Mordred would like that. He wants as few outsiders visiting as possible. I wouldn't want to lose his business.").also { stage = END_DIALOGUE }
+            505 -> npcl(FacialExpression.FRIENDLY, "Hey, you gotta take business where you can find it these days! Besides, if I didn't supply them, someone else would.").also { stage = END_DIALOGUE }
             701 -> playerl(FacialExpression.GUILTY, "Yeah... uh... sorry...").also { stage = END_DIALOGUE }
             800 -> {
                 selectGoods(Items.PINEAPPLE_2114)
                 if (stock == 0) {
-                    npcl(
-                        FacialExpression.SAD,
-                        "Actually, I've run out. Come back tomorrow and I should have some more."
-                    )
-                    stage = END_DIALOGUE
+                    npcl(FacialExpression.SAD, "Actually, I've run out. Come back tomorrow and I should have some more.").also { stage = END_DIALOGUE }
                 } else {
-                    this.goodsMessage =
-                        "I certainly do! I've got $stock in stock, going for 2 coins each. How many would you like?"
+                    this.goodsMessage = "I certainly do! I've got $stock in stock, going for 2 coins each. How many would you like?"
                     npcl(FacialExpression.HAPPY, this.goodsMessage)
-                    this.goodsName =
-                        if (stock == 1) getItemName(this.goods) else StringUtils.plusS(getItemName(this.goods))
+                    this.goodsName = if (stock == 1) getItemName(this.goods) else StringUtils.plusS(getItemName(this.goods))
                     stage = 1200
                 }
             }
@@ -183,14 +139,9 @@ class ArheinDialogue(player: Player? = null) : Dialogue(player) {
             900 -> {
                 selectGoods(Items.SEAWEED_401)
                 if (stock == 0) {
-                    npcl(
-                        FacialExpression.SAD,
-                        "Actually, I've run out. Come back tomorrow and I should have some more."
-                    )
-                    stage = END_DIALOGUE
+                    npcl(FacialExpression.SAD, "Actually, I've run out. Come back tomorrow and I should have some more.").also { stage = END_DIALOGUE }
                 } else {
-                    this.goodsMessage =
-                        "I certainly do! I've $stock at the moment and they cost 2 coins each. How many would you like?"
+                    this.goodsMessage = "I certainly do! I've $stock at the moment and they cost 2 coins each. How many would you like?"
                     npcl(FacialExpression.HAPPY, this.goodsMessage)
                     this.goodsName = getItemName(this.goods)
                     stage = 1200
@@ -210,8 +161,7 @@ class ArheinDialogue(player: Player? = null) : Dialogue(player) {
                         exitMsg = "Take care, buddy!"
                     }
                     npcl(FacialExpression.HAPPY, exitMsg)
-                }
-                stage = END_DIALOGUE
+                }.also { stage = END_DIALOGUE }
             }
         }
         return true

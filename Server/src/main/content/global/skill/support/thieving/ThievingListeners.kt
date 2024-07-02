@@ -1,17 +1,19 @@
 package content.global.skill.support.thieving
 
 import content.global.skill.skillcape.SkillcapePerks
+import core.api.*
+import core.api.consts.Animations
 import core.api.consts.Items
 import core.api.consts.Sounds
-import core.api.playAudio
-import core.api.playHurtAudio
-import core.api.stun
 import core.api.utils.WeightBasedTable
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
+import core.game.interaction.QueueStrength
+import core.game.node.entity.Entity
 import core.game.node.entity.combat.ImpactHandler
 import core.game.node.entity.impl.Animator
 import core.game.node.entity.player.Player
+import core.game.node.entity.player.link.appearance.Gender
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.world.update.flag.context.Animation
@@ -22,7 +24,10 @@ class ThievingListeners : InteractionListener {
     companion object {
         val PICKPOCKET_ANIM = Animation(881, Animator.Priority.HIGH)
         val NPC_ANIM = Animation(422)
-
+        fun updateGender(player: Entity, male: Boolean): Boolean {
+            setAttribute(player, "mm-gender", if (male) Gender.MALE.ordinal else Gender.FEMALE.ordinal)
+            return true;
+        }
         /*
          * Standalone pickpocketing function. For thieving other stuff outside of normal pickpocketing tables.
          */
@@ -56,44 +61,57 @@ class ThievingListeners : InteractionListener {
             val pickpocketData = Pickpockets.forID(node.id) ?: return@on false
 
             if (player.inCombat()) {
-                player.sendMessage("You can't pickpocket while in combat.")
+                sendMessage(player, "You can't pickpocket while in combat.")
                 return@on true
             }
 
-            if (player.skills.getLevel(Skills.THIEVING) < pickpocketData.requiredLevel) {
-                player.sendMessage("You need a Thieving level of ${pickpocketData.requiredLevel} to do that.")
+            if (getStatLevel(player, Skills.THIEVING) < pickpocketData.requiredLevel) {
+                sendMessage(player, "You need a Thieving level of ${pickpocketData.requiredLevel} to do that.")
                 return@on true
             }
 
             if (!pickpocketData.table.canRoll(player)) {
-                player.sendMessage("You don't have enough inventory space to do that.")
+                sendMessage(player, "You don't have enough inventory space to do that.")
                 return@on true
             }
-
-            player.animator.animate(PICKPOCKET_ANIM)
+            sendMessage(player, "You attempt to pick the ${ if(updateGender(node.asNpc(), false)) "woman's" else "man's" } pocket.")
+            animate(player, PICKPOCKET_ANIM, true)
             val lootTable = pickpocketRoll(player, pickpocketData.low, pickpocketData.high, pickpocketData.table)
             if (lootTable == null) {
-                node.asNpc().animator.animate(NPC_ANIM)
-
-                playHurtAudio(player, 20)
-
-                stun(player, pickpocketData.stunTime)
-
-                player.impactHandler.manualHit(
-                    node.asNpc(),
-                    RandomFunction.random(pickpocketData.stunDamageMin, pickpocketData.stunDamageMax),
-                    ImpactHandler.HitsplatType.NORMAL
-                )
-
+                sendMessage(player, "You fail to pick the ${ if(updateGender(node.asNpc(), false)) "woman's" else "man's" } pocket.")
+                sendMessage(player, "${node.name}: What do you think you're doing?")
+                sendChat(node.asNpc(), "What do you think you're doing?")
+                face(node.asNpc(), player)
+                animate(node.asNpc(), NPC_ANIM, true)
+                queueScript(player, 2, QueueStrength.SOFT) {
+                    animate(player, Animations.DEFEND_378)
+                    playHurtAudio(player, 20)
+                    stun(player, pickpocketData.stunTime)
+                    impact(
+                        node.asNpc(),
+                        RandomFunction.random(pickpocketData.stunDamageMin, pickpocketData.stunDamageMax),
+                        ImpactHandler.HitsplatType.NORMAL
+                    )
+                    sendMessage(player, "You feel slightly concussed from the blow.")
+                    return@queueScript stopExecuting(player)
+                }
                 node.asNpc().face(null)
             } else {
-                playAudio(player, Sounds.PICK_2581)
-                player.lock(2)
-                lootTable.forEach { player.inventory.add(it) }
-                player.skills.addExperience(Skills.THIEVING, pickpocketData.experience)
+                lock(player, 2)
+                queueScript(player, 2, QueueStrength.SOFT) {
+                    playAudio(player, Sounds.PICK_2581)
+                    sendMessage(player, "You pick the ${if(updateGender(node.asNpc(), false)) "woman's" else "man's" } pocket.")
+                    lootTable.forEach {
+                        player.inventory.add(it)
+                        sendMessage(player, "You steal some ${getItemName(it.id).lowercase()}.")
+                    }
+                    player.skills.addExperience(Skills.THIEVING, pickpocketData.experience)
+                    return@queueScript stopExecuting(player)
+                }
             }
 
             return@on true
         }
+
     }
 }

@@ -198,7 +198,7 @@ enum class Consumables {
     CIDER_KEG(Drink(intArrayOf(5849, 5847, 5845, 5843, 5769), MultiEffect(MultiEffect(HealingEffect(2), SkillEffect(Skills.FARMING, 1.0, 0.0), SkillEffect(Skills.ATTACK, -2.0, 0.0), SkillEffect(Skills.STRENGTH, -2.0, 0.0))), Animation(2289))),
     MATURE_CIDER(Drink(intArrayOf(5765, 1919), MultiEffect(MultiEffect(HealingEffect(2), SkillEffect(Skills.FARMING, 2.0, 0.0), SkillEffect(Skills.ATTACK, -5.0, 0.0), SkillEffect(Skills.STRENGTH, -5.0, 0.0))))),
     CIDER_M_KEG(Drink(intArrayOf(5929, 5927, 5925, 5923, 5769), MultiEffect(MultiEffect(HealingEffect(2), SkillEffect(Skills.FARMING, 2.0, 0.0), SkillEffect(Skills.ATTACK, -5.0, 0.0), SkillEffect(Skills.STRENGTH, -5.0, 0.0))), Animation(2289))),
-    DRAGON_BITTER(Drink(intArrayOf(1911, 1919), MultiEffect(HealingEffect(1), SkillEffect(Skills.STRENGTH, 2.0, 0.0), SkillEffect(Skills.ATTACK, -4.0, 0.0)))),
+    DRAGON_BITTER(Drink(intArrayOf(1911, 1919), MultiEffect(HealingEffect(1), SkillEffect(Skills.STRENGTH, 2.0, 0.0), SkillEffect(Skills.ATTACK, -4.0, 0.0)),"You drink the Dragon Bitter. You feel slightly reinvigorated...", "...and slightly dizzy too.")),
     DRAGON_BITTER_KEG(Drink(intArrayOf(5809, 5807, 5805, 5803, 5769), MultiEffect(HealingEffect(1), SkillEffect(Skills.STRENGTH, 2.0, 0.0), SkillEffect(Skills.ATTACK, -4.0, 0.0)), Animation(2289))),
     DRAGON_BITTER_M(Drink(intArrayOf(5745, 1919), MultiEffect(HealingEffect(2), SkillEffect(Skills.STRENGTH, 3.0, 0.0), SkillEffect(Skills.ATTACK, -6.0, 0.0)))),
     DRAGON_BITTER_M_KEG(Drink(intArrayOf(5889, 5887, 5885, 5883, 5769), MultiEffect(HealingEffect(2), SkillEffect(Skills.STRENGTH, 3.0, 0.0), SkillEffect(Skills.ATTACK, -6.0, 0.0)), Animation(2289))),

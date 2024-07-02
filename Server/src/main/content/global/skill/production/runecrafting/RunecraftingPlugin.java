@@ -25,6 +25,7 @@ import core.plugin.Initializable;
 import core.plugin.Plugin;
 
 import static core.api.ContentAPIKt.hasRequirement;
+import static core.api.ContentAPIKt.sendMessage;
 
 /**
  * The Runecrafting plugin.
@@ -59,6 +60,7 @@ public class RunecraftingPlugin extends OptionHandler {
         switch (node.getId()) {
             case 2492:
                 EssenceTeleport.home(player, node);
+                sendMessage(player, "You step through the portal...");
                 return true;
             case 26844:
             case 26845:

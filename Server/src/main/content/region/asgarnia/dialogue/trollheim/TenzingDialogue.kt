@@ -64,16 +64,16 @@ class TenzingDialogue(player: Player? = null) : Dialogue(player) {
                     playerl(FacialExpression.NEUTRAL, "I don't have enough space in my backpack right this second.").also { stage = END_DIALOGUE }
                 } else if (!removeItem(player!!, Item(Items.COINS_995, 12))) {
                     playerl(FacialExpression.NEUTRAL, "I don't have enough coins right now.").also { stage = END_DIALOGUE }
-                } else {
-                    end()
                     sendItemDialogue(player, Items.CLIMBING_BOOTS_3105, "Tenzing has given you some Climbing boots.")
                     addItemOrDrop(player, Items.CLIMBING_BOOTS_3105, 1)
                     sendMessage(player, "Tenzing has given you some Climbing boots.")
+                    stage = 12
                 }
             }
-            9 -> npcl(FacialExpression.FRIENDLY, "We are expert guides that take adventurers such as yourself, on mountaineering expeditions.").also { stage = END_DIALOGUE }
+            9 -> npc(FacialExpression.FRIENDLY, "We are expert guides that take adventurers such as","yourself, on mountaineering expeditions.").also { stage = END_DIALOGUE }
             10 -> npcl(FacialExpression.FRIENDLY, "I used to take adventurers up Death Plateau and further north before the trolls came. I know these mountains well.").also { stage = END_DIALOGUE }
             11 -> npcl(FacialExpression.FRIENDLY, "Thanks, I built it myself! I'm usually self sufficient but I can't earn any money with the trolls camped on Death Plateau,").also { stage = END_DIALOGUE }
+            12 -> npc("Was there anything else?").also { stage = 2 }
         }
         return true
     }
