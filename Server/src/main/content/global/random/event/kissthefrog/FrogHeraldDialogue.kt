@@ -43,11 +43,7 @@ class FrogHeraldDialogue(val isStarted: Boolean = false) : DialogueFile() {
             }
         } else {
             when (stage) {
-                START_DIALOGUE -> npcl(
-                    FacialExpression.OLD_NORMAL,
-                    "Hey, ${player!!.username}, The Frog " + (if (player!!.isMale) "Princess" else "Prince") + " needs your help!"
-                ).also { stage++ }
-
+                START_DIALOGUE -> npcl(FacialExpression.OLD_NORMAL, "Hey, ${player!!.username}, The Frog " + (if (player!!.isMale) "Princess" else "Prince") + " needs your help!").also { stage++ }
                 1 -> options("Okay.", "Sorry, I'm busy.").also { stage++ }
                 2 -> when (buttonID) {
                     1 -> {
@@ -73,7 +69,7 @@ class FrogHeraldDialogue(val isStarted: Boolean = false) : DialogueFile() {
                                 2 -> {
                                     resetAnimator(player!!)
                                     player!!.properties.teleportLocation = Location.create(2463, 4781, 0)
-                                    player!!.interfaceManager.removeTabs(0, 1, 2, 3, 4, 5, 6, 7, 14)
+                                    removeTabs(player!!, 0, 1, 2, 3, 4, 5, 6, 7, 14)
                                     openDialogue(player!!, FrogHeraldDialogue(true))
                                     AntiMacro.terminateEventNpc(player!!)
                                     return@queueScript stopExecuting(player!!)

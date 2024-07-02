@@ -2,6 +2,8 @@ package content.global.skill.support.agility.shortcuts
 
 import content.global.skill.support.agility.AgilityHandler
 import core.api.*
+import core.api.consts.Animations
+import core.api.consts.Scenery
 import core.api.consts.Sounds
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
@@ -13,11 +15,13 @@ import kotlin.random.Random
 
 class TaverleyDungeonJumpShortcut : InteractionListener {
 
-    /*
-        Jump over the spiked blade trap near the entrance of Taverley Dungeon.
-    */
     override fun defineListeners() {
-        on(9294, IntType.SCENERY, "jump-over") { player, node ->
+
+        /*
+         * Jump over the spiked blade trap near the entrance of Taverley Dungeon.
+         */
+
+        on(Scenery.STRANGE_FLOOR_9294, IntType.SCENERY, "jump-over") { player, node ->
             if (!hasLevelDyn(player, Skills.AGILITY, 80)) {
                 sendDialogue(player, "You need an Agility level of at least 80 to do this.")
                 return@on true
@@ -34,10 +38,10 @@ class TaverleyDungeonJumpShortcut : InteractionListener {
                 var counter = 0
                 override fun pulse(): Boolean {
                     when (counter++) {
-                        0 -> player.animator.forceAnimation(Animation(1995))
+                        0 -> player.animator.forceAnimation(Animation(Animations.RUNNING_OSRS_STYLE_1995))
                         1 -> {
                             playAudio(player, Sounds.JUMP_2461)
-                            player.animator.forceAnimation(Animation(1603))
+                            player.animator.forceAnimation(Animation(Animations.JUMP_OBSTACLE_WEREWOLF_AGILITY_1603))
                             if (AgilityHandler.hasFailed(player, 80, 0.1)) {
                                 playAudio(player, Sounds.FLOOR_SPIKES_1383)
                                 playAudio(player, Sounds.JUMP_BLADES_2464)

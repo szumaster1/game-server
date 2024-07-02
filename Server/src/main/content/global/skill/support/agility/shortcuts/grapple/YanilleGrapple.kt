@@ -1,6 +1,9 @@
 package content.global.skill.support.agility.shortcuts.grapple
 
 import core.api.*
+import core.api.consts.Animations
+import core.api.consts.Components
+import core.api.consts.Graphics
 import core.api.consts.Items
 import core.cache.def.impl.SceneryDefinition
 import core.game.component.Component
@@ -31,7 +34,7 @@ class YanilleGrapple : OptionHandler() {
                 "You need at least " + REQUIREMENTS[Skills.AGILITY] + " " + Skills.SKILL_NAME[Skills.AGILITY] + ", " + REQUIREMENTS[Skills.RANGE] + " " + Skills.SKILL_NAME[Skills.RANGE] + ", and " + REQUIREMENTS[Skills.STRENGTH] + " " + Skills.SKILL_NAME[Skills.STRENGTH] + " to use this shortcut."
         }
 
-        private val crossbowIds = intArrayOf(Items.DORGESHUUN_CBOW_8880, Items.MITH_CROSSBOW_9181, Items.ADAMANT_CROSSBOW_9183, Items.RUNE_CROSSBOW_9185, Items.KARILS_CROSSBOW_4734)
+        private val crossbowIds = intArrayOf(Items.DORGESHUUN_CBOW_8880, Items.MITH_CROSSBOW_9181, Items.ADAMANT_CROSSBOW_9183, Items.RUNE_CROSSBOW_9185, Items.KARILS_CROSSBOW_4734, Items.HUNTERS_CROSSBOW_10156)
         private val grappleId = Items.MITH_GRAPPLE_9419
     }
 
@@ -67,27 +70,27 @@ class YanilleGrapple : OptionHandler() {
                         when (counter++) {
                             1 -> {
                                 player.faceLocation(destination)
-                                visualize(player, Animation(4455),
-                                    Graphic(760, 100)
+                                visualize(player, Animation(Animations.FIRE_CROSSBOW_TO_CLIMB_WALL_4455),
+                                    Graphic(Graphics.MITHRIL_GRAPPLE_760, 100)
                                 )
                             }
 
                             8 -> {
                                 tab = player.interfaceManager.singleTab
-                                player.interfaceManager.openOverlay(Component(115))
+                                openOverlay(player, Components.FADE_TO_BLACK_115)
                                 setMinimapState(player, 2)
-                                player.interfaceManager.removeTabs(0, 1, 2, 3, 4, 5, 6, 11, 12)
+                                removeTabs(player, 0, 1, 2, 3, 4, 5, 6, 11, 12)
                             }
 
                             13 -> player.properties.teleportLocation = destination
                             14 -> {
-                                player.interfaceManager.restoreTabs()
+                                restoreTabs(player)
                                 if (tab != null) {
                                     player.interfaceManager.openTab(tab)
                                 }
                                 setMinimapState(player, 0)
-                                player.interfaceManager.closeOverlay()
-                                player.interfaceManager.close()
+                                closeOverlay(player)
+                                closeInterface(player)
                                 unlock(player)
                                 return true
                             }

@@ -30,7 +30,7 @@ class DesertRockShortcut : InteractionListener {
                             1 -> teleport(player, location(3382, 2825, 1))
                             2 -> {
                                 player.faceLocation(location(3382, 2823, 1))
-                                animate(player, 1772)
+                                animate(player, Animations.LOOKING_TO_THE_SIDE_1772)
                             }
 
                             5 -> {

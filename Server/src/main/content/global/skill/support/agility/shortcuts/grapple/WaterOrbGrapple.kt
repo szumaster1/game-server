@@ -1,7 +1,9 @@
 package content.global.skill.support.agility.shortcuts.grapple
 
 import core.api.anyInEquipment
+import core.api.consts.Animations
 import core.api.consts.Items
+import core.api.finishDiaryTask
 import core.api.sendDialogue
 import core.cache.def.impl.SceneryDefinition
 import core.game.component.Component
@@ -36,7 +38,7 @@ class WaterOrbGrapple : OptionHandler() {
                 "You need at least " + REQUIREMENTS[Skills.AGILITY] + " " + Skills.SKILL_NAME[Skills.AGILITY] + ", " + REQUIREMENTS[Skills.RANGE] + " " + Skills.SKILL_NAME[Skills.RANGE] + ", and " + REQUIREMENTS[Skills.STRENGTH] + " " + Skills.SKILL_NAME[Skills.STRENGTH] + " to use this shortcut."
         }
 
-        private val crossbowIds = intArrayOf(Items.DORGESHUUN_CBOW_8880, Items.MITH_CROSSBOW_9181, Items.ADAMANT_CROSSBOW_9183, Items.RUNE_CROSSBOW_9185, Items.KARILS_CROSSBOW_4734)
+        private val crossbowIds = intArrayOf(Items.DORGESHUUN_CBOW_8880, Items.MITH_CROSSBOW_9181, Items.ADAMANT_CROSSBOW_9183, Items.RUNE_CROSSBOW_9185, Items.KARILS_CROSSBOW_4734, Items.HUNTERS_CROSSBOW_10156)
         private val grappleId = Item(Items.MITH_GRAPPLE_9419)
     }
 
@@ -60,7 +62,7 @@ class WaterOrbGrapple : OptionHandler() {
                     }
                 }
                 if (!anyInEquipment(player, *crossbowIds) || !player.equipment.containsItem(grappleId)) {
-                    player.dialogueInterpreter.sendDialogue("You need a Mithril crossbow and a Mithril grapple in order to do this.")
+                    sendDialogue(player, "You need a Mithril crossbow and a Mithril grapple in order to do this.")
                     return true
                 }
                 player.lock()
@@ -71,7 +73,7 @@ class WaterOrbGrapple : OptionHandler() {
                         when (counter++) {
                             1 -> {
                                 player.faceLocation(destination)
-                                player.animate(Animation(4230))
+                                player.animate(Animation(Animations.FIRE_CROSSBOW_4230))
                             }
 
                             3 -> player.packetDispatch.sendPositionedGraphic(67, 10, 0, Location.create(2840, 3427, 0))
@@ -83,7 +85,7 @@ class WaterOrbGrapple : OptionHandler() {
                             13 -> player.properties.teleportLocation = destination
                             14 -> {
                                 player.unlock()
-                                player.achievementDiaryManager.finishTask(player, DiaryType.SEERS_VILLAGE, 2, 10)
+                                finishDiaryTask(player, DiaryType.SEERS_VILLAGE, 2, 10)
                                 return true
                             }
                         }

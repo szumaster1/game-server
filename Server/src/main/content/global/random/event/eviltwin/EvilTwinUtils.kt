@@ -84,7 +84,7 @@ object EvilTwinUtils {
         success = false
         mollyNPC!!.clear()
         PlayerCamera(player).reset()
-        player.interfaceManager.restoreTabs()
+        restoreTabs(player)
         player.properties.teleportLocation = getAttribute(player, originalLocation, null)
         setMinimapState(player, 0)
         removeAttributes(player, randomEvent, originalLocation, crane_x_loc, crane_y_loc)

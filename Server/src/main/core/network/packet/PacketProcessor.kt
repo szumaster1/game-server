@@ -275,7 +275,7 @@ object PacketProcessor {
                 pkt.player.debug("[SCENERY]---------------------")
                 pkt.player.debug("ID: ${pkt.id}")
                 if (def.configFile != null)
-                    pkt.player.debug("VarbitPacket: ${def.configFile.id}")
+                    pkt.player.debug("VarbitID: ${def.configFile.id}")
                 pkt.player.debug("------------------------------")
                 pkt.player.sendMessage(def.examine)
             }
@@ -284,7 +284,7 @@ object PacketProcessor {
                 pkt.player.debug("[NPC]-------------------------")
                 pkt.player.debug("ID: ${pkt.id}")
                 if (def.configFileId != -1)
-                    pkt.player.debug("VarbitPacket: ${def.configFileId}")
+                    pkt.player.debug("VarbitID: ${def.configFileId}")
                 pkt.player.debug("------------------------------")
                 pkt.player.sendMessage(def.examine)
             }
@@ -724,7 +724,7 @@ object PacketProcessor {
         pkt.player.debug("Option: ${option.name}[${option.index}]")
         pkt.player.debug("SpawnLoc: ${npc.properties.spawnLocation}")
         if (hasWrapper) {
-            pkt.player.debug("WrapperID: ${npc.id}, VarbitPacket: ${npc.definition.configFileId}")
+            pkt.player.debug("WrapperID: ${npc.id}, VarbitID: ${npc.definition.configFileId}")
         }
         pkt.player.debug("---------------------------------")
 

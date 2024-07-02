@@ -44,6 +44,7 @@ class VisualCommand : CommandPlugin() {
             "invisible", "invis", "seti" -> {
                 player!!.isInvisible = !player.isInvisible
                 player.sendMessage("You are now " + (if (player.isInvisible) "invisible" else "rendering") + " for other players.")
+                return true
             }
 
             "maxkc" -> {
@@ -143,6 +144,7 @@ class VisualCommand : CommandPlugin() {
                     if (args.size > 6) args[6]!!.toInt() else 0,
                     location
                 )
+                return true
             }
 
             "npc" -> {
@@ -202,8 +204,14 @@ class VisualCommand : CommandPlugin() {
                 return true
             }
 
-            "oib" -> player!!.interfaceManager.openInfoBars()
-            "char" -> CharacterDesign.open(player)
+            "oib" -> {
+                player!!.interfaceManager.openInfoBars()
+                return true
+            }
+            "char" -> {
+                CharacterDesign.open(player)
+                return true
+            }
             "savenpc" -> return true
             "objwithanim" -> {
                 val go = Scenery(toInteger(args!![1]!!), player!!.location, 0)
@@ -245,7 +253,10 @@ class VisualCommand : CommandPlugin() {
                 return true
             }
 
-            "ti" -> player!!.packetDispatch.sendInterfaceConfig(90, 87, false)
+            "ti" -> {
+                player!!.packetDispatch.sendInterfaceConfig(90, 87, false)
+                return true
+            }
             "iconfig", "inter_config" -> {
                 if (args!!.size < 2) {
                     player!!.debug("syntax error: interface-id child hidden")
@@ -286,6 +297,7 @@ class VisualCommand : CommandPlugin() {
                         }
                     })
                 }
+                return true
             }
 
             "loop_anim_on_i" -> {
@@ -304,6 +316,7 @@ class VisualCommand : CommandPlugin() {
                 val anim = args.getOrNull(1) ?: return true
 
                 player?.packetDispatch?.sendAnimationInterface(toInteger(anim), toInteger(iface), 7)
+                return true
             }
 
             "loop_inter" -> {

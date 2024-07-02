@@ -2,6 +2,7 @@ package content.global.handlers.scenery
 
 import core.api.consts.Components
 import core.api.consts.Scenery
+import core.api.removeTabs
 import core.api.restrictForIronman
 import core.api.setInterfaceText
 import core.game.component.CloseEvent
@@ -23,7 +24,7 @@ class BankDepositBoxListener : InteractionListener {
                 return@CloseEvent true
             }
             setInterfaceText(player, "The Bank of " + GameWorld.settings!!.name + " - Deposit Box", Components.BANK_DEPOSIT_BOX_11, 12)
-            player.interfaceManager.removeTabs(0, 1, 2, 3, 4, 5, 6)
+            removeTabs(player, 0, 1, 2, 3, 4, 5, 6)
             InterfaceContainer.generateItems(player, player.inventory.toArray(), arrayOf("Examine", "Deposit-X", "Deposit-All", "Deposit-10", "Deposit-5", "Deposit-1"), 11, 15, 5, 7)
         }
         return true

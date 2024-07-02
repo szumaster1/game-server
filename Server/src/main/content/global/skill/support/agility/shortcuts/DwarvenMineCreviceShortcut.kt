@@ -1,5 +1,6 @@
 package content.global.skill.support.agility.shortcuts
 
+import core.api.consts.Animations
 import core.api.consts.Scenery
 import core.api.hasLevelDyn
 import core.api.sendDialogue
@@ -22,13 +23,13 @@ class DwarvenMineCreviceShortcut : InteractionListener {
                 return@on true
             }
             val dest = if (player.location == Location(3035, 9806, 0)) Location(3028, 9806, 0) else Location(3035, 9806, 0)
-            player.animate(Animation(2240))
+            player.animate(Animation(Animations.DUCK_UNDER_OBSTACLE_2240))
             val movement: ForceMovement = object : ForceMovement(player, player.location, dest, Animation(2240)) {
             }
             movement.run(player, 8)
             Pulser.submit(object : Pulse(7, player) {
                 override fun pulse(): Boolean {
-                    player.animate(Animation(2240))
+                    player.animate(Animation(Animations.DUCK_UNDER_OBSTACLE_2240))
                     return true
                 }
             })

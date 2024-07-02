@@ -1,7 +1,10 @@
 package content.global.skill.support.agility.shortcuts.grapple
 
 import core.api.animate
+import core.api.consts.Animations
+import core.api.consts.Graphics
 import core.api.consts.Items
+import core.api.finishDiaryTask
 import core.api.sendDialogue
 import core.api.visualize
 import core.cache.def.impl.SceneryDefinition
@@ -42,7 +45,7 @@ class KaramjaGrapple : OptionHandler() {
                 "You need at least " + REQUIREMENTS[Skills.AGILITY] + " " + Skills.SKILL_NAME[Skills.AGILITY] + ", " + REQUIREMENTS[Skills.RANGE] + " " + Skills.SKILL_NAME[Skills.RANGE] + ", and " + REQUIREMENTS[Skills.STRENGTH] + " " + Skills.SKILL_NAME[Skills.STRENGTH] + " to use this shortcut."
         }
 
-        private val crossbowIds = intArrayOf(Items.DORGESHUUN_CBOW_8880, Items.MITH_CROSSBOW_9181, Items.ADAMANT_CROSSBOW_9183, Items.RUNE_CROSSBOW_9185, Items.KARILS_CROSSBOW_4734)
+        private val crossbowIds = intArrayOf(Items.DORGESHUUN_CBOW_8880, Items.MITH_CROSSBOW_9181, Items.ADAMANT_CROSSBOW_9183, Items.RUNE_CROSSBOW_9185, Items.KARILS_CROSSBOW_4734, Items.HUNTERS_CROSSBOW_10156)
         private val grappleId = Item(Items.MITH_GRAPPLE_9419)
     }
 
@@ -114,14 +117,14 @@ class KaramjaGrapple : OptionHandler() {
                         when (counter++) {
                             1 -> {
                                 player.faceLocation(player.location.transform(direction))
-                                player.animate(Animation(4230))
+                                player.animate(Animation(Animations.FIRE_CROSSBOW_4230))
                             }
                             3 -> player.packetDispatch.sendPositionedGraphic(67, 10, 0, player.location.transform(direction, 5))
                             4 -> {
                                 SceneryBuilder.replace(startTree, startTree!!.transform(startTree.id + 1), 10)
                                 SceneryBuilder.replace(islandTree, islandTree!!.transform(islandTree.id + 2), 10)
                             }
-                            5 -> visualize(player, -1, Graphic.create(68))
+                            5 -> visualize(player, -1, Graphic.create(Graphics.WATER_SPLASH_68))
                             6 -> {
                                 ForceMovement.run(player, player.location, if (current.y > 3134) Location.create(2874, 3136) else Location.create(2874, 3133), Animation.create(4466), ForceMovement.RUNNING_SPEED)
                                 handleObjects(true, player)
@@ -134,7 +137,7 @@ class KaramjaGrapple : OptionHandler() {
                             18 -> ForceMovement.run(player, player.location, if (current.y > 3134) Location.create(2874, 3133) else Location.create(2874, 3136), ForceMovement.WALK_ANIMATION, ForceMovement.WALKING_SPEED)
                             21 -> {
                                 player.faceLocation(player.location.transform(direction))
-                                animate(player, Animation(4230))
+                                animate(player, Animation(Animations.FIRE_CROSSBOW_4230))
                             }
                             23 -> player.packetDispatch.sendPositionedGraphic(67, 10, 0, player.location.transform(direction, 5))
                             24 -> {
@@ -149,7 +152,7 @@ class KaramjaGrapple : OptionHandler() {
                             }
                             34 -> {
                                 player.unlock()
-                                player.achievementDiaryManager.finishTask(player, DiaryType.KARAMJA, 2, 6)
+                                finishDiaryTask(player, DiaryType.KARAMJA, 2, 6)
                                 handleObjects(false, player)
                                 return true
                             }

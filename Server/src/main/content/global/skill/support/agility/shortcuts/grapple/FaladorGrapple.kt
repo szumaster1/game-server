@@ -1,7 +1,10 @@
 package content.global.skill.support.agility.shortcuts.grapple
 
+import core.api.*
+import core.api.consts.Animations
+import core.api.consts.Components
+import core.api.consts.Graphics
 import core.api.consts.Items
-import core.api.sendDialogue
 import core.cache.def.impl.SceneryDefinition
 import core.game.component.Component
 import core.game.interaction.OptionHandler
@@ -37,7 +40,14 @@ class FaladorGrapple : OptionHandler() {
                 "You need at least " + REQUIREMENTS[Skills.AGILITY] + " " + Skills.SKILL_NAME[Skills.AGILITY] + ", " + REQUIREMENTS[Skills.RANGE] + " " + Skills.SKILL_NAME[Skills.RANGE] + ", and " + REQUIREMENTS[Skills.STRENGTH] + " " + Skills.SKILL_NAME[Skills.STRENGTH] + " to use this shortcut."
         }
 
-        private val crossbowIds = intArrayOf(Items.DORGESHUUN_CBOW_8880, Items.MITH_CROSSBOW_9181, Items.ADAMANT_CROSSBOW_9183, Items.RUNE_CROSSBOW_9185, Items.KARILS_CROSSBOW_4734)
+        private val crossbowIds = intArrayOf(
+            Items.DORGESHUUN_CBOW_8880,
+            Items.MITH_CROSSBOW_9181,
+            Items.ADAMANT_CROSSBOW_9183,
+            Items.RUNE_CROSSBOW_9185,
+            Items.KARILS_CROSSBOW_4734,
+            Items.HUNTERS_CROSSBOW_10156
+        )
         private val grappleId = Item(Items.MITH_GRAPPLE_9419)
     }
 
@@ -57,7 +67,7 @@ class FaladorGrapple : OptionHandler() {
                 player,
                 current,
                 if (node.asScenery().id == 17051) Location.create(3033, 3390, 0) else Location.create(3032, 3388, 0),
-                Animation(7268),
+                Animation(Animations.JUMP_OVER_7268),
                 10
             )
 
@@ -71,10 +81,10 @@ class FaladorGrapple : OptionHandler() {
                     }
                 }
                 if (!player.equipment.containsAtLeastOneItem(crossbowIds) || !player.equipment.containsItem(grappleId)) {
-                    player.dialogueInterpreter.sendDialogue("You need a Mithril crossbow and a Mithril grapple in order to do this.")
+                    sendDialogue(player, "You need a Mithril crossbow and a Mithril grapple in order to do this.")
                     return true
                 }
-                player.lock()
+                lock(player, 15)
                 Pulser.submit(object : Pulse(1, player) {
                     var counter = 1
                     var tab: Component? = null
@@ -82,29 +92,30 @@ class FaladorGrapple : OptionHandler() {
                         when (counter++) {
                             1 -> {
                                 player.faceLocation(destination)
-                                player.visualize(Animation(4455),
-                                    Graphic(760, 100)
+                                player.visualize(
+                                    Animation(Animations.FIRE_CROSSBOW_TO_CLIMB_WALL_4455),
+                                    Graphic(Graphics.MITHRIL_GRAPPLE_760, 100)
                                 )
                             }
 
                             8 -> {
                                 tab = player.interfaceManager.singleTab
-                                player.interfaceManager.openOverlay(Component(115))
-                                PacketRepository.send(MinimapState::class.java, MinimapStateContext(player, 2))
-                                player.interfaceManager.removeTabs(0, 1, 2, 3, 4, 5, 6, 11, 12)
+                                openOverlay(player, Components.FADE_TO_BLACK_115)
+                                setMinimapState(player, 2)
+                                removeTabs(player, 0, 1, 2, 3, 4, 5, 6, 11, 12)
                             }
 
                             13 -> player.properties.teleportLocation = destination
                             14 -> {
-                                player.interfaceManager.restoreTabs()
+                                restoreTabs(player)
                                 if (tab != null) {
                                     player.interfaceManager.openTab(tab)
                                 }
-                                PacketRepository.send(MinimapState::class.java, MinimapStateContext(player, 0))
-                                player.interfaceManager.closeOverlay()
-                                player.interfaceManager.close()
+                                setMinimapState(player, 0)
+                                closeOverlay(player)
+                                closeInterface(player)
                                 player.unlock()
-                                player.achievementDiaryManager.finishTask(player, DiaryType.FALADOR, 1, 2)
+                                finishDiaryTask(player, DiaryType.FALADOR, 1, 2)
                                 return true
                             }
                         }

@@ -10,11 +10,9 @@ import core.game.world.update.flag.context.Animation;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
-/**
- * The Rope swing shortcut.
- */
 @Initializable
 public class RopeSwingShortcut extends UseWithHandler {
+
     @Override
     public boolean handle(NodeUsageEvent event) {
 

@@ -51,7 +51,7 @@ class ExpRewardItemsListener : InteractionListener {
                 unlock(player)
                 return@setCloseEvent true
             })
-            player.interfaceManager.removeTabs(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13)
+            removeTabs(player, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13)
             return@on true
         }
     }

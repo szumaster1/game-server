@@ -1,6 +1,7 @@
 package content.global.skill.support.agility.shortcuts
 
 import core.api.*
+import core.api.consts.Animations
 import core.api.consts.Scenery
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
@@ -16,7 +17,7 @@ class RockPassageShortcut : InteractionListener {
                 sendMessage(player, "You need an agility level of at least 29 to do this.")
             } else {
                 lock(player, 3)
-                animate(player, Animation(4855))
+                animate(player, Animation(Animations.GO_INTO_OBSTACLE_PIPE_4855))
                 queueScript(player, 2, QueueStrength.SOFT) {
                     when (player.location.y) {
                         2871 -> teleport(player, location(2596, 2869, 0))

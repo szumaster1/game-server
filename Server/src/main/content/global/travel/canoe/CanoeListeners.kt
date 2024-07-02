@@ -2,6 +2,7 @@ package content.global.travel.canoe
 
 import content.data.skill.SkillingTool
 import core.api.*
+import core.api.consts.Animations
 import core.api.consts.Components
 import core.api.consts.Scenery
 import core.api.consts.Sounds
@@ -15,9 +16,6 @@ import core.game.node.scenery.SceneryBuilder
 import core.game.system.task.Pulse
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
-import core.network.packet.PacketRepository
-import core.network.packet.context.MinimapStateContext
-import core.network.packet.outgoing.MinimapState
 import core.utilities.RandomFunction
 import kotlin.math.abs
 
@@ -39,8 +37,8 @@ class CanoeListeners : InteractionListener, InterfaceListener {
         val CANOE_DESTINATION_HIDE_ROW = arrayOf(10, 11, 12, 20, 18)
         val CANOE_DESTINATION_YOU_ARE_HERE = arrayOf(25, 24, 23, 19, 0)
 
-        val CANOE_TREE_FALLING_ANIMATION = Animation(3304)
-        val CANOE_PLAYER_PUSHING_ANIMATION = Animation(3301)
+        val CANOE_TREE_FALLING_ANIMATION = Animation(Animations.CANOE_TREE_FALL_3304)
+        val CANOE_PLAYER_PUSHING_ANIMATION = Animation(Animations.HUMAN_PUSH_CANOE_3301)
         val CANOE_PUSHING_ANIMATION = Animation(3304)
         val CANOE_SINKING_ANIMATION = Animation(3305)
         val CANOE_TRAVEL_ANIMATIONS = arrayOf(
@@ -210,6 +208,7 @@ class CanoeListeners : InteractionListener, InterfaceListener {
                 sendMessage(player, "You need a woodcutting level of at least 12 to chop down this tree.")
                 return@on true
             }
+            if (!withinDistance(player, node.asScenery().location, 1)) return@on false
             lock(player, getChopDownAnimation(axe).duration + CANOE_TREE_FALLING_ANIMATION.duration)
             face(player, canoeStation.playerChopLocation.transform(canoeStation.playerFacingLocation))
             animate(player, getChopDownAnimation(axe))
@@ -238,7 +237,7 @@ class CanoeListeners : InteractionListener, InterfaceListener {
             setAttribute(player, CANOE_STATION_VARBIT_ATTRIBUTE, canoeStation.stationVarbit)
             face(player, canoeStation.playerFloatLocation.transform(canoeStation.playerFacingLocation))
             openInterface(player, CANOE_SHAPING_INTERFACE)
-            openOverlay(player, 333) // Black overlay
+            openOverlay(player, Components.BLACK_OVERLAY_333)
             return@on true
         }
 
@@ -273,7 +272,7 @@ class CanoeListeners : InteractionListener, InterfaceListener {
         on(CanoeStationSceneries.stationIdArray, IntType.SCENERY, "paddle log", "paddle canoe") { player, _ ->
             closeInterface(player)
             openInterface(player, Components.CANOE_STATIONS_MAP_53)
-            openOverlay(player, 333)
+            openOverlay(player, Components.BLACK_OVERLAY_333)
             return@on true
         }
     }
@@ -364,10 +363,10 @@ class CanoeListeners : InteractionListener, InterfaceListener {
                     when (counter++) {
                         0 -> {
                             openInterface(player, CANOE_TRAVEL_INTERFACE)
-                            openOverlay(player, 333) // Only call openOverlay(player, 333) after openInterface
+                            openOverlay(player, Components.BLACK_OVERLAY_333) // Only call openOverlay(player, 333) after openInterface
                             animateInterface(player, CANOE_TRAVEL_INTERFACE, 3, interfaceAnimationId)
-                            PacketRepository.send(MinimapState::class.java, MinimapStateContext(player, 2))
-                            player.interfaceManager.removeTabs(0, 1, 2, 3, 4, 5, 6, 11, 12)
+                            setMinimapState(player, 2)
+                            removeTabs(player, 0, 1, 2, 3, 4, 5, 6, 11, 12)
                         }
                         Animation(interfaceAnimationId).duration + 1 -> {
                             teleport(player, destination.playerDestination)
@@ -377,9 +376,9 @@ class CanoeListeners : InteractionListener, InterfaceListener {
                         }
                         Animation(interfaceAnimationId).duration + 1 + Animation(Components.FADE_FROM_BLACK_170).duration -> {
                             unlock(player)
-                            player.interfaceManager.restoreTabs()
-                            PacketRepository.send(MinimapState::class.java, MinimapStateContext(player, 0))
-                            val sinkingScenery = SceneryBuilder.add(core.game.node.scenery.Scenery(Scenery.A_SINKING_CANOE_12159, destination.canoeSinkLocation, 1), 3) as core.game.node.scenery.Scenery
+                            restoreTabs(player)
+                            setMinimapState(player, 0)
+                            val sinkingScenery = SceneryBuilder.add(core.game.node.scenery.Scenery(Scenery.A_SINKING_CANOE_12159, destination.canoeSinkLocation, 1), 3).asScenery()
                             animateScenery(sinkingScenery, CANOE_SINKING_ANIMATION.id)
                             sendMessage(player, "You arrive at $arrivalMessage.")
                             sendMessage(player, "Your canoe sinks from the long journey.")

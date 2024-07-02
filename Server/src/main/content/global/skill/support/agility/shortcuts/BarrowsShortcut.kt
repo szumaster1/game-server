@@ -1,6 +1,7 @@
 package content.global.skill.support.agility.shortcuts
 
 import content.global.skill.support.agility.AgilityHandler
+import core.api.consts.Animations
 import core.api.consts.Scenery
 import core.api.hasRequirement
 import core.api.queueScript
@@ -27,7 +28,7 @@ class BarrowsShortcut : InteractionListener {
                 AgilityHandler.forceWalk(
                     player, -1, player.location, player.location.transform(
                         if (player.location.y < 3264) Direction.NORTH else Direction.SOUTH, 1
-                    ), Animation(10980), 10, 0.0, null
+                    ), Animation(Animations.WALKING_OVER_STILE_OBSTACLE_10980), 10, 0.0, null
                 )
                 return@queueScript stopExecuting(player)
 

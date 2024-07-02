@@ -8,17 +8,11 @@ import core.game.world.map.Location;
 import core.game.world.update.flag.context.Animation;
 import core.plugin.Initializable;
 
-/**
- * The Crumbling wall shortcut.
- */
 @Initializable
 public class CrumblingWallShortcut extends AgilityShortcut {
 
     private static final Location[] LOCATIONS = new Location[]{new Location(2936, 3355, 0), new Location(2934, 3355, 0)};
 
-    /**
-     * Instantiates a new Crumbling wall shortcut.
-     */
     public CrumblingWallShortcut() {
         super(new int[]{11844}, 5, 0.0, "climb-over");
     }

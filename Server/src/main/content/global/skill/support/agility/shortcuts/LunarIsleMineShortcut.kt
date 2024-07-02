@@ -49,7 +49,7 @@ class LunarIsleMineShortcut : InteractionListener {
     private fun crawlingStart(player: Player) {
         animate(player, CRAWL_START)
         openInterface(player, Components.FADE_TO_BLACK_115)
-        PacketRepository.send(MinimapState::class.java, MinimapStateContext(player, 2))
+        setMinimapState(player, 2)
         queueScript(player, 2, QueueStrength.NORMAL) { stage: Int ->
             when (stage) {
                 0 -> {
@@ -72,7 +72,7 @@ class LunarIsleMineShortcut : InteractionListener {
 
                 1 -> {
                     openInterface(player, Components.FADE_FROM_BLACK_170)
-                    PacketRepository.send(MinimapState::class.java, MinimapStateContext(player, 0))
+                    setMinimapState(player, 0)
                     resetAnimator(player)
                     return@queueScript delayScript(player, 6)
                 }

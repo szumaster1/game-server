@@ -3170,8 +3170,7 @@ fun openSingleTab(player: Player, component: Int) {
  * @param state the state ID.
  */
 fun setMinimapState(player : Player, state : Int) {
-    PacketRepository.send(MinimapState::class.java, MinimapStateContext(player, state))
-    return
+    return PacketRepository.send(MinimapState::class.java, MinimapStateContext(player, state))
 }
 
 /**
@@ -3240,6 +3239,21 @@ fun setInterfaceSprite(player : Player, interfaceId : Int, childId : Int, positi
  */
 fun isPrayerActive(player : Player, type : PrayerType): Boolean {
     return player.prayer.active.contains(type)
+}
+
+/**
+ * Removes the tabs.
+ * @param tabs The tab indexes.
+ */
+fun removeTabs(player: Player, vararg tabs: Int) {
+    player.interfaceManager.removeTabs(*tabs)
+}
+
+/**
+ * Restores the tabs.
+ */
+fun restoreTabs(player : Player){
+    return player.interfaceManager.restoreTabs()
 }
 
 private class ContentAPI

@@ -1,6 +1,7 @@
 package content.global.skill.support.agility.shortcuts
 
 import content.global.skill.support.agility.AgilityHandler
+import core.api.consts.Animations
 import core.api.consts.Scenery
 import core.api.queueScript
 import core.api.stopExecuting
@@ -20,7 +21,7 @@ class McGruborFenceShortcut : InteractionListener {
                     -1,
                     player.location,
                     player.location.transform(if (player.location.x < 2662) Direction.EAST else Direction.WEST, 1),
-                    Animation(3844),
+                    Animation(Animations.SIDE_STEP_TO_CRAWL_THROUGH_MCGRUBOR_S_WOODS_FENCE_3844),
                     5,
                     0.0,
                     "You squeeze through the loose railing."

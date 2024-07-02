@@ -47,7 +47,7 @@ class QuestCommandSet : CommandSet(Privilege.ADMIN) {
          */
 
         define("setqueststage") { player, args ->
-            if (args.size < 2) {
+            if (args.size < 3) {
                 reject(player, "You must specify the index# of a quest, and a stage number!")
             }
             val quest = args[1].toIntOrNull() ?: reject(player, "INVALID QUEST")
@@ -62,7 +62,7 @@ class QuestCommandSet : CommandSet(Privilege.ADMIN) {
                     questObject.reset(player)
                 }
                 questObject.updateVarps(player)
-                notify(player, "<col=209dff>Setting " + questObject.name + " to stage $stage!</col>")
+                notify(player, "<col=209dff>Setting " + questObject.name + " to stage $stage</col>")
             }
 
         }

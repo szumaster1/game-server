@@ -1,6 +1,7 @@
 package content.global.skill.support.agility.shortcuts
 
 import core.api.*
+import core.api.consts.Animations
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.impl.ForceMovement
@@ -26,9 +27,9 @@ class GrandExchangeShortcut : InteractionListener {
                 Location.create(3138, 3516, 0),
             )
         )
-        private val CLIMB_DOWN = Animation.create(2589)
-        private val CRAWL_THROUGH = Animation.create(2590)
-        private val CLIMB_UP = Animation.create(2591)
+        private val CLIMB_DOWN = Animation.create(Animations.CRAWL_UNDER_WALL_A_2589)
+        private val CRAWL_THROUGH = Animation.create(Animations.CRAWL_UNDER_WALL_B_2590)
+        private val CLIMB_UP = Animation.create(Animations.CRAWL_UNDER_WALL_C_2591)
     }
 
     override fun defineListeners() {

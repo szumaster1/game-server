@@ -2,6 +2,7 @@ package content.global.skill.support.agility.shortcuts
 
 import content.global.skill.support.agility.AgilityHandler
 import core.api.*
+import core.api.consts.Animations
 import core.api.consts.Items
 import core.api.consts.Scenery
 import core.game.interaction.IntType
@@ -35,7 +36,7 @@ class MiscellaniaShortcut : InteractionListener {
                             AgilityHandler.forceWalk(
                                 player, -1, location(2572, 3862, 0),
                                 Location.create(2573, 3862, 0),
-                                Animation.create(769), 10, 0.0, null
+                                Animation.create(Animations.JUMP_BRIDGE_769), 10, 0.0, null
                             )
                             return@queueScript delayScript(player, 3)
                         }
@@ -44,7 +45,7 @@ class MiscellaniaShortcut : InteractionListener {
                             AgilityHandler.forceWalk(
                                 player, -1, location(2573, 3862, 0),
                                 Location.create(2576, 3862, 0),
-                                Animation.create(6132), 10, 0.0, null
+                                Animation.create(Animations.JUMP_OVER_OBSTACLE_6132), 10, 0.0, null
                             )
                             return@queueScript stopExecuting(player)
                         }
@@ -59,7 +60,7 @@ class MiscellaniaShortcut : InteractionListener {
                             AgilityHandler.forceWalk(
                                 player, -1, location(2576, 3862, 0),
                                 location(2573, 3862, 0),
-                                Animation.create(6132), 10, 0.0, null
+                                Animation.create(Animations.JUMP_OVER_OBSTACLE_6132), 10, 0.0, null
                             )
                             return@queueScript delayScript(player, 3)
                         }
@@ -68,7 +69,7 @@ class MiscellaniaShortcut : InteractionListener {
                             AgilityHandler.forceWalk(
                                 player, -1, location(2573, 3862, 0),
                                 location(2572, 3862, 0),
-                                Animation.create(769), 10, 0.0, null
+                                Animation.create(Animations.JUMP_BRIDGE_769), 10, 0.0, null
                             )
                             return@queueScript stopExecuting(player)
                         }

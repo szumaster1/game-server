@@ -1,10 +1,11 @@
 package content.global.travel.ship
 
+import core.api.*
 import core.api.consts.Components
 import core.api.consts.Items
-import core.api.requireQuest
 import core.game.component.Component
 import core.game.node.entity.player.Player
+import core.game.node.entity.player.link.TeleportManager
 import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.item.Item
 import core.game.system.task.Pulse
@@ -153,18 +154,18 @@ object ShipCharter {
 
                 override fun pulse(): Boolean {
                     when (count++) {
-                        0 -> player.interfaceManager.openOverlay(Component(115))
-                        2 -> PacketRepository.send(MinimapState::class.java, MinimapStateContext(player, 2))
-                        3 -> player.properties.teleportLocation = location
+                        0 -> openOverlay(player, Components.FADE_TO_BLACK_115)
+                        2 -> setMinimapState(player, 2)
+                        3 -> teleport(player,location, TeleportManager.TeleportType.INSTANT)
                         5 -> {
                             player.unlock()
-                            player.interfaceManager.close()
-                            player.interfaceManager.closeOverlay()
-                            player.interfaceManager.restoreTabs()
-                            PacketRepository.send(MinimapState::class.java, MinimapStateContext(player, 0))
-                            player.packetDispatch.sendMessage("You pay the fare and sail to " + StringUtils.formatDisplayName(name) + ".")
+                            closeInterface(player)
+                            closeOverlay(player)
+                            restoreTabs(player)
+                            setMinimapState(player, 0)
+                            sendMessage(player, "You pay the fare and sail to " + StringUtils.formatDisplayName(name) + ".")
                             if (start.withinDistance(Location.create(3001, 3032, 0))) {
-                                player.achievementDiaryManager.finishTask(player, DiaryType.KARAMJA, 1, 17)
+                                finishDiaryTask(player, DiaryType.KARAMJA, 1, 17)
                             }
                             return true
                         }

@@ -24,7 +24,7 @@ class MimeNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs
                     registerLogoutListener(player, MimeUtils.LOGOUT_ATTRIBUTE) { p ->
                         player.properties.teleportLocation = getAttribute(player, MimeUtils.TELEPORT_ATTRIBUTE, null)
                     }
-                    player.interfaceManager.removeTabs(0, 1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14)
+                    removeTabs(player, 0, 1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14)
                     teleport(player, MimeUtils.MIME_EVENT_LOCATION, TeleportManager.TeleportType.NORMAL)
                     AntiMacro.terminateEventNpc(player)
                     return@queueScript delayScript(player, 8)
@@ -38,11 +38,11 @@ class MimeNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs
                         https://www.youtube.com/watch?v=VGMfcLQbZGI&ab_channel=skillmatrix09
                      */
 
-                    if(RandomFunction.random(0,1) == 1)
+                    if(RandomFunction.random(0,1) == 1) {
                         forceMove(player, MimeUtils.MIME_EVENT_LOCATION, MimeUtils.MIME_LOCATION, 0, 80)
-                    else
+                    } else {
                         forceMove(player, MimeUtils.MIME_EVENT_LOCATION, MimeUtils.MIME_LOCATION, 10, 60)
-
+                    }
                     return@queueScript delayScript(player, 6)
                 }
 

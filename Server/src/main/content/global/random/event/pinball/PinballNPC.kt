@@ -35,7 +35,7 @@ class PinballNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(N
                         PinballUtils.handlePinballEvent(player)
                         setAttribute(player, PinballUtils.GET_PILLAR, RandomFunction.random(0,4))
                         setAttribute(player, PinballUtils.PINBALL_SCORE, 0)
-                        player.interfaceManager.removeTabs(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14)
+                        removeTabs(player, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14)
                         findNPC(NPCs.MYSTERIOUS_OLD_MAN_410)
                         face(player, findNPC(NPCs.MYSTERIOUS_OLD_MAN_410)!!)
                         openDialogue(player, OldManDialogue())

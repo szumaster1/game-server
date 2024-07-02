@@ -1,6 +1,7 @@
 package content.global.skill.support.agility.shortcuts
 
 import content.global.skill.support.agility.AgilityHandler
+import core.api.consts.Animations
 import core.api.consts.Scenery
 import core.api.hasLevelDyn
 import core.api.queueScript
@@ -28,7 +29,7 @@ class LowFenceShortcut : InteractionListener {
                     -1,
                     player.location,
                     player.location.transform(if (player.location.x == 3473) Direction.EAST else Direction.WEST, 1),
-                    Animation(6132),
+                    Animation(Animations.JUMP_OVER_OBSTACLE_6132),
                     10,
                     0.0,
                     null

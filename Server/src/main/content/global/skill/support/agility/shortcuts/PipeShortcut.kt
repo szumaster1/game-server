@@ -2,6 +2,7 @@ package content.global.skill.support.agility.shortcuts
 
 import content.global.skill.support.agility.AgilityHandler
 import content.global.skill.support.agility.AgilityShortcut
+import core.api.consts.Animations
 import core.api.consts.Sounds
 import core.api.lock
 import core.api.playAudio
@@ -38,8 +39,8 @@ class PipeShortcut : AgilityShortcut {
                     2290, 9293 -> {
                         player.lock(7)
                         AgilityHandler.forceWalk(player, -1, player.location, pipeDestination(player, obj, 6), Animation.create(10580), 10, 0.0, null)
-                        player.animate(Animation(844), 4)
-                        player.animate(Animation(10579), 5)
+                        player.animate(Animation(Animations.CRAWLING_844), 4)
+                        player.animate(Animation(Animations.CLIMB_OUT_OF_OBSTACLE_10579), 5)
                         playAudio(player, Sounds.SQUEEZE_OUT_2490, 5)
                         return true
                     }
@@ -47,8 +48,8 @@ class PipeShortcut : AgilityShortcut {
                     5099, 5100 -> {
                         player.lock(5)
                         AgilityHandler.forceWalk(player, -1, player.location, pipeDestination(player, obj, 7), Animation.create(10580), 10, 0.0, null)
-                        player.animate(Animation(844), 5)
-                        player.animate(Animation(10579), 6)
+                        player.animate(Animation(Animations.CRAWLING_844), 5)
+                        player.animate(Animation(Animations.CLIMB_OUT_OF_OBSTACLE_10579), 6)
                         playAudio(player, Sounds.SQUEEZE_OUT_2490, 6)
                         return true
                     }
@@ -71,8 +72,8 @@ class PipeShortcut : AgilityShortcut {
                         }
                         lock(player, 7)
                         AgilityHandler.forceWalk(player, -1, player.location, pipeDestination(player, obj, 6), Animation.create(10580), 10, 0.0, null)
-                        player.animate(Animation(844), 4)
-                        player.animate(Animation(10579), 5)
+                        player.animate(Animation(Animations.CRAWLING_844), 4)
+                        player.animate(Animation(Animations.CLIMB_OUT_OF_OBSTACLE_10579), 5)
                         playAudio(player, Sounds.SQUEEZE_OUT_2490, 5)
                         return true
                     }

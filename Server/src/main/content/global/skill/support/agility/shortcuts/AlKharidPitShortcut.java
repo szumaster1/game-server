@@ -10,19 +10,12 @@ import core.game.world.map.Location;
 import core.game.world.update.flag.context.Animation;
 import core.plugin.Initializable;
 
-/**
- * The Al kharid pit shortcut.
- */
 @Initializable
 public class AlKharidPitShortcut extends AgilityShortcut {
 
     private static final Animation ANIMATION = new Animation(1148);
-
     private static final Animation SCALE = new Animation(740);
 
-    /**
-     * Instantiates a new Al kharid pit shortcut.
-     */
     public AlKharidPitShortcut() {
         super(new int[]{9331, 9332}, 38, 0.0, "climb");
     }

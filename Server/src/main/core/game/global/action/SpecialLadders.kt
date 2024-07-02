@@ -39,6 +39,9 @@ enum class SpecialLadders(private val ladderLoc: Location, private val destLoc: 
 
     EDGEVILLE_CLIMB_UP(Location.create(3097, 9867, 0), Location.create(3096, 3468, 0)),
 
+    FISHING_GUILD_HOUSE_UP(Location.create(2615, 3394, 0), Location.create(2615, 3395, 1)),
+    FISHING_GUILD_HOUSE_DOWN(Location.create(2615, 3394, 1), Location.create(2615, 3395, 0)),
+
     FOG_ENTER(Location.create(3240, 3575, 0), Location.create(1675, 5599, 0)),
     FOG_LEAVE(Location.create(1673, 5598, 0), Location.create(3242, 3574, 0)),
 

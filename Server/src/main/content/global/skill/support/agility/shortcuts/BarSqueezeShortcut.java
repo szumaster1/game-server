@@ -10,26 +10,13 @@ import core.game.world.update.flag.context.Animation;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
-/**
- * The Bar squeeze shortcut.
- */
 @Initializable
 public class BarSqueezeShortcut extends AgilityShortcut {
-    /**
-     * Instantiates a new Bar squeeze shortcut.
-     */
+
     public BarSqueezeShortcut() {
         super(new int[]{9334, 9337}, 66, 1, "squeeze-through");
     }
 
-    /**
-     * Instantiates a new Bar squeeze shortcut.
-     *
-     * @param ids    the ids
-     * @param level  the level
-     * @param exp    the exp
-     * @param option the option
-     */
     public BarSqueezeShortcut(int[] ids, int level, double exp, String option) {
         super(ids, level, exp, option);
     }

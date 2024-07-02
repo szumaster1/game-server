@@ -17,6 +17,7 @@ class StileShortcut : InteractionListener {
 
     val ids = intArrayOf(993, 3730, 7527, 12982, 19222, 22302, 29460, 33842, 34776, 39508, 39509, 39510)
     private val FALCONRY_STILE = 19222
+
     override fun defineListeners() {
         on(ids, IntType.SCENERY, "climb-over") { p, n ->
             val direction = Vector.betweenLocs(p.location, n.location).toDirection()

@@ -2,6 +2,7 @@ package content.global.skill.support.agility.shortcuts
 
 import content.global.skill.support.agility.AgilityHandler
 import core.api.*
+import core.api.consts.Animations
 import core.api.consts.Scenery
 import core.api.consts.Sounds
 import core.game.interaction.IntType
@@ -27,12 +28,12 @@ class SinclairMansionLogShortcut : InteractionListener {
         Swimming route: https://i.imgur.com/1HWtXhB.png
     */
 
-    private val sinclarLog = intArrayOf(9322, 9324)
+    private val sinclarLog = intArrayOf(Scenery.LOG_BALANCE_9322, Scenery.LOG_BALANCE_9324)
 
-    private val logBalanceAnimation = Animation(9908)
-    private val swimmingAnimation = Animation(6988)
-    private val swimmingLoopAnimation = Animation(6989)
-    private val failAnimation = Animation(2582)
+    private val logBalanceAnimation = Animation(Animations.BALANCE_WALK_ACROSS_LOG_9908)
+    private val swimmingAnimation = Animation(Animations.SWIMMING_6988)
+    private val swimmingLoopAnimation = Animation(Animations.SWIMMING_LOOP_6989)
+    private val failAnimation = Animation(Animations.FALL_OFF_LOG_2582)
 
     private val splashGraphic = Graphic(68)
 
@@ -59,7 +60,7 @@ class SinclairMansionLogShortcut : InteractionListener {
             if (AgilityHandler.hasFailed(player, 48, 0.1)) {
                 val failLocation = if (fromSouth) Location.create(2723, 3594, 0) else Location.create(2721, 3594, 0)
                 AgilityHandler.forceWalk(player, -1, start, failLocation, failAnimation, 10, 0.0, null, 0)
-                AgilityHandler.forceWalk(player, -1, failLocation, failLand, Animation(6989), 15, 0.0, null, 1)
+                AgilityHandler.forceWalk(player, -1, failLocation, failLand, swimmingLoopAnimation, 15, 0.0, null, 1)
                 submitIndividualPulse(player, object : Pulse(2) {
                     var counter = 0
                     override fun pulse(): Boolean {

@@ -540,7 +540,7 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN) {
         define("getvarbit", Privilege.ADMIN, "::getvarbit <lt>VARBIT ID<gt>", "") { player, args ->
             if (args.size != 2) reject(player, "Usage: ::getvarbit id")
             val index = args[1].toIntOrNull() ?: return@define
-            notify(player, "VarbitPacket $index: Currently ${getVarbit(player, index)}")
+            notify(player, "VarbitID $index: Currently ${getVarbit(player, index)}")
         }
 
         define("setvarp", Privilege.ADMIN, "::setvarp <lt>VARP ID<gt> <lt>BIT OFFSET<gt> <lt>VALUE<gt>", "Sets the value starting at the BIT OFFSET of the varp.") { player, args ->

@@ -30,7 +30,7 @@ object PinballUtils {
         player.properties.teleportLocation = getAttribute(player, PINBALL_SAVE_LOCATION, null)
         clearLogoutListener(player, PINBALL_LOGOUT)
         removeAttributes(player, PINBALL_LOGOUT, PINBALL_SAVE_LOCATION, PINBALL_EVENT_START, PINBALL_SCORE, GET_PILLAR, PILLAR_TOUCHED)
-        player.interfaceManager.restoreTabs()
+        restoreTabs(player)
         closeOverlay(player)
         setMinimapState(player, 0)
         oldMan.clear()

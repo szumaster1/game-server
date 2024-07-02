@@ -1,5 +1,6 @@
 package content.global.skill.support.agility.shortcuts;
 
+import core.api.consts.Animations;
 import core.cache.def.impl.SceneryDefinition;
 import core.game.interaction.OptionHandler;
 import core.game.node.Node;
@@ -21,9 +22,9 @@ import static core.api.ContentAPIKt.sendMessage;
  */
 @Initializable
 public final class DesertWallShortcut extends OptionHandler {
-    private static final Animation CLIMB_DOWN = Animation.create(2589);
-    private static final Animation CRAWL_THROUGH = Animation.create(2590);
-    private static final Animation CLIMB_UP = Animation.create(2591);
+    private static final Animation CLIMB_DOWN = Animation.create(Animations.CRAWL_UNDER_WALL_A_2589);
+    private static final Animation CRAWL_THROUGH = Animation.create(Animations.HUMAN_TURNS_INVISIBLE_2590);
+    private static final Animation CLIMB_UP = Animation.create(Animations.CRAWL_UNDER_WALL_C_2591);
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {

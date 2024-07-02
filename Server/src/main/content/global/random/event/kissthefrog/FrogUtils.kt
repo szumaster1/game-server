@@ -33,7 +33,7 @@ object FrogUtils {
 
     fun cleanup(player: Player) {
         player.properties.teleportLocation = getAttribute(player, ATTRIBUTE_FROG_LOCATION, null)
-        player.interfaceManager.restoreTabs()
+        restoreTabs(player)
         player.appearance.transformNPC(-1)
         clearLogoutListener(player, ATTRIBUTE_FROG_LOGOUT)
         removeAttributes(player, ATTRIBUTE_FROG_RANDOM_EVENT, ATTRIBUTE_FROG_TASK_FAIL, ATTRIBUTE_FROG_LOCATION, ATTRIBUTE_FROG_LOGOUT)

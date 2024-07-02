@@ -1,6 +1,7 @@
 package content.global.skill.support.agility.shortcuts.grapple
 
 import core.api.*
+import core.api.consts.Animations
 import core.api.consts.Items
 import core.api.consts.Scenery
 import core.game.interaction.IntType
@@ -28,7 +29,8 @@ class CatherbyGrapple : InteractionListener {
             Items.MITH_CROSSBOW_9181,
             Items.ADAMANT_CROSSBOW_9183,
             Items.RUNE_CROSSBOW_9185,
-            Items.KARILS_CROSSBOW_4734
+            Items.KARILS_CROSSBOW_4734,
+            Items.HUNTERS_CROSSBOW_10156
         )
         private val grappleId = Items.MITH_GRAPPLE_9419
     }
@@ -69,7 +71,7 @@ class CatherbyGrapple : InteractionListener {
                     when (counter++) {
                         1 -> {
                             face(player, END_LOCATION)
-                            animate(player, Animation(4455))
+                            animate(player, Animation(Animations.FIRE_CROSSBOW_TO_CLIMB_WALL_4455))
                         }
                         3 -> {
                             replaceScenery(rocks!!, rocks!!.id + 1, 10)

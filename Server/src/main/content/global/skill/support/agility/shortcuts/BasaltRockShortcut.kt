@@ -2,6 +2,8 @@ package content.global.skill.support.agility.shortcuts
 
 import content.global.skill.support.agility.AgilityHandler
 import content.global.skill.support.agility.AgilityShortcut
+import core.api.lock
+import core.api.sendMessage
 import core.game.node.Node
 import core.game.node.entity.player.Player
 import core.game.node.scenery.Scenery
@@ -16,8 +18,6 @@ import core.plugin.Plugin
 class BasaltRockShortcut : AgilityShortcut {
 
     constructor() : super(intArrayOf(), 0, 0.0, "")
-
-    val noJump = "I can't reach."
 
     constructor(ids: IntArray?, level: Int, experience: Double, vararg options: String?) : super(ids, level, experience, *options)
 
@@ -68,9 +68,9 @@ class BasaltRockShortcut : AgilityShortcut {
 
                     4550 -> {
                         if (player.location.y <= 3596) {
-                            player.sendMessage(noJump)
+                            sendMessage(player, "I can't reach.")
                         } else {
-                            player.lock(3)
+                            lock(player, 3)
                             AgilityHandler.forceWalk(player, -1, Location.create(2522, 3597, 0), Location.create(2522, 3595, 0), Animation.create(769), 20, 0.0, null, 1)
                         }
                         return true
@@ -78,9 +78,9 @@ class BasaltRockShortcut : AgilityShortcut {
 
                     4551 -> {
                         if (player.location == Location.create(2522, 3597, 0)) {
-                            player.sendMessage(noJump)
+                            sendMessage(player, "I can't reach.")
                         } else {
-                            player.lock(3)
+                            lock(player, 3)
                             AgilityHandler.forceWalk(player, -1, Location.create(2522, 3595, 0), Location.create(2522, 3597, 0), Animation.create(769), 20, 0.0, null, 1)
                         }
                         return true
@@ -88,9 +88,9 @@ class BasaltRockShortcut : AgilityShortcut {
 
                     4552 -> {
                         if (player.location == Location.create(2522, 3600, 0)) {
-                            player.sendMessage(noJump)
+                            sendMessage(player, "I can't reach.")
                         } else {
-                            player.lock(3)
+                            lock(player, 3)
                             AgilityHandler.forceWalk(player, -1, Location.create(2522, 3602, 0), Location.create(2522, 3600, 0), Animation.create(769), 20, 0.0, null)
                         }
                         return true
@@ -98,9 +98,9 @@ class BasaltRockShortcut : AgilityShortcut {
 
                     4553 -> {
                         if (player.location == Location.create(2522, 3602, 0)) {
-                            player.sendMessage(noJump)
+                            sendMessage(player, "I can't reach.")
                         } else {
-                            player.lock(3)
+                            lock(player, 3)
                             AgilityHandler.forceWalk(player, -1, Location.create(2522, 3600, 0), Location.create(2522, 3602, 0), Animation.create(769), 20, 0.0, null)
                         }
                         return true
@@ -108,9 +108,9 @@ class BasaltRockShortcut : AgilityShortcut {
 
                     4554 -> {
                         if (player.location == Location.create(2518, 3611, 0)) {
-                            player.sendMessage(noJump)
+                            sendMessage(player, "I can't reach.")
                         } else {
-                            player.lock(3)
+                            lock(player, 3)
                             player.faceLocation(Location.create(2518, 3611, 0))
                             AgilityHandler.forceWalk(player, -1, Location.create(2516, 3611, 0), Location.create(2518, 3611, 0), Animation.create(769), 20, 0.0, null, 1)
                         }
@@ -119,9 +119,9 @@ class BasaltRockShortcut : AgilityShortcut {
 
                     4555 -> {
                         if (player.location == Location.create(2516, 3611, 0)) {
-                            player.sendMessage(noJump)
+                            sendMessage(player, "I can't reach.")
                         } else {
-                            player.lock(3)
+                            lock(player, 3)
                             player.faceLocation(Location.create(2516, 3611, 0))
                             AgilityHandler.forceWalk(player, -1, Location.create(2518, 3611, 0), Location.create(2516, 3611, 0), Animation.create(769), 20, 0.0, null, 1)
                         }
@@ -130,9 +130,9 @@ class BasaltRockShortcut : AgilityShortcut {
 
                     4556 -> {
                         if (player.location == Location.create(2514, 3613, 0)) {
-                            player.sendMessage(noJump)
+                            sendMessage(player, "I can't reach.")
                         } else {
-                            player.lock(3)
+                            lock(player, 3)
                             AgilityHandler.forceWalk(player, -1, Location.create(2514, 3615, 0), Location.create(2514, 3613, 0), Animation.create(769), 20, 0.0, null)
                         }
                         return true
@@ -140,9 +140,9 @@ class BasaltRockShortcut : AgilityShortcut {
 
                     4557 -> {
                         if (player.location == Location.create(2514, 3615, 0)) {
-                            player.sendMessage(noJump)
+                            sendMessage(player, "I can't reach.")
                         } else {
-                            player.lock(3)
+                            lock(player, 3)
                             AgilityHandler.forceWalk(player, -1, Location.create(2514, 3613, 0), Location.create(2514, 3615, 0), Animation.create(769), 20, 0.0, null)
                         }
                         return true
@@ -150,9 +150,9 @@ class BasaltRockShortcut : AgilityShortcut {
 
                     4558 -> {
                         if (player.location == Location.create(2514, 3617, 0)) {
-                            player.sendMessage(noJump)
+                            sendMessage(player, "I can't reach.")
                         } else {
-                            player.lock(3)
+                            lock(player, 3)
                             AgilityHandler.forceWalk(player, -1, Location.create(2514, 3619, 0), Location.create(2514, 3617, 0), Animation.create(769), 20, 0.0, null)
                         }
                         return true
@@ -160,9 +160,9 @@ class BasaltRockShortcut : AgilityShortcut {
 
                     4559 -> {
                         if (player.location.y >= 3618) {
-                            player.sendMessage(noJump)
+                            sendMessage(player, "I can't reach.")
                         } else {
-                            player.lock(3)
+                            lock(player, 3)
                             AgilityHandler.forceWalk(player, -1, Location.create(2514, 3617, 0), Location.create(2514, 3619, 0), Animation.create(769), 20, 0.0, null, 1)
                         }
                         return true

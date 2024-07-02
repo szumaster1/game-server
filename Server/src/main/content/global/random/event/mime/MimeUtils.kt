@@ -33,7 +33,7 @@ object MimeUtils {
         player.properties.teleportLocation = getAttribute(player, TELEPORT_ATTRIBUTE, null)
         clearLogoutListener(player, LOGOUT_ATTRIBUTE)
         removeAttributes(player, LOGOUT_ATTRIBUTE, TELEPORT_ATTRIBUTE, EMOTE_ATTRIBUTE, COPY_ATTRIBUTE, CORRECT_ATTRIBUTE, FAIL_ATTRIBUTE)
-        player.interfaceManager.restoreTabs()
+        restoreTabs(player)
         closeInterface(player)
         unlock(player)
     }

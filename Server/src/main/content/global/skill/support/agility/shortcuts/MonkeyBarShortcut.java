@@ -16,29 +16,15 @@ import core.plugin.Plugin;
 import core.utilities.RandomFunction;
 import kotlin.Unit;
 
-/**
- * The Monkey bar shortcut.
- */
 @Initializable
 public class MonkeyBarShortcut extends AgilityShortcut {
 
     private static final Location[][] MBAR_LOCATIONS = new Location[][]{{new Location(3120, 9969, 0), Location.create(3121, 9969, 0)}, {new Location(3119, 9969, 0), Location.create(3120, 9969, 0)}, {new Location(3120, 9964, 0), Location.create(3121, 9964, 0)}, {Location.create(3120, 9963, 0), Location.create(3120, 9964, 0)}, {new Location(2598, 9489, 0), new Location(2597, 9488, 0)}, {new Location(2598, 9489, 0), new Location(2600, 9488, 0)}, {new Location(2598, 9494, 0), new Location(2597, 9495, 0)}, {new Location(2599, 9494, 0), new Location(2600, 9495, 0)}};
 
-    /**
-     * Instantiates a new Monkey bar shortcut.
-     */
     public MonkeyBarShortcut() {
         super(new int[]{29375}, 1, 14.0, "swing across");
     }
 
-    /**
-     * Instantiates a new Monkey bar shortcut.
-     *
-     * @param ids        the ids
-     * @param level      the level
-     * @param experience the experience
-     * @param option     the option
-     */
     public MonkeyBarShortcut(int[] ids, int level, double experience, String option) {
         super(ids, level, experience, option);
     }
