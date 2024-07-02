@@ -11,15 +11,9 @@ import core.plugin.Plugin;
 import static core.api.ContentAPIKt.getAttribute;
 import static core.api.ContentAPIKt.removeAttribute;
 
-/**
- * The Draynor market zone.
- */
 @Initializable
 public class DraynorMarketZone extends MapZone implements Plugin<Object> {
 
-    /**
-     * Instantiates a new Draynor market zone.
-     */
     public DraynorMarketZone() {
         super("draynor-market", true);
     }

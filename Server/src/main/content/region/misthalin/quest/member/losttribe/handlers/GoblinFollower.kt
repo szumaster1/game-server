@@ -1,11 +1,10 @@
 package content.region.misthalin.quest.member.losttribe.handlers
 
+import core.api.*
 import core.api.consts.Components
-import core.api.closeInterface
-import core.api.lock
-import core.api.openInterface
-import core.api.sendMessage
+import core.game.component.Component
 import core.game.node.entity.player.Player
+import core.game.node.entity.player.link.TeleportManager
 import core.game.system.task.Pulse
 import core.game.world.GameWorld
 import core.game.world.map.Location
@@ -28,11 +27,12 @@ object GoblinFollower {
             var counter = 0
             override fun pulse(): Boolean {
                 when (counter++) {
-                    0 -> openInterface(player, Components.FADE_TO_BLACK_120)
-                    5 -> player.properties.teleportLocation = location
-                    6 -> closeInterface(player)
-                    7 -> openInterface(player, Components.FADE_FROM_BLACK_170)
-                    9 -> closeInterface(player).also { return true }
+                    0 -> openOverlay(player, Components.FADE_TO_BLACK_120)
+                    4 -> teleport(player, location, TeleportManager.TeleportType.INSTANT)
+                    6 -> {
+                        closeOverlay(player)
+                        openOverlay(player, Components.FADE_FROM_BLACK_170)
+                    }
                 }
                 return false
             }

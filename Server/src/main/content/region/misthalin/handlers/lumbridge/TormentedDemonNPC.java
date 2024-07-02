@@ -18,9 +18,6 @@ import core.utilities.RandomFunction;
 
 import java.util.concurrent.TimeUnit;
 
-/**
- * The Tormented demon npc.
- */
 @Initializable
 public class TormentedDemonNPC extends AbstractNPC {
 
@@ -48,19 +45,10 @@ public class TormentedDemonNPC extends AbstractNPC {
         getAggressiveHandler().setAllowTolerance(false);
     }
 
-    /**
-     * Instantiates a new Tormented demon npc.
-     */
     public TormentedDemonNPC() {
         this(-1, null);
     }
 
-    /**
-     * Instantiates a new Tormented demon npc.
-     *
-     * @param id       the id
-     * @param location the location
-     */
     public TormentedDemonNPC(int id, Location location) {
         super(id, location);
         setWalks(true);
@@ -106,10 +94,21 @@ public class TormentedDemonNPC extends AbstractNPC {
 
     @Override
     public void checkImpact(BattleState state) {
-        // Use the formatted hit to ensure protection prayers are applied (i.e. can't darklight while the demon is praying melee).
+
+        /*
+         * Use the formatted hit to ensure protection prayers
+         * are applied (i.e. can't darklight while the demon is praying melee).
+         */
+
         int formattedHit = (int) state.getAttacker().getFormattedHit(state, state.getEstimatedHit());
         if (state.getAttacker().isPlayer() && formattedHit > 0 && state.getWeapon() != null && (state.getWeapon().getId() == 6746 || state.getWeapon().getId() == 732)) {
-            // The message doesn't get sent twice, but additional darklight strikes while the shield is down do delay the shield's return.
+
+            /*
+             * The message doesn't get sent twice, but additional
+             * darklight strikes while the shield is down do delay
+             * the shield's return.
+             */
+
             if (fireShield) {
                 state.getAttacker().asPlayer().sendMessage("The demon is temporarily weakened by your weapon.");
             }
@@ -124,19 +123,32 @@ public class TormentedDemonNPC extends AbstractNPC {
         if (state.getStyle() == null) {
             return;
         }
-        // Use formattedHit for the prayer swap calculation since it's before the fire 
-        // shield reduction was applied (a ranged hit of 8 through the shield corresponds to a 
-        // pre-shield hit of 32, which should cause the demon to switch to praying range).
+
+        /*
+         * Use formattedHit for the prayer swap calculation since it's before the fire
+         * shield reduction was applied (a ranged hit of 8 through the shield corresponds to a
+         * pre-shield hit of 32, which should cause the demon to switch to praying range).
+         */
+
         int hit = formattedHit > 0 ? formattedHit : 1;
         damageLog[state.getStyle().ordinal()] = damageLog[state.getStyle().ordinal()] + hit;
     }
 
     @Override
     public void onImpact(final Entity entity, BattleState state) {
-        // Call the parent class's onImpact handler to ensure that retaliation happens if the TD is non-aggressive.
+
+        /*
+         * Call the parent class's onImpact handler to ensure that
+         * retaliation happens if the TD is non-aggressive.
+         */
+
         super.onImpact(entity, state);
-        // "The demon will switch prayers after it receives 31 damage from one attack style."
-        // This is done in onImpact so that it happens after the damage that caused the switch is dealt.
+
+        /*
+         * The demon will switch prayers after it receives 31 damage from one attack style.
+         * This is done in onImpact so that it happens after the damage that caused the switch is dealt.
+         */
+
         CombatStyle damaged = getMostDamagedStyle();
         if (damaged != null && damageLog[damaged.ordinal()] >= 31 && damaged != getProperties().getProtectStyle()) {
             for (int i = 0; i < 3; i++) {
@@ -147,9 +159,13 @@ public class TormentedDemonNPC extends AbstractNPC {
         } else if (lastSwitch < System.currentTimeMillis()) {
             transformDemon(RandomFunction.getRandomElement(getAlternateStyle(TD_SWING_HANDLER.style)), null);
             lastSwitch = System.currentTimeMillis() + 15000;
-            // The roar animation that TDs do when they change attack styles 
-            // shouldn't be interrupted by attack/defence animations.
-            // https://youtu.be/VcWncVTev1s?t=220
+
+            /*
+             * The roar animation that TDs do when they change attack styles
+             * shouldn't be interrupted by attack/defence animations.
+             * Source: https://youtu.be/VcWncVTev1s?t=220
+             */
+
             animate(new Animation(10917, Priority.HIGH));
         }
     }
@@ -174,14 +190,16 @@ public class TormentedDemonNPC extends AbstractNPC {
 
     /**
      * Transform demon.
-     *
      * @param attackStyle     the attack style
      * @param protectionStyle the protection style
      */
     public void transformDemon(CombatStyle attackStyle, CombatStyle protectionStyle) {
 
 
-        // If either attackStyle or protectionStyle are null, use the current form's values
+        /*
+         * If either attackStyle or protectionStyle are
+         * null, use the current form's values.
+         */
         if (attackStyle == null) {
             attackStyle = getProperties().getCombatPulse().getStyle();
         }
@@ -196,11 +214,10 @@ public class TormentedDemonNPC extends AbstractNPC {
         TD_SWING_HANDLER.style = getProperties().getCombatPulse().getStyle();
     }
 
-    /**
+    /*
      * Gets most damaged style.
-     *
-     * @return the most damaged style
      */
+
     public CombatStyle getMostDamagedStyle() {
         int highestDamage = 0;
         CombatStyle style = null;
@@ -213,34 +230,19 @@ public class TormentedDemonNPC extends AbstractNPC {
         return style;
     }
 
-    /**
+    /*
      * Gets combat style demon.
-     *
-     * @param protection the protection
-     * @param style      the style
-     * @return the combat style demon
      */
+
     public int getCombatStyleDemon(CombatStyle protection, CombatStyle style) {
         return getDemonIds(protection)[2 - style.ordinal()];
     }
 
-    /**
-     * Get demon ids int [ ].
-     *
-     * @param style the style
-     * @return the int [ ]
-     */
     public int[] getDemonIds(CombatStyle style) {
         int[][] ids = style == CombatStyle.MELEE ? MELEE : style == CombatStyle.RANGE ? RANGE : MAGE;
         return ids[getStartId() == getIds()[0] ? 0 : 1];
     }
 
-    /**
-     * Get alternate style combat style [ ].
-     *
-     * @param style the style
-     * @return the combat style [ ]
-     */
     public CombatStyle[] getAlternateStyle(CombatStyle style) {
         CombatStyle[] styles = new CombatStyle[2];
         int index = 0;
@@ -253,11 +255,6 @@ public class TormentedDemonNPC extends AbstractNPC {
         return styles;
     }
 
-    /**
-     * Gets start id.
-     *
-     * @return the start id
-     */
     public int getStartId() {
         return getId() <= 8357 ? getIds()[0] : getIds()[10];
     }
@@ -267,18 +264,15 @@ public class TormentedDemonNPC extends AbstractNPC {
         return new int[]{8349, 8350, 8351, 8352, 8353, 8354, 8355, 8356, 8357, 8358, 8359, 8360, 8361, 8362, 8363, 8364, 8365, 8366};
     }
 
-    /**
+    /*
      * The Tormented demon swing handler.
      */
+
     public class TormentedDemonSwingHandler extends CombatSwingHandler {
 
 
         private CombatStyle style = CombatStyle.MELEE;
 
-
-        /**
-         * Instantiates a new Tormented demon swing handler.
-         */
         public TormentedDemonSwingHandler() {
             super(CombatStyle.MELEE);
         }

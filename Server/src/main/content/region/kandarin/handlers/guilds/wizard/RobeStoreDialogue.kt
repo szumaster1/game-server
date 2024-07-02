@@ -44,10 +44,7 @@ class RobeStoreDialogue(player: Player? = null) : Dialogue(player) {
 
             3 -> when (buttonId) {
                 1 -> player("Can I buy a Skillcape of Magic?").also { stage++ }
-                2 -> npc(
-                    "Welcome to the Magic Guild Store. Would you like to",
-                    "buy some magic supplies?"
-                ).also { stage = 0 }
+                2 -> npc("Welcome to the Magic Guild Store. Would you like to", "buy some magic supplies?").also { stage = 0 }
             }
 
             4 -> npc("Certainly! Right when you give me 99000 coins.").also { stage++ }

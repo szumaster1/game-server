@@ -478,6 +478,7 @@ object Components {
     const val VM_MUSEUM_MAP_527 = 527
     const val VM_DIGSITE_528 = 528
     const val V_NEWSPAPER_530 = 530
+    const val SOA_PLAQUE_531 = 531
     const val VM_KUDOS_532 = 532
     const val VM_TIMELINE_534 = 534
     const val GRIM_TASKLIST_538 = 538

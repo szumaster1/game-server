@@ -29,10 +29,7 @@ class RomettiDialogue(player: Player? = null) : Dialogue(player) {
                 2 -> playerl(FacialExpression.NEUTRAL, "I've no time for fashion.").also { stage = 5 }
             }
             5 -> npcl(FacialExpression.OLD_NORMAL, "Hmm...I did wonder.").also { stage = END_DIALOGUE }
-            6 -> {
-                end()
-                openNpcShop(player, NPCs.ROMETTI_601)
-            }
+            6 -> end().also { openNpcShop(player, NPCs.ROMETTI_601) }
         }
         return true
     }

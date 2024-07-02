@@ -1,5 +1,6 @@
 package content.region.kandarin.handlers.npc
 
+import core.api.consts.Animations
 import core.api.consts.NPCs
 import core.game.node.entity.impl.Animator.Priority
 import core.game.node.entity.npc.AbstractNPC
@@ -36,7 +37,7 @@ class IgnatiusVulcanNPC(id: Int = 0, location: Location? = null) : AbstractNPC(i
 
 
     companion object {
-        private val ANIMATION = Animation(733, Priority.HIGH)
+        private val ANIMATION = Animation(Animations.TINDERBOX_733, Priority.HIGH)
 
         fun createFire(npc: NPC, location: Location?) {
             npc.walkingQueue.reset()

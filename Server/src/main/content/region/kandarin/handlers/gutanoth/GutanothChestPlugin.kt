@@ -29,7 +29,6 @@ class GutanothChestInteractionHandler : InteractionListener {
 
     }
 
-
     class ChestPulse(val player: Player, val isLoot: Boolean, val chest: Scenery) : Pulse() {
         var ticks = 0
         override fun pulse(): Boolean {
@@ -47,7 +46,6 @@ class GutanothChestInteractionHandler : InteractionListener {
             }
             return false
         }
-
 
         fun lootChest(player: Player) {
             if (isLoot) {

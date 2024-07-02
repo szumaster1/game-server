@@ -31,7 +31,7 @@ class NPCInteractionListener : InteractionListener {
     override fun defineListeners() {
 
         /*
-            Milk cow interaction.
+         * Milk cow interaction.
          */
 
         onUseWith(IntType.ITEM, Items.BUCKET_1925, *cowSceneryIds) { player, _, with ->
@@ -40,7 +40,7 @@ class NPCInteractionListener : InteractionListener {
         }
 
         /*
-            Hair-cut interaction.
+         * Hair-cut interaction.
          */
 
         on(NPCs.HAIRDRESSER_598, IntType.NPC, "hair-cut") { player, node ->
@@ -49,7 +49,7 @@ class NPCInteractionListener : InteractionListener {
         }
 
         /*
-            Interaction with dummy scenery.
+         * Interaction with dummy scenery.
          */
 
         on(dummySceneryIds, IntType.SCENERY, "attack") { player, _ ->
@@ -76,7 +76,7 @@ class NPCInteractionListener : InteractionListener {
         }
 
         /*
-            Deposit interaction for Peer the Seer.
+         * Deposit interaction for Peer the Seer.
          */
 
         on(peerTheSeerNPC, IntType.NPC, "deposit") { player, _ ->
@@ -90,7 +90,7 @@ class NPCInteractionListener : InteractionListener {
         }
 
         /*
-            Barcrawl NPC interaction.
+         * Barcrawl NPC interaction.
          */
 
         on(barCrawlNPCs, IntType.NPC, "talk-to", "talk") { player, node ->
@@ -105,7 +105,7 @@ class NPCInteractionListener : InteractionListener {
         }
 
         /*
-            Global Interactions.
+         * Global Interactions.
          */
 
         on(IntType.NPC, "disturb") { player, node ->
@@ -177,7 +177,7 @@ class NPCInteractionListener : InteractionListener {
         val items: Array<Item> = arrayOf(Item(1925, 1), Item(3727, 1), Item(1927, 1))
 
         /*
-            Milk boolean.
+         * Milking pulse.
          */
 
         fun milk(player: Player, node: Node): Boolean {

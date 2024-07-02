@@ -8,15 +8,9 @@ import core.game.world.map.zone.ZoneBuilder;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
-/**
- * The Draynor mansion courtyard zone.
- */
 @Initializable
 public class DraynorMansionCourtyardZone extends MapZone implements Plugin<Object> {
 
-    /**
-     * Instantiates a new Draynor mansion courtyard zone.
-     */
     public DraynorMansionCourtyardZone() {
         super("draynor-mansion-courtyard", true);
     }
@@ -28,7 +22,11 @@ public class DraynorMansionCourtyardZone extends MapZone implements Plugin<Objec
 
     @Override
     public boolean enter(Entity entity) {
-        // Enter the courtyard of the spooky mansion in Draynor Village
+
+        /*
+         * Enter the courtyard of the spooky mansion in Draynor Village
+         */
+
         if (entity.isPlayer()) {
             Player player = entity.asPlayer();
         }

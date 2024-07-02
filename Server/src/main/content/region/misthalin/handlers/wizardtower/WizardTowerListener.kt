@@ -89,6 +89,7 @@ class WizardTowerListener : InteractionListener {
             playAudio(player, Sounds.OPEN_CABINET_44)
             return@on true
         }
+
         on(CABINET_BASEMENT_OPEN, IntType.SCENERY, "close") { player, node ->
             if (getUsedOption(player) == "close") {
                 replaceScenery(node.asScenery(), CABINET_BASEMENT_CLOSED, -1)
@@ -102,6 +103,10 @@ class WizardTowerListener : InteractionListener {
                 return@on true
             }
         }
+
+        /*
+         * https://runescape.fandom.com/wiki/2009_Christmas_event
+         */
 
         on(LAND_OF_SNOW_PORTAL, IntType.SCENERY, "exit") { player, node ->
             Projectile.create(node.location, player.location, 109, 15, 10, 0, 10, 0, 2).send()

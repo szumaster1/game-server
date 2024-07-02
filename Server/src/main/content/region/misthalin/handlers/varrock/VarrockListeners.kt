@@ -4,9 +4,7 @@ import content.region.kandarin.quest.biohazard.dialogue.GuidorsWifeDialogueFile
 import content.region.misthalin.dialogue.varrock.KnockatDoorDialogue
 import core.GlobalStats
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
-import core.api.consts.Scenery
+import core.api.consts.*
 import core.game.dialogue.FacialExpression
 import core.game.global.action.ClimbActionHandler
 import core.game.global.action.DoorActionHandler
@@ -27,15 +25,18 @@ class VarrockListeners : InteractionListener {
 
     companion object {
         private var COUNTER = 0
-        private val BERRIES = intArrayOf(Scenery.CADAVA_BUSH_23625, Scenery.CADAVA_BUSH_23626, Scenery.CADAVA_BUSH_23627, Scenery.REDBERRY_BUSH_23628, Scenery.REDBERRY_BUSH_23629, Scenery.REDBERRY_BUSH_23630)
+        private val BERRIES = intArrayOf(
+            Scenery.CADAVA_BUSH_23625, Scenery.CADAVA_BUSH_23626, Scenery.CADAVA_BUSH_23627,
+            Scenery.REDBERRY_BUSH_23628, Scenery.REDBERRY_BUSH_23629, Scenery.REDBERRY_BUSH_23630
+        )
     }
 
     override fun defineListeners() {
 
         /*
-            Thessalia Nitter runs Thessalia's Fine Clothes
-            and Thessalia's Makeovers in Varrock.
-            Change clothes interaction.
+         * Thessalia Nitter runs Thessalia's Fine Clothes
+         * and Thessalia's Makeovers in Varrock.
+         * Change clothes interaction.
          */
 
         on(NPCs.THESSALIA_548, IntType.NPC, "change-clothes") { player, _ ->
@@ -44,8 +45,8 @@ class VarrockListeners : InteractionListener {
         }
 
         /*
-            Broken cart south of Varrock,
-            starting point for the What Lies Below quest.
+         *  Broken cart south of Varrock,
+         *  starting point for the What Lies Below quest.
          */
 
         on(Scenery.BROKEN_CART_23055, IntType.SCENERY, "search") { player, _ ->
@@ -54,8 +55,8 @@ class VarrockListeners : InteractionListener {
         }
 
         /*
-            The shed provides an alternate entrance to the
-            Edgeville Dungeon, entering north of the Hill Giant room.
+         * The shed provides an alternate entrance to the
+         * Edgeville Dungeon, entering north of the Hill Giant room.
          */
 
         on(Scenery.DOOR_1804, IntType.SCENERY, "open") { player, node ->
@@ -68,8 +69,8 @@ class VarrockListeners : InteractionListener {
         }
 
         /*
-            Doors to Guidor NPC that can be found in southeastern Varrock.
-            He tests the plague sample for you during the Biohazard quest.
+         * Doors to Guidor NPC that can be found in southeastern Varrock.
+         * He tests the plague sample for you during the Biohazard quest.
          */
 
         on(Scenery.BEDROOM_DOOR_2032, IntType.SCENERY, "open") { player, node ->
@@ -85,7 +86,7 @@ class VarrockListeners : InteractionListener {
         }
 
         /*
-            The Champions' Guild doors.
+         * The Champions' Guild doors.
          */
 
         on(Scenery.DOOR_1805, IntType.SCENERY, "open") { player, node ->
@@ -104,7 +105,7 @@ class VarrockListeners : InteractionListener {
         }
 
         /*
-            Interaction with bank service door.
+         * Interaction with bank service door.
          */
 
         on(Scenery.DOOR_24389, IntType.SCENERY, "knock-at") { player, node ->
@@ -113,7 +114,7 @@ class VarrockListeners : InteractionListener {
         }
 
         /*
-            The Cooks' Guild doors.
+         * The Cooks' Guild doors.
          */
 
         on(intArrayOf(Scenery.DOOR_2712, Scenery.DOOR_26810), IntType.SCENERY, "open") { player, node ->
@@ -156,7 +157,7 @@ class VarrockListeners : InteractionListener {
         }
 
         /*
-            Cadava & Red berries bushes found near Varrock.
+         * Cadava & Red berries bushes found near Varrock.
          */
 
         on(BERRIES, IntType.SCENERY, "pick-from") { player, node ->
@@ -174,7 +175,7 @@ class VarrockListeners : InteractionListener {
 
             stopWalk(player)
             lock(player, 3)
-            animate(player, 2282)
+            animate(player, Animations.PICK_SOMETHING_UP_FROM_GROUND_2282)
 
             if (node.id == 23628 || node.id == 23629)
                 addItem(player, Items.REDBERRIES_1951)
@@ -195,13 +196,13 @@ class VarrockListeners : InteractionListener {
         }
 
         /*
-            Stray dog "Shoo-away" interaction.
+         * Stray dog "Shoo-away" interaction.
          */
 
         on(NPCs.STRAY_DOG_5917, IntType.NPC, "shoo-away") { player, node ->
             val dog = node.asNpc()
             face(player, node)
-            animate(player, 2110)
+            animate(player, Animations.RASPBERRY_2110)
             sendChat(player, "Thbbbbt!")
             queueScript(player, 1, QueueStrength.SOFT) {
                 dog.sendChat("Whine!")
@@ -243,7 +244,7 @@ class VarrockListeners : InteractionListener {
         }
 
         /*
-            Exit from Varrock sewers to Varrock east bank.
+         * Exit from Varrock sewers to Varrock east bank.
          */
 
         on(Scenery.LADDER_24366, IntType.SCENERY, "climb-up") { player, _ ->
@@ -252,7 +253,7 @@ class VarrockListeners : InteractionListener {
         }
 
         on(Scenery.PORTAL_28780, IntType.SCENERY, "use"){ player, _ ->
-            visualize(player, -1, 110)
+            visualize(player, -1, Graphics.CURSE_IMPACT_110)
             queueScript(player, 1, QueueStrength.SOFT) {
                 teleport(player, Location(3326, 5469, 0))
                 return@queueScript stopExecuting(player)
@@ -260,16 +261,20 @@ class VarrockListeners : InteractionListener {
             return@on true
         }
 
+        /*
+         * Interaction showing Phoenix Gang plaque interface.
+         */
+
         on(Scenery.PLAQUE_23636, IntType.SCENERY, "read"){ player, _ ->
-            openInterface(player, 531)
+            openInterface(player, Components.SOA_PLAQUE_531)
             return@on true
         }
 
         on(Scenery.LADDER_1749, IntType.SCENERY, "climb-down") { player, _ ->
             if (player.location.z == 2) {
-                ClimbActionHandler.climb(player, Animation(827), Location.create(3097, 3432, 1))
+                ClimbActionHandler.climb(player, Animation(Animations.MULTI_USE_BEND_OVER_827), Location.create(3097, 3432, 1))
             } else {
-                ClimbActionHandler.climb(player, Animation(827), Location.create(3096, 3432, 0))
+                ClimbActionHandler.climb(player, Animation(Animations.MULTI_USE_BEND_OVER_827), Location.create(3096, 3432, 0))
             }
             return@on true
         }

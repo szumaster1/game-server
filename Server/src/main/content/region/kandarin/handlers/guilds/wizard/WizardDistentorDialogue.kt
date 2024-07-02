@@ -33,10 +33,7 @@ class WizardDistentorDialogue(player: Player? = null) : Dialogue(player) {
                 if (!isQuestComplete(player, "Rune Mysteries")) {
                     player("Nothing thanks, I'm just looking around.").also { stage = 4 }
                 } else {
-                    options(
-                        "Nothing thanks, I'm just looking around.",
-                        "Can you teleport me to Rune Essence?"
-                    ).also { stage++ }
+                    options("Nothing thanks, I'm just looking around.", "Can you teleport me to Rune Essence?").also { stage++ }
                 }
             }
 

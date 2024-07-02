@@ -14,6 +14,11 @@ class TOTTHelmOnCapeListener : InteractionListener {
     private val slayerCapeT = Items.SLAYER_CAPET_9787
 
     override fun defineListeners() {
+
+        /*
+         * Special interaction to combine slayer helmet with slayer skillcape.
+         */
+
         onUseWith(IntType.ITEM, slayerHelmet, slayerCape, slayerCapeT) { player, _, _ ->
             val alreadyHasHelm = getAttribute(player, "cape_perks:tott:helmet-stored", false)
             if (alreadyHasHelm) {

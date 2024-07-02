@@ -1,6 +1,6 @@
 package content.global.plugins.iface
 
-import content.global.handlers.iface.StockMarketInterfaceListener.Companion.withdraw
+import content.global.handlers.iface.ge.StockMarketInterfaceListener.Companion.withdraw
 import core.api.consts.Components
 import core.api.consts.Sounds
 import core.api.playAudio

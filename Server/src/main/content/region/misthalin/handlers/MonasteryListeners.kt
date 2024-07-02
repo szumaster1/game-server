@@ -1,10 +1,8 @@
 package content.region.misthalin.handlers
 
-import core.api.openDialogue
 import core.game.global.action.ClimbActionHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
-import core.game.node.scenery.Scenery
 import core.game.world.map.Location
 
 class MonasteryListeners : InteractionListener {
@@ -14,6 +12,11 @@ class MonasteryListeners : InteractionListener {
     }
 
     override fun defineListeners() {
+
+        /*
+         * Entrance leading to the 1st floor of the monastery.
+         */
+
         on(STAIRS, IntType.SCENERY, "climb-up"){ player, node ->
             when (node.id) {
                 2641 -> {

@@ -1,6 +1,6 @@
 package content.region.fremennik.handlers
 
-import content.global.handlers.iface.FairyRing
+import content.region.misc.handlers.zanaris.FairyRing
 import content.global.skill.production.cooking.dairy.DairyChurnDialogue
 import content.minigame.barbassault.dialogue.CaptainCainDialogue
 import content.region.fremennik.dialogue.jatizso.TowerGuardDialogue

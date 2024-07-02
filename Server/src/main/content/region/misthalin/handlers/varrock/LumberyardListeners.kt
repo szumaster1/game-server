@@ -24,7 +24,7 @@ class LumberyardListeners : InteractionListener {
     override fun defineListeners() {
 
         /*
-            Gertrude's Cat interaction with crates.
+         * Quest related interaction with crates. (Gertrude's Cat)
          */
 
         on(CRATE, IntType.SCENERY, "search") { player, node ->
@@ -58,8 +58,8 @@ class LumberyardListeners : InteractionListener {
         }
 
         /*
-            Squeeze-under hole interaction
-            on the yard's west wall.
+         * Squeeze-under hole interaction
+         * on the yard's west wall.
          */
 
         on(LUMBERYARD_FENCE, IntType.SCENERY, "squeeze-under") { player, _ ->
@@ -68,7 +68,7 @@ class LumberyardListeners : InteractionListener {
         }
 
         /*
-            Sawmill operator interactions.
+         * Sawmill operator interactions.
          */
 
         on(SAWMILL_OPERATOR, IntType.NPC, "talk-to") { player, _ ->

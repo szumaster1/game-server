@@ -2,6 +2,7 @@ package content.region.kandarin.handlers.guilds.ranging.dialogue
 
 import core.api.consts.NPCs
 import core.game.dialogue.Dialogue
+import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.utilities.END_DIALOGUE
@@ -10,6 +11,7 @@ import core.utilities.END_DIALOGUE
 class GuildGuardDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
+        npc = args[0] as NPC
         player("Hello there.").also { stage = 0 }
         return true
     }

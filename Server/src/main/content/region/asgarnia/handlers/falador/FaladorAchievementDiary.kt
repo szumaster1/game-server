@@ -1,6 +1,6 @@
 package content.region.asgarnia.handlers.falador
 
-import content.global.handlers.iface.FairyRing
+import content.region.misc.handlers.zanaris.FairyRing
 import content.global.skill.gathering.farming.FarmingPatch
 import content.global.skill.production.crafting.data.LightSourceData
 import content.region.asgarnia.dialogue.falador.RisingSunInnBartenderDialogue

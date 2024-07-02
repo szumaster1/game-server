@@ -7,6 +7,10 @@ import core.plugin.Plugin
 @Initializable
 class PVPEquipmentRegister : Plugin<Any> {
 
+    /*
+     * A list of things that degrade over time with use.
+     */
+
     val TICKS = 6000
 
     val VESTA_BODY = arrayOf(Items.VESTAS_CHAINBODY_13887, Items.VESTAS_CHAINBODY_DEG_13889)

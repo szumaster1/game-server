@@ -11,9 +11,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
 import core.game.node.entity.player.Player
 
-private val dragonHeads = intArrayOf(NPCs.DRAGON_HEAD_8425, NPCs.DRAGON_HEAD_8426, NPCs.DRAGON_HEAD_8427)
-
-class DragonheadNPC : NPCBehavior(*dragonHeads) {
+class DragonheadNPC : NPCBehavior(*DRAGON_HEAD) {
 
     override fun canBeAttackedBy(self: NPC, attacker: Entity, style: CombatStyle, shouldSendMessage: Boolean): Boolean {
         if (attacker !is Player) return false
@@ -37,6 +35,10 @@ class DragonheadNPC : NPCBehavior(*dragonHeads) {
 
     override fun onDeathStarted(self: NPC, killer: Entity) {
         self.configureMovementPath(location(1820, 5279, 0))
+    }
+
+    companion object {
+        private val DRAGON_HEAD = intArrayOf(NPCs.DRAGON_HEAD_8425, NPCs.DRAGON_HEAD_8426, NPCs.DRAGON_HEAD_8427)
     }
 
 }

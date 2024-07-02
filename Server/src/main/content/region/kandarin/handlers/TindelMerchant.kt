@@ -24,6 +24,7 @@ class TindelMerchant : InteractionListener {
         /*
          *  Antique shop ring bell interaction.
          */
+
         on(ANTIQUE_SHOP_STALL, IntType.SCENERY, "ring-bell") { player, _ ->
             playGlobalAudio(player.location, BELL_SOUND)
             sendDialogue(player, "You ring for attention.")
@@ -37,6 +38,7 @@ class TindelMerchant : InteractionListener {
         /*
          *  Interaction for NPC before One Small Favour.
          */
+
         on(TINDEL, IntType.NPC, "talk-to", "Give-Sword") { player, _ ->
             when (getUsedOption(player)) {
                 "talk-to" -> openDialogue(player, TindelMerchantDialogue())
@@ -50,6 +52,7 @@ class TindelMerchant : InteractionListener {
     /*
      * Replaces the NPC destination for interaction in front of the stall.
      */
+
     override fun defineDestinationOverrides() {
         setDest(IntType.NPC, intArrayOf(TINDEL), "talk-to", "give-sword") { _, _ ->
             return@setDest Location(2678, 3152, 0)
@@ -68,6 +71,7 @@ class TindelMerchant : InteractionListener {
          * Rusty sword exchange interaction, calculates a success based
          * on the player's Smithing skill level.
          */
+
         fun exchangeRustyWeapon(player: Player): Boolean {
             if (!anyInInventory(player, RUSTY_SWORD, RUSTY_SCIMITAR)) {
                 sendNPCDialogue(player, TINDEL, "Sorry my friend, but you don't seem to have any swords that need to be identified.", FacialExpression.HALF_GUILTY)

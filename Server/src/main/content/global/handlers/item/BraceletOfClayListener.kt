@@ -12,6 +12,12 @@ class BraceletOfClayListener : InteractionListener {
     private val clayBracelet = Items.BRACELET_OF_CLAY_11074
 
     override fun defineListeners() {
+
+        /*
+         * Interaction allowing to obtain information about the
+         * remaining amount of use the Bracelet of clay.
+         */
+
         on(clayBracelet, IntType.ITEM, "operate") { player, node ->
             var charge = getCharge(node)
             if (charge > 28) setCharge(node, 28).also { charge = 28 }

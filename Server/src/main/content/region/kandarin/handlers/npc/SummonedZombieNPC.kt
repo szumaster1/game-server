@@ -11,10 +11,12 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 // https://runescape.wiki/w/Summoned_Zombie?oldid=1887450
+
 @Initializable
 class SummonedZombieNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 
     var clearTime = 0
+
     override fun construct(id: Int, location: Location, vararg objects: Any): AbstractNPC {
         return SummonedZombieNPC(id, location)
     }
@@ -50,4 +52,5 @@ class SummonedZombieNPC(id: Int = 0, location: Location? = null) : AbstractNPC(i
     override fun finalizeDeath(killer: Entity?) {
         super.finalizeDeath(killer)
     }
+
 }

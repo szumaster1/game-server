@@ -26,7 +26,7 @@ class PiscatorisListeners : InteractionListener {
     override fun defineListeners() {
 
         /*
-            Rowing boat travel interaction.
+         * Rowing boat travel interaction.
          */
 
         on(KATHY_CORKAT, IntType.NPC, "travel") { player, _ ->
@@ -69,7 +69,7 @@ class PiscatorisListeners : InteractionListener {
         }
 
         /*
-            Net scenery interaction.
+         * Net scenery interaction.
          */
 
         on(NET_SCENERY, IntType.SCENERY, "Take-from") { player, node ->

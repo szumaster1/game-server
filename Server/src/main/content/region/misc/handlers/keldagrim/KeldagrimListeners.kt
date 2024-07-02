@@ -41,7 +41,7 @@ class KeldagrimListeners : InteractionListener {
         }
 
         /*
-            Reinald - Smithing Emporium.
+         * Reinald - Smithing Emporium.
          */
 
         on(REINALD, IntType.NPC, "change-armguards") { player, _ ->
@@ -50,7 +50,7 @@ class KeldagrimListeners : InteractionListener {
         }
 
         /*
-            Interaction with foreman (Blast furnace mini-game).
+         * Interaction with foreman (Blast furnace mini-game).
          */
 
         onUseWith(IntType.NPC, FUSION_HAMMER, FOREMAN) { player, _, npc ->
@@ -59,7 +59,7 @@ class KeldagrimListeners : InteractionListener {
         }
 
         /*
-            Cave entrance to Keldagrim.
+         * Cave entrance to Keldagrim.
          */
 
         on(ENTRANCE, IntType.SCENERY, "go-through") { player, node ->
@@ -76,7 +76,7 @@ class KeldagrimListeners : InteractionListener {
         }
 
         /*
-            Travel interaction between Keldagrim and Grand exchange.
+         * Travel interaction between Keldagrim and Grand exchange.
          */
 
         on(HIDDEN_TRAPDOOR, IntType.SCENERY, "open") { player, _ ->

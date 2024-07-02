@@ -1,7 +1,6 @@
 package content.region.misthalin.handlers.rcguild
 
 import content.global.skill.production.runecrafting.Talisman
-import content.global.skill.production.runecrafting.Tiara
 import core.api.getAttribute
 import core.api.setAttribute
 import core.game.node.entity.player.Player
@@ -26,7 +25,12 @@ object RunecraftGuildUtils {
 
     val TALLYS = Talisman.values().map { it.talisman.id }.toIntArray()
 
-    fun checkForReward(player: Player) {
+    /*
+     * Checking if we can get omni talisman as part of
+     * showing Elriss all the other talismans.
+     */
+
+    fun checkReward(player: Player) {
         for (i in TALLYS.indices) {
             if (getAttribute(player, AIR_ITEMS, 0) == 2 && getAttribute(player, MIND_ITEMS, 0) == 2 &&
                 getAttribute(player, WATER_ITEMS, 0) == 2 && getAttribute(player,

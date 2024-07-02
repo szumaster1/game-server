@@ -27,10 +27,7 @@ class HudoDialogue(player: Player? = null) : Dialogue(player) {
                 2 -> playerl(FacialExpression.NEUTRAL, "No, thank you.").also { stage = END_DIALOGUE }
             }
             3 -> npcl(FacialExpression.OLD_NORMAL, "Great stuff.").also { stage++ }
-            4 -> {
-                end()
-                openNpcShop(player, NPCs.HUDO_600)
-            }
+            4 -> end().also { openNpcShop(player, NPCs.HUDO_600) }
         }
         return true
     }

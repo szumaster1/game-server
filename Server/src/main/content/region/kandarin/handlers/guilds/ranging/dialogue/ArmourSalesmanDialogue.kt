@@ -1,6 +1,7 @@
 package content.region.kandarin.handlers.guilds.ranging.dialogue
 
 import core.api.consts.NPCs
+import core.api.openNpcShop
 import core.game.dialogue.Dialogue
 import core.game.global.Skillcape.isMaster
 import core.game.global.Skillcape.purchase
@@ -97,7 +98,7 @@ class ArmourSalesmanDialogue(player: Player? = null) : Dialogue(player) {
 
             21 -> {
                 end()
-                npc.openShop(player)
+                openNpcShop(player, npc.id)
             }
 
             30 -> {

@@ -9,7 +9,13 @@ import core.api.consts.Components
 
 class RunecraftShopInterfaceListener : InterfaceListener {
 
+    /*
+     * Low quality implementation of Runecrafting shop.
+     * Due to the lack of minigames, tokens are purchased for coins.
+     */
+
     class ShopItem(val id: Int, val price: Int, val amount: Int)
+
     override fun defineInterfaceListeners() {
         onOpen(Components.RCGUILD_REWARDS_779) { player, _ ->
             sendTokens(player)

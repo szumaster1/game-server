@@ -10,9 +10,13 @@ import core.plugin.Initializable
 
 @Initializable
 class WizardNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
+
     /*
-        Location: Wizards' Tower
+     * Wizards are humans in blue robes that can be found at
+     * the Wizards' Tower, south of Draynor Village, and in the
+     * Magic Guild in Yanille.
      */
+
     override fun construct(id: Int, location: Location, vararg objects: Any): AbstractNPC {
         return WizardNPC(id, location)
     }

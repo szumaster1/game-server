@@ -16,7 +16,7 @@ class FredFarmHouseMapArea : MapZone("freds-farm-house", true), Plugin<Any?> {
 
     override fun enter(entity: Entity): Boolean {
         /*
-            Visit Fred the Farmer's chicken and sheep farm.
+         * Visit Fred the Farmer's chicken and sheep farm.
          */
 
         if (entity.isPlayer) {

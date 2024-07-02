@@ -1,6 +1,10 @@
 package content.region.kandarin.handlers.guilds.ranging
 
+import core.api.consts.Animations
+import core.api.consts.Components
 import core.api.consts.Items
+import core.api.openInterface
+import core.api.setInterfaceText
 import core.api.setVarp
 import core.game.node.entity.combat.equipment.Ammunition
 import core.game.node.entity.player.Player
@@ -16,11 +20,11 @@ import kotlin.math.max
 class ArcheryCompetitionPulse(private val player: Player, private val sceneryId: Scenery) : Pulse(1, player, sceneryId) {
 
     private fun showInterface(points: Int, arrowsLeft: Int, target: Int, msg: String) {
-        player.interfaceManager.openComponent(325)
+        openInterface(player, Components.TARGET_325)
         setVarp(player, 156, 11 - arrowsLeft)
         setVarp(player, 157, points)
         setVarp(player, 158, target)
-        player.packetDispatch.sendString(msg, 325, 32)
+        setInterfaceText(player, msg, Components.TARGET_325, 32)
     }
 
     override fun pulse(): Boolean {
@@ -36,7 +40,7 @@ class ArcheryCompetitionPulse(private val player: Player, private val sceneryId:
             p.endLocation = sceneryId.location
             p.endHeight = 25
             p.send()
-            player.animate(Animation(426))
+            player.animate(Animation(Animations.FIRE_BOW_426))
             player.lock(delay)
 
             val level = player.getSkills().getLevel(Skills.RANGE)

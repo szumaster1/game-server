@@ -5,7 +5,7 @@ import core.game.component.Component;
 import core.game.node.entity.player.Player;
 
 import core.game.ge.GrandExchangeRecords;
-import content.global.handlers.iface.StockMarketInterfaceListener;
+import content.global.handlers.iface.ge.StockMarketInterfaceListener;
 import core.game.world.GameWorld;
 import core.network.packet.PacketRepository;
 import core.network.packet.context.ChildPositionContext;

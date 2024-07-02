@@ -22,9 +22,6 @@ import core.plugin.Initializable;
 import static core.api.ContentAPIKt.removeAttribute;
 import static core.api.ContentAPIKt.setAttribute;
 
-/**
- * The Gnome copter activity.
- */
 @Initializable
 public final class GnomeCopterActivity extends ActivityPlugin {
 
@@ -32,9 +29,6 @@ public final class GnomeCopterActivity extends ActivityPlugin {
 
     private final boolean[] usedLandingPads = new boolean[4];
 
-    /**
-     * Instantiates a new Gnome copter activity.
-     */
     public GnomeCopterActivity() {
         super("Gnome copters", false, false, true);
     }

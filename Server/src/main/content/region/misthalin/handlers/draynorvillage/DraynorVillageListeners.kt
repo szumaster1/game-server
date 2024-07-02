@@ -30,10 +30,19 @@ class DraynorVillageListeners : InteractionListener {
 
     override fun defineListeners() {
 
+        /*
+         * Make dyes interaction.
+         */
+
         on(NPCs.AGGIE_922, IntType.NPC, "make-dyes") { player, node ->
             openDialogue(player, node.asNpc().id, node, true)
             return@on true
         }
+
+        /*
+         * Interaction that allows you to see through the
+         * telescope in the wise old man's house.
+         */
 
         on(Scenery.TELESCOPE_7092, IntType.SCENERY, "observe") { player, _ ->
             ActivityManager.start(player, "draynor telescope", false)

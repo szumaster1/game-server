@@ -16,6 +16,11 @@ class GodBooksListener : InteractionListener {
     private val guthixGodBook = Items.BOOK_OF_BALANCE_3844
 
     override fun defineListeners() {
+
+        /*
+         * Interactions related to the God books.
+         */
+
         on(saradominGodBook, IntType.ITEM, "preach") { player, _ ->
             openDialogue(player, HolyDialogue(BOOK.SARA))
             return@on true

@@ -41,7 +41,7 @@ class ArdougneListeners : InteractionListener {
         }
 
         /*
-            Use ferret on Charlie interaction in Ardougne zoo.
+         * Use ferret on Charlie interaction in Ardougne zoo.
          */
 
         onUseWith(IntType.NPC, Items.FERRET_10092, NPCs.CHARLIE_5138) { player, _, _ ->

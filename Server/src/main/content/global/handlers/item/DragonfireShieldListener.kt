@@ -34,6 +34,10 @@ class DragonfireShieldListener : InteractionListener {
 
     override fun defineListeners() {
 
+        /*
+         * Interaction allow to use dragonfire shield special.
+         */
+
         on(dragonfireShields, IntType.ITEM, "operate") { player, node ->
             val usingAttack = !getAttribute(player, "dfs_spec", false)
             if (!usingAttack) {
@@ -109,6 +113,10 @@ class DragonfireShieldListener : InteractionListener {
             return@on true
         }
 
+        /*
+         * Releasing charges from DFS interaction.
+         */
+
         on(dragonfireShields, IntType.ITEM, "empty") { player, node ->
             replaceSlot(
                 player, node.asItem().slot, Item(Items.DRAGONFIRE_SHIELD_11284), Item(Items.DRAGONFIRE_SHIELD_11283)
@@ -119,6 +127,10 @@ class DragonfireShieldListener : InteractionListener {
             return@on true
         }
 
+        /*
+         * Inspect Dragonfire shield interaction.
+         */
+
         on(dragonfireShields, IntType.ITEM, "inspect") { player, node ->
             if (node.asItem().id == Items.DRAGONFIRE_SHIELD_11284) {
                 sendMessage(player, "The shield has no charges.")
@@ -127,6 +139,10 @@ class DragonfireShieldListener : InteractionListener {
             sendMessage(player, "The shield has " + node.asItem().charge / 20 + " charges.")
             return@on true
         }
+
+        /*
+         * Drop interaction for DFS.
+         */
 
         on(dragonfireShields, IntType.ITEM, "drop") { player, node ->
             var shield = node.asItem()

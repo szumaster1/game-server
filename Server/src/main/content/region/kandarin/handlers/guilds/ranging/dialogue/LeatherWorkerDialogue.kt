@@ -5,6 +5,7 @@ import core.api.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
+import core.utilities.END_DIALOGUE
 
 @Initializable
 class LeatherWorkerDialogue(player: Player? = null) : Dialogue(player) {
@@ -17,49 +18,17 @@ class LeatherWorkerDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
-            0 -> {
-                npc("Can I help you?")
-                stage = 1
-            }
-
-            1 -> {
-                options("What do you do here?", "No thanks.")
-                stage = 2
-            }
-
+            0 -> npc("Can I help you?").also { stage++ }
+            1 -> options("What do you do here?", "No thanks.").also { stage++ }
             2 -> when (buttonId) {
-                1 -> {
-                    player("What do you do here?")
-                    stage = 10
-                }
-
-                2 -> {
-                    player("No thanks.")
-                    stage = 20
-                }
+                1 -> player("What do you do here?").also { stage++ }
+                2 -> player("No thanks.").also { stage = 6 }
             }
 
-            10 -> {
-                npc("Well, I can cure plain cowhides into pieces of leather", "ready for crafting.")
-                stage = 11
-            }
-
-            11 -> {
-                npc("I work with ordinary, hard or dragonhide leather and", "also snakeskin.")
-                stage = 12
-            }
-
-            12 -> {
-                end()
-                TanningData.open(player, 680)
-            }
-
-            20 -> {
-                npc("Suit yourself.")
-                stage = 21
-            }
-
-            21 -> end()
+            3 -> npc("Well, I can cure plain cowhides into pieces of leather", "ready for crafting.").also { stage++ }
+            4 -> npc("I work with ordinary, hard or dragonhide leather and", "also snakeskin.").also { stage++ }
+            5 -> end().also { TanningData.open(player, npc.id) }
+            6 -> npc("Suit yourself.").also { stage = END_DIALOGUE }
         }
         return true
     }

@@ -13,24 +13,37 @@ import core.game.world.update.flag.context.Animation
 class MuseumListeners : InteractionListener {
 
     override fun defineListeners() {
+
+        /*
+         * I fucked up something here, but I won't admit it.
+         */
+
         on(BUTTONS, IntType.SCENERY, "study") { player, node ->
             when (node.id) {
-                // East
+                /*
+                 * East side.
+                 */
                 24605 -> openDialogue(player, TalkAboutLizards())
                 24606 -> openDialogue(player, TalkAboutTortoises())
                 24607 -> openDialogue(player, TalkAboutDragons())
                 24608 -> openDialogue(player, TalkAboutWyverns())
-                // North
+                /*
+                 * North side
+                 */
                 24609 -> openDialogue(player, TalkAboutCamels())
                 24610 -> openDialogue(player, TalkAboutLeeches())
                 24611 -> openDialogue(player, TalkAboutMoles())
                 24612 -> openDialogue(player, TalkAboutPenguins())
-                // West
+                /*
+                 * West side
+                 */
                 24613 -> openDialogue(player, TalkAboutSnails())
                 24614 -> openDialogue(player, TalkAboutSnakes())
                 24615 -> openDialogue(player, TalkAboutMonkeys())
                 24616 -> openDialogue(player, TalkAboutSeaSlugs())
-                // South
+                /*
+                 * South side.
+                 */
                 24617 -> openDialogue(player, TalkAboutTerrorBirds())
                 24618 -> openDialogue(player, TalkAboutKalphiteQueen())
             }
@@ -38,7 +51,7 @@ class MuseumListeners : InteractionListener {
         }
 
         /*
-            Museum stairs.
+         * Museum stairs.
          */
 
         on(MUSEUM_STAIRS, IntType.SCENERY, "walk-up", "walk-down") { player, node ->
@@ -59,7 +72,7 @@ class MuseumListeners : InteractionListener {
         }
 
         /*
-            Museum archaeologists doors.
+         * Museum archaeologists doors.
          */
 
         on(MUSEUM_DOOR, IntType.SCENERY, "open") { player, node ->
@@ -68,7 +81,7 @@ class MuseumListeners : InteractionListener {
         }
 
         /*
-            Varrock digsite gates.
+         * Varrock digsite gates.
          */
 
         on(MUSEUM_GATE, IntType.SCENERY, "open") { player, node ->
@@ -81,8 +94,8 @@ class MuseumListeners : InteractionListener {
         }
 
         /*
-            All items available for staff clean off incoming samples.
-            Author: @joshking071
+         * All items available for staff clean off incoming samples.
+         * Author: @joshking071
          */
 
         on(TOOL_RACK, IntType.SCENERY, "take") { player, node ->

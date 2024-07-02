@@ -13,14 +13,28 @@ import kotlin.collections.HashMap
 
 class CulinaromancerShop : LoginListener {
 
-    //Enable the chest if the player has 18 quest points or more
+    /*
+     * Enable the chest if the player has 18 quest points or more.
+     */
 
     override fun login(player: Player) {
         if(getQuestPoints(player) >= 18){
             setVarbit(player, 1850, 5)
-            setAttribute(player, "culino-tier", player.questRepository.points / 18) //Set this, so we can check if the player has gained a tier during server runtime
 
-            //Restock pulse for this player (yes, this means the chest will only restock if the player has logged in. Shop system needs work in order to do otherwise.)
+            /*
+             * Set this, so we can check if the player has gained
+             * a tier during server runtime.
+             */
+
+            setAttribute(player, "culino-tier", player.questRepository.points / 18)
+
+            /*
+             * Restock pulse for this player
+             * This means the chest will only restock
+             * if the player has logged in. Shop system needs
+             * work in order to do otherwise.
+             */
+
             val restockPulse = object : Pulse(100){ //Run once a minute
                 override fun pulse(): Boolean {
                     getShop(player, false).restock()
@@ -29,32 +43,54 @@ class CulinaromancerShop : LoginListener {
                 }
             }
             GameWorld.Pulser.submit(restockPulse)
-            //Stop the pulse if the player logs out (easy way to avoid a player having multiple restock pulses by relogging a bunch)
-            //Stopped pulses are cleared from the list on the next tick cycle
+
+            /*
+             * Stop the pulse if the player logs out (easy way to avoid a
+             * player having multiple restock pulses by re-logging a bunch)
+             * Stopped pulses are cleared from the list on the next tick cycle
+             */
+
             player.logoutListeners["culino-restock"] = {restockPulse.stop()}
         }
     }
 
     companion object {
-        // Our shop mappings - shops are individualized due to the differing items based on player's QP.
-        // Maps player UID -> shop
+        /*
+         * Our shop mappings - shops are individualized
+         * due to the differing items based on player's QP.
+         * Maps player UID -> shop
+         */
+
         private val foodShops = HashMap<Int, Shop>()
         private val gearShops = HashMap<Int, Shop>()
 
-        //Open methods for the shops - should check player's QP and whether they already have a container generated
+        /*
+         * Open methods for the shops - should check player's QP
+         * and whether they already have a container generated.
+         */
+
         @JvmStatic
         fun openShop(player: Player, food: Boolean) {
             getShop(player, food).openFor(player)
         }
 
-        //Retrieve a player's shop - should generate the shop if it does not exist.
+        /*
+         * Retrieve a player's shop - should generate the
+         * shop if it does not exist.
+         */
+
         fun getShop(player: Player, food: Boolean): Shop {
             val uid = player.details.uid
             val points = player.questRepository.points
             val tier = (points / 18)
-            if (tier != getAttribute(player, "culino-tier", 0)) //If player tier has changed
-            {
-                foodShops.remove(uid) //Clear the previous shops, so they can regenerate with the new tier
+
+            /*
+             * If player tier has changed, clear the previous shops,
+             * so they can regenerate with the new tier.
+             */
+
+            if (tier != getAttribute(player, "culino-tier", 0)) {
+                foodShops.remove(uid)
                 gearShops.remove(uid)
             }
             return if (food) {
@@ -68,7 +104,11 @@ class CulinaromancerShop : LoginListener {
             }
         }
 
-        //Generate default food stock based on an amount of total QP.
+        /*
+         * Generate default food stock based on
+         * an amount of total QP.
+         */
+
         private fun generateFoodStock(points: Int): Array<ShopItem> {
             val stock = Array(foodStock.size) { ShopItem(0, 0) }
             val maxQty = when (val qpTier = (points / 18) - 1) {
@@ -82,7 +122,11 @@ class CulinaromancerShop : LoginListener {
             return stock
         }
 
-        //Generate default gear stock based on an amount of total QP.
+        /*
+         * Generate default gear stock based on
+         * an amount of total QP.
+         */
+
         private fun generateGearStock(points: Int): Array<ShopItem> {
             val stock = Array(gearStock.size) { ShopItem(0, 0) }
             val qpTier = (points / 18)
@@ -96,7 +140,10 @@ class CulinaromancerShop : LoginListener {
             return stock
         }
 
-        //Default gear shop stock
+        /*
+         * Default gear shop stock.
+         */
+
         private val gearStock = arrayOf(
             Items.GLOVES_7453,
             Items.GLOVES_7454,
@@ -120,7 +167,9 @@ class CulinaromancerShop : LoginListener {
             Items.CLEAVER_7451
         )
 
-        //Default food shop stock
+        /*
+         * Default food shop stock.
+         */
         private val foodStock = arrayOf(
             Item(Items.CHOCOLATE_BAR_1973, 1),
             Item(Items.CHEESE_1985, 1),

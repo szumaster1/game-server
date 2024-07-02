@@ -35,7 +35,7 @@ class DragonforgeListeners : InteractionListener {
     override fun defineListeners() {
 
         /*
-            Dragonkin anvil interaction.
+         * Dragonkin anvil interaction.
          */
 
         onUseWith(IntType.SCENERY, DRAGON_ANVIL, *RUINED_PIECES) { player, _, _ ->
@@ -84,7 +84,7 @@ class DragonforgeListeners : InteractionListener {
         }
 
         /*
-            Mithril doors interaction.
+         * Mithril doors interaction.
          */
 
         on(MITHRIL_DOOR, IntType.SCENERY, "open") { player, node ->
@@ -115,7 +115,7 @@ class DragonforgeListeners : InteractionListener {
         }
 
         /*
-            Dragonkin key fusing.
+         * Dragonkin key fusing.
          */
 
         onUseWith(IntType.NPC, STRANGE_KEYS, *MITHRIL_DRAGON_NPC) { player, _, with ->

@@ -1,5 +1,6 @@
 package content.region.kandarin.handlers.npc
 
+import core.api.consts.NPCs
 import core.game.node.entity.combat.BattleState
 import core.game.node.entity.combat.CombatStyle
 import core.game.node.entity.npc.AbstractNPC
@@ -9,12 +10,9 @@ import core.plugin.Initializable
 @Initializable
 class SalarinTwistedNPC : AbstractNPC {
 
-
     val SPELL_IDS = intArrayOf(1, 4, 6, 8)
 
-
     constructor() : super(-1, null)
-
 
     constructor(id: Int, location: Location) : super(id, location) {
         super.setAggressive(true)
@@ -44,7 +42,7 @@ class SalarinTwistedNPC : AbstractNPC {
     }
 
     override fun getIds(): IntArray {
-        return intArrayOf(205)
+        return intArrayOf(NPCs.SALARIN_THE_TWISTED_205)
     }
 
 }

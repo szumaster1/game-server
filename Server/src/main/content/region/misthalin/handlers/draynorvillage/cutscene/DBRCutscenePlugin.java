@@ -37,9 +37,6 @@ import core.plugin.ClassScanner;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
-/**
- * The Dbr cutscene plugin.
- */
 @Initializable
 public final class DBRCutscenePlugin extends CutscenePlugin {
     private static final Component CRACKED = new Component(385);
@@ -90,18 +87,11 @@ public final class DBRCutscenePlugin extends CutscenePlugin {
 
             NPC.create(2566, new Location(2128, 4915, 0), Direction.SOUTH)};
 
-    /**
-     * Instantiates a new Dbr cutscene plugin.
-     */
+
     public DBRCutscenePlugin() {
         super("dbr cutscene");
     }
 
-    /**
-     * Instantiates a new Dbr cutscene plugin.
-     *
-     * @param player the player
-     */
     public DBRCutscenePlugin(final Player player) {
         super("dbr cutscene");
         this.player = player;
@@ -158,102 +148,47 @@ public final class DBRCutscenePlugin extends CutscenePlugin {
         player.getDialogueInterpreter().sendDialogue("End of recording.");
     }
 
-    /**
-     * Gets cool mom.
-     *
-     * @return the cool mom
-     */
     public NPC getCoolMom() {
         return getNpc(2579);
     }
 
-    /**
-     * Gets olivia.
-     *
-     * @return the olivia
-     */
     public NPC getOlivia() {
         return getNpc(2572);
     }
 
-    /**
-     * Gets market guard.
-     *
-     * @return the market guard
-     */
     public NPC getMarketGuard() {
         return getNpc(2571);
     }
 
-    /**
-     * Gets pure pker.
-     *
-     * @return the pure pker
-     */
     public NPC getPurePker() {
         return getNpc(2575);
     }
 
-    /**
-     * Gets elfinocks.
-     *
-     * @return the elfinocks
-     */
     public NPC getElfinocks() {
         return getNpc(2578);
     }
 
-    /**
-     * Gets 1337.
-     *
-     * @return the 1337
-     */
     public NPC get1337() {
         return getNpc(2577);
     }
 
-    /**
-     * Gets quite doll.
-     *
-     * @return the quite doll
-     */
     public NPC getQuiteDoll() {
         return getNpc(2576);
     }
 
-    /**
-     * Gets wise old man.
-     *
-     * @return the wise old man
-     */
     public NPC getWiseOldMan() {
         int size = region.getPlanes()[0].getNpcs().size();
         return region.getPlanes()[0].getNpcs().get(size - 1);
     }
 
-    /**
-     * Gets first banker.
-     *
-     * @return the first banker
-     */
     public NPC getFirstBanker() {
         return getNpc(2568);
     }
 
-    /**
-     * Gets second banker.
-     *
-     * @return the second banker
-     */
     public NPC getSecondBanker() {
         return getNpc(2569);
     }
 
-    /**
-     * Gets last banker.
-     *
-     * @return the last banker
-     */
     public NPC getLastBanker() {
         return getNpc(2570);
     }
@@ -336,18 +271,14 @@ public final class DBRCutscenePlugin extends CutscenePlugin {
         return null;
     }
 
-    /**
+    /*
      * The Recording pulse.
      */
-    public final class RecordingPulse extends Pulse {
 
+    public final class RecordingPulse extends Pulse {
 
         private int counter;
 
-
-        /**
-         * Instantiates a new Recording pulse.
-         */
         public RecordingPulse() {
             super(1, player);
         }
@@ -655,33 +586,21 @@ public final class DBRCutscenePlugin extends CutscenePlugin {
             clearNpcs();
         }
 
-
-        /**
-         * Gets counter.
-         *
-         * @return the counter
-         */
         public int getCounter() {
             return counter;
         }
     }
 
-    /**
+    /*
      * The Db recording npc.
      */
     public static final class DBRecordingNPC extends AbstractNPC {
 
-
         private static final int[] IDS = new int[]{2579};
 
-
-        /**
-         * Instantiates a new Db recording npc.
-         */
         public DBRecordingNPC() {
             super(0, null, false);
         }
-
 
         private DBRecordingNPC(int id, Location location) {
             super(id, location);
@@ -712,7 +631,7 @@ public final class DBRCutscenePlugin extends CutscenePlugin {
         }
     }
 
-    /**
+    /*
      * The Blue phat item.
      */
     public static final class BluePhatItem extends ItemPlugin {
@@ -726,6 +645,11 @@ public final class DBRCutscenePlugin extends CutscenePlugin {
         @Override
         public boolean canPickUp(Player player, GroundItem item, int type) {
             if (type == 1) {
+
+                /*
+                 * Checked if this is authentic or based ego rebuild.
+                 */
+
                 player.sendMessage("Nice try ;)");
             }
             return false;

@@ -3,6 +3,7 @@ package content.region.kandarin.handlers.guilds.ranging.dialogue
 import core.api.consts.NPCs
 import core.api.getStatLevel
 import core.game.dialogue.Dialogue
+import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
@@ -12,6 +13,7 @@ import core.utilities.END_DIALOGUE
 class TowerAdvisorDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
+        npc = args[0] as NPC
         player("Hello there, what do you do here?").also { stage++ }
         return true
     }

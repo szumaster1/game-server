@@ -10,6 +10,11 @@ class CadavaPotionListener : InteractionListener {
     private val cadavaPotion = Items.CADAVA_POTION_756
 
     override fun defineListeners() {
+
+        /*
+         * Quest interaction with cadava potion.
+         */
+
         on(cadavaPotion, IntType.ITEM, "drink") { player, _ ->
             sendItemDialogue(player, cadavaPotion, "You dare not drink.")
             return@on true

@@ -5,6 +5,10 @@ import core.api.consts.Items
 
 class CrystalEquipmentRegister : StartupListener {
 
+    /*
+     * List of crystal items that are degrading.
+     */
+
     val shield: Array<Int> = arrayOf(
         Items.NEW_CRYSTAL_SHIELD_4224,
         Items.CRYSTAL_SHIELD_FULL_4225,

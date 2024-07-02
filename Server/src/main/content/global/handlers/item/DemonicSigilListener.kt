@@ -1,6 +1,7 @@
 package content.global.handlers.item
 
 import core.api.animate
+import core.api.consts.Animations
 import core.api.consts.Items
 import core.api.lock
 import core.api.sendChat
@@ -13,10 +14,15 @@ import core.game.world.update.flag.context.Animation
 class DemonicSigilListener : InteractionListener {
 
     private val demonicSigilId = Items.DEMONIC_SIGIL_6748
-    private val chantingAnimStart = Animation(2879)
-    private val chantingAnimEnd = Animation(2880)
+    private val chantingAnimStart = Animation(Animations.DEMONIC_SIGIL_I_E_SHADOW_OF_THE_STORM_2879)
+    private val chantingAnimEnd = Animation(Animations.DEMONIC_SIGIL_I_E_SHADOW_OF_THE_STORM_2880)
 
     override fun defineListeners() {
+
+        /*
+         * Demonic sigil basic interaction.
+         */
+
         on(demonicSigilId, IntType.ITEM, "chant"){ player, _ ->
             lock(player, 10)
             animate(player, chantingAnimStart)

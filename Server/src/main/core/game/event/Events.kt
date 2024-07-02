@@ -11,7 +11,7 @@ import core.game.node.entity.player.link.prayer.PrayerType
 import core.game.node.item.Item
 import core.game.world.map.Location
 import content.global.activity.jobs.JobType
-import content.global.handlers.iface.FairyRing
+import content.region.misc.handlers.zanaris.FairyRing
 import content.global.skill.combat.magic.TeleportMethod
 
 data class ResourceProducedEvent(val itemId: Int, val amount: Int, val source: Node, val original: Int = -1) : Event

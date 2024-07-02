@@ -14,6 +14,11 @@ class CrystalKeyCreateListener : InteractionListener {
     private val crystalKey = Items.CRYSTAL_KEY_989
 
     override fun defineListeners() {
+
+        /*
+         * Combine two parts of the keys to create a Crystal key.
+         */
+
         onUseWith(IntType.ITEM, loopKeyPiece, toothKeyPiece) { player, used, with ->
             if (!removeItem(player, used)) {
                 return@onUseWith false

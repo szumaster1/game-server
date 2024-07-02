@@ -21,6 +21,13 @@ class ExplorersRingListener : InteractionListener {
     }
 
     override fun defineListeners() {
+
+        /*
+         * Interactions related to the ring that we receive as
+         * a reward for completing all levels of Lumbridge diaries.
+         * Interaction allows you to recover some of the run points.
+         */
+
         on(RINGS, IntType.ITEM, "run-replenish") { player, node ->
             val charges = getStoreFile().getInt(player.username.toLowerCase() + ":run")
             if (charges >= getRingLevel(node.id)) {
@@ -40,6 +47,10 @@ class ExplorersRingListener : InteractionListener {
             visualize(player, 9988, 1733)
             return@on true
         }
+
+        /*
+         * Interaction that allows you to use a low alchemy spell by using a ring.
+         */
 
         on(RINGS, IntType.ITEM, "low-alchemy") { player, _ ->
             if (!hasLevelStat(player, Skills.MAGIC, 21)) {
@@ -63,10 +74,18 @@ class ExplorersRingListener : InteractionListener {
             return@on true
         }
 
+        /*
+         * Teleport to Port Sarim farm interaction using Explorer ring.
+         */
+
         on(RINGS, IntType.ITEM, "cabbage-port") { player, node ->
             teleport(player)
             return@on true
         }
+
+        /*
+         * Interaction needed to open the ring options.
+         */
 
         on(RINGS, IntType.ITEM, "operate", "rub") { player, node ->
             if (getRingLevel(node.id) < 3) {

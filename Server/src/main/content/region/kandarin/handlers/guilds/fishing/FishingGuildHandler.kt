@@ -3,6 +3,7 @@ package content.region.kandarin.handlers.guilds.fishing
 import core.api.consts.NPCs
 import core.api.getDynLevel
 import core.api.sendNPCDialogue
+import core.api.withinDistance
 import core.cache.def.impl.SceneryDefinition
 import core.game.global.action.DoorActionHandler
 import core.game.interaction.OptionHandler
@@ -26,14 +27,7 @@ class FishingGuildHandler : OptionHandler() {
         when (option) {
             "open" -> when (node.id) {
                 2025 -> {
-                    if (getDynLevel(player, Skills.FISHING) < 68 && player.location.withinDistance(
-                            Location(
-                                2611,
-                                3394,
-                                0
-                            )
-                        )
-                    ) {
+                    if (getDynLevel(player, Skills.FISHING) < 68 && withinDistance(player, Location(2611, 3394, 0))) {
                         sendNPCDialogue(
                             player,
                             NPCs.MASTER_FISHER_308,

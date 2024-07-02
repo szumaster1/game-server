@@ -28,7 +28,10 @@ public final class EdgevilleNodePlugin extends OptionHandler {
         SceneryDefinition.forId(30806).getHandlers().put("option:take-seed", this);
         SceneryDefinition.forId(12265).getHandlers().put("option:climb", this);
 
-        //Dungeon Wilderness gates
+        /*
+         * Dungeon Wilderness gates.
+         */
+
         SceneryDefinition.forId(29319).getHandlers().put("option:open", this);
         SceneryDefinition.forId(29320).getHandlers().put("option:open", this);
 
@@ -58,14 +61,20 @@ public final class EdgevilleNodePlugin extends OptionHandler {
                     setVarp(player, 680, 0);
                 }
                 break;
-            case 26933: // Edgeville Dungeon trapdoor (when closed)
+            /*
+             * Edgeville Dungeon trapdoor (when closed).
+             */
+            case 26933:
                 if (option.equalsIgnoreCase("open")) {
                     player.animate(Animation.create(536));
                     sendMessage(player, "The trapdoor opens...");
                     SceneryBuilder.replace(node.asScenery(), node.asScenery().transform(26934), 500);
                 }
                 break;
-            case 26934: // Edgeville Dungeon trapdoor (when open)
+            /*
+             * Edgeville Dungeon trapdoor (when open).
+             */
+            case 26934:
                 if (option.equalsIgnoreCase("close")) {
                     player.animate(Animation.create(535));
                     sendMessage(player, "You close the trapdoor.");
@@ -75,12 +84,18 @@ public final class EdgevilleNodePlugin extends OptionHandler {
                     ClimbActionHandler.climbLadder(player, (Scenery) node, option);
                 }
                 break;
+            /*
+             * Edgeville Dungeon wilderness entrance.
+             */
             case 29319:
-            case 29320: // Edgeville Dungeon wilderness entrance
+            case 29320:
                 if (option.equalsIgnoreCase("open") && player.getLocation().getY() < 9918) {
                     player.getInterfaceManager().openComponent(382);
                     setAttribute(player, "wildy_gate", node);
-                } else { // Leaving the wilderness
+                } else {
+                    /*
+                     * Leaving the wilderness.
+                     */
                     DoorActionHandler.handleAutowalkDoor(player, (Scenery) node);
                 }
         }

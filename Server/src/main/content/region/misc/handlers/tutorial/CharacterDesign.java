@@ -8,9 +8,6 @@ import core.utilities.RandomFunction;
 
 import static core.api.ContentAPIKt.*;
 
-/**
- * The Character design.
- */
 public final class CharacterDesign {
 
     private static final int[] MALE_HEAD_IDS = {0, 1, 2, 3, 4, 5, 6, 7, 8, 91, 92, 93, 94, 95, 96, 97, 261, 262, 263, 264, 265, 266, 267, 268};
@@ -55,11 +52,6 @@ public final class CharacterDesign {
 
     private static final int[] SKIN_COLORS = new int[]{7, 6, 5, 4, 3, 2, 1, 0};
 
-    /**
-     * Open.
-     *
-     * @param player the player
-     */
     public static void open(final Player player) {
         player.unlock();
         removeAttribute(player, "char-design:accepted");
@@ -82,11 +74,6 @@ public final class CharacterDesign {
         setVarp(player, 1262, player.getAppearance().isMale() ? 1 : -1);
     }
 
-    /**
-     * Reopen.
-     *
-     * @param player the player
-     */
     public static void reopen(final Player player) {
         removeAttribute(player, "char-design:accepted");
         player.getPacketDispatch().sendPlayerOnInterface(771, 79);
@@ -103,14 +90,6 @@ public final class CharacterDesign {
         setVarp(player, 1262, player.getAppearance().isMale() ? 1 : -1);
     }
 
-
-    /**
-     * Handle buttons boolean.
-     *
-     * @param player   the player
-     * @param buttonId the button id
-     * @return the boolean
-     */
     public static boolean handleButtons(Player player, int buttonId) {
         switch (buttonId) {
             case 37:
@@ -213,12 +192,6 @@ public final class CharacterDesign {
         removeAttribute(player, "first-click:1");
     }
 
-    /**
-     * Randomize.
-     *
-     * @param player the player
-     * @param head   the head
-     */
     public static void randomize(Player player, boolean head) {
         if (head) {
             changeLook(player, 0, RandomFunction.random(2) == 1);

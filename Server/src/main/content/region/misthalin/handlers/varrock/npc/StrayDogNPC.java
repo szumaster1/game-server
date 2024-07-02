@@ -15,9 +15,6 @@ import core.utilities.RandomFunction;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * The Stray dog npc.
- */
 @Initializable
 public class StrayDogNPC extends AbstractNPC {
 
@@ -29,9 +26,6 @@ public class StrayDogNPC extends AbstractNPC {
 
     private List<Player> players = new ArrayList<>(20);
 
-    /**
-     * Instantiates a new Stray dog npc.
-     */
     public StrayDogNPC() {
         super(0, null, true);
     }
@@ -81,12 +75,6 @@ public class StrayDogNPC extends AbstractNPC {
         return ID;
     }
 
-    /**
-     * Gets follow pulse.
-     *
-     * @param target the target
-     * @return the follow pulse
-     */
     public MovementPulse getFollowPulse(final Player target) {
         return new MovementPulse(this, target, DestinationFlag.FOLLOW_ENTITY) {
             @Override

@@ -21,7 +21,7 @@ class LumbridgeListeners : InteractionListener {
         }
 
         /*
-            GnomeCopter sign interaction.
+         * GnomeCopter sign interaction.
          */
 
         on(Scenery.ADVERTISEMENT_30037, IntType.SCENERY, "read") { player, _ ->
@@ -30,7 +30,7 @@ class LumbridgeListeners : InteractionListener {
         }
 
         /*
-            Cow field sign interaction.
+         * Cow field sign interaction.
          */
 
         on(Scenery.SIGNPOST_31297, IntType.SCENERY, "read") { player, _ ->
@@ -44,7 +44,7 @@ class LumbridgeListeners : InteractionListener {
         }
 
         /*
-            Church sign interaction.
+         * Church sign interaction.
          */
 
         on(Scenery.SIGNPOST_31299, IntType.SCENERY, "read") { player, _ ->
@@ -58,7 +58,7 @@ class LumbridgeListeners : InteractionListener {
         }
 
         /*
-            Warning sign interaction.
+         * Warning sign interaction.
          */
 
         on(Scenery.WARNING_SIGN_15566, IntType.SCENERY, "read"){ player, _ ->
@@ -73,7 +73,7 @@ class LumbridgeListeners : InteractionListener {
         }
 
         /*
-            Culinaromancer's chest interaction.
+         * Culinaromancer's chest interaction.
          */
 
         on(Scenery.CHEST_12309, IntType.SCENERY, "buy-items", "buy-food") { player, _ ->
@@ -87,7 +87,7 @@ class LumbridgeListeners : InteractionListener {
         }
 
         /*
-            Church organs interaction.
+         * Church organs interaction.
          */
 
         on(Scenery.ORGAN_36978, IntType.SCENERY, "play") { player, _ ->
@@ -97,7 +97,7 @@ class LumbridgeListeners : InteractionListener {
         }
 
         /*
-            Church bell interaction.
+         * Church bell interaction.
          */
 
         on(Scenery.BELL_36976, IntType.SCENERY, "ring") { player, _ ->
@@ -106,7 +106,7 @@ class LumbridgeListeners : InteractionListener {
         }
 
         /*
-            Lumbridge Castle flag interaction.
+         * Lumbridge Castle flag interaction.
          */
 
         on(Scenery.FLAG_37335, IntType.SCENERY, "raise") { player, node ->
@@ -142,7 +142,7 @@ class LumbridgeListeners : InteractionListener {
         }
 
         /*
-            Lumbridge map interaction.
+         * Lumbridge map interaction.
          */
 
         on(Scenery.LUMBRIDGE_MAP_37655, IntType.SCENERY, "view") { player, _ ->
@@ -151,7 +151,7 @@ class LumbridgeListeners : InteractionListener {
         }
 
         /*
-            Training archery target interaction.
+         * Training archery target interaction.
          */
 
         on(Scenery.ARCHERY_TARGET_37095, IntType.SCENERY, "shoot-at") { player, node ->
@@ -164,7 +164,7 @@ class LumbridgeListeners : InteractionListener {
         }
 
         /*
-            Doomsayer toggle-warning interaction.
+         * Doomsayer toggle-warning interaction.
          */
 
         on(NPCs.DOOMSAYER_3777, IntType.NPC, "toggle-warnings") { player, _ ->
@@ -182,6 +182,10 @@ class LumbridgeListeners : InteractionListener {
             replaceScenery(node.asScenery(), 10373, 300)
             return@on true
         }
+
+        /*
+         * Interaction with Dark hole (Lumbridge swamp).
+         */
 
         on(DARK_HOLE, IntType.SCENERY, "climb-down", "climb") { player, node ->
             when(getUsedOption(player)) {

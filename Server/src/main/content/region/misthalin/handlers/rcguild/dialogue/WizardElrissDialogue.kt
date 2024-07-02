@@ -223,7 +223,7 @@ class ShowElrissDialogue : DialogueFile() {
                 npc("Excellent! You've shown me enough talismans. I can", "give you an omni talisman now.").also { stage++ }
                 stage = 2
             } else {
-                RunecraftGuildUtils.checkForReward(player!!)
+                RunecraftGuildUtils.checkReward(player!!)
                 playerl("I have talisman to show you")
                 stage++
             }

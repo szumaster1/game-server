@@ -18,8 +18,8 @@ import core.utilities.END_DIALOGUE
 @Initializable
 class BlurberryDialogue(player: Player? = null) : Dialogue(player) {
 
-    var tutorialProgress = -1
-    var tutorialComplete = false
+    private var tutorialProgress = -1
+    private var tutorialComplete = false
 
     override fun open(vararg args: Any?): Boolean {
         tutorialComplete = player.getAttribute("$GC_BASE_ATTRIBUTE:$GC_TUT_FIN", false)

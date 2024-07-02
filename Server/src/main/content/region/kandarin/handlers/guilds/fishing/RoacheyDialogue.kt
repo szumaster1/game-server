@@ -23,10 +23,7 @@ class RoacheyDialogue(player: Player? = null) : Dialogue(player) {
                 2 -> end()
             }
 
-            2 -> {
-                end()
-                openNpcShop(player, NPCs.ROACHEY_592)
-            }
+            2 -> end().also { openNpcShop(player, NPCs.ROACHEY_592) }
         }
         return true
     }

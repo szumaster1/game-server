@@ -29,7 +29,6 @@ class ToysListener : InteractionListener {
             return@on true
         }
 
-
         /*
          *  Interaction with Spinning plate.
          */
@@ -155,12 +154,12 @@ class ToysListener : InteractionListener {
             intArrayOf(Graphics.JUMP_MARIONETTE_BLUE_511, Graphics.WALK_MARIONETTE_BLUE_512, Graphics.BOW_MARIONETTE_BLUE_513, Graphics.DANCE_MARIONETTE_BLUE_514),
             intArrayOf(Graphics.JUMP_MARIONETTE_GREEN_515, Graphics.WALK_MARIONETTE_GREEN_516, Graphics.BOW_MARIONETTE_GREEN_517, Graphics.DANCE_MARIONETTE_GREEN_518)
         )
-        private val SNOWGLOBE_SHAKE = Animation(7535)
-        private val SNOWGLOBE_HOLDFACE = Animation(7536)
+        private val SNOWGLOBE_SHAKE = Animation(Animations.SNOWGLOBE_SHAKE_7535)
+        private val SNOWGLOBE_HOLDFACE = Animation(Animations.SNOWGLOBE_HOLD_FACE_7536)
         private val SNOWGLOBE_INTERFACE = Components.SNOWGLOBE_INTERFACE_659
-        private val SNOWGLOBE_DOWNFAST = Animation(7537)
-        private val SNOWGLOBE_DOWNSLOW = Animation(7538)
-        private val SNOWGLOBE_STOMP = Animation(7528)
+        private val SNOWGLOBE_DOWNFAST = Animation(Animations.SNOWGLOBE_SNOW_FALL_FAST_7537)
+        private val SNOWGLOBE_DOWNSLOW = Animation(Animations.SNOWGLOBE_SNOW_FALL_SLOW_7538)
+        private val SNOWGLOBE_STOMP = Animation(Animations.SNOWGLOBE_STOMP_7528)
         private val SNOWGLOBE_SNOW = Graphic(Graphics.SNOW_FALLING_FROM_SNOW_GLOBE_1284)
         private val SPINNING_PLATE_SPIN = Animation(Animations.SPINNING_PLATE_1902)
         private val SPINNING_PLATE_PUT_DOWN = Animation(Animations.PLATE_1904)

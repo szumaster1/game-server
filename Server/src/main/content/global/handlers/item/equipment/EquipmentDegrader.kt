@@ -9,7 +9,10 @@ import core.game.node.item.Item
 
 class EquipmentDegrader {
 
-    companion object StaticDegrader { //Use a static companion object for lists and registers so they persist across instances
+    companion object StaticDegrader {
+        /*
+         * Use a static companion object for lists and registers so they persist across instances.
+         */
         val itemList = arrayListOf<Int>()
         val setList = arrayListOf<ArrayList<Int>>()
         val itemCharges = hashMapOf<Int, Int>()
@@ -26,11 +29,19 @@ class EquipmentDegrader {
 
     var p: Player? = null
 
-    fun Int.canDegrade(): Boolean { //extension function that checks if an item can degrade
+    fun Int.canDegrade(): Boolean {
+        /*
+         * Extension function that checks if an item can degrade.
+         */
         return itemList.contains(this)
     }
 
-    fun checkArmourDegrades(player: Player?) { //loops the player slots and if the item in that slot is non-null, checks if it can degrade etc
+    /*
+     * Loops the player slots and if the item in that slot is
+     * non-null, checks if it can degrade etc.
+     */
+
+    fun checkArmourDegrades(player: Player?) {
         p = player
         for (slot in 0..12) {
             if (slot == 3) {
@@ -80,7 +91,11 @@ class EquipmentDegrader {
         }
     }
 
-    private fun getDegradableSet(item: Int): ArrayList<Int>? { //gets the set of items this item belongs to
+    /*
+     * Gets the set of items this item belongs to.
+     */
+
+    private fun getDegradableSet(item: Int): ArrayList<Int>? {
         for (set in setList) {
             if (set.contains(item))
                 return set

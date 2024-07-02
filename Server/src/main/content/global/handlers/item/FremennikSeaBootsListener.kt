@@ -18,6 +18,12 @@ class FremennikSeaBootsListener : InteractionListener {
     private val enchantedLyre = intArrayOf(Items.ENCHANTED_LYRE1_3691, Items.ENCHANTED_LYRE2_6125, Items.ENCHANTED_LYRE3_6126, Items.ENCHANTED_LYRE4_6127, Items.ENCHANTED_LYRE5_14590, Items.ENCHANTED_LYRE6_14591)
 
     override fun defineListeners() {
+
+        /*
+         * All interactions for an item that we acquire
+         * after completing a given level of Fremennik diaries.
+         */
+
         on(seaBoots, IntType.ITEM, "operate") { player, _ ->
             openDialogue(player, object : DialogueFile() {
                 override fun handle(componentID: Int, buttonID: Int) {

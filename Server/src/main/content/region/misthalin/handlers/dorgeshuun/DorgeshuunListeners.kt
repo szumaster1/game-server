@@ -37,10 +37,19 @@ class DorgeshuunListeners : InteractionListener {
             }
         }
 
+        /*
+         * Talk to Ambassador (WrapperID instead of NPC)
+         */
+
         on(NPCs.AMBASSADOR_ALVIJAR_5863, IntType.NPC, "talk-to") { player, _ ->
             player.dialogueInterpreter.open(5887)
             return@on true
         }
+
+        /*
+         * Used brooch on Mistag interaction,
+         * that give in return the mining helmet.
+         */
 
         onUseWith(IntType.NPC, Items.BROOCH_5008, NPCs.MISTAG_2084) { player, used, _ ->
             val randomHelm: Int = RandomFunction.getRandomElement(arrayOf(Items.MINING_HELMET_5013, Items.MINING_HELMET_5014))
@@ -66,6 +75,10 @@ class DorgeshuunListeners : InteractionListener {
             }
             return@onUseWith true
         }
+
+        /*
+         * Gate to Dorgeshuun interaction.
+         */
 
         on(BONE_DOORS, IntType.SCENERY, "open") { player, node ->
             when (node.id) {

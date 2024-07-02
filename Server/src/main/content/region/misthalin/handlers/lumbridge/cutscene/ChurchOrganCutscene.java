@@ -17,24 +17,13 @@ import core.network.packet.context.CameraContext.CameraType;
 import core.network.packet.outgoing.CameraViewPacket;
 import core.plugin.Initializable;
 
-/**
- * The Church organ cutscene.
- */
 @Initializable
 public final class ChurchOrganCutscene extends CutscenePlugin {
 
-    /**
-     * Instantiates a new Church organ cutscene.
-     */
     public ChurchOrganCutscene() {
         super("organ cutscene");
     }
 
-    /**
-     * Instantiates a new Church organ cutscene.
-     *
-     * @param player the player
-     */
     public ChurchOrganCutscene(final Player player) {
         super("organ cutscene");
         this.player = player;

@@ -7,9 +7,6 @@ import core.game.system.task.Pulse;
 import core.game.world.GameWorld;
 import core.plugin.Initializable;
 
-/**
- * The Barcrawl dialogue.
- */
 @Initializable
 public final class BarcrawlDialogue extends Dialogue {
 
@@ -17,20 +14,10 @@ public final class BarcrawlDialogue extends Dialogue {
 
     private int npcId;
 
-
-    /**
-     * Instantiates a new Barcrawl dialogue.
-     *
-     * @param player the player
-     */
     public BarcrawlDialogue(final Player player) {
         super(player);
     }
 
-
-    /**
-     * Instantiates a new Barcrawl dialogue.
-     */
     public BarcrawlDialogue() {
 
     }

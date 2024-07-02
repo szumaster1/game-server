@@ -13,6 +13,12 @@ class MapTableInterfaceListener : InterfaceListener, InteractionListener {
 
     override fun defineInterfaceListeners() {
 
+        /*
+         * Shows where a particular altar is located, or all of
+         * them when you hold an omni item in your equipment.
+         * Requirements: Item needed and code implementation.
+         */
+
         onOpen(STUDY_INTERFACE) { player, _ ->
             if (inEquipment(player, Items.OMNI_TALISMAN_STAFF_13642) || inEquipment(player, Items.OMNI_TIARA_13655))
                 for (rune in ALTAR_MAP_MODELS) setComponentVisibility(player, STUDY_INTERFACE, rune, false).also {
@@ -24,6 +30,10 @@ class MapTableInterfaceListener : InterfaceListener, InteractionListener {
 
     override fun defineListeners() {
 
+        /*
+         * Using a talisman on the map opens an interface with
+         * a Talisman-appropriate altar.
+         */
         onUseWith(IntType.SCENERY, RunecraftGuildUtils.TALLYS, MAP_TABLE) { player, used, _ ->
             if (anyInInventory(player, *RunecraftGuildUtils.TALLYS)) {
                 openInterface(player, STUDY_INTERFACE)
@@ -31,6 +41,10 @@ class MapTableInterfaceListener : InterfaceListener, InteractionListener {
             }
             return@onUseWith true
         }
+
+        /*
+         * Shows all altars, when holding an omni item.
+         */
 
         onUseWith(IntType.SCENERY, OMNI_TALISMAN, MAP_TABLE) { player, _, _ ->
             if (!inEquipment(player, OMNI_TALISMAN) || !inEquipment(player, OMNI_TIARA)) {

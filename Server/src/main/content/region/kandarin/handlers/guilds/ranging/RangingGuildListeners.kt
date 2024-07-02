@@ -18,6 +18,7 @@ import core.game.world.update.flag.context.Animation
 class RangingGuildListeners : InteractionListener {
 
     override fun defineListeners() {
+
         on(TARGET, IntType.SCENERY, "fire-at") { player, node ->
             if (player.archeryTargets <= 0) {
                 sendNPCDialogueLines(player, NPCs.COMPETITION_JUDGE_693, FacialExpression.HALF_GUILTY, false, "Sorry, you may only use the targets for the", "competition, not for practicing.")

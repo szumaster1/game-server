@@ -1,5 +1,6 @@
 package content.region.kandarin.handlers.gutanoth;
 
+import core.api.consts.NPCs;
 import core.cache.def.impl.NPCDefinition;
 import core.game.dialogue.Dialogue;
 import core.game.dialogue.FacialExpression;
@@ -15,9 +16,6 @@ import kotlin.Unit;
 
 import static core.api.ContentAPIKt.sendItemSelect;
 
-/**
- * The Bogrog plugin.
- */
 @Initializable
 public final class BogrogPlugin extends OptionHandler {
 
@@ -49,9 +47,6 @@ public final class BogrogPlugin extends OptionHandler {
         }
     }
 
-    /**
-     * The Bogrog dialogue.
-     */
     public final class BogrogDialogue extends Dialogue {
 
         public BogrogDialogue() {
@@ -119,7 +114,7 @@ public final class BogrogPlugin extends OptionHandler {
 
         @Override
         public int[] getIds() {
-            return new int[]{4472};
+            return new int[]{NPCs.BOGROG_4472};
         }
     }
 }

@@ -1,6 +1,5 @@
 package content.global.handlers.item.withitem
 
-
 import core.api.addItemOrDrop
 import core.api.consts.Items
 import core.api.removeItem
@@ -15,6 +14,10 @@ class DesertDisguisedListener : InteractionListener {
     private val desertDisguise = Items.DESERT_DISGUISE_4611
 
     override fun defineListeners() {
+
+        /*
+         * Special interaction for creating Desert disguise.
+         */
 
         onUseWith(IntType.ITEM, headPiece, fakeBeard) { player, used, with ->
             if (removeItem(player, used.asItem()) && removeItem(player, with.asItem())) {

@@ -1,9 +1,8 @@
 package content.region.kandarin.handlers.guilds.ranging.dialogue
 
+import core.api.*
 import core.api.consts.Items
 import core.api.consts.NPCs
-import core.api.finishDiaryTask
-import core.api.hasDiaryTaskComplete
 import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.diary.DiaryType
@@ -14,7 +13,7 @@ import core.plugin.Initializable
 class CompetitionJudgeDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
-        if (player.inventory.getAmount(1464) >= 1000 && !hasDiaryTaskComplete(player, DiaryType.SEERS_VILLAGE, 1, 7)) {
+        if (player.inventory.getAmount(Items.ARCHERY_TICKET_1464) >= 1000 && !hasDiaryTaskComplete(player, DiaryType.SEERS_VILLAGE, 1, 7)) {
             npc("Wow! I see that you've got yourself a whole load of ", "archery tickets. Well done!")
             finishDiaryTask(player, DiaryType.SEERS_VILLAGE, 1, 7)
             stage = -1
@@ -29,8 +28,8 @@ class CompetitionJudgeDialogue(player: Player? = null) : Dialogue(player) {
             npc("Well done. Your score is: " + player.archeryTotal + ".", "For that score you will receive $reward Archery tickets.")
             player.archeryTargets = -1
             player.archeryTotal = 0
-            if (!player.inventory.add(Item(1464, reward))) {
-                player.bank.add(Item(1464, reward))
+            if (!player.inventory.add(Item(Items.ARCHERY_TICKET_1464, reward))) {
+                player.bank.add(Item(Items.ARCHERY_TICKET_1464, reward))
                 player.sendMessage("Your reward was sent to your bank.")
             }
             stage = 999
@@ -57,8 +56,8 @@ class CompetitionJudgeDialogue(player: Player? = null) : Dialogue(player) {
                     "Well done. Your score is: " + player.archeryTotal + ".",
                     "For that score you will receive $reward Archery tickets."
                 )
-                if (!player.inventory.add(Item(1464, reward))) {
-                    player.bank.add(Item(1464, reward))
+                if (!player.inventory.add(Item(Items.ARCHERY_TICKET_1464, reward))) {
+                    player.bank.add(Item(Items.ARCHERY_TICKET_1464, reward))
                     player.sendMessage("Your reward was sent to your bank.")
                 }
                 stage = 999
@@ -91,14 +90,14 @@ class CompetitionJudgeDialogue(player: Player? = null) : Dialogue(player) {
                 stage++
             }
 
-            3 -> if (player.inventory.getAmount(995) < 200) {
+            3 -> if (amountInInventory(player, Items.COINS_995) < 200) {
                 player("Oops, I don't have enough coins on me...")
                 stage++
             } else {
                 end()
-                player.packetDispatch.sendMessage("You pay the judge and he gives you 10 bronze arrows.")
-                player.inventory.remove(Item(995, 200))
-                player.inventory.add(Item(882, 10))
+                sendMessage(player, "You pay the judge and he gives you 10 bronze arrows.")
+                removeItem(player, Item(Items.COINS_995, 200))
+                addItem(player, Items.BRONZE_ARROW_882, 10)
                 player.archeryTargets = 10
                 player.archeryTotal = 0
             }
