@@ -1,6 +1,7 @@
 package content.global.random.event.prisonpete
 
 import core.api.*
+import core.api.consts.Animations
 import core.api.consts.Items
 import core.api.consts.NPCs
 import core.game.dialogue.DialogueFile
@@ -23,28 +24,29 @@ class PrisonPeteDialogue(val dialOpt: Int) : DialogueFile() {
         } else if (dialOpt == 2) {
             when (stage) {
                 0 -> {
-                    removeItem(player!!, Items.PRISON_KEY_6966)
-                    npc(FacialExpression.NOD_YES, "Ooh, thanks! I'll see if it's the right one...").also { stage++ }
+                    runTask(player!!, 1) {
+                        findLocalNPC(player!!, npc!!.id)?.let {
+                            face(it, player!!)
+                            animate(it, Animations.TAKE_THING_OUT_OF_POCKET_AND_GIVE_IT_4540)
+                            animate(player!!, Animations.TAKE_THING_OUT_OF_POCKET_AND_GIVE_IT_4540)
+                            removeItem(player!!, Items.PRISON_KEY_6966)
+                        }
+                    }
+                    stage++
                 }
-
-                1 -> PrisonUtils.checkKey(player!!)
+                1 -> npc(FacialExpression.NOD_YES, "Ooh, thanks! I'll see if it's the right one...").also { stage++ }
+                2 -> openDialogue(player!!, PrisonPeteDialogue(dialOpt = 3))
             }
         } else if (dialOpt == 3) {
+            end()
             if (correctKeyValue == 4) {
                 npc(FacialExpression.NEUTRAL, "You've served your sentence, so you can walk out now. Lucky you!").also {
-                    end()
                     openDialogue(player!!, PrisonPeteDialogue(dialOpt = 3))
                 }
             } else if (correctKeyValue in 1..3) {
-                end()
-                npc(
-                    FacialExpression.HAPPY,
-                    "Hooray, you got the right one! Now pull the lever again",
-                    "and let's get the next lock unlocked."
-                )
+                npc(FacialExpression.HAPPY, "Hooray, you got the right one! Now pull the lever again", "and let's get the next lock unlocked.")
                 unlock(player!!)
             } else if (getAttribute(player!!, PrisonUtils.POP_KEY_FALSE, false)) {
-                end()
                 removeAttribute(player!!, PrisonUtils.POP_KEY_FALSE)
                 setAttribute(player!!, PrisonUtils.POP_KEY, 0)
                 npc(FacialExpression.SAD, "Aww, that was the wrong key! You must have popped", "the wrong sort of animal. Try the big lever again; it'll", "tell you which animal to pop.")
@@ -69,8 +71,7 @@ class PrisonPeteDialogue(val dialOpt: Int) : DialogueFile() {
         } else if (dialOpt == 0) {
             when (stage) {
                 0 -> {
-                    setComponentVisibility(player!!, 228, 6, true)
-                    setComponentVisibility(player!!, 228, 9, false)
+                    setTitle(player!!, 2)
                     sendDialogueOptions(player!!, "What would you like to say?", "What is this place?", "How do I get out of here?").also { stage++ }
                 }
                 1 -> when (buttonID) {

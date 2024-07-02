@@ -70,6 +70,6 @@
 
     <!-- Prison Pete random - Lever object -->
     <ObjectAction mode="remove" id="10817" x="2083" y="4460" z="0"/>
-    <ObjectAction mode="add" id="26191" x="2083" y="4460" z="0" direction="n"/>
+    <ObjectAction mode="add" id="26191" x="2083" y="4460" z="0" direction="e"/>
 
 </parsing>

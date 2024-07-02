@@ -56,26 +56,6 @@ object PrisonUtils {
         }
     }
 
-    fun checkKey(player: Player) {
-        queueScript(player, 1, QueueStrength.SOFT) { stage: Int ->
-            when (stage) {
-                0 -> {
-                    findNPC(NPCs.PRISON_PETE_3118)!!.faceLocation(Location.create(2086, 4458, 0))
-                    animate(findNPC(NPCs.PRISON_PETE_3118)!!, 881)
-                    return@queueScript delayScript(player, 2)
-                }
-
-                1 -> {
-                    face(findNPC(NPCs.PRISON_PETE_3118)!!, player.location)
-                    openDialogue(player, PrisonPeteDialogue(dialOpt = 3))
-                    return@queueScript stopExecuting(player)
-                }
-
-                else -> return@queueScript stopExecuting(player)
-            }
-        }
-    }
-
     fun teleport(player: Player) {
         queueScript(player, 1, QueueStrength.SOFT) { stage: Int ->
             when (stage) {
