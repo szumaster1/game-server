@@ -4,6 +4,7 @@ import content.global.skill.combat.magic.modern.ModernListeners
 import core.ServerStore
 import core.ServerStore.Companion.getInt
 import core.api.*
+import core.api.consts.Graphics
 import core.api.consts.Items
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
@@ -23,9 +24,7 @@ class ExplorersRingListener : InteractionListener {
     override fun defineListeners() {
 
         /*
-         * Interactions related to the ring that we receive as
-         * a reward for completing all levels of Lumbridge diaries.
-         * Interaction allows you to recover some of the run points.
+         * Explorer ring interaction.
          */
 
         on(RINGS, IntType.ITEM, "run-replenish") { player, node ->
@@ -44,12 +43,12 @@ class ExplorersRingListener : InteractionListener {
             getStoreFile()[player.username.toLowerCase() + ":run"] = charges + 1
 
             sendMessage(player, "You feel refreshed as the ring revitalises you and a charge is used up.")
-            visualize(player, 9988, 1733)
+            visualize(player, 9988, Graphics.RECHARGE_RUN_1733)
             return@on true
         }
 
         /*
-         * Interaction that allows you to use a low alchemy spell by using a ring.
+         * Low alchemy spell ring interaction.
          */
 
         on(RINGS, IntType.ITEM, "low-alchemy") { player, _ ->

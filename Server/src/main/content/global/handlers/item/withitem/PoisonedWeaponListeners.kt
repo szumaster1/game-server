@@ -50,7 +50,7 @@ class PoisonedWeaponListeners : InteractionListener {
         }
 
         /*
-         * Interaction that allows remove poison from the karambwan weapon.
+         * Remove poison from the karambwan weapon interaction.
          */
 
         onUseWith(IntType.ITEM, cleaningCloth, *karamwanWeapons) { player, used, with ->
@@ -62,7 +62,7 @@ class PoisonedWeaponListeners : InteractionListener {
         }
 
         /*
-         * Interaction that allows remove poison from the poison weapon.
+         * Remove poison from the poison weapon interaction.
          */
 
         onUseWith(IntType.ITEM, cleaningCloth, *poisonedItems) { player, _, with ->

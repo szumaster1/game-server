@@ -12,7 +12,7 @@ class CadavaPotionListener : InteractionListener {
     override fun defineListeners() {
 
         /*
-         * Quest interaction with cadava potion.
+         * Cadava potion interaction.
          */
 
         on(cadavaPotion, IntType.ITEM, "drink") { player, _ ->

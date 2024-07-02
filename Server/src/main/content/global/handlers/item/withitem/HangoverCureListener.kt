@@ -20,8 +20,9 @@ class HangoverCureListener : InteractionListener {
     override fun defineListeners() {
 
         /*
-         * Interaction to create chocolate milk.
+         * Creating Chocolate milk.
          */
+
         onUseWith(IntType.ITEM, chocolateDust, milkBucket) { player, _, _ ->
             if (removeItem(player, chocolateDust) && removeItem(player, milkBucket)) {
                 sendItemDialogue(player, chocolateMilk, "You mix the chocolate into the bucket.")
@@ -31,6 +32,10 @@ class HangoverCureListener : InteractionListener {
             }
             return@onUseWith true
         }
+
+        /*
+         * Creating Hangover cure.
+         */
 
         onUseWith(IntType.ITEM, snapeGrass, chocolateMilk) { player, _, _ ->
             if (removeItem(player, snapeGrass) && removeItem(player, chocolateMilk)) {

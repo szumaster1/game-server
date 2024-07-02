@@ -15,7 +15,7 @@ class MuseumListeners : InteractionListener {
     override fun defineListeners() {
 
         /*
-         * I fucked up something here, but I won't admit it.
+         * Varrock museum interactions.
          */
 
         on(BUTTONS, IntType.SCENERY, "study") { player, node ->

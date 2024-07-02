@@ -12,7 +12,7 @@ class EdgevilleListeners : InteractionListener {
     override fun defineListeners() {
 
         /*
-         * Never saw it, but I don't give a fuck.
+         * Passing through goblin jail to player safety underground.
          */
 
         on(Scenery.POSTER_29586, IntType.SCENERY, "pull-back") { player, _ ->

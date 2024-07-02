@@ -20,8 +20,7 @@ class FremennikSeaBootsListener : InteractionListener {
     override fun defineListeners() {
 
         /*
-         * All interactions for an item that we acquire
-         * after completing a given level of Fremennik diaries.
+         * Fremennik sea boots option interactions.
          */
 
         on(seaBoots, IntType.ITEM, "operate") { player, _ ->

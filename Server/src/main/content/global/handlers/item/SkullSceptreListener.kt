@@ -19,6 +19,7 @@ class SkullSceptreListener : InteractionListener {
         /*
          * Skull sceptre options interaction.
          */
+
         on(SKULL_SCEPTRE, IntType.ITEM, "invoke", "divine", "operate") { player, node ->
             when (getUsedOption(player)) {
                 "invoke" -> {
@@ -56,6 +57,10 @@ class SkullSceptreListener : InteractionListener {
             return@on true
         }
     }
+
+    /*
+     * Sceptre teleport.
+     */
 
     private fun sceptreTeleport(player: Player) {
         lock(player, 3)

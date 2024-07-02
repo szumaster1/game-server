@@ -13,7 +13,7 @@ class BirdNestScriptListener : InteractionListener {
     override fun defineListeners() {
 
         /*
-         * Bird nest opening interaction.
+         * Bird nest open interaction.
          */
 
         on(nestIds, IntType.ITEM, "search", handler = ::handleNest)

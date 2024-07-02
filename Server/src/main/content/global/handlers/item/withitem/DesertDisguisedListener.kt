@@ -16,7 +16,7 @@ class DesertDisguisedListener : InteractionListener {
     override fun defineListeners() {
 
         /*
-         * Special interaction for creating Desert disguise.
+         * Creating Desert disguise (The Feud quest).
          */
 
         onUseWith(IntType.ITEM, headPiece, fakeBeard) { player, used, with ->

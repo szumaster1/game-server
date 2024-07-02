@@ -26,8 +26,7 @@ object RunecraftGuildUtils {
     val TALLYS = Talisman.values().map { it.talisman.id }.toIntArray()
 
     /*
-     * Checking if we can get omni talisman as part of
-     * showing Elriss all the other talismans.
+     * Check for omni talisman reward.
      */
 
     fun checkReward(player: Player) {

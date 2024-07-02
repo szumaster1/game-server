@@ -1,6 +1,7 @@
 package content.region.kandarin.handlers.gutanoth
 
 import core.api.*
+import core.api.consts.Animations
 import core.api.consts.Items
 import core.api.consts.NPCs
 import core.game.interaction.IntType
@@ -35,7 +36,7 @@ class GutanothChestInteractionHandler : InteractionListener {
             when (ticks++) {
                 0 -> {
                     lock(player, 3)
-                    animate(player, 536)
+                    animate(player, Animations.OPEN_CHEST_536)
                     SceneryBuilder.replace(chest, Scenery(2828, chest.location, chest.rotation), 5)
                 }
 

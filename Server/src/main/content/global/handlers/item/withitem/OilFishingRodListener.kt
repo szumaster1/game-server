@@ -20,8 +20,7 @@ class OilFishingRodListener : InteractionListener {
     override fun defineListeners() {
 
         /*
-         * Oily fishing rod interaction:
-         * Fishing equipment made by using blamish oil on a fishing rod.
+         * Creating Oily fishing rod interaction.
          */
 
         onUseWith(IntType.ITEM, blamishOil, fishingRod) { player, used, with ->

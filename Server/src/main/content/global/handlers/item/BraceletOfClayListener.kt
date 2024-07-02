@@ -14,8 +14,7 @@ class BraceletOfClayListener : InteractionListener {
     override fun defineListeners() {
 
         /*
-         * Interaction allowing to obtain information about the
-         * remaining amount of use the Bracelet of clay.
+         * Clay bracelet interaction.
          */
 
         on(clayBracelet, IntType.ITEM, "operate") { player, node ->

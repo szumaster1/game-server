@@ -15,7 +15,7 @@ class CapAndGogglesListener : InteractionListener {
     override fun defineListeners() {
 
         /*
-         * Interaction disassemble cap and goggles into two parts.
+         * Disassemble cap and goggles interaction.
          */
 
         on(capAndGoggles, IntType.ITEM, "split") { player, node ->

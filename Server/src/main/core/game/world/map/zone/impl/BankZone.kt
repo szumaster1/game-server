@@ -4,9 +4,6 @@ import core.game.world.map.zone.MapZone
 import core.game.world.map.zone.ZoneBorders
 import core.game.world.map.zone.ZoneRestriction
 
-/**
- * @author Tough guy Henry.
- */
 class BankZone : MapZone("bank", true) {
     override fun configure() {
         register(BANK_ZONE_0)

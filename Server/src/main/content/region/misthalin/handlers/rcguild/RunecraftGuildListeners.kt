@@ -21,7 +21,7 @@ class RunecraftGuildListeners : InteractionListener {
     override fun defineListeners() {
 
         /*
-         * Interaction remove and apply goggles to the Runecraft hat.
+         * Remove and apply goggles to the Runecraft hat.
          */
 
         on(RC_HAT, IntType.ITEM, "Goggles") { player, node ->
@@ -49,7 +49,7 @@ class RunecraftGuildListeners : InteractionListener {
         on(RC_PORTAL, IntType.SCENERY, "Enter") { player, _ ->
 
             /*
-             * Wizards' Tower -> Runecrafting Guild Portal.
+             * Wizards' Tower to Runecrafting Guild Portal.
              */
 
             if (getStatLevel(player, Skills.RUNECRAFTING) >= 50 && isQuestComplete(player, "Rune Mysteries")) {

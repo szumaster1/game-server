@@ -38,7 +38,7 @@ class FruitCuttingListener : InteractionListener {
     override fun defineListeners() {
 
         /*
-         * Interaction allowing to cut the fruits.
+         * Fruit slice interaction.
          */
 
         onUseWith(IntType.ITEM, Fruits.cutable, Items.KNIFE_946) { player, used, _ ->

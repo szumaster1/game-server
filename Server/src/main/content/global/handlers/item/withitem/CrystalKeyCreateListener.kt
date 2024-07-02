@@ -16,7 +16,7 @@ class CrystalKeyCreateListener : InteractionListener {
     override fun defineListeners() {
 
         /*
-         * Combine two parts of the keys to create a Crystal key.
+         * Combining Crystal key interaction.
          */
 
         onUseWith(IntType.ITEM, loopKeyPiece, toothKeyPiece) { player, used, with ->

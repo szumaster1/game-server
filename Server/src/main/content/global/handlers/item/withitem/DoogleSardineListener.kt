@@ -16,7 +16,7 @@ class DoogleSardineListener : InteractionListener {
     override fun defineListeners() {
 
         /*
-         * Quest interaction related to Gertrude quest to create doogle sardines.
+         * Creating doodle sardine interaction.
          */
 
         onUseWith(IntType.ITEM, rawSardine, doogleLeaves) { player, used, with ->

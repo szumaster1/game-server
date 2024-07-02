@@ -6,12 +6,12 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.utilities.Log
 import core.api.consts.Components
+import core.api.consts.Items
 
 class RunecraftShopInterfaceListener : InterfaceListener {
 
     /*
-     * Low quality implementation of Runecrafting shop.
-     * Due to the lack of minigames, tokens are purchased for coins.
+     * Runecrafting shop (tokens are purchased for coins).
      */
 
     class ShopItem(val id: Int, val price: Int, val amount: Int)
@@ -77,7 +77,7 @@ class RunecraftShopInterfaceListener : InterfaceListener {
     }
 
     private fun handleBuyOption(item: ShopItem, amount: Int, player: Player) {
-        val neededTokens = Item(13650, item.price * amount)
+        val neededTokens = Item(Items.RUNECRAFTING_GUILD_TOKEN_13650, item.price * amount)
         if (player.inventory.containsItem(neededTokens)) {
             if (player.inventory.hasSpaceFor(Item(item.id, amount))) {
                 player.inventory.remove(neededTokens)
