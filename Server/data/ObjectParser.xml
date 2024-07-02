@@ -68,4 +68,8 @@
     <!-- Enchanted Valley - Rocks for Rock golem spawn. -->
     <ObjectAction mode="add" id="31060" x="3025" y="4491" z="0"/>
 
+    <!-- Prison Pete random - Lever object -->
+    <ObjectAction mode="remove" id="10817" x="2083" y="4460" z="0"/>
+    <ObjectAction mode="add" id="26191" x="2083" y="4460" z="0" direction="n"/>
+
 </parsing>

@@ -26,7 +26,7 @@ class PrisonPeteListeners : InteractionListener, MapArea {
             return@on true
         }
 
-        on(Scenery.LEVER_10817, IntType.SCENERY, "pull") { player, _ ->
+        on(Scenery.LEVER_26191, IntType.SCENERY, "pull") { player, _ ->
             animate(player, 798)
             openDialogue(player, object : DialogueFile() {
                 override fun handle(componentID: Int, buttonID: Int) {
