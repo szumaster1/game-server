@@ -80,9 +80,9 @@ class ArheinDialogue(player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
             1 -> showTopics(
-                Topic("Let's Trade.", 7),
-                Topic("Can I buy some seaweed?", 800),
-                Topic("Can I buy some pineapples?", 900),
+                Topic("Yes.", 7),
+                Topic("I hear you sell seaweed...", 800),
+                Topic("Someone told me you sell pineapples...", 900),
                 Topic("No thank you.", END_DIALOGUE),
                 Topic("Is that your ship?", 100)
             )
