@@ -3,18 +3,18 @@ package content.region.misthalin.quest.member.animalmagnetism.dialogue
 import content.region.misthalin.quest.member.animalmagnetism.AnimalMagnetism
 import core.api.consts.Items
 import core.api.consts.NPCs
+import core.api.getStatLevel
 import core.api.setVarp
 import core.game.container.Container
 import core.game.dialogue.Dialogue
+import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.world.GameWorld.settings
-import core.network.packet.PacketRepository
-import core.network.packet.context.ChildPositionContext
-import core.network.packet.outgoing.RepositionChild
+import core.tools.END_DIALOGUE
 
 class AvaDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -741,8 +741,9 @@ class AvaDialogue(player: Player? = null) : Dialogue(player) {
             100 -> when (stage) {
                 0 -> {
                     options(
-                        "Devices, please.",
                         "I'd like information, please.",
+                        "I seem to need a new device.",
+                        "I'd like to upgrade my device, please.",
                         "I'd like to see your stuff for sale, please.",
                         "I'll just head off, I think."
                     )
@@ -751,65 +752,51 @@ class AvaDialogue(player: Player? = null) : Dialogue(player) {
 
                 1 -> when (buttonId) {
                     1 -> {
-                        player("Devices, please.")
-                        stage = 10
-                    }
-
-                    2 -> {
                         player("I'd like information, please.")
                         stage = 20
                     }
 
+                    2 -> {
+                        player("I seem to need a new device.")
+                        stage = 10
+                    }
+
                     3 -> {
+                        player("I'd like to upgrade my device, please.")
+                        stage = 17
+                    }
+
+                    4 -> {
                         player("I'd like to see your stuff for sale, please.")
                         stage = 30
                     }
 
-                    4 -> {
+                    5 -> {
                         player("I'll just head off, I think.")
                         stage = 40
                     }
                 }
 
-                10 -> {
-                    val first = "Basic: 999 coins"
-                    var second = "Upgraded: 999 coins<br> + 75 steel arrows"
-                    if (!canBuyUpgrade(player)) {
-                        second = "<col=FF0000> Upgraded: Level 50 Ranged"
-                    }
-                    PacketRepository.send(RepositionChild::class.java, ChildPositionContext(player, 140, 3, 243, 30))
-                    player.packetDispatch.sendItemZoomOnInterface(10498, 170, 140, 5)
-                    player.packetDispatch.sendItemZoomOnInterface(10499, 170, 140, 6)
-                    player.packetDispatch.sendString("Which device would you like?", 140, 4)
-                    player.packetDispatch.sendString(first, 140, 2)
-                    player.packetDispatch.sendString(second, 140, 3)
-                    player.interfaceManager.openChatbox(140)
-                    stage++
+                10 -> player("I need another arrow-attracting device, please").also { stage++ }
+                11 -> npc("Well, luckily for you, they have a habit of returning to","me when people lose them, So I have some spares. They","are homing chickens, it seems.").also { stage++ }
+                12 -> npc("I'l: need 999gp, however, for the expenses involved in","restoring the peor creature to health, or unhealth, or","whatever.").also { stage++ }
+                13 -> player(FacialExpression.HALF_ASKING, "Why 999?").also { stage++ }
+                14 -> npc("Well, it just sounds less expensive than 1000. Do you","want that replacement or not?").also { stage++ }
+                15 -> options("Sounds good to me.", "I'd prefer not to, actually.").also { stage++ }
+                16 -> when(buttonId){
+                    1 -> player(FacialExpression.HAPPY, "Sounds good to me.").also { buy(upgrade = false) }
+                    2 -> player("I'd prefer not to, actually.").also { stage = END_DIALOGUE }
                 }
-
-                11 -> when (buttonId) {
-                    1 -> {
-                        end()
-                        buy(buttonId == 2)
-                    }
-
-                    2 -> if (!canBuyUpgrade(player)) {
-                        if (player.getSkills().getStaticLevel(Skills.RANGE) < 50) {
-                            npc(
-                                "I'm afraid you aren't yet skilled enough for the",
-                                "upgraded version. You need a Range level of 50 or",
-                                "greater."
-                            )
-                        } else {
-                            npc("You need to have an avas attractor in order", "to upgrade it.")
-                        }
-                        stage++
-                    } else {
-                        buy(true)
-                    }
+                17 -> if (getStatLevel(player, Skills.RANGE) < 50) {
+                    npc("I'm afraid you aren't yet skilled enough for the", "upgraded version. You need a Range level of 50 or", "greater.").also { stage = END_DIALOGUE }
+                } else {
+                    npc(FacialExpression.HAPPY, "You are ready to upgrade. I'll take 75 steel arrows and","the old device, if that's all fine with you?").also { stage++ }
                 }
-
-                12 -> end()
+                18 -> options("Sounds good to me.", "I'd prefer not to, actually.").also { stage++ }
+                19 -> when(buttonId){
+                    1 -> player(FacialExpression.HAPPY, "Sounds good to me.").also { buy(upgrade = true) }
+                    2 -> player("I'd prefer not to, actually.").also { stage = END_DIALOGUE }
+                }
                 20 -> {
                     npc("Just a few bits of information before you run away to", "persecute rock crabs or cows.")
                     stage++
@@ -945,7 +932,7 @@ class AvaDialogue(player: Player? = null) : Dialogue(player) {
         }
         removeAll(player, item, if (upgrade) AnimalMagnetism.AVAS_ATTRACTOR else AnimalMagnetism.AVAS_ACCUMULATOR)
         player.inventory.remove(coins)
-        npc("Here's your device; take good care of your chicken.")
+        npc(FacialExpression.HAPPY, if (upgrade) "Here's your upgraded device; take good care of it." else "Here's your device; take good care of your chicken.")
         stage++
     }
 
