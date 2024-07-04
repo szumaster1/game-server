@@ -1,6 +1,7 @@
 package content.region.misthalin.quest.member.asoulbane
 
 import core.api.*
+import core.api.consts.Animations
 import core.api.utils.PlayerCamera
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
@@ -9,6 +10,8 @@ import core.game.system.task.Pulse
 import core.game.world.map.Location
 import core.api.consts.Items
 import core.api.consts.Scenery
+import core.game.global.action.ClimbActionHandler
+import core.game.world.update.flag.context.Animation
 
 class TolnaRiftListener : InteractionListener {
 
@@ -58,11 +61,7 @@ class TolnaRiftListener : InteractionListener {
         }
 
         on(Scenery.ROPE_13999, IntType.SCENERY, "climb-up") { player, _ ->
-            animate(player, 828)
-            runTask(player, 1) {
-                teleport(player, Location(3309, 3452, 0))
-                face(player, Location(3312, 3452, 0))
-            }
+            ClimbActionHandler.climb(player, Animation(Animations.USE_LADDER_828), Location(3309, 3452, 0))
             return@on true
         }
     }

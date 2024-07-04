@@ -144,7 +144,7 @@ class AnimalMagnetismPlugin : OptionHandler() {
         override fun newInstance(arg: Any?): Plugin<Any> {
             definePlugin(object : OptionHandler() {
 
-                override fun newInstance(arg: Any): Plugin<Any> {
+                override fun newInstance(arg: Any?): Plugin<Any> {
                     NPCDefinition.forId(NPCs.UNDEAD_TREE_5208).handlers["option:chop"] = this
                     return this
                 }

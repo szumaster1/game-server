@@ -10,8 +10,9 @@ import core.game.node.entity.player.Player
 import core.game.world.map.Direction
 
 class AnmaCutscene(player: Player) : Cutscene(player) {
+
     override fun setup() {
-        setExit(player.location.transform(0, 0, 0)) //create copy of player's location
+        setExit(player.location.transform(0, 0, 0))
         loadRegion(14391)
         addNPC(FARMER, 36, 9, Direction.EAST, 0)
         addNPC(CHICKEN, 44, 10, Direction.WEST, 0)
