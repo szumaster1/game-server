@@ -659,6 +659,45 @@ public class TeleportManager {
 			}
 		},
         /**
+         * The Random event.
+         */
+        RANDOM_EVENT_OLD(new TeleportSettings(714,-1,-1, -1)) {
+            @Override
+            public Pulse getPulse(final Entity entity, final Location location) {
+                return new TeleportPulse(entity) {
+                    int delay = 0;
+                    Player player;
+                    @Override
+                    public boolean pulse() {
+                        if (delay == 0) {
+                            entity.getAnimator().forceAnimation(new Animation(getSettings().getStartEmote()));
+                            entity.graphics(new Graphic(308, 100, 50));
+                        } else if (delay == 4) {
+                            entity.getProperties().setTeleportLocation(Location.create(location));
+                            entity.getAnimator().forceAnimation(new Animation(-1));
+                            entity.unlock();
+                            return true;
+                        }
+                        delay++;
+                        return false;
+                    }
+
+                    @Override
+                    public void start() {
+
+                        super.start();
+                    }
+
+                    @Override
+                    public void stop() {
+                        super.stop();
+                        entity.getAnimator().forceAnimation(new Animation(-1));
+                        entity.graphics(new Graphic(-1));
+                    }
+                };
+            }
+        },
+        /**
          * The Minigame.
          */
         MINIGAME(new TeleportSettings(6601, 1118, -1, -1)) {

@@ -18,8 +18,8 @@ class SurpriseExamInterface : InterfaceListener {
         on(COMPONENT) { player, _, _, buttonID, _, _ ->
             val index = buttonID - 10
             val correctIndex = getAttribute(player, SurpriseExamUtils.SE_KEY_INDEX, 0)
+            sendMessage(player, "Pick the object that should come next in the pattern.")
             closeInterface(player)
-
             if (index == correctIndex) {
                 player.incrementAttribute(SurpriseExamUtils.SE_KEY_CORRECT)
                 val done = getAttribute(player, SurpriseExamUtils.SE_KEY_CORRECT, 0) == 3
@@ -40,7 +40,6 @@ class SurpriseExamInterface : InterfaceListener {
 
         onOpen(COMPONENT) { player, _ ->
             SurpriseExamUtils.generateInterface(player)
-            sendMessage(player, "Pick the object that should come next in the pattern.")
             return@onOpen true
         }
 

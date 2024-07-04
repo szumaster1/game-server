@@ -30,7 +30,7 @@ class MrMordautDialogue(
             }
             when(stage++) {
                 0 -> npc("WELL DONE!","You've proven your aptitude for pattern recognition.","You'll receive a prize when you leave the classroom.")
-                1 -> npc("To exit, use the $doortext door in the north of the school room.").also { stage = END_DIALOGUE }
+                1 -> npcl("To exit, use the $doortext door in the north of the school room.").also { stage = END_DIALOGUE }
             }
         } else if (fromInterface) {
 
@@ -38,9 +38,14 @@ class MrMordautDialogue(
                 if (getAttribute(player!!, SurpriseExamUtils.SE_KEY_CORRECT, 0) == 3) {
                     openDialogue(player!!, MrMordautDialogue(true), npc!!)
                 } else {
-                    when (stage++) {
-                        0 -> npc("Finally, a pupil using his brains rather than trying to","eat them. Next question.")
-                        1 -> npc("Now for another...")
+                    when (stage) {
+                        0 -> {
+                            if (getAttribute(player!!, SurpriseExamUtils.SE_KEY_CORRECT, 0) == 1) {
+                                npc("Finally, a pupil using his brains rather than trying to", "eat them. Next question.")
+                                stage++
+                            } else stage = 1
+                        }
+                        1 -> npc("Now for another...").also { stage++ }
                         // Examine the hint on the right and find three objects that are related to it.
                         2 -> {
                             end()

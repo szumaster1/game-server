@@ -28,7 +28,7 @@ class SurpriseExamNPC(var type: String = "", override var loot: WeightBasedTable
                     sendMessageWithDelay(player, "Answer three out of six questions correctly to be teleported back where you", 3)
                     sendMessageWithDelay(player,"came from.", 3)
                     AntiMacro.terminateEventNpc(player)
-                    return@queueScript keepRunning(player)
+                    return@queueScript delayScript(player, getAnimation(8939).duration + getAnimation(8941).duration)
                 }
 
                 1 -> {
