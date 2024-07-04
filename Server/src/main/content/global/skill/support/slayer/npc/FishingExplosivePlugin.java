@@ -1,5 +1,6 @@
 package content.global.skill.support.slayer.npc;
 
+import core.api.consts.NPCs;
 import core.cache.def.impl.SceneryDefinition;
 import core.game.interaction.NodeUsageEvent;
 import core.game.interaction.OptionHandler;
@@ -106,6 +107,7 @@ public final class FishingExplosivePlugin extends OptionHandler {
             player.animate(ANIMATION);
             player.getPacketDispatch().sendMessage("You hurl the shuddering vial into the water...");
             sendProjectile(player, (Scenery) event.getUsedWith());
+            setAttribute(player, "hasMogre", true);
             GameWorld.getPulser().submit(new Pulse(delay, player) {
                 @Override
                 public boolean pulse() {
@@ -121,7 +123,6 @@ public final class FishingExplosivePlugin extends OptionHandler {
                     if (event.getUsedItem().getId() == 12633) {
                         mogre.getImpactHandler().manualHit(player, 15, HitsplatType.NORMAL);
                     }
-                    setAttribute(player, "hasMogre", true);
                     mogre.graphics(SPLASH_GRAPHIC);
                     player.getPacketDispatch().sendMessage("...and a Mogre appears!");
                     return true;
@@ -143,26 +144,12 @@ public final class FishingExplosivePlugin extends OptionHandler {
         }
     }
 
-    /**
-     * The Mogre npc.
-     */
     public final class MogreNPC extends AbstractNPC {
 
-
-        /**
-         * Instantiates a new Mogre npc.
-         *
-         * @param id       the id
-         * @param location the location
-         */
         public MogreNPC(int id, Location location) {
             super(id, location, true);
         }
 
-
-        /**
-         * Instantiates a new Mogre npc.
-         */
         public MogreNPC() {
             super(0, null);
         }
@@ -192,7 +179,7 @@ public final class FishingExplosivePlugin extends OptionHandler {
                 sendMessage(pl, "Mogre is Slayer monster that require a Slayer level of 32 to kill.");
                 return false;
             }
-            return pl != null && pl == entity && super.isAttackable(entity, style, message);
+            return pl == entity && super.isAttackable(entity, style, message);
         }
 
         @Override
@@ -207,7 +194,7 @@ public final class FishingExplosivePlugin extends OptionHandler {
 
         @Override
         public int[] getIds() {
-            return new int[]{114};
+            return new int[]{NPCs.MOGRE_114};
         }
 
     }
