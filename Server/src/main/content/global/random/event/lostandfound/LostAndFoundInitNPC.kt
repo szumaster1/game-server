@@ -41,8 +41,10 @@ class LostAndFoundInitNPC(override var loot: WeightBasedTable? = null) : RandomE
                 }
 
                 1 -> {
-                    sendPlainDialogue(player, false, "There has been a fault in the teleportation matrix. Please operate the", "odd appendage out to be forwarded to your destination.")
-                    sendUnclosableDialogue(player, true, "You have to operate the appendage before you can teleport again.")
+                    sendUnclosableDialogue(player, false, "There has been a fault in the teleportation matrix. Please operate the", "odd appendage out to be forwarded to your destination.")
+                    /*
+                     * sendMessage(player, "You have to operate the appendage before you can teleport again.")
+                     */
                     player.locks.lockTeleport(1000)
                     AntiMacro.terminateEventNpc(player)
                     return@queueScript stopExecuting(player)
