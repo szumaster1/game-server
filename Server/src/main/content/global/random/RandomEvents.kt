@@ -9,6 +9,7 @@ import content.global.random.event.eviltwin.EvilTwinNPC
 import content.global.random.event.freakyforest.FreakyForesterNPC
 import content.global.random.event.genie.GenieNPC
 import content.global.random.event.kissthefrog.FrogHeraldNPC
+import content.global.random.event.lostandfound.LostAndFoundInitNPC
 import content.global.random.event.mime.MimeNPC
 import content.global.random.event.pinball.PinballNPC
 import content.global.random.event.rickturpentine.RickTurpentineNPC
@@ -39,6 +40,7 @@ enum class RandomEvents(
     DRILL_DEMON(npc = SergeantDamienNPC()),
     EVIL_CHICKEN(npc = EvilChickenNPC()),
     KISS_THE_FROG(npc = FrogHeraldNPC()),
+    LOST_AND_FOUND(npc = LostAndFoundInitNPC(), skillIds = intArrayOf(Skills.MAGIC)),
     EVIL_BOB(npc = EvilBobNPC(), skillIds = intArrayOf(Skills.FISHING, Skills.MAGIC)),
     EVIL_TWIN(npc = EvilTwinNPC()),
     SURPRISE_EXAM(npc = SurpriseExamNPC(), type = "sexam"),
