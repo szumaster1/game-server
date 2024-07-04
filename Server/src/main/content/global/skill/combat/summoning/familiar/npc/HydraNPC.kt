@@ -10,7 +10,7 @@ import core.game.node.scenery.Scenery
 import core.plugin.Initializable
 
 @Initializable
-class HydraNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.HYDRA_6811) :
+class HydraNPC(owner: Player? = null, id: Int = NPCs.HYDRA_6811) :
     Familiar(owner, id, 4900, 12025, 6, WeaponInterface.STYLE_RANGE_ACCURATE) {
 
     override fun construct(owner: Player, id: Int): Familiar {

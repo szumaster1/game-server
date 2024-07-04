@@ -10,9 +10,6 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 
-/**
- * The Spirit mosquito npc.
- */
 @Initializable
 class SpiritMosquitoNPC(owner: Player? = null, id: Int = NPCs.SPIRIT_MOSQUITO_7331) : Familiar(owner, id, 1200, 12778, 3, WeaponInterface.STYLE_ACCURATE) {
 

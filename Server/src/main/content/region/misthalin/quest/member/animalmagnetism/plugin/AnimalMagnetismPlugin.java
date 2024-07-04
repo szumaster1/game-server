@@ -35,8 +35,7 @@ import core.tools.RandomFunction;
 import java.util.HashMap;
 import java.util.Map;
 
-import static core.api.ContentAPIKt.hasRequirement;
-import static core.api.ContentAPIKt.playAudio;
+import static core.api.ContentAPIKt.*;
 
 /**
  * Handles the animal magnetism plugin.
@@ -297,6 +296,7 @@ public final class AnimalMagnetismPlugin extends OptionHandler {
             player.getPacketDispatch().sendInterfaceConfig(480, (int) data[2], toggled);
             if (quest.getStage(player) == 33) {
                 setNoteCache(player, (int) data[0], !toggled);
+                sendMessage(player, "You fiddle with the notes.");
                 if (isTranslated(player)) {
                     if (player.getInventory().remove(AnimalMagnetism.RESEARCH_NOTES)) {
                         player.setAttribute("note-disabled", true);

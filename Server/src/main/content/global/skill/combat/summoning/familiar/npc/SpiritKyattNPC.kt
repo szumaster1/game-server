@@ -10,7 +10,7 @@ import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 
 @Initializable
-class SpiritKyattNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.SPIRIT_KYATT_7366) : Familiar(owner, id, 4900, 12812, 3, WeaponInterface.STYLE_ACCURATE) {
+class SpiritKyattNPC(owner: Player? = null, id: Int = NPCs.SPIRIT_KYATT_7366) : Familiar(owner, id, 4900, 12812, 3, WeaponInterface.STYLE_ACCURATE) {
 
     init {
         boosts.add(SkillBonus(Skills.HUNTER, 5.0))

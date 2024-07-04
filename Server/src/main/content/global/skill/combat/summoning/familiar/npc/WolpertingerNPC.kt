@@ -13,7 +13,7 @@ import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 
 @Initializable
-class WolpertingerNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.WOLPERTINGER_6869) : Familiar(owner, id, 6200, 12089, 1, WeaponInterface.STYLE_CAST) {
+class WolpertingerNPC(owner: Player? = null, id: Int = NPCs.WOLPERTINGER_6869) : Familiar(owner, id, 6200, 12089, 1, WeaponInterface.STYLE_CAST) {
 
     init {
         boosts.add(SkillBonus(Skills.HUNTER, 5.0))

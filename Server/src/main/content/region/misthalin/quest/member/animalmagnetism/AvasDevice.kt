@@ -12,6 +12,7 @@ import core.tools.colorize
 import core.tools.secondsToTicks
 
 class AvasDevice : InteractionListener, EventHook<TickEvent> {
+
     override fun defineListeners() {
         onEquip(devices) { player, _ ->
             if (!isQuestComplete(player, "Animal Magnetism")) {
@@ -21,8 +22,11 @@ class AvasDevice : InteractionListener, EventHook<TickEvent> {
 
             if (attractEnabled(player))
                 player.hook(Event.Tick, this)
-
-            setAttribute(player, LAST_TICK, getWorldTicks()) //set this on equip so can't be spam-re-equipped to spawn infinite items.
+            /*
+             * Set this on equip so can't be spam-re-equipped to
+             * spawn infinite items.
+             */
+            setAttribute(player, LAST_TICK, getWorldTicks())
             return@onEquip true
         }
         onUnequip(devices) { player, _ ->

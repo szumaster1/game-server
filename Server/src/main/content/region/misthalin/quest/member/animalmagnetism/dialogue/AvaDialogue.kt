@@ -1,6 +1,7 @@
 package content.region.misthalin.quest.member.animalmagnetism.dialogue
 
 import content.region.misthalin.quest.member.animalmagnetism.AnimalMagnetism
+import core.api.consts.Items
 import core.api.consts.NPCs
 import core.api.setVarp
 import core.game.container.Container
@@ -18,6 +19,10 @@ import core.network.packet.outgoing.RepositionChild
 class AvaDialogue(player: Player? = null) : Dialogue(player) {
 
     private var quest: Quest? = null
+
+    override fun newInstance(player: Player): Dialogue {
+        return AvaDialogue(player)
+    }
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
@@ -77,7 +82,6 @@ class AvaDialogue(player: Player? = null) : Dialogue(player) {
                 if (player.inventory.containsItem(AnimalMagnetism.TRANSLATED_NOTES)) {
                     player("I've translated the notes. See? I'm not just a thuggish", "moron like you seem to think.")
                     stage = 10
-
                 }
                 if (player.hasItem(AnimalMagnetism.RESEARCH_NOTES)) {
                     player("I have the notes but haven't translated them yet. Any", "hints?")
@@ -221,12 +225,12 @@ class AvaDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             20 -> when (stage) {
-                0 -> stage = if (player.inventory.containsItem(UNDEAD_CHICKENS)) {
+                0 -> if (player.inventory.containsItem(UNDEAD_CHICKENS)) {
                     player("Here they are.")
-                    2
+                    stage = 2
                 } else {
                     player("I'm still looking for undead chickens...")
-                    1
+                    stage = 1
                 }
 
                 1 -> end()
@@ -910,16 +914,11 @@ class AvaDialogue(player: Player? = null) : Dialogue(player) {
         return true
     }
 
-    /**
-     * Can buy upgrade boolean.
-     *
-     * @param player the player
-     * @return the boolean
-     */
     fun canBuyUpgrade(player: Player): Boolean {
-        return if (player.hasItem(AnimalMagnetism.AVAS_ACCUMULATOR)) {
-            true
-        } else player.getSkills().getStaticLevel(Skills.RANGE) >= 50
+        if (player.hasItem(AnimalMagnetism.AVAS_ACCUMULATOR)) {
+            return true
+        }
+        return player.getSkills().getStaticLevel(Skills.RANGE) >= 50
     }
 
     private fun buy(upgrade: Boolean) {
@@ -973,6 +972,6 @@ class AvaDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     companion object {
-        private val UNDEAD_CHICKENS = Item(10487, 2)
+        private val UNDEAD_CHICKENS = Item(Items.UNDEAD_CHICKEN_10487, 2)
     }
 }

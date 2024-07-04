@@ -11,7 +11,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 
 @Initializable
-class SpiritCobraNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.SPIRIT_COBRA_6802) : Familiar(owner, id, 5600, 12015, 3, WeaponInterface.STYLE_ACCURATE) {
+class SpiritCobraNPC(owner: Player? = null, id: Int = NPCs.SPIRIT_COBRA_6802) : Familiar(owner, id, 5600, 12015, 3, WeaponInterface.STYLE_ACCURATE) {
 
     override fun construct(owner: Player, id: Int): Familiar {
         return SpiritCobraNPC(owner, id)

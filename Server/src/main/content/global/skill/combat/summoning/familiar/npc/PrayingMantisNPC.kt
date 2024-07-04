@@ -8,7 +8,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 @Initializable
-class PrayingMantisNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.PRAYING_MANTIS_6798) : Familiar(owner, id, 6900, 12011, 6, WeaponInterface.STYLE_ACCURATE) {
+class PrayingMantisNPC(owner: Player? = null, id: Int = NPCs.PRAYING_MANTIS_6798) : Familiar(owner, id, 6900, 12011, 6, WeaponInterface.STYLE_ACCURATE) {
 
     override fun construct(owner: Player, id: Int): Familiar {
         return PrayingMantisNPC(owner, id)

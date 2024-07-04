@@ -26,7 +26,6 @@ public final class EdgevilleNodePlugin extends OptionHandler {
         SceneryDefinition.forId(9262).getHandlers().put("option:take-seed", this);
         SceneryDefinition.forId(9261).getHandlers().put("option:take-seed", this);
         SceneryDefinition.forId(30806).getHandlers().put("option:take-seed", this);
-        SceneryDefinition.forId(12265).getHandlers().put("option:climb", this);
 
         /*
          * Dungeon Wilderness gates.
@@ -34,9 +33,6 @@ public final class EdgevilleNodePlugin extends OptionHandler {
 
         SceneryDefinition.forId(29319).getHandlers().put("option:open", this);
         SceneryDefinition.forId(29320).getHandlers().put("option:open", this);
-
-
-        SceneryDefinition.forId(12266).getHandlers().put("option:open", this);
         SceneryDefinition.forId(26933).getHandlers().put("option:open", this);
         SceneryDefinition.forId(26934).getHandlers().put("option:close", this);
         SceneryDefinition.forId(26934).getHandlers().put("option:climb-down", this);

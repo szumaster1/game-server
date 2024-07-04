@@ -1,6 +1,7 @@
 package content.region.misthalin.dialogue.edgeville
 
 import core.api.consts.Items
+import core.api.consts.NPCs
 import core.api.inInventory
 import core.game.component.Component
 import core.game.dialogue.Dialogue
@@ -63,7 +64,7 @@ class BrotherBordissDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun getIds(): IntArray {
-        return intArrayOf(7724)
+        return intArrayOf(NPCs.BROTHER_BORDISS_7724)
     }
 
 

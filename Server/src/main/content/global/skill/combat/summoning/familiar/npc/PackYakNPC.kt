@@ -17,7 +17,7 @@ import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 
 @Initializable
-class PackYakNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.PACK_YAK_6873) : BurdenBeast(owner, id, 5800, 12093, 12, 30, WeaponInterface.STYLE_AGGRESSIVE) {
+class PackYakNPC(owner: Player? = null, id: Int = NPCs.PACK_YAK_6873) : BurdenBeast(owner, id, 5800, 12093, 12, 30, WeaponInterface.STYLE_AGGRESSIVE) {
 
     override fun construct(owner: Player, id: Int): Familiar {
         return PackYakNPC(owner, id)

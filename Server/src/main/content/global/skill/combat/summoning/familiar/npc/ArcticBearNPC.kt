@@ -13,7 +13,7 @@ import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 
 @Initializable
-class ArcticBearNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 6839) : Familiar(owner, id, 2800, 12057, 6, WeaponInterface.STYLE_CONTROLLED) {
+class ArcticBearNPC(owner: Player? = null, id: Int = 6839) : Familiar(owner, id, 2800, 12057, 6, WeaponInterface.STYLE_CONTROLLED) {
 
     init {
         boosts.add(SkillBonus(Skills.HUNTER, 7.0))

@@ -17,7 +17,7 @@ import core.plugin.Plugin
 import core.tools.RandomFunction
 
 @Initializable
-class GiantEntNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 6800) :
+class GiantEntNPC(owner: Player? = null, id: Int = 6800) :
     Forager(owner, id, 4900, 12013, 6, WeaponInterface.STYLE_CONTROLLED, *ITEMS) {
 
     override fun construct(owner: Player, id: Int): Familiar {

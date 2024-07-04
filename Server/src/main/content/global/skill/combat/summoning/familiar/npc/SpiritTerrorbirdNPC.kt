@@ -13,7 +13,7 @@ import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 
 @Initializable
-class SpiritTerrorbirdNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.SPIRIT_TERRORBIRD_6794) : BurdenBeast(owner, id, 3600, 12007, 8, 12, WeaponInterface.STYLE_CONTROLLED) {
+class SpiritTerrorbirdNPC(owner: Player? = null, id: Int = NPCs.SPIRIT_TERRORBIRD_6794) : BurdenBeast(owner, id, 3600, 12007, 8, 12, WeaponInterface.STYLE_CONTROLLED) {
 
     override fun construct(owner: Player, id: Int): Familiar {
         return SpiritTerrorbirdNPC(owner, id)

@@ -12,7 +12,7 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 
 @Initializable
-class SpiritJellyNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.SPIRIT_JELLY_6992) : Familiar(owner, id, 4300, 12027, 6, WeaponInterface.STYLE_AGGRESSIVE) {
+class SpiritJellyNPC(owner: Player? = null, id: Int = NPCs.SPIRIT_JELLY_6992) : Familiar(owner, id, 4300, 12027, 6, WeaponInterface.STYLE_AGGRESSIVE) {
 
     override fun construct(owner: Player, id: Int): Familiar {
         return SpiritJellyNPC(owner, id)

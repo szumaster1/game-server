@@ -16,24 +16,13 @@ import core.plugin.Initializable;
 
 import java.util.List;
 
-/**
- * The Spirit kalphite npc.
- */
 @Initializable
 public class SpiritKalphiteNPC extends BurdenBeast {
-    /**
-     * Instantiates a new Spirit kalphite npc.
-     */
+
     public SpiritKalphiteNPC() {
         this(null, 6994);
     }
 
-    /**
-     * Instantiates a new Spirit kalphite npc.
-     *
-     * @param owner the owner
-     * @param id    the id
-     */
     public SpiritKalphiteNPC(Player owner, int id) {
         super(owner, id, 2200, 12063, 6, 6, WeaponInterface.STYLE_DEFENSIVE);
     }
