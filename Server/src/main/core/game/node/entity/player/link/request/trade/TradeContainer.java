@@ -11,7 +11,7 @@ import core.network.packet.context.ContainerContext;
 import core.network.packet.outgoing.ContainerPacket;
 
 import static core.api.ContentAPIKt.sendMessage;
-import static core.utilities.GlobalsKt.colorize;
+import static core.tools.GlobalsKt.colorize;
 
 
 /**

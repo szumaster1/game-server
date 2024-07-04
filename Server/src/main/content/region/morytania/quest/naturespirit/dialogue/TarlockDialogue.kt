@@ -12,7 +12,7 @@ import core.game.system.task.Pulse
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 @Initializable
 class TarlockDialogue(player: Player? = null) : Dialogue(player) {

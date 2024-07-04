@@ -5,7 +5,7 @@ import core.game.component.Component
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
-import core.utilities.START_DIALOGUE
+import core.tools.START_DIALOGUE
 
 abstract class DialogueFile {
     var player: Player? = null

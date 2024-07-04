@@ -14,7 +14,7 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.node.scenery.Scenery
 import core.game.world.map.Location
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class BeggarDialogueFile(val door: Scenery?) : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {

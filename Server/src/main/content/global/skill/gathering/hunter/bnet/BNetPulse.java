@@ -10,8 +10,8 @@ import core.game.node.entity.skill.Skills;
 import core.game.node.item.Item;
 import core.game.world.GameWorld;
 import core.game.world.update.flag.context.Animation;
-import core.utilities.RandomFunction;
-import core.utilities.StringUtils;
+import core.tools.RandomFunction;
+import core.tools.StringUtils;
 
 import java.util.Random;
 

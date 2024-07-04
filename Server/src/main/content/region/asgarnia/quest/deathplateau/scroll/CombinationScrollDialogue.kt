@@ -5,7 +5,7 @@ import core.api.consts.Components
 import core.api.consts.Items
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class CombinationScrollDialogue : DialogueFile() {
     var a = 0

@@ -11,7 +11,7 @@ import core.game.node.entity.skill.Skills;
 import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 

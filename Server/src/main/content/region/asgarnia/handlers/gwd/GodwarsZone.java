@@ -31,8 +31,8 @@ import core.network.packet.context.MinimapStateContext;
 import core.network.packet.outgoing.MinimapState;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
-import core.utilities.Log;
-import core.utilities.StringUtils;
+import core.tools.Log;
+import core.tools.StringUtils;
 
 import static core.api.ContentAPIKt.*;
 

@@ -8,7 +8,7 @@ import core.game.node.entity.player.Player
 import core.game.world.map.RegionManager
 import core.plugin.Initializable
 import core.game.world.repository.Repository
-import core.utilities.colorize
+import core.tools.colorize
 
 @Initializable
 /**

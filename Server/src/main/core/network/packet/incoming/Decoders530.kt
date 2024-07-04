@@ -4,8 +4,8 @@ import core.api.log
 import core.Util.clamp
 import core.game.node.entity.player.Player
 import core.network.packet.IoBuffer
-import core.utilities.Log
-import core.utilities.StringUtils
+import core.tools.Log
+import core.tools.StringUtils
 import java.io.PrintWriter
 import java.io.StringWriter
 import java.nio.BufferUnderflowException

@@ -12,7 +12,7 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class HerblorePulse(player: Player?, node: Item?, var amount: Int, private val potion: GenericPotion) :
     SkillPulse<Item?>(player, node) {

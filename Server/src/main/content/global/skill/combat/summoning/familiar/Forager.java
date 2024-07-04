@@ -4,7 +4,7 @@ import core.game.node.entity.combat.equipment.WeaponInterface;
 import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
 import core.game.world.GameWorld;
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 
 /**
  * The Forager.

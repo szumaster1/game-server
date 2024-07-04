@@ -5,7 +5,7 @@ import core.api.*
 import core.api.consts.Items
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class LarrissaDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {

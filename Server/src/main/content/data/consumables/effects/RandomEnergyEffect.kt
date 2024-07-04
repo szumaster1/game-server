@@ -2,7 +2,7 @@ package content.data.consumables.effects
 
 import core.game.consumable.ConsumableEffect
 import core.game.node.entity.player.Player
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class RandomEnergyEffect(val a: Int, val b: Int) : ConsumableEffect() {
 

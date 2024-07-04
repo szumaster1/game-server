@@ -29,7 +29,7 @@ import core.network.packet.PacketRepository
 import core.network.packet.context.MinimapStateContext
 import core.network.packet.outgoing.MinimapState
 import core.plugin.Plugin
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class SorceressGarden : InteractionListener {
     val GATES = intArrayOf(21709, 21753, 21731, 21687)

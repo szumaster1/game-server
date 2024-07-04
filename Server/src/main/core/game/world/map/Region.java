@@ -10,7 +10,7 @@ import core.game.world.map.build.DynamicRegion;
 import core.game.world.map.build.LandscapeParser;
 import core.game.world.map.build.MapscapeParser;
 import core.game.world.map.zone.RegionZone;
-import core.utilities.Log;
+import core.tools.Log;
 import core.game.system.config.XteaParser;
 import core.game.world.GameWorld;
 import core.game.world.repository.Repository;

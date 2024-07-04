@@ -12,7 +12,7 @@ import core.game.node.entity.player.link.audio.Audio
 import core.game.node.entity.skill.Skills
 import core.game.world.GameWorld.ticks
 import core.game.world.update.flag.context.Graphic
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 import kotlin.math.ceil
 
 enum class BoltEffect(val itemId: Int, private val graphic: Graphic, private val sound: Audio) {

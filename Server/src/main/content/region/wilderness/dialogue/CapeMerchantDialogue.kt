@@ -6,7 +6,7 @@ import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 @Initializable
 class CapeMerchantDialogue(player: Player? = null) : Dialogue(player) {

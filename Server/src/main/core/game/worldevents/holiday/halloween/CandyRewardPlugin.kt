@@ -3,10 +3,10 @@ package core.game.worldevents.holiday.halloween
 import core.game.node.entity.player.Player
 import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 import core.game.node.entity.skill.Skills
 import core.plugin.type.XPGainPlugin
-import core.utilities.colorize
+import core.tools.colorize
 
 class CandyRewardPlugin : XPGainPlugin(){
     override fun run(player: Player, skill: Int, amount: Double) {

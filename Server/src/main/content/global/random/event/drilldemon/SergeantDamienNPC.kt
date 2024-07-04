@@ -7,8 +7,7 @@ import core.api.utils.WeightBasedTable
 import core.game.interaction.QueueStrength
 import core.game.node.entity.npc.NPC
 import core.game.system.timer.impl.AntiMacro
-import core.utilities.RED
-import core.utilities.secondsToTicks
+import core.tools.RED
 
 class SergeantDamienNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs.SERGEANT_DAMIEN_2790) {
 

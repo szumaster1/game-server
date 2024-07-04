@@ -10,7 +10,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class CrystalChestListeners : InteractionListener {
 

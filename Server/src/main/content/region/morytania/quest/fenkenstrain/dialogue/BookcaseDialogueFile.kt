@@ -8,8 +8,8 @@ import content.global.handlers.iface.PageSet
 import core.api.*
 import core.game.dialogue.DialogueFile
 import core.game.node.entity.player.Player
-import core.utilities.END_DIALOGUE
-import core.utilities.START_DIALOGUE
+import core.tools.END_DIALOGUE
+import core.tools.START_DIALOGUE
 
 class BookcaseWest : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {

@@ -10,7 +10,7 @@ import core.game.node.item.Item
 import core.game.system.task.Pulse
 import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 /**
  * A bot that does various random slayer tasks throughout the game and sells the loot on the GE.

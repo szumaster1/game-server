@@ -30,7 +30,7 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.ChatMessage
 import core.game.world.update.flag.context.Graphic
 import core.game.world.update.flag.*
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.json.simple.JSONArray
@@ -44,8 +44,8 @@ import core.game.interaction.InteractionListeners
 import core.game.system.config.ItemConfigParser
 import core.game.world.GameWorld
 import core.game.world.repository.Repository
-import core.utilities.Log
-import core.utilities.colorize
+import core.tools.Log
+import core.tools.colorize
 import java.util.*
 import java.util.concurrent.CountDownLatch
 import kotlin.math.max

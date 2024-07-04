@@ -27,8 +27,8 @@ import core.game.world.map.RegionManager
 import core.game.world.map.build.DynamicRegion
 import core.game.world.repository.Repository
 import core.plugin.Initializable
-import core.utilities.Log
-import core.utilities.StringUtils
+import core.tools.Log
+import core.tools.StringUtils
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import core.api.consts.Components

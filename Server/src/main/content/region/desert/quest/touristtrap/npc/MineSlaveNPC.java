@@ -3,7 +3,7 @@ package content.region.desert.quest.touristtrap.npc;
 import core.game.node.entity.npc.AbstractNPC;
 import core.game.world.GameWorld;
 import core.game.world.map.Location;
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 
 /**
  * The Mine slave npc.

@@ -11,7 +11,7 @@ import core.game.world.GameWorld;
 import core.plugin.ClassScanner;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.playAudio;
 

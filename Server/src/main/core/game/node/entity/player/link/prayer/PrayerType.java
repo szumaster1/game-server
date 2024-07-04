@@ -8,7 +8,7 @@ import core.game.node.entity.player.link.diary.DiaryType;
 import core.game.node.entity.skill.SkillBonus;
 import core.game.node.entity.skill.Skills;
 import core.game.world.map.zone.ZoneBorders;
-import core.utilities.StringUtils;
+import core.tools.StringUtils;
 import core.api.consts.Sounds;
 
 import java.util.List;

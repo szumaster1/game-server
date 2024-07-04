@@ -3,7 +3,7 @@ package content.global.random.event.quizmaster
 import core.api.consts.Items
 import core.cache.def.impl.ItemDefinition
 import core.game.interaction.InteractionListener
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class QuizMasterEvent : InteractionListener {
     var score = 0

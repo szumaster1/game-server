@@ -11,7 +11,7 @@ import core.game.node.item.Item;
 import core.game.world.map.Location;
 import core.game.world.map.path.Pathfinder;
 import core.game.world.update.flag.context.Animation;
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 
 /**
  * The Animated armour.

@@ -9,7 +9,7 @@ import core.cache.def.impl.ItemDefinition
 import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 import core.api.consts.Items
 
 open class WeightBasedTable : ArrayList<WeightedItem>() {

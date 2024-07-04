@@ -8,8 +8,8 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
-import core.utilities.colorize
-import core.utilities.secondsToTicks
+import core.tools.colorize
+import core.tools.secondsToTicks
 
 class AvasDevice : InteractionListener, EventHook<TickEvent> {
     override fun defineListeners() {

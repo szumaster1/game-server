@@ -4,7 +4,7 @@ import core.api.consts.NPCs
 import core.game.node.entity.npc.AbstractNPC
 import core.game.world.map.Location
 import core.plugin.Initializable
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 @Initializable
 class ShanomiNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {

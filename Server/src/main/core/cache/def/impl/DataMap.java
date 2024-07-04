@@ -2,8 +2,8 @@ package core.cache.def.impl;
 
 import core.cache.Cache;
 import core.cache.misc.buffer.ByteBufferUtils;
-import core.utilities.CP1252;
-import core.utilities.Log;
+import core.tools.CP1252;
+import core.tools.Log;
 
 import java.nio.ByteBuffer;
 import java.util.HashMap;

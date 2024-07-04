@@ -19,7 +19,7 @@ import core.game.world.map.zone.ZoneRestriction;
 import core.game.world.update.flag.context.Animation;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 
 /**
  * The Fremennik dungeon.

@@ -4,8 +4,8 @@ import content.region.misthalin.quest.free.shieldofarrav.ShieldofArrav
 import core.game.dialogue.DialogueFile
 import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
-import core.utilities.END_DIALOGUE
-import core.utilities.START_DIALOGUE
+import core.tools.END_DIALOGUE
+import core.tools.START_DIALOGUE
 
 private val CERTIFICATE = Item(769)
 

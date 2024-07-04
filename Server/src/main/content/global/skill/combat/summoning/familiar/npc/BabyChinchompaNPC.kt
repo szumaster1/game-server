@@ -7,7 +7,7 @@ import core.game.node.entity.npc.Metamorphosis
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 @Initializable
 class BabyChinchompaNPC : Metamorphosis(*CHINCHOMPA_IDS) {

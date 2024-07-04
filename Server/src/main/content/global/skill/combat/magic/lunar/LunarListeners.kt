@@ -27,7 +27,7 @@ import core.game.world.map.Location
 import core.game.world.map.RegionManager
 import core.game.world.repository.Repository
 import core.game.world.update.flag.context.Animation
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 import kotlin.math.floor
 
 class LunarListeners : SpellListener("lunar"), Commands {

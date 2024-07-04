@@ -15,7 +15,7 @@ import core.game.world.GameWorld.Pulser
 import core.game.world.map.Location
 import core.game.world.map.path.Pathfinder
 import core.plugin.Initializable
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 @Initializable
 class ShantayGuardDialogue(player: Player? = null) : Dialogue(player) {

@@ -17,7 +17,7 @@ import core.game.world.repository.Repository
 import core.network.packet.PacketRepository
 import core.network.packet.context.MinimapStateContext
 import core.network.packet.outgoing.MinimapState
-import core.utilities.BLUE
+import core.tools.BLUE
 
 
 object TutorialStage {

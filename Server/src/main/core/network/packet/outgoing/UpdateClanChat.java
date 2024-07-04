@@ -6,7 +6,7 @@ import core.network.packet.IoBuffer;
 import core.network.packet.OutgoingPacket;
 import core.network.packet.PacketHeader;
 import core.network.packet.context.ClanContext;
-import core.utilities.StringUtils;
+import core.tools.StringUtils;
 
 /**
  * Handles the update clan chat outgoing packet.

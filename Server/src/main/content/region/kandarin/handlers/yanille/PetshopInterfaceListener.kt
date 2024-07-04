@@ -6,7 +6,7 @@ import core.api.consts.NPCs
 import core.api.openDialogue
 import core.game.interaction.InterfaceListener
 import core.game.node.item.Item
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class PetshopInterfaceListener : InterfaceListener {
 

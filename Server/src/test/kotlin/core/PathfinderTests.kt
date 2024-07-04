@@ -15,7 +15,7 @@ import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.game.world.map.RegionManager
 import core.plugin.Plugin
-import core.utilities.Log
+import core.tools.Log
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 

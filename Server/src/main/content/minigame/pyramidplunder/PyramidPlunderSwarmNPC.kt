@@ -3,7 +3,7 @@ package content.minigame.pyramidplunder
 import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
 import core.game.world.map.Location
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class PyramidPlunderSwarmNPC
     (location: Location?, player: Player?) :

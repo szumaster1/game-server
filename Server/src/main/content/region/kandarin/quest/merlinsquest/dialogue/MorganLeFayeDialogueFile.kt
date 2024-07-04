@@ -11,7 +11,7 @@ import core.game.dialogue.Topic
 import core.game.node.entity.combat.DeathTask
 import core.game.node.entity.npc.NPC
 import core.game.world.repository.Repository
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class MorganLeFayeDialogueFile : DialogueFile() {
 

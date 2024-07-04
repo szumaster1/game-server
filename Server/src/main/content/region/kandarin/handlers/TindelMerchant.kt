@@ -16,7 +16,7 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.world.map.Location
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class TindelMerchant : InteractionListener {
 

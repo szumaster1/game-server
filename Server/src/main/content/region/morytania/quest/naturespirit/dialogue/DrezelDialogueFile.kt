@@ -5,7 +5,7 @@ import content.region.morytania.quest.naturespirit.BlessingPulse
 import core.api.*
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class DrezelDialogueFile : DialogueFile() {
     var questStage = 0

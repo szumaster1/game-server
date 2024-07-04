@@ -4,7 +4,7 @@ import core.api.*
 import core.api.consts.Components
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
-import core.utilities.colorize
+import core.tools.colorize
 import kotlin.math.max
 import kotlin.math.min
 

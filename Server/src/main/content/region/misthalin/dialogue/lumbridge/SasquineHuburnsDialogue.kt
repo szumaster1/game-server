@@ -9,7 +9,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.diary.DiaryType
 import core.plugin.Initializable
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 @Initializable
 class SasquineHuburnsDialogue(player: Player? = null) : Dialogue(player) {
@@ -38,9 +38,9 @@ class SasquineHuburnsDialogue(player: Player? = null) : Dialogue(player) {
             0 -> player("What's Gnomecopter Tours?").also { stage++ }
             1 -> npc(FacialExpression.OLD_HAPPY, "Oh, haven't you spoken to Hieronymus?", "He's over by the table. Go and ask him.").also { stage = END_DIALOGUE }
             2 -> npc(FacialExpression.OLD_HAPPY, "Sure thing. Since you're a first-time filer,", "I'll just run you through a few points.").also { stage++ }
-            3 -> npc(FacialExpression.OLD_HAPPY, "Firstly, you're not allowed to get off. When you've had", "enough, click the ${core.utilities.DARK_RED}Return to Lumbridge</col> button on your", "controls, and you'll be brought back here.").also { stage++ }
+            3 -> npc(FacialExpression.OLD_HAPPY, "Firstly, you're not allowed to get off. When you've had", "enough, click the ${core.tools.DARK_RED}Return to Lumbridge</col> button on your", "controls, and you'll be brought back here.").also { stage++ }
             4 -> npc(FacialExpression.OLD_HAPPY, "Secondly, the gnomecopter's autopilot will fly you slowly", "around the areas. You can use the button on your", "controls to pilot the gnomecopter yourself.").also { stage++ }
-            5 -> npc(FacialExpression.OLD_HAPPY, "Thirdly, I'll be giving you an introduction to whichever", "area you visit. You can use the ${core.utilities.DARK_RED}Next page</col> and", "${core.utilities.DARK_RED}Previous page</col> buttons on your controls to read it at", "your own pace.").also { stage++ }
+            5 -> npc(FacialExpression.OLD_HAPPY, "Thirdly, I'll be giving you an introduction to whichever", "area you visit. You can use the ${core.tools.DARK_RED}Next page</col> and", "${core.tools.DARK_RED}Previous page</col> buttons on your controls to read it at", "your own pace.").also { stage++ }
             6 -> npc(FacialExpression.OLD_HAPPY, "Fourthly, we've put a few signposts in the areas", "you'll be visiting. They'll tell you more about what", "you're seeing. Turn off the autopilot feature if you", "have trouble reading them.").also { stage++ }
             7 -> npc(FacialExpression.OLD_HAPPY, "Fifthly, whatever happens, you MUST NOT touch the").also { stage++ }
             8 -> npc(FacialExpression.OLD_HAPPY, "Oh, forget it, you'll be fine.").also { stage++ }

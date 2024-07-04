@@ -10,7 +10,7 @@ import core.game.interaction.MovementPulse
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.world.map.zone.ZoneBorders
-import core.utilities.colorize
+import core.tools.colorize
 
 @PlayerCompatible
 @ScriptName("Draynor Willows")

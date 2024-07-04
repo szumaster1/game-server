@@ -3,7 +3,7 @@ package core.network.packet
 import core.api.log
 import core.api.tryPop
 import core.network.packet.outgoing.*
-import core.utilities.Log
+import core.tools.Log
 import java.io.PrintWriter
 import java.io.StringWriter
 import java.util.*

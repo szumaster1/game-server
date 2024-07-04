@@ -10,9 +10,9 @@ import core.game.interaction.InterfaceListener
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.system.command.Privilege
-import core.utilities.END_DIALOGUE
-import core.utilities.Log
-import core.utilities.secondsToTicks
+import core.tools.END_DIALOGUE
+import core.tools.Log
+import core.tools.secondsToTicks
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 import org.json.simple.parser.JSONParser

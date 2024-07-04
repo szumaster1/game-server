@@ -7,7 +7,7 @@ import core.api.log
 import core.game.node.entity.combat.CombatStyle
 import core.game.node.entity.impl.Animator
 import core.game.world.update.flag.context.Animation
-import core.utilities.Log
+import core.tools.Log
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 import org.json.simple.parser.JSONParser

@@ -7,7 +7,7 @@ import core.game.node.entity.Entity
 import core.game.node.entity.combat.BattleState
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class BarbarianNPC : NPCBehavior(*ID) {
 

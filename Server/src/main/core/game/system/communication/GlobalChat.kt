@@ -6,7 +6,7 @@ import core.api.sendMessage
 import core.api.setAttribute
 import core.game.system.command.Privilege
 import core.game.world.repository.Repository
-import core.utilities.colorize
+import core.tools.colorize
 
 class GlobalChat : Commands {
     override fun defineCommands() {

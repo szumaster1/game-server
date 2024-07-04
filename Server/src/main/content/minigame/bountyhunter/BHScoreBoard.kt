@@ -3,7 +3,7 @@ package content.minigame.bountyhunter
 import core.cache.misc.buffer.ByteBufferUtils
 import core.game.component.Component
 import core.game.node.entity.player.Player
-import core.utilities.StringUtils
+import core.tools.StringUtils
 import java.nio.ByteBuffer
 
 class BHScoreBoard {

@@ -3,7 +3,7 @@ package core.cache.def;
 import java.util.HashMap;
 import java.util.Map;
 
-import core.utilities.StringUtils;
+import core.tools.StringUtils;
 import core.game.node.Node;
 
 /**

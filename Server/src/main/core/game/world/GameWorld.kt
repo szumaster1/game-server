@@ -12,7 +12,7 @@ import core.game.world.map.Location
 import core.game.world.map.Region
 import core.game.world.map.RegionManager
 import core.plugin.type.StartupPlugin
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 import core.ServerConstants
 import core.ServerStore
 import core.network.auth.AuthProvider
@@ -21,7 +21,7 @@ import core.game.system.config.ConfigParser
 import core.game.world.repository.Repository
 import core.plugin.ClassScanner
 import core.network.auth.AccountStorageProvider
-import core.utilities.Log
+import core.tools.Log
 import core.worker.MajorUpdateWorker
 import java.text.SimpleDateFormat
 import java.util.*

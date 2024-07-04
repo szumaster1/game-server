@@ -12,8 +12,8 @@ import core.network.packet.PacketRepository
 import core.network.packet.context.ChildPositionContext
 import core.network.packet.outgoing.RepositionChild
 import core.plugin.Initializable
-import core.utilities.END_DIALOGUE
-import core.utilities.StringUtils
+import core.tools.END_DIALOGUE
+import core.tools.StringUtils
 
 @Initializable
 class WizardDialogue(player: Player? = null) : Dialogue(player) {

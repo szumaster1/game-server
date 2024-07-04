@@ -15,7 +15,7 @@ import core.game.world.map.zone.ZoneBorders;
 import core.game.world.map.zone.impl.WildernessZone;
 import core.game.world.update.flag.context.Animation;
 import core.plugin.Initializable;
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 import core.game.node.entity.combat.CombatSwingHandler;
 import core.game.system.config.NPCConfigParser;
 import core.game.world.GameWorld;

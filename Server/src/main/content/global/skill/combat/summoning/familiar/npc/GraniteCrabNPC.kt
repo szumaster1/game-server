@@ -13,7 +13,7 @@ import core.game.node.entity.skill.Skills
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 @Initializable
 class GraniteCrabNPC(owner: Player? = null, id: Int = NPCs.GRANITE_CRAB_6796) : Forager(owner, id, 1800, 12009, 12, WeaponInterface.STYLE_DEFENSIVE) {

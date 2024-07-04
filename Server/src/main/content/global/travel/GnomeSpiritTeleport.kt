@@ -14,7 +14,7 @@ import core.game.world.GameWorld.Pulser
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class GnomeSpiritTeleport: InteractionListener {
 

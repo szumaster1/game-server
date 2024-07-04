@@ -14,8 +14,8 @@ import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.plugin.Initializable
-import core.utilities.END_DIALOGUE
-import core.utilities.RandomFunction
+import core.tools.END_DIALOGUE
+import core.tools.RandomFunction
 
 @Initializable
 class SirReniteeDialogue(player: Player? = null) : Dialogue(player) {

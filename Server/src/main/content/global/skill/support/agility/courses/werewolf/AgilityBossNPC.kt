@@ -4,7 +4,7 @@ import core.api.animate
 import core.api.consts.NPCs
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class AgilityBossNPC : NPCBehavior(NPCs.AGILITY_BOSS_1661) {
 

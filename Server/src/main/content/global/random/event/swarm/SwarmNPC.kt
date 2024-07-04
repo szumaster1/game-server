@@ -6,7 +6,7 @@ import core.api.consts.Sounds
 import core.api.playGlobalAudio
 import core.api.utils.WeightBasedTable
 import core.game.node.entity.npc.NPC
-import core.utilities.minutesToTicks
+import core.tools.minutesToTicks
 
 class SwarmNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs.SWARM_411) {
     override fun init() {

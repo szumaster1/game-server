@@ -10,7 +10,7 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 @PlayerCompatible
 @ScriptName("Seers Magics")

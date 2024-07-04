@@ -13,7 +13,7 @@ import core.game.world.GameWorld;
 import core.game.world.map.Location;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 
 /**
  * The Ancient teleport plugin.

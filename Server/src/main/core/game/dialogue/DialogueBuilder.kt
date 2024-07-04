@@ -2,7 +2,7 @@ package core.game.dialogue
 
 import core.api.splitLines
 import core.game.node.entity.player.Player
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 import java.util.regex.Pattern
 
 val DEBUG_DIALOGUE = false

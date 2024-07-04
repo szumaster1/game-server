@@ -5,7 +5,7 @@ import core.game.interaction.QueueStrength
 import core.game.node.entity.npc.NPC
 import core.game.worldevents.holiday.HolidayRandomEventNPC
 import core.game.worldevents.holiday.HolidayRandoms
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 import core.api.consts.Sounds
 
 class DeathHolidayRandomNPC : HolidayRandomEventNPC(2862) {

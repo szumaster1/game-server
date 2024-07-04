@@ -9,7 +9,7 @@ import core.game.world.GameWorld;
 import core.network.packet.PacketRepository;
 import core.network.packet.context.CameraContext;
 import core.network.packet.outgoing.CameraViewPacket;
-import core.utilities.StringUtils;
+import core.tools.StringUtils;
 
 /**
  * The enum Barcrawl type.

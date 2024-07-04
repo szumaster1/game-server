@@ -7,7 +7,7 @@ import core.game.node.entity.combat.equipment.WeaponInterface;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.skill.Skills;
 import core.plugin.Initializable;
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.curePoison;
 import static core.api.ContentAPIKt.removeTimer;

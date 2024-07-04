@@ -23,8 +23,8 @@ import core.game.world.map.zone.MapZone
 import core.game.world.map.zone.ZoneBuilder
 import core.game.worldevents.WorldEvent
 import core.game.worldevents.WorldEvents
-import core.utilities.Log
-import core.utilities.SystemLogger.logStartup
+import core.tools.Log
+import core.tools.SystemLogger.logStartup
 import io.github.classgraph.ClassGraph
 import io.github.classgraph.ClassInfo
 import io.github.classgraph.ScanResult

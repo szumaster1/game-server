@@ -15,7 +15,7 @@ import core.game.node.item.Item;
 import core.game.world.GameWorld;
 import core.game.world.update.flag.context.Animation;
 import core.game.world.update.flag.context.Graphic;
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.*;
 

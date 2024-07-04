@@ -10,7 +10,7 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.IronmanMode
 import core.game.node.entity.skill.Skills
 import core.game.world.map.Location
-import core.utilities.Log
+import core.tools.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext

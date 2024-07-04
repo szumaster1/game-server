@@ -13,7 +13,7 @@ import core.game.node.entity.player.link.prayer.PrayerType;
 import core.game.node.item.Item;
 import core.game.world.map.Location;
 import core.game.world.map.RegionManager;
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 
 public class PvMBots extends AIPlayer {
 

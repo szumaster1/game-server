@@ -5,7 +5,7 @@ import core.game.node.entity.combat.ImpactHandler
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
-import core.utilities.colorize
+import core.tools.colorize
 
 /**
  * Rotten potato -> npc interaction menu

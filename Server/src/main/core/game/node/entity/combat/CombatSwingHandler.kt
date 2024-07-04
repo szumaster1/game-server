@@ -23,8 +23,8 @@ import core.game.world.map.RegionManager
 import core.game.world.map.RegionManager.getClippingFlag
 import core.game.world.map.path.Pathfinder.*
 import core.game.world.update.flag.context.Animation
-import core.utilities.Log
-import core.utilities.RandomFunction
+import core.tools.Log
+import core.tools.RandomFunction
 import kotlin.math.floor
 
 /**

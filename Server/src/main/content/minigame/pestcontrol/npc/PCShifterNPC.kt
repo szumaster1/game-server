@@ -12,7 +12,7 @@ import core.game.world.map.Location
 import core.game.world.map.RegionManager.isTeleportPermitted
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 import java.util.*
 
 class PCShifterNPC : AbstractNPC {

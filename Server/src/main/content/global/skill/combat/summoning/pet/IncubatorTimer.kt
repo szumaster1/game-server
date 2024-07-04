@@ -4,8 +4,8 @@ import core.api.*
 import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
 import core.game.system.timer.PersistTimer
-import core.utilities.colorize
-import core.utilities.ticksToSeconds
+import core.tools.colorize
+import core.tools.ticksToSeconds
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 

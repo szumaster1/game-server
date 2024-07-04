@@ -27,8 +27,8 @@ import core.game.world.map.zone.MapZone
 import core.game.world.map.zone.ZoneBorders
 import core.game.world.map.zone.ZoneRestriction
 import core.plugin.Plugin
-import core.utilities.RandomFunction
-import core.utilities.StringUtils
+import core.tools.RandomFunction
+import core.tools.StringUtils
 import java.util.*
 
 class DuelArea

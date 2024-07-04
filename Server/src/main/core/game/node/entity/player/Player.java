@@ -2,7 +2,6 @@ package core.game.node.entity.player;
 
 import content.global.handlers.item.equipment.special.SalamanderSwingHandler;
 import content.global.skill.production.runecrafting.PouchManager;
-import core.api.EquipmentSlot;
 import core.game.component.Component;
 import core.game.container.Container;
 import core.game.container.ContainerType;
@@ -54,7 +53,7 @@ import core.network.packet.outgoing.BuildDynamicScene;
 import core.network.packet.outgoing.SkillLevel;
 import core.network.packet.outgoing.UpdateSceneGraph;
 import core.plugin.Plugin;
-import core.utilities.*;
+import core.tools.*;
 import core.game.world.map.RegionChunk;
 import core.game.world.update.flag.context.Animation;
 import kotlin.Unit;
@@ -90,7 +89,7 @@ import java.util.concurrent.TimeUnit;
 import static core.api.ContentAPIKt.*;
 import static core.game.system.command.sets.StatsAttributeSetKt.STATS_BASE;
 import static core.game.system.command.sets.StatsAttributeSetKt.STATS_DEATHS;
-import static core.utilities.GlobalsKt.colorize;
+import static core.tools.GlobalsKt.colorize;
 
 /**
  * Represents a player entity.

@@ -4,7 +4,7 @@ import content.region.karamja.quest.monkeymadness.cutscenes.ShipyardCutScene
 import core.api.*
 import core.api.consts.NPCs
 import core.game.dialogue.DialogueFile
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class WaydarCrashIslandDialogue: DialogueFile(){
     override fun handle(componentID: Int, buttonID: Int) {

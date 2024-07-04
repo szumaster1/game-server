@@ -11,7 +11,7 @@ import core.game.node.item.Item;
 import core.game.world.map.RegionManager;
 import core.game.world.update.flag.context.Graphic;
 import core.plugin.Plugin;
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 
 public final class VoidSealPlugin extends OptionHandler {
 

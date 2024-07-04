@@ -16,7 +16,7 @@ import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 import core.game.world.map.zone.ZoneRestriction
 import core.game.world.update.flag.context.Animation
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class PyramidPlunderMinigame : InteractionListener, TickListener, LogoutListener, MapArea {
     override fun tick() {

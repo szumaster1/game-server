@@ -2,7 +2,7 @@ package core.game.dialogue
 
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
-import core.utilities.START_DIALOGUE
+import core.tools.START_DIALOGUE
 
 class EmptyDialogue(player: Player? = null, val file: DialogueFile?) : Dialogue(player) {
 

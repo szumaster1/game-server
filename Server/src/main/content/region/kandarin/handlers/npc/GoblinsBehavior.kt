@@ -4,7 +4,7 @@ import core.api.consts.NPCs
 import core.api.sendChat
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class GoblinsBehavior : NPCBehavior(NPCs.GREASYCHEEKS_6127, NPCs.SMELLYTOES_6128, NPCs.CREAKYKNEES_6129) {
 

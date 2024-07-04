@@ -1,4 +1,4 @@
-package core.utilities;
+package core.tools;
 
 import java.text.DecimalFormat;
 import java.util.StringTokenizer;

@@ -4,7 +4,7 @@ import core.game.world.GameWorld
 import core.game.world.map.Direction
 import core.game.world.map.Location
 import core.game.world.map.Point
-import core.utilities.*
+import core.tools.*
 import core.api.*
 import core.api.utils.Vector
 import core.ServerConstants

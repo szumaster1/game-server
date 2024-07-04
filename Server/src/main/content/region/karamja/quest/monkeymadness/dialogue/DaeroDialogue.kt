@@ -8,7 +8,7 @@ import core.game.node.item.Item
 import core.game.system.task.Pulse
 import core.game.world.GameWorld
 import core.game.world.map.Location
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class DaeroDialogue : DialogueFile() {
 

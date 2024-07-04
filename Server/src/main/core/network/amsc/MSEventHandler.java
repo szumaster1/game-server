@@ -1,6 +1,6 @@
 package core.network.amsc;
 
-import core.utilities.Log;
+import core.tools.Log;
 import core.network.IoEventHandler;
 import core.network.IoSession;
 

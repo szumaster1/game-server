@@ -30,7 +30,7 @@ import core.game.node.scenery.SceneryBuilder
 import core.game.system.command.sets.STATS_BASE
 import core.game.system.command.sets.STATS_LOGS
 import core.game.world.map.RegionManager
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 import kotlin.streams.toList
 
 class WoodcuttingListener : InteractionListener {

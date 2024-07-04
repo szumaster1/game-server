@@ -25,7 +25,7 @@ import core.game.global.action.EquipHandler;
 import core.game.interaction.IntType;
 import core.game.interaction.InteractionListeners;
 import core.game.world.GameWorld;
-import core.utilities.Log;
+import core.tools.Log;
 
 @Initializable
 public final class EquipmentInterfacePlugin extends ComponentPlugin {

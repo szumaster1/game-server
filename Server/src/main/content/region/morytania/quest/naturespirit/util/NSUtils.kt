@@ -10,7 +10,7 @@ import core.game.system.task.Pulse
 import core.game.world.map.RegionManager
 import core.game.world.map.RegionManager.forId
 import core.game.world.update.flag.context.Graphic
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 
 object NSUtils {

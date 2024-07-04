@@ -39,7 +39,7 @@ import core.game.world.map.zone.ZoneBorders
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 import kotlin.math.min
 import core.api.consts.Graphics as Gfx
 import core.api.consts.Scenery as Sceneries

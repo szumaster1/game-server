@@ -9,7 +9,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.Initializable
-import core.utilities.StringUtils
+import core.tools.StringUtils
 
 @Initializable
 class TraderCrewmemberDialogue (player: Player? = null) : Dialogue(player) {

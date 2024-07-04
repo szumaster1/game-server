@@ -12,7 +12,7 @@ import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.game.world.map.RegionManager
 import core.game.world.update.flag.context.Animation
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class KingBolrenDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {

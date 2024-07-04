@@ -23,7 +23,7 @@ import java.io.BufferedWriter
 import java.io.File
 import java.io.FileWriter
 import core.network.packet.PacketWriteQueue
-import core.utilities.Log
+import core.tools.Log
 import core.game.world.map.Location
 
 @Initializable

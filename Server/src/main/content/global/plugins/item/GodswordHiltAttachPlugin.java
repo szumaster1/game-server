@@ -6,7 +6,7 @@ import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
-import core.utilities.StringUtils;
+import core.tools.StringUtils;
 
 /**
  * The Godsword hilt attach plugin.

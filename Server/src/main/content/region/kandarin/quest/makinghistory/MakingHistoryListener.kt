@@ -11,7 +11,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.world.map.Location
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class MakingHistoryListener : InteractionListener {
 

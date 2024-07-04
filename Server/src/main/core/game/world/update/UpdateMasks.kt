@@ -7,7 +7,7 @@ import core.game.world.update.flag.context.HitMark
 import core.game.world.update.flag.*
 import core.network.packet.IoBuffer
 import core.api.*
-import core.utilities.*
+import core.tools.*
 import java.util.concurrent.atomic.AtomicBoolean
 
 class UpdateMasks (val owner: Entity) {

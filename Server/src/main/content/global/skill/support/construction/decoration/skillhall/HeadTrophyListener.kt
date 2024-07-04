@@ -11,10 +11,10 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.npc.NPC
 import core.game.world.GameWorld
-import core.utilities.DARK_RED
-import core.utilities.END_DIALOGUE
-import core.utilities.RandomFunction
-import core.utilities.START_DIALOGUE
+import core.tools.DARK_RED
+import core.tools.END_DIALOGUE
+import core.tools.RandomFunction
+import core.tools.START_DIALOGUE
 
 class HeadTrophyListener : InteractionListener {
     private val crawlingTrophy = Scenery.CRAWLING_HAND_13481

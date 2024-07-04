@@ -4,7 +4,7 @@ import core.ServerStore
 import core.api.ContentInterface
 import core.plugin.ClassScanner
 import core.plugin.Plugin
-import core.utilities.Log
+import core.tools.Log
 import org.json.simple.JSONObject
 import java.util.*
 

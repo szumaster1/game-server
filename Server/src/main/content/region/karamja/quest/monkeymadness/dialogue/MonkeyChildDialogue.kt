@@ -2,7 +2,7 @@ package content.region.karamja.quest.monkeymadness.dialogue
 
 import core.api.*
 import core.game.dialogue.DialogueFile
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 import core.api.consts.Items
 
 class MonkeyChildFirstDialogue: DialogueFile(){

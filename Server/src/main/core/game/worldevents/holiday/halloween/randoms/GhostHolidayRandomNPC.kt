@@ -3,7 +3,7 @@ package core.game.worldevents.holiday.halloween.randoms
 import core.api.*
 import core.game.node.entity.npc.NPC
 import core.game.worldevents.holiday.HolidayRandomEventNPC
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 import core.api.consts.Sounds
 
 class GhostHolidayRandomNPC : HolidayRandomEventNPC(2716) {

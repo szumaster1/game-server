@@ -1,7 +1,7 @@
 package content.global.activity.oldman
 
 import core.api.consts.Items
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 enum class ItemDelivery(val item: Int, val min: Int, val max: Int) {
     ANCHOVIES(Items.ANCHOVIES_319, 1,15),

@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 import core.api.consts.Items
 import core.game.system.command.CommandSystem
-import core.utilities.colorize
+import core.tools.colorize
 
 /**
  * Handles the Rotten Potato options

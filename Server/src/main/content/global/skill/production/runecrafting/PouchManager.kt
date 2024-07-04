@@ -5,7 +5,7 @@ import core.game.container.Container
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
-import core.utilities.colorize
+import core.tools.colorize
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 

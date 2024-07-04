@@ -1,7 +1,7 @@
 package content.global.activity.jobs
 
 import content.global.activity.jobs.impl.Employers
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 /**
  * @author Swizey

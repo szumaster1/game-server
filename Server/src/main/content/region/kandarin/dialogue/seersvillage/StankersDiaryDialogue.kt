@@ -11,7 +11,7 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.diary.AchievementDiary
 import core.game.node.entity.player.link.diary.DiaryType
 import core.plugin.Initializable
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 @Initializable
 class StankersDiaryDialogue(player: Player? = null) : Dialogue(player) {

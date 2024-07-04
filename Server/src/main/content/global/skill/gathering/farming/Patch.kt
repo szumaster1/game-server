@@ -5,8 +5,8 @@ import core.api.getVarbit
 import core.api.log
 import core.api.setVarbit
 import core.game.node.entity.player.Player
-import core.utilities.Log
-import core.utilities.RandomFunction
+import core.tools.Log
+import core.tools.RandomFunction
 import java.util.concurrent.TimeUnit
 import kotlin.math.ceil
 import kotlin.math.min

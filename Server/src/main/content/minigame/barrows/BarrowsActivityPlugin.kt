@@ -31,7 +31,7 @@ import core.network.packet.context.CameraContext
 import core.network.packet.outgoing.CameraViewPacket
 import core.plugin.ClassScanner.definePlugin
 import core.plugin.Initializable
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 import java.util.stream.IntStream
 
 @Initializable

@@ -8,7 +8,7 @@ import core.game.system.task.Pulse
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 import core.api.consts.Components
 import core.ServerStore
 import core.ServerStore.Companion.getInt
@@ -18,7 +18,7 @@ import core.game.dialogue.FacialExpression
 import core.game.interaction.InteractionListener
 import core.game.interaction.IntType
 import core.game.world.GameWorld.Pulser
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class TrickOrTreatHandler : InteractionListener {
     override fun defineListeners() {

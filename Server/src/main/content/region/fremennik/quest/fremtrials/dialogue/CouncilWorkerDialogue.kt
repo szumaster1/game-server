@@ -6,8 +6,8 @@ import core.api.getQuestStage
 import core.api.inInventory
 import core.api.removeItem
 import core.game.dialogue.DialogueFile
-import core.utilities.END_DIALOGUE
-import core.utilities.START_DIALOGUE
+import core.tools.END_DIALOGUE
+import core.tools.START_DIALOGUE
 
 const val COUNCIL_WORKER = 1287
 

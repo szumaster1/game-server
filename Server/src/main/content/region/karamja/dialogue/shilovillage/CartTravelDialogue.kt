@@ -7,7 +7,7 @@ import core.api.inInventory
 import core.api.openDialogue
 import core.api.sendDialogue
 import core.game.dialogue.DialogueFile
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class CartTravelDialogue : DialogueFile() {
 

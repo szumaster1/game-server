@@ -13,7 +13,7 @@ import core.network.packet.context.WindowsPaneContext;
 import core.network.packet.outgoing.CloseInterface;
 import core.network.packet.outgoing.Interface;
 import core.network.packet.outgoing.WindowsPane;
-import core.utilities.Log;
+import core.tools.Log;
 import core.api.consts.Components;
 
 import static core.api.ContentAPIKt.log;

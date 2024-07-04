@@ -10,7 +10,7 @@ import core.game.container.access.InterfaceContainer
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
-import core.utilities.StringUtils
+import core.tools.StringUtils
 
 class SmithingInterfaceBuilder(item: Item) {
 

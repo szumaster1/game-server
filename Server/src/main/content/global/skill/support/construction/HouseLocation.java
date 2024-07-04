@@ -4,7 +4,7 @@ package content.global.skill.support.construction;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.skill.Skills;
 import core.game.world.map.Location;
-import core.utilities.StringUtils;
+import core.tools.StringUtils;
 
 /**
  * The house locations.

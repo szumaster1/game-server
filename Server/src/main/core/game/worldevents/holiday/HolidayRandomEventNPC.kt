@@ -8,7 +8,7 @@ import core.game.node.entity.player.Player
 import core.game.world.map.Location
 import core.game.world.map.RegionManager
 import core.game.world.map.path.Pathfinder
-import core.utilities.secondsToTicks
+import core.tools.secondsToTicks
 import core.api.consts.Sounds
 import kotlin.reflect.full.createInstance
 

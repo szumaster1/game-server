@@ -3,7 +3,7 @@ package core.game.node.entity.player.link;
 import core.game.node.entity.player.Player;
 import core.game.node.scenery.Scenery;
 import core.game.world.update.flag.context.Graphic;
-import core.utilities.Log;
+import core.tools.Log;
 import core.game.system.task.Pulse;
 import core.game.world.GameWorld;
 import core.game.world.map.Location;

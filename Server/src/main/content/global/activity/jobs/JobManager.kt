@@ -15,7 +15,7 @@ import core.game.node.entity.Entity
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
-import core.utilities.StringUtils
+import core.tools.StringUtils
 import org.json.simple.JSONObject
 import java.lang.Integer.min
 

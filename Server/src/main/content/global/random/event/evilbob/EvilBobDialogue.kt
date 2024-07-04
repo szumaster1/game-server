@@ -8,7 +8,7 @@ import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.skill.Skills
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class EvilBobDialogue(val rewardDialogue: Boolean = false, val rewardXpSkill: Int = Skills.FISHING) : DialogueFile() {
 

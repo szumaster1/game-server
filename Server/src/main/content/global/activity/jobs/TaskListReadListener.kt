@@ -10,7 +10,7 @@ import core.api.sendNPCDialogue
 import core.game.interaction.InteractionListener
 import core.game.node.entity.npc.NPC
 import core.game.node.item.Item
-import core.utilities.StringUtils
+import core.tools.StringUtils
 
 class TaskListReadListener : InteractionListener {
     override fun defineListeners() {

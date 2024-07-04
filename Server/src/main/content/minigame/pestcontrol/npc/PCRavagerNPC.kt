@@ -18,7 +18,7 @@ import core.game.world.map.Location
 import core.game.world.map.MapDistance
 import core.game.world.map.path.Pathfinder
 import core.game.world.map.zone.ZoneBorders
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class PCRavagerNPC : AbstractNPC {
 

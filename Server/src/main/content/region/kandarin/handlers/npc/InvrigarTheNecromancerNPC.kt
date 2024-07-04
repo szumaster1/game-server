@@ -7,7 +7,7 @@ import core.game.node.entity.combat.BattleState
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
 import core.game.node.entity.player.Player
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class InvrigarTheNecromancerNPC : NPCBehavior(NPCs.INVRIGAR_THE_NECROMANCER_173) {
 

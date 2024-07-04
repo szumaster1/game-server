@@ -12,7 +12,7 @@ import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.entity.skill.Skills
 import core.game.world.map.Location
 import core.plugin.Initializable
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 @Initializable
 class ElementalWizardNPC : AbstractNPC {

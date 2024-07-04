@@ -15,7 +15,7 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld.Pulser
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class KolodionNPC(id: Int = 0, location: Location? = null, session: KolodionSession? = null) :
     AbstractNPC(id, location) {

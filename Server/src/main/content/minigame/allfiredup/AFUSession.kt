@@ -7,7 +7,7 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.system.task.Pulse
 import core.game.world.GameWorld
-import core.utilities.colorize
+import core.tools.colorize
 
 class AFUSession(val player: Player? = null) : LogoutListener {
     private val beaconTimers = Array(14) { i -> BeaconTimer(0, AFUBeacon.values()[i]) }

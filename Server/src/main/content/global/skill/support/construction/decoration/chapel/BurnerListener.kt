@@ -8,7 +8,7 @@ import core.game.node.item.Item
 import core.game.node.scenery.Scenery
 import core.game.node.scenery.SceneryBuilder
 import core.game.world.update.flag.context.Animation
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class BurnerListener : InteractionListener {
 

@@ -20,7 +20,7 @@ import core.game.world.map.Location
 import core.game.world.map.RegionManager.getNpc
 import core.game.world.map.zone.ZoneBorders
 import core.game.world.update.flag.context.Animation
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class AlchemistZone :
     MTAZone("Alchemists' Playground", arrayOf(Item(8890), Item(6893), Item(6894), Item(6895), Item(6896), Item(6897))) {

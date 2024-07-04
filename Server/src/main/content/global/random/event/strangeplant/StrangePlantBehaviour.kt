@@ -9,7 +9,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
 import core.game.node.entity.player.Player
 import core.game.system.timer.impl.AntiMacro
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class StrangePlantBehavior : NPCBehavior(NPCs.STRANGE_PLANT_408) {
     override fun canBeAttackedBy(self: NPC, attacker: Entity, style: CombatStyle, shouldSendMessage: Boolean): Boolean {

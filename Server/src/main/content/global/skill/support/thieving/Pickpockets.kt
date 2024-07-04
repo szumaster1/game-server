@@ -6,7 +6,7 @@ import core.api.utils.WeightBasedTable
 import core.api.utils.WeightedItem
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 import java.util.stream.IntStream
 
 enum class Pickpockets(

@@ -5,7 +5,7 @@ import content.minigame.pestcontrol.PestControlHelper
 import core.game.bots.CombatBotAssembler
 import core.game.bots.PvMBots
 import core.game.world.map.Location
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 import java.util.*
 
 class PestControlTestBot(l: Location) : PvMBots(legitimizeLocation(l)) {

@@ -3,7 +3,7 @@ package core.game.system.config
 import core.ServerConstants
 import core.api.log
 import core.game.component.ComponentDefinition
-import core.utilities.Log
+import core.tools.Log
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 import org.json.simple.parser.JSONParser

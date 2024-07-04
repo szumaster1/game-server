@@ -24,7 +24,7 @@ import core.game.system.timer.impl.AntiMacro
 import core.game.worldevents.holiday.HolidayRandomEventNPC
 import core.game.worldevents.holiday.HolidayRandomEvents
 import core.game.worldevents.holiday.HolidayRandoms
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class NPCInteractionListener : InteractionListener {
 

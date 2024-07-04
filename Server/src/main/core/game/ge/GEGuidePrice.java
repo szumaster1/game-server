@@ -2,7 +2,7 @@ package core.game.ge;
 
 import core.game.component.Component;
 import core.game.node.entity.player.Player;
-import core.utilities.StringUtils;
+import core.tools.StringUtils;
 
 /**
  * Represents the glass used to open the guide prices for the different type of

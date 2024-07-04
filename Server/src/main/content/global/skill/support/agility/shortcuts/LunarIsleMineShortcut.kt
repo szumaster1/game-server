@@ -11,10 +11,7 @@ import core.game.interaction.QueueStrength
 import core.game.node.entity.player.Player
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
-import core.network.packet.PacketRepository
-import core.network.packet.context.MinimapStateContext
-import core.network.packet.outgoing.MinimapState
-import core.utilities.DARK_RED
+import core.tools.DARK_RED
 
 class LunarIsleMineShortcut : InteractionListener {
 

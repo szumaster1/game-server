@@ -12,7 +12,7 @@ import core.game.node.item.Item;
 import core.game.world.GameWorld;
 import core.plugin.ClassScanner;
 import core.plugin.Plugin;
-import core.utilities.StringUtils;
+import core.tools.StringUtils;
 
 import static core.api.ContentAPIKt.setAttribute;
 

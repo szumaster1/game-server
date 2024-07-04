@@ -6,7 +6,7 @@ import core.network.packet.IoBuffer;
 import core.network.packet.OutgoingPacket;
 import core.network.packet.PacketHeader;
 import core.network.packet.context.MessageContext;
-import core.utilities.StringUtils;
+import core.tools.StringUtils;
 import core.game.bots.AIPlayer;
 
 import java.util.Random;

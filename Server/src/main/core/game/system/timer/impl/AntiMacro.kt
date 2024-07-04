@@ -11,8 +11,8 @@ import core.game.system.command.Privilege
 import core.game.system.timer.PersistTimer
 import core.game.world.map.zone.ZoneRestriction
 import core.game.world.repository.Repository
-import core.utilities.RandomFunction
-import core.utilities.colorize
+import core.tools.RandomFunction
+import core.tools.colorize
 import org.json.simple.JSONObject
 
 class AntiMacro : PersistTimer(0, "antimacro", isAuto = true), Commands {

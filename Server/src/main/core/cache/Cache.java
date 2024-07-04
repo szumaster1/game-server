@@ -2,7 +2,7 @@ package core.cache;
 
 import core.ServerConstants;
 import core.cache.def.impl.*;
-import core.utilities.Log;
+import core.tools.Log;
 
 import java.io.File;
 import java.io.RandomAccessFile;

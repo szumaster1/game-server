@@ -7,7 +7,7 @@ import core.api.consts.Items
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.game.world.update.flag.context.Animation
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 enum class FishingOption(
     val tool: Int,

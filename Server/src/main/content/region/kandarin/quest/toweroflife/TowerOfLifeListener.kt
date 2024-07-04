@@ -10,7 +10,7 @@ import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.interaction.QueueStrength
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class TowerOfLifeListener : InteractionListener {
     companion object {

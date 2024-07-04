@@ -20,8 +20,8 @@ import core.game.world.map.path.Pathfinder;
 import core.game.world.map.zone.impl.WildernessZone;
 import core.game.world.repository.Repository;
 import core.network.packet.context.MessageContext;
-import core.utilities.RandomFunction;
-import core.utilities.StringUtils;
+import core.tools.RandomFunction;
+import core.tools.StringUtils;
 import core.game.node.entity.skill.Skills;
 
 

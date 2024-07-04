@@ -8,7 +8,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.Initializable
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 @Initializable
 class CaptainShanksDialogue(player: Player? = null) : Dialogue(player) {

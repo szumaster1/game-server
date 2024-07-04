@@ -3,12 +3,12 @@ package content.global.activity.treasuretrails;
 import core.game.component.Component;
 import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
-import core.utilities.Log;
+import core.tools.Log;
 import core.game.world.map.zone.MapZone;
 import core.game.world.map.zone.ZoneBorders;
 import core.game.world.map.zone.ZoneBuilder;
 import core.plugin.Plugin;
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 
 import java.util.ArrayList;
 import java.util.HashMap;

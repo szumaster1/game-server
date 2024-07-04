@@ -6,7 +6,7 @@ import core.network.packet.IncomingPacket
 import core.network.packet.IoBuffer
 import core.network.packet.QCRepository
 import core.game.world.GameWorld
-import core.utilities.Log
+import core.tools.Log
 
 /**
  * Decodes the quick chat packet

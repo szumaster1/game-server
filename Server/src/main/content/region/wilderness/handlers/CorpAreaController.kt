@@ -8,7 +8,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.world.map.zone.ZoneBorders
 import core.game.world.map.zone.ZoneRestriction
-import core.utilities.secondsToTicks
+import core.tools.secondsToTicks
 
 class CorpAreaController : MapArea, TickListener {
     companion object {

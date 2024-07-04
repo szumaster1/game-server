@@ -13,8 +13,8 @@ import core.game.system.task.Pulse;
 import core.game.world.update.flag.context.Animation;
 import core.plugin.ClassScanner;
 import core.plugin.Initializable;
-import core.utilities.RandomFunction;
-import core.utilities.StringUtils;
+import core.tools.RandomFunction;
+import core.tools.StringUtils;
 
 import static core.api.ContentAPIKt.sendMessage;
 import static core.api.ContentAPIKt.setVarbit;

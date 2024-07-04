@@ -9,7 +9,7 @@ import core.game.node.entity.skill.Skills
 import core.game.world.map.zone.ZoneBorders
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 
 object EvilBobUtils {

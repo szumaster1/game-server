@@ -16,7 +16,7 @@ import core.game.world.GameWorld.Pulser
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
-import core.utilities.NumberConverter
+import core.tools.NumberConverter
 
 /**
  * @author Vexia, downthecrop, Player Name

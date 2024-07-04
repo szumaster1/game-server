@@ -4,8 +4,8 @@ import content.region.misthalin.quest.free.dragonslayer.DragonSlayer
 import core.game.dialogue.DialogueFile
 import core.game.node.entity.player.Player
 import core.game.node.item.GroundItemManager
-import core.utilities.END_DIALOGUE
-import core.utilities.START_DIALOGUE
+import core.tools.END_DIALOGUE
+import core.tools.START_DIALOGUE
 
 class DukeHoracioDragonSlayerDialogue(val questStage: Int) : DialogueFile() {
 

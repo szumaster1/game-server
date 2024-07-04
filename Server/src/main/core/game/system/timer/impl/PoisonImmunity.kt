@@ -2,7 +2,7 @@ package core.game.system.timer.impl
 
 import core.game.system.timer.*
 import core.api.*
-import core.utilities.*
+import core.tools.*
 import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
 import org.json.simple.*

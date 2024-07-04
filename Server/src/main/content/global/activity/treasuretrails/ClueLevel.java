@@ -6,7 +6,7 @@ import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
 import core.api.consts.Items;
 import core.game.world.GameWorld;
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;

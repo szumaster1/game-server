@@ -9,7 +9,7 @@ import core.game.world.map.Location;
 import core.game.world.map.Point;
 import core.game.world.map.RegionPlane;
 import core.game.world.map.build.DynamicRegion;
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 
 import java.util.*;
 

@@ -15,7 +15,7 @@ import core.game.node.entity.player.link.TeleportManager.TeleportType
 import core.game.world.map.Location
 import core.game.world.map.zone.impl.WildernessZone
 import core.plugin.Initializable
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 @Initializable
 class LavaTitanDialogue(player: Player? = null) : Dialogue(player) {

@@ -14,7 +14,7 @@ import core.game.node.item.Item
 import core.game.system.config.ItemConfigParser
 import core.game.world.map.Location
 import core.plugin.Plugin
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 import java.text.DecimalFormat
 import java.util.*
 

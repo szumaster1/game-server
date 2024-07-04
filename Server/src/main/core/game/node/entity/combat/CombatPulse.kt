@@ -17,7 +17,7 @@ import core.game.system.task.Pulse
 import core.game.system.timer.impl.*
 import core.game.world.GameWorld
 import core.game.world.update.flag.context.Animation
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class CombatPulse(val entity: Entity?) : Pulse(1, entity, null) {
 

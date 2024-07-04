@@ -11,7 +11,7 @@ import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.game.world.map.path.Pathfinder
 import core.game.bots.AIPlayer
-import core.utilities.Log
+import core.tools.Log
 import java.lang.Integer.max
 import java.io.*
 

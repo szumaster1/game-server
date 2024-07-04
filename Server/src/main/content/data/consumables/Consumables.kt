@@ -6,8 +6,8 @@ import core.game.consumable.*
 import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.entity.skill.Skills
 import core.game.world.update.flag.context.Animation
-import core.utilities.minutesToTicks
-import core.utilities.secondsToTicks
+import core.tools.minutesToTicks
+import core.tools.secondsToTicks
 
 /**
  * @author Vexia

@@ -2,7 +2,7 @@ package core.game.node.entity.npc;
 
 import core.game.world.map.Location;
 import core.plugin.Plugin;
-import core.utilities.Log;
+import core.tools.Log;
 
 import java.util.HashMap;
 import java.util.Map;

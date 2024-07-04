@@ -21,7 +21,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static core.utilities.DialogueHelperKt.END_DIALOGUE;
+import static core.tools.DialogueHelperKt.END_DIALOGUE;
 
 
 /**

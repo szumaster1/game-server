@@ -6,7 +6,7 @@ import core.api.StartupListener
 import core.api.TickListener
 import core.game.node.entity.npc.NPC
 import core.game.world.map.Location
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class BarbFishSpotManager : TickListener, StartupListener {
     var ticks = 0

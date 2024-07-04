@@ -10,7 +10,7 @@ import core.game.interaction.MovementPulse
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.world.map.Location
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class VarrockSmither : Script() {
     var state = State.SMITHING

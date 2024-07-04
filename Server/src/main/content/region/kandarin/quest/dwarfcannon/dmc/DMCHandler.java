@@ -19,7 +19,7 @@ import core.game.world.map.Location;
 import core.game.world.map.RegionManager;
 import core.game.world.map.zone.ZoneRestriction;
 import core.game.world.update.flag.context.Animation;
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 import org.jetbrains.annotations.NotNull;
 
 import static core.api.ContentAPIKt.*;

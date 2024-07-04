@@ -20,7 +20,7 @@ import core.game.world.map.path.Pathfinder
 import core.network.packet.PacketRepository
 import core.network.packet.context.CameraContext
 import core.network.packet.outgoing.CameraViewPacket
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class TelekineticZone(val player: Player? = null) :
     MTAZone("Telekinetic Theatre", arrayOf()) {

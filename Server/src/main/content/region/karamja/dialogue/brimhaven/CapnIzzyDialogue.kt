@@ -9,7 +9,7 @@ import core.game.global.Skillcape
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class CapnIzzyDialogue(private val it: Int) : DialogueFile() {
 

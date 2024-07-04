@@ -4,7 +4,7 @@ import core.ServerStore
 import core.api.StartupListener
 import core.api.log
 import core.plugin.ClassScanner
-import core.utilities.Log
+import core.tools.Log
 import org.json.simple.JSONObject
 
 class PenguinHNSEvent : StartupListener {

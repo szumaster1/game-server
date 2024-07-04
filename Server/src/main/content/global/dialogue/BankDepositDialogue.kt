@@ -4,7 +4,7 @@ import core.api.dumpBeastOfBurden
 import core.api.dumpContainer
 import core.api.sendMessage
 import core.game.dialogue.DialogueFile
-import core.utilities.START_DIALOGUE
+import core.tools.START_DIALOGUE
 
 class BankDepositDialogue : DialogueFile() {
 

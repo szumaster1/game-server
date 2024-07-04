@@ -1,4 +1,4 @@
-package content.global.random.event.treespirit
+package content.global.random.event.shade
 
 import content.global.random.RandomEventNPC
 import core.api.consts.NPCs
@@ -6,18 +6,19 @@ import core.api.utils.WeightBasedTable
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.NPC
 import kotlin.math.max
+import kotlin.math.min
 
-class TreeSpiritRENPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs.TREE_SPIRIT_438) {
+class ShadeNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs.SHADE_425) {
 
-    val ids = (438..443).toList()
+    val ids = (425..430).toList()
     override fun talkTo(npc: NPC) {}
     override fun init() {
         super.init()
-        val index = max(0, (player.properties.combatLevel / 20) - 1)
-        val id = ids.toList()[index]
+        val index = max(0, min(ids.size, (player.properties.combatLevel / 20) - 1))
+        val id = ids[index]
         this.transform(id)
         this.attack(player)
-        sendChat("Leave these woods and never return!")
+        sendChat("Leave this place!")
         this.isRespawn = false
     }
 

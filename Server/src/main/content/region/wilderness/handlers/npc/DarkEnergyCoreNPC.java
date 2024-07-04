@@ -10,7 +10,7 @@ import core.game.system.task.Pulse;
 import core.game.world.GameWorld;
 import core.game.world.map.Location;
 import core.plugin.Initializable;
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.isPoisoned;
 import static core.api.ContentAPIKt.isStunned;

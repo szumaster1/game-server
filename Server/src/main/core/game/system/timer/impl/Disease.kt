@@ -5,7 +5,7 @@ import core.api.*
 import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
 import core.game.node.entity.combat.ImpactHandler
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 import org.json.simple.*
 
 class Disease : PersistTimer (30, "disease", flags = arrayOf(TimerFlag.ClearOnDeath)) {

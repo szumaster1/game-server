@@ -5,12 +5,12 @@ import core.api.getItemName
 import core.api.log
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
-import core.utilities.Log
+import core.tools.Log
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 import org.json.simple.parser.JSONParser
-import core.utilities.SystemLogger.logShutdown
-import core.utilities.SystemLogger.logStartup
+import core.tools.SystemLogger.logShutdown
+import core.tools.SystemLogger.logStartup
 import java.io.File
 import java.io.FileReader
 import java.io.FileWriter

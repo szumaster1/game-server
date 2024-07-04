@@ -16,7 +16,7 @@ import core.game.world.update.flag.context.Animation;
 import core.network.packet.PacketRepository;
 import core.network.packet.context.ContainerContext;
 import core.network.packet.outgoing.ContainerPacket;
-import core.utilities.Log;
+import core.tools.Log;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;

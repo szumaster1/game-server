@@ -16,7 +16,7 @@ import core.game.world.map.zone.ZoneBuilder
 import core.plugin.ClassScanner.definePlugin
 import core.plugin.ClassScanner.definePlugins
 import core.plugin.Initializable
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 import java.util.*
 
 @Initializable

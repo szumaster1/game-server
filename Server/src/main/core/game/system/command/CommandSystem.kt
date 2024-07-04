@@ -1,8 +1,7 @@
 package core.game.system.command
 
 import core.game.node.entity.player.Player
-import core.game.system.command.CommandSet
-import core.utilities.colorize
+import core.tools.colorize
 
 /**
  * Represents a managing system used to dispatch incoming commands.

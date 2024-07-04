@@ -10,7 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.system.task.Pulse
 import core.game.world.map.Direction
 import core.game.world.map.Location
-import core.utilities.BLUE
+import core.tools.BLUE
 
 class ZogreFleshEatersListeners : InteractionListener {
 

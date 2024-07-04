@@ -4,7 +4,7 @@ import core.game.node.entity.player.Player
 import core.game.system.task.Pulse
 import core.game.world.GameWorld
 import core.game.world.map.Location
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 import core.Server
 import content.global.bots.Idler
 import core.api.*

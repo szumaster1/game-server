@@ -8,7 +8,7 @@ import core.api.removeItem
 import core.game.dialogue.DialogueFile
 import core.game.node.entity.npc.NPC
 import core.game.node.item.Item
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 
 class PaidVillagerDialogue : DialogueFile() {

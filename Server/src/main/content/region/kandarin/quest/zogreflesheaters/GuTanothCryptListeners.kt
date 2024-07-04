@@ -14,8 +14,8 @@ import core.game.node.item.Item
 import core.game.system.task.Pulse
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
-import core.utilities.BLUE
-import core.utilities.RandomFunction
+import core.tools.BLUE
+import core.tools.RandomFunction
 
 class GuTanothCryptListeners : InteractionListener {
 

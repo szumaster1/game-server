@@ -2,8 +2,8 @@ package content.region.misthalin.quest.free.dragonslayer.dialogue
 
 import content.region.misthalin.quest.free.dragonslayer.DragonSlayer
 import core.game.dialogue.DialogueFile
-import core.utilities.END_DIALOGUE
-import core.utilities.START_DIALOGUE
+import core.tools.END_DIALOGUE
+import core.tools.START_DIALOGUE
 
 
 private const val SHIP_DIALOGUE = 2000

@@ -8,7 +8,7 @@ import core.game.node.entity.combat.ImpactHandler
 import core.game.node.entity.player.link.TeleportManager
 import core.game.system.task.Pulse
 import core.game.world.map.Location
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class CrateMonkeyMadnessDialogue(val it: Int) : DialogueFile() {
     private val MMDungeon2 = Location.create(2804, 9168, 0)

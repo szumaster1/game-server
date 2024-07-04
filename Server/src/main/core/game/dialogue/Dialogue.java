@@ -7,15 +7,15 @@ import core.game.node.entity.player.Player;
 import core.plugin.Plugin;
 import core.plugin.PluginManifest;
 import core.plugin.PluginType;
-import core.utilities.Log;
+import core.tools.Log;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
 import static core.api.ContentAPIKt.log;
 import static core.api.DialUtilsKt.splitLines;
-import static core.utilities.DialogueHelperKt.DIALOGUE_INITIAL_OPTIONS_HANDLE;
-import static core.utilities.DialogueHelperKt.START_DIALOGUE;
+import static core.tools.DialogueHelperKt.DIALOGUE_INITIAL_OPTIONS_HANDLE;
+import static core.tools.DialogueHelperKt.START_DIALOGUE;
 
 /**
  * Represents a dialogue plugin.

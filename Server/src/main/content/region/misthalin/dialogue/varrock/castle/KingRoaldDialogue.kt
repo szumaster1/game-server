@@ -12,9 +12,9 @@ import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
-import core.utilities.DIALOGUE_INITIAL_OPTIONS_HANDLE
-import core.utilities.END_DIALOGUE
-import core.utilities.START_DIALOGUE
+import core.tools.DIALOGUE_INITIAL_OPTIONS_HANDLE
+import core.tools.END_DIALOGUE
+import core.tools.START_DIALOGUE
 
 class KingRoaldDialogue(player: Player? = null) : Dialogue(player) {
 

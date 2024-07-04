@@ -9,7 +9,7 @@ import core.game.node.entity.player.Player
 import core.game.world.map.Location
 import core.game.world.map.path.Pathfinder
 import core.plugin.Initializable
-import core.utilities.secondsToTicks
+import core.tools.secondsToTicks
 
 @Initializable
 class GardenerGhostNPC : AbstractNPC {

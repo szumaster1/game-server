@@ -1,6 +1,6 @@
 package content.minigame.blastfurnace
 
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class BlastState {
     var disableBreaking = false

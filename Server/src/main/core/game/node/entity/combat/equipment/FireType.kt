@@ -9,7 +9,7 @@ import core.game.node.entity.impl.Animator.Priority
 import core.game.node.entity.player.Player
 import core.game.system.task.NodeTask
 import core.game.world.update.flag.context.Animation
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 enum class FireType(val animation: Animation, val projectileId: Int, val task: NodeTask) {
 

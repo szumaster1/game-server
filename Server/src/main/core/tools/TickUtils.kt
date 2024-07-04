@@ -1,4 +1,4 @@
-package core.utilities
+package core.tools
 
 const val tick = 600 //ms
 const val second = 1000 //ms

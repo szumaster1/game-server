@@ -23,8 +23,8 @@ import core.game.world.GameWorld;
 import core.game.world.map.Location;
 import core.game.world.update.flag.context.Animation;
 import core.plugin.Plugin;
-import core.utilities.Log;
-import core.utilities.RandomFunction;
+import core.tools.Log;
+import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.*;
 

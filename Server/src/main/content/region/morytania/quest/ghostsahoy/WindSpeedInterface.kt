@@ -12,7 +12,7 @@ import core.game.interaction.InterfaceListener
 import core.game.node.entity.Entity
 import core.game.world.map.zone.ZoneBorders
 import core.plugin.Initializable
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 @Initializable
 class WindSpeedInterface : InterfaceListener, InteractionListener, EventHook<TickEvent>, MapArea {

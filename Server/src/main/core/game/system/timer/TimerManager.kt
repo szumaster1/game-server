@@ -1,7 +1,7 @@
 package core.game.system.timer
 
 import core.api.*
-import core.utilities.*
+import core.tools.*
 import java.util.ArrayList
 import org.json.simple.JSONObject
 import core.game.node.entity.Entity

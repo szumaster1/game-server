@@ -5,7 +5,7 @@ import core.api.consts.Components
 import core.api.consts.Items
 import core.game.component.Component
 import core.game.dialogue.DialogueFile
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class KingNarnodeMonkeyMadnessDialogue : DialogueFile() {
 

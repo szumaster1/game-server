@@ -6,7 +6,7 @@ import core.game.node.entity.npc.AbstractNPC;
 import core.game.node.entity.player.Player;
 import core.game.node.item.GroundItemManager;
 import core.game.world.map.Location;
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 
 /**
  * The Maze zombie npc.

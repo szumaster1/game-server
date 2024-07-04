@@ -9,7 +9,7 @@ import core.game.node.entity.Entity
 import core.game.node.entity.npc.NPC
 import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 import java.lang.Integer.max
 
 val ids = 2463..2468

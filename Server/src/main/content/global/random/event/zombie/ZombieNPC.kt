@@ -1,4 +1,4 @@
-package content.global.random.event.rockgolem
+package content.global.random.event.zombie
 
 import content.global.random.RandomEventNPC
 import core.api.consts.NPCs
@@ -6,18 +6,19 @@ import core.api.utils.WeightBasedTable
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.NPC
 import kotlin.math.max
+import kotlin.math.min
 
-class RockGolemRENPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs.ROCK_GOLEM_413) {
+class ZombieNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs.ZOMBIE_419) {
 
-    val ids = (413..418).toList()
+    val ids = (419..424).toList()
     override fun talkTo(npc: NPC) {}
     override fun init() {
         super.init()
-        val index = max(0, (player.properties.combatLevel / 20) - 1)
-        val id = ids.toList()[index]
+        val index = max(0, min(ids.size, (player.properties.combatLevel / 20) - 1))
+        val id = ids[index]
         this.transform(id)
         this.attack(player)
-        sendChat("Raarrrgghh! Flee human!")
+        sendChat("Brainsssss!")
         this.isRespawn = false
     }
 

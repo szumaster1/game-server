@@ -8,8 +8,8 @@ import core.game.node.entity.player.Player
 import core.game.system.task.Pulse
 import core.game.world.GameWorld
 import core.game.world.map.Location
-import core.utilities.GREEN
-import core.utilities.RED
+import core.tools.GREEN
+import core.tools.RED
 
 object GTUtils {
 

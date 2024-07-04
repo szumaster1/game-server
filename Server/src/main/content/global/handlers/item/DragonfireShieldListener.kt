@@ -22,8 +22,8 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 import core.plugin.Plugin
-import core.utilities.minutesToTicks
-import core.utilities.secondsToTicks
+import core.tools.minutesToTicks
+import core.tools.secondsToTicks
 
 class DragonfireShieldListener : InteractionListener {
 

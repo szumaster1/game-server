@@ -4,8 +4,8 @@ import core.api.consts.NPCs
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
-import core.utilities.END_DIALOGUE
-import core.utilities.RandomFunction
+import core.tools.END_DIALOGUE
+import core.tools.RandomFunction
 
 class AgilityTrainerDialogue : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {

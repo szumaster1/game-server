@@ -9,7 +9,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.item.Item
 import core.game.world.update.flag.context.Animation
-import core.utilities.START_DIALOGUE
+import core.tools.START_DIALOGUE
 
 class FruitCuttingListener : InteractionListener {
 

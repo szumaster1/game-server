@@ -9,7 +9,7 @@ import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.world.map.zone.ZoneBorders
-import core.utilities.ticksPerMinute
+import core.tools.ticksPerMinute
 
 class CastleWarsWaitingArea : CastleWarsArea(), TickListener {
 

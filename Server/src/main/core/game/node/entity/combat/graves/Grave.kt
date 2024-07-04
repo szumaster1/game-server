@@ -12,9 +12,9 @@ import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.game.world.repository.Repository
 import core.plugin.Initializable
-import core.utilities.colorize
-import core.utilities.secondsToTicks
-import core.utilities.ticksToSeconds
+import core.tools.colorize
+import core.tools.secondsToTicks
+import core.tools.ticksToSeconds
 import core.api.consts.NPCs
 
 @Initializable

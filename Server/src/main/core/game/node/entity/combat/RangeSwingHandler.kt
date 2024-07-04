@@ -19,8 +19,8 @@ import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.game.world.map.RegionManager
 import core.game.world.update.flag.context.Graphic
-import core.utilities.Log
-import core.utilities.RandomFunction
+import core.tools.Log
+import core.tools.RandomFunction
 import kotlin.math.ceil
 import kotlin.math.floor
 

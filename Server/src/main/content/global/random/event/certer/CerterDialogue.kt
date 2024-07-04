@@ -6,7 +6,7 @@ import core.game.dialogue.DialogueFile
 import core.game.node.entity.impl.PulseType
 import core.game.node.entity.player.link.emote.Emotes
 import core.game.system.timer.impl.AntiMacro
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class CerterDialogue(val initial: Boolean) : DialogueFile() {
 

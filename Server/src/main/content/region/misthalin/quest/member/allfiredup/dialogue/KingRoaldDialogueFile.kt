@@ -3,8 +3,8 @@ package content.region.misthalin.quest.member.allfiredup.dialogue
 import core.api.getStatLevel
 import core.game.dialogue.DialogueFile
 import core.game.node.entity.skill.Skills
-import core.utilities.END_DIALOGUE
-import core.utilities.START_DIALOGUE
+import core.tools.END_DIALOGUE
+import core.tools.START_DIALOGUE
 
 class KingRoaldDialogueFile(val questStage: Int) : DialogueFile() {
 

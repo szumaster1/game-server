@@ -2,7 +2,7 @@ package core.game.system.timer
 
 import java.util.*
 import core.api.*
-import core.utilities.*
+import core.tools.*
 import core.game.node.entity.Entity
 
 object TimerRegistry {

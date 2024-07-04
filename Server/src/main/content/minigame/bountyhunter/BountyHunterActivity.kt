@@ -33,7 +33,7 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.ClassScanner.definePlugin
 import core.plugin.Initializable
 import core.plugin.Plugin
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 import java.util.*
 
 @Initializable

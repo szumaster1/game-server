@@ -3,7 +3,7 @@ package core.game.bots
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.world.map.Location
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 import core.api.consts.Items
 import java.util.*
 import kotlin.collections.ArrayList

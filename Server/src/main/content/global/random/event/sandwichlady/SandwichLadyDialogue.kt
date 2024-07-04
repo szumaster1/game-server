@@ -8,7 +8,7 @@ import core.game.node.entity.combat.ImpactHandler
 import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 import core.game.system.timer.impl.AntiMacro
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class SandwichLadyDialogue(val isChoice: Boolean) : DialogueFile() {
 

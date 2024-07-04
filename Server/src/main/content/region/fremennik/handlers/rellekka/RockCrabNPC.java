@@ -7,7 +7,7 @@ import core.game.node.entity.npc.agg.AggressiveBehavior;
 import core.game.node.entity.npc.agg.AggressiveHandler;
 import core.game.world.map.Location;
 import core.plugin.Initializable;
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 
 @Initializable
 public final class RockCrabNPC extends AbstractNPC {

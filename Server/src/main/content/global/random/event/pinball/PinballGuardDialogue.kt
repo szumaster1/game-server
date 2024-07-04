@@ -4,7 +4,7 @@ import core.api.*
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.system.timer.impl.AntiMacro
-import core.utilities.BLUE
+import core.tools.BLUE
 
 class PinballGuardDialogue : DialogueFile() {
 

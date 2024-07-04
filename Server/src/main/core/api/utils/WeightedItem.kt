@@ -1,7 +1,7 @@
 package core.api.utils
 
 import core.game.node.item.Item
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class WeightedItem(var id: Int, var minAmt: Int, var maxAmt: Int, var weight: Double, var guaranteed: Boolean = false) {
     fun getItem(): Item {

@@ -10,7 +10,7 @@ import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 @Initializable
 class CommanderMontaiDialogue(player: Player? = null) : Dialogue(player) {
@@ -44,7 +44,7 @@ class CommanderMontaiDialogue(player: Player? = null) : Dialogue(player) {
                 when (stage) {
                     0 -> playerl(FacialExpression.FRIENDLY, "Hello.").also { stage++ }
                     1 -> npcl(FacialExpression.OLD_NORMAL, "Hello again, we're still desperate for wood soldier.").also { stage++ }
-                    2 -> player(FacialExpression.FRIENDLY, "I have some here.", "${core.utilities.WHITE}(You give six loads of logs to the commander.)").also { stage++ }
+                    2 -> player(FacialExpression.FRIENDLY, "I have some here.", "${core.tools.WHITE}(You give six loads of logs to the commander.)").also { stage++ }
                     3 -> {
                         for (i in 1..6) {// Remove the 6 normal logs
                             removeItem(player!!, Items.LOGS_1511)

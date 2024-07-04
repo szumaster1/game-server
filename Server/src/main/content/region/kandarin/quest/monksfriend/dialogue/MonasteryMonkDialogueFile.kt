@@ -3,7 +3,7 @@ package content.region.kandarin.quest.monksfriend.dialogue
 import core.api.getQuestStage
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class MonasteryMonkDialogueFile : DialogueFile() {
 

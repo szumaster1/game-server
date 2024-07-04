@@ -11,7 +11,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.system.task.Pulse
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class LarryHandler(player: Player? = null) : Dialogue(player) {
 

@@ -2,9 +2,9 @@ package core
 
 import core.game.system.SystemShutdownHook
 import core.game.world.map.Location
-import core.utilities.LogLevel
+import core.tools.LogLevel
 import core.services.mysql.Database
-import core.utilities.secondsToTicks
+import core.tools.secondsToTicks
 import content.minigame.castlewars.CastleWars
 import java.math.BigInteger
 import java.util.*

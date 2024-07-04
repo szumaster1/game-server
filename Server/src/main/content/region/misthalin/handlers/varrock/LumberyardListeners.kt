@@ -10,7 +10,7 @@ import core.game.node.entity.npc.NPC
 import core.game.world.map.Direction
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class LumberyardListeners : InteractionListener {
 

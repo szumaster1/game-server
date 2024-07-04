@@ -1,6 +1,6 @@
 package core.api.utils
 
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 /**
  * Implementation of a weighted table that supports generic (particularly non-Item) types.

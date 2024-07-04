@@ -13,8 +13,8 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.SpellBookManager
 import core.game.node.item.Item
 import core.game.world.map.path.ClipMaskSupplier
-import core.utilities.Log
-import core.utilities.RandomFunction
+import core.tools.Log
+import core.tools.RandomFunction
 
 class ImplingNPC : NPCBehavior(*Impling.getIds()) {
     override fun onCreation(self: NPC) {

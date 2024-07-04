@@ -8,7 +8,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.system.task.Pulse
 import core.game.world.map.Location
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class TreeGuardDialogue : DialogueFile() {
 

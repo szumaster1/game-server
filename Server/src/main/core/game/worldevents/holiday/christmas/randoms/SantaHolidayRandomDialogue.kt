@@ -6,8 +6,8 @@ import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.worldevents.holiday.HolidayRandoms
 import core.game.worldevents.holiday.christmas.Giftmas
-import core.utilities.END_DIALOGUE
-import core.utilities.RandomFunction
+import core.tools.END_DIALOGUE
+import core.tools.RandomFunction
 import core.api.consts.Items
 
 class SantaHolidayRandomDialogue : DialogueFile() {

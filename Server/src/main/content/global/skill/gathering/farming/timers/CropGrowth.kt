@@ -4,7 +4,7 @@ import content.global.skill.gathering.farming.*
 import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
 import core.game.system.timer.PersistTimer
-import core.utilities.secondsToTicks
+import core.tools.secondsToTicks
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 import java.time.LocalTime

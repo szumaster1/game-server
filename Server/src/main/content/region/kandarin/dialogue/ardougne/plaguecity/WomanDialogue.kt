@@ -2,9 +2,9 @@ package content.region.kandarin.dialogue.ardougne.plaguecity
 
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
-import core.utilities.END_DIALOGUE
-import core.utilities.RandomFunction
-import core.utilities.START_DIALOGUE
+import core.tools.END_DIALOGUE
+import core.tools.RandomFunction
+import core.tools.START_DIALOGUE
 
 class WomanDialogue : DialogueFile() {
 

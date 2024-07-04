@@ -12,7 +12,7 @@ import core.game.system.task.Pulse;
 import core.network.packet.PacketRepository;
 import core.network.packet.context.InteractionOptionContext;
 import core.network.packet.outgoing.InteractionOption;
-import core.utilities.Log;
+import core.tools.Log;
 import core.game.world.GameWorld;
 
 import static core.api.ContentAPIKt.log;

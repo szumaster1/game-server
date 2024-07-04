@@ -1,7 +1,7 @@
 package core.cache;
 
 import core.cache.misc.ContainersInformation;
-import core.utilities.StringUtils;
+import core.tools.StringUtils;
 
 import java.nio.ByteBuffer;
 

@@ -9,8 +9,8 @@ import core.game.node.entity.player.Player
 import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 import core.game.world.GameWorld
-import core.utilities.RandomFunction
-import core.utilities.colorize
+import core.tools.RandomFunction
+import core.tools.colorize
 
 /**
  * @author Ceikry, skelsoft, phil pips

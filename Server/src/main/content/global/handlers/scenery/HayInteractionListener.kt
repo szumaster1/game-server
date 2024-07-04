@@ -8,7 +8,7 @@ import core.game.dialogue.FacialExpression
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.combat.ImpactHandler
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class HayInteractionListener : InteractionListener {
 

@@ -14,7 +14,7 @@ import core.game.world.map.Direction;
 import core.game.world.map.path.Pathfinder;
 import core.game.world.update.flag.context.Animation;
 import core.plugin.Initializable;
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 
 /**
  * The Beaver npc.

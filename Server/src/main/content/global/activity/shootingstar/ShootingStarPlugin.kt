@@ -13,8 +13,8 @@ import core.game.node.entity.player.link.TeleportManager
 import core.game.node.entity.skill.Skills
 import core.game.system.command.Privilege
 import core.game.world.GameWorld
-import core.utilities.Log
-import core.utilities.secondsToTicks
+import core.tools.Log
+import core.tools.secondsToTicks
 import org.json.simple.JSONObject
 
 class ShootingStarPlugin : LoginListener, InteractionListener, TickListener, Commands, StartupListener {

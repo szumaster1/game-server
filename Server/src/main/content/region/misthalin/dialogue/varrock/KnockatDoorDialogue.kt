@@ -6,8 +6,8 @@ import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.system.task.Pulse
 import core.game.world.GameWorld.Pulser
-import core.utilities.BLUE
-import core.utilities.END_DIALOGUE
+import core.tools.BLUE
+import core.tools.END_DIALOGUE
 
 class KnockatDoorDialogue : DialogueFile() {
 

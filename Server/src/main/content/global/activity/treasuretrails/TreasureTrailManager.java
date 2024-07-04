@@ -4,7 +4,7 @@ import core.api.LoginListener;
 import core.api.PersistPlayer;
 import core.game.node.entity.player.Player;
 
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 import org.jetbrains.annotations.NotNull;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;

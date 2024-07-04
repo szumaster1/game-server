@@ -7,7 +7,7 @@ import core.game.node.entity.skill.Skills;
 import core.game.node.item.GroundItemManager;
 import core.game.node.item.Item;
 import core.plugin.Initializable;
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.addItemOrBank;
 

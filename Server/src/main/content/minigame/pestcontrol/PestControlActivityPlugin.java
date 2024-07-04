@@ -22,8 +22,8 @@ import core.game.world.map.zone.ZoneBuilder;
 import core.game.world.map.zone.ZoneRestriction;
 import core.plugin.ClassScanner;
 import core.plugin.Initializable;
-import core.utilities.RandomFunction;
-import core.utilities.StringUtils;
+import core.tools.RandomFunction;
+import core.tools.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;

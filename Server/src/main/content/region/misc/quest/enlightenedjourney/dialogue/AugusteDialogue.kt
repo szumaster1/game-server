@@ -15,7 +15,7 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.world.GameWorld
 import core.plugin.Initializable
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 @Initializable
 class AugusteDialogue(player: Player? = null) : Dialogue(player) {

@@ -4,7 +4,7 @@ import core.game.interaction.DestinationFlag;
 import core.game.node.Node;
 import core.game.world.map.path.Path;
 import core.game.world.map.path.Pathfinder;
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 import org.jetbrains.annotations.NotNull;
 import core.api.utils.Vector;
 

@@ -6,7 +6,7 @@ import core.api.openDialogue
 import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
-import core.utilities.START_DIALOGUE
+import core.tools.START_DIALOGUE
 
 @Initializable
 class ThormacDialogue(player: Player? = null) : Dialogue(player) {

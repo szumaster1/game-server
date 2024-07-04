@@ -5,8 +5,8 @@ import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
-import core.utilities.RandomFunction
-import core.utilities.START_DIALOGUE
+import core.tools.RandomFunction
+import core.tools.START_DIALOGUE
 
 @Initializable
 class FreygerdDialogue(player: Player? = null): Dialogue(player) {

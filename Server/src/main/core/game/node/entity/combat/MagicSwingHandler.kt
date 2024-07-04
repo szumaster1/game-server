@@ -7,7 +7,7 @@ import core.game.node.entity.combat.spell.SpellType
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 import kotlin.math.floor
 
 /**

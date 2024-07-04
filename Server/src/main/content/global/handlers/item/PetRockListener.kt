@@ -11,8 +11,8 @@ import core.game.interaction.QueueStrength
 import core.game.node.entity.impl.Projectile.getLocation
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
-import core.utilities.END_DIALOGUE
-import core.utilities.RandomFunction
+import core.tools.END_DIALOGUE
+import core.tools.RandomFunction
 
 class PetRockListener : InteractionListener {
 

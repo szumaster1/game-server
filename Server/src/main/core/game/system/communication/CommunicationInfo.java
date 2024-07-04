@@ -2,7 +2,7 @@ package core.game.system.communication;
 
 import core.cache.misc.buffer.ByteBufferUtils;
 import core.game.node.entity.player.Player;
-import core.utilities.Log;
+import core.tools.Log;
 import org.jetbrains.annotations.NotNull;
 import proto.management.PrivateMessage;
 import core.network.auth.UserAccountInfo;
@@ -15,7 +15,7 @@ import core.network.amsc.WorldCommunicator;
 import core.network.packet.PacketRepository;
 import core.network.packet.context.ContactContext;
 import core.network.packet.outgoing.ContactPackets;
-import core.utilities.StringUtils;
+import core.tools.StringUtils;
 import core.worker.ManagementEvents;
 
 import java.nio.ByteBuffer;

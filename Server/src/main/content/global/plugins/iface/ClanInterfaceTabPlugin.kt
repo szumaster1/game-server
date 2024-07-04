@@ -13,7 +13,7 @@ import core.network.amsc.MSPacketRepository
 import core.network.amsc.WorldCommunicator
 import core.plugin.Initializable
 import core.plugin.Plugin
-import core.utilities.StringUtils
+import core.tools.StringUtils
 
 @Initializable
 class ClanInterfaceTabPlugin : ComponentPlugin() {

@@ -1,7 +1,7 @@
 package core.game.node.item;
 
 import core.game.node.entity.npc.drop.DropFrequency;
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 
 /**
  * Represents an item with a chance-rate.

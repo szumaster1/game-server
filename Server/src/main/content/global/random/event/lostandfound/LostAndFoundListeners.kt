@@ -6,7 +6,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.interaction.QueueStrength
 import core.game.node.entity.skill.Skills
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class LostAndFoundListeners : InteractionListener {
 
@@ -18,12 +18,12 @@ class LostAndFoundListeners : InteractionListener {
         on(sceneryIDs, IntType.SCENERY, "operate") { player, node ->
             var magicLevel = getDynLevel(player, Skills.MAGIC)
             val randomRewardAmount = RandomFunction.random(8, 36)
-            if (LostAndFound.isOddAppendage(player, node.asScenery())) {
+            if (LostAndFoundUtils.isOddAppendage(player, node.asScenery())) {
                 player.locks.unlockTeleport()
-                LostAndFound.cleanup(player)
+                LostAndFoundUtils.cleanup(player)
                 queueScript(player, 4, QueueStrength.SOFT) {
                     sendPlainDialogue(player, false, "The Abyssal Services Department apologises for the inconvenience.")
-                    if (getAttribute(player, LostAndFound.essenceMine, false)) {
+                    if (getAttribute(player, LostAndFoundUtils.essenceMine, false)) {
                         addItem(
                             player,
                             if (getStatLevel(player, Skills.MINING) > 30
@@ -33,7 +33,7 @@ class LostAndFoundListeners : InteractionListener {
                     return@queueScript stopExecuting(player)
                 }
             } else {
-                LostAndFound.setRandomAppendage(player)
+                LostAndFoundUtils.setRandomAppendage(player)
                 sendMessage(player, "That was not the correct appendage!")
                 if (magicLevel > 1) {
                     magicLevel -= reducedMagicLevel

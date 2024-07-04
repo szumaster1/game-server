@@ -8,9 +8,9 @@ import core.api.consts.Vars
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
-import core.utilities.BLUE
-import core.utilities.DARK_BLUE
-import core.utilities.END_DIALOGUE
+import core.tools.BLUE
+import core.tools.DARK_BLUE
+import core.tools.END_DIALOGUE
 
 
 class GrishDialogueFiles : DialogueFile() {

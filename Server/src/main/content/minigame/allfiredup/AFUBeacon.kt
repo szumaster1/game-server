@@ -5,7 +5,7 @@ import core.api.log
 import core.api.setVarbit
 import core.game.node.entity.player.Player
 import core.game.world.map.Location
-import core.utilities.Log
+import core.tools.Log
 
 
 enum class AFUBeacon(

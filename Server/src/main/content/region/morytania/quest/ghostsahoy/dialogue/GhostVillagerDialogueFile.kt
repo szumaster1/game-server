@@ -7,7 +7,7 @@ import core.api.inEquipment
 import core.api.openDialogue
 import core.game.dialogue.DialogueFile
 import core.game.node.entity.npc.NPC
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class GhostVillagerDialogueFile : DialogueFile() {
 

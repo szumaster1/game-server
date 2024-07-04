@@ -15,7 +15,7 @@ import core.game.world.GameWorld;
 import core.plugin.Initializable;
 import org.json.simple.JSONObject;
 
-import static core.utilities.DialogueHelperKt.END_DIALOGUE;
+import static core.tools.DialogueHelperKt.END_DIALOGUE;
 
 @Initializable
 public final class SlayerMasterDialogue extends Dialogue {

@@ -12,7 +12,7 @@ import core.game.system.timer.RSTimer;
 import core.game.system.timer.TimerFlag;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 
 /**
  * The Phantom strike special handler.

@@ -8,7 +8,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.link.diary.AchievementDiary
 import core.game.node.entity.player.link.diary.DiaryType
 import core.game.world.GameWorld
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class AdvisorGhrimDiaryDialogue : DialogueFile() {
 

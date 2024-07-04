@@ -4,7 +4,7 @@ import core.api.*
 import core.game.interaction.QueueStrength
 import core.game.node.entity.npc.NPC
 import core.game.worldevents.holiday.HolidayRandomEventNPC
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 import core.api.consts.NPCs
 
 class ChoirHolidayRandomNPC : HolidayRandomEventNPC(NPCs.ZANARIS_CHOIR_3312) {

@@ -8,7 +8,7 @@ import core.api.playAudio
 import core.api.setAttribute
 import core.api.utils.WeightBasedTable
 import core.game.node.entity.npc.NPC
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class GenieNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs.GENIE_409) {
 

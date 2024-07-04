@@ -8,8 +8,8 @@ import core.game.interaction.QueueStrength
 import core.game.node.entity.npc.NPC
 import core.game.system.timer.impl.AntiMacro
 import core.game.world.update.flag.context.Animation
-import core.utilities.minutesToTicks
-import core.utilities.secondsToTicks
+import core.tools.minutesToTicks
+import core.tools.secondsToTicks
 
 class StrangePlantNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs.STRANGE_PLANT_407) {
     private val strangePlantGrowAnim = Animation(348)

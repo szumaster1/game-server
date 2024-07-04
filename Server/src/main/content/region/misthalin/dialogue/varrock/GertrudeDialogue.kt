@@ -10,8 +10,8 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.Initializable
-import core.utilities.END_DIALOGUE
-import core.utilities.RandomFunction
+import core.tools.END_DIALOGUE
+import core.tools.RandomFunction
 
 @Initializable
 class GertrudeDialogue(player: Player? = null) : Dialogue(player) {

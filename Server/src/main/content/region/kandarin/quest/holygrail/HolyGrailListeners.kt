@@ -17,7 +17,7 @@ import core.game.node.scenery.Scenery
 import core.game.world.map.Direction
 import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
-import core.utilities.secondsToTicks
+import core.tools.secondsToTicks
 
 class HolyGrailListeners : InteractionListener {
     override fun defineListeners() {

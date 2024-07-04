@@ -6,7 +6,7 @@ import core.api.consts.Items
 import core.api.getItemFromEquipment
 import core.api.removeItem
 import core.game.node.entity.player.Player
-import core.utilities.colorize
+import core.tools.colorize
 import kotlin.math.min
 
 class FOGGlovesManager {

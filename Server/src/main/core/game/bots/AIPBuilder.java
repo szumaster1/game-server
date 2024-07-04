@@ -5,7 +5,7 @@ import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.appearance.Gender;
 import core.game.node.item.Item;
 import core.game.world.map.Location;
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 
 import java.util.ArrayList;
 import java.util.Arrays;

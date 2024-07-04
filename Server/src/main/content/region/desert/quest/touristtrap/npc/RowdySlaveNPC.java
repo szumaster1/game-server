@@ -13,7 +13,7 @@ import core.game.node.item.Item;
 import core.game.world.map.Location;
 import core.plugin.ClassScanner;
 import core.plugin.Plugin;
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 
 /**
  * The Rowdy slave npc.

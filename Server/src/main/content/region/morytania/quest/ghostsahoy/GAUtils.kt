@@ -9,7 +9,7 @@ import core.game.component.Component
 import core.game.interaction.QueueStrength
 import core.game.node.entity.combat.ImpactHandler
 import core.game.node.entity.player.Player
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 object GAUtils {
 

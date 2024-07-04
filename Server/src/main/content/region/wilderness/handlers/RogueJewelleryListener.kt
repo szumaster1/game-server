@@ -9,7 +9,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.npc.NPC
 import core.game.node.item.Item
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class RogueJewelleryListener : InteractionListener {
 

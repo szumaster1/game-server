@@ -15,7 +15,7 @@ import core.game.world.map.Direction;
 import core.game.world.map.Location;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 
 import java.util.ArrayList;
 import java.util.List;

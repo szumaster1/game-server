@@ -5,7 +5,7 @@ import core.api.visualize
 import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
 import core.game.system.timer.RSTimer
-import core.utilities.minutesToTicks
+import core.tools.minutesToTicks
 import core.api.consts.Sounds
 
 class ResetHolidayAppearance : RSTimer(minutesToTicks(1), "reset-holiday-appearance") {

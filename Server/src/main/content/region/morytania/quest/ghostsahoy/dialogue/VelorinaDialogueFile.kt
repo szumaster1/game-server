@@ -6,7 +6,7 @@ import core.api.consts.NPCs
 import core.game.dialogue.DialogueFile
 import core.game.node.entity.npc.NPC
 import core.game.world.GameWorld
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class VelorinaDialogueFile : DialogueFile() {
 

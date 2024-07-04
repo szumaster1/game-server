@@ -11,8 +11,8 @@ import core.game.world.map.build.DynamicRegion
 import core.game.world.map.zone.ZoneBorders
 import core.game.world.map.zone.ZoneRestriction
 import core.plugin.Initializable
-import core.utilities.colorize
-import core.utilities.ticksToSeconds
+import core.tools.colorize
+import core.tools.ticksToSeconds
 
 
 private val WAIT_TIME = if (GameWorld.settings?.isDevMode == true) 10 else 203

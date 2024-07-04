@@ -57,13 +57,13 @@ class FairyRingCommandSet : CommandPlugin() {
         when (name) {
             "f" -> {
                 if (arguments!!.size < 2) {
-                    sendMessage(player!!, "${core.utilities.DARK_PURPLE}Syntax: ::f [Teleport code]")
+                    sendMessage(player!!, "${core.tools.DARK_PURPLE}Syntax: ::f [Teleport code]")
                     return true
                 }
                 val ringCode = arguments[1]!!.uppercase()
                 if (RING_CODES.containsKey(ringCode)) {
                     if (ringCode == "DIQ") {
-                        sendMessage(player!!, "${core.utilities.DARK_PURPLE}Sorry, Player home rings are not yet implemented in fairycli.")
+                        sendMessage(player!!, "${core.tools.DARK_PURPLE}Sorry, Player home rings are not yet implemented in fairycli.")
                         return true
                     } else {
                         sendMessage(player!!, "Teleporting to: $ringCode")
@@ -73,7 +73,7 @@ class FairyRingCommandSet : CommandPlugin() {
                         player.teleporter.send((RING_CODES[ringCode] ?: error("RING CODES IMPROPERLY SET. Please fix fairycli.kt"))[0] as Location?, TeleportManager.TeleportType.FAIRY_RING)
                     }
                 } else {
-                    sendMessage(player!!, "${core.utilities.DARK_PURPLE}Invalid teleport code: ${ringCode}. It may be unimplemented")
+                    sendMessage(player!!, "${core.tools.DARK_PURPLE}Invalid teleport code: ${ringCode}. It may be unimplemented")
                 }
             }
         }

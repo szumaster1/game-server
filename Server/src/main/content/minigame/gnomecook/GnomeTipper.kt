@@ -3,7 +3,7 @@ package content.minigame.gnomecook
 import core.api.consts.Items
 import core.game.node.item.Item
 import core.game.node.item.WeightedChanceItem
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 object GnomeTipper {
     private val easyTips = arrayListOf(

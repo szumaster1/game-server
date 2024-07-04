@@ -1,4 +1,4 @@
-package core.utilities;
+package core.tools;
 
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.info.PlayerDetails;

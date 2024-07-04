@@ -1,7 +1,7 @@
 package content.region.fremennik.dialogue.miscellania
 
 import core.game.dialogue.DialogueFile
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class KjallakOnChopDialogue : DialogueFile() {
 

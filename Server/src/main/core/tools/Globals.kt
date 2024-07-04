@@ -1,4 +1,4 @@
-package core.utilities
+package core.tools
 
 const val BLACK = "<col=000000>"
 const val RED = "<col=ff0000>"

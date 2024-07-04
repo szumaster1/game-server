@@ -12,8 +12,8 @@ import core.game.node.scenery.SceneryBuilder;
 import core.game.world.GameWorld;
 import core.game.world.map.RegionManager;
 import core.game.world.update.flag.context.Animation;
-import core.utilities.RandomFunction;
-import core.utilities.StringUtils;
+import core.tools.RandomFunction;
+import core.tools.StringUtils;
 
 import static core.api.ContentAPIKt.*;
 

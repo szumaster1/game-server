@@ -2,7 +2,7 @@ package content.region.kandarin.quest.dwarfcannon.npc;
 
 import core.game.node.entity.npc.AbstractNPC;
 import core.game.world.map.Location;
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 
 /**
  * The Captain lawgof npc.

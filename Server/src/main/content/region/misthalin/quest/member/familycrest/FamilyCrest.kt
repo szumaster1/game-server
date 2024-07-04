@@ -11,7 +11,7 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
-import core.utilities.Log
+import core.tools.Log
 
 @Initializable
 class FamilyCrest : Quest("Family Crest", 59, 58, 1, Vars.VARP_QUEST_FAMILY_CREST_PROGRESS, 0, 1, 11) {

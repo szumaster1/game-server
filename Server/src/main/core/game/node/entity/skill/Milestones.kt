@@ -4,7 +4,7 @@ import core.api.sendMessage
 import core.game.node.entity.player.Player
 import core.game.world.GameWorld
 import core.game.world.update.flag.context.Graphic
-import core.utilities.DARK_RED
+import core.tools.DARK_RED
 
 fun Milestones(player: Player): Int {
 

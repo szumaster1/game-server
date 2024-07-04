@@ -24,9 +24,9 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.plugin.ClassScanner.definePlugin
 import core.plugin.Initializable
-import core.utilities.Log
-import core.utilities.RandomFunction
-import core.utilities.colorize
+import core.tools.Log
+import core.tools.RandomFunction
+import core.tools.colorize
 import java.lang.Math
 import kotlin.math.cos
 import kotlin.math.sin

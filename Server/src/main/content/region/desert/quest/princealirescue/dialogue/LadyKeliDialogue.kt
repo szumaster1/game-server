@@ -13,7 +13,7 @@ import core.game.node.item.Item
 import core.game.world.GameWorld.settings
 import core.game.world.map.RegionManager.getLocalNpcs
 import core.plugin.Initializable
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 @Initializable
 class LadyKeliDialogue(player: Player? = null) : Dialogue(player) {

@@ -22,8 +22,8 @@ import core.game.node.scenery.SceneryBuilder
 import core.game.system.command.sets.STATS_BASE
 import core.game.system.command.sets.STATS_ROCKS
 import core.game.world.map.zone.ZoneBorders
-import core.utilities.RandomFunction
-import core.utilities.prependArticle
+import core.tools.RandomFunction
+import core.tools.prependArticle
 
 class MiningListeners : InteractionListener {
 

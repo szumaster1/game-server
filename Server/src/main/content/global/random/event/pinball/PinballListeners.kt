@@ -10,8 +10,8 @@ import core.game.interaction.InteractionListener
 import core.game.world.map.Direction
 import core.game.world.map.zone.ZoneBorders
 import core.game.world.map.zone.ZoneRestriction
-import core.utilities.BLUE
-import core.utilities.RandomFunction
+import core.tools.BLUE
+import core.tools.RandomFunction
 
 class PinballListeners : InteractionListener, MapArea {
 

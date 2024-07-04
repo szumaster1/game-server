@@ -8,7 +8,7 @@ import core.api.replaceScenery
 import core.api.sendMessage
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class PiratesCoveListeners : InteractionListener {
 

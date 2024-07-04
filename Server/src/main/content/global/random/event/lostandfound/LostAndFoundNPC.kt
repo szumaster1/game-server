@@ -8,7 +8,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.link.TeleportManager
 import core.game.system.timer.impl.AntiMacro
 
-class LostAndFoundInitNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(-1) {
+class LostAndFoundNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(-1) {
     /*
      * TODO:
      *  1. Change to non-skill random event. It was only accessible through normal teleports and a essence mine.
@@ -23,7 +23,7 @@ class LostAndFoundInitNPC(override var loot: WeightBasedTable? = null) : RandomE
         lock(player, 4)
         sendChat(player, "Uh? Help!")
         if(player.location.isInRegion(11595)) {
-            setAttribute(player, LostAndFound.essenceMine, true)
+            setAttribute(player, LostAndFoundUtils.essenceMine, true)
         }
         queueScript(player, 1, QueueStrength.SOFT) { stage: Int ->
             when (stage) {
@@ -34,9 +34,9 @@ class LostAndFoundInitNPC(override var loot: WeightBasedTable? = null) : RandomE
                      * }
                      */
                     setMinimapState(player, 2)
-                    LostAndFound.setRandomAppendage(player)
-                    setAttribute(player, LostAndFound.previousLocation, player.location)
-                    teleport(player, LostAndFound.eventLocation, type = TeleportManager.TeleportType.RANDOM_EVENT_OLD)
+                    LostAndFoundUtils.setRandomAppendage(player)
+                    setAttribute(player, LostAndFoundUtils.previousLocation, player.location)
+                    teleport(player, LostAndFoundUtils.eventLocation, type = TeleportManager.TeleportType.RANDOM_EVENT_OLD)
                     return@queueScript delayScript(player, 3)
                 }
 

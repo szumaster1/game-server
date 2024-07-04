@@ -13,7 +13,7 @@ import core.game.node.item.Item
 import core.game.system.task.Pulse
 import core.game.world.map.RegionManager
 import core.game.world.map.zone.ZoneBorders
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class ImpDefenderNPC : NPCBehavior(NPCs.IMP_DEFENDER_6074) {
     override fun onCreation(self: NPC) {

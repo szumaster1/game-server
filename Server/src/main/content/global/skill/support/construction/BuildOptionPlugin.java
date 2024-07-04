@@ -11,7 +11,7 @@ import core.game.node.scenery.Scenery;
 import core.plugin.ClassScanner;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
-import core.utilities.Log;
+import core.tools.Log;
 
 import static core.api.ContentAPIKt.log;
 

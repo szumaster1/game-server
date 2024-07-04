@@ -3,7 +3,7 @@ package core.game.node.entity.combat
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.equipment.SwitchAttack
 import core.game.node.entity.npc.NPC
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 /**
  * Handles combat swings with switching combat styles.

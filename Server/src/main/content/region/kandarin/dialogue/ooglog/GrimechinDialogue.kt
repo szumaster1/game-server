@@ -4,7 +4,7 @@ import core.api.consts.NPCs
 import core.api.sendNPCDialogue
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
-import core.utilities.START_DIALOGUE
+import core.tools.START_DIALOGUE
 
 class GrimechinDialogue : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {

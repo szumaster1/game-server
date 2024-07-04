@@ -8,8 +8,8 @@ import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills
 import core.game.node.scenery.Scenery
 import core.game.world.GameWorld
-import core.utilities.RandomFunction
-import core.utilities.colorize
+import core.tools.RandomFunction
+import core.tools.colorize
 
 class ShootingStarMiningPulse(player: Player?, node: Scenery?, val star: ShootingStar) : SkillPulse<Scenery?>(player, node) {
 

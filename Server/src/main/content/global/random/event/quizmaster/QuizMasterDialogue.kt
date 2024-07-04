@@ -12,8 +12,8 @@ import core.game.world.GameWorld.settings
 import core.network.packet.PacketRepository
 import core.network.packet.context.DisplayModelContext
 import core.network.packet.outgoing.DisplayModel
-import core.utilities.Log
-import core.utilities.RandomFunction
+import core.tools.Log
+import core.tools.RandomFunction
 
 //@Initializable
 class QuizMasterDialogue(player: Player? = null) : Dialogue(player) {

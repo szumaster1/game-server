@@ -21,8 +21,8 @@ import core.game.system.command.sets.STATS_BASE
 import core.game.system.command.sets.STATS_FISH
 import core.game.world.GameWorld
 import core.game.world.map.path.Pathfinder
-import core.utilities.RandomFunction
-import core.utilities.colorize
+import core.tools.RandomFunction
+import core.tools.colorize
 
 class FishingListener : InteractionListener {
     override fun defineListeners() {

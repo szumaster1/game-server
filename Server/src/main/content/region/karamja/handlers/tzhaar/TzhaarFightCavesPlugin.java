@@ -22,7 +22,7 @@ import core.game.world.map.Location;
 import core.game.world.map.build.DynamicRegion;
 import core.game.world.map.zone.ZoneRestriction;
 import core.plugin.Initializable;
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 
 import java.util.ArrayList;
 import java.util.List;

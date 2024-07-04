@@ -16,7 +16,7 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.world.repository.Repository
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 import kotlin.math.ceil
 
 class BrimhavenListeners : InteractionListener {

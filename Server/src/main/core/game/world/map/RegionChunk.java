@@ -12,7 +12,7 @@ import core.network.packet.outgoing.ClearScenery;
 import core.network.packet.outgoing.ConstructGroundItem;
 import core.network.packet.outgoing.ConstructScenery;
 import core.network.packet.outgoing.UpdateAreaPosition;
-import core.utilities.Log;
+import core.tools.Log;
 
 import java.util.ArrayList;
 import java.util.List;

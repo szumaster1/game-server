@@ -11,7 +11,7 @@ import core.game.world.GameWorld.Pulser
 import core.game.world.GameWorld.ticks
 import core.game.world.map.Location
 import core.game.world.map.RegionManager.getLocalPlayers
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class DesertGuardDialogue(player: Player? = null) : Dialogue(player) {
 

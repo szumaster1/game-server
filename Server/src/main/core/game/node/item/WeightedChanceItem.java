@@ -1,6 +1,6 @@
 package core.game.node.item;
 
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 
 /**
  * The type Weighted chance item.

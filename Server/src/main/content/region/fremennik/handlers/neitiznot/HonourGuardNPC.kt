@@ -5,7 +5,7 @@ import core.api.findLocalNPCs
 import core.game.node.entity.npc.AbstractNPC
 import core.game.world.map.Location
 import core.plugin.Initializable
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 @Initializable
 class HonourGuardNPC : AbstractNPC {

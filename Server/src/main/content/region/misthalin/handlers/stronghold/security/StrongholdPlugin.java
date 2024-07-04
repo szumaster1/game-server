@@ -33,7 +33,7 @@ import core.network.packet.outgoing.MusicPacket;
 import core.plugin.ClassScanner;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.*;
 

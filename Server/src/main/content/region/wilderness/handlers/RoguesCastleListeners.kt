@@ -14,7 +14,7 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.node.scenery.Scenery
 import core.game.system.task.Pulse
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class RoguesCastleListeners : InteractionListener {
 

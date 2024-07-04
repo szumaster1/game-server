@@ -2,7 +2,7 @@ package content.region.karamja.quest.monkeymadness.dialogue
 
 import core.api.setQuestStage
 import core.game.dialogue.DialogueFile
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class GLOCaranockDialogue : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {

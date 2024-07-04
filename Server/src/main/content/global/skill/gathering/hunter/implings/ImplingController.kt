@@ -4,7 +4,7 @@ import core.api.*
 import core.game.node.entity.npc.NPC
 import core.game.system.command.Privilege
 import core.game.world.map.Location
-import core.utilities.secondsToTicks
+import core.tools.secondsToTicks
 import kotlin.math.ceil
 import kotlin.math.min
 

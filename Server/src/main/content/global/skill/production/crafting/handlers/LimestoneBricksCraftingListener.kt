@@ -7,7 +7,7 @@ import core.api.consts.Sounds
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.skill.Skills
-import core.utilities.RandomUtils
+import core.tools.RandomUtils
 import kotlin.math.min
 
 class LimestoneBricksCraftingListener : InteractionListener {

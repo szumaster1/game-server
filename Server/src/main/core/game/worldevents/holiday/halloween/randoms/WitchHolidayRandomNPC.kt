@@ -7,7 +7,7 @@ import core.game.node.entity.npc.NPC
 import core.game.worldevents.holiday.ResetHolidayAppearance
 import core.game.worldevents.holiday.HolidayRandomEventNPC
 import core.game.worldevents.holiday.HolidayRandoms
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 import core.api.consts.Sounds
 
 class WitchHolidayRandomNPC : HolidayRandomEventNPC(611) {

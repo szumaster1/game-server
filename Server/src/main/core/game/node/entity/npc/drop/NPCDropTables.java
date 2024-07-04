@@ -17,8 +17,8 @@ import core.game.node.item.Item;
 import core.game.world.map.Location;
 import core.game.world.map.RegionManager;
 import core.game.world.repository.Repository;
-import core.utilities.RandomFunction;
-import core.utilities.StringUtils;
+import core.tools.RandomFunction;
+import core.tools.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -15,7 +15,7 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld.Pulser
 import core.game.world.map.Location
 import core.game.world.repository.Repository.findNPC
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class FalconryCatchPulse(player: Player?, node: NPC, private val falconCatch: FalconCatch) :
     SkillPulse<NPC?>(player, node) {

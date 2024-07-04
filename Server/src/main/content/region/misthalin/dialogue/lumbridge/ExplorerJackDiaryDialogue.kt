@@ -7,7 +7,7 @@ import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.entity.player.link.emote.Emotes
 import core.game.world.GameWorld.settings
 import core.plugin.Initializable
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 import core.api.consts.NPCs
 
 @Initializable

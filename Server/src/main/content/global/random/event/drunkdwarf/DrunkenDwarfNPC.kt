@@ -10,7 +10,7 @@ import core.api.sendChat
 import core.api.utils.WeightBasedTable
 import core.game.node.entity.npc.NPC
 import core.game.world.update.flag.context.Animation
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class DrunkenDwarfNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs.DRUNKEN_DWARF_956) {
 

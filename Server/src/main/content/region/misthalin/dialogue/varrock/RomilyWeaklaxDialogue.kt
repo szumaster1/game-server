@@ -13,7 +13,7 @@ import core.game.node.item.Item
 import core.plugin.ClassScanner.definePlugin
 import core.plugin.Initializable
 import core.plugin.Plugin
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 @Initializable
 class RomilyWeaklaxDialogue(player: Player? = null) : Dialogue(player) {

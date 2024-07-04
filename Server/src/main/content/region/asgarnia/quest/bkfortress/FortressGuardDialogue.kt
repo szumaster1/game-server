@@ -12,7 +12,7 @@ import core.game.node.item.Item
 import core.game.world.map.RegionManager.getLocalNpcs
 import core.game.world.map.RegionManager.getObject
 import core.plugin.Initializable
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 @Initializable
 class FortressGuardDialogue(player: Player? = null) : Dialogue(player) {

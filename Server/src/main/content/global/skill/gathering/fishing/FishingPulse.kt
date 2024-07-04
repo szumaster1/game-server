@@ -19,8 +19,8 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld.Pulser
 import core.game.world.map.Location
 import core.game.world.map.path.Pathfinder
-import core.utilities.RandomFunction
-import core.utilities.colorize
+import core.tools.RandomFunction
+import core.tools.colorize
 
 class FishingPulse(player: Player?, npc: NPC, private val option: FishingOption?) : SkillPulse<NPC?>(player, npc) {
 

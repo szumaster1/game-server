@@ -2,7 +2,7 @@ package content.global.skill.support.thieving;
 
 import core.game.node.item.Item;
 import core.game.node.scenery.Scenery;
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 
 import java.util.ArrayList;
 import java.util.Arrays;

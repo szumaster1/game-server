@@ -19,8 +19,8 @@ import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
-import core.utilities.RandomFunction
-import core.utilities.StringUtils
+import core.tools.RandomFunction
+import core.tools.StringUtils
 
 class GraveyardZone :
     MTAZone("Creature Graveyard", arrayOf(Item(6904), Item(6905), Item(6906), Item(6907), Item(1963), Item(6883))) {

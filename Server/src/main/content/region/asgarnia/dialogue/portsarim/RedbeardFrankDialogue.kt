@@ -12,7 +12,7 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 import core.plugin.Initializable
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 @Initializable
 class RedbeardFrankDialogue(player: Player? = null) : Dialogue(player) {

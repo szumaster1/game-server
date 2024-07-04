@@ -5,8 +5,8 @@ import core.api.getAttribute
 import core.api.removeAttribute
 import core.game.dialogue.DialogueFile
 import core.game.node.item.Item
-import core.utilities.END_DIALOGUE
-import core.utilities.START_DIALOGUE
+import core.tools.END_DIALOGUE
+import core.tools.START_DIALOGUE
 
 class KingRoaldAFUDialogue : DialogueFile() {
 

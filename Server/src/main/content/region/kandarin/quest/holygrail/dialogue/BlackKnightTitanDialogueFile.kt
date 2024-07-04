@@ -7,7 +7,7 @@ import core.game.dialogue.FacialExpression
 import core.game.dialogue.Topic
 import core.game.node.entity.npc.NPC
 import core.game.world.repository.Repository
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class BlackKnightTitanDialogueFile(val forced: Boolean) : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {

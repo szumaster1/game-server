@@ -2,7 +2,7 @@ package content.global.skill.gathering.hunter;
 
 import core.game.world.GameWorld;
 import core.game.world.map.Location;
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 
 /**
  * The Trap hook.

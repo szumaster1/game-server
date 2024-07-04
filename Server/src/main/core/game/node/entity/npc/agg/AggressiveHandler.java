@@ -7,7 +7,7 @@ import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.info.Rights;
 import core.game.world.GameWorld;
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 
 /**
  * Used to handle entity aggressiveness.

@@ -13,7 +13,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 @Initializable
 class MacawDialogue(player: Player? = null) : Dialogue(player) {

@@ -16,7 +16,7 @@ import core.game.node.scenery.SceneryBuilder
 import core.game.system.task.Pulse
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 import kotlin.math.abs
 
 class CanoeListeners : InteractionListener, InterfaceListener {

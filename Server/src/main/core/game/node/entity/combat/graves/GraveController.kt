@@ -18,8 +18,8 @@ import core.game.world.map.Location
 import core.game.world.map.zone.ZoneRestriction
 import core.game.world.map.zone.impl.WildernessZone
 import core.game.world.repository.Repository
-import core.utilities.colorize
-import core.utilities.secondsToTicks
+import core.tools.colorize
+import core.tools.secondsToTicks
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 import core.api.consts.Items

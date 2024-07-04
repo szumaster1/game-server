@@ -10,8 +10,8 @@ import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.system.task.Pulse
-import core.utilities.StringUtils
-import core.utilities.prependArticle
+import core.tools.StringUtils
+import core.tools.prependArticle
 
 class UseWithPatchHandler : InteractionListener {
     val RAKE = Items.RAKE_5341

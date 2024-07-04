@@ -12,7 +12,7 @@ import core.game.node.item.Item
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 @Initializable
 class StrangerPlantNPC(owner: Player? = null, id: Int = NPCs.STRANGER_PLANT_6827) : Forager(owner, id, 4900, 12045, 6, Item(Items.STRANGE_FRUIT_464)) {

@@ -4,7 +4,7 @@ import core.api.consts.NPCs
 import core.api.visualize
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 
 class SleeperNPC : NPCBehavior(*sleepyNPC) {

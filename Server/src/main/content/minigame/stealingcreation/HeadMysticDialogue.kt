@@ -5,7 +5,7 @@ import core.api.sendDialogue
 import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player
 import core.game.world.GameWorld
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class HeadMysticDialogue(player: Player? = null) : Dialogue(player) {
 

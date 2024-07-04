@@ -10,7 +10,7 @@ import core.game.world.map.Location
 import core.network.packet.PacketRepository
 import core.network.packet.context.MinimapStateContext
 import core.network.packet.outgoing.MinimapState
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class LeoNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs.LEO_3508) {
     override fun init() {

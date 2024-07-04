@@ -20,7 +20,7 @@ import core.network.packet.context.CameraContext.CameraType
 import core.network.packet.context.MinimapStateContext
 import core.network.packet.outgoing.CameraViewPacket
 import core.network.packet.outgoing.MinimapState
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 object EvilTwinUtils {
 

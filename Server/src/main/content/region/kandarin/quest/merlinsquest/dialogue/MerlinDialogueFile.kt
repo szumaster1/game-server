@@ -10,7 +10,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.scenery.Scenery
 import core.game.node.scenery.SceneryBuilder
 import core.game.world.map.Location
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class MerlinDialogueFile(val forced: Boolean) : DialogueFile() {
 

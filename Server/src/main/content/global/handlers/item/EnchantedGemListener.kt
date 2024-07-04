@@ -9,7 +9,7 @@ import core.game.dialogue.IfTopic
 import core.game.dialogue.Topic
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class EnchantedGemListener : InteractionListener {
 

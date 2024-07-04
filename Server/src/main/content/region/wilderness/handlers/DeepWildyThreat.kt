@@ -17,8 +17,8 @@ import core.game.system.timer.impl.Disease
 import core.game.world.map.path.Pathfinder
 import core.game.world.map.zone.impl.WildernessZone
 import core.game.world.update.flag.context.Graphic
-import core.utilities.RandomFunction
-import core.utilities.colorize
+import core.tools.RandomFunction
+import core.tools.colorize
 import org.json.simple.JSONObject
 
 object DeepWildyThreat {

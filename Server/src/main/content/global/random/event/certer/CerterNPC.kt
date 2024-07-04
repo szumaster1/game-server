@@ -8,7 +8,7 @@ import core.api.playAudio
 import core.api.utils.WeightBasedTable
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.link.emote.Emotes
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class CerterNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs.GILES_2538) {
     lateinit var pName: String

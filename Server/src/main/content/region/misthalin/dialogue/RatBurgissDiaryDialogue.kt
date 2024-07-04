@@ -8,7 +8,7 @@ import core.game.dialogue.IfTopic
 import core.game.dialogue.Topic
 import core.game.node.entity.player.link.diary.AchievementDiary
 import core.game.node.entity.player.link.diary.DiaryType
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class RatBurgissDiaryDialogue : DialogueFile() {
 

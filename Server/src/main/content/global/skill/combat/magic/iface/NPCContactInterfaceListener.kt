@@ -13,8 +13,8 @@ import core.game.node.entity.npc.NPC
 import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Graphic
-import core.utilities.END_DIALOGUE
-import core.utilities.RandomFunction
+import core.tools.END_DIALOGUE
+import core.tools.RandomFunction
 
 class NPCContactInterfaceListener : InterfaceListener {
 

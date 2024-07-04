@@ -12,7 +12,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.game.world.map.path.Pathfinder
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 import core.api.consts.Items
 import kotlin.math.ceil
 import kotlin.math.floor

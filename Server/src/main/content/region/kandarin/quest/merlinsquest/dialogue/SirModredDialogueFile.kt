@@ -5,7 +5,7 @@ import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.world.repository.Repository.findNPC
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class SirModredDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {

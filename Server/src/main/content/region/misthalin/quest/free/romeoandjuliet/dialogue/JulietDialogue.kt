@@ -17,7 +17,7 @@ import core.game.world.GameWorld.Pulser
 import core.game.world.map.path.Pathfinder
 import core.game.world.repository.Repository.findNPC
 import core.game.world.update.flag.context.Animation
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class JulietDialogue(player: Player? = null) : Dialogue(player) {
 

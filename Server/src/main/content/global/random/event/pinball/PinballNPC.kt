@@ -9,7 +9,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.link.TeleportManager
 import core.game.system.task.Pulse
 import core.game.system.timer.impl.AntiMacro
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class PinballNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs.MYSTERIOUS_OLD_MAN_410) {
 

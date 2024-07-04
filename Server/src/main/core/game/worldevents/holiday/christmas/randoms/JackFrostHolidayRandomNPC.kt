@@ -9,7 +9,7 @@ import core.game.node.entity.npc.NPC
 import core.game.world.map.path.Pathfinder
 import core.game.world.update.flag.context.Graphic
 import core.game.worldevents.holiday.HolidayRandomEventNPC
-import core.utilities.minutesToTicks
+import core.tools.minutesToTicks
 import core.api.consts.NPCs
 import core.api.consts.Sounds
 

@@ -6,14 +6,14 @@ import core.game.node.entity.player.link.TeleportManager
 import core.game.system.task.Pulse
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Graphic
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 import core.ServerConstants
 import core.api.*
 import core.game.system.command.Privilege
 import core.game.world.GameWorld
 import core.game.world.map.path.Pathfinder
 import core.game.world.repository.Repository
-import core.utilities.Log
+import core.tools.Log
 import java.lang.Integer.min
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap

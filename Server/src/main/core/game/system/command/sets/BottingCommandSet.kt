@@ -8,7 +8,7 @@ import core.game.bots.PlayerScripts
 import core.game.bots.Script
 import core.game.system.command.Privilege
 import core.game.world.GameWorld
-import core.utilities.colorize
+import core.tools.colorize
 
 @Initializable
 class BottingCommandSet : CommandSet(Privilege.STANDARD) {

@@ -10,7 +10,7 @@ import core.game.node.entity.player.Player
 import core.game.system.task.Pulse
 import core.game.world.GameWorld
 import core.plugin.Initializable
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 @Initializable
 class KathyCorkatPiscatorisDialogue(player: Player? = null) : Dialogue(player) {

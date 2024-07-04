@@ -3,7 +3,7 @@ package core.game.system
 import core.api.log
 import core.game.system.SystemManager.flag
 import core.game.system.SystemManager.isTerminated
-import core.utilities.Log
+import core.tools.Log
 
 /**
  * Handles the shutdown hook.

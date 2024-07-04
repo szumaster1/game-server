@@ -7,7 +7,7 @@ import core.game.node.entity.npc.NPC
 import core.game.world.map.Location
 import core.game.world.map.RegionManager.getLocalNpcs
 import core.plugin.Initializable
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 @Initializable
 class GoblinVillageNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {

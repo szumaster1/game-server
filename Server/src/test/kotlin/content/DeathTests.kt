@@ -11,7 +11,7 @@ import core.game.node.entity.player.info.Rights
 import core.game.node.entity.player.link.IronmanMode
 import core.game.world.GameWorld
 import core.game.world.map.Location
-import core.utilities.secondsToTicks
+import core.tools.secondsToTicks
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 

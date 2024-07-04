@@ -17,7 +17,7 @@ import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 @Initializable
 class SlashBashNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {

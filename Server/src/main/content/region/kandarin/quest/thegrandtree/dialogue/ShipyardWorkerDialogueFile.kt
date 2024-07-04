@@ -9,7 +9,7 @@ import core.game.dialogue.FacialExpression
 import core.game.global.action.DoorActionHandler
 import core.game.node.scenery.Scenery
 import core.game.world.map.Location
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class ShipyardWorkerDialogueFile : DialogueFile() {
 

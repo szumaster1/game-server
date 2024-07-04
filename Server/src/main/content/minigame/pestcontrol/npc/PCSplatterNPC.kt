@@ -15,7 +15,7 @@ import core.game.world.map.RegionManager.getLocalNpcs
 import core.game.world.map.RegionManager.getLocalPlayers
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class PCSplatterNPC : AbstractNPC {
 

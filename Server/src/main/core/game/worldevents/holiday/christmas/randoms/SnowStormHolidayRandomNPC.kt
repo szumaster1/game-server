@@ -5,8 +5,8 @@ import core.game.node.entity.npc.NPC
 import core.game.world.map.RegionManager
 import core.game.world.map.path.Pathfinder
 import core.game.worldevents.holiday.HolidayRandomEventNPC
-import core.utilities.RandomFunction
-import core.utilities.minutesToTicks
+import core.tools.RandomFunction
+import core.tools.minutesToTicks
 import core.api.consts.NPCs
 import core.api.consts.Sounds
 

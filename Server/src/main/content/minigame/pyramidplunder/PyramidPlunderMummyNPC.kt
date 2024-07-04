@@ -3,7 +3,7 @@ package content.minigame.pyramidplunder
 import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
 import core.game.world.map.Location
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class PyramidPlunderMummyNPC(location: Location?, player: Player?) : PyramidPlunderNPC(IDS.get(0), location, player!!) {
 

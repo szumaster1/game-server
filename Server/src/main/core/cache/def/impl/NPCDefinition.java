@@ -11,7 +11,7 @@ import core.game.system.config.NPCConfigParser;
 import core.game.world.GameWorld;
 import core.game.world.update.flag.context.Animation;
 import core.game.world.update.flag.context.Graphic;
-import core.utilities.StringUtils;
+import core.tools.StringUtils;
 
 import java.nio.ByteBuffer;
 import java.util.HashMap;

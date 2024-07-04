@@ -8,7 +8,7 @@ import core.game.node.entity.player.Player
 import core.game.node.scenery.Scenery
 import core.plugin.Initializable
 import core.plugin.Plugin
-import core.utilities.prependArticle
+import core.tools.prependArticle
 
 @Initializable
 class InspectionHandler : OptionHandler() {

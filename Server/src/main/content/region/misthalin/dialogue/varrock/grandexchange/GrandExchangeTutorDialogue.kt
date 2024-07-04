@@ -7,8 +7,8 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.world.GameWorld
 import core.plugin.Initializable
-import core.utilities.DARK_RED
-import core.utilities.END_DIALOGUE
+import core.tools.DARK_RED
+import core.tools.END_DIALOGUE
 
 @Initializable
 class GrandExchangeTutorDialogue(player: Player? = null) : Dialogue(player) {

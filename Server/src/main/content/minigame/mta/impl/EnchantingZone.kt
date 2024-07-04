@@ -18,7 +18,7 @@ import core.game.world.map.Location
 import core.game.world.map.RegionManager.getNpc
 import core.game.world.map.zone.ZoneBorders
 import core.game.world.update.flag.context.Animation
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class EnchantingZone :
     MTAZone("Enchantment Chamber", arrayOf(Item(6899), Item(6898), Item(6900), Item(6901), Item(6903), Item(6902))) {

@@ -12,8 +12,8 @@ import core.game.node.entity.npc.NPC
 import core.game.node.item.Item
 import core.game.world.map.Location
 import core.game.world.repository.Repository
-import core.utilities.END_DIALOGUE
-import core.utilities.secondsToTicks
+import core.tools.END_DIALOGUE
+import core.tools.secondsToTicks
 
 class SirPercivalHolyGrailDialogueFile(val interactionType: String) : DialogueFile() {
 

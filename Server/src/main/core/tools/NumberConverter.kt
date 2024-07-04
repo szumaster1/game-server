@@ -1,4 +1,4 @@
-package core.utilities
+package core.tools
 
 /**
  * The type Number converter.

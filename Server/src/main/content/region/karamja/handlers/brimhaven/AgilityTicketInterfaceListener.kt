@@ -6,7 +6,7 @@ import core.api.sendMessage
 import core.game.interaction.InterfaceListener
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
-import core.utilities.StringUtils
+import core.tools.StringUtils
 
 class AgilityTicketInterfaceListener : InterfaceListener {
 

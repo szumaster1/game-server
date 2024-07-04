@@ -10,7 +10,7 @@ import core.network.packet.PacketRepository
 import core.network.packet.context.DisplayModelContext
 import core.network.packet.outgoing.DisplayModel
 import core.plugin.Plugin
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 import java.util.*
 
 class BarrowsPuzzle private constructor(private val questionModels: IntArray, private vararg val answerModels: Int) :

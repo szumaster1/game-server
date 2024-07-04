@@ -40,7 +40,7 @@ import core.network.packet.context.InterfaceContext
 import core.network.packet.outgoing.Interface
 import core.plugin.Initializable
 import core.plugin.Plugin
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 @Initializable
 class GiantMoleNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {

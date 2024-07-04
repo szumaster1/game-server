@@ -10,7 +10,7 @@ import core.game.world.map.RegionManager;
 import core.game.world.map.path.Pathfinder;
 import core.game.world.map.zone.impl.BankZone;
 import core.plugin.Initializable;
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 
 import java.util.ArrayList;
 import java.util.List;

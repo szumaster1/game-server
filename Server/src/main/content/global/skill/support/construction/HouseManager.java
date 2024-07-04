@@ -18,7 +18,7 @@ import core.game.world.update.flag.context.Animation;
 import core.network.packet.PacketRepository;
 import core.network.packet.context.MinimapStateContext;
 import core.network.packet.outgoing.MinimapState;
-import core.utilities.Log;
+import core.tools.Log;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.json.simple.JSONArray;
@@ -30,7 +30,7 @@ import java.nio.ByteBuffer;
 import static core.api.ContentAPIKt.*;
 import static core.api.regionspec.RegionSpecificationKt.fillWith;
 import static core.api.regionspec.RegionSpecificationKt.using;
-import static core.utilities.GlobalsKt.DARK_BLUE;
+import static core.tools.GlobalsKt.DARK_BLUE;
 
 
 /**

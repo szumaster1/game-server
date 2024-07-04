@@ -19,7 +19,7 @@ import core.plugin.Plugin;
 
 import static core.api.ContentAPIKt.sendDialogueOptions;
 import static core.api.ContentAPIKt.setTitle;
-import static core.utilities.GlobalsKt.DARK_RED;
+import static core.tools.GlobalsKt.DARK_RED;
 
 /**
  * The Portal chamber plugin.

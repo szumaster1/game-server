@@ -7,7 +7,7 @@ import core.api.isQuestComplete
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class SirPalomedesHolyGrailQuestDialogueFile  : DialogueFile() {
 

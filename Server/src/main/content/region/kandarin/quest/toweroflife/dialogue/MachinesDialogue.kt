@@ -1,7 +1,7 @@
 package content.region.kandarin.quest.toweroflife.dialogue
 
 import core.game.dialogue.DialogueFile
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class MachinesDialogue : DialogueFile() {
 

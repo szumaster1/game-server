@@ -14,10 +14,9 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.node.scenery.Scenery
 import core.game.world.map.Location
-import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 import core.plugin.Plugin
-import core.utilities.StringUtils
+import core.tools.StringUtils
 
 @Initializable
 class WeaveOptionHandler : OptionHandler() {

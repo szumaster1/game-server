@@ -9,7 +9,7 @@ import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.game.world.map.RegionManager
 import core.game.world.map.path.Pathfinder
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 import java.util.*
 
 class CombatStateIntermediate(val bot: PestControlTestBot2) {

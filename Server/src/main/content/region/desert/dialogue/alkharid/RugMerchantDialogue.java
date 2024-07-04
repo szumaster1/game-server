@@ -3,7 +3,7 @@ package content.region.desert.dialogue.alkharid;
 import content.global.skill.support.agility.AgilityHandler;
 import core.api.Container;
 import static core.api.ContentAPIKt.*;
-import static core.utilities.GlobalsKt.colorize;
+import static core.tools.GlobalsKt.colorize;
 
 import core.api.consts.Items;
 import core.api.consts.Sounds;

@@ -15,7 +15,7 @@ import core.game.node.entity.player.Player;
 import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 

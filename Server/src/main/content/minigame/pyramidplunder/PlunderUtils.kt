@@ -9,7 +9,7 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.game.world.map.Direction
 import core.game.world.map.Location
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 object PlunderUtils {
     fun hasPlayer(player: Player): Boolean {

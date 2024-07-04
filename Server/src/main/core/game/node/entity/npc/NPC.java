@@ -36,7 +36,7 @@ import core.game.world.update.flag.EntityFlag;
 import core.game.world.update.flag.EntityFlags;
 import core.game.world.update.flag.context.Animation;
 import core.game.world.update.flag.context.Graphic;
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 
 import static core.game.system.command.sets.StatsAttributeSetKt.STATS_BASE;
 import static core.game.system.command.sets.StatsAttributeSetKt.STATS_ENEMIES_KILLED;

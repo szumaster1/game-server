@@ -11,7 +11,7 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
-import core.utilities.ticksPerMinute
+import core.tools.ticksPerMinute
 
 class CastleWarsGameArea : CastleWarsArea(), TickListener {
     //https://github.com/RSPSApp/elvarg-rsps/blob/master/ElvargServer/game/src/main/java/com/elvarg/game/model/areas/impl/castlewars/CastleWarsGameArea.java

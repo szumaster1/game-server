@@ -1,4 +1,4 @@
-package core.utilities;
+package core.tools;
 
 import core.game.node.entity.npc.drop.DropFrequency;
 import core.game.node.item.ChanceItem;

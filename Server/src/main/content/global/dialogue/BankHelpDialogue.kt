@@ -7,7 +7,7 @@ import core.api.sendDialogue
 import core.api.sendItemDialogue
 import core.game.dialogue.DialogueFile
 import core.game.node.item.Item
-import core.utilities.START_DIALOGUE
+import core.tools.START_DIALOGUE
 
 class BankHelpDialogue : DialogueFile() {
 

@@ -4,7 +4,7 @@ import core.api.sendMessage
 import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
 import core.game.system.timer.RSTimer
-import core.utilities.colorize
+import core.tools.colorize
 
 class CannonTimer : RSTimer(1, "dmc:timer") {
     lateinit var dmcHandler: DMCHandler

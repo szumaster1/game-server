@@ -4,7 +4,7 @@ import core.network.packet.IoBuffer
 import core.game.node.entity.Entity
 import kotlin.reflect.*
 import core.api.*
-import core.utilities.*
+import core.tools.*
 
 enum class EFlagType {
     Player,

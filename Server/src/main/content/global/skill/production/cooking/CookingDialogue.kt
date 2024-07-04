@@ -6,7 +6,7 @@ import core.api.consts.Components
 import core.api.consts.Items
 import core.game.dialogue.DialogueFile
 import core.game.node.scenery.Scenery
-import core.utilities.START_DIALOGUE
+import core.tools.START_DIALOGUE
 
 class CookingDialogue(vararg val args: Any) : DialogueFile() {
 

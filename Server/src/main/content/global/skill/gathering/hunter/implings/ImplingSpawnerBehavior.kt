@@ -4,8 +4,8 @@ import core.api.*
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
 import core.game.world.map.path.ClipMaskSupplier
-import core.utilities.Log
-import core.utilities.secondsToTicks
+import core.tools.Log
+import core.tools.secondsToTicks
 
 class ImplingSpawnerBehavior : NPCBehavior(*ImplingSpawner.getIds()) {
     override fun onCreation(self: NPC) {

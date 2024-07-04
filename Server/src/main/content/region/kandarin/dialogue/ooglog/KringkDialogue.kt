@@ -9,7 +9,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.Initializable
-import core.utilities.START_DIALOGUE
+import core.tools.START_DIALOGUE
 
 @Initializable
 class KringkDialogue(player: Player? = null) : Dialogue(player) {

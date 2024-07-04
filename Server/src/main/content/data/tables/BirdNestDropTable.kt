@@ -8,8 +8,8 @@ import core.game.node.entity.player.Player
 import core.game.node.item.ChanceItem
 import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
-import core.utilities.RandomFunction
-import core.utilities.StringUtils
+import core.tools.RandomFunction
+import core.tools.StringUtils
 
 /*
  * @author Vexia

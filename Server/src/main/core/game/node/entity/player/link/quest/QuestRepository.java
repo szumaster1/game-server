@@ -1,7 +1,7 @@
 package core.game.node.entity.player.link.quest;
 
 import core.game.node.entity.player.Player;
-import core.utilities.Log;
+import core.tools.Log;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 

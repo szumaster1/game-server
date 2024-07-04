@@ -9,7 +9,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.game.world.map.Direction
 import core.game.world.map.Location
-import core.utilities.DARK_RED
+import core.tools.DARK_RED
 
 class TheObservatoryCutscene(player: Player) : Cutscene(player) {
 

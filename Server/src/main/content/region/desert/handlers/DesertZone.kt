@@ -17,7 +17,7 @@ import core.game.world.map.zone.ZoneBuilder
 import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 import core.plugin.Plugin
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 @Initializable
 class DesertZone : MapZone(DESERT_ZONE, true), Plugin<Any?> {

@@ -4,8 +4,8 @@ import core.game.node.entity.player.Player
 import core.game.system.command.Command
 import core.game.system.command.CommandMapping
 import core.game.system.command.Privilege
-import core.utilities.Log
-import core.utilities.colorize
+import core.tools.Log
+import core.tools.colorize
 
 /**
  * An interface for writing content that allows the class to define commands.

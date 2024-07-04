@@ -6,7 +6,7 @@ import core.api.freeSlots
 import core.api.setQuestStage
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class GunnjornDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {

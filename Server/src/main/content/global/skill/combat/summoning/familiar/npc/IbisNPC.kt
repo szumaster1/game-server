@@ -18,7 +18,7 @@ import core.game.world.map.Location
 import core.game.world.map.RegionManager.getObject
 import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 @Initializable
 class IbisNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.IBIS_6991) :

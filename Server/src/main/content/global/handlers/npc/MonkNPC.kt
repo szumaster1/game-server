@@ -11,7 +11,7 @@ import core.game.node.entity.combat.MeleeSwingHandler
 import core.game.node.entity.npc.AbstractNPC
 import core.game.world.map.Location
 import core.plugin.Initializable
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 @Initializable
 class MonkNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {

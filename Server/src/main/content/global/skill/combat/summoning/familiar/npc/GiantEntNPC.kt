@@ -14,7 +14,7 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.Initializable
 import core.plugin.Plugin
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 @Initializable
 class GiantEntNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 6800) :

@@ -12,7 +12,7 @@ import core.network.packet.context.ChildPositionContext;
 import core.network.packet.context.StringContext;
 import core.network.packet.outgoing.RepositionChild;
 import core.network.packet.outgoing.StringPacket;
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 import org.json.simple.JSONObject;
 import core.api.consts.Sounds;
 

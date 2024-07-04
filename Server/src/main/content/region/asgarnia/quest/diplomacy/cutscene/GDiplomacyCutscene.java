@@ -26,8 +26,8 @@ import core.network.packet.PacketRepository;
 import core.network.packet.context.CameraContext;
 import core.network.packet.context.CameraContext.CameraType;
 import core.network.packet.outgoing.CameraViewPacket;
-import core.utilities.RandomFunction;
-import core.utilities.StringUtils;
+import core.tools.RandomFunction;
+import core.tools.StringUtils;
 
 import static core.api.ContentAPIKt.setAttribute;
 import static core.api.ContentAPIKt.setVarbit;

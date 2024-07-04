@@ -27,7 +27,7 @@ import core.api.utils.PlayerCamera
 import core.game.dialogue.FacialExpression
 import core.game.system.timer.impl.AntiMacro
 import core.game.world.GameWorld
-import core.utilities.Log
+import core.tools.Log
 
 /**
  * A utility class for making cutscenes.

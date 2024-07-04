@@ -9,7 +9,7 @@ import core.game.node.entity.player.Player
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 @Initializable
 class GeyserTitanNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 7339) :

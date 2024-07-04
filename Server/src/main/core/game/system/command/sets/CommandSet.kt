@@ -5,7 +5,7 @@ import core.game.system.command.Command
 import core.game.system.command.CommandMapping
 import core.plugin.Plugin
 import core.game.system.command.Privilege
-import core.utilities.colorize
+import core.tools.colorize
 
 /**
  * Command sets allow you to organize sets of commands by category/type. It also provides

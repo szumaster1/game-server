@@ -8,7 +8,7 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld.Pulser
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
-import core.utilities.Log
+import core.tools.Log
 
 /**
  * Handles digging with a spade.

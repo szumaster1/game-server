@@ -17,8 +17,8 @@ import core.game.world.repository.Repository.getPlayerByName
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
-import core.utilities.END_DIALOGUE
-import core.utilities.RandomFunction
+import core.tools.END_DIALOGUE
+import core.tools.RandomFunction
 import org.json.simple.JSONObject
 import core.api.consts.Sounds
 import java.awt.HeadlessException

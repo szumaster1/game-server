@@ -5,7 +5,7 @@ import core.game.node.entity.player.link.prayer.PrayerType
 import core.game.node.item.Item
 import core.game.world.map.Direction
 import core.game.world.map.Location
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 import core.game.consumable.Consumable
 import content.data.consumables.Consumables
 import core.game.consumable.Food

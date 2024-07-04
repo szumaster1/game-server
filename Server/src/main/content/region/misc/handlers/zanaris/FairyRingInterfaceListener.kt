@@ -11,7 +11,7 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.game.world.map.RegionManager
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 val RING_1 = arrayOf('a', 'd', 'c', 'b')
 val RING_2 = arrayOf('i', 'l', 'k', 'j')

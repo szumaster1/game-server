@@ -1,7 +1,7 @@
 package core.game.world
 
 import core.api.log
-import core.utilities.Log
+import core.tools.Log
 import java.lang.management.ManagementFactory
 
 class DeadlockDetector : Runnable {

@@ -5,7 +5,7 @@ import content.region.karamja.quest.monkeymadness.cutscenes.DungeonPlanCutScene
 import core.api.*
 import core.game.component.Component
 import core.game.node.item.Item
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 import core.api.consts.*
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression

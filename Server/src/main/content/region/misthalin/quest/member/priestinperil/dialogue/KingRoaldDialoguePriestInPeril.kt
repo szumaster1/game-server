@@ -2,8 +2,8 @@ package content.region.misthalin.quest.member.priestinperil.dialogue
 
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
-import core.utilities.END_DIALOGUE
-import core.utilities.START_DIALOGUE
+import core.tools.END_DIALOGUE
+import core.tools.START_DIALOGUE
 
 class KingRoaldDialoguePriestInPeril(val questStage: Int) : DialogueFile() {
 

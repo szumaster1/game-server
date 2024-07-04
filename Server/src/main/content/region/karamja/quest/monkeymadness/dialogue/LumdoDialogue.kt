@@ -3,7 +3,7 @@ package content.region.karamja.quest.monkeymadness.dialogue
 import core.api.*
 import core.api.consts.Items
 import core.game.dialogue.DialogueFile
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class LumdoDialogue: DialogueFile() {
 

@@ -10,7 +10,7 @@ import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills
 import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
-import core.utilities.StringUtils
+import core.tools.StringUtils
 
 class DairyChurnPulse(player: Player?, item: Item?, product: DairyProduct, amount: Int) :
     SkillPulse<Item?>(player, item) {

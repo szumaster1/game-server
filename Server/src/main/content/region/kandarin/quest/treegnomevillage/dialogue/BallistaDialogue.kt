@@ -2,7 +2,7 @@ package content.region.kandarin.quest.treegnomevillage.dialogue
 
 import core.api.*
 import core.game.dialogue.DialogueFile
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class BallistaDialogue : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {

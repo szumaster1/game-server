@@ -1,4 +1,4 @@
-package content.global.skill
+package content.global.handlers.iface.player
 
 import core.api.consts.Components
 import core.api.getAttribute

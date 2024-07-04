@@ -14,7 +14,7 @@ import core.game.node.entity.skill.Skills
 import core.game.system.task.Pulse
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class BlastFurnaceListeners : InteractionListener {
     companion object {

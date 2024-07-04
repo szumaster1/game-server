@@ -3,8 +3,8 @@ package core.game.worldevents.holiday.christmas.randoms
 import core.api.*
 import core.game.node.entity.npc.NPC
 import core.game.worldevents.holiday.HolidayRandomEventNPC
-import core.utilities.RandomFunction
-import core.utilities.minutesToTicks
+import core.tools.RandomFunction
+import core.tools.minutesToTicks
 import core.api.consts.NPCs
 
 class CookHolidayRandomNPC : HolidayRandomEventNPC(NPCs.COOK_4239) {

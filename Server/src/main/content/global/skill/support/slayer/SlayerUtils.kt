@@ -7,7 +7,7 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.SpellBookManager.SpellBook
 import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.entity.skill.Skills
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 object SlayerUtils {
     fun generate(player: Player, master: Master): Tasks? {

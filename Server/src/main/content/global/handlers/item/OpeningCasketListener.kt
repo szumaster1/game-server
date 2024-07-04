@@ -8,7 +8,7 @@ import core.api.utils.WeightedItem
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.item.Item
-import core.utilities.StringUtils
+import core.tools.StringUtils
 
 class OpeningCasketListener : InteractionListener {
 

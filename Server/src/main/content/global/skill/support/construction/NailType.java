@@ -3,7 +3,7 @@ package content.global.skill.support.construction;
 
 import core.api.consts.Items;
 import core.game.node.entity.player.Player;
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 
 /**
  * Holds information of all nail types.

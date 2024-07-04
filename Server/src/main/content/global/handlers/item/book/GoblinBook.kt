@@ -8,7 +8,7 @@ import core.api.consts.Items
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
-import core.utilities.RED
+import core.tools.RED
 
 class GoblinBook : InteractionListener {
     companion object {

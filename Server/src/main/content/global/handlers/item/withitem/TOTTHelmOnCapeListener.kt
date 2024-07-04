@@ -5,7 +5,7 @@ import core.api.consts.Items
 import core.game.dialogue.DialogueFile
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class TOTTHelmOnCapeListener : InteractionListener {
 

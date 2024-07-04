@@ -1,7 +1,7 @@
 package core.game.activity;
 
 import core.game.node.entity.player.Player;
-import core.utilities.Log;
+import core.tools.Log;
 import core.game.world.GameWorld;
 
 import java.util.HashMap;

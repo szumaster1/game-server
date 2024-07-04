@@ -17,7 +17,7 @@ import core.network.packet.outgoing.ContainerPacket;
 import core.plugin.ClassScanner;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 
 /**
  * The Imp box plugin.

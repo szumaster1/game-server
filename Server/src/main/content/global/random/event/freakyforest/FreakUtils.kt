@@ -5,7 +5,7 @@ import core.api.consts.Items
 import core.api.consts.NPCs
 import core.game.node.entity.player.Player
 import core.game.world.map.zone.ZoneBorders
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 
 object FreakUtils {

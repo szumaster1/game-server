@@ -12,7 +12,7 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld
 import core.plugin.Initializable
 import core.plugin.Plugin
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 val gnomeItems = arrayOf(
     Items.FRUIT_BATTA_2277,

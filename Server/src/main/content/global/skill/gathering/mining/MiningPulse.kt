@@ -20,8 +20,8 @@ import core.game.system.command.sets.STATS_ROCKS
 import core.game.system.task.Pulse
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
-import core.utilities.RandomFunction
-import core.utilities.prependArticle
+import core.tools.RandomFunction
+import core.tools.prependArticle
 
 class MiningPulse(private val player: Player, private val node: Node) : Pulse(1, player, node) {
     private var resource: MiningNode? = null

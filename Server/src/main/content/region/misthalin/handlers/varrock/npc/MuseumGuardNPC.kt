@@ -4,7 +4,7 @@ import core.api.consts.NPCs
 import core.api.sendChat
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 /*
     Workman: Another lot for ya!

@@ -10,7 +10,7 @@ import core.game.world.map.Direction;
 import core.game.world.map.Location;
 import core.game.world.map.Point;
 import core.game.world.map.RegionManager;
-import core.utilities.Log;
+import core.tools.Log;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

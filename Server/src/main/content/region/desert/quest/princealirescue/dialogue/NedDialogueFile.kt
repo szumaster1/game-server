@@ -3,8 +3,8 @@ package content.region.desert.quest.princealirescue.dialogue
 import core.game.dialogue.DialogueFile
 import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
-import core.utilities.END_DIALOGUE
-import core.utilities.START_DIALOGUE
+import core.tools.END_DIALOGUE
+import core.tools.START_DIALOGUE
 
 private const val STAGE_KNIT_SWEATER = 10
 private const val STAGE_KNIT_WIG = 20

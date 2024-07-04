@@ -7,7 +7,7 @@ import core.game.node.entity.combat.BattleState
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
 import core.game.world.map.RegionManager
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class BanditNPC : NPCBehavior(NPCs.BANDIT_1926) {
     override fun tick(self: NPC): Boolean {

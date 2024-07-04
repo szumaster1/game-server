@@ -2,7 +2,7 @@ package content.region.desert.dialogue.alkharid
 
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class AliTheLeafletDropperDialogue(val it: Int) : DialogueFile() {
 

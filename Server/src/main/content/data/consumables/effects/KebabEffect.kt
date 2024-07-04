@@ -4,7 +4,7 @@ import core.api.sendMessage
 import core.game.consumable.ConsumableEffect
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class KebabEffect : ConsumableEffect() {
 

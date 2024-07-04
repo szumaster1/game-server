@@ -6,7 +6,7 @@ import core.api.removeItem
 import core.api.sendDialogue
 import core.game.dialogue.DialogueFile
 import core.game.node.item.Item
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class BlastFurnaceDoorDialogue(val fee: Int) : DialogueFile() {
 

@@ -3,7 +3,7 @@ package content.global.skill.gathering.fishing
 import core.api.*
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 private val fishingSpots = FishingSpot.getAllIds()
 

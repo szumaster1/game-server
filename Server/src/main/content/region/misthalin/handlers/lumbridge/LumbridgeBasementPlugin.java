@@ -19,7 +19,7 @@ import core.game.world.update.flag.context.Animation;
 import core.plugin.ClassScanner;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.hasRequirement;
 

@@ -1,7 +1,7 @@
 package core.game.node.entity.player.info;
 
 import core.game.node.entity.player.Player;
-import core.utilities.StringUtils;
+import core.tools.StringUtils;
 
 /**
  * The unique machine information of an account.

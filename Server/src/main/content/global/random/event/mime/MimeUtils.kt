@@ -9,7 +9,7 @@ import core.game.node.entity.player.link.emote.Emotes
 import core.game.node.scenery.Scenery
 import core.game.system.task.Pulse
 import core.game.world.map.Location
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 
 object MimeUtils {

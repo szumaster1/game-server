@@ -29,7 +29,7 @@ class QuestGuideDialogue(player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (getAttribute(player, "tutorial:stage", 0)) {
             27 -> {
-                Component.setUnclosable(player, interpreter.sendPlainMessage(true, "${core.utilities.BLUE}Open the Quest Journal.", "", "Click on the flashing icon next to your inventory."))
+                Component.setUnclosable(player, interpreter.sendPlainMessage(true, "${core.tools.BLUE}Open the Quest Journal.", "", "Click on the flashing icon next to your inventory."))
                 setVarbit(player, 3756, 3)
                 player.interfaceManager.openTab(Component(Components.QUESTJOURNAL_V2_274))
             }

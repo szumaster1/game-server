@@ -11,7 +11,7 @@ import core.game.node.entity.player.info.login.PlayerParser
 import core.game.world.ImmerseWorld
 import core.game.world.repository.Repository
 import core.plugin.Initializable
-import core.utilities.colorize
+import core.tools.colorize
 
 /**
  * Rotten Potato "RS HD" options menu.

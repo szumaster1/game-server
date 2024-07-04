@@ -7,8 +7,8 @@ import core.game.node.entity.npc.NPC
 import core.game.worldevents.holiday.HolidayRandomEventNPC
 import core.game.worldevents.holiday.HolidayRandoms
 import core.game.worldevents.holiday.ResetHolidayAppearance
-import core.utilities.RandomFunction
-import core.utilities.colorize
+import core.tools.RandomFunction
+import core.tools.colorize
 import core.api.consts.Sounds
 
 class VampireHolidayRandomNPC : HolidayRandomEventNPC(1023) {

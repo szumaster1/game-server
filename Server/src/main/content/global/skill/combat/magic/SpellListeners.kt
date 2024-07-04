@@ -9,7 +9,7 @@ import core.game.node.Node
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.SpellBookManager
 import core.game.world.map.path.Pathfinder
-import core.utilities.Log
+import core.tools.Log
 
 object SpellListeners {
 

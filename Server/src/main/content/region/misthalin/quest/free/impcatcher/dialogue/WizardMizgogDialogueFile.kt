@@ -10,7 +10,7 @@ import core.game.node.item.Item
 import core.game.system.task.Pulse
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class WizardMizgogDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {

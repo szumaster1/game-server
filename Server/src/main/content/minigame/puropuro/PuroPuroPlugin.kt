@@ -28,7 +28,7 @@ import core.network.packet.outgoing.MinimapState
 import core.plugin.ClassScanner.definePlugin
 import core.plugin.Initializable
 import core.plugin.Plugin
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 @Initializable
 class PuroPuroPlugin : MapZone("puro puro", true), Plugin<Any> {

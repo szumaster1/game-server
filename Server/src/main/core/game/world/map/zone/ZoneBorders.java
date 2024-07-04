@@ -3,7 +3,7 @@ package core.game.world.map.zone;
 import core.game.node.Node;
 import core.game.world.map.Location;
 import core.game.world.map.RegionManager;
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 
 import java.util.ArrayList;
 import java.util.List;

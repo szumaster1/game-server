@@ -5,7 +5,7 @@ import core.api.log
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.world.map.Location
-import core.utilities.Log
+import core.tools.Log
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 

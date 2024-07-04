@@ -6,7 +6,7 @@ import core.api.getStatLevel
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.skill.Skills
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class AlKharidHealDialogue(val skipFirst: Boolean) : DialogueFile() {
 

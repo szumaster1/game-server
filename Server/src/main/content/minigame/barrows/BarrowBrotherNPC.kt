@@ -10,7 +10,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.HintIconManager
 import core.game.world.map.Location
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class BarrowBrotherNPC(val player: Player, id: Int, location: Location?) : NPC(id, location) {
 

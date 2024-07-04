@@ -1,15 +1,15 @@
-package content.global.random.event.rivertroll
+package content.global.random.event.rockgolem
 
 import content.global.random.RandomEventNPC
 import core.api.consts.NPCs
 import core.api.utils.WeightBasedTable
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.NPC
-import java.lang.Integer.max
+import kotlin.math.max
 
-class RiverTrollRENPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs.RIVER_TROLL_391) {
+class RockGolemNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs.ROCK_GOLEM_413) {
 
-    val ids = (391..396).toList()
+    val ids = (413..418).toList()
     override fun talkTo(npc: NPC) {}
     override fun init() {
         super.init()
@@ -17,7 +17,7 @@ class RiverTrollRENPC(override var loot: WeightBasedTable? = null) : RandomEvent
         val id = ids.toList()[index]
         this.transform(id)
         this.attack(player)
-        sendChat("Fishies be mine, leave dem fishies!")
+        sendChat("Raarrrgghh! Flee human!")
         this.isRespawn = false
     }
 

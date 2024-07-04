@@ -8,7 +8,7 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.system.task.Pulse
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class WineFermentingPulse(delay: Int, val player: Player) : Pulse(delay) {
     private var count = 0

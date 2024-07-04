@@ -1,4 +1,4 @@
-package core.utilities;
+package core.tools;
 
 import java.nio.ByteBuffer
 import java.nio.CharBuffer

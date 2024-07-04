@@ -11,9 +11,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.Initializable
-import core.utilities.END_DIALOGUE
-import core.utilities.RandomFunction
-import core.utilities.colorize
+import core.tools.END_DIALOGUE
+import core.tools.RandomFunction
+import core.tools.colorize
 import org.json.simple.JSONObject
 
 @Initializable

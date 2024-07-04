@@ -10,7 +10,7 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 import core.plugin.Plugin
-import core.utilities.Log
+import core.tools.Log
 import java.util.concurrent.TimeUnit
 
 @Initializable

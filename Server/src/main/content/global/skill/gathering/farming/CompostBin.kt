@@ -6,7 +6,7 @@ import core.api.consts.Sounds
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 import java.util.concurrent.TimeUnit

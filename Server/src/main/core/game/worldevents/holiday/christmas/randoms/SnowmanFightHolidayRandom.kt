@@ -3,7 +3,7 @@ package core.game.worldevents.holiday.christmas.randoms
 import core.api.*
 import core.game.node.entity.npc.NPC
 import core.game.worldevents.holiday.HolidayRandomEventNPC
-import core.utilities.minutesToTicks
+import core.tools.minutesToTicks
 import core.api.consts.NPCs
 
 class SnowmanFightHolidayRandom : HolidayRandomEventNPC(NPCs.BARBARIAN_SNOWMAN_6742) {

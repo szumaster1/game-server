@@ -20,9 +20,9 @@ import core.game.world.map.Direction
 import core.game.world.map.Location
 import core.game.world.map.path.Pathfinder
 import core.game.worldevents.WorldEvent
-import core.utilities.RandomFunction
-import core.utilities.StringUtils
-import core.utilities.colorize
+import core.tools.RandomFunction
+import core.tools.StringUtils
+import core.tools.colorize
 import core.api.consts.Items
 import java.util.*
 import kotlin.collections.ArrayList

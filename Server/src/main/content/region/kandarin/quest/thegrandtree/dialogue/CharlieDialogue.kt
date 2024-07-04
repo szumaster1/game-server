@@ -15,7 +15,7 @@ import core.game.world.GameWorld.settings
 import core.game.world.map.Direction
 import core.game.world.map.Location
 import core.plugin.Initializable
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 @Initializable
 class CharlieDialogue(player: Player? = null) : Dialogue(player) {

@@ -1,4 +1,4 @@
-package core.utilities;
+package core.tools;
 
 /**
  * Used for debugging duration of executing code.

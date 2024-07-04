@@ -4,7 +4,7 @@ import core.api.addItemOrDrop
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.system.timer.impl.AntiMacro
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 
 class GenieDialogue : DialogueFile() {
 

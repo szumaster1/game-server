@@ -19,7 +19,7 @@ import core.game.world.map.Location
 import core.game.world.map.zone.MapZone
 import core.game.world.map.zone.ZoneBorders
 import core.game.world.update.flag.context.Animation
-import core.utilities.Log
+import core.tools.Log
 
 class VarrockListeners : InteractionListener {
 

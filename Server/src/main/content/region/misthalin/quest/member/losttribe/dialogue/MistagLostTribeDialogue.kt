@@ -4,8 +4,8 @@ import content.region.misthalin.quest.member.losttribe.cutscene.LostTribeCutscen
 import core.game.component.Component
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
-import core.utilities.END_DIALOGUE
-import core.utilities.START_DIALOGUE
+import core.tools.END_DIALOGUE
+import core.tools.START_DIALOGUE
 
 class MistagLostTribeDialogue(val isGreeting: Boolean, val questStage: Int) : DialogueFile() {
 

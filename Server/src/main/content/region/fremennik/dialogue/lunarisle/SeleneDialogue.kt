@@ -12,7 +12,7 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.TeleportManager
 import core.game.world.map.Location
 import core.plugin.Initializable
-import core.utilities.END_DIALOGUE
+import core.tools.END_DIALOGUE
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 

@@ -10,8 +10,8 @@ import core.api.utils.WeightedItem
 import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
-import core.utilities.Log
-import core.utilities.RandomFunction
+import core.tools.Log
+import core.tools.RandomFunction
 import org.w3c.dom.Element
 import org.w3c.dom.Node
 import java.io.File

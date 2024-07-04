@@ -4,7 +4,7 @@ import core.api.consts.NPCs
 import core.api.sendChat
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class AgilityTrainerNPC : NPCBehavior(NPCs.AGILITY_TRAINER_1663, NPCs.AGILITY_TRAINER_1664) {
 

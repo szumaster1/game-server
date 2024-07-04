@@ -4,7 +4,7 @@ import content.global.random.RandomEventNPC
 import core.api.consts.NPCs
 import core.api.utils.WeightBasedTable
 import core.game.node.entity.npc.NPC
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class FrogHeraldNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs.FROG_2471) {
 

@@ -8,9 +8,9 @@ import core.cache.def.impl.SceneryDefinition
 import core.game.node.entity.player.Player
 import core.game.node.scenery.Scenery
 import core.game.world.map.Location
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
-object LostAndFound {
+object LostAndFoundUtils {
 
     val eventLocation = Location(2338, 4747, 0)
     val previousLocation = "/save:original-loc"

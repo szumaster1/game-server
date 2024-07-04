@@ -7,7 +7,7 @@ import core.game.interaction.OptionHandler;
 import core.game.node.entity.player.Player;
 import core.game.node.scenery.Scenery;
 import core.game.world.GameWorld;
-import core.utilities.Log;
+import core.tools.Log;
 
 import java.nio.ByteBuffer;
 import java.util.HashMap;

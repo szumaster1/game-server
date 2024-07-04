@@ -8,7 +8,7 @@ import core.game.node.item.Item
 import core.network.packet.PacketRepository
 import core.network.packet.context.ChildPositionContext
 import core.network.packet.outgoing.RepositionChild
-import core.utilities.StringUtils
+import core.tools.StringUtils
 
 /**
  * Represents a skill dialogue handler class.

@@ -3,7 +3,7 @@ package content.region.misthalin.handlers.dorgeshuun.npc
 import core.api.*
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 import core.api.consts.NPCs
 
 class DurgokNPC : NPCBehavior(NPCs.DURGOK_5794) {

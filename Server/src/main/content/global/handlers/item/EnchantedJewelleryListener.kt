@@ -13,7 +13,7 @@ import core.game.node.Node
 import core.game.node.entity.impl.PulseType
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
-import core.utilities.START_DIALOGUE
+import core.tools.START_DIALOGUE
 
 class EnchantedJewelleryListener : InteractionListener {
 

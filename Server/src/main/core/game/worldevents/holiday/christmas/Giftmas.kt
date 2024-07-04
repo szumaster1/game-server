@@ -5,7 +5,7 @@ import core.game.event.EventHook
 import core.game.event.XPGainEvent
 import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 import org.json.simple.JSONObject
 import core.api.consts.Items
 import core.ServerStore
@@ -19,7 +19,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.system.command.Privilege
 import core.game.world.repository.Repository
-import core.utilities.colorize
+import core.tools.colorize
 
 class Giftmas : Commands, StartupListener, LoginListener, InteractionListener {
     override fun startup() {

@@ -7,7 +7,7 @@ import content.global.handlers.iface.PageSet
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
-import core.utilities.DARK_RED
+import core.tools.DARK_RED
 
 class BurntDiaryListeners : InteractionListener {
 

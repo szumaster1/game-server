@@ -13,7 +13,7 @@ import core.game.node.entity.player.Player
 import core.game.system.task.Pulse
 import core.game.world.GameWorld.Pulser
 import core.game.world.map.Location
-import core.utilities.RandomFunction
+import core.tools.RandomFunction
 
 class DagannothMotherNPC(id: Int = 0, location: Location? = null, session: DagannothSession? = null) :
     AbstractNPC(id, location) {

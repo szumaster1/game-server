@@ -10,7 +10,7 @@ import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
 import core.plugin.ClassScanner;
 import core.plugin.Plugin;
-import core.utilities.RandomFunction;
+import core.tools.RandomFunction;
 
 /**
  * A superclass plugin for any pets that have a metamorphosis option.

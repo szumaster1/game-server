@@ -1,10 +1,10 @@
-package content.global.skill
+package content.global.handlers.iface.player
 
 import core.api.consts.Components
 import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.link.request.assist.AssistSession
 
-class ReqAssistInterfaceListener : InterfaceListener {
+class RequestAssistInterfaceListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {
         on(Components.REQ_ASSIST_301){ player, _, _, buttonID, _, _ ->

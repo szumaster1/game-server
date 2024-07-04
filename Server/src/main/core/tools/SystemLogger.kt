@@ -1,4 +1,4 @@
-package core.utilities
+package core.tools
 
 import com.github.ajalt.mordant.rendering.TextColors
 import com.github.ajalt.mordant.terminal.*

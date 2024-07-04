@@ -9,9 +9,9 @@ import core.game.system.command.Privilege
 import core.game.system.timer.PersistTimer
 import core.game.world.map.zone.ZoneRestriction
 import core.game.world.repository.Repository
-import core.utilities.RandomFunction
-import core.utilities.colorize
-import core.utilities.minutesToTicks
+import core.tools.RandomFunction
+import core.tools.colorize
+import core.tools.minutesToTicks
 import org.json.simple.JSONObject
 import java.time.LocalDate
 import java.time.Month

@@ -6,7 +6,7 @@ import core.api.consts.Items
 import core.api.consts.NPCs
 import core.game.interaction.InterfaceListener
 import core.game.node.item.Item
-import core.utilities.StringUtils
+import core.tools.StringUtils
 
 class EnchantInterfaceListener : InterfaceListener {
 
