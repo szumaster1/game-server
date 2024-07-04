@@ -4,6 +4,7 @@ import content.region.misthalin.quest.member.animalmagnetism.AnimalMagnetism
 import core.api.consts.Items
 import core.api.consts.NPCs
 import core.api.getStatLevel
+import core.api.inInventory
 import core.api.setVarp
 import core.game.container.Container
 import core.game.dialogue.Dialogue
@@ -785,17 +786,21 @@ class AvaDialogue(player: Player? = null) : Dialogue(player) {
                 15 -> options("Sounds good to me.", "I'd prefer not to, actually.").also { stage++ }
                 16 -> when(buttonId){
                     1 -> player(FacialExpression.HAPPY, "Sounds good to me.").also { buy(upgrade = false) }
-                    2 -> player("I'd prefer not to, actually.").also { stage = END_DIALOGUE }
+                    2 -> player("I'd prefer not to, actually.").also { stage = 42 }
                 }
-                17 -> if (getStatLevel(player, Skills.RANGE) < 50) {
-                    npc("I'm afraid you aren't yet skilled enough for the", "upgraded version. You need a Range level of 50 or", "greater.").also { stage = END_DIALOGUE }
-                } else {
-                    npc(FacialExpression.HAPPY, "You are ready to upgrade. I'll take 75 steel arrows and","the old device, if that's all fine with you?").also { stage++ }
+                17 -> {
+                    if (!inInventory(player, Items.AVAS_ATTRACTOR_10498) && getStatLevel(player, Skills.RANGE) > 50) {
+                        npc("You don't have a device in your bags that I can", "upgrade, I'm afraid.").also { stage = END_DIALOGUE }
+                    } else if(getStatLevel(player, Skills.RANGE) < 50){
+                        npc("I'm afraid you aren't yet skilled enough for the", "upgraded version. You need a Range level of 50 or", "greater.").also { stage = END_DIALOGUE }
+                    } else {
+                        npc(FacialExpression.HAPPY, "You are ready to upgrade. I'll take 75 steel arrows and","the old device, if that's all fine with you?").also { stage++ }
+                    }
                 }
                 18 -> options("Sounds good to me.", "I'd prefer not to, actually.").also { stage++ }
                 19 -> when(buttonId){
                     1 -> player(FacialExpression.HAPPY, "Sounds good to me.").also { buy(upgrade = true) }
-                    2 -> player("I'd prefer not to, actually.").also { stage = END_DIALOGUE }
+                    2 -> player("I'd prefer not to, actually.").also { stage = 42 }
                 }
                 20 -> {
                     npc("Just a few bits of information before you run away to", "persecute rock crabs or cows.")
@@ -887,6 +892,8 @@ class AvaDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 41 -> end()
+
+                42 -> npc("I've better things to do than be irritated by you.").also { stage = END_DIALOGUE }
             }
 
             else -> when (stage) {
@@ -901,13 +908,6 @@ class AvaDialogue(player: Player? = null) : Dialogue(player) {
         return true
     }
 
-    fun canBuyUpgrade(player: Player): Boolean {
-        if (player.hasItem(AnimalMagnetism.AVAS_ACCUMULATOR)) {
-            return true
-        }
-        return player.getSkills().getStaticLevel(Skills.RANGE) >= 50
-    }
-
     private fun buy(upgrade: Boolean) {
         val item = if (upgrade) AnimalMagnetism.AVAS_ACCUMULATOR else AnimalMagnetism.AVAS_ATTRACTOR
         if (!player.inventory.hasSpaceFor(item)) {
@@ -918,13 +918,13 @@ class AvaDialogue(player: Player? = null) : Dialogue(player) {
         val coins = Item(995, 999)
         if (upgrade) {
             if (!player.inventory.contains(886, 75)) {
-                player("Sorry, I don't have enough arrows.")
+                npcl(FacialExpression.HALF_GUILTY,"I need 75 steel arrows for the upgrade process, I'm afraid.")
                 stage++
                 return
             }
         }
         if (!player.inventory.containsItem(coins)) {
-            player("Sorry, I don't have enough coins.")
+            npcl(FacialExpression.HALF_GUILTY, "You seem not to have enough cash; you could always sell some of your gear, though.")
             return
         }
         if (upgrade) {
