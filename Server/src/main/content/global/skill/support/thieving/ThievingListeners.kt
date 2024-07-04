@@ -8,13 +8,10 @@ import core.api.consts.Sounds
 import core.api.utils.WeightBasedTable
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
-import core.game.interaction.QueueStrength
-import core.game.node.entity.Entity
 import core.game.node.entity.combat.DeathTask
 import core.game.node.entity.combat.ImpactHandler
 import core.game.node.entity.impl.Animator
 import core.game.node.entity.player.Player
-import core.game.node.entity.player.link.appearance.Gender
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.world.update.flag.context.Animation
@@ -25,10 +22,6 @@ class ThievingListeners : InteractionListener {
     companion object {
         val PICKPOCKET_ANIM = Animation(Animations.HUMAN_PICKPOCKETING_881, Animator.Priority.HIGH)
         val NPC_ANIM = Animation(Animations.PUNCH_422)
-        fun updateGender(player: Entity, male: Boolean): Boolean {
-            setAttribute(player, "mm-gender", if (male) Gender.MALE.ordinal else Gender.FEMALE.ordinal)
-            return true
-        }
 
         /*
          * Standalone pickpocketing function.
@@ -48,7 +41,8 @@ class ThievingListeners : InteractionListener {
                 successMod += 3
             }
             val chance = RandomFunction.randomDouble(1.0, 100.0)
-            val failThreshold = RandomFunction.getSkillSuccessChance(low, high, getStatLevel(player, Skills.THIEVING)) + successMod
+            val failThreshold =
+                RandomFunction.getSkillSuccessChance(low, high, getStatLevel(player, Skills.THIEVING)) + successMod
             if (chance > failThreshold) {
                 /*
                  * Fail Pickpocket.
@@ -69,7 +63,8 @@ class ThievingListeners : InteractionListener {
 
         on(IntType.NPC, "pickpocket", "pick-pocket") { player, node ->
             val pickpocketData = Pickpockets.forID(node.id) ?: return@on false
-            val checkGender = if (updateGender(node.asNpc(), false)) "woman's" else "man's"
+            val npc = node.asNpc()
+            val npcName = npc.name.lowercase()
 
             if (player.inCombat()) {
                 sendMessage(player, "You can't do this while in combat.")
@@ -86,8 +81,8 @@ class ThievingListeners : InteractionListener {
                 return@on true
             }
 
-            if (DeathTask.isDead(node.asNpc())) {
-                sendMessage(player, "Too late, " + node.name + " is already dead.")
+            if (DeathTask.isDead(npc)) {
+                sendMessage(player, "Too late, $npcName is already dead.")
                 return@on true
             }
 
@@ -96,34 +91,30 @@ class ThievingListeners : InteractionListener {
                 return@on true
             }
 
-            face(player, node)
-            animate(player, PICKPOCKET_ANIM, true)
-            sendMessage(player, "You attempt to pick the $checkGender pocket.")
+            animate(player, PICKPOCKET_ANIM)
+            sendMessage(player, "You attempt to pick the $npcName pocket.")
             val lootTable = pickpocketRoll(player, pickpocketData.low, pickpocketData.high, pickpocketData.table)
 
-            queueScript(player, 1, QueueStrength.WEAK) {
-                if (lootTable == null) {
-                    face(node.asNpc(), player)
-                    animate(node.asNpc(), NPC_ANIM, true)
-                    sendMessage(player, "You fail to pick the $checkGender pocket.")
-                    sendMessage(player, "${node.name}: What do you think you're doing?")
-                    sendChat(node.asNpc(), "What do you think you're doing?")
-                    playHurtAudio(player, 20)
-                    stun(player, pickpocketData.stunTime)
-                    impact(node.asNpc(), RandomFunction.random(pickpocketData.stunDamageMin, pickpocketData.stunDamageMax), ImpactHandler.HitsplatType.NORMAL)
-                    sendMessage(player, "You feel slightly concussed from the blow.")
-                    node.asNpc().face(null)
-                } else {
-                    lock(player, 2)
-                    playAudio(player, Sounds.PICK_2581)
-                    sendMessage(player, "You pick the $checkGender pocket.")
-                    lootTable.forEach {
-                        player.inventory.add(it)
-                        sendMessage(player, "You steal some ${getItemName(it.id).lowercase()}.")
-                    }
-                    rewardXP(player, Skills.THIEVING, pickpocketData.experience)
+            if (lootTable == null) {
+                npc.face(player)
+                npc.animator.animate(NPC_ANIM)
+                npc.sendChat("What do you think you're doing?")
+                sendMessage(player, "You fail to pick the $npcName pocket.")
+                sendMessage(player, "${npc.name}: What do you think you're doing?")
+                playHurtAudio(player, 20)
+                stun(player, pickpocketData.stunTime)
+                impact(player, RandomFunction.random(pickpocketData.stunDamageMin, pickpocketData.stunDamageMax), ImpactHandler.HitsplatType.NORMAL)
+                sendMessage(player, "You feel slightly concussed from the blow.")
+                npc.face(null)
+            } else {
+                lock(player, 2)
+                playAudio(player, Sounds.PICK_2581)
+                sendMessage(player, "You pick the $npcName pocket.")
+                lootTable.forEach {
+                    player.inventory.add(it)
+                    sendMessage(player, "You steal some ${getItemName(it.id).lowercase()}.")
                 }
-                return@queueScript stopExecuting(player)
+                rewardXP(player, Skills.THIEVING, pickpocketData.experience)
             }
             return@on true
         }

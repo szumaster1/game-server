@@ -10,8 +10,10 @@ import core.api.consts.Components
 import core.api.consts.Items
 import core.api.consts.NPCs
 import core.api.consts.Scenery
+import core.api.getStatLevel
 import core.api.inBorders
 import core.api.inEquipment
+import core.api.isQuestComplete
 import core.game.diary.AreaDiaryTask
 import core.game.diary.DiaryEventHookBase
 import core.game.diary.DiaryLevel
@@ -352,7 +354,7 @@ class FremennikAchievementDiary : DiaryEventHookBase(DiaryType.FREMENNIK) {
                 )
             }
 
-            10553 -> if (event.target.id == Scenery.FISH_STALL_4277 && event.option == "steal-from" && player.questRepository.isComplete("Fremennik Trials")) {
+            10553 -> if (event.target.id == Scenery.FISH_STALL_4277 && event.option == "steal-from" && isQuestComplete(player, "Fremennik Trials")) {
                 finishTask(
                     player,
                     DiaryLevel.MEDIUM,
@@ -399,7 +401,7 @@ class FremennikAchievementDiary : DiaryEventHookBase(DiaryType.FREMENNIK) {
     override fun onButtonClicked(player: Player, event: ButtonClickEvent) {
         when {
             inBorders(player, RELLEKKA_BLACKSMITH_AREA) -> {
-                if (event.iface == Components.CRAFTING_GLASS_542 && event.buttonId == 38 && player.skills.getLevel(Skills.CRAFTING) >= 33) {
+                if (event.iface == Components.CRAFTING_GLASS_542 && event.buttonId == 38 && getStatLevel(player, Skills.CRAFTING) >= 33) {
                     finishTask(
                         player,
                         DiaryLevel.MEDIUM,
