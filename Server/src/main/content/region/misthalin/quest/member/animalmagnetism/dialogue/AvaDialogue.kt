@@ -5,6 +5,7 @@ import core.api.consts.Items
 import core.api.consts.NPCs
 import core.api.getStatLevel
 import core.api.inInventory
+import core.api.removeItem
 import core.api.setVarp
 import core.game.container.Container
 import core.game.dialogue.Dialogue
@@ -27,7 +28,7 @@ class AvaDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        quest = player.getQuestRepository().getQuest(AnimalMagnetism.NAME)
+        quest = player.getQuestRepository().getQuest(AnimalMagnetism.questName)
         if (!quest!!.hasRequirements(player)) {
             player.packetDispatch.sendMessage("She doesn't seem interested in talking to you.")
             return false
@@ -57,7 +58,7 @@ class AvaDialogue(player: Player? = null) : Dialogue(player) {
                 "it is suitable for the chicken to interact."
             )
 
-            27 -> if (player.inventory.containsItem(AnimalMagnetism.BAR_MAGNET)) {
+            27 -> if (inInventory(player, Items.BAR_MAGNET_10489)) {
                 player("I've manufactured the magnet; here it is.")
                 stage = 4
             } else {
@@ -71,7 +72,7 @@ class AvaDialogue(player: Player? = null) : Dialogue(player) {
                 "to work on the first try."
             )
 
-            31 -> if (player.inventory.containsItem(AnimalMagnetism.UNDEAD_TWIGS)) {
+            31 -> if (inInventory(player,Items.UNDEAD_CHICKEN_10487)) {
                 player("I have that undead wood at last. Well, twigs anyway.")
                 stage++
             } else {
@@ -435,7 +436,7 @@ class AvaDialogue(player: Player? = null) : Dialogue(player) {
                     stage++
                 }
 
-                14 -> if (player.inventory.remove(AnimalMagnetism.BAR_MAGNET)) {
+                14 -> if (removeItem(player, Items.BAR_MAGNET_10489)) {
                     setVarp(player, 939, 150, true)
                     quest!!.setStage(player, 28)
                     end()
@@ -563,7 +564,7 @@ class AvaDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 5 -> {
-                    if (player.inventory.remove(AnimalMagnetism.UNDEAD_TWIGS)) {
+                    if (removeItem(player, Items.UNDEAD_CHICKEN_10487)) {
                         quest!!.setStage(player, 32)
                     }
                     end()
@@ -780,7 +781,7 @@ class AvaDialogue(player: Player? = null) : Dialogue(player) {
 
                 10 -> player("I need another arrow-attracting device, please").also { stage++ }
                 11 -> npc("Well, luckily for you, they have a habit of returning to","me when people lose them, So I have some spares. They","are homing chickens, it seems.").also { stage++ }
-                12 -> npc("I'l: need 999gp, however, for the expenses involved in","restoring the peor creature to health, or unhealth, or","whatever.").also { stage++ }
+                12 -> npc("I'l: need 999gp, however, for the expenses involved in","restoring the poor creature to health, or unhealth, or","whatever.").also { stage++ }
                 13 -> player(FacialExpression.HALF_ASKING, "Why 999?").also { stage++ }
                 14 -> npc("Well, it just sounds less expensive than 1000. Do you","want that replacement or not?").also { stage++ }
                 15 -> options("Sounds good to me.", "I'd prefer not to, actually.").also { stage++ }

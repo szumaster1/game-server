@@ -2,8 +2,7 @@ package content.region.misthalin.quest.member.animalmagnetism
 
 import content.data.skill.SkillingTool.Companion.getHatchet
 import core.api.*
-import core.api.consts.Components
-import core.api.consts.Sounds
+import core.api.consts.*
 import core.cache.def.impl.ItemDefinition
 import core.cache.def.impl.NPCDefinition
 import core.cache.def.impl.SceneryDefinition
@@ -58,7 +57,7 @@ class AnimalMagnetismPlugin : OptionHandler() {
             }
 
             5198, 5199 -> {
-                if (player.getQuestRepository().getQuest(AnimalMagnetism.NAME).getStage(player) == 0) {
+                if (getQuestStage(player, AnimalMagnetism.questName) == 0) {
                     player.dialogueInterpreter.sendDialogues(node as NPC, null, "Hello there, I'm busy with my research. Come back in a", "bit, could you?")
                     return true
                 }
@@ -119,7 +118,7 @@ class AnimalMagnetismPlugin : OptionHandler() {
                         if (player.direction != Direction.NORTH) {
                             sendMessage(player,"You think that facing North might work better.")
                         } else {
-                            player.inventory.replace(AnimalMagnetism.BAR_MAGNET, event.usedItem.slot)
+                            player.inventory.replace(Item(Items.BAR_MAGNET_10489), event.usedItem.slot)
                             sendMessage(player,"You hammer the iron bar and create a magnet.")
                         }
                     }
@@ -130,7 +129,7 @@ class AnimalMagnetismPlugin : OptionHandler() {
         }
 
         companion object {
-            private val ANIMATION = Animation(5365)
+            private val ANIMATION = Animation(Animations.MAKING_IRON_MAGNET_ANIMAL_MAGNETISM_5365)
         }
     }
 
@@ -138,21 +137,20 @@ class AnimalMagnetismPlugin : OptionHandler() {
      * Handles the axe on a undead tree.
      */
 
-    class UndeadTreePlugin : UseWithHandler(1355, 1357, 1359, 6739) {
+    class UndeadTreePlugin : UseWithHandler(Items.MITHRIL_AXE_1355, Items.ADAMANT_AXE_1357, Items.RUNE_AXE_1359, Items.DRAGON_AXE_6739) {
 
-        private val IDS = intArrayOf(1355, 1357, 1359, 6739)
-
+        private val IDS = intArrayOf(Items.MITHRIL_AXE_1355, Items.ADAMANT_AXE_1357, Items.RUNE_AXE_1359, Items.DRAGON_AXE_6739)
 
         override fun newInstance(arg: Any?): Plugin<Any> {
             definePlugin(object : OptionHandler() {
 
                 override fun newInstance(arg: Any): Plugin<Any> {
-                    NPCDefinition.forId(5208).handlers["option:chop"] = this
+                    NPCDefinition.forId(NPCs.UNDEAD_TREE_5208).handlers["option:chop"] = this
                     return this
                 }
 
                 override fun handle(player: Player, node: Node, option: String): Boolean {
-                    val quest = player.getQuestRepository().getQuest(AnimalMagnetism.NAME)
+                    val quest = player.getQuestRepository().getQuest(AnimalMagnetism.questName)
                     if (quest.getStage(player) <= 28) {
                         val tool = getHatchet(player)
                         if (tool == null || tool.ordinal < 4) {
@@ -171,16 +169,16 @@ class AnimalMagnetismPlugin : OptionHandler() {
                         sendMessage(player,"Your inventory is full right now.")
                         return true
                     }
-                    if (!player.inventory.containsItem(AnimalMagnetism.BLESSED_AXE) && !player.equipment.containsItem(AnimalMagnetism.BLESSED_AXE)) {
+                    if (!inInventory(player, Items.BLESSED_AXE_10491) && !inEquipment(player, Items.BLESSED_AXE_10491)) {
                         sendMessage(player,"You need a blessed axe in order to do that.")
                         return true
                     }
-                    val animation = getAnimation(1355)
+                    val animation = getAnimation(Items.MITHRIL_AXE_1355)
                     lock(player, animation!!.definition.durationTicks)
                     if (RandomFunction.random(10) < 3) {
                         sendMessage(player,"You almost remove a suitable twig, but you don't quite manage it.")
                     } else {
-                        player.inventory.add(AnimalMagnetism.UNDEAD_TWIGS)
+                        addItem(player, Items.UNDEAD_TWIGS_10490)
                         sendMessage(player,"You cut some undead twigs.")
                     }
                     player.animate(animation, 2)
@@ -195,7 +193,7 @@ class AnimalMagnetismPlugin : OptionHandler() {
         override fun handle(event: NodeUsageEvent): Boolean {
             val player = event.player
             val animation = getAnimation(event.usedItem.id)
-            val quest = player.getQuestRepository().getQuest(AnimalMagnetism.NAME)
+            val quest = player.getQuestRepository().getQuest(AnimalMagnetism.questName)
             player.animate(animation, 2)
             if (quest.getStage(player) == 28) {
                 quest.setStage(player, 29)
@@ -207,7 +205,7 @@ class AnimalMagnetismPlugin : OptionHandler() {
         fun getAnimation(itemId: Int): Animation? {
             for (i in IDS.indices) {
                 if (IDS[i] == itemId) {
-                    return Animation(5366 + i, Priority.HIGH)
+                    return Animation(Animations.ANMA_BLESSED_AXE_5366 + i, Priority.HIGH)
                 }
             }
             return null
@@ -233,7 +231,7 @@ class AnimalMagnetismPlugin : OptionHandler() {
         )
 
         override fun newInstance(arg: Any?): Plugin<Any> {
-            ComponentDefinition.forId(480).plugin = this
+            ComponentDefinition.forId(Components.ANMA_RGB_480).plugin = this
             return this
         }
 
@@ -251,12 +249,11 @@ class AnimalMagnetismPlugin : OptionHandler() {
             val data = getIndex(button)
             val toggled = data[1] as Boolean
             val configs = getConfigs(data[0] as Int)
-            val quest = player.getQuestRepository().getQuest(AnimalMagnetism.NAME)
-            player.packetDispatch.sendInterfaceConfig(480, configs[0], !toggled)
-            player.packetDispatch.sendInterfaceConfig(480, data[2] as Int, toggled)
+            val quest = player.getQuestRepository().getQuest(AnimalMagnetism.questName)
+            player.packetDispatch.sendInterfaceConfig(Components.ANMA_RGB_480, configs[0], !toggled)
+            player.packetDispatch.sendInterfaceConfig(Components.ANMA_RGB_480, data[2] as Int, toggled)
             if (quest.getStage(player) == 33) {
                 setNoteCache(player, data[0] as Int, !toggled)
-                sendMessage(player, "You fiddle with the notes.")
                 if (isTranslated(player)) {
                     if (player.inventory.remove(AnimalMagnetism.RESEARCH_NOTES)) {
                         player.setAttribute("note-disabled", true)

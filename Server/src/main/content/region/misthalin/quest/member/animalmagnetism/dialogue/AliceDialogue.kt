@@ -15,7 +15,7 @@ class AliceDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        quest = player.getQuestRepository().getQuest(AnimalMagnetism.NAME)
+        quest = player.getQuestRepository().getQuest(AnimalMagnetism.questName)
         when (quest!!.getStage(player)) {
             10, 11, 12, 13, 14, 15, 16, 17, 18 -> options("What are you selling?", "I'm okay, thank you.", "I'm here about a quest.")
             else -> options("What are you selling?", "I'm okay, thank you.")

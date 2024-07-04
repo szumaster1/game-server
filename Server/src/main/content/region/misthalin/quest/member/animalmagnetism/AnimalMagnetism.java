@@ -11,16 +11,10 @@ import core.game.node.item.Item;
 import core.plugin.ClassScanner;
 import core.plugin.Initializable;
 
-/**
- * The Animal magnetism.
- */
 @Initializable
 public final class AnimalMagnetism extends Quest {
 
-    /**
-     * The constant NAME.
-     */
-    public static String NAME = "Animal Magnetism";
+    public static String questName = "Animal Magnetism";
 
     /**
      * The constant CRONE_AMULET.
@@ -31,21 +25,6 @@ public final class AnimalMagnetism extends Quest {
      * The constant SELECTED_IRON.
      */
     public static final Item SELECTED_IRON = new Item(10488);
-
-    /**
-     * The constant BAR_MAGNET.
-     */
-    public static final Item BAR_MAGNET = new Item(10489);
-
-    /**
-     * The constant UNDEAD_TWIGS.
-     */
-    public static final Item UNDEAD_TWIGS = new Item(10490);
-
-    /**
-     * The constant BLESSED_AXE.
-     */
-    public static final Item BLESSED_AXE = new Item(10491);
 
     /**
      * The constant RESEARCH_NOTES.

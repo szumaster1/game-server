@@ -12,7 +12,7 @@ class WitchDialogue(player: Player? = null) : Dialogue(player) {
     private var quest: Quest? = null
 
     override fun open(vararg args: Any): Boolean {
-        quest = player.getQuestRepository().getQuest(AnimalMagnetism.NAME)
+        quest = player.getQuestRepository().getQuest(AnimalMagnetism.questName)
         when (quest!!.getStage(player)) {
             25 -> npc("Hello, hello, my poppet. What brings you to my little", "room?")
             26 -> if (!player.inventory.containsItem(IRON_BARS)) {
