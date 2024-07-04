@@ -911,6 +911,7 @@ class AvaDialogue(player: Player? = null) : Dialogue(player) {
     private fun buy(upgrade: Boolean) {
         val item = if (upgrade) AnimalMagnetism.AVAS_ACCUMULATOR else AnimalMagnetism.AVAS_ATTRACTOR
         if (!player.inventory.hasSpaceFor(item)) {
+            end()
             player("Sorry, I don't have enough inventory space.")
             stage++
             return
@@ -924,12 +925,14 @@ class AvaDialogue(player: Player? = null) : Dialogue(player) {
             }
         }
         if (!player.inventory.containsItem(coins)) {
+            end()
             npcl(FacialExpression.HALF_GUILTY, "You seem not to have enough cash; you could always sell some of your gear, though.")
             return
         }
         if (upgrade) {
             player.inventory.remove(Item(886, 75))
         }
+        end()
         removeAll(player, item, if (upgrade) AnimalMagnetism.AVAS_ATTRACTOR else AnimalMagnetism.AVAS_ACCUMULATOR)
         player.inventory.remove(coins)
         npc(FacialExpression.HAPPY, if (upgrade) "Here's your upgraded device; take good care of it." else "Here's your device; take good care of your chicken.")

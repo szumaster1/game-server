@@ -4,7 +4,6 @@ import content.region.misthalin.quest.member.animalmagnetism.dialogue.AliceDialo
 import content.region.misthalin.quest.member.animalmagnetism.dialogue.AliceHusbandDialogue;
 import content.region.misthalin.quest.member.animalmagnetism.dialogue.AvaDialogue;
 import content.region.misthalin.quest.member.animalmagnetism.dialogue.WitchDialogue;
-import content.region.misthalin.quest.member.animalmagnetism.plugin.AnimalMagnetismPlugin;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.quest.Quest;
 import core.game.node.entity.skill.Skills;
