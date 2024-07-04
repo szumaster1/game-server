@@ -27,26 +27,14 @@ import core.plugin.Initializable;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
 
-/**
- * The Forge regent npc.
- */
 @Initializable
 public class ForgeRegentNPC extends Familiar {
     private static final Animation FIREMAKE_ANIMATION = Animation.create(8085); // TODO FIX - this is from pyrelord
 
-    /**
-     * Instantiates a new Forge regent npc.
-     */
     public ForgeRegentNPC() {
         this(null, 7335);
     }
 
-    /**
-     * Instantiates a new Forge regent npc.
-     *
-     * @param owner the owner
-     * @param id    the id
-     */
     public ForgeRegentNPC(Player owner, int id) {
         super(owner, id, 4500, 12782, 6, WeaponInterface.STYLE_RANGE_ACCURATE);
         boosts.add(new SkillBonus(Skills.FIREMAKING, 4));
@@ -103,15 +91,8 @@ public class ForgeRegentNPC extends Familiar {
         return new int[]{7335, 7336};
     }
 
-    /**
-     * The Forge regent firemake.
-     */
     public final class ForgeRegentFiremake extends UseWithHandler {
 
-
-        /**
-         * Instantiates a new Forge regent firemake.
-         */
         public ForgeRegentFiremake() {
             super(1511, 2862, 1521, 1519, 6333, 10810, 1517, 6332, 12581, 1515, 1513, 13567, 10329, 10328, 7406, 7405, 7404);
         }

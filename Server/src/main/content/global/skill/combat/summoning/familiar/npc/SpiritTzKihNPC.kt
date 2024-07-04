@@ -12,7 +12,7 @@ import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 
 @Initializable
-class SpiritTzKihNPC(owner: Player? = null, id: Int = NPCs.SPIRIT_TZ_KIH_7361) : Familiar(owner, id, 1800, 12808, 6, WeaponInterface.STYLE_CAST) {
+class SpiritTzKihNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.SPIRIT_TZ_KIH_7361) : Familiar(owner, id, 1800, 12808, 6, WeaponInterface.STYLE_CAST) {
 
     override fun construct(owner: Player, id: Int): Familiar {
         return SpiritTzKihNPC(owner, id)

@@ -16,28 +16,16 @@ import core.game.world.update.flag.context.Animation;
 import core.plugin.Initializable;
 import core.tools.RandomFunction;
 
-/**
- * The Beaver npc.
- */
 @Initializable
 public class BeaverNPC extends Forager {
     private static final Item[] ITEMS = new Item[]{new Item(1511), new Item(2862), new Item(1521), new Item(1519), new Item(6333), new Item(10810), new Item(1517), new Item(6332), new Item(12581), new Item(960), new Item(8778)};
     private static final String[] TREE_NAMES = new String[]{"Tree", "Oak", "Hollow", "Willow", "Arctic pine", "Eucalyptus", "Maple", "Yew", "Magic", "Cursed magic"};
     private boolean multiChop;
 
-    /**
-     * Instantiates a new Beaver npc.
-     */
     public BeaverNPC() {
         this(null, 6808);
     }
 
-    /**
-     * Instantiates a new Beaver npc.
-     *
-     * @param owner the owner
-     * @param id    the id
-     */
     public BeaverNPC(Player owner, int id) {
         super(owner, id, 2700, 12021, 6, ITEMS);
         boosts.add(new SkillBonus(Skills.WOODCUTTING, 2));

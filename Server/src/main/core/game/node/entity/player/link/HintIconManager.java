@@ -175,7 +175,7 @@ public final class HintIconManager {
 		HintIconManager mng = player.getHintIconManager();
 		HintIconContext icon = mng.hintIcons[slot];
 		if (icon != null) {
-			icon.setTargetType(0);
+			icon.targetType = 0;
 			PacketRepository.send(HintIcon.class, icon);
 			mng.hintIcons[slot] = null;
 		}

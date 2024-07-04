@@ -159,7 +159,7 @@ object ManagementEvents {
                 }
 
                 if (receiver != null) {
-                    PacketRepository.send(CommunicationMessage::class.java, MessageContext(receiver, event.sender, event.rank, MessageContext.RECIEVE_MESSAGE, event.message))
+                    PacketRepository.send(CommunicationMessage::class.java, MessageContext(receiver, event.sender, event.rank, MessageContext.RECEIVE_MESSAGE, event.message))
                 }
             }
 
@@ -258,10 +258,10 @@ object ManagementEvents {
                         initializeClanWith(info)
                     } else {
                         SystemLogger.logMS("Creating default server clan")
-                        if (GameWorld.settings!!.enable_default_clan && event.clanOwner == ServerConstants.SERVER_NAME.toLowerCase()) {
+                        if (GameWorld.settings!!.enable_default_clan && event.clanOwner == ServerConstants.SERVER_NAME.lowercase()) {
                             //Create a user with the default clan and some basic settings and stick them in the account storage
                             if (info == UserAccountInfo.createDefault()) {
-                                info.username = ServerConstants.SERVER_NAME.toLowerCase()
+                                info.username = ServerConstants.SERVER_NAME.lowercase()
                                 info.password = ServerConstants.MS_SECRET_KEY
                                 info.rights = 2
                                 GameWorld.authenticator.createAccountWith(info)

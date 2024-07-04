@@ -13,14 +13,14 @@ import kotlin.math.abs
 class WaydarPuzzleInterfaceListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {
-        on(Components.TRAIL_PUZZLE_363) { player, component, opcode, buttonID, slot, itemID ->
+        on(Components.TRAIL_PUZZLE_363) { player, _, _, buttonID, slot, _ ->
 
-            val puzzlePieces: Array<Item> = ((3904..3950 step 2).toList().map { Item(it) }).toTypedArray()
-            val currentPiecesPosition: Array<Item>
+            val puzzlePieces: Array<Item?> = ((3904..3950 step 2).toList().map { Item(it) }).toTypedArray()
+            val currentPiecesPosition: Array<Item?>?
 
             when (buttonID) {
                 6 -> {
-                    currentPiecesPosition = getAttribute(player, "/save:MonkeyMadnessPuzzleState", puzzlePieces.clone())
+                    currentPiecesPosition = getAttribute(player, "/save:MonkeyMadnessPuzzleState", puzzlePieces?.clone())
                     val targetSlot = listOf(1, -1, 5, -5)
                         .map { findTargetSlot(currentPiecesPosition, slot, it) }
                         .firstOrNull { it != -1 }
@@ -40,17 +40,17 @@ class WaydarPuzzleInterfaceListener : InterfaceListener {
         }
     }
 
-    private fun swapPieces(puzzlePieces: Array<Item>, slot: Int, targetSlot: Int) {
-        puzzlePieces[targetSlot] = puzzlePieces[slot]
-        puzzlePieces[slot] = Item(-1)
+    private fun swapPieces(puzzlePieces: Array<Item?>?, slot: Int, targetSlot: Int) {
+        puzzlePieces?.set(targetSlot, puzzlePieces[slot])
+        puzzlePieces?.set(slot, Item(-1))
     }
 
-    private fun findTargetSlot(puzzlePieces: Array<Item>, slot: Int, offset: Int): Int {
+    private fun findTargetSlot(puzzlePieces: Array<Item?>?, slot: Int, offset: Int): Int {
         val targetSlot = slot + offset
-        return if ((targetSlot in 0..24) && (abs(slot - targetSlot) == 1 || abs(slot - targetSlot) == 5) && puzzlePieces[targetSlot].id == 65535) targetSlot else -1
+        return if ((targetSlot in 0..24) && (abs(slot - targetSlot) == 1 || abs(slot - targetSlot) == 5) && puzzlePieces?.get(targetSlot)?.id == 65535) targetSlot else -1
     }
 
-    private fun isPuzzleSolved(currentPieces: Array<Item>, puzzlePieces: Array<Item>): Boolean {
+    private fun isPuzzleSolved(currentPieces: Array<Item?>?, puzzlePieces: Array<Item?>?): Boolean {
         return currentPieces.contentEquals(puzzlePieces)
     }
 }

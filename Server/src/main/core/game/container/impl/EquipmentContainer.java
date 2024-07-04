@@ -1,6 +1,7 @@
 package core.game.container.impl;
 
 import content.global.skill.skillcape.SkillcapePerks;
+import core.api.consts.Components;
 import core.game.container.Container;
 import core.game.container.ContainerEvent;
 import core.game.container.ContainerListener;
@@ -26,40 +27,18 @@ import static core.api.ContentAPIKt.*;
  * @author Emperor
  */
 public final class EquipmentContainer extends Container {
-    /**
-     * The equipment slots.
-     */
-    public static final int SLOT_HAT = 0, /**
-     * The Slot cape.
-     */
-    SLOT_CAPE = 1, /**
-     * The Slot amulet.
-     */
-    SLOT_AMULET = 2, /**
-     * The Slot weapon.
-     */
-    SLOT_WEAPON = 3, /**
-     * The Slot chest.
-     */
-    SLOT_CHEST = 4, /**
-     * The Slot shield.
-     */
-    SLOT_SHIELD = 5, /**
-     * The Slot legs.
-     */
-    SLOT_LEGS = 7, /**
-     * The Slot hands.
-     */
-    SLOT_HANDS = 9, /**
-     * The Slot feet.
-     */
-    SLOT_FEET = 10, /**
-     * The Slot ring.
-     */
-    SLOT_RING = 12, /**
-     * The Slot arrows.
-     */
-    SLOT_ARROWS = 13;
+
+    public static final int SLOT_HAT = 0,
+        SLOT_CAPE = 1,
+        SLOT_AMULET = 2,
+        SLOT_WEAPON = 3,
+        SLOT_CHEST = 4,
+        SLOT_SHIELD = 5,
+        SLOT_LEGS = 7,
+        SLOT_HANDS = 9,
+        SLOT_FEET = 10,
+        SLOT_RING = 12,
+        SLOT_ARROWS = 13;
 
     /**
      * The bonus names.
@@ -280,16 +259,8 @@ public final class EquipmentContainer extends Container {
      */
     private static class EquipmentListener implements ContainerListener {
 
-        /**
-         * The player.
-         */
         private final Player player;
 
-        /**
-         * Constructs a new {@code EquipmentContainer} {@code Object}.
-         *
-         * @param player The player.
-         */
         public EquipmentListener(Player player) {
             this.player = player;
         }
@@ -390,7 +361,9 @@ public final class EquipmentContainer extends Container {
             bonuses[10] += increase;
         }
         player.getProperties().setBonuses(bonuses);
-        update(player);
+        if (player.getInterfaceManager().hasMainComponent(Components.EQUIP_SCREEN2_667)) {
+            update(player);
+        }
     }
 
     /**
@@ -399,9 +372,6 @@ public final class EquipmentContainer extends Container {
      * @param player The player to update for.
      */
     public static void update(Player player) {
-        if (!player.getInterfaceManager().hasMainComponent(667)) {
-            return;
-        }
         int index = 0;
         int[] bonuses = player.getProperties().getBonuses();
         for (int i = 36; i < 50; i++) {
@@ -412,6 +382,7 @@ public final class EquipmentContainer extends Container {
             String bonusValue = bonus > -1 ? ("+" + bonus) : Integer.toString(bonus);
             player.getPacketDispatch().sendString(BONUS_NAMES[index++] + bonusValue, 667, i);
         }
-        player.getPacketDispatch().sendString("Attack bonus", 667, 34);
+        player.getSettings().updateWeight();
+        player.getPacketDispatch().sendString("Attack bonus", Components.EQUIP_SCREEN2_667, 34);
     }
 }

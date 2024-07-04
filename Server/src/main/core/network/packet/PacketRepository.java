@@ -23,9 +23,6 @@ public final class PacketRepository {
      */
     public final static Map<Class<?>, OutgoingPacket<? extends Context>> OUTGOING_PACKETS = new HashMap<>();
 
-    /**
-     * Populate the mappings.
-     */
     static {
         OUTGOING_PACKETS.put(LoginPacket.class, new LoginPacket());
         OUTGOING_PACKETS.put(UpdateSceneGraph.class, new UpdateSceneGraph());

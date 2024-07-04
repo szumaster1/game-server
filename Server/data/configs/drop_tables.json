@@ -19960,8 +19960,8 @@
       }
     ],
     "charm": [],
-    "ids": "1308",
-    "description": "",
+    "ids": "1308,1318,1317",
+    "description": "Rellekka NPCs",
     "main": [
       {
         "minAmount": "1",

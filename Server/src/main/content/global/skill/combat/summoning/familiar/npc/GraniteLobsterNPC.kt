@@ -17,7 +17,7 @@ import core.plugin.Initializable
 import core.tools.RandomFunction
 
 @Initializable
-class GraniteLobsterNPC(owner: Player? = null, id: Int = NPCs.GRANITE_LOBSTER_6849) :
+class GraniteLobsterNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.GRANITE_LOBSTER_6849) :
     Forager(owner, id, 4700, 12069, 6) {
 
     init {

@@ -7,23 +7,25 @@ import core.network.packet.context.SkillContext;
 
 /**
  * Handles the update skill outgoing packet.
+ *
  * @author Emperor
  */
 public final class SkillLevel implements OutgoingPacket<SkillContext> {
 
-	@Override
-	public void send(SkillContext context) {
-		final IoBuffer buffer = new IoBuffer(38);
-		buffer.cypherOpcode(context.getPlayer().getSession().getIsaacPair().getOutput());Skills skills = context.getPlayer().getSkills();
-		if (context.getSkillId() == Skills.PRAYER) {
-			buffer.putA((int) Math.ceil(skills.getPrayerPoints()));
-		} else if (context.getSkillId() == Skills.HITPOINTS) {
-			buffer.putA(skills.getLifepoints());
-		} else {
-			buffer.putA(skills.getLevel(context.getSkillId(), true));
-		}
-		buffer.putIntA((int) skills.getExperience(context.getSkillId())).put(context.getSkillId());
-		context.getPlayer().getDetails().getSession().write(buffer);
-	}
+    @Override
+    public void send(SkillContext context) {
+        final IoBuffer buffer = new IoBuffer(38);
+        buffer.cypherOpcode(context.getPlayer().getSession().getIsaacPair().getOutput());
+        Skills skills = context.getPlayer().getSkills();
+        if (context.skillId == Skills.PRAYER) {
+            buffer.putA((int) Math.ceil(skills.getPrayerPoints()));
+        } else if (context.skillId == Skills.HITPOINTS) {
+            buffer.putA(skills.getLifepoints());
+        } else {
+            buffer.putA(skills.getLevel(context.skillId, true));
+        }
+        buffer.putIntA((int) skills.getExperience(context.skillId)).put(context.skillId);
+        context.getPlayer().getDetails().getSession().write(buffer);
+    }
 
 }

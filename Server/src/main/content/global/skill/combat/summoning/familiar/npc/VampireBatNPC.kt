@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.tools.RandomFunction
 
 @Initializable
-class VampireBatNPC(owner: Player? = null, id: Int = NPCs.VAMPIRE_BAT_6835) : Familiar(owner, id, 3300, 12053, 4, WeaponInterface.STYLE_CONTROLLED) {
+class VampireBatNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.VAMPIRE_BAT_6835) : Familiar(owner, id, 3300, 12053, 4, WeaponInterface.STYLE_CONTROLLED) {
 
     override fun construct(owner: Player, id: Int): Familiar {
         return VampireBatNPC(owner, id)

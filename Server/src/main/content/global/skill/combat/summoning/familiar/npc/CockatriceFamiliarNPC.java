@@ -17,9 +17,6 @@ import core.plugin.ClassScanner;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
-/**
- * The Cockatrice familiar npc.
- */
 @Initializable
 public final class CockatriceFamiliarNPC implements Plugin<Object> {
 
@@ -41,14 +38,6 @@ public final class CockatriceFamiliarNPC implements Plugin<Object> {
         return null;
     }
 
-    /**
-     * Petrifying gaze boolean.
-     *
-     * @param familiar the familiar
-     * @param special  the special
-     * @param skill    the skill
-     * @return the boolean
-     */
     public boolean petrifyingGaze(final Familiar familiar, final FamiliarSpecial special, final int skill) {
         final Entity target = special.getTarget();
         if (!familiar.canCombatSpecial(target)) {
@@ -68,24 +57,13 @@ public final class CockatriceFamiliarNPC implements Plugin<Object> {
         return true;
     }
 
-    /**
-     * The Spirit cockatrice.
-     */
     public final class SpiritCockatrice extends Forager {
 
-        /**
-         * Instantiates a new Spirit cockatrice.
-         */
+
         public SpiritCockatrice() {
             this(null, 6875);
         }
 
-        /**
-         * Instantiates a new Spirit cockatrice.
-         *
-         * @param owner the owner
-         * @param id    the id
-         */
         public SpiritCockatrice(Player owner, int id) {
             super(owner, id, 3600, 12095, 3, WeaponInterface.STYLE_CAST, COCKATRICE_EGG);
         }
@@ -107,23 +85,12 @@ public final class CockatriceFamiliarNPC implements Plugin<Object> {
 
     }
 
-    /**
-     * The Spirit guthatrice.
-     */
     public class SpiritGuthatrice extends Forager {
-        /**
-         * Instantiates a new Spirit guthatrice.
-         */
+
         public SpiritGuthatrice() {
             this(null, 6877);
         }
 
-        /**
-         * Instantiates a new Spirit guthatrice.
-         *
-         * @param owner the owner
-         * @param id    the id
-         */
         public SpiritGuthatrice(Player owner, int id) {
             super(owner, id, 3600, 12097, 3, WeaponInterface.STYLE_CAST, COCKATRICE_EGG);
         }
@@ -144,24 +111,12 @@ public final class CockatriceFamiliarNPC implements Plugin<Object> {
         }
     }
 
-    /**
-     * The Spirit zamatrice.
-     */
     public class SpiritZamatrice extends Forager {
 
-        /**
-         * Instantiates a new Spirit zamatrice.
-         */
         public SpiritZamatrice() {
             this(null, 6881);
         }
 
-        /**
-         * Instantiates a new Spirit zamatrice.
-         *
-         * @param owner the owner
-         * @param id    the id
-         */
         public SpiritZamatrice(Player owner, int id) {
             super(owner, id, 3600, 12101, 3, WeaponInterface.STYLE_CAST, COCKATRICE_EGG);
         }
@@ -182,23 +137,12 @@ public final class CockatriceFamiliarNPC implements Plugin<Object> {
         }
     }
 
-    /**
-     * The Spirit pengatrice.
-     */
     public class SpiritPengatrice extends Forager {
-        /**
-         * Instantiates a new Spirit pengatrice.
-         */
+
         public SpiritPengatrice() {
             this(null, 6883);
         }
 
-        /**
-         * Instantiates a new Spirit pengatrice.
-         *
-         * @param owner the owner
-         * @param id    the id
-         */
         public SpiritPengatrice(Player owner, int id) {
             super(owner, id, 3600, 12103, 3, WeaponInterface.STYLE_CAST, COCKATRICE_EGG);
         }
@@ -219,23 +163,12 @@ public final class CockatriceFamiliarNPC implements Plugin<Object> {
         }
     }
 
-    /**
-     * The Spirit coraxatrice.
-     */
     public class SpiritCoraxatrice extends Forager {
-        /**
-         * Instantiates a new Spirit coraxatrice.
-         */
+
         public SpiritCoraxatrice() {
             this(null, 6885);
         }
 
-        /**
-         * Instantiates a new Spirit coraxatrice.
-         *
-         * @param owner the owner
-         * @param id    the id
-         */
         public SpiritCoraxatrice(Player owner, int id) {
             super(owner, id, 3600, 12105, 3, WeaponInterface.STYLE_CAST, COCKATRICE_EGG);
         }
@@ -257,23 +190,12 @@ public final class CockatriceFamiliarNPC implements Plugin<Object> {
 
     }
 
-    /**
-     * The Spirit vulatrice.
-     */
     public class SpiritVulatrice extends Forager {
-        /**
-         * Instantiates a new Spirit vulatrice.
-         */
+
         public SpiritVulatrice() {
             this(null, 6887);
         }
 
-        /**
-         * Instantiates a new Spirit vulatrice.
-         *
-         * @param owner the owner
-         * @param id    the id
-         */
         public SpiritVulatrice(Player owner, int id) {
             super(owner, id, 3600, 12107, 3, WeaponInterface.STYLE_CAST, COCKATRICE_EGG);
         }

@@ -14,27 +14,15 @@ import core.plugin.Initializable;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
 
-/**
- * The Macaw npc.
- */
 @Initializable
 public class MacawNPC extends Forager {
     private static final Item[] HERBS = new Item[]{new Item(249), new Item(251), new Item(253), new Item(255), new Item(257), new Item(2998), new Item(12172), new Item(259), new Item(261), new Item(263), new Item(3000), new Item(265), new Item(2481), new Item(267), new Item(269)};
     private int specialDelay;
 
-    /**
-     * Instantiates a new Macaw npc.
-     */
     public MacawNPC() {
         this(null, 6851);
     }
 
-    /**
-     * Instantiates a new Macaw npc.
-     *
-     * @param owner the owner
-     * @param id    the id
-     */
     public MacawNPC(Player owner, int id) {
         super(owner, id, 3100, 12071, 12, HERBS);
     }

@@ -20,8 +20,10 @@ public final class ClearScenery implements OutgoingPacket<BuildSceneryContext> {
 	 */
 	public static IoBuffer write(IoBuffer buffer, Scenery object) {
 		Location l = object.getLocation();
-		buffer.put(195) // Opcode
-				.putC((object.getType() << 2) + (object.getRotation() & 3)).put((l.getChunkOffsetX() << 4) | (l.getChunkOffsetY() & 0x7));
+		/*
+		 * Opcode
+		 */
+        buffer.put(195).putC((object.getType() << 2) + (object.getRotation() & 3)).put((l.getChunkOffsetX() << 4) | (l.getChunkOffsetY() & 0x7));
 		return buffer;
 	}
 

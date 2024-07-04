@@ -11,24 +11,13 @@ import core.game.world.update.flag.context.Animation;
 import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 
-/**
- * The Abyssal lurker npc.
- */
 @Initializable
 public class AbyssalLurkerNPC extends BurdenBeast {
-    /**
-     * Instantiates a new Abyssal lurker npc.
-     */
+
     public AbyssalLurkerNPC() {
         this(null, 6820);
     }
 
-    /**
-     * Instantiates a new Abyssal lurker npc.
-     *
-     * @param owner the owner
-     * @param id    the id
-     */
     public AbyssalLurkerNPC(Player owner, int id) {
         super(owner, id, 4100, 12037, 3, 7, WeaponInterface.STYLE_CAST);
     }

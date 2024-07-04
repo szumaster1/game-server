@@ -185,7 +185,7 @@ class MonkeyMadnessListeners : InteractionListener {
         }
 
         on(Items.SPARE_CONTROLS_4002, IntType.ITEM, "View") { player, _ ->
-            val puzzlePieces: Array<Item> = ((3904..3950 step 2).toList().map { Item(it) } + Item(-1)).toTypedArray()
+            val puzzlePieces: Array<Item?>? = ((3904..3950 step 2).toList().map { Item(it) } + Item(-1)).toTypedArray()
 
             val settings = IfaceSettingsBuilder().build()
             player.packetDispatch.sendIfaceSettings(settings, 6, monkeyMadnessPuzzleComponent, 0, 25)
@@ -206,13 +206,13 @@ class MonkeyMadnessListeners : InteractionListener {
                 player.interfaceManager.open(Component(monkeyMadnessPuzzleComponent))
 
                 // List of glider pieces
-                var puzzlePieces: Array<Item> =
+                var puzzlePieces: Array<Item?>? =
                     ((3904..3950 step 2).toList().map { Item(it) } + Item(-1)).toTypedArray()
 
                 // Starting puzzle
                 if (getAttribute(player, "/save:mm:puzzle", arrayOf(Item())).size == 1) {
-                    val shuffledInitialPuzzle = puzzlePieces.clone()
-                    shuffledInitialPuzzle.shuffle()
+                    val shuffledInitialPuzzle = puzzlePieces?.clone()
+                    shuffledInitialPuzzle?.shuffle()
 
                     // Save puzzle state for session
                     setAttribute(player, "/save:mm:puzzle", shuffledInitialPuzzle)
@@ -224,7 +224,7 @@ class MonkeyMadnessListeners : InteractionListener {
                     )
                 } else {
                     // For puzzle already started, just retrieve the last state
-                    puzzlePieces = getAttribute(player, "/save:mm:puzzle", puzzlePieces.clone())
+                    puzzlePieces = getAttribute(player, "/save:mm:puzzle", puzzlePieces?.clone())
                     PacketRepository.send(
                         ContainerPacket::class.java,
                         ContainerContext(player, -1, -1, 140, puzzlePieces, 25, false)

@@ -8,24 +8,13 @@ import core.game.node.entity.skill.SkillBonus;
 import core.game.node.entity.skill.Skills;
 import core.plugin.Initializable;
 
-/**
- * The Spirit graahk npc.
- */
 @Initializable
 public class SpiritGraahkNPC extends Familiar {
-    /**
-     * Instantiates a new Spirit graahk npc.
-     */
+
     public SpiritGraahkNPC() {
         this(null, 7363);
     }
 
-    /**
-     * Instantiates a new Spirit graahk npc.
-     *
-     * @param owner the owner
-     * @param id    the id
-     */
     public SpiritGraahkNPC(Player owner, int id) {
         super(owner, id, 4900, 12810, 3, WeaponInterface.STYLE_AGGRESSIVE);
         boosts.add(new SkillBonus(Skills.HUNTER, 5));

@@ -39,7 +39,7 @@ public final class UpdateAreaPosition implements OutgoingPacket<AreaPositionCont
 
 	@Override
 	public void send(AreaPositionContext context) {
-		IoBuffer buffer = getBuffer(context.getPlayer(),context.getLocation());
+		IoBuffer buffer = getBuffer(context.getPlayer(), context.location);
 		buffer.cypherOpcode(context.getPlayer().getSession().getIsaacPair().getOutput());context.getPlayer().getSession().write(buffer);
 	}
 

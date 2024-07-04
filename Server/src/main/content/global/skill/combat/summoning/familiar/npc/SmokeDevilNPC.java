@@ -17,24 +17,13 @@ import core.tools.RandomFunction;
 
 import java.util.List;
 
-/**
- * The Smoke devil npc.
- */
 @Initializable
 public class SmokeDevilNPC extends Familiar {
-    /**
-     * Instantiates a new Smoke devil npc.
-     */
+
     public SmokeDevilNPC() {
         this(null, 6865);
     }
 
-    /**
-     * Instantiates a new Smoke devil npc.
-     *
-     * @param owner the owner
-     * @param id    the id
-     */
     public SmokeDevilNPC(Player owner, int id) {
         super(owner, id, 4800, 12085, 6);
     }

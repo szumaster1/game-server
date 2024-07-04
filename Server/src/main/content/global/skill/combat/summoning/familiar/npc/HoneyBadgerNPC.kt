@@ -13,7 +13,7 @@ import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 
 @Initializable
-class HoneyBadgerNPC(owner: Player? = null, id: Int = NPCs.HONEY_BADGER_6845) :
+class HoneyBadgerNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.HONEY_BADGER_6845) :
     Familiar(owner, id, 2500, 12065, 4, WeaponInterface.STYLE_AGGRESSIVE) {
 
     override fun construct(owner: Player, id: Int): Familiar {

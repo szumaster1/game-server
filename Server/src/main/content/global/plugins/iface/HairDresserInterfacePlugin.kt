@@ -151,13 +151,13 @@ class HairDresserInterfacePlugin : ComponentPlugin() {
             player.toggleWardrobe(false)
             setAttribute(player, "beard-setting", false)
             if (!pl.getAttribute("hairdresser-paid", false)) {
-                val original_hair = player.getAttribute("original-hair", 0)
-                val original_beard = player.getAttribute("original_beard", -1)
-                val original_color = player.getAttribute("original_color", 0)
-                pl.appearance.hair.changeLook(original_hair)
-                pl.appearance.hair.changeColor(original_color)
-                if (original_beard != -1) {
-                    pl.appearance.beard.changeLook(original_beard)
+                val originalHair = player.getAttribute("original-hair", 0)
+                val originalBeard = player.getAttribute("original-beard", -1)
+                val originalColor = player.getAttribute("original-color", 0)
+                pl.appearance.hair.changeLook(originalHair)
+                pl.appearance.hair.changeColor(originalColor)
+                if (originalBeard != -1) {
+                    pl.appearance.beard.changeLook(originalBeard)
                 }
                 pl.appearance.sync()
             }

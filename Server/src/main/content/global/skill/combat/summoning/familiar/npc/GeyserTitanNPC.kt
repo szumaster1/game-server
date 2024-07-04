@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.RandomFunction
 
 @Initializable
-class GeyserTitanNPC(owner: Player? = null, id: Int = 7339) :
+class GeyserTitanNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 7339) :
     Familiar(owner, id, 6900, 12786, 6, WeaponInterface.STYLE_RANGE_ACCURATE) {
 
     override fun construct(owner: Player, id: Int): Familiar {

@@ -12,27 +12,15 @@ import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.tools.RandomFunction;
 
-/**
- * The Abyssal parasite npc.
- */
 @Initializable
 public class AbyssalParasiteNPC extends BurdenBeast {
     @SuppressWarnings("unused")
     private final boolean specialMove = false;
 
-    /**
-     * Instantiates a new Abyssal parasite npc.
-     */
     public AbyssalParasiteNPC() {
         this(null, 6818);
     }
 
-    /**
-     * Instantiates a new Abyssal parasite npc.
-     *
-     * @param owner the owner
-     * @param id    the id
-     */
     public AbyssalParasiteNPC(Player owner, int id) {
         super(owner, id, 3000, 12035, 1, 7);
     }

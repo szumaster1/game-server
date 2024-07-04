@@ -10,7 +10,7 @@ import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 
 @Initializable
-class IceTitanNPC(owner: Player? = null, id: Int = NPCs.ICE_TITAN_7359) :
+class IceTitanNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.ICE_TITAN_7359) :
     ElementalTitanNPC(owner, id, 6400, 12806, 20, WeaponInterface.STYLE_ACCURATE) {
 
     override fun construct(owner: Player, id: Int): Familiar {

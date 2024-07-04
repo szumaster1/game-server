@@ -7,8 +7,8 @@ import core.network.packet.OutgoingPacket;
 import core.network.packet.context.LocationContext;
 
 /**
- * Outgoing packet used for updating a player's location solely on his own
- * client.
+ * Outgoing packet used for updating a player's location
+ * solely on his own client.
  * @author Emperor
  */
 public final class InstancedLocationUpdate implements OutgoingPacket<LocationContext> {
@@ -16,7 +16,7 @@ public final class InstancedLocationUpdate implements OutgoingPacket<LocationCon
 	@Override
 	public void send(LocationContext context) {
 		IoBuffer buffer = new IoBuffer(110);
-		Location l = context.getLocation();
+		Location l = context.location;
 		Player player = context.getPlayer();
 		int flag = l.getZ() << 1;
 		if (context.isTeleport()) {

@@ -10,24 +10,13 @@ import core.game.world.update.flag.context.Animation;
 import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 
-/**
- * The Bull ant npc.
- */
 @Initializable
 public class BullAntNPC extends BurdenBeast {
-    /**
-     * Instantiates a new Bull ant npc.
-     */
+
     public BullAntNPC() {
         this(null, 6867);
     }
 
-    /**
-     * Instantiates a new Bull ant npc.
-     *
-     * @param owner the owner
-     * @param id    the id
-     */
     public BullAntNPC(Player owner, int id) {
         super(owner, id, 3000, 12087, 12, 9, WeaponInterface.STYLE_CONTROLLED);
     }

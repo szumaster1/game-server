@@ -12,20 +12,25 @@ import core.network.packet.context.PositionedGraphicContext;
  */
 public final class PositionedGraphic implements OutgoingPacket<PositionedGraphicContext> {
 
-	@Override
-	public void send(PositionedGraphicContext context) {
-		Location l = context.getLocation();
-		Graphic g = context.getGraphic();
-		int offsetHash = (context.offsetX << 4) | context.offsetY;
-		IoBuffer buffer = new IoBuffer()
-				.put(26)					//update current scene x and scene y client-side
-				.putC(context.sceneX)  		//this has to be done for each graphic being sent
-				.put(context.sceneY)        //opcode 26 is the lastSceneX/lastSceneY update packet
-				.put(17).put(offsetHash)   	//send the graphics
-				.putShort(g.getId())
-				.put(g.getHeight())
-				.putShort(g.getDelay());
-		context.getPlayer().getSession().write(buffer);
-	}
+    /*
+     * update current scene x and scene y client-side this
+     * has to be done for each graphic being sent opcode 26
+     * is the lastSceneX/lastSceneY update packet send the graphics
+     */
+    @Override
+    public void send(PositionedGraphicContext context) {
+        Location l = context.location;
+        Graphic g = context.graphic;
+        int offsetHash = (context.offsetX << 4) | context.offsetY;
+        IoBuffer buffer = new IoBuffer()
+            .put(26)
+            .putC(context.sceneX)
+            .put(context.sceneY)
+            .put(17).put(offsetHash)
+            .putShort(g.getId())
+            .put(g.getHeight())
+            .putShort(g.getDelay());
+        context.getPlayer().getSession().write(buffer);
+    }
 
 }

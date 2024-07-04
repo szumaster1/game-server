@@ -21,27 +21,15 @@ import core.plugin.Initializable;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
 
-/**
- * The Bunyip npc.
- */
 @Initializable
 public class BunyipNPC extends Familiar {
     private static final int[] FISH = new int[]{317, 327, 3150, 345, 321, 353, 335, 341, 349, 3379, 331, 5004, 359, 10138, 5001, 377, 363, 371, 2148, 7944, 3142, 383, 395, 389, 401, 405, 407};
     private int lastHeal;
 
-    /**
-     * Instantiates a new Bunyip npc.
-     */
     public BunyipNPC() {
         this(null, 6813);
     }
 
-    /**
-     * Instantiates a new Bunyip npc.
-     *
-     * @param owner the owner
-     * @param id    the id
-     */
     public BunyipNPC(Player owner, int id) {
         super(owner, id, 4400, 12029, 3, WeaponInterface.STYLE_ACCURATE);
         setLastHeal();
@@ -72,9 +60,6 @@ public class BunyipNPC extends Familiar {
         return true;
     }
 
-    /**
-     * Sets last heal.
-     */
     public void setLastHeal() {
         this.lastHeal = GameWorld.getTicks() + (int) (15 / 0.6);
     }

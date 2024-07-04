@@ -13,9 +13,6 @@ import core.game.world.update.flag.context.Animation;
 import core.plugin.Initializable;
 import core.tools.RandomFunction;
 
-/**
- * The Spirit spider npc.
- */
 @Initializable
 public class SpiritSpiderNPC extends Familiar {
     private static final Item EGG = new Item(223);
@@ -23,19 +20,10 @@ public class SpiritSpiderNPC extends Familiar {
     // The delay until the next chance of random eggs.
     private int eggDelay = GameWorld.getTicks() + 500;
 
-    /**
-     * Instantiates a new Spirit spider npc.
-     */
     public SpiritSpiderNPC() {
         this(null, 6841);
     }
 
-    /**
-     * Instantiates a new Spirit spider npc.
-     *
-     * @param owner the owner
-     * @param id    the id
-     */
     public SpiritSpiderNPC(Player owner, int id) {
         super(owner, id, 1500, 12059, 6, WeaponInterface.STYLE_CONTROLLED);
     }

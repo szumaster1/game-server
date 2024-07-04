@@ -12,24 +12,13 @@ import core.tools.RandomFunction;
 import static core.api.ContentAPIKt.curePoison;
 import static core.api.ContentAPIKt.removeTimer;
 
-/**
- * The Bloated leech npc.
- */
 @Initializable
 public class BloatedLeechNPC extends Familiar {
-    /**
-     * Instantiates a new Bloated leech npc.
-     */
+
     public BloatedLeechNPC() {
         this(null, 6843);
     }
 
-    /**
-     * Instantiates a new Bloated leech npc.
-     *
-     * @param owner the owner
-     * @param id    the id
-     */
     public BloatedLeechNPC(Player owner, int id) {
         super(owner, id, 3400, 12061, 6, WeaponInterface.STYLE_ACCURATE);
     }

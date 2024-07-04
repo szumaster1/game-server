@@ -1,22 +1,22 @@
 package core.game.node.entity.player.info.login;
 
-import core.ServerConstants;
-import core.game.component.CloseEvent;
 import core.game.component.Component;
-import core.game.interaction.InteractionListeners;
 import core.game.node.entity.player.Player;
-import core.game.node.entity.player.link.SpellBookManager;
 import core.game.node.entity.player.link.emote.Emotes;
 import core.game.node.item.Item;
-import core.game.world.GameWorld;
 import core.game.world.map.RegionManager;
-import core.game.world.repository.Repository;
-import core.game.world.update.UpdateSequence;
 import core.network.packet.PacketRepository;
 import core.network.packet.context.InterfaceContext;
 import core.network.packet.outgoing.Interface;
 import core.plugin.Plugin;
+import core.ServerConstants;
+import core.game.interaction.InteractionListeners;
+
 import core.tools.Log;
+import core.game.world.GameWorld;
+import core.game.world.repository.Repository;
+import core.game.world.update.UpdateSequence;
+import core.game.node.entity.player.link.SpellBookManager;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -47,21 +47,19 @@ public final class LoginConfiguration {
     private static final Component LOBBY_PANE = new Component(549);
 
     /**
+     * The lobby interface component.
+     */
+    private static final Component LOBBY_INTERFACE = new Component(378);
+
+    /**
      * The lobby message of the week models & constant to be set for auto selecting the models
      */
     private static final int[] MESSAGE_MODEL = {15, 16, 17, 18, 19, 20, 21, 22, 23, 405, 447, 622, 623, 679, 715, 800};
     private static int messModel;
 
     /**
-     * The lobby interface close event.
+     * Constructs a new {@Code LoginConfiguration} {@Code Object}
      */
-    private static final Component LOBBY_INTERFACE = new Component(378).setCloseEvent(new CloseEvent() {
-        @Override
-        public boolean close(Player player, Component c) {
-            return player.getLocks().isLocked("login");
-        }
-    });
-
     public LoginConfiguration() {
         /*
          * empty.
@@ -75,7 +73,7 @@ public final class LoginConfiguration {
      */
     public static void configureLobby(Player player) {
         player.updateSceneGraph(true);
-        if (!player.isArtificial() && player.getAttribute("tutorial:complete", false) && player.getAttribute("login_type", LoginType.NORMAL_LOGIN) != LoginType.RECONNECT_TYPE) {
+        if (!player.isArtificial() && player.getAttribute("tutorial:complete",false) && player.getAttribute("login_type", LoginType.NORMAL_LOGIN) != LoginType.RECONNECT_TYPE) {
             sendLobbyScreen(player);
         } else {
             configureGameWorld(player);
@@ -89,33 +87,33 @@ public final class LoginConfiguration {
      */
     public static void sendLobbyScreen(Player player) {
         messModel = autoSelect();
-        for (Player p : Repository.getLobbyPlayers()) {
-            if (p.getName().equals(player.getName())) {
+        for(Player p : Repository.getLobbyPlayers()){
+            if(p.getName().equals(player.getName())){
                 p.clear();
                 Repository.getLobbyPlayers().remove(p);
                 break;
             }
         }
         Repository.getLobbyPlayers().add(player);
-        player.getPacketDispatch().sendString(getLastLogin(player), 378, 116);
-        player.getPacketDispatch().sendString("Welcome to " + GameWorld.getSettings().getName(), 378, 115);
-        player.getPacketDispatch().sendString(" ", 378, 37);
-        player.getPacketDispatch().sendString("Want to stay up to date with the latest news and updates?", 378, 38);
-        player.getPacketDispatch().sendString(" ", 378, 39);
-        player.getPacketDispatch().sendString("Discord Invite", 378, 14);
-        player.getPacketDispatch().sendString("Discord Invite", 378, 129);
-        player.getPacketDispatch().sendString("Credits", 378, 94);
-        player.getPacketDispatch().sendString(player.getDetails().getCredits() + "", 378, 96);
-        player.getPacketDispatch().sendString(" ", 378, 229);
-        player.getPacketDispatch().sendString("Want to contribute to " + ServerConstants.SERVER_NAME + "? <br>Visit the GitLab using the link below!", 378, 230);
-        player.getPacketDispatch().sendString(" ", 378, 231);
-        player.getPacketDispatch().sendString("Github", 378, 240);
-        player.getPacketDispatch().sendString(GameWorld.getSettings().getMessage_string(), messModel, getMessageChild(messModel));
-        player.getPacketDispatch().sendString("You can gain more credits by voting, reporting bugs and various other methods of contribution.", 378, 93);
+        setInterfaceText(player, "Welcome to " + ServerConstants.SERVER_NAME, 378, 115);
+        setInterfaceText(player, getLastLogin(player), 378, 116);
+        setInterfaceText(player, "", 378, 37);
+        setInterfaceText(player, "Want to stay up to date with the latest news and updates? Join our discord by using the link on our website!", 378, 38);
+        setInterfaceText(player, "", 378, 39);
+        setInterfaceText(player, "Discord Invite", 378, 14);
+        setInterfaceText(player, "Discord Invite", 378, 129);
+        setInterfaceText(player, "You can gain more credits by reporting bugs and various other methods of contribution.", 378, 93);
+        setInterfaceText(player, player.getDetails().getCredits() + "", 378, 96);
+        setInterfaceText(player, "Credits", 378, 94);
+        setInterfaceText(player, "", 378, 229);
+        setInterfaceText(player, "Want to contribute to " + ServerConstants.SERVER_NAME + "? Visit the GitLab using the link on our website!", 378, 230);
+        setInterfaceText(player, "", 378, 231);
+        setInterfaceText(player, "Github", 378, 240);
+        setInterfaceText(player, GameWorld.getSettings().getMessage_string(), messModel, getMessageChild(messModel));
         player.getInterfaceManager().openWindowsPane(LOBBY_PANE);
         player.getInterfaceManager().setOpened(LOBBY_INTERFACE);
-        PacketRepository.send(Interface.class, new InterfaceContext(player, 549, 2, 378, true));
-        PacketRepository.send(Interface.class, new InterfaceContext(player, 549, 3, messModel, true));//UPDATE `configs` SET `value`=FLOOR(RAND()*(25-10)+10) WHERE key_="messageInterface"
+        PacketRepository.send(Interface.class, new InterfaceContext(player, LOBBY_PANE.getId(), 2, 378, true));
+        PacketRepository.send(Interface.class, new InterfaceContext(player, LOBBY_PANE.getId(), 3, messModel, true));//UPDATE `configs` SET `value`=FLOOR(RAND()*(25-10)+10) WHERE key_="messageInterface"
         player.getDetails().setLastLogin(System.currentTimeMillis());
     }
 
@@ -134,15 +132,15 @@ public final class LoginConfiguration {
         player.updateAppearance();
         player.getPlayerFlags().setUpdateSceneGraph(true);
         player.getPacketDispatch().sendInterfaceConfig(226, 1, true);
-        if (player.getGlobalData().getTestStage() == 3 && !player.getEmoteManager().isUnlocked(Emotes.SAFETY_FIRST)) {
+
+        if(player.getGlobalData().getTestStage() == 3 && !player.getEmoteManager().isUnlocked(Emotes.SAFETY_FIRST)){
             player.getEmoteManager().unlock(Emotes.SAFETY_FIRST);
         }
+
         for (Item item : player.getEquipment().toArray()) {
-            /*
-             *  Run equip hooks for all items equipped on login.
-             *  We should have already been doing this.
-             *  Frankly, I don't even want to imagine the number of bugs us *not* doing this has caused.
-             */
+            //Run equip hooks for all items equipped on login.
+            //We should have already been doing this.
+            //Frankly, I don't even want to imagine the number of bugs us *not* doing this has caused.
             if (item == null) continue;
             player.getEquipment().remove(item);
             if (!InteractionListeners.run(item.getId(), player, item, true) || !player.getEquipment().add(item, true, false)) {
@@ -150,6 +148,7 @@ public final class LoginConfiguration {
                 addItemOrBank(player, item.getId(), item.getAmount());
             }
         }
+
         SpellBookManager.SpellBook currentSpellBook = SpellBookManager.SpellBook.forInterface(player.getSpellBookManager().getSpellBook());
         if (currentSpellBook == SpellBookManager.SpellBook.ANCIENT && !hasRequirement(player, "Desert Treasure")) {
             player.sendMessage(colorize("%RAs you can no longer use Ancient Magic, you have been set back to Modern."));
@@ -159,22 +158,21 @@ public final class LoginConfiguration {
             player.getSpellBookManager().setSpellBook(SpellBookManager.SpellBook.MODERN);
         }
         player.getSpellBookManager().update(player);
+
         /*
-         * 1050 is checked client-side for making piety/chivalry disallowed sfx, likely due to the minigame requirement.
+         * 1050 is checked client-side for making piety/chivalry disallowed sfx,
+         * likely due to the minigame requirement.
          * Set it here unconditionally until the minigame is implemented.
          */
-        setVarbit(player, 3909, 8, false);
+
+        if (hasRequirement(player, "King's Ransom", false)) {
+            setVarbit(player, 3909, 8, false);
+        }
         /*
-         * if (ServerConstants.RULES_AND_INFO_ENABLED) {
-         * }
-         * RulesAndInfo.openFor(player);
-         * if (GameWorld.getSettings().isPvp()) {
-         * 	player.getPacketDispatch().sendString("", 226, 1);
-         * }
          * if (TutorialSession.getExtension(player).getStage() != 73) {
          *     TutorialStage.load(player, TutorialSession.getExtension(player).getStage(), true);
          * }
-         */
+        */
     }
 
     /**
@@ -204,22 +202,14 @@ public final class LoginConfiguration {
      * @param player the player. Fullscreen mode Object id:
      */
     public static final void welcome(final Player player) {
-        if (GameWorld.getSettings().isPvp()) {
-            player.getPacketDispatch().sendString("", 226, 0);
-        }
         if (player.isArtificial()) {
-
             return;
         }
-        player.getPacketDispatch().sendMessage("Welcome to " + GameWorld.getSettings().getName() + ".");
+        player.getPacketDispatch().sendMessage("Welcome to " + ServerConstants.SERVER_NAME + ".");
         if (player.getDetails().isMuted()) {
             player.getPacketDispatch().sendMessage("You are muted.");
             player.getPacketDispatch().sendMessage("To prevent further mutes please read the rules.");
         }
-        /*
-         *  ResourceAIPManager.get().load(player);
-         *  ResourceAIPManager.get().save(player);
-         */
     }
 
     /**
@@ -228,7 +218,7 @@ public final class LoginConfiguration {
      * @param player the player.
      */
     public static final void config(final Player player) {
-        if (!player.isArtificial())
+        if(!player.isArtificial())
             log(LoginConfiguration.class, Log.INFO, "configuring player " + player.getUsername());
         player.getInventory().refresh();
         player.getEquipment().refresh();
@@ -239,32 +229,32 @@ public final class LoginConfiguration {
         player.getPacketDispatch().sendRunEnergy();
         player.getFamiliarManager().login();
         player.getInterfaceManager().openDefaultTabs();
-        player.getPacketDispatch().sendString("Friends List - World " + GameWorld.getSettings().getWorldId(), 550, 3);
+        setInterfaceText(player, "Friends List - " + ServerConstants.SERVER_NAME + " " + GameWorld.getSettings().getWorldId(), 550, 3);
+        setInterfaceText(player, "When you have finished playing " + ServerConstants.SERVER_NAME + ", always use the button below to logout safely.", 182, 0);
         player.getQuestRepository().syncronizeTab(player);
         player.getInterfaceManager().close();
         player.getEmoteManager().refresh();
         player.getInterfaceManager().openInfoBars();
-        if (!player.isArtificial())
+        if(!player.isArtificial())
             log(LoginConfiguration.class, Log.INFO, "finished configuring player " + player.getUsername());
     }
 
     /**
      * Gets the message child for the inter id.
-     *
+     * @notice GameSettings.kt contains the list of what these are
      * @param interfaceId The interface id.
      * @return The child id.
-     * @notice GameSettings.kt contains the list of what these are
      */
     public static int getMessageChild(int interfaceId) {
         if (interfaceId == 622) {
             return 8;
         } else if (interfaceId == 16) {
             return 6;
-        } else if (interfaceId == 17 || interfaceId == 15 || interfaceId == 18 || interfaceId == 19 || interfaceId == 21 || interfaceId == 22 || interfaceId == 447 || interfaceId == 405) {
-            return 4;
         } else if (interfaceId == 20 || interfaceId == 623) {
             return 5;
-        } else if (interfaceId == 23 || interfaceId == 800) {
+        } else if (interfaceId == 15 || interfaceId == 18 || interfaceId == 19 || interfaceId == 21 || interfaceId == 22 || interfaceId == 447 || interfaceId == 405) {
+            return 4;
+        } else if (interfaceId == 17 || interfaceId == 23 || interfaceId == 800) {
             return 3;
         } else if (interfaceId == 715) {
             return 2;
@@ -279,7 +269,7 @@ public final class LoginConfiguration {
      */
     private final static int autoSelect() {
         boolean contains = IntStream.of(MESSAGE_MODEL).anyMatch(x -> x == GameWorld.getSettings().getMessage_model());
-        return contains ? GameWorld.getSettings().getMessage_model() : MESSAGE_MODEL[new Random().nextInt(MESSAGE_MODEL.length)];
+        return contains ? GameWorld.getSettings().getMessage_model():MESSAGE_MODEL[new Random().nextInt(MESSAGE_MODEL.length)];
     }
 
     /**

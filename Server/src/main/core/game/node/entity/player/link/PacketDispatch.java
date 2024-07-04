@@ -464,7 +464,7 @@ public final class PacketDispatch {
 			return;
 		}
 		animation.setObject(object);
-		PacketRepository.send(AnimateScenery.class, new AnimateObjectContext(player, animation));
+		PacketRepository.send(AnimateScenery.class, new AnimateSceneryContext(player, animation));
 	}
 
     /**
@@ -477,16 +477,17 @@ public final class PacketDispatch {
                 player.getUpdateMasks().register(EntityFlag.SpotAnim, new Graphic(id, height));
 	}
 
-    /**
+    /*
      * Send var client.
      *
      * @param id    the id
      * @param value the value
      * @param cs2   the cs 2
+     *
+     *  public void sendVarClient(int id, int value, boolean cs2) {
+	 *  	PacketRepository.send(Config.class, new ConfigContext(player, id, value, cs2));
+	 *  }
      */
-    public void sendVarClient(int id, int value, boolean cs2) {
-		PacketRepository.send(Config.class, new ConfigContext(player, id, value, cs2));
-	}
 
     /**
      * Send left shifted varbit.

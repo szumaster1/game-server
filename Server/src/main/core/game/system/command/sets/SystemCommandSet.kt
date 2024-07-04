@@ -22,7 +22,7 @@ class SystemCommandSet : CommandSet(Privilege.ADMIN) {
          * Start an update countdown.
          */
 
-        define("update") { player, args ->
+        define("update") { _, args ->
             if (args.size > 1) {
                 SystemManager.updater.setCountdown(args[1].toInt())
             }
@@ -32,7 +32,7 @@ class SystemCommandSet : CommandSet(Privilege.ADMIN) {
         /*
          * Cancel an update countdown.
          */
-        define("cancelupdate") { player, _ ->
+        define("cancelupdate") { _, _ ->
             SystemManager.updater.cancel()
         }
 
@@ -144,7 +144,7 @@ class SystemCommandSet : CommandSet(Privilege.ADMIN) {
 
         define("removeitem", Privilege.ADMIN, "::removeitem <lt>LOC<gt> <lt>USERNAME<gt> <lt>ITEM ID<gt> <lt>AMOUNT<gt>", "LOC = bank,inventory,equipment") { player, args ->
             if (args.size == 4 || args.size == 5) {
-                val itemLoc = args[1].toLowerCase()
+                val itemLoc = args[1].lowercase()
                 val victim = Repository.getPlayerByName(args[2])
                 val itemID = args[3].toIntOrNull()
                 var amount = args.getOrNull(4)?.toIntOrNull() ?: 1

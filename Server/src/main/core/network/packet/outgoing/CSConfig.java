@@ -6,7 +6,6 @@ import core.network.packet.context.CSConfigContext;
 
 /**
  * The outgoing packet for client script configs.
- * 
  * @author Snickerize
  */
 public class CSConfig implements OutgoingPacket<CSConfigContext> {
@@ -15,8 +14,8 @@ public class CSConfig implements OutgoingPacket<CSConfigContext> {
 	public void send(CSConfigContext context) {
 		IoBuffer buffer = new IoBuffer(65);
 		buffer.putLEShort(context.getPlayer().getInterfaceManager().getPacketCount(1));
-		buffer.putC((byte) context.getValue());
-		buffer.putLEShortA(context.getId());
+		buffer.putC((byte) context.value);
+		buffer.putLEShortA(context.id);
 		buffer.cypherOpcode(context.getPlayer().getSession().getIsaacPair().getOutput());context.getPlayer().getDetails().getSession().write(buffer);
 	}
 

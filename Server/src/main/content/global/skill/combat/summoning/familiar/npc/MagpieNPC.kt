@@ -14,7 +14,7 @@ import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 
 @Initializable
-class MagpieNPC(owner: Player? = null, id: Int = NPCs.MAGPIE_6824) : Forager(owner, id, 3400, 12041, 3, *ITEMS) {
+class MagpieNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.MAGPIE_6824) : Forager(owner, id, 3400, 12041, 3, *ITEMS) {
 
     init {
         boosts.add(SkillBonus(Skills.THIEVING, 3.0))
