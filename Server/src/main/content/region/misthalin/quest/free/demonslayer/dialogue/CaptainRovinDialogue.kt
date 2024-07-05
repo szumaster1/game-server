@@ -103,7 +103,8 @@ class CaptainRovinDialogue(player: Player? = null) : Dialogue(player) {
 
             11 -> end()
             600 -> {
-                if (player.inventory.containsItem(DemonSlayer.SECOND_KEY) || player.bank.containsItem(DemonSlayer.SECOND_KEY)) {
+                if (player.inventory.containsItem(DemonSlayer.SECOND_KEY) || player.bank.containsItem(
+                        DemonSlayer.SECOND_KEY)) {
                     npc("Yes, you said before, haven't you killed it yet?")
                     stage = 620
                     return

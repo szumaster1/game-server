@@ -13,7 +13,8 @@ class KingRoaldSOADialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
 
-        if (player!!.inventory.containsItem(ShieldofArrav.PHOENIX_SHIELD) || player!!.inventory.containsItem(ShieldofArrav.BLACKARM_SHIELD)) {
+        if (player!!.inventory.containsItem(ShieldofArrav.PHOENIX_SHIELD) || player!!.inventory.containsItem(
+                ShieldofArrav.BLACKARM_SHIELD)) {
             when (stage) {
                 START_DIALOGUE -> player("Your majesty, I have recovered the Shield of Arrav; I", "would like to claim the reward.").also { stage++ }
                 1 -> npc("The Shield of Arrav, eh? Yes, I do recall my father,", "King Roald, put a reward out for that.").also { stage++ }
@@ -21,7 +22,8 @@ class KingRoaldSOADialogue : DialogueFile() {
                 3 -> npc("If you get the authenticity of the shield verified by the", "curator at the museum and then return here with", "authentication, I will grant your reward.").also { stage = END_DIALOGUE }
                 END_DIALOGUE -> end()
             }
-        } else if (player!!.inventory.containsItem(ShieldofArrav.BLACKARM_CERTIFICATE) || player!!.inventory.containsItem(ShieldofArrav.PHOENIX_CERTIFICATE)) {
+        } else if (player!!.inventory.containsItem(ShieldofArrav.BLACKARM_CERTIFICATE) || player!!.inventory.containsItem(
+                ShieldofArrav.PHOENIX_CERTIFICATE)) {
             when (stage) {
                 START_DIALOGUE -> player("Your majesty, I have come to claim the reward for the", "return of the Shield of Arrav.").also { stage++ }
                 1 -> interpreter!!.sendItemMessage(if (player!!.inventory.containsItem(ShieldofArrav.BLACKARM_CERTIFICATE)) ShieldofArrav.BLACKARM_CERTIFICATE.id else ShieldofArrav.PHOENIX_CERTIFICATE.id, "You show the certificate to the king.").also { stage++ }

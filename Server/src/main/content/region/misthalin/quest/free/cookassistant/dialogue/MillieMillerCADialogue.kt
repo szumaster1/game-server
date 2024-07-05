@@ -1,6 +1,7 @@
 package content.region.misthalin.quest.free.cookassistant.dialogue
 
 import core.ServerConstants
+import core.api.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
@@ -20,8 +21,6 @@ class MillieMillerCADialogue(player: Player? = null) : Dialogue(player) {
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
-
-            //Continuation of Millie's greeting
             0 -> options("Who are you?", "What is this place?", "How do I mill flour?", "I'm fine, thanks.").also { stage++ }
             1 -> when (buttonId) {
                 1 -> player(FacialExpression.ASKING, "Who are you?").also { stage = 10 }
@@ -49,6 +48,6 @@ class MillieMillerCADialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun getIds(): IntArray {
-        return intArrayOf(3806)
+        return intArrayOf(NPCs.MILLIE_MILLER_3806)
     }
 }

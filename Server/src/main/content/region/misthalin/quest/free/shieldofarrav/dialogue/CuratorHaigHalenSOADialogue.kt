@@ -8,7 +8,8 @@ class CuratorHaigHalenSOADialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
         val player = player!!
-        if (player.inventory.containsItem(ShieldofArrav.PHOENIX_SHIELD) || player.inventory.containsItem(ShieldofArrav.BLACKARM_SHIELD)) {
+        if (player.inventory.containsItem(ShieldofArrav.PHOENIX_SHIELD) || player.inventory.containsItem(
+                ShieldofArrav.BLACKARM_SHIELD)) {
             when (stage) {
                 0 -> player("I have half the shield of Arrav here. Can I get a", "reward?").also { stage++ }
                 1 -> npc("The Shield of Arrav! Goodness, the Museum has been", "searching for that for years! The late King Roald II", "offered a reward for it years ago!").also { stage++ }

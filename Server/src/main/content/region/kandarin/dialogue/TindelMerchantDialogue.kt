@@ -1,6 +1,6 @@
 package content.region.kandarin.dialogue
 
-import content.region.kandarin.handlers.TindelMerchant
+import content.region.kandarin.handlers.portkhazard.TindelMerchant
 import core.api.consts.NPCs
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression

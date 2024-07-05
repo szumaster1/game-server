@@ -103,7 +103,8 @@ class StravenSOADialogue(player: Player? = null) : Dialogue(player) {
         when (quest!!.getStage(player)) {
             100, 70 -> when (stage) {
                 10 -> stage =
-                    if (!player.inventory.containsItem(ShieldofArrav.KEY) && !player.bank.containsItem(ShieldofArrav.KEY)) {
+                    if (!player.inventory.containsItem(ShieldofArrav.KEY) && !player.bank.containsItem(
+                            ShieldofArrav.KEY)) {
                         player("I'm afraid I've lost the key you gave me...")
                         80
                     } else {

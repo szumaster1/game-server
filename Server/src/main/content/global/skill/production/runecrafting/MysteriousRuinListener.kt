@@ -1,7 +1,7 @@
 package content.global.skill.production.runecrafting
 
 import content.global.skill.production.runecrafting.staff.Staff
-import content.region.misthalin.handlers.varrock.VarrockAchievementDiary.Companion.EasyTasks.ENTER_EARTH_ALTAR
+import content.region.misthalin.diary.VarrockAchievementDiary.Companion.EasyTasks.ENTER_EARTH_ALTAR
 import core.api.*
 import core.game.container.impl.EquipmentContainer.SLOT_HAT
 import core.game.interaction.IntType

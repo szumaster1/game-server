@@ -1,8 +1,8 @@
 package content.region.misthalin.quest.free.cookassistant
 
+import core.api.*
+import core.api.consts.Components
 import core.api.consts.Vars
-import core.api.inInventory
-import core.api.removeAttribute
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
@@ -16,85 +16,46 @@ class CooksAssistant : Quest("Cook's Assistant", 15, 14, 1, Vars.VARP_QUEST_COOK
     val EGG = 1944
 
     override fun drawJournal(player: Player?, stage: Int) {
-
         super.drawJournal(player, stage)
-
         var line = 12
         var stage = player?.questRepository?.getStage("Cook's Assistant")!!
-
-
-        if (stage < 10) { //If the quest has not been started
-
+        if (stage < 10) {
             line(player, "I can start this quest by speaking to the !!Cook?? in the", line++)
             line(player, "!!Kitchen?? on the ground floor of !!Lumbridge Castle.??", line)
-
-        } else if (stage in 10..99) { //Player has started Cook's Assistant
-
-            //Situation
+        } else if (stage in 10..99) {
             line(player, "It's the !!Duke of Lumbridge's?? birthday and I have to help", line++)
             line(player, "his !!Cook?? make him a !!birthday cake.?? To do this I need to", line++)
             line(player, "bring him the following ingredients:", line++)
-
-            //MILK
-            if (player.getAttribute(
-                    "cooks_assistant:milk_submitted",
-                    false
-                ) || player.getAttribute("cooks_assistant:all_submitted", false)
-            ) { //If the player has handed in the bucket of milk
+            if (player.getAttribute("cooks_assistant:milk_submitted", false) || player.getAttribute("cooks_assistant:all_submitted", false)) {
                 line(player, "---I have given the cook a bucket of milk./--", line++)
-            } else if (inInventory(player, MILK, 1)) { // If the player has a bucket of milk in their inventory
+            } else if (inInventory(player, MILK, 1)) {
                 line(player, "I have found a !!bucket of milk?? to give to the cook.", line++)
-            } else { //If the player satisfies none of the above
+            } else {
                 line(player, "I need to find a !!bucket of milk.?? There's a cattle field east", line++)
                 line(player, "of Lumbridge, I should make sure I take an empty bucket", line++)
                 line(player, "with me.", line++)
             }
-
-            //FLOUR
-            if (player.getAttribute(
-                    "cooks_assistant:flour_submitted",
-                    false
-                ) || player.getAttribute("cooks_assistant:all_submitted", false)
-            ) { //If the player has handed in the pot of flour
+            if (player.getAttribute("cooks_assistant:flour_submitted", false) || player.getAttribute("cooks_assistant:all_submitted", false)) { //If the player has handed in the pot of flour
                 line(player, "---I have given the cook a pot of flour./--", line++)
-            } else if (inInventory(player, FLOUR, 1)) { // If the player has a pot of flour in their inventory
+            } else if (inInventory(player, FLOUR, 1)) {
                 line(player, "I have found a !!pot of flour?? to give to the cook.", line++)
-            } else { //If the player satisfies none of the above
+            } else {
                 line(player, "I need to find a !!pot of flour.?? There's a mill found north-", line++)
                 line(player, "west of Lumbridge, I should take an empty pot with me.", line++)
             }
-
-            //EGG
-            if (player.getAttribute(
-                    "cooks_assistant:egg_submitted",
-                    false
-                ) || player.getAttribute("cooks_assistant:all_submitted", false)
-            ) { //If the player has handed in the egg
+            if (player.getAttribute("cooks_assistant:egg_submitted", false) || player.getAttribute("cooks_assistant:all_submitted", false)) { //If the player has handed in the egg
                 line(player, "---I have given the cook an egg./--", line++)
-            } else if (inInventory(player, EGG, 1)) { // If the player has an egg in their inventory
+            } else if (inInventory(player, EGG, 1)) {
                 line(player, "I have found an !!egg?? to give to the cook.", line++)
-            } else { //If the player satisfies none of the above
+            } else {
                 line(player, "I need to find an !!egg.?? The cook normally gets his eggs from", line++)
                 line(player, "the Groats' farm, found just to the west of the cattle", line++)
                 line(player, "field.", line)
             }
-
-            //If the player has handed everything in but was interrupted the final dialogue
-            if (player.getAttribute(
-                    "cooks_assistant:all_submitted",
-                    false
-                ) || (player.getAttribute(
-                    "cooks_assistant:milk_submitted",
-                    false
-                ) && player.getAttribute(
-                    "cooks_assistant:flour_submitted",
-                    false
-                ) && player.getAttribute("cooks_assistant:egg_submitted", false))
-            ) {
+            if (player.getAttribute("cooks_assistant:all_submitted", false) || (player.getAttribute("cooks_assistant:milk_submitted", false) && player.getAttribute("cooks_assistant:flour_submitted", false) && player.getAttribute("cooks_assistant:egg_submitted", false))) {
                 line(player, "I should return to the !!Cook.??", line)
             }
-
-        } else if (stage >= 100) { //If the player has completed the quest
+        } else if (stage >= 100) {
             line(player, "---It was the Duke of Lumbridge's birthday,  but his cook had/--", line++)
             line(player, "---forgotten to buy the ingredients he needed to make him a/--", line++)
             line(player, "---cake. I brought the cook an egg, some flour and some milk/--", line++)
@@ -108,23 +69,15 @@ class CooksAssistant : Quest("Cook's Assistant", 15, 14, 1, Vars.VARP_QUEST_COOK
         }
     }
 
-    //The Quest Finish Certificate
     override fun finish(player: Player) {
         var ln = 10
         super.finish(player)
-        player.packetDispatch.sendString("You have completed the Cook's Assistant Quest!", 277, 4)
-        player.packetDispatch.sendItemZoomOnInterface(1891, 240, 277, 5)
-
+        setInterfaceText(player, "You have completed the Cook's Assistant Quest!", Components.QUEST_COMPLETE_SCROLL_277, 4)
+        sendItemZoomOnInterface(player, Components.QUEST_COMPLETE_SCROLL_277,5,1891,240)
         drawReward(player, "1 Quest Point", ln++)
         drawReward(player, "300 Cooking XP", ln)
-        player.skills.addExperience(Skills.COOKING, 300.0)
-
-        //Removing these attributes in the event that they weren't already cleared in the Cook's dialogue
-        removeAttribute(player, "cooks_assistant:milk_submitted")
-        removeAttribute(player, "cooks_assistant:flour_submitted")
-        removeAttribute(player, "cooks_assistant:egg_submitted")
-        removeAttribute(player, "cooks_assistant:all_submitted")
-        removeAttribute(player, "cooks_assistant:submitted_some_items")
+        rewardXP(player, Skills.COOKING, 300.0)
+        removeAttributes(player, "cooks_assistant:milk_submitted","cooks_assistant:flour_submitted","cooks_assistant:egg_submitted","cooks_assistant:all_submitted","cooks_assistant:submitted_some_items")
     }
 
     override fun newInstance(`object`: Any?): Quest {

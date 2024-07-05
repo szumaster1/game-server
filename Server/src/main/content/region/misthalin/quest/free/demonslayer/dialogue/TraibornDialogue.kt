@@ -44,7 +44,8 @@ class TraibornDialogue(player: Player? = null) : Dialogue(player) {
         when (quest!!.getStage(player)) {
             20 -> when (stage) {
                 0 -> stage =
-                    if (player.inventory.containsItem(DemonSlayer.THIRD_KEY) && player.bank.containsItem(DemonSlayer.THIRD_KEY)) {
+                    if (player.inventory.containsItem(DemonSlayer.THIRD_KEY) && player.bank.containsItem(
+                            DemonSlayer.THIRD_KEY)) {
                         options("What's a thingummywut?", "Teach me to be a mighty powerful wizard.")
                         1
                     } else {

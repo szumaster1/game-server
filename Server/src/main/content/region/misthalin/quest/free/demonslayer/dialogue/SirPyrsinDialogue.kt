@@ -53,7 +53,8 @@ class SirPyrsinDialogue(player: Player? = null) : Dialogue(player) {
         when (quest!!.getStage(player)) {
             30 -> when (stage) {
                 0 -> stage =
-                    if (!player.inventory.containsItem(DemonSlayer.SILVERLIGHT) && !player.bank.containsItem(DemonSlayer.SILVERLIGHT) && !player.equipment.containsItem(
+                    if (!player.inventory.containsItem(DemonSlayer.SILVERLIGHT) && !player.bank.containsItem(
+                            DemonSlayer.SILVERLIGHT) && !player.equipment.containsItem(
                             DemonSlayer.SILVERLIGHT
                         )
                     ) {
