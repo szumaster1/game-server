@@ -1,4 +1,4 @@
-package content.region.kandarin.handlers.seersvillage
+package content.region.kandarin.diary
 
 import content.region.misc.handlers.zanaris.FairyRing
 import content.global.handlers.item.withnpc.ChaliceOnKingArthurListener

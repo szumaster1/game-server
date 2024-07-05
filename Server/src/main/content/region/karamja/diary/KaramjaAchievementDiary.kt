@@ -1,4 +1,4 @@
-package content.region.karamja.handlers
+package content.region.karamja.diary
 
 import core.api.consts.Items
 import core.api.consts.NPCs
