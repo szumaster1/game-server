@@ -238,11 +238,11 @@ class ShowElrissDialogue : DialogueFile() {
                 interpreter!!.sendItemMessage(1448, "you show Elriss the ${getItemName(1448)}.")
             } else if (inInventory(player!!, 1444, 1) && getAttribute(player!!, RunecraftGuildUtils.WATER_ITEMS, 0) < 2) {
                 setAttribute(player!!, RunecraftGuildUtils.WATER_ITEMS, 2)
-                rewardXP(player!!, Skills.RUNECRAFTING, 11.0)
+                rewardXP(player!!, Skills.RUNECRAFTING, 9.0)
                 interpreter!!.sendItemMessage(1444, "you show Elriss the ${getItemName(1444)}.")
             } else if (inInventory(player!!, 1440, 1) && getAttribute(player!!, RunecraftGuildUtils.EARTH_ITEMS, 0) < 2) {
                 setAttribute(player!!, RunecraftGuildUtils.EARTH_ITEMS, 2)
-                rewardXP(player!!, Skills.RUNECRAFTING, 18.0)
+                rewardXP(player!!, Skills.RUNECRAFTING, 12.0)
                 interpreter!!.sendItemMessage(1440, "you show Elriss the ${getItemName(1440)}.")
             } else if (inInventory(player!!, 1442, 1) && getAttribute(player!!, RunecraftGuildUtils.FIRE_ITEMS, 0) < 2) {
                 setAttribute(player!!, RunecraftGuildUtils.FIRE_ITEMS, 2)
@@ -258,7 +258,7 @@ class ShowElrissDialogue : DialogueFile() {
                 interpreter!!.sendItemMessage(1454, "you show Elriss the ${getItemName(1454)}.")
             } else if (inInventory(player!!, 1452, 1) && getAttribute(player!!, RunecraftGuildUtils.CHAOS_ITEMS, 0) < 2) {
                 setAttribute(player!!, RunecraftGuildUtils.CHAOS_ITEMS, 2)
-                rewardXP(player!!, Skills.RUNECRAFTING, 216.0)
+                rewardXP(player!!, Skills.RUNECRAFTING, 171.0)
                 interpreter!!.sendItemMessage(1452, "you show Elriss the ${getItemName(1452)}.")
             } else if (inInventory(player!!, 1462, 1) && getAttribute(player!!, RunecraftGuildUtils.NATURE_ITEMS, 0) < 2) {
                 setAttribute(player!!, RunecraftGuildUtils.NATURE_ITEMS, 2)
