@@ -17,7 +17,7 @@ class DorisDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         if(!isQuestComplete(player, "Recipe for Disaster")) {
-            npc("What are you doing in my house?").also { stage++ }
+            npc("What are you doing in my house?").also { stage = 0 }
         } else {
             npc("Hello again dearie. How are you doing?").also { stage = 5 }
         }
@@ -25,13 +25,12 @@ class DorisDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
-        var hasHellcat = player.familiarManager.familiar.id in intArrayOf(NPCs.OVERGROWN_HELLCAT_3503, NPCs.HELLCAT_3504, NPCs.HELL_KITTEN_3505)
         when (stage) {
             0 -> options("I'm just wandering around.", "I want to use your kitchen.", "Give me all your money!").also { stage++ }
             1 -> when(buttonId){
                 1 -> player("I'm just wandering around.").also { stage++ }
-                2 -> player("I want to use your kitchen.").also { stage +=1 }
-                3 -> player("Give me all your money!").also { stage +=2 }
+                2 -> player("I want to use your kitchen.").also { stage += 2 }
+                3 -> player("Give me all your money!").also { stage += 3 }
             }
             2 -> npc("Would you mind wandering out of my house?").also { stage = END_DIALOGUE }
             3 -> npc("I suppose you can, but try not to make a mess.").also { stage = END_DIALOGUE }
@@ -40,7 +39,7 @@ class DorisDialogue(player: Player? = null) : Dialogue(player) {
             /*
              * Hellcat.
              */
-            5 -> if(hasPet(player) && hasHellcat) {
+            5 -> if(hasPet(player)) {
                 options("Pretty good!", "Not too good actually!", "What's it like living so close to the Wilderness?", "How did Dave come to be evil?", "What's happened to my cat?").also { stage++ }
             } else {
                 options("Pretty good!", "Not too good actually!", "What's it like living so close to the Wilderness?", "How did Dave come to be evil?").also { stage++ }
@@ -87,6 +86,10 @@ class DorisDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun getIds(): IntArray {
         return intArrayOf(NPCs.DORIS_3381)
+    }
+
+    companion object {
+        var HELLCATS = intArrayOf(NPCs.OVERGROWN_HELLCAT_3503, NPCs.HELLCAT_3504, NPCs.HELL_KITTEN_3505)
     }
 
 }

@@ -52,14 +52,14 @@ class EmptyOptionListener : InteractionListener {
         NETTLE_TEA(Items.NETTLE_TEA_4239, Items.BOWL_1923, "You empty the contents of the bowl onto the floor.", Sounds.LIQUID_2401),
         NETTLE_WATER(Items.NETTLE_WATER_4237, Items.BOWL_1923, "You empty the contents of the bowl onto the floor.", Sounds.LIQUID_2401),
         NETTLE_TEA_MILKY(Items.NETTLE_TEA_4240, Items.BOWL_1923, "You empty the contents of the bowl onto the floor.", Sounds.LIQUID_2401),
+        NETTLE_TEA_CUP(Items.CUP_OF_TEA_4242, Items.EMPTY_CUP_1980, "You empty the cup."),
+        NETTLE_TEA_P_CUP(Items.CUP_OF_TEA_4245, Items.PORCELAIN_CUP_4244, "You empty the porcelain cup."),
+        NETTLE_TEA_MILKY_P_CUP(Items.CUP_OF_TEA_4246, Items.PORCELAIN_CUP_4244, "You empty the porcelain cup."),
         BURNT_CURRY(Items.BURNT_CURRY_2013, Items.BOWL_1923, "You empty the contents of the bowl onto the floor.", Sounds.LIQUID_2401),
         BURNT_GNOMEBOWL(Items.BURNT_GNOMEBOWL_2175, Items.GNOMEBOWL_MOULD_2166, "You empty the contents of the gnomebowl onto the floor."),
         BURNT_EGG(Items.BURNT_EGG_7090, Items.BOWL_1923, "You empty the contents of the bowl onto the floor."),
         BURNT_ONION(Items.BURNT_ONION_7092, Items.BOWL_1923, "You empty the contents of the bowl onto the floor."),
-        BURNT_MUSHROOM(Items.BURNT_MUSHROOM_7094, Items.BOWL_1923, "You empty the contents of the bowl onto the floor."),
-        CUP_OF_TEA(Items.CUP_OF_TEA_4242, Items.EMPTY_CUP_1980, "You empty the cup."),
-        PORCELAIN_CUP_OF_TEA(Items.CUP_OF_TEA_4246, Items.PORCELAIN_CUP_4244, "You empty the porcelain cup.");
-
+        BURNT_MUSHROOM(Items.BURNT_MUSHROOM_7094, Items.BOWL_1923, "You empty the contents of the bowl onto the floor.");
 
         companion object {
             var emptyItemMap = HashMap<Int, Int?>()
