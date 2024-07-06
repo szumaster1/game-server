@@ -29,11 +29,11 @@ class BarcrawlManager : LoginListener, PersistPlayer {
 
     override fun parsePlayer(player: Player, data: JSONObject) {
         val bcData = data["barCrawl"] as JSONObject? ?: return
-        val barsVisisted = bcData["bars"] as JSONArray
+        val barsVisited = bcData["bars"] as JSONArray
         val instance = getInstance(player)
         instance.started = bcData["started"] as Boolean
-        for (i in barsVisisted.indices) {
-            instance.bars[i] = barsVisisted[i] as Boolean
+        for (i in barsVisited.indices) {
+            instance.bars[i] = barsVisited[i] as Boolean
         }
     }
 
@@ -91,7 +91,7 @@ class BarcrawlManager : LoginListener, PersistPlayer {
     }
 
     fun hasCard(): Boolean {
-        return player!!.inventory.containsItem(BARCRAWL_CARD) || player.bank.containsItem(BARCRAWL_CARD)
+        return inInventory(player!!, Items.BARCRAWL_CARD_455) || inBank(player, Items.BARCRAWL_CARD_455)
     }
 
     fun isStarted(): Boolean {
