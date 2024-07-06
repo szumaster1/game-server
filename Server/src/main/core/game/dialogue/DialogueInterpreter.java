@@ -216,7 +216,7 @@ public final class DialogueInterpreter {
     /**
      * Puts a dialogue plugin on the mapping.
      *
-     * @param id     The NPC id (or {@code 1 << 16 | dialogueId} when the dialogue               isn't for an NPC).
+     * @param id     The NPC id (or {@code 1 << 16 | dialogueId} when the dialogue isn't for an NPC).
      * @param plugin The plugin.
      */
     public static void add(int id, Dialogue plugin) {
@@ -352,7 +352,7 @@ public final class DialogueInterpreter {
             }
         } else {
             int interfaceId = 131;
-            //int interfaceId = 173;
+            //int interfaceId = 173;`
             //int interfaceId = 519;
             //int interfaceId = 757;
             //int interfaceId = 760;

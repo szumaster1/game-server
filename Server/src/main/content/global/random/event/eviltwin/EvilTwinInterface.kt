@@ -73,7 +73,7 @@ class EvilTwinInterface : InterfaceListener {
                                             playAudio(player, Sounds.TWIN_CRANE_DROP_2271)
                                             if (evilTwin) {
                                                 EvilTwinUtils.removeSuspects(player)
-                                                animate(npc, Animation.create(859), true)
+                                                npc.animate(Animation.create(859), 1)
                                                 runTask(player, 16) { npc.clear() }
                                             } else {
                                                 npc.sendChat("You're putting me in prison?!")

@@ -79,6 +79,7 @@
     <ObjectAction mode="add" id="9398" x="2094" y="4465" z="0" direction="n"/>
 
     <!-- Random objects - Prison Pete random event area -->
+    <ObjectAction mode="remove" id="5346" x="2088" y="4460" z="0"/>
     <ObjectAction mode="remove" id="5346" x="2094" y="4468" z="0"/>
     <ObjectAction mode="remove" id="5347" x="2078" y="4468" z="0"/>
     <ObjectAction mode="remove" id="5347" x="2085" y="4472" z="0"/>

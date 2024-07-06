@@ -517,7 +517,7 @@ class BountyHunterActivity @JvmOverloads constructor(val type: CraterType = Crat
         register(type.zone)
         val x = type.zone.southWestX
         val y = type.zone.southWestY
-        MultiwayCombatZone.getInstance().register(ZoneBorders(x + 56, y + 40, x + 140, y + 140))
+        MultiwayCombatZone.instance.register(ZoneBorders(x + 56, y + 40, x + 140, y + 140))
     }
 
     companion object {

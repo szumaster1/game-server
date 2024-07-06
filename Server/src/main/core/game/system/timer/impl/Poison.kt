@@ -22,7 +22,7 @@ class Poison : PersistTimer (30, "poison", flags = arrayOf(TimerFlag.ClearOnDeat
 
     var severity = 0
         set (value) {
-            if (value != field - 1 && value % 10 == 8) {//This was Arios's incorrect attempt at replicating severity, convert it to correct values.
+            if (value != field - 1 && value % 10 == 8) {
                 (damageSource as? Player)?.debug ("[PoisonTimer] Warning: Converting suspect Arios severity into true severity. If numbers look wrong, this could be why.")
                 field = (value / 10) * 5
                 (damageSource as? Player)?.debug ("[PoisonTimer] Warning: New Severity: $field.")

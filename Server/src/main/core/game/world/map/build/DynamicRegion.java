@@ -255,14 +255,14 @@ public final class DynamicRegion extends Region {
 	public void toggleMulticombat() {
 		if (multicombat) {
 			for (Iterator<RegionZone> it = getRegionZones().iterator(); it.hasNext();) {
-				if (it.next().getZone() == MultiwayCombatZone.getInstance()) {
+				if (it.next().getZone() == MultiwayCombatZone.Companion.getInstance()) {
 					it.remove();
 				}
 			}
 			multicombat = false;
 			return;
 		}
-		getRegionZones().add(new RegionZone(MultiwayCombatZone.getInstance(), borders));
+		getRegionZones().add(new RegionZone(MultiwayCombatZone.Companion.getInstance(), borders));
 		multicombat = true;
 	}
 

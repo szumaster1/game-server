@@ -14,7 +14,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import com.google.errorprone.annotations.CheckReturnValue;
 
-
 /**
  * Represents a container which contains items.
  *

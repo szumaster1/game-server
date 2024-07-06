@@ -15,7 +15,7 @@ class PostiePeteDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        sendChat(npc, "Anyone got Post?")
+        npc("Anyone got Post?").also { sendChat(npc, "Anyone got Post?") }
         stage = 49
         return true
     }

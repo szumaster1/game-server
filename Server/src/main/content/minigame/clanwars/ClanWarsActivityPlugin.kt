@@ -332,7 +332,7 @@ class ClanWarsActivityPlugin : ActivityPlugin("Clan wars", true, false, true) {
         setRegionBase(regions)
         val x = base.x
         val y = base.y + 20
-        val multi = RegionZone(MultiwayCombatZone.getInstance(), ZoneBorders(x, y, x + 63, y + 88))
+        val multi = RegionZone(MultiwayCombatZone.instance, ZoneBorders(x, y, x + 63, y + 88))
         for (r in regions) {
             r.isMulticombat = true
             r.regionZones.add(multi)

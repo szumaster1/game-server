@@ -43,7 +43,7 @@ class MiningListeners : InteractionListener {
         )
 
         /*
-         *  Prospect interaction.
+         * Prospect interaction.
          */
 
         on(IntType.SCENERY, "prospect") { player, node ->
@@ -57,7 +57,6 @@ class MiningListeners : InteractionListener {
             sendMessage(player, "You examine the rock for ores...")
 
             when (MiningNode.forId(node.id).identifier) {
-
                 13.toByte() -> {
                     queueScript(player, 3, QueueStrength.SOFT) {
                         sendMessage(player, "This rock contains gems.")
@@ -93,7 +92,7 @@ class MiningListeners : InteractionListener {
         }
 
         /*
-         *  Repair interaction.
+         * Repair interaction.
          */
 
         onUseWith(IntType.ITEM, PICKAXE_HANDLE, *BROKEN_PICKAXES) { player, used, with ->
@@ -113,8 +112,6 @@ class MiningListeners : InteractionListener {
             }
             return@onUseWith true
         }
-
-
     }
 
     private val PICKAXE_HANDLE = Items.PICKAXE_HANDLE_466
@@ -146,14 +143,14 @@ class MiningListeners : InteractionListener {
         if (!finishedMoving(player))
             return true
 
-
         if (state == 0) {
             if (!checkRequirements(player, resource, node)) {
                 player.scripts.reset()
                 return true
             }
-
+            if (!isEssence) {
                 sendMessage(player, "You swing your pickaxe at the rock.")
+            }
 
             anim(player, resource, tool!!)
             return delayScript(player, getDelay())
@@ -164,7 +161,7 @@ class MiningListeners : InteractionListener {
             return delayScript(player, getDelay())
 
         /*
-         *  Reward logic.
+         * Reward logic.
          */
 
         var reward = resource!!.reward
@@ -176,14 +173,14 @@ class MiningListeners : InteractionListener {
             player.dispatch(ResourceProducedEvent(reward, rewardAmount, node))
 
             /*
-             *  Reward mining experience.
+             * Reward mining experience.
              */
 
             val experience = resource.experience * rewardAmount
             rewardXP(player, Skills.MINING, experience)
 
             /*
-             *  If player is wearing Bracelet of Clay, soften.
+             * If player is wearing Bracelet of Clay, soften.
              */
 
             if (reward == Items.CLAY_434) {
@@ -211,7 +208,7 @@ class MiningListeners : InteractionListener {
             else getItemName(reward).lowercase()
 
             /*
-             *  Send the message for the resource reward.
+             * Send the message for the resource reward.
              */
 
             if (isGems) {
@@ -225,7 +222,7 @@ class MiningListeners : InteractionListener {
             }
 
             /*
-             *  Give the mining reward, increment 'rocks mined' attribute.
+             * Give the mining reward, increment 'rocks mined' attribute.
              */
 
             if (addItem(player, reward, rewardAmount)) {
@@ -234,7 +231,7 @@ class MiningListeners : InteractionListener {
             }
 
             /*
-             *  Calculate bonus gem chance while mining.
+             * Calculate bonus gem chance while mining.
              */
 
             if (!isEssence) {
@@ -274,7 +271,7 @@ class MiningListeners : InteractionListener {
             }
 
             /*
-             *  Transform ore to depleted version.
+             * Transform ore to depleted version.
              */
 
             if (!isEssence && resource.respawnRate != 0) {
@@ -290,7 +287,7 @@ class MiningListeners : InteractionListener {
         var amount = 1
 
         /*
-            If player is wearing Varrock armour from diary, roll chance at extra ore.
+         * If player is wearing Varrock armour from diary, roll chance at extra ore.
          */
 
         if (!isMiningEssence && player.achievementDiaryManager.getDiary(DiaryType.VARROCK).level != -1) {
@@ -311,7 +308,7 @@ class MiningListeners : InteractionListener {
         }
 
         /*
-            If player has mining boost from Shooting Star, roll chance at extra ore.
+         *  If player has mining boost from Shooting Star, roll chance at extra ore.
          */
 
         if (hasTimerActive<StarBonus>(player)) {
@@ -324,7 +321,8 @@ class MiningListeners : InteractionListener {
     }
 
     /*
-        If the player is mining sandstone or granite, then get size of sandstone/granite and xp reward for that size.
+     * If the player is mining sandstone or granite, then get
+     * size of sandstone/granite and xp reward for that size.
      */
 
     private fun calculateReward(player: Player, resource: MiningNode, isMiningEssence: Boolean, isMiningGems: Boolean, reward: Int): Int {

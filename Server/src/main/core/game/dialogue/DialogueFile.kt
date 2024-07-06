@@ -133,7 +133,7 @@ abstract class DialogueFile {
      */
     fun abandonFile() {
         interpreter!!.dialogue.file = null
-        player("Huh. Nevermind.")
+        player("Nevermind.")
     }
 
     open fun getCurrentStage(): Int {
@@ -148,7 +148,7 @@ abstract class DialogueFile {
         player?.dialogueInterpreter?.sendDialogue(*messages)
     }
 
-    fun showTopics(vararg topics: Topic<*>, title: String = "Select an Option"): Boolean {
+    fun showTopics(vararg topics: Topic<*>, title: String = "Select an Option:"): Boolean {
         val validTopics = ArrayList<String>()
         topics.filter { if (it is IfTopic) it.showCondition else true }.forEach { topic ->
             interpreter!!.activeTopics.add(topic)

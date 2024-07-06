@@ -13,6 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static core.api.ContentAPIKt.setVarp;
+import static core.tools.GlobalsKt.RED;
 
 
 /**
@@ -210,7 +211,7 @@ public final class MusicPlayer {
         }
         if (!unlocked.containsKey(entry.getIndex())) {
             unlocked.put(entry.getIndex(), entry);
-            player.getPacketDispatch().sendMessage("<col=FF0000>You have unlocked a new music track: " + entry.getName() + ".</col>");
+            player.getPacketDispatch().sendMessage(RED+"You have unlocked a new music track: " + entry.getName() + "</col>");
             refreshList();
             if (!player.getEmoteManager().isUnlocked(Emotes.AIR_GUITAR) && hasAirGuitar()) {
                 player.getEmoteManager().unlock(Emotes.AIR_GUITAR);

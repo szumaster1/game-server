@@ -81,7 +81,7 @@ public abstract class ActivityPlugin extends MapZone implements Plugin<Player> {
 	@Override
 	public void register(ZoneBorders borders) {
 		if (multicombat) {
-			MultiwayCombatZone.getInstance().register(borders);
+			MultiwayCombatZone.Companion.getInstance().register(borders);
 		}
 		super.register(borders);
 	}
@@ -112,7 +112,7 @@ public abstract class ActivityPlugin extends MapZone implements Plugin<Player> {
 			}
 		}
 		ZoneBorders borders = new ZoneBorders(region.getX() << 6, region.getY() << 6, l.getX() + Region.SIZE, l.getY() + Region.SIZE);
-		RegionZone multiZone = multicombat ? new RegionZone(MultiwayCombatZone.getInstance(), borders) : null;
+		RegionZone multiZone = multicombat ? new RegionZone(MultiwayCombatZone.Companion.getInstance(), borders) : null;
 		RegionZone zone = new RegionZone(this, borders);
 		for (DynamicRegion r : regions) {
 			if (multicombat) {
