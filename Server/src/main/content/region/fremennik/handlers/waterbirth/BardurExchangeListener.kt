@@ -11,18 +11,24 @@ import core.game.interaction.InteractionListener
 
 class BardurExchangeListener : InteractionListener {
 
-    companion object {
-        private val FREMENNIK_EQUIPMENT = intArrayOf(Items.FREMENNIK_HELM_3748, Items.FREMENNIK_BLADE_3757, Items.FREMENNIK_SHIELD_3758)
-        private const val BARDUR_NPC = NPCs.BARDUR_2879
-    }
     override fun defineListeners() {
-        onUseWith(IntType.NPC, FREMENNIK_EQUIPMENT, BARDUR_NPC) { player, _, _ ->
+
+        /*
+         * Interaction with Bardur NPC.
+         * Cooked shark exchange for a Fremennik helm, blade, or shield.
+         */
+
+        onUseWith(IntType.NPC, FREMENNIK_EQUIPMENT, NPCs.BARDUR_2879) { player, _, _ ->
             if (!isQuestComplete(player, "Fremennik Trials")) {
-                sendNPCDialogue(player, BARDUR_NPC, "I do not trust you outerlander, I will not accept your gifts, no matter what your intention...")
+                sendNPCDialogue(player, NPCs.BARDUR_2879, "I do not trust you outerlander, I will not accept your gifts, no matter what your intention...")
             } else {
                 openDialogue(player, BardurExchangeDialogue())
             }
             return@onUseWith true
         }
+    }
+
+    companion object {
+        val FREMENNIK_EQUIPMENT = intArrayOf(Items.FREMENNIK_HELM_3748, Items.FREMENNIK_BLADE_3757, Items.FREMENNIK_SHIELD_3758)
     }
 }

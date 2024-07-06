@@ -87,7 +87,7 @@ public final class EdgevilleNodePlugin extends OptionHandler {
             case 29320:
                 if (option.equalsIgnoreCase("open") && player.getLocation().getY() < 9918) {
                     player.getInterfaceManager().openComponent(382);
-                    setAttribute(player, "wildy_gate", node);
+                    setAttribute(player, "wildy-gate", node);
                 } else {
                     /*
                      * Leaving the wilderness.

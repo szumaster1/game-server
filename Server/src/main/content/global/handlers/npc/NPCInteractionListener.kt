@@ -96,7 +96,7 @@ class NPCInteractionListener : InteractionListener {
         on(barCrawlNPCs, IntType.NPC, "talk-to", "talk") { player, node ->
             val type = BarcrawlType.forId(node.id)
             val instance = BarcrawlManager.getInstance(player)
-            if (instance.isFinished || !instance.isStarted || instance.isCompleted(type!!.ordinal)) {
+            if (instance.isFinished || !instance.isStarted() || instance.isCompleted(type!!.ordinal)) {
                 player.dialogueInterpreter.open(node.id, node)
             } else {
                 player.dialogueInterpreter.open("barcrawl dialogue", node.id, type)

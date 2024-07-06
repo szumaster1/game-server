@@ -3,11 +3,9 @@ package content.global.skill.support.agility.courses
 import content.global.skill.support.agility.AgilityCourse
 import content.global.skill.support.agility.AgilityHandler
 import content.region.kandarin.miniquest.barcrawl.BarcrawlManager
-import core.api.animateScenery
+import core.api.*
 import core.api.consts.NPCs
 import core.api.consts.Sounds
-import core.api.playAudio
-import core.api.sendMessage
 import core.cache.def.impl.ItemDefinition
 import core.cache.def.impl.NPCDefinition
 import core.cache.def.impl.SceneryDefinition
@@ -38,7 +36,7 @@ class BarbarianOutpostCourse
         val id = node.id
         getCourse(player)
         when (id) {
-            2115, 2116 -> if (!BarcrawlManager.getInstance(player).isFinished || BarcrawlManager.getInstance(player).isStarted) {
+            2115, 2116 -> if (!BarcrawlManager.getInstance(player).isFinished || BarcrawlManager.getInstance(player).isStarted()) {
                 player.dialogueInterpreter.open(384)
             } else {
                 DoorActionHandler.handleAutowalkDoor(player, node as Scenery)
@@ -64,15 +62,15 @@ class BarbarianOutpostCourse
             455 -> BarcrawlManager.getInstance(player).read()
             385 -> {
                 sendMessage(player, "The scorpion stings you!")
-                player.impactHandler.manualHit(player, 3, HitsplatType.NORMAL)
+                impact(player, 3, HitsplatType.NORMAL)
             }
             386 -> {
                 sendMessage(player, "The scorpion stings you!")
-                player.impactHandler.manualHit(player, 3, HitsplatType.NORMAL)
+                impact(player, 3, HitsplatType.NORMAL)
             }
             387 -> {
                 sendMessage(player, "The scorpion stings you!")
-                player.impactHandler.manualHit(player, 3, HitsplatType.NORMAL)
+                impact(player, 3, HitsplatType.NORMAL)
             }
         }
         return true
@@ -171,18 +169,16 @@ class BarbarianOutpostCourse
     }
 
 
-    class BarbarianGuardDialogue : Dialogue {
-        constructor()
-        constructor(player: Player?) : super(player)
+    class BarbarianGuardDialogue(player: Player? = null) : Dialogue(player) {
 
         override fun newInstance(player: Player): Dialogue {
             return BarbarianGuardDialogue(player)
         }
 
         override fun open(vararg args: Any): Boolean {
-            if (!BarcrawlManager.getInstance(player).isStarted) {
+            if (!BarcrawlManager.getInstance(player).isStarted()) {
                 npc("O, waddya want?")
-            } else if (BarcrawlManager.getInstance(player).isFinished && !BarcrawlManager.getInstance(player).isStarted) {
+            } else if (BarcrawlManager.getInstance(player).isFinished && !BarcrawlManager.getInstance(player).isStarted()) {
                 npc("'Ello friend.")
                 stage = 50
             } else {
@@ -244,9 +240,9 @@ class BarbarianOutpostCourse
                 }
                 10 -> {
                     BarcrawlManager.getInstance(player).reset()
-                    BarcrawlManager.getInstance(player).isStarted = true
+                    BarcrawlManager.getInstance(player).setStarted(true)
                     player.inventory.add(BarcrawlManager.BARCRAWL_CARD, player)
-                    interpreter.sendDialogue("The guard hands you a Barcrawl card.")
+                    sendDialogue("The guard hands you a Barcrawl card.")
                     stage++
                 }
                 11 -> {
@@ -285,10 +281,10 @@ class BarbarianOutpostCourse
                     if (!player.inventory.containsItem(BarcrawlManager.BARCRAWL_CARD)) {
                         end()
                     }
-                    BarcrawlManager.getInstance(player).isStarted = false
+                    BarcrawlManager.getInstance(player).setStarted(false)
                     player.bank.remove(BarcrawlManager.BARCRAWL_CARD)
                     player.inventory.remove(BarcrawlManager.BARCRAWL_CARD)
-                    interpreter.sendDialogue("You give the card to the barbarian.")
+                    sendDialogue(player!!,"You give the card to the barbarian.")
                     stage++
                 }
 

@@ -96,14 +96,7 @@ enum class EnchantedJewellery(val options: Array<String>, val locations: Array<L
                             replaceJewellery(player, item, nextJewellery, isEquipped)
                         }
                         unlock(player)
-                        player.dispatch(
-                            TeleportEvent(
-                                TeleportManager.TeleportType.NORMAL,
-                                TeleportMethod.JEWELRY,
-                                item,
-                                location
-                            )
-                        )
+                        player.dispatch(TeleportEvent(TeleportManager.TeleportType.NORMAL, TeleportMethod.JEWELRY, item, location))
                         return true
                     }
                 }

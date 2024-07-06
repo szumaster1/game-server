@@ -36,7 +36,7 @@ class WildernessListeners : InteractionListener {
     fun handleDitch(player: Player, node: Node) {
         player.faceLocation(node.location)
         val ditch = node as Scenery
-        player.setAttribute("wildy_ditch", ditch)
+        player.setAttribute("wildy-ditch", ditch)
         if (!player.isArtificial) {
             if (ditch.rotation % 2 == 0) {
                 if (player.location.y <= node.getLocation().y) {

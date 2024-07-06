@@ -33,17 +33,13 @@ import core.plugin.Plugin;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * The Water birth dungeon zone.
- */
+import static core.api.ContentAPIKt.isQuestComplete;
+
 @Initializable
 public final class WaterBirthDungeonZone extends MapZone implements Plugin<Object> {
 
     private static final Location[] DOOR_SUPPORTS = new Location[]{Location.create(2545, 10145, 0), Location.create(2543, 10143, 0), Location.create(2545, 10141, 0)};
 
-    /**
-     * Instantiates a new Water birth dungeon zone.
-     */
     public WaterBirthDungeonZone() {
         super("Water birth dungeon", true, ZoneRestriction.RANDOM_EVENTS);
         ClassScanner.definePlugin(new DagannothKingNPC());
@@ -190,10 +186,10 @@ public final class WaterBirthDungeonZone extends MapZone implements Plugin<Objec
                     }
                     return true;
                 case 10217:
-                    if (!player.questRepository.isComplete("Horror from the Deep")) {
-                        player.sendMessage("You need to have completed Horror from the Deep in order to do this.");
-                    } else {
+                    if (isQuestComplete(player, "Horror from the Deep")) {
                         player.teleport(Location.create(1957, 4373, 1));
+                    } else {
+                        player.sendMessage("You need to have completed Horror from the Deep in order to do this.");
                     }
                     return true;
                 case 10230:
@@ -216,7 +212,7 @@ public final class WaterBirthDungeonZone extends MapZone implements Plugin<Objec
         registerRegion(11589);
     }
 
-    /**
+    /*
      * The Dungeon option handler.
      */
     public static final class DungeonOptionHandler extends OptionHandler {
@@ -297,29 +293,15 @@ public final class WaterBirthDungeonZone extends MapZone implements Plugin<Objec
         }
     }
 
-    /**
+    /*
      * The Door support npc.
      */
     public static final class DoorSupportNPC extends AbstractNPC {
 
-
         private long deathSpawn = -1;
-
-
-        /**
-         * Instantiates a new Door support npc.
-         */
         public DoorSupportNPC() {
             super(-1, null);
         }
-
-
-        /**
-         * Instantiates a new Door support npc.
-         *
-         * @param id       the id
-         * @param location the location
-         */
         public DoorSupportNPC(int id, Location location) {
             super(id, location);
         }

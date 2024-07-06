@@ -1,17 +1,22 @@
 package content.region.fremennik.handlers.rellekka
 
+import content.global.skill.support.agility.AgilityHandler
 import content.region.fremennik.handlers.waterbirth.TravelDestination
 import content.region.fremennik.handlers.waterbirth.WaterbirthTravel
 import core.api.consts.NPCs
+import core.api.consts.Scenery
+import core.api.lock
 import core.api.requireQuest
+import core.api.teleport
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
+import core.game.node.entity.player.link.TeleportManager
 import core.game.world.map.Location
+import core.game.world.update.flag.context.Animation
 
 class RellekkaListeners : InteractionListener {
 
     companion object {
-
         private val UP1A: Location? = Location.create(2715, 3798, 0)
         private val UP1B: Location? = Location.create(2716, 3798, 0)
         private val UP2A: Location? = Location.create(2726, 3801, 0)
@@ -22,10 +27,30 @@ class RellekkaListeners : InteractionListener {
         private val DOWN2A: Location? = Location.create(2726, 3805, 1)
         private val DOWN2B: Location? = Location.create(2727, 3805, 1)
 
-        private val STAIRS = intArrayOf(19690, 19691)
+        private val STAIRS = intArrayOf(Scenery.STEPS_19690, Scenery.STEPS_19691)
+
+        private const val TUNNEL = Scenery.TUNNEL_5008
+        private const val ROCKSLIDE = Scenery.ROCKSLIDE_5847
+        private const val LADDER = Scenery.LADDER_15116
     }
 
     override fun defineListeners() {
+
+        on(LADDER, IntType.SCENERY, "climb-down") { player, _ ->
+            teleport(player, Location.create(2509, 10245, 0), TeleportManager.TeleportType.INSTANT)
+            return@on true
+        }
+
+        on(TUNNEL, IntType.SCENERY, "enter") { player, _ ->
+            teleport(player, Location.create(2773, 10162, 0), TeleportManager.TeleportType.INSTANT)
+            return@on true
+        }
+
+        on(ROCKSLIDE, IntType.SCENERY, "climb-over") { player, _ ->
+            lock(player, 1)
+            AgilityHandler.forceWalk(player, -1, player.location, player.location.transform(0, if (player.location.y <= 3657) 3 else -3, 0), Animation.create(839), 20, 1.0, null, 0)
+            return@on true
+        }
 
         on(STAIRS, IntType.SCENERY, "ascend", "descend") { player, _ ->
             if (player.location.y < 3802) {
@@ -81,6 +106,6 @@ class RellekkaListeners : InteractionListener {
             WaterbirthTravel.sail(player, TravelDestination.MISCELLANIA_TO_RELLEKKA)
             return@on true
         }
-
     }
+
 }

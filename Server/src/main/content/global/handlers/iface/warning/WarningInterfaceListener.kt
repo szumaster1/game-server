@@ -20,6 +20,16 @@ class WarningInterfaceListener : InterfaceListener {
     override fun defineInterfaceListeners() {
 
         /*
+         * Waterbirth dungeon warning.
+         */
+
+        on(Components.CWS_WARNING_1_574, 17) { player, _, _, _, _, _ ->
+            closeInterface(player)
+            player.properties.teleportLocation = Location.create(2443, 10146, 0)
+            return@on true
+        }
+
+        /*
          *  Corporeal Beast entrance warning.
          */
 
@@ -103,15 +113,7 @@ class WarningInterfaceListener : InterfaceListener {
                 17 -> {
                     closeInterface(player)
                     if (!inInventory(player, Items.SHANTAY_PASS_1854)) {
-                        sendNPCDialogueLines(
-                            player,
-                            NPCs.SHANTAY_GUARD_838,
-                            FacialExpression.NEUTRAL,
-                            false,
-                            "You need a Shantay pass to get through this gate. See",
-                            "Shantay, he will sell you one for a very reasonable",
-                            "price."
-                        )
+                        sendNPCDialogueLines(player, NPCs.SHANTAY_GUARD_838, FacialExpression.NEUTRAL, false, "You need a Shantay pass to get through this gate. See", "Shantay, he will sell you one for a very reasonable", "price.")
                         return@on true
                     } else {
                         openDialogue(player, NPCs.SHANTAY_GUARD_838, true)
@@ -120,10 +122,7 @@ class WarningInterfaceListener : InterfaceListener {
 
                 18 -> {
                     closeInterface(player)
-                    sendDialogue(
-                        player,
-                        "You decide that your visit to the desert can be postponed. Perhaps indefinitely."
-                    )
+                    sendDialogue(player, "You decide that your visit to the desert can be postponed. Perhaps indefinitely.")
                     return@on true
                 }
             }
@@ -142,7 +141,7 @@ class WarningInterfaceListener : InterfaceListener {
         if (button != 18) {
             return true
         }
-        if (player.getAttribute<Any?>("wildy_ditch") != null) handleDitch(player) else if (player.getAttribute<Any?>("wildy_gate") != null)
+        if (player.getAttribute<Any?>("wildy-ditch") != null) handleDitch(player) else if (player.getAttribute<Any?>("wildy-gate") != null)
             handleGate(player)
         return true
     }
@@ -153,8 +152,8 @@ class WarningInterfaceListener : InterfaceListener {
         private val ANIMATION = Animation.create(Animations.JUMP_OVER_OBSTACLE_6132)
 
         fun handleDitch(player: Player) {
-            val ditch = player.getAttribute<Scenery>("wildy_ditch")
-            removeAttribute(player, "wildy_ditch")
+            val ditch = player.getAttribute<Scenery>("wildy-ditch")
+            removeAttribute(player, "wildy-ditch")
             val l = ditch.location
             val x = player.location.x
             val y = player.location.y
@@ -175,8 +174,8 @@ class WarningInterfaceListener : InterfaceListener {
         }
 
         fun handleGate(player: Player) {
-            val gate = player.getAttribute<Scenery>("wildy_gate")
-            removeAttribute(player, "wildy_gate")
+            val gate = player.getAttribute<Scenery>("wildy-gate")
+            removeAttribute(player, "wildy-gate")
             DoorActionHandler.handleAutowalkDoor(player, gate)
         }
     }

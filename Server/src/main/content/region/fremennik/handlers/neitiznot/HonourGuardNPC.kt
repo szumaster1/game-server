@@ -9,6 +9,7 @@ import core.tools.RandomFunction
 
 @Initializable
 class HonourGuardNPC : AbstractNPC {
+
     constructor() : super(NPCs.HONOUR_GUARD_5514, null, true)
     private constructor(id: Int, location: Location) : super(id, location)
 

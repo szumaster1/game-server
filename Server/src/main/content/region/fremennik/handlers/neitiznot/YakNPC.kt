@@ -1,29 +1,30 @@
 package content.region.fremennik.handlers.neitiznot
 
 import core.api.consts.NPCs
-import core.game.node.entity.npc.AbstractNPC
-import core.game.world.map.Location
-import core.plugin.Initializable
+import core.api.sendChat
+import core.api.sendMessage
+import core.game.interaction.IntType
+import core.game.interaction.InteractionListener
+import core.game.node.entity.npc.NPC
+import core.game.node.entity.npc.NPCBehavior
 import core.tools.RandomFunction
 
-@Initializable
-class YakNPC : AbstractNPC {
-    constructor() : super(NPCs.ICE_TROLL_MALE_5474, null, true)
-    private constructor(id: Int, location: Location) : super(id, location)
+class YakNPC : NPCBehavior(NPCs.YAK_5529), InteractionListener {
 
-    override fun construct(id: Int, location: Location, vararg objects: Any?): AbstractNPC {
-        return YakNPC(id, location)
-    }
-
-    override fun getIds(): IntArray {
-        return intArrayOf(NPCs.YAK_5529)
-    }
-
-    override fun tick() {
+    override fun tick(self: NPC): Boolean {
         if (RandomFunction.roll(20)) {
-            sendChat("Moo")
+            sendChat(self, "Moo")
         }
-        super.tick()
+        return super.tick(self)
+    }
+
+    override fun defineListeners() {
+        onUseWith(IntType.NPC, 0, NPCs.YAK_5529) { player, used, with ->
+            if (with.id == NPCs.YAK_5529 && used.id != 0) {
+                sendMessage(player, "The cow doesn't want that.")
+            }
+            return@onUseWith true
+        }
     }
 
 }

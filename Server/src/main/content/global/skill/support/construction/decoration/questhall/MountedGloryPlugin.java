@@ -16,10 +16,8 @@ import core.plugin.Initializable;
 import core.plugin.Plugin;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
+import static core.api.ContentAPIKt.setTitle;
 
-/**
- * The Mounted glory plugin.
- */
 @Initializable
 public class MountedGloryPlugin extends OptionHandler {
 
@@ -36,7 +34,8 @@ public class MountedGloryPlugin extends OptionHandler {
     @Override
     public boolean handle(Player player, Node node, String option) {
         DialogueInterpreter interpreter = player.getDialogueInterpreter();
-        interpreter.sendOptions("Select a location.", "Edgeville", "Karamja", "Draynor Village", "Al-Kharid", "Nowhere.");
+        setTitle(player, 5);
+        interpreter.sendOptions("Where would you like to teleport to?", "Edgeville", "Karamja", "Draynor Village", "Al-Kharid", "Nowhere.");
         interpreter.addAction(new DialogueAction() {
 
             @Override
