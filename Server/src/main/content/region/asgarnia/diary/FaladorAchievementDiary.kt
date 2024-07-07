@@ -1,9 +1,9 @@
 package content.region.asgarnia.diary
 
-import content.region.misc.handlers.zanaris.FairyRing
 import content.global.skill.gathering.farming.FarmingPatch
 import content.global.skill.production.crafting.data.LightSourceData
 import content.region.asgarnia.dialogue.falador.RisingSunInnBartenderDialogue
+import content.region.misc.handlers.zanaris.FairyRing
 import core.api.*
 import core.api.consts.Items
 import core.api.consts.NPCs
@@ -42,7 +42,7 @@ class FaladorAchievementDiary : DiaryEventHookBase(DiaryType.FALADOR) {
         private val PARK_DUCKS = intArrayOf(NPCs.DUCK_46, NPCs.DUCK_2693)
         private val FALADOR_GUARD = intArrayOf(NPCs.GUARD_9, NPCs.GUARD_3230, NPCs.GUARD_3228, NPCs.GUARD_3229)
         private val SKELETAL_WYVERNS = intArrayOf(NPCs.SKELETAL_WYVERN_3068, NPCs.SKELETAL_WYVERN_3069, NPCs.SKELETAL_WYVERN_3070, NPCs.SKELETAL_WYVERN_3071)
-        private val CAPES = intArrayOf(Items.CAPE_1019, Items.CAPE_1007, Items.CAPE_1021, Items.CAPE_1023, Items.CAPE_1027, Items.CAPE_1029, Items.CAPE_1031)
+        private val CAPES = intArrayOf(Items.BLACK_CAPE_1019, Items.RED_CAPE_1007, Items.BLUE_CAPE_1021, Items.YELLOW_CAPE_1023, Items.GREEN_CAPE_1027, Items.PURPLE_CAPE_1029, Items.ORANGE_CAPE_1031)
 
         object EasyTasks {
             // Buy a Farming amulet from Sarah on the farm north of Port Sarim.
@@ -253,6 +253,14 @@ class FaladorAchievementDiary : DiaryEventHookBase(DiaryType.FALADOR) {
                     player,
                     DiaryLevel.MEDIUM,
                     MediumTasks.SMITH_BLURITE_CROSSBOW_LIMBS_ON_THURGOS_ANVIL
+                )
+            }
+
+            11339 -> when(event.itemId) {
+                Items.AIR_TIARA_5527 -> finishTask(
+                    player,
+                    DiaryLevel.EASY,
+                    EasyTasks.MAKE_AIR_TIARA
                 )
             }
         }

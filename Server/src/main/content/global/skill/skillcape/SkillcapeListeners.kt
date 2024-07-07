@@ -9,11 +9,6 @@ class SkillcapeListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
-            Interactions related with Perks.
-            https://cdn.2009scape.org/wiki/skill_guides/skill_cape_perks
-         */
-
         for (cape in content.data.skill.SkillcapePerks.values()) {
             cape.skillcapeIds.forEach { capeIds.add(it) }
         }

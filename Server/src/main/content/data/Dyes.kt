@@ -17,7 +17,6 @@ enum class Dyes(val item: Item) {
     PINK(Item(Items.PINK_DYE_6955));
 
     companion object {
-        @JvmStatic
         fun forItem(item: Item): Dyes? {
             for (d in values()) {
                 if (d.item.id == item.id) {

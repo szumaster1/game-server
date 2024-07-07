@@ -28,7 +28,6 @@ enum class Skillcape {
     NONE;
 
     companion object {
-        @JvmStatic
         fun forId(id: Int): Skillcape {
             return when (id) {
                 9747, 9748 -> ATTACK

@@ -1,7 +1,7 @@
 package content.global.skill.production.runecrafting.abyss
 
 import content.data.skill.SkillingTool
-import content.global.skill.production.runecrafting.Altar
+import content.global.skill.production.runecrafting.data.Altar
 import core.api.*
 import core.api.consts.Animations
 import core.api.consts.Items
@@ -47,7 +47,7 @@ class AbyssPlugin : InteractionListener {
             return@on true
         }
         on(IntType.SCENERY, "exit-through") { player, node ->
-            val altar = Altar.forObject(node as Scenery)
+            val altar = Altar.forScenery(node as Scenery)
             altar?.enterRift(player)
             return@on true
         }
@@ -124,8 +124,8 @@ class AbyssPlugin : InteractionListener {
     companion object {
         const val ABYSS_OBSTACLES = 18
         const val VARP_SCENERY_ABYSS = Vars.VARP_SCENERY_ABYSS
-        fun teleport(player: Player, npc: NPC) {
 
+        fun teleport(player: Player, npc: NPC) {
             var teleportLoc = AbyssLoc.randomLoc()
             while (!teleportLoc.isValid()) {
                 teleportLoc = teleportLoc.attract()

@@ -1,14 +1,15 @@
-package content.global.skill.production.runecrafting.tiara
+package content.global.skill.production.runecrafting.items.tiara
 
-import content.global.skill.production.runecrafting.Altar
-import content.global.skill.production.runecrafting.Talisman
-import content.global.skill.production.runecrafting.staff.TalismanStaff
+import content.global.skill.production.runecrafting.data.Altar
+import content.global.skill.production.runecrafting.data.Talisman
+import content.global.skill.production.runecrafting.data.TalismanStaff
 import core.api.submitIndividualPulse
 import core.game.dialogue.SkillDialogueHandler
 import core.game.dialogue.SkillDialogueHandler.SkillDialogue.ONE_OPTION
 import core.game.node.entity.player.Player
 
-class EnchantTiaraDialogue(player: Player, val talisman: Talisman, val tiara: TalismanStaff, val altar: Altar, ) : SkillDialogueHandler(player, ONE_OPTION, tiara.item) {
+class EnchantTiaraDialogue(player: Player, val talisman: Talisman, val tiara: TalismanStaff, val altar: Altar) :
+    SkillDialogueHandler(player, ONE_OPTION, tiara.item) {
 
     override fun create(amount: Int, index: Int) {
         submitIndividualPulse(player, EnchantTiaraPulse(player, talisman, altar, tiara, amount))

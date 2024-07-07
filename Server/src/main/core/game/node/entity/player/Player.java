@@ -1,7 +1,7 @@
 package core.game.node.entity.player;
 
 import content.global.handlers.item.equipment.special.SalamanderSwingHandler;
-import content.global.skill.production.runecrafting.PouchManager;
+import content.global.skill.production.runecrafting.items.pouch.PouchManager;
 import core.game.component.Component;
 import core.game.container.Container;
 import core.game.container.ContainerType;

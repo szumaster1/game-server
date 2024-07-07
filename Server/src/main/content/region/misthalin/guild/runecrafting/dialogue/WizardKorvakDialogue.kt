@@ -1,9 +1,9 @@
 package content.region.misthalin.guild.runecrafting.dialogue
 
+import content.global.skill.production.runecrafting.items.pouch.PouchManager.RCPouch
+import core.api.*
 import core.api.consts.Items
 import core.api.consts.NPCs
-import content.global.skill.production.runecrafting.PouchManager.RCPouch
-import core.api.*
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
@@ -170,8 +170,7 @@ class WizardKorvakDialogue(player: Player? = null) : Dialogue(player) {
 
             32 -> npc("Ah, coins to fund my rock collection.").also { stage++ }
             33 -> {
-                setComponentVisibility(player!!, 230, 7, true)
-                setComponentVisibility(player!!, 230, 10, false)
+                setTitle(player, 3)
                 sendDialogueOptions(player, "Which pouch would you like to buy?", "Buy a large pouch for 25,000 gp.", "Buy a giant pouch for 50,000 gp.", "Never mind.").also { stage++ }
             }
 
@@ -219,12 +218,22 @@ class WizardKorvakDialogue(player: Player? = null) : Dialogue(player) {
         return intArrayOf(NPCs.WIZARD_KORVAK_8029)
     }
 
-    private fun repair(): Boolean {
+    /**
+     * @author Ceikry, Player Name, Vexia
+     */
+    fun repair(): Boolean {
         player.pouchManager.pouches.forEach { (id: Int, pouch: RCPouch) ->
             pouch.currentCap = pouch.capacity
-            pouch.charges = 10
+            val newCharges: Int
+            newCharges = when (id) {
+                Items.MEDIUM_POUCH_5510 -> 264
+                Items.LARGE_POUCH_5512 -> 186
+                Items.GIANT_POUCH_5514 -> 140
+                else -> 3
+            }
+            pouch.charges = newCharges
             var essence: Item? = null
-            if (!pouch.container.isEmpty()) {
+            if (!pouch.container.isEmpty) {
                 val ess = pouch.container[0].id
                 val amount = pouch.container.getAmount(ess)
                 essence = Item(ess, amount)
@@ -234,12 +243,12 @@ class WizardKorvakDialogue(player: Player? = null) : Dialogue(player) {
                 pouch.container.add(essence)
             }
             if (id != 5509) {
-                if (inInventory(player, id + 1, 1)) {
-                    removeItem(player, Item(id + 1, 1))
-                    addItemOrDrop(player, id, 1)
+                if (player.inventory.contains(id + 1, 1)) {
+                    player.inventory.remove(Item(id + 1, 1))
+                    player.inventory.add(Item(id, 1))
                 }
-                if (inBank(player, id + 1, 1)) {
-                    removeItem(player, Item(id + 1, 1))
+                if (player.bank.contains(id + 1, 1)) {
+                    player.bank.remove(Item(id + 1, 1))
                     player.bank.add(Item(id, 1))
                 }
             }

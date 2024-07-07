@@ -2,7 +2,7 @@ package content.region.misthalin.quest.member.whatliesbelow;
 
 import core.api.consts.Items;
 import content.data.skill.SkillingTool;
-import content.global.skill.production.runecrafting.Altar;
+import content.global.skill.production.runecrafting.data.Altar;
 import core.api.consts.Sounds;
 import core.cache.def.impl.SceneryDefinition;
 import core.game.activity.ActivityManager;
@@ -185,7 +185,7 @@ public class WhatLiesBelowHandler extends OptionHandler {
 
         @Override
         public Plugin<Object> newInstance(Object arg) throws Throwable {
-            addHandler(Altar.CHAOS.getObject(), OBJECT_TYPE, this);
+            addHandler(Altar.CHAOS.getScenery(), OBJECT_TYPE, this);
             return this;
         }
 

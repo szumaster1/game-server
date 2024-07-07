@@ -1,6 +1,7 @@
-package content.global.skill.production.runecrafting.staff
+package content.global.skill.production.runecrafting.items.staff
 
-import content.global.skill.production.runecrafting.Altar
+import content.global.skill.production.runecrafting.data.Altar
+import content.global.skill.production.runecrafting.data.TalismanStaff
 
 object TalismanStaffToAltarMapper {
     fun map(staff: TalismanStaff): Altar? {

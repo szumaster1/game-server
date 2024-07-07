@@ -1,14 +1,15 @@
 package content.global.skill.production.runecrafting
 
-import content.global.skill.production.runecrafting.staff.Staff
-import content.region.misthalin.diary.VarrockAchievementDiary.Companion.EasyTasks.ENTER_EARTH_ALTAR
+import content.global.skill.production.runecrafting.data.MysteriousRuin
+import content.global.skill.production.runecrafting.data.Staff
+import content.global.skill.production.runecrafting.data.Talisman
+import content.global.skill.production.runecrafting.data.Tiara
 import core.api.*
 import core.game.container.impl.EquipmentContainer.SLOT_HAT
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.Node
 import core.game.node.entity.player.Player
-import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.item.Item
 import core.game.system.task.Pulse
 import core.game.world.update.flag.context.Animation
@@ -18,7 +19,7 @@ class MysteriousRuinListener : InteractionListener {
     private val animation = Animation(827)
     private val allowedUsed = arrayOf(1438, 1448, 1444, 1440, 1442, 5516, 1446, 1454, 1452, 1462, 1458, 1456, 1450, 1460).toIntArray()
     private val allowedWith = allRuins()
-    private val talismanStaff = Staff.values().map{ it.item.id }.toIntArray()
+    private val talismanStaff = Staff.values().map { it.item.id }.toIntArray()
     private val nothingInteresting = "Nothing interesting happens"
 
     override fun defineListeners() {
@@ -26,7 +27,7 @@ class MysteriousRuinListener : InteractionListener {
             return@onUseWith handleTalisman(player, used, with)
         }
         on(allowedWith, IntType.SCENERY, "enter") { player, node ->
-            if(anyInEquipment(player, *talismanStaff)){
+            if (anyInEquipment(player, *talismanStaff)) {
                 handleStaff(player, node)
             } else {
                 handleTiara(player, node)
@@ -38,13 +39,13 @@ class MysteriousRuinListener : InteractionListener {
     private fun allRuins(): IntArray {
         return MysteriousRuin
             .values()
-            .flatMap { ruins -> ruins.`object`.asList() }
+            .flatMap { ruins -> ruins.scenery.asList() }
             .toIntArray()
     }
 
     private fun handleTalisman(player: Player, used: Node, with: Node): Boolean {
-        val ruin = MysteriousRuin.forObject(with.asScenery())
-        if (!checkQuestCompletion(player, ruin)) {
+        val ruin = MysteriousRuin.from(with.asScenery())
+        if (!checkQuestCompletion(player, ruin!!)) {
             return true
         }
 
@@ -63,14 +64,14 @@ class MysteriousRuinListener : InteractionListener {
     }
 
     private fun handleStaff(player: Player, node: Node): Boolean {
-        val ruin = MysteriousRuin.forObject(node.asScenery())
+        val ruin = MysteriousRuin.from(node.asScenery())
 
-        if (!checkQuestCompletion(player, ruin)) {
+        if (!checkQuestCompletion(player, ruin!!)) {
             return true
         }
 
-        val staff = intArrayOf(13630, 13631, 13632, 13633, 13634, 13635, 13636, 13637, 13638, 13639, 13640, 13641)
-        if (!anyInEquipment(player, *staff)) {
+        val staff = Staff.from(node.asItem())
+        if (!anyInEquipment(player, staff!!.item.id)) {
             sendMessage(player, nothingInteresting)
             return false
         }
@@ -80,9 +81,9 @@ class MysteriousRuinListener : InteractionListener {
     }
 
     private fun handleTiara(player: Player, node: Node): Boolean {
-        val ruin = MysteriousRuin.forObject(node.asScenery())
+        val ruin = MysteriousRuin.from(node.asScenery())
 
-        if (!checkQuestCompletion(player, ruin)) {
+        if (!checkQuestCompletion(player, ruin!!)) {
             return true
         }
 
@@ -116,9 +117,6 @@ class MysteriousRuinListener : InteractionListener {
         submitWorldPulse(object : Pulse(delay, player) {
             override fun pulse(): Boolean {
                 teleport(player, ruin.end)
-                if (ruin == MysteriousRuin.EARTH) {
-                    player.achievementDiaryManager.finishTask(player, DiaryType.VARROCK, 0, ENTER_EARTH_ALTAR)
-                }
                 return true
             }
         })

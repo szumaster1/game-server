@@ -1,6 +1,6 @@
 package content.region.misthalin.guild.runecrafting
 
-import content.global.skill.production.runecrafting.Talisman
+import content.global.skill.production.runecrafting.data.Talisman
 import core.api.getAttribute
 import core.api.setAttribute
 import core.game.node.entity.player.Player

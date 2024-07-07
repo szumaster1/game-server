@@ -1,29 +1,14 @@
-package content.global.skill.production.runecrafting;
+package content.global.skill.production.runecrafting.items.pouch;
 
 import core.game.global.action.DropListener;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.skill.Skills;
 import core.game.node.item.Item;
 
-/**
- * The enum Rune pouch.
- */
 public enum RunePouch {
-    /**
-     * The Small.
-     */
     SMALL(new Item(5509), 1, 3, 3, 0),
-    /**
-     * The Medium.
-     */
     MEDIUM(new Item(5510), 25, 6, 9, 45),
-    /**
-     * The Large.
-     */
     LARGE(new Item(5512), 50, 9, 18, 29),
-    /**
-     * The Giant.
-     */
     GIANT(new Item(5514), 75, 12, 30, 10);
 
     private static final Item PURE_ESSENCE = new Item(7936);

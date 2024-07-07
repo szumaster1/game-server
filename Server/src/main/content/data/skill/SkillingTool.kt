@@ -54,6 +54,7 @@ enum class SkillingTool(
     BUTTERFLY_NET_CLASS4(id = Items.BUTTERFLY_NET_CLASS_4_14158, level = 60, ratio = 0.85, animation = Animation(10621)),
     BUTTERFLY_NET_CLASS5(id = Items.BUTTERFLY_NET_CLASS_5_14160, level = 80, ratio = 1.0, animation = Animation(10622)),
 
+    TINDERBOX(id = Items.TINDERBOX_590, level = 1, ratio = 0.1, animation = Animation(733)),
     TRAINING_BOW(id = Items.TRAINING_BOW_9705, level = 1, ratio = 0.1, animation = Animation(6713)),
     LONGBOW(id = Items.LONGBOW_839, level = 1, ratio = 0.1, animation = Animation(6714)),
     SHORTBOW(id = Items.SHORTBOW_841, level = 1, ratio = 0.1, animation = Animation(6714)),
@@ -177,10 +178,10 @@ enum class SkillingTool(
             return tool
         }
 
-        fun getBow(player: Player): SkillingTool? {
+        fun getFiremakingTool(player: Player): SkillingTool? {
             var tool: SkillingTool? = null
             val bowPriority = arrayOf(
-                SEERCULL, MAGIC_SHORTBOW, MAGIC_LONGBOW, YEW_SHORTBOW, YEW_LONGBOW,
+                TINDERBOX, SEERCULL, MAGIC_SHORTBOW, MAGIC_LONGBOW, YEW_SHORTBOW, YEW_LONGBOW,
                 MAPLE_SHORTBOW, MAPLE_LONGBOW, WILLOW_SHORTBOW, WILLOW_LONGBOW,
                 OAK_LONGBOW, OAK_SHORTBOW, SHORTBOW, LONGBOW, TRAINING_BOW
             )
@@ -200,7 +201,7 @@ enum class SkillingTool(
                 Skills.WOODCUTTING -> getHatchet(player)
                 Skills.FISHING -> getHarpoon(player)
                 Skills.HUNTER -> getButterflyNet(player)
-                Skills.FIREMAKING -> getBow(player)
+                Skills.FIREMAKING -> getFiremakingTool(player)
                 else -> null
             }
         }

@@ -1,6 +1,6 @@
 package content.global.skill.support.construction.decoration.portalchamber;
 
-import content.global.skill.production.runecrafting.Rune;
+import content.global.skill.production.runecrafting.data.Rune;
 import content.global.skill.support.construction.Decoration;
 import content.global.skill.support.construction.Hotspot;
 import core.cache.def.impl.SceneryDefinition;
@@ -32,59 +32,24 @@ public class PortalChamberPlugin extends OptionHandler {
      */
     private static enum Locations {
 
-        /**
-         * The Varrock.
-         */
         VARROCK(Location.create(3213, 3428, 0), new Item(Rune.FIRE.getRune().getId(), 100), new Item(Rune.AIR.getRune().getId(), 300), new Item(Rune.LAW.getRune().getId(), 100)),
-        /**
-         * The Lumbridge.
-         */
         LUMBRIDGE(Location.create(3222, 3217, 0), new Item(Rune.EARTH.getRune().getId(), 100), new Item(Rune.AIR.getRune().getId(), 300), new Item(Rune.LAW.getRune().getId(), 100)),
-        /**
-         * The Falador.
-         */
         FALADOR(Location.create(2965, 3380, 0), new Item(Rune.WATER.getRune().getId(), 100), new Item(Rune.AIR.getRune().getId(), 300), new Item(Rune.LAW.getRune().getId(), 100)),
-        /**
-         * The Camelot.
-         */
         CAMELOT(Location.create(2730, 3485, 0), new Item(Rune.AIR.getRune().getId(), 500), new Item(Rune.LAW.getRune().getId(), 100)),
-        /**
-         * The Ardougne.
-         */
         ARDOUGNE(Location.create(2663, 3305, 0), new Item(Rune.WATER.getRune().getId(), 200), new Item(Rune.LAW.getRune().getId(), 200)),
-        /**
-         * The Yanille.
-         */
         YANILLE(Location.create(2554, 3114, 0), new Item(Rune.EARTH.getRune().getId(), 200), new Item(Rune.LAW.getRune().getId(), 200)),
-        /**
-         * The Kharyrll.
-         */
         KHARYRLL(Location.create(3493, 3474, 0), new Item(Rune.BLOOD.getRune().getId(), 100), new Item(Rune.LAW.getRune().getId(), 200));
-
-        /**
-         * The location to teleport to
-         */
         private Location location;
-
-        /**
-         * The rune requirements
-         */
         private Item[] runes;
 
-        /**
-         * Locations
-         */
         Locations(Location location, Item... runes) {
             this.location = location;
             this.runes = runes;
         }
     }
 
-    /**
-     * Directs a portal
-     *
-     * @param player     the player
-     * @param identifier the identifier
+    /*
+     * Directs a portal.
      */
     public static void direct(Player player, String identifier) {
         player.getInterfaceManager().closeSingleTab();
@@ -162,19 +127,10 @@ public class PortalChamberPlugin extends OptionHandler {
     }
 
     private static final class DirectPortalDialogue extends Dialogue {
-
-        /**
-         * Instantiates a new Direct portal dialogue.
-         */
         public DirectPortalDialogue() {
 
         }
 
-        /**
-         * Instantiates a new Direct portal dialogue.
-         *
-         * @param player the player
-         */
         public DirectPortalDialogue(Player player) {
             super(player);
         }

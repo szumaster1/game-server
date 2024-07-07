@@ -1,15 +1,19 @@
 package content.region.misthalin.diary
 
-import content.region.misc.handlers.zanaris.FairyRing
 import content.global.skill.combat.magic.TeleportMethod
 import content.global.skill.combat.prayer.Bones
 import content.global.travel.canoe.CanoeListeners
+import content.region.misc.handlers.zanaris.FairyRing
 import content.region.misthalin.dialogue.varrock.BennyDialogue
 import content.region.misthalin.dialogue.varrock.ElsieDialogue
 import content.region.misthalin.dialogue.varrock.museum.CuratorHaigHalenDialogue
 import content.region.misthalin.dialogue.varrock.museum.OrlandoSmithDialogue
 import content.region.misthalin.quest.member.familycrest.dialogue.DimintheisDialogue
 import core.api.*
+import core.api.consts.Components
+import core.api.consts.Items
+import core.api.consts.NPCs
+import core.api.consts.Scenery
 import core.game.diary.AreaDiaryTask
 import core.game.diary.DiaryEventHookBase
 import core.game.diary.DiaryLevel
@@ -19,12 +23,8 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.SpellBookManager
 import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.entity.skill.Skills
-import core.game.world.map.zone.ZoneBorders
-import core.api.consts.Components
-import core.api.consts.Items
-import core.api.consts.NPCs
-import core.api.consts.Scenery
 import core.game.node.item.Item
+import core.game.world.map.zone.ZoneBorders
 
 class VarrockAchievementDiary : DiaryEventHookBase(DiaryType.VARROCK) {
     companion object {
@@ -231,44 +231,59 @@ class VarrockAchievementDiary : DiaryEventHookBase(DiaryType.VARROCK) {
 
     override fun onResourceProduced(player: Player, event: ResourceProducedEvent) {
         when (player.viewport.region.id) {
-            12341 -> if (event.itemId == Items.RAW_TROUT_335) {
-                finishTask(
-                    player,
-                    DiaryLevel.EASY,
-                    EasyTasks.BARBARIAN_VILLAGE_CATCH_TROUT
-                )
+            12341 -> when (event.itemId) {
+                Items.RAW_TROUT_335 ->
+                    finishTask(
+                        player,
+                        DiaryLevel.EASY,
+                        EasyTasks.BARBARIAN_VILLAGE_CATCH_TROUT
+                    )
             }
 
-            12853 -> if(event.itemId == Items.ADAMANT_MED_HELM_1145) {
-                finishTask(
-                    player,
-                    DiaryLevel.HARD,
-                    HardTasks.SMITH_ADAMANT_MED_HELM_SOUTHEAST
-                )
+            12853 -> when(event.itemId) {
+                Items.ADAMANT_MED_HELM_1145 ->
+                    finishTask(
+                        player,
+                        DiaryLevel.HARD,
+                        HardTasks.SMITH_ADAMANT_MED_HELM_SOUTHEAST
+                    )
             }
 
-            13108 -> if (event.itemId == Items.IRON_ORE_440) {
-                finishTask(
-                    player,
-                    DiaryLevel.EASY,
-                    EasyTasks.MINE_IRON_SOUTHEAST
-                )
+            13108 -> when (event.itemId) {
+                Items.IRON_ORE_440 ->
+                    finishTask(
+                        player,
+                        DiaryLevel.EASY,
+                        EasyTasks.MINE_IRON_SOUTHEAST
+                    )
             }
 
-            13110 -> if (event.itemId == Items.LOGS_1511 && event.source.id == Scenery.DYING_TREE_24168) {
-                finishTask(
-                    player,
-                    DiaryLevel.EASY,
-                    EasyTasks.LUMBERYARD_CHOP_DYING_TREE
-                )
+            13110 -> when (event.itemId) {
+                Items.LOGS_1511 -> if (event.source.id == Scenery.DYING_TREE_24168) {
+                    finishTask(
+                        player,
+                        DiaryLevel.EASY,
+                        EasyTasks.LUMBERYARD_CHOP_DYING_TREE
+                    )
+                }
             }
 
-            13366 -> if (event.itemId == Items.LIMESTONE_3211) {
-                finishTask(
-                    player,
-                    DiaryLevel.EASY,
-                    EasyTasks.PATERDOMUS_MINE_LIMESTONE
-                )
+            13366 -> when (event.itemId) {
+                Items.LIMESTONE_3211 ->
+                    finishTask(
+                        player,
+                        DiaryLevel.EASY,
+                        EasyTasks.PATERDOMUS_MINE_LIMESTONE
+                    )
+            }
+
+            10571 -> when(event.itemId) {
+                Items.EARTH_TIARA_5535 ->
+                    finishTask(
+                        player,
+                        DiaryLevel.MEDIUM,
+                        MediumTasks.CRAFT_EARTH_TIARA
+                    )
             }
         }
     }

@@ -1,5 +1,7 @@
 package content.global.skill.support.firemaking
 
+import content.data.skill.SkillingTool
+import content.global.skill.BarbarianTraining
 import core.api.*
 import core.api.consts.Animations
 import core.api.consts.Items
@@ -20,6 +22,7 @@ import kotlin.math.ceil
 class FireMakingPulse(player: Player, node: Item, groundItem: GroundItem?) : SkillPulse<Item?>(player, node) {
 
     private val fire = Log.forId(node.id)
+    private val tool = SkillingTool.getFiremakingTool(player)
     private var groundItem: GroundItem? = null
     private var ticks = 0
 
@@ -72,13 +75,13 @@ class FireMakingPulse(player: Player, node: Item, groundItem: GroundItem?) : Ski
             return true
         }
         if (ticks == 0) {
-            animate(player, lightFireAnim)
+            animate(player, tool!!.animation)
         }
         if (++ticks % 3 != 0) {
             return false
         }
         if (ticks % 12 == 0) {
-            animate(player, lightFireAnim)
+            animate(player, tool!!.animation)
         }
         if (!success()) {
             return false
@@ -95,13 +98,19 @@ class FireMakingPulse(player: Player, node: Item, groundItem: GroundItem?) : Ski
         SceneryBuilder.add(scenery, fire.life, getAsh(player, fire, scenery))
         GroundItemManager.destroy(groundItem)
         player.moveStep()
-        player.faceLocation(scenery.getFaceLocation(player.location))
-        player.getSkills().addExperience(Skills.FIREMAKING, fire.xp)
+        face(player, scenery.getFaceLocation(player.location))
+        rewardXP(player, Skills.FIREMAKING, fire.xp)
 
         val playerRegion = player.viewport.region.id
 
         setLastFire()
         player.dispatch(LitFireEvent(fire.logId))
+
+        if (getAttribute(player, BarbarianTraining.ATTR_BARB_TRAIN_FIREMAKING_BEGIN, false)) {
+            removeAttribute(player, BarbarianTraining.ATTR_BARB_TRAIN_FIREMAKING_BEGIN)
+            setAttribute(player, "/save:${BarbarianTraining.ATTR_BARB_TRAIN_FIREMAKING}", true)
+            sendDialogueLines(player, "You feel you have learned more of barbarian ways. Otto might wish","to talk to you more.")
+        }
     }
 
     override fun message(type: Int) {
@@ -127,7 +136,6 @@ class FireMakingPulse(player: Player, node: Item, groundItem: GroundItem?) : Ski
     }
 
     companion object {
-        private val lightFireAnim = Animation(Animations.HUMAN_LIGHT_FIRE_WITH_TINDERBOX_733)
 
         @JvmStatic
         fun getAsh(player: Player?, fire: Log?, scenery: Scenery): GroundItem {

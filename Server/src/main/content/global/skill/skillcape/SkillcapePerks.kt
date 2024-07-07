@@ -1,6 +1,6 @@
 package content.global.skill.skillcape
 
-import content.global.skill.production.runecrafting.Altar
+import content.global.skill.production.runecrafting.data.Altar
 import core.ServerStore
 import core.ServerStore.Companion.getBoolean
 import core.ServerStore.Companion.getInt
@@ -20,6 +20,9 @@ import core.game.world.map.Location
 import core.game.world.map.zone.impl.DarkZone
 import core.plugin.Initializable
 
+/*
+    https://cdn.2009scape.org/wiki/skill_guides/skill_cape_perks
+ */
 enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)? = null) {
     BAREFISTED_SMITHING("cape_perks:barefisted-smithing"),
     DIVINE_FAVOR("cape_perks:divine-favor"),
@@ -277,7 +280,7 @@ enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)?
                 return
             }
 
-            var endLoc = if (altar == Altar.ASTRAL) Location.create(2151, 3864, 0) else altar.ruin.end
+            var endLoc = if (altar == Altar.ASTRAL) Location.create(2151, 3864, 0) else altar.ruin!!.end
 
             player.teleporter.send(endLoc, TeleportManager.TeleportType.TELE_OTHER)
             player.incrementAttribute("/save:cape_perks:abyssal_warp", -1)

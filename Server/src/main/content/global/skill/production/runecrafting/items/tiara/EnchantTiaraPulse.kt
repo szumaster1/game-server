@@ -1,8 +1,9 @@
-package content.global.skill.production.runecrafting.tiara
+package content.global.skill.production.runecrafting.items.tiara
 
-import content.global.skill.production.runecrafting.Altar
-import content.global.skill.production.runecrafting.Talisman
-import content.global.skill.production.runecrafting.staff.TalismanStaff
+import content.global.skill.production.runecrafting.data.Altar
+import content.global.skill.production.runecrafting.data.Talisman
+import content.global.skill.production.runecrafting.data.TalismanStaff
+import core.api.consts.Items
 import core.api.rewardXP
 import core.api.sendMessage
 import core.game.node.entity.player.Player
@@ -11,9 +12,15 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import kotlin.math.min
 
-class EnchantTiaraPulse(player: Player?, val talisman: Talisman, val altar: Altar, val tiara: TalismanStaff, var amount: Int, ) : SkillPulse<Item>(player, null) {
+class EnchantTiaraPulse(
+    player: Player?,
+    val talisman: Talisman,
+    val altar: Altar,
+    val tiara: TalismanStaff,
+    var amount: Int,
+) : SkillPulse<Item>(player, null) {
 
-    private val plainTiara = Item(5525)
+    private val plainTiara = Item(Items.TIARA_5525)
 
     override fun checkRequirements(): Boolean {
         if (!player.inventory.containsItem(plainTiara)) {
@@ -36,7 +43,7 @@ class EnchantTiaraPulse(player: Player?, val talisman: Talisman, val altar: Alta
     override fun reward(): Boolean {
         if (player.inventory.remove(plainTiara) && player.inventory.remove(talisman.talisman)) {
             player.inventory.add(tiara.staff!!.item)
-            rewardXP(player, Skills.RUNECRAFTING, talisman.tiara.experience)
+            rewardXP(player, Skills.RUNECRAFTING, talisman.tiara!!.experience)
 
             return --amount == 0
         }
