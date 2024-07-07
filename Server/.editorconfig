@@ -6,7 +6,8 @@ root = true
 # Unix-style newlines with a newline ending every file.
 [*]
 end_of_line = lf
-insert_final_newline = true
+insert_final_newline = false
+trim_trailing_whitespace = true
 
 # 4 space indentation.
 [*.java]
@@ -15,13 +16,11 @@ indent_style = space
 indent_size = 4
 
 # 4 space indentation.
-[*.kt]
-charset = utf-8
+[*.{kt,kts}]
 indent_style = space
-indent_size = 4
+tab_width = 4
 
 # Indentation override for all json under data/configs/directory.
 [data/configs/*.json]
-charset = utf-8
 indent_style = space
 indent_size = 2
