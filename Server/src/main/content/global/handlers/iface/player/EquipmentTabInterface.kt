@@ -114,7 +114,7 @@ class EquipmentTabInterface : InterfaceListener {
         when {
             InteractionListeners.run(item.id, IntType.ITEM, "operate", player, item) -> return
             item.operateHandler?.handle(player, item, "operate") == true -> return
-            else -> sendMessage(player, "You can't operate that.")
+            else -> sendMessage(player, "There is no way to operate that item.")
         }
     }
 

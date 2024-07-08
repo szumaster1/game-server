@@ -8,6 +8,7 @@ import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
+import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
@@ -17,7 +18,7 @@ class OttoGodblessedDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        if(getAttribute(player, BarbarianTraining.ATTR_BARB_TRAIN_START, false)){
+        if(getAttribute(player, BarbarianTraining.BARBARIAN_TRAINING, false)){
             setTitle(player, 3)
             sendDialogueOptions(player, "Choose an option:",
                 "Please, supply me details of your cunning with harpoons.",
@@ -29,7 +30,7 @@ class OttoGodblessedDialogue(player: Player? = null) : Dialogue(player) {
                     "Are there any ways to use a fishing rod which I might learn?"
                 },
                 // After complete firemaking training the option gets replaced with this one.
-                if (getAttribute(player, BarbarianTraining.ATTR_BARB_TRAIN_FIREMAKING, false)) {
+                if (getAttribute(player, BarbarianTraining.BARBARIAN_FIREMAKING_COMPLETE, false)) {
                     "I have completed Firemaking with a bow. What follows this?"
                 } else {
                     "My mind is ready for your Firemaking wisdom, please instruct me."
@@ -38,7 +39,7 @@ class OttoGodblessedDialogue(player: Player? = null) : Dialogue(player) {
             stage = 14
         } else {
             npc(FacialExpression.NEUTRAL, "Good day, you seem a hearty warrior.", "Maybe even some barbarian blood in that body of yours?").also {
-                setAttribute(player, "/save:${BarbarianTraining.ATTR_BARB_TRAIN_START}", true)
+                setAttribute(player, "/save:${BarbarianTraining.BARBARIAN_TRAINING}", true)
                 stage = 0
             }
         }
@@ -72,18 +73,18 @@ class OttoGodblessedDialogue(player: Player? = null) : Dialogue(player) {
                 setTitle(player, 3)
                 sendDialogueOptions(player, "Choose an option:",
                     "Please, supply me details of your cunning with harpoons.",
-
                     // After complete fishing training the option gets replaced with this one.
-                    if (getAttribute(player, BarbarianTraining.ATTR_BARB_TRAIN_FISHING, false))
+                    if (getAttribute(player, BarbarianTraining.ATTR_BARB_TRAIN_FISHING, false)) {
                         "What was that secret knowledge of Herblore we talked of?"
-                    else
-                        "Are there any ways to use a fishing rod which I might learn?",
-
+                    } else {
+                        "Are there any ways to use a fishing rod which I might learn?"
+                    },
                     // After complete firemaking training the option gets replaced with this one.
-                    if (getAttribute(player, BarbarianTraining.ATTR_BARB_TRAIN_FIREMAKING, false))
+                    if (getAttribute(player, BarbarianTraining.BARBARIAN_FIREMAKING_COMPLETE, false)){
                         "I have completed Firemaking with a bow. What follows this?"
-                     else
-                         "My mind is ready for your Firemaking wisdom, please instruct me."
+                    } else {
+                        "My mind is ready for your Firemaking wisdom, please instruct me."
+                    }
                 )
                 stage++
             }
@@ -107,10 +108,10 @@ class OttoGodblessedDialogue(player: Player? = null) : Dialogue(player) {
 
                 3 -> {
                     // Talking to Otto Godblessed after talk about firemaking training before making a fire.
-                    if (getAttribute(player, BarbarianTraining.ATTR_BARB_TRAIN_FIREMAKING_BEGIN, false)) {
-                        npc("By now you know my response.").also { stage = 23 }
+                    if (getAttribute(player, BarbarianTraining.BARBARIAN_FIREMAKING_TUTORIAL, false)) {
+                        npc("By now you know my response.").also { stage = 22 }
                     // / Talking to Otto Godblessed after making a fire.
-                    } else if (getAttribute(player, BarbarianTraining.ATTR_BARB_TRAIN_FIREMAKING, false)){
+                    } else if (getAttribute(player, BarbarianTraining.BARBARIAN_FIREMAKING_COMPLETE, false)){
                         npc("Fine news indeed, secrets of our spirit","boats now await your attention.").also { stage = END_DIALOGUE }
                     }
                     // Talking to Otto Godblessed about Firemaking training.
@@ -124,12 +125,16 @@ class OttoGodblessedDialogue(player: Player? = null) : Dialogue(player) {
              * Firemaking.
              */
 
-            15 -> npc("The first point in your progression is that of lighting","fires without a tinderbox.").also { stage++ }
+            15 -> if(getStatLevel(player, Skills.FIREMAKING) < 35) {
+                npcl(FacialExpression.NEUTRAL, "You must have a Firemaking level of at least 35 in order to burn the oak log that is required for the firemaking portion of Barbarian training.").also { stage = END_DIALOGUE }
+            } else {
+                npc("The first point in your progression is that of lighting","fires without a tinderbox.").also { stage++ }
+            }
             16 -> player("That sounds pretty useful, tell me more.").also { stage++ }
             17 -> npc("For this process you will require a strung bow. You","use the bow to quickly rotate pieces of wood against one","another. As you rub the wood becomes hot, eventually","springing into flame.").also { stage++ }
             18 -> player("No more secret details?").also { stage++ }
             19 -> npc("The spirits will aid you, the power they supply will guide","your hands. Go and benefit from their guidance upon","an oaken log.").also {
-                setAttribute(player, "/save:${BarbarianTraining.ATTR_BARB_TRAIN_FIREMAKING_BEGIN}", true)
+                setAttribute(player, "/save:${BarbarianTraining.BARBARIAN_FIREMAKING_TUTORIAL}", true)
                 stage = 20
             }
 

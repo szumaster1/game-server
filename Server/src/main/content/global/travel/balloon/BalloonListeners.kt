@@ -87,7 +87,7 @@ class BalloonListeners : InterfaceListener, InteractionListener {
             })
         }
 
-        enum class FlightDestination(val areaName: String, val flightDestination: Location, val flyAnim: Int, var button: Int, var logType: Int, var varbitId: Int, var requiredLevel: Int) {
+        enum class FlightDestination(val areaName: String, val flightDestination: Location, val flyAnim: Int, var button: Int, var logId: Int, var varbitId: Int, var requiredLevel: Int) {
             CASTLE_WARS("Castle Wars", Location.create(2462, 3108, 0), 11009, 14, Items.YEW_LOGS_1515, 2869, 50),
             GRAND_TREE("Grand Tree", Location.create(2480, 3458, 0), 11009, 15, Items.MAGIC_LOGS_1513, 2870, 60),
             CRAFT_GUILD("Crafting Guild", Location.create(2924, 3303, 0), 11009, 16, Items.OAK_LOGS_1521, 2871, 30),
@@ -137,16 +137,20 @@ class BalloonListeners : InterfaceListener, InteractionListener {
                 buttonID -> {
                     if (buttonID == 17 && !ItemDefinition.canEnterEntrana(player)) {
                         sendDialogue(player, "You can't take flight with weapons and armour to Entrana.")
-                        return@on false
+                        return@on true
                     }
 
                     if (!hasLevelStat(player, Skills.FIREMAKING, button.requiredLevel)) {
                         sendDialogue(player, "You require a Firemaking level of ${button.requiredLevel} to travel at ${button.areaName}.")
-                        return@on false
+                        return@on true
                     }
-                    else if (!removeItem(player, Item(button.logType, 1))) {
-                        sendDialogue(player, "You need at least one ${getItemName(button.logType).lowercase().replace("s", "").trim()}.")
-                        return@on false
+                    if (!removeItem(player, Item(button.logId, 1))) {
+                        sendDialogue(player, "You need at least one ${getItemName(button.logId).lowercase().replace("s", "").trim()}.")
+                        return@on true
+                    }
+                    if (player.familiarManager.hasFamiliar()) {
+                        sendMessage(player, "You can't take a follower on a ride.")
+                        return@on true
                     }
                     else {
                         //setAttribute(player, "/save:${UNLOCKED_DESTINATION}:${button.unlockedDest}", true)

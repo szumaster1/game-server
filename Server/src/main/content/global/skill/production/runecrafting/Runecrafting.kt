@@ -4,8 +4,7 @@ import content.global.skill.production.runecrafting.data.Altar
 import content.global.skill.production.runecrafting.data.Altar.Companion.forScenery
 import content.global.skill.production.runecrafting.data.Talisman
 import content.global.skill.production.runecrafting.data.Talisman.Companion.forItem
-import content.global.skill.production.runecrafting.items.pouch.RunePouchPlugin
-import content.global.skill.production.runecrafting.items.tiara.TiaraPlugin
+import content.global.skill.production.runecrafting.item.pouch.RunePouchPlugin
 import content.global.travel.EssenceTeleport.home
 import content.global.travel.EssenceTeleport.teleport
 import core.api.*
@@ -33,9 +32,8 @@ class Runecrafting : OptionHandler() {
 
     override fun newInstance(arg: Any?): Plugin<Any?> {
         addNodes()
-        definePlugin(TiaraPlugin())
         definePlugin(RunePouchPlugin())
-        definePlugin(CombinationRuneHandler())
+        definePlugin(CombinationRune())
         SceneryDefinition.forId(2492).handlers["option:use"] = this
         NPCDefinition.forId(553).handlers["option:teleport"] = this
         NPCDefinition.forId(2328).handlers["option:teleport"] = this
@@ -94,7 +92,7 @@ class Runecrafting : OptionHandler() {
                 if (a === Altar.ASTRAL) {
                     if (!hasRequirement(player, "Lunar Diplomacy")) return true
                 }
-                player.pulseManager.run(RuneCraftPulse(player, null, a!!, false, null))
+                player.pulseManager.run(RunecraftingPulse(player, null, a!!, false, null))
             }
 
             "locate" -> {

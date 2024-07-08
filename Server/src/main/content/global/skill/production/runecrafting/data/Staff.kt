@@ -40,13 +40,11 @@ enum class Staff(val item: Item, val experience: Double) {
         item = Item(Items.NATURE_TALISMAN_STAFF_13638),
         experience = 45.0
     ),
-    LAW_RC_STAFF
-        (
+    LAW_RC_STAFF(
         item = Item(Items.LAW_TALISMAN_STAFF_13639),
         experience = 47.5
     ),
-    DEATH_RC_STAFF
-        (
+    DEATH_RC_STAFF(
         item = Item(Items.DEATH_TALISMAN_STAFF_13640),
         experience = 50.0
     ),
@@ -56,9 +54,8 @@ enum class Staff(val item: Item, val experience: Double) {
     );
 
     companion object {
-        infix fun from(item: Item): Staff? {
-            return Staff.values()
-                .firstOrNull { it.item == item }
+        fun forStaff(item: Item): Staff? {
+            return values().find { it.item.id == item.id }
         }
     }
 }

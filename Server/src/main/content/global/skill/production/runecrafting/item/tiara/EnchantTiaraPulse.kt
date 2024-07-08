@@ -1,4 +1,4 @@
-package content.global.skill.production.runecrafting.items.tiara
+package content.global.skill.production.runecrafting.item.tiara
 
 import content.global.skill.production.runecrafting.data.Altar
 import content.global.skill.production.runecrafting.data.Talisman
@@ -42,8 +42,8 @@ class EnchantTiaraPulse(
 
     override fun reward(): Boolean {
         if (player.inventory.remove(plainTiara) && player.inventory.remove(talisman.talisman)) {
-            player.inventory.add(tiara.staff!!.item)
-            rewardXP(player, Skills.RUNECRAFTING, talisman.tiara!!.experience)
+            player.inventory.add(tiara.staff.item)
+            rewardXP(player, Skills.RUNECRAFTING, talisman.getTiara()!!.experience)
 
             return --amount == 0
         }

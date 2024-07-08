@@ -132,9 +132,7 @@ class AbyssPlugin : InteractionListener {
             }
 
             player.lock(3)
-            npc.visualize(Animation(Animations.MAGE_OF_ZAMORAK_TELEOTHER_1979),
-                Graphic(4)
-            )
+            npc.visualize(Animation(Animations.MAGE_OF_ZAMORAK_TELEOTHER_1979), Graphic(4))
             npc.visualize(Animation(1979), Graphic(4))
             npc.sendChat("Veniens! Sallakar! Rinnesset!")
             player.skills.decrementPrayerPoints(100.0)
@@ -169,7 +167,7 @@ class AbyssPlugin : InteractionListener {
          * Used to make sure the player lands by the blocked obstacle.
          */
         fun rotateObstacles(player: Player, abyssLoc: AbyssLoc) {
-            setVarbit(player, 625, abyssLoc.getSegment(), true)
+            setVarbit(player, Vars.VARBIT_SCENERY_ABYSS_OBSTACLES, abyssLoc.getSegment(), true)
         }
 
         /**
@@ -193,7 +191,7 @@ class AbyssPlugin : InteractionListener {
                         3 -> return if (RandomFunction.random(100) < getStatLevel(player, skill) + 1) {
                             sendMessage(player, colorize("%G${messages[1]}"))
                             if (varbitVal != null) {
-                                setVarbit(player, 625, varbitVal)
+                                setVarbit(player, Vars.VARBIT_SCENERY_ABYSS_OBSTACLES, varbitVal)
                             }
                             false
                         } else {
@@ -204,7 +202,7 @@ class AbyssPlugin : InteractionListener {
 
                         5 -> {
                             if (varbitVal != null) {
-                                setVarbit(player, 625, varbitVal or 1)
+                                setVarbit(player, Vars.VARBIT_SCENERY_ABYSS_OBSTACLES, varbitVal or 1)
                             }
                         }
 

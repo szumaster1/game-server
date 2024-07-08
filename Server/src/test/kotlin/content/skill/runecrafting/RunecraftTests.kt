@@ -1,5 +1,5 @@
 import content.global.skill.production.runecrafting.data.Rune
-import content.global.skill.production.runecrafting.RuneCraftPulse
+import content.global.skill.production.runecrafting.RunecraftingPulse
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
@@ -7,7 +7,7 @@ class RunecraftTests {
     fun rollRc(rcLevel: Int, rune: Rune, revision: Int, lo: Double, hi: Double) {
         var total = 0.0
         for (i in 0 until 3000) {
-            total += RuneCraftPulse.getMultiplier(rcLevel, rune, revision, false)
+            total += RunecraftingPulse.getMultiplier(rcLevel, rune, revision, false)
         }
         val average = total / 3000.0
         Assertions.assertTrue(lo <= average && average <= hi, "rollRc: ${rcLevel} ${rune.name} ${revision}: ${average}")

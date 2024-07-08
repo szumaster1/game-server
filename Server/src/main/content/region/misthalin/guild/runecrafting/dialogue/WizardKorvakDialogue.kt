@@ -1,6 +1,6 @@
 package content.region.misthalin.guild.runecrafting.dialogue
 
-import content.global.skill.production.runecrafting.items.pouch.PouchManager.RCPouch
+import content.global.skill.production.runecrafting.item.pouch.PouchManager.RCPouch
 import core.api.*
 import core.api.consts.Items
 import core.api.consts.NPCs

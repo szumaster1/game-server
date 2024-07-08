@@ -1,7 +1,9 @@
-package content.global.skill.production.runecrafting.items.staff
+package content.global.skill.production.runecrafting
 
+import content.global.skill.production.runecrafting.data.Altar
 import content.global.skill.production.runecrafting.data.Staff
 import content.global.skill.production.runecrafting.data.TalismanStaff
+import content.global.skill.production.runecrafting.data.Tiara
 import core.api.*
 import core.api.consts.Items
 import core.api.consts.Vars
@@ -11,30 +13,36 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
-class TalismanStaffListener : InteractionListener {
+class RunecraftingEquipment : InteractionListener {
 
     private val talismanStaff = Staff.values().map { it.item.id }.toIntArray()
+    private val tiaraItem = Tiara.values().map { it.item.id }.toIntArray()
+    private val varpValues = mapOf(13630 to 1, 13631 to 2, 13632 to 4, 13633 to 8, 13634 to 16, 13635 to 32, 13636 to 64, 13637 to 128, 13638 to 256, 13639 to 512, 13640 to 1024, 13641 to 2048)
+    private val tiaraValues = mapOf(Items.AIR_TIARA_5527 to 1, Items.MIND_TIARA_5529 to 2, Items.WATER_TIARA_5531 to 4, Items.EARTH_TIARA_5535 to 8, Items.FIRE_TIARA_5537 to 16, Items.BODY_TIARA_5533 to 32, Items.COSMIC_TIARA_5539 to 64, Items.CHAOS_TIARA_5543 to 128, Items.NATURE_TIARA_5541 to 256, Items.LAW_TIARA_5545 to 512, Items.DEATH_TIARA_5547 to 1024, Items.BLOOD_TIARA_5549 to 2048)
 
     override fun defineListeners() {
+        onEquip(tiaraItem) { player, node ->
+            setVarp(player, Vars.VARP_SCENERY_ABYSS, tiaraValues.getValue(node.id), true)
+            return@onEquip true
+        }
+
+        onUnequip(tiaraItem) { player, _ ->
+            setVarp(player, Vars.VARP_SCENERY_ABYSS, 0)
+            return@onUnequip true
+        }
 
         onEquip(talismanStaff) { player, node ->
-            val varpValues = mapOf(
-                13630 to 1, 13631 to 2, 13632 to 4, 13633 to 8, 13634 to 16,
-                13635 to 32, 13636 to 64, 13637 to 128, 13638 to 256,
-                13639 to 512, 13640 to 1024, 13641 to 2048
-            )
-
             val varpValue = varpValues[node.id] ?: run {
                 sendMessage(player, "Nothing interesting happens.")
                 return@onEquip false
             }
 
-            setVarp(player, Vars.VARP_SCENERY_ABYSS, varpValue, true)
+            setVarp(player, Vars.VARP_SCENERY_ABYSS, varpValue)
             return@onEquip true
         }
 
         onUnequip(talismanStaff) { player, _ ->
-            setVarp(player, Vars.VARP_SCENERY_ABYSS, 0)
+            setVarp(player, Vars.VARP_SCENERY_ABYSS, 0, true)
             return@onUnequip true
         }
 
@@ -68,8 +76,8 @@ class TalismanStaffListener : InteractionListener {
                                     } else {
                                         removeItem(player, used.id)
                                         removeItem(player, Item(Items.RUNECRAFTING_STAFF_13629))
-                                        addItemOrDrop(player, it.first.staff!!.item.id)
-                                        rewardXP(player, Skills.RUNECRAFTING, it.first.staff!!.experience)
+                                        addItemOrDrop(player, it.first.staff.item.id)
+                                        rewardXP(player, Skills.RUNECRAFTING, it.first.staff.experience)
                                         sendMessage(player, "You bind the power of the talisman into your staff.")
                                     }
                                 }
@@ -80,5 +88,25 @@ class TalismanStaffListener : InteractionListener {
                     return@onUseWith true
                 }
             }
+    }
+}
+
+object TalismanStaffToAltarMapper {
+    fun map(staff: TalismanStaff): Altar? {
+        return when (staff) {
+            TalismanStaff.AIR -> Altar.AIR
+            TalismanStaff.MIND -> Altar.MIND
+            TalismanStaff.WATER -> Altar.WATER
+            TalismanStaff.EARTH -> Altar.EARTH
+            TalismanStaff.FIRE -> Altar.FIRE
+            TalismanStaff.BODY -> Altar.BODY
+            TalismanStaff.COSMIC -> Altar.COSMIC
+            TalismanStaff.CHAOS -> Altar.CHAOS
+            TalismanStaff.NATURE -> Altar.NATURE
+            TalismanStaff.LAW -> Altar.LAW
+            TalismanStaff.DEATH -> Altar.DEATH
+            TalismanStaff.BLOOD -> Altar.BLOOD
+            else -> null
+        }
     }
 }

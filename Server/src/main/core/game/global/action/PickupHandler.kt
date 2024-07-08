@@ -3,7 +3,7 @@ package core.game.global.action
 import core.game.event.PickUpEvent
 import content.data.GodType
 import core.game.node.entity.player.Player
-import content.global.skill.production.runecrafting.items.pouch.RunePouch
+import content.global.skill.production.runecrafting.item.pouch.RunePouch
 import core.api.*
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.info.LogType

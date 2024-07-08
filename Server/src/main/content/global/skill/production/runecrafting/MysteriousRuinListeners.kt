@@ -11,10 +11,11 @@ import core.game.interaction.InteractionListener
 import core.game.node.Node
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
+import core.game.node.scenery.Scenery
 import core.game.system.task.Pulse
 import core.game.world.update.flag.context.Animation
 
-class MysteriousRuinListener : InteractionListener {
+class MysteriousRuinListeners : InteractionListener {
 
     private val animation = Animation(827)
     private val allowedUsed = arrayOf(1438, 1448, 1444, 1440, 1442, 5516, 1446, 1454, 1452, 1462, 1458, 1456, 1450, 1460).toIntArray()
@@ -44,7 +45,7 @@ class MysteriousRuinListener : InteractionListener {
     }
 
     private fun handleTalisman(player: Player, used: Node, with: Node): Boolean {
-        val ruin = MysteriousRuin.from(with.asScenery())
+        val ruin = MysteriousRuin.forScenery(with.asScenery())
         if (!checkQuestCompletion(player, ruin!!)) {
             return true
         }
@@ -64,36 +65,32 @@ class MysteriousRuinListener : InteractionListener {
     }
 
     private fun handleStaff(player: Player, node: Node): Boolean {
-        val ruin = MysteriousRuin.from(node.asScenery())
+        val ruin = node as Scenery
+        val ruinId = MysteriousRuin.forScenery(ruin)
 
-        if (!checkQuestCompletion(player, ruin!!)) {
+        if (!checkQuestCompletion(player, ruinId!!)) {
             return true
         }
 
-        val staff = Staff.from(node.asItem())
-        if (!anyInEquipment(player, staff!!.item.id)) {
-            sendMessage(player, nothingInteresting)
-            return false
-        }
-
-        submitTeleportPulse(player, ruin, 0)
+        submitTeleportPulse(player, ruinId, 0)
         return true
     }
 
     private fun handleTiara(player: Player, node: Node): Boolean {
-        val ruin = MysteriousRuin.from(node.asScenery())
+        val ruin = node as Scenery
+        val ruinId = MysteriousRuin.forScenery(ruin)
 
-        if (!checkQuestCompletion(player, ruin!!)) {
+        if (!checkQuestCompletion(player, ruinId!!)) {
             return true
         }
 
         val tiara = Tiara.forItem(player.equipment.get(SLOT_HAT))
-        if (tiara == null || tiara != ruin.tiara) {
+        if (tiara == null || tiara != ruinId.tiara) {
             sendMessage(player, nothingInteresting)
             return false
         }
 
-        submitTeleportPulse(player, ruin, 0)
+        submitTeleportPulse(player, ruinId, 0)
         return true
     }
 
@@ -101,7 +98,7 @@ class MysteriousRuinListener : InteractionListener {
         return when (ruin) {
             MysteriousRuin.DEATH -> hasRequirement(player, "Mourning's End Part II", true)
             MysteriousRuin.BLOOD -> hasRequirement(player, "Legacy of Seergaze", true)
-            else -> hasRequirement(player, "Rune Mysteries", true)
+            else -> isQuestComplete(player, "Rune Mysteries")
         }
     }
 

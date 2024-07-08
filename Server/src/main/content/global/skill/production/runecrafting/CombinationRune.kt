@@ -10,7 +10,7 @@ import core.game.interaction.UseWithHandler
 import core.game.node.scenery.Scenery
 import core.plugin.Plugin
 
-class CombinationRuneHandler : UseWithHandler(
+class CombinationRune : UseWithHandler(
     Talisman.AIR.talisman.id, Talisman.WATER.talisman.id, Talisman.EARTH.talisman.id, Talisman.FIRE.talisman.id,
     Rune.WATER.rune.id, Rune.EARTH.rune.id, Rune.AIR.rune.id, Rune.FIRE.rune.id
 ) {
@@ -26,7 +26,7 @@ class CombinationRuneHandler : UseWithHandler(
         val player = event.player
         val altar = forScenery((event.usedWith as Scenery))
         val combo = forAltar(altar!!, event.usedItem) ?: return false
-        player.pulseManager.run(RuneCraftPulse(player, event.usedItem, altar, true, combo))
+        player.pulseManager.run(RunecraftingPulse(player, event.usedItem, altar, true, combo))
         return true
     }
 }

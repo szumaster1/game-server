@@ -95,20 +95,21 @@ enum class MysteriousRuin(
         Tiara.BLOOD
     );
 
-    val values = values()
-
     companion object {
-        infix fun from(scenery: Scenery): MysteriousRuin? {
-            return from(scenery)
-        }
-
-        fun forTalisman(talisman: Talisman): MysteriousRuin? {
+        fun forScenery(scenery: Scenery): MysteriousRuin? {
             for (ruin in values()) {
-                if (ruin.talisman == talisman) {
-                    return ruin
+                for (i in ruin.scenery) {
+                    if (i == scenery.id) {
+                        return ruin
+                    }
                 }
             }
             return null
         }
+
+        fun forTalisman(talisman: Talisman): MysteriousRuin? {
+            return values().find { forTalisman(it.talisman.getRuin()!!.talisman) == talisman.getRuin() }
+        }
+
     }
 }

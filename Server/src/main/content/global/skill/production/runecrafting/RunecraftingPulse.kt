@@ -27,7 +27,7 @@ import core.tools.NumberConverter
 import core.tools.RandomFunction
 import kotlin.math.max
 
-class RuneCraftPulse(
+class RunecraftingPulse(
     player: Player?, node: Item?,
     val altar: Altar,
     private val combination: Boolean,

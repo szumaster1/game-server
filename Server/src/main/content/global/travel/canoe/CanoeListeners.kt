@@ -64,21 +64,6 @@ class CanoeListeners : InteractionListener, InterfaceListener {
             }
         }
 
-        @JvmStatic
-        fun getChopDownAnimation(axe: SkillingTool): Animation {
-            return when (axe) {
-                SkillingTool.BRONZE_AXE -> Animation(3299)
-                SkillingTool.IRON_AXE -> Animation(3298)
-                SkillingTool.STEEL_AXE -> Animation(3297)
-                SkillingTool.BLACK_AXE -> Animation(3296)
-                SkillingTool.MITHRIL_AXE -> Animation(3295)
-                SkillingTool.ADAMANT_AXE -> Animation(3294)
-                SkillingTool.RUNE_AXE -> Animation(3293)
-                SkillingTool.DRAGON_AXE -> Animation(3300)
-                else -> axe.animation
-            }
-        }
-
         private fun checkSuccess(player: Player, resource: Canoes, tool: SkillingTool): Boolean {
             val skill = Skills.WOODCUTTING
             val level: Int = getDynLevel(player, skill) + getFamiliarBoost(player, skill)
@@ -165,11 +150,56 @@ class CanoeListeners : InteractionListener, InterfaceListener {
         }
 
         enum class CanoeStationLocations(val stationRegion: Int, val stationVarbit: Int, val playerChopLocation: Location, val playerFloatLocation: Location, val playerFacingLocation: Location, val canoeSinkLocation: Location, val playerDestination: Location, val locationName: String) {
-            LUMBRIDGE(12850, 1839, Location(3243, 3235), Location(3243, 3237), Location(-1, 0), Location(3239, 3242), Location(3240, 3242), "Lumbridge"),
-            CHAMPIONS(12852, 1840, Location(3204, 3343), Location(3202, 3343), Location(0, -1), Location(3199, 3344), Location(3199, 3344), "the Champion's Guild"),
-            BARBARIAN(12341, 1841, Location(3112, 3409), Location(3112, 3411), Location(-1, 0), Location(3109, 3411), Location(3109, 3415), "Barbarian Village"),
-            EDGEVILLE(12342, 1842, Location(3132, 3508), Location(3132, 3510), Location(-1, 0), Location(3132, 3510), Location(3132, 3510), "Edgeville"),
-            WILDERNESS(12603, 0, Location(0, 0), Location(0, 0), Location(0, 0), Location(3142, 3795), Location(3139, 3796), "the Wilderness Pond");
+            LUMBRIDGE(
+                stationRegion = 12850,
+                stationVarbit = 1839,
+                playerChopLocation = Location(3243, 3235),
+                playerFloatLocation = Location(3243, 3237),
+                playerFacingLocation = Location(-1, 0),
+                canoeSinkLocation = Location.create(3239, 3242,0),
+                playerDestination = Location(3240, 3242, 0),
+                locationName = "Lumbridge"
+            ),
+            CHAMPIONS(
+                stationRegion = 12852,
+                stationVarbit = 1840,
+                playerChopLocation = Location(3204, 3343),
+                playerFloatLocation = Location(3202, 3343),
+                playerFacingLocation = Location(0, -1),
+                canoeSinkLocation = Location.create(3199, 3344,0),
+                playerDestination = Location(3199, 3344, 0),
+                locationName = "the Champion's Guild"
+            ),
+            BARBARIAN(
+                stationRegion = 12341,
+                stationVarbit = 1841,
+                playerChopLocation = Location(3112, 3409),
+                playerFloatLocation = Location(3112, 3411),
+                playerFacingLocation = Location(-1, 0),
+                canoeSinkLocation = Location.create(3109, 3411,0),
+                playerDestination = Location(3109, 3415),
+                locationName = "Barbarian Village"
+            ),
+            EDGEVILLE(
+                stationRegion = 12342,
+                stationVarbit = 1842,
+                playerChopLocation = Location(3132, 3508),
+                playerFloatLocation = Location(3132, 3510),
+                playerFacingLocation = Location(-1, 0),
+                canoeSinkLocation = Location.create(3132, 3510,0),
+                playerDestination = Location(3132, 3510),
+                locationName = "Edgeville"
+            ),
+            WILDERNESS(
+                stationRegion = 12603,
+                stationVarbit = 0,
+                playerChopLocation = Location(0, 0),
+                playerFloatLocation = Location(0, 0),
+                playerFacingLocation = Location(0, 0),
+                canoeSinkLocation = Location.create(3142, 3795,0),
+                playerDestination = Location(3141, 3796, 0),
+                locationName = "the Wilderness Pond"
+            );
 
             companion object {
                 private val stationRegionMap = CanoeStationLocations.values().associateBy { it.stationRegion }
@@ -188,8 +218,7 @@ class CanoeListeners : InteractionListener, InterfaceListener {
             return@setDest CanoeStationLocations.getCanoeStationbyLocation(node.location).playerChopLocation
         }
         // Set player's standing location when shaping and floating the canoe.
-        setDest(IntType.SCENERY,
-            CanoeStationSceneries.stationIdArray, "shape-canoe", "float canoe", "float log", "float waka") { _, node ->
+        setDest(IntType.SCENERY, CanoeStationSceneries.stationIdArray, "shape-canoe", "float canoe", "float log", "float waka") { _, node ->
             return@setDest CanoeStationLocations.getCanoeStationbyLocation(node.location).playerFloatLocation
         }
     }
@@ -200,29 +229,27 @@ class CanoeListeners : InteractionListener, InterfaceListener {
             val canoeStation = CanoeStationLocations.getCanoeStationbyLocation(node.location)
             val axe: SkillingTool? = SkillingTool.getHatchet(player)
             val stationVarbit = node.asScenery().definition.configFile
-            if (axe == null) {
-                sendMessage(player, "You do not have an axe which you have the woodcutting level to use.")
-                return@on true
-            }
             if (getStatLevel(player, Skills.WOODCUTTING) < 12) {
                 sendMessage(player, "You need a woodcutting level of at least 12 to chop down this tree.")
                 return@on true
             }
-            if (!withinDistance(player, node.asScenery().location, 1)) return@on false
-            lock(player, getChopDownAnimation(axe).duration + CANOE_TREE_FALLING_ANIMATION.duration)
-            face(player, canoeStation.playerChopLocation.transform(canoeStation.playerFacingLocation))
-            animate(player, getChopDownAnimation(axe))
-            queueScript(player, getChopDownAnimation(axe).duration, QueueStrength.SOFT) { stage: Int ->
+            if (axe == null) {
+                sendMessage(player, "You do not have an axe which you have the woodcutting level to use.")
+                return@on true
+            }
+            lock(player, axe.animation.duration + CANOE_TREE_FALLING_ANIMATION.duration)
+            animate(player, axe.animation)
+            queueScript(player, axe.animation.duration, QueueStrength.SOFT) { stage: Int ->
                 when (stage) {
                     0 -> {
-                        player.animator.stop()
+                        resetAnimator(player)
                         setVarbit(player, stationVarbit, CanoeStationSceneries.TREE_FALLING.varbitValue)
                         animateScenery(player, node.asScenery(), CANOE_TREE_FALLING_ANIMATION.id)
                         return@queueScript delayScript(player, CANOE_TREE_FALLING_ANIMATION.duration)
                     }
                     1 -> {
                         setVarbit(player, stationVarbit, CanoeStationSceneries.TREE_FALLEN.varbitValue)
-                        unlock(player)
+                        face(player, canoeStation.playerChopLocation.transform(canoeStation.playerFacingLocation))
                         return@queueScript stopExecuting(player)
                     }
                     else -> return@queueScript stopExecuting(player)
@@ -258,8 +285,7 @@ class CanoeListeners : InteractionListener, InterfaceListener {
                     }
                     1 -> {
                         setVarbit(player, canoeStation.stationVarbit, canoe.canoeFloating.varbitValue)
-                        unlock(player)
-                        player.animator.stop()
+                        resetAnimator(player)
                         return@queueScript stopExecuting(player)
                     }
                     else -> return@queueScript stopExecuting(player)

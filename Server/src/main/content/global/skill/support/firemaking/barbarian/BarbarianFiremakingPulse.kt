@@ -1,7 +1,9 @@
-package content.global.skill.support.firemaking
+package content.global.skill.support.firemaking.barbarian
 
+import content.data.skill.SkillingTool
+import content.global.skill.BarbarianTraining
+import content.global.skill.support.firemaking.Log
 import core.api.*
-import core.api.consts.Animations
 import core.api.consts.Items
 import core.game.event.LitFireEvent
 import core.game.node.entity.player.Player
@@ -16,10 +18,12 @@ import core.game.world.GameWorld
 import core.tools.RandomFunction
 import kotlin.math.ceil
 
-class FireMakingPulse(player: Player, node: Item, groundItem: GroundItem?) : SkillPulse<Item?>(player, node) {
+class BarbarianFiremakingPulse(player: Player, node: Item, groundItem: GroundItem?) : SkillPulse<Item?>(player, node) {
 
     private val fire = Log.forId(node.id)
     private var groundItem: GroundItem? = null
+    private var barbarianFiremaking = getAttribute(player, BarbarianTraining.BARBARIAN_FIREMAKING_TUTORIAL, false)
+    private var completeBarbarianFiremaking = getAttribute(player, BarbarianTraining.BARBARIAN_FIREMAKING_COMPLETE, false)
     private var ticks = 0
 
     init {
@@ -44,13 +48,24 @@ class FireMakingPulse(player: Player, node: Item, groundItem: GroundItem?) : Ski
             sendMessage(player, "You can't light a fire here.")
             return false
         }
-        if (!inInventory(player, Items.TINDERBOX_590)) {
-            sendMessage(player, "You do not have the required items to light this.")
+        if (!barbarianFiremaking) {
+            sendMessage(player, "In order to be able to lighting fires, Otto Godblessed must be talked to.")
             return false
         }
-        if (getStatLevel(player, Skills.FIREMAKING) < fire.defaultLevel) {
-            sendMessage(player, "You need a firemaking level of " + fire.defaultLevel + " to light this log.")
+        if (getStatLevel(player, Skills.FIREMAKING) < 35) {
+            sendMessage(player, "You must have a firemaking level of at least 35 in order to burn the oak log")
+            sendMessage(player, "that is required for the firemaking portion of Barbarian training.")
             return false
+        }
+        if (completeBarbarianFiremaking) {
+            if (!anyInInventory(player, SkillingTool.getFiremakingTool(player)!!.id)) {
+                sendMessage(player, "You do not have the required items to light this.")
+                return false
+            }
+            if (getStatLevel(player, Skills.FIREMAKING) < fire.barbarianLevel) {
+                sendMessage(player, "You need a Firemaking level of " + fire.barbarianLevel + " to light this log.")
+                return false
+            }
         }
         if (getAttribute(player, "remove-log", false)) {
             removeAttribute(player, "remove-log")
@@ -63,6 +78,7 @@ class FireMakingPulse(player: Player, node: Item, groundItem: GroundItem?) : Ski
     }
 
     override fun animate() {
+
     }
 
     override fun reward(): Boolean {
@@ -71,13 +87,13 @@ class FireMakingPulse(player: Player, node: Item, groundItem: GroundItem?) : Ski
             return true
         }
         if (ticks == 0) {
-            animate(player, Animations.HUMAN_LIGHT_FIRE_WITH_TINDERBOX_733)
+            animate(player, SkillingTool.getFiremakingTool(player)!!.animation)
         }
         if (++ticks % 3 != 0) {
             return false
         }
         if (ticks % 12 == 0) {
-            animate(player, Animations.HUMAN_LIGHT_FIRE_WITH_TINDERBOX_733)
+            animate(player, SkillingTool.getFiremakingTool(player)!!.animation)
         }
         if (!success()) {
             return false
@@ -101,6 +117,12 @@ class FireMakingPulse(player: Player, node: Item, groundItem: GroundItem?) : Ski
 
         setLastFire()
         player.dispatch(LitFireEvent(fire.logId))
+
+        if (getAttribute(player, BarbarianTraining.BARBARIAN_FIREMAKING_TUTORIAL, false)) {
+            removeAttribute(player, BarbarianTraining.BARBARIAN_FIREMAKING_TUTORIAL)
+            setAttribute(player, "/save:${BarbarianTraining.BARBARIAN_FIREMAKING_COMPLETE}", true)
+            sendDialogueLines(player, "You feel you have learned more of barbarian ways. Otto might wish", "to talk to you more.")
+        }
     }
 
     override fun message(type: Int) {
@@ -119,14 +141,13 @@ class FireMakingPulse(player: Player, node: Item, groundItem: GroundItem?) : Ski
 
     private fun success(): Boolean {
         val level = 1 + player.getSkills().getLevel(Skills.FIREMAKING)
-        val req = fire!!.defaultLevel.toDouble()
+        val req = fire!!.barbarianLevel.toDouble()
         val successChance = ceil((level * 50 - req * 15) / req / 3 * 4)
         val roll = RandomFunction.random(99)
         return successChance >= roll
     }
 
     companion object {
-
         @JvmStatic
         fun getAsh(player: Player?, fire: Log?, scenery: Scenery): GroundItem {
             val ash = GroundItem(Item(Items.ASHES_592), scenery.location, player)

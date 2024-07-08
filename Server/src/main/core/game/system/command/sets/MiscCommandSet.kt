@@ -334,7 +334,7 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN) {
          */
 
         define("clearbarbtrain", Privilege.STANDARD, "::clearbarbtrain", "Clear attributes related to barbarian training.") { player, _ ->
-            removeAttributes(player, BarbarianTraining.ATTR_BARB_TRAIN_START, BarbarianTraining.ATTR_BARB_TRAIN_FIREMAKING_BEGIN, BarbarianTraining.ATTR_BARB_TRAIN_FIREMAKING, BarbarianTraining.ATTR_BARB_TRAIN_PYRE_SHIP, BarbarianTraining.ATTR_BARB_TRAIN_FISHING_BEGIN, BarbarianTraining.ATTR_BARB_TRAIN_FISHING, BarbarianTraining.ATTR_BARB_TRAIN_FISHING_BAREHAND, BarbarianTraining.ATTR_BARB_TRAIN_HERBLORE_BEGIN, BarbarianTraining.ATTR_BARB_TRAIN_HERBLORE, BarbarianTraining.ATTR_BARB_TRAIN_SMITHING_BEGIN, BarbarianTraining.ATTR_BARB_TRAIN_SMITHING_SPEAR, BarbarianTraining.ATTR_BARB_TRAIN_SMITHING_HASTA,)
+            removeAttributes(player, BarbarianTraining.BARBARIAN_TRAINING, BarbarianTraining.BARBARIAN_FIREMAKING_TUTORIAL, BarbarianTraining.BARBARIAN_FIREMAKING_COMPLETE, BarbarianTraining.ATTR_BARB_TRAIN_PYRE_SHIP, BarbarianTraining.ATTR_BARB_TRAIN_FISHING_BEGIN, BarbarianTraining.ATTR_BARB_TRAIN_FISHING, BarbarianTraining.ATTR_BARB_TRAIN_FISHING_BAREHAND, BarbarianTraining.ATTR_BARB_TRAIN_HERBLORE_BEGIN, BarbarianTraining.ATTR_BARB_TRAIN_HERBLORE, BarbarianTraining.ATTR_BARB_TRAIN_SMITHING_BEGIN, BarbarianTraining.ATTR_BARB_TRAIN_SMITHING_SPEAR, BarbarianTraining.ATTR_BARB_TRAIN_SMITHING_HASTA,)
             notify(player, "%RRemoved all barbarian training attributes.")
         }
 
@@ -343,7 +343,7 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN) {
          */
 
         define("clearbarbfire", Privilege.ADMIN, "::clearbarbfire", "Clean barbarian firemaking training.") { player, _ ->
-            removeAttributes(player, BarbarianTraining.ATTR_BARB_TRAIN_FIREMAKING_BEGIN, BarbarianTraining.ATTR_BARB_TRAIN_FIREMAKING)
+            removeAttributes(player, BarbarianTraining.BARBARIAN_FIREMAKING_TUTORIAL, BarbarianTraining.BARBARIAN_FIREMAKING_COMPLETE)
             notify(player, "%RRemoved barbarian firemaking attributes.")
 
         }

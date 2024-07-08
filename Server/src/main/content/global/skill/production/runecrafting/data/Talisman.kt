@@ -63,52 +63,41 @@ enum class Talisman(
     );
 
     fun locate(player: Player) {
-        if (this == ELEMENTAL) {
+        if (this == ELEMENTAL || ruin == null) {
             sendMessage(player, "You cannot tell which direction the Talisman is pulling...")
             return
         }
-        var direction = ""
-        val loc = ruin!!.base
-        if (player.location.y > loc.y && player.location.x - 1 > loc.x) direction = "south-west"
-        else if (player.location.x < loc.x && player.location.y > loc.y) direction = "south-east"
-        else if (player.location.x > loc.x + 1 && player.location.y < loc.y) direction = "north-west"
-        else if (player.location.x < loc.x && player.location.y < loc.y) direction = "north-east"
-        else if (player.location.y < loc.y) direction = "north"
-        else if (player.location.y > loc.y) direction = "south"
-        else if (player.location.x < loc.x + 1) direction = "east"
-        else if (player.location.x > loc.x + 1) direction = "west"
+        val loc = ruin.base
+        val direction = when {
+            player.location.y > loc.y && player.location.x - 1 > loc.x -> "south-west"
+            player.location.x < loc.x && player.location.y > loc.y -> "south-east"
+            player.location.x > loc.x + 1 && player.location.y < loc.y -> "north-west"
+            player.location.x < loc.x && player.location.y < loc.y -> "north-east"
+            player.location.y < loc.y -> "north"
+            player.location.y > loc.y -> "south"
+            player.location.x < loc.x + 1 -> "east"
+            player.location.x > loc.x + 1 -> "west"
+            else -> ""
+        }
         sendMessage(player, "The talisman pulls towards the $direction.")
     }
 
+    fun getRuin(): MysteriousRuin? {
+        return MysteriousRuin.values().find { it.name == name }
+    }
 
-    val tiara: Tiara?
-        get() {
-            for (tiara in Tiara.values()) {
-                if (tiara.name == name) {
-                    return tiara
-                }
-            }
-            return null
-        }
+    fun getTiara(): Tiara? {
+        return Tiara.values().find { it.name == name }
+    }
 
     companion object {
 
         fun forItem(item: Item): Talisman? {
-            for (talisman in values()) {
-                if (talisman.talisman.id == item.id) {
-                    return talisman
-                }
-            }
-            return null
+            return values().find { it.talisman.id == item.id }
         }
 
         fun forName(name: String): Talisman? {
-            for (talisman in values()) {
-                if (talisman.name == name) {
-                    return talisman
-                }
-            }
-            return null
+            return values().find { it.name == name }
         }
     }
 }

@@ -52,11 +52,7 @@ enum class CombinationRune(
         Rune.EARTH, Rune.FIRE
     );
 
-    val runes: Array<Rune>
-
-    init {
-        this.runes = runes as Array<Rune>
-    }
+    val runes: Array<Rune> = runes as Array<Rune>
 
     val highExperience: Double = if (experience % 1 == 0.0) experience + 5 else experience + 8
 

@@ -1,4 +1,4 @@
-package content.global.skill.production.runecrafting.items.pouch
+package content.global.skill.production.runecrafting.item.pouch
 
 import core.api.consts.Items
 import core.api.sendMessage

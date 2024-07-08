@@ -169,8 +169,8 @@ class BarbarianBook : InteractionListener {
                     BookLine("becomes hot, eventually", 87),
                     BookLine("springing into flame. The", 88),
                     BookLine("spirits will aid you, the power", 89),
-                    BookLine("they supply you will guide", 90),
-                    BookLine("your hands. Go and benefit from", 91),
+                    BookLine("they supply you will guide your", 90),
+                    BookLine("hands. Go and benefit from", 91),
                     BookLine("their guidance upon an oaken", 92),
                     BookLine("log.'", 93),
                 ),
@@ -200,8 +200,8 @@ class BarbarianBook : InteractionListener {
                     BookLine("becomes hot, eventually", 87),
                     BookLine("springing into flame. The", 88),
                     BookLine("spirits will aid you, the power", 89),
-                    BookLine("they supply you will guide", 90),
-                    BookLine("your hands. Go and benefit from", 91),
+                    BookLine("they supply you will guide your", 90),
+                    BookLine("hands. Go and benefit from", 91),
                     BookLine("their guidance upon an oaken", 92),
                     BookLine("log.'", 93),
                 ),
@@ -720,8 +720,8 @@ class BarbarianBook : InteractionListener {
         on(Items.BARBARIAN_SKILLS_11340, IntType.ITEM, "read") { player, _ ->
             var fishingBaseAttribute = player.getAttribute(BarbarianTraining.ATTR_BARB_TRAIN_FISHING_BEGIN, false)
             var fishingCompletedAttribute = player.getAttribute(BarbarianTraining.ATTR_BARB_TRAIN_FISHING, false)
-            var firemakingBaseAttribute = player.getAttribute(BarbarianTraining.ATTR_BARB_TRAIN_FIREMAKING_BEGIN, false)
-            var firemakingCompletedAttribute = player.getAttribute(BarbarianTraining.ATTR_BARB_TRAIN_FIREMAKING, false)
+            var firemakingBaseAttribute = player.getAttribute(BarbarianTraining.BARBARIAN_FIREMAKING_TUTORIAL, false)
+            var firemakingCompletedAttribute = player.getAttribute(BarbarianTraining.BARBARIAN_FIREMAKING_COMPLETE, false)
             var herbloreBaseAttribute = player.getAttribute(BarbarianTraining.ATTR_BARB_TRAIN_HERBLORE_BEGIN, false)
             var herbloreCompletedAttribute = player.getAttribute(BarbarianTraining.ATTR_BARB_TRAIN_HERBLORE, false)
 

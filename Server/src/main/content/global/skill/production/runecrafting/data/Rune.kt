@@ -27,30 +27,20 @@ enum class Rune(
         return multiple
     }
 
-    val isNormal: Boolean get() = this == AIR || (this == MIND) || (this == WATER) || (this == EARTH) || (this == FIRE) || (this == BODY)
+    val isNormal: Boolean
+        get() = this == AIR || this == MIND || this == WATER || this == EARTH || this == FIRE || this == BODY
 
     fun isMultiple(): Boolean {
         return getMultiple() != null
     }
 
     companion object {
-
         fun forItem(item: Item): Rune? {
-            for (rune in values()) {
-                if (rune.rune.id == item.id) {
-                    return rune
-                }
-            }
-            return null
+            return values().find { it.rune.id == item.id }
         }
 
         fun forName(name: String): Rune? {
-            for (r in values()) {
-                if (r.name == name) {
-                    return r
-                }
-            }
-            return null
+            return values().find { it.name == name }
         }
     }
 }

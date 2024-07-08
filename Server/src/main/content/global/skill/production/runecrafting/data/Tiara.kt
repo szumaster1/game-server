@@ -9,73 +9,55 @@ enum class Tiara(val item: Item, val experience: Double) {
         experience = 25.0
     ),
     MIND(
-        item = Item(5529),
+        item = Item(Items.MIND_TIARA_5529),
         experience = 27.5
     ),
     WATER(
-        item = Item(5531),
+        item = Item(Items.WATER_TIARA_5531),
         experience = 30.0
     ),
     EARTH(
-        item = Item(5535),
+        item = Item(Items.EARTH_TIARA_5535),
         experience = 32.5
     ),
     FIRE(
-        item = Item(5537),
+        item = Item(Items.FIRE_TIARA_5537),
         experience = 35.0
     ),
     BODY(
-        item = Item(5533),
+        item = Item(Items.BODY_TIARA_5533),
         experience = 37.5
     ),
     COSMIC(
-        item = Item(5539),
+        item = Item(Items.COSMIC_TIARA_5539),
         experience = 40.0
     ),
     CHAOS(
-        item = Item(5543),
+        item = Item(Items.CHAOS_TIARA_5543),
         experience = 43.5
     ),
     NATURE(
-        item = Item(5541),
+        item = Item(Items.NATURE_TIARA_5541),
         experience = 45.0
     ),
     LAW(
-        item = Item(5545),
+        item = Item(Items.LAW_TIARA_5545),
         experience = 47.5
     ),
     DEATH(
-        item = Item(5547),
+        item = Item(Items.DEATH_TIARA_5547),
         experience = 50.0
     ),
     BLOOD(
-        item = Item(5549),
+        item = Item(Items.BLOOD_TIARA_5549),
         experience = 52.5
     );
 
     val talisman: Talisman?
-        get() {
-            for (talisman in Talisman.values()) {
-                if (talisman.name == name) {
-                    return talisman
-                }
-            }
-            return null
-        }
+        get() = Talisman.values().find { it.name == name }
 
     companion object {
-        infix fun from(item: Item): Tiara? {
-            return values()
-                .firstOrNull { it.item == item }
-        }
-
-        fun forItem(item: Item): Tiara? {
-            for (tiara in values()) {
-                if (tiara.item == item) {
-                    return tiara
-                }
-            }
-            return null
-        }
+        infix fun from(item: Item): Tiara? = values().firstOrNull { it.item == item }
+        fun forItem(item: Item): Tiara? = values().find { it.item == item }
     }
 }
