@@ -22,7 +22,7 @@ class RunecraftingEquipment : InteractionListener {
 
     override fun defineListeners() {
         onEquip(tiaraItem) { player, node ->
-            setVarp(player, Vars.VARP_SCENERY_ABYSS, tiaraValues.getValue(node.id), true)
+            setVarp(player, Vars.VARP_SCENERY_ABYSS, tiaraValues.getValue(node.id))
             return@onEquip true
         }
 
@@ -42,7 +42,7 @@ class RunecraftingEquipment : InteractionListener {
         }
 
         onUnequip(talismanStaff) { player, _ ->
-            setVarp(player, Vars.VARP_SCENERY_ABYSS, 0, true)
+            setVarp(player, Vars.VARP_SCENERY_ABYSS, 0)
             return@onUnequip true
         }
 
