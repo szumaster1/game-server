@@ -14,6 +14,9 @@ enum class SkillingTool(
     @JvmField val ratio: Double,
     @JvmField val animation: Animation
 ) {
+    /*
+     * Axes.
+     */
     BRONZE_AXE(id = Items.BRONZE_AXE_1351, level = 1, ratio = 0.05, animation = Animation(879)),
     IRON_AXE(id = Items.IRON_AXE_1349, level = 1, ratio = 0.1, animation = Animation(877)),
     STEEL_AXE(id = Items.STEEL_AXE_1353, level = 6, ratio = 0.2, animation = Animation(875)),
@@ -29,6 +32,10 @@ enum class SkillingTool(
     HATCHET_CLASS4(id = Items.HATCHET_CLASS_4_14138, level = 60, ratio = 0.85, animation = Animation(10606)),
     HATCHET_CLASS5(id = Items.HATCHET_CLASS_5_14140, level = 80, ratio = 1.0, animation = Animation(10607)),
 
+    /*
+     * Pickaxes.
+     */
+
     BRONZE_PICKAXE(id = Items.BRONZE_PICKAXE_1265, level = 1, ratio = 0.05, animation = Animation(625)),
     IRON_PICKAXE(id = Items.IRON_PICKAXE_1267, level = 1, ratio = 0.1, animation = Animation(626)),
     STEEL_PICKAXE(id = Items.STEEL_PICKAXE_1269, level = 6, ratio = 0.2, animation = Animation(627)),
@@ -42,11 +49,19 @@ enum class SkillingTool(
     PICKAXE_CLASS4(id = Items.PICKAXE_CLASS_4_14128, level = 60, ratio = 0.85, animation = Animation(10611)),
     PICKAXE_CLASS5(id = Items.PICKAXE_CLASS_5_14130, level = 80, ratio = 1.0, animation = Animation(10612)),
 
+    /*
+     * Harpoons.
+     */
+
     HARPOON_CLASS1(id = Items.HARPOON_CLASS_1_14142, level = 1, ratio = 0.1, animation = Animation(10613)),
     HARPOON_CLASS2(id = Items.HARPOON_CLASS_2_14144, level = 20, ratio = 0.3, animation = Animation(10614)),
     HARPOON_CLASS3(id = Items.HARPOON_CLASS_3_14146, level = 40, ratio = 0.65, animation = Animation(10615)),
     HARPOON_CLASS4(id = Items.HARPOON_CLASS_4_14148, level = 60, ratio = 0.85, animation = Animation(10616)),
     HARPOON_CLASS5(id = Items.HARPOON_CLASS_5_14150, level = 80, ratio = 1.0, animation = Animation(10617)),
+
+    /*
+     * Butterfly net.
+     */
 
     BUTTERFLY_NET_CLASS1(id = Items.BUTTERFLY_NET_CLASS_1_14152, level = 1, ratio = 0.1, animation = Animation(10618)),
     BUTTERFLY_NET_CLASS2(id = Items.BUTTERFLY_NET_CLASS_2_14154, level = 20, ratio = 0.3, animation = Animation(10619)),
@@ -54,20 +69,25 @@ enum class SkillingTool(
     BUTTERFLY_NET_CLASS4(id = Items.BUTTERFLY_NET_CLASS_4_14158, level = 60, ratio = 0.85, animation = Animation(10621)),
     BUTTERFLY_NET_CLASS5(id = Items.BUTTERFLY_NET_CLASS_5_14160, level = 80, ratio = 1.0, animation = Animation(10622)),
 
+    /*
+     * Firemaking tools.
+     */
+
     TRAINING_BOW(id = Items.TRAINING_BOW_9705, level = 1, ratio = 0.1, animation = Animation(6713)),
     LONGBOW(id = Items.LONGBOW_839, level = 1, ratio = 0.1, animation = Animation(6714)),
     SHORTBOW(id = Items.SHORTBOW_841, level = 1, ratio = 0.1, animation = Animation(6714)),
-    OAK_SHORTBOW(id = Items.OAK_SHORTBOW_843, level = 5, ratio = 0.2, animation = Animation(6715)),
-    OAK_LONGBOW(id = Items.OAK_LONGBOW_845, level = 5, ratio = 0.2, animation = Animation(6715)),
-    WILLOW_LONGBOW(id = Items.WILLOW_LONGBOW_847, level = 20, ratio = 0.30, animation = Animation(6716)),
-    WILLOW_SHORTBOW(id = Items.WILLOW_SHORTBOW_849, level = 20, ratio = 0.30, animation = Animation(6716)),
-    MAPLE_LONGBOW(id = Items.MAPLE_LONGBOW_851, level = 30, ratio = 0.45, animation = Animation(6717)),
-    MAPLE_SHORTBOW(id = Items.MAPLE_SHORTBOW_853, level = 30, ratio = 0.45, animation = Animation(6717)),
-    YEW_LONGBOW(id = Items.YEW_LONGBOW_855, level = 40, ratio = 0.65, animation = Animation(6718)),
-    YEW_SHORTBOW(id = Items.YEW_SHORTBOW_857, level = 40, ratio = 0.65, animation = Animation(6718)),
-    MAGIC_LONGBOW(id = Items.MAGIC_LONGBOW_859, level = 50, ratio = 0.85, animation = Animation(6719)),
-    MAGIC_SHORTBOW(id = Items.MAGIC_SHORTBOW_861, level = 50, ratio = 0.85, animation = Animation(6719)),
-    SEERCULL(id = Items.SEERCULL_6724, level = 50, ratio = 0.85, animation = Animation(6720));
+    OAK_SHORTBOW(id = Items.OAK_SHORTBOW_843, level = 1, ratio = 0.2, animation = Animation(6715)),
+    OAK_LONGBOW(id = Items.OAK_LONGBOW_845, level = 1, ratio = 0.2, animation = Animation(6715)),
+    WILLOW_LONGBOW(id = Items.WILLOW_LONGBOW_847, level = 1, ratio = 0.30, animation = Animation(6716)),
+    WILLOW_SHORTBOW(id = Items.WILLOW_SHORTBOW_849, level = 1, ratio = 0.30, animation = Animation(6716)),
+    MAPLE_LONGBOW(id = Items.MAPLE_LONGBOW_851, level = 1, ratio = 0.45, animation = Animation(6717)),
+    MAPLE_SHORTBOW(id = Items.MAPLE_SHORTBOW_853, level = 1, ratio = 0.45, animation = Animation(6717)),
+    YEW_LONGBOW(id = Items.YEW_LONGBOW_855, level = 1, ratio = 0.65, animation = Animation(6718)),
+    YEW_SHORTBOW(id = Items.YEW_SHORTBOW_857, level = 1, ratio = 0.65, animation = Animation(6718)),
+    MAGIC_LONGBOW(id = Items.MAGIC_LONGBOW_859, level = 1, ratio = 0.85, animation = Animation(6719)),
+    MAGIC_SHORTBOW(id = Items.MAGIC_SHORTBOW_861, level = 1, ratio = 0.85, animation = Animation(6719)),
+    SEERCULL(id = Items.SEERCULL_6724, level = 1, ratio = 0.85, animation = Animation(6720)),
+    SACRED_CLAY_BOW(id = Items.SACRED_CLAY_BOW_14121, level = 1, ratio = 1.00, animation = Animation(10990));
 
     companion object {
         fun forId(itemId: Int): SkillingTool? {
@@ -180,9 +200,21 @@ enum class SkillingTool(
         fun getFiremakingTool(player: Player): SkillingTool? {
             var tool: SkillingTool? = null
             val bowPriority = arrayOf(
-                SEERCULL, MAGIC_SHORTBOW, MAGIC_LONGBOW, YEW_SHORTBOW, YEW_LONGBOW,
-                MAPLE_SHORTBOW, MAPLE_LONGBOW, WILLOW_SHORTBOW, WILLOW_LONGBOW,
-                OAK_LONGBOW, OAK_SHORTBOW, SHORTBOW, LONGBOW, TRAINING_BOW
+                SACRED_CLAY_BOW,
+                SEERCULL,
+                MAGIC_SHORTBOW,
+                MAGIC_LONGBOW,
+                YEW_SHORTBOW,
+                YEW_LONGBOW,
+                MAPLE_SHORTBOW,
+                MAPLE_LONGBOW,
+                WILLOW_SHORTBOW,
+                WILLOW_LONGBOW,
+                OAK_LONGBOW,
+                OAK_SHORTBOW,
+                SHORTBOW,
+                LONGBOW,
+                TRAINING_BOW
             )
             for (bowId in bowPriority) {
                 if (checkTool(player, Skills.FIREMAKING, bowId)) {

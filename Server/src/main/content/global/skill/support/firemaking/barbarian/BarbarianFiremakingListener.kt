@@ -1,6 +1,9 @@
 package content.global.skill.support.firemaking.barbarian
 
+import content.global.skill.BarbarianTraining
 import core.api.consts.Items
+import core.api.getAttribute
+import core.api.sendMessage
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.item.GroundItem
@@ -13,12 +16,26 @@ class BarbarianFiremakingListener : InteractionListener {
     override fun defineListeners() {
 
         onUseWith(IntType.ITEM, tools, *logs) { player, _, with ->
-            player.pulseManager.run(BarbarianFiremakingPulse(player, with.asItem(), null))
+            val barbarianFiremaking = getAttribute(player, BarbarianTraining.BARBARIAN_FIREMAKING_TUTORIAL, false)
+            val completeBarbarianFiremaking = getAttribute(player, BarbarianTraining.BARBARIAN_FIREMAKING_COMPLETE, false)
+
+            if (completeBarbarianFiremaking || barbarianFiremaking) {
+                player.pulseManager.run(BarbarianFiremakingPulse(player, with.asItem(), null))
+            } else {
+                sendMessage(player, "In order to be able to lighting fires, Otto Godblessed must be talked to.")
+            }
             return@onUseWith true
         }
 
         onUseWith(IntType.GROUNDITEM, tools, *logs) { player, _, with ->
-            player.pulseManager.run(BarbarianFiremakingPulse(player, with.asItem(), with as GroundItem))
+            val barbarianFiremaking = getAttribute(player, BarbarianTraining.BARBARIAN_FIREMAKING_TUTORIAL, false)
+            val completeBarbarianFiremaking = getAttribute(player, BarbarianTraining.BARBARIAN_FIREMAKING_COMPLETE, false)
+
+            if (completeBarbarianFiremaking || barbarianFiremaking) {
+                player.pulseManager.run(BarbarianFiremakingPulse(player, with.asItem(), with as GroundItem))
+            } else {
+                sendMessage(player, "In order to be able to lighting fires, Otto Godblessed must be talked to.")
+            }
             return@onUseWith true
         }
     }

@@ -22,8 +22,6 @@ class BarbarianFiremakingPulse(player: Player, node: Item, groundItem: GroundIte
 
     private val fire = Log.forId(node.id)
     private var groundItem: GroundItem? = null
-    private var barbarianFiremaking = getAttribute(player, BarbarianTraining.BARBARIAN_FIREMAKING_TUTORIAL, false)
-    private var completeBarbarianFiremaking = getAttribute(player, BarbarianTraining.BARBARIAN_FIREMAKING_COMPLETE, false)
     private var ticks = 0
 
     init {
@@ -48,24 +46,13 @@ class BarbarianFiremakingPulse(player: Player, node: Item, groundItem: GroundIte
             sendMessage(player, "You can't light a fire here.")
             return false
         }
-        if (!barbarianFiremaking) {
-            sendMessage(player, "In order to be able to lighting fires, Otto Godblessed must be talked to.")
+        if (!anyInInventory(player, SkillingTool.getFiremakingTool(player)!!.id)) {
+            sendMessage(player, "You do not have the required items to light this.")
             return false
         }
-        if (getStatLevel(player, Skills.FIREMAKING) < 35) {
-            sendMessage(player, "You must have a firemaking level of at least 35 in order to burn the oak log")
-            sendMessage(player, "that is required for the firemaking portion of Barbarian training.")
+        if (getStatLevel(player, Skills.FIREMAKING) < fire.barbarianLevel) {
+            sendMessage(player, "You need a Firemaking level of " + fire.barbarianLevel + " to light this log.")
             return false
-        }
-        if (completeBarbarianFiremaking) {
-            if (!anyInInventory(player, SkillingTool.getFiremakingTool(player)!!.id)) {
-                sendMessage(player, "You do not have the required items to light this.")
-                return false
-            }
-            if (getStatLevel(player, Skills.FIREMAKING) < fire.barbarianLevel) {
-                sendMessage(player, "You need a Firemaking level of " + fire.barbarianLevel + " to light this log.")
-                return false
-            }
         }
         if (getAttribute(player, "remove-log", false)) {
             removeAttribute(player, "remove-log")
