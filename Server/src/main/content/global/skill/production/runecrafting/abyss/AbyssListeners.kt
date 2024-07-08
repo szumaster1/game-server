@@ -22,8 +22,6 @@ import core.game.world.map.Location
 import core.game.world.map.RegionManager
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
-import core.plugin.ClassScanner.definePlugin
-import core.plugin.Initializable
 import core.tools.Log
 import core.tools.RandomFunction
 import core.tools.colorize
@@ -33,11 +31,9 @@ import kotlin.math.sin
 import kotlin.random.Random
 import core.api.consts.Scenery as Object
 
-@Initializable
-class AbyssPlugin : InteractionListener {
+class Abyss : InteractionListener {
 
     override fun defineListeners() {
-        definePlugin(AbyssalNPC())
         on(NPCs.MAGE_OF_ZAMORAK_2259, IntType.NPC, "teleport") { player, node ->
             teleport(player, node as NPC)
             return@on true
