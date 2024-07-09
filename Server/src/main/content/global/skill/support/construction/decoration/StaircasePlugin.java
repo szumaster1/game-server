@@ -115,7 +115,7 @@ public final class StaircasePlugin extends OptionHandler {
             plane = 0;
         }
         Room room = house.getRooms()[plane][roomX][roomY];
-//		boolean stairs = room != null && room.getStairs() != null || room.get; 
+//		boolean stairs = room != null && room.getStairs() != null || room.get;
         if (room == null || room.getProperties().isRoof()) {
             if (player.getHouseManager().isInHouse(player) && player.getHouseManager().isBuildingMode()) {
                 player.getDialogueInterpreter().open("con:nfroom", plane, roomX, roomY, current, object);

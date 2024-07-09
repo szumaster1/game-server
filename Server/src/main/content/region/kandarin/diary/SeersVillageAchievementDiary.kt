@@ -106,6 +106,7 @@ class SeersVillageAchievementDiary : DiaryEventHookBase(DiaryType.SEERS_VILLAGE)
                 )
             }
 
+
             10806 -> if (event.itemId == Items.YEW_LOGS_1515) {
                 progressIncrementalTask(
                     player,

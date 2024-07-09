@@ -2433,13 +2433,13 @@ public enum Decoration {
      * Fancy stone window decoration.
      */
     FANCY_STONE_WINDOW(13117, -1, 1, 0.0),
-	
+
 	;
 	/**
 	 * The object id.
 	 */
 	private final int objectId;
-	
+
 	/**
 	 * The item id for the interface.
 	 */
@@ -2449,17 +2449,17 @@ public enum Decoration {
 	 * The level requirement.
 	 */
 	private final int level;
-	
+
 	/**
 	 * The experience gained for building this decoration.
 	 */
 	private final double experience;
-	
+
 	/**
 	 * The item required.
 	 */
 	private final Item[] items;
-	
+
 	/**
 	 * The tools required.
 	 */
@@ -2469,12 +2469,12 @@ public enum Decoration {
 	 * The object ids depending on styling.
 	 */
 	private final int[] objectIds;
-	
+
 	/**
 	 * If this node should be invisible to user build options
 	 */
 	private boolean invisibleNode;
-	
+
 	/**
 	 * Constructs a new {@code Portal} {@code Object}.
 	 * @param objectId The object id.
@@ -2486,7 +2486,7 @@ public enum Decoration {
 	private Decoration(int objectId, int interfaceItem, int level, double experience, Item... items) {
 		this(objectId, interfaceItem, level, experience, new int[] { 2347, 8794 }, items);
 	}
-	
+
 	/**
 	 * Constructs a new {@code Portal} {@code Object}.
 	 * @param objectId The object id.
@@ -2504,7 +2504,7 @@ public enum Decoration {
 		this.tools = tools;
 		this.items = items;
 	}
-	
+
 	/**
 	 * Decoration
 	 * @param objectId
@@ -2514,7 +2514,7 @@ public enum Decoration {
 		this(objectId, -1, -1, -1);
 		this.invisibleNode = true;
 	}
-	
+
 	/**
 	 * Constructs a new {@code Portal} {@code Object}.
 	 * @param objectIds The object id.
@@ -2526,7 +2526,7 @@ public enum Decoration {
 	private Decoration(int[] objectIds, int interfaceItem, int level, double experience, Item... items) {
 		this(objectIds, interfaceItem, level, experience, new int[] { 2347, 8794 }, items);
 	}
-	
+
 	/**
 	 * Constructs a new {@code Portal} {@code Object}.
 	 * @param objectIds The object id.
@@ -2700,7 +2700,7 @@ public enum Decoration {
     public boolean isInvisibleNode() {
 		return invisibleNode;
 	}
-	
-	
+
+
 
 }

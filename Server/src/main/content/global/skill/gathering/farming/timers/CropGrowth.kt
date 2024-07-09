@@ -10,7 +10,7 @@ import org.json.simple.JSONObject
 import java.time.LocalTime
 import java.util.concurrent.TimeUnit
 
-class CropGrowth : PersistTimer (500, "farming:crops", isSoft = true) { 
+class CropGrowth : PersistTimer (500, "farming:crops", isSoft = true) {
     private val patchMap = HashMap<FarmingPatch, Patch>()
     lateinit var player: Player
 

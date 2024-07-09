@@ -25,9 +25,9 @@ public enum BuildHotspotType {
      * Staircase build hotspot type.
      */
     STAIRCASE;
-	
+
 	BuildHotspotType() {
-		
+
 	}
 
-} 
+}

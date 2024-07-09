@@ -28,7 +28,7 @@ class LeprechaunNoter : InteractionListener {
                  sendItemDialogue(player,usedItem.id,"The leprechaun exchanges your items for banknotes.")
             } else {
 			// Unsure why the line below no longer functions, despite only changing the line above to be more correct. Using your note(NOT CROP) on the leprechaun no longer functions because of this. - Crash
-                player.dialogueInterpreter.sendDialogues(npc.id,expr,"That IS a banknote!") 
+                player.dialogueInterpreter.sendDialogues(npc.id,expr,"That IS a banknote!")
             }
 
             return@onUseWith true

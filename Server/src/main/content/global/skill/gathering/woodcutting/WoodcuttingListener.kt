@@ -61,7 +61,7 @@ class WoodcuttingListener : InteractionListener {
             return restartScript(player)
 
         if (state == 0) {
-            if (!checkWoodcuttingRequirements(player, resource, node)) {
+            if (!checkWoodcuttingRequirements(player, resource!!, node)) {
                 return clearScripts(player)
             }
             sendMessage(player, "You swing your axe at the tree.")
@@ -69,10 +69,10 @@ class WoodcuttingListener : InteractionListener {
 
         if (clockReady(player, Clocks.SKILLING)) {
             animateWoodcutting(player)
-            if (!checkReward(player, resource, tool!!))
+            if (!checkReward(player, resource!!, tool!!))
                 return delayClock(player, Clocks.SKILLING, 3)
 
-            val reward = resource.getReward()
+            val reward = resource.reward
             val rewardAmount: Int
 
             if (tool.id == Items.INFERNO_ADZE_13661 && RandomFunction.roll(4)) {
@@ -80,7 +80,7 @@ class WoodcuttingListener : InteractionListener {
                 Projectile.create(player, null, 1776, 35, 30, 20, 25).transform(player, player.location.transform(2, 0, 0), true, 25, 25).send()
 
                 //add woodcutting experience
-                player.getSkills().addExperience(Skills.WOODCUTTING, resource.getExperience())
+                player.getSkills().addExperience(Skills.WOODCUTTING, resource.experience)
 
                 //nullcheck the fire, and only if it exists award the firemaking XP
                 val fire = Log.forId(reward)
@@ -89,14 +89,14 @@ class WoodcuttingListener : InteractionListener {
                 }
 
                 delayClock(player, Clocks.SKILLING, 3)
-                return rollDepletion(player, node.asScenery(), resource)
+                return rollDepletion(player, node.asScenery(), resource!!)
             }
 
             if (reward > 0) {
                 rewardAmount = calculateRewardAmount(player, reward) // calculate amount
 
                 //add experience
-                val experience: Double = calculateExperience(player, resource, rewardAmount)
+                val experience: Double = calculateExperience(player, resource!!, rewardAmount)
                 player.getSkills().addExperience(Skills.WOODCUTTING, experience, true)
 
                 //send the message for the resource reward
@@ -139,7 +139,7 @@ class WoodcuttingListener : InteractionListener {
         //OSRS and RS3 Wikis both agree: All trees present in 2009 are a 1/8 fell chance, aside from normal trees/dead trees which are 100%
         //OSRS: https://oldschool.runescape.wiki/w/Woodcutting scroll down to the mechanics section
         //RS3 : https://runescape.wiki/w/Woodcutting scroll down to the mechanics section, and expand the tree felling chances table
-        if (resource.getRespawnRate() > 0) {
+        if (resource.respawnRate > 0) {
             if (RandomFunction.roll(8) || listOf(1, 2, 3, 4, 6, 19).contains(resource.identifier.toInt())){
                 if (resource.isFarming) {
                     val fPatch = forObject(node.asScenery())
@@ -150,9 +150,9 @@ class WoodcuttingListener : InteractionListener {
                     return true
                 }
                 if (resource.emptyId > -1) {
-                    SceneryBuilder.replace(node, node.transform(resource.emptyId), resource.getRespawnDuration())
+                    SceneryBuilder.replace(node, node.transform(resource.emptyId), resource.respawnDuration)
                 } else {
-                    SceneryBuilder.replace(node, node.transform(0), resource.getRespawnDuration())
+                    SceneryBuilder.replace(node, node.transform(0), resource.respawnDuration)
                 }
                 node.setActive(false)
                 playAudio(player, TREE_FALLING_2734)
@@ -195,8 +195,8 @@ class WoodcuttingListener : InteractionListener {
             openDialogue(player, KjallakOnChopDialogue(), NPC(npc, player.location))
             return false
         }
-        if (player.getSkills().getLevel(Skills.WOODCUTTING) < resource.getLevel()) {
-            player.packetDispatch.sendMessage("You need a woodcutting level of " + resource.getLevel() + " to chop this tree.")
+        if (player.getSkills().getLevel(Skills.WOODCUTTING) < resource.level) {
+            player.packetDispatch.sendMessage("You need a woodcutting level of " + resource.level + " to chop this tree.")
             return false
         }
         if (SkillingTool.getHatchet(player) == null) {
@@ -204,7 +204,7 @@ class WoodcuttingListener : InteractionListener {
             return false
         }
         if (player.inventory.freeSlots() < 1 && node.isActive) {
-            sendMessage(player, "Your inventory is too full to hold any more " + ItemDefinition.forId(resource.getReward()).name.lowercase() + ".")
+            sendMessage(player, "Your inventory is too full to hold any more " + ItemDefinition.forId(resource.reward).name.lowercase() + ".")
             return false
         }
         return node.isActive
@@ -213,13 +213,15 @@ class WoodcuttingListener : InteractionListener {
     private fun calculateRewardAmount(player: Player, reward: Int): Int {
         var amount = 1
 
-        // 3239: Hollow tree (bark) 10% chance of obtaining
+        // Hollow tree 10% chance of obtaining.
         if (reward == 3239 && RandomFunction.random(100) >= 10) {
             amount = 0
         }
 
-        // Seers village medium reward - extra normal log while in seer's village
-        if (reward == 1511 && player.achievementDiaryManager.getDiary(DiaryType.SEERS_VILLAGE).isComplete(1) && player.viewport.region.id == 10806) {
+        /*
+         * Seers village medium reward - extra normal log while in seer's village.
+         */
+        if (reward == 1511 && isDiaryComplete(player, DiaryType.SEERS_VILLAGE, 1) && player.viewport.region.id == 10806) {
             amount = 2
         }
         return amount
@@ -227,7 +229,7 @@ class WoodcuttingListener : InteractionListener {
 
     private fun calculateExperience(player: Player, resource: WoodcuttingNode, amount: Int): Double {
         var amount = amount
-        var experience: Double = resource.getExperience()
+        var experience: Double = resource.experience
         val reward = resource.reward
         if (player.location.regionId == 10300) {
             return 1.0
@@ -235,7 +237,7 @@ class WoodcuttingListener : InteractionListener {
 
         // Bark
         if (reward == 3239) {
-            // If we receive the item, give the full experience points otherwise give the base amount
+            // If we receive the item, give the full experience points otherwise give the base amount,
             if (amount >= 1) {
                 experience = 275.2
             } else {
@@ -243,7 +245,7 @@ class WoodcuttingListener : InteractionListener {
             }
         }
 
-        // Seers village medium reward - extra 10% xp from maples while wearing headband
+        // Seers village medium reward - extra 10% xp from maples while wearing headband.
         if (reward == 1517 && player.achievementDiaryManager.getDiary(DiaryType.SEERS_VILLAGE).isComplete(1) && player.equipment.get(EquipmentContainer.SLOT_HAT) != null && player.equipment.get(EquipmentContainer.SLOT_HAT).id == 14631) {
             experience *= 1.10
         }

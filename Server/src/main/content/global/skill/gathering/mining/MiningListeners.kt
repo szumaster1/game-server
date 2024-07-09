@@ -56,7 +56,7 @@ class MiningListeners : InteractionListener {
 
             sendMessage(player, "You examine the rock for ores...")
 
-            when (MiningNode.forId(node.id).identifier) {
+            when (MiningNode.forId(node.id)!!.identifier) {
                 13.toByte() -> {
                     queueScript(player, 3, QueueStrength.SOFT) {
                         sendMessage(player, "This rock contains gems.")
@@ -135,7 +135,7 @@ class MiningListeners : InteractionListener {
     private fun handleMining(player: Player, node: Node, state: Int): Boolean {
         val resource = MiningNode.forId(node.id)
         val tool = SkillingTool.getPickaxe(player)
-        val isEssence = resource.id in intArrayOf(2491, 16684)
+        val isEssence = resource!!.id in intArrayOf(2491, 16684)
         val isGems = resource.identifier == MiningNode.GEM_ROCK_0.identifier
         val isGranite = resource.identifier == MiningNode.GRANITE.identifier
         val isSandstone = resource.identifier == MiningNode.SANDSTONE.identifier

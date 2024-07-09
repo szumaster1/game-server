@@ -29,7 +29,7 @@ class CannonballSmelter : Script() {
 
     //val coalMine = ZoneBorders(3056, 9729, 3018, 9758)
     val ironMine = ZoneBorders(3052, 9768, 3035, 9777)
-    val northMineEntrance = ZoneBorders(3062, 3375, 3058, 3381)
+    private val northMineEntrance = ZoneBorders(3062, 3375, 3058, 3381)
     val bank = ZoneBorders(3009, 3355, 3018, 3358)
     var overlay: ScriptAPI.BottingOverlay? = null
     var coalAmount = 0
@@ -60,11 +60,11 @@ class CannonballSmelter : Script() {
                 } else if (!coalMine.insideBorder(bot)) {
                     scriptAPI.walkTo(coalMine.randomLoc)
                 } else {
-                    val rock = scriptAPI.getNearestObjectByPredicate({ node ->
+                    val rock = scriptAPI.getNearestObjectByPredicate { node ->
                         node?.name?.equals(
                             "rocks", true
-                        )!! && MiningNode.forId(node.id!!).reward == Items.COAL_453
-                    })
+                        )!! && MiningNode.forId(node.id!!)?.reward == Items.COAL_453
+                    }
                     if (rock != null) {
                         scriptAPI.interact(bot, rock, "mine")
                     } else {
@@ -82,11 +82,11 @@ class CannonballSmelter : Script() {
                     var loc = ironMine.randomLoc
                     scriptAPI.walkTo(loc)
                 } else {
-                    val rock = scriptAPI.getNearestObjectByPredicate({ node ->
+                    val rock = scriptAPI.getNearestObjectByPredicate { node ->
                         node?.name?.equals(
                             "rocks", true
-                        )!! && MiningNode.forId(node.id!!).reward == Items.IRON_ORE_440
-                    })
+                        )!! && MiningNode.forId(node.id)?.reward == Items.IRON_ORE_440
+                    }
                     //rock?.let { InteractionListeners.run(rock.id, IntType.SCENERY,"mine",bot,rock) }
                     if (rock != null) {
                         scriptAPI.interact(bot, rock, "mine")
@@ -132,7 +132,7 @@ class CannonballSmelter : Script() {
             }
 
             State.BANKING -> {
-                scriptAPI.bankAll({
+                scriptAPI.bankAll {
                     if (amountInBank(bot, Items.CANNONBALL_2) >= 500) {
                         val total = GrandExchange.getBotstockForId(Items.CANNONBALL_2)
                         bot.interfaceManager.close()
@@ -151,7 +151,7 @@ class CannonballSmelter : Script() {
                             state = State.TO_MINE
                         }
                     }
-                })
+                }
             }
 
             State.TO_FURNACE -> {
@@ -261,12 +261,12 @@ class CannonballSmelter : Script() {
             inventory.add(Item(Items.COAL_453, 18))
             inventory.add(Item(Items.IRON_ORE_440, 9))
         }
-        skills.put(Skills.ATTACK, 40)
-        skills.put(Skills.STRENGTH, 60)
-        skills.put(Skills.MINING, 75)
-        skills.put(Skills.HITPOINTS, 99)
-        skills.put(Skills.DEFENCE, 99)
-        skills.put(Skills.SMITHING, 35)
+        skills[Skills.ATTACK] = 40
+        skills[Skills.STRENGTH] = 60
+        skills[Skills.MINING] = 75
+        skills[Skills.HITPOINTS] = 99
+        skills[Skills.DEFENCE] = 99
+        skills[Skills.SMITHING] = 35
         quests.add("Dwarf Cannon")
     }
 }

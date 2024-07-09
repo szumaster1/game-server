@@ -8,7 +8,7 @@ import core.game.system.timer.PersistTimer
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 
-class Compost : PersistTimer (500, "farming:compost", isSoft = true) { 
+class Compost : PersistTimer (500, "farming:compost", isSoft = true) {
     private val binMap = HashMap<CompostBins, CompostBin>()
     lateinit var player: Player
 
