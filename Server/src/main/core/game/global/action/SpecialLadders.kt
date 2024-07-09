@@ -71,6 +71,9 @@ enum class SpecialLadders(private val ladderLoc: Location, private val destLoc: 
 
     MOVARIO_LADDER_UP(Location.create(2036, 4379, 0), Location.create(2502, 3255, 0)),
 
+    MUSEUM_STAIRS_DOWN(Location.create(3255,3451,0), Location.create(1759, 4958, 0)),
+    MUSEUM_STAIRS_UP(Location.create(1758, 4959, 0), Location.create(3258, 3452, 0)),
+
     OBSERVATORY_STAIRS_CLIMB_DOWN(Location.create(2443, 3159, 1), Location.create(2444, 3162, 0)),
     OBSERVATORY_STAIRS_CLIMB_UP(Location.create(2444, 3159, 0), Location.create(2442, 3159, 1)),
 

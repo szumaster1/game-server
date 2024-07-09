@@ -55,11 +55,6 @@ class MuseumListeners : InteractionListener {
          */
 
         on(MUSEUM_STAIRS, IntType.SCENERY, "walk-up", "walk-down") { player, node ->
-            if (node.id == 24427) {
-                ClimbActionHandler.climb(player, Animation(-1), Location(3258, 3452, 0))
-            } else {
-                ClimbActionHandler.climb(player, Animation(-1), Location(1759, 4958, 0))
-            }
             if (node.id == 24359 && getUsedOption(player) == "climb-down") {
                 ClimbActionHandler.climb(player, ClimbActionHandler.CLIMB_DOWN, Location(3231, 3386, 0))
             }
