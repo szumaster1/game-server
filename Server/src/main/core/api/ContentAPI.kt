@@ -3236,7 +3236,7 @@ fun setInterfaceSprite(player : Player, interfaceId : Int, childId : Int, positi
 
 /**
  * Check if a prayer type is active.
- * @param pam pam.
+ * @param type The type.
  */
 fun isPrayerActive(player : Player, type : PrayerType): Boolean {
     return player.prayer.active.contains(type)
@@ -3251,14 +3251,14 @@ fun removeTabs(player: Player, vararg tabs: Int) {
 }
 
 /**
- * Restores the tabs.
+ * Restores the previously closed tabs.
  */
 fun restoreTabs(player : Player){
     return player.interfaceManager.restoreTabs()
 }
 
 /**
- * Checks if the player has an pet.
+ * Checks if the player has a pet.
  */
 
 fun hasPet(player : Player): Boolean {
