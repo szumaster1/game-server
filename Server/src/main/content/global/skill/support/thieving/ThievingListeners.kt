@@ -4,6 +4,7 @@ import content.global.skill.skillcape.SkillcapePerks
 import core.api.*
 import core.api.consts.Animations
 import core.api.consts.Items
+import core.api.consts.NPCs
 import core.api.consts.Sounds
 import core.api.utils.WeightBasedTable
 import core.game.interaction.IntType
@@ -12,8 +13,10 @@ import core.game.node.entity.combat.DeathTask
 import core.game.node.entity.combat.ImpactHandler
 import core.game.node.entity.impl.Animator
 import core.game.node.entity.player.Player
+import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
+import core.game.world.map.zone.ZoneBorders
 import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
 
@@ -86,7 +89,7 @@ class ThievingListeners : InteractionListener {
                 return@on true
             }
 
-            if (inInventory(player, Items.DISPLAY_CABINET_KEY_4617) || inBank(player, Items.DISPLAY_CABINET_KEY_4617)) {
+            if (npc.id == NPCs.CURATOR_HAIG_HALEN_647 && (inInventory(player, Items.DISPLAY_CABINET_KEY_4617) || inBank(player, Items.DISPLAY_CABINET_KEY_4617))) {
                 sendMessage(player, "You have no reason to do that.")
                 return@on true
             }
@@ -118,6 +121,9 @@ class ThievingListeners : InteractionListener {
                 lootTable.forEach {
                     player.inventory.add(it)
                     sendMessage(player, "You steal some ${getItemName(it.id).lowercase()}.")
+                }
+                if(inBorders(player, ZoneBorders(3201, 3456, 3227, 3468)) && npc.id == NPCs.GUARD_5920){
+                    finishDiaryTask(player, DiaryType.VARROCK, 1, 12)
                 }
                 rewardXP(player, Skills.THIEVING, pickpocketData.experience)
             }

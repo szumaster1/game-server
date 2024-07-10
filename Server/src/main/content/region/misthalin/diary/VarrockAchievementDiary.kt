@@ -31,9 +31,8 @@ class VarrockAchievementDiary : DiaryEventHookBase(DiaryType.VARROCK) {
 
         private const val ATTRIBUTE_CRAFT_AIR_BATTLESTAFF = "diary:varrock:craft-air-battlestaff"
 
-        private val VARROCK_ROOF_AREA = ZoneBorders(3201, 3467, 3225, 3497, 3)
+        private val VARROCK_ROOF_AREA = ZoneBorders(3201, 3467, 3225, 3497, 3, true)
         private val SOS_LEVEL_2_AREA = ZoneBorders(2040, 5241, 2046, 5246)
-        private val VARROCK_PALACE_AREA = ZoneBorders(3201, 3456, 3227, 3468)
         private val CHAMPIONS_GUILD_AREA = ZoneBorders(3188, 3361, 3194, 3362)
         private val OZIACH_SHOP_AREA = ZoneBorders(3066, 3514, 3070, 3518)
         private val AIR_OBELISK_AREA = ZoneBorders(3087, 3568, 3089, 3570)
@@ -333,14 +332,6 @@ class VarrockAchievementDiary : DiaryEventHookBase(DiaryType.VARROCK) {
                     HardTasks.USE_MOSS_GIANT_PIPE_SHORTCUT
                 )
             }
-        }
-
-        if (event.option == "pickpocket" && (event.target.id == NPCs.GUARD_5920 && inBorders(player, VARROCK_PALACE_AREA)) && hasLevelStat(player, Skills.THIEVING, 40)) {
-            finishTask(
-                player,
-                DiaryLevel.MEDIUM,
-                MediumTasks.PALACE_PICKPOCKET_GUARD
-            )
         }
 
         if (isQuestComplete(player, "Dragon Slayer")) {
