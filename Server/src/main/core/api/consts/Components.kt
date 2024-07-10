@@ -617,6 +617,7 @@ object Components {
     const val CLANWARS_END_790 = 790
     const val CLANWARS_SETUP_791 = 791
     const val CLANWARS_SETUP_SIDE_792 = 792
+    const val VM_LECTERN_794 = 794
     const val ANCIENT_STAFF_SPELLS_797 = 797
     const val BANNER_HALLOWEEN_800 = 800
     const val QUICKCHAT_LOCKED_801 = 801

@@ -26,9 +26,7 @@ class FatherLawrenceDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             40 -> {
-                npc("Ah, have you found the Apothecary yet? Remember,",
-                    "Cadava potion, for Juliet."
-                )
+                npc("Ah, have you found the Apothecary yet? Remember,", "Cadava potion, for Juliet.")
                 stage = 30
             }
 
@@ -54,9 +52,7 @@ class FatherLawrenceDialogue(player: Player? = null) : Dialogue(player) {
         val quest = player.getQuestRepository().getQuest("Romeo & Juliet")
         when (stage) {
             0 -> {
-                npc(FacialExpression.HALF_GUILTY,
-                    "I sing and I drink and I wake up in gutters."
-                )
+                npc(FacialExpression.HALF_GUILTY, "I sing and I drink and I wake up in gutters.")
                 stage = 1
             }
 
@@ -89,9 +85,7 @@ class FatherLawrenceDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             45 -> {
-                npc("Ok, ok...what do you want so I can get rid of you and",
-                    "continue with my sermon?"
-                )
+                npc("Ok, ok...what do you want so I can get rid of you and", "continue with my sermon?")
                 stage = 46
             }
 
@@ -106,17 +100,12 @@ class FatherLawrenceDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             48 -> {
-                player("Yes, very confused....Anyway, Romeo wishes to be",
-                    "married to Juliet! She must be rescued from her",
-                    "father's control!"
-                )
+                player("Yes, very confused....Anyway, Romeo wishes to be", "married to Juliet! She must be rescued from her", "father's control!")
                 stage = 49
             }
 
             49 -> {
-                npc("I agree, and I think I have an idea! A potion to make",
-                    "her appear dead..."
-                )
+                npc("I agree, and I think I have an idea! A potion to make", "her appear dead...")
                 stage = 50
             }
 
@@ -126,31 +115,22 @@ class FatherLawrenceDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             51 -> {
-                npc("The potion will only make Juliet 'appear' dead...then",
-                    "she'll be taken to the crypt..."
-                )
+                npc("The potion will only make Juliet 'appear' dead...then", "she'll be taken to the crypt...")
                 stage = 52
             }
 
             52 -> {
-                player("Crypt! Again...very creepy! You must have some",
-                    "strange hobbies."
-                )
+                player("Crypt! Again...very creepy! You must have some", "strange hobbies.")
                 stage = 53
             }
 
             53 -> {
-                npc("Then Romeo can collect her from the crypt! Go to the",
-                    "Apothecary, tell him I sent you and that you'll need a",
-                    "'Cadava' potion."
-                )
+                npc("Then Romeo can collect her from the crypt! Go to the", "Apothecary, tell him I sent you and that you'll need a", "'Cadava' potion.")
                 stage = 54
             }
 
             54 -> {
-                player("Apart from the strong overtones of death, this is",
-                    "turning out to be a real love story."
-                )
+                player("Apart from the strong overtones of death, this is", "turning out to be a real love story.")
                 stage = 55
             }
 

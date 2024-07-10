@@ -322,11 +322,11 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN) {
          */
 
         define("xface", Privilege.STANDARD, "", "Closes the currently opened interface/dialogue.") { player, _ ->
-            player.interfaceManager.close()
-            player.dialogueInterpreter.close()
-            player.interfaceManager.closeOverlay()
-            player.dialogueInterpreter.close()
-            player.interfaceManager.closeChatbox()
+            runTask(player,0) {
+                closeInterface(player)
+                closeOverlay(player)
+                closeChatBox(player)
+            }
         }
 
         /*

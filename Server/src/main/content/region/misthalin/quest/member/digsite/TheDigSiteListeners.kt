@@ -13,7 +13,6 @@ import core.game.dialogue.FacialExpression
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.interaction.QueueStrength
-import core.game.node.entity.Entity
 import core.game.node.entity.combat.ImpactHandler
 import core.game.node.entity.skill.Skills
 import core.game.world.map.Location
@@ -889,18 +888,6 @@ class TheDigSiteListeners : InteractionListener {
             impact(player, 65)
             sendChat(player, "Ow! The liquid exploded!")
             sendMessage(player, "You were injured by the burning liquid.")
-            return@on true
-        }
-
-        // Scenery not tied to quest
-
-        on(intArrayOf(Scenery.GATE_24560, Scenery.GATE_24561), IntType.SCENERY, "open") { player, node ->
-            if(!isQuestComplete(player, "The Dig Site")) {
-                sendMessage(player, "You can't go through there, it's for Dig Site workmen only.")
-                sendChat(findNPC(NPCs.MUSEUM_GUARD_5942) as Entity, "Sorry - workman's gate only.")
-            } else {
-                DoorActionHandler.handleDoor(player, node.asScenery())
-            }
             return@on true
         }
 

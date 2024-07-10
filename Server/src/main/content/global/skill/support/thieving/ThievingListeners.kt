@@ -86,6 +86,11 @@ class ThievingListeners : InteractionListener {
                 return@on true
             }
 
+            if (inInventory(player, Items.DISPLAY_CABINET_KEY_4617) || inBank(player, Items.DISPLAY_CABINET_KEY_4617)) {
+                sendMessage(player, "You have no reason to do that.")
+                return@on true
+            }
+
             if (!pickpocketData.table.canRoll(player)) {
                 sendMessage(player, "You don't have enough inventory space to do that.")
                 return@on true

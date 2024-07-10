@@ -243,15 +243,6 @@ class VarrockListeners : InteractionListener {
             return@on true
         }
 
-        /*
-         * Exit from Varrock sewers to Varrock east bank.
-         */
-
-        on(Scenery.LADDER_24366, IntType.SCENERY, "climb-up") { player, _ ->
-            ClimbActionHandler.climb(player, ClimbActionHandler.CLIMB_UP, Location(3237, 3459))
-            return@on true
-        }
-
         on(Scenery.PORTAL_28780, IntType.SCENERY, "use"){ player, _ ->
             visualize(player, -1, Graphics.CURSE_IMPACT_110)
             queueScript(player, 1, QueueStrength.SOFT) {
@@ -279,6 +270,10 @@ class VarrockListeners : InteractionListener {
             return@on true
         }
 
+        on(Scenery.DRAWERS_17466, IntType.SCENERY, "open") { player, node ->
+            replaceScenery(node.asScenery(), Scenery.DRAWERS_24322, 100)
+            return@on true
+        }
     }
 
 }

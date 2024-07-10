@@ -4,10 +4,7 @@ import content.region.desert.quest.thegolemquest.dialogue.ClayGolemProgramDialog
 import content.region.desert.quest.thegolemquest.dialogue.DISPLAY_CASE_TEXT
 import content.region.desert.quest.thegolemquest.dialogue.LETTER_LINES
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
-import core.api.consts.Sounds
-import core.api.consts.Vars
+import core.api.consts.*
 import core.game.global.action.ClimbActionHandler
 import core.game.global.action.SpecialLadders
 import core.game.interaction.IntType
@@ -258,20 +255,10 @@ class TheGolemListeners : InteractionListener {
         }
     }
 
-    fun pickpocketCurator(player: Player, node: Node): Boolean {
-        if (player.inventory.containsAtLeastOneItem(4617) || player.bank.containsAtLeastOneItem(4617)) {
-            sendMessage(player, "You have no reason to do that.")
-            return true
-        }
-        sendItemDialogue(player, 4617, "You steal a tiny key.")
-        addItemOrDrop(player, 4617, 1)
-        return true
-    }
-
     fun displayCase(player: Player, node: Scenery): Boolean {
         val model = node.definition.modelIds[0]
         setAttribute(player, "ifaces:534:model", model)
-        openInterface(player, 534)
+        openInterface(player, Components.VM_TIMELINE_534)
         return true
     }
 
@@ -454,7 +441,6 @@ class TheGolemListeners : InteractionListener {
 
         onUseWith(IntType.SCENERY, Items.HAMMER_2347, 6301) { player, _, _ -> takeThroneGems(player); return@onUseWith true }
         onUseWith(IntType.SCENERY, Items.CHISEL_1755, 6301) { player, _, _ -> takeThroneGems(player); return@onUseWith true }
-        on(646, IntType.NPC, "pickpocket") { player, node -> return@on pickpocketCurator(player, node) }
         on(intArrayOf(core.api.consts.Scenery.DISPLAY_CASE_24627, core.api.consts.Scenery.DISPLAY_CASE_24550), IntType.SCENERY, "study") { player, node ->
             return@on displayCase(player, node as Scenery)
         }

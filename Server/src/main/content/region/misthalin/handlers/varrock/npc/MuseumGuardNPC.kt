@@ -50,8 +50,9 @@ class MuseumGuardNPC : NPCBehavior(*guardsNPCs) {
     }
 
     override fun tick(self: NPC): Boolean {
-        if (RandomFunction.roll(25))
+        if (RandomFunction.random(35) == 5) {
             sendChat(self, forceChat.random())
+        }
         return true
     }
 }

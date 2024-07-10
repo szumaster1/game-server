@@ -25,13 +25,7 @@ class ThievingOptionPlugin : OptionHandler() {
     override fun handle(player: Player, node: Node, option: String): Boolean {
         when (option) {
             "steal-from", "steal from", "steal" -> {
-                player.pulseManager.run(
-                    StallThiefPulse(
-                        player, node as Scenery, Stall.forScenery(
-                            node
-                        )
-                    )
-                )
+                player.pulseManager.run(StallThiefPulse(player, node as Scenery, Stall.forScenery(node)))
                 lockInteractions(player,6)
             }
         }

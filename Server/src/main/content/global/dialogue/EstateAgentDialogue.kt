@@ -2,10 +2,9 @@ package content.global.dialogue
 
 import content.global.skill.support.construction.HouseLocation
 import content.global.skill.support.construction.HousingStyle
+import core.api.*
 import core.api.consts.Items
 import core.api.consts.NPCs
-import core.api.inInventory
-import core.api.removeItem
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.global.Skillcape
@@ -33,11 +32,9 @@ class EstateAgentDialogue(player: Player? = null) : Dialogue(player) {
         when (stage) {
             START_DIALOGUE -> {
                 if (player.houseManager.hasHouse()) {
-                    options("Can you move my house please?", "Can you redecorate my house please?", "Could I have a Construction guidebook?", "Tell me about houses.", "Tell me about that skillcape you're wearing.")
-                    stage = 1
+                    options("Can you move my house please?", "Can you redecorate my house please?", "Could I have a Construction guidebook?", "Tell me about houses.", "Tell me about that skillcape you're wearing.").also { stage++ }
                 } else {
-                    options("How can I get a house?", "Tell me about houses.")
-                    stage = 2
+                    options("How can I get a house?", "Tell me about houses.").also { stage = 2 }
                 }
             }
             1 -> when (buttonId) {
@@ -251,20 +248,12 @@ class EstateAgentDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             60 -> {
-                npc(
-                    "It all came out of the wizards' experiments. They found",
-                    "a way to fold space, so that they could pack many",
-                    "acres of land into an area only a foot across."
-                )
+                npc("It all came out of the wizards' experiments. They found", "a way to fold space, so that they could pack many", "acres of land into an area only a foot across.")
                 stage++
             }
 
             61 -> {
-                npc(
-                    "They created several folded-space regions across",
-                    "" + settings!!.name + ". Each one contains hundreds of small plots",
-                    "where people can build houses."
-                )
+                npc("They created several folded-space regions across", "" + settings!!.name + ". Each one contains hundreds of small plots", "where people can build houses.")
                 stage++
             }
 
@@ -274,47 +263,27 @@ class EstateAgentDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             63 -> {
-                npc(
-                    "Quite. The wizards didn't want to get bogged down",
-                    "in the business side of things so they ",
-                    "hired me to sell the houses."
-                )
+                npc("Quite. The wizards didn't want to get bogged down", "in the business side of things so they ", "hired me to sell the houses.")
                 stage++
             }
 
             64 -> {
-                npc(
-                    "There are various other people across " + settings!!.name + " who can",
-                    "help you furnish your house. You should start buying",
-                    "planks from the sawmill operator in Varrock."
-                )
+                npc("There are various other people across " + settings!!.name + " who can", "help you furnish your house. You should start buying", "planks from the sawmill operator in Varrock.")
                 stage = END_DIALOGUE
             }
 
             100 -> {
-                npc(
-                    "As you may know, skillcapes are only available to masters",
-                    "in a skill. I have spent my entire life building houses and",
-                    "now I spend my time selling them! As a sign of my abilities",
-                    "I wear this Skillcape of Construction. If you ever have"
-                )
+                npc("As you may know, skillcapes are only available to masters", "in a skill. I have spent my entire life building houses and", "now I spend my time selling them! As a sign of my abilities", "I wear this Skillcape of Construction. If you ever have")
                 stage = 101
             }
 
             101 -> {
-                npc(
-                    "enough skill to build a demonic throne, come and talk to",
-                    "me and I'll sell you a skillcape like mine."
-                )
+                npc("enough skill to build a demonic throne, come and talk to", "me and I'll sell you a skillcape like mine.")
                 stage = END_DIALOGUE
             }
 
             102 -> {
-                npc(
-                    FacialExpression.JOLLY,
-                    "I see you have recently achieved 99 construction.",
-                    "Would you like to buy a cape for 99,0000 gp?"
-                )
+                npc(FacialExpression.JOLLY, "I see you have recently achieved 99 construction.", "Would you like to buy a cape for 99,0000 gp?")
                 stage++
             }
 
@@ -343,38 +312,33 @@ class EstateAgentDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     private fun configureMove(location: HouseLocation) {
-        //Achievement completion checks
-        val completedVarrockHouseMove = player.achievementDiaryManager.hasCompletedTask(DiaryType.VARROCK, 0, 11)
         when {
-            //Player does not have required construction level
+            // Player does not have required construction level.
             !location.hasLevel(player) -> {
-                npc(
-                    "I'm afraid you don't have a high enough construction",
-                    "level to move there. You need to have level " + location.levelRequirement + "."
-                )
+                npc("I'm afraid you don't have a high enough construction", "level to move there. You need to have level " + location.levelRequirement + ".")
                 stage = 11
                 return
             }
-            //Player's house location is already where they selected
+            // Player's house location is already where they selected.
             location == player.houseManager.location -> {
                 npc("Your house is already there!")
                 stage = 11
                 return
             }
-            //Player does not have enough coins to buy a house move
+            // Player does not have enough coins to buy a house move.
             !inInventory(player, Items.COINS_995, location.cost) -> {
                 npc("Hmph. Come back when you have " + location.cost + " coins.")
                 stage = END_DIALOGUE
                 return
             }
-            //Player meets all above requirements + check for achievement unlocks
+            // Player meets all above requirements + check for achievement unlocks.
             else -> {
                 player.inventory.remove(Item(Items.COINS_995, location.cost))
                 player.houseManager.location = location
-                npc("Your house has been moved to " + location.name + ".")
+                npc("Your house has been moved to " + location.name.lowercase().replaceFirstChar { c -> c.uppercase() } + ".")
 
-                if (player.location.isInRegion(REGION_VARROCK_NE) && !completedVarrockHouseMove) {
-                    player.achievementDiaryManager.finishTask(player, DiaryType.VARROCK, 0, 11)
+                if (inBorders(player, getRegionBorders(REGION_VARROCK_NE)) && !hasDiaryTaskComplete(player, DiaryType.VARROCK, 0, 11)) {
+                    finishDiaryTask(player, DiaryType.VARROCK, 0, 11)
                 }
                 stage = END_DIALOGUE
             }
@@ -383,38 +347,34 @@ class EstateAgentDialogue(player: Player? = null) : Dialogue(player) {
 
 
     private fun redecorate(style: HousingStyle) {
-        //Achievement completion checks
-        val completedVarrockHouseRedecorate = player.achievementDiaryManager.hasCompletedTask(DiaryType.VARROCK, 2, 7)
         when {
-            //Player does not have required construction level
+            // Player does not have required construction level.
             !style.hasLevel(player) -> {
                 npc("You need a Construction level of " + style.level + " to buy this style.")
                 stage = 31
                 return
             }
-            //Player's house location is already where they selected
+            // Player house location is already where they selected.
             style == player.houseManager.style -> {
                 npc("Your house is already in that style!")
                 stage = 31
                 return
             }
 
-            //Player does not have enough coins to buy a house move
+            // Player does not have enough coins to buy a house move.
             !inInventory(player, Items.COINS_995, style.cost) -> {
                 npc("Hmph. Come back when you have " + style.cost + " coins.")
                 stage = END_DIALOGUE
                 return
             }
 
-            //Player meets all above requirements + check for achievement unlocks
+            // Player meets all above requirements + check for achievement unlocks.
             else -> {
                 player.inventory.remove(Item(Items.COINS_995, style.cost))
                 player.houseManager.redecorate(style)
                 npc("Your house has been redecorated.")
-
-                // Give your player-owned house a fancy stone or tropical wood<br><br>finish at the Varrock estate agent's
-                if (player.location.isInRegion(REGION_VARROCK_NE) && !completedVarrockHouseRedecorate) {
-                    player.achievementDiaryManager.finishTask(player, DiaryType.VARROCK, 2, 7)
+                if (inBorders(player, getRegionBorders(REGION_VARROCK_NE)) && !hasDiaryTaskComplete(player, DiaryType.VARROCK, 2, 7)) {
+                    finishDiaryTask(player, DiaryType.VARROCK, 2, 7)
                 }
                 stage = END_DIALOGUE
             }

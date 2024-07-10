@@ -78,9 +78,11 @@ public final class ClimbActionHandler {
         }
         switch (option) {
             case "climb-up":
+            case "walk-up":
                 endLadder = getLadder(startLadder, false);
                 break;
             case "climb-down":
+            case "walk-down":
                 if (startLadder.getName().equals("Trapdoor")) {
                     animation = CLIMB_DOWN;
                 }

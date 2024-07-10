@@ -27,9 +27,7 @@ class ShilopDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             10 -> {
-                player(FacialExpression.HALF_GUILTY,
-                    "Hello there, I've been looking for you."
-                )
+                player(FacialExpression.HALF_GUILTY, "Hello there, I've been looking for you.")
                 100
             }
 
@@ -75,37 +73,23 @@ class ShilopDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             5 -> {
-                interpreter.sendDialogue(
-                    "The boy begins to jump around with his fists up.",
-                    "You wonder what sort of desperado he'll grow up to be."
-                )
+                interpreter.sendDialogue("The boy begins to jump around with his fists up.", "You wonder what sort of desperado he'll grow up to be.")
                 stage = 6
             }
 
             6 -> end()
             100 -> {
-                interpreter.sendDialogues(
-                    id,
-                    FacialExpression.CHILD_FRIENDLY,
-                    "I didn't mean to take it! I just forgot to pay."
-                )
+                interpreter.sendDialogues(id, FacialExpression.CHILD_FRIENDLY, "I didn't mean to take it! I just forgot to pay.")
                 stage = 101
             }
 
             101 -> {
-                player(FacialExpression.HALF_GUILTY,
-                    "What? I'm trying to help your mum find Fluffs."
-                )
+                player(FacialExpression.HALF_GUILTY, "What? I'm trying to help your mum find Fluffs.")
                 stage = 102
             }
 
             102 -> {
-                interpreter.sendDialogues(
-                    if (id == 781) 783 else 781,
-                    FacialExpression.CHILD_FRIENDLY,
-                    "I might be able to help. Fluffs followed me to our secret",
-                    "play area and I haven't seen her since."
-                )
+                interpreter.sendDialogues(if (id == 781) 783 else 781, FacialExpression.CHILD_FRIENDLY, "I might be able to help. Fluffs followed me to our secret", "play area and I haven't seen her since.")
                 stage = 103
             }
 
@@ -115,11 +99,7 @@ class ShilopDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             104 -> {
-                interpreter.sendDialogues(
-                    if (id == 781) 783 else 781,
-                    FacialExpression.CHILD_FRIENDLY,
-                    "If I told you that, it wouldn't be a secret."
-                )
+                interpreter.sendDialogues(if (id == 781) 783 else 781, FacialExpression.CHILD_FRIENDLY, "If I told you that, it wouldn't be a secret.")
                 stage = 105
             }
 
@@ -129,11 +109,7 @@ class ShilopDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             106 -> {
-                interpreter.sendDialogues(
-                    if (id == 781) 783 else 781,
-                    FacialExpression.CHILD_FRIENDLY,
-                    "Well...now you ask, I am a bit short on cash."
-                )
+                interpreter.sendDialogues(if (id == 781) 783 else 781, FacialExpression.CHILD_FRIENDLY, "Well...now you ask, I am a bit short on cash.")
                 stage = 107
             }
 
@@ -158,11 +134,7 @@ class ShilopDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             111 -> {
-                interpreter.sendDialogues(
-                    if (id == 781) 783 else 781,
-                    FacialExpression.CHILD_FRIENDLY,
-                    "100 coins should cover it."
-                )
+                interpreter.sendDialogues(if (id == 781) 783 else 781, FacialExpression.CHILD_FRIENDLY, "100 coins should cover it.")
                 stage = 112
             }
 
@@ -172,12 +144,7 @@ class ShilopDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             113 -> {
-                interpreter.sendDialogues(
-                    if (id == 781) 783 else 781,
-                    FacialExpression.CHILD_FRIENDLY,
-                    "You shouldn't, but we won't help otherwise. We never",
-                    "liked that cat anyway, so what do you say?"
-                )
+                interpreter.sendDialogues(if (id == 781) 783 else 781, FacialExpression.CHILD_FRIENDLY, "You shouldn't, but we won't help otherwise. We never", "liked that cat anyway, so what do you say?")
                 stage = 114
             }
 
@@ -199,11 +166,7 @@ class ShilopDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             116 -> {
-                interpreter.sendDialogues(
-                    if (id == 781) 783 else 781,
-                    FacialExpression.CHILD_FRIENDLY,
-                    "Okay then, I'll find another way to make money."
-                )
+                interpreter.sendDialogues(if (id == 781) 783 else 781, FacialExpression.CHILD_FRIENDLY, "Okay then, I'll find another way to make money.")
                 stage = 117
             }
 
@@ -225,20 +188,12 @@ class ShilopDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             119 -> {
-                player(FacialExpression.HALF_ASKING,
-                    "There you go, now where did you see Fluffs?"
-                )
+                player(FacialExpression.HALF_ASKING, "There you go, now where did you see Fluffs?")
                 stage = 120
             }
 
             120 -> {
-                interpreter.sendDialogues(
-                    if (id == 781) 783 else 781,
-                    FacialExpression.CHILD_FRIENDLY,
-                    "We play at an abandoned lumber mill to the north east.",
-                    "Just beyond the Jolly Boar Inn. I saw Fluffs running",
-                    "around in there."
-                )
+                interpreter.sendDialogues(if (id == 781) 783 else 781, FacialExpression.CHILD_FRIENDLY, "We play at an abandoned lumber mill to the north east.", "Just beyond the Jolly Boar Inn. I saw Fluffs running", "around in there.")
                 stage = 121
             }
 
@@ -248,24 +203,13 @@ class ShilopDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             122 -> {
-                interpreter.sendDialogues(
-                    if (id == 781) 783 else 781,
-                    FacialExpression.CHILD_FRIENDLY,
-                    "Well, you'll have to find the broken fence to get in. I'm",
-                    "sure you can manage that."
-                )
+                interpreter.sendDialogues(if (id == 781) 783 else 781, FacialExpression.CHILD_FRIENDLY, "Well, you'll have to find the broken fence to get in. I'm", "sure you can manage that.")
                 stage = 123
             }
 
             123 -> end()
             130 -> {
-                interpreter.sendDialogues(
-                    id,
-                    FacialExpression.CHILD_FRIENDLY,
-                    "Weren't you listening? I saw the flea bag in the old",
-                    "lumber mill just north east of here. Just walk past the",
-                    "Jolly Boar Inn and you should find it."
-                )
+                interpreter.sendDialogues(id, FacialExpression.CHILD_FRIENDLY, "Weren't you listening? I saw the flea bag in the old", "lumber mill just north east of here. Just walk past the", "Jolly Boar Inn and you should find it.")
                 stage = 131
             }
 

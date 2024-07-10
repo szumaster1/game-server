@@ -1,5 +1,6 @@
 package core.game.global.action
 
+import core.api.finishDiaryTask
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.diary.DiaryType
 import core.game.world.map.Location
@@ -71,9 +72,6 @@ enum class SpecialLadders(private val ladderLoc: Location, private val destLoc: 
 
     MOVARIO_LADDER_UP(Location.create(2036, 4379, 0), Location.create(2502, 3255, 0)),
 
-    MUSEUM_STAIRS_DOWN(Location.create(3255,3451,0), Location.create(1759, 4958, 0)),
-    MUSEUM_STAIRS_UP(Location.create(1758, 4959, 0), Location.create(3258, 3452, 0)),
-
     OBSERVATORY_STAIRS_CLIMB_DOWN(Location.create(2443, 3159, 1), Location.create(2444, 3162, 0)),
     OBSERVATORY_STAIRS_CLIMB_UP(Location.create(2444, 3159, 0), Location.create(2442, 3159, 1)),
 
@@ -105,14 +103,14 @@ enum class SpecialLadders(private val ladderLoc: Location, private val destLoc: 
     PORT_SARIM_RAT_PITS_UP(Location.create(2962, 9651, 0), Location.create(3018, 3231, 0)),
     PORT_SARIM_RAT_PITS_DOWN(Location.create(3018, 3232, 0), Location.create(2962, 9650, 0)) {
         override fun checkAchievement(player: Player) {
-            player.achievementDiaryManager.finishTask(player, DiaryType.FALADOR, 1, 11)
+            finishDiaryTask(player, DiaryType.FALADOR, 1, 11)
         }
     },
 
     SEERS_VILLAGE_SPINNING_HOUSE_ROOFTOP_DOWN(Location.create(2715, 3472, 3), Location.create(2714, 3472, 1)),
     SEERS_VILLAGE_SPINNING_HOUSE_ROOFTOP_UP(Location.create(2715, 3472, 1), Location.create(2714, 3472, 3)) {
         override fun checkAchievement(player: Player) {
-            player.achievementDiaryManager.finishTask(player, DiaryType.SEERS_VILLAGE, 1, 3)
+            finishDiaryTask(player, DiaryType.SEERS_VILLAGE, 1, 3)
         }
     },
 
@@ -138,8 +136,14 @@ enum class SpecialLadders(private val ladderLoc: Location, private val destLoc: 
     WHITE_WOLF_MOUNTAIN_FAKE_LADDER_2_UP(Location.create(2823, 9930, 0), Location.create(2823, 3529, 0)),
 
     DRAYNOR_MANOR_LADDER_DOWN(Location.create(3092, 3362, 0), Location.create(3117, 9753, 0)),
-    DRAYNOR_MANOR_LADDER_UP(Location.create(3117, 9754, 0), Location.create(3092, 3361, 0));
+    DRAYNOR_MANOR_LADDER_UP(Location.create(3117, 9754, 0), Location.create(3092, 3361, 0)),
 
+    VARROCK_HOUSE_UP(Location(3230,3383,0), Location(3230, 3382, 1)),
+    VARROCK_HOUSE_DOWN(Location(3230, 3383, 1), Location(3230, 3386, 0)),
+
+    VARROCK_SEWERS_DOWN(Location(3237, 3458,0), Location(3237, 9858, 0)),
+    VARROCK_SEWERS_UP(Location(3237,9858,0), Location.create(3238, 3458, 0))
+    ;
 
     companion object {
         private val destinationMap = HashMap<Location, Location>()

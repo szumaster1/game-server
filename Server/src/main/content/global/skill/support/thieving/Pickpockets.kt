@@ -2,6 +2,7 @@ package content.global.skill.support.thieving
 
 import core.api.consts.Items
 import core.api.consts.NPCs
+import core.api.inInventory
 import core.api.utils.WeightBasedTable
 import core.api.utils.WeightedItem
 import core.game.node.entity.player.Player
@@ -31,6 +32,18 @@ enum class Pickpockets(
         stunTime = 5,
         table = WeightBasedTable.create(
             WeightedItem(id = Items.COINS_995, minAmt = 3, maxAmt = 3, weight = 1.0, guaranteed = true))
+    ),
+    CURATOR_HAIG_HELEN(
+        ids = intArrayOf(NPCs.CURATOR_HAIG_HALEN_646),
+        requiredLevel = 1,
+        low = 180.0,
+        high = 240.0,
+        experience = 8.0,
+        stunDamageMin = 1,
+        stunDamageMax = 1,
+        stunTime = 5,
+        table = WeightBasedTable.create(
+            WeightedItem(id = Items.DISPLAY_CABINET_KEY_4617, minAmt = 1, maxAmt = 1, weight = 1.0, guaranteed = true))
     ),
     GANG_OF_THIEVES(
         ids = intArrayOf(NPCs.CUFFS_3237, NPCs.NARF_3238, NPCs.RUSTY_3239, NPCs.JEFF_3240),

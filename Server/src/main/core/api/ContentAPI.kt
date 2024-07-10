@@ -3236,6 +3236,7 @@ fun setInterfaceSprite(player : Player, interfaceId : Int, childId : Int, positi
 
 /**
  * Check if a prayer type is active.
+ * @param pam pam.
  */
 fun isPrayerActive(player : Player, type : PrayerType): Boolean {
     return player.prayer.active.contains(type)

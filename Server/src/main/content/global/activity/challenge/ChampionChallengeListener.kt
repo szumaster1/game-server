@@ -99,7 +99,7 @@ class ChampionChallengeListener : InteractionListener, MapArea {
         }
 
         on(TRAPDOOR_OPEN, IntType.SCENERY, "close") { _, node ->
-            replaceScenery(node.asScenery(), TRAPDOOR_CLOSED, 100, node.location)
+            replaceScenery(node.asScenery(), TRAPDOOR_CLOSED, -1, node.location)
             return@on true
         }
 
@@ -184,13 +184,18 @@ class ChampionChallengeListener : InteractionListener, MapArea {
         }
     }
 
+    override fun defineDestinationOverrides() {
+        setDest(IntType.SCENERY, intArrayOf(TRAPDOOR_OPEN), "climb-down") { _, _ ->
+            return@setDest Location.create(3191, 3355, 0)
+        }
+    }
+
     override fun defineAreaBorders(): Array<ZoneBorders> {
         return arrayOf(getRegionBorders(ARENA_ZONE))
     }
 
     override fun getRestrictions(): Array<ZoneRestriction> {
-        return arrayOf(
-            ZoneRestriction.CANNON, ZoneRestriction.FIRES, ZoneRestriction.RANDOM_EVENTS
-        )
+        return arrayOf(ZoneRestriction.CANNON, ZoneRestriction.FIRES, ZoneRestriction.RANDOM_EVENTS)
     }
+
 }
