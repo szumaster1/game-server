@@ -14,7 +14,7 @@ class RadimusErkeDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        npcl(FacialExpression.HALF_GUILTY, "Excuse me a moment won't you. Do feel free to explore the rest of the building")
+        npcl(FacialExpression.HALF_GUILTY, "Excuse me a moment won't you. Do feel free to explore the rest of the building.")
         stage = 0
         return true
     }
