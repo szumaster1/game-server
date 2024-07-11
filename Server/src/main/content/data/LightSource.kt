@@ -52,7 +52,7 @@ enum class LightSource(val level: Int, val raw: Item, val product: Item, val ope
         level = 33,
         raw = Item(Items.UNLIT_BUG_LANTERN_7051, 1),
         product = Item(Items.LIT_BUG_LANTERN_7053, 1),
-        open = true,
+        open = false,
         interfaceId = -1
     ),
     BULLSEYE_LANTERN(
