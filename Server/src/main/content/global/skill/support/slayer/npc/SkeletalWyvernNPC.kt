@@ -1,7 +1,7 @@
 package content.global.skill.support.slayer.npc
 
 import content.global.handlers.item.equipment.special.DragonfireSwingHandler
-import content.global.skill.support.slayer.Tasks
+import content.global.skill.support.slayer.data.Tasks
 import core.api.consts.Items
 import core.game.node.entity.combat.CombatStyle
 import core.game.node.entity.combat.CombatSwingHandler
@@ -13,7 +13,7 @@ import core.game.node.entity.player.Player
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 
-class SkeletalWyvernNPC : NPCBehavior(*Tasks.SKELETAL_WYVERN.ids) {
+class SkeletalWyvernNPC : NPCBehavior(*Tasks.SKELETAL_WYVERN.npcs) {
     private val COMBAT_HANDLER = MultiSwingHandler(
         SwitchAttack(CombatStyle.MELEE.swingHandler, Animation(2985)),
         SwitchAttack(CombatStyle.RANGE.swingHandler, Animation(2989),

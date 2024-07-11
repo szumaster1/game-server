@@ -1,6 +1,7 @@
-package content.global.skill.support.slayer
+package content.global.skill.support.slayer.data
 
 import content.global.handlers.item.equipment.gloves.FOGGlovesManager
+import content.global.skill.support.slayer.SlayerUtils
 import core.api.*
 import core.api.consts.Items
 import core.cache.def.impl.NPCDefinition
@@ -46,7 +47,7 @@ class SlayerManager(val player: Player? = null) : LoginListener, PersistPlayer, 
         val m = slayerData["master"]
         val flags = getInstance(player).flags
         if (m != null) {
-            flags.setMaster(Master.forId(m.toString().toInt()))
+            flags.setMaster(SlayerMaster.forId(m.toString().toInt()))
         }
         val t = slayerData["taskId"]
         if (t != null) flags.setTask(Tasks.values()[t.toString().toInt()])
@@ -107,7 +108,7 @@ class SlayerManager(val player: Player? = null) : LoginListener, PersistPlayer, 
             if (slayer.hasTask()) return
             flags.taskStreak = flags.taskStreak + 1
             flags.completedTasks = flags.completedTasks + 1
-            if ((flags.completedTasks > 4 || flags.canEarnPoints()) && flags.getMaster() != Master.TURAEL && flags.getPoints() < 64000) {
+            if ((flags.completedTasks > 4 || flags.canEarnPoints()) && flags.getMaster() != SlayerMaster.TURAEL && flags.getPoints() < 64000) {
                 var points = flags.getMaster().taskPoints[0]
                 if (flags.taskStreak % 50 == 0) {
                     points = flags.getMaster().taskPoints[2]
@@ -125,7 +126,7 @@ class SlayerManager(val player: Player? = null) : LoginListener, PersistPlayer, 
             } else if (flags.completedTasks == 4) {
                 sendMessage(player, "You've completed your task; you will start gaining points on your next task!")
                 flags.flagCanEarnPoints()
-            } else if (flags.getMaster() == Master.TURAEL) {
+            } else if (flags.getMaster() == SlayerMaster.TURAEL) {
                 player.sendMessages(
                     "You've completed your task; Tasks from Turael do not award points.", "Return to a Slayer master."
                 )
@@ -139,7 +140,7 @@ class SlayerManager(val player: Player? = null) : LoginListener, PersistPlayer, 
     }
 
 
-    fun generate(master: Master) {
+    fun generate(master: SlayerMaster) {
         val task = SlayerUtils.generate(player!!, master) ?: return
         SlayerUtils.assign(player, task, master)
     }
@@ -173,7 +174,7 @@ class SlayerManager(val player: Player? = null) : LoginListener, PersistPlayer, 
             return null
         }
 
-    var master: Master?
+    var master: SlayerMaster?
         get() = flags.getMaster()
         set(master) {
             flags.setMaster(master!!)

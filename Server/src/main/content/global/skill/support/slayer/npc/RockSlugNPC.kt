@@ -1,6 +1,6 @@
 package content.global.skill.support.slayer.npc
 
-import content.global.skill.support.slayer.Tasks
+import content.global.skill.support.slayer.data.Tasks
 import core.api.*
 import core.api.consts.Items
 import core.game.interaction.IntType
@@ -14,7 +14,7 @@ import core.game.node.entity.npc.NPCBehavior
 import core.game.node.entity.player.Player
 import java.lang.Integer.max
 
-class RockSlugNPC : NPCBehavior(*Tasks.ROCK_SLUGS.ids), InteractionListener {
+class RockSlugNPC : NPCBehavior(*Tasks.ROCK_SLUGS.npcs), InteractionListener {
 
     override fun defineListeners() {
         onUseWith(IntType.NPC, Items.BAG_OF_SALT_4161, *ids, handler = ::handleSaltUsage)

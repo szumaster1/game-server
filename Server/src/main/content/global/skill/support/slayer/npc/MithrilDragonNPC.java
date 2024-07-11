@@ -1,7 +1,7 @@
 package content.global.skill.support.slayer.npc;
 
 import content.global.handlers.item.equipment.special.DragonfireSwingHandler;
-import content.global.skill.support.slayer.Tasks;
+import content.global.skill.support.slayer.data.Tasks;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.BattleState;
 import core.game.node.entity.combat.CombatStyle;
@@ -17,9 +17,6 @@ import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.tools.RandomFunction;
 
-/**
- * The Mithril dragon npc.
- */
 @Initializable
 public final class MithrilDragonNPC extends AbstractNPC {
 
@@ -27,19 +24,10 @@ public final class MithrilDragonNPC extends AbstractNPC {
 
     private final CombatSwingHandler combatAction = new MultiSwingHandler(true, new SwitchAttack(CombatStyle.MELEE.getSwingHandler(), new Animation(80, Priority.HIGH)), new SwitchAttack(CombatStyle.MELEE.getSwingHandler(), new Animation(80, Priority.HIGH)), new SwitchAttack(CombatStyle.MAGIC.getSwingHandler(), new Animation(81, Priority.HIGH), null, null, Projectile.create((Entity) null, null, 500, 20, 20, 41, 40, 18, 255)), DRAGONFIRE, new SwitchAttack(CombatStyle.RANGE.getSwingHandler(), new Animation(81, Priority.HIGH), null, null, Projectile.create((Entity) null, null, 16, 20, 20, 41, 40, 18, 255)));
 
-    /**
-     * Instantiates a new Mithril dragon npc.
-     *
-     * @param id       the id
-     * @param location the location
-     */
     public MithrilDragonNPC(int id, Location location) {
         super(id, location);
     }
 
-    /**
-     * Instantiates a new Mithril dragon npc.
-     */
     public MithrilDragonNPC() {
         super(0, null);
     }

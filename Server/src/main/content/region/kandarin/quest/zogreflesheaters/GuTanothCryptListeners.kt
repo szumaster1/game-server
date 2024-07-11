@@ -1,5 +1,6 @@
 package content.region.kandarin.quest.zogreflesheaters
 
+import content.global.skill.support.thieving.ThievingListeners
 import content.region.kandarin.quest.zogreflesheaters.npc.BrentleVahnNPC.Companion.spawnHumanZombie
 import content.region.kandarin.quest.zogreflesheaters.npc.SlashBashNPC.Companion.spawnZogreBoss
 import core.api.*
@@ -9,9 +10,11 @@ import core.game.dialogue.FacialExpression
 import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
+import core.game.node.entity.combat.ImpactHandler
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.system.task.Pulse
+import core.game.system.timer.impl.Disease
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.tools.BLUE
@@ -137,7 +140,7 @@ class GuTanothCryptListeners : InteractionListener {
                 return@on false
             }
 
-            if (freeSlots(player) < 1) {
+            if (freeSlots(player) == 0) {
                 sendMessage(player, "You have no space in your inventory for any items you might find.")
                 return@on false
             }
@@ -151,31 +154,36 @@ class GuTanothCryptListeners : InteractionListener {
             animate(player, Animations.HUMAN_MULTI_USE_832)
             sendMessage(player, "You attempt to pick the lock on the coffin.")
             submitIndividualPulse(player, object : Pulse(2) {
+                var table = ThievingListeners.pickpocketRoll(player, 84.0, 240.0, OgreCoffinLootTable.OGRE_COFFIN.table)
+
+                val disease = RandomFunction.random(100) <= 4
+                val fingernumb = RandomFunction.roll(1)
                 override fun pulse(): Boolean {
-                    val success = RandomFunction.roll(5)
-                    if (success) {
-                        replaceScenery(
-                            sceneryId,
-                            if (sceneryId.id == Scenery.OGRE_COFFIN_6848) Scenery.OGRE_COFFIN_6890 else Scenery.OGRE_COFFIN_6851,
-                            2
-                        )
-                        if (loot.id in intArrayOf(Items.FAYRG_BONES_4830, Items.RAURG_BONES_4832, Items.OURG_BONES_4834, Items.ZOGRE_BONES_4812)){
+                    if (table != null) {
+                        sendMessage(player, "You unlock the coffin...")
+                        if (inInventory(player, Items.LOCKPICK_1523)) sendMessage(player, "Your lockpick snaps.")
+                        replaceScenery(sceneryId, if (sceneryId.id == Scenery.OGRE_COFFIN_6848) Scenery.OGRE_COFFIN_6890 else Scenery.OGRE_COFFIN_6851, 2)
+                        addItem(player, loot.id, loot.amount)
+                        rewardXP(player, Skills.THIEVING, 1.0)
+                        if (loot.id in intArrayOf(Items.FAYRG_BONES_4830, Items.RAURG_BONES_4832, Items.OURG_BONES_4834, Items.ZOGRE_BONES_4812)) {
                             sendDoubleItemDialogue(player, -1, loot.id, "You find some ancestral ${getItemName(loot.id)}.")
                             sendMessage(player, "You find some ancestral ${getItemName(loot.id)}.")
                         } else {
                             sendItemDialogue(player, if (loot.id == Items.COINS_995) Items.COINS_8897 else loot.id, "You find something...")
                         }
-                        addItem(player, loot.id, loot.amount)
                     } else {
-                        val damage = RandomFunction.roll(5)
-                        if (damage) { // Need to replace with drain.
-                            impact(player, RandomFunction.random(1, 4))
-                            sendMessage(player, "You fail to pick the lock - your fingers get numb from fumbling with the lock.")
+                        sendMessage(player, "You fail to pick the lock - your fingers get numb from fumbling with the lock.")
+                        if(disease) {
+                            sendMessage(player, "Your clumsiness releases a disease ridden spore cloud.")
+                            getOrStartTimer<Disease>(player, 10)
                         }
-                        return true
+                        val rollDamage = (1..4).random()
+                        if(fingernumb){
+                            impact(player, rollDamage, ImpactHandler.HitsplatType.NORMAL)
+                        }
+                        rewardXP(player, Skills.THIEVING, 1.0)
                     }
-                    rewardXP(player, Skills.THIEVING, 27.0)
-                    return false
+                    return true
                 }
             })
             return@on true
@@ -198,7 +206,7 @@ class GuTanothCryptListeners : InteractionListener {
                 sendMessage(player, "You're in mortal danger, thieving is the last thing on your mind.")
                 return@on false
             }
-            if (freeSlots(player) < 1) {
+            if (freeSlots(player) == 0) {
                 sendMessage(player, "You have no space in your inventory for any items you might find.")
                 return@on false
             }

@@ -32,9 +32,6 @@ import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.*;
 
-/**
- * The Ancient cavern.
- */
 @Initializable
 public final class AncientCavern extends MapZone implements Plugin<Object> {
 
@@ -42,9 +39,6 @@ public final class AncientCavern extends MapZone implements Plugin<Object> {
 
     private static final int[] SKELETONS = new int[]{6103, 6106};
 
-    /**
-     * Instantiates a new Ancient cavern.
-     */
     public AncientCavern() {
         super("ancient cavern", true, ZoneRestriction.CANNON);
     }

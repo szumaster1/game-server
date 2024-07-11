@@ -1,6 +1,6 @@
 package content.global.skill.support.slayer.npc
 
-import content.global.skill.support.slayer.Tasks
+import content.global.skill.support.slayer.data.Tasks
 import core.api.animate
 import core.api.consts.NPCs
 import core.api.getAttribute

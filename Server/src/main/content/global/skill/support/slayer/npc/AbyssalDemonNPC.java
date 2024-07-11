@@ -1,6 +1,6 @@
 package content.global.skill.support.slayer.npc;
 
-import content.global.skill.support.slayer.Tasks;
+import content.global.skill.support.slayer.data.Tasks;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.BattleState;
 import core.game.node.entity.combat.CombatSwingHandler;

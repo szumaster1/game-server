@@ -1,5 +1,8 @@
 package content.global.skill.support.slayer;
 
+import content.global.skill.support.slayer.data.SlayerManager;
+import content.global.skill.support.slayer.data.SlayerMaster;
+import content.global.skill.support.slayer.data.Tasks;
 import core.cache.def.impl.ItemDefinition;
 import core.cache.def.impl.NPCDefinition;
 import core.game.component.Component;
@@ -276,7 +279,7 @@ public class SlayerRewardPlugin extends ComponentPlugin {
 
         @Override
         public Plugin<Object> newInstance(Object arg) throws Throwable {
-            for (Master m : Master.values()) {
+            for (SlayerMaster m : SlayerMaster.values()) {
                 NPCDefinition.forId(m.getNpc()).getHandlers().put("option:rewards", this);
             }
             return this;

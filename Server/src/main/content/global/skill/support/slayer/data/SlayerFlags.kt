@@ -1,4 +1,4 @@
-package content.global.skill.support.slayer
+package content.global.skill.support.slayer.data
 
 class SlayerFlags {
     var taskFlags = 0
@@ -9,12 +9,12 @@ class SlayerFlags {
 
     val removed: ArrayList<Tasks> = ArrayList(4)
 
-    fun getMaster(): Master {
+    fun getMaster(): SlayerMaster {
         val ordinal = taskFlags and 0xF
-        return Master.values()[ordinal]
+        return SlayerMaster.values()[ordinal]
     }
 
-    fun setMaster(master: Master) {
+    fun setMaster(master: SlayerMaster) {
         taskFlags = (taskFlags - (taskFlags and 0xF)) or master.ordinal
     }
 

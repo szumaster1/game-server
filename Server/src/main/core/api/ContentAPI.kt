@@ -5,8 +5,8 @@ import content.data.consumables.*
 import content.data.skill.SkillingTool
 import content.global.handlers.iface.ge.StockMarketInterfaceListener
 import content.global.skill.combat.summoning.familiar.BurdenBeast
-import content.global.skill.support.slayer.SlayerManager
-import content.global.skill.support.slayer.Tasks
+import content.global.skill.support.slayer.data.SlayerManager
+import content.global.skill.support.slayer.data.Tasks
 import core.ServerConstants
 import core.api.consts.Items
 import core.api.consts.NPCs
@@ -3219,7 +3219,7 @@ fun withinDistance(player : Player, other: Location, distance : Int? = null) : B
  * @param task      The task to finish.
  */
 fun finishDiaryTask(player : Player, type : DiaryType, level : Int, task : Int) {
-    player.achievementDiaryManager.finishTask(player, type, level, task)
+    return player.achievementDiaryManager.finishTask(player, type, level, task)
 }
 
 /**
@@ -3247,7 +3247,7 @@ fun isPrayerActive(player : Player, type : PrayerType): Boolean {
  * @param tabs The tab indexes.
  */
 fun removeTabs(player: Player, vararg tabs: Int) {
-    player.interfaceManager.removeTabs(*tabs)
+    return player.interfaceManager.removeTabs(*tabs)
 }
 
 /**

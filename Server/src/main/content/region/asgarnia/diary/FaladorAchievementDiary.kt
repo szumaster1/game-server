@@ -276,14 +276,6 @@ class FaladorAchievementDiary : DiaryEventHookBase(DiaryType.FALADOR) {
                 )
             }
 
-            11824 -> if(event.npc.id == NPCs.MOGRE_114) {
-                finishTask(
-                    player,
-                    DiaryLevel.HARD,
-                    HardTasks.MUDSKIPPER_POINT_KILL_MOGRE
-                )
-            }
-
             12181 -> if (event.npc.id in SKELETAL_WYVERNS) {
                 finishTask(
                     player,

@@ -24,17 +24,11 @@ import core.tools.RandomFunction;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * The Lumbridge dungeon.
- */
 @Initializable
 public final class LumbridgeDungeon extends MapZone implements Plugin<Object> {
 
     private static final Map<Location, WallBeastNPC> BEASTS = new HashMap<>();
 
-    /**
-     * Instantiates a new Lumbridge dungeon.
-     */
     public LumbridgeDungeon() {
         super("lumbridge swamp dungeon", true);
     }
@@ -75,23 +69,12 @@ public final class LumbridgeDungeon extends MapZone implements Plugin<Object> {
         register(new ZoneBorders(3137, 9534, 3295, 9602));
     }
 
-    /**
-     * The Wall beast npc.
-     */
     public final class WallBeastNPC extends AbstractNPC {
-        /**
-         * Instantiates a new Wall beast npc.
-         *
-         * @param id       the id
-         * @param location the location
-         */
+
         public WallBeastNPC(int id, Location location) {
             super(id, location, false);
         }
 
-        /**
-         * Instantiates a new Wall beast npc.
-         */
         public WallBeastNPC() {
             super(7823, null, false);
         }
@@ -113,11 +96,6 @@ public final class LumbridgeDungeon extends MapZone implements Plugin<Object> {
             super.handleTickActions();
         }
 
-        /**
-         * Trigger.
-         *
-         * @param player the player
-         */
         public void trigger(final Player player) {
             boolean isProtected = hasHelmet(player);
             player.face(this);

@@ -14,6 +14,7 @@ import core.game.node.entity.npc.AbstractNPC;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.HintIconManager;
+import core.game.node.entity.player.link.diary.DiaryType;
 import core.game.node.entity.skill.Skills;
 import core.game.node.item.Item;
 import core.game.node.scenery.Scenery;
@@ -184,6 +185,9 @@ public final class FishingExplosivePlugin extends OptionHandler {
 
         @Override
         public void finalizeDeath(final Entity killer) {
+            if(killer instanceof Player){
+                finishDiaryTask(killer.asPlayer(), DiaryType.FALADOR, 2, 7);
+            }
             super.finalizeDeath(killer);
         }
 

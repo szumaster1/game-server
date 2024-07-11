@@ -1,5 +1,8 @@
 package content.global.skill.support.slayer;
 
+import content.global.skill.support.slayer.data.SlayerManager;
+import content.global.skill.support.slayer.data.SlayerMaster;
+import content.global.skill.support.slayer.data.Tasks;
 import core.ServerStore;
 import core.game.dialogue.Dialogue;
 import core.game.dialogue.FacialExpression;
@@ -26,7 +29,7 @@ public final class SlayerMasterDialogue extends Dialogue {
     private static final Item[] ITEMS = new Item[]{new Item(9813), new Item(9814)};
     private static final Item COINS = new Item(995, 99000);
 
-    private Master master;
+    private SlayerMaster master;
 
     private Quest quest;
 
@@ -50,10 +53,10 @@ public final class SlayerMasterDialogue extends Dialogue {
         if (args[0] instanceof NPC) {
             npc = (NPC) args[0];
         }
-        master = Master.forId(args[0] instanceof NPC ? ((NPC) args[0]).getId() : (int) args[0]);
+        master = SlayerMaster.forId(args[0] instanceof NPC ? ((NPC) args[0]).getId() : (int) args[0]);
         quest = player.getQuestRepository().getQuest("Animal Magnetism");
 
-        if (master == Master.DURADEL) {
+        if (master == SlayerMaster.DURADEL) {
             if (Skillcape.isMaster(player, Skills.SLAYER)) {
                 options("Ask about Skillcape", "Something else");
                 stage = 900;
@@ -61,7 +64,7 @@ public final class SlayerMasterDialogue extends Dialogue {
             }
         }
         interpreter.sendDialogues(master.getNpc(), getExpression(master), "'Ello, and what are you after, then?");
-        if (master == Master.VANNAKA) {
+        if (master == SlayerMaster.VANNAKA) {
             stage = -1;
         } else {
             stage = 0;
@@ -175,7 +178,7 @@ public final class SlayerMasterDialogue extends Dialogue {
                 }
                 break;
             case 0: // not vannaka
-                if (master == Master.TURAEL) { // only give option to talk about holy axe with Turael
+                if (master == SlayerMaster.TURAEL) { // only give option to talk about holy axe with Turael
                     if (quest.getStage(player) == 30) {
                         options("I need another assignment.", "Do you have anything for trade?", "Er...nothing...", "I'm here about a quest.");
                         stage = 700;
@@ -442,7 +445,7 @@ public final class SlayerMasterDialogue extends Dialogue {
                     stage = 844;
                     break;
                 }
-                if (Master.hasSameTask(master, player)) {
+                if (SlayerMaster.hasSameTask(master, player)) {
                     interpreter.sendDialogues(master.getNpc(), getExpression(master), "You're still hunting something. But let me check something...");
                     stage = 847;
                 } else {
@@ -533,7 +536,7 @@ public final class SlayerMasterDialogue extends Dialogue {
                 }
                 break;
             case 901:
-                interpreter.sendDialogues(Master.DURADEL.getNpc(), FacialExpression.HALF_GUILTY, "Certainly! Right when you give me 99000 coins.");
+                interpreter.sendDialogues(SlayerMaster.DURADEL.getNpc(), FacialExpression.HALF_GUILTY, "Certainly! Right when you give me 99000 coins.");
                 stage = 902;
                 break;
             case 902:
@@ -553,7 +556,7 @@ public final class SlayerMasterDialogue extends Dialogue {
                 break;
             case 904:
                 if (Skillcape.purchase(player, Skills.SLAYER)) {
-                    interpreter.sendDialogues(Master.DURADEL.getNpc(), FacialExpression.HALF_GUILTY, "There you go! Enjoy.");
+                    interpreter.sendDialogues(SlayerMaster.DURADEL.getNpc(), FacialExpression.HALF_GUILTY, "There you go! Enjoy.");
                 }
                 stage = 999;
                 break;
@@ -611,8 +614,8 @@ public final class SlayerMasterDialogue extends Dialogue {
         return true;
     }
 
-    private FacialExpression getExpression(Master master) {
-        if (master == Master.CHAELDAR) {
+    private FacialExpression getExpression(SlayerMaster master) {
+        if (master == SlayerMaster.CHAELDAR) {
             return FacialExpression.OLD_NORMAL;
         }
         return FacialExpression.HALF_GUILTY;

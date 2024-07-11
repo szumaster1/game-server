@@ -1,8 +1,8 @@
 import core.api.consts.Items
 import content.data.consumables.Consumables
-import content.global.skill.support.slayer.Master
-import content.global.skill.support.slayer.SlayerManager
-import content.global.skill.support.slayer.Tasks
+import content.global.skill.support.slayer.data.SlayerMaster
+import content.global.skill.support.slayer.data.SlayerManager
+import content.global.skill.support.slayer.data.Tasks
 import core.api.IfaceSettingsBuilder
 import core.api.splitLines
 import core.api.utils.Vector
@@ -74,7 +74,7 @@ class APITests {
         manager.login(testPlayer2)
         manager = SlayerManager.getInstance(testPlayer)
         manager.flags.setPoints(20)
-        manager.flags.setMaster(Master.CHAELDAR)
+        manager.flags.setMaster(SlayerMaster.CHAELDAR)
         manager.flags.setTask(Tasks.SKELETAL_WYVERN)
         manager.flags.setTaskAmount(500)
 
@@ -118,7 +118,7 @@ class APITests {
         manager.flags.setTaskAmount(100)
         manager.flags.taskStreak = 4
         manager.flags.completedTasks = 4
-        manager.flags.setMaster(Master.MAZCHNA)
+        manager.flags.setMaster(SlayerMaster.MAZCHNA)
 
         while (manager.hasTask()) manager.decrementAmount(1)
         manager.flags.taskStreak += 1
@@ -133,7 +133,7 @@ class APITests {
             "Task was not cave bugs!"
         )
         Assertions.assertEquals(
-            Master.MAZCHNA,
+            SlayerMaster.MAZCHNA,
             manager.flags.getMaster(),
             "Master was not Mazchna!"
         )

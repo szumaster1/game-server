@@ -1,9 +1,9 @@
 package core.game.system.command.sets
 
-import content.global.skill.support.slayer.Master
-import content.global.skill.support.slayer.SlayerManager
+import content.global.skill.support.slayer.data.SlayerMaster
+import content.global.skill.support.slayer.data.SlayerManager
 import content.global.skill.support.slayer.SlayerUtils
-import content.global.skill.support.slayer.Tasks
+import content.global.skill.support.slayer.data.Tasks
 import core.game.node.entity.npc.NPC
 import core.game.system.command.Privilege
 import core.plugin.Initializable
@@ -56,7 +56,7 @@ class SlayerCommandSet : CommandSet(Privilege.ADMIN) {
                 ?.let { if (it !in 1..255) reject(player, "Amount must be an integer: 1-255.") else it } as Int?
 
             val slayer = SlayerManager.getInstance(player)
-            if (slayer.hasTask()) slayer.task = task else SlayerUtils.assign(player, task, Master.values().random())
+            if (slayer.hasTask()) slayer.task = task else SlayerUtils.assign(player, task, SlayerMaster.values().random())
             if (amount != null) slayer.amount = amount
             setVarp(player, 2502, slayer.flags.taskFlags shr 4)
         }

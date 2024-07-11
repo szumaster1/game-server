@@ -1,6 +1,7 @@
 package content.global.skill.support.slayer
 
 import content.global.skill.skillcape.SkillcapePerks
+import content.global.skill.support.slayer.data.SlayerManager
 import core.api.EquipmentSlot
 import core.api.consts.Items
 import core.api.getAttribute

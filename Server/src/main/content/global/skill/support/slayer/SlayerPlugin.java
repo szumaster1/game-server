@@ -13,7 +13,6 @@ import core.plugin.Plugin;
 
 import static core.api.ContentAPIKt.hasRequirement;
 
-
 /**
  * The Slayer plugin.
  */

@@ -1,7 +1,7 @@
 package content.global.skill.support.slayer.npc;
 
 import content.global.skill.support.slayer.SlayerEquipmentFlags;
-import content.global.skill.support.slayer.Tasks;
+import content.global.skill.support.slayer.data.Tasks;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.*;
 import core.game.node.entity.npc.AbstractNPC;

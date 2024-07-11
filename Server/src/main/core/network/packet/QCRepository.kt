@@ -1,6 +1,6 @@
 package core.network.packet
 
-import content.global.skill.support.slayer.SlayerManager
+import content.global.skill.support.slayer.data.SlayerManager
 import core.api.*
 import core.cache.Cache
 import core.cache.def.impl.DataMap
@@ -64,7 +64,7 @@ object QCRepository {
     @JvmStatic
     fun getStandardQC(player: Player?, index: Int): String{
         var qcString = getQCString(index)
-        
+
         //XP to next level
         if (qcString.contains("to get my next")) {
             val split = qcString.split(" ")
@@ -92,7 +92,7 @@ object QCRepository {
                 qcString = qcString.replace("complete", "$amount $taskName")
             }
         }
-        
+
         return qcString
     }
 

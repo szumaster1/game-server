@@ -1,6 +1,6 @@
 package content.global.skill.support.slayer.npc;
 
-import content.global.skill.support.slayer.Tasks;
+import content.global.skill.support.slayer.data.Tasks;
 import core.game.node.entity.combat.spell.CombatSpell;
 import core.game.node.entity.npc.AbstractNPC;
 import core.game.node.entity.player.link.SpellBookManager.SpellBook;

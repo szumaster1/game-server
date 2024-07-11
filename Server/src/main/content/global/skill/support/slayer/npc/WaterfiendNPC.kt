@@ -1,5 +1,6 @@
-package content.global.skill.support.slayer
+package content.global.skill.support.slayer.npc
 
+import content.global.skill.support.slayer.data.Tasks
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.CombatStyle
 import core.game.node.entity.combat.CombatSwingHandler
@@ -11,7 +12,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
 import core.game.world.update.flag.context.Animation
 
-class WaterfiendNPC : NPCBehavior(*Tasks.WATERFIENDS.ids) {
+class WaterfiendNPC : NPCBehavior(*Tasks.WATERFIENDS.npcs) {
 
     private val combatHandler = MultiSwingHandler(true,
         SwitchAttack(CombatStyle.MAGIC.swingHandler, Animation(1581, Priority.HIGH), null, null, Projectile.create(null as Entity?, null, 500, 15, 30, 50, 50, 14, 255)),

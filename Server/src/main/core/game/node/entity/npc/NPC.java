@@ -1,7 +1,7 @@
 package core.game.node.entity.npc;
 
 import content.global.skill.combat.summoning.familiar.Familiar;
-import content.global.skill.support.slayer.Tasks;
+import content.global.skill.support.slayer.data.Tasks;
 import core.api.utils.GlobalKillCounter;
 import core.api.utils.Vector;
 import core.cache.def.impl.NPCDefinition;
@@ -137,7 +137,7 @@ public class NPC extends Entity {
 	 * If the npc can never walk.
 	 */
 	private boolean neverWalks;
-	
+
 	/**
 	 * The force talk string.
 	 */
@@ -356,7 +356,7 @@ public class NPC extends Entity {
 			return false;
 		}
 		Shops.getShopsByNpc().get(id).openFor(player);
-		
+
 		//Fix for issue #11 for shops keeping dialogue open.
 		Dialogue dialogue = player.getDialogueInterpreter().getDialogue();
 		if (dialogue != null)
@@ -473,7 +473,7 @@ public class NPC extends Entity {
 						&& walkRadius <= 20
 						&& !getLocation().withinDistance(getProperties().getSpawnLocation(), (int)(walkRadius * 1.5))
 						&& !getAttribute("no-spawn-return", false)
-					)	
+					)
 				{
 					MovementPulse current = getAttribute("return-to-spawn-pulse");
 					if (current != null && current.isRunning()) return;
@@ -698,7 +698,7 @@ public class NPC extends Entity {
 				getProperties().setSpell((CombatSpell) SpellBookManager.SpellBook.MODERN.getSpell(spell));
 				getProperties().setAutocastSpell((CombatSpell) SpellBookManager.SpellBook.MODERN.getSpell(spell));
 			}
-		} 
+		}
 		task = Tasks.forId(getId());
 	}
 

@@ -156,7 +156,7 @@ open class MeleeSwingHandler (vararg flags: SwingHandlerFlag): CombatSwingHandle
             val amuletId = getItemFromEquipment(entity, EquipmentSlot.NECK)?.id ?: 0
             if ((amuletId == Items.SALVE_AMULET_4081 || amuletId == Items.SALVE_AMULETE_10588) && checkUndead(victimName)) {
                 effectiveAttackLevel *= if (amuletId == Items.SALVE_AMULET_4081) 1.15 else 1.2
-            } else if (getSlayerTask(entity)?.ids?.contains((entity.properties.combatPulse?.getVictim()?.id ?: 0)) == true) {
+            } else if (getSlayerTask(entity)?.npcs?.contains((entity.properties.combatPulse?.getVictim()?.id ?: 0)) == true) {
                 effectiveAttackLevel *= SlayerEquipmentFlags.getDamAccBonus(entity) //Slayer Helm/ Black Mask/ Slayer cape
                 if (getSlayerTask(entity)?.dragon == true && inEquipment(entity, Items.DRAGON_SLAYER_GLOVES_12862))
                     effectiveAttackLevel *= 1.1
@@ -191,7 +191,7 @@ open class MeleeSwingHandler (vararg flags: SwingHandlerFlag): CombatSwingHandle
 
         cumulativeStr *= getSetMultiplier(entity, Skills.STRENGTH)
 
-        if(entity is Player && getSlayerTask(entity)?.ids?.contains((entity.properties.combatPulse?.getVictim()?.id ?: 0)) == true)
+        if(entity is Player && getSlayerTask(entity)?.npcs?.contains((entity.properties.combatPulse?.getVictim()?.id ?: 0)) == true)
             cumulativeStr *= SlayerEquipmentFlags.getDamAccBonus(entity) //Slayer helm/black mask/skillcape
 
         /*

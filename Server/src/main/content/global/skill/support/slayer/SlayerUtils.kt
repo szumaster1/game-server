@@ -1,5 +1,8 @@
 package content.global.skill.support.slayer
 
+import content.global.skill.support.slayer.data.SlayerManager
+import content.global.skill.support.slayer.data.SlayerMaster
+import content.global.skill.support.slayer.data.Tasks
 import core.api.consts.Items
 import core.api.setVarp
 import core.game.node.entity.combat.BattleState
@@ -10,12 +13,12 @@ import core.game.node.entity.skill.Skills
 import core.tools.RandomFunction
 
 object SlayerUtils {
-    fun generate(player: Player, master: Master): Tasks? {
-        val tasks: MutableList<Master.Task?> = ArrayList(10)
+    fun generate(player: Player, master: SlayerMaster): Tasks? {
+        val tasks: MutableList<SlayerMaster.Task?> = ArrayList(10)
         val taskWeightSum = intArrayOf(0)
-        master.tasks.stream().filter { task: Master.Task ->
+        master.tasks.stream().filter { task: SlayerMaster.Task ->
             canBeAssigned(player, task.task) && task.task.combatCheck <= player.properties.currentCombatLevel
-        }.forEach { task: Master.Task ->
+        }.forEach { task: SlayerMaster.Task ->
             taskWeightSum[0] += task.weight
             tasks.add(task)
         }
@@ -35,14 +38,14 @@ object SlayerUtils {
         )
     }
 
-    fun assign(player: Player, task: Tasks, master: Master) {
+    fun assign(player: Player, task: Tasks, master: SlayerMaster) {
         SlayerManager.getInstance(player).master = master
         SlayerManager.getInstance(player).task = task
         SlayerManager.getInstance(player).amount =
-            RandomFunction.random(master.assignment_range[0], master.assignment_range[1])
-        if (master == Master.DURADEL) {
+            RandomFunction.random(master.assigmentCount[0], master.assigmentCount[1])
+        if (master == SlayerMaster.DURADEL) {
             player.achievementDiaryManager.finishTask(player, DiaryType.KARAMJA, 2, 8)
-        } else if (master == Master.VANNAKA) {
+        } else if (master == SlayerMaster.VANNAKA) {
             player.achievementDiaryManager.finishTask(player, DiaryType.VARROCK, 1, 14)
         }
         setVarp(player, 2502, SlayerManager.getInstance(player).flags.taskFlags shr 4)

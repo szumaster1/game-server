@@ -85,7 +85,7 @@ class WaterOrbGrapple : OptionHandler() {
                             13 -> player.properties.teleportLocation = destination
                             14 -> {
                                 player.unlock()
-                                finishDiaryTask(player, DiaryType.SEERS_VILLAGE, 2, 10)
+                                player.achievementDiaryManager.finishTask(player, DiaryType.SEERS_VILLAGE, 2, 10)
                                 return true
                             }
                         }
