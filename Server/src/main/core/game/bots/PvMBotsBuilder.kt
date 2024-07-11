@@ -1,8 +1,8 @@
 package core.game.bots
 
-import core.game.world.map.Location
 import content.minigame.pestcontrol.bots.PestControlTestBot
 import content.minigame.pestcontrol.bots.PestControlTestBot2
+import core.game.world.map.Location
 
 // import sun.util.resources.CalendarData;
 class PvMBotsBuilder {

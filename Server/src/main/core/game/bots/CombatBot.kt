@@ -11,14 +11,14 @@ import content.data.consumables.Consumables
 import core.game.consumable.Food
 import content.data.consumables.effects.HealingEffect
 import core.game.node.entity.skill.Skills
-import java.util.*
+import kotlin.random.Random
 
 class CombatBot(location: Location) : AIPlayer(location) {
     var tick = 0
 
     override fun updateRandomValues() {
         appearance.gender = if (RandomFunction.random(5) == 1) Gender.FEMALE else Gender.MALE
-        setDirection(Direction.values()[Random().nextInt(Direction.values().size)]) //Random facing dir
+        setDirection(Direction.values()[Random.nextInt(Direction.values().size)]) //Random facing dir
         skills.updateCombatLevel()
         appearance.sync()
     }

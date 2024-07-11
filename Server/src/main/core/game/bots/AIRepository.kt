@@ -1,9 +1,9 @@
 package core.game.bots
 
+import content.global.bots.Adventurer
+import core.game.ge.GrandExchangeOffer
 import core.game.node.entity.player.Player
 import core.game.node.item.GroundItem
-import core.game.ge.GrandExchangeOffer
-import content.global.bots.*
 
 /**
  * A repository for bots to make use of that can contain any info that might be useful to them.
