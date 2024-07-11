@@ -470,7 +470,7 @@ public final class SlayerMasterDialogue extends Dialogue {
             case 845:
                 switch (buttonId) {
                     case 1:
-                        interpreter.sendDialogues(master.getNpc(), getExpression(master), SlayerManager.getInstance(player).getTask().getTip());
+                        player("Got any tips for me?");
                         stage = 860;
                         break;
                     case 2:
@@ -520,6 +520,10 @@ public final class SlayerMasterDialogue extends Dialogue {
                 }
                 break;
             case 860:
+                interpreter.sendDialogues(master.getNpc(), getExpression(master), SlayerManager.getInstance(player).getTask().getTip());
+                stage = 861;
+                break;
+            case 861:
                 player("Great, thanks!");
                 stage = 999;
                 break;

@@ -7,13 +7,15 @@ import core.game.node.item.Item
 
 enum class LightSource(val level: Int, val raw: Item, val product: Item, val open: Boolean, val interfaceId: Int) {
     CANDLE(
-        level = 1, Item(Items.CANDLE_36, 1),
+        level = 1,
+        raw = Item(Items.CANDLE_36, 1),
         product = Item(Items.LIT_CANDLE_33, 1),
         open = true,
         interfaceId = Components.DARKNESS_MEDIUM_98
     ),
     BLACK_CANDLE(
-        level = 1, Item(Items.BLACK_CANDLE_38, 1),
+        level = 1,
+        raw = Item(Items.BLACK_CANDLE_38, 1),
         product = Item(Items.LIT_BLACK_CANDLE_32, 1),
         open = true,
         interfaceId = Components.DARKNESS_MEDIUM_98
@@ -45,6 +47,13 @@ enum class LightSource(val level: Int, val raw: Item, val product: Item, val ope
         product = Item(Items.OIL_LANTERN_4539, 1),
         open = false,
         interfaceId = Components.DARKNESS_LIGHT_97
+    ),
+    BUG_LANTERN(
+        level = 33,
+        raw = Item(Items.UNLIT_BUG_LANTERN_7051, 1),
+        product = Item(Items.LIT_BUG_LANTERN_7053, 1),
+        open = true,
+        interfaceId = -1
     ),
     BULLSEYE_LANTERN(
         level = 49,
@@ -98,10 +107,10 @@ enum class LightSource(val level: Int, val raw: Item, val product: Item, val ope
         @JvmStatic
         fun getActiveLightSource(player: Player): LightSource? {
             for (item in player.inventory.toArray()) {
-                item?.let { forProductId(it.id)?.let { return it } }
+                item?.let { it -> forProductId(it.id)?.let { return it } }
             }
             for (item in player.equipment.toArray()) {
-                item?.let { forProductId(it.id)?.let { return it } }
+                item?.let { it -> forProductId(it.id)?.let { return it } }
             }
             return null
         }
