@@ -44,7 +44,7 @@ class DisplayModel : OutgoingPacket<DisplayModelContext> {
             }
             else -> return
         }
-        buffer.cypherOpcode(context.player.session.isaacPair.output)
+        buffer.cypherOpcode(context.player.session.isaacPair!!.output)
         context.player.session.write(buffer)
     }
 }

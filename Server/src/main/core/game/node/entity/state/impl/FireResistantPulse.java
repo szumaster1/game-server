@@ -23,9 +23,9 @@ public class FireResistantPulse extends StatePulse {
 	 * The current tick.
 	 */
 	private int currentTick;
-	
+
 	/**
-	 * If the potion is an extended antifire.
+	 * If the potion is an extended anti-fire.
 	 */
 	private boolean extended;
 

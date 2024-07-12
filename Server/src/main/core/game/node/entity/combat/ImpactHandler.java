@@ -23,7 +23,6 @@ import java.util.stream.Collectors;
 
 /**
  * Class used for handling combat impacts.
- *
  * @author Emperor
  */
 public final class ImpactHandler {

@@ -103,29 +103,20 @@ class TradeModule(player: Player?, target: Player?) : RequestModule {
         when (stage) {
             0 -> {
                 for (i in HIDDEN_CHILDS) {
-                    player!!.packetDispatch.sendString("", MAIN_INTERFACE.id, i)
+                    setInterfaceText(player!!, "", MAIN_INTERFACE.id, i)
                 }
-                player!!.packetDispatch.sendString("Trading With: " + target!!.username, 335, 15)
-                player!!.packetDispatch.sendString(
-                    target!!.username + " has " + (if (target!!.inventory.freeSlots() == 0) "no" else target!!.inventory.freeSlots()) + " free inventory slots.",
-                    335,
-                    21
-                )
-                player!!.packetDispatch.sendString(acceptMessage, 335, 36)
+                setInterfaceText(player!!,"Trading With: " + target!!.username, 335, 15)
+                setInterfaceText(player!!, target!!.username + " has " + (if (target!!.inventory.freeSlots() == 0) "no" else target!!.inventory.freeSlots()) + " free inventory slots.", 335, 21)
+                setInterfaceText(player!!, acceptMessage, 335, 36)
             }
 
             1 -> {
-                player!!.packetDispatch.sendString(
-                    "<col=00FFFF>Trading with:<br>" + "<col=00FFFF>" + target!!.username.substring(
-                        0,
-                        1
-                    ).uppercase() + target!!.username.substring(1), 334, 2
-                )
+                setInterfaceText(player!!, "<col=00FFFF>Trading with:<br>" + "<col=00FFFF>" + target!!.username.substring(0, 1).uppercase() + target!!.username.substring(1), 334, 2)
                 val acceptMessage = acceptMessage
                 if (acceptMessage !== "") {
-                    player!!.packetDispatch.sendString(acceptMessage, 334, 33)
+                    setInterfaceText(player!!, acceptMessage, 334, 33)
                 }
-                player!!.interfaceManager.restoreTabs()
+                restoreTabs(player!!)
             }
         }
         displayModified(stage)
@@ -186,8 +177,8 @@ class TradeModule(player: Player?, target: Player?) : RequestModule {
      * Method used to decline this offer.
      */
     fun decline() {
-        player!!.interfaceManager.close()
-        target!!.packetDispatch.sendMessage("<col=FF0000>Other player has declined trade!</col>")
+        closeInterface(player!!)
+        sendMessage(target!!, "<col=FF0000>Other player has declined trade!</col>")
     }
 
     /**

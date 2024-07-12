@@ -1,58 +1,58 @@
 package core.network.packet
 
-import core.game.event.ButtonClickEvent
+import content.global.handlers.iface.ge.StockMarketInterfaceListener
+import content.global.skill.combat.magic.SpellListener
+import content.global.skill.combat.magic.SpellListeners
+import content.global.skill.combat.magic.SpellUtils
+import content.global.skill.combat.summoning.familiar.FamiliarSpecial
+import core.ServerConstants
+import core.api.*
+import core.api.consts.Components
+import core.api.utils.Vector
 import core.cache.def.impl.ItemDefinition
 import core.cache.def.impl.NPCDefinition
 import core.cache.def.impl.SceneryDefinition
 import core.game.container.Container
 import core.game.container.impl.BankContainer
-import core.game.node.Node
-import core.game.node.entity.player.Player
-import core.game.node.entity.player.info.Rights
-import core.game.node.entity.player.info.login.LoginConfiguration
-import core.game.node.entity.player.link.SpellBookManager
-import core.game.node.entity.combat.spell.MagicSpell
-import content.global.skill.combat.summoning.familiar.FamiliarSpecial
-import core.game.node.item.GroundItemManager
-import core.game.node.item.Item
-import core.game.node.scenery.Scenery
-import core.game.system.communication.ClanRank
-import core.game.system.communication.CommunicationInfo
-import core.game.system.task.Pulse
-import core.game.world.map.Location
-import core.game.world.map.RegionManager
-import core.game.world.update.flag.context.ChatMessage
-import core.game.world.update.flag.*
-import core.network.amsc.MSPacketRepository
-import core.network.packet.context.PlayerContext
-import core.network.packet.outgoing.ClearMinimapFlag
-import proto.management.ClanMessage
-import proto.management.JoinClanRequest
-import proto.management.LeaveClanRequest
-import core.ServerConstants
+import core.game.event.ButtonClickEvent
 import core.game.ge.GrandExchange.Companion.getOfferStats
 import core.game.ge.GrandExchange.Companion.getRecommendedPrice
 import core.game.ge.GrandExchangeOffer
 import core.game.ge.PriceIndex
-import content.global.handlers.iface.ge.StockMarketInterfaceListener
-import content.global.skill.combat.magic.SpellListener
-import content.global.skill.combat.magic.SpellListeners
-import content.global.skill.combat.magic.SpellUtils
-import core.api.*
+import core.game.global.report.Rule
 import core.game.interaction.*
+import core.game.node.Node
+import core.game.node.entity.combat.spell.MagicSpell
+import core.game.node.entity.player.Player
 import core.game.node.entity.player.info.LogType
 import core.game.node.entity.player.info.PlayerMonitor
+import core.game.node.entity.player.info.Rights
+import core.game.node.entity.player.info.login.LoginConfiguration
+import core.game.node.entity.player.link.SpellBookManager
+import core.game.node.item.GroundItemManager
+import core.game.node.item.Item
+import core.game.node.scenery.Scenery
 import core.game.system.command.CommandSystem
+import core.game.system.communication.ClanRank
+import core.game.system.communication.CommunicationInfo
 import core.game.system.communication.GlobalChat
+import core.game.system.task.Pulse
 import core.game.world.GameWorld
+import core.game.world.map.Location
+import core.game.world.map.RegionManager
 import core.game.world.repository.Repository
+import core.game.world.update.flag.EntityFlag
+import core.game.world.update.flag.context.ChatMessage
+import core.network.amsc.MSPacketRepository
+import core.network.packet.context.PlayerContext
 import core.network.packet.incoming.Packet
 import core.network.packet.incoming.RunScript
+import core.network.packet.outgoing.ClearMinimapFlag
 import core.tools.Log
 import core.worker.ManagementEvents
-import core.api.utils.Vector
-import core.game.global.report.Rule
-import core.api.consts.Components
+import proto.management.ClanMessage
+import proto.management.JoinClanRequest
+import proto.management.LeaveClanRequest
 import java.io.PrintWriter
 import java.io.StringWriter
 import java.lang.Math.min
@@ -298,9 +298,9 @@ object PacketProcessor {
         when(pkt) {
             is Packet.TrackingFocus -> {}
             is Packet.TrackingDisplayUpdate -> {
-                pkt.player.session.clientInfo.screenWidth = pkt.screenWidth
-                pkt.player.session.clientInfo.screenHeight = pkt.screenHeight
-                pkt.player.session.clientInfo.displayMode = pkt.displayMode
+                pkt.player.session.clientInfo!!.screenWidth = pkt.screenWidth
+                pkt.player.session.clientInfo!!.screenHeight = pkt.screenHeight
+                pkt.player.session.clientInfo!!.displayMode = pkt.displayMode
                 pkt.player.interfaceManager.switchWindowMode(pkt.windowMode)
             }
             is Packet.TrackingAfkTimeout -> {

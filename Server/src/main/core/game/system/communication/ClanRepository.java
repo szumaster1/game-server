@@ -146,7 +146,7 @@ public final class ClanRepository {
     /**
      * Cleans the chat from all players that shouldn't be in it.
      *
-     * @param disable the disable
+     * @param disable to disable
      */
     public void clean(boolean disable) {
         if (WorldCommunicator.isEnabled()) {

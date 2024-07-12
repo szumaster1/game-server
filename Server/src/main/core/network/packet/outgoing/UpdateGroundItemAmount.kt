@@ -15,16 +15,12 @@ class UpdateGroundItemAmount : OutgoingPacket<BuildItemContext> {
         val player = context.player
         val item = context.item
         val buffer = write(UpdateAreaPosition.getBuffer(player, item.location.chunkBase), item, context.oldAmount)
-        buffer.cypherOpcode(context.player.session.isaacPair.output)
+        buffer.cypherOpcode(context.player.session.isaacPair!!.output)
         player.details.session.write(buffer)
     }
 
     companion object {
-        /**
-         * Writes the packet.
-         * @param buffer The buffer.
-         * @param item The item.
-         */
+
         @JvmStatic
         fun write(buffer: IoBuffer, item: Item, oldAmount: Int): IoBuffer {
             val l = item.location

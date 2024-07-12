@@ -37,7 +37,7 @@ class LoginParser(val details: PlayerDetails) {
                     if (details.session.isActive) {
                         loginListeners.forEach(Consumer { listener: LoginListener -> listener.login(player) }) //Run our login hooks
                         parser.runContentHooks() //Run our saved-content-parsing hooks
-                        player.details.session.setObject(player)
+                        player.details.session.`object`=(player)
                         if (reconnect) {
                             reconnect(player)
                         } else {

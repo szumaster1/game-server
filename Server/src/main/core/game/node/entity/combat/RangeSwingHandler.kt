@@ -44,7 +44,8 @@ open class RangeSwingHandler (vararg flags: SwingHandlerFlag): CombatSwingHandle
         if (entity is Player) {
             val rw = RangeWeapon.get(entity.equipment.getNew(EquipmentContainer.SLOT_WEAPON).id)
             if(rw != null && (rw.weaponType == WeaponType.DOUBLE_SHOT || rw.weaponType == WeaponType.DEGRADING)) {
-                // Dark bow and crystal bow have a 10-square range, independent of whether longrange stance is used
+                // Dark bow and crystal bow have a 10-square range,
+                // independent of whether longrange stance is used.
                 distance = 10
             }
         }

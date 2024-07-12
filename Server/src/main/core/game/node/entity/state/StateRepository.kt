@@ -19,7 +19,7 @@ class StateRepository : StartupListener{
                 val key = it.getAnnotationInfo("core.game.node.entity.state.PlayerState").parameterValues[0].value as String
                 val clazz = it.loadClass().newInstance()
                 if(clazz is State) {
-                    states.put(key, clazz)
+                    states[key] = clazz
                 }
             }
         }

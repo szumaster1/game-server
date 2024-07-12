@@ -2,10 +2,10 @@ package core.network.event
 
 import core.game.node.entity.player.info.ClientInfo
 import core.game.node.entity.player.info.PlayerDetails
+import core.game.world.GameWorld
 import core.network.IoReadEvent
 import core.network.IoSession
 import core.network.auth.AuthResponse
-import core.game.world.GameWorld
 import core.network.packet.incoming.Login
 import java.nio.ByteBuffer
 
@@ -14,6 +14,7 @@ import java.nio.ByteBuffer
  * @author Ceikry
  */
 class LoginReadEvent(session: IoSession?, buffer: ByteBuffer?) : IoReadEvent(session, buffer) {
+
     override fun read(session: IoSession, buffer: ByteBuffer) {
         try {
             val (response, info) = Login.decodeFromBuffer(buffer)

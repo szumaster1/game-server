@@ -3,18 +3,17 @@ package core.game.node.entity.player.info.login;
 /**
  * Represents a type of {@link LoginParser}
  *
- * @author 'Vexia
- * @date July -16-13
+ * @author Vexia 16.07.2013
  */
 public enum LoginType {
 
     /**
-     * Represents the <strong>Login</strong> type of a default connection.
+     * Represents the <strong>Login</strong> type of default connection.
      */
     NORMAL_LOGIN(16),
 
     /**
-     * Represents the <strong>Login</strong> type of a reconnection.
+     * Represents the <strong>Login</strong> type of reconnection.
      */
     RECONNECT_TYPE(18);
 

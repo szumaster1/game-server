@@ -34,7 +34,7 @@ class UpdateClanChat : OutgoingPacket<ClanContext> {
         } else {
             buffer.putLong(0)
         }
-        buffer.cypherOpcode(context.player.session.isaacPair.output)
+        buffer.cypherOpcode(context.player.session.isaacPair!!.output)
         context.player.session.write(buffer)
     }
 }

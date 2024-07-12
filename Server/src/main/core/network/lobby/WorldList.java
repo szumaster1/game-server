@@ -115,9 +115,6 @@ public final class WorldList {
 	 */
 	private static int updateStamp = 0;
 
-	/**
-	 * Populates the world list.
-	 */
 	static {
 		addWorld(new WorldDefinition(1, 0, FLAG_MEMBERS | FLAG_LOOTSHARE, "2009Scape Classic", "127.0.0.1", "Anywhere, USA", COUNTRY_USA));
 	}
@@ -133,8 +130,7 @@ public final class WorldList {
 
 	/**
 	 * Gets the packet to update the world list in the lobby.
-	 * @return The {@code OutgoingPacket} to write.
-	 */
+     */
 	public static void sendUpdate(IoSession session, int updateStamp) {
 		ByteBuffer buf = ByteBuffer.allocate(1024);
 		buf.put((byte) 0);

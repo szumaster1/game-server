@@ -22,7 +22,7 @@ import kotlin.system.exitProcess
 
 /**
  * Handles the running of pulses and writing of masks etc.
- * Author: Ceikry
+ * @author Ceikry
  */
 class MajorUpdateWorker {
     var running: Boolean = false

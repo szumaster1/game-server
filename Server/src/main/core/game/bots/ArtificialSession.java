@@ -11,14 +11,8 @@ import java.nio.ByteBuffer;
  */
 public final class ArtificialSession extends IoSession {
 
-    /**
-     * The artificial session singleton.
-     */
     private static final ArtificialSession SINGLETON = new ArtificialSession();
 
-    /**
-     * Constructs a new {@code ArtificialSession} {@code Object}.
-     */
     private ArtificialSession() {
         super(null, null);
     }
@@ -45,9 +39,6 @@ public final class ArtificialSession extends IoSession {
     public void disconnect() {
     }
 
-    /**
-     * @return the singleton.
-     */
     public static ArtificialSession getSingleton() {
         return SINGLETON;
     }

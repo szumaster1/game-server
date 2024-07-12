@@ -14,32 +14,17 @@ fun Milestones(player: Player): Int {
 
 
     if (combatLevel == 137 && player.skills.updateCombatLevel()) {
-        Graphic.send(
-            Graphic(
-                1636,
-                0,
-                50
-            ), player.location)
+        Graphic.send(Graphic(1636, 0, 50), player.location)
         sendMessage(player,"Congratulations! Your Combat level is now 138! You've achieved the highest Combat level possible!")
     }
 
     if (combatLevel == 125 && !GameWorld.settings!!.isMembers && player.skills.updateCombatLevel()) {
-        Graphic.send(
-            Graphic(
-                1636,
-                0,
-                50
-            ), player.location)
+        Graphic.send(Graphic(1636, 0, 50), player.location)
         sendMessage(player,"Congratulations! Your Combat level is now 126 - the highest possible Combat level on free worlds!")
     }
 
     if (totalLevelMilestones.contains(totalLevel)) {
-        Graphic.send(
-            Graphic(
-                1633,
-                0,
-                50
-            ), player.location)
+        Graphic.send(Graphic(1633, 0, 50), player.location)
         sendMessage(player,DARK_RED + "Well done! You've reached the total level $totalLevel milestone!")
     }
 

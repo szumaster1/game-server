@@ -7,8 +7,7 @@ import core.tools.RandomFunction
 
 /**
  * Handles combat swings with switching combat styles.
- * @author Emperor
- * @author Ceirky, Kotlin conversion
+ * @author Ceikry, Emperor
  */
 open class MultiSwingHandler(meleeDistance: Boolean, vararg attacks: SwitchAttack) : CombatSwingHandler(CombatStyle.RANGE) {
     /**

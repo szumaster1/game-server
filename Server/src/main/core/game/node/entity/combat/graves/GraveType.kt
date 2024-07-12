@@ -15,7 +15,7 @@ enum class GraveType(val npcId: Int, val cost: Int, val durationMinutes: Int, va
     BAND_SYMBOL(NPCs.BANDOS_SYMBOL_6592, 50000, 4, true, requiredQuest = "Land of the Goblins", text = "@name,<br>a vicious warrior dedicated to Bandos,<br>perished in this place. "),
     ARMA_SYMBOL(NPCs.ARMADYL_SYMBOL_6595, 50000, 4, true, requiredQuest = "Temple of Ikov", text = "@name,<br>a follower of the Law of Armadyl,<br>perished in this place."),
     ZARO_SYMBOL(NPCs.MEMORIAL_STONE_6598, 50000, 4, true, requiredQuest = "Desert Treasure", text = "@name,<br>servant of the Unknown Power,<br>perished in this place."),
-    ANGEL_DEATH(NPCs.MEMORIAL_STONE_6601, 500000, 5, true, text = "Ye frail mortals who gaze upon this sight,<br>forget not the fate of @name, once mighty, now<br>surrendered to the inescapable grasp of destiny.<br><i>Requiescat in pace.</i>");
+    ANGEL_DEATH(NPCs.MEMORIAL_STONE_6601, 500000, 5, true, text = "Ye frail mortals who gaze upon this sight,<br>forget not the fate of @name, once mighty, now<br>surrendered to the inescapable grasp of destiny.<br><i>Requires cat in pace.</i>");
 
     companion object {
         val ids = values().fold(ArrayList<Int>()) {list, type ->

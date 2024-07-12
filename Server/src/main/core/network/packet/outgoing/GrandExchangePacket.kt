@@ -26,7 +26,7 @@ class GrandExchangePacket : OutgoingPacket<GrandExchangeContext> {
                 .putInt(context.completedAmt).putInt(context.totalCoinsExchanged)
         }
         try {
-            buffer.cypherOpcode(context.player.session.isaacPair.output)
+            buffer.cypherOpcode(context.player.session.isaacPair!!.output)
             context.player.session.write(buffer)
         } catch (e: Exception) {
             // Do nothing

@@ -3,10 +3,10 @@ package core.network;
 import core.cache.crypto.ISAACPair;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.info.ClientInfo;
+import core.game.world.repository.Repository;
 import core.network.auth.AuthResponse;
 import core.network.producer.HSEventProducer;
 import core.network.producer.LoginEventProducer;
-import core.game.world.repository.Repository;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -329,7 +329,7 @@ public class IoSession {
 		}
 		return object instanceof Player ? ((Player) object) : null;
 	}
-	
+
 	/**
 	 * Gets the object.
 	 * @return the object.

@@ -13,7 +13,6 @@ import static core.api.ContentAPIKt.log;
 
 /**
  * Class used to abstract the process of loading a player save.
- *
  * @author Ceikry
  */
 public final class PlayerParser {

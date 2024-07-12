@@ -28,7 +28,7 @@ class HintIcon : OutgoingPacket<HintIconContext> {
             }
             buffer.putShort(context.modelId)
         }
-        buffer.cypherOpcode(context.player.session.isaacPair.output)
+        buffer.cypherOpcode(context.player.session.isaacPair!!.output)
         context.player.session.write(buffer)
     }
 }

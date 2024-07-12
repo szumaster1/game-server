@@ -19,14 +19,19 @@ open class SwitchAttack @JvmOverloads constructor(handler: CombatSwingHandler?, 
     @JvmField var maximumHit: Int = -1
 
     constructor(handler: CombatSwingHandler?, animation: Animation?, projectile: Projectile?) : this(
-        handler,
-        animation,
-        null,
-        null,
-        projectile
+        handler = handler,
+        animation = animation,
+        startGraphic = null,
+        endGraphic = null,
+        projectile = projectile
     )
 
-    constructor(style: CombatStyle) : this(style.swingHandler, null, null, null)
+    constructor(style: CombatStyle) : this(
+        handler = style.swingHandler,
+        animation = null,
+        startGraphic = null,
+        endGraphic = null
+    )
 
     init {
         this.handler = handler

@@ -19,8 +19,7 @@ import kotlin.math.floor
 
 /**
  * Handles a melee combat swing.
- * @author Emperor
- * @author Ceikry, Kotlin conversion + cleanup
+ * @author Ceikry, Emperor
  */
 open class MeleeSwingHandler (vararg flags: SwingHandlerFlag): CombatSwingHandler(CombatStyle.MELEE, *flags) {
 

@@ -16,7 +16,7 @@ class AnimateScenery : OutgoingPacket<AnimateSceneryContext> {
         val player = context.player
         val `object` = context.animation.getObject()
         val buffer = write(UpdateAreaPosition.getBuffer(player, `object`.location.chunkBase), context.animation)
-        buffer.cypherOpcode(context.player.session.isaacPair.output)
+        buffer.cypherOpcode(context.player.session.isaacPair!!.output)
         player.session.write(buffer)
     }
 

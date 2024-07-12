@@ -12,8 +12,7 @@ import kotlin.math.floor
 
 /**
  * Handles the magic combat swings.
- * @author Emperor
- * @author Ceikry, Kotlin conversion + cleanup
+ * @author Ceikry, Emperor
  */
 open class MagicSwingHandler (vararg flags: SwingHandlerFlag) : CombatSwingHandler(CombatStyle.MAGIC, *flags) {
 

@@ -9,7 +9,6 @@ import core.game.node.entity.combat.spell.CombatSpell;
 
 /**
  * Represents an entity's current battle state.
- *
  * @author Emperor
  */
 public final class BattleState {

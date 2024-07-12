@@ -18,7 +18,7 @@ public class PlayerDetails {
      * The Account info.
      */
     public UserAccountInfo accountInfo = UserAccountInfo.createDefault();
-	
+
 	/**
 	 * The communication info.
 	 */
