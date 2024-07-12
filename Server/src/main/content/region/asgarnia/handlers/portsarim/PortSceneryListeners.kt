@@ -1,6 +1,7 @@
 package content.region.asgarnia.handlers.portsarim
 
 import core.api.*
+import core.api.consts.Animations
 import core.api.consts.NPCs
 import core.api.consts.Scenery
 import core.game.global.action.ClimbActionHandler
@@ -37,54 +38,57 @@ class PortSceneryListeners : InteractionListener {
                 openDialogue(player, NPCs.KLARENSE_744, findNPC(NPCs.KLARENSE_744)!!, true)
             } else {
                 sendMessage(player,"You board the ship.")
-                cross(player, Location(3047, 3207, 1))
+                cross(player, Location(3047, 3207, 1)) // [2]
             }
             return@on true
         }
 
-        on(Scenery.GANGPLANK_11209, IntType.SCENERY, "cross"){ player, _ ->
+        on(Scenery.GANGPLANK_11209, IntType.SCENERY, "cross") { player, _ ->
             sendDialogueLines(player,"I don't think that whoever owns this ship will be happy", "with me wandering all over it.")
             return@on true
         }
 
         on(PLANK, IntType.SCENERY, "cross") { player, node ->
-            forceMove(player, player.location, node.location, 0, 30, null, 819)
-            if(getUsedOption(player) == "cross") when(node.id) {
-                2081 -> cross(player, KARAMJA[0])
-                2082 -> cross(player, KARAMJA[1])
-                2083 -> cross(player, PORT_SARIM[4])
-                2084 -> cross(player, PORT_SARIM[5])
-                2085 -> cross(player, ARDOUGNE[0]).also { sendMessage(player,"You must speak to Captain Barnaby before it will set sail.") }
-                2086 -> cross(player, ARDOUGNE[1])
-                2087 -> cross(player, BRIMHAVEN[2]).also { sendMessage(player, "You must speak to the Customs Officer before it will set sail.") }
-                2088 -> cross(player, BRIMHAVEN[3])
-                2412 -> cross(player, PORT_SARIM[0])
-                2413 -> cross(player, PORT_SARIM[1])
-                2414 -> cross(player, ENTRANA[0])
-                2415 -> cross(player, ENTRANA[1])
-                2594 -> cross(player, Location(3047, 3204, 0))
-                11211 -> cross(player, MOS_SHIP[0])
-                11212 -> cross(player, MOS_SHIP[1])
-                14304 -> cross(player, PORT_SARIM[6]).also { sendMessage(player,"You board the ship.") }
-                14305 -> cross(player, PORT_SARIM[7]).also { sendMessage(player,"You disembark the ship.") }
-                14306 -> cross(player, PEST_CONTROL[0]).also { sendMessage(player,"You board the ship.") }
-                14307 -> cross(player, PEST_CONTROL[1]).also { sendMessage(player,"You disembark the ship.") }
-                17392 -> cross(player, PORT_PHASMATYS[0])
-                17393 -> cross(player, PORT_PHASMATYS[1])
-                17394 -> cross(player, CATHERBY[0])
-                17395 -> cross(player, CATHERBY[1])
-                17398 -> cross(player, KARAMJA[2]).also { sendMessage(player,"You must speak to the Customs Officer before it will set sail.") }
-                17399 -> cross(player, KARAMJA[3]).also { sendMessage(player, "You must speak to the Customs Officer before it will set sail.") }
-                17400 -> cross(player, BRIMHAVEN[0])
-                17401 -> cross(player, BRIMHAVEN[1])
-                17402 -> cross(player, PORT_KHAZARD[0])
-                17403 -> cross(player, PORT_KHAZARD[1])
-                17404 -> cross(player, PORT_SARIM[3])
-                17405 -> cross(player, PORT_SARIM[2])
-                17406 -> cross(player, MOS_LE_HARMESS[0])
-                17407 -> cross(player, MOS_LE_HARMESS[1])
-                17408 -> cross(player, TYRAS[0])
-                17409 -> cross(player, TYRAS[1])
+            forceMove(player, player.location, node.location, 0, animationDuration(Animation(Animations.HUMAN_WALK_SHORT_819)), null, Animations.HUMAN_WALK_SHORT_819)
+            if (getUsedOption(player) == "cross") {
+                when (node.id) {
+                    2081 -> cross(player, KARAMJA[0])
+                    2082 -> cross(player, KARAMJA[1])
+                    2083 -> cross(player, PORT_SARIM[4])
+                    2084 -> cross(player, PORT_SARIM[5])
+                    2085 -> cross(player, ARDOUGNE[0]).also { sendMessage(player, "You must speak to Captain Barnaby before it will set sail.") }
+                    2086 -> cross(player, ARDOUGNE[1])
+                    2087 -> cross(player, BRIMHAVEN[2]).also { sendMessage(player, "You must speak to the Customs Officer before it will set sail.") }
+                    2088 -> cross(player, BRIMHAVEN[3])
+                    2412 -> cross(player, PORT_SARIM[0])
+                    2413 -> cross(player, PORT_SARIM[1])
+                    2414 -> cross(player, ENTRANA[0])
+                    2415 -> cross(player, ENTRANA[1])
+                    2594 -> cross(player, Location(3047, 3204, 0)) // [1]
+                    11211 -> cross(player, MOS_SHIP[0])
+                    11212 -> cross(player, MOS_SHIP[1])
+                    14304 -> cross(player, PORT_SARIM[6]).also { sendMessage(player, "You board the ship.") }
+                    14305 -> cross(player, PORT_SARIM[7]).also { sendMessage(player, "You disembark the ship.") }
+                    14306 -> cross(player, PEST_CONTROL[0]).also { sendMessage(player, "You board the ship.") }
+                    14307 -> cross(player, PEST_CONTROL[1]).also { sendMessage(player, "You disembark the ship.") }
+                    17392 -> cross(player, PORT_PHASMATYS[0])
+                    17393 -> cross(player, PORT_PHASMATYS[1])
+                    17394 -> cross(player, CATHERBY[0])
+                    17395 -> cross(player, CATHERBY[1])
+                    17398 -> cross(player, KARAMJA[2]).also { sendMessage(player, "You must speak to the Customs Officer before it will set sail.") }
+                    17399 -> cross(player, KARAMJA[3]).also { sendMessage(player, "You must speak to the Customs Officer before it will set sail.") }
+                    17400 -> cross(player, BRIMHAVEN[0])
+                    17401 -> cross(player, BRIMHAVEN[1])
+                    17402 -> cross(player, PORT_KHAZARD[0])
+                    17403 -> cross(player, PORT_KHAZARD[1])
+                    17404 -> cross(player, PORT_SARIM[3])
+                    17405 -> cross(player, PORT_SARIM[2])
+                    17406 -> cross(player, MOS_LE_HARMESS[0])
+                    17407 -> cross(player, MOS_LE_HARMESS[1])
+                    17408 -> cross(player, TYRAS[0])
+                    17409 -> cross(player, TYRAS[1])
+                    else -> sendDialogueLines(player,"I don't think that whoever owns this ship will be happy", "with me wandering all over it.")
+                }
             }
             return@on true
         }
@@ -105,12 +109,10 @@ class PortSceneryListeners : InteractionListener {
         private val MOS_LE_HARMESS = arrayOf(Location(3668, 2931, 1), Location(3671, 2931, 0))
         private val MOS_SHIP = arrayOf(Location(3684, 2950, 1), Location(3684, 2953, 0))
         private val TYRAS = arrayOf(Location(2142, 3125, 1), Location(2142, 3122, 0))
-
         /*
          * 17.07.2009
          */
         fun cross(player: Player, location: Location?) {
-            stopWalk(player)
             queueScript(player, 1, QueueStrength.STRONG) {
                 player.properties.teleportLocation = location
                 return@queueScript stopExecuting(player)

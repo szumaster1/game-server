@@ -15,12 +15,12 @@ import core.game.world.update.flag.context.Animation
 class MiscellaniaShortcut : InteractionListener {
 
     /*
-        Broken pier shortcut between Miscellania and Etceteria.
-    */
+     * Broken pier shortcut between Miscellania and Etceteria.
+     */
 
     override fun defineListeners() {
         on(Scenery.BROKEN_PIER_41531, IntType.SCENERY, "step") { player, _ ->
-            if (!player.achievementDiaryManager.getDiary(DiaryType.FREMENNIK).isComplete(1, true)) {
+            if (!isDiaryComplete(player, DiaryType.FREMENNIK, 1)) {
                 sendMessage(player, "You must complete the medium Fremennik diary to use this shortcut.")
                 return@on true
             }
@@ -34,18 +34,28 @@ class MiscellaniaShortcut : InteractionListener {
                     when (stage) {
                         0 -> {
                             AgilityHandler.forceWalk(
-                                player, -1, location(2572, 3862, 0),
-                                Location.create(2573, 3862, 0),
-                                Animation.create(Animations.JUMP_BRIDGE_769), 15, 0.0, null
+                                player,
+                                -1,
+                                Location(2572, 3862, 0),
+                                Location(2573, 3862, 0),
+                                Animation(Animations.JUMP_BRIDGE_769),
+                                animationCycles(Animations.JUMP_BRIDGE_769),
+                                0.0,
+                                null
                             )
-                            return@queueScript delayScript(player, 3)
+                            return@queueScript keepRunning(player)
                         }
 
                         1 -> {
                             AgilityHandler.forceWalk(
-                                player, -1, location(2573, 3862, 0),
-                                Location.create(2576, 3862, 0),
-                                Animation.create(Animations.JUMP_OVER_OBSTACLE_6132), 10, 0.0, null
+                                player,
+                                -1,
+                                Location(2573, 3862, 0),
+                                Location(2576, 3862, 0),
+                                Animation(Animations.JUMP_OVER_OBSTACLE_6132),
+                                animationCycles(Animations.JUMP_OVER_OBSTACLE_6132),
+                                0.0,
+                                null
                             )
                             return@queueScript stopExecuting(player)
                         }
@@ -58,18 +68,28 @@ class MiscellaniaShortcut : InteractionListener {
                     when (stage) {
                         0 -> {
                             AgilityHandler.forceWalk(
-                                player, -1, location(2576, 3862, 0),
-                                location(2573, 3862, 0),
-                                Animation.create(Animations.JUMP_OVER_OBSTACLE_6132), 10, 0.0, null
+                                player,
+                                -1,
+                                Location(2576, 3862, 0),
+                                Location(2573, 3862, 0),
+                                Animation(Animations.JUMP_OVER_OBSTACLE_6132),
+                                animationCycles(Animations.JUMP_OVER_OBSTACLE_6132),
+                                0.0,
+                                null
                             )
-                            return@queueScript delayScript(player, 3)
+                            return@queueScript keepRunning(player)
                         }
 
                         1 -> {
                             AgilityHandler.forceWalk(
-                                player, -1, location(2573, 3862, 0),
+                                player,
+                                -1,
+                                location(2573, 3862, 0),
                                 location(2572, 3862, 0),
-                                Animation.create(Animations.JUMP_BRIDGE_769), 15, 0.0, null
+                                Animation(Animations.JUMP_BRIDGE_769),
+                                animationCycles(Animations.JUMP_BRIDGE_769),
+                                0.0,
+                                null
                             )
                             return@queueScript stopExecuting(player)
                         }
@@ -85,11 +105,12 @@ class MiscellaniaShortcut : InteractionListener {
 
     override fun defineDestinationOverrides() {
         setDest(IntType.SCENERY, intArrayOf(Scenery.BROKEN_PIER_41531), "step") { player, _ ->
-            if (inBorders(player, 2576, 3854, 2587, 3870)) {
-                return@setDest Location.create(2576, 3862, 0)
+            return@setDest if (inBorders(player, 2576, 3854, 2587, 3870)) {
+                Location.create(2576, 3862, 0)
             } else {
-                return@setDest Location.create(2572, 3862, 0)
+                Location.create(2572, 3862, 0)
             }
         }
+
     }
 }

@@ -2,13 +2,9 @@ package content.global.travel.ship
 
 import core.api.*
 import core.api.consts.Components
-import core.game.component.Component
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.diary.DiaryType
 import core.game.system.task.Pulse
-import core.network.packet.PacketRepository
-import core.network.packet.context.MinimapStateContext
-import core.network.packet.outgoing.MinimapState
 import core.tools.StringUtils
 
 class ShipTravelPulse(private val player: Player, private val ship: Ships) : Pulse(1) {
@@ -34,8 +30,8 @@ class ShipTravelPulse(private val player: Player, private val ship: Ships) : Pul
         setVarp(player, 75, 0)
         closeInterface(player)
         setMinimapState(player, 0)
-        if (ship.name != "Crandor") {
-            sendDialogue(player, "The ship arrives to " + StringUtils.formatDisplayName(ship.name) + ".")
+        if (ship.destination != "Crandor") {
+            sendDialogue(player, "The ship arrives at " + StringUtils.formatDisplayName(ship.destination) + ".")
             closeInterface(player)
         } else {
             openInterface(player, Components.SOULBANE_DARKNESS_317)
