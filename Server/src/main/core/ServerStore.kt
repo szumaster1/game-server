@@ -89,13 +89,13 @@ class ServerStore : PersistWorld {
 
         fun clearDailyEntries() {
             fileMap.keys.toTypedArray().forEach {
-                if(it.toLowerCase().contains("daily")) fileMap[it]?.clear()
+                if(it.lowercase().contains("daily")) fileMap[it]?.clear()
             }
         }
 
         fun clearWeeklyEntries() {
             fileMap.keys.toTypedArray().forEach {
-                if(it.toLowerCase().contains("weekly")) fileMap[it]?.clear()
+                if(it.lowercase().contains("weekly")) fileMap[it]?.clear()
             }
         }
 

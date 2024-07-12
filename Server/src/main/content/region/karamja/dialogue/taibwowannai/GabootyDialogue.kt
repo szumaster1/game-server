@@ -1,4 +1,4 @@
-package content.region.karamja.dialogue
+package content.region.karamja.dialogue.taibwowannai
 
 import core.api.consts.NPCs
 import core.game.dialogue.Dialogue
@@ -46,7 +46,7 @@ class GabootyDialogue(player: Player? = null) : Dialogue(player) {
             22 -> npc(FacialExpression.FRIENDLY, "If you happen across any of them please bring them to me,", "I'll pay a good price for them.", "I'm sure you'll find the prices very reasonable.").also { stage++ }
             23 -> options("What are trading sticks?", "You run a shop?", "Can I take a look at what you have to sell?", "Why do you only take one sort of Gnome cocktail?", "I want to ask another question.").also { stage++ }
             24 -> when (buttonId) {
-                1 -> player("What are trading sticks?").also { stage = 2 }
+                1 -> player("What are trading sticks?").also { stage = 3 }
                 2 -> player("You run a shop?").also { stage = 21 }
                 3 -> player("Can I take a look at what you have to sell?").also { stage = 30 }
                 4 -> player("Why do you only take one sort of Gnome cocktail?").also { stage = 40 }
@@ -76,7 +76,7 @@ class GabootyDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun getIds(): IntArray {
-        return intArrayOf(NPCs.GABOOTY_2520, NPCs.GABOOTY_2521, NPCs.GABOOTY_2522)
+        return intArrayOf(2519, NPCs.GABOOTY_2520, NPCs.GABOOTY_2521, NPCs.GABOOTY_2522)
     }
 
 }

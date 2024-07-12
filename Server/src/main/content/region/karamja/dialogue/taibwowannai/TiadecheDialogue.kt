@@ -1,4 +1,4 @@
-package content.region.karamja.dialogue
+package content.region.karamja.dialogue.taibwowannai
 
 import core.api.consts.NPCs
 import core.api.hasRequirement

@@ -1,4 +1,4 @@
-package content.region.karamja.dialogue
+package content.region.karamja.dialogue.taibwowannai
 
 import core.api.consts.NPCs
 import core.api.openNpcShop
@@ -22,7 +22,7 @@ class TamayuDialogue(player: Player? = null) : Dialogue(player) {
         if(npc.id == NPCs.TAMAYU_1167){
             npc(FacialExpression.ANNOYED, randomConversation.random()).also { stage = END_DIALOGUE }
         } else {
-            player("Hello, Tamayu, first son of Timfraku.").also { stage++ }
+            player("Hello, Tamayu, first son of Timfraku.").also { stage = 0 }
         }
         return true
     }
@@ -31,10 +31,10 @@ class TamayuDialogue(player: Player? = null) : Dialogue(player) {
         when (stage) {
             0 -> npc(FacialExpression.HALF_ASKING, "Stranger, why you have returned?").also { stage++ }
             1 -> player("I'm just passing through.").also { stage++ }
-            2 -> npc("Using your new karambwan poison I have been creating spears. Would you like to buy some?").also { stage++ }
+            2 -> npcl(FacialExpression.HALF_GUILTY, "Using your new karambwan poison I have been creating spears. Would you like to buy some?").also { stage++ }
             3 -> options("Yes.", "No.").also { stage++ }
             4 -> when (buttonId) {
-                1 -> end().also { openNpcShop(player, npc.id) }
+                1 -> end().also { openNpcShop(player, NPCs.TAMAYU_1167) }
                 2 -> npc(FacialExpression.FRIENDLY, "As you wish, stranger.").also { stage = END_DIALOGUE }
             }
         }
@@ -42,7 +42,7 @@ class TamayuDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun getIds(): IntArray {
-        return intArrayOf(NPCs.TAMAYU_1167, NPCs.TAMAYU_1168, NPCs.TAMAYU_1169, NPCs.TAMAYU_1170)
+        return intArrayOf(2487, NPCs.TAMAYU_1167, NPCs.TAMAYU_1168, NPCs.TAMAYU_1169, NPCs.TAMAYU_1170)
     }
 
     companion object {

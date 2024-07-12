@@ -30,7 +30,6 @@ class ShilovillageListeners : InteractionListener {
         private const val BROKEN_CART = 2216
         private val BOARD = intArrayOf(2265, 2230, 511, 510)
         val ANTIQUE_ITEMS = intArrayOf(605, 606, 607, 608, 611, 616, 624, 4808)
-        private val GABOOTY_NPC_WRAPPERS = intArrayOf(2520, 2521, 2522)
 
         /*
             Shilo cart interactions.
@@ -77,21 +76,6 @@ class ShilovillageListeners : InteractionListener {
     }
 
     override fun defineListeners() {
-
-        /*
-            Gabooty NPC interaction.
-         */
-
-        on(GABOOTY_NPC_WRAPPERS, IntType.NPC, "talk-to", "trade-co-op", "trade-drinks") { player, node ->
-            if(node.id in GABOOTY_NPC_WRAPPERS){
-                when (getUsedOption(player)) {
-                    "talk-to" -> openDialogue(player, NPCs.GABOOTY_2521)
-                    "trade-co-op" -> Shops.openId(player, 226)
-                    "trade-drinks" -> Shops.openId(player, 254)
-                }
-            }
-            return@on true
-        }
 
         /*
             Drop "Bervirius Notes" interaction.

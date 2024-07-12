@@ -29,19 +29,9 @@ class TzHaarMejJehDialogue(player: Player? = null): Dialogue(player) {
             0 -> {
                 if (settings!!.jad_practice_enabled) {
                     if (getAttribute(player, "fc_practice_jad", false)) {
-                        options(
-                            if (inInventory(player, Items.FIRE_CAPE_6570)) "I have a fire cape here." else "What is this place?",
-                            "What did you call me?",
-                            "About my challenge...",
-                            "No I'm fine thanks."
-                        )
+                        options(if (inInventory(player, Items.FIRE_CAPE_6570)) "I have a fire cape here." else "What is this place?", "What did you call me?", "About my challenge...", "No I'm fine thanks.")
                     } else {
-                        options(
-                            if (inInventory(player, Items.FIRE_CAPE_6570)) "I have a fire cape here." else "What is this place?",
-                            "What did you call me?",
-                            "I want to challenge Jad directly.",
-                            "No I'm fine thanks."
-                        )
+                        options(if (inInventory(player, Items.FIRE_CAPE_6570)) "I have a fire cape here." else "What is this place?", "What did you call me?", "I want to challenge Jad directly.", "No I'm fine thanks.")
                     }
                 } else {
                     options(if (inInventory(player, Items.FIRE_CAPE_6570)) "I have a fire cape here." else "What is this place?", "What did you call me?", "No I'm fine thanks.")
