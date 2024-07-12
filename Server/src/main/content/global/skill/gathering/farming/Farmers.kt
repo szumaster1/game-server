@@ -21,7 +21,10 @@ enum class Farmers(val id: Int, val patches: Array<FarmingPatch>) {
     FRANCIS(2327, arrayOf(FarmingPatch.ENTRANA_HOPS)),
     DREVEN(2335, arrayOf(FarmingPatch.CHAMPIONS_GUILD_BUSH)),
     TARIA(2336, arrayOf(FarmingPatch.RIMMINGTON_BUSH)),
-    TORRELL(2338, arrayOf(FarmingPatch.ARDOUGNE_BUSH));
+    RHAZIEN(2337, arrayOf(FarmingPatch.ETCETERIA_BUSH)),
+    TORRELL(2338, arrayOf(FarmingPatch.ARDOUGNE_BUSH)),
+    YULF_SQUECKS(4561, arrayOf(FarmingPatch.ETCETERIA_SPIRIT_TREE)),
+    ;
 
     companion object{
         @JvmField

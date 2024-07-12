@@ -14,7 +14,6 @@ import core.game.interaction.InteractionListener
 import core.game.interaction.QueueStrength
 import core.game.node.entity.npc.NPC
 import core.game.node.item.Item
-import core.game.shops.Shops
 import core.game.system.task.Pulse
 import core.game.world.GameWorld.Pulser
 import core.game.world.map.Location
@@ -171,7 +170,7 @@ class ShilovillageListeners : InteractionListener {
                             npc = NPC(NPCs.YANNI_SALIKA_515)
                             when (stage) {
                                 0 -> sendNPCDialogue(player, NPCs.YANNI_SALIKA_515, item.dialogue).also { stage++ }
-                                1 -> sendNPCDialogue(player, NPCs.YANNI_SALIKA_515, item.priceInfo).also { stage++ }
+                                1 -> sendNPCDialogue(player, NPCs.YANNI_SALIKA_515, item.message).also { stage++ }
                                 2 -> {
                                     setTitle(player, 2)
                                     sendDialogueOptions(player, "Sell the " + getItemName(used.id) + "?", "Yes.", "No.").also { stage++ }

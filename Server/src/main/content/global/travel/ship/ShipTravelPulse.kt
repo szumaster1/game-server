@@ -9,6 +9,7 @@ import core.game.system.task.Pulse
 import core.network.packet.PacketRepository
 import core.network.packet.context.MinimapStateContext
 import core.network.packet.outgoing.MinimapState
+import core.tools.StringUtils
 
 class ShipTravelPulse(private val player: Player, private val ship: Ships) : Pulse(1) {
 
@@ -34,7 +35,7 @@ class ShipTravelPulse(private val player: Player, private val ship: Ships) : Pul
         closeInterface(player)
         setMinimapState(player, 0)
         if (ship.name != "Crandor") {
-            sendDialogue(player, "The ship arrives at " + ship.name + ".")
+            sendDialogue(player, "The ship arrives to " + StringUtils.formatDisplayName(ship.name) + ".")
             closeInterface(player)
         } else {
             openInterface(player, Components.SOULBANE_DARKNESS_317)

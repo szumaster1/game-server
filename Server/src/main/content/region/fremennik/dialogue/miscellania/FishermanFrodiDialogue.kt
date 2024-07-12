@@ -1,0 +1,20 @@
+package content.region.fremennik.dialogue.miscellania
+
+import core.api.consts.NPCs
+import core.game.dialogue.DialogueFile
+import core.game.node.entity.npc.NPC
+import core.tools.END_DIALOGUE
+
+/*
+ * File prevents direct face with the player.
+ */
+
+class FishermanFrodiDialogue : DialogueFile() {
+
+    override fun handle(componentID: Int, buttonID: Int) {
+        npc = NPC(NPCs.FISHERMAN_FRODI_1397)
+        when (stage) {
+            0 -> npc("Hello.").also { stage = END_DIALOGUE }
+        }
+    }
+}
