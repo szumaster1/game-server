@@ -14,12 +14,12 @@ import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 
 class SlayerManager(val player: Player? = null) : LoginListener, PersistPlayer, EventHook<NPCKillEvent> {
+
     override fun login(player: Player) {
         val instance = SlayerManager(player)
         player.hook(Event.NPCKilled, instance)
         setAttribute(player, "slayer-manager", instance)
     }
-
 
     @JvmField
     val flags: SlayerFlags = SlayerFlags()

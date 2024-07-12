@@ -80,7 +80,7 @@ private constructor() : MapZone("Multicombat", true) {
         // Isle north of Jatizso.
         registerRegion(9532)
         // Eastern rock crabs.
-        registerRegion(10810)
+        register(ZoneBorders(2734, 3736, 2688, 3712))
         // Desert bandits.
         registerRegion(12590)
         register(ZoneBorders(2855, 9928, 2880, 9968))

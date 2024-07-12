@@ -1,6 +1,7 @@
 package content.global.skill.support.slayer.data
 
 import content.global.skill.support.slayer.data.SlayerManager.Companion.getInstance
+import core.api.consts.NPCs
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import java.util.*
@@ -16,7 +17,8 @@ enum class SlayerMaster(
     var taskPoints: IntArray,
     vararg tasks: Task
 ) {
-    TURAEL(8273, 0, 0,
+    TURAEL(
+        NPCs.TURAEL_8273, 0, 0,
         intArrayOf(15, 50),
         intArrayOf(0, 0, 0),
         Task(Tasks.BANSHEE, 8),
@@ -48,7 +50,8 @@ enum class SlayerMaster(
     /*
      * The Mazchna.
      */
-    MAZCHNA(8274, 20, 0,
+    MAZCHNA(
+        NPCs.MAZCHNA_8274, 20, 0,
         intArrayOf(30, 70),
         intArrayOf(2, 5, 15),
         Task(Tasks.BANSHEE, 8),
@@ -84,7 +87,8 @@ enum class SlayerMaster(
     /*
      * The Vannaka.
      */
-    VANNAKA(1597, 40, 0,
+    VANNAKA(
+        NPCs.VANNAKA_1597, 40, 0,
         intArrayOf(30, 80),
         intArrayOf(4, 20, 60),
         Task(Tasks.ABERRANT_SPECTRES, 8),
@@ -143,7 +147,8 @@ enum class SlayerMaster(
     /*
      * The Chaeldar.
      */
-    CHAELDAR(1598, 70, 0,
+    CHAELDAR(
+        NPCs.CHAELDAR_1598, 70, 0,
         intArrayOf(110, 170),
         intArrayOf(10, 50, 150),
         Task(Tasks.ABERRANT_SPECTRES, 8),
@@ -191,7 +196,8 @@ enum class SlayerMaster(
     /*
      * The Sumona.
      */
-    SUMONA(7780, 90, 35,
+    SUMONA(
+        NPCs.SUMONA_7780, 90, 35,
         intArrayOf(50, 185),
         intArrayOf(12, 60, 180),
         Task(Tasks.ABERRANT_SPECTRES, 15),
@@ -228,7 +234,8 @@ enum class SlayerMaster(
     /*
      * The Duradel.
      */
-    DURADEL(8275, 100, 50,
+    DURADEL(
+        NPCs.DURADEL_8275, 100, 50,
         intArrayOf(50, 199),
         intArrayOf(15, 75, 225),
         Task(Tasks.ABERRANT_SPECTRES, 7),

@@ -448,6 +448,9 @@ object Components {
     const val WEAPON_SALAMANDER_SEL_474 = 474
     const val CUSTOM_FUR_CLOTHING_477 = 477
     const val ANMA_RGB_480 = 480
+    const val SNOW_B_OVERLAY_481 = 481
+    const val SNOW_A_OVERLAY_482 = 482
+    const val BLUE_OVERLAY_483 = 483
     const val BARBASSAULT_HORN_484 = 484
     const val BARBASSAULT_OVER_ATT_485 = 485
     const val BARBASSAULT_OVER_COL_486 = 486

@@ -1,29 +1,29 @@
 package content.global.skill.support.slayer
 
-import core.api.consts.Scenery
-import core.api.hasRequirement
-import core.api.sendMessage
-import core.api.sendMessageWithDelay
-import core.api.teleport
+import core.api.*
+import core.api.consts.*
 import core.game.global.action.ClimbActionHandler
-import core.game.global.action.DigAction
-import core.game.global.action.DigSpadeHandler.register
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
+import core.game.interaction.QueueStrength
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.TeleportManager
 import core.game.world.map.Location
+import core.game.world.update.flag.context.Graphic
 
 class SlayerListeners : InteractionListener {
 
     companion object {
+        val NULL = -1
+        private const val FADE_START = Components.FADE_TO_BLACK_115
+        private const val FADE_END = Components.FADE_FROM_BLACK_170
         private const val TRAPDOOR = Scenery.TRAPDOOR_8783
         private const val LADDER = Scenery.LADDER_8785
         private const val STAIRS = Scenery.STAIRS_96
         private const val STAIRS_2 = Scenery.STAIRS_35121
         private const val CAVE_ENTRANCE = Scenery.CAVE_ENTRANCE_15767
         private val CAVE_EXIT = intArrayOf(Scenery.CAVE_15811, Scenery.CAVE_15812, Scenery.CAVE_23157, Scenery.CAVE_23158)
-        private val SVENS_DIG_LOCATION = arrayOf(Location(2749, 3733, 0), Location(2748, 3733, 0), Location(2747, 3733, 0), Location(2747, 3734, 0), Location(2747, 3735, 0), Location(2747, 3736, 0), Location(2748, 3736, 0), Location(2749, 3736, 0))
+        private val SVENS_DIG_LOCATIONS = arrayOf(Location(2749, 3733, 0), Location(2748, 3733, 0), Location(2747, 3733, 0), Location(2747, 3734, 0), Location(2747, 3735, 0), Location(2747, 3736, 0), Location(2748, 3736, 0), Location(2749, 3736, 0))
     }
 
     override fun defineDestinationOverrides() {
@@ -35,15 +35,39 @@ class SlayerListeners : InteractionListener {
         }
     }
 
-    override fun defineListeners() {
-        for (location in SVENS_DIG_LOCATION) {
-            register(location, object : DigAction {
-                override fun run(player: Player?) {
-                    teleport(player!!, Location(2697, 10119, 0), TeleportManager.TeleportType.INSTANT)
+    private fun enterCavern(player: Player) {
+        queueScript(player, 1, QueueStrength.SOFT) { stage: Int ->
+            when (stage) {
+                0 -> {
                     sendMessage(player, "You dig a hole...")
-                    sendMessageWithDelay(player, "...And fall into a dark and slimy pit!", 1)
+                    openOverlay(player, FADE_START)
+                    return@queueScript delayScript(player, 3)
                 }
-            })
+
+                1 -> {
+                    closeOverlay(player)
+                    openInterface(player, FADE_END)
+                    teleport(player, Location(2697, 10119, 0), TeleportManager.TeleportType.INSTANT)
+                    return@queueScript keepRunning(player)
+                }
+
+                2 -> {
+                    playAudio(player, Sounds.STUNNED_2727)
+                    visualize(player, NULL, Graphic(Graphics.STUN_BIRDIES_ABOVE_HEAD_80, 96))
+                    sendMessage(player, "...And fall into a dark and slimy pit!")
+                    return@queueScript stopExecuting(player)
+                }
+
+                else -> return@queueScript stopExecuting(player)
+            }
+        }
+    }
+
+    override fun defineListeners() {
+        for (location in SVENS_DIG_LOCATIONS) {
+            onDig(location) { player: Player ->
+                enterCavern(player)
+            }
         }
 
         on(TRAPDOOR, IntType.SCENERY, "open") { player, _ ->
