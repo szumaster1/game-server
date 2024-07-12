@@ -36,7 +36,7 @@ class MiscellaniaShortcut : InteractionListener {
                             AgilityHandler.forceWalk(
                                 player, -1, location(2572, 3862, 0),
                                 Location.create(2573, 3862, 0),
-                                Animation.create(Animations.JUMP_BRIDGE_769), 10, 0.0, null
+                                Animation.create(Animations.JUMP_BRIDGE_769), 15, 0.0, null
                             )
                             return@queueScript delayScript(player, 3)
                         }
@@ -69,7 +69,7 @@ class MiscellaniaShortcut : InteractionListener {
                             AgilityHandler.forceWalk(
                                 player, -1, location(2573, 3862, 0),
                                 location(2572, 3862, 0),
-                                Animation.create(Animations.JUMP_BRIDGE_769), 10, 0.0, null
+                                Animation.create(Animations.JUMP_BRIDGE_769), 15, 0.0, null
                             )
                             return@queueScript stopExecuting(player)
                         }
