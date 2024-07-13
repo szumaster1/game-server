@@ -1,4 +1,4 @@
-package content.global.skill.support.thieving
+package content.global.skill.support.thieving.data
 
 import core.api.consts.Items
 import core.game.node.item.Item

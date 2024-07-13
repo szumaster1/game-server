@@ -96,7 +96,7 @@ class FremennikSeaBootsListener : InteractionListener {
 
                         5 -> {
                             setTitle(player, 2)
-                            sendDialogueOptions(player, "What do you offer?", "A raw shark.", "Nothing at the moment.")
+                            sendDialogueOptions(player, "What do you offer?", if(inInventory(player, Items.RAW_BASS_363)) "A raw bass." else "a raw shark.", "Nothing at the moment.")
                             stage++
                         }
 
@@ -107,7 +107,7 @@ class FremennikSeaBootsListener : InteractionListener {
                                  */
                                 if(inInventory(player, Items.RAW_BASS_363) && inEquipmentOrInventory(player, Items.RING_OF_CHAROSA_6465) || inEquipmentOrInventory(player, Items.RING_OF_CHAROS_4202)){
                                     npcl(FacialExpression.HALF_GUILTY, "A raw bass? You should know that is not a worthy offering, outlander.")
-                                    return
+                                    stage = 0
                                 }
                                 if (hasAnItem(player, *enchantedLyre).container == player.inventory) {
                                     sendDialogue(player, "All lyre charges must be used up before it will allow a charge to the lyre.")
@@ -138,7 +138,7 @@ class FremennikSeaBootsListener : InteractionListener {
 
                         9 -> when (buttonID) {
                             1 -> {
-                                if (LyreTeleport.getLyreTeleportFile().getBoolean(player.username.toLowerCase())) {
+                                if (LyreTeleport.getLyreTeleportFile().getBoolean(player.username.lowercase())) {
                                     sendDialogue(player, "This can only be done once per day.")
                                     stage = 0
                                 } else {

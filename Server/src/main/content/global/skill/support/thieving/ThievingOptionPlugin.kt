@@ -1,5 +1,6 @@
 package content.global.skill.support.thieving
 
+import content.global.skill.support.thieving.data.Stall
 import core.api.lockInteractions
 import core.cache.def.impl.SceneryDefinition
 import core.game.interaction.OptionHandler
@@ -25,7 +26,7 @@ class ThievingOptionPlugin : OptionHandler() {
     override fun handle(player: Player, node: Node, option: String): Boolean {
         when (option) {
             "steal-from", "steal from", "steal" -> {
-                player.pulseManager.run(StallThiefPulse(player, node as Scenery, Stall.forScenery(node)))
+                player.pulseManager.run(ThievingStallPulse(player, node as Scenery, Stall.forScenery(node)))
                 lockInteractions(player,6)
             }
         }

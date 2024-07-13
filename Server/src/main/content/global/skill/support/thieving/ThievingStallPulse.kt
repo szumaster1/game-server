@@ -1,5 +1,6 @@
 package content.global.skill.support.thieving
 
+import content.global.skill.support.thieving.data.Stall
 import core.api.*
 import core.game.event.ResourceProducedEvent
 import core.game.node.entity.combat.ImpactHandler
@@ -18,7 +19,7 @@ import core.tools.StringUtils
 /**
  * @author 'Vexia
  */
-class StallThiefPulse(player: Player?, node: Scenery?, private val stall: Stall?) : SkillPulse<Scenery?>(player, node) {
+class ThievingStallPulse(player: Player?, node: Scenery?, private val stall: Stall?) : SkillPulse<Scenery?>(player, node) {
 
     private var ticks = 0
 

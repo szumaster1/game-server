@@ -1,6 +1,7 @@
 package content.global.skill.support.thieving
 
 import content.global.skill.skillcape.SkillcapePerks
+import content.global.skill.support.thieving.data.Pickpockets
 import core.api.*
 import core.api.consts.Animations
 import core.api.consts.Items
@@ -20,7 +21,7 @@ import core.game.world.map.zone.ZoneBorders
 import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
 
-class ThievingListeners : InteractionListener {
+class PickpocketsListeners : InteractionListener {
 
     companion object {
         val PICKPOCKET_ANIM = Animation(Animations.HUMAN_PICKPOCKETING_881, Animator.Priority.HIGH)
@@ -106,9 +107,9 @@ class ThievingListeners : InteractionListener {
             if (lootTable == null) {
                 npc.face(player)
                 npc.animator.animate(NPC_ANIM)
-                npc.sendChat("What do you think you're doing?")
+                npc.sendChat(pickpocketData.message)
                 sendMessage(player, "You fail to pick the $npcName pocket.")
-                sendMessage(player, "${npc.name}: What do you think you're doing?")
+                sendMessage(player, "${npc.name}: ${pickpocketData.message}")
                 playHurtAudio(player, 20)
                 stun(player, pickpocketData.stunTime)
                 impact(player, RandomFunction.random(pickpocketData.stunDamageMin, pickpocketData.stunDamageMax), ImpactHandler.HitsplatType.NORMAL)

@@ -175,23 +175,19 @@ class TFTInteractionListeners : InteractionListener {
         }
 
         on(LONGHALL_BACKDOOR, IntType.SCENERY, "open") { player, node ->
-            if(node.location == Location(2667,3683,0)) {
-                when {
-                    getAttribute(player, "LyreEnchanted", false) -> {
-                        sendNPCDialogue(player, 1278, "Yeah you're good to go through. Olaf tells me you're some kind of outerlander bard here on tour. I doubt you're worse than Olaf is.")
-                        DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
-                    }
-
-                    getAttribute(player, "lyreConcertPlayed", false) -> {
-                        DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
-                    }
-
-                    else -> {
-                        sendNPCDialogue(player, 1278, "I didn't give you permission to go backstage!")
-                    }
+            when {
+                getAttribute(player, "LyreEnchanted", false) -> {
+                    sendNPCDialogue(player, 1278, "Yeah you're good to go through. Olaf tells me you're some kind of outerlander bard here on tour. I doubt you're worse than Olaf is.")
+                    DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
                 }
-            } else {
-                DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
+
+                getAttribute(player, "lyreConcertPlayed", false) -> {
+                    DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
+                }
+
+                else -> {
+                    sendNPCDialogue(player, 1278, "I didn't give you permission to go backstage!")
+                }
             }
             return@on true
         }
@@ -251,35 +247,16 @@ class TFTInteractionListeners : InteractionListener {
         }
 
         on(THORVALD_LADDER, IntType.SCENERY, "climb-down") { player, _ ->
-            if (isQuestComplete(player, "Fremennik Trials") || getAttribute(
-                    player,
-                    "fremtrials:thorvald-vote",
-                    false
-                )
-            ) {
+            if (isQuestComplete(player, "Fremennik Trials") || getAttribute(player, "fremtrials:thorvald-vote", false)) {
                 sendMessage(player, "You have no reason to go back down there.")
                 return@on true
             } else if (!getAttribute(player, "fremtrials:warrior-accepted", false)) {
-                player.dialogueInterpreter?.sendDialogues(
-                    NPCs.THORVALD_THE_WARRIOR_1289, FacialExpression.ANGRY,
-                    "Outerlander... do not test my patience. I do not take",
-                    "kindly to people wandering in here and acting as though",
-                    "they own the place."
-                )
+                player.dialogueInterpreter?.sendDialogues(NPCs.THORVALD_THE_WARRIOR_1289, FacialExpression.ANGRY, "Outerlander... do not test my patience. I do not take", "kindly to people wandering in here and acting as though", "they own the place.")
                 return@on true
             } else if (hasEquippableItems(player)) {
-                player.dialogueInterpreter?.sendDialogues(
-                    NPCs.THORVALD_THE_WARRIOR_1289, FacialExpression.ANGRY,
-                    "You may not enter the battleground with any armour",
-                    "or weaponry of any kind."
-                )
+                player.dialogueInterpreter?.sendDialogues(NPCs.THORVALD_THE_WARRIOR_1289, FacialExpression.ANGRY, "You may not enter the battleground with any armour", "or weaponry of any kind.")
                 player.dialogueInterpreter.addAction { _, _ ->
-                    player.dialogueInterpreter?.sendDialogues(
-                        NPCs.THORVALD_THE_WARRIOR_1289, FacialExpression.ANGRY,
-                        "If you need to place your equipment into your bank",
-                        "account, I recommend that you speak to the seer. He",
-                        "knows a spell that will do that for you."
-                    )
+                    player.dialogueInterpreter?.sendDialogues(NPCs.THORVALD_THE_WARRIOR_1289, FacialExpression.ANGRY, "If you need to place your equipment into your bank", "account, I recommend that you speak to the seer. He", "knows a spell that will do that for you.")
                 }
                 return@on true
             }

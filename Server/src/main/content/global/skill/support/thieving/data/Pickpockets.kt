@@ -1,8 +1,7 @@
-package content.global.skill.support.thieving
+package content.global.skill.support.thieving.data
 
 import core.api.consts.Items
 import core.api.consts.NPCs
-import core.api.inInventory
 import core.api.utils.WeightBasedTable
 import core.api.utils.WeightedItem
 import core.game.node.entity.player.Player
@@ -19,6 +18,7 @@ enum class Pickpockets(
     val stunDamageMin: Int,
     val stunDamageMax: Int,
     val stunTime: Int,
+    val message : String?,
     val table: WeightBasedTable
 ) {
     MAN(
@@ -30,6 +30,7 @@ enum class Pickpockets(
         stunDamageMin = 1,
         stunDamageMax = 1,
         stunTime = 5,
+        message = "What do you think you're doing?",
         table = WeightBasedTable.create(
             WeightedItem(id = Items.COINS_995, minAmt = 3, maxAmt = 3, weight = 1.0, guaranteed = true))
     ),
@@ -42,6 +43,7 @@ enum class Pickpockets(
         stunDamageMin = 1,
         stunDamageMax = 1,
         stunTime = 5,
+        message = null,
         table = WeightBasedTable.create(
             WeightedItem(id = Items.DISPLAY_CABINET_KEY_4617, minAmt = 1, maxAmt = 1, weight = 1.0, guaranteed = true))
     ),
@@ -54,6 +56,7 @@ enum class Pickpockets(
         stunDamageMin = 1,
         stunDamageMax = 1,
         stunTime = 5,
+        message = "What do you think you're doing?",
         table = WeightBasedTable.create(
             WeightedItem(id = Items.COINS_995, minAmt = 3, maxAmt = 3, weight = 1.0, guaranteed = true))
     ),
@@ -66,6 +69,7 @@ enum class Pickpockets(
         stunDamageMin = 1,
         stunDamageMax = 1,
         stunTime = 5,
+        message = null,
         table = WeightBasedTable.create(
             WeightedItem(id = Items.TRIANGLE_SANDWICH_6962, minAmt = 1, maxAmt = 1, weight = 1.0, guaranteed = true))
     ),
@@ -78,6 +82,7 @@ enum class Pickpockets(
         stunDamageMin = 1,
         stunDamageMax = 1,
         stunTime = 5,
+        message = "What do you think you're doing?",
         table = WeightBasedTable.create(
             WeightedItem(id = Items.COINS_995, minAmt = 9, maxAmt = 9, weight = 1.0, guaranteed = true),
             WeightedItem(id = Items.POTATO_SEED_5318, minAmt = 1, maxAmt = 1, weight = 1.0, guaranteed = true)
@@ -92,6 +97,7 @@ enum class Pickpockets(
         stunDamageMin = 1,
         stunDamageMax = 3,
         stunTime = 4,
+        message = "What do you think you're doing?",
         table = WeightBasedTable.create(
             WeightedItem(id = Items.COINS_995, minAmt = 1, maxAmt = 21, weight = 5.5),
             WeightedItem(id = Items.TINDERBOX_590, minAmt = 1, maxAmt = 1, weight = 5.0),
@@ -130,6 +136,7 @@ enum class Pickpockets(
         stunDamageMin = 1,
         stunDamageMax = 3,
         stunTime = 4,
+        message = "Stop! @name is a thief!",
         table = WeightBasedTable.create(WeightedItem(Items.COINS_995, 1, 21, 5.5), WeightedItem(Items.TINDERBOX_590, 1, 1, 5.0), WeightedItem(Items.LOGS_1511, 1, 1, 7.0), WeightedItem(Items.UNCUT_JADE_1627, 1, 1, 2.5), WeightedItem(Items.UNCUT_OPAL_1625, 1, 1, 2.5), WeightedItem(Items.RAW_ANCHOVIES_321, 1, 1, 7.0), WeightedItem(Items.RAW_CHICKEN_2138, 1, 1, 3.5), WeightedItem(Items.HAM_CLOAK_4304, 1, 1, 0.25), WeightedItem(Items.HAM_HOOD_4302, 1, 1, 0.25), WeightedItem(Items.HAM_LOGO_4306, 1, 1, 0.25), WeightedItem(Items.HAM_SHIRT_4298, 1, 1, 0.25), WeightedItem(Items.HAM_ROBE_4300, 1, 1, 0.25), WeightedItem(Items.BOOTS_4310, 1, 1, 1.0), WeightedItem(Items.GLOVES_4308, 1, 1, 1.0), WeightedItem(Items.BRONZE_PICKAXE_1265, 1, 1, 5.0), WeightedItem(Items.IRON_PICKAXE_1267, 1, 1, 5.0), WeightedItem(Items.STEEL_PICKAXE_1269, 1, 1, 2.5), WeightedItem(Items.GRIMY_GUAM_199, 1, 1, 2.0), WeightedItem(Items.GRIMY_HARRALANDER_205, 1, 1, 2.0), WeightedItem(Items.GRIMY_KWUARM_213, 1, 1, 2.0), WeightedItem(Items.GRIMY_MARRENTILL_201, 1, 1, 1.5), WeightedItem(Items.RUSTY_SWORD_686, 1, 1, 3.5), WeightedItem(Items.BROKEN_ARMOUR_698, 1, 1, 3.5), WeightedItem(Items.BROKEN_STAFF_689, 1, 1, 3.2), WeightedItem(Items.BROKEN_ARROW_687, 1, 1, 3.1), WeightedItem(Items.BUTTONS_688, 1, 1, 3.0)).insertEasyClue(1.0)
     ),
     WARRIOR(
@@ -141,6 +148,7 @@ enum class Pickpockets(
         stunDamageMin = 2,
         stunDamageMax = 2,
         stunTime = 5,
+        message = "What do you think you're doing?",
         table = WeightBasedTable.create(
             WeightedItem(id = Items.COINS_995, minAmt = 18, maxAmt = 18, weight = 1.0, guaranteed = true))
     ),
@@ -153,6 +161,7 @@ enum class Pickpockets(
         stunDamageMin = 2,
         stunDamageMax = 2,
         stunTime = 5,
+        message = "What do you think you're doing?",
         table = WeightBasedTable.create(
             WeightedItem(id = Items.COINS_995, minAmt = 25, maxAmt = 40, weight = 5.0, guaranteed = true),
             WeightedItem(id = Items.JUG_OF_WINE_1993, minAmt = 1, maxAmt = 1, weight = 6.0),
@@ -170,6 +179,7 @@ enum class Pickpockets(
         stunDamageMin = 1,
         stunDamageMax = 1,
         stunTime = 5,
+        message = null,
         table = WeightBasedTable.create(
             WeightedItem(id = Items.BAT_SHISH_10964, minAmt = 1, maxAmt = 1, weight = 2.5),
             WeightedItem(id = Items.FINGERS_10965, minAmt = 1, maxAmt = 1, weight = 2.5),
@@ -192,6 +202,7 @@ enum class Pickpockets(
         stunDamageMin = 3,
         stunDamageMax = 3,
         stunTime = 5,
+        message = "Cor blimey, mate! What are ye doing in me pockets?",
         table = WeightBasedTable.create(
             WeightedItem(id = Items.POTATO_SEED_5318, minAmt = 1, maxAmt = 3, weight = 50.0),
             WeightedItem(id = Items.ONION_SEED_5319, minAmt = 1, maxAmt = 3, weight = 50.0),
@@ -242,6 +253,7 @@ enum class Pickpockets(
         stunDamageMin = 2,
         stunDamageMax = 2,
         stunTime = 5,
+        message = "What do you think you're doing?",
         table = WeightBasedTable.create(
             WeightedItem(id = Items.COINS_995, minAmt = 30, maxAmt = 30, weight = 1.0, guaranteed = true)
         )
@@ -255,6 +267,7 @@ enum class Pickpockets(
         stunDamageMin = 2,
         stunDamageMax = 2,
         stunTime = 5,
+        message = "You stay away from me outerlander!",
         table = WeightBasedTable.create(
             WeightedItem(id = Items.COINS_995, minAmt = 40, maxAmt = 40, weight = 1.0, guaranteed = true)
         )
@@ -268,6 +281,7 @@ enum class Pickpockets(
         stunDamageMin = 5,
         stunDamageMax = 5,
         stunTime = 5,
+        message = "What do you think you're doing?",
         table = WeightBasedTable.create(
             WeightedItem(id = Items.ANTIPOISON4_2446, minAmt = 1, maxAmt = 1, weight = 1.0),
             WeightedItem(id = Items.LOCKPICK_1523, minAmt = 1, maxAmt = 1, weight = 2.0),
@@ -283,6 +297,7 @@ enum class Pickpockets(
         stunDamageMin = 3,
         stunDamageMax = 3,
         stunTime = 5,
+        message = "I'll kill you for that!",
         table = WeightBasedTable.create(
             WeightedItem(Items.COINS_995, 50, 1, 3.0),
             WeightedItem(Items.ANTIPOISON4_2446, 1, 1, 1.0),
@@ -297,7 +312,8 @@ enum class Pickpockets(
         experience = 84.3,
         stunDamageMin = 3,
         stunDamageMax = 3,
-        stunTime = 5,
+        stunTime = 6,
+        message = null,
         table = WeightBasedTable.create(
             WeightedItem(Items.COINS_995, 50, 50, 1.0, true)
         )
@@ -311,6 +327,7 @@ enum class Pickpockets(
         stunDamageMin = 3,
         stunDamageMax = 3,
         stunTime = 5,
+        message = "What do you think you're doing?",
         table = WeightBasedTable.create(
             WeightedItem(Items.COINS_995, 60, 60, 1.0, true),
             WeightedItem(Items.BREAD_2309, 1, 1, 1.0, true)
@@ -325,6 +342,7 @@ enum class Pickpockets(
         stunDamageMin = 5,
         stunDamageMax = 5,
         stunTime = 5,
+        message = "I'll kill you for that!",
         table = WeightBasedTable.create(
             WeightedItem(Items.COINS_995, 60, 60, 1.0, true)
         )
@@ -338,6 +356,7 @@ enum class Pickpockets(
         stunDamageMin = 3,
         stunDamageMax = 3,
         stunTime = 5,
+        message = "Hey! Get your hands off there!",
         table = WeightBasedTable.create(
             WeightedItem(Items.COINS_995, 80, 80, 1.0, true),
             WeightedItem(Items.CHAOS_RUNE_562, 2, 2, 1.0, true)
@@ -352,6 +371,7 @@ enum class Pickpockets(
         stunDamageMin = 1,
         stunDamageMax = 1,
         stunTime = 5,
+        message = "What do you think you're doing?",
         table = WeightBasedTable.create(
             WeightedItem(id = Items.COINS_995, minAmt = 300, maxAmt = 300, weight = 2.5),
             WeightedItem(id = Items.EARTH_RUNE_557, minAmt = 1, maxAmt = 1, weight = 3.5),
@@ -369,7 +389,8 @@ enum class Pickpockets(
         experience = 273.3,
         stunDamageMin = 6,
         stunDamageMax = 6,
-        stunTime = 4,
+        stunTime = 6,
+        message = "What do you think you're doing?",
         table = WeightBasedTable.create(
             WeightedItem(id = Items.COINS_995, minAmt = 200, maxAmt = 300, weight = 1.5),
             WeightedItem(id = Items.DEATH_RUNE_560, minAmt = 2, maxAmt = 2, weight = 1.0),

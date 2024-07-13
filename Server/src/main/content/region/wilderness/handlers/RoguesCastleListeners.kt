@@ -56,7 +56,7 @@ class RoguesCastleListeners : InteractionListener {
             return@on true
         }
 
-        on(FLOOR_2_CHESTS, IntType.SCENERY, "open") { player, node ->
+        on(FLOOR_2_CHESTS, IntType.SCENERY, "open") { player, _ ->
             sendMessage(player, "This chest appears to be locked.")
             return@on true
         }
