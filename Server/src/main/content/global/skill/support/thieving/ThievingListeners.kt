@@ -21,7 +21,7 @@ import core.game.world.map.zone.ZoneBorders
 import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
 
-class PickpocketsListeners : InteractionListener {
+class ThievingListeners : InteractionListener {
 
     companion object {
         val PICKPOCKET_ANIM = Animation(Animations.HUMAN_PICKPOCKETING_881, Animator.Priority.HIGH)

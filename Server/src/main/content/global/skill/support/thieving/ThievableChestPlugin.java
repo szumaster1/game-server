@@ -22,7 +22,7 @@ import static core.api.ContentAPIKt.lock;
  * The Thievable chest plugin.
  */
 @Initializable
-public final class ThievingChestPlugin extends OptionHandler {
+public final class ThievableChestPlugin extends OptionHandler {
     private static final Item LOCK_PICK = new Item(1523);
 
     @Override
