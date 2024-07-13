@@ -71,10 +71,7 @@ class TFTInteractionListeners : InteractionListener {
 
         onUseWith(IntType.SCENERY, FISH, FISH_ALTAR) { player, fish, _ ->
             if (anyInInventory(player, Items.LYRE_3689, Items.ENCHANTED_LYRE_3690)) {
-                if (!(inEquipment(player, Items.RING_OF_CHAROS_4202) || inEquipment(player, Items.RING_OF_CHAROSA_6465)) && fish.id == Items.RAW_BASS_363)
-                    sendNPCDialogue(player, NPCs.FOSSEGRIMEN_1273,"A raw bass? You should know that is not a worthy offering, outlander.")
-                else
-                    Pulser.submit(SpiritPulse(player, fish.id))
+                Pulser.submit(SpiritPulse(player, fish.id))
             } else {
                 if(!anyInInventory(player, Items.LYRE_3689, Items.ENCHANTED_LYRE_3690)){
                     sendMessage(player, "I should probably have my lyre with me.")
@@ -374,18 +371,22 @@ class TFTInteractionListeners : InteractionListener {
                 }
                 1 -> npc.moveStep()
                 2 -> npc.face(player).also { player.face(npc) }
-                3 -> player.dialogueInterpreter?.sendDialogues(npc, FacialExpression.HAPPY, "I will kindly accept this offering, and", "bestow upon you a gift in return.")
+                3 -> if(inInventory(player, Items.RAW_BASS_363)) {
+                    sendNPCDialogue(player, NPCs.FOSSEGRIMEN_1273, "That's not a bass, it's a very small shark.")
+                } else {
+                    player.dialogueInterpreter?.sendDialogues(npc, FacialExpression.HAPPY, "I will kindly accept this offering, and", "bestow upon you a gift in return.")
+                }
                 4 -> if (!removeItem(player, Items.LYRE_3689)) {
                     removeItem(player, Items.ENCHANTED_LYRE_3690)
                 }
                 5 -> {
                     if (hasring) when (fish) {
                         363 -> {
-                            player.achievementDiaryManager.finishTask(player, DiaryType.FREMENNIK, 2, 4)
+                            finishDiaryTask(player, DiaryType.FREMENNIK, 2, 4)
                             if (hasboots) {
-                                addItem(player, Items.ENCHANTED_LYRE4_6127)
-                            } else {
                                 addItem(player, Items.ENCHANTED_LYRE3_6126)
+                            } else {
+                                addItem(player, Items.ENCHANTED_LYRE2_6125)
                             }
                         }
                     } else {

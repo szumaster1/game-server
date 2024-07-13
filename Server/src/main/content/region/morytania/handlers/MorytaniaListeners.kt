@@ -2,9 +2,7 @@ package content.region.morytania.handlers
 
 import content.global.skill.support.agility.AgilityHandler
 import core.api.*
-import core.api.consts.Components
-import core.api.consts.NPCs
-import core.api.consts.Scenery
+import core.api.consts.*
 import core.game.global.action.ClimbActionHandler
 import core.game.global.action.DoorActionHandler
 import core.game.interaction.IntType
@@ -25,15 +23,13 @@ class MorytaniaListeners : InteractionListener {
 
     companion object {
         private val swampGate = intArrayOf(Scenery.GATE_3506, Scenery.GATE_3507)
-        private val swampBoat = intArrayOf(6970, 6969)
-        private val grottoExit = intArrayOf(3525, 3526)
-        private val grottoBridge = 3522
-        val outside: Location = Location.create(3439, 3337, 0)
-        val inside: Location = Location.create(3442, 9734, 1)
-        private val swimAnimation = Animation(6988)
-        private val jumpAnimation = Animation(1603)
-        private val failLocation = Location(3439, 3330)
-        private val splashGraphic = Graphic(68)
+        private val SWAMP_BOAT = intArrayOf(Scenery.SWAMP_BOATY_6970, Scenery.SWAMP_BOATY_6969)
+        private val GROTTO_EXIT = intArrayOf(Scenery.GROTTO_3525, Scenery.GROTTO_3526)
+        private const val GROTTO_BRIDGE = Scenery.BRIDGE_3522
+        private val SWIMMING_ANIMATION = Animation(Animations.SWIMMING_6988)
+        private val JUMP_ANIMATION = Animation(Animations.JUMP_OBSTACLE_WEREWOLF_AGILITY_1603)
+        private val FAIL_LOCATION = Location(3439, 3330)
+        private val SPLASH_GFX = Graphic(Graphics.WATER_SPLASH_68)
     }
 
     override fun defineListeners() {
@@ -43,7 +39,7 @@ class MorytaniaListeners : InteractionListener {
             Source: https://www.youtube.com/watch?v=4RXc67VBEiY&ab_channel=noob2smart
          */
 
-        on(swampBoat, IntType.SCENERY, "board", "Board ( Pay 10 )") { player, node ->
+        on(SWAMP_BOAT, IntType.SCENERY, "board", "Board ( Pay 10 )") { player, node ->
             if(!hasRequirement(player, "Nature Spirit")) return@on true
             lock(player, 13)
             openOverlay(player, Components.FADE_TO_BLACK_120)
@@ -98,12 +94,12 @@ class MorytaniaListeners : InteractionListener {
             Mort myre scenery interactions.
          */
 
-        on(grottoExit, IntType.SCENERY, "exit") { player, _ ->
+        on(GROTTO_EXIT, IntType.SCENERY, "exit") { player, _ ->
             teleport(player, Location.create(3439, 3337, 0))
             return@on true
         }
 
-        on(grottoBridge, IntType.SCENERY, "jump") { player, node ->
+        on(GROTTO_BRIDGE, IntType.SCENERY, "jump") { player, node ->
             val start = node.location
             var failLand = Location(3438, 3331)
             var failAnim = Animation(770)
@@ -116,20 +112,20 @@ class MorytaniaListeners : InteractionListener {
                 failLand = Location(3438, 3328)
             }
             if (AgilityHandler.hasFailed(player, 1, 0.1)) {
-                val end = if (fromGrotto) failLocation else start
-                AgilityHandler.forceWalk(player, -1, start, end, failAnim, 15, 0.0, null, 0).endAnimation = swimAnimation
-                AgilityHandler.forceWalk(player, -1, failLocation, failLand, swimAnimation, 15, 2.0, null, 3)
+                val end = if (fromGrotto) FAIL_LOCATION else start
+                AgilityHandler.forceWalk(player, -1, start, end, failAnim, 15, 0.0, null, 0).endAnimation = SWIMMING_ANIMATION
+                AgilityHandler.forceWalk(player, -1, FAIL_LOCATION, failLand, SWIMMING_ANIMATION, 15, 2.0, null, 3)
                 submitIndividualPulse(player, object : Pulse(2) {
                     override fun pulse(): Boolean {
-                        visualize(player, failAnim, splashGraphic)
-                        teleport(player, failLocation)
-                        AgilityHandler.fail(player, 0, failLand, swimAnimation, Random.nextInt(1, 7), "You nearly drown in the disgusting swamp.")
+                        visualize(player, failAnim, SPLASH_GFX)
+                        teleport(player, FAIL_LOCATION)
+                        AgilityHandler.fail(player, 0, failLand, SWIMMING_ANIMATION, Random.nextInt(1, 7), "You nearly drown in the disgusting swamp.")
                         return true
                     }
                 })
             } else {
                 val end = if (fromGrotto) start.transform(0, -3, 0) else start.transform(0, 3, 0)
-                AgilityHandler.forceWalk(player, -1, start, end, jumpAnimation, 15, 15.0, null, 0)
+                AgilityHandler.forceWalk(player, -1, start, end, JUMP_ANIMATION, 15, 15.0, null, 0)
             }
             return@on true
         }

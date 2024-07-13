@@ -11,7 +11,6 @@ import core.tools.END_DIALOGUE
 @Initializable
 class TyrasGuardShipDialogue(player: Player? = null) : Dialogue(player) {
 
-
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         sendDialogue(player, "General seems too busy to talk.").also { stage = END_DIALOGUE }

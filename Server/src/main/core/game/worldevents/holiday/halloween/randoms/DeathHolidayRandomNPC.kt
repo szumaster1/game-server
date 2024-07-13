@@ -1,14 +1,16 @@
 package core.game.worldevents.holiday.halloween.randoms
 
 import core.api.*
+import core.api.consts.Animations
+import core.api.consts.NPCs
+import core.api.consts.Sounds
 import core.game.interaction.QueueStrength
 import core.game.node.entity.npc.NPC
 import core.game.worldevents.holiday.HolidayRandomEventNPC
 import core.game.worldevents.holiday.HolidayRandoms
 import core.tools.RandomFunction
-import core.api.consts.Sounds
 
-class DeathHolidayRandomNPC : HolidayRandomEventNPC(2862) {
+class DeathHolidayRandomNPC : HolidayRandomEventNPC(NPCs.DEATH_2862) {
     override fun init() {
         super.init()
         playJingle(player, 337)
@@ -16,7 +18,7 @@ class DeathHolidayRandomNPC : HolidayRandomEventNPC(2862) {
             when (stage) {
                 0 -> {
                     this.face(player)
-                    visualize(this, 864, -1)
+                    visualize(this, Animations.BECKON_864, -1)
                     playGlobalAudio(this.location, Sounds.ZOMBIE_MOAN_2324)
                     return@queueScript delayScript(this, 1)
                 }

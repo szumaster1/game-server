@@ -1,24 +1,25 @@
 package core.game.worldevents.holiday.halloween
 
-import core.api.*
-import core.game.component.Component
-import core.game.node.entity.npc.NPC
-import core.game.node.entity.player.Player
-import core.game.system.task.Pulse
-import core.game.world.map.Location
-import core.game.world.update.flag.context.Animation
-import core.game.world.update.flag.context.Graphic
-import core.tools.RandomFunction
-import core.api.consts.Components
 import core.ServerStore
 import core.ServerStore.Companion.getInt
 import core.ServerStore.Companion.getString
+import core.api.addItemOrDrop
+import core.api.consts.Components
+import core.api.sendNPCDialogue
+import core.game.component.Component
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
-import core.game.interaction.InteractionListener
 import core.game.interaction.IntType
+import core.game.interaction.InteractionListener
+import core.game.node.entity.npc.NPC
+import core.game.node.entity.player.Player
+import core.game.system.task.Pulse
 import core.game.world.GameWorld.Pulser
+import core.game.world.map.Location
+import core.game.world.update.flag.context.Animation
+import core.game.world.update.flag.context.Graphic
 import core.tools.END_DIALOGUE
+import core.tools.RandomFunction
 
 class TrickOrTreatHandler : InteractionListener {
     override fun defineListeners() {
@@ -39,8 +40,8 @@ class TrickOrTreatHandler : InteractionListener {
             player.dialogueInterpreter.open(object : DialogueFile(){
                 override fun handle(componentID: Int, buttonID: Int) {
                     when(stage){
-                        0 -> playerl(core.game.dialogue.FacialExpression.FRIENDLY, "Trick or treat!").also { if(RandomFunction.roll(20)) stage = 10 else stage++ }
-                        1 -> npcl(core.game.dialogue.FacialExpression.FRIENDLY, "Very well, then, here you are my friend.").also { stage++ }
+                        0 -> playerl(FacialExpression.FRIENDLY, "Trick or treat!").also { if(RandomFunction.roll(20)) stage = 10 else stage++ }
+                        1 -> npcl(FacialExpression.FRIENDLY, "Very well, then, here you are my friend.").also { stage++ }
                         2 -> {
                             player.dialogueInterpreter.sendItemMessage(14084, "They hand you a nicely-wrapped candy.")
                             addItemOrDrop(player, 14084, 1)
@@ -71,7 +72,7 @@ class TrickOrTreatHandler : InteractionListener {
                                     }
                                     return false
                                 }
-                            }!!)
+                            })
                         }
                     }
                 }

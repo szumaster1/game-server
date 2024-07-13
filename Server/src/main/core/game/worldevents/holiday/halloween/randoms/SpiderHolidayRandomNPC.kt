@@ -1,15 +1,16 @@
 package core.game.worldevents.holiday.halloween.randoms
 
 import core.api.*
+import core.api.consts.NPCs
+import core.api.consts.Sounds
 import core.game.interaction.QueueStrength
 import core.game.node.entity.combat.ImpactHandler
 import core.game.node.entity.npc.NPC
 import core.game.world.update.flag.context.Animation
 import core.game.worldevents.holiday.HolidayRandomEventNPC
 import core.game.worldevents.holiday.HolidayRandoms
-import core.api.consts.Sounds
 
-class SpiderHolidayRandomNPC : HolidayRandomEventNPC(61) {
+class SpiderHolidayRandomNPC : HolidayRandomEventNPC(NPCs.SPIDER_61) {
     override fun init() {
         super.init()
         this.behavior = SpiderHolidayRandomBehavior()

@@ -1,12 +1,16 @@
 package core.game.worldevents.holiday.halloween.randoms
 
-import core.api.*
+import core.api.animate
+import core.api.consts.NPCs
+import core.api.consts.Sounds
+import core.api.playGlobalAudio
+import core.api.sendChat
+import core.api.sendMessage
 import core.game.node.entity.npc.NPC
 import core.game.worldevents.holiday.HolidayRandomEventNPC
 import core.tools.RandomFunction
-import core.api.consts.Sounds
 
-class GhostHolidayRandomNPC : HolidayRandomEventNPC(2716) {
+class GhostHolidayRandomNPC : HolidayRandomEventNPC(NPCs.GHOST_2716) {
     override fun init() {
         super.init()
         this.isAggressive = false

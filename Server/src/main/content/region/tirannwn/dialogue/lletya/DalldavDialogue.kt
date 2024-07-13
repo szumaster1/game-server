@@ -13,7 +13,7 @@ import core.tools.END_DIALOGUE
 class DalldavDialogue(player: Player? = null): Dialogue(player) {
 
     /*
-     *  Info: elf who runs the Lletya Archery Shop in the rebel elf settlement of Lletya.
+     *  Info: Elf who runs the Lletya Archery Shop in the rebel elf settlement of Lletya.
      *  He sells arrows up to rune and bows up to willow, as well as a crossbow and bronze bolts.
      *  Location: 2323,3163
      */

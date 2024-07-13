@@ -2,6 +2,10 @@ package content.region.morytania.handlers.phasmatys
 
 import content.global.skill.combat.prayer.Bones
 import core.api.*
+import core.api.consts.Animations
+import core.api.consts.Items
+import core.api.consts.Scenery
+import core.api.consts.Sounds
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.impl.PulseType
@@ -11,9 +15,6 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld.Pulser
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
-import core.api.consts.Items
-import core.api.consts.Scenery
-import core.api.consts.Sounds
 
 class BoneGrinderListener : InteractionListener {
 
@@ -22,9 +23,9 @@ class BoneGrinderListener : InteractionListener {
         private const val BONE_HOPPER_KEY = "/save:bonegrinder-hopper"
         private const val BONE_BIN_KEY = "/save:bonegrinder-bin"
 
-        private val FILL_ANIM = Animation(1649)
-        private val WIND_ANIM = Animation(1648)
-        private val SCOOP_ANIM = Animation(1650)
+        private val WIND_ANIM = Animation(Animations.TURNING_WHEEL_ECTOFUNTUS_1648)
+        private val FILL_ANIM = Animation(Animations.FILL_HOPPER_WITH_BONES_ECTOFUNTUS_1649)
+        private val SCOOP_ANIM = Animation(Animations.FILL_POT_WITH_BONEMEAL_1650)
 
         private val boneIDs = Bones.values().map { it.itemId }.toIntArray()
     }

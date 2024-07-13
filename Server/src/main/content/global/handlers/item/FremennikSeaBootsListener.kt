@@ -102,6 +102,13 @@ class FremennikSeaBootsListener : InteractionListener {
 
                         6 -> when (buttonID) {
                             1 -> {
+                                /*
+                                 * This must be done at the altar; the remote contact option on the Fremennik sea boots 1 does not count.
+                                 */
+                                if(inInventory(player, Items.RAW_BASS_363) && inEquipmentOrInventory(player, Items.RING_OF_CHAROSA_6465) || inEquipmentOrInventory(player, Items.RING_OF_CHAROS_4202)){
+                                    npcl(FacialExpression.HALF_GUILTY, "A raw bass? You should know that is not a worthy offering, outlander.")
+                                    return
+                                }
                                 if (hasAnItem(player, *enchantedLyre).container == player.inventory) {
                                     sendDialogue(player, "All lyre charges must be used up before it will allow a charge to the lyre.")
                                     stage = 0
