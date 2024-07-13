@@ -14,19 +14,16 @@ private val IDS = (NPCs.TOWN_CRIER_6135..NPCs.TOWN_CRIER_6139).toIntArray()
 
 class TownCrierNPC : NPCBehavior(*IDS) {
 
-
     override fun tick(self: NPC): Boolean {
-        when (RandomFunction.random(8, 16)) {
-            8 -> {
-                stopWalk(self)
-                animate(self, Animations.TOWN_CRIER_RING_BELL_6865)
-                sendChat(self, "The Duke of Lumbridge needs a hand.")
-            }
-            16 -> {
-                stopWalk(self)
-                animate(self, Animations.TOWN_CRIER_SCRATCHES_HEAD_6863)
-                sendChat(self, "The squirrels! The squirrels are coming! Noooo, get them out of my head!")
-            }
+        if (RandomFunction.roll(33)) {
+            stopWalk(self)
+            animate(self, Animations.TOWN_CRIER_RING_BELL_6865)
+            sendChat(self, "The Duke of Lumbridge needs a hand.")
+        }
+        if (RandomFunction.roll(25)) {
+            stopWalk(self)
+            animate(self, Animations.TOWN_CRIER_SCRATCHES_HEAD_6863)
+            sendChat(self, "The squirrels! The squirrels are coming! Noooo, get them out of my head!")
         }
         return true
     }

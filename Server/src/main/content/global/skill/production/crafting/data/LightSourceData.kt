@@ -59,6 +59,14 @@ enum class LightSourceData(
         levelRequired = 12,
         true
     ),
+    BUG_LANTERN(
+        emptyId = Items.UNLIT_BUG_LANTERN_7051,
+        fullId = Items.UNLIT_BUG_LANTERN_7051,
+        litId = Items.LIT_BUG_LANTERN_7053,
+        sfxId = Sounds.LIGHT_CANDLE_2305,
+        levelRequired = 33,
+        false
+    ),
     OIL_LANTERN(
         emptyId = Items.OIL_LANTERN_4535,
         fullId = Items.OIL_LANTERN_4537,
@@ -113,6 +121,7 @@ enum class LightSourceData(
                 4548, 4550 -> BULLSEYE_LANTERN
                 4701, 4702 -> SAPPHIRE_LANTERN
                 5014, 5013 -> MINING_HELMET
+                7051, 7053 -> BUG_LANTERN
                 9064, 9065 -> EMERALD_LANTERN
                 else -> null
             }
