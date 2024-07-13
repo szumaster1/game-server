@@ -32,7 +32,7 @@ class SurpriseExamNPC(var type: String = "", override var loot: WeightBasedTable
                 }
 
                 1 -> {
-                    openDialogue(player, MrMordautDialogue(false))
+                    openDialogue(player, MordautDialogue(false))
                     return@queueScript stopExecuting(player)
                 }
 

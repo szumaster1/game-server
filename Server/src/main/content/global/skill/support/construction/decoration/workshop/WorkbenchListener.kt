@@ -31,28 +31,12 @@ class WorkbenchListener : InteractionListener, InterfaceListener {
                 animate(player, if (node.id == 13704) Animation(4107, 1) else Animation(4108, 1), true)
                 setAttribute(player, "con:using-workbench", true)
                 openInterface(player, Components.POH_WORKBENCH_397)
-                return@on true
             }
 
             if (option == "upgrade") {
-                openDialogue(player, object : DialogueFile() {
-                    override fun handle(componentID: Int, buttonID: Int) {
-                        when (stage) {
-                            0 -> sendDialogueOptions(player, "Are you sure?", "Yes I am.", "No I'm not.").also { stage++ }
-
-                            1 -> when (buttonID) {
-                                1 -> {
-                                    end()
-                                    BuildingUtils.openBuildInterface(player, BuildHotspot.WORKBENCH)
-                                    BuildingUtils.removeDecoration(player, node.asScenery())
-                                }
-
-                                2 -> end()
-                            }
-                        }
-                    }
-                })
+                player.getDialogueInterpreter().open("con:removedec", node.asScenery())
             }
+
             return@on true
         }
     }

@@ -24,13 +24,13 @@ class SurpriseExamInterface : InterfaceListener {
                 player.incrementAttribute(SurpriseExamUtils.SE_KEY_CORRECT)
                 val done = getAttribute(player, SurpriseExamUtils.SE_KEY_CORRECT, 0) == 3
                 openDialogue(
-                    player, MrMordautDialogue(examComplete = done, questionCorrect = true, fromInterface = true), NPC(
+                    player, MordautDialogue(examComplete = done, questionCorrect = true, fromInterface = true), NPC(
                         NPCs.MR_MORDAUT_6117
                     )
                 )
             } else {
                 openDialogue(
-                    player, MrMordautDialogue(examComplete = false, questionCorrect = false, fromInterface = true), NPC(
+                    player, MordautDialogue(examComplete = false, questionCorrect = false, fromInterface = true), NPC(
                         NPCs.MR_MORDAUT_6117
                     )
                 )

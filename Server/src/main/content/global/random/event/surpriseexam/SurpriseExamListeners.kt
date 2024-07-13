@@ -19,7 +19,7 @@ class SurpriseExamListeners : InteractionListener {
         on(MORDAUT, IntType.NPC, "talk-to") { player, node ->
             face(player, Location.create(1886, 5024, 0))
             val examComplete = getAttribute(player, SurpriseExamUtils.SE_KEY_CORRECT, 0) == 3
-            openDialogue(player, MrMordautDialogue(examComplete), node.asNpc())
+            openDialogue(player, MordautDialogue(examComplete), node.asNpc())
             return@on true
         }
 
