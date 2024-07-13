@@ -21,6 +21,8 @@ enum class SpecialLadders(private val ladderLoc: Location, private val destLoc: 
 
     TRAVERLEY_DUNGEON_LADDER_UP(Location.create(2884, 9797, 0), Location.create(2884, 3398, 0)),
 
+    CHAMPION_CHALLENGE_LADDERS_UP(Location.create(3190,9758,0),Location.create(3191, 3355, 0)),
+
     CASTLEWARS_SARADOMIN_MAIN_FLOOR_STAIRS_DOWN(Location.create(2419, 3080, 1), Location.create(2419, 3077, 0)),
     CASTLEWARS_SARADOMIN_MAIN_FLOOR_STAIRS_UP(Location.create(2428, 3081, 1), Location.create(2430, 3080, 2)),
     CASTLEWARS_SARADOMIN_OUTER_WALL_STAIRS_DOWN(Location.create(2417, 3075, 0), Location.create(2417, 3078, 0)),

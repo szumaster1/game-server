@@ -3,7 +3,9 @@ package content.global.skill.production.cooking.item
 import content.global.skill.production.cooking.dairy.DairyProduct
 import core.api.*
 import core.api.consts.Animations
+import core.api.consts.Graphics
 import core.api.consts.Items
+import core.api.consts.Scenery
 import core.game.event.ResourceProducedEvent
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillPulse
@@ -54,6 +56,9 @@ class DairyChurnPulse(player: Player?, item: Item?, product: DairyProduct, amoun
 
     override fun animate() {
         animate(player, Animations.CHURN_BUTTER_2793)
+        /*
+         *  sendGraphics(if(node!!.id == Scenery.DAIRY_CHURN_10094) Graphics.DAIRY_CHURN_458 else Graphics.DAIRY_CHURN_459, node!!.location)
+         */
     }
 
     override fun reward(): Boolean {

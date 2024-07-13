@@ -130,6 +130,8 @@ class VarrockListeners : InteractionListener {
                 26810 -> {
                     if (!inEquipment(player, Items.VARROCK_ARMOUR_3_11758) && player.location.x <= 3143) {
                         sendNPCDialogue(player, NPCs.HEAD_CHEF_847, "The bank's closed. You just can't get the staff these days.")
+                    } else if(getStatLevel(player, Skills.COOKING) == 99){
+                        DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
                     } else {
                         DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
                     }

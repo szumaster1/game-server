@@ -353,7 +353,7 @@ class FremennikAchievementDiary : DiaryEventHookBase(DiaryType.FREMENNIK) {
                     HardTasks.LUNAR_ISLE_MINE_PURE_ESSENCE
                 )
             }
-
+            /*
             10553 -> if (event.target.id == Scenery.FISH_STALL_4277 && event.option == "steal-from" && isQuestComplete(player, "Fremennik Trials")) {
                 finishTask(
                     player,
@@ -361,6 +361,7 @@ class FremennikAchievementDiary : DiaryEventHookBase(DiaryType.FREMENNIK) {
                     MediumTasks.STEAL_FISH_FROM_STALL
                 )
             }
+            */
 
             10811 -> if (event.target.id == Scenery.COLLAPSED_TRAP_19233 && inBorders(player, RELLEKKA_HUNTING_AREA) && event.option == "dismantle") {
                 finishTask(

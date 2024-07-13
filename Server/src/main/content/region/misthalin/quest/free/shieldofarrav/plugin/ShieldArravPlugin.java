@@ -94,7 +94,7 @@ public final class ShieldArravPlugin extends OptionHandler {
                 break;
             case 24356:
                 if (node.getLocation().getX() == 3188) {
-                    ClimbActionHandler.climb(player, new Animation(828), Location.create(3188, 3392, 1));
+                    ClimbActionHandler.climb(player, null, Location.create(3188, 3392, 1));
                 } else {
                     ClimbActionHandler.climbLadder(player, (Scenery) node, option);
                     return true;

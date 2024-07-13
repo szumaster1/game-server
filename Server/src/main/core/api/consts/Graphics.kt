@@ -384,7 +384,14 @@ object Graphics {
     const val SCANNING_AREA_FROM_THAT_QUEST_454 = 454
     const val ANCIENTS_BACKWARDS_TELEPORT_455 = 455
     const val SMALL_SPLASH_456 = 456
-    const val BUTTER_CHURNS_LOL_457 = 457
+    const val DAIRY_CHURN_457 = 457
+    const val DAIRY_CHURN_458 = 458
+    const val DAIRY_CHURN_459 = 459
+    const val DAIRY_CHURN_460 = 460
+    const val DAIRY_CHURN_461 = 461
+    const val DAIRY_CHURN_462 = 462
+    const val DAIRY_CHURN_463 = 463
+    const val DAIRY_CHURN_464 = 464
     const val HUGE_NORTH_STAR_LOOKING_THING_BLINKS_ABOVE_HEAD_465 = 465
     const val ZOMBIE_SPLITTING_IN_HALF_466 = 466
     const val ZOMBIE_HEAD_FALLS_OFF_467 = 467

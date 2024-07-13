@@ -4,6 +4,7 @@ import core.api.*
 import core.game.event.ResourceProducedEvent
 import core.game.node.entity.combat.ImpactHandler
 import core.game.node.entity.player.Player
+import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills
 import core.game.node.scenery.Scenery
@@ -34,11 +35,11 @@ class StallThiefPulse(player: Player?, node: Scenery?, private val stall: Stall?
             sendMessage(player, "You cant steal from the market stall during combat!")
             return false
         }
-        if (player.getSkills().getLevel(Skills.THIEVING) < stall.level) {
+        if (getStatLevel(player, Skills.THIEVING) < stall.level) {
             sendMessage(player, "You need to be level " + stall.level + " to steal from the " + node!!.name.lowercase() + ".")
             return false
         }
-        if (player.inventory.freeSlots() == 0) {
+        if (freeSlots(player) == 0) {
             sendMessage(player,"You don't have enough inventory space.")
             return false
         }
@@ -70,7 +71,7 @@ class StallThiefPulse(player: Player?, node: Scenery?, private val stall: Stall?
         }
         val success = success()
         if (success) {
-            if (stall === Stall.SILK_STALL) {
+            if (stall == Stall.SILK_STALL) {
                 player.getSavedData().globalData.setSilkSteal(System.currentTimeMillis() + 1800000)
             }
             if (node!!.isActive) {
@@ -78,13 +79,16 @@ class StallThiefPulse(player: Player?, node: Scenery?, private val stall: Stall?
             }
             val item = stall!!.randomLoot
             player.inventory.add(item)
-            player.getSkills().addExperience(Skills.THIEVING, stall.experience, true)
+            rewardXP(player, Skills.THIEVING, stall.experience)
             if (item.id == 1987) {
-                player.packetDispatch.sendMessage("You steal grapes from the grape stall.")
+                sendMessage(player,"You steal grapes from the grape stall.")
                 return true
             }
             if (stall === Stall.CANDLES) {
                 return true
+            }
+            if(stall == Stall.FISH_STALL){
+                finishDiaryTask(player, DiaryType.FREMENNIK, 1, 4)
             }
             player.packetDispatch.sendMessage("You steal " + (if (StringUtils.isPlusN(item.name)) "an" else "a") + " " + item.name.lowercase() + " from the " + stall.name.lowercase().replace('_', ' ') + ".")
             player.dispatch(ResourceProducedEvent(item.id, item.amount, node!!, 0))
@@ -97,7 +101,7 @@ class StallThiefPulse(player: Player?, node: Scenery?, private val stall: Stall?
             return
         }
         if (type == 0) {
-            player.packetDispatch.sendMessage("You attempt to steal some " + stall!!.message + " from the " + stall.name.lowercase().replace('_', ' '))
+            sendMessage(player,"You attempt to steal some " + stall!!.message + " from the " + stall.name.lowercase().replace('_', ' '))
         }
     }
 

@@ -71,7 +71,13 @@ class TFTInteractionListeners : InteractionListener {
 
         onUseWith(IntType.SCENERY, FISH, FISH_ALTAR) { player, fish, _ ->
             if (anyInInventory(player, Items.LYRE_3689, Items.ENCHANTED_LYRE_3690)) {
-                Pulser.submit(SpiritPulse(player, fish.id))
+                if(inInventory(player, Items.RAW_BASS_363)) {
+                    sendNPCDialogue(player, NPCs.FOSSEGRIMEN_1273, "That's not a bass, it's a very small shark.").also {
+                        Pulser.submit(SpiritPulse(player, fish.id))
+                    }
+                } else {
+                    Pulser.submit(SpiritPulse(player, fish.id))
+                }
             } else {
                 if(!anyInInventory(player, Items.LYRE_3689, Items.ENCHANTED_LYRE_3690)){
                     sendMessage(player, "I should probably have my lyre with me.")
@@ -168,20 +174,24 @@ class TFTInteractionListeners : InteractionListener {
             return@onUseWith true
         }
 
-        on(LONGHALL_BACKDOOR, IntType.SCENERY, "open") { player, door ->
-            when {
-                getAttribute(player, "LyreEnchanted", false) -> {
-                    sendNPCDialogue(player, 1278, "Yeah you're good to go through. Olaf tells me you're some kind of outerlander bard here on tour. I doubt you're worse than Olaf is.")
-                    DoorActionHandler.handleAutowalkDoor(player, door.asScenery())
-                }
+        on(LONGHALL_BACKDOOR, IntType.SCENERY, "open") { player, node ->
+            if(node.location == Location(2667,3683,0)) {
+                when {
+                    getAttribute(player, "LyreEnchanted", false) -> {
+                        sendNPCDialogue(player, 1278, "Yeah you're good to go through. Olaf tells me you're some kind of outerlander bard here on tour. I doubt you're worse than Olaf is.")
+                        DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
+                    }
 
-                getAttribute(player, "lyreConcertPlayed", false) -> {
-                    DoorActionHandler.handleAutowalkDoor(player, door.asScenery())
-                }
+                    getAttribute(player, "lyreConcertPlayed", false) -> {
+                        DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
+                    }
 
-                else -> {
-                    sendNPCDialogue(player, 1278, "I didn't give you permission to go backstage!")
+                    else -> {
+                        sendNPCDialogue(player, 1278, "I didn't give you permission to go backstage!")
+                    }
                 }
+            } else {
+                DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
             }
             return@on true
         }
@@ -371,18 +381,14 @@ class TFTInteractionListeners : InteractionListener {
                 }
                 1 -> npc.moveStep()
                 2 -> npc.face(player).also { player.face(npc) }
-                3 -> if(inInventory(player, Items.RAW_BASS_363)) {
-                    sendNPCDialogue(player, NPCs.FOSSEGRIMEN_1273, "That's not a bass, it's a very small shark.")
-                } else {
-                    player.dialogueInterpreter?.sendDialogues(npc, FacialExpression.HAPPY, "I will kindly accept this offering, and", "bestow upon you a gift in return.")
-                }
+                3 -> player.dialogueInterpreter?.sendDialogues(npc, FacialExpression.HAPPY, "I will kindly accept this offering, and", "bestow upon you a gift in return.")
                 4 -> if (!removeItem(player, Items.LYRE_3689)) {
                     removeItem(player, Items.ENCHANTED_LYRE_3690)
                 }
                 5 -> {
                     if (hasring) when (fish) {
                         363 -> {
-                            finishDiaryTask(player, DiaryType.FREMENNIK, 2, 4)
+                            finishDiaryTask(player, DiaryType.FREMENNIK, 1, 4)
                             if (hasboots) {
                                 addItem(player, Items.ENCHANTED_LYRE3_6126)
                             } else {
