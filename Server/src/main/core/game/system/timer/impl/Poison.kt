@@ -2,7 +2,6 @@ package core.game.system.timer.impl
 
 import core.game.system.timer.*
 import core.api.*
-import core.api.consts.Sounds
 import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
 import core.game.node.entity.combat.ImpactHandler
@@ -51,11 +50,10 @@ class Poison : PersistTimer (30, "poison", flags = arrayOf(TimerFlag.ClearOnDeat
 
     override fun run (entity: Entity) : Boolean {
         entity.impactHandler.manualHit (
-            damageSource, 
-            getDamageFromSeverity (severity--), 
+            damageSource,
+            getDamageFromSeverity (severity--),
             ImpactHandler.HitsplatType.POISON
         )
-        playAudio(entity.asPlayer(), Sounds.POISON_HITSPLAT_2408,0, severity--)
         if (severity == 0 && entity is Player)
             sendMessage(entity, "The poison has worn off.")
         return severity > 0
@@ -63,7 +61,7 @@ class Poison : PersistTimer (30, "poison", flags = arrayOf(TimerFlag.ClearOnDeat
 
     override fun getTimer (vararg args: Any) : RSTimer {
         val timer = Poison()
-        for (arg in args) 
+        for (arg in args)
             println(arg)
         timer.damageSource = args[0] as? Entity ?: return timer
         timer.severity = args[1] as? Int ?: return timer

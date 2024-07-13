@@ -12,13 +12,13 @@ import core.game.node.entity.npc.NPC;
 import core.game.world.map.RegionManager;
 import core.game.world.map.zone.ZoneBorders;
 import core.game.world.update.flag.context.Animation;
+import core.tools.Log;
 import core.tools.RandomFunction;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static core.api.ContentAPIKt.curePoison;
-import static core.api.ContentAPIKt.isPoisoned;
+import static core.api.ContentAPIKt.*;
 
 /**
  * The Gwd graardor swing handler.
@@ -61,6 +61,7 @@ public final class GWDGraardorSwingHandler extends CombatSwingHandler {
             NPC npc = (NPC) entity;
             if (isPoisoned(npc)) {
                 curePoison(npc);
+                log(this.getClass(), Log.DEBUG, "This npc should be immune to poison.");
             }
             List<BattleState> list = new ArrayList<>(20);
             for (Entity t : RegionManager.getLocalPlayers(npc, 28)) {
