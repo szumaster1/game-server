@@ -20,9 +20,7 @@ class SirAmikVarzeDialogue(player: Player? = null) : Dialogue(player) {
         quest = player.getQuestRepository().getQuest("Black Knights' Fortress")
         when (quest!!.getStage(player)) {
             30 -> {
-                player(FacialExpression.HAPPY,
-                    "I have ruined the Black Knights' invincibility potion."
-                )
+                player(FacialExpression.HAPPY, "I have ruined the Black Knights' invincibility potion.")
                 stage = 0
             }
 
@@ -37,10 +35,7 @@ class SirAmikVarzeDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             else -> {
-                npc(FacialExpression.ASKING,
-                    "I am the leader of the White Knights of Falador. Why",
-                    "do you seek my audience?"
-                )
+                npc(FacialExpression.ASKING, "I am the leader of the White Knights of Falador. Why", "do you seek my audience?")
                 stage = 0
             }
         }
@@ -52,18 +47,12 @@ class SirAmikVarzeDialogue(player: Player? = null) : Dialogue(player) {
             100 -> openDialogue(player, SirAmikVarzeDialogueFile(), npc)
             30 -> when (stage) {
                 0 -> {
-                    npc(FacialExpression.NEUTRAL,
-                        "Yes, we have just received a message from the Black",
-                        "Knights saying they withdraw their demands, which",
-                        "would seem to confirm your story."
-                    )
+                    npc(FacialExpression.NEUTRAL, "Yes, we have just received a message from the Black", "Knights saying they withdraw their demands, which", "would seem to confirm your story.")
                     stage = 1
                 }
 
                 1 -> {
-                    player(FacialExpression.HALF_ASKING,
-                        "Now I believe there was some talk of a cash reward..."
-                    )
+                    player(FacialExpression.HALF_ASKING, "Now I believe there was some talk of a cash reward...")
                     stage = 2
                 }
 
@@ -91,10 +80,7 @@ class SirAmikVarzeDialogue(player: Player? = null) : Dialogue(player) {
 
             20 -> when (stage) {
                 0 -> {
-                    player(FacialExpression.NEUTRAL,
-                        "I have managed to find what the secret weapon is",
-                        "I am now in the process of destroying it."
-                    )
+                    player(FacialExpression.NEUTRAL, "I have managed to find what the secret weapon is", "I am now in the process of destroying it.")
                     stage = 1
                 }
 
@@ -103,17 +89,12 @@ class SirAmikVarzeDialogue(player: Player? = null) : Dialogue(player) {
 
             10 -> when (stage) {
                 0 -> {
-                    player(FacialExpression.HALF_GUILTY,
-                        "I haven't managed to find what the secret weapon is",
-                        "yet..."
-                    )
+                    player(FacialExpression.HALF_GUILTY, "I haven't managed to find what the secret weapon is", "yet...")
                     stage = 1
                 }
 
                 1 -> {
-                    npc(FacialExpression.NEUTRAL,
-                        "Well keep at it! Falador's future is at stake!"
-                    )
+                    npc(FacialExpression.NEUTRAL, "Well keep at it! Falador's future is at stake!")
                     stage = 2
                 }
 
@@ -124,10 +105,7 @@ class SirAmikVarzeDialogue(player: Player? = null) : Dialogue(player) {
                     npc(FacialExpression.NEUTRAL, "Here's the dossier on the case.")
                     stage = 3
                 } else {
-                    npc(FacialExpression.NEUTRAL,
-                        "Don't forget to read that dossier of information I gave",
-                        "you."
-                    )
+                    npc(FacialExpression.NEUTRAL, "Don't forget to read that dossier of information I gave", "you.")
                     stage = 4
                 }
 
@@ -168,20 +146,12 @@ class SirAmikVarzeDialogue(player: Player? = null) : Dialogue(player) {
 
                 4 -> end()
                 5 -> {
-                    npc(FacialExpression.NEUTRAL,
-                        "Well, I need some spy work doing but it's quite",
-                        "dangerous. It will involve going into the Black Knights'",
-                        "fortress."
-                    )
+                    npc(FacialExpression.NEUTRAL, "Well, I need some spy work doing but it's quite", "dangerous. It will involve going into the Black Knights'", "fortress.")
                     stage = 6
                 }
 
                 6 -> {
-                    interpreter.sendOptions(
-                        "Select an Option",
-                        "I laugh in the face of danger!",
-                        "I go and cower in the corner at the first sign of danger!"
-                    )
+                    options("I laugh in the face of danger!", "I go and cower in the corner at the first sign of danger!")
                     stage = 7
                 }
 
@@ -192,11 +162,7 @@ class SirAmikVarzeDialogue(player: Player? = null) : Dialogue(player) {
                     }
 
                     2 -> {
-                        interpreter.sendDialogues(
-                            player,
-                            FacialExpression.HALF_GUILTY,
-                            "I go and cower in a corner at the first sign of danger!"
-                        )
+                       player(FacialExpression.HALF_GUILTY, "I go and cower in a corner at the first sign of danger!")
                         stage = 8
                     }
                 }
@@ -212,29 +178,18 @@ class SirAmikVarzeDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 10 -> {
-                    npc(FacialExpression.NEUTRAL,
-                        "I... suppose spy work DOES involve a little hiding in",
-                        "corners."
-                    )
+                    npc(FacialExpression.NEUTRAL, "I... suppose spy work DOES involve a little hiding in", "corners.")
                     stage = 11
                 }
 
                 11 -> {
-                    interpreter.sendOptions(
-                        "Select an Option",
-                        "Oh. I suppose I'll give it a go then.",
-                        "No, I'm not ready to do that."
-                    )
+                    options("Oh. I suppose I'll give it a go then.", "No, I'm not ready to do that.")
                     stage = 12
                 }
 
                 12 -> when (buttonId) {
                     1 -> {
-                        interpreter.sendDialogues(
-                            player,
-                            FacialExpression.FRIENDLY,
-                            "Oh. I suppose I'll give it a go then."
-                        )
+                        player(FacialExpression.FRIENDLY, "Oh. I suppose I'll give it a go then.")
                         stage = 17
                     }
 
@@ -245,48 +200,33 @@ class SirAmikVarzeDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 13 -> {
-                    npc(FacialExpression.NEUTRAL,
-                        "Come see me again if you change your mind."
-                    )
+                    npc(FacialExpression.NEUTRAL, "Come see me again if you change your mind.")
                     stage = 14
                 }
 
                 14 -> end()
                 15 -> {
-                    npc(FacialExpression.NEUTRAL,
-                        "Well that's good. Don't get too overconfident though."
-                    )
+                    npc(FacialExpression.NEUTRAL, "Well that's good. Don't get too overconfident though.")
                     stage = 16
                 }
 
                 16 -> {
-                    npc(FacialExpression.NEUTRAL,
-                        "You've come along at just the right time actually. All of",
-                        "my knights are already known to the Black Knights."
-                    )
+                    npc(FacialExpression.NEUTRAL, "You've come along at just the right time actually. All of", "my knights are already known to the Black Knights.")
                     stage = 17
                 }
 
                 17 -> {
-                    npc(FacialExpression.HALF_GUILTY,
-                        "Subtlety isn't exactly our strong point."
-                    )
+                    npc(FacialExpression.HALF_GUILTY, "Subtlety isn't exactly our strong point.")
                     stage = 18
                 }
 
                 18 -> {
-                    player(FacialExpression.HALF_ASKING,
-                        "Can't you just take your White Knights' armour off?",
-                        "They wouldn't recognise you then!"
-                    )
+                    player(FacialExpression.HALF_ASKING, "Can't you just take your White Knights' armour off?", "They wouldn't recognise you then!")
                     stage = 19
                 }
 
                 19 -> {
-                    npc(FacialExpression.NEUTRAL,
-                        "I am afraid our charter prevents us using espionage in",
-                        "any form, that is the domain of the Temple Knights."
-                    )
+                    npc(FacialExpression.NEUTRAL, "I am afraid our charter prevents us using espionage in", "any form, that is the domain of the Temple Knights.")
                     stage = 20
                 }
 
@@ -296,10 +236,7 @@ class SirAmikVarzeDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 21 -> {
-                    npc(FacialExpression.NEUTRAL,
-                        "The information is classified. I am forbidden to share it",
-                        "with outsiders."
-                    )
+                    npc(FacialExpression.NEUTRAL, "The information is classified. I am forbidden to share it", "with outsiders.")
                     stage = 22
                 }
 
@@ -309,35 +246,22 @@ class SirAmikVarzeDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 23 -> {
-                    npc(FacialExpression.ANGRY,
-                        "Well, the Black Knights have started making strange",
-                        "threats to us; demanding large amounts of money and",
-                        "land, and threatening to invade Falador if we don't pay",
-                        "them."
-                    )
+                    npc(FacialExpression.ANGRY, "Well, the Black Knights have started making strange", "threats to us; demanding large amounts of money and", "land, and threatening to invade Falador if we don't pay", "them.")
                     stage = 24
                 }
 
                 24 -> {
-                    npc(FacialExpression.NEUTRAL,
-                        "Now, NORMALLY this wouldn't be a problem..."
-                    )
+                    npc(FacialExpression.NEUTRAL, "Now, NORMALLY this wouldn't be a problem...")
                     stage = 25
                 }
 
                 25 -> {
-                    npc(FacialExpression.ANGRY,
-                        "But they claim to have a powerful new secret weapon."
-                    )
+                    npc(FacialExpression.ANGRY, "But they claim to have a powerful new secret weapon.")
                     stage = 26
                 }
 
                 26 -> {
-                    npc(FacialExpression.NEUTRAL,
-                        "Your mission, should you decide to accept it, is to",
-                        "infiltrate their fortress, find out what their secret",
-                        "weapon is, and then sabotage it."
-                    )
+                    npc(FacialExpression.NEUTRAL, "Your mission, should you decide to accept it, is to", "infiltrate their fortress, find out what their secret", "weapon is, and then sabotage it.")
                     stage = 27
                 }
 
@@ -367,10 +291,7 @@ class SirAmikVarzeDialogue(player: Player? = null) : Dialogue(player) {
 
                 30 -> end()
                 31 -> {
-                    npc(FacialExpression.NEUTRAL,
-                        "Good luck! Let me know how you get on. Here's the",
-                        "dossier for the case, I've already given you the details."
-                    )
+                    npc(FacialExpression.NEUTRAL, "Good luck! Let me know how you get on. Here's the", "dossier for the case, I've already given you the details.")
                     stage = 32
                 }
 

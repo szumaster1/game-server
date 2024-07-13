@@ -75,10 +75,10 @@ enum class StuffedItem(val dropId: Int, val stuffedId: Int, val price: Int, val 
 
 
     companion object {
-        val stuffedItemMap = values()
+        val stuffedItemMap =  HashMap<Int, StuffedItem>()
 
         init {
-            for (stuffedItem in values()) {
+            for (stuffedItem in StuffedItem.values()) {
                 stuffedItemMap[stuffedItem.dropId] = stuffedItem
             }
         }
