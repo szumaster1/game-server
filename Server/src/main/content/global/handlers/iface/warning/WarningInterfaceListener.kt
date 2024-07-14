@@ -38,12 +38,17 @@ class WarningInterfaceListener : InterfaceListener {
         }
 
         /*
-         * Waterbirth dungeon warning.
+         * Waterbirth & Ice cavern warning.
          */
 
         on(Components.CWS_WARNING_1_574, 17) { player, _, _, _, _, _ ->
             closeInterface(player)
-            player.properties.teleportLocation = Location.create(2443, 10146, 0)
+            if(inBorders(player, getRegionBorders(10042))) {
+                player.properties.teleportLocation = Location.create(2443, 10146, 0)
+            } else {
+                sendMessage(player, "You venture into the icy cavern.")
+                teleport(player, Location(3056, 9555, 0))
+            }
             return@on true
         }
 
@@ -60,17 +65,6 @@ class WarningInterfaceListener : InterfaceListener {
             } else {
                 closeInterface(player)
             }
-            return@on true
-        }
-
-        /*
-         * Icy Cavern entrance warning.
-         */
-
-        on(Components.CWS_WARNING_1_574, 17) { player, _, _, _, _, _ ->
-            closeInterface(player)
-            sendMessage(player, "You venture into the icy cavern.")
-            teleport(player, Location(3056, 9555, 0))
             return@on true
         }
 

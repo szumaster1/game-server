@@ -8,6 +8,7 @@ import core.game.global.action.ClimbActionHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.interaction.QueueStrength
+import core.game.node.entity.impl.Animator
 import core.game.node.entity.player.Player
 import core.game.world.map.Location
 import core.game.world.repository.Repository.findNPC
@@ -49,7 +50,7 @@ class PortSceneryListeners : InteractionListener {
         }
 
         on(PLANK, IntType.SCENERY, "cross") { player, node ->
-            forceMove(player, player.location, node.location, 100, animationDuration(Animation(Animations.HUMAN_WALK_SHORT_819)), null, Animations.HUMAN_WALK_SHORT_819)
+            forceMove(player, player.location, node.location, 10, 30, null, Animations.HUMAN_WALK_SHORT_819)
             if (getUsedOption(player) == "cross") {
                 when (node.id) {
                     2081 -> cross(player, KARAMJA[0])
@@ -75,6 +76,8 @@ class PortSceneryListeners : InteractionListener {
                     17393 -> cross(player, PORT_PHASMATYS[1])
                     17394 -> cross(player, CATHERBY[0])
                     17395 -> cross(player, CATHERBY[1])
+                    17396 -> cross(player, SHIP_YARD[0])
+                    17397 -> cross(player, SHIP_YARD[1])
                     17398 -> cross(player, KARAMJA[2]).also { sendMessage(player, "You must speak to the Customs Officer before it will set sail.") }
                     17399 -> cross(player, KARAMJA[3]).also { sendMessage(player, "You must speak to the Customs Officer before it will set sail.") }
                     17400 -> cross(player, BRIMHAVEN[0])
@@ -109,6 +112,7 @@ class PortSceneryListeners : InteractionListener {
         private val MOS_LE_HARMESS = arrayOf(Location(3668, 2931, 1), Location(3671, 2931, 0))
         private val MOS_SHIP = arrayOf(Location(3684, 2950, 1), Location(3684, 2953, 0))
         private val TYRAS = arrayOf(Location(2142, 3125, 1), Location(2142, 3122, 0))
+        private val SHIP_YARD = arrayOf(Location.create(2998, 3032, 1), Location(3000,3032,0))
         /*
          * 17.07.2009
          */

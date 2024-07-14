@@ -41,7 +41,6 @@ class DesertZone : MapZone(DESERT_ZONE, true), Plugin<Any?> {
         register(getRegionBorders(12845))
         register(getRegionBorders(12847))
         register(getRegionBorders(12848))
-        register(getRegionBorders(13099))
         register(getRegionBorders(13100))
         register(getRegionBorders(13101))
         register(getRegionBorders(13102))

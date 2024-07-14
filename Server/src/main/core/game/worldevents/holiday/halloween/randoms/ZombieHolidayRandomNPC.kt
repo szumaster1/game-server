@@ -1,6 +1,8 @@
 package core.game.worldevents.holiday.halloween.randoms
 
 import core.api.*
+import core.api.consts.Animations
+import core.api.consts.NPCs
 import core.game.interaction.QueueStrength
 import core.game.node.entity.combat.ImpactHandler
 import core.game.node.entity.npc.NPC
@@ -11,7 +13,7 @@ import core.tools.RandomFunction
 import core.tools.colorize
 import core.api.consts.Sounds
 
-class ZombieHolidayRandomNPC : HolidayRandomEventNPC(2714) {
+class ZombieHolidayRandomNPC : HolidayRandomEventNPC(NPCs.ZOMBIE_2714) {
     override fun init() {
         super.init()
         this.isAggressive = false
@@ -31,14 +33,14 @@ class ZombieHolidayRandomNPC : HolidayRandomEventNPC(2714) {
                 }
                 1 -> {
                     this.face(player)
-                    visualize(this, 5568 , -1)
+                    visualize(this, Animations.ZOMBIE_GRAB_5568 , -1)
                     playGlobalAudio(this.location, Sounds.ZOMBIE_ATTACK_918)
                     if (RandomFunction.roll(2)) {
                         player.timers.registerTimer(ResetHolidayAppearance())
                         sendMessage(player, colorize("%RThe zombie bites you!"))
                         val hit = if (player.skills.lifepoints < 5) 0 else 2
                         impact(player, hit, ImpactHandler.HitsplatType.NORMAL)
-                        player.appearance.transformNPC(2866)
+                        player.appearance.transformNPC(NPCs.ZOMBIE_2866)
                     } else {
                         impact(player, 0, ImpactHandler.HitsplatType.NORMAL)
                         sendMessage(player, "The zombie tries to bite you and misses!")
@@ -46,7 +48,7 @@ class ZombieHolidayRandomNPC : HolidayRandomEventNPC(2714) {
                     return@queueScript delayScript(this, 8)
                 }
                 2 -> {
-                    animate(this, 5575)
+                    animate(this, Animations.ZOMBIE_DEAD_5575)
                     HolidayRandoms.terminateEventNpc(player)
                     return@queueScript stopExecuting(this)
                 }

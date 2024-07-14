@@ -45,6 +45,7 @@ import core.api.consts.Graphics as Gfx
 import core.api.consts.Scenery as Sceneries
 
 class VinesweeperMinigame : InteractionListener, InterfaceListener, MapArea {
+
     override fun defineAreaBorders(): Array<ZoneBorders> {
         return arrayOf(getRegionBorders(6473))
     }
@@ -542,7 +543,6 @@ class VinesweeperMinigame : InteractionListener, InterfaceListener, MapArea {
         object VinesweeperTeleport {
             @JvmStatic
             fun teleport(npc: NPC, player: Player) {
-                stopWalk(npc)
                 if (hasTimerActive(player, "teleblock")) {
                     sendNPCDialogue(player, npc.id, "I can't do that, you're teleblocked!", FacialExpression.OLD_ANGRY1)
                     return
@@ -551,6 +551,7 @@ class VinesweeperMinigame : InteractionListener, InterfaceListener, MapArea {
                     NPCs.TECLYN_2861 -> visualize(npc, 437, 108)
                     else -> visualize(npc, 201, 108)
                 }
+                stopWalk(npc)
                 npc.faceTemporary(player, 1)
                 lock(player, 3)
                 playAudio(player, Sounds.CURSE_ALL_125, 0, 1)

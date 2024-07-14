@@ -18,7 +18,7 @@ class VampireHolidayRandomNPC : HolidayRandomEventNPC(NPCs.VAMPIRE_1023) {
     override fun init() {
         super.init()
         playGlobalAudio(this.location, Sounds.REGULAR_VAMPIRE_APPEAR_1897)
-        visualize(this, -1 , Graphics.HALLOWEEN_BAT_EMOTE_FEMALE)
+        visualize(this, -1 , Graphics.TRICK_1863)
         queueScript(this, 3, QueueStrength.SOFT) { stage: Int ->
             when (stage) {
                 0 -> {
@@ -38,7 +38,7 @@ class VampireHolidayRandomNPC : HolidayRandomEventNPC(NPCs.VAMPIRE_1023) {
                     return@queueScript delayScript(this, 8)
                 }
                 1 -> {
-                    visualize(this, Animations.HUMAN_TRICK_10530, Graphics.HALLOWEEN_BAT_EMOTE_FEMALE)
+                    visualize(this, Animations.HUMAN_TRICK_10530, Graphics.TRICK_1863)
                     HolidayRandoms.terminateEventNpc(player)
                     return@queueScript stopExecuting(this)
                 }

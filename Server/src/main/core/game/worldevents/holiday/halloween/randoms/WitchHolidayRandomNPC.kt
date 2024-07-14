@@ -108,7 +108,7 @@ class WitchHolidayRandomNPC : HolidayRandomEventNPC(NPCs.WITCH_611) {
                             return@queueScript delayScript(this, 2)
                         }
                         1 -> {
-                            visualize(player, Animations.HUMAN_TRICK_10530, Graphics.HALLOWEEN_BAT_EMOTE_FEMALE)
+                            visualize(player, Animations.HUMAN_TRICK_10530, Graphics.TRICK_1863)
                             playGlobalAudio(player.location, Sounds.VAMPIRE_SUMMON_1899)
                             return@queueScript delayScript(this, 4)
                         }
