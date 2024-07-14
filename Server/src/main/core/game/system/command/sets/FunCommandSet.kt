@@ -103,6 +103,7 @@ class FunCommandSet : CommandSet(Privilege.ADMIN) {
         /*
          * Toggle god mode.
          */
+
         define("god", Privilege.ADMIN, "", "Makes you invulnerable to damage.") { player, _ ->
             player.setAttribute("godMode", !player.getAttribute("godMode", false))
             notify(player, "God mode ${if (player.getAttribute("godMode", false)) "enabled." else "disabled."}")
@@ -140,7 +141,6 @@ class FunCommandSet : CommandSet(Privilege.ADMIN) {
                 })
             }
         }
-
 
         /*
          * Opens up the makeover interface.

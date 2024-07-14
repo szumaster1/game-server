@@ -2,6 +2,8 @@ package content.global.skill.support.agility.shortcuts
 
 import content.global.skill.support.agility.AgilityShortcut
 import core.api.hasRequirement
+import core.api.lock
+import core.api.lockInteractions
 import core.game.node.Node
 import core.game.node.entity.impl.ForceMovement
 import core.game.node.entity.player.Player
@@ -26,22 +28,10 @@ class TunnelShortcut : AgilityShortcut {
     private val CLIMB_UP = Animation.create(2591)
     private var offset: Int
 
-    /**
-     * Instantiates a new Tunnel shortcut.
-     */
     constructor() : super(intArrayOf(), 0, 0.0) {
         offset = 0
     }
 
-    /**
-     * Instantiates a new Tunnel shortcut.
-     *
-     * @param ids        the ids
-     * @param level      the level
-     * @param experience the experience
-     * @param offset     the offset
-     * @param options    the options
-     */
     constructor(ids: IntArray, level: Int, experience: Double, offset: Int, vararg options: String) : super(ids, level, experience, *options) {
         this.offset = offset
     }
@@ -66,6 +56,8 @@ class TunnelShortcut : AgilityShortcut {
         if (objectLocation.x == 2575) {
             offset = 1
         }
+        lock(player, 7)
+        lockInteractions(player, 7)
         ForceMovement.run(player, start, objectLocation, CLIMB_DOWN, 8)
         GameWorld.Pulser.submit(object : Pulse(1, player) {
             var count = 0
@@ -98,13 +90,6 @@ class TunnelShortcut : AgilityShortcut {
         return getStart(n.location, n.direction)
     }
 
-    /**
-     * Gets start.
-     *
-     * @param location the location
-     * @param dir      the dir
-     * @return the start
-     */
     private fun getStart(location: Location, dir: Direction): Location {
         return when (dir) {
             Direction.NORTH -> location

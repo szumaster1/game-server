@@ -27,12 +27,7 @@ class LunarIsleMineShortcut : InteractionListener {
             if (player.location.x != 2335) {
                 crawlingStart(player)
             } else {
-                sendDialogueLines(
-                    player,
-                    "${DARK_RED}Warning:</col>",
-                    "If you leave any items in the cave, they probably won't remain when",
-                    "you return!"
-                )
+                sendDialogueLines(player, "${DARK_RED}Warning:</col>", "If you leave any items in the cave, they probably won't remain when", "you return!")
                 addDialogueAction(player) { player, button ->
                     if (button == 4)
                         crawlingStart(player)

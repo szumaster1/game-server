@@ -112,6 +112,7 @@ class ChampionChallengeListener : InteractionListener, MapArea {
             teleport(player, Location.create(3185, 9758, 0))
             return@on true
         }
+
         on(CHAMPION_STATUE_OPEN, IntType.SCENERY, "climb-down") { player, _ ->
             teleport(player, Location.create(3182, 9758, 0))
             return@on true
