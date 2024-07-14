@@ -20,7 +20,7 @@ class TakeWineOfZamorakListener : InteractionListener {
             val npcs = RegionManager.getLocalNpcs(player)
             for (n in npcs) {
                 if (n.id == 188) {
-                    n.sendChat("Hands off zamorak's wine!")
+                    n.sendChat("Hands off Zamorak's wine!")
                     n.properties.combatPulse.attack(player)
                 }
             }

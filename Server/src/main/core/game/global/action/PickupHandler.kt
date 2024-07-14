@@ -28,7 +28,7 @@ object PickupHandler {
             return true
         }
         if (!GroundItemManager.getItems().contains(item)) {
-            sendMessage(player, "Too late!")
+            sendMessage(player, "Too late - it's gone!")
             return true
         }
         if (getAttribute(player,"droppedItem:" + item.id, 0) > GameWorld.ticks) { //Splinter
