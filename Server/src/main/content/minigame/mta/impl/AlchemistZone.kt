@@ -2,6 +2,7 @@ package content.minigame.mta.impl
 
 import content.minigame.mta.MTAType
 import content.minigame.mta.MTAZone
+import core.api.consts.Music
 import core.api.sendDialogueLines
 import core.api.setAttribute
 import core.game.interaction.Option
@@ -62,6 +63,9 @@ class AlchemistZone :
             entity.asPlayer().removeAttribute("alch-earn")
             setSession(entity.asPlayer())
             updateInterface(entity.asPlayer())
+            if(!entity.asPlayer().musicPlayer.hasUnlocked(Music.GOLDEN_TOUCH_535)){
+                entity.asPlayer().musicPlayer.unlock(Music.GOLDEN_TOUCH_535)
+            }
         }
         return super.enter(entity)
     }

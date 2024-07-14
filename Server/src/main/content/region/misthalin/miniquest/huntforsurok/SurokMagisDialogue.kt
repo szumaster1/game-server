@@ -1,5 +1,7 @@
 package content.region.misthalin.miniquest.huntforsurok
 
+import core.api.consts.Music
+import core.api.getVarbit
 import core.game.activity.ActivityPlugin
 import core.game.activity.CutscenePlugin
 import core.game.dialogue.Dialogue
@@ -17,6 +19,9 @@ class SurokMagisDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         player(player.username + "! The meddling adventurer.")
+        if(getVarbit(player, 3524) >= 1){
+            player.musicPlayer.unlock(Music.THE_WRONG_PATH_488)
+        }
         return true
     }
 
@@ -62,7 +67,7 @@ class SurokMagisDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun getIds(): IntArray {
-        return intArrayOf(7136)
+        return intArrayOf(7002,7136)
     }
 
     class SurokCutscene() : CutscenePlugin("Surok Cutscene") {

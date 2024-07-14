@@ -52,7 +52,7 @@ class EntranceGuardianDialogue(player: Player? = null) : Dialogue(player) {
             14 -> {
                 player.getSavedData().activityData.isStartedMta = true
                 player.inventory.add(MageTrainingArena.PROGRESS_HAT, player)
-                npc("Here you go. Talk to the hat to find out your current", "Pizzaz Points totals.")
+                npc(FacialExpression.OLD_NORMAL, "Here you go. Talk to the hat to find out your current", "Pizzaz Points totals.")
                 stage++
             }
             15 -> player("Talk to it?").also { stage++ }

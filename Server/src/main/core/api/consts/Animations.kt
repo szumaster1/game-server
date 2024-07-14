@@ -2252,6 +2252,8 @@ object Animations {
     const val DEFEND_5441 = 5441
     const val BEND_FORWARD_TOUCH_KNEES_5474 = 5474
     const val CLAN_CITADEL_LOOM_5562 = 5562
+    const val ZOMBIE_GRAB_5568 = 5568
+    const val ZOMBIE_DEAD_5575 = 5575
     const val WALK_5602 = 5602
     const val WALK_DEJECTED_BELOW_GROUND_5606 = 5606
     const val STAND_DEJECTED_SCRATCH_HEAD_BELOW_GROUND_5607 = 5607

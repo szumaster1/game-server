@@ -2,6 +2,7 @@ package content.minigame.mta.impl
 
 import content.minigame.mta.MTAType
 import content.minigame.mta.MTAZone
+import core.api.consts.Music
 import core.api.removeAttribute
 import core.api.setAttribute
 import core.game.node.entity.Entity
@@ -224,24 +225,12 @@ class TelekineticZone(val player: Player? = null) :
             x += 11
             y += 15
             height = 799
-            PacketRepository.send(
-                CameraViewPacket::class.java,
-                CameraContext(player, CameraContext.CameraType.POSITION, x + xInc, y + yInc, height, 1, speed)
-            )
-            PacketRepository.send(
-                CameraViewPacket::class.java,
-                CameraContext(player, CameraContext.CameraType.ROTATION, x - 55, y - 25, height, 1, speed)
-            )
+            PacketRepository.send(CameraViewPacket::class.java, CameraContext(player, CameraContext.CameraType.POSITION, x + xInc, y + yInc, height, 1, speed))
+            PacketRepository.send(CameraViewPacket::class.java, CameraContext(player, CameraContext.CameraType.ROTATION, x - 55, y - 25, height, 1, speed))
             return
         }
-        PacketRepository.send(
-            CameraViewPacket::class.java,
-            CameraContext(player, CameraContext.CameraType.POSITION, x + xInc, y + yInc, height, 1, speed)
-        )
-        PacketRepository.send(
-            CameraViewPacket::class.java,
-            CameraContext(player, CameraContext.CameraType.ROTATION, x + xInc, y + yInc, height, 1, speed)
-        )
+        PacketRepository.send(CameraViewPacket::class.java, CameraContext(player, CameraContext.CameraType.POSITION, x + xInc, y + yInc, height, 1, speed))
+        PacketRepository.send(CameraViewPacket::class.java, CameraContext(player, CameraContext.CameraType.ROTATION, x + xInc, y + yInc, height, 1, speed))
     }
 
     fun reset(player: Player?) {
@@ -361,6 +350,9 @@ class TelekineticZone(val player: Player? = null) :
         const val STATUE = 6888
         fun start(player: Player?) {
             setZone(player)
+            if(!player!!.musicPlayer.hasUnlocked(Music.MIND_OVER_MATTER_534)){
+                player!!.musicPlayer.unlock(Music.MIND_OVER_MATTER_534)
+            }
         }
 
         fun setZone(player: Player?): TelekineticZone {

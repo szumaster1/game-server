@@ -1358,9 +1358,9 @@ object Graphics {
     const val SOME_SPELL_1854 = 1854
     const val MORRIGANS_JAVELIN_DRAWBACK_1855 = 1855
     const val MORRIGANS_THROWING_AXE_1856 = 1856
-    const val SCARE_EMOTE_1864 = 1864
-    const val HALLOWEEN_BAT_EMOTE_MALE = 1862
-    const val HALLOWEEN_BAT_EMOTE_FEMALE = 1863
+    const val UNKNOWN_1862 = 1862
+    const val TRICK_1863 = 1863
+    const val TRICK_1864 = 1864
     const val DUST_BROOM_EMOTE_1866 = 1866
     const val WIERD_BLACK_THING_1890 = 1890
     const val BLACK_WIERD_THING_COMES_DOWN_ON_YOU_1896 = 1896

@@ -2,6 +2,7 @@ package content.global.handlers.player
 
 import core.api.*
 import core.api.consts.Items
+import core.api.consts.Music
 import core.game.activity.ActivityManager
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
@@ -47,6 +48,15 @@ class LoginValidationPlugin : Plugin<Player> {
             player.globalData.setLootSharePoints((player.globalData.getLootSharePoints() - player.globalData.getLootSharePoints() * 0.10).toInt())
         } else {
             player.getSavedData().globalData.setLootShareDelay(System.currentTimeMillis() + TimeUnit.DAYS.toMillis(1))
+        }
+        if(!player.musicPlayer.hasUnlocked(Music.SCAPE_SUMMON_457)){
+            player.musicPlayer.unlock(Music.SCAPE_SUMMON_457)
+        }
+        if(!player.musicPlayer.hasUnlocked(Music.SCAPE_HUNTER_207)){
+            player.musicPlayer.unlock(Music.SCAPE_HUNTER_207)
+        }
+        if(!player.musicPlayer.hasUnlocked(Music.GROUND_SCAPE_466)){
+            player.musicPlayer.unlock(Music.GROUND_SCAPE_466)
         }
         checkQuestPointsItems(player)
         return this

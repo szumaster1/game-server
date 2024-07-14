@@ -37,6 +37,8 @@ object Music {
     const val ARABIAN_36 = 36
     const val DEEP_WILDY_37 = 37
     const val TRAWLER_38 = 38
+    const val CHURCH_ORGAN_39 = 39
+    const val CHURCH_ORGAN_40 = 40
     const val EXPECTING_41 = 41
     const val WILDERNESS2_42 = 42
     const val WILDERNESS3_43 = 43
@@ -181,6 +183,8 @@ object Music {
     const val TRINITY_192 = 192
     const val MELLOW_193 = 193
     const val BRIMSTAILS_SCALES_194 = 194
+    const val DELRITH_SUMMON_195 = 195
+    const val WALLY_CUTSCENE_196 = 196
     const val LAMENT_OF_MEIYERDITCH_197 = 197
     const val DAGANNOTH_DAWN_198 = 198
     const val THE_MOLLUSC_MENACE_200 = 200
@@ -209,6 +213,8 @@ object Music {
     const val GARDEN_OF_SPRING_229 = 229
     const val GARDEN_OF_SUMMER_230 = 230
     const val GARDEN_OF_WINTER_231 = 231
+    const val GARDEN_CENTER_232 = 232
+    const val SHADOWS_BOUNCER_JINGLE_233 = 233
     const val CREATURE_CRUELTY_234 = 234
     const val MAGIC_MAGIC_MAGIC_235 = 235
     const val MUTANT_MEDLEY_236 = 236
@@ -268,6 +274,7 @@ object Music {
     const val FROSTBITE_294 = 294
     const val WARRIOR_295 = 295
     const val TECHNOLOGY_296 = 296
+    const val TOM_ANTHEM_297 = 297
     const val ILLUSIVE_298 = 298
     const val INADEQUACY_299 = 299
     const val UNTOUCHABLE_300 = 300
@@ -317,6 +324,7 @@ object Music {
     const val GOBLIN_GAME_346 = 346
     const val NARNODES_THEME_348 = 348
     const val IMPETUOUS_349 = 349
+    const val CREST_OF_WAVE_350 = 350 // Dragon Slayer - Sailing cutscene.
     const val DYNASTY_351 = 351
     const val SCARAB_352 = 352
     const val SHIPWRECKED_353 = 353
@@ -333,6 +341,7 @@ object Music {
     const val MELZARS_MAZE_365 = 365
     const val EAGLE_PEAK_366 = 366
     const val BARB_WIRE_367 = 367
+    const val OBSERVATORY_TELESCOPE_368 = 368 // Cutscene.
     const val TIME_TO_MINE_369 = 369
     const val IN_BETWEEN_370 = 370
     const val SCHOOLS_OUT_371 = 371
@@ -371,6 +380,7 @@ object Music {
     const val THE_LOST_MELODY_407 = 407
     const val STRENGTH_OF_SARADOMIN_408 = 408
     const val FROGLAND_409 = 409
+    const val LOST_TRIBE_CUTSCENE_410 = 410
     const val EVIL_BOBS_ISLAND_411 = 411
     const val INTO_THE_ABYSS_412 = 412
     const val THE_QUIZ_MASTER_413 = 413
@@ -409,8 +419,9 @@ object Music {
     const val HOME_SWEET_HOME_454 = 454
     const val SCARABAEOIDEA_455 = 455
     const val ANIMAL_APOGEE_456 = 456
-    const val SCAPE_SUMMON_457 = 457 // Unlocked automatically after the logging-in after the release of Summoning
-    const val THE_ROUTE_OF_ALL_EVIL_459 = 459 // Unlocked in the Chaos Tunnels
+    const val SCAPE_SUMMON_457 = 457
+    const val SCAPE_APE_458 = 458
+    const val THE_ROUTE_OF_ALL_EVIL_459 = 459
     const val JOY_OF_THE_HUNT_460 = 460
     const val THE_DESOLATE_ISLE_461 = 461
     const val SPIRITS_OF_ELID_462 = 462
@@ -418,7 +429,7 @@ object Music {
     const val THE_GENIE_464 = 464
     const val DESERT_HEAT_465 = 465
     const val GROUND_SCAPE_466 = 466
-    const val THE_ROUTE_OF_THE_PROBLEM_467 = 467 // Unlocked at the north-west and south rifts in the Chaos Tunnels
+    const val THE_ROUTE_OF_THE_PROBLEM_467 = 467
     const val SHAPING_UP_468 = 468
     const val IN_THE_PITS_469 = 469
     const val STRANGE_PLACE_470 = 470
@@ -436,8 +447,7 @@ object Music {
     const val JUNGLE_COMMUNITY_483 = 483
     const val THE_NOBLE_RODENT_485 = 485
     const val CHARMIN_FARMIN_487 = 487
-    const val THE_WRONG_PATH_488 =
-        488 // Unlocked before fighting Bork in the Chaos Tunnels during The Hunt for Surok miniquest
+    const val THE_WRONG_PATH_488 = 488
     const val BUBBLE_AND_SQUEAK_489 = 489
     const val SARIMS_VERMIN_490 = 490
     const val RAT_HUNT_491 = 491
@@ -450,42 +460,35 @@ object Music {
     const val CREEPY_499 = 499
     const val A_NEW_MENACE_500 = 500
     const val DISTANT_LAND_501 = 501
-    const val BITTERSWEET_BUNNY_502 = 502 // Unlocked during Easter Events
-    const val WAITING_FOR_THE_HUNT_503 = 503 // Unlocked in the Fist of Guthix minigame waiting room
+    const val BITTERSWEET_BUNNY_502 = 502
+    const val WAITING_FOR_THE_HUNT_503 = 503
     const val FANGS_FOR_THE_MEMORY_504 = 504
     const val PHARAOHS_TOMB_505 = 505
     const val LAND_DOWN_UNDER_506 = 506
-    const val GUTHIXS_HUNTER_507 =
-        507 // Unlocked while playing the Fist of Guthix minigame, or for Ironmen, interacting with the eastern passageway next to Fiara
+    const val GUTHIXS_HUNTER_507 = 507
     const val MEDDLING_KIDS_508 = 508
     const val CORRIDORS_OF_POWER_509 = 509
     const val SLITHER_AND_THITHER_510 = 510
     const val IN_THE_CLINK_511 = 511
     const val BLOODBATH_512 = 512 // Unlocked upon entering the Blood Altar after the Legacy of Seergaze quest
-    const val CONSPIRACY_PART_1_513 =
-        513 // Unlocked during Morytanian Splinter Group cutscene on the top floor of Paterdomus during the Legacy of Seergaze quest
+    const val CONSPIRACY_PART_1_513 = 513 // Unlocked during Morytanian Splinter Group cutscene on the top floor of Paterdomus during the Legacy of Seergaze quest
     const val THE_COLUMBARIUM_514 = 514 // Unlocked upon entering the Columbarium during the Legacy of Seergaze quest
     const val MUDSKIPPER_MELODY_515 = 515
-    const val CONSPIRACY_PART_2_516 =
-        516 // Unlocked when the Morytanian Splinter Group spots you before the Fistandantilus/Zaromark fight during the Legacy of Seergaze quest
+    const val CONSPIRACY_PART_2_516 = 516 // Unlocked when the Morytanian Splinter Group spots you before the Fistandantilus/Zaromark fight during the Legacy of Seergaze quest
     const val SUBTERRANEA_517 = 517
-    const val THE_TERRIBLE_TUNNELS_518 =
-        518 // Unlocked behind the wooden door in the Meiyerditch Dungeon during the Legacy of Seergaze quest
+    const val THE_TERRIBLE_TUNNELS_518 = 518 // Unlocked behind the wooden door in the Meiyerditch Dungeon during the Legacy of Seergaze quest
     const val INCANTATION_519 = 519
     const val GRIP_OF_THE_TALON_520 = 520
-    const val THE_TERRIBLE_CAVERNS_521 =
-        521 // Unlocked in the deep parts of Meiyerditch Laboratories during the Legacy of Seergaze quest
+    const val THE_TERRIBLE_CAVERNS_521 = 521 // Unlocked in the deep parts of Meiyerditch Laboratories during the Legacy of Seergaze quest
     const val ICY_A_WORRIED_GNOME_522 = 522
     const val ICY_TROUBLE_AHEAD_523 = 523
     const val XENOPHOBE_524 = 524
     const val TITLE_FIGHT_525 = 525
-    const val ARMA_GONNA_GET_YOU_526 =
-        526 // Unlocked during battle against TokTz-Ket-Dill during the TokTz-Ket-Dill quest
+    const val ARMA_GONNA_GET_YOU_526 = 526 // Unlocked during battle against TokTz-Ket-Dill during the TokTz-Ket-Dill quest
     const val DILLO_GENCE_IS_KEY_527 = 527 // Unlocked during the TokTz-Ket-Dill quest
     const val VICTORY_IS_MINE_528 = 528
     const val IN_THE_BRINE_530 = 530
-    const val TOKTZ_KET_EK_MACK_531 =
-        531 // Unlocked when watching the play of TokTz-Ket-Ek-Mack after completing the TokTz-Ket-Dill quest
+    const val TOKTZ_KET_EK_MACK_531 = 531 // Unlocked when watching the play of TokTz-Ket-Ek-Mack after completing the TokTz-Ket-Dill quest
     const val DIANGOS_LITTLE_HELPERS_532 = 532
     const val ROLL_THE_BONES_533 = 533
     const val MIND_OVER_MATTER_534 = 534
@@ -526,6 +529,8 @@ object Music {
     const val THE_RUINS_OF_CAMDOZAAL_570 = 570
     const val THE_ART_OF_HOCUS_POCUS_571 = 571
     const val MAGIC_AND_MYSTERY_572 = 572
+    const val MAD_MOLE_573 = 573
+    const val RFD_FAIRY_DRAGON_574 = 574
     const val CHICKENED_OUT_575 = 575
     const val DAVY_JONESS_LOCKER_576 = 576
     const val MASTERMINDLESS_577 = 577

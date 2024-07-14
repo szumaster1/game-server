@@ -22,7 +22,7 @@ enum class SpecialLadders(private val ladderLoc: Location, private val destLoc: 
     TRAVERLEY_DUNGEON_LADDER_UP(Location.create(2884, 9797, 0), Location.create(2884, 3398, 0)),
 
     CHAMPION_CHALLENGE_LADDERS_UP(Location.create(3190,9758,0),Location.create(3191, 3355, 0)),
-    CHAMPION_CHALLENGE_LADDERS_DOWN(Location.create(3191, 3355, 0), Location.create(3189, 9758, 0)),
+    CHAMPION_CHALLENGE_LADDERS_DOWN(Location.create(3190, 3355, 0), Location.create(3189, 9758, 0)),
 
     CASTLEWARS_SARADOMIN_MAIN_FLOOR_STAIRS_DOWN(Location.create(2419, 3080, 1), Location.create(2419, 3077, 0)),
     CASTLEWARS_SARADOMIN_MAIN_FLOOR_STAIRS_UP(Location.create(2428, 3081, 1), Location.create(2430, 3080, 2)),
@@ -116,6 +116,8 @@ enum class SpecialLadders(private val ladderLoc: Location, private val destLoc: 
             finishDiaryTask(player, DiaryType.SEERS_VILLAGE, 1, 3)
         }
     },
+    SOPHANEM_ALTAR_LADDER_UP(Location.create(3279,2771,1), Location.create(3279, 2770, 3)),
+    SOPHANEM_ALTAR_LADDER_DOWN(Location.create(3279,2771,3), Location.create(3279, 2772, 1)),
 
     SWENSEN_DOWN(Location.create(2644, 3657, 0), Location.create(2631, 10006, 0)),
     SWENSEN_UP(Location.create(2665, 10037, 0), Location.create(2649, 3661, 0)),
@@ -143,6 +145,9 @@ enum class SpecialLadders(private val ladderLoc: Location, private val destLoc: 
 
     VARROCK_HOUSE_UP(Location(3230,3383,0), Location(3230, 3382, 1)),
     VARROCK_HOUSE_DOWN(Location(3230, 3383, 1), Location(3230, 3386, 0)),
+
+    VARROCK_KING_RAT_LADDER_UP(Location(3268,3379,0), Location.create(3269, 3379, 1)),
+    VARROCK_KING_RAT_LADDER_DOWN(Location(3268,3379,1), Location.create(3267, 3379, 0)),
 
     VARROCK_SEWERS_DOWN(Location(3237, 3458,0), Location(3237, 9858, 0)),
     VARROCK_SEWERS_UP(Location(3237,9858,0), Location.create(3238, 3458, 0))

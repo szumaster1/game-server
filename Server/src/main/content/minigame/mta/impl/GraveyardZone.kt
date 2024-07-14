@@ -2,6 +2,7 @@ package content.minigame.mta.impl
 
 import content.minigame.mta.MTAType
 import content.minigame.mta.MTAZone
+import core.api.consts.Music
 import core.api.setAttribute
 import core.api.setInterfaceText
 import core.game.interaction.Option
@@ -48,6 +49,9 @@ class GraveyardZone :
                 PULSE.restart()
                 PULSE.start()
                 Pulser.submit(PULSE)
+            }
+            if(!entity.asPlayer().musicPlayer.hasUnlocked(Music.ROLL_THE_BONES_533)){
+                entity.asPlayer().musicPlayer.unlock(Music.ROLL_THE_BONES_533)
             }
         }
         return super.enter(entity)

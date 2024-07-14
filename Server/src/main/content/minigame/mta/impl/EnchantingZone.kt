@@ -1,6 +1,7 @@
 package content.minigame.mta.impl
 
 import content.minigame.mta.MTAZone
+import core.api.consts.Music
 import core.api.setAttribute
 import core.game.interaction.Option
 import core.game.node.Node
@@ -44,6 +45,9 @@ class EnchantingZone :
             createGroundSpawns(entity.asPlayer())
             BONUS_SHAPE.setAsBonus(entity.asPlayer())
             update(entity.asPlayer())
+            if(!entity.asPlayer().musicPlayer.hasUnlocked(Music.THE_ENCHANTER_541)){
+                entity.asPlayer().musicPlayer.unlock(Music.THE_ENCHANTER_541)
+            }
         }
         return super.enter(entity)
     }
@@ -232,9 +236,7 @@ class EnchantingZone :
                     BONUS_SHAPE.setAsBonus(player)
                 }
                 if (guardian != null) {
-                    guardian!!.sendChat(
-                        "The bonus shape has changed to the " + BONUS_SHAPE.name.lowercase().replace("_", " ")
-                            .trim { it <= ' ' } + ".")
+                    guardian!!.sendChat("The bonus shape has changed to the " + BONUS_SHAPE.name.lowercase().replace("_", " ").trim { it <= ' ' } + ".")
                 }
                 return false
             }
