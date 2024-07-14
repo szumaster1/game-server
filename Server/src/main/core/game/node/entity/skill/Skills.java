@@ -3,6 +3,8 @@ package core.game.node.entity.skill;
 import content.global.handlers.item.equipment.gloves.BrawlingGloves;
 import content.global.handlers.item.equipment.gloves.BrawlingGlovesManager;
 import content.global.skill.skillcape.SkillcapePerks;
+import core.api.consts.Items;
+import core.api.consts.Sounds;
 import core.game.event.DynamicSkillLevelChangeEvent;
 import core.game.event.XPGainEvent;
 import core.game.node.entity.Entity;
@@ -21,14 +23,11 @@ import core.plugin.type.XPGainPlugins;
 import kotlin.Pair;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import core.api.consts.Items;
-import core.api.consts.Sounds;
 
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 
-import static core.api.ContentAPIKt.getWorldTicks;
-import static core.api.ContentAPIKt.playAudio;
+import static core.api.ContentAPIKt.*;
 import static java.lang.Math.floor;
 import static java.lang.Math.max;
 
@@ -52,75 +51,30 @@ public final class Skills {
     /**
      * Constants for the skill ids.
      */
-    public static final int ATTACK = 0, /**
-     * The Defence.
-     */
-    DEFENCE = 1, /**
-     * The Strength.
-     */
-    STRENGTH = 2, /**
-     * The Hitpoints.
-     */
-    HITPOINTS = 3, /**
-     * The Range.
-     */
-    RANGE = 4, /**
-     * The Prayer.
-     */
-    PRAYER = 5, /**
-     * The Magic.
-     */
-    MAGIC = 6, /**
-     * The Cooking.
-     */
-    COOKING = 7, /**
-     * The Woodcutting.
-     */
-    WOODCUTTING = 8, /**
-     * The Fletching.
-     */
-    FLETCHING = 9, /**
-     * The Fishing.
-     */
-    FISHING = 10, /**
-     * The Firemaking.
-     */
-    FIREMAKING = 11, /**
-     * The Crafting.
-     */
-    CRAFTING = 12, /**
-     * The Smithing.
-     */
-    SMITHING = 13, /**
-     * The Mining.
-     */
-    MINING = 14, /**
-     * The Herblore.
-     */
-    HERBLORE = 15, /**
-     * The Agility.
-     */
-    AGILITY = 16, /**
-     * The Thieving.
-     */
-    THIEVING = 17, /**
-     * The Slayer.
-     */
-    SLAYER = 18, /**
-     * The Farming.
-     */
-    FARMING = 19, /**
-     * The Runecrafting.
-     */
-    RUNECRAFTING = 20, /**
-     * The Hunter.
-     */
-    HUNTER = 21, /**
-     * The Construction.
-     */
-    CONSTRUCTION = 22, /**
-     * The Summoning.
-     */
+    public static final int ATTACK = 0,
+
+    DEFENCE = 1,
+    STRENGTH = 2,
+    HITPOINTS = 3,
+    RANGE = 4,
+    PRAYER = 5,
+    MAGIC = 6,
+    COOKING = 7,
+    WOODCUTTING = 8,
+    FLETCHING = 9,
+    FISHING = 10,
+    FIREMAKING = 11,
+    CRAFTING = 12,
+    SMITHING = 13,
+    MINING = 14,
+    HERBLORE = 15,
+    AGILITY = 16,
+    THIEVING = 17,
+    SLAYER = 18,
+    FARMING = 19,
+    RUNECRAFTING = 20,
+    HUNTER = 21,
+    CONSTRUCTION = 22,
     SUMMONING = 23;
 
     /**
@@ -221,7 +175,7 @@ public final class Skills {
      * Determine whether the specified skill is a combat skill.
      * Prayer and Summoning are included and counted as combat skills.
      *
-     * @param skill the skill
+     * @param skill the skill.
      * @return true if so.
      */
     public boolean isCombat(int skill){
@@ -269,7 +223,7 @@ public final class Skills {
      *
      * @param slot       The skill slot.
      * @param experience The experience.
-     * @param playerMod  the player mod
+     * @param playerMod  the player mod.
      */
     public void addExperience(int slot, double experience, boolean playerMod) {
 		if (lastUpdateXp == null)
@@ -282,7 +236,9 @@ public final class Skills {
 		}
 		boolean already200m = this.experience[slot] == 200000000;
 		double experienceAdd = (experience * mod);
-		//check if a player has brawling gloves and, if equipped, modify xp
+		/*
+		 * Check if a player has brawling gloves and, if equipped, modify xp.
+		 */
 		BrawlingGlovesManager bgManager = BrawlingGlovesManager.getInstance(player);
 		if(!bgManager.GloveCharges.isEmpty()){
 			Item gloves = BrawlingGloves.forSkill(slot) == null ? null : new Item(BrawlingGloves.forSkill(slot).getId());
@@ -294,7 +250,9 @@ public final class Skills {
 				bgManager.updateCharges(gloves.getId(),1);
 			}
 		}
-		//Check for Flame Gloves and Ring of Fire
+		/*
+		 * Check for Flame Gloves and Ring of Fire.
+		 */
 		if(player.getEquipment().containsItem(new Item(Items.FLAME_GLOVES_13660)) || player.getEquipment().containsItem(new Item(Items.RING_OF_FIRE_13659))){
 			if(slot == Skills.FIREMAKING){
 				int count = 0;
@@ -307,7 +265,7 @@ public final class Skills {
 		this.experience[slot] += experienceAdd;
 		if (this.experience[slot] >= 200000000) {
 			if(!already200m && !player.isArtificial()){
-				Repository.sendNews(entity.asPlayer().getUsername()+" has just reached 200m experience in " + SKILL_NAME[slot] + "!");
+				sendNews(entity.asPlayer().getUsername()+" has just reached 200m experience in " + SKILL_NAME[slot] + "!");
 			}
 			this.experience[slot] = 200000000;
 		}
@@ -331,7 +289,7 @@ public final class Skills {
 
 			if (entity instanceof Player) {
                             player.updateAppearance();
-			    LevelUp.levelup(player, slot, amount);
+                LevelUp.levelUp(player, slot, amount);
                             updateCombatLevel();
 			}
 		}
@@ -369,8 +327,8 @@ public final class Skills {
     /**
      * Adds experience to the skills.
      *
-     * @param slot       the slot
-     * @param experience the experience
+     * @param slot       the slot.
+     * @param experience the experience.
      */
     public void addExperience(final int slot, double experience) {
 		addExperience(slot, experience, false);
@@ -394,7 +352,7 @@ public final class Skills {
 	}
 
     /**
-     * Returns the dynamic levels to the static levels
+     * Returns the dynamic levels to the static levels.
      */
     public void restore() {
 		for (int i = 0; i < 24; i++) {
@@ -429,7 +387,7 @@ public final class Skills {
     /**
      * Parse.
      *
-     * @param skillData the skill data
+     * @param skillData the skill data.
      */
     public void parse(JSONArray skillData){
 		for(int i = 0; i < skillData.size(); i++){
@@ -470,7 +428,7 @@ public final class Skills {
     /**
      * Parse exp rate.
      *
-     * @param buffer the buffer
+     * @param buffer the buffer.
      */
     public void parseExpRate(ByteBuffer buffer) {
 		experienceMultiplier = buffer.getDouble();
@@ -534,8 +492,8 @@ public final class Skills {
 		int points = 0;
 		int output = 0;
 		for (byte lvl = 1; lvl < 100; lvl++) {
-			points += floor(lvl + 300.0 * Math.pow(2.0, lvl / 7.0));
-			output = (int) floor(points / 4);
+            points += (int) floor(lvl + 300.0 * Math.pow(2.0, lvl / 7.0));
+			output = (int) floor((double) points / 4);
 			if ((output - 1) >= exp) {
 				return lvl;
 			}
@@ -554,8 +512,8 @@ public final class Skills {
 		int points = 0;
 		int output = 0;
 		for (byte lvl = 1; lvl < 100; lvl++) {
-			points += floor(lvl + 300.0 * Math.pow(2.0, lvl / 7.0));
-			output = (int) floor(points / 4);
+            points += (int) floor(lvl + 300.0 * Math.pow(2.0, lvl / 7.0));
+			output = (int) floor((double) points / 4);
 			if ((output - 1) >= exp) {
 				return lvl;
 			}
@@ -573,11 +531,11 @@ public final class Skills {
 		int points = 0;
 		int output = 0;
 		for (int lvl = 1; lvl <= level; lvl++) {
-			points += floor(lvl + 300.0 * Math.pow(2.0, lvl / 7.0));
+            points += (int) floor(lvl + 300.0 * Math.pow(2.0, lvl / 7.0));
 			if (lvl >= level) {
 				return output;
 			}
-			output = (int) floor(points / 4);
+			output = (int) floor((double) points / 4);
 		}
 		return 0;
 	}
@@ -694,7 +652,7 @@ public final class Skills {
      * Gets a dynamic level.
      *
      * @param slot          The skill id.
-     * @param discardAssist the discard assist
+     * @param discardAssist the discard assist.
      * @return The dynamic level.
      */
     public int getLevel(int slot, boolean discardAssist) {
@@ -797,7 +755,7 @@ public final class Skills {
     /**
      * Heal no restrictions.
      *
-     * @param amount the amount
+     * @param amount the amount.
      */
     public void healNoRestrictions(int amount){
 		lifepoints += amount;
@@ -860,7 +818,7 @@ public final class Skills {
 	}
 
     /**
-     * Updates the current amount of prayer points (by incrementing)
+     * Updates the current amount of prayer points (by incrementing).
      *
      * @param amount The amount to decrement with.
      */
@@ -878,8 +836,8 @@ public final class Skills {
 	}
 
     /**
-     * Sets the current prayer points (<b>without checking for being higher than
-     * max</b>)
+     * Sets the current prayer points
+     * (<b>without checking for being higher thanmax</b>)
      *
      * @param amount The amount.
      */
@@ -1006,7 +964,7 @@ public final class Skills {
     public int getTotalXp() {
 		int total = 0;
 		for (int skill = 0; skill < Skills.SKILL_NAME.length; skill++) {
-			total += this.getExperience(skill);
+			total += (int) this.getExperience(skill);
 		}
 		return total;
 	}
