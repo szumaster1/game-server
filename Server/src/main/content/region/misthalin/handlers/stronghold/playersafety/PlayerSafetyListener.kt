@@ -268,7 +268,7 @@ class PlayerSafetyListener : InteractionListener {
             for ((index, iface) in DTI_MAP.values.withIndex()) {
                 onClose(iface) { player, _ ->
                     scene?.end()
-                    player.globalData.getReadPlaques()[index] = true
+                    player.globalData.readPlaques[index] = true
                     return@onClose true
                 }
 

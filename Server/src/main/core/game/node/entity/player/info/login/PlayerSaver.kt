@@ -68,11 +68,7 @@ class PlayerSaver(val player: Player) {
             val manager = ScriptEngineManager()
             val scriptEngine = manager.getEngineByName("JavaScript")
             if (scriptEngine == null) {
-                log(
-                    this::class.java,
-                    Log.ERR,
-                    "Cannot save: Failed to load ScriptEngineManager, this is a known issue on non Java-11 versions. Set your Java version to 11 to avoid further bugs!"
-                )
+                log(this::class.java, Log.ERR, "Cannot save: Failed to load ScriptEngineManager, this is a known issue on non Java-11 versions. Set your Java version to 11 to avoid further bugs!")
                 return@runBlocking
             }
             scriptEngine.put("jsonString", populate().toJSONString())
@@ -371,7 +367,7 @@ class PlayerSaver(val player: Player) {
         globalData["doubleExpDelay"] = player.savedData.globalData.getDoubleExpDelay().toString()
         globalData["joinedMonastery"] = player.savedData.globalData.isJoinedMonastery()
         val readPlaques = JSONArray()
-        player.savedData.globalData.getReadPlaques().map {
+        player.savedData.globalData.readPlaques.map {
             readPlaques.add(it)
         }
         globalData["readPlaques"] = readPlaques
@@ -418,7 +414,7 @@ class PlayerSaver(val player: Player) {
         globalData["lootShareDelay"] = player.savedData.globalData.getLootShareDelay().toString()
         globalData["doubleExp"] = player.savedData.globalData.getDoubleExp().toString()
         globalData["globalTeleporterDelay"] = player.savedData.globalData.getGlobalTeleporterDelay().toString()
-        globalData["starSpriteDelay"] = player.savedData.globalData.getStarSpriteDelay().toString()
+        globalData["starSpriteDelay"] = player.savedData.globalData.starSpriteDelay.toString()
         globalData["runReplenishDelay"] = player.savedData.globalData.getRunReplenishDelay().toString()
         globalData["runReplenishCharges"] = player.savedData.globalData.getRunReplenishCharges().toString()
         globalData["lowAlchemyCharges"] = player.savedData.globalData.getLowAlchemyCharges().toString()

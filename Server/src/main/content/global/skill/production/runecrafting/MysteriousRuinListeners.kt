@@ -27,7 +27,7 @@ class MysteriousRuinListeners : InteractionListener {
         onUseWith(IntType.SCENERY, allowedUsed, *allowedWith) { player, used, with ->
             return@onUseWith handleTalisman(player, used, with)
         }
-        on(allowedWith, IntType.SCENERY, "enter") { player, node ->
+        on(allowedWith, IntType.SCENERY, "enter", "search") { player, node ->
             if (anyInEquipment(player, *talismanStaff)) {
                 handleStaff(player, node)
             } else {
@@ -85,7 +85,7 @@ class MysteriousRuinListeners : InteractionListener {
         }
 
         val tiara = Tiara.forItem(player.equipment.get(SLOT_HAT))
-        if (tiara == null || tiara != ruinId.tiara) {
+        if (tiara != ruinId.tiara) {
             sendMessage(player, nothingInteresting)
             return false
         }

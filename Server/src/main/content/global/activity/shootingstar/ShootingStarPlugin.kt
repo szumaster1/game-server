@@ -60,8 +60,8 @@ class ShootingStarPlugin : LoginListener, InteractionListener, TickListener, Com
             return@on true
         }
 
-        on(RING, IntType.ITEM, "rub", "operate"){ player, node ->
-            if(getRingStoreFile().getBoolean(player.username.toLowerCase())){
+        on(RING, IntType.ITEM, "rub", "operate") { player, _ ->
+            if (getRingStoreFile().getBoolean(player.username.lowercase())) {
                 sendDialogue(player, "The ring is still recharging.")
                 return@on true
             }
@@ -91,12 +91,12 @@ class ShootingStarPlugin : LoginListener, InteractionListener, TickListener, Com
                             "lunar isle mine"           -> {p -> hasRequirement(p, "Lunar Diplomacy")       }
                             "miscellania coal mine"     -> {p -> requireQuest(p, "The Fremennik Trials", "to access this.") }
                             //"neitiznot runite mine"     -> {p -> hasRequirement(p, "The Fremennik Isles") } //disabled: currently not reachable
-                            else -> {_ -> true}
+                            else -> { _ -> true}
                         }
                         if (!condition.invoke(player)) {
                             sendDialogue(player,"Magical forces prevent your teleportation.")
                         } else if (teleport(player, star.crash_locations[star.location]!!.transform(0, -1, 0), TeleportManager.TeleportType.MINIGAME)) {
-                            getRingStoreFile()[player.username.toLowerCase()] = true
+                            getRingStoreFile()[player.username.lowercase()] = true
                         }
                     }
                     when (stage) {
@@ -138,7 +138,7 @@ class ShootingStarPlugin : LoginListener, InteractionListener, TickListener, Com
 
     companion object {
         private val star = ShootingStar()
-        private val tickDelay = if(GameWorld.settings?.isDevMode == true) 200 else 25000
+        private val tickDelay = if (GameWorld.settings?.isDevMode == true) 2000 else 25000
         private val scoreboardEntries = ArrayList<ScoreboardEntry>()
         private val scoreboardIface = 787
         val SHOOTING_STARS = ShootingStarType.values().map(ShootingStarType::objectId).toIntArray()

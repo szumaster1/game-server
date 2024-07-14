@@ -163,14 +163,6 @@ class GlobalData {
         savedH = z
     }
 
-    fun setStarSpriteDelay(value: Long) {
-        starSpriteDelay = value
-    }
-
-    fun getStarSpriteDelay(): Long {
-        return starSpriteDelay
-    }
-
     fun getTravelLogs(): BooleanArray {
         return travelLogs
     }
@@ -379,13 +371,10 @@ class GlobalData {
         this.joinedMonastery = joinedMonastery
     }
 
-    fun getReadPlaques(): BooleanArray {
-        return readPlaques
-    }
 
     fun hasReadPlaques(): Boolean {
-        for (i in getReadPlaques().indices) {
-            if (!getReadPlaques()[i]) {
+        for (i in readPlaques.indices) {
+            if (!readPlaques[i]) {
                 return false
             }
         }

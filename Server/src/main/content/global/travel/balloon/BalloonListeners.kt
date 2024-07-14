@@ -4,6 +4,7 @@ import core.api.*
 import core.api.consts.Components
 import core.api.consts.Items
 import core.api.consts.NPCs
+import core.api.consts.Vars
 import core.cache.def.impl.ItemDefinition
 import core.game.component.Component
 import core.game.interaction.IntType
@@ -88,12 +89,60 @@ class BalloonListeners : InterfaceListener, InteractionListener {
         }
 
         enum class FlightDestination(val areaName: String, val flightDestination: Location, val flyAnim: Int, var button: Int, var logId: Int, var varbitId: Int, var requiredLevel: Int) {
-            CASTLE_WARS("Castle Wars", Location.create(2462, 3108, 0), 11009, 14, Items.YEW_LOGS_1515, 2869, 50),
-            GRAND_TREE("Grand Tree", Location.create(2480, 3458, 0), 11009, 15, Items.MAGIC_LOGS_1513, 2870, 60),
-            CRAFT_GUILD("Crafting Guild", Location.create(2924, 3303, 0), 11009, 16, Items.OAK_LOGS_1521, 2871, 30),
-            VARROCK("Varrock", Location.create(3298, 3481, 0), 11009, 19, Items.WILLOW_LOGS_1519, 2872, 40),
-            ENTRANA("Entrana", Location.create(2809, 3356, 0), 11009, 17, Items.LOGS_1511, 2867, 20),
-            TAVERLEY("Taverley", Location.create(2940, 3420, 0), 11009, 18, Items.LOGS_1511, 2868, 20);
+            CASTLE_WARS(
+                areaName = "Castle Wars",
+                flightDestination = Location.create(2462, 3108, 0),
+                flyAnim = 11009,
+                button = 14,
+                logId = Items.YEW_LOGS_1515,
+                varbitId = Vars.VARBIT_QUEST_ENLIGHTENED_JOURNEY_CASTLE_WARS_BALLOON,
+                requiredLevel = 50
+            ),
+            GRAND_TREE(
+                areaName = "Grand Tree",
+                flightDestination = Location.create(2480, 3458, 0),
+                flyAnim = 11009,
+                button = 15,
+                logId = Items.MAGIC_LOGS_1513,
+                varbitId = Vars.VARBIT_QUEST_ENLIGHTENED_JOURNEY_GRAND_TREE_BALLOON,
+                requiredLevel = 60
+            ),
+            CRAFT_GUILD(
+                areaName = "Crafting Guild",
+                flightDestination = Location.create(2924, 3303, 0),
+                flyAnim = 11009,
+                button = 16,
+                logId = Items.OAK_LOGS_1521,
+                varbitId = Vars.VARBIT_QUEST_ENLIGHTENED_JOURNEY_CRAFTING_GUILD_BALLOON,
+                requiredLevel = 30
+            ),
+            VARROCK(
+                areaName = "Varrock",
+                flightDestination = Location.create(3298, 3481, 0),
+                flyAnim = 11009,
+                button = 19,
+                logId = Items.WILLOW_LOGS_1519,
+                varbitId = Vars.VARBIT_QUEST_ENLIGHTENED_JOURNEY_VARROCK_BALLOON,
+                requiredLevel = 40
+            ),
+            ENTRANA(
+                areaName = "Entrana",
+                flightDestination = Location.create(2809, 3356, 0),
+                flyAnim = 11009,
+                button = 17,
+                logId = Items.LOGS_1511,
+                varbitId = Vars.VARBIT_QUEST_ENLIGHTENED_JOURNEY_ENTRANA_BALLOON,
+                requiredLevel = 20
+            ),
+            TAVERLEY(
+                areaName = "Taverley",
+                flightDestination = Location.create(2940, 3420, 0),
+                flyAnim = 11009,
+                button = 18,
+                logId = Items.LOGS_1511,
+                varbitId = Vars.VARBIT_QUEST_ENLIGHTENED_JOURNEY_TAVERLEY_BALLOON,
+                requiredLevel = 20
+            );
 
             companion object {
                 val flightMap = HashMap<Int, FlightDestination>()
