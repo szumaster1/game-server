@@ -40,16 +40,6 @@ class PrayerAltarListener : InteractionListener {
             }
             return@on true
         }
-
-        on(Scenery.CHAOS_ALTAR_61, IntType.SCENERY, "check") { player, _ ->
-            if (getQuestStage(player, "Merlin's Crystal") == 70) {
-                sendDialogue(player, "You find a small inscription at the bottom of the altar. It reads: 'Snarthon Candtrick Termanto'.")
-                setQuestStage(player, "Merlin's Crystal", 80)
-            } else {
-                sendMessage(player, "An altar of the evil god Zamorak.")
-            }
-            return@on true
-        }
     }
 
     private fun pray(player: Player, node: Node): Boolean {

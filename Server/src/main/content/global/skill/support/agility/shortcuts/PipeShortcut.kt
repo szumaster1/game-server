@@ -23,12 +23,12 @@ class PipeShortcut : AgilityShortcut {
     )
 
     override fun newInstance(arg: Any?): Plugin<Any> {
-        configure(PipeShortcut(intArrayOf(2290), 49, 0.0, "squeeze-through")) //Yanille Dungeon
-        configure(PipeShortcut(intArrayOf(5099), 22, 8.5, "squeeze-through")) //Brimhaven Dungeon Pipe Red Dragons -> Black Demons
-        configure(PipeShortcut(intArrayOf(5100), 34, 10.0, "squeeze-through")) //Brimhaven Dungeon Pipe Moss Giants -> Moss Giants
-        configure(PipeShortcut(intArrayOf(9293), 70, 10.0, "squeeze-through")) //Taverley Dungeon
-        configure(PipeShortcut(intArrayOf(20210), 35, 10.0, "squeeze-through")) //Barbarian Outpost
-        configure(PipeShortcut(intArrayOf(29370), 51, 10.0, "squeeze-through")) //Edgeville Dungeon
+        configure(PipeShortcut(intArrayOf(YANILLE_DUNGEON), 49, 0.0, "squeeze-through"))
+        configure(PipeShortcut(intArrayOf(BRIMHAVEN_DRAGONS), 22, 8.5, "squeeze-through"))
+        configure(PipeShortcut(intArrayOf(BRIMHAVEN_GIANTS), 34, 10.0, "squeeze-through"))
+        configure(PipeShortcut(intArrayOf(TAVERLEY_DUNGEON), 70, 10.0, "squeeze-through"))
+        configure(PipeShortcut(intArrayOf(BARBARIAN_OUTPOST), 35, 10.0, "squeeze-through"))
+        configure(PipeShortcut(intArrayOf(EDGEVILLE_DUNGEON), 51, 10.0, "squeeze-through"))
         return this
     }
 
@@ -81,5 +81,13 @@ class PipeShortcut : AgilityShortcut {
                 return false
             }
         })
+    }
+    companion object {
+        val YANILLE_DUNGEON = 2290
+        val BRIMHAVEN_DRAGONS = 5099
+        val BRIMHAVEN_GIANTS = 5100
+        val TAVERLEY_DUNGEON = 9293
+        val BARBARIAN_OUTPOST = 20210
+        val EDGEVILLE_DUNGEON = 29370
     }
 }

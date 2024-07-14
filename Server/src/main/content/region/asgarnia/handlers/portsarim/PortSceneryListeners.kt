@@ -49,7 +49,7 @@ class PortSceneryListeners : InteractionListener {
         }
 
         on(PLANK, IntType.SCENERY, "cross") { player, node ->
-            forceMove(player, player.location, node.location, 0, animationDuration(Animation(Animations.HUMAN_WALK_SHORT_819)), null, Animations.HUMAN_WALK_SHORT_819)
+            forceMove(player, player.location, node.location, 5, animationDuration(Animation(Animations.HUMAN_WALK_SHORT_819)), null, Animations.HUMAN_WALK_SHORT_819)
             if (getUsedOption(player) == "cross") {
                 when (node.id) {
                     2081 -> cross(player, KARAMJA[0])
