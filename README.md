@@ -1,4 +1,4 @@
-<div style="text-align: center;">
+<div align="center">
 
 [![AGPL-3.0 License][license-shield]][license-url]
 [![2009scape Fork][fork-shield]][fork-url]
@@ -6,15 +6,20 @@
 [![Java version][java-version]][java-url]
 [![Sp-release][sp-release]][sp-url]
 
+<a href="https://2009scape.org/">
+<img src="https://imgur.com/ThvoOSt.png"></a>
+
+<a href="https://2009scape.org/site/game_guide/play.html">
+<img src="https://imgur.com/AQaE61J.png"></a>
+
+
+
+
 </div>
-
-## 2009Scape
-
-Fork for educational purposes & single-player experience. 
-
-
+This repository is only a fork for my singleplayer experience. Click image above to go back to the official sources. Thank you.
 
 ##### Setting Up the Project
+
 
 ***
 
@@ -67,6 +72,8 @@ Start the game server with the included run script. Use `./run -h` for more info
 Start the game server with `run-server.bat`
 
 ***
+
+</details>
 
 ##### License
 
