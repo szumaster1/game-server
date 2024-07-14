@@ -41,7 +41,7 @@ class GlobalData {
     private var lootShareDelay: Long = 0
     private var doubleExp: Long = 0
     private var globalTeleporterDelay: Long = 0
-    private var starSpriteDelay: Long = 0
+    var starSpriteDelay: Long = 0
     private var runReplenishDelay: Long = 0
     private var lowAlchemyDelay: Long = 0
     private var minigameTeleportDelay: Long = 0
@@ -67,7 +67,7 @@ class GlobalData {
     private var macroDisabled: Boolean = false
 
     private var strongHoldRewards: BooleanArray = BooleanArray(4)
-    private var readPlaques: BooleanArray = BooleanArray(7)
+    var readPlaques: BooleanArray = BooleanArray(7)
     private var abyssData: BooleanArray = BooleanArray(4)
     private var travelLogs: BooleanArray = BooleanArray(45)
     private var godBooks: BooleanArray = BooleanArray(3)

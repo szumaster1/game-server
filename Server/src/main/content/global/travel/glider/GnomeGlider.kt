@@ -7,13 +7,48 @@ import core.game.node.entity.player.Player
 import core.game.world.map.Location
 
 enum class GnomeGlider(val button: Int, val location: Location, val config: Int, val npc: Int) {
-    TA_QUIR_PRIW(16,Location.create(2465, 3501, 3), 9, NPCs.CAPTAIN_DALBUR_3809),
-    SINDARPOS(17, Location.create(2848, 3497, 0), 1, NPCs.CAPTAIN_BLEEMADGE_3810),
-    LEMANTO_ADRA(18, Location.create(3321, 3427, 0), 3, -1),
-    AR_HEWO(19, Location.create(3278, 3212, 0), 4, NPCs.CAPTAIN_KLEMFOODLE_3812),
-    LEMANTOLLY_UNDRI(20, Location.create(2544, 2970, 0), 10, NPCs.GNORMADIUM_AVLAFRIM_1800),
-    CRASH_ISLAND(14, Location.create(2894, 2726, 0), 8, NPCs.CAPTAIN_ERRDO_3811),
-    GANDIUS(15, Location.create(2972, 2969, 0), 8, NPCs.CAPTAIN_ERRDO_3811);
+    TA_QUIR_PRIW(
+        button = 16,
+        location = Location.create(2465, 3501, 3),
+        config = 9,
+        npc = NPCs.CAPTAIN_DALBUR_3809
+    ),
+    SINDARPOS(
+        button = 17,
+        location = Location.create(2848, 3497, 0),
+        config = 1,
+        npc = NPCs.CAPTAIN_BLEEMADGE_3810
+    ),
+    LEMANTO_ADRA(
+        button = 18,
+        location = Location.create(3321, 3427, 0),
+        config = 3,
+        npc = -1
+    ),
+    AR_HEWO(
+        button = 19,
+        location = Location.create(3278, 3212, 0),
+        config = 4,
+        npc = NPCs.CAPTAIN_KLEMFOODLE_3812
+    ),
+    LEMANTOLLY_UNDRI(
+        button = 20,
+        location = Location.create(2544, 2970, 0),
+        config = 10,
+        npc = NPCs.GNORMADIUM_AVLAFRIM_1800
+    ),
+    CRASH_ISLAND(
+        button = 14,
+        location = Location.create(2894, 2726, 0),
+        config = 8,
+        npc = NPCs.CAPTAIN_ERRDO_3811
+    ),
+    GANDIUS(
+        button = 15,
+        location = Location.create(2972, 2969, 0),
+        config = 8,
+        npc = NPCs.CAPTAIN_ERRDO_3811
+    );
 
     companion object {
         fun sendConfig(asNpc: NPC, player: Player) {

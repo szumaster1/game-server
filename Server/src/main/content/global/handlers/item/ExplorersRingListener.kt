@@ -66,7 +66,7 @@ class ExplorersRingListener : InteractionListener {
                 sendItemSelect(player, "Choose") { slot, _ ->
                     val item = player.inventory[slot]
                     if (item == null) return@sendItemSelect
-                    if (!ModernListeners().alchemize(player, item, false)) return@sendItemSelect
+                    if (!ModernListeners().alchemize(player, item, false, explorersRing = true)) return@sendItemSelect
                     getStoreFile()[player.username.lowercase() + ":alchs"] = remaining - 1
                 }
             }

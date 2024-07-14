@@ -17,10 +17,10 @@ class SnakeskinListener : InteractionListener {
                 override fun create(amount: Int, index: Int) {
                     player.pulseManager.run(
                         SnakeskinCraftPulse(
-                            player,
-                            used.asItem(),
-                            amount,
-                            SnakeskinData.values()[index]
+                            player = player,
+                            node = used.asItem(),
+                            amount = amount,
+                            skin = SnakeskinData.values()[index]
                         )
                     )
                 }

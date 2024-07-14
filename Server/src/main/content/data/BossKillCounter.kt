@@ -2,6 +2,7 @@ package content.data
 
 import core.api.consts.NPCs
 import core.game.node.entity.player.Player
+import core.tools.StringUtils
 
 /**
  * @author Splinter
@@ -43,7 +44,7 @@ enum class BossKillCounter(val npc: IntArray, val bossName: String) {
             }
             val boss = BossKillCounter.forNPC(npcid) ?: return
             killer.getSavedData().globalData.getBossCounters()[boss.ordinal]++;
-            killer.packetDispatch.sendMessage("Your " + boss.name + " killcount is now: <col=ff0000>" + killer.getSavedData().globalData.getBossCounters()[boss.ordinal] + "</col>.");
+            killer.packetDispatch.sendMessage("Your " + StringUtils.formatDisplayName(boss.name) + " killcount is now: <col=ff0000>" + killer.getSavedData().globalData.getBossCounters()[boss.ordinal] + "</col>.");
         }
 
         @JvmStatic

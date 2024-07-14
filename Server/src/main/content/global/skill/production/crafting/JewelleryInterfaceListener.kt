@@ -4,8 +4,10 @@ import content.global.skill.production.crafting.data.JewelleryData.JewelleryItem
 import content.global.skill.production.crafting.data.JewelleryData.make
 import content.global.skill.support.slayer.data.SlayerManager.Companion.getInstance
 import core.api.consts.Components
+import core.api.getStatLevel
 import core.api.inInventory
 import core.api.sendInputDialogue
+import core.api.sendMessage
 import core.cache.def.impl.ItemDefinition
 import core.game.interaction.InterfaceListener
 import core.game.node.entity.skill.Skills
@@ -73,9 +75,9 @@ class JewelleryInterfaceListener : InterfaceListener {
                 return@on true
             }
 
-            if (player.getSkills().getLevel(Skills.CRAFTING) < data.level) {
+            if (getStatLevel(player, Skills.CRAFTING) < data.level) {
                 val an = if (StringUtils.isPlusN(ItemDefinition.forId(data.sendItem).name.lowercase())) "an" else "a"
-                player.packetDispatch.sendMessage("You need a crafting level of " + data.level + " to craft " + an + " " + ItemDefinition.forId(data.sendItem).name.lowercase() + ".")
+                sendMessage(player, "You need a crafting level of " + data.level + " to craft " + an + " " + ItemDefinition.forId(data.sendItem).name.lowercase() + ".")
                 return@on true
             }
 

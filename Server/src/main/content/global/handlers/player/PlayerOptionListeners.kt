@@ -19,7 +19,6 @@ class PlayerOptionListeners : InteractionListener {
          * Attack interaction.
          */
 
-//      on(_P_ATTACK.name, IntType.PLAYER) { player, node ->
         on(IntType.PLAYER, _P_ATTACK.name) { player, node ->
             player.attack(node)
             return@on true
@@ -29,7 +28,6 @@ class PlayerOptionListeners : InteractionListener {
          * Trade interaction.
          */
 
-//      on(_P_TRADE.name, IntType.PLAYER) { player, node ->
         on(IntType.PLAYER, _P_TRADE.name) { player, node ->
             player.requestManager.request((node as Player), RequestType.TRADE)
             return@on true
@@ -39,7 +37,6 @@ class PlayerOptionListeners : InteractionListener {
          * Request assist interaction.
          */
 
-//      on(_P_ASSIST.name, IntType.PLAYER) { player, node ->
         on(IntType.PLAYER, _P_ASSIST.name) { player, node ->
             if (node is AIPlayer) AIRepository.sendBotInfo(player, node)
             player.requestManager.request((node as Player), RequestType.ASSIST)
@@ -50,7 +47,6 @@ class PlayerOptionListeners : InteractionListener {
          * Follow interaction.
          */
 
-//      on(_P_FOLLOW.name, IntType.PLAYER) { player, node ->
         on(IntType.PLAYER, _P_FOLLOW.name) { player, node ->
             val target = node as Player
             player.pulseManager.run(object : MovementPulse(player, target, DestinationFlag.FOLLOW_ENTITY) {

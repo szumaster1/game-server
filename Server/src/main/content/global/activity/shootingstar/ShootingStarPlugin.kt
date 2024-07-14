@@ -1,33 +1,34 @@
 package content.global.activity.shootingstar
 
-import core.ServerStore
-import core.ServerStore.Companion.getBoolean
 import core.api.*
-import core.api.consts.Items
-import core.api.consts.Scenery
-import core.game.dialogue.DialogueFile
-import core.game.interaction.IntType
-import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.TeleportManager
 import core.game.node.entity.skill.Skills
+import org.json.simple.JSONObject
+import core.api.consts.Items
+import core.api.consts.Scenery
+import core.ServerStore
+import core.ServerStore.Companion.getBoolean
+import core.game.dialogue.DialogueFile
+import core.game.interaction.InteractionListener
+import core.game.interaction.IntType
+import core.tools.SystemLogger
 import core.game.system.command.Privilege
 import core.game.world.GameWorld
 import core.tools.Log
 import core.tools.secondsToTicks
-import org.json.simple.JSONObject
 
 class ShootingStarPlugin : LoginListener, InteractionListener, TickListener, Commands, StartupListener {
-
     override fun login(player: Player) {
-        if (star.isSpawned && !star.spriteSpawned) sendMessage(player, "<col=CC6600>News: A shooting star (Level ${star.level.ordinal + 1}) has just crashed near the ${star.location}!")
+        if(star.isSpawned && !star.spriteSpawned)
+            sendMessage(player, "<img=12><col=CC6600>News: A shooting star (Level ${star.level.ordinal + 1}) has just crashed near the ${star.location}!")
     }
 
     override fun tick() {
         ++star.ticks
 
         val maxDelay = tickDelay + (tickDelay / 3)
-        if (star.ticks > maxDelay && star.spriteSpawned) {
+        if(star.ticks > maxDelay && star.spriteSpawned){
             star.clearSprite()
         }
 
@@ -49,52 +50,75 @@ class ShootingStarPlugin : LoginListener, InteractionListener, TickListener, Com
             return@on true
         }
 
-        on(SHOOTING_STARS, IntType.SCENERY, "mine") { player, _ ->
+        on(SHOOTING_STARS, IntType.SCENERY, "mine"){ player, _ ->
             star.mine(player)
             return@on true
         }
 
-        on(SHOOTING_STARS, IntType.SCENERY, "prospect") { player, _ ->
+        on(SHOOTING_STARS, IntType.SCENERY, "prospect"){ player, _ ->
             star.prospect(player)
             return@on true
         }
 
-        on(RING, IntType.ITEM, "rub", "operate") { player, _ ->
-            if (getRingStoreFile().getBoolean(player.username.toLowerCase())) {
+        on(RING, IntType.ITEM, "rub", "operate"){ player, node ->
+            if(getRingStoreFile().getBoolean(player.username.toLowerCase())){
                 sendDialogue(player, "The ring is still recharging.")
                 return@on true
             }
 
-            val condition: (Player) -> Boolean = when (star.location.toLowerCase()) {
-                "canifis bank" -> { p -> hasRequirement(p, "Priest in Peril") }
-                "Burgh de Rott bank" -> { _ -> isQuestComplete(player, "Priest in Peril") }
-                "crafting guild" -> { p -> hasLevelStat(p, Skills.CRAFTING, 40) }
-                "lletya bank" -> { p -> hasRequirement(p, "Mourning's End Part I") }
-                "jatizso mine" -> { _ -> hasRequirement(player, "Fremennik Trials") }
-                "south crandor mining site" -> { p -> hasRequirement(p, "Dragon Slayer") }
-                "shilo village mining site" -> { p -> hasRequirement(p, "Shilo Village") }
-                "mos le'harmless bank" -> { p -> hasRequirement(p, "Cabin Fever") }
-                else -> { _ -> true }
+            class RingDialogue(val star: ShootingStar) : DialogueFile() {
+                val shouldWarn = when (star.location) {
+                    "North Edgeville mining site",
+                    "Southern wilderness mine",
+                    "Wilderness hobgoblin mine",
+                    "Pirates' Hideout mine",
+                    "Lava Maze mining site",
+                    "Mage Arena bank" -> true
+                    else -> false
+                }
+
+                override fun handle(componentID: Int, buttonID: Int) {
+                    fun teleportToStar(player: Player) {
+                        val condition: (p: Player) -> Boolean = when (star.location.toLowerCase()) {
+                            "canifis bank"              -> {p -> requireQuest(p, "Priest in Peril", "to access this.") }
+                            //"burgh de rott bank"        -> {p -> hasRequirement(p, "In Aid of the Myreque") } //disabled: crash
+                            "crafting guild"            -> {p -> hasLevelStat(p, Skills.CRAFTING, 40)       }
+                            "lletya bank"               -> {p -> hasRequirement(p, "Mourning's End Part I") }
+                            "jatizso mine"              -> {p -> hasRequirement(p, "The Fremennik Isles")   }
+                            "south crandor mining site" -> {p -> hasRequirement(p, "Dragon Slayer")         }
+                            "shilo village mining site" -> {p -> hasRequirement(p, "Shilo Village")         }
+                            "mos le'harmless bank"      -> {p -> hasRequirement(p, "Cabin Fever")           } //needs to be updated to check for completion when the quest releases; https://runescape.wiki/w/Mos_Le%27Harmless?oldid=913025
+                            "lunar isle mine"           -> {p -> hasRequirement(p, "Lunar Diplomacy")       }
+                            "miscellania coal mine"     -> {p -> requireQuest(p, "The Fremennik Trials", "to access this.") }
+                            //"neitiznot runite mine"     -> {p -> hasRequirement(p, "The Fremennik Isles") } //disabled: currently not reachable
+                            else -> {_ -> true}
+                        }
+                        if (!condition.invoke(player)) {
+                            sendDialogue(player,"Magical forces prevent your teleportation.")
+                        } else if (teleport(player, star.crash_locations[star.location]!!.transform(0, -1, 0), TeleportManager.TeleportType.MINIGAME)) {
+                            getRingStoreFile()[player.username.toLowerCase()] = true
+                        }
+                    }
+                    when (stage) {
+                        0 -> dialogue(if (star.spriteSpawned) "The star sprite has already been freed." else "The star sprite is still trapped.").also { if (shouldWarn) stage++ else stage += 2 }
+                        1 -> dialogue("WARNING: The star is located in the wilderness.").also { stage++ }
+                        2 -> player.dialogueInterpreter.sendOptions("Teleport to the star?", "Yes", "No").also { stage++ }
+                        3 -> when (buttonID) {
+                            1 -> end().also { teleportToStar(player) }
+                            2 -> end()
+                        }
+                    }
+                }
             }
 
-            if (!condition.invoke(player)) {
-                sendDialogue(player, "Magical forces prevent your teleportation.")
-                return@on true
-            }
-
-            val shouldWarn = when (star.location) {
-                "North Edgeville mining site", "Southern wilderness mine", "Wilderness hobgoblin mine", "Pirates' Hideout mine", "Lava Maze mining site", "Mage Arena bank" -> true
-
-                else -> false
-            }
-            openDialogue(player, RingDialogue(shouldWarn, star))
+            openDialogue(player, RingDialogue(star))
             return@on true
         }
     }
 
     override fun defineCommands() {
         define("tostar", Privilege.ADMIN) { player, _ ->
-            teleport(player, star.starObject.location.transform(1, 1, 0))
+            teleport(player, star.starObject.location.transform(1,1,0))
         }
 
         define("submit", Privilege.ADMIN) { _, _ ->
@@ -102,7 +126,7 @@ class ShootingStarPlugin : LoginListener, InteractionListener, TickListener, Com
         }
 
         define("resetsprite", Privilege.ADMIN) { player, _ ->
-            player.savedData.globalData.setStarSpriteDelay(0L)
+            player.savedData.globalData.starSpriteDelay = 0L
         }
     }
 
@@ -112,29 +136,9 @@ class ShootingStarPlugin : LoginListener, InteractionListener, TickListener, Com
 
     private data class ScoreboardEntry(val player: String, val time: Int)
 
-    private class RingDialogue(val shouldWarn: Boolean, val star: ShootingStar) : DialogueFile() {
-        override fun handle(componentID: Int, buttonID: Int) {
-            when (stage) {
-                0 -> dialogue(if (star.spriteSpawned) "The star sprite has already been freed." else "The star sprite is still trapped.").also { if (shouldWarn) stage++ else stage += 2 }
-                1 -> dialogue("WARNING: The star is located in the wilderness.").also { stage++ }
-                2 -> player!!.dialogueInterpreter.sendOptions("Teleport to the star?", "Yes", "No").also { stage++ }
-                3 -> when (buttonID) {
-                    1 -> teleport(player!!, star).also { end() }
-                    2 -> end()
-                }
-            }
-        }
-
-        fun teleport(player: Player, star: ShootingStar) {
-            if (teleport(player, star.crash_locations[star.location]!!.transform(0, -1, 0), TeleportManager.TeleportType.MINIGAME)) {
-                getRingStoreFile()[player.username.toLowerCase()] = true
-            }
-        }
-    }
-
     companion object {
         private val star = ShootingStar()
-        private val tickDelay = if (GameWorld.settings?.isDevMode == true) 200 else 25000
+        private val tickDelay = if(GameWorld.settings?.isDevMode == true) 200 else 25000
         private val scoreboardEntries = ArrayList<ScoreboardEntry>()
         private val scoreboardIface = 787
         val SHOOTING_STARS = ShootingStarType.values().map(ShootingStarType::objectId).toIntArray()
@@ -142,24 +146,23 @@ class ShootingStarPlugin : LoginListener, InteractionListener, TickListener, Com
         val RING = Items.RING_OF_THE_STAR_SPRITE_14652
 
 
-        @JvmStatic
-        fun submitScoreBoard(player: Player) {
-            if (scoreboardEntries.size == 5) scoreboardEntries.removeAt(0)
+        @JvmStatic fun submitScoreBoard(player: Player)
+        {
+            if(scoreboardEntries.size == 5)
+                scoreboardEntries.removeAt(0)
             scoreboardEntries.add(ScoreboardEntry(player.username, GameWorld.ticks))
         }
 
-        @JvmStatic
-        fun getStar(): ShootingStar {
+        @JvmStatic fun getStar(): ShootingStar
+        {
             return star
         }
 
-        @JvmStatic
-        fun getStoreFile(): JSONObject {
+        @JvmStatic fun getStoreFile() : JSONObject {
             return ServerStore.getArchive("shooting-star")
         }
 
-        @JvmStatic
-        fun getRingStoreFile(): JSONObject {
+        @JvmStatic fun getRingStoreFile() : JSONObject {
             return ServerStore.getArchive("daily-star-ring")
         }
 

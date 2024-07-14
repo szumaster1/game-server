@@ -2,6 +2,7 @@ package content.global.handlers.npc
 
 import core.api.consts.NPCs
 import core.api.finishDiaryTask
+import core.api.hasDiaryTaskComplete
 import core.api.withinDistance
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.AbstractNPC
@@ -21,7 +22,7 @@ class IceGiantNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, loc
         super.finalizeDeath(killer)
         if (killer is Player) {
             val player = killer.asPlayer()
-            if (withinDistance(player, Location(3052, 9573, 0), 100) && !player.achievementDiaryManager.getDiary(DiaryType.FALADOR).isComplete(1, 4)) {
+            if (withinDistance(player, Location(3052, 9573, 0), 100) && !hasDiaryTaskComplete(player, DiaryType.FALADOR, 1, 4)) {
                 finishDiaryTask(player, DiaryType.FALADOR,1, 4)
             }
         }

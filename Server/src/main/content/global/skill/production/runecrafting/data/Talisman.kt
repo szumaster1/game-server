@@ -10,56 +10,56 @@ enum class Talisman(
     private val ruin: MysteriousRuin?
 ) {
     AIR(
-        Item(Items.AIR_TALISMAN_1438),
-        MysteriousRuin.AIR
+        talisman = Item(Items.AIR_TALISMAN_1438),
+        ruin = MysteriousRuin.AIR
     ),
     MIND(
-        Item(Items.MIND_TALISMAN_1448),
-        MysteriousRuin.MIND
+        talisman = Item(Items.MIND_TALISMAN_1448),
+        ruin = MysteriousRuin.MIND
     ),
     WATER(
-        Item(Items.WATER_TALISMAN_1444),
-        MysteriousRuin.WATER
+        talisman = Item(Items.WATER_TALISMAN_1444),
+        ruin = MysteriousRuin.WATER
     ),
     EARTH(
-        Item(Items.EARTH_TALISMAN_1440),
-        MysteriousRuin.EARTH
+        talisman = Item(Items.EARTH_TALISMAN_1440),
+        ruin = MysteriousRuin.EARTH
     ),
     FIRE(
-        Item(Items.FIRE_TALISMAN_1442),
-        MysteriousRuin.FIRE
+        talisman = Item(Items.FIRE_TALISMAN_1442),
+        ruin = MysteriousRuin.FIRE
     ),
     ELEMENTAL(
-        Item(Items.ELEMENTAL_TALISMAN_5516),
-        null
+        talisman = Item(Items.ELEMENTAL_TALISMAN_5516),
+        ruin = null
     ),
     BODY(
-        Item(Items.BODY_TALISMAN_1446),
-        MysteriousRuin.BODY
+        talisman = Item(Items.BODY_TALISMAN_1446),
+        ruin = MysteriousRuin.BODY
     ),
     COSMIC(
-        Item(Items.COSMIC_TALISMAN_1454),
-        MysteriousRuin.COSMIC
+        talisman = Item(Items.COSMIC_TALISMAN_1454),
+        ruin = MysteriousRuin.COSMIC
     ),
     CHAOS(
-        Item(Items.CHAOS_TALISMAN_1452),
-        MysteriousRuin.CHAOS
+        talisman = Item(Items.CHAOS_TALISMAN_1452),
+        ruin = MysteriousRuin.CHAOS
     ),
     NATURE(
-        Item(Items.NATURE_TALISMAN_1462),
-        MysteriousRuin.NATURE
+        talisman = Item(Items.NATURE_TALISMAN_1462),
+        ruin = MysteriousRuin.NATURE
     ),
     LAW(
-        Item(Items.LAW_TALISMAN_1458),
-        MysteriousRuin.LAW
+        talisman = Item(Items.LAW_TALISMAN_1458),
+        ruin = MysteriousRuin.LAW
     ),
     DEATH(
-        Item(Items.DEATH_TALISMAN_1456),
-        MysteriousRuin.DEATH
+        talisman = Item(Items.DEATH_TALISMAN_1456),
+        ruin = MysteriousRuin.DEATH
     ),
     BLOOD(
-        Item(Items.BLOOD_TALISMAN_1450),
-        MysteriousRuin.BLOOD
+        talisman = Item(Items.BLOOD_TALISMAN_1450),
+        ruin = MysteriousRuin.BLOOD
     );
 
     fun locate(player: Player) {

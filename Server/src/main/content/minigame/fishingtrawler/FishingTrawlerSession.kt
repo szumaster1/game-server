@@ -25,6 +25,7 @@ import core.tools.RandomFunction
 import core.tools.secondsToTicks
 import core.tools.ticksToSeconds
 import java.util.concurrent.TimeUnit
+import kotlin.math.ceil
 import kotlin.random.Random
 
 private const val OVERLAY_ID = Components.TRAWLER_OVERLAY_366
@@ -153,6 +154,10 @@ class FishingTrawlerSession(val activity: FishingTrawlerActivity? = null) : MapA
                     player.interfaceManager.closeOverlay()
                     player.properties.teleportLocation = Location.create(2666, 3162, 0)
                     player.incrementAttribute("/save:$STATS_BASE:$FISHING_TRAWLER_GAMES_WON")
+                    val rolls = ceil(session.fishAmount / session.players.size.toDouble()).toInt()
+                    player.removeAttribute("ft-session")
+                    player.setAttribute("/save:ft-rolls", rolls)
+
                     clearLogoutListener(player, "ft-logout")
                 }
                 session.zone.unregister(getRegionBorders(session.region.id))

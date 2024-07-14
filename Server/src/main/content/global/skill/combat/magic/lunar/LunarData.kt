@@ -33,16 +33,46 @@ class HunterKitInteraction : InteractionListener {
 }
 
 enum class StringJewelleryItems(val unstrung: Int, val strung: Int) {
-    GOLD(Items.GOLD_AMULET_1673, Items.GOLD_AMULET_1692),
-    SAPPHIRE(Items.SAPPHIRE_AMULET_1675, Items.SAPPHIRE_AMULET_1694),
-    EMERALD(Items.EMERALD_AMULET_1677, Items.EMERALD_AMULET_1696),
-    RUBY(Items.RUBY_AMULET_1679, Items.RUBY_AMULET_1698),
-    DIAMOND(Items.DIAMOND_AMULET_1681, Items.DIAMOND_AMULET_1700),
-    DRAGONSTONE(Items.DRAGONSTONE_AMMY_1683, Items.DRAGONSTONE_AMMY_1702),
-    ONYX(Items.ONYX_AMULET_6579, Items.ONYX_AMULET_6581),
-    SALVE(Items.SALVE_SHARD_4082, Items.SALVE_AMULET_4081),
-    HOLY(Items.UNSTRUNG_SYMBOL_1714, Items.UNBLESSED_SYMBOL_1716),
-    UNHOLY(Items.UNSTRUNG_EMBLEM_1720, Items.UNPOWERED_SYMBOL_1722);
+    GOLD(
+        unstrung = Items.GOLD_AMULET_1673,
+        strung = Items.GOLD_AMULET_1692
+    ),
+    SAPPHIRE(
+        unstrung = Items.SAPPHIRE_AMULET_1675,
+        strung = Items.SAPPHIRE_AMULET_1694
+    ),
+    EMERALD(
+        unstrung = Items.EMERALD_AMULET_1677,
+        strung = Items.EMERALD_AMULET_1696
+    ),
+    RUBY(
+        unstrung = Items.RUBY_AMULET_1679,
+        strung = Items.RUBY_AMULET_1698
+    ),
+    DIAMOND(
+        unstrung = Items.DIAMOND_AMULET_1681,
+        strung = Items.DIAMOND_AMULET_1700
+    ),
+    DRAGONSTONE(
+        unstrung = Items.DRAGONSTONE_AMMY_1683,
+        strung = Items.DRAGONSTONE_AMMY_1702
+    ),
+    ONYX(
+        unstrung = Items.ONYX_AMULET_6579,
+        strung = Items.ONYX_AMULET_6581
+    ),
+    SALVE(
+        unstrung = Items.SALVE_SHARD_4082,
+        strung = Items.SALVE_AMULET_4081
+    ),
+    HOLY(
+        unstrung = Items.UNSTRUNG_SYMBOL_1714,
+        strung = Items.UNBLESSED_SYMBOL_1716
+    ),
+    UNHOLY(
+        unstrung = Items.UNSTRUNG_EMBLEM_1720,
+        strung = Items.UNPOWERED_SYMBOL_1722
+    );
     companion object {
         private val productOfString = values().associate { it.unstrung to it.strung }
         fun forId(id: Int): Int {

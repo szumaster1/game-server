@@ -9,8 +9,11 @@ import core.game.node.entity.combat.CombatStyle
 class AttackListener : InteractionListener {
     override fun defineListeners() {
         flagInstant()
+        /*
+         * Makes sure player uses correct attack
+         * styles for Lumbridge dummies.
+         */
         on(IntType.NPC, "attack") { player, npc ->
-            // Makes sure player uses correct attack styles for Lumbridge dummies.
             if (npc.id == NPCs.MAGIC_DUMMY_4474 && player.getSwingHandler(false).type != CombatStyle.MAGIC) {
                 sendMessage(player, "You can only attack this with magic.")
                 return@on true

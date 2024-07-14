@@ -9,6 +9,7 @@ import core.game.global.action.DoorActionHandler
 import core.game.interaction.InterfaceListener
 import core.game.node.entity.impl.ForceMovement
 import core.game.node.entity.player.Player
+import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.scenery.Scenery
 import core.game.world.GameWorld
 import core.game.world.map.Location
@@ -18,6 +19,23 @@ import core.game.world.update.flag.context.Animation
 class WarningInterfaceListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {
+
+        /*
+         * Enter to Giant mole cave.
+         */
+
+        on(Components.CWS_WARNING_3_568, 17) { player, _, _, _, _, _ ->
+            closeInterface(player)
+            player.properties.teleportLocation = Location.create(1752, 5237, 0)
+            playAudio(player, Sounds.ROOF_COLLAPSE_1384)
+            sendMessage(player, "You seem to have dropped down into a network of mole tunnels.")
+
+            if (!hasDiaryTaskComplete(player, DiaryType.FALADOR, 0, 5)) {
+                finishDiaryTask(player, DiaryType.FALADOR, 0, 5)
+            }
+            closeInterface(player)
+            return@on true
+        }
 
         /*
          * Waterbirth dungeon warning.

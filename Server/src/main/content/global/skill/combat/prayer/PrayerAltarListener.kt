@@ -1,141 +1,76 @@
-package content.global.skill.combat.prayer
+package content.global.skill.prayer
 
 import core.api.*
-import core.api.consts.Animations
 import core.api.consts.Scenery
 import core.api.consts.Sounds
+import core.game.event.PrayerPointsRechargeEvent
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
+import core.game.interaction.QueueStrength
+import core.game.node.Node
 import core.game.node.entity.player.Player
-import core.game.node.entity.player.link.SpellBookManager.SpellBook
-import core.game.node.entity.player.link.SpellBookManager.SpellBook.Companion.forInterface
+import core.game.node.entity.player.link.TeleportManager
 import core.game.node.entity.skill.Skills
 import core.game.world.map.Location
 
 class PrayerAltarListener : InteractionListener {
 
     override fun defineListeners() {
+        on(ALTAR, IntType.SCENERY, "pray", "pray-at") { player, node ->
+            if (node.id == Scenery.TRIBAL_STATUE_3863 && !hasRequirement(player, "Tai Bwo Wannai Trio")) {
+                return@on true
+            }
 
-        /*
-         *  Altar interactions.
-         */
+            if (!pray(player, node)) {
+                if (node.id != Scenery.ELIDINIS_STATUETTE_10439) return@on true
+            }
 
-        on(IntType.SCENERY, "pray-at", "pray") { player, node ->
-            val altar = Altar.forId(node.id)
-            if (altar != null) {
-                altar.pray(player)
-                visualize(player)
-                return@on true
+            if (node.id == Scenery.ELIDINIS_STATUETTE_10439) {
+                setTempLevel(player, Skills.HITPOINTS, getStatLevel(player, Skills.HITPOINTS).plus(7))
+                sendMessage(player, "You feel much healthier after praying in the shrine.")
             }
-            if (player.getSkills().prayerPoints == getStatLevel(player, Skills.PRAYER).toDouble()) {
-                sendMessage(player, "You already have full prayer points.")
-                return@on true
+
+            if (node.id == Scenery.CHAOS_ALTAR_412) {
+                lock(player, 4)
+                queueScript(player, 4, QueueStrength.STRONG) {
+                    sendMessage(player, "It's a trap!")
+                    teleport(player, Location(2583, 9576, 0), TeleportManager.TeleportType.INSTANT)
+                    return@queueScript stopExecuting(player)
+                }
             }
-            visualize(player)
-            player.getSkills().rechargePrayerPoints()
-            sendMessage(player, "You recharge your Prayer points.")
-            if (node.id == Scenery.ALTAR_2640) {
-                player.getSkills().setLevel(Skills.PRAYER, getStatLevel(player, Skills.PRAYER) + 2)
-            }
-            if (node.asScenery().location == Location(2571, 9499, 0)) {
-                teleport(player, Location(2583, 9576, 0))
-                sendMessage(player, "It's a trap!")
-                return@on true
-            }
-            return@on false
+            return@on true
         }
 
+        on(Scenery.CHAOS_ALTAR_61, IntType.SCENERY, "check") { player, _ ->
+            if (getQuestStage(player, "Merlin's Crystal") == 70) {
+                sendDialogue(player, "You find a small inscription at the bottom of the altar. It reads: 'Snarthon Candtrick Termanto'.")
+                setQuestStage(player, "Merlin's Crystal", 80)
+            } else {
+                sendMessage(player, "An altar of the evil god Zamorak.")
+            }
+            return@on true
+        }
     }
 
-    fun visualize(player: Player) {
+    private fun pray(player: Player, node: Node): Boolean {
+        val prayerLevel = getStatLevel(player, Skills.PRAYER).plus(if (node.id in BOOSTED_ALTAR) 2 else 0)
+
+        if (player.skills.prayerPoints >= prayerLevel.toDouble()) {
+            sendMessage(player, "You already have full prayer points.")
+            return false
+        }
+
         lock(player, 3)
+        animate(player, 645)
         playAudio(player, Sounds.PRAYER_RECHARGE_2674)
-        animate(player, Animations.HUMAN_PRAY_645)
+        setTempLevel(player, Skills.PRAYER, prayerLevel)
+        sendMessage(player, "You recharge your prayer points.")
+        player.dispatch(PrayerPointsRechargeEvent(node))
+        return true
     }
 
-    enum class Altar(
-        val id: Int,
-        val book: Int,
-        vararg messages: String
-    ) {
-        ANCIENT(
-            Scenery.ALTAR_6552,
-            SpellBook.ANCIENT.interfaceId,
-            "You feel a strange wisdom fill your mind...",
-            "You feel a strange drain upon your memory..."
-        ) {
-            override fun pray(player: Player) {
-                if (!hasRequirement(player, "Desert Treasure")) return
-                if (getStatLevel(player, Skills.MAGIC) < 50) {
-                    sendMessage(player, "You need a Magic level of at least 50 in order to do this.")
-                    return
-                }
-                drain(player)
-                if (!isPrayerType(player)) {
-                    switchToBook(player)
-                    sendMessage(player, messages[0])
-                } else {
-                    revert(player)
-                    sendMessage(player, messages[1])
-                }
-            }
-        },
-
-        LUNAR(
-            Scenery.ALTAR_17010,
-            SpellBook.LUNAR.interfaceId,
-            "Lunar spells activated!",
-            "Lunar spells deactivated!"
-        ) {
-            override fun pray(player: Player) {
-                if (!hasRequirement(player, "Lunar Diplomacy")) return
-                if (getStatLevel(player, Skills.MAGIC) < 65) {
-                    sendMessage(player, "You need a Magic level of at least 65 in order to do this.")
-                    return
-                }
-                if (!isPrayerType(player)) {
-                    switchToBook(player)
-                    sendMessage(player, messages[0])
-                } else {
-                    revert(player)
-                    sendMessage(player, messages[1])
-                }
-            }
-        };
-
-        val messages: Array<String> = messages as Array<String>
-
-        open fun pray(player: Player) {
-        }
-
-        fun revert(player: Player) {
-            player.spellBookManager.setSpellBook(SpellBook.MODERN)
-            openSingleTab(player, SpellBook.values()[SpellBook.MODERN.ordinal].interfaceId)
-        }
-
-        fun drain(player: Player) {
-            player.getSkills().decrementPrayerPoints(player.getSkills().prayerPoints)
-        }
-
-        fun switchToBook(player: Player) {
-            player.spellBookManager.setSpellBook(forInterface(book)!!)
-            openSingleTab(player, book)
-        }
-
-        fun isPrayerType(player: Player): Boolean {
-            return player.spellBookManager.spellBook == book
-        }
-
-        companion object {
-            fun forId(id: Int): Altar? {
-                for (altar in values()) {
-                    if (id == altar.id) {
-                        return altar
-                    }
-                }
-                return null
-            }
-        }
+    companion object {
+        private val ALTAR = intArrayOf(Scenery.ALTAR_409, Scenery.ALTAR_2640, Scenery.ALTAR_4008, Scenery.ALTAR_8749, Scenery.ALTAR_10639, Scenery.ALTAR_10640, Scenery.ALTAR_13179, Scenery.ALTAR_13180, Scenery.ALTAR_13181, Scenery.ALTAR_13182, Scenery.ALTAR_13183, Scenery.ALTAR_13184, Scenery.ALTAR_13185, Scenery.ALTAR_13186, Scenery.ALTAR_13187, Scenery.ALTAR_13188, Scenery.ALTAR_13189, Scenery.ALTAR_13190, Scenery.ALTAR_13191, Scenery.ALTAR_13192, Scenery.ALTAR_13193, Scenery.ALTAR_13194, Scenery.ALTAR_13195, Scenery.ALTAR_13196, Scenery.ALTAR_13197, Scenery.ALTAR_13198, Scenery.ALTAR_13199, Scenery.ALTAR_15050, Scenery.ALTAR_15051, Scenery.ALTAR_18254, Scenery.ALTAR_19145, Scenery.ALTAR_20377, Scenery.ALTAR_20378, Scenery.ALTAR_20379, Scenery.ALTAR_24343, Scenery.ALTAR_27306, Scenery.ALTAR_27307, Scenery.ALTAR_27308, Scenery.ALTAR_27309, Scenery.ALTAR_27334, Scenery.ALTAR_27338, Scenery.ALTAR_27339, Scenery.ALTAR_27661, Scenery.ALTAR_30726, Scenery.ALTAR_34616, Scenery.ALTAR_36972, Scenery.ALTAR_37630, Scenery.ALTAR_37901, Scenery.ALTAR_37902, Scenery.ALTAR_37903, Scenery.ALTAR_37904, Scenery.ALTAR_37905, Scenery.ALTAR_37906, Scenery.ALTAR_37907, Scenery.ALTAR_37908, Scenery.ALTAR_37909, Scenery.ALTAR_37910, Scenery.ALTAR_37911, Scenery.ALTAR_37912, Scenery.ALTAR_39547, Scenery.ALTAR_39842, Scenery.CHAOS_ALTAR_61, Scenery.CHAOS_ALTAR_411, Scenery.CHAOS_ALTAR_412, Scenery.CHAOS_ALTAR_32079, Scenery.CHAOS_ALTAR_37990, Scenery.GORILLA_STATUE_4858, Scenery.GORILLA_STATUE_4859, Scenery.ALTAR_OF_GUTHIX_410, Scenery.ALTAR_OF_GUTHIX_28698, Scenery.ALTAR_OF_NATURE_3521, Scenery.TRIBAL_STATUE_3863, Scenery.ELIDINIS_STATUETTE_10439, Scenery.DECAYED_ALTAR_37985)
+        private val BOOSTED_ALTAR = intArrayOf(Scenery.ALTAR_2640, Scenery.ALTAR_OF_NATURE_3521)
     }
-
 }

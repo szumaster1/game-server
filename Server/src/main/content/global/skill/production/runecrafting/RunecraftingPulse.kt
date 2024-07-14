@@ -108,10 +108,7 @@ class RunecraftingPulse(
     override fun message(type: Int) {
         when (type) {
             1 -> if (altar != Altar.OURANIA) {
-                sendMessage(
-                    player, "You bind the temple's power into " + (
-                        if (combination) combo!!.rune.name.lowercase() else rune.rune.name.lowercase() + "s.")
-                )
+                sendMessage(player, "You bind the temple's power into " + (if (combination) combo!!.rune.name.lowercase() else rune.rune.name.lowercase() + "s."))
             } else {
                 sendMessage(player, "You bind the temple's power into runes.")
             }
@@ -128,7 +125,9 @@ class RunecraftingPulse(
         if (!altar.isOurania) {
             var total = 0
             for (j in 0 until amount) {
-                // since getMultiplier is stochastic, roll `amount` independent copies.
+                /*
+                 * since getMultiplier is stochastic, roll `amount` independent copies.
+                 */
                 total += multiplier
             }
             val i = Item(rune.rune.id, total)
@@ -137,7 +136,9 @@ class RunecraftingPulse(
                 player.inventory.add(i)
                 player.incrementAttribute("/save:$STATS_BASE:$STATS_RC", amount)
 
-                // Fist of guthix gloves.
+                /*
+                 * Fist of guthix gloves.
+                 */
                 var xp = rune.experience * amount
                 if ((altar == Altar.AIR && inEquipment(player, Items.AIR_RUNECRAFTING_GLOVES_12863, 1))
                     || (altar == Altar.WATER && inEquipment(player, Items.WATER_RUNECRAFTING_GLOVES_12864, 1))

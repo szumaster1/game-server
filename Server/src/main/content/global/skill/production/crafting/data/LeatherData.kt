@@ -56,18 +56,90 @@ object LeatherData {
         @JvmField val level: Int,
         @JvmField val experience: Double
     ) {
-        GREEN_D_HIDE_VAMBS(Items.GREEN_D_LEATHER_1745, 1, Items.GREEN_DHIDE_VAMB_1065, 57, 62.0),
-        GREEN_D_HIDE_CHAPS(Items.GREEN_D_LEATHER_1745, 2, Items.GREEN_DHIDE_CHAPS_1099, 60, 124.0),
-        GREEN_D_HIDE_BODY(Items.GREEN_D_LEATHER_1745, 3, Items.GREEN_DHIDE_BODY_1135, 63, 186.0),
-        BLUE_D_HIDE_VAMBS(Items.BLUE_D_LEATHER_2505, 1, Items.BLUE_DHIDE_VAMB_2487, 66, 70.0),
-        BLUE_D_HIDE_CHAPS(Items.BLUE_D_LEATHER_2505, 2, Items.BLUE_DHIDE_CHAPS_2493, 68, 140.0),
-        BLUE_D_HIDE_BODY(Items.BLUE_D_LEATHER_2505, 3, Items.BLUE_DHIDE_BODY_2499, 71, 210.0),
-        RED_D_HIDE_VAMBS(Items.BLACK_D_LEATHER_2509, 1, Items.RED_DHIDE_VAMB_2489, 73, 78.0),
-        RED_D_HIDE_CHAPS(Items.BLACK_D_LEATHER_2509, 2, Items.RED_DHIDE_CHAPS_2495, 75, 156.0),
-        RED_D_HIDE_BODY(Items.RED_DRAGON_LEATHER_2507, 3, Items.RED_DHIDE_BODY_2501, 77, 234.0),
-        BLACK_D_HIDE_VAMBS(Items.BLACK_D_LEATHER_2509, 1, Items.BLACK_DHIDE_VAMB_2491, 79, 86.0),
-        BLACK_D_HIDE_CHAPS(Items.BLACK_D_LEATHER_2509, 2, Items.BLACK_DHIDE_CHAPS_2497, 82, 172.0),
-        BLACK_D_HIDE_BODY(Items.BLACK_D_LEATHER_2509, 3, Items.BLACK_DHIDE_BODY_2503, 84, 258.0);
+        GREEN_D_HIDE_VAMBS(
+            leather = Items.GREEN_D_LEATHER_1745,
+            amount = 1,
+            product = Items.GREEN_DHIDE_VAMB_1065,
+            level = 57,
+            experience = 62.0
+        ),
+        GREEN_D_HIDE_CHAPS(
+            leather = Items.GREEN_D_LEATHER_1745,
+            amount = 2,
+            product = Items.GREEN_DHIDE_CHAPS_1099,
+            level = 60,
+            experience = 124.0
+        ),
+        GREEN_D_HIDE_BODY(
+            leather = Items.GREEN_D_LEATHER_1745,
+            amount = 3,
+            product = Items.GREEN_DHIDE_BODY_1135,
+            level = 63,
+            experience = 186.0
+        ),
+        BLUE_D_HIDE_VAMBS(
+            leather = Items.BLUE_D_LEATHER_2505,
+            amount = 1,
+            product = Items.BLUE_DHIDE_VAMB_2487,
+            level = 66,
+            experience = 70.0
+        ),
+        BLUE_D_HIDE_CHAPS(
+            leather = Items.BLUE_D_LEATHER_2505,
+            amount = 2,
+            product = Items.BLUE_DHIDE_CHAPS_2493,
+            level = 68,
+            experience = 140.0
+        ),
+        BLUE_D_HIDE_BODY(
+            leather = Items.BLUE_D_LEATHER_2505,
+            amount = 3,
+            product = Items.BLUE_DHIDE_BODY_2499,
+            level = 71,
+            experience = 210.0
+        ),
+        RED_D_HIDE_VAMBS(
+            leather = Items.BLACK_D_LEATHER_2509,
+            amount = 1,
+            product = Items.RED_DHIDE_VAMB_2489,
+            level = 73,
+            experience = 78.0
+        ),
+        RED_D_HIDE_CHAPS(
+            leather = Items.BLACK_D_LEATHER_2509,
+            amount = 2,
+            product = Items.RED_DHIDE_CHAPS_2495,
+            level = 75,
+            experience = 156.0
+        ),
+        RED_D_HIDE_BODY(
+            leather = Items.RED_DRAGON_LEATHER_2507,
+            amount = 3,
+            product = Items.RED_DHIDE_BODY_2501,
+            level = 77,
+            experience = 234.0
+        ),
+        BLACK_D_HIDE_VAMBS(
+            leather = Items.BLACK_D_LEATHER_2509,
+            amount = 1,
+            product = Items.BLACK_DHIDE_VAMB_2491,
+            level = 79,
+            experience = 86.0
+        ),
+        BLACK_D_HIDE_CHAPS(
+            leather = Items.BLACK_D_LEATHER_2509,
+            amount = 2,
+            product = Items.BLACK_DHIDE_CHAPS_2497,
+            level = 82,
+            experience = 172.0
+        ),
+        BLACK_D_HIDE_BODY(
+            leather = Items.BLACK_D_LEATHER_2509,
+            amount = 3,
+            product = Items.BLACK_DHIDE_BODY_2503,
+            level = 84,
+            experience = 258.0
+        );
 
 
         companion object {
@@ -90,13 +162,48 @@ object LeatherData {
         @JvmField val experience: Double,
         @JvmField val product: Item
     ) {
-        ARMOUR(28, 14, 25.0, Item(Items.LEATHER_BODY_1129)),
-        GLOVES(29, 1, 13.8, Item(Items.LEATHER_GLOVES_1059)),
-        BOOTS(30, 7, 16.3, Item(Items.LEATHER_BOOTS_1061)),
-        VAMBRACES(31, 11, 22.0, Item(Items.LEATHER_VAMBRACES_1063)),
-        CHAPS(32, 18, 27.0, Item(Items.LEATHER_CHAPS_1095)),
-        COIF(33, 38, 37.0, Item(Items.COIF_1169)),
-        COWL(34, 9, 18.5, Item(Items.LEATHER_COWL_1167));
+        ARMOUR(
+            button = 28,
+            level = 14,
+            experience = 25.0,
+            product = Item(Items.LEATHER_BODY_1129)
+        ),
+        GLOVES(
+            button = 29,
+            level = 1,
+            experience = 13.8,
+            product = Item(Items.LEATHER_GLOVES_1059)
+        ),
+        BOOTS(
+            button = 30,
+            level = 7,
+            experience = 16.3,
+            product = Item(Items.LEATHER_BOOTS_1061)
+        ),
+        VAMBRACES(
+            button = 31,
+            level = 11,
+            experience = 22.0,
+            product = Item(Items.LEATHER_VAMBRACES_1063)
+        ),
+        CHAPS(
+            button = 32,
+            level = 18,
+            experience = 27.0,
+            product = Item(Items.LEATHER_CHAPS_1095)
+        ),
+        COIF(
+            button = 33,
+            level = 38,
+            experience = 37.0,
+            product = Item(Items.COIF_1169)
+        ),
+        COWL(
+            button = 34,
+            level = 9,
+            experience = 18.5,
+            product = Item(Items.LEATHER_COWL_1167)
+        );
 
 
         companion object {

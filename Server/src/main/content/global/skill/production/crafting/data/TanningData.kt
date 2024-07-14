@@ -118,10 +118,7 @@ enum class TanningData(
             ) {
                 addItem(player, def.product, amount)
                 if (amount > 1) {
-                    sendMessage(
-                        player,
-                        "The tanner tans " + amount + " " + getItemName(def.item).lowercase() + "s for you."
-                    )
+                    sendMessage(player, "The tanner tans " + amount + " " + getItemName(def.item).lowercase() + "s for you.")
                 } else {
                     sendMessage(player, "The tanner tans your " + getItemName(def.item).lowercase() + ".")
                 }
