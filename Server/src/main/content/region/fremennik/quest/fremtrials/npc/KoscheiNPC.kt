@@ -17,15 +17,9 @@ import core.game.world.update.flag.context.Animation
 class KoscheiNPC(id: Int = 0, location: Location? = null, session: KoscheiSession? = null) :
     AbstractNPC(id, location) {
 
-
     val session: KoscheiSession?
-
-
     var type: KoscheiType?
-
-
     var isCommenced = false
-
 
     init {
         this.isWalks = true
@@ -36,8 +30,6 @@ class KoscheiNPC(id: Int = 0, location: Location? = null, session: KoscheiSessio
 
     override fun init() {
         super.init()
-
-
         if (session?.player?.location?.regionId == 10653)
             Pulser.submit(KoscheiSpawnPulse(session.player, this))
         else session?.close()
@@ -154,7 +146,6 @@ class KoscheiNPC(id: Int = 0, location: Location? = null, session: KoscheiSessio
             koschei.transform(newType.npcId)
             Pulser.submit(KoscheiSpawnPulse(player, koschei))
         }
-
 
         operator fun next(): KoscheiType {
             return values()[ordinal + 1]
