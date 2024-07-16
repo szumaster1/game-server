@@ -40,7 +40,7 @@ class SpinningPulse(player: Player?, node: Item?, var amount: Int, val type: Spi
 
     override fun reward(): Boolean {
         var tickThreshhold = 4
-        if ((player.achievementDiaryManager.getDiary(DiaryType.SEERS_VILLAGE).isComplete(2) && withinDistance(player, Location(2711, 3471, 1)) && player.equipment[EquipmentContainer.SLOT_HAT] != null) && player.equipment[EquipmentContainer.SLOT_HAT].id == Items.SEERS_HEADBAND_14631) {
+        if ((player.achievementDiaryManager.getDiary(DiaryType.SEERS_VILLAGE).isComplete(2) && withinDistance(player, Location(2711, 3471, 1)) && player.equipment[EquipmentContainer.SLOT_HAT] != null) && player.equipment[EquipmentContainer.SLOT_HAT].id == Items.SEERS_HEADBAND_1_14631) {
             tickThreshhold = 2
         }
         if (++ticks % tickThreshhold != 0) {

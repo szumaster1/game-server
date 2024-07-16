@@ -22,16 +22,20 @@ object GoblinFollower {
     }
 
     private fun travel(player: Player, location: Location) {
-        lock(player, 9)
+        lock(player, 1000)
+        lockInteractions(player, 1000)
         GameWorld.Pulser.submit(object : Pulse() {
             var counter = 0
             override fun pulse(): Boolean {
                 when (counter++) {
-                    0 -> openOverlay(player, Components.FADE_TO_BLACK_120)
-                    4 -> teleport(player, location, TeleportManager.TeleportType.INSTANT)
-                    6 -> {
-                        closeOverlay(player)
-                        openOverlay(player, Components.FADE_FROM_BLACK_170)
+                    0 -> openInterface(player, Components.FADE_TO_BLACK_120)
+                    4 -> {
+                        teleport(player, location, TeleportManager.TeleportType.INSTANT)
+                        openInterface(player, Components.FADE_FROM_BLACK_170)
+                    }
+                    8 ->{
+                        unlock(player)
+                        return true
                     }
                 }
                 return false

@@ -576,9 +576,9 @@ public enum DiaryType {
 
             // --------------- SEERS VILLAGE REWARDS ---------------
 
-            {new Item(Items.SEERS_HEADBAND_14631), new Item(Items.ANTIQUE_LAMP_14633)},
-            {new Item(Items.SEERS_HEADBAND_14631), new Item(Items.ANTIQUE_LAMP_14634)},
-            {new Item(Items.SEERS_HEADBAND_14631), new Item(Items.ANTIQUE_LAMP_14635)}
+            {new Item(Items.SEERS_HEADBAND_1_14631), new Item(Items.ANTIQUE_LAMP_14633)},
+            {new Item(Items.SEERS_HEADBAND_2_14659), new Item(Items.ANTIQUE_LAMP_14634)},
+            {new Item(Items.SEERS_HEADBAND_3_14660), new Item(Items.ANTIQUE_LAMP_14635)}
 
             // --------------------------------------------------------------
     }, "To start marking off tasks in your journal, speak to<br><br>any seer in Seers' Village, Stankers by the coal<br><br>trucks or Sir Kay in Camelot.",

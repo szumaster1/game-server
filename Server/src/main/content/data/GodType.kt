@@ -10,6 +10,7 @@ import core.game.node.entity.player.Player
 import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 import core.game.node.scenery.Scenery
+import core.api.consts.Scenery as Sceneries
 import core.game.system.task.Pulse
 import core.game.world.GameWorld
 import core.game.world.update.flag.context.Graphic
@@ -19,21 +20,21 @@ enum class GodType(val cape: Item, val staff: Item, val statueId: Int, val npcId
     SARADOMIN(
         cape = Item(Items.SARADOMIN_CAPE_2412),
         staff = Item(Items.SARADOMIN_STAFF_2415),
-        statueId = 2873,
+        statueId = Sceneries.STATUE_OF_SARADOMIN_2873,
         npcId = NPCs.BATTLE_MAGE_913,
         dropMessage = "The cape disappears in a flash of light as it touches the ground."
     ),
     GUTHIX(
         cape = Item(Items.GUTHIX_CAPE_2413),
         staff = Item(Items.GUTHIX_STAFF_2416),
-        statueId = 2875,
+        statueId = Sceneries.STATUE_OF_GUTHIX_2875,
         npcId = NPCs.BATTLE_MAGE_914,
         dropMessage = "The cape disintegrates as it touches the earth."
     ),
     ZAMORAK(
         cape = Item(Items.ZAMORAK_CAPE_2414),
         staff = Item(Items.ZAMORAK_STAFF_2417),
-        statueId = 2874,
+        statueId = Sceneries.STATUE_OF_ZAMORAK_2874,
         npcId = NPCs.BATTLE_MAGE_912,
         dropMessage = "The cape ignites and burns up as it touches the ground."
     );

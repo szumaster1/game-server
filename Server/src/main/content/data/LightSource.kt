@@ -82,7 +82,29 @@ enum class LightSource(val level: Int, val raw: Item, val product: Item, val ope
         product = Item(Items.MINING_HELMET_5013, 1),
         open = false,
         interfaceId = Components.DARKNESS_LIGHT_97
-    );
+    ),
+    SEERS_HEADBAND_1(
+        level = 1,
+        raw = Item(Items.SEERS_HEADBAND_1_14631, 1),
+        product = Item(Items.SEERS_HEADBAND_1_14631, 1),
+        open = false,
+        interfaceId = -1
+    ),
+    SEERS_HEADBAND_2(
+        level = 1,
+        raw = Item(Items.SEERS_HEADBAND_2_14659, 1),
+        product = Item(Items.SEERS_HEADBAND_2_14659, 1),
+        open = false,
+        interfaceId = -1
+    ),
+    SEERS_HEADBAND_3(
+        level = 1,
+        raw = Item(Items.SEERS_HEADBAND_3_14660, 1),
+        product = Item(Items.SEERS_HEADBAND_3_14660, 1),
+        open = false,
+        interfaceId = -1
+    )
+    ;
 
     fun getStrength(): Int {
         return when (interfaceId) {

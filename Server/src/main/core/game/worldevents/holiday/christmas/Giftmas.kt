@@ -60,7 +60,7 @@ class Giftmas : Commands, StartupListener, LoginListener, InteractionListener {
     }
 
     override fun defineCommands() {
-        define("toggle-giftmas", Privilege.ADMIN, "", "Toggles the giftmas christmas event.") {player, args ->
+        define("toggle-giftmas", Privilege.ADMIN, "", "Toggles the giftmas christmas event.") {player, _ ->
             val enabled = checkActive()
             getArchive()["active"] = !enabled
             notify(player, "Giftmas is now ${if (enabled) "DISABLED" else "ENABLED"}.")

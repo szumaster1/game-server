@@ -2,11 +2,11 @@ package core.game.node.entity.player.link.diary;
 
 import core.cache.def.impl.NPCDefinition;
 import core.game.component.Component;
+import core.game.diary.DiaryLevel;
 import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import core.game.diary.DiaryLevel;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -192,13 +192,13 @@ public class AchievementDiary {
             taskCompleted[level][index] = true;
             int tempLevel = this.type == DiaryType.LUMBRIDGE ? level - 1 : level;
             player.sendMessages("Well done! You have completed "
-                    + (tempLevel == -1 ? "a beginner" : tempLevel == 0 ? "an easy" : tempLevel == 1 ? "a medium" : "a hard")
-                    + " task in the " + type.getName() + " area. Your", "Achievement Diary has been updated.");
+                + (tempLevel == -1 ? "a beginner" : tempLevel == 0 ? "an easy" : tempLevel == 1 ? "a medium" : "a hard")
+                + " task in the " + type.getName() + " area. Your", "Achievement Diary has been updated.");
         }
         if (isComplete(level)) {
             player.sendMessages("Congratulations! You have completed all of the " + getLevel(level).toLowerCase()
-                    + " tasks in the " + type.getName() + " area.", "Speak to "
-                    + NPCDefinition.forId(type.getNpc(level)).getName() + " to claim your reward.");
+                + " tasks in the " + type.getName() + " area.", "Speak to "
+                + NPCDefinition.forId(type.getNpc(level)).getName() + " to claim your reward.");
         }
         drawStatus(player);
     }
@@ -470,7 +470,10 @@ public class AchievementDiary {
     public static boolean removeRewardsFor(Player player, DiaryType type, int level) {
         Item[] rewards = type.getRewards(level);
         //lamps are always the 2nd reward for a level, don't remove lamps
-        boolean hasRemoved = player.getInventory().remove(rewards[0]) || player.getBank().remove(rewards[0]) || player.getEquipment().remove(rewards[0]);
+        boolean hasRemoved =
+            player.getInventory().remove(rewards[0])
+                || player.getBank().remove(rewards[0])
+                || player.getEquipment().remove(rewards[0]);
 
         if (hasRemoved) {
             player.debug("Removed previous reward");
@@ -492,7 +495,8 @@ public class AchievementDiary {
         Item[] rewards = type.getRewards(level);
 
         int freeSlots = player.getInventory().freeSlots();
-        if (freeSlots < rewards.length) return false;
+        if (freeSlots < rewards.length)
+            return false;
 
         boolean allRewarded = true;
         for (Item reward : rewards) {
@@ -531,7 +535,7 @@ public class AchievementDiary {
 
     /**
      * Determines if a replacement reward can be given for the particular diary and level.
-     * Checks to make sure the player has completed the level and claimed the rewards, and has not completed
+     * Checks to make sure the player has completed the level and claimed the rewards, and has not claimed
      * the next diary level.
      *
      * @param player the player to check
@@ -541,10 +545,10 @@ public class AchievementDiary {
      */
     public static boolean canReplaceReward(Player player, DiaryType type, int level) {
         Item reward = type.getRewards(level)[0];
-        return hasCompletedLevel(player, type, level)
-                && !hasCompletedLevel(player, type, level + 1)
-                && hasClaimedLevelRewards(player, type, level)
-                && !player.hasItem(reward);
+        boolean claimed = hasCompletedLevel(player, type, level)
+            && hasClaimedLevelRewards(player, type, level)
+            && !player.hasItem(reward);
+        return level == 2 ? claimed : claimed && !hasClaimedLevelRewards(player, type, level + 1);
     }
 
     /**
@@ -570,7 +574,8 @@ public class AchievementDiary {
      * @return whether or not the player has completed the level.
      */
     public static boolean hasCompletedLevel(Player player, DiaryType type, int level) {
-        if (level > type.getLevelNames().length - 1) return false;
+        if (level > type.getLevelNames().length - 1)
+            return false;
         return player.getAchievementDiaryManager().getDiary(type).isComplete(level, true);
     }
 
@@ -588,7 +593,7 @@ public class AchievementDiary {
 
     /**
      * Checks if a player can claim the rewards for the given level of the given diary
-     * Checks to make sure the player hasn't completed the next level.
+     * Checks to make sure the player hasn't claimed the next level.
      *
      * @param player the player to check
      * @param type   the DiaryType: LUMBRIDGE, FALADOR, etc.
@@ -596,7 +601,11 @@ public class AchievementDiary {
      * @return whether or not the player can claim the rewards
      */
     public static boolean canClaimLevelRewards(Player player, DiaryType type, int level) {
-        return !hasCompletedLevel(player, type, level + 1) && hasCompletedLevel(player, type, level) && !hasClaimedLevelRewards(player, type, level);
+        if (level == 2)
+            // Cannot be a higher level to claim
+            return hasCompletedLevel(player, type, level) && !hasClaimedLevelRewards(player, type, level);
+        else
+            return !hasClaimedLevelRewards(player, type, level + 1) && hasCompletedLevel(player, type, level) && !hasClaimedLevelRewards(player, type, level);
     }
 
     /**

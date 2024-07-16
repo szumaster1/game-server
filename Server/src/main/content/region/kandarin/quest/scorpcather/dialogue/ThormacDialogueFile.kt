@@ -24,7 +24,7 @@ class ThormacDialogueFile : DialogueFile() {
         val questName = "Scorpion Catcher"
         val questStage = getQuestStage(player!!, questName)
         val hasAnCage = hasAnItem(player!!, *intArrayOf(Items.SCORPION_CAGE_456, Items.SCORPION_CAGE_457, Items.SCORPION_CAGE_458, Items.SCORPION_CAGE_459, Items.SCORPION_CAGE_460, Items.SCORPION_CAGE_461,Items.SCORPION_CAGE_462,Items.SCORPION_CAGE_463)).container != null
-        val wearHeadBand = inEquipment(player!!, Items.SEERS_HEADBAND_14631)
+        val wearHeadBand = anyInEquipment(player!!, Items.SEERS_HEADBAND_1_14631, Items.SEERS_HEADBAND_2_14659, Items.SEERS_HEADBAND_3_14660)
         npc = NPC(NPCs.THORMAC_389)
         when {
             (questStage == 0) -> {
@@ -142,4 +142,4 @@ class ThormacDialogueFile : DialogueFile() {
     }
 
 }
-					
+

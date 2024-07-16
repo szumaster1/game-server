@@ -39,7 +39,9 @@ enum class FacialExpression(val animationId: Int) {
     OLD_ANGRY3(616),
     OLD_ANGRY4(617),
 
+    SURELY_NOT(9740),
     NOD_YES(9741),
+    NOD_NO(9742),
     WORRIED(9743),
     HALF_WORRIED(9745),
     AMAZED(9746),

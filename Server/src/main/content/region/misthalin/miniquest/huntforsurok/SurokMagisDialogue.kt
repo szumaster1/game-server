@@ -67,7 +67,7 @@ class SurokMagisDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun getIds(): IntArray {
-        return intArrayOf(7002,7136)
+        return intArrayOf(7136)
     }
 
     class SurokCutscene() : CutscenePlugin("Surok Cutscene") {

@@ -287,7 +287,7 @@ class ZavisticRarveSellBlackPrismDialogue : DialogueFile() {
         npc = NPC(NPCs.YANNI_SALIKA_515)
         when (stage) {
             0 -> sendDialogue(player!!, "You show the black prism to Zavistic.").also { stage++ }
-            1 -> npcl(FacialExpression.FRIENDLY, "Ah yes, I remember saying something about a reward didn’t I? Well, I can offer you 2000 coins for it as it stands,").also { stage++ }
+            1 -> npcl(FacialExpression.FRIENDLY, "Ah yes, I remember saying something about a reward didn't I? Well, I can offer you 2000 coins for it as it stands,").also { stage++ }
             2 -> npcl("but I know that Yanni Salika in Shilo Village would offer you more than twice as much.").also { stage++ }
             3 -> {
                 setTitle(player!!, 2)
@@ -296,7 +296,7 @@ class ZavisticRarveSellBlackPrismDialogue : DialogueFile() {
             }
             4 -> when (buttonID) {
                 1 -> player("I'll sell it to you for 2000 coins!").also { stage = 6 }
-                2 -> player("I think I’m going to take it to Yanni for an even greater reward.").also { stage++ }
+                2 -> player("I think I'm going to take it to Yanni for an even greater reward.").also { stage++ }
 
             }
             5 -> npc("Fair enough my friend, you deserve it!").also { stage = END_DIALOGUE }

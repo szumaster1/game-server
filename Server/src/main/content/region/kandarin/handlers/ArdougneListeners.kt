@@ -20,6 +20,12 @@ class ArdougneListeners : InteractionListener {
     override fun defineListeners() {
 
         on(NPCs.GALAHAD_218, IntType.NPC, "talk-to") { player, _ ->
+            /* TODO
+             * If a player had completed the Holy Grail quest before talking to Galahad,
+             * the player will automatically exclaim: I've returned the Holy grail to Camelot
+             * and Galahad will congratulate the player. The same exchange could happen before
+             * the achievements, as a player-chosen interaction option.
+             */
             openDialogue(player, GalahadHolyGrailDialogueFile())
             return@on true
         }

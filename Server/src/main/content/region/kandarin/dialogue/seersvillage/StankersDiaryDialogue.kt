@@ -1,9 +1,8 @@
 package content.region.kandarin.dialogue.seersvillage
 
-import core.api.addItemOrDrop
+import core.api.*
 import core.api.consts.Items
 import core.api.consts.NPCs
-import core.api.sendMessage
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
@@ -15,6 +14,8 @@ import core.tools.END_DIALOGUE
 
 @Initializable
 class StankersDiaryDialogue(player: Player? = null) : Dialogue(player) {
+
+    var diaryLevel = 1
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
@@ -31,9 +32,9 @@ class StankersDiaryDialogue(player: Player? = null) : Dialogue(player) {
                 2 -> player("Hello Mr. Stankers.").also { stage = 20 }
                 3 -> if (AchievementDiary.canReplaceReward(player, DiaryType.SEERS_VILLAGE, 1)) {
                     player("I seem to have lost my seers' headband...").also { stage = 80 }
-                } else if (AchievementDiary.hasClaimedLevelRewards(player, DiaryType.SEERS_VILLAGE, 1)) {
+                } else if (AchievementDiary.hasClaimedLevelRewards(player, DiaryType.SEERS_VILLAGE, diaryLevel)) {
                     player("Can you remind me what my headband does?").also { stage = 90 }
-                } else if (AchievementDiary.canClaimLevelRewards(player, DiaryType.SEERS_VILLAGE, 1)) {
+                } else if (AchievementDiary.canClaimLevelRewards(player, DiaryType.SEERS_VILLAGE, diaryLevel)) {
                     player("Hi. I've completed the Medium tasks in my Achievement", "Diary. Can I have a reward?").also { stage = 200 }
                 } else {
                     player("Hi! Can you help me out with the Achievement Diary", "tasks?").also { stage = 101 }
@@ -60,7 +61,7 @@ class StankersDiaryDialogue(player: Player? = null) : Dialogue(player) {
                 2 -> player("No thank you.").also { stage = 1 }
             }
             80 -> {
-                AchievementDiary.grantReplacement(player, DiaryType.SEERS_VILLAGE, 1)
+                AchievementDiary.grantReplacement(player, DiaryType.SEERS_VILLAGE, diaryLevel)
                 npc(FacialExpression.OLD_DEFAULT, "Here's your replacement. Please be more careful.")
                 end()
             }
@@ -70,10 +71,10 @@ class StankersDiaryDialogue(player: Player? = null) : Dialogue(player) {
             101 -> npc(FacialExpression.OLD_DEFAULT, "I'm afraid not. It is important that adventurers", "complete the tasks unaided. That way, only the truly", "worthy collect the spoils.").also { stage = END_DIALOGUE }
             200 -> npc(FacialExpression.OLD_DEFAULT, "Well done! Yes, I have a reward for you. I'll just", "anoint your headband with one of my mixtures. Oh and", "here's an old lamp I had lying around.").also { stage++ }
             201 -> {
-                if (!player.hasItem(AchievementDiary.getRewards(DiaryType.SEERS_VILLAGE, 1)[0])) {
+                if (!removeItem(player, Items.SEERS_HEADBAND_1_14631)) {
                     npc(FacialExpression.OLD_DEFAULT, "I need your headband to anoint it! Come back when", "you have it.").also { stage = END_DIALOGUE }
                 } else {
-                    AchievementDiary.flagRewarded(player, DiaryType.SEERS_VILLAGE, 1)
+                    AchievementDiary.flagRewarded(player, DiaryType.SEERS_VILLAGE, diaryLevel)
                     sendDialogue("Stankers produces a chalice containing a vile-looking concoction that", "he pours all over your headband.").also { stage++ }
                 }
             }

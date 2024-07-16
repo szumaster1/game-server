@@ -1,7 +1,10 @@
 package content.region.kandarin.quest.merlinsquest.dialogue
 
+import core.api.consts.Items
 import core.api.consts.NPCs
 import core.api.getQuestStage
+import core.api.removeItem
+import core.api.sendItemDialogue
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
@@ -125,12 +128,12 @@ class SirKayDialogueFile : DialogueFile() {
             }
 
             46 -> {
-                if (!player!!.hasItem(AchievementDiary.getRewards(DiaryType.SEERS_VILLAGE, diaryLevel)[0])) {
+                if (!removeItem(player!!, Items.SEERS_HEADBAND_2_14659)) {
                     npcl(FacialExpression.NEUTRAL, "I need your headband. Come back when you have it.")
                     stage = END_DIALOGUE
                 } else {
                     AchievementDiary.flagRewarded(player, DiaryType.SEERS_VILLAGE, diaryLevel)
-                    player!!.dialogueInterpreter.sendDialogue("You hand Sir Kay your headband and he concentrates for a moment. Some mysterious knightly energy passes through his hands and he gives the headband back to you, along with an old lamp.")
+                    sendItemDialogue(player!!, Items.SEERS_HEADBAND_3_14660,"You hand Sir Kay your headband and he concentrates for a moment. Some mysterious knightly energy passes through his hands and he gives the headband back to you, along with an old lamp.")
                     stage++
                 }
             }

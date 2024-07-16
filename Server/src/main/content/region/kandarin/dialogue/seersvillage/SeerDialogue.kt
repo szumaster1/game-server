@@ -2,155 +2,76 @@ package content.region.kandarin.dialogue.seersvillage
 
 import content.region.kandarin.quest.scorpcather.dialogue.SeersDialogueFile
 import core.api.consts.NPCs
+import core.api.openDialogue
+import core.api.sendItemDialogue
 import core.game.dialogue.Dialogue
+import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.diary.AchievementDiary
 import core.game.node.entity.player.link.diary.DiaryType
 import core.plugin.Initializable
+import core.tools.END_DIALOGUE
 
 @Initializable
 class SeerDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        options("Talk about something else.", "Talk about achievement diary.")
-        stage = 0
+        options("Talk about something else.", "Talk about achievement diary.").also { stage = 0 }
         return true
     }
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
-        val level = 0
-
         when (stage) {
-            999 -> end()
             0 -> when (buttonId) {
-                1 -> {
-                    npc("Many greetings.")
-                    stage = 1
-                }
-
+                1 -> npc("Many greetings.").also { stage++ }
                 2 -> if (AchievementDiary.canReplaceReward(player, DiaryType.SEERS_VILLAGE, 0)) {
-                    player("I seem to have lost my seers' headband...")
-                    stage = 80
+                    player("I seem to have lost my seers' headband...").also { stage = 80 }
                 } else if (AchievementDiary.hasClaimedLevelRewards(player, DiaryType.SEERS_VILLAGE, 0)) {
-                    player("Can you remind me what my headband does?")
-                    stage = 90
+                    player("Can you remind me what my headband does?").also { stage = 90 }
                 } else if (AchievementDiary.canClaimLevelRewards(player, DiaryType.SEERS_VILLAGE, 0)) {
-                    player("Hi. I've completed the Easy tasks in my Achievement", "Diary.")
-                    stage = 200
+                    player("Hi. I've completed the Easy tasks in my Achievement", "Diary.").also { stage = 200 }
                 } else {
-                    player("Hi! Can you help me out with the Achievement Diary", "tasks?")
-                    stage = 101
+                    player("Hi! Can you help me out with the Achievement Diary", "tasks?").also { stage = 101 }
                 }
             }
 
             1 -> if (player.getQuestRepository().hasStarted("Scorpion Catcher") && player.getQuestRepository().getQuest("Scorpion Catcher").getStage(player) < 36) {
-                player.dialogueInterpreter.open(SeersDialogueFile())
-                stage = 999
+                end()
+                openDialogue(player, SeersDialogueFile())
             } else {
-                options("Many greetings.", "I seek knowledge and power!")
-                stage = 2
+                options("Many greetings.", "I seek knowledge and power!").also { stage++ }
             }
 
             2 -> when (buttonId) {
-                1 -> {
-                    player("Many greetings.")
-                    stage = 10
-                }
-
-                2 -> {
-                    player("I seek knowledge and power!")
-                    stage = 20
-                }
+                1 -> player("Many greetings.").also { stage = 10 }
+                2 -> player("I seek knowledge and power!").also { stage = 20 }
             }
+
+            10 -> npc("Remember, whenever you set out to do something,", "something else must be done first.").also { stage = END_DIALOGUE }
+            20 -> npc("Knowledge comes from experience, power", "comes from battleaxes.").also { stage = END_DIALOGUE }
 
             80 -> {
                 AchievementDiary.grantReplacement(player, DiaryType.SEERS_VILLAGE, 0)
-                npc("Here's your replacement. Please be more careful.")
-                stage = 999
+                npc("Here's your replacement. Please be more careful.").also { stage = END_DIALOGUE }
             }
-
-            90 -> {
-                npc(
-                    "Your headband marks you as an honourary seer.",
-                    "Geoffrey - who works in the field to the",
-                    "south - will give you free flax every day."
-                )
-                stage = 999
-            }
-
-            100 -> {
-                npc(
-                    "I certainly do - we have a set of tasks spanning Seers'",
-                    "Village, Catherby, Hemenster and the Sinclair Mansion.",
-                    "Just complete the tasks listed in the Achievement Diary",
-                    "and they will be ticked off automatically."
-                )
-                stage = 999
-            }
-
-            101 -> {
-                npc(
-                    "I'm afraid not. It is important that adventurers",
-                    "complete the tasks unaided. That way, only the truly",
-                    "worthy collect the spoils."
-                )
-                stage = 999
-            }
-
-            200 -> {
-                npc(
-                    "Well done, adventurer. You are clearly a " + (if (player.isMale) "man" else "woman") + "of",
-                    "great wisdom. I have a gift for you."
-                )
-                stage++
-            }
-
+            90 -> npc("Your headband marks you as an honorary seer.", "Geoffrey - who works in the field to the", "south - will give you free flax every day.").also { stage = 203 }
+            100 -> npc("I certainly do - we have a set of tasks spanning Seers'", "Village, Catherby, Hemenster and the Sinclair Mansion.", "Just complete the tasks listed in the Achievement Diary", "and they will be ticked off automatically.").also { stage = END_DIALOGUE }
+            101 -> npc("I'm afraid not. It is important that adventurers", "complete the tasks unaided. That way, only the truly", "worthy collect the spoils.").also { stage = END_DIALOGUE }
+            200 -> npc("Well done, adventurer. You are clearly a " + (if (player.isMale) "man" else "woman") + "of", "great wisdom. I have a gift for you.").also { stage++ }
             201 -> if (!AchievementDiary.flagRewarded(player, DiaryType.SEERS_VILLAGE, 0)) {
-                npc("Come back when you have two free inventory slots.")
-                stage = 999
+                npc("Come back when you have two free inventory slots.").also { stage = END_DIALOGUE }
             } else {
-                interpreter.sendItemMessage(
-                    AchievementDiary.getRewards(DiaryType.SEERS_VILLAGE, 0)[0],
-                    "The seer hands you a strange-looking headband and a",
-                    "rusty lamp."
-                )
-                stage++
+                sendItemDialogue(player, AchievementDiary.getRewards(DiaryType.SEERS_VILLAGE, 0)[0], "The seer hands you a strange-looking headband and a rusty lamp.").also { stage++ }
             }
+            202 -> npc("You are now an honorary seer and Geoffrey - who", "works in the field to the south - will give you free flax", "every day. Don't call him 'Geoffrey' though: he prefers", "to be known as 'Flax'.").also { stage++ }
+            203 -> player(FacialExpression.NOD_NO,"Is that it?").also { stage++ }
+            204 -> npc("No, no. As well as Flax giving you 30 flax per day,","you'll be able to see dimly in the dark and your","defence against magic attacks will be boosted.").also { stage++ }
+            205 -> npc("Stankers will allow 140 pieces of coal in his coal truck,","and you'll get an extra log when cutting normal trees.").also { stage++ }
+            206 -> player(FacialExpression.SUSPICIOUS, "Flax? What sort of name is that for a person?").also { stage++ }
+            207 -> npc(FacialExpression.NOD_NO,"I know, I know. The poor boy is a simple soul - he just", "really loves picking flax. A little too much, I fear.").also { stage = END_DIALOGUE }
 
-            202 -> {
-                npc(
-                    "You are now an honourary seer and Geoffrey - who",
-                    "works in the field to the south - will give you free flax",
-                    "every day. Don't call him 'Geoffrey' though: he prefers",
-                    "to be known as 'Flax'."
-                )
-                stage++
-            }
-
-            203 -> {
-                player("Flax? What sort of name is that for a person?")
-                stage++
-            }
-
-            204 -> {
-                npc(
-                    "I know, I know. The poor boy is a simple soul - he just",
-                    "really loves picking flax. A little too much, I fear."
-                )
-                stage = 999
-            }
-
-            10 -> {
-                npc("Remember, whenever you set out to do something,", "something else must be done first.")
-                stage = 999
-            }
-
-            20 -> {
-                npc("Knowledge comes from experience, power", "comes from battleaxes.")
-                stage = 999
-            }
         }
         return true
     }

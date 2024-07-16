@@ -1,11 +1,8 @@
 package content.global.plugins.iface
 
+import core.api.*
 import core.api.consts.Components
 import core.api.consts.Items
-import core.api.inEquipment
-import core.api.inInventory
-import core.api.sendMessage
-import core.api.setAttribute
 import core.game.component.Component
 import core.game.component.ComponentDefinition
 import core.game.component.ComponentPlugin
@@ -37,7 +34,7 @@ class DiangoReclaimInterfacePlugin : ComponentPlugin() {
 
         val reclaimItem = reclaimables[slot]
         if (reclaimItem == null) {
-            player.sendMessage("Something went wrong there. Please try again.")
+            sendMessage(player, "Something went wrong there. Please try again.")
             return true
         }
 
@@ -92,6 +89,7 @@ class DiangoReclaimInterfacePlugin : ComponentPlugin() {
             Item(Items.SANTA_COSTUME_LEGS_14603),
             Item(Items.SANTA_COSTUME_BOOTS_14605),
             Item(Items.STAFF_OF_THE_RAVEN_DEFAULT_14654),
+            Item(Items.BUNNY_EARS_14658),
             Item(Items.ICE_AMULET_14596),
             Item(Items.RED_MARIONETTE_6867),
             Item(Items.GREEN_MARIONETTE_6866),
@@ -105,9 +103,9 @@ class DiangoReclaimInterfacePlugin : ComponentPlugin() {
             val reclaimable = getEligibleItems(player)
             setAttribute(player, "diango-reclaimables", reclaimable)
             if (reclaimable!!.size > 0) {
-                InterfaceContainer.generateItems(player, reclaimable, arrayOf("Examine", "Take"), 468, 2, 8, 8)
+                InterfaceContainer.generateItems(player, reclaimable, arrayOf("Examine", "Take"), Components.DIANGO_RECLAIMABLE_468, 2, 8, 8)
             }
-            player.interfaceManager.open(Component(468))
+            openInterface(player, Components.DIANGO_RECLAIMABLE_468)
         }
 
         fun refresh(player: Player) {
@@ -120,10 +118,7 @@ class DiangoReclaimInterfacePlugin : ComponentPlugin() {
                 .filter { item ->
                     !player.equipment.containsItem(item) &&
                         !player.inventory.containsItem(item) &&
-                        !player.bank.containsItem(item) &&
-                        (item.id != 14654 ||
-                            (!(inInventory(player, 14655, 1) || inEquipment(player, 14656, 1)) &&
-                                player.getAttribute("sotr:purchased", false)))
+                        !player.bank.containsItem(item)
                 }.toTypedArray()
         }
     }

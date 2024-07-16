@@ -14633,7 +14633,7 @@ object Items {
     const val NULL_14628 = 14628
     const val PHOENIX_EGG_14629 = 14629
     const val CRACKED_PHOENIX_EGG_14630 = 14630
-    const val SEERS_HEADBAND_14631 = 14631
+    const val SEERS_HEADBAND_1_14631 = 14631
     const val ENHANCED_EXCALIBUR_14632 = 14632
     const val ANTIQUE_LAMP_14633 = 14633
     const val ANTIQUE_LAMP_14634 = 14634
@@ -14660,4 +14660,7 @@ object Items {
     const val STAFF_OF_THE_RAVEN_TIER1_14655 = 14655
     const val STAFF_OF_THE_RAVEN_TIER2_14656 = 14656
     const val SMALL_OBELISK_14657 = 14657
+    const val BUNNY_EARS_14658 = 14658
+    const val SEERS_HEADBAND_2_14659 = 14659
+    const val SEERS_HEADBAND_3_14660 = 14660
 }

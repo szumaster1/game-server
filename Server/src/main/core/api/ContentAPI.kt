@@ -886,7 +886,7 @@ fun sendDialogueOptions(player: Player, title: String, vararg options: String) {
  * @param message the message to present to the player.
  */
 fun sendPlainDialogue(player : Player, hideContinue: Boolean = false, vararg message: String) {
-    player.dialogueInterpreter.sendPlainMessage(false, *message)
+    player.dialogueInterpreter.sendPlainMessage(hideContinue, *message)
 
 }
 
@@ -1727,6 +1727,11 @@ fun setComponentVisibility(player: Player, iface: Int, child: Int, hide: Boolean
     player.packetDispatch.sendInterfaceConfig(iface, child, hide)
 }
 
+/**
+ * Allows sword sprites to be moved when title is too long.
+ * @param player  The player to send the packet to.
+ * @param options The number of the dialogue options.
+ */
 fun setTitle(player: Player, options: Int) {
     setComponentVisibility(player, if (options == 5) 234 else if (options == 4) 232 else if(options == 3) 230 else 228, (4 + options), true)
     setComponentVisibility(player, if (options == 5) 234 else if (options == 4) 232 else if(options == 3) 230 else 228, if(options == 2 || options == 4) 9 else 10, false)
