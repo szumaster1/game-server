@@ -12,10 +12,8 @@
 <a href="https://2009scape.org/site/game_guide/play.html">
 <img src="https://imgur.com/AQaE61J.png"></a>
 
-
-
-
 </div>
+
 This repository is only a fork for my singleplayer experience. Click image above to go back to the official sources. Thank you.
 
 ##### Setting Up the Project
@@ -72,8 +70,6 @@ Start the game server with the included run script. Use `./run -h` for more info
 Start the game server with `run-server.bat`
 
 ***
-
-</details>
 
 ##### License
 
