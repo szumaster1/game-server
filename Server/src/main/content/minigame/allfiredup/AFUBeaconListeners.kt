@@ -36,11 +36,7 @@ class AFUBeaconListeners : InteractionListener {
             val questStage = player.questRepository.getStage("All Fired Up")
 
             if ((beacon != AFUBeacon.RIVER_SALVE && beacon != AFUBeacon.RAG_AND_BONE && !questComplete) || (beacon == AFUBeacon.RIVER_SALVE && questStage < 20 && !questComplete) || (beacon == AFUBeacon.RAG_AND_BONE && questStage < 50 && !questComplete)) {
-                player.dialogueInterpreter.sendDialogues(
-                    player,
-                    FacialExpression.THINKING,
-                    "I probably shouldn't mess with this."
-                )
+                player.dialogueInterpreter.sendDialogues(player, FacialExpression.THINKING, "I probably shouldn't mess with this.")
                 return@on true
             }
             player.debug(beacon.getState(player).name)
@@ -61,33 +57,24 @@ class AFUBeaconListeners : InteractionListener {
         when (beacon) {
             AFUBeacon.MONASTERY -> {
                 if (player.skills.getLevel(Skills.PRAYER) < 31) {
-                    player.dialogueInterpreter.sendDialogues(
-                        NPC(beacon.keeper).getShownNPC(player),
-                        FacialExpression.ANGRY,
-                        "You must join the monastery to light this beacon!"
-                    )
+                    player.dialogueInterpreter.sendDialogues(NPC(beacon.keeper).getShownNPC(player), FacialExpression.ANGRY, "You must join the monastery to light this beacon!")
                     return
                 }
             }
 
             AFUBeacon.GWD -> {
                 if (!AFURepairClimbListener.isRepaired(player, beacon)) {
-                    player.dialogueInterpreter.sendDialogue(
-                        "You must repair the windbreak before you",
-                        "can light this beacon."
-                    )
+                    player.dialogueInterpreter.sendDialogue("You must repair the windbreak before you", "can light this beacon.")
                     return
                 }
             }
 
+            // Stubthumb is stationed next to a beacon at the north end of Goblin Village.
+            // Players must give him a Davy kebbit hat in order to give him 5 logs to keep the beacon lit.
+
             AFUBeacon.GOBLIN_VILLAGE -> {
                 if (!player.questRepository.isComplete("Lost Tribe")) {
-                    player.dialogueInterpreter.sendDialogues(
-                        NPC(beacon.keeper).getShownNPC(player),
-                        FacialExpression.THINKING,
-                        "We no trust you outsider. You no light our beacon.",
-                        "(Complete Lost Tribe to use this beacon.)"
-                    )
+                    player.dialogueInterpreter.sendDialogues(NPC(beacon.keeper).getShownNPC(player), FacialExpression.THINKING, "We no trust you outsider. You no light our beacon.", "(Complete Lost Tribe to use this beacon.)")
                     return
                 }
             }
@@ -155,32 +142,22 @@ class AFUBeaconListeners : InteractionListener {
                             if (questComplete) {
                                 session?.startTimer(beacon.ordinal)
                                 if (session?.getLitBeacons() == 6 && !player.hasFireRing()) {
-                                    sendMessage(
-                                        player,
-                                        "Congratulations on lighting 6 beacons at once! King Roald has something for you."
-                                    )
+                                    sendMessage(player, "Congratulations on lighting 6 beacons at once! King Roald has something for you.")
                                     setAttribute(player, "/save:afu-mini:ring", true)
                                 }
                                 if (session?.getLitBeacons() == 10 && !player.hasFlameGloves()) {
-                                    sendMessage(
-                                        player,
-                                        "Congratulations on lighting 10 beacons at once! King Roald has something for you."
-                                    )
+                                    sendMessage(player, "Congratulations on lighting 10 beacons at once! King Roald has something for you.")
                                     setAttribute(player, "/save:afu-mini:gloves", true)
                                 }
                                 if (session?.getLitBeacons() == 14 && !player.hasInfernoAdze()) {
-                                    sendMessage(
-                                        player,
-                                        "Congratulations on lighting all 14 beacons! King Roald has something special for you."
-                                    )
+                                    sendMessage(player, "Congratulations on lighting all 14 beacons! King Roald has something special for you.")
                                     setAttribute(player, "/save:afu-mini:adze", true)
                                 }
                                 var experience = beacon.experience
                                 experience += session?.getBonusExperience() ?: 0.0
                                 player.skills.addExperience(Skills.FIREMAKING, experience)
                             } else {
-                                player.questRepository.getQuest("All Fired Up")
-                                    .setStage(player, player.questRepository.getStage("All Fired Up") + 10)
+                                player.questRepository.getQuest("All Fired Up").setStage(player, player.questRepository.getStage("All Fired Up") + 10)
                             }
                         }
 

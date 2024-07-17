@@ -273,7 +273,12 @@ class VarrockListeners : InteractionListener {
         }
 
         on(Scenery.DRAWERS_17466, IntType.SCENERY, "open") { player, node ->
-            replaceScenery(node.asScenery(), Scenery.DRAWERS_24322, 100)
+            replaceScenery(node.asScenery(), Scenery.DRAWERS_24322, -1)
+            return@on true
+        }
+
+        on(Scenery.DRAWERS_24322, IntType.SCENERY, "close") { player, node ->
+            replaceScenery(node.asScenery(), Scenery.DRAWERS_17466, -1)
             return@on true
         }
     }

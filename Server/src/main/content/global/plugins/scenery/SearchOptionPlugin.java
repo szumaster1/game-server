@@ -45,7 +45,7 @@ public class SearchOptionPlugin extends OptionHandler {
     public boolean handle(Player player, Node node, String option) {
         if (node.getName().equals("Bookcase")) {
             player.getPacketDispatch().sendMessage("You search the books...");
-            player.getPacketDispatch().sendMessage("You find nothing of interest to you.");
+            player.getPacketDispatch().sendMessage("You find nothing of interest to you.", 1);
             return true;
         }
         if (node.getId() == 14743 && !player.getInventory().containItems(946) && !player.inCombat()) {

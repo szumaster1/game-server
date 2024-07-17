@@ -21,7 +21,7 @@ class MiscellaniaShortcut : InteractionListener {
     override fun defineListeners() {
         on(Scenery.BROKEN_PIER_41531, IntType.SCENERY, "step") { player, _ ->
             if (!isDiaryComplete(player, DiaryType.FREMENNIK, 1)) {
-                sendMessage(player, "You must complete the medium Fremennik diary to use this shortcut.")
+                sendMessage(player, "You need to claim the reward for the medium Fremennik diary use this shortcut.")
                 return@on true
             }
             if (!inEquipment(player, Items.FREMENNIK_SEA_BOOTS_2_14572)) {
