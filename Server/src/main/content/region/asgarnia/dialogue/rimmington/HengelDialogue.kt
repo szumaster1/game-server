@@ -25,9 +25,7 @@ class HengelDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             1 -> {
-                interpreter.sendOptions(
-                    "Select an Option",
-                    "I'm just wandering around.",
+                options("I'm just wandering around.",
                     "I was hoping you'd give me some free stuff.",
                     "I've come to kill you."
                 )

@@ -151,9 +151,7 @@ class HarlanDialogue(player: Player? = null) : Dialogue(player) {
                     stage = 23
                     return true
                 }
-                interpreter.sendOptions(
-                    "Select an Option",
-                    "Can you tell me about different weapon types I can use?",
+                options("Can you tell me about different weapon types I can use?",
                     "Please tell me about skillcapes.",
                     "Bye."
                 )

@@ -52,18 +52,14 @@ class VeronicaDialogue(player: Player? = null) : Dialogue(player) {
 
                 1 -> when (buttonId) {
                     1 -> {
-                        interpreter.sendDialogues(
-                            player,
-                            FacialExpression.HALF_GUILTY,
+                        player(FacialExpression.HALF_GUILTY,
                             "Aha, sounds like a quest. I'll help."
                         )
                         stage = 4
                     }
 
                     2 -> {
-                        interpreter.sendDialogues(
-                            player,
-                            FacialExpression.HALF_GUILTY,
+                        player(FacialExpression.HALF_GUILTY,
                             "No, I'm looking for something to kill."
                         )
                         stage = 2

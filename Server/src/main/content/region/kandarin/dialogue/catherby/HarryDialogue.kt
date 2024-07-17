@@ -22,24 +22,13 @@ class HarryDialogue(player: Player? = null) : Dialogue(player) {
 
     private fun needsFood(): Boolean {
         return player.inventory.containsAtLeastOneItem(
-            intArrayOf(
-                FISHBOWL_SEAWEED,
-                FISHBOWL_BLUE,
-                FISHBOWL_GREEN,
-                FISHBOWL_SPINE
-            )
+            intArrayOf(FISHBOWL_SEAWEED, FISHBOWL_BLUE, FISHBOWL_GREEN, FISHBOWL_SPINE)
         )
     }
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        interpreter.sendDialogues(
-            npc,
-            FacialExpression.HAPPY,
-            "Welcome! You can buy Fishing equipment at my store.",
-            "We'll also give you a good price for any fish that you",
-            "catch."
-        )
+        npc(FacialExpression.HAPPY, "Welcome! You can buy Fishing equipment at my store.", "We'll also give you a good price for any fish that you", "catch.")
         stage = if (needsFish() || needsSeaWeed()) {
             10
         } else if (needsFood()) {
@@ -76,12 +65,7 @@ class HarryDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             10 -> {
-                options(
-                    "Let's see what you've got, then.",
-                    "Can I get a fish for this bowl?",
-                    "Do you have any fishfood?",
-                    "Sorry, I'm not interested."
-                )
+                options("Let's see what you've got, then.", "Can I get a fish for this bowl?", "Do you have any fishfood?", "Sorry, I'm not interested.")
                 stage++
             }
 
@@ -148,11 +132,7 @@ class HarryDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             33 -> {
-                npc(
-                    "I can see that you have a nicely filled fishbowl there to",
-                    "use, and you can catch a fish from my aquarium if",
-                    "you want."
-                )
+                npc("I can see that you have a nicely filled fishbowl there to", "use, and you can catch a fish from my aquarium if", "you want.")
                 stage++
             }
 
@@ -206,11 +186,7 @@ class HarryDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             41 -> {
-                npc(
-                    "I have some empty boxes though, they have the",
-                    "ingredients written on the back. I'm sure if you pick up",
-                    "a pestle and mortar you will be able to make your own."
-                )
+                npc("I have some empty boxes though, they have the", "ingredients written on the back. I'm sure if you pick up", "a pestle and mortar you will be able to make your own.")
                 stage++
             }
 

@@ -215,9 +215,7 @@ class IslwynDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             13 -> {
-                interpreter.sendOptions(
-                    "Select an Option",
-                    "Maybe I could help.",
+                options("Maybe I could help.",
                     "Sounds like you've got a lot to do."
                 )
                 stage = 14
@@ -336,9 +334,7 @@ class IslwynDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             26 -> {
-                interpreter.sendOptions(
-                    "Select an Option",
-                    "Shields are for wimps! Give me the bow!",
+                options("Shields are for wimps! Give me the bow!",
                     "I don't like running and hiding behind mushrooms. Shield please!"
                 )
                 stage = 27
@@ -392,9 +388,7 @@ class IslwynDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             32 -> {
-                interpreter.sendOptions(
-                    "Select an Option",
-                    "I need to buy a new piece of equipment.",
+                options("I need to buy a new piece of equipment.",
                     "I need to recharge my seeds into equipment."
                 )
                 stage = 33

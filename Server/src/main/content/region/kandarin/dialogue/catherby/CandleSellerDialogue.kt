@@ -2,6 +2,8 @@ package content.region.kandarin.dialogue.catherby
 
 import core.api.consts.NPCs
 import core.api.freeSlots
+import core.api.inInventory
+import core.api.sendMessage
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
@@ -22,11 +24,7 @@ class CandleSellerDialogue(player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
             0 -> {
-                options(
-                    "Yes please.",
-                    "One thousand gold?!",
-                    "No thanks, I'd rather curse the darkness."
-                )
+                options("Yes please.", "One thousand gold?!", "No thanks, I'd rather curse the darkness.")
                 stage = 1
             }
 
@@ -37,10 +35,7 @@ class CandleSellerDialogue(player: Player? = null) : Dialogue(player) {
 
                 }
                 if (!player.inventory.contains(995, 1000)) {
-                    player(
-                        FacialExpression.HALF_GUILTY,
-                        "Sorry, I don't seem to have enough coins."
-                    )
+                    player(FacialExpression.HALF_GUILTY, "Sorry, I don't seem to have enough coins.")
                     stage = 30
 
                 }
@@ -64,50 +59,28 @@ class CandleSellerDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 3 -> {
-                    player(
-                        FacialExpression.EXTREMELY_SHOCKED,
-                        "No thanks, I'd rather curse the darkness."
-                    )
+                    player(FacialExpression.EXTREMELY_SHOCKED, "No thanks, I'd rather curse the darkness.")
                     stage = 30
                 }
             }
 
             20 -> {
-                npc(
-                    FacialExpression.NEUTRAL,
-                    "Look, you're not going to be able to survive down that",
-                    "hole without a light source."
-                )
+                npc(FacialExpression.NEUTRAL, "Look, you're not going to be able to survive down that", "hole without a light source.")
                 stage = 21
             }
 
             21 -> {
-                npc(
-                    FacialExpression.NEUTRAL,
-                    "So you could go off to the candle shop to buy one",
-                    "more cheaply. You could even make your own lantern,",
-                    "which is a lot better."
-                )
+                npc(FacialExpression.NEUTRAL, "So you could go off to the candle shop to buy one", "more cheaply. You could even make your own lantern,", "which is a lot better.")
                 stage = 22
             }
 
             22 -> {
-                npc(
-                    FacialExpression.HAPPY,
-                    "But I bet you want to find out what's down there right",
-                    "now, don't you? And you can pay me 1000 gold for",
-                    "the privilege!"
-                )
+                npc(FacialExpression.HAPPY, "But I bet you want to find out what's down there right", "now, don't you? And you can pay me 1000 gold for", "the privilege!")
                 stage = 23
             }
 
             23 -> {
-                interpreter.sendOptions(
-                    "Select an Option",
-                    "All right, you win, I'll buy a candle.",
-                    "No way.",
-                    "How do you make lanterns?"
-                )
+                options("All right, you win, I'll buy a candle.", "No way.", "How do you make lanterns?")
                 stage = 240
             }
 
@@ -133,91 +106,53 @@ class CandleSellerDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             230 -> {
-                npc(
-                    FacialExpression.FRIENDLY,
-                    "Out of glass. The more advanced lanterns have a",
-                    "metal component as well."
-                )
+                npc(FacialExpression.FRIENDLY, "Out of glass. The more advanced lanterns have a", "metal component as well.")
                 stage = 231
             }
 
             231 -> {
-                npc(
-                    FacialExpression.FRIENDLY,
-                    "Firstly you can make a simple candle lantern out of",
-                    "glass. It's just like a candle, but the flame isn't exposed,",
-                    "so it's safer."
-                )
+                npc(FacialExpression.FRIENDLY, "Firstly you can make a simple candle lantern out of", "glass. It's just like a candle, but the flame isn't exposed,", "so it's safer.")
                 stage = 232
             }
 
             232 -> {
-                npc(
-                    FacialExpression.FRIENDLY,
-                    "Then you can make an oil lamp, which is brighter but",
-                    "has an exposed flame. But if you make an iron frame",
-                    "for it you can turn it into an oil lantern."
-                )
+                npc(FacialExpression.FRIENDLY, "Then you can make an oil lamp, which is brighter but", "has an exposed flame. But if you make an iron frame", "for it you can turn it into an oil lantern.")
                 stage = 233
             }
 
             233 -> {
-                npc(
-                    FacialExpression.FRIENDLY,
-                    "Finally there's a Bullseye lantern. You'll need to",
-                    "make a frame out of steel and add a glass lens."
-                )
+                npc(FacialExpression.FRIENDLY, "Finally there's a Bullseye lantern. You'll need to", "make a frame out of steel and add a glass lens.")
                 stage = 234
             }
 
             234 -> {
-                npc(
-                    FacialExpression.FRIENDLY,
-                    "Oce you've made your lamp or lantern, you'll need to",
-                    "make lamp oil for it. The chemist near Reimmington has",
-                    "a machine for that."
-                )
+                npc(FacialExpression.FRIENDLY, "Oce you've made your lamp or lantern, you'll need to", "make lamp oil for it. The chemist near Reimmington has", "a machine for that.")
                 stage = 235
             }
 
             235 -> {
-                npc(
-                    FacialExpression.FRIENDLY,
-                    "For any light source, you'll need a tinderbox to light it.",
-                    "Keep your tinderbox handy in case it goes out!"
-                )
+                npc(FacialExpression.FRIENDLY, "For any light source, you'll need a tinderbox to light it.", "Keep your tinderbox handy in case it goes out!")
                 stage = 236
             }
 
             236 -> {
-                npc(
-                    FacialExpression.HAPPY,
-                    "But if all that's to complicated, you can buy a candle",
-                    "right here for 1000 gold!"
-                )
+                npc(FacialExpression.HAPPY, "But if all that's to complicated, you can buy a candle", "right here for 1000 gold!")
                 stage = 237
             }
 
             237 -> {
-                interpreter.sendOptions(
-                    "Select an Option",
-                    "All right, you win, I'll buy a candle.",
-                    "No thanks, I'd rather curse the darkness."
-                )
+                options( "All right, you win, I'll buy a candle.", "No thanks, I'd rather curse the darkness.")
                 stage = 290
             }
 
             350 -> {
                 if (player.inventory.freeSlots() == 0) {
                     end()
-                    player.packetDispatch.sendMessage("You don't have enough inventory space to buy a candle.")
+                    sendMessage(player, "You don't have enough inventory space to buy a candle.")
 
                 }
                 if (!player.inventory.contains(995, 1000)) {
-                    player(
-                        FacialExpression.HALF_GUILTY,
-                        "Sorry, I don't seem to have enough coins."
-                    )
+                    player(FacialExpression.HALF_GUILTY, "Sorry, I don't seem to have enough coins.")
                     stage = 30
 
                 }
@@ -229,12 +164,7 @@ class CandleSellerDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             400 -> {
-                npc(
-                    FacialExpression.NEUTRAL,
-                    "I should warn you, though, it can be dangerous to take",
-                    "a naked flame down there. You'd better off making",
-                    "a lantern."
-                )
+                npc(FacialExpression.NEUTRAL, "I should warn you, though, it can be dangerous to take", "a naked flame down there. You'd better off making", "a lantern.")
                 stage = 401
             }
 
@@ -246,15 +176,13 @@ class CandleSellerDialogue(player: Player? = null) : Dialogue(player) {
             402 -> end()
             290 -> when (buttonId) {
                 1 -> {
-                    if (player.inventory.freeSlots() == 0) {
+                    if (freeSlots(player) == 0) {
                         end()
-                        player.packetDispatch.sendMessage("You don't have enough inventory space to buy a candle.")
+                        sendMessage(player,"You don't have enough inventory space to buy a candle.")
 
                     }
-                    if (!player.inventory.contains(995, 1000)) {
-                        interpreter.sendDialogues(
-                            player,
-                            FacialExpression.HALF_GUILTY,
+                    if (!inInventory(player, 995, 1000)) {
+                        player(FacialExpression.HALF_GUILTY,
                             "Sorry, I don't seem to have enough coins."
                         )
                         stage = 30
@@ -268,10 +196,7 @@ class CandleSellerDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 2 -> {
-                    player(
-                        FacialExpression.EXTREMELY_SHOCKED,
-                        "No thanks, I'd rather curse the darkness."
-                    )
+                    player(FacialExpression.EXTREMELY_SHOCKED, "No thanks, I'd rather curse the darkness.")
                     stage = 291
                 }
             }

@@ -72,9 +72,7 @@ class SquireDialogue(player: Player? = null) : Dialogue(player) {
                     stage = 500
                     return true
                 }
-                interpreter.sendOptions(
-                    "Select an Option",
-                    "Who are you?",
+                options("Who are you?",
                     "Where does this ship go?",
                     "I'd like to go to your outpost.",
                     "I'm fine thanks."

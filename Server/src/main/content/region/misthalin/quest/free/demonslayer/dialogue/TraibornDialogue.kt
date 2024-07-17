@@ -247,9 +247,7 @@ class TraibornDialogue(player: Player? = null) : Dialogue(player) {
     private fun handleDefault(buttonId: Int) {
         when (stage) {
             0 -> {
-                interpreter.sendOptions(
-                    "Select an Option",
-                    "What's a thingummywut?",
+                options("What's a thingummywut?",
                     "Teach me to be a mighty and powerful wizard."
                 )
                 stage = 1
@@ -283,9 +281,7 @@ class TraibornDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             12 -> {
-                interpreter.sendOptions(
-                    "Select an Option",
-                    "Err you just called me a thingummywut.",
+                options("Err you just called me a thingummywut.",
                     "Tell me what they look like and I'll mask 'em."
                 )
                 stage = 13
@@ -341,9 +337,7 @@ class TraibornDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             102 -> {
-                interpreter.sendOptions(
-                    "Select an Option",
-                    "Err I'd better be off really.",
+                options("Err I'd better be off really.",
                     "They're right, you are mad."
                 )
                 stage = 103
@@ -389,9 +383,7 @@ class TraibornDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             21 -> {
-                interpreter.sendOptions(
-                    "Select an Option",
-                    "So aren't you a wizard?",
+                options("So aren't you a wizard?",
                     "Oh I'd better stop talking to you then."
                 )
                 stage = 22

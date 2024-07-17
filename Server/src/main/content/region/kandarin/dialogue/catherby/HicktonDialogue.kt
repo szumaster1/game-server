@@ -15,9 +15,7 @@ class HicktonDialogue(player: Player? = null): Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        interpreter.sendDialogues(
-            npc,
-            FacialExpression.HAPPY,
+        npc(FacialExpression.HAPPY,
             "Welcome to Hickton's Archery Emporium. Do you",
             "want to see my wares?"
         )
@@ -28,9 +26,7 @@ class HicktonDialogue(player: Player? = null): Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
             0 -> stage = if (isMaster(player, Skills.FLETCHING)) {
-                interpreter.sendOptions(
-                    "Select an Option",
-                    "Can I buy a Skillcape of Fletching?",
+                options("Can I buy a Skillcape of Fletching?",
                     "Yes, please.",
                     "No, I prefer to bash things close up."
                 )

@@ -36,9 +36,7 @@ class CaptainRovinDialogue(player: Player? = null) : Dialogue(player) {
     private fun defaultDialogue(buttonId: Int) {
         when (stage) {
             0 -> {
-                interpreter.sendOptions(
-                    "Select an Option",
-                    "I am one of the palace guards.",
+                options("I am one of the palace guards.",
                     "What about the King?",
                     "Yes I know, but this is important."
                 )

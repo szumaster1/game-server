@@ -141,9 +141,7 @@ class ElunedDialogue(player: Player? = null) : Dialogue(player) {
                     val timesRecharged = player.getAttribute<Int>("rovingelves:crystal-teleport-recharges", 0)
                     var price = crystalTeleportPrice(timesRecharged)
                     if (!player.inventory.contains(995, price)) {
-                        interpreter.sendDialogues(
-                            player,
-                            FacialExpression.HALF_GUILTY,
+                        player(FacialExpression.HALF_GUILTY,
                             "Actually, I don't have enough coins."
                         )
                     } else {

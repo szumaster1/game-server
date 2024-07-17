@@ -34,10 +34,7 @@ class RedbeardFrankDialogue(player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
             0 -> {
-                if (quest!!.getStage(player) == 20 && !player.inventory.containsItem(KEY) && !player.bank.containsItem(
-                        KEY
-                    )
-                ) {
+                if (quest!!.getStage(player) == 20 && !player.inventory.containsItem(KEY) && !player.bank.containsItem(KEY)) {
                     player("I seem to have lost my chest key...")
                     stage = 700
                     return true
@@ -122,12 +119,7 @@ class RedbeardFrankDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             23 -> {
-                npc(
-                    "The Customs office has been clampin' down on the",
-                    "export of spirits. You seem like a resourceful young lad,",
-                    "I'm sure ye'll be able to find a way to slip the stuff past",
-                    "them."
-                )
+                npc("The Customs office has been clampin' down on the", "export of spirits. You seem like a resourceful young lad,", "I'm sure ye'll be able to find a way to slip the stuff past", "them.")
                 stage = 24
             }
 
@@ -138,28 +130,17 @@ class RedbeardFrankDialogue(player: Player? = null) : Dialogue(player) {
 
             999 -> end()
             31 -> {
-                npc(
-                    "Now a deal's a deal, I'll tell ye about the treasure. I",
-                    "used to serve under a pirate captain called One-Eyed",
-                    "Hector."
-                )
+                npc("Now a deal's a deal, I'll tell ye about the treasure. I", "used to serve under a pirate captain called One-Eyed", "Hector.")
                 stage = 32
             }
 
             32 -> {
-                npc(
-                    "Hector were very successful and became very rich.",
-                    "But about a year ago we were boarded by the Customs",
-                    "and Excise Agents."
-                )
+                npc("Hector were very successful and became very rich.", "But about a year ago we were boarded by the Customs", "and Excise Agents.")
                 stage = 33
             }
 
             33 -> {
-                npc(
-                    "Hector were killed along with many of the crew, I were",
-                    "one of the few to escape and I escaped with this."
-                )
+                npc("Hector were killed along with many of the crew, I were", "one of the few to escape and I escaped with this.")
                 stage = 34
             }
 
@@ -173,10 +154,7 @@ class RedbeardFrankDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             35 -> {
-                npc(
-                    "This be Hector's key. I believe it opens his chest in his",
-                    "old room in the Blue Moon Inn in Varrock."
-                )
+                npc("This be Hector's key. I believe it opens his chest in his", "old room in the Blue Moon Inn in Varrock.")
                 stage = 36
             }
 
@@ -191,10 +169,7 @@ class RedbeardFrankDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             40 -> {
-                npc(
-                    "Arr, treasure you be after eh? Well I might be able to",
-                    "tell you where to find some... For a price..."
-                )
+                npc("Arr, treasure you be after eh? Well I might be able to", "tell you where to find some... For a price...")
                 stage = 41
             }
 
@@ -352,13 +327,7 @@ class RedbeardFrankDialogue(player: Player? = null) : Dialogue(player) {
                 )
                 stage = 106
             } else {
-                options(
-                    "Can you remind me what my Falador shield does, please?",
-                    "What is the Achievement Diary?",
-                    "What are the rewards?",
-                    "How do I claim the rewards?",
-                    "See you later."
-                )
+                options("Can you remind me what my Falador shield does, please?", "What is the Achievement Diary?", "What are the rewards?", "How do I claim the rewards?", "See you later.")
                 stage = 107
             }
 
@@ -412,11 +381,7 @@ class RedbeardFrankDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             110 -> {
-                npc(
-                    "Ah, well it's a diary that helps you keep track of",
-                    "particular achievements you've made here on",
-                    "Gielinor."
-                )
+                npc("Ah, well it's a diary that helps you keep track of", "particular achievements you've made here on", "Gielinor.")
                 stage = 111
             }
 
@@ -438,11 +403,7 @@ class RedbeardFrankDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             120 -> {
-                npc(
-                    "Ah, well there are different rewards for each",
-                    "Achievement Diary. For completing each stage of the",
-                    "Falador diary, you are presented with a Falador shield."
-                )
+                npc("Ah, well there are different rewards for each", "Achievement Diary. For completing each stage of the", "Falador diary, you are presented with a Falador shield.")
                 stage = 121
             }
 
@@ -457,63 +418,37 @@ class RedbeardFrankDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             130 -> {
-                npc(
-                    "You need to complete all of the tasks in a particular",
-                    "difficulty, then you can claim your reward."
-                )
+                npc("You need to complete all of the tasks in a particular", "difficulty, then you can claim your reward.")
                 stage = 131
             }
 
             131 -> {
-                npc(
-                    "Some of Falador's tasks are simple, some will require",
-                    "certain skill levels, and some might require quests to be",
-                    "started or completed."
-                )
+                npc("Some of Falador's tasks are simple, some will require", "certain skill levels, and some might require quests to be", "started or completed.")
                 stage = 132
             }
 
             132 -> {
-                npc(
-                    "To claim your Falador Achievement Diary rewards,",
-                    "speak to the chemist in Rimmington, Sir Vyvin's squire",
-                    "in the White Knight's Castle, or myself."
-                )
+                npc("To claim your Falador Achievement Diary rewards,", "speak to the chemist in Rimmington, Sir Vyvin's squire", "in the White Knight's Castle, or myself.")
                 stage = 105
             }
 
             150 -> {
-                npc(
-                    "This is the first stage fo the Falador shield: a buckler. It",
-                    "grants you access to a Prayer restore ability and an",
-                    "emote."
-                )
+                npc("This is the first stage fo the Falador shield: a buckler. It", "grants you access to a Prayer restore ability and an", "emote.")
                 stage = 151
             }
 
             151 -> {
-                npc(
-                    "Each of these features can be triggered while wielding",
-                    "the shield by selecting the 'Operate' option. The Prayer",
-                    "restore can also be activated from your inventory."
-                )
+                npc("Each of these features can be triggered while wielding", "the shield by selecting the 'Operate' option. The Prayer", "restore can also be activated from your inventory.")
                 stage = 152
             }
 
             152 -> {
-                npc(
-                    "The Prayer restore ability can only be used once per",
-                    "day, and gives you back a quarter of your Prayer",
-                    "points."
-                )
+                npc("The Prayer restore ability can only be used once per", "day, and gives you back a quarter of your Prayer", "points.")
                 stage = 153
             }
 
             153 -> {
-                npc(
-                    "As well as all of these features, the shield is pretty",
-                    "handy in combat, and gives you a small Prayer boost."
-                )
+                npc("As well as all of these features, the shield is pretty", "handy in combat, and gives you a small Prayer boost.")
                 stage = 105
             }
 
@@ -542,38 +477,23 @@ class RedbeardFrankDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             203 -> {
-                npc(
-                    "This is the first stage of the Falador shield: a buckler. It",
-                    "grants you access to a Prayer restore ability and an",
-                    "emote."
-                )
+                npc("This is the first stage of the Falador shield: a buckler. It", "grants you access to a Prayer restore ability and an", "emote.")
                 AchievementDiary.flagRewarded(player, DiaryType.FALADOR, level)
                 stage = 204
             }
 
             204 -> {
-                npc(
-                    "Each of these features can be triggered while wielding",
-                    "the shield by selecting the 'Operate' option. The Prayer",
-                    "restore can also be activated from your inventory."
-                )
+                npc("Each of these features can be triggered while wielding", "the shield by selecting the 'Operate' option. The Prayer", "restore can also be activated from your inventory.")
                 stage = 205
             }
 
             205 -> {
-                npc(
-                    "The Prayer restore ability can only be used once per",
-                    "day, and gives you back a quarter of your Prayer",
-                    "points."
-                )
+                npc("The Prayer restore ability can only be used once per", "day, and gives you back a quarter of your Prayer", "points.")
                 stage = 206
             }
 
             206 -> {
-                npc(
-                    "As well as all of these features, the shield is pretty",
-                    "handy in combat, and gives you a small Prayer boost."
-                )
+                npc("As well as all of these features, the shield is pretty", "handy in combat, and gives you a small Prayer boost.")
                 stage = 207
             }
 

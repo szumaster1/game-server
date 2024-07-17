@@ -19,9 +19,7 @@ class FrincosDialogue(player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
             0 -> {
-                interpreter.sendOptions(
-                    "Select an Option",
-                    "What are you selling?",
+                options("What are you selling?",
                     "You can't; I'm beyond help.",
                     "I'm okay, thank you."
                 )

@@ -106,9 +106,7 @@ class ProfessorOddensteinDialogue(player: Player? = null) : Dialogue(player) {
 
                 1 -> when (buttonId) {
                     1 -> {
-                        interpreter.sendDialogues(
-                            player,
-                            FacialExpression.HALF_GUILTY,
+                        player(FacialExpression.HALF_GUILTY,
                             "I'm looking for a guy called Ernest."
                         )
                         stage = 2

@@ -107,9 +107,7 @@ class CradleOfLifeDialogue(player: Player? = null) : Dialogue(player) {
                 interpreter.sendDialogue("You appear to have lost your boots!")
                 stage = 101
             } else {
-                interpreter.sendOptions(
-                    "Select an Option",
-                    "Yes, I'd like the other pair instead please!",
+                options("Yes, I'd like the other pair instead please!",
                     "No thanks, I'll keep these!"
                 )
                 stage = 200

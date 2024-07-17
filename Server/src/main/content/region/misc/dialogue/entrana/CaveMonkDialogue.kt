@@ -61,9 +61,7 @@ class CaveMonkDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             2 -> {
-                interpreter.sendOptions(
-                    "Select an Option",
-                    "I don't think I'm strong enough to enter then.",
+                options("I don't think I'm strong enough to enter then.",
                     "Well that is a risk I will have to take."
                 )
                 stage = 3

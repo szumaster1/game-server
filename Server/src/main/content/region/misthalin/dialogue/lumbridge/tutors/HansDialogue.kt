@@ -36,9 +36,7 @@ class HansDialogue(player: Player? = null) : Dialogue(player) {
         }
         when (stage) {
             0 -> {
-                interpreter.sendOptions(
-                    "Select an Option",
-                    "I'm looking for whoever is in charge of this place.",
+                options("I'm looking for whoever is in charge of this place.",
                     "I have come to kill everyone in this castle!",
                     "I don't know. I'm lost. Where am I?",
                     "Have you been here as long as me?"
@@ -378,18 +376,14 @@ class HansDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             124 -> stage = if (player.ironmanManager.isIronman) {
-                interpreter.sendOptions(
-                    "Select an Option",
-                    "I no longer want to be an Iron Man",
+                options("I no longer want to be an Iron Man",
                     "I'd like to change my Iron Man mode",
                     "What is an Iron Man?",
                     "Go Back."
                 )
                 100
             } else {
-                interpreter.sendOptions(
-                    "Select an Option",
-                    "I would like to be an Iron Man.",
+                options("I would like to be an Iron Man.",
                     "What is an Iron Man?",
                     "Go Back..."
                 )
