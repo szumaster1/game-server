@@ -20,7 +20,7 @@ class OrdanDialogue(player: Player? = null) : Dialogue(player) {
         when (stage) {
             START_DIALOGUE -> playerl(FacialExpression.FRIENDLY, "Can you un-note any of my items?").also { stage++ }
             1 -> npcl(FacialExpression.OLD_DEFAULT, "I can un-note Tin, Copper, Iron, Coal, and Mithril.").also { stage++ }
-            2 -> npcl(FacialExpression.OLD_DEFAULT, "I can even un-note Adamantite and Runite, but you're gonna need deep pocktes for that.").also { stage = END_DIALOGUE }
+            2 -> npcl(FacialExpression.OLD_DEFAULT, "I can even un-note Adamantite and Runite, but you're gonna need deep pockets for that.").also { stage = END_DIALOGUE }
         }
         return true
     }

@@ -1,12 +1,9 @@
 package content.region.misc.dialogue.tutorial
 
 import content.region.misc.handlers.tutorial.TutorialStage
-import core.api.addItem
+import core.api.*
 import core.api.consts.Items
 import core.api.consts.NPCs
-import core.api.getAttribute
-import core.api.inInventory
-import core.api.setAttribute
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
@@ -24,7 +21,7 @@ class MiningInstructorDialogue(player: Player? = null) : Dialogue(player) {
             35 -> {
                 if (!inInventory(player, Items.BRONZE_PICKAXE_1265)) {
                     addItem(player, Items.BRONZE_PICKAXE_1265)
-                    player.dialogueInterpreter.sendItemMessage(Items.BRONZE_PICKAXE_1265, "Dezzick gives you a bronze pickaxe!")
+                    sendItemDialogue(player, Items.BRONZE_PICKAXE_1265, "Dezzick gives you a bronze pickaxe!")
                     stage = 3
                 } else {
                     TutorialStage.load(player, 35)
@@ -35,7 +32,7 @@ class MiningInstructorDialogue(player: Player? = null) : Dialogue(player) {
             41 -> {
                 if (!inInventory(player, Items.HAMMER_2347)) {
                     addItem(player, Items.HAMMER_2347)
-                    player.dialogueInterpreter.sendItemMessage(Items.HAMMER_2347, "Dezzick gives you a hammer!")
+                    sendItemDialogue(player, Items.HAMMER_2347, "Dezzick gives you a hammer!")
                     stage = 3
                 } else {
                     end()
@@ -64,7 +61,7 @@ class MiningInstructorDialogue(player: Player? = null) : Dialogue(player) {
                 1 -> npcl(FacialExpression.FRIENDLY, "So now you know what ore is in the rocks over there, why don't you have a go at mining some tin and copper? Here, you'll need this to start with.").also { stage++ }
                 2 -> {
                     addItem(player, Items.BRONZE_PICKAXE_1265)
-                    player.dialogueInterpreter.sendItemMessage(Items.BRONZE_PICKAXE_1265, "Dezzick gives you a bronze pickaxe!")
+                    sendItemDialogue(player, Items.BRONZE_PICKAXE_1265, "Dezzick gives you a bronze pickaxe!")
                     stage++
                 }
                 3 -> {
@@ -78,7 +75,7 @@ class MiningInstructorDialogue(player: Player? = null) : Dialogue(player) {
                 0 -> npcl(FacialExpression.FRIENDLY, "Okay, I'll show you how to make a dagger out of it. You'll be needing this..").also { stage++ }
                 1 -> {
                     addItem(player, Items.HAMMER_2347)
-                    player.dialogueInterpreter.sendItemMessage(Items.HAMMER_2347, "Drezzick gives you a hammer!")
+                    sendItemDialogue(player, Items.HAMMER_2347, "Drezzick gives you a hammer!")
                     stage++
                 }
                 2 -> {

@@ -8,6 +8,7 @@ import core.api.consts.Scenery
 import core.game.dialogue.DialogueFile
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
+import core.game.node.entity.player.link.TeleportManager
 import core.game.world.map.Location
 import core.tools.END_DIALOGUE
 
@@ -65,11 +66,11 @@ class KeldagrimListeners : InteractionListener {
         on(ENTRANCE, IntType.SCENERY, "go-through") { player, node ->
             if(node.id == Scenery.CAVE_ENTRANCE_5973){
                 runTask(player, 1) {
-                    teleport(player, Location(2838, 10125))
+                    teleport(player, Location(2838, 10125), TeleportManager.TeleportType.INSTANT)
                 }
             } else {
                 runTask(player, 1) {
-                    teleport(player, Location(2780, 10161))
+                    teleport(player, Location(2780, 10161), TeleportManager.TeleportType.INSTANT)
                 }
             }
             return@on true
@@ -103,7 +104,7 @@ class KeldagrimListeners : InteractionListener {
         }
 
         on(TUNNEL, IntType.SCENERY, "enter") { player, _ ->
-            teleport(player, Location(2730, 3713, 0))
+            teleport(player, Location(2730, 3713, 0), TeleportManager.TeleportType.INSTANT)
             return@on true
         }
     }

@@ -27,11 +27,7 @@ class BrotherBraceDialogue(player: Player? = null) : Dialogue(player) {
         when (getAttribute(player, "tutorial:stage", 0)) {
             60 -> when (stage++) {
                 0 -> playerl(FacialExpression.FRIENDLY, "Alright, sounds fun!")
-                1 -> npcl(
-                    FacialExpression.FRIENDLY,
-                    "Right, so first thing: Prayer. Prayer is trained by offering bones to the gods, and can grant you many boons!"
-                )
-
+                1 -> npcl(FacialExpression.FRIENDLY, "Right, so first thing: Prayer. Prayer is trained by offering bones to the gods, and can grant you many boons!")
                 2 -> {
                     end()
                     setAttribute(player, "tutorial:stage", 61)

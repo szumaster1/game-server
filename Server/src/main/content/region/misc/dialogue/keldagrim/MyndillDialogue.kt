@@ -30,11 +30,11 @@ class MyndillDialogue(player: Player? = null) : Dialogue(player) {
             5 -> player(FacialExpression.HALF_ASKING, "How is that? Do you know anything", "about this?").also { stage++ }
             6 -> npc(FacialExpression.OLD_NORMAL, "No, it's just that no company has ever willingly", "left the Consortium before.").also { stage++ }
             7 -> player(FacialExpression.HALF_ASKING, "Companies have been forced out of the", "Consortium then?").also { stage++ }
-            8 -> npc(FacialExpression.OLD_NORMAL, "Oh yes. It hasn't happened for a long while now,", "but sometimes a company goes bankrupt. Or the value", " of the company becomes so low that it's relegated", "to being a minor company.").also { stage++ }
+            8 -> npc(FacialExpression.OLD_NORMAL, "Oh yes. It hasn't happened for a long while now,", "but sometimes a company goes bankrupt. Or the value", "of the company becomes so low that it's relegated", "to being a minor company.").also { stage++ }
             9 -> player(FacialExpression.FRIENDLY, "I see, thank you.").also { stage = END_DIALOGUE }
             10 -> npc(FacialExpression.OLD_NORMAL, "Let me think for a moment...").also { stage++ }
-            11 -> npc(FacialExpression.OLD_NORMAL, "No, I have nothing that I could possible", " want doing. Try the shops or the market instead.").also { stage = 0 }
-            12 -> npc(FacialExpression.OLD_NORMAL, " Perhaps!").also { stage = END_DIALOGUE }
+            11 -> npc(FacialExpression.OLD_NORMAL, "No, I have nothing that I could possible", "want doing. Try the shops or the market instead.").also { stage = 0 }
+            12 -> npc(FacialExpression.OLD_NORMAL, "Perhaps!").also { stage = END_DIALOGUE }
         }
         return true
     }

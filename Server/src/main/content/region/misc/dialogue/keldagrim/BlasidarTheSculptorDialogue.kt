@@ -38,13 +38,13 @@ class BlasidarTheSculptorDialogue(player: Player? = null) : Dialogue(player) {
             16 -> npc(FacialExpression.OLD_NORMAL, "Yes, you will do just fine.").also { stage++ }
             17 -> player(FacialExpression.NEUTRAL, "Ehm, right, okay.").also { stage++ }
             18 -> player(FacialExpression.HALF_ASKING, "So what did you need doing?").also { stage++ }
-            19 -> npc(FacialExpression.OLD_NORMAL, "Well, see... the Consortium has commisioned me to rebuild", "the statue exactly the way it was.").also { stage++ }
+            19 -> npc(FacialExpression.OLD_NORMAL, "Well, see... the Consortium has commissioned me to rebuild", "the statue exactly the way it was.").also { stage++ }
             20 -> npc(FacialExpression.OLD_NORMAL, "But the statue itself has broken into a million pieces...", "and we dwarves aren't very good painters, you know, so we don't", "have any paintings of it either.").also { stage++ }
             21 -> player(FacialExpression.HALF_ASKING, "Not a very artistic race, then, are you?").also { stage++ }
             22 -> npc(FacialExpression.OLD_NORMAL, "No, that's not what I said,", "I said we're not very good painters.").also { stage++ }
             23 -> npc(FacialExpression.OLD_NORMAL, "We're excellent with, for example, stone. Oh yes,", "quite good if I say so myself.").also { stage++ }
             24 -> npc(FacialExpression.OLD_NORMAL, "But I digress... simply speaking, I need some help", "with getting some items that I can base the new", "statue on.").also { stage++ }
-            25 -> npc(FacialExpression.OLD_NORMAL, "Will you be able to help me with this, ${player.username}?").also { stage++ }
+            25 -> npcl(FacialExpression.OLD_NORMAL, "Will you be able to help me with this, ${player.username}?").also { stage++ }
             26 -> options("No, I can't be bothered.", "Yes, I will do this.").also { stage++ }
             27 -> when (buttonId) {
                 1 -> player(FacialExpression.NEUTRAL, "No, I can't be bothered.").also { stage++ }

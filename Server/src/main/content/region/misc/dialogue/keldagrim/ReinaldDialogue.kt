@@ -1,5 +1,6 @@
 package content.region.misc.dialogue.keldagrim
 
+import core.api.consts.Components
 import core.api.consts.NPCs
 import core.api.openInterface
 import core.game.dialogue.Dialogue
@@ -17,7 +18,7 @@ class ReinaldDialogue(player: Player? = null) : Dialogue(player) {
             2 -> when (buttonId) {
                 1 -> {
                     end()
-                    openInterface(player, 593)
+                    openInterface(player, Components.REINALD_SMITHING_EMPORIUM_593)
                 }
                 2 -> end()
             }
