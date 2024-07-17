@@ -52,10 +52,9 @@ class CaveyDaveyDialogue(player: Player? = null) : Dialogue(player) {
             17 -> npcl(FacialExpression.HALF_GUILTY, "If ye value yer limbs ye'll put that Icon round yer neck, and hope they don't come out into the light!").also { stage++ }
             18 -> npcl(FacialExpression.HALF_GUILTY, "Err, all right, I'll get right on that.").also { stage = END_DIALOGUE }
 
-            19 -> npcl(FacialExpression.HALF_GUILTY, "Be ye here te deal with the Horrors?").also { stage++ }
-            20 -> playerl(FacialExpression.HALF_GUILTY, "I might well give it a shot.").also { stage++ }
-            21 -> npcl(FacialExpression.HALF_GUILTY, "Aye, well, keep yer Icon with ye if we wants te walk out alive again.").also { stage++ }
-            22 -> playerl(FacialExpression.HALF_GUILTY, "Don't worry, I will.").also { stage = END_DIALOGUE }
+            19 -> playerl(FacialExpression.HALF_GUILTY, "I might well give it a shot.").also { stage++ }
+            20 -> npcl(FacialExpression.HALF_GUILTY, "Aye, well, keep yer Icon with ye if we wants te walk out alive again.").also { stage++ }
+            21 -> playerl(FacialExpression.HALF_GUILTY, "Don't worry, I will.").also { stage = END_DIALOGUE }
         }
         return true
     }
