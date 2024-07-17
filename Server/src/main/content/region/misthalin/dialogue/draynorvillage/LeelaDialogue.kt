@@ -20,10 +20,7 @@ class LeelaDialogue(player: Player? = null) : Dialogue(player) {
         quest = player.getQuestRepository().getQuest("Prince Ali Rescue")
         stage = when (quest!!.getStage(player)) {
             60, 100 -> {
-                npc("Thank you, Al-Kharid will forever owe you for your",
-                    "help. I think that if there is every anything that needs to",
-                    "be done, you will be someone they can rely on."
-                )
+                npc("Thank you, Al-Kharid will forever owe you for your", "help. I think that if there is every anything that needs to", "be done, you will be someone they can rely on.")
                 0
             }
 
@@ -34,9 +31,7 @@ class LeelaDialogue(player: Player? = null) : Dialogue(player) {
                 player("I'm afraid I lost that key you gave me.")
                 0
             } else {
-                npc("Ok now, you have all the basic equipment. What are",
-                    "your plans to stop the guard interfering?"
-                )
+                npc("Ok now, you have all the basic equipment. What are", "your plans to stop the guard interfering?")
                 10
             }
 
@@ -93,13 +88,7 @@ class LeelaDialogue(player: Player? = null) : Dialogue(player) {
 
                 99 -> end()
                 10 -> {
-                    interpreter.sendOptions(
-                        "Select an Option",
-                        "I haven't spoken to him yet.",
-                        "I was going to attack him.",
-                        "I hoped to get him drunk.",
-                        "Maybe I could bribe him to leave."
-                    )
+                    options("I haven't spoken to him yet.", "I was going to attack him.", "I hoped to get him drunk.", "Maybe I could bribe him to leave.")
                     stage = 11
                 }
 
@@ -126,36 +115,25 @@ class LeelaDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 110 -> {
-                    npc("Well, speaking to him may find a weakness he has. See",
-                        "if there's something that could stop him bothering us."
-                    )
+                    npc("Well, speaking to him may find a weakness he has. See", "if there's something that could stop him bothering us.")
                     stage = 111
                 }
 
                 111 -> end()
                 120 -> {
-                    npc("I don't think you should. If you do the rest of the",
-                        "gang and Keli would attack you. The door guard",
-                        "should be removed first, to make it easy."
-                    )
+                    npc("I don't think you should. If you do the rest of the", "gang and Keli would attack you. The door guard", "should be removed first, to make it easy.")
                     stage = 121
                 }
 
                 121 -> end()
                 130 -> {
-                    npc("Well, that's possible. These guards do like a drink. I",
-                        "would think it will take at least 3 beers to do it well.",
-                        "You would probably have to do it all at the same time",
-                        "too. The effects of the local bear off quickly."
-                    )
+                    npc("Well, that's possible. These guards do like a drink. I", "would think it will take at least 3 beers to do it well.", "You would probably have to do it all at the same time", "too. The effects of the local bear off quickly.")
                     stage = 131
                 }
 
                 131 -> end()
                 140 -> {
-                    npc("You could try. I don't think the emir will pay anything",
-                        "towards it. And we did bribe on of their guards once."
-                    )
+                    npc("You could try. I don't think the emir will pay anything", "towards it. And we did bribe on of their guards once.")
                     stage = 141
                 }
 
@@ -185,20 +163,12 @@ class LeelaDialogue(player: Player? = null) : Dialogue(player) {
 
             20 -> when (stage) {
                 0 -> {
-                    npc("Your employment is known to me. Now, do you know",
-                        "all that we need to make the break?"
-                    )
+                    npc("Your employment is known to me. Now, do you know", "all that we need to make the break?")
                     stage = 1
                 }
 
                 1 -> {
-                    interpreter.sendOptions(
-                        "Select an Option",
-                        "I must make a disguise. What do you suggest?",
-                        "I need to get the key made.",
-                        "What can I do with the guards?",
-                        "I will go and get the rest of the escape equipment."
-                    )
+                    options( "I must make a disguise. What do you suggest?", "I need to get the key made.", "What can I do with the guards?", "I will go and get the rest of the escape equipment.")
                     stage = 2
                 }
 
@@ -225,11 +195,7 @@ class LeelaDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 10 -> {
-                    npc("Only the lady Keli, can wander about outside the jail.",
-                        "The guards will shoot to kill if they see the prince out",
-                        "so we need a disguise good enough to fool them at a",
-                        "distance."
-                    )
+                    npc("Only the lady Keli, can wander about outside the jail.", "The guards will shoot to kill if they see the prince out", "so we need a disguise good enough to fool them at a", "distance.")
                     stage = 11
                 }
 
@@ -238,10 +204,7 @@ class LeelaDialogue(player: Player? = null) : Dialogue(player) {
                         npc("The wig you have got, well done.")
                         itemCount++
                     } else {
-                        npc("You need a wig, maybe made from wool. If you find",
-                            "someone who can work with wool ask them about it.",
-                            "There's a witch nearby may be able to help you dye it."
-                        )
+                        npc("You need a wig, maybe made from wool. If you find", "someone who can work with wool ask them about it.", "There's a witch nearby may be able to help you dye it.")
                     }
                     stage = 12
                 }
@@ -258,16 +221,10 @@ class LeelaDialogue(player: Player? = null) : Dialogue(player) {
 
                 13 -> {
                     if (player.inventory.containsItem(PASTE)) {
-                        npc("You have the skin paint, well done. I thought you would",
-                            "struggle to make that."
-                        )
+                        npc("You have the skin paint, well done. I thought you would", "struggle to make that.")
                         itemCount++
                     } else {
-                        npc("We still need something to colour the Prince's skin",
-                            "lighter. There's a witch close to here. She knows about",
-                            "many things. She may know some way to make the",
-                            "skin lighter."
-                        )
+                        npc("We still need something to colour the Prince's skin", "lighter. There's a witch close to here. She knows about", "many things. She may know some way to make the", "skin lighter.")
                     }
                     stage = if (itemCount == 3) 14 else 15
                 }
@@ -278,40 +235,27 @@ class LeelaDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 15 -> stage = if (player.inventory.containsItem(ROPE)) {
-                    npc("You have the rope I see, to tie up Keli. That will be the",
-                        "most dangerous part of the plan."
-                    )
+                    npc("You have the rope I see, to tie up Keli. That will be the", "most dangerous part of the plan.")
                     16
                 } else {
-                    npc("You will still need some rope to tie up Keli, of course. I",
-                        "heard that there's a good rope maker around here."
-                    )
+                    npc("You will still need some rope to tie up Keli, of course. I", "heard that there's a good rope maker around here.")
                     16
                 }
 
                 16 -> end()
                 20 -> {
-                    npc("Yes, that is most important. There is no way you can",
-                        "get the real key. It is on a chain around Keli's neck.",
-                        "Almost impossible to steal."
-                    )
+                    npc("Yes, that is most important. There is no way you can", "get the real key. It is on a chain around Keli's neck.", "Almost impossible to steal.")
                     stage = 21
                 }
 
                 21 -> {
-                    npc("Get some soft clay and get her to show you the key",
-                        "somehow. Then take the print, with bronze, to my",
-                        "father."
-                    )
+                    npc("Get some soft clay and get her to show you the key", "somehow. Then take the print, with bronze, to my", "father.")
                     stage = 22
                 }
 
                 22 -> end()
                 30 -> {
-                    npc("most of the guards will be easy. The disguise will get",
-                        "past them. The only guards who will be a problem will be",
-                        "the one at the door."
-                    )
+                    npc("most of the guards will be easy. The disguise will get", "past them. The only guards who will be a problem will be", "the one at the door.")
                     stage = 31
                 }
 

@@ -222,12 +222,7 @@ class RedbeardFrankDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             49 -> {
-                npc(
-                    "The Customs office has been clampin' down on the",
-                    "export of spirits. You seem like a resourceful young lad,",
-                    "I'm sure ye'll be able to find a way to slip the stuff past",
-                    "them."
-                )
+                npc("The Customs office has been clampin' down on the", "export of spirits. You seem like a resourceful young lad,", "I'm sure ye'll be able to find a way to slip the stuff past", "them.")
                 stage = 50
             }
 
@@ -295,11 +290,7 @@ class RedbeardFrankDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             101 -> {
-                npc(
-                    "Arrr! That's the spirit! Soon ye'll be exploring",
-                    "underground caverns, sailin' the high seas and",
-                    "plundering booty!"
-                )
+                npc("Arrr! That's the spirit! Soon ye'll be exploring", "underground caverns, sailin' the high seas and", "plundering booty!")
                 stage = 102
             }
 
@@ -319,12 +310,7 @@ class RedbeardFrankDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             105 -> if (!AchievementDiary.hasClaimedLevelRewards(player, DiaryType.FALADOR, level)) {
-                options(
-                    "What is the Achievement Diary?",
-                    "What are the rewards?",
-                    "How do I claim the rewards?",
-                    "See you later."
-                )
+                options("What is the Achievement Diary?", "What are the rewards?", "How do I claim the rewards?", "See you later.")
                 stage = 106
             } else {
                 options("Can you remind me what my Falador shield does, please?", "What is the Achievement Diary?", "What are the rewards?", "How do I claim the rewards?", "See you later.")
@@ -386,19 +372,12 @@ class RedbeardFrankDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             111 -> {
-                npc(
-                    "If you manage to complete a particular set of tasks,",
-                    "you will be rewarded for your explorative efforts."
-                )
+                npc("If you manage to complete a particular set of tasks,", "you will be rewarded for your explorative efforts.")
                 stage = 112
             }
 
             112 -> {
-                npc(
-                    "You can access your Achievement Diary by going to",
-                    "the Quest Journal, then clicking on the green star icon",
-                    "in the top-right hand corner."
-                )
+                npc("You can access your Achievement Diary by going to", "the Quest Journal, then clicking on the green star icon", "in the top-right hand corner.")
                 stage = 105
             }
 

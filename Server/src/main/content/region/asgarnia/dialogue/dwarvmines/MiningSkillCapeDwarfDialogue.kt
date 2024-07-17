@@ -100,9 +100,7 @@ class MiningSkillCapeDwarfDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             45 -> {
-                npc(FacialExpression.OLD_NORMAL,
-                    "It will cost you 99,000 gold coins, are you sure?"
-                )
+                npc(FacialExpression.OLD_NORMAL, "It will cost you 99,000 gold coins, are you sure?")
                 stage = 46
             }
 

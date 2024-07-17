@@ -1,6 +1,7 @@
 package content.region.misthalin.dialogue.draynorvillage
 
 import core.api.consts.NPCs
+import core.api.sendDialogue
 import core.api.setAttribute
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
@@ -69,9 +70,7 @@ class JoeGuardDialogue(player: Player? = null) : Dialogue(player) {
         if (stage >= 10 && quest!!.getStage(player) == 40) {
             when (stage) {
                 10 -> {
-                    npc("Ah, that would be lovely, just one now,",
-                        "just to wet my throat."
-                    )
+                    npc("Ah, that would be lovely, just one now,", "just to wet my throat.")
                     stage = 11
                 }
 
@@ -81,7 +80,7 @@ class JoeGuardDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 12 -> {
-                    interpreter.sendDialogue("You hand a beer to the guard, he drinks it in seconds.")
+                    sendDialogue(player, "You hand a beer to the guard, he drinks it in seconds.")
                     stage = 13
                 }
 
@@ -112,17 +111,12 @@ class JoeGuardDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 17 -> {
-                    player("Here, just keep these for later,",
-                        "I hate to see a thirsty guard."
-                    )
+                    player("Here, just keep these for later,", "I hate to see a thirsty guard.")
                     stage = 18
                 }
 
                 18 -> if (player.inventory.remove(BEER) && player.inventory.remove(BEER)) {
-                    interpreter.sendDialogue(
-                        "You hand two more beers to the guard.",
-                        "He takes a sip of one, and then he drinks the both."
-                    )
+                    sendDialogue(player,"You hand two more beers to the guard. He takes a sip of one, and then he drinks the both.")
                     stage = 19
                     setAttribute(player, "/save:guard-drunk", true)
                 }
@@ -146,9 +140,7 @@ class JoeGuardDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 24 -> {
-                    npc("Thatsh a funny joke. You are lucky I am shober. Go",
-                        "in peace, friend."
-                    )
+                    npc("Thatsh a funny joke. You are lucky I am shober. Go", "in peace, friend.")
                     stage = 21
                 }
             }
@@ -161,10 +153,7 @@ class JoeGuardDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             1 -> {
-                npc(FacialExpression.HALF_GUILTY,
-                    "Can't say, all very secret. You should get out of here.",
-                    "I am not suposed to talk while I guard."
-                )
+                npc(FacialExpression.HALF_GUILTY, "Can't say, all very secret. You should get out of here.", "I am not suposed to talk while I guard.")
                 stage = 2
             }
 

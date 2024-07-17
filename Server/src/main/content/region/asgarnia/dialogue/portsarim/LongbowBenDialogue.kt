@@ -34,18 +34,13 @@ class LongbowBenDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 2 -> {
-                    player(FacialExpression.HALF_GUILTY,
-                        "Have you got any quests I could do?"
-                    )
+                    player(FacialExpression.HALF_GUILTY, "Have you got any quests I could do?")
                     stage = 200
                 }
             }
 
             10 -> {
-                npc(FacialExpression.HALF_GUILTY,
-                    "I was to be marooned, ye see. A srurvy troublemaker had",
-                    "taken my ship, and he put  me ashore on a little island."
-                )
+                npc(FacialExpression.HALF_GUILTY, "I was to be marooned, ye see. A srurvy troublemaker had", "taken my ship, and he put  me ashore on a little island.")
                 stage = 11
             }
 
@@ -55,11 +50,7 @@ class LongbowBenDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             12 -> {
-                npc(FacialExpression.HALF_GUILTY,
-                    "Arrr, ye see, he made on mistake! Before he sailed",
-                    "he gave me a bow and one arrow so that I wouldn't have",
-                    "to die slowly."
-                )
+                npc(FacialExpression.HALF_GUILTY, "Arrr, ye see, he made on mistake! Before he sailed", "he gave me a bow and one arrow so that I wouldn't have", "to die slowly.")
                 stage = 13
             }
 

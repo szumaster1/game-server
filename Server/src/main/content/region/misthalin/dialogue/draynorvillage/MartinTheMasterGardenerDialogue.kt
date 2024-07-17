@@ -23,36 +23,24 @@ class MartinTheMasterGardenerDialogue(player: Player? = null) : Dialogue(player)
         when (stage) {
             0 -> when (buttonId) {
                 1 -> {
-                    player(FacialExpression.HALF_GUILTY,
-                        "What is that cape that you're wearing?"
-                    )
+                    player(FacialExpression.HALF_GUILTY, "What is that cape that you're wearing?")
                     stage = 10
                 }
 
                 2 -> {
-                    npc(FacialExpression.HALF_GUILTY,
-                        "I can't chat now, I have too many things to worry",
-                        "about."
-                    )
+                    npc(FacialExpression.HALF_GUILTY, "I can't chat now, I have too many things to worry", "about.")
                     stage = 20
                 }
             }
 
             20 -> end()
             10 -> {
-                npc(FacialExpression.HALF_GUILTY,
-                    "This is a Skillcape of Farming, isn't it incredbile? It's a",
-                    "symbol of my ability as the finest farmer in the land!"
-                )
+                npc(FacialExpression.HALF_GUILTY, "This is a Skillcape of Farming, isn't it incredbile? It's a", "symbol of my ability as the finest farmer in the land!")
                 stage = 11
             }
 
             11 -> if (player.getSkills().getStaticLevel(Skills.FARMING) == 99) {
-                npc(
-                    "Ah! I see you have mastered the skill of Farming,",
-                    "would you like to purchase a Farming cape for",
-                    "a fee of 99000 coins?"
-                )
+                npc("Ah! I see you have mastered the skill of Farming,", "would you like to purchase a Farming cape for", "a fee of 99000 coins?")
                 stage = 12
             } else {
                 end()

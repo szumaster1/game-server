@@ -29,11 +29,7 @@ class ElnockInquisitorDialogue(player: Player? = null) : Dialogue(player) {
                     npc("Ah, I notice you don't own an impling collector's scroll.")
                     stage = 900
                 }
-                options(
-                    "Can you remind me how to catch implings again?",
-                    "Can I trade some jarred implings please?",
-                    "Do you have some spare equipment I can use?"
-                )
+                options("Can you remind me how to catch implings again?", "Can I trade some jarred implings please?", "Do you have some spare equipment I can use?")
                 stage++
             }
 
@@ -60,57 +56,34 @@ class ElnockInquisitorDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             11 -> {
-                npc(
-                    "Firstly you will need a butterfly net in which to catch",
-                    "them and at least one special impling jar to store an",
-                    "impling."
-                )
+                npc("Firstly you will need a butterfly net in which to catch", "them and at least one special impling jar to store an", "impling.")
                 stage++
             }
 
             12 -> {
-                npc(
-                    "You will also require some experience as a Hunter",
-                    "since these creatures are elusive. The more immature",
-                    "implings require less experience, but some of the rarer",
-                    "implings are extraordinarily hard to find and catch."
-                )
+                npc("You will also require some experience as a Hunter", "since these creatures are elusive. The more immature", "implings require less experience, but some of the rarer", "implings are extraordinarily hard to find and catch.")
                 stage++
             }
 
             13 -> {
-                npc(
-                    "Once you have caught one, you may break the jar",
-                    "open and obtain the object the impling is carrying.",
-                    "Alternatively, you may exchange certain combinations of",
-                    "jars with me. I will return the jars to my clients. In"
-                )
+                npc("Once you have caught one, you may break the jar", "open and obtain the object the impling is carrying.", "Alternatively, you may exchange certain combinations of", "jars with me. I will return the jars to my clients. In")
                 stage++
             }
 
             14 -> {
-                npc(
-                    "exchange I will be able to provide you with some",
-                    "equipment that may help you hunt butterflies more",
-                    "effectively."
-                )
+                npc("exchange I will be able to provide you with some", "equipment that may help you hunt butterflies more", "effectively.")
                 stage++
             }
 
             15 -> {
-                npc(
-                    "also beware. Those imps walking around the maze do",
-                    "not like the fact that their kindred spirits are being",
-                    "captured and will attempt to steal any full jars you have",
-                    "on you, setting the implings free."
-                )
+                npc("also beware. Those imps walking around the maze do", "not like the fact that their kindred spirits are being", "captured and will attempt to steal any full jars you have", "on you, setting the implings free.")
                 stage++
             }
 
             16 -> end()
             20 -> {
                 end()
-                ElnockInquisitorDialogue.openShop(player)
+                openShop(player)
             }
 
             30 -> if (!player.getSavedData().activityData.isElnockSupplies) {
@@ -143,11 +116,8 @@ class ElnockInquisitorDialogue(player: Player? = null) : Dialogue(player) {
 
             901 -> when (buttonId) {
                 1 -> {
-                    player.inventory.add(ElnockInquisitorDialogue.SCROLL, player)
-                    interpreter.sendItemMessage(
-                        ElnockInquisitorDialogue.SCROLL,
-                        "Elnock gives you a scroll. If you check it whilst in the maze, you will see how many of each impling you have captured."
-                    )
+                    player.inventory.add(SCROLL, player)
+                    interpreter.sendItemMessage(SCROLL, "Elnock gives you a scroll. If you check it whilst in the maze, you will see how many of each impling you have captured.")
                     stage++
                 }
 

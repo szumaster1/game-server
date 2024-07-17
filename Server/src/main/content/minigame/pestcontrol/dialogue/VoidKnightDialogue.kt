@@ -46,11 +46,7 @@ class VoidKnightDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             10 -> {
-                npc(
-                    "I'm a Void Knight, one of the order of Guthix. We are",
-                    "warriors of balance who do Guthix's work here in",
-                    "Gielinor."
-                )
+                npc("I'm a Void Knight, one of the order of Guthix. We are", "warriors of balance who do Guthix's work here in", "Gielinor.")
                 stage = 11
             }
 
@@ -89,12 +85,7 @@ class VoidKnightDialogue(player: Player? = null) : Dialogue(player) {
 
             16 -> end()
             17 -> {
-                npc(
-                    "Ah well you see we try to keep " + settings!!.name + " as Guthix",
-                    "intended, it's very challenging. Actually we've been",
-                    "having some problems recently, maybe you could help",
-                    "us?"
-                )
+                npc("Ah well you see we try to keep " + settings!!.name + " as Guthix", "intended, it's very challenging. Actually we've been", "having some problems recently, maybe you could help", "us?")
                 stage = 18
             }
 
@@ -132,20 +123,12 @@ class VoidKnightDialogue(player: Player? = null) : Dialogue(player) {
 
             190 -> end()
             191 -> {
-                npc(
-                    "Well the order has become quite diminished over the",
-                    "years, it's a very long process to learn the skills of a",
-                    "Void Knight. Recently there have been breaches into",
-                    "our realm from somewhere else, and strange creatures"
-                )
+                npc("Well the order has become quite diminished over the", "years, it's a very long process to learn the skills of a", "Void Knight. Recently there have been breaches into", "our realm from somewhere else, and strange creatures")
                 stage = 192
             }
 
             192 -> {
-                npc(
-                    "have been pouring through. We can't let that happen,",
-                    "and we'd be very grateful if you'd help us."
-                )
+                npc("have been pouring through. We can't let that happen,", "and we'd be very grateful if you'd help us.")
                 stage = 193
             }
 
@@ -167,20 +150,13 @@ class VoidKnightDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             195 -> {
-                npc(
-                    "We send launchers from our outpost to the nearby",
-                    "islands. If you go and wait in the lander there that'd",
-                    "really help."
-                )
+                npc("We send launchers from our outpost to the nearby", "islands. If you go and wait in the lander there that'd", "really help.")
                 stage = 196
             }
 
             196 -> end()
             20 -> {
-                npc(
-                    "This is our outpost. From here we send launchers out to",
-                    "the nearby islands to beat back the invaders."
-                )
+                npc("This is our outpost. From here we send launchers out to", "the nearby islands to beat back the invaders.")
                 stage = 21
             }
 
@@ -208,12 +184,7 @@ class VoidKnightDialogue(player: Player? = null) : Dialogue(player) {
 
             23 -> end()
             24 -> {
-                npc(
-                    "Recently there have been breaches into our realm from",
-                    "somewhere else, and strange creatures have been",
-                    "pouring through. We can't let that happen, and we'd be",
-                    "very grateful if you'd help us."
-                )
+                npc("Recently there have been breaches into our realm from", "somewhere else, and strange creatures have been", "pouring through. We can't let that happen, and we'd be", "very grateful if you'd help us.")
                 stage = 193
             }
 

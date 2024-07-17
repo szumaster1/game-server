@@ -17,35 +17,18 @@ class SquireDialogue(player: Player? = null) : Dialogue(player) {
             val type = args[1] as Int
             when (type) {
                 0 -> { // lost
-                    interpreter.sendDialogues(
-                        3781,
-                        FacialExpression.HALF_GUILTY,
-                        "The Void Knight was killed, another of our Order has",
-                        "fallen and that Island is lost."
-                    )
+                    interpreter.sendDialogues(3781, FacialExpression.HALF_GUILTY, "The Void Knight was killed, another of our Order has", "fallen and that Island is lost.")
                     stage = 110
                 }
 
                 1 -> { // won and awarded.
                     val points = args[2] as String
-                    interpreter.sendDialogues(
-                        3781,
-                        FacialExpression.HALF_GUILTY,
-                        "Congratulations! You managed to destroy all the portals!",
-                        "We've awarded you $points Void Knight Commendation",
-                        "points. Please also accept these coins as a reward."
-                    )
+                    interpreter.sendDialogues(3781, FacialExpression.HALF_GUILTY, "Congratulations! You managed to destroy all the portals!", "We've awarded you $points Void Knight Commendation", "points. Please also accept these coins as a reward.")
                     stage = 100
                 }
 
                 else -> { // won and not awarded.
-                    interpreter.sendDialogues(
-                        3781,
-                        FacialExpression.HALF_GUILTY,
-                        "Congratulations! You managed to destroy all the portals!",
-                        "However, you did not succeed in reaching the required",
-                        "amount of damage delt we cannot grant you a reward."
-                    )
+                    interpreter.sendDialogues(3781, FacialExpression.HALF_GUILTY, "Congratulations! You managed to destroy all the portals!", "However, you did not succeed in reaching the required", "amount of damage delt we cannot grant you a reward.")
                     stage = 101
                 }
             }
@@ -66,17 +49,11 @@ class SquireDialogue(player: Player? = null) : Dialogue(player) {
         when (stage) {
             0 -> {
                 if (npc.id == 3781) {
-                    interpreter.sendOptions(
-                        "Select an Option", "I'd like to go back to Port Sarim please.", "I'm fine thanks."
-                    )
+                    interpreter.sendOptions("Select an Option", "I'd like to go back to Port Sarim please.", "I'm fine thanks.")
                     stage = 500
                     return true
                 }
-                options("Who are you?",
-                    "Where does this ship go?",
-                    "I'd like to go to your outpost.",
-                    "I'm fine thanks."
-                )
+                options("Who are you?", "Where does this ship go?", "I'd like to go to your outpost.", "I'm fine thanks.")
                 stage = 1
             }
 
@@ -136,12 +113,7 @@ class SquireDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             12 -> {
-                interpreter.sendDialogues(
-                    npc,
-                    FacialExpression.HALF_GUILTY,
-                    "The Void Knights, they are great warriors of balance",
-                    "who do Guthix's work here in " + settings!!.name + "."
-                )
+                interpreter.sendDialogues(npc, FacialExpression.HALF_GUILTY, "The Void Knights, they are great warriors of balance", "who do Guthix's work here in " + settings!!.name + ".")
                 stage = 13
             }
 
@@ -220,23 +192,13 @@ class SquireDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             710 -> {
-                npc(
-                    "This island is being invaded by outsiders and the Void",
-                    "Knight over there is using a ritual to unsummon their",
-                    "portals. We must defend the Void Knight at all costs.",
-                    "however if you get an opening you can destroy the portals."
-                )
+                npc("This island is being invaded by outsiders and the Void", "Knight over there is using a ritual to unsummon their", "portals. We must defend the Void Knight at all costs.", "however if you get an opening you can destroy the portals.")
                 stage = 711
             }
 
             711 -> end()
             720 -> {
-                npc(
-                    "There are trees on the island. You'll need to chop them",
-                    "down for logs and use a hammer to repair the defences.",
-                    "Be careful tough, the trees here don't grow back very",
-                    "fast so your consts are limited!"
-                )
+                npc("There are trees on the island. You'll need to chop them", "down for logs and use a hammer to repair the defences.", "Be careful tough, the trees here don't grow back very", "fast so your consts are limited!")
                 stage = 721
             }
 
@@ -246,11 +208,7 @@ class SquireDialogue(player: Player? = null) : Dialogue(player) {
             100 -> {
                 val RED = "<col=8A0808>"
                 val BLUE = "<col=08088A>"
-                interpreter.sendDialogue(
-                    BLUE + "You now have " + RED + "" + player.getSavedData().activityData.pestPoints + "" + BLUE + " Void Knight Commendation points!</col>",
-                    "You can speak to a Void Knight to exchange your points for",
-                    "rewards."
-                )
+                interpreter.sendDialogue(BLUE + "You now have " + RED + "" + player.getSavedData().activityData.pestPoints + "" + BLUE + " Void Knight Commendation points!</col>", "You can speak to a Void Knight to exchange your points for", "rewards.")
                 stage = 101
             }
 

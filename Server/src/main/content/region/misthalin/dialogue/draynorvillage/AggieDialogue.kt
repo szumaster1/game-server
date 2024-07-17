@@ -34,20 +34,11 @@ class AggieDialogue(player: Player? = null) : Dialogue(player) {
         when (stage) {
             0 -> {
                 if (quest!!.getStage(player) == 20 || quest!!.getStage(player) == 30 || quest!!.getStage(player) == 40 || quest!!.getStage(player) == 50 || quest!!.getStage(player) == 60) {
-                    options("Could you think of a way to make skin paste?",
-                        "What could you make for me?",
-                        "Cool, do you turn people into frogs?",
-                        "You mad old witch, you can't help me.",
-                        "Can you make dyes for me please?"
-                    )
+                    options("Could you think of a way to make skin paste?", "What could you make for me?", "Cool, do you turn people into frogs?", "You mad old witch, you can't help me.", "Can you make dyes for me please?")
                     stage = 720
                     return true
                 }
-                options("What could you make for me?",
-                    "Cool, do you turn people into frogs?",
-                    "You mad old witch, you can't help me.",
-                    "Can you make dyes for me please?"
-                )
+                options("What could you make for me?", "Cool, do you turn people into frogs?", "You mad old witch, you can't help me.", "Can you make dyes for me please?")
                 stage = 1
             }
 
@@ -79,15 +70,10 @@ class AggieDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             721 -> stage = if (!hasIngredients(player)) {
-                npc("Why it's one of my most popular potions. The women",
-                    "here, they like to have smooth looking skin. And I must",
-                    "admit, some of the men buy it as well."
-                )
+                npc("Why it's one of my most popular potions. The women", "here, they like to have smooth looking skin. And I must", "admit, some of the men buy it as well.")
                 722
             } else {
-                npc("Yes I can, I see you already have the ingredients.",
-                    "Would you like me to mix some for you now?"
-                )
+                npc("Yes I can, I see you already have the ingredients.", "Would you like me to mix some for you now?")
                 726
             }
 
@@ -102,34 +88,24 @@ class AggieDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             724 -> {
-                npc("Well dearie, you need a base for the paste. That's a",
-                    "mix of ash, flour and water. Then you need redberries",
-                    "to colour it as you want. Bring me those four items",
-                    "and I will make you some."
-                )
+                npc("Well dearie, you need a base for the paste. That's a", "mix of ash, flour and water. Then you need redberries", "to colour it as you want. Bring me those four items", "and I will make you some.")
                 stage = 725
             }
 
             725 -> end()
             726 -> {
-                options("Yes please. Mix me some skin paste.",
-                    "No thank you, I don't need any skin paste right now."
-                )
+                options("Yes please. Mix me some skin paste.", "No thank you, I don't need any skin paste right now.")
                 stage = 727
             }
 
             727 -> when (buttonId) {
                 1 -> {
-                    player(FacialExpression.HALF_GUILTY,
-                        "Yes please. Mix me some skin paste."
-                    )
+                    player(FacialExpression.HALF_GUILTY, "Yes please. Mix me some skin paste.")
                     stage = 731
                 }
 
                 2 -> {
-                    player(FacialExpression.HALF_GUILTY,
-                        "No thank you, I don't need any skin paste right now."
-                    )
+                    player(FacialExpression.HALF_GUILTY, "No thank you, I don't need any skin paste right now.")
                     stage = 729
                 }
             }
@@ -147,11 +123,7 @@ class AggieDialogue(player: Player? = null) : Dialogue(player) {
 
             732 ->                 // remove the solid ingredients and one of the water ingredients
                 if (player.inventory.remove(*PASTE_SOLID_INGREDIENTS) && (player.inventory.remove(BUCKET_OF_WATER) || player.inventory.remove(JUG_OF_WATER))) {
-                    interpreter.sendDialogue(
-                        "You hand the ash, flour, water and redberries to Aggie.",
-                        "Aggie tips the ingredients into a cauldron",
-                        "and mutters some words."
-                    )
+                    interpreter.sendDialogue("You hand the ash, flour, water and redberries to Aggie.", "Aggie tips the ingredients into a cauldron", "and mutters some words.")
                     stage = 733
                 }
 
@@ -201,10 +173,7 @@ class AggieDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             41 -> {
-                options("What do you need to make a red dye?",
-                    "What do you need to make yellow dye?",
-                    "What do you need to make blue dye?"
-                )
+                options("What do you need to make a red dye?", "What do you need to make yellow dye?", "What do you need to make blue dye?")
                 stage = 42
             }
 
@@ -241,11 +210,7 @@ class AggieDialogue(player: Player? = null) : Dialogue(player) {
                     player.inventory.remove(WOAD_LEAVES)
                     player.inventory.add(BLUE_DYE)
                     make(1767)
-                    sendItemDialogue(
-                        player,
-                        BLUE_DYE,
-                        "You hand the woad leaves and payment to Aggie. Aggie produces a blue bottle and hands it to you."
-                    )
+                    sendItemDialogue(player, BLUE_DYE, "You hand the woad leaves and payment to Aggie. Aggie produces a blue bottle and hands it to you.")
                 } else {
                     interpreter.sendDialogue("You need 2 woad leaves and 5 coins.")
                 }
@@ -254,9 +219,7 @@ class AggieDialogue(player: Player? = null) : Dialogue(player) {
 
             433 -> end()
             420 -> {
-                npc("Yellow is a strange colour to get, comes from onion",
-                    "skins. I need 2 onions and 5 coins to make yellow dye."
-                )
+                npc("Yellow is a strange colour to get, comes from onion", "skins. I need 2 onions and 5 coins to make yellow dye.")
                 stage = 421
             }
 
@@ -271,11 +234,7 @@ class AggieDialogue(player: Player? = null) : Dialogue(player) {
                     player.inventory.remove(ONIONS)
                     player.inventory.add(YELLOW_DYE)
                     make(1765)
-                    sendItemDialogue(
-                        player,
-                        YELLOW_DYE,
-                        "You hand the onions and payment to Aggie. Aggie produces a yellow bottle and hands it to you."
-                    )
+                    sendItemDialogue(player, YELLOW_DYE, "You hand the onions and payment to Aggie. Aggie produces a yellow bottle and hands it to you.")
                 } else {
                     interpreter.sendDialogue("You need 2 onions and 5 coins.")
                 }
@@ -299,11 +258,7 @@ class AggieDialogue(player: Player? = null) : Dialogue(player) {
                     player.inventory.remove(REDBERRIES)
                     player.inventory.add(RED_DYE)
                     make(1763)
-                    sendItemDialogue(
-                        player,
-                        RED_DYE,
-                        "You hand the berries and payment to Aggie. Aggie produces a red bottle and hands it to you."
-                    )
+                    sendItemDialogue(player, RED_DYE, "You hand the berries and payment to Aggie. Aggie produces a red bottle and hands it to you.")
                 } else {
                     interpreter.sendDialogue("You need 3 redberries leaves and 5 coins.")
                 }
@@ -322,9 +277,7 @@ class AggieDialogue(player: Player? = null) : Dialogue(player) {
                     sendItemDialogue(player, item, "Aggie waves her hands about, and you seem to be 20 coins poorer.")
                     32
                 } else {
-                    npc("You should be careful about insulting a witch. You",
-                        "never know what shape you could wake up in."
-                    )
+                    npc("You should be careful about insulting a witch. You", "never know what shape you could wake up in.")
                     34
                 }
             }
@@ -339,20 +292,12 @@ class AggieDialogue(player: Player? = null) : Dialogue(player) {
             34 -> end()
             33 -> end()
             20 -> {
-                npc("Oh, not for years, but if you meet a talking chicken,",
-                    "you have probably met the professor in the manor north",
-                    "of here. A few years ago it was flying fish. That",
-                    "machine is a menace."
-                )
+                npc("Oh, not for years, but if you meet a talking chicken,", "you have probably met the professor in the manor north", "of here. A few years ago it was flying fish. That", "machine is a menace.")
                 stage = 11
             }
 
             10 -> {
-                npc("I mostly make what I find pretty. I sometimes",
-                    "make dye for the women's clothes to brighten the place",
-                    "up. I can make red, yellow and blue dyes. If you'd like",
-                    "some, just bring me the appropriate ingredients."
-                )
+                npc("I mostly make what I find pretty. I sometimes", "make dye for the women's clothes to brighten the place", "up. I can make red, yellow and blue dyes. If you'd like", "some, just bring me the appropriate ingredients.")
                 stage = 11
             }
 

@@ -1,6 +1,7 @@
 package content.region.misthalin.dialogue.draynorvillage
 
 import core.api.consts.NPCs
+import core.api.sendDialogueLines
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
@@ -20,12 +21,7 @@ class MissSchismDialogue(player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
             0 -> {
-                interpreter.sendOptions(
-                    "What would you like to say?",
-                    "Ok, tell me about the news.",
-                    "Who are you?",
-                    "I'm not talking to you, you horrible woman."
-                )
+                sendDialogueLines(player, "What would you like to say?", "Ok, tell me about the news.", "Who are you?", "I'm not talking to you, you horrible woman.")
                 stage = 1
             }
 
@@ -49,10 +45,7 @@ class MissSchismDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             10 -> {
-                npc(FacialExpression.HALF_GUILTY,
-                    "Well, there's just to much to tell at once! What would",
-                    "you like to hear first: the vampire or the bank?"
-                )
+                npc(FacialExpression.HALF_GUILTY, "Well, there's just to much to tell at once! What would", "you like to hear first: the vampire or the bank?")
                 stage = 11
             }
 
@@ -74,9 +67,7 @@ class MissSchismDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             110 -> stage = if (player.getQuestRepository().isComplete("Vampire Slayer")) {
-                npc(FacialExpression.HALF_GUILTY,
-                    "Well, there's nothing to tell NOW. You killed it."
-                )
+                npc(FacialExpression.HALF_GUILTY, "Well, there's nothing to tell NOW. You killed it.")
                 111
             } else {
                 npc("There is an evil Vampire terrorizing the city!")
@@ -89,10 +80,7 @@ class MissSchismDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             112 -> {
-                npc(FacialExpression.HALF_GUILTY,
-                    "I'm sure I could, but I don't see why. The vampire wasn't",
-                    "bothering me."
-                )
+                npc(FacialExpression.HALF_GUILTY, "I'm sure I could, but I don't see why. The vampire wasn't", "bothering me.")
                 stage = 113
             }
 
@@ -109,9 +97,7 @@ class MissSchismDialogue(player: Player? = null) : Dialogue(player) {
 
             120 -> end()
             210 -> {
-                npc(FacialExpression.HALF_GUILTY,
-                    "It's terrible, absolutely terrible! Those poor people!"
-                )
+                npc(FacialExpression.HALF_GUILTY, "It's terrible, absolutely terrible! Those poor people!")
                 stage = 211
             }
 
@@ -121,72 +107,45 @@ class MissSchismDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             212 -> {
-                npc(FacialExpression.HALF_GUILTY,
-                    "And who'd have ever thought such a sweet old gentleman",
-                    "would do such a thing?"
-                )
+                npc(FacialExpression.HALF_GUILTY, "And who'd have ever thought such a sweet old gentleman", "would do such a thing?")
                 stage = 213
             }
 
             213 -> {
-                player(FacialExpression.HALF_GUILTY,
-                    "Are we talking about the bank robbery?"
-                )
+                player(FacialExpression.HALF_GUILTY, "Are we talking about the bank robbery?")
                 stage = 214
             }
 
             214 -> {
-                npc(FacialExpression.HALF_GUILTY,
-                    "Oh yes, my dear. It was terrible! TERRIBLE!"
-                )
+                npc(FacialExpression.HALF_GUILTY, "Oh yes, my dear. It was terrible! TERRIBLE!")
                 stage = 215
             }
 
             215 -> end()
             20 -> {
-                npc(FacialExpression.HALF_GUILTY,
-                    "I, my dear, am a concerned citizen of Draynor Village.",
-                    "Ever since the Council allowed those farmers to set up",
-                    "their stalls here, we've had a constant flow of thieves and",
-                    "murderers through our fair village, and I decided that"
-                )
+                npc(FacialExpression.HALF_GUILTY, "I, my dear, am a concerned citizen of Draynor Village.", "Ever since the Council allowed those farmers to set up", "their stalls here, we've had a constant flow of thieves and", "murderers through our fair village, and I decided that")
                 stage = 21
             }
 
             21 -> {
-                npc(FacialExpression.HALF_GUILTY,
-                    "someone HAD to stand up and",
-                    "keep an eye on the situation."
-                )
+                npc(FacialExpression.HALF_GUILTY, "someone HAD to stand up and", "keep an eye on the situation.")
                 stage = 22
             }
 
             22 -> {
-                npc(FacialExpression.HALF_GUILTY,
-                    "I also do voluntary work for the Draynor Manor",
-                    "Restoration Fund. We're campaigning to have",
-                    "Draynor manor turned into a museum before the wet-rot",
-                    "destroys it completely."
-                )
+                npc(FacialExpression.HALF_GUILTY, "I also do voluntary work for the Draynor Manor", "Restoration Fund. We're campaigning to have", "Draynor manor turned into a museum before the wet-rot", "destroys it completely.")
                 stage = 23
             }
 
             23 -> if (player.getQuestRepository().isComplete("Vampire Slayer")) {
-                player(FacialExpression.HALF_GUILTY,
-                    "Well, now that I've cleared the vampire out of the manor,",
-                    "I guess you won't have too much trouble turning it into a",
-                    "museum."
-                )
+                player(FacialExpression.HALF_GUILTY, "Well, now that I've cleared the vampire out of the manor,", "I guess you won't have too much trouble turning it into a", "museum.")
                 stage = 24
             } else {
                 end()
             }
 
             24 -> {
-                npc(FacialExpression.HALF_GUILTY,
-                    "That's all very well dear, but no vampire was ever going to",
-                    "stop me making it a museum."
-                )
+                npc(FacialExpression.HALF_GUILTY, "That's all very well dear, but no vampire was ever going to", "stop me making it a museum.")
                 stage = 25
             }
 

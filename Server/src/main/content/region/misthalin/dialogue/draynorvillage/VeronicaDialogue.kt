@@ -42,26 +42,18 @@ class VeronicaDialogue(player: Player? = null) : Dialogue(player) {
         when (quest.getStage(player)) {
             0 -> when (stage) {
                 0 -> {
-                    interpreter.sendOptions(
-                        "Select an Option",
-                        "Aha, sounds like a quest. I'll help.",
-                        "No, I'm looking for something to kill."
-                    )
+                    options("Aha, sounds like a quest. I'll help.", "No, I'm looking for something to kill.")
                     stage = 1
                 }
 
                 1 -> when (buttonId) {
                     1 -> {
-                        player(FacialExpression.HALF_GUILTY,
-                            "Aha, sounds like a quest. I'll help."
-                        )
+                        player(FacialExpression.HALF_GUILTY, "Aha, sounds like a quest. I'll help.")
                         stage = 4
                     }
 
                     2 -> {
-                        player(FacialExpression.HALF_GUILTY,
-                            "No, I'm looking for something to kill."
-                        )
+                        player(FacialExpression.HALF_GUILTY, "No, I'm looking for something to kill.")
                         stage = 2
                     }
                 }
@@ -73,26 +65,17 @@ class VeronicaDialogue(player: Player? = null) : Dialogue(player) {
 
                 3 -> end()
                 4 -> {
-                    npc(FacialExpression.HALF_GUILTY,
-                        "Yes yes, I suppose it is a quest. My fiance Ernest and",
-                        "I came upon this house."
-                    )
+                    npc(FacialExpression.HALF_GUILTY, "Yes yes, I suppose it is a quest. My fiance Ernest and", "I came upon this house.")
                     stage = 5
                 }
 
                 5 -> {
-                    npc(FacialExpression.HALF_GUILTY,
-                        "Seeing as we were a little lost Ernest decided to go in",
-                        "and ask for direction."
-                    )
+                    npc(FacialExpression.HALF_GUILTY, "Seeing as we were a little lost Ernest decided to go in", "and ask for direction.")
                     stage = 6
                 }
 
                 6 -> {
-                    npc(FacialExpression.HALF_GUILTY,
-                        "That was an hour ago. That house looks spooky, can",
-                        "you go and see if you can find him for me?"
-                    )
+                    npc(FacialExpression.HALF_GUILTY, "That was an hour ago. That house looks spooky, can", "you go and see if you can find him for me?")
                     stage = 7
                 }
 
@@ -104,9 +87,7 @@ class VeronicaDialogue(player: Player? = null) : Dialogue(player) {
                 8 -> {
                     quest.start(player)
                     player.getQuestRepository().syncronizeTab(player)
-                    npc(FacialExpression.HALF_GUILTY,
-                        "Thank you, thank you. I'm very grateful."
-                    )
+                    npc(FacialExpression.HALF_GUILTY, "Thank you, thank you. I'm very grateful.")
                     stage = 9
                 }
 
@@ -130,18 +111,12 @@ class VeronicaDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 1 -> {
-                    npc(FacialExpression.HALF_GUILTY,
-                        "I know he's not exactly brave but I think you're being",
-                        "a bit harsh."
-                    )
+                    npc(FacialExpression.HALF_GUILTY, "I know he's not exactly brave but I think you're being", "a bit harsh.")
                     stage = 2
                 }
 
                 2 -> {
-                    player(FacialExpression.HALF_GUILTY,
-                        "No no, he's been turned into an actual chicken by a",
-                        "mad scientist."
-                    )
+                    player(FacialExpression.HALF_GUILTY, "No no, he's been turned into an actual chicken by a", "mad scientist.")
                     stage = 3
                 }
 
@@ -151,24 +126,17 @@ class VeronicaDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 4 -> {
-                    npc(FacialExpression.HALF_GUILTY,
-                        "My poor darling, why must these things happen to us."
-                    )
+                    npc(FacialExpression.HALF_GUILTY, "My poor darling, why must these things happen to us.")
                     stage = 5
                 }
 
                 5 -> {
-                    player(FacialExpression.HALF_GUILTY,
-                        "Well I'm doing my best to turn him back."
-                    )
+                    player(FacialExpression.HALF_GUILTY, "Well I'm doing my best to turn him back.")
                     stage = 6
                 }
 
                 6 -> {
-                    npc(FacialExpression.HALF_GUILTY,
-                        "Well be quick, I'm sure being a chicken can't be good",
-                        "for him."
-                    )
+                    npc(FacialExpression.HALF_GUILTY, "Well be quick, I'm sure being a chicken can't be good", "for him.")
                     stage = 7
                 }
 
@@ -182,10 +150,7 @@ class VeronicaDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 1 -> {
-                    npc(FacialExpression.HALF_GUILTY,
-                        "Oh he went off to talk to some green warty guy. I'm",
-                        "sure he'll be back soon."
-                    )
+                    npc(FacialExpression.HALF_GUILTY, "Oh he went off to talk to some green warty guy. I'm", "sure he'll be back soon.")
                     stage = 2
                 }
 

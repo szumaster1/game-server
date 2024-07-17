@@ -42,46 +42,27 @@ class PhantuwtiFanstuwiFarsightDialogue(player: Player? = null) : Dialogue(playe
             }
 
             10 -> {
-                npc(FacialExpression.NEUTRAL,
-                    "This is Seers Village! We're an organisation of mystically",
-                    "gifted people with the power of foresight...we see things",
-                    "that have yet to come to pass."
-                )
+                npc(FacialExpression.NEUTRAL, "This is Seers Village! We're an organisation of mystically", "gifted people with the power of foresight...we see things", "that have yet to come to pass.")
                 stage = 11
             }
 
             11 -> {
-                options("Hello, what is this place?",
-                    "What do you do here?",
-                    "Do you have any quests?",
-                    "Ok, thanks."
-                )
+                options("Hello, what is this place?", "What do you do here?", "Do you have any quests?", "Ok, thanks.")
                 stage = 0
             }
 
             20 -> {
-                npc(FacialExpression.NEUTRAL,
-                    "A lot of our time is spent addressing everyday sorts of",
-                    "things, plus we meditate a lot and enhance our",
-                    "powers of mystical foresight."
-                )
+                npc(FacialExpression.NEUTRAL, "A lot of our time is spent addressing everyday sorts of", "things, plus we meditate a lot and enhance our", "powers of mystical foresight.")
                 stage = 31
             }
 
             30 -> {
-                npc(FacialExpression.HALF_GUILTY,
-                    "Unfortunately no, sorry, but if adventure is what you",
-                    "seek, try checking through your quest list!"
-                )
+                npc(FacialExpression.HALF_GUILTY, "Unfortunately no, sorry, but if adventure is what you", "seek, try checking through your quest list!")
                 stage = 31
             }
 
             31 -> {
-                options("Hello, what is this place?",
-                    "What do you do here?",
-                    "Do you have any quests?",
-                    "Ok, thanks."
-                )
+                options("Hello, what is this place?", "What do you do here?", "Do you have any quests?", "Ok, thanks.")
                 stage = 0
             }
 

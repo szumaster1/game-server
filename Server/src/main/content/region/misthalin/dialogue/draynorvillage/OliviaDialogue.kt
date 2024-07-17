@@ -43,11 +43,7 @@ class OliviaDialogue(player: Player? = null) : Dialogue(player) {
 
             20 -> end()
             40 -> {
-                npc(FacialExpression.FRIENDLY,
-                    "The Master Farmers usually carry a few rare seeds",
-                    "around with them, although I don't know if they'd want",
-                    "to part with them for any price to be honest."
-                )
+                npc(FacialExpression.FRIENDLY, "The Master Farmers usually carry a few rare seeds", "around with them, although I don't know if they'd want", "to part with them for any price to be honest.")
                 stage = 41
             }
 

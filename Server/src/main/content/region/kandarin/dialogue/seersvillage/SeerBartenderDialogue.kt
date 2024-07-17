@@ -59,26 +59,19 @@ class SeerBartenderDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 3 -> {
-                    player(FacialExpression.HALF_GUILTY,
-                        "I don't really want anything thanks."
-                    )
+                    player(FacialExpression.HALF_GUILTY, "I don't really want anything thanks.")
                     stage = 67
                 }
             }
 
             67 -> end()
             30 -> {
-                npc(FacialExpression.HALF_GUILTY,
-                    "Well we have beer, or if you want some food, we have",
-                    "our home made stew and meat pies."
-                )
+                npc(FacialExpression.HALF_GUILTY, "Well we have beer, or if you want some food, we have", "our home made stew and meat pies.")
                 stage = 31
             }
 
             20 -> {
-                npc(FacialExpression.HALF_GUILTY,
-                    "One beer comng up. Ok, that'll be two coins."
-                )
+                npc(FacialExpression.HALF_GUILTY, "One beer comng up. Ok, that'll be two coins.")
                 stage = 101
             }
 

@@ -61,12 +61,7 @@ class SquireTypeDialogue(player: Player? = null) : Dialogue(player) {
 
             13 -> end()
             20 -> {
-                npc(
-                    "This is where we launch our lander to combat the",
-                    "invasion of the nearby islands. You'll see three lander - ",
-                    "one for novice, intermediate and veteran adventurers.",
-                    "Each has a different difficulty, but they therefore offer"
-                )
+                npc("This is where we launch our lander to combat the", "invasion of the nearby islands. You'll see three lander - ", "one for novice, intermediate and veteran adventurers.", "Each has a different difficulty, but they therefore offer")
                 stage = 21
             }
 
@@ -91,22 +86,12 @@ class SquireTypeDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             25 -> {
-                npc(
-                    "Simple. We send each lander out every five minutes,",
-                    "however we need at least five volunteers or it's a suicide",
-                    "mission. The lander can only hold a maximum of",
-                    "twenty five people though, so we do send them out"
-                )
+                npc("Simple. We send each lander out every five minutes,", "however we need at least five volunteers or it's a suicide", "mission. The lander can only hold a maximum of", "twenty five people though, so we do send them out")
                 stage = 26
             }
 
             26 -> {
-                npc(
-                    "early if they get full. If you'd be willing to help us then",
-                    "just wait in the lander and we'll launch it as soon as it's",
-                    "ready. However you will need a combat level of " + (if (npc.id == 3802) "40" else if (npc.id == 6140) "70" else "100") + " to",
-                    "use this lander."
-                )
+                npc("early if they get full. If you'd be willing to help us then", "just wait in the lander and we'll launch it as soon as it's", "ready. However you will need a combat level of " + (if (npc.id == 3802) "40" else if (npc.id == 6140) "70" else "100") + " to", "use this lander.")
                 stage = 27
             }
 

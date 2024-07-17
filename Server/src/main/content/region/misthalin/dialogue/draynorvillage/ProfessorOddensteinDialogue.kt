@@ -24,9 +24,7 @@ class ProfessorOddensteinDialogue(player: Player? = null) : Dialogue(player) {
         val quest = player.getQuestRepository().getQuest("Ernest the Chicken")
         when (quest.getStage(player)) {
             0, 10 -> {
-                npc(FacialExpression.HALF_GUILTY,
-                    "Be careful in here, there's lots of dangerous equipment."
-                )
+                npc(FacialExpression.HALF_GUILTY, "Be careful in here, there's lots of dangerous equipment.")
                 stage = 0
             }
 
@@ -65,28 +63,18 @@ class ProfessorOddensteinDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 11 -> {
-                    npc(FacialExpression.HALF_GUILTY,
-                        "Nothing at the moment... It's broken. It's meant to be",
-                        "a transmutation machine."
-                    )
+                    npc(FacialExpression.HALF_GUILTY, "Nothing at the moment... It's broken. It's meant to be", "a transmutation machine.")
                     stage = 12
                 }
 
                 12 -> {
-                    npc(FacialExpression.HALF_GUILTY,
-                        "It as also spent time as a time travel machine, and a",
-                        "dramatic light generator, and a thing for generating",
-                        "monsters."
-                    )
+                    npc(FacialExpression.HALF_GUILTY, "It as also spent time as a time travel machine, and a", "dramatic light generator, and a thing for generating", "monsters.")
                     stage = 13
                 }
 
                 13 -> end()
                 20 -> {
-                    npc(FacialExpression.HALF_GUILTY,
-                        "No, I'm just one of the tenants. It belongs to the count",
-                        "who lives in the basement."
-                    )
+                    npc(FacialExpression.HALF_GUILTY, "No, I'm just one of the tenants. It belongs to the count", "who lives in the basement.")
                     stage = 21
                 }
 
@@ -95,20 +83,13 @@ class ProfessorOddensteinDialogue(player: Player? = null) : Dialogue(player) {
 
             10 -> when (stage) {
                 0 -> {
-                    interpreter.sendOptions(
-                        "Select an Option",
-                        "I'm looking for a guy called Ernest.",
-                        "What does this machine do?",
-                        "Is this your house?"
-                    )
+                    options("I'm looking for a guy called Ernest.", "What does this machine do?", "Is this your house?")
                     stage = 1
                 }
 
                 1 -> when (buttonId) {
                     1 -> {
-                        player(FacialExpression.HALF_GUILTY,
-                            "I'm looking for a guy called Ernest."
-                        )
+                        player(FacialExpression.HALF_GUILTY, "I'm looking for a guy called Ernest.")
                         stage = 2
                     }
 
@@ -124,10 +105,7 @@ class ProfessorOddensteinDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 2 -> {
-                    npc(FacialExpression.HALF_GUILTY,
-                        "Ah Ernest, top notch bloke. He's helping me with my",
-                        "experiments."
-                    )
+                    npc(FacialExpression.HALF_GUILTY, "Ah Ernest, top notch bloke. He's helping me with my", "experiments.")
                     stage = 3
                 }
 
@@ -149,27 +127,17 @@ class ProfessorOddensteinDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 6 -> {
-                    npc(FacialExpression.HALF_GUILTY,
-                        "Oh, he isn't normally a chicken, or at least he wasn't",
-                        "until he helped me test my pouletmorph machine."
-                    )
+                    npc(FacialExpression.HALF_GUILTY, "Oh, he isn't normally a chicken, or at least he wasn't", "until he helped me test my pouletmorph machine.")
                     stage = 7
                 }
 
                 7 -> {
-                    npc(FacialExpression.HALF_GUILTY,
-                        "It was originally going to be called a transmutation",
-                        "machine. But after testing pouletmorph seems more",
-                        "appropriate."
-                    )
+                    npc(FacialExpression.HALF_GUILTY, "It was originally going to be called a transmutation", "machine. But after testing pouletmorph seems more", "appropriate.")
                     stage = 8
                 }
 
                 8 -> {
-                    player(FacialExpression.HALF_GUILTY,
-                        "I'm glad Veronica didn't actually get engaged to a",
-                        "chicken."
-                    )
+                    player(FacialExpression.HALF_GUILTY, "I'm glad Veronica didn't actually get engaged to a", "chicken.")
                     stage = 9
                 }
 
@@ -179,24 +147,17 @@ class ProfessorOddensteinDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 10 -> {
-                    player(FacialExpression.HALF_GUILTY,
-                        "Ernest's fiancee. She probably doesn't want to marry a",
-                        "chicken."
-                    )
+                    player(FacialExpression.HALF_GUILTY, "Ernest's fiancee. She probably doesn't want to marry a", "chicken.")
                     stage = 11
                 }
 
                 11 -> {
-                    npc(FacialExpression.HALF_GUILTY,
-                        "Ooh I dunno. She could have free eggs for breakfast."
-                    )
+                    npc(FacialExpression.HALF_GUILTY, "Ooh I dunno. She could have free eggs for breakfast.")
                     stage = 12
                 }
 
                 12 -> {
-                    player(FacialExpression.HALF_GUILTY,
-                        "I think you'd better change him back."
-                    )
+                    player(FacialExpression.HALF_GUILTY, "I think you'd better change him back.")
                     stage = 13
                 }
 
@@ -206,10 +167,7 @@ class ProfessorOddensteinDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 14 -> {
-                    npc(FacialExpression.HALF_GUILTY,
-                        "My machine is broken, and the house gremlins have",
-                        "run off with some vital bits."
-                    )
+                    npc(FacialExpression.HALF_GUILTY, "My machine is broken, and the house gremlins have", "run off with some vital bits.")
                     stage = 15
                 }
 
@@ -219,20 +177,12 @@ class ProfessorOddensteinDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 16 -> {
-                    npc(FacialExpression.HALF_GUILTY,
-                        "That would be a help. They'll be somewhere in the",
-                        "manor house or its grounds, the gremlins never get",
-                        "further than the entrance gate."
-                    )
+                    npc(FacialExpression.HALF_GUILTY, "That would be a help. They'll be somewhere in the", "manor house or its grounds, the gremlins never get", "further than the entrance gate.")
                     stage = 17
                 }
 
                 17 -> {
-                    npc(FacialExpression.HALF_GUILTY,
-                        "I'm missing the pressure guage and a rubber tube.",
-                        "They've also taken my oil can, which I'm going to need",
-                        "to get this thing started again."
-                    )
+                    npc(FacialExpression.HALF_GUILTY, "I'm missing the pressure guage and a rubber tube.", "They've also taken my oil can, which I'm going to need", "to get this thing started again.")
                     stage = 18
                 }
 
@@ -250,17 +200,12 @@ class ProfessorOddensteinDialogue(player: Player? = null) : Dialogue(player) {
                     player(FacialExpression.HALF_GUILTY, "I have everything!")
                     3
                 } else {
-                    player(FacialExpression.HALF_GUILTY,
-                        "I'm afraid I'm still looking for them!"
-                    )
+                    player(FacialExpression.HALF_GUILTY, "I'm afraid I'm still looking for them!")
                     1
                 }
 
                 1 -> {
-                    npc(FacialExpression.HALF_GUILTY,
-                        "I need a rubber tube, a pressure gauge and a can of",
-                        "oil. Then your friend can stop being a chicken."
-                    )
+                    npc(FacialExpression.HALF_GUILTY, "I need a rubber tube, a pressure gauge and a can of", "oil. Then your friend can stop being a chicken.")
                     stage = 2
                 }
 

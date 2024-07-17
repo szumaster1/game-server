@@ -23,12 +23,7 @@ class MaligniusMortiferDialogue(player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
             0 -> {
-                options(
-                    "Who are you and what are you doing here?",
-                    "Can you teach me something about magic?",
-                    "Where can I get clothes like those?",
-                    "Actually, I don't want to talk to you."
-                )
+                options("Who are you and what are you doing here?", "Can you teach me something about magic?", "Where can I get clothes like those?", "Actually, I don't want to talk to you.")
                 stage = 1
             }
 
@@ -55,12 +50,7 @@ class MaligniusMortiferDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             10 -> {
-                npc(
-                    "I am the great Malignius Mortifer, wielder of strange",
-                    "and terrible powers. These lowly followers of mine are",
-                    "dedicated students of the magical arts. Their business is",
-                    "to follow me and learn all they can."
-                )
+                npc("I am the great Malignius Mortifer, wielder of strange", "and terrible powers. These lowly followers of mine are", "dedicated students of the magical arts. Their business is", "to follow me and learn all they can.")
                 stage = 11
             }
 
@@ -80,11 +70,7 @@ class MaligniusMortiferDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             14 -> {
-                npc(
-                    "Each of my followers is a master of his chosen element.",
-                    "His life becomes bound to that element in a way you",
-                    "could not hope to understand."
-                )
+                npc("Each of my followers is a master of his chosen element.", "His life becomes bound to that element in a way you", "could not hope to understand.")
                 stage = 15
             }
 
@@ -94,21 +80,12 @@ class MaligniusMortiferDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             16 -> {
-                npc(
-                    "I am mastering a branch of magic that few dare to",
-                    "attempt: Necromancy! THe fools in the Guild of",
-                    "Wizards shun anyone who practices this art, but there",
-                    "are a few across the lands who know the rudiments."
-                )
+                npc("I am mastering a branch of magic that few dare to", "attempt: Necromancy! THe fools in the Guild of", "Wizards shun anyone who practices this art, but there", "are a few across the lands who know the rudiments.")
                 stage = 17
             }
 
             17 -> {
-                npc(
-                    "Grayzag and Invrigar... Even Melzar studied the",
-                    "methods of necromancy, until an accident affected his",
-                    "mind. Now his spells tend to result in..."
-                )
+                npc("Grayzag and Invrigar... Even Melzar studied the", "methods of necromancy, until an accident affected his", "mind. Now his spells tend to result in...")
                 stage = 18
             }
 
@@ -119,19 +96,12 @@ class MaligniusMortiferDialogue(player: Player? = null) : Dialogue(player) {
 
             19 -> end()
             20 -> {
-                npc(
-                    "Ah, you are an inquisitive young fellow. I shall speak of",
-                    "the great Wizards' Tower, destroyed by fire many",
-                    "years ago..."
-                )
+                npc("Ah, you are an inquisitive young fellow. I shall speak of", "the great Wizards' Tower, destroyed by fire many", "years ago...")
                 stage = 21
             }
 
             21 -> {
-                npc(
-                    "Many say it was the greatest building in the history of",
-                    "Gielinor, a magnificent monument to human ingenuity."
-                )
+                npc("Many say it was the greatest building in the history of", "Gielinor, a magnificent monument to human ingenuity.")
                 stage = 22
             }
 
@@ -141,31 +111,18 @@ class MaligniusMortiferDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             23 -> {
-                npc(
-                    "Wizards who claimed allegiance to Saradomin began to",
-                    "insist that magic be restriced to the few they deemed",
-                    "'worthy' of such powers."
-                )
+                npc("Wizards who claimed allegiance to Saradomin began to", "insist that magic be restriced to the few they deemed", "'worthy' of such powers.")
                 stage = 24
             }
 
             24 -> {
-                npc(
-                    "Before long, those who did not share their fatuous",
-                    "obsession with Saradomin were excluded from the",
-                    "Tower comletely. This state of affairs could not",
-                    "continue."
-                )
+                npc("Before long, those who did not share their fatuous", "obsession with Saradomin were excluded from the", "Tower comletely. This state of affairs could not", "continue.")
                 stage = 25
             }
 
             25 -> end()
             30 -> {
-                npc(
-                    "Bah! Our garments are an outward sign of our",
-                    "dominance of the magical arts. You cannot simply buy",
-                    "them in a shop."
-                )
+                npc("Bah! Our garments are an outward sign of our", "dominance of the magical arts. You cannot simply buy", "them in a shop.")
                 stage = 31
             }
 
