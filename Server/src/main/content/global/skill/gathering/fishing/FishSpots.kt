@@ -177,7 +177,8 @@ enum class FishSpots(vararg val locations: Location) {
         Location(2926, 3179, 0),
         Location(2926, 3178, 0),
         Location(2926, 3177, 0),
-        Location(2926, 3176, 0)
+        Location(2926, 3176, 0),
+        Location(2921, 3178, 0)
     ),
     PISCATORIS(
         Location(2341, 3702, 0),

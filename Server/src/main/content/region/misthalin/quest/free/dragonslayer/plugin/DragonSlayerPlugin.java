@@ -1,6 +1,7 @@
 package content.region.misthalin.quest.free.dragonslayer.plugin;
 
 import content.region.misthalin.quest.free.dragonslayer.DragonSlayer;
+import core.api.consts.Animations;
 import core.cache.def.impl.ItemDefinition;
 import core.cache.def.impl.NPCDefinition;
 import core.cache.def.impl.SceneryDefinition;
@@ -128,7 +129,7 @@ public final class DragonSlayerPlugin extends OptionHandler {
                 break;
             case 25161:
                 if (player.getLocation().getX() >= 2847) {
-                    ForceMovement movement = new ForceMovement(player, player.getLocation(), player.getLocation().transform(player.getLocation().getX() == 2845 ? 2 : -2, 0, 0), new Animation(839));
+                    ForceMovement movement = new ForceMovement(player, player.getLocation(), player.getLocation().transform(player.getLocation().getX() == 2845 ? 2 : -2, 0, 0), new Animation(Animations.WALKING_OVER_ROCKS_IN_ELVARGS_CAVE_10573));
                     movement.run(player, 10);
                     return true;
                 }
@@ -142,7 +143,7 @@ public final class DragonSlayerPlugin extends OptionHandler {
                     return true;
                 }
                 if (player.getQuestRepository().getQuest("Dragon Slayer").getStage(player) == 40 && !player.getInventory().containsItem(DragonSlayer.ELVARG_HEAD)) {
-                    ForceMovement movement = new ForceMovement(player, player.getLocation(), player.getLocation().transform(player.getLocation().getX() == 2845 ? 2 : -2, 0, 0), new Animation(839));
+                    ForceMovement movement = new ForceMovement(player, player.getLocation(), player.getLocation().transform(player.getLocation().getX() == 2845 ? 2 : -2, 0, 0), new Animation(Animations.WALKING_OVER_ROCKS_IN_ELVARGS_CAVE_10573));
                     movement.run(player, 10);
                     if (player.getLocation().getX() <= 2845) {
                         List<NPC> npcs = RegionManager.getLocalNpcs(player);
