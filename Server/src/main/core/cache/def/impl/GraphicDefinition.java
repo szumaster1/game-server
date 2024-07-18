@@ -43,7 +43,7 @@ public class GraphicDefinition {
      * @param gfxId The graphic id.
      * @return The definition.
      */
-    public static GraphicDefinition forId(int gfxId) {
+    public static final GraphicDefinition forId(int gfxId) {
         GraphicDefinition def = graphicDefinitions.get(gfxId);
         if (def != null) {
             return def;
@@ -111,10 +111,10 @@ public class GraphicDefinition {
             else if (opcode == 4)
                 anInt1446 = buffer.getShort() & 0xFFFF;
             else if (opcode != 5) {
-                if ((~opcode) != -7) {
+                if ((opcode ^ 0xffffffff) != -7) {
                     if (opcode == 7)
                         anInt1440 = buffer.get() & 0xFF;
-                    else if ((~opcode) == -9)
+                    else if ((opcode ^ 0xffffffff) == -9)
                         anInt1451 = buffer.get() & 0xFF;
                     else if (opcode != 9) {
                         if (opcode != 10) {
@@ -141,7 +141,7 @@ public class GraphicDefinition {
                                 byteValue = (byte) 3;
                                 intValue = buffer.getInt();
                             } else if (opcode != 40) {
-                                if ((~opcode) == -42) {
+                                if ((opcode ^ 0xffffffff) == -42) {
                                     int i = buffer.get() & 0xFF;
                                     aShortArray1455 = new short[i];
                                     aShortArray1435 = new short[i];
@@ -154,7 +154,7 @@ public class GraphicDefinition {
                                 int i = buffer.get() & 0xFF;
                                 aShortArray1438 = new short[i];
                                 aShortArray1456 = new short[i];
-                                for (int i_1_ = 0; ((~i) < (~i_1_)); i_1_++) {
+                                for (int i_1_ = 0; ((i ^ 0xffffffff) < (i_1_ ^ 0xffffffff)); i_1_++) {
                                     aShortArray1438[i_1_] = (short) (buffer.getShort() & 0xFFFF);
                                     aShortArray1456[i_1_] = (short) (buffer.getShort() & 0xFFFF);
                                 }

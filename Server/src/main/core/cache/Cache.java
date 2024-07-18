@@ -126,7 +126,7 @@ public final class Cache {
      *
      * @return The reference data byte array.
      */
-    public static byte[] generateReferenceData() {
+    public static final byte[] generateReferenceData() {
         ByteBuffer buffer = ByteBuffer.allocate(cacheFileManagers.length * 8);
         for (int index = 0; index < cacheFileManagers.length; index++) {
             if (cacheFileManagers[index] == null) {
@@ -145,7 +145,7 @@ public final class Cache {
      *
      * @return The cache file managers.
      */
-    public static CacheFileManager[] getIndexes() {
+    public static final CacheFileManager[] getIndexes() {
         return cacheFileManagers;
     }
 
@@ -154,7 +154,7 @@ public final class Cache {
      *
      * @return The container cache file informer.
      */
-    public static CacheFile getReferenceFile() {
+    public static final CacheFile getReferenceFile() {
         return referenceFile;
     }
 
@@ -164,7 +164,7 @@ public final class Cache {
      * @param interfaceId the interface.
      * @return the value.
      */
-    public static int getInterfaceDefinitionsComponentsSize(int interfaceId) {
+    public static final int getInterfaceDefinitionsComponentsSize(int interfaceId) {
         return getIndexes()[3].getFilesSize(interfaceId);
     }
 
@@ -173,7 +173,7 @@ public final class Cache {
      *
      * @return the size.
      */
-    public static int getInterfaceDefinitionsSize() {
+    public static final int getInterfaceDefinitionsSize() {
         return getIndexes()[3].getContainersSize();
     }
 
@@ -182,7 +182,7 @@ public final class Cache {
      *
      * @return the size.
      */
-    public static int getNPCDefinitionsSize() {
+    public static final int getNPCDefinitionsSize() {
         int lastContainerId = getIndexes()[18].getContainersSize() - 1;
         return lastContainerId * 128 + getIndexes()[18].getFilesSize(lastContainerId);
     }
@@ -192,7 +192,7 @@ public final class Cache {
      *
      * @return the size.
      */
-    public static int getGraphicDefinitionsSize() {
+    public static final int getGraphicDefinitionsSize() {
         int lastContainerId = getIndexes()[21].getContainersSize() - 1;
         return lastContainerId * 256 + getIndexes()[21].getFilesSize(lastContainerId);
     }
@@ -202,7 +202,7 @@ public final class Cache {
      *
      * @return the size.
      */
-    public static int getAnimationDefinitionsSize() {
+    public static final int getAnimationDefinitionsSize() {
         int lastContainerId = getIndexes()[20].getContainersSize() - 1;
         return lastContainerId * 128 + getIndexes()[20].getFilesSize(lastContainerId);
     }
@@ -212,7 +212,7 @@ public final class Cache {
      *
      * @return the size.
      */
-    public static int getObjectDefinitionsSize() {
+    public static final int getObjectDefinitionsSize() {
         int lastContainerId = getIndexes()[16].getContainersSize() - 1;
         return lastContainerId * 256 + getIndexes()[16].getFilesSize(lastContainerId);
     }
@@ -222,7 +222,7 @@ public final class Cache {
      *
      * @return the size.
      */
-    public static int getItemDefinitionsSize() {
+    public static final int getItemDefinitionsSize() {
         int lastContainerId = getIndexes()[19].getContainersSize() - 1;
         return lastContainerId * 256 + getIndexes()[19].getFilesSize(lastContainerId);
     }
