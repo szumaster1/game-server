@@ -10,7 +10,7 @@ import core.game.interaction.InteractionListener
 class ChallengeScroll : InteractionListener {
 
     val scroll = Components.TRAIL_MAP09_345
-    private val gnomeCoachQuestion = arrayOf("How many gnomes on the", "gnome ball field", "have red patches on", "their uniforms?")
+    private val gnomeCoachQuestion = arrayOf("<br><br><br><br><br> How many gnomes on the", "gnome ball field", "have red patches on", "their uniforms?")
 
     override fun defineListeners() {
 
@@ -20,7 +20,7 @@ class ChallengeScroll : InteractionListener {
                 for (i in 1..8) {
                     setInterfaceText(player,"", scroll, i)
                 }
-                setInterfaceText(player, "<br><br><br><br><br>$gnomeCoachQuestion", scroll, 1)
+                setInterfaceText(player, "$gnomeCoachQuestion", scroll, 1)
             }
             return@on true
         }

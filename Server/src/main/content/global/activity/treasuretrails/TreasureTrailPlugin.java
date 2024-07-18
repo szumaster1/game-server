@@ -44,7 +44,7 @@ public final class TreasureTrailPlugin extends OptionHandler {
 			ItemDefinition.forId(level.getCasket().getId()).getHandlers().put("option:open", this);
 		}
 		ItemDefinition.forId(CoordinateClueScroll.SEXTANT.getId()).getHandlers().put("option:look through", this);
-		ClassScanner.definePlugin(new ChallengeCluePlugin());
+	//  ClassScanner.definePlugin(new ChallengeCluePlugin());
 		ClassScanner.definePlugin(new MapCluePlugin());
 		ClassScanner.definePlugin(new ClueItemPlugin());
 		ClassScanner.definePlugin(new EmoteCluePlugin());

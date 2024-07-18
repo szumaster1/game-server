@@ -152,7 +152,6 @@ class GnomeCoachDialogue (player: Player? = null) : Dialogue(player) {
                         end()
                         removeAttribute(player, "clue:gnome-coach")
                         npcl(FacialExpression.OLD_HAPPY, "Spot on!")
-                        setAttribute(player, "clue", reward!!.clueId)
                     } else {
                         npcl(FacialExpression.OLD_NORMAL, "How can that be? Go check again!").also { stage = END_DIALOGUE }
                     }

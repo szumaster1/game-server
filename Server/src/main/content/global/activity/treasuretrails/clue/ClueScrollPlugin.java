@@ -135,7 +135,7 @@ public abstract class ClueScrollPlugin extends MapZone implements Plugin<Object>
 	}
 
 	/**
-	 * Reigsters a clue scroll into the repository.
+	 * Registers a clue scroll into the repository.
 	 * @param clue the plugin.
 	 */
 	public void register(ClueScrollPlugin clue) {
