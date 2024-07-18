@@ -11,7 +11,7 @@ import core.tools.END_DIALOGUE
 class SirVantDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
-        sendDialogue(player, "Anita seems too busy to talk.").also { stage = END_DIALOGUE }
+        sendDialogue(player, "Sir Vant seems too busy to talk.").also { stage = END_DIALOGUE }
         return true
     }
 
