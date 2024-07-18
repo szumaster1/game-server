@@ -13,6 +13,7 @@ import core.game.dialogue.SkillDialogueHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.skill.Skills
+import core.game.node.item.Item
 
 class SmithingInteractionListener : InteractionListener {
 
@@ -102,13 +103,23 @@ class SmithingInteractionListener : InteractionListener {
                 sendDialogue(player, "You need to have a Smithing level of at least 80 to do this.")
                 return@onUseWith false
             }
-            sendPlainDialogue(player, false, "You set to work trying to fix the ancient shield.")
+            sendPlainDialogue(player,false,"You set to work trying to fix the ancient sword.")
             addDialogueAction(player) { player, button ->
-                if (button >= 3) {
-                    submitIndividualPulse(player, GodswordAssemblingPulse(player, used.asItem()))
-                    return@addDialogueAction
+                if (button != 0) {
+                    lock(player, 10)
+                    submitIndividualPulse(player, GodswordAssemblingPulse(player, Item(used.id)))
                 }
             }
+            return@onUseWith true
+        }
+
+        onUseWith(IntType.ITEM, HILT, *GODSWORD) { player, _, _ ->
+            sendMessage(player, "The hilt of the godsword can only be connected to a completely reforged blade.")
+            return@onUseWith true
+        }
+
+        onUseWith(IntType.ITEM, GODSWORD, *GODSWORD) { player, _, _ ->
+            sendMessage(player, "Those pieces of the godsword can't be joined together like that - try forging them.")
             return@onUseWith true
         }
 
@@ -127,7 +138,7 @@ class SmithingInteractionListener : InteractionListener {
             }
             val bar = Bar.forId(used.asItem().id)
             var item = used.asItem()
-            if (used.asItem().id == 2347) {
+            if (used.asItem().id == Items.HAMMER_2347) {
                 for (i in player.inventory.toArray()) {
                     if (i == null) {
                         continue
@@ -158,7 +169,8 @@ class SmithingInteractionListener : InteractionListener {
         val FURNACE = intArrayOf(Scenery.FURNACE_4304, Scenery.FURNACE_6189, Scenery.FURNACE_11010, Scenery.FURNACE_11666, Scenery.FURNACE_12100, Scenery.FURNACE_12809, Scenery.FURNACE_18497, Scenery.FURNACE_26814, Scenery.FURNACE_30021, Scenery.FURNACE_30510, Scenery.FURNACE_36956, Scenery.FURNACE_37651)
         val BARS = intArrayOf(Items.BRONZE_BAR_2349, Items.IRON_BAR_2351, Items.STEEL_BAR_2353, Items.MITHRIL_BAR_2359, Items.ADAMANTITE_BAR_2361, Items.RUNITE_BAR_2363, Items.BLURITE_BAR_9467)
         val DRAGON = intArrayOf(Items.SHIELD_LEFT_HALF_2366, Items.SHIELD_RIGHT_HALF_2368)
-        val DRACONIC = intArrayOf(Items.DRACONIC_VISAGE_11286, Items.ANTI_DRAGON_SHIELD_1540,)
+        val DRACONIC = intArrayOf(Items.DRACONIC_VISAGE_11286, Items.ANTI_DRAGON_SHIELD_1540)
         val GODSWORD = intArrayOf(Items.GODSWORD_SHARD_1_11710, Items.GODSWORD_SHARD_2_11712, Items.GODSWORD_SHARD_3_11714, Items.GODSWORD_SHARDS_11686, Items.GODSWORD_SHARDS_11688, Items.GODSWORD_SHARDS_11692)
+        val HILT = intArrayOf(Items.BANDOS_HILT_11704, Items.ARMADYL_HILT_11702, Items.ZAMORAK_HILT_11708, Items.SARADOMIN_HILT_11706)
     }
 }

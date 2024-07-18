@@ -52,20 +52,9 @@ class SmithingInterfaceBuilder(item: Item) {
             color = if (anyInInventory(player, value.barType.bar, value.smithingType.requiredBar)) "<col=2DE120>" else null
             if (color != null) {
                 val amt = if (value.smithingType.requiredBar > 1) "s" else ""
-                setInterfaceText(
-                    player,
-                    color + value.smithingType.requiredBar + " Bar" + amt,
-                    Components.SMITHING_NEW_300,
-                    value.smithingType.nameId + 1
-                )
+                setInterfaceText(player, color + value.smithingType.requiredBar + " Bar" + amt, Components.SMITHING_NEW_300, value.smithingType.nameId + 1)
             }
-            InterfaceContainer.generateItems(
-                player,
-                arrayOf(Item(value.product, value.smithingType.productAmount)),
-                arrayOf(""),
-                Components.SMITHING_NEW_300,
-                value.smithingType.childId - 1
-            )
+            InterfaceContainer.generateItems(player, arrayOf(Item(value.product, value.smithingType.productAmount)), arrayOf(""), Components.SMITHING_NEW_300, value.smithingType.childId - 1)
         }
         setInterfaceText(player, type.barName, Components.SMITHING_NEW_300, 14)
         openInterface(player, Components.SMITHING_NEW_300)

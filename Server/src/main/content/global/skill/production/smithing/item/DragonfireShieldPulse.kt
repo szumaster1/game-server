@@ -53,7 +53,6 @@ class DragonfireShieldPulse(player: Player?, val item: Item) : SkillPulse<Item>(
                 sendPlainDialogue(player, false, "Even for an experienced armourer it is not an easy task, but", "eventually it is ready. You have crafted the", "draconic visage and anti-dragonbreath shield into a", "dragonfire shield.")
                 addDialogueAction(player) { player, button ->
                     if (button >= 2) {
-                        ANTI_DRAGON_SHIELD
                         if (removeItem(player, ANTI_DRAGON_SHIELD) && removeItem(player, DRACONIC_VISAGE)) {
                             addItem(player, DRAGONFIRE_SHIELD.id)
                             rewardXP(player, Skills.SMITHING, 2000.0)
