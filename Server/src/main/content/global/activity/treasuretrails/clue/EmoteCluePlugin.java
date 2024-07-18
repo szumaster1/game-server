@@ -1,5 +1,8 @@
-package content.global.activity.treasuretrails;
+package content.global.activity.treasuretrails.clue;
 
+import content.global.activity.treasuretrails.ClueLevel;
+import content.global.activity.treasuretrails.npc.UriNPC;
+import content.global.activity.treasuretrails.scroll.EmoteClueScroll;
 import core.game.node.entity.player.link.emote.Emotes;
 import core.game.world.map.zone.ZoneBorders;
 import core.plugin.Plugin;
@@ -12,14 +15,14 @@ import core.plugin.ClassScanner;
 public final class EmoteCluePlugin extends EmoteClueScroll {
 
 	/**
-	 * Constructs a new {@Code EmoteCluePlugin} {@Code Object}
+	 * Constructs a new {@code EmoteCluePlugin} {@code Object}
 	 */
 	public EmoteCluePlugin() {
 		super(null, -1, null, null, null, null, null);
 	}
 
 	/**
-	 * Constructs a new {@Code EmoteCluePlugin} {@Code Object}
+	 * Constructs a new {@code EmoteCluePlugin} {@code Object}
 	 * @param name the name.
 	 * @param clueId the clue id.
 	 * @param level the level.
@@ -34,7 +37,7 @@ public final class EmoteCluePlugin extends EmoteClueScroll {
 	}
 
 	/**
-	 * Constructs a new {@Code EmoteCluePlugin} {@Code Object}
+	 * Constructs a new {@code EmoteCluePlugin} {@code Object}
 	 * @param name the name.
 	 * @param clueId the clue id.
 	 * @param level the level.
@@ -138,7 +141,7 @@ public final class EmoteCluePlugin extends EmoteClueScroll {
 		emote = Emotes.YAWN;
 		register(new EmoteCluePlugin("varrock-library-yawn", 2735, ClueLevel.EASY, emote, new int[][] { { 638 }, { 4300 }, { 1335 } }, "Yawn in the Varrock<br>library.<br>Equip a green gnome<br>robe top, HAM robe<br>bottom and an iron<br>warhammer.", new ZoneBorders(3207, 3490, 3214, 3497), new ZoneBorders(3214, 3494, 3217, 3497)));
 		register(new EmoteCluePlugin("draynor-market-yawn", 2737, ClueLevel.EASY, emote, new int[][] { { 1097 }, { 1191 }, { 1295 } }, "Yawn in Draynor<br>Marketplace.<br>Equip studded leather<br>chaps, an iron<br>kiteshield and a steel<br>longsword.", new ZoneBorders(3075, 3245, 3086, 3255)));
-		register(new EmoteCluePlugin("castle-wars-yawn", 2739, ClueLevel.MEDIUM, emote, Emotes.SHRUG, new int[][] { { 1698 }, { 1329 }, WILDY_CAPES }, "Yawn in the Castle<br>Wars lobby. Shrug<br>before you talk to me.<br>Equip ruby amulet, a<br>mithril scimitar and a<br>Wilderness cape.", new ZoneBorders(2434, 3061, 2464, 3102)));
+		register(new EmoteCluePlugin("castle-wars-yawn", 2739, ClueLevel.MEDIUM, emote, Emotes.SHRUG, new int[][] { { 1698 }, { 1329 }, ClueScrollPlugin.WILDY_CAPES }, "Yawn in the Castle<br>Wars lobby. Shrug<br>before you talk to me.<br>Equip ruby amulet, a<br>mithril scimitar and a<br>Wilderness cape.", new ZoneBorders(2434, 3061, 2464, 3102)));
 		register(new EmoteCluePlugin("rogue-gen-yawn", 2741, ClueLevel.HARD, emote, new int[][] { { 1183 }, { 2487 }, { 1275 } }, "Yawn in the rogues'<br>general store. Beware<br>of double agents!<br>Equip an adamant<br>square shield, blue<br>dragon vambraces<br>and a rune pickaxe.", new ZoneBorders(3024, 3699, 3027, 3704)));
 		ClassScanner.definePlugin(new UriNPC());
 		return this;

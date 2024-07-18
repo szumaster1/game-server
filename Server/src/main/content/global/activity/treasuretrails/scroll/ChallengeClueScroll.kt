@@ -1,5 +1,7 @@
-package content.global.activity.treasuretrails
+package content.global.activity.treasuretrails.scroll
 
+import content.global.activity.treasuretrails.ClueLevel
+import content.global.activity.treasuretrails.clue.ClueScrollPlugin
 import core.api.setInterfaceText
 import core.game.interaction.Option
 import core.game.node.Node

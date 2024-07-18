@@ -1,5 +1,7 @@
-package content.global.activity.treasuretrails;
+package content.global.activity.treasuretrails.scroll;
 
+import content.global.activity.treasuretrails.ClueLevel;
+import content.global.activity.treasuretrails.clue.ClueScrollPlugin;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.emote.Emotes;
@@ -33,7 +35,7 @@ public abstract class EmoteClueScroll extends ClueScrollPlugin {
 	private final String clue;
 
 	/**
-	 * Constructs a new {@Code EmoteClueScroll} {@Code Object}
+	 * Constructs a new {@code EmoteClueScroll} {@code Object}
 	 * @param name the name.
 	 * @param clueId the clue id.
 	 * @param level the level.

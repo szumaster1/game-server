@@ -1,5 +1,7 @@
-package content.global.activity.treasuretrails;
+package content.global.activity.treasuretrails.clue;
 
+import content.global.activity.treasuretrails.ClueLevel;
+import content.global.activity.treasuretrails.TreasureTrailManager;
 import core.game.component.Component;
 import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
@@ -59,7 +61,7 @@ public abstract class ClueScrollPlugin extends MapZone implements Plugin<Object>
 	protected final ZoneBorders[] borders;
 
 	/**
-	 * Constructs a new {@Code ClueScrollPlugin} {@Code Object}
+	 * Constructs a new {@code ClueScrollPlugin} {@code Object}
 	 * @param clueId the id.
 	 * @param level the level.
 	 * @param interfaceId the id.
@@ -154,7 +156,7 @@ public abstract class ClueScrollPlugin extends MapZone implements Plugin<Object>
 	}
 
 	@Override
-	public void configure() {		
+	public void configure() {
 		if (borders == null) {
 			return;
 		}
@@ -201,7 +203,7 @@ public abstract class ClueScrollPlugin extends MapZone implements Plugin<Object>
 	}
 
 	/**
-	 * Gets the bclueId.
+	 * Gets the clueId.
 	 * @return the clueId
 	 */
 	public int getClueId() {
@@ -209,7 +211,7 @@ public abstract class ClueScrollPlugin extends MapZone implements Plugin<Object>
 	}
 
 	/**
-	 * Gets the blevel.
+	 * Gets the level.
 	 * @return the level
 	 */
 	public ClueLevel getLevel() {
@@ -217,7 +219,7 @@ public abstract class ClueScrollPlugin extends MapZone implements Plugin<Object>
 	}
 
 	/**
-	 * Gets the bclueScrolls.
+	 * Gets the clueScrolls.
 	 * @return the clueScrolls
 	 */
 	public static Map<Integer, ClueScrollPlugin> getClueScrolls() {
@@ -225,7 +227,7 @@ public abstract class ClueScrollPlugin extends MapZone implements Plugin<Object>
 	}
 
 	/**
-	 * Gets the binterfaceId.
+	 * Gets the interfaceId.
 	 * @return the interfaceId
 	 */
 	public int getInterfaceId() {

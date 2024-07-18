@@ -1,5 +1,7 @@
-package content.global.activity.treasuretrails;
+package content.global.activity.treasuretrails.clue;
 
+import content.global.activity.treasuretrails.ClueLevel;
+import content.global.activity.treasuretrails.scroll.MapClueScroll;
 import core.game.world.map.Location;
 import core.game.world.map.zone.ZoneBorders;
 import core.plugin.Plugin;
@@ -11,14 +13,14 @@ import core.plugin.Plugin;
 public final class MapCluePlugin extends MapClueScroll {
 
 	/**
-	 * Constructs a new {@Code MapCluePlugin} {@Code Object}
+	 * Constructs a new {@code MapCluePlugin} {@code Object}
 	 */
 	public MapCluePlugin() {
 		this(null, -1, null, -1, null);
 	}
 
 	/**
-	 * Constructs a new {@Code MapCluePlugin} {@Code Object}
+	 * Constructs a new {@code MapCluePlugin} {@code Object}
 	 * @param name the name.
 	 * @param clueId the clue id.
 	 * @param level the level.
@@ -30,7 +32,7 @@ public final class MapCluePlugin extends MapClueScroll {
 	}
 
 	/**
-	 * Constructs a new {@Code MapCluePlugin} {@Code Object}
+	 * Constructs a new {@code MapCluePlugin} {@code Object}
 	 * @param name the name.
 	 * @param clueId the clue id.
 	 * @param level the level.

@@ -1,5 +1,6 @@
 package content.global.activity.treasuretrails;
 
+import content.global.activity.treasuretrails.clue.ClueScrollPlugin;
 import core.game.component.Component;
 import core.game.container.access.InterfaceContainer;
 import core.game.node.entity.player.Player;
@@ -80,25 +81,25 @@ public enum ClueLevel {
 				player.sendMessage("Well done, you've completed the Treasure Trail!");
 				player.sendMessage(
 						getChatColor(clueLevel)
-						+ "You have completed " 
-						+ playerTrails.getCompletedClues(clueLevel) 
-						+ " " 
-						+ clueLevel.getName().toLowerCase() 
+						+ "You have completed "
+						+ playerTrails.getCompletedClues(clueLevel)
+						+ " "
+						+ clueLevel.getName().toLowerCase()
 						+ " clues."
 				);
 
 				player.sendMessage(
-						"<col=990000>Your clue is worth approximately " 
-						+ NumberFormat.getInstance().format(rewardValue) 
+						"<col=990000>Your clue is worth approximately "
+						+ NumberFormat.getInstance().format(rewardValue)
 						+ " coins!</col>"
 				);
 
 				int clueIfaceSettings = new IfaceSettingsBuilder().enableAllOptions().build();
 				player.getPacketDispatch().sendIfaceSettings(clueIfaceSettings, 4, 364, 0, 6);
 				InterfaceContainer.generateItems(
-						player, 
-						rewards.toArray(new Item[] {}), 
-						new String[] {""}, 
+						player,
+						rewards.toArray(new Item[] {}),
+						new String[] {""},
 						364, 4, 3, 3
 				);
 			}
@@ -106,7 +107,7 @@ public enum ClueLevel {
 		}
 
 		Item newClue = ClueScrollPlugin.getClue(clueLevel);
-		
+
 		if (casket != null && player.getInventory().remove(casket, casket.getSlot(), true)) {
 			player.getInventory().replace(newClue, casket.getSlot());
 		} else {

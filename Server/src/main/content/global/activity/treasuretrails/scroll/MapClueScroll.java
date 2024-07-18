@@ -1,5 +1,7 @@
-package content.global.activity.treasuretrails;
+package content.global.activity.treasuretrails.scroll;
 
+import content.global.activity.treasuretrails.ClueLevel;
+import content.global.activity.treasuretrails.clue.ClueScrollPlugin;
 import core.game.global.action.DigAction;
 import core.game.global.action.DigSpadeHandler;
 import core.game.interaction.Option;
@@ -26,7 +28,7 @@ public abstract class MapClueScroll extends ClueScrollPlugin {
 	private final int object;
 
 	/**
-	 * Constructs a new {@Code MapClueScroll} {@Code Object}
+	 * Constructs a new {@code MapClueScroll} {@code Object}
 	 * @param name the name.
 	 * @param clueId the clue id.
 	 * @param level the level.
@@ -41,7 +43,7 @@ public abstract class MapClueScroll extends ClueScrollPlugin {
 	}
 
 	/**
-	 * Constructs a new {@Code MapClueScroll} {@Code Object}
+	 * Constructs a new {@code MapClueScroll} {@code Object}
 	 * @param name the name.
 	 * @param clueId the clue id.
 	 * @param level the level.
@@ -110,7 +112,7 @@ public abstract class MapClueScroll extends ClueScrollPlugin {
 	}
 
 	/**
-	 * Gets the blocation.
+	 * Gets the location.
 	 * @return the location
 	 */
 	public Location getLocation() {
@@ -118,7 +120,7 @@ public abstract class MapClueScroll extends ClueScrollPlugin {
 	}
 
 	/**
-	 * Gets the bobject.
+	 * Gets the object.
 	 * @return the object
 	 */
 	public int getObject() {

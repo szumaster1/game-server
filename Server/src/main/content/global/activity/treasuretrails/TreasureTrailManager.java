@@ -1,5 +1,6 @@
 package content.global.activity.treasuretrails;
 
+import content.global.activity.treasuretrails.clue.ClueScrollPlugin;
 import core.api.LoginListener;
 import core.api.PersistPlayer;
 import core.game.node.entity.player.Player;
@@ -51,7 +52,7 @@ public final class TreasureTrailManager implements LoginListener, PersistPlayer 
 	private final int[] completedClues = new int[3];
 
 	/**
-	 * Constructs a new {@Code TreasureTrailManager} {@Code
+	 * Constructs a new {@code TreasureTrailManager} {@code
 	 * Object}
 	 * @param player the player.
 	 */
@@ -216,7 +217,7 @@ public final class TreasureTrailManager implements LoginListener, PersistPlayer 
 	}
 
 	/**
-	 * Gets the bclueId.
+	 * Gets the clueId.
 	 * @return the clueId
 	 */
 	public int getClueId() {
@@ -224,7 +225,7 @@ public final class TreasureTrailManager implements LoginListener, PersistPlayer 
 	}
 
 	/**
-	 * Sets the baclueId.
+	 * Sets the clueId.
 	 * @param clueId the clueId to set.
 	 */
 	public void setClueId(int clueId) {
@@ -232,7 +233,7 @@ public final class TreasureTrailManager implements LoginListener, PersistPlayer 
 	}
 
 	/**
-	 * Gets the blevel.
+	 * Gets the level.
 	 * @return the level
 	 */
 	public ClueLevel getLevel() {
@@ -240,7 +241,7 @@ public final class TreasureTrailManager implements LoginListener, PersistPlayer 
 	}
 
 	/**
-	 * Sets the balevel.
+	 * Sets the level.
 	 * @param level the level to set.
 	 */
 	public void setLevel(ClueLevel level) {
@@ -248,7 +249,7 @@ public final class TreasureTrailManager implements LoginListener, PersistPlayer 
 	}
 
 	/**
-	 * Gets the bplayer.
+	 * Gets the player.
 	 * @return the player
 	 */
 	public Player getPlayer() {
@@ -256,7 +257,7 @@ public final class TreasureTrailManager implements LoginListener, PersistPlayer 
 	}
 
 	/**
-	 * Gets the btrailLength.
+	 * Gets the trailLength.
 	 * @return the trailLength
 	 */
 	public int getTrailLength() {
@@ -264,7 +265,7 @@ public final class TreasureTrailManager implements LoginListener, PersistPlayer 
 	}
 
 	/**
-	 * Sets the batrailLength.
+	 * Sets the trailLength.
 	 * @param trailLength the trailLength to set.
 	 */
 	public void setTrailLength(int trailLength) {
@@ -272,7 +273,7 @@ public final class TreasureTrailManager implements LoginListener, PersistPlayer 
 	}
 
 	/**
-	 * Gets the btrailStage.
+	 * Gets the trailStage.
 	 * @return the trailStage
 	 */
 	public int getTrailStage() {
@@ -280,7 +281,7 @@ public final class TreasureTrailManager implements LoginListener, PersistPlayer 
 	}
 
 	/**
-	 * Sets the batrailStage.
+	 * Sets the trailStage.
 	 * @param trailStage the trailStage to set.
 	 */
 	public void setTrailStage(int trailStage) {

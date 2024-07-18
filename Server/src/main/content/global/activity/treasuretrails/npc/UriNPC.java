@@ -1,5 +1,7 @@
-package content.global.activity.treasuretrails;
+package content.global.activity.treasuretrails.npc;
 
+import content.global.activity.treasuretrails.clue.ClueScrollPlugin;
+import content.global.activity.treasuretrails.scroll.EmoteClueScroll;
 import core.game.dialogue.Dialogue;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.CombatStyle;
@@ -34,14 +36,14 @@ public final class UriNPC extends AbstractNPC {
 	private Player player;
 
 	/**
-	 * Constructs a new {@Code UriNPC} {@Code Object}
+	 * Constructs a new {@code UriNPC} {@code Object}
 	 */
 	public UriNPC() {
 		super(0, null);
 	}
 
 	/**
-	 * Constructs a new {@Code UriNPC} {@Code Object}
+	 * Constructs a new {@code UriNPC} {@code Object}
 	 * @param id the id.
 	 * @param location the location.
 	 */
@@ -138,7 +140,7 @@ public final class UriNPC extends AbstractNPC {
 	}
 
 	/**
-	 * Gets the bplayer.
+	 * Gets the player.
 	 * @return the player
 	 */
 	public Player getPlayer() {
@@ -146,7 +148,7 @@ public final class UriNPC extends AbstractNPC {
 	}
 
 	/**
-	 * Sets the baplayer.
+	 * Sets the player.
 	 * @param player the player to set.
 	 */
 	public void setPlayer(Player player) {
@@ -154,7 +156,7 @@ public final class UriNPC extends AbstractNPC {
 	}
 
 	/**
-	 * Gets the bclueScroll.
+	 * Gets the clueScroll.
 	 * @return the clueScroll
 	 */
 	public ClueScrollPlugin getClueScroll() {
@@ -173,7 +175,7 @@ public final class UriNPC extends AbstractNPC {
 		private static final String[] QUOTES = new String[] { "Once, I was a poor man, but then I found a party hat.", "There were three goblins in a bar, which one left first?", "Would you like to buy a pewter spoon?", "In the end, only the three-legged survive.", "I heard that the tall man fears only strong winds.", "In Canifis the men are known for eating much spam.", "I am the egg man, are you one of the egg men?", "I believe that it is very rainy in Varrock.", "The slowest of fishermen catch the swiftest of fish.", "It is quite easy being green.", "Don't forget to find the jade monkey.", "Don't forget to find the jade monkey.", "Do you want ants? Because that's how you get ants.", "I once named a duck after a girl. Big mistake.", "Loser says what.", "I'm looking for a girl named Molly. I can't find her.", "Guys, let's lake dive!", "I gave you what you needed; not what you think you needed.", "Want to see me bend a spoon?", "Is that Deziree?", "This is the last night you'll spend alone.", "(Breathing intensifies)", "Init doe. Lyk, I hope yer reward iz goodd aye?" };
 
 		/**
-		 * Constructs a new {@Code UriDialogue} {@Code Object}
+		 * Constructs a new {@code UriDialogue} {@code Object}
 		 */
 		public UriDialogue() {
 			/**
@@ -182,7 +184,7 @@ public final class UriNPC extends AbstractNPC {
 		}
 
 		/**
-		 * Constructs a new {@Code UriDialogue} {@Code Object}
+		 * Constructs a new {@code UriDialogue} {@code Object}
 		 * @param player
 		 */
 		public UriDialogue(Player player) {

@@ -2,7 +2,7 @@ package core.api.utils
 
 import content.data.tables.*
 import content.global.activity.treasuretrails.ClueLevel
-import content.global.activity.treasuretrails.ClueScrollPlugin
+import content.global.activity.treasuretrails.clue.ClueScrollPlugin
 import content.global.handlers.item.equipment.gloves.FOGGlovesManager
 import core.api.inEquipment
 import core.cache.def.impl.ItemDefinition

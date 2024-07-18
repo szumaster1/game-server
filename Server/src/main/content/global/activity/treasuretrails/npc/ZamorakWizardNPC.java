@@ -1,33 +1,26 @@
-package content.global.activity.treasuretrails;
+package content.global.activity.treasuretrails.npc;
 
+import content.global.activity.treasuretrails.clue.ClueScrollPlugin;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.spell.CombatSpell;
 import core.game.node.entity.combat.CombatStyle;
-import core.game.node.entity.combat.equipment.SwitchAttack;
 import core.game.node.entity.npc.AbstractNPC;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.SpellBookManager.SpellBook;
 import core.game.world.map.Location;
 import core.game.world.map.RegionManager;
 import core.plugin.Plugin;
-import core.game.node.entity.combat.CombatSwingHandler;
-import core.game.node.entity.combat.MultiSwingHandler;
 
 /**
  * Handles saradomin npc.
  * @author Vexia
  */
-public final class SaradominWizardNPC extends AbstractNPC {
-
-	/**
-	 * The combat handler to use.
-	 */
-	private static final MultiSwingHandler COMBAT_HANDLER = new MultiSwingHandler(new SwitchAttack(CombatStyle.MELEE).setUseHandler(true), new SwitchAttack(CombatStyle.MAGIC).setUseHandler(true));
+public final class ZamorakWizardNPC extends AbstractNPC {
 
 	/**
 	 * The npc ids.
 	 */
-	private static final int[] IDS = new int[] { 1264 };
+	private static final int[] IDS = new int[] { 1007 };
 
 	/**
 	 * The clue scroll.
@@ -42,23 +35,23 @@ public final class SaradominWizardNPC extends AbstractNPC {
 	/**
 	 * Constructs a new {@code SaradominWizardNPC} {@code Object}
 	 */
-	public SaradominWizardNPC() {
+	public ZamorakWizardNPC() {
 		super(0, null);
 	}
 
 	/**
-	 * Constructs a new {@Code SaradominWizardNPC} {@Code Object}
+	 * Constructs a new {@code SaradominWizardNPC} {@code Object}
 	 * @param id the id.
 	 * @param location the location.
 	 */
-	public SaradominWizardNPC(int id, Location location) {
+	public ZamorakWizardNPC(int id, Location location) {
 		super(id, location, false);
 		this.setRespawn(false);
 	}
 
 	@Override
 	public AbstractNPC construct(int id, Location location, Object... objects) {
-		return new SaradominWizardNPC(id, location);
+		return new ZamorakWizardNPC(id, location);
 	}
 
 	@Override
@@ -78,8 +71,8 @@ public final class SaradominWizardNPC extends AbstractNPC {
 			}
 		}
 		super.init();
-		getProperties().setSpell((CombatSpell) SpellBook.MODERN.getSpell(41));
-		getProperties().setAutocastSpell((CombatSpell) SpellBook.MODERN.getSpell(41));
+		getProperties().setSpell((CombatSpell) SpellBook.MODERN.getSpell(43));
+		getProperties().setAutocastSpell((CombatSpell) SpellBook.MODERN.getSpell(43));
 	}
 
 	@Override
@@ -107,8 +100,15 @@ public final class SaradominWizardNPC extends AbstractNPC {
 	}
 
 	@Override
-	public CombatSwingHandler getSwingHandler(boolean swing) {
-		return COMBAT_HANDLER;
+	public boolean isAttackable(Entity entity, CombatStyle style, boolean message) {
+		if (!(entity instanceof Player)) {
+			return false;
+		}
+		if (player != null) {
+			Player p = entity.asPlayer();
+			return p == player;
+		}
+		return super.isAttackable(entity, style, message);
 	}
 
 	@Override
@@ -121,18 +121,6 @@ public final class SaradominWizardNPC extends AbstractNPC {
 			return p == player;
 		}
 		return super.canAttack(entity);
-	}
-
-	@Override
-	public boolean isAttackable(Entity entity, CombatStyle style, boolean message) {
-		if (!(entity instanceof Player)) {
-			return false;
-		}
-		if (player != null) {
-			Player p = entity.asPlayer();
-			return p == player;
-		}
-		return super.isAttackable(entity, style, message);
 	}
 
 	@Override
@@ -152,7 +140,7 @@ public final class SaradominWizardNPC extends AbstractNPC {
 	}
 
 	/**
-	 * Gets the bplayer.
+	 * Gets the player.
 	 * @return the player
 	 */
 	public Player getPlayer() {
@@ -160,7 +148,7 @@ public final class SaradominWizardNPC extends AbstractNPC {
 	}
 
 	/**
-	 * Sets the baplayer.
+	 * Sets the player.
 	 * @param player the player to set.
 	 */
 	public void setPlayer(Player player) {
@@ -168,7 +156,7 @@ public final class SaradominWizardNPC extends AbstractNPC {
 	}
 
 	/**
-	 * Gets the bclueScroll.
+	 * Gets the clueScroll.
 	 * @return the clueScroll
 	 */
 	public ClueScrollPlugin getClueScroll() {
