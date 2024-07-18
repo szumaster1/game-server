@@ -239,7 +239,7 @@ class CanoeListeners : InteractionListener, InterfaceListener {
             }
             lock(player, axe.animation.duration + CANOE_TREE_FALLING_ANIMATION.duration)
             animate(player, axe.animation)
-            queueScript(player, axe.animation.duration, QueueStrength.SOFT) { stage: Int ->
+            queueScript(player, axe.animation.duration + 1, QueueStrength.SOFT) { stage: Int ->
                 when (stage) {
                     0 -> {
                         resetAnimator(player)
