@@ -1,4 +1,4 @@
-package content.region.kandarin.dialogue
+package content.region.kandarin.dialogue.stronghold
 
 import core.api.consts.NPCs
 import core.api.sendDialogue

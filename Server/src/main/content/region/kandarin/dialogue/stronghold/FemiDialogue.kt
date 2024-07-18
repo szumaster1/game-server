@@ -1,4 +1,4 @@
-package content.region.kandarin.dialogue
+package content.region.kandarin.dialogue.stronghold
 
 import content.region.kandarin.quest.thegrandtree.GTUtils
 import core.api.*

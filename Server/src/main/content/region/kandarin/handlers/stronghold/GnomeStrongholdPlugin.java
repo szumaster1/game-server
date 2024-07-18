@@ -1,7 +1,7 @@
 package content.region.kandarin.handlers.stronghold;
 
 import content.global.skill.support.agility.AgilityHandler;
-import content.region.kandarin.dialogue.GnomeGateGuardDialogue;
+import content.region.kandarin.dialogue.stronghold.GnomeGateGuardDialogue;
 import core.cache.def.impl.SceneryDefinition;
 import core.game.interaction.OptionHandler;
 import core.game.node.Node;

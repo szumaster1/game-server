@@ -1,4 +1,4 @@
-package content.region.kandarin.dialogue
+package content.region.kandarin.dialogue.stronghold
 
 import content.region.kandarin.quest.treegnomevillage.dialogue.KingBolrenDialogueFile
 import core.api.addItemOrDrop

@@ -1,4 +1,4 @@
-package content.region.kandarin.dialogue
+package content.region.kandarin.dialogue.stronghold
 
 import content.region.fremennik.quest.horrorfromthedeep.dialogue.GunnjornDialogueFile
 import core.api.consts.Items

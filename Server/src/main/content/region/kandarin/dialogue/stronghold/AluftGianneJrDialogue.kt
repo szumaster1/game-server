@@ -1,4 +1,4 @@
-package content.region.kandarin.dialogue
+package content.region.kandarin.dialogue.stronghold
 
 import content.minigame.gnomecook.GC_BASE_ATTRIBUTE
 import content.minigame.gnomecook.GC_TUT_PROG
