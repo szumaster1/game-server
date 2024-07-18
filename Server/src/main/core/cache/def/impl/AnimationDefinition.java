@@ -40,7 +40,7 @@ public final class AnimationDefinition {
 
     private static final Map<Integer, AnimationDefinition> animDefs = new HashMap<>();
 
-    public static final AnimationDefinition forId(int emoteId) {
+    public static AnimationDefinition forId(int emoteId) {
         try {
             AnimationDefinition defs = animDefs.get(emoteId);
             if (defs != null) {

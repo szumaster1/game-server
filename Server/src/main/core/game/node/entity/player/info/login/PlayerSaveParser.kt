@@ -79,7 +79,7 @@ class PlayerSaveParser(val player: Player) {
         parseStatistics()
         parseAchievements()
         parsePouches()
-        parsePouches()
+        parseVersion()
     }
 
     fun runContentHooks() {
@@ -376,5 +376,12 @@ class PlayerSaveParser(val player: Player) {
         player.settings.parse(settingsData)
     }
 
+    fun parseVersion() {
+        saveFile ?: return
+        player.version = 0
+        if (saveFile!!.containsKey("version")) {
+            player.version = saveFile!!["version"].toString().toInt()
+        }
+    }
 
 }

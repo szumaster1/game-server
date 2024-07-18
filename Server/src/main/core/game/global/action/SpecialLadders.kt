@@ -64,14 +64,15 @@ enum class SpecialLadders(private val ladderLoc: Location, private val destLoc: 
     HORROR_FROM_THE_DEEP_BASEMENT_UP(Location.create(2519, 4618, 1), Location.create(2510, 3644, 0)),
     HORROR_FROM_THE_DEEP_BASEMENT_AFTER_QUEST_UP(Location.create(2519, 9994, 1), Location.create(2510, 3644, 0)),
 
-    INTRO_LEAVE(Location.create(2522, 4999, 0), Location.create(3230, 3240, 0)),
-
     JATIZSO_MINE_DOWN(Location.create(2397, 3812, 0), Location.create(2405, 10188, 0)),
     JATIZSO_MINE_UP(Location.create(2406, 10188, 0), Location.create(2397, 3811, 0)),
-    JATIZSO_SHOUT_TOWER_DOWN(Location.create(2373, 3800, 0), Location.create(2374, 3800, 2)),
-    JATIZSO_SHOUT_TOWER_UP(Location.create(2373, 3800, 2), Location.create(2374, 3800, 0)),
+    JATIZSO_SHOUT_TOWER_DOWN(Location.create(2373, 3800, 2), Location.create(2374, 3800, 0)),
+    JATIZSO_SHOUT_TOWER_UP(Location.create(2373, 3800, 0), Location.create(2374, 3800, 2)),
 
     KELDAGRIM_LIBRARY_UP(Location.create(2865, 10222, 0), Location.create(2865, 10224, 1)),
+
+    LUMBRIDGE_LEARNING_THE_ROPES_DOWN(Location.create(3230,3241,0), Location.create(3290, 4936, 0)),
+    LUMBRIDGE_LEARNING_THE_ROPES_UP(Location.create(3290, 4935, 0), Location.create(3230, 3240, 0)),
 
     MOVARIO_LADDER_UP(Location.create(2036, 4379, 0), Location.create(2502, 3255, 0)),
 

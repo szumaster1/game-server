@@ -214,7 +214,7 @@ public class IfaceDefinition {
             def.invOptions = new String[5];
             for (int i = 0; i < 5; i++) {
                 String option = data.getJagString();
-                if (option.length() > 0) {
+                if (!option.isEmpty()) {
                     def.invOptions[i] = option;
                     flags |= 0x1 << i + 23;
                 }
@@ -280,7 +280,7 @@ public class IfaceDefinition {
             def.invOptions = new String[5];
             for (int i = 0; i < 5; i++) {
                 String option = data.getJagString();
-                if (option.length() > 0) {
+                if (!option.isEmpty()) {
                     def.invOptions[i] = option;
                     flags |= 0x1 << i + 23;
                 }
@@ -295,7 +295,7 @@ public class IfaceDefinition {
         }
         if (def.buttonType == 1 || def.buttonType == 4 || def.buttonType == 5 || def.buttonType == 6) {
             def.option = data.getJagString();
-            if (def.option.length() == 0) {
+            if (def.option.isEmpty()) {
                 switch (def.buttonType) {
                     case 1:
                         def.option = "Ok";
@@ -383,8 +383,7 @@ public class IfaceDefinition {
         if (unknownLocal_6 > 0) {
             unknownLocal_5 = data.g1();
             def.unknownIntArray_2 = new int[unknownLocal_5 + 1];
-            for (int i = 0; i < def.unknownIntArray_2.length; i++)
-                def.unknownIntArray_2[i] = -1;
+            Arrays.fill(def.unknownIntArray_2, -1);
             def.unknownIntArray_2[unknownLocal_5] = data.g2();
         }
         if (unknownLocal_6 > 1) {

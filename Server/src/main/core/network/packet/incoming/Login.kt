@@ -16,7 +16,7 @@ import core.ServerStore
 import core.ServerStore.Companion.addToList
 import core.ServerStore.Companion.getList
 import core.api.log
-import core.network.auth.AuthResponse
+import core.auth.AuthResponse
 import core.game.node.entity.player.info.*
 import core.game.node.entity.player.info.login.LoginParser
 import core.game.world.GameWorld

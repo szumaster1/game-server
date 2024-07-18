@@ -3,6 +3,8 @@ package content.region.desert.quest.princealirescue.dialogue
 import core.api.consts.Items
 import core.api.consts.NPCs
 import core.api.sendChat
+import core.api.sendDialogue
+import core.api.sendDialogueLines
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
@@ -75,7 +77,7 @@ class LadyKeliDialogue(player: Player? = null) : Dialogue(player) {
                 54 -> npc(FacialExpression.HALF_GUILTY, "There is not another key like this in the world.").also { stage++ }
                 55 -> player(FacialExpression.HALF_GUILTY, "Could I see the key please? Just for a moment. It", "would be something I can tell my grandchildren. When", "you are even more famous than you are now.").also { stage++ }
                 56 -> npc(FacialExpression.HALF_GUILTY, "As you put it that way I am sure you can see it. You", "cannot steal the key, it is on a Runite chain.").also { stage++ }
-                57 -> interpreter.sendDialogue("Keli shows you a small key on a strong looking chain.").also { stage++ }
+                57 -> sendDialogue(player,"Keli shows you a small key on a strong looking chain.").also { stage++ }
                 58 -> {
                     if (player.inventory.remove(SOFT_CLAY)) {
                         if (!player.inventory.add(KEY_PRINT)) {
@@ -90,7 +92,7 @@ class LadyKeliDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 59 -> npc(FacialExpression.HALF_GUILTY, "Only for a moment then.").also { stage++ }
-                60 -> interpreter.sendDialogue("You put a piece of your soft clay in your hand. As you touch the", "key, you take an imprint of it.").also { stage++ }
+                60 -> sendDialogueLines(player,"You put a piece of your soft clay in your hand. As you touch the", "key, you take an imprint of it.").also { stage++ }
                 61 -> player(FacialExpression.HALF_GUILTY, "Thank you so much, you are too kind, o great Keli.").also { stage++ }
                 62 -> npc(FacialExpression.HALF_GUILTY, "You are welcome, run along now, I am very busy.").also { stage = END_DIALOGUE }
                 25 -> npc(FacialExpression.HALF_GUILTY, "I have used a sword since I was a small girl. I stabbed", "three people before I was 6 years old.").also { stage = END_DIALOGUE }

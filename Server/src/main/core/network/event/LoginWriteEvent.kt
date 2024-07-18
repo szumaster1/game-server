@@ -1,8 +1,8 @@
 package core.network.event
 
+import core.auth.AuthResponse
 import core.network.IoSession
 import core.network.IoWriteEvent
-import core.network.auth.AuthResponse
 import core.network.producer.GameEventProducer
 import java.nio.ByteBuffer
 

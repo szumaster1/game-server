@@ -13,7 +13,7 @@ import kotlinx.coroutines.withContext
 import core.ServerConstants
 import core.ServerStore
 import core.ServerStore.Companion.addToList
-import core.network.auth.UserAccountInfo
+import core.auth.UserAccountInfo
 import core.game.system.command.CommandMapping
 import core.game.system.command.Privilege
 import core.game.world.GameWorld

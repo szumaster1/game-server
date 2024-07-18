@@ -1,6 +1,6 @@
 package core.network
 
-import core.network.auth.AuthResponse
+import core.auth.AuthResponse
 import core.network.packet.incoming.Login
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test

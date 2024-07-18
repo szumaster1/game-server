@@ -20128,6 +20128,10 @@
     "ids": "15812"
   },
   {
+    "examine": "Danger - Possibly deadly creatures below!",
+    "ids": "16083,16151,16117"
+  },
+  {
     "examine": "A table.",
     "ids": "16169"
   },
@@ -20762,6 +20766,10 @@
   {
     "examine": "A home for baby creatures.",
     "ids": "32312"
+  },
+  {
+    "examine": "The mine has collapsed.",
+    "ids": "37634"
   },
   {
     "examine": "Must have been laid by a huge bird.",

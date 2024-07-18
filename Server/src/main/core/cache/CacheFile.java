@@ -136,7 +136,6 @@ public final class CacheFile {
     /**
      * Get the index file id.
      *
-     * @return
      */
     public int getIndexFileId() {
         return indexFileId;

@@ -5,7 +5,7 @@ import core.game.node.entity.player.Player;
 import core.tools.Log;
 import org.jetbrains.annotations.NotNull;
 import proto.management.PrivateMessage;
-import core.network.auth.UserAccountInfo;
+import core.auth.UserAccountInfo;
 import core.game.system.mysql.SQLTable;
 import core.game.system.task.Pulse;
 import core.game.world.GameWorld;

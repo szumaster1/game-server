@@ -1,7 +1,7 @@
 package core.game.node.entity.player.info.login
 
 import core.api.*
-import core.network.auth.AuthResponse
+import core.auth.AuthResponse
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.info.PlayerDetails
 import core.game.system.SystemManager
@@ -78,7 +78,7 @@ class LoginParser(val details: PlayerDetails) {
      * @return `True` if the request is valid.
      */
     private fun validateRequest(): Boolean {
-        if (!details.session.isActive) {
+        if (!details.session.isActive()) {
             return false
         }
         if (SystemManager.isUpdating) {

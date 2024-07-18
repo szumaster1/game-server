@@ -2,15 +2,16 @@ package core.game.node.entity.player.link.quest;
 
 import core.game.node.entity.player.Player;
 import core.tools.Log;
+import core.tools.SystemLogger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.util.HashMap;
-import java.util.Map;
 import java.util.TreeMap;
+import java.util.Map;
 
 import static core.api.ContentAPIKt.log;
-import static core.api.ContentAPIKt.setVarp;
+import static core.api.ContentAPIKt.*;
 
 
 /**
@@ -52,17 +53,12 @@ public final class QuestRepository {
         }
     }
 
-    /**
-     * Parse.
-     *
-     * @param questData the quest data
-     */
-    public void parse(JSONObject questData){
-        points = Integer.parseInt( questData.get("points").toString());
+    public void parse(JSONObject questData) {
+        points = Integer.parseInt(questData.get("points").toString());
         JSONArray questArray = (JSONArray) questData.get("questStages");
         questArray.forEach(quest -> {
             JSONObject q = (JSONObject) quest;
-            quests.put(Integer.parseInt( q.get("questId").toString()),Integer.parseInt(q.get("questStage").toString()));
+            quests.put(Integer.parseInt(q.get("questId").toString()), Integer.parseInt(q.get("questStage").toString()));
         });
         syncPoints();
     }
@@ -75,10 +71,19 @@ public final class QuestRepository {
     public void syncronizeTab(Player player) {
         setVarp(player, 101, points);
         int[] config = null;
-        for(Quest quest : QUESTS.values()){
-            config = quest.getConfig(player,getStage(quest));
-            
-            setVarp(player, config[0], config[1]);
+        for (Quest quest : QUESTS.values()) {
+            config = quest.getConfig(player, getStage(quest));
+
+            // {questVarpId, questVarbitId, valueToSet}
+            if (config.length == 3) {
+                // This is to set quests with VARPBIT, ignoring VARP value
+                setVarbit(player, config[1], config[2]);
+            } else {
+                // This is the original VARP quests
+                // {questVarpId, valueToSet}
+                setVarp(player, config[0], config[1]);
+            }
+
             quest.updateVarps(player);
         }
     }
@@ -91,10 +96,10 @@ public final class QuestRepository {
      */
     public void setStage(Quest quest, int stage) {
         int oldStage = getStage(quest);
-        if(oldStage < stage) {
+        if (oldStage < stage) {
             quests.put(quest.getIndex(), stage);
         } else {
-            log(this.getClass(), Log.WARN,  String.format("Nonmonotonic QuestRepository.setStage call for player \"%s\", quest \"%s\", old stage %d, new stage %d", player.getName(), quest.getName(), oldStage, stage));
+            log(this.getClass(), Log.WARN, String.format("Nonmonotonic QuestRepository.setStage call for player \"%s\", quest \"%s\", old stage %d, new stage %d", player.getName(), quest.getName(), oldStage, stage));
         }
     }
 
@@ -122,7 +127,9 @@ public final class QuestRepository {
      *
      * @param value the value.
      */
-    public void dockPoints(int value) { points -= value; }
+    public void dockPoints(int value) {
+        points -= value;
+    }
 
     /**
      * Syncronizes the quest points.
@@ -198,7 +205,7 @@ public final class QuestRepository {
     public boolean isComplete(String name) {
         Quest quest = getQuest(name);
         if (quest == null) {
-            log(this.getClass(), Log.ERR,  "Error can't check if quest is complete for " + name);
+            log(this.getClass(), Log.ERR, "Error can't check if quest is complete for " + name);
             return false;
         }
         return quest.getStage(player) >= 100;
@@ -213,7 +220,7 @@ public final class QuestRepository {
     public boolean hasStarted(String name) {
         Quest quest = getQuest(name);
         if (quest == null) {
-            log(this.getClass(), Log.ERR,  "Error can't check if quest is complete for " + name);
+            log(this.getClass(), Log.ERR, "Error can't check if quest is complete for " + name);
             return false;
         }
         return quest.getStage(player) > 0;
@@ -290,11 +297,8 @@ public final class QuestRepository {
         return QUESTS;
     }
 
-    /**
-     * Gets quest list.
-     *
-     * @return the quest list
-     */
-    public Map<Integer, Integer> getQuestList() {return quests;}
+    public Map<Integer, Integer> getQuestList() {
+        return quests;
+    }
 
 }

@@ -57,6 +57,7 @@ class PlayerSaver(val player: Player) {
         saveStatManager(saveFile)
         saveAttributes(saveFile)
         savePouches(saveFile)
+        saveVersion(saveFile)
         contentHooks.forEach { it.savePlayer(player, saveFile) }
         return saveFile
     }
@@ -68,7 +69,11 @@ class PlayerSaver(val player: Player) {
             val manager = ScriptEngineManager()
             val scriptEngine = manager.getEngineByName("JavaScript")
             if (scriptEngine == null) {
-                log(this::class.java, Log.ERR, "Cannot save: Failed to load ScriptEngineManager, this is a known issue on non Java-11 versions. Set your Java version to 11 to avoid further bugs!")
+                log(
+                    this::class.java,
+                    Log.ERR,
+                    "Cannot save: Failed to load ScriptEngineManager, this is a known issue on non Java-11 versions. Set your Java version to 11 to avoid further bugs!"
+                )
                 return@runBlocking
             }
             scriptEngine.put("jsonString", populate().toJSONString())
@@ -96,6 +101,10 @@ class PlayerSaver(val player: Player) {
 
     fun savePouches(root: JSONObject) {
         player.pouchManager.save(root)
+    }
+
+    fun saveVersion(root: JSONObject) {
+        root["version"] = player.version
     }
 
     fun saveAttributes(root: JSONObject) {

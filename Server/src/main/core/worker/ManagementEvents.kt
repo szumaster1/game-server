@@ -30,7 +30,7 @@ import proto.management.SendClanInfo.ClanMember
 import proto.management.SendContactInfo
 import proto.management.SendContactInfo.Contact
 import core.ServerConstants
-import core.network.auth.UserAccountInfo
+import core.auth.UserAccountInfo
 import core.tools.SystemLogger
 import core.game.world.GameWorld
 import core.game.world.repository.Repository

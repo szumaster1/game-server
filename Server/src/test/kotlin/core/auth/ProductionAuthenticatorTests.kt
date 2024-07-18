@@ -1,9 +1,9 @@
 package core.auth
 
-import core.network.auth.AuthResponse
-import core.network.auth.ProductionAuthenticator
-import core.network.auth.UserAccountInfo
-import core.network.auth.InMemoryStorageProvider
+import core.auth.AuthResponse
+import core.auth.ProductionAuthenticator
+import core.auth.UserAccountInfo
+import core.storage.InMemoryStorageProvider
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test

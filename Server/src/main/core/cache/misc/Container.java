@@ -37,8 +37,7 @@ public class Container {
 
 	/**
 	 * Set the version.
-	 * @param version
-	 */
+     */
 	public void setVersion(int version) {
 		this.version = version;
 	}

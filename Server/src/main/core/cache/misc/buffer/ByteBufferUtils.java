@@ -1,5 +1,7 @@
 package core.cache.misc.buffer;
 
+import core.tools.StringUtils;
+
 import java.io.ObjectInputStream;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
@@ -81,23 +83,7 @@ public final class ByteBufferUtils {
 	 * @return The Integer.
 	 */
 	public static int packGJString2(int position, byte[] buffer, String string) {
-		int length = string.length();
-		int offset = position;
-		for (int i = 0; length > i; i++) {
-			int character = string.charAt(i);
-			if (character > 127) {
-				if (character > 2047) {
-					buffer[offset++] = (byte) ((character | 919275) >> 12);
-					buffer[offset++] = (byte) (128 | ((character >> 6) & 63));
-					buffer[offset++] = (byte) (128 | (character & 63));
-				} else {
-					buffer[offset++] = (byte) ((character | 12309) >> 6);
-					buffer[offset++] = (byte) (128 | (character & 63));
-				}
-			} else
-				buffer[offset++] = (byte) character;
-		}
-		return offset - position;
+        return StringUtils.packGJString2(position, buffer, string);
 	}
 
 	/**
