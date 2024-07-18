@@ -11,12 +11,7 @@ import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 
 @Initializable
-class SvetlanaDialogue(player: Player? = null) : Dialogue(player) {
-
-    /*
-     *  Info: Citizen of Canafis.
-     *  Location: 3502,3493
-     */
+class CanifisCitizenDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         val randomWithRing = RandomFunction.random(0, 9)
@@ -53,11 +48,11 @@ class SvetlanaDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun newInstance(player: Player): Dialogue {
-        return SvetlanaDialogue(player)
+        return CanifisCitizenDialogue(player)
     }
 
     override fun getIds(): IntArray {
-        return intArrayOf(NPCs.SVETLANA_6034)
+        return intArrayOf(NPCs.IMRE_6027, NPCs.MALAK_1920, NPCs.BORIS_6026, NPCs.IMRE_6027, NPCs.YURI_6028, NPCs.JOSEPH_6029, NPCs.NIKOLAI_6030, NPCs.EDUARD_6031, NPCs.LEV_6032, NPCs.GEORGY_6033, NPCs.SVETLANA_6034, NPCs.IRINA_6035, NPCs.ALEXIS_6036, NPCs.MILLA_6037, NPCs.GALINA_6038, NPCs.SOFIYA_6039, NPCs.KSENIA_6040, NPCs.YADVIGA_6041, NPCs.NIKITA_6042, NPCs.VERA_6043, NPCs.ZOJA_6044, NPCs.LILIYA_6045)
     }
 
 }
