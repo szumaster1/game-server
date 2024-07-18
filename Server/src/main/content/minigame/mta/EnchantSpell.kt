@@ -45,8 +45,28 @@ class EnchantSpell : MagicSpell {
             return false
         }
 
+        // TODO: enchanting ring animation -> https://youtu.be/MXWZ5mDJf4o?si=pl2X1h7jfYhfIdSy&t=42
+
         if (entity.inventory.remove(target)) {
-            visualize(entity, target)
+            core.api.visualize(
+                entity,
+                when (target.id) {
+                    Items.SAPPHIRE_RING_1637, Items.EMERALD_RING_1639, Items.RUBY_RING_1641, Items.DIAMOND_RING_1643, Items.DRAGONSTONE_RING_1645, Items.ONYX_RING_6575 -> 712
+                    Items.SAPPHIRE_NECKLACE_1656, Items.SAPPHIRE_AMULET_1694, Items.SAPPHIRE_BRACELET_11072, Items.EMERALD_NECKLACE_1658, Items.EMERALD_AMULET_1696, Items.EMERALD_BRACELET_11076 -> 719
+                    Items.RUBY_NECKLACE_1660, Items.RUBY_AMULET_1698, Items.RUBY_BRACELET_11085, Items.DIAMOND_NECKLACE_1662, Items.DIAMOND_AMULET_1700, Items.DIAMOND_BRACELET_11092 -> 720
+                    Items.DRAGON_NECKLACE_1664, Items.DRAGONSTONE_AMMY_1702, Items.DRAGON_BRACELET_11115, Items.ONYX_NECKLACE_6577, Items.ONYX_AMULET_6581, Items.ONYX_BRACELET_11130 -> 721
+                    else -> 719
+                },
+                when (target.id) {
+                    Items.SAPPHIRE_RING_1637, Items.EMERALD_RING_1639, Items.RUBY_RING_1641, Items.DIAMOND_RING_1643, Items.DRAGONSTONE_RING_1645, Items.ONYX_RING_6575 -> Graphic(238, 92)
+                    Items.SAPPHIRE_NECKLACE_1656, Items.SAPPHIRE_AMULET_1694, Items.EMERALD_NECKLACE_1658, Items.EMERALD_AMULET_1696 -> Graphic(114, 92)
+                    Items.RUBY_NECKLACE_1660, Items.RUBY_AMULET_1698, Items.DIAMOND_NECKLACE_1662, Items.DIAMOND_AMULET_1700 -> Graphic(115, 92)
+                    Items.SAPPHIRE_BRACELET_11072, Items.EMERALD_BRACELET_11076, Items.RUBY_BRACELET_11085, Items.DIAMOND_BRACELET_11092, Items.DRAGON_BRACELET_11115, Items.ONYX_BRACELET_11130 -> Graphic(-1)
+                    Items.DRAGON_NECKLACE_1664, Items.DRAGONSTONE_AMMY_1702 -> Graphic(116, 92)
+                    Items.ONYX_NECKLACE_6577, Items.ONYX_AMULET_6581 -> Graphic(452, 92)
+                    else -> Graphic(114, 92)
+                },
+            )
             entity.inventory.add(enchanted)
         }
 
