@@ -1,5 +1,5 @@
 package content.global.activity.treasuretrails.clue
-
+/*
 import content.global.activity.treasuretrails.ClueLevel
 import content.global.activity.treasuretrails.scroll.ChallengeClueScroll
 import core.api.consts.Items
@@ -39,3 +39,4 @@ open class ChallengeCluePlugin : ChallengeClueScroll {
     }
 
 }
+*/

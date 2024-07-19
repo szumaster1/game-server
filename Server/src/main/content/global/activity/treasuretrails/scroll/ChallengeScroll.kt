@@ -1,5 +1,5 @@
 package content.global.activity.treasuretrails.scroll
-
+/*
 import core.api.consts.Components
 import core.api.consts.Items
 import core.api.openInterface
@@ -30,3 +30,4 @@ class ChallengeScroll : InteractionListener {
         val challengeClues = intArrayOf()
     }
 }
+*/

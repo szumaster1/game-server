@@ -1,7 +1,6 @@
 package content.region.kandarin.dialogue.stronghold
 
-import content.global.activity.treasuretrails.clue.ChallengeCluePlugin
-import content.global.activity.treasuretrails.clue.ClueScrollPlugin
+
 import core.api.*
 import core.api.consts.Items
 import core.api.consts.NPCs
@@ -14,20 +13,22 @@ import core.tools.END_DIALOGUE
 
 @Initializable
 class GnomeCoachDialogue (player: Player? = null) : Dialogue(player) {
-
-    private var clueScroll: ChallengeCluePlugin? = null
-    private var reward: ClueScrollPlugin? = null
+    /*
+     * private var clueScroll: ChallengeCluePlugin? = null
+     * private var reward: ClueScrollPlugin? = null
+     */
     val clue = Items.CLUE_SCROLL_7282
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        if(inInventory(player, clue)) {
-            npc(FacialExpression.OLD_NORMAL,"Are you here about the treasure trail?").also { stage = 100 }
-        } else if(inInventory(player, (clue+1)) && getAttribute(player, "clue:gnome-coach", false)) {
-            npc(FacialExpression.OLD_NORMAL,"Please enter the answer to the question.").also { stage = 103 }
-        } else {
-            npcl(FacialExpression.OLD_NORMAL, "Run faster! Faster!").also { stage = 0 }
-        }
+        /*
+         * if(inInventory(player, clue)) {
+         *     npc(FacialExpression.OLD_NORMAL,"Are you here about the treasure trail?").also { stage = 100 }
+         * } else if(inInventory(player, (clue+1)) && getAttribute(player, "clue:gnome-coach", false)) {
+         *     npc(FacialExpression.OLD_NORMAL,"Please enter the answer to the question.").also { stage = 103 }
+         * } else {
+         */
+        npcl(FacialExpression.OLD_NORMAL, "Run faster! Faster!").also { stage = 0 }
         return true
     }
 
@@ -37,7 +38,6 @@ class GnomeCoachDialogue (player: Player? = null) : Dialogue(player) {
             1 -> npcl(FacialExpression.OLD_NORMAL, "Oh, sorry, I didn't notice you there.").also { stage++ }
             2 -> playerl(FacialExpression.HALF_GUILTY, "I take it you're a coach?").also { stage++ }
             3 -> npcl(FacialExpression.OLD_NORMAL, "That I am. Now get to the point, I'm very busy!").also { stage++ }
-
             4 -> options("What's the History of Gnome ball?","Are there any special tactics?","Does the game bring fame?","Yawn").also { stage++ }
             5 -> when(buttonId){
                 1 -> player("What's the History of Gnome ball?").also { stage++ }
