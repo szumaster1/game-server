@@ -18,6 +18,7 @@ import core.game.node.scenery.SceneryBuilder
 import core.game.system.command.sets.STATS_BASE
 import core.game.system.command.sets.STATS_ROCKS
 import core.game.system.task.Pulse
+import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
@@ -240,11 +241,14 @@ class MiningPulse(private val player: Player, private val node: Node) : Pulse(1,
 
             if(resource!!.id == 4030 && !isMiningEssence && resource!!.respawnRate != 0) {
                 removeScenery(node as Scenery)
-                runTask(player, resource!!.respawnDuration) {
-                    SceneryBuilder.add(Scenery(4027, node.location))
-                }
+                GameWorld.Pulser.submit(object : Pulse(resource!!.respawnDuration, player) {
+                    override fun pulse(): Boolean {
+                        SceneryBuilder.add(Scenery(4027, node.location))
+                        return true
+                    }
+                })
                 node.isActive = false
-                return true
+                return false
             }
 
             /*

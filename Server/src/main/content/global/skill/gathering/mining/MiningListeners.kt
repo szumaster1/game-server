@@ -21,6 +21,8 @@ import core.game.node.scenery.Scenery
 import core.game.node.scenery.SceneryBuilder
 import core.game.system.command.sets.STATS_BASE
 import core.game.system.command.sets.STATS_ROCKS
+import core.game.system.task.Pulse
+import core.game.world.GameWorld
 import core.game.world.map.zone.ZoneBorders
 import core.tools.RandomFunction
 import core.tools.prependArticle
@@ -263,11 +265,14 @@ class MiningListeners : InteractionListener {
 
             if(resource.id == 4030 && !isEssence && resource.respawnRate != 0) {
                 removeScenery(node as Scenery)
-                runTask(player, resource.respawnDuration) {
-                    SceneryBuilder.add(Scenery(4027, node.location))
-                }
+                GameWorld.Pulser.submit(object : Pulse(resource.respawnDuration, player) {
+                    override fun pulse(): Boolean {
+                        SceneryBuilder.add(Scenery(4027, node.location))
+                        return true
+                    }
+                })
                 node.isActive = false
-                return true
+                return false
             }
 
             /*
