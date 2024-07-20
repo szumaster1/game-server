@@ -1,13 +1,15 @@
 package content.global.random
 
 import content.global.random.event.surpriseexam.SurpriseExamNPC
+import core.api.addItem
 import core.api.poofClear
+import core.api.removeItem
 import core.api.utils.WeightBasedTable
+import core.api.withinDistance
 import core.game.interaction.MovementPulse
 import core.game.node.entity.impl.PulseType
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
-import core.game.node.item.Item
 import core.game.world.map.Location
 import core.game.world.map.RegionManager
 import core.game.world.map.path.Pathfinder
@@ -20,7 +22,7 @@ abstract class RandomEventNPC(id: Int) : NPC(id) {
     lateinit var player: Player
     abstract var loot: WeightBasedTable?
     var spawnLocation: Location? = null
-    val SMOKE_Graphic = Graphic(86)
+    val smokeGraphics = Graphic(86)
     var initialized = false
     var finalized = false
     var timerPaused = false
@@ -65,7 +67,7 @@ abstract class RandomEventNPC(id: Int) : NPC(id) {
         if (!pulseManager.hasPulseRunning() && !finalized) {
             follow()
         }
-        if (!player.isActive || !player.location.withinDistance(location, 10)) {
+        if (!player.isActive || !withinDistance(player, location, 10)) {
             terminate()
         }
         if (ticksLeft <= 0 && initialized) {
@@ -94,8 +96,8 @@ abstract class RandomEventNPC(id: Int) : NPC(id) {
         for (item in player.inventory.toArray()) {
             if (item == null) continue
             if (item.definition.isUnnoted) {
-                player.inventory.remove(item)
-                player.inventory.add(Item(item.noteChange, item.amount))
+                removeItem(player, item)
+                addItem(player, item.noteChange, item.amount)
             }
         }
         if (Random.nextBoolean()) {
@@ -103,7 +105,7 @@ abstract class RandomEventNPC(id: Int) : NPC(id) {
         } else {
             player.properties.teleportLocation = Location.create(3212, 9620, 0)
         }
-        player.graphics(SMOKE_Graphic)
+        player.graphics(smokeGraphics)
     }
 
     override fun clear() {

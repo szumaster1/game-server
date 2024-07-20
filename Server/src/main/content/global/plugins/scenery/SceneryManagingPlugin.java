@@ -19,7 +19,7 @@ import static core.api.ContentAPIKt.animate;
 import static core.api.ContentAPIKt.playAudio;
 
 @Initializable
-public final class DoorManagingPlugin extends OptionHandler {
+public final class SceneryManagingPlugin extends OptionHandler {
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
@@ -42,13 +42,16 @@ public final class DoorManagingPlugin extends OptionHandler {
                 case "open":
                     if (name.contains("drawers")) {
                         playAudio(player, Sounds.DRAWER_OPEN_64);
+                        return true;
                     }
                     if (name.contains("wardrobe")) {
                         animate(player, Animations.OPEN_WARDROBE_545, false);
                         playAudio(player, Sounds.WARDROBE_OPEN_96);
+                        return true;
                     }
                     if (name.contains("cupboard")) {
                         playAudio(player, Sounds.CUPBOARD_OPEN_58);
+                        return true;
                     }
                 case "go-through":
                     if (object.isActive()) {
@@ -59,13 +62,16 @@ public final class DoorManagingPlugin extends OptionHandler {
                 case "shut":
                     if (name.contains("drawers")) {
                         playAudio(player, Sounds.DRAWER_CLOSE_63);
+                        return true;
                     }
                     if (name.contains("wardrobe")) {
                         playAudio(player, Sounds.WARDROBE_CLOSE_95);
                         animate(player, Animations.CLOSE_WARDROBE_544, false);
+                        return true;
                     }
                     if (name.contains("cupboard")) {
                         playAudio(player, Sounds.CUPBOARD_CLOSE_57);
+                        return true;
                     }
                     SceneryBuilder.replace(object, object.transform(object.getId() - 1));
                     return true;
