@@ -16,7 +16,7 @@ import core.plugin.Plugin;
 
 import java.util.concurrent.TimeUnit;
 
-import static core.api.ContentAPIKt.setAttribute;
+import static core.api.ContentAPIKt.*;
 
 /**
  * The Falador shield plugin.
@@ -55,16 +55,26 @@ public class FaladorShieldPlugin extends OptionHandler {
         switch (option) {
             case "prayer-restore":
                 Long attrTime = player.getAttribute("diary:falador:shield-restore-time");
-                if (attrTime != null && attrTime > System.currentTimeMillis()) {
-                    player.sendMessage("You have no charges left today.");
-                } else {
-                    // TODO should ask if sure you with to recharge, see https://www.youtube.com/watch?v=ZW9k1922Ggk interpreter.sendOptions("Are you sure you wish to recharge?");
-                    final PrayerEffect effect = new PrayerEffect(0, level == 0 ? 0.25 : level == 1 ? 0.5 : 1.0);
-                    effect.activate(player);
-                    player.graphics(new Graphic(GFX_PRAYER_RESTORE[level]));
-                    setAttribute(player, "/save:diary:falador:shield-restore-time", System.currentTimeMillis() + TimeUnit.DAYS.toMillis(1));
-                    player.sendMessage("You restore " + (level < 2 ? "some" : "your") + " prayer points.");
-                }
+                setTitle(player, 2);
+                sendDialogueOptions(player, "Are you sure you wish to recharge?", "Yes, recharge my Prayer points.", "No, I've changed my mind.");
+                player.getDialogueInterpreter().addAction((player1, buttonId) -> {
+                    switch (buttonId) {
+                        case 2:
+                            if (attrTime != null && attrTime > System.currentTimeMillis()) {
+                                player.sendMessage("You have no charges left today.");
+                            } else {
+                                final PrayerEffect effect = new PrayerEffect(0, level == 0 ? 0.25 : level == 1 ? 0.5 : 1.0);
+                                player1.graphics(new Graphic(GFX_PRAYER_RESTORE[level]));
+                                setAttribute(player1, "/save:diary:falador:shield-restore-time", System.currentTimeMillis() + TimeUnit.DAYS.toMillis(1));
+                                player1.sendMessage("You restore " + (level < 2 ? "some" : "your") + " prayer points.");
+                                effect.activate(player1);
+                            }
+                            break;
+                        case 3:
+                            closeDialogue(player);
+                            break;
+                    }
+                });
                 return true;
             case "operate":
                 GameWorld.getPulser().submit(getPulse(player, level));

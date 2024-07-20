@@ -11,6 +11,8 @@ import org.json.simple.JSONObject;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import static core.api.ContentAPIKt.*;
+
 /**
  * Represents an achievement diary.
  *
@@ -186,19 +188,31 @@ public class AchievementDiary {
         if (!levelStarted[level]) {
             levelStarted[level] = true;
         }
+        taskCompleted[level][index] = true;
+        int tempLevel = this.type == DiaryType.LUMBRIDGE ? level - 1 : level;
         if (!complete) {
             player.sendMessage("Well done! A " + type.getName() + " task has been updated.");
         } else {
-            taskCompleted[level][index] = true;
-            int tempLevel = this.type == DiaryType.LUMBRIDGE ? level - 1 : level;
             player.sendMessages("Well done! You have completed "
                 + (tempLevel == -1 ? "a beginner" : tempLevel == 0 ? "an easy" : tempLevel == 1 ? "a medium" : "a hard")
-                + " task in the " + type.getName() + " area. Your", "Achievement Diary has been updated.");
+                + " task in the " + type.getName() + " area. Your Achievement", "Diary has been updated.");
         }
+        // TODO: NPC for each level, NPC location for each level.
         if (isComplete(level)) {
-            player.sendMessages("Congratulations! You have completed all of the " + getLevel(level).toLowerCase()
-                + " tasks in the " + type.getName() + " area.", "Speak to "
-                + NPCDefinition.forId(type.getNpc(level)).getName() + " to claim your reward.");
+            String message = "Congratulations! You have completed all of the " + getLevel(level).toLowerCase() + " tasks in the " + type.getName() + " area.";
+            sendMessage(player, message);
+            sendDialogue(player, message);
+            player.getDialogueInterpreter().addAction((player1, buttonId) -> {
+                switch (buttonId) {
+                    case 3:
+                        if (isComplete(level) != levelStarted[level]) {
+                            sendDialogue(player1, "To upgrade your reward visit " + NPCDefinition.forId(type.getNpcs()[level]).getName().toLowerCase() + " in " + type.getName()  + ".");
+                        } else {
+                            sendDialogue(player1, "Speak to " + NPCDefinition.forId(type.getNpcs()[level]).getName().toLowerCase() + " to claim your reward.");
+                        }
+                        break;
+                }
+            });
         }
         drawStatus(player);
     }
@@ -227,7 +241,7 @@ public class AchievementDiary {
     }
 
     /**
-     * Resets a task to un-start
+     * Resets a task to un-start.
      *
      * @param player the player
      * @param level  the level
