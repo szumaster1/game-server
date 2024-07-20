@@ -6,9 +6,9 @@ import core.tools.RandomFunction
 
 class RandomPrayerEffect(val a: Int, val b: Int) : ConsumableEffect() {
 
-    override fun activate(p: Player) {
+    override fun activate(player: Player) {
         val effect = PrayerEffect(RandomFunction.random(a, b).toDouble(), 0.0)
-        effect.activate(p)
+        effect.activate(player)
     }
 
 }

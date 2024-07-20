@@ -6,9 +6,9 @@ import core.game.node.entity.skill.Skills
 
 class DraynorCabbageEffect : ConsumableEffect() {
 
-    override fun activate(p: Player) {
-        val effect = HealingEffect(getHealthEffectValue(p))
-        effect.activate(p)
+    override fun activate(player: Player) {
+        val effect = HealingEffect(getHealthEffectValue(player))
+        effect.activate(player)
     }
 
     override fun getHealthEffectValue(player: Player): Int {

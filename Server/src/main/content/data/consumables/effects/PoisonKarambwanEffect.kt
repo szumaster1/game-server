@@ -5,9 +5,9 @@ import core.game.node.entity.player.Player
 
 class PoisonKarambwanEffect : ConsumableEffect() {
 
-    override fun activate(p: Player) {
-        if (p.getSkills().lifepoints > 5) {
-            effect.activate(p)
+    override fun activate(player: Player) {
+        if (player.getSkills().lifepoints > 5) {
+            effect.activate(player)
         }
     }
 

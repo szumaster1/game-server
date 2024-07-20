@@ -6,8 +6,8 @@ import core.game.node.entity.player.Player
 class EnergyEffect(amt: Int) : ConsumableEffect() {
 
     var amt: Double = amt.toDouble()
-    override fun activate(p: Player) {
-        p.settings.updateRunEnergy(-amt)
+    override fun activate(player: Player) {
+        player.settings.updateRunEnergy(-amt)
     }
 
 }

@@ -6,15 +6,15 @@ import core.tools.RandomFunction
 
 class RandomHealthEffect(val a: Int, val b: Int) : ConsumableEffect() {
 
-    override fun activate(p: Player) {
+    override fun activate(player: Player) {
         val effect: ConsumableEffect
-        val healthEffectValue = getHealthEffectValue(p)
+        val healthEffectValue = getHealthEffectValue(player)
         effect = if (healthEffectValue > 0) {
             HealingEffect(healthEffectValue)
         } else {
             DamageEffect(healthEffectValue.toDouble(), false)
         }
-        effect.activate(p)
+        effect.activate(player)
     }
 
     override fun getHealthEffectValue(player: Player): Int {

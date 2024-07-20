@@ -6,8 +6,8 @@ import core.game.node.entity.player.Player
 
 class DamageEffect(val amt: Double, val isPercent: Boolean) : ConsumableEffect() {
 
-    override fun activate(p: Player) {
-        p.impactHandler.manualHit(p, -getHealthEffectValue(p), ImpactHandler.HitsplatType.NORMAL)
+    override fun activate(player: Player) {
+        player.impactHandler.manualHit(player, -getHealthEffectValue(player), ImpactHandler.HitsplatType.NORMAL)
     }
 
     override fun getHealthEffectValue(player: Player): Int {

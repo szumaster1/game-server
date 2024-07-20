@@ -6,9 +6,9 @@ import core.tools.RandomFunction
 
 class RandomEnergyEffect(val a: Int, val b: Int) : ConsumableEffect() {
 
-    override fun activate(p: Player) {
+    override fun activate(player: Player) {
         val effect = EnergyEffect(RandomFunction.random(a, b))
-        effect.activate(p)
+        effect.activate(player)
     }
 
 }

@@ -23,13 +23,13 @@ class SetAttributeEffect : ConsumableEffect {
         this.isTicks = value is Int
     }
 
-    override fun activate(p: Player) {
+    override fun activate(player: Player) {
         if (isTicks) {
             val value = attrValue as Int + ticks
-            setAttribute(p,attrString, value)
+            setAttribute(player,attrString, value)
             return
         }
-        setAttribute(p,attrString, attrValue)
+        setAttribute(player,attrString, attrValue)
     }
 
 }

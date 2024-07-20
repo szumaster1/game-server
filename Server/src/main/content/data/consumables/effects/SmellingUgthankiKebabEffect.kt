@@ -6,9 +6,9 @@ import core.tools.RandomFunction
 
 class SmellingUgthankiKebabEffect : ConsumableEffect() {
 
-    override fun activate(p: Player) {
+    override fun activate(player: Player) {
         if (RandomFunction.nextInt(100) < PERCENTAGE) {
-            effect.activate(p)
+            effect.activate(player)
         }
     }
 

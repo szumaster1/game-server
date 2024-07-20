@@ -6,8 +6,8 @@ import core.game.node.entity.skill.Skills
 
 class WizardsMindBombEffect : ConsumableEffect() {
 
-    override fun activate(p: Player) {
-        val magicLevelBoost = if (p.getSkills().getLevel(Skills.MAGIC) > 50) 3 else 2
+    override fun activate(player: Player) {
+        val magicLevelBoost = if (player.getSkills().getLevel(Skills.MAGIC) > 50) 3 else 2
         val effect = MultiEffect(
             SkillEffect(Skills.MAGIC, magicLevelBoost.toDouble(), 0.0),
             HealingEffect(HEALING),
@@ -15,7 +15,7 @@ class WizardsMindBombEffect : ConsumableEffect() {
             SkillEffect(Skills.STRENGTH, -4.0, 0.0),
             SkillEffect(Skills.DEFENCE, -4.0, 0.0)
         )
-        effect.activate(p)
+        effect.activate(player)
     }
 
     override fun getHealthEffectValue(player: Player): Int {

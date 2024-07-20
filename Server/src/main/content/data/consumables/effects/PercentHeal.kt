@@ -15,11 +15,11 @@ class PercentHeal(base: Int, percent: Double) : ConsumableEffect() {
         this.percent = percent
     }
 
-    override fun activate(p: Player) {
-        val maxHp = p.getSkills().maximumLifepoints
-        val curHp = p.getSkills().lifepoints
+    override fun activate(player: Player) {
+        val maxHp = player.getSkills().maximumLifepoints
+        val curHp = player.getSkills().lifepoints
         var amount = floor(maxHp * percent).toInt()
         amount = (base + min(amount.toDouble(), ((1.0 + percent) * maxHp.toDouble() - curHp.toDouble()).toInt().toDouble())).toInt()
-        p.getSkills().healNoRestrictions(amount)
+        player.getSkills().healNoRestrictions(amount)
     }
 }

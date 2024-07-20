@@ -5,11 +5,11 @@ import core.game.node.entity.player.Player
 
 class UgthankiKebabEffect : ConsumableEffect() {
 
-    override fun activate(p: Player) {
-        if (p.getSkills().lifepoints < p.getSkills().maximumLifepoints) {
-            p.sendChat("Yum!")
+    override fun activate(player: Player) {
+        if (player.getSkills().lifepoints < player.getSkills().maximumLifepoints) {
+            player.sendChat("Yum!")
         }
-        effect.activate(p)
+        effect.activate(player)
     }
 
     override fun getHealthEffectValue(player: Player): Int {

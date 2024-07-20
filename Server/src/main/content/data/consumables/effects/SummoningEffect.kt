@@ -6,9 +6,9 @@ import core.game.node.entity.skill.Skills
 
 class SummoningEffect(var base: Double, var bonus: Double) : ConsumableEffect() {
 
-    override fun activate(p: Player) {
-        val level = p.getSkills().getStaticLevel(Skills.SUMMONING)
+    override fun activate(player: Player) {
+        val level = player.getSkills().getStaticLevel(Skills.SUMMONING)
         val amt = base + (level * bonus)
-        p.getSkills().updateLevel(Skills.SUMMONING, amt.toInt(), level)
+        player.getSkills().updateLevel(Skills.SUMMONING, amt.toInt(), level)
     }
 }

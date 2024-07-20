@@ -5,8 +5,8 @@ import core.game.node.entity.player.Player
 
 class HealingEffect(var amt: Int) : ConsumableEffect() {
 
-    override fun activate(p: Player) {
-        p.getSkills().heal(amt)
+    override fun activate(player: Player) {
+        player.getSkills().heal(amt)
     }
 
     override fun getHealthEffectValue(player: Player): Int {

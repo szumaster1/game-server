@@ -5,12 +5,12 @@ import core.game.node.entity.player.Player
 
 class NettleTeaEffect : ConsumableEffect() {
 
-    override fun activate(p: Player) {
-        val effect = if (p.getSkills().lifepoints < p.getSkills().maximumLifepoints) MultiEffect(
+    override fun activate(player: Player) {
+        val effect = if (player.getSkills().lifepoints < player.getSkills().maximumLifepoints) MultiEffect(
             HealingEffect(3),
             EnergyEffect(5)
         ) else HealingEffect(3)
-        effect.activate(p)
+        effect.activate(player)
     }
 
     override fun getHealthEffectValue(player: Player): Int {

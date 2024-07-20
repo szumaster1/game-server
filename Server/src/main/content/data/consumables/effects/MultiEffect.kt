@@ -7,9 +7,9 @@ class MultiEffect(vararg effects: ConsumableEffect) : ConsumableEffect() {
 
     private val effects: Array<ConsumableEffect> = effects as Array<ConsumableEffect>
 
-    override fun activate(p: Player) {
+    override fun activate(player: Player) {
         for (e in effects) {
-            e.activate(p)
+            e.activate(player)
         }
     }
 
