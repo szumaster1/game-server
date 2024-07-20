@@ -95,6 +95,7 @@ enum class Consumables {
     POTATO(Food(intArrayOf(1942), HealingEffect(1), "You eat the potato. Yuck!")),
     BAKED_POTATO(Food(intArrayOf(6701),HealingEffect(2))),
     POISONED_CHEESE(FakeConsumable(Items.POISONED_CHEESE_6768, arrayOf("Ummm... let me think about this one.....No! That would be stupid."))),
+    POISON_CHALICE(Drink(intArrayOf(Items.POISON_CHALICE_197, Items.COCKTAIL_GLASS_2026), PoisonChaliceEffect())),
     SPICY_SAUCE(Food(intArrayOf(7072, 1923), HealingEffect(2))),
     LOCUST_MEAT(Food(intArrayOf(Items.LOCUST_MEAT_9052), HealingEffect(3), "Juices spurt into your mouth as you chew. It's tastier than it looks.")),
     CHILLI_CON_CARNE(Food(intArrayOf(7062, 1923),HealingEffect(5))),
