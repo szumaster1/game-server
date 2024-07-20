@@ -32,7 +32,7 @@ class BorderGuardDialogue : DialogueFile() {
                     if (!removeItem(player!!, Item(Items.COINS_995, 10))) {
                         sendMessage(player!!, "You need 10 gold coins to pay the toll.")
                     } else {
-                        DoorActionHandler.handleAutowalkDoor(player, gates)
+                        DoorActionHandler.handleAutowalkDoor(player!!, gates!!)
                     }
                 }
                 2 -> player("Who does my money go to?").also { stage = 20 }
@@ -47,7 +47,7 @@ class BorderGuardDialogue : DialogueFile() {
                     if (!removeItem(player!!, Item(Items.COINS_995, 10))) {
                         sendMessage(player!!, "You need 10 gold coins to pay the toll.")
                     } else {
-                        DoorActionHandler.handleAutowalkDoor(player, gates)
+                        DoorActionHandler.handleAutowalkDoor(player!!, gates!!)
                     }
                 }
                 2 -> player("No thanks, I'll walk around.").also { stage = 4 }
@@ -55,7 +55,7 @@ class BorderGuardDialogue : DialogueFile() {
 
             100 -> {
                 end()
-                DoorActionHandler.handleAutowalkDoor(player, gates)
+                DoorActionHandler.handleAutowalkDoor(player!!, gates!!)
             }
         }
     }

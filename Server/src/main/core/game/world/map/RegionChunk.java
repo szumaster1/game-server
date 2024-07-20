@@ -21,6 +21,7 @@ import static core.api.ContentAPIKt.log;
 
 /**
  * Represents a region chunk.
+ *
  * @author Emperor
  */
 public class RegionChunk {

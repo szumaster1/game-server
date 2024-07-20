@@ -2167,7 +2167,7 @@ fun sendItemSelect(
 
 fun announceIfRare(player: Player, item: Item) {
     if (item.definition.getConfiguration(ItemConfigParser.RARE_ITEM, false)) {
-        //sendNews("${player.username} has just received: ${item.amount} x ${item.name}.");
+        sendNews("${player.username} has just received: ${item.amount} x ${item.name}.");
         GlobalKillCounter.incrementRareDrop(player, item)
     }
 }

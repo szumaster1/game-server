@@ -12,18 +12,19 @@ class DoorConfigLoader {
     companion object {
         val DOORS = hashMapOf<Int, Door>()
 
-        fun forId(id: Int): Door?{
+        fun forId(id: Int): Door? {
             return DOORS[id]
         }
     }
+
     val parser = JSONParser()
     var reader: FileReader? = null
 
-    fun load(){
+    fun load() {
         var count = 0
         reader = FileReader(ServerConstants.CONFIG_PATH + "door_configs.json")
         var configs = parser.parse(reader) as JSONArray
-        for(config in configs){
+        for (config in configs) {
             val e = config as JSONObject
             val door = Door(e["id"].toString().toInt())
             door.replaceId = e["replaceId"].toString().toInt()
@@ -41,7 +42,7 @@ class DoorConfigLoader {
             DOORS[door.replaceId] = replacedDoor
             count++
         }
-        log(this::class.java, Log.FINE,  "Parsed $count door configs.")
+        log(this::class.java, Log.FINE, "Parsed $count door configs.")
     }
 
 

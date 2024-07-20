@@ -25,7 +25,7 @@ class WestDoorSupportDialogue : DialogueFile() {
                 end()
                 lock(player!!, 2)
                 setQuestStage(player!!, "Fight Arena", 20)
-                DoorActionHandler.handleAutowalkDoor(player, getScenery(2584, 3141, 0))
+                DoorActionHandler.handleAutowalkDoor(player!!, getScenery(2584, 3141, 0)!!)
             }
         }
     }

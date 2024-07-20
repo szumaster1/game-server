@@ -8,7 +8,12 @@ import core.game.system.command.Privilege
 class InterfaceCommandSet : Commands {
     override fun defineCommands() {
 
-        define("iftriggers", Privilege.ADMIN, "::iftriggers <lt>id<gt>", "Lists all known triggers for the given interface.") { player, args ->
+        define(
+            name = "iftriggers",
+            privilege = Privilege.ADMIN,
+            usage = "::iftriggers <lt>id<gt>",
+            description = "Lists all known triggers for the given interface."
+        ) { player, args ->
             val id = args.getOrNull(1)?.toIntOrNull() ?: -1
             if (id == -1) reject(player, "Must supply a valid interface ID!")
 
@@ -24,12 +29,12 @@ class InterfaceCommandSet : Commands {
                     notify(
                         player,
                         logToConsole = true,
-                        message = "  Transmit ${child.triggers.varpTriggers.joinToString(",")} triggers script ${child.scripts.onVarpTransmit.id}"
+                        message = "  Transmit ${child.triggers.varpTriggers.joinToString(",")} triggers script ${child.scripts.onVarpTransmit!!.id}"
                     )
                     notify(
                         player,
                         logToConsole = true,
-                        message = "  Default script args: ${child.scripts.onVarpTransmit.args.joinToString(",")}"
+                        message = "  Default script args: ${child.scripts.onVarpTransmit!!.args.joinToString(",")}"
                     )
                 }
                 if (child.scripts.onVarcTransmit != null) {
@@ -37,18 +42,23 @@ class InterfaceCommandSet : Commands {
                     notify(
                         player,
                         logToConsole = true,
-                        message = "  Transmit ${child.triggers.varcTriggers.joinToString(",")} triggers script ${child.scripts.onVarcTransmit.id}"
+                        message = "  Transmit ${child.triggers.varcTriggers.joinToString(",")} triggers script ${child.scripts.onVarcTransmit!!.id}"
                     )
                     notify(
                         player,
                         logToConsole = true,
-                        message = "  Default script args: ${child.scripts.onVarcTransmit.args.joinToString(",")}"
+                        message = "  Default script args: ${child.scripts.onVarcTransmit!!.args.joinToString(",")}"
                     )
                 }
             }
         }
 
-        define("listiftext", Privilege.ADMIN, "::listiftext <lt>id<gt>", "Prints all text values and their child index on an interface.") { player, args ->
+        define(
+            name = "listiftext",
+            privilege = Privilege.ADMIN,
+            usage = "::listiftext <lt>id<gt>",
+            description = "Prints all text values and their child index on an interface."
+        ) { player, args ->
             val id = args.getOrNull(1)?.toIntOrNull() ?: -1
             if (id == -1) reject(player, "Must supply a valid interface ID!")
 
@@ -61,7 +71,12 @@ class InterfaceCommandSet : Commands {
             }
         }
 
-        define("listifmodels", Privilege.ADMIN, "::listifmodels <lt>id<gt>", "Prints all default model values and their child index.") { player, args ->
+        define(
+            name = "listifmodels",
+            privilege = Privilege.ADMIN,
+            usage = "::listifmodels <lt>id<gt>",
+            description = "Prints all default model values and their child index."
+        ) { player, args ->
             val id = args.getOrNull(1)?.toIntOrNull() ?: -1
             if (id == -1) reject(player, "Must supply a valid interface ID!")
 

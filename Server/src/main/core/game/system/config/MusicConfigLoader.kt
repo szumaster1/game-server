@@ -20,7 +20,7 @@ class MusicConfigLoader {
 
     val parser = JSONParser()
     var reader: FileReader? = null
-    fun load(){
+    fun load() {
         var count = 0
         reader = FileReader(ServerConstants.CONFIG_PATH + "music_configs.json")
         var configs = parser.parse(reader) as JSONArray
@@ -28,13 +28,12 @@ class MusicConfigLoader {
         val songs = DataMap.get(1351)
         val names = DataMap.get(1345)
 
-        for((index, songId) in songs.dataStore)
-        {
+        for ((index, songId) in songs.dataStore) {
             val entry = MusicEntry(songId as Int, names.getString(index as Int), index)
             MusicEntry.getSongs().putIfAbsent(songId, entry)
         }
 
-        for(config in configs){
+        for (config in configs) {
             val e = config as JSONObject
             val musicId = Integer.parseInt(e["id"].toString())
             val string = e["borders"].toString()
@@ -42,7 +41,7 @@ class MusicConfigLoader {
             var tokens: Array<String>? = null
             var borders: ZoneBorders? = null
             for (border in borderArray) {
-                if(border.isEmpty()){
+                if (border.isEmpty()) {
                     continue
                 }
                 tokens = border.replace("{", "").replace("}", "").split(",").toTypedArray()
@@ -68,6 +67,6 @@ class MusicConfigLoader {
             }
             count++
         }
-        log(this::class.java, Log.FINE,  "Parsed $count music configs.")
+        log(this::class.java, Log.FINE, "Parsed $count music configs.")
     }
 }

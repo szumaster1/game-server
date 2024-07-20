@@ -1,5 +1,6 @@
 package core.game.system.command.sets
 
+import core.api.setInterfaceText
 import core.game.component.Component
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.QuestRepository
@@ -53,10 +54,9 @@ class QuestCommandSet : CommandSet(Privilege.ADMIN) {
             val quest = args[1].toIntOrNull() ?: reject(player, "INVALID QUEST")
             val stage = args[2].toIntOrNull() ?: reject(player, "INVALID STAGE")
             val questObject = player.questRepository.forIndex(quest as Int)
-            if (questObject == null){
+            if (questObject == null) {
                 reject(player, "$quest did not match anything in the quest repository!")
-            }
-            else{
+            } else {
                 player.questRepository.setStageNonmonotonic(questObject, stage as Int)
                 if (stage == 0) {
                     questObject.reset(player)
@@ -84,13 +84,14 @@ class QuestCommandSet : CommandSet(Privilege.ADMIN) {
     private fun sendQuests(player: Player?) {
         player!!.interfaceManager.open(Component(275))
         for (i in 0..310) {
-            player.packetDispatch.sendString("", 275, i)
+            setInterfaceText(player, "", 275, i)
         }
         var lineId = 11
-        player.packetDispatch.sendString("<col=ecf0f1>" + "Available Quests" + "</col>", 275, 2)
+        setInterfaceText(player, "<col=ecf0f1>" + "Available Quests" + "</col>", 275, 2)
         for (q in QuestRepository.getQuests().toSortedMap().values) {
             // Add a space to beginning and end of string for the strikethrough
-            player.packetDispatch.sendString(
+            setInterfaceText(
+                player,
                 "<col=ecf0f1>" + (if (q.isCompleted(player)) "<str> " else "") + q.name + " ", 275, lineId++
             )
         }
@@ -103,10 +104,10 @@ class QuestCommandSet : CommandSet(Privilege.ADMIN) {
     private fun sendQuestsDebug(admin: Player?, lookupUser: Player?) {
         admin!!.interfaceManager.open(Component(275))
         for (i in 0..310) {
-            admin.packetDispatch.sendString("", 275, i)
+            setInterfaceText(admin, "", 275, i)
         }
         var lineId = 11
-        admin.packetDispatch.sendString("<col=ecf0f1>${lookupUser!!.username}'s Quest Debug</col>", 275, 2)
+        setInterfaceText(admin, "<col=ecf0f1>${lookupUser!!.username}'s Quest Debug</col>", 275, 2)
         for (q in QuestRepository.getQuests().values) {
             // Add a space to beginning and end of string for the strikethrough
             val stage = lookupUser.questRepository.getStage(q)
@@ -115,9 +116,9 @@ class QuestCommandSet : CommandSet(Privilege.ADMIN) {
                 stage in 1..99 -> "ff8400"
                 else -> "ff0000"
             }
-            admin.packetDispatch.sendString("<col=ecf0f1>${q.name}</col>", 275, lineId++)
-            admin.packetDispatch.sendString("<col=ecf0f1>Index: </col><col=ff1f1f><shad=2>${q.index}</shad></col> | <col=ecf0f1>Stage:</col> <col=$statusColor><shad=2>${lookupUser.questRepository.getStage(q)}</shad></col>", 275, lineId++)
-            admin.packetDispatch.sendString("<str>          ", 275, lineId++)
+            setInterfaceText(admin, "<col=ecf0f1>${q.name}</col>", 275, lineId++)
+            setInterfaceText(admin, "<col=ecf0f1>Index: </col><col=ff1f1f><shad=2>${q.index}</shad></col> | <col=ecf0f1>Stage:</col> <col=$statusColor><shad=2>${lookupUser.questRepository.getStage(q)}</shad></col>", 275, lineId++)
+            setInterfaceText(admin, "<str>          ", 275, lineId++)
         }
     }
 }

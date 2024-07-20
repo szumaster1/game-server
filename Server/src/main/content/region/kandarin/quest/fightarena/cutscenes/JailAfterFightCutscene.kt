@@ -45,7 +45,7 @@ class JailAfterFightCutscene(player: Player) : Cutscene(player) {
             }
 
             4 -> {
-                DoorActionHandler.handleAutowalkDoor(player, getObject(40, 5))
+                DoorActionHandler.handleAutowalkDoor(player, getObject(40, 5)!!)
                 timedUpdate(5)
             }
 

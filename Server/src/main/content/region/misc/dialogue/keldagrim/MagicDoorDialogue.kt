@@ -70,7 +70,7 @@ class MagicDoorDialogue(player: Player? = null) : Dialogue(player) {
             } else {
                 end()
                 if (player.inventory.remove(GemData.DIAMOND.gem)) {
-                    DoorActionHandler.handleAutowalkDoor(player, door)
+                    DoorActionHandler.handleAutowalkDoor(player, door!!)
                     player.packetDispatch.sendMessage("You give the doorman a diamond.")
                 }
             }

@@ -13,16 +13,19 @@ class ChatMessage(player: Player, text: String, effects: Int, numChars: Int) {
      */
     var player: Player = player
         private set
+
     /**
      * The chat text.
      */
     var text: String = text
         private set
+
     /**
      * The effects.
      */
     var effects = effects
         private set
+
     /**
      * The numChars.
      */
@@ -32,5 +35,5 @@ class ChatMessage(player: Player, text: String, effects: Int, numChars: Int) {
     var chatIcon = Rights.getChatIcon(player)
 
     @JvmField
-	var isQuickChat = false
+    var isQuickChat = false
 }

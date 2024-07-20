@@ -69,7 +69,7 @@ class FortressGuardDialogue(player: Player? = null) : Dialogue(player) {
             52 -> npc(FacialExpression.NEUTRAL, "Wise move.").also { stage = END_DIALOGUE }
             54 -> {
                 end()
-                DoorActionHandler.handleAutowalkDoor(player, getObject(0, 3020, 3515))
+                DoorActionHandler.handleAutowalkDoor(player, getObject(0, 3020, 3515)!!)
                 val npcs = getLocalNpcs(player)
                 for (npc in npcs) {
                     if (npc.id == NPCs.BLACK_KNIGHT_179) {

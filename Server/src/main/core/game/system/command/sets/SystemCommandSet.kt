@@ -41,7 +41,12 @@ class SystemCommandSet : CommandSet(Privilege.ADMIN) {
          * Allows a player to reset their password.
          */
 
-        define("resetpassword", Privilege.STANDARD, "", "WARNING: Case insensitive due to dialogue limitations.") { player, _ ->
+        define(
+            name = "resetpassword",
+            privilege = Privilege.STANDARD,
+            usage = "",
+            description = "WARNING: Case insensitive due to dialogue limitations."
+        ) { player, _ ->
             sendInputDialogue(player, InputType.STRING_SHORT, "Enter Current Password:") { value ->
                 val pass = value.toString()
                 runTask(player) {
@@ -70,7 +75,12 @@ class SystemCommandSet : CommandSet(Privilege.ADMIN) {
          * Allows an Administrator to reset a password.
          */
 
-        define("setpasswordother", Privilege.ADMIN, "::resetpasswordother <lt>USERNAME<gt> <lt>NEW<gt>", "Gives the username password NEW.") { player, args ->
+        define(
+            name = "setpasswordother",
+            privilege = Privilege.ADMIN,
+            usage = "::resetpasswordother <lt>USERNAME<gt> <lt>NEW<gt>",
+            description = "Gives the username password NEW."
+        ) { player, args ->
             if (args.size != 3) {
                 reject(
                     player,
@@ -100,7 +110,12 @@ class SystemCommandSet : CommandSet(Privilege.ADMIN) {
             }
         }
 
-        define("giveitem", Privilege.ADMIN, "::giveitem <lt>USERNAME<gt> <lt>ITEM ID<gt> <lt>AMOUNT<gt>", "Gives the user the amount of the given item.") { player, args ->
+        define(
+            name = "giveitem",
+            privilege = Privilege.ADMIN,
+            usage = "::giveitem <lt>USERNAME<gt> <lt>ITEM ID<gt> <lt>AMOUNT<gt>",
+            description = "Gives the user the amount of the given item."
+        ) { player, args ->
             if (args.size == 3 || args.size == 4) {
                 val victim = Repository.getPlayerByName(args[1])
                 val itemID = args[2].toIntOrNull()
@@ -142,7 +157,12 @@ class SystemCommandSet : CommandSet(Privilege.ADMIN) {
             }
         }
 
-        define("removeitem", Privilege.ADMIN, "::removeitem <lt>LOC<gt> <lt>USERNAME<gt> <lt>ITEM ID<gt> <lt>AMOUNT<gt>", "LOC = bank,inventory,equipment") { player, args ->
+        define(
+            name = "removeitem",
+            privilege = Privilege.ADMIN,
+            usage = "::removeitem <lt>LOC<gt> <lt>USERNAME<gt> <lt>ITEM ID<gt> <lt>AMOUNT<gt>",
+            description = "LOC = bank,inventory,equipment"
+        ) { player, args ->
             if (args.size == 4 || args.size == 5) {
                 val itemLoc = args[1].lowercase()
                 val victim = Repository.getPlayerByName(args[2])
@@ -195,7 +215,12 @@ class SystemCommandSet : CommandSet(Privilege.ADMIN) {
             }
         }
 
-        define("removeitemall", Privilege.ADMIN, "::removeitemall <lt>USERNAME<gt> <lt>ITEM ID<gt>", "Removes ALL of a given item from the player.") { player, args ->
+        define(
+            name = "removeitemall",
+            privilege = Privilege.ADMIN,
+            usage = "::removeitemall <lt>USERNAME<gt> <lt>ITEM ID<gt>",
+            description = "Removes ALL of a given item from the player."
+        ) { player, args ->
             if (args.size == 3) {
                 val victim = Repository.getPlayerByName(args[1])
                 val itemID = args[2].toIntOrNull()
@@ -246,7 +271,12 @@ class SystemCommandSet : CommandSet(Privilege.ADMIN) {
             }
         }
 
-        define("potato", Privilege.ADMIN, "", "Gives you a rotten potato.") { player, _ ->
+        define(
+            name = "potato",
+            privilege = Privilege.ADMIN,
+            usage = "",
+            description = "Gives you a rotten potato."
+        ) { player, _ ->
             player.inventory.add(Item(Items.ROTTEN_POTATO_5733))
         }
 
@@ -265,7 +295,12 @@ class SystemCommandSet : CommandSet(Privilege.ADMIN) {
          * Author: RiL
          */
 
-        define("charge", Privilege.ADMIN, "::charge <lt>equipment slot name | item id<gt> [sd] [<lt>charge<gt>]", "Get/set the charge of an item. Flags: s = set, d = distinct(#).") { player, args ->
+        define(
+            name = "charge",
+            privilege = Privilege.ADMIN,
+            usage = "::charge <lt>equipment slot name | item id<gt> [sd] [<lt>charge<gt>]",
+            description = "Get/set the charge of an item. Flags: s = set, d = distinct(#)."
+        ) { player, args ->
             if (args.size < 2) reject(
                 player,
                 "Usage: ::charge <lt>equipment slot name | item id<gt> [sd] [<lt>charge<gt>]",

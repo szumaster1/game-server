@@ -6,20 +6,24 @@ import core.game.system.timer.PersistTimer
 import core.game.system.timer.RSTimer
 import core.game.system.timer.TimerFlag
 
-class Skulled : PersistTimer (1, "skulled", flags = arrayOf(TimerFlag.ClearOnDeath)) {
-    override fun onRegister (entity: Entity) {
+class Skulled : PersistTimer(
+    runInterval = 1,
+    identifier = "skulled",
+    flags = arrayOf(TimerFlag.ClearOnDeath)
+) {
+    override fun onRegister(entity: Entity) {
         if (entity !is Player) return
         entity.skullManager.setSkullIcon(0)
         entity.skullManager.isSkulled = true
     }
 
-    override fun run (entity: Entity) : Boolean {
+    override fun run(entity: Entity): Boolean {
         if (entity !is Player) return false
         entity.skullManager.reset()
         return false
     }
 
-    override fun getTimer (vararg args: Any) : RSTimer {
+    override fun getTimer(vararg args: Any): RSTimer {
         val t = Skulled()
         t.runInterval = args.getOrNull(0) as? Int ?: 500
         return t

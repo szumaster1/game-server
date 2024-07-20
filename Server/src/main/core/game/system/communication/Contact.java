@@ -7,20 +7,20 @@ package core.game.system.communication;
  */
 public final class Contact {
 
-	/**
-	 * The username of the contact.
-	 */
-	private final String username;
+    /**
+     * The username of the contact.
+     */
+    private final String username;
 
-	/**
-	 * The world the contact is in.
-	 */
-	private int worldId;
+    /**
+     * The world the contact is in.
+     */
+    private int worldId;
 
-	/**
-	 * The contact's rank in the player's clan.
-	 */
-	private ClanRank rank = ClanRank.FRIEND;
+    /**
+     * The contact's rank in the player's clan.
+     */
+    private ClanRank rank = ClanRank.FRIEND;
 
     /**
      * Constructs a new {@code Contact} {@code Object}
@@ -28,8 +28,8 @@ public final class Contact {
      * @param username The username.
      */
     public Contact(String username) {
-		this.username = username;
-	}
+        this.username = username;
+    }
 
     /**
      * Gets the worldId.
@@ -37,8 +37,8 @@ public final class Contact {
      * @return the worldId
      */
     public int getWorldId() {
-		return worldId;
-	}
+        return worldId;
+    }
 
     /**
      * Sets the worldId.
@@ -46,8 +46,8 @@ public final class Contact {
      * @param worldId the worldId to set.
      */
     public void setWorldId(int worldId) {
-		this.worldId = worldId;
-	}
+        this.worldId = worldId;
+    }
 
     /**
      * Gets the rank.
@@ -55,8 +55,8 @@ public final class Contact {
      * @return the rank
      */
     public ClanRank getRank() {
-		return rank;
-	}
+        return rank;
+    }
 
     /**
      * Sets the rank.
@@ -64,8 +64,8 @@ public final class Contact {
      * @param rank the rank to set.
      */
     public void setRank(ClanRank rank) {
-		this.rank = rank;
-	}
+        this.rank = rank;
+    }
 
     /**
      * Gets the username.
@@ -73,7 +73,7 @@ public final class Contact {
      * @return the username
      */
     public String getUsername() {
-		return username;
-	}
+        return username;
+    }
 
 }

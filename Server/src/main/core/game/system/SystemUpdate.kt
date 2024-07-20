@@ -102,6 +102,7 @@ class SystemUpdate : Pulse(DEFAULT_COUNTDOWN) {
          * The default countdown for an update, in ticks.
          */
         const val DEFAULT_COUNTDOWN = 100
+
         /*
          * The amount of ticks left of when to create a backup.
          */

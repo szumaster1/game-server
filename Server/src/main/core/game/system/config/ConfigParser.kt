@@ -18,6 +18,7 @@ class ConfigParser : Commands {
         XteaParser().load()
         InterfaceConfigParser().load()
     }
+
     fun postPlugin() {
         ShopParser().load()
         DropTableParser().load()
@@ -31,17 +32,17 @@ class ConfigParser : Commands {
     }
 
     fun reloadConfigs(callback: () -> Unit) {
-        GlobalScope.launch { 
+        GlobalScope.launch {
             Repository.npcs.toTypedArray().forEach { npc ->
                 npc.isRespawn = false
                 npc.clear()
                 Repository.npcs.remove(npc)
                 Repository.removeRenderableNPC(npc)
             }
-            
-            GroundItemManager.getItems().toTypedArray().forEach {gi -> 
+
+            GroundItemManager.getItems().toTypedArray().forEach { gi ->
                 GroundItemManager.getItems().remove(gi)
-                RegionManager.getRegionPlane(gi.location).remove(gi) 
+                RegionManager.getRegionPlane(gi.location).remove(gi)
             }
 
             prePlugin()
@@ -52,7 +53,7 @@ class ConfigParser : Commands {
     }
 
     override fun defineCommands() {
-        define("reloadjson", Privilege.ADMIN, "", "Reloads all the JSON configs.") { player, _ -> 
+        define("reloadjson", Privilege.ADMIN, "", "Reloads all the JSON configs.") { player, _ ->
             notify(player, "Reloading JSON...")
             reloadConfigs { notify(player, "JSON reloaded.") }
         }

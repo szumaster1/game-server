@@ -18,7 +18,7 @@ class DoorPlateauDialogueFile(val door: Int) : DialogueFile() {
             when (stage) {
                 0 -> if (player!!.location.y < 3543) {
                     end()
-                    DoorActionHandler.handleAutowalkDoor(player, getScenery(2906, 3543, 1))
+                    DoorActionHandler.handleAutowalkDoor(player!!, getScenery(2906, 3543, 1)!!)
                 } else {
                     sendDialogue(player!!, "You knock on the door.").also { stage++ }
                 }
@@ -26,7 +26,7 @@ class DoorPlateauDialogueFile(val door: Int) : DialogueFile() {
                 1 -> npcl(FacialExpression.FRIENDLY, "Come on in!").also { stage++ }
                 2 -> {
                     end()
-                    DoorActionHandler.handleAutowalkDoor(player, getScenery(2906, 3543, 1))
+                    DoorActionHandler.handleAutowalkDoor(player!!, getScenery(2906, 3543, 1)!!)
                 }
             }
         }
@@ -39,7 +39,7 @@ class DoorPlateauDialogueFile(val door: Int) : DialogueFile() {
                         0 -> {
                             if (player!!.location.x < 2823) {
                                 end()
-                                DoorActionHandler.handleAutowalkDoor(player, getScenery(2823, 3555, 0))
+                                DoorActionHandler.handleAutowalkDoor(player!!, getScenery(2823, 3555, 0)!!)
                             } else {
                                 sendDialogue(player!!, "You knock on the door.").also { stage++ }
                             }
@@ -54,7 +54,7 @@ class DoorPlateauDialogueFile(val door: Int) : DialogueFile() {
                         0 -> {
                             if (player!!.location.x < 2823) {
                                 end()
-                                DoorActionHandler.handleAutowalkDoor(player, getScenery(2823, 3555, 0))
+                                DoorActionHandler.handleAutowalkDoor(player!!, getScenery(2823, 3555, 0)!!)
                             } else {
                                 sendDialogue(player!!, "You knock on the door.")
                                 stage++
@@ -66,14 +66,14 @@ class DoorPlateauDialogueFile(val door: Int) : DialogueFile() {
                         3 -> npcl(FacialExpression.FRIENDLY, "Oh...OK. You'd better come in then.").also { stage++ }
                         4 -> {
                             end()
-                            DoorActionHandler.handleAutowalkDoor(player, getScenery(2823, 3555, 0))
+                            DoorActionHandler.handleAutowalkDoor(player!!, getScenery(2823, 3555, 0)!!)
                         }
                     }
                 }
 
                 in 21..100 -> {
                     end()
-                    DoorActionHandler.handleAutowalkDoor(player, getScenery(2823, 3555, 0))
+                    DoorActionHandler.handleAutowalkDoor(player!!, getScenery(2823, 3555, 0)!!)
                 }
             }
         }
@@ -88,7 +88,7 @@ class DoorPlateauDialogueFile(val door: Int) : DialogueFile() {
 
                 in 25..100 -> {
                     end()
-                    DoorActionHandler.handleAutowalkDoor(player, getScenery(2820, 3558, 0))
+                    DoorActionHandler.handleAutowalkDoor(player!!, getScenery(2820, 3558, 0)!!)
                 }
             }
         }

@@ -54,7 +54,7 @@ class JeremyRescueCutscene(player: Player) : Cutscene(player) {
             }
 
             5 -> {
-                DoorActionHandler.handleAutowalkDoor(Jeremy, getObject(57, 31, 0))
+                DoorActionHandler.handleAutowalkDoor(Jeremy, getObject(57, 31, 0)!!)
                 timedUpdate(3)
             }
 
@@ -83,7 +83,7 @@ class JeremyRescueCutscene(player: Player) : Cutscene(player) {
             }
 
             9 -> {
-                DoorActionHandler.handleAutowalkDoor(player, getObject(46, 16))
+                DoorActionHandler.handleAutowalkDoor(player, getObject(46, 16)!!)
                 timedUpdate(1)
             }
 
@@ -127,7 +127,7 @@ class JeremyRescueCutscene(player: Player) : Cutscene(player) {
             }
 
             16 -> {
-                DoorActionHandler.handleAutowalkDoor(getNPC(OGRE)!!, getObject(46, 29))
+                DoorActionHandler.handleAutowalkDoor(getNPC(OGRE)!!, getObject(46, 29)!!)
                 timedUpdate(2)
             }
 

@@ -15,10 +15,10 @@ public abstract class Pulse implements Runnable {
      */
     public boolean running = true;
 
-	/**
-	 * The amount of game-ticks to wait before execution.
-	 */
-	private int delay;
+    /**
+     * The amount of game-ticks to wait before execution.
+     */
+    private int delay;
 
     /**
      * The amount of ticks passed.
@@ -34,8 +34,8 @@ public abstract class Pulse implements Runnable {
      * Constructs a new {@code Pulse} {@code Object}.
      */
     public Pulse() {
-		this(1);
-	}
+        this(1);
+    }
 
     /**
      * Constructs a new {@code Pulse} object.
@@ -43,8 +43,8 @@ public abstract class Pulse implements Runnable {
      * @param delay The delay.
      */
     public Pulse(int delay) {
-		this.delay = delay;
-	}
+        this.delay = delay;
+    }
 
     /**
      * Constructs a new {@code Pulse} object.
@@ -53,16 +53,16 @@ public abstract class Pulse implements Runnable {
      * @param checks The nodes that have to be active for the pulse to continue.
      */
     public Pulse(int delay, Node... checks) {
-		this.delay = delay;
-		this.checks = checks;
-	}
+        this.delay = delay;
+        this.checks = checks;
+    }
 
-	@Override
-	public void run() {
-		if(update()){
-			//GameWorld.TASKS.remove(this);
-		}
-	}
+    @Override
+    public void run() {
+        if (update()) {
+            //GameWorld.TASKS.remove(this);
+        }
+    }
 
     /**
      * s
@@ -71,29 +71,29 @@ public abstract class Pulse implements Runnable {
      * @return {@code True} if this {@code Pulse} is finished and can be removed, {@code false} if not.
      */
     public boolean update() {
-		if (hasInactiveNode()) {
-			stop();
-			return true;
-		}
-		if (!isRunning()) {
-			return true;
-		}
-		if (++ticksPassed >= delay) {
-			ticksPassed = 0;
-			try {
-				if (pulse()) {
-					stop();
-					return true;
-				}
-			} catch (Exception e){
-				e.printStackTrace();
-				stop();
-				return true;
-			}
-			return !isRunning();
-		}
-		return false;
-	}
+        if (hasInactiveNode()) {
+            stop();
+            return true;
+        }
+        if (!isRunning()) {
+            return true;
+        }
+        if (++ticksPassed >= delay) {
+            ticksPassed = 0;
+            try {
+                if (pulse()) {
+                    stop();
+                    return true;
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                stop();
+                return true;
+            }
+            return !isRunning();
+        }
+        return false;
+    }
 
     /**
      * Checks if one of the node checks is inactive.
@@ -101,17 +101,17 @@ public abstract class Pulse implements Runnable {
      * @return {@code True} if so.
      */
     public boolean hasInactiveNode() {
-		if (checks != null) {
-			int size = checks.length;
-			for (int i = 0; i < size; i++) {
-				Node n = checks[i];
-				if (n != null && !n.isActive()) {
-					return true;
-				}
-			}
-		}
-		return false;
-	}
+        if (checks != null) {
+            int size = checks.length;
+            for (int i = 0; i < size; i++) {
+                Node n = checks[i];
+                if (n != null && !n.isActive()) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
     /**
      * Called after the delay has passed.
@@ -128,8 +128,8 @@ public abstract class Pulse implements Runnable {
      * @return {@code True} if this pulse should be removed (default).
      */
     public boolean removeFor(String pulse) {
-		return true;
-	}
+        return true;
+    }
 
     /**
      * Adds a node check.
@@ -138,8 +138,8 @@ public abstract class Pulse implements Runnable {
      * @param n     The node.
      */
     public void addNodeCheck(int index, Node n) {
-		checks[index] = n;
-	}
+        checks[index] = n;
+    }
 
     /**
      * Gets a node check.
@@ -148,29 +148,29 @@ public abstract class Pulse implements Runnable {
      * @return The node.
      */
     public Node getNodeCheck(int index) {
-		return checks[index];
-	}
+        return checks[index];
+    }
 
     /**
      * Manually stop the {@code Pulse} task.
      */
     public void stop() {
-		running = false;
-	}
+        running = false;
+    }
 
     /**
      * Manually start the {@code Pulse} task.
      */
     public void start() {
-		running = true;
-	}
+        running = true;
+    }
 
     /**
      * Restarts the pulse delay.
      */
     public void restart() {
-		ticksPassed = 0;
-	}
+        ticksPassed = 0;
+    }
 
     /**
      * Checks if the pulse is still running.
@@ -178,8 +178,8 @@ public abstract class Pulse implements Runnable {
      * @return {@code True} if the pulse is still running.
      */
     public boolean isRunning() {
-		return running;
-	}
+        return running;
+    }
 
     /**
      * Gets the delay of this {@code Pulse}.
@@ -187,8 +187,8 @@ public abstract class Pulse implements Runnable {
      * @return The delay.
      */
     public int getDelay() {
-		return delay;
-	}
+        return delay;
+    }
 
     /**
      * Sets the delay.
@@ -196,8 +196,8 @@ public abstract class Pulse implements Runnable {
      * @param delay The delay.
      */
     public void setDelay(int delay) {
-		this.delay = delay;
-	}
+        this.delay = delay;
+    }
 
     /**
      * Sets the amount of ticks passed.
@@ -205,8 +205,8 @@ public abstract class Pulse implements Runnable {
      * @param ticks The amount of ticks passed in this pulse.
      */
     public void setTicksPassed(int ticks) {
-		this.ticksPassed = ticks;
-	}
+        this.ticksPassed = ticks;
+    }
 
     /**
      * Gets the amount of ticks passed.
@@ -214,6 +214,6 @@ public abstract class Pulse implements Runnable {
      * @return The amount of ticks passed so far.
      */
     public int getTicksPassed() {
-		return ticksPassed;
-	}
+        return ticksPassed;
+    }
 }

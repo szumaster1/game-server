@@ -54,7 +54,7 @@ class LostTribeCutscene(player: Player) : Cutscene(player) {
             }
 
             3 -> {
-                DoorActionHandler.handleDoor(player, getObject(7, 17))
+                DoorActionHandler.handleDoor(player, getObject(7, 17)!!)
                 timedUpdate(3)
             }
 

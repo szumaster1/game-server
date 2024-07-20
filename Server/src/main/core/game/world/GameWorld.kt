@@ -75,23 +75,30 @@ object GameWorld {
     @JvmStatic
     val STARTUP_PLUGINS: List<StartupPlugin> = ArrayList()
     private val configParser = ConfigParser()
+
     @JvmStatic
     var PCBotsSpawned = false
+
     @JvmStatic
     var PCnBotsSpawned = false
+
     @JvmStatic
     var PCiBotsSpawned = false
+
     /**
      * The game settings to use.
      */
     @JvmStatic
     var settings: GameSettings? = null
+
     @JvmStatic
     val authenticator: AuthProvider<*>
         get() = Auth.authenticator
+
     @JvmStatic
     val accountStorage: AccountStorageProvider
         get() = Auth.storageProvider
+
     /**
      * The current amount of (600ms) cycles elapsed.
      */
@@ -117,7 +124,9 @@ object GameWorld {
             TaskExecutor.execute {
                 val player = Repository.players
                 try {
-                    player.stream().filter { obj: Player? -> Objects.nonNull(obj) }.filter { p: Player -> !p.isArtificial && p.isPlaying }.forEach { p: Player? -> Repository.disconnectionQueue.save(p!!, false) }
+                    player.stream().filter { obj: Player? -> Objects.nonNull(obj) }
+                        .filter { p: Player -> !p.isArtificial && p.isPlaying }
+                        .forEach { p: Player? -> Repository.disconnectionQueue.save(p!!, false) }
                 } catch (t: Throwable) {
                     t.printStackTrace()
                 }
@@ -161,7 +170,7 @@ object GameWorld {
      * @throws Throwable When an exception occurs.
      */
     @Throws(Throwable::class)
-    fun prompt(run: Boolean, directory: String?){
+    fun prompt(run: Boolean, directory: String?) {
         log(GameWorld::class.java, Log.FINE, "Prompting ${settings?.name} Game World...")
         Cache.init(ServerConstants.CACHE_PATH)
         //go overboard with checks to make sure dev mode authenticator never triggers on live
@@ -182,7 +191,10 @@ object GameWorld {
         SceneryDefinition.getDefinitions().values.forEach(Consumer { obj: SceneryDefinition -> obj.examine })
 
         if (ServerConstants.PRELOAD_MAP) {
-            //force early loading of all commonly accessed regions to improve performance at the cost of memory usage
+            /*
+             * Force early loading of all commonly accessed regions
+             * to improve performance at the cost of memory usage.
+             */
             (7483..15420).forEach { id -> RegionManager.forId(id).also { Region.load(it) } }
         }
 
@@ -200,7 +212,7 @@ object GameWorld {
     }
 
     /**
-     * Checks if its the economy world.
+     * Checks if it's the economy world.
      *
      * @return `True` if so.
      */
@@ -209,12 +221,12 @@ object GameWorld {
         get() = false
 
     private fun generateLocation(): Location {
-        val random_location = Location(3075 + RandomFunction.random(-15, 15), 3954 + RandomFunction.random(-15, 15), 0)
-        if (!RegionManager.isTeleportPermitted(random_location)) {
+        val randomLocation = Location(3075 + RandomFunction.random(-15, 15), 3954 + RandomFunction.random(-15, 15), 0)
+        if (!RegionManager.isTeleportPermitted(randomLocation)) {
             return generateLocation()
         }
-        return if (RegionManager.getObject(random_location) != null) {
+        return if (RegionManager.getObject(randomLocation) != null) {
             generateLocation()
-        } else random_location
+        } else randomLocation
     }
 }

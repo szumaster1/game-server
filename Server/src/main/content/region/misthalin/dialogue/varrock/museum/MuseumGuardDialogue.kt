@@ -66,7 +66,7 @@ class MuseumGuardEntranceDialogue : DialogueFile() {
             3 -> {
                 end()
                 val door = getObject(Location(3261, 3446, 0))
-                if (DoorActionHandler.getEndLocation(player, door).y > player!!.location.y) Animation(Animations.HANDS_BEHIND_BACK_SIDEWAYS_DO_A_MOTION_6391) else Animation(Animations.HANDS_BEHIND_BACK_SIDEWAYS_DO_A_MOTION_6392)
+                if (DoorActionHandler.getEndLocation(player!!, door!!).y > player!!.location.y) Animation(Animations.HANDS_BEHIND_BACK_SIDEWAYS_DO_A_MOTION_6391) else Animation(Animations.HANDS_BEHIND_BACK_SIDEWAYS_DO_A_MOTION_6392)
                 DoorActionHandler.handleAutowalkDoor(player!!, door)
             }
         }

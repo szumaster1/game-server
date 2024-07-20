@@ -31,7 +31,12 @@ class KebabEffect : ConsumableEffect() {
             if (RandomFunction.nextInt(100) < 50) {
                 val affectedSkillSlot = RandomFunction.nextInt(Skills.NUM_SKILLS - 1)
                 effect = when (affectedSkillSlot) {
-                    Skills.ATTACK, Skills.DEFENCE, Skills.STRENGTH -> MultiEffect(SkillEffect(Skills.ATTACK, -3.0, 0.0), SkillEffect(Skills.DEFENCE, -3.0, 0.0), SkillEffect(Skills.STRENGTH, -3.0, 0.0))
+                    Skills.ATTACK, Skills.DEFENCE, Skills.STRENGTH -> MultiEffect(
+                        SkillEffect(Skills.ATTACK, -3.0, 0.0),
+                        SkillEffect(Skills.DEFENCE, -3.0, 0.0),
+                        SkillEffect(Skills.STRENGTH, -3.0, 0.0)
+                    )
+
                     else -> SkillEffect(affectedSkillSlot, -3.0, 0.0)
                 }
                 sendMessage(p, "That tasted a bit dodgy. You feel a bit ill.")
@@ -40,7 +45,12 @@ class KebabEffect : ConsumableEffect() {
                 sendMessage(p, "That kebab didn't seem to do a lot.")
             }
         } else {
-            effect = MultiEffect(HealingEffect(30), RandomSkillEffect(Skills.ATTACK, 1, 3), RandomSkillEffect(Skills.DEFENCE, 1, 3), RandomSkillEffect(Skills.STRENGTH, 1, 3))
+            effect = MultiEffect(
+                HealingEffect(30),
+                RandomSkillEffect(Skills.ATTACK, 1, 3),
+                RandomSkillEffect(Skills.DEFENCE, 1, 3),
+                RandomSkillEffect(Skills.STRENGTH, 1, 3)
+            )
             effect.activate(p)
             sendMessage(p, "Wow, that was an amazing kebab! You feel really invigorated.")
         }

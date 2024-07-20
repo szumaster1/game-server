@@ -43,7 +43,7 @@ class ConstructionDoorPlugin : OptionHandler() {
         }
         val scenery = node as Scenery
         val second = DoorActionHandler.getSecondDoor(scenery, player)
-        DoorActionHandler.open(scenery, second, getReplaceId(scenery), getReplaceId(second), true, 500, false)
+        DoorActionHandler.open(scenery, second, getReplaceId(scenery), getReplaceId(second!!), true, 500, false)
         return true
     }
 

@@ -13,11 +13,15 @@ class ShopParser{
     var reader: FileReader? = null
 
     companion object {
-/*        val SHOPS = HashMap<Int, Shop>()
-        val UID_SHOPS = HashMap<Int,Shop>()*/
-        fun openUid(player: Player,uid: Int): Boolean {
-/*            val shop = UID_SHOPS[uid] ?: return false;
-            shop.open(player);*/
+        /*
+        val SHOPS = HashMap<Int, Shop>()
+        val UID_SHOPS = HashMap<Int,Shop>()
+        */
+        fun openUid(player: Player, uid: Int): Boolean {
+            /*
+            val shop = UID_SHOPS[uid] ?: return false;
+            shop.open(player);
+            */
             return true
 }
     }

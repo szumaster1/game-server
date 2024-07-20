@@ -47,7 +47,12 @@ class SlayerCommandSet : CommandSet(Privilege.ADMIN) {
             Set the slayer task.
          */
 
-        define("setslayertask", Privilege.ADMIN, "::setslayertask <lt>npc id<gt> [amount]", "Set the slayer task to npc. Amount optional.") { player, args ->
+        define(
+            name = "setslayertask",
+            privilege = Privilege.ADMIN,
+            usage = "::setslayertask <lt>npc id<gt> [amount]",
+            description = "Set the slayer task to npc. Amount optional."
+        ) { player, args ->
             if (args.size < 2) reject(player, "Usage: ::setslayertask <lt>npc id<gt> [amount]")
 
             val npc = (args[1].toIntOrNull() ?: reject(player, "Must enter valid npc id")) as Int

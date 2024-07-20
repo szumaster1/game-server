@@ -43,7 +43,10 @@ class PlayerAttributeCommandSet : CommandSet(Privilege.ADMIN) {
                 return@define
             }
 
-            notify(player, "Attribute: " + attributeName + " Value: " + getAttribute(queryPlayer, attributeName, "").toString())
+            notify(
+                player,
+                "Attribute: " + attributeName + " Value: " + getAttribute(queryPlayer, attributeName, "").toString()
+            )
             return@define
         }
 

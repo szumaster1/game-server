@@ -15,7 +15,7 @@ import core.services.grafana.Grafana
  * The entity update sequence.
  * @author Emperor
  */
-class UpdateSequence{
+class UpdateSequence {
     var lobbyList: List<Player>? = null
     var playersList: List<Player>? = null
     var npcList: List<NPC>? = null

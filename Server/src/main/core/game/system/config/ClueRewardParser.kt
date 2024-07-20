@@ -14,10 +14,13 @@ class ClueRewardParser {
     companion object {
         @JvmStatic
         var easyTable = WeightBasedTable()
+
         @JvmStatic
         var medTable = WeightBasedTable()
+
         @JvmStatic
         var hardTable = WeightBasedTable()
+
         @JvmStatic
         var rareTable = WeightBasedTable()
     }

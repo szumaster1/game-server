@@ -15,7 +15,7 @@ import java.io.FileReader
 
 class
 NPCConfigParser {
-    companion object{
+    companion object {
         const val WEAKNESS = "weakness"
         const val LIFEPOINTS = "lifepoints"
         const val ATTACK_LEVEL = "attack_level"
@@ -54,32 +54,37 @@ NPCConfigParser {
         const val PROTECT_STYLE = "protect_style"
 
     }
+
     val parser = JSONParser()
     var reader: FileReader? = null
-    fun load(){
+    fun load() {
         var count = 0
         reader = FileReader(ServerConstants.CONFIG_PATH + "npc_configs.json")
         val configlist = parser.parse(reader) as JSONArray
-        for(config in configlist){
+        for (config in configlist) {
             val e = config as JSONObject
             val def = NPCDefinition.forId(e["id"].toString().toInt())
             val configs = def.handlers
             e.map {
-                if(it.value.toString().isNotEmpty() && it.value.toString() != "null") {
+                if (it.value.toString().isNotEmpty() && it.value.toString() != "null") {
                     when (it.key.toString()) {
                         "melee_animation",
                         "range_animation",
                         "magic_animation",
                         "death_animation",
-                        "defence_animation" -> configs[it.key.toString()] = Animation(it.value.toString().toInt(), Animator.Priority.HIGH)
+                        "defence_animation" -> configs[it.key.toString()] =
+                            Animation(it.value.toString().toInt(), Animator.Priority.HIGH)
 
                         "combat_style",
-                        "protect_style" -> configs[it.key.toString()] = CombatStyle.values()[it.value.toString().toInt()]
+                        "protect_style" -> configs[it.key.toString()] =
+                            CombatStyle.values()[it.value.toString().toInt()]
 
 
                         "clue_level" -> configs[it.key.toString()] = ClueLevel.values()[it.value.toString().toInt()]
                         "name", "examine" -> configs[it.key.toString()] = it.value.toString()
-                        "combat_audio", "bonuses" -> configs[it.key.toString()] = it.value.toString().split(",").map { v -> v.toInt() }.toIntArray()
+                        "combat_audio", "bonuses" -> configs[it.key.toString()] =
+                            it.value.toString().split(",").map { v -> v.toInt() }.toIntArray()
+
                         "force_talk" -> configs[it.key.toString()] = it.value.toString()
 
                         "spawn_animation",
@@ -104,7 +109,8 @@ NPCConfigParser {
                         "end_height",
                         "spell_id",
                         "death_gfx",
-                        "magic_level" -> configs[it.key.toString()] = if (it.value.toString().isEmpty()) Unit else it.value.toString().toInt()
+                        "magic_level" -> configs[it.key.toString()] =
+                            if (it.value.toString().isEmpty()) Unit else it.value.toString().toInt()
 
                         "slayer_exp" -> configs[it.key.toString()] = it.value.toString().toDouble()
 
@@ -116,12 +122,12 @@ NPCConfigParser {
                         "can_tolerate",
                         "water_npc" -> configs[it.key.toString()] = it.value.toString().toBoolean()
 
-                        else -> log(this::class.java, Log.WARN,  "Unhandled key for npc config: ${it.key.toString()}")
+                        else -> log(this::class.java, Log.WARN, "Unhandled key for npc config: ${it.key.toString()}")
                     }
                 }
             }
             count++
         }
-        log(this::class.java, Log.FINE,  "Parsed $count NPC configurations")
+        log(this::class.java, Log.FINE, "Parsed $count NPC configurations")
     }
 }

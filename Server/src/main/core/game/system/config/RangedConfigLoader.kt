@@ -21,16 +21,16 @@ class RangedConfigLoader {
     val parser = JSONParser()
     var reader: FileReader? = null
 
-    fun load(){
+    fun load() {
         var count = 0
         reader = FileReader(ServerConstants.CONFIG_PATH + "ammo_configs.json")
         var configs = parser.parse(reader) as JSONArray
-        for(entry in configs){
+        for (entry in configs) {
             val e = entry as JSONObject
             var dbowgfx: Graphic? = null
             val projectile = e["projectile"].toString().split(",")
-            if(e["darkbow_graphic"].toString().isNotBlank()){
-                val darkbow =  e["darkbow_graphic"].toString().split(",")
+            if (e["darkbow_graphic"].toString().isNotBlank()) {
+                val darkbow = e["darkbow_graphic"].toString().split(",")
                 dbowgfx = Graphic(
                     Integer.parseInt(darkbow[0]),
                     Integer.parseInt(darkbow[1])
@@ -38,23 +38,25 @@ class RangedConfigLoader {
             }
             val gfx = e["start_graphic"].toString().split(",")
             val ammo = Ammunition(
-                    Integer.parseInt(e["itemId"] as String),
+                Integer.parseInt(e["itemId"] as String),
                 Graphic(
                     Integer.parseInt(gfx[0]),
                     Integer.parseInt(gfx[1])
                 ),
-                    dbowgfx,
-                    Projectile.create(
-                            NPC(0, Location(0,0,0)),
-                            NPC(0,Location(0,0,0)),
-                            Integer.parseInt(projectile[0]),
-                            Integer.parseInt(projectile[1]),
-                            Integer.parseInt(projectile[2]),
-                            Integer.parseInt(projectile[3]),
-                            Integer.parseInt(projectile[4]),
-                            Integer.parseInt(projectile[5]),
-                            Integer.parseInt(projectile[6])),
-                    Integer.parseInt(e["poison_damage"].toString()))
+                dbowgfx,
+                Projectile.create(
+                    NPC(0, Location(0, 0, 0)),
+                    NPC(0, Location(0, 0, 0)),
+                    Integer.parseInt(projectile[0]),
+                    Integer.parseInt(projectile[1]),
+                    Integer.parseInt(projectile[2]),
+                    Integer.parseInt(projectile[3]),
+                    Integer.parseInt(projectile[4]),
+                    Integer.parseInt(projectile[5]),
+                    Integer.parseInt(projectile[6])
+                ),
+                Integer.parseInt(e["poison_damage"].toString())
+            )
             val effect = BoltEffect.forId(Integer.parseInt(e["itemId"].toString()))
             if (effect != null) {
                 ammo.effect = effect
@@ -62,26 +64,26 @@ class RangedConfigLoader {
             Ammunition.getAmmunition()[Integer.parseInt(e["itemId"].toString())] = ammo
             count++
         }
-        log(this::class.java, Log.FINE,  "Parsed $count ammo configs...")
+        log(this::class.java, Log.FINE, "Parsed $count ammo configs...")
 
         count = 0
         reader = FileReader(ServerConstants.CONFIG_PATH + "ranged_weapon_configs.json")
         configs = parser.parse(reader) as JSONArray
-        for(entry in configs){
+        for (entry in configs) {
             val e = entry as JSONObject
             val id = Integer.parseInt(e["itemId"].toString())
             val weapon = RangeWeapon(
-                    id,
-                    Animation(Integer.parseInt(e["animation"].toString())),
-                    ItemDefinition.forId(id).getConfiguration("attack_speed",4),
-                    Integer.parseInt(e["ammo_slot"].toString()),
-                    Integer.parseInt(e["weapon_type"].toString()),
-                    (e["drop_ammo"].toString().toBoolean()),
-                    e["ammunition"].toString().split(",").map { Integer.parseInt(it) }
+                id,
+                Animation(Integer.parseInt(e["animation"].toString())),
+                ItemDefinition.forId(id).getConfiguration("attack_speed", 4),
+                Integer.parseInt(e["ammo_slot"].toString()),
+                Integer.parseInt(e["weapon_type"].toString()),
+                (e["drop_ammo"].toString().toBoolean()),
+                e["ammunition"].toString().split(",").map { Integer.parseInt(it) }
             )
-            RangeWeapon.getRangeWeapons().putIfAbsent(weapon.itemId,weapon)
+            RangeWeapon.getRangeWeapons().putIfAbsent(weapon.itemId, weapon)
             count++
         }
-        log(this::class.java, Log.FINE,  "Parsed $count ranged weapon configs...")
+        log(this::class.java, Log.FINE, "Parsed $count ranged weapon configs...")
     }
 }

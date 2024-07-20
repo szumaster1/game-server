@@ -128,7 +128,7 @@ class PriestDoorDialogue(player: Player? = null) : Dialogue(player) {
             15 -> end()
             20 -> {
                 end()
-                DoorActionHandler.handleDoor(player, door)
+                DoorActionHandler.handleDoor(player, door!!)
             }
         }
         return true

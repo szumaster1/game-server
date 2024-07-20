@@ -76,7 +76,7 @@ class CharlieDialogue(player: Player? = null) : Dialogue(player) {
                                     }
 
                                     4 -> {
-                                        DoorActionHandler.handleAutowalkDoor(player!!, getScenery(2465, 3496, 3))
+                                        DoorActionHandler.handleAutowalkDoor(player!!, getScenery(2465, 3496, 3)!!)
                                         openDialogue(player!!, KingNarnodeUpstairsDialogue(), npc)
                                     }
 

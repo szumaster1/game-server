@@ -25,7 +25,7 @@ class EastDoorSupportDialogue : DialogueFile() {
                 end()
                 lock(player!!, 2)
                 setQuestStage(player!!, "Fight Arena", 20)
-                DoorActionHandler.handleAutowalkDoor(player, getScenery(2617, 3172, 0))
+                DoorActionHandler.handleAutowalkDoor(player!!, getScenery(2617, 3172, 0)!!)
             }
         }
     }

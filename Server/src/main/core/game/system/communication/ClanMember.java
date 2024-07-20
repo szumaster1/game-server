@@ -7,10 +7,10 @@ package core.game.system.communication;
  */
 public final class ClanMember {
 
-	/**
-	 * Represents the rank of the player.
-	 */
-	private ClanRank rank = ClanRank.FRIEND;
+    /**
+     * Represents the rank of the player.
+     */
+    private ClanRank rank = ClanRank.FRIEND;
 
     /**
      * Constructs a new {@code ClanMember} {@code Object}.
@@ -18,8 +18,8 @@ public final class ClanMember {
      * @param rank The clan rank.
      */
     public ClanMember(ClanRank rank) {
-		this.rank = rank;
-	}
+        this.rank = rank;
+    }
 
     /**
      * Gets the rank.
@@ -27,8 +27,8 @@ public final class ClanMember {
      * @return The rank.
      */
     public ClanRank getRank() {
-		return rank;
-	}
+        return rank;
+    }
 
     /**
      * Sets the rank.
@@ -36,7 +36,7 @@ public final class ClanMember {
      * @param rank The rank to set.
      */
     public void setRank(ClanRank rank) {
-		this.rank = rank;
-	}
+        this.rank = rank;
+    }
 
 }

@@ -1,6 +1,6 @@
-package core.cache.def.impl;
+package core.cache.def.impl
 
-public enum ComponentType {
+enum class ComponentType {
     SCROLLABLE,
     UNKNOWN_1,
     UNKNOWN_2,

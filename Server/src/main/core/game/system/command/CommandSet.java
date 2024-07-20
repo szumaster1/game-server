@@ -22,52 +22,52 @@ public enum CommandSet {
      * The Moderator.
      */
     MODERATOR() {
-		@Override
-		public boolean validate(Player player) {
-			return player.getDetails().getRights().ordinal() > 0;
-		}
-	},
+        @Override
+        public boolean validate(Player player) {
+            return player.getDetails().getRights().ordinal() > 0;
+        }
+    },
     /**
      * The Administrator.
      */
     ADMINISTRATOR() {
-		@Override
-		public boolean validate(Player player) {
-			return player.getDetails().getRights().equals(Rights.ADMINISTRATOR);
-		}
-	},
+        @Override
+        public boolean validate(Player player) {
+            return player.getDetails().getRights().equals(Rights.ADMINISTRATOR);
+        }
+    },
     /**
      * The Developer.
      */
     DEVELOPER() {
-		@Override
-		public boolean validate(Player player) {
-			return player.getDetails().getRights().equals(Rights.ADMINISTRATOR);
-		}
-	},
+        @Override
+        public boolean validate(Player player) {
+            return player.getDetails().getRights().equals(Rights.ADMINISTRATOR);
+        }
+    },
     /**
      * The Beta.
      */
     BETA() {
-		@Override
-		public boolean validate(Player player) {
-			return GameWorld.getSettings().isBeta() || ADMINISTRATOR.validate(player) || GameWorld.getSettings().isDevMode();
-		}
-	};
+        @Override
+        public boolean validate(Player player) {
+            return GameWorld.getSettings().isBeta() || ADMINISTRATOR.validate(player) || GameWorld.getSettings().isDevMode();
+        }
+    };
 
-	/**
-	 * Represents the list of linked plugins with this command set.
-	 */
-	private final List<CommandPlugin> plugins = new ArrayList<>(20);
+    /**
+     * Represents the list of linked plugins with this command set.
+     */
+    private final List<CommandPlugin> plugins = new ArrayList<>(20);
 
-	/**
-	 * Constructs a new {@code CommandSet} {@code Object}.
-	 */
-	private CommandSet() {
-		/*
-		 * empty.
-		 */
-	}
+    /**
+     * Constructs a new {@code CommandSet} {@code Object}.
+     */
+    private CommandSet() {
+        /*
+         * empty.
+         */
+    }
 
     /**
      * Checks if the player can use this set.
@@ -76,8 +76,8 @@ public enum CommandSet {
      * @return the boolean
      */
     public boolean validate(final Player player) {
-		return true;
-	}
+        return true;
+    }
 
     /**
      * Interprets and incoming command by dispatching it to it's plugins.
@@ -88,26 +88,26 @@ public enum CommandSet {
      * @return <code>True</code> if the command was interpreted.
      */
     public boolean interpret(final Player player, final String name, final String... arguments) {
-		if (player == null) {
-			return false;
-		}
-		if (!validate(player)) {
-			return false;
-		}
-		if (player.getZoneMonitor().parseCommand(player, name, arguments)) {
-			return true;
-		}
-		for (int i = 0; i < plugins.size(); i++) {
-			CommandPlugin plugin = plugins.get(i);
-			if (!plugin.validate(player)) {
-				continue;
-			}
-			if (plugin.parse(player, name, arguments)) {
-				return true;
-			}
-		}
-		return false;
-	}
+        if (player == null) {
+            return false;
+        }
+        if (!validate(player)) {
+            return false;
+        }
+        if (player.getZoneMonitor().parseCommand(player, name, arguments)) {
+            return true;
+        }
+        for (int i = 0; i < plugins.size(); i++) {
+            CommandPlugin plugin = plugins.get(i);
+            if (!plugin.validate(player)) {
+                continue;
+            }
+            if (plugin.parse(player, name, arguments)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     /**
      * Gets the list of plugins of this command set.
@@ -115,6 +115,6 @@ public enum CommandSet {
      * @return the plugins of this set.
      */
     public List<CommandPlugin> getPlugins() {
-		return plugins;
-	}
+        return plugins;
+    }
 }

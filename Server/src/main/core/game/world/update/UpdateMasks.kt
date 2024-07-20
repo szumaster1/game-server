@@ -10,22 +10,27 @@ import core.api.*
 import core.tools.*
 import java.util.concurrent.atomic.AtomicBoolean
 
-class UpdateMasks (val owner: Entity) {
+class UpdateMasks(val owner: Entity) {
     var appearanceStamp: Long = 0
-    private val type = EFlagType.of (owner)
+    private val type = EFlagType.of(owner)
     private val updating = AtomicBoolean()
     private var presenceFlags = 0
     private var syncedPresenceFlags = 0
     private val elements = arrayOfNulls<MaskElement?>(SIZE)
     private val syncedElements = arrayOfNulls<MaskElement?>(SIZE)
-    private data class MaskElement (val encoder: EFlagProvider, val context: Any?)
+
+    private data class MaskElement(val encoder: EFlagProvider, val context: Any?)
 
     @JvmOverloads
-    fun register(flag: EntityFlag, context: Any?, sync: Boolean = false) : Boolean {
+    fun register(flag: EntityFlag, context: Any?, sync: Boolean = false): Boolean {
         var synced = sync
-        var provider = EntityFlags.getFlagFor (type, flag)
+        var provider = EntityFlags.getFlagFor(type, flag)
         if (provider == null) {
-            logWithStack(this::class.java, Log.ERR, "Tried to use flag ${flag.name} which is not available for ${type.name} in this revision.")
+            logWithStack(
+                origin = this::class.java,
+                type = Log.ERR,
+                message = "Tried to use flag ${flag.name} which is not available for ${type.name} in this revision."
+            )
             return false
         }
         if (updating.get())
@@ -35,10 +40,10 @@ class UpdateMasks (val owner: Entity) {
             synced = true
         }
         if (synced) {
-            syncedElements[provider.ordinal] = MaskElement (provider, context)
+            syncedElements[provider.ordinal] = MaskElement(provider, context)
             syncedPresenceFlags = syncedPresenceFlags or provider.presenceFlag
         }
-        elements[provider.ordinal] = MaskElement (provider, context)
+        elements[provider.ordinal] = MaskElement(provider, context)
         presenceFlags = presenceFlags or provider.presenceFlag
         return true
     }

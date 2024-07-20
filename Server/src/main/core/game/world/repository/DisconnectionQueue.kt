@@ -31,7 +31,7 @@ class DisconnectionQueue {
 
         //loop through entries and disconnect each
         entries.forEach {
-            if(finish(it.value,false)) queue.remove(it.key)
+            if (finish(it.value, false)) queue.remove(it.key)
             else {
                 //Make sure there's no room for the disconnection queue to stroke out and leave someone logged in for 10 years.
                 queueTimers[it.key] = (queueTimers[it.key] ?: 0) + 3
@@ -40,7 +40,11 @@ class DisconnectionQueue {
                         player.finishClear()
                         Repository.removePlayer(player)
                         remove(it.key)
-                        log(this::class.java, Log.WARN, "Force-clearing ${it.key} after 15 minutes of being in the disconnection queue!")
+                        log(
+                            this::class.java,
+                            Log.WARN,
+                            "Force-clearing ${it.key} after 15 minutes of being in the disconnection queue!"
+                        )
                     }
                 }
             }
@@ -48,7 +52,7 @@ class DisconnectionQueue {
     }
 
 
-    fun isEmpty(): Boolean{
+    fun isEmpty(): Boolean {
         return queue.isEmpty()
     }
 
@@ -66,7 +70,7 @@ class DisconnectionQueue {
         player.finishClear()
         Repository.removePlayer(player)
         try {
-            if(player.communication.clan != null)
+            if (player.communication.clan != null)
                 player.communication.clan.leave(player, false)
         } catch (e: Exception) {
             e.printStackTrace()
@@ -109,7 +113,7 @@ class DisconnectionQueue {
 
     @JvmOverloads
     fun add(player: Player, clear: Boolean = false) {
-        if(queue[player.name] != null) return
+        if (queue[player.name] != null) return
         queue[player.name] = DisconnectionEntry(player, clear)
         log(this::class.java, Log.INFO, "Queueing ${player.name} for disconnection.")
     }

@@ -20,7 +20,12 @@ class TeleportCommandSet : CommandSet(Privilege.ADMIN) {
         /*
          * Allows teleporting by location name.
          */
-        define("to", Privilege.ADMIN, "::to <lt>String<gt>", "See ServerConstants.TELEPORT_DESTINATIONS") { player, args ->
+        define(
+            name = "to",
+            privilege = Privilege.ADMIN,
+            usage = "::to <lt>String<gt>",
+            description = "See ServerConstants.TELEPORT_DESTINATIONS"
+        ) { player, args ->
             var destination: Location? = null
             val place = args.slice(1 until args.size).joinToString(" ")
             for (destinations in ServerConstants.TELEPORT_DESTINATIONS) {
@@ -44,7 +49,12 @@ class TeleportCommandSet : CommandSet(Privilege.ADMIN) {
          * Teleport to location using coordinates
          */
 
-        define("tele", Privilege.ADMIN, "::tele <lt>X<gt> <lt>Y<gt> <lt>Z<gt> OR <lt>JAGCOORD<gt>", "JAGCOORD is Z_REGIONX_REGIONY_LOCALX_LOCALY") { player, args ->
+        define(
+            name = "tele",
+            privilege = Privilege.ADMIN,
+            usage = "::tele <lt>X<gt> <lt>Y<gt> <lt>Z<gt> OR <lt>JAGCOORD<gt>",
+            description = "JAGCOORD is Z_REGIONX_REGIONY_LOCALX_LOCALY"
+        ) { player, args ->
             if (args.size == 2 && args[1].contains(",")) {
                 val args2 = args[1].split(",".toRegex()).toTypedArray()
                 val x = args2[1].toInt() shl 6 or args2[3].toInt()
@@ -113,7 +123,12 @@ class TeleportCommandSet : CommandSet(Privilege.ADMIN) {
          * Teleport to the first object with the given name in the given regionX regionY
          */
 
-        define("teleobj", Privilege.ADMIN, "::teleobj <lt>RX_RY<gt> <lt>OBJ NAME<gt>", "Teleports to the first object with the given name.") { player, args ->
+        define(
+            name = "teleobj",
+            privilege = Privilege.ADMIN,
+            usage = "::teleobj <lt>RX_RY<gt> <lt>OBJ NAME<gt>",
+            description = "Teleports to the first object with the given name."
+        ) { player, args ->
             if (args.size < 3) reject(player, "Usage: regionX_regionY Object Name")
             var objName = ""
             for (i in 2 until args.size) objName += (args[i] + if (i + 1 == args.size) "" else " ")
@@ -153,7 +168,12 @@ class TeleportCommandSet : CommandSet(Privilege.ADMIN) {
          * Teleport to a specific player.
          */
 
-        define("teleto", Privilege.ADMIN, "::teleto <lt>USERNAME<gt>", "Teleports to the named player.") { player, args ->
+        define(
+            name = "teleto",
+            privilege = Privilege.ADMIN,
+            usage = "::teleto <lt>USERNAME<gt>",
+            description = "Teleports to the named player."
+        ) { player, args ->
             if (args.size < 1) {
                 reject(player, "syntax error: name")
             }
@@ -173,7 +193,12 @@ class TeleportCommandSet : CommandSet(Privilege.ADMIN) {
          * Teleport a specific player to you
          */
 
-        define("teletome", Privilege.ADMIN, "::teletome <lt>USERNAME<gt>", "Teleports the given user to you.") { player, args ->
+        define(
+            name = "teletome",
+            privilege = Privilege.ADMIN,
+            usage = "::teletome <lt>USERNAME<gt>",
+            description = "Teleports the given user to you."
+        ) { player, args ->
             if (args.size < 1) {
                 reject(player, "syntax error: name")
             }
@@ -193,7 +218,12 @@ class TeleportCommandSet : CommandSet(Privilege.ADMIN) {
          * Teleports to the server's home location.
          */
 
-        define("home", Privilege.ADMIN, "", "Teleports to ServerConstants.HOME_LOCATION or HOME_LOCATION_ALT (after RD quest).") { player, _ ->
+        define(
+            name = "home",
+            privilege = Privilege.ADMIN,
+            usage = "",
+            description = "Teleports to ServerConstants.HOME_LOCATION or HOME_LOCATION_ALT (after RD quest)."
+        ) { player, _ ->
             if(getAttribute(player, RecruitmentDrive.ATTRIBUTE_SPAWN_REQUEST, false))
                 player.properties.spawnLocation = ServerConstants.RESPAWN_POINT
             else

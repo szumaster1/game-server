@@ -47,25 +47,26 @@ public enum ClanRank {
      */
     ADMINISTRATOR(127, "No-one");
 
-	/**
-	 * The value of the rank.
-	 */
-	private final int value;
+    /**
+     * The value of the rank.
+     */
+    private final int value;
 
-	/**
-	 * The requirement info.
-	 */
-	private final String info;
+    /**
+     * The requirement info.
+     */
+    private final String info;
 
-	/**
-	 * Constructs a new {@code ClanRank} {@code Object}.
-	 * @param value The rank value.
-	 * @param info The requirement info.
-	 */
-	private ClanRank(int value, String info) {
-		this.value = value;
-		this.info = info;
-	}
+    /**
+     * Constructs a new {@code ClanRank} {@code Object}.
+     *
+     * @param value The rank value.
+     * @param info  The requirement info.
+     */
+    private ClanRank(int value, String info) {
+        this.value = value;
+        this.info = info;
+    }
 
     /**
      * Gets the value.
@@ -73,8 +74,8 @@ public enum ClanRank {
      * @return The value.
      */
     public int getValue() {
-		return value;
-	}
+        return value;
+    }
 
     /**
      * Gets the info.
@@ -82,11 +83,11 @@ public enum ClanRank {
      * @return The info.
      */
     public String getInfo() {
-		return info;
-	}
-	
-	@Override
-	public String toString() {
-		return "Rank=[" + name() + "], Info=" + "[" + getInfo() + "]";
-	}
+        return info;
+    }
+
+    @Override
+    public String toString() {
+        return "Rank=[" + name() + "], Info=" + "[" + getInfo() + "]";
+    }
 }

@@ -8,7 +8,7 @@ import core.network.packet.Context
  * @author Emperor
  */
 class DisplayModelContext : Context {
-    
+
     enum class ModelType {
         PLAYER, NPC, ITEM, MODEL
     }

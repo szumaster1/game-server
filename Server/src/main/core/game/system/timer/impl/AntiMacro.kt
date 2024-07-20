@@ -15,7 +15,11 @@ import core.tools.RandomFunction
 import core.tools.colorize
 import org.json.simple.JSONObject
 
-class AntiMacro : PersistTimer(0, "antimacro", isAuto = true), Commands {
+class AntiMacro : PersistTimer(
+    runInterval = 0,
+    identifier = "antimacro",
+    isAuto = true
+), Commands {
     var paused = false
     var nextRandom: RandomEvents? = null
 
@@ -57,7 +61,7 @@ class AntiMacro : PersistTimer(0, "antimacro", isAuto = true), Commands {
         nextExecution = getWorldTicks() + runInterval
     }
 
-    private fun canSpawn(entity: Entity) : Boolean {
+    private fun canSpawn(entity: Entity): Boolean {
         if (entity.zoneMonitor.isRestricted(ZoneRestriction.RANDOM_EVENTS))
             return false
 
@@ -76,7 +80,7 @@ class AntiMacro : PersistTimer(0, "antimacro", isAuto = true), Commands {
         nextExecution = getWorldTicks() + runInterval
     }
 
-    private fun rollEventPool(entity: Entity) : RandomEvents {
+    private fun rollEventPool(entity: Entity): RandomEvents {
         if (nextRandom != null) {
             val result = nextRandom!!
             nextRandom = null
@@ -93,7 +97,12 @@ class AntiMacro : PersistTimer(0, "antimacro", isAuto = true), Commands {
     }
 
     override fun defineCommands() {
-        define("revent", Privilege.ADMIN, "::revent [-p] <lt>player name<gt> [-e <lt>event name<gt>]", "Spawns a random event for the target player.<br>Optional -e parameter to pass a specific event.") {player, args ->
+        define(
+            "revent",
+            Privilege.ADMIN,
+            "::revent [-p] <lt>player name<gt> [-e <lt>event name<gt>]",
+            "Spawns a random event for the target player.<br>Optional -e parameter to pass a specific event."
+        ) { player, args ->
             if (args.size == 1) {
                 val possible = RandomEvents.values()
                 for (event in possible) {
@@ -115,42 +124,42 @@ class AntiMacro : PersistTimer(0, "antimacro", isAuto = true), Commands {
         }
     }
 
-    data class CommandArgs (val targetPlayer: String, val targetEvent: RandomEvents?)
+    data class CommandArgs(val targetPlayer: String, val targetEvent: RandomEvents?)
 
     companion object {
         const val EVENT_NPC = "re-npc"
         const val MIN_DELAY_TICKS = 3000
         const val MAX_DELAY_TICKS = 9000
 
-        fun terminateEventNpc (player: Player) {
+        fun terminateEventNpc(player: Player) {
             getEventNpc(player)?.terminate()
         }
 
-        fun rollEventLoot (player: Player) : ArrayList<Item> {
+        fun rollEventLoot(player: Player): ArrayList<Item> {
             return getEventNpc(player)?.loot?.roll(player) ?: ArrayList()
         }
 
-        fun getEventNpc (player: Player) : RandomEventNPC? {
+        fun getEventNpc(player: Player): RandomEventNPC? {
             return getAttribute<RandomEventNPC?>(player, EVENT_NPC, null)
         }
 
-        fun pause (player: Player) {
+        fun pause(player: Player) {
             val timer = getTimer<AntiMacro>(player) ?: return
             timer.paused = true
         }
 
-        fun unpause (player: Player) {
+        fun unpause(player: Player) {
             val timer = getTimer<AntiMacro>(player) ?: return
             timer.paused = false
         }
 
-        fun forceEvent (player: Player, event: RandomEvents? = null) {
+        fun forceEvent(player: Player, event: RandomEvents? = null) {
             val timer = getTimer<AntiMacro>(player) ?: return
             timer.nextExecution = getWorldTicks()
             timer.nextRandom = event
         }
 
-        fun parseCommandArgs (args: String, commandName: String = "revent") : CommandArgs {
+        fun parseCommandArgs(args: String, commandName: String = "revent"): CommandArgs {
             val tokens = args.split(" ")
             val modeTokens = arrayOf("-p", "-e")
 
@@ -174,7 +183,10 @@ class AntiMacro : PersistTimer(0, "antimacro", isAuto = true), Commands {
 
             var event: RandomEvents? = null
 
-            try { event = RandomEvents.valueOf(eventName) } catch (_: Exception) {}
+            try {
+                event = RandomEvents.valueOf(eventName)
+            } catch (_: Exception) {
+            }
 
             return CommandArgs(username, event)
         }

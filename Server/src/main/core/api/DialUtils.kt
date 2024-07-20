@@ -12,7 +12,7 @@ object DialUtils {
 
 /**
  * Automatically split a single continuous string into multiple comma-separated lines.
- * Should this not work out for any reason, you should fallback to standard npc and player methods for dialogue.
+ * Should this not work out for any reason, you should fall back to standard npc and player methods for dialogue.
  */
 fun splitLines(message: String, perLineLimit: Int = 54): Array<String> {
     var lines = Array(ceil(DialUtils.removeMatches(message, DialUtils.tagRegex).length / perLineLimit.toFloat()).toInt()) { "" }

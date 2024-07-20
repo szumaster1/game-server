@@ -82,7 +82,7 @@ class BeggarDialogueFile(val door: Scenery?) : DialogueFile() {
                 }
                 21 -> {
                     player!!.setAttribute(MerlinUtils.ATTR_STATE_TALK_BEGGAR, true)
-                    DoorActionHandler.handleAutowalkDoor(player, door, Location.create(3015, door!!.location.y, 0))
+                    DoorActionHandler.handleAutowalkDoor(player!!, door!!, Location.create(3015, door!!.location.y, 0))
                     end()
                     stage = END_DIALOGUE
                 }
@@ -90,8 +90,9 @@ class BeggarDialogueFile(val door: Scenery?) : DialogueFile() {
                 // Previously talked to beggar
                 30 -> {
                     showTopics(
-                            Topic(FacialExpression.NEUTRAL, "Yes, here you go.", 4),
-                            Topic(FacialExpression.NEUTRAL, "No, I still have none.", END_DIALOGUE))
+                        Topic(FacialExpression.NEUTRAL, "Yes, here you go.", 4),
+                        Topic(FacialExpression.NEUTRAL, "No, I still have none.", END_DIALOGUE)
+                    )
                 }
 
         }

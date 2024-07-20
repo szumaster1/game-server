@@ -637,7 +637,7 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN){
                 notify(player, "Currently the plaques ${if (player.savedData.globalData.hasReadPlaques()) "have" else "have not"} been read")
                 return@define
             }
-            
+
             when(args[1]) {
                 "true" -> setPlaqueReadStatus(player, true)
                 "false" -> setPlaqueReadStatus(player, false)

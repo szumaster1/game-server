@@ -10,20 +10,20 @@ import core.game.world.GameWorld;
  */
 public class ClanEntry {
 
-	/**
-	 * The name.
-	 */
-	private final String name;
+    /**
+     * The name.
+     */
+    private final String name;
 
-	/**
-	 * The player.
-	 */
-	private Player player;
+    /**
+     * The player.
+     */
+    private Player player;
 
-	/**
-	 * The world id.
-	 */
-	private int worldId;
+    /**
+     * The world id.
+     */
+    private int worldId;
 
     /**
      * Constructs a new {@code ClanEntry} {@code Object}
@@ -31,10 +31,10 @@ public class ClanEntry {
      * @param player The player.
      */
     public ClanEntry(Player player) {
-		this.player = player;
-		this.name = player.getName();
-		this.worldId = GameWorld.getSettings().getWorldId();
-	}
+        this.player = player;
+        this.name = player.getName();
+        this.worldId = GameWorld.getSettings().getWorldId();
+    }
 
     /**
      * Constructs a new {@code ClanEntry} {@code Object}
@@ -43,19 +43,19 @@ public class ClanEntry {
      * @param worldId The world id.
      */
     public ClanEntry(String name, int worldId) {
-		this.name = name;
-		this.worldId = worldId;
-	}
+        this.name = name;
+        this.worldId = worldId;
+    }
 
-	@Override
-	public boolean equals(Object o) {
-		if(o == null) return false;
-		ClanEntry e = (ClanEntry) o;
-		if (name != null && !name.equals(e.name)) {
-			return false;
-		}
-		return e.player == player;
-	}
+    @Override
+    public boolean equals(Object o) {
+        if (o == null) return false;
+        ClanEntry e = (ClanEntry) o;
+        if (name != null && !name.equals(e.name)) {
+            return false;
+        }
+        return e.player == player;
+    }
 
     /**
      * Gets the name.
@@ -63,8 +63,8 @@ public class ClanEntry {
      * @return the name
      */
     public String getName() {
-		return name;
-	}
+        return name;
+    }
 
     /**
      * Sets the player.
@@ -72,8 +72,8 @@ public class ClanEntry {
      * @param player The player.
      */
     public void setPlayer(Player player) {
-		this.player = player;
-	}
+        this.player = player;
+    }
 
     /**
      * Gets the player.
@@ -81,8 +81,8 @@ public class ClanEntry {
      * @return the player
      */
     public Player getPlayer() {
-		return player;
-	}
+        return player;
+    }
 
     /**
      * Gets the worldId.
@@ -90,8 +90,8 @@ public class ClanEntry {
      * @return the worldId
      */
     public int getWorldId() {
-		return worldId;
-	}
+        return worldId;
+    }
 
     /**
      * Sets the worldId.
@@ -99,6 +99,6 @@ public class ClanEntry {
      * @param worldId the worldId to set.
      */
     public void setWorldId(int worldId) {
-		this.worldId = worldId;
-	}
+        this.worldId = worldId;
+    }
 }

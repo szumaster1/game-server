@@ -34,7 +34,7 @@ class BouncerFightCutscene(player: Player) : Cutscene(player) {
 
             2 -> {
                 teleport(getNPC(BOUNCER)!!, 47, 26)
-                DoorActionHandler.handleAutowalkDoor(getNPC(BOUNCER)!!, getObject(46, 26))
+                DoorActionHandler.handleAutowalkDoor(getNPC(BOUNCER)!!, getObject(46, 26)!!)
                 timedUpdate(2)
             }
 

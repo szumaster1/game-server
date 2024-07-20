@@ -25,10 +25,10 @@ public abstract class StatePulse extends Pulse {
      * @param ticks  The amount of ticks.
      */
     public StatePulse(Entity entity, int ticks) {
-		super(ticks, entity);
-		super.stop();
-		this.entity = entity;
-	}
+        super(ticks, entity);
+        super.stop();
+        this.entity = entity;
+    }
 
     /**
      * Checks if data has to be saved.
@@ -69,28 +69,28 @@ public abstract class StatePulse extends Pulse {
      * @return {@code True} if so.
      */
     public boolean canRun(Entity entity) {
-		return true;
-	}
+        return true;
+    }
 
     /**
      * Called when the pulse gets manually removed.
      */
     public void remove() {
-		/*
-		 * empty.
-		 */
-	}
+        /*
+         * empty.
+         */
+    }
 
-	/**
-	 * Runs the pulse.
-	 */
-	public void run() {
-		if (isRunning()) {
-			return;
-		}
-		restart();
-		start();
-		GameWorld.getPulser().submit(this);
-	}
+    /**
+     * Runs the pulse.
+     */
+    public void run() {
+        if (isRunning()) {
+            return;
+        }
+        restart();
+        start();
+        GameWorld.getPulser().submit(this);
+    }
 
 }

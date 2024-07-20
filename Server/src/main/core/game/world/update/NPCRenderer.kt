@@ -58,7 +58,8 @@ object NPCRenderer {
             if (localNPCs.contains(npc) || npc.isHidden(player)) {
                 continue
             }
-            buffer.putBits(15, npc.index).putBits(1, if (npc.properties.isTeleporting) 1 else 0).putBits(3, npc.direction.ordinal)
+            buffer.putBits(15, npc.index).putBits(1, if (npc.properties.isTeleporting) 1 else 0)
+                .putBits(3, npc.direction.ordinal)
             flagMaskUpdate(player, buffer, maskBuffer, npc, true)
             var offsetX = npc.location.x - player.location.x
             var offsetY = npc.location.y - player.location.y

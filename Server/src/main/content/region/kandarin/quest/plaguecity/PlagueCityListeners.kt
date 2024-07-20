@@ -291,7 +291,7 @@ class PlagueCityListeners : InteractionListener {
                             1 -> npcl(FacialExpression.FRIENDLY, "Oh... why didn't you say, come in then.").also { stage++ }
                             2 -> {
                                 sendDoubleItemDialogue(player, -1, Items.BOOK_1509, "You hand the book to Ted as you enter.")
-                                DoorActionHandler.handleAutowalkDoor(player, getScenery(2531, 3328, 0))
+                                DoorActionHandler.handleAutowalkDoor(player, getScenery(2531, 3328, 0)!!)
                                 removeItem(player, Items.BOOK_1509)
                                 stage++
                             }

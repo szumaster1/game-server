@@ -562,7 +562,7 @@ public final class DialogueInterpreter {
         boolean npc = npcId > -1;
         int interfaceId = (npc ? 240 : 63) + messages.length;
         interfaceId += hide ? 4 : 0;
-        System.out.println(interfaceId);
+        // System.out.println(interfaceId);
         if (expression == -1) {
             expression = FacialExpression.HALF_GUILTY.getAnimationId();
         }

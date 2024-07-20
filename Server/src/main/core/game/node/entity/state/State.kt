@@ -26,7 +26,7 @@ abstract class State(val player: Player? = null) {
     /**
      * Returns a new instance of the class constructed for the player.
      */
-    abstract fun newInstance(player: Player? = null) : State
+    abstract fun newInstance(player: Player? = null): State
 
     /**
      * Method used to define the pulse the state uses.

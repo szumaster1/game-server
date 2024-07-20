@@ -3,6 +3,7 @@ package core.game.node.entity.skill
 import core.api.*
 import core.api.consts.Components
 import core.api.consts.Graphics
+import core.api.consts.Vars
 import core.game.global.Skillcape
 import core.game.node.entity.player.Player
 import core.game.world.GameWorld
@@ -51,8 +52,7 @@ object LevelUp {
         setInterfaceText(player, "Your " + Skills.SKILL_NAME[slot] + " level is now " + player.getSkills().getStaticLevel(slot) + ".", 740, 1)
 
         // Send level up message to the player.
-        sendMessage(player, "You've just advanced a " + Skills.SKILL_NAME[slot] + " level! You have reached level " + player.getSkills()
-                .getStaticLevel(slot) + ".")
+        sendMessage(player, "You've just advanced a " + Skills.SKILL_NAME[slot] + " level! You have reached level " + player.getSkills().getStaticLevel(slot) + ".")
 
         // Increment prayer points if prayer skill is leveled up.
         if (slot == Skills.PRAYER) {
@@ -175,6 +175,6 @@ object LevelUp {
         }
 
         // Set flashing icons varp.
-        setVarp(player, 1179, value)
+        setVarp(player, Vars.VARP_IFACE_SKILL_FLASH_ICONS, value)
     }
 }

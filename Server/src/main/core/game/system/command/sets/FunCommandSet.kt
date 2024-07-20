@@ -38,7 +38,11 @@ class FunCommandSet : CommandSet(Privilege.ADMIN) {
          * Force animation + messages on all NPCs in a radius of 10 from the player.
          */
 
-        define("npcanim", Privilege.ADMIN, "::npcanim <lt>Animation ID<gt>") { player, args ->
+        define(
+            name = "npcanim",
+            privilege = Privilege.ADMIN,
+            usage = "::npcanim <lt>Animation ID<gt>"
+        ) { player, args ->
             if (args.size < 2) {
                 reject(player, "Syntax error: ::npcanim <Animation ID>")
             }
@@ -56,7 +60,12 @@ class FunCommandSet : CommandSet(Privilege.ADMIN) {
          * Transform a player's appearance into that of an NPC.
          */
 
-        define("pnpc", Privilege.MODERATOR, "::pnpc <lt>NPC ID<gt>", "Transforms the player into the given NPC.") { player, args ->
+        define(
+            name = "pnpc",
+            privilege = Privilege.MODERATOR,
+            usage = "::pnpc <lt>NPC ID<gt>",
+            description = "Transforms the player into the given NPC."
+        ) { player, args ->
             if (args.size < 2) {
                 reject(player, "Usage: ::pnpc <npcid>")
                 return@define
@@ -76,7 +85,12 @@ class FunCommandSet : CommandSet(Privilege.ADMIN) {
          * Open bank.
          */
 
-        define("bank", Privilege.ADMIN, "", "Opens your bank.") { player, _ ->
+        define(
+            name = "bank",
+            privilege = Privilege.ADMIN,
+            usage = "",
+            description = "Opens your bank."
+        ) { player, _ ->
             player.bank.open()
         }
 
@@ -84,7 +98,12 @@ class FunCommandSet : CommandSet(Privilege.ADMIN) {
          * Toggle invisibility.
          */
 
-        define("invis", Privilege.ADMIN, "", "Makes you invisible to others.") { player, _ ->
+        define(
+            name = "invis",
+            privilege = Privilege.ADMIN,
+            usage = "",
+            description = "Makes you invisible to others."
+        ) { player, _ ->
             player.isInvisible = !player.isInvisible
             notify(player, "You are now ${if (player.isInvisible) "invisible" else "visible"} to others.")
         }
@@ -94,7 +113,12 @@ class FunCommandSet : CommandSet(Privilege.ADMIN) {
          * Toggle 1-hit kills.
          */
 
-        define("1hit", Privilege.ADMIN, "", "Makes you kill things in 1 hit.") { player, _ ->
+        define(
+            name = "1hit",
+            privilege = Privilege.ADMIN,
+            usage = "",
+            description = "Makes you kill things in 1 hit."
+        ) { player, _ ->
             player.setAttribute("1hko", !player.getAttribute("1hko", false))
             notify(player, "1-hit KO mode " + if (player.getAttribute("1hko", false)) "on." else "off.")
         }
@@ -104,7 +128,12 @@ class FunCommandSet : CommandSet(Privilege.ADMIN) {
          * Toggle god mode.
          */
 
-        define("god", Privilege.ADMIN, "", "Makes you invulnerable to damage.") { player, _ ->
+        define(
+            name = "god",
+            privilege = Privilege.ADMIN,
+            usage = "",
+            description = "Makes you invulnerable to damage."
+        ) { player, _ ->
             player.setAttribute("godMode", !player.getAttribute("godMode", false))
             notify(player, "God mode ${if (player.getAttribute("godMode", false)) "enabled." else "disabled."}")
         }
@@ -200,7 +229,12 @@ class FunCommandSet : CommandSet(Privilege.ADMIN) {
             Opens up the makeover interface.
         */
 
-        define("appearance", Privilege.ADMIN, "", "Allows you to change your appearance.") { player, _ ->
+        define(
+            name = "appearance",
+            privilege = Privilege.ADMIN,
+            usage = "",
+            description = "Allows you to change your appearance."
+        ) { player, _ ->
             CharacterDesign.reopen(player)
         }
 
@@ -209,7 +243,12 @@ class FunCommandSet : CommandSet(Privilege.ADMIN) {
          * This spell will never kill or freeze a player.
          */
 
-        define("barrage", Privilege.ADMIN, "::barrage radius ", "Cast a weak barrage on all nearby players. Will never kill players") { player, args ->
+        define(
+            name = "barrage",
+            privilege = Privilege.ADMIN,
+            usage = "::barrage radius ",
+            description = "Cast a weak barrage on all nearby players. Will never kill players"
+        ) { player, args ->
             if (args.size != 2) reject(player, "Usage: ::barrage radius[max = 50]")
             val radius = if (args[1].toInt() > 50) 50 else args[1].toInt()
             val nearbyPlayers = RegionManager.getLocalPlayers(player, radius).stream()

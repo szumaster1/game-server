@@ -15,7 +15,7 @@ import kotlin.concurrent.schedule
 class ImmerseWorld : StartupListener {
 
     override fun startup() {
-        if(GameWorld.settings?.max_adv_bots!! > 0) {
+        if (GameWorld.settings?.max_adv_bots!! > 0) {
             spawnBots()
         }
     }
@@ -24,10 +24,8 @@ class ImmerseWorld : StartupListener {
         var assembler = CombatBotAssembler()
         var skillingBotAssembler = SkillingBotAssembler()
 
-        fun spawnBots()
-        {
-            if(GameWorld.settings!!.enable_bots)
-            {
+        fun spawnBots() {
+            if (GameWorld.settings!!.enable_bots) {
                 Executors.newSingleThreadExecutor().execute {
                     Thread.currentThread().name = "BotSpawner"
                     immerseSeersAndCatherby()
@@ -36,8 +34,8 @@ class ImmerseWorld : StartupListener {
                     immerseWilderness()
                     immerseFishingGuild()
                     immerseAdventurer()
-					immerseFalador()
-                    // immerseSlayer()
+                    immerseFalador()
+                    immerseSlayer()
                     immerseGE()
                 }
             }
@@ -54,14 +52,14 @@ class ImmerseWorld : StartupListener {
 
         fun spawn_adventurers() {
             val lumbridge = Location.create(3221, 3219, 0)
-            val tiers = listOf<CombatBotAssembler.Tier>(CombatBotAssembler.Tier.LOW, CombatBotAssembler.Tier.MED)
+            val tiers = listOf(CombatBotAssembler.Tier.LOW, CombatBotAssembler.Tier.MED)
             GeneralBotCreator(
-                Adventurer(CombatStyle.MELEE),
-                assembler.MeleeAdventurer(tiers.random(), lumbridge)
+                botScript = Adventurer(CombatStyle.MELEE),
+                bot = assembler.MeleeAdventurer(tier = tiers.random(), location = lumbridge)
             )
             GeneralBotCreator(
-                Adventurer(CombatStyle.RANGE),
-                assembler.RangeAdventurer(tiers.random(), lumbridge)
+                botScript = Adventurer(CombatStyle.RANGE),
+                bot = assembler.RangeAdventurer(tier = tiers.random(), location = lumbridge)
             )
         }
 
@@ -74,125 +72,179 @@ class ImmerseWorld : StartupListener {
 
         fun immerseSeersAndCatherby() {
             GeneralBotCreator(
-                SeersMagicTrees(),
-                skillingBotAssembler.produce(SkillingBotAssembler.Wealth.AVERAGE, Location.create(2702, 3397, 0))
+                botScript = SeersMagicTrees(),
+                bot = skillingBotAssembler.produce(
+                    type = SkillingBotAssembler.Wealth.AVERAGE,
+                    loc = Location.create(2702, 3397, 0)
+                )
             )
             GeneralBotCreator(
-                SeersFlax(),
-                skillingBotAssembler.produce(SkillingBotAssembler.Wealth.POOR, Location.create(2738, 3444, 0))
+                botScript = SeersFlax(),
+                bot = skillingBotAssembler.produce(
+                    type = SkillingBotAssembler.Wealth.POOR,
+                    loc = Location.create(2738, 3444, 0)
+                )
             )
             GeneralBotCreator(
-                FletchingBankstander(),
-                skillingBotAssembler.produce(SkillingBotAssembler.Wealth.AVERAGE, Location.create(2722, 3493, 0))
+                botScript = FletchingBankstander(),
+                bot = skillingBotAssembler.produce(
+                    type = SkillingBotAssembler.Wealth.AVERAGE,
+                    loc = Location.create(2722, 3493, 0)
+                )
             )
             GeneralBotCreator(
-                GlassBlowingBankstander(),
-                skillingBotAssembler.produce(SkillingBotAssembler.Wealth.AVERAGE, Location.create(2807, 3441, 0))
+                botScript = GlassBlowingBankstander(),
+                bot = skillingBotAssembler.produce(
+                    type = SkillingBotAssembler.Wealth.AVERAGE,
+                    loc = Location.create(2807, 3441, 0)
+                )
             )
-            GeneralBotCreator(LobsterCatcher(), Location.create(2805, 3435, 0))
+            GeneralBotCreator(
+                botScript = LobsterCatcher(),
+                loc = Location.create(2805, 3435, 0)
+            )
         }
 
         fun immerseLumbridgeDraynor() {
             GeneralBotCreator(
-                CowKiller(),
-                assembler.produce(
-                    CombatBotAssembler.Type.RANGE,
-                    CombatBotAssembler.Tier.MED,
-                    Location.create(3261, 3269, 0)
+                botScript = CowKiller(),
+                bot = assembler.produce(
+                    type = CombatBotAssembler.Type.RANGE,
+                    tier = CombatBotAssembler.Tier.MED,
+                    location = Location.create(3261, 3269, 0)
                 )
             )
             GeneralBotCreator(
-                CowKiller(),
-                assembler.produce(
-                    CombatBotAssembler.Type.MELEE,
-                    CombatBotAssembler.Tier.LOW,
-                    Location.create(3261, 3269, 0)
+                botScript = CowKiller(),
+                bot = assembler.produce(
+                    type = CombatBotAssembler.Type.MELEE,
+                    tier = CombatBotAssembler.Tier.LOW,
+                    location = Location.create(3261, 3269, 0)
                 )
             )
             GeneralBotCreator(
-                CowKiller(),
-                assembler.produce(
-                    CombatBotAssembler.Type.MELEE,
-                    CombatBotAssembler.Tier.MED,
-                    Location.create(3257, 3267, 0)
+                botScript = CowKiller(),
+                bot = assembler.produce(
+                    type = CombatBotAssembler.Type.MELEE,
+                    tier = CombatBotAssembler.Tier.MED,
+                    location = Location.create(3257, 3267, 0)
                 )
             )
             GeneralBotCreator(
-                ManThiever(),
-                skillingBotAssembler.produce(SkillingBotAssembler.Wealth.POOR, Location.create(3235, 3213, 0))
-            )
-            GeneralBotCreator(
-                FarmerThiever(),
-                skillingBotAssembler.produce(SkillingBotAssembler.Wealth.POOR, Location.create(3094, 3243, 0))
-            )
-            GeneralBotCreator(
-                FarmerThiever(),
-                skillingBotAssembler.produce(SkillingBotAssembler.Wealth.POOR, Location.create(3094, 3243, 0))
-            )
-            GeneralBotCreator(
-                DraynorWillows(),
-                skillingBotAssembler.produce(
-                    SkillingBotAssembler.Wealth.values().random(),
-                    Location.create(3094, 3245, 0)
+                botScript = ManThiever(),
+                bot = skillingBotAssembler.produce(
+                    type = SkillingBotAssembler.Wealth.POOR,
+                    loc = Location.create(3235, 3213, 0)
                 )
             )
             GeneralBotCreator(
-                DraynorWillows(),
-                skillingBotAssembler.produce(
-                    SkillingBotAssembler.Wealth.values().random(),
-                    Location.create(3094, 3245, 0)
+                botScript = FarmerThiever(),
+                bot = skillingBotAssembler.produce(
+                    type = SkillingBotAssembler.Wealth.POOR,
+                    loc = Location.create(3094, 3243, 0)
                 )
             )
             GeneralBotCreator(
-                DraynorWillows(),
-                skillingBotAssembler.produce(
-                    SkillingBotAssembler.Wealth.values().random(),
-                    Location.create(3094, 3245, 0)
+                botScript = FarmerThiever(),
+                bot = skillingBotAssembler.produce(
+                    type = SkillingBotAssembler.Wealth.POOR,
+                    loc = Location.create(3094, 3243, 0)
                 )
             )
             GeneralBotCreator(
-                DraynorFisher(),
-                skillingBotAssembler.produce(SkillingBotAssembler.Wealth.POOR, Location.create(3095, 3246, 0))
+                botScript = DraynorWillows(),
+                bot = skillingBotAssembler.produce(
+                    type = SkillingBotAssembler.Wealth.values().random(),
+                    loc = Location.create(3094, 3245, 0)
+                )
             )
             GeneralBotCreator(
-                DraynorFisher(),
-                skillingBotAssembler.produce(SkillingBotAssembler.Wealth.POOR, Location.create(3095, 3246, 0))
+                botScript = DraynorWillows(),
+                bot = skillingBotAssembler.produce(
+                    type = SkillingBotAssembler.Wealth.values().random(),
+                    loc = Location.create(3094, 3245, 0)
+                )
             )
             GeneralBotCreator(
-                DraynorFisher(),
-                skillingBotAssembler.produce(SkillingBotAssembler.Wealth.POOR, Location.create(3095, 3246, 0))
+                botScript = DraynorWillows(),
+                bot = skillingBotAssembler.produce(
+                    type = SkillingBotAssembler.Wealth.values().random(),
+                    loc = Location.create(3094, 3245, 0)
+                )
+            )
+            GeneralBotCreator(
+                botScript = DraynorFisher(),
+                bot = skillingBotAssembler.produce(
+                    type = SkillingBotAssembler.Wealth.POOR,
+                    loc = Location.create(3095, 3246, 0)
+                )
+            )
+            GeneralBotCreator(
+                botScript = DraynorFisher(),
+                bot = skillingBotAssembler.produce(
+                    type = SkillingBotAssembler.Wealth.POOR,
+                    loc = Location.create(3095, 3246, 0)
+                )
+            )
+            GeneralBotCreator(
+                botScript = DraynorFisher(),
+                bot = skillingBotAssembler.produce(
+                    type = SkillingBotAssembler.Wealth.POOR,
+                    loc = Location.create(3095, 3246, 0)
+                )
             )
         }
 
         fun immerseVarrock() {
             val WestBankIdlerBorders = ZoneBorders(3184, 3435, 3187, 3444)
             GeneralBotCreator(
-                GlassBlowingBankstander(),
-                skillingBotAssembler.produce(SkillingBotAssembler.Wealth.RICH, Location.create(3189, 3435, 0))
+                botScript = GlassBlowingBankstander(),
+                bot = skillingBotAssembler.produce(
+                    type = SkillingBotAssembler.Wealth.RICH,
+                    loc = Location.create(3189, 3435, 0)
+                )
             )
             GeneralBotCreator(
-                FletchingBankstander(),
-                skillingBotAssembler.produce(SkillingBotAssembler.Wealth.AVERAGE, Location.create(3189, 3439, 0))
+                botScript = FletchingBankstander(),
+                bot = skillingBotAssembler.produce(
+                    type = SkillingBotAssembler.Wealth.AVERAGE,
+                    loc = Location.create(3189, 3439, 0)
+                )
             )
             GeneralBotCreator(
-                Idler(),
-                skillingBotAssembler.produce(SkillingBotAssembler.Wealth.RICH, WestBankIdlerBorders.randomLoc)
+                botScript = Idler(),
+                bot = skillingBotAssembler.produce(
+                    type = SkillingBotAssembler.Wealth.RICH,
+                    loc = WestBankIdlerBorders.randomLoc
+                )
             )
             GeneralBotCreator(
-                GlassBlowingBankstander(),
-                skillingBotAssembler.produce(SkillingBotAssembler.Wealth.POOR, Location.create(3256, 3420, 0))
+                botScript = GlassBlowingBankstander(),
+                bot = skillingBotAssembler.produce(
+                    type = SkillingBotAssembler.Wealth.POOR,
+                    loc = Location.create(3256, 3420, 0)
+                )
             )
             GeneralBotCreator(
-                VarrockEssenceMiner(),
-                skillingBotAssembler.produce(SkillingBotAssembler.Wealth.POOR, Location.create(3253, 3420, 0))
+                botScript = VarrockEssenceMiner(),
+                bot = skillingBotAssembler.produce(
+                    type = SkillingBotAssembler.Wealth.POOR,
+                    loc = Location.create(3253, 3420, 0)
+                )
             )
             GeneralBotCreator(
-                VarrockSmither(),
-                skillingBotAssembler.produce(SkillingBotAssembler.Wealth.RICH, Location.create(3189, 3436, 0))
+                botScript = VarrockSmither(),
+                bot = skillingBotAssembler.produce(
+                    type = SkillingBotAssembler.Wealth.RICH,
+                    loc = Location.create(3189, 3436, 0)
+                )
             )
             GeneralBotCreator(
-                NonBankingMiner(),
-                skillingBotAssembler.produce(SkillingBotAssembler.Wealth.POOR, Location.create(3182, 3374, 0))
+                botScript = NonBankingMiner(),
+                bot = skillingBotAssembler.produce(
+                    type = SkillingBotAssembler.Wealth.POOR,
+                    loc = Location.create(3182, 3374, 0)
+                )
             )
         }
 
@@ -200,31 +252,40 @@ class ImmerseWorld : StartupListener {
             val wilderness = Location.create(3092, 3493, 0)
 
             repeat(6) {
-                GeneralBotCreator (
-                    GreenDragonKiller(CombatStyle.MELEE),
-                    assembler.assembleMeleeDragonBot(CombatBotAssembler.Tier.MED, wilderness)
+                GeneralBotCreator(
+                    botScript = GreenDragonKiller(CombatStyle.MELEE),
+                    bot = assembler.assembleMeleeDragonBot(
+                        tier = CombatBotAssembler.Tier.MED,
+                        location = wilderness
+                    )
                 )
             }
         }
 
         fun immerseFalador() {
             GeneralBotCreator(
-                CoalMiner(),
-                skillingBotAssembler.produce(SkillingBotAssembler.Wealth.POOR, Location.create(3037, 9737, 0))
+                botScript = CoalMiner(),
+                bot = skillingBotAssembler.produce(
+                    type = SkillingBotAssembler.Wealth.POOR,
+                    loc = Location.create(3037, 9737, 0)
+                )
             )
-			GeneralBotCreator(
-				CannonballSmelter(),
-				skillingBotAssembler.produce(SkillingBotAssembler.Wealth.AVERAGE, Location.create(3013, 3356, 0))
-			)
+            GeneralBotCreator(
+                botScript = CannonballSmelter(),
+                bot = skillingBotAssembler.produce(
+                    type = SkillingBotAssembler.Wealth.AVERAGE,
+                    loc = Location.create(3013, 3356, 0)
+                )
+            )
         }
 
         fun immerseSlayer() {
             GeneralBotCreator(
-                GenericSlayerBot(),
-                assembler.produce(
-                    CombatBotAssembler.Type.MELEE,
-                    CombatBotAssembler.Tier.HIGH,
-                    Location.create(2673, 3635, 0)
+                botScript = GenericSlayerBot(),
+                bot = assembler.produce(
+                    type = CombatBotAssembler.Type.MELEE,
+                    tier = CombatBotAssembler.Tier.HIGH,
+                    location = Location.create(2673, 3635, 0)
                 )
             )
         }
@@ -237,9 +298,12 @@ class ImmerseWorld : StartupListener {
             if (GameWorld.settings?.enable_doubling_money_scammers != true) return
             val random: Long = (10_000..7_200_000).random().toLong()
             Timer().schedule(if (delay) random else 0) {
-                GeneralBotCreator (
-                    DoublingMoney(),
-                    skillingBotAssembler.produce(SkillingBotAssembler.Wealth.POOR, DoublingMoney.startingLocs.random())
+                GeneralBotCreator(
+                    botScript = DoublingMoney(),
+                    bot = skillingBotAssembler.produce(
+                        type = SkillingBotAssembler.Wealth.POOR,
+                        loc = DoublingMoney.startingLocs.random()
+                    )
                 )
             }
         }

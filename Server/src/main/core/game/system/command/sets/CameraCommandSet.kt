@@ -19,7 +19,12 @@ class CameraCommandSet : CommandSet(Privilege.ADMIN) {
 
     override fun defineCommands() {
 
-        define("poscam", Privilege.ADMIN, "::poscam <lt>Region X<gt> <lt>Region Y<gt> [<lt>Height<gt>]", "Positions the camera to the given region-local coordinates.") { player, args ->
+        define(
+            name = "poscam",
+            privilege = Privilege.ADMIN,
+            usage = "::poscam <lt>Region X<gt> <lt>Region Y<gt> [<lt>Height<gt>]",
+            description = "Positions the camera to the given region-local coordinates."
+        ) { player, args ->
             val regionX = args[1].toIntOrNull() ?: return@define
             val regionY = args[2].toIntOrNull() ?: return@define
             var height = 300
@@ -36,7 +41,12 @@ class CameraCommandSet : CommandSet(Privilege.ADMIN) {
             PlayerCamera(player).setPosition(globalLoc.x, globalLoc.y, height)
         }
 
-        define("movcam", Privilege.ADMIN, "::movcam <lt>Region X<gt> <lt>Region Y<gt> [<lt>Height<gt> <lt>Speed<gt>]", "Moves the camera to the given region-local coordinates.") { player, args ->
+        define(
+            name = "movcam",
+            privilege = Privilege.ADMIN,
+            usage = "::movcam <lt>Region X<gt> <lt>Region Y<gt> [<lt>Height<gt> <lt>Speed<gt>]",
+            description = "Moves the camera to the given region-local coordinates."
+        ) { player, args ->
             val regionX = args[1].toIntOrNull() ?: return@define
             val regionY = args[2].toIntOrNull() ?: return@define
             var height = 300
@@ -52,14 +62,16 @@ class CameraCommandSet : CommandSet(Privilege.ADMIN) {
             val base = region.baseLocation
 
             val globalLoc = base.transform(regionX, regionY, 0)
-            sendMessage(
-                player,
-                "<col=8e7cc3><shad=000000>CAMERA MOVE | loc:[$regionX, $regionY] settings:[height:$height, speed:$speed]</shad></col>"
-            )
+            sendMessage(player, "<col=8e7cc3><shad=000000>CAMERA MOVE | loc:[$regionX, $regionY] settings:[height:$height, speed:$speed]</shad></col>")
             PlayerCamera(player).panTo(globalLoc.x, globalLoc.y, height, speed)
         }
 
-        define("rotcam", Privilege.ADMIN, "::rotcam <lt>Region X<gt> <lt>Region Y<gt> [<lt>Height<gt> <lt>Speed<gt>]", "Rotates the camera to face the given region-local coordinates.") { player, args ->
+        define(
+            name = "rotcam",
+            privilege = Privilege.ADMIN,
+            usage = "::rotcam <lt>Region X<gt> <lt>Region Y<gt> [<lt>Height<gt> <lt>Speed<gt>]",
+            description = "Rotates the camera to face the given region-local coordinates."
+        ) { player, args ->
             val regionX = args[1].toIntOrNull() ?: return@define
             val regionY = args[2].toIntOrNull() ?: return@define
             var height = 300
@@ -77,14 +89,16 @@ class CameraCommandSet : CommandSet(Privilege.ADMIN) {
             val base = region.baseLocation
 
             val globalLoc = base.transform(regionX, regionY, 0)
-            sendMessage(
-                player,
-                "<col=8e7cc3><shad=000000>CAMERA ROTATE | loc:[$regionX, $regionY] settings:[height:$height, speed:$speed]</shad></col>"
-            )
+            sendMessage(player, "<col=8e7cc3><shad=000000>CAMERA ROTATE | loc:[$regionX, $regionY] settings:[height:$height, speed:$speed]</shad></col>")
             PlayerCamera(player).rotateTo(globalLoc.x, globalLoc.y, height, speed)
         }
 
-        define("shakecam", Privilege.ADMIN, "::shakecam <lt>Camera Movement Type (0-4)<gt> [<lt>Jitter<gt> <lt>Amplitude<gt> <lt>Frequency<gt> <lt>Speed<gt>]", "Type (0-4) Jitter, Amplitude, Frequency (0-255)") { player, args ->
+        define(
+            name = "shakecam",
+            privilege = Privilege.ADMIN,
+            usage = "::shakecam <lt>Camera Movement Type (0-4)<gt> [<lt>Jitter<gt> <lt>Amplitude<gt> <lt>Frequency<gt> <lt>Speed<gt>]",
+            description = "Type (0-4) Jitter, Amplitude, Frequency (0-255)"
+        ) { player, args ->
             val cameraMovementType = args[1].toIntOrNull() ?: return@define
             if (cameraMovementType < 0 || cameraMovementType > 4) {
                 return@define

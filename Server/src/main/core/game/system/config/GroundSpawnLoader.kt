@@ -24,15 +24,19 @@ class GroundSpawnLoader {
         var count = 0
         reader = FileReader(ServerConstants.CONFIG_PATH + "ground_spawns.json")
         var configs = parser.parse(reader) as JSONArray
-        for(config in configs){
+        for (config in configs) {
             try {
                 val e = config as JSONObject
-                val datas = e["loc_data"].toString().split("-")
+                val data = e["loc_data"].toString().split("-")
                 val id = e["item_id"].toString().toInt()
-                for(d in datas){
+                for (d in data) {
                     if (d.isNullOrEmpty()) continue
                     val tokens = d.replace("{", "").replace("}", "").split(",".toRegex()).toTypedArray()
-                    val spawn = GroundSpawn(tokens[4].toInt(), Item(id, tokens[0].toInt()), Location(Integer.valueOf(tokens[1]), Integer.valueOf(tokens[2]), Integer.valueOf(tokens[3])))
+                    val spawn = GroundSpawn(
+                        tokens[4].toInt(),
+                        Item(id, tokens[0].toInt()),
+                        Location(Integer.valueOf(tokens[1]), Integer.valueOf(tokens[2]), Integer.valueOf(tokens[3]))
+                    )
                     spawn.init()
                     count++
                 }
@@ -43,8 +47,9 @@ class GroundSpawnLoader {
                 log(this::class.java, Log.ERR, "Error parsing config entry ${config.toString()}: $sw")
             }
         }
-        log(this::class.java, Log.FINE,  "Initialized $count ground items.")
+        log(this::class.java, Log.FINE, "Initialized $count ground items.")
     }
+
     class GroundSpawn(var respawnRate: Int, item: Item?, location: Location?) : GroundItem(item, location) {
 
         override fun toString(): String {
@@ -59,7 +64,8 @@ class GroundSpawnLoader {
             buffer.putInt(respawnRate)
             buffer.putShort(id.toShort())
             buffer.putInt(amount)
-            buffer.putShort((getLocation().x and 0xFFFF).toShort()).putShort((getLocation().y and 0xFFFF).toShort()).put(getLocation().z.toByte())
+            buffer.putShort((getLocation().x and 0xFFFF).toShort()).putShort((getLocation().y and 0xFFFF).toShort())
+                .put(getLocation().z.toByte())
         }
 
         fun init(): GroundItem {

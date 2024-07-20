@@ -65,7 +65,7 @@ class MournerPlagueCityDialogue : DialogueFile() {
 
             16 -> when (stage) {
                 0 -> if (inBorders(player!!, 2532, 3272, 2534, 3273)) {
-                    player!!.dialogueInterpreter.sendDialogue("The door won't open.", "You notice a black cross on the door.").also { stage = END_DIALOGUE }
+                    sendDialogueLines(player!!, "The door won't open.", "You notice a black cross on the door.").also { stage = END_DIALOGUE }
                 } else {
                     playerl(FacialExpression.FRIENDLY, "I have a warrant from Bravek to enter here.").also { stage++ }
                 }
@@ -77,25 +77,16 @@ class MournerPlagueCityDialogue : DialogueFile() {
                     lock(player!!, 6)
                     lockInteractions(player!!, 6)
                     runTask(player!!, 2) {
-                        findLocalNPC(
-                            player!!,
-                            NPCs.MOURNER_717
-                        )!!.sendChat("Hay... I got someone here with a warrant from Bravek, what should we do?")
+                        findLocalNPC(player!!, NPCs.MOURNER_717)!!.sendChat("Hay... I got someone here with a warrant from Bravek, what should we do?")
                         findLocalNPC(player!!, NPCs.MOURNER_717)!!.faceLocation(location(2536, 3273, 0))
                         runTask(player!!, 1) {
                             findLocalNPC(player!!, NPCs.MOURNER_3216)!!.sendChat("Well you can't let them in...", 1)
                             findLocalNPC(player!!, NPCs.MOURNER_3216)!!.faceLocation(location(2537, 3273, 0))
                             runTask(player!!, 1) {
-                                DoorActionHandler.handleAutowalkDoor(
-                                    player,
-                                    getObject(location(2540, 3273, 0))!!.asScenery()
-                                )
+                                DoorActionHandler.handleAutowalkDoor(player!!, getObject(location(2540, 3273, 0))!!.asScenery())
                                 runTask(player!!, 1) {
                                     setQuestStage(player!!, "Plague City", 17)
-                                    player!!.dialogueInterpreter.sendDialogue(
-                                        "You wait until the mourner's back is turned and sneak into the",
-                                        "building."
-                                    )
+                                    sendDialogueLines(player!!, "You wait until the mourner's back is turned and sneak into the", "building.")
                                 }
                             }
                         }

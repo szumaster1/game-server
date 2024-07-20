@@ -75,7 +75,9 @@ class ItemConfigParser {
                 if (it.value.toString().isNotEmpty() && it.value.toString() != "null") {
                     when (it.key.toString()) {
                         //Special cases
-                        "defence_anim" -> configs[it.key.toString()] = Animation(it.value.toString().toInt(), Animator.Priority.HIGH)
+                        "defence_anim" -> configs[it.key.toString()] =
+                            Animation(it.value.toString().toInt(), Animator.Priority.HIGH)
+
                         "requirements" -> {
                             configs[it.key.toString()] = requirements
                             it.value.toString().split("-").map { en ->
@@ -83,12 +85,18 @@ class ItemConfigParser {
                                 requirements.put(tokens[0].toInt(), tokens[1].toInt())
                             }
                         }
-                        "attack_audios" -> configs[it.key.toString()] = it.value.toString().split(",").map { i -> Audio(i.toInt()) }.toTypedArray()
-                        "attack_anims" -> configs[it.key.toString()] = it.value.toString().split(",").map { i -> Animation(i.toInt(), Animator.Priority.HIGH) }.toTypedArray()
+
+                        "attack_audios" -> configs[it.key.toString()] =
+                            it.value.toString().split(",").map { i -> Audio(i.toInt()) }.toTypedArray()
+
+                        "attack_anims" -> configs[it.key.toString()] =
+                            it.value.toString().split(",").map { i -> Animation(i.toInt(), Animator.Priority.HIGH) }
+                                .toTypedArray()
 
                         //int arrays
                         "absorb",
-                        "bonuses" -> configs[it.key.toString()] = it.value.toString().split(",").map { i -> i.toInt() }.toIntArray()
+                        "bonuses" -> configs[it.key.toString()] =
+                            it.value.toString().split(",").map { i -> i.toInt() }.toIntArray()
 
                         //booleans
                         "fun_weapon",

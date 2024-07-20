@@ -49,41 +49,33 @@ class MysteriousStatueMapZone : MapZone("mysterious-statue", true), Plugin<Any?>
                     northWest -> {
                         if (player.getAttribute("seersStatueProgress", -1) == 0) {
                             setAttribute(player, "seersStatueProgress", 1)
-                            println("location 1 of 4 finished")
                             println(player.getAttribute("seersStatueProgress", -1))
                         } else if (player.getAttribute("seersStatueProgress", -1) in 2..3) {
                             setAttribute(player, "seersStatueProgress", 0)
-                            println("location progress reset")
                         }
                     }
 
                     northEast -> {
                         if (player.getAttribute("seersStatueProgress", 0) == 1) {
                             setAttribute(player, "seersStatueProgress", 2)
-                            println("location 2 of 4 finished")
                         } else if (player.getAttribute("seersStatueProgress", 0) != 1) {
                             setAttribute(player, "seersStatueProgress", 0)
-                            println("location progress reset")
                         }
                     }
 
                     southEast -> {
                         if (player.getAttribute("seersStatueProgress", 0) == 2) {
                             setAttribute(player, "seersStatueProgress", 3)
-                            println("location 3 of 4 finished")
                         } else if (player.getAttribute("seersStatueProgress", 0) != 2) {
                             setAttribute(player, "seersStatueProgress", 0)
-                            println("location progress reset")
                         }
                     }
 
                     southWest -> {
                         if (player.getAttribute("seersStatueProgress", 0) == 3) {
                             setAttribute(player, "seersStatueProgress", 4)
-                            println("location 4 of 4 finished")
                         } else if (player.getAttribute("seersStatueProgress", 0) != 3) {
                             setAttribute(player, "seersStatueProgress", 0)
-                            println("location progress reset")
                         }
                     }
                 }

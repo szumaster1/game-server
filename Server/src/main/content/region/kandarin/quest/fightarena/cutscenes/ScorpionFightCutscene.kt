@@ -40,7 +40,7 @@ class ScorpionFightCutscene(player: Player) : Cutscene(player) {
             }
 
             3 -> {
-                DoorActionHandler.handleAutowalkDoor(player, getObject(40, 5))
+                DoorActionHandler.handleAutowalkDoor(player, getObject(40, 5)!!)
                 timedUpdate(2)
             }
 
@@ -81,7 +81,7 @@ class ScorpionFightCutscene(player: Player) : Cutscene(player) {
             }
 
             11 -> {
-                DoorActionHandler.handleAutowalkDoor(player, getObject(46, 16))
+                DoorActionHandler.handleAutowalkDoor(player, getObject(46, 16)!!)
                 timedUpdate(2)
             }
 
@@ -116,7 +116,7 @@ class ScorpionFightCutscene(player: Player) : Cutscene(player) {
 
             17 -> {
                 teleport(getNPC(SCORPION)!!, 47, 23)
-                DoorActionHandler.handleAutowalkDoor(getNPC(SCORPION)!!, getObject(46, 23))
+                DoorActionHandler.handleAutowalkDoor(getNPC(SCORPION)!!, getObject(46, 23)!!)
                 timedUpdate(2)
             }
 

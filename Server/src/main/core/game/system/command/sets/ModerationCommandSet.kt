@@ -51,7 +51,12 @@ class ModerationCommandSet : CommandSet(Privilege.MODERATOR) {
          * Ban a player.
          */
 
-        define("ban", Privilege.ADMIN, "::ban <lt>USERNAME<gt> <lt>TIME<gt>", "Bans the user. Time format: <lt>INT<gt>d/s/m/h ex: 30d for 30 days.") { player, args ->
+        define(
+            name = "ban",
+            privilege = Privilege.ADMIN,
+            usage = "::ban <lt>USERNAME<gt> <lt>TIME<gt>",
+            description = "Bans the user. Time format: <lt>INT<gt>d/s/m/h ex: 30d for 30 days."
+        ) { player, args ->
             val name = args[1]
             if (!GameWorld.accountStorage.checkUsernameTaken(name)) {
                 reject(player, "Invalid username: $name")
@@ -99,7 +104,12 @@ class ModerationCommandSet : CommandSet(Privilege.MODERATOR) {
          * Ban all players on a given IP.
          */
 
-        define("ipban", Privilege.ADMIN, "::ipban <lt>IP<gt> <lt>TIME<gt>", "Bans all players on the given ip. Time format: <lt>INT<gt>d/s/m/h ex: 30d for 30 days.") { player, args ->
+        define(
+            name = "ipban",
+            privilege = Privilege.ADMIN,
+            usage = "::ipban <lt>IP<gt> <lt>TIME<gt>",
+            description = "Bans all players on the given ip. Time format: <lt>INT<gt>d/s/m/h ex: 30d for 30 days."
+        ) { player, args ->
             val ip = args[1]
             val durationString = args[2]
             val durationTokens = durationString.toCharArray()
@@ -153,7 +163,12 @@ class ModerationCommandSet : CommandSet(Privilege.MODERATOR) {
          * Mute a player.
          */
 
-        define("mute", Privilege.MODERATOR, "::mute <lt>USERNAME<gt> <lt>TIME<gt>", "Mutes the user. Time format: <lt>INT<gt>d/s/m/h ex: 30d for 30 days.") { player, args ->
+        define(
+            name = "mute",
+            privilege = Privilege.MODERATOR,
+            usage = "::mute <lt>USERNAME<gt> <lt>TIME<gt>",
+            description = "Mutes the user. Time format: <lt>INT<gt>d/s/m/h ex: 30d for 30 days."
+        ) { player, args ->
             val name = args[1]
             if (!GameWorld.accountStorage.checkUsernameTaken(name)) {
                 reject(player, "Invalid username: $name")
@@ -202,7 +217,12 @@ class ModerationCommandSet : CommandSet(Privilege.MODERATOR) {
          * Jail a player.
          */
 
-        define("jail", Privilege.MODERATOR, "::jail <lt>SECONDS<gt> <lt>USERNAME<gt>", "Sends the player to the jail cells in Varrock.") { player, args ->
+        define(
+            name = "jail",
+            privilege = Privilege.MODERATOR,
+            usage = "::jail <lt>SECONDS<gt> <lt>USERNAME<gt>",
+            description = "Sends the player to the jail cells in Varrock."
+        ) { player, args ->
             if (args.size < 3) {
                 reject(player, "Usage: ::jail <seconds> <player>")
             }
@@ -246,7 +266,12 @@ class ModerationCommandSet : CommandSet(Privilege.MODERATOR) {
             Modifies player credits by the given amount.
          */
 
-        define("modcr", Privilege.MODERATOR, "::modcr <lt>user_name<gt> <lt>amount<gt>", "Modifies user_name's credits by the given amount.") { player, args ->
+        define(
+            name = "modcr",
+            privilege = Privilege.MODERATOR,
+            usage = "::modcr <lt>user_name<gt> <lt>amount<gt>",
+            description = "Modifies user_name's credits by the given amount."
+        ) { player, args ->
             val username = (args.getOrNull(1) ?: "").lowercase()
             val amount = args.getOrNull(2)?.toIntOrNull() ?: Integer.MIN_VALUE
 
@@ -281,7 +306,12 @@ class ModerationCommandSet : CommandSet(Privilege.MODERATOR) {
             )
         }
 
-        define("csvmodcr", Privilege.ADMIN, "::csvmodcr filename", "Awards credits based on a csv list from a file. Relative to data dir.") { player, args ->
+        define(
+            name = "csvmodcr",
+            privilege = Privilege.ADMIN,
+            usage = "::csvmodcr filename",
+            description = "Awards credits based on a csv list from a file. Relative to data dir."
+        ) { player, args ->
             val filename = args.getOrNull(1) ?: ""
 
             if (filename.isEmpty()) {
@@ -312,7 +342,12 @@ class ModerationCommandSet : CommandSet(Privilege.MODERATOR) {
             }
         }
 
-        define("getattribute", Privilege.ADMIN, "::getattribute <lt>username<gt> <lt>attribute<gt>", "Gets the value of an attribute for a player.") { player, args ->
+        define(
+            name = "getattribute",
+            privilege = Privilege.ADMIN,
+            usage = "::getattribute <lt>username<gt> <lt>attribute<gt>",
+            description = "Gets the value of an attribute for a player."
+        ) { player, args ->
             val username = args.getOrNull(1) ?: ""
             val attribute = args.getOrNull(2) ?: ""
             if (username.isEmpty() || attribute.isEmpty()) {

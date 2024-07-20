@@ -748,9 +748,9 @@ public final class CommunicationInfo {
      */
     public String getClanReqString() {
         return
-                joinRequirement.ordinal()
-                        + "," + messageRequirement.ordinal()
-                        + "," + kickRequirement.ordinal()
-                        + "," + lootRequirement.ordinal();
+            joinRequirement.ordinal()
+                + "," + messageRequirement.ordinal()
+                + "," + kickRequirement.ordinal()
+                + "," + lootRequirement.ordinal();
     }
 }

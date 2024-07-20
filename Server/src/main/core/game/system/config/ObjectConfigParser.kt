@@ -12,11 +12,11 @@ import java.io.FileReader
 class ObjectConfigParser {
     val parser = JSONParser()
     var reader: FileReader? = null
-    fun load(){
+    fun load() {
         var count = 0
         reader = FileReader(ServerConstants.CONFIG_PATH + "object_configs.json")
         val configlist = parser.parse(reader) as JSONArray
-        for(config in configlist){
+        for (config in configlist) {
             val e = config as JSONObject
             val ids = e["ids"].toString().split(",").map { it.toInt() }
             for (id in ids) {
@@ -33,7 +33,7 @@ class ObjectConfigParser {
                 count++
             }
         }
-        log(this::class.java, Log.FINE,  "Parsed $count object configs.")
+        log(this::class.java, Log.FINE, "Parsed $count object configs.")
     }
 }
 

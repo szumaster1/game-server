@@ -292,6 +292,7 @@ object Vars {
     const val VARP_SCENERY_ABYSS = 491
     const val VARBIT_SCENERY_ABYSS_OBSTACLES = 625
 
+    const val VARP_IFACE_SKILL_FLASH_ICONS = 1179
     const val VARP_IFACE_BANK_INSERT_MODE = 304
     const val VARP_IFACE_BANK_NOTE_MODE = 115
 

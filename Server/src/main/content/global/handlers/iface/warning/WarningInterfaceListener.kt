@@ -77,7 +77,7 @@ class WarningInterfaceListener : InterfaceListener {
             sendMessage(player, "You pass through the holy barrier.")
             DoorActionHandler.handleAutowalkDoor(
                 player,
-                if (player.location.x > 3443) getScenery(3444, 3458, 0) else getScenery(3443, 3458, 0)
+                if (player.location.x > 3443) getScenery(3444, 3458, 0)!! else getScenery(3443, 3458, 0)!!
             )
             sendMessageWithDelay(player, "You walk into the gloomy atmosphere of Mort Myre.", 3)
             return@on true

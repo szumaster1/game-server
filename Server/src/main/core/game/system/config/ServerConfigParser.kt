@@ -23,7 +23,7 @@ object ServerConfigParser {
     var confFile: File? = null
     var tomlData: Toml? = null
 
-    fun parse(path: String){
+    fun parse(path: String) {
         confFile = File(parsePath(path))
         parseFromFile(confFile)
     }
@@ -34,8 +34,8 @@ object ServerConfigParser {
     }
 
     private fun parseFromFile(confFile: File?) {
-        if(!confFile!!.canonicalFile.exists()){
-            log(this::class.java, Log.ERR,  "${confFile.canonicalFile} does not exist.")
+        if (!confFile!!.canonicalFile.exists()) {
+            log(this::class.java, Log.ERR, "${confFile.canonicalFile} does not exist.")
             exitProcess(0)
         } else {
             try {
@@ -44,22 +44,26 @@ object ServerConfigParser {
                 parseGameSettings()
                 val jvmString = System.getProperty("java.version")
                 if (jvmString.startsWith("1.")) {
-                    ServerConstants.JAVA_VERSION = jvmString.substring(2,3).toInt()
+                    ServerConstants.JAVA_VERSION = jvmString.substring(2, 3).toInt()
                 } else if (!jvmString.startsWith("1.")) {
-                    ServerConstants.JAVA_VERSION = jvmString.substring(0,2).toInt()
+                    ServerConstants.JAVA_VERSION = jvmString.substring(0, 2).toInt()
                 } else if (!jvmString.contains(".")) {
                     ServerConstants.JAVA_VERSION = jvmString.toInt()
                 }
-                log(this::class.java, Log.FINE, "It seems we are in a Java ${ServerConstants.JAVA_VERSION} environment.")
+                log(
+                    this::class.java,
+                    Log.FINE,
+                    "It seems we are in a Java ${ServerConstants.JAVA_VERSION} environment."
+                )
             } catch (e: java.lang.IllegalStateException) {
-                log(this::class.java, Log.ERR,  "Passed config file is not a TOML file. Path: ${confFile.canonicalPath}")
-                log(this::class.java, Log.ERR,  "Exception received: $e")
+                log(this::class.java, Log.ERR, "Passed config file is not a TOML file. Path: ${confFile.canonicalPath}")
+                log(this::class.java, Log.ERR, "Exception received: $e")
                 exitProcess(0)
             }
         }
     }
 
-    private fun parseGameSettings(){
+    private fun parseGameSettings() {
         tomlData ?: return
         val data = tomlData!!
 
@@ -97,7 +101,7 @@ object ServerConfigParser {
         )
     }
 
-    private fun parseServerSettings(){
+    private fun parseServerSettings() {
         tomlData ?: return
         val data = tomlData!!
 
@@ -108,7 +112,12 @@ object ServerConfigParser {
         ServerConstants.DATABASE_PASS = data.getString("database.database_password")
         ServerConstants.DATABASE_ADDRESS = data.getString("database.database_address")
         ServerConstants.DATABASE_PORT = data.getString("database.database_port")
-        ServerConstants.DATABASE = Database(ServerConstants.DATABASE_ADDRESS + ":" + ServerConstants.DATABASE_PORT, ServerConstants.DATABASE_NAME, ServerConstants.DATABASE_USER, ServerConstants.DATABASE_PASS)
+        ServerConstants.DATABASE = Database(
+            ServerConstants.DATABASE_ADDRESS + ":" + ServerConstants.DATABASE_PORT,
+            ServerConstants.DATABASE_NAME,
+            ServerConstants.DATABASE_USER,
+            ServerConstants.DATABASE_PASS
+        )
         ServerConstants.CACHE_PATH = data.getPath("paths.cache_path")
         ServerConstants.CONFIG_PATH = data.getPath("paths.configs_path")
         ServerConstants.PLAYER_SAVE_PATH = data.getPath("paths.save_path")
@@ -171,11 +180,11 @@ object ServerConfigParser {
     }
 
 
-    private fun Toml.getPath(key: String): String{
+    private fun Toml.getPath(key: String): String {
         try {
             return parsePath(getString(key, "@data/").replace("@data", ServerConstants.DATA_PATH!!))
-        } catch (e: Exception){
-            log(this::class.java, Log.ERR,  "Error parsing key: $key")
+        } catch (e: Exception) {
+            log(this::class.java, Log.ERR, "Error parsing key: $key")
             exitProcess(0)
         }
     }
@@ -199,15 +208,15 @@ object ServerConfigParser {
      */
     fun parsePath(pathString: String): String {
         var pathTokens: List<String>? = null
-        if(pathString.contains("/"))
+        if (pathString.contains("/"))
             pathTokens = pathString.split("/")
-        else if(pathString.contains("\\"))
+        else if (pathString.contains("\\"))
             pathTokens = pathString.split("\\")
 
         pathTokens ?: return pathString //return the initial pathString if path does not contain file separators.
         var pathProduct = ""
-        for(token in pathTokens){
-            if(token != "")
+        for (token in pathTokens) {
+            if (token != "")
                 pathProduct += "$token${File.separator}"
         }
 

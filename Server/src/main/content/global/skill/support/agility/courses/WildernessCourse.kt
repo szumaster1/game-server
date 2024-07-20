@@ -4,6 +4,7 @@ import content.global.skill.support.agility.AgilityCourse
 import content.global.skill.support.agility.AgilityHandler
 import core.api.*
 import core.cache.def.impl.SceneryDefinition
+import core.game.global.action.DoorActionHandler
 import core.game.node.Node
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.TeleportManager
@@ -25,9 +26,10 @@ class WildernessCourse
         when (`object`.id) {
             2309 -> handleEntrance(player, `object`)
             2307, 2308 -> {
-                core.game.global.action.DoorActionHandler.handleAutowalkDoor(player, `object`)
+                DoorActionHandler.handleAutowalkDoor(player, `object`)
                 handleEntranceObstacle(player, `object`)
             }
+
             2288 -> handlePipe(player, `object`)
             2283 -> handleRopeSwing(player, `object`)
             37704 -> handleSteppingStones(player, `object`)
@@ -39,12 +41,12 @@ class WildernessCourse
 
     private fun handleEntrance(player: Player, `object`: Scenery) {
         if (player.location.y > 3916 || player.skills.getLevel(Skills.AGILITY) >= 52) {
-            core.game.global.action.DoorActionHandler.handleAutowalkDoor(player, `object`)
+            DoorActionHandler.handleAutowalkDoor(player, `object`)
             if (player.location.y <= 3916) {
                 handleEntranceObstacle(player, `object`)
             }
         } else {
-            player.dialogueInterpreter.sendDialogue("You need an Agility level of at least 52 to enter.")
+            sendDialogue(player, "You need an Agility level of at least 52 to enter.")
         }
     }
 
@@ -55,21 +57,27 @@ class WildernessCourse
             override fun pulse(): Boolean {
                 when (++counter) {
                     2 -> {
-                        val end = if (fail) Location.create(2998, 3924, 0) else if (`object`.id < 2309) Location.create(2998, 3917, 0) else Location.create(2998, 3930, 0)
+                        val end = if (fail) Location.create(2998, 3924, 0) else if (`object`.id < 2309) Location.create(
+                            2998,
+                            3917,
+                            0
+                        ) else Location.create(2998, 3930, 0)
                         val start = if (`object`.id < 2309) player.location else Location.create(2998, 3917, 0)
                         sendMessage(player, "You go through the gate and try to edge over the ridge...")
                         AgilityHandler.walk(player, -1, start, end, Animation.create(155), if (fail) 0.0 else 15.00, if (fail) "You lose your footing and fail into the wolf pit." else "You skillfully balance across the ridge...")
                     }
+
                     9 -> {
                         if (fail) {
                             AgilityHandler.fail(player, 0, player.location.transform(if (`object`.id < 2309) -2 else 2, 0, 0), Animation.create(if (`object`.id < 2309) 771 else 771), getHitAmount(player), null)
                         }
                         return fail
                     }
+
                     15 -> player.lock(3)
                     16 -> {
                         val doorLoc = if (`object`.id < 2309) Location(2998, 3917, 0) else Location(2998, 3931, 0)
-                        core.game.global.action.DoorActionHandler.handleAutowalkDoor(player, RegionManager.getObject(doorLoc))
+                        DoorActionHandler.handleAutowalkDoor(player, RegionManager.getObject(doorLoc)!!)
                         return true
                     }
                 }
@@ -83,8 +91,8 @@ class WildernessCourse
             sendMessage(player, "You can't do that from here.")
             return
         }
-        if (player.skills.getLevel(Skills.AGILITY) < 49) {
-            player.dialogueInterpreter.sendDialogue("You need an Agility level of at least 49 to do this.")
+        if (getStatLevel(player, Skills.AGILITY) < 49) {
+            sendDialogue(player, "You need an Agility level of at least 49 to do this.")
             return
         }
         player.lock(10)
@@ -99,11 +107,13 @@ class WildernessCourse
                         AgilityHandler.forceWalk(player, 0, Location.create(x, 3948, 0), Location.create(x, 3950, 0), Animation.create(10579), 20, 12.5, null, 5) //20
                         return true
                     }
+
                     2 -> {
                         player.teleporter.send(Location.create(3004, 3947, 0), TeleportManager.TeleportType.INSTANT, TeleportManager.WILDY_TELEPORT)
                         AgilityHandler.forceWalk(player, 0, Location.create(x, 3948, 0), Location.create(x, 3950, 0), Animation.create(10579), 20, 12.5, null, 5)
                         return true
                     }
+
                     3 -> {
                         AgilityHandler.forceWalk(player, 0, Location.create(x, 3948, 0), Location.create(x, 3950, 0), Animation.create(10579), 20, 12.5, null, 5)
                         return true
@@ -136,10 +146,10 @@ class WildernessCourse
         lock(player, 50)
         val fail = AgilityHandler.hasFailed(player, 1, 0.3)
         val origLoc = player.location
-        registerLogoutListener(player, "steppingstone"){p ->
+        registerLogoutListener(player, "steppingstone") { p ->
             player.location = origLoc
         }
-        submitWorldPulse(object : Pulse(2, player){
+        submitWorldPulse(object : Pulse(2, player) {
             var counter = 0
             override fun pulse(): Boolean {
                 if (counter == 3 && fail) {
@@ -147,7 +157,7 @@ class WildernessCourse
                     return true
                 }
                 AgilityHandler.forceWalk(player, if (counter == 5) 2 else -1, player.location, player.location.transform(-1, 0, 0), Animation.create(741), 10, if (counter == 5) 20.0 else 0.0, if (counter != 0) null else "You carefully start crossing the stepping stones...")
-                if(++counter == 6){
+                if (++counter == 6) {
                     unlock(player)
                     clearLogoutListener(player, "steppingstone")
                 }

@@ -50,7 +50,13 @@ interface Commands : ContentInterface {
         description: String = "",
         handle: (Player, Array<String>) -> Unit
     ) {
-        CommandMapping.register(Command(name, privilege, usage, description, handle))
+        CommandMapping.register(Command(
+            name = name,
+            privilege = privilege,
+            usage = usage,
+            description = description,
+            handle = handle
+        ))
     }
 
     fun defineCommands()
