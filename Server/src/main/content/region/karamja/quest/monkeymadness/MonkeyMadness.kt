@@ -1,4 +1,4 @@
-package content.region.miscquest.mm
+package content.region.karamja.quest.monkeymadness
 
 
 import core.api.consts.Vars
@@ -10,7 +10,7 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.item.Item
 import core.plugin.Initializable
 
-@Initializable
+// @Initializable
 class MonkeyMadness : Quest("Monkey Madness", 88, 87, 3, Vars.VARP_QUEST_MONKEY_MADNESS_PROGRESS, 0, 1, 9) {
 
     override fun drawJournal(player: Player?, stage: Int) {
