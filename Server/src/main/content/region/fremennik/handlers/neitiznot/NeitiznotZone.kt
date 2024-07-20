@@ -3,7 +3,6 @@ package content.region.fremennik.handlers.neitiznot
 import content.global.skill.production.crafting.handlers.YakArmourCraftingHandler
 import content.region.fremennik.dialogue.neitiznot.MawnisBurowgarDialogue
 import content.region.fremennik.dialogue.neitiznot.ThakkradYakDialogue
-import core.api.consts.Region
 import core.api.consts.Regions
 import core.game.interaction.Option
 import core.game.node.Node

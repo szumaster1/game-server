@@ -1,6 +1,6 @@
 package content.global.skill.gathering.hunter;
 
-import content.global.skill.support.firemaking.Log;
+import content.global.skill.support.firemaking.data.Log;
 import core.game.node.Node;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;

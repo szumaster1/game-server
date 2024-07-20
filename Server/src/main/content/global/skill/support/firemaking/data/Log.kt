@@ -1,4 +1,4 @@
-package content.global.skill.support.firemaking
+package content.global.skill.support.firemaking.data
 
 import core.api.consts.Items
 import core.api.consts.Scenery

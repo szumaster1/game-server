@@ -3,7 +3,7 @@ package content.global.skill.combat.summoning.familiar.npc;
 import content.global.skill.combat.summoning.familiar.Familiar;
 import content.global.skill.combat.summoning.familiar.FamiliarSpecial;
 import content.global.skill.support.firemaking.FireMakingPulse;
-import content.global.skill.support.firemaking.Log;
+import content.global.skill.support.firemaking.data.Log;
 import core.game.container.impl.EquipmentContainer;
 import core.game.interaction.NodeUsageEvent;
 import core.game.interaction.UseWithHandler;

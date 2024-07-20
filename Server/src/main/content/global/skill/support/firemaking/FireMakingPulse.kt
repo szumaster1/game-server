@@ -1,5 +1,6 @@
 package content.global.skill.support.firemaking
 
+import content.global.skill.support.firemaking.data.Log
 import core.api.*
 import core.api.consts.Animations
 import core.api.consts.Items

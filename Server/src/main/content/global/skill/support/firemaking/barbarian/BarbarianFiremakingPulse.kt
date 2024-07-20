@@ -2,7 +2,7 @@ package content.global.skill.support.firemaking.barbarian
 
 import content.data.skill.SkillingTool
 import content.global.skill.BarbarianTraining
-import content.global.skill.support.firemaking.Log
+import content.global.skill.support.firemaking.data.Log
 import core.api.*
 import core.api.consts.Items
 import core.game.event.LitFireEvent

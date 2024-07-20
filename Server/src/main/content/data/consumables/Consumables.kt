@@ -87,7 +87,7 @@ enum class Consumables {
     CAKE(Cake(intArrayOf(1891, 1893, 1895),HealingEffect(4),"You eat part of the cake.","You eat some more cake.","You eat the slice of cake.")),
     CHOCOLATE_CAKE(Cake(intArrayOf(1897, 1899, 1901),HealingEffect(5),"You eat part of the chocolate cake.","You eat some more of the chocolate cake.","You eat the slice of cake.")),
     ROCK_CAKE(Food(intArrayOf(2379),RockCakeEffect(),"The rock cake resists all attempts to eat it.")),
-    CAVE_NIGHTSHADE(Food(intArrayOf(Items.CAVE_NIGHTSHADE_2398), DamageEffect(15.0, false))), // "Ahhhh! What have I done!"
+    CAVE_NIGHTSHADE(Food(intArrayOf(Items.CAVE_NIGHTSHADE_2398), DamageEffect(15.0, false),"Ahhhh! What have I done!")),
     DWARVEN_ROCK_CAKE(Food(intArrayOf(7510, 7510),DwarvenRockCakeEffect(),"Ow! You nearly broke a tooth!","The rock cake resists all attempts to eat it.")),
     HOT_DWARVEN_ROCK_CAKE(Food(intArrayOf(7509, 7509),DwarvenRockCakeEffect(),"Ow! You nearly broke a tooth!","The rock cake resists all attempts to eat it.")),
     COOKED_FISHCAKE(Food(intArrayOf(7530), HealingEffect(11))),

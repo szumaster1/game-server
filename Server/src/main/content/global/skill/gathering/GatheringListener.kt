@@ -9,8 +9,6 @@ import core.game.node.entity.player.Player
 
 class GatheringListener : InteractionListener {
 
-    val ETCETERIA_REGION = 10300
-
     override fun defineListeners() {
 
     }

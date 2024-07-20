@@ -5,7 +5,7 @@ import content.data.tables.BirdNestDropTable
 import content.global.skill.gathering.farming.FarmingPatch.Companion.forObject
 import content.global.skill.skillcape.SkillcapePerks
 import content.global.skill.skillcape.SkillcapePerks.Companion.isActive
-import content.global.skill.support.firemaking.Log
+import content.global.skill.support.firemaking.data.Log
 import content.region.fremennik.dialogue.miscellania.KjallakOnChopDialogue
 import core.api.*
 import core.api.consts.Items

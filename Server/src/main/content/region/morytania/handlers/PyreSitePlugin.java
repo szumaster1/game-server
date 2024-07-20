@@ -1,6 +1,6 @@
 package content.region.morytania.handlers;
 
-import content.global.skill.support.firemaking.Log;
+import content.global.skill.support.firemaking.data.Log;
 import core.cache.def.impl.SceneryDefinition;
 import core.game.interaction.OptionHandler;
 import core.game.node.Node;
