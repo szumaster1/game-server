@@ -58,21 +58,16 @@ public class FaladorShieldPlugin extends OptionHandler {
                 setTitle(player, 2);
                 sendDialogueOptions(player, "Are you sure you wish to recharge?", "Yes, recharge my Prayer points.", "No, I've changed my mind.");
                 player.getDialogueInterpreter().addAction((player1, buttonId) -> {
-                    switch (buttonId) {
-                        case 2:
-                            if (attrTime != null && attrTime > System.currentTimeMillis()) {
-                                player.sendMessage("You have no charges left today.");
-                            } else {
-                                final PrayerEffect effect = new PrayerEffect(0, level == 0 ? 0.25 : level == 1 ? 0.5 : 1.0);
-                                player1.graphics(new Graphic(GFX_PRAYER_RESTORE[level]));
-                                setAttribute(player1, "/save:diary:falador:shield-restore-time", System.currentTimeMillis() + TimeUnit.DAYS.toMillis(1));
-                                player1.sendMessage("You restore " + (level < 2 ? "some" : "your") + " prayer points.");
-                                effect.activate(player1);
-                            }
-                            break;
-                        case 3:
-                            closeDialogue(player);
-                            break;
+                    if (buttonId == 2) {
+                        if (attrTime != null && attrTime > System.currentTimeMillis()) {
+                            player1.sendMessage("You have no charges left today.");
+                        } else {
+                            final PrayerEffect effect = new PrayerEffect(0, level == 0 ? 0.25 : level == 1 ? 0.5 : 1.0);
+                            player1.graphics(new Graphic(GFX_PRAYER_RESTORE[level]));
+                            setAttribute(player1, "/save:diary:falador:shield-restore-time", System.currentTimeMillis() + TimeUnit.DAYS.toMillis(1));
+                            player1.sendMessage("You restore " + (level < 2 ? "some" : "your") + " prayer points.");
+                            effect.activate(player1);
+                        }
                     }
                 });
                 return true;
