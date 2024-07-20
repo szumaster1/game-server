@@ -2,6 +2,8 @@ package core.game.world.map.zone.impl
 
 import core.api.closeOverlay
 import core.api.consts.Components
+import core.api.consts.Region
+import core.api.consts.Regions
 import core.api.getRegionBorders
 import core.api.inBorders
 import core.api.openOverlay
@@ -15,9 +17,9 @@ class SnowZone : MapZone("snow", true) {
     private val BASE_ZONE = ZoneBorders(2728, 3716, 2732, 3731)
     private val MIDDLE_ZONE = ZoneBorders(2733, 3716, 2738, 3730)
     private val WINDSWEPT_AREA = ZoneBorders(2751, 3740, 2735, 3712)
-    private val TROLLWEIS_MOUNTAIN_0 = getRegionBorders(11066)
-    private val TROLLWEIS_MOUNTAIN_1 = getRegionBorders(11067)
-    private val TROLLWEIS_MOUNTAIN_2 = getRegionBorders(11068)
+    private val TROLLWEIS_MOUNTAIN_0 = getRegionBorders(Regions.TROLLWEISS_MOUNTAIN_11066)
+    private val TROLLWEIS_MOUNTAIN_1 = getRegionBorders(Regions.TROLLWEISS_MOUNTAIN_11067)
+    private val TROLLWEIS_MOUNTAIN_2 = getRegionBorders(Regions.TROLLWEISS_MOUNTAIN_11068)
 
     override fun configure() {
         registerZones(BASE_ZONE, MIDDLE_ZONE, WINDSWEPT_AREA, TROLLWEIS_MOUNTAIN_0, TROLLWEIS_MOUNTAIN_1, TROLLWEIS_MOUNTAIN_2)

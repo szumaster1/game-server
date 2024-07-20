@@ -1,5 +1,6 @@
 package content.global.handlers.item
 
+import content.global.skill.support.slayer.data.SlayerMaster
 import content.global.skill.support.slayer.data.Tasks
 import core.api.*
 import core.api.consts.Items
@@ -13,6 +14,8 @@ import core.tools.END_DIALOGUE
 
 class EnchantedGemListener : InteractionListener {
 
+    private val master: SlayerMaster? = null
+
     override fun defineListeners() {
         on(Items.ENCHANTED_GEM_4155, IntType.ITEM, "activate") { player, _ ->
             var firstRun = true
@@ -20,7 +23,7 @@ class EnchantedGemListener : InteractionListener {
                 override fun handle(componentID: Int, buttonID: Int) {
                     npc = getSlayerMaster(player)
                     when (stage) {
-                        0 -> npcl(FacialExpression.FRIENDLY, "Hello there ${player.username}, what can I help you with?").also { stage++ }
+                        0 -> npcl(getExpression(master!!), "Hello there ${player.username}, what can I help you with?").also { stage++ }
                         1 -> showTopics(
                             Topic(FacialExpression.ASKING, "How am I doing so far?", 100),
                             Topic(FacialExpression.HALF_ASKING, "Who are you?", 200),
@@ -33,12 +36,12 @@ class EnchantedGemListener : InteractionListener {
                         100 -> {
                             firstRun = false
                             if (!hasSlayerTask(player)) {
-                                npcl(FacialExpression.HALF_THINKING, "You need something new to hunt. Come and see me when you can and I'll give you a new task.").also { stage = 1 }
+                                npcl(getExpression(master!!), "You need something new to hunt. Come and see me when you can and I'll give you a new task.").also { stage = 1 }
                             } else {
                                 if (getSlayerTask(player) == Tasks.JAD) {
-                                    npcl(FacialExpression.FRIENDLY, "You're currently assigned to kill TzTok-Jad!")
+                                    npcl(getExpression(master!!), "You're currently assigned to kill TzTok-Jad!")
                                 } else {
-                                    npcl(FacialExpression.FRIENDLY, "You're currently assigned to kill ${getSlayerTaskName(player!!)}s; only ${getSlayerTaskKillsRemaining(player)} more to go.")
+                                    npcl(getExpression(master!!), "You're currently assigned to kill ${getSlayerTaskName(player!!)}s; only ${getSlayerTaskKillsRemaining(player)} more to go.")
                                 }
                                 setVarp(player, 2502, getSlayerTaskFlags(player) shr 4)
                                 stage = 1
@@ -47,17 +50,17 @@ class EnchantedGemListener : InteractionListener {
 
                         200 -> {
                             firstRun = false
-                            npcl(FacialExpression.HAPPY, "My name's ${getSlayerMaster(player).name}, I'm the Slayer Master best able to train you.").also { stage = 1 }
+                            npcl(getExpression(master!!), "My name's ${getSlayerMaster(player).name}, I'm the Slayer Master best able to train you.").also { stage = 1 }
                         }
 
                         300 -> {
                             firstRun = false
-                            npcl(FacialExpression.HAPPY, "You'll find me in ${getSlayerMasterLocation(player)}, I'll be here when you need a new task.").also { stage = 1 }
+                            npcl(getExpression(master!!), "You'll find me in ${getSlayerMasterLocation(player)}, I'll be here when you need a new task.").also { stage = 1 }
                         }
 
                         400 -> {
                             firstRun = false
-                            npc(FacialExpression.FRIENDLY, *getSlayerTip(player))
+                            npc(getExpression(master!!), *getSlayerTip(player))
                             stage++
                         }
 
@@ -67,5 +70,12 @@ class EnchantedGemListener : InteractionListener {
             })
             return@on true
         }
+    }
+
+    private fun getExpression(master: SlayerMaster): FacialExpression {
+        if (master == SlayerMaster.CHAELDAR) {
+            return FacialExpression.OLD_NORMAL
+        }
+        return FacialExpression.HALF_GUILTY
     }
 }

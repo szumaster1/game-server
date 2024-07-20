@@ -1,6 +1,7 @@
 package content.global.random.event.eviltwin
 
 import core.api.*
+import core.api.consts.Regions
 import core.api.utils.PlayerCamera
 import core.game.interaction.QueueStrength
 import core.game.node.entity.Entity
@@ -33,7 +34,7 @@ object EvilTwinUtils {
     val crane_y_loc = "/save:evil_twin:ccy"
 
     val rewards = arrayOf(Item(1618, 2), Item(1620, 3), Item(1622, 3), Item(1624, 4))
-    val region: DynamicRegion = DynamicRegion.create(7504)
+    val region: DynamicRegion = DynamicRegion.create(Regions.EVIL_TWIN_7504)
 
     var success = false
     var tries = 3

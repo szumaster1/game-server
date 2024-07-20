@@ -1,5 +1,6 @@
 package core.game.node.entity.player.link.emote;
 
+import core.api.consts.*;
 import core.game.container.impl.EquipmentContainer;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.info.Rights;
@@ -12,8 +13,6 @@ import core.game.world.map.Location;
 import core.game.world.map.RegionManager;
 import core.game.world.update.flag.context.Animation;
 import core.game.world.update.flag.context.Graphic;
-import core.api.consts.Animations;
-import core.api.consts.Items;
 
 import static core.api.ContentAPIKt.playJingle;
 import static core.api.ContentAPIKt.setAttribute;
@@ -116,17 +115,15 @@ public enum Emotes {
     /**
      * The Jump for joy.
      */
-//Switch laugh id 11, to 12, and switch Jump id 12 to 11. Id's were mismatched.
-    //This caused the LAUGH to proc JUMP_FOR_JOY and JUMP_FOR_JOY to proc LAUGH! :)
-    JUMP_FOR_JOY(11, Animation.create(2109)),
+    JUMP_FOR_JOY(11, Animation.create(Animations.JUMP_FOR_JOY_2109)),
     /**
      * Laugh emotes.
      */
-    LAUGH(12, Animation.create(861)),
+    LAUGH(12, Animation.create(Animations.LAUGH_861)),
     /**
      * The Yawn.
      */
-    YAWN(13, Animation.create(2111)) {
+    YAWN(13, Animation.create(Animations.YAWN_2111)) {
         @Override
         public void play(Player player) {
             Item hat = player.getEquipment().get(EquipmentContainer.SLOT_HAT);
@@ -140,7 +137,7 @@ public enum Emotes {
     /**
      * The Dance.
      */
-    DANCE(14, Animation.create(866)) {
+    DANCE(14, Animation.create(Animations.DANCE_866)) {
         @Override
         public void play(Player player) {
             Item legs = player.getEquipment().get(EquipmentContainer.SLOT_LEGS);
@@ -154,35 +151,35 @@ public enum Emotes {
     /**
      * Jig emotes.
      */
-    JIG(15, Animation.create(2106)),
+    JIG(15, Animation.create(Animations.JIG_EMOTE_2106)),
     /**
      * Spin emotes.
      */
-    SPIN(16, Animation.create(2107)),
+    SPIN(16, Animation.create(Animations.TWIRL_2107)),
     /**
      * Headbang emotes.
      */
-    HEADBANG(17, Animation.create(2108)),
+    HEADBANG(17, Animation.create(Animations.HEADBANG_EMOTE_2108)),
     /**
      * Cry emotes.
      */
-    CRY(18, Animation.create(860)),
+    CRY(18, Animation.create(Animations.CRY_860)),
     /**
      * Blow kiss emotes.
      */
-    BLOW_KISS(19, Animation.create(1368), Graphic.create(574)),
+    BLOW_KISS(19, Animation.create(Animations.RUNNING_WITH_WEAPON_1368), Graphic.create(Graphics.HEART_574)),
     /**
      * Panic emotes.
      */
-    PANIC(20, Animation.create(2105)),
+    PANIC(20, Animation.create(Animations.PANIC_2105)),
     /**
      * Raspberry emotes.
      */
-    RASPBERRY(21, Animation.create(2110)),
+    RASPBERRY(21, Animation.create(Animations.RASPBERRY_2110)),
     /**
      * The Clap.
      */
-    CLAP(22, Animation.create(865)) {
+    CLAP(22, Animation.create(Animations.CLAP_865)) {
         @Override
         public void play(Player player) {
             Item weapon = player.getEquipment().get(EquipmentContainer.SLOT_WEAPON);
@@ -196,7 +193,7 @@ public enum Emotes {
     /**
      * The Salute.
      */
-    SALUTE(23, Animation.create(2112)) {
+    SALUTE(23, Animation.create(Animations.SALUTE_2112)) {
         @Override
         public void play(Player player) {
             if (!player.getAchievementDiaryManager().hasCompletedTask(DiaryType.FALADOR, 1, 8) &&
@@ -215,13 +212,13 @@ public enum Emotes {
     /**
      * The Goblin bow.
      */
-    GOBLIN_BOW(24, Animation.create(2127), "This emote can be unlocked during the Lost Tribe quest.") {
+    GOBLIN_BOW(24, Animation.create(Animations.GOBLIN_BOW_EMOTE_E_2127), "This emote can be unlocked during the Lost Tribe quest.") {
         @Override
         public void play(Player player) {
-            if (player.getLocation().getRegionId() == 13206 && !player.getAttribute("mistag-greeted", false)) {
+            if (player.getLocation().getRegionId() == Regions.LUMBRIDGE_BASEMENT_13206 && !player.getAttribute("mistag-greeted", false)) {
                 RegionManager.getLocalNpcs(player).forEach(npc -> {
-                    if (npc.getId() == 2084 && npc.getLocation().withinDistance(player.getLocation(), 3) && player.getQuestRepository().getQuest("Lost Tribe").getStage(player) == 45) {
-                        player.getDialogueInterpreter().open(2084, npc, "greeting");
+                    if (npc.getId() == NPCs.MISTAG_2084 && npc.getLocation().withinDistance(player.getLocation(), 3) && player.getQuestRepository().getQuest("Lost Tribe").getStage(player) == 45) {
+                        player.getDialogueInterpreter().open(NPCs.MISTAG_2084, npc, "greeting");
                         setAttribute(player, "/save:mistag-greeted", true);
                     }
                 });
@@ -232,35 +229,35 @@ public enum Emotes {
     /**
      * The Goblin salute.
      */
-    GOBLIN_SALUTE(25, Animation.create(2128), "This emote can be unlocked during the Lost Tribe quest."),
+    GOBLIN_SALUTE(25, Animation.create(Animations.GOBLIN_SALUTE_EMOTE_E_2128), "This emote can be unlocked during the Lost Tribe quest."),
     /**
      * The Glass box.
      */
-    GLASS_BOX(26, Animation.create(1131), "This emote can be unlocked during the Mime random event."),
+    GLASS_BOX(26, Animation.create(Animations.GLASS_BOX_EMOTE_E_1131), "This emote can be unlocked during the Mime random event."),
     /**
      * The Climb rope.
      */
-    CLIMB_ROPE(27, Animation.create(1130), "This emote can be unlocked during the Mime random event."),
+    CLIMB_ROPE(27, Animation.create(Animations.CLIMB_ROPE_EMOTE_E_1130), "This emote can be unlocked during the Mime random event."),
     /**
      * The Lean.
      */
-    LEAN_ON_AIR(28, Animation.create(1129), "This emote can be unlocked during the Mime random event."),
+    LEAN_ON_AIR(28, Animation.create(Animations.LEAN_EMOTE_E_1129), "This emote can be unlocked during the Mime random event."),
     /**
      * The Glass wall.
      */
-    GLASS_WALL(29, Animation.create(1128), "This emote can be unlocked during the Mime random event."),
+    GLASS_WALL(29, Animation.create(Animations.HUMAN_GLASS_WALL_1128), "This emote can be unlocked during the Mime random event."),
     /**
      * The Idea.
      */
-    IDEA(33, Animation.create(4276), Graphic.create(712), "You can't use this emote yet. <br>Visit the Stronghold of Security to unlock it."),
+    IDEA(33, Animation.create(Animations.HUMAN_IDEA_4276), Graphic.create(Graphics.LIGHT_BULB_IDEA_EMOTE_712), "You can't use this emote yet. <br>Visit the Stronghold of Security to unlock it."),
     /**
      * The Stomp.
      */
-    STOMP(31, Animation.create(4278), "You can't use this emote yet. <br>Visit the Stronghold of Security to unlock it."),
+    STOMP(31, Animation.create(Animations.HUMAN_STOMP_4278), "You can't use this emote yet. <br>Visit the Stronghold of Security to unlock it."),
     /**
      * The Flap.
      */
-    FLAP(32, Animation.create(4280), "You can't use this emote yet. <br>Visit the Strongshold of Security to unlock it.") {
+    FLAP(32, Animation.create(Animations.FLAP_EMOTE_E_4280), "You can't use this emote yet. <br>Visit the Strongshold of Security to unlock it.") {
         @Override
         public void play(Player player) {
             Item head = player.getEquipment().get(EquipmentContainer.SLOT_HAT);

@@ -1,6 +1,7 @@
 package content.region.wilderness.handlers.npc;
 
 import content.data.BossKillCounter;
+import core.api.consts.Regions;
 import core.game.activity.ActivityPlugin;
 import core.game.activity.CutscenePlugin;
 import core.game.component.Component;
@@ -496,7 +497,7 @@ public class BorkNPC extends AbstractNPC {
 
         @Override
         public void configure() {
-            region = DynamicRegion.create(12374);
+            region = DynamicRegion.create(Regions.BORK_12374);
             region.setMulticombat(true);
             setRegionBase();
             registerRegion(region.getId());
