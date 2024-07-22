@@ -58,18 +58,21 @@ class SlashWebPlugin : OptionHandler() {
         if (success) {
             sendMessage(player, "You slash the web apart.")
             SceneryBuilder.replace(scenery, if (scenery.id == 27266 || scenery.id == 29354) scenery.transform(734) else scenery.transform(scenery.id + 1), 100)
-            /*
-             * Venture through the cobwebbed corridor in Varrock Sewers.
-             */
+
             if (scenery.id == 29354) {
+                /*
+                 * Venture through the cobwebbed corridor in Varrock Sewers.
+                 */
                 finishDiaryTask(player, DiaryType.VARROCK, 0, 17)
             }
-            /*
-             * Escape from the spider lair in Varrock Sewers with some red spiders eggs.
-             */
+
             if (scenery.id == 29354 && player.inventory.containsAtLeastOneItem(Items.RED_SPIDERS_EGGS_223) && player.location.y <= 9897) {
+                /*
+                 * Escape from the spider lair in Varrock Sewers with some red spiders eggs.
+                 */
                 finishDiaryTask(player, DiaryType.VARROCK, 1, 4)
             }
+
         } else {
             sendMessage(player, "You fail to cut through it.")
         }
@@ -99,10 +102,7 @@ class SlashWebPlugin : OptionHandler() {
 
     private fun checkEquipmentWeapon(player: Player, item: Item?): Item? {
         if (item != null) {
-            val inter = WeaponInterface.getWeaponInterface(item)
-            if (inter == null) {
-                return null
-            }
+            val inter = WeaponInterface.getWeaponInterface(item) ?: return null
             var success = false
             for (style in inter.attackStyles) {
                 if (style.bonusType == WeaponInterface.BONUS_SLASH) {
