@@ -1,5 +1,6 @@
 package content.global.bots
 
+import core.api.closeInterface
 import core.api.consts.Items
 import core.game.bots.AIRepository
 import core.game.bots.CombatBotAssembler
@@ -152,6 +153,7 @@ class GreenDragonKiller(val style: CombatStyle, area: ZoneBorders? = null) : Scr
                 if (wildernessLine.insideBorder(bot)) {
                     val ditch = scriptAPI.getNearestNode("Wilderness Ditch", true)
                     ditch ?: return
+                    bot.interfaceManager.close()
                     ditch.interaction.handle(bot, ditch.interaction[0])
                 }
                 if (!bankZone.insideBorder(bot)) scriptAPI.walkTo(bankZone.randomLoc)
@@ -214,6 +216,7 @@ class GreenDragonKiller(val style: CombatStyle, area: ZoneBorders? = null) : Scr
                     if (edgevilleLine.insideBorder(bot)) {
                         val ditch = scriptAPI.getNearestNode("Wilderness Ditch", true)
                         ditch ?: return
+                        bot.interfaceManager.close()
                         ditch.interaction.handle(bot, ditch.interaction[0]).also { return }
                     }
                     if (bot.location.y > 3520 && !myBorders!!.insideBorder(bot)) scriptAPI.walkTo(myBorders!!.randomLoc)

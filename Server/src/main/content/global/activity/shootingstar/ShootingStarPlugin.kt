@@ -15,10 +15,12 @@ import core.game.interaction.IntType
 import core.tools.SystemLogger
 import core.game.system.command.Privilege
 import core.game.world.GameWorld
+import core.tools.DARK_RED
 import core.tools.Log
 import core.tools.secondsToTicks
 
 class ShootingStarPlugin : LoginListener, InteractionListener, TickListener, Commands, StartupListener {
+
     override fun login(player: Player) {
         if(star.isSpawned && !star.spriteSpawned)
             sendMessage(player, "<img=12><col=CC6600>News: A shooting star (Level ${star.level.ordinal + 1}) has just crashed near the ${star.location}!")
@@ -81,7 +83,7 @@ class ShootingStarPlugin : LoginListener, InteractionListener, TickListener, Com
                     fun teleportToStar(player: Player) {
                         val condition: (p: Player) -> Boolean = when (star.location.toLowerCase()) {
                             "canifis bank"              -> {p -> requireQuest(p, "Priest in Peril", "to access this.") }
-                            //"burgh de rott bank"        -> {p -> hasRequirement(p, "In Aid of the Myreque") } //disabled: crash
+                            "burgh de rott bank"        -> {p -> hasRequirement(p, "In Aid of the Myreque") } //disabled: crash
                             "crafting guild"            -> {p -> hasLevelStat(p, Skills.CRAFTING, 40)       }
                             "lletya bank"               -> {p -> hasRequirement(p, "Mourning's End Part I") }
                             "jatizso mine"              -> {p -> hasRequirement(p, "The Fremennik Isles")   }
@@ -90,7 +92,7 @@ class ShootingStarPlugin : LoginListener, InteractionListener, TickListener, Com
                             "mos le'harmless bank"      -> {p -> hasRequirement(p, "Cabin Fever")           } //needs to be updated to check for completion when the quest releases; https://runescape.wiki/w/Mos_Le%27Harmless?oldid=913025
                             "lunar isle mine"           -> {p -> hasRequirement(p, "Lunar Diplomacy")       }
                             "miscellania coal mine"     -> {p -> requireQuest(p, "The Fremennik Trials", "to access this.") }
-                            //"neitiznot runite mine"     -> {p -> hasRequirement(p, "The Fremennik Isles") } //disabled: currently not reachable
+                            "neitiznot runite mine"     -> {p -> hasRequirement(p, "The Fremennik Isles") } //disabled: currently not reachable
                             else -> { _ -> true}
                         }
                         if (!condition.invoke(player)) {
@@ -101,7 +103,7 @@ class ShootingStarPlugin : LoginListener, InteractionListener, TickListener, Com
                     }
                     when (stage) {
                         0 -> dialogue(if (star.spriteSpawned) "The star sprite has already been freed." else "The star sprite is still trapped.").also { if (shouldWarn) stage++ else stage += 2 }
-                        1 -> dialogue("WARNING: The star is located in the wilderness.").also { stage++ }
+                        1 -> dialogue(DARK_RED+"WARNING</col>: The star is located in the wilderness.").also { stage++ }
                         2 -> player.dialogueInterpreter.sendOptions("Teleport to the star?", "Yes", "No").also { stage++ }
                         3 -> when (buttonID) {
                             1 -> end().also { teleportToStar(player) }
