@@ -9,7 +9,6 @@ import core.game.node.item.Item
 import core.game.system.task.Pulse
 import core.plugin.Initializable
 import core.plugin.Plugin
-import java.util.*
 
 @Initializable
 class SoftclayPlugin : UseWithHandler(Items.CLAY_434) {
@@ -73,7 +72,7 @@ class SoftclayPlugin : UseWithHandler(Items.CLAY_434) {
             returnItem = JUG
         }
 
-        if (player.inventory.containsItem(CLAY) && player.inventory.containsItem(Objects.requireNonNull(removeItem))) {
+        if (player.inventory.containsItem(CLAY) && player.inventory.containsItem(removeItem)) {
             player.inventory.remove(removeItem)
             player.inventory.remove(CLAY)
             player.packetDispatch.sendMessage("You mix the clay and water. You now have some soft, workable clay.")
