@@ -7,7 +7,6 @@ import core.game.node.Node
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.plugin.Plugin
-import java.util.*
 
 @Initializable
 class LookAtOptionPlugin : OptionHandler() {

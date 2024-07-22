@@ -14,7 +14,6 @@ import core.game.system.task.Pulse
 import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 import core.plugin.Plugin
-import java.util.Arrays
 
 @Initializable
 class FishfoodPlugin : UseWithHandler(*FishFoodUses.usables) {

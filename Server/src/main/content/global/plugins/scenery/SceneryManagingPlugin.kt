@@ -17,7 +17,6 @@ import core.game.world.map.Location
 import core.game.world.map.RegionManager.isTeleportPermitted
 import core.plugin.Initializable
 import core.plugin.Plugin
-import java.util.*
 
 @Initializable
 class SceneryManagingPlugin : OptionHandler() {
@@ -35,7 +34,7 @@ class SceneryManagingPlugin : OptionHandler() {
         if (`object`.type != 9 && player.location != node.getLocation() && !player.location.isNextTo(`object`) && `object`.name.contains("cupboard")) {
             return true
         }
-        val name = `object`.name.lowercase(Locale.getDefault())
+        val name = `object`.name.lowercase()
         if (name.contains("drawers") || name.contains("wardrobe") || name.contains("cupboard")) {
             when (option) {
                 "open" -> {

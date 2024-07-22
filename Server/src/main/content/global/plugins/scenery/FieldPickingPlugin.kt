@@ -20,7 +20,6 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 import core.plugin.Plugin
 import core.tools.RandomFunction
-import java.util.*
 
 @Initializable
 class FieldPickingPlugin : OptionHandler() {
@@ -93,7 +92,7 @@ class FieldPickingPlugin : OptionHandler() {
                     )
                 }
                 if (!plant.name.startsWith("NETTLES")) {
-                    player.packetDispatch.sendMessage("You pick a " + reward.name.lowercase(Locale.getDefault()) + ".")
+                    player.packetDispatch.sendMessage("You pick a " + reward.name.lowercase() + ".")
                 } else {
                     player.packetDispatch.sendMessage("You pick a handful of nettles.")
                 }
