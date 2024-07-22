@@ -17,7 +17,7 @@ import core.plugin.Plugin
 
 class DropPartyLever : OptionHandler() {
     @Throws(Throwable::class)
-    override fun newInstance(arg: Any): Plugin<Any> {
+    override fun newInstance(arg: Any?): Plugin<Any> {
         SceneryDefinition.forId(26194).handlers["option:pull"] = this
         return this
     }

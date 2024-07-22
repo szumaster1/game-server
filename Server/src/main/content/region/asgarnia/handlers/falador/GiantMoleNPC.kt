@@ -204,7 +204,7 @@ class GiantMoleNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, lo
         register(Location.create(2987, 3387, 0), action)
         SceneryDefinition.forId(12230).handlers["option:climb"] = object : OptionHandler() {
             @Throws(Throwable::class)
-            override fun newInstance(arg: Any): Plugin<Any> {
+            override fun newInstance(arg: Any?): Plugin<Any> {
                 return this
             }
 

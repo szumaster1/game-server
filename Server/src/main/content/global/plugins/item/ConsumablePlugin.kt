@@ -6,7 +6,7 @@ import core.game.node.Node
 import core.game.node.entity.player.Player
 import core.plugin.Plugin
 
-class ConsumableOptionPlugin : OptionHandler() {
+class ConsumablePlugin : OptionHandler() {
 
     override fun newInstance(arg: Any?): Plugin<Any> {
         ItemDefinition.setOptionHandler("eat", this)
