@@ -20,7 +20,7 @@ public final class WorldStatistics {
 	private final List<String> players = new ArrayList<>(20);
 
 	/**
-	 * Constructs a new {@code WorldStatistics} {@Code Object}
+	 * Constructs a new {@code WorldStatistics} {@code Object}
 	 * @param id The world id.
 	 */
 	public WorldStatistics(int id) {

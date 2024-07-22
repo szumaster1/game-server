@@ -8,7 +8,7 @@ import core.plugin.Plugin
 
 class ConsumableOptionPlugin : OptionHandler() {
 
-    override fun newInstance(arg: Any?): Plugin<Any?> {
+    override fun newInstance(arg: Any?): Plugin<Any> {
         ItemDefinition.setOptionHandler("eat", this)
         ItemDefinition.setOptionHandler("drink", this)
         return this

@@ -19,18 +19,18 @@ public abstract class ItemPlugin implements Plugin<Object> {
     protected static final int DROP = 1;
 
     /**
-     * Constructs a new {@Code ItemPlugin} {@Code Object}
+     * Constructs a new {@code ItemPlugin} {@code Object}
      */
     public ItemPlugin() {
-		/**
-		 * empty.
-		 */
-	}
+        /**
+         * empty.
+         */
+    }
 
-	@Override
-	public Object fireEvent(String identifier, Object... args) {
-		return this;
-	}
+    @Override
+    public Object fireEvent(String identifier, Object... args) {
+        return this;
+    }
 
     /**
      * Registers items to this plugin.
@@ -38,10 +38,10 @@ public abstract class ItemPlugin implements Plugin<Object> {
      * @param ids the ids.
      */
     public void register(int... ids) {
-		for (int id : ids) {
-			ItemDefinition.forId(id).setItemPlugin(this);
-		}
-	}
+        for (int id : ids) {
+            ItemDefinition.forId(id).setItemPlugin(this);
+        }
+    }
 
     /**
      * Called when the item is removed from the player.
@@ -52,7 +52,7 @@ public abstract class ItemPlugin implements Plugin<Object> {
      */
     public void remove(Player player, Item item, int type) {
 
-	}
+    }
 
     /**
      * Checks if the item can be picked up.
@@ -63,8 +63,8 @@ public abstract class ItemPlugin implements Plugin<Object> {
      * @return {@code True} if so.
      */
     public boolean canPickUp(Player player, GroundItem item, int type) {
-		return true;
-	}
+        return true;
+    }
 
     /**
      * Checks if the item can be made as a drop.
@@ -76,8 +76,8 @@ public abstract class ItemPlugin implements Plugin<Object> {
      * @return boolean
      */
     public boolean createDrop(Item item, Player player, NPC npc, Location l) {
-		return true;
-	}
+        return true;
+    }
 
     /**
      * Changes an item if needed.
@@ -87,8 +87,8 @@ public abstract class ItemPlugin implements Plugin<Object> {
      * @return the item.
      */
     public Item getItem(Item item, NPC npc) {
-		return item;
-	}
+        return item;
+    }
 
     /**
      * Gets the death item.
@@ -97,6 +97,6 @@ public abstract class ItemPlugin implements Plugin<Object> {
      * @return the item.
      */
     public Item getDeathItem(Item item) {
-		return item;
-	}
+        return item;
+    }
 }

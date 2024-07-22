@@ -175,7 +175,13 @@ abstract class CombatSwingHandler(var type: CombatStyle?) {
      * @param defenceMod The defence modifier.
      * @return `True` if the hit is accurate.
      */
-    fun isAccurateImpact(entity: Entity?, victim: Entity?, style: CombatStyle?, accuracyMod: Double, defenceMod: Double): Boolean {
+    fun isAccurateImpact(
+        entity: Entity?,
+        victim: Entity?,
+        style: CombatStyle?,
+        accuracyMod: Double,
+        defenceMod: Double
+    ): Boolean {
         var mod = 1.33
         if (victim == null || style == null) {
             return false
@@ -623,7 +629,11 @@ abstract class CombatSwingHandler(var type: CombatStyle?) {
             specialHandlers = HashMap()
         }
         if (specialHandlers!!.containsKey(itemId)) {
-            log(this::class.java, Log.ERR, "Already contained special attack handler for item " + itemId + " - [old=" + specialHandlers!![itemId]!!::class.java.simpleName + ", new=" + handler.javaClass.simpleName + "].")
+            log(
+                this::class.java,
+                Log.ERR,
+                "Already contained special attack handler for item " + itemId + " - [old=" + specialHandlers!![itemId]!!::class.java.simpleName + ", new=" + handler.javaClass.simpleName + "]."
+            )
             return false
         }
         return specialHandlers!!.put(itemId, handler) == null

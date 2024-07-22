@@ -20,7 +20,7 @@ import core.plugin.Plugin
 @Initializable
 class GodBookPlugin : OptionHandler() {
 
-    override fun newInstance(arg: Any?): Plugin<Any?> {
+    override fun newInstance(arg: Any?): Plugin<Any> {
         for (book in GodBook.values()) {
             book.damagedBook.definition.handlers["option:check"] = this
         }

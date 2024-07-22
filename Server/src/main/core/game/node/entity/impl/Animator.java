@@ -50,7 +50,7 @@ public final class Animator {
     private int ticks;
 
     /**
-     * Constructs a new {@code Animator} {@Code Object}.
+     * Constructs a new {@code Animator} {@code Object}.
      *
      * @param entity The entity.
      */

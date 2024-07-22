@@ -1,20 +1,20 @@
 package core.game.bots
 
+import content.data.consumables.Consumables
+import content.data.consumables.effects.HealingEffect
+import core.ServerConstants
+import core.ServerConstants.Companion.SERVER_GE_NAME
 import core.api.*
-import core.game.interaction.NodeUsageEvent
-import core.game.interaction.PluginInteractionManager
-import core.game.interaction.UseWithHandler
+import core.api.consts.Items
+import core.api.utils.Vector
 import core.cache.def.impl.ItemDefinition
 import core.game.component.Component
 import core.game.consumable.Consumable
-import content.data.consumables.Consumables
 import core.game.consumable.Food
-import content.data.consumables.effects.HealingEffect
-import core.game.interaction.DestinationFlag
-import core.game.interaction.MovementPulse
-import core.game.interaction.Option
+import core.game.ge.GrandExchange
+import core.game.ge.GrandExchangeOffer
+import core.game.interaction.*
 import core.game.node.Node
-import core.game.node.scenery.Scenery
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
@@ -22,37 +22,30 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.GroundItem
 import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
+import core.game.node.scenery.Scenery
+import core.game.system.config.ItemConfigParser
 import core.game.system.task.Pulse
+import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.game.world.map.RegionManager
 import core.game.world.map.path.Pathfinder
+import core.game.world.repository.Repository
+import core.game.world.update.flag.*
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.ChatMessage
 import core.game.world.update.flag.context.Graphic
-import core.game.world.update.flag.*
+import core.tools.Log
 import core.tools.RandomFunction
+import core.tools.colorize
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
-import core.api.consts.Items
-import core.ServerConstants.Companion.SERVER_GE_NAME
-import core.game.ge.GrandExchange
-import core.game.ge.GrandExchangeOffer
-import core.game.interaction.IntType
-import core.game.interaction.InteractionListeners
-import core.game.system.config.ItemConfigParser
-import core.game.world.GameWorld
-import core.game.world.repository.Repository
-import core.tools.Log
-import core.tools.colorize
 import java.util.*
 import java.util.concurrent.CountDownLatch
 import kotlin.math.max
 import kotlin.math.pow
 import kotlin.math.sqrt
-import core.ServerConstants
-import core.api.utils.Vector
 
 class ScriptAPI(private val bot: Player) {
     val GRAPHICSUP = Graphic(1576)
@@ -511,7 +504,11 @@ class ScriptAPI(private val bot: Player) {
                 }
                 val canSell = GrandExchange.addBotOffer(actualId, itemAmt)
                 if (canSell && saleIsBigNews(actualId, itemAmt)) {
-                    Repository.sendNews(SERVER_GE_NAME + " just offered " + itemAmt + " " + ItemDefinition.forId(actualId).name.toLowerCase() + " on the GE.")
+                    Repository.sendNews(
+                        SERVER_GE_NAME + " just offered " + itemAmt + " " + ItemDefinition.forId(
+                            actualId
+                        ).name.toLowerCase() + " on the GE."
+                    )
                 }
                 bot.bank.remove(Item(id, itemAmt))
                 bot.bank.refresh()
@@ -543,7 +540,11 @@ class ScriptAPI(private val bot: Player) {
                     }
                     val canSell = GrandExchange.addBotOffer(actualId, itemAmt)
                     if (canSell && saleIsBigNews(actualId, itemAmt)) {
-                        Repository.sendNews(SERVER_GE_NAME + " just offered " + itemAmt + " " + ItemDefinition.forId(actualId).name.toLowerCase() + " on the GE.")
+                        Repository.sendNews(
+                            SERVER_GE_NAME + " just offered " + itemAmt + " " + ItemDefinition.forId(
+                                actualId
+                            ).name.toLowerCase() + " on the GE."
+                        )
                     }
                     bot.bank.remove(item)
                     bot.bank.refresh()
@@ -582,7 +583,11 @@ class ScriptAPI(private val bot: Player) {
                             1517 -> continue
                             1519 -> continue
                             1521 -> continue
-                            else -> Repository.sendNews(SERVER_GE_NAME + " just offered " + itemAmt + " " + ItemDefinition.forId(actualId).name.toLowerCase() + " on the GE.")
+                            else -> Repository.sendNews(
+                                SERVER_GE_NAME + " just offered " + itemAmt + " " + ItemDefinition.forId(
+                                    actualId
+                                ).name.toLowerCase() + " on the GE."
+                            )
                         }
                     }
                     bot.bank.remove(item)

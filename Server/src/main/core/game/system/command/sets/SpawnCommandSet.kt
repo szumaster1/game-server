@@ -19,7 +19,7 @@ class SpawnCommandSet : CommandSet(Privilege.ADMIN){
     override fun defineCommands() {
 
         /*
-         * Spawns an npc with the given ID.
+         * Spawns a npc with the given ID.
          */
 
         define("npc"){player,args ->

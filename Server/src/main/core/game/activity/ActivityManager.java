@@ -16,19 +16,19 @@ import static core.api.ContentAPIKt.log;
  */
 public final class ActivityManager {
 
-	/**
-	 * The mapping of instanced activities.
-	 */
-	private static final Map<String, ActivityPlugin> ACTIVITIES = new HashMap<>();
+    /**
+     * The mapping of instanced activities.
+     */
+    private static final Map<String, ActivityPlugin> ACTIVITIES = new HashMap<>();
 
-	/**
-	 * Constructs a new {@code ActivityManager} {@code Object}.
-	 */
-	private ActivityManager() {
-		/*
-		 * empty.
-		 */
-	}
+    /**
+     * Constructs a new {@code ActivityManager} {@code Object}.
+     */
+    private ActivityManager() {
+        /*
+         * empty.
+         */
+    }
 
     /**
      * Registers an activity plugin.
@@ -36,12 +36,12 @@ public final class ActivityManager {
      * @param plugin The plugin to register.
      */
     public static void register(ActivityPlugin plugin) {
-		plugin.register();
-		ACTIVITIES.put(plugin.getName(), plugin);
-		if (!plugin.isInstanced()) {
-			plugin.configure();
-		}
-	}
+        plugin.register();
+        ACTIVITIES.put(plugin.getName(), plugin);
+        if (!plugin.isInstanced()) {
+            plugin.configure();
+        }
+    }
 
     /**
      * Starts an instanced activity.
@@ -53,26 +53,26 @@ public final class ActivityManager {
      * @return the boolean
      */
     public static boolean start(Player player, String name, boolean login, Object... args) {
-		ActivityPlugin plugin = ACTIVITIES.get(name);
-		if (plugin == null) {
-			if (GameWorld.getSettings().isDevMode()) {
-				log(ActivityManager.class, Log.ERR, "Unhandled activity - " + name + "!");
-			}
-			return false;
-		}
-		try {
-			if (plugin.isInstanced()) {
-				(plugin = plugin.newInstance(player)).configure();
-			}
-			return plugin.start(player, login, args);
-		} catch (Throwable e) {
-			e.printStackTrace();
-			if (GameWorld.getSettings().isDevMode()) {
-				player.getPacketDispatch().sendMessage("Error starting activity " + (plugin == null ? null : plugin.getName()) + "!");
-			}
-		}
-		return false;
-	}
+        ActivityPlugin plugin = ACTIVITIES.get(name);
+        if (plugin == null) {
+            if (GameWorld.getSettings().isDevMode()) {
+                log(ActivityManager.class, Log.ERR, "Unhandled activity - " + name + "!");
+            }
+            return false;
+        }
+        try {
+            if (plugin.isInstanced()) {
+                (plugin = plugin.newInstance(player)).configure();
+            }
+            return plugin.start(player, login, args);
+        } catch (Throwable e) {
+            e.printStackTrace();
+            if (GameWorld.getSettings().isDevMode()) {
+                player.getPacketDispatch().sendMessage("Error starting activity " + (plugin == null ? null : plugin.getName()) + "!");
+            }
+        }
+        return false;
+    }
 
     /**
      * Gets the activity by the name.
@@ -81,6 +81,6 @@ public final class ActivityManager {
      * @return the activity.
      */
     public static ActivityPlugin getActivity(String name) {
-		return ACTIVITIES.get(name);
-	}
+        return ACTIVITIES.get(name);
+    }
 }

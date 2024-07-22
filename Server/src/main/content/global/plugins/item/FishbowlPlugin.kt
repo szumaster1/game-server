@@ -26,7 +26,7 @@ import core.tools.RandomFunction
 @Initializable
 class FishbowlPlugin : OptionHandler() {
 
-    override fun newInstance(arg: Any): Plugin<Any?> {
+    override fun newInstance(arg: Any?): Plugin<Any> {
         ItemDefinition.forId(FISHBOWL_WATER).handlers["option:empty"] = this
         ItemDefinition.forId(FISHBOWL_SEAWEED).handlers["option:empty"] = this
         for (id in intArrayOf(FISHBOWL_BLUE, FISHBOWL_GREEN, FISHBOWL_SPINE)) {
@@ -77,7 +77,7 @@ class FishbowlPlugin : OptionHandler() {
 
     private inner class FeedPetFishHandler : UseWithHandler(Items.FISH_FOOD_272) {
 
-        override fun newInstance(arg: Any): Plugin<Any?> {
+        override fun newInstance(arg: Any?): Plugin<Any?> {
             addHandler(FISHBOWL_BLUE, ITEM_TYPE, this)
             addHandler(FISHBOWL_GREEN, ITEM_TYPE, this)
             addHandler(FISHBOWL_SPINE, ITEM_TYPE, this)
@@ -183,7 +183,7 @@ class FishbowlPlugin : OptionHandler() {
 
     class AquariumPlugin : OptionHandler() {
 
-        override fun newInstance(arg: Any): Plugin<Any?> {
+        override fun newInstance(arg: Any?): Plugin<Any?> {
             SceneryDefinition.forId(10091).handlers["option:fish-in"] = this
             definePlugin(TinyNetHandler())
             return this
@@ -230,7 +230,7 @@ class FishbowlPlugin : OptionHandler() {
 
         private inner class TinyNetHandler : UseWithHandler(TINY_NET) {
 
-            override fun newInstance(arg: Any): Plugin<Any?> {
+            override fun newInstance(arg: Any?): Plugin<Any?> {
                 addHandler(10091, OBJECT_TYPE, this)
                 return this
             }

@@ -27,7 +27,7 @@ class SnowGlobePlugin : OptionHandler() {
     private val STOMP = Animation(Animations.SNOWGLOBE_STOMP_7528)
     private val SNOW = Graphic(Graphics.SNOW_FALLING_FROM_SNOW_GLOBE_1284)
 
-    override fun newInstance(arg: Any?): Plugin<Any?> {
+    override fun newInstance(arg: Any?): Plugin<Any> {
         ClassScanner.definePlugin(SnowGlobeInterface())
         return this
     }

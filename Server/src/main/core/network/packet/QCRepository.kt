@@ -1,6 +1,6 @@
 package core.network.packet
 
-import content.global.skill.support.slayer.data.SlayerManager
+import content.global.skill.support.slayer.SlayerManager
 import core.api.*
 import core.cache.Cache
 import core.cache.def.impl.DataMap

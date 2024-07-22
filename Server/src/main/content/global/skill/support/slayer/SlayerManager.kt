@@ -1,7 +1,9 @@
-package content.global.skill.support.slayer.data
+package content.global.skill.support.slayer
 
 import content.global.handlers.item.equipment.gloves.FOGGlovesManager
-import content.global.skill.support.slayer.SlayerUtils
+import content.global.skill.support.slayer.data.SlayerFlags
+import content.global.skill.support.slayer.data.SlayerMaster
+import content.global.skill.support.slayer.data.Tasks
 import core.api.*
 import core.api.consts.Items
 import core.cache.def.impl.NPCDefinition

@@ -5,7 +5,7 @@ import content.data.consumables.*
 import content.data.skill.SkillingTool
 import content.global.handlers.iface.ge.StockMarketInterfaceListener
 import content.global.skill.combat.summoning.familiar.BurdenBeast
-import content.global.skill.support.slayer.data.SlayerManager
+import content.global.skill.support.slayer.SlayerManager
 import content.global.skill.support.slayer.data.Tasks
 import core.ServerConstants
 import core.api.consts.Items
@@ -429,7 +429,8 @@ fun poofClear(npc: NPC) {
             when (counter++) {
                 2 -> {
                     npc.isInvisible = true; Graphic.send(
-                        Graphic(86), npc.location)
+                        Graphic(86), npc.location
+                    )
                 }
 
                 3 -> npc.clear().also { return true }
@@ -817,7 +818,7 @@ fun emote(entity: Entity, emote: Emotes) {
  * @param player   The player.
  * @param emoteId  The emote id to unlock.
  */
-fun unlockEmote(player : Player, emoteId: Int){
+fun unlockEmote(player: Player, emoteId: Int) {
     player.emoteManager.unlock(Emotes.forId(emoteId))
 }
 
@@ -885,7 +886,7 @@ fun sendDialogueOptions(player: Player, title: String, vararg options: String) {
  * @param player  the player to send the options to.
  * @param message the message to present to the player.
  */
-fun sendPlainDialogue(player : Player, hideContinue: Boolean = false, vararg message: String) {
+fun sendPlainDialogue(player: Player, hideContinue: Boolean = false, vararg message: String) {
     player.dialogueInterpreter.sendPlainMessage(hideContinue, *message)
 
 }
@@ -906,7 +907,7 @@ fun sendUnclosableDialogue(player: Player, hideContinue: Boolean = false, vararg
  * @param i2    the second item to send to dialogue box (right side).
  * @param o1    the second text under the first item.
  * @param o2    the second text under the second item.
-*/
+ */
 
 fun sendDoubleItemOptions(player: Player, title: String, i1: Any, i2: Any, o1: String, o2: String) {
     val firstOption = when (i1) {
@@ -916,7 +917,7 @@ fun sendDoubleItemOptions(player: Player, title: String, i1: Any, i2: Any, o1: S
             throw java.lang.IllegalArgumentException("Expected an Item or an Int, got ${i1::class.java.simpleName}.")
         }
     }
-    val secondOption = when(i2) {
+    val secondOption = when (i2) {
         is Item -> i2
         is Int -> Item(i2)
         else -> {
@@ -1377,7 +1378,7 @@ fun setVarbit(player: Player, varbitId: Int, value: Int, save: Boolean = false) 
     setVarbit(player, def, value, save)
 }
 
-fun setVarc (player: Player, varc: Int, value: Int) {
+fun setVarc(player: Player, varc: Int, value: Int) {
     player.packetDispatch.sendVarcUpdate(varc.toShort(), value)
 }
 
@@ -1434,7 +1435,16 @@ fun truncateLoc(mover: Entity, destination: Location): Pair<Boolean, Location> {
  * @param callback    (optional) a callback called when the forced  movement completes
  * @see NOTE:         There are 30 client cycles per second.
  **/
-fun forceMove(player: Player, start: Location, dest: Location, startArrive: Int, destArrive: Int, dir: Direction? = null, anim: Int = 819, callback: (() -> Unit)? = null) {
+fun forceMove(
+    player: Player,
+    start: Location,
+    dest: Location,
+    startArrive: Int,
+    destArrive: Int,
+    dir: Direction? = null,
+    anim: Int = 819,
+    callback: (() -> Unit)? = null
+) {
     var direction: Direction
 
     if (dir == null) {
@@ -1712,7 +1722,7 @@ fun closeTabInterface(player: Player) {
  * Closes any chatbox interface for the player.
  * @param player the player to close the chat for.
  */
-fun closeChatBox(player : Player) {
+fun closeChatBox(player: Player) {
     player.interfaceManager.closeChatbox()
 }
 
@@ -1733,9 +1743,19 @@ fun setComponentVisibility(player: Player, iface: Int, child: Int, hide: Boolean
  * @param options The number of the dialogue options.
  */
 fun setTitle(player: Player, options: Int) {
-    setComponentVisibility(player, if (options == 5) 234 else if (options == 4) 232 else if(options == 3) 230 else 228, (4 + options), true)
-    setComponentVisibility(player, if (options == 5) 234 else if (options == 4) 232 else if(options == 3) 230 else 228, if(options == 2 || options == 4) 9 else 10, false)
-    if(options > 5)
+    setComponentVisibility(
+        player,
+        if (options == 5) 234 else if (options == 4) 232 else if (options == 3) 230 else 228,
+        (4 + options),
+        true
+    )
+    setComponentVisibility(
+        player,
+        if (options == 5) 234 else if (options == 4) 232 else if (options == 3) 230 else 228,
+        if (options == 2 || options == 4) 9 else 10,
+        false
+    )
+    if (options > 5)
         throw java.lang.IllegalArgumentException("Expected option value between 2 and 5, got ${options::class.java.simpleName}.")
 }
 
@@ -1768,8 +1788,9 @@ fun sendPlayerOnInterface(player: Player, iface: Int, child: Int) {
  * @param expr   The FacialExpression to use. An enum exists for these called FacialExpression. Defaults to FacialExpression. FRIENDLY
  */
 fun sendNPCDialogue(player: Player, npc: Int, msg: String, expr: FacialExpression = FacialExpression.FRIENDLY) {
-    player.dialogueInterpreter.sendDialogues(npc, expr,  *splitLines(msg))
+    player.dialogueInterpreter.sendDialogues(npc, expr, *splitLines(msg))
 }
+
 /**
  * Sends a dialogue that uses the player's chathead.
  * @param player The player to send the dialogue to
@@ -1844,6 +1865,7 @@ fun clearInventoryAndEquipment(player: Player) {
 fun sendItemOnInterface(player: Player, iface: Int, child: Int, item: Int, amount: Int = 1) {
     player.packetDispatch.sendItemOnInterface(item, amount, iface, child)
 }
+
 /**
  * Sends an model to a specific child on an interface.
  * @param player The player to send the packet to.
@@ -1867,6 +1889,7 @@ fun sendModelOnInterface(player: Player, iface: Int, child: Int, model: Int, zoo
 fun sendAngleOnInterface(player: Player, iface: Int, child: Int, zoom: Int, pitch: Int, yaw: Int) {
     player.packetDispatch.sendAngleOnInterface(iface, child, zoom, pitch, yaw)
 }
+
 /**
  * Sends a dialogue box with a single item and some text.
  * @param player  The player to send it to.
@@ -2116,7 +2139,9 @@ fun <G> sendGraphics(gfx: G, location: Location) {
         is Int -> Graphic.send(
             Graphic(
                 gfx
-            ), location)
+            ), location
+        )
+
         is Graphic -> Graphic.send(gfx, location)
     }
 }
@@ -2621,7 +2646,11 @@ fun activateSecondaryBankAccount(player: Player): SecondaryBankAccountActivation
     val operationResult = if (cost > coinsInInventory) {
         val amountToTakeFromBank = cost - coinsInInventory
 
-        removeItem(player, Item(Items.COINS_995, coinsInInventory), Container.INVENTORY) && removeItem(player, Item(Items.COINS_995, amountToTakeFromBank), Container.BANK)
+        removeItem(player, Item(Items.COINS_995, coinsInInventory), Container.INVENTORY) && removeItem(
+            player,
+            Item(Items.COINS_995, amountToTakeFromBank),
+            Container.BANK
+        )
     } else {
         removeItem(player, Item(Items.COINS_995, cost))
     }
@@ -2758,7 +2787,11 @@ class SkillDialogueBuilder {
  * @param location the location of the hint icon
  */
 fun registerHintIcon(player: Player, location: Location, height: Int) {
-    setAttribute(player, "hinticon", HintIconManager.registerHintIcon(player, location, 1, -1, player.hintIconManager.freeSlot(), height, 3))
+    setAttribute(
+        player,
+        "hinticon",
+        HintIconManager.registerHintIcon(player, location, 1, -1, player.hintIconManager.freeSlot(), height, 3)
+    )
 }
 
 /**
@@ -2937,7 +2970,11 @@ fun clearScripts(entity: Entity): Boolean {
 
 fun restartScript(entity: Entity): Boolean {
     if (entity.scripts.getActiveScript()?.persist != true) {
-        log(entity.scripts.getActiveScript()!!::class.java, Log.ERR, "Tried to call restartScript on a non-persistent script! Either use stopExecuting() or make the script persistent.")
+        log(
+            entity.scripts.getActiveScript()!!::class.java,
+            Log.ERR,
+            "Tried to call restartScript on a non-persistent script! Either use stopExecuting() or make the script persistent."
+        )
         return clearScripts(entity)
     }
     return true
@@ -2950,13 +2987,23 @@ fun keepRunning(entity: Entity): Boolean {
 
 fun stopExecuting(entity: Entity): Boolean {
     if (entity.scripts.getActiveScript()?.persist == true) {
-        log(entity.scripts.getActiveScript()!!::class.java, Log.ERR, "Tried to call stopExecuting() on a persistent script! To halt execution of a persistent script, you MUST call clearScripts()!")
+        log(
+            entity.scripts.getActiveScript()!!::class.java,
+            Log.ERR,
+            "Tried to call stopExecuting() on a persistent script! To halt execution of a persistent script, you MUST call clearScripts()!"
+        )
         return clearScripts(entity)
     }
     return true
 }
 
-fun queueScript(entity: Entity, delay: Int = 1, strength: QueueStrength = QueueStrength.WEAK, persist: Boolean = false, script: (stage: Int) -> Boolean) {
+fun queueScript(
+    entity: Entity,
+    delay: Int = 1,
+    strength: QueueStrength = QueueStrength.WEAK,
+    persist: Boolean = false,
+    script: (stage: Int) -> Boolean
+) {
     val s = QueuedScript(script, strength, persist)
     s.nextExecution = getWorldTicks() + delay
     entity.scripts.addToQueue(s, strength)
@@ -3137,7 +3184,8 @@ fun calculateDragonfireMaxHit(
 
         if (sendMessage) {
             var message = "You are horribly burnt by the ${if (wyvern) "icy" else "fiery"} breath."
-            if (hasShield && hasPotion) message = "Your potion and shield fully absorb the ${if (wyvern) "icy" else "fiery"} breath."
+            if (hasShield && hasPotion) message =
+                "Your potion and shield fully absorb the ${if (wyvern) "icy" else "fiery"} breath."
             else if (hasShield) message = "Your shield absorbs most of the ${if (wyvern) "icy" else "fiery"} breath."
             else if (hasPotion) message = "Your potion absorbs some of the fiery breath."
             else if (hasPrayer) message = "Your prayer absorbs some of the ${if (wyvern) "icy" else "fiery"} breath."
@@ -3174,7 +3222,7 @@ fun openSingleTab(player: Player, component: Int) {
  * @param player the player to which the minimap relates.
  * @param state the state ID.
  */
-fun setMinimapState(player : Player, state : Int) {
+fun setMinimapState(player: Player, state: Int) {
     return PacketRepository.send(MinimapState::class.java, MinimapStateContext(player, state))
 }
 
@@ -3185,7 +3233,7 @@ fun setMinimapState(player : Player, state : Int) {
  * @param level     The level to check.
  * @return true If the check succeeds, false otherwise.
  */
-fun isDiaryComplete(player : Player, type: DiaryType, level : Int) : Boolean {
+fun isDiaryComplete(player: Player, type: DiaryType, level: Int): Boolean {
     return player.achievementDiaryManager.getDiary(type).isComplete(level)
 }
 
@@ -3196,7 +3244,7 @@ fun isDiaryComplete(player : Player, type: DiaryType, level : Int) : Boolean {
  * @param level     The level to check against.
  * @return true If the check succeeds, false otherwise.
  */
-fun hasDiaryTaskComplete(player : Player, type: DiaryType, level: Int, index : Int): Boolean {
+fun hasDiaryTaskComplete(player: Player, type: DiaryType, level: Int, index: Int): Boolean {
     return player.achievementDiaryManager.hasCompletedTask(type, level, index)
 }
 
@@ -3207,8 +3255,8 @@ fun hasDiaryTaskComplete(player : Player, type: DiaryType, level: Int, index : I
  * @param distance  The amount of distance.
  * @return If you're within the other distance.
  */
-fun withinDistance(player : Player, other: Location, distance : Int? = null) : Boolean {
-    if(distance != null)
+fun withinDistance(player: Player, other: Location, distance: Int? = null): Boolean {
+    if (distance != null)
         player.location.withinDistance(other, distance)
     else
         player.location.withinDistance(other)
@@ -3223,7 +3271,7 @@ fun withinDistance(player : Player, other: Location, distance : Int? = null) : B
  * @param level     The level of diary type.
  * @param task      The task to finish.
  */
-fun finishDiaryTask(player : Player, type : DiaryType, level : Int, task : Int) {
+fun finishDiaryTask(player: Player, type: DiaryType, level: Int, task: Int) {
     return player.achievementDiaryManager.finishTask(player, type, level, task)
 }
 
@@ -3235,15 +3283,18 @@ fun finishDiaryTask(player : Player, type : DiaryType, level : Int, task : Int) 
  * @param positionX     The position x of sub element.
  * @param positionY     The position Y of sub element.
  */
-fun setInterfaceSprite(player : Player, interfaceId : Int, childId : Int, positionX : Int, positionY : Int){
-    return PacketRepository.send(RepositionChild::class.java, ChildPositionContext(player, interfaceId, childId, positionX, positionY))
+fun setInterfaceSprite(player: Player, interfaceId: Int, childId: Int, positionX: Int, positionY: Int) {
+    return PacketRepository.send(
+        RepositionChild::class.java,
+        ChildPositionContext(player, interfaceId, childId, positionX, positionY)
+    )
 }
 
 /**
  * Check if a prayer type is active.
  * @param type The type.
  */
-fun isPrayerActive(player : Player, type : PrayerType): Boolean {
+fun isPrayerActive(player: Player, type: PrayerType): Boolean {
     return player.prayer.active.contains(type)
 }
 
@@ -3258,7 +3309,7 @@ fun removeTabs(player: Player, vararg tabs: Int) {
 /**
  * Restores the previously closed tabs.
  */
-fun restoreTabs(player : Player){
+fun restoreTabs(player: Player) {
     return player.interfaceManager.restoreTabs()
 }
 
@@ -3266,7 +3317,7 @@ fun restoreTabs(player : Player){
  * Checks if the player has a pet.
  */
 
-fun hasPet(player : Player): Boolean {
+fun hasPet(player: Player): Boolean {
     return player.familiarManager.hasPet()
 }
 

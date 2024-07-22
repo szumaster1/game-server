@@ -2,7 +2,10 @@ package core.game.node.entity.combat
 
 import content.global.handlers.item.equipment.special.SalamanderSwingHandler
 import content.global.random.RandomEventNPC
-import core.api.*
+import core.api.getAttribute
+import core.api.hasTimerActive
+import core.api.playGlobalAudio
+import core.api.playHurtAudio
 import core.game.container.impl.EquipmentContainer
 import core.game.interaction.MovementPulse
 import core.game.node.Node
@@ -14,7 +17,8 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.system.task.Pulse
-import core.game.system.timer.impl.*
+import core.game.system.timer.impl.AntiMacro
+import core.game.system.timer.impl.Miasmic
 import core.game.world.GameWorld
 import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
@@ -35,7 +39,7 @@ class CombatPulse(val entity: Entity?) : Pulse(1, entity, null) {
 
     private var combatTimeOut = 0
 
-    private val movement: MovementPulse = object : MovementPulse(entity, null, /*DestinationFlag.ENTITY*/) {
+    private val movement: MovementPulse = object : MovementPulse(entity, null /*DestinationFlag.ENTITY*/) {
         override fun pulse(): Boolean {
             return false
         }
@@ -70,7 +74,12 @@ class CombatPulse(val entity: Entity?) : Pulse(1, entity, null) {
             if (handler == null) {
                 handler = entity.getSwingHandler(true)
             }
-            if (!v.isAttackable(entity, handler!!.type, true) && entity != getAttribute<RandomEventNPC?>(v, AntiMacro.EVENT_NPC, null)) {
+            if (!v.isAttackable(entity, handler!!.type, true) && entity != getAttribute<RandomEventNPC?>(
+                    v,
+                    AntiMacro.EVENT_NPC,
+                    null
+                )
+            ) {
                 return true
             }
             if (!swing(entity, victim, handler)) {
@@ -202,8 +211,8 @@ class CombatPulse(val entity: Entity?) : Pulse(1, entity, null) {
         if (victim is Player && (entity.id == 4474 || entity.id == 7891)) {
             return
         }
-        if(entity is Player) {
-            if ((victim.id == 4474 || victim.id == 7891) && entity.asPlayer().properties.combatLevel >= 30){
+        if (entity is Player) {
+            if ((victim.id == 4474 || victim.id == 7891) && entity.asPlayer().properties.combatLevel >= 30) {
                 entity.asPlayer().sendMessage("You are too experienced to gain anything from these.")
                 return
             }
@@ -219,14 +228,20 @@ class CombatPulse(val entity: Entity?) : Pulse(1, entity, null) {
                     victim.transform(1241)
                 }
                 if (mask != null && mask.id >= 8901 && mask.id < 8920 && RandomFunction.random(50) == 0) {
-                    player.packetDispatch.sendMessage("Your black mask startles your enemy, you have " +
-                            (if (mask.id == 8919) "no" else ((8920 - mask.id) / 2).toString()) + " charges left.")
+                    player.packetDispatch.sendMessage(
+                        "Your black mask startles your enemy, you have " +
+                                (if (mask.id == 8919) "no" else ((8920 - mask.id) / 2).toString()) + " charges left."
+                    )
                     player.equipment.replace(Item(mask.id + 2), EquipmentContainer.SLOT_HAT)
                     var drain = 3 + victim.skills.getLevel(Skills.DEFENCE) / 14
                     if (drain > 10) {
                         drain = 10
                     }
-                    victim.skills.updateLevel(Skills.DEFENCE, -drain, victim.skills.getStaticLevel(Skills.DEFENCE) - drain)
+                    victim.skills.updateLevel(
+                        Skills.DEFENCE,
+                        -drain,
+                        victim.skills.getStaticLevel(Skills.DEFENCE) - drain
+                    )
                 }
             }
             if (!victim.locks.isMovementLocked)

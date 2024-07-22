@@ -435,7 +435,7 @@ enum class Tasks {
     ),
     GREEN_DRAGONS(
         combatCheck = 52,
-        ids = intArrayOf(742, 941, 4677, 4678, 4679, 4680, 5362),
+        ids = intArrayOf(941, 742, 4677, 4678, 4679, 4680, 5362),
         info = arrayOf("Green dragons are very powerful, they have", "fierce fiery breath."),
         levelReq = 1,
         undead = false,

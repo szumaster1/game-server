@@ -1,12 +1,11 @@
 package core.game.container.impl;
 
+import core.ServerConstants;
 import core.api.IfaceSettingsBuilder;
 import core.api.consts.Vars;
-import core.game.container.access.InterfaceContainer;
-import kotlin.ranges.IntRange;
-import core.ServerConstants;
 import core.game.component.Component;
 import core.game.container.*;
+import core.game.container.access.InterfaceContainer;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.IronmanMode;
 import core.game.node.item.Item;
@@ -15,6 +14,7 @@ import core.game.world.GameWorld;
 import core.network.packet.PacketRepository;
 import core.network.packet.context.ContainerContext;
 import core.network.packet.outgoing.ContainerPacket;
+import kotlin.ranges.IntRange;
 
 import java.nio.ByteBuffer;
 
@@ -97,16 +97,16 @@ public final class BankContainer extends Container {
      */
     public void refreshDepositBoxInterface() {
         InterfaceContainer.generateItems(
-                player,
-                player.getInventory().toArray(),
-                new String[]{
-                        "Examine",
-                        "Deposit-X",
-                        "Deposit-All",
-                        "Deposit-10",
-                        "Deposit-5",
-                        "Deposit-1"
-                }, 11, 15, 5, 7
+            player,
+            player.getInventory().toArray(),
+            new String[]{
+                "Examine",
+                "Deposit-X",
+                "Deposit-All",
+                "Deposit-10",
+                "Deposit-5",
+                "Deposit-1"
+            }, 11, 15, 5, 7
         );
     }
 

@@ -39,13 +39,16 @@ open class MultiSwingHandler(meleeDistance: Boolean, vararg attacks: SwitchAttac
     override fun canSwing(entity: Entity, victim: Entity): InteractionType? {
         return if (isMeleeDistance) {
             CombatStyle.RANGE.swingHandler.canSwing(entity, victim)
-        }
-        else next.handler!!.canSwing(entity, victim)
+        } else next.handler!!.canSwing(entity, victim)
     }
 
     override fun swing(entity: Entity?, victim: Entity?, state: BattleState?): Int {
         current = next
-        if (isMeleeDistance && current.style == CombatStyle.MELEE && CombatStyle.MELEE.swingHandler.canSwing(entity!!, victim!!) != InteractionType.STILL_INTERACT) {
+        if (isMeleeDistance && current.style == CombatStyle.MELEE && CombatStyle.MELEE.swingHandler.canSwing(
+                entity!!,
+                victim!!
+            ) != InteractionType.STILL_INTERACT
+        ) {
             for (attack in attacks) {
                 if (attack.style != CombatStyle.MELEE) {
                     current = attack
@@ -63,7 +66,8 @@ open class MultiSwingHandler(meleeDistance: Boolean, vararg attacks: SwitchAttac
         }
         var ticks = 1
         if (style != CombatStyle.MELEE) {
-            ticks += Math.ceil(entity!!.location.getDistance(victim!!.location) * if (type == CombatStyle.MAGIC) 0.5 else 0.3).toInt()
+            ticks += Math.ceil(entity!!.location.getDistance(victim!!.location) * if (type == CombatStyle.MAGIC) 0.5 else 0.3)
+                .toInt()
         }
         var hit = 0
         if (isAccurateImpact(entity, victim, style)) {
@@ -83,7 +87,13 @@ open class MultiSwingHandler(meleeDistance: Boolean, vararg attacks: SwitchAttac
         }
         entity.visualize(current.animation, current.startGraphic)
         if (current.projectile != null) {
-            current.projectile!!.transform(entity, victim, entity is NPC, 46, if (current.style == CombatStyle.MAGIC) 10 else 5).send()
+            current.projectile!!.transform(
+                entity,
+                victim,
+                entity is NPC,
+                46,
+                if (current.style == CombatStyle.MAGIC) 10 else 5
+            ).send()
         }
     }
 
@@ -119,6 +129,7 @@ open class MultiSwingHandler(meleeDistance: Boolean, vararg attacks: SwitchAttac
     override fun addExperience(entity: Entity?, victim: Entity?, state: BattleState?) {
         current.handler!!.addExperience(entity, victim, state)
     }
+
     override fun visualizeImpact(entity: Entity?, victim: Entity?, state: BattleState?) {
         if (current.isUseHandler) {
             current.handler!!.visualizeImpact(entity, victim, state)

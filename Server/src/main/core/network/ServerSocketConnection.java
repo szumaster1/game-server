@@ -37,7 +37,7 @@ public final class ServerSocketConnection {
 	}
 
 	/**
-	 * Constructs a new {@Code ServerSocketConnection} {@Code
+	 * Constructs a new {@code ServerSocketConnection} {@code
 	 * Object}
 	 * @param selector The selector.
 	 * @param channel The channel.

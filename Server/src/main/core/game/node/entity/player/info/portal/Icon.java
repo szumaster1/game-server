@@ -54,7 +54,7 @@ public enum Icon {
 	private final int indexId;
 
 	/**
-	 * Constructs a new {@Code Icons} {@Code Object}
+	 * Constructs a new {@code Icons} {@code Object}
 	 * @param id the id.
 	 * @param indexId the indexid.
 	 */

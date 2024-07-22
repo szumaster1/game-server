@@ -1,7 +1,7 @@
 package content.data
 
 import content.global.skill.combat.magic.TeleportMethod
-import content.global.skill.support.slayer.data.SlayerManager.Companion.getInstance
+import content.global.skill.support.slayer.SlayerManager.Companion.getInstance
 import core.ServerConstants
 import core.api.*
 import core.api.consts.Items

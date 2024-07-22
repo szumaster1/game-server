@@ -14,7 +14,7 @@ import core.plugin.Plugin
 @Initializable
 class LadderManagingPlugin : OptionHandler() {
 
-    override fun newInstance(arg: Any): Plugin<Any?> {
+    override fun newInstance(arg: Any?): Plugin<Any> {
         SceneryDefinition.setOptionHandler("climb-up", this)
         SceneryDefinition.setOptionHandler("climb-down", this)
         SceneryDefinition.setOptionHandler("climb", this)

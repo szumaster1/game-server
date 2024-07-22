@@ -1,11 +1,11 @@
 package core.cache;
 
+import core.cache.crypto.XTEACryption;
+import core.cache.misc.ContainersInformation;
+
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
-
-import core.cache.crypto.XTEACryption;
-import core.cache.misc.ContainersInformation;
 
 /**
  * A cache file.
@@ -135,7 +135,6 @@ public final class CacheFile {
 
     /**
      * Get the index file id.
-     *
      */
     public int getIndexFileId() {
         return indexFileId;

@@ -2,107 +2,115 @@ package core.cache.misc;
 
 /**
  * A container.
+ *
  * @author Dragonkk
  */
 public class Container {
 
-	/**
-	 * The version.
-	 */
-	private int version;
-
-	/**
-	 * The CRC.
-	 */
-	private int crc;
-
-	/**
-	 * The name hash.
-	 */
-	private int nameHash;
-
-	/**
-	 * If updated.
-	 */
-	private boolean updated;
-
-	/**
-	 * Construct a new container.
-	 */
-	public Container() {
-		nameHash = -1;
-		version = -1;
-		crc = -1;
-	}
-
-	/**
-	 * Set the version.
+    /**
+     * The version.
      */
-	public void setVersion(int version) {
-		this.version = version;
-	}
+    private int version;
 
-	/**
-	 * Update the version.
-	 */
-	public void updateVersion() {
-		version++;
-		updated = true;
-	}
+    /**
+     * The CRC.
+     */
+    private int crc;
 
-	/**
-	 * Get the version.
-	 * @return The version.
-	 */
-	public int getVersion() {
-		return version;
-	}
+    /**
+     * The name hash.
+     */
+    private int nameHash;
 
-	/**
-	 * Get the next version.
-	 * @return The next version.
-	 */
-	public int getNextVersion() {
-		return updated ? version : version + 1;
-	}
+    /**
+     * If updated.
+     */
+    private boolean updated;
 
-	/**
-	 * Set the CRC.
-	 * @param crc The cRC.
-	 */
-	public void setCrc(int crc) {
-		this.crc = crc;
-	}
+    /**
+     * Construct a new container.
+     */
+    public Container() {
+        nameHash = -1;
+        version = -1;
+        crc = -1;
+    }
 
-	/**
-	 * Get the CRC.
-	 * @return The CRC.
-	 */
-	public int getCrc() {
-		return crc;
-	}
+    /**
+     * Set the version.
+     */
+    public void setVersion(int version) {
+        this.version = version;
+    }
 
-	/**
-	 * Set the name hash.
-	 * @param nameHash The name hash.
-	 */
-	public void setNameHash(int nameHash) {
-		this.nameHash = nameHash;
-	}
+    /**
+     * Update the version.
+     */
+    public void updateVersion() {
+        version++;
+        updated = true;
+    }
 
-	/**
-	 * Get the name hash.
-	 * @return The name hash.
-	 */
-	public int getNameHash() {
-		return nameHash;
-	}
+    /**
+     * Get the version.
+     *
+     * @return The version.
+     */
+    public int getVersion() {
+        return version;
+    }
 
-	/**
-	 * If is updated.
-	 * @return If is updated.
-	 */
-	public boolean isUpdated() {
-		return updated;
-	}
+    /**
+     * Get the next version.
+     *
+     * @return The next version.
+     */
+    public int getNextVersion() {
+        return updated ? version : version + 1;
+    }
+
+    /**
+     * Set the CRC.
+     *
+     * @param crc The cRC.
+     */
+    public void setCrc(int crc) {
+        this.crc = crc;
+    }
+
+    /**
+     * Get the CRC.
+     *
+     * @return The CRC.
+     */
+    public int getCrc() {
+        return crc;
+    }
+
+    /**
+     * Set the name hash.
+     *
+     * @param nameHash The name hash.
+     */
+    public void setNameHash(int nameHash) {
+        this.nameHash = nameHash;
+    }
+
+    /**
+     * Get the name hash.
+     *
+     * @return The name hash.
+     */
+    public int getNameHash() {
+        return nameHash;
+    }
+
+    /**
+     * If is updated.
+     *
+     * @return If is updated.
+     */
+    public boolean isUpdated() {
+        return updated;
+    }
 }

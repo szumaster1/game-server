@@ -30,7 +30,7 @@ public class FireResistantPulse extends StatePulse {
     private boolean extended;
 
     /**
-     * Constructs a new {@Code FireResistantPulse} {@Code Object}
+     * Constructs a new {@code FireResistantPulse} {@code Object}
      *
      * @param entity      the entity.
      * @param ticks       the ticks.

@@ -25,7 +25,7 @@ class ImplingJarPlugin : UseWithHandler(
 
     private val FLOWERS = (Items.FLOWERS_2460..Items.FLOWERS_2477).toIntArray()
 
-    override fun newInstance(arg: Any): Plugin<Any?> {
+    override fun newInstance(arg: Any?): Plugin<Any> {
         addHandler(Items.ANCHOVY_PASTE_11266, ITEM_TYPE, this)
         for (i in FLOWERS) {
             addHandler(i, ITEM_TYPE, this)

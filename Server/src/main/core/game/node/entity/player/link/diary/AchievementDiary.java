@@ -11,7 +11,8 @@ import org.json.simple.JSONObject;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static core.api.ContentAPIKt.*;
+import static core.api.ContentAPIKt.sendDialogue;
+import static core.api.ContentAPIKt.sendMessage;
 
 /**
  * Represents an achievement diary.

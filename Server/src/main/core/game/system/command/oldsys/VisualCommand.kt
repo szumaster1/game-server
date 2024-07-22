@@ -61,12 +61,7 @@ class VisualCommand : CommandPlugin() {
 
             "1hko" -> {
                 player!!.setAttribute("1hko", !player.getAttribute("1hko", false))
-                player.packetDispatch.sendMessage(
-                    "1-hit KO mode " + if (player.getAttribute(
-                            "1hko", false
-                        )
-                    ) "on." else "off."
-                )
+                player.packetDispatch.sendMessage("1-hit KO mode " + if (player.getAttribute("1hko", false)) "on." else "off.")
                 return true
             }
 

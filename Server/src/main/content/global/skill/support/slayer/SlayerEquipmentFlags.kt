@@ -1,7 +1,6 @@
 package content.global.skill.support.slayer
 
 import content.global.skill.skillcape.SkillcapePerks
-import content.global.skill.support.slayer.data.SlayerManager
 import core.api.EquipmentSlot
 import core.api.consts.Items
 import core.api.getAttribute
@@ -24,10 +23,8 @@ object SlayerEquipmentFlags {
         else if (hasItem(player, Items.FACE_MASK_4164)) flags = flags or (1 shl 2)
         else if ((getItemFromEquipment(player, EquipmentSlot.HEAD)?.id ?: 0) in blackMasks) flags = flags or (1 shl 3)
         else if (hasItem(player, Items.SPINY_HELMET_4551)) flags = flags or (1 shl 4)
-        if ((getItemFromEquipment(player, EquipmentSlot.NECK)?.id ?: 0) == Items.WITCHWOOD_ICON_8923) flags =
-            flags or (1 shl 7)
-        if ((getItemFromEquipment(player, EquipmentSlot.SHIELD)?.id ?: 0) == Items.MIRROR_SHIELD_4156) flags =
-            flags or (1 shl 8)
+        if ((getItemFromEquipment(player, EquipmentSlot.NECK)?.id ?: 0) == Items.WITCHWOOD_ICON_8923) flags = flags or (1 shl 7)
+        if ((getItemFromEquipment(player, EquipmentSlot.SHIELD)?.id ?: 0) == Items.MIRROR_SHIELD_4156) flags = flags or (1 shl 8)
         SlayerManager.getInstance(player).flags.equipmentFlags = flags
     }
 

@@ -218,10 +218,10 @@ public final class WeaponInterface extends Component {
             return 87;//Return Config
         }
         if (interfaceId != Components.WEAPON_WHIP_SEL_93 &&
-                interfaceId != Components.WEAPON_WARHAMMER_SEL_76 &&
-                interfaceId != Components.WEAPON_XBOW_SEL_79 &&
-                interfaceId != Components.WEAPON_HALBERD_SEL_84 &&
-                interfaceId != Components.WEAPON_THROWN_SEL_91) {
+            interfaceId != Components.WEAPON_WARHAMMER_SEL_76 &&
+            interfaceId != Components.WEAPON_XBOW_SEL_79 &&
+            interfaceId != Components.WEAPON_HALBERD_SEL_84 &&
+            interfaceId != Components.WEAPON_THROWN_SEL_91) {
             switch (buttons) {
                 case 3:
                     return 13;

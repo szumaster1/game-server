@@ -58,11 +58,11 @@ public final class Ammunition {
     /**
      * Constructs a new {@code Ammunition} object.
      *
-     * @param itemId          The item id.
+     * @param itemId         The item id.
      * @param startGraphic   The start graphics.
      * @param darkBowGraphic The dark bow start graphics.
-     * @param projectile      The projectile.
-     * @param poisonDamage    The poison damage the ammunition can do.
+     * @param projectile     The projectile.
+     * @param poisonDamage   The poison damage the ammunition can do.
      */
     public Ammunition(int itemId, Graphic startGraphic, Graphic darkBowGraphic, Projectile projectile, int poisonDamage) {
         this.itemId = itemId;

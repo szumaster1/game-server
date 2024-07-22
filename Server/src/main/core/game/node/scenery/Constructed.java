@@ -10,15 +10,15 @@ import core.game.world.map.Location;
  */
 public class Constructed extends Scenery {
 
-	/**
-	 * The scenery we've replaced.
-	 */
-	private Scenery replaced;
+    /**
+     * The scenery we've replaced.
+     */
+    private Scenery replaced;
 
-	/**
-	 * The ground items places after the tick is up.
-	 */
-	private Item[] items;
+    /**
+     * The ground items places after the tick is up.
+     */
+    private Item[] items;
 
     /**
      * Constructs a new Constructed object.
@@ -29,8 +29,8 @@ public class Constructed extends Scenery {
      * @param z  The object z-coordinate.
      */
     public Constructed(int id, int x, int y, int z) {
-		super(id, Location.create(x, y, z), 10, 0);
-	}
+        super(id, Location.create(x, y, z), 10, 0);
+    }
 
     /**
      * Constructs a new Constructed object.
@@ -39,8 +39,8 @@ public class Constructed extends Scenery {
      * @param location The object's location.
      */
     public Constructed(int id, Location location) {
-		super(id, location, 10, 0);
-	}
+        super(id, location, 10, 0);
+    }
 
     /**
      * Constructs a new Constructed object.
@@ -50,8 +50,8 @@ public class Constructed extends Scenery {
      * @param rotation The object's rotation.
      */
     public Constructed(int id, Location location, int rotation) {
-		super(id, location, 10, rotation);
-	}
+        super(id, location, 10, rotation);
+    }
 
     /**
      * Constructs a new {@code Constructed} {@code Object}.
@@ -64,8 +64,8 @@ public class Constructed extends Scenery {
      * @param rotation The rotation.
      */
     public Constructed(int id, int x, int y, int z, int type, int rotation) {
-		super(id, Location.create(x, y, z), type, rotation);
-	}
+        super(id, Location.create(x, y, z), type, rotation);
+    }
 
     /**
      * Constructs a new {@code Constructed} {@code Object}.
@@ -75,8 +75,8 @@ public class Constructed extends Scenery {
      * @param rotation The rotation.
      */
     public Constructed(int id, int type, int rotation) {
-		super(id, Location.create(0, 0, 0), type, rotation);
-	}
+        super(id, Location.create(0, 0, 0), type, rotation);
+    }
 
     /**
      * Constructs a new {@code Constructed} {@code Object}.
@@ -87,18 +87,18 @@ public class Constructed extends Scenery {
      * @param rotation The rotation.
      */
     public Constructed(int id, Location location, int type, int rotation) {
-		super(id, location, type, rotation);
-	}
+        super(id, location, type, rotation);
+    }
 
-	@Override
-	public boolean isPermanent() {
-		return false;
-	}
+    @Override
+    public boolean isPermanent() {
+        return false;
+    }
 
-	@Override
-	public Constructed asConstructed() {
-		return this;
-	}
+    @Override
+    public Constructed asConstructed() {
+        return this;
+    }
 
     /**
      * Gets the replaced.
@@ -106,8 +106,8 @@ public class Constructed extends Scenery {
      * @return The replaced.
      */
     public Scenery getReplaced() {
-		return replaced;
-	}
+        return replaced;
+    }
 
     /**
      * Sets the replaced.
@@ -115,8 +115,8 @@ public class Constructed extends Scenery {
      * @param replaced The replaced to set.
      */
     public void setReplaced(Scenery replaced) {
-		this.replaced = replaced;
-	}
+        this.replaced = replaced;
+    }
 
     /**
      * Get items item [ ].
@@ -124,8 +124,8 @@ public class Constructed extends Scenery {
      * @return the items
      */
     public Item[] getItems() {
-		return items;
-	}
+        return items;
+    }
 
     /**
      * Sets items.
@@ -133,7 +133,7 @@ public class Constructed extends Scenery {
      * @param items the items to set
      */
     public void setItems(Item[] items) {
-		this.items = items;
-	}
+        this.items = items;
+    }
 
 }

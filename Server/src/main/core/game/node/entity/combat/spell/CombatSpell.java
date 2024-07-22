@@ -60,14 +60,14 @@ public abstract class CombatSpell extends MagicSpell {
     protected final int impactAudio;
 
     /**
-     * Constructs a new {@code CombatSpell} {@Code Object}
+     * Constructs a new {@code CombatSpell} {@code Object}
      */
     public CombatSpell() {
         this(SpellType.NULL, SpellBookManager.SpellBook.MODERN, 1, 0.0, -1, -1, null, null, null, null);
     }
 
     /**
-     * Constructs a new {@code CombatSpell} {@Code Object}
+     * Constructs a new {@code CombatSpell} {@code Object}
      *
      * @param type           The spell type.
      * @param book           The spell book.

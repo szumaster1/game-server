@@ -21,7 +21,7 @@ import core.plugin.Plugin
 @Initializable
 class SceneryManagingPlugin : OptionHandler() {
 
-    override fun newInstance(arg: Any): Plugin<Any?> {
+    override fun newInstance(arg: Any?): Plugin<Any> {
         SceneryDefinition.setOptionHandler("open", this)
         SceneryDefinition.setOptionHandler("close", this)
         SceneryDefinition.setOptionHandler("shut", this)

@@ -332,7 +332,11 @@ abstract class Cutscene(val player: Player) {
                 try {
                     endActions?.invoke()
                 } catch (e: Exception) {
-                    log(this::class.java, Log.ERR, "There's some bad nasty code in ${this::class.java.simpleName} end actions!")
+                    log(
+                        this::class.java,
+                        Log.ERR,
+                        "There's some bad nasty code in ${this::class.java.simpleName} end actions!"
+                    )
                     e.printStackTrace()
                 }
             }
@@ -380,7 +384,11 @@ abstract class Cutscene(val player: Player) {
                 try {
                     endActions?.invoke()
                 } catch (e: Exception) {
-                    log(this::class.java, Log.ERR, "There's some bad nasty code in ${this::class.java.simpleName} end actions!")
+                    log(
+                        this::class.java,
+                        Log.ERR,
+                        "There's some bad nasty code in ${this::class.java.simpleName} end actions!"
+                    )
                     e.printStackTrace()
                 }
             }

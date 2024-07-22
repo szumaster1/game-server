@@ -117,7 +117,7 @@ public class BankPinManager {
 	private long tryDelay;
 
     /**
-     * Constructs a new {@Code BankPinManager} {@Code Object}
+     * Constructs a new {@code BankPinManager} {@code Object}
      *
      * @param player the player
      */

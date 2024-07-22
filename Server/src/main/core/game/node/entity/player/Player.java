@@ -36,7 +36,6 @@ import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.info.*;
 import core.game.node.entity.player.info.login.LoginConfiguration;
 import core.game.node.entity.player.info.login.PlayerParser;
-import core.game.node.entity.player.info.login.PlayerSaver;
 import core.game.node.entity.player.link.*;
 import core.game.node.entity.player.link.appearance.Appearance;
 import core.game.node.entity.player.link.diary.AchievementDiaryManager;

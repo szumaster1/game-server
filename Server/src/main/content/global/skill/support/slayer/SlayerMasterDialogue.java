@@ -1,6 +1,5 @@
 package content.global.skill.support.slayer;
 
-import content.global.skill.support.slayer.data.SlayerManager;
 import content.global.skill.support.slayer.data.SlayerMaster;
 import content.global.skill.support.slayer.data.Tasks;
 import core.ServerStore;

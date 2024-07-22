@@ -1,95 +1,54 @@
 package core.game.world
 
+import core.ServerConstants
+import core.ServerStore
 import core.api.*
+import core.auth.Auth
+import core.auth.AuthProvider
 import core.cache.Cache
 import core.cache.def.impl.SceneryDefinition
 import core.game.node.entity.player.Player
 import core.game.system.SystemManager
 import core.game.system.SystemState
+import core.game.system.config.ConfigParser
 import core.game.system.task.Pulse
 import core.game.system.task.TaskExecutor
 import core.game.world.map.Location
 import core.game.world.map.Region
 import core.game.world.map.RegionManager
-import core.plugin.type.StartupPlugin
-import core.tools.RandomFunction
-import core.ServerConstants
-import core.ServerStore
-import core.auth.AuthProvider
-import core.auth.Auth
-import core.game.system.config.ConfigParser
 import core.game.world.repository.Repository
 import core.plugin.ClassScanner
+import core.plugin.type.StartupPlugin
 import core.storage.AccountStorageProvider
 import core.tools.Log
+import core.tools.RandomFunction
 import core.worker.MajorUpdateWorker
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.function.Consumer
-import kotlin.collections.ArrayList
 
 /**
  * Represents the game world.
  * @author Ceikry
  */
 object GameWorld {
-    @JvmStatic
-    val worldPersists = ArrayList<PersistWorld>()
 
-    /**
-     * The major update worker.
-     */
-    @JvmStatic
-    val majorUpdateWorker = MajorUpdateWorker()
+    @JvmStatic val worldPersists = ArrayList<PersistWorld>()
+    @JvmStatic val majorUpdateWorker = MajorUpdateWorker()
+    @JvmStatic val loginListeners = ArrayList<LoginListener>()
+    @JvmStatic val logoutListeners = ArrayList<LogoutListener>()
+    @JvmStatic val tickListeners = ArrayList<TickListener>()
+    @JvmStatic val startupListeners = ArrayList<StartupListener>()
+    @JvmStatic val shutdownListeners = ArrayList<ShutdownListener>()
+    @JvmStatic val STARTUP_PLUGINS: List<StartupPlugin> = ArrayList()
 
-    /**
-     * Login listeners
-     */
-    @JvmStatic
-    val loginListeners = ArrayList<LoginListener>()
-
-    /**
-     * LogoutPacket listeners
-     */
-    @JvmStatic
-    val logoutListeners = ArrayList<LogoutListener>()
-
-    /**
-     * Tick listeners
-     */
-    @JvmStatic
-    val tickListeners = ArrayList<TickListener>()
-
-    /**
-     * Startup Listeners
-     */
-    @JvmStatic
-    val startupListeners = ArrayList<StartupListener>()
-
-    /**
-     * Shutdown Listeners
-     */
-    @JvmStatic
-    val shutdownListeners = ArrayList<ShutdownListener>()
-
-    @JvmStatic
-    val STARTUP_PLUGINS: List<StartupPlugin> = ArrayList()
     private val configParser = ConfigParser()
 
-    @JvmStatic
-    var PCBotsSpawned = false
+    @JvmStatic var PCBotsSpawned = false
+    @JvmStatic var PCnBotsSpawned = false
+    @JvmStatic var PCiBotsSpawned = false
 
-    @JvmStatic
-    var PCnBotsSpawned = false
-
-    @JvmStatic
-    var PCiBotsSpawned = false
-
-    /**
-     * The game settings to use.
-     */
-    @JvmStatic
-    var settings: GameSettings? = null
+    @JvmStatic var settings: GameSettings? = null
 
     @JvmStatic
     val authenticator: AuthProvider<*>
@@ -99,14 +58,8 @@ object GameWorld {
     val accountStorage: AccountStorageProvider
         get() = Auth.storageProvider
 
-    /**
-     * The current amount of (600ms) cycles elapsed.
-     */
-    @JvmStatic
-    var ticks = 0
-
-    @JvmStatic
-    var Pulser = PulseRunner()
+    @JvmStatic var ticks = 0
+    @JvmStatic var Pulser = PulseRunner()
 
     /**
      * Submits a pulse.
@@ -201,21 +154,14 @@ object GameWorld {
         System.gc()
     }
 
-    /**
+    /*
      * Called when the server shuts down.
-     *
-     * @throws Throwable When an exception occurs.
      */
     @Throws(Throwable::class)
     fun shutdown() {
         SystemManager.flag(SystemState.TERMINATED)
     }
 
-    /**
-     * Checks if it's the economy world.
-     *
-     * @return `True` if so.
-     */
     @JvmStatic
     val isEconomyWorld: Boolean
         get() = false

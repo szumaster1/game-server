@@ -22,46 +22,46 @@ public abstract class AbstractNPC extends NPC implements Plugin<Object> {
     protected static Map<Integer, AbstractNPC> mapping = new HashMap<>();
 
     /**
-     * Constructs a new {@code AbstractNPC} {@Code Object}.
+     * Constructs a new {@code AbstractNPC} {@code Object}.
      *
      * @param id       The id.
      * @param location The location.
      */
     public AbstractNPC(int id, Location location) {
-		this(id, location, true);
-	}
+        this(id, location, true);
+    }
 
     /**
-     * Constructs a new {@code AbstractNPC} {@Code Object}.
+     * Constructs a new {@code AbstractNPC} {@code Object}.
      *
      * @param id       The id.
      * @param location The location.
      * @param autowalk If the NPC should move around.
      */
     public AbstractNPC(int id, Location location, boolean autowalk) {
-		super(id, location);
-		super.setWalks(autowalk);
-	}
+        super(id, location);
+        super.setWalks(autowalk);
+    }
 
-	@Override
-	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		for (int id : getIds()) {
-			if (mapping.containsKey(id)) {
-				String name = mapping.get(id).getClass().getSimpleName();
-				if (name != getClass().getSimpleName()) {
-					log(this.getClass(), Log.ERR,  "[" + getClass().getSimpleName() + "] - Warning: Mapping already contained NPC id " + id + "! (" + name + ")");
-					continue;
-				}
-			}
-			mapping.put(id, this);
-		}
-		return this;
-	}
+    @Override
+    public Plugin<Object> newInstance(Object arg) throws Throwable {
+        for (int id : getIds()) {
+            if (mapping.containsKey(id)) {
+                String name = mapping.get(id).getClass().getSimpleName();
+                if (name != getClass().getSimpleName()) {
+                    log(this.getClass(), Log.ERR, "[" + getClass().getSimpleName() + "] - Warning: Mapping already contained NPC id " + id + "! (" + name + ")");
+                    continue;
+                }
+            }
+            mapping.put(id, this);
+        }
+        return this;
+    }
 
-	@Override
-	public Object fireEvent(String identifier, Object... args) {
-		return null;
-	}
+    @Override
+    public Object fireEvent(String identifier, Object... args) {
+        return null;
+    }
 
     /**
      * Constructs a new instance of this abstract NPC.
@@ -87,7 +87,7 @@ public abstract class AbstractNPC extends NPC implements Plugin<Object> {
      * @return The abstract NPC "loader" object for the given NPC id.
      */
     public static AbstractNPC forId(int npcId) {
-		return mapping.get(npcId);
-	}
+        return mapping.get(npcId);
+    }
 
 }

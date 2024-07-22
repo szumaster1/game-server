@@ -5,7 +5,7 @@ import content.global.activity.treasuretrails.TreasureTrailManager
 import content.global.handlers.iface.BookInterfaceListener
 import content.global.handlers.iface.Page
 import content.global.handlers.iface.PageSet
-import content.global.skill.support.slayer.data.SlayerManager
+import content.global.skill.support.slayer.SlayerManager
 import core.api.setAttribute
 import core.game.node.entity.player.Player
 import core.plugin.Initializable

@@ -16,7 +16,7 @@ public final class CacheFileManager {
     private CacheFile cacheFile;
 
     /**
-     * The containers information.
+     * The containers' information.
      */
     private ContainersInformation information;
 

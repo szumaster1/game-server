@@ -15,7 +15,7 @@ import core.plugin.Plugin
 @Initializable
 class ModeratorPlugin : OptionHandler() {
 
-    override fun newInstance(arg: Any): Plugin<Any?> {
+    override fun newInstance(arg: Any?): Plugin<Any> {
         SceneryDefinition.forId(26806).handlers["option:climb-up"] = this
         SceneryDefinition.forId(26807).handlers["option:j-mod options"] = this
         return this

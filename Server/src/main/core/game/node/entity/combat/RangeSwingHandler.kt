@@ -29,7 +29,7 @@ import kotlin.math.floor
  * @author Emperor
  * @author Ceikry, conversion to Kotlin + cleanup
  */
-open class RangeSwingHandler (vararg flags: SwingHandlerFlag): CombatSwingHandler(CombatStyle.RANGE, *flags) {
+open class RangeSwingHandler(vararg flags: SwingHandlerFlag) : CombatSwingHandler(CombatStyle.RANGE, *flags) {
     override fun canSwing(entity: Entity, victim: Entity): InteractionType? {
         if (!isProjectileClipped(entity, victim, false)) {
             return InteractionType.NO_INTERACT
@@ -43,16 +43,20 @@ open class RangeSwingHandler (vararg flags: SwingHandlerFlag): CombatSwingHandle
         }
         if (entity is Player) {
             val rw = RangeWeapon.get(entity.equipment.getNew(EquipmentContainer.SLOT_WEAPON).id)
-            if(rw != null && (rw.weaponType == WeaponType.DOUBLE_SHOT || rw.weaponType == WeaponType.DEGRADING)) {
+            if (rw != null && (rw.weaponType == WeaponType.DOUBLE_SHOT || rw.weaponType == WeaponType.DEGRADING)) {
                 // Dark bow and crystal bow have a 10-square range,
                 // independent of whether longrange stance is used.
                 distance = 10
             }
         }
-        var goodRange = victim.centerLocation.withinDistance(entity.centerLocation, getCombatDistance(entity, victim, distance))
+        var goodRange =
+            victim.centerLocation.withinDistance(entity.centerLocation, getCombatDistance(entity, victim, distance))
         var type = InteractionType.STILL_INTERACT
         if (victim.walkingQueue.isMoving && !goodRange) {
-            goodRange = victim.centerLocation.withinDistance(entity.centerLocation, getCombatDistance(entity, victim, ++distance))
+            goodRange = victim.centerLocation.withinDistance(
+                entity.centerLocation,
+                getCombatDistance(entity, victim, ++distance)
+            )
             type = InteractionType.MOVE_INTERACT
         }
         if (goodRange && super.canSwing(entity, victim) != InteractionType.NO_INTERACT) {
@@ -72,7 +76,7 @@ open class RangeSwingHandler (vararg flags: SwingHandlerFlag): CombatSwingHandle
         }
         var hit = 0
         if (isAccurateImpact(entity, victim, CombatStyle.RANGE)) {
-            val max = calculateHit(entity, victim, 1.0).also { if(entity?.name?.toLowerCase() == "test10") log(this::class.java, Log.FINE,  "Damage: $it") }
+            val max = calculateHit(entity, victim, 1.0).also { if (entity?.name?.toLowerCase() == "test10") log(this::class.java, Log.FINE, "Damage: $it") }
             state.maximumHit = max
             hit = RandomFunction.random(max + 1)
         }
@@ -86,8 +90,8 @@ open class RangeSwingHandler (vararg flags: SwingHandlerFlag): CombatSwingHandle
         if (entity == null || victim!!.location == null) {
             return -1
         }
-        if(state.estimatedHit > victim.skills.lifepoints) state.estimatedHit = victim.skills.lifepoints
-        if(state.estimatedHit + state.secondaryHit > victim.skills.lifepoints) state.secondaryHit -= ((state.estimatedHit + state.secondaryHit) - victim.skills.lifepoints)
+        if (state.estimatedHit > victim.skills.lifepoints) state.estimatedHit = victim.skills.lifepoints
+        if (state.estimatedHit + state.secondaryHit > victim.skills.lifepoints) state.secondaryHit -= ((state.estimatedHit + state.secondaryHit) - victim.skills.lifepoints)
         useAmmo(entity, state, victim.location)
         return 1 + ceil(entity.location.getDistance(victim.location) * 0.3).toInt()
     }
@@ -103,7 +107,7 @@ open class RangeSwingHandler (vararg flags: SwingHandlerFlag): CombatSwingHandle
         if (entity is Player) {
             val rw = RangeWeapon.get(entity.equipment.getNew(3).id)
             if (rw == null) {
-                log(this::class.java, Log.ERR,  "Unhandled range weapon used - [item id=" + entity.equipment.getNew(3).id + "].")
+                log(this::class.java, Log.ERR, "Unhandled range weapon used - [item id=" + entity.equipment.getNew(3).id + "].")
                 return
             }
             w = Weapon(entity.equipment[3], rw.ammunitionSlot, entity.equipment.getNew(rw.ammunitionSlot))
@@ -120,7 +124,7 @@ open class RangeSwingHandler (vararg flags: SwingHandlerFlag): CombatSwingHandle
         if (state.ammunition != null && entity is Player) {
             val damage = state.ammunition.poisonDamage
             if (state.estimatedHit > 0 && damage > 8 && RandomFunction.random(10) < 4) {
-                applyPoison (victim, entity, damage)
+                applyPoison(victim, entity, damage)
             }
         }
         super.adjustBattleState(entity, victim, state)
@@ -134,7 +138,8 @@ open class RangeSwingHandler (vararg flags: SwingHandlerFlag): CombatSwingHandle
             if (state.weapon.type == WeaponType.DOUBLE_SHOT && state.ammunition.darkBowGraphics != null) {
                 start = state.ammunition.darkBowGraphics
                 val speed = (55 + entity.location.getDistance(victim!!.location) * 10).toInt()
-                Projectile.create(entity, victim, state.ammunition.projectile!!.projectileId, 40, 36, 41, speed, 25).send()
+                Projectile.create(entity, victim, state.ammunition.projectile!!.projectileId, 40, 36, 41, speed, 25)
+                    .send()
             }
         } else if (entity is NPC) {
             if (entity.definition.combatGraphics[0] != null) {
@@ -180,12 +185,13 @@ open class RangeSwingHandler (vararg flags: SwingHandlerFlag): CombatSwingHandle
     override fun calculateAccuracy(entity: Entity?): Int {
         entity ?: return 0
         var effectiveRangedLevel = entity.skills.getLevel(Skills.RANGE).toDouble()
-        if(entity is Player && !flags.contains(SwingHandlerFlag.IGNORE_PRAYER_BOOSTS_ACCURACY))
-            effectiveRangedLevel = floor(effectiveRangedLevel + (entity.prayer.getSkillBonus(Skills.RANGE) * effectiveRangedLevel))
-        if(entity.properties.attackStyle.style == WeaponInterface.STYLE_RANGE_ACCURATE) effectiveRangedLevel += 3
+        if (entity is Player && !flags.contains(SwingHandlerFlag.IGNORE_PRAYER_BOOSTS_ACCURACY))
+            effectiveRangedLevel =
+                floor(effectiveRangedLevel + (entity.prayer.getSkillBonus(Skills.RANGE) * effectiveRangedLevel))
+        if (entity.properties.attackStyle.style == WeaponInterface.STYLE_RANGE_ACCURATE) effectiveRangedLevel += 3
         effectiveRangedLevel += 8
         effectiveRangedLevel *= getSetMultiplier(entity, Skills.RANGE)
-        if(entity is Player && SkillcapePerks.isActive(SkillcapePerks.ACCURATE_MARKSMAN,entity)) effectiveRangedLevel *= 1.1
+        if (entity is Player && SkillcapePerks.isActive(SkillcapePerks.ACCURATE_MARKSMAN, entity)) effectiveRangedLevel *= 1.1
 
         effectiveRangedLevel = floor(effectiveRangedLevel)
         if (!flags.contains(SwingHandlerFlag.IGNORE_STAT_BOOSTS_ACCURACY))
@@ -226,8 +232,8 @@ open class RangeSwingHandler (vararg flags: SwingHandlerFlag): CombatSwingHandle
     }
 
     override fun getSetMultiplier(e: Entity?, skillId: Int): Double {
-        if(skillId == Skills.RANGE) {
-            if(e is Player && e.isWearingVoid(CombatStyle.RANGE)) {
+        if (skillId == Skills.RANGE) {
+            if (e is Player && e.isWearingVoid(CombatStyle.RANGE)) {
                 return 1.1
             }
         }

@@ -33,7 +33,7 @@ public class SavedData {
 	private final Player player;
 
     /**
-     * Constructs a new {@Code SavedData} {@Code Object}
+     * Constructs a new {@code SavedData} {@code Object}
      *
      * @param player the player.
      */

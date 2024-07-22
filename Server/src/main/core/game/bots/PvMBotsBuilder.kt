@@ -20,6 +20,7 @@ class PvMBotsBuilder {
             botsSpawned++
             return PestControlTestBot2(l!!)
         }
+
         @JvmStatic
         fun createPestControlTestBot(l: Location?): PestControlTestBot {
             botsSpawned++

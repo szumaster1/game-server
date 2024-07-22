@@ -30,9 +30,9 @@ public abstract class Metamorphosis extends OptionHandler {
      *
      * @param ids the id to transform.
      */
-    public Metamorphosis(int...ids) {
-		this.ids = ids;
-	}
+    public Metamorphosis(int... ids) {
+        this.ids = ids;
+    }
 
     /**
      * The dialogue plugin for the pet.
@@ -40,42 +40,42 @@ public abstract class Metamorphosis extends OptionHandler {
      * @return the plugin.
      */
     public abstract Dialogue getDialogue();
-	
-	@Override
-	public Plugin<Object> newInstance(Object arg) throws Throwable {
-		for (int id : getIds()) {
-			NPCDefinition.forId(id).getHandlers().put("option:metamorphosis", this);
-		}
-		if (getDialogue() != null) {
-			ClassScanner.definePlugin(getDialogue());
-		}
-		return this;
-	}
 
-	@Override
-	public boolean handle(Player player, Node node, String option) {
-		Familiar familiar = (Familiar) node;
-		switch (option) {
-		case "metamorphosis":
-			if (player.getFamiliarManager().isOwner(familiar)) {
-				int newNpc = player.getFamiliarManager().getFamiliar().getId();
-				while (newNpc == player.getFamiliarManager().getFamiliar().getId()) {
-					newNpc = getRandomNpcId();
-				}
-				for (Pets p : Pets.values()) {
-					if (p.getBabyNpcId() == newNpc) {
-						player.getFamiliarManager().morphPet(new Item(p.getBabyItemId()), false, player.getFamiliarManager().getFamiliar().getLocation());
-						break;
-					}
-				}
-				player.getPacketDispatch().sendMessage("You transform your " + player.getFamiliarManager().getFamiliar().getName() + "!");
-			} else {
-				player.getPacketDispatch().sendMessage("This is not your familiar.");
-			}
-			break;
-		}
-		return true;
-	}
+    @Override
+    public Plugin<Object> newInstance(Object arg) throws Throwable {
+        for (int id : getIds()) {
+            NPCDefinition.forId(id).getHandlers().put("option:metamorphosis", this);
+        }
+        if (getDialogue() != null) {
+            ClassScanner.definePlugin(getDialogue());
+        }
+        return this;
+    }
+
+    @Override
+    public boolean handle(Player player, Node node, String option) {
+        Familiar familiar = (Familiar) node;
+        switch (option) {
+            case "metamorphosis":
+                if (player.getFamiliarManager().isOwner(familiar)) {
+                    int newNpc = player.getFamiliarManager().getFamiliar().getId();
+                    while (newNpc == player.getFamiliarManager().getFamiliar().getId()) {
+                        newNpc = getRandomNpcId();
+                    }
+                    for (Pets p : Pets.values()) {
+                        if (p.getBabyNpcId() == newNpc) {
+                            player.getFamiliarManager().morphPet(new Item(p.getBabyItemId()), false, player.getFamiliarManager().getFamiliar().getLocation());
+                            break;
+                        }
+                    }
+                    player.getPacketDispatch().sendMessage("You transform your " + player.getFamiliarManager().getFamiliar().getName() + "!");
+                } else {
+                    player.getPacketDispatch().sendMessage("This is not your familiar.");
+                }
+                break;
+        }
+        return true;
+    }
 
     /**
      * Gets a random npc id.
@@ -83,9 +83,9 @@ public abstract class Metamorphosis extends OptionHandler {
      * @return random npc id
      */
     public int getRandomNpcId() {
-		int i = RandomFunction.getRandom(getIds().length - 1);
-		return getIds()[i];
-	}
+        int i = RandomFunction.getRandom(getIds().length - 1);
+        return getIds()[i];
+    }
 
     /**
      * Gets the npc ids.
@@ -93,6 +93,6 @@ public abstract class Metamorphosis extends OptionHandler {
      * @return the id.
      */
     public int[] getIds() {
-		return ids;
-	}
+        return ids;
+    }
 }

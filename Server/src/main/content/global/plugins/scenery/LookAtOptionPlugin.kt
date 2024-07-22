@@ -11,7 +11,7 @@ import core.plugin.Plugin
 @Initializable
 class LookAtOptionPlugin : OptionHandler() {
 
-    override fun newInstance(arg: Any): Plugin<Any?> {
+    override fun newInstance(arg: Any?): Plugin<Any> {
         for (i in 18877..18900) {
             SceneryDefinition.forId(i).handlers["option:look at"] = this
         }

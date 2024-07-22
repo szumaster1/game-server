@@ -12,32 +12,32 @@ import core.game.node.entity.combat.equipment.DegradableEquipment;
  *
  * @author Emperor
  */
-public class Item extends Node{
+public class Item extends Node {
 
-	/**
-	 * The identification hash (itemId << 16 | charge)
-	 */
-	private int idHash;
+    /**
+     * The identification hash (itemId << 16 | charge)
+     */
+    private int idHash;
 
-	/**
-	 * The item amount.
-	 */
-	private int amount;
+    /**
+     * The item amount.
+     */
+    private int amount;
 
-	/**
-	 * The item definition.
-	 */
-	private ItemDefinition definition;
+    /**
+     * The item definition.
+     */
+    private ItemDefinition definition;
 
     /**
      * Constructs a new {@code Item} {@code Object}. <br> The id will be -1
      * (thus <b>definition will be <code>null</code></b>
      */
     public Item() {
-		super("null", null);
-		super.interactPlugin = new InteractPlugin(this);
-		this.idHash = -1 << 16 | 1000;
-	}
+        super("null", null);
+        super.interactPlugin = new InteractPlugin(this);
+        this.idHash = -1 << 16 | 1000;
+    }
 
     /**
      * Constructs a new fully charged {@code Item} {@code Object}.
@@ -45,8 +45,8 @@ public class Item extends Node{
      * @param id The item id.
      */
     public Item(int id) {
-		this(id, 1, 1000);
-	}
+        this(id, 1, 1000);
+    }
 
     /**
      * Constructs a new fully charged {@code Item} {@code Object}.
@@ -55,8 +55,8 @@ public class Item extends Node{
      * @param amount The amount.
      */
     public Item(int id, int amount) {
-		this(id, amount, 1000);
-	}
+        this(id, amount, 1000);
+    }
 
     /**
      * Constructs a new {@code Item} {@code Object}.
@@ -66,14 +66,14 @@ public class Item extends Node{
      * @param charge The charge.
      */
     public Item(int id, int amount, int charge) {
-		super(ItemDefinition.forId(id).getName(), null);
-		super.destinationFlag = DestinationFlag.ITEM;
-		super.index = -1; // Item slot.
-		super.interactPlugin = new InteractPlugin(this);
-		this.idHash = id << 16 | charge;
-		this.amount = amount;
-		this.definition = ItemDefinition.forId(id);
-	}
+        super(ItemDefinition.forId(id).getName(), null);
+        super.destinationFlag = DestinationFlag.ITEM;
+        super.index = -1; // Item slot.
+        super.interactPlugin = new InteractPlugin(this);
+        this.idHash = id << 16 | charge;
+        this.amount = amount;
+        this.definition = ItemDefinition.forId(id);
+    }
 
     /**
      * Gets this item as a ground item.
@@ -81,12 +81,12 @@ public class Item extends Node{
      * @return The item.
      */
     public Item getDropItem() {
-		int itemId = DegradableEquipment.getDropReplacement(getId());
-		if (itemId != getId()) {
-			return new Item(itemId, getAmount());
-		}
-		return this;
-	}
+        int itemId = DegradableEquipment.getDropReplacement(getId());
+        if (itemId != getId()) {
+            return new Item(itemId, getAmount());
+        }
+        return this;
+    }
 
     /**
      * Gets the operate option handler.
@@ -94,8 +94,8 @@ public class Item extends Node{
      * @return The option handler for the operate option.
      */
     public OptionHandler getOperateHandler() {
-		return ItemDefinition.getOptionHandler(getId(), "operate");
-	}
+        return ItemDefinition.getOptionHandler(getId(), "operate");
+    }
 
     /**
      * Gets the value of the item.
@@ -103,15 +103,15 @@ public class Item extends Node{
      * @return The value.
      */
     public long getValue() {
-		long value = 1;
-		if (definition.getValue() > value) {
-			value = definition.getValue();
-		}
-		if (definition.getAlchemyValue(true) > value) {
-			value = definition.getAlchemyValue(true);
-		}
-		return value * getAmount();
-	}
+        long value = 1;
+        if (definition.getValue() > value) {
+            value = definition.getValue();
+        }
+        if (definition.getAlchemyValue(true) > value) {
+            value = definition.getAlchemyValue(true);
+        }
+        return value * getAmount();
+    }
 
     /**
      * Gets alchemy value.
@@ -119,11 +119,11 @@ public class Item extends Node{
      * @return the alchemy value
      */
     public long getAlchemyValue() {
-		long value = 1;
-		if (definition.getAlchemyValue(true) > value) {
-			value = definition.getAlchemyValue(true);
-		}
-		return value * getAmount();
+        long value = 1;
+        if (definition.getAlchemyValue(true) > value) {
+            value = definition.getAlchemyValue(true);
+        }
+        return value * getAmount();
     }
 
     /**
@@ -132,8 +132,8 @@ public class Item extends Node{
      * @return The item copy.
      */
     public Item copy() {
-		return new Item(getId(), getAmount(), getCharge());
-	}
+        return new Item(getId(), getAmount(), getCharge());
+    }
 
     /**
      * Gets the item id of the exchange item for this item.
@@ -141,19 +141,19 @@ public class Item extends Node{
      * @return The note item id, if this item is unnoted, or the unnoted item id if this item is noted.
      */
     public int getNoteChange() {
-		int noteId = definition.getNoteId();
-		if (noteId > -1) {
-			return noteId;
-		}
-		return getId();
-	}
+        int noteId = definition.getNoteId();
+        if (noteId > -1) {
+            return noteId;
+        }
+        return getId();
+    }
 
-	/**
-	 * @return the id
-	 */
-	public int getId() {
-		return idHash >> 16 & 0xFFFF;
-	}
+    /**
+     * @return the id
+     */
+    public int getId() {
+        return idHash >> 16 & 0xFFFF;
+    }
 
     /**
      * Sets id.
@@ -161,9 +161,9 @@ public class Item extends Node{
      * @param id the id to set
      */
     public void setId(int id) {
-		this.idHash = id << 16 | (idHash & 0xFFFF);
-		this.definition = ItemDefinition.forId(id);
-	}
+        this.idHash = id << 16 | (idHash & 0xFFFF);
+        this.definition = ItemDefinition.forId(id);
+    }
 
     /**
      * Gets amount.
@@ -171,8 +171,8 @@ public class Item extends Node{
      * @return the amount
      */
     public int getAmount() {
-		return amount;
-	}
+        return amount;
+    }
 
     /**
      * Sets amount.
@@ -180,11 +180,11 @@ public class Item extends Node{
      * @param amount the amount to set
      */
     public void setAmount(int amount) {
-		if (amount < 0) {
-			amount = 0;
-		}
-		this.amount = amount;
-	}
+        if (amount < 0) {
+            amount = 0;
+        }
+        this.amount = amount;
+    }
 
     /**
      * Checks if the item has atleast one charge left.
@@ -192,8 +192,8 @@ public class Item extends Node{
      * @return {@code True} if so.
      */
     public boolean isCharged() {
-		return getCharge() > 0;
-	}
+        return getCharge() > 0;
+    }
 
     /**
      * Gets charge.
@@ -201,8 +201,8 @@ public class Item extends Node{
      * @return the charge
      */
     public int getCharge() {
-		return idHash & 0xFFFF;
-	}
+        return idHash & 0xFFFF;
+    }
 
     /**
      * Sets charge.
@@ -210,15 +210,15 @@ public class Item extends Node{
      * @param charge the charge to set
      */
     public void setCharge(int charge) {
-		this.idHash = (idHash >> 16 & 0xFFFF) << 16 | charge;
-	}
+        this.idHash = (idHash >> 16 & 0xFFFF) << 16 | charge;
+    }
 
-	/**
-	 * @return the identification hash
-	 */
-	public int getIdHash() {
-		return idHash;
-	}
+    /**
+     * @return the identification hash
+     */
+    public int getIdHash() {
+        return idHash;
+    }
 
     /**
      * Sets the id hash.
@@ -226,8 +226,8 @@ public class Item extends Node{
      * @param hash the hash to set
      */
     public void setIdHash(int hash) {
-		this.idHash = hash;
-	}
+        this.idHash = hash;
+    }
 
     /**
      * Checks if the item has a wrapper plugin.
@@ -235,8 +235,8 @@ public class Item extends Node{
      * @return {@code True} if so.
      */
     public boolean hasItemPlugin() {
-		return getPlugin() != null;
-	}
+        return getPlugin() != null;
+    }
 
     /**
      * Gets the item plugin.
@@ -244,11 +244,11 @@ public class Item extends Node{
      * @return the plugin.
      */
     public ItemPlugin getPlugin() {
-		if (definition == null) {
-			return null;
-		}
-		return definition.getItemPlugin();
-	}
+        if (definition == null) {
+            return null;
+        }
+        return definition.getItemPlugin();
+    }
 
     /**
      * Gets the definition.
@@ -256,8 +256,8 @@ public class Item extends Node{
      * @return The definition.
      */
     public ItemDefinition getDefinition() {
-		return definition;
-	}
+        return definition;
+    }
 
     /**
      * Sets the definition.
@@ -265,8 +265,8 @@ public class Item extends Node{
      * @param definition The definition to set.
      */
     public void setDefinition(ItemDefinition definition) {
-		this.definition = definition;
-	}
+        this.definition = definition;
+    }
 
     /**
      * Gets the slot of this item.
@@ -274,12 +274,12 @@ public class Item extends Node{
      * @return The container slot, or {@code -1} if the item wasn't added to a container.
      */
     public int getSlot() {
-		return index;
-	}
+        return index;
+    }
 
-	@Override
-	public String toString() {
-		return "Item id=" + getId() + ", name=" + getName() + ", amount=" + amount;
-	}
+    @Override
+    public String toString() {
+        return "Item id=" + getId() + ", name=" + getName() + ", amount=" + amount;
+    }
 
 }

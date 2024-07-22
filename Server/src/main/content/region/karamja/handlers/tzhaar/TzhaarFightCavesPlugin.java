@@ -1,7 +1,7 @@
 package content.region.karamja.handlers.tzhaar;
 
 import content.data.BossKillCounter;
-import content.global.skill.support.slayer.data.SlayerManager;
+import content.global.skill.support.slayer.SlayerManager;
 import content.global.skill.support.slayer.data.Tasks;
 import core.game.activity.ActivityPlugin;
 import core.game.dialogue.FacialExpression;

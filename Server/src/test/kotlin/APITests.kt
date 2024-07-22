@@ -1,7 +1,7 @@
 import core.api.consts.Items
 import content.data.consumables.Consumables
 import content.global.skill.support.slayer.data.SlayerMaster
-import content.global.skill.support.slayer.data.SlayerManager
+import content.global.skill.support.slayer.SlayerManager
 import content.global.skill.support.slayer.data.Tasks
 import core.api.IfaceSettingsBuilder
 import core.api.splitLines

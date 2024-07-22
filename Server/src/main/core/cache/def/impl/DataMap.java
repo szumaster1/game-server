@@ -53,13 +53,13 @@ public class DataMap {
     public String toString() {
         StringBuilder builder = new StringBuilder();
         return "DataMapDefinition{" +
-                "id=" + id +
-                ", keyType=" + keyType +
-                ", valueType=" + (valueType == 'K' ? "Normal" : valueType == 'J' ? "Struct Pointer" : "Unknown") +
-                ", defaultString='" + defaultString + '\'' +
-                ", defaultInt=" + defaultInt +
-                ", dataStore=" + dataStore +
-                '}' + "\n";
+            "id=" + id +
+            ", keyType=" + keyType +
+            ", valueType=" + (valueType == 'K' ? "Normal" : valueType == 'J' ? "Struct Pointer" : "Unknown") +
+            ", defaultString='" + defaultString + '\'' +
+            ", defaultInt=" + defaultInt +
+            ", dataStore=" + dataStore +
+            '}' + "\n";
     }
 
     public static DataMap get(int id) {

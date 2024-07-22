@@ -31,9 +31,11 @@ public class PvMBots extends AIPlayer {
 
     public List<Entity> FindTargets(Entity entity, int radius) {
         List<Entity> targets = new ArrayList<>(20);
-        Object[] localNPCs = RegionManager.getLocalNpcs(entity,radius).toArray();
+        Object[] localNPCs = RegionManager.getLocalNpcs(entity, radius).toArray();
         int length = localNPCs.length;
-        if(length > 5){length = 5;}
+        if (length > 5) {
+            length = 5;
+        }
         for (int i = 0; i < length; i++) {
             NPC npc = (NPC) localNPCs[i];
             {
@@ -59,13 +61,13 @@ public class PvMBots extends AIPlayer {
         return true;
     }
 
-    public boolean AttackNpcsInRadius(int radius)
-    {
+    public boolean AttackNpcsInRadius(int radius) {
         return AttackNpcsInRadius(this, radius);
     }
 
     /**
      * Attacks NPCs in radius of bot
+     *
      * @param bot
      * @param radius
      * @return true if bot will be fighting
@@ -77,13 +79,12 @@ public class PvMBots extends AIPlayer {
         if (creatures == null) {
             return false;
         }
-            bot.attack(creatures.get(RandomFunction.getRandom((creatures.size() - 1))));
+        bot.attack(creatures.get(RandomFunction.getRandom((creatures.size() - 1))));
         if (!creatures.isEmpty()) {
             return true;
         } else {
             creatures = FindTargets(bot, radius);
-            if (!creatures.isEmpty())
-            {
+            if (!creatures.isEmpty()) {
                 bot.attack(creatures.get(RandomFunction.getRandom((creatures.size() - 1))));
                 return true;
             }
@@ -93,14 +94,14 @@ public class PvMBots extends AIPlayer {
 
     @Override
     public void tick() {
-		super.tick();
+        super.tick();
 
-		this.tick++;
+        this.tick++;
 
         //Despawn
-        if (this.getSkills().getLifepoints() <= 5){
+        if (this.getSkills().getLifepoints() <= 5) {
             //TODO: Just respawn a new bot (not sure how you'd do that :L)
-                // Maybe make all PvMBots know what to do if they aren't in right area? I.e. pest control bots teleport to PC
+            // Maybe make all PvMBots know what to do if they aren't in right area? I.e. pest control bots teleport to PC
             //this.teleport(new Location(500, 500));
             //Despawning not being delayed causes 3 errors in the console
             this.getSkills().setLifepoints(20);
@@ -112,7 +113,7 @@ public class PvMBots extends AIPlayer {
 				AttackNpcsInRadius(this, 5);
 		}*/
 
-		if (this.tick == 100) this.tick = 0;
+        if (this.tick == 100) this.tick = 0;
 
         //this.eat();
         //this.getPrayer().toggle()

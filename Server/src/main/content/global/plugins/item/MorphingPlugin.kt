@@ -28,7 +28,7 @@ class MorphingPlugin : Plugin<Any> {
         return@setCloseEvent true
     }
 
-    override fun newInstance(arg: Any): Plugin<Any> {
+    override fun newInstance(arg: Any?): Plugin<Any> {
         ItemDefinition.forId(Items.EASTER_RING_7927).handlers["equipment"] = this
         ItemDefinition.forId(Items.RING_OF_STONE_6583).handlers["equipment"] = this
         ClassScanner.definePlugin(MorphInterfacePlugin())
@@ -69,19 +69,12 @@ class MorphingPlugin : Plugin<Any> {
 
     inner class MorphInterfacePlugin : ComponentPlugin() {
 
-        override fun newInstance(arg: Any): Plugin<Any> {
+        override fun newInstance(arg: Any?): Plugin<Any> {
             ComponentDefinition.forId(Components.UNMORPH_375).plugin = this
             return this
         }
 
-        override fun handle(
-            player: Player,
-            component: Component,
-            opcode: Int,
-            button: Int,
-            slot: Int,
-            itemId: Int
-        ): Boolean {
+        override fun handle(player: Player, component: Component, opcode: Int, button: Int, slot: Int, itemId: Int): Boolean {
             player.interfaceManager.closeSingleTab()
             return true
         }

@@ -13,24 +13,24 @@ public class RegistryDetails {
 	 * The username.
 	 */
 	private final String username;
-	
+
 	/**
 	 * The password.
 	 */
 	private final String password;
-	
+
 	/**
 	 * The date of birth.
 	 */
 	private final Date birth;
-	
+
 	/**
 	 * The country.
 	 */
 	private final int country;
-	
+
 	/**
-	 * Constructs a new {@Code RegistryDetails} {@Code Object}
+	 * Constructs a new {@code RegistryDetails} {@code Object}
 	 * @param username The username to register.
 	 * @param password The password to register.
 	 * @param birth The birth year.

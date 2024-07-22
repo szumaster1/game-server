@@ -22,7 +22,7 @@ class SoftclayPlugin : UseWithHandler(Items.CLAY_434) {
     private val JUG = Item(Items.JUG_1935)
     private val JUG_OF_WATER = Item(Items.JUG_OF_WATER_1937)
 
-    override fun newInstance(arg: Any?): Plugin<Any?> {
+    override fun newInstance(arg: Any?): Plugin<Any> {
         addHandler(Items.BOWL_OF_WATER_1921, ITEM_TYPE, this)
         addHandler(Items.BUCKET_OF_WATER_1929, ITEM_TYPE, this)
         addHandler(Items.JUG_OF_WATER_1937, ITEM_TYPE, this)

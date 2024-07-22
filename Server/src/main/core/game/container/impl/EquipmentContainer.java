@@ -5,21 +5,21 @@ import core.api.consts.Components;
 import core.game.container.Container;
 import core.game.container.ContainerEvent;
 import core.game.container.ContainerListener;
+import core.game.interaction.InteractionListeners;
 import core.game.node.entity.combat.equipment.WeaponInterface;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.skill.Skills;
 import core.game.node.item.Item;
+import core.game.system.config.ItemConfigParser;
 import core.network.packet.PacketRepository;
 import core.network.packet.context.ContainerContext;
 import core.network.packet.outgoing.ContainerPacket;
 import core.plugin.Plugin;
 import org.jetbrains.annotations.Nullable;
-import core.game.interaction.InteractionListeners;
-import core.game.system.config.ItemConfigParser;
 
 import java.util.ArrayList;
 
-import static core.api.ContentAPIKt.*;
+import static core.api.ContentAPIKt.setVarp;
 
 /**
  * Represents the equipment container.

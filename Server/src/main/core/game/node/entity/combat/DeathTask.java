@@ -22,6 +22,7 @@ import static core.api.ContentAPIKt.playGlobalAudio;
 
 /**
  * Handles an entity death task.
+ *
  * @author Emperor
  */
 public final class DeathTask extends NodeTask {

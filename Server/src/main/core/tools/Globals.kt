@@ -70,7 +70,7 @@ fun String.shuffle(): String {
 /**
  * Prepends 'a' or 'an' to a noun depending on whether it starts with a vowel.
  * @param noun the noun to check grammar rules against.
- * @return either 'a $noun' or 'an $noun' depending on the first letter.
+ * @return either 'a $noun' or 'a $noun' depending on the first letter.
  */
 fun prependArticle(noun: String): String {
     if (noun == null) return noun

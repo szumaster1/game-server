@@ -16,10 +16,10 @@ import core.plugin.Plugin
 @Initializable
 class JangerBerryPlugin : OptionHandler() {
 
-    override fun newInstance(arg: Any): Plugin<Any?> {
+    override fun newInstance(arg: Any?): Plugin<Any> {
         UseWithHandler.addHandler(2326, UseWithHandler.OBJECT_TYPE, object : UseWithHandler(954) {
 
-            override fun newInstance(arg: Any): Plugin<Any?> {
+            override fun newInstance(arg: Any?): Plugin<Any> {
                 return this
             }
 

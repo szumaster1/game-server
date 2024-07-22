@@ -32,7 +32,7 @@ class SearchOptionPlugin : OptionHandler() {
         }
     }
 
-    override fun newInstance(arg: Any): Plugin<Any?> {
+    override fun newInstance(arg: Any?): Plugin<Any> {
         SceneryDefinition.setOptionHandler("search", this)
         return this
     }

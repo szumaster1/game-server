@@ -118,7 +118,7 @@ public class RenderAnimationDefinition {
                                 anInt957 = buffer.getShort() & 0xFFFF;
                             else if (opcode == 26) {
                                 anInt973 = (short) (4 * buffer
-                                        .get() & 0xFF);
+                                    .get() & 0xFF);
                                 anInt975 = (short) (buffer.get() & 0xFF * 4);
                             } else if ((~opcode) == -28) {
                                 if (anIntArrayArray979 == null)
@@ -127,12 +127,12 @@ public class RenderAnimationDefinition {
                                 anIntArrayArray979[i] = new int[6];
                                 for (int i_1_ = 0; (~i_1_) > -7; i_1_++)
                                     anIntArrayArray979[i][i_1_] = buffer
-                                            .getShort();
+                                        .getShort();
                             } else if ((~opcode) == -29) {
                                 anIntArray971 = new int[12];
                                 for (int i = 0; i < 12; i++) {
                                     anIntArray971[i] = buffer
-                                            .get() & 0xFF;
+                                        .get() & 0xFF;
                                     if (anIntArray971[i] == 255)
                                         anIntArray971[i] = -1;
                                 }
@@ -150,34 +150,34 @@ public class RenderAnimationDefinition {
                                                                         if ((~opcode) != -41) {
                                                                             if ((~opcode) == -42)
                                                                                 turnCWAnimation = buffer
-                                                                                        .getShort() & 0xFFFF;
+                                                                                    .getShort() & 0xFFFF;
                                                                             else if (opcode != 42) {
                                                                                 if ((~opcode) == -44)
                                                                                     buffer.getShort();
                                                                                 else if ((~opcode) != -45) {
                                                                                     if ((~opcode) == -46)
                                                                                         anInt964 = buffer
-                                                                                                .getShort() & 0xFFFF;
+                                                                                            .getShort() & 0xFFFF;
                                                                                     else if ((~opcode) != -47) {
                                                                                         if (opcode == 47)
                                                                                             anInt966 = buffer
-                                                                                                    .getShort() & 0xFFFF;
+                                                                                                .getShort() & 0xFFFF;
                                                                                         else if (opcode == 48)
                                                                                             anInt989 = buffer
-                                                                                                    .getShort() & 0xFFFF;
+                                                                                                .getShort() & 0xFFFF;
                                                                                         else if (opcode != 49) {
                                                                                             if ((~opcode) != -51) {
                                                                                                 if (opcode != 51) {
                                                                                                     if (opcode == 52) {
                                                                                                         int i = buffer
-                                                                                                                .get() & 0xFF;
+                                                                                                            .get() & 0xFF;
                                                                                                         anIntArray959 = new int[i];
                                                                                                         standAnimationIds = new int[i];
                                                                                                         for (int i_2_ = 0; i_2_ < i; i_2_++) {
                                                                                                             standAnimationIds[i_2_] = buffer
-                                                                                                                    .getShort() & 0xFFFF;
+                                                                                                                .getShort() & 0xFFFF;
                                                                                                             int i_3_ = buffer
-                                                                                                                    .get() & 0xFF;
+                                                                                                                .get() & 0xFF;
                                                                                                             anIntArray959[i_2_] = i_3_;
                                                                                                             anInt994 += i_3_;
                                                                                                         }
@@ -185,48 +185,48 @@ public class RenderAnimationDefinition {
                                                                                                         aBoolean978 = false;
                                                                                                 } else
                                                                                                     anInt962 = buffer
-                                                                                                            .getShort() & 0xFFFF;
+                                                                                                        .getShort() & 0xFFFF;
                                                                                             } else
                                                                                                 anInt990 = buffer
-                                                                                                        .getShort() & 0xFFFF;
+                                                                                                    .getShort() & 0xFFFF;
                                                                                         } else
                                                                                             anInt952 = buffer
-                                                                                                    .getShort() & 0xFFFF;
+                                                                                                .getShort() & 0xFFFF;
                                                                                     } else
                                                                                         anInt983 = buffer
-                                                                                                .getShort() & 0xFFFF;
+                                                                                            .getShort() & 0xFFFF;
                                                                                 } else
                                                                                     anInt955 = buffer
-                                                                                            .getShort() & 0xFFFF;
+                                                                                        .getShort() & 0xFFFF;
                                                                             } else
                                                                                 turnCCWAnimation = buffer
-                                                                                        .getShort() & 0xFFFF;
+                                                                                    .getShort() & 0xFFFF;
                                                                         } else
                                                                             turn180Animation = buffer
-                                                                                    .getShort() & 0xFFFF;
+                                                                                .getShort() & 0xFFFF;
                                                                     } else
                                                                         anInt954 = buffer
-                                                                                .getShort() & 0xFFFF;
+                                                                            .getShort() & 0xFFFF;
                                                                 } else
                                                                     anInt958 = (buffer
-                                                                            .getShort() & 0xFFFF);
+                                                                        .getShort() & 0xFFFF);
                                                             } else
                                                                 anInt951 = (buffer
-                                                                        .get() & 0xFF);
+                                                                    .get() & 0xFF);
                                                         } else
                                                             anInt965 = (buffer
-                                                                    .getShort());
+                                                                .getShort());
                                                     } else
                                                         anInt969 = (buffer
-                                                                .getShort() & 0xFFFF);
+                                                            .getShort() & 0xFFFF);
                                                 } else
                                                     anInt993 = buffer
-                                                            .get() & 0xFF;
+                                                        .get() & 0xFF;
                                             } else
                                                 anInt956 = (buffer.getShort());
                                         } else
                                             anInt961 = buffer
-                                                    .getShort() & 0xFFFF;
+                                                .getShort() & 0xFFFF;
                                     } else
                                         anInt988 = buffer.get() & 0xFF;
                                 } else

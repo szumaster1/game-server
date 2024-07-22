@@ -28,7 +28,7 @@ public final class ClientInfo {
 	private int screenHeight;
 
     /**
-     * Constructs a new {@Code ClientInfo} {@Code Object}
+     * Constructs a new {@code ClientInfo} {@code Object}
      *
      * @param displayMode  The display mode.
      * @param windowMode   The window mode.

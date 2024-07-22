@@ -1,11 +1,10 @@
-package core.plugin;
+package core.plugin
 
-public enum PluginType {
+enum class PluginType {
     ACTION,
     DIALOGUE,
     ACTIVITY,
     LOGIN,
     LOGOUT,
     QUEST
-
 }

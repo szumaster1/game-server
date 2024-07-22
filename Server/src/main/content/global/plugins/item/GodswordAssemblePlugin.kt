@@ -12,7 +12,7 @@ import core.tools.StringUtils
 @Initializable
 class GodswordAssemblePlugin : UseWithHandler(11702, 11704, 11706, 11708) {
 
-    override fun newInstance(arg: Any): Plugin<Any?> {
+    override fun newInstance(arg: Any?): Plugin<Any> {
         addHandler(Items.GODSWORD_BLADE_11690, ITEM_TYPE, this)
         return this
     }

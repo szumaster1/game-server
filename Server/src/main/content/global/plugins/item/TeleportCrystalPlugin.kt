@@ -21,7 +21,7 @@ import core.plugin.Plugin
 @Initializable
 class TeleportCrystalPlugin : OptionHandler() {
 
-    override fun newInstance(arg: Any): Plugin<Any?> {
+    override fun newInstance(arg: Any?): Plugin<Any> {
         ItemDefinition.forId(Items.TELEPORT_CRYSTAL_4_6099).handlers["option:activate"] = this
         ItemDefinition.forId(Items.TELEPORT_CRYSTAL_3_6100).handlers["option:activate"] = this
         ItemDefinition.forId(Items.TELEPORT_CRYSTAL_2_6101).handlers["option:activate"] = this

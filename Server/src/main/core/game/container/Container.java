@@ -1,18 +1,17 @@
 package core.game.container;
 
+import com.google.errorprone.annotations.CheckReturnValue;
+import core.api.consts.Items;
 import core.cache.def.impl.ItemDefinition;
 import core.game.node.entity.player.Player;
 import core.game.node.item.GroundItemManager;
 import core.game.node.item.Item;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import core.api.consts.Items;
 
 import java.nio.ByteBuffer;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
-
-import com.google.errorprone.annotations.CheckReturnValue;
 
 /**
  * Represents a container which contains items.

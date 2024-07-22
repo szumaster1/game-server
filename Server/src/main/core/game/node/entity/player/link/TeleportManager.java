@@ -57,7 +57,7 @@ public class TeleportManager {
 	private int teleportType;
 
     /**
-     * Constructs a new {@code Teleporter.java} {@Code Object}.
+     * Constructs a new {@code Teleporter.java} {@code Object}.
      *
      * @param entity the Entity
      */
@@ -779,7 +779,7 @@ public class TeleportManager {
         public abstract Pulse getPulse(final Entity entity, final Location location);
 
 		/**
-		 * Constructs a new {@code Teleporter.java} {@Code Object}.
+		 * Constructs a new {@code Teleporter.java} {@code Object}.
 		 * @param settings the NodeSettings
 		 */
 		TeleportType(TeleportSettings settings) {

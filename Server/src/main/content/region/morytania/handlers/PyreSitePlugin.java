@@ -329,7 +329,7 @@ public final class PyreSitePlugin extends OptionHandler {
         private final int enhancedExp;
 
         /**
-         * Constructs a new {@Code LogType} {@Code Object}
+         * Constructs a new {@code LogType} {@code Object}
          *
          * @param log         the log.
          * @param level       the level.
@@ -406,7 +406,7 @@ public final class PyreSitePlugin extends OptionHandler {
 
 
         /**
-         * Constructs a new {@Code FerociousBarbarianNPC} {@Code Object}
+         * Constructs a new {@code FerociousBarbarianNPC} {@code Object}
          *
          * @param id       the npc id.
          * @param location the location.
@@ -418,7 +418,7 @@ public final class PyreSitePlugin extends OptionHandler {
         }
 
         /**
-         * Constructs a new {@Code FerociousBarbarianNPC} {@Code Object}
+         * Constructs a new {@code FerociousBarbarianNPC} {@code Object}
          */
         public FerociousBarbarianNPC() {
             this(-1, null);

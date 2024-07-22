@@ -15,7 +15,7 @@ import core.tools.RandomFunction
 @Initializable
 class GnomecopterTicketPlugin : OptionHandler() {
 
-    override fun newInstance(arg: Any): Plugin<Any?> {
+    override fun newInstance(arg: Any?): Plugin<Any> {
         ItemDefinition.forId(Items.GNOMECOPTER_TICKET_12843).handlers["option:read"] = this
         return this
     }

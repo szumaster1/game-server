@@ -104,8 +104,10 @@ enum class BoltEffect(val itemId: Int, private val graphic: Graphic, private val
      * The Sapphire.
      */
 
-    SAPPHIRE(Items.SAPPHIRE_BOLTS_E_9240,
-        Graphic(759, 100), Audio(2912)) {
+    SAPPHIRE(
+        Items.SAPPHIRE_BOLTS_E_9240,
+        Graphic(759, 100), Audio(2912)
+    ) {
         override fun impact(state: BattleState) {
             if (state.victim is Player && state.attacker is Player) {
                 val p = state.victim.asPlayer()

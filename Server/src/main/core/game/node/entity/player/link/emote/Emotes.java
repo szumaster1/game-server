@@ -334,7 +334,8 @@ public enum Emotes {
             playJingle(player, 302);
             super.play(player);
         }
-    },    /**
+    },
+    /**
      * The Safety first.
      */
     SAFETY_FIRST(42, Animation.create(8770), Graphic.create(1553), "You can't use this emote yet. Visit the Stronghold of Player safety to<br>unlock it."),
@@ -407,11 +408,11 @@ public enum Emotes {
     private final String lockedMessage;
 
     /**
-     * Constructs a new {@Code Emotes} {@Code Object}
+     * Constructs a new {@code Emotes} {@code Object}
      *
      * @param buttonId      the button id.
      * @param animation     the animation.
-     * @param graphic      the graphic.
+     * @param graphic       the graphic.
      * @param lockedMessage the locked message.
      */
     Emotes(int buttonId, Animation animation, Graphic graphic, String lockedMessage) {
@@ -422,7 +423,7 @@ public enum Emotes {
     }
 
     /**
-     * Constructs a new {@Code Emotes} {@Code Object}
+     * Constructs a new {@code Emotes} {@code Object}
      *
      * @param buttonId the button id.
      */
@@ -431,7 +432,7 @@ public enum Emotes {
     }
 
     /**
-     * Constructs a new {@Code Emotes} {@Code Object}
+     * Constructs a new {@code Emotes} {@code Object}
      *
      * @param buttonId  the button id.
      * @param animation the animation.
@@ -441,18 +442,18 @@ public enum Emotes {
     }
 
     /**
-     * Constructs a new {@Code Emotes} {@Code Object}
+     * Constructs a new {@code Emotes} {@code Object}
      *
      * @param buttonId  the button id.
      * @param animation the animation.
-     * @param graphic  the graphic.
+     * @param graphic   the graphic.
      */
     Emotes(int buttonId, Animation animation, Graphic graphic) {
         this(buttonId, animation, graphic, null);
     }
 
     /**
-     * Constructs a new {@Code Emotes} {@Code Object}
+     * Constructs a new {@code Emotes} {@code Object}
      *
      * @param buttonId      the button id.
      * @param animation     the animation.
@@ -463,7 +464,7 @@ public enum Emotes {
     }
 
     /**
-     * Constructs a new {@Code Emotes} {@Code Object}
+     * Constructs a new {@code Emotes} {@code Object}
      *
      * @param buttonId      the button id.
      * @param lockedMessage the locked message.

@@ -68,7 +68,7 @@ class FishfoodPlugin : UseWithHandler(*FishFoodUses.usables) {
         }
     }
 
-    override fun newInstance(arg: Any?): Plugin<Any?> {
+    override fun newInstance(arg: Any?): Plugin<Any> {
         for (value in FishFoodUses.values()) {
             addHandler(value.with, ITEM_TYPE, this)
         }

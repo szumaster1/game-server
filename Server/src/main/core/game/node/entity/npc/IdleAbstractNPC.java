@@ -15,15 +15,15 @@ import core.game.world.map.Location;
  */
 public abstract class IdleAbstractNPC extends AbstractNPC {
 
-	/**
-	 * The active NPC id.
-	 */
-	private int activeId;
-	
-	/**
-	 * If the NPC is currently idle.
-	 */
-	private boolean idle = true;
+    /**
+     * The active NPC id.
+     */
+    private int activeId;
+
+    /**
+     * If the NPC is currently idle.
+     */
+    private boolean idle = true;
 
     /**
      * The timeout ticks.
@@ -38,44 +38,44 @@ public abstract class IdleAbstractNPC extends AbstractNPC {
      * @param location The location.
      */
     public IdleAbstractNPC(int idleId, int activeId, Location location) {
-		super(idleId, location);
-		this.activeId = activeId;
-	}
-	
-	@Override
-	public void handleTickActions() {
-		super.handleTickActions();
-		if (!idle && !getProperties().getCombatPulse().isAttacking()) {
-			long time = getAttribute("combat-time", 0l);
-			if ((System.currentTimeMillis() - time) > (timeout * 600)) {
-				goIdle(); 
-			}
-		}
-	}
-	
-	@Override
-	public void init() {
-		super.init();
-	}
-	
-	@Override
-	public boolean isAttackable(Entity entity, CombatStyle style, boolean message) {
-		if (isInvisible()) {
-			return false;
-		}
-		if (getTask() != null && entity instanceof Player && getTask().levelReq > entity.getSkills().getLevel(Skills.SLAYER)) {
-            if(message) {
+        super(idleId, location);
+        this.activeId = activeId;
+    }
+
+    @Override
+    public void handleTickActions() {
+        super.handleTickActions();
+        if (!idle && !getProperties().getCombatPulse().isAttacking()) {
+            long time = getAttribute("combat-time", 0l);
+            if ((System.currentTimeMillis() - time) > (timeout * 600)) {
+                goIdle();
+            }
+        }
+    }
+
+    @Override
+    public void init() {
+        super.init();
+    }
+
+    @Override
+    public boolean isAttackable(Entity entity, CombatStyle style, boolean message) {
+        if (isInvisible()) {
+            return false;
+        }
+        if (getTask() != null && entity instanceof Player && getTask().levelReq > entity.getSkills().getLevel(Skills.SLAYER)) {
+            if (message) {
                 ((Player) entity).getPacketDispatch().sendMessage("You need a higher slayer level to know how to wound this monster.");
             }
-		}
-		if (DeathTask.isDead(this)) {
-			return false;
-		}
-		if (!entity.getZoneMonitor().continueAttack(this, style, message)) {
-			return false;
-		}
-		return true;
-	}
+        }
+        if (DeathTask.isDead(this)) {
+            return false;
+        }
+        if (!entity.getZoneMonitor().continueAttack(this, style, message)) {
+            return false;
+        }
+        return true;
+    }
 
     /**
      * Checks if the entity is in range for disturbing this NPC.
@@ -84,11 +84,11 @@ public abstract class IdleAbstractNPC extends AbstractNPC {
      * @return {@code True} if so.
      */
     public boolean inDisturbingRange(Entity disturber) {
-		if (idle && disturber.getSwingHandler(false).canSwing(disturber, this) != InteractionType.NO_INTERACT) {
-			return true;
-		}
-		return false;
-	}
+        if (idle && disturber.getSwingHandler(false).canSwing(disturber, this) != InteractionType.NO_INTERACT) {
+            return true;
+        }
+        return false;
+    }
 
     /**
      * Checks if the entity can currently disturb this NPC (and returns {@code true}), or returns {@code false}.
@@ -97,8 +97,8 @@ public abstract class IdleAbstractNPC extends AbstractNPC {
      * @return {@code True} if the entity could disturb this NPC.
      */
     public boolean canDisturb(Entity disturber) {
-		return idle;
-	}
+        return idle;
+    }
 
     /**
      * Disturbs the NPC so it becomes active.
@@ -106,26 +106,26 @@ public abstract class IdleAbstractNPC extends AbstractNPC {
      * @param disturber The entity disturbing this NPC.
      */
     public void disturb(Entity disturber) {
-		if (disturber != null) {
-			disturber.getProperties().getCombatPulse().setCombatFlags(this);
-		} else {
-			setAttribute("combat-time", System.currentTimeMillis() + 10000);
-		}
-		getProperties().getCombatPulse().attack(disturber);
-		transform(activeId);
-		idle = false;
-	}
+        if (disturber != null) {
+            disturber.getProperties().getCombatPulse().setCombatFlags(this);
+        } else {
+            setAttribute("combat-time", System.currentTimeMillis() + 10000);
+        }
+        getProperties().getCombatPulse().attack(disturber);
+        transform(activeId);
+        idle = false;
+    }
 
     /**
      * Makes the NPC go idle again.
      */
     public void goIdle() {
-		if (idle) {
-			return;
-		}
-		idle = true;
-		reTransform();
-	}
+        if (idle) {
+            return;
+        }
+        idle = true;
+        reTransform();
+    }
 
     /**
      * Gets the idle value.
@@ -133,8 +133,8 @@ public abstract class IdleAbstractNPC extends AbstractNPC {
      * @return The idle.
      */
     public boolean isIdle() {
-		return idle;
-	}
+        return idle;
+    }
 
     /**
      * Sets the idle value.
@@ -142,7 +142,7 @@ public abstract class IdleAbstractNPC extends AbstractNPC {
      * @param idle The idle to set.
      */
     public void setIdle(boolean idle) {
-		this.idle = idle;
-	}
+        this.idle = idle;
+    }
 
 }

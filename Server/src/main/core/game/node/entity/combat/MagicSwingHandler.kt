@@ -14,7 +14,7 @@ import kotlin.math.floor
  * Handles the magic combat swings.
  * @author Ceikry, Emperor
  */
-open class MagicSwingHandler (vararg flags: SwingHandlerFlag) : CombatSwingHandler(CombatStyle.MAGIC, *flags) {
+open class MagicSwingHandler(vararg flags: SwingHandlerFlag) : CombatSwingHandler(CombatStyle.MAGIC, *flags) {
 
     override fun canSwing(entity: Entity, victim: Entity): InteractionType? {
         if (!isProjectileClipped(entity, victim, false)) {
@@ -24,7 +24,10 @@ open class MagicSwingHandler (vararg flags: SwingHandlerFlag) : CombatSwingHandl
         var type = InteractionType.STILL_INTERACT
         var goodRange = victim.centerLocation.withinDistance(entity.centerLocation, getCombatDistance(entity, victim, distance))
         if (victim.walkingQueue.isMoving && !goodRange) {
-            goodRange = victim.centerLocation.withinDistance(entity.centerLocation, getCombatDistance(entity, victim, ++distance))
+            goodRange = victim.centerLocation.withinDistance(
+                entity.centerLocation,
+                getCombatDistance(entity, victim, ++distance)
+            )
             type = InteractionType.MOVE_INTERACT
         }
         if (goodRange && isAttackable(entity, victim) != InteractionType.NO_INTERACT) {
@@ -76,8 +79,8 @@ open class MagicSwingHandler (vararg flags: SwingHandlerFlag) : CombatSwingHandl
         if (spell!!.type === SpellType.BLITZ) {
             ticks++
         }
-        if(state.estimatedHit > victim.skills.lifepoints) state.estimatedHit = victim.skills.lifepoints
-        if(state.estimatedHit + state.secondaryHit > victim.skills.lifepoints) state.secondaryHit -= ((state.estimatedHit + state.secondaryHit) - victim.skills.lifepoints)
+        if (state.estimatedHit > victim.skills.lifepoints) state.estimatedHit = victim.skills.lifepoints
+        if (state.estimatedHit + state.secondaryHit > victim.skills.lifepoints) state.secondaryHit -= ((state.estimatedHit + state.secondaryHit) - victim.skills.lifepoints)
         return ticks
     }
 
@@ -192,8 +195,8 @@ open class MagicSwingHandler (vararg flags: SwingHandlerFlag) : CombatSwingHandl
     }
 
     override fun getSetMultiplier(e: Entity?, skillId: Int): Double {
-        if(skillId == Skills.MAGIC) {
-            if(e is Player && e.isWearingVoid(CombatStyle.MAGIC)) {
+        if (skillId == Skills.MAGIC) {
+            if (e is Player && e.isWearingVoid(CombatStyle.MAGIC)) {
                 return 1.3
             }
         }

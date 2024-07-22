@@ -15,7 +15,7 @@ class GodswordDismantlePlugin : OptionHandler() {
 
     private val BLADE = Item(Items.GODSWORD_BLADE_11690)
 
-    override fun newInstance(arg: Any): Plugin<Any?> {
+    override fun newInstance(arg: Any?): Plugin<Any> {
         ItemDefinition.forId(Items.ARMADYL_GODSWORD_11694).handlers["option:dismantle"] = this
         ItemDefinition.forId(Items.BANDOS_GODSWORD_11696).handlers["option:dismantle"] = this
         ItemDefinition.forId(Items.SARADOMIN_GODSWORD_11698).handlers["option:dismantle"] = this

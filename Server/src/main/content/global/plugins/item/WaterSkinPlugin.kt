@@ -12,7 +12,7 @@ class WaterSkinPlugin: UseWithHandler(1825, 1827, 1829, 1831) {
 
     private val data = arrayOf(intArrayOf(1937, 1935), intArrayOf(1929, 1925), intArrayOf(1921, 1923), intArrayOf(227, 229))
 
-    override fun newInstance(arg: Any): Plugin<Any?> {
+    override fun newInstance(arg: Any?): Plugin<Any> {
         for (i in data.indices) {
             addHandler(data[i][0], ITEM_TYPE, this)
         }

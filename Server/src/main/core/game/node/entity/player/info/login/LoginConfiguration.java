@@ -58,7 +58,7 @@ public final class LoginConfiguration {
     private static int messModel;
 
     /**
-     * Constructs a new {@Code LoginConfiguration} {@Code Object}
+     * Constructs a new {@code LoginConfiguration} {@code Object}
      */
     public LoginConfiguration() {
         /*

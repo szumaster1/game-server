@@ -1,5 +1,6 @@
 package core.game.node;
 
+import core.api.utils.Vector;
 import core.game.interaction.DestinationFlag;
 import core.game.interaction.InteractPlugin;
 import core.game.node.entity.npc.NPC;
@@ -9,7 +10,6 @@ import core.game.node.scenery.Scenery;
 import core.game.world.map.Direction;
 import core.game.world.map.Location;
 import core.tools.StringUtils;
-import core.api.utils.Vector;
 
 /**
  * Represents a node which is anything that is interactable in 2009Scape.
@@ -70,9 +70,9 @@ public abstract class Node {
      * @param location The location.
      */
     public Node(String name, Location location) {
-		this.name = name;
-		this.location = location;
-	}
+        this.name = name;
+        this.location = location;
+    }
 
     /**
      * Casts the npc to a player.
@@ -80,8 +80,8 @@ public abstract class Node {
      * @return the npc.
      */
     public NPC asNpc() {
-		return (NPC) this;
-	}
+        return (NPC) this;
+    }
 
     /**
      * Casts the player.
@@ -89,8 +89,8 @@ public abstract class Node {
      * @return the player.
      */
     public Player asPlayer() {
-		return (Player) this;
-	}
+        return (Player) this;
+    }
 
     /**
      * Casts the scenery.
@@ -98,8 +98,8 @@ public abstract class Node {
      * @return the object.
      */
     public Scenery asScenery() {
-		return (Scenery) this;
-	}
+        return (Scenery) this;
+    }
 
     /**
      * Casts the item.
@@ -107,8 +107,8 @@ public abstract class Node {
      * @return the item.
      */
     public Item asItem() {
-		return (Item) this;
-	}
+        return (Item) this;
+    }
 
     /**
      * Gets the node id.
@@ -116,8 +116,8 @@ public abstract class Node {
      * @return the id.
      */
     public int getId() {
-		return this instanceof NPC ? ((NPC) this).getId() : this instanceof Scenery ? ((Scenery) this).getId() : this instanceof Item ? ((Item) this).getId() : -1;
-	}
+        return this instanceof NPC ? ((NPC) this).getId() : this instanceof Scenery ? ((Scenery) this).getId() : this instanceof Item ? ((Item) this).getId() : -1;
+    }
 
     /**
      * Gets the node id hash (only relevant if the node is an item).
@@ -125,8 +125,8 @@ public abstract class Node {
      * @return the id hash.
      */
     public int getIdHash() {
-		return this instanceof Item ? ((Item) this).getIdHash() : -1;
-	}
+        return this instanceof Item ? ((Item) this).getIdHash() : -1;
+    }
 
     /**
      * Gets the center location.
@@ -134,9 +134,9 @@ public abstract class Node {
      * @return The center location.
      */
     public Location getCenterLocation() {
-		int offset = size >> 1;
-		return location.transform(offset, offset, 0);
-	}
+        int offset = size >> 1;
+        return location.transform(offset, offset, 0);
+    }
 
     /**
      * Gets mathematical center.
@@ -144,11 +144,11 @@ public abstract class Node {
      * @return the mathematical center
      */
     public Vector getMathematicalCenter() {
-            Location topRight = location.transform(size - 1, size - 1, 0);
-            double x = ((double) location.getX() + (double) topRight.getX()) / 2.0;
-            double y = ((double) location.getY() + (double) topRight.getY()) / 2.0;
-            return new Vector(x, y);
-        }
+        Location topRight = location.transform(size - 1, size - 1, 0);
+        double x = ((double) location.getX() + (double) topRight.getX()) / 2.0;
+        double y = ((double) location.getY() + (double) topRight.getY()) / 2.0;
+        return new Vector(x, y);
+    }
 
     /**
      * Gets face location.
@@ -156,13 +156,13 @@ public abstract class Node {
      * @param fromLoc the from loc
      * @return the face location
      */
-    public Location getFaceLocation (Location fromLoc) {
-            Vector center = getMathematicalCenter();
-            Vector fromVec = new Vector((double) fromLoc.getX(), (double) fromLoc.getY());
-            Vector difference = fromVec.minus(center);
-            Vector end = center.plus(difference.invert());
-            return Location.create((int)end.getX(), (int)end.getY(), fromLoc.getZ());
-        }
+    public Location getFaceLocation(Location fromLoc) {
+        Vector center = getMathematicalCenter();
+        Vector fromVec = new Vector((double) fromLoc.getX(), (double) fromLoc.getY());
+        Vector difference = fromVec.minus(center);
+        Vector end = center.plus(difference.invert());
+        return Location.create((int) end.getX(), (int) end.getY(), fromLoc.getZ());
+    }
 
     /**
      * Gets the name of this node.
@@ -170,8 +170,8 @@ public abstract class Node {
      * @return The name.
      */
     public String getName() {
-		return name;
-	}
+        return name;
+    }
 
     /**
      * Get a formated username.
@@ -179,8 +179,8 @@ public abstract class Node {
      * @return The username.
      */
     public String getUsername() {
-		return StringUtils.formatDisplayName(name);
-	}
+        return StringUtils.formatDisplayName(name);
+    }
 
     /**
      * Gets the index.
@@ -188,8 +188,8 @@ public abstract class Node {
      * @return The index.
      */
     public int getIndex() {
-		return index;
-	}
+        return index;
+    }
 
     /**
      * Sets the index.
@@ -197,8 +197,8 @@ public abstract class Node {
      * @param index The index to set.
      */
     public void setIndex(int index) {
-		this.index = index;
-	}
+        this.index = index;
+    }
 
     /**
      * Gets the location.
@@ -206,8 +206,8 @@ public abstract class Node {
      * @return The location.
      */
     public Location getLocation() {
-		return location;
-	}
+        return location;
+    }
 
     /**
      * Sets the location.
@@ -215,8 +215,8 @@ public abstract class Node {
      * @param location The location to set.
      */
     public void setLocation(Location location) {
-		this.location = location;
-	}
+        this.location = location;
+    }
 
     /**
      * Gets the direction.
@@ -224,8 +224,8 @@ public abstract class Node {
      * @return The direction.
      */
     public Direction getDirection() {
-		return direction;
-	}
+        return direction;
+    }
 
     /**
      * Sets the direction.
@@ -233,10 +233,10 @@ public abstract class Node {
      * @param direction The direction to set.
      */
     public void setDirection(Direction direction) {
-                if (direction == null)
-                    return;
-		this.direction = direction;
-	}
+        if (direction == null)
+            return;
+        this.direction = direction;
+    }
 
     /**
      * Gets the size.
@@ -244,8 +244,8 @@ public abstract class Node {
      * @return The size.
      */
     public int size() {
-		return size;
-	}
+        return size;
+    }
 
     /**
      * Sets the size.
@@ -253,8 +253,8 @@ public abstract class Node {
      * @param size The size to set.
      */
     public void setSize(int size) {
-		this.size = size;
-	}
+        this.size = size;
+    }
 
     /**
      * Gets the active.
@@ -262,8 +262,8 @@ public abstract class Node {
      * @return The active.
      */
     public boolean isActive() {
-		return active;
-	}
+        return active;
+    }
 
     /**
      * Sets the active.
@@ -271,8 +271,8 @@ public abstract class Node {
      * @param active The active to set.
      */
     public void setActive(boolean active) {
-		this.active = active;
-	}
+        this.active = active;
+    }
 
     /**
      * Gets the interaction.
@@ -280,11 +280,11 @@ public abstract class Node {
      * @return The interaction.
      */
     public InteractPlugin getInteraction() {
-		if (interactPlugin != null && !interactPlugin.isInitialized()) {
-			interactPlugin.setDefault();
-		}
-		return interactPlugin;
-	}
+        if (interactPlugin != null && !interactPlugin.isInitialized()) {
+            interactPlugin.setDefault();
+        }
+        return interactPlugin;
+    }
 
     /**
      * Sets the interaction.
@@ -292,8 +292,8 @@ public abstract class Node {
      * @param interactPlugin The interaction to set.
      */
     public void setInteraction(InteractPlugin interactPlugin) {
-		this.interactPlugin = interactPlugin;
-	}
+        this.interactPlugin = interactPlugin;
+    }
 
     /**
      * Gets the destinationFlag.
@@ -301,8 +301,8 @@ public abstract class Node {
      * @return The destinationFlag.
      */
     public DestinationFlag getDestinationFlag() {
-		return destinationFlag;
-	}
+        return destinationFlag;
+    }
 
     /**
      * Sets the destinationFlag.
@@ -310,8 +310,8 @@ public abstract class Node {
      * @param destinationFlag The destinationFlag to set.
      */
     public void setDestinationFlag(DestinationFlag destinationFlag) {
-		this.destinationFlag = destinationFlag;
-	}
+        this.destinationFlag = destinationFlag;
+    }
 
     /**
      * Gets the renderable.
@@ -319,8 +319,8 @@ public abstract class Node {
      * @return The renderable.
      */
     public boolean isRenderable() {
-		return renderable;
-	}
+        return renderable;
+    }
 
     /**
      * Sets the renderable.
@@ -328,6 +328,6 @@ public abstract class Node {
      * @param renderable The renderable to set.
      */
     public void setRenderable(boolean renderable) {
-		this.renderable = renderable;
-	}
+        this.renderable = renderable;
+    }
 }

@@ -1,7 +1,7 @@
 package core.game.system.command.sets
 
 import content.global.skill.support.slayer.data.SlayerMaster
-import content.global.skill.support.slayer.data.SlayerManager
+import content.global.skill.support.slayer.SlayerManager
 import content.global.skill.support.slayer.SlayerUtils
 import content.global.skill.support.slayer.data.Tasks
 import core.game.node.entity.npc.NPC

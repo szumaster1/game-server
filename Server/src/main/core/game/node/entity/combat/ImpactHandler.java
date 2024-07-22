@@ -23,6 +23,7 @@ import java.util.stream.Collectors;
 
 /**
  * Class used for handling combat impacts.
+ *
  * @author Emperor
  */
 public final class ImpactHandler {
@@ -286,7 +287,7 @@ public final class ImpactHandler {
      */
     public Map<Player, Integer> getPlayerImpactLog() {
         return impactLog.entrySet().stream().filter(entry -> entry.getKey() instanceof Player).collect(
-                Collectors.toMap(m -> m.getKey().asPlayer(), m -> m.getValue()));
+            Collectors.toMap(m -> m.getKey().asPlayer(), m -> m.getValue()));
     }
 
     /**

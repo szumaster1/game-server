@@ -28,7 +28,7 @@ public abstract class NodeTask {
     }
 
     /**
-     * Constructs a new {@code NodeTask} {@Code Object}
+     * Constructs a new {@code NodeTask} {@code Object}
      *
      * @param ticks The ticks.
      */

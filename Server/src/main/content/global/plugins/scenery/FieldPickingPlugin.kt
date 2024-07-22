@@ -1,6 +1,7 @@
 package content.global.plugins.scenery
 
 import core.api.consts.Sounds
+import core.api.freeSlots
 import core.api.playAudio
 import core.api.setAttribute
 import core.cache.def.impl.SceneryDefinition
@@ -24,9 +25,9 @@ import core.tools.RandomFunction
 @Initializable
 class FieldPickingPlugin : OptionHandler() {
 
-    override fun newInstance(arg: Any): Plugin<Any?> {
-        for (p in PickingPlant.values()) {
-            SceneryDefinition.forId(p.objectId).handlers["option:pick"] = this
+    override fun newInstance(arg: Any?): Plugin<Any> {
+        for (p in PickingPlant.values().map { it.objectId }.toIntArray()) {
+            SceneryDefinition.forId(p).handlers["option:pick"] = this
         }
         SceneryDefinition.forId(3511).handlers["option:take-cutting"] = this
         return this
@@ -46,7 +47,7 @@ class FieldPickingPlugin : OptionHandler() {
             player.packetDispatch.sendMessage("Not enough space in your inventory!")
             return true
         }
-        if (player.inventory.freeSlot() == -1) {
+        if (freeSlots(player) == 0) {
             return true
         }
         player.lock(1)
@@ -54,7 +55,8 @@ class FieldPickingPlugin : OptionHandler() {
         player.animate(ANIMATION)
         playAudio(player, Sounds.PICK_2581, 30)
         player.dispatch(ResourceProducedEvent(reward.id, reward.amount, node, -1))
-        if (plant.name.startsWith("NETTLES") && (player.equipment[EquipmentContainer.SLOT_HANDS] == null || player.equipment[EquipmentContainer.SLOT_HANDS] != null && !player.equipment[EquipmentContainer.SLOT_HANDS].name.contains("glove"))) {
+        if (plant.name.startsWith("NETTLES", true) && (player.equipment[EquipmentContainer.SLOT_HANDS] == null || player.equipment[EquipmentContainer.SLOT_HANDS] != null && !player.equipment[EquipmentContainer.SLOT_HANDS].name.contains("glove", true))
+        ) {
             player.packetDispatch.sendMessage("You have been stung by the nettles!")
             player.impactHandler.manualHit(player, 2, HitsplatType.POISON)
             return true
@@ -72,7 +74,7 @@ class FieldPickingPlugin : OptionHandler() {
                     handleFlaxPick(player, `object`, plant)
                     return true
                 }
-                val banana = plant.name.startsWith("BANANA")
+                val banana = plant.name.startsWith("BANANA", true)
                 var full: Scenery? = null
                 if (plant == PickingPlant.BANANA_TREE_4) {
                     full = `object`.transform(2073)
@@ -91,7 +93,7 @@ class FieldPickingPlugin : OptionHandler() {
                         if (banana) 300 else plant.respawn
                     )
                 }
-                if (!plant.name.startsWith("NETTLES")) {
+                if (!plant.name.startsWith("NETTLES", true)) {
                     player.packetDispatch.sendMessage("You pick a " + reward.name.lowercase() + ".")
                 } else {
                     player.packetDispatch.sendMessage("You pick a handful of nettles.")
@@ -116,9 +118,7 @@ class FieldPickingPlugin : OptionHandler() {
         `object`.charge = charge + 1
     }
 
-    private enum class PickingPlant(
-        val objectId: Int, val reward: Int, val respawn: Int
-    ) {
+    private enum class PickingPlant(val objectId: Int, val reward: Int, val respawn: Int) {
         POTATO(312, 1942, 30),
 
         WHEAT_0(313, 1947, 30),
@@ -211,6 +211,7 @@ class FieldPickingPlugin : OptionHandler() {
 
         companion object {
 
+            @JvmStatic
             fun forId(objectId: Int): PickingPlant? {
                 for (plant in values()) if (plant.objectId == objectId) return plant
                 return null

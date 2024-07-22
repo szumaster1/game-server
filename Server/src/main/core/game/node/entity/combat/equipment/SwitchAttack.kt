@@ -8,15 +8,23 @@ import core.game.node.entity.impl.Projectile
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 
-open class SwitchAttack @JvmOverloads constructor(handler: CombatSwingHandler?, animation: Animation?, startGraphic: Graphic? = null, endGraphic: Graphic? = null, projectile: Projectile? = null) {
+open class SwitchAttack @JvmOverloads constructor(
+    handler: CombatSwingHandler?,
+    animation: Animation?,
+    startGraphic: Graphic? = null,
+    endGraphic: Graphic? = null,
+    projectile: Projectile? = null
+) {
 
     var handler: CombatSwingHandler? = null
     val startGraphic: Graphic?
     val animation: Animation?
     val endGraphic: Graphic?
     val projectile: Projectile?
-    @JvmField var isUseHandler: Boolean = false
-    @JvmField var maximumHit: Int = -1
+    @JvmField
+    var isUseHandler: Boolean = false
+    @JvmField
+    var maximumHit: Int = -1
 
     constructor(handler: CombatSwingHandler?, animation: Animation?, projectile: Projectile?) : this(
         handler = handler,

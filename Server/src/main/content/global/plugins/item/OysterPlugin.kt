@@ -1,10 +1,5 @@
 import core.api.consts.Items
 
-Code Converted
-language-kotlin
-Copy code
-package content.global.plugins.item
-
 import core.cache.def.impl.ItemDefinition
 import core.game.interaction.OptionHandler
 import core.game.node.Node
@@ -19,7 +14,7 @@ class OysterPlugin : OptionHandler() {
 
     private val OYSTERS = arrayOf(Item(Items.EMPTY_OYSTER_409), Item(Items.OYSTER_PEARL_411), Item(Items.OYSTER_PEARLS_413))
 
-    override fun newInstance(arg: Any?): Plugin<Any?> {
+    override fun newInstance(arg: Any?): Plugin<Any> {
         ItemDefinition.forId(Items.OYSTER_407).handlers["option:open"] = this
         return this
     }

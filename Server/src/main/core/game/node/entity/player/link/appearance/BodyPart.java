@@ -10,24 +10,24 @@ import org.json.simple.JSONObject;
  */
 public final class BodyPart {
 
-	/**
-	 * Represents the look value of the part.
-	 */
-	private int look;
+    /**
+     * Represents the look value of the part.
+     */
+    private int look;
 
-	/**
-	 * Represents the color of this part.
-	 */
-	private int color;
+    /**
+     * Represents the color of this part.
+     */
+    private int color;
 
     /**
      * Constructs a new {@code BodyPart} {@code Object}.
      */
     public BodyPart() {
-		/**
-		 * empty.
-		 */
-	}
+        /**
+         * empty.
+         */
+    }
 
     /**
      * Constructs a new {@code BodyPart} {@code Object}.
@@ -36,9 +36,9 @@ public final class BodyPart {
      * @param color the color.
      */
     public BodyPart(final int look, final int color) {
-		this.look = look;
-		this.color = color;
-	}
+        this.look = look;
+        this.color = color;
+    }
 
     /**
      * Constructs a new {@code BodyPart} {@code Object}.
@@ -46,18 +46,18 @@ public final class BodyPart {
      * @param look the look.
      */
     public BodyPart(final int look) {
-		this(look, 0);
-	}
+        this(look, 0);
+    }
 
     /**
      * Parse.
      *
      * @param part the part
      */
-    public void parse(JSONObject part){
-		changeLook(Integer.parseInt( part.get("look").toString()));
-		changeColor(Integer.parseInt( part.get("color").toString()));
-	}
+    public void parse(JSONObject part) {
+        changeLook(Integer.parseInt(part.get("look").toString()));
+        changeColor(Integer.parseInt(part.get("color").toString()));
+    }
 
     /**
      * Method used to change the look value.
@@ -65,8 +65,8 @@ public final class BodyPart {
      * @param look the look value.
      */
     public void changeLook(final int look) {
-		this.look = look;
-	}
+        this.look = look;
+    }
 
     /**
      * Method used to change the color value.
@@ -74,8 +74,8 @@ public final class BodyPart {
      * @param color the color value.
      */
     public void changeColor(final int color) {
-		this.color = color;
-	}
+        this.color = color;
+    }
 
     /**
      * Gets the look.
@@ -83,8 +83,8 @@ public final class BodyPart {
      * @return The look.
      */
     public int getLook() {
-		return look;
-	}
+        return look;
+    }
 
     /**
      * Gets the color.
@@ -92,7 +92,7 @@ public final class BodyPart {
      * @return The color.
      */
     public int getColor() {
-		return color;
-	}
+        return color;
+    }
 
 }

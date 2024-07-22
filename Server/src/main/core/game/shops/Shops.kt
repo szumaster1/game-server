@@ -3,6 +3,10 @@ package core.game.shops
 import content.global.skill.production.crafting.data.TanningData
 import core.ServerConstants
 import core.api.*
+import core.api.consts.Components
+import core.api.consts.Items
+import core.api.consts.NPCs
+import core.game.dialogue.FacialExpression
 import core.game.ge.GrandExchange
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
@@ -16,9 +20,6 @@ import core.tools.secondsToTicks
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 import org.json.simple.parser.JSONParser
-import core.api.consts.Components
-import core.api.consts.Items
-import core.api.consts.NPCs
 import java.io.FileReader
 
 class Shops : StartupListener, TickListener, InteractionListener, InterfaceListener, Commands {
@@ -90,9 +91,7 @@ class Shops : StartupListener, TickListener, InteractionListener, InterfaceListe
             val title = shopData["title"].toString()
             val general = shopData["general_store"].toString().toBoolean()
             val stock = parseStock(shopData["stock"].toString(), id).toTypedArray()
-            val npcs =
-                if (shopData["npcs"].toString().isNotBlank()) shopData["npcs"].toString().split(",").map { it.toInt() }
-                    .toIntArray() else intArrayOf()
+            val npcs = if (shopData["npcs"].toString().isNotBlank()) shopData["npcs"].toString().split(",").map { it.toInt() }.toIntArray() else intArrayOf()
             val currency = shopData["currency"].toString().toInt()
             val highAlch = shopData["high_alch"].toString() == "1"
             val forceShared = shopData.getOrDefault("force_shared", "false").toString().toBoolean()
@@ -113,10 +112,7 @@ class Shops : StartupListener, TickListener, InteractionListener, InterfaceListe
         if (getWorldTicks() % playerStockClearInterval == 0) {
             val clearToGe = ServerConstants.PLAYER_STOCK_RECIRCULATE
             if (clearToGe) {
-                for (item in Shop.generalPlayerStock.toArray().filterNotNull()) GrandExchange.addBotOffer(
-                    item.id,
-                    item.amount
-                )
+                for (item in Shop.generalPlayerStock.toArray().filterNotNull()) GrandExchange.addBotOffer(item.id, item.amount)
             }
             Shop.generalPlayerStock.clear()
         }
@@ -140,11 +136,7 @@ class Shops : StartupListener, TickListener, InteractionListener, InterfaceListe
         on(NPCs.SIEGFRIED_ERKLE_933, IntType.NPC, "trade") { player, node ->
             val points = getQuestPoints(player)
             if (points < 40) {
-                sendNPCDialogue(
-                    player,
-                    NPCs.SIEGFRIED_ERKLE_933,
-                    "I'm sorry, adventurer, but you need 40 quest points to buy from me."
-                )
+                sendNPCDialogue(player, NPCs.SIEGFRIED_ERKLE_933, "I'm sorry, adventurer, but you need 40 quest points to buy from me.")
                 return@on true
             }
             shopsByNpc[node.id]?.openFor(player)
@@ -153,12 +145,7 @@ class Shops : StartupListener, TickListener, InteractionListener, InterfaceListe
 
         on(NPCs.FUR_TRADER_1316, IntType.NPC, "trade") { player, node ->
             if (!isQuestComplete(player, "Fremennik Trials")) {
-                sendNPCDialogue(
-                    player,
-                    NPCs.FUR_TRADER_1316,
-                    "I don't sell to outerlanders.",
-                    core.game.dialogue.FacialExpression.ANNOYED
-                ).also { END_DIALOGUE }
+                sendNPCDialogue(player, NPCs.FUR_TRADER_1316, "I don't sell to outerlanders.", FacialExpression.ANNOYED).also { END_DIALOGUE }
             } else {
                 shopsByNpc[node.id]?.openFor(player)
             }
@@ -229,11 +216,7 @@ class Shops : StartupListener, TickListener, InteractionListener, InterfaceListe
             val shop = getAttribute<Shop?>(player, "shop", null) ?: return@onClose true
             val listener = Shop.listenerInstances[player.details.uid] ?: return@onClose true
 
-            if (getServerConfig().getBoolean(
-                    personalizedShops,
-                    false
-                )
-            ) shop.stockInstances[player.details.uid]?.listeners?.remove(listener)
+            if (getServerConfig().getBoolean(personalizedShops, false)) shop.stockInstances[player.details.uid]?.listeners?.remove(listener)
             else shop.stockInstances[ServerConstants.SERVER_NAME.hashCode()]!!.listeners.remove(listener)
 
             shop.playerStock.listeners.remove(listener)
@@ -260,10 +243,7 @@ class Shops : StartupListener, TickListener, InteractionListener, InterfaceListe
             val def = itemDefinition(player.inventory[slot].id)
 
             val valueMsg = when {
-                (price.amount == -1) || !def.hasShopCurrencyValue(price.id) || def.id in intArrayOf(
-                    Items.COINS_995, Items.TOKKUL_6529, Items.ARCHERY_TICKET_1464, Items.CASTLE_WARS_TICKET_4067
-                ) -> "This shop will not buy that item."
-
+                (price.amount == -1) || !def.hasShopCurrencyValue(price.id) || def.id in intArrayOf(Items.COINS_995, Items.TOKKUL_6529, Items.ARCHERY_TICKET_1464, Items.CASTLE_WARS_TICKET_4067) -> "This shop will not buy that item."
                 else -> "${player.inventory[slot].name}: This shop will buy this item for ${price.amount} ${price.name.lowercase()}."
             }
 
@@ -303,9 +283,7 @@ class Shops : StartupListener, TickListener, InteractionListener, InterfaceListe
 
         define("shopscript") { player, args ->
             val arg1 = args[1].toInt()
-            player.packetDispatch.sendRunScript(
-                25, "vg", arg1, 92
-            ) //Run CS2 script 25, with args 868? and 92(our container id)
+            player.packetDispatch.sendRunScript(25, "vg", arg1, 92) //Run CS2 script 25, with args 868? and 92(our container id)
         }
     }
 }

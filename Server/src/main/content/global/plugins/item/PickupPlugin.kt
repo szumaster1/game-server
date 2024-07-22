@@ -14,7 +14,7 @@ import core.plugin.Plugin
 @Initializable
 class PickupPlugin : OptionHandler() {
 
-    override fun newInstance(arg: Any?): Plugin<Any?> {
+    override fun newInstance(arg: Any?): Plugin<Any> {
         ItemDefinition.setOptionHandler("take", this)
         return this
     }
