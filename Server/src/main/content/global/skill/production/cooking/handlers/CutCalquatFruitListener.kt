@@ -1,0 +1,28 @@
+package content.global.skill.production.cooking.handlers
+
+import core.api.*
+import core.api.consts.Animations
+import core.api.consts.Items
+import core.game.interaction.IntType
+import core.game.interaction.InteractionListener
+import core.game.interaction.QueueStrength
+import core.game.node.item.Item
+import core.game.world.update.flag.context.Animation
+
+class CutCalquatFruitListener : InteractionListener {
+
+    override fun defineListeners() {
+        onUseWith(IntType.ITEM, Items.KNIFE_946, Items.CALQUAT_FRUIT_5980) { player, used, with ->
+            val anim = Animation(Animations.HUMAN_FRUIT_CUTTING_1192)
+            if(used.id == Items.KNIFE_946) {
+                queueScript(player, animationDuration(anim), QueueStrength.WEAK) {
+                    replaceSlot(player, with.asItem().slot, Item(Items.CALQUAT_KEG_5769))
+                    return@queueScript stopExecuting(player)
+                }
+            }
+            return@onUseWith true
+        }
+    }
+
+
+}

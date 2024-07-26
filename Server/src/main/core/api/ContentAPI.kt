@@ -2634,7 +2634,7 @@ fun activateSecondaryBankAccount(player: Player): SecondaryBankAccountActivation
         return SecondaryBankAccountActivationResult.ALREADY_ACTIVE
     }
 
-    val cost = 5000000
+    val cost = 10000
     val coinsInInventory = amountInInventory(player, Items.COINS_995)
     val coinsInBank = amountInBank(player, Items.COINS_995)
     val coinsTotal = coinsInInventory + coinsInBank

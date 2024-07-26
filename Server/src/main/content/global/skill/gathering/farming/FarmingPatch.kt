@@ -7,7 +7,10 @@ import core.game.node.entity.player.Player
 import core.game.node.scenery.Scenery
 
 enum class FarmingPatch(val varbit: Int, val type: PatchType) {
-    //Allotments
+
+    /*
+     * Allotments.
+     */
     S_FALADOR_ALLOTMENT_NW(708, PatchType.ALLOTMENT),
     S_FALADOR_ALLOTMENT_SE(709, PatchType.ALLOTMENT),
     CATHERBY_ALLOTMENT_N(710, PatchType.ALLOTMENT),
@@ -18,56 +21,78 @@ enum class FarmingPatch(val varbit: Int, val type: PatchType) {
     PORT_PHAS_ALLOTMENT_SE(715, PatchType.ALLOTMENT),
     HARMONY_ISLAND_ALLOTMENT(3402, PatchType.ALLOTMENT),
 
-    //Herb
+    /*
+     * Herb.
+     */
     CATHERBY_HERB_CE(781, PatchType.HERB_PATCH),
     S_FALADOR_HERB_NE(780, PatchType.HERB_PATCH),
     ARDOUGNE_HERB_CE(782, PatchType.HERB_PATCH),
     PORT_PHAS_HERB_NE(783, PatchType.HERB_PATCH),
     TROLL_STRONGHOLD_HERB(2788, PatchType.HERB_PATCH),
 
-    //Flower
+    /*
+     * Flower.
+     */
     S_FALADOR_FLOWER_C(728, PatchType.FLOWER_PATCH),
     CATHERBY_FLOWER_C(729, PatchType.FLOWER_PATCH),
     ARDOUGNE_FLOWER_C(730, PatchType.FLOWER_PATCH),
     PORT_PHAS_FLOWER_C(731, PatchType.FLOWER_PATCH),
     WILDERNESS_FLOWER(5067, PatchType.FLOWER_PATCH),
 
-    //Tree
+    /*
+     * Tree.
+     */
     N_FALADOR_TREE(701, PatchType.TREE_PATCH),
     TAVERLY_TREE(700, PatchType.TREE_PATCH),
     GNOME_STRONGHOLD_TREE(2953, PatchType.TREE_PATCH),
     LUMBRIDGE_TREE(703, PatchType.TREE_PATCH),
     VARROCK_TREE(702, PatchType.TREE_PATCH),
 
-    //Fruit Tree
+
+    /*
+     * Fruit Tree.
+     */
     GNOME_STRONGHOLD_FRUIT_TREE(704, PatchType.FRUIT_TREE_PATCH),
     CATHERBY_FRUIT_TREE(707, PatchType.FRUIT_TREE_PATCH),
     TREE_GNOME_VILLAGE_FRUIT_TREE(705, PatchType.FRUIT_TREE_PATCH),
     BRIMHAVEN_FRUIT_TREE(706, PatchType.FRUIT_TREE_PATCH),
     LLETYA_FRUIT_TREE(4317, PatchType.FRUIT_TREE_PATCH),
 
-    //Hops
+    /*
+     * Hops.
+     */
     ENTRANA_HOPS(717, PatchType.HOPS_PATCH),
     LUMBRIDGE_HOPS(718, PatchType.HOPS_PATCH),
     MCGRUBOR_HOPS(719, PatchType.HOPS_PATCH),
     YANILLE_HOPS(716, PatchType.HOPS_PATCH),
 
-    //Bushes
+    /*
+     * Bushes.
+     */
     CHAMPIONS_GUILD_BUSH(732, PatchType.BUSH_PATCH),
     RIMMINGTON_BUSH(733, PatchType.BUSH_PATCH),
     ARDOUGNE_BUSH(735, PatchType.BUSH_PATCH),
     ETCETERIA_BUSH(734, PatchType.BUSH_PATCH),
 
-    //Spirit Tree
+    /*
+     * Spirit Tree.
+     */
     ETCETERIA_SPIRIT_TREE(722, PatchType.SPIRIT_TREE_PATCH),
     PORT_SARIM_SPIRIT_TREE(720, PatchType.SPIRIT_TREE_PATCH),
     KARAMJA_SPIRIT_TREE(724, PatchType.SPIRIT_TREE_PATCH),
 
-    //Other
+    /*
+     * Other.
+     */
     DRAYNOR_BELLADONNA(748, PatchType.BELLADONNA_PATCH),
     CANIFIS_MUSHROOM(746, PatchType.MUSHROOM_PATCH),
     ALKHARID_CACTUS(744, PatchType.CACTUS_PATCH),
     EVIL_TURNIP(4291, PatchType.EVIL_TURNIP_PATCH),
+    CALQUAT_TREE(726, PatchType.FRUIT_TREE_PATCH), // Should be other, but I'd prefer if it worked.
+
+    /*
+     * Special.
+     */
     ENRICHED_SEED(5533, PatchType.SPECIAL_PATCH);
 
 

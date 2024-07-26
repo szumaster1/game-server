@@ -26,9 +26,11 @@ class Patch(val player: Player, val patch: FarmingPatch, var plantable: Plantabl
             CompostType.SUPERCOMPOST -> 2
         }
         harvestAmt = when (plantable) {
-            Plantable.LIMPWURT_SEED, Plantable.WOAD_SEED -> 3
+            Plantable.LIMPWURT_SEED,
+            Plantable.WOAD_SEED -> 3
             Plantable.MUSHROOM_SPORE -> 6
             Plantable.WILLOW_SAPLING -> 0
+            Plantable.CALQUAT_TREE_SAPLING -> 6
             else -> 1
         }
         if(plantable != null && plantable?.applicablePatch != PatchType.FLOWER_PATCH) {
@@ -388,7 +390,7 @@ class Patch(val player: Player, val patch: FarmingPatch, var plantable: Plantabl
         }.getPatchFor(player)
 
         return (fpatch.plantable != null &&
-            (fpatch.plantable == plantable?.protectionFlower || fpatch.plantable == Plantable.forItemID(Items.WHITE_LILY_SEED_14589))
-            && fpatch.isGrown())
+                (fpatch.plantable == plantable?.protectionFlower || fpatch.plantable == Plantable.forItemID(Items.WHITE_LILY_SEED_14589))
+                && fpatch.isGrown())
     }
 }

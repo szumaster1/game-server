@@ -69,6 +69,7 @@ class SeedlingListener : InteractionListener {
             Items.PINEAPPLE_SEED_5287 ->   Items.PINEAPPLE_SEEDLING_5484
             Items.PAPAYA_TREE_SEED_5288 -> Items.PAPAYA_SEEDLING_5485
             Items.PALM_TREE_SEED_5289 ->   Items.PALM_SEEDLING_5486
+            Items.CALQUAT_TREE_SEED_5290 ->Items.CALQUAT_SEEDLING_5487
             Items.SPIRIT_SEED_5317 ->      Items.SPIRIT_SEEDLING_5363
             else -> -1
         }
@@ -87,6 +88,7 @@ class SeedlingListener : InteractionListener {
         Items.PINEAPPLE_SEED_5287,
         Items.PAPAYA_TREE_SEED_5288,
         Items.PALM_TREE_SEED_5289,
+        Items.CALQUAT_TREE_SEED_5290,
         Items.SPIRIT_SEED_5317
     )
 
@@ -103,6 +105,7 @@ class SeedlingListener : InteractionListener {
         Items.PINEAPPLE_SEEDLING_5484,
         Items.PAPAYA_SEEDLING_5485,
         Items.PALM_SEEDLING_5486,
+        Items.CALQUAT_SEEDLING_5487,
         Items.SPIRIT_SEEDLING_5363
     )
 

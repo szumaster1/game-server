@@ -75,7 +75,7 @@ class BankerDialogue(player: Player? = null) : Dialogue(player) {
                 npcl(checkFacialExpression, "Your active bank account has been switched. " + "You can now access your ${getBankAccountName(player)} account.").also { stage = 2 }
             }
             20 -> npcl(checkFacialExpression, "Certainly. We offer secondary accounts to all our customers.").also { stage++ }
-            21 -> npcl(checkFacialExpression, "The secondary account comes with a standard fee of 5,000,000 coins. The fee is non-refundable " + "and account activation is permanent.").also { stage++ }
+            21 -> npcl(checkFacialExpression, "The secondary account comes with a standard fee of 10,000 coins. The fee is non-refundable " + "and account activation is permanent.").also { stage++ }
             22 -> npcl(checkFacialExpression, "If your inventory does not contain enough money to cover the costs, we will complement " + "the amount with the money inside your primary bank account.").also { stage++ }
             23 -> npcl(checkFacialExpression, "Knowing all this, would you like to proceed with opening your secondary bank account?").also { stage++ }
             24 -> showTopics(

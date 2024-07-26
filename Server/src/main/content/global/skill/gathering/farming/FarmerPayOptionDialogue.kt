@@ -1,9 +1,7 @@
 package content.global.skill.gathering.farming
 
+import core.api.*
 import core.api.consts.Items
-import core.api.inInventory
-import core.api.note
-import core.api.removeItem
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.dialogue.Topic
@@ -12,8 +10,11 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 class FarmerPayOptionDialogue(val patch: Patch, val quickPay: Boolean = false): DialogueFile() {
+
     var item: Item? = null
+
     override fun handle(componentID: Int, buttonID: Int) {
+        val facialExpression = if(npc!!.id in intArrayOf(1037,2343)) FacialExpression.OLD_NORMAL else FacialExpression.HALF_GUILTY
         when (stage) {
             START_DIALOGUE -> {
                 if (patch.patch.type == PatchType.TREE_PATCH && patch.plantable != null && patch.isGrown()) {
@@ -24,15 +25,15 @@ class FarmerPayOptionDialogue(val patch: Patch, val quickPay: Boolean = false): 
                         title = "Pay 200 gp to have the tree chopped down?"
                     )
                 } else if (patch.protectionPaid) {
-                    npc("I don't know what you're talking about - I'm already", "looking after that patch for you.").also { stage = 100 }
+                    npc(facialExpression,"I don't know what you're talking about - I'm already", "looking after that patch for you.").also { stage = 100 }
                 } else if (patch.isDead) {
-                    npc("That patch is dead - it's too late for me to do", "anything about it now.").also { stage = END_DIALOGUE }
+                    npc(facialExpression,"That patch is dead - it's too late for me to do", "anything about it now.").also { stage = END_DIALOGUE }
                 } else if (patch.isDiseased) {
-                    npc("That patch is diseased - I can't look after it", "until it has been cured.").also { stage = END_DIALOGUE } // this dialogue is not authentic
+                    npc(facialExpression,"That patch is diseased - I can't look after it", "until it has been cured.").also { stage = END_DIALOGUE } // this dialogue is not authentic
                 } else if (patch.isWeedy() || patch.isEmptyAndWeeded()) {
-                    npc(FacialExpression.NEUTRAL, "You don't have anything planted in that patch. Plant", "something and I might agree to look after it for you.").also { stage = END_DIALOGUE }
+                    npc(facialExpression, "You don't have anything planted in that patch. Plant", "something and I might agree to look after it for you.").also { stage = END_DIALOGUE }
                 } else if (patch.isGrown()) {
-                    npc("That patch is already fully grown!", "I don't know what you want me to do with it!").also { stage = END_DIALOGUE }
+                    npc(facialExpression,"That patch is already fully grown!", "I don't know what you want me to do with it!").also { stage = END_DIALOGUE }
                 } else {
                     item = patch.plantable?.protectionItem
                     val protectionText = when (item?.id) {
@@ -52,10 +53,15 @@ class FarmerPayOptionDialogue(val patch: Patch, val quickPay: Boolean = false): 
                         else -> item?.name?.lowercase()
                     }
                     if (item == null) {
-                        npc("Sorry, I won't protect that.").also { stage = END_DIALOGUE }
+                        if (patch.plantable!!.harvestItem == Items.POISON_IVY_BERRIES_6018) {
+                            npc(facialExpression, "There is no need for me to look after that poison ivy.")
+                            stage = 400
+                        } else {
+                            npc(facialExpression, "Sorry, I won't protect that.").also { stage = END_DIALOGUE }
+                        }
                     } else if (quickPay && !(inInventory(player!!, item!!.id, item!!.amount) || inInventory(player!!, note(item!!).id, note(item!!).amount))) {
                         val amount = if (item?.amount == 1) "one" else item?.amount
-                        npc(FacialExpression.HAPPY, "I want $amount $protectionText for that.")
+                        npc(facialExpression, "I want $amount $protectionText for that.")
                         stage = 200
                     } else if (quickPay) {
                         val amount = if (item?.amount == 1) "one" else item?.amount
@@ -66,7 +72,7 @@ class FarmerPayOptionDialogue(val patch: Patch, val quickPay: Boolean = false): 
                         )
                     } else {
                         val amount = if (item?.amount == 1) "one" else item?.amount
-                        npc("If you like, but I want $amount $protectionText for that.")
+                        npc(facialExpression,"If you like, but I want $amount $protectionText for that.")
                         stage++
                     }
                 }
@@ -83,15 +89,14 @@ class FarmerPayOptionDialogue(val patch: Patch, val quickPay: Boolean = false): 
                 }
             }
 
-            10 -> npc("Well, I'm not wasting my time for free.").also { stage = END_DIALOGUE }
+            10 -> npc(facialExpression,"Well, I'm not wasting my time for free.").also { stage = END_DIALOGUE }
 
             20 -> {
                 if (removeItem(player!!, item) || removeItem(player!!, note(item!!))) {
                     patch.protectionPaid = true
-                    // Note: A slight change in this dialogue was seen in a December 2009 video - https://youtu.be/7gVh42ylQ48?t=138
-                    npc("That'll do nicely, ${if (player!!.isMale) "sir" else "madam"}. Leave it with me - I'll make sure", "those crops grow for you.").also { stage = END_DIALOGUE }
+                    npc(facialExpression,"That'll do nicely, ${if (player!!.isMale) "sir" else "madam"}. Leave it with me - I'll make sure", "those crops grow for you.").also { stage = END_DIALOGUE }
                 } else {
-                    npc("This shouldn't be happening. Please report this.").also { stage = END_DIALOGUE }
+                    npc(facialExpression,"This shouldn't be happening. Please report this.").also { stage = END_DIALOGUE }
                 }
             }
 
@@ -109,7 +114,10 @@ class FarmerPayOptionDialogue(val patch: Patch, val quickPay: Boolean = false): 
                     dialogue("You need 200 gp to pay for that.").also { stage = END_DIALOGUE } // not authentic
                 }
             }
-
+            400 -> player("Really?").also { stage++ }
+            401 -> npc("Yes, poison ivy is pretty hardy stuff, and most animals","will avoid eating it.").also { stage++ }
+            402 -> npc("Hence, there is no reason to worry about it.").also { stage++ }
+            403 -> player("Great.").also { stage = END_DIALOGUE }
         }
     }
 }

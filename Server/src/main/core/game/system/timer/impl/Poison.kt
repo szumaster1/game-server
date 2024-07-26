@@ -53,13 +53,15 @@ class Poison : PersistTimer(
     }
 
     override fun run(entity: Entity): Boolean {
-        entity.impactHandler.manualHit(
-            damageSource,
-            getDamageFromSeverity(severity--),
-            ImpactHandler.HitsplatType.POISON
-        )
-        if (severity == 0 && entity is Player)
-            sendMessage(entity, "The poison has worn off.")
+        if(!entity.isPoisonImmune) {
+            entity.impactHandler.manualHit(
+                damageSource,
+                getDamageFromSeverity(severity--),
+                ImpactHandler.HitsplatType.POISON
+            )
+            if (severity == 0 && entity is Player)
+                sendMessage(entity, "The poison has worn off.")
+        }
         return severity > 0
     }
 

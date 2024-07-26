@@ -21,7 +21,8 @@ val livesBased = arrayOf(
     PatchType.BELLADONNA_PATCH,
     PatchType.HOPS_PATCH,
     PatchType.ALLOTMENT,
-    PatchType.EVIL_TURNIP_PATCH
+    PatchType.EVIL_TURNIP_PATCH,
+    PatchType.SPECIAL_PATCH,
 )
 
 @Initializable

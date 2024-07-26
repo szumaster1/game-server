@@ -63,7 +63,7 @@ class SirsalBankerDialogue(player: Player? = null): Dialogue(player) {
                 npcl(FacialExpression.NEUTRAL, "Your active bank account has been switched. " + "You can now access your ${getBankAccountName(player)} account.").also { stage = END_DIALOGUE }
             }
             20 -> npcl(FacialExpression.NEUTRAL, "Certainly. We offer secondary accounts to all our customers.").also { stage++ }
-            21 -> npcl(FacialExpression.NEUTRAL, "The secondary account comes with a standard fee of 5,000,000 coins. The fee is non-refundable " + "and account activation is permanent.").also { stage++ }
+            21 -> npcl(FacialExpression.NEUTRAL, "The secondary account comes with a standard fee of 10,000 coins. The fee is non-refundable " + "and account activation is permanent.").also { stage++ }
             22 -> npcl(FacialExpression.NEUTRAL, "If your inventory does not contain enough money to cover the costs, we will complement " + "the amount with the money inside your primary bank account.").also { stage++ }
             23 -> npcl(FacialExpression.ASKING, "Knowing all this, would you like to proceed with opening your secondary bank account?").also { stage++ }
             24 -> showTopics(

@@ -24,6 +24,8 @@ enum class Farmers(val id: Int, val patches: Array<FarmingPatch>) {
     RHAZIEN(2337, arrayOf(FarmingPatch.ETCETERIA_BUSH)),
     TORRELL(2338, arrayOf(FarmingPatch.ARDOUGNE_BUSH)),
     YULF_SQUECKS(4561, arrayOf(FarmingPatch.ETCETERIA_SPIRIT_TREE)),
+    IMIAGO(8041, arrayOf(FarmingPatch.CALQUAT_TREE));
+
     ;
 
     companion object{

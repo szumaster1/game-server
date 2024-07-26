@@ -1,13 +1,13 @@
 package content.global.activity.mogre
 
 import core.api.*
-import core.api.consts.Animations
 import core.api.consts.Items
 import core.api.consts.Sounds
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.interaction.QueueStrength
 import core.game.node.entity.player.Player
+import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
@@ -49,7 +49,7 @@ class SkippyDialogue(player: Player? = null) : Dialogue(player) {
                         animate(player!!, SkippyUtils.ANIMATION_THROW_BUCKET)
                         playAudio(player!!, Sounds.SKIPPY_BUCKET_1399, 2)
                         addItem(player!!, Items.BUCKET_1925)
-                        return@queueScript delayScript(player, SkippyUtils.ANIMATION_THROW_BUCKET.delay)
+                        return@queueScript delayScript(player, animationDuration(Animation(SkippyUtils.ANIMATION_THROW_BUCKET)))
                     }
                     1 -> {
                         npc("Ahhhhhhhhhhgh! That's cold! Are you trying to kill me?")
