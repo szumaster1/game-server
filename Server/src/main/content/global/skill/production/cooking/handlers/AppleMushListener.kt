@@ -14,7 +14,7 @@ import core.game.world.map.Direction
 import core.game.world.map.Location
 import core.game.node.scenery.Scenery as Object
 
-class AppleBarrelListener : InteractionListener {
+class AppleMushListener : InteractionListener {
 
     override fun defineListeners() {
         onUseWith(IntType.SCENERY, Items.COOKING_APPLE_1955, Scenery.APPLE_BARREL_7403) { player, _, _ ->
