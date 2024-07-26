@@ -30,6 +30,18 @@ class FermentingVat : InteractionListener {
             return@onUseWith true
         }
 
+        // You add some water to the vat.
+        // This isn't the right time to be adding "name" hops.
+        // You don't need to add ale yeast at this point.
+        // You add some barley malt to the vat.
+        // You add some "name" hops to the vat.
+        // You add a pot of ale yeast into the vat.
+        // The conents have begun to ferment.
+        // You turn the valve.
+        // The vat is filled with Dragon Bitter.
+        // You pour a glass of Dragon Bitter.
+        // The barrel is now full of Dragon Bitter.
+        // The barrel is now empty.
 
 
     }

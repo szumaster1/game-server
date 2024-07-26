@@ -733,6 +733,17 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
     /*
      * Miscellaneous.
      */
+    BARLEY_MALT(
+        cooked = 6008,
+        raw = 6006,
+        burnt = 6008,
+        level = 1,
+        experience = 1.0,
+        low = 0,
+        high = 0,
+        lowRange = 0,
+        highRange = 0
+    ),
     RAW_OOMLIE(
         cooked = 2337,
         raw = 0,

@@ -9,13 +9,14 @@ import core.game.interaction.QueueStrength
 import core.game.node.item.Item
 import core.game.world.update.flag.context.Animation
 
-class CutCalquatFruitListener : InteractionListener {
+class CalquatKegListener : InteractionListener {
 
     override fun defineListeners() {
         onUseWith(IntType.ITEM, Items.KNIFE_946, Items.CALQUAT_FRUIT_5980) { player, used, with ->
             val anim = Animation(Animations.HUMAN_FRUIT_CUTTING_1192)
             if(used.id == Items.KNIFE_946) {
-                queueScript(player, animationDuration(anim), QueueStrength.WEAK) {
+                animate(player, anim)
+                queueScript(player, animationDuration(anim), QueueStrength.NORMAL) {
                     replaceSlot(player, with.asItem().slot, Item(Items.CALQUAT_KEG_5769))
                     return@queueScript stopExecuting(player)
                 }
