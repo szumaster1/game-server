@@ -1,31 +1,27 @@
 package content.region.asgarnia.dialogue.burthope
 
 import core.api.consts.NPCs
-import core.game.dialogue.Dialogue
+import core.api.openDialogue
+import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
+import core.game.interaction.IntType
+import core.game.interaction.InteractionListener
 import core.game.node.entity.npc.NPC
-import core.game.node.entity.player.Player
-import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
-@Initializable
-class ShanomiDialogue(player: Player? = null) : Dialogue(player) {
+class ShanomiDialogue : DialogueFile(), InteractionListener {
 
-    override fun open(vararg args: Any): Boolean {
-        npc = args[0] as NPC
-        npc("Greetings " + player.username + ". Welcome you are in the test of", "combat.").also { stage = 0 }
-        return true
-    }
-
-    override fun handle(interfaceId: Int, buttonId: Int): Boolean {
+    override fun handle(componentID: Int, buttonID: Int) {
+        npc = NPC(NPCs.SHANOMI_4290)
         when (stage) {
-            0 -> options("What do I do here?", "Where do the machines come from?", "May I claim my tokens please?", "Bye.").also { stage++ }
-            1 -> when (buttonId) {
+            0 -> npc("Greetings " + player!!.username + ". Welcome you are in the test of", "combat.").also { stage = -1 }
+           -1 -> options("What do I do here?", "Where do the machines come from?", "May I claim my tokens please?", "Bye.").also { stage = 1 }
+            1 -> when (buttonID) {
                 1 -> player(FacialExpression.HALF_GUILTY, "What do I do here?").also { stage++ }
                 2 -> player(FacialExpression.HALF_GUILTY, "Where do the machines come from?").also { stage = 11 }
                 3 -> {
                     end()
-                    player.dialogueInterpreter.open("wg:claim-tokens", npc.id)
+                    player!!.dialogueInterpreter.open("wg:claim-tokens", npc!!.id)
                 }
                 4 -> player(FacialExpression.HALF_GUILTY, "Bye.").also { stage = 16 }
 
@@ -47,10 +43,13 @@ class ShanomiDialogue(player: Player? = null) : Dialogue(player) {
             15 -> npc(FacialExpression.HALF_GUILTY, "It is as you say.").also { stage = 0 }
             16 -> npc(FacialExpression.HALF_GUILTY, "Health be with you travelling.").also { stage = END_DIALOGUE }
         }
-        return true
     }
 
-    override fun getIds(): IntArray {
-        return intArrayOf(NPCs.SHANOMI_4290)
+    override fun defineListeners() {
+        on(NPCs.SHANOMI_4290, IntType.NPC, "Talk-to") { player, _ ->
+            openDialogue(player, ShanomiDialogue())
+            return@on true
+        }
     }
+
 }

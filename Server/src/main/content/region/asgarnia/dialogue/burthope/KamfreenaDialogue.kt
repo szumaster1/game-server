@@ -1,30 +1,26 @@
 package content.region.asgarnia.dialogue.burthope
 
 import core.api.consts.NPCs
-import core.game.dialogue.Dialogue
+import core.api.openDialogue
+import core.game.dialogue.DialogueFile
+import core.game.interaction.IntType
+import core.game.interaction.InteractionListener
 import core.game.node.entity.npc.NPC
-import core.game.node.entity.player.Player
-import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
-@Initializable
-class KamfreenaDialogue(player: Player? = null) : Dialogue(player) {
+class KamfreenaDialogue : DialogueFile(), InteractionListener {
 
-    override fun open(vararg args: Any): Boolean {
-        npc = args[0] as NPC
-        npc("Why hello there! I'm Kamfreena. Like the look of my pets?", "I think they're eyeing you up.").also { stage++ }
-        return true
-    }
-
-    override fun handle(interfaceId: Int, buttonId: Int): Boolean {
+    override fun handle(componentID: Int, buttonID: Int) {
+        npc = NPC(NPCs.KAMFREENA_4289)
         when (stage) {
-            0 -> player("That was a really bad pun.").also { stage++ }
+            0 -> npc("Why hello there! I'm Kamfreena. Like the look of my pets?", "I think they're eyeing you up.").also { stage = -1 }
+           -1 -> player("That was a really bad pun.").also { stage = 1 }
             1 -> npc("Sorry...I don't get to see the rest of the guild much", "stuck up here. The cyclopes don't talk much you see.").also { stage++ }
             2 -> player("Shouldn't that be cyclopses?").also { stage++ }
             3 -> npc("Nope! Cyclopes is the plural of cyclops. One cyclops,", "many cyclopes.").also { stage++ }
             4 -> player("Oh, right, thanks.").also { stage++ }
             5 -> options("Where are they from?", "How did they get here?", "Why are they here?", "Bye!").also { stage++ }
-            6 -> when (buttonId) {
+            6 -> when (buttonID) {
                 1 -> player("Where are they from?").also { stage++ }
                 2 -> player("How did they get here?").also { stage = 8 }
                 3 -> player("Why are they here?").also { stage = 9 }
@@ -45,10 +41,13 @@ class KamfreenaDialogue(player: Player? = null) : Dialogue(player) {
             19 -> player("Right, I'd better go play some games then!").also { stage = 5 }
             20 -> npc("See you back here soon I hope!").also { stage = END_DIALOGUE }
         }
-        return true
     }
 
-    override fun getIds(): IntArray {
-        return intArrayOf(NPCs.KAMFREENA_4289)
+    override fun defineListeners() {
+        on(NPCs.KAMFREENA_4289, IntType.NPC, "Talk-to") { player, _ ->
+            openDialogue(player, KamfreenaDialogue())
+            return@on true
+        }
     }
+
 }

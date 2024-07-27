@@ -8268,7 +8268,7 @@ object NPCs {
     const val RESOURCE_NPC_8264 = 8264
     const val RESOURCE_NPC_8265 = 8265
     const val RESOURCE_NPC_8266 = 8266
-    const val RESOURCE_NPC_8267 = 8267
+    const val HARRALLAK_MENAROUS_8267 = 8267
     const val HARRALLAK_MENAROUS_8268 = 8268
     const val HARRALLAK_MENAROUS_8269 = 8269
     const val YADECH_STRONGARM_8270 = 8270

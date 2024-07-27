@@ -2,26 +2,27 @@ package content.region.asgarnia.dialogue.burthope
 
 import core.api.*
 import core.api.consts.NPCs
-import core.game.dialogue.Dialogue
+import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.dialogue.IfTopic
 import core.game.dialogue.Topic
-import core.game.node.entity.player.Player
+import core.game.interaction.IntType
+import core.game.interaction.InteractionListener
+import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.link.IronmanMode
-import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
-@Initializable
-class EmeraldBenedictDialogue(player: Player? = null) : Dialogue(player) {
+class EmeraldBenedictDialogue : DialogueFile(), InteractionListener {
 
-    override fun handle(interfaceId: Int, buttonId: Int): Boolean {
+    override fun handle(componentID: Int, buttonID: Int) {
+        npc = NPC(NPCs.EMERALD_BENEDICT_2271)
         when (stage) {
-            START_DIALOGUE -> if (hasIronmanRestriction(player, IronmanMode.ULTIMATE)) {
+            START_DIALOGUE -> if (hasIronmanRestriction(player!!, IronmanMode.ULTIMATE)) {
                 npcl(FacialExpression.ANNOYED, "Get lost, tin can.").also { stage = END_DIALOGUE }
             } else {
                 npcl(FacialExpression.SUSPICIOUS, "Got anything you don't want to lose?").also {
-                    if (hasAwaitingGrandExchangeCollections(player)) {
+                    if (hasAwaitingGrandExchangeCollections(player!!)) {
                         stage++
                     } else {
                         stage += 2
@@ -31,30 +32,35 @@ class EmeraldBenedictDialogue(player: Player? = null) : Dialogue(player) {
             1 -> npcl(FacialExpression.SUSPICIOUS, "By the way, a little bird told me you got some stuff waiting for you " + "on the Grand Exchange.").also { stage++ }
             2 -> showTopics(
                 Topic(FacialExpression.ASKING, "Yes, actually. Can you help?", 3),
-                IfTopic(FacialExpression.ASKING, "Yes, but can you switch my bank accounts?", 4, hasActivatedSecondaryBankAccount(player)),
+                IfTopic(FacialExpression.ASKING, "Yes, but can you switch my bank accounts?", 4, hasActivatedSecondaryBankAccount(player!!)),
                 Topic(FacialExpression.ASKING, "Yes, but can you show me my PIN settings?", 5),
                 Topic(FacialExpression.ASKING, "Yes, but can you show me my collection box?", 6),
                 Topic(FacialExpression.ANNOYED, "Yes, thanks. And I'll keep hold of it too.", END_DIALOGUE)
             )
             3 -> {
-                openBankAccount(player)
+                openBankAccount(player!!)
                 end()
             }
             4 -> {
-                toggleBankAccount(player)
-                npcl(FacialExpression.SUSPICIOUS, "Sure thing. Feel free to rummage through whatever's in your ${getBankAccountName(player)} now.").also { stage = END_DIALOGUE }
+                toggleBankAccount(player!!)
+                npcl(FacialExpression.SUSPICIOUS, "Sure thing. Feel free to rummage through whatever's in your ${getBankAccountName(player!!)} now.").also { stage = END_DIALOGUE }
             }
             5 -> {
-                openBankPinSettings(player)
+                openBankPinSettings(player!!)
                 end()
             }
             6 -> {
-                openGrandExchangeCollectionBox(player)
+                openGrandExchangeCollectionBox(player!!)
                 end()
             }
         }
-        return true
     }
 
-    override fun getIds(): IntArray = intArrayOf(NPCs.EMERALD_BENEDICT_2271)
+    override fun defineListeners() {
+        on(NPCs.EMERALD_BENEDICT_2271, IntType.NPC, "Talk-to") { player, _ ->
+            openDialogue(player, EmeraldBenedictDialogue())
+            return@on true
+        }
+    }
+
 }

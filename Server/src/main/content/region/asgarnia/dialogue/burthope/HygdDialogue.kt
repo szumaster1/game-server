@@ -2,18 +2,20 @@ package content.region.asgarnia.dialogue.burthope
 
 import core.api.consts.NPCs
 import core.api.isQuestComplete
+import core.api.openDialogue
 import core.api.toIntArray
-import core.game.dialogue.Dialogue
+import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
-import core.game.node.entity.player.Player
-import core.plugin.Initializable
+import core.game.interaction.IntType
+import core.game.interaction.InteractionListener
+import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
-@Initializable
-class HygdDialogue(player: Player? = null) : Dialogue(player) {
+class HygdDialogue : DialogueFile(), InteractionListener {
 
-    override fun handle(interfaceId: Int, buttonId: Int): Boolean {
+    override fun handle(componentID: Int, buttonID: Int) {
+        npc = NPC(NPCs.HYGD_1088)
         if (isQuestComplete(player!!, "Death Plateau")) {
             when (stage) {
                 START_DIALOGUE -> playerl(FacialExpression.FRIENDLY, "Hi!").also { stage = (1..3).toIntArray().random() }
@@ -30,11 +32,13 @@ class HygdDialogue(player: Player? = null) : Dialogue(player) {
                 4 -> playerl(FacialExpression.FRIENDLY, "Thanks!").also { stage = END_DIALOGUE }
             }
         }
-        return true
     }
 
-    override fun getIds(): IntArray {
-        return intArrayOf(NPCs.HYGD_1088)
+    override fun defineListeners() {
+        on(NPCs.HYGD_1088, IntType.NPC, "Talk-to") { player, _ ->
+            openDialogue(player, HygdDialogue())
+            return@on true
+        }
     }
+
 }
-

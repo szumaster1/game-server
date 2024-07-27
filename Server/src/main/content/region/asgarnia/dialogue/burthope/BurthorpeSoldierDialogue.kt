@@ -1,15 +1,16 @@
 package content.region.asgarnia.dialogue.burthope
 
 import core.api.consts.NPCs
-import core.game.dialogue.Dialogue
+import core.api.openDialogue
+import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
-import core.game.node.entity.player.Player
-import core.plugin.Initializable
+import core.game.interaction.IntType
+import core.game.interaction.InteractionListener
+import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
-@Initializable
-class BurthorpeSoldierDialogue(player: Player? = null) : Dialogue(player) {
+class BurthorpeSoldierDialogue : DialogueFile(), InteractionListener {
 
     companion object {
         val latinInsults = arrayOf(
@@ -43,7 +44,8 @@ class BurthorpeSoldierDialogue(player: Player? = null) : Dialogue(player) {
         val randomStages = arrayOf(10, 20, 30, 40, 50)
     }
 
-    override fun handle(interfaceId: Int, buttonId: Int): Boolean {
+    override fun handle(componentID: Int, buttonID: Int) {
+        npc = NPC(NPCs.SOLDIER_1065)
         when (stage) {
             START_DIALOGUE -> playerl(FacialExpression.FRIENDLY, "Hello!").also { stage++ }
             1 -> npcl(FacialExpression.ANGRY, latinInsults.random()).also { stage = randomStages.random() }
@@ -55,10 +57,14 @@ class BurthorpeSoldierDialogue(player: Player? = null) : Dialogue(player) {
             51 -> npcl(FacialExpression.FRIENDLY, "Yes!").also { stage++ }
             52 -> playerl(FacialExpression.HALF_GUILTY, "Hmm...").also { stage = END_DIALOGUE }
         }
-        return true
+
     }
 
-    override fun getIds(): IntArray {
-        return intArrayOf(NPCs.SOLDIER_1065)
+    override fun defineListeners() {
+        on(NPCs.SOLDIER_1065, IntType.NPC, "Talk-to") { player, _ ->
+            openDialogue(player, BurthorpeSoldierDialogue())
+            return@on true
+        }
     }
+
 }

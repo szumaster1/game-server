@@ -89,4 +89,5 @@ class GamFredDialoue(player: Player? = null) : Dialogue(player) {
     override fun getIds(): IntArray {
         return intArrayOf(NPCs.GAMFRED_4287)
     }
+
 }
