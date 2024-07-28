@@ -217,7 +217,7 @@ class BalloonListeners : InterfaceListener, InteractionListener {
         on(balloonIds, IntType.SCENERY, "use") { player, node ->
             when (node.id) {
                 5054 -> player.dialogueInterpreter.open(5065)
-                balloonIds[node.id] -> {
+                else -> {
                     if (!hasRequirement(player, "Enlightened Journey")) return@on true
                     openInterface(player, Components.ZEP_BALLOON_MAP_469).also {
                         setComponentVisibility(
@@ -235,7 +235,6 @@ class BalloonListeners : InterfaceListener, InteractionListener {
                     }
                     return@on true
                 }
-                else -> return@on false
             }
         }
 
