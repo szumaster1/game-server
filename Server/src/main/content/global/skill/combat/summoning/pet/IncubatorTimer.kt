@@ -1,6 +1,7 @@
 package content.global.skill.combat.summoning.pet
 
 import core.api.*
+import core.api.consts.Regions
 import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
 import core.game.system.timer.PersistTimer
@@ -64,9 +65,9 @@ class IncubatorTimer : PersistTimer(500, "incubation") {
     }
 
     companion object {
-        val TAVERLY_REGION = 11573
+        val TAVERLY_REGION = Regions.TAVERLY_11573
         val TAVERLY_VARBIT = 4277
-        val YANILLE_REGION = 10288
+        val YANILLE_REGION = Regions.YANILLE_10288
         val YANILLE_VARBIT = 4221
 
         fun varbitForRegion(region: Int): Int {

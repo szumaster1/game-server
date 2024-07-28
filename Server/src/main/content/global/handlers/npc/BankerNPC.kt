@@ -13,7 +13,6 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.world.map.Direction
 import core.game.world.map.Location
-import core.game.world.map.Region
 import core.plugin.Initializable
 
 @Initializable

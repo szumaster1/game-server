@@ -1,6 +1,7 @@
 package content.global.activity.mogre
 
 import core.api.*
+import core.api.consts.Graphics
 import core.api.consts.Sounds
 import core.game.interaction.QueueStrength
 import core.game.node.entity.npc.NPC
@@ -33,7 +34,7 @@ class SkippyNPC : NPCBehavior(2795) {
                 sendChat(self, "Take this")
                 self.faceLocation(self.location.transform(Direction.SOUTH))
                 playGlobalAudio(self.location, Sounds.SKIPPY_THROWGLASS_1398, 1)
-                spawnProjectile(self.location, self.location.transform(Direction.SOUTH, 4), 49, 30, 20, 10, 100, 0)
+                spawnProjectile(self.location, self.location.transform(Direction.SOUTH, 4), Graphics.SPINNING_VIAL_49, 30, 20, 10, 100, 0)
                 return@queueScript stopExecuting(self)
             }
         } else if (RandomFunction.random(30) == 4) {

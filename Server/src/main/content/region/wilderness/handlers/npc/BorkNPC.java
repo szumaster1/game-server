@@ -497,7 +497,7 @@ public class BorkNPC extends AbstractNPC {
 
         @Override
         public void configure() {
-            region = DynamicRegion.create(Regions.BORK_12374);
+            region = DynamicRegion.create(Regions.NPC_BORK_REGION_12374);
             region.setMulticombat(true);
             setRegionBase();
             registerRegion(region.getId());
