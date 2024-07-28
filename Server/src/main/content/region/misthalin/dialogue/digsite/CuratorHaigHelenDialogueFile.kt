@@ -1,7 +1,7 @@
 package content.region.misthalin.dialogue.digsite
 
 import content.region.desert.quest.thegolemquest.dialogue.CuratorHaigHalenGolemDialogue
-import content.region.misthalin.quest.free.shieldofarrav.dialogue.CuratorHaigHalenSOADialogue
+import content.region.misthalin.quest.free.shieldofarrav.dialogue.CuratorHaigHalenDialogueFile
 import core.api.*
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
@@ -33,7 +33,7 @@ class CuratorHaigHelenDialogueFile : DialogueFile() {
                 Topic(FacialExpression.FRIENDLY, "Have you any interesting news?", 2),
                 Topic(FacialExpression.FRIENDLY, "Do you know where I could find any treasure?", 8),
                 IfTopic<Any?>(FacialExpression.FRIENDLY, "I've lost the letter of recommendation.", 18,  getQuestStage(player!!, "The Dig Site") == 2 && !inInventory(player!!, Items.SEALED_LETTER_683)),
-                IfTopic<Any?>("I have the Shield of Arrav", CuratorHaigHalenSOADialogue(),
+                IfTopic<Any?>("I have the Shield of Arrav", CuratorHaigHalenDialogueFile(),
                     getQuestStage(player!!, "Shield of Arrav") == 70, false),
                 IfTopic<Any?>("I'm looking for a statuette recovered from the city of Uzer.", CuratorHaigHalenGolemDialogue(),
                     getQuestStage(player!!, "The Golem") == 3, false)

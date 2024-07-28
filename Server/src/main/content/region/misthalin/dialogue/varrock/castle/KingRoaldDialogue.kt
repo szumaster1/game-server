@@ -2,7 +2,7 @@ package content.region.misthalin.dialogue.varrock.castle
 
 import core.api.consts.NPCs
 import content.minigame.allfiredup.KingRoaldAFUDialogue
-import content.region.misthalin.quest.free.shieldofarrav.dialogue.KingRoaldSOADialogue
+import content.region.misthalin.quest.free.shieldofarrav.dialogue.KingRoaldDialogue
 import content.region.misthalin.quest.member.allfiredup.dialogue.KingRoaldDialogueFile
 import content.region.misthalin.quest.member.priestinperil.dialogue.KingRoaldDialoguePriestInPeril
 import core.api.getAttribute
@@ -39,7 +39,7 @@ class KingRoaldDialogue(player: Player? = null) : Dialogue(player) {
             addOption("Priest in Peril", KingRoaldDialoguePriestInPeril(getQuestStage(player, "Priest in Peril")))
         }
         if (player.questRepository.getQuest("Shield of Arrav").isStarted(player) && !isQuestComplete(player, "Shield of Arrav")) {
-            addOption("Shield of Arrav", KingRoaldSOADialogue())
+            addOption("Shield of Arrav", KingRoaldDialogue())
         }
         if (!sendChoices()) {
             player("Greetings, your Majesty.")

@@ -1,12 +1,12 @@
 package content.region.misthalin.quest.free.shieldofarrav;
 
-import content.region.misthalin.quest.free.shieldofarrav.plugin.JonnytheBeard;
+import content.region.misthalin.quest.free.shieldofarrav.dialogue.JonnytheBeardDialogue;
 import core.api.consts.Vars;
 import content.region.misthalin.dialogue.varrock.castle.KingRoaldDialogue;
-import content.region.misthalin.quest.free.shieldofarrav.dialogue.KatrineSOADialogue;
-import content.region.misthalin.quest.free.shieldofarrav.dialogue.ReldoSOADialogue;
-import content.region.misthalin.quest.free.shieldofarrav.dialogue.StravenSOADialogue;
-import content.region.misthalin.quest.free.shieldofarrav.dialogue.WeaponsMasterSOADialogue;
+import content.region.misthalin.quest.free.shieldofarrav.dialogue.KatrineDialogue;
+import content.region.misthalin.quest.free.shieldofarrav.dialogue.ReldoDialogue;
+import content.region.misthalin.quest.free.shieldofarrav.dialogue.StravenDialogue;
+import content.region.misthalin.quest.free.shieldofarrav.dialogue.WeaponsMasterDialogue;
 import content.region.misthalin.quest.free.shieldofarrav.npc.JohnnyBeardNPC;
 import content.region.misthalin.quest.free.shieldofarrav.plugin.CertificatePlugin;
 import content.region.misthalin.quest.free.shieldofarrav.plugin.ShieldArravPlugin;
@@ -69,7 +69,7 @@ public class ShieldofArrav extends Quest {
 
     @Override
     public Quest newInstance(Object object) {
-        ClassScanner.definePlugins(new CertificatePlugin(), new JohnnyBeardNPC(), new JonnytheBeard(), new KatrineSOADialogue(), new KingRoaldDialogue(), new ReldoSOADialogue(), new ShieldArravPlugin(), new StravenSOADialogue(), new WeaponsMasterSOADialogue());
+        ClassScanner.definePlugins(new CertificatePlugin(), new JohnnyBeardNPC(), new JonnytheBeardDialogue(), new KatrineDialogue(), new KingRoaldDialogue(), new ReldoDialogue(), new ShieldArravPlugin(), new StravenDialogue(), new WeaponsMasterDialogue());
         return this;
     }
 

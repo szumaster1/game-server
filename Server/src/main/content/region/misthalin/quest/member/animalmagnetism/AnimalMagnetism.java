@@ -16,63 +16,20 @@ public final class AnimalMagnetism extends Quest {
 
     public static String questName = "Animal Magnetism";
 
-    /**
-     * The constant CRONE_AMULET.
-     */
     public static final Item CRONE_AMULET = new Item(10500);
-
-    /**
-     * The constant SELECTED_IRON.
-     */
     public static final Item SELECTED_IRON = new Item(10488);
-
-    /**
-     * The constant RESEARCH_NOTES.
-     */
     public static final Item RESEARCH_NOTES = new Item(10492);
-
-    /**
-     * The constant TRANSLATED_NOTES.
-     */
     public static final Item TRANSLATED_NOTES = new Item(10493);
-
-    /**
-     * The constant PATTERN.
-     */
     public static final Item PATTERN = new Item(10494);
-
-    /**
-     * The constant CONTAINER.
-     */
     public static final Item CONTAINER = new Item(10495);
-
-    /**
-     * The constant POLISHED_BUTTONS.
-     */
     public static final Item POLISHED_BUTTONS = new Item(10496);
-
-    /**
-     * The constant HARD_LEATHER.
-     */
     public static final Item HARD_LEATHER = new Item(1743);
-
-    /**
-     * The constant AVAS_ATTRACTOR.
-     */
     public static final Item AVAS_ATTRACTOR = new Item(10498);
-
-    /**
-     * The constant AVAS_ACCUMULATOR.
-     */
     public static final Item AVAS_ACCUMULATOR = new Item(10499);
 
     private static final String[] REQS = new String[]{"I must have completed Restless Ghost.", "I must have completed Ernest the Chicken", "I must have completed Priest in Peril.", "Level 30 Ranged", "Level 18 Slayer", "Level 19 Crafting", "Level 35 Woodcutting"};
-
     private final boolean[] requirements = new boolean[7];
 
-    /**
-     * Instantiates a new Animal magnetism.
-     */
     public AnimalMagnetism() {
         super("Animal Magnetism", 33, 32, 1);
     }
@@ -229,12 +186,13 @@ public final class AnimalMagnetism extends Quest {
         }
         int val = stage < 100 && stage > 0 ? 10 : stage >= 100 ? 240 : 0;
         return new int[]{939, val};
-        // This config affects object bed in ava's room
-        // multiples of 10
-        // 0 - broken
-        // 170 - still broken
-        // 180 - bed is made
-        // 240 - quest complete
+        /*
+         * This config affects object bed in ava's room multiples of 10.
+         * 0 - broken
+         * 170 - still broken
+         * 180 - bed is made
+         * 240 - quest complete
+         */
     }
 
 }
