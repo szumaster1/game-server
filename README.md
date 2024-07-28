@@ -7,10 +7,10 @@
 [![Sp-release][sp-release]][sp-url]
 
 <a href="https://2009scape.org/">
-<img src="https://imgur.com/ThvoOSt.png"></a>
+<img src="https://imgur.com/ThvoOSt.png" alt=""></a>
 
 <a href="https://2009scape.org/site/game_guide/play.html">
-<img src="https://imgur.com/AQaE61J.png"></a>
+<img src="https://imgur.com/AQaE61J.png" alt=""></a>
 
 </div>
 

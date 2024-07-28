@@ -84,7 +84,7 @@ class PestControlTestBot(l: Location) : PvMBots(legitimizeLocation(l)) {
             PestControlActivityPlugin().leave(this, false)
             val test = getClosestNodeWithEntry(50, myBoat.ladderId)
             test ?: println("PC: Gangplank Null")
-            test.interaction.handle(
+            test!!.interaction.handle(
                 this, test.interaction[0]
             )//.also { println("Novice - We think we is in pest control ${this.username}.") }
         }
@@ -109,7 +109,7 @@ class PestControlTestBot(l: Location) : PvMBots(legitimizeLocation(l)) {
         }
         if (PestControlHelper.outsideGangplankContainsLoc(getLocation())) {
             val test = getClosestNodeWithEntry(15, myBoat.ladderId)
-            test.interaction.handle(this, test.interaction[0])
+            test!!.interaction.handle(this, test.interaction[0])
             enterBoat()//.also { println("We think we is in boat ${this.username}.") }
         }
         if (Random().nextInt(100) < 40) {

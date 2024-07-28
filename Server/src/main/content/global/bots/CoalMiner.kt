@@ -32,7 +32,7 @@ class CoalMiner : Script() {
         when (state) {
 
             State.INIT -> {
-                overlay = scriptAPI.getOverlay()
+                overlay = scriptAPI!!.getOverlay()
                 ladderSwitch = true
                 overlay!!.init()
                 overlay!!.setTitle("Mining")
@@ -48,24 +48,24 @@ class CoalMiner : Script() {
             }
 
             State.MINING -> {
-                bot.interfaceManager.close()
-                if (bot.inventory.freeSlots() == 0) {
+                bot!!.interfaceManager.close()
+                if (bot!!.inventory.freeSlots() == 0) {
                     state = State.TO_BANK
                 }
                 if (!mine.insideBorder(bot)) {
-                    scriptAPI.walkTo(mine.randomLoc)
+                    scriptAPI!!.walkTo(mine.randomLoc)
                 } else {
-                    val rock = scriptAPI.getNearestNode("rocks", true)
-                    rock?.let { InteractionListeners.run(rock.id, IntType.SCENERY, "mine", bot, rock) }
+                    val rock = scriptAPI!!.getNearestNode("rocks", true)
+                    rock?.let { InteractionListeners.run(rock.id, IntType.SCENERY, "mine", bot!!, rock) }
                 }
-                overlay!!.setAmount(amountInInventory(bot, Items.COAL_453) + coalAmount)
+                overlay!!.setAmount(amountInInventory(bot!!, Items.COAL_453) + coalAmount)
             }
 
             State.TO_BANK -> {
                 if (bank.insideBorder(bot)) {
-                    val bank = scriptAPI.getNearestNode("bank booth", true)
+                    val bank = scriptAPI!!.getNearestNode("bank booth", true)
                     if (bank != null) {
-                        bot.pulseManager.run(object : BankingPulse(this, bank) {
+                        bot!!.pulseManager.run(object : BankingPulse(this, bank) {
                             override fun pulse(): Boolean {
                                 state = State.BANKING
                                 return super.pulse()
@@ -75,38 +75,38 @@ class CoalMiner : Script() {
 
                 } else {
                     if (!ladderSwitch) {
-                        val ladder = scriptAPI.getNearestNode(30941, true)
-                        ladder ?: scriptAPI.walkTo(bottomLadder.randomLoc).also { return }
-                        ladder?.interaction?.handle(bot, ladder.interaction[0]).also { ladderSwitch = true }
+                        val ladder = scriptAPI!!.getNearestNode(30941, true)
+                        ladder ?: scriptAPI!!.walkTo(bottomLadder.randomLoc).also { return }
+                        ladder?.interaction?.handle(bot!!, ladder.interaction[0]).also { ladderSwitch = true }
                     } else {
-                        if (!bank.insideBorder(bot)) scriptAPI.walkTo(bank.randomLoc).also { return }
+                        if (!bank.insideBorder(bot)) scriptAPI!!.walkTo(bank.randomLoc).also { return }
                     }
                 }
             }
 
             State.BANKING -> {
-                coalAmount += bot.inventory.getAmount(Items.COAL_453)
-                scriptAPI.bankAll()
+                coalAmount += bot!!.inventory.getAmount(Items.COAL_453)
+                scriptAPI!!.bankAll()
                 state = State.TO_MINE
             }
 
             State.TO_MINE -> {
                 if (ladderSwitch) {
-                    bot.interfaceManager.close()
-                    if (!topLadder.insideBorder(bot.location)) {
-                        scriptAPI.walkTo(topLadder.randomLoc)
+                    bot!!.interfaceManager.close()
+                    if (!topLadder.insideBorder(bot!!.location)) {
+                        scriptAPI!!.walkTo(topLadder.randomLoc)
                     } else {
-                        val ladder = scriptAPI.getNearestNode("Ladder", true)
+                        val ladder = scriptAPI!!.getNearestNode("Ladder", true)
                         if (ladder != null) {
-                            ladder.interaction.handle(bot, ladder.interaction[0])
+                            ladder.interaction.handle(bot!!, ladder.interaction[0])
                             ladderSwitch = false
                         } else {
-                            scriptAPI.walkTo(topLadder.randomLoc)
+                            scriptAPI!!.walkTo(topLadder.randomLoc)
                         }
                     }
                 } else {
                     if (!mine.insideBorder(bot)) {
-                        scriptAPI.walkTo(mine.randomLoc)
+                        scriptAPI!!.walkTo(mine.randomLoc)
                     } else {
                         state = State.MINING
                     }
@@ -114,33 +114,33 @@ class CoalMiner : Script() {
             }
 
             State.TO_GE -> {
-                scriptAPI.teleportToGE()
+                scriptAPI!!.teleportToGE()
                 state = State.SELLING
             }
 
             State.SELLING -> {
-                scriptAPI.sellOnGE(Items.COAL_453)
+                scriptAPI!!.sellOnGE(Items.COAL_453)
                 state = State.GO_BACK
             }
 
             State.GO_BACK -> {
-                scriptAPI.teleport(bank.randomLoc)
+                scriptAPI!!.teleport(bank.randomLoc)
                 state = State.TO_MINE
             }
         }
     }
 
     open class BankingPulse(val script: Script, val bank: Node) :
-        MovementPulse(script.bot, bank, DestinationFlag.OBJECT) {
+        MovementPulse(script.bot!!, bank, DestinationFlag.OBJECT) {
         override fun pulse(): Boolean {
-            script.bot.faceLocation(bank.location)
+            script.bot!!.faceLocation(bank.location)
             return true
         }
     }
 
     override fun newInstance(): Script {
         val script = CoalMiner()
-        script.bot = SkillingBotAssembler().produce(SkillingBotAssembler.Wealth.POOR, bot.startLocation)
+        script.bot = SkillingBotAssembler().produce(SkillingBotAssembler.Wealth.POOR, bot!!.startLocation)
         return script
     }
 
@@ -150,6 +150,6 @@ class CoalMiner : Script() {
 
     init {
         equipment.add(Item(Items.IRON_PICKAXE_1267))
-        skills.put(Skills.MINING, 75)
+        skills[Skills.MINING] == 75
     }
 }

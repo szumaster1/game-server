@@ -27,7 +27,7 @@ class GeneralBotCreator {
     constructor(botScript: Script, bot: AIPlayer?) {
         botScript.bot = bot
         GameWorld.Pulser.submit(BotScriptPulse(botScript).also {
-            AIRepository.PulseRepository[it.botScript.bot.username.lowercase()] = it
+            AIRepository.PulseRepository[it.botScript.bot!!.username.lowercase()] = it
         })
     }
 
@@ -51,21 +51,21 @@ class GeneralBotCreator {
         }
 
         var randomDelay = 0
-        var lastBotLocation: Location = botScript.bot.location.transform(0, 0, 0)
+        var lastBotLocation: Location = botScript.bot!!.location.transform(0, 0, 0)
         var lastBotMoveTicks = getWorldTicks()
         override fun pulse(): Boolean {
             if (randomDelay > 0) {
                 randomDelay -= 1
                 return false
             }
-            if (botScript.bot.pulseManager.hasPulseRunning()) {
-                if (botScript.bot.pulseManager.current is MovementPulse) {
-                    if (botScript.bot.location != lastBotLocation) {
-                        lastBotLocation = botScript.bot.location.transform(0, 0, 0)
+            if (botScript.bot!!.pulseManager.hasPulseRunning()) {
+                if (botScript.bot!!.pulseManager.current is MovementPulse) {
+                    if (botScript.bot!!.location != lastBotLocation) {
+                        lastBotLocation = botScript.bot!!.location.transform(0, 0, 0)
                         lastBotMoveTicks = getWorldTicks()
                     }
-                    if (lastBotLocation == botScript.bot.location && getWorldTicks() - lastBotMoveTicks > 5) {
-                        botScript.bot.pulseManager.current.stop()
+                    if (lastBotLocation == botScript.bot!!.location && getWorldTicks() - lastBotMoveTicks > 5) {
+                        botScript.bot!!.pulseManager.current.stop()
                     }
                 }
             }
@@ -84,14 +84,14 @@ class GeneralBotCreator {
              * Set endDialogue to FALSE if you want
              * to avoid automatic dialogue termination (useful for, for example, boat travel)
              */
-            if (botScript.bot.scripts.getActiveScript() != null && botScript.bot.hasModalOpen() && botScript.endDialogue) {
-                botScript.bot.interfaceManager.closeChatbox()
-                botScript.bot.interfaceManager.openChatbox(137)
-                botScript.bot.interfaceManager.close()
-                botScript.bot.dialogueInterpreter.close()
+            if (botScript.bot!!.scripts.getActiveScript() != null && botScript.bot!!.hasModalOpen() && botScript.endDialogue) {
+                botScript.bot!!.interfaceManager.closeChatbox()
+                botScript.bot!!.interfaceManager.openChatbox(137)
+                botScript.bot!!.interfaceManager.close()
+                botScript.bot!!.dialogueInterpreter.close()
             }
 
-            if (!botScript.bot.pulseManager.hasPulseRunning() && botScript.bot.scripts.getActiveScript() == null) {
+            if (!botScript.bot!!.pulseManager.hasPulseRunning() && botScript.bot!!.scripts.getActiveScript() == null) {
 
                 /*if (ticks++ >= RandomFunction.random(90000,120000)) {
                     AIPlayer.deregister(botScript.bot.uid)
@@ -118,15 +118,15 @@ class GeneralBotCreator {
             ticks = Integer.MAX_VALUE - 20 //Sets the ticks as high as they can go (safely) and then runs pulse again
             pulse()                        //to trigger the transition pulse to be submitted.
             super.stop()
-            if (Server.running) AIRepository.PulseRepository.remove(this.botScript.bot.username.lowercase())
+            if (Server.running) AIRepository.PulseRepository.remove(this.botScript.bot!!.username.lowercase())
         }
     }
 
     inner class TransitionPulse(val script: Script) : Pulse(RandomFunction.random(60, 200)) {
         override fun pulse(): Boolean {
             // This does not get called and should be removed
-            GameWorld.Pulser.submit(BotScriptPulse(script.newInstance()).also {
-                AIRepository.PulseRepository[it.botScript.bot.username.lowercase()] = it
+            GameWorld.Pulser.submit(BotScriptPulse(script.newInstance()!!).also {
+                AIRepository.PulseRepository[it.botScript.bot!!.username.lowercase()] = it
             })
             return true
         }

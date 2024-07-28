@@ -204,7 +204,7 @@ class VisualCommand : CommandPlugin() {
                 return true
             }
             "char" -> {
-                CharacterDesign.open(player)
+                CharacterDesign.open(player!!)
                 return true
             }
             "savenpc" -> return true

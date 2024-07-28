@@ -28,7 +28,7 @@ class SeersMagicTrees : Script() {
         when (state) {
 
             State.INIT -> {
-                overlay = scriptAPI.getOverlay()
+                overlay = scriptAPI!!.getOverlay()
                 overlay!!.init()
                 overlay!!.setTitle("Woodcutting")
                 overlay!!.setTaskLabel("Logs cut:")
@@ -37,30 +37,30 @@ class SeersMagicTrees : Script() {
             }
 
             State.CHOPPING -> {
-                val tree = scriptAPI.getNearestNode(1306, true)
-                bot.interfaceManager.close()
-                tree?.let { InteractionListeners.run(tree.id, IntType.SCENERY, "Chop down", bot, tree) }
-                if (bot.inventory.isFull) {
+                val tree = scriptAPI!!.getNearestNode(1306, true)
+                bot!!.interfaceManager.close()
+                tree?.let { InteractionListeners.run(tree.id, IntType.SCENERY, "Chop down", bot!!, tree) }
+                if (bot!!.inventory.isFull) {
                     state = State.FIND_BANK
                 }
-                overlay!!.setAmount(logCounter + bot.inventory.getAmount(Items.MAGIC_LOGS_1513))
+                overlay!!.setAmount(logCounter + bot!!.inventory.getAmount(Items.MAGIC_LOGS_1513))
             }
 
             State.FIND_BANK -> {
                 if (!bankZone.insideBorder(bot)) {
-                    scriptAPI.walkTo(bankZone.randomLoc)
+                    scriptAPI!!.walkTo(bankZone.randomLoc)
                 } else {
                     state = State.BANKING
                 }
             }
 
             State.BANKING -> {
-                val bank = scriptAPI.getNearestNode(25808, true)
-                if (bank != null) bot.pulseManager.run(object : MovementPulse(bot, bank, DestinationFlag.OBJECT) {
+                val bank = scriptAPI!!.getNearestNode(25808, true)
+                if (bank != null) bot!!.pulseManager.run(object : MovementPulse(bot!!, bank, DestinationFlag.OBJECT) {
                     override fun pulse(): Boolean {
-                        bot.faceLocation(bank.location)
-                        logCounter += bot.inventory.getAmount(Items.MAGIC_LOGS_1513)
-                        scriptAPI.bankItem(Items.MAGIC_LOGS_1513)
+                        bot!!.faceLocation(bank.location)
+                        logCounter += bot!!.inventory.getAmount(Items.MAGIC_LOGS_1513)
+                        scriptAPI!!.bankItem(Items.MAGIC_LOGS_1513)
                         state = State.RETURN_TO_TREES
                         return true
                     }
@@ -68,9 +68,9 @@ class SeersMagicTrees : Script() {
             }
 
             State.RETURN_TO_TREES -> {
-                bot.interfaceManager.close()
+                bot!!.interfaceManager.close()
                 if (!magicsZone.insideBorder(bot)) {
-                    scriptAPI.walkTo(magicsZone.randomLoc)
+                    scriptAPI!!.walkTo(magicsZone.randomLoc)
                 } else {
                     state = State.CHOPPING
                 }
@@ -78,24 +78,24 @@ class SeersMagicTrees : Script() {
 
             State.TELE_GE -> {
                 state = State.SELL_GE
-                scriptAPI.teleportToGE()
+                scriptAPI!!.teleportToGE()
             }
 
             State.SELL_GE -> {
                 state = State.TELE_SEERS
-                scriptAPI.sellOnGE(Items.MAGIC_LOGS_1513)
+                scriptAPI!!.sellOnGE(Items.MAGIC_LOGS_1513)
             }
 
             State.TELE_SEERS -> {
                 state = State.RETURN_TO_TREES
-                scriptAPI.teleport(Location.create(2756, 3478, 0))
+                scriptAPI!!.teleport(Location.create(2756, 3478, 0))
             }
         }
     }
 
     init {
         inventory.add(Item(Items.RUNE_AXE_1359))
-        skills[Skills.WOODCUTTING] = RandomFunction.random(75, 99)
+        skills[Skills.WOODCUTTING] == RandomFunction.random(75, 99)
     }
 
     enum class State {
@@ -104,7 +104,7 @@ class SeersMagicTrees : Script() {
 
     override fun newInstance(): Script {
         val script = SeersMagicTrees()
-        script.bot = SkillingBotAssembler().produce(SkillingBotAssembler.Wealth.AVERAGE, bot.startLocation)
+        script.bot = SkillingBotAssembler().produce(SkillingBotAssembler.Wealth.AVERAGE, bot!!.startLocation)
         return script
     }
 }

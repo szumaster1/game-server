@@ -36,74 +36,74 @@ class LawCrafter : Script() {
         if (timer-- > 0) {
             return
         }
-        if (bot.settings.runEnergy > 10.0) {
-            bot.settings.isRunToggled = true
+        if (bot!!.settings.runEnergy > 10.0) {
+            bot!!.settings.isRunToggled = true
         }
 
         when (state) {
             State.INIT -> {
-                if (!bot.equipment.containsAtLeastOneItem(Items.LAW_TIARA_5545) || !ItemDefinition.canEnterEntrana(bot)) {
-                    bot.sendMessage("Please equip a law tiara first.")
-                    bot.sendMessage("AND REMOVE ALL WEAPONS AND ARMOR.")
+                if (!bot!!.equipment.containsAtLeastOneItem(Items.LAW_TIARA_5545) || !ItemDefinition.canEnterEntrana(bot)) {
+                    bot!!.sendMessage("Please equip a law tiara first.")
+                    bot!!.sendMessage("AND REMOVE ALL WEAPONS AND ARMOR.")
                     state = State.INVALID
                 } else {
-                    overlay = scriptAPI.getOverlay()
+                    overlay = scriptAPI!!.getOverlay()
                     overlay!!.init()
                     overlay!!.setTitle("Law Runes")
                     overlay!!.setTaskLabel("Runes Crafted:")
                     overlay!!.setAmount(0)
-                    startLocation = bot.location
+                    startLocation = bot!!.location
                     state = State.BANKING
                 }
             }
 
             State.BANKING -> {
                 endDialogue = true
-                bot.interfaceManager.closeChatbox()
-                bot.interfaceManager.openChatbox(137)
-                bot.interfaceManager.closeChatbox()
-                bot.dialogueInterpreter.close()
+                bot!!.interfaceManager.closeChatbox()
+                bot!!.interfaceManager.openChatbox(137)
+                bot!!.interfaceManager.closeChatbox()
+                bot!!.dialogueInterpreter.close()
                 if (!bank.insideBorder(bot)) {
-                    scriptAPI.walkTo(bank.randomLoc)
+                    scriptAPI!!.walkTo(bank.randomLoc)
                     return
                 }
-                val runes = bot.inventory.getAmount(Item(Items.LAW_RUNE_563))
+                val runes = bot!!.inventory.getAmount(Item(Items.LAW_RUNE_563))
                 if (runes > 0) {
                     runeCounter += runes
                     overlay!!.setAmount(runeCounter)
-                    bot.sendMessage("You have crafted a total of: $runeCounter runes.")
-                    scriptAPI.bankItem(Items.LAW_RUNE_563)
+                    bot!!.sendMessage("You have crafted a total of: $runeCounter runes.")
+                    scriptAPI!!.bankItem(Items.LAW_RUNE_563)
                 } else {
-                    scriptAPI.withdraw(Items.PURE_ESSENCE_7936, 28)
+                    scriptAPI!!.withdraw(Items.PURE_ESSENCE_7936, 28)
                     state = State.HALF_BANK
                 }
             }
 
             State.TO_BOAT_GUY -> {
-                var boatGuy = scriptAPI.getNearestNode(2729, false)
+                var boatGuy = scriptAPI!!.getNearestNode(2729, false)
                 if (boatGuy != null) {
-                    if (boatGuy.location.withinDistance(bot.location, 2)) {
+                    if (boatGuy.location.withinDistance(bot!!.location, 2)) {
                         if (ItemDefinition.canEnterEntrana(bot)) {
                             endDialogue = false
-                            Ships.PORT_SARIM_TO_ENTRANA.sail(bot)
+                            Ships.PORT_SARIM_TO_ENTRANA.sail(bot!!)
                             state = State.CROSS_GANGPLANK
                         } else {
                             state = State.INVALID
                         }
                     } else {
-                        scriptAPI.walkTo(boatGuy.location)
+                        scriptAPI!!.walkTo(boatGuy.location)
                     }
 
                 } else {
-                    scriptAPI.walkTo(boatNPC)
+                    scriptAPI!!.walkTo(boatNPC)
                 }
             }
 
             State.CROSS_GANGPLANK -> {
                 if (onBoat.insideBorder(bot)) {
-                    var gangplank = scriptAPI.getNearestNode(2415, true)
+                    var gangplank = scriptAPI!!.getNearestNode(2415, true)
                     if (gangplank != null) {
-                        scriptAPI.interact(bot, gangplank, "cross")
+                        scriptAPI!!.interact(bot!!, gangplank, "cross")
                     }
                 } else if (offBoat.insideBorder(bot)) {
                     state = State.RUNNING_TO_ALTER
@@ -114,12 +114,12 @@ class LawCrafter : Script() {
             State.RUNNING_TO_ALTER -> {
                 if (lawZone.insideBorder(bot)) state = State.CRAFTING
 
-                val ruins = scriptAPI.getNearestNode(2459, true)
+                val ruins = scriptAPI!!.getNearestNode(2459, true)
                 if (!ruinsZone.insideBorder(bot)) {
-                    scriptAPI.walkTo(ruinPoint)
-                } else if (ruins != null && ruins.location.withinDistance(bot.location, 20)) {
+                    scriptAPI!!.walkTo(ruinPoint)
+                } else if (ruins != null && ruins.location.withinDistance(bot!!.location, 20)) {
                     val ruinsChild = (ruins as Scenery).getChild(bot)
-                    scriptAPI.interact(bot, ruinsChild, "enter")
+                    scriptAPI!!.interact(bot!!, ruinsChild, "enter")
                     timer = 4
                 }
             }
@@ -129,18 +129,18 @@ class LawCrafter : Script() {
                     return
                 }
 
-                if (bot.location != lawLocation) {
-                    scriptAPI.walkTo(lawLocation)
+                if (bot!!.location != lawLocation) {
+                    scriptAPI!!.walkTo(lawLocation)
                 }
 
-                val alter = scriptAPI.getNearestNode(2485, true)
-                scriptAPI.interact(bot, alter, "craft-rune")
-                if (bot.inventory.containsAtLeastOneItem(Item(Items.LAW_RUNE_563))) state = State.LEAVING_ALTER
+                val alter = scriptAPI!!.getNearestNode(2485, true)
+                scriptAPI!!.interact(bot!!, alter, "craft-rune")
+                if (bot!!.inventory.containsAtLeastOneItem(Item(Items.LAW_RUNE_563))) state = State.LEAVING_ALTER
             }
 
             State.LEAVING_ALTER -> {
-                var portalOut = scriptAPI.getNearestNode(2472, true)
-                scriptAPI.interact(bot, portalOut, "use")
+                var portalOut = scriptAPI!!.getNearestNode(2472, true)
+                scriptAPI!!.interact(bot!!, portalOut, "use")
                 if (ruinsZone.insideBorder(bot)) {
                     state = State.RETURN_TO_BOAT_GUY
                     timer = 2
@@ -148,18 +148,18 @@ class LawCrafter : Script() {
             }
 
             State.RETURN_TO_BOAT_GUY -> {
-                var boatGuy = scriptAPI.getNearestNode(2730, false)
+                var boatGuy = scriptAPI!!.getNearestNode(2730, false)
                 if (boatGuy != null) {
-                    if (boatGuy.location.withinDistance(bot.location, 2)) {
+                    if (boatGuy.location.withinDistance(bot!!.location, 2)) {
                         endDialogue = false
-                        Ships.ENTRANA_TO_PORT_SARIM.sail(bot)
+                        Ships.ENTRANA_TO_PORT_SARIM.sail(bot!!)
                         state = State.HALF_BANK
                     } else {
-                        scriptAPI.walkTo(boatGuy.location)
+                        scriptAPI!!.walkTo(boatGuy.location)
                     }
 
                 } else {
-                    scriptAPI.walkTo(returnNPC)
+                    scriptAPI!!.walkTo(returnNPC)
                 }
             }
 
@@ -167,15 +167,15 @@ class LawCrafter : Script() {
             // This is because the dialogue can't be ended until you are safely on the
             // mainland side. But new chunks won't load while dialogue is still displayed.
             State.HALF_BANK -> {
-                if (bot.inventory.containsAtLeastOneItem(Items.PURE_ESSENCE_7936)) {
-                    if ((bot.location.x - 2) > halfBank.x) {
-                        scriptAPI.walkTo(halfBank)
+                if (bot!!.inventory.containsAtLeastOneItem(Items.PURE_ESSENCE_7936)) {
+                    if ((bot!!.location.x - 2) > halfBank.x) {
+                        scriptAPI!!.walkTo(halfBank)
                     } else {
                         state = State.TO_BOAT_GUY
                     }
                 } else {
-                    if ((bot.location.x + 2) < halfBank.x) {
-                        scriptAPI.walkTo(halfBank)
+                    if ((bot!!.location.x + 2) < halfBank.x) {
+                        scriptAPI!!.walkTo(halfBank)
                     } else {
                         state = State.BANKING
                     }

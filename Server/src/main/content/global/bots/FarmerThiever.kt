@@ -22,26 +22,26 @@ class FarmerThiever : Script() {
         when (state) {
 
             State.PICKPOCKETING -> {
-                if (!pickpocketZone.insideBorder(bot)) scriptAPI.walkTo(pickpocketZone.randomLoc)
-                if (bot.inventory.isFull) state = State.BANKING
+                if (!pickpocketZone.insideBorder(bot)) scriptAPI!!.walkTo(pickpocketZone.randomLoc)
+                if (bot!!.inventory.isFull) state = State.BANKING
                 else {
-                    val farmer = scriptAPI.getNearestNode(NPCs.MASTER_FARMER_2234, false)
-                    bot.interfaceManager.close()
-                    scriptAPI.eat(food)
+                    val farmer = scriptAPI!!.getNearestNode(NPCs.MASTER_FARMER_2234, false)
+                    bot!!.interfaceManager.close()
+                    scriptAPI!!.eat(food)
                     if (farmer != null) {
-                        InteractionListeners.run(farmer.id, IntType.NPC, "Pickpocket", bot, farmer)
+                        InteractionListeners.run(farmer.id, IntType.NPC, "Pickpocket", bot!!, farmer)
                     }
                 }
             }
 
             State.BANKING -> {
-                val bank = scriptAPI.getNearestNode("Bank Booth", true)
+                val bank = scriptAPI!!.getNearestNode("Bank Booth", true)
                 bank ?: return
-                if (!bankZone.insideBorder(bot)) scriptAPI.walkTo(bankZone.randomLoc)
+                if (!bankZone.insideBorder(bot)) scriptAPI!!.walkTo(bankZone.randomLoc)
                 else {
-                    bot.faceLocation(bank.location)
-                    bot.inventory.clear()
-                    bot.inventory.add(Item(food, foodAmount))
+                    bot!!.faceLocation(bank.location)
+                    bot!!.inventory.clear()
+                    bot!!.inventory.add(Item(food, foodAmount))
                     state = State.PICKPOCKETING
                 }
             }
@@ -51,7 +51,7 @@ class FarmerThiever : Script() {
 
     override fun newInstance(): Script {
         val script = FarmerThiever()
-        script.bot = SkillingBotAssembler().produce(SkillingBotAssembler.Wealth.POOR, bot.startLocation)
+        script.bot = SkillingBotAssembler().produce(SkillingBotAssembler.Wealth.POOR, bot!!.startLocation)
         return script
     }
 
@@ -61,8 +61,8 @@ class FarmerThiever : Script() {
 
     init {
         inventory.add(Item(food, foodAmount))
-        skills[Skills.THIEVING] = 80
-        skills[Skills.HITPOINTS] = 10
+        skills[Skills.THIEVING] == 80
+        skills[Skills.HITPOINTS] == 10
     }
 
 

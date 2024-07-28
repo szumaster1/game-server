@@ -13,6 +13,7 @@ import core.game.event.*
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.SpellBookManager
 import core.game.node.entity.player.link.diary.DiaryType
+import core.game.node.entity.player.link.prayer.PrayerType
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.world.map.Location
@@ -32,15 +33,16 @@ class SeersVillageAchievementDiary : DiaryEventHookBase(DiaryType.SEERS_VILLAGE)
 
         private val SEERS_VILLAGE_AREA = ZoneBorders(2687, 3455, 2742, 3507)
         private val SEERS_BANK_AREA = ZoneBorders(2721, 3490, 2730, 3493)
-        private val SEERS_COAL_TRUCKS_AREA = ZoneBorders(2690, 3502, 2699, 3508)
         private val SEERS_CHURCH = getRegionBorders(10806)
+        private val SEERS_COAL_TRUCKS_AREA = ZoneBorders(2690, 3502, 2699, 3508)
+        private val SEERS_COURTHOUSE_AREA = ZoneBorders(2732, 3467, 2739, 3471)
         private val RANGING_GUILD_LOCATION_AREA = Location(2657, 3439)
 
         private val COMBAT_BRACELETS = arrayOf(Items.COMBAT_BRACELET_11126, Items.COMBAT_BRACELET4_11118, Items.COMBAT_BRACELET3_11120, Items.COMBAT_BRACELET2_11122, Items.COMBAT_BRACELET1_11124)
         private val CHURN_PRODUCT = arrayOf(Items.CHEESE_1985, Items.POT_OF_CREAM_2130, Items.PAT_OF_BUTTER_6697)
         private val RANGING_GUILD_ARCHERS = arrayOf(NPCs.TOWER_ARCHER_688, NPCs.TOWER_ARCHER_689, NPCs.TOWER_ARCHER_690, NPCs.TOWER_ARCHER_691)
-        private val WORKSHOP_ELEMENTALS = arrayOf(NPCs.FIRE_ELEMENTAL_1019, NPCs.EARTH_ELEMENTAL_1020, NPCs.AIR_ELEMENTAL_1021, NPCs.WATER_ELEMENTAL_1022)
         private val RANGING_GUILD_STOCK = arrayOf(Items.BARB_BOLTTIPS_47, Items.RUNE_ARROW_892, Items.GREEN_DHIDE_BODY_1135, Items.ADAMANT_JAVELIN_829, Items.STUDDED_BODY_1133, Items.COIF_1169)
+        private val WORKSHOP_ELEMENTALS = arrayOf(NPCs.FIRE_ELEMENTAL_1019, NPCs.EARTH_ELEMENTAL_1020, NPCs.AIR_ELEMENTAL_1021, NPCs.WATER_ELEMENTAL_1022)
 
         object EasyTasks {
             const val PICK_5_FLAX = 0
@@ -84,6 +86,16 @@ class SeersVillageAchievementDiary : DiaryEventHookBase(DiaryType.SEERS_VILLAGE)
             const val CATHERBY_COOK_5_SHARKS_WITH_COOKING_GAUNTLETS = 8
             const val CHARGE_5_WATER_ORBS_AT_ONCE = 9
             const val GRAPPLE_FROM_WATER_OBELISK_TO_CATHERBY_SHORE = 10
+        }
+    }
+
+    override fun onAreaVisited(player: Player) {
+        if (inBorders(player, SEERS_COURTHOUSE_AREA) && player.prayer.equals(PrayerType.PIETY)) {
+            finishTask(
+                player,
+                DiaryLevel.HARD,
+                HardTasks.ENTER_SEERS_COURTHOUSE_WITH_PIETY
+            )
         }
     }
 

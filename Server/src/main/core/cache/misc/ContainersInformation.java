@@ -85,7 +85,7 @@ public final class ContainersInformation {
             // throw new RuntimeException();
         }
         if (compression == 0) {
-            byte unpacked[] = new byte[containerSize];
+            byte[] unpacked = new byte[containerSize];
             buffer.get(unpacked, 0, containerSize);
             return unpacked;
         }
@@ -94,7 +94,7 @@ public final class ContainersInformation {
             return null;
             // throw new RuntimeException();
         }
-        byte decompressedData[] = new byte[decompressedSize];
+        byte[] decompressedData = new byte[decompressedSize];
         if (compression == 1) {
             BZip2Decompressor.decompress(decompressedData, packedData, containerSize, 9);
         } else {

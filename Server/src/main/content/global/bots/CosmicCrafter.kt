@@ -38,56 +38,56 @@ class CosmicCrafter : Script() {
         if (timer-- > 0) {
             return
         }
-        if (bot.settings.runEnergy > 10.0) {
-            bot.settings.isRunToggled = true
+        if (bot!!.settings.runEnergy > 10.0) {
+            bot!!.settings.isRunToggled = true
         }
 
         when (state) {
             State.INIT -> {
-                if (!bot.equipment.containsAtLeastOneItem(Items.COSMIC_TIARA_5539)) {
-                    bot.sendMessage("Please equip a cosmic tiara first.")
+                if (!bot!!.equipment.containsAtLeastOneItem(Items.COSMIC_TIARA_5539)) {
+                    bot!!.sendMessage("Please equip a cosmic tiara first.")
                     state = State.INVALID
                 } else {
-                    overlay = scriptAPI.getOverlay()
+                    overlay = scriptAPI!!.getOverlay()
                     overlay!!.init()
                     overlay!!.setTitle("Cosmic Runes")
                     overlay!!.setTaskLabel("Runes Crafted:")
                     overlay!!.setAmount(0)
-                    startLocation = bot.location
+                    startLocation = bot!!.location
                     state = State.BANKING
                 }
             }
 
             State.BANKING -> {
-                if (bot.location != bank) {
-                    scriptAPI.walkTo(bank)
+                if (bot!!.location != bank) {
+                    scriptAPI!!.walkTo(bank)
                     return
                 }
-                val runes = bot.inventory.getAmount(Item(Items.COSMIC_RUNE_564))
+                val runes = bot!!.inventory.getAmount(Item(Items.COSMIC_RUNE_564))
                 if (runes > 0) {
                     runeCounter += runes
                     overlay!!.setAmount(runeCounter)
-                    bot.sendMessage("You have crafted a total of: $runeCounter runes.")
-                    scriptAPI.bankItem(Items.COSMIC_RUNE_564)
+                    bot!!.sendMessage("You have crafted a total of: $runeCounter runes.")
+                    scriptAPI!!.bankItem(Items.COSMIC_RUNE_564)
                 } else {
-                    scriptAPI.withdraw(Items.PURE_ESSENCE_7936, 28)
+                    scriptAPI!!.withdraw(Items.PURE_ESSENCE_7936, 28)
                     state = State.FIRST_AGILITY
                 }
             }
 
             State.FIRST_AGILITY -> {
-                val squeezeWall = scriptAPI.getNearestNode(12127, true)
+                val squeezeWall = scriptAPI!!.getNearestNode(12127, true)
                 if (agility_part == 0) {
-                    if (!squeezeZone.insideBorder(bot)) scriptAPI.walkTo(agility1EntryPoint)
+                    if (!squeezeZone.insideBorder(bot)) scriptAPI!!.walkTo(agility1EntryPoint)
                     else {
-                        scriptAPI.interact(bot, squeezeWall, "squeeze-past")
+                        scriptAPI!!.interact(bot!!, squeezeWall, "squeeze-past")
                         agility_part = 1
                         timer = 6
                     }
                 } else if (agility_part == 1) {
-                    if (!endZone.insideBorder(bot)) scriptAPI.walkTo(agility2EntryPoint)
+                    if (!endZone.insideBorder(bot)) scriptAPI!!.walkTo(agility2EntryPoint)
                     else {
-                        scriptAPI.interact(bot, squeezeWall, "squeeze-past")
+                        scriptAPI!!.interact(bot!!, squeezeWall, "squeeze-past")
                         state = State.RUNNING_TO_ALTER
                         timer = 6
                     }
@@ -97,30 +97,30 @@ class CosmicCrafter : Script() {
             State.RUNNING_TO_ALTER -> {
                 if (cosmicZone.insideBorder(bot)) state = State.CRAFTING
 
-                val ruins = scriptAPI.getNearestNode(2458, true)
+                val ruins = scriptAPI!!.getNearestNode(2458, true)
                 if (!ruinsZone.insideBorder(bot)) {
-                    scriptAPI.walkTo(ruinPoint)
-                } else if (ruins != null && ruins.location.withinDistance(bot.location, 20)) {
-                    if (!bot.equipment.containsAtLeastOneItem(Items.COSMIC_TIARA_5539)) {
-                        bot.sendMessage("Please equip a cosmic tiara first.")
+                    scriptAPI!!.walkTo(ruinPoint)
+                } else if (ruins != null && ruins.location.withinDistance(bot!!.location, 20)) {
+                    if (!bot!!.equipment.containsAtLeastOneItem(Items.COSMIC_TIARA_5539)) {
+                        bot!!.sendMessage("Please equip a cosmic tiara first.")
                         state = State.INVALID
                     } else {
                         val ruinsChild = (ruins as Scenery).getChild(bot)
-                        scriptAPI.interact(bot, ruinsChild, "enter")
+                        scriptAPI!!.interact(bot!!, ruinsChild, "enter")
                         timer = 4
                     }
                 }
             }
 
             State.CRAFTING -> {
-                val alter = scriptAPI.getNearestNode(2484, true)
-                scriptAPI.interact(bot, alter, "craft-rune")
-                if (bot.inventory.containsAtLeastOneItem(Item(Items.COSMIC_RUNE_564))) state = State.LEAVING_ALTER
+                val alter = scriptAPI!!.getNearestNode(2484, true)
+                scriptAPI!!.interact(bot!!, alter, "craft-rune")
+                if (bot!!.inventory.containsAtLeastOneItem(Item(Items.COSMIC_RUNE_564))) state = State.LEAVING_ALTER
             }
 
             State.LEAVING_ALTER -> {
-                var portalOut = scriptAPI.getNearestNode(2471, true)
-                scriptAPI.interact(bot, portalOut, "use")
+                var portalOut = scriptAPI!!.getNearestNode(2471, true)
+                scriptAPI!!.interact(bot!!, portalOut, "use")
                 if (ruinsZone.insideBorder(bot)) {
                     state = State.RETURN_AGILITY
                     timer = 2
@@ -128,18 +128,18 @@ class CosmicCrafter : Script() {
             }
 
             State.RETURN_AGILITY -> {
-                val squeezeWall = scriptAPI.getNearestNode(12127, true)
+                val squeezeWall = scriptAPI!!.getNearestNode(12127, true)
                 if (agility_part == 1) {
-                    if (!endZone.insideBorder(bot)) scriptAPI.walkTo(agility2ExitPoint)
+                    if (!endZone.insideBorder(bot)) scriptAPI!!.walkTo(agility2ExitPoint)
                     else {
-                        scriptAPI.interact(bot, squeezeWall, "squeeze-past")
+                        scriptAPI!!.interact(bot!!, squeezeWall, "squeeze-past")
                         agility_part = 0
                         timer = 6
                     }
                 } else if (agility_part == 0) {
-                    if (!squeezeZone.insideBorder(bot)) scriptAPI.walkTo(agility1ExitPoint)
+                    if (!squeezeZone.insideBorder(bot)) scriptAPI!!.walkTo(agility1ExitPoint)
                     else {
-                        scriptAPI.interact(bot, squeezeWall, "squeeze-past")
+                        scriptAPI!!.interact(bot!!, squeezeWall, "squeeze-past")
                         state = State.BANKING
                         timer = 6
                     }

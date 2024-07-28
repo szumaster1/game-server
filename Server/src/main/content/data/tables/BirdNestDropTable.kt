@@ -15,13 +15,65 @@ import core.tools.StringUtils
  * @author Vexia
  */
 enum class BirdNestDropTable(val nest: ChanceItem, vararg loot: ChanceItem) {
-    RED(ChanceItem(Items.BIRDS_NEST_5070,1,5), ChanceItem(Items.BIRDS_EGG_5076)),
-    GREEN(ChanceItem(Items.BIRDS_NEST_5071,1,5), ChanceItem(Items.BIRDS_EGG_5078)),
-    BLUE(ChanceItem(Items.BIRDS_NEST_5072,1,5), ChanceItem(Items.BIRDS_EGG_5077)),
-    SEED(ChanceItem(Items.BIRDS_NEST_5073,1,65), ChanceItem(Items.ACORN_5312, 1, NPCDropTables.DROP_RATES[0]), ChanceItem(Items.APPLE_TREE_SEED_5283, 1, NPCDropTables.DROP_RATES[0]), ChanceItem(Items.WILLOW_SEED_5313, 1, NPCDropTables.DROP_RATES[0]), ChanceItem(Items.BANANA_TREE_SEED_5284, 1, NPCDropTables.DROP_RATES[0]), ChanceItem(Items.ORANGE_TREE_SEED_5285, 1, NPCDropTables.DROP_RATES[0]), ChanceItem(Items.CURRY_TREE_SEED_5286, 1, NPCDropTables.DROP_RATES[0]), ChanceItem(Items.MAPLE_SEED_5314, 1, NPCDropTables.DROP_RATES[1]), ChanceItem(Items.PINEAPPLE_SEED_5287, 1, NPCDropTables.DROP_RATES[1]), ChanceItem(Items.PAPAYA_TREE_SEED_5288, 1, NPCDropTables.DROP_RATES[1]), ChanceItem(Items.YEW_SEED_5315, 1, NPCDropTables.DROP_RATES[2]), ChanceItem(Items.PALM_TREE_SEED_5289, 1, NPCDropTables.DROP_RATES[2]), ChanceItem(Items.CALQUAT_TREE_SEED_5290, 1, NPCDropTables.DROP_RATES[2]), ChanceItem(Items.SPIRIT_SEED_5317, 1, NPCDropTables.DROP_RATES[3]), ChanceItem(Items.MAGIC_SEED_5316, 1, NPCDropTables.DROP_RATES[3])),
-    RING(ChanceItem(Items.BIRDS_NEST_5074,1,30), ChanceItem(Items.GOLD_RING_1635, 1, NPCDropTables.DROP_RATES[0]), ChanceItem(Items.SAPPHIRE_RING_1637, 1, NPCDropTables.DROP_RATES[0]), ChanceItem(Items.EMERALD_RING_1639, 1, NPCDropTables.DROP_RATES[0]), ChanceItem(Items.RUBY_RING_1641, 1, NPCDropTables.DROP_RATES[0]), ChanceItem(Items.DIAMOND_RING_1643, 1, NPCDropTables.DROP_RATES[2])),
-    WYSON(ChanceItem(Items.BIRDS_NEST_7413,1,1), ChanceItem(Items.POTATO_SEED_5318, 14, NPCDropTables.DROP_RATES[0]), ChanceItem(Items.SWEETCORN_SEED_5320, 3, NPCDropTables.DROP_RATES[0]), ChanceItem(Items.TOMATO_SEED_5322, 6, NPCDropTables.DROP_RATES[0]), ChanceItem(Items.CABBAGE_SEED_5324, 9, NPCDropTables.DROP_RATES[0]), ChanceItem(Items.LIMPWURT_SEED_5100, 2, NPCDropTables.DROP_RATES[0]), ChanceItem(Items.ONION_SEED_5319, 11, NPCDropTables.DROP_RATES[0]), ChanceItem(Items.STRAWBERRY_SEED_5323, 3, NPCDropTables.DROP_RATES[0]), ChanceItem(Items.WATERMELON_SEED_5321, 2, NPCDropTables.DROP_RATES[0]), ChanceItem(Items.ACORN_5312, 1, NPCDropTables.DROP_RATES[2]), ChanceItem(Items.RANARR_SEED_5295, 1, NPCDropTables.DROP_RATES[2]), ChanceItem(Items.WILLOW_SEED_5313, 1, NPCDropTables.DROP_RATES[2]), ChanceItem(Items.MAPLE_SEED_5314, 1, NPCDropTables.DROP_RATES[2]), ChanceItem(Items.YEW_SEED_5315, 1, NPCDropTables.DROP_RATES[2]), ChanceItem(Items.MAGIC_SEED_5316, 1, NPCDropTables.DROP_RATES[3]), ChanceItem(Items.SPIRIT_SEED_5317, 1, NPCDropTables.DROP_RATES[3])),
-    RAVEN(ChanceItem(Items.BIRDS_NEST_11966,1,5), ChanceItem(Items.RAVEN_EGG_11964));
+    RED(
+        ChanceItem(Items.BIRDS_NEST_5070, 1, 5),
+        ChanceItem(Items.BIRDS_EGG_5076)
+    ),
+    GREEN(
+        ChanceItem(Items.BIRDS_NEST_5071, 1, 5),
+        ChanceItem(Items.BIRDS_EGG_5078)
+    ),
+    BLUE(
+        ChanceItem(Items.BIRDS_NEST_5072, 1, 5),
+        ChanceItem(Items.BIRDS_EGG_5077)
+    ),
+    SEED(
+        ChanceItem(Items.BIRDS_NEST_5073, 1, 65),
+        ChanceItem(Items.ACORN_5312, 1, NPCDropTables.DROP_RATES[0]),
+        ChanceItem(Items.APPLE_TREE_SEED_5283, 1, NPCDropTables.DROP_RATES[0]),
+        ChanceItem(Items.WILLOW_SEED_5313, 1, NPCDropTables.DROP_RATES[0]),
+        ChanceItem(Items.BANANA_TREE_SEED_5284, 1, NPCDropTables.DROP_RATES[0]),
+        ChanceItem(Items.ORANGE_TREE_SEED_5285, 1, NPCDropTables.DROP_RATES[0]),
+        ChanceItem(Items.CURRY_TREE_SEED_5286, 1, NPCDropTables.DROP_RATES[0]),
+        ChanceItem(Items.MAPLE_SEED_5314, 1, NPCDropTables.DROP_RATES[1]),
+        ChanceItem(Items.PINEAPPLE_SEED_5287, 1, NPCDropTables.DROP_RATES[1]),
+        ChanceItem(Items.PAPAYA_TREE_SEED_5288, 1, NPCDropTables.DROP_RATES[1]),
+        ChanceItem(Items.YEW_SEED_5315, 1, NPCDropTables.DROP_RATES[2]),
+        ChanceItem(Items.PALM_TREE_SEED_5289, 1, NPCDropTables.DROP_RATES[2]),
+        ChanceItem(Items.CALQUAT_TREE_SEED_5290, 1, NPCDropTables.DROP_RATES[2]),
+        ChanceItem(Items.SPIRIT_SEED_5317, 1, NPCDropTables.DROP_RATES[3]),
+        ChanceItem(Items.MAGIC_SEED_5316, 1, NPCDropTables.DROP_RATES[3])
+    ),
+    RING(
+        ChanceItem(Items.BIRDS_NEST_5074, 1, 30),
+        ChanceItem(Items.GOLD_RING_1635, 1, NPCDropTables.DROP_RATES[0]),
+        ChanceItem(Items.SAPPHIRE_RING_1637, 1, NPCDropTables.DROP_RATES[0]),
+        ChanceItem(Items.EMERALD_RING_1639, 1, NPCDropTables.DROP_RATES[0]),
+        ChanceItem(Items.RUBY_RING_1641, 1, NPCDropTables.DROP_RATES[0]),
+        ChanceItem(Items.DIAMOND_RING_1643, 1, NPCDropTables.DROP_RATES[2])
+    ),
+    WYSON(
+        ChanceItem(Items.BIRDS_NEST_7413, 1, 1),
+        ChanceItem(Items.POTATO_SEED_5318, 14, NPCDropTables.DROP_RATES[0]),
+        ChanceItem(Items.SWEETCORN_SEED_5320, 3, NPCDropTables.DROP_RATES[0]),
+        ChanceItem(Items.TOMATO_SEED_5322, 6, NPCDropTables.DROP_RATES[0]),
+        ChanceItem(Items.CABBAGE_SEED_5324, 9, NPCDropTables.DROP_RATES[0]),
+        ChanceItem(Items.LIMPWURT_SEED_5100, 2, NPCDropTables.DROP_RATES[0]),
+        ChanceItem(Items.ONION_SEED_5319, 11, NPCDropTables.DROP_RATES[0]),
+        ChanceItem(Items.STRAWBERRY_SEED_5323, 3, NPCDropTables.DROP_RATES[0]),
+        ChanceItem(Items.WATERMELON_SEED_5321, 2, NPCDropTables.DROP_RATES[0]),
+        ChanceItem(Items.ACORN_5312, 1, NPCDropTables.DROP_RATES[2]),
+        ChanceItem(Items.RANARR_SEED_5295, 1, NPCDropTables.DROP_RATES[2]),
+        ChanceItem(Items.WILLOW_SEED_5313, 1, NPCDropTables.DROP_RATES[2]),
+        ChanceItem(Items.MAPLE_SEED_5314, 1, NPCDropTables.DROP_RATES[2]),
+        ChanceItem(Items.YEW_SEED_5315, 1, NPCDropTables.DROP_RATES[2]),
+        ChanceItem(Items.MAGIC_SEED_5316, 1, NPCDropTables.DROP_RATES[3]),
+        ChanceItem(Items.SPIRIT_SEED_5317, 1, NPCDropTables.DROP_RATES[3])
+    ),
+    RAVEN(
+        ChanceItem(Items.BIRDS_NEST_11966, 1, 5),
+        ChanceItem(Items.RAVEN_EGG_11964)
+    );
 
     val loot: Array<ChanceItem> = loot as Array<ChanceItem>
 

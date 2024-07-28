@@ -33,7 +33,7 @@ class GnomeAgility : Script() {
         when (state) {
 
             State.INIT -> {
-                overlay = scriptAPI.getOverlay()
+                overlay = scriptAPI!!.getOverlay()
                 overlay!!.init()
                 overlay!!.setTitle("Agility Course")
                 overlay!!.setTaskLabel("Laps Run")
@@ -44,7 +44,7 @@ class GnomeAgility : Script() {
 
             State.START -> {
                 if (!startzone.insideBorder(bot)) {
-                    scriptAPI.walkTo(startzone.randomLoc)
+                    scriptAPI!!.walkTo(startzone.randomLoc)
                 }
                 if (startzone.insideBorder(bot)) {
                     state = State.LOG
@@ -52,9 +52,9 @@ class GnomeAgility : Script() {
             }
 
             State.LOG -> {
-                val log = scriptAPI.getNearestNode("log balance", true)
+                val log = scriptAPI!!.getNearestNode("log balance", true)
                 if (startzone.insideBorder(bot)) {
-                    scriptAPI.interact(bot, log, "walk-across")
+                    scriptAPI!!.interact(bot!!, log, "walk-across")
                 }
                 if (afterlog.insideBorder(bot)) {
                     state = State.FIRSTNET
@@ -62,12 +62,12 @@ class GnomeAgility : Script() {
             }
 
             State.FIRSTNET -> {
-                val firstnet = scriptAPI.getNearestNode("obstacle net", true)
+                val firstnet = scriptAPI!!.getNearestNode("obstacle net", true)
                 if (!beforefirstnet.insideBorder(bot)) {
-                    scriptAPI.walkTo(beforefirstnet.randomLoc)
+                    scriptAPI!!.walkTo(beforefirstnet.randomLoc)
                 }
                 if (beforefirstnet.insideBorder(bot)) {
-                    scriptAPI.interact(bot, firstnet, "climb-over")
+                    scriptAPI!!.interact(bot!!, firstnet, "climb-over")
                 }
                 if (afterfirstnet.insideBorder(bot)) {
                     state = State.BRANCHUP
@@ -75,56 +75,56 @@ class GnomeAgility : Script() {
             }
 
             State.BRANCHUP -> {
-                val branchup = scriptAPI.getNearestNode("tree branch", true)
+                val branchup = scriptAPI!!.getNearestNode("tree branch", true)
                 if (!beforebranchup.insideBorder(bot) && !afterbranchup.insideBorder(bot)) {
-                    scriptAPI.walkTo(beforebranchup.randomLoc)
+                    scriptAPI!!.walkTo(beforebranchup.randomLoc)
                 } else if (beforebranchup.insideBorder(bot)) {
-                    scriptAPI.interact(bot, branchup, "climb")
+                    scriptAPI!!.interact(bot!!, branchup, "climb")
                 } else if (afterbranchup.insideBorder(bot)) {
                     state = State.ROPE
                 }
             }
 
             State.ROPE -> {
-                val rope = scriptAPI.getNearestNode("balancing rope", true)
+                val rope = scriptAPI!!.getNearestNode("balancing rope", true)
                 if (!beforerope.insideBorder(bot) && !afterrope.insideBorder(bot)) {
-                    scriptAPI.walkTo(beforerope.randomLoc)
+                    scriptAPI!!.walkTo(beforerope.randomLoc)
                 } else if (beforerope.insideBorder(bot)) {
-                    scriptAPI.interact(bot, rope, "walk-on")
+                    scriptAPI!!.interact(bot!!, rope, "walk-on")
                 } else if (afterrope.insideBorder(bot)) {
                     state = State.BRANCHDOWN
                 }
             }
 
             State.BRANCHDOWN -> {
-                val branchdown = scriptAPI.getNearestNode("tree branch", true)
+                val branchdown = scriptAPI!!.getNearestNode("tree branch", true)
                 if (!beforebranchdown.insideBorder(bot) && !afterbranchdown.insideBorder(bot)) {
-                    scriptAPI.walkTo(beforebranchdown.randomLoc)
+                    scriptAPI!!.walkTo(beforebranchdown.randomLoc)
                 } else if (beforebranchdown.insideBorder(bot)) {
-                    scriptAPI.interact(bot, branchdown, "climb-down")
+                    scriptAPI!!.interact(bot!!, branchdown, "climb-down")
                 } else if (afterbranchdown.insideBorder(bot)) {
                     state = State.SECONDNET
                 }
             }
 
             State.SECONDNET -> {
-                val secondnet = scriptAPI.getNearestNode("obstacle net", true)
+                val secondnet = scriptAPI!!.getNearestNode("obstacle net", true)
                 if (!beforesecondnet.insideBorder(bot) && !aftersecondnet.insideBorder(bot)) {
-                    scriptAPI.walkTo(beforesecondnet.randomLoc)
+                    scriptAPI!!.walkTo(beforesecondnet.randomLoc)
                 } else if (beforesecondnet.insideBorder(bot)) {
-                    scriptAPI.interact(bot, secondnet, "climb-over")
+                    scriptAPI!!.interact(bot!!, secondnet, "climb-over")
                 } else if (aftersecondnet.insideBorder(bot)) {
                     state = State.PIPE
                 }
             }
 
             State.PIPE -> {
-                val pipe = scriptAPI.getNearestNode("obstacle pipe", true)
+                val pipe = scriptAPI!!.getNearestNode("obstacle pipe", true)
                 if (!beforepipe.insideBorder(bot) && !afterpipe.insideBorder(bot)) {
-                    scriptAPI.walkTo((beforepipe.randomLoc))
+                    scriptAPI!!.walkTo((beforepipe.randomLoc))
                 }
                 if (beforepipe.insideBorder(bot)) {
-                    scriptAPI.interact(bot, pipe, "squeeze-through")
+                    scriptAPI!!.interact(bot!!, pipe, "squeeze-through")
                 }
                 if (afterpipe.insideBorder(bot)) {
                     totalLaps += 1
@@ -137,7 +137,7 @@ class GnomeAgility : Script() {
 
     override fun newInstance(): Script {
         val script = GnomeAgility()
-        script.bot = SkillingBotAssembler().produce(SkillingBotAssembler.Wealth.POOR, bot.startLocation)
+        script.bot = SkillingBotAssembler().produce(SkillingBotAssembler.Wealth.POOR, bot!!.startLocation)
         return script
     }
 

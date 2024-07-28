@@ -27,44 +27,44 @@ class DraynorWillows : Script() {
         when (state) {
             State.INIT -> {
                 if (true) {
-                    bot.interfaceManager.openOverlay(Component(195))
-                    bot.packetDispatch.sendString("Woodcutting", 195, 7)
-                    bot.packetDispatch.sendString(colorize("%BLogs Chopped:"), 195, 8)
-                    bot.packetDispatch.sendString(colorize("%B0"), 195, 9)
-                    bot.packetDispatch.sendInterfaceConfig(195, 5, true)
+                    bot!!.interfaceManager.openOverlay(Component(195))
+                    bot!!.packetDispatch.sendString("Woodcutting", 195, 7)
+                    bot!!.packetDispatch.sendString(colorize("%BLogs Chopped:"), 195, 8)
+                    bot!!.packetDispatch.sendString(colorize("%B0"), 195, 9)
+                    bot!!.packetDispatch.sendInterfaceConfig(195, 5, true)
                 }
                 state = State.CHOPPING
             }
 
             State.CHOPPING -> {
-                if (!willowZone.insideBorder(bot)) scriptAPI.walkTo(willowZone.randomLoc)
+                if (!willowZone.insideBorder(bot)) scriptAPI!!.walkTo(willowZone.randomLoc)
                 else {
-                    val willowtree = scriptAPI.getNearestNode("willow", true)
-                    bot.interfaceManager.close()
+                    val willowtree = scriptAPI!!.getNearestNode("willow", true)
+                    bot!!.interfaceManager.close()
                     willowtree?.let {
                         InteractionListeners.run(
-                            willowtree.id, IntType.SCENERY, "Chop down", bot, willowtree
+                            willowtree.id, IntType.SCENERY, "Chop down", bot!!, willowtree
                         )
                     }
-                    if (bot.inventory.isFull) state = State.BANKING
+                    if (bot!!.inventory.isFull) state = State.BANKING
                 }
 
-                bot.packetDispatch.sendString(
-                    colorize("%B${logCount + bot.inventory.getAmount(Items.WILLOW_LOGS_1519)}"), 195, 9
+                bot!!.packetDispatch.sendString(
+                    colorize("%B${logCount + bot!!.inventory.getAmount(Items.WILLOW_LOGS_1519)}"), 195, 9
                 )
             }
 
             State.BANKING -> {
-                if (!bankZone.insideBorder(bot)) scriptAPI.walkTo(bankZone.randomLoc)
+                if (!bankZone.insideBorder(bot)) scriptAPI!!.walkTo(bankZone.randomLoc)
                 else {
-                    val bank = scriptAPI.getNearestNode("Bank Booth", true)
+                    val bank = scriptAPI!!.getNearestNode("Bank Booth", true)
                     if (bank != null) {
-                        bot.pulseManager.run(object : MovementPulse(bot, bank, DestinationFlag.OBJECT) {
+                        bot!!.pulseManager.run(object : MovementPulse(bot!!, bank, DestinationFlag.OBJECT) {
                             override fun pulse(): Boolean {
-                                val logs = bot.inventory.getAmount(Item(Items.WILLOW_LOGS_1519))
+                                val logs = bot!!.inventory.getAmount(Item(Items.WILLOW_LOGS_1519))
                                 logCount += logs
-                                bot.inventory.remove(Item(Items.WILLOW_LOGS_1519, logs))
-                                bot.bank.add(Item(Items.WILLOW_LOGS_1519, logs))
+                                bot!!.inventory.remove(Item(Items.WILLOW_LOGS_1519, logs))
+                                bot!!.bank.add(Item(Items.WILLOW_LOGS_1519, logs))
                                 state = State.CHOPPING
                                 return true
                             }
@@ -79,7 +79,7 @@ class DraynorWillows : Script() {
 
     init {
         inventory.add(Item(Items.ADAMANT_AXE_1357))
-        skills[Skills.WOODCUTTING] = 35
+        skills[Skills.WOODCUTTING] == 35
     }
 
     override fun newInstance(): Script {

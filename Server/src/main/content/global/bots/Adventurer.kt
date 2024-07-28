@@ -32,7 +32,7 @@ import kotlin.random.Random
  * A bot script for Adventurers who explore the world!
  * @param counter used in the bots random idling function.
  * @param random is used to generate random number.
- * @param city determines the home city of the bot.
+ * @param city determines the home city of the bot!!.
  * @param freshspawn determines if the bot has just been spawned.
  * @param random_city is the list of cities that can be randomly chosen as the home city.
  * @param tree_list is the list of trees that a bot can start cutting randomly.
@@ -63,18 +63,18 @@ class Adventurer(val style: CombatStyle) : Script() {
     }
 
     init {
-        skills[Skills.AGILITY] = 99
-        inventory.add(Item(1359))//Rune Axe
-        skills[Skills.WOODCUTTING] = 95
-        inventory.add(Item(590))//Tinderbox
-        skills[Skills.FISHING] = 90
-        inventory.add(Item(1271))//Addy Pickaxe
-        skills[Skills.MINING] = 90
-        skills[Skills.SLAYER] = 90
+        skills[Skills.AGILITY] == 99
+        inventory.add(Item(1359))
+        skills[Skills.WOODCUTTING] == 95
+        inventory.add(Item(590))
+        skills[Skills.FISHING] == 90
+        inventory.add(Item(1271))
+        skills[Skills.MINING] == 90
+        skills[Skills.SLAYER] == 90
     }
 
     override fun toString(): String {
-        return "${bot.name} is an Adventurer bot at ${bot.location}! State: $state - City: $city"
+        return "${bot!!.name} is an Adventurer bot at ${bot!!.location}! State: $state - City: $city"
     }
 
     var state = State.START
@@ -95,42 +95,42 @@ class Adventurer(val style: CombatStyle) : Script() {
         val items = AIRepository.groundItems[bot]
         if (Random.nextBoolean()) {
             if (items.isNullOrEmpty()) {
-                scriptAPI.attackNpcsInRadius(bot, 8)
+                scriptAPI!!.attackNpcsInRadius(bot!!, 8)
                 state = State.LOOT_DELAY
             }
-            if (bot.inventory.isFull) {
+            if (bot!!.inventory.isFull) {
                 if (bankMap[city] == null) {
-                    scriptAPI.teleport(getRandomCity().also { city = it })
+                    scriptAPI!!.teleport(getRandomCity().also { city = it })
                 } else {
                     if (bankMap[city]?.insideBorder(bot) == true) {
                         state = State.FIND_BANK
                     } else {
-                        scriptAPI.walkTo(bankMap[city]?.randomLoc ?: Location(0, 0, 0))
+                        scriptAPI!!.walkTo(bankMap[city]?.randomLoc ?: Location(0, 0, 0))
                     }
                 }
             }
 
         } else {
-            if (bot.inventory.isFull) {
+            if (bot!!.inventory.isFull) {
                 if (bankMap[city] == null) {
-                    scriptAPI.teleport(getRandomCity().also { city = it })
+                    scriptAPI!!.teleport(getRandomCity().also { city = it })
                 } else {
                     if (bankMap[city]?.insideBorder(bot) == true) {
                         state = State.FIND_BANK
                     } else {
-                        scriptAPI.walkTo(bankMap[city]?.randomLoc ?: Location(0, 0, 0))
+                        scriptAPI!!.walkTo(bankMap[city]?.randomLoc ?: Location(0, 0, 0))
                     }
                 }
             } else {
                 val resources = listOf(
                     "Rocks", "Tree", "Oak", "Willow", "Maple tree", "Yew", "Magic tree", "Teak", "Mahogany"
                 )
-                val resource = scriptAPI.getNearestNodeFromList(resources, true)
+                val resource = scriptAPI!!.getNearestNodeFromList(resources, true)
                 if (resource != null) {
                     if (resource.name.contains("ocks")) InteractionListeners.run(
-                        resource.id, IntType.SCENERY, "mine", bot, resource
+                        resource.id, IntType.SCENERY, "mine", bot!!, resource
                     )
-                    else InteractionListeners.run(resource.id, IntType.SCENERY, "chop down", bot, resource)
+                    else InteractionListeners.run(resource.id, IntType.SCENERY, "chop down", bot!!, resource)
                 }
             }
         }
@@ -138,7 +138,7 @@ class Adventurer(val style: CombatStyle) : Script() {
     }
 
     fun refresh() {
-        scriptAPI.teleport(lumbridge)
+        scriptAPI!!.teleport(lumbridge)
         freshspawn = true
         state = State.START
     }
@@ -168,7 +168,7 @@ class Adventurer(val style: CombatStyle) : Script() {
         when (state) {
 
             State.LOOT_DELAY -> {
-                bot.pulseManager.run(object : Pulse() {
+                bot!!.pulseManager.run(object : Pulse() {
                     var counter1 = 0
                     override fun pulse(): Boolean {
                         when (counter1++) {
@@ -181,9 +181,9 @@ class Adventurer(val style: CombatStyle) : Script() {
 
             State.LOOT -> {
                 val items = AIRepository.groundItems[bot]
-                if (items?.isNotEmpty() == true && !bot.inventory.isFull) {
+                if (items?.isNotEmpty() == true && !bot!!.inventory.isFull) {
                     items.toTypedArray().forEach {
-                        scriptAPI.takeNearestGroundItem(it.id)
+                        scriptAPI!!.takeNearestGroundItem(it.id)
                     }
                     return
                 } else {
@@ -194,7 +194,7 @@ class Adventurer(val style: CombatStyle) : Script() {
             State.START -> {
                 if (freshspawn) {
                     freshspawn = false
-                    scriptAPI.randomWalkTo(lumbridge, 20)
+                    scriptAPI!!.randomWalkTo(lumbridge, 20)
                 } else {
                     city = getRandomCity()
                     state = State.TELEPORTING
@@ -204,9 +204,9 @@ class Adventurer(val style: CombatStyle) : Script() {
             State.TELEPORTING -> {
                 ticks = 0
                 counter = 0
-                if (bot.location != city) {
+                if (bot!!.location != city) {
                     poi = false
-                    scriptAPI.teleport(city)
+                    scriptAPI!!.teleport(city)
                 } else {
                     poi = false
                     state = State.EXPLORE
@@ -220,7 +220,7 @@ class Adventurer(val style: CombatStyle) : Script() {
 
                 val chance = if (city == ge || city == ge2) 5000 else 2500
                 if (RandomFunction.random(chance) <= 10) {
-                    val nearbyPlayers = RegionManager.getLocalPlayers(bot)
+                    val nearbyPlayers = RegionManager.getLocalPlayers(bot!!)
                     if (nearbyPlayers.isNotEmpty()) {
                         ticks = 0
                         dialogue()
@@ -230,12 +230,12 @@ class Adventurer(val style: CombatStyle) : Script() {
                 if (RandomFunction.random(1000) <= 150 && !poi) {
                     val roamDistance = if (city != ge && city != ge2) 225 else 7
                     if ((city == ge || city == ge2) && RandomFunction.random(100) < 90) {
-                        if (!bot.bank.isEmpty) {
+                        if (!bot!!.bank.isEmpty) {
                             state = State.FIND_GE
                         }
                         return
                     }
-                    scriptAPI.randomWalkTo(city, roamDistance)
+                    scriptAPI!!.randomWalkTo(city, roamDistance)
                     return
                 }
 
@@ -252,7 +252,7 @@ class Adventurer(val style: CombatStyle) : Script() {
                         gemrocks, chaosnpc, chaosnpc2 -> 1
                         else -> 60
                     }
-                    scriptAPI.randomWalkTo(poiloc, roamDistancePoi)
+                    scriptAPI!!.randomWalkTo(poiloc, roamDistancePoi)
                     return
                 }
 
@@ -269,7 +269,7 @@ class Adventurer(val style: CombatStyle) : Script() {
                     poiloc = getRandomPoi()
                     city = teak1
                     poi = true
-                    scriptAPI.teleport(poiloc)
+                    scriptAPI!!.teleport(poiloc)
                     return
                 }
 
@@ -321,7 +321,7 @@ class Adventurer(val style: CombatStyle) : Script() {
                         ge = true
                         counter = 0
                         ticks = 0
-                        scriptAPI.sellAllOnGeAdv()
+                        scriptAPI!!.sellAllOnGeAdv()
                         return
                     }
                 } else if (ge && sold) {
@@ -337,18 +337,18 @@ class Adventurer(val style: CombatStyle) : Script() {
                     state = State.TELEPORTING
                 }
                 sold = false
-                val ge: Scenery? = scriptAPI.getNearestNode("Desk", true) as Scenery?
-                if (ge == null || bot.bank.isEmpty) state = State.EXPLORE
-                class GEPulse : MovementPulse(bot, ge, DestinationFlag.OBJECT) {
+                val ge: Scenery? = scriptAPI!!.getNearestNode("Desk", true) as Scenery?
+                if (ge == null || bot!!.bank.isEmpty) state = State.EXPLORE
+                class GEPulse : MovementPulse(bot!!, ge, DestinationFlag.OBJECT) {
                     override fun pulse(): Boolean {
-                        bot.faceLocation(ge?.location)
+                        bot!!.faceLocation(ge?.location)
                         state = State.GE
                         return true
                     }
                 }
-                if (ge != null && !bot.bank.isEmpty) {
+                if (ge != null && !bot!!.bank.isEmpty) {
                     counter = 0
-                    scriptAPI.randomWalkTo(geloc, 3)
+                    scriptAPI!!.randomWalkTo(geloc, 3)
                     GameWorld.Pulser.submit(GEPulse())
                 }
                 return
@@ -358,20 +358,20 @@ class Adventurer(val style: CombatStyle) : Script() {
                 if (counter++ == 300) {
                     state = State.TELEPORTING
                 }
-                val bank: Scenery? = scriptAPI.getNearestNode("Bank booth", true) as Scenery?
-                if (badedge.insideBorder(bot) || bot.location == badedge2 || bot.location == badedge3 || bot.location == badedge4) {
-                    bot.randomWalk(5, 5)
+                val bank: Scenery? = scriptAPI!!.getNearestNode("Bank booth", true) as Scenery?
+                if (badedge.insideBorder(bot) || bot!!.location == badedge2 || bot!!.location == badedge3 || bot!!.location == badedge4) {
+                    bot!!.randomWalk(5, 5)
                 }
                 if (bank == null) state = State.EXPLORE
-                class BankingPulse : MovementPulse(bot, bank, DestinationFlag.OBJECT) {
+                class BankingPulse : MovementPulse(bot!!, bank, DestinationFlag.OBJECT) {
                     override fun pulse(): Boolean {
-                        bot.faceLocation(bank?.location)
+                        bot!!.faceLocation(bank?.location)
                         state = State.IDLE_BANKS
                         return true
                     }
                 }
                 if (bank != null) {
-                    bot.pulseManager.run(BankingPulse())
+                    bot!!.pulseManager.run(BankingPulse())
                 }
                 return
             }
@@ -381,13 +381,13 @@ class Adventurer(val style: CombatStyle) : Script() {
                     state = State.TELEPORTING
                 }
                 if (RandomFunction.random(1000) < 100) {
-                    for (item in bot.inventory.toArray()) {
+                    for (item in bot!!.inventory.toArray()) {
                         item ?: continue
                         when (item.id) {
                             1359, 590, 1271, 995 -> continue
                         }
-                        bot.bank.add(item)
-                        bot.inventory.remove(item)
+                        bot!!.bank.add(item)
+                        bot!!.inventory.remove(item)
                     }
                     counter = 0
                     state = State.EXPLORE
@@ -398,13 +398,13 @@ class Adventurer(val style: CombatStyle) : Script() {
             State.FIND_CITY -> {
                 if (counter++ >= 600 || (city == ge || city == ge2)) {
                     counter = 0
-                    scriptAPI.teleport(getRandomCity().also { city = it })
+                    scriptAPI!!.teleport(getRandomCity().also { city = it })
                     state = State.EXPLORE
                 }
-                if (bot.location.equals(city)) {
+                if (bot!!.location.equals(city)) {
                     state = State.EXPLORE
                 } else {
-                    scriptAPI.randomWalkTo(city, 5)
+                    scriptAPI!!.randomWalkTo(city, 5)
                 }
                 return
             }
@@ -425,7 +425,7 @@ class Adventurer(val style: CombatStyle) : Script() {
     }
 
     fun dialogue() {
-        val localPlayer = RegionManager.getLocalPlayers(bot).random()
+        val localPlayer = RegionManager.getLocalPlayers(bot!!).random()
         val until = 1225 - dateCode
         val lineStd = dialogue.getLines("standard").rand()
         var lineAlt = ""
@@ -462,7 +462,7 @@ class Adventurer(val style: CombatStyle) : Script() {
             lineStd
         }.replace("@name", localPlayer.username).replace("@timer", until.toString())
 
-        scriptAPI.sendChat(chat)
+        scriptAPI!!.sendChat(chat)
     }
 
     enum class State {
@@ -475,8 +475,8 @@ class Adventurer(val style: CombatStyle) : Script() {
         script.state = State.START
         val tier = CombatBotAssembler.Tier.MED
         if (type == CombatBotAssembler.Type.RANGE) script.bot =
-            CombatBotAssembler().RangeAdventurer(tier, bot.startLocation)
-        else script.bot = CombatBotAssembler().MeleeAdventurer(tier, bot.startLocation)
+            CombatBotAssembler().RangeAdventurer(tier, bot!!.startLocation)
+        else script.bot = CombatBotAssembler().MeleeAdventurer(tier, bot!!.startLocation)
         return script
     }
 
@@ -574,50 +574,52 @@ class Adventurer(val style: CombatStyle) : Script() {
         val common_stuck_locations = mapOf(
             // South of Tavlery dungeon
             ZoneBorders(2878, 3386, 2884, 3395) to { it: Adventurer ->
-                it.scriptAPI.walkArray(tavleryToTopOfWhiteWolf + whiteWolfMountainTop + catherbyToTopOfWhiteWolf.reversedArray())
+                it.scriptAPI!!.walkArray(tavleryToTopOfWhiteWolf + whiteWolfMountainTop + catherbyToTopOfWhiteWolf.reversedArray())
             },
             // West of Tavlery dungeon
             ZoneBorders(2874, 3390, 2880, 3401) to { it: Adventurer ->
-                it.scriptAPI.walkArray(tavleryToTopOfWhiteWolf + whiteWolfMountainTop + catherbyToTopOfWhiteWolf.reversedArray())
+                it.scriptAPI!!.walkArray(tavleryToTopOfWhiteWolf + whiteWolfMountainTop + catherbyToTopOfWhiteWolf.reversedArray())
             },
             // South of White Wolf Mountain in Tavlery
             ZoneBorders(2865, 3408, 2874, 3423) to { it: Adventurer ->
-                it.scriptAPI.walkArray(tavleryToTopOfWhiteWolf + whiteWolfMountainTop + catherbyToTopOfWhiteWolf.reversedArray())
+                it.scriptAPI!!.walkArray(tavleryToTopOfWhiteWolf + whiteWolfMountainTop + catherbyToTopOfWhiteWolf.reversedArray())
             },
             // On beginning of White Wolf Mountain in Tavlery
             ZoneBorders(2855, 3454, 2852, 3450) to { it: Adventurer ->
-                it.scriptAPI.walkArray(tavleryToTopOfWhiteWolf + whiteWolfMountainTop + catherbyToTopOfWhiteWolf.reversedArray())
+                it.scriptAPI!!.walkArray(tavleryToTopOfWhiteWolf + whiteWolfMountainTop + catherbyToTopOfWhiteWolf.reversedArray())
             },
             // South of White Wolf Mountain in Catherby
             ZoneBorders(2861, 3425, 2867, 3432) to { it: Adventurer ->
-                it.scriptAPI.walkArray(catherbyToTopOfWhiteWolf + whiteWolfMountainTop + tavleryToTopOfWhiteWolf.reversedArray())
+                it.scriptAPI!!.walkArray(catherbyToTopOfWhiteWolf + whiteWolfMountainTop + tavleryToTopOfWhiteWolf.reversedArray())
             },
             // On beginning of White Wolf Mountain in Catherby
             ZoneBorders(2863, 3441, 2859, 3438) to { it: Adventurer ->
-                it.scriptAPI.walkArray(catherbyToTopOfWhiteWolf + whiteWolfMountainTop + tavleryToTopOfWhiteWolf.reversedArray())
+                it.scriptAPI!!.walkArray(catherbyToTopOfWhiteWolf + whiteWolfMountainTop + tavleryToTopOfWhiteWolf.reversedArray())
             },
             // At the Crumbling Wall in Falador
             ZoneBorders(2937, 3356, 2936, 3353) to { it: Adventurer ->
                 // Interact with the Crumbling Wall
-                val wall = it.scriptAPI.getNearestNode("Crumbling wall", true)
+                val wall = it.scriptAPI!!.getNearestNode("Crumbling wall", true)
                 if (wall == null) {
                     it.refresh()
                     it.ticks = 0
                     return@to
                 }
-                it.scriptAPI.interact(it.bot, wall, "Climb-over")
+                it.scriptAPI!!.interact(it.bot!!, wall, "Climb-over")
             },
             // Northwest corner of Draynor Bank
             ZoneBorders(3092, 3246, 3091, 3247) to { it: Adventurer ->
                 // Walk into Draynor Bank
-                it.scriptAPI.walkTo(Location(3093, 3243, 0))
+                it.scriptAPI!!.walkTo(Location(3093, 3243, 0))
             },
             // West of GE, stuck in the corner south of the outlaw place
             ZoneBorders(3140, 3468, 3140, 3468) to { it: Adventurer ->
                 // Walk to Barbarian village
-                it.scriptAPI.walkArray(
+                it.scriptAPI!!.walkArray(
                     arrayOf(
-                        Location.create(3135, 3516, 0), Location.create(3103, 3489, 0), Location.create(3082, 3423, 0)
+                        Location.create(3135, 3516, 0),
+                        Location.create(3103, 3489, 0),
+                        Location.create(3082, 3423, 0)
                     )
                 )
             },

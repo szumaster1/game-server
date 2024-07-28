@@ -30,7 +30,7 @@ class GenericSlayerBot : Script() {
      * Per-tick actions (they don't run if the bot already has a pulse running, such as moving or combat.)
      */
     override fun tick() {
-        scriptAPI.eat(FOOD_ID) //try to eat every tick (does nothing if health isn't low enough)
+        scriptAPI!!.eat(FOOD_ID) //try to eat every tick (does nothing if health isn't low enough)
 
         when (state) {
 
@@ -50,17 +50,17 @@ class GenericSlayerBot : Script() {
 
                     TaskHub.FREMENNIK_CAVE -> {
                         if (!teleportFlag) {
-                            scriptAPI.teleport(Location.create(2781, 3615, 0)) //tele -> fremennik fairy ring
+                            scriptAPI!!.teleport(Location.create(2781, 3615, 0)) //tele -> fremennik fairy ring
                             teleportFlag = !teleportFlag //teleportFlag -> true
                         } else {
-                            val entrance = scriptAPI.getNearestNode(
+                            val entrance = scriptAPI!!.getNearestNode(
                                 4499, true
                             ) //returns the object if within render distance, null if not.
-                            if (entrance == null || !entrance.location.withinDistance(bot.location, 2)) {
-                                scriptAPI.walkTo(Location.create(2796, 3615, 0))
+                            if (entrance == null || !entrance.location.withinDistance(bot!!.location, 2)) {
+                                scriptAPI!!.walkTo(Location.create(2796, 3615, 0))
                             } else {
                                 entrance.interaction.handle(
-                                    bot, entrance.interaction[0]
+                                    bot!!, entrance.interaction[0]
                                 ) //bot -> use interaction [0] of cave object
                                 teleportFlag = !teleportFlag //teleportFlag -> false
                                 state = State.KILLING_ENEMY //switch states
@@ -79,14 +79,14 @@ class GenericSlayerBot : Script() {
             State.KILLING_ENEMY -> {
                 val items = AIRepository.groundItems.get(bot) //retrieve drops that belong to this bot
                 if (items != null && items.isNotEmpty()) { //if we have loot...
-                    if (bot.inventory.freeSlots() == 0) {
-                        if (bot.inventory.contains(FOOD_ID, 1)) {
-                            scriptAPI.forceEat(FOOD_ID)
+                    if (bot!!.inventory.freeSlots() == 0) {
+                        if (bot!!.inventory.contains(FOOD_ID, 1)) {
+                            scriptAPI!!.forceEat(FOOD_ID)
                             return
                         }
                     }
-                    scriptAPI.takeNearestGroundItem(items.get(0).id)
-                    if (bot.inventory.getAmount(Item(FOOD_ID)) == 0) {
+                    scriptAPI!!.takeNearestGroundItem(items.get(0).id)
+                    if (bot!!.inventory.getAmount(Item(FOOD_ID)) == 0) {
                         state = State.GOING_TO_BANK
                     }
                     return
@@ -94,12 +94,12 @@ class GenericSlayerBot : Script() {
 
                 if (assignment.amount > 0) {
                     if (task.borders.insideBorder(bot)) { //make sure bot is within the borders of the task's zone.
-                        scriptAPI.attackNpcInRadius(
-                            bot, task.npc_name, 20
+                        scriptAPI!!.attackNpcInRadius(
+                            bot!!, task.npc_name, 20
                         ) //attack nearest NPC with given task name within radius.
                         assignment.amount--
                     } else {
-                        scriptAPI.walkTo(task.borders.randomLoc)
+                        scriptAPI!!.walkTo(task.borders.randomLoc)
                     }
                 } else {
                     state = State.GOING_TO_BANK //switch states and bank.
@@ -112,20 +112,20 @@ class GenericSlayerBot : Script() {
              */
             State.GOING_TO_BANK -> {
                 if (!teleportFlag) {
-                    scriptAPI.teleport(Location.create(3213, 3426, 0))
+                    scriptAPI!!.teleport(Location.create(3213, 3426, 0))
                     teleportFlag = !teleportFlag
                 } else {
                     if (!varrockBankBorders.insideBorder(bot)) {
-                        scriptAPI.walkTo(varrockBankBorders.randomLoc)
+                        scriptAPI!!.walkTo(varrockBankBorders.randomLoc)
                     } else {
-                        val bank = scriptAPI.getNearestNode("Bank Booth", true)
+                        val bank = scriptAPI!!.getNearestNode("Bank Booth", true)
                         bank ?: return
                         /*
                          * Run a pulse that moves the bot to the bank booth and then faces it, and then swaps to the actual banking state
                          */
-                        bot.pulseManager.run(object : MovementPulse(bot, bank, DestinationFlag.OBJECT) {
+                        bot!!.pulseManager.run(object : MovementPulse(bot!!, bank, DestinationFlag.OBJECT) {
                             override fun pulse(): Boolean {
-                                bot.faceLocation(bank.location)
+                                bot!!.faceLocation(bank.location)
                                 state = State.BANKING
                                 teleportFlag = !teleportFlag
                                 return true
@@ -140,17 +140,17 @@ class GenericSlayerBot : Script() {
              * the pulse adds every item in the bot's inventory to its bank and then clears the bot's inventory. Re-adds lobsters to the inventory afterwords.
              */
             State.BANKING -> {
-                bot.pulseManager.run(object : Pulse(10) {
+                bot!!.pulseManager.run(object : Pulse(10) {
                     override fun pulse(): Boolean {
-                        for (item in bot.inventory.toArray()) {
+                        for (item in bot!!.inventory.toArray()) {
                             item ?: continue
                             if (item.checkIgnored()) continue
-                            bot.bank.add(item)
+                            bot!!.bank.add(item)
                         }
-                        bot.inventory.clear()
-                        for (item in inventory) bot.inventory.add(item)
-                        scriptAPI.withdraw(Items.LOBSTER_379, 10)
-                        bot.fullRestore()
+                        bot!!.inventory.clear()
+                        for (item in inventory) bot!!.inventory.add(item)
+                        scriptAPI!!.withdraw(Items.LOBSTER_379, 10)
+                        bot!!.fullRestore()
 
                         if (assignment.amount <= 0) {
                             state = State.GOING_TO_GE
@@ -168,8 +168,8 @@ class GenericSlayerBot : Script() {
              * State used to handle travelling to the GE.
              */
             State.GOING_TO_GE -> {
-                if (bot.location != Location.create(3165, 3487, 0)) {
-                    scriptAPI.walkTo(Location.create(3165, 3487, 0))
+                if (bot!!.location != Location.create(3165, 3487, 0)) {
+                    scriptAPI!!.walkTo(Location.create(3165, 3487, 0))
                 } else {
                     state = State.SELLING
                 }
@@ -179,7 +179,7 @@ class GenericSlayerBot : Script() {
              * State used to handle selling items on the GE
              */
             State.SELLING -> {
-                scriptAPI.sellAllOnGe()
+                scriptAPI!!.sellAllOnGe()
                 state = State.GETTING_TASK
             }
 
@@ -229,7 +229,7 @@ class GenericSlayerBot : Script() {
      * Assign default skills and initial inventory
      */
     init {
-        skills[Skills.SLAYER] = 99
+        skills[Skills.SLAYER] == 99
         inventory.add(Item(Items.LOBSTER_379, 10))
 
     }
@@ -237,7 +237,13 @@ class GenericSlayerBot : Script() {
     /*
      * List of tasks that this bot can receive
      */
-    enum class Task(val npc_name: String, val minAmt: Int, val maxAmt: Int, val hub: TaskHub, val borders: ZoneBorders) {
+    enum class Task(
+        val npc_name: String,
+        val minAmt: Int,
+        val maxAmt: Int,
+        val hub: TaskHub,
+        val borders: ZoneBorders
+    ) {
         CAVE_CRAWLER("Cave crawler", 20, 100, TaskHub.FREMENNIK_CAVE, ZoneBorders(2778, 9988, 2798, 10002))
     }
 
@@ -248,5 +254,8 @@ class GenericSlayerBot : Script() {
         FREMENNIK_CAVE, SLAYER_TOWER, TAVERLY_DUNGEON
     }
 
-    class Assignment(val npc_name: String, var amount: Int) //class used to keep track of current assignment and how many are left.
+    class Assignment(
+        val npc_name: String,
+        var amount: Int
+    ) //class used to keep track of current assignment and how many are left.
 }

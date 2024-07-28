@@ -33,7 +33,7 @@ class GnomeBowstring : Script() {
     override fun tick() {
         when (state) {
             State.INIT -> {
-                overlay = scriptAPI.getOverlay()
+                overlay = scriptAPI!!.getOverlay()
                 overlay!!.init()
                 overlay!!.setTitle("Picking")
                 overlay!!.setTaskLabel("Flax Picked")
@@ -41,14 +41,14 @@ class GnomeBowstring : Script() {
             }
 
             State.PICKING -> {
-                bot.interfaceManager.close()
+                bot!!.interfaceManager.close()
                 if (!flaxzone.insideBorder(bot)) {
-                    scriptAPI.walkTo(flaxzone.randomLoc)
+                    scriptAPI!!.walkTo(flaxzone.randomLoc)
                 } else if (flaxzone.insideBorder(bot)) {
-                    var flax = scriptAPI.getNearestNode(2646, true)
-                    scriptAPI.interact(bot, flax, "pick")
+                    var flax = scriptAPI!!.getNearestNode(2646, true)
+                    scriptAPI!!.interact(bot!!, flax, "pick")
                 }
-                if (bot.inventory.getAmount(Items.FLAX_1779) > 27) {
+                if (bot!!.inventory.getAmount(Items.FLAX_1779) > 27) {
                     sLadderSwitch = true
                     state = State.TO_SPINNER
                 }
@@ -56,29 +56,29 @@ class GnomeBowstring : Script() {
 
             State.TO_SPINNER -> {
                 if (sLadderSwitch) {
-                    if (!spinnerbottomLadder.insideBorder(bot.location)) {
-                        scriptAPI.walkTo(spinnerbottomLadder.randomLoc)
+                    if (!spinnerbottomLadder.insideBorder(bot!!.location)) {
+                        scriptAPI!!.walkTo(spinnerbottomLadder.randomLoc)
                     } else {
-                        val ladder = scriptAPI.getNearestNode("Staircase", true)
+                        val ladder = scriptAPI!!.getNearestNode("Staircase", true)
                         if (ladder != null) {
-                            ladder.interaction.handle(bot, ladder.interaction[0])
+                            ladder.interaction.handle(bot!!, ladder.interaction[0])
                             sLadderSwitch = false
                         } else {
-                            scriptAPI.walkTo(spinnerbottomLadder.randomLoc)
+                            scriptAPI!!.walkTo(spinnerbottomLadder.randomLoc)
                         }
                     }
                 }
-                if (stage == 0) Pathfinder.find(bot, Location.create(2475, 3399, 1)).walk(bot).also { stage++ }
-                when (bot.location) {
-                    Location.create(2475, 3399, 1) -> Pathfinder.find(bot, Location.create(2477, 3399, 1)).walk(bot)
-                    Location.create(2477, 3399, 1) -> Pathfinder.find(bot, Location.create(2477, 3398, 1)).walk(bot)
-                    Location.create(2477, 3398, 1) -> Pathfinder.find(bot, Location.create(2476, 3398, 1)).walk(bot)
+                if (stage == 0) Pathfinder.find(bot!!, Location.create(2475, 3399, 1)).walk(bot).also { stage++ }
+                when (bot!!.location) {
+                    Location.create(2475, 3399, 1) -> Pathfinder.find(bot!!, Location.create(2477, 3399, 1)).walk(bot)
+                    Location.create(2477, 3399, 1) -> Pathfinder.find(bot!!, Location.create(2477, 3398, 1)).walk(bot)
+                    Location.create(2477, 3398, 1) -> Pathfinder.find(bot!!, Location.create(2476, 3398, 1)).walk(bot)
                     Location.create(2476, 3398, 1) -> {
-                        val spinner = scriptAPI.getNearestNode(2644, true)
-                        bot.faceLocation(spinner?.location)
-                        bot.pulseManager.run(object : MovementPulse(bot, spinner, DestinationFlag.OBJECT) {
+                        val spinner = scriptAPI!!.getNearestNode(2644, true)
+                        bot!!.faceLocation(spinner?.location)
+                        bot!!.pulseManager.run(object : MovementPulse(bot!!, spinner, DestinationFlag.OBJECT) {
                             override fun pulse(): Boolean {
-                                bot.faceLocation(spinner?.location)
+                                bot!!.faceLocation(spinner?.location)
                                 state = State.SPINNING
                                 return true
                             }
@@ -88,9 +88,9 @@ class GnomeBowstring : Script() {
             }
 
             State.SPINNING -> {
-                bot.pulseManager.run(
+                bot!!.pulseManager.run(
                     SpinningPulse(
-                        bot, Item(Items.FLAX_1779), bot.inventory.getAmount(Items.FLAX_1779), SpinningData.FLAX
+                        bot!!, Item(Items.FLAX_1779), bot!!.inventory.getAmount(Items.FLAX_1779), SpinningData.FLAX
                     )
                 )
                 sLadderSwitch = true
@@ -99,21 +99,21 @@ class GnomeBowstring : Script() {
 
             State.FIND_BANK -> {
                 if (sLadderSwitch) {
-                    val ladder = scriptAPI.getNearestNode("staircase", true)
+                    val ladder = scriptAPI!!.getNearestNode("staircase", true)
                     if (ladder != null) {
-                        ladder.interaction.handle(bot, ladder.interaction[0])
+                        ladder.interaction.handle(bot!!, ladder.interaction[0])
                         sLadderSwitch = false
                     }
                 }
-                if (!bankbottomLadder.insideBorder(bot.location) && !spinnertopLadder.insideBorder(bot)) {
-                    scriptAPI.walkTo(bankbottomLadder.randomLoc)
+                if (!bankbottomLadder.insideBorder(bot!!.location) && !spinnertopLadder.insideBorder(bot)) {
+                    scriptAPI!!.walkTo(bankbottomLadder.randomLoc)
                 } else if (bankbottomLadder.insideBorder(bot)) {
                     bLadderSwitch = true
                 }
                 if (bLadderSwitch) {
-                    val ladder = scriptAPI.getNearestNode("staircase", true)
+                    val ladder = scriptAPI!!.getNearestNode("staircase", true)
                     if (ladder != null) {
-                        ladder.interaction.handle(bot, ladder.interaction[0])
+                        ladder.interaction.handle(bot!!, ladder.interaction[0])
                         bLadderSwitch = false
                     }
                 }
@@ -123,36 +123,36 @@ class GnomeBowstring : Script() {
             }
 
             State.BANKING -> {
-                val bank = scriptAPI.getNearestNode(2213, true)
+                val bank = scriptAPI!!.getNearestNode(2213, true)
                 if (bank != null) {
-                    bot.pulseManager.run(object : MovementPulse(bot, bank, DestinationFlag.OBJECT) {
+                    bot!!.pulseManager.run(object : MovementPulse(bot!!, bank, DestinationFlag.OBJECT) {
                         override fun pulse(): Boolean {
-                            bot.faceLocation(bank.location)
-                            scriptAPI.bankItem(Items.BOW_STRING_1777)
+                            bot!!.faceLocation(bank.location)
+                            scriptAPI!!.bankItem(Items.BOW_STRING_1777)
                             return true
                         }
                     })
                 }
-                if (freeSlots(bot) > 27) {
+                if (freeSlots(bot!!) > 27) {
                     bLadderSwitch = true
                     state = State.RETURN_TO_FLAX
                 }
             }
 
             State.RETURN_TO_FLAX -> {
-                if (!banktopLadder.insideBorder(bot.location) && bLadderSwitch) {
-                    scriptAPI.walkTo(banktopLadder.randomLoc)
+                if (!banktopLadder.insideBorder(bot!!.location) && bLadderSwitch) {
+                    scriptAPI!!.walkTo(banktopLadder.randomLoc)
                 } else if (bLadderSwitch) {
-                    val ladder = scriptAPI.getNearestNode("Staircase", true)
+                    val ladder = scriptAPI!!.getNearestNode("Staircase", true)
                     if (ladder != null) {
-                        ladder.interaction.handle(bot, ladder.interaction[0])
+                        ladder.interaction.handle(bot!!, ladder.interaction[0])
                         bLadderSwitch = false
                     } else {
-                        scriptAPI.walkTo(banktopLadder.randomLoc)
+                        scriptAPI!!.walkTo(banktopLadder.randomLoc)
                     }
                 }
                 if (!flaxzone.insideBorder(bot)) {
-                    scriptAPI.walkTo(flaxzone.randomLoc)
+                    scriptAPI!!.walkTo(flaxzone.randomLoc)
                 } else if (flaxzone.insideBorder(bot)) {
                     state = State.PICKING
                 }

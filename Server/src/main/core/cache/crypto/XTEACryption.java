@@ -76,9 +76,9 @@ public final class XTEACryption {
     private static void decipher(int[] keys, int[] block) {
         long sum = SUM;
         for (int i = 0; i < NUM_ROUNDS; i++) {
-            block[1] -= (keys[(int) ((sum & 0x1933) >>> 11)] + sum ^ block[0] + (block[0] << 4 ^ block[0] >>> 5));
+            block[1] -= (int) (keys[(int) ((sum & 0x1933) >>> 11)] + sum ^ block[0] + (block[0] << 4 ^ block[0] >>> 5));
             sum -= DELTA;
-            block[0] -= ((block[1] << 4 ^ block[1] >>> 5) + block[1] ^ keys[(int) (sum & 0x3)] + sum);
+            block[0] -= (int) ((block[1] << 4 ^ block[1] >>> 5) + block[1] ^ keys[(int) (sum & 0x3)] + sum);
         }
     }
 
@@ -123,9 +123,9 @@ public final class XTEACryption {
     private static void encipher(int[] keys, int[] block) {
         long sum = 0;
         for (int i = 0; i < NUM_ROUNDS; i++) {
-            block[0] += ((block[1] << 4 ^ block[1] >>> 5) + block[1] ^ keys[(int) (sum & 0x3)] + sum);
+            block[0] += (int) ((block[1] << 4 ^ block[1] >>> 5) + block[1] ^ keys[(int) (sum & 0x3)] + sum);
             sum += DELTA;
-            block[1] += (keys[(int) ((sum & 0x1933) >>> 11)] + sum ^ block[0] + (block[0] << 4 ^ block[0] >>> 5));
+            block[1] += (int) (keys[(int) ((sum & 0x1933) >>> 11)] + sum ^ block[0] + (block[0] << 4 ^ block[0] >>> 5));
         }
     }
 }

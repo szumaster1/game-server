@@ -1,6 +1,6 @@
 package content.global.skill.support.construction.servants;
 
-import content.global.plugins.iface.Plank;
+import content.global.handlers.iface.plugin.Plank;
 import content.global.skill.support.construction.HouseManager;
 import core.game.dialogue.Dialogue;
 import core.game.dialogue.FacialExpression;

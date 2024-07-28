@@ -105,7 +105,7 @@ class DoublingMoney : Script() {
         var appearance = if (Math.random() < 0.5) "noob" else "intermediate"
         if (effort == Effort.VERY_HIGH && Math.random() < 0.5) appearance = "veteran"
         val appearancesArray = botAppearances[appearance] as JSONArray
-        scriptAPI.loadAppearanceAndEquipment(appearancesArray.random() as JSONObject)
+        scriptAPI!!.loadAppearanceAndEquipment(appearancesArray.random() as JSONObject)
         setup = true
     }, fun(): Int {
         val botTradeModule = TradeModule.getExtension(bot)
@@ -119,23 +119,23 @@ class DoublingMoney : Script() {
         stateString = "Saying Doubling money"
         when (effort) {
             Effort.LOW -> {
-                scriptAPI.sendChat("Doubling money")
+                scriptAPI!!.sendChat("Doubling money")
                 sleepTime = 7
             }
 
             Effort.HIGH -> {
                 val message = arrayOf("Doubling Money", "Doubling Money", "Doubling Money!", "Doubling moneyy").random()
                 val messageEffect = arrayOf(0, 256).random()
-                val ctx = ChatMessage(bot, message, messageEffect, message.length)
-                bot.updateMasks.register(EntityFlag.Chat, ctx)
+                val ctx = ChatMessage(bot!!, message, messageEffect, message.length)
+                bot!!.updateMasks.register(EntityFlag.Chat, ctx)
                 sleepTime = 8
             }
 
             Effort.VERY_HIGH -> {
                 val message = arrayOf("Doubling money!", "Doubling money").random()
                 val messageEffect = arrayOf(771, 2818, 2562, 768, 512, 2304, 2560, 769, 1792).random()
-                val ctx = ChatMessage(bot, message, messageEffect, message.length)
-                bot.updateMasks.register(EntityFlag.Chat, ctx)
+                val ctx = ChatMessage(bot!!, message, messageEffect, message.length)
+                bot!!.updateMasks.register(EntityFlag.Chat, ctx)
                 sleepTime = 9
             }
         }
@@ -145,7 +145,7 @@ class DoublingMoney : Script() {
     } to {
         stateString = "Accepting trade request"
         // Send trade request back to victim
-        InteractionListeners.run(-1, IntType.PLAYER, "trade with", bot, victim!!)
+        InteractionListeners.run(-1, IntType.PLAYER, "trade with", bot!!, victim!!)
         victim = null
         sleepTime = 3
     }, fun(): Int {
@@ -168,7 +168,7 @@ class DoublingMoney : Script() {
     } to {
         stateString = "Paying off ${playerOwed!!.username} $debtOwed coins"
         val botTradeModule = TradeModule.getExtension(bot)
-        val coinSlot = bot.inventory.getSlot(Item(Items.COINS_995))
+        val coinSlot = bot!!.inventory.getSlot(Item(Items.COINS_995))
         botTradeModule!!.container!!.offer(coinSlot, debtOwed)
         debtOwed = 0
         playerOwed = null
@@ -189,13 +189,13 @@ class DoublingMoney : Script() {
         val coinsFromBot = botTradeModule.container!!.getAmount(Items.COINS_995)
         if (botTradeModule.getInterface() == TradeModule.ACCEPT_INTERFACE && coinsFromBot > 0 && effort == Effort.VERY_HIGH) {
             val message = "Payed ${(if (coinsFromBot < 1000) "${coinsFromBot}gp" else "${coinsFromBot / 1000}k")}"
-            val ctx = ChatMessage(bot, message, 512, message.length)
-            bot.updateMasks.register(EntityFlag.Chat, ctx)
+            val ctx = ChatMessage(bot!!, message, 512, message.length)
+            bot!!.updateMasks.register(EntityFlag.Chat, ctx)
 
             sleepTime = 7
         }
         if (botTradeModule.getInterface() == TradeModule.ACCEPT_INTERFACE && Math.random() < 0.2 && effort == Effort.HIGH && coinsFromBot > 0) {
-            scriptAPI.sendChat("Enjoy")
+            scriptAPI!!.sendChat("Enjoy")
             sleepTime += 4
         }
 
@@ -239,19 +239,19 @@ class DoublingMoney : Script() {
             }
         }
         stateString = "Sending trade request to ${playerOwed!!.name} to give them $debtOwed coins"
-        playerOwed!!.interaction.handle(bot, _P_TRADE)
-        InteractionListeners.run(-1, IntType.PLAYER, "trade with", bot, playerOwed!!)
+        playerOwed!!.interaction.handle(bot!!, _P_TRADE)
+        InteractionListeners.run(-1, IntType.PLAYER, "trade with", bot!!, playerOwed!!)
         sentTradeRequest = true
     }, fun(): Int {
         // If we're not near a doubling loc, or another doubling bot is on our loc, walk to random one
         var minDist = 1000.0
         for (loc in doublingLocs) {
-            minDist = min(minDist, loc.getDistance(bot.location))
+            minDist = min(minDist, loc.getDistance(bot!!.location))
         }
         if (minDist > 1) return 2
-        RegionManager.forId(bot.location.regionId).planes[bot.location.z].players.forEach {
+        RegionManager.forId(bot!!.location.regionId).planes[bot!!.location.z].players.forEach {
             if (AIRepository.PulseRepository[it?.username?.lowercase()]?.botScript is DoublingMoney && it != bot && it.location.getDistance(
-                    bot.location
+                    bot!!.location
                 ) <= 1
             ) {
                 return 2
@@ -261,7 +261,7 @@ class DoublingMoney : Script() {
     } to {
         stateString = "Walking to doubling location"
         val loc = doublingLocs.random()
-        scriptAPI.walkTo(loc)
+        scriptAPI!!.walkTo(loc)
         sleepTime = 5
     }, fun(): Int {
         // If we're past the max ticks, log out
@@ -284,7 +284,7 @@ class DoublingMoney : Script() {
     }
 
     override fun tick() {
-        if (!bot.isActive) {
+        if (!bot!!.isActive) {
             running = false
             return
         }
@@ -309,17 +309,17 @@ class DoublingMoney : Script() {
         debtOwed = coins.amount * 2
         if (effort == Effort.VERY_HIGH) {
             val message = "Received ${(if (coins.amount < 1000) "${coins.amount}gp" else "${coins.amount / 1000}k")}"
-            val ctx = ChatMessage(bot, message, 256, message.length)
-            bot.updateMasks.register(EntityFlag.Chat, ctx)
+            val ctx = ChatMessage(bot!!, message, 256, message.length)
+            bot!!.updateMasks.register(EntityFlag.Chat, ctx)
         }
     }
 
     fun terminate() {
-        scriptAPI.teleport(lumbridge)
+        scriptAPI!!.teleport(lumbridge)
         debtOwed = 0
-        bot.isActive = false
+        bot!!.isActive = false
         sleepTime = 500
-        AIRepository.PulseRepository.remove(bot.username.lowercase())
+        AIRepository.PulseRepository.remove(bot!!.username.lowercase())
 
         ImmerseWorld.spawnDoubleMoneyBot(true)
     }
@@ -330,7 +330,7 @@ class DoublingMoney : Script() {
     }
 
     init {
-        skills[Skills.AGILITY] = 99
+        skills[Skills.AGILITY] == 99
         inventory.add(Item(Items.COINS_995, 1_000_000))
     }
 

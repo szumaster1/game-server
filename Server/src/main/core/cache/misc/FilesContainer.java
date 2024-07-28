@@ -18,7 +18,7 @@ public final class FilesContainer extends Container {
     private Container[] files;
 
     /**
-     * Construct a new files container.
+     * Construct a new files' container.
      */
     public FilesContainer() {
 

@@ -20,35 +20,35 @@ class SeersFlax : Script() {
     override fun tick() {
         when (state) {
             State.PICKING -> {
-                val flax = scriptAPI.getNearestNode(2646, true)
-                flax?.interaction?.handle(bot, flax.interaction[1])
-                if (bot.inventory.getAmount(Items.FLAX_1779) > 25) {
+                val flax = scriptAPI!!.getNearestNode(2646, true)
+                flax?.interaction?.handle(bot!!, flax.interaction[1])
+                if (bot!!.inventory.getAmount(Items.FLAX_1779) > 25) {
                     state = State.TO_SPINNER
                 }
             }
 
             State.TO_SPINNER -> {
-                if (stage == 0) Pathfinder.find(bot, Location.create(2736, 3442, 0)).walk(bot).also { stage++ }
-                when (bot.location) {
-                    Location.create(2736, 3442, 0) -> Pathfinder.find(bot, Location.create(2722, 3456, 0)).walk(bot)
-                    Location.create(2722, 3456, 0) -> Pathfinder.find(bot, Location.create(2716, 3472, 0)).walk(bot)
+                if (stage == 0) Pathfinder.find(bot!!, Location.create(2736, 3442, 0)).walk(bot).also { stage++ }
+                when (bot!!.location) {
+                    Location.create(2736, 3442, 0) -> Pathfinder.find(bot!!, Location.create(2722, 3456, 0)).walk(bot)
+                    Location.create(2722, 3456, 0) -> Pathfinder.find(bot!!, Location.create(2716, 3472, 0)).walk(bot)
                     Location.create(2716, 3472, 0) -> {
-                        val door = scriptAPI.getNearestNode(25819, true)
-                        if (door != null && door.location?.withinDistance(bot.location, 2)!!) {
-                            door.interaction?.handle(bot, door.interaction[0])
+                        val door = scriptAPI!!.getNearestNode(25819, true)
+                        if (door != null && door.location?.withinDistance(bot!!.location, 2)!!) {
+                            door.interaction?.handle(bot!!, door.interaction[0])
                             doorOpen = true
                         } else {
-                            val ladder = scriptAPI.getNearestNode(25938, true)
-                            ladder?.interaction?.handle(bot, ladder.interaction[0])
+                            val ladder = scriptAPI!!.getNearestNode(25938, true)
+                            ladder?.interaction?.handle(bot!!, ladder.interaction[0])
                         }
                     }
 
                     Location.create(2714, 3470, 1) -> {
-                        val spinner = scriptAPI.getNearestNode(25824, true)
-                        bot.faceLocation(spinner?.location)
-                        bot.pulseManager.run(object : MovementPulse(bot, spinner, DestinationFlag.OBJECT) {
+                        val spinner = scriptAPI!!.getNearestNode(25824, true)
+                        bot!!.faceLocation(spinner?.location)
+                        bot!!.pulseManager.run(object : MovementPulse(bot!!, spinner, DestinationFlag.OBJECT) {
                             override fun pulse(): Boolean {
-                                bot.faceLocation(spinner?.location)
+                                bot!!.faceLocation(spinner?.location)
                                 state = State.SPINNING.also { stage = 0; doorOpen = false }
                                 return true
                             }
@@ -58,11 +58,11 @@ class SeersFlax : Script() {
             }
 
             State.SPINNING -> {
-                bot.pulseManager.run(
+                bot!!.pulseManager.run(
                     SpinningPulse(
-                        bot,
+                        bot!!,
                         Item(Items.FLAX_1779),
-                        bot.inventory.getAmount(Items.FLAX_1779),
+                        bot!!.inventory.getAmount(Items.FLAX_1779),
                         SpinningData.FLAX
                     )
                 )
@@ -70,35 +70,35 @@ class SeersFlax : Script() {
             }
 
             State.FIND_BANK -> {
-                when (bot.location) {
+                when (bot!!.location) {
                     Location.create(2711, 3471, 1) -> {
-                        val ladder = scriptAPI.getNearestNode(25939, true) ?: return
-                        ladder.interaction?.handle(bot, ladder.interaction[0])
+                        val ladder = scriptAPI!!.getNearestNode(25939, true) ?: return
+                        ladder.interaction?.handle(bot!!, ladder.interaction[0])
                     }
 
-                    Location.create(2714, 3470, 0) -> Pathfinder.find(bot, Location.create(2715, 3472, 0)).walk(bot)
+                    Location.create(2714, 3470, 0) -> Pathfinder.find(bot!!, Location.create(2715, 3472, 0)).walk(bot)
                     Location.create(2715, 3472, 0) -> {
-                        val door = scriptAPI.getNearestNode(25819, true)
-                        if (door != null && door.location?.withinDistance(bot.location, 2)!!) {
-                            door.interaction?.handle(bot, door.interaction[0])
+                        val door = scriptAPI!!.getNearestNode(25819, true)
+                        if (door != null && door.location?.withinDistance(bot!!.location, 2)!!) {
+                            door.interaction?.handle(bot!!, door.interaction[0])
                             doorOpen = true
                         } else {
-                            Pathfinder.find(bot, Location.create(2726, 3481, 0)).walk(bot)
+                            Pathfinder.find(bot!!, Location.create(2726, 3481, 0)).walk(bot)
                         }
                     }
 
-                    Location.create(2726, 3481, 0) -> Pathfinder.find(bot, Location.create(2724, 3491, 0)).walk(bot)
+                    Location.create(2726, 3481, 0) -> Pathfinder.find(bot!!, Location.create(2724, 3491, 0)).walk(bot)
                     Location.create(2724, 3491, 0) -> state = State.BANKING
                 }
             }
 
             State.BANKING -> {
-                val bank = scriptAPI.getNearestNode(25808, true)
-                if (bank != null) bot.pulseManager.run(object : MovementPulse(bot, bank, DestinationFlag.OBJECT) {
+                val bank = scriptAPI!!.getNearestNode(25808, true)
+                if (bank != null) bot!!.pulseManager.run(object : MovementPulse(bot!!, bank, DestinationFlag.OBJECT) {
                     override fun pulse(): Boolean {
-                        bot.faceLocation(bank.location)
-                        scriptAPI.bankItem(Items.BOW_STRING_1777)
-                        if (bot.bank.getAmount(Items.BOW_STRING_1777) > 500) {
+                        bot!!.faceLocation(bank.location)
+                        scriptAPI!!.bankItem(Items.BOW_STRING_1777)
+                        if (bot!!.bank.getAmount(Items.BOW_STRING_1777) > 500) {
                             state = State.TELE_GE
                             return true
                         }
@@ -109,28 +109,31 @@ class SeersFlax : Script() {
             }
 
             State.RETURN_TO_FLAX -> {
-                if (bot.location == Location.create(2756, 3478, 0)) Pathfinder.find(bot, Location.create(2726, 3486, 0))
+                if (bot!!.location == Location.create(2756, 3478, 0)) Pathfinder.find(
+                    bot!!,
+                    Location.create(2726, 3486, 0)
+                )
                     .walk(bot)
-                if (stage == 0) Pathfinder.find(bot, Location.create(2726, 3486, 0)).walk(bot).also { stage++ }
-                when (bot.location) {
-                    Location.create(2726, 3486, 0) -> Pathfinder.find(bot, Location.create(2729, 3469, 0)).walk(bot)
-                    Location.create(2729, 3469, 0) -> Pathfinder.find(bot, Location.create(2734, 3447, 0)).walk(bot)
+                if (stage == 0) Pathfinder.find(bot!!, Location.create(2726, 3486, 0)).walk(bot).also { stage++ }
+                when (bot!!.location) {
+                    Location.create(2726, 3486, 0) -> Pathfinder.find(bot!!, Location.create(2729, 3469, 0)).walk(bot)
+                    Location.create(2729, 3469, 0) -> Pathfinder.find(bot!!, Location.create(2734, 3447, 0)).walk(bot)
                     Location.create(2734, 3447, 0) -> state = State.PICKING.also { stage = 0 }
                 }
             }
 
             State.TELE_GE -> {
-                scriptAPI.teleportToGE()
+                scriptAPI!!.teleportToGE()
                 state = State.SELL_GE
             }
 
             State.SELL_GE -> {
-                scriptAPI.sellOnGE(Items.BOW_STRING_1777)
+                scriptAPI!!.sellOnGE(Items.BOW_STRING_1777)
                 state = State.TELE_CAMELOT
             }
 
             State.TELE_CAMELOT -> {
-                scriptAPI.teleport(Location.create(2756, 3478, 0))
+                scriptAPI!!.teleport(Location.create(2756, 3478, 0))
                 stage = 0
                 state = State.RETURN_TO_FLAX
             }
@@ -142,12 +145,12 @@ class SeersFlax : Script() {
     }
 
     init {
-        skills[Skills.CRAFTING] = 10
+        skills[Skills.CRAFTING] == 10
     }
 
     override fun newInstance(): Script {
         val script = SeersFlax()
-        script.bot = SkillingBotAssembler().produce(SkillingBotAssembler.Wealth.POOR, bot.startLocation)
+        script.bot = SkillingBotAssembler().produce(SkillingBotAssembler.Wealth.POOR, bot!!.startLocation)
         return script
     }
 }

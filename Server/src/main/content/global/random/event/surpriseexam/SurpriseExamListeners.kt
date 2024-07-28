@@ -1,6 +1,6 @@
 package content.global.random.event.surpriseexam
 
-import content.global.plugins.iface.ExperienceInterfacePlugin
+import content.global.handlers.iface.plugin.ExperienceInterfacePlugin
 import core.api.*
 import core.api.consts.Items
 import core.api.consts.NPCs

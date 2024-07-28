@@ -96,10 +96,7 @@ public final class CacheFileManager {
         if (!validContainer(containerId)) {
             return false;
         }
-        if (fileId < 0 || information.getContainers()[containerId] == null || information.getContainers()[containerId].getFiles().length <= fileId) {
-            return false;
-        }
-        return true;
+        return fileId >= 0 && information.getContainers()[containerId] != null && information.getContainers()[containerId].getFiles().length > fileId;
 
     }
 
@@ -110,10 +107,7 @@ public final class CacheFileManager {
      * @return If the container is valid {@code true}.
      */
     public boolean validContainer(int containerId) {
-        if (containerId < 0 || information.getContainers().length <= containerId) {
-            return false;
-        }
-        return true;
+        return containerId >= 0 && information.getContainers().length > containerId;
     }
 
     /**
@@ -185,7 +179,7 @@ public final class CacheFileManager {
             int amtOfLoops = data[--readPosition] & 0xff;
             readPosition -= amtOfLoops * (information.getContainers()[archiveId].getFilesIndexes().length * 4);
             ByteBuffer buffer = ByteBuffer.wrap(data);
-            int filesSize[] = new int[information.getContainers()[archiveId].getFilesIndexes().length];
+            int[] filesSize = new int[information.getContainers()[archiveId].getFilesIndexes().length];
             buffer.position(readPosition);
             for (int loop = 0; loop < amtOfLoops; loop++) {
                 int offset = 0;
@@ -246,9 +240,9 @@ public final class CacheFileManager {
     }
 
     /**
-     * Get the containers information.
+     * Get the containers' information.
      *
-     * @return The containers information.
+     * @return The containers' information.
      */
     public ContainersInformation getInformation() {
         return information;

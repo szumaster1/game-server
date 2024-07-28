@@ -8,10 +8,10 @@ import core.game.node.item.Item
 class ManThiever : Script() {
 
     override fun tick() {
-        val man = scriptAPI.getNearestNode("Man", false)
+        val man = scriptAPI!!.getNearestNode("Man", false)
         man ?: return
-        bot.interfaceManager.close()
-        InteractionListeners.run(man.id, IntType.NPC, "Pickpocket", bot, man)
+        bot!!.interfaceManager.close()
+        InteractionListeners.run(man.id, IntType.NPC, "Pickpocket", bot!!, man)
     }
 
     override fun newInstance(): Script {

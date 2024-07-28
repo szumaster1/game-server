@@ -13,18 +13,18 @@ class GlassBlowingBankstander : Script() {
     var state = State.BLOWING
 
     override fun tick() {
-        val bank = scriptAPI.getNearestNode("Bank booth")
-        bot.faceLocation(bank?.location)
+        val bank = scriptAPI!!.getNearestNode("Bank booth")
+        bot!!.faceLocation(bank?.location)
         state = when (state) {
             State.BLOWING -> {
-                bot.inventory.add(Item(Items.GLASSBLOWING_PIPE_1785))
-                bot.inventory.add(Item(Items.MOLTEN_GLASS_1775, 27))
-                bot.pulseManager.run(GlassCraftPulse(bot, GlassData.UNPOWERED_ORB, 27))
+                bot!!.inventory.add(Item(Items.GLASSBLOWING_PIPE_1785))
+                bot!!.inventory.add(Item(Items.MOLTEN_GLASS_1775, 27))
+                bot!!.pulseManager.run(GlassCraftPulse(bot!!, GlassData.UNPOWERED_ORB, 27))
                 State.BANKING
             }
 
             State.BANKING -> {
-                bot.inventory.clear()
+                bot!!.inventory.clear()
                 State.BLOWING
             }
         }
@@ -32,12 +32,12 @@ class GlassBlowingBankstander : Script() {
 
     override fun newInstance(): Script {
         val script = GlassBlowingBankstander()
-        script.bot = SkillingBotAssembler().produce(SkillingBotAssembler.Wealth.AVERAGE, bot.startLocation)
+        script.bot = SkillingBotAssembler().produce(SkillingBotAssembler.Wealth.AVERAGE, bot!!.startLocation)
         return script
     }
 
     init {
-        skills[Skills.CRAFTING] = 99
+        skills[Skills.CRAFTING] == 99
     }
 
     enum class State {

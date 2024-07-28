@@ -38,7 +38,7 @@ class CannonballSmelter : Script() {
         when (state) {
 
             State.INIT -> {
-                overlay = scriptAPI.getOverlay()
+                overlay = scriptAPI!!.getOverlay()
                 overlay!!.init()
                 overlay!!.setTitle("Mining")
                 overlay!!.setTaskLabel("Coal Mined:")
@@ -52,101 +52,101 @@ class CannonballSmelter : Script() {
             }
 
             State.MINING -> {
-                bot.interfaceManager.close()
-                if (bot.inventory.freeSlots() == 0) {
+                bot!!.interfaceManager.close()
+                if (bot!!.inventory.freeSlots() == 0) {
                     state = State.TO_BANK
-                } else if (amountInInventory(bot, Items.COAL_453) >= 18) {
+                } else if (amountInInventory(bot!!, Items.COAL_453) >= 18) {
                     state = State.TO_IRONMINE
                 } else if (!coalMine.insideBorder(bot)) {
-                    scriptAPI.walkTo(coalMine.randomLoc)
+                    scriptAPI!!.walkTo(coalMine.randomLoc)
                 } else {
-                    val rock = scriptAPI.getNearestObjectByPredicate { node ->
+                    val rock = scriptAPI!!.getNearestObjectByPredicate { node ->
                         node?.name?.equals(
                             "rocks", true
                         )!! && MiningNode.forId(node.id!!)?.reward == Items.COAL_453
                     }
                     if (rock != null) {
-                        scriptAPI.interact(bot, rock, "mine")
+                        scriptAPI!!.interact(bot!!, rock, "mine")
                     } else {
-                        scriptAPI.walkTo(coalMine.randomLoc)
+                        scriptAPI!!.walkTo(coalMine.randomLoc)
                     }
                 }
-                overlay!!.setAmount(amountInInventory(bot, Items.COAL_453))
+                overlay!!.setAmount(amountInInventory(bot!!, Items.COAL_453))
             }
 
             State.MINING_IRON -> {
-                bot.interfaceManager.close()
-                if (bot.inventory.freeSlots() == 0 || amountInInventory(bot, Items.IRON_ORE_440) >= 9) {
+                bot!!.interfaceManager.close()
+                if (bot!!.inventory.freeSlots() == 0 || amountInInventory(bot!!, Items.IRON_ORE_440) >= 9) {
                     state = State.TO_BANK
                 } else if (!ironMine.insideBorder(bot)) {
                     var loc = ironMine.randomLoc
-                    scriptAPI.walkTo(loc)
+                    scriptAPI!!.walkTo(loc)
                 } else {
-                    val rock = scriptAPI.getNearestObjectByPredicate { node ->
+                    val rock = scriptAPI!!.getNearestObjectByPredicate { node ->
                         node?.name?.equals(
                             "rocks", true
                         )!! && MiningNode.forId(node.id)?.reward == Items.IRON_ORE_440
                     }
-                    //rock?.let { InteractionListeners.run(rock.id, IntType.SCENERY,"mine",bot,rock) }
+                    //rock?.let { InteractionListeners.run(rock.id, IntType.SCENERY,"mine",bot!!,rock) }
                     if (rock != null) {
-                        scriptAPI.interact(bot, rock, "mine")
+                        scriptAPI!!.interact(bot!!, rock, "mine")
                     } else {
-                        scriptAPI.walkTo(ironMine.randomLoc)
+                        scriptAPI!!.walkTo(ironMine.randomLoc)
                     }
                 }
-                overlay!!.setAmount(amountInInventory(bot, Items.IRON_ORE_440))
+                overlay!!.setAmount(amountInInventory(bot!!, Items.IRON_ORE_440))
             }
 
             State.TO_BANK -> {
                 if (bank.insideBorder(bot)) {
-                    val bank = scriptAPI.getNearestNode("bank booth", true)
+                    val bank = scriptAPI!!.getNearestNode("bank booth", true)
                     if (bank != null) {
                         state = State.BANKING
-                        bot.pulseManager.run(object : BankingPulse(this, bank) {})
+                        bot!!.pulseManager.run(object : BankingPulse(this, bank) {})
                     }
                 } else {
-                    if (bot.location.y > 3400) {
-                        if (bot.location.y < 9757) {
-                            val ladder = scriptAPI.getNearestNode(30941, true)
-                            //ladder ?: scriptAPI.walkTo(bottomLadder.randomLoc).also { return }
-                            //ladder?.interaction?.handle(bot, ladder.interaction[0]).also { ladderSwitch = true }
-                            scriptAPI.interact(bot, ladder, "climb-up")
+                    if (bot!!.location.y > 3400) {
+                        if (bot!!.location.y < 9757) {
+                            val ladder = scriptAPI!!.getNearestNode(30941, true)
+                            //ladder ?: scriptAPI!!.walkTo(bottomLadder.randomLoc).also { return }
+                            //ladder?.interaction?.handle(bot!!, ladder.interaction[0]).also { ladderSwitch = true }
+                            scriptAPI!!.interact(bot!!, ladder, "climb-up")
                         } else {
-                            val stairs = scriptAPI.getNearestNode(30943, true)
-                            scriptAPI.interact(bot, stairs, "climb-up")
+                            val stairs = scriptAPI!!.getNearestNode(30943, true)
+                            scriptAPI!!.interact(bot!!, stairs, "climb-up")
 
                         }
                     } else {
                         if (northMineEntrance.insideBorder(bot)) {
-                            val door = scriptAPI.getNearestNode(11714, true)
+                            val door = scriptAPI!!.getNearestNode(11714, true)
                             if (door != null) {
-                                scriptAPI.interact(bot, door, "open")
+                                scriptAPI!!.interact(bot!!, door, "open")
                             } else {
-                                scriptAPI.walkTo(bank.randomLoc)
+                                scriptAPI!!.walkTo(bank.randomLoc)
                             }
                         } else {
-                            scriptAPI.walkTo(bank.randomLoc)
+                            scriptAPI!!.walkTo(bank.randomLoc)
                         }
                     }
                 }
             }
 
             State.BANKING -> {
-                scriptAPI.bankAll {
-                    if (amountInBank(bot, Items.CANNONBALL_2) >= 500) {
+                scriptAPI!!.bankAll {
+                    if (amountInBank(bot!!, Items.CANNONBALL_2) >= 500) {
                         val total = GrandExchange.getBotstockForId(Items.CANNONBALL_2)
-                        bot.interfaceManager.close()
+                        bot!!.interfaceManager.close()
                         if (total < 5000) {
                             state = State.TO_GE
                         }
                     }
                     if (state != State.TO_GE) {
-                        if (amountInBank(bot, Items.IRON_ORE_440) >= 9 && amountInBank(bot, Items.COAL_453) >= 18) {
-                            scriptAPI.withdraw(Items.IRON_ORE_440, 9)
-                            scriptAPI.withdraw(Items.COAL_453, 18)
-                            scriptAPI.withdraw(Items.AMMO_MOULD_4, 1)
+                        if (amountInBank(bot!!, Items.IRON_ORE_440) >= 9 && amountInBank(bot!!, Items.COAL_453) >= 18) {
+                            scriptAPI!!.withdraw(Items.IRON_ORE_440, 9)
+                            scriptAPI!!.withdraw(Items.COAL_453, 18)
+                            scriptAPI!!.withdraw(Items.AMMO_MOULD_4, 1)
                             state = State.TO_FURNACE
-                            bot.interfaceManager.close()
+                            bot!!.interfaceManager.close()
                         } else {
                             state = State.TO_MINE
                         }
@@ -155,23 +155,23 @@ class CannonballSmelter : Script() {
             }
 
             State.TO_FURNACE -> {
-                if (bot.location.x > 2978) {
-                    scriptAPI.walkTo(Location.create(2974, 3369, 0))
-                } else if (amountInInventory(bot, Items.STEEL_BAR_2353) < 9) {
-                    val furnace = scriptAPI.getNearestNode(11666, true)
-                    scriptAPI.interact(bot, furnace, "smelt")
-                    bot.pulseManager.run(SmeltingPulse(bot, null, Bar.STEEL, 9))
+                if (bot!!.location.x > 2978) {
+                    scriptAPI!!.walkTo(Location.create(2974, 3369, 0))
+                } else if (amountInInventory(bot!!, Items.STEEL_BAR_2353) < 9) {
+                    val furnace = scriptAPI!!.getNearestNode(11666, true)
+                    scriptAPI!!.interact(bot!!, furnace, "smelt")
+                    bot!!.pulseManager.run(SmeltingPulse(bot!!, null, Bar.STEEL, 9))
                 } else {
                     state = State.SMELTING_CBALLS
                 }
             }
 
             State.SMELTING_CBALLS -> {
-                if (amountInInventory(bot, Items.STEEL_BAR_2353) > 0) {
-                    val furnace = scriptAPI.getNearestNode(11666, true)
-                    scriptAPI.useWith(bot, Items.STEEL_BAR_2353, furnace)
-                    if (bot.dialogueInterpreter.dialogue != null) {
-                        bot.dialogueInterpreter.handle(309, 32)
+                if (amountInInventory(bot!!, Items.STEEL_BAR_2353) > 0) {
+                    val furnace = scriptAPI!!.getNearestNode(11666, true)
+                    scriptAPI!!.useWith(bot!!, Items.STEEL_BAR_2353, furnace)
+                    if (bot!!.dialogueInterpreter.dialogue != null) {
+                        bot!!.dialogueInterpreter.handle(309, 32)
                     }
                 } else {
                     state = State.TO_BANK
@@ -179,21 +179,21 @@ class CannonballSmelter : Script() {
             }
 
             State.TO_MINE -> {
-                if (bot.location.y < 3400) {
-                    bot.interfaceManager.close()
-                    if (!topLadder.insideBorder(bot.location)) {
-                        scriptAPI.walkTo(topLadder.randomLoc)
+                if (bot!!.location.y < 3400) {
+                    bot!!.interfaceManager.close()
+                    if (!topLadder.insideBorder(bot!!.location)) {
+                        scriptAPI!!.walkTo(topLadder.randomLoc)
                     } else {
-                        val ladder = scriptAPI.getNearestNode("Ladder", true)
+                        val ladder = scriptAPI!!.getNearestNode("Ladder", true)
                         if (ladder != null) {
-                            ladder.interaction.handle(bot, ladder.interaction[0])
+                            ladder.interaction.handle(bot!!, ladder.interaction[0])
                         } else {
-                            scriptAPI.walkTo(topLadder.randomLoc)
+                            scriptAPI!!.walkTo(topLadder.randomLoc)
                         }
                     }
                 } else {
                     if (!coalMine.insideBorder(bot)) {
-                        scriptAPI.walkTo(coalMine.randomLoc)
+                        scriptAPI!!.walkTo(coalMine.randomLoc)
                     } else {
                         state = State.MINING
                     }
@@ -201,52 +201,52 @@ class CannonballSmelter : Script() {
             }
 
             State.TO_IRONMINE -> {
-                if (ironMine.insideBorder(bot.location)) {
+                if (ironMine.insideBorder(bot!!.location)) {
                     state = State.MINING_IRON
-                } else if (bot.location.y < 9757) {
-                    if (bot.location.regionId == ((47 shl 8) or 152)) {
-                        val door = scriptAPI.getNearestNode(2112, true)
+                } else if (bot!!.location.y < 9757) {
+                    if (bot!!.location.regionId == ((47 shl 8) or 152)) {
+                        val door = scriptAPI!!.getNearestNode(2112, true)
                         if (door != null) {
-                            scriptAPI.interact(bot, door, "open")
+                            scriptAPI!!.interact(bot!!, door, "open")
                         } else {
-                            scriptAPI.walkTo(Location.create(3046, 9756, 0))
+                            scriptAPI!!.walkTo(Location.create(3046, 9756, 0))
                         }
                     } else {
-                        scriptAPI.walkTo(Location.create(3046, 9756, 0))
+                        scriptAPI!!.walkTo(Location.create(3046, 9756, 0))
                     }
                 } else {
-                    scriptAPI.walkTo(ironMine.randomLoc)
+                    scriptAPI!!.walkTo(ironMine.randomLoc)
                 }
             }
 
             State.TO_GE -> {
-                scriptAPI.teleportToGE()
+                scriptAPI!!.teleportToGE()
                 state = State.SELLING
             }
 
             State.SELLING -> {
-                scriptAPI.sellOnGE(Items.CANNONBALL_2)
+                scriptAPI!!.sellOnGE(Items.CANNONBALL_2)
                 state = State.GO_BACK
             }
 
             State.GO_BACK -> {
-                scriptAPI.teleport(bank.randomLoc)
+                scriptAPI!!.teleport(bank.randomLoc)
                 state = State.TO_MINE
             }
         }
     }
 
     open class BankingPulse(val script: Script, val bank: Node) :
-        MovementPulse(script.bot, bank, DestinationFlag.OBJECT) {
+        MovementPulse(script.bot!!, bank, DestinationFlag.OBJECT) {
         override fun pulse(): Boolean {
-            script.bot.faceLocation(bank.location)
+            script.bot!!.faceLocation(bank.location)
             return true
         }
     }
 
     override fun newInstance(): Script {
         val script = CannonballSmelter()
-        script.bot = SkillingBotAssembler().produce(SkillingBotAssembler.Wealth.POOR, bot.startLocation)
+        script.bot = SkillingBotAssembler().produce(SkillingBotAssembler.Wealth.POOR, bot!!.startLocation)
         return script
     }
 
@@ -261,12 +261,12 @@ class CannonballSmelter : Script() {
             inventory.add(Item(Items.COAL_453, 18))
             inventory.add(Item(Items.IRON_ORE_440, 9))
         }
-        skills[Skills.ATTACK] = 40
-        skills[Skills.STRENGTH] = 60
-        skills[Skills.MINING] = 75
-        skills[Skills.HITPOINTS] = 99
-        skills[Skills.DEFENCE] = 99
-        skills[Skills.SMITHING] = 35
+        skills[Skills.ATTACK] == 40
+        skills[Skills.STRENGTH] == 60
+        skills[Skills.MINING] == 75
+        skills[Skills.HITPOINTS] == 99
+        skills[Skills.DEFENCE] == 99
+        skills[Skills.SMITHING] == 35
         quests.add("Dwarf Cannon")
     }
 }

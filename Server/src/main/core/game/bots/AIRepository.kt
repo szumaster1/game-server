@@ -47,7 +47,7 @@ class AIRepository {
         fun clearAllBots() {
             PulseRepository.toList().forEach { (_, it) ->
                 it.stop()
-                it.botScript.bot.clear()
+                it.botScript.bot!!.clear()
                 AIPlayer.deregister((it.botScript.bot as AIPlayer).uid)
             }
         }

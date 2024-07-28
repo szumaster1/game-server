@@ -21,30 +21,30 @@ class DraynorFisher : Script() {
         when (state) {
             State.FISHING -> {
                 if (!fishingZone.insideBorder(bot))
-                    scriptAPI.walkTo(fishingZone.randomLoc)
+                    scriptAPI!!.walkTo(fishingZone.randomLoc)
                 else {
-                    val spot = scriptAPI.getNearestNode(316, false)
+                    val spot = scriptAPI!!.getNearestNode(316, false)
                     if (spot != null) {
-                        InteractionListeners.run(spot.id, IntType.NPC, "net", bot, spot)
+                        InteractionListeners.run(spot.id, IntType.NPC, "net", bot!!, spot)
                     } else {
-                        scriptAPI.walkTo(fishingZone.randomLoc)
+                        scriptAPI!!.walkTo(fishingZone.randomLoc)
                     }
-                    if (bot.inventory.getMaximumAdd(Item(4151)) < 5)
+                    if (bot!!.inventory.getMaximumAdd(Item(4151)) < 5)
                         state = State.BANKING
                 }
             }
 
             State.BANKING -> {
                 if (!bankZone.insideBorder(bot))
-                    scriptAPI.walkTo(bankZone.randomLoc)
+                    scriptAPI!!.walkTo(bankZone.randomLoc)
                 else {
-                    val bank = scriptAPI.getNearestNode("Bank booth")
+                    val bank = scriptAPI!!.getNearestNode("Bank booth")
                     if (bank != null) {
-                        bot.pulseManager.run(object : MovementPulse(bot, bank, DestinationFlag.OBJECT) {
+                        bot!!.pulseManager.run(object : MovementPulse(bot!!, bank, DestinationFlag.OBJECT) {
                             override fun pulse(): Boolean {
-                                bot.inventory.clear()
+                                bot!!.inventory.clear()
                                 state = State.FISHING
-                                bot.inventory.add(Item(Items.SMALL_FISHING_NET_303))
+                                bot!!.inventory.add(Item(Items.SMALL_FISHING_NET_303))
                                 return true
                             }
                         })

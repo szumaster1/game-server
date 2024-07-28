@@ -25,7 +25,7 @@ public final class BufferInputStream extends InputStream {
 
 	@Override
 	public int read() throws IOException {
-		return buffer.get();
+		return buffer.get() & 0xFF;
 	}
 
 	/**

@@ -24,25 +24,28 @@ class VarrockEssenceMiner : Script() {
     override fun tick() {
         when (state) {
             State.TO_ESSENCE -> {
-                bot.interfaceManager.close()
-                if (!auburyZone.insideBorder(bot)) scriptAPI.walkTo(auburyZone.randomLoc)
+                bot!!.interfaceManager.close()
+                if (!auburyZone.insideBorder(bot)) scriptAPI!!.walkTo(auburyZone.randomLoc)
                 else {
-                    val aubury = scriptAPI.getNearestNode("Aubury")
-                    aubury?.interaction?.handle(bot, aubury.interaction[3])
+                    val aubury = scriptAPI!!.getNearestNode("Aubury")
+                    aubury?.interaction?.handle(bot!!, aubury.interaction[3])
                     state = State.MINING
                 }
 
-                val bank = scriptAPI.getNearestNode("Bank booth",true)
-                if(bank != null && bank.location?.withinDistance(bot.location,2) == true){
-                    Pathfinder.find(bot, Location.create(3259, 3405, 0)).walk(bot)
+                val bank = scriptAPI!!.getNearestNode("Bank booth", true)
+                if (bank != null && bank.location?.withinDistance(bot!!.location, 2) == true) {
+                    Pathfinder.find(bot!!, Location.create(3259, 3405, 0)).walk(bot)
                 } else {
-                    when(bot.location){
-                        Location.create(3165, 3487, 0) -> scriptAPI.teleport(Location.create(3254, 3421, 0))
-                        Location.create(3259, 3405, 0) -> Pathfinder.find(bot,Location.create(3253, 3400, 0)).walk(bot)
+                    when (bot!!.location) {
+                        Location.create(3165, 3487, 0) -> scriptAPI!!.teleport(Location.create(3254, 3421, 0))
+                        Location.create(3259, 3405, 0) -> Pathfinder.find(bot!!, Location.create(3253, 3400, 0))
+                            .walk(bot)
+
                         Location.create(3253, 3400, 0) -> {
-                            val aubury = scriptAPI.getNearestNode("Aubury")
-                            aubury?.interaction?.handle(bot,aubury.interaction[3])
+                            val aubury = scriptAPI!!.getNearestNode("Aubury")
+                            aubury?.interaction?.handle(bot!!, aubury.interaction[3])
                         }
+
                         Location.create(2922, 4820, 0) -> {
                             state = State.MINING
                         }
@@ -51,23 +54,23 @@ class VarrockEssenceMiner : Script() {
             }
 
             State.MINING -> {
-                if (bot.inventory.isFull) {
+                if (bot!!.inventory.isFull) {
                     state = State.TO_BANK
                 } else {
-                    val essence = scriptAPI.getNearestNode(2491, true)
-                    essence?.let { InteractionListeners.run(essence.id, IntType.SCENERY, "mine", bot, essence) }
+                    val essence = scriptAPI!!.getNearestNode(2491, true)
+                    essence?.let { InteractionListeners.run(essence.id, IntType.SCENERY, "mine", bot!!, essence) }
                 }
             }
 
             State.TO_BANK -> {
-                val portal = scriptAPI.getNearestNode("Portal", true)
-                if (portal != null && portal.location.withinDistance(bot.location, 20)) portal.interaction.handle(
-                    bot,
+                val portal = scriptAPI!!.getNearestNode("Portal", true)
+                if (portal != null && portal.location.withinDistance(bot!!.location, 20)) portal.interaction.handle(
+                    bot!!,
                     portal.interaction[0]
                 )
                 else {
                     if (!bankZone.insideBorder(bot)) {
-                        scriptAPI.walkTo(bankZone.randomLoc)
+                        scriptAPI!!.walkTo(bankZone.randomLoc)
                     } else {
                         state = State.BANKING
                     }
@@ -75,14 +78,14 @@ class VarrockEssenceMiner : Script() {
             }
 
             State.BANKING -> {
-                val bank = scriptAPI.getNearestNode("bank booth", true)
+                val bank = scriptAPI!!.getNearestNode("bank booth", true)
                 val item =
-                    if (bot.inventory.getAmount(Items.RUNE_ESSENCE_1436) > 0) Items.RUNE_ESSENCE_1436 else Items.PURE_ESSENCE_7936
+                    if (bot!!.inventory.getAmount(Items.RUNE_ESSENCE_1436) > 0) Items.RUNE_ESSENCE_1436 else Items.PURE_ESSENCE_7936
                 if (bank != null) {
-                    bot.pulseManager.run(object : MovementPulse(bot, bank, DestinationFlag.OBJECT) {
+                    bot!!.pulseManager.run(object : MovementPulse(bot!!, bank, DestinationFlag.OBJECT) {
                         override fun pulse(): Boolean {
-                            bot.faceLocation(bank.location)
-                            scriptAPI.bankItem(item)
+                            bot!!.faceLocation(bank.location)
+                            scriptAPI!!.bankItem(item)
                             state = State.TO_ESSENCE
                             return true
                         }
@@ -91,12 +94,12 @@ class VarrockEssenceMiner : Script() {
             }
 
             State.TELE_GE -> {
-                if (bot.location != Location.create(3165, 3482, 0)) scriptAPI.walkTo(Location.create(3165, 3482, 0))
+                if (bot!!.location != Location.create(3165, 3482, 0)) scriptAPI!!.walkTo(Location.create(3165, 3482, 0))
                 else state = State.SELL_GE
             }
 
             State.SELL_GE -> {
-                scriptAPI.sellOnGE(Items.PURE_ESSENCE_7936)
+                scriptAPI!!.sellOnGE(Items.PURE_ESSENCE_7936)
                 state = State.TO_ESSENCE
             }
 
@@ -110,7 +113,7 @@ class VarrockEssenceMiner : Script() {
 
     override fun newInstance(): Script {
         val script = VarrockEssenceMiner()
-        script.bot = SkillingBotAssembler().produce(SkillingBotAssembler.Wealth.POOR, bot.startLocation)
+        script.bot = SkillingBotAssembler().produce(SkillingBotAssembler.Wealth.POOR, bot!!.startLocation)
         return script
     }
 }

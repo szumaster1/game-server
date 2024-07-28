@@ -17,7 +17,7 @@ class ShootingStarBot : Script() {
     val star = ShootingStarPlugin.getStar()
 
     override fun tick() {
-        bot.fullRestore()
+        bot!!.fullRestore()
 
         if (timerCountdown > 0) {
             --timerCountdown
@@ -28,30 +28,30 @@ class ShootingStarBot : Script() {
             State.FULL_IDLE -> {}
 
             State.TELEPORT_TO -> {
-                scriptAPI.teleport(star.crash_locations[star.location]!!.transform(0, -1, 0))
+                scriptAPI!!.teleport(star.crash_locations[star.location]!!.transform(0, -1, 0))
                 state = State.MINING
                 timerCountdown = 15
             }
 
             State.MINING -> {
-                InteractionListeners.run(star.starObject.id, IntType.SCENERY, "mine", bot, star.starObject)
+                InteractionListeners.run(star.starObject.id, IntType.SCENERY, "mine", bot!!, star.starObject)
             }
 
             State.TELEPORT_BACK -> {
-                scriptAPI.teleport(spawnLoc)
+                scriptAPI!!.teleport(spawnLoc)
                 timerCountdown = 15
             }
         }
     }
 
     init {
-        skills[Skills.ATTACK] = 41
-        skills[Skills.RANGE] = RandomFunction.random(30, 99)
-        skills[Skills.MINING] = 99
-        skills[Skills.HITPOINTS] = 99
-        skills[Skills.DEFENCE] = 99
-        skills[Skills.SUMMONING] = 99
-        skills[Skills.PRAYER] = 99
+        skills[Skills.ATTACK] == 41
+        skills[Skills.RANGE] == RandomFunction.random(30, 99)
+        skills[Skills.MINING] == 99
+        skills[Skills.HITPOINTS] == 99
+        skills[Skills.DEFENCE] == 99
+        skills[Skills.SUMMONING] == 99
+        skills[Skills.PRAYER] == 99
         inventory.add(Item(Items.RUNE_PICKAXE_1275))
     }
 

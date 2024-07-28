@@ -26,26 +26,26 @@ class ChickenKiller : Script() {
         when (state) {
             State.CONFIG -> {}
             State.INIT -> {
-                overlay = scriptAPI.getOverlay()
+                overlay = scriptAPI!!.getOverlay()
                 overlay!!.init()
                 overlay!!.setTitle("Chickens")
                 overlay!!.setTaskLabel("Chickens KO'd:")
                 overlay!!.setAmount(0)
                 state = State.CONFIG
-                bot.dialogueInterpreter.sendOptions("Loot Feathers and bury bones?", "Yes", "No")
-                bot.dialogueInterpreter.addAction { player, button ->
+                bot!!.dialogueInterpreter.sendOptions("Loot Feathers and bury bones?", "Yes", "No")
+                bot!!.dialogueInterpreter.addAction { player, button ->
                     lootFeathers = button == 2
                     state = State.KILLING
                 }
-                startLocation = bot.location
+                startLocation = bot!!.location
             }
 
             State.KILLING -> {
-                val chicken = scriptAPI.getNearestNode("Chicken")
+                val chicken = scriptAPI!!.getNearestNode("Chicken")
                 if (chicken == null) {
-                    scriptAPI.randomWalkTo(startLocation, 3)
+                    scriptAPI!!.randomWalkTo(startLocation, 3)
                 } else {
-                    scriptAPI.attackNpcInRadius(bot, "Chicken", 10)
+                    scriptAPI!!.attackNpcInRadius(bot!!, "Chicken", 10)
                     if (lootFeathers) {
                         state = State.IDLE
                         timer = 4
@@ -57,7 +57,7 @@ class ChickenKiller : Script() {
 
             State.IDLE -> {
                 if (timer-- <= 0) {
-                    featherNearby = scriptAPI.takeNearestGroundItem(Items.FEATHER_314)
+                    featherNearby = scriptAPI!!.takeNearestGroundItem(Items.FEATHER_314)
                     currentFeathers = 0
                     if (featherNearby) {
                         state = State.LOOTFEATHER
@@ -70,8 +70,8 @@ class ChickenKiller : Script() {
             State.LOOTFEATHER -> {
                 timer = 1
                 if (timer-- >= 0) {
-                    currentFeathers = bot.inventory.getAmount(Items.FEATHER_314)
-                    scriptAPI.takeNearestGroundItem(Items.FEATHER_314)
+                    currentFeathers = bot!!.inventory.getAmount(Items.FEATHER_314)
+                    scriptAPI!!.takeNearestGroundItem(Items.FEATHER_314)
                     featherNearby = false
                 }
                 state = State.LOOTBONES
@@ -80,17 +80,17 @@ class ChickenKiller : Script() {
             State.LOOTBONES -> {
                 timer = 1
                 if (timer-- >= 0) {
-                    scriptAPI.takeNearestGroundItem(Items.BONES_526)
+                    scriptAPI!!.takeNearestGroundItem(Items.BONES_526)
                 }
                 state = State.BURYBONES
             }
 
             State.BURYBONES -> {
                 timer = 1
-                var hasBone = bot.hasItem(Item(Items.BONES_526))
-                var bone = bot.inventory.getItem(Item(Items.BONES_526))
+                var hasBone = bot!!.hasItem(Item(Items.BONES_526))
+                var bone = bot!!.inventory.getItem(Item(Items.BONES_526))
                 if (hasBone) {
-                    bone.interaction.handleItemOption(bot, bone.interaction.get(0), bot.inventory)
+                    bone.interaction.handleItemOption(bot!!, bone.interaction.get(0), bot!!.inventory)
                 }
                 state = State.KILLING
             }

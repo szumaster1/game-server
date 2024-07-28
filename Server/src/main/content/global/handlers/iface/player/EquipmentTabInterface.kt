@@ -1,7 +1,7 @@
 package content.global.handlers.iface.player
 
-import content.global.skill.combat.summoning.familiar.BurdenBeast
 import core.api.*
+import content.global.skill.combat.summoning.familiar.BurdenBeast
 import core.api.consts.Components
 import core.game.container.access.InterfaceContainer
 import core.game.container.impl.EquipmentContainer
@@ -15,6 +15,22 @@ import core.game.node.entity.player.link.prayer.PrayerType
 import core.tools.Log
 
 class EquipmentTabInterface : InterfaceListener {
+
+    /** (Highlight white items are auto destroyed on death Enum#616 (Items kept on death interface)
+     * TODO: Parse server sided
+     * CS2 Script 118 - Items kept on death interface
+     * Credit Woahscam for figuring this all out.
+     * @arg_0 (Int): Zone type - 0 Default/1 Safe/2 POH/3 Castle Wars/4 Trouble Brewing/5 Barbarian Assault
+     * @arg_1 (Int): Amount of items kept on death - 0/1/3/4
+     * @arg_2 (Object): Item kept on death - slot 0 item id
+     * @arg_3 (Object): Item kept on death - slot 1 item id
+     * @arg_4 (Object): Item kept on death - slot 2 item id
+     * @arg_5 (Object): Item kept on death - slot 3 item id
+     * @arg_6 (Int): Player is skulled - 0 Not Skulled/1 Skulled
+     * @arg_7 (Int): Player has BoB summoned with items - 0 BoB not summoned or has no items /1 BoB summoned with items
+     * @arg_8 (String): String to append based on amount of items kept on death.
+     **/
+
     override fun defineInterfaceListeners() {
         onOpen(ITEMS_KEPT_ON_DEATH_102) { player, component ->
             val zoneType = player.zoneMonitor.type
@@ -29,12 +45,10 @@ class EquipmentTabInterface : InterfaceListener {
             val slot2 = itemsKeptOnDeath.getId(2)
             val slot3 = itemsKeptOnDeath.getId(3)
             val hasSkull = if (player.skullManager.isSkulled) 1 else 0
-            val beast: BurdenBeast? =
-                if (player.familiarManager.hasFamiliar() && player.familiarManager.familiar.isBurdenBeast) player.familiarManager.familiar as BurdenBeast else null
+            val beast: BurdenBeast? = if (player.familiarManager.hasFamiliar() && player.familiarManager.familiar.isBurdenBeast) player.familiarManager.familiar as BurdenBeast else null
             val hasBob = if (beast != null && !beast.container.isEmpty) 1 else 0
             val message = "You are skulled."
-            val cs2Args =
-                arrayOf<Any>(hasBob, hasSkull, slot3, slot2, slot1, slot0, amountKeptOnDeath, zoneType, message)
+            val cs2Args = arrayOf<Any>(hasBob, hasSkull, slot3, slot2, slot1, slot0, amountKeptOnDeath, zoneType, message)
 
             if (amountKeptOnDeath > 4 && zoneType == 0) {
                 log(this::class.java, Log.ERR, "Items kept on death interface should not contain more than 4 items when not in a safe zone!")
@@ -48,13 +62,12 @@ class EquipmentTabInterface : InterfaceListener {
             return@onOpen true
         }
 
-        on(Components.WORNITEMS_387) { player, _, opcode, buttonID, slot, itemID ->
+        on(Components.WORNITEMS_387) { player, component, opcode, buttonID, slot, itemID ->
             when (buttonID) {
                 28 -> {
                     if (opcode == 81) EquipHandler.unequip(player, slot, itemID)
                     if (opcode == 206) operateItem(player, slot)
                 }
-
                 52 -> openInterface(player, ITEMS_KEPT_ON_DEATH_102)
                 55 -> openInterface(player, Components.EQUIP_SCREEN2_667)
             }
@@ -114,7 +127,7 @@ class EquipmentTabInterface : InterfaceListener {
         when {
             InteractionListeners.run(item.id, IntType.ITEM, "operate", player, item) -> return
             item.operateHandler?.handle(player, item, "operate") == true -> return
-            else -> sendMessage(player, "There is no way to operate that item.")
+            else -> sendMessage(player, "You can't operate that.")
         }
     }
 
