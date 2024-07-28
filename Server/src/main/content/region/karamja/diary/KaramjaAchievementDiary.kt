@@ -163,7 +163,7 @@ class KaramjaAchievementDiary : DiaryEventHookBase(DiaryType.KARAMJA) {
     override val areaTasks get() = arrayOf(
         AreaDiaryTask(
             CAIRN_ISLE_AREA,
-            DiaryLevel.BEGINNER,
+            DiaryLevel.EASY,
             EasyTasks.CAIRN_ISLE_VISIT
         ),
     )
