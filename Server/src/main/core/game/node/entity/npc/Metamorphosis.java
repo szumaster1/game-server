@@ -63,8 +63,8 @@ public abstract class Metamorphosis extends OptionHandler {
                         newNpc = getRandomNpcId();
                     }
                     for (Pets p : Pets.values()) {
-                        if (p.getBabyNpcId() == newNpc) {
-                            player.getFamiliarManager().morphPet(new Item(p.getBabyItemId()), false, player.getFamiliarManager().getFamiliar().getLocation());
+                        if (p.babyNpcId == newNpc) {
+                            player.getFamiliarManager().morphPet(new Item(p.babyItemId), false, player.getFamiliarManager().getFamiliar().getLocation());
                             break;
                         }
                     }

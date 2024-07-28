@@ -111,7 +111,7 @@ public final class FamiliarManager {
             int itemId = currentPet >> 16 & 0xFFFF;
             Pets pets = Pets.forId(itemId);
             if (details == null) {
-                details = new PetDetails(pets.getGrowthRate() == 0.0 ? 100.0 : 0.0);
+                details = new PetDetails(pets.growthRate == 0.0 ? 100.0 : 0.0);
                 this.petDetails.put(currentPet, details);
             }
             familiar = new Pet(player, details, itemId, pets.getNpcId(itemId));
@@ -252,8 +252,8 @@ public final class FamiliarManager {
         if (pets == null) {
             return false;
         }
-        if (player.getSkills().getStaticLevel(Skills.SUMMONING) < pets.getSummoningLevel()) {
-            player.getDialogueInterpreter().sendDialogue("You need a summoning level of " + pets.getSummoningLevel() + " to summon this.");
+        if (player.getSkills().getStaticLevel(Skills.SUMMONING) < pets.summoningLevel) {
+            player.getDialogueInterpreter().sendDialogue("You need a summoning level of " + pets.summoningLevel + " to summon this.");
             return false;
         }
 
@@ -261,7 +261,7 @@ public final class FamiliarManager {
         // If it does, we need to verify that this ID is not already used for a different pet. This is needed to correct a historical bug that allowed multiple pets to be assigned the same individual ID (the historical code only checked the *current* stage item ID, failing to realize that we also need to account for *future* stage item IDs, in case the current pet grows up, resulting in a clash when it did). Saves affected by that bug will have multiple copies of the same item pointing to the same pet, which we have an opportunity to rectify now.
         ArrayList<Integer> taken = new ArrayList<Integer>();
         Container[] searchSpace = {player.getInventory(), player.getBankPrimary(), player.getBankSecondary()};
-        for (int checkId = pets.getBabyItemId(); checkId != -1; checkId = pets.getNextStageItemId(checkId)) {
+        for (int checkId = pets.babyItemId; checkId != -1; checkId = pets.getNextStageItemId(checkId)) {
             Item check = new Item(checkId, 1);
             for (Container container : searchSpace) {
                 for (Item i : container.getAll(check)) {
@@ -284,7 +284,7 @@ public final class FamiliarManager {
             }
         }
         if (details == null) { //init new pet
-            details = new PetDetails(pets.getGrowthRate() == 0.0 ? 100.0 : 0.0);
+            details = new PetDetails(pets.growthRate == 0.0 ? 100.0 : 0.0);
             for (individual = 0; taken.contains(individual) && individual < 0xFFFF; individual++) {}
             details.setIndividual(individual);
             // Make a copy of the item to extract what the item's idHash will be when including the individual ID as a "charge" value.
@@ -349,7 +349,7 @@ public final class FamiliarManager {
         if (pets == null) {
             return;
         }
-        for (int food : pets.getFood()) {
+        for (int food : pets.food) {
             if (food == foodId) {
                 player.getInventory().remove(new Item(foodId));
                 player.getPacketDispatch().sendMessage("Your pet happily eats the " + ItemDefinition.forId(food).getName() + ".");

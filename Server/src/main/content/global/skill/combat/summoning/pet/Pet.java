@@ -52,7 +52,7 @@ public final class Pet extends Familiar {
         this.pet = Pets.forId(itemId);
         this.details = details;
         this.itemId = itemId;
-        this.growthRate = pet.getGrowthRate();
+        this.growthRate = pet.growthRate;
     }
 
     @Override
@@ -65,9 +65,9 @@ public final class Pet extends Familiar {
     @Override
     public void handleTickActions() {
         final PetDetails petDetails = details;
-        if (getPet().getFood().length > 0) {
+        if (getPet().food.length > 0) {
             if (!SkillcapePerks.isActive(SkillcapePerks.PET_MASTERY, owner)) {
-                double amount = itemId == pet.getBabyItemId() ? 0.025 : 0.018;
+                double amount = itemId == pet.babyItemId ? 0.025 : 0.018;
                 if (GameWorld.getSettings().isDevMode()) {
                     amount *= 100;
                 }
@@ -82,7 +82,7 @@ public final class Pet extends Familiar {
             owner.getPacketDispatch().sendMessage("<col=ff0000>Your pet is starving, feed it before it runs off.</col>");
             hasWarned = 2;
         }
-        if (hunger >= 100.0 && growthRate != 0 && pet.getFood().length != 0) {
+        if (hunger >= 100.0 && growthRate != 0 && pet.food.length != 0) {
             owner.getFamiliarManager().removeDetails(this.getItemIdHash());
             owner.getFamiliarManager().dismiss();
             owner.getFamiliarManager().setFamiliar(null);
@@ -91,7 +91,7 @@ public final class Pet extends Familiar {
             return;
         }
         double growth = petDetails.getGrowth();
-        double growthrate = pet.getGrowthRate();
+        double growthrate = pet.growthRate;
         if (growthrate > 0.000) {
             if (GameWorld.getSettings().isDevMode()) {
                 growthrate *= 100;
