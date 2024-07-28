@@ -10,7 +10,6 @@ import core.api.setQuestStage
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.dialogue.Topic
-import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
@@ -20,10 +19,8 @@ import core.tools.START_DIALOGUE
 class DenulthDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
-        /*
-         * When Troll Stronghold is complete.
-         */
-        npc = NPC(NPCs.DENULTH_1060)
+
+        // When Troll Stronghold is complete
         if (isQuestComplete(player!!, "Troll Stronghold")) {
             when (stage) {
                 START_DIALOGUE -> playerl(FacialExpression.FRIENDLY, "Hello!").also { stage++ }
@@ -42,17 +39,13 @@ class DenulthDialogue(player: Player? = null) : Dialogue(player) {
             return true
         }
 
-        /*
-         * Troll Stronghold in progress.
-         */
+        // Troll Stronghold in progress
         if (isQuestInProgress(player!!, "Troll Stronghold", 1, 99)) {
             openDialogue(player!!, DenulthDialogueFile2(), npc)
             return true
         }
 
-        /*
-         * When Death Plateau is completed, start Troll Stronghold.
-         */
+        // When Death Plateau is completed, start Troll Stronghold
         if (isQuestComplete(player!!, "Death Plateau")) {
             when (stage) {
                 START_DIALOGUE -> playerl(FacialExpression.FRIENDLY, "Hello!").also { stage++ }

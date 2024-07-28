@@ -5,21 +5,20 @@ import core.api.*
 import core.api.consts.Animations
 import core.api.consts.Items
 import core.api.consts.NPCs
-import core.game.dialogue.DialogueFile
+import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
-import core.game.interaction.IntType
-import core.game.interaction.InteractionListener
-import core.game.node.entity.npc.NPC
+import core.game.node.entity.player.Player
 import core.game.world.update.flag.context.Animation
+import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
-class HaroldDialogue : DialogueFile(), InteractionListener {
+@Initializable
+class HaroldDialogue(player: Player? = null) : Dialogue(player) {
 
-    override fun handle(componentID: Int, buttonID: Int) {
-        npc = NPC(NPCs.HAROLD_1078)
+    override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         if (isQuestInProgress(player!!, "Death Plateau", 10, 29)) {
-            openDialogue(player!!, HaroldDialogueFile(), npc!!)
+            openDialogue(player!!, HaroldDialogueFile(), npc)
         }
 
         when (stage) {
@@ -43,12 +42,11 @@ class HaroldDialogue : DialogueFile(), InteractionListener {
                 }
             }
         }
+        return true
     }
 
-    override fun defineListeners() {
-        on(NPCs.HAROLD_1078, IntType.NPC, "Talk-to") { player, _ ->
-            openDialogue(player, HaroldDialogue())
-            return@on true
-        }
+
+    override fun getIds(): IntArray {
+        return intArrayOf(NPCs.HAROLD_1078)
     }
 }

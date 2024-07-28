@@ -11,7 +11,7 @@ import core.game.world.GameWorld
 import java.lang.Integer.min
 import kotlin.collections.HashMap
 
-class CulinaromancerShop : LoginListener {
+class CulinaromancerChestListener : LoginListener {
 
     /*
      * Enable the chest if the player has 18 quest points or more.

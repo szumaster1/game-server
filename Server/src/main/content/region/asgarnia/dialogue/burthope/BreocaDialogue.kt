@@ -2,20 +2,18 @@ package content.region.asgarnia.dialogue.burthope
 
 import core.api.consts.NPCs
 import core.api.isQuestComplete
-import core.api.openDialogue
 import core.api.toIntArray
-import core.game.dialogue.DialogueFile
+import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
-import core.game.interaction.IntType
-import core.game.interaction.InteractionListener
-import core.game.node.entity.npc.NPC
+import core.game.node.entity.player.Player
+import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
-class BreocaDialogue : DialogueFile(), InteractionListener {
+@Initializable
+class BreocaDialogue(player: Player? = null) : Dialogue(player) {
 
-    override fun handle(componentID: Int, buttonID: Int) {
-        npc = NPC(NPCs.BREOCA_1084)
+    override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         if (isQuestComplete(player!!, "Death Plateau")) {
             when (stage) {
                 START_DIALOGUE -> playerl(FacialExpression.FRIENDLY, "Hi!").also { stage = (1..3).toIntArray().random() }
@@ -32,14 +30,11 @@ class BreocaDialogue : DialogueFile(), InteractionListener {
                 4 -> playerl(FacialExpression.FRIENDLY, "Thanks!").also { stage = END_DIALOGUE }
             }
         }
+        return true
     }
 
-    override fun defineListeners() {
-        on(NPCs.BREOCA_1084, IntType.NPC, "Talk-to") { player, _ ->
-            openDialogue(player, BreocaDialogue())
-            return@on true
-        }
+    override fun getIds(): IntArray {
+        return intArrayOf(NPCs.BREOCA_1084)
     }
-
 }
 

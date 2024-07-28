@@ -250,10 +250,10 @@ public final class StrongholdPlugin extends MapZone implements Plugin<Object> {
     }
 
     private static boolean isForced(final Player player, final Scenery object) {
-        if (player.inCombat() || player.getProperties().getCombatPulse().isAttacking()) {
-            return true;
+        if (player.getLocation().getX() == 1859 && player.getLocation().getY() == 5239 || player.getLocation().getX() == 1858 && player.getLocation().getY() == 5239) {
+            return false;
         }
-        return isFlagged(player);
+        return !isFlagged(player);
     }
 
     private int getPortalIndex(int id) {

@@ -1,22 +1,26 @@
 package content.region.asgarnia.dialogue.burthope
 
 import core.api.consts.NPCs
-import core.api.openDialogue
-import core.game.dialogue.DialogueFile
+import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
-import core.game.interaction.IntType
-import core.game.interaction.InteractionListener
 import core.game.node.entity.npc.NPC
+import core.game.node.entity.player.Player
+import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
-class HarrallakMenarousDialogue : DialogueFile(), InteractionListener {
+@Initializable
+class HarrallakMenarousDialogue(player: Player? = null) : Dialogue(player) {
 
-    override fun handle(componentID: Int, buttonID: Int) {
-        npc = NPC(NPCs.HARRALLAK_MENAROUS_8267)
+    override fun open(vararg args: Any): Boolean {
+        npc = args[0] as NPC
+        npcl(FacialExpression.HALF_GUILTY, "Welcome to my humble guild, " + player.username + ".")
+        return true
+    }
+
+    override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
-            0 -> npcl(FacialExpression.HALF_GUILTY, "Welcome to my humble guild, " + player!!.username + ".").also { stage = -1 }
-           -1 -> options("Quite a place you've got here.", "You any good with a sword?", "Bye!").also { stage = 1 }
-            1 -> when (buttonID) {
+            0 -> options("Quite a place you've got here.", "You any good with a sword?", "Bye!").also { stage++ }
+            1 -> when (buttonId) {
                 1 -> playerl(FacialExpression.HALF_GUILTY, "Quite a place you've got here. Tell me more about it.").also { stage = 53 }
                 2 -> playerl(FacialExpression.HALF_GUILTY, "You any good with a sword?").also { stage = 5 }
                 3 -> playerl(FacialExpression.HALF_GUILTY, "Bye!").also { stage++ }
@@ -31,7 +35,7 @@ class HarrallakMenarousDialogue : DialogueFile(), InteractionListener {
             8 -> npc(FacialExpression.HALF_GUILTY, "My dear man, I couldn't possibly duel you, I might hurt", "you and then what would happen to my reputation!", "Besides, I have this wonderful guild to run. Why don't", " you take a look at the various activities we have.").also { stage++ }
             9 -> npc(FacialExpression.HALF_GUILTY, "You might even collect enough tokens to be allowed in", "to kill the strange beasts from the east!").also { stage++ }
             10 -> options("Tell me about the Strength training Area.", "Tell me about the Attack training area.", "Tell me about the Defence training area.", "Tell me about the Combat training area.", "Tell me about tokens.").also { stage++ }
-            11 -> when (buttonID) {
+            11 -> when (buttonId) {
                 1 -> playerl(FacialExpression.HALF_GUILTY, "Tell me about the Strength training area.").also { stage = 12 }
                 2 -> playerl(FacialExpression.HALF_GUILTY, "Tell me about the Attack training area.").also { stage = 29 }
                 3 -> playerl(FacialExpression.HALF_GUILTY, "Tell me about the Defence training area").also { stage = 16 }
@@ -81,12 +85,10 @@ class HarrallakMenarousDialogue : DialogueFile(), InteractionListener {
             52 -> playerl(FacialExpression.HALF_GUILTY, "Interesting...I will have to explore the top floor then!").also { stage = 10 }
             53 -> npc(FacialExpression.HALF_GUILTY, "Yes indeed. What would you like to know?").also { stage = 10 }
         }
+        return true
     }
 
-    override fun defineListeners() {
-        on(NPCs.HARRALLAK_MENAROUS_8267, IntType.NPC, "Talk-to") { player, _ ->
-            openDialogue(player, HarrallakMenarousDialogue())
-            return@on true
-        }
+    override fun getIds(): IntArray {
+        return intArrayOf(NPCs.HARRALLAK_MENAROUS_8267)
     }
 }

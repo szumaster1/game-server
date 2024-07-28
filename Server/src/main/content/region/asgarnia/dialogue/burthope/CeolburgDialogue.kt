@@ -2,20 +2,18 @@ package content.region.asgarnia.dialogue.burthope
 
 import core.api.consts.NPCs
 import core.api.isQuestComplete
-import core.api.openDialogue
 import core.api.toIntArray
-import core.game.dialogue.DialogueFile
+import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
-import core.game.interaction.IntType
-import core.game.interaction.InteractionListener
-import core.game.node.entity.npc.NPC
+import core.game.node.entity.player.Player
+import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
-class CeolburgDialogue : DialogueFile(), InteractionListener {
+@Initializable
+class CeolburgDialogue(player: Player? = null) : Dialogue(player) {
 
-    override fun handle(componentID: Int, buttonID: Int) {
-        npc = NPC(NPCs.CEOLBURG_1089)
+    override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         if (isQuestComplete(player!!, "Death Plateau")) {
             when (stage) {
                 START_DIALOGUE -> playerl(FacialExpression.FRIENDLY, "Hi!").also {
@@ -41,13 +39,10 @@ class CeolburgDialogue : DialogueFile(), InteractionListener {
                 4 -> playerl(FacialExpression.FRIENDLY, "Thanks!").also { stage = END_DIALOGUE }
             }
         }
+        return true
     }
 
-    override fun defineListeners() {
-        on(NPCs.CEOLBURG_1089, IntType.NPC, "Talk-to") { player, _ ->
-            openDialogue(player, CeolburgDialogue())
-            return@on true
-        }
+    override fun getIds(): IntArray {
+        return intArrayOf(NPCs.CEOLBURG_1089)
     }
-
 }

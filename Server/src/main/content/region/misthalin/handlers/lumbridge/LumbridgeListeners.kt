@@ -77,7 +77,7 @@ class LumbridgeListeners : InteractionListener {
          */
 
         on(Scenery.CHEST_12309, IntType.SCENERY, "buy-items", "buy-food") { player, _ ->
-            CulinaromancerShop.openShop(player, food = getUsedOption(player).lowercase() == "buy-food")
+            CulinaromancerChestListener.openShop(player, food = getUsedOption(player).lowercase() == "buy-food")
             return@on true
         }
 

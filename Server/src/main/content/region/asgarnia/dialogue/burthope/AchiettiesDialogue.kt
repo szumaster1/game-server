@@ -1,28 +1,27 @@
 package content.region.asgarnia.dialogue.burthope
 
 import core.api.consts.NPCs
-import core.api.openDialogue
-import core.game.dialogue.DialogueFile
+import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
-import core.game.interaction.IntType
-import core.game.interaction.InteractionListener
 import core.game.node.entity.npc.NPC
+import core.game.node.entity.player.Player
+import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
-class AchiettiesDialogue : DialogueFile(), InteractionListener {
+@Initializable
+class AchiettiesDialogue(player: Player? = null) : Dialogue(player) {
 
-    override fun handle(componentID: Int, buttonID: Int) {
-        npc = NPC(NPCs.ACHIETTIES_796)
-        when (stage) {
-            0 -> npc(FacialExpression.FRIENDLY, "Greetings. Welcome to the Heroes' Guild.").also { stage = END_DIALOGUE }
-        }
+    override fun open(vararg args: Any?): Boolean {
+        npc = args[0] as NPC
+        npc(FacialExpression.FRIENDLY, "Greetings. Welcome to the Heroes' Guild.").also { stage = END_DIALOGUE }
+        return true
     }
 
-    override fun defineListeners() {
-        on(NPCs.ACHIETTIES_796, IntType.NPC, "Talk-to") { player, _ ->
-            openDialogue(player, AchiettiesDialogue())
-            return@on true
-        }
+    override fun handle(interfaceId: Int, buttonId: Int): Boolean {
+        return true
     }
 
+    override fun getIds(): IntArray {
+        return intArrayOf(NPCs.ACHIETTIES_796)
+    }
 }
