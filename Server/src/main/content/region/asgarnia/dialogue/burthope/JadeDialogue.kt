@@ -8,11 +8,9 @@ import core.game.dialogue.IfTopic
 import core.game.dialogue.Topic
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.IronmanMode
-import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
-@Initializable
 class JadeDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {

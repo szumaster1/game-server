@@ -59,13 +59,7 @@ class BankInterfaceListener : InterfaceListener {
             .setInterfaceEventsDepth(2)
             .build()
 
-        player.packetDispatch.sendIfaceSettings(
-            settings,
-            73,
-            Components.BANK_V2_MAIN_762,
-            0,
-            ServerConstants.BANK_SIZE
-        )
+        player.packetDispatch.sendIfaceSettings(settings, 73, Components.BANK_V2_MAIN_762, 0, ServerConstants.BANK_SIZE)
 
         resetSearch(player)
         return false

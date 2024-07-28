@@ -31,6 +31,7 @@ class FurTradeDialogue(player: Player? = null) : Dialogue(player) {
         }
         return true
     }
+
     override fun getIds(): IntArray {
         return intArrayOf(NPCs.FUR_TRADER_573)
     }
