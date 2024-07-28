@@ -14,8 +14,8 @@ import core.plugin.PluginManifest
 import core.plugin.PluginType
 import java.util.concurrent.TimeUnit
 
-@PluginManifest(type = PluginType.LOGIN)
 @Initializable
+@PluginManifest(type = PluginType.LOGIN)
 class LoginValidationPlugin : Plugin<Player> {
 
     private val QUEST_ITEMS = arrayOf(Item(Items.QUEST_POINT_CAPE_9813), Item(Items.QUEST_POINT_HOOD_9814))
@@ -49,13 +49,13 @@ class LoginValidationPlugin : Plugin<Player> {
         } else {
             player.getSavedData().globalData.setLootShareDelay(System.currentTimeMillis() + TimeUnit.DAYS.toMillis(1))
         }
-        if(!player.musicPlayer.hasUnlocked(Music.SCAPE_SUMMON_457)){
+        if (!player.musicPlayer.hasUnlocked(Music.SCAPE_SUMMON_457)) {
             player.musicPlayer.unlock(Music.SCAPE_SUMMON_457)
         }
-        if(!player.musicPlayer.hasUnlocked(Music.SCAPE_HUNTER_207)){
+        if (!player.musicPlayer.hasUnlocked(Music.SCAPE_HUNTER_207)) {
             player.musicPlayer.unlock(Music.SCAPE_HUNTER_207)
         }
-        if(!player.musicPlayer.hasUnlocked(Music.GROUND_SCAPE_466)){
+        if (!player.musicPlayer.hasUnlocked(Music.GROUND_SCAPE_466)) {
             player.musicPlayer.unlock(Music.GROUND_SCAPE_466)
         }
         checkQuestPointsItems(player)

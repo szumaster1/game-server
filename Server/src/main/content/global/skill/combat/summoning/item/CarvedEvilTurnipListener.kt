@@ -14,7 +14,7 @@ class CarvedEvilTurnipListener : InteractionListener {
     val carvedEvilTurnip = Items.CARVED_EVIL_TURNIP_12153
 
     override fun defineListeners() {
-        onUseWith(IntType.ITEM, evilTurnip, knife) { player, used, with ->
+        onUseWith(IntType.ITEM, evilTurnip, knife) { player, used, _ ->
             if (removeItem(player, used.asItem())) {
                 sendMessage(player, "You carve a scary face into the evil turnip.")
                 sendMessage(player, "Wooo! It's enough to give you nightmares.")

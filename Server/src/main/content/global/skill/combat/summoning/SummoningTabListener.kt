@@ -3,12 +3,14 @@ package content.global.skill.combat.summoning
 import content.global.skill.combat.summoning.familiar.BurdenBeast
 import content.global.skill.combat.summoning.familiar.FamiliarSpecial
 import content.global.skill.combat.summoning.pet.Pet
+import core.api.consts.Components
 import core.api.sendMessage
 import core.game.interaction.InterfaceListener
 
 class SummoningTabListener : InterfaceListener {
+
     override fun defineInterfaceListeners() {
-        on(662) { player, _, opcode, buttonID, _, _ ->
+        on(Components.LORE_STATS_SIDE_662) { player, _, opcode, buttonID, _, _ ->
             when (buttonID) {
                 51 -> {
                     if (player.familiarManager.hasFamiliar()) {

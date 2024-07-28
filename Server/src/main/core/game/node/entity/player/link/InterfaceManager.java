@@ -1,10 +1,11 @@
 package core.game.node.entity.player.link;
 
 import content.region.misc.handlers.tutorial.TutorialStage;
+import core.api.consts.Components;
+import core.game.component.Component;
 import core.game.component.InterfaceType;
 import core.game.event.InterfaceCloseEvent;
 import core.game.event.InterfaceOpenEvent;
-import core.game.component.Component;
 import core.game.node.entity.combat.equipment.WeaponInterface;
 import core.game.node.entity.player.Player;
 import core.network.packet.PacketRepository;
@@ -14,10 +15,9 @@ import core.network.packet.outgoing.CloseInterface;
 import core.network.packet.outgoing.Interface;
 import core.network.packet.outgoing.WindowsPane;
 import core.tools.Log;
-import core.api.consts.Components;
 
 import static core.api.ContentAPIKt.log;
-import static core.api.ContentAPIKt.*;
+import static core.api.ContentAPIKt.setVarp;
 
 
 /**
@@ -40,60 +40,60 @@ public final class InterfaceManager {
     /**
      * The default tabs.
      */
-    public static final int[] DEFAULT_TABS = { Components.WEAPON_FISTS_SEL_92, Components.STATS_320, Components.QUESTJOURNAL_V2_274,
-			Components.INVENTORY_149, Components.WORNITEMS_387, Components.PRAYER_271, Components.MAGIC_192, Components.LORE_STATS_SIDE_662,
-			Components.FRIENDS2_550, Components.IGNORE2_551, Components.CLANJOIN_589, Components.OPTIONS_261, Components.EMOTES_464,
-			Components.MUSIC_V3_187, Components.LOGOUT_182 };
+    public static final int[] DEFAULT_TABS = {Components.WEAPON_FISTS_SEL_92, Components.STATS_320, Components.QUESTJOURNAL_V2_274,
+        Components.INVENTORY_149, Components.WORNITEMS_387, Components.PRAYER_271, Components.MAGIC_192, Components.LORE_STATS_SIDE_662,
+        Components.FRIENDS2_550, Components.IGNORE2_551, Components.CLANJOIN_589, Components.OPTIONS_261, Components.EMOTES_464,
+        Components.MUSIC_V3_187, Components.LOGOUT_182};
 
-	/**
-	 * The player.
-	 */
-	private final Player player;
+    /**
+     * The player.
+     */
+    private final Player player;
 
-	/**
-	 * The amount of interface packets sent.
-	 */
-	private int packetCount;
+    /**
+     * The amount of interface packets sent.
+     */
+    private int packetCount;
 
-	/**
-	 * The windows pane.
-	 */
-	private Component windowsPane;
+    /**
+     * The windows pane.
+     */
+    private Component windowsPane;
 
-	/**
-	 * The currently opened component.
-	 */
-	private Component opened;
+    /**
+     * The currently opened component.
+     */
+    private Component opened;
 
-	/**
-	 * The tabs.
-	 */
-	private Component[] tabs = new Component[15];
+    /**
+     * The tabs.
+     */
+    private Component[] tabs = new Component[15];
 
-	/**
-	 * The chatbox component.
-	 */
-	private Component chatbox;
+    /**
+     * The chatbox component.
+     */
+    private Component chatbox;
 
-	/**
-	 * The single tab.
-	 */
-	private Component singleTab;
+    /**
+     * The single tab.
+     */
+    private Component singleTab;
 
-	/**
-	 * The overlay component.
-	 */
-	private Component overlay;
+    /**
+     * The overlay component.
+     */
+    private Component overlay;
 
-	/**
-	 * The wilderness overlay component
-	 */
-	private Component wildyOverlay;
+    /**
+     * The wilderness overlay component
+     */
+    private Component wildyOverlay;
 
-	/**
-	 * The currently opened tab's index.
-	 */
-	private int currentTabIndex = 3;
+    /**
+     * The currently opened tab's index.
+     */
+    private int currentTabIndex = 3;
 
     /**
      * Constructs a new {@code InterfaceManager} {@code Object}.
@@ -101,8 +101,8 @@ public final class InterfaceManager {
      * @param player The player.
      */
     public InterfaceManager(Player player) {
-		this.player = player;
-	}
+        this.player = player;
+    }
 
     /**
      * Opens the windows pane.
@@ -111,8 +111,8 @@ public final class InterfaceManager {
      * @return The component instance.
      */
     public Component openWindowsPane(Component windowsPane) {
-		return openWindowsPane(windowsPane, false);
-	}
+        return openWindowsPane(windowsPane, false);
+    }
 
     /**
      * Opens the windows pane.
@@ -122,20 +122,20 @@ public final class InterfaceManager {
      * @return The component instance.
      */
     public Component openWindowsPane(Component windowsPane, boolean overlap) {
-		this.windowsPane = windowsPane;
-		if (windowsPane.getDefinition().getType() != InterfaceType.WINDOW_PANE) {
-			log(this.getClass(), Log.WARN,  "Set interface type to WINDOW_PANE for component " + windowsPane.getId() + ", definition requires updating!");
-			windowsPane.getDefinition().setType(InterfaceType.WINDOW_PANE);
-		}
+        this.windowsPane = windowsPane;
+        if (windowsPane.getDefinition().getType() != InterfaceType.WINDOW_PANE) {
+            log(this.getClass(), Log.WARN, "Set interface type to WINDOW_PANE for component " + windowsPane.getId() + ", definition requires updating!");
+            windowsPane.getDefinition().setType(InterfaceType.WINDOW_PANE);
+        }
 
-		PacketRepository.send(WindowsPane.class, new WindowsPaneContext(player, windowsPane.getId(), overlap ? 1 : 0));
-		windowsPane.open(player);
+        PacketRepository.send(WindowsPane.class, new WindowsPaneContext(player, windowsPane.getId(), overlap ? 1 : 0));
+        windowsPane.open(player);
 
-		if (opened != null)
-			player.dispatch(new InterfaceOpenEvent(opened));
+        if (opened != null)
+            player.dispatch(new InterfaceOpenEvent(opened));
 
-		return windowsPane;
-	}
+        return windowsPane;
+    }
 
     /**
      * Open windows pane.
@@ -144,18 +144,18 @@ public final class InterfaceManager {
      * @param type        the type
      */
     public void openWindowsPane(Component windowsPane, int type) {
-		this.windowsPane = windowsPane;
-		if (windowsPane.getDefinition().getType() != InterfaceType.WINDOW_PANE) {
-			log(this.getClass(), Log.WARN,  "Set interface type to WINDOW_PANE for component " + windowsPane.getId() + ", definition requires updating!");
-			windowsPane.getDefinition().setType(InterfaceType.SINGLE_TAB);
-		}
+        this.windowsPane = windowsPane;
+        if (windowsPane.getDefinition().getType() != InterfaceType.WINDOW_PANE) {
+            log(this.getClass(), Log.WARN, "Set interface type to WINDOW_PANE for component " + windowsPane.getId() + ", definition requires updating!");
+            windowsPane.getDefinition().setType(InterfaceType.SINGLE_TAB);
+        }
 
-		PacketRepository.send(WindowsPane.class, new WindowsPaneContext(player, windowsPane.getId(), type));
-		windowsPane.open(player);
+        PacketRepository.send(WindowsPane.class, new WindowsPaneContext(player, windowsPane.getId(), type));
+        windowsPane.open(player);
 
-		if (opened != null)
-			player.dispatch(new InterfaceOpenEvent(opened));
-	}
+        if (opened != null)
+            player.dispatch(new InterfaceOpenEvent(opened));
+    }
 
     /**
      * Opens a component.
@@ -164,8 +164,8 @@ public final class InterfaceManager {
      * @return The opened component.
      */
     public Component openComponent(int componentId) {
-		return open(new Component(componentId));
-	}
+        return open(new Component(componentId));
+    }
 
     /**
      * Opens a component.
@@ -174,16 +174,16 @@ public final class InterfaceManager {
      * @return The opened component.
      */
     public Component open(Component component) {
-		if (!close()) {
-			return null;
-		}
-		component.open(player);
+        if (!close()) {
+            return null;
+        }
+        component.open(player);
 
-		opened = component;
-		player.dispatch(new InterfaceOpenEvent(opened));
+        opened = component;
+        player.dispatch(new InterfaceOpenEvent(opened));
 
-		return opened;
-	}
+        return opened;
+    }
 
     /**
      * Checks if a main interface.
@@ -191,8 +191,8 @@ public final class InterfaceManager {
      * @return {@code True} if so.
      */
     public boolean isOpened() {
-		return opened != null;
-	}
+        return opened != null;
+    }
 
     /**
      * Checks if the player has a chat box interface opened (disregarding default chat box).
@@ -200,8 +200,8 @@ public final class InterfaceManager {
      * @return {@code True} if so.
      */
     public boolean hasChatbox() {
-		return chatbox != null && chatbox.getId() != DEFAULT_CHATBOX;
-	}
+        return chatbox != null && chatbox.getId() != DEFAULT_CHATBOX;
+    }
 
     /**
      * Safely closes the currently opened interface.
@@ -209,23 +209,23 @@ public final class InterfaceManager {
      * @return the boolean
      */
     public boolean close() {
-		if (player.getAttribute("runscript", null) != null) {
-			player.removeAttribute("runscript");
-			player.getPacketDispatch().sendRunScript(101, "");
-		}
-		// Component 333 is an immediate(no-fading) full-screen HD-mode black screen which auto-clears when interrupted.
-		if (overlay != null && overlay.getId() == 333) {
-			closeOverlay();
-		}
-		if (opened != null && opened.close(player)) {
-			if (opened != null && (!opened.getDefinition().isWalkable() || opened.getId() == 14)) {
-				PacketRepository.send(CloseInterface.class, new InterfaceContext(player, opened.getDefinition().getWindowPaneId(isResizable()), opened.getDefinition().getChildId(isResizable()), opened.getId(), opened.getDefinition().isWalkable()));
-				player.dispatch(new InterfaceCloseEvent(opened));
-			}
-			opened = null;
-		}
-		return opened == null;
-	}
+        if (player.getAttribute("runscript", null) != null) {
+            player.removeAttribute("runscript");
+            player.getPacketDispatch().sendRunScript(101, "");
+        }
+        // Component 333 is an immediate(no-fading) full-screen HD-mode black screen which auto-clears when interrupted.
+        if (overlay != null && overlay.getId() == 333) {
+            closeOverlay();
+        }
+        if (opened != null && opened.close(player)) {
+            if (opened != null && (!opened.getDefinition().isWalkable() || opened.getId() == 14)) {
+                PacketRepository.send(CloseInterface.class, new InterfaceContext(player, opened.getDefinition().getWindowPaneId(isResizable()), opened.getDefinition().getChildId(isResizable()), opened.getId(), opened.getDefinition().isWalkable()));
+                player.dispatch(new InterfaceCloseEvent(opened));
+            }
+            opened = null;
+        }
+        return opened == null;
+    }
 
     /**
      * Checks if the current interface is walkable.
@@ -233,16 +233,16 @@ public final class InterfaceManager {
      * @return <code>True</code> if so.
      */
     public boolean isWalkable() {
-		if (opened != null) {
-			if (opened.getId() == Components.OBJDIALOG_389) {
-				return false;
-			}
-			if (opened.getDefinition().isWalkable()) {
-				return true;
-			}
-		}
-		return true;
-	}
+        if (opened != null) {
+            if (opened.getId() == Components.OBJDIALOG_389) {
+                return false;
+            }
+            if (opened.getDefinition().isWalkable()) {
+                return true;
+            }
+        }
+        return true;
+    }
 
     /**
      * Safely closes the component.
@@ -251,31 +251,31 @@ public final class InterfaceManager {
      * @return {@code True} if the component successfully closed.
      */
     public boolean close(Component component) {
-		if (component.close(player)) {
-			if (component.getId() == DEFAULT_CHATBOX) {
-				return true;
-			}
-			if (component.getDefinition().getType() == InterfaceType.TAB) {
-				PacketRepository.send(CloseInterface.class, new InterfaceContext(player, component.getDefinition().getWindowPaneId(isResizable()), component.getDefinition().getChildId(isResizable()) + component.getDefinition().getTabIndex(), component.getId(), component.getDefinition().isWalkable()));
-				return true;
-			}
-			PacketRepository.send(CloseInterface.class, new InterfaceContext(player, component.getDefinition().getWindowPaneId(isResizable()), component.getDefinition().getChildId(isResizable()), component.getId(), component.getDefinition().isWalkable()));
-			return true;
-		}
-		return false;
-	}
+        if (component.close(player)) {
+            if (component.getId() == DEFAULT_CHATBOX) {
+                return true;
+            }
+            if (component.getDefinition().getType() == InterfaceType.TAB) {
+                PacketRepository.send(CloseInterface.class, new InterfaceContext(player, component.getDefinition().getWindowPaneId(isResizable()), component.getDefinition().getChildId(isResizable()) + component.getDefinition().getTabIndex(), component.getId(), component.getDefinition().isWalkable()));
+                return true;
+            }
+            PacketRepository.send(CloseInterface.class, new InterfaceContext(player, component.getDefinition().getWindowPaneId(isResizable()), component.getDefinition().getChildId(isResizable()), component.getId(), component.getDefinition().isWalkable()));
+            return true;
+        }
+        return false;
+    }
 
     /**
      * Closes the chatbox interface.
      */
     public void closeChatbox() {
-		if (chatbox != null && chatbox.getId() != DEFAULT_CHATBOX) {
-			if (close(chatbox)) {
-				openChatbox(DEFAULT_CHATBOX);
-				player.getPacketDispatch().sendRunScript(101, "");
-			}
-		}
-	}
+        if (chatbox != null && chatbox.getId() != DEFAULT_CHATBOX) {
+            if (close(chatbox)) {
+                openChatbox(DEFAULT_CHATBOX);
+                player.getPacketDispatch().sendRunScript(101, "");
+            }
+        }
+    }
 
     /**
      * Opens a tab and removes the other tabs.
@@ -284,19 +284,19 @@ public final class InterfaceManager {
      * @return The component.
      */
     public Component openSingleTab(Component component) {
-		if (component.getDefinition().getType() != InterfaceType.SINGLE_TAB) {
-			log(this.getClass(), Log.WARN,  "Set interface type to SINGLE_TAB for component " + component.getId() + ", definition requires updating!");
-			component.getDefinition().setType(InterfaceType.SINGLE_TAB);
-		}
-		component.open(player);
-		if (component.getCloseEvent() == null) {
-			component.setCloseEvent((player, c) -> {
+        if (component.getDefinition().getType() != InterfaceType.SINGLE_TAB) {
+            log(this.getClass(), Log.WARN, "Set interface type to SINGLE_TAB for component " + component.getId() + ", definition requires updating!");
+            component.getDefinition().setType(InterfaceType.SINGLE_TAB);
+        }
+        component.open(player);
+        if (component.getCloseEvent() == null) {
+            component.setCloseEvent((player, c) -> {
 //				openDefaultTabs();
-				return true;
-			});
-		}
-		return singleTab = component;
-	}
+                return true;
+            });
+        }
+        return singleTab = component;
+    }
 
     /**
      * Closes the current single tab opened.
@@ -304,11 +304,11 @@ public final class InterfaceManager {
      * @return the boolean
      */
     public boolean closeSingleTab() {
-		if (singleTab != null && close(singleTab)) {
-			singleTab = null;
-		}
-		return true;
-	}
+        if (singleTab != null && close(singleTab)) {
+            singleTab = null;
+        }
+        return true;
+    }
 
     /**
      * Gets the currently opened single tab.
@@ -316,8 +316,8 @@ public final class InterfaceManager {
      * @return The tab opened.
      */
     public Component getSingleTab() {
-		return singleTab;
-	}
+        return singleTab;
+    }
 
     /**
      * Removes the tabs.
@@ -325,144 +325,143 @@ public final class InterfaceManager {
      * @param tabs The tab indexes.
      */
     public void removeTabs(int... tabs) {
-		boolean changeViewedTab = false;
-		for (int slot : tabs) {
-			if (slot == currentTabIndex) {
-				changeViewedTab = true;
-			}
-			Component tab = this.tabs[slot];
-			if (tab != null) {
-				close(tab);
-				this.tabs[slot] = null;
-			}
-		}
-		if (changeViewedTab) {
-			int currentIndex = -1;
-			if (this.tabs[3] == null) {
-				for (int i = 0; i < this.tabs.length; i++) {
-					if (this.tabs[i] != null) {
-						currentIndex = i;
-						break;
-					}
-				}
-			} else {
-				currentIndex = 3;
-			}
-			if (currentIndex > -1) {
-				setViewedTab(currentIndex);
-			}
-		}
-	}
+        boolean changeViewedTab = false;
+        for (int slot : tabs) {
+            if (slot == currentTabIndex) {
+                changeViewedTab = true;
+            }
+            Component tab = this.tabs[slot];
+            if (tab != null) {
+                close(tab);
+                this.tabs[slot] = null;
+            }
+        }
+        if (changeViewedTab) {
+            int currentIndex = -1;
+            if (this.tabs[3] == null) {
+                for (int i = 0; i < this.tabs.length; i++) {
+                    if (this.tabs[i] != null) {
+                        currentIndex = i;
+                        break;
+                    }
+                }
+            } else {
+                currentIndex = 3;
+            }
+            if (currentIndex > -1) {
+                setViewedTab(currentIndex);
+            }
+        }
+    }
 
     /**
      * Restores the tabs.
      */
     public void restoreTabs() {
-		for (int i = 0; i < tabs.length; i++) {
-			Component tab = tabs[i];
-			if (tab == null) {
-				switch (i) {
-				case 0:
-					WeaponInterface inter = player.getExtension(WeaponInterface.class);
-					if (inter == null) {
-						player.addExtension(WeaponInterface.class, inter = new WeaponInterface(player));
-					}
-					openTab(0, inter);
-					break;
-				case 6:
-					openTab(6, new Component(player.getSpellBookManager().getSpellBook())); // Magic
-					break;
-				case 7:
-					if (player.getFamiliarManager().hasFamiliar()) {
-						openTab(7, new Component(662));
-					}
-					break;
-				default:
-					openTab(i, new Component(DEFAULT_TABS[i]));
-				}
-			}
-			else if (tab.isHidden()) {
-				int child = (i < 7 ? 38 : 13) + i;
+        for (int i = 0; i < tabs.length; i++) {
+            Component tab = tabs[i];
+            if (tab == null) {
+                switch (i) {
+                    case 0:
+                        WeaponInterface inter = player.getExtension(WeaponInterface.class);
+                        if (inter == null) {
+                            player.addExtension(WeaponInterface.class, inter = new WeaponInterface(player));
+                        }
+                        openTab(0, inter);
+                        break;
+                    case 6:
+                        openTab(6, new Component(player.getSpellBookManager().getSpellBook())); // Magic
+                        break;
+                    case 7:
+                        if (player.getFamiliarManager().hasFamiliar()) {
+                            openTab(7, new Component(662));
+                        }
+                        break;
+                    default:
+                        openTab(i, new Component(DEFAULT_TABS[i]));
+                }
+            } else if (tab.isHidden()) {
+                int child = (i < 7 ? 38 : 13) + i;
 //				boolean resize = isResizable(); //TODO:
-				player.getPacketDispatch().sendInterfaceConfig(getWindowPaneId(), child, false);
-				player.getPacketDispatch().sendInterfaceConfig(getWindowPaneId(), child + 7, false);
-				tabs[i].setHidden(false);
-			}
-		}
-	}
+                player.getPacketDispatch().sendInterfaceConfig(getWindowPaneId(), child, false);
+                player.getPacketDispatch().sendInterfaceConfig(getWindowPaneId(), child + 7, false);
+                tabs[i].setHidden(false);
+            }
+        }
+    }
 
     /**
      * Opens the default tabs.
      */
     public void openDefaultTabs() {
-		// player.getPacketDispatch().sendInterfaceConfig(548, 51, false);
-		WeaponInterface inter = player.getExtension(WeaponInterface.class);
-		if (inter == null) {
-			player.addExtension(WeaponInterface.class, inter = new WeaponInterface(player));
-		}
-		//sendTab(16, 747); // Summoning bar
-		openTab(0, inter); // Attack
-		openTab(1, new Component(Components.STATS_320)); // Skills
-		openTab(2, new Component(Components.QUESTJOURNAL_V2_274)); // Quest
-		openTab(3, new Component(Components.INVENTORY_149)); // inventory
-		openTab(4, new Component(Components.WORNITEMS_387)); // Equipment
-		openTab(5, new Component(Components.PRAYER_271)); // Prayer
-		openTab(6, new Component(player.getSpellBookManager().getSpellBook())); // Magic
-		if (player.getFamiliarManager().hasFamiliar()) {
-			openTab(7, new Component(Components.LORE_STATS_SIDE_662)); // summoning.
-		}
-		openTab(8, new Component(Components.FRIENDS2_550)); // Friends
-		openTab(9, new Component(Components.IGNORE2_551)); // Ignores
-		openTab(10, new Component(Components.CLANJOIN_589)); // Clan chat
-		openTab(11, new Component(Components.OPTIONS_261)); // Settings
-		openTab(12, new Component(Components.EMOTES_464)); // Emotes
-		openTab(13, new Component(Components.MUSIC_V3_187)); // Music
-		openTab(14, new Component(Components.LOGOUT_182)); // LogoutPacket
-		if (player.getProperties().getAutocastSpell() != null) {
-			inter.selectAutoSpell(inter.getAutospellId(player.getProperties().getAutocastSpell().getSpellId()), true);
-		}
-	}
+        // player.getPacketDispatch().sendInterfaceConfig(548, 51, false);
+        WeaponInterface inter = player.getExtension(WeaponInterface.class);
+        if (inter == null) {
+            player.addExtension(WeaponInterface.class, inter = new WeaponInterface(player));
+        }
+        //sendTab(16, 747); // Summoning bar
+        openTab(0, inter); // Attack
+        openTab(1, new Component(Components.STATS_320)); // Skills
+        openTab(2, new Component(Components.QUESTJOURNAL_V2_274)); // Quest
+        openTab(3, new Component(Components.INVENTORY_149)); // inventory
+        openTab(4, new Component(Components.WORNITEMS_387)); // Equipment
+        openTab(5, new Component(Components.PRAYER_271)); // Prayer
+        openTab(6, new Component(player.getSpellBookManager().getSpellBook())); // Magic
+        if (player.getFamiliarManager().hasFamiliar()) {
+            openTab(7, new Component(Components.LORE_STATS_SIDE_662)); // summoning.
+        }
+        openTab(8, new Component(Components.FRIENDS2_550)); // Friends
+        openTab(9, new Component(Components.IGNORE2_551)); // Ignores
+        openTab(10, new Component(Components.CLANJOIN_589)); // Clan chat
+        openTab(11, new Component(Components.OPTIONS_261)); // Settings
+        openTab(12, new Component(Components.EMOTES_464)); // Emotes
+        openTab(13, new Component(Components.MUSIC_V3_187)); // Music
+        openTab(14, new Component(Components.LOGOUT_182)); // LogoutPacket
+        if (player.getProperties().getAutocastSpell() != null) {
+            inter.selectAutoSpell(inter.getAutospellId(player.getProperties().getAutocastSpell().getSpellId()), true);
+        }
+    }
 
     /**
      * Opens the information bars (orbs).
      */
     public void openInfoBars() {
-		//Hp orb
-		PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 13 : 70, Components.TOPSTAT_HITPOINTS_748, true));
-		//Prayer orb
-		PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 14 : 71, Components.TOPSTAT_PRAYER_749, true));
-		//Energy orb
-		PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 15 : 72, Components.TOPSTAT_RUN_750, true));
-		//Summoning bar
-		PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 16 : 73, Components.TOPSTAT_LORE_747, true));
-		//Split PM
-		PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 71 : 10, Components.PMCHAT_754, true));
-	}
+        //Hp orb
+        PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 13 : 70, Components.TOPSTAT_HITPOINTS_748, true));
+        //Prayer orb
+        PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 14 : 71, Components.TOPSTAT_PRAYER_749, true));
+        //Energy orb
+        PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 15 : 72, Components.TOPSTAT_RUN_750, true));
+        //Summoning bar
+        PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 16 : 73, Components.TOPSTAT_LORE_747, true));
+        //Split PM
+        PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 71 : 10, Components.PMCHAT_754, true));
+    }
 
     /**
      * Closes the default tabs.
      */
     public void closeDefaultTabs() {
-		WeaponInterface inter = player.getExtension(WeaponInterface.class);
-		if (inter != null) {
-			close(inter); // Attack
-		}
-		close(new Component(Components.STATS_320)); // Skills
-		close(new Component(Components.QUESTJOURNAL_V2_274)); // Quest
-		close(new Component(Components.AREA_TASK_259)); // Diary
-		close(new Component(Components.INVENTORY_149)); // inventory
-		close(new Component(Components.WORNITEMS_387)); // Equipment
-		close(new Component(Components.PRAYER_271)); // Prayer
-		close(new Component(player.getSpellBookManager().getSpellBook()));
-		close(new Component(Components.LORE_STATS_SIDE_662)); // summoning.
-		close(new Component(Components.FRIENDS2_550)); // Friends
-		close(new Component(Components.IGNORE2_551)); // Ignores
-		close(new Component(Components.CLANJOIN_589)); // Clan chat
-		close(new Component(Components.OPTIONS_261)); // Settings
-		close(new Component(Components.EMOTES_464)); // Emotes
-		close(new Component(Components.MUSIC_V3_187)); // Music
-		//close(new Component(Components.LOGOUT_182)); // LogoutPacket
-	}
+        WeaponInterface inter = player.getExtension(WeaponInterface.class);
+        if (inter != null) {
+            close(inter); // Attack
+        }
+        close(new Component(Components.STATS_320)); // Skills
+        close(new Component(Components.QUESTJOURNAL_V2_274)); // Quest
+        close(new Component(Components.AREA_TASK_259)); // Diary
+        close(new Component(Components.INVENTORY_149)); // inventory
+        close(new Component(Components.WORNITEMS_387)); // Equipment
+        close(new Component(Components.PRAYER_271)); // Prayer
+        close(new Component(player.getSpellBookManager().getSpellBook()));
+        close(new Component(Components.LORE_STATS_SIDE_662)); // summoning.
+        close(new Component(Components.FRIENDS2_550)); // Friends
+        close(new Component(Components.IGNORE2_551)); // Ignores
+        close(new Component(Components.CLANJOIN_589)); // Clan chat
+        close(new Component(Components.OPTIONS_261)); // Settings
+        close(new Component(Components.EMOTES_464)); // Emotes
+        close(new Component(Components.MUSIC_V3_187)); // Music
+        //close(new Component(Components.LOGOUT_182)); // LogoutPacket
+    }
 
     /**
      * Opens a tab.
@@ -471,20 +470,20 @@ public final class InterfaceManager {
      * @param component The component.
      */
     public void openTab(int slot, Component component) {
-		if (component.getId() == Components.WEAPON_FISTS_SEL_92 && !(component instanceof WeaponInterface)) {
-			throw new IllegalStateException("Attack tab can only be instanced as " + WeaponInterface.class.getCanonicalName() + "!");
-		}
-		if (component.getDefinition().getTabIndex() != slot) {
-			log(this.getClass(), Log.WARN,  "Set tab index to " + slot + " for component " + component.getId() + ", definition requires updating!");
-			component.getDefinition().setTabIndex(slot);
-		}
-		if (component.getDefinition().getType() != InterfaceType.TAB) {
-			log(this.getClass(), Log.WARN,  "Set interface type to TAB for component " + component.getId() + ", definition requires updating!");
-			component.getDefinition().setType(InterfaceType.TAB);
-		}
-		component.open(player);
-		tabs[slot] = component;
-	}
+        if (component.getId() == Components.WEAPON_FISTS_SEL_92 && !(component instanceof WeaponInterface)) {
+            throw new IllegalStateException("Attack tab can only be instanced as " + WeaponInterface.class.getCanonicalName() + "!");
+        }
+        if (component.getDefinition().getTabIndex() != slot) {
+            log(this.getClass(), Log.WARN, "Set tab index to " + slot + " for component " + component.getId() + ", definition requires updating!");
+            component.getDefinition().setTabIndex(slot);
+        }
+        if (component.getDefinition().getType() != InterfaceType.TAB) {
+            log(this.getClass(), Log.WARN, "Set interface type to TAB for component " + component.getId() + ", definition requires updating!");
+            component.getDefinition().setType(InterfaceType.TAB);
+        }
+        component.open(player);
+        tabs[slot] = component;
+    }
 
     /**
      * Opens a tab.
@@ -492,12 +491,12 @@ public final class InterfaceManager {
      * @param component The component to open.
      */
     public void openTab(Component component) {
-		if (component.getDefinition().getTabIndex() < 0) {
-			log(this.getClass(), Log.WARN,  "No component definitions found for tab " + component.getId() + "!");
-			return;
-		}
-		openTab(component.getDefinition().getTabIndex(), component);
-	}
+        if (component.getDefinition().getTabIndex() < 0) {
+            log(this.getClass(), Log.WARN, "No component definitions found for tab " + component.getId() + "!");
+            return;
+        }
+        openTab(component.getDefinition().getTabIndex(), component);
+    }
 
     /**
      * Opens a chat box interface.
@@ -505,8 +504,8 @@ public final class InterfaceManager {
      * @param componentId The component id.
      */
     public void openChatbox(int componentId) {
-		openChatbox(new Component(componentId));
-	}
+        openChatbox(new Component(componentId));
+    }
 
     /**
      * Opens a chat box interface.
@@ -514,23 +513,23 @@ public final class InterfaceManager {
      * @param component The component to open.
      */
     public void openChatbox(Component component) {
-		if (component.getId() == DEFAULT_CHATBOX) {
-			if (chatbox == null || (chatbox.getId() != DEFAULT_CHATBOX && chatbox.getDefinition().getType() == InterfaceType.CHATBOX)) {
-				PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 23 : 14, Components.FILTERBUTTONS_751, true));
-				PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 70 : 75, Components.CHATTOP_752, true));
-				PacketRepository.send(Interface.class, new InterfaceContext(player, InterfaceType.CHATBOX.fixedPaneId, InterfaceType.CHATBOX.fixedChildId, Components.CHATDEFAULT_137, true));
-			}
-			chatbox = component;
-			setVarp(player, 334, 1);
-		} else {
-			chatbox = component;
-			if (chatbox.getDefinition().getType() != InterfaceType.DIALOGUE && chatbox.getDefinition().getType() != InterfaceType.CHATBOX && chatbox.getDefinition().getType() != InterfaceType.CS_CHATBOX) {
-				log(this.getClass(), Log.WARN,  "Set interface type to CHATBOX for component " + component.getId() + ", definition requires updating!");
-				chatbox.getDefinition().setType(InterfaceType.DIALOGUE);
-			}
-			chatbox.open(player);
-		}
-	}
+        if (component.getId() == DEFAULT_CHATBOX) {
+            if (chatbox == null || (chatbox.getId() != DEFAULT_CHATBOX && chatbox.getDefinition().getType() == InterfaceType.CHATBOX)) {
+                PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 23 : 14, Components.FILTERBUTTONS_751, true));
+                PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 70 : 75, Components.CHATTOP_752, true));
+                PacketRepository.send(Interface.class, new InterfaceContext(player, InterfaceType.CHATBOX.fixedPaneId, InterfaceType.CHATBOX.fixedChildId, Components.CHATDEFAULT_137, true));
+            }
+            chatbox = component;
+            setVarp(player, 334, 1);
+        } else {
+            chatbox = component;
+            if (chatbox.getDefinition().getType() != InterfaceType.DIALOGUE && chatbox.getDefinition().getType() != InterfaceType.CHATBOX && chatbox.getDefinition().getType() != InterfaceType.CS_CHATBOX) {
+                log(this.getClass(), Log.WARN, "Set interface type to CHATBOX for component " + component.getId() + ", definition requires updating!");
+                chatbox.getDefinition().setType(InterfaceType.DIALOGUE);
+            }
+            chatbox.open(player);
+        }
+    }
 
     /**
      * Switches the player's window mode (fixed, resizable, fullscreen).
@@ -538,21 +537,19 @@ public final class InterfaceManager {
      * @param windowMode The window mode.
      */
     public void switchWindowMode(int windowMode) {
-		if (windowMode != player.getSession().getClientInfo().getWindowMode()) {
-			player.getSession().getClientInfo().setWindowMode(windowMode);
-			openWindowsPane(new Component(isResizable() ? Components.TOPLEVEL_FULLSCREEN_746 : Components.TOPLEVEL_548));
-			if(!player.getAttribute("tutorial:complete", false)) {
-				TutorialStage.hideTabs(player, false);
-			}
-			else
-			{
-				openDefaultTabs();
-			}
-			openInfoBars();
-			PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 23 : 14, Components.FILTERBUTTONS_751, true));
-			PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 70 : 75, Components.CHATTOP_752, true));
-		}
-	}
+        if (windowMode != player.getSession().getClientInfo().getWindowMode()) {
+            player.getSession().getClientInfo().setWindowMode(windowMode);
+            openWindowsPane(new Component(isResizable() ? Components.TOPLEVEL_FULLSCREEN_746 : Components.TOPLEVEL_548));
+            if (!player.getAttribute("tutorial:complete", false)) {
+                TutorialStage.hideTabs(player, false);
+            } else {
+                openDefaultTabs();
+            }
+            openInfoBars();
+            PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 23 : 14, Components.FILTERBUTTONS_751, true));
+            PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 70 : 75, Components.CHATTOP_752, true));
+        }
+    }
 
     /**
      * Gets the component for the given component id.
@@ -561,32 +558,32 @@ public final class InterfaceManager {
      * @return The component.
      */
     public Component getComponent(int componentId) {
-		if (opened != null && opened.getId() == componentId) {
-			return opened;
-		}
-		if (chatbox != null && chatbox.getId() == componentId) {
-			return chatbox;
-		}
-		if (singleTab != null && singleTab.getId() == componentId) {
-			return singleTab;
-		}
-		if (overlay != null && overlay.getId() == componentId) {
-			return overlay;
-		}
-		if (windowsPane.getId() == componentId) {
-			return windowsPane;
-		}
-		for (Component c : tabs) {
-			if (c != null && c.getId() == componentId) {
-				return c;
-			}
-		}
-		if (componentId == Components.FILTERBUTTONS_751 || componentId == Components.TOPSTAT_RUN_750 || componentId == Components.TOPSTAT_LORE_747) {
-			//Chatbox settings, run orb & summoning orb.
-			return new Component(componentId);
-		}
-		return null;
-	}
+        if (opened != null && opened.getId() == componentId) {
+            return opened;
+        }
+        if (chatbox != null && chatbox.getId() == componentId) {
+            return chatbox;
+        }
+        if (singleTab != null && singleTab.getId() == componentId) {
+            return singleTab;
+        }
+        if (overlay != null && overlay.getId() == componentId) {
+            return overlay;
+        }
+        if (windowsPane.getId() == componentId) {
+            return windowsPane;
+        }
+        for (Component c : tabs) {
+            if (c != null && c.getId() == componentId) {
+                return c;
+            }
+        }
+        if (componentId == Components.FILTERBUTTONS_751 || componentId == Components.TOPSTAT_RUN_750 || componentId == Components.TOPSTAT_LORE_747) {
+            //Chatbox settings, run orb & summoning orb.
+            return new Component(componentId);
+        }
+        return null;
+    }
 
     /**
      * Sets the currently viewed tab.
@@ -594,26 +591,26 @@ public final class InterfaceManager {
      * @param tabIndex The tab index.
      */
     public void setViewedTab(int tabIndex) {
-		if (tabs[tabIndex] == null) {
-                    return;
-		}
-		currentTabIndex = tabIndex;
-		switch (tabIndex) {
-		case 0:
-			tabIndex = 1;
-			break;
-		case 1:
-			tabIndex = 2;
-			break;
-		case 2:
-			tabIndex = 3;
-			break;
-		}
-		if (tabIndex > 9) {
-			tabIndex--;
-		}
-		player.getPacketDispatch().sendRunScript(115, "i", tabIndex);
-	}
+        if (tabs[tabIndex] == null) {
+            return;
+        }
+        currentTabIndex = tabIndex;
+        switch (tabIndex) {
+            case 0:
+                tabIndex = 1;
+                break;
+            case 1:
+                tabIndex = 2;
+                break;
+            case 2:
+                tabIndex = 3;
+                break;
+        }
+        if (tabIndex > 9) {
+            tabIndex--;
+        }
+        player.getPacketDispatch().sendRunScript(115, "i", tabIndex);
+    }
 
     /**
      * Checks if the main component opened matches the given component id.
@@ -622,8 +619,8 @@ public final class InterfaceManager {
      * @return {@code True} if so.
      */
     public boolean hasMainComponent(int id) {
-		return opened != null && opened.getId() == id;
-	}
+        return opened != null && opened.getId() == id;
+    }
 
     /**
      * Opens an overlay.
@@ -631,26 +628,26 @@ public final class InterfaceManager {
      * @param component The component.
      */
     public void openOverlay(Component component) {
-		if (overlay != null && !overlay.close(player)) {
-			return;
-		}
-		overlay = component;
-		if (overlay.getDefinition().getType() != InterfaceType.OVERLAY && overlay.getDefinition().getType() != InterfaceType.OVERLAY_B) {
-			log(this.getClass(), Log.WARN,  "Set interface type to OVERLAY for component " + component.getId() + ", definition requires updating!");
-			overlay.getDefinition().setType(InterfaceType.OVERLAY);
-			overlay.getDefinition().setWalkable(true);
-		}
-		overlay.open(player);
-	}
+        if (overlay != null && !overlay.close(player)) {
+            return;
+        }
+        overlay = component;
+        if (overlay.getDefinition().getType() != InterfaceType.OVERLAY && overlay.getDefinition().getType() != InterfaceType.OVERLAY_B) {
+            log(this.getClass(), Log.WARN, "Set interface type to OVERLAY for component " + component.getId() + ", definition requires updating!");
+            overlay.getDefinition().setType(InterfaceType.OVERLAY);
+            overlay.getDefinition().setWalkable(true);
+        }
+        overlay.open(player);
+    }
 
     /**
      * Closes the current overlay.
      */
     public void closeOverlay() {
-		if (overlay != null && close(overlay)) {
-			overlay = null;
-		}
-	}
+        if (overlay != null && close(overlay)) {
+            overlay = null;
+        }
+    }
 
     /**
      * Gets the weapon tab interface.
@@ -658,8 +655,8 @@ public final class InterfaceManager {
      * @return The weapon interface.
      */
     public WeaponInterface getWeaponTab() {
-		return player.getExtension(WeaponInterface.class);
-	}
+        return player.getExtension(WeaponInterface.class);
+    }
 
     /**
      * Gets the opened.
@@ -667,8 +664,8 @@ public final class InterfaceManager {
      * @return The opened.
      */
     public Component getOpened() {
-		return opened;
-	}
+        return opened;
+    }
 
     /**
      * Sets the opened.
@@ -676,8 +673,8 @@ public final class InterfaceManager {
      * @param opened The opened to set.
      */
     public void setOpened(Component opened) {
-		this.opened = opened;
-	}
+        this.opened = opened;
+    }
 
     /**
      * Gets the tabs.
@@ -685,8 +682,8 @@ public final class InterfaceManager {
      * @return The tabs.
      */
     public Component[] getTabs() {
-		return tabs;
-	}
+        return tabs;
+    }
 
     /**
      * Sets the tabs.
@@ -694,8 +691,8 @@ public final class InterfaceManager {
      * @param tabs The tabs to set.
      */
     public void setTabs(Component[] tabs) {
-		this.tabs = tabs;
-	}
+        this.tabs = tabs;
+    }
 
     /**
      * Gets the chatbox.
@@ -703,8 +700,8 @@ public final class InterfaceManager {
      * @return The chatbox.
      */
     public Component getChatbox() {
-		return chatbox;
-	}
+        return chatbox;
+    }
 
     /**
      * Sets the chatbox.
@@ -712,8 +709,8 @@ public final class InterfaceManager {
      * @param chatbox The chatbox to set.
      */
     public void setChatbox(Component chatbox) {
-		this.chatbox = chatbox;
-	}
+        this.chatbox = chatbox;
+    }
 
     /**
      * Gets the overlay.
@@ -721,8 +718,8 @@ public final class InterfaceManager {
      * @return The overlay.
      */
     public Component getOverlay() {
-		return overlay;
-	}
+        return overlay;
+    }
 
     /**
      * Sets the overlay.
@@ -730,8 +727,8 @@ public final class InterfaceManager {
      * @param overlay The overlay to set.
      */
     public void setOverlay(Component overlay) {
-		this.overlay = overlay;
-	}
+        this.overlay = overlay;
+    }
 
     /**
      * Gets the player.
@@ -739,8 +736,8 @@ public final class InterfaceManager {
      * @return The player.
      */
     public Player getPlayer() {
-		return player;
-	}
+        return player;
+    }
 
     /**
      * Gets the currentTabIndex.
@@ -748,8 +745,8 @@ public final class InterfaceManager {
      * @return The currentTabIndex.
      */
     public int getCurrentTabIndex() {
-		return currentTabIndex;
-	}
+        return currentTabIndex;
+    }
 
     /**
      * Sets the currentTabIndex.
@@ -757,8 +754,8 @@ public final class InterfaceManager {
      * @param currentTabIndex The currentTabIndex to set.
      */
     public void setCurrentTabIndex(int currentTabIndex) {
-		this.currentTabIndex = currentTabIndex;
-	}
+        this.currentTabIndex = currentTabIndex;
+    }
 
     /**
      * Gets the windowsPane.
@@ -766,8 +763,8 @@ public final class InterfaceManager {
      * @return The windowsPane.
      */
     public Component getWindowsPane() {
-		return windowsPane;
-	}
+        return windowsPane;
+    }
 
     /**
      * Gets the windows pane id.
@@ -775,11 +772,11 @@ public final class InterfaceManager {
      * @return The window pane id.
      */
     public int getWindowPaneId() {
-		if (windowsPane == null) {
-			return Components.TOPLEVEL_548;
-		}
-		return windowsPane.getId();
-	}
+        if (windowsPane == null) {
+            return Components.TOPLEVEL_548;
+        }
+        return windowsPane.getId();
+    }
 
     /**
      * Gets the default child id.
@@ -787,8 +784,8 @@ public final class InterfaceManager {
      * @return The default child id.
      */
     public int getDefaultChildId() {
-		return isResizable() ? 6 : 11;
-	}
+        return isResizable() ? 6 : 11;
+    }
 
     /**
      * Checks if the player's client is resizable.
@@ -796,11 +793,11 @@ public final class InterfaceManager {
      * @return {@code True} if so.
      */
     public boolean isResizable() {
-		if (player.getSession().getClientInfo() == null) {
-			return false;
-		}
-		return player.getSession().getClientInfo().isResizable();
-	}
+        if (player.getSession().getClientInfo() == null) {
+            return false;
+        }
+        return player.getSession().getClientInfo().isResizable();
+    }
 
     /**
      * Gets the amount of times an interface related packet was sent, then increments it.
@@ -809,8 +806,8 @@ public final class InterfaceManager {
      * @return The amount of times an interface packet was sent.
      */
     public int getPacketCount(int increment) {
-		int count = packetCount;
-		packetCount += increment;
-		return count;
-	}
+        int count = packetCount;
+        packetCount += increment;
+        return count;
+    }
 }
