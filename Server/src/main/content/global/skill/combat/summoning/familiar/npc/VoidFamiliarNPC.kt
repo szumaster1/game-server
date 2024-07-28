@@ -62,8 +62,7 @@ class VoidFamiliarNPC : Plugin<Any> {
         return true
     }
 
-    inner class VoidRavagerNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 7370) :
-        Forager(owner, id, 2700, 12818, 3, WeaponInterface.STYLE_AGGRESSIVE, *ITEMS) {
+    inner class VoidRavagerNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 7370) : Forager(owner, id, 2700, 12818, 3, WeaponInterface.STYLE_AGGRESSIVE, *ITEMS) {
 
         init {
             boosts.add(SkillBonus(Skills.MINING, 1.0))
@@ -82,8 +81,8 @@ class VoidFamiliarNPC : Plugin<Any> {
         }
     }
 
-    inner class VoidShifterNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 7367) :
-        Familiar(owner, id, 9400, 12814, 3, WeaponInterface.STYLE_ACCURATE) {
+    inner class VoidShifterNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 7367) : Familiar(owner, id, 9400, 12814, 3, WeaponInterface.STYLE_ACCURATE) {
+
         override fun construct(owner: Player, id: Int): Familiar {
             return VoidShifterNPC(owner, id)
         }
@@ -140,8 +139,8 @@ class VoidFamiliarNPC : Plugin<Any> {
 
         public override fun configureFamiliar() {
             definePlugin(object : OptionHandler() {
-                @Throws(Throwable::class)
-                override fun newInstance(arg: Any): Plugin<Any> {
+
+                override fun newInstance(arg: Any?): Plugin<Any> {
                     for (i in ids) {
                         NPCDefinition.forId(i).handlers["option:strike"] = this
                     }

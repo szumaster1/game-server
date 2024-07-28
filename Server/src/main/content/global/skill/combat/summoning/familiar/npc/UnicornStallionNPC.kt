@@ -35,8 +35,7 @@ class UnicornStallionNPC @JvmOverloads constructor(owner: Player? = null, id: In
 
     override fun configureFamiliar() {
         definePlugin(object : OptionHandler() {
-            @Throws(Throwable::class)
-            override fun newInstance(arg: Any): Plugin<Any> {
+            override fun newInstance(arg: Any?): Plugin<Any> {
                 NPCDefinition.forId(6822).handlers["option:cure"] = this
                 NPCDefinition.forId(6823).handlers["option:cure"] = this
                 return this

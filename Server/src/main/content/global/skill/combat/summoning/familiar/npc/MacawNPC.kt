@@ -24,8 +24,7 @@ class MacawNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 6851) 
         return MacawNPC(owner, id)
     }
 
-    @Throws(Throwable::class)
-    override fun newInstance(`object`: Any): Plugin<Any> {
+    override fun newInstance(`object`: Any?): Plugin<Any> {
         return super.newInstance(`object`)
     }
 
