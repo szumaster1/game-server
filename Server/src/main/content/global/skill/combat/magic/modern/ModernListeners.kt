@@ -419,7 +419,7 @@ class ModernListeners : SpellListener("modern") {
         removeRunes(player)
         addXP(player, 30.0)
         setDelay(player, true)
-        submitWorldPulse(object : Pulse(3) {
+        submitWorldPulse(object : Pulse(4) {
             override fun pulse(): Boolean {
                 PacketRepository.send(MinimapState::class.java, MinimapStateContext(player, 2))
                 player.interfaceManager.openComponent(Components.POH_HOUSE_LOADING_SCREEN_399)
