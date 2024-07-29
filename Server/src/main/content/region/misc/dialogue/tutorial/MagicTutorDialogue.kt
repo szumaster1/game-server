@@ -94,8 +94,7 @@ class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
 
                 1 -> when (buttonId) {
                     1 -> {
-                        setComponentVisibility(player!!, 234, 9, true)
-                        setComponentVisibility(player!!, 234, 10, false)
+                        setTitle(player, 5)
                         sendDialogueOptions(player!!, "What game mode do you want to choose?", "None", "Standard", "Hardcore (Permadeath!)", "Ultimate", "Nevermind.")
                         stage = 10
                     }
@@ -113,7 +112,7 @@ class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
                         val mode = IronmanMode.values()[buttonId - 1]
                         player.dialogueInterpreter.sendDialogue("You set your ironman mode to: ${mode.name}.")
                         player.ironmanManager.mode = mode
-                        if (player.skills.experienceMultiplier == 10.0 && mode != IronmanMode.HARDCORE) player.skills.experienceMultiplier =
+                        if (player.skills.experienceMultiplier == 100.0 && mode != IronmanMode.HARDCORE) player.skills.experienceMultiplier =
                             5.0
                     } else {
                         handle(interfaceId, 0)
@@ -121,9 +120,9 @@ class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 20 -> {
-                    val rates = arrayOf(1.0, 2.5, 5.0, 10.0)
+                    val rates = arrayOf(10.0, 25.0, 50.0, 100.0)
                     val rate = rates[buttonId - 1]
-                    if (rate == 10.0 && player.ironmanManager.mode != IronmanMode.HARDCORE) {
+                    if (rate == 100.0 && player.ironmanManager.mode != IronmanMode.HARDCORE) {
                         player.dialogueInterpreter.sendDialogue("10.0x is only available to Hardcore Ironmen!")
                         stage = 0
                         return true
@@ -133,8 +132,7 @@ class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
                     stage = 0
                 }
                 30 -> {
-                    setComponentVisibility(player!!, 228, 6, true)
-                    setComponentVisibility(player!!, 228, 9, false)
+                    setTitle(player, 2)
                     sendDialogueOptions(player, "Do you want to go to the mainland?", "Yes.", "No.").also { stage++ }
                 }
                 31 -> when (buttonId) {
@@ -194,8 +192,8 @@ class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
                     )
                     if (player.ironmanManager.mode == IronmanMode.HARDCORE) {
                         setAttribute(player, "/save:permadeath", true)
-                    } else if (player.skills.experienceMultiplier == 10.0) {
-                        player.skills.experienceMultiplier = 5.0
+                    } else if (player.skills.experienceMultiplier == 100.0) {
+                        player.skills.experienceMultiplier = 50.0
                     }
 
                     stage = 39
