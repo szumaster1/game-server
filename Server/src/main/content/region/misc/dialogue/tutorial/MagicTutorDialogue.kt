@@ -90,7 +90,10 @@ class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             71 -> when (stage) {
-                0 -> options("Set Ironman Mode (current: ${player.ironmanManager.mode.name})", "Change XP Rate (current: ${player.skills.experienceMultiplier}x)", "I'm ready now.").also { stage++ }
+                0 -> {
+                    setTitle(player, 3)
+                    options("Set Ironman Mode (current: ${player.ironmanManager.mode.name})", "Change XP Rate (current: ${player.skills.experienceMultiplier}x)", "I'm ready now.").also { stage++ }
+                }
 
                 1 -> when (buttonId) {
                     1 -> {
@@ -110,7 +113,7 @@ class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
                     stage = 0
                     if (buttonId < 5) {
                         val mode = IronmanMode.values()[buttonId - 1]
-                        player.dialogueInterpreter.sendDialogue("You set your ironman mode to: ${mode.name}.")
+                        sendDialogue(player,"You set your ironman mode to: ${mode.name}.")
                         player.ironmanManager.mode = mode
                         if (player.skills.experienceMultiplier == 100.0 && mode != IronmanMode.HARDCORE) player.skills.experienceMultiplier = 50.0
                     } else {
@@ -122,11 +125,11 @@ class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
                     val rates = arrayOf(10.0, 25.0, 50.0, 100.0)
                     val rate = rates[buttonId - 1]
                     if (rate == 100.0 && player.ironmanManager.mode != IronmanMode.HARDCORE) {
-                        player.dialogueInterpreter.sendDialogue("100.0x is only available to Hardcore Ironmen!")
+                        sendDialogue(player,"100.0x is only available to Hardcore Ironmen!")
                         stage = 0
                         return true
                     }
-                    player.dialogueInterpreter.sendDialogue("You set your XP rate to: ${rate}x.")
+                    sendDialogue(player, "You set your XP rate to: ${rate}x.")
                     player.skills.experienceMultiplier = rate
                     stage = 0
                 }
@@ -143,23 +146,22 @@ class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
                 34 -> npc("holding a big staff with a question mark on the end. He", "also has a white beard and carries a rucksack full of", "scrolls. There are also tutors willing to teach you about", "the many skills you could learn.").also { stage++ }
                 35 -> {
                     openInterface(player, Components.DOUBLEOBJBOX_131).also {
-                        player!!.packetDispatch.sendModelOnInterface(7369, Components.DOUBLEOBJBOX_131, 2, -1)
-                        player.packetDispatch.sendAngleOnInterface(Components.DOUBLEOBJBOX_131, 2, 1200, 500, 0)
-                        setInterfaceText(player,
-                            "When you get to Lumbridge, look for this icon on your minimap. The Lumbridge Guide and the other tutors will be standing near one of these. The Lumbridge Guide should be standing slightly to the north-east of", Components.DOUBLEOBJBOX_131, 1)
+                        sendModelOnInterface(player, Components.DOUBLEOBJBOX_131,2, 7369, -1)
+                        sendAngleOnInterface(player, Components.DOUBLEOBJBOX_131, 2, 1200, 500, 0)
+                        setInterfaceText(player, "When you get to Lumbridge, look for this icon on your minimap. The Lumbridge Guide and the other tutors will be standing near one of these. The Lumbridge Guide should be standing slightly to the north-east of", Components.DOUBLEOBJBOX_131, 1)
                     }
                     stage++
                 }
                 36 -> {
                     openInterface(player, Components.DOUBLEOBJBOX_131).also {
-                        player!!.packetDispatch.sendModelOnInterface(7369, Components.DOUBLEOBJBOX_131, 2, -1)
-                        player.packetDispatch.sendAngleOnInterface(Components.DOUBLEOBJBOX_131, 2, 1200, 500, 0)
-                        setInterfaceText(player, "the castle's courtyard and the others you will find"+ "scattered around lumbridge.", Components.DOUBLEOBJBOX_131, 1)
+                        sendModelOnInterface(player, Components.DOUBLEOBJBOX_131,2, 7369, -1)
+                        sendAngleOnInterface(player, Components.DOUBLEOBJBOX_131, 2, 1200, 500, 0)
+                        setInterfaceText(player, "the castle's courtyard and the others you will find" + "scattered around lumbridge.", Components.DOUBLEOBJBOX_131, 1)
                     }
                     stage++
                 }
                 37 -> {
-                    npc("If all else fails, visit the "+GameWorld.settings!!.name+" website for a whole", "chestload of information on quests skills and minigames", "as well as a very good starter's guide")
+                    npc("If all else fails, visit the " + GameWorld.settings!!.name + " website for a whole", "chestload of information on quests skills and minigames", "as well as a very good starter's guide.")
                     stage++
                 }
                 38 -> {
