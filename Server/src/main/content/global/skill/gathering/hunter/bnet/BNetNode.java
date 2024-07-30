@@ -15,7 +15,6 @@ public class BNetNode {
 
     private static final Item BUTTERFLY_JAR = new Item(10012);
 
-
     /**
      * The constant IMPLING_JAR.
      */

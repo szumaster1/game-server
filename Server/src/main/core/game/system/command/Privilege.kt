@@ -1,5 +1,7 @@
 package core.game.system.command
 
 enum class Privilege {
-    STANDARD, MODERATOR, ADMIN
+    STANDARD,
+    MODERATOR,
+    ADMIN
 }

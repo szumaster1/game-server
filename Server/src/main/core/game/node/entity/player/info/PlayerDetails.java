@@ -10,7 +10,6 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * Stores the details of a player's account.
- *
  * @author Vexia
  */
 public class PlayerDetails {
@@ -19,10 +18,10 @@ public class PlayerDetails {
      */
     public UserAccountInfo accountInfo = UserAccountInfo.createDefault();
 
-	/**
-	 * The communication info.
-	 */
-	private final CommunicationInfo communicationInfo = new CommunicationInfo();
+    /**
+     * The communication info.
+     */
+    private final CommunicationInfo communicationInfo = new CommunicationInfo();
 
     /**
      * Gets credits.
@@ -30,8 +29,8 @@ public class PlayerDetails {
      * @return the credits
      */
     public int getCredits() {
-		return accountInfo.getCredits();
-	}
+        return accountInfo.getCredits();
+    }
 
     /**
      * Sets credits.
@@ -39,19 +38,19 @@ public class PlayerDetails {
      * @param amount the amount
      */
     public void setCredits(int amount) {
-		accountInfo.setCredits(amount);
-	}
+        accountInfo.setCredits(amount);
+    }
 
 
-	/**
-	 * The unique id info.
-	 */
-	private final UIDInfo info = new UIDInfo();
+    /**
+     * The unique id info.
+     */
+    private final UIDInfo info = new UIDInfo();
 
-	/**
-	 * Represents the session.
-	 */
-	private IoSession session;
+    /**
+     * Represents the session.
+     */
+    private IoSession session;
 
     /**
      * The Save parsed.
@@ -64,8 +63,8 @@ public class PlayerDetails {
      * @param username the username to set.
      */
     public PlayerDetails(String username) {
-		accountInfo.setUsername(username);
-	}
+        accountInfo.setUsername(username);
+    }
 
     /**
      * Checks if the player is muted.
@@ -73,8 +72,8 @@ public class PlayerDetails {
      * @return {@code True} if so.
      */
     public boolean isBanned() {
-		return accountInfo.getBanEndTime() > System.currentTimeMillis();
-	}
+        return accountInfo.getBanEndTime() > System.currentTimeMillis();
+    }
 
     /**
      * Checks if the mute is permanent.
@@ -82,8 +81,8 @@ public class PlayerDetails {
      * @return {@code True} if so.
      */
     public boolean isPermMute() {
-		return TimeUnit.MILLISECONDS.toDays(accountInfo.getMuteEndTime() - System.currentTimeMillis()) > 1000;
-	}
+        return TimeUnit.MILLISECONDS.toDays(accountInfo.getMuteEndTime() - System.currentTimeMillis()) > 1000;
+    }
 
     /**
      * Checks if the player is muted.
@@ -91,8 +90,8 @@ public class PlayerDetails {
      * @return {@code True} if so.
      */
     public boolean isMuted() {
-		return accountInfo.getMuteEndTime() > System.currentTimeMillis();
-	}
+        return accountInfo.getMuteEndTime() > System.currentTimeMillis();
+    }
 
     /**
      * Gets the rights.
@@ -100,8 +99,8 @@ public class PlayerDetails {
      * @return The rights.
      */
     public Rights getRights() {
-		return Rights.values()[accountInfo.getRights()];
-	}
+        return Rights.values()[accountInfo.getRights()];
+    }
 
     /**
      * Sets the credentials.
@@ -109,8 +108,8 @@ public class PlayerDetails {
      * @param rights The credentials to set.
      */
     public void setRights(Rights rights) {
-		this.accountInfo.setRights(rights.ordinal());
-	}
+        this.accountInfo.setRights(rights.ordinal());
+    }
 
     /**
      * Gets the session.
@@ -118,8 +117,8 @@ public class PlayerDetails {
      * @return The session.
      */
     public IoSession getSession() {
-		return session;
-	}
+        return session;
+    }
 
     /**
      * Sets the session.
@@ -127,8 +126,8 @@ public class PlayerDetails {
      * @param session The session to set.
      */
     public void setSession(IoSession session) {
-		this.session = session;
-	}
+        this.session = session;
+    }
 
     /**
      * Sets the password.
@@ -136,8 +135,8 @@ public class PlayerDetails {
      * @param password the password.
      */
     public void setPassword(final String password) {
-		this.accountInfo.setPassword(password);
-	}
+        this.accountInfo.setPassword(password);
+    }
 
     /**
      * Gets the username.
@@ -145,8 +144,8 @@ public class PlayerDetails {
      * @return The username.
      */
     public String getUsername() {
-		return this.accountInfo.getUsername();
-	}
+        return this.accountInfo.getUsername();
+    }
 
     /**
      * Gets the uid.
@@ -154,8 +153,8 @@ public class PlayerDetails {
      * @return the uid.
      */
     public int getUid() {
-		return accountInfo.getUid();
-	}
+        return accountInfo.getUid();
+    }
 
     /**
      * Gets the password.
@@ -163,8 +162,8 @@ public class PlayerDetails {
      * @return The password.
      */
     public String getPassword() {
-		return this.accountInfo.getPassword();
-	}
+        return this.accountInfo.getPassword();
+    }
 
     /**
      * Gets the mac address.
@@ -172,8 +171,8 @@ public class PlayerDetails {
      * @return the address.
      */
     public String getMacAddress() {
-		return info.getMac();
-	}
+        return info.getMac();
+    }
 
     /**
      * Gets the computer name.
@@ -181,8 +180,8 @@ public class PlayerDetails {
      * @return the name.
      */
     public String getCompName() {
-		return info.getCompName();
-	}
+        return info.getCompName();
+    }
 
     /**
      * Gets the ip address.
@@ -190,11 +189,11 @@ public class PlayerDetails {
      * @return the ip.
      */
     public String getIpAddress() {
-		if (session == null) {
-			return info.getIp();
-		}
-		return session.getAddress();
-	}
+        if (session == null) {
+            return info.getIp();
+        }
+        return session.getAddress();
+    }
 
     /**
      * Gets the serial.
@@ -202,8 +201,8 @@ public class PlayerDetails {
      * @return the serial.
      */
     public String getSerial() {
-		return info.getSerial();
-	}
+        return info.getSerial();
+    }
 
     /**
      * Gets the info.
@@ -211,8 +210,8 @@ public class PlayerDetails {
      * @return the info
      */
     public UIDInfo getInfo() {
-		return info;
-	}
+        return info;
+    }
 
     /**
      * Gets the communicationInfo.
@@ -220,8 +219,8 @@ public class PlayerDetails {
      * @return the communicationInfo
      */
     public CommunicationInfo getCommunication() {
-		return communicationInfo;
-	}
+        return communicationInfo;
+    }
 
     /**
      * Gets the lastLogin.
@@ -229,8 +228,8 @@ public class PlayerDetails {
      * @return the lastLogin.
      */
     public long getLastLogin() {
-		return this.accountInfo.getLastLogin();
-	}
+        return this.accountInfo.getLastLogin();
+    }
 
     /**
      * Sets the lastLogin.
@@ -238,8 +237,8 @@ public class PlayerDetails {
      * @param lastLogin the lastLogin to set
      */
     public void setLastLogin(long lastLogin) {
-		this.accountInfo.setLastLogin(lastLogin);
-	}
+        this.accountInfo.setLastLogin(lastLogin);
+    }
 
     /**
      * Gets the timePlayed.
@@ -247,8 +246,8 @@ public class PlayerDetails {
      * @return the timePlayed.
      */
     public long getTimePlayed() {
-		return this.accountInfo.getTimePlayed();
-	}
+        return this.accountInfo.getTimePlayed();
+    }
 
     /**
      * Sets the timePlayed.
@@ -256,8 +255,8 @@ public class PlayerDetails {
      * @param timePlayed the timePlayed to set
      */
     public void setTimePlayed(long timePlayed) {
-		this.accountInfo.setTimePlayed(timePlayed);
-	}
+        this.accountInfo.setTimePlayed(timePlayed);
+    }
 
     /**
      * Sets the mute time.
@@ -265,8 +264,8 @@ public class PlayerDetails {
      * @param muteTime the mute time.
      */
     public void setMuteTime(long muteTime) {
-		this.accountInfo.setMuteEndTime(muteTime);
-	}
+        this.accountInfo.setMuteEndTime(muteTime);
+    }
 
     /**
      * Gets the mute time.
@@ -274,8 +273,8 @@ public class PlayerDetails {
      * @return The mute time.
      */
     public long getMuteTime() {
-		return this.accountInfo.getMuteEndTime();
-	}
+        return this.accountInfo.getMuteEndTime();
+    }
 
     /**
      * Gets the banTime.
@@ -283,8 +282,8 @@ public class PlayerDetails {
      * @return the banTime.
      */
     public long getBanTime() {
-		return this.accountInfo.getBanEndTime();
-	}
+        return this.accountInfo.getBanEndTime();
+    }
 
     /**
      * Sets the banTime.
@@ -292,24 +291,25 @@ public class PlayerDetails {
      * @param banTime the banTime to set
      */
     public void setBanTime(long banTime) {
-		this.accountInfo.setBanEndTime(banTime);
-	}
+        this.accountInfo.setBanEndTime(banTime);
+    }
 
     /**
      * Save.
      */
     public void save() {
-		if(!saveParsed) return;
-		if(isBanned()) return;
-		try {
-			accountInfo.setContacts(communicationInfo.getContactString());
-			accountInfo.setBlocked(communicationInfo.getBlockedString());
-			accountInfo.setClanName(communicationInfo.getClanName());
-			accountInfo.setClanReqs(communicationInfo.getClanReqString());
-			accountInfo.setCurrentClan(communicationInfo.getCurrentClan());
-			GameWorld.getAccountStorage().update(accountInfo);
-		} catch (IllegalStateException ignored) {}
-	}
+        if (!saveParsed) return;
+        if (isBanned()) return;
+        try {
+            accountInfo.setContacts(communicationInfo.getContactString());
+            accountInfo.setBlocked(communicationInfo.getBlockedString());
+            accountInfo.setClanName(communicationInfo.getClanName());
+            accountInfo.setClanReqs(communicationInfo.getClanReqString());
+            accountInfo.setCurrentClan(communicationInfo.getCurrentClan());
+            GameWorld.getAccountStorage().update(accountInfo);
+        } catch (IllegalStateException ignored) {
+        }
+    }
 
     /**
      * Gets details.
@@ -318,6 +318,6 @@ public class PlayerDetails {
      * @return the details
      */
     public static PlayerDetails getDetails(@NotNull String username) {
-		return new PlayerDetails(username);
-	}
+        return new PlayerDetails(username);
+    }
 }

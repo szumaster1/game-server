@@ -1,36 +1,36 @@
 package core.game.node.entity;
 
 import core.game.event.*;
-import core.game.interaction.*;
+import core.game.interaction.DestinationFlag;
+import core.game.interaction.MovementPulse;
+import core.game.interaction.ScriptProcessor;
 import core.game.node.Node;
-import core.game.node.entity.combat.BattleState;
-import core.game.node.entity.combat.CombatStyle;
-import core.game.node.entity.combat.DeathTask;
-import core.game.node.entity.combat.ImpactHandler;
+import core.game.node.entity.combat.*;
 import core.game.node.entity.combat.equipment.ArmourSet;
-import core.game.node.entity.impl.*;
 import core.game.node.entity.impl.Properties;
+import core.game.node.entity.impl.*;
 import core.game.node.entity.lock.ActionLocks;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.TeleportManager;
 import core.game.node.entity.skill.Skills;
 import core.game.system.task.Pulse;
-import core.game.world.map.zone.ZoneRestriction;
-import core.game.world.update.flag.context.Graphic;
-import org.jetbrains.annotations.NotNull;
+import core.game.system.timer.TimerManager;
+import core.game.system.timer.TimerRegistry;
 import core.game.world.GameWorld;
 import core.game.world.map.Location;
 import core.game.world.map.Viewport;
 import core.game.world.map.path.Path;
 import core.game.world.map.path.Pathfinder;
 import core.game.world.map.zone.ZoneMonitor;
-import core.game.world.update.flag.context.Animation;
-import core.game.world.update.flag.*;
-import core.game.node.entity.combat.CombatSwingHandler;
+import core.game.world.map.zone.ZoneRestriction;
 import core.game.world.update.UpdateMasks;
-import core.game.system.timer.TimerManager;
-import core.game.system.timer.TimerRegistry;
+import core.game.world.update.flag.EFlagType;
+import core.game.world.update.flag.EntityFlag;
+import core.game.world.update.flag.EntityFlags;
+import core.game.world.update.flag.context.Animation;
+import core.game.world.update.flag.context.Graphic;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 
@@ -41,70 +41,70 @@ import java.util.*;
  */
 public abstract class Entity extends Node {
 
-	/**
-	 * The entity's properties.
-	 */
-	private final Properties properties = new Properties(this);
+    /**
+     * The entity's properties.
+     */
+    private final Properties properties = new Properties(this);
 
-	/**
-	 * The entity's update masks.
-	 */
-	private final UpdateMasks updateMasks = new UpdateMasks(this);
+    /**
+     * The entity's update masks.
+     */
+    private final UpdateMasks updateMasks = new UpdateMasks(this);
 
-	/**
-	 * The walking queue.
-	 */
-	private final WalkingQueue walkingQueue = new WalkingQueue(this);
+    /**
+     * The walking queue.
+     */
+    private final WalkingQueue walkingQueue = new WalkingQueue(this);
 
     /**
      * The entity's skills.
      */
     public Skills skills = new Skills(this);
 
-	/**
-	 * The entity's extension classes.
-	 */
-	private final Map<Class<?>, Object> extensions = new HashMap<Class<?>, Object>();
+    /**
+     * The entity's extension classes.
+     */
+    private final Map<Class<?>, Object> extensions = new HashMap<Class<?>, Object>();
 
-	/**
-	 * The entity's attributes.
-	 */
-	private final GameAttributes attributes = new GameAttributes();
+    /**
+     * The entity's attributes.
+     */
+    private final GameAttributes attributes = new GameAttributes();
 
-	/**
-	 * The entity's viewport.
-	 */
-	private final Viewport viewport = new Viewport();
+    /**
+     * The entity's viewport.
+     */
+    private final Viewport viewport = new Viewport();
 
-	/**
-	 * The pulse manager.
-	 */
-	private final PulseManager pulseManager = new PulseManager();
+    /**
+     * The pulse manager.
+     */
+    private final PulseManager pulseManager = new PulseManager();
 
-	/**
-	 * The impact handler.
-	 */
-	private final ImpactHandler impactHandler = new ImpactHandler(this);
+    /**
+     * The impact handler.
+     */
+    private final ImpactHandler impactHandler = new ImpactHandler(this);
 
-	/**
-	 * The animator.
-	 */
-	private final Animator animator = new Animator(this);
+    /**
+     * The animator.
+     */
+    private final Animator animator = new Animator(this);
 
-	/**
-	 * The teleporter.
-	 */
-	private final TeleportManager teleporter = new TeleportManager(this);
+    /**
+     * The teleporter.
+     */
+    private final TeleportManager teleporter = new TeleportManager(this);
 
-	/**
-	 * The zone monitor.
-	 */
-	private final ZoneMonitor zoneMonitor = new ZoneMonitor(this);
+    /**
+     * The zone monitor.
+     */
+    private final ZoneMonitor zoneMonitor = new ZoneMonitor(this);
 
-	/**
-	 * The reward locks.
-	 */
-	private final ActionLocks locks = new ActionLocks();
+    /**
+     * The reward locks.
+     */
+    private final ActionLocks locks = new ActionLocks();
     /**
      * The Scripts.
      */
@@ -120,19 +120,19 @@ public abstract class Entity extends Node {
     public MovementPulse currentMovement;
 
 
-	/**
-	 * The mapping of event types to event hooks
-	 */
-	private HashMap<Class<?>, ArrayList<EventHook>> hooks = new HashMap<>();
+    /**
+     * The mapping of event types to event hooks
+     */
+    private HashMap<Class<?>, ArrayList<EventHook>> hooks = new HashMap<>();
     /**
      * The Timers.
      */
     public TimerManager timers = new TimerManager(this);
 
-	/**
-	 * If the entity is invisible.
-	 */
-	private boolean invisible;
+    /**
+     * If the entity is invisible.
+     */
+    private boolean invisible;
 
 
     /**
@@ -142,56 +142,55 @@ public abstract class Entity extends Node {
      * @param location The location.
      */
     public Entity(String name, Location location) {
-		super(name, location);
-		super.destinationFlag = DestinationFlag.ENTITY;
-	}
+        super(name, location);
+        super.destinationFlag = DestinationFlag.ENTITY;
+    }
 
     /**
      * Attempts to make the entity move one step (priority order: west, south,
      * east, north).
      */
     public void moveStep() {
-		if (locks.isMovementLocked()) {
-			return;
-		}
-		Path path;
-		if (!(path = Pathfinder.find(this, getLocation().transform(-1, 0, 0), false, Pathfinder.DUMB)).isSuccessful()) {
-			if (!(path = Pathfinder.find(this, getLocation().transform(0, -1, 0), false, Pathfinder.DUMB)).isSuccessful()) {
-				if (!(path = Pathfinder.find(this, getLocation().transform(1, 0, 0), false, Pathfinder.DUMB)).isSuccessful()) {
-					if (!(path = Pathfinder.find(this, getLocation().transform(0, 1, 0), false, Pathfinder.DUMB)).isSuccessful()) {
-						path = null;
-					}
-				}
-			}
-		}
-		if (path != null) {
-			path.walk(this);
-		}
-	}
+        if (locks.isMovementLocked()) {
+            return;
+        }
+        Path path;
+        if (!(path = Pathfinder.find(this, getLocation().transform(-1, 0, 0), false, Pathfinder.DUMB)).isSuccessful()) {
+            if (!(path = Pathfinder.find(this, getLocation().transform(0, -1, 0), false, Pathfinder.DUMB)).isSuccessful()) {
+                if (!(path = Pathfinder.find(this, getLocation().transform(1, 0, 0), false, Pathfinder.DUMB)).isSuccessful()) {
+                    if (!(path = Pathfinder.find(this, getLocation().transform(0, 1, 0), false, Pathfinder.DUMB)).isSuccessful()) {
+                        path = null;
+                    }
+                }
+            }
+        }
+        if (path != null) {
+            path.walk(this);
+        }
+    }
 
     /**
      * Dispatches an event to this entity's event hooks
      *
      * @param event the event
      */
-    public void dispatch(Event event)
-	{
-		if(this.hooks.containsKey(event.getClass()))
-		{
-			ArrayList<EventHook> processList = new ArrayList(this.hooks.get(event.getClass()));
-			processList.forEach((hook) -> { hook.process(this, event); });
-		}
-	}
+    public void dispatch(Event event) {
+        if (this.hooks.containsKey(event.getClass())) {
+            ArrayList<EventHook> processList = new ArrayList(this.hooks.get(event.getClass()));
+            processList.forEach((hook) -> {
+                hook.process(this, event);
+            });
+        }
+    }
 
     /**
      * Unhooks an eventhook from this entity
      *
      * @param hook the hook
      */
-    public void unhook(EventHook hook)
-	{
-		for(ArrayList<EventHook> s : hooks.values()) s.remove(hook);
-	}
+    public void unhook(EventHook hook) {
+        for (ArrayList<EventHook> s : hooks.values()) s.remove(hook);
+    }
 
     /**
      * Hooks an eventhook to this entity
@@ -199,10 +198,9 @@ public abstract class Entity extends Node {
      * @param event the event
      * @param hook  the hook
      */
-    public void hook(Event event, EventHook hook)
-	{
-		hook(event.getClass(), hook);
-	}
+    public void hook(Event event, EventHook hook) {
+        hook(event.getClass(), hook);
+    }
 
     /**
      * Hook.
@@ -210,67 +208,63 @@ public abstract class Entity extends Node {
      * @param event the event
      * @param hook  the hook
      */
-    public void hook(Class<?> event, EventHook hook)
-	{
-		ArrayList<EventHook> hookList;
-		if(hooks.get(event) != null)
-		{
-			hookList = hooks.get(event);
-		}
-		else
-		{
-			hookList = new ArrayList<EventHook>();
-		}
-		if (!hookList.contains(hook))
-			hookList.add(hook);
-		hooks.put(event, hookList);
-	}
+    public void hook(Class<?> event, EventHook hook) {
+        ArrayList<EventHook> hookList;
+        if (hooks.get(event) != null) {
+            hookList = hooks.get(event);
+        } else {
+            hookList = new ArrayList<EventHook>();
+        }
+        if (!hookList.contains(hook))
+            hookList.add(hook);
+        hooks.put(event, hookList);
+    }
 
     /**
      * Initializes the entity.
      */
     public void init() {
-		active = true;
-                TimerRegistry.addAutoTimers (this);
-	}
+        active = true;
+        TimerRegistry.addAutoTimers(this);
+    }
 
     /**
      * This methods gets called before the {@link #update()} method.
      */
     public void tick() {
-		scripts.preMovement();
-		dispatch(new TickEvent(GameWorld.getTicks()));
-		skills.pulse();
-		Location old = location != null ? location.transform(0, 0, 0) : Location.create(0,0,0);
-		walkingQueue.update();
-		scripts.postMovement(!Objects.equals(location, old));
-                timers.processTimers();
-		updateMasks.prepare(this);
-	}
+        scripts.preMovement();
+        dispatch(new TickEvent(GameWorld.getTicks()));
+        skills.pulse();
+        Location old = location != null ? location.transform(0, 0, 0) : Location.create(0, 0, 0);
+        walkingQueue.update();
+        scripts.postMovement(!Objects.equals(location, old));
+        timers.processTimers();
+        updateMasks.prepare(this);
+    }
 
     /**
      * Updates the entity, this gets called in a thread pool.
      */
     public void update() {
-	}
+    }
 
     /**
      * Resets the entity's update flags, ... <br> Gets called after
      * {@link #update()}.
      */
     public void reset() {
-		updateMasks.reset();
-		properties.setTeleporting(false);
-	}
+        updateMasks.reset();
+        properties.setTeleporting(false);
+    }
 
     /**
      * Removes the entity from the world.
      */
     public void clear() {
-		active = false;
-		viewport.remove(this);
-		pulseManager.clear();
-	}
+        active = false;
+        viewport.remove(this);
+        pulseManager.clear();
+    }
 
     /**
      * Checks if the entity is in combat.
@@ -278,17 +272,17 @@ public abstract class Entity extends Node {
      * @return {@code True} if so.
      */
     public boolean inCombat() {
-		return getAttribute("combat-time", 0L) > System.currentTimeMillis();
-	}
+        return getAttribute("combat-time", 0L) > System.currentTimeMillis();
+    }
 
     /**
      * Fully restores the entity.
      */
     public void fullRestore() {
-		skills.restore();
-                timers.removeTimer("poison");
-                timers.removeTimer("poison:immunity");
-	}
+        skills.restore();
+        timers.removeTimer("poison");
+        timers.removeTimer("poison:immunity");
+    }
 
     /**
      * Called when the death task gets submitted.
@@ -296,7 +290,7 @@ public abstract class Entity extends Node {
      * @param killer The killer of this entity.
      */
     public void commenceDeath(Entity killer) {
-	}
+    }
 
     /**
      * Finalizes the death task.
@@ -304,18 +298,18 @@ public abstract class Entity extends Node {
      * @param killer The killer of this entity.
      */
     public void finalizeDeath(Entity killer) {
-		skills.restore();
-		skills.rechargePrayerPoints();
-		impactHandler.getImpactQueue().clear();
-		impactHandler.setDisabledTicks(10);
-		timers.onEntityDeath();
-		removeAttribute("combat-time");
-		face(null);
-		//Check if it's a Loar shade and transform back into the shadow version.
-		if(this.getId() == 1240 || this.getId() == 1241){
-			this.asNpc().transform(1240);
-		}
-	}
+        skills.restore();
+        skills.rechargePrayerPoints();
+        impactHandler.getImpactQueue().clear();
+        impactHandler.setDisabledTicks(10);
+        timers.onEntityDeath();
+        removeAttribute("combat-time");
+        face(null);
+        //Check if it's a Loar shade and transform back into the shadow version.
+        if (this.getId() == 1240 || this.getId() == 1241) {
+            this.asNpc().transform(1240);
+        }
+    }
 
     /**
      * Updates the location of an entity.
@@ -324,7 +318,7 @@ public abstract class Entity extends Node {
      */
     public void updateLocation(Location last) {
 
-	}
+    }
 
     /**
      * Checks if multiway combat zone rules should be ignored.
@@ -333,11 +327,11 @@ public abstract class Entity extends Node {
      * @return {@code True} if this entity can attack regardless of multiway combat zone.
      */
     public boolean isIgnoreMultiBoundaries(Entity victim) {
-		if (this instanceof NPC) {
-			return ((NPC) this).behavior.shouldIgnoreMultiRestrictions((NPC) this, victim);
-		}
-		return false;
-	}
+        if (this instanceof NPC) {
+            return ((NPC) this).behavior.shouldIgnoreMultiRestrictions((NPC) this, victim);
+        }
+        return false;
+    }
 
     /**
      * Should this entity prevent the mover from moving through it?
@@ -355,19 +349,19 @@ public abstract class Entity extends Node {
      * @param state the state
      */
     public void checkImpact(BattleState state) {
-		getProperties().getCombatPulse().setLastReceivedAttack(GameWorld.getTicks());
-		int ticks = GameWorld.getTicks() - getProperties().getCombatPulse().getLastSentAttack();
-		if (ticks > 10 && this instanceof NPC && ((NPC) this).getDefinition().getConfiguration("safespot", false)) {
-			Pathfinder.find(state.getAttacker(), getLocation()).walk(state.getAttacker());
-			Pathfinder.find(state.getVictim(), state.getAttacker().getLocation()).walk(state.getVictim());
-			if (ticks > 40) {
-				state.getAttacker().moveStep();
-				state.getAttacker().getProperties().getCombatPulse().stop();
-				state.getVictim().moveStep();
-				state.getVictim().getProperties().getCombatPulse().stop();
-			}
-		}
-	}
+        getProperties().getCombatPulse().setLastReceivedAttack(GameWorld.getTicks());
+        int ticks = GameWorld.getTicks() - getProperties().getCombatPulse().getLastSentAttack();
+        if (ticks > 10 && this instanceof NPC && ((NPC) this).getDefinition().getConfiguration("safespot", false)) {
+            Pathfinder.find(state.getAttacker(), getLocation()).walk(state.getAttacker());
+            Pathfinder.find(state.getVictim(), state.getAttacker().getLocation()).walk(state.getVictim());
+            if (ticks > 40) {
+                state.getAttacker().moveStep();
+                state.getAttacker().getProperties().getCombatPulse().stop();
+                state.getVictim().moveStep();
+                state.getVictim().getProperties().getCombatPulse().stop();
+            }
+        }
+    }
 
     /**
      * Handles an impact.
@@ -376,17 +370,17 @@ public abstract class Entity extends Node {
      * @param state  The battle state.
      */
     public void onImpact(final Entity entity, BattleState state) {
-		if (DeathTask.isDead(this))
-			state.neutralizeHits();
-		if (this instanceof NPC) {
-			((NPC) this).behavior.afterDamageReceived((NPC) this, entity, state);
-		}
-		if (properties.isRetaliating() && !properties.getCombatPulse().isAttacking() && !getLocks().isInteractionLocked() && properties.getCombatPulse().getNextAttack() < GameWorld.getTicks()) {
-			if (!getWalkingQueue().hasPath() && !getPulseManager().isMovingPulse() || (this instanceof NPC)) {
-				properties.getCombatPulse().attack(entity);
-			}
-		}
-	}
+        if (DeathTask.isDead(this))
+            state.neutralizeHits();
+        if (this instanceof NPC) {
+            ((NPC) this).behavior.afterDamageReceived((NPC) this, entity, state);
+        }
+        if (properties.isRetaliating() && !properties.getCombatPulse().isAttacking() && !getLocks().isInteractionLocked() && properties.getCombatPulse().getNextAttack() < GameWorld.getTicks()) {
+            if (!getWalkingQueue().hasPath() && !getPulseManager().isMovingPulse() || (this instanceof NPC)) {
+                properties.getCombatPulse().attack(entity);
+            }
+        }
+    }
 
     /**
      * Handles the first attack.
@@ -395,7 +389,7 @@ public abstract class Entity extends Node {
      */
     public void onAttack(final Entity target) {
 
-	}
+    }
 
     /**
      * Method used to attack a node.
@@ -403,8 +397,8 @@ public abstract class Entity extends Node {
      * @param node the node.
      */
     public void attack(final Node node) {
-		getProperties().getCombatPulse().attack(node);
-	}
+        getProperties().getCombatPulse().attack(node);
+    }
 
     /**
      * Checks if the entity can move to the destination.
@@ -413,8 +407,8 @@ public abstract class Entity extends Node {
      * @return {@code True} if so.
      */
     public boolean canMove(Location destination) {
-		return true;
-	}
+        return true;
+    }
 
     /**
      * Teleports the entity to a location.
@@ -422,8 +416,8 @@ public abstract class Entity extends Node {
      * @param location the location.
      */
     public void teleport(Location location) {
-		getProperties().setTeleportLocation(location);
-	}
+        getProperties().setTeleportLocation(location);
+    }
 
     /**
      * Teleports the entity.
@@ -432,21 +426,21 @@ public abstract class Entity extends Node {
      * @param ticks    the ticks.
      */
     public void teleport(final Location location, int ticks) {
-		GameWorld.getPulser().submit(new Pulse(ticks, this) {
-			@Override
-			public boolean pulse() {
-				teleport(location);
-				return true;
-			}
-		});
-	}
+        GameWorld.getPulser().submit(new Pulse(ticks, this) {
+            @Override
+            public boolean pulse() {
+                teleport(location);
+                return true;
+            }
+        });
+    }
 
     /**
      * Locks the entity.
      */
     public void lock() {
-		locks.lock();
-	}
+        locks.lock();
+    }
 
     /**
      * Locks the entity from using any actions.
@@ -454,15 +448,15 @@ public abstract class Entity extends Node {
      * @param time The time (in game ticks) to lock.
      */
     public void lock(int time) {
-		locks.lock(time);
-	}
+        locks.lock(time);
+    }
 
     /**
      * Unlocks the default reward locks.
      */
     public void unlock() {
-		locks.unlock();
-	}
+        locks.unlock();
+    }
 
     /**
      * Checks if the entity is using the protection prayer for the given style.
@@ -489,14 +483,14 @@ public abstract class Entity extends Node {
      * @return {@code True} if the attacking entity can attack this entity.
      */
     public boolean isAttackable(Entity entity, CombatStyle style, boolean message) {
-		if (DeathTask.isDead(this)) {
-			return false;
-		}
-		if (!entity.getZoneMonitor().continueAttack(this, style, message)) {
-			return false;
-		}
-		return true;
-	}
+        if (DeathTask.isDead(this)) {
+            return false;
+        }
+        if (!entity.getZoneMonitor().continueAttack(this, style, message)) {
+            return false;
+        }
+        return true;
+    }
 
     /**
      * Registers a new graphic update flag to the update masks.
@@ -505,8 +499,8 @@ public abstract class Entity extends Node {
      * @return {@code True} if succesful.
      */
     public boolean graphics(Graphic graphic) {
-		return animator.graphics(graphic);
-	}
+        return animator.graphics(graphic);
+    }
 
     /**
      * Registers a new animation update flag to the update masks.
@@ -515,26 +509,26 @@ public abstract class Entity extends Node {
      * @return {@code True} if succesful.
      */
     public boolean animate(Animation animation) {
-		return animator.animate(animation);
-	}
+        return animator.animate(animation);
+    }
 
     /**
      * Registers a new graphic update flag.
      *
      * @param graphic the graphic.
-     * @param delay    the delay.
+     * @param delay   the delay.
      * @return {@code True} if so.
      */
     public boolean graphics(final Graphic graphic, int delay) {
-		GameWorld.getPulser().submit(new Pulse(delay, this) {
-			@Override
-			public boolean pulse() {
-				graphics(graphic);
-				return true;
-			}
-		});
-		return true;
-	}
+        GameWorld.getPulser().submit(new Pulse(delay, this) {
+            @Override
+            public boolean pulse() {
+                graphics(graphic);
+                return true;
+            }
+        });
+        return true;
+    }
 
     /**
      * Checks if an entity can continue it's attack.
@@ -545,8 +539,8 @@ public abstract class Entity extends Node {
      * @return {@code True} if so.
      */
     public boolean continueAttack(Entity target, CombatStyle style, boolean message) {
-		return true;
-	}
+        return true;
+    }
 
     /**
      * Registers a new animation update flag to the update masks.
@@ -556,15 +550,15 @@ public abstract class Entity extends Node {
      * @return {@code True} if succesful.
      */
     public boolean animate(final Animation animation, int delay) {
-		GameWorld.getPulser().submit(new Pulse(delay, this) {
-			@Override
-			public boolean pulse() {
-				animate(animation);
-				return true;
-			}
-		});
-		return true;
-	}
+        GameWorld.getPulser().submit(new Pulse(delay, this) {
+            @Override
+            public boolean pulse() {
+                animate(animation);
+                return true;
+            }
+        });
+        return true;
+    }
 
     /**
      * Sends the impact.
@@ -572,8 +566,8 @@ public abstract class Entity extends Node {
      * @param state the state.
      */
     public void sendImpact(BattleState state) {
-		getProperties().getCombatPulse().setLastSentAttack(GameWorld.getTicks());
-	}
+        getProperties().getCombatPulse().setLastSentAttack(GameWorld.getTicks());
+    }
 
     /**
      * Checks if the target can be selected.
@@ -582,19 +576,19 @@ public abstract class Entity extends Node {
      * @return {@code True} if so.
      */
     public boolean canSelectTarget(Entity target) {
-		return true;
-	}
+        return true;
+    }
 
     /**
      * Registers a new animation & graphic update flag to the update masks.
      *
      * @param animation The animation.
-     * @param graphic  The graphic.
+     * @param graphic   The graphic.
      * @return {@code True} if successful.
      */
     public boolean visualize(Animation animation, Graphic graphic) {
-		return animator.animate(animation, graphic);
-	}
+        return animator.animate(animation, graphic);
+    }
 
     /**
      * Temporarily faces an entity.
@@ -604,8 +598,8 @@ public abstract class Entity extends Node {
      * @return {@code True} if successful.
      */
     public boolean faceTemporary(Entity entity, int ticks) {
-		return faceTemporary(entity, null, ticks);
-	}
+        return faceTemporary(entity, null, ticks);
+    }
 
     /**
      * Temporarily faces an entity.
@@ -616,18 +610,18 @@ public abstract class Entity extends Node {
      * @return {@code True} if successful.
      */
     public boolean faceTemporary(Entity entity, final Entity reset, int ticks) {
-		if (face(entity)) {
-			GameWorld.getPulser().submit(new Pulse(ticks + 1, this) {
-				@Override
-				public boolean pulse() {
-					face(reset);
-					return true;
-				}
-			});
-			return true;
-		}
-		return false;
-	}
+        if (face(entity)) {
+            GameWorld.getPulser().submit(new Pulse(ticks + 1, this) {
+                @Override
+                public boolean pulse() {
+                    face(reset);
+                    return true;
+                }
+            });
+            return true;
+        }
+        return false;
+    }
 
     /**
      * Gets the formatted hit.
@@ -637,17 +631,17 @@ public abstract class Entity extends Node {
      * @return {@code True} if so.
      */
     public double getFormattedHit(BattleState state, int hit) {
-		if (state.getAttacker() == null || state.getVictim() == null || state.getStyle() == null) {
-			return hit;
-		}
-		Entity entity = state.getAttacker();
-		Entity victim = state.getVictim();
-		CombatStyle type = state.getStyle();
-		if (state.getArmourEffect() != ArmourSet.VERAC && !entity.isIgnoreProtection(type) && victim.hasProtectionPrayer(type)) {
-			return hit *= (entity instanceof Player && victim instanceof Player) ? 0.6 : 0;
-		}
-		return hit;
-	}
+        if (state.getAttacker() == null || state.getVictim() == null || state.getStyle() == null) {
+            return hit;
+        }
+        Entity entity = state.getAttacker();
+        Entity victim = state.getVictim();
+        CombatStyle type = state.getStyle();
+        if (state.getArmourEffect() != ArmourSet.VERAC && !entity.isIgnoreProtection(type) && victim.hasProtectionPrayer(type)) {
+            return hit *= (entity instanceof Player && victim instanceof Player) ? 0.6 : 0;
+        }
+        return hit;
+    }
 
     /**
      * Checks if this entity ignores protection prayers for the given combat style.
@@ -656,8 +650,8 @@ public abstract class Entity extends Node {
      * @return {@code True} if the entity can hit through protection prayers.
      */
     public boolean isIgnoreProtection(CombatStyle style) {
-		return false;
-	}
+        return false;
+    }
 
     /**
      * Starts the death for an npc.
@@ -665,18 +659,19 @@ public abstract class Entity extends Node {
      * @param killer the killer.
      */
     public void startDeath(Entity killer) {
-		if (zoneMonitor.startDeath(this, killer)) {
-			DeathTask.startDeath(this, killer);
-		}
-	}
+        if (zoneMonitor.startDeath(this, killer)) {
+            DeathTask.startDeath(this, killer);
+        }
+    }
 
-	/**
-	 * Casts the player type.
-	 * @return the player.
-	 */
-	public Player asPlayer() {
-		return (Player) this;
-	}
+    /**
+     * Casts the player type.
+     *
+     * @return the player.
+     */
+    public Player asPlayer() {
+        return (Player) this;
+    }
 
     /**
      * Checks if the entity is instance of a player.
@@ -684,8 +679,8 @@ public abstract class Entity extends Node {
      * @return {@code True} if so.
      */
     public boolean isPlayer() {
-		return this instanceof Player;
-	}
+        return this instanceof Player;
+    }
 
     /**
      * Registers a new face entity update flag to the update masks.
@@ -694,15 +689,15 @@ public abstract class Entity extends Node {
      * @return {@code True} if succesful.
      */
     public boolean face(Entity entity) {
-            if (entity == null) {
-                int ordinal = EntityFlags.getOrdinal(EFlagType.of(this), EntityFlag.FaceEntity); 
-                if (getUpdateMasks().unregisterSynced(ordinal)) {
-                    return getUpdateMasks().register(EntityFlag.FaceEntity, null);
-                }
-                return true;
+        if (entity == null) {
+            int ordinal = EntityFlags.getOrdinal(EFlagType.of(this), EntityFlag.FaceEntity);
+            if (getUpdateMasks().unregisterSynced(ordinal)) {
+                return getUpdateMasks().register(EntityFlag.FaceEntity, null);
             }
-            return getUpdateMasks().register(EntityFlag.FaceEntity, entity, true);
+            return true;
         }
+        return getUpdateMasks().register(EntityFlag.FaceEntity, entity, true);
+    }
 
     /**
      * Registers a new face location update flag to the update masks.
@@ -711,13 +706,13 @@ public abstract class Entity extends Node {
      * @return {@code True} if succesful.
      */
     public boolean faceLocation(Location location) {
-            if (location == null) {
-                int ordinal = EntityFlags.getOrdinal(EFlagType.of(this), EntityFlag.FaceLocation);
-                getUpdateMasks().unregisterSynced(ordinal);
-                return true;
-            }
-            return getUpdateMasks().register(EntityFlag.FaceLocation, location, true);
+        if (location == null) {
+            int ordinal = EntityFlags.getOrdinal(EFlagType.of(this), EntityFlag.FaceLocation);
+            getUpdateMasks().unregisterSynced(ordinal);
+            return true;
         }
+        return getUpdateMasks().register(EntityFlag.FaceLocation, location, true);
+    }
 
     /**
      * Registers a new force chat update flag to the update masks.
@@ -726,8 +721,8 @@ public abstract class Entity extends Node {
      * @return {@code True} if succesful.
      */
     public boolean sendChat(String string) {
-            return getUpdateMasks().register(EntityFlag.ForceChat, string);
-        }
+        return getUpdateMasks().register(EntityFlag.ForceChat, string);
+    }
 
     /**
      * Gets the current combat swing handler.
@@ -751,14 +746,14 @@ public abstract class Entity extends Node {
      * @param ticks  the ticks.
      */
     public void sendChat(final String string, int ticks) {
-		GameWorld.getPulser().submit(new Pulse(ticks, this) {
-			@Override
-			public boolean pulse() {
-				sendChat(string);
-				return true;
-			}
-		});
-	}
+        GameWorld.getPulser().submit(new Pulse(ticks, this) {
+            @Override
+            public boolean pulse() {
+                sendChat(string);
+                return true;
+            }
+        });
+    }
 
     /**
      * Gets the level mod.
@@ -768,8 +763,8 @@ public abstract class Entity extends Node {
      * @return the levelMod.
      */
     public double getLevelMod(Entity entity, Entity victim) {
-		return 0;
-	}
+        return 0;
+    }
 
     /**
      * Gets the reward locks.
@@ -777,8 +772,8 @@ public abstract class Entity extends Node {
      * @return The reward locks.
      */
     public ActionLocks getLocks() {
-		return locks;
-	}
+        return locks;
+    }
 
     /**
      * Gets the client index of the entity.
@@ -786,8 +781,8 @@ public abstract class Entity extends Node {
      * @return The client index.
      */
     public int getClientIndex() {
-		return index;
-	}
+        return index;
+    }
 
     /**
      * Gets the properties.
@@ -795,8 +790,8 @@ public abstract class Entity extends Node {
      * @return The properties.
      */
     public Properties getProperties() {
-		return properties;
-	}
+        return properties;
+    }
 
     /**
      * Gets the updateMasks.
@@ -804,8 +799,8 @@ public abstract class Entity extends Node {
      * @return The updateMasks.
      */
     public UpdateMasks getUpdateMasks() {
-		return updateMasks;
-	}
+        return updateMasks;
+    }
 
     /**
      * Adds an extension.
@@ -814,8 +809,8 @@ public abstract class Entity extends Node {
      * @param object The object.
      */
     public void addExtension(Class<?> clazz, Object object) {
-		extensions.put(clazz, object);
-	}
+        extensions.put(clazz, object);
+    }
 
     /**
      * Gets an extension.
@@ -825,9 +820,9 @@ public abstract class Entity extends Node {
      * @return The object.
      */
     @SuppressWarnings("unchecked")
-	public <T> T getExtension(Class<?> clazz) {
-		return (T) extensions.get(clazz);
-	}
+    public <T> T getExtension(Class<?> clazz) {
+        return (T) extensions.get(clazz);
+    }
 
     /**
      * Gets an extension.
@@ -838,13 +833,13 @@ public abstract class Entity extends Node {
      * @return The object.
      */
     @SuppressWarnings("unchecked")
-	public <T> T getExtension(Class<?> clazz, T fail) {
-		T extension = (T) extensions.get(clazz);
-		if (extension == null) {
-			return fail;
-		}
-		return extension;
-	}
+    public <T> T getExtension(Class<?> clazz, T fail) {
+        T extension = (T) extensions.get(clazz);
+        if (extension == null) {
+            return fail;
+        }
+        return extension;
+    }
 
     /**
      * Removes the extension.
@@ -852,8 +847,8 @@ public abstract class Entity extends Node {
      * @param clazz The class type.
      */
     public void removeExtension(Class<?> clazz) {
-		extensions.remove(clazz);
-	}
+        extensions.remove(clazz);
+    }
 
     /**
      * Gets the players attributes.
@@ -861,16 +856,16 @@ public abstract class Entity extends Node {
      * @return the attributes.
      */
     public Map<String, Object> getAttributes() {
-		return attributes.getAttributes();
-	}
+        return attributes.getAttributes();
+    }
 
     /**
      * Clear attributes.
      */
     public void clearAttributes() {
-		this.attributes.getAttributes().clear();
-		this.attributes.getSavedAttributes().clear();
-	}
+        this.attributes.getAttributes().clear();
+        this.attributes.getSavedAttributes().clear();
+    }
 
     /**
      * Sets an attribute value.
@@ -879,9 +874,9 @@ public abstract class Entity extends Node {
      * @param value The attribute value.
      */
     public void setAttribute(String key, Object value) {
-		attributes.setAttribute(key, value);
-		dispatch(new AttributeSetEvent(this, key, value));
-	}
+        attributes.setAttribute(key, value);
+        dispatch(new AttributeSetEvent(this, key, value));
+    }
 
     /**
      * Gets an attribute.
@@ -891,8 +886,8 @@ public abstract class Entity extends Node {
      * @return The attribute value.
      */
     public <T> T getAttribute(String key) {
-		return attributes.getAttribute(key);
-	}
+        return attributes.getAttribute(key);
+    }
 
     /**
      * Increments an attribute
@@ -900,8 +895,8 @@ public abstract class Entity extends Node {
      * @param key The attribute name.
      */
     public void incrementAttribute(String key) {
-		incrementAttribute(key, 1);
-	}
+        incrementAttribute(key, 1);
+    }
 
     /**
      * Increments an attribute
@@ -910,8 +905,8 @@ public abstract class Entity extends Node {
      * @param amount the amount
      */
     public void incrementAttribute(String key, int amount) {
-		attributes.setAttribute(key, attributes.getAttribute(key, 0) + amount);
-	}
+        attributes.setAttribute(key, attributes.getAttribute(key, 0) + amount);
+    }
 
     /**
      * Gets an attribute.
@@ -922,8 +917,8 @@ public abstract class Entity extends Node {
      * @return The attribute value, or the fail argument when null.
      */
     public <T> T getAttribute(String string, T fail) {
-		return attributes.getAttribute(string, fail);
-	}
+        return attributes.getAttribute(string, fail);
+    }
 
     /**
      * Removes an attribute.
@@ -931,9 +926,9 @@ public abstract class Entity extends Node {
      * @param string The attribute name.
      */
     public void removeAttribute(String string) {
-		attributes.removeAttribute(string);
-		dispatch(new AttributeRemoveEvent(this, string));
-	}
+        attributes.removeAttribute(string);
+        dispatch(new AttributeRemoveEvent(this, string));
+    }
 
     /**
      * Gets the game attributes instance.
@@ -941,8 +936,8 @@ public abstract class Entity extends Node {
      * @return The game attributes.
      */
     public GameAttributes getGameAttributes() {
-		return attributes;
-	}
+        return attributes;
+    }
 
     /**
      * Gets the walkingQueue.
@@ -950,8 +945,8 @@ public abstract class Entity extends Node {
      * @return The walkingQueue.
      */
     public WalkingQueue getWalkingQueue() {
-		return walkingQueue;
-	}
+        return walkingQueue;
+    }
 
     /**
      * Gets the viewport.
@@ -959,8 +954,8 @@ public abstract class Entity extends Node {
      * @return The viewport.
      */
     public Viewport getViewport() {
-		return viewport;
-	}
+        return viewport;
+    }
 
     /**
      * Gets the skills.
@@ -968,8 +963,8 @@ public abstract class Entity extends Node {
      * @return The skills.
      */
     public Skills getSkills() {
-		return skills;
-	}
+        return skills;
+    }
 
     /**
      * Gets the pulseManager.
@@ -977,8 +972,8 @@ public abstract class Entity extends Node {
      * @return The pulseManager.
      */
     public PulseManager getPulseManager() {
-		return pulseManager;
-	}
+        return pulseManager;
+    }
 
     /**
      * Gets the impactHandler.
@@ -986,8 +981,8 @@ public abstract class Entity extends Node {
      * @return The impactHandler.
      */
     public ImpactHandler getImpactHandler() {
-		return impactHandler;
-	}
+        return impactHandler;
+    }
 
     /**
      * Gets animator.
@@ -995,8 +990,8 @@ public abstract class Entity extends Node {
      * @return the animator.
      */
     public Animator getAnimator() {
-		return animator;
-	}
+        return animator;
+    }
 
     /**
      * Gets the Teleporter
@@ -1004,8 +999,8 @@ public abstract class Entity extends Node {
      * @return the Teleporter
      */
     public TeleportManager getTeleporter() {
-		return teleporter;
-	}
+        return teleporter;
+    }
 
     /**
      * Gets the zoneMonitor.
@@ -1013,8 +1008,8 @@ public abstract class Entity extends Node {
      * @return The zoneMonitor.
      */
     public ZoneMonitor getZoneMonitor() {
-		return zoneMonitor;
-	}
+        return zoneMonitor;
+    }
 
     /**
      * Checks if we have fire resistance.
@@ -1022,8 +1017,8 @@ public abstract class Entity extends Node {
      * @return {@code True} if so.
      */
     public boolean hasFireResistance() {
-		return getAttribute("fire:immune",0) >= GameWorld.getTicks();
-	}
+        return getAttribute("fire:immune", 0) >= GameWorld.getTicks();
+    }
 
     /**
      * Checks if the entity is teleblocked.
@@ -1031,8 +1026,8 @@ public abstract class Entity extends Node {
      * @return {@code True} if so.
      */
     public boolean isTeleBlocked() {
-                return timers.getTimer("teleblock") != null || getLocks().isTeleportLocked() || getZoneMonitor().isRestricted(ZoneRestriction.TELEPORT);
-	}
+        return timers.getTimer("teleblock") != null || getLocks().isTeleportLocked() || getZoneMonitor().isRestricted(ZoneRestriction.TELEPORT);
+    }
 
     /**
      * Gets the invisible value.
@@ -1040,8 +1035,8 @@ public abstract class Entity extends Node {
      * @return The invisible.
      */
     public boolean isInvisible() {
-		return invisible;
-	}
+        return invisible;
+    }
 
     /**
      * Sets the invisible value.
@@ -1049,8 +1044,8 @@ public abstract class Entity extends Node {
      * @param invisible The invisible to set.
      */
     public void setInvisible(boolean invisible) {
-		this.invisible = invisible;
-	}
+        this.invisible = invisible;
+    }
 
     /**
      * Gets closest occupied tile.
@@ -1059,21 +1054,21 @@ public abstract class Entity extends Node {
      * @return the closest occupied tile
      */
     public Location getClosestOccupiedTile(@NotNull Location other) {
-		List<Location> occupied = getOccupiedTiles();
+        List<Location> occupied = getOccupiedTiles();
 
-		Location closest = location;
-		if (occupied.size() > 1) {
-			double lowest = 9999;
-			for (Location tile : occupied) {
-				double dist = tile.getDistance(other);
-				if (dist < lowest) {
-					lowest = dist;
-					closest = tile;
-				}
-			}
-		}
+        Location closest = location;
+        if (occupied.size() > 1) {
+            double lowest = 9999;
+            for (Location tile : occupied) {
+                double dist = tile.getDistance(other);
+                if (dist < lowest) {
+                    lowest = dist;
+                    closest = tile;
+                }
+            }
+        }
 
-		return closest;
+        return closest;
     }
 
     /**
@@ -1082,17 +1077,17 @@ public abstract class Entity extends Node {
      * @return the occupied tiles
      */
     public List<Location> getOccupiedTiles() {
-		ArrayList<Location> occupied = new ArrayList<>();
+        ArrayList<Location> occupied = new ArrayList<>();
 
-		Location northEast = location.transform(size, size, 0);
+        Location northEast = location.transform(size, size, 0);
 
-		for (int x = location.getX(); x < northEast.getX(); x++) {
-			for (int y = location.getY(); y < northEast.getY(); y++) {
-				occupied.add(Location.create(x, y, location.getZ()));
-			}
-		}
-		return occupied;
-	}
+        for (int x = location.getX(); x < northEast.getX(); x++) {
+            for (int y = location.getY(); y < northEast.getY(); y++) {
+                occupied.add(Location.create(x, y, location.getZ()));
+            }
+        }
+        return occupied;
+    }
 
     /**
      * Delayed boolean.
@@ -1100,8 +1095,8 @@ public abstract class Entity extends Node {
      * @return the boolean
      */
     public boolean delayed() {
-		return scripts.getDelay() > GameWorld.getTicks();
-	}
+        return scripts.getDelay() > GameWorld.getTicks();
+    }
 
     /**
      * Is teleporting boolean.
@@ -1109,6 +1104,6 @@ public abstract class Entity extends Node {
      * @return the boolean
      */
     public boolean isTeleporting() {
-            return getAttribute("tele-pulse", null) != null || properties.getTeleportLocation() != null;
-        }
+        return getAttribute("tele-pulse", null) != null || properties.getTeleportLocation() != null;
+    }
 }

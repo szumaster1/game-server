@@ -1,11 +1,12 @@
 package core.game.world.update.flag
 
-import core.network.packet.IoBuffer
-import core.game.world.update.flag.context.*
-import core.game.world.map.Location
 import core.game.node.entity.Entity
-
-import kotlin.reflect.*
+import core.game.world.map.Location
+import core.game.world.update.flag.context.Animation
+import core.game.world.update.flag.context.Graphic
+import core.game.world.update.flag.context.HitMark
+import core.network.packet.IoBuffer
+import kotlin.reflect.typeOf
 
 sealed class NPCFlags530(p: Int, o: Int, f: EntityFlag) : EFlagProvider(530, EFlagType.NPC, p, o, f) {
     class PrimaryHit : NPCFlags530(0x40, 0, EntityFlag.PrimaryHit) {

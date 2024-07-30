@@ -8,7 +8,6 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
  * A node list implementation backed by an initialization queue.
- *
  * @author Emperor
  */
 public final class InitializingNodeList<T extends Node> extends ArrayList<T> {

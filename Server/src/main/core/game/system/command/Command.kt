@@ -1,9 +1,8 @@
 package core.game.system.command
 
-import core.game.node.entity.player.Player
 import core.ServerConstants
+import core.game.node.entity.player.Player
 import core.game.world.GameWorld
-import kotlin.collections.ArrayList
 
 /**
  * Base class for Commands in the new system. Can pass a lambda as part of the constructor or after the constructor.

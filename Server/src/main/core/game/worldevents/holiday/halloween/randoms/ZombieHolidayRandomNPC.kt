@@ -3,15 +3,15 @@ package core.game.worldevents.holiday.halloween.randoms
 import core.api.*
 import core.api.consts.Animations
 import core.api.consts.NPCs
+import core.api.consts.Sounds
 import core.game.interaction.QueueStrength
 import core.game.node.entity.combat.ImpactHandler
 import core.game.node.entity.npc.NPC
-import core.game.worldevents.holiday.ResetHolidayAppearance
 import core.game.worldevents.holiday.HolidayRandomEventNPC
 import core.game.worldevents.holiday.HolidayRandoms
+import core.game.worldevents.holiday.ResetHolidayAppearance
 import core.tools.RandomFunction
 import core.tools.colorize
-import core.api.consts.Sounds
 
 class ZombieHolidayRandomNPC : HolidayRandomEventNPC(NPCs.ZOMBIE_2714) {
     override fun init() {
@@ -31,9 +31,10 @@ class ZombieHolidayRandomNPC : HolidayRandomEventNPC(NPCs.ZOMBIE_2714) {
                     }
                     return@queueScript delayScript(this, 1)
                 }
+
                 1 -> {
                     this.face(player)
-                    visualize(this, Animations.ZOMBIE_GRAB_5568 , -1)
+                    visualize(this, Animations.ZOMBIE_GRAB_5568, -1)
                     playGlobalAudio(this.location, Sounds.ZOMBIE_ATTACK_918)
                     if (RandomFunction.roll(2)) {
                         player.timers.registerTimer(ResetHolidayAppearance())
@@ -47,11 +48,13 @@ class ZombieHolidayRandomNPC : HolidayRandomEventNPC(NPCs.ZOMBIE_2714) {
                     }
                     return@queueScript delayScript(this, 8)
                 }
+
                 2 -> {
                     animate(this, Animations.ZOMBIE_DEAD_5575)
                     HolidayRandoms.terminateEventNpc(player)
                     return@queueScript stopExecuting(this)
                 }
+
                 else -> return@queueScript stopExecuting(this)
             }
         }

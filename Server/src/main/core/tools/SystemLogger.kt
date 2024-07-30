@@ -1,10 +1,10 @@
 package core.tools
 
 import com.github.ajalt.mordant.rendering.TextColors
-import com.github.ajalt.mordant.terminal.*
+import com.github.ajalt.mordant.terminal.Terminal
 import core.ServerConstants
+import core.api.log
 import core.game.world.GameWorld
-import core.api.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -18,8 +18,8 @@ object SystemLogger {
     val errT = t.forStdErr()
     val formatter = SimpleDateFormat("HH:mm:ss")
 
-    private fun getTime(): String{
-        return "[" + formatter.format(Date(System.currentTimeMillis())) +"]"
+    private fun getTime(): String {
+        return "[" + formatter.format(Date(System.currentTimeMillis())) + "]"
     }
 
     @JvmStatic
@@ -63,17 +63,17 @@ object SystemLogger {
     }
 
     @JvmStatic
-    fun logGE(message: String){
+    fun logGE(message: String) {
         log(this::class.java, Log.FINE, "[  GE] $message")
     }
 
-    @JvmStatic fun logStartup(message: String)
-    {
+    @JvmStatic
+    fun logStartup(message: String) {
         log(this::class.java, Log.FINE, "[STARTUP] $message")
     }
 
-    @JvmStatic fun logShutdown(message: String)
-    {
+    @JvmStatic
+    fun logShutdown(message: String) {
         log(this::class.java, Log.FINE, "[SHUTDOWN] $message")
     }
 

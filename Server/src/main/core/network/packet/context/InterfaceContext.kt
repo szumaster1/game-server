@@ -14,13 +14,13 @@ class InterfaceContext(
     val interfaceId: Int,
     val isWalkable: Boolean
 ) : Context {
-    
+
     fun transform(player: Player, id: Int): InterfaceContext {
         return InterfaceContext(player, windowId, componentId, id, isWalkable)
     }
 
     override fun getPlayer(): Player = player
-    
+
     fun setPlayer(player: Player): Context {
         this.player = player
         return this

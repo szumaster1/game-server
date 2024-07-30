@@ -1,5 +1,6 @@
-import core.api.consts.Items
+package content.global.handlers.item.plugin
 
+import core.api.consts.Items
 import core.cache.def.impl.ItemDefinition
 import core.game.interaction.OptionHandler
 import core.game.node.Node

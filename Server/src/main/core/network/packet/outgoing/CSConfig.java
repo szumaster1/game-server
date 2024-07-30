@@ -10,14 +10,15 @@ import core.network.packet.context.CSConfigContext;
  */
 public class CSConfig implements OutgoingPacket<CSConfigContext> {
 
-	@Override
-	public void send(CSConfigContext context) {
-		IoBuffer buffer = new IoBuffer(65);
-		buffer.putLEShort(context.getPlayer().getInterfaceManager().getPacketCount(1));
-		buffer.putC((byte) context.value);
-		buffer.putLEShortA(context.id);
-		buffer.cypherOpcode(context.getPlayer().getSession().getIsaacPair().getOutput());context.getPlayer().getDetails().getSession().write(buffer);
-	}
+    @Override
+    public void send(CSConfigContext context) {
+        IoBuffer buffer = new IoBuffer(65);
+        buffer.putLEShort(context.getPlayer().getInterfaceManager().getPacketCount(1));
+        buffer.putC((byte) context.value);
+        buffer.putLEShortA(context.id);
+        buffer.cypherOpcode(context.getPlayer().getSession().getIsaacPair().getOutput());
+        context.getPlayer().getDetails().getSession().write(buffer);
+    }
 
 	/*@Override
 	public void send(CSConfigContext context) {

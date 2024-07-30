@@ -62,7 +62,7 @@ class EquipmentTabInterface : InterfaceListener {
             return@onOpen true
         }
 
-        on(Components.WORNITEMS_387) { player, component, opcode, buttonID, slot, itemID ->
+        on(Components.WORNITEMS_387) { player, _, opcode, buttonID, slot, itemID ->
             when (buttonID) {
                 28 -> {
                     if (opcode == 81) EquipHandler.unequip(player, slot, itemID)

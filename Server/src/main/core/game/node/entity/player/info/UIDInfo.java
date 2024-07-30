@@ -5,39 +5,38 @@ import core.tools.StringUtils;
 
 /**
  * The unique machine information of an account.
- *
  * @author Vexia
  */
 public class UIDInfo {
 
-	/**
-	 * The ip address.
-	 */
-	private String ip;
+    /**
+     * The ip address.
+     */
+    private String ip;
 
-	/**
-	 * The computer name.
-	 */
-	private String compName;
+    /**
+     * The computer name.
+     */
+    private String compName;
 
-	/**
-	 * The mac-address.
-	 */
-	private String mac;
+    /**
+     * The mac-address.
+     */
+    private String mac;
 
-	/**
-	 * The motherboard serial of the user.
-	 */
-	private String serial;
+    /**
+     * The motherboard serial of the user.
+     */
+    private String serial;
 
     /**
      * Constructs a new {@code UIDInfo} {@code Object}
      */
     public UIDInfo() {
-		/*
-		 * empty.
-		 */
-	}
+        /*
+         * empty.
+         */
+    }
 
     /**
      * Constructs a new {@code UIDInfo} {@code Object}
@@ -48,11 +47,11 @@ public class UIDInfo {
      * @param serial   the serial.
      */
     public UIDInfo(String ip, String compName, String mac, String serial) {
-		this.ip = ip;
-		this.compName = compName;
-		this.mac = mac.replace(":", "-");
-		this.serial = serial;
-	}
+        this.ip = ip;
+        this.compName = compName;
+        this.mac = mac.replace(":", "-");
+        this.serial = serial;
+    }
 
     /**
      * Translates the unique info from another object.
@@ -60,11 +59,11 @@ public class UIDInfo {
      * @param other the other information.
      */
     public void translate(UIDInfo other) {
-		ip = other.ip;
-		compName = other.compName;
-		mac = other.mac.replace(":", "-");
-		serial = other.serial;
-	}
+        ip = other.ip;
+        compName = other.compName;
+        mac = other.mac.replace(":", "-");
+        serial = other.serial;
+    }
 
     /**
      * Converts a to string in format mode for an admin or mod.
@@ -74,18 +73,18 @@ public class UIDInfo {
      * @return the string.
      */
     public String toString(Player player, Player target) {
-		boolean admin = player.isAdmin();
-		String format = toString();
-		if (!admin) {// formats for non-admins
-			String[] tokens = format.split("serial=");
-			format = format.replace("serial=", "uid=").replace(tokens[tokens.length - 1], "*****");
-		}
-		player.sendMessage("[----------Info Debug----------]");
-		String[] lines = StringUtils.splitIntoLine(format, 60);
-		player.sendMessages(lines);
-		player.sendMessage("[-------------------------------]");
-		return format;
-	}
+        boolean admin = player.isAdmin();
+        String format = toString();
+        if (!admin) {// formats for non-admins
+            String[] tokens = format.split("serial=");
+            format = format.replace("serial=", "uid=").replace(tokens[tokens.length - 1], "*****");
+        }
+        player.sendMessage("[----------Info Debug----------]");
+        String[] lines = StringUtils.splitIntoLine(format, 60);
+        player.sendMessages(lines);
+        player.sendMessage("[-------------------------------]");
+        return format;
+    }
 
     /**
      * Gets the compName.
@@ -93,8 +92,8 @@ public class UIDInfo {
      * @return the compName
      */
     public String getCompName() {
-		return compName;
-	}
+        return compName;
+    }
 
     /**
      * Gets the ip.
@@ -102,8 +101,8 @@ public class UIDInfo {
      * @return the ip
      */
     public String getIp() {
-		return ip;
-	}
+        return ip;
+    }
 
     /**
      * Gets the mac.
@@ -111,8 +110,8 @@ public class UIDInfo {
      * @return the mac
      */
     public String getMac() {
-		return mac;
-	}
+        return mac;
+    }
 
     /**
      * Gets the serial.
@@ -120,13 +119,13 @@ public class UIDInfo {
      * @return the serial
      */
     public String getSerial() {
-		return serial;
-	}
+        return serial;
+    }
 
-	@Override
-	public String toString() {
-		// make sure serials always at end
-		return "[ip=" + ip + ", compName=" + compName + ", mac=" + mac + ", serial=" + serial + "]";
-	}
+    @Override
+    public String toString() {
+        // make sure serials always at end
+        return "[ip=" + ip + ", compName=" + compName + ", mac=" + mac + ", serial=" + serial + "]";
+    }
 
 }

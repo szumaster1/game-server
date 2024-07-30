@@ -1,8 +1,9 @@
 package core.game.worldevents.holiday.christmas.randoms
 
 
-import core.api.getPathableRandomLocalCoordinate
 import core.api.*
+import core.api.consts.NPCs
+import core.api.consts.Sounds
 import core.game.interaction.QueueStrength
 import core.game.node.entity.impl.Projectile
 import core.game.node.entity.npc.NPC
@@ -10,8 +11,6 @@ import core.game.world.map.path.Pathfinder
 import core.game.world.update.flag.context.Graphic
 import core.game.worldevents.holiday.HolidayRandomEventNPC
 import core.tools.minutesToTicks
-import core.api.consts.NPCs
-import core.api.consts.Sounds
 
 class JackFrostHolidayRandomNPC : HolidayRandomEventNPC(NPCs.JACK_FROST_8517) {
 
@@ -48,15 +47,18 @@ class JackFrostHolidayRandomNPC : HolidayRandomEventNPC(NPCs.JACK_FROST_8517) {
                     visualize(this, 7530, -1)
                     return@queueScript delayScript(this, 1)
                 }
+
                 1 -> {
                     Projectile.create(this, player, 861, 30, 10).send()
                     return@queueScript delayScript(this, this.location.getDistance(player.location).toInt())
                 }
+
                 2 -> {
                     player.graphics(Graphic(1282))
                     playGlobalAudio(player.location, Sounds.GUBLINCH_SNOWBALL_3295)
                     return@queueScript stopExecuting(this)
                 }
+
                 else -> return@queueScript stopExecuting(this)
             }
         }

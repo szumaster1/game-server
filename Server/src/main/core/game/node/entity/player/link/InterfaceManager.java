@@ -433,7 +433,7 @@ public final class InterfaceManager {
         //Energy orb
         PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 15 : 72, Components.TOPSTAT_RUN_750, true));
         //Summoning bar
-        if(GameWorld.getSettings().isMembers() && isQuestComplete(player, "Wolf Whistle")) {
+        if (GameWorld.getSettings().isMembers() && isQuestComplete(player, "Wolf Whistle")) {
             PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 16 : 73, Components.TOPSTAT_LORE_747, true));
         }
         //Split PM

@@ -1,6 +1,7 @@
 package core.game.interaction
 
 import core.api.*
+import core.game.bots.AIPlayer
 import core.game.node.Node
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.NPC
@@ -10,10 +11,10 @@ import core.game.node.scenery.Scenery
 import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.game.world.map.path.Pathfinder
-import core.game.bots.AIPlayer
 import core.tools.Log
+import java.io.PrintWriter
+import java.io.StringWriter
 import java.lang.Integer.max
-import java.io.*
 
 class ScriptProcessor(val entity: Entity) {
     private var apScript: Script<*>? = null
@@ -47,12 +48,10 @@ class ScriptProcessor(val entity: Entity) {
             if (opScript != null && inOperableDistance()) {
                 face(entity, interactTarget?.getFaceLocation(entity.location) ?: return reset())
                 processInteractScript(opScript ?: return reset())
-            }
-            else if (apScript != null && inApproachDistance(apScript ?: return reset())) {
+            } else if (apScript != null && inApproachDistance(apScript ?: return reset())) {
                 face(entity, interactTarget?.getFaceLocation(entity.location) ?: return reset())
                 processInteractScript(apScript ?: return reset())
-            }
-            else if (apScript == null && opScript == null && inOperableDistance()) {
+            } else if (apScript == null && opScript == null && inOperableDistance()) {
                 sendMessage(entity, "Nothing interesting happens.")
             }
         }
@@ -70,12 +69,10 @@ class ScriptProcessor(val entity: Entity) {
             if (opScript != null && inOperableDistance()) {
                 face(entity, interactTarget?.centerLocation ?: return reset())
                 processInteractScript(opScript ?: return reset())
-            }
-            else if (apScript != null && inApproachDistance(apScript ?: return reset())) {
+            } else if (apScript != null && inApproachDistance(apScript ?: return reset())) {
                 face(entity, interactTarget?.centerLocation ?: return reset())
                 processInteractScript(apScript ?: return reset())
-            }
-            else if (apScript == null && opScript == null && inOperableDistance()) {
+            } else if (apScript == null && opScript == null && inOperableDistance()) {
                 sendMessage(entity, "Nothing interesting happens.")
             }
         }
@@ -89,7 +86,7 @@ class ScriptProcessor(val entity: Entity) {
         if (interactTarget != null && interactTarget?.isActive != true) reset()
     }
 
-    fun processQueue() : Boolean {
+    fun processQueue(): Boolean {
         var strongInQueue = false
         var softInQueue = false
         var anyExecuted = false
@@ -131,6 +128,7 @@ class ScriptProcessor(val entity: Entity) {
                         script.state = 0
                     anyExecuted = true
                 }
+
                 is QueuedUseWith -> {
                     if (entity.delayed() && script.strength != QueueStrength.SOFT)
                         continue
@@ -162,7 +160,7 @@ class ScriptProcessor(val entity: Entity) {
         return !anyExecuted
     }
 
-    fun isPersist (script: Script<*>) : Boolean {
+    fun isPersist(script: Script<*>): Boolean {
         return script.persist
     }
 
@@ -180,20 +178,40 @@ class ScriptProcessor(val entity: Entity) {
         }
     }
 
-    fun executeScript(script: Script<*>) : Boolean {
+    fun executeScript(script: Script<*>): Boolean {
         currentScript = script
         try {
             when (script) {
-                is Interaction -> return script.execution.invoke(entity as? Player ?: return true, interactTarget ?: return true, script.state)
-                is UseWithInteraction -> return script.execution.invoke(entity as? Player ?: return true, script.used, script.with, script.state)
+                is Interaction -> return script.execution.invoke(
+                    entity as? Player ?: return true,
+                    interactTarget ?: return true,
+                    script.state
+                )
+
+                is UseWithInteraction -> return script.execution.invoke(
+                    entity as? Player ?: return true,
+                    script.used,
+                    script.with,
+                    script.state
+                )
+
                 is QueuedScript -> return script.execution.invoke(script.state)
-                is QueuedUseWith -> return script.execution.invoke(entity as? Player ?: return true, script.used, script.with, script.state)
+                is QueuedUseWith -> return script.execution.invoke(
+                    entity as? Player ?: return true,
+                    script.used,
+                    script.with,
+                    script.state
+                )
             }
         } catch (e: Exception) {
             val sw = StringWriter()
             val pw = PrintWriter(sw)
             e.printStackTrace(pw)
-            log(this::class.java, Log.ERR, "Error processing ${script::class.java.simpleName} - stopping the script. Exception follows: $sw")
+            log(
+                this::class.java,
+                Log.ERR,
+                "Error processing ${script::class.java.simpleName} - stopping the script. Exception follows: $sw"
+            )
             reset()
         }
         currentScript = null
@@ -201,14 +219,16 @@ class ScriptProcessor(val entity: Entity) {
     }
 
     fun removeWeakScripts() {
-        queue.removeAll(queue.filter { it is QueuedScript && it.strength == QueueStrength.WEAK || it is QueuedUseWith && it.strength == QueueStrength.WEAK }.toSet())
+        queue.removeAll(queue.filter { it is QueuedScript && it.strength == QueueStrength.WEAK || it is QueuedUseWith && it.strength == QueueStrength.WEAK }
+            .toSet())
     }
 
     fun removeNormalScripts() {
-        queue.removeAll(queue.filter { it is QueuedScript && it.strength == QueueStrength.NORMAL || it is QueuedUseWith && it.strength == QueueStrength.NORMAL }.toSet())
+        queue.removeAll(queue.filter { it is QueuedScript && it.strength == QueueStrength.NORMAL || it is QueuedUseWith && it.strength == QueueStrength.NORMAL }
+            .toSet())
     }
 
-    fun inApproachDistance(script: Script<*>) : Boolean {
+    fun inApproachDistance(script: Script<*>): Boolean {
         val distance = when (script) {
             is Interaction -> script.distance
             is UseWithInteraction -> script.distance
@@ -220,9 +240,9 @@ class ScriptProcessor(val entity: Entity) {
         return false
     }
 
-    fun inOperableDistance() : Boolean {
+    fun inOperableDistance(): Boolean {
         targetDestination?.let {
-            return it.cardinalTiles.any {loc -> loc == entity.location} && hasLineOfSight(entity, it)
+            return it.cardinalTiles.any { loc -> loc == entity.location } && hasLineOfSight(entity, it)
         }
         return false
     }
@@ -246,7 +266,7 @@ class ScriptProcessor(val entity: Entity) {
         reset()
         interactTarget = target
         if (script != null) {
-            apRange = when(script) {
+            apRange = when (script) {
                 is Interaction -> script.distance
                 is UseWithInteraction -> script.distance
                 else -> 10
@@ -271,6 +291,7 @@ class ScriptProcessor(val entity: Entity) {
                     }
                     Location.create(path.x, path.y, entity.location.z)
                 }
+
                 is GroundItem -> DestinationFlag.ITEM.getDestination(entity, interactTarget)
                 else -> target.location
             }
@@ -279,7 +300,11 @@ class ScriptProcessor(val entity: Entity) {
 
     fun addToQueue(script: Script<*>, strength: QueueStrength) {
         if (script !is QueuedScript && script !is QueuedUseWith) {
-            log(this::class.java, Log.ERR, "Tried to queue ${script::class.java.simpleName} as a queueable script but it's not!")
+            log(
+                this::class.java,
+                Log.ERR,
+                "Tried to queue ${script::class.java.simpleName} as a queueable script but it's not!"
+            )
             return
         }
         if (strength == QueueStrength.STRONG && entity is Player) {
@@ -291,15 +316,15 @@ class ScriptProcessor(val entity: Entity) {
         queue.add(script)
     }
 
-    fun getActiveScript() : Script<*>? {
+    fun getActiveScript(): Script<*>? {
         return currentScript ?: getActiveInteraction()
     }
 
-    private fun getActiveInteraction() : Script<*>? {
+    private fun getActiveInteraction(): Script<*>? {
         return opScript ?: apScript
     }
 
-    fun hasTypeInQueue (type: QueueStrength) : Boolean {
+    fun hasTypeInQueue(type: QueueStrength): Boolean {
         for (script in queue) {
             if (script is QueuedScript && script.strength == type)
                 return true

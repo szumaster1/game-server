@@ -1,7 +1,7 @@
 package core.game.world.update.flag
 
-import kotlin.reflect.*
-import kotlin.reflect.full.*
+import kotlin.reflect.KClass
+import kotlin.reflect.full.primaryConstructor
 
 object EntityFlags {
     var flagProviders: HashMap<Int, EFlagProvider>

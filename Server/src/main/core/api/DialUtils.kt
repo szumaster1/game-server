@@ -1,4 +1,5 @@
 package core.api
+
 import java.util.*
 import kotlin.math.ceil
 
@@ -15,7 +16,8 @@ object DialUtils {
  * Should this not work out for any reason, you should fall back to standard npc and player methods for dialogue.
  */
 fun splitLines(message: String, perLineLimit: Int = 54): Array<String> {
-    var lines = Array(ceil(DialUtils.removeMatches(message, DialUtils.tagRegex).length / perLineLimit.toFloat()).toInt()) { "" }
+    var lines =
+        Array(ceil(DialUtils.removeMatches(message, DialUtils.tagRegex).length / perLineLimit.toFloat()).toInt()) { "" }
 
     //short circuit when possible because it's cheaper.
     if (lines.size == 1) {

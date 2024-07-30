@@ -16,29 +16,32 @@ class SummoningTabListener : InterfaceListener {
                     if (player.familiarManager.hasFamiliar()) {
                         player.familiarManager.familiar.call()
                     } else {
-                        sendMessage(player,"You don't have a follower.")
+                        sendMessage(player, "You don't have a follower.")
                     }
                 }
 
                 67 -> {
                     if (player.familiarManager.hasFamiliar()) {
-                        if (player.familiarManager.familiar.isInvisible || !player.familiarManager.familiar.location.withinDistance(player.location)) {
+                        if (player.familiarManager.familiar.isInvisible || !player.familiarManager.familiar.location.withinDistance(
+                                player.location
+                            )
+                        ) {
                             sendMessage(player, "Your familiar is too far away!")
                             return@on true
                         }
                         if (!player.familiarManager.familiar.isBurdenBeast) {
-                            sendMessage(player,"Your familiar is not a beast of burden.")
+                            sendMessage(player, "Your familiar is not a beast of burden.")
                             return@on true
                         }
                         val beast = player.familiarManager.familiar as BurdenBeast
                         if (beast.container.isEmpty()) {
-                            sendMessage(player,"Your familiar is not carrying any items.")
+                            sendMessage(player, "Your familiar is not carrying any items.")
                             return@on true
                         }
                         beast.withdrawAll()
                         return@on true
                     }
-                    sendMessage(player,"You don't have a follower.")
+                    sendMessage(player, "You don't have a follower.")
                 }
 
                 53 -> {
@@ -55,7 +58,7 @@ class SummoningTabListener : InterfaceListener {
                             player.familiarManager.dismiss()
                         }
                     } else {
-                        sendMessage(player,"You don't have a follower.")
+                        sendMessage(player, "You don't have a follower.")
                     }
                 }
 
@@ -63,7 +66,7 @@ class SummoningTabListener : InterfaceListener {
                     if (player.familiarManager.hasFamiliar()) {
                         player.familiarManager.familiar.executeSpecialMove(FamiliarSpecial(player))
                     } else {
-                        sendMessage(player,"You don't have a follower.")
+                        sendMessage(player, "You don't have a follower.")
                     }
                 }
             }

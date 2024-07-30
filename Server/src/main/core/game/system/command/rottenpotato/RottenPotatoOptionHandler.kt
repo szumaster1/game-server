@@ -1,15 +1,15 @@
 package core.game.system.command.rottenpotato
 
+import core.api.consts.Items
 import core.api.removeItem
 import core.cache.def.impl.ItemDefinition
 import core.game.interaction.OptionHandler
 import core.game.node.Node
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.info.Rights
+import core.game.system.command.CommandSystem
 import core.plugin.Initializable
 import core.plugin.Plugin
-import core.api.consts.Items
-import core.game.system.command.CommandSystem
 import core.tools.colorize
 
 /**

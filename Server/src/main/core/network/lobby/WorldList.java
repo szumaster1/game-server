@@ -145,10 +145,10 @@ public final class WorldList {
 		}
 		putPlayerInfo(buffer);
 		if (buffer.toByteBuffer().position() > 0) {
-			buf.put((ByteBuffer) buffer.toByteBuffer().flip());
+			buf.put(buffer.toByteBuffer().flip());
 		}
 		buf.putShort(1, (short) (buf.position() - 3));
-		session.queue((ByteBuffer) buf.flip());
+		session.queue(buf.flip());
 	}
 
 	/**

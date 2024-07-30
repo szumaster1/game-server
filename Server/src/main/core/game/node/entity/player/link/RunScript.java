@@ -23,10 +23,10 @@ public abstract class RunScript {
      * Constructs a new {@code RunScript} {@code Object}.
      */
     public RunScript() {
-		/**
-		 * empty.
-		 */
-	}
+        /**
+         * empty.
+         */
+    }
 
     /**
      * Handles the run script.
@@ -41,8 +41,8 @@ public abstract class RunScript {
      * @return the value.
      */
     public Object getValue() {
-		return value;
-	}
+        return value;
+    }
 
     /**
      * Sets value.
@@ -50,8 +50,8 @@ public abstract class RunScript {
      * @param value the value to set;.
      */
     public void setValue(Object value) {
-		this.value = value;
-	}
+        this.value = value;
+    }
 
     /**
      * Sets the player.
@@ -59,6 +59,6 @@ public abstract class RunScript {
      * @param player the player.
      */
     public void setPlayer(Player player) {
-		this.player = player;
-	}
+        this.player = player;
+    }
 }

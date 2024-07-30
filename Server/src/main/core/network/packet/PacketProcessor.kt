@@ -474,7 +474,6 @@ object PacketProcessor {
         }
 
         if (pkt is Packet.InteractWalk) {
-            //Arios did this, so we're replicating it for now. Probably wrong.
             player.walkingQueue.isRunning = isRunning
             return
         }

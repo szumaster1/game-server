@@ -10,25 +10,25 @@ import java.util.Map;
  */
 public final class MusicEntry {
 
-	/**
-	 * The songs mapping.
-	 */
-	private static final Map<Integer, MusicEntry> SONGS = new HashMap<>();
+    /**
+     * The songs mapping.
+     */
+    private static final Map<Integer, MusicEntry> SONGS = new HashMap<>();
 
-	/**
-	 * The music id.
-	 */
-	private final int id;
+    /**
+     * The music id.
+     */
+    private final int id;
 
-	/**
-	 * The song name.
-	 */
-	private final String name;
+    /**
+     * The song name.
+     */
+    private final String name;
 
-	/**
-	 * The index in the list.
-	 */
-	private final int index;
+    /**
+     * The index in the list.
+     */
+    private final int index;
 
     /**
      * Constructs a new {@code MusicEntry} {@code Object}.
@@ -38,10 +38,10 @@ public final class MusicEntry {
      * @param index The list index.
      */
     public MusicEntry(int id, String name, int index) {
-		this.id = id;
-		this.name = name;
-		this.index = index;
-	}
+        this.id = id;
+        this.name = name;
+        this.index = index;
+    }
 
     /**
      * Gets the song for the given music id.
@@ -50,8 +50,8 @@ public final class MusicEntry {
      * @return The song.
      */
     public static MusicEntry forId(int id) {
-		return SONGS.get(id);
-	}
+        return SONGS.get(id);
+    }
 
     /**
      * Gets the id.
@@ -59,8 +59,8 @@ public final class MusicEntry {
      * @return The id.
      */
     public int getId() {
-		return id;
-	}
+        return id;
+    }
 
     /**
      * Gets the name.
@@ -68,8 +68,8 @@ public final class MusicEntry {
      * @return The name.
      */
     public String getName() {
-		return name;
-	}
+        return name;
+    }
 
     /**
      * Gets the index.
@@ -77,8 +77,8 @@ public final class MusicEntry {
      * @return The index.
      */
     public int getIndex() {
-		return index;
-	}
+        return index;
+    }
 
     /**
      * Gets the songs.
@@ -86,6 +86,6 @@ public final class MusicEntry {
      * @return The songs.
      */
     public static Map<Integer, MusicEntry> getSongs() {
-		return SONGS;
-	}
+        return SONGS;
+    }
 }

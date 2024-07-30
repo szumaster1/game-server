@@ -12,7 +12,7 @@ import core.plugin.Plugin
 class DeathInterfacePlugin : ComponentPlugin() {
 
     override fun newInstance(arg: Any?): Plugin<Any> {
-        ComponentDefinition.forId(Components.AIDE_DEATH_153).plugin = this
+        ComponentDefinition.forId(Components.AIDE_DEATH_153)!!.plugin = this
         return this
     }
 

@@ -4,8 +4,7 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.network.packet.Context
 
-
-class BuildItemContext@JvmOverloads constructor(
+class BuildItemContext @JvmOverloads constructor(
     private val player: Player,
     val item: Item,
     val oldAmount: Int = 0

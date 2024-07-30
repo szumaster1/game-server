@@ -231,7 +231,7 @@ class AnimalMagnetismPlugin : OptionHandler() {
         )
 
         override fun newInstance(arg: Any?): Plugin<Any> {
-            ComponentDefinition.forId(Components.ANMA_RGB_480).plugin = this
+            ComponentDefinition.forId(Components.ANMA_RGB_480)?.plugin = this
             return this
         }
 

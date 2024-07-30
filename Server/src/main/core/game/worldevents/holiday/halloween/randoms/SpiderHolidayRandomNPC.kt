@@ -16,33 +16,36 @@ class SpiderHolidayRandomNPC : HolidayRandomEventNPC(NPCs.SPIDER_61) {
         this.behavior = SpiderHolidayRandomBehavior()
         playGlobalAudio(this.location, Sounds.SPIDER_4375)
         var stomped = false
-        queueScript(this,4, QueueStrength.SOFT) { stage: Int ->
-        when (stage) {
-            0 -> {
-                sendChat(player, "Eww a spider!")
-                return@queueScript delayScript(this, 2)
-            }
-            1 -> {
-                if (player.location.withinDistance(this.location, 3)) {
-                    player.animate(Animation(4278))
-                    playGlobalAudio(this.location, Sounds.UNARMED_KICK_2565)
-                    sendMessage(player, "You stomp the spider.")
-                    stomped = true
+        queueScript(this, 4, QueueStrength.SOFT) { stage: Int ->
+            when (stage) {
+                0 -> {
+                    sendChat(player, "Eww a spider!")
+                    return@queueScript delayScript(this, 2)
                 }
-                return@queueScript delayScript(this, 1)
-            }
-            2 -> {
-                if (stomped) {
-                    impact(this, 1, ImpactHandler.HitsplatType.NORMAL)
-                } else {
-                    sendMessage(player, "The spider runs away.")
-                    playGlobalAudio(this.location, Sounds.SPIDER_4375)
-                    HolidayRandoms.terminateEventNpc(player)
+
+                1 -> {
+                    if (player.location.withinDistance(this.location, 3)) {
+                        player.animate(Animation(4278))
+                        playGlobalAudio(this.location, Sounds.UNARMED_KICK_2565)
+                        sendMessage(player, "You stomp the spider.")
+                        stomped = true
+                    }
+                    return@queueScript delayScript(this, 1)
                 }
-                return@queueScript stopExecuting(this)
+
+                2 -> {
+                    if (stomped) {
+                        impact(this, 1, ImpactHandler.HitsplatType.NORMAL)
+                    } else {
+                        sendMessage(player, "The spider runs away.")
+                        playGlobalAudio(this.location, Sounds.SPIDER_4375)
+                        HolidayRandoms.terminateEventNpc(player)
+                    }
+                    return@queueScript stopExecuting(this)
+                }
+
+                else -> return@queueScript stopExecuting(this)
             }
-            else -> return@queueScript stopExecuting(this)
-        }
         }
     }
 

@@ -11,8 +11,8 @@ public final class SetWalkOption implements OutgoingPacket<WalkOptionContext> {
 
     @Override
     public void send(WalkOptionContext context) {
-    //    IoBuffer buffer = new IoBuffer(10, PacketHeader.BYTE).putString(context.getOption());
-    //    context.getPlayer().getDetails().getSession().write(buffer);
+        //    IoBuffer buffer = new IoBuffer(10, PacketHeader.BYTE).putString(context.getOption());
+        //    context.getPlayer().getDetails().getSession().write(buffer);
     }
 
 }

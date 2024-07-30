@@ -22,37 +22,39 @@ object PlayerMonitor {
             CREATE TABLE "chat_logs" ( "player" TEXT, "uid" INTEGER, "type" TEXT, "message" TEXT, "timestamp" NUMERIC );
             """,
         "misc_logs" to """
-            CREATE TABLE "misc_logs" ( "player" TEXT, "uid" INTEGER, "type" TEXT, "details" TEXT , "timestamp" NUMERIC); 
+            CREATE TABLE "misc_logs" ( "player" TEXT, "uid" INTEGER, "type" TEXT, "details" TEXT , "timestamp" NUMERIC);
             """,
         "trade_logs" to """
-            CREATE TABLE "trade_logs" ( "player_a" TEXT, "player_b" TEXT, "uid_a" INTEGER, "uid_b" INTEGER, "items_a" TEXT, "items_b" TEXT, "timestamp" NUMERIC ); 
+            CREATE TABLE "trade_logs" ( "player_a" TEXT, "player_b" TEXT, "uid_a" INTEGER, "uid_b" INTEGER, "items_a" TEXT, "items_b" TEXT, "timestamp" NUMERIC );
             """,
         "xp_gains" to """
-            CREATE TABLE "xp_gains" ( "player" TEXT, "uid" INTEGER, "attack" INTEGER, "defence" INTEGER, "strength" INTEGER, "hitpoints" INTEGER, "ranged" INTEGER, "prayer" INTEGER, "magic" INTEGER, "cooking" INTEGER, "woodcutting" INTEGER, "fletching" INTEGER, "fishing" INTEGER, "firemaking" INTEGER, "crafting" INTEGER, "smithing" INTEGER, "mining" INTEGER, "herblore" INTEGER, "agility" INTEGER, "thieving" INTEGER, "slayer" INTEGER, "farming" INTEGER, "runecrafting" INTEGER, "hunter" INTEGER, "construction" INTEGER, "summoning" INTEGER , "timestamp" NUMERIC) 
+            CREATE TABLE "xp_gains" ( "player" TEXT, "uid" INTEGER, "attack" INTEGER, "defence" INTEGER, "strength" INTEGER, "hitpoints" INTEGER, "ranged" INTEGER, "prayer" INTEGER, "magic" INTEGER, "cooking" INTEGER, "woodcutting" INTEGER, "fletching" INTEGER, "fishing" INTEGER, "firemaking" INTEGER, "crafting" INTEGER, "smithing" INTEGER, "mining" INTEGER, "herblore" INTEGER, "agility" INTEGER, "thieving" INTEGER, "slayer" INTEGER, "farming" INTEGER, "runecrafting" INTEGER, "hunter" INTEGER, "construction" INTEGER, "summoning" INTEGER , "timestamp" NUMERIC)
             """,
         "wealth_logs" to """
-            CREATE TABLE "wealth_logs" ( "player" TEXT, "uid" INTEGER, "total" NUMERIC, "diff" NUMERIC, "timestamp" NUMERIC ) 
+            CREATE TABLE "wealth_logs" ( "player" TEXT, "uid" INTEGER, "total" NUMERIC, "diff" NUMERIC, "timestamp" NUMERIC )
             """
     )
 
-    @JvmStatic fun logWealthChange(player: Player, totalWealth: Long, diff: Long) {
+    @JvmStatic
+    fun logWealthChange(player: Player, totalWealth: Long, diff: Long) {
         val event = LogEvent.WealthLog(
-                player.name,
-                player.details.uid,
-                totalWealth,
-                diff,
-                System.currentTimeMillis()
+            player.name,
+            player.details.uid,
+            totalWealth,
+            diff,
+            System.currentTimeMillis()
         )
         dispatch(event)
     }
 
-    @JvmStatic fun logChat(player: Player, type: String, message: String) {
+    @JvmStatic
+    fun logChat(player: Player, type: String, message: String) {
         val event = LogEvent.ChatLog(
-                player.name,
-                player.details.uid,
-                type,
-                message,
-                System.currentTimeMillis()
+            player.name,
+            player.details.uid,
+            type,
+            message,
+            System.currentTimeMillis()
         )
         /*
         checkForFlaggedText(player.name, message)
@@ -60,7 +62,8 @@ object PlayerMonitor {
         dispatch(event)
     }
 
-    @JvmStatic fun logTrade(player1: Player, player2: Player, container1: Container, container2: Container) {
+    @JvmStatic
+    fun logTrade(player1: Player, player2: Player, container1: Container, container2: Container) {
         val container1String = StringBuilder()
         val container2String = StringBuilder()
 
@@ -75,26 +78,34 @@ object PlayerMonitor {
         }
 
         val event = LogEvent.TradeLog(
-                player1.name,
-                player1.details.uid,
-                player2.name,
-                player2.details.uid,
-                container1String.toString(),
-                container2String.toString(),
-                System.currentTimeMillis()
+            player1.name,
+            player1.details.uid,
+            player2.name,
+            player2.details.uid,
+            container1String.toString(),
+            container2String.toString(),
+            System.currentTimeMillis()
         )
         dispatch(event)
     }
 
-    @JvmStatic fun logPrivateChat(sender: Player, receiver: String, message: String) {
-        val event = LogEvent.ChatLog(sender.name, sender.details.uid, "private", "=> $receiver: $message", System.currentTimeMillis())
+    @JvmStatic
+    fun logPrivateChat(sender: Player, receiver: String, message: String) {
+        val event = LogEvent.ChatLog(
+            sender.name,
+            sender.details.uid,
+            "private",
+            "=> $receiver: $message",
+            System.currentTimeMillis()
+        )
         /*
         checkForFlaggedText(sender.name, message)
         */
         dispatch(event)
     }
 
-    @JvmStatic fun log(player: Player, type: LogType, details: String) {
+    @JvmStatic
+    fun log(player: Player, type: LogType, details: String) {
         val event = LogEvent.MiscLog(
             player.name,
             player.details.uid,
@@ -105,7 +116,8 @@ object PlayerMonitor {
         dispatch(event)
     }
 
-    @JvmStatic fun logXpGains(player: Player, xpDiff: List<Pair<Int,Double>>) {
+    @JvmStatic
+    fun logXpGains(player: Player, xpDiff: List<Pair<Int, Double>>) {
         if (player.isArtificial) return
         if (xpDiff.isEmpty()) return
         val query = StringBuilder("INSERT INTO xp_gains(player,uid,")
@@ -132,7 +144,7 @@ object PlayerMonitor {
         }
     }
 
-    fun init () {
+    fun init() {
         if (!this::db.isInitialized) {
             var path = ServerConstants.LOGS_PATH + "playerlogs.db"
             db = DatabaseManager(path, expectedTables)
@@ -151,8 +163,9 @@ object PlayerMonitor {
         }
     }
 
-    @JvmStatic fun flushRemainingEventsImmediately() {
-        core.api.log(this::class.java, Log.FINE,  "Flushing player log events...")
+    @JvmStatic
+    fun flushRemainingEventsImmediately() {
+        core.api.log(this::class.java, Log.FINE, "Flushing player log events...")
         init()
         if (activeTask != null)
             activeTask?.cancel("Interrupted by shutdown. This is probably fine.")
@@ -173,6 +186,7 @@ object PlayerMonitor {
                 stmt.setLong(5, event.timestamp)
                 stmt.execute()
             }
+
             is LogEvent.TradeLog -> {
                 val stmt = conn.prepareStatement(TRADE_LOG_INSERT)
                 stmt.setString(1, event.player1)
@@ -184,6 +198,7 @@ object PlayerMonitor {
                 stmt.setLong(7, event.timestamp)
                 stmt.execute()
             }
+
             is LogEvent.MiscLog -> {
                 val stmt = conn.prepareStatement(MISC_LOG_INSERT)
                 stmt.setString(1, event.player)
@@ -193,10 +208,12 @@ object PlayerMonitor {
                 stmt.setLong(5, event.timestamp)
                 stmt.execute()
             }
+
             is LogEvent.XpLog -> {
                 val stmt = conn.createStatement()
                 stmt.execute(event.query)
             }
+
             is LogEvent.WealthLog -> {
                 val stmt = conn.prepareStatement(WEALTH_LOG_INSERT)
                 stmt.setString(1, event.player)
@@ -218,15 +235,40 @@ object PlayerMonitor {
     */
 
     private sealed class LogEvent {
-        data class ChatLog(val player: String, val uid: Int, val type: String, val message: String, val timestamp: Long) : LogEvent()
-        data class TradeLog(val player1: String, val uid1: Int, val player2 : String, val uid2: Int, val items1: String, val items2: String, val timestamp: Long) : LogEvent()
-        data class MiscLog(val player: String, val uid: Int, val type: String, val details: String, val timestamp: Long) : LogEvent()
+        data class ChatLog(
+            val player: String,
+            val uid: Int,
+            val type: String,
+            val message: String,
+            val timestamp: Long
+        ) : LogEvent()
+
+        data class TradeLog(
+            val player1: String,
+            val uid1: Int,
+            val player2: String,
+            val uid2: Int,
+            val items1: String,
+            val items2: String,
+            val timestamp: Long
+        ) : LogEvent()
+
+        data class MiscLog(
+            val player: String,
+            val uid: Int,
+            val type: String,
+            val details: String,
+            val timestamp: Long
+        ) : LogEvent()
+
         data class XpLog(val query: String) : LogEvent()
-        data class WealthLog(val player: String, val uid: Int, val total: Long, val diff: Long, val timeStamp: Long) : LogEvent()
+        data class WealthLog(val player: String, val uid: Int, val total: Long, val diff: Long, val timeStamp: Long) :
+            LogEvent()
     }
 
     private const val CHAT_LOG_INSERT = "INSERT INTO chat_logs(player,uid,type,message,timestamp) VALUES (?,?,?,?,?);"
-    private const val TRADE_LOG_INSERT = "INSERT INTO trade_logs(player_a,player_b,uid_a,uid_b,items_a,items_b,timestamp) VALUES (?,?,?,?,?,?,?);"
+    private const val TRADE_LOG_INSERT =
+        "INSERT INTO trade_logs(player_a,player_b,uid_a,uid_b,items_a,items_b,timestamp) VALUES (?,?,?,?,?,?,?);"
     private const val MISC_LOG_INSERT = "INSERT INTO misc_logs(player,uid,type,details,timestamp) VALUES (?,?,?,?,?);"
     private const val WEALTH_LOG_INSERT = "INSERT INTO wealth_logs(player,uid,total,diff,timestamp) VALUES (?,?,?,?,?);"
 

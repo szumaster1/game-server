@@ -19,13 +19,9 @@ import core.tools.RandomFunction
 
 class FalconryCatchPulse(player: Player?, node: NPC, private val falconCatch: FalconCatch) :
     SkillPulse<NPC?>(player, node) {
-    private val originalLocation: Location
+    private val originalLocation: Location = node.location
     private var checked = false
     private var ticks = 0
-
-    init {
-        originalLocation = node.location
-    }
 
     override fun start() {
         player.faceTemporary(node!!.asNpc(), 1)

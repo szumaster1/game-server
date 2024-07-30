@@ -12,15 +12,15 @@ import core.game.world.map.zone.ZoneBorders;
  */
 public final class MusicZone implements Zone {
 
-	/**
-	 * The music id.
-	 */
-	private final int musicId;
+    /**
+     * The music id.
+     */
+    private final int musicId;
 
-	/**
-	 * The zone borders.
-	 */
-	private final ZoneBorders borders;
+    /**
+     * The zone borders.
+     */
+    private final ZoneBorders borders;
 
     /**
      * Constructs a new {@code MusicZone} {@code Object}.
@@ -29,24 +29,24 @@ public final class MusicZone implements Zone {
      * @param borders the borders
      */
     public MusicZone(int musicId, ZoneBorders borders) {
-		this.musicId = musicId;
-		this.borders = borders;
-	}
+        this.musicId = musicId;
+        this.borders = borders;
+    }
 
-	@Override
-	public boolean enter(Entity e) {
-		if (!(e instanceof Player)) {
-			throw new IllegalStateException("Music is for players only!");
-		}
-		Player player = (Player) e;
-		player.getMusicPlayer().unlock(musicId);
-		return true;
-	}
+    @Override
+    public boolean enter(Entity e) {
+        if (!(e instanceof Player)) {
+            throw new IllegalStateException("Music is for players only!");
+        }
+        Player player = (Player) e;
+        player.getMusicPlayer().unlock(musicId);
+        return true;
+    }
 
-	@Override
-	public boolean leave(Entity e, boolean logout) {
-		return true;
-	}
+    @Override
+    public boolean leave(Entity e, boolean logout) {
+        return true;
+    }
 
     /**
      * Gets the musicId.
@@ -54,8 +54,8 @@ public final class MusicZone implements Zone {
      * @return The musicId.
      */
     public int getMusicId() {
-		return musicId;
-	}
+        return musicId;
+    }
 
     /**
      * Gets the borders.
@@ -63,7 +63,7 @@ public final class MusicZone implements Zone {
      * @return The borders.
      */
     public ZoneBorders getBorders() {
-		return borders;
-	}
+        return borders;
+    }
 
 }

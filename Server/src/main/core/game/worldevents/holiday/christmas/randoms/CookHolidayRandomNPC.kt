@@ -1,11 +1,12 @@
 package core.game.worldevents.holiday.christmas.randoms
 
-import core.api.*
+import core.api.consts.NPCs
+import core.api.openDialogue
+import core.api.sendChat
 import core.game.node.entity.npc.NPC
 import core.game.worldevents.holiday.HolidayRandomEventNPC
 import core.tools.RandomFunction
 import core.tools.minutesToTicks
-import core.api.consts.NPCs
 
 class CookHolidayRandomNPC : HolidayRandomEventNPC(NPCs.COOK_4239) {
     private val cookLines = listOf("@name, are you there?", "Would you like a fresh baked cake, @name?", "Happy Holidays, @name!")
@@ -19,7 +20,7 @@ class CookHolidayRandomNPC : HolidayRandomEventNPC(NPCs.COOK_4239) {
 
     override fun tick() {
         if (RandomFunction.roll(15) && !hasTalkedWith)
-            sendChat(this, cookLines.random().replace("@name",player.username.capitalize()))
+            sendChat(this, cookLines.random().replace("@name", player.username.capitalize()))
 
         super.tick()
     }

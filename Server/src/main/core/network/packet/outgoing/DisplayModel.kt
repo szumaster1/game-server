@@ -19,6 +19,7 @@ class DisplayModel : OutgoingPacket<DisplayModelContext> {
                     putIntA(context.interfaceId shl 16 or context.childId)
                 }
             }
+
             DisplayModelContext.ModelType.NPC -> {
                 IoBuffer(73).apply {
                     putShortA(context.nodeId)
@@ -26,6 +27,7 @@ class DisplayModel : OutgoingPacket<DisplayModelContext> {
                     putLEShort(context.player.interfaceManager.getPacketCount(1))
                 }
             }
+
             DisplayModelContext.ModelType.ITEM -> {
                 val value = if (context.amount > 0) context.amount else context.zoom
                 IoBuffer(50).apply {
@@ -35,6 +37,7 @@ class DisplayModel : OutgoingPacket<DisplayModelContext> {
                     putLEShort(context.player.interfaceManager.getPacketCount(1))
                 }
             }
+
             DisplayModelContext.ModelType.MODEL -> {
                 IoBuffer(130).apply {
                     putLEInt(context.interfaceId shl 16 or context.childId)
@@ -42,6 +45,7 @@ class DisplayModel : OutgoingPacket<DisplayModelContext> {
                     putShortA(context.nodeId)
                 }
             }
+
             else -> return
         }
         buffer.cypherOpcode(context.player.session.isaacPair!!.output)

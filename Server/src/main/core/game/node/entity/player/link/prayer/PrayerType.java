@@ -1,5 +1,6 @@
 package core.game.node.entity.player.link.prayer;
 
+import core.api.consts.Sounds;
 import core.game.event.PrayerActivatedEvent;
 import core.game.event.PrayerDeactivatedEvent;
 import core.game.node.entity.player.Player;
@@ -9,7 +10,6 @@ import core.game.node.entity.skill.SkillBonus;
 import core.game.node.entity.skill.Skills;
 import core.game.world.map.zone.ZoneBorders;
 import core.tools.StringUtils;
-import core.api.consts.Sounds;
 
 import java.util.List;
 
@@ -32,7 +32,7 @@ public enum PrayerType {
     /**
      * The Burst of strength.
      */
-    BURST_OF_STRENGTH(4, 12, 84, 7, PrayerCategory.GREEN,  Sounds.STRENGTH_BURST_2688, new SkillBonus(Skills.STRENGTH, 0.05)),
+    BURST_OF_STRENGTH(4, 12, 84, 7, PrayerCategory.GREEN, Sounds.STRENGTH_BURST_2688, new SkillBonus(Skills.STRENGTH, 0.05)),
     /**
      * The Clarity of thought.
      */
@@ -134,121 +134,123 @@ public enum PrayerType {
      */
     PIETY(70, 2, 1053, 57, PrayerCategory.PINK, Sounds.KR_PIETY_3825, 70, new SkillBonus(Skills.DEFENCE, 0.25), new SkillBonus(Skills.STRENGTH, 0.23), new SkillBonus(Skills.ATTACK, 0.2));
 
-	/**
-	 * Represents the a cache of objects related to prayers in order to decide
-	 * what head icon to display.
-	 */
-	private final static Object[][] ICON_CACHE = new Object[][] { { REDEMPTION, 5 }, { RETRIBUTION, 3 }, { SMITE, 4 }, { PROTECT_FROM_MAGIC, 2, 10 }, { PROTECT_FROM_MELEE, 0, 8 }, { PROTECT_FROM_MISSILES, 1, 9 }, { PROTECT_FROM_SUMMONING, 7, PROTECT_FROM_MELEE, 8, PROTECT_FROM_MISSILES, 9, PROTECT_FROM_MAGIC, 10 } };
+    /**
+     * Represents the a cache of objects related to prayers in order to decide
+     * what head icon to display.
+     */
+    private final static Object[][] ICON_CACHE = new Object[][]{{REDEMPTION, 5}, {RETRIBUTION, 3}, {SMITE, 4}, {PROTECT_FROM_MAGIC, 2, 10}, {PROTECT_FROM_MELEE, 0, 8}, {PROTECT_FROM_MISSILES, 1, 9}, {PROTECT_FROM_SUMMONING, 7, PROTECT_FROM_MELEE, 8, PROTECT_FROM_MISSILES, 9, PROTECT_FROM_MAGIC, 10}};
 
-	/**
-	 * The level required.
-	 */
-	private final int level;
+    /**
+     * The level required.
+     */
+    private final int level;
 
-	/**
-	 * The drain rate.
-	 */
-	private final int drain;
+    /**
+     * The drain rate.
+     */
+    private final int drain;
 
-	/**
-	 * The configuration id of the prayer.
-	 */
-	private final int config;
+    /**
+     * The configuration id of the prayer.
+     */
+    private final int config;
 
-	/**
-	 * The button id.
-	 */
-	private final int button;
+    /**
+     * The button id.
+     */
+    private final int button;
 
-	/**
-	 * The restriction.
-	 */
-	private final PrayerCategory restriction;
+    /**
+     * The restriction.
+     */
+    private final PrayerCategory restriction;
 
-	/**
-	 * Represents the second restriction.
-	 */
-	private final PrayerCategory secondRestriction;
+    /**
+     * Represents the second restriction.
+     */
+    private final PrayerCategory secondRestriction;
 
-	/**
-	 * The sound.
-	 */
-	private Audio sound;
+    /**
+     * The sound.
+     */
+    private Audio sound;
 
-	/**
-	 * The required level of defence to use this prayer.
-	 */
-	private int defenceReq;
+    /**
+     * The required level of defence to use this prayer.
+     */
+    private int defenceReq;
 
-	/**
-	 * The skill bonuses for this type.
-	 */
-	private final SkillBonus[] bonuses;
+    /**
+     * The skill bonuses for this type.
+     */
+    private final SkillBonus[] bonuses;
 
-	/**
-	 * Constructs a new {@code PrayerType} {@code Object}.
-	 * @param level the level.
-	 * @param drain the drain, represents the seconds until a drain.
-	 * @param config the config value to represent on and off.
-	 * @param button the button value to turn the prayer off and on.
-	 * @param bonuses the skill bonuses for this type.
-	 */
-	PrayerType(int level, int drain, int config, int button, PrayerCategory restriction, int soundId, SkillBonus... bonuses) {
-		this(level, drain, config, button, restriction, null, new Audio(soundId), bonuses);
-	}
+    /**
+     * Constructs a new {@code PrayerType} {@code Object}.
+     *
+     * @param level   the level.
+     * @param drain   the drain, represents the seconds until a drain.
+     * @param config  the config value to represent on and off.
+     * @param button  the button value to turn the prayer off and on.
+     * @param bonuses the skill bonuses for this type.
+     */
+    PrayerType(int level, int drain, int config, int button, PrayerCategory restriction, int soundId, SkillBonus... bonuses) {
+        this(level, drain, config, button, restriction, null, new Audio(soundId), bonuses);
+    }
 
-	/**
-	 *
-	 * Constructs a new @{Code PrayerType} object.
-	 * @param level
-	 * @param drain
-	 * @param config
-	 * @param button
-	 * @param restriction
-	 * @param soundId
-	 * @param defenceReq
-	 * @param bonuses
-	 */
-	PrayerType(int level, int drain, int config, int button, PrayerCategory restriction, int soundId, int defenceReq, SkillBonus... bonuses) {
-		this(level, drain, config, button, restriction, null, new Audio(soundId), defenceReq,bonuses);
-	}
+    /**
+     * Constructs a new @{Code PrayerType} object.
+     *
+     * @param level
+     * @param drain
+     * @param config
+     * @param button
+     * @param restriction
+     * @param soundId
+     * @param defenceReq
+     * @param bonuses
+     */
+    PrayerType(int level, int drain, int config, int button, PrayerCategory restriction, int soundId, int defenceReq, SkillBonus... bonuses) {
+        this(level, drain, config, button, restriction, null, new Audio(soundId), defenceReq, bonuses);
+    }
 
-	/**
-	 * Constructs a new {@code PrayerType} {@code Object}.
-	 * @param level the level.
-	 * @param drain the drain, represents the seconds until a drain.
-	 * @param config the config value to represent on and off.
-	 * @param button the button value to turn the prayer off and on.
-	 * @param bonuses the skill bonuses for this type.
-	 */
-	PrayerType(int level, int drain, int config, int button, PrayerCategory restriction, PrayerCategory secondRestriction, Audio sound, SkillBonus... bonuses) {
-		this(level,drain,config,button,restriction,secondRestriction,sound,1,bonuses);
-	}
+    /**
+     * Constructs a new {@code PrayerType} {@code Object}.
+     *
+     * @param level   the level.
+     * @param drain   the drain, represents the seconds until a drain.
+     * @param config  the config value to represent on and off.
+     * @param button  the button value to turn the prayer off and on.
+     * @param bonuses the skill bonuses for this type.
+     */
+    PrayerType(int level, int drain, int config, int button, PrayerCategory restriction, PrayerCategory secondRestriction, Audio sound, SkillBonus... bonuses) {
+        this(level, drain, config, button, restriction, secondRestriction, sound, 1, bonuses);
+    }
 
-	/**
-	 *
-	 * Constructs a new @{Code PrayerType} object.
-	 * @param level
-	 * @param drain
-	 * @param config
-	 * @param button
-	 * @param restriction
-	 * @param secondRestriction
-	 * @param sound
-	 * @param defenceReq
-	 * @param bonuses
-	 */
-	PrayerType(int level, int drain, int config, int button, PrayerCategory restriction, PrayerCategory secondRestriction, Audio sound, int defenceReq, SkillBonus... bonuses) {
-		this.level = level;
-		this.drain = drain;
-		this.config = config;
-		this.button = button;
-		this.restriction = restriction;
-		this.secondRestriction = secondRestriction;
-		this.sound = sound;
-		this.bonuses = bonuses;
-		this.defenceReq = defenceReq;
-	}
+    /**
+     * Constructs a new @{Code PrayerType} object.
+     *
+     * @param level
+     * @param drain
+     * @param config
+     * @param button
+     * @param restriction
+     * @param secondRestriction
+     * @param sound
+     * @param defenceReq
+     * @param bonuses
+     */
+    PrayerType(int level, int drain, int config, int button, PrayerCategory restriction, PrayerCategory secondRestriction, Audio sound, int defenceReq, SkillBonus... bonuses) {
+        this.level = level;
+        this.drain = drain;
+        this.config = config;
+        this.button = button;
+        this.restriction = restriction;
+        this.secondRestriction = secondRestriction;
+        this.sound = sound;
+        this.bonuses = bonuses;
+        this.defenceReq = defenceReq;
+    }
 
     /**
      * Gets the level.
@@ -256,8 +258,8 @@ public enum PrayerType {
      * @return The level.
      */
     public int getLevel() {
-		return level;
-	}
+        return level;
+    }
 
     /**
      * Gets the drain.
@@ -265,8 +267,8 @@ public enum PrayerType {
      * @return The drain.
      */
     public int getDrain() {
-		return drain;
-	}
+        return drain;
+    }
 
     /**
      * Gets the config.
@@ -274,8 +276,8 @@ public enum PrayerType {
      * @return The config.
      */
     public int getConfig() {
-		return config;
-	}
+        return config;
+    }
 
     /**
      * Gets the button.
@@ -283,8 +285,8 @@ public enum PrayerType {
      * @return The button.
      */
     public int getButton() {
-		return button;
-	}
+        return button;
+    }
 
     /**
      * Gets the restriction.
@@ -292,8 +294,8 @@ public enum PrayerType {
      * @return The restriction.
      */
     public PrayerCategory getRestriction() {
-		return restriction;
-	}
+        return restriction;
+    }
 
     /**
      * Gets the bonuses.
@@ -301,8 +303,8 @@ public enum PrayerType {
      * @return The bonuses.
      */
     public SkillBonus[] getBonuses() {
-		return bonuses;
-	}
+        return bonuses;
+    }
 
     /**
      * Method used to check if the player has the required level to toggle this
@@ -312,13 +314,13 @@ public enum PrayerType {
      * @return <code>True</code> if it is permitted.
      */
     public boolean permitted(final Player player) {
-		if (player.getSkills().getStaticLevel(Skills.PRAYER) < getLevel() || player.getSkills().getStaticLevel(Skills.DEFENCE) < defenceReq) {
-			playAudio(player, Sounds.PRAYER_OFF_2673);
-			player.getDialogueInterpreter().sendDialogue("You need a <col=08088A>Prayer level of " + getLevel() + (player.getSkills().getStaticLevel(Skills.DEFENCE) < defenceReq ? (" and a Defence level of " + defenceReq) : "") + " to use " + StringUtils.formatDisplayName(name().toLowerCase().replace("_", " ")) + ".");
-			return false;
-		}
-		return true;
-	}
+        if (player.getSkills().getStaticLevel(Skills.PRAYER) < getLevel() || player.getSkills().getStaticLevel(Skills.DEFENCE) < defenceReq) {
+            playAudio(player, Sounds.PRAYER_OFF_2673);
+            player.getDialogueInterpreter().sendDialogue("You need a <col=08088A>Prayer level of " + getLevel() + (player.getSkills().getStaticLevel(Skills.DEFENCE) < defenceReq ? (" and a Defence level of " + defenceReq) : "") + " to use " + StringUtils.formatDisplayName(name().toLowerCase().replace("_", " ")) + ".");
+            return false;
+        }
+        return true;
+    }
 
     /**
      * Method used to check if we need to toggle a prayer on or off.
@@ -328,26 +330,26 @@ public enum PrayerType {
      * @return <code>True</code> if toggled.
      */
     public boolean toggle(final Player player, final boolean on) {
-		setVarp(player, getConfig(), on ? 1 : 0);
-		if (on) {
-			flag(player, this);
-			player.getPrayer().getActive().add(this);
-			iconify(player, getIcon(player, this));
-			playAudio(player, sound.id);
+        setVarp(player, getConfig(), on ? 1 : 0);
+        if (on) {
+            flag(player, this);
+            player.getPrayer().getActive().add(this);
+            iconify(player, getIcon(player, this));
+            playAudio(player, sound.id);
 
-			if (this == PrayerType.PIETY
-					&& new ZoneBorders(2732, 3467, 2739, 3471, 0).insideBorder(player)) {
-				player.getAchievementDiaryManager().finishTask(player, DiaryType.SEERS_VILLAGE, 2, 3);
-			}
-                        player.dispatch (new PrayerActivatedEvent(this));
-		} else {
-			player.getPrayer().getActive().remove(this);
-			playAudio(player, Sounds.CANCEL_PRAYER_2663);
-			findNextIcon(player);
-                        player.dispatch (new PrayerDeactivatedEvent(this));
-		}
-		return true;
-	}
+            if (this == PrayerType.PIETY
+                && new ZoneBorders(2732, 3467, 2739, 3471, 0).insideBorder(player)) {
+                player.getAchievementDiaryManager().finishTask(player, DiaryType.SEERS_VILLAGE, 2, 3);
+            }
+            player.dispatch(new PrayerActivatedEvent(this));
+        } else {
+            player.getPrayer().getActive().remove(this);
+            playAudio(player, Sounds.CANCEL_PRAYER_2663);
+            findNextIcon(player);
+            player.dispatch(new PrayerDeactivatedEvent(this));
+        }
+        return true;
+    }
 
     /**
      * Method used to flag others prayers that cannot be toggled together.
@@ -356,26 +358,26 @@ public enum PrayerType {
      * @param type   the type
      */
     public void flag(final Player player, final PrayerType type) {
-		final List<PrayerType> active = player.getPrayer().getActive();
-		final PrayerType[] remove = new PrayerType[active.size() + 10];
-		int index = 0;
-		for (int i = 0; i < active.size(); i++) {
-			if (active.get(i).getRestriction() == type.getRestriction() || active.get(i).getSecondRestriction() != null && type.getSecondRestriction() != null && active.get(i).getSecondRestriction() == type.getSecondRestriction()) {
-				remove[index++] = active.get(i);
-				continue;
-			}
-			for (SkillBonus b : active.get(i).getBonuses()) {
-				for (SkillBonus bb : type.getBonuses()) {
-					if ((bb.getSkillId() == b.getSkillId()) || (b.getSkillId() == Skills.STRENGTH || b.getSkillId() == Skills.ATTACK) && (bb.getSkillId() == Skills.MAGIC || bb.getSkillId() == Skills.RANGE) || (b.getSkillId() == Skills.RANGE || b.getSkillId() == Skills.MAGIC) && (bb.getSkillId() == Skills.ATTACK || bb.getSkillId() == Skills.STRENGTH) || (b.getSkillId() == Skills.DEFENCE && bb.getSkillId() == Skills.DEFENCE)) {
-						remove[index++] = active.get(i);
-					}
-				}
-			}
-		}
-		for (int i = 0; i < index; i++) {
-			remove[i].toggle(player, false);
-		}
-	}
+        final List<PrayerType> active = player.getPrayer().getActive();
+        final PrayerType[] remove = new PrayerType[active.size() + 10];
+        int index = 0;
+        for (int i = 0; i < active.size(); i++) {
+            if (active.get(i).getRestriction() == type.getRestriction() || active.get(i).getSecondRestriction() != null && type.getSecondRestriction() != null && active.get(i).getSecondRestriction() == type.getSecondRestriction()) {
+                remove[index++] = active.get(i);
+                continue;
+            }
+            for (SkillBonus b : active.get(i).getBonuses()) {
+                for (SkillBonus bb : type.getBonuses()) {
+                    if ((bb.getSkillId() == b.getSkillId()) || (b.getSkillId() == Skills.STRENGTH || b.getSkillId() == Skills.ATTACK) && (bb.getSkillId() == Skills.MAGIC || bb.getSkillId() == Skills.RANGE) || (b.getSkillId() == Skills.RANGE || b.getSkillId() == Skills.MAGIC) && (bb.getSkillId() == Skills.ATTACK || bb.getSkillId() == Skills.STRENGTH) || (b.getSkillId() == Skills.DEFENCE && bb.getSkillId() == Skills.DEFENCE)) {
+                        remove[index++] = active.get(i);
+                    }
+                }
+            }
+        }
+        for (int i = 0; i < index; i++) {
+            remove[i].toggle(player, false);
+        }
+    }
 
     /**
      * Method used to iconify the player.
@@ -385,13 +387,13 @@ public enum PrayerType {
      * @return the boolean
      */
     public boolean iconify(final Player player, final int icon) {
-		if (icon == -1) {
-			return false;
-		}
-		player.getAppearance().setHeadIcon(icon);
-		player.getAppearance().sync();
-		return false;
-	}
+        if (icon == -1) {
+            return false;
+        }
+        player.getAppearance().setHeadIcon(icon);
+        player.getAppearance().sync();
+        return false;
+    }
 
     /**
      * Method used to find the next icon in place.
@@ -399,22 +401,22 @@ public enum PrayerType {
      * @param player the player.
      */
     public void findNextIcon(final Player player) {
-		if (!hasIcon(player)) {
-			player.getAppearance().setHeadIcon(-1);
-			player.getAppearance().sync();
-		}
-		if ((this == PROTECT_FROM_MELEE || this == PROTECT_FROM_MISSILES || this == PROTECT_FROM_MAGIC) && player.getPrayer().get(PROTECT_FROM_SUMMONING)) {
-			iconify(player, 7);
-		} else if (this == PROTECT_FROM_SUMMONING) {
-			for (PrayerType t : player.getPrayer().getActive()) {
-				iconify(player, getIcon(player, t));
-			}
-			if (player.getAppearance().getHeadIcon() == 7) {
-				player.getAppearance().setHeadIcon(-1);
-				player.getAppearance().sync();
-			}
-		}
-	}
+        if (!hasIcon(player)) {
+            player.getAppearance().setHeadIcon(-1);
+            player.getAppearance().sync();
+        }
+        if ((this == PROTECT_FROM_MELEE || this == PROTECT_FROM_MISSILES || this == PROTECT_FROM_MAGIC) && player.getPrayer().get(PROTECT_FROM_SUMMONING)) {
+            iconify(player, 7);
+        } else if (this == PROTECT_FROM_SUMMONING) {
+            for (PrayerType t : player.getPrayer().getActive()) {
+                iconify(player, getIcon(player, t));
+            }
+            if (player.getAppearance().getHeadIcon() == 7) {
+                player.getAppearance().setHeadIcon(-1);
+                player.getAppearance().sync();
+            }
+        }
+    }
 
     /**
      * Method used to get the icon value.
@@ -424,26 +426,26 @@ public enum PrayerType {
      * @return the icon.
      */
     public int getIcon(final Player player, final PrayerType type) {
-		List<PrayerType> active = player.getPrayer().getActive();
-		for (int i = 0; i < ICON_CACHE.length; i++) {
-			if (ICON_CACHE[i].length == 2 && type == ((PrayerType) ICON_CACHE[i][0])) {
-				return (int) ICON_CACHE[i][1];
-			} else if (ICON_CACHE[i].length == 3 && type == ((PrayerType) ICON_CACHE[i][0])) {
-				if (active.contains(PROTECT_FROM_SUMMONING)) {
-					return (int) ICON_CACHE[i][2];
-				}
-				return (int) ICON_CACHE[i][1];
-			} else if (ICON_CACHE[i].length == 8 && type == ((PrayerType) ICON_CACHE[i][0])) {
-				for (int k = 2; k < ICON_CACHE[i].length; k++) {
-					if (active.contains(ICON_CACHE[i][k])) {
-						return (int) ICON_CACHE[i][k + 1];
-					}
-				}
-				return (int) ICON_CACHE[i][1];
-			}
-		}
-		return -1;
-	}
+        List<PrayerType> active = player.getPrayer().getActive();
+        for (int i = 0; i < ICON_CACHE.length; i++) {
+            if (ICON_CACHE[i].length == 2 && type == ((PrayerType) ICON_CACHE[i][0])) {
+                return (int) ICON_CACHE[i][1];
+            } else if (ICON_CACHE[i].length == 3 && type == ((PrayerType) ICON_CACHE[i][0])) {
+                if (active.contains(PROTECT_FROM_SUMMONING)) {
+                    return (int) ICON_CACHE[i][2];
+                }
+                return (int) ICON_CACHE[i][1];
+            } else if (ICON_CACHE[i].length == 8 && type == ((PrayerType) ICON_CACHE[i][0])) {
+                for (int k = 2; k < ICON_CACHE[i].length; k++) {
+                    if (active.contains(ICON_CACHE[i][k])) {
+                        return (int) ICON_CACHE[i][k + 1];
+                    }
+                }
+                return (int) ICON_CACHE[i][1];
+            }
+        }
+        return -1;
+    }
 
     /**
      * Method used to check if theres an icon present.
@@ -452,14 +454,14 @@ public enum PrayerType {
      * @return <code>True</code> if theres an icon present.
      */
     public boolean hasIcon(final Player player) {
-		int count = 0;
-		for (PrayerType type : player.getPrayer().getActive()) {
-			if (getIcon(player, type) != -1) {
-				count++;
-			}
-		}
-		return count != 0;
-	}
+        int count = 0;
+        for (PrayerType type : player.getPrayer().getActive()) {
+            if (getIcon(player, type) != -1) {
+                count++;
+            }
+        }
+        return count != 0;
+    }
 
     /**
      * Method used to return the type by the button.
@@ -468,13 +470,13 @@ public enum PrayerType {
      * @return the type.
      */
     public static PrayerType get(int button) {
-		for (PrayerType type : PrayerType.values()) {
-			if (type.getButton() == button) {
-				return type;
-			}
-		}
-		return null;
-	}
+        for (PrayerType type : PrayerType.values()) {
+            if (type.getButton() == button) {
+                return type;
+            }
+        }
+        return null;
+    }
 
     /**
      * Method used to get the melee types.
@@ -482,8 +484,8 @@ public enum PrayerType {
      * @return the types.
      */
     public static PrayerType[] getMeleeTypes() {
-		return getByBonus(Skills.ATTACK, Skills.STRENGTH);
-	}
+        return getByBonus(Skills.ATTACK, Skills.STRENGTH);
+    }
 
     /**
      * Method used to get the rage types.
@@ -491,8 +493,8 @@ public enum PrayerType {
      * @return the types.
      */
     public static PrayerType[] getRangeTypes() {
-		return getByBonus(Skills.RANGE);
-	}
+        return getByBonus(Skills.RANGE);
+    }
 
     /**
      * Method used to get the magic types.
@@ -500,8 +502,8 @@ public enum PrayerType {
      * @return the types.
      */
     public static PrayerType[] getMagicTypes() {
-		return getByBonus(Skills.MAGIC);
-	}
+        return getByBonus(Skills.MAGIC);
+    }
 
     /**
      * Method used to get the prayer types by the bonuses.
@@ -510,20 +512,20 @@ public enum PrayerType {
      * @return the type.
      */
     public static PrayerType[] getByBonus(int... ids) {
-		PrayerType[] types = new PrayerType[values().length];
-		int count = 0;
-		for (PrayerType type : values()) {
-			for (SkillBonus b : type.getBonuses()) {
-				for (int i : ids) {
-					if (i == b.getSkillId()) {
-						types[count] = type;
-						count++;
-					}
-				}
-			}
-		}
-		return types;
-	}
+        PrayerType[] types = new PrayerType[values().length];
+        int count = 0;
+        for (PrayerType type : values()) {
+            for (SkillBonus b : type.getBonuses()) {
+                for (int i : ids) {
+                    if (i == b.getSkillId()) {
+                        types[count] = type;
+                        count++;
+                    }
+                }
+            }
+        }
+        return types;
+    }
 
     /**
      * Gets the secondRestriction.
@@ -531,8 +533,8 @@ public enum PrayerType {
      * @return The secondRestriction.
      */
     public PrayerCategory getSecondRestriction() {
-		return secondRestriction;
-	}
+        return secondRestriction;
+    }
 
     /**
      * Gets the sound.
@@ -540,8 +542,8 @@ public enum PrayerType {
      * @return The sound.
      */
     public Audio getSound() {
-		return sound;
-	}
+        return sound;
+    }
 
     /**
      * Gets defence req.
@@ -549,7 +551,7 @@ public enum PrayerType {
      * @return the defence req
      */
     public int getDefenceReq() {
-		return defenceReq;
-	}
+        return defenceReq;
+    }
 
 }

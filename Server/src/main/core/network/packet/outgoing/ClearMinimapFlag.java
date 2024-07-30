@@ -10,10 +10,11 @@ import core.network.packet.context.PlayerContext;
  */
 public final class ClearMinimapFlag implements OutgoingPacket<PlayerContext> {
 
-	@Override
-	public void send(PlayerContext context) {
-		IoBuffer buffer = new IoBuffer(153);
-		buffer.cypherOpcode(context.getPlayer().getSession().getIsaacPair().getOutput());context.getPlayer().getDetails().getSession().write(buffer);
-	}
+    @Override
+    public void send(PlayerContext context) {
+        IoBuffer buffer = new IoBuffer(153);
+        buffer.cypherOpcode(context.getPlayer().getSession().getIsaacPair().getOutput());
+        context.getPlayer().getDetails().getSession().write(buffer);
+    }
 
 }

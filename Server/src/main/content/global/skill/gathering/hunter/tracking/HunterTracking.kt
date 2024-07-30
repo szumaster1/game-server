@@ -23,8 +23,8 @@ abstract class HunterTracking : OptionHandler() {
     var trailLimit = 0
     var attribute = ""
     var indexAttribute = ""
-    var rewards = Array<Item>(0) { Item(0) }
-    var tunnelEntrances = Array<Location>(0) { Location(0, 0, 0) }
+    var rewards = Array(0) { Item(0) }
+    var tunnelEntrances = Array(0) { Location(0, 0, 0) }
     var initialMap = HashMap<Int, ArrayList<TrailDefinition>>()
     var linkingTrails = ArrayList<TrailDefinition>()
     var experience = 0.0
@@ -56,7 +56,6 @@ abstract class HunterTracking : OptionHandler() {
                 return
             }
             val nextTrail = getLinkingTrail(player)
-            nextTrail
             var offsetUsed = false
             for (i in trail) {
                 if (i.varbit == nextTrail.varbit) {
@@ -77,15 +76,12 @@ abstract class HunterTracking : OptionHandler() {
 
     fun getLinkingTrail(player: Player): TrailDefinition {
         val trail = player.getAttribute(attribute, ArrayList<TrailDefinition>())
-        val previousTrail = trail.get(trail.lastIndex)
+        val previousTrail = trail[trail.lastIndex]
         if (previousTrail.type == TrailType.TUNNEL) {
             val possibleTrails = ArrayList<TrailDefinition>()
             for (trail in linkingTrails) {
                 val invTrail = getTrailInverse(trail, false)
-                if (invTrail.type == TrailType.TUNNEL && previousTrail.endLocation.withinDistance(
-                        invTrail.startLocation, 5
-                    ) && !previousTrail.endLocation.equals(invTrail.startLocation) && previousTrail.varbit != trail.varbit
-                ) {
+                if (invTrail.type == TrailType.TUNNEL && previousTrail.endLocation.withinDistance(invTrail.startLocation, 5) && previousTrail.endLocation != invTrail.startLocation && previousTrail.varbit != trail.varbit) {
                     possibleTrails.add(trail)
                 }
             }
@@ -93,7 +89,7 @@ abstract class HunterTracking : OptionHandler() {
         }
         val possibleTrails = ArrayList<TrailDefinition>()
         for (trail in linkingTrails) {
-            if (trail.startLocation.equals(previousTrail.endLocation) && previousTrail.varbit != trail.varbit) {
+            if (trail.startLocation == previousTrail.endLocation && previousTrail.varbit != trail.varbit) {
                 possibleTrails.add(trail)
             }
         }
@@ -143,7 +139,7 @@ abstract class HunterTracking : OptionHandler() {
 
 
     fun hasTrail(player: Player): Boolean {
-        return player.getAttribute(attribute, null) != null
+        return false
     }
 
 
@@ -168,7 +164,6 @@ abstract class HunterTracking : OptionHandler() {
 
 
     fun updateTrail(player: Player) {
-        player
         val trail = player.getAttribute(attribute, ArrayList<TrailDefinition>())
         val trailIndex = player.getAttribute(indexAttribute, 0)
         for (index in 0..trailIndex) {
@@ -185,14 +180,14 @@ abstract class HunterTracking : OptionHandler() {
         val trail = player.getAttribute(attribute, ArrayList<TrailDefinition>())
         val currentIndex = player.getAttribute(indexAttribute, 0)
         if (!hasTrail(player) && !initialMap.containsKey(node.id)) {
-            player.dialogueInterpreter.sendDialogue("You search but find nothing.")
+            sendDialogue(player, "You search but find nothing.")
             return true
         }
         val currentTrail = if (hasTrail(player)) {
             if (currentIndex < trail.lastIndex) {
-                trail.get(currentIndex + 1)
+                trail[currentIndex + 1]
             } else {
-                trail.get(currentIndex)
+                trail[currentIndex]
             }
         } else {
             TrailDefinition(0, TrailType.LINKING, false, Location(0, 0, 0), Location(0, 0, 0), Location(0, 0, 0))
@@ -201,7 +196,7 @@ abstract class HunterTracking : OptionHandler() {
 
             "attack" -> {
                 if (!hasNooseWand(player)) {
-                    player.dialogueInterpreter.sendDialogue("You need a noose wand to catch the kebbit.")
+                    sendDialogue(player, "You need a noose wand to catch the kebbit.")
                     return true
                 }
                 if (currentIndex == trail.lastIndex && currentTrail.endLocation.equals(node.location)) {
@@ -214,25 +209,22 @@ abstract class HunterTracking : OptionHandler() {
             "inspect", "search" -> {
                 if (!hasTrail(player)) {
                     if (player.skills.getLevel(Skills.HUNTER) < requiredLevel) {
-                        player.dialogueInterpreter.sendDialogue("You need a hunter level of $requiredLevel to track these.")
+                        sendDialogue(player, "You need a hunter level of $requiredLevel to track these.")
                         return true
                     }
                     generateTrail(node.asScenery(), player)
                     updateTrail(player)
                 } else {
-                    if (currentTrail.triggerObjectLocation.equals(node.location) || (currentIndex == trail.lastIndex && currentTrail.endLocation.equals(
-                            node.location
-                        ))
-                    ) {
+                    if (currentTrail.triggerObjectLocation == node.location || (currentIndex == trail.lastIndex && currentTrail.endLocation.equals(node.location))) {
                         if (currentIndex == trail.lastIndex) {
-                            player.dialogueInterpreter.sendDialogue("It looks like something is moving around in there.")
+                            sendDialogue(player, "It looks like something is moving around in there.")
                         } else {
-                            player.dialogueInterpreter.sendDialogue("You discover some tracks nearby.")
+                            sendDialogue(player, "You discover some tracks nearby.")
                             player.incrementAttribute(indexAttribute)
                             updateTrail(player)
                         }
                     } else {
-                        player.dialogueInterpreter.sendDialogue("You search but find nothing of interest.")
+                        sendDialogue(player, "You search but find nothing of interest.")
                     }
                 }
             }

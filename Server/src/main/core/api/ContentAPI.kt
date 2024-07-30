@@ -355,7 +355,10 @@ fun addItemOrBank(player: Player, id: Int, amount: Int = 1) {
             sendMessage(player, colorize("%RThe ${item.name} has been sent to your secondary bank."))
         } else {
             GroundItemManager.create(item, player)
-            sendMessage(player, colorize("%RAs your inventory and bank account(s) are all full, the ${item.name} has been placed on the ground under your feet. Don't forget to grab it. (Also consider cleaning out some stuff, maybe? I mean, Jesus!)"))
+            sendMessage(
+                player,
+                colorize("%RAs your inventory and bank account(s) are all full, the ${item.name} has been placed on the ground under your feet. Don't forget to grab it. (Also consider cleaning out some stuff, maybe? I mean, Jesus!)")
+            )
         }
     }
 }
@@ -1017,7 +1020,11 @@ fun openDialogue(player: Player, dialogue: Any, vararg args: Any) {
         is Int -> player.dialogueInterpreter.open(dialogue, *args)
         is DialogueFile -> player.dialogueInterpreter.open(dialogue, *args)
         is SkillDialogueHandler -> dialogue.open()
-        else -> log(ContentAPI::class.java, Log.ERR, "Invalid object type passed to openDialogue() -> ${dialogue.javaClass.simpleName}")
+        else -> log(
+            ContentAPI::class.java,
+            Log.ERR,
+            "Invalid object type passed to openDialogue() -> ${dialogue.javaClass.simpleName}"
+        )
     }
 }
 

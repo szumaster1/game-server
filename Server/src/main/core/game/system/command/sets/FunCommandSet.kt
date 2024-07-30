@@ -3,6 +3,7 @@ package core.game.system.command.sets
 import content.global.handlers.item.SpadeDigListener
 import content.region.misc.handlers.tutorial.CharacterDesign
 import core.api.*
+import core.api.consts.Sounds
 import core.game.dialogue.DialogueFile
 import core.game.node.entity.combat.ImpactHandler
 import core.game.node.entity.npc.NPC
@@ -20,7 +21,6 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 import org.json.simple.JSONObject
-import core.api.consts.Sounds
 import java.awt.HeadlessException
 import java.awt.Toolkit
 import java.awt.datatransfer.StringSelection

@@ -1,4 +1,5 @@
 package core.game.bots
+
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.appearance.Gender
 import core.game.node.entity.skill.Skills
@@ -778,6 +779,7 @@ class AIPBuilder {
             Item(14605) //Santa costume boots
         )
     )
+
     companion object {
 
         fun create(l: Location?): AIPlayer {
@@ -798,6 +800,7 @@ class AIPBuilder {
             p.controler = player
             return p
         }
+
         fun RandomAfkPlayer(loc: Location?) {
             val bot = AIPlayer(loc!!)
             bot.appearance.gender = if (RandomFunction.random(3) == 1) Gender.FEMALE else Gender.MALE
@@ -809,23 +812,19 @@ class AIPBuilder {
             bot.getSkills().setStaticLevel(Skills.HITPOINTS, RandomFunction.getRandom(99))
             bot.getSkills().updateCombatLevel()
             bot.appearance.sync()
-            //set orientation?
         }
+
         fun immersiveSpawns() {
-            //Edge
             RandomAfkPlayer(Location(3094, 3491))
             RandomAfkPlayer(Location(3094, 3493))
             RandomAfkPlayer(Location(3092, 3497))
-            //GE
             RandomAfkPlayer(Location(3160, 3492))
             RandomAfkPlayer(Location(3161, 3491))
             RandomAfkPlayer(Location(3165, 3483))
             RandomAfkPlayer(Location(3168, 3485))
             RandomAfkPlayer(Location(3165, 3485))
             RandomAfkPlayer(Location(3164, 3493))
-            //Varrock Ge bank
             RandomAfkPlayer(Location(3189, 3439))
-            //Home Bank
             RandomAfkPlayer(Location(2099, 3918))
         }
     }

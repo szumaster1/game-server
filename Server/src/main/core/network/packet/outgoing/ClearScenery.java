@@ -13,26 +13,28 @@ import core.network.packet.context.BuildSceneryContext;
  */
 public final class ClearScenery implements OutgoingPacket<BuildSceneryContext> {
 
-	/**
-	 * Writes the packet.
-	 * @param buffer The buffer.
-	 * @param object The object.
-	 */
-	public static IoBuffer write(IoBuffer buffer, Scenery object) {
-		Location l = object.getLocation();
-		/*
-		 * Opcode
-		 */
+    /**
+     * Writes the packet.
+     *
+     * @param buffer The buffer.
+     * @param object The object.
+     */
+    public static IoBuffer write(IoBuffer buffer, Scenery object) {
+        Location l = object.getLocation();
+        /*
+         * Opcode
+         */
         buffer.put(195).putC((object.getType() << 2) + (object.getRotation() & 3)).put((l.getChunkOffsetX() << 4) | (l.getChunkOffsetY() & 0x7));
-		return buffer;
-	}
+        return buffer;
+    }
 
-	@Override
-	public void send(BuildSceneryContext context) {
-		Player player = context.getPlayer();
-		Scenery o = context.getScenery();
-		IoBuffer buffer = write(UpdateAreaPosition.getBuffer(player, o.getLocation().getChunkBase()), o);
-		buffer.cypherOpcode(context.getPlayer().getSession().getIsaacPair().getOutput());player.getSession().write(buffer);
+    @Override
+    public void send(BuildSceneryContext context) {
+        Player player = context.getPlayer();
+        Scenery o = context.getScenery();
+        IoBuffer buffer = write(UpdateAreaPosition.getBuffer(player, o.getLocation().getChunkBase()), o);
+        buffer.cypherOpcode(context.getPlayer().getSession().getIsaacPair().getOutput());
+        player.getSession().write(buffer);
 
-	}
+    }
 }

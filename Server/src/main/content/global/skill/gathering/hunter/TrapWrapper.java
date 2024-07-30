@@ -16,50 +16,21 @@ import java.util.List;
  * The Trap wrapper.
  */
 public final class TrapWrapper {
-
-
     private final List<Item> items = new ArrayList<>(10);
-
-
     private final Player player;
-
-
     private final Traps type;
-
-
     private NetTrapSetting.NetTrap netType;
-
-
     private final int originalId;
-
-
     private Scenery object;
-
-
     private Scenery secondary;
-
-
     private TrapHook hook;
-
-
     private TrapNode reward;
-
-
     private boolean smoked;
-
-
     private boolean baited;
-
-
     private boolean failed;
-
-
     private int busyTicks;
-
-
     private int ticks;
     private final HunterManager instance;
-
 
     /**
      * Instantiates a new Trap wrapper.
@@ -85,9 +56,9 @@ public final class TrapWrapper {
      * @return the boolean
      */
     public boolean cycle() {
-        if (isTimeUp() && type.getSettings().clear(this, 0)) {
+        if (isTimeUp() && type.settings.clear(this, 0)) {
             if (!isCaught()) {
-                player.sendMessage(type.getSettings().getTimeUpMessage());
+                player.sendMessage(type.settings.getTimeUpMessage());
             }
             return true;
         }
@@ -137,7 +108,7 @@ public final class TrapWrapper {
             player.sendMessage("This trap has already been baited.");
             return;
         }
-        if (!type.getSettings().hasBait(bait)) {
+        if (!type.settings.hasBait(bait)) {
             player.sendMessage("You can't use that on this trap.");
             return;
         }
@@ -339,7 +310,7 @@ public final class TrapWrapper {
      */
     public void setReward(TrapNode reward) {
         this.reward = reward;
-        this.addItem(reward.getRewards());
+        this.addItem(reward.rewards);
     }
 
 

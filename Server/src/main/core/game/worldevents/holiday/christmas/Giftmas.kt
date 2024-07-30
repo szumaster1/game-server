@@ -1,25 +1,24 @@
 package core.game.worldevents.holiday.christmas
 
-import core.api.*
-import core.game.event.EventHook
-import core.game.event.XPGainEvent
-import core.game.node.entity.Entity
-import core.game.node.entity.player.Player
-import core.tools.RandomFunction
-import org.json.simple.JSONObject
-import core.api.consts.Items
 import core.ServerStore
 import core.ServerStore.Companion.getBoolean
 import core.ServerStore.Companion.getInt
-import core.api.Event
+import core.api.*
+import core.api.consts.Items
 import core.api.utils.WeightBasedTable
 import core.api.utils.WeightedItem
-import core.game.worldevents.WorldEvents
+import core.game.event.EventHook
+import core.game.event.XPGainEvent
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
+import core.game.node.entity.Entity
+import core.game.node.entity.player.Player
 import core.game.system.command.Privilege
 import core.game.world.repository.Repository
+import core.game.worldevents.WorldEvents
+import core.tools.RandomFunction
 import core.tools.colorize
+import org.json.simple.JSONObject
 
 class Giftmas : Commands, StartupListener, LoginListener, InteractionListener {
     override fun startup() {
@@ -48,7 +47,8 @@ class Giftmas : Commands, StartupListener, LoginListener, InteractionListener {
                 addItem(player, loot.id, loot.amount)
                 return@on true
             }
-        } catch (ignored: Exception) {}
+        } catch (ignored: Exception) {
+        }
 
         for (player in Repository.players)
             player.hook(Event.XpGained, XpGainHook)
@@ -60,7 +60,7 @@ class Giftmas : Commands, StartupListener, LoginListener, InteractionListener {
     }
 
     override fun defineCommands() {
-        define("toggle-giftmas", Privilege.ADMIN, "", "Toggles the giftmas christmas event.") {player, _ ->
+        define("toggle-giftmas", Privilege.ADMIN, "", "Toggles the giftmas christmas event.") { player, _ ->
             val enabled = checkActive()
             getArchive()["active"] = !enabled
             notify(player, "Giftmas is now ${if (enabled) "DISABLED" else "ENABLED"}.")
@@ -95,7 +95,7 @@ class Giftmas : Commands, StartupListener, LoginListener, InteractionListener {
                 sendMessage(player, MESSAGE_DAILYXP_REACHED_SKILLING)
         }
 
-        private fun getDailyGifts(player: Player, wasCombat: Boolean) : Int {
+        private fun getDailyGifts(player: Player, wasCombat: Boolean): Int {
             val archive = if (wasCombat) "daily-xmas-gifts-combat" else "daily-xmas-gifts-skilling"
             return ServerStore.getArchive(archive).getInt(player.name)
         }
@@ -113,15 +113,17 @@ class Giftmas : Commands, StartupListener, LoginListener, InteractionListener {
         private val DAILY_LIMIT_SKILLING = 15
         private val DAILY_LIMIT_COMBAT = 5
 
-        private fun getArchive() : JSONObject {
+        private fun getArchive(): JSONObject {
             val mainArchive = WorldEvents.getArchive()
             if (!mainArchive.containsKey("giftmas"))
                 mainArchive["giftmas"] = JSONObject()
             return mainArchive["giftmas"] as JSONObject
         }
 
-        private val MESSAGE_DAILYXP_REACHED_SKILLING = colorize("%RYou have reached your daily limit of presents from skilling!")
-        private val MESSAGE_DAILYXP_REACHED_COMBAT = colorize("%RYou have reached your daily limit of presents from combat!")
+        private val MESSAGE_DAILYXP_REACHED_SKILLING =
+            colorize("%RYou have reached your daily limit of presents from skilling!")
+        private val MESSAGE_DAILYXP_REACHED_COMBAT =
+            colorize("%RYou have reached your daily limit of presents from combat!")
         private val MESSAGE_PRESENT_GRANTED = colorize("%GYou find a present while training!")
         val MBOX_LOOT = WeightBasedTable.create(
             WeightedItem(Items.TOY_HORSEY_2520, 1, 1, 0.025),

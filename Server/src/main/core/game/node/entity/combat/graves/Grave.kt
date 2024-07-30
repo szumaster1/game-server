@@ -1,6 +1,7 @@
 package core.game.node.entity.combat.graves
 
 import core.api.clearHintIcon
+import core.api.consts.NPCs
 import core.api.registerHintIcon
 import core.api.sendMessage
 import core.game.node.entity.npc.AbstractNPC
@@ -15,7 +16,6 @@ import core.plugin.Initializable
 import core.tools.colorize
 import core.tools.secondsToTicks
 import core.tools.ticksToSeconds
-import core.api.consts.NPCs
 
 @Initializable
 class Grave : AbstractNPC {
@@ -26,9 +26,9 @@ class Grave : AbstractNPC {
 
     var ticksRemaining = -1
 
-    constructor() : super(NPCs.GRAVESTONE_6571, Location.create(0,0,0), false)
+    constructor() : super(NPCs.GRAVESTONE_6571, Location.create(0, 0, 0), false)
     private constructor(id: Int, location: Location) : super(id, location)
-    
+
     override fun construct(id: Int, location: Location, vararg objects: Any): AbstractNPC {
         return Grave(id, location)
     }
@@ -49,7 +49,7 @@ class Grave : AbstractNPC {
 
         this.ownerUid = player.details.uid
         this.ownerUsername = player.username
-        this.location = player.getAttribute("/save:original-loc",location)
+        this.location = player.getAttribute("/save:original-loc", location)
         this.isRespawn = false
         this.isWalks = false
         this.isNeverWalks = true
@@ -86,7 +86,10 @@ class Grave : AbstractNPC {
         }
 
         GraveController.activeGraves[ownerUid] = this
-        sendMessage(player, colorize("%RBecause of your current gravestone, you have ${type.durationMinutes} minutes to get your items back."))
+        sendMessage(
+            player,
+            colorize("%RBecause of your current gravestone, you have ${type.durationMinutes} minutes to get your items back.")
+        )
     }
 
     fun setupFromJsonParams(playerUid: Int, ticks: Int, location: Location, items: Array<Item>, username: String) {
@@ -154,7 +157,7 @@ class Grave : AbstractNPC {
         clearHintIcon(owner)
     }
 
-    fun getItems() : Array<GroundItem> {
+    fun getItems(): Array<GroundItem> {
         return this.items.toTypedArray()
     }
 
@@ -164,7 +167,7 @@ class Grave : AbstractNPC {
             .replace("@mins", getFormattedTimeRemaining())
     }
 
-    fun getFormattedTimeRemaining() : String {
+    fun getFormattedTimeRemaining(): String {
         val seconds = ticksToSeconds(ticksRemaining)
         val timeQty = if (seconds / 60 > 0) seconds / 60 else seconds
         val timeUnit = (if (seconds / 60 > 0) "minute" else "second") + if (timeQty > 1) "s" else ""

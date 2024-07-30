@@ -1,17 +1,17 @@
 package core.game.interaction;
 
-import core.game.event.UseWithEvent;
 import core.cache.def.impl.SceneryDefinition;
+import core.game.event.UseWithEvent;
 import core.game.node.Node;
 import core.game.node.entity.impl.PulseType;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
 import core.game.node.scenery.Scenery;
-import core.tools.Log;
 import core.game.system.task.Pulse;
 import core.game.world.map.Location;
 import core.plugin.Plugin;
+import core.tools.Log;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -71,7 +71,7 @@ public abstract class UseWithHandler implements Plugin<Object> {
      *
      * @param allowedNodes the allowed nodes
      */
-    public UseWithHandler(ArrayList<Integer> allowedNodes){
+    public UseWithHandler(ArrayList<Integer> allowedNodes) {
         this.allowedNodes = allowedNodes.stream().mapToInt(i -> i).toArray();
     }
 
@@ -80,7 +80,7 @@ public abstract class UseWithHandler implements Plugin<Object> {
      *
      * @param allowedNodes the allowed nodes
      */
-    public void setAllowedNodes(ArrayList<Integer> allowedNodes){
+    public void setAllowedNodes(ArrayList<Integer> allowedNodes) {
         this.allowedNodes = allowedNodes.stream().mapToInt(i -> i).toArray();
     }
 
@@ -201,7 +201,7 @@ public abstract class UseWithHandler implements Plugin<Object> {
                     return true;
                 }
             }, PulseType.STANDARD);
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -221,7 +221,7 @@ public abstract class UseWithHandler implements Plugin<Object> {
         final SceneryDefinition definition = SceneryDefinition.forId(wrapper);
         final List<Integer> list = new ArrayList<>(20);
         if (definition.getChildrenIds() == null) {
-            log(this.getClass(), Log.ERR,  "Null child wrapper in option handler wrapperId=" + wrapper);
+            log(this.getClass(), Log.ERR, "Null child wrapper in option handler wrapperId=" + wrapper);
             return new int[]{wrapper};
         }
         for (int child : definition.getChildrenIds()) {

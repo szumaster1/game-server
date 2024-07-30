@@ -5,10 +5,10 @@ package core.services.mysql;
  */
 public class Database {
 
-	private String host;
-	private String name;
-	private String username;
-	private String password;
+    private String host;
+    private String name;
+    private String username;
+    private String password;
 
     /**
      * Instantiates a new Database.
@@ -19,11 +19,11 @@ public class Database {
      * @param password the password
      */
     public Database(String host, String name, String username, String password) {
-		this.host = host;
-		this.name = name;
-		this.username = username;
-		this.password = password;
-	}
+        this.host = host;
+        this.name = name;
+        this.username = username;
+        this.password = password;
+    }
 
     /**
      * Host string.
@@ -31,8 +31,8 @@ public class Database {
      * @return the string
      */
     public String host() {
-		return host;
-	}
+        return host;
+    }
 
     /**
      * Name string.
@@ -40,8 +40,8 @@ public class Database {
      * @return the string
      */
     public String name() {
-		return name;
-	}
+        return name;
+    }
 
     /**
      * Username string.
@@ -49,8 +49,8 @@ public class Database {
      * @return the string
      */
     public String username() {
-		return username;
-	}
+        return username;
+    }
 
     /**
      * Password string.
@@ -58,7 +58,7 @@ public class Database {
      * @return the string
      */
     public String password() {
-		return password;
-	}
+        return password;
+    }
 
 }

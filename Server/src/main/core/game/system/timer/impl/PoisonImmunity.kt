@@ -1,12 +1,17 @@
 package core.game.system.timer.impl
 
-import core.game.system.timer.*
-import core.api.*
-import core.tools.*
+import core.api.consts.Sounds
+import core.api.playAudio
+import core.api.removeTimer
+import core.api.sendMessage
 import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
-import org.json.simple.*
-import core.api.consts.Sounds
+import core.game.system.timer.PersistTimer
+import core.game.system.timer.RSTimer
+import core.game.system.timer.TimerFlag
+import core.tools.colorize
+import core.tools.secondsToTicks
+import org.json.simple.JSONObject
 
 /**
  * A timer that replicates the behavior of poison immunity mechanics. Runs every tick.

@@ -1,8 +1,8 @@
 package core.game.system.command
 
 import core.game.node.entity.player.Player
-import core.plugin.Plugin
 import core.game.world.repository.Repository
+import core.plugin.Plugin
 
 /**
  * Represents a command plugin that can be linked to a command set.

@@ -11,10 +11,11 @@ import core.network.packet.context.GameMessageContext;
  */
 public class GameMessage implements OutgoingPacket<GameMessageContext> {
 
-	@Override
-	public void send(GameMessageContext context) {
-		IoBuffer buffer = new IoBuffer(70, PacketHeader.BYTE);
-		buffer.putString(context.getMessage());
-		buffer.cypherOpcode(context.getPlayer().getSession().getIsaacPair().getOutput());context.getPlayer().getSession().write(buffer);
-	}
+    @Override
+    public void send(GameMessageContext context) {
+        IoBuffer buffer = new IoBuffer(70, PacketHeader.BYTE);
+        buffer.putString(context.getMessage());
+        buffer.cypherOpcode(context.getPlayer().getSession().getIsaacPair().getOutput());
+        context.getPlayer().getSession().write(buffer);
+    }
 }

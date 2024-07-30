@@ -9,7 +9,8 @@ import core.tools.RandomFunction
  * Handles combat swings with switching combat styles.
  * @author Ceikry, Emperor
  */
-open class MultiSwingHandler(meleeDistance: Boolean, vararg attacks: SwitchAttack) : CombatSwingHandler(CombatStyle.RANGE) {
+open class MultiSwingHandler(meleeDistance: Boolean, vararg attacks: SwitchAttack) :
+    CombatSwingHandler(CombatStyle.RANGE) {
     /**
      * The attacks available.
      */

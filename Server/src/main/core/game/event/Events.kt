@@ -1,5 +1,8 @@
 package core.game.event
 
+import content.global.activity.jobs.JobType
+import content.global.skill.combat.magic.TeleportMethod
+import content.region.misc.handlers.zanaris.FairyRing
 import core.game.component.Component
 import core.game.dialogue.Dialogue
 import core.game.node.Node
@@ -10,9 +13,6 @@ import core.game.node.entity.player.link.TeleportManager.TeleportType
 import core.game.node.entity.player.link.prayer.PrayerType
 import core.game.node.item.Item
 import core.game.world.map.Location
-import content.global.activity.jobs.JobType
-import content.region.misc.handlers.zanaris.FairyRing
-import content.global.skill.combat.magic.TeleportMethod
 
 data class ResourceProducedEvent(val itemId: Int, val amount: Int, val source: Node, val original: Int = -1) : Event
 data class NPCKillEvent(val npc: NPC) : Event
@@ -42,9 +42,9 @@ data class ItemShopSellEvent(val itemId: Int, val amount: Int, val currency: Ite
 data class JobAssignmentEvent(val jobType: JobType, val employerNpc: NPC) : Event
 data class FairyRingDialEvent(val fairyRing: FairyRing) : Event
 data class VarbitUpdateEvent(val offset: Int, val value: Int) : Event
-data class DynamicSkillLevelChangeEvent(val skillId: Int, val oldValue: Int, val newValue: Int): Event
+data class DynamicSkillLevelChangeEvent(val skillId: Int, val oldValue: Int, val newValue: Int) : Event
 data class SummoningPointsRechargeEvent(val obelisk: Node) : Event
 data class PrayerPointsRechargeEvent(val altar: Node) : Event
 data class XPGainEvent(val skillId: Int, val amount: Double) : Event
-data class PrayerActivatedEvent (val type: PrayerType) : Event
-data class PrayerDeactivatedEvent (val type: PrayerType) : Event
+data class PrayerActivatedEvent(val type: PrayerType) : Event
+data class PrayerDeactivatedEvent(val type: PrayerType) : Event

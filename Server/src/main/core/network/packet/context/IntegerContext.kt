@@ -5,7 +5,7 @@ import core.network.packet.Context
 
 /**
  * The Integer context.
- * @author 'Vexia
+ * @author Vexia
  */
 class IntegerContext(private val player: Player, integer: Int) : Context {
     var integer: Int = 0

@@ -2,6 +2,7 @@ package content.region.misthalin.handlers.stronghold.playersafety
 
 import core.api.*
 import core.api.consts.Items
+import core.api.utils.PlayerCamera
 import core.game.activity.Cutscene
 import core.game.component.Component
 import core.game.global.action.DoorActionHandler
@@ -321,9 +322,7 @@ class PlayerSafetyListener : InteractionListener {
                         rotateCamera(player.location.localX + rotationMapping[component.id]!![0], player.location.localY + rotationMapping[component.id]!![1], 245, speed = 50)
                     }
 
-                    1 -> {
-                        resetCamera()
-                    }
+                    1 -> PlayerCamera(player).reset()
                 }
             }
 

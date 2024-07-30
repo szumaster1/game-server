@@ -1,10 +1,10 @@
 package core.game.node.entity.combat.graves
 
 import core.api.*
-import core.game.interaction.InterfaceListener
-import core.game.node.item.Item
 import core.api.consts.Components
 import core.api.consts.Items
+import core.game.interaction.InterfaceListener
+import core.game.node.item.Item
 
 class GravePurchaseInterface : InterfaceListener {
     val BUTTON_CONFIRM = 34
@@ -13,7 +13,7 @@ class GravePurchaseInterface : InterfaceListener {
     val CURRENT_GRAVE_VARBIT = 4190
 
     override fun defineInterfaceListeners() {
-        onOpen (Components.GRAVESTONE_SHOP_652) {player, _ ->
+        onOpen(Components.GRAVESTONE_SHOP_652) { player, _ ->
             val userType = GraveController.getGraveType(player).ordinal
             setVarbit(player, AVAILABLE_GRAVES_VARBIT, AVAILABLE_GRAVES_BITFIELD)
             setVarbit(player, CURRENT_GRAVE_VARBIT, userType)
@@ -25,12 +25,12 @@ class GravePurchaseInterface : InterfaceListener {
             return@onOpen true
         }
 
-        on (Components.GRAVESTONE_SHOP_652, BUTTON_CONFIRM) { player, _, _, _, slot, _ ->
+        on(Components.GRAVESTONE_SHOP_652, BUTTON_CONFIRM) { player, _, _, _, slot, _ ->
             val selectedType = GraveType.values()[slot]
             val userType = GraveController.getGraveType(player)
             val activeGrave = GraveController.activeGraves[player.details.uid]
 
-            if (activeGrave != null){
+            if (activeGrave != null) {
                 sendDialogue(player, "You cannot change graves while you have a grave active.")
                 return@on true
             }

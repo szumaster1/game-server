@@ -1,12 +1,14 @@
 package core.game.system.timer.impl
 
-import core.game.system.timer.*
-import core.api.*
+import core.api.sendMessage
 import core.game.node.entity.Entity
-import core.game.node.entity.player.Player
 import core.game.node.entity.combat.ImpactHandler
+import core.game.node.entity.player.Player
+import core.game.system.timer.PersistTimer
+import core.game.system.timer.RSTimer
+import core.game.system.timer.TimerFlag
 import core.game.world.repository.Repository
-import org.json.simple.*
+import org.json.simple.JSONObject
 
 /**
  * A timer that replicates the behavior of poison mechanics. Runs every 30 ticks.
@@ -53,7 +55,7 @@ class Poison : PersistTimer(
     }
 
     override fun run(entity: Entity): Boolean {
-        if(!entity.isPoisonImmune) {
+        if (!entity.isPoisonImmune) {
             entity.impactHandler.manualHit(
                 damageSource,
                 getDamageFromSeverity(severity--),

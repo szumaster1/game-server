@@ -1,41 +1,29 @@
 package core.worker
 
-import core.api.sendMessage
 import com.google.protobuf.Message
+import core.ServerConstants
+import core.api.sendMessage
+import core.auth.UserAccountInfo
 import core.game.system.communication.ClanEntry
 import core.game.system.communication.ClanRank
 import core.game.system.communication.ClanRepository
 import core.game.system.communication.CommunicationInfo
+import core.game.world.GameWorld
+import core.game.world.repository.Repository
 import core.network.packet.PacketRepository
 import core.network.packet.context.ContactContext
 import core.network.packet.context.MessageContext
 import core.network.packet.outgoing.CommunicationMessage
 import core.network.packet.outgoing.ContactPackets
+import core.tools.SystemLogger
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import proto.management.ClanJoinNotification
-import proto.management.ClanLeaveNotification
-import proto.management.ClanMessage
-import proto.management.FriendUpdate
-import proto.management.JoinClanRequest
-import proto.management.LeaveClanRequest
-import proto.management.PlayerStatusUpdate
-import proto.management.PrivateMessage
-import proto.management.RequestClanInfo
-import proto.management.RequestContactInfo
-import proto.management.SendClanInfo
+import proto.management.*
 import proto.management.SendClanInfo.ClanMember
-import proto.management.SendContactInfo
 import proto.management.SendContactInfo.Contact
-import core.ServerConstants
-import core.auth.UserAccountInfo
-import core.tools.SystemLogger
-import core.game.world.GameWorld
-import core.game.world.repository.Repository
-import java.util.Deque
-import java.util.LinkedList
+import java.util.*
 import java.util.concurrent.BlockingDeque
 import java.util.concurrent.LinkedBlockingDeque
 
@@ -54,7 +42,8 @@ object ManagementEvents {
             try {
                 handleEvent(event)
                 handleLoggingFor(event)
-            } catch (ignored: Exception) {}
+            } catch (ignored: Exception) {
+            }
         }
     }
 
@@ -74,7 +63,8 @@ object ManagementEvents {
         }
     }
 
-    @JvmStatic fun publish(event: Message) {
+    @JvmStatic
+    fun publish(event: Message) {
         eventQueue.offer(event)
     }
 
@@ -129,7 +119,10 @@ object ManagementEvents {
                     p.communication.contacts[contact.username] = c
                     c.worldId = contact.world
                     c.rank = ClanRank.values()[contact.rank]
-                    PacketRepository.send(ContactPackets::class.java, ContactContext(p, contact.username, contact.world))
+                    PacketRepository.send(
+                        ContactPackets::class.java,
+                        ContactContext(p, contact.username, contact.world)
+                    )
                 }
 
                 for (blocked in event.blockedList) {
@@ -159,7 +152,16 @@ object ManagementEvents {
                 }
 
                 if (receiver != null) {
-                    PacketRepository.send(CommunicationMessage::class.java, MessageContext(receiver, event.sender, event.rank, MessageContext.RECEIVE_MESSAGE, event.message))
+                    PacketRepository.send(
+                        CommunicationMessage::class.java,
+                        MessageContext(
+                            receiver,
+                            event.sender,
+                            event.rank,
+                            MessageContext.RECEIVE_MESSAGE,
+                            event.message
+                        )
+                    )
                 }
             }
 
@@ -291,7 +293,16 @@ object ManagementEvents {
                 val clan = ClanRepository.get(event.clanName)
 
                 for (member in clan.players.filter { it.player != null }) {
-                    PacketRepository.send(CommunicationMessage::class.java, MessageContext(member.player, event.sender, event.rank, MessageContext.CLAN_MESSAGE, event.message))
+                    PacketRepository.send(
+                        CommunicationMessage::class.java,
+                        MessageContext(
+                            member.player,
+                            event.sender,
+                            event.rank,
+                            MessageContext.CLAN_MESSAGE,
+                            event.message
+                        )
+                    )
                 }
             }
 
@@ -336,7 +347,7 @@ object ManagementEvents {
     }
 
     private fun queueUntilClanInfo(clanName: String, message: Message) {
-        val queue = waitingOnClanInfo.getOrPut(clanName) {LinkedList()}
+        val queue = waitingOnClanInfo.getOrPut(clanName) { LinkedList() }
         queue.offer(message)
 
         if (hasRequestedClanInfo[clanName] == null) {

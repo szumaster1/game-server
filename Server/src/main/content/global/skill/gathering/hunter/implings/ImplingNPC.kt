@@ -63,8 +63,10 @@ class ImplingNPC : NPCBehavior(*Impling.getIds()) {
     override fun onDeathFinished(self: NPC, killer: Entity) {
         if (!isPuroImpling(self))
             ImplingController.deregister(self)
-        else if (self.originalId != self.id) { //if this is a spawner that transformed
-            self.reTransform() //turn back into spawner NPC
+        else if (self.originalId != self.id) {
+            //if this is a spawner that transformed
+            self.reTransform()
+            //turn back into spawner NPC
             self.behavior = forId(self.id)
         }
     }

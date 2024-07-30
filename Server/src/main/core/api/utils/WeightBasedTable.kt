@@ -4,13 +4,13 @@ import content.data.tables.*
 import content.global.activity.treasuretrails.ClueLevel
 import content.global.activity.treasuretrails.clue.ClueScrollPlugin
 import content.global.handlers.item.equipment.gloves.FOGGlovesManager
+import core.api.consts.Items
 import core.api.inEquipment
 import core.cache.def.impl.ItemDefinition
 import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.tools.RandomFunction
-import core.api.consts.Items
 
 open class WeightBasedTable : ArrayList<WeightedItem>() {
     var totalWeight = 0.0
@@ -89,6 +89,7 @@ open class WeightBasedTable : ArrayList<WeightedItem>() {
                         HerbDropTable.retrieve(receiver)
                     }
                 }
+
                 SLOT_GDT -> GemDropTable.retrieve(receiver)
                 SLOT_RSDT -> RareSeedDropTable.retrieve(receiver)
                 SLOT_ASDT -> AllotmentSeedDropTable.retrieve(receiver)

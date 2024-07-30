@@ -16,9 +16,11 @@ class PositionedGraphicContext(
     @JvmField var offsetX: Int,
     @JvmField var offsetY: Int
 ) : Context {
-    
-    @JvmField var sceneX: Int = location.getSceneX(player.playerFlags.lastSceneGraph)
-    @JvmField var sceneY: Int = location.getSceneY(player.playerFlags.lastSceneGraph)
+
+    @JvmField
+    var sceneX: Int = location.getSceneX(player.playerFlags.lastSceneGraph)
+    @JvmField
+    var sceneY: Int = location.getSceneY(player.playerFlags.lastSceneGraph)
 
     override fun getPlayer(): Player = player
 }

@@ -2,6 +2,8 @@ package core.game.node.entity.combat.graves
 
 import core.ServerStore
 import core.api.*
+import core.api.consts.Items
+import core.api.consts.Sounds
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.Node
@@ -22,8 +24,6 @@ import core.tools.colorize
 import core.tools.secondsToTicks
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
-import core.api.consts.Items
-import core.api.consts.Sounds
 import java.util.Map
 import kotlin.math.min
 
@@ -40,7 +40,7 @@ class GraveController : PersistWorld, TickListener, InteractionListener, Command
             player.details.rights = Rights.REGULAR_PLAYER
             setAttribute(player, "tutorial:complete", true)
             player.impactHandler.manualHit(player, player.skills.lifepoints, ImpactHandler.HitsplatType.NORMAL)
-            notify(player, "Grave created at ${player.getAttribute("/save:original-loc",player.location)}")
+            notify(player, "Grave created at ${player.getAttribute("/save:original-loc", player.location)}")
             GameWorld.Pulser.submit(object : Pulse(15) {
                 override fun pulse(): Boolean {
                     player.details.rights = Rights.ADMINISTRATOR

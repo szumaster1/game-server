@@ -2,15 +2,13 @@ package core.game.node.entity.player.link.quest;
 
 import core.game.node.entity.player.Player;
 import core.tools.Log;
-import core.tools.SystemLogger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.util.HashMap;
-import java.util.TreeMap;
 import java.util.Map;
+import java.util.TreeMap;
 
-import static core.api.ContentAPIKt.log;
 import static core.api.ContentAPIKt.*;
 
 

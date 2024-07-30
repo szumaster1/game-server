@@ -2,7 +2,6 @@ package core.api
 
 import core.game.node.item.Item
 import java.util.*
-import kotlin.collections.ArrayList
 
 fun IntProgression.toIntArray(): IntArray {
     val result = IntArray((last - first) / step + 1)

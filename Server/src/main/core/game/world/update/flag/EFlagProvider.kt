@@ -1,10 +1,10 @@
 package core.game.world.update.flag
 
-import core.network.packet.IoBuffer
+import core.api.logWithStack
 import core.game.node.entity.Entity
-import kotlin.reflect.*
-import core.api.*
-import core.tools.*
+import core.network.packet.IoBuffer
+import core.tools.Log
+import kotlin.reflect.KType
 
 enum class EFlagType {
     Player,
@@ -32,6 +32,9 @@ open class EFlagProvider(
     }
 
     fun logInvalidType(context: Any?, expected: KType) {
-        logWithStack(this::class.java, Log.ERR, "Invalid context of type ${context?.let { it::class.java.simpleName } ?: "null"} passed to ${this::class.simpleName} flag which expects $expected.")
+        logWithStack(
+            this::class.java,
+            Log.ERR,
+            "Invalid context of type ${context?.let { it::class.java.simpleName } ?: "null"} passed to ${this::class.simpleName} flag which expects $expected.")
     }
 }

@@ -16,8 +16,8 @@ import java.util.ArrayList
 
 class Discord : TickListener {
     override fun tick() {
-        if (!removeList.isEmpty()) {
-            pendingMessages.removeAll(removeList)
+        if (removeList.isNotEmpty()) {
+            pendingMessages.removeAll(removeList.toSet())
             removeList.clear()
         }
 

@@ -1,7 +1,6 @@
 package core.game.component;
 
 
-import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -53,7 +52,6 @@ public final class ComponentDefinition {
      * @param walkable the walkable
      * @param tabIndex the tab index
      * @return the component definition
-     * @throws SQLException The exception if thrown.
      */
     public ComponentDefinition parse(String type, String walkable, String tabIndex) {
         setType(InterfaceType.values()[Integer.parseInt(type)]);

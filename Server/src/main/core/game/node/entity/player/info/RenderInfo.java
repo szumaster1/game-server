@@ -11,55 +11,54 @@ import java.util.List;
 
 /**
  * Holds a player's render information.
- *
  * @author Emperor
  */
 public final class RenderInfo {
 
-	/**
-	 * The player.
-	 */
-	private final Player player;
+    /**
+     * The player.
+     */
+    private final Player player;
 
-	/**
-	 * The list of local players.
-	 */
-	private List<Player> localPlayers = new LinkedList<Player>();
+    /**
+     * The list of local players.
+     */
+    private List<Player> localPlayers = new LinkedList<Player>();
 
-	/**
-	 * The list of local NPCs.
-	 */
-	private List<NPC> localNpcs = new LinkedList<NPC>();
+    /**
+     * The list of local NPCs.
+     */
+    private List<NPC> localNpcs = new LinkedList<NPC>();
 
-	/**
-	 * The appearance time stamps (in millisecond).
-	 */
-	private final long[] appearanceStamps = new long[ServerConstants.MAX_PLAYERS];
+    /**
+     * The appearance time stamps (in millisecond).
+     */
+    private final long[] appearanceStamps = new long[ServerConstants.MAX_PLAYERS];
 
-	/**
-	 * The entities requiring a mask update.
-	 */
-	private Entity[] maskUpdates = new Entity[256];
+    /**
+     * The entities requiring a mask update.
+     */
+    private Entity[] maskUpdates = new Entity[256];
 
-	/**
-	 * The mask update count.
-	 */
-	private int maskUpdateCount;
+    /**
+     * The mask update count.
+     */
+    private int maskUpdateCount;
 
-	/**
-	 * The last location of this player.
-	 */
-	private Location lastLocation;
+    /**
+     * The last location of this player.
+     */
+    private Location lastLocation;
 
-	/**
-	 * If the player has just logged in.
-	 */
-	private boolean onFirstCycle = true;
+    /**
+     * If the player has just logged in.
+     */
+    private boolean onFirstCycle = true;
 
-	/**
-	 * If the player has prepared appearance data this cycle.
-	 */
-	private boolean preparedAppearance;
+    /**
+     * If the player has prepared appearance data this cycle.
+     */
+    private boolean preparedAppearance;
 
     /**
      * Constructs a new {@code RenderInfo} {@code Object}.
@@ -67,17 +66,17 @@ public final class RenderInfo {
      * @param player The player.
      */
     public RenderInfo(Player player) {
-		this.player = player;
-	}
+        this.player = player;
+    }
 
     /**
      * Updates the player rendering information.
      */
     public void updateInformation() {
-		onFirstCycle = false;
-		lastLocation = player.getLocation();
-		preparedAppearance = false;
-	}
+        onFirstCycle = false;
+        lastLocation = player.getLocation();
+        preparedAppearance = false;
+    }
 
     /**
      * Registers an entity requiring a mask update.
@@ -85,8 +84,8 @@ public final class RenderInfo {
      * @param entity The entity.
      */
     public void registerMaskUpdate(Entity entity) {
-		maskUpdates[maskUpdateCount++] = entity;
-	}
+        maskUpdates[maskUpdateCount++] = entity;
+    }
 
     /**
      * Gets the localNpcs.
@@ -94,8 +93,8 @@ public final class RenderInfo {
      * @return The localNpcs.
      */
     public List<NPC> getLocalNpcs() {
-		return localNpcs;
-	}
+        return localNpcs;
+    }
 
     /**
      * Sets the localNpcs.
@@ -103,8 +102,8 @@ public final class RenderInfo {
      * @param localNpcs The localNpcs to set.
      */
     public void setLocalNpcs(List<NPC> localNpcs) {
-		this.localNpcs = localNpcs;
-	}
+        this.localNpcs = localNpcs;
+    }
 
     /**
      * Gets the onFirstCycle.
@@ -112,8 +111,8 @@ public final class RenderInfo {
      * @return The onFirstCycle.
      */
     public boolean isOnFirstCycle() {
-		return onFirstCycle;
-	}
+        return onFirstCycle;
+    }
 
     /**
      * Sets the onFirstCycle.
@@ -121,8 +120,8 @@ public final class RenderInfo {
      * @param onFirstCycle The onFirstCycle to set.
      */
     public void setOnFirstCycle(boolean onFirstCycle) {
-		this.onFirstCycle = onFirstCycle;
-	}
+        this.onFirstCycle = onFirstCycle;
+    }
 
     /**
      * Gets the lastLocation.
@@ -130,8 +129,8 @@ public final class RenderInfo {
      * @return The lastLocation.
      */
     public Location getLastLocation() {
-		return lastLocation;
-	}
+        return lastLocation;
+    }
 
     /**
      * Sets the lastLocation.
@@ -139,8 +138,8 @@ public final class RenderInfo {
      * @param lastLocation The lastLocation to set.
      */
     public void setLastLocation(Location lastLocation) {
-		this.lastLocation = lastLocation;
-	}
+        this.lastLocation = lastLocation;
+    }
 
     /**
      * Gets the localPlayers.
@@ -148,8 +147,8 @@ public final class RenderInfo {
      * @return The localPlayers.
      */
     public List<Player> getLocalPlayers() {
-		return localPlayers;
-	}
+        return localPlayers;
+    }
 
     /**
      * Sets the localPlayers.
@@ -157,8 +156,8 @@ public final class RenderInfo {
      * @param localPlayers The localPlayers to set.
      */
     public void setLocalPlayers(List<Player> localPlayers) {
-		this.localPlayers = localPlayers;
-	}
+        this.localPlayers = localPlayers;
+    }
 
     /**
      * Gets the appearanceStamps.
@@ -166,8 +165,8 @@ public final class RenderInfo {
      * @return The appearanceStamps.
      */
     public long[] getAppearanceStamps() {
-		return appearanceStamps;
-	}
+        return appearanceStamps;
+    }
 
     /**
      * Gets the maskUpdateCount.
@@ -175,8 +174,8 @@ public final class RenderInfo {
      * @return The maskUpdateCount.
      */
     public int getMaskUpdateCount() {
-		return maskUpdateCount;
-	}
+        return maskUpdateCount;
+    }
 
     /**
      * Sets the maskUpdateCount.
@@ -184,8 +183,8 @@ public final class RenderInfo {
      * @param maskUpdateCount The maskUpdateCount to set.
      */
     public void setMaskUpdateCount(int maskUpdateCount) {
-		this.maskUpdateCount = maskUpdateCount;
-	}
+        this.maskUpdateCount = maskUpdateCount;
+    }
 
     /**
      * Gets the maskUpdates.
@@ -193,8 +192,8 @@ public final class RenderInfo {
      * @return The maskUpdates.
      */
     public Entity[] getMaskUpdates() {
-		return maskUpdates;
-	}
+        return maskUpdates;
+    }
 
     /**
      * Sets the maskUpdates.
@@ -202,8 +201,8 @@ public final class RenderInfo {
      * @param maskUpdates The maskUpdates to set.
      */
     public void setMaskUpdates(Entity[] maskUpdates) {
-		this.maskUpdates = maskUpdates;
-	}
+        this.maskUpdates = maskUpdates;
+    }
 
     /**
      * Sets the prepared appearance flag.
@@ -211,8 +210,8 @@ public final class RenderInfo {
      * @param prepared If the player has prepared appearance setting this cycle.
      */
     public void setPreparedAppearance(boolean prepared) {
-		this.preparedAppearance = prepared;
-	}
+        this.preparedAppearance = prepared;
+    }
 
     /**
      * Checks if the player has prepared appearance data this cycle.
@@ -220,6 +219,6 @@ public final class RenderInfo {
      * @return {@code True} if so.
      */
     public boolean preparedAppearance() {
-		return preparedAppearance;
-	}
+        return preparedAppearance;
+    }
 }

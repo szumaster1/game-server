@@ -3,8 +3,8 @@ package core.game.system.command.sets
 import core.game.node.entity.player.Player
 import core.game.system.command.Command
 import core.game.system.command.CommandMapping
-import core.plugin.Plugin
 import core.game.system.command.Privilege
+import core.plugin.Plugin
 import core.tools.colorize
 
 /**
@@ -59,12 +59,14 @@ abstract class CommandSet(val defaultPrivilege: Privilege) : Plugin<Any?> {
         description: String = "",
         handle: (Player, Array<String>) -> Unit
     ) {
-        CommandMapping.register(Command(
-            name = name,
-            privilege = privilege,
-            usage = usage,
-            description = description,
-            handle = handle
-        ))
+        CommandMapping.register(
+            Command(
+                name = name,
+                privilege = privilege,
+                usage = usage,
+                description = description,
+                handle = handle
+            )
+        )
     }
 }

@@ -4,75 +4,80 @@ import java.sql.Date;
 
 /**
  * Represents details of an account to register.
- * @author Vexia
  *
+ * @author Vexia
  */
 public class RegistryDetails {
 
-	/**
-	 * The username.
-	 */
-	private final String username;
+    /**
+     * The username.
+     */
+    private final String username;
 
-	/**
-	 * The password.
-	 */
-	private final String password;
+    /**
+     * The password.
+     */
+    private final String password;
 
-	/**
-	 * The date of birth.
-	 */
-	private final Date birth;
+    /**
+     * The date of birth.
+     */
+    private final Date birth;
 
-	/**
-	 * The country.
-	 */
-	private final int country;
+    /**
+     * The country.
+     */
+    private final int country;
 
-	/**
-	 * Constructs a new {@code RegistryDetails} {@code Object}
-	 * @param username The username to register.
-	 * @param password The password to register.
-	 * @param birth The birth year.
-	 * @param country The country code.
-	 */
-	public RegistryDetails(String username, String password, Date birth, int country) {
-		this.username = username;
-		this.password = password;
-		this.birth = birth;
-		this.country = country;
-	}
+    /**
+     * Constructs a new {@code RegistryDetails} {@code Object}
+     *
+     * @param username The username to register.
+     * @param password The password to register.
+     * @param birth    The birth year.
+     * @param country  The country code.
+     */
+    public RegistryDetails(String username, String password, Date birth, int country) {
+        this.username = username;
+        this.password = password;
+        this.birth = birth;
+        this.country = country;
+    }
 
-	/**
-	 * Gets the username.
-	 * @return the username.
-	 */
-	public String getUsername() {
-		return username;
-	}
+    /**
+     * Gets the username.
+     *
+     * @return the username.
+     */
+    public String getUsername() {
+        return username;
+    }
 
-	/**
-	 * Gets the password.
-	 * @return the password.
-	 */
-	public String getPassword() {
-		return password;
-	}
+    /**
+     * Gets the password.
+     *
+     * @return the password.
+     */
+    public String getPassword() {
+        return password;
+    }
 
-	/**
-	 * Gets the birth.
-	 * @return the birth.
-	 */
-	public Date getBirth() {
-		return birth;
-	}
+    /**
+     * Gets the birth.
+     *
+     * @return the birth.
+     */
+    public Date getBirth() {
+        return birth;
+    }
 
-	/**
-	 * Gets the country.
-	 * @return the country.
-	 */
-	public int getCountry() {
-		return country;
-	}
+    /**
+     * Gets the country.
+     *
+     * @return the country.
+     */
+    public int getCountry() {
+        return country;
+    }
 
 }

@@ -1,9 +1,8 @@
 package core.game.system.command.sets
 
-import core.plugin.Initializable
-import core.game.system.command.Command
+import core.api.setVarp
 import core.game.system.command.Privilege
-import core.api.*
+import core.plugin.Initializable
 
 @Initializable
 class ConfigCommandSet : CommandSet(Privilege.ADMIN) {

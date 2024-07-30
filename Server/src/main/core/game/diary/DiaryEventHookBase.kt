@@ -1,12 +1,12 @@
 package core.game.diary
 
 import core.api.*
+import core.api.Event
 import core.game.event.*
 import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.diary.DiaryType
 import core.game.world.map.zone.ZoneBorders
-import core.api.Event
 
 abstract class DiaryEventHookBase(private val diaryType: DiaryType) : MapArea, LoginListener {
     protected companion object {
@@ -19,8 +19,8 @@ abstract class DiaryEventHookBase(private val diaryType: DiaryType) : MapArea, L
     }
 
     class EventHandler<T : core.game.event.Event>(
-            private val owner: DiaryEventHookBase,
-            private val handler: (Player, T) -> Unit
+        private val owner: DiaryEventHookBase,
+        private val handler: (Player, T) -> Unit
     ) : EventHook<T> {
         override fun process(entity: Entity, event: T) {
             forEligibleEntityDo(entity, event, handler)
@@ -29,8 +29,8 @@ abstract class DiaryEventHookBase(private val diaryType: DiaryType) : MapArea, L
 
     open val areaTasks get() = arrayOf<AreaDiaryTask>()
 
-    final override fun defineAreaBorders(): Array<ZoneBorders>
-        = areaTasks.map { task -> task.zoneBorders }.toTypedArray()
+    final override fun defineAreaBorders(): Array<ZoneBorders> =
+        areaTasks.map { task -> task.zoneBorders }.toTypedArray()
 
     final override fun areaEnter(entity: Entity) {
         if (entity !is Player) return

@@ -5,7 +5,7 @@ import core.cache.crypto.ISAACPair
 
 class LoginInfo(
     var showAds: Boolean, //Unused
-    var windowMode : Int,
+    var windowMode: Int,
     var screenWidth: Int,
     var screenHeight: Int,
     var displayMode: Int,
@@ -20,7 +20,21 @@ class LoginInfo(
 ) {
     companion object {
         fun createDefault(): LoginInfo {
-            return LoginInfo(false, 0, 0, 0, 0, 0, 0, 0, "", "", ISAACPair(ISAACCipher(intArrayOf()), ISAACCipher(intArrayOf())), 0, IntArray(Login.CACHE_INDEX_COUNT))
+            return LoginInfo(
+                false,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                "",
+                "",
+                ISAACPair(ISAACCipher(intArrayOf()), ISAACCipher(intArrayOf())),
+                0,
+                IntArray(Login.CACHE_INDEX_COUNT)
+            )
         }
     }
 

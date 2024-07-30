@@ -3,13 +3,13 @@ package core
 import core.api.log
 import core.game.system.SystemManager
 import core.game.system.SystemState
-import core.network.NioReactor
-import core.tools.TimeStamp
-import kotlinx.coroutines.*
 import core.game.system.config.ServerConfigParser
 import core.game.world.GameWorld
 import core.game.world.repository.Repository
+import core.network.NioReactor
 import core.tools.Log
+import core.tools.TimeStamp
+import kotlinx.coroutines.*
 import java.io.File
 import java.io.FileWriter
 import java.lang.management.ManagementFactory
@@ -68,18 +68,22 @@ object Server {
         }
         //WorldCommunicator.connect()
         log(this::class.java, Log.INFO, GameWorld.settings?.name + " flags " + GameWorld.settings?.toString())
-        log(this::class.java, Log.INFO, GameWorld.settings?.name + " started in " + t.duration(false, "") + " milliseconds.")
+        log(
+            this::class.java,
+            Log.INFO,
+            GameWorld.settings?.name + " started in " + t.duration(false, "") + " milliseconds."
+        )
         val scanner = Scanner(System.`in`)
 
         running = true
         GlobalScope.launch {
-            while(scanner.hasNextLine()){
+            while (scanner.hasNextLine()) {
                 val command = scanner.nextLine()
-                when(command){
+                when (command) {
                     "stop" -> exitProcess(0)
                     "players" -> println("Players online: " + (Repository.LOGGED_IN_PLAYERS.size))
                     "update" -> SystemManager.flag(SystemState.UPDATING)
-                    "help","commands" -> printCommands()
+                    "help", "commands" -> printCommands()
                     "restartworker" -> SystemManager.flag(SystemState.ACTIVE)
 
                 }
@@ -121,7 +125,7 @@ object Server {
         lastHeartbeat = System.currentTimeMillis()
     }
 
-    fun printCommands(){
+    fun printCommands() {
         println("stop - stop the server (saves all accounts and such)")
         println("players - show online player count")
         println("update - initiate an update with a countdown visible to players")

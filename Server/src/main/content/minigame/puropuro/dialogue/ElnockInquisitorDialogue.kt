@@ -169,7 +169,7 @@ class ElnockInquisitorDialogue(player: Player? = null) : Dialogue(player) {
     class ElnockExchangeInterfaceHandler : ComponentPlugin() {
         @Throws(Throwable::class)
         override fun newInstance(arg: Any?): Plugin<Any> {
-            ComponentDefinition.forId(540).plugin = this
+            ComponentDefinition.forId(540)?.plugin = this
             return this
         }
 

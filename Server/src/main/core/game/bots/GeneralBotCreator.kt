@@ -18,7 +18,7 @@ class GBCTick : TickListener {
 }
 
 class GeneralBotCreator {
-    //org/crandor/net/packet/in/InteractionPacket.java <<< This is a very useful class for learning to code bots
+
     constructor(botScript: Script, loc: Location?) {
         botScript.bot = AIPBuilder.create(loc)
         GameWorld.Pulser.submit(BotScriptPulse(botScript))

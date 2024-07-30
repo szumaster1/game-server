@@ -64,11 +64,7 @@ class ModernListeners : SpellListener("modern") {
                 magicLevel = 31,
                 runes = arrayOf(Item(Items.EARTH_RUNE_557), Item(Items.AIR_RUNE_556, 3), Item(Items.LAW_RUNE_563))
             )
-            sendTeleport(
-                player = player,
-                xp = 41.0,
-                location = Location.create(3221, 3219, 0)
-            )
+            sendTeleport(player = player, xp = 41.0, location = Location.create(3221, 3219, 0))
         }
 
         onCast(Modern.FALADOR_TELEPORT, NONE) { player, _ ->
@@ -77,11 +73,7 @@ class ModernListeners : SpellListener("modern") {
                 magicLevel = 37,
                 runes = arrayOf(Item(Items.WATER_RUNE_555), Item(Items.AIR_RUNE_556, 3), Item(Items.LAW_RUNE_563))
             )
-            sendTeleport(
-                player = player,
-                xp = 47.0,
-                location = Location.create(2965, 3378, 0)
-            )
+            sendTeleport(player = player, xp = 47.0, location = Location.create(2965, 3378, 0))
         }
 
         onCast(Modern.CAMELOT_TELEPORT, NONE) { player, _ ->
@@ -90,11 +82,7 @@ class ModernListeners : SpellListener("modern") {
                 magicLevel = 45,
                 runes = arrayOf(Item(Items.AIR_RUNE_556, 5), Item(Items.LAW_RUNE_563))
             )
-            sendTeleport(
-                player = player,
-                xp = 55.5,
-                location = Location.create(2758, 3478, 0)
-            )
+            sendTeleport(player = player, xp = 55.5, location = Location.create(2758, 3478, 0))
             finishDiaryTask(player, DiaryType.SEERS_VILLAGE, 1, 5)
         }
 
@@ -106,11 +94,7 @@ class ModernListeners : SpellListener("modern") {
                 magicLevel = 51,
                 runes = arrayOf(Item(Items.WATER_RUNE_555, 2), Item(Items.LAW_RUNE_563, 2))
             )
-            sendTeleport(
-                player = player,
-                xp = 61.0,
-                location = Location.create(2662, 3307, 0)
-            )
+            sendTeleport(player = player, xp = 61.0, location = Location.create(2662, 3307, 0))
         }
 
         onCast(Modern.WATCHTOWER_TELEPORT, NONE) { player, _ ->
@@ -121,11 +105,7 @@ class ModernListeners : SpellListener("modern") {
                 magicLevel = 58,
                 runes = arrayOf(Item(Items.EARTH_RUNE_557, 2), Item(Items.LAW_RUNE_563, 2))
             )
-            sendTeleport(
-                player = player,
-                xp = 68.0,
-                location = Location.create(2549, 3112, 0)
-            )
+            sendTeleport(player = player, xp = 68.0, location = Location.create(2549, 3112, 0))
         }
 
         onCast(Modern.TROLLHEIM_TELEPORT, NONE) { player, _ ->
@@ -136,26 +116,21 @@ class ModernListeners : SpellListener("modern") {
                 magicLevel = 61,
                 runes = arrayOf(Item(Items.FIRE_RUNE_554, 2), Item(Items.LAW_RUNE_563, 2))
             )
-            sendTeleport(
-                player = player,
-                xp = 68.0,
-                location = Location.create(2891, 3678, 0)
-            )
+            sendTeleport(player = player, xp = 68.0, location = Location.create(2891, 3678, 0))
         }
 
         onCast(Modern.APE_ATOLL_TELEPORT, NONE) { player, _ ->
             if (!hasRequirement(player, "Monkey Madness"))
                 return@onCast
             requires(
-                player = player,
-                magicLevel = 64,
-                runes = arrayOf(Item(Items.FIRE_RUNE_554, 2), Item(Items.WATER_RUNE_555, 2), Item(Items.LAW_RUNE_563, 2), Item(Items.BANANA_1963))
+                player = player, magicLevel = 64, runes = arrayOf(
+                    Item(Items.FIRE_RUNE_554, 2),
+                    Item(Items.WATER_RUNE_555, 2),
+                    Item(Items.LAW_RUNE_563, 2),
+                    Item(Items.BANANA_1963)
+                )
             )
-            sendTeleport(
-                player = player,
-                xp = 74.0,
-                location = Location.create(2754, 2784, 0)
-            )
+            sendTeleport(player = player, xp = 74.0, location = Location.create(2754, 2784, 0))
         }
 
         onCast(Modern.TELEPORT_TO_HOUSE, NONE) { player, _ ->
@@ -199,50 +174,30 @@ class ModernListeners : SpellListener("modern") {
 
         onCast(Modern.BONES_TO_BANANAS, NONE) { player, _ ->
             requires(
-                player = player,
-                magicLevel = 15,
-                runes = arrayOf(Item(Items.EARTH_RUNE_557, 2), Item(Items.WATER_RUNE_555, 2), Item(Items.NATURE_RUNE_561, 1))
+                player = player, magicLevel = 15, runes = arrayOf(
+                    Item(Items.EARTH_RUNE_557, 2),
+                    Item(Items.WATER_RUNE_555, 2),
+                    Item(Items.NATURE_RUNE_561, 1)
+                )
             )
             boneConvert(player, true)
         }
 
         onCast(Modern.BONES_TO_PEACHES, NONE) { player, _ ->
             requires(
-                player = player,
-                magicLevel = 60,
-                runes = arrayOf(Item(Items.EARTH_RUNE_557, 4), Item(Items.WATER_RUNE_555, 4), Item(Items.NATURE_RUNE_561, 2))
+                player = player, magicLevel = 60, runes = arrayOf(
+                    Item(Items.EARTH_RUNE_557, 4),
+                    Item(Items.WATER_RUNE_555, 4),
+                    Item(Items.NATURE_RUNE_561, 2)
+                )
             )
             boneConvert(player, false)
         }
 
-        onCast(
-            Modern.CHARGE_WATER_ORB,
-            OBJECT,
-            Scenery.OBELISK_OF_WATER_2151,
-            3,
-            method = ::chargeOrb
-        )
-        onCast(
-            Modern.CHARGE_EARTH_ORB,
-            OBJECT,
-            Scenery.OBELISK_OF_EARTH_29415,
-            3,
-            method = ::chargeOrb
-        )
-        onCast(
-            Modern.CHARGE_FIRE_ORB,
-            OBJECT,
-            Scenery.OBELISK_OF_FIRE_2153,
-            3,
-            method = ::chargeOrb
-        )
-        onCast(
-            Modern.CHARGE_AIR_ORB,
-            OBJECT,
-            Scenery.OBELISK_OF_AIR_2152,
-            3,
-            method = ::chargeOrb
-        )
+        onCast(Modern.CHARGE_WATER_ORB, OBJECT, Scenery.OBELISK_OF_WATER_2151, 3, method = ::chargeOrb)
+        onCast(Modern.CHARGE_EARTH_ORB, OBJECT, Scenery.OBELISK_OF_EARTH_29415, 3, method = ::chargeOrb)
+        onCast(Modern.CHARGE_FIRE_ORB, OBJECT, Scenery.OBELISK_OF_FIRE_2153, 3, method = ::chargeOrb)
+        onCast(Modern.CHARGE_AIR_ORB, OBJECT, Scenery.OBELISK_OF_AIR_2152, 3, method = ::chargeOrb)
     }
 
     private fun boneConvert(player: Player, bananas: Boolean) {
@@ -252,8 +207,12 @@ class ModernListeners : SpellListener("modern") {
             return
         }
 
-        if (!bananas && !player.savedData.activityData.isBonesToPeaches && !player.getAttribute("tablet-spell", false)) {
-            sendMessage(player,"You can only learn this spell from the Mage Training Arena.")
+        if (!bananas && !player.savedData.activityData.isBonesToPeaches && !player.getAttribute(
+                "tablet-spell",
+                false
+            )
+        ) {
+            sendMessage(player, "You can only learn this spell from the Mage Training Arena.")
             return
         }
 
@@ -301,7 +260,11 @@ class ModernListeners : SpellListener("modern") {
         }
 
         var bar = Bar.forOre(item.id) ?: return
-        if (bar == Bar.IRON && player.inventory.getAmount(Items.COAL_453) >= 2 && player.skills.getLevel(Skills.SMITHING) >= Bar.STEEL.level && player.inventory.contains(Items.IRON_ORE_441, 1)) bar = Bar.STEEL
+        if (bar == Bar.IRON && player.inventory.getAmount(Items.COAL_453) >= 2 && player.skills.getLevel(Skills.SMITHING) >= Bar.STEEL.level && player.inventory.contains(
+                Items.IRON_ORE_441,
+                1
+            )
+        ) bar = Bar.STEEL
 
         if (getStatLevel(player, Skills.SMITHING) < bar.level) {
             sendMessage(player, "You need a smithing level of ${bar.level} to superheat that ore.")
@@ -325,13 +288,8 @@ class ModernListeners : SpellListener("modern") {
     }
 
     fun alchemize(player: Player, item: Item, high: Boolean, explorersRing: Boolean = false): Boolean {
-        if (item.name == "Coins") sendMessage(player, "You can't alchemize something that's already gold!")
-            .also { return false }
-        if ((!item.definition.isTradeable) && (!item.definition.isAlchemizable)) sendMessage(
-            player,
-            "You can't cast this spell on something like that."
-        )
-            .also { return false }
+        if (item.name == "Coins") sendMessage(player, "You can't alchemize something that's already gold!").also { return false }
+        if ((!item.definition.isTradeable) && (!item.definition.isAlchemizable)) sendMessage(player, "You can't cast this spell on something like that.").also { return false }
 
         if (player.zoneMonitor.isInZone("Alchemists' Playground")) {
             sendMessage(player, "You can only alch items from the cupboards!")
@@ -348,13 +306,19 @@ class ModernListeners : SpellListener("modern") {
             player.pulseManager.clear()
         }
 
-
-
         if (explorersRing) {
             visualize(entity = player, anim = LOW_ALCH_ANIM, gfx = EXPLORERS_RING_GFX)
         } else {
 
-            val staves = intArrayOf(Items.STAFF_OF_FIRE_1387, Items.FIRE_BATTLESTAFF_1393, Items.MYSTIC_FIRE_STAFF_1401, Items.LAVA_BATTLESTAFF_3053, Items.MYSTIC_LAVA_STAFF_3054, Items.STEAM_BATTLESTAFF_11736, Items.MYSTIC_STEAM_STAFF_11738)
+            val staves = intArrayOf(
+                Items.STAFF_OF_FIRE_1387,
+                Items.FIRE_BATTLESTAFF_1393,
+                Items.MYSTIC_FIRE_STAFF_1401,
+                Items.LAVA_BATTLESTAFF_3053,
+                Items.MYSTIC_LAVA_STAFF_3054,
+                Items.STEAM_BATTLESTAFF_11736,
+                Items.MYSTIC_STEAM_STAFF_11738
+            )
             if (anyInEquipment(player, *staves)) {
                 visualize(
                     entity = player,
@@ -384,8 +348,8 @@ class ModernListeners : SpellListener("modern") {
 
     private fun sendTeleport(player: Player, xp: Double, location: Location) {
         if (player.isTeleBlocked) {
-            removeAttribute(player,"spell:runes")
-            sendMessage(player,"A magical force prevents you from teleporting.")
+            removeAttribute(player, "spell:runes")
+            sendMessage(player, "A magical force prevents you from teleporting.")
             return
         }
 

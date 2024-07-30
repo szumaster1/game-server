@@ -2,6 +2,7 @@ package core.game.system.command.sets
 
 import content.data.item.ChargedItem
 import core.api.*
+import core.api.consts.Items
 import core.cache.def.impl.ItemDefinition
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
@@ -11,7 +12,6 @@ import core.game.system.command.Privilege
 import core.game.world.GameWorld
 import core.game.world.repository.Repository
 import core.plugin.Initializable
-import core.api.consts.Items
 import kotlin.system.exitProcess
 
 @Initializable
@@ -200,7 +200,11 @@ class SystemCommandSet : CommandSet(Privilege.ADMIN) {
                         victim.equipment.remove(item)
                     }
 
-                    else -> reject(player, "INVALID ITEM LOCATION ENTERED. USE: ", "i, inv, inventory | b, bk, bank | e, equip, equipment")
+                    else -> reject(
+                        player,
+                        "INVALID ITEM LOCATION ENTERED. USE: ",
+                        "i, inv, inventory | b, bk, bank | e, equip, equipment"
+                    )
                 }
 
                 if (amount > totalItemAmount) {
@@ -211,7 +215,11 @@ class SystemCommandSet : CommandSet(Privilege.ADMIN) {
                 notify(victim, "${player.username} removed $amount ${item.name} from your inventory.")
 
             } else {
-                reject(player, "WRONG USAGE. USE removeitem itemLoc target itemID || removeitem itemLoc target itemID amt", "ItemLoc: inv = inventory | equip = equipment | bank |")
+                reject(
+                    player,
+                    "WRONG USAGE. USE removeitem itemLoc target itemID || removeitem itemLoc target itemID amt",
+                    "ItemLoc: inv = inventory | equip = equipment | bank |"
+                )
             }
         }
 

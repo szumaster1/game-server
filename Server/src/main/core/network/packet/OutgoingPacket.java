@@ -10,6 +10,6 @@ public interface OutgoingPacket<Context> {
 	 * Sends the packet.
 	 * @param context The context.
 	 */
-	public void send(Context context);
+	void send(Context context);
 
 }

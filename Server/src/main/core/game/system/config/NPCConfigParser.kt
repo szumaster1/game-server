@@ -1,9 +1,9 @@
 package core.game.system.config
 
-import core.ServerConstants
-import core.cache.def.impl.NPCDefinition
 import content.global.activity.treasuretrails.ClueLevel
+import core.ServerConstants
 import core.api.log
+import core.cache.def.impl.NPCDefinition
 import core.game.node.entity.combat.CombatStyle
 import core.game.node.entity.impl.Animator
 import core.game.world.update.flag.context.Animation

@@ -8,5 +8,4 @@ import core.game.node.entity.player.Player
  * @author Emperor
  */
 class DynamicSceneContext
-
     (player: Player, login: Boolean) : SceneGraphContext(player, login)

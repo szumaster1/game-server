@@ -1,10 +1,10 @@
 package core.cache.def;
 
+import core.game.node.Node;
+import core.tools.StringUtils;
+
 import java.util.HashMap;
 import java.util.Map;
-
-import core.tools.StringUtils;
-import core.game.node.Node;
 
 /**
  * Represent's a node's definitions.

@@ -1,9 +1,12 @@
 package core.game.system.timer.impl
 
-import core.game.system.timer.*
-import core.api.*
+import core.api.hasTimerActive
+import core.api.removeTimer
 import core.game.node.entity.Entity
-import org.json.simple.*
+import core.game.system.timer.PersistTimer
+import core.game.system.timer.RSTimer
+import core.game.system.timer.TimerFlag
+import org.json.simple.JSONObject
 import kotlin.math.min
 
 class HealOverTime : PersistTimer(

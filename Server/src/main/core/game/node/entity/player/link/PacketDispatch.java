@@ -2,22 +2,22 @@ package core.game.node.entity.player.link;
 
 import core.game.node.entity.player.Player;
 import core.game.node.scenery.Scenery;
-import core.game.world.update.flag.context.Graphic;
-import core.tools.Log;
 import core.game.system.task.Pulse;
 import core.game.world.GameWorld;
 import core.game.world.map.Location;
 import core.game.world.map.RegionManager;
+import core.game.world.update.flag.EntityFlag;
 import core.game.world.update.flag.chunk.AnimateObjectUpdateFlag;
 import core.game.world.update.flag.context.Animation;
-import core.game.world.update.flag.EntityFlag;
+import core.game.world.update.flag.context.Graphic;
 import core.network.packet.PacketRepository;
 import core.network.packet.context.*;
 import core.network.packet.context.DisplayModelContext.ModelType;
 import core.network.packet.outgoing.*;
+import core.tools.Log;
 
 import static core.api.ContentAPIKt.log;
-import static core.api.ContentAPIKt.*;
+import static core.api.ContentAPIKt.setVarp;
 
 
 /**
@@ -28,15 +28,15 @@ import static core.api.ContentAPIKt.*;
  */
 public final class PacketDispatch {
 
-	/**
-	 * The instance of the {@code Player}.
-	 */
-	private final Player player;
+    /**
+     * The instance of the {@code Player}.
+     */
+    private final Player player;
 
-	/**
-	 * The player context.
-	 */
-	private final PlayerContext context;
+    /**
+     * The player context.
+     */
+    private final PlayerContext context;
 
     /**
      * Constructs a new {@code PacketDispatch} {@code Object}.
@@ -44,9 +44,9 @@ public final class PacketDispatch {
      * @param player the player.
      */
     public PacketDispatch(Player player) {
-		this.player = player;
-		this.context = new PlayerContext(player);
-	}
+        this.player = player;
+        this.context = new PlayerContext(player);
+    }
 
     /**
      * Send varp.
@@ -54,9 +54,9 @@ public final class PacketDispatch {
      * @param index the index
      * @param value the value
      */
-    public void sendVarp (int index, int value) {
-		PacketRepository.send(Config.class, new ConfigContext(player, index, value));
-	}
+    public void sendVarp(int index, int value) {
+        PacketRepository.send(Config.class, new ConfigContext(player, index, value));
+    }
 
     /**
      * Send varc update.
@@ -74,18 +74,18 @@ public final class PacketDispatch {
      * @param message The game message.
      */
     public void sendMessage(String message) {
-		if (message == null) {
-			return;
-		}
-		if (player.getAttribute("chat_filter") != null && !message.contains("<col=CC6600>") && !message.contains("<col=FFFF00>")) {
-			return;
-		}
-		if (message.length() > 255) {
-			log(this.getClass(), Log.ERR,  "Message length out of bounds (" + message + ")!");
-			message = message.substring(0, 255);
-		}
-		PacketRepository.send(GameMessage.class, new GameMessageContext(player, message));
-	}
+        if (message == null) {
+            return;
+        }
+        if (player.getAttribute("chat_filter") != null && !message.contains("<col=CC6600>") && !message.contains("<col=FFFF00>")) {
+            return;
+        }
+        if (message.length() > 255) {
+            log(this.getClass(), Log.ERR, "Message length out of bounds (" + message + ")!");
+            message = message.substring(0, 255);
+        }
+        PacketRepository.send(GameMessage.class, new GameMessageContext(player, message));
+    }
 
     /**
      * Sends game messages.
@@ -93,10 +93,10 @@ public final class PacketDispatch {
      * @param messages the messages.
      */
     public void sendMessages(final String... messages) {
-		for (String message : messages) {
-			sendMessage(message);
-		}
-	}
+        for (String message : messages) {
+            sendMessage(message);
+        }
+    }
 
     /**
      * Method used to send a game message on a tick.
@@ -105,14 +105,14 @@ public final class PacketDispatch {
      * @param ticks   the ticks.
      */
     public void sendMessage(final String message, int ticks) {
-		GameWorld.getPulser().submit(new Pulse(ticks, player) {
-			@Override
-			public boolean pulse() {
-				sendMessage(message);
-				return true;
-			}
-		});
-	}
+        GameWorld.getPulser().submit(new Pulse(ticks, player) {
+            @Override
+            public boolean pulse() {
+                sendMessage(message);
+                return true;
+            }
+        });
+    }
 
     /**
      * Send a access mask.
@@ -124,8 +124,8 @@ public final class PacketDispatch {
      * @param length       The access mask length.
      */
     public void sendIfaceSettings(int settingsHash, int childId, int interfaceId, int offset, int length) {
-		PacketRepository.send(AccessMask.class, new AccessMaskContext(player, settingsHash, childId, interfaceId, offset, length));
-	}
+        PacketRepository.send(AccessMask.class, new AccessMaskContext(player, settingsHash, childId, interfaceId, offset, length));
+    }
 
     /**
      * Send a windowns pane.
@@ -134,8 +134,8 @@ public final class PacketDispatch {
      * @param type     The windowns pane type.
      */
     public void sendWindowsPane(int windowId, int type) {
-		PacketRepository.send(WindowsPane.class, new WindowsPaneContext(player, windowId, type));
-	}
+        PacketRepository.send(WindowsPane.class, new WindowsPaneContext(player, windowId, type));
+    }
 
     /**
      * sends the system update packet.
@@ -143,8 +143,8 @@ public final class PacketDispatch {
      * @param time the amount of time.
      */
     public void sendSystemUpdate(int time) {
-		PacketRepository.send(SystemUpdatePacket.class, new SystemUpdateContext(player, time));
-	}
+        PacketRepository.send(SystemUpdatePacket.class, new SystemUpdateContext(player, time));
+    }
 
     /**
      * Sends music packet.
@@ -152,8 +152,8 @@ public final class PacketDispatch {
      * @param musicId The music id.
      */
     public void sendMusic(int musicId) {
-		PacketRepository.send(MusicPacket.class, new MusicContext(player, musicId));
-	}
+        PacketRepository.send(MusicPacket.class, new MusicContext(player, musicId));
+    }
 
     /**
      * Sends the temporary music packet.
@@ -161,8 +161,8 @@ public final class PacketDispatch {
      * @param musicId The music id.
      */
     public void sendTempMusic(int musicId) {
-		PacketRepository.send(MusicPacket.class, new MusicContext(player, musicId, true));
-	}
+        PacketRepository.send(MusicPacket.class, new MusicContext(player, musicId, true));
+    }
 
     /**
      * Sends a client script config to the player.
@@ -173,8 +173,8 @@ public final class PacketDispatch {
      * @param parameters the parameters
      */
     public void sendScriptConfig(int id, int value, String types, Object... parameters) {
-		PacketRepository.send(CSConfig.class, new CSConfigContext(player, id, value, types, parameters));
-	}
+        PacketRepository.send(CSConfig.class, new CSConfigContext(player, id, value, types, parameters));
+    }
 
     /**
      * Send a run script.
@@ -184,8 +184,8 @@ public final class PacketDispatch {
      * @param objects The run scripts objects.
      */
     public void sendRunScript(int id, String string, Object... objects) {
-		PacketRepository.send(RunScriptPacket.class, new RunScriptContext(player, id, string, objects));
-	}
+        PacketRepository.send(RunScriptPacket.class, new RunScriptContext(player, id, string, objects));
+    }
 
     /**
      * Send a StringPacket.
@@ -195,22 +195,22 @@ public final class PacketDispatch {
      * @param lineId      The line id.
      */
     public void sendString(String string, int interfaceId, int lineId) {
-		PacketRepository.send(StringPacket.class, new StringContext(player, string, interfaceId, lineId));
-	}
+        PacketRepository.send(StringPacket.class, new StringContext(player, string, interfaceId, lineId));
+    }
 
     /**
      * Send a update packet for the amount of run energy.
      */
     public void sendRunEnergy() {
-		PacketRepository.send(RunEnergy.class, getContext());
-	}
+        PacketRepository.send(RunEnergy.class, getContext());
+    }
 
     /**
      * Send the logout packet.
      */
     public void sendLogout() {
-		PacketRepository.send(LogoutPacket.class, getContext());
-	}
+        PacketRepository.send(LogoutPacket.class, getContext());
+    }
 
     /**
      * Send the interface animation packet.
@@ -220,8 +220,8 @@ public final class PacketDispatch {
      * @param childId     The child id.
      */
     public void sendAnimationInterface(int animationId, int interfaceId, int childId) {
-		PacketRepository.send(AnimateInterface.class, new AnimateInterfaceContext(player, animationId, interfaceId, childId));
-	}
+        PacketRepository.send(AnimateInterface.class, new AnimateInterfaceContext(player, animationId, interfaceId, childId));
+    }
 
     /**
      * Send the player on interface packet.
@@ -230,8 +230,8 @@ public final class PacketDispatch {
      * @param childId     The child id.
      */
     public void sendPlayerOnInterface(int interfaceId, int childId) {
-		PacketRepository.send(DisplayModel.class, new DisplayModelContext(player, interfaceId, childId));
-	}
+        PacketRepository.send(DisplayModel.class, new DisplayModelContext(player, interfaceId, childId));
+    }
 
     /**
      * Send the non-player character on interface packet.
@@ -241,8 +241,8 @@ public final class PacketDispatch {
      * @param childId     The child id.
      */
     public void sendNpcOnInterface(int npcId, int interfaceId, int childId) {
-		PacketRepository.send(DisplayModel.class, new DisplayModelContext(player, npcId, interfaceId, childId));
-	}
+        PacketRepository.send(DisplayModel.class, new DisplayModelContext(player, npcId, interfaceId, childId));
+    }
 
     /**
      * Send model on interface.
@@ -252,9 +252,9 @@ public final class PacketDispatch {
      * @param childId     the child id
      * @param zoom        the zoom
      */
-    public void sendModelOnInterface(int modelID, int interfaceId, int childId, int zoom){
-		PacketRepository.send(DisplayModel.class, new DisplayModelContext(player, ModelType.MODEL, modelID,zoom,interfaceId,childId,new Object()));
-	}
+    public void sendModelOnInterface(int modelID, int interfaceId, int childId, int zoom) {
+        PacketRepository.send(DisplayModel.class, new DisplayModelContext(player, ModelType.MODEL, modelID, zoom, interfaceId, childId, new Object()));
+    }
 
     /**
      * Send angle on interface.
@@ -265,9 +265,9 @@ public final class PacketDispatch {
      * @param pitch       the pitch
      * @param yaw         the yaw
      */
-    public void sendAngleOnInterface(int interfaceId, int childId, int zoom, int pitch, int yaw){
-		PacketRepository.send(InterfaceSetAngle.class, new DefaultContext(player, pitch, zoom, yaw, interfaceId, childId));
-	}
+    public void sendAngleOnInterface(int interfaceId, int childId, int zoom, int pitch, int yaw) {
+        PacketRepository.send(InterfaceSetAngle.class, new DefaultContext(player, pitch, zoom, yaw, interfaceId, childId));
+    }
 
     /**
      * Send the item on interface packet.
@@ -278,8 +278,8 @@ public final class PacketDispatch {
      * @param childId     The child id.
      */
     public void sendItemOnInterface(int itemId, int amount, int interfaceId, int childId) {
-		PacketRepository.send(DisplayModel.class, new DisplayModelContext(player, ModelType.ITEM, itemId, amount, interfaceId, childId));
-	}
+        PacketRepository.send(DisplayModel.class, new DisplayModelContext(player, ModelType.ITEM, itemId, amount, interfaceId, childId));
+    }
 
     /**
      * Send the item on interface packet.
@@ -290,8 +290,8 @@ public final class PacketDispatch {
      * @param childId     The child id.
      */
     public void sendItemZoomOnInterface(int itemId, int zoom, int interfaceId, int childId) {
-		PacketRepository.send(DisplayModel.class, new DisplayModelContext(player, ModelType.ITEM, itemId, zoom, interfaceId, childId, zoom));
-	}
+        PacketRepository.send(DisplayModel.class, new DisplayModelContext(player, ModelType.ITEM, itemId, zoom, interfaceId, childId, zoom));
+    }
 
     /**
      * Send inter set items options script.
@@ -304,8 +304,8 @@ public final class PacketDispatch {
      * @param options     the options
      */
     public void sendInterSetItemsOptionsScript(int interfaceId, int componentId, int key, int width, int height, String... options) {
-		sendInterSetItemsOptionsScript(interfaceId, componentId, key, false, width, height, options);
-	}
+        sendInterSetItemsOptionsScript(interfaceId, componentId, key, false, width, height, options);
+    }
 
     /**
      * Send inter set items options script.
@@ -319,19 +319,19 @@ public final class PacketDispatch {
      * @param options     the options
      */
     public void sendInterSetItemsOptionsScript(int interfaceId, int componentId, int key, boolean negativeKey, int width, int height, String... options) {
-		Object[] parameters = new Object[6 + options.length];
-		int index = 0;
-		for (int count = options.length - 1; count >= 0; count--)
-			parameters[index++] = options[count];
-		parameters[index++] = -1; // dunno but always this
-		parameters[index++] = 0;// dunno but always this, maybe startslot?
-		parameters[index++] = height;
-		parameters[index++] = width;
-		parameters[index++] = key;
-		parameters[index++] = interfaceId << 16 | componentId;
-		sendRunScript(negativeKey ? 695 : 150, parameters);
-		// name says*/
-	}
+        Object[] parameters = new Object[6 + options.length];
+        int index = 0;
+        for (int count = options.length - 1; count >= 0; count--)
+            parameters[index++] = options[count];
+        parameters[index++] = -1; // dunno but always this
+        parameters[index++] = 0;// dunno but always this, maybe startslot?
+        parameters[index++] = height;
+        parameters[index++] = width;
+        parameters[index++] = key;
+        parameters[index++] = interfaceId << 16 | componentId;
+        sendRunScript(negativeKey ? 695 : 150, parameters);
+        // name says*/
+    }
 
     /**
      * Send run script.
@@ -340,17 +340,17 @@ public final class PacketDispatch {
      * @param params   the params
      */
     public void sendRunScript(int scriptId, Object... params) {
-		String parameterTypes = "";
-		if (params != null) {
-			for (int count = params.length - 1; count >= 0; count--) {
-				if (params[count] instanceof String)
-					parameterTypes += "s"; // string
-				else
-					parameterTypes += "i"; // integer
-			}
-		}
-		sendRunScript(scriptId, parameterTypes, params);
-	}
+        String parameterTypes = "";
+        if (params != null) {
+            for (int count = params.length - 1; count >= 0; count--) {
+                if (params[count] instanceof String)
+                    parameterTypes += "s"; // string
+                else
+                    parameterTypes += "i"; // integer
+            }
+        }
+        sendRunScript(scriptId, parameterTypes, params);
+    }
 
 
     /**
@@ -363,8 +363,8 @@ public final class PacketDispatch {
      * @param childId     The child id.
      */
     public void sendItemZoomOnInterface(int itemId, int amount, int zoom, int interfaceId, int childId) {
-		PacketRepository.send(DisplayModel.class, new DisplayModelContext(player, ModelType.ITEM, itemId, amount, interfaceId, childId, zoom));
-	}
+        PacketRepository.send(DisplayModel.class, new DisplayModelContext(player, ModelType.ITEM, itemId, amount, interfaceId, childId, zoom));
+    }
 
     /**
      * Send the interface config packet.
@@ -374,8 +374,8 @@ public final class PacketDispatch {
      * @param hide        If the component should be hidden.
      */
     public void sendInterfaceConfig(int interfaceId, int childId, boolean hide) {
-		PacketRepository.send(InterfaceConfig.class, new InterfaceConfigContext(player, interfaceId, childId, hide));
-	}
+        PacketRepository.send(InterfaceConfig.class, new InterfaceConfigContext(player, interfaceId, childId, hide));
+    }
 
     /**
      * Send a animation update flag mask.
@@ -383,8 +383,8 @@ public final class PacketDispatch {
      * @param id The animation id.
      */
     public void sendAnimation(int id) {
-                player.getUpdateMasks().register(EntityFlag.Animate, new Animation(id));
-	}
+        player.getUpdateMasks().register(EntityFlag.Animate, new Animation(id));
+    }
 
     /**
      * Send a animation update flag mask.
@@ -393,8 +393,8 @@ public final class PacketDispatch {
      * @param delay The animation delay.
      */
     public void sendAnimation(int id, int delay) {
-                player.getUpdateMasks().register(EntityFlag.Animate, new Animation(id, delay));
-	}
+        player.getUpdateMasks().register(EntityFlag.Animate, new Animation(id, delay));
+    }
 
     /**
      * Send a graphic update flag mask.
@@ -402,8 +402,8 @@ public final class PacketDispatch {
      * @param id The graphic id.
      */
     public void sendGraphic(int id) {
-                player.getUpdateMasks().register(EntityFlag.SpotAnim, new Graphic(id));
-	}
+        player.getUpdateMasks().register(EntityFlag.SpotAnim, new Graphic(id));
+    }
 
     /**
      * Sends the positioned graphic.
@@ -414,8 +414,8 @@ public final class PacketDispatch {
      * @param location the location.
      */
     public void sendPositionedGraphic(int id, int height, int delay, Location location) {
-		PacketRepository.send(PositionedGraphic.class, new PositionedGraphicContext(player, new Graphic(id, height, delay), location, 0, 0));
-	}
+        PacketRepository.send(PositionedGraphic.class, new PositionedGraphicContext(player, new Graphic(id, height, delay), location, 0, 0));
+    }
 
     /**
      * Sends a global graphic.
@@ -424,20 +424,20 @@ public final class PacketDispatch {
      * @param location the location.
      */
     public void sendGlobalPositionGraphic(int id, Location location) {
-		for (Player player : RegionManager.getLocalPlayers(location)) {
-			player.getPacketDispatch().sendPositionedGraphic(id, 0, 0, location);
-		}
-	}
+        for (Player player : RegionManager.getLocalPlayers(location)) {
+            player.getPacketDispatch().sendPositionedGraphic(id, 0, 0, location);
+        }
+    }
 
     /**
      * Sends the positioned graphic.
      *
-     * @param graphic the graphic.
+     * @param graphic  the graphic.
      * @param location the location.
      */
     public void sendPositionedGraphics(Graphic graphic, Location location) {
-		PacketRepository.send(PositionedGraphic.class, new PositionedGraphicContext(player, graphic, location, 0, 0));
-	}
+        PacketRepository.send(PositionedGraphic.class, new PositionedGraphicContext(player, graphic, location, 0, 0));
+    }
 
     /**
      * Method used to send an object animation.
@@ -446,10 +446,10 @@ public final class PacketDispatch {
      * @param animation the animation.
      */
     public void sendSceneryAnimation(Scenery object, Animation animation) {
-		animation = new Animation(animation.getId(), animation.getDelay(), animation.getPriority());
-		animation.setObject(object);
-		RegionManager.getRegionChunk(object.getLocation()).flag(new AnimateObjectUpdateFlag(animation));
-	}
+        animation = new Animation(animation.getId(), animation.getDelay(), animation.getPriority());
+        animation.setObject(object);
+        RegionManager.getRegionChunk(object.getLocation()).flag(new AnimateObjectUpdateFlag(animation));
+    }
 
     /**
      * Method used to send an object animation.
@@ -459,13 +459,13 @@ public final class PacketDispatch {
      * @param global    if the animation is global or not.
      */
     public void sendSceneryAnimation(Scenery object, Animation animation, boolean global) {
-		if (global) {
-			sendSceneryAnimation(object, animation);
-			return;
-		}
-		animation.setObject(object);
-		PacketRepository.send(AnimateScenery.class, new AnimateSceneryContext(player, animation));
-	}
+        if (global) {
+            sendSceneryAnimation(object, animation);
+            return;
+        }
+        animation.setObject(object);
+        PacketRepository.send(AnimateScenery.class, new AnimateSceneryContext(player, animation));
+    }
 
     /**
      * Send a graphic update flag mask.
@@ -474,8 +474,8 @@ public final class PacketDispatch {
      * @param height The graphic height.
      */
     public void sendGraphic(int id, int height) {
-                player.getUpdateMasks().register(EntityFlag.SpotAnim, new Graphic(id, height));
-	}
+        player.getUpdateMasks().register(EntityFlag.SpotAnim, new Graphic(id, height));
+    }
 
     /*
      * Send var client.
@@ -485,8 +485,8 @@ public final class PacketDispatch {
      * @param cs2   the cs 2
      *
      *  public void sendVarClient(int id, int value, boolean cs2) {
-	 *  	PacketRepository.send(Config.class, new ConfigContext(player, id, value, cs2));
-	 *  }
+     *  	PacketRepository.send(Config.class, new ConfigContext(player, id, value, cs2));
+     *  }
      */
 
     /**
@@ -496,9 +496,9 @@ public final class PacketDispatch {
      * @param offset    the offset
      * @param value     the value
      */
-    public void sendLeftShiftedVarbit(int varpIndex, int offset, int value){
-		setVarp(player, varpIndex, (value << offset));
-	}
+    public void sendLeftShiftedVarbit(int varpIndex, int offset, int value) {
+        setVarp(player, varpIndex, (value << offset));
+    }
 
     /**
      * Send right shifted varbit.
@@ -507,9 +507,9 @@ public final class PacketDispatch {
      * @param offset    the offset
      * @param value     the value
      */
-    public void sendRightShiftedVarbit(int varpIndex, int offset, int value){
-		setVarp(player, varpIndex, (value >> offset));
-	}
+    public void sendRightShiftedVarbit(int varpIndex, int offset, int value) {
+        setVarp(player, varpIndex, (value >> offset));
+    }
 
 
     /**
@@ -518,8 +518,8 @@ public final class PacketDispatch {
      * @return the player
      */
     public Player getPlayer() {
-		return player;
-	}
+        return player;
+    }
 
     /**
      * Gets the context.
@@ -527,8 +527,8 @@ public final class PacketDispatch {
      * @return The context.
      */
     public PlayerContext getContext() {
-		return context;
-	}
+        return context;
+    }
 
     /**
      * Send script configs.
@@ -539,16 +539,15 @@ public final class PacketDispatch {
      * @param params the params
      */
     public void sendScriptConfigs(int id, int value, String type, Object... params) {
-		PacketRepository.send(CSConfig.class, new CSConfigContext(player, id, value, type, params));
-	}
+        PacketRepository.send(CSConfig.class, new CSConfigContext(player, id, value, type, params));
+    }
 
     /**
      * Reset interface.
      *
      * @param id the id
      */
-    public void resetInterface(int id)
-	{
-		PacketRepository.send(ResetInterface.class, new InterfaceContext(player, 0, 0, id, false));
-	}
+    public void resetInterface(int id) {
+        PacketRepository.send(ResetInterface.class, new InterfaceContext(player, 0, 0, id, false));
+    }
 }

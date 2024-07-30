@@ -1,9 +1,9 @@
 package core.tools;
 
+import core.network.packet.IoBuffer;
+
 import java.text.DecimalFormat;
 import java.util.StringTokenizer;
-
-import core.network.packet.IoBuffer;
 
 /**
  * The string utils.

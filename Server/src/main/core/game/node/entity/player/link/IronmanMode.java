@@ -10,7 +10,7 @@ public enum IronmanMode {
      * The None.
      */
 // HARDCORE_DEAD has to be before Ultimate so that it does not adopt it's restrictions (on the basis of >= in IronmanManager.java?)
-	NONE(-1),
+    NONE(-1),
     /**
      * Standard ironman mode.
      */
@@ -24,18 +24,19 @@ public enum IronmanMode {
      */
     ULTIMATE(7);
 
-	/**
-	 * The icon id.
-	 */
-	private final int icon;
+    /**
+     * The icon id.
+     */
+    private final int icon;
 
-	/**
-	 * Constructs a new {@code IronmanMode} {@code Object}
-	 * @param icon the icon.
-	 */
-	private IronmanMode(int icon) {
-		this.icon = icon;
-	}
+    /**
+     * Constructs a new {@code IronmanMode} {@code Object}
+     *
+     * @param icon the icon.
+     */
+    private IronmanMode(int icon) {
+        this.icon = icon;
+    }
 
     /**
      * Gets the icon.
@@ -43,7 +44,7 @@ public enum IronmanMode {
      * @return the icon
      */
     public int getIcon() {
-		return icon;
-	}
+        return icon;
+    }
 
 }

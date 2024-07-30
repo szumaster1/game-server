@@ -39,7 +39,7 @@ enum class HolidayRandomEvents(val npc: HolidayRandomEventNPC, val type: String)
 
         private fun populateMappings() {
             for (event in values()) {
-                when(event.type) {
+                when (event.type) {
                     "halloween" -> halloweenEventsList.add(event)
                     "christmas" -> christmasEventsList.add(event)
                 }

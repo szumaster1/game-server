@@ -1,11 +1,11 @@
 package core.game.worldevents.holiday.christmas.randoms
 
 import core.api.*
+import core.api.consts.NPCs
 import core.game.interaction.QueueStrength
 import core.game.node.entity.npc.NPC
 import core.game.worldevents.holiday.HolidayRandomEventNPC
 import core.tools.RandomFunction
-import core.api.consts.NPCs
 
 class ChoirHolidayRandomNPC : HolidayRandomEventNPC(NPCs.ZANARIS_CHOIR_3312) {
     override fun init() {
@@ -23,6 +23,7 @@ class ChoirHolidayRandomNPC : HolidayRandomEventNPC(NPCs.ZANARIS_CHOIR_3312) {
                             sendChat(this, "HEY!", 15)
                             return@queueScript delayScript(this, 16)
                         }
+
                         1 -> {
                             sendChat(this, "Silver bells")
                             sendChat(this, "Silver bells", 5)
@@ -32,6 +33,7 @@ class ChoirHolidayRandomNPC : HolidayRandomEventNPC(NPCs.ZANARIS_CHOIR_3312) {
                             sendChat(this, "Soon it will be Christmas day", 25)
                             return@queueScript delayScript(this, 26)
                         }
+
                         2 -> {
                             sendChat(this, "Deck the halls with boughs of ranarr")
                             sendChat(this, "Fa la la la la la la la!", 5)
@@ -39,6 +41,7 @@ class ChoirHolidayRandomNPC : HolidayRandomEventNPC(NPCs.ZANARIS_CHOIR_3312) {
                             sendChat(this, "Fa la la la la la la la!", 15)
                             return@queueScript delayScript(this, 16)
                         }
+
                         3 -> {
                             sendChat(this, "O Wintumber Tree, O Wintumber tree,")
                             sendChat(this, "How lovely are your branches!", 5)
@@ -46,13 +49,16 @@ class ChoirHolidayRandomNPC : HolidayRandomEventNPC(NPCs.ZANARIS_CHOIR_3312) {
                             sendChat(this, "Of all the trees most lovely", 15)
                             return@queueScript delayScript(this, 16)
                         }
+
                         else -> return@queueScript keepRunning(this)
                     }
                 }
+
                 1 -> {
                     terminate()
                     return@queueScript stopExecuting(this)
                 }
+
                 else -> return@queueScript stopExecuting(this)
             }
         }

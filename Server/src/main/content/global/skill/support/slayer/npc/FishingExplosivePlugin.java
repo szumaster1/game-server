@@ -1,5 +1,6 @@
 package content.global.skill.support.slayer.npc;
 
+import core.api.consts.Animations;
 import core.api.consts.NPCs;
 import core.cache.def.impl.SceneryDefinition;
 import core.game.interaction.NodeUsageEvent;
@@ -30,9 +31,6 @@ import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.*;
 
-/**
- * The Fishing explosive plugin.
- */
 @Initializable
 public final class FishingExplosivePlugin extends OptionHandler {
 
@@ -60,27 +58,16 @@ public final class FishingExplosivePlugin extends OptionHandler {
         return node.getLocation();
     }
 
-    /**
-     * The Fishing explosive handler.
-     */
     public static final class FishingExplosiveHandler extends UseWithHandler {
 
-
-        private static final Animation ANIMATION = new Animation(385);
-
+        private static final Animation ANIMATION = new Animation(Animations.THROW_385);
 
         private static final Graphic SPLASH_GRAPHIC = new Graphic(68);
 
-
-        private static final int MOGRE_ID = 114;
-
+        private static final int MOGRE_ID = NPCs.MOGRE_114;
 
         private static final String[] MESSAGES = new String[]{"Da boom-boom kill all da fishies!", "I smack you good!", "Smash stupid human!", "Tasty human!", "Human hit me on the head!", "I get you!", "Human scare all da fishies!"};
 
-
-        /**
-         * Instantiates a new Fishing explosive handler.
-         */
         public FishingExplosiveHandler() {
             super(6664, 12633);
         }

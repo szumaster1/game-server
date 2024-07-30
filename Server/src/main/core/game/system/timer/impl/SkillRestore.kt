@@ -1,15 +1,15 @@
 package core.game.system.timer.impl
 
 import core.api.*
-import core.api.Event
+import core.api.consts.Items
+import core.game.event.EventHook
+import core.game.event.PrayerActivatedEvent
+import core.game.event.PrayerDeactivatedEvent
 import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.prayer.PrayerType
 import core.game.node.entity.skill.Skills
-import core.game.system.timer.*
-import core.game.event.*
-
-import core.api.consts.Items
+import core.game.system.timer.RSTimer
 
 class SkillRestore : RSTimer(
     runInterval = 1,

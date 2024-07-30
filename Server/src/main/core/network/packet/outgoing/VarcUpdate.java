@@ -9,7 +9,7 @@ public class VarcUpdate implements OutgoingPacket<VarcUpdateContext> {
     @Override
     public void send(VarcUpdateContext varcUpdateContext) {
         Player player = varcUpdateContext.getPlayer();
-        if(varcUpdateContext.value <= 255) {
+        if (varcUpdateContext.value <= 255) {
             IoBuffer buffer = new IoBuffer(65);
             buffer.putLEShort(player.getInterfaceManager().getPacketCount(1));
             buffer.putC((byte) varcUpdateContext.value);

@@ -37,7 +37,10 @@ class CameraCommandSet : CommandSet(Privilege.ADMIN) {
             val base = region.baseLocation
 
             val globalLoc = base.transform(regionX, regionY, 0)
-            sendMessage(player, "<col=8e7cc3><shad=000000>CAMERA POSITION | loc:[$regionX, $regionY] settings:[height:$height]</shad></col>")
+            sendMessage(
+                player,
+                "<col=8e7cc3><shad=000000>CAMERA POSITION | loc:[$regionX, $regionY] settings:[height:$height]</shad></col>"
+            )
             PlayerCamera(player).setPosition(globalLoc.x, globalLoc.y, height)
         }
 
@@ -62,7 +65,10 @@ class CameraCommandSet : CommandSet(Privilege.ADMIN) {
             val base = region.baseLocation
 
             val globalLoc = base.transform(regionX, regionY, 0)
-            sendMessage(player, "<col=8e7cc3><shad=000000>CAMERA MOVE | loc:[$regionX, $regionY] settings:[height:$height, speed:$speed]</shad></col>")
+            sendMessage(
+                player,
+                "<col=8e7cc3><shad=000000>CAMERA MOVE | loc:[$regionX, $regionY] settings:[height:$height, speed:$speed]</shad></col>"
+            )
             PlayerCamera(player).panTo(globalLoc.x, globalLoc.y, height, speed)
         }
 
@@ -89,7 +95,10 @@ class CameraCommandSet : CommandSet(Privilege.ADMIN) {
             val base = region.baseLocation
 
             val globalLoc = base.transform(regionX, regionY, 0)
-            sendMessage(player, "<col=8e7cc3><shad=000000>CAMERA ROTATE | loc:[$regionX, $regionY] settings:[height:$height, speed:$speed]</shad></col>")
+            sendMessage(
+                player,
+                "<col=8e7cc3><shad=000000>CAMERA ROTATE | loc:[$regionX, $regionY] settings:[height:$height, speed:$speed]</shad></col>"
+            )
             PlayerCamera(player).rotateTo(globalLoc.x, globalLoc.y, height, speed)
         }
 
@@ -125,7 +134,10 @@ class CameraCommandSet : CommandSet(Privilege.ADMIN) {
                 speed = args[5].toIntOrNull() ?: return@define
             }
 
-            sendMessage(player, "<col=8e7cc3><shad=000000>CAMERA SHAKE | type:$cameraMovementType settings:[jit:$jitter, amp:$amplitude, freq:$frequency, speed:$speed]</shad></col>")
+            sendMessage(
+                player,
+                "<col=8e7cc3><shad=000000>CAMERA SHAKE | type:$cameraMovementType settings:[jit:$jitter, amp:$amplitude, freq:$frequency, speed:$speed]</shad></col>"
+            )
             PlayerCamera(player).shake(cameraMovementType, jitter, amplitude, frequency, speed)
         }
 

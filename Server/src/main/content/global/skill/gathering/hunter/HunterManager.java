@@ -58,7 +58,7 @@ public final class HunterManager implements LoginListener, LogoutListener, Event
         TrapWrapper wrapper = null;
         while (iterator.hasNext()) {
             wrapper = iterator.next();
-            if (wrapper.getType().getSettings().clear(wrapper, 0)) {
+            if (wrapper.getType().settings.clear(wrapper, 0)) {
                 iterator.remove();
             }
         }
@@ -89,7 +89,7 @@ public final class HunterManager implements LoginListener, LogoutListener, Event
      */
     public boolean register(Traps trap, Node node, final Scenery object) {
         final TrapWrapper wrapper = new TrapWrapper(player, trap, object);
-        trap.getSettings().reward(player, node, wrapper);
+        trap.settings.reward(player, node, wrapper);
         wrapper.setHook(trap.addHook(wrapper));
         return traps.add(wrapper);
     }
@@ -136,7 +136,7 @@ public final class HunterManager implements LoginListener, LogoutListener, Event
      * @return the boolean
      */
     public boolean exceedsTrapLimit(Traps trap) {
-        if (trap.getSettings().exceedsLimit(player)) {
+        if (trap.settings.exceedsLimit(player)) {
             return true;
         }
         return traps.size() + 1 > getMaximumTraps();

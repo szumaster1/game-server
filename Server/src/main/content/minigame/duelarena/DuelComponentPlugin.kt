@@ -13,7 +13,7 @@ class DuelComponentPlugin : ComponentPlugin() {
 
     @Throws(Throwable::class)
     override fun newInstance(arg: Any?): Plugin<Any> {
-        ComponentDefinition.forId(640).plugin = this
+        ComponentDefinition.forId(640)?.plugin = this
         return this
     }
 

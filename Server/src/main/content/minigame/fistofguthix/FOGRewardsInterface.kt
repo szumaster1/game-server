@@ -66,7 +66,7 @@ class FOGRewardsInterface : ComponentPlugin() {
     }
 
     override fun newInstance(arg: Any?): Plugin<Any> {
-        ComponentDefinition.forId(732).plugin = this
+        ComponentDefinition.forId(732)?.plugin = this
         return this
     }
 

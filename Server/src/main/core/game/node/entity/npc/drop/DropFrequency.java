@@ -42,10 +42,11 @@ public enum DropFrequency {
     /**
      * The constant rateMap.
      */
-    final static HashMap<DropFrequency,Integer> rateMap = new HashMap<>();
-	static{
-		Arrays.stream(DropFrequency.values()).forEach(freq -> rateMap.putIfAbsent(freq,RATES[freq.ordinal()]));
-	}
+    final static HashMap<DropFrequency, Integer> rateMap = new HashMap<>();
+
+    static {
+        Arrays.stream(DropFrequency.values()).forEach(freq -> rateMap.putIfAbsent(freq, RATES[freq.ordinal()]));
+    }
 
     /**
      * Rate int.
@@ -53,8 +54,8 @@ public enum DropFrequency {
      * @param frequency the frequency
      * @return the int
      */
-    public static int rate(DropFrequency frequency){
-		return rateMap.get(frequency);
-	}
+    public static int rate(DropFrequency frequency) {
+        return rateMap.get(frequency);
+    }
 
 }

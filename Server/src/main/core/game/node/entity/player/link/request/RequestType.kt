@@ -11,12 +11,7 @@ import core.game.node.entity.player.link.request.trade.TradeModule
  * @author dginovker
  * @version 2.0
  */
-open class RequestType
-/**
- * Constructs a new `RequestManager { Object}.
- * message the message.
- * requestMessage the requesting message.`
- */(
+open class RequestType(
     /**
      * Represents the message to send for the player when requesting.
      */

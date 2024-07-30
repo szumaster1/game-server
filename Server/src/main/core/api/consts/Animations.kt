@@ -479,7 +479,7 @@ object Animations {
     const val STAB_ATTACK_381 = 381
     const val STAB_ATTACK_382 = 382
     const val DEFEND_383 = 383
-    const val TRAMP_THROW_ROTTEN_TOMATO_PROJECTILE_GFX_29_TILE_GFX_31_385 = 385
+    const val THROW_385 = 385
     const val STAB_ATTACK_386 = 386
     const val DEFEND_387 = 387
     const val DEFEND_388 = 388

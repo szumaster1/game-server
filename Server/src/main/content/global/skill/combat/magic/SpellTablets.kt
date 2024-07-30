@@ -12,7 +12,6 @@ import core.game.node.item.Item
 import core.game.world.update.flag.context.Animation
 
 class SpellTablets : InteractionListener {
-
     val B2P_TABLET = Items.BONES_TO_PEACHES_8015
     val B2B_TABLET = Items.BONES_TO_BANANAS_8014
     override fun defineListeners() {
@@ -32,6 +31,7 @@ class SpellTablets : InteractionListener {
         }
 
     }
+
     fun breakTablet(player: Player) {
         playAudio(player, Sounds.POH_TABLET_BREAK_979)
         player.animator.forceAnimation(Animation(4069))

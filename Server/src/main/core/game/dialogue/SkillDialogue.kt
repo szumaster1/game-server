@@ -13,7 +13,6 @@ class SkillDialogue(player: Player? = null) : Dialogue(player) {
 
     private lateinit var handler: SkillDialogueHandler
 
-
     override fun newInstance(player: Player): Dialogue {
         return SkillDialogue(player)
     }

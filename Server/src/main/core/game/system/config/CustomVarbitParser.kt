@@ -1,12 +1,12 @@
 package core.game.system.config
 
+import core.ServerConstants
+import core.api.log
 import core.cache.def.impl.VarbitDefinition
+import core.tools.Log
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 import org.json.simple.parser.JSONParser
-import core.ServerConstants
-import core.api.log
-import core.tools.Log
 import java.io.FileReader
 
 class CustomVarbitParser {

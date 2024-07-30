@@ -2,6 +2,7 @@ package core.game.ge
 
 import core.ServerConstants
 import core.api.*
+import core.api.consts.Sounds
 import core.cache.def.impl.ItemDefinition
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.info.PlayerDetails
@@ -13,7 +14,6 @@ import core.game.world.repository.Repository
 import core.tools.Log
 import core.tools.SystemLogger
 import core.tools.colorize
-import core.api.consts.Sounds
 import java.lang.Integer.max
 import java.util.concurrent.LinkedBlockingDeque
 
@@ -32,14 +32,14 @@ class GrandExchange : StartupListener, Commands {
      * Initializes the offer manager and spawns an update thread.
      * @param local whether or not the GE should be the local in-code server rather than some hypothetical remote implementation.
      */
-    fun boot(){
-        if(isRunning) return
+    fun boot() {
+        if (isRunning) return
 
         SystemLogger.logGE("Initializing GE Update Worker")
 
         Thread {
             Thread.currentThread().name = "GE Update Worker"
-            while(true) {
+            while (true) {
                 var offer = pendingOffers.takeFirst()
                 offer.writeNew()
                 offer = getOfferByUid(offer.uid) ?: continue
@@ -83,26 +83,26 @@ class GrandExchange : StartupListener, Commands {
     }
 
     override fun defineCommands() {
-        define("addbotoffer", Privilege.ADMIN) {player, strings ->
+        define("addbotoffer", Privilege.ADMIN) { player, strings ->
             val id = strings[1].toInt()
             val amount = strings[2].toInt()
             addBotOffer(id, amount)
             notify(player, "Added ${amount}x ${getItemName(id)} to the bot offers.")
         }
 
-        define("bange", Privilege.ADMIN) {player, strings ->
+        define("bange", Privilege.ADMIN) { player, strings ->
             val id = strings[1].toInt()
             PriceIndex.banItem(id)
             notify(player, "Banned ${getItemName(id)} from GE trade.")
         }
 
-        define("allowge", Privilege.ADMIN) {player, strings ->
+        define("allowge", Privilege.ADMIN) { player, strings ->
             val id = strings[1].toInt()
             PriceIndex.allowItem(id)
             notify(player, "Allowed ${getItemName(id)} for GE trade.")
         }
 
-        define("geprivacy", Privilege.STANDARD) {player, _ ->
+        define("geprivacy", Privilege.STANDARD) { player, _ ->
             val current = getAttribute(player, "ge-exclude", false)
             val new = !current
             notify(player, "Your name is now ${if (new) colorize("%RHIDDEN") else colorize("%RSHOWN")}.")
@@ -113,7 +113,8 @@ class GrandExchange : StartupListener, Commands {
     companion object {
         val pendingOffers = LinkedBlockingDeque<GrandExchangeOffer>()
         private val GET_SPECIFIC_OFFER_BY_UID = "SELECT * FROM player_offers WHERE uid = ?;"
-        private val GET_MATCHES_FROM_PLAYER_OFFERS = "SELECT * FROM player_offers WHERE item_id = ? AND is_sale = ? AND offer_state < 4 AND NOT offer_state = 2;"
+        private val GET_MATCHES_FROM_PLAYER_OFFERS =
+            "SELECT * FROM player_offers WHERE item_id = ? AND is_sale = ? AND offer_state < 4 AND NOT offer_state = 2;"
         private val GET_MATCH_FROM_BOT_OFFERS = "SELECT * FROM bot_offers WHERE item_id = ?;"
 
         private fun getOfferByUid(uid: Long): GrandExchangeOffer? {
@@ -137,12 +138,14 @@ class GrandExchange : StartupListener, Commands {
         }
 
         private fun getItemDefPrice(itemID: Int): Int {
-            return max(itemDefinition(itemID).getConfiguration(ItemConfigParser.GE_PRICE) ?: 0, itemDefinition(itemID).value)
+            return max(
+                itemDefinition(itemID).getConfiguration(ItemConfigParser.GE_PRICE) ?: 0,
+                itemDefinition(itemID).value
+            )
         }
 
         @JvmStatic
-        fun getOfferStats(itemID: Int, sale: Boolean) : String
-        {
+        fun getOfferStats(itemID: Int, sale: Boolean): String {
             val sb = StringBuilder()
 
             GEDB.run { conn ->
@@ -154,7 +157,8 @@ class GrandExchange : StartupListener, Commands {
                 if (!sale) {
                     var botAmt = 0
                     var botPrice = 0
-                    val player_offers = stmt.executeQuery("SELECT * from player_offers where item_id = $itemID AND is_sale = 1 AND offer_state < 4 AND NOT offer_state = 2")
+                    val player_offers =
+                        stmt.executeQuery("SELECT * from player_offers where item_id = $itemID AND is_sale = 1 AND offer_state < 4 AND NOT offer_state = 2")
 
                     while (player_offers.next()) {
                         val o = GrandExchangeOffer.fromQuery(player_offers)
@@ -179,7 +183,8 @@ class GrandExchange : StartupListener, Commands {
                     sb.append("</col><br>Bot Stock: <col=FFFFFF>$botAmt  ")
                     sb.append("</col>  Bot Price: <col=FFFFFF>$botPrice")
                 } else {
-                    val buy_offers = stmt.executeQuery("SELECT * from player_offers where item_id = $itemID AND is_sale = 0 AND offer_state < 4 AND NOT offer_state = 2")
+                    val buy_offers =
+                        stmt.executeQuery("SELECT * from player_offers where item_id = $itemID AND is_sale = 0 AND offer_state < 4 AND NOT offer_state = 2")
 
                     while (buy_offers.next()) {
                         val o = GrandExchangeOffer.fromQuery(buy_offers)
@@ -199,8 +204,7 @@ class GrandExchange : StartupListener, Commands {
             return sb.toString()
         }
 
-        fun addBotOffer(itemID: Int, amount: Int): Boolean
-        {
+        fun addBotOffer(itemID: Int, amount: Int): Boolean {
             if (!PriceIndex.canTrade(itemID))
                 return false
 
@@ -212,21 +216,19 @@ class GrandExchange : StartupListener, Commands {
             return true
         }
 
-        fun dispatch(player: Player, offer: GrandExchangeOffer) : Boolean
-        {
-            if ( offer.amount < 1 )
+        fun dispatch(player: Player, offer: GrandExchangeOffer): Boolean {
+            if (offer.amount < 1)
                 sendMessage(player, "You must choose the quantity you wish to buy!").also { return false }
 
-            if ( offer.offeredValue < 1 )
+            if (offer.offeredValue < 1)
                 sendMessage(player, "You must choose the price you wish to buy for!").also { return false }
 
-            if ( offer.offerState != OfferState.PENDING || offer.uid != 0L )
-            {
-                log(this::class.java, Log.WARN,  "[GE] DISPATCH FAILURE: ${offer.offerState.name}, UID: ${offer.uid}")
+            if (offer.offerState != OfferState.PENDING || offer.uid != 0L) {
+                log(this::class.java, Log.WARN, "[GE] DISPATCH FAILURE: ${offer.offerState.name}, UID: ${offer.uid}")
                 return false
             }
 
-            if ( player.isArtificial )
+            if (player.isArtificial)
                 offer.playerUID = PlayerDetails.getDetails("2009scape").uid.also { offer.isBot = true }
             else
                 offer.playerUID = player.details.uid
@@ -260,44 +262,43 @@ class GrandExchange : StartupListener, Commands {
             return true
         }
 
-        fun exchange(offer: GrandExchangeOffer, other: GrandExchangeOffer)
-        {
-            if(offer.sell == other.sell) return //Don't exchange if they are both buy/sell offers
+        fun exchange(offer: GrandExchangeOffer, other: GrandExchangeOffer) {
+            if (offer.sell == other.sell) return //Don't exchange if they are both buy/sell offers
             val amount = Integer.min(offer.amount - offer.completedAmount, other.amount - other.completedAmount)
 
             if (amount == 0) return
 
-            val seller = if(offer.sell) offer else other
-            val buyer = if(offer == seller) other else offer
+            val seller = if (offer.sell) offer else other
+            val buyer = if (offer == seller) other else offer
 
             val sellerBias = seller.timeStamp > buyer.timeStamp
 
             //If the buyer is buying for less than the seller is selling for, don't exchange
-            if(seller.offeredValue > buyer.offeredValue) return
+            if (seller.offeredValue > buyer.offeredValue) return
 
             seller.completedAmount += amount
             buyer.completedAmount += amount
 
-            if(seller.amountLeft < 1 && seller.player != null)
+            if (seller.amountLeft < 1 && seller.player != null)
                 playAudio(seller.player!!, Sounds.GE_COLLECT_COINS_4042)
 
-            seller.addWithdrawItem(995, amount * if(sellerBias) buyer.offeredValue else seller.offeredValue)
+            seller.addWithdrawItem(995, amount * if (sellerBias) buyer.offeredValue else seller.offeredValue)
             buyer.addWithdrawItem(seller.itemID, amount)
 
-            if(!sellerBias)
+            if (!sellerBias)
                 buyer.addWithdrawItem(995, amount * (buyer.offeredValue - seller.offeredValue))
 
-            if(seller.amountLeft < 1)
+            if (seller.amountLeft < 1)
                 seller.offerState = OfferState.COMPLETED
-            if(buyer.amountLeft < 1)
+            if (buyer.amountLeft < 1)
                 buyer.offerState = OfferState.COMPLETED
 
-            val totalCoinXC = (if(sellerBias) buyer.offeredValue else seller.offeredValue) * amount
+            val totalCoinXC = (if (sellerBias) buyer.offeredValue else seller.offeredValue) * amount
 
             seller.totalCoinExchange += totalCoinXC
             buyer.totalCoinExchange += totalCoinXC
 
-            if(canUpdatePriceIndex(seller, buyer))
+            if (canUpdatePriceIndex(seller, buyer))
                 PriceIndex.addTrade(offer.itemID, amount, (totalCoinXC / amount))
 
             seller.update()
@@ -309,20 +310,19 @@ class GrandExchange : StartupListener, Commands {
         }
 
         private fun canUpdatePriceIndex(seller: GrandExchangeOffer, buyer: GrandExchangeOffer): Boolean {
-            if(seller.playerUID == buyer.playerUID) return false
-            if(!ServerConstants.BOTS_INFLUENCE_PRICE_INDEX && (seller.isBot || buyer.isBot)) return false
+            if (seller.playerUID == buyer.playerUID) return false
+            if (!ServerConstants.BOTS_INFLUENCE_PRICE_INDEX && (seller.isBot || buyer.isBot)) return false
             return true
         }
 
-        fun getValidOffers(): List<GrandExchangeOffer>
-        {
+        fun getValidOffers(): List<GrandExchangeOffer> {
             val offers = ArrayList<GrandExchangeOffer>()
 
             GEDB.run { conn ->
                 val stmt = conn.createStatement()
 
                 val results =
-                        stmt.executeQuery("SELECT * FROM player_offers WHERE offer_state < 4 AND NOT offer_state = 2")
+                    stmt.executeQuery("SELECT * FROM player_offers WHERE offer_state < 4 AND NOT offer_state = 2")
                 while (results.next()) {
                     val o = GrandExchangeOffer.fromQuery(results)
                     offers.add(o)
@@ -332,8 +332,7 @@ class GrandExchange : StartupListener, Commands {
             return offers
         }
 
-        fun getBotOffers(): List<GrandExchangeOffer>
-        {
+        fun getBotOffers(): List<GrandExchangeOffer> {
             val offers = ArrayList<GrandExchangeOffer>()
 
             GEDB.run { conn ->
@@ -365,7 +364,7 @@ class GrandExchange : StartupListener, Commands {
 
     }
 
-    override fun startup(){
+    override fun startup() {
         GEDB.init()
         boot()
     }

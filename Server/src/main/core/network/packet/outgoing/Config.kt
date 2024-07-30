@@ -1,8 +1,8 @@
 package core.network.packet.outgoing
 
-import core.network.packet.context.ConfigContext
 import core.network.packet.IoBuffer
 import core.network.packet.OutgoingPacket
+import core.network.packet.context.ConfigContext
 
 /**
  * The config outgoing packet.

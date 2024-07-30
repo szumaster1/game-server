@@ -12,25 +12,25 @@ import java.nio.ByteBuffer;
  */
 public class SavedData {
 
-	/**
-	 * Represents the global data to save.
-	 */
-	private final GlobalData globalData = new GlobalData();
+    /**
+     * Represents the global data to save.
+     */
+    private final GlobalData globalData = new GlobalData();
 
-	/**
-	 * Represents the activity data to save.
-	 */
-	private final ActivityData activityData = new ActivityData();
+    /**
+     * Represents the activity data to save.
+     */
+    private final ActivityData activityData = new ActivityData();
 
-	/**
-	 * Represents the quest data to save.
-	 */
-	private final QuestData questData = new QuestData();
+    /**
+     * Represents the quest data to save.
+     */
+    private final QuestData questData = new QuestData();
 
-	/**
-	 * The player.
-	 */
-	private final Player player;
+    /**
+     * The player.
+     */
+    private final Player player;
 
     /**
      * Constructs a new {@code SavedData} {@code Object}
@@ -38,8 +38,8 @@ public class SavedData {
      * @param player the player.
      */
     public SavedData(Player player) {
-		this.player = player;
-	}
+        this.player = player;
+    }
 
     /**
      * Method used to save an activity var that isn't valued at default.
@@ -49,38 +49,38 @@ public class SavedData {
      * @param index  the index
      */
     public static final void save(final ByteBuffer buffer, final Object var, final int index) {
-		if (var instanceof Integer ? (int) var != 0 : var instanceof Double ? (double) var != 0.0 : var instanceof Byte ? (byte) var != 0 : var instanceof Short ? (short) var != 0 : var instanceof Long ? (long) var != 0L : var instanceof Boolean ? (boolean) var != false : var != null) {
-			buffer.put((byte) index);
-			if (var instanceof Integer) {
-				buffer.putInt((int) var);
-			} else if (var instanceof Byte) {
-				buffer.put((byte) var);
-			} else if (var instanceof Short) {
-				buffer.putShort((short) var);
-			} else if (var instanceof Long) {
-				buffer.putLong((long) var);
-			} else if (var instanceof Boolean) {
-				buffer.put((byte) 1);
-			} else if (var instanceof Double) {
-				buffer.putDouble((double) var);
-			} else if (var instanceof double[]) {
-				double[] doubleArray = ((double[]) var);
-				for (int i = 0; i < doubleArray.length; i++) {
-					buffer.putDouble(doubleArray[i]);
-				}
-			} else if (var instanceof boolean[]) {
-				boolean[] booleanArray = ((boolean[]) var);
-				for (int i = 0; i < booleanArray.length; i++) {
-					buffer.put((byte) (booleanArray[i] ? 1 : 0));
-				}
-			} else if (var instanceof int[]) {
-				int[] intArray = ((int[]) var);
-				for (int i = 0; i < intArray.length; i++) {
-					buffer.putInt(intArray[i]);
-				}
-			}
-		}
-	}
+        if (var instanceof Integer ? (int) var != 0 : var instanceof Double ? (double) var != 0.0 : var instanceof Byte ? (byte) var != 0 : var instanceof Short ? (short) var != 0 : var instanceof Long ? (long) var != 0L : var instanceof Boolean ? (boolean) var != false : var != null) {
+            buffer.put((byte) index);
+            if (var instanceof Integer) {
+                buffer.putInt((int) var);
+            } else if (var instanceof Byte) {
+                buffer.put((byte) var);
+            } else if (var instanceof Short) {
+                buffer.putShort((short) var);
+            } else if (var instanceof Long) {
+                buffer.putLong((long) var);
+            } else if (var instanceof Boolean) {
+                buffer.put((byte) 1);
+            } else if (var instanceof Double) {
+                buffer.putDouble((double) var);
+            } else if (var instanceof double[]) {
+                double[] doubleArray = ((double[]) var);
+                for (int i = 0; i < doubleArray.length; i++) {
+                    buffer.putDouble(doubleArray[i]);
+                }
+            } else if (var instanceof boolean[]) {
+                boolean[] booleanArray = ((boolean[]) var);
+                for (int i = 0; i < booleanArray.length; i++) {
+                    buffer.put((byte) (booleanArray[i] ? 1 : 0));
+                }
+            } else if (var instanceof int[]) {
+                int[] intArray = ((int[]) var);
+                for (int i = 0; i < intArray.length; i++) {
+                    buffer.putInt(intArray[i]);
+                }
+            }
+        }
+    }
 
     /**
      * Gets the boolean value.
@@ -89,8 +89,8 @@ public class SavedData {
      * @return the value.
      */
     public static boolean getBoolean(byte value) {
-		return value == 1;
-	}
+        return value == 1;
+    }
 
     /**
      * Gets the boolean value.
@@ -99,8 +99,8 @@ public class SavedData {
      * @return the value.
      */
     public static boolean getBoolean(ByteBuffer buffer) {
-		return getBoolean(buffer.get());
-	}
+        return getBoolean(buffer.get());
+    }
 
     /**
      * Gets the activityData.
@@ -108,8 +108,8 @@ public class SavedData {
      * @return The activityData.
      */
     public ActivityData getActivityData() {
-		return activityData;
-	}
+        return activityData;
+    }
 
     /**
      * Gets the questData.
@@ -117,8 +117,8 @@ public class SavedData {
      * @return The questData.
      */
     public QuestData getQuestData() {
-		return questData;
-	}
+        return questData;
+    }
 
     /**
      * Gets the globalData.
@@ -126,8 +126,8 @@ public class SavedData {
      * @return The globalData.
      */
     public GlobalData getGlobalData() {
-		return globalData;
-	}
+        return globalData;
+    }
 
     /**
      * Gets the player.
@@ -135,6 +135,6 @@ public class SavedData {
      * @return the player
      */
     public Player getPlayer() {
-		return player;
-	}
+        return player;
+    }
 }

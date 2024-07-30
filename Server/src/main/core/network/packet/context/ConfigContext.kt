@@ -11,7 +11,6 @@ class ConfigContext(
     private var player: Player,
     @JvmField val id: Int,
     @JvmField val value: Int,
-    /*val isCs2: Boolean = false*/
 ) : Context {
 
     override fun getPlayer(): Player = player

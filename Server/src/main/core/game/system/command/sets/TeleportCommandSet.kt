@@ -1,16 +1,16 @@
 package core.game.system.command.sets
 
 import content.region.asgarnia.quest.recruitmentdrive.RecruitmentDrive
+import core.ServerConstants
+import core.api.getAttribute
 import core.game.node.entity.player.link.TeleportManager
+import core.game.system.command.Privilege
 import core.game.world.map.Location
 import core.game.world.map.RegionManager
+import core.game.world.repository.Repository
 import core.plugin.Initializable
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import core.ServerConstants
-import core.api.getAttribute
-import core.game.system.command.Privilege
-import core.game.world.repository.Repository
 
 @Initializable
 class TeleportCommandSet : CommandSet(Privilege.ADMIN) {
@@ -224,7 +224,7 @@ class TeleportCommandSet : CommandSet(Privilege.ADMIN) {
             usage = "",
             description = "Teleports to ServerConstants.HOME_LOCATION or HOME_LOCATION_ALT (after RD quest)."
         ) { player, _ ->
-            if(getAttribute(player, RecruitmentDrive.ATTRIBUTE_SPAWN_REQUEST, false))
+            if (getAttribute(player, RecruitmentDrive.ATTRIBUTE_SPAWN_REQUEST, false))
                 player.properties.spawnLocation = ServerConstants.RESPAWN_POINT
             else
                 player.properties.teleportLocation = ServerConstants.HOME_LOCATION

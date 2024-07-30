@@ -1,22 +1,22 @@
 package core
 
-import org.json.simple.JSONObject
 import core.ServerStore.Companion.getInt
+import org.json.simple.JSONObject
 
 object GlobalStats {
 
     @JvmStatic
-    fun incrementDeathCount(){
+    fun incrementDeathCount() {
         getDailyDeathArchive()["players"] = getDailyDeathArchive().getInt("players") + 1
     }
 
     @JvmStatic
-    fun incrementDailyCowDeaths(){
+    fun incrementDailyCowDeaths() {
         getDailyDeathArchive()["lumbridge-cows"] = getDailyDeathArchive().getInt("lumbridge-cows") + 1
     }
 
     @JvmStatic
-    fun incrementGuardPickpockets(){
+    fun incrementGuardPickpockets() {
         getGuardPickpocketArchive()["count"] = getGuardPickpocketArchive().getInt("count") + 1
     }
 

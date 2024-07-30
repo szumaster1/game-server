@@ -1,13 +1,16 @@
 package core.game.system.config
 
+import core.ServerConstants
+import core.api.exceptionToString
+import core.api.log
+import core.api.utils.ConfigParseException
+import core.api.utils.NPCDropTable
+import core.api.utils.WeightedItem
 import core.cache.def.impl.NPCDefinition
+import core.tools.Log
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 import org.json.simple.parser.JSONParser
-import core.ServerConstants
-import core.api.*
-import core.api.utils.*
-import core.tools.Log
 import java.io.FileReader
 
 
@@ -36,7 +39,13 @@ class DropTableParser {
                     count++
                 }
             } catch (e: ConfigParseException) {
-                log(this::class.java, Log.ERR, "Error parsing drop tables for NPC ${NPCDefinition.forId(ids[0].toInt()).name}: ${exceptionToString(e)}")
+                log(
+                    this::class.java,
+                    Log.ERR,
+                    "Error parsing drop tables for NPC ${NPCDefinition.forId(ids[0].toInt()).name}: ${
+                        exceptionToString(e)
+                    }"
+                )
             }
         }
         log(this::class.java, Log.FINE, "Parsed $count drop tables.")

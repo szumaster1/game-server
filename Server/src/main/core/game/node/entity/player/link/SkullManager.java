@@ -7,10 +7,10 @@ import core.game.node.entity.Entity;
 import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
 
-import static core.api.ContentAPIKt.*;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import static core.api.ContentAPIKt.*;
 
 
 /**
@@ -64,6 +64,7 @@ public final class SkullManager {
          * The Id.
          */
         public final int id;
+
         SkullIcon(int id) {
             this.id = id;
         }
@@ -75,57 +76,66 @@ public final class SkullManager {
          * @return the skull icon
          */
         public static SkullIcon forId(int id) {
-            switch(id) {
-                case 0: return SkullIcon.WHITE;
-                case 1: return SkullIcon.RED;
-                case 2: return SkullIcon.BH_RED5;
-                case 3: return SkullIcon.BH_BLUE4;
-                case 4: return SkullIcon.BH_GREEN3;
-                case 5: return SkullIcon.BH_GREY2;
-                case 6: return SkullIcon.BH_BROWN1;
-                case 7: return SkullIcon.SCREAM;
-                default: return SkullIcon.NONE;
+            switch (id) {
+                case 0:
+                    return SkullIcon.WHITE;
+                case 1:
+                    return SkullIcon.RED;
+                case 2:
+                    return SkullIcon.BH_RED5;
+                case 3:
+                    return SkullIcon.BH_BLUE4;
+                case 4:
+                    return SkullIcon.BH_GREEN3;
+                case 5:
+                    return SkullIcon.BH_GREY2;
+                case 6:
+                    return SkullIcon.BH_BROWN1;
+                case 7:
+                    return SkullIcon.SCREAM;
+                default:
+                    return SkullIcon.NONE;
             }
         }
     }
 
 
-	/**
-	 * The player instance.
-	 */
-	private final Player player;
+    /**
+     * The player instance.
+     */
+    private final Player player;
 
-	/**
-	 * Represents if the player is in the wilderness.
-	 */
-	private boolean wilderness = false;
+    /**
+     * Represents if the player is in the wilderness.
+     */
+    private boolean wilderness = false;
 
-	/**
-	 * If the wilderness zone is currently disabled.
-	 */
-	private boolean wildernessDisabled = false;
+    /**
+     * If the wilderness zone is currently disabled.
+     */
+    private boolean wildernessDisabled = false;
 
-	/**
-	 * Represents the current wilderness level.
-	 */
-	private int level;
+    /**
+     * Represents the current wilderness level.
+     */
+    private int level;
 
-	/**
-	 * The players this player has skulled on.
-	 */
-	private final List<Player> skullCauses = new ArrayList<Player>();
+    /**
+     * The players this player has skulled on.
+     */
+    private final List<Player> skullCauses = new ArrayList<Player>();
 
-	/**
-	 * If the player is skulled.
-	 */
-	private boolean skulled;
+    /**
+     * If the player is skulled.
+     */
+    private boolean skulled;
 
-	/**
-	 * If the skull check is disabled.
-	 */
-	private boolean skullCheckDisabled;
+    /**
+     * If the skull check is disabled.
+     */
+    private boolean skullCheckDisabled;
 
-        private boolean deepWilderness;
+    private boolean deepWilderness;
 
     /**
      * Constructs a new {@code SkullManager} {@code Object}.
@@ -133,8 +143,8 @@ public final class SkullManager {
      * @param player the player.
      */
     public SkullManager(Player player) {
-		this.player = player;
-	}
+        this.player = player;
+    }
 
     /**
      * Checks if we should skull on this entity.
@@ -142,22 +152,22 @@ public final class SkullManager {
      * @param other The entity to check.
      */
     public void checkSkull(Entity other) {
-		if (!(other instanceof Player) || !wilderness || skullCheckDisabled) {
-			return;
-		}
-		Player o = (Player) other;
-		for (Player p : o.getSkullManager().skullCauses) {
-			if (p == player) {
-				return;
-			}
-		}
-		if (skullCauses.contains(o)) {
-			return;
-		}
-		skullCauses.add(o);
-                removeTimer (player, "skulled");
-                registerTimer (player, spawnTimer("skulled", 2000));
-	}
+        if (!(other instanceof Player) || !wilderness || skullCheckDisabled) {
+            return;
+        }
+        Player o = (Player) other;
+        for (Player p : o.getSkullManager().skullCauses) {
+            if (p == player) {
+                return;
+            }
+        }
+        if (skullCauses.contains(o)) {
+            return;
+        }
+        skullCauses.add(o);
+        removeTimer(player, "skulled");
+        registerTimer(player, spawnTimer("skulled", 2000));
+    }
 
     /**
      * Sets the skull icon.
@@ -165,19 +175,19 @@ public final class SkullManager {
      * @param skullIcon The skull icon.
      */
     public void setSkullIcon(int skullIcon) {
-		player.getAppearance().setSkullIcon(skullIcon);
-		player.updateAppearance();
-	}
+        player.getAppearance().setSkullIcon(skullIcon);
+        player.updateAppearance();
+    }
 
     /**
      * Resets the skull causes cache.
      */
     public void reset() {
-		skullCauses.clear();
-		setSkullIcon(-1);
-		setSkulled(false);
-                player.getAppearance().sync();
-	}
+        skullCauses.clear();
+        setSkullIcon(-1);
+        setSkulled(false);
+        player.getAppearance().sync();
+    }
 
     /**
      * Gets the player.
@@ -185,8 +195,8 @@ public final class SkullManager {
      * @return the player.
      */
     public Player getPlayer() {
-		return player;
-	}
+        return player;
+    }
 
     /**
      * Gets the level.
@@ -194,8 +204,8 @@ public final class SkullManager {
      * @return the level.
      */
     public int getLevel() {
-		return level;
-	}
+        return level;
+    }
 
     /**
      * Sets the level.
@@ -203,18 +213,18 @@ public final class SkullManager {
      * @param level the level to set.
      */
     public void setLevel(int level) {
-                if (!deepWilderness && level >= 49)
-                    setDeepWilderness(true);
-                else if (deepWilderness && level < 48)
-                    setDeepWilderness(false);
+        if (!deepWilderness && level >= 49)
+            setDeepWilderness(true);
+        else if (deepWilderness && level < 48)
+            setDeepWilderness(false);
 
-                if (level > 20)
-                    player.getLocks().lockTeleport (1_000_000);
-                else
-                    player.getLocks().unlockTeleport();
+        if (level > 20)
+            player.getLocks().lockTeleport(1_000_000);
+        else
+            player.getLocks().unlockTeleport();
 
-		this.level = level;
-	}
+        this.level = level;
+    }
 
     /**
      * Gets the value.
@@ -222,8 +232,8 @@ public final class SkullManager {
      * @return the wilderness.
      */
     public boolean isWilderness() {
-		return wilderness;
-	}
+        return wilderness;
+    }
 
     /**
      * Sets the value of this boolean.
@@ -231,8 +241,8 @@ public final class SkullManager {
      * @param wilderness the wilderness to set.
      */
     public void setWilderness(boolean wilderness) {
-		this.wilderness = wilderness;
-	}
+        this.wilderness = wilderness;
+    }
 
     /**
      * Gets the skullCheckDisabled.
@@ -240,8 +250,8 @@ public final class SkullManager {
      * @return The skullCheckDisabled.
      */
     public boolean isSkullCheckDisabled() {
-		return skullCheckDisabled;
-	}
+        return skullCheckDisabled;
+    }
 
     /**
      * Sets the skullCheckDisabled.
@@ -249,8 +259,8 @@ public final class SkullManager {
      * @param skullCheckDisabled The skullCheckDisabled to set.
      */
     public void setSkullCheckDisabled(boolean skullCheckDisabled) {
-		this.skullCheckDisabled = skullCheckDisabled;
-	}
+        this.skullCheckDisabled = skullCheckDisabled;
+    }
 
     /**
      * Gets the wildernessDisabled.
@@ -258,8 +268,8 @@ public final class SkullManager {
      * @return The wildernessDisabled.
      */
     public boolean isWildernessDisabled() {
-		return wildernessDisabled;
-	}
+        return wildernessDisabled;
+    }
 
     /**
      * Has wilderness protection boolean.
@@ -267,8 +277,8 @@ public final class SkullManager {
      * @return the boolean
      */
     public boolean hasWildernessProtection() {
-                return level < 49;
-        }
+        return level < 49;
+    }
 
     /**
      * Sets the wildernessDisabled.
@@ -276,8 +286,8 @@ public final class SkullManager {
      * @param wildernessDisabled The wildernessDisabled to set.
      */
     public void setWildernessDisabled(boolean wildernessDisabled) {
-		this.wildernessDisabled = wildernessDisabled;
-	}
+        this.wildernessDisabled = wildernessDisabled;
+    }
 
     /**
      * Gets the skulled.
@@ -285,8 +295,8 @@ public final class SkullManager {
      * @return The skulled.
      */
     public boolean isSkulled() {
-		return skulled || deepWilderness;
-	}
+        return skulled || deepWilderness;
+    }
 
     /**
      * Is deep wilderness boolean.
@@ -294,7 +304,7 @@ public final class SkullManager {
      * @return the boolean
      */
     public boolean isDeepWilderness() {
-            return deepWilderness;
+        return deepWilderness;
     }
 
     /**
@@ -302,14 +312,14 @@ public final class SkullManager {
      *
      * @param deepWildy the deep wildy
      */
-    public void setDeepWilderness (boolean deepWildy) {
-            if(deepWildy) {
-                updateDWSkullIcon();
-            } else {
-                removeDWSkullIcon();
-            }
-            setSkullCheckDisabled(deepWildy);
-            deepWilderness = deepWildy;
+    public void setDeepWilderness(boolean deepWildy) {
+        if (deepWildy) {
+            updateDWSkullIcon();
+        } else {
+            removeDWSkullIcon();
+        }
+        setSkullCheckDisabled(deepWildy);
+        deepWilderness = deepWildy;
     }
 
     /**
@@ -383,6 +393,6 @@ public final class SkullManager {
      * @param skulled The skulled to set.
      */
     public void setSkulled(boolean skulled) {
-		this.skulled = skulled;
-	}
+        this.skulled = skulled;
+    }
 }

@@ -1,13 +1,13 @@
 package core.game.system.command.rottenpotato
 
-import core.api.*
 import core.api.InputType
+import core.api.sendInputDialogue
 import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.world.map.RegionManager
-import core.plugin.Initializable
 import core.game.world.repository.Repository
+import core.plugin.Initializable
 import core.tools.colorize
 
 @Initializable

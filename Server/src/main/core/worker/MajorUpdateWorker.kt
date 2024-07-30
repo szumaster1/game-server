@@ -1,18 +1,18 @@
 package core.worker
 
-import core.api.submitWorldPulse
-import core.game.system.task.Pulse
 import core.Server
 import core.ServerConstants
 import core.ServerStore
 import core.api.log
+import core.api.submitWorldPulse
+import core.game.system.task.Pulse
 import core.game.world.GameWorld
 import core.game.world.repository.Repository
 import core.game.world.update.UpdateSequence
 import core.network.packet.PacketProcessor
 import core.network.packet.PacketWriteQueue
 import core.plugin.type.Managers
-import core.services.grafana.*
+import core.services.grafana.Grafana
 import core.tools.Log
 import core.tools.colorize
 import java.lang.Long.max
@@ -44,11 +44,19 @@ class MajorUpdateWorker {
                     player?.session?.lastPing = Long.MAX_VALUE
                     player?.session?.disconnect()
                 }
-                if (!player.isActive && !Repository.disconnectionQueue.contains(player.name) && player.getAttribute("logged-in-fully", false)) {
+                if (!player.isActive && !Repository.disconnectionQueue.contains(player.name) && player.getAttribute(
+                        "logged-in-fully",
+                        false
+                    )
+                ) {
                     // If player has somehow been set as inactive without being queued for disconnection, do that now. This is a failsafe, and should not be relied on.
                     // If you made a change, and now this is suddenly getting triggered a lot, your change is probably bad.
                     player?.session?.disconnect()
-                    log(MajorUpdateWorker::class.java, Log.WARN, "Manually disconnecting ${player.name} because they were set as inactive without being disconnected. This is bad.")
+                    log(
+                        MajorUpdateWorker::class.java,
+                        Log.WARN,
+                        "Manually disconnecting ${player.name} because they were set as inactive without being disconnected. This is bad."
+                    )
                 }
             }
 

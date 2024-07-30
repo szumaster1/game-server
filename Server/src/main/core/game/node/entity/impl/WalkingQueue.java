@@ -424,8 +424,8 @@ public final class WalkingQueue {
 
         if (loc == null) {
             log(this.getClass(), Log.ERR,
-                    "The entity location provided was null."
-                            + "Are you sure anything down the stack trace isn't providing an NPC with a null location?"
+                "The entity location provided was null."
+                    + "Are you sure anything down the stack trace isn't providing an NPC with a null location?"
             );
         }
 

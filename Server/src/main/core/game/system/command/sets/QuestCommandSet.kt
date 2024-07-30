@@ -4,9 +4,9 @@ import core.api.setInterfaceText
 import core.game.component.Component
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.QuestRepository
-import core.plugin.Initializable
 import core.game.system.command.Privilege
 import core.game.world.repository.Repository
+import core.plugin.Initializable
 
 @Initializable
 class QuestCommandSet : CommandSet(Privilege.ADMIN) {
@@ -117,7 +117,14 @@ class QuestCommandSet : CommandSet(Privilege.ADMIN) {
                 else -> "ff0000"
             }
             setInterfaceText(admin, "<col=ecf0f1>${q.name}</col>", 275, lineId++)
-            setInterfaceText(admin, "<col=ecf0f1>Index: </col><col=ff1f1f><shad=2>${q.index}</shad></col> | <col=ecf0f1>Stage:</col> <col=$statusColor><shad=2>${lookupUser.questRepository.getStage(q)}</shad></col>", 275, lineId++)
+            setInterfaceText(
+                admin,
+                "<col=ecf0f1>Index: </col><col=ff1f1f><shad=2>${q.index}</shad></col> | <col=ecf0f1>Stage:</col> <col=$statusColor><shad=2>${
+                    lookupUser.questRepository.getStage(q)
+                }</shad></col>",
+                275,
+                lineId++
+            )
             setInterfaceText(admin, "<str>          ", 275, lineId++)
         }
     }

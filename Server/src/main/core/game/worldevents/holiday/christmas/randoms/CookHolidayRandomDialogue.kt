@@ -1,10 +1,10 @@
 package core.game.worldevents.holiday.christmas.randoms
 
 import core.api.addItemOrDrop
+import core.api.consts.Items
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.worldevents.holiday.HolidayRandoms
-import core.api.consts.Items
 
 class CookHolidayRandomDialogue : DialogueFile() {
     private val cakes = listOf(Items.CAKE_1891, Items.CHOCOLATE_CAKE_1897, Items.MINT_CAKE_9475)
@@ -25,9 +25,10 @@ class CookHolidayRandomDialogue : DialogueFile() {
                 HolidayRandoms.terminateEventNpc(player!!)
                 end()
             }
+
             20 -> npcl(FacialExpression.NEUTRAL, "It's just something I do this time of year... Errr... well...").also { stage++ }
             21 -> playerl(FacialExpression.HALF_ASKING, "Is there something else?").also { stage++ }
-            22 -> npcl(FacialExpression.NEUTRAL, "I used to be the cook for the old Duke of Lumbridge. Visiting dignitaries praised me for my fine banquets!"). also { stage++ }
+            22 -> npcl(FacialExpression.NEUTRAL, "I used to be the cook for the old Duke of Lumbridge. Visiting dignitaries praised me for my fine banquets!").also { stage++ }
             23 -> npcl(FacialExpression.ANNOYED, "But then someone found a rule that said that only one family could hold that post.").also { stage++ }
             24 -> npcl(FacialExpression.ANGRY, "Overnight I was fired and replaced by some fool who can't even bake a cake without help!").also { stage++ }
             25 -> playerl(FacialExpression.NEUTRAL, "I'm sorry to hear that. It sounds as if you are a great cook!").also { stage++ }

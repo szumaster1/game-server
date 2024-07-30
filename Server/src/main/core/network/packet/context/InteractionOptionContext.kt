@@ -10,10 +10,12 @@ import core.network.packet.Context
  */
 class InteractionOptionContext : Context {
     private val player: Player
+
     @JvmField
     val index: Int
     var isRemove: Boolean = false
-    @JvmField val name: String
+    @JvmField
+    val name: String
 
     constructor(player: Player, index: Int, name: String) {
         this.player = player

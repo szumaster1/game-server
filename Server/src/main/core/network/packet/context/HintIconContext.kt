@@ -19,13 +19,25 @@ class HintIconContext @JvmOverloads constructor(
     height: Int = 0
 ) : Context {
 
-    @JvmField var arrowId: Int = 0
-    @JvmField var index: Int = 0
-    @JvmField val modelId: Int
-    @JvmField var location: Location? = null
-    @JvmField var height: Int = 0
+    @JvmField
+    var arrowId: Int = 0
+    @JvmField
+    var index: Int = 0
+    @JvmField
+    val modelId: Int
+    @JvmField
+    var location: Location? = null
+    @JvmField
+    var height: Int = 0
 
-    constructor(player: Player, slot: Int, arrowId: Int, target: Node, modelId: Int) : this(player, slot, arrowId, -1, target, modelId) {
+    constructor(player: Player, slot: Int, arrowId: Int, target: Node, modelId: Int) : this(
+        player,
+        slot,
+        arrowId,
+        -1,
+        target,
+        modelId
+    ) {
         targetType = 2
         if (target is Entity) {
             targetType = if (target is Player) 10 else 1

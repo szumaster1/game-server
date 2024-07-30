@@ -4,14 +4,16 @@ import core.game.node.entity.player.Player;
 
 /**
  * Represents packet context.
+ *
  * @author Emperor
  */
 public interface Context {
 
-	/**
-	 * Gets the node.
-	 * @return The node.
-	 */
-	public Player getPlayer();
+    /**
+     * Gets the node.
+     *
+     * @return The node.
+     */
+    Player getPlayer();
 
 }

@@ -27,14 +27,14 @@ abstract class WorldEvent(var name: String) : ContentInterface {
      * Used to initialize the event
      * The WorldEventInitializer runs this if checkActive() returns true.
      */
-    open fun initEvent(){
+    open fun initEvent() {
     }
 
     /**
      * Used to log world event messages in a standard and organized way.
      */
-    fun log(message: String){
-        core.api.log(this::class.java, Log.FINE,  "[World Events($name)] $message")
+    fun log(message: String) {
+        core.api.log(this::class.java, Log.FINE, "[World Events($name)] $message")
     }
 }
 
@@ -43,12 +43,13 @@ abstract class WorldEvent(var name: String) : ContentInterface {
  * A class that holds a set of plugins that shouldn't be initialized by default.
  * Can be used to initialize all of its plugins cleanly.
  */
-class PluginSet(vararg val plugins: Plugin<*>){
+class PluginSet(vararg val plugins: Plugin<*>) {
     val set = ArrayList(plugins.asList())
     fun initialize() {
         ClassScanner.definePlugins(*set.toTypedArray())
     }
-    fun add(plugin: Plugin<*>){
+
+    fun add(plugin: Plugin<*>) {
         set.add(plugin)
     }
 }
@@ -59,15 +60,15 @@ class PluginSet(vararg val plugins: Plugin<*>){
 object WorldEvents {
     private var events = hashMapOf<String, WorldEvent>()
 
-    fun add(event: WorldEvent){
+    fun add(event: WorldEvent) {
         events[event.name.lowercase()] = event
     }
 
-    fun get(name: String): WorldEvent?{
+    fun get(name: String): WorldEvent? {
         return events[name.lowercase()]
     }
 
-    fun getArchive() : JSONObject {
+    fun getArchive(): JSONObject {
         return ServerStore.getArchive("world-event-status")
     }
 }

@@ -1,10 +1,10 @@
 package core.network;
 
+import core.auth.AuthResponse;
 import core.cache.crypto.ISAACPair;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.info.ClientInfo;
 import core.game.world.repository.Repository;
-import core.auth.AuthResponse;
 import core.network.producer.HSEventProducer;
 import core.network.producer.LoginEventProducer;
 

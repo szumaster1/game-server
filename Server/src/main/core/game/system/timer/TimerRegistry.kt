@@ -1,9 +1,10 @@
 package core.game.system.timer
 
-import java.util.*
-import core.api.*
-import core.tools.*
+import core.api.hasTimerActive
+import core.api.log
+import core.api.registerTimer
 import core.game.node.entity.Entity
+import core.tools.Log
 
 object TimerRegistry {
     val timerMap = HashMap<String, RSTimer>()
@@ -38,10 +39,10 @@ object TimerRegistry {
     inline fun <reified T> getTimerInstance(vararg args: Any): T? {
         for ((_, inst) in timerMap)
             if (inst is T) {
-                if (args.size > 0)
-                    return inst.getTimer(*args) as? T
+                return if (args.isNotEmpty())
+                    inst.getTimer(*args) as? T
                 else
-                    return inst.retrieveInstance() as? T
+                    inst.retrieveInstance() as? T
             }
         return null
     }

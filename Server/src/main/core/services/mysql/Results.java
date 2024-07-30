@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class Results {
 
-	private ResultSet set;
+    private ResultSet set;
 
     /**
      * Instantiates a new Results.
@@ -18,8 +18,8 @@ public class Results {
      * @param set the set
      */
     public Results(ResultSet set) {
-		this.set = set;
-	}
+        this.set = set;
+    }
 
     /**
      * String string.
@@ -29,19 +29,19 @@ public class Results {
      */
     public String string(String column) {
 
-		try {
+        try {
 
-			String result = set().getString(column);
+            String result = set().getString(column);
 
-			return result;
+            return result;
 
-		} catch (Exception e) {
+        } catch (Exception e) {
 
-		}
+        }
 
-		return null;
+        return null;
 
-	}
+    }
 
     /**
      * Integer int.
@@ -51,19 +51,19 @@ public class Results {
      */
     public int integer(String column) {
 
-		try {
+        try {
 
-			int result = set().getInt(column);
+            int result = set().getInt(column);
 
-			return result;
+            return result;
 
-		} catch (Exception e) {
+        } catch (Exception e) {
 
-		}
+        }
 
-		return -1;
+        return -1;
 
-	}
+    }
 
     /**
      * Columns list.
@@ -72,25 +72,25 @@ public class Results {
      */
     public List<String> columns() {
 
-		try {
+        try {
 
-			ResultSetMetaData meta = set().getMetaData();
-			int count = meta.getColumnCount();
+            ResultSetMetaData meta = set().getMetaData();
+            int count = meta.getColumnCount();
 
-			List<String> columns = new ArrayList<String>(count);
+            List<String> columns = new ArrayList<String>(count);
 
-			for (int i = 1; i <= count; i++)
-				columns.add(meta.getColumnName(i));
+            for (int i = 1; i <= count; i++)
+                columns.add(meta.getColumnName(i));
 
-			return columns;
+            return columns;
 
-		} catch (Exception e) {
+        } catch (Exception e) {
 
-		}
+        }
 
-		return null;
+        return null;
 
-	}
+    }
 
     /**
      * Empty boolean.
@@ -99,14 +99,14 @@ public class Results {
      */
     public boolean empty() {
 
-		try {
-			return !set().next();
-		} catch (Exception e) {
+        try {
+            return !set().next();
+        } catch (Exception e) {
 
-		}
+        }
 
-		return true;
-	}
+        return true;
+    }
 
     /**
      * Integers int [ ].
@@ -116,14 +116,14 @@ public class Results {
      */
     public static int[] integers(String[] values) {
 
-		int[] integers = new int[values.length];
+        int[] integers = new int[values.length];
 
-		for (int i = 0; i < integers.length; i++)
-			integers[i] = Integer.parseInt(values[i]);
+        for (int i = 0; i < integers.length; i++)
+            integers[i] = Integer.parseInt(values[i]);
 
-		return integers;
+        return integers;
 
-	}
+    }
 
     /**
      * Doubles double [ ].
@@ -133,14 +133,14 @@ public class Results {
      */
     public static double[] doubles(String[] values) {
 
-		double[] integers = new double[values.length];
+        double[] integers = new double[values.length];
 
-		for (int i = 0; i < integers.length; i++)
-			integers[i] = Double.parseDouble(values[i]);
+        for (int i = 0; i < integers.length; i++)
+            integers[i] = Double.parseDouble(values[i]);
 
-		return integers;
+        return integers;
 
-	}
+    }
 
     /**
      * Set result set.
@@ -148,7 +148,7 @@ public class Results {
      * @return the result set
      */
     public ResultSet set() {
-		return set;
-	}
+        return set;
+    }
 
 }

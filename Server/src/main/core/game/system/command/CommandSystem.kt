@@ -9,7 +9,7 @@ import core.tools.colorize
  */
 class CommandSystem {
     /**
-     * Method used to parse an incomming command packet.
+     * Method used to parse an incoming command packet.
      * @param player the player.
      * @param message the command message.
      */

@@ -62,10 +62,18 @@ object ClassScanner {
             loadContentInterfacesFrom(scanResults)
             logStartup("Loaded $amountLoaded content interfaces.")
         } catch (t: Throwable) {
-            log(this::class.java, Log.ERR, "Error initializing Plugins -> " + t.localizedMessage + " for file -> " + lastLoaded)
+            log(
+                this::class.java,
+                Log.ERR,
+                "Error initializing Plugins -> " + t.localizedMessage + " for file -> " + lastLoaded
+            )
             t.printStackTrace()
         } catch (e: Exception) {
-            log(this::class.java, Log.ERR, "Error initializing Plugins -> " + e.localizedMessage + " for file -> " + lastLoaded)
+            log(
+                this::class.java,
+                Log.ERR,
+                "Error initializing Plugins -> " + e.localizedMessage + " for file -> " + lastLoaded
+            )
             e.printStackTrace()
         }
     }
@@ -153,7 +161,11 @@ object ClassScanner {
                 log(this::class.java, Log.ERR, "Failed to load plugin ${p.name}.")
 
                 if (t is NoSuchMethodException && p.superclass.simpleName == Dialogue::class.simpleName) {
-                    log(this::class.java, Log.ERR, "Make sure the constructor signature matches " + "`${p.simpleName}(player: Player? = null) : dialogue(player)'.")
+                    log(
+                        this::class.java,
+                        Log.ERR,
+                        "Make sure the constructor signature matches " + "`${p.simpleName}(player: Player? = null) : dialogue(player)'."
+                    )
                 }
 
                 t.printStackTrace()
@@ -161,10 +173,13 @@ object ClassScanner {
         })
 
         scanResults.getClassesWithAnnotation("core.game.bots.PlayerCompatible").forEach { res ->
-            val description = res.getAnnotationInfo("core.game.bots.ScriptDescription").parameterValues[0].value as Array<String>
-            val identifier = res.getAnnotationInfo("core.game.bots.ScriptIdentifier").parameterValues[0].value.toString()
+            val description =
+                res.getAnnotationInfo("core.game.bots.ScriptDescription").parameterValues[0].value as Array<String>
+            val identifier =
+                res.getAnnotationInfo("core.game.bots.ScriptIdentifier").parameterValues[0].value.toString()
             val name = res.getAnnotationInfo("core.game.bots.ScriptName").parameterValues[0].value.toString()
-            PlayerScripts.identifierMap[identifier] = PlayerScripts.PlayerScript(identifier, description, name, res.loadClass())
+            PlayerScripts.identifierMap[identifier] =
+                PlayerScripts.PlayerScript(identifier, description, name, res.loadClass())
         }
     }
 

@@ -52,7 +52,8 @@ object LevelUp {
         setInterfaceText(player, "Your " + Skills.SKILL_NAME[slot] + " level is now " + player.getSkills().getStaticLevel(slot) + ".", 740, 1)
 
         // Send level up message to the player.
-        sendMessage(player, "You've just advanced a " + Skills.SKILL_NAME[slot] + " level! You have reached level " + player.getSkills().getStaticLevel(slot) + ".")
+        sendMessage(player, "You've just advanced a " + Skills.SKILL_NAME[slot] + " level! You have reached level " + player.getSkills()
+                .getStaticLevel(slot) + ".")
 
         // Increment prayer points if prayer skill is leveled up.
         if (slot == Skills.PRAYER) {

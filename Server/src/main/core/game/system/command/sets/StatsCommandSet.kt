@@ -6,14 +6,14 @@ import content.global.handlers.iface.BookInterfaceListener
 import content.global.handlers.iface.Page
 import content.global.handlers.iface.PageSet
 import content.global.skill.support.slayer.SlayerManager
-import core.api.setAttribute
-import core.game.node.entity.player.Player
-import core.plugin.Initializable
 import core.api.consts.Items
 import core.api.consts.NPCs
+import core.api.setAttribute
 import core.api.utils.GlobalKillCounter
+import core.game.node.entity.player.Player
 import core.game.system.command.Privilege
 import core.game.world.repository.Repository
+import core.plugin.Initializable
 
 val TUROTH_IDS = intArrayOf(NPCs.TUROTH_1622, NPCs.TUROTH_1623, NPCs.TUROTH_1626, NPCs.TUROTH_1627, NPCs.TUROTH_1628, NPCs.TUROTH_1629, NPCs.TUROTH_1630)
 val KURASK_IDS = intArrayOf(NPCs.KURASK_1608, NPCs.KURASK_1609, NPCs.KURASK_4229, NPCs.KURASK_7811)

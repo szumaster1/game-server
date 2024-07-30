@@ -21,8 +21,10 @@ open class SwitchAttack @JvmOverloads constructor(
     val animation: Animation?
     val endGraphic: Graphic?
     val projectile: Projectile?
+
     @JvmField
     var isUseHandler: Boolean = false
+
     @JvmField
     var maximumHit: Int = -1
 

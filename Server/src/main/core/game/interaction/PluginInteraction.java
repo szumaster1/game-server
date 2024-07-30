@@ -1,7 +1,5 @@
 package core.game.interaction;
 
-import core.game.interaction.NodeUsageEvent;
-import core.game.interaction.Option;
 import core.game.node.Node;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
@@ -28,9 +26,11 @@ public abstract class PluginInteraction implements Plugin<Object> {
      * @param node   the node
      * @return the boolean
      */
-    public boolean handle(Player player, Node node){
+    public boolean handle(Player player, Node node) {
         return false;
-    };
+    }
+
+    ;
 
     /**
      * Handle boolean.
@@ -39,9 +39,11 @@ public abstract class PluginInteraction implements Plugin<Object> {
      * @param event  the event
      * @return the boolean
      */
-    public boolean handle(Player player, NodeUsageEvent event){
+    public boolean handle(Player player, NodeUsageEvent event) {
         return false;
-    };
+    }
+
+    ;
 
     /**
      * Handle boolean.
@@ -51,7 +53,7 @@ public abstract class PluginInteraction implements Plugin<Object> {
      * @param option the option
      * @return the boolean
      */
-    public boolean handle(Player player, NPC npc, Option option){
+    public boolean handle(Player player, NPC npc, Option option) {
         return false;
     }
 
@@ -63,14 +65,16 @@ public abstract class PluginInteraction implements Plugin<Object> {
      * @param option the option
      * @return the boolean
      */
-    public boolean handle(Player player, Item item, Option option){return false;}
+    public boolean handle(Player player, Item item, Option option) {
+        return false;
+    }
 
     /**
      * Instantiates a new Plugin interaction.
      *
      * @param ids the ids
      */
-    public PluginInteraction(int... ids){
+    public PluginInteraction(int... ids) {
         this.ids = ids;
     }
 
@@ -79,7 +83,9 @@ public abstract class PluginInteraction implements Plugin<Object> {
      *
      * @param item the item
      */
-    public PluginInteraction(Item item){this.item = item;}
+    public PluginInteraction(Item item) {
+        this.item = item;
+    }
 
     /**
      * Sets ids.

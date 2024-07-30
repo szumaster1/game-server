@@ -15,57 +15,85 @@ class CommonKebbitEast : HunterTracking() {
         initialMap = hashMapOf(
             19439 to arrayListOf(
                 TrailDefinition(
-                    2974, TrailType.LINKING, false, Location.create(2354, 3595, 0), Location.create(2360, 3602, 0)
-                ), TrailDefinition(
-                    2975, TrailType.LINKING, false, Location.create(2354, 3595, 0), Location.create(2355, 3601, 0)
-                ), TrailDefinition(
-                    2976, TrailType.LINKING, false, Location.create(2354, 3594, 0), Location.create(2349, 3604, 0)
-                )
-            ), 19440 to arrayListOf(
+                    varbit = 2974,
+                    type = TrailType.LINKING,
+                    inverted = false,
+                    startLocation = Location.create(2354, 3595, 0),
+                    endLocation = Location.create(2360, 3602, 0)
+                ),
                 TrailDefinition(
-                    2980, TrailType.LINKING, true, Location.create(2361, 3611, 0), Location.create(2360, 3602, 0)
-                ), TrailDefinition(
-                    2981, TrailType.LINKING, true, Location.create(2360, 3612, 0), Location.create(2357, 3607, 0)
+                    varbit = 2975,
+                    type = TrailType.LINKING,
+                    inverted = false,
+                    startLocation = Location.create(2354, 3595, 0),
+                    endLocation = Location.create(2355, 3601, 0)
+                ),
+                TrailDefinition(
+                    varbit = 2976,
+                    type = TrailType.LINKING,
+                    inverted = false,
+                    startLocation = Location.create(2354, 3594, 0),
+                    endLocation = Location.create(2349, 3604, 0)
+                )
+            ),
+            19440 to arrayListOf(
+                TrailDefinition(
+                    varbit = 2980,
+                    type = TrailType.LINKING,
+                    inverted = true,
+                    startLocation = Location.create(2361, 3611, 0),
+                    endLocation = Location.create(2360, 3602, 0)
+                ),
+                TrailDefinition(
+                    varbit = 2981,
+                    type = TrailType.LINKING,
+                    inverted = true,
+                    startLocation = Location.create(2360, 3612, 0),
+                    endLocation = Location.create(2357, 3607, 0)
                 )
             )
         )
 
         linkingTrails = arrayListOf(
             TrailDefinition(
-                2982,
-                TrailType.LINKING,
-                false,
-                Location.create(2357, 3607, 0),
-                Location.create(2354, 3609, 0),
-                Location.create(2355, 3608, 0)
-            ), TrailDefinition(
-                2983,
-                TrailType.LINKING,
-                false,
-                Location.create(2354, 3609, 0),
-                Location.create(2349, 3604, 0),
-                Location.create(2351, 3608, 0)
-            ), TrailDefinition(
-                2977,
-                TrailType.LINKING,
-                false,
-                Location.create(2360, 3602, 0),
-                Location.create(2355, 3601, 0),
-                Location.create(2358, 3599, 0)
-            ), TrailDefinition(
-                2978,
-                TrailType.LINKING,
-                false,
-                Location.create(2355, 3601, 0),
-                Location.create(2349, 3604, 0),
-                Location.create(2352, 3603, 0)
-            ), TrailDefinition(
-                2979,
-                TrailType.LINKING,
-                false,
-                Location.create(2360, 3602, 0),
-                Location.create(2357, 3607, 0),
-                Location.create(2358, 3603, 0)
+                varbit = 2982,
+                type = TrailType.LINKING,
+                inverted = false,
+                startLocation = Location.create(2357, 3607, 0),
+                endLocation = Location.create(2354, 3609, 0),
+                triggerObjectLocation = Location.create(2355, 3608, 0)
+            ),
+            TrailDefinition(
+                varbit = 2983,
+                type = TrailType.LINKING,
+                inverted = false,
+                startLocation = Location.create(2354, 3609, 0),
+                endLocation = Location.create(2349, 3604, 0),
+                triggerObjectLocation = Location.create(2351, 3608, 0)
+            ),
+            TrailDefinition(
+                varbit = 2977,
+                type = TrailType.LINKING,
+                inverted = false,
+                startLocation = Location.create(2360, 3602, 0),
+                endLocation = Location.create(2355, 3601, 0),
+                triggerObjectLocation = Location.create(2358, 3599, 0)
+            ),
+            TrailDefinition(
+                varbit = 2978,
+                type = TrailType.LINKING,
+                inverted = false,
+                startLocation = Location.create(2355, 3601, 0),
+                endLocation = Location.create(2349, 3604, 0),
+                triggerObjectLocation = Location.create(2352, 3603, 0)
+            ),
+            TrailDefinition(
+                varbit = 2979,
+                type = TrailType.LINKING,
+                inverted = false,
+                startLocation = Location.create(2360, 3602, 0),
+                endLocation = Location.create(2357, 3607, 0),
+                triggerObjectLocation = Location.create(2358, 3603, 0)
             )
         )
         experience = 36.0

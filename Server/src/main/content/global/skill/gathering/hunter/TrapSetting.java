@@ -24,25 +24,15 @@ import static core.api.ContentAPIKt.playAudio;
  * The Trap setting.
  */
 public class TrapSetting {
-
     private final int[] nodeIds;
-
     private final Item[] items;
-
     private final String option;
-
     private final int level;
-
     private final Animation setupAnimation;
-
     private final Animation dismantleAnimation;
-
     private final int failId;
-
     private final int[] objectIds;
-
     private final int[] baitIds;
-
     private final boolean objectTrap;
 
     /**
@@ -351,7 +341,7 @@ public class TrapSetting {
      */
     public boolean isSuccess(Player player, final TrapNode node) {
         double level = player.skills.getStaticLevel(Skills.HUNTER);
-        double req = node.getLevel();
+        double req = node.level;
         double successChance = Math.ceil((level * 50 - req * 17) / req / 3 * 4);
         int roll = RandomFunction.random(99);
         return successChance >= roll;

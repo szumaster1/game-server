@@ -9,7 +9,6 @@ import core.game.node.scenery.Scenery
 import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 
-
 @PlayerCompatible
 @ScriptName("Law Rune Crafter")
 @ScriptDescription("Crafts law runes. Start near Draynor bank w/ law tiara.")

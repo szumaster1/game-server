@@ -1,6 +1,8 @@
 package core.game.worldevents.holiday
 
-import core.api.*
+import core.api.consts.Sounds
+import core.api.playGlobalAudio
+import core.api.poofClear
 import core.game.interaction.MovementPulse
 import core.game.node.entity.impl.PulseType
 import core.game.node.entity.npc.NPC
@@ -9,10 +11,9 @@ import core.game.world.map.Location
 import core.game.world.map.RegionManager
 import core.game.world.map.path.Pathfinder
 import core.tools.secondsToTicks
-import core.api.consts.Sounds
 import kotlin.reflect.full.createInstance
 
-abstract class HolidayRandomEventNPC(id:Int) : NPC(id) {
+abstract class HolidayRandomEventNPC(id: Int) : NPC(id) {
     lateinit var player: Player
     var spawnLocation: Location? = null
     var initialized = false
@@ -78,7 +79,11 @@ abstract class HolidayRandomEventNPC(id:Int) : NPC(id) {
 
     override fun clear() {
         super.clear()
-        if(player.getAttribute<HolidayRandomEventNPC?>("holiday-npc", null) == this) player.removeAttribute("holiday-npc")
+        if (player.getAttribute<HolidayRandomEventNPC?>(
+                "holiday-npc",
+                null
+            ) == this
+        ) player.removeAttribute("holiday-npc")
     }
 
     abstract fun talkTo(npc: NPC)

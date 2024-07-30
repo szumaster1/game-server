@@ -1,20 +1,19 @@
 package core.game.world.map.path
 
+import core.ServerConstants
+import core.api.log
+import core.api.utils.Vector
 import core.game.world.GameWorld
 import core.game.world.map.Direction
 import core.game.world.map.Location
 import core.game.world.map.Point
-import core.tools.*
-import core.api.*
-import core.api.utils.Vector
-import core.ServerConstants
-
-import java.util.Comparator
-import java.util.PriorityQueue
-
-import java.io.*
-import javax.imageio.ImageIO
+import core.tools.Log
 import java.awt.image.BufferedImage
+import java.io.File
+import java.io.PrintWriter
+import java.io.StringWriter
+import java.util.*
+import javax.imageio.ImageIO
 
 class SmartPathfinder
 /**
@@ -34,12 +33,12 @@ internal constructor() : Pathfinder() {
     /**
      * The "via" array.
      */
-    private var via: Array<IntArray> =  Array(104) { IntArray(104) }
+    private var via: Array<IntArray> = Array(104) { IntArray(104) }
 
     /**
      * The cost array.
      */
-    private var cost: Array<IntArray> =  Array(104) { IntArray(104) }
+    private var cost: Array<IntArray> = Array(104) { IntArray(104) }
 
     /**
      * The current writing position.
@@ -90,7 +89,7 @@ internal constructor() : Pathfinder() {
      * @param currentCost The current cost.
      */
     fun check(x: Int, y: Int, dir: Int, currentCost: Int, diagonalPenalty: Int = 0) {
-        if(cost[x][y] > currentCost + diagonalPenalty) {
+        if (cost[x][y] > currentCost + diagonalPenalty) {
             queueX[writePathPosition] = x
             queueY[writePathPosition] = y
             via[x][y] = dir
@@ -99,7 +98,18 @@ internal constructor() : Pathfinder() {
         }
     }
 
-    override fun find(start: Location?, moverSize: Int, dest: Location?, sizeX: Int, sizeY: Int, rotation: Int, type: Int, walkingFlag: Int, near: Boolean, clipMaskSupplier: ClipMaskSupplier?): Path {
+    override fun find(
+        start: Location?,
+        moverSize: Int,
+        dest: Location?,
+        sizeX: Int,
+        sizeY: Int,
+        rotation: Int,
+        type: Int,
+        walkingFlag: Int,
+        near: Boolean,
+        clipMaskSupplier: ClipMaskSupplier?
+    ): Path {
         reset()
         assert(start != null && dest != null)
         var vec = Vector.betweenLocs(start!!, dest!!)
@@ -140,25 +150,53 @@ internal constructor() : Pathfinder() {
         check(curX, curY, 99, 0)
         try {
             if (moverSize < 2) {
-                if(GameWorld.settings?.smartpathfinder_bfs ?: false) {
+                if (GameWorld.settings?.smartpathfinder_bfs ?: false) {
                     checkSingleTraversal(end, sizeX, sizeY, type, rotation, walkingFlag, location, clipMaskSupplier!!)
                 } else {
-                    checkSingleTraversalAstar(end, sizeX, sizeY, type, rotation, walkingFlag, location, clipMaskSupplier!!)
+                    checkSingleTraversalAstar(
+                        end,
+                        sizeX,
+                        sizeY,
+                        type,
+                        rotation,
+                        walkingFlag,
+                        location,
+                        clipMaskSupplier!!
+                    )
                 }
             } else if (moverSize == 2) {
                 checkDoubleTraversal(end, sizeX, sizeY, type, rotation, walkingFlag, location, clipMaskSupplier!!)
             } else {
-                checkVariableTraversal(end, moverSize, sizeX, sizeY, type, rotation, walkingFlag, location, clipMaskSupplier!!)
+                checkVariableTraversal(
+                    end,
+                    moverSize,
+                    sizeX,
+                    sizeY,
+                    type,
+                    rotation,
+                    walkingFlag,
+                    location,
+                    clipMaskSupplier!!
+                )
             }
-        } catch (e: Exception) {}
-        var debugImg = if(false) { BufferedImage(4*104+2, 104, BufferedImage.TYPE_INT_RGB) } else { null }
-        if(debugImg != null) {
-            for(y in 0 until 104) {
-                for(x in 0 until 104) {
-                    debugImg.setRGB(x, 103-y, via[x][y] * (((1 shl 24)-1)/12))
-                    val c = Math.min(4*Math.min(cost[x][y], 64), 255)
-                    debugImg.setRGB(105+x, 103-y, (c shl 16) or (c shl 8) or c)
-                    debugImg.setRGB(2*105+x, 103-y, clipMaskSupplier!!.getClippingFlag(location.z, location.x + x, location.y + y))
+        } catch (e: Exception) {
+        }
+        var debugImg = if (false) {
+            BufferedImage(4 * 104 + 2, 104, BufferedImage.TYPE_INT_RGB)
+        } else {
+            null
+        }
+        if (debugImg != null) {
+            for (y in 0 until 104) {
+                for (x in 0 until 104) {
+                    debugImg.setRGB(x, 103 - y, via[x][y] * (((1 shl 24) - 1) / 12))
+                    val c = Math.min(4 * Math.min(cost[x][y], 64), 255)
+                    debugImg.setRGB(105 + x, 103 - y, (c shl 16) or (c shl 8) or c)
+                    debugImg.setRGB(
+                        2 * 105 + x,
+                        103 - y,
+                        clipMaskSupplier!!.getClippingFlag(location.z, location.x + x, location.y + y)
+                    )
                 }
             }
         }
@@ -222,18 +260,26 @@ internal constructor() : Pathfinder() {
             } else if (directionFlag and NORTH_FLAG != 0) {
                 curY--
             }
-            if(debugImg != null) {
-                debugImg.setRGB(3*105+curX, 103-curY, 0x0000ff)
+            if (debugImg != null) {
+                debugImg.setRGB(3 * 105 + curX, 103 - curY, 0x0000ff)
             }
             directionFlag = via[curX][curY]
         }
-        if(debugImg != null) {
-            debugImg.setRGB(3*105+start.sceneX, 103-start.sceneY, 0xff0000)
-            debugImg.setRGB(3*105+dstX, 103-dstY, 0x00ff00)
-            if(GameWorld.settings?.smartpathfinder_bfs == true) {
-                ImageIO.write(debugImg, "png", File(String.format("bfs_%04d_%04d_%04d_%04d.png", start.x, start.y, end.x, end.y)))
+        if (debugImg != null) {
+            debugImg.setRGB(3 * 105 + start.sceneX, 103 - start.sceneY, 0xff0000)
+            debugImg.setRGB(3 * 105 + dstX, 103 - dstY, 0x00ff00)
+            if (GameWorld.settings?.smartpathfinder_bfs == true) {
+                ImageIO.write(
+                    debugImg,
+                    "png",
+                    File(String.format("bfs_%04d_%04d_%04d_%04d.png", start.x, start.y, end.x, end.y))
+                )
             } else {
-                ImageIO.write(debugImg, "png", File(String.format("astar_%04d_%04d_%04d_%04d.png", start.x, start.y, end.x, end.y)))
+                ImageIO.write(
+                    debugImg,
+                    "png",
+                    File(String.format("astar_%04d_%04d_%04d_%04d.png", start.x, start.y, end.x, end.y))
+                )
             }
         }
         val size = readPosition--
@@ -262,33 +308,46 @@ internal constructor() : Pathfinder() {
             val qy: UInt = (q and 0x000000ffu)
             //val dp = pc.toInt() + Math.abs(end.sceneX - (px.toInt())) + Math.abs(end.sceneY - (py.toInt()))
             //val dq = qc.toInt() + Math.abs(end.sceneX - (qx.toInt())) + Math.abs(end.sceneY - (qy.toInt()))
-            val dp = pc.toDouble() + Math.max(Math.abs(end.sceneX - px.toInt()), Math.abs(end.sceneY - py.toInt())).toDouble()
-            val dq = qc.toDouble() + Math.max(Math.abs(end.sceneX - qx.toInt()), Math.abs(end.sceneY - qy.toInt())).toDouble()
-            if(dp < dq) {
+            val dp = pc.toDouble() + Math.max(Math.abs(end.sceneX - px.toInt()), Math.abs(end.sceneY - py.toInt()))
+                .toDouble()
+            val dq = qc.toDouble() + Math.max(Math.abs(end.sceneX - qx.toInt()), Math.abs(end.sceneY - qy.toInt()))
+                .toDouble()
+            if (dp < dq) {
                 return -1
-            } else if(dq < dp) {
+            } else if (dq < dp) {
                 return 1
             } else {
                 return 0
             }
         }
+
         override fun equals(other: Any?): Boolean {
-            if(other is UIntAsPointComparator) {
+            if (other is UIntAsPointComparator) {
                 return end == other.end
             } else {
                 return false
             }
         }
+
         override fun hashCode(): Int {
             return end.hashCode()
         }
     }
 
-    private fun checkSingleTraversalAstar(end: Location, sizeX: Int, sizeY: Int, type: Int, rotation: Int, walkingFlag: Int, location: Location, clipMaskSupplier: ClipMaskSupplier) {
+    private fun checkSingleTraversalAstar(
+        end: Location,
+        sizeX: Int,
+        sizeY: Int,
+        type: Int,
+        rotation: Int,
+        walkingFlag: Int,
+        location: Location,
+        clipMaskSupplier: ClipMaskSupplier
+    ) {
         val z = location.z
         var queue = PriorityQueue(4096, UIntAsPointComparator(end))
         queue.add(((curX.toUInt()) shl 8) or (curY.toUInt()))
-        while(!foundPath && !queue.isEmpty()) {
+        while (!foundPath && !queue.isEmpty()) {
             val point = queue.poll()
             val curCost = ((point and 0xff0000u) shr 16).toInt()
             curX = ((point and 0x0000ff00u) shr 8).toInt()
@@ -300,33 +359,76 @@ internal constructor() : Pathfinder() {
                 break
             }
             if (type != 0) {
-                if ((type < 5 || type == 10) && canDoorInteract(absX, absY, 1, end.x, end.y, type - 1, rotation, z, clipMaskSupplier)) {
+                if ((type < 5 || type == 10) && canDoorInteract(
+                        absX,
+                        absY,
+                        1,
+                        end.x,
+                        end.y,
+                        type - 1,
+                        rotation,
+                        z,
+                        clipMaskSupplier
+                    )
+                ) {
                     foundPath = true
                     break
                 }
-                if (type < 10 && canDecorationInteract(absX, absY, 1, end.x, end.y, type - 1, rotation, z, clipMaskSupplier)) {
+                if (type < 10 && canDecorationInteract(
+                        absX,
+                        absY,
+                        1,
+                        end.x,
+                        end.y,
+                        type - 1,
+                        rotation,
+                        z,
+                        clipMaskSupplier
+                    )
+                ) {
                     foundPath = true
                     break
                 }
             }
-            if (sizeX != 0 && sizeY != 0 && canInteract(absX, absY, 1, end.x, end.y, sizeX, sizeY, walkingFlag, z, clipMaskSupplier)) {
+            if (sizeX != 0 && sizeY != 0 && canInteract(
+                    absX,
+                    absY,
+                    1,
+                    end.x,
+                    end.y,
+                    sizeX,
+                    sizeY,
+                    walkingFlag,
+                    z,
+                    clipMaskSupplier
+                )
+            ) {
                 foundPath = true
                 break
             }
             val newCost = curCost + 1
             //val orthogonalsFirst = arrayOf(Direction.EAST, Direction.NORTH, Direction.WEST, Direction.SOUTH, Direction.NORTH_EAST, Direction.NORTH_WEST, Direction.SOUTH_WEST, Direction.SOUTH_EAST)
-            val orthogonalsFirst = arrayOf(Direction.SOUTH, Direction.WEST, Direction.NORTH, Direction.EAST, Direction.SOUTH_WEST, Direction.NORTH_WEST, Direction.SOUTH_EAST, Direction.NORTH_EAST)
+            val orthogonalsFirst = arrayOf(
+                Direction.SOUTH,
+                Direction.WEST,
+                Direction.NORTH,
+                Direction.EAST,
+                Direction.SOUTH_WEST,
+                Direction.NORTH_WEST,
+                Direction.SOUTH_EAST,
+                Direction.NORTH_EAST
+            )
             //val orthogonalsFirst = arrayOf(Direction.SOUTH, Direction.WEST, Direction.NORTH, Direction.EAST)
             //for(dir in Direction.values()) {
-            for(dir in orthogonalsFirst) {
+            for (dir in orthogonalsFirst) {
                 val newSceneX: Int = curX + dir.stepX
                 val newSceneY: Int = curY + dir.stepY
-                if(0 <= newSceneX && newSceneX < 104 && 0 <= newSceneY && newSceneY < 104 && via[newSceneX][newSceneY] == 0) {
-                    if(dir.canMoveFrom(z, absX, absY, clipMaskSupplier)) {
+                if (0 <= newSceneX && newSceneX < 104 && 0 <= newSceneY && newSceneY < 104 && via[newSceneX][newSceneY] == 0) {
+                    if (dir.canMoveFrom(z, absX, absY, clipMaskSupplier)) {
                         val diagonalPenalty = Math.abs(dir.stepX) + Math.abs(dir.stepY) - 1
                         val flag = flagForDirection(dir)
                         check(newSceneX, newSceneY, flag, newCost, diagonalPenalty)
-                        if(via[newSceneX][newSceneY] == flag) {
+                        if (via[newSceneX][newSceneY] == flag) {
                             queue.add(((newCost + diagonalPenalty).toUInt() shl 16) or (newSceneX.toUInt() shl 8) or newSceneY.toUInt())
                         }
                     }
@@ -345,7 +447,16 @@ internal constructor() : Pathfinder() {
      * @param walkingFlag The walking flag.
      * @param location The viewport location.
      */
-    private fun checkSingleTraversal(end: Location, sizeX: Int, sizeY: Int, type: Int, rotation: Int, walkingFlag: Int, location: Location, clipMaskSupplier: ClipMaskSupplier) {
+    private fun checkSingleTraversal(
+        end: Location,
+        sizeX: Int,
+        sizeY: Int,
+        type: Int,
+        rotation: Int,
+        walkingFlag: Int,
+        location: Location,
+        clipMaskSupplier: ClipMaskSupplier
+    ) {
         var readPosition = 0
         val z = location.z
         while (writePathPosition != readPosition) {
@@ -360,46 +471,136 @@ internal constructor() : Pathfinder() {
                 val absX = location.x + curX
                 val absY = location.y + curY
                 if (type != 0) {
-                    if ((type < 5 || type == 10) && canDoorInteract(absX, absY, 1, end.x, end.y, type - 1, rotation, z, clipMaskSupplier)) {
+                    if ((type < 5 || type == 10) && canDoorInteract(
+                            absX,
+                            absY,
+                            1,
+                            end.x,
+                            end.y,
+                            type - 1,
+                            rotation,
+                            z,
+                            clipMaskSupplier
+                        )
+                    ) {
                         foundPath = true
                         break
                     }
-                    if (type < 10 && canDecorationInteract(absX, absY, 1, end.x, end.y, type - 1, rotation, z, clipMaskSupplier)) {
+                    if (type < 10 && canDecorationInteract(
+                            absX,
+                            absY,
+                            1,
+                            end.x,
+                            end.y,
+                            type - 1,
+                            rotation,
+                            z,
+                            clipMaskSupplier
+                        )
+                    ) {
                         foundPath = true
                         break
                     }
                 }
-                if (sizeX != 0 && sizeY != 0 && canInteract(absX, absY, 1, end.x, end.y, sizeX, sizeY, walkingFlag, z, clipMaskSupplier)) {
+                if (sizeX != 0 && sizeY != 0 && canInteract(
+                        absX,
+                        absY,
+                        1,
+                        end.x,
+                        end.y,
+                        sizeX,
+                        sizeY,
+                        walkingFlag,
+                        z,
+                        clipMaskSupplier
+                    )
+                ) {
                     foundPath = true
                     break
                 }
                 val thisCost = cost[curX][curY] + 1
-                if (curY > 0 && via[curX][curY - 1] == 0 && clipMaskSupplier.getClippingFlag(z, absX, absY - 1) and 0x12c0102 == 0) {
+                if (curY > 0 && via[curX][curY - 1] == 0 && clipMaskSupplier.getClippingFlag(
+                        z,
+                        absX,
+                        absY - 1
+                    ) and 0x12c0102 == 0
+                ) {
                     check(curX, curY - 1, SOUTH_FLAG, thisCost)
                 }
-                if (curX > 0 && via[curX - 1][curY] == 0 && clipMaskSupplier.getClippingFlag(z, absX - 1, absY) and 0x12c0108 == 0) {
+                if (curX > 0 && via[curX - 1][curY] == 0 && clipMaskSupplier.getClippingFlag(
+                        z,
+                        absX - 1,
+                        absY
+                    ) and 0x12c0108 == 0
+                ) {
                     check(curX - 1, curY, WEST_FLAG, thisCost)
                 }
-                if (curY < 103 && via[curX][curY + 1] == 0 && clipMaskSupplier.getClippingFlag(z, absX, absY + 1) and 0x12c0120 == 0) {
+                if (curY < 103 && via[curX][curY + 1] == 0 && clipMaskSupplier.getClippingFlag(
+                        z,
+                        absX,
+                        absY + 1
+                    ) and 0x12c0120 == 0
+                ) {
                     check(curX, curY + 1, NORTH_FLAG, thisCost)
                 }
-                if (curX < 103 && via[curX + 1][curY] == 0 && clipMaskSupplier.getClippingFlag(z, absX + 1, absY) and 0x12c0180 == 0) {
+                if (curX < 103 && via[curX + 1][curY] == 0 && clipMaskSupplier.getClippingFlag(
+                        z,
+                        absX + 1,
+                        absY
+                    ) and 0x12c0180 == 0
+                ) {
                     check(curX + 1, curY, EAST_FLAG, thisCost)
                 }
-                if (curX > 0 && curY > 0 && via[curX - 1][curY - 1] == 0 && clipMaskSupplier.getClippingFlag(z, absX - 1, absY - 1) and 0x12c010e == 0 && clipMaskSupplier.getClippingFlag(z, absX - 1, absY) and 0x12c0108 == 0 && clipMaskSupplier.getClippingFlag(z, absX, absY - 1) and 0x12c0102 == 0) {
+                if (curX > 0 && curY > 0 && via[curX - 1][curY - 1] == 0 && clipMaskSupplier.getClippingFlag(
+                        z,
+                        absX - 1,
+                        absY - 1
+                    ) and 0x12c010e == 0 && clipMaskSupplier.getClippingFlag(
+                        z,
+                        absX - 1,
+                        absY
+                    ) and 0x12c0108 == 0 && clipMaskSupplier.getClippingFlag(z, absX, absY - 1) and 0x12c0102 == 0
+                ) {
                     check(curX - 1, curY - 1, SOUTH_WEST_FLAG, thisCost)
                 }
-                if (curX > 0 && curY < 103 && via[curX - 1][curY + 1] == 0 && clipMaskSupplier.getClippingFlag(z, absX - 1, absY + 1) and 0x12c0138 == 0 && clipMaskSupplier.getClippingFlag(z, absX - 1, absY) and 0x12c0108 == 0 && clipMaskSupplier.getClippingFlag(z, absX, absY + 1) and 0x12c0120 == 0) {
+                if (curX > 0 && curY < 103 && via[curX - 1][curY + 1] == 0 && clipMaskSupplier.getClippingFlag(
+                        z,
+                        absX - 1,
+                        absY + 1
+                    ) and 0x12c0138 == 0 && clipMaskSupplier.getClippingFlag(
+                        z,
+                        absX - 1,
+                        absY
+                    ) and 0x12c0108 == 0 && clipMaskSupplier.getClippingFlag(z, absX, absY + 1) and 0x12c0120 == 0
+                ) {
                     check(curX - 1, curY + 1, NORTH_WEST_FLAG, thisCost)
                 }
-                if (curX < 103 && curY > 0 && via[curX + 1][curY - 1] == 0 && clipMaskSupplier.getClippingFlag(z, absX + 1, absY - 1) and 0x12c0183 == 0 && clipMaskSupplier.getClippingFlag(z, absX + 1, absY) and 0x12c0180 == 0 && clipMaskSupplier.getClippingFlag(z, absX, absY - 1) and 0x12c0102 == 0) {
+                if (curX < 103 && curY > 0 && via[curX + 1][curY - 1] == 0 && clipMaskSupplier.getClippingFlag(
+                        z,
+                        absX + 1,
+                        absY - 1
+                    ) and 0x12c0183 == 0 && clipMaskSupplier.getClippingFlag(
+                        z,
+                        absX + 1,
+                        absY
+                    ) and 0x12c0180 == 0 && clipMaskSupplier.getClippingFlag(z, absX, absY - 1) and 0x12c0102 == 0
+                ) {
                     check(curX + 1, curY - 1, SOUTH_EAST_FLAG, thisCost)
                 }
-                if (curX < 103 && curY < 103 && via[curX + 1][curY + 1] == 0 && clipMaskSupplier.getClippingFlag(z, absX + 1, absY + 1) and 0x12c01e0 == 0 && clipMaskSupplier.getClippingFlag(z, absX + 1, absY) and 0x12c0180 == 0 && clipMaskSupplier.getClippingFlag(z, absX, absY + 1) and 0x12c0120 == 0) {
+                if (curX < 103 && curY < 103 && via[curX + 1][curY + 1] == 0 && clipMaskSupplier.getClippingFlag(
+                        z,
+                        absX + 1,
+                        absY + 1
+                    ) and 0x12c01e0 == 0 && clipMaskSupplier.getClippingFlag(
+                        z,
+                        absX + 1,
+                        absY
+                    ) and 0x12c0180 == 0 && clipMaskSupplier.getClippingFlag(z, absX, absY + 1) and 0x12c0120 == 0
+                ) {
                     check(curX + 1, curY + 1, NORTH_EAST_FLAG, thisCost)
                 }
             } catch (e: Exception) {
-               // e.printStackTrace()println("curX " + curX + " curY" + curY + " via " + via[curX + 1] + via[curY + 1])
+                // e.printStackTrace()println("curX " + curX + " curY" + curY + " via " + via[curX + 1] + via[curY + 1])
             }
         }
     }
@@ -414,7 +615,16 @@ internal constructor() : Pathfinder() {
      * @param walkingFlag The walking flag.
      * @param location The viewport location.
      */
-    private fun checkDoubleTraversal(end: Location, sizeX: Int, sizeY: Int, type: Int, rotation: Int, walkingFlag: Int, location: Location, clipMaskSupplier: ClipMaskSupplier) {
+    private fun checkDoubleTraversal(
+        end: Location,
+        sizeX: Int,
+        sizeY: Int,
+        type: Int,
+        rotation: Int,
+        walkingFlag: Int,
+        location: Location,
+        clipMaskSupplier: ClipMaskSupplier
+    ) {
         var readPosition = 0
         val z = location.z
         while (writePathPosition != readPosition) {
@@ -428,42 +638,132 @@ internal constructor() : Pathfinder() {
             val absX = location.x + curX
             val absY = location.y + curY
             if (type != 0) {
-                if ((type < 5 || type == 10) && canDoorInteract(absX, absY, 2, end.x, end.y, type - 1, rotation, z, clipMaskSupplier)) {
+                if ((type < 5 || type == 10) && canDoorInteract(
+                        absX,
+                        absY,
+                        2,
+                        end.x,
+                        end.y,
+                        type - 1,
+                        rotation,
+                        z,
+                        clipMaskSupplier
+                    )
+                ) {
                     foundPath = true
                     break
                 }
-                if (type < 10 && canDecorationInteract(absX, absY, 2, end.x, end.y, type - 1, rotation, z, clipMaskSupplier)) {
+                if (type < 10 && canDecorationInteract(
+                        absX,
+                        absY,
+                        2,
+                        end.x,
+                        end.y,
+                        type - 1,
+                        rotation,
+                        z,
+                        clipMaskSupplier
+                    )
+                ) {
                     foundPath = true
                     break
                 }
             }
-            if (sizeX != 0 && sizeY != 0 && canInteract(absX, absY, 2, end.x, end.y, sizeX, sizeY, walkingFlag, z, clipMaskSupplier)) {
+            if (sizeX != 0 && sizeY != 0 && canInteract(
+                    absX,
+                    absY,
+                    2,
+                    end.x,
+                    end.y,
+                    sizeX,
+                    sizeY,
+                    walkingFlag,
+                    z,
+                    clipMaskSupplier
+                )
+            ) {
                 foundPath = true
                 break
             }
             val thisCost = cost[curX][curY] + 1
-            if (curY > 0 && via[curX][curY - 1] == 0 && clipMaskSupplier.getClippingFlag(z, absX, absY - 1) and 0x12c010e == 0 && clipMaskSupplier.getClippingFlag(z, absX + 1, absY - 1) and 0x12c0183 == 0) {
+            if (curY > 0 && via[curX][curY - 1] == 0 && clipMaskSupplier.getClippingFlag(
+                    z,
+                    absX,
+                    absY - 1
+                ) and 0x12c010e == 0 && clipMaskSupplier.getClippingFlag(z, absX + 1, absY - 1) and 0x12c0183 == 0
+            ) {
                 check(curX, curY - 1, SOUTH_FLAG, thisCost)
             }
-            if (curX > 0 && via[curX - 1][curY] == 0 && clipMaskSupplier.getClippingFlag(z, absX - 1, absY) and 0x12c010e == 0 && clipMaskSupplier.getClippingFlag(z, absX - 1, absY + 1) and 0x12c0138 == 0) {
+            if (curX > 0 && via[curX - 1][curY] == 0 && clipMaskSupplier.getClippingFlag(
+                    z,
+                    absX - 1,
+                    absY
+                ) and 0x12c010e == 0 && clipMaskSupplier.getClippingFlag(z, absX - 1, absY + 1) and 0x12c0138 == 0
+            ) {
                 check(curX - 1, curY, WEST_FLAG, thisCost)
             }
-            if (curY < 102 && via[curX][curY + 1] == 0 && clipMaskSupplier.getClippingFlag(z, absX, absY + 2) and 0x12c0138 == 0 && clipMaskSupplier.getClippingFlag(z, absX + 1, absY + 2) and 0x12c01e0 == 0) {
+            if (curY < 102 && via[curX][curY + 1] == 0 && clipMaskSupplier.getClippingFlag(
+                    z,
+                    absX,
+                    absY + 2
+                ) and 0x12c0138 == 0 && clipMaskSupplier.getClippingFlag(z, absX + 1, absY + 2) and 0x12c01e0 == 0
+            ) {
                 check(curX, curY + 1, NORTH_FLAG, thisCost)
             }
-            if (curX < 102 && via[curX + 1][curY] == 0 && clipMaskSupplier.getClippingFlag(z, absX + 2, absY) and 0x12c0183 == 0 && clipMaskSupplier.getClippingFlag(z, absX + 2, absY + 1) and 0x12c01e0 == 0) {
+            if (curX < 102 && via[curX + 1][curY] == 0 && clipMaskSupplier.getClippingFlag(
+                    z,
+                    absX + 2,
+                    absY
+                ) and 0x12c0183 == 0 && clipMaskSupplier.getClippingFlag(z, absX + 2, absY + 1) and 0x12c01e0 == 0
+            ) {
                 check(curX + 1, curY, EAST_FLAG, thisCost)
             }
-            if (curX > 0 && curY > 0 && via[curX - 1][curY - 1] == 0 && clipMaskSupplier.getClippingFlag(z, absX - 1, absY - 1) and 0x12c010e == 0 && clipMaskSupplier.getClippingFlag(z, absX - 1, absY) and 0x12c0138 == 0 && clipMaskSupplier.getClippingFlag(z, absX, absY - 1) and 0x12c0183 == 0) {
+            if (curX > 0 && curY > 0 && via[curX - 1][curY - 1] == 0 && clipMaskSupplier.getClippingFlag(
+                    z,
+                    absX - 1,
+                    absY - 1
+                ) and 0x12c010e == 0 && clipMaskSupplier.getClippingFlag(
+                    z,
+                    absX - 1,
+                    absY
+                ) and 0x12c0138 == 0 && clipMaskSupplier.getClippingFlag(z, absX, absY - 1) and 0x12c0183 == 0
+            ) {
                 check(curX - 1, curY - 1, SOUTH_WEST_FLAG, thisCost)
             }
-            if (curX > 0 && curY < 102 && via[curX - 1][curY + 1] == 0 && clipMaskSupplier.getClippingFlag(z, absX - 1, absY + 1) and 0x12c010e == 0 && clipMaskSupplier.getClippingFlag(z, absX - 1, absY + 2) and 0x12c0138 == 0 && clipMaskSupplier.getClippingFlag(z, absX, absY + 2) and 0x12c01e0 == 0) {
+            if (curX > 0 && curY < 102 && via[curX - 1][curY + 1] == 0 && clipMaskSupplier.getClippingFlag(
+                    z,
+                    absX - 1,
+                    absY + 1
+                ) and 0x12c010e == 0 && clipMaskSupplier.getClippingFlag(
+                    z,
+                    absX - 1,
+                    absY + 2
+                ) and 0x12c0138 == 0 && clipMaskSupplier.getClippingFlag(z, absX, absY + 2) and 0x12c01e0 == 0
+            ) {
                 check(curX - 1, curY + 1, NORTH_WEST_FLAG, thisCost)
             }
-            if (curX < 102 && curY > 0 && via[curX + 1][curY - 1] == 0 && clipMaskSupplier.getClippingFlag(z, absX + 1, absY - 1) and 0x12c010e == 0 && clipMaskSupplier.getClippingFlag(z, absX + 2, absY) and 0x12c01e0 == 0 && clipMaskSupplier.getClippingFlag(z, absX + 2, absY - 1) and 0x12c0183 == 0) {
+            if (curX < 102 && curY > 0 && via[curX + 1][curY - 1] == 0 && clipMaskSupplier.getClippingFlag(
+                    z,
+                    absX + 1,
+                    absY - 1
+                ) and 0x12c010e == 0 && clipMaskSupplier.getClippingFlag(
+                    z,
+                    absX + 2,
+                    absY
+                ) and 0x12c01e0 == 0 && clipMaskSupplier.getClippingFlag(z, absX + 2, absY - 1) and 0x12c0183 == 0
+            ) {
                 check(curX + 1, curY - 1, SOUTH_EAST_FLAG, thisCost)
             }
-            if (curX < 102 && curY < 102 && via[curX + 1][curY + 1] == 0 && clipMaskSupplier.getClippingFlag(z, absX + 1, absY + 2) and 0x12c0138 == 0 && clipMaskSupplier.getClippingFlag(z, absX + 2, absY + 2) and 0x12c01e0 == 0 && clipMaskSupplier.getClippingFlag(z, absX + 2, absY + 1) and 0x12c0183 == 0) {
+            if (curX < 102 && curY < 102 && via[curX + 1][curY + 1] == 0 && clipMaskSupplier.getClippingFlag(
+                    z,
+                    absX + 1,
+                    absY + 2
+                ) and 0x12c0138 == 0 && clipMaskSupplier.getClippingFlag(
+                    z,
+                    absX + 2,
+                    absY + 2
+                ) and 0x12c01e0 == 0 && clipMaskSupplier.getClippingFlag(z, absX + 2, absY + 1) and 0x12c0183 == 0
+            ) {
                 check(curX + 1, curY + 1, NORTH_EAST_FLAG, thisCost)
             }
         }
@@ -480,7 +780,17 @@ internal constructor() : Pathfinder() {
      * @param walkingFlag The walking flag.
      * @param location The viewport location.
      */
-    private fun checkVariableTraversal(end: Location, size: Int, sizeX: Int, sizeY: Int, type: Int, rotation: Int, walkingFlag: Int, location: Location, clipMaskSupplier: ClipMaskSupplier) {
+    private fun checkVariableTraversal(
+        end: Location,
+        size: Int,
+        sizeX: Int,
+        sizeY: Int,
+        type: Int,
+        rotation: Int,
+        walkingFlag: Int,
+        location: Location,
+        clipMaskSupplier: ClipMaskSupplier
+    ) {
         var readPosition = 0
         val z = location.z
         main@ while (writePathPosition != readPosition) {
@@ -494,22 +804,65 @@ internal constructor() : Pathfinder() {
             val absX = location.x + curX
             val absY = location.y + curY
             if (type != 0) {
-                if ((type < 5 || type == 10) && canDoorInteract(absX, absY, size, end.x, end.y, type - 1, rotation, z, clipMaskSupplier)) {
+                if ((type < 5 || type == 10) && canDoorInteract(
+                        absX,
+                        absY,
+                        size,
+                        end.x,
+                        end.y,
+                        type - 1,
+                        rotation,
+                        z,
+                        clipMaskSupplier
+                    )
+                ) {
                     foundPath = true
                     break
                 }
-                if (type < 10 && canDecorationInteract(absX, absY, size, end.x, end.y, type - 1, rotation, z, clipMaskSupplier)) {
+                if (type < 10 && canDecorationInteract(
+                        absX,
+                        absY,
+                        size,
+                        end.x,
+                        end.y,
+                        type - 1,
+                        rotation,
+                        z,
+                        clipMaskSupplier
+                    )
+                ) {
                     foundPath = true
                     break
                 }
             }
-            if (sizeX != 0 && sizeY != 0 && canInteract(absX, absY, size, end.x, end.y, sizeX, sizeY, walkingFlag, z, clipMaskSupplier)) {
+            if (sizeX != 0 && sizeY != 0 && canInteract(
+                    absX,
+                    absY,
+                    size,
+                    end.x,
+                    end.y,
+                    sizeX,
+                    sizeY,
+                    walkingFlag,
+                    z,
+                    clipMaskSupplier
+                )
+            ) {
                 foundPath = true
                 break
             }
             val thisCost = cost[curX][curY] + 1
             south@ do {
-                if (curY > 0 && via[curX][curY - 1] == 0 && clipMaskSupplier.getClippingFlag(z, absX, absY - 1) and 0x12c010e == 0 && clipMaskSupplier.getClippingFlag(z, absX + (size - 1), absY - 1) and 0x12c0183 == 0) {
+                if (curY > 0 && via[curX][curY - 1] == 0 && clipMaskSupplier.getClippingFlag(
+                        z,
+                        absX,
+                        absY - 1
+                    ) and 0x12c010e == 0 && clipMaskSupplier.getClippingFlag(
+                        z,
+                        absX + (size - 1),
+                        absY - 1
+                    ) and 0x12c0183 == 0
+                ) {
                     for (i in 1 until size - 1) {
                         if (clipMaskSupplier.getClippingFlag(z, absX + i, absY - 1) and 0x12c018f != 0) {
                             break@south
@@ -519,7 +872,16 @@ internal constructor() : Pathfinder() {
                 }
             } while (false)
             west@ do {
-                if (curX > 0 && via[curX - 1][curY] == 0 && clipMaskSupplier.getClippingFlag(z, absX - 1, absY) and 0x12c010e == 0 && clipMaskSupplier.getClippingFlag(z, absX - 1, absY + (size - 1)) and 0x12c0138 == 0) {
+                if (curX > 0 && via[curX - 1][curY] == 0 && clipMaskSupplier.getClippingFlag(
+                        z,
+                        absX - 1,
+                        absY
+                    ) and 0x12c010e == 0 && clipMaskSupplier.getClippingFlag(
+                        z,
+                        absX - 1,
+                        absY + (size - 1)
+                    ) and 0x12c0138 == 0
+                ) {
                     for (i in 1 until size - 1) {
                         if (clipMaskSupplier.getClippingFlag(z, absX - 1, absY + i) and 0x12c013e != 0) {
                             break@west
@@ -529,7 +891,16 @@ internal constructor() : Pathfinder() {
                 }
             } while (false)
             north@ do {
-                if (curY < 102 && via[curX][curY + 1] == 0 && clipMaskSupplier.getClippingFlag(z, absX, absY + size) and 0x12c0138 == 0 && clipMaskSupplier.getClippingFlag(z, absX + (size - 1), absY + size) and 0x12c01e0 == 0) {
+                if (curY < 102 && via[curX][curY + 1] == 0 && clipMaskSupplier.getClippingFlag(
+                        z,
+                        absX,
+                        absY + size
+                    ) and 0x12c0138 == 0 && clipMaskSupplier.getClippingFlag(
+                        z,
+                        absX + (size - 1),
+                        absY + size
+                    ) and 0x12c01e0 == 0
+                ) {
                     for (i in 1 until size - 1) {
                         if (clipMaskSupplier.getClippingFlag(z, absX + i, absY + size) and 0x12c01f8 != 0) {
                             break@north
@@ -539,7 +910,16 @@ internal constructor() : Pathfinder() {
                 }
             } while (false)
             east@ do {
-                if (curX < 102 && via[curX + 1][curY] == 0 && clipMaskSupplier.getClippingFlag(z, absX + size, absY) and 0x12c0183 == 0 && clipMaskSupplier.getClippingFlag(z, absX + size, absY + (size - 1)) and 0x12c01e0 == 0) {
+                if (curX < 102 && via[curX + 1][curY] == 0 && clipMaskSupplier.getClippingFlag(
+                        z,
+                        absX + size,
+                        absY
+                    ) and 0x12c0183 == 0 && clipMaskSupplier.getClippingFlag(
+                        z,
+                        absX + size,
+                        absY + (size - 1)
+                    ) and 0x12c01e0 == 0
+                ) {
                     for (i in 1 until size - 1) {
                         if (clipMaskSupplier.getClippingFlag(z, absX + size, absY + i) and 0x12c01e3 != 0) {
                             break@east
@@ -549,9 +929,31 @@ internal constructor() : Pathfinder() {
                 }
             } while (false)
             southWest@ do {
-                if (curX > 0 && curY > 0 && via[curX - 1][curY - 1] == 0 && clipMaskSupplier.getClippingFlag(z, absX - 1, absY + (size - 2)) and 0x12c0138 == 0 && clipMaskSupplier.getClippingFlag(z, absX - 1, absY - 1) and 0x12c010e == 0 && clipMaskSupplier.getClippingFlag(z, absX + (size - 2), absY - 1) and 0x12c0183 == 0) {
+                if (curX > 0 && curY > 0 && via[curX - 1][curY - 1] == 0 && clipMaskSupplier.getClippingFlag(
+                        z,
+                        absX - 1,
+                        absY + (size - 2)
+                    ) and 0x12c0138 == 0 && clipMaskSupplier.getClippingFlag(
+                        z,
+                        absX - 1,
+                        absY - 1
+                    ) and 0x12c010e == 0 && clipMaskSupplier.getClippingFlag(
+                        z,
+                        absX + (size - 2),
+                        absY - 1
+                    ) and 0x12c0183 == 0
+                ) {
                     for (i in 1 until size - 1) {
-                        if (clipMaskSupplier.getClippingFlag(z, absX - 1, absY + (i - 1)) and 0x12c013e != 0 || clipMaskSupplier.getClippingFlag(z, absX + (i - 1), absY - 1) and 0x12c018f != 0) {
+                        if (clipMaskSupplier.getClippingFlag(
+                                z,
+                                absX - 1,
+                                absY + (i - 1)
+                            ) and 0x12c013e != 0 || clipMaskSupplier.getClippingFlag(
+                                z,
+                                absX + (i - 1),
+                                absY - 1
+                            ) and 0x12c018f != 0
+                        ) {
                             break@southWest
                         }
                     }
@@ -559,9 +961,27 @@ internal constructor() : Pathfinder() {
                 }
             } while (false)
             northWest@ do {
-                if (curX > 0 && curY < 102 && via[curX - 1][curY + 1] == 0 && clipMaskSupplier.getClippingFlag(z, absX - 1, absY + 1) and 0x12c010e == 0 && clipMaskSupplier.getClippingFlag(z, absX - 1, absY + size) and 0x12c0138 == 0 && clipMaskSupplier.getClippingFlag(z, absX, absY + size) and 0x12c01e0 == 0) {
+                if (curX > 0 && curY < 102 && via[curX - 1][curY + 1] == 0 && clipMaskSupplier.getClippingFlag(
+                        z,
+                        absX - 1,
+                        absY + 1
+                    ) and 0x12c010e == 0 && clipMaskSupplier.getClippingFlag(
+                        z,
+                        absX - 1,
+                        absY + size
+                    ) and 0x12c0138 == 0 && clipMaskSupplier.getClippingFlag(z, absX, absY + size) and 0x12c01e0 == 0
+                ) {
                     for (i in 1 until size - 1) {
-                        if (clipMaskSupplier.getClippingFlag(z, absX - 1, absY + (i + 1)) and 0x12c013e != 0 || clipMaskSupplier.getClippingFlag(z, absX + (i - 1), absY + size) and 0x12c01f8 != 0) {
+                        if (clipMaskSupplier.getClippingFlag(
+                                z,
+                                absX - 1,
+                                absY + (i + 1)
+                            ) and 0x12c013e != 0 || clipMaskSupplier.getClippingFlag(
+                                z,
+                                absX + (i - 1),
+                                absY + size
+                            ) and 0x12c01f8 != 0
+                        ) {
                             break@northWest
                         }
                     }
@@ -569,18 +989,58 @@ internal constructor() : Pathfinder() {
                 }
             } while (false)
             southEast@ do {
-                if (curX < 102 && curY > 0 && via[curX + 1][curY - 1] == 0 && clipMaskSupplier.getClippingFlag(z, absX + 1, absY - 1) and 0x12c010e == 0 && clipMaskSupplier.getClippingFlag(z, absX + size, absY - 1) and 0x12c0183 == 0 && clipMaskSupplier.getClippingFlag(z, absX + size, absY + (size - 2)) and 0x12c01e0 == 0) {
+                if (curX < 102 && curY > 0 && via[curX + 1][curY - 1] == 0 && clipMaskSupplier.getClippingFlag(
+                        z,
+                        absX + 1,
+                        absY - 1
+                    ) and 0x12c010e == 0 && clipMaskSupplier.getClippingFlag(
+                        z,
+                        absX + size,
+                        absY - 1
+                    ) and 0x12c0183 == 0 && clipMaskSupplier.getClippingFlag(
+                        z,
+                        absX + size,
+                        absY + (size - 2)
+                    ) and 0x12c01e0 == 0
+                ) {
                     for (i in 1 until size - 1) {
-                        if (clipMaskSupplier.getClippingFlag(z, absX + size, absY + (i - 1)) and 0x12c01e3 != 0 || clipMaskSupplier.getClippingFlag(z, absX + (i + 1), absY - 1) and 0x12c018f != 0) {
+                        if (clipMaskSupplier.getClippingFlag(
+                                z,
+                                absX + size,
+                                absY + (i - 1)
+                            ) and 0x12c01e3 != 0 || clipMaskSupplier.getClippingFlag(
+                                z,
+                                absX + (i + 1),
+                                absY - 1
+                            ) and 0x12c018f != 0
+                        ) {
                             break@southEast
                         }
                     }
                     check(curX + 1, curY - 1, SOUTH_EAST_FLAG, thisCost)
                 }
             } while (false)
-            if (curX < 102 && curY < 102 && via[curX + 1][curY + 1] == 0 && clipMaskSupplier.getClippingFlag(z, absX + 1, absY + size) and 0x12c0138 == 0 && clipMaskSupplier.getClippingFlag(z, absX + size, absY + size) and 0x12c01e0 == 0 && clipMaskSupplier.getClippingFlag(z, absX + size, absY + 1) and 0x12c0183 == 0) {
+            if (curX < 102 && curY < 102 && via[curX + 1][curY + 1] == 0 && clipMaskSupplier.getClippingFlag(
+                    z,
+                    absX + 1,
+                    absY + size
+                ) and 0x12c0138 == 0 && clipMaskSupplier.getClippingFlag(
+                    z,
+                    absX + size,
+                    absY + size
+                ) and 0x12c01e0 == 0 && clipMaskSupplier.getClippingFlag(z, absX + size, absY + 1) and 0x12c0183 == 0
+            ) {
                 for (i in 1 until size - 1) {
-                    if (clipMaskSupplier.getClippingFlag(z, absX + (i + 1), absY + size) and 0x12c01f8 != 0 || clipMaskSupplier.getClippingFlag(z, absX + size, absY + (i + 1)) and 0x12c01e3 != 0) {
+                    if (clipMaskSupplier.getClippingFlag(
+                            z,
+                            absX + (i + 1),
+                            absY + size
+                        ) and 0x12c01f8 != 0 || clipMaskSupplier.getClippingFlag(
+                            z,
+                            absX + size,
+                            absY + (i + 1)
+                        ) and 0x12c01e3 != 0
+                    ) {
                         continue@main
                     }
                 }

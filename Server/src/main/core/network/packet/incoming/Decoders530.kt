@@ -1,7 +1,7 @@
 package core.network.packet.incoming
 
-import core.api.log
 import core.Util.clamp
+import core.api.log
 import core.game.node.entity.player.Player
 import core.network.packet.IoBuffer
 import core.tools.Log
@@ -238,7 +238,7 @@ enum class Decoders530(val opcode: Int) {
             val id = buffer.short
             val y = buffer.leShort
             val slot = buffer.short
-            buffer.leShort //Suspicious noops? TODO: FIND OUT WHAT THESE ARE
+            buffer.leShort
             buffer.short
             val sceneryId = buffer.shortA
             return Packet.UseWithScenery(player, id, slot, sceneryId, x, y)

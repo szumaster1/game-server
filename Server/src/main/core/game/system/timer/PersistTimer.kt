@@ -1,8 +1,8 @@
 package core.game.system.timer
 
-import core.api.*
-import org.json.simple.*
+import core.api.getWorldTicks
 import core.game.node.entity.Entity
+import org.json.simple.JSONObject
 import kotlin.reflect.full.createInstance
 
 /**

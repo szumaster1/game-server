@@ -48,37 +48,37 @@ public abstract class SkillPulse<T extends Node> extends Pulse {
      * @param node   The node.
      */
     public SkillPulse(Player player, T node) {
-		super(1, player, node);
-		this.player = player;
-		this.node = node;
-		super.stop();
-	}
+        super(1, player, node);
+        this.player = player;
+        this.node = node;
+        super.stop();
+    }
 
-	@Override
-	public void start() {
-		if (checkRequirements()) {
-			super.start();
-			message(0);
-		}
-	}
+    @Override
+    public void start() {
+        if (checkRequirements()) {
+            super.start();
+            message(0);
+        }
+    }
 
-	@Override
-	public boolean pulse() {
-		if (!checkRequirements()) {
-			return true;
-		}
-		animate();
-		return reward();
-	}
+    @Override
+    public boolean pulse() {
+        if (!checkRequirements()) {
+            return true;
+        }
+        animate();
+        return reward();
+    }
 
-	@Override
-	public void stop() {
-		if (resetAnimation) {
-			player.animate(new Animation(-1, Priority.HIGH));
-		}
-		super.stop();
-		message(1);
-	}
+    @Override
+    public void stop() {
+        if (resetAnimation) {
+            player.animate(new Animation(-1, Priority.HIGH));
+        }
+        super.stop();
+        message(1);
+    }
 
     /**
      * Checks if the player meets all the requirements.
@@ -106,6 +106,6 @@ public abstract class SkillPulse<T extends Node> extends Pulse {
      */
     public void message(int type) {
 
-	}
+    }
 
 }

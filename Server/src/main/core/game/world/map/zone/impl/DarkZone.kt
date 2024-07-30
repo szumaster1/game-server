@@ -150,11 +150,11 @@ class DarkZone : MapZone("Dark zone", true), EventHook<UseWithEvent> {
                 super.open(player)
             }
 
-            override fun close(player: Player): Boolean {
+            override fun close(player: Player?): Boolean {
                 if (!super.close(player)) {
                     return false
                 }
-                val pulse = player.getExtension<Pulse>(DarkZone::class.java)
+                val pulse = player!!.getExtension<Pulse>(DarkZone::class.java)
                 pulse?.stop()
                 return true
             }

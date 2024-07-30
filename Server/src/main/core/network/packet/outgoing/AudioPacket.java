@@ -13,7 +13,7 @@ import core.network.packet.context.DefaultContext;
 public class AudioPacket implements OutgoingPacket<DefaultContext> {
 
     public static IoBuffer write(IoBuffer buffer, Audio audio, Location loc) {
-		if(loc == null) {
+        if (loc == null) {
             buffer.put((byte) 172);
             buffer.putShort(audio.id);
             buffer.put((byte) audio.loops);
@@ -28,15 +28,15 @@ public class AudioPacket implements OutgoingPacket<DefaultContext> {
         return buffer;
     }
 
-	//208 music effect
-	//4 music
-	//172 sound effect
-	@Override
-	public void send(DefaultContext context) {
-		final Audio audio = (Audio) context.getObjects()[0];
+    //208 music effect
+    //4 music
+    //172 sound effect
+    @Override
+    public void send(DefaultContext context) {
+        final Audio audio = (Audio) context.getObjects()[0];
         final Location loc = (Location) context.getObjects()[1];
         IoBuffer buffer;
-        if(loc == null) {
+        if (loc == null) {
             buffer = new IoBuffer();
         } else {
             buffer = UpdateAreaPosition.getBuffer(context.getPlayer(), loc.getChunkBase());
@@ -44,6 +44,6 @@ public class AudioPacket implements OutgoingPacket<DefaultContext> {
         write(buffer, audio, loc);
         buffer.cypherOpcode(context.getPlayer().getSession().getIsaacPair().getOutput());
         context.getPlayer().getSession().write(buffer);
-	}
+    }
 
 }

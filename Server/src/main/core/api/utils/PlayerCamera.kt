@@ -33,7 +33,15 @@ class PlayerCamera(val player: Player?) {
     fun rotateBy(diffX: Int, diffY: Int, diffHeight: Int, speed: Int) {
         player ?: return
         ctx ?: return
-        ctx = CameraContext(player, CameraContext.CameraType.ROTATION, ctx!!.x + diffX, ctx!!.y + diffY, ctx!!.height + diffHeight, speed, 1)
+        ctx = CameraContext(
+            player,
+            CameraContext.CameraType.ROTATION,
+            ctx!!.x + diffX,
+            ctx!!.y + diffY,
+            ctx!!.height + diffHeight,
+            speed,
+            1
+        )
         PacketRepository.send(CameraViewPacket::class.java, ctx)
     }
 

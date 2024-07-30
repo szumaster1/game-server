@@ -7,20 +7,20 @@ package core.game.node.entity.skill;
  */
 public final class SkillBonus {
 
-	/**
-	 * The skill id.
-	 */
-	private final int skillId;
+    /**
+     * The skill id.
+     */
+    private final int skillId;
 
-	/**
-	 * The bonus.
-	 */
-	private final double bonus;
+    /**
+     * The bonus.
+     */
+    private final double bonus;
 
-	/**
-	 * The base bonus (in levels).
-	 */
-	private final int baseBonus;
+    /**
+     * The base bonus (in levels).
+     */
+    private final int baseBonus;
 
     /**
      * Constructs a new {@code SkillBonus} {@code Object}.
@@ -29,8 +29,8 @@ public final class SkillBonus {
      * @param bonus   The bonus.
      */
     public SkillBonus(int skillId, double bonus) {
-		this(skillId, bonus, 0);
-	}
+        this(skillId, bonus, 0);
+    }
 
     /**
      * Constructs a new {@code SkillBonus} {@code Object}.
@@ -40,10 +40,10 @@ public final class SkillBonus {
      * @param baseBonus The base bonus in levels.
      */
     public SkillBonus(int skillId, double bonus, int baseBonus) {
-		this.skillId = skillId;
-		this.bonus = bonus;
-		this.baseBonus = baseBonus;
-	}
+        this.skillId = skillId;
+        this.bonus = bonus;
+        this.baseBonus = baseBonus;
+    }
 
     /**
      * Gets skill id.
@@ -51,8 +51,8 @@ public final class SkillBonus {
      * @return the skillId.
      */
     public int getSkillId() {
-		return skillId;
-	}
+        return skillId;
+    }
 
     /**
      * Gets bonus.
@@ -60,8 +60,8 @@ public final class SkillBonus {
      * @return the bonus.
      */
     public double getBonus() {
-		return bonus;
-	}
+        return bonus;
+    }
 
     /**
      * Gets base bonus.
@@ -69,7 +69,7 @@ public final class SkillBonus {
      * @return the baseBonus.
      */
     public int getBaseBonus() {
-		return baseBonus;
-	}
+        return baseBonus;
+    }
 
 }

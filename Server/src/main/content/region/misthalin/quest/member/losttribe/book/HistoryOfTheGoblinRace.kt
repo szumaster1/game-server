@@ -1,5 +1,6 @@
 package content.region.misthalin.quest.member.losttribe.book
 
+import core.api.consts.Components
 import core.api.removeAttribute
 import core.api.sendPlayerDialogue
 import core.api.setAttribute
@@ -7,7 +8,6 @@ import core.api.setQuestStage
 import core.game.component.Component
 import core.game.component.ComponentDefinition
 import core.game.component.ComponentPlugin
-import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.plugin.Plugin
@@ -16,7 +16,7 @@ import core.plugin.Plugin
 class HistoryOfTheGoblinRace : ComponentPlugin() {
 
     override fun newInstance(arg: Any?): Plugin<Any> {
-        ComponentDefinition.put(183, this)
+        ComponentDefinition.put(Components.GOBLIN_SYMBOL_BOOK_183, this)
         return this
     }
 

@@ -2,12 +2,11 @@ package core.game.world.update
 
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
+import core.game.world.GameWorld
 import core.game.world.map.RegionManager
 import core.network.packet.IoBuffer
 import core.network.packet.PacketHeader
-import core.game.world.GameWorld
 import java.nio.ByteBuffer
-import java.util.*
 
 /**
  * The NPC renderer.
@@ -38,7 +37,8 @@ object NPCRenderer {
                     npc.aggressiveHandler.removeTolerance(player.index)
                 }
             } else if (npc.walkingQueue.runDir != -1) {
-                buffer.putBits(1, 1).putBits(2, 2).putBits(3, npc.walkingQueue.walkDir).putBits(3, npc.walkingQueue.runDir)
+                buffer.putBits(1, 1).putBits(2, 2).putBits(3, npc.walkingQueue.walkDir)
+                    .putBits(3, npc.walkingQueue.runDir)
                 flagMaskUpdate(player, buffer, maskBuffer, npc, false)
             } else if (npc.walkingQueue.walkDir != -1) {
                 buffer.putBits(1, 1).putBits(2, 1).putBits(3, npc.walkingQueue.walkDir)

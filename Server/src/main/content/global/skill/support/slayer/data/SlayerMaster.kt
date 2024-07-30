@@ -8,7 +8,6 @@ import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
-
 enum class SlayerMaster(
     var npc: Int,
     var requiredCombat: Int,
@@ -17,6 +16,9 @@ enum class SlayerMaster(
     var taskPoints: IntArray,
     vararg tasks: Task
 ) {
+    /*
+     * The Turael.
+     */
     TURAEL(
         NPCs.TURAEL_8273, 0, 0,
         intArrayOf(15, 50),

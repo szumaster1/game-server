@@ -10,7 +10,6 @@ import core.game.node.entity.player.link.request.RequestModule
 import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 import java.text.DecimalFormat
-import java.util.*
 
 /**
  * Represents the module use to handle a request between trading of two players.
@@ -23,30 +22,36 @@ class TradeModule(player: Player?, target: Player?) : RequestModule {
      * If the container has been retained.
      */
     var isRetained = false
+
     /**
      * Represents the player instance.
      */
     var player: Player? = player
         private set
+
     /**
      * Represents the target instance.
      */
     var target: Player? = target
         private set
+
     /**
      * Represents the container of this session.
      */
     var container: TradeContainer? = null
         private set
+
     /**
      * Represents if this session has accepted.
      */
     var isAccepted = false
         private set
+
     /**
      * Represents if the trade is modified.
      */
     var isModified = false
+
     /**
      * Represents the stage of the trade(0=started, 1=second accept)
      */
@@ -105,13 +110,24 @@ class TradeModule(player: Player?, target: Player?) : RequestModule {
                 for (i in HIDDEN_CHILDS) {
                     setInterfaceText(player!!, "", MAIN_INTERFACE.id, i)
                 }
-                setInterfaceText(player!!,"Trading With: " + target!!.username, 335, 15)
-                setInterfaceText(player!!, target!!.username + " has " + (if (target!!.inventory.freeSlots() == 0) "no" else target!!.inventory.freeSlots()) + " free inventory slots.", 335, 21)
+                setInterfaceText(player!!, "Trading With: " + target!!.username, 335, 15)
+                setInterfaceText(
+                    player!!,
+                    target!!.username + " has " + (if (target!!.inventory.freeSlots() == 0) "no" else target!!.inventory.freeSlots()) + " free inventory slots.",
+                    335,
+                    21
+                )
                 setInterfaceText(player!!, acceptMessage, 335, 36)
             }
 
             1 -> {
-                setInterfaceText(player!!, "<col=00FFFF>Trading with:<br>" + "<col=00FFFF>" + target!!.username.substring(0, 1).uppercase() + target!!.username.substring(1), 334, 2)
+                setInterfaceText(
+                    player!!,
+                    "<col=00FFFF>Trading with:<br>" + "<col=00FFFF>" + target!!.username.substring(0, 1)
+                        .uppercase() + target!!.username.substring(1),
+                    334,
+                    2
+                )
                 val acceptMessage = acceptMessage
                 if (acceptMessage !== "") {
                     setInterfaceText(player!!, acceptMessage, 334, 33)
@@ -151,7 +167,7 @@ class TradeModule(player: Player?, target: Player?) : RequestModule {
         if (stage == 0) {
             // Main interface
             if (otherModified) {
-                 setVarp(player!!, 1043, 1)
+                setVarp(player!!, 1043, 1)
             }
             if (isModified) {
                 setVarp(player!!, 1042, 1)
@@ -484,8 +500,8 @@ class TradeModule(player: Player?, target: Player?) : RequestModule {
          * @param player the player.
          * @return the module instance.
          */
-		@JvmStatic
-		fun getExtension(player: Player?): TradeModule? {
+        @JvmStatic
+        fun getExtension(player: Player?): TradeModule? {
             return player!!.getExtension(TradeModule::class.java)
         }
     }

@@ -21,6 +21,7 @@ class ContactPackets : OutgoingPacket<ContactContext> {
                  */
                 buffer = IoBuffer(197).put(2)
             }
+
             ContactContext.IGNORE_LIST_TYPE -> {
                 buffer = IoBuffer(126, PacketHeader.SHORT)
                 for (string in player.communication.blocked) {
@@ -30,6 +31,7 @@ class ContactPackets : OutgoingPacket<ContactContext> {
                     buffer.putLong(StringUtils.stringToLong(string))
                 }
             }
+
             ContactContext.UPDATE_FRIEND_TYPE -> {
                 buffer = IoBuffer(62, PacketHeader.BYTE)
                 buffer.putLong(StringUtils.stringToLong(context.name))

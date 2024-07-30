@@ -186,8 +186,7 @@ open class RangeSwingHandler(vararg flags: SwingHandlerFlag) : CombatSwingHandle
         entity ?: return 0
         var effectiveRangedLevel = entity.skills.getLevel(Skills.RANGE).toDouble()
         if (entity is Player && !flags.contains(SwingHandlerFlag.IGNORE_PRAYER_BOOSTS_ACCURACY))
-            effectiveRangedLevel =
-                floor(effectiveRangedLevel + (entity.prayer.getSkillBonus(Skills.RANGE) * effectiveRangedLevel))
+            effectiveRangedLevel = floor(effectiveRangedLevel + (entity.prayer.getSkillBonus(Skills.RANGE) * effectiveRangedLevel))
         if (entity.properties.attackStyle.style == WeaponInterface.STYLE_RANGE_ACCURATE) effectiveRangedLevel += 3
         effectiveRangedLevel += 8
         effectiveRangedLevel *= getSetMultiplier(entity, Skills.RANGE)

@@ -29,7 +29,7 @@ class PacketWriteQueue {
         @JvmStatic
         fun <T> push(packet: OutgoingPacket<T>, context: T) {
             if (context == null) {
-                log(this::class.java, Log.ERR,  "${packet::class.java.simpleName} tried to queue with a null context!")
+                log(this::class.java, Log.ERR, "${packet::class.java.simpleName} tried to queue with a null context!")
                 return
             }
             packetsToWrite.add(QueuedPacket(packet, context))
@@ -46,7 +46,7 @@ class PacketWriteQueue {
                     write(pkt.out, pkt.context)
                 } catch (e: Exception) {
                     e.printStackTrace(pw)
-                    log(this::class.java, Log.ERR,  "Error flushing packet ${pkt.out::class.java}: $sw")
+                    log(this::class.java, Log.ERR, "Error flushing packet ${pkt.out::class.java}: $sw")
                     continue
                 }
             }

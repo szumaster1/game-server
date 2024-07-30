@@ -42,14 +42,19 @@ import java.awt.Toolkit
 import java.awt.datatransfer.StringSelection
 
 @Initializable
-class MiscCommandSet : CommandSet(Privilege.ADMIN){
+class MiscCommandSet : CommandSet(Privilege.ADMIN) {
     override fun defineCommands() {
 
         /*
          * Skip Tutorial to last NPC. (Replaced Skippy NPC).
          */
 
-        define("skip", Privilege.ADMIN, "", "Immediately takes you to the final stage of tutorial island.") { player, _ ->
+        define(
+            "skip",
+            Privilege.ADMIN,
+            "",
+            "Immediately takes you to the final stage of tutorial island."
+        ) { player, _ ->
             setAttribute(player, "/save:tutorial:stage", 71)
             TutorialStage.load(player, 71)
             teleport(player, Location.create(3141, 3089, 0))
@@ -71,13 +76,17 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN){
             finishQuest(player, "Enlightened Journey")
         }
 
-        define("calc_accuracy", Privilege.STANDARD, "::calc_accuracy <lt>NPC ID<gt>", "Calculates and prints your current chance to hit a given NPC."){ player, args ->
+        define(
+            "calc_accuracy",
+            Privilege.STANDARD,
+            "::calc_accuracy <lt>NPC ID<gt>",
+            "Calculates and prints your current chance to hit a given NPC."
+        ) { player, args ->
             val handler = player.getSwingHandler(false)
             player.sendMessage("handler type: ${handler.type}")
             player.sendMessage("calculateAccuracy: ${handler.calculateAccuracy(player)}")
 
-            if (args.size > 1)
-            {
+            if (args.size > 1) {
                 val npcId: Int = args[1].toInt()
                 val npc = NPC(npcId)
                 npc.initConfig()
@@ -90,18 +99,46 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN){
          * Prints player's current location
          */
 
-        define("loc", Privilege.STANDARD, "", "Prints quite a lot of information about your current location."){ player, _->
+        define(
+            "loc",
+            Privilege.STANDARD,
+            "",
+            "Prints quite a lot of information about your current location."
+        ) { player, _ ->
             val l = player.location
             val r = player.viewport.region
             var obj: Scenery? = null
-            notify(player,"Absolute: " + l + ", regional: [" + l.localX + ", " + l.localY + "], chunk: [" + l.chunkOffsetX + ", " + l.chunkOffsetY + "], flag: [" + RegionManager.isTeleportPermitted(l) + ", " + RegionManager.getClippingFlag(l) + ", " + RegionManager.isLandscape(l) + "].")
-            notify(player,"Region: [id=" + l.regionId + ", active=" + r.isActive + ", instanced=" + (r is DynamicRegion) + "], obj=" + RegionManager.getObject(l) + ".")
+            notify(
+                player,
+                "Absolute: " + l + ", regional: [" + l.localX + ", " + l.localY + "], chunk: [" + l.chunkOffsetX + ", " + l.chunkOffsetY + "], flag: [" + RegionManager.isTeleportPermitted(
+                    l
+                ) + ", " + RegionManager.getClippingFlag(l) + ", " + RegionManager.isLandscape(l) + "]."
+            )
+            notify(
+                player,
+                "Region: [id=" + l.regionId + ", active=" + r.isActive + ", instanced=" + (r is DynamicRegion) + "], obj=" + RegionManager.getObject(
+                    l
+                ) + "."
+            )
             notify(player, "Jagex: ${l.z}_${l.regionId shr 8}_${l.regionId and 0xFF}_${l.localX}_${l.localY}")
-            notify(player,"Object: " + RegionManager.getObject(l).also{obj = it} + ".")
-            notify(player,"Object Varp: " + obj?.definition?.configFile?.varpId + " offset: " + obj?.definition?.configFile?.startBit + " size: " + (obj?.definition?.configFile?.startBit?.minus(obj?.definition?.configFile?.startBit!!)))
-            log(this::class.java, Log.FINE,  "Viewport: " + l.getSceneX(player.playerFlags.lastSceneGraph) + "," + l.getSceneY(player.playerFlags.lastSceneGraph))
+            notify(player, "Object: " + RegionManager.getObject(l).also { obj = it } + ".")
+            notify(
+                player,
+                "Object Varp: " + obj?.definition?.configFile?.varpId + " offset: " + obj?.definition?.configFile?.startBit + " size: " + (obj?.definition?.configFile?.startBit?.minus(
+                    obj?.definition?.configFile?.startBit!!
+                ))
+            )
+            log(
+                this::class.java,
+                Log.FINE,
+                "Viewport: " + l.getSceneX(player.playerFlags.lastSceneGraph) + "," + l.getSceneY(player.playerFlags.lastSceneGraph)
+            )
             val loc = "Location.create(" + l.x + ", " + l.y + ", " + l.z + ")"
-            log(this::class.java, Log.FINE,  loc + "; " + player.playerFlags.lastSceneGraph + ", " + l.localX + ", " + l.localY)
+            log(
+                this::class.java,
+                Log.FINE,
+                loc + "; " + player.playerFlags.lastSceneGraph + ", " + l.localX + ", " + l.localY
+            )
             try {
                 val stringSelection = StringSelection(loc)
                 val clpbrd = Toolkit.getDefaultToolkit().systemClipboard
@@ -116,7 +153,7 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN){
          * Tells the player to use loc
          */
 
-        define("pos", Privilege.STANDARD){ player, _->
+        define("pos", Privilege.STANDARD) { player, _ ->
             notify(player, "Do you mean ::loc?")
         }
 
@@ -124,7 +161,7 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN){
          * Tells the player to use loc
          */
 
-        define("coords", Privilege.STANDARD){ player, _->
+        define("coords", Privilege.STANDARD) { player, _ ->
             notify(player, "Do you mean ::loc?")
         }
 
@@ -138,7 +175,7 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN){
          * Empty a player's inventory.
          */
 
-        define("empty", Privilege.ADMIN, "", "Empties your inventory."){player,_->
+        define("empty", Privilege.ADMIN, "", "Empties your inventory.") { player, _ ->
             player.inventory.clear()
             player.inventory.refresh()
         }
@@ -146,7 +183,12 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN){
         /*
          * Announces a message in chat (NEWS).
          */
-        define("announce", Privilege.ADMIN, "::announce <lt>String<gt>", "Sends the given string as a News message."){_,args ->
+        define(
+            "announce",
+            Privilege.ADMIN,
+            "::announce <lt>String<gt>",
+            "Sends the given string as a News message."
+        ) { _, args ->
             val message = args.slice(1 until args.size).joinToString(" ")
             Repository.sendNews(message)
         }
@@ -155,7 +197,7 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN){
          * Lists the players currently online.
          */
 
-        define("players", Privilege.MODERATOR, "", "Lists the online players."){ player, _ ->
+        define("players", Privilege.MODERATOR, "", "Lists the online players.") { player, _ ->
             val rights = player.rights.ordinal
             if (player.interfaceManager.isOpened && player.interfaceManager.opened.id != Components.QUESTJOURNAL_SCROLL_275 || player.locks.isMovementLocked || player.locks.isTeleportLocked) {
                 reject(player, "Please finish what you're doing first.")
@@ -169,9 +211,13 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN){
             val red = "<col=8A0808>"
             player.packetDispatch.sendString("<col=8A0808>" + "Players" + "</col>", 275, 2)
             var lineStart = 11
-            for(p in Repository.players){
-                if(!p.isArtificial)
-                    player.packetDispatch.sendString(red + "<img=" + (Rights.getChatIcon(p) - 1) + ">" + p.username + if(rights > 0) " [ip=" + p.details.ipAddress + ", name=" + p.details.compName + "]" else "",275,lineStart++)
+            for (p in Repository.players) {
+                if (!p.isArtificial)
+                    player.packetDispatch.sendString(
+                        red + "<img=" + (Rights.getChatIcon(p) - 1) + ">" + p.username + if (rights > 0) " [ip=" + p.details.ipAddress + ", name=" + p.details.compName + "]" else "",
+                        275,
+                        lineStart++
+                    )
             }
         }
 
@@ -179,7 +225,12 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN){
          * Lists information about a bot.
          */
 
-        define("botinfo", Privilege.STANDARD, "::botinfo <lt>botname<gt>", "Prints debug information about a bot"){ player, args ->
+        define(
+            "botinfo",
+            Privilege.STANDARD,
+            "::botinfo <lt>botname<gt>",
+            "Prints debug information about a bot"
+        ) { player, args ->
             val scriptInstances = AIRepository.PulseRepository
 
             // Find the bot with the given name (non-case sensitive, concat args by space)
@@ -198,7 +249,7 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN){
          * Opens the credit/voting shop.
          */
 
-        define("shop", Privilege.STANDARD, "", "Opens the credit shop."){ player, _ ->
+        define("shop", Privilege.STANDARD, "", "Opens the credit shop.") { player, _ ->
             if (player.locks.isInteractionLocked || player.locks.isMovementLocked) {
                 sendMessage(player, "You can't open the shop right now.")
             } else player.interfaceManager.open(Component(Components.CREDIT_SHOP_837))
@@ -208,13 +259,18 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN){
          * Shows the player a list of currently active GE sell offers
          */
 
-        define("ge", Privilege.STANDARD, "::ge <lt>MODE<gt> (Modes: buying, selling, search, bots, botsearch)", "Various commands for viewing GE offers.") { player, args ->
-            if(args.size < 2){
+        define(
+            "ge",
+            Privilege.STANDARD,
+            "::ge <lt>MODE<gt> (Modes: buying, selling, search, bots, botsearch)",
+            "Various commands for viewing GE offers."
+        ) { player, args ->
+            if (args.size < 2) {
                 reject(player, "Usage: ::ge mode", "Available modes: buying, selling, search, bots, botsearch")
             }
 
             val mode = args[1]
-            when(mode){
+            when (mode) {
                 "buying" -> showGeBuy(player)
                 "selling" -> showGeSell(player)
                 "search" -> showGeInputDialogue(player, args, ::showOffers)
@@ -228,7 +284,12 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN){
          * List all commands
          */
 
-        define("commands", Privilege.STANDARD, "::commands <lt>page<gt>", "Lists all the commands (you are here.)"){player, args ->
+        define(
+            "commands",
+            Privilege.STANDARD,
+            "::commands <lt>page<gt>",
+            "Lists all the commands (you are here.)"
+        ) { player, args ->
             val page = if (args.size > 1) (args[1].toIntOrNull() ?: 1) - 1 else 0
             var lineid = 11
             var pages = CommandMapping.getPageIndices(player.rights.ordinal)
@@ -255,7 +316,7 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN){
             )
 
 
-            for(i in pages[page] until end) {
+            for (i in pages[page] until end) {
                 var command = CommandMapping.getCommands()[i]
                 var title = "${command.name}"
                 var rights = command.privilege.ordinal
@@ -270,15 +331,27 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN){
                 player.packetDispatch.sendString(title, Components.QUESTJOURNAL_SCROLL_275, lineid++)
 
                 if (command.usage.isNotEmpty())
-                    player.packetDispatch.sendString("Usage: ${command.usage}", Components.QUESTJOURNAL_SCROLL_275, lineid++)
+                    player.packetDispatch.sendString(
+                        "Usage: ${command.usage}",
+                        Components.QUESTJOURNAL_SCROLL_275,
+                        lineid++
+                    )
 
                 if (command.description.isNotEmpty())
                     player.packetDispatch.sendString(command.description, Components.QUESTJOURNAL_SCROLL_275, lineid++)
 
-                player.packetDispatch.sendString("<str>-------------------------------</str>", Components.QUESTJOURNAL_SCROLL_275, lineid++)
+                player.packetDispatch.sendString(
+                    "<str>-------------------------------</str>",
+                    Components.QUESTJOURNAL_SCROLL_275,
+                    lineid++
+                )
 
                 if (lineid > 306) {
-                    player.packetDispatch.sendString("To view the next page, use ::commands ${page + 2}", Components.QUESTJOURNAL_SCROLL_275, lineid)
+                    player.packetDispatch.sendString(
+                        "To view the next page, use ::commands ${page + 2}",
+                        Components.QUESTJOURNAL_SCROLL_275,
+                        lineid
+                    )
                     break
                 }
 
@@ -290,14 +363,19 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN){
          * Reply to PMs (also enables tab-to-reply)
          */
 
-        define("reply", Privilege.STANDARD, "", "Opens a reply prompt to your last DM. Same as pressing tab."){ player, _ ->
-            if(player.interfaceManager.isOpened){
+        define(
+            "reply",
+            Privilege.STANDARD,
+            "",
+            "Opens a reply prompt to your last DM. Same as pressing tab."
+        ) { player, _ ->
+            if (player.interfaceManager.isOpened) {
                 reject(player, "<col=e74c3c>Please finish what you're doing first.")
             }
             if (player.attributes.containsKey("replyTo")) {
                 player.setAttribute("keepDialogueAlive", true)
                 val replyTo = player.getAttribute("replyTo", "").replace("_".toRegex(), " ")
-                sendInputDialogue(player, InputType.MESSAGE ,StringUtils.formatDisplayName(replyTo)){ value ->
+                sendInputDialogue(player, InputType.MESSAGE, StringUtils.formatDisplayName(replyTo)) { value ->
                     CommunicationInfo.sendMessage(player, replyTo.toLowerCase(), value as String)
                     player.removeAttribute("keepDialogueAlive")
                 }
@@ -310,7 +388,7 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN){
          * Enables client to safety close the currently opened interface or dialogue (esc-to-close plugin)
          */
 
-        define("xface", Privilege.STANDARD, "", "Closes the currently opened interface/dialogue."){player, _ ->
+        define("xface", Privilege.STANDARD, "", "Closes the currently opened interface/dialogue.") { player, _ ->
             player.interfaceManager.close()
             player.dialogueInterpreter.close()
         }
@@ -320,11 +398,11 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN){
          * Max account stats.
          */
 
-        define("max", Privilege.ADMIN, "", "Gives you all 99s."){player,_ ->
+        define("max", Privilege.ADMIN, "", "Gives you all 99s.") { player, _ ->
             var index = 0
             Skills.SKILL_NAME.forEach {
-                player.skills.setStaticLevel(index,99)
-                player.skills.setLevel(index,99)
+                player.skills.setStaticLevel(index, 99)
+                player.skills.setLevel(index, 99)
                 index++
             }
             player.skills.updateCombatLevel()
@@ -334,16 +412,16 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN){
          * Back to start stats.
          */
 
-        define("noobme", Privilege.ADMIN, "", "Sets you back to default stats."){ player,_ ->
+        define("noobme", Privilege.ADMIN, "", "Sets you back to default stats.") { player, _ ->
             var index = 0
             Skills.SKILL_NAME.forEach {
                 if (index == Skills.HITPOINTS) {
-                    player.skills.setStaticLevel(index,10)
-                    player.skills.setLevel(index,10)
+                    player.skills.setStaticLevel(index, 10)
+                    player.skills.setLevel(index, 10)
                     index++
                 } else {
-                    player.skills.setStaticLevel(index,1)
-                    player.skills.setLevel(index,1)
+                    player.skills.setStaticLevel(index, 1)
+                    player.skills.setLevel(index, 1)
                     index++
                 }
             }
@@ -354,27 +432,32 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN){
          * Set a specific skill to a specific level
          */
 
-        define("setlevel", Privilege.ADMIN, "::setlevel <lt>SKILL NAME<gt> <lt>LEVEL<gt> <lt>PLAYER<gt>", "Sets SKILL NAME to LEVEL for PLAYER (self if omitted)."){player,args ->
-            if(args.size < 3) reject(player,"Usage: ::setlevel skillname level")
+        define(
+            "setlevel",
+            Privilege.ADMIN,
+            "::setlevel <lt>SKILL NAME<gt> <lt>LEVEL<gt> <lt>PLAYER<gt>",
+            "Sets SKILL NAME to LEVEL for PLAYER (self if omitted)."
+        ) { player, args ->
+            if (args.size < 3) reject(player, "Usage: ::setlevel skillname level")
             val skillname = args[1]
             val desiredLevel: Int? = args[2].toIntOrNull()
-            if(desiredLevel == null){
+            if (desiredLevel == null) {
                 reject(player, "Level must be an integer.")
             }
-            if(desiredLevel!! > 99) reject(player,"Level must be 99 or lower.")
+            if (desiredLevel!! > 99) reject(player, "Level must be 99 or lower.")
             val skill = Skills.getSkillByName(skillname)
-            if(skill < 0) reject(player, "Must use a valid skill name!")
+            if (skill < 0) reject(player, "Must use a valid skill name!")
             var target = player
             if (args.size > 3) {
                 val n = args.slice(3 until args.size).joinToString("_")
                 val foundtarget = Repository.getPlayerByName(n)
                 if (foundtarget == null) {
-                    reject(player,"Invalid player \"${n}\" or player not online")
+                    reject(player, "Invalid player \"${n}\" or player not online")
                 }
                 target = foundtarget!!
             }
-            target.skills.setStaticLevel(skill,desiredLevel)
-            target.skills.setLevel(skill,desiredLevel)
+            target.skills.setStaticLevel(skill, desiredLevel)
+            target.skills.setLevel(skill, desiredLevel)
             target.skills.updateCombatLevel()
         }
 
@@ -382,7 +465,12 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN){
          * Add xp to skill.
          */
 
-        define("addxp", Privilege.ADMIN, "::addxp <lt>skill name | id<gt> <lt>xp<gt>", "Add xp to skill") { player, args ->
+        define(
+            "addxp",
+            Privilege.ADMIN,
+            "::addxp <lt>skill name | id<gt> <lt>xp<gt>",
+            "Add xp to skill"
+        ) { player, args ->
             if (args.size != 3) reject(player, "Usage: ::addxp <lt>skill name | id<gt> <lt>xp<gt>")
 
             val skill = args[1].toIntOrNull() ?: Skills.getSkillByName(args[1])
@@ -394,32 +482,32 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN){
             player.skills.addExperience(skill, xp!!)
         }
 
-        define("completediaries", Privilege.ADMIN, "", "Completes all diaries."){player,_ ->
+        define("completediaries", Privilege.ADMIN, "", "Completes all diaries.") { player, _ ->
             player.achievementDiaryManager.diarys.forEach {
-                for(level in it.taskCompleted.indices){
-                    for(task in it.taskCompleted[level].indices){
-                        it.finishTask(player,level,task)
+                for (level in it.taskCompleted.indices) {
+                    for (task in it.taskCompleted[level].indices) {
+                        it.finishTask(player, level, task)
                     }
                 }
             }
         }
 
-        define("log", Privilege.ADMIN){player,_ ->
+        define("log", Privilege.ADMIN) { player, _ ->
             var log: ArrayList<String>? = player.getAttribute("loc-log")
             log = log ?: ArrayList<String>()
             val locString = "{${player.location.x},${player.location.y},${player.location.z},1,0}"
             log.add(locString)
-            player.setAttribute("loc-log",log)
+            player.setAttribute("loc-log", log)
         }
 
-        define("logdone"){player,_ ->
+        define("logdone") { player, _ ->
             val log: ArrayList<String>? = player.getAttribute("loc-log")
             log ?: return@define
 
             val sb = StringBuilder()
             var first = true
-            for(entry in log){
-                if(!first) sb.append("-")
+            for (entry in log) {
+                if (!first) sb.append("-")
                 sb.append(entry)
                 first = false
             }
@@ -429,11 +517,16 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN){
             clpbrd.setContents(stringSelection, null)
 
             log.clear()
-            player.setAttribute("loc-log",log)
+            player.setAttribute("loc-log", log)
         }
 
-        define("rolltrawlerloot", Privilege.ADMIN, "::rolltrawlerloot <lt>ROLL COUNT<gt>", "Rolls some trawler loot."){player,args ->
-            val rolls = if(args.size < 2){
+        define(
+            "rolltrawlerloot",
+            Privilege.ADMIN,
+            "::rolltrawlerloot <lt>ROLL COUNT<gt>",
+            "Rolls some trawler loot."
+        ) { player, args ->
+            val rolls = if (args.size < 2) {
                 100
             } else {
                 args[1].toInt()
@@ -441,36 +534,41 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN){
             TrawlerLoot.addLootAndMessage(player, player.skills.getLevel(Skills.FISHING), rolls, false)
         }
 
-        define("fillbank", Privilege.ADMIN, "", "Right as it says on the tin."){player,_ ->
-            for(i in 0 until ServerConstants.BANK_SIZE){
+        define("fillbank", Privilege.ADMIN, "", "Right as it says on the tin.") { player, _ ->
+            for (i in 0 until ServerConstants.BANK_SIZE) {
                 player.bank.add(Item(i))
             }
         }
 
-        define("emptybank", Privilege.ADMIN, "", "Right as it says on the tin."){player,_ ->
+        define("emptybank", Privilege.ADMIN, "", "Right as it says on the tin.") { player, _ ->
             player.bank.clear()
             player.bank.update()
         }
 
-        define("setconfig", Privilege.ADMIN, "", "DEPRECATED: Use setvarp or setvarbit."){player,args ->
-            if(args.size < 3){
-                reject(player,"Syntax: ::setconfig configID value")
+        define("setconfig", Privilege.ADMIN, "", "DEPRECATED: Use setvarp or setvarbit.") { player, args ->
+            if (args.size < 3) {
+                reject(player, "Syntax: ::setconfig configID value")
             }
             val configID = args[1].toInt()
             val configValue = args[2].toInt()
             setVarp(player, configID, configValue)
         }
 
-        define("getobjectvarp"){player,args ->
-            if(args.size < 2){
-                reject(player,"Syntax: ::getobjectvarp objectid")
+        define("getobjectvarp") { player, args ->
+            if (args.size < 2) {
+                reject(player, "Syntax: ::getobjectvarp objectid")
             }
             val objectID = args[1].toInt()
             notify(player, "${VarbitDefinition.forObjectID(SceneryDefinition.forId(objectID).varbitID).varpId}")
         }
 
-        define("define_varbit", Privilege.ADMIN, "::define_varbit <lt>VARBIT ID<gt>", "Prints information about the given varbit."){ player, args ->
-            if(args.size < 2) {
+        define(
+            "define_varbit",
+            Privilege.ADMIN,
+            "::define_varbit <lt>VARBIT ID<gt>",
+            "Prints information about the given varbit."
+        ) { player, args ->
+            if (args.size < 2) {
                 reject(player, "Syntax: ::define_varbit varbitId")
             }
             val varbitID = args[1].toInt()
@@ -478,121 +576,136 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN){
         }
 
 
-        define("setvarbit", Privilege.ADMIN, "::setvarbit <lt>VARBIT ID<gt> <lt>VALUE<gt>", ""){
-                player,args ->
-            if(args.size != 3){
-                reject(player,"Usage: ::setvarbit varbit value")
+        define("setvarbit", Privilege.ADMIN, "::setvarbit <lt>VARBIT ID<gt> <lt>VALUE<gt>", "") { player, args ->
+            if (args.size != 3) {
+                reject(player, "Usage: ::setvarbit varbit value")
             }
             val index = args[1].toIntOrNull()
             val value = args[2].toIntOrNull()
 
-            if(index == null || value == null){
-                reject(player,"Usage ::setvarbit index offset value")
+            if (index == null || value == null) {
+                reject(player, "Usage ::setvarbit index offset value")
             }
 
             setVarbit(player, index!!, value!!)
         }
 
-        define("getvarbit", Privilege.ADMIN, "::getvarbit <lt>VARBIT ID<gt>", "") {
-                player, args ->
+        define("getvarbit", Privilege.ADMIN, "::getvarbit <lt>VARBIT ID<gt>", "") { player, args ->
             if (args.size != 2)
                 reject(player, "Usage: ::getvarbit id")
             val index = args[1].toIntOrNull() ?: return@define
             notify(player, "Varbit $index: Currently ${getVarbit(player, index)}")
         }
 
-        define("setvarp", Privilege.ADMIN, "::setvarp <lt>VARP ID<gt> <lt>BIT OFFSET<gt> <lt>VALUE<gt>", "Sets the value starting at the BIT OFFSET of the varp."){
-                player,args ->
-            if(args.size < 4){
-                reject(player,"Usage: ::setvarp index offset value")
+        define(
+            "setvarp",
+            Privilege.ADMIN,
+            "::setvarp <lt>VARP ID<gt> <lt>BIT OFFSET<gt> <lt>VALUE<gt>",
+            "Sets the value starting at the BIT OFFSET of the varp."
+        ) { player, args ->
+            if (args.size < 4) {
+                reject(player, "Usage: ::setvarp index offset value")
             }
             val index = args[1].toIntOrNull()
             val offset = args[2].toIntOrNull()
             val value = args[3].toIntOrNull()
 
-            if(index == null || offset == null || value == null){
-                reject(player,"Usage ::setvarp index offset value")
+            if (index == null || offset == null || value == null) {
+                reject(player, "Usage ::setvarp index offset value")
             }
 
             setVarp(player, index!!, value!! shl offset!!)
         }
 
         define("setvarc", Privilege.ADMIN, "::setvarc <lt>VARC ID<gt> <lt>VALUE<gt>") { player, args ->
-            if(args.size < 3){
-                reject(player,"Usage: ::setvarc index value")
+            if (args.size < 3) {
+                reject(player, "Usage: ::setvarc index value")
             }
             val index = args[1].toShortOrNull()
             val value = args[2].toIntOrNull()
 
-            if(index == null || value == null) {
-                reject(player,"Usage ::setvarc index value")
+            if (index == null || value == null) {
+                reject(player, "Usage ::setvarc index value")
             }
 
             player.packetDispatch.sendVarcUpdate(index!!, value!!)
         }
 
-        define("grow", Privilege.ADMIN, "", "Grows all planted crops by 1 stage."){ player, _ ->
-            val state = getOrStartTimer <CropGrowth> (player)!!
+        define("grow", Privilege.ADMIN, "", "Grows all planted crops by 1 stage.") { player, _ ->
+            val state = getOrStartTimer<CropGrowth>(player)!!
 
-            for(patch in state.getPatches()){
+            for (patch in state.getPatches()) {
                 patch.nextGrowth = System.currentTimeMillis() - 1
             }
 
-            state.run (player)
+            state.run(player)
         }
 
-        define("finishbins", Privilege.ADMIN, "", "Finishes any in-progress compost bins."){ player, _ ->
+        define("finishbins", Privilege.ADMIN, "", "Finishes any in-progress compost bins.") { player, _ ->
         }
 
-        define("resetbins", Privilege.ADMIN, "", "Resets the player's compost bins to their initial states.") { player, _ ->
+        define(
+            "resetbins",
+            Privilege.ADMIN,
+            "",
+            "Resets the player's compost bins to their initial states."
+        ) { player, _ ->
             val bins = getOrStartTimer<Compost>(player).getBins()
             for (bin in bins) bin.reset()
         }
 
-        define("addcredits", Privilege.ADMIN){ player, _ ->
+        define("addcredits", Privilege.ADMIN) { player, _ ->
             player.details.credits += 100
         }
 
-        define("getnpcparent"){player,args ->
-            if(args.size < 2){
-                reject(player,"Usage: ::getnpcparent npcid")
+        define("getnpcparent") { player, args ->
+            if (args.size < 2) {
+                reject(player, "Usage: ::getnpcparent npcid")
             }
 
-            val npcid = args[1].toIntOrNull() ?: reject(player,"Invalid NPC ID.")
+            val npcid = args[1].toIntOrNull() ?: reject(player, "Invalid NPC ID.")
 
             GlobalScope.launch {
-                for(def in NPCDefinition.getDefinitions().values){
+                for (def in NPCDefinition.getDefinitions().values) {
                     def ?: continue
                     def.childNPCIds ?: continue
-                    for(id in def.childNPCIds){
-                        if(id == npcid){
-                            notify(player,"Parent NPC: ${def.id}")
+                    for (id in def.childNPCIds) {
+                        if (id == npcid) {
+                            notify(player, "Parent NPC: ${def.id}")
                             return@launch
                         }
                     }
                 }
-                notify(player,"No parent NPC found.")
+                notify(player, "No parent NPC found.")
             }
         }
-        define("infinitespecial", Privilege.ADMIN){ player, args ->
+        define("infinitespecial", Privilege.ADMIN) { player, args ->
             val usageStr = "Usage: ::infinitespecial true|false"
-            if(args.size < 2){
+            if (args.size < 2) {
                 reject(player, usageStr)
             }
-            when(args[1]){
+            when (args[1]) {
                 "true" -> player.setAttribute("infinite-special", true)
                 "false" -> player.removeAttribute("infinite-special")
                 else -> reject(player, usageStr)
             }
         }
 
-        define("allowaggro", Privilege.ADMIN, "allowaggro true | false", "Toggle NPCs aggroing on you") { player, args ->
+        define(
+            "allowaggro",
+            Privilege.ADMIN,
+            "allowaggro true | false",
+            "Toggle NPCs aggroing on you"
+        ) { player, args ->
             val usageStr = "Usage: ::allowaggro true | false"
-            if(args.size < 2) {
-                notify(player, "Allow admin aggression is currently ${player.getAttribute("/save:allow_admin_aggression", false)}")
+            if (args.size < 2) {
+                notify(
+                    player,
+                    "Allow admin aggression is currently ${player.getAttribute("/save:allow_admin_aggression", false)}"
+                )
                 return@define
             }
-            when(args[1]) {
+            when (args[1]) {
                 "true" -> player.setAttribute("/save:allow_admin_aggression", true)
                 "false" -> player.setAttribute("/save:allow_admin_aggression", false)
                 else -> reject(player, usageStr)
@@ -631,14 +744,19 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN){
          */
 
 
-        define("setplaqueread", Privilege.ADMIN, "setplaqueread <true/false>",
-            "Set the plaques in the player safety stronghold to read or not read."){player, args ->
+        define(
+            "setplaqueread", Privilege.ADMIN, "setplaqueread <true/false>",
+            "Set the plaques in the player safety stronghold to read or not read."
+        ) { player, args ->
             if (args.size == 1) {
-                notify(player, "Currently the plaques ${if (player.savedData.globalData.hasReadPlaques()) "have" else "have not"} been read")
+                notify(
+                    player,
+                    "Currently the plaques ${if (player.savedData.globalData.hasReadPlaques()) "have" else "have not"} been read"
+                )
                 return@define
             }
 
-            when(args[1]) {
+            when (args[1]) {
                 "true" -> setPlaqueReadStatus(player, true)
                 "false" -> setPlaqueReadStatus(player, false)
                 else -> reject(player, "Only true or false can be used")
@@ -649,29 +767,32 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN){
         }
     }
 
-    fun setPlaqueReadStatus(player: Player, status: Boolean){
+    fun setPlaqueReadStatus(player: Player, status: Boolean) {
         // For some reason the loop has to be this way to have read write access
-        for (i in 0 until player.savedData.globalData.readPlaques.size){
+        for (i in 0 until player.savedData.globalData.readPlaques.size) {
             player.savedData.globalData.readPlaques[i] = status
         }
 
     }
 
-    fun showGeBotsearch(player: Player, searchTerm: String)
-    {
-        val offerAmounts = HashMap<Int,Int>()
-        val offerPrice = HashMap<Int,Int>()
+    fun showGeBotsearch(player: Player, searchTerm: String) {
+        val offerAmounts = HashMap<Int, Int>()
+        val offerPrice = HashMap<Int, Int>()
 
-        val offers = GrandExchange.getBotOffers().filter { getItemName(it.itemID).contains(searchTerm, true) || getItemName(it.itemID).equals(searchTerm, true) }
+        val offers = GrandExchange.getBotOffers().filter {
+            getItemName(it.itemID).contains(searchTerm, true) || getItemName(it.itemID).equals(
+                searchTerm,
+                true
+            )
+        }
 
-        for(offer in offers)
-        {
+        for (offer in offers) {
             offerAmounts[offer.itemID] = offer.amount
             offerPrice[offer.itemID] = offer.offeredValue
         }
 
-        val entries    = offerAmounts.entries.sortedBy({ e -> getItemName(e.key) })
-        val leftLines  = ArrayList<String>(entries.size)
+        val entries = offerAmounts.entries.sortedBy({ e -> getItemName(e.key) })
+        val leftLines = ArrayList<String>(entries.size)
         val rightLines = ArrayList<String>(entries.size)
         for (entry in entries) {
             leftLines.add("${getItemName(entry.key)} (<col=357f44>x${entry.value}</col>)")
@@ -680,21 +801,19 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN){
         showGeBook(player, "Bot Stock - \"$searchTerm\"", leftLines, rightLines)
     }
 
-    fun showGeBots(player: Player)
-    {
-        val offerAmounts = HashMap<Int,Int>()
-        val offerPrice = HashMap<Int,Int>()
+    fun showGeBots(player: Player) {
+        val offerAmounts = HashMap<Int, Int>()
+        val offerPrice = HashMap<Int, Int>()
 
         val offers = GrandExchange.getBotOffers()
 
-        for(offer in offers)
-        {
+        for (offer in offers) {
             offerAmounts[offer.itemID] = offer.amount
             offerPrice[offer.itemID] = offer.offeredValue
         }
 
-        val entries    = offerAmounts.entries.sortedBy({ e -> getItemName(e.key) })
-        val leftLines  = ArrayList<String>(entries.size)
+        val entries = offerAmounts.entries.sortedBy({ e -> getItemName(e.key) })
+        val leftLines = ArrayList<String>(entries.size)
         val rightLines = ArrayList<String>(entries.size)
         for (entry in entries) {
             leftLines.add("${getItemName(entry.key)} (<col=357f44>x${entry.value}</col>)")
@@ -703,27 +822,26 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN){
         showGeBook(player, "Bot Stock", leftLines, rightLines)
     }
 
-    fun showGeSell(player: Player){
-        val offerAmounts = HashMap<Int,Int>()
-        val lowestPrice = HashMap<Int,Int>()
+    fun showGeSell(player: Player) {
+        val offerAmounts = HashMap<Int, Int>()
+        val lowestPrice = HashMap<Int, Int>()
 
         val offers = GrandExchange.getValidOffers()
 
-        for(offer in offers)
-        {
-            if(!offer.sell) continue
+        for (offer in offers) {
+            if (!offer.sell) continue
             var amount = offerAmounts[offer.itemID] ?: 0
             amount += offer.amountLeft
 
             var price = lowestPrice[offer.itemID] ?: Integer.MAX_VALUE
-            if(offer.offeredValue < price) price = offer.offeredValue
+            if (offer.offeredValue < price) price = offer.offeredValue
 
             offerAmounts[offer.itemID] = amount
             lowestPrice[offer.itemID] = price
         }
 
-        val entries    = offerAmounts.entries.sortedBy({ e -> getItemName(e.key) })
-        val leftLines  = ArrayList<String>(entries.size)
+        val entries = offerAmounts.entries.sortedBy({ e -> getItemName(e.key) })
+        val leftLines = ArrayList<String>(entries.size)
         val rightLines = ArrayList<String>(entries.size)
         for (entry in entries) {
             leftLines.add("${getItemName(entry.key)} (<col=357f44>x${entry.value}</col>)")
@@ -732,27 +850,26 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN){
         showGeBook(player, "Active Sell Offers", leftLines, rightLines)
     }
 
-    fun showGeBuy(player: Player){
-        val offerAmounts = HashMap<Int,Int>()
-        val highestPrice = HashMap<Int,Int>()
+    fun showGeBuy(player: Player) {
+        val offerAmounts = HashMap<Int, Int>()
+        val highestPrice = HashMap<Int, Int>()
 
         val offers = GrandExchange.getValidOffers()
 
-        for(offer in offers)
-        {
-            if(offer.sell) continue
+        for (offer in offers) {
+            if (offer.sell) continue
             var amount = offerAmounts[offer.itemID] ?: 0
             amount += offer.amountLeft
 
             var price = highestPrice[offer.itemID] ?: 0
-            if(offer.offeredValue > price) price = offer.offeredValue
+            if (offer.offeredValue > price) price = offer.offeredValue
 
             offerAmounts[offer.itemID] = amount
             highestPrice[offer.itemID] = price
         }
 
-        val entries    = offerAmounts.entries.sortedBy({ e -> getItemName(e.key) })
-        val leftLines  = ArrayList<String>(entries.size)
+        val entries = offerAmounts.entries.sortedBy({ e -> getItemName(e.key) })
+        val leftLines = ArrayList<String>(entries.size)
         val rightLines = ArrayList<String>(entries.size)
         for (entry in entries) {
             leftLines.add("${getItemName(entry.key)} (<col=357f44>x${entry.value}</col>)")
@@ -761,34 +878,35 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN){
         showGeBook(player, "Active Buy Offers", leftLines, rightLines)
     }
 
-    fun showOffers(player: Player, searchTerm: String){
-        val offers = GrandExchange.getValidOffers().filter { getItemName(it.itemID).contains(searchTerm, true) || getItemName(it.itemID).equals(searchTerm, true) }
+    fun showOffers(player: Player, searchTerm: String) {
+        val offers = GrandExchange.getValidOffers().filter {
+            getItemName(it.itemID).contains(searchTerm, true) || getItemName(it.itemID).equals(
+                searchTerm,
+                true
+            )
+        }
         if (offers.isEmpty()) {
             sendMessage(player, "No results.")
             return
         }
 
-        val buyingAmount  = HashMap<Int, Int>()
+        val buyingAmount = HashMap<Int, Int>()
         val buyingHighest = HashMap<Int, Int>()
-        val sellingAmount = HashMap<Int,Int>()
-        val sellingLowest = HashMap<Int,Int>()
-        for(offer in offers)
-        {
-            if(offer.sell)
-            {
+        val sellingAmount = HashMap<Int, Int>()
+        val sellingLowest = HashMap<Int, Int>()
+        for (offer in offers) {
+            if (offer.sell) {
                 var price = sellingLowest[offer.itemID] ?: Int.MAX_VALUE
-                if(offer.offeredValue < price) price = offer.offeredValue
+                if (offer.offeredValue < price) price = offer.offeredValue
 
                 var amount = sellingAmount[offer.itemID] ?: 0
                 amount += offer.amountLeft
 
                 sellingAmount[offer.itemID] = amount
                 sellingLowest[offer.itemID] = price
-            }
-            else
-            {
+            } else {
                 var price = buyingHighest[offer.itemID] ?: 0
-                if(offer.offeredValue > price) price = offer.offeredValue
+                if (offer.offeredValue > price) price = offer.offeredValue
 
                 var amount = buyingAmount[offer.itemID] ?: 0
                 amount += offer.amountLeft
@@ -798,8 +916,8 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN){
             }
         }
 
-        val numLines   = offers.size + 1
-        val leftLines  = ArrayList<String>(numLines)
+        val numLines = offers.size + 1
+        val leftLines = ArrayList<String>(numLines)
         val rightLines = ArrayList<String>(numLines)
         for (i in 0..numLines) {
             if (i < buyingAmount.keys.size) {
@@ -823,7 +941,7 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN){
             val target = args.copyOfRange(2, args.size).joinToString(" ").lowercase()
             op(player, target)
         } else {
-            sendInputDialogue(player, InputType.STRING_LONG, "Enter search term:",) { value ->
+            sendInputDialogue(player, InputType.STRING_LONG, "Enter search term:") { value ->
                 op(player, value as String)
             }
         }
@@ -834,19 +952,24 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN){
             sendMessage(player, "No results.")
             return
         }
-        val lineIds  = BookInterfaceListener.FANCY_BOOK_26_LINE_IDS
+        val lineIds = BookInterfaceListener.FANCY_BOOK_26_LINE_IDS
         val contents = ArrayList<PageSet>()
-        val leftChunks  = leftLines.chunked(15)
+        val leftChunks = leftLines.chunked(15)
         val rightChunks = rightLines.chunked(15)
         for (i in leftChunks.indices) {
             val size = leftChunks[i].size
-            val leftPageLines  = ArrayList<BookLine>(size)
+            val leftPageLines = ArrayList<BookLine>(size)
             val rightPageLines = ArrayList<BookLine>(size)
             for (j in leftChunks[i].indices) {
-                leftPageLines.add(BookLine(leftChunks[i][j], lineIds[j+3])) //+3 to skip title and buttons
-                rightPageLines.add(BookLine(rightChunks[i][j], lineIds[j+3+15])) //+15 because right pages have different ids
+                leftPageLines.add(BookLine(leftChunks[i][j], lineIds[j + 3])) //+3 to skip title and buttons
+                rightPageLines.add(
+                    BookLine(
+                        rightChunks[i][j],
+                        lineIds[j + 3 + 15]
+                    )
+                ) //+15 because right pages have different ids
             }
-            val leftPage  = Page(*leftPageLines.toTypedArray())
+            val leftPage = Page(*leftPageLines.toTypedArray())
             val rightPage = Page(*rightPageLines.toTypedArray())
             contents.add(PageSet(leftPage, rightPage))
         }

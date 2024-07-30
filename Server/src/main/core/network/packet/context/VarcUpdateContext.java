@@ -9,7 +9,7 @@ public class VarcUpdateContext implements Context {
     public int varcId;
     public int value;
 
-    public VarcUpdateContext(Player player, int varcId, int value){
+    public VarcUpdateContext(Player player, int varcId, int value) {
         this.player = player;
         this.varcId = varcId;
         this.value = value;

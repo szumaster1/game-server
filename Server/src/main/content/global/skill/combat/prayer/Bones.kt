@@ -88,9 +88,9 @@ enum class Bones(
         bonemealId = Items.BONEMEAL_4853
     ),
     DAGANNOTH(
-        Items.DAGANNOTH_BONES_6729,
-        125.0,
-        Items.BONEMEAL_4271 // // The bonemeal id should be 6728.
+        itemId = Items.DAGANNOTH_BONES_6729,
+        experience = 125.0,
+        bonemealId = Items.BONEMEAL_4271 // // The bonemeal id should be 6728.
     ),
     OURG_BONES(
         itemId = Items.OURG_BONES_4834,

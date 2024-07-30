@@ -1,7 +1,5 @@
 package core.game.system.security;
 
-import core.game.system.SystemManager;
-
 import java.io.UnsupportedEncodingException;
 import java.security.SecureRandom;
 

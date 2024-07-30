@@ -33,11 +33,11 @@ class GrandExchangeInterfacePlugin : ComponentPlugin() {
      */
 
     override fun newInstance(arg: Any?): Plugin<Any> {
-        ComponentDefinition.put(Components.STOCKCOLLECT_109, this) // Collection interface
-        ComponentDefinition.put(Components.OBJDIALOG_389, this) // Search interface
-        ComponentDefinition.put(Components.EXCHANGE_SETS_SIDE_644, this) // Item sets inventory interface
-        ComponentDefinition.put(Components.EXCHANGE_ITEMSETS_645, this) // Item sets interface
-        ComponentDefinition.put(Components.EXCHANGE_GUIDE_PRICE_642, this) // Guide Prices interface.
+        ComponentDefinition.put(Components.STOCKCOLLECT_109, this)
+        ComponentDefinition.put(Components.OBJDIALOG_389, this)
+        ComponentDefinition.put(Components.EXCHANGE_SETS_SIDE_644, this)
+        ComponentDefinition.put(Components.EXCHANGE_ITEMSETS_645, this)
+        ComponentDefinition.put(Components.EXCHANGE_GUIDE_PRICE_642, this)
         return this
     }
 
@@ -163,7 +163,7 @@ class GrandExchangeInterfacePlugin : ComponentPlugin() {
 
             155 -> {
                 val mapping = CS2Mapping.forId(1089)
-                if (mapping != null && set != null) {
+                if (mapping != null) {
                     player.packetDispatch.sendMessage(mapping.map[set.itemId] as String?)
                 }
             }

@@ -3,9 +3,9 @@ package core.game.interaction;
 import core.cache.def.impl.SceneryDefinition;
 import core.game.node.Node;
 import core.game.node.entity.player.Player;
-import core.tools.Log;
 import core.game.world.map.Location;
 import core.plugin.Plugin;
+import core.tools.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,8 +36,8 @@ public abstract class OptionHandler implements Plugin<Object> {
      * @return {@code True} if so.
      */
     public boolean isDelayed(Player player) {
-		return true;
-	}
+        return true;
+    }
 
     /**
      * Checks if it needs a walk..
@@ -47,8 +47,8 @@ public abstract class OptionHandler implements Plugin<Object> {
      * @return true if so.
      */
     public boolean isWalk(final Player player, final Node node) {
-		return false;
-	}
+        return false;
+    }
 
     /**
      * Gets the walk.
@@ -56,8 +56,8 @@ public abstract class OptionHandler implements Plugin<Object> {
      * @return if a walk is required.
      */
     public boolean isWalk() {
-		return true;
-	}
+        return true;
+    }
 
     /**
      * Gets the custom destination for the node.
@@ -67,8 +67,8 @@ public abstract class OptionHandler implements Plugin<Object> {
      * @return The custom destination, or {@code null} if we should use the default destination.
      */
     public Location getDestination(Node n, Node node) {
-		return null;
-	}
+        return null;
+    }
 
     /**
      * Gets the valid children for the wrapper id.
@@ -77,26 +77,26 @@ public abstract class OptionHandler implements Plugin<Object> {
      * @return the valid children.
      */
     public int[] getValidChildren(int wrapper) {
-		final SceneryDefinition definition = SceneryDefinition.forId(wrapper);
-		final List<Integer> list = new ArrayList<>(20);
-		if (definition.getChildrenIds() == null) {
-			log(this.getClass(), Log.ERR,  "Null child wrapper in option handler wrapperId=" + wrapper);
-			return new int[] { wrapper };
-		}
-		for (int child : definition.getChildrenIds()) {
-			if (child != -1 && !list.contains(child)) {
-				list.add(child);
-			}
-		}
-		int[] array = new int[list.size()];
-		for (int i = 0; i < list.size(); i++) {
-			array[i] = list.get(i);
-		}
-		return array;
-	}
+        final SceneryDefinition definition = SceneryDefinition.forId(wrapper);
+        final List<Integer> list = new ArrayList<>(20);
+        if (definition.getChildrenIds() == null) {
+            log(this.getClass(), Log.ERR, "Null child wrapper in option handler wrapperId=" + wrapper);
+            return new int[]{wrapper};
+        }
+        for (int child : definition.getChildrenIds()) {
+            if (child != -1 && !list.contains(child)) {
+                list.add(child);
+            }
+        }
+        int[] array = new int[list.size()];
+        for (int i = 0; i < list.size(); i++) {
+            array[i] = list.get(i);
+        }
+        return array;
+    }
 
-	@Override
-	public Object fireEvent(String identifier, Object... args) {
-		return null;
-	}
+    @Override
+    public Object fireEvent(String identifier, Object... args) {
+        return null;
+    }
 }

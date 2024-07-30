@@ -4,52 +4,54 @@ import core.cache.def.impl.ItemDefinition
 import core.cache.def.impl.NPCDefinition
 import core.cache.def.impl.SceneryDefinition
 import core.game.node.entity.player.Player
+import core.game.system.command.CommandPlugin
 import core.game.system.command.CommandSet
 import core.plugin.Initializable
 import core.plugin.Plugin
-import core.game.system.command.CommandPlugin
 import java.io.BufferedWriter
 import java.io.File
 
 @Initializable
 class SimpleDumpingCommands : CommandPlugin() {
     override fun parse(player: Player?, name: String?, args: Array<String?>?): Boolean {
-        when(name) {
+        when (name) {
             "make" -> handleMake(player, args?.toList() as List<String>?).also { return true }
         }
         return false
     }
 
-    private fun handleMake(player: Player?,args: List<String>?){
+    private fun handleMake(player: Player?, args: List<String>?) {
         val dataType = args?.getOrNull(1)
         val outputType = args?.getOrNull(2)
 
-        if(dataType == null || outputType == null) player?.sendMessage("Usage: ::make item|object|npc list|doc")
+        if (dataType == null || outputType == null) player?.sendMessage("Usage: ::make item|object|npc list|doc")
 
-        when(outputType){
+        when (outputType) {
             "list" -> makeDumpList(dataType!!).also { player?.sendMessage("Creating $dataType dump list...") }
             "doc" -> makeDumpDoc(dataType!!).also { player?.sendMessage("Creating $dataType dump doc...") }
         }
     }
 
-    private fun makeDumpList(type: String){
+    private fun makeDumpList(type: String) {
         val f = File(System.getProperty("user.dir") + File.separator + "${type}list.txt")
         val writer = f.bufferedWriter()
-        when(type){
-            "item" -> for (i in ItemDefinition.getDefinitions().values){
-                            writer.writeLn("${i.name}(${i.id}) - ${i.examine}")
-                       }
-            "object" -> for(i in SceneryDefinition.getDefinitions().values){
-                            writer.writeLn("${i.name}(${i.id}) - ${i.examine}")
-                       }
-            "npc" -> for(i in NPCDefinition.getDefinitions().values){
-                            writer.writeLn("${i.name}(${i.id}) - ${i.examine}")
-                       }
+        when (type) {
+            "item" -> for (i in ItemDefinition.getDefinitions().values) {
+                writer.writeLn("${i.name}(${i.id}) - ${i.examine}")
+            }
+
+            "object" -> for (i in SceneryDefinition.getDefinitions().values) {
+                writer.writeLn("${i.name}(${i.id}) - ${i.examine}")
+            }
+
+            "npc" -> for (i in NPCDefinition.getDefinitions().values) {
+                writer.writeLn("${i.name}(${i.id}) - ${i.examine}")
+            }
         }
         writer.close()
     }
 
-    private fun makeDumpDoc(type: String){
+    private fun makeDumpDoc(type: String) {
         val f = File(System.getProperty("user.dir") + File.separator + "${type}list.html")
         println(f.absolutePath)
         val writer = f.bufferedWriter()
@@ -62,22 +64,24 @@ class SimpleDumpingCommands : CommandPlugin() {
         writer.writeLn("<th>$type ID</th>")
         writer.writeLn("<th>Examine Text</th>")
         writer.writeLn("</tr>")
-        when(type){
-            "item" -> for (i in ItemDefinition.getDefinitions().values){
+        when (type) {
+            "item" -> for (i in ItemDefinition.getDefinitions().values) {
                 writer.writeLn("<tr>")
                 writer.writeLn("<td>${i.name}</td>")
                 writer.writeLn("<td id=\"id\">${i.id}</td>")
                 writer.writeLn("<td>${i.examine}</td>")
                 writer.writeLn("</tr>")
             }
-            "object" -> for(i in SceneryDefinition.getDefinitions().values){
+
+            "object" -> for (i in SceneryDefinition.getDefinitions().values) {
                 writer.writeLn("<tr>")
                 writer.writeLn("<td>${i.name}</td>")
                 writer.writeLn("<td>${i.id}</td>")
                 writer.writeLn("<td>${i.examine}</td>")
                 writer.writeLn("</tr>")
             }
-            "npc" -> for(i in NPCDefinition.getDefinitions().values){
+
+            "npc" -> for (i in NPCDefinition.getDefinitions().values) {
                 writer.writeLn("<tr>")
                 writer.writeLn("<td>${i.name}</td>")
                 writer.writeLn("<td>${i.id}</td>")
@@ -94,7 +98,7 @@ class SimpleDumpingCommands : CommandPlugin() {
         return this
     }
 
-    private fun BufferedWriter.writeLn(line: String){
+    private fun BufferedWriter.writeLn(line: String) {
         this.write(line)
         this.newLine()
     }

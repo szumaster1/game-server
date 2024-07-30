@@ -28,44 +28,75 @@ class PolarKebbitHunting : HunterTracking() {
         initialMap = hashMapOf(
             19640 to arrayListOf(
                 TrailDefinition(
-                    3061, TrailType.TUNNEL, false, Location.create(2712, 3831, 1), Location.create(2718, 3832, 1)
-                ), TrailDefinition(
-                    3060,
-                    TrailType.LINKING,
-                    true,
-                    Location.create(2712, 3831, 1),
-                    Location.create(2716, 3827, 1),
-                    Location.create(2713, 3827, 1)
-                ), TrailDefinition(
-                    3057,
-                    TrailType.LINKING,
-                    false,
-                    Location.create(2712, 3831, 1),
-                    Location.create(2708, 3819, 1),
-                    Location.create(2708, 3825, 1)
-                )
-            ), 19641 to arrayListOf(
+                    varbit = 3061,
+                    type = TrailType.TUNNEL,
+                    inverted = false,
+                    startLocation = Location.create(2712, 3831, 1),
+                    endLocation = Location.create(2718, 3832, 1)
+                ),
                 TrailDefinition(
-                    3053,
-                    TrailType.LINKING,
-                    true,
-                    Location.create(2718, 3820, 1),
-                    Location.create(2708, 3819, 1),
-                    Location.create(2712, 3815, 1)
-                ), TrailDefinition(
-                    3055, TrailType.TUNNEL, false, Location.create(2718, 3820, 1), Location.create(2715, 3820, 1)
-                ), TrailDefinition(
-                    3056, TrailType.TUNNEL, false, Location.create(2718, 3820, 1), Location.create(2721, 3827, 1)
+                    varbit = 3060,
+                    type = TrailType.LINKING,
+                    inverted = true,
+                    startLocation = Location.create(2712, 3831, 1),
+                    endLocation = Location.create(2716, 3827, 1),
+                    triggerObjectLocation = Location.create(2713, 3827, 1)
+                ),
+                TrailDefinition(
+                    varbit = 3057,
+                    type = TrailType.LINKING,
+                    inverted = false,
+                    startLocation = Location.create(2712, 3831, 1),
+                    endLocation = Location.create(2708, 3819, 1),
+                    triggerObjectLocation = Location.create(2708, 3825, 1)
+                )
+            ),
+            19641 to arrayListOf(
+                TrailDefinition(
+                    varbit = 3053,
+                    type = TrailType.LINKING,
+                    inverted = true,
+                    startLocation = Location.create(2718, 3820, 1),
+                    endLocation = Location.create(2708, 3819, 1),
+                    triggerObjectLocation = Location.create(2712, 3815, 1)
+                ),
+                TrailDefinition(
+                    varbit = 3055,
+                    type = TrailType.TUNNEL,
+                    inverted = false,
+                    startLocation = Location.create(2718, 3820, 1),
+                    endLocation = Location.create(2715, 3820, 1)
+                ),
+                TrailDefinition(
+                    varbit = 3056,
+                    type = TrailType.TUNNEL,
+                    inverted = false,
+                    startLocation = Location.create(2718, 3820, 1),
+                    endLocation = Location.create(2721, 3827, 1)
                 )
             )
         )
         linkingTrails = arrayListOf(
             TrailDefinition(
-                3058, TrailType.LINKING, true, Location.create(2714, 3821, 1), Location.create(2716, 3827, 1)
-            ), TrailDefinition(
-                3059, TrailType.TUNNEL, true, Location.create(2716, 3827, 1), Location.create(2718, 3829, 1)
-            ), TrailDefinition(
-                3054, TrailType.TUNNEL, false, Location.create(2708, 3819, 1), Location.create(2711, 3819, 1)
+                varbit = 3058,
+                type = TrailType.LINKING,
+                inverted = true,
+                startLocation = Location.create(2714, 3821, 1),
+                endLocation = Location.create(2716, 3827, 1)
+            ),
+            TrailDefinition(
+                varbit = 3059,
+                type = TrailType.TUNNEL,
+                inverted = true,
+                startLocation = Location.create(2716, 3827, 1),
+                endLocation = Location.create(2718, 3829, 1)
+            ),
+            TrailDefinition(
+                varbit = 3054,
+                type = TrailType.TUNNEL,
+                inverted = false,
+                startLocation = Location.create(2708, 3819, 1),
+                endLocation = Location.create(2711, 3819, 1)
             )
         )
         experience = 30.0

@@ -11,38 +11,36 @@ import core.network.packet.IoBuffer;
  */
 public final class GraphicUpdateFlag extends UpdateFlag<Graphic> {
 
-	/**
-	 * The location.
-	 */
-	private final Location location;
+    private final Location location;
 
-	/**
-	 * Constructs a new {@code GraphicUpdateFlag} {@code Object}.
-	 * @param graphic The graphic.
-	 * @param location The location.
-	 */
-	public GraphicUpdateFlag(Graphic graphic, Location location) {
-		super(graphic);
-		this.location = location;
-	}
+    /**
+     * Constructs a new {@code GraphicUpdateFlag} {@code Object}.
+     *
+     * @param graphic  The graphic.
+     * @param location The location.
+     */
+    public GraphicUpdateFlag(Graphic graphic, Location location) {
+        super(graphic);
+        this.location = location;
+    }
 
-	@Override
-	public void write(IoBuffer buffer) {
-		buffer.put((byte) 17); // opcode
-		buffer.put((location.getChunkOffsetX() << 4) | (location.getChunkOffsetY() & 0x7));
-		buffer.putShort(context.getId());
-		buffer.put(context.getHeight());
-		buffer.putShort(context.getDelay());
-	}
+    @Override
+    public void write(IoBuffer buffer) {
+        buffer.put((byte) 17); // opcode
+        buffer.put((location.getChunkOffsetX() << 4) | (location.getChunkOffsetY() & 0x7));
+        buffer.putShort(context.getId());
+        buffer.put(context.getHeight());
+        buffer.putShort(context.getDelay());
+    }
 
-	@Override
-	public int data() {
-		return 0;
-	}
+    @Override
+    public int data() {
+        return 0;
+    }
 
-	@Override
-	public int ordinal() {
-		return 3;
-	}
+    @Override
+    public int ordinal() {
+        return 3;
+    }
 
 }

@@ -2,7 +2,6 @@ package core.game.node.entity.player.info.portal;
 
 /**
  * Represents a chat icon.
- *
  * @author Vexia
  */
 public enum Icon {
@@ -43,25 +42,26 @@ public enum Icon {
      */
     BROWN(8, 12);
 
-	/**
-	 * The id.
-	 */
-	private final int id;
+    /**
+     * The id.
+     */
+    private final int id;
 
-	/**
-	 * The index id.
-	 */
-	private final int indexId;
+    /**
+     * The index id.
+     */
+    private final int indexId;
 
-	/**
-	 * Constructs a new {@code Icons} {@code Object}
-	 * @param id the id.
-	 * @param indexId the indexid.
-	 */
-	private Icon(int id, int indexId) {
-		this.id = id;
-		this.indexId = indexId;
-	}
+    /**
+     * Constructs a new {@code Icons} {@code Object}
+     *
+     * @param id      the id.
+     * @param indexId the indexid.
+     */
+    private Icon(int id, int indexId) {
+        this.id = id;
+        this.indexId = indexId;
+    }
 
     /**
      * Gets an icon for the id.
@@ -70,13 +70,13 @@ public enum Icon {
      * @return the id.S
      */
     public static Icon forId(int id) {
-		for (Icon icon : values()) {
-			if (icon.getId() == id) {
-				return icon;
-			}
-		}
-		return GREEN;
-	}
+        for (Icon icon : values()) {
+            if (icon.getId() == id) {
+                return icon;
+            }
+        }
+        return GREEN;
+    }
 
     /**
      * Gets the id.
@@ -84,8 +84,8 @@ public enum Icon {
      * @return the id
      */
     public int getId() {
-		return id;
-	}
+        return id;
+    }
 
     /**
      * Gets the indexId.
@@ -93,7 +93,7 @@ public enum Icon {
      * @return the indexId
      */
     public int getIndexId() {
-		return indexId;
-	}
+        return indexId;
+    }
 
 }

@@ -19,7 +19,12 @@ class AudioCommandSet : CommandSet(Privilege.STANDARD) {
          * Command that lets you play a specific song.
          */
 
-        define("playsong", Privilege.STANDARD, "::playsong <lt>Song ID<gt>", "Plays the song with the given ID.") { player, args ->
+        define(
+            "playsong",
+            Privilege.STANDARD,
+            "::playsong <lt>Song ID<gt>",
+            "Plays the song with the given ID."
+        ) { player, args ->
             if (args.size < 2) {
                 reject(player, "Usage: ::playsong songID")
             }
@@ -35,7 +40,12 @@ class AudioCommandSet : CommandSet(Privilege.STANDARD) {
          * Command that lets you play a specific jingle.
          */
 
-        define("playjingle", Privilege.STANDARD, "::playjingle <lt>jingle ID<gt>", "Plays the jingle with the given ID.") { player, args ->
+        define(
+            "playjingle",
+            Privilege.STANDARD,
+            "::playjingle <lt>jingle ID<gt>",
+            "Plays the jingle with the given ID."
+        ) { player, args ->
             if (args.size < 2) {
                 reject(player, "Usage: ::playjingle jingleID")
             }
@@ -76,7 +86,12 @@ class AudioCommandSet : CommandSet(Privilege.STANDARD) {
             Command that lets you play an audio id
          */
 
-        define("audio", Privilege.ADMIN, "::audio id <lt>loops[optional]</lt>", "Plays the audio with the given ID.") { player, args ->
+        define(
+            "audio",
+            Privilege.ADMIN,
+            "::audio id <lt>loops[optional]</lt>",
+            "Plays the audio with the given ID."
+        ) { player, args ->
             if (args.size < 2 || args.size > 3) reject(player, "Usage: ::audio id loops[optional]")
             val id = args[1].toInt()
             val loops = if (args.size > 2) args[2].toInt() else 1
@@ -87,7 +102,12 @@ class AudioCommandSet : CommandSet(Privilege.STANDARD) {
             Command that lets you play an audio id globally by playername or coords.
          */
 
-        define("globalaudio", Privilege.ADMIN, "::globalaudio id radius[max 15] location[player name or x y z]", "Play global audio by id, radius, and location") { player, args ->
+        define(
+            "globalaudio",
+            Privilege.ADMIN,
+            "::globalaudio id radius[max 15] location[player name or x y z]",
+            "Play global audio by id, radius, and location"
+        ) { player, args ->
             if (args.size < 3) reject(player, "Usage: ::globalaudio id radius[max 15] location[player name or x y z]")
             val loc = when (args.size) {
                 6 -> Location(args[3].toInt(), args[4].toInt(), args[5].toInt())

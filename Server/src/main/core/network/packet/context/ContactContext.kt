@@ -9,9 +9,12 @@ import core.network.packet.Context
  */
 class ContactContext : Context {
     private val player: Player
-    @JvmField var type: Int
-    @JvmField var name: String? = null
-    @JvmField var worldId: Int = 0
+    @JvmField
+    var type: Int
+    @JvmField
+    var name: String? = null
+    @JvmField
+    var worldId: Int = 0
 
     constructor(player: Player, type: Int) {
         this.player = player

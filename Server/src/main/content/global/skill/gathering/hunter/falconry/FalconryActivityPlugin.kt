@@ -23,6 +23,7 @@ import core.plugin.Plugin
 
 @Initializable
 class FalconryActivityPlugin : ActivityPlugin("falconry", false, false, false) {
+
     override fun newInstance(p: Player): ActivityPlugin {
         return FalconryActivityPlugin()
     }

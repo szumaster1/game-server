@@ -36,7 +36,7 @@ import java.util.concurrent.TimeUnit
 @Initializable
 class HunterPitfall : OptionHandler() {
     //19227,
-    val graahkPitIds = intArrayOf(19227, 19268,19267,19266,19264,19265)
+    val graahkPitIds = intArrayOf(19227, 19268, 19267, 19266, 19264, 19265)
     val GRAAHK_ID = 5105
     val hunterReq = 41
     override fun handle(player: Player?, node: Node?, option: String?): Boolean {

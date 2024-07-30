@@ -47,11 +47,17 @@ class MagicAltarListener : InteractionListener {
         }
 
         if (SpellBook.forInterface(player.spellBookManager.spellBook) == if (altar.id == ANCIENT_ALTAR) SpellBook.ANCIENT else SpellBook.LUNAR) {
-            sendMessage(player, if (altar.id == ANCIENT_ALTAR) "You feel a strange drain upon your memory..." else "Modern spells activated!")
+            sendMessage(
+                player,
+                if (altar.id == ANCIENT_ALTAR) "You feel a strange drain upon your memory..." else "Modern spells activated!"
+            )
             player.spellBookManager.setSpellBook(SpellBook.MODERN)
             player.spellBookManager.update(player)
         } else {
-            sendMessage(player, if (altar.id == ANCIENT_ALTAR) "You feel a strange wisdom fill your mind..." else "Lunar spells activated!")
+            sendMessage(
+                player,
+                if (altar.id == ANCIENT_ALTAR) "You feel a strange wisdom fill your mind..." else "Lunar spells activated!"
+            )
             player.spellBookManager.setSpellBook(if (altar.id == ANCIENT_ALTAR) SpellBook.ANCIENT else SpellBook.LUNAR)
             player.spellBookManager.update(player)
         }

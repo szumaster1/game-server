@@ -18,8 +18,8 @@ class TimerManager(val entity: Entity) {
     }
 
     fun processTimers() {
-        activeTimers.removeAll(toRemoveTimers)
-        newTimers.removeAll(toRemoveTimers)
+        activeTimers.removeAll(toRemoveTimers.toSet())
+        newTimers.removeAll(toRemoveTimers.toSet())
         toRemoveTimers.clear()
 
         val canRunNormalTimers =

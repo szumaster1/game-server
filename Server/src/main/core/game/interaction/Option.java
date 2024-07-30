@@ -55,20 +55,20 @@ public final class Option {
      */
     public static final Option NULL = new Option("null", 0);
 
-	/**
-	 * The option name.
-	 */
-	private final String name;
+    /**
+     * The option name.
+     */
+    private final String name;
 
-	/**
-	 * The index.
-	 */
-	private final int index;
+    /**
+     * The index.
+     */
+    private final int index;
 
-	/**
-	 * The option handler.
-	 */
-	private OptionHandler handler;
+    /**
+     * The option handler.
+     */
+    private OptionHandler handler;
 
     /**
      * Constructs a new {@code Interaction} {@code Object}.
@@ -77,9 +77,9 @@ public final class Option {
      * @param index The index.
      */
     public Option(String name, int index) {
-		this.name = name;
-		this.index = index;
-	}
+        this.name = name;
+        this.index = index;
+    }
 
     /**
      * Gets the default option handler for the given name.
@@ -90,19 +90,19 @@ public final class Option {
      * @return The default option handler for this option.
      */
     public static OptionHandler defaultHandler(Node node, int nodeId, String name) {
-		name = name.toLowerCase();
-		if (node instanceof NPC) {
-			return NPCDefinition.getOptionHandler(nodeId, name);
-		}
-		if (node instanceof Scenery) {
-			return SceneryDefinition.getOptionHandler(nodeId, name);
-		}
-		if (node instanceof Item) {
-			return ItemDefinition.getOptionHandler(nodeId, name);
-		}
+        name = name.toLowerCase();
+        if (node instanceof NPC) {
+            return NPCDefinition.getOptionHandler(nodeId, name);
+        }
+        if (node instanceof Scenery) {
+            return SceneryDefinition.getOptionHandler(nodeId, name);
+        }
+        if (node instanceof Item) {
+            return ItemDefinition.getOptionHandler(nodeId, name);
+        }
 
-		return null;
-	}
+        return null;
+    }
 
     /**
      * Gets the name.
@@ -110,8 +110,8 @@ public final class Option {
      * @return The name.
      */
     public String getName() {
-		return name;
-	}
+        return name;
+    }
 
     /**
      * Gets the index.
@@ -119,8 +119,8 @@ public final class Option {
      * @return The index.
      */
     public int getIndex() {
-		return index;
-	}
+        return index;
+    }
 
     /**
      * Gets the handler.
@@ -128,8 +128,8 @@ public final class Option {
      * @return The handler.
      */
     public OptionHandler getHandler() {
-		return handler;
-	}
+        return handler;
+    }
 
     /**
      * Sets the handler.
@@ -138,7 +138,7 @@ public final class Option {
      * @return This option instance.
      */
     public Option setHandler(OptionHandler handler) {
-		this.handler = handler;
-		return this;
-	}
+        this.handler = handler;
+        return this;
+    }
 }

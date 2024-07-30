@@ -13,34 +13,37 @@ import core.network.packet.context.AreaPositionContext;
  */
 public final class UpdateAreaPosition implements OutgoingPacket<AreaPositionContext> {
 
-	/**
-	 * Gets the region chunk update buffer.
-	 * @param player The player.
-	 * @param base The base location of the chunk.
-	 * @return The buffer.
-	 */
-	public static IoBuffer getChunkUpdateBuffer(Player player, Location base) {
-		int x = base.getSceneX(player.getPlayerFlags().getLastSceneGraph());
-		int y = base.getSceneY(player.getPlayerFlags().getLastSceneGraph());
-		return new IoBuffer(230, PacketHeader.SHORT).putA(y).putS(x);
-	}
+    /**
+     * Gets the region chunk update buffer.
+     *
+     * @param player The player.
+     * @param base   The base location of the chunk.
+     * @return The buffer.
+     */
+    public static IoBuffer getChunkUpdateBuffer(Player player, Location base) {
+        int x = base.getSceneX(player.getPlayerFlags().getLastSceneGraph());
+        int y = base.getSceneY(player.getPlayerFlags().getLastSceneGraph());
+        return new IoBuffer(230, PacketHeader.SHORT).putA(y).putS(x);
+    }
 
-	/**
-	 * Gets the region chunk update buffer.
-	 * @param player The player.
-	 * @param base The base location of the chunk.
-	 * @return The buffer.
-	 */
-	public static IoBuffer getBuffer(Player player, Location base) {
-		int x = base.getSceneX(player.getPlayerFlags().getLastSceneGraph());
-		int y = base.getSceneY(player.getPlayerFlags().getLastSceneGraph());
-		return new IoBuffer(26).putC(x).put(y);
-	}
+    /**
+     * Gets the region chunk update buffer.
+     *
+     * @param player The player.
+     * @param base   The base location of the chunk.
+     * @return The buffer.
+     */
+    public static IoBuffer getBuffer(Player player, Location base) {
+        int x = base.getSceneX(player.getPlayerFlags().getLastSceneGraph());
+        int y = base.getSceneY(player.getPlayerFlags().getLastSceneGraph());
+        return new IoBuffer(26).putC(x).put(y);
+    }
 
-	@Override
-	public void send(AreaPositionContext context) {
-		IoBuffer buffer = getBuffer(context.getPlayer(), context.location);
-		buffer.cypherOpcode(context.getPlayer().getSession().getIsaacPair().getOutput());context.getPlayer().getSession().write(buffer);
-	}
+    @Override
+    public void send(AreaPositionContext context) {
+        IoBuffer buffer = getBuffer(context.getPlayer(), context.location);
+        buffer.cypherOpcode(context.getPlayer().getSession().getIsaacPair().getOutput());
+        context.getPlayer().getSession().write(buffer);
+    }
 
 }

@@ -1,18 +1,19 @@
 package core.network.packet.incoming
 
-import core.api.*
+import core.api.InputType
+import core.api.removeAttribute
+import core.api.sendDialogue
 import core.game.node.entity.player.Player
 
 /**
  * Handles an incoming script execution request packet.
- *
  * @author vddCore
  */
 object RunScript {
 
     fun processInput(player: Player, value: Any, script: ((Any) -> Boolean)) {
         if (value is Int && value <= 0) return
-        
+
         val type = player.getAttribute("input-type", InputType.NUMERIC)
 
         var input = value

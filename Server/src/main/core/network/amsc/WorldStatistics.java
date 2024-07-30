@@ -9,37 +9,40 @@ import java.util.List;
  */
 public final class WorldStatistics {
 
-	/**
-	 * The world id.
-	 */
-	private final int id;
+    /**
+     * The world id.
+     */
+    private final int id;
 
-	/**
-	 * The list of players connected to this world.
-	 */
-	private final List<String> players = new ArrayList<>(20);
+    /**
+     * The list of players connected to this world.
+     */
+    private final List<String> players = new ArrayList<>(20);
 
-	/**
-	 * Constructs a new {@code WorldStatistics} {@code Object}
-	 * @param id The world id.
-	 */
-	public WorldStatistics(int id) {
-		this.id = id;
-	}
+    /**
+     * Constructs a new {@code WorldStatistics} {@code Object}
+     *
+     * @param id The world id.
+     */
+    public WorldStatistics(int id) {
+        this.id = id;
+    }
 
-	/**
-	 * Gets the players.
-	 * @return the players
-	 */
-	public List<String> getPlayers() {
-		return players;
-	}
+    /**
+     * Gets the players.
+     *
+     * @return the players
+     */
+    public List<String> getPlayers() {
+        return players;
+    }
 
-	/**
-	 * Gets the id.
-	 * @return the id
-	 */
-	public int getId() {
-		return id;
-	}
+    /**
+     * Gets the id.
+     *
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
 }

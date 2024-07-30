@@ -34,25 +34,12 @@ import kotlin.math.min
  *
  * @author Emperor
  */
-open class AIPlayer @Suppress("deprecation") private constructor(name: String, l: Location, ignored: String?) :
-    Player(PlayerDetails("/aip" + (currentUID + 1) + ":" + name)) {
-    /**
-     * Gets the UID.
-     *
-     * @return the UID.
-     */
-    /**
-     * The AIP's UID.
-     */
+open class AIPlayer @Suppress("deprecation") private constructor(name: String, l: Location, ignored: String?) : Player(PlayerDetails("/aip" + (currentUID + 1) + ":" + name)) {
+
     val uid: Int
 
-    /**
-     * The start location of the AIP.
-     */
     var startLocation: Location?
-        /**
-         * @return the startLocation.
-         */
+
         get() = startLocation
         private set(startLocation) {
             super.startLocation = startLocation
@@ -128,8 +115,6 @@ open class AIPlayer @Suppress("deprecation") private constructor(name: String, l
     }
 
     private fun giveArmor() {
-        //name:cblevel:helmet2:cape3:neck4:weapon5:chest6:shield7:unknown8:legs9:unknown10:gloves11:boots12:
-        //sicriona:103:1163:   1023: 1725 :1333:   1127  :1201    :0:      1079 :0:        2922:    1061:0:
         equipIfExists(Item(parseOSRS(2)), EquipmentContainer.SLOT_HAT)
         equipIfExists(Item(parseOSRS(3)), EquipmentContainer.SLOT_CAPE)
         equipIfExists(Item(parseOSRS(4)), EquipmentContainer.SLOT_AMULET)

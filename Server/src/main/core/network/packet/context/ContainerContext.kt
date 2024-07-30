@@ -20,15 +20,45 @@ class ContainerContext : Context {
     val slots: IntArray?
     var isClear: Boolean = false
 
-    constructor(player: Player, interfaceId: Int, childId: Int, clear: Boolean) : this(player, interfaceId, childId, 0, null, 1, false) {
+    constructor(player: Player, interfaceId: Int, childId: Int, clear: Boolean) : this(
+        player,
+        interfaceId,
+        childId,
+        0,
+        null,
+        1,
+        false
+    ) {
         this.isClear = clear
     }
 
-    constructor(player: Player, interfaceId: Int, childId: Int, containerId: Int, container: Container, split: Boolean) : this(player, interfaceId, childId, containerId, container.toArray(), container.toArray().size, split)
+    constructor(
+        player: Player,
+        interfaceId: Int,
+        childId: Int,
+        containerId: Int,
+        container: Container,
+        split: Boolean
+    ) : this(player, interfaceId, childId, containerId, container.toArray(), container.toArray().size, split)
 
-    constructor(player: Player, interfaceId: Int, childId: Int, containerId: Int, items: Array<Item?>, split: Boolean) : this(player, interfaceId, childId, containerId, items, items.size, split)
+    constructor(
+        player: Player,
+        interfaceId: Int,
+        childId: Int,
+        containerId: Int,
+        items: Array<Item?>,
+        split: Boolean
+    ) : this(player, interfaceId, childId, containerId, items, items.size, split)
 
-    constructor(player: Player, interfaceId: Int, childId: Int, containerId: Int, items: Array<Item?>?, length: Int, split: Boolean) {
+    constructor(
+        player: Player,
+        interfaceId: Int,
+        childId: Int,
+        containerId: Int,
+        items: Array<Item?>?,
+        length: Int,
+        split: Boolean
+    ) {
         this.player = player
         this.interfaceId = interfaceId
         this.childId = childId
@@ -39,7 +69,15 @@ class ContainerContext : Context {
         this.slots = null
     }
 
-    constructor(player: Player, interfaceId: Int, childId: Int, containerId: Int, items: Array<Item?>, split: Boolean, vararg slots: Int) {
+    constructor(
+        player: Player,
+        interfaceId: Int,
+        childId: Int,
+        containerId: Int,
+        items: Array<Item?>,
+        split: Boolean,
+        vararg slots: Int
+    ) {
         this.player = player
         this.interfaceId = interfaceId
         this.childId = childId

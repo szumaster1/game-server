@@ -4,19 +4,19 @@ package core.services.mysql;
  * The type Query.
  */
 public class Query {
-	
-		private String start;
-		private StringBuilder content;
-		private String end;
+
+    private String start;
+    private StringBuilder content;
+    private String end;
 
     /**
      * Instantiates a new Query.
      */
     public Query() {
-			this.start = "";
-			this.content = new StringBuilder();
-			this.end = "";
-		}
+        this.start = "";
+        this.content = new StringBuilder();
+        this.end = "";
+    }
 
     /**
      * Start string.
@@ -25,9 +25,9 @@ public class Query {
      * @return the string
      */
     public String start(String start) {
-			this.start = start;
-			return this.start;
-		}
+        this.start = start;
+        return this.start;
+    }
 
     /**
      * End string.
@@ -36,9 +36,9 @@ public class Query {
      * @return the string
      */
     public String end(String end) {
-			this.end = end;
-			return this.end;
-		}
+        this.end = end;
+        return this.end;
+    }
 
     /**
      * Add string builder.
@@ -48,9 +48,9 @@ public class Query {
      * @return the string builder
      */
     public StringBuilder add(String key, String value) {
-			this.content.append(key + "='" + value + "'").append(",");
-			return this.content;
-		}
+        this.content.append(key + "='" + value + "'").append(",");
+        return this.content;
+    }
 
     /**
      * Add string builder.
@@ -60,9 +60,9 @@ public class Query {
      * @return the string builder
      */
     public StringBuilder add(String key, int value) {
-			this.content.append(key + "='" + value + "'").append(",");
-			return this.content;
-		}
+        this.content.append(key + "='" + value + "'").append(",");
+        return this.content;
+    }
 
     /**
      * Add string builder.
@@ -72,9 +72,9 @@ public class Query {
      * @return the string builder
      */
     public StringBuilder add(String key, boolean value) {
-			this.content.append(key + "='" + (value ? 1 : 0) + "'").append(",");
-			return this.content;
-		}
+        this.content.append(key + "='" + (value ? 1 : 0) + "'").append(",");
+        return this.content;
+    }
 
     /**
      * Total string.
@@ -82,11 +82,11 @@ public class Query {
      * @return the string
      */
     public String total() {
-			StringBuilder total = new StringBuilder();
-			total.append(this.start);
-			total.append(this.content.substring(0, this.content.length() - 1));
-			total.append(this.end);
-			return total.toString();
-		}
+        StringBuilder total = new StringBuilder();
+        total.append(this.start);
+        total.append(this.content.substring(0, this.content.length() - 1));
+        total.append(this.end);
+        return total.toString();
+    }
 
-	}
+}

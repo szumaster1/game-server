@@ -1,13 +1,11 @@
 package core.game.system.config
 
-import org.json.simple.JSONArray
-import org.json.simple.JSONObject
-import org.json.simple.parser.JSONParser
-
 import core.ServerConstants
 import core.api.utils.WeightBasedTable
 import core.api.utils.WeightedItem
-
+import org.json.simple.JSONArray
+import org.json.simple.JSONObject
+import org.json.simple.parser.JSONParser
 import java.io.FileReader
 
 class ClueRewardParser {

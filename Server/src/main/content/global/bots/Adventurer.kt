@@ -27,7 +27,6 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import kotlin.random.Random
 
-
 /**
  * A bot script for Adventurers who explore the world!
  * @param counter used in the bots random idling function.

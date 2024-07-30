@@ -13,8 +13,7 @@ public interface IncomingPacket {
 	 * @param player The player.
 	 * @param opcode The opcode.
 	 * @param buffer The buffer.
-	 * @return The new buffer to send in response.
-	 */
+     */
 	public void decode(Player player, int opcode, IoBuffer buffer);
 
 }

@@ -11,11 +11,6 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.plugin.Plugin
 
-
-
-/**
- * The Spade dig option plugin.
- */
 @Initializable
 class SpadePlugin : OptionHandler() {
 

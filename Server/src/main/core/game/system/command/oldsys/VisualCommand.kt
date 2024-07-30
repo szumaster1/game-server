@@ -1,26 +1,28 @@
 package core.game.system.command.oldsys
 
 import content.region.misc.handlers.tutorial.CharacterDesign
-import core.api.*
+import core.api.sendMessage
+import core.api.setVarp
+import core.api.submitWorldPulse
 import core.cache.Cache
 import core.game.container.access.InterfaceContainer
-import core.game.node.scenery.Scenery
-import core.game.node.scenery.SceneryBuilder
 import core.game.node.entity.combat.ImpactHandler.HitsplatType
 import core.game.node.entity.impl.Projectile
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
+import core.game.node.scenery.Scenery
+import core.game.node.scenery.SceneryBuilder
+import core.game.system.command.CommandPlugin
 import core.game.system.command.CommandSet
 import core.game.system.task.Pulse
+import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.game.world.map.RegionManager
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 import core.plugin.Plugin
-import core.game.system.command.CommandPlugin
-import core.game.world.GameWorld
 import java.awt.Toolkit
 import java.awt.datatransfer.StringSelection
 
@@ -61,7 +63,13 @@ class VisualCommand : CommandPlugin() {
 
             "1hko" -> {
                 player!!.setAttribute("1hko", !player.getAttribute("1hko", false))
-                player.packetDispatch.sendMessage("1-hit KO mode " + if (player.getAttribute("1hko", false)) "on." else "off.")
+                player.packetDispatch.sendMessage(
+                    "1-hit KO mode " + if (player.getAttribute(
+                            "1hko",
+                            false
+                        )
+                    ) "on." else "off."
+                )
                 return true
             }
 
@@ -120,7 +128,8 @@ class VisualCommand : CommandPlugin() {
                 val animId = toInteger(args[1]!!)
                 val gfxId = toInteger(args[2]!!)
                 val height = if (args.size > 3) toInteger(args[3]!!) else 0
-                player!!.visualize(Animation.create(animId),
+                player!!.visualize(
+                    Animation.create(animId),
                     Graphic(gfxId, height)
                 )
                 return true
@@ -203,10 +212,12 @@ class VisualCommand : CommandPlugin() {
                 player!!.interfaceManager.openInfoBars()
                 return true
             }
+
             "char" -> {
                 CharacterDesign.open(player!!)
                 return true
             }
+
             "savenpc" -> return true
             "objwithanim" -> {
                 val go = Scenery(toInteger(args!![1]!!), player!!.location, 0)
@@ -252,6 +263,7 @@ class VisualCommand : CommandPlugin() {
                 player!!.packetDispatch.sendInterfaceConfig(90, 87, false)
                 return true
             }
+
             "iconfig", "inter_config" -> {
                 if (args!!.size < 2) {
                     player!!.debug("syntax error: interface-id child hidden")

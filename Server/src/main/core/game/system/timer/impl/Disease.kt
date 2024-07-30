@@ -1,12 +1,16 @@
 package core.game.system.timer.impl
 
-import core.game.system.timer.*
-import core.api.*
+import core.api.hasTimerActive
+import core.api.removeTimer
+import core.api.sendMessage
 import core.game.node.entity.Entity
-import core.game.node.entity.player.Player
 import core.game.node.entity.combat.ImpactHandler
+import core.game.node.entity.player.Player
+import core.game.system.timer.PersistTimer
+import core.game.system.timer.RSTimer
+import core.game.system.timer.TimerFlag
 import core.tools.RandomFunction
-import org.json.simple.*
+import org.json.simple.JSONObject
 
 class Disease : PersistTimer(
     runInterval = 30,

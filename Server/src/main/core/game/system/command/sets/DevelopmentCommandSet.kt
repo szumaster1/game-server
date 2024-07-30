@@ -2,35 +2,57 @@ package core.game.system.command.sets
 
 import content.global.activity.jobs.JobManager
 import core.api.*
+import core.api.consts.Items
 import core.cache.Cache
 import core.cache.def.impl.DataMap
 import core.cache.def.impl.NPCDefinition
-import core.cache.def.impl.VarbitDefinition
 import core.cache.def.impl.Struct
+import core.cache.def.impl.VarbitDefinition
 import core.game.node.entity.combat.ImpactHandler.HitsplatType
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.SpellBookManager
 import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.item.Item
+import core.game.system.command.Privilege
+import core.game.world.map.Location
+import core.network.packet.PacketWriteQueue
 import core.network.packet.context.PlayerContext
 import core.network.packet.outgoing.ResetInterface
 import core.plugin.Initializable
+import core.tools.Log
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import core.api.consts.Items
-import core.game.system.command.Privilege
 import java.io.BufferedWriter
 import java.io.File
 import java.io.FileWriter
-import core.network.packet.PacketWriteQueue
-import core.tools.Log
-import core.game.world.map.Location
 
 @Initializable
 class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
 
-    private val farmKitItems = arrayListOf(Items.RAKE_5341, Items.SPADE_952, Items.SEED_DIBBER_5343, Items.WATERING_CAN8_5340, Items.SECATEURS_5329, Items.GARDENING_TROWEL_5325)
-    private val runeKitItems = arrayListOf(Items.AIR_RUNE_556, Items.EARTH_RUNE_557, Items.FIRE_RUNE_554, Items.WATER_RUNE_555, Items.MIND_RUNE_558, Items.BODY_RUNE_559, Items.DEATH_RUNE_560, Items.NATURE_RUNE_561, Items.CHAOS_RUNE_562, Items.LAW_RUNE_563, Items.COSMIC_RUNE_564, Items.BLOOD_RUNE_565, Items.SOUL_RUNE_566, Items.ASTRAL_RUNE_9075)
+    private val farmKitItems = arrayListOf(
+        Items.RAKE_5341,
+        Items.SPADE_952,
+        Items.SEED_DIBBER_5343,
+        Items.WATERING_CAN8_5340,
+        Items.SECATEURS_5329,
+        Items.GARDENING_TROWEL_5325
+    )
+    private val runeKitItems = arrayListOf(
+        Items.AIR_RUNE_556,
+        Items.EARTH_RUNE_557,
+        Items.FIRE_RUNE_554,
+        Items.WATER_RUNE_555,
+        Items.MIND_RUNE_558,
+        Items.BODY_RUNE_559,
+        Items.DEATH_RUNE_560,
+        Items.NATURE_RUNE_561,
+        Items.CHAOS_RUNE_562,
+        Items.LAW_RUNE_563,
+        Items.COSMIC_RUNE_564,
+        Items.BLOOD_RUNE_565,
+        Items.SOUL_RUNE_566,
+        Items.ASTRAL_RUNE_9075
+    )
 
     override fun defineCommands() {
 

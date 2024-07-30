@@ -1,13 +1,13 @@
 package core.game.system.command.sets
 
-import core.game.component.Component
-import core.plugin.Initializable
 import core.api.consts.Components
 import core.game.bots.GeneralBotCreator
 import core.game.bots.PlayerScripts
 import core.game.bots.Script
+import core.game.component.Component
 import core.game.system.command.Privilege
 import core.game.world.GameWorld
+import core.plugin.Initializable
 import core.tools.colorize
 
 @Initializable

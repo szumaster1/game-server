@@ -9,7 +9,7 @@ public class VarbitContext implements Context {
     public int varbitId;
     public int value;
 
-    public VarbitContext(Player player, int varbitId, int value){
+    public VarbitContext(Player player, int varbitId, int value) {
         this.player = player;
         this.varbitId = varbitId;
         this.value = value;

@@ -6,12 +6,14 @@ import java.nio.charset.StandardCharsets;
 
 /**
  * Holds utility methods for reading/writing a byte buffer.
+ *
  * @author Emperor
  */
 public final class ByteBufferUtils {
 
     /**
      * Gets a string from the byte buffer.
+     *
      * @param buffer The byte buffer.
      * @return The string.
      */
@@ -26,7 +28,8 @@ public final class ByteBufferUtils {
 
     /**
      * Puts a string on the byte buffer.
-     * @param s The string to put.
+     *
+     * @param s      The string to put.
      * @param buffer The byte buffer.
      */
     public static void putString(String s, ByteBuffer buffer) {
@@ -35,7 +38,8 @@ public final class ByteBufferUtils {
 
     /**
      * Gets a string from the byte buffer.
-     * @param s The string.
+     *
+     * @param s      The string.
      * @param buffer The byte buffer.
      * @return The string.
      */
@@ -47,9 +51,10 @@ public final class ByteBufferUtils {
 
     /**
      * Decodes the XTEA encryption.
-     * @param keys The keys.
-     * @param start The start index.
-     * @param end The end index.
+     *
+     * @param keys   The keys.
+     * @param start  The start index.
+     * @param end    The end index.
      * @param buffer The byte buffer.
      */
     public static void decodeXTEA(int[] keys, int start, int end, ByteBuffer buffer) {
@@ -61,7 +66,7 @@ public final class ByteBufferUtils {
             int secondInt = buffer.getInt();
             int sum = 0xc6ef3720;
             int delta = 0x9e3779b9;
-            for (int j = 32; j-- > 0;) {
+            for (int j = 32; j-- > 0; ) {
                 secondInt -= keys[(sum & 0x1c84) >>> 11] + sum ^ (firstInt >>> 5 ^ firstInt << 4) + firstInt;
                 sum -= delta;
                 firstInt -= (secondInt >>> 5 ^ secondInt << 4) + secondInt ^ keys[sum & 3] + sum;
@@ -75,9 +80,10 @@ public final class ByteBufferUtils {
 
     /**
      * Converts a String to an Integer?
+     *
      * @param position The position.
-     * @param buffer The buffer used.
-     * @param string The String to convert.
+     * @param buffer   The buffer used.
+     * @param string   The String to convert.
      * @return The Integer.
      */
     public static int packGJString2(int position, byte[] buffer, String string) {
@@ -102,6 +108,7 @@ public final class ByteBufferUtils {
 
     /**
      * Gets a tri-byte from the buffer.
+     *
      * @param buffer The buffer.
      * @return The value.
      */
@@ -111,6 +118,7 @@ public final class ByteBufferUtils {
 
     /**
      * Gets a smart from the buffer.
+     *
      * @param buffer The buffer.
      * @return The value.
      */
@@ -124,6 +132,7 @@ public final class ByteBufferUtils {
 
     /**
      * Gets a smart from the buffer.
+     *
      * @param buffer The buffer.
      * @return The value.
      */
@@ -154,6 +163,7 @@ public final class ByteBufferUtils {
 
     /**
      * Gets an object from the byte buffer.
+     *
      * @param buffer The buffer.
      * @return The object.
      */

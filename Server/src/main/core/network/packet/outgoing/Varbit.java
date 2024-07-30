@@ -8,7 +8,7 @@ public class Varbit implements OutgoingPacket<VarbitContext> {
     @Override
     public void send(VarbitContext varbitContext) {
         IoBuffer buffer;
-        if(varbitContext.value > 255){
+        if (varbitContext.value > 255) {
             buffer = new IoBuffer(84);
             buffer.putLEInt((128 | varbitContext.value) & 255);
         } else {

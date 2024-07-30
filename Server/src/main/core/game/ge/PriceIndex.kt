@@ -4,7 +4,8 @@ import core.api.itemDefinition
 import java.sql.ResultSet
 
 object PriceIndex {
-    @JvmStatic fun canTrade(id: Int): Boolean {
+
+    fun canTrade(id: Int): Boolean {
         var canTrade = false
 
         GEDB.run { conn ->

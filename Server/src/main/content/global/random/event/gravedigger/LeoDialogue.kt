@@ -66,7 +66,7 @@ class LeoDialogue : DialogueFile() {
                 2 -> {
                     lock(player!!, 3)
                     runTask(player!!, 3) {
-                        Component.setUnclosable(player, player!!.dialogueInterpreter.sendDialogues(NPC(3508), FacialExpression.FRIENDLY, "Well, that's a good attempt, but it's just not right.")).also { stage = 3 }
+                        Component.setUnclosable(player!!, player!!.dialogueInterpreter.sendDialogues(NPC(3508), FacialExpression.FRIENDLY, "Well, that's a good attempt, but it's just not right.")).also { stage = 3 }
                     }
                 }
 
@@ -96,7 +96,7 @@ class LeoDialogue : DialogueFile() {
                 3 -> {
                     lock(player!!, 3)
                     runTask(player!!, 3) {
-                        Component.setUnclosable(player, player!!.dialogueInterpreter.sendDialogues(NPC(3508), FacialExpression.FRIENDLY, "Wonderful! That's taken care of all of them.")).also { stage = 4 }
+                        Component.setUnclosable(player!!, player!!.dialogueInterpreter.sendDialogues(NPC(3508), FacialExpression.FRIENDLY, "Wonderful! That's taken care of all of them.")).also { stage = 4 }
                     }
                 }
 

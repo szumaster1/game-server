@@ -14,7 +14,7 @@ public final class WeightUpdate implements OutgoingPacket<PlayerContext> {
     public void send(PlayerContext context) {
         IoBuffer buffer = new IoBuffer(174);
         buffer.putShort((int) context.getPlayer().getSettings().getWeight());
-    //    context.getPlayer().getSession().write(buffer);
+        //    context.getPlayer().getSession().write(buffer);
     }
 
 }

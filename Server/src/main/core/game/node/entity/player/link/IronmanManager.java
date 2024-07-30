@@ -2,9 +2,6 @@ package core.game.node.entity.player.link;
 
 import core.game.node.entity.player.Player;
 
-
-import java.nio.ByteBuffer;
-
 /**
  * Manages the iron man mode of an account.
  *
@@ -12,15 +9,15 @@ import java.nio.ByteBuffer;
  */
 public class IronmanManager {
 
-	/**
-	 * The player instance.
-	 */
-	private final Player player;
+    /**
+     * The player instance.
+     */
+    private final Player player;
 
-	/**
-	 * The iron man mode.
-	 */
-	private IronmanMode mode = IronmanMode.NONE;
+    /**
+     * The iron man mode.
+     */
+    private IronmanMode mode = IronmanMode.NONE;
 
     /**
      * Constructs a new {@code IronmanManager} {@code Object}
@@ -28,8 +25,8 @@ public class IronmanManager {
      * @param player the player.
      */
     public IronmanManager(Player player) {
-		this.player = player;
-	}
+        this.player = player;
+    }
 
     /**
      * Checks the restriction.
@@ -37,8 +34,8 @@ public class IronmanManager {
      * @return {@code True} if so.
      */
     public boolean checkRestriction() {
-		return checkRestriction(IronmanMode.STANDARD);
-	}
+        return checkRestriction(IronmanMode.STANDARD);
+    }
 
     /**
      * Checks the restriction.
@@ -47,12 +44,12 @@ public class IronmanManager {
      * @return {@code True} if so.
      */
     public boolean checkRestriction(IronmanMode mode) {
-		if (isIronman() && this.mode.ordinal() >= mode.ordinal()) {
-			player.sendMessage("You can't do that as an Ironman.");
-			return true;
-		}
-		return false;
-	}
+        if (isIronman() && this.mode.ordinal() >= mode.ordinal()) {
+            player.sendMessage("You can't do that as an Ironman.");
+            return true;
+        }
+        return false;
+    }
 
     /**
      * Checks if the player is an ironman.
@@ -60,8 +57,8 @@ public class IronmanManager {
      * @return {@code True} if one.
      */
     public boolean isIronman() {
-		return mode != IronmanMode.NONE;
-	}
+        return mode != IronmanMode.NONE;
+    }
 
     /**
      * Gets the player.
@@ -69,8 +66,8 @@ public class IronmanManager {
      * @return the player
      */
     public Player getPlayer() {
-		return player;
-	}
+        return player;
+    }
 
     /**
      * Gets the mode.
@@ -78,8 +75,8 @@ public class IronmanManager {
      * @return the mode
      */
     public IronmanMode getMode() {
-		return mode;
-	}
+        return mode;
+    }
 
     /**
      * Sets the mode.
@@ -87,7 +84,7 @@ public class IronmanManager {
      * @param mode the mode to set.
      */
     public void setMode(IronmanMode mode) {
-		this.mode = mode;
-	}
+        this.mode = mode;
+    }
 
 }

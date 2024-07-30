@@ -33,7 +33,7 @@ class RequestManager(val player: Player) {
         target.packetDispatch.sendMessage(type.getRequestMessage(player))
         player.setAttribute("lastRequest", type)
         this.target = target
-       return true
+        return true
     }
 
     /**

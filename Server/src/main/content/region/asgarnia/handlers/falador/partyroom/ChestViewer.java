@@ -11,12 +11,7 @@ import core.network.packet.outgoing.ContainerPacket;
 
 import static core.api.ContentAPIKt.setVarp;
 
-
-/**
- * The Chest viewer.
- */
 public final class ChestViewer {
-
     private static final Object[] BEING_DROPPED = new Object[]{"", "", "", "", "", "", "", "", "", -1, 0, 39, 6, 92, 647 << 16 | 27};
     private static final Object[] READY_TO_DROP = new Object[]{"", "", "", "", "", "", "", "", "", -1, 0, 39, 6, 91, 647 << 16 | 28};
     private static final Object[] ACCEPT = new Object[]{"", "", "", "", "Withdraw-X", "Withdraw-All", "Withdraw-10", "Withdraw-5", "Withdraw-1", -1, 0, 4, 10, 90, 647 << 16 | 29};
@@ -36,7 +31,7 @@ public final class ChestViewer {
         player.getPacketDispatch().sendRunScript(150, "IviiiIsssssssss", ACCEPT);
         player.getPacketDispatch().sendRunScript(150, "IviiiIsssssssss", INV_OPTIONS);
         player.getInterfaceManager().openSingleTab(new Component(648));
-        player.getInterfaceManager().open(new Component(647).setCloseEvent(new ChestCloseEvent()));
+        player.getInterfaceManager().open(new Component(647)).setCloseEvent(new ChestCloseEvent());
         setVarp(player, 1135, 0);
         update(0, null);
         update(1, null);

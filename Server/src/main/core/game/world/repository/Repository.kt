@@ -1,13 +1,12 @@
 package core.game.world.repository
 
-import core.game.node.entity.npc.NPC
 import content.region.wilderness.handlers.revenants.RevenantNPC
+import core.ServerConstants
+import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.world.map.Location
 import core.game.world.map.RegionManager
-import core.ServerConstants
 import core.game.world.update.UpdateSequence
-import java.util.*
 import java.util.concurrent.CopyOnWriteArrayList
 
 /**

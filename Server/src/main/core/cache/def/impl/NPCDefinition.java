@@ -19,7 +19,6 @@ import java.util.Map;
 
 import static core.api.ContentAPIKt.getVarp;
 
-
 /**
  * Represents an NPC's definitions.
  */

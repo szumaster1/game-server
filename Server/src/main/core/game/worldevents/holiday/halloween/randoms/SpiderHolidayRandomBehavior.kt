@@ -1,5 +1,6 @@
 package core.game.worldevents.holiday.halloween.randoms
 
+import core.api.consts.Sounds
 import core.api.getAttribute
 import core.api.playGlobalAudio
 import core.game.node.entity.Entity
@@ -7,7 +8,6 @@ import core.game.node.entity.combat.CombatStyle
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
 import core.game.worldevents.holiday.HolidayRandomEventNPC
-import core.api.consts.Sounds
 
 class SpiderHolidayRandomBehavior : NPCBehavior() {
 
