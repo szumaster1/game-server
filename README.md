@@ -1,5 +1,3 @@
-<div align="center">
-
 [![AGPL-3.0 License][license-shield]][license-url]
 [![2009scape Fork][fork-shield]][fork-url]
 [![Kotlin version][kotlin-version]][kotlin-url]
@@ -12,12 +10,9 @@
 <a href="https://2009scape.org/site/game_guide/play.html">
 <img src="https://imgur.com/AQaE61J.png" alt=""></a>
 
-</div>
-
 This repository is only a fork for my singleplayer experience. Click image above to go back to the official sources. Thank you.
 
 ##### Setting Up the Project
-
 
 ***
 
