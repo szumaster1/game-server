@@ -4,71 +4,10 @@
 [![Java version][java-version]][java-url]
 [![Sp-release][sp-release]][sp-url]
 
-<a href="https://2009scape.org/">
-<img src="https://imgur.com/ThvoOSt.png" alt=""></a>
+1. [Play live server](https://2009scape.org/site/game_guide/play.html).
+2. [Setup repository](https://gitlab.com/rs-source/game/-/wikis/home).
+3. [License](https://www.gnu.org/licenses/agpl-3.0.en.html).
 
-<a href="https://2009scape.org/site/game_guide/play.html">
-<img src="https://imgur.com/AQaE61J.png" alt=""></a>
-
-This repository is only a fork for my singleplayer experience. Click image above to go back to the official sources. Thank you.
-
-##### Setting Up the Project
-
-***
-
-##### GitLab Setup
-
-1. Create a GitLab account if you haven't done so already.
-
-2. Follow our Git Basics guide [over on the wiki.](https://gitlab.com/2009scape/2009scape/-/wikis/git-basics)
-
-**If at anytime you have an issue with GitLab please refer to the [GitLab help center](https://gitlab.com/help).**
-
-***
-
-##### Prerequisites
-
-These are mandatory. If you don't install **all** of these programs **in order** prior to
-the project's setup, things won't work. At all.
-
-*For Windows users* - Turn developer mode on first in Windows developer settings.
-
-* [JDK 11](https://adoptium.net) or the Java SE Development Kit Version 11
-* [IntelliJ IDEA Community](https://www.jetbrains.com/idea/download/)
-
-***
-
-##### SSH setup
-
-1. [Set up a key if you don't have one (ed25519)](https://docs.gitlab.com/ee/user/ssh.html#generate-an-ssh-key-pair)
-2. [Add your public key to your gitlab account](https://docs.gitlab.com/ee/user/ssh.html#add-an-ssh-key-to-your-gitlab-account)
-3. [Verify you can connect to git@gitlab.com](https://docs.gitlab.com/ee/user/ssh.html#verify-that-you-can-connect)
-
-***
-
-##### Project Setup
-
-1. If you haven't already, make sure to follow our [Git Basics](https://gitlab.com/2009scape/2009scape/-/wikis/git-basics) guide.
-2. Run `git lfs pull` in the 2009scape folder you cloned as part of that guide. This only has to be done once, ever.
-3. Follow our [IntelliJ IDEA Setup Guide](https://gitlab.com/2009scape/2009scape/-/wikis/Setup-for-IntelliJ-IDEA-IDE)
-
-***
-
-##### Running the project
-
-###### Linux / OSX
-
-Start the game server with the included run script. Use `./run -h` for more info.
-
-###### Windows
-
-Start the game server with `run-server.bat`
-
-***
-
-##### License
-
-AGPL 3.0 license, which can be found [here](https://www.gnu.org/licenses/agpl-3.0.en.html).
 
 [license-shield]: https://img.shields.io/badge/license-AGPL--3.0-informational
 [license-url]: https://www.gnu.org/licenses/agpl-3.0.en.html
