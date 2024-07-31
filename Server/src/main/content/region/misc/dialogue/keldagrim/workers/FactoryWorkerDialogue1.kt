@@ -14,7 +14,6 @@ class FactoryWorkerDialogue1(player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
             START_DIALOGUE -> playerl(FacialExpression.FRIENDLY, "I'm sorry, I'm looking for the blast furnace?").also { stage++ }
-
             1 -> npcl(FacialExpression.OLD_ANGRY1, "Do I look like a guide to you?").also { stage++ }
             2 -> playerl(FacialExpression.FRIENDLY, "No, you look like a hard-working dwarf, but can you please tell me where the blast furnace is?").also { stage++ }
             3 -> npcl(FacialExpression.OLD_DEFAULT, "Alright, just head down the stairs, it's easy to find.").also { stage++ }

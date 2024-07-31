@@ -13,14 +13,13 @@ class DartogDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.OLD_NORMAL, "Hello, surface-dweller.").also { stage = 0 }
+        npc(FacialExpression.OLD_NORMAL, "Hello, surface-dweller.")
         return true
     }
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
             0 -> options("Who are you?", "Can you show me the way to the mine?", "Can you show me the way to Lumbridge Castle cellar?").also { stage++ }
-
             1 -> when (buttonId) {
                 1 -> player(FacialExpression.ASKING, "Who are you?").also { stage++ }
                 2 -> npcl(FacialExpression.OLD_NORMAL, "Of course! You're always welcome in our mines!").also { stage = END_DIALOGUE }
@@ -35,9 +34,13 @@ class DartogDialogue(player: Player? = null) : Dialogue(player) {
 
                 3 -> player(FacialExpression.FRIENDLY, "Maybe some other time.").also { stage = END_DIALOGUE }
             }
-            //move player to mine
+            /*
+             * Move player to mine.
+             */
             5 -> npcl(FacialExpression.OLD_NORMAL, "Of course! You're always welcome in our mines!").also { stage = END_DIALOGUE }
-            //move to lumby castle celler
+            /*
+             * Move to lumby castle celler.
+             */
             6 -> npc(FacialExpression.OLD_NORMAL, "Of course!").also { stage = END_DIALOGUE }
         }
         return true

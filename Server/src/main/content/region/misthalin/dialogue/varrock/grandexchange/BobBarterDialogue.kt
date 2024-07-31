@@ -13,15 +13,14 @@ import core.tools.END_DIALOGUE
 class BobBarterDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: One of the current "Market Price Guides". Walthy merchant from East Ardougne.
-     *  located in the north-west corner of the Grand Exchange.
-     *  Location: 3156,3481
+     * Info: One of the current "Market Price Guides". Walthy merchant from East Ardougne.
+     * located in the north-west corner of the Grand Exchange.
+     * Location: 3156,3481
      */
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         player("Hi.")
-        stage = 0
         return true
     }
 

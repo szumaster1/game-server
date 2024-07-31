@@ -14,7 +14,7 @@ class IrksolDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npc("Selling ruby rings! The best deals on rings in over", "twenty four hundred planes of existence!").also { stage = 0 }
+        npc("Selling ruby rings! The best deals on rings in over", "twenty four hundred planes of existence!")
         return true
     }
 

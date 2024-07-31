@@ -18,7 +18,7 @@ class AluftGianneJrDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any?): Boolean {
         tutorialStage = player.getAttribute("$GC_BASE_ATTRIBUTE:$GC_TUT_PROG", -1)
         if (tutorialStage == -1) {
-            player("Hey can I get a job here?").also { stage = 0 }
+            player("Hey can I get a job here?")
         } else {
             npc(FacialExpression.OLD_NORMAL,"Having fun?").also { stage = END_DIALOGUE }
         }

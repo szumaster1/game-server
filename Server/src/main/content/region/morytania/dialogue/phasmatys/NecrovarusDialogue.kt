@@ -14,17 +14,17 @@ import core.tools.END_DIALOGUE
 class NecrovarusDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: ghostly priest and mage, as well as the creator of the Ectofuntus.
-     *  He arrived in Port Phasmatys from the Eastern Lands.
-     *  He is the main antagonist in the Ghosts Ahoy quest.
-     *  Location: 3660,3517
+     * Info: ghostly priest and mage, as well as the creator of the Ectofuntus.
+     * He arrived in Port Phasmatys from the Eastern Lands.
+     * He is the main antagonist in the Ghosts Ahoy quest.
+     * Location: 3660,3517
      */
 
     override fun open(vararg args: Any): Boolean {
         when {
             isQuestComplete(player, "Ghosts Ahoy") -> player("Told you I'd defeat you, Necrovarus. My advice to", "you is to pass over to the next world yourself with", "everybody else.").also { stage = 4 }
             !isQuestComplete(player, "Ghosts Ahoy") -> openDialogue(player, NecrovarusDialogueFile())
-            else -> options("What is this place?", "What happened to everyone here?", "How do I get into the town?").also { stage = 0 }
+            else -> options("What is this place?", "What happened to everyone here?", "How do I get into the town?")
         }
         return true
     }

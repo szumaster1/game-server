@@ -14,7 +14,6 @@ class DoomsayerDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         npc(FacialExpression.HALF_GUILTY, "Dooooom!")
-        stage = 0
         return true
     }
 

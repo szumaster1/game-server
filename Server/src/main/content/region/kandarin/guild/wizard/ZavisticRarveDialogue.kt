@@ -14,7 +14,7 @@ import core.plugin.Initializable
 class ZavisticRarveDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: Grand Secretary of the Wizards' Guild.
+     * Info: Grand Secretary of the Wizards' Guild.
      */
 
     override fun open(vararg args: Any?): Boolean {

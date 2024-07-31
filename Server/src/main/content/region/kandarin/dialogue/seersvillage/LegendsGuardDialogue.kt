@@ -15,7 +15,7 @@ class LegendsGuardDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.FRIENDLY, "! ! ! Attention ! ! !").also { stage = 0 }
+        npc(FacialExpression.FRIENDLY, "! ! ! Attention ! ! !")
         return true
     }
 

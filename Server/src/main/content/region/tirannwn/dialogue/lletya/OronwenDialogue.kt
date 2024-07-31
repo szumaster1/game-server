@@ -14,7 +14,7 @@ class OronwenDialogue(player: Player? = null): Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.FRIENDLY, "Hello, can I help?").also { stage = 0 }
+        npc(FacialExpression.FRIENDLY, "Hello, can I help?")
         return true
     }
 
@@ -22,10 +22,10 @@ class OronwenDialogue(player: Player? = null): Dialogue(player) {
         when (stage) {
             0 -> options("Yes please. What are you selling?", "No thanks.").also { stage++ }
             1 -> when (buttonId) {
-                1 -> player(FacialExpression.FRIENDLY, "Yes please. What are you selling?").also { stage = 10 }
+                1 -> player(FacialExpression.FRIENDLY, "Yes please. What are you selling?").also { stage++ }
                 2 -> player(FacialExpression.FRIENDLY, "No thanks.").also { stage = END_DIALOGUE }
             }
-            10 -> {
+            2 -> {
                 end()
                 openNpcShop(player, NPCs.ORONWEN_2353)
             }

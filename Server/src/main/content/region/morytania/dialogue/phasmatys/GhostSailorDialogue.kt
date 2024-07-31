@@ -19,7 +19,7 @@ class GhostSailorDialogue(player: Player? = null) : Dialogue(player) {
         if (!inEquipment(player, Items.GHOSTSPEAK_AMULET_552)) {
             npc(FacialExpression.FRIENDLY, "Woooo wooo wooooo woooo").also { stage = 3 }
         } else {
-            player("Hi there. Why do you still bother having ships here? I", "mean - you're dead, what use are they to you?").also { stage = 0 }
+            player("Hi there. Why do you still bother having ships here? I", "mean - you're dead, what use are they to you?")
         }
         return true
     }

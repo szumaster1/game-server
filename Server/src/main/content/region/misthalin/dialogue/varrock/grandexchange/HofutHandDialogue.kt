@@ -14,15 +14,14 @@ import core.tools.END_DIALOGUE
 class HofutHandDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: One of the current "Market Price Guides", Member of the Grand Exchange and
-     *  the only dwarf involved in the business.
-     *  Location: 3154,3498
+     * Info: One of the current "Market Price Guides", Member of the Grand Exchange and
+     * the only dwarf involved in the business.
+     * Location: 3154,3498
      */
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         player(FacialExpression.HALF_GUILTY, "Hello!")
-        stage = 0
         return true
     }
 

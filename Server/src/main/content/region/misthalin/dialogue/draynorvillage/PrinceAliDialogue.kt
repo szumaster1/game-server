@@ -24,7 +24,6 @@ class PrinceAliDialogue(player: Player? = null) : Dialogue(player) {
                 player("Prince, I come to rescue you.")
                 stage = 0
             }
-
             60, 100 -> {
                 npc("I owe you my life for that escape. You cannot help me", "this time, they know who you are. Go in peace, friend", "of Al-Kharid")
                 stage = 100

@@ -14,7 +14,7 @@ import core.api.consts.NPCs
 class UrtagDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
-        val foodPermission = "dorgesh-kaan:food_permission"
+        val foodPermission = "/save:dorgesh-kaan:food_permission"
         when (stage) {
             START_DIALOGUE -> npcl(FacialExpression.OLD_NORMAL, "Greetings, surface-dweller. Welcome to Dorgesh-Kaan.").also { stage++ }
             1 -> if(getAttribute(player, foodPermission, false)){
@@ -30,7 +30,7 @@ class UrtagDialogue(player: Player? = null) : Dialogue(player) {
             3 -> npcl(FacialExpression.OLD_NORMAL, "Of course you can.").also { stage++ }
             4 -> {
                 end()
-                setAttribute(player, "/save:${foodPermission}", true)
+                setAttribute(player, foodPermission, true)
             }
             5 -> npcl(FacialExpression.OLD_NORMAL, "For trade, and for fostering goodwill between races!").also { stage++ }
             6 -> npcl(FacialExpression.OLD_NORMAL, "I am sure that it will benefit both our races.").also { stage = END_DIALOGUE }

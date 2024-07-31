@@ -12,13 +12,13 @@ import core.tools.END_DIALOGUE
 class WemundDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: Dwarf that runs a small shop in western Keldagrim.
-     *  Location: 2871,10199
+     * Info: Dwarf that runs a small shop in western Keldagrim.
+     * Location: 2871,10199
      */
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.OLD_NORMAL, "What can I interest you in? Need any pipes?", "I make very sturdy pipes.").also { stage = 0 }
+        npc(FacialExpression.OLD_NORMAL, "What can I interest you in? Need any pipes?", "I make very sturdy pipes.")
         return true
     }
 

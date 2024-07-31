@@ -8,6 +8,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
+import core.tools.END_DIALOGUE
 
 @Initializable
 class TobanDialogue(player: Player? = null) : Dialogue(player) {
@@ -15,11 +16,9 @@ class TobanDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         if(!isQuestComplete(player, "Watchtower")){
-            end()
-            sendDialogue(player!!, "He is busy at the moment...")
+            sendDialogue(player!!, "He is busy at the moment...").also { stage = END_DIALOGUE }
         } else {
             npc(FacialExpression.OLD_NORMAL, "The small t'ing returns; what do you want now?")
-            stage = 0
         }
         return true
     }

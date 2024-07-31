@@ -19,7 +19,7 @@ class GloughDialogue(player: Player? = null) : Dialogue(player) {
         if (getQuestStage(player, "The Grand Tree") >= 40) {
             openDialogue(player, GloughDialogueFile())
         } else {
-            playerl(FacialExpression.FRIENDLY, "Hello there!").also { stage++ }
+            playerl(FacialExpression.FRIENDLY, "Hello there!")
         }
         return true
     }

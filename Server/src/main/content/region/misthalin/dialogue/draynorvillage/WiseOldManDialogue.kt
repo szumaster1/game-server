@@ -17,7 +17,7 @@ class WiseOldManDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        npc("Greetings, " + player.username + ".").also { stage = 0 }
+        npc("Greetings, " + player.username + ".")
         return true
     }
 

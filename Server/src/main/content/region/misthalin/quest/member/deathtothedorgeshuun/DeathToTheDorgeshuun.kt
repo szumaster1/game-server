@@ -13,12 +13,12 @@ class DeathToTheDorgeshuun :
     Quest("Death to the Dorgeshuun", 43, 42, 1, Vars.VARBIT_QUEST_DEATH_TO_DORGESHUUN_2258, 0, 1, 13) {
 
     /*
-     *  Quest description:
-     *  Humans have been visiting the Dorgeshuun mines for some time now,
-     *  but no Dorgeshuun has visited the surface since the signing of the Lumbridge-Dorgeshuun treaty.
-     *  The Dorgeshuun Council fears that the H.A.M. group may be planning another attack,
-     *  and want to send an agent to the surface to investigate.
-     *  But they do not want to send someone to the surface without a guide...
+     * Quest description:
+     * Humans have been visiting the Dorgeshuun mines for some time now,
+     * but no Dorgeshuun has visited the surface since the signing of the Lumbridge-Dorgeshuun treaty.
+     * The Dorgeshuun Council fears that the H.A.M. group may be planning another attack,
+     * and want to send an agent to the surface to investigate.
+     * But they do not want to send someone to the surface without a guide...
      */
 
     override fun drawJournal(player: Player?, stage: Int) {

@@ -9,6 +9,7 @@ import core.game.system.task.Pulse
 import core.game.world.update.flag.context.Animation
 
 class CrateListener : InteractionListener {
+
     private val monkeyAmuletMouldCrate = 4724
     private val threadCrate = 4718
     private val monkeyTalkingDentures = 4715

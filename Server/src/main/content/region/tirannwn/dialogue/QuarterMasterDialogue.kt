@@ -14,14 +14,14 @@ import core.tools.END_DIALOGUE
 class QuarterMasterDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: He sells and buys every kind of halberd except the white halberd,
-     *  which can only be obtained from Sir Vyvin in Falador.
-     *  Location: 2194,3140
+     * Info: He sells and buys every kind of halberd except the white halberd,
+     * which can only be obtained from Sir Vyvin in Falador.
+     * Location: 2194,3140
      */
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        npcl(FacialExpression.FRIENDLY, "Good day ${if (player.isMale) "Sir" else "Miss"}. I'm the quartermaster for King Tyras's camp. We have a little we could trade here. We have a new stock of dragon halberds. Would you like a look at what we have now?").also { stage = 0 }
+        npcl(FacialExpression.FRIENDLY, "Good day ${if (player.isMale) "Sir" else "Miss"}. I'm the quartermaster for King Tyras's camp. We have a little we could trade here. We have a new stock of dragon halberds. Would you like a look at what we have now?")
         return true
     }
 

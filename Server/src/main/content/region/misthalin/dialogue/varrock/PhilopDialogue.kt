@@ -12,9 +12,9 @@ import core.tools.END_DIALOGUE
 class PhilopDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-       Info: One of four children belonging to Gertrude
-       Location: 3150,3406
-    */
+     * Info: One of four children belonging to Gertrude
+     * Location: 3150,3406
+     */
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC

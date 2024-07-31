@@ -6,24 +6,24 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
+import core.tools.END_DIALOGUE
 
 @Initializable
 class MugghDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npcl(FacialExpression.CHILD_FRIENDLY, "Hey, what you doing here? We not open yet.").also { stage = 1 }
+        npcl(FacialExpression.CHILD_FRIENDLY, "Hey, what you doing here? We not open yet.")
         return true
     }
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
-            1 -> playerl(FacialExpression.FRIENDLY, "Just having a nosey, really.").also { stage++ }
-            2 -> npcl(FacialExpression.CHILD_NORMAL, "You bring dat nose back here when we open for business. I fix you up good.").also { stage++ }
-            3 -> playerl(FacialExpression.FRIENDLY, "Fix me up?").also { stage++ }
-            4 -> npcl(FacialExpression.CHILD_NORMAL, "Yeah, me give you facial. Try to make your ugly face look bit nicer.").also { stage++ }
-            5 -> playerl(FacialExpression.FRIENDLY, "Charming.").also { stage++ }
-            6 -> end()
+            0 -> playerl(FacialExpression.FRIENDLY, "Just having a nosey, really.").also { stage++ }
+            1 -> npcl(FacialExpression.CHILD_NORMAL, "You bring dat nose back here when we open for business. I fix you up good.").also { stage++ }
+            2 -> playerl(FacialExpression.FRIENDLY, "Fix me up?").also { stage++ }
+            3 -> npcl(FacialExpression.CHILD_NORMAL, "Yeah, me give you facial. Try to make your ugly face look bit nicer.").also { stage++ }
+            4 -> playerl(FacialExpression.FRIENDLY, "Charming.").also { stage = END_DIALOGUE }
         }
         return true
     }

@@ -12,7 +12,7 @@ import core.tools.END_DIALOGUE
 class MonkeyMinderHumanDialogue: DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
-        when(stage) {
+        when (stage) {
             0 -> npcl("My word - what are you doing in there?").also { stage++ }
             1 -> playerl("I ... er ... I don't know! One minute I was asleep, and the next minute I was here surrounded by monkeys!").also { stage++ }
             2 -> npcl("Well, don't worry. We'll have you out of there shortly.").also { stage++ }

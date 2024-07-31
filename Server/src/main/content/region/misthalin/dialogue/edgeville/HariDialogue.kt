@@ -14,7 +14,6 @@ class HariDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         npc(FacialExpression.HALF_GUILTY, "Hello.")
-        stage = 0
         return true
     }
 

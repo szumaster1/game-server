@@ -13,7 +13,7 @@ class ToysListener : InteractionListener {
     override fun defineListeners() {
 
         /*
-         *  Interaction with Marionettes.
+         * Interaction with Marionettes.
          */
 
         on(MARIONETTES, IntType.ITEM, "jump", "walk", "bow", "dance") { player, marionette ->
@@ -30,7 +30,7 @@ class ToysListener : InteractionListener {
         }
 
         /*
-         *  Interaction with Spinning plate.
+         * Interaction with Spinning plate.
          */
 
         on(Items.SPINNING_PLATE_4613, IntType.ITEM, "spin") { player, _ ->
@@ -43,7 +43,7 @@ class ToysListener : InteractionListener {
         }
 
         /*
-         *  Interaction with Yo-yo.
+         * Interaction with Yo-yo.
          */
 
         on(Items.YO_YO_4079, IntType.ITEM, "play", "loop", "walk", "crazy") { player, _ ->
@@ -60,7 +60,7 @@ class ToysListener : InteractionListener {
         }
 
         /*
-         *  Interaction with Rubber chicken.
+         * Interaction with Rubber chicken.
          */
 
         on(Items.RUBBER_CHICKEN_4566, IntType.ITEM, "operate", "Dance") { player, _ ->
@@ -72,7 +72,7 @@ class ToysListener : InteractionListener {
         }
 
         /*
-         *  Interaction with Zombie head.
+         * Interaction with Zombie head.
          */
 
         on(Items.ZOMBIE_HEAD_6722, IntType.ITEM, "talk-at", "display", "question") { player, _ ->
@@ -96,7 +96,7 @@ class ToysListener : InteractionListener {
 
 
         /*
-         *  Interaction with Reindeer hat.
+         * Interaction with Reindeer hat.
          */
 
         on(Items.REINDEER_HAT_10507, IntType.ITEM, "operate") { player, _ ->
@@ -106,7 +106,7 @@ class ToysListener : InteractionListener {
         }
 
         /*
-         *  Interaction with Snow globe.
+         * Interaction with Snow globe.
          */
 
         on(Items.SNOW_GLOBE_11949, IntType.ITEM, "shake") { player, _ ->
@@ -122,7 +122,7 @@ class ToysListener : InteractionListener {
         }
 
         /*
-         *  Interaction with Chocatrice cape.
+         * Interaction with Chocatrice cape.
          */
 
         on(Items.CHOCATRICE_CAPE_12645, IntType.ITEM, "operate") { player, _ ->
@@ -132,7 +132,7 @@ class ToysListener : InteractionListener {
         }
 
         /*
-         *  Interaction with Toy kite.
+         * Interaction with Toy kite.
          */
 
         on(Items.TOY_KITE_12844, IntType.ITEM, "fly", "operate") { player, _ ->

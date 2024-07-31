@@ -18,15 +18,15 @@ import core.tools.START_DIALOGUE
 class ElsieDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: Old woman knitting an article of clothing for
-     *  Father Lawrence upstairs in the Saradomin church in north-east Varrock.
-     *  Location: 3255,3488,1 | Diary: ELSIE_TELL_A_STORY (Jackanory)
+     * Info: Old woman knitting an article of clothing for
+     * Father Lawrence upstairs in the Saradomin church in north-east Varrock.
+     * Location: 3255,3488,1 | Diary: ELSIE_TELL_A_STORY (Jackanory)
      */
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         if (!inInventory(player, Items.CUP_OF_TEA_712)) {
-            npcl(FacialExpression.FRIENDLY, "Hello dearie! What can old Elsie do for you?").also { stage = 0 }
+            npcl(FacialExpression.FRIENDLY, "Hello dearie! What can old Elsie do for you?")
         } else {
             npcl(FacialExpression.FRIENDLY, "Ooh - that looks like a lovely cup of tea, dearie. Is it for me?").also { stage = 10 }
         }

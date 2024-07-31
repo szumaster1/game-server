@@ -14,7 +14,7 @@ class VermundiDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.OLD_DEFAULT, "Welcome to my clothes stall, can I help you", "with anything?").also { stage = 0 }
+        npc(FacialExpression.OLD_DEFAULT, "Welcome to my clothes stall, can I help you", "with anything?")
         return true
     }
 

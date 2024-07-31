@@ -20,7 +20,7 @@ class GabootyDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        player(FacialExpression.FRIENDLY, "What do you do here?").also { stage = 0 }
+        player(FacialExpression.FRIENDLY, "What do you do here?")
         return true
     }
 

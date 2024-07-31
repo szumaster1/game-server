@@ -119,7 +119,7 @@ abstract class Cutscene(val player: Player) {
      * @param expression the FacialExpression the NPC should use
      * @param message    the message to send
      * @param onContinue (optional) a method that runs when the dialogue is "continued."
-     *                   Increments the cutscene stage by default.
+     *                  Increments the cutscene stage by default.
      */
     fun dialogueUpdate(
         npcId: Int,
@@ -141,7 +141,7 @@ abstract class Cutscene(val player: Player) {
      * @param expression the FacialExpression the NPC should use
      * @param message    the message to send
      * @param onContinue (optional) a method that runs when the dialogue is "continued."
-     *                   Increments the cutscene stage by default.
+     *                  Increments the cutscene stage by default.
      */
     fun dialogueLinesUpdate(
         npcId: Int,
@@ -168,7 +168,7 @@ abstract class Cutscene(val player: Player) {
      *
      * @param message    the message to send
      * @param onContinue (optional) a method that runs when the dialogue is "continued."
-     *                   Increments the cutscene stage by default.
+     *                  Increments the cutscene stage by default.
      */
     fun dialogueUpdate(message: String, onContinue: () -> Unit = { incrementStage() }) {
         logCutscene("Sending standard dialogue update.")
@@ -183,7 +183,7 @@ abstract class Cutscene(val player: Player) {
      * @param expression the FacialExpression to use
      * @param message    the message to send
      * @param onContinue (optional) a method that runs when the dialogue is "continued."
-     *                   Increments the cutscene stage by default.
+     *                  Increments the cutscene stage by default.
      */
     fun playerDialogueUpdate(
         expression: FacialExpression,
@@ -200,7 +200,7 @@ abstract class Cutscene(val player: Player) {
      *
      * @param ticks    the number of ticks to wait
      * @param newStage (optional) the new stage to update to.
-     *                 If not passed, stage is incremented instead.
+     *                If not passed, stage is incremented instead.
      */
     fun timedUpdate(ticks: Int, newStage: Int = -1) {
         logCutscene("Executing timed updated for $ticks ticks.")
@@ -349,7 +349,7 @@ abstract class Cutscene(val player: Player) {
      * fading it back in and executing the endActions passed to this method.
      *
      * @param endActions (optional) a method that executes when the cutscene
-     *                   fully completes
+     *                  fully completes
      */
     fun end(endActions: (() -> Unit)? = null) {
         ended = true

@@ -18,7 +18,7 @@ class SeerDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        options("Talk about something else.", "Talk about achievement diary.").also { stage = 0 }
+        options("Talk about something else.", "Talk about achievement diary.")
         return true
     }
 

@@ -16,7 +16,7 @@ class PeksaDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.HALF_GUILTY, "Are you interested in buying or selling a helmet?").also { stage = 0 }
+        npc(FacialExpression.HALF_GUILTY, "Are you interested in buying or selling a helmet?")
         return true
     }
 

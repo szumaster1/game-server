@@ -19,7 +19,6 @@ class WizardMizgogDialogue(player: Player? = null) : Dialogue(player) {
             openDialogue(player, WizardMizgogDialogueFile(), npc)
         } else {
             options("Got any more quests?", "Do you know any interesting spells you could teach me?")
-            stage = 0
         }
         return true
     }
@@ -27,15 +26,11 @@ class WizardMizgogDialogue(player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
             0 -> when (buttonId) {
-                1 -> player("Got any more quests?").also { stage = 10 }
-                2 -> player("Do you know any interesting spells you could teach me?").also { stage = 20 }
+                1 -> player("Got any more quests?").also { stage++ }
+                2 -> player("Do you know any interesting spells you could teach me?").also { stage = 2 }
             }
-
-            10 -> npc("No, everything is good with the world today.").also { stage = END_DIALOGUE }
-            20 -> npc(
-                "I don't think so, the type of magic I study involves",
-                "years of meditation and research."
-            ).also { stage = END_DIALOGUE }
+            1 -> npc("No, everything is good with the world today.").also { stage = END_DIALOGUE }
+            2 -> npc("I don't think so, the type of magic I study involves", "years of meditation and research.").also { stage = END_DIALOGUE }
         }
         return true
     }

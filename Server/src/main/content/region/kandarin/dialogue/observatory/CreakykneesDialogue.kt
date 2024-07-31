@@ -6,6 +6,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
+import core.tools.END_DIALOGUE
 
 @Initializable
 class CreakykneesDialogue(player: Player? = null) : Dialogue(player) {
@@ -21,8 +22,7 @@ class CreakykneesDialogue(player: Player? = null) : Dialogue(player) {
             0 -> npc(FacialExpression.OLD_NORMAL, "From that strange metal thing up on the hill.").also { stage++ }
             1 -> player(FacialExpression.HALF_GUILTY, "You should give that back!").also { stage++ }
             2 -> npcl(FacialExpression.OLD_NORMAL,"Even if it's cracked?").also { stage++ }
-            3 -> player(FacialExpression.HALF_GUILTY, "Ah, well, I suppose it's of no use. But, still.").also { stage++ }
-            4 -> end()
+            3 -> player(FacialExpression.HALF_GUILTY, "Ah, well, I suppose it's of no use. But, still.").also { stage = END_DIALOGUE }
         }
         return true
     }

@@ -10,6 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 class ArdougneGuideBook : InteractionListener {
+
     companion object {
         private val TITLE = "Tourist Guide to Ardougne"
         private val CONTENTS = arrayOf(

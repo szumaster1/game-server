@@ -20,7 +20,7 @@ class TiadecheDialogue(player: Player? = null) : Dialogue(player) {
         if (!hasRequirement(player, "Tai Bwo Wannai Trio", false)) {
             npcl(FacialExpression.NEUTRAL, randomConversation.random()).also { stage = END_DIALOGUE }
         } else {
-            player("Hello, Tiadeche.").also { stage = 0 }
+            player("Hello, Tiadeche.")
         }
         return true
     }

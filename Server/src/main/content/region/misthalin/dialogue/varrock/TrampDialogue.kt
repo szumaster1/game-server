@@ -17,9 +17,9 @@ import core.tools.END_DIALOGUE
 class TrampDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: Tramps are poor, penniless humans who inhabit most of the major cities of Gielinor, such as Yanille,
-     *  Seers' Village and in particular Varrock, which is a very impoverished city.
-     *  Location: 3235,3399
+     * Info: Tramps are poor, penniless humans who inhabit most of the major cities of Gielinor, such as Yanille,
+     * Seers' Village and in particular Varrock, which is a very impoverished city.
+     * Location: 3235,3399
      */
 
     override fun open(vararg args: Any): Boolean {

@@ -5,26 +5,19 @@ import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
+import core.tools.END_DIALOGUE
 
 @Initializable
 class WizardGrayzagDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        npc("Not now, I'm trying to concentrate on a", "very difficult spell!")
-        stage = 0
+        npc("Not now, I'm trying to concentrate on a", "very difficult spell!").also { stage = END_DIALOGUE }
         return true
     }
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
-        when (stage) {
-            0 -> end()
-        }
         return true
-    }
-
-    override fun newInstance(player: Player): Dialogue {
-        return WizardGrayzagDialogue(player)
     }
 
     override fun getIds(): IntArray {

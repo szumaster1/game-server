@@ -18,8 +18,8 @@ import core.tools.END_DIALOGUE
 class RobinDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: Famous master archer and one of the few humans in Port Phasmatys.
-     *  Player can provide him bedsheet from innkeeper.
+     * Info: Famous master archer and one of the few humans in Port Phasmatys.
+     * Player can provide him bedsheet from innkeeper.
      */
 
     override fun open(vararg args: Any): Boolean {

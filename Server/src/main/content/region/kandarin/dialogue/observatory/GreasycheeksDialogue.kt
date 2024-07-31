@@ -6,6 +6,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
+import core.tools.END_DIALOGUE
 
 @Initializable
 class GreasycheeksDialogue(player: Player? = null) : Dialogue(player) {
@@ -19,8 +20,7 @@ class GreasycheeksDialogue(player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
             0 -> npc(FacialExpression.OLD_NORMAL, "Shush! I'm concentrating.").also { stage++ }
-            1 -> player(FacialExpression.HALF_GUILTY, "Oh, sorry.").also { stage++ }
-            2 -> end()
+            1 -> player(FacialExpression.HALF_GUILTY, "Oh, sorry.").also { stage = END_DIALOGUE }
         }
         return true
     }

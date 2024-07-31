@@ -274,7 +274,7 @@ class Shop(
 
 
         val price: Int = ceil(item.definition.value * mod.toDouble() / 100.0).toInt()
-        /*        if(player.getVarp(532) == 6529){
+        /*       if(player.getVarp(532) == 6529){
                     price = 3 * price / 2
                 }*/
         return max(price, 1)

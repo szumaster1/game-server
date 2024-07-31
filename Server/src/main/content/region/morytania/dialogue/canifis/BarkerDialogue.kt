@@ -13,15 +13,15 @@ import core.tools.END_DIALOGUE
 class BarkerDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: Barker's Haberdashery is a clothes shop that sells a variety of clothing sets.
-     *  It is located in the north-east of Canifis.
-     *  Location: 3500,3505
+     * Barker's Haberdashery is a clothes shop that
+     * sells a variety of clothing sets. It is located in
+     * the north-east of Canifis.
+     * Location: 3500,3505
      */
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         player(FacialExpression.HAPPY, "Hello.")
-        stage = 0
         return true
     }
 
@@ -30,15 +30,14 @@ class BarkerDialogue(player: Player? = null) : Dialogue(player) {
             0 -> npc(FacialExpression.HAPPY, "You are looking for clothes, yes? You look at my", "products! I have very many nice clothes, yes?").also { stage++ }
             1 -> options("Yes, please.", "No, thanks.").also { stage++ }
             2 -> when (buttonId) {
-                1 -> player(FacialExpression.FRIENDLY, "Yes, please.").also { stage = 4 }
-                2 -> player(FacialExpression.FRIENDLY, "No thanks.").also { stage = 3 }
+                1 -> player(FacialExpression.FRIENDLY, "Yes, please.").also { stage++ }
+                2 -> player(FacialExpression.FRIENDLY, "No thanks.").also { stage = 4 }
             }
-            3 -> npc(
-                FacialExpression.HALF_GUILTY, "Unfortunate for you, yes?", "Many bargains, won't find elsewhere!").also { stage = END_DIALOGUE }
-            4 -> {
+            3 -> {
                 end()
                 openNpcShop(player, NPCs.BARKER_1039)
             }
+            4 -> npc(FacialExpression.HALF_GUILTY, "Unfortunate for you, yes?", "Many bargains, won't find elsewhere!").also { stage = END_DIALOGUE }
         }
         return true
     }

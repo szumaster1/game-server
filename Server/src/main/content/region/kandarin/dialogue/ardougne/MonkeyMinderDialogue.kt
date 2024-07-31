@@ -28,7 +28,7 @@ class MonkeyMinderDialogue(player: Player? = null) : Dialogue(player) {
         if (getAttribute(player, talkbefore, false)) {
             options("Why have the monkeys been multiplying?", "What are you going to do about the monkeys?").also { stage = 6 }
         } else {
-            playerl(FacialExpression.FRIENDLY, "Hello there.").also { stage = 0 }
+            playerl(FacialExpression.FRIENDLY, "Hello there.")
         }
         return true
     }

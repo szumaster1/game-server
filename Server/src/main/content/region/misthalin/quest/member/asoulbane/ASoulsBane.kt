@@ -12,15 +12,15 @@ import core.plugin.Initializable
 class ASoulsBane : Quest("A Soul's Bane", 115, 114, 1,Vars.VARBIT_QUEST_A_SOULS_BANE_2011,0,1,13) {
 
     /*
-     *  Description:
-     *  Tolna was a young boy when he left his home in Varrock in search of a more exciting
-     *  lif away from his parents. He travelled northeast of Varrock, but did not make it far.
-     *  Shortly after leaving his home, Tolna discovered a strange crevice in the woods
-     *  northeast of the city. As he moved closer to investigate, he fell in, where he would
-     *  be imprisoned for the next twenty-five years. Tolna's emotions caused the rift to
-     *  change. His emotions, which were mostly anger, confusion, fear, and hopelessness,
-     *  were manifested in the caverns' chambers. Tolna descended further into madness and
-     *  ultimately lost his humanity.
+     * Description:
+     * Tolna was a young boy when he left his home in Varrock in search of a more exciting
+     * lif away from his parents. He travelled northeast of Varrock, but did not make it far.
+     * Shortly after leaving his home, Tolna discovered a strange crevice in the woods
+     * northeast of the city. As he moved closer to investigate, he fell in, where he would
+     * be imprisoned for the next twenty-five years. Tolna's emotions caused the rift to
+     * change. His emotions, which were mostly anger, confusion, fear, and hopelessness,
+     * were manifested in the caverns' chambers. Tolna descended further into madness and
+     * ultimately lost his humanity.
      */
 
     override fun drawJournal(player: Player?, stage: Int) {

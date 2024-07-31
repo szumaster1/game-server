@@ -23,10 +23,7 @@ class GrainOfPlentyDialogue(player: Player? = null) : Dialogue(player) {
                     end()
                 }
                 player.getSavedData().globalData.getStrongHoldRewards()[1] = true
-                interpreter.sendDialogue(
-                    "...congratualtions adventurer, you have been deemed worthy of this",
-                    "reward. You have also unlocked the Slap Head emote!"
-                )
+                interpreter.sendDialogue("...congratualtions adventurer, you have been deemed worthy of this", "reward. You have also unlocked the Slap Head emote!")
                 stage = 1
                 player.emoteManager.unlock(Emotes.SLAP_HEAD)
             }

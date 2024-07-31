@@ -16,8 +16,8 @@ import core.tools.END_DIALOGUE
 class AkharanuDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: Sells bolt racks, It is located on the eastern side of Port Phasmatys.
-     *  Location: 3709,3497
+     * Info: Sells bolt racks, It is located on the eastern side of Port Phasmatys.
+     * Location: 3709,3497
      */
 
     override fun open(vararg args: Any): Boolean {
@@ -28,7 +28,6 @@ class AkharanuDialogue(player: Player? = null) : Dialogue(player) {
         } else {
             npc(FacialExpression.FRIENDLY, "Hello, there, friend!")
         }
-        stage = 0
         return true
     }
 

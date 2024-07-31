@@ -14,15 +14,14 @@ import core.tools.END_DIALOGUE
 class ReloboBlinyoDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: One of the current "Market Price Guides" near
-     *  the west side of Grand Exchange Market in Varrock.
-     *  Location: 3152,3490
+     * Info: One of the current "Market Price Guides" near
+     * the west side of Grand Exchange Market in Varrock.
+     * Location: 3152,3490
      */
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         player(FacialExpression.HALF_GUILTY, "Hey there.")
-        stage = 0
         return true
     }
 

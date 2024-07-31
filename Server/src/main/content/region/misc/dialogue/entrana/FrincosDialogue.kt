@@ -22,12 +22,12 @@ class FrincosDialogue(player: Player? = null) : Dialogue(player) {
         when (stage) {
             0 -> options("What are you selling?", "You can't; I'm beyond help.", "I'm okay, thank you.").also { stage++ }
             1 -> when (buttonId) {
-                1 -> player(FacialExpression.HALF_GUILTY, "What are you selling?").also { stage = 10 }
+                1 -> player(FacialExpression.HALF_GUILTY, "What are you selling?").also { stage++ }
                 2 -> player(FacialExpression.HALF_GUILTY, "You can't; I'm beyond help.").also { stage = END_DIALOGUE }
                 3 -> player(FacialExpression.HALF_GUILTY, "I'm okay, thank you.").also { stage = END_DIALOGUE }
 
             }
-            10 -> {
+            2 -> {
                 end()
                 openNpcShop(player, npc.id)
             }

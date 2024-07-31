@@ -12,7 +12,7 @@ class HoodedMonkDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        npcl(FacialExpression.HALF_GUILTY, "Excuse me...oh, wait, I thought you were someone else.").also { stage = 0 }
+        npcl(FacialExpression.HALF_GUILTY, "Excuse me...oh, wait, I thought you were someone else.")
         return true
     }
 

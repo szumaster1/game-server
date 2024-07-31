@@ -12,8 +12,8 @@ import core.tools.END_DIALOGUE
 class BlaecDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: Sandworker, found wandering around the sandpit.
-     *  Location: 2440,4444
+     * Info: Sandworker, found wandering around the sandpit.
+     * Location: 2440,4444
      */
 
     override fun open(vararg args: Any?): Boolean {

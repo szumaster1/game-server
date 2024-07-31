@@ -14,7 +14,7 @@ class DalilaAndPerrdurDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        npcl(FacialExpression.OLD_NORMAL, "Ooh, lovely view, dear.").also { stage = 0 }
+        npcl(FacialExpression.OLD_NORMAL, "Ooh, lovely view, dear.")
         return true
     }
 

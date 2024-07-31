@@ -15,8 +15,6 @@ import core.tools.END_DIALOGUE
 @Initializable
 class PatchyDialogue(player: Player? = null) : Dialogue(player) {
 
-    // https://runescape.wiki/w/Transcript:Patchy
-
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         if (!inInventory(player, Items.BOOK_O_PIRACY_7144)) {

@@ -26,7 +26,7 @@ class HolgartDialogue(player: Player? = null) : Dialogue(player) {
             // Talk during Sea slug.
             isQuestInProgress(player, "Sea Slug", 2, 99) -> end().also { openDialogue(player, HolgartDialogueFile()) }
             // Talk before Sea Slug.
-            else -> player(FacialExpression.FRIENDLY, "Hello there.").also { stage = 0 }
+            else -> player(FacialExpression.FRIENDLY, "Hello there.")
         }
         return true
     }

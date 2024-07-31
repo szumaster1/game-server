@@ -12,10 +12,10 @@ import core.plugin.Initializable
 class SummersEnd : Quest("Summer's End", 158, 157, 1, Vars.VARBIT_QUEST_SUMMERS_END_5331, 0, 1, 36) {
 
     /*
-     *  Quest description:
-     *  The Spirit Beast is threatening to tear its way into ._., so Summer and her
-     *  family need your help to stop it once and for all. You must once more venture into the Spirit Beast's Realm and,
-     *  together with the elders, take on the Beast to save them.
+     * Quest description:
+     * The Spirit Beast is threatening to tear its way into ._., so Summer and her
+     * family need your help to stop it once and for all. You must once more venture into the Spirit Beast's Realm and,
+     * together with the elders, take on the Beast to save them.
      */
 
     override fun drawJournal(player: Player?, stage: Int) {

@@ -13,7 +13,7 @@ class SigurdDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.HALF_GUILTY, "Ha Ha! Hello!").also { stage = 0 }
+        npc(FacialExpression.HALF_GUILTY, "Ha Ha! Hello!")
         return true
     }
 

@@ -13,7 +13,7 @@ class OgreGuardNWDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npcl(FacialExpression.OLD_DEFAULT, "Stop, creature! Only ogres and their friends allowed in this city. Show me a sign of companionship, like a lost relic or somefing, and you may pass.").also { stage = 0 }
+        npcl(FacialExpression.OLD_DEFAULT, "Stop, creature! Only ogres and their friends allowed in this city. Show me a sign of companionship, like a lost relic or somefing, and you may pass.")
         return true
     }
 

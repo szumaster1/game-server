@@ -14,12 +14,6 @@ import core.api.sendMessage
 @Initializable
 class GuardDialogue(player: Player? = null) : Dialogue(player) {
 
-    companion object{
-        const val DIALOGUE_COMPLETED = START_DIALOGUE
-        const val DIALOGUE_NOT_COMPLETED = 50
-
-    }
-
     override fun open(vararg args: Any?): Boolean {
         val hasRead = player.savedData.globalData.hasReadPlaques()
         if (hasRead) {
@@ -65,9 +59,13 @@ class GuardDialogue(player: Player? = null) : Dialogue(player) {
 
     }
 
+    companion object {
+        const val DIALOGUE_COMPLETED = START_DIALOGUE
+        const val DIALOGUE_NOT_COMPLETED = 50
+    }
+
     override fun getIds(): IntArray {
         return intArrayOf(NPCs.GUARD_7142)
     }
-
 
 }

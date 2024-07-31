@@ -7,7 +7,7 @@ import core.game.dialogue.FacialExpression
 class GarkorFirstDialogue: DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
-        when(stage){
+        when (stage) {
             0 -> playerl(FacialExpression.NEUTRAL, "Hello?").also { stage++ }
             1 -> npcl(FacialExpression.NEUTRAL, "A fine day you have chosen to visit this hellish island, human.").also { stage++ }
             2 -> playerl(FacialExpression.NEUTRAL, "Good day to you too Sergeant. I've been sent by your King Narnode to -").also { stage++ }

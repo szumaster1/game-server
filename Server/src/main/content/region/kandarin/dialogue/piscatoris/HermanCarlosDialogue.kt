@@ -14,13 +14,13 @@ class HermanCarlosDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npcl(FacialExpression.ASKING, "Oh, hello again. Want some ore?").also { stage = 0 }
+        npcl(FacialExpression.ASKING, "Oh, hello again. Want some ore?")
         return true
     }
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
-            START_DIALOGUE -> playerl(FacialExpression.FRIENDLY, "Hiya Hermie!").also { stage++ }
+            0 -> playerl(FacialExpression.FRIENDLY, "Hiya Hermie!").also { stage++ }
             1 -> npcl(FacialExpression.FRIENDLY, "Ah, " + player.username + "! How's the fishing going?").also { stage++ }
             2 -> playerl(FacialExpression.NEUTRAL, "Still working on it. How's the Colony?").also { stage++ }
             3 -> npcl(FacialExpression.HAPPY, "Flourishing, now that the colonists are coming back! Soon all the finest restaurants will be serving monkfish!").also { stage++ }

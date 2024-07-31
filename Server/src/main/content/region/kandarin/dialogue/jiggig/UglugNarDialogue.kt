@@ -13,7 +13,7 @@ class UglugNarDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        options("Hello again.", "What are you selling?", "Ok, thanks.").also { stage = 0 }
+        options("Hello again.", "What are you selling?", "Ok, thanks.")
         return true
     }
 

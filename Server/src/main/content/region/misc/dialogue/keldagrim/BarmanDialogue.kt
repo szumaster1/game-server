@@ -19,11 +19,9 @@ class BarmanDialogue(player: Player? = null) : Dialogue(player) {
         npc = args[0] as NPC
         if (amountInInventory(player, Items.COINS_995) > 2000) {
             npc(FacialExpression.OLD_HAPPY, "And what will it be for you, fine " + (if (player!!.isMale) "Sir" else "Madam") + "?")
-            stage = 0
         } else {
             npc(FacialExpression.OLD_NORMAL, "Yes? Can I help you with something?")
         }
-        stage = 0
         return true
     }
 

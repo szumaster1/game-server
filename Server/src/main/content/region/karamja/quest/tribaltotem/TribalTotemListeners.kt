@@ -31,37 +31,22 @@ class TribalTotemListeners : InteractionListener {
         }
 
         on(realCrate, IntType.SCENERY, "Investigate") { player, _ ->
-            if (player.questRepository.getStage("Tribal Totem") in 1..19 && !player.inventory.containsAtLeastOneItem(
-                    Items.ADDRESS_LABEL_1858
-                )
-            ) {
-                sendDialogue(
-                    player,
-                    "There is a label on this crate. It says; To Lord Handelmort, Handelmort Mansion Ardogune.You carefully peel it off and take it."
-                )
+            if (player.questRepository.getStage("Tribal Totem") in 1..19 && !player.inventory.containsAtLeastOneItem(Items.ADDRESS_LABEL_1858)) {
+                sendDialogue(player, "There is a label on this crate. It says; To Lord Handelmort, Handelmort Mansion Ardogune.You carefully peel it off and take it.")
                 addItem(player, Items.ADDRESS_LABEL_1858, 1)
-            } else if (player.questRepository.getStage("Tribal Totem") in 1..19 && player.inventory.containsAtLeastOneItem(
-                    Items.ADDRESS_LABEL_1858
-                )
-            ) {
+            } else if (player.questRepository.getStage("Tribal Totem") in 1..19 && player.inventory.containsAtLeastOneItem(Items.ADDRESS_LABEL_1858)) {
                 sendDialogue(player, "There was a label on this crate, but it's gone now since you took it!")
             }
             return@on true
         }
 
         on(wizCrate, IntType.SCENERY, "Investigate") { player, _ ->
-            sendDialogue(
-                player,
-                "There is a label on this crate: Senior Patents Clerk, Chamber of Invention, The Wizards' Tower, Misthalin. The crate is securely fastened shut and ready for delivery."
-            )
+            sendDialogue(player, "There is a label on this crate: Senior Patents Clerk, Chamber of Invention, The Wizards' Tower, Misthalin. The crate is securely fastened shut and ready for delivery.")
             return@on true
         }
 
         onUseWith(IntType.SCENERY, label, wizCrate) { player, _, _ ->
-            sendDialogue(
-                player,
-                "You carefully place the delivery address label over the existing label, covering it completely."
-            )
+            sendDialogue(player, "You carefully place the delivery address label over the existing label, covering it completely.")
             removeItem(player, label)
             player.questRepository.getQuest("Tribal Totem").setStage(player, 20)
             return@onUseWith true
@@ -80,10 +65,7 @@ class TribalTotemListeners : InteractionListener {
             if (player.getAttribute("TT:StairsChecked", false)) {
                 core.game.global.action.ClimbActionHandler.climb(player, Animation(828), Location.create(2629, 3324, 1))
             } else {
-                sendMessage(
-                    player,
-                    "You set off a trap and the stairs give way under you, dropping you into the sewers."
-                )
+                sendMessage(player, "You set off a trap and the stairs give way under you, dropping you into the sewers.")
                 player.teleport(Location.create(2641, 9721, 0))
             }
             return@on true
@@ -91,10 +73,7 @@ class TribalTotemListeners : InteractionListener {
 
         on(stairs, IntType.SCENERY, "Investigate") { player, _ ->
             if (player.getSkills().getStaticLevel(Skills.THIEVING) >= 21) {
-                sendDialogue(
-                    player,
-                    "Your trained senses as a thief enable you to see that there is a trap in these stairs. You make a note of its location for future reference when using these stairs"
-                )
+                sendDialogue(player, "Your trained senses as a thief enable you to see that there is a trap in these stairs. You make a note of its location for future reference when using these stairs")
                 setAttribute(player, "/save:TT:StairsChecked", true)
             } else {
                 sendDialogue(player, "You don't see anything out of place on these stairs.")

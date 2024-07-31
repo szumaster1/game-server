@@ -14,14 +14,12 @@ class ElissaDialogue(player: Player? = null) : Dialogue(player){
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.FRIENDLY,"Hello there.").also { stage = 0 }
+        npc(FacialExpression.FRIENDLY,"Hello there.")
         return true
     }
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when(stage){
-            //three quest branches
-            //normal dialogue
             0 -> (options("What do you do here?", "What is this place?")).also { stage++ }
             1 -> {
                 when(qb) {

@@ -11,7 +11,9 @@ class CradleOfLifeDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         if (player.getSavedData().globalData.getStrongHoldRewards()[3] && player.getSavedData().globalData.getStrongHoldRewards()[2] && player.getSavedData().globalData.getStrongHoldRewards()[1] && player.getSavedData().globalData.getStrongHoldRewards()[0]) {
-            // Unlocks emotes for older accounts who don't have the previous level emotes
+            /*
+             * Unlocks emotes for older accounts who don't have the previous level emotes.
+             */
             player.emoteManager.unlock(Emotes.FLAP)
             player.emoteManager.unlock(Emotes.SLAP_HEAD)
             player.emoteManager.unlock(Emotes.IDEA)

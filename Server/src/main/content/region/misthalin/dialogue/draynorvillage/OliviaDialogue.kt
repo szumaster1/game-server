@@ -13,7 +13,6 @@ class OliviaDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         npc(FacialExpression.HAPPY, "Would you like to trade in seeds?")
-        stage = 0
         return true
     }
 

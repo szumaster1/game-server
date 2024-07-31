@@ -16,13 +16,13 @@ import core.tools.END_DIALOGUE
 class OldManDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: Found in the shipwreck northwest of Port Phasmatys.
-     *  When he was 12, he left his mother and joined a band of pirates as a cabin boy.
-     *  At some point, he and the crew attacked Port Phasmatys, taking the book of haricanto.
-     *  The ship later crashed and the captain died in his seat. The man became delusional,
-     *  taking orders from the skeleton and claiming that they were just waiting for the right time to set sail.
-     *  When an adventurer presented him with his old toy boat, he handed over the key to the chest containing the book,
-     *  then waited for his mother to come collect him.
+     * Info: Found in the shipwreck northwest of Port Phasmatys.
+     * When he was 12, he left his mother and joined a band of pirates as a cabin boy.
+     * At some point, he and the crew attacked Port Phasmatys, taking the book of haricanto.
+     * The ship later crashed and the captain died in his seat. The man became delusional,
+     * taking orders from the skeleton and claiming that they were just waiting for the right time to set sail.
+     * When an adventurer presented him with his old toy boat, he handed over the key to the chest containing the book,
+     * then waited for his mother to come collect him.
      */
 
     override fun open(vararg args: Any): Boolean {
@@ -30,7 +30,7 @@ class OldManDialogue(player: Player? = null) : Dialogue(player) {
         when {
             isQuestComplete(player, "Ghosts Ahoy") -> player("How is it going?").also { stage = 5 }
             getQuestStage(player, "Ghosts Ahoy") >= 4 -> openDialogue(player, OldManGADialogue())
-            else -> player("What are you doing on this shipwreck?").also { stage = 0 }
+            else -> player("What are you doing on this shipwreck?")
         }
         return true
     }

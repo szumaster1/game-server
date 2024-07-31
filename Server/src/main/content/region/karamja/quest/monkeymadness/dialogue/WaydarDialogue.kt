@@ -11,7 +11,7 @@ import core.tools.END_DIALOGUE
 class WaydarDialogue: DialogueFile(){
 
     override fun handle(componentID: Int, buttonID: Int) {
-        when(stage){
+        when (stage) {
             0 -> {
                 if (getQuestStage(player!!, "Monkey Madness") <= 22)
                     npcl("Sorry, I am not authorised to talk to you.").also { stage = END_DIALOGUE }

@@ -20,7 +20,7 @@ class CarolineDialogue(player: Player? = null) : Dialogue(player) {
             // Talk during Sea slug.
             isQuestInProgress(player, "Sea Slug", 0, 50) -> end().also { openDialogue(player, CarolineDialogueFile()) }
             // Talk before Sea Slug.
-            else -> player(FacialExpression.FRIENDLY, "Hello").also { stage = 0 }
+            else -> player(FacialExpression.FRIENDLY, "Hello")
         }
         return true
     }

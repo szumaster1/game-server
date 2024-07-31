@@ -12,8 +12,8 @@ import core.tools.END_DIALOGUE
 class PoxDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: Pox is a cat belonging to Hooknosed Jack.
-     *  Location: 3265,3400
+     * Info: Pox is a cat belonging to Hooknosed Jack.
+     * Location: 3265,3400
      */
 
     override fun open(vararg args: Any): Boolean {

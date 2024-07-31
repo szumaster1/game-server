@@ -18,7 +18,7 @@ class GeraldDialogue(player: Player? = null) : Dialogue(player) {
         if(getQuestStage(player, "Waterfall Quest") >= 1) {
             player("Hello.").also { stage = 5 }
         } else {
-            player("Hello there.").also { stage = 0 }
+            player("Hello there.")
         }
         return true
     }

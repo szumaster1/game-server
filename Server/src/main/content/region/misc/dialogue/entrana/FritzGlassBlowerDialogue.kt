@@ -17,10 +17,8 @@ class FritzGlassBlowerDialogue(player: Player? = null) : Dialogue(player) {
         npc = args[0] as NPC
         if (!player.getSavedData().globalData.isFritzGlass()) {
             npc(FacialExpression.HALF_GUILTY, "Hello adventurer, welcome to the Entrana furnace.")
-            stage = 0
         } else {
-            npc(FacialExpression.HALF_GUILTY, "Ah " + player.username + ", have you come to sell me some molten", "glass?")
-            stage = 100
+            npc(FacialExpression.HALF_GUILTY, "Ah " + player.username + ", have you come to sell me some molten", "glass?").also { stage = 100 }
         }
         return true
     }

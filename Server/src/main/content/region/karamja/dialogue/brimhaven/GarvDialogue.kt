@@ -12,15 +12,15 @@ import core.tools.END_DIALOGUE
 class GarvDialogue(player: Player? = null): Dialogue(player) {
 
     /*
-        Garv guards the Black Arm Gang hideout in Brimhaven.
-        Only players who are aligned with the Black Arm can
-        infiltrate this hideout, which is done during the Heroes' Quest.
-        Location: 2773,3187
+     * Garv guards the Black Arm Gang hideout in Brimhaven.
+     * Only players who are aligned with the Black Arm can
+     * infiltrate this hideout, which is done during the Heroes' Quest.
+     * Location: 2773,3187
      */
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.HALF_GUILTY, "Hello. What do you want?").also { stage = 0 }
+        npc(FacialExpression.HALF_GUILTY, "Hello. What do you want?")
         return true
     }
 

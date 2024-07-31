@@ -12,10 +12,10 @@ import core.tools.END_DIALOGUE
 class PhillipaDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-       Info: Juliet's cousin. She attempted to help you save her and
-       Romeo's relationship during the Romeo & Juliet quest.
-       Location: 3161,3432,1
-    */
+     * Info: Juliet's cousin. She attempted to help you save her and
+     * Romeo's relationship during the Romeo & Juliet quest.
+     * Location: 3161,3432,1
+     */
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC

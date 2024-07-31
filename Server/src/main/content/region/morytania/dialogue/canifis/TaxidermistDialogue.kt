@@ -14,7 +14,6 @@ class TaxidermistDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         npc(FacialExpression.HALF_GUILTY, "Oh, hello. Have you got something you want", "preserving?")
-        stage = 0
         return true
     }
 

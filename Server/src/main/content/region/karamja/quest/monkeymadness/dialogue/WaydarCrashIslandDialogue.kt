@@ -9,8 +9,9 @@ import core.game.dialogue.DialogueFile
 import core.tools.END_DIALOGUE
 
 class WaydarCrashIslandDialogue: DialogueFile(){
+
     override fun handle(componentID: Int, buttonID: Int) {
-        when(stage){
+        when (stage) {
             0 -> {
                 if (getQuestStage(player!!, "Monkey Madness") == 24) {
                     playerl("Where are we?").also { stage++ }

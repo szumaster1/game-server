@@ -20,8 +20,8 @@ import core.tools.END_DIALOGUE
 class MuseumGuardDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: Guard the Varrock Museum and the path leading to the Varrock Dig Site east of Varrock.
-     *  Location: 3263,3441
+     * Info: Guard the Varrock Museum and the path leading to the Varrock Dig Site east of Varrock.
+     * Location: 3263,3441
      */
 
     override fun open(vararg args: Any): Boolean {
@@ -50,8 +50,8 @@ class MuseumGuardDialogue(player: Player? = null) : Dialogue(player) {
 class MuseumGuardEntranceDialogue : DialogueFile() {
 
     /*
-     *  Info: Museum guard at entrance to the archaeological cleaning centre.
-     *  Location: 3260,3447
+     * Info: Museum guard at entrance to the archaeological cleaning centre.
+     * Location: 3260,3447
      */
 
     override fun handle(componentID: Int, buttonID: Int) {

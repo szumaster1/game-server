@@ -13,7 +13,7 @@ class LocalGnomesDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        playerl(FacialExpression.FRIENDLY, "Hello little man.").also { stage = 0 }
+        playerl(FacialExpression.FRIENDLY, "Hello little man.")
         return true
     }
 

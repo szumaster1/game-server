@@ -13,12 +13,12 @@ import core.plugin.Initializable
 class HorrorFromTheDeep : Quest("Horror from the Deep", 77, 76, 2, Vars.VARBIT_QUEST_HORROR_FROM_THE_DEEP_PROGRESS, 0, 1, 10) {
 
     /*
-     *  Quest description:
-     *  The Lighthouse protecting Kandarin's north-western coastline has
-     *  mysteriously stopped operating, and contact with the Lighthouse-keeper
-     *  Jossik has been lost. The council would greatly appreciate it if
-     *  somebody could discover for them what has happened to this most
-     *  vital landscape feature.
+     * Quest description:
+     * The Lighthouse protecting Kandarin's north-western coastline has
+     * mysteriously stopped operating, and contact with the Lighthouse-keeper
+     * Jossik has been lost. The council would greatly appreciate it if
+     * somebody could discover for them what has happened to this most
+     * vital landscape feature.
      */
 
     override fun drawJournal(player: Player?, stage: Int) {

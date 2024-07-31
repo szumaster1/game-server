@@ -14,7 +14,7 @@ class FernaheiDialogue(player: Player? = null): Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.FRIENDLY, "Welcome to Fernahei's Fishing Shop Bwana!", "Would you like to see my items?").also { stage = 0 }
+        npc(FacialExpression.FRIENDLY, "Welcome to Fernahei's Fishing Shop Bwana!", "Would you like to see my items?")
         return true
     }
 

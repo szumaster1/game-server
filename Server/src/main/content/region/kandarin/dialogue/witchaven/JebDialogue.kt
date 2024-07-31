@@ -18,7 +18,7 @@ class JebDialogue(player: Player? = null) : Dialogue(player) {
         if (!isQuestComplete(player, "Sea Slug")) {
             npc(FacialExpression.FRIENDLY, "Hello there.").also { stage = END_DIALOGUE }
         } else {
-            playerl(FacialExpression.FRIENDLY,"I understand you can take me to the Fishing Platform.").also { stage++ }
+            playerl(FacialExpression.FRIENDLY,"I understand you can take me to the Fishing Platform.")
         }
         return true
     }

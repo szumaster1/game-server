@@ -37,8 +37,7 @@ class FredTheFarmerDialogue(player: Player? = null) : Dialogue(player) {
             )
             100 -> npc(FacialExpression.HALF_GUILTY, "What, on my land? Leave my livestock alone you", "scoundrel!").also { stage = END_DIALOGUE }
             200 -> npc(FacialExpression.HALF_GUILTY, "How can you be lost? Just follow the road east and", "south. You'll end up in Lumbridge fairly quickly.").also { stage = END_DIALOGUE }
-            1000 -> openDialogue(player,
-                FredTheFarmerDialogue(getQuestStage(player, "Sheep Shearer")), npc)
+            1000 -> openDialogue(player, FredTheFarmerDialogue(getQuestStage(player, "Sheep Shearer")), npc)
         }
         return true
     }

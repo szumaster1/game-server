@@ -16,7 +16,7 @@ class HonestJimmyDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.FRIENDLY, "You here for the...stuff?").also { stage = 0 }
+        npc(FacialExpression.FRIENDLY, "You here for the...stuff?")
         return true
     }
 

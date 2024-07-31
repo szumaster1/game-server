@@ -14,7 +14,7 @@ class HoracioDialogue(player: Player? = null) : Dialogue(player) {
         if (player.questRepository.hasStarted("Tribal Totem")) {
             npcl(FacialExpression.HAPPY, "It's a fine day to be out in a garden, isn't it? ").also { stage = 5 }
         } else {
-            npcl(FacialExpression.HAPPY, "It's a fine day to be out in a garden, isn't it? ").also { stage = 0 }
+            npcl(FacialExpression.HAPPY, "It's a fine day to be out in a garden, isn't it? ")
         }
         return true
     }

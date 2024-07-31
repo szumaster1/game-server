@@ -21,7 +21,7 @@ class FatherLawrenceDialogue(player: Player? = null) : Dialogue(player) {
         }
         when (quest.getStage(player)) {
             30 -> {
-                npc("\"...and let Saradomin light the way for you... \"", "Urgh!")
+                npc("...and let Saradomin light the way for you...", "Urgh!")
                 stage = 41
             }
 

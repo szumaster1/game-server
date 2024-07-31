@@ -16,13 +16,6 @@ import core.tools.START_DIALOGUE
 @Initializable
 class ProfessorHenryDialogue(player: Player? = null) : Dialogue(player) {
 
-    companion object{
-        const val HAND_IN_TEST = 10
-        const val MEETING = 100
-        const val GET_TEST = 200
-        const val INTERFACE = 277
-    }
-
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage){
             START_DIALOGUE -> {
@@ -114,4 +107,12 @@ class ProfessorHenryDialogue(player: Player? = null) : Dialogue(player) {
         setInterfaceText(player,"The Safety First' emote", INTERFACE, 12)
         sendItemZoomOnInterface(player, INTERFACE, 5, Items.TEST_PAPER_12626)
     }
+
+    companion object{
+        const val HAND_IN_TEST = 10
+        const val MEETING = 100
+        const val GET_TEST = 200
+        const val INTERFACE = 277
+    }
+
 }

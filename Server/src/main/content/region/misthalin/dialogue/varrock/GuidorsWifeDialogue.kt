@@ -12,15 +12,15 @@ import core.tools.END_DIALOGUE
 class GuidorsWifeDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: Wife of Elena's former teacher, Guidor.
-     *  Location: 3281,3382
+     * Info: Wife of Elena's former teacher, Guidor.
+     * Location: 3281,3382
      */
 
     override fun open(vararg args: Any): Boolean {
         if (getQuestStage(player, "Biohazard") >= 16) {
             player("Hello again.").also { stage = 2 }
         } else {
-            player(FacialExpression.HALF_GUILTY, "Hello.").also { stage = 0 }
+            player(FacialExpression.HALF_GUILTY, "Hello.")
         }
         return true
     }

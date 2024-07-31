@@ -14,7 +14,7 @@ class SantiriDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.CHILD_NORMAL, "Welcome, human, to the Quality Weapons Shop!", "Can I interest you in a purchase?").also { stage = 0 }
+        npc(FacialExpression.CHILD_NORMAL, "Welcome, human, to the Quality Weapons Shop!", "Can I interest you in a purchase?")
         return true
     }
 

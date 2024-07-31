@@ -15,7 +15,7 @@ class SbottDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npcl(FacialExpression.HAPPY, "Hello stranger. Would you like to me to tan any hides for you?").also { stage = 0 }
+        npcl(FacialExpression.HAPPY, "Hello stranger. Would you like to me to tan any hides for you?")
         return true
     }
 

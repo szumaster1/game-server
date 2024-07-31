@@ -14,15 +14,14 @@ import core.tools.END_DIALOGUE
 class GrandExchangeTutorDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: Member of the Grand Exchange, located in north-west Varrock.
-     *  He teaches players the basics of the Grand Exchange and allows them to use it.
-     *  Location: 3161,3475
+     * Info: Member of the Grand Exchange, located in north-west Varrock.
+     * He teaches players the basics of the Grand Exchange and allows them to use it.
+     * Location: 3161,3475
      */
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         npc(FacialExpression.HALF_GUILTY, "How can I help?")
-        stage = 0
         return true
     }
 

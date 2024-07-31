@@ -313,7 +313,7 @@ class MiningListeners : InteractionListener {
         }
 
         /*
-         *  If player has mining boost from Shooting Star, roll chance at extra ore.
+         * If player has mining boost from Shooting Star, roll chance at extra ore.
          */
 
         if (hasTimerActive<StarBonus>(player)) {

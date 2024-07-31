@@ -13,7 +13,7 @@ class IonaDialouge(player: Player? = null): Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        player(FacialExpression.FRIENDLY, "Hello.").also { stage = 0 }
+        player(FacialExpression.FRIENDLY, "Hello.")
         return true
     }
 

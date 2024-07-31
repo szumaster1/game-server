@@ -1,6 +1,7 @@
 package content.region.misc.dialogue.keldagrim
 
 import content.global.skill.production.crafting.data.GemData
+import core.api.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.DialogueInterpreter
 import core.game.dialogue.FacialExpression
@@ -22,46 +23,14 @@ class MagicDoorDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
-            0 -> {
-                player("So how much is the tax?")
-                stage++
-            }
-
-            1 -> {
-                npc(FacialExpression.OLD_CALM_TALK1, "The cost is one diamond.")
-                stage++
-            }
-
-            2 -> {
-                options(
-                    "Okay...",
-                    "A diamond? Are you crazy?",
-                    "I haven't brought my diamonds with me.",
-                    "What do you do with all the diamonds you get?"
-                )
-                stage++
-            }
-
+            0 -> player("So how much is the tax?").also { stage++ }
+            1 -> npc(FacialExpression.OLD_CALM_TALK1, "The cost is one diamond.").also { stage++ }
+            2 -> options("Okay...", "A diamond? Are you crazy?", "I haven't brought my diamonds with me.", "What do you do with all the diamonds you get?").also { stage++ }
             3 -> when (buttonId) {
-                1 -> {
-                    player("Okay...")
-                    stage = 10
-                }
-
-                2 -> {
-                    player("A diamond? Are you crazy?")
-                    stage = 20
-                }
-
-                3 -> {
-                    player("I haven't brought my diamonds with me.")
-                    stage = 30
-                }
-
-                4 -> {
-                    player("What do you do with all the diamonds you get?")
-                    stage = 40
-                }
+                1 -> player("Okay...").also { stage = 10 }
+                2 -> player("A diamond? Are you crazy?").also { stage = 20 }
+                3 -> player("I haven't brought my diamonds with me.").also { stage = 30 }
+                4 -> player("What do you do with all the diamonds you get?").also { stage = 40 }
             }
 
             10 -> if (!player.inventory.containsItem(GemData.DIAMOND.gem)) {
@@ -93,13 +62,7 @@ class MagicDoorDialogue(player: Player? = null) : Dialogue(player) {
 
             31 -> end()
             40 -> {
-                npc(
-                    FacialExpression.OLD_CALM_TALK1,
-                    "Ever heard of fairylights? Well how do you think we",
-                    "make 'em? First we collect a pile of gems and then we",
-                    "get a spider to spin 'em into a long web, we light the",
-                    "jewels by imbuing each one with a little bit of magic."
-                )
+                npc(FacialExpression.OLD_CALM_TALK1, "Ever heard of fairylights? Well how do you think we", "make 'em? First we collect a pile of gems and then we", "get a spider to spin 'em into a long web, we light the", "jewels by imbuing each one with a little bit of magic.")
                 stage++
             }
 
@@ -109,11 +72,7 @@ class MagicDoorDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             42 -> {
-                npc(
-                    FacialExpression.OLD_CALM_TALK1,
-                    "That's right, how else could we make 'em twinkle so",
-                    "beautifully?"
-                )
+                npc(FacialExpression.OLD_CALM_TALK1, "That's right, how else could we make 'em twinkle so", "beautifully?")
                 stage++
             }
 
@@ -123,7 +82,7 @@ class MagicDoorDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun getIds(): IntArray {
-        return intArrayOf(3321, DialogueInterpreter.getDialogueKey(NAME))
+        return intArrayOf(NPCs.GATEKEEPER_3321, DialogueInterpreter.getDialogueKey(NAME))
     }
 
     companion object {

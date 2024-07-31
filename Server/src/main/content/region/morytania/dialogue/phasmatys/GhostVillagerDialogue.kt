@@ -18,13 +18,13 @@ import core.tools.START_DIALOGUE
 class GhostVillagerDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: Citizens of Port Phasmatys.
+     * Info: Citizens of Port Phasmatys.
      */
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
             START_DIALOGUE -> if (!inEquipment(player, Items.GHOSTSPEAK_AMULET_552)) {
-                npc("Woooo wooo wooooo woooo").also { stage = 10 }
+                npc("Woooo wooo wooooo woooo").also { stage = 1 }
             } else if (getAttribute(player!!, GAUtils.petitionstart, false)) {
                 end()
                 openDialogue(player, GhostVillagerDialogueFile())
@@ -41,8 +41,7 @@ class GhostVillagerDialogue(player: Player? = null) : Dialogue(player) {
                     5 -> npc("Worship the Ectofuntus all you want, but", "don't bother us, human.").also { stage = END_DIALOGUE }
                 }
             }
-
-            10 -> sendDialogue(player, "You cannot understand the ghost.").also { stage = END_DIALOGUE }
+            1 -> sendDialogue(player, "You cannot understand the ghost.").also { stage = END_DIALOGUE }
 
         }
         return true

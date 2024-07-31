@@ -15,8 +15,8 @@ import core.tools.END_DIALOGUE
 class InformationClerkDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: Known as Mabel Malore, is a woman found at the entrance to the Varrock Museum.
-     *  Location: 3253,3454
+     * Info: Known as Mabel Malore, is a woman found at the entrance to the Varrock Museum.
+     * Location: 3253,3454
      */
 
     override fun open(vararg args: Any): Boolean {

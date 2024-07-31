@@ -16,15 +16,15 @@ import core.tools.END_DIALOGUE
 class GravingasDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: One of the ghost residents of Port Phasmatys.
-     *  He can be found in what was the town market, waving a placard and protesting about Necrovarus'
-     *  refusal to allow the townspeople to cross into the next world.
+     * Info: One of the ghost residents of Port Phasmatys.
+     * He can be found in what was the town market, waving a placard and protesting about Necrovarus'
+     * refusal to allow the townspeople to cross into the next world.
      */
 
     override fun open(vararg args: Any): Boolean {
         when {
             inEquipment(player, Items.BEDSHEET_4285) && getQuestStage(player, "Ghosts Ahoy") >= 1 -> end().also { openDialogue(player, GravingasDialogue()) }
-            !inEquipment(player, Items.GHOSTSPEAK_AMULET_552) -> npc("Woooo wooo wooooo woooo").also { stage = 0 }
+            !inEquipment(player, Items.GHOSTSPEAK_AMULET_552) -> npc("Woooo wooo wooooo woooo")
             else -> npc("Will you join with me and protect against the evil ban", "of Nercrovarus and his disciples?").also { stage = 1 }
         }
         return true

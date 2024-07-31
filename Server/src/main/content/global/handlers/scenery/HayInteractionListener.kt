@@ -15,7 +15,7 @@ class HayInteractionListener : InteractionListener {
     override fun defineListeners() {
 
         /*
-         *  Interaction with hay bales.
+         * Interaction with hay bales.
          */
 
         on(HAY, IntType.SCENERY, "search") { player, node ->

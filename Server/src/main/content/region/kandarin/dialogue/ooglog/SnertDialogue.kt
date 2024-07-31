@@ -15,7 +15,7 @@ class SnertDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npcl(FacialExpression.CHILD_FRIENDLY, "Hi, human.").also { stage++ }
+        npcl(FacialExpression.CHILD_FRIENDLY, "Hi, human.")
         return true
     }
 
@@ -40,8 +40,8 @@ class SnertDialogue(player: Player? = null) : Dialogue(player) {
                 12 -> end()
             }
         } else {
-            when (RandomFunction.random(1, 9)) {
-                1 -> when (stage) {
+            when (RandomFunction.random(0, 8)) {
+                0 -> when (stage) {
                     0 -> playerl(FacialExpression.HALF_ASKING, "Hi, ogre! How are you today, little ogre?").also { stage++ }
                     1 -> npcl(FacialExpression.CHILD_NORMAL, "Can I have some shiny pretties, human?").also { stage++ }
                     2 -> playerl(FacialExpression.HALF_ASKING, "What makes you think I'd give my shiny pretties to you?").also { stage++ }
@@ -51,7 +51,7 @@ class SnertDialogue(player: Player? = null) : Dialogue(player) {
                     6 -> end()
                 }
 
-                2 -> when (stage) {
+                1 -> when (stage) {
                     0 -> playerl(FacialExpression.HALF_ASKING, "Hi, ogre! How are you today, little ogre?").also { stage++ }
                     1 -> npcl(FacialExpression.CHILD_NORMAL, "Fine, please and thank you very much, madam sir!").also { stage++ }
                     2 -> playerl(FacialExpression.HALF_ASKING, "You're very...polite.").also { stage++ }
@@ -61,7 +61,7 @@ class SnertDialogue(player: Player? = null) : Dialogue(player) {
                     6 -> end()
                 }
 
-                3 -> when (stage) {
+                2 -> when (stage) {
                     0 -> playerl(FacialExpression.HALF_ASKING, "Hi, ogre! How are you today, little ogre?").also { stage++ }
                     1 -> npcl(FacialExpression.CHILD_NORMAL, "Hey, human. What did you bring me?").also { stage++ }
                     2 -> playerl(FacialExpression.HALF_ASKING, "Hmm, let me think carefully about this. Oh, yes, I remember, now! Absolutely nothing.").also { stage++ }
@@ -69,7 +69,7 @@ class SnertDialogue(player: Player? = null) : Dialogue(player) {
                     4 -> end()
                 }
 
-                4 -> when (stage) {
+                3 -> when (stage) {
                     0 -> playerl(FacialExpression.HALF_ASKING, "Hi, ogre! How are you today, little ogre?").also { stage++ }
                     1 -> npcl(FacialExpression.CHILD_NORMAL, "How does it feel to be so puny wee small, human?").also { stage++ }
                     2 -> playerl(FacialExpression.HALF_ASKING, "Oh, I dunno. How does it feel to be so incredibly dense?").also { stage++ }
@@ -78,7 +78,7 @@ class SnertDialogue(player: Player? = null) : Dialogue(player) {
                     5 -> end()
                 }
 
-                5 -> when (stage) {
+                4 -> when (stage) {
                     0 -> playerl(FacialExpression.HALF_ASKING, "Hi, ogre! How are you today, little ogre?").also { stage++ }
                     1 -> npcl(FacialExpression.CHILD_NORMAL, "Me like pie!").also { stage++ }
                     2 -> playerl(FacialExpression.HALF_ASKING, "Doesn't everyone?").also { stage++ }
@@ -87,7 +87,7 @@ class SnertDialogue(player: Player? = null) : Dialogue(player) {
                     5 -> end()
                 }
 
-                6 -> when (stage) {
+                5 -> when (stage) {
                     0 -> playerl(FacialExpression.HALF_ASKING, "Hi, ogre! How are you today, little ogre?").also { stage++ }
                     1 -> npcl(FacialExpression.CHILD_NORMAL, "Me wanna go visit Fycie 'n Bugs!").also { stage++ }
                     2 -> playerl(FacialExpression.HALF_ASKING, "Yes, they're both delightful individuals.").also { stage++ }
@@ -96,7 +96,7 @@ class SnertDialogue(player: Player? = null) : Dialogue(player) {
                     5 -> end()
                 }
 
-                7 -> when (stage) {
+                6 -> when (stage) {
                     0 -> playerl(FacialExpression.HALF_ASKING, "Hi, ogre! How are you today, little ogre?").also { stage++ }
                     1 -> npcl(FacialExpression.CHILD_NORMAL, "Me wants CHOMPY for dinner!").also { stage++ }
                     2 -> playerl(FacialExpression.HALF_ASKING, "Me hopes you GETS chompy for dinner!").also { stage++ }
@@ -104,7 +104,7 @@ class SnertDialogue(player: Player? = null) : Dialogue(player) {
                     4 -> end()
                 }
 
-                8 -> when (stage) {
+                7 -> when (stage) {
                     0 -> playerl(FacialExpression.HALF_ASKING, "Hi, ogre! How are you today, little ogre?").also { stage++ }
                     1 -> npcl(FacialExpression.CHILD_NORMAL, "Not so very good. Me just drop me lunch in de pool.").also { stage++ }
                     2 -> playerl(FacialExpression.HALF_ASKING, "Ew...I think I can see it floating over there.").also { stage++ }
@@ -112,7 +112,7 @@ class SnertDialogue(player: Player? = null) : Dialogue(player) {
                     4 -> end()
                 }
 
-                9 -> when (stage) {
+                8 -> when (stage) {
                     0 -> playerl(FacialExpression.HALF_ASKING, "Hi, ogre! How are you today, little ogre?").also { stage++ }
                     1 -> npcl(FacialExpression.CHILD_NORMAL, "You very cute, little creature. Me want to have a human as a pet. What you doing, human? You busy? You want be my little pet human creature?").also { stage++ }
                     2 -> playerl(FacialExpression.HALF_ASKING, "Uh...I think I'm busy at the moment.").also { stage++ }

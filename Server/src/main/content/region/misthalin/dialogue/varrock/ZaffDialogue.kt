@@ -34,15 +34,10 @@ class ZaffDialogue : OptionHandler() {
         return true
     }
 
-
     class ZaffQuestDialogue : Dialogue {
-
         private var quest: Quest? = null
 
-
         constructor()
-
-
         constructor(player: Player?) : super(player)
 
         override fun newInstance(player: Player?): Dialogue {
@@ -52,7 +47,11 @@ class ZaffDialogue : OptionHandler() {
         override fun open(vararg args: Any): Boolean {
             npc = args[0] as NPC
             quest = player.questRepository.getQuest("What Lies Below")
-            npc(FacialExpression.HALF_GUILTY, "Would you like to buy or sell some staves or is there", "something else you need?")
+            npc(
+                FacialExpression.HALF_GUILTY,
+                "Would you like to buy or sell some staves or is there",
+                "something else you need?"
+            )
             stage = 0
             return true
         }
@@ -61,13 +60,31 @@ class ZaffDialogue : OptionHandler() {
             when (stage) {
                 0 -> {
                     if (quest!!.getStage(player) == 60) {
-                        sendDialogueOptions(player, "Select an Option", "Yes, please.", "No, thank you.", "Rat Burgiss sent me.")
+                        sendDialogueOptions(
+                            player,
+                            "Select an Option",
+                            "Yes, please.",
+                            "No, thank you.",
+                            "Rat Burgiss sent me."
+                        )
                         stage = 1
                     } else if (quest!!.getStage(player) == 80) {
-                        sendDialogueOptions(player, "Select an Option", "Yes, please.", "No, thank you.", "We did it! We beat Surok!")
+                        sendDialogueOptions(
+                            player,
+                            "Select an Option",
+                            "Yes, please.",
+                            "No, thank you.",
+                            "We did it! We beat Surok!"
+                        )
                         stage = 1
                     } else if (quest!!.getStage(player) >= 70) {
-                        sendDialogueOptions(player, "Select an Option", "Yes, please.", "No, thank you.", "Can I have another ring?")
+                        sendDialogueOptions(
+                            player,
+                            "Select an Option",
+                            "Yes, please.",
+                            "No, thank you.",
+                            "Can I have another ring?"
+                        )
                         stage = 1
                     } else {
                         sendDialogueOptions(player, "Select an Option", "Yes, please.", "No, thank you.")
@@ -116,18 +133,31 @@ class ZaffDialogue : OptionHandler() {
                 }
 
                 21 -> {
-                    player(FacialExpression.HALF_GUILTY, "Huh, terrible pun. You just can't get the 'staff' these", "days!")
+                    player(
+                        FacialExpression.HALF_GUILTY,
+                        "Huh, terrible pun. You just can't get the 'staff' these",
+                        "days!"
+                    )
                     stage = 22
                 }
 
                 22 -> end()
                 50 -> {
                     if (inInventory(player, 11014, 1))
-                        npc(FacialExpression.HALF_GUILTY, "Go and get the one that's in your inventory " + player.username + "!")
+                        npc(
+                            FacialExpression.HALF_GUILTY,
+                            "Go and get the one that's in your inventory " + player.username + "!"
+                        )
                     else if (player.bank.contains(11014, 1))
-                        npc(FacialExpression.HALF_GUILTY, "Go and get the one that's in your bank" + player.username + "!")
+                        npc(
+                            FacialExpression.HALF_GUILTY,
+                            "Go and get the one that's in your bank" + player.username + "!"
+                        )
                     else if (inEquipment(player, 11014, 1))
-                        npc(FacialExpression.HALF_GUILTY, "Go and get the one that's on your finger " + player.username + "!")
+                        npc(
+                            FacialExpression.HALF_GUILTY,
+                            "Go and get the one that's on your finger " + player.username + "!"
+                        )
                     else {
                         npc(FacialExpression.HALF_GUILTY, "Of course you can! Here you go " + player.username + "!")
                         player.inventory.add(BEACON_RING)
@@ -138,7 +168,11 @@ class ZaffDialogue : OptionHandler() {
 
                 51 -> end()
                 70 -> {
-                    npc("Ah, yes; You must be " + player.username + "! Rat sent word that you", "would be coming. Everything is prepared. I have created", "a spell that will remove the mind control spell.")
+                    npc(
+                        "Ah, yes; You must be " + player.username + "! Rat sent word that you",
+                        "would be coming. Everything is prepared. I have created",
+                        "a spell that will remove the mind control spell."
+                    )
                     stage++
                 }
 
@@ -148,12 +182,20 @@ class ZaffDialogue : OptionHandler() {
                 }
 
                 72 -> {
-                    npc("Listen carefully. For the spell to succeed, the king must", "be made very weak, if his mind is controlled, you will", "need to fight him until he is all but dead.")
+                    npc(
+                        "Listen carefully. For the spell to succeed, the king must",
+                        "be made very weak, if his mind is controlled, you will",
+                        "need to fight him until he is all but dead."
+                    )
                     stage++
                 }
 
                 73 -> {
-                    npc("Then and ONLY then, use your ring to summon me.", "I will teleport to you and cast the spell that will", "cure the king.")
+                    npc(
+                        "Then and ONLY then, use your ring to summon me.",
+                        "I will teleport to you and cast the spell that will",
+                        "cure the king."
+                    )
                     stage++
                 }
 
@@ -163,7 +205,11 @@ class ZaffDialogue : OptionHandler() {
                 }
 
                 75 -> {
-                    npc("I cannot. I must look after my shop here and", "I have lots to do. Rest assured, I will come when you", "summon me.")
+                    npc(
+                        "I cannot. I must look after my shop here and",
+                        "I have lots to do. Rest assured, I will come when you",
+                        "summon me."
+                    )
                     stage++
                 }
 
@@ -198,7 +244,12 @@ class ZaffDialogue : OptionHandler() {
                 }
 
                 82 -> {
-                    npc("I very much expect so. It may turn nasty, so be on your", "guard. I hope we can stop him before he can cast his", "spell!", "Make sure you have that ring I gave you.")
+                    npc(
+                        "I very much expect so. It may turn nasty, so be on your",
+                        "guard. I hope we can stop him before he can cast his",
+                        "spell!",
+                        "Make sure you have that ring I gave you."
+                    )
                     stage++
                 }
 
@@ -230,7 +281,11 @@ class ZaffDialogue : OptionHandler() {
                 }
 
                 203 -> {
-                    npc("Well, when I disrupted Surok's spell, he will have been", "sealed in the library, but we still need to keep an", "eye on him, just in case.")
+                    npc(
+                        "Well, when I disrupted Surok's spell, he will have been",
+                        "sealed in the library, but we still need to keep an",
+                        "eye on him, just in case."
+                    )
                     stage++
                 }
 
@@ -302,11 +357,23 @@ class ZaffDialogue : OptionHandler() {
             when (stage) {
                 0 -> {
                     if (ammount >= maxStaffs) {
-                        sendNPCDialogue(player, NPCs.ZAFF_546, "I'm very sorry! I seem to be out of battlestaves at the moment! I expect I'll get some more in by tomorrow, though.", FacialExpression.HALF_GUILTY)
+                        sendNPCDialogue(
+                            player,
+                            NPCs.ZAFF_546,
+                            "I'm very sorry! I seem to be out of battlestaves at the moment! I expect I'll get some more in by tomorrow, though.",
+                            FacialExpression.HALF_GUILTY
+                        )
                         stage = 2
                         return true
                     }
-                    sendNPCDialogueLines(player, NPCs.ZAFF_546, FacialExpression.HAPPY, false, "Battlestaves cost 7,000 gold pieces each. I have ${maxStaffs - ammount} left.","How many would you like to buy?")
+                    sendNPCDialogueLines(
+                        player,
+                        NPCs.ZAFF_546,
+                        FacialExpression.HAPPY,
+                        false,
+                        "Battlestaves cost 7,000 gold pieces each. I have ${maxStaffs - ammount} left.",
+                        "How many would you like to buy?"
+                    )
                     stage = 1
                 }
 
@@ -331,7 +398,12 @@ class ZaffDialogue : OptionHandler() {
                         }
                     }
                 }
-                2 -> player(FacialExpression.HALF_GUILTY, "Oh, okay then. I'll try again another time.").also { stage++ }
+
+                2 -> player(
+                    FacialExpression.HALF_GUILTY,
+                    "Oh, okay then. I'll try again another time."
+                ).also { stage++ }
+
                 3 -> end()
             }
             return true

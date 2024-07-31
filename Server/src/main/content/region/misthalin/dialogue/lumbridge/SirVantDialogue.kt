@@ -15,10 +15,6 @@ class SirVantDialogue(player: Player? = null) : Dialogue(player) {
         return true
     }
 
-    override fun newInstance(player: Player): Dialogue {
-        return SirVantDialogue(player)
-    }
-
     override fun getIds(): IntArray {
         return intArrayOf(NPCs.SIR_VANT_7942)
     }

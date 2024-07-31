@@ -13,18 +13,18 @@ import core.tools.END_DIALOGUE
 class HieronymusAvlafrimDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        His assumed brother, Gnormadium Avlafrim, is a gnome glider pilot.
-        Avlafrim and his partner, Sasquine Huburns, were responsible for
-        inventing the gnomecopter and fusing the design for gnome gliders
-        and magic carpets.
+     * His assumed brother, Gnormadium Avlafrim, is a gnome glider pilot.
+     * Avlafrim and his partner, Sasquine Huburns, were responsible for
+     * inventing the gnomecopter and fusing the design for gnome gliders
+     * and magic carpets.
      */
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         if(getAttribute(player, "gnomecopter:unlocked", false)){
-            npc(FacialExpression.OLD_NORMAL,"Hello again, human.", "What can Gnomecopter Tours do for you?").also { stage = 0 }
+            npc(FacialExpression.OLD_NORMAL,"Hello again, human.", "What can Gnomecopter Tours do for you?")
         } else {
-            npc(FacialExpression.OLD_NORMAL, "Hello human and welcome to our amazing", "Gnomecopter Tours. What can we do for you?").also { stage = 0 }
+            npc(FacialExpression.OLD_NORMAL, "Hello human and welcome to our amazing", "Gnomecopter Tours. What can we do for you?")
         }
         return true
     }

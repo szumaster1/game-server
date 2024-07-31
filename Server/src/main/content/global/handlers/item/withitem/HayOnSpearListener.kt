@@ -12,7 +12,7 @@ class HayOnSpearListener : InteractionListener {
     override fun defineListeners() {
 
         /*
-         *  Bronze spear used on the hay sack to create a hay sack spear.
+         * Bronze spear used on the hay sack to create a hay sack spear.
          */
 
         onUseWith(IntType.ITEM, Items.HAY_SACK_6057, Items.BRONZE_SPEAR_1237) { player, used, with ->

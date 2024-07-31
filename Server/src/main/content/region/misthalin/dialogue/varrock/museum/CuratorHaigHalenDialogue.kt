@@ -19,9 +19,9 @@ import core.tools.START_DIALOGUE
 class CuratorHaigHalenDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: Curator of the Varrock Museum.
-     *  He can be found on the ground floor.
-     *  Location: 3257,3447
+     * Info: Curator of the Varrock Museum.
+     * He can be found on the ground floor.
+     * Location: 3257,3447
      */
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {

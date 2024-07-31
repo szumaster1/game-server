@@ -12,9 +12,9 @@ import core.tools.END_DIALOGUE
 class HistorianMinasDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: Employee who can be found managing the history
-     *  exhibits on the 1st floor, near the staircase.
-     *  Location: 3262,3455,1
+     * Info: Employee who can be found managing the history
+     * exhibits on the 1st floor, near the staircase.
+     * Location: 3262,3455,1
      */
 
     override fun open(vararg args: Any): Boolean {

@@ -6,6 +6,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
+import core.tools.END_DIALOGUE
 
 
 @Initializable
@@ -13,14 +14,13 @@ class RikiTheSculptorsDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        player(FacialExpression.FRIENDLY, " I'm glad I don't have to talk to you anymore!").also { stage = 0 }
+        player(FacialExpression.FRIENDLY, " I'm glad I don't have to talk to you anymore!")
         return true
     }
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
-            0 -> npc(FacialExpression.OLD_DEFAULT, "Hrm.").also { stage++ }
-            1 -> end()
+            0 -> npc(FacialExpression.OLD_DEFAULT, "Hrm.").also { stage = END_DIALOGUE }
         }
         return true
     }

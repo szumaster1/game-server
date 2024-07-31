@@ -15,8 +15,8 @@ import core.tools.END_DIALOGUE
 class AsyffDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: Runs the Fancy Clothes Store in Varrock.
-     *  Location: 3281,3398
+     * Info: Runs the Fancy Clothes Store in Varrock.
+     * Location: 3281,3398
      */
 
     override fun open(vararg args: Any?): Boolean {

@@ -11,9 +11,9 @@ import core.tools.END_DIALOGUE
 class AeonisigRaispherDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: is a Saradominist priest and advisor to King Roald III,
-     *  He is located on the ground floor of Varrock Palace in King Roald's throne room.
-     *  Location: 3222,3475
+     * Info: is a Saradominist priest and advisor to King Roald III,
+     * He is located on the ground floor of Varrock Palace in King Roald's throne room.
+     * Location: 3222,3475
      */
 
     override fun open(vararg args: Any): Boolean {

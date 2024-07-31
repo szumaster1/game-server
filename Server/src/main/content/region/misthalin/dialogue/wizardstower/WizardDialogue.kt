@@ -21,7 +21,6 @@ class WizardDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         npc("Hello there, can I help you?")
-        stage = 0
         return true
     }
 
@@ -81,66 +80,28 @@ class WizardDialogue(player: Player? = null) : Dialogue(player) {
                 make(bark, amount)
                 end()
             }
-
-            20 -> npc(
-                "Split-bark armour is special armour for mages, it's much",
-                "more resistant to physical attacks than normal robes.",
-                "It's actually very easy for me to make, but I've been",
-                "having trouble getting hold of the pieces."
-            ).also { stage = 15 }
-
+            20 -> npc("Split-bark armour is special armour for mages, it's much", "more resistant to physical attacks than normal robes.", "It's actually very easy for me to make, but I've been", "having trouble getting hold of the pieces.").also { stage = 15 }
             10 -> npc("I've been studying the practice of making split-bark", "armour.").also { stage++ }
             11 -> options("Split-bark armour, what's that?", "Can you make me some?").also { stage++ }
             12 -> when (buttonId) {
                 1 -> player("Split-bark armour, what's that?").also { stage++ }
                 2 -> player("Can you make me some?").also { stage = 50 }
             }
-
-            13 -> npc(
-                "Split-bark armour is special armour for mages, it's much",
-                "more resistant to physical attacks than normal robes.",
-                "It's actually very easy for me to make, but I've been",
-                "having trouble getting hold of the pieces."
-            ).also { stage++ }
-
+            13 -> npc("Split-bark armour is special armour for mages, it's much", "more resistant to physical attacks than normal robes.", "It's actually very easy for me to make, but I've been", "having trouble getting hold of the pieces.").also { stage++ }
             14 -> options("Well good luck with that.", "Can you make me some?").also { stage++ }
             15 -> when (buttonId) {
                 1 -> player("Well good luck with that.").also { stage = END_DIALOGUE }
                 2 -> player("Can you make me some?").also { stage++ }
             }
-
-            50 -> npc(
-                "I need bark from a hollow tree, and some fine cloth.",
-                "Unfortunately both these items can be found in",
-                "Morytania, especially the cloth which is found in the",
-                "tombs of shades."
-            ).also { stage++ }
-
-            51 -> npc(
-                "Of course I'd happily sell you some at a discounted",
-                "price if you bring me those items."
-            ).also { stage++ }
-
+            50 -> npc("I need bark from a hollow tree, and some fine cloth.", "Unfortunately both these items can be found in", "Morytania, especially the cloth which is found in the", "tombs of shades.").also { stage++ }
+            51 -> npc("Of course I'd happily sell you some at a discounted", "price if you bring me those items.").also { stage++ }
             52 -> options("Ok, guess I'll go looking then!", "Ok, how much do I need?").also { stage++ }
             53 -> when (buttonId) {
                 1 -> player("Ok, guess I'll go looking then!").also { stage = END_DIALOGUE }
                 2 -> player("Ok, how much do I need?").also { stage++ }
             }
-
-            54 -> npc(
-                "1 need 1 piece of each for either gloves or boots,",
-                "2 pieces of each for a hat,",
-                "3 pieces of each for leggings,",
-                "and 4 pieces of each for a top."
-            ).also { stage++ }
-
-            55 -> npc(
-                "I'll charge you 1,000 coins for either gloves or boots,",
-                "6,000 coins for a hat",
-                "32,000 coins for leggings,",
-                "and 37,000 for a top."
-            ).also { stage++ }
-
+            54 -> npc("1 need 1 piece of each for either gloves or boots,", "2 pieces of each for a hat,", "3 pieces of each for leggings,", "and 4 pieces of each for a top.").also { stage++ }
+            55 -> npc("I'll charge you 1,000 coins for either gloves or boots,", "6,000 coins for a hat", "32,000 coins for leggings,", "and 37,000 for a top.").also { stage++ }
             56 -> player("Ok, guess I'll go looking then!").also { stage = END_DIALOGUE }
         }
         return true
@@ -224,7 +185,6 @@ class WizardDialogue(player: Player? = null) : Dialogue(player) {
             }
         }
     }
-
 
     companion object {
         private val BARK = Item(Items.BARK_3239)

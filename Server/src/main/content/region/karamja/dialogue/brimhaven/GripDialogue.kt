@@ -12,10 +12,10 @@ import core.tools.END_DIALOGUE
 class GripDialogue(player: Player? = null): Dialogue(player) {
 
     /*
-        Grip is the head guard for Scarface Pete and resides in his mansion in Brimhaven.
-        During Heroes' Quest, he holds the key to the chest
-        containing the candlestick needed to trade for the master thief's armband.
-        Location: 2774,3197
+     * Grip is the head guard for Scarface Pete and resides in his mansion in Brimhaven.
+     * During Heroes' Quest, he holds the key to the chest
+     * containing the candlestick needed to trade for the master thief's armband.
+     * Location: 2774,3197
      */
 
     override fun open(vararg args: Any): Boolean {

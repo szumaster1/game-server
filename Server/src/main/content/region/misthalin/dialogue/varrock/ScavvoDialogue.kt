@@ -16,9 +16,9 @@ import core.tools.END_DIALOGUE
 class ScavvoDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: Merchant that runs Scavvo's Rune Store
-     *  on the 1st floor in the Champions' Guild.
-     *  Location: 3192,3355,1
+     * Info: Merchant that runs Scavvo's Rune Store
+     * on the 1st floor in the Champions' Guild.
+     * Location: 3192,3355,1
      */
 
     override fun open(vararg args: Any): Boolean {

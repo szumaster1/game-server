@@ -11,8 +11,8 @@ import core.tools.END_DIALOGUE
 class OrlandoSmithDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: He runs the Natural history quiz there. [But not now]
-     *  Location: 1759,4955
+     * Info: He runs the Natural history quiz there. [But not now]
+     * Location: 1759,4955
      */
 
     override fun open(vararg args: Any): Boolean {

@@ -22,7 +22,7 @@ class JiminuaDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        npc("Welcome to Jiminua's Jungle Store, Can I help you", "at all?").also { stage = 0 }
+        npc("Welcome to Jiminua's Jungle Store, Can I help you", "at all?")
         return true
     }
 

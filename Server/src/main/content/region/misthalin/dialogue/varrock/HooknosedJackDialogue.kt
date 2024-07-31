@@ -14,9 +14,9 @@ import core.tools.END_DIALOGUE
 class HooknosedJackDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: Jack Tylner cat owners. He is located just outside of Varrock
-     *  Dancing Donkey Inn along with his cat Pox.
-     *  Location: 3265,3403
+     * Info: Jack Tylner cat owners. He is located just outside of Varrock
+     * Dancing Donkey Inn along with his cat Pox.
+     * Location: 3265,3403
      */
 
     override fun open(vararg args: Any): Boolean {

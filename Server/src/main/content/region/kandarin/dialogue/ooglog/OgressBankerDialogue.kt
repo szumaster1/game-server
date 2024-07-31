@@ -10,11 +10,6 @@ import core.tools.START_DIALOGUE
 
 class OgressBankerDialogue(player: Player? = null) : Dialogue(player) {
 
-    override fun getIds(): IntArray = intArrayOf(
-        NPCs.OGRESS_BANKER_7049,
-        NPCs.OGRESS_BANKER_7050
-    )
-
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
             START_DIALOGUE -> npcl(FacialExpression.CHILD_NORMAL, "...").also { stage++ }
@@ -28,4 +23,9 @@ class OgressBankerDialogue(player: Player? = null) : Dialogue(player) {
         }
         return true
     }
+
+    override fun getIds(): IntArray = intArrayOf(
+        NPCs.OGRESS_BANKER_7049,
+        NPCs.OGRESS_BANKER_7050
+    )
 }

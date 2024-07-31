@@ -12,8 +12,8 @@ import core.tools.END_DIALOGUE
 class NaturalHistorianDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: Natural Historians are biologists that have been hired by the Varrock Museum
-     *  to educate visitors and gather further information regarding Gielinor's diverse animal kingdom.
+     * Info: Natural Historians are biologists that have been hired by the Varrock Museum
+     * to educate visitors and gather further information regarding Gielinor's diverse animal kingdom.
      */
 
     override fun open(vararg args: Any): Boolean {

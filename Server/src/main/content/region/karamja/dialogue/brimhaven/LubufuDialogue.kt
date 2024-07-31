@@ -12,9 +12,9 @@ import core.tools.END_DIALOGUE
 class LubufuDialogue(player: Player? = null): Dialogue(player) {
 
     /*
-        Lubufu is an old fisherman who doesn't like young whippersnappers.
-        He can be found on the southern coast of Brimhaven.
-        Location: 2766,3168
+     * Lubufu is an old fisherman who doesn't like young whippersnappers.
+     * He can be found on the southern coast of Brimhaven.
+     * Location: 2766,3168
      */
 
     override fun open(vararg args: Any): Boolean {

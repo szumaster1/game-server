@@ -9,9 +9,9 @@ import core.tools.END_DIALOGUE
 class RogueCastleDialogue : DialogueFile() {
 
     /*
-     *  Info: Available after the Summer's End quest.
-     *  After rescuing him, he is in a small building south-east of the Ranging store in Varrock.
-     *  Location: Rogue Castle 3285, 3939
+     * Info: Available after the Summer's End quest.
+     * After rescuing him, he is in a small building south-east of the Ranging store in Varrock.
+     * Location: Rogue Castle 3285, 3939
      */
 
     override fun handle(componentID: Int, buttonID: Int) {

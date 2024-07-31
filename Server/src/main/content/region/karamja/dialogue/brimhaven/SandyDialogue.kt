@@ -12,9 +12,9 @@ import core.tools.END_DIALOGUE
 class SandyDialogue(player: Player? = null): Dialogue(player) {
 
     /*
-        Sandy is the CEO of Sandy's Sand Corp.
-        His office is located just north of the bar in Brimhaven.
-        Location: 2789,3175
+     * Sandy is the CEO of Sandy's Sand Corp.
+     * His office is located just north of the bar in Brimhaven.
+     * Location: 2789,3175
      */
 
     override fun open(vararg args: Any): Boolean {

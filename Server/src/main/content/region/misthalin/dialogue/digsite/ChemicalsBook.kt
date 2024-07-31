@@ -10,6 +10,7 @@ import core.game.node.entity.player.Player
 import core.api.consts.Items
 
 class ChemicalsBook : InteractionListener {
+
     companion object {
         private val TITLE = "Volatile chemicals Experimental Test Notes"
         private val CONTENTS = arrayOf(

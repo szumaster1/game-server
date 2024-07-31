@@ -124,7 +124,7 @@ class SmithingInteractionListener : InteractionListener {
         }
 
         /*
-         *  Smithing resources.
+         * Smithing resources.
          */
 
         onUseWith(IntType.SCENERY, BARS, *ANVIL) { player, used, with ->

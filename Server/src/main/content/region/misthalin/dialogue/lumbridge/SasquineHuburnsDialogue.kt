@@ -15,10 +15,10 @@ import core.tools.END_DIALOGUE
 class SasquineHuburnsDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        Sasquine and her partner, Hieronymus Avlafrim, established
-        the Gnomecopter Tours. The Gnomecopters have been removed in (25.03.2009)
-        from the game and Sasquine and her boss have married and
-        travelled away since then.
+     * Sasquine and her partner, Hieronymus Avlafrim, established
+     * the Gnomecopter Tours. The Gnomecopters have been removed in (25.03.2009)
+     * from the game and Sasquine and her boss have married and
+     * travelled away since then.
      */
 
     override fun open(vararg args: Any): Boolean {
@@ -28,7 +28,7 @@ class SasquineHuburnsDialogue(player: Player? = null) : Dialogue(player) {
         } else if (player.achievementDiaryManager.hasCompletedTask(DiaryType.LUMBRIDGE, 2, 1)) {
             player("I wanna ride the gnomecopters again!").also { stage = 15 }
         } else {
-            npc(FacialExpression.OLD_HAPPY, "Hiya. I bet you've never seen anything like", "Gnomecopter Tours before!").also { stage = 0 }
+            npc(FacialExpression.OLD_HAPPY, "Hiya. I bet you've never seen anything like", "Gnomecopter Tours before!")
         }
         return true
     }

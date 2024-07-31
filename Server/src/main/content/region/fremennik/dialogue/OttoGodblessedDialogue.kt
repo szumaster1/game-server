@@ -139,7 +139,7 @@ class OttoGodblessedDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             /*
-             *  End of training dialogue.
+             * End of training dialogue.
              */
 
             20 -> options("I seek more answers.", "I have no more questions at this time.").also { stage++ }

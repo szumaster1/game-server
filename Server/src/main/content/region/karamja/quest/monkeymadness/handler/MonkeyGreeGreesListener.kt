@@ -11,6 +11,7 @@ import core.game.world.map.zone.ZoneBorders
 import core.game.world.update.flag.context.Graphic
 
 class MonkeyGreeGreesListener : InteractionListener, MapArea {
+
     companion object {
         private val APE_ATOLL_ZONE = ZoneBorders(2690, 2695, 2817, 2814)
         private val LOGOUT = "greegree-equip"

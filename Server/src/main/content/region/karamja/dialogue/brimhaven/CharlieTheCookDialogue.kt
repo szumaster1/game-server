@@ -11,9 +11,9 @@ import core.tools.END_DIALOGUE
 class CharlieTheCookDialogue(player: Player? = null): Dialogue(player) {
 
     /*
-        The chef (and part owner) for The Shrimp and Parrot restaurant in Brimhaven.
-        He is a member of the Phoenix Gang.
-        Location: 2793,3191
+     * The chef (and part owner) for The Shrimp and Parrot restaurant in Brimhaven.
+     * He is a member of the Phoenix Gang.
+     * Location: 2793,3191
      */
 
     override fun open(vararg args: Any): Boolean {

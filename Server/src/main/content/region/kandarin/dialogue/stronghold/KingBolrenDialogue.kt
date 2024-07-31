@@ -20,7 +20,7 @@ class KingBolrenDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         if (isQuestComplete(player, "Tree Gnome Village")) {
-            playerl(FacialExpression.FRIENDLY, "Hello again Bolren.").also { stage = 0 }
+            playerl(FacialExpression.FRIENDLY, "Hello again Bolren.")
         } else {
             end()
             openDialogue(player, KingBolrenDialogueFile())

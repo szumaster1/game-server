@@ -14,7 +14,7 @@ class RomettiDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        playerl(FacialExpression.FRIENDLY, "Hello.").also { stage = 0 }
+        playerl(FacialExpression.FRIENDLY, "Hello.")
         return true
     }
 

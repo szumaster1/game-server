@@ -11,10 +11,10 @@ import core.plugin.Initializable
 class ArcheologistsDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: Archaeologists currently tasked by the
-     *  Varrock Museum with examining finds excavated
-     *  from the Digsite.
-     *  Location: 3266,3445
+     * Info: Archaeologists currently tasked by the
+     * Varrock Museum with examining finds excavated
+     * from the Digsite.
+     * Location: 3266,3445
      */
 
     override fun open(vararg args: Any): Boolean {

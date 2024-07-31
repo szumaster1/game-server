@@ -14,7 +14,7 @@ class SaroDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.OLD_NORMAL, "Welcome to my store, human! Are you interested", "in buying anything?").also { stage = 0 }
+        npc(FacialExpression.OLD_NORMAL, "Welcome to my store, human! Are you interested", "in buying anything?")
         return true
     }
 

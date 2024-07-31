@@ -14,7 +14,7 @@ class LitaraDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.HALF_GUILTY, "Hello there. You look lost - are you okay?").also { stage = 0 }
+        npc(FacialExpression.HALF_GUILTY, "Hello there. You look lost - are you okay?")
         return true
     }
 

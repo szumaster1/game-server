@@ -15,8 +15,8 @@ import core.tools.END_DIALOGUE
 class GhostGuardDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: Two guards that watch over the entrance-portals
-     *  allowing access into Port Phasmatys.
+     * Info: Two guards that watch over the entrance-portals
+     * allowing access into Port Phasmatys.
      */
 
     override fun open(vararg args: Any): Boolean {

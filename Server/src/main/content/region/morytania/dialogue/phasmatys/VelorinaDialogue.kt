@@ -14,15 +14,15 @@ import core.tools.END_DIALOGUE
 class VelorinaDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: Ghost living in the northern house in Port Phasmatys.
-     *  She desires the ability to pass over to the afterlife.
-     *  Location: 3678,3511
+     * Info: Ghost living in the northern house in Port Phasmatys.
+     * She desires the ability to pass over to the afterlife.
+     * Location: 3678,3511
      */
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         when {
-            isQuestComplete(player, "Ghosts Ahoy") -> options("I thought you were going to pass over to the next world.", "Can I have another Ectophial?").also { stage = 0 }
+            isQuestComplete(player, "Ghosts Ahoy") -> options("I thought you were going to pass over to the next world.", "Can I have another Ectophial?")
             !isQuestComplete(player, "Ghosts Ahoy") -> openDialogue(player, VelorinaDialogueFile())
             else -> sendMessage(player, "She is ignoring you.").also { stage = END_DIALOGUE }
         }

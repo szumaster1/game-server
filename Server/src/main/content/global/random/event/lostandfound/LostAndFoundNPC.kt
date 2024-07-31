@@ -11,8 +11,8 @@ import core.game.system.timer.impl.AntiMacro
 class LostAndFoundNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(-1) {
     /*
      * TODO:
-     *  1. Change to non-skill random event. It was only accessible through normal teleports and a essence mine.
-     *  2. Trying to alchemise something returns: "You didn't come here to do that!"
+     * 1. Change to non-skill random event. It was only accessible through normal teleports and a essence mine.
+     * 2. Trying to alchemise something returns: "You didn't come here to do that!"
      */
 
     override fun init() {

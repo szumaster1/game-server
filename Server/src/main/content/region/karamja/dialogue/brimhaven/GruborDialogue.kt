@@ -12,10 +12,10 @@ import core.tools.END_DIALOGUE
 class GruborDialogue(player: Player? = null): Dialogue(player) {
 
     /*
-        Grubor is a Black Arm Gang contact that the players
-        must meet to get some ID papers during the Heroes' Quest.
-        He is found in a small house to the east of the bar in Brimhaven.
-        Location: 2811,3167
+     * Grubor is a Black Arm Gang contact that the players
+     * must meet to get some ID papers during the Heroes' Quest.
+     * He is found in a small house to the east of the bar in Brimhaven.
+     * Location: 2811,3167
      */
 
     override fun open(vararg args: Any): Boolean {

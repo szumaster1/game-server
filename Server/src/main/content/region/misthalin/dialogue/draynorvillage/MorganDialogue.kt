@@ -23,7 +23,6 @@ class MorganDialogue(player: Player? = null) : Dialogue(player) {
             openDialogue(player, MorganVampireSlayerDialogue())
         } else {
             npc(FacialExpression.HALF_GUILTY, "Please please help us, bold adventurer!")
-            stage = 0
         }
         return true
     }

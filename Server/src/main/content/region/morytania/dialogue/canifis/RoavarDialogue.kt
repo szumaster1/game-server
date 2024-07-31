@@ -19,34 +19,26 @@ class RoavarDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         player(FacialExpression.HALF_GUILTY, "Hello there!")
-        stage = 0
         return true
     }
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
-            0 -> {
-                npc(FacialExpression.HALF_GUILTY, "Greeting traveller. Welcome to 'The Hair Of The Dog'", "Tavern. What can I do you for?")
-                stage = 1
-            }
-
+            0 -> npc(FacialExpression.HALF_GUILTY, "Greeting traveller. Welcome to 'The Hair Of The Dog'", "Tavern. What can I do you for?").also { stage++ }
             1 -> showTopics(
                 Topic<Int?>(FacialExpression.HALF_GUILTY, "Can I buy a beer?", 10, false),
                 Topic<Int?>(FacialExpression.HALF_GUILTY, "Can I hear some gossip", 20, false),
                 IfTopic<RoavarDialogueFile?>(FacialExpression.HALF_GUILTY, "Can I buy something to eat?", RoavarDialogueFile(1), getQuestStage(player, "Creature of Fenkenstrain") == 2, false),
                 Topic<Int?>(FacialExpression.HALF_GUILTY, "Nothing thanks.", 40, false)
             )
-
             10 -> {
                 npc(FacialExpression.HALF_GUILTY, "Well that's my speciality! The local brew's named", "'Moonlight Mead' and will set you back 5 gold.", "Waddya say? Fancy a pint?")
                 stage = 11
             }
-
             11 -> {
                 options("Yes please.", "Actually, no thanks.")
                 stage = 12
             }
-
             12 -> when (buttonId) {
                 1 -> {
                     player(FacialExpression.HALF_GUILTY, "Yes please.")

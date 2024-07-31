@@ -17,7 +17,7 @@ class DurgokDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npcl(FacialExpression.OLD_NORMAL, "Frogburger! There's nothing like grilled frog in a bun. Do you want one? Only 10gp!").also { stage = 0 }
+        npcl(FacialExpression.OLD_NORMAL, "Frogburger! There's nothing like grilled frog in a bun. Do you want one? Only 10gp!")
         return true
     }
 

@@ -55,7 +55,7 @@ class DairyChurnPulse(player: Player?, item: Item?, product: DairyProduct, amoun
     override fun animate() {
         animate(player, Animations.CHURN_BUTTER_2793)
         /*
-         *  sendGraphics(if(node!!.id == Scenery.DAIRY_CHURN_10094) Graphics.DAIRY_CHURN_458 else Graphics.DAIRY_CHURN_459, node!!.location)
+         * sendGraphics(if(node!!.id == Scenery.DAIRY_CHURN_10094) Graphics.DAIRY_CHURN_458 else Graphics.DAIRY_CHURN_459, node!!.location)
          */
     }
 

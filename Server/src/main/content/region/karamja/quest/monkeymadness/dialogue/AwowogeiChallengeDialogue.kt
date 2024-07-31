@@ -6,7 +6,7 @@ import core.game.dialogue.DialogueFile
 class AwowogeiChallengeDialogue: DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
-        when(stage){
+        when (stage) {
             0 -> npcl("Have you brought with you a captive?").also { stage++ }
             1 -> playerl("Yes, I have.").also { stage++ }
             2 -> npcl("Well done!").also { stage++ }

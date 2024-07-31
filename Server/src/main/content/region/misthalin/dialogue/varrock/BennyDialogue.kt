@@ -16,8 +16,8 @@ import core.tools.END_DIALOGUE
 class BennyDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: Newspaper seller in the Varrock Square (the center of Varrock).
-     *  Location: 3220,3433
+     * Info: Newspaper seller in the Varrock Square (the center of Varrock).
+     * Location: 3220,3433
      */
 
     override fun open(vararg args: Any): Boolean {

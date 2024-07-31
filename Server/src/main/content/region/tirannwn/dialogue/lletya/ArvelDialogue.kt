@@ -12,13 +12,12 @@ import core.tools.END_DIALOGUE
 class ArvelDialogue(player: Player? = null): Dialogue(player) {
 
     /*
-     *  Info: Elven citizens of Lletya. She is a member of the Ithell Clan.
-     *  Location: -
+     * Elven citizens of Lletya. She is a member of the Ithell Clan.
      */
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        npcl(FacialExpression.FRIENDLY, "Good day traveller. You are far from home, what brings you here?").also { stage = 0 }
+        npcl(FacialExpression.FRIENDLY, "Good day traveller. You are far from home, what brings you here?")
         return true
     }
 

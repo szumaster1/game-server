@@ -12,9 +12,9 @@ import core.tools.END_DIALOGUE
 class AmbassadorFernookDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: is the ambassador of King Narnode Shareen of the Gnome Stronghold to King Roald of Misthalin.
-     *  He can be found on the 1st floor of Varrock Palace in Varrock.
-     *  Location: 3206,3478
+     * Info: is the ambassador of King Narnode Shareen of the Gnome Stronghold to King Roald of Misthalin.
+     * He can be found on the 1st floor of Varrock Palace in Varrock.
+     * Location: 3206,3478
      */
 
     override fun open(vararg args: Any): Boolean {

@@ -45,8 +45,8 @@ class VarrockListeners : InteractionListener {
         }
 
         /*
-         *  Broken cart south of Varrock,
-         *  starting point for the What Lies Below quest.
+         * Broken cart south of Varrock,
+         * starting point for the What Lies Below quest.
          */
 
         on(Scenery.BROKEN_CART_23055, IntType.SCENERY, "search") { player, _ ->

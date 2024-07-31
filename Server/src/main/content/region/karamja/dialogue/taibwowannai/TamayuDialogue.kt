@@ -22,7 +22,7 @@ class TamayuDialogue(player: Player? = null) : Dialogue(player) {
         if(npc.id == NPCs.TAMAYU_1167){
             npc(FacialExpression.ANNOYED, randomConversation.random()).also { stage = END_DIALOGUE }
         } else {
-            player("Hello, Tamayu, first son of Timfraku.").also { stage = 0 }
+            player("Hello, Tamayu, first son of Timfraku.")
         }
         return true
     }

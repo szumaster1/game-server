@@ -16,7 +16,6 @@ class RufusDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         player(FacialExpression.HAPPY, "Hi!")
-        stage = 0
         return true
     }
 

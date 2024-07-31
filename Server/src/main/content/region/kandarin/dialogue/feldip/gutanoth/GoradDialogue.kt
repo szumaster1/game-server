@@ -17,10 +17,9 @@ class GoradDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         if (!isQuestComplete(player, "Watchtower")) {
-            end()
-            sendDialogue(player!!, "Gorad is busy; try again later.")
+            sendDialogue(player!!, "Gorad is busy; try again later.").also { stage = END_DIALOGUE}
         } else {
-            player("Hello!").also { stage = 0 }
+            player("Hello!")
         }
         return true
     }

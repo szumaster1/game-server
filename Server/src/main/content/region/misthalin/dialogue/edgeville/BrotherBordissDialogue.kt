@@ -24,7 +24,6 @@ class BrotherBordissDialogue(player: Player? = null) : Dialogue(player) {
             stage = 10
             return true
         }
-
         npc("Lovely day, adventurer.")
         stage = 1000
         return true

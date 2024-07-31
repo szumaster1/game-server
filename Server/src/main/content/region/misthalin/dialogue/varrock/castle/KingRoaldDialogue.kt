@@ -19,9 +19,9 @@ import core.tools.START_DIALOGUE
 class KingRoaldDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: King Roald Remanis III, is the current ruler of the prosperous kingdom of Misthalin.
-     *  His residence is within Varrock Palace, where the Varrock Palace Secret Guard work to keep him safe.
-     *  Location: 3220,3471
+     * Info: King Roald Remanis III, is the current ruler of the prosperous kingdom of Misthalin.
+     * His residence is within Varrock Palace, where the Varrock Palace Secret Guard work to keep him safe.
+     * Location: 3220,3471
      */
 
     override fun open(vararg args: Any): Boolean {

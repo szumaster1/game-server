@@ -13,10 +13,10 @@ import core.tools.END_DIALOGUE
 class DavonDialogue(player: Player? = null): Dialogue(player) {
 
     /*
-        Davon is a trader found standing along the southern
-        shore of Brimhaven towards the fence.
-        He runs Davon's Amulet Store.
-        Location: 2803,3152
+     * Davon is a trader found standing along the southern
+     * shore of Brimhaven towards the fence.
+     * He runs Davon's Amulet Store.
+     * Location: 2803,3152
      */
 
     override fun open(vararg args: Any): Boolean {

@@ -11,7 +11,7 @@ import core.tools.END_DIALOGUE
 class RasoloDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
-        npc("Hello, would you like to see my wares?").also { stage = 0 }
+        npc("Hello, would you like to see my wares?")
         return true
     }
 

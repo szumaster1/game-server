@@ -1,4 +1,4 @@
-package content.region.karamja.dialogue.taibwowannai
+package content.region.karamja.handlers
 
 import core.api.getUsedOption
 import core.game.interaction.IntType

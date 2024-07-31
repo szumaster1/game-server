@@ -14,7 +14,7 @@ class DiangoDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.HAPPY, "Howdy there, partner! Want to see my spinning plates?", "Or did ya want a holiday item back?").also { stage = 0 }
+        npc(FacialExpression.HAPPY, "Howdy there, partner! Want to see my spinning plates?", "Or did ya want a holiday item back?")
         return true
     }
 

@@ -9,7 +9,7 @@ import core.game.dialogue.FacialExpression
 class GarkorFinalBattleDialogue: DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
-        when(stage){
+        when (stage) {
             0 -> playerl(FacialExpression.WORRIED, "What shall we do?").also { stage++ }
             1 -> npcl(FacialExpression.NEUTRAL, "Zooknock and I have come up with a plan.").also { stage++ }
             2 -> playerl(FacialExpression.NEUTRAL, "What kind of plan?").also { stage++ }

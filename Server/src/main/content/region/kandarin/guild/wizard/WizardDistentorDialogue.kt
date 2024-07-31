@@ -13,9 +13,9 @@ import core.tools.END_DIALOGUE
 class WizardDistentorDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: leader of the Wizards' Guild in Yanille.
-     *  Due to his proximity to a bank, he is considered to be one
-     *  of the best for transport to the Rune Essence mine.
+     * Info: leader of the Wizards' Guild in Yanille.
+     * Due to his proximity to a bank, he is considered to be one
+     * of the best for transport to the Rune Essence mine.
      */
 
     override fun open(vararg args: Any?): Boolean {

@@ -28,7 +28,7 @@ class KathyCorkatDialogue(player: Player? = null) : Dialogue(player) {
             if (npc.id == NPCs.KATHY_CORKAT_3831) {
                 npcl(FacialExpression.FRIENDLY, "I'll be glad to get away from this place, dearie! Fancy a lift up the river?").also { stage = 20 }
             } else {
-                npcl(FacialExpression.WORRIED, "Oh dear, oh dear, oh dear...").also { stage = 0 }
+                npcl(FacialExpression.WORRIED, "Oh dear, oh dear, oh dear...")
             }
         } else {
             if (npc.id == NPCs.KATHY_CORKAT_3831) {

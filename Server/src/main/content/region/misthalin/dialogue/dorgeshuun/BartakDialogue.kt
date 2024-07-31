@@ -13,7 +13,7 @@ class BartakDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.OLD_DISTRESSED, "Oh no! What's broken?").also { stage = 0 }
+        npc(FacialExpression.OLD_DISTRESSED, "Oh no! What's broken?")
         return true
     }
 

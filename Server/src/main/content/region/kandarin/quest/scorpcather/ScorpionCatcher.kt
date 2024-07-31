@@ -13,11 +13,11 @@ import core.plugin.Initializable
 class ScorpionCatcher : Quest("Scorpion Catcher", 108, 107, 1, Vars.VARP_QUEST_SCORPION_CATCHER_PROGRESS, 0, 1, 6) {
 
     /*
-     *  Quest description:
-     *  Thormac has lost his rare lesser-kharid scorpions after leaving their cage door open.
-     *  These scorpions have hidden in areas that are rather difficult to get into.
-     *  You will have to overcome various challenges (and drink a lot of beer) to get all the scorpions back.
-     *  If you manage to help him, Thormac will improve your battlestaves.
+     * Quest description:
+     * Thormac has lost his rare lesser-kharid scorpions after leaving their cage door open.
+     * These scorpions have hidden in areas that are rather difficult to get into.
+     * You will have to overcome various challenges (and drink a lot of beer) to get all the scorpions back.
+     * If you manage to help him, Thormac will improve your battlestaves.
      */
     companion object {
         val ATTRIBUTE_MIRROR = "/save:scorpion_catcher:start-talk"

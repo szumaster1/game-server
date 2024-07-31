@@ -34,7 +34,7 @@ class MiningPulse(private val player: Player, private val node: Node) : Pulse(1,
     private var resetAnimation = true
 
     /*
-     *  Perfect Gold Ore in Witchhaven Dungeon (Family Crest).
+     * Perfect Gold Ore in Witchhaven Dungeon (Family Crest).
      */
     private val perfectGoldOreLocations = listOf(
         Location(2735, 9695, 0),
@@ -186,7 +186,7 @@ class MiningPulse(private val player: Player, private val node: Node) : Pulse(1,
             val rewardName = getItemName(reward).lowercase()
 
             /*
-             *  Send the message for the resource reward.
+             * Send the message for the resource reward.
              */
 
             if (isMiningGems) {
@@ -200,7 +200,7 @@ class MiningPulse(private val player: Player, private val node: Node) : Pulse(1,
             }
 
             /*
-             *  Give the mining reward, increment 'rocks mined' attribute.
+             * Give the mining reward, increment 'rocks mined' attribute.
              */
 
             if (addItem(player, reward, rewardAmount)) {
@@ -209,7 +209,7 @@ class MiningPulse(private val player: Player, private val node: Node) : Pulse(1,
             }
 
             /*
-             *  Calculate bonus gem chance while mining.
+             * Calculate bonus gem chance while mining.
              */
 
             if (!isMiningEssence) {
@@ -236,7 +236,7 @@ class MiningPulse(private val player: Player, private val node: Node) : Pulse(1,
             }
 
             /*
-             *  Handing limestone.
+             * Handing limestone.
              */
 
             if(resource!!.id == 4030 && !isMiningEssence && resource!!.respawnRate != 0) {
@@ -252,7 +252,7 @@ class MiningPulse(private val player: Player, private val node: Node) : Pulse(1,
             }
 
             /*
-             *  Transform ore to depleted version.
+             * Transform ore to depleted version.
              */
 
             if (!isMiningEssence && resource!!.respawnRate != 0) {
@@ -268,7 +268,7 @@ class MiningPulse(private val player: Player, private val node: Node) : Pulse(1,
         var amount = 1
 
         /*
-         *  If player is wearing Varrock armour from diary, roll chance at extra ore.
+         * If player is wearing Varrock armour from diary, roll chance at extra ore.
          */
 
         if (!isMiningEssence && player.achievementDiaryManager.getDiary(DiaryType.VARROCK)!!.level != -1) {
@@ -289,7 +289,7 @@ class MiningPulse(private val player: Player, private val node: Node) : Pulse(1,
         }
 
         /*
-         *  If player has mining boost from Shooting Star, roll chance at extra ore.
+         * If player has mining boost from Shooting Star, roll chance at extra ore.
          */
 
         if (player.hasActiveState("shooting-star")) {
@@ -302,8 +302,8 @@ class MiningPulse(private val player: Player, private val node: Node) : Pulse(1,
     }
 
         /*
-         *  If the player is mining sandstone or granite, then get size of sandstone/granite
-         *  and xp reward for that size.
+         * If the player is mining sandstone or granite, then get size of sandstone/granite
+         * and xp reward for that size.
          */
 
     private fun calculateReward(reward: Int): Int {

@@ -12,9 +12,9 @@ import core.tools.END_DIALOGUE
 class EllamariaDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: Queen of Misthalin, ruling alongside her husband
-     *  King Roald Remanis III from Varrock, Misthalin's capital.
-     *  Location: 3230,3481
+     * Info: Queen of Misthalin, ruling alongside her husband
+     * King Roald Remanis III from Varrock, Misthalin's capital.
+     * Location: 3230,3481
      */
 
     override fun open(vararg args: Any): Boolean {

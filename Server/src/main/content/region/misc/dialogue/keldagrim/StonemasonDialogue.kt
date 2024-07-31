@@ -14,7 +14,7 @@ class StonemasonDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.OLD_NORMAL, "Do you want to buy any stone for building?", "Or gold leaf?").also { stage = 0 }
+        npc(FacialExpression.OLD_NORMAL, "Do you want to buy any stone for building?", "Or gold leaf?")
         return true
     }
 

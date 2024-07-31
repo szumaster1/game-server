@@ -22,7 +22,6 @@ class DevinMendelbergDialogue(player: Player? = null) : Dialogue(player) {
             stage = 9
         } else {
             playerl(FacialExpression.FRIENDLY, "Good morning.")
-            stage = 0
         }
         return true
     }

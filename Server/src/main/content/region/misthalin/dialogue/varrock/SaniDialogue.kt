@@ -14,8 +14,8 @@ import core.plugin.Initializable
 class SaniDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: Smith located in his workshop south of the west bank in Varrock.
-     *  Location: -
+     * Info: Smith located in his workshop south of the west bank in Varrock.
+     * Location: -
      */
 
     override fun open(vararg args: Any): Boolean {

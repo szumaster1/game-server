@@ -12,12 +12,12 @@ import core.tools.END_DIALOGUE
 class CustomerDwarfDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: She is currently searching the shelves upstairs in the city's library.
+     * Info: She is currently searching the shelves upstairs in the city's library.
      */
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        playerl(FacialExpression.FRIENDLY, "Hello, can you help me?").also { stage++ }
+        playerl(FacialExpression.FRIENDLY, "Hello, can you help me?")
         return true
     }
 

@@ -13,10 +13,11 @@ import core.tools.END_DIALOGUE
 class HorvikDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-       Info: Horvik Ravitz owns Horvik's Armour Shop in central Varrock.
-       He sells platebodies, chainbodies, med helms, square shields, platelegs and plateskirts.
-       Location: 3229,3438 | Shop ID: 129
-    */
+     * Info: Horvik Ravitz owns Horvik's Armour Shop in central Varrock.
+     * He sells platebodies, chainbodies, med helms, square shields, platelegs and plateskirts.
+     * Location: 3229,3438 | Shop ID: 129
+     */
+
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         npc(FacialExpression.HAPPY, "Hello, do you need any help?")

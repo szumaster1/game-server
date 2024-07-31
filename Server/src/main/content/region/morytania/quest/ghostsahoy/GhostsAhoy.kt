@@ -13,11 +13,11 @@ import core.plugin.Initializable
 class GhostsAhoy : Quest("Ghosts Ahoy", 68, 67, 2, Vars.VARBIT_QUEST_GHOST_AHOY_PROGRESS, 0, 1, 8) {
 
     /*
-     *  Quest description:
-     *  The citizens of Port Phasmatys have unwittingly consigned themselves
-     *  to an immortal existence, trapped forever in this world as ghosts.
-     *  Necrovarus, lord of the Temple of Phasmatys, holds the key to the door
-     *  into the next world.
+     * Quest description:
+     * The citizens of Port Phasmatys have unwittingly consigned themselves
+     * to an immortal existence, trapped forever in this world as ghosts.
+     * Necrovarus, lord of the Temple of Phasmatys, holds the key to the door
+     * into the next world.
      */
 
     override fun drawJournal(player: Player?, stage: Int) {

@@ -14,9 +14,9 @@ import core.tools.END_DIALOGUE
 class RobeStoreDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: Sells mystic equipment in the Wizards' Guild through
-     *  the Mystic Robes store. He is located on the 1st floor of
-     *  the guild, next to the Magic Store owner.
+     * Info: Sells mystic equipment in the Wizards' Guild through
+     * the Mystic Robes store. He is located on the 1st floor of
+     * the guild, next to the Magic Store owner.
      */
 
     override fun open(vararg args: Any?): Boolean {

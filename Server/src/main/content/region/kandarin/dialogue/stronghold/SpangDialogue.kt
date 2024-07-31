@@ -13,7 +13,7 @@ class SpangDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        npcl(FacialExpression.OLD_NORMAL, "I hate this job. All the other staff are so happy all the time. It depresses me.").also { stage = 0 }
+        npcl(FacialExpression.OLD_NORMAL, "I hate this job. All the other staff are so happy all the time. It depresses me.")
         return true
     }
 

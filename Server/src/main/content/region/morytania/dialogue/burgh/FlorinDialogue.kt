@@ -21,7 +21,6 @@ class FlorinDialogue(player: Player? = null) : Dialogue(player) {
             sendChat(npc, "Get out of it! You'se aint commin' in 'ere to get our's blood or's our food!", 2)
         } else {
             npcl(FacialExpression.HALF_GUILTY, "Hey it's the Hero! Wow! You're amazing, how on earth did you manage to tackle those two juvinates and Gadderanks? And the town is lovely, you've done a great job!")
-            stage = 0
         }
         return true
     }

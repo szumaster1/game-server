@@ -12,9 +12,9 @@ import core.tools.END_DIALOGUE
 class SurokMagisDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: head of the Dagon'hai order. He has been currently attempting to gain control of Varrock,
-     *  a plot that is exposed and thwarted during the What Lies Below quest.
-     *  Location: 3208,3496
+     * Info: head of the Dagon'hai order. He has been currently attempting to gain control of Varrock,
+     * a plot that is exposed and thwarted during the What Lies Below quest.
+     * Location: 3208,3496
      */
 
     override fun open(vararg args: Any): Boolean {

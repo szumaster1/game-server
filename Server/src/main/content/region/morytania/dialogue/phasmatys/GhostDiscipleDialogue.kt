@@ -14,8 +14,8 @@ import core.tools.END_DIALOGUE
 class GhostDiscipleDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: Followers of Necrovarus. They worship the Ectofuntus in Port Phasmatys.
-     *  Location: 3657,3516 - 3663,3522 - 3654,3518
+     * Info: Followers of Necrovarus. They worship the Ectofuntus in Port Phasmatys.
+     * Location: 3657,3516 - 3663,3522 - 3654,3518
      */
 
     override fun open(vararg args: Any): Boolean {

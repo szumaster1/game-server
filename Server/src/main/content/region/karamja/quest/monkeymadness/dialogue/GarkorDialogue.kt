@@ -7,7 +7,7 @@ import core.game.dialogue.FacialExpression
 class GarkorDialogue: DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
-        when(stage){
+        when (stage) {
             0 -> npcl(FacialExpression.AMAZED, "My my, Zooknock has outdone himself this time. You do look very much like a monkey you know.").also { stage++ }
             1 -> playerl(FacialExpression.NEUTRAL, "I know.").also { stage++ }
             2 -> npcl(FacialExpression.NEUTRAL, "And by happy coincidence you appear to be just the right sort of monkey.").also { stage++ }

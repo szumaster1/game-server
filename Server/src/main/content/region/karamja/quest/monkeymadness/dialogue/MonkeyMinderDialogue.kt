@@ -12,7 +12,7 @@ import core.tools.END_DIALOGUE
 class MonkeyMinderDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
-        when(stage) {
+        when (stage) {
             0 -> playerl("Ook Ook!").also { stage++ }
             1 -> npcl("Why do you monkeys keep trying to scape? Good thing I've caught you before you got away, you little scoundrel.").also { stage++ }
             2 -> playerl("Ook!").also { stage++ }

@@ -16,8 +16,8 @@ import core.tools.END_DIALOGUE
 class RogueVarrockDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: Available after the Summer's End quest.
-     *  Location: Varrock 3239, 3413
+     * Info: Available after the Summer's End quest.
+     * Location: Varrock 3239, 3413
      */
 
     override fun open(vararg args: Any): Boolean {

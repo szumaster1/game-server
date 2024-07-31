@@ -8,8 +8,9 @@ import core.game.dialogue.DialogueFile
 import core.tools.END_DIALOGUE
 
 class MonkeyChildFirstDialogue: DialogueFile(){
+
     override fun handle(componentID: Int, buttonID: Int) {
-        when(stage){
+        when (stage) {
             0 -> playerl("Hello there little monkey.").also { stage++ }
             1 -> npcl("Hello big-big. Aunty told me not to talk to strangers.").also { stage++ }
             2 -> playerl("Oh I'm not a stranger...").also { stage++ }
@@ -22,8 +23,9 @@ class MonkeyChildFirstDialogue: DialogueFile(){
 }
 
 class MonkeyChildSecondDialogue: DialogueFile(){
+
     override fun handle(componentID: Int, buttonID: Int) {
-        when(stage){
+        when (stage) {
             0 -> playerl("Hello again little monkey.").also { stage++ }
             1 -> npcl("You're stranger. Go away!").also { stage++ }
             2 -> playerl("I'm not a stranger...!").also { stage++ }
@@ -43,8 +45,9 @@ class MonkeyChildSecondDialogue: DialogueFile(){
 }
 
 class MonkeyChildThirdDialogue: DialogueFile(){
+
     override fun handle(componentID: Int, buttonID: Int) {
-        when(stage){
+        when (stage) {
             0 -> npcl("You look a lot bigger than last time, Uncle!").also { stage++ }
             1 -> playerl("I've been ... eating more bananas... just like you should be!").also { stage++ }
             2 -> npcl("I'm bored.").also { stage++ }
@@ -70,8 +73,9 @@ class MonkeyChildThirdDialogue: DialogueFile(){
 }
 
 class MonkeyChildBananasDialogue: DialogueFile(){
+
     override fun handle(componentID: Int, buttonID: Int) {
-        when(stage){
+        when (stage) {
             0 -> npcl("Did you get any bananas, Uncle?").also { stage++ }
             1 -> playerl("Yes, I have some here.").also { stage++ }
             2 -> npcl("Wow that's a lot of bananas! Are there twenty?").also { stage++ }
@@ -89,8 +93,9 @@ class MonkeyChildBananasDialogue: DialogueFile(){
 }
 
 class MonkeyChildTalismanDialogue: DialogueFile(){
+
     override fun handle(componentID: Int, buttonID: Int) {
-        when(stage){
+        when (stage) {
             0 -> player("Has Aunty given you the toy yet?").also { stage++ }
             1 -> npcl("Yeah - it's really neat!").also { stage++ }
             2 -> player("Can i borrow it now then?").also { stage++ }
@@ -107,9 +112,9 @@ class MonkeyChildTalismanDialogue: DialogueFile(){
 
 class MonkeyChildWithoutAmuletDialogue: DialogueFile(){
     override fun handle(componentID: Int, buttonID: Int) {
-        when(stage){
+        when (stage){
             0 -> npcl("How dare you come near my farmhouse! Guards! Guards! Remove this human!").also {
-                //summon three monkeys and attack player
+                //summon three monkeys and attack player.
                 stage++
             }
         }

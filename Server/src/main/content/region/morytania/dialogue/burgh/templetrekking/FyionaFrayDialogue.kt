@@ -15,7 +15,7 @@ class FyionaFrayDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        player("Hello there. What are you doing here?").also { stage = 0 }
+        player("Hello there. What are you doing here?")
         return true
     }
 

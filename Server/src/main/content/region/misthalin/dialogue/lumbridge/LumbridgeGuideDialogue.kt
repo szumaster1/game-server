@@ -30,7 +30,6 @@ class LumbridgeGuideDialogue(player: Player? = null) : Dialogue(player) {
                 IfTopic("Where can I find a bank?", 50, !ironman),
                 IfTopic("More Options...", 100, ironman, skipPlayer = true),
             )
-
             100 -> showTopics(
                 Topic("Where can I find a bank?", 50),
                 IfTopic("I would like to de-iron.", 51, ironman),

@@ -13,7 +13,7 @@ class AudmannDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.OLD_NORMAL, "Oh, don't bother me human.").also { stage = 0 }
+        npc(FacialExpression.OLD_NORMAL, "Oh, don't bother me human.")
         return true
     }
 

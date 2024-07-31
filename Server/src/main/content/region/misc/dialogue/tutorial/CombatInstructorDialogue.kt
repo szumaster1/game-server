@@ -15,7 +15,6 @@ class CombatInstructorDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-
         when (getAttribute(player, "tutorial:stage", 0)) {
             44 -> playerl(FacialExpression.FRIENDLY, "Hi! My name's ${player.username}.")
             47 -> npcl(FacialExpression.FRIENDLY, "Very good, but that little butter knife isn't going to protect you much. Here, take these.")

@@ -386,12 +386,12 @@ class GhostsAhoyListeners : InteractionListener, InterfaceListener {
         }
 
         /*
-         *  "You've won the game of Runedraw!"
-         *  "You've lost the game of Runedraw."
-         *  removeItem(player, Items.OAK_LONGBOW_845)
-         *  addItemOrDrop(player, Items.SIGNED_OAK_BOW_4236)
-         *  setQuestStage(player, "Ghosts Ahoy", 0)
-         *  "You have obtained 8 signatures.
+         * "You've won the game of Runedraw!"
+         * "You've lost the game of Runedraw."
+         * removeItem(player, Items.OAK_LONGBOW_845)
+         * addItemOrDrop(player, Items.SIGNED_OAK_BOW_4236)
+         * setQuestStage(player, "Ghosts Ahoy", 0)
+         * "You have obtained 8 signatures.
          */
 
         onClose(Components.AHOY_RUNEDRAW_9) { player, _ ->

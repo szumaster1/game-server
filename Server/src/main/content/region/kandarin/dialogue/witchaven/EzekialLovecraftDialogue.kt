@@ -14,7 +14,7 @@ class EzekialLovecraftDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        npcl(FacialExpression.FRIENDLY, "Well hello there; welcome to our little village. Pray, stay awhile.").also { stage = 0 }
+        npcl(FacialExpression.FRIENDLY, "Well hello there; welcome to our little village. Pray, stay awhile.")
         return true
     }
 

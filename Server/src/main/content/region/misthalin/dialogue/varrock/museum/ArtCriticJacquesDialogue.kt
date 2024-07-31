@@ -12,9 +12,9 @@ import core.plugin.Initializable
 class ArtCriticJacquesDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: art critic currently evaluating art in Misthalin,
-     *  particularly the capital city of Varrock.
-     *  Location: 3257,3454,2
+     * Info: art critic currently evaluating art in Misthalin,
+     * particularly the capital city of Varrock.
+     * Location: 3257,3454,2
      */
 
     override fun open(vararg args: Any): Boolean {

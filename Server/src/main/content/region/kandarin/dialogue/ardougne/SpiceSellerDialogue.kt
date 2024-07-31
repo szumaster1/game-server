@@ -13,9 +13,9 @@ import core.tools.END_DIALOGUE
 class SpiceSellerDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-         Runs the spice stall in the south-west corner of
-         the Ardougne marketplace in East Ardougne.
-         Location: 2659,3296
+     * Runs the spice stall in the south-west corner of
+     * the Ardougne marketplace in East Ardougne.
+     * Location: 2659,3296
      */
 
     override fun open(vararg args: Any): Boolean {

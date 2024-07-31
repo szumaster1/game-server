@@ -13,7 +13,7 @@ class DromundDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.OLD_NORMAL, "Someone stole my beautiful boots...", "I had to buy some crummy replicas,", "the real boots were one of a kind.").also { stage = 0 }
+        npc(FacialExpression.OLD_NORMAL, "Someone stole my beautiful boots...", "I had to buy some crummy replicas,", "the real boots were one of a kind.")
         return true
     }
 

@@ -16,9 +16,9 @@ import core.tools.END_DIALOGUE
 class ThessaliaDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-       Info: Runs Thessalia's Fine Clothes and Thessalia's Makeovers in Varrock.
-       Location: 3205,3416
-    */
+     * Info: Runs Thessalia's Fine Clothes and Thessalia's Makeovers in Varrock.
+     * Location: 3205,3416
+     */
 
     override fun open(vararg args: Any): Boolean {
         if (args.size == 3) {

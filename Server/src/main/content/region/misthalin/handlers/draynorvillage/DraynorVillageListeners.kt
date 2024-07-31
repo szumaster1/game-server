@@ -64,7 +64,7 @@ class DraynorVillageListeners : InteractionListener {
         }
 
         /*
-         *  Searching the bookshelves in the Wise Old Man's house.
+         * Searching the bookshelves in the Wise Old Man's house.
          */
 
         on(BOOKSHELVES, IntType.SCENERY, "search") { player, node ->
@@ -94,7 +94,7 @@ class DraynorVillageListeners : InteractionListener {
         }
 
         /*
-         *  Darius 'Suave' Aniseed interaction.
+         * Darius 'Suave' Aniseed interaction.
          */
 
         on(Scenery.TREE_10041, IntType.SCENERY, "chop down", "talk to") { player, _ ->

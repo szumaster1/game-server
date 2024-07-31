@@ -13,7 +13,7 @@ class MawrthDialogue(player: Player? = null): Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        npcl(FacialExpression.FRIENDLY, "Those children are nothing but trouble - if I did not watch them all the time, Seren knows what trouble they would get in to!").also { stage = 0 }
+        npcl(FacialExpression.FRIENDLY, "Those children are nothing but trouble - if I did not watch them all the time, Seren knows what trouble they would get in to!")
         return true
     }
 

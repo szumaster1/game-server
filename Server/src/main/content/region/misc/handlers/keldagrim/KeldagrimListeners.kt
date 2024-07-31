@@ -103,6 +103,23 @@ class KeldagrimListeners : InteractionListener {
             return@on true
         }
 
+        /*
+         * Library +1 bookcase interaction.
+         */
+
+        on(Scenery.BOOKCASE_6091, IntType.SCENERY, "search") { player, _ ->
+            if (inInventory(player, Items.EXPLORERS_NOTES_11677)) {
+                sendMessage(player, "You search the books...")
+                sendMessage(player, "You find nothing of interest to you.")
+            } else if (freeSlots(player) < 1) {
+                sendMessage(player, "You need at least one free inventory space to take from the shelves.")
+            } else {
+                sendMessage(player, "You search the bookcase and find a book named 'Explorer's Notes'.")
+                addItemOrDrop(player, Items.EXPLORERS_NOTES_11677)
+            }
+            return@on true
+        }
+
         on(TUNNEL, IntType.SCENERY, "enter") { player, _ ->
             teleport(player, Location(2730, 3713, 0), TeleportManager.TeleportType.INSTANT)
             return@on true

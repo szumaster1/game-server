@@ -19,7 +19,7 @@ class RichardDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npc("Hello. How can I help you?").also { stage = 0 }
+        npc("Hello. How can I help you?")
         return true
     }
 

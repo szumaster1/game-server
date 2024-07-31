@@ -23,10 +23,6 @@ class SilverMerchantDialogue(player: Player? = null) : Dialogue(player) {
      * Location: 2659,3316
      */
 
-    override fun newInstance(player: Player): Dialogue {
-        return SilverMerchantDialogue(player)
-    }
-
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         npc(FacialExpression.HAPPY, "Silver! Silver! Best prices for buying and selling in all", "Kandarin!")

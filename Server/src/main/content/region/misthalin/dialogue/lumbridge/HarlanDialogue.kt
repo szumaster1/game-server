@@ -15,7 +15,6 @@ class HarlanDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         options("Can you tell me about different weapon types I can use?", "Please tell me about Skillcapes.", "Bye.")
-        stage = 0
         return true
     }
 
@@ -23,10 +22,7 @@ class HarlanDialogue(player: Player? = null) : Dialogue(player) {
         when (stage) {
             0 -> when (buttonId) {
                 1 -> {
-                    player(FacialExpression.HALF_GUILTY,
-                        "Can you tell me about different weapon types I can",
-                        "use?"
-                    )
+                    player(FacialExpression.HALF_GUILTY, "Can you tell me about different weapon types I can", "use?")
                     stage = 10
                 }
 
@@ -42,12 +38,7 @@ class HarlanDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             10 -> {
-                npc(FacialExpression.HALF_GUILTY,
-                    "Well let me see now...There are stabbing type weapons",
-                    "such as daggers, then you have swords which are",
-                    "slashing, maces that have great crushing abilities, battle",
-                    "axes which are powerful and spears which can be good"
-                )
+                npc(FacialExpression.HALF_GUILTY, "Well let me see now...There are stabbing type weapons", "such as daggers, then you have swords which are", "slashing, maces that have great crushing abilities, battle", "axes which are powerful and spears which can be good")
                 stage = 11
             }
 
@@ -57,12 +48,7 @@ class HarlanDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             12 -> {
-                npc(FacialExpression.HALF_GUILTY,
-                    "It depends a lot on how you want to fight. Experiment",
-                    "and find out what is best for you. Never be scared to",
-                    "try out a new weapon; you never know, you might like",
-                    "it! Why, I tried all of them for a while and settled on"
-                )
+                npc(FacialExpression.HALF_GUILTY, "It depends a lot on how you want to fight. Experiment", "and find out what is best for you. Never be scared to", "try out a new weapon; you never know, you might like", "it! Why, I tried all of them for a while and settled on")
                 stage = 13
             }
 
@@ -78,9 +64,7 @@ class HarlanDialogue(player: Player? = null) : Dialogue(player) {
 
             15 -> when (buttonId) {
                 1 -> {
-                    player(FacialExpression.HALF_GUILTY,
-                        "I'd like a training sword and shield."
-                    )
+                    player(FacialExpression.HALF_GUILTY, "I'd like a training sword and shield.")
                     stage = 16
                 }
 
@@ -92,9 +76,7 @@ class HarlanDialogue(player: Player? = null) : Dialogue(player) {
 
             16 -> {
                 if (hasBoth()) {
-                    npc("You already have them! If they're not in your",
-                        "inventory, perhaps you should check your bank."
-                    )
+                    npc("You already have them! If they're not in your", "inventory, perhaps you should check your bank.")
                     stage = 99
                     return true
                 }
@@ -127,11 +109,7 @@ class HarlanDialogue(player: Player? = null) : Dialogue(player) {
 
             18 -> end()
             20 -> {
-                npc("Of course. Skillcapes are a symbol of achievement. Only",
-                    "people who have mastered a skill and reached level 99",
-                    "can get their hands on them and gain the benefits they",
-                    "carry. Is there something else I can help you with,"
-                )
+                npc("Of course. Skillcapes are a symbol of achievement. Only", "people who have mastered a skill and reached level 99", "can get their hands on them and gain the benefits they", "carry. Is there something else I can help you with,")
                 stage = 21
             }
 
@@ -142,19 +120,11 @@ class HarlanDialogue(player: Player? = null) : Dialogue(player) {
 
             22 -> {
                 if (player.getSkills().getStaticLevel(Skills.DEFENCE) >= 99) {
-                    interpreter.sendOptions(
-                        "Select an Option",
-                        "Can you tell me about different weapon types I can use?",
-                        "Can I purchase a defence cape?",
-                        "Bye."
-                    )
+                    interpreter.sendOptions("Select an Option", "Can you tell me about different weapon types I can use?", "Can I purchase a defence cape?", "Bye.")
                     stage = 23
                     return true
                 }
-                options("Can you tell me about different weapon types I can use?",
-                    "Please tell me about skillcapes.",
-                    "Bye."
-                )
+                options("Can you tell me about different weapon types I can use?", "Please tell me about skillcapes.", "Bye.")
                 stage = 0
             }
 
@@ -198,11 +168,6 @@ class HarlanDialogue(player: Player? = null) : Dialogue(player) {
         return intArrayOf(705)
     }
 
-    /**
-     * Has both boolean.
-     *
-     * @return the boolean
-     */
     fun hasBoth(): Boolean {
         val containers = arrayOf(player.inventory, player.bank, player.equipment)
         var count = 0
@@ -217,12 +182,6 @@ class HarlanDialogue(player: Player? = null) : Dialogue(player) {
         return count >= 2
     }
 
-    /**
-     * Has item boolean.
-     *
-     * @param item the item
-     * @return the boolean
-     */
     fun hasItem(item: Item?): Boolean {
         val containers = arrayOf(player.inventory, player.bank, player.equipment)
         for (c in containers) {

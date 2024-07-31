@@ -19,7 +19,7 @@ class FairyFixitDialogue(player: Player? = null) : Dialogue(player) {
         if (isQuestComplete(player, "A Fairy Tale II - Cure a Queen")) {
             npc(FacialExpression.OLD_CALM_TALK1, "Pssst! Human! I've got something for you.").also { stage = 20 }
         } else {
-            npc(FacialExpression.OLD_DISTRESSED, "What is it, human? Busy busy busy!").also { stage = 0 }
+            npc(FacialExpression.OLD_DISTRESSED, "What is it, human? Busy busy busy!")
         }
         return true
     }

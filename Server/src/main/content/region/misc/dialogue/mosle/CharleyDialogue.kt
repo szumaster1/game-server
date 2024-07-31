@@ -17,7 +17,7 @@ class CharleyDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         if (!inInventory(player, Items.BOOK_O_PIRACY_7144)) {
-            player(FacialExpression.FRIENDLY, "Hello!").also { stage = 0 }
+            player(FacialExpression.FRIENDLY, "Hello!")
         } else {
             npc(FacialExpression.FRIENDLY, "I got fish, you got gold?").also { stage = 10 }
         }

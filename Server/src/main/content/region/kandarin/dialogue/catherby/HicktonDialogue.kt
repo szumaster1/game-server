@@ -22,10 +22,7 @@ class HicktonDialogue(player: Player? = null): Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
             0 -> stage = if (isMaster(player, Skills.FLETCHING)) {
-                options("Can I buy a Skillcape of Fletching?",
-                    "Yes, please.",
-                    "No, I prefer to bash things close up."
-                )
+                options("Can I buy a Skillcape of Fletching?", "Yes, please.", "No, I prefer to bash things close up.")
                 100
             } else {
                 options( "Yes, please.", "No, I prefer to bash things close up.")
@@ -39,9 +36,7 @@ class HicktonDialogue(player: Player? = null): Dialogue(player) {
                 }
 
                 2 -> {
-                    player(FacialExpression.EVIL_LAUGH,
-                        "No, I prefer to bash things close up."
-                    )
+                    player(FacialExpression.EVIL_LAUGH, "No, I prefer to bash things close up.")
                     stage = 20
                 }
             }
@@ -59,9 +54,7 @@ class HicktonDialogue(player: Player? = null): Dialogue(player) {
                 }
 
                 3 -> {
-                    player(FacialExpression.EVIL_LAUGH,
-                        "No, I prefer to bash things close up."
-                    )
+                    player(FacialExpression.EVIL_LAUGH, "No, I prefer to bash things close up.")
                     stage = 20
                 }
             }

@@ -17,17 +17,23 @@ class GeoffreyDialogue(player: Player? = null) : Dialogue(player) {
         val diary = player.achievementDiaryManager.getDiary(DiaryType.SEERS_VILLAGE)
         if (diary!!.levelRewarded.any()) {
             player("Hello there. Are you Geoff-erm-Flax? I've been told that", "you'll give me some flax.")
-            // If 1 day has not passed since last flax reward
+            /*
+             * If 1 day has not passed since last flax reward.
+             */
             if (player.getAttribute("diary:seers:flax-timer", 0) > System.currentTimeMillis()) {
                 stage = 98
                 return true
             }
-            // If player cannot receive flax reward
+            /*
+             * If player cannot receive flax reward.
+             */
             if (!player.inventory.hasSpaceFor(Item(Items.FLAX_1780, 1))) {
                 stage = 99
                 return true
             }
-            // Determine flax reward by seers diary reward status
+            /*
+             * Determine flax reward by seers diary reward status.
+             */
             when (diary.reward) {
                 -1 -> stage = 999
                 0 -> stage = 100
@@ -55,17 +61,11 @@ class GeoffreyDialogue(player: Player? = null) : Dialogue(player) {
             8 -> npc("Pah! You call that local knowledge? Perhaps if you", "were wearing some kind of item from one of the", "seers, I might trust you.").also { stage = 999 }
             98 -> npc("I've already given you your GLORIOUS flax", "for the day. Come back tomorrow.").also {
                 stage = 999
-            } // TODO find accurate dialogue
-            99 -> npc("Yes, but your inventory is full. Come back", "when you have some space for GLORIOUS flax.").also { stage = 999 } // TODO find accurate dialogue
-            100 -> {
-                rewardFlax(30, "Yes. The seers have instructed me to give you an", "allowance of 30 GLORIOUS flax a day. I'm not going", "to argue with them, so here you go.")
-            } // TODO find accurate dialogue
-            101 -> {
-                rewardFlax(60, "Yes. Stankers has instructed me to give you an", "allowance of 60 GLORIOUS flax a day. I'm not going", "to argue with a dwarf, so here you go.")
-            } // TODO find accurate dialogue
-            102 -> {
-                rewardFlax(120, "Yes. Sir Kay has instructed me to give you an", "allowance of 120 GLORIOUS flax a day. I'm not going", "to argue with a knight, so here you go.")
             }
+            99 -> npc("Yes, but your inventory is full. Come back", "when you have some space for GLORIOUS flax.").also { stage = 999 } // TODO find accurate dialogue
+            100 -> rewardFlax(30, "Yes. The seers have instructed me to give you an", "allowance of 30 GLORIOUS flax a day. I'm not going", "to argue with them, so here you go.")
+            101 -> rewardFlax(60, "Yes. Stankers has instructed me to give you an", "allowance of 60 GLORIOUS flax a day. I'm not going", "to argue with a dwarf, so here you go.")
+            102 -> rewardFlax(120, "Yes. Sir Kay has instructed me to give you an", "allowance of 120 GLORIOUS flax a day. I'm not going", "to argue with a knight, so here you go.")
         }
         return true
     }

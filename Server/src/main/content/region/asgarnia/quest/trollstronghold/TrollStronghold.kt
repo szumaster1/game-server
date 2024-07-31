@@ -13,10 +13,10 @@ import core.plugin.Initializable
 class TrollStronghold : Quest("Troll Stronghold", 128, 127, 1, Vars.VARP_QUEST_TROLL_SRONGHOLD_PROGRESS, 0, 1, 50) {
 
     /*
-     *  Quest description:
-     *  The Imperial Guard raid was a failure, and Dunstan's son has been
-     *  captured by the trolls!
-     *  Journey through Trollheim to the Troll Stronghold, and rescue him!
+     * Quest description:
+     * The Imperial Guard raid was a failure, and Dunstan's son has been
+     * captured by the trolls!
+     * Journey through Trollheim to the Troll Stronghold, and rescue him!
      */
 
     override fun drawJournal(player: Player?, stage: Int) {

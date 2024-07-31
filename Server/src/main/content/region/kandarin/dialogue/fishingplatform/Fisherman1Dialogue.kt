@@ -7,6 +7,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
+import core.tools.END_DIALOGUE
 
 @Initializable
 class Fisherman1Dialogue(player: Player? = null) : Dialogue(player) {
@@ -24,8 +25,7 @@ class Fisherman1Dialogue(player: Player? = null) : Dialogue(player) {
             2 -> player("Who is lost?").also { stage++ }
             3 -> npcl(FacialExpression.DRUNK, "Trapped by the light... Lost and trapped...").also { stage++ }
             4 -> player(FacialExpression.THINKING, "Ermm... So you don't want to tell me then?").also { stage++ }
-            5 -> npcl(FacialExpression.DRUNK, "Trapped... In stone and darkness...").also { stage++ }
-            6 -> end()
+            5 -> npcl(FacialExpression.DRUNK, "Trapped... In stone and darkness...").also { stage = END_DIALOGUE }
         }
         return true
     }

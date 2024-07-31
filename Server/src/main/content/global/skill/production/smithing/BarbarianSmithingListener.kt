@@ -16,7 +16,7 @@ class BarbarianSmithingListener : InteractionListener {
 
     override fun defineListeners() {
         /*
-         *  Used bar on barbarian anvil.
+         * Used bar on barbarian anvil.
          */
 
         onUseWith(IntType.SCENERY, bars, Scenery.BARBARIAN_ANVIL_25349) { player, used, _ ->

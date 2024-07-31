@@ -16,8 +16,8 @@ import core.tools.END_DIALOGUE
 class BaraekDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: Baraek Brigson is a fur trader in the Varrock Square (the center of Varrock).
-     *  Location: 3217,3435
+     * Info: Baraek Brigson is a fur trader in the Varrock Square (the center of Varrock).
+     * Location: 3217,3435
      */
 
     override fun open(vararg args: Any): Boolean {

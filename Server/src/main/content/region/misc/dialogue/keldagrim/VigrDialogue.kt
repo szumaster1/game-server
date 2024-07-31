@@ -14,7 +14,7 @@ class VigrDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.OLD_NORMAL, "What do you want, human?").also { stage = 0 }
+        npc(FacialExpression.OLD_NORMAL, "What do you want, human?")
         return true
     }
 

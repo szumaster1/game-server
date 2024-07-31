@@ -12,14 +12,14 @@ import core.tools.END_DIALOGUE
 class CustomerDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: Woman currently visiting the dwarven capital city of Keldagrim in pursuit of knowledge.
-     *  This has brought her to the city's library, where she hopes to learn about the dwarves' ways
-     *  which she finds very interesting. She is the only human NPC in all of Keldagrim.
+     * Info: Woman currently visiting the dwarven capital city of Keldagrim in pursuit of knowledge.
+     * This has brought her to the city's library, where she hopes to learn about the dwarves' ways
+     * which she finds very interesting. She is the only human NPC in all of Keldagrim.
      */
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npcl(FacialExpression.FRIENDLY, "Oh, that's nice, another human visitor to Keldagrim!").also { stage++ }
+        npcl(FacialExpression.FRIENDLY, "Oh, that's nice, another human visitor to Keldagrim!")
         return true
     }
 

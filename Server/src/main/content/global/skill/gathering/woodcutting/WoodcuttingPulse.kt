@@ -182,10 +182,10 @@ class WoodcuttingPulse(private val player: Player, private val node: Scenery) : 
 
     private fun rollDepletion(): Boolean {
         /*
-         *  transform to depleted version.
-         *  OSRS and RS3 Wikis both agree: All trees present in 2009 are a 1/8 fell chance, aside from normal trees/dead trees which are 100%
-         *  OSRS: https://oldschool.runescape.wiki/w/Woodcutting scroll down to the mechanics section
-         *  RS3 : https://runescape.wiki/w/Woodcutting scroll down to the mechanics section, and expand the tree felling chances table
+         * transform to depleted version.
+         * OSRS and RS3 Wikis both agree: All trees present in 2009 are a 1/8 fell chance, aside from normal trees/dead trees which are 100%
+         * OSRS: https://oldschool.runescape.wiki/w/Woodcutting scroll down to the mechanics section
+         * RS3 : https://runescape.wiki/w/Woodcutting scroll down to the mechanics section, and expand the tree felling chances table
          */
 
         if (resource!!.respawnRate > 0) {

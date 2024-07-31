@@ -53,7 +53,7 @@ class WarningInterfaceListener : InterfaceListener {
         }
 
         /*
-         *  Corporeal Beast entrance warning.
+         * Corporeal Beast entrance warning.
          */
 
         on(Components.CWS_WARNING_30_650, 17) { player, _, _, _, _, _ ->

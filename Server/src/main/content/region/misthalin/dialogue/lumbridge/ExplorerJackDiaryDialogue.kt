@@ -17,7 +17,7 @@ class ExplorerJackDiaryDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc("What ho! Where did you come from?")
-        stage = 1
+        stage = -1
         return true
     }
 

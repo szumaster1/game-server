@@ -12,13 +12,13 @@ import core.tools.END_DIALOGUE
 class EoinDialogue(player: Player? = null): Dialogue(player) {
 
     /*
-     *  Info: Elven child in the lodge of Lletya.
-     *  He is a member of the Ithell Clan.
+     * Info: Elven child in the lodge of Lletya.
+     * He is a member of the Ithell Clan.
      */
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        player(FacialExpression.FRIENDLY, "Hello.").also { stage = 0 }
+        player(FacialExpression.FRIENDLY, "Hello.")
         return true
     }
 

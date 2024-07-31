@@ -13,8 +13,8 @@ import core.tools.START_DIALOGUE
 class TorrcsAndMarfetDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: He and Marfet are both player spoofs, and have no known relevance in Gielinor.
-     *  Location: 3253,3453,1
+     * Info: He and Marfet are both player spoofs, and have no known relevance in Gielinor.
+     * Location: 3253,3453,1
      */
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {

@@ -15,7 +15,6 @@ class MartinTheMasterGardenerDialogue(player: Player? = null) : Dialogue(player)
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         options( "Skillcape of Farming", "Quest.")
-        stage = 0
         return true
     }
 

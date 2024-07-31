@@ -6,6 +6,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
+import core.tools.END_DIALOGUE
 
 @Initializable
 class SmellytoesDialogue(player: Player? = null) : Dialogue(player) {
@@ -22,8 +23,7 @@ class SmellytoesDialogue(player: Player? = null) : Dialogue(player) {
             1 -> player(FacialExpression.HALF_GUILTY, "Sorry, have we met?").also { stage++ }
             2 -> npcl(FacialExpression.OLD_NORMAL,"Yeah! you wazsh wiv me in dat pub overy by hill!").also { stage++ }
             3 -> player(FacialExpression.HALF_GUILTY, "I have no idea what you're going on about.").also { stage++ }
-            4 -> npcl(FacialExpression.OLD_NORMAL, "Glad yeeash remembers.").also { stage++ }
-            5 -> end()
+            4 -> npcl(FacialExpression.OLD_NORMAL, "Glad yeeash remembers.").also { stage = END_DIALOGUE }
         }
         return true
     }

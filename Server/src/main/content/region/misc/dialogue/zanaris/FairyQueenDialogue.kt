@@ -14,7 +14,7 @@ class FairyQueenDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         if (!isQuestComplete(player, "Fairytale II - Cure a Queen")) {
-            options("How do crops and such survive down here?", "What's so good about this place?").also { stage = 0 }
+            options("How do crops and such survive down here?", "What's so good about this place?")
         } else {
             playerl(FacialExpression.ASKING, "Have you managed to work out a plan yet?").also { stage = 3 }
         }

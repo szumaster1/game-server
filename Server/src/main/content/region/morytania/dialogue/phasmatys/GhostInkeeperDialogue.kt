@@ -21,7 +21,7 @@ class GhostInkeeperDialogue(player: Player? = null) : Dialogue(player) {
         if (!inEquipment(player, Items.GHOSTSPEAK_AMULET_552)) {
             npc("Woooo wooo wooooo woooo").also { stage = 10 }
         } else {
-            player("Hello there!").also { stage = 0 }
+            player("Hello there!")
         }
         return true
     }

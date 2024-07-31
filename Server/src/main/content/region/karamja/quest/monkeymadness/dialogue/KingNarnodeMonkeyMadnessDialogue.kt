@@ -10,7 +10,7 @@ import core.tools.END_DIALOGUE
 class KingNarnodeMonkeyMadnessDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
-        when(getQuestStage(player!!, "Monkey Madness")) {
+        when (getQuestStage(player!!, "Monkey Madness")) {
             0 -> {
                 when(stage){
                     0 -> npcl("Adventurer! It is good to see you again!").also { stage++ }

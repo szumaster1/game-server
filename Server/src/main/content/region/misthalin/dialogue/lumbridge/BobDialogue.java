@@ -15,13 +15,9 @@ import core.game.world.GameWorld;
 public final class BobDialogue extends Dialogue {
 
     private int itemId = 0;
-
     private Item item;
-
     private static RepairItem repairitem = null;
-
     private final int level = 1;
-
     public BobDialogue() {
     }
 

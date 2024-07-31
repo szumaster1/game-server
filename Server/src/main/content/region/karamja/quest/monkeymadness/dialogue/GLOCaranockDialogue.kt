@@ -5,8 +5,9 @@ import core.game.dialogue.DialogueFile
 import core.tools.END_DIALOGUE
 
 class GLOCaranockDialogue : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
-        when(stage) {
+        when (stage) {
             0 -> npcl("Who are you? Did Glough send you?").also { stage++ }
             1 -> playerl("Glough? No. He has been forced to resign by the king.").also { stage++ }
             2 -> npcl("Forced to resign??").also { stage++ }

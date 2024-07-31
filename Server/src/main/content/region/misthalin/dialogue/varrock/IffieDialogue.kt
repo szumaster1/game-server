@@ -10,8 +10,8 @@ import core.tools.END_DIALOGUE
 class IffieDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: Old woman knitting in Thessalia's Fine Clothes store in Varrock.
-     *  Location: 3204,3419
+     * Info: Old woman knitting in Thessalia's Fine Clothes store in Varrock.
+     * Location: 3204,3419
      */
 
     override fun open(vararg args: Any?): Boolean {

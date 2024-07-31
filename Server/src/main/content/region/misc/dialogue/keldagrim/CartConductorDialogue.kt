@@ -24,7 +24,7 @@ class CartConductorDialogue(player: Player? = null) : Dialogue(player) {
             0 -> npc("Sorry, but I can only take people", "who have been there before.").also { stage = 1000 }
 
             /*
-                Start Ice Mountain (Dwarven Mines) Conductor dialogue.
+             * Start Ice Mountain (Dwarven Mines) Conductor dialogue.
              */
 
             100 -> npc("Alright, that'll cost ye 150gp.").also { stage++ }
@@ -35,7 +35,7 @@ class CartConductorDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             /*
-                Start White Wolf Mountain Conductor dialogue.
+             * Start White Wolf Mountain Conductor dialogue.
              */
 
             200 -> npc("Alright, that'll cost ye 100gp.").also { stage++ }
@@ -46,7 +46,7 @@ class CartConductorDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             /*
-                Start Keldagrim Conductor dialogue.
+             * Start Keldagrim Conductor dialogue.
              */
 
             300 -> npc("Alright, where would ye like to go?").also { stage++ }

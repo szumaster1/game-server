@@ -99,13 +99,13 @@ class BrimhavenListeners : InteractionListener {
         }
 
         /*
-         *  Selecting the option 'Unlock diary' turns it into an Unlocked diary.
-         *  A player may fail to unlock the diary, and trigger a trap, resulting damage
-         *  to hitpoints. This damage is equal to half the current hitpoints available.
-         *  A higher Thieving level reduces the chances of this trap from triggering.
-         *  Reading it provides evidence that Sandy did kill Clarence. After giving the
-         *  diary to Zavistic Rarve, it will no longer be available;
-         *  even after searching Sandy's desk.
+         * Selecting the option 'Unlock diary' turns it into an Unlocked diary.
+         * A player may fail to unlock the diary, and trigger a trap, resulting damage
+         * to hitpoints. This damage is equal to half the current hitpoints available.
+         * A higher Thieving level reduces the chances of this trap from triggering.
+         * Reading it provides evidence that Sandy did kill Clarence. After giving the
+         * diary to Zavistic Rarve, it will no longer be available;
+         * even after searching Sandy's desk.
          */
 
         fun success(player: Player, skill: Int): Boolean {

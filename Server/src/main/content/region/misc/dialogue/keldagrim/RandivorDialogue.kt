@@ -14,7 +14,7 @@ class RandivorDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.OLD_NORMAL, "Welcome to my stall! Come and buy some", "tasty bread, freshly baked just 2 months ago!").also { stage = 0 }
+        npc(FacialExpression.OLD_NORMAL, "Welcome to my stall! Come and buy some", "tasty bread, freshly baked just 2 months ago!")
         return true
     }
 

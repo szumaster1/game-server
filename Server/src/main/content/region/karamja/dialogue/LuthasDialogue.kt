@@ -39,7 +39,6 @@ class LuthasDialogue(player: Player? = null) : Dialogue(player) {
             return true
         }
         npc(FacialExpression.HAPPY, "Hello I'm Luthas, I run the banana plantation here.")
-        stage = 0
         return true
     }
 

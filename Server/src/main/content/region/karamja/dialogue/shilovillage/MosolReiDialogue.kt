@@ -18,7 +18,6 @@ class MosolReiDialogue(player: Player? = null): Dialogue(player) {
         npc = args[0] as NPC
         if (isQuestComplete(player, "Shilo Village")) {
             player("Greetings")
-            stage = 0
         } else {
             npc(FacialExpression.FRIENDLY, "Sorry bwana, I cannot help you at this time. Go and talk", "to Trufitus at Tai Bwo Wannai, I believe he needs some", "help.").also { stage = END_DIALOGUE }
         }

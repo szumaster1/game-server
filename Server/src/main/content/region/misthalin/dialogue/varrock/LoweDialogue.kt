@@ -13,9 +13,9 @@ import core.tools.END_DIALOGUE
 class LoweDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: Owner of Lowe's Archery Emporium,
-     *  found in Varrock just east of the general store.
-     *  Location: 3232,3423
+     * Info: Owner of Lowe's Archery Emporium,
+     * found in Varrock just east of the general store.
+     * Location: 3232,3423
      */
 
     override fun open(vararg args: Any): Boolean {

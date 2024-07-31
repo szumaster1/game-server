@@ -16,9 +16,9 @@ import core.tools.END_DIALOGUE
 class NaturalHistorianNorthDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: Biologist that have been hired by the Varrock Museum to educate visitors
-     *  and gather further information regarding Gielinor's diverse animal kingdom.
-     *  Location: 1760,4976
+     * Info: Biologist that have been hired by the Varrock Museum to educate visitors
+     * and gather further information regarding Gielinor's diverse animal kingdom.
+     * Location: 1760,4976
      */
 
     override fun open(vararg args: Any): Boolean {

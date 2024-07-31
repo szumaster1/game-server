@@ -13,14 +13,14 @@ import core.tools.END_DIALOGUE
 class LibrarianDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: Hugi, along with his assistant, help to manage the library,
-     *  in which many important documents concerning the history of Keldagrim are kept.
-     *  Location: 2860,10223
+     * Info: Hugi, along with his assistant, help to manage the library,
+     * in which many important documents concerning the history of Keldagrim are kept.
+     * Location: 2860,10223
      */
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npcl(FacialExpression.OLD_NORMAL, "Welcome to the Keldagrim library, human traveller!").also { stage++ }
+        npcl(FacialExpression.OLD_NORMAL, "Welcome to the Keldagrim library, human traveller!")
         return true
     }
 

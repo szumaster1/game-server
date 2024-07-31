@@ -15,7 +15,7 @@ class BrimstailDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        npcl(FacialExpression.OLD_NORMAL, "Hello adventurer, what can I do for you?").also { stage = 0 }
+        npcl(FacialExpression.OLD_NORMAL, "Hello adventurer, what can I do for you?")
         return true
     }
 

@@ -28,7 +28,7 @@ class GnomeCoachDialogue (player: Player? = null) : Dialogue(player) {
          *     npc(FacialExpression.OLD_NORMAL,"Please enter the answer to the question.").also { stage = 103 }
          * } else {
          */
-        npcl(FacialExpression.OLD_NORMAL, "Run faster! Faster!").also { stage = 0 }
+        npcl(FacialExpression.OLD_NORMAL, "Run faster! Faster!")
         return true
     }
 

@@ -18,7 +18,7 @@ class ElfTrackerDialogue(player: Player? = null) : Dialogue(player) {
         npc = args[0] as NPC
         var tracksFound = false
         if (!tracksFound) {
-            player(FacialExpression.FRIENDLY, "Hello.").also { stage = 0 }
+            player(FacialExpression.FRIENDLY, "Hello.")
         } else {
             playerl(FacialExpression.NEUTRAL, "I've found tracks leading off to the west. But they trail off into the trees. Beyond that I am unable to follow.").also { stage = 30 }
         }

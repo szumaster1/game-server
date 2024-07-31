@@ -480,9 +480,9 @@ fun resetAnimator(player: Player) {
 }
 
 /**
- *  Get the number of ticks an animation lasts
- *  @param animation the Animation object to check the duration of
- *  @return the number of ticks the given animation lasts for
+ * Get the number of ticks an animation lasts
+ * @param animation the Animation object to check the duration of
+ * @return the number of ticks the given animation lasts for
  */
 fun animationDuration(animation: Animation): Int {
     return animation.definition.durationTicks

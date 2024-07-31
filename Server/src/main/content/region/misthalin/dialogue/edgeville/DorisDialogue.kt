@@ -17,7 +17,7 @@ class DorisDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         if(!isQuestComplete(player, "Recipe for Disaster")) {
-            npc("What are you doing in my house?").also { stage = 0 }
+            npc("What are you doing in my house?")
         } else {
             npc("Hello again dearie. How are you doing?").also { stage = 5 }
         }

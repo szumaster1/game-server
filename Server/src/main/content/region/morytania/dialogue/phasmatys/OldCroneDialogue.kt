@@ -17,9 +17,9 @@ import core.tools.END_DIALOGUE
 class OldCroneDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: The Old crone can be found in the house east of the slayer tower.
-     *  She has a central role in Ghosts Ahoy, and a minor role in Animal Magnetism.
-     *  Location: 3461,3558
+     * Info: The Old crone can be found in the house east of the slayer tower.
+     * She has a central role in Ghosts Ahoy, and a minor role in Animal Magnetism.
+     * Location: 3461,3558
      */
 
     override fun open(vararg args: Any): Boolean {

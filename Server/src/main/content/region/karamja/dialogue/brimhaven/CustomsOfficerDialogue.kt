@@ -31,7 +31,7 @@ class CustomsOfficerDialogue(player: Player? = null): Dialogue(player) {
                 return true
             }
         }
-        npc(FacialExpression.HALF_GUILTY, "Can I help you?").also { stage = 0 }
+        npc(FacialExpression.HALF_GUILTY, "Can I help you?")
         return true
     }
 

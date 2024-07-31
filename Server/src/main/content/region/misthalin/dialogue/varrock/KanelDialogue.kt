@@ -12,9 +12,9 @@ import core.tools.END_DIALOGUE
 class KanelDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-       Info: One of the youngest of Gertrude's four children.
-       Location: 3155,3406
-    */
+     * Info: One of the youngest of Gertrude's four children.
+     * Location: 3155,3406
+     */
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC

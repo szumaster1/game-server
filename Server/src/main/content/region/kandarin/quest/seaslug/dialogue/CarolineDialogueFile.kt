@@ -16,7 +16,7 @@ class CarolineDialogueFile : DialogueFile() {
         when {
 
             /*
-             *  Concerned Caroline.
+             * Concerned Caroline.
              */
 
             (questStage in 0..1) -> {
@@ -63,7 +63,7 @@ class CarolineDialogueFile : DialogueFile() {
             }
 
             /*
-             *  Pearls of Wisdom.
+             * Pearls of Wisdom.
              */
             questStage == 50 -> {
                 when(stage) {

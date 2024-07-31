@@ -14,15 +14,14 @@ import core.tools.END_DIALOGUE
 class MurkyMattDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: One of the current "Market Price Guides" near the east side
-     *  of the Grand Exchange market in north-west Varrock.
-     *  Location: 3175,3481
+     * Info: One of the current "Market Price Guides" near the east side
+     * of the Grand Exchange market in north-west Varrock.
+     * Location: 3175,3481
      */
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         player(FacialExpression.HALF_GUILTY, "A pirate!")
-        stage = 0
         return true
     }
 

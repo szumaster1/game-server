@@ -14,15 +14,14 @@ import core.tools.END_DIALOGUE
 class FaridMorrisaneDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-     *  Info: One of the current "Market Price Guides",
-     *  He gives players the current price of ores.
-     *  Location: 3173,3498
+     * Info: One of the current "Market Price Guides",
+     * He gives players the current price of ores.
+     * Location: 3173,3498
      */
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         player(FacialExpression.HALF_GUILTY, "Hello, little boy.")
-        stage = 0
         return true
     }
 
