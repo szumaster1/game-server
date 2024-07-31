@@ -7,10 +7,10 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 @Initializable
-class GPDTEmployeeDialogue(player: Player? = null) : Dialogue(player) {
+class RPDTEmployeeDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
-        npcl(FacialExpression.HAPPY, "Welcome to G.P.D.T.!")
+        npcl(FacialExpression.HAPPY, "Welcome to R.P.D.T.!")
         stage = if (player.questRepository.getStage("Tribal Totem") == 20) {
             5
         } else 0

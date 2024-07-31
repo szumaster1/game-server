@@ -15,7 +15,7 @@ class TreeGuardDialogue : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.GUARD_345)
         when (stage) {
-            0 ->  {
+            0 -> {
                 if(getAttribute(player!!, "draynor:feed-tree-guard", false)) {
                     playerl("I think I should leave him in peace to finish his stew!").also { stage = END_DIALOGUE }
                 } else if (!inInventory(player!!, Items.STEW_2003)) {
