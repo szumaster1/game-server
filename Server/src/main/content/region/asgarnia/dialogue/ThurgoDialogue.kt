@@ -17,10 +17,10 @@ import core.tools.END_DIALOGUE
 class ThurgoDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        Thurgo is one of the last living Imcando dwarves,
-        and is the master of Smithing found outside the
-        Asgarnian Ice Caves, south of Port Sarim.
-        Location: 3001,3144
+     * Thurgo is one of the last living Imcando dwarves,
+     * and is the master of Smithing found outside the
+     * Asgarnian Ice Caves, south of Port Sarim.
+     * Location: 3001,3144
      */
 
     override fun open(vararg args: Any): Boolean {

@@ -15,7 +15,7 @@ class NoterazzoDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.HALF_ASKING, "Hey, wanna trade? I'll give the best deals you can find.").also { stage = 0 }
+        npc(FacialExpression.HALF_ASKING, "Hey, wanna trade? I'll give the best deals you can find.")
         return true
     }
 

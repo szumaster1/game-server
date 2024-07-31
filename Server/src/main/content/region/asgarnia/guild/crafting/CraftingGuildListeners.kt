@@ -14,11 +14,12 @@ import core.game.world.map.Location
 
 class CraftingGuildListeners : InteractionListener {
 
-    private val guildDoor = Scenery.GUILD_DOOR_2647
-    private val brownApron = Items.BROWN_APRON_1757
-    private val craftingSkillcape = intArrayOf(Items.CRAFTING_CAPE_9780, Items.CRAFTING_CAPET_9781)
-
     override fun defineListeners() {
+
+        /*
+         * Interaction with crafting guild doors.
+         */
+
         on(guildDoor, IntType.SCENERY, "open") { player, door ->
             if (player.location == Location.create(2933, 3289, 0)) {
                 if (hasLevelStat(player, Skills.CRAFTING, 40)) {
@@ -43,5 +44,11 @@ class CraftingGuildListeners : InteractionListener {
                 return@on true
             }
         }
+    }
+
+    companion object {
+        private val guildDoor = Scenery.GUILD_DOOR_2647
+        private val brownApron = Items.BROWN_APRON_1757
+        private val craftingSkillcape = intArrayOf(Items.CRAFTING_CAPE_9780, Items.CRAFTING_CAPET_9781)
     }
 }

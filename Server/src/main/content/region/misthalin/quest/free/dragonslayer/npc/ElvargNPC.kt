@@ -30,6 +30,7 @@ import kotlin.math.ceil
 
 @Initializable
 class ElvargNPC : AbstractNPC {
+
     private val combatHandler: CombatSwingHandler = ElvargCombatSwingHandler()
 
     constructor() : super(0, null)

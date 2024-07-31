@@ -15,15 +15,9 @@ import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.setAttribute;
 
-/**
- * The Ice path zone.
- */
 @Initializable
 public final class IcePathZone extends MapZone implements Plugin<Object> {
 
-    /**
-     * Instantiates a new Ice path zone.
-     */
     public IcePathZone() {
         super("Ice path zone", true);
     }
@@ -39,11 +33,7 @@ public final class IcePathZone extends MapZone implements Plugin<Object> {
     public boolean enter(Entity e) {
         if (e instanceof Player) {
             final Player player = (Player) e;
-            player.getInterfaceManager().openOverlay(new Component(482)); // TODO:
-            // find
-            // the
-            // real
-            // one
+            player.getInterfaceManager().openOverlay(new Component(482));
             Pulse pulse = new Pulse(10, player) {
                 @Override
                 public boolean pulse() {

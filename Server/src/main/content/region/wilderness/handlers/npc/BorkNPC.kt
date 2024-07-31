@@ -42,16 +42,12 @@ import java.util.*
 
 @Initializable
 class BorkNPC : AbstractNPC {
+
     private val legions: MutableList<NPC> = ArrayList(20)
-
     private var spawnedLegion = false
-
     private var player: Player? = null
-
     private var cutscene: BorkCutscene? = null
-
     constructor() : super(-1, null)
-
     constructor(id: Int, location: Location?) : super(id, location)
 
     override fun construct(id: Int, location: Location, vararg objects: Any): AbstractNPC {

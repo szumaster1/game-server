@@ -17,13 +17,10 @@ import core.plugin.Initializable
 import core.tools.RandomFunction
 
 @Initializable
-class DarkEnergyCoreNPC
+class DarkEnergyCoreNPC @JvmOverloads constructor(id: Int = 8127, location: Location? = null) : AbstractNPC(id, location, false) {
 
-@JvmOverloads constructor(id: Int = 8127, location: Location? = null) : AbstractNPC(id, location, false) {
     private var master: NPC? = null
-
     private var ticks = 0
-
     private var fails = 0
 
     override fun construct(id: Int, location: Location, vararg objects: Any): AbstractNPC {

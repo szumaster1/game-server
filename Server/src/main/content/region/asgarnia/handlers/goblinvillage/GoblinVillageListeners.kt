@@ -17,6 +17,7 @@ class GoblinVillageListeners : InteractionListener {
         /*
          * Talk-to goblin in labirynth.
          */
+
         on(NPCs.GOBLIN_444, IntType.NPC, "Talk-To") { player, _ ->
             sendNPCDialogue(player, NPCs.GOBLIN_444, "Go away, human!", FacialExpression.OLD_ANGRY1)
             return@on true

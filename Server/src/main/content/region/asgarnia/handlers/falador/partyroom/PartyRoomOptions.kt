@@ -68,14 +68,7 @@ class PartyRoomOptions : OptionHandler() {
             return this
         }
 
-        override fun handle(
-            player: Player,
-            component: Component,
-            opcode: Int,
-            button: Int,
-            slot: Int,
-            itemId: Int
-        ): Boolean {
+        override fun handle(player: Player, component: Component, opcode: Int, button: Int, slot: Int, itemId: Int): Boolean {
             var itemId = itemId
             val viewer = player.getExtension<ChestViewer>(ChestViewer::class.java)
             if (viewer == null || viewer.container == null) {

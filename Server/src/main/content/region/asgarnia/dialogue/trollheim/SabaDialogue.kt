@@ -16,9 +16,9 @@ import core.tools.END_DIALOGUE
 class SabaDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        Saba was an old hermit who lived in
-        a cave on Death Plateau, north of the
-        Warriors' Guild.
+     * Saba was an old hermit who lived in
+     * a cave on Death Plateau, north of the
+     * Warriors' Guild.
      */
 
     override fun open(vararg args: Any?): Boolean {

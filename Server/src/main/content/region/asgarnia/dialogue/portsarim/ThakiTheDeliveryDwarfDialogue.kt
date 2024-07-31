@@ -11,6 +11,11 @@ import core.tools.END_DIALOGUE
 @Initializable
 class ThakiTheDeliveryDwarfDialogue(player: Player? = null) : Dialogue(player) {
 
+    /*
+     * Thaki the delivery dwarf is a delivery dwarf
+     * featured in the Catapult Construction quest.
+     */
+
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         npc(FacialExpression.OLD_NORMAL, "Arrr!")

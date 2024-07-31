@@ -12,6 +12,13 @@ import core.tools.END_DIALOGUE
 @Initializable
 class PortSarimBrianDialogue(player: Player? = null) : Dialogue(player) {
 
+    /*
+     * Brian is a shop owner who runs Brian's Battleaxe Bazaar in Port Sarim.
+     * He sells battleaxes, from bronze to adamant. He also plays a small role
+     * in the One Small Favour quest, agreeing to sharpen the jungle forester's
+     * axe if Jimmy Chisel is returned to him.
+     */
+
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         options("So, are you selling something?", "'Ello.").also { stage = 0 }

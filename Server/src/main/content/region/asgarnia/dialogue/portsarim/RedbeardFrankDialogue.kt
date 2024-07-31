@@ -17,6 +17,12 @@ import core.tools.END_DIALOGUE
 @Initializable
 class RedbeardFrankDialogue(player: Player? = null) : Dialogue(player) {
 
+    /*
+     * Redbeard Frank is a pirate bosun currently docked
+     * in the Asgarnian port-town of Port Sarim or at the
+     * end of the most north-eastern pier in Port Sarim.
+     */
+
     private var replacementReward = false
     private val level = 0
     private var quest: Quest? = null

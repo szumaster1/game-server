@@ -1,6 +1,7 @@
 package content.region.misthalin.quest.free.dragonslayer.dialogue
 
 import content.region.misthalin.quest.free.dragonslayer.DragonSlayer
+import core.api.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
@@ -29,22 +30,15 @@ class WormbrainDSDialogue(player: Player? = null) : Dialogue(player) {
         when (quest!!.getStage(player)) {
             20 -> {
                 when (stage) {
-                    -1 -> if (!player.inventory.containsItem(DragonSlayer.WORMBRAIN_PIECE) && !player.bank.containsItem(
-                            DragonSlayer.WORMBRAIN_PIECE
-                        )
-                    ) {
+                    -1 -> if (!player.inventory.containsItem(DragonSlayer.WORMBRAIN_PIECE) && !player.bank.containsItem(DragonSlayer.WORMBRAIN_PIECE)) {
                         player("I believe you've got a piece of a map that I need.")
                         stage = 500
                     } else {
-                        defaultDial(buttonId)
+                        defaultDialogue(buttonId)
                     }
 
                     500 -> {
-                        npc(
-                            FacialExpression.OLD_DEFAULT,
-                            "So? Why should I be giving it to you? What you do",
-                            "for Wormbrain?"
-                        )
+                        npc(FacialExpression.OLD_DEFAULT, "So? Why should I be giving it to you? What you do", "for Wormbrain?")
                         stage = 501
                     }
 
@@ -80,10 +74,7 @@ class WormbrainDSDialogue(player: Player? = null) : Dialogue(player) {
                         if (!player.inventory.add(DragonSlayer.WORMBRAIN_PIECE)) {
                             GroundItemManager.create(DragonSlayer.WORMBRAIN_PIECE, player)
                         }
-                        interpreter.sendItemMessage(
-                            DragonSlayer.WORMBRAIN_PIECE.id,
-                            "You buy the map piece from Wormbrain."
-                        )
+                        interpreter.sendItemMessage(DragonSlayer.WORMBRAIN_PIECE.id, "You buy the map piece from Wormbrain.")
                         stage = 507
                     } else {
                         end()
@@ -97,24 +88,19 @@ class WormbrainDSDialogue(player: Player? = null) : Dialogue(player) {
 
                     508 -> end()
                 }
-                defaultDial(buttonId)
+                defaultDialogue(buttonId)
             }
 
-            else -> defaultDial(buttonId)
+            else -> defaultDialogue(buttonId)
         }
         return true
     }
 
     override fun getIds(): IntArray {
-        return intArrayOf(745)
+        return intArrayOf(NPCs.WORMBRAIN_745)
     }
 
-    /**
-     * Default dial.
-     *
-     * @param buttonId the button id
-     */
-    fun defaultDial(buttonId: Int) {
+    fun defaultDialogue(buttonId: Int) {
         when (stage) {
             -1 -> {
                 options("What are you in for?", "Sorry, thought this was a zoo.")

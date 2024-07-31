@@ -11,6 +11,11 @@ import core.tools.END_DIALOGUE
 @Initializable
 class OracleDialogue(player: Player? = null) : Dialogue(player) {
 
+    /*
+     * The Oracle is a strange woman who
+     * lives atop Ice Mountain.
+     */
+
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         quest = player.getQuestRepository().getQuest("Dragon Slayer")

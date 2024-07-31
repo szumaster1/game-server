@@ -12,6 +12,12 @@ import core.tools.END_DIALOGUE
 @Initializable
 class GrumDialogue(player: Player? = null) : Dialogue(player) {
 
+    /*
+     * Grum is a man who runs Grum's Gold Exchange in Port Sarim.
+     * He buys and sells unenchanted rings, amulets and necklaces
+     * from sapphire up to diamond.
+     */
+
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         npc(FacialExpression.HAPPY, "Would you like to buy or sell some gold jewellery?")

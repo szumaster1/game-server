@@ -14,6 +14,12 @@ import core.tools.END_DIALOGUE
 @Initializable
 class SecurityGuardDialogue(player: Player? = null) : Dialogue(player) {
 
+    /*
+     * The Security Guard used to be a random event.
+     * Since the random event update the Security Guard travels around random places,
+     * and hands out free security books to anyone talking to him.
+     */
+
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         npc(FacialExpression.OLD_NORMAL, "Hiya. I'm giving out free books that teach you how to", "keep your account secure.")

@@ -11,6 +11,11 @@ import core.plugin.Initializable
 @Initializable
 class SanfewDialogue(player: Player? = null) : Dialogue(player) {
 
+    /*
+     * Sanfew is the leader of the druids in Taverley,
+     * and is found in the building north of Jatix's Herblore Shop.
+     */
+
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         npc(FacialExpression.HALF_GUILTY, "What can I do for you young 'un?")

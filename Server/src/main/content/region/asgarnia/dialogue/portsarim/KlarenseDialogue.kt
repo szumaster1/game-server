@@ -12,6 +12,12 @@ import core.plugin.Initializable
 @Initializable
 class KlarenseDialogue(player: Player? = null) : Dialogue(player) {
 
+    /*
+     * Klarense is a sailor located on the second south-east
+     * dock of Port Sarim. He is the owner of the Lady Lumbridge,
+     * a ship which is in a state of disrepair.
+     */
+
     private var quest: Quest? = null
 
     override fun open(vararg args: Any): Boolean {

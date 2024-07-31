@@ -12,6 +12,12 @@ import core.tools.END_DIALOGUE
 @Initializable
 class JackSeagullDialogue(player: Player? = null) : Dialogue(player) {
 
+    /*
+     * Jack Seagull is a pirate in The Rusty Anchor
+     * in Port Sarim. When asked what he's doing,
+     * he merely says that he is drinking.
+     */
+
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         npc(FacialExpression.HALF_GUILTY, "Arrr, matey!")

@@ -17,6 +17,11 @@ import core.tools.END_DIALOGUE
 @Initializable
 class MonkOfEntranaDialogue(player: Player? = null) : Dialogue(player) {
 
+    /*
+     * Monks of Entrana are holy men who transport
+     * players between Port Sarim and Entrana.
+     */
+
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         if (npc.id in intArrayOf(NPCs.MONK_OF_ENTRANA_2730,NPCs.MONK_OF_ENTRANA_658,NPCs.MONK_OF_ENTRANA_2731)) {

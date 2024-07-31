@@ -20,20 +20,12 @@ import java.util.List;
 
 import static core.api.ContentAPIKt.*;
 
-/**
- * The Gwd graardor swing handler.
- */
 public final class GWDGraardorSwingHandler extends CombatSwingHandler {
 
     private static final ZoneBorders CHAMBER = new ZoneBorders(2864, 5351, 2876, 5369);
-
     private static final Animation MELEE_ATTACK = new Animation(7060, Priority.HIGH);
-
     private static final Animation RANGE_ATTACK = new Animation(7063, Priority.HIGH);
 
-    /**
-     * Instantiates a new Gwd graardor swing handler.
-     */
     public GWDGraardorSwingHandler() {
         super(CombatStyle.MELEE);
     }

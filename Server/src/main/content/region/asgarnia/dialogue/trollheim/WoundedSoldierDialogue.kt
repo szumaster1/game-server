@@ -11,10 +11,10 @@ import core.tools.END_DIALOGUE
 class WoundedSoldierDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        Wounded Soldiers were human soldiers of the Burthorpe
-        Imperial Guard, who were injured fighting trolls
-        in the Troll War zone.
-        Location: 2840,3589
+     * Wounded Soldiers were human soldiers of the Burthorpe
+     * Imperial Guard, who were injured fighting trolls
+     * in the Troll War zone.
+     * Location: 2840,3589
      */
 
     override fun open(vararg args: Any?): Boolean {

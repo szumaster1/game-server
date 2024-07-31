@@ -25,9 +25,7 @@ import core.plugin.Initializable
 import core.tools.RandomFunction
 
 @Initializable
-class ChaosElementalNPC
-
-@JvmOverloads constructor(id: Int = -1, location: Location? = null) : AbstractNPC(id, location) {
+class ChaosElementalNPC @JvmOverloads constructor(id: Int = -1, location: Location? = null) : AbstractNPC(id, location) {
 
     private val COMBAT_HANDLER: MultiSwingHandler = ChaosCombatHandler()
 

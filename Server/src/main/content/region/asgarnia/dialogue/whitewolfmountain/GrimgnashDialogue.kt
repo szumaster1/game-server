@@ -10,6 +10,11 @@ import core.tools.END_DIALOGUE
 @Initializable
 class GrimgnashDialogue(player: Player? = null) : Dialogue(player) {
 
+    /*
+     * Grimgnash Skullrot is a griffin
+     * featured in Grim Tales.
+     */
+
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         npc(FacialExpression.HALF_GUILTY, "What you want, little human? Grimgnash hungry. Want", "tasty morsel like you!")

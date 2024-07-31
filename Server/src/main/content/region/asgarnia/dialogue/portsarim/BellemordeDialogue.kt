@@ -13,6 +13,11 @@ import core.tools.END_DIALOGUE
 @Initializable
 class BellemordeDialogue(player: Player? = null) : Dialogue(player) {
 
+    /*
+     * The cat is a close companion of The Face,
+     * and can be found north of Gerrant's Fishy Business.
+     */
+
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         player("Hello puss.")

@@ -19,8 +19,8 @@ class ZoneMonitorTests {
         TestUtils.preTestSetup()
     }
 
-    /**
-     * Evalutes success of glory teleport using all glory charged items
+    /*
+     * Evalutes success of glory teleport using all glory charged items.
      */
     fun teleportWithGlory(expected : Boolean, p : Player) {
         for (id in GLORIES) {

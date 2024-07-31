@@ -12,9 +12,9 @@ import core.tools.END_DIALOGUE
 class LakkiDwarfDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        Lakki is a delivery dwarf currently wandering
-        near his broken cart south of Ice Mountain.
-        He is the starting point for the Perils of Ice Mountain quest.
+     * Lakki is a delivery dwarf currently wandering
+     * near his broken cart south of Ice Mountain.
+     * He is the starting point for the Perils of Ice Mountain quest.
      */
 
     override fun open(vararg args: Any): Boolean {

@@ -14,9 +14,9 @@ import core.tools.END_DIALOGUE
 class KnightGWDDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        A dying Knight, also known as Sir Gerry can be
-        found struggling to stay alive outside the God Wars Dungeon.
-        Location: 2912,3749
+     * A dying Knight, also known as Sir Gerry can be
+     * found struggling to stay alive outside the God Wars Dungeon.
+     * Location: 2912,3749
      */
 
     override fun open(vararg args: Any): Boolean {

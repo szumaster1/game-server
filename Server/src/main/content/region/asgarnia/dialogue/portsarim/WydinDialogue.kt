@@ -12,6 +12,12 @@ import core.tools.END_DIALOGUE
 @Initializable
 class WydinDialogue(player: Player? = null) : Dialogue(player) {
 
+    /*
+     * Wydin is the owner of Wydin's Food Store in Port Sarim.
+     * He sells a variety of fresh food. Wydin also plays a
+     * small part in the Pirate's Treasure quest.
+     */
+
     override fun open(vararg args: Any): Boolean {
         var door = false
         if (args.size == 2) door = args[1] as Boolean

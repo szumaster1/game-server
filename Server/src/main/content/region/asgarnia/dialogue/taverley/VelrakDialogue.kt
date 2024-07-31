@@ -15,9 +15,9 @@ import core.tools.END_DIALOGUE
 class VelrakDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        Velrak the explorer is an explorer who was captured
-        by the Kinshra while exploring Taverley Dungeon,
-        and imprisoned within in the Black Knights' Base.
+     * Velrak the explorer is an explorer who was captured
+     * by the Kinshra while exploring Taverley Dungeon,
+     * and imprisoned within in the Black Knights' Base.
      */
 
     override fun open(vararg args: Any?): Boolean {

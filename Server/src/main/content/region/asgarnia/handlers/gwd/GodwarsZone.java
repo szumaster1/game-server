@@ -36,9 +36,6 @@ import core.tools.StringUtils;
 
 import static core.api.ContentAPIKt.*;
 
-/**
- * The Godwars zone.
- */
 @Initializable
 public final class GodwarsZone extends MapZone implements Plugin<Object> {
 
@@ -48,9 +45,6 @@ public final class GodwarsZone extends MapZone implements Plugin<Object> {
         ZAMORAK_FORTRESS.addException(new ZoneBorders(2880, 5317, 2904, 5338));
     }
 
-    /**
-     * Instantiates a new Godwars zone.
-     */
     public GodwarsZone() {
         super("Godwars", true, ZoneRestriction.RANDOM_EVENTS, ZoneRestriction.CANNON);
     }
@@ -78,12 +72,6 @@ public final class GodwarsZone extends MapZone implements Plugin<Object> {
         return true;
     }
 
-    /**
-     * Sets rope setting.
-     *
-     * @param player  the player
-     * @param setting the setting
-     */
     public void setRopeSetting(Player player, int setting) {
         setVarbit(player, setting == 1 ? 3933 : 3934, 1, true);
     }
@@ -388,13 +376,6 @@ public final class GodwarsZone extends MapZone implements Plugin<Object> {
         });
     }
 
-    /**
-     * Increase killcount.
-     *
-     * @param p        the p
-     * @param faction  the faction
-     * @param increase the increase
-     */
     public void increaseKillcount(Player p, GodWarsFaction faction, int increase) {
         if (faction == null) {
             return;
@@ -423,37 +404,15 @@ public final class GodwarsZone extends MapZone implements Plugin<Object> {
         return null;
     }
 
-
-    /**
-     * The enum God wars faction.
-     */
     enum GodWarsFaction {
-        /**
-         * Armadyl god wars faction.
-         */
         ARMADYL(6222, 6246, 87, 11694, 11718, 11720, 11722, 12670, 12671, 14671),
-        /**
-         * Bandos god wars faction.
-         */
         BANDOS(6260, 6283, 11061, 11696, 11724, 11726, 11728),
-        /**
-         * Saradomin god wars faction.
-         */
         SARADOMIN(6247, 6259, 1718, 2412, 2415, 2661, 2663, 2665, 2667, 3479, 3675, 3489, 3840, 4682, 6762, 8055, 10384, 10386, 10388, 10390, 10440, 10446, 10452, 10458, 10464, 10470, 11181, 11698, 11730),
-        /**
-         * Zamorak god wars faction.
-         */
         ZAMORAK(6203, 6221, 11716, 11700, 2414, 2417, 2653, 2655, 2657, 2659, 3478, 3674, 3841, 3842, 3852, 4683, 6764, 8056, 10368, 10370, 10372, 10374, 10444, 10450, 10456, 10460, 10468, 10474, 10776, 10786, 10790);
 
-
         private final int startId;
-
-
         private final int endId;
-
-
         private final int[] protectionItems;
-
 
         GodWarsFaction(int startId, int endId, int... protectionItems) {
             this.startId = startId;
@@ -461,13 +420,6 @@ public final class GodwarsZone extends MapZone implements Plugin<Object> {
             this.protectionItems = protectionItems;
         }
 
-
-        /**
-         * For id god wars faction.
-         *
-         * @param npcId the npc id
-         * @return the god wars faction
-         */
         public static GodWarsFaction forId(int npcId) {
             for (GodWarsFaction faction : values()) {
                 if (npcId >= faction.getStartId() && npcId <= faction.getEndId()) {
@@ -477,13 +429,6 @@ public final class GodwarsZone extends MapZone implements Plugin<Object> {
             return null;
         }
 
-
-        /**
-         * Gets protection item amount.
-         *
-         * @param player the player
-         * @return the protection item amount
-         */
         public int getProtectionItemAmount(Player player) {
             int count = 0;
             for (Item item : player.getEquipment().toArray()) {
@@ -498,32 +443,14 @@ public final class GodwarsZone extends MapZone implements Plugin<Object> {
             return count;
         }
 
-
-        /**
-         * Gets start id.
-         *
-         * @return the start id
-         */
         public int getStartId() {
             return startId;
         }
 
-
-        /**
-         * Gets end id.
-         *
-         * @return the end id
-         */
         public int getEndId() {
             return endId;
         }
 
-
-        /**
-         * Get protection items int [ ].
-         *
-         * @return the int [ ]
-         */
         public int[] getProtectionItems() {
             return protectionItems;
         }

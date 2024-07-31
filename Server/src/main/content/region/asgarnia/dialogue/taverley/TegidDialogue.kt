@@ -13,9 +13,9 @@ import core.plugin.Initializable
 class TegidDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        Tegid is a druid washing dirty laundry in
-        the lake in Taverley.
-        Location: 2914,3418
+     * Tegid is a druid washing dirty laundry in
+     * the lake in Taverley.
+     * Location: 2914,3418
      */
 
     override fun open(vararg args: Any?): Boolean {

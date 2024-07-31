@@ -16,20 +16,12 @@ import core.tools.RandomFunction;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * The Gwd zilyana swing handler.
- */
 public class GWDZilyanaSwingHandler extends CombatSwingHandler {
 
     private static final Animation MELEE_ATTACK = new Animation(6964, Priority.HIGH);
-
     private static final Animation MAGIC_ATTACK = new Animation(6967, Priority.HIGH);
-
     private static final Graphic MAGIC_END_GRAPHIC = new Graphic(1207);
 
-    /**
-     * Instantiates a new Gwd zilyana swing handler.
-     */
     public GWDZilyanaSwingHandler() {
         super(CombatStyle.MAGIC);
     }

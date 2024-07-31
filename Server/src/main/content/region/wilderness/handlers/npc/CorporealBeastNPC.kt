@@ -30,7 +30,6 @@ import kotlin.math.ceil
 class CorporealBeastNPC: NPCBehavior(NPCs.CORPOREAL_BEAST_8133) {
 
     private val combatHandler: MultiSwingHandler = CombatHandler()
-
     var darkEnergyCore: NPC? = null
 
     override fun onCreation(self: NPC) {

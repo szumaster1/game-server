@@ -12,6 +12,10 @@ import core.plugin.Initializable
 @Initializable
 class LongbowBenDialogue(player: Player? = null) : Dialogue(player) {
 
+    /*
+     * Longbow Ben is a pirate inside The Rusty Anchor in Port Sarim.
+     */
+
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         npc(FacialExpression.HALF_GUILTY, "Arrr, matey!")

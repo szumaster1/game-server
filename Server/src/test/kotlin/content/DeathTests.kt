@@ -238,7 +238,7 @@ class DeathTests {
         for (item in inventory)
             p.inventory.add(item)
 
-        p.skullManager.isSkulled = true
+        p.skullManager.isSkulled()
         p.finalizeDeath(null)
 
         val grave = GraveController.activeGraves[p.details.uid]

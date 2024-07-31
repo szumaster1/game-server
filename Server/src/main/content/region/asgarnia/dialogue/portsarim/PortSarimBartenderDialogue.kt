@@ -14,6 +14,12 @@ import core.tools.END_DIALOGUE
 @Initializable
 class PortSarimBartenderDialogue(player: Player? = null) : Dialogue(player) {
 
+    /*
+     * The bartender at The Rusty Anchor in Port Sarim
+     * is an NPC that serves the purpose of selling beer
+     * to the players. He is also involved in the Rocking Out.
+     */
+
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         player(FacialExpression.FRIENDLY, "Good day to you!")

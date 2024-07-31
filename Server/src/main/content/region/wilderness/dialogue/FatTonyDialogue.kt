@@ -14,7 +14,7 @@ class FatTonyDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.HALF_GUILTY, "Go away, I'm very busy.").also { stage = 0 }
+        npc(FacialExpression.HALF_GUILTY, "Go away, I'm very busy.")
         return true
     }
 

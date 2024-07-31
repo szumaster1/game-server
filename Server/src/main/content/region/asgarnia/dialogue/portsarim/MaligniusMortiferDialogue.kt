@@ -13,6 +13,12 @@ import core.plugin.Initializable
 @Initializable
 class MaligniusMortiferDialogue(player: Player? = null) : Dialogue(player) {
 
+    /*
+     * Malignius Mortifer is a necromancer just north of Port Sarim.
+     * He has four apprentice wizards, one for each of the traditional
+     * elements: an air wizard, a water wizard, an earth wizard, and a fire wizard.
+     */
+
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         npc("So, " + player.username + ", your curiosity leads you to speak to me?")

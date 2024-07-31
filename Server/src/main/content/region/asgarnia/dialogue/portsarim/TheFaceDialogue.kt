@@ -13,6 +13,12 @@ import core.plugin.Initializable
 @Initializable
 class TheFaceDialogue(player: Player? = null) : Dialogue(player) {
 
+    /*
+     * The Face is a lady notable for her ugly face.
+     * She is found alongside Bellemorde, north of Gerrant's
+     * Fishy Business in Port Sarim.
+     */
+
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         if (!GameWorld.settings!!.isMembers) {

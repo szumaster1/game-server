@@ -14,9 +14,9 @@ import core.plugin.Initializable
 class ZandarHorfyreDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        Zandar Horfyre is a dark wizard and teacher
-        located on the top floor of the Dark Wizards' Tower.
-        Location: 2905,3333,2
+     * Zandar Horfyre is a dark wizard and teacher
+     * located on the top floor of the Dark Wizards' Tower.
+     * Location: 2905,3333,2
      */
 
     override fun open(vararg args: Any?): Boolean {

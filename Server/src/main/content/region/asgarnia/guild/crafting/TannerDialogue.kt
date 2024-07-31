@@ -13,10 +13,6 @@ import core.tools.END_DIALOGUE
 @Initializable
 class TannerDialogue(player: Player? = null) : Dialogue(player) {
 
-    override fun newInstance(player: Player): Dialogue {
-        return TannerDialogue(player)
-    }
-
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         npcl(FacialExpression.NEUTRAL, "Greetings friend. I am a manufacturer of leather.")
@@ -63,6 +59,10 @@ class TannerDialogue(player: Player? = null) : Dialogue(player) {
             25 -> playerl(FacialExpression.NEUTRAL, "Thanks, I'll bear it in mind.").also { stage = END_DIALOGUE }
         }
         return true
+    }
+
+    override fun newInstance(player: Player): Dialogue {
+        return TannerDialogue(player)
     }
 
     override fun getIds(): IntArray {

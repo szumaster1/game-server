@@ -14,7 +14,7 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Plugin
 
 class RovingElvesObstacles : OptionHandler() {
-    //Messages
+
     private val LEAF_SUCCESS_MSG = "You safely jump across."
     private val LEAF_LADDER_MSG = "You climb out of the pit."
     private val STICK_SUCCESS_MSG = "You manage to skillfully pass the trap."
@@ -71,13 +71,17 @@ class RovingElvesObstacles : OptionHandler() {
         var isNorthOrSouth = true
 
         if (node.id == 3922 && node.asScenery().rotation % 2 == 0) {
-            //Facing East or West Stick Trap
+            /*
+             * Facing East or West Stick Trap.
+             */
             isNorthOrSouth = false
         } else if (node.asScenery().rotation % 2 != 0) {
             isNorthOrSouth = false
         }
 
-        // Direction of the NODE in relation to the player
+        /*
+         * Direction of the NODE in relation to the player.
+         */
         val NORTH_SOUTH = if (player.location.y <= node.location.y) Direction.NORTH else Direction.SOUTH
         val EAST_WEST = if (player.location.x <= node.location.x) Direction.EAST else Direction.WEST
 

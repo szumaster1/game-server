@@ -13,6 +13,11 @@ import core.plugin.Initializable
 @Initializable
 class KaqemeexDialogue(player: Player? = null) : Dialogue(player) {
 
+    /*
+     * Kaqemeex is a Guthixian druid who can be
+     * found in the Druids' Circle in Taverley.
+     */
+
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         if (args.size >= 2) {

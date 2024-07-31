@@ -14,34 +14,12 @@ import core.plugin.Initializable;
 @Initializable
 public class RovingElves extends Quest {
 
-    /**
-     * The constant CRYSTAL_BOW_FULL.
-     */
     public static final Item CRYSTAL_BOW_FULL = new Item(4214);
-
-    /**
-     * The constant CRYSTAL_SHIELD_FULL.
-     */
     public static final Item CRYSTAL_SHIELD_FULL = new Item(4225);
-
-    /**
-     * The constant CONSECRATION_SEED.
-     */
     public static final Item CONSECRATION_SEED = new Item(4205);
-
-    /**
-     * The constant CONSECRATION_SEED_CHARGED.
-     */
     public static final Item CONSECRATION_SEED_CHARGED = new Item(4206);
-
-    /**
-     * The constant CRYSTAL_SEED.
-     */
     public static final Item CRYSTAL_SEED = new Item(4207);
 
-    /**
-     * Instantiates a new Roving elves.
-     */
     public RovingElves() {
         super("Roving Elves", 105, 104, 1, Vars.VARP_QUEST_ROVING_ELVES_PROGRESS, 0, 1, 6);
     }

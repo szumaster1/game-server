@@ -12,6 +12,10 @@ import core.tools.END_DIALOGUE
 @Initializable
 class GerrantDialogue(player: Player? = null) : Dialogue(player) {
 
+    /*
+     * Gerrant is the owner of Gerrant's Fishy Business in Port Sarim.
+     */
+
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         npc(FacialExpression.HAPPY, "Welcome! You can buy fishing equipment at my store.", "We'll also buy anything you catch off you.")

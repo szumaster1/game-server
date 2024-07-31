@@ -22,8 +22,8 @@ import kotlin.math.ceil
 
 @Initializable
 class KingBlackDragonNPC : AbstractNPC {
-    private val combatHandler: CombatSwingHandler = KBDCombatSwingHandler()
 
+    private val combatHandler: CombatSwingHandler = KBDCombatSwingHandler()
     constructor() : super(-1, null)
 
     override fun finalizeDeath(killer: Entity) {

@@ -18,11 +18,6 @@ import core.tools.END_DIALOGUE
 @Initializable
 class MasterCrafterDialogue(player: Player? = null) : Dialogue(player) {
 
-    private var craftingSkillcape = Items.CRAFTING_CAPE_9780
-    private var craftingSkillcapeTrimmed = Items.CRAFTING_CAPET_9781
-    private var skillcapeHood = Items.CRAFTING_HOOD_9782
-    private var coins = Items.COINS_995
-
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         npcl(FacialExpression.FRIENDLY, "Hello, and welcome to the Crafting Guild. We're running a master crafting event currently, we're inviting crafters from all over the land to come here and use our top notch workshops!")
@@ -70,6 +65,13 @@ class MasterCrafterDialogue(player: Player? = null) : Dialogue(player) {
             NPCs.MASTER_CRAFTER_2732,
             NPCs.MASTER_CRAFTER_2733
         )
+    }
+
+    companion object {
+        private var craftingSkillcape = Items.CRAFTING_CAPE_9780
+        private var craftingSkillcapeTrimmed = Items.CRAFTING_CAPET_9781
+        private var skillcapeHood = Items.CRAFTING_HOOD_9782
+        private var coins = Items.COINS_995
     }
 
 }

@@ -7,6 +7,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 class CraftingGuildDoor(val it: Int) : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.MASTER_CRAFTER_805)
         when (it) {

@@ -16,9 +16,9 @@ import core.tools.END_DIALOGUE
 class TenzingDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        Tenzing was a Sherpa who lived in the house
-        just west of Burthorpe, with his pet goat Billy.
-        Location: 2820,3554
+     * Tenzing was a Sherpa who lived in the house
+     * just west of Burthorpe, with his pet goat Billy.
+     * Location: 2820,3554
      */
 
     override fun open(vararg args: Any?): Boolean {

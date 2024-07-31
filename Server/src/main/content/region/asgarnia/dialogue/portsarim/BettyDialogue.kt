@@ -14,6 +14,11 @@ import core.tools.END_DIALOGUE
 @Initializable
 class BettyDialogue(player: Player? = null) : Dialogue(player) {
 
+    /*
+     * Betty is the owner of Betty's Magic Emporium
+     * in Port Sarim.
+     */
+
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         npc("Welcome to the magic emporium.")
