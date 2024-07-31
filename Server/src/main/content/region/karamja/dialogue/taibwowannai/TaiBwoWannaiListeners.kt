@@ -1,8 +1,6 @@
 package content.region.karamja.dialogue.taibwowannai
 
-import core.api.consts.NPCs
 import core.api.getUsedOption
-import core.api.openDialogue
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.shops.Shops

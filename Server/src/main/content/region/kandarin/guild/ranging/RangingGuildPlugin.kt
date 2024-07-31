@@ -14,7 +14,6 @@ import core.game.node.scenery.Scenery
 import core.game.world.map.Location
 import core.plugin.Initializable
 import core.plugin.Plugin
-import java.util.*
 
 @Initializable
 class RangingGuildPlugin : OptionHandler() {

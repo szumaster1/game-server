@@ -1,8 +1,9 @@
 package content.region.karamja.quest.monkeymadness.dialogue
 
 import content.region.kandarin.quest.thegrandtree.dialogue.ShipyardWorkerDialogue
-import core.api.*
 import core.api.consts.Items
+import core.api.getQuestStage
+import core.api.sendItemDialogue
 import core.game.dialogue.DialogueFile
 import core.game.global.action.DoorActionHandler
 import core.game.node.item.Item

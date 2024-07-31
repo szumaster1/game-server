@@ -6,10 +6,6 @@ import core.game.node.Node
 import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
 import core.game.world.map.Location
-import java.util.*
-import kotlin.collections.ArrayList
-import kotlin.collections.HashMap
-import kotlin.collections.HashSet
 
 object InteractionListeners {
     private val listeners = HashMap<String, (Player, Node) -> Boolean>(1000)

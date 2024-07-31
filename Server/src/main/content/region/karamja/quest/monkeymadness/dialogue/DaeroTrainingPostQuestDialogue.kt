@@ -1,6 +1,7 @@
 package content.region.karamja.quest.monkeymadness.dialogue
 
-import core.api.*
+import core.api.rewardXP
+import core.api.setAttribute
 import core.game.dialogue.DialogueFile
 import core.game.node.entity.skill.Skills
 

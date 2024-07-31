@@ -1,7 +1,9 @@
 package content.global.dialogue
 
-import core.api.*
 import core.api.consts.NPCs
+import core.api.findLocalNPC
+import core.api.sendChat
+import core.api.sendNPCDialogue
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC

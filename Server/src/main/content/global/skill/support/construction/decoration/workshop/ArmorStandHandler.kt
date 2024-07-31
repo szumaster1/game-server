@@ -1,8 +1,8 @@
 package content.global.skill.support.construction.decoration.workshop
 
 import content.data.item.BrokenItem
-import content.data.item.RepairItem
 import content.data.item.BrokenItem.getRepair
+import content.data.item.RepairItem
 import content.region.misthalin.dialogue.lumbridge.BobDialogue
 import core.api.animate
 import core.api.consts.Items

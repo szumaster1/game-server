@@ -5,8 +5,8 @@ import content.global.activity.treasuretrails.npc.UriNPC;
 import content.global.activity.treasuretrails.scroll.EmoteClueScroll;
 import core.game.node.entity.player.link.emote.Emotes;
 import core.game.world.map.zone.ZoneBorders;
-import core.plugin.Plugin;
 import core.plugin.ClassScanner;
+import core.plugin.Plugin;
 
 /**
  * Initializes the emote clue plugins.

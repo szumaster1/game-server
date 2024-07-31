@@ -10,8 +10,8 @@ import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
 import core.game.world.map.Location;
 import core.game.world.map.RegionManager;
-import core.plugin.Plugin;
 import core.plugin.ClassScanner;
+import core.plugin.Plugin;
 import core.tools.RandomFunction;
 
 /**

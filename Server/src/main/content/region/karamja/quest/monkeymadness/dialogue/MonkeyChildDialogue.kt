@@ -1,9 +1,11 @@
 package content.region.karamja.quest.monkeymadness.dialogue
 
-import core.api.*
+import core.api.addItemOrDrop
+import core.api.consts.Items
+import core.api.sendItemDialogue
+import core.api.setAttribute
 import core.game.dialogue.DialogueFile
 import core.tools.END_DIALOGUE
-import core.api.consts.Items
 
 class MonkeyChildFirstDialogue: DialogueFile(){
     override fun handle(componentID: Int, buttonID: Int) {

@@ -11,7 +11,6 @@ import core.game.node.entity.player.Player
 import core.game.node.scenery.Scenery
 import core.game.node.scenery.SceneryBuilder
 import core.game.world.map.Location
-import core.game.world.repository.Repository
 
 /**
  * Represents a shooting star object (Only ever initialized once) (ideally)

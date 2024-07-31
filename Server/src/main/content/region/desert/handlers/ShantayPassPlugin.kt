@@ -7,13 +7,11 @@ import core.api.consts.Items
 import core.api.consts.NPCs
 import core.cache.def.impl.NPCDefinition
 import core.cache.def.impl.SceneryDefinition
-import core.game.component.Component
 import core.game.dialogue.FacialExpression
 import core.game.global.action.DoorActionHandler
 import core.game.interaction.OptionHandler
 import core.game.node.Node
 import core.game.node.entity.player.Player
-import core.game.node.item.Item
 import core.game.node.scenery.Scenery
 import core.game.world.map.Location
 import core.plugin.Initializable

@@ -741,7 +741,7 @@ public class Player extends Entity {
         setComponentVisibility(this, 746, 12, false); //reenable the logout button (HD)
         super.finalizeDeath(killer);
         appearance.sync();
-        if (!getSavedData().getGlobalData().isDeathScreenDisabled()) {
+        if (!getSavedData().globalData.isDeathScreenDisabled()) {
             getInterfaceManager().open(new Component(153));
         }
     }
@@ -1037,7 +1037,7 @@ public class Player extends Entity {
      * @return the mod.
      */
     public double getExperienceMod() {
-        return getSavedData().getGlobalData().hasDoubleExp() ? 2 : 1;
+        return getSavedData().globalData.hasDoubleExp() ? 2 : 1;
     }
 
     /**
@@ -1372,7 +1372,7 @@ public class Player extends Entity {
      * @return the global data.
      */
     public GlobalData getGlobalData() {
-        return savedData.getGlobalData();
+        return savedData.globalData;
     }
 
     /**

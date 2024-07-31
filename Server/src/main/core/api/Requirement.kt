@@ -5,8 +5,6 @@ import core.game.node.entity.player.link.quest.QuestRepository
 import core.game.node.entity.skill.Skills
 import kotlin.math.min
 
-import java.util.ArrayList
-
 interface Requirement {
     fun evaluate(player: Player): Pair<Boolean, List<Requirement>>
 }

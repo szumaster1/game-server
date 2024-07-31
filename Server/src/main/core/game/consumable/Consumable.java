@@ -2,12 +2,11 @@ package core.game.consumable;
 
 import content.data.consumables.Consumables;
 import core.api.Container;
-
-import static core.api.ContentAPIKt.*;
-
 import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
 import core.game.world.update.flag.context.Animation;
+
+import static core.api.ContentAPIKt.replaceSlot;
 
 /**
  * Represents any item that has a consumption option such as 'Eat' or 'Drink'.

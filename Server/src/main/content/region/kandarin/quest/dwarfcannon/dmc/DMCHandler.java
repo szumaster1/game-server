@@ -228,7 +228,7 @@ public final class DMCHandler implements LogoutListener {
         SceneryBuilder.remove(cannon);
         removeAttribute(player, "dmc");
         if (!pickup) {
-            player.getSavedData().getActivityData().setLostCannon(true);
+            player.getSavedData().activityData.setLostCannon(true);
             return;
         }
         for (int i = 0; i < 4; i++) {

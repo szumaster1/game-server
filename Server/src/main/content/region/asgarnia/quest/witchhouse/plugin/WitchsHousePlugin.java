@@ -199,7 +199,7 @@ public class WitchsHousePlugin extends OptionHandler {
 
     private void startFight(final Player player) {
         setAttribute(player, "experimentAlive", true);
-        player.getSavedData().getQuestData().setWitchsExperimentKilled(false);
+        player.getSavedData().questData.setWitchsExperimentKilled(false);
         //ExperimentSession.create(player).start();
     }
 

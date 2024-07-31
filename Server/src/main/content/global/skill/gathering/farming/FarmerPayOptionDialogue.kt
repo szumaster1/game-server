@@ -1,7 +1,9 @@
 package content.global.skill.gathering.farming
 
-import core.api.*
 import core.api.consts.Items
+import core.api.inInventory
+import core.api.note
+import core.api.removeItem
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.dialogue.Topic

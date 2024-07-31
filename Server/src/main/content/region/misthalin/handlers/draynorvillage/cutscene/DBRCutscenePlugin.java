@@ -144,7 +144,7 @@ public final class DBRCutscenePlugin extends CutscenePlugin {
     public void end() {
         super.end();
         clearNpcs();
-        player.getSavedData().getGlobalData().setDraynorRecording(true);
+        player.getSavedData().globalData.setDraynorRecording(true);
         player.getDialogueInterpreter().sendDialogue("End of recording.");
     }
 

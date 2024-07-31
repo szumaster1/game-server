@@ -1,23 +1,22 @@
 package content.global.activity.shootingstar
 
+import core.ServerStore
+import core.ServerStore.Companion.getBoolean
 import core.api.*
+import core.api.consts.Items
+import core.api.consts.Scenery
+import core.game.dialogue.DialogueFile
+import core.game.interaction.IntType
+import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.TeleportManager
 import core.game.node.entity.skill.Skills
-import org.json.simple.JSONObject
-import core.api.consts.Items
-import core.api.consts.Scenery
-import core.ServerStore
-import core.ServerStore.Companion.getBoolean
-import core.game.dialogue.DialogueFile
-import core.game.interaction.InteractionListener
-import core.game.interaction.IntType
-import core.tools.SystemLogger
 import core.game.system.command.Privilege
 import core.game.world.GameWorld
 import core.tools.DARK_RED
 import core.tools.Log
 import core.tools.secondsToTicks
+import org.json.simple.JSONObject
 
 class ShootingStarPlugin : LoginListener, InteractionListener, TickListener, Commands, StartupListener {
 

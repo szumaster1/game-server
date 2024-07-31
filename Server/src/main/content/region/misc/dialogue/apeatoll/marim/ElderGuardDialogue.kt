@@ -1,12 +1,12 @@
 package content.region.misc.dialogue.apeatoll.marim
 
+import core.api.consts.NPCs
 import core.api.toIntArray
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
-import core.api.consts.NPCs
 
 @Initializable
 class ElderGuardDialogue(player: Player? = null) : Dialogue(player){

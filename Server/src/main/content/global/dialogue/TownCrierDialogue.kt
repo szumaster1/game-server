@@ -1,8 +1,11 @@
 package content.global.dialogue
 
 import content.global.handlers.item.book.GeneralRuleBook.Companion.openBook
-import core.api.*
 import core.api.consts.NPCs
+import core.api.lock
+import core.api.runTask
+import core.api.stopWalk
+import core.api.visualize
 import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player

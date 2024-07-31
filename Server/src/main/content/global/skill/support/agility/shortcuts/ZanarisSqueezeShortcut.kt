@@ -1,14 +1,14 @@
 package content.global.skill.support.agility.shortcuts
 
 import core.api.getStatLevel
-import core.game.world.map.Direction
-import core.game.world.map.Location
-import core.game.world.update.flag.context.Animation
 import core.api.sendMessage
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.impl.ForceMovement
 import core.game.node.entity.skill.Skills
+import core.game.world.map.Direction
+import core.game.world.map.Location
+import core.game.world.update.flag.context.Animation
 
 class ZanarisSqueezeShortcut : InteractionListener {
 

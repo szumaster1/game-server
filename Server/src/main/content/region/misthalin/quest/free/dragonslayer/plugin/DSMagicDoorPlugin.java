@@ -45,7 +45,7 @@ public final class DSMagicDoorPlugin extends UseWithHandler {
                     break;
                 }
             }
-            player.getSavedData().getQuestData().getDragonSlayerItems()[index] = true;
+            player.getSavedData().questData.getDragonSlayerItems()[index] = true;
             DragonSlayer.handleMagicDoor(player, false);
         }
         return true;

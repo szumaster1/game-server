@@ -4,14 +4,13 @@ import content.global.handlers.iface.BookInterfaceListener
 import content.global.handlers.iface.BookLine
 import content.global.handlers.iface.Page
 import content.global.handlers.iface.PageSet
-import content.global.skill.BarbarianTraining
 import content.global.skill.gathering.farming.timers.Compost
 import content.global.skill.gathering.farming.timers.CropGrowth
 import content.minigame.fishingtrawler.TrawlerLoot
 import content.region.misc.handlers.tutorial.TutorialStage
-import content.region.misthalin.quest.member.animalmagnetism.cutscene.AnmaCutscene
 import core.ServerConstants
 import core.api.*
+import core.api.consts.Components
 import core.cache.def.impl.NPCDefinition
 import core.cache.def.impl.SceneryDefinition
 import core.cache.def.impl.VarbitDefinition
@@ -36,7 +35,6 @@ import core.tools.Log
 import core.tools.StringUtils
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import core.api.consts.Components
 import java.awt.HeadlessException
 import java.awt.Toolkit
 import java.awt.datatransfer.StringSelection
@@ -483,7 +481,7 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN) {
         }
 
         define("completediaries", Privilege.ADMIN, "", "Completes all diaries.") { player, _ ->
-            player.achievementDiaryManager.diarys.forEach {
+            player.achievementDiaryManager.diaries.forEach {
                 for (level in it.taskCompleted.indices) {
                     for (task in it.taskCompleted[level].indices) {
                         it.finishTask(player, level, task)

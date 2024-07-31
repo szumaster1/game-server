@@ -1,7 +1,7 @@
 package core.game.ge
 
-import core.cache.def.impl.ItemDefinition
 import core.api.consts.Items
+import core.cache.def.impl.ItemDefinition
 
 class BotPrices {
 

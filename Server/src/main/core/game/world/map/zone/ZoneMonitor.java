@@ -1,5 +1,6 @@
 package core.game.world.map.zone;
 
+import core.api.consts.Items;
 import core.game.interaction.Option;
 import core.game.node.Node;
 import core.game.node.entity.Entity;
@@ -14,8 +15,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-
-import core.api.consts.Items;
 
 /**
  * Handles the zones for an entity.

@@ -101,7 +101,7 @@ public final class GECutscenePlugin extends CutscenePlugin {
 
         @Override
         public boolean open(Object... args) {
-            if (!player.getSavedData().getGlobalData().isGeTutorial()) {
+            if (!player.getSavedData().globalData.isGeTutorial()) {
                 player("What is this place?");
                 stage = 0;
             } else {
@@ -186,7 +186,7 @@ public final class GECutscenePlugin extends CutscenePlugin {
                     PacketRepository.send(CameraViewPacket.class, new CameraContext(player, CameraType.RESET, 0, 0, 580, 1, 100));
                     final CutscenePlugin cutscene = player.getAttribute("ge-cutscene", null);
                     cutscene.stop(false);
-                    player.getSavedData().getGlobalData().setGeTutorial(true);
+                    player.getSavedData().globalData.setGeTutorial(true);
                     npc("<col=8A0808>Step 1</col>: You decide what to buy or sell and come here", "with the items to sell or the money to buy with.");
                     stage = 103;
                     break;

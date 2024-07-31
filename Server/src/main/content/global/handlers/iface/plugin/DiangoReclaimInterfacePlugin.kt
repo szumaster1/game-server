@@ -1,8 +1,10 @@
 package content.global.handlers.iface.plugin
 
-import core.api.*
 import core.api.consts.Components
 import core.api.consts.Items
+import core.api.openInterface
+import core.api.sendMessage
+import core.api.setAttribute
 import core.game.component.Component
 import core.game.component.ComponentDefinition
 import core.game.component.ComponentPlugin

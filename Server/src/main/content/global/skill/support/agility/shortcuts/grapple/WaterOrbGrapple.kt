@@ -3,7 +3,6 @@ package content.global.skill.support.agility.shortcuts.grapple
 import core.api.anyInEquipment
 import core.api.consts.Animations
 import core.api.consts.Items
-import core.api.finishDiaryTask
 import core.api.sendDialogue
 import core.cache.def.impl.SceneryDefinition
 import core.game.component.Component

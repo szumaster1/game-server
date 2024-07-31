@@ -12,7 +12,6 @@ import core.tools.RandomFunction
 import java.util.*
 import java.util.concurrent.TimeUnit
 import java.util.concurrent.locks.ReentrantLock
-import kotlin.collections.HashMap
 
 /**
  * Manages the regions.

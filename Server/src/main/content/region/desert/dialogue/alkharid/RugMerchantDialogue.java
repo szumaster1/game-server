@@ -2,27 +2,27 @@ package content.region.desert.dialogue.alkharid;
 
 import content.global.skill.support.agility.AgilityHandler;
 import core.api.Container;
-import static core.api.ContentAPIKt.*;
-import static core.tools.GlobalsKt.colorize;
-
 import core.api.consts.Items;
 import core.api.consts.Sounds;
 import core.cache.def.impl.NPCDefinition;
 import core.game.container.impl.EquipmentContainer;
 import core.game.dialogue.Dialogue;
-import core.plugin.Initializable;
 import core.game.interaction.OptionHandler;
 import core.game.node.Node;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
 import core.game.system.task.Pulse;
-import kotlin.Unit;
 import core.game.world.GameWorld;
 import core.game.world.map.Location;
 import core.game.world.update.flag.context.Animation;
-import core.plugin.Plugin;
 import core.plugin.ClassScanner;
+import core.plugin.Initializable;
+import core.plugin.Plugin;
+import kotlin.Unit;
+
+import static core.api.ContentAPIKt.*;
+import static core.tools.GlobalsKt.colorize;
 
 
 /**
@@ -63,7 +63,7 @@ public final class RugMerchantDialogue extends Dialogue {
 	 */
 	public RugMerchantDialogue() {
 	}
-	
+
 	@Override
 	public void init() {
 		super.init();

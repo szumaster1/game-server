@@ -1,6 +1,9 @@
 package content.global.activity.treasuretrails;
 
-import content.global.activity.treasuretrails.clue.*;
+import content.global.activity.treasuretrails.clue.ClueScrollPlugin;
+import content.global.activity.treasuretrails.clue.CoordinateCluePlugin;
+import content.global.activity.treasuretrails.clue.EmoteCluePlugin;
+import content.global.activity.treasuretrails.clue.MapCluePlugin;
 import content.global.activity.treasuretrails.npc.SaradominWizardNPC;
 import content.global.activity.treasuretrails.npc.ZamorakWizardNPC;
 import content.global.activity.treasuretrails.scroll.CoordinateClueScroll;
@@ -19,9 +22,9 @@ import core.game.node.item.Item;
 import core.game.node.item.ItemPlugin;
 import core.game.world.map.Location;
 import core.game.world.update.flag.context.Animation;
+import core.plugin.ClassScanner;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
-import core.plugin.ClassScanner;
 
 /**
  * Handles the clue scroll options.

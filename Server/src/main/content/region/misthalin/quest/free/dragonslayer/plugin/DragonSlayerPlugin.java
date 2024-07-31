@@ -161,15 +161,15 @@ public final class DragonSlayerPlugin extends OptionHandler {
                 player.getAchievementDiaryManager().finishTask(player, DiaryType.KARAMJA, 1, 2);
                 break;
             case 2606:
-                if (player.getLocation().getY() < 9600 && !player.getSavedData().getQuestData().getDragonSlayerAttribute("memorized") && player.getQuestRepository().getQuest("Dragon Slayer").getStage(player) != 100) {
+                if (player.getLocation().getY() < 9600 && !player.getSavedData().questData.getDragonSlayerAttribute("memorized") && player.getQuestRepository().getQuest("Dragon Slayer").getStage(player) != 100) {
                     player.getPacketDispatch().sendMessage("The door is securely locked.");
                 } else {
-                    if (!player.getSavedData().getQuestData().getDragonSlayerAttribute("memorized")) {
+                    if (!player.getSavedData().questData.getDragonSlayerAttribute("memorized")) {
                         player.getPacketDispatch().sendMessage("You found a secret door.");
                         player.getPacketDispatch().sendMessage("You remember where the secret door is for future reference.");
                     }
                     player.getAchievementDiaryManager().finishTask(player, DiaryType.KARAMJA, 1, 1);
-                    player.getSavedData().getQuestData().setDragonSlayerAttribute("memorized", true);
+                    player.getSavedData().questData.setDragonSlayerAttribute("memorized", true);
                     DoorActionHandler.handleAutowalkDoor(player, (Scenery) node);
                 }
                 break;
@@ -178,7 +178,7 @@ public final class DragonSlayerPlugin extends OptionHandler {
                 break;
             case 25036:
             case 2589:
-                if (player.getSavedData().getQuestData().getDragonSlayerAttribute("memorized")) {
+                if (player.getSavedData().questData.getDragonSlayerAttribute("memorized")) {
                     player.getDialogueInterpreter().sendDialogue("You don't need to mess about with broken ships now that you have", "found the secret passage from Karamja.");
                     return true;
                 }
@@ -197,11 +197,11 @@ public final class DragonSlayerPlugin extends OptionHandler {
                 if (player.getInventory().remove(DragonSlayer.NAILS) && player.getInventory().remove(DragonSlayer.PLANK)) {
                     player.lock(2);
                     player.animate(HAMMER_ANIM);
-                    player.getSavedData().getQuestData().setDragonSlayerPlanks(player.getSavedData().getQuestData().getDragonSlayerPlanks() + 1);
-                    if (player.getSavedData().getQuestData().getDragonSlayerPlanks() < 3) {
+                    player.getSavedData().questData.setDragonSlayerPlanks(player.getSavedData().questData.getDragonSlayerPlanks() + 1);
+                    if (player.getSavedData().questData.getDragonSlayerPlanks() < 3) {
                         player.getDialogueInterpreter().sendDialogue("You nail a plank over the hole, but you still need more planks to", "close the hole completely.");
                     } else {
-                        player.getSavedData().getQuestData().setDragonSlayerAttribute("repaired", true);
+                        player.getSavedData().questData.setDragonSlayerAttribute("repaired", true);
                         setVarp(player, 177, 1967876);
                         player.getDialogueInterpreter().sendDialogue("You nail a final plank over the hole. You have successfully patched", "the hole in the ship.");
                     }

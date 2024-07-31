@@ -1,9 +1,9 @@
 package content.region.kandarin.diary
 
-import content.region.misc.handlers.zanaris.FairyRing
 import content.global.handlers.item.withnpc.ChaliceOnKingArthurListener
 import content.region.kandarin.quest.holygrail.dialogue.GalahadHolyGrailDialogueFile
 import content.region.kandarin.quest.scorpcather.dialogue.ThormacDialogueFile
+import content.region.misc.handlers.zanaris.FairyRing
 import core.api.*
 import core.api.consts.Items
 import core.api.consts.NPCs

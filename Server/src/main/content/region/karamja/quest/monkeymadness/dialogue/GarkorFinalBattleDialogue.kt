@@ -1,7 +1,8 @@
 package content.region.karamja.quest.monkeymadness.dialogue
 
-import core.api.*
+import core.api.addItem
 import core.api.consts.Items
+import core.api.sendItemDialogue
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 

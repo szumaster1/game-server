@@ -2,10 +2,12 @@ package content.global.skill.support.construction.decoration.workshop
 
 import content.global.skill.support.construction.BuildHotspot
 import content.global.skill.support.construction.BuildingUtils
-import core.api.*
+import core.api.animate
 import core.api.consts.Components
 import core.api.consts.Scenery
-import core.game.dialogue.DialogueFile
+import core.api.getUsedOption
+import core.api.openInterface
+import core.api.setAttribute
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.interaction.InterfaceListener

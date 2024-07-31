@@ -192,7 +192,7 @@ public final class ErnestTheChickenPlugin extends OptionHandler {
             for (int index = 0; index < levers.length; index++) {
                 value = levers[index];
                 if (!value) {// down.
-                    player.getSavedData().getQuestData().getDraynorLevers()[index] = false;
+                    player.getSavedData().questData.getDraynorLevers()[index] = false;
                 }
             }
         }
@@ -204,7 +204,7 @@ public final class ErnestTheChickenPlugin extends OptionHandler {
         public final void read() {
             boolean value = false;
             for (int i = 0; i < Lever.values().length; i++) {
-                value = player.getSavedData().getQuestData().getDraynorLevers()[i];
+                value = player.getSavedData().questData.getDraynorLevers()[i];
                 levers[i] = value;
             }
             updateConfigs();
@@ -391,7 +391,7 @@ public final class ErnestTheChickenPlugin extends OptionHandler {
          */
         public void reset() {
             Arrays.fill(levers, true);
-            Arrays.fill(player.getSavedData().getQuestData().getDraynorLevers(), true);
+            Arrays.fill(player.getSavedData().questData.getDraynorLevers(), true);
             updateConfigs();
         }
 

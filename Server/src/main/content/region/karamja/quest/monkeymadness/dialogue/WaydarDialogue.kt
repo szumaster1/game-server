@@ -2,7 +2,8 @@ package content.region.karamja.quest.monkeymadness.dialogue
 
 import content.global.travel.glider.GnomeGlider
 import content.global.travel.glider.GnomeGliderListeners
-import core.api.*
+import core.api.getQuestStage
+import core.api.submitWorldPulse
 import core.game.component.Component
 import core.game.dialogue.DialogueFile
 import core.tools.END_DIALOGUE

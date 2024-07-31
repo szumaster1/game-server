@@ -1,9 +1,12 @@
 package core.game.global
 
-import core.api.*
+import core.api.closeDialogue
+import core.api.consts.Items
+import core.api.freeSlots
+import core.api.removeItem
+import core.api.sendDialogue
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
-import core.api.consts.Items
 
 /**
  * Represents a utility class for purchasing skillcapes.

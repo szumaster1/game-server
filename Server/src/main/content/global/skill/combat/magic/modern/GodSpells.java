@@ -93,8 +93,8 @@ public final class GodSpells extends CombatSpell {
             }
             int required = GOD_STAVES[index];
             Player p = (Player) caster;
-            if (p.getSavedData().getActivityData().getGodCasts()[index] < 100 && !p.getZoneMonitor().isInZone("mage arena")) {
-                p.sendMessage("You need to cast " + NAMES[index] + " " + (100 - p.getSavedData().getActivityData().getGodCasts()[index]) + " more times inside the Mage Arena.");
+            if (p.getSavedData().activityData.getGodCasts()[index] < 100 && !p.getZoneMonitor().isInZone("mage arena")) {
+                p.sendMessage("You need to cast " + NAMES[index] + " " + (100 - p.getSavedData().activityData.getGodCasts()[index]) + " more times inside the Mage Arena.");
                 return false;
             }
 
@@ -139,9 +139,9 @@ public final class GodSpells extends CombatSpell {
         if (entity instanceof Player) {
             int index = getSpellIndex();
             Player p = (Player) entity;
-            if (p.getSavedData().getActivityData().getGodCasts()[index] < 100) {
-                p.getSavedData().getActivityData().getGodCasts()[index]++;
-                if (p.getSavedData().getActivityData().getGodCasts()[index] >= 100) {
+            if (p.getSavedData().activityData.getGodCasts()[index] < 100) {
+                p.getSavedData().activityData.getGodCasts()[index]++;
+                if (p.getSavedData().activityData.getGodCasts()[index] >= 100) {
                     p.sendMessage("You can now cast " + NAMES[index] + " outside the Arena.");
                 }
             }

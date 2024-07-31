@@ -1,7 +1,7 @@
 package content.region.karamja.quest.monkeymadness.cutscenes
 
-import core.api.openOverlay
-import core.api.utils.PlayerCamera
+import core.api.consts.Components
+import core.api.consts.NPCs
 import core.game.activity.Cutscene
 import core.game.component.Component
 import core.game.dialogue.FacialExpression
@@ -10,7 +10,6 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld
 import core.game.world.map.Direction
 import core.game.world.map.Location
-import core.api.consts.*
 
 class DungeonPlanWithAwowogeiCutScene(player: Player) : Cutscene(player) {
 

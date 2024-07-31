@@ -140,7 +140,7 @@ public final class AgilityPyramidCourse extends AgilityCourse {
                 }
                 player.getDialogueInterpreter().sendDialogue("You climb down the steep passage. It leads to the base of the", "pyramid.");
                 player.getProperties().setTeleportLocation(Location.create(3364, 2830, 0));
-                player.getSavedData().getActivityData().setTopGrabbed(false);
+                player.getSavedData().activityData.setTopGrabbed(false);
                 break;
         }
         return true;
@@ -327,7 +327,7 @@ public final class AgilityPyramidCourse extends AgilityCourse {
     }
 
     private void handlePyramidTop(final Player player, final Scenery object) {
-        if (player.getSavedData().getActivityData().isTopGrabbed()) {
+        if (player.getSavedData().activityData.isTopGrabbed()) {
             player.getPacketDispatch().sendMessage("You've already claimed this!");
         } else {
             player.animate(Animation.create(3063));
@@ -340,7 +340,7 @@ public final class AgilityPyramidCourse extends AgilityCourse {
                         return true;
                     }
                     addConfig(player, 10869, 1, true);
-                    player.getSavedData().getActivityData().setTopGrabbed(true);
+                    player.getSavedData().activityData.setTopGrabbed(true);
                     player.getInventory().add(PYRAMID_TOP, player);
                     player.getDialogueInterpreter().sendItemMessage(PYRAMID_TOP, "You find a golden pyramid!");
                     playJingle(player, 151);

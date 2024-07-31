@@ -1,7 +1,6 @@
 package content.global.random.event.lostpirate
 
 import core.api.addItemOrDrop
-import core.api.consts.Items
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.system.timer.impl.AntiMacro

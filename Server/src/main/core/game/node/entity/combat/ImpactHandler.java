@@ -231,14 +231,14 @@ public final class ImpactHandler {
         int damage = (int) Math.ceil(hit * 0.1);
         if (entity instanceof Player) {
             Player player = (Player) entity;
-            int current = player.getSavedData().getGlobalData().getRecoilDamage();
+            int current = player.getSavedData().globalData.getRecoilDamage();
             if (damage >= current) {
                 damage = current;
                 player.getPacketDispatch().sendMessage("Your Ring of Recoil has shattered.");
                 player.getEquipment().replace(null, EquipmentContainer.SLOT_RING);
-                player.getSavedData().getGlobalData().setRecoilDamage(40);
+                player.getSavedData().globalData.setRecoilDamage(40);
             } else {
-                player.getSavedData().getGlobalData().setRecoilDamage(current - damage);
+                player.getSavedData().globalData.setRecoilDamage(current - damage);
             }
         }
         if (damage > 0) {

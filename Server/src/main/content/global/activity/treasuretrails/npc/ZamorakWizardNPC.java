@@ -2,8 +2,8 @@ package content.global.activity.treasuretrails.npc;
 
 import content.global.activity.treasuretrails.clue.ClueScrollPlugin;
 import core.game.node.entity.Entity;
-import core.game.node.entity.combat.spell.CombatSpell;
 import core.game.node.entity.combat.CombatStyle;
+import core.game.node.entity.combat.spell.CombatSpell;
 import core.game.node.entity.npc.AbstractNPC;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.SpellBookManager.SpellBook;

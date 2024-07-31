@@ -173,7 +173,7 @@ class PlayerSaver(val player: Player) {
 
     fun saveAchievementData(root: JSONObject) {
         val achievementData = JSONArray()
-        player.achievementDiaryManager.diarys.map {
+        player.achievementDiaryManager.diaries.map {
             val diary = JSONObject()
             val startedLevels = JSONArray()
             it.levelStarted.map {

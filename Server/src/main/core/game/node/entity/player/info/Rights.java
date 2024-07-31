@@ -26,7 +26,7 @@ public enum Rights {
         }
         if (ServerConstants.IRONMAN_ICONS) {
             if (player.getIronmanManager().isIronman()) {
-                return player.getIronmanManager().getMode().getIcon();
+                return player.getIronmanManager().getMode().icon;
             }
         }
         return 0;

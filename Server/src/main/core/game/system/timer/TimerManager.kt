@@ -1,11 +1,12 @@
 package core.game.system.timer
 
-import core.api.*
-import core.tools.*
-import java.util.ArrayList
-import org.json.simple.JSONObject
+import core.api.getWorldTicks
+import core.api.log
+import core.api.registerTimer
 import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
+import core.tools.Log
+import org.json.simple.JSONObject
 
 class TimerManager(val entity: Entity) {
     val activeTimers = ArrayList<RSTimer>()

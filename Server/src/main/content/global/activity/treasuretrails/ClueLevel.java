@@ -1,21 +1,19 @@
 package content.global.activity.treasuretrails;
 
 import content.global.activity.treasuretrails.clue.ClueScrollPlugin;
+import core.api.IfaceSettingsBuilder;
+import core.api.consts.Items;
 import core.game.component.Component;
 import core.game.container.access.InterfaceContainer;
 import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
-import core.api.consts.Items;
+import core.game.system.config.ClueRewardParser;
 import core.game.world.GameWorld;
 import core.tools.RandomFunction;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
-
-import core.api.IfaceSettingsBuilder;
-
-import core.game.system.config.ClueRewardParser;
 
 import static core.api.ContentAPIKt.addItemOrDrop;
 

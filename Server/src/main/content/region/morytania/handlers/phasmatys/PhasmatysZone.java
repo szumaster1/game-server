@@ -143,7 +143,7 @@ public final class PhasmatysZone extends MapZone implements Plugin<Object> {
             player.getInventory().add(new Item(1925), new Item(1931));
             player.getSkills().addExperience(Skills.PRAYER, bone.getExperience() * 4, true);
             player.sendMessage("You put some ectoplasm and bonemeal into the Ectofuntus, and worship it.");
-            player.getSavedData().getGlobalData().setEctoCharges(player.getSavedData().getGlobalData().getEctoCharges() + 1);
+            player.getSavedData().globalData.setEctoCharges(player.getSavedData().globalData.getEctoCharges() + 1);
         }
     }
 

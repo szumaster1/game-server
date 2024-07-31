@@ -10,11 +10,11 @@ import core.game.node.entity.player.Player
 import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 import core.game.node.scenery.Scenery
-import core.api.consts.Scenery as Sceneries
 import core.game.system.task.Pulse
 import core.game.world.GameWorld
 import core.game.world.update.flag.context.Graphic
 import core.tools.StringUtils
+import core.api.consts.Scenery as Sceneries
 
 enum class GodType(val cape: Item, val staff: Item, val statueId: Int, val npcId: Int, val dropMessage: String) {
     SARADOMIN(

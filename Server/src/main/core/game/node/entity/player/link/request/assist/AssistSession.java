@@ -336,12 +336,12 @@ public final class AssistSession extends Pulse implements RequestModule {
      * Method used to load the information.
      */
     public final void load() {
-        time = player.getSavedData().getGlobalData().getAssistTime();
+        time = player.getSavedData().globalData.getAssistTime();
         if (time == 0) {
-            player.getSavedData().getGlobalData().setAssistTime(System.currentTimeMillis() + TIME_OUT);
+            player.getSavedData().globalData.setAssistTime(System.currentTimeMillis() + TIME_OUT);
         }
         for (int i = 0; i < 9; i++) {
-            exp[i] = player.getSavedData().getGlobalData().getAssistExperience()[i];
+            exp[i] = player.getSavedData().globalData.getAssistExperience()[i];
         }
     }
 
@@ -350,16 +350,16 @@ public final class AssistSession extends Pulse implements RequestModule {
      */
     public final void save() {
         player.getSkills().refresh();
-        player.getSavedData().getGlobalData().setAssistTime(time);
-        player.getSavedData().getGlobalData().setAssistExperience(exp);
+        player.getSavedData().globalData.setAssistTime(time);
+        player.getSavedData().globalData.setAssistExperience(exp);
     }
 
     /**
      * Method used to reset the assist data.
      */
     public final void reset() {
-        player.getSavedData().getGlobalData().setAssistTime(0L);
-        player.getSavedData().getGlobalData().setAssistExperience(new double[9]);
+        player.getSavedData().globalData.setAssistTime(0L);
+        player.getSavedData().globalData.setAssistExperience(new double[9]);
         load();
     }
 

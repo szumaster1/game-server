@@ -3,7 +3,6 @@ package core.game.consumable
 import core.api.sendMessage
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
-import java.util.*
 
 /**
  * Represents any food that is consumed in two parts such as pies and pizzas.

@@ -5,8 +5,6 @@ import core.api.consts.NPCs
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import java.util.*
-import kotlin.collections.ArrayList
-import kotlin.collections.HashMap
 
 enum class SlayerMaster(
     var npc: Int,

@@ -2,17 +2,17 @@ package content.global.activity.treasuretrails.npc;
 
 import content.global.activity.treasuretrails.clue.ClueScrollPlugin;
 import core.game.node.entity.Entity;
-import core.game.node.entity.combat.spell.CombatSpell;
 import core.game.node.entity.combat.CombatStyle;
+import core.game.node.entity.combat.CombatSwingHandler;
+import core.game.node.entity.combat.MultiSwingHandler;
 import core.game.node.entity.combat.equipment.SwitchAttack;
+import core.game.node.entity.combat.spell.CombatSpell;
 import core.game.node.entity.npc.AbstractNPC;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.SpellBookManager.SpellBook;
 import core.game.world.map.Location;
 import core.game.world.map.RegionManager;
 import core.plugin.Plugin;
-import core.game.node.entity.combat.CombatSwingHandler;
-import core.game.node.entity.combat.MultiSwingHandler;
 
 /**
  * Handles saradomin npc.

@@ -2,6 +2,7 @@ package core.game.global.action
 
 import content.global.handlers.item.equipment.gloves.BrawlingGlovesManager
 import content.global.skill.support.slayer.SlayerEquipmentFlags
+import core.api.consts.Sounds
 import core.api.playAudio
 import core.api.sendMessage
 import core.game.container.impl.EquipmentContainer
@@ -15,7 +16,6 @@ import core.game.node.entity.combat.equipment.WeaponInterface
 import core.game.node.entity.player.Player
 import core.game.system.config.ItemConfigParser
 import core.plugin.Plugin
-import core.api.consts.Sounds
 
 /**
  * Represents the equipment equipping handler plugin.

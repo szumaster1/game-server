@@ -123,7 +123,7 @@ public final class StrongholdPlugin extends MapZone implements Plugin<Object> {
                     openComponent(player, Location.create(2042, 5245, 0));
                     return true;
                 case 16135:// Gift of Peace 1st level
-                    if (player.getSavedData().getGlobalData().hasStrongholdReward(1)) {
+                    if (player.getSavedData().globalData.hasStrongholdReward(1)) {
                         sendDialogueLines(player, "You have already claimed your reward from this level.");
                     } else {
                         playAudio(player, Sounds.DOOR_CREAK_61);
@@ -132,7 +132,7 @@ public final class StrongholdPlugin extends MapZone implements Plugin<Object> {
                     }
                     return true;
                 case 16118:// Box of health 3rd level
-                    if (player.getSavedData().getGlobalData().hasStrongholdReward(3)) {
+                    if (player.getSavedData().globalData.hasStrongholdReward(3)) {
                         sendDialogueLines(player, "You have already claimed your reward from this level.");
                     } else {
                         playAudio(player, Sounds.DOOR_CREAK_61);
@@ -141,7 +141,7 @@ public final class StrongholdPlugin extends MapZone implements Plugin<Object> {
                     }
                     return true;
                 case 16077:// Grain of Plenty 2nd level
-                    if (player.getSavedData().getGlobalData().hasStrongholdReward(2)) {
+                    if (player.getSavedData().globalData.hasStrongholdReward(2)) {
                         sendDialogueLines(player, "You have already claimed your reward from this level.");
                     } else {
                         playAudio(player, Sounds.DOOR_CREAK_61);
@@ -150,7 +150,7 @@ public final class StrongholdPlugin extends MapZone implements Plugin<Object> {
                     }
                     return true;
                 case 16047:// Cradle of Life 4th level
-                    if (!player.getSavedData().getGlobalData().hasStrongholdReward(4)) {
+                    if (!player.getSavedData().globalData.hasStrongholdReward(4)) {
                         PacketRepository.send(MusicPacket.class, new MusicContext(player, 158, true));
                     }
                     playAudio(player, Sounds.SOS_CHOIR_1246);
@@ -193,7 +193,7 @@ public final class StrongholdPlugin extends MapZone implements Plugin<Object> {
 
     private void handlePortal(final Player player, final Scenery object) {
         final int index = getPortalIndex(object.getId());
-        if (!player.getSavedData().getGlobalData().hasStrongholdReward(index + 1)) {
+        if (!player.getSavedData().globalData.hasStrongholdReward(index + 1)) {
             player.getPacketDispatch().sendMessage("You are not of sufficient experience to take the shortcut through this level.");
         } else {
             player.getProperties().setTeleportLocation((Location) PORTALS[index][1]);

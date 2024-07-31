@@ -4,7 +4,6 @@ import content.global.activity.treasuretrails.clue.ClueScrollPlugin;
 import core.api.LoginListener;
 import core.api.PersistPlayer;
 import core.game.node.entity.player.Player;
-
 import core.tools.RandomFunction;
 import org.jetbrains.annotations.NotNull;
 import org.json.simple.JSONArray;

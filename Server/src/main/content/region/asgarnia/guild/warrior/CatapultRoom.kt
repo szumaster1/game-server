@@ -32,7 +32,6 @@ import core.plugin.ClassScanner.definePlugin
 import core.plugin.Initializable
 import core.plugin.Plugin
 import core.tools.RandomFunction
-import java.util.*
 
 @Initializable
 class CatapultRoom : MapZone("wg catapult", true), Plugin<Any> {

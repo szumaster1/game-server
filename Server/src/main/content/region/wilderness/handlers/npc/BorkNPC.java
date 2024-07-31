@@ -547,7 +547,7 @@ public class BorkNPC extends AbstractNPC {
         public boolean handle(int interfaceId, int buttonId) {
             switch (stage) {
                 case 0:
-                    boolean played = player.getSavedData().getActivityData().hasKilledBork();
+                    boolean played = player.getSavedData().activityData.hasKilledBork();
                     player(played ? "Uh -oh! Here we go again." : "Oh boy...");
                     stage++;
                     break;
