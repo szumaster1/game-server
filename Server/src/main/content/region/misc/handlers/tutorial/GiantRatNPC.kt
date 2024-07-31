@@ -1,5 +1,6 @@
 package content.region.misc.handlers.tutorial
 
+import core.api.consts.NPCs
 import core.game.node.entity.Entity
 import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player
@@ -9,18 +10,12 @@ import core.game.node.item.Item
 import core.game.world.map.Location
 import core.plugin.Initializable
 
-/**
- * The Rat tutorial npc.
- */
 @Initializable
-class RatTutorialNPC : AbstractNPC {
-    /**
-     * Instantiates a new Rat tutorial npc.
-     */
+class GiantRatNPC : AbstractNPC {
+
     constructor() : super(0, null) {
         this.isAggressive = false
     }
-
 
     private constructor(id: Int, location: Location) : super(id, location, true)
 
@@ -33,7 +28,7 @@ class RatTutorialNPC : AbstractNPC {
     }
 
     override fun construct(id: Int, location: Location, vararg objects: Any): AbstractNPC {
-        return RatTutorialNPC(id, location)
+        return GiantRatNPC(id, location)
     }
 
     override fun tick() {
@@ -58,6 +53,6 @@ class RatTutorialNPC : AbstractNPC {
     }
 
     companion object {
-        private val ID = intArrayOf(86)
+        private val ID = intArrayOf(NPCs.GIANT_RAT_86)
     }
 }

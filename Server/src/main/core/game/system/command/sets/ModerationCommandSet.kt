@@ -97,7 +97,7 @@ class ModerationCommandSet : CommandSet(Privilege.MODERATOR) {
                 }
             })
 
-            notify(player, "Banned user $name for $intToken ${durationUnit.name.toLowerCase()}.")
+            notify(player, "Banned user $name for $intToken ${durationUnit.name.lowercase()}.")
         }
 
         /*
@@ -156,7 +156,7 @@ class ModerationCommandSet : CommandSet(Privilege.MODERATOR) {
 
             ServerStore.getArchive("flagged-ips").addToList("ips", ip)
 
-            notify(player, "Banned all accounts on $ip for $intToken ${durationUnit.name.toLowerCase()}.")
+            notify(player, "Banned all accounts on $ip for $intToken ${durationUnit.name.lowercase()}.")
         }
 
         /*
@@ -210,7 +210,7 @@ class ModerationCommandSet : CommandSet(Privilege.MODERATOR) {
                 })
             }
 
-            notify(player, "Muted user $name for $intToken ${durationUnit.name.toLowerCase()}.")
+            notify(player, "Muted user $name for $intToken ${durationUnit.name.lowercase()}.")
         }
 
         /*

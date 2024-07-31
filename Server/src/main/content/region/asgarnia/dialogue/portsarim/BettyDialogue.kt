@@ -17,7 +17,6 @@ class BettyDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         npc("Welcome to the magic emporium.")
-        stage = 0
         return true
     }
 

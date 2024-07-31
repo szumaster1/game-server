@@ -15,7 +15,6 @@ class OgreMerchantDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         npc(FacialExpression.OLD_CALM_TALK2, "Does the little creature want to buy sumfin'?")
-        stage = 0
         return true
     }
 

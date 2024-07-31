@@ -27,7 +27,7 @@ class RottenPotatoRSHDDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun open(vararg args: Any?): Boolean {
-        options("Wipe bots", "Spawn bots", "Force log players", "View bank", "Copy inventory").also { stage = 0 }
+        options("Wipe bots", "Spawn bots", "Force log players", "View bank", "Copy inventory")
         return true
     }
 

@@ -6,21 +6,18 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
+import core.tools.END_DIALOGUE
 
 @Initializable
 class DalOgreDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.OLD_DEFAULT, "What the human be wantin'?")
-        stage = 0
+        npc(FacialExpression.OLD_DEFAULT, "What the human be wantin'?").also { stage = END_DIALOGUE }
         return true
     }
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
-        when (stage) {
-            0 -> end()
-        }
         return true
     }
 

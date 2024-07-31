@@ -126,7 +126,7 @@ class GreenDragonKiller(val style: CombatStyle, area: ZoneBorders? = null) : Scr
                     }
                     sendTrashTalk()
                     attemptToBuryBone()
-                    scriptAPI!!.walkTo(WildernessZone.getInstance().borders.random().randomLoc)
+                    scriptAPI!!.walkTo(WildernessZone.instance.borders.random().randomLoc)
                 }
             }
 
@@ -174,8 +174,8 @@ class GreenDragonKiller(val style: CombatStyle, area: ZoneBorders? = null) : Scr
                     override fun pulse(): Boolean {
                         for (item in bot!!.inventory.toArray()) {
                             item ?: continue
-                            if (item.name.toLowerCase().contains("lobster") || item.name.toLowerCase()
-                                    .contains("swordfish") || item.name.toLowerCase().contains("shark")
+                            if (item.name.lowercase().contains("lobster") || item.name.lowercase()
+                                    .contains("swordfish") || item.name.lowercase().contains("shark")
                             ) continue
                             if (item.id == 995) continue
                             bot!!.bank.add(item)

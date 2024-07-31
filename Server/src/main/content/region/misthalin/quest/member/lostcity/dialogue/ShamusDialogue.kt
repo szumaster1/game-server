@@ -16,7 +16,6 @@ class ShamusDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npcl(FacialExpression.OLD_ANGRY1, "Ay yer big elephant! Yer've caught me, to be sure! What would an elephant like yer be wanting wid ol' Shamus then?")
-        stage = 0
         return true
     }
 

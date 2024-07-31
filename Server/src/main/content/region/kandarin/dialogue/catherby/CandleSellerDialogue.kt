@@ -17,7 +17,6 @@ class CandleSellerDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         npc(FacialExpression.HAPPY, "Do you want a lit candle for 1000 gold?")
-        stage = 0
         return true
     }
 

@@ -17,9 +17,6 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 import core.plugin.Plugin
 
-/**
- * The Tunnel shortcut.
- */
 @Initializable
 class TunnelShortcut : AgilityShortcut {
 
@@ -72,8 +69,8 @@ class TunnelShortcut : AgilityShortcut {
 
                     6 -> {
                         player.animate(ForceMovement.WALK_ANIMATION)
-                        if ((obj.id == 9309 || obj.id == 9310) && !player.achievementDiaryManager.getDiary(DiaryType.FALADOR).isComplete(1, 1)) {
-                            player.achievementDiaryManager.getDiary(DiaryType.FALADOR).updateTask(player, 1, 1, true)
+                        if ((obj.id == 9309 || obj.id == 9310) && !player.achievementDiaryManager.getDiary(DiaryType.FALADOR)!!.isComplete(1, 1)) {
+                            player.achievementDiaryManager.getDiary(DiaryType.FALADOR)!!.updateTask(player, 1, 1, true)
                         }
                         return true
                     }

@@ -21,7 +21,7 @@ class SirTiffyCashienDialogue(player: Player? = null) : Dialogue(player) {
             openDialogue(player, SirTiffyCashienDialogueFile(), npc)
             return true
         } else {
-            playerl(FacialExpression.HAPPY,"Hello.").also { stage = 0 }
+            playerl(FacialExpression.HAPPY,"Hello.")
         }
         return true
     }

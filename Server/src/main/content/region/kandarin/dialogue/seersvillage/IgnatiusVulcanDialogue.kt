@@ -16,7 +16,6 @@ class IgnatiusVulcanDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         npc("Can I help you at all?")
-        stage = 0
         return true
     }
 

@@ -15,7 +15,6 @@ class VanessaDialogue(player: Player? = null): Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         npc(FacialExpression.HAPPY, "Hello. How can I help you?")
-        stage = 0
         return true
     }
 

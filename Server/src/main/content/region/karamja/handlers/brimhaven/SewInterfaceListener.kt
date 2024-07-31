@@ -78,34 +78,174 @@ class SewInterfaceListener : InterfaceListener {
 
 
     enum class PirateClothes(val firstItem: Int, val secondItem: Int, val product: Item, val buttonId: Int) {
-        WHITE_RIGHT_EYE(Items.PIRATE_BANDANA_7112, Items.EYE_PATCH_1025, Item(Items.BANDANA_AND_EYEPATCH_8924), 38),
-        WHITE_DOUBLE_EYE(Items.PIRATE_BANDANA_7112, Items.DOUBLE_EYEPATCHES_13353, Item(Items.BANDANA_AND_EYEPATCHES_13340), 66),
-        WHITE_LEFT_EYE(Items.PIRATE_BANDANA_7112, Items.LEFT_EYEPATCH_13355, Item(Items.BANDANA_AND_EYEPATCH_13339), 68),
-        RED_RIGHT_EYE(Items.PIRATE_BANDANA_7124, Items.EYE_PATCH_1025, Item(Items.BANDANA_AND_EYEPATCH_8925), 40),
-        RED_DOUBLE_EYE(Items.PIRATE_BANDANA_7124, Items.DOUBLE_EYEPATCHES_13353, Item(Items.BANDANA_AND_EYEPATCHES_13342), 60),
-        RED_LEFT_EYE(Items.PIRATE_BANDANA_7124, Items.LEFT_EYEPATCH_13355, Item(Items.BANDANA_AND_EYEPATCH_13341), 70),
-        BLUE_RIGHT_EYE(Items.PIRATE_BANDANA_7130, Items.EYE_PATCH_1025, Item(Items.BANDANA_AND_EYEPATCH_8926), 42),
-        BLUE_DOUBLE_EYE(Items.PIRATE_BANDANA_7130, Items.DOUBLE_EYEPATCHES_13353, Item(Items.BANDANA_AND_EYEPATCHES_13344), 64),
-        BLUE_LEFT_EYE(Items.PIRATE_BANDANA_7130, Items.LEFT_EYEPATCH_13355, Item(Items.BANDANA_AND_EYEPATCH_13343), 72),
-        BROWN_RIGHT_EYE(Items.PIRATE_BANDANA_7136, Items.EYE_PATCH_1025, Item(Items.BANDANA_AND_EYEPATCH_8927), 44),
-        BROWN_DOUBLE_EYE(Items.PIRATE_BANDANA_7136, Items.DOUBLE_EYEPATCHES_13353, Item(Items.BANDANA_AND_EYEPATCHES_13346), 62),
-        BROWN_LEFT_EYE(Items.PIRATE_BANDANA_7136, Items.LEFT_EYEPATCH_13355, Item(Items.BANDANA_AND_EYEPATCH_13345), 74),
-        GREY_RIGHT_EYE(Items.BANDANA_13370, Items.EYE_PATCH_1025, Item(Items.BANDANA_AND_EYEPATCH_13378), 46),
-        GREY_LEFT_EYE(Items.BANDANA_13370, Items.LEFT_EYEPATCH_13355, Item(Items.BANDANA_AND_EYEPATCH_13347), 76),
-        GREY_DOUBLE_EYE(Items.BANDANA_13370, Items.DOUBLE_EYEPATCHES_13353, Item(Items.BANDANA_AND_EYEPATCHES_13348), 52),
-        PURPLE_RIGHT_EYE(Items.BANDANA_13372, Items.EYE_PATCH_1025, Item(Items.BANDANA_AND_EYEPATCH_13376), 48),
-        PURPLE_LEFT_EYE(Items.BANDANA_13372, Items.LEFT_EYEPATCH_13355, Item(Items.BANDANA_AND_EYEPATCH_13349), 78),
-        PURPLE_DOUBLE_EYE(Items.BANDANA_13372, Items.DOUBLE_EYEPATCHES_13353, Item(Items.BANDANA_AND_EYEPATCHES_13350), 54),
-        ORANGE_RIGHT_EYE(Items.BANDANA_13374, Items.BANDANA_13374, Item(Items.BANDANA_AND_EYEPATCH_13377), 50),
-        ORANGE_DOUBLE_EYE(Items.BANDANA_13374, Items.DOUBLE_EYEPATCHES_13353, Item(Items.BANDANA_AND_EYEPATCH_13351), 56),
-        ORANGE_LEFT_DOUBLE_EYE(Items.BANDANA_13374, Items.LEFT_EYEPATCH_13355, Item(Items.BANDANA_AND_EYEPATCHES_13352), 80),
-        PIRATE_HAT_RIGHT_EYE(Items.PIRATES_HAT_2651, Items.EYE_PATCH_1025, Item(Items.HAT_AND_EYEPATCH_8928), 82),
-        PIRATE_HAT_DOUBLE_EYE(Items.PIRATES_HAT_2651, Items.DOUBLE_EYEPATCHES_13353, Item(Items.PIRATE_HAT_AND_EYEPATCHES_13354), 58),
-        PIRATE_HAT_LEFT_EYE(Items.PIRATES_HAT_2651, Items.LEFT_EYEPATCH_13355, Item(Items.PIRATE_HAT_AND_EYEPATCH_13357), 84),
-        DOUBLE_PATCH(Items.LEFT_EYEPATCH_13355, Items.EYE_PATCH_1025, Item(Items.DOUBLE_EYEPATCHES_13353), 86),
-        CRAB_HAND(Items.CRAB_CLAW_7537, Items.PIRATES_HOOK_2997, Item(Items.CRABCLAW_AND_HOOK_8929), 88),
-        CAVALIER_AND_MASK(Items.HIGHWAYMAN_MASK_2631, Items.BLACK_CAVALIER_2643, Item(Items.CAVALIER_AND_MASK_11280), 90),
-        BERET_AND_MASK(Items.MIME_MASK_3057, Items.BLACK_BERET_2635, Item(Items.BERET_AND_MASK_11282), 92);
+        WHITE_RIGHT_EYE(
+            firstItem = Items.PIRATE_BANDANA_7112,
+            secondItem = Items.EYE_PATCH_1025,
+            product = Item(Items.BANDANA_AND_EYEPATCH_8924),
+            buttonId = 38
+        ),
+        WHITE_DOUBLE_EYE(
+            firstItem = Items.PIRATE_BANDANA_7112,
+            secondItem = Items.DOUBLE_EYEPATCHES_13353,
+            product = Item(Items.BANDANA_AND_EYEPATCHES_13340),
+            buttonId = 66
+        ),
+        WHITE_LEFT_EYE(
+            firstItem = Items.PIRATE_BANDANA_7112,
+            secondItem = Items.LEFT_EYEPATCH_13355,
+            product = Item(Items.BANDANA_AND_EYEPATCH_13339),
+            buttonId = 68
+        ),
+        RED_RIGHT_EYE(
+            firstItem = Items.PIRATE_BANDANA_7124,
+            secondItem = Items.EYE_PATCH_1025,
+            product = Item(Items.BANDANA_AND_EYEPATCH_8925),
+            buttonId = 40
+        ),
+        RED_DOUBLE_EYE(
+            firstItem = Items.PIRATE_BANDANA_7124,
+            secondItem = Items.DOUBLE_EYEPATCHES_13353,
+            product = Item(Items.BANDANA_AND_EYEPATCHES_13342),
+            buttonId = 60
+        ),
+        RED_LEFT_EYE(
+            firstItem = Items.PIRATE_BANDANA_7124,
+            secondItem = Items.LEFT_EYEPATCH_13355,
+            product = Item(Items.BANDANA_AND_EYEPATCH_13341),
+            buttonId = 70
+        ),
+        BLUE_RIGHT_EYE(
+            firstItem = Items.PIRATE_BANDANA_7130,
+            secondItem = Items.EYE_PATCH_1025,
+            product = Item(Items.BANDANA_AND_EYEPATCH_8926),
+            buttonId = 42
+        ),
+        BLUE_DOUBLE_EYE(
+            firstItem = Items.PIRATE_BANDANA_7130,
+            secondItem = Items.DOUBLE_EYEPATCHES_13353,
+            product = Item(Items.BANDANA_AND_EYEPATCHES_13344),
+            buttonId = 64
+        ),
+        BLUE_LEFT_EYE(
+            firstItem = Items.PIRATE_BANDANA_7130,
+            secondItem = Items.LEFT_EYEPATCH_13355,
+            product = Item(Items.BANDANA_AND_EYEPATCH_13343),
+            buttonId = 72
+        ),
+        BROWN_RIGHT_EYE(
+            firstItem = Items.PIRATE_BANDANA_7136,
+            secondItem = Items.EYE_PATCH_1025,
+            product = Item(Items.BANDANA_AND_EYEPATCH_8927),
+            buttonId = 44
+        ),
+        BROWN_DOUBLE_EYE(
+            firstItem = Items.PIRATE_BANDANA_7136,
+            secondItem = Items.DOUBLE_EYEPATCHES_13353,
+            product = Item(Items.BANDANA_AND_EYEPATCHES_13346),
+            buttonId = 62
+        ),
+        BROWN_LEFT_EYE(
+            firstItem = Items.PIRATE_BANDANA_7136,
+            secondItem = Items.LEFT_EYEPATCH_13355,
+            product = Item(Items.BANDANA_AND_EYEPATCH_13345),
+            buttonId = 74
+        ),
+        GREY_RIGHT_EYE(
+            firstItem = Items.BANDANA_13370,
+            secondItem = Items.EYE_PATCH_1025,
+            product = Item(Items.BANDANA_AND_EYEPATCH_13378),
+            buttonId = 46
+        ),
+        GREY_LEFT_EYE(
+            firstItem = Items.BANDANA_13370,
+            secondItem = Items.LEFT_EYEPATCH_13355,
+            product = Item(Items.BANDANA_AND_EYEPATCH_13347),
+            buttonId = 76
+        ),
+        GREY_DOUBLE_EYE(
+            firstItem = Items.BANDANA_13370,
+            secondItem = Items.DOUBLE_EYEPATCHES_13353,
+            product = Item(Items.BANDANA_AND_EYEPATCHES_13348),
+            buttonId = 52
+        ),
+        PURPLE_RIGHT_EYE(
+            firstItem = Items.BANDANA_13372,
+            secondItem = Items.EYE_PATCH_1025,
+            product = Item(Items.BANDANA_AND_EYEPATCH_13376),
+            buttonId = 48
+        ),
+        PURPLE_LEFT_EYE(
+            firstItem = Items.BANDANA_13372,
+            secondItem = Items.LEFT_EYEPATCH_13355,
+            product = Item(Items.BANDANA_AND_EYEPATCH_13349),
+            buttonId = 78
+        ),
+        PURPLE_DOUBLE_EYE(
+            firstItem = Items.BANDANA_13372,
+            secondItem = Items.DOUBLE_EYEPATCHES_13353,
+            product = Item(Items.BANDANA_AND_EYEPATCHES_13350),
+            buttonId = 54
+        ),
+        ORANGE_RIGHT_EYE(
+            firstItem = Items.BANDANA_13374,
+            secondItem = Items.BANDANA_13374,
+            product = Item(Items.BANDANA_AND_EYEPATCH_13377),
+            buttonId = 50
+        ),
+        ORANGE_DOUBLE_EYE(
+            firstItem = Items.BANDANA_13374,
+            secondItem = Items.DOUBLE_EYEPATCHES_13353,
+            product = Item(Items.BANDANA_AND_EYEPATCH_13351),
+            buttonId = 56
+        ),
+        ORANGE_LEFT_DOUBLE_EYE(
+            firstItem = Items.BANDANA_13374,
+            secondItem = Items.LEFT_EYEPATCH_13355,
+            product = Item(Items.BANDANA_AND_EYEPATCHES_13352),
+            buttonId = 80
+        ),
+        PIRATE_HAT_RIGHT_EYE(
+            firstItem = Items.PIRATES_HAT_2651,
+            secondItem = Items.EYE_PATCH_1025,
+            product = Item(Items.HAT_AND_EYEPATCH_8928),
+            buttonId = 82
+        ),
+        PIRATE_HAT_DOUBLE_EYE(
+            firstItem = Items.PIRATES_HAT_2651,
+            secondItem = Items.DOUBLE_EYEPATCHES_13353,
+            product = Item(Items.PIRATE_HAT_AND_EYEPATCHES_13354),
+            buttonId = 58
+        ),
+        PIRATE_HAT_LEFT_EYE(
+            firstItem = Items.PIRATES_HAT_2651,
+            secondItem = Items.LEFT_EYEPATCH_13355,
+            product = Item(Items.PIRATE_HAT_AND_EYEPATCH_13357),
+            buttonId = 84
+        ),
+        DOUBLE_PATCH(
+            firstItem = Items.LEFT_EYEPATCH_13355,
+            secondItem = Items.EYE_PATCH_1025,
+            product = Item(Items.DOUBLE_EYEPATCHES_13353),
+            buttonId = 86
+        ),
+        CRAB_HAND(
+            firstItem = Items.CRAB_CLAW_7537,
+            secondItem = Items.PIRATES_HOOK_2997,
+            product = Item(Items.CRABCLAW_AND_HOOK_8929),
+            buttonId = 88
+        ),
+        CAVALIER_AND_MASK(
+            firstItem = Items.HIGHWAYMAN_MASK_2631,
+            secondItem = Items.BLACK_CAVALIER_2643,
+            product = Item(Items.CAVALIER_AND_MASK_11280),
+            buttonId = 90
+        ),
+        BERET_AND_MASK(
+            firstItem = Items.MIME_MASK_3057,
+            secondItem = Items.BLACK_BERET_2635,
+            product = Item(Items.BERET_AND_MASK_11282),
+            buttonId = 92
+        );
 
         companion object {
             val productMap = HashMap<Int, PirateClothes>()

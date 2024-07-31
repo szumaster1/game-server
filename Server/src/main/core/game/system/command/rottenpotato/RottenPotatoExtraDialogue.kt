@@ -28,7 +28,6 @@ class RottenPotatoExtraDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         options("Send Player Notification", "Targeted AME", "Spawn Boss", "Force Area NPC Chat", "Kill All Nearby NPCs")
-        stage = 0
         return true
     }
 
@@ -83,7 +82,7 @@ class RottenPotatoExtraDialogue(player: Player? = null) : Dialogue(player) {
             100 -> {
                 end()
                 sendInputDialogue(player, InputType.STRING_SHORT, "Enter player name:") { value ->
-                    val other = Repository.getPlayerByName(value.toString().toLowerCase().replace(" ", "_"))
+                    val other = Repository.getPlayerByName(value.toString().lowercase().replace(" ", "_"))
                     if (other == null) {
                         player.sendMessage(colorize("%RInvalid player name."))
                     }

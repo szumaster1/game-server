@@ -16,9 +16,6 @@ import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
-/**
- * The Dream spell.
- */
 @Initializable
 public final class DreamSpell extends MagicSpell {
     private static final Animation START = Animation.create(6295);
@@ -26,9 +23,6 @@ public final class DreamSpell extends MagicSpell {
     private static final Animation END = Animation.create(6297);
     private static final Graphic GRAPHIC = new Graphic(1056);
 
-    /**
-     * Instantiates a new Dream spell.
-     */
     public DreamSpell() {
         super(SpellBook.LUNAR, 79, 82, null, null, null, new Item[]{new Item(Runes.COSMIC_RUNE.getId(), 1), new Item(Runes.ASTRAL_RUNE.getId(), 2), new Item(Runes.BODY_RUNE.getId(), 5)});
     }

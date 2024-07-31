@@ -15,7 +15,7 @@ class ZahraDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         if(!isQuestComplete(player, "Spirits of the Elid")){
-            player(FacialExpression.FRIENDLY, "Good day to you.").also { stage = 0 }
+            player(FacialExpression.FRIENDLY, "Good day to you.")
         } else {
             playerl(FacialExpression.FRIENDLY, "How's life now the curse has been lifted?").also { stage = 5 }
         }

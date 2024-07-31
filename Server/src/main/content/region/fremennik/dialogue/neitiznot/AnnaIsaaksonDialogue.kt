@@ -2,39 +2,25 @@ package content.region.fremennik.dialogue.neitiznot
 
 import core.api.consts.NPCs
 import core.game.dialogue.Dialogue
+import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
+import core.tools.END_DIALOGUE
 
 @Initializable
 class AnnaIsaaksonDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
+        npc = args[0] as NPC
         npc("Hello visitor, how are you?")
-        stage = 1
         return true
     }
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
-            1 -> {
-                player(
-                    "Better than expected. Its a lot...nicer...here than I was",
-                    "expecting. Everyone seems pretty happy."
-                )
-                stage = 2
-            }
-
-            2 -> {
-                npc("Of course, the Burgher is strong and wise, and looks", "after us well")
-                stage = 3
-            }
-
-            3 -> {
-                player("I think some of those Jatizso citizens have got", "the wrong idea about this place.")
-                stage = 10
-            }
-
-            10 -> end()
+            0 -> player("Better than expected. Its a lot...nicer...here than I was", "expecting. Everyone seems pretty happy.").also { stage++ }
+            1 -> npc("Of course, the Burgher is strong and wise, and looks", "after us well").also { stage++ }
+            2 -> player("I think some of those Jatizso citizens have got", "the wrong idea about this place.").also { stage = END_DIALOGUE }
         }
         return true
     }

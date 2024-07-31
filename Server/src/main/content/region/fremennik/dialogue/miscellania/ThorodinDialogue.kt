@@ -13,7 +13,7 @@ class ThorodinDialogue(player: Player? = null): Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.OLD_DEFAULT, "Good day, sir.").also { stage = 0 }
+        npc(FacialExpression.OLD_DEFAULT, "Good day, sir.")
         return true
     }
 
@@ -21,14 +21,14 @@ class ThorodinDialogue(player: Player? = null): Dialogue(player) {
         when (stage) {
             0 -> options("What are you doing down here?", "Good day.").also { stage++ }
             1 -> when (buttonId) {
-                1 -> player(FacialExpression.FRIENDLY, "What are you doing down here?").also { stage = 10 }
+                1 -> player(FacialExpression.FRIENDLY, "What are you doing down here?").also { stage++ }
                 2 -> player(FacialExpression.NEUTRAL, "Good day.").also { stage = END_DIALOGUE }
             }
-            10 -> npc(FacialExpression.OLD_DEFAULT, "We're extending the cave so more people can live in it.", "These Miscellanians aren't so bad.", "They appreciate the benefits of living underground.").also { stage++ }
-            11 -> player(FacialExpression.ASKING, "...such as?").also { stage++ }
-            12 -> npc(FacialExpression.OLD_DEFAULT, "Not getting rained on, for example.", "Did you do anything about that monster Donal", "was talking about?").also { stage++ }
-            13 -> player(FacialExpression.FRIENDLY, "It's been taken care of.").also { stage++ }
-            14 -> npc(FacialExpression.OLD_HAPPY, "Glad to hear it.", "Now we can get on with excavating.").also { stage = END_DIALOGUE }
+            2 -> npc(FacialExpression.OLD_DEFAULT, "We're extending the cave so more people can live in it.", "These Miscellanians aren't so bad.", "They appreciate the benefits of living underground.").also { stage++ }
+            3 -> player(FacialExpression.ASKING, "...such as?").also { stage++ }
+            4 -> npc(FacialExpression.OLD_DEFAULT, "Not getting rained on, for example.", "Did you do anything about that monster Donal", "was talking about?").also { stage++ }
+            5 -> player(FacialExpression.FRIENDLY, "It's been taken care of.").also { stage++ }
+            6 -> npc(FacialExpression.OLD_HAPPY, "Glad to hear it.", "Now we can get on with excavating.").also { stage = END_DIALOGUE }
         }
         return true
     }

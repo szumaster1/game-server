@@ -1,5 +1,6 @@
 package content.region.asgarnia.handlers.portsarim
 
+import core.api.consts.NPCs
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.BattleState
 import core.game.node.entity.combat.CombatStyle
@@ -34,11 +35,8 @@ class ElementalWizardNPC : AbstractNPC {
             sendChat("Gratias tibi ago")
             getSkills().heal(getSkills().getStaticLevel(Skills.HITPOINTS))
             val attacker = state.attacker
-            if (attacker is Player && !attacker.asPlayer().achievementDiaryManager.getDiary(DiaryType.FALADOR)
-                    .isComplete(0, 8)
-            ) {
-                attacker.asPlayer().achievementDiaryManager.getDiary(DiaryType.FALADOR)
-                    .updateTask(attacker.asPlayer(), 0, 8, true)
+            if (attacker is Player && !attacker.asPlayer().achievementDiaryManager.getDiary(DiaryType.FALADOR)!!.isComplete(0, 8)) {
+                attacker.asPlayer()!!.achievementDiaryManager.getDiary(DiaryType.FALADOR)!!.updateTask(attacker.asPlayer(), 0, 8, true)
             }
         }
         if (getAttribute("switch", false)) {
@@ -83,7 +81,7 @@ class ElementalWizardNPC : AbstractNPC {
         }
 
     override fun getIds(): IntArray {
-        return intArrayOf(2709, 2710, 2711, 2712)
+        return intArrayOf(NPCs.FIRE_WIZARD_2709, NPCs.WATER_WIZARD_2710, NPCs.EARTH_WIZARD_2711, NPCs.AIR_WIZARD_2712)
     }
 
     companion object {

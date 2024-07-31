@@ -19,7 +19,6 @@ class AeonisigRaispherDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         npc("Please only talk to the King if it's important. He has a", "heavy burden to bear with the running of his Kingdom.")
-        stage = 0
         return true
     }
 

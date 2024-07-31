@@ -16,26 +16,16 @@ import core.game.world.update.flag.context.Graphic
 import kotlin.random.Random
 
 class SinclairMansionLogShortcut : InteractionListener {
-
     /*
-        Name: Sinclair Mansion Log shortcut.
-        Location: North of the mansion that brings you to the Fremennik Province.
-        Source: https://youtu.be/7XSVFKnUM9Y?si=hH414fk1MUnVi4tD&t=658
-        Required level: 48
-        Scenery: 9322, 9324
-        Animations: Balance 9908, Fail 2582
-        Hit: 1-7
-        Swimming route: https://i.imgur.com/1HWtXhB.png
-    */
-
-    private val sinclarLog = intArrayOf(Scenery.LOG_BALANCE_9322, Scenery.LOG_BALANCE_9324)
-
-    private val logBalanceAnimation = Animation(Animations.BALANCE_WALK_ACROSS_LOG_9908)
-    private val swimmingAnimation = Animation(Animations.SWIMMING_6988)
-    private val swimmingLoopAnimation = Animation(Animations.SWIMMING_LOOP_6989)
-    private val failAnimation = Animation(Animations.FALL_OFF_LOG_2582)
-
-    private val splashGraphic = Graphic(68)
+     * Name: Sinclair Mansion Log shortcut.
+     * Location: North of the mansion that brings you to the Fremennik Province.
+     * Source: https://youtu.be/7XSVFKnUM9Y?si=hH414fk1MUnVi4tD&t=658
+     * Required level: 48
+     * Scenery: 9322, 9324
+     * Animations: Balance 9908, Fail 2582
+     * Hit: 1-7
+     * Swimming route: https://i.imgur.com/1HWtXhB.png
+     */
 
     override fun defineListeners() {
 
@@ -80,12 +70,22 @@ class SinclairMansionLogShortcut : InteractionListener {
                 val end = if (fromSouth) start.transform(0, 4, 0) else start.transform(0, -4, 0)
                 AgilityHandler.forceWalk(player, -1, start, end, logBalanceAnimation, 10, 0.0, null, 0).endAnimation = Animation.RESET
                 runTask(player, 4) {
-                    if (node.id in sinclarLog && !player.achievementDiaryManager.getDiary(DiaryType.SEERS_VILLAGE).isComplete(1, 0)) {
-                        player.achievementDiaryManager.getDiary(DiaryType.SEERS_VILLAGE).updateTask(player, 1, 0, true)
+                    if (node.id in sinclarLog && !player.achievementDiaryManager.getDiary(DiaryType.SEERS_VILLAGE)!!.isComplete(1, 0)) {
+                        player.achievementDiaryManager.getDiary(DiaryType.SEERS_VILLAGE)!!.updateTask(player, 1, 0, true)
                     }
                 }
             }
             return@on true
         }
     }
+
+    companion object {
+        private val sinclarLog = intArrayOf(Scenery.LOG_BALANCE_9322, Scenery.LOG_BALANCE_9324)
+        private val logBalanceAnimation = Animation(Animations.BALANCE_WALK_ACROSS_LOG_9908)
+        private val swimmingAnimation = Animation(Animations.SWIMMING_6988)
+        private val swimmingLoopAnimation = Animation(Animations.SWIMMING_LOOP_6989)
+        private val failAnimation = Animation(Animations.FALL_OFF_LOG_2582)
+        private val splashGraphic = Graphic(68)
+    }
+
 }

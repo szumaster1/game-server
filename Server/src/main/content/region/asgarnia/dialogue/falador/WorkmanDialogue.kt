@@ -13,7 +13,7 @@ class WorkmanDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        player(FacialExpression.FRIENDLY, "Hiya.").also { stage = 0 }
+        player(FacialExpression.FRIENDLY, "Hiya.")
         return true
     }
 

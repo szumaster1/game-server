@@ -13,7 +13,7 @@ class DerrikDialogue(player: Player? = null): Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.FRIENDLY, "Good day, Sir. Can I help you with anything?").also { stage = 0 }
+        npc(FacialExpression.FRIENDLY, "Good day, Sir. Can I help you with anything?")
         return true
     }
 

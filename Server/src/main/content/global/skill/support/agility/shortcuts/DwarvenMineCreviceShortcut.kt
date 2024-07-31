@@ -17,6 +17,9 @@ class DwarvenMineCreviceShortcut : InteractionListener {
 
     override fun defineListeners() {
 
+        /*
+         * Squeeze through dwarven mine crevice.
+         */
         on(Scenery.CREVICE_30868, IntType.SCENERY, "squeeze-through") { player, _ ->
             if (!hasLevelDyn(player, Skills.AGILITY, 42)) {
                 sendDialogue(player, "You need an agility level of at least 42 to do this.")

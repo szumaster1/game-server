@@ -17,9 +17,6 @@ import core.plugin.Plugin;
 
 import static core.api.ContentAPIKt.sendMessage;
 
-/**
- * The Wall shortcut handler.
- */
 @Initializable
 public final class DesertWallShortcut extends OptionHandler {
     private static final Animation CLIMB_DOWN = Animation.create(Animations.CRAWL_UNDER_WALL_A_2589);

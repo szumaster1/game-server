@@ -10,9 +10,9 @@ import core.tools.RandomFunction
 class ShanomiNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 
     /*
-        A warrior mage from the east. Shanomi runs a minigame
-        in the Warriors' Guild in which the player must defeat
-        animated suits of armour to win warrior guild tokens.
+     * A warrior mage from the east. Shanomi runs a minigame
+     * in the Warriors' Guild in which the player must defeat
+     * animated suits of armour to win warrior guild tokens.
      */
 
     private val forceChat: Array<String> = arrayOf("Those things which cannot be seen, perceive them.", "Do nothing which is of no use.", "Think not dishonestly.", "The Way in training is.", "Gain and loss between you must distinguish.", "Trifles pay attention even to.", "Way of the warrior this is.", "Acquainted with every art become.", "Ways of all professions know you.", "Judgment and understanding for everything develop you must.")

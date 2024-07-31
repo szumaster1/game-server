@@ -14,7 +14,7 @@ class ArdougneShopkeeperDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.HAPPY, "Hello, you look like a bold adventurer. You've come to the", "right place for adventurers' equipment.").also { stage = 0 }
+        npc(FacialExpression.HAPPY, "Hello, you look like a bold adventurer. You've come to the", "right place for adventurers' equipment.")
         return true
     }
 

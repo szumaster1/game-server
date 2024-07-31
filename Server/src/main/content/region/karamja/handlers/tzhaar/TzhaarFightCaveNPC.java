@@ -30,21 +30,11 @@ public final class TzhaarFightCaveNPC extends AbstractNPC {
 
     private boolean spawnedMinions;
 
-    /**
-     * Instantiates a new Tzhaar fight cave npc.
-     *
-     * @param id       the id
-     * @param location the location
-     * @param activity the activity
-     */
     public TzhaarFightCaveNPC(int id, Location location, TzhaarFightCavesPlugin activity) {
         super(id, location);
         this.activity = activity;
     }
 
-    /**
-     * Instantiates a new Tzhaar fight cave npc.
-     */
     public TzhaarFightCaveNPC() {
         super(2734, null);
     }
@@ -90,11 +80,6 @@ public final class TzhaarFightCaveNPC extends AbstractNPC {
         return mover instanceof TzhaarFightCaveNPC;
     }
 
-    /**
-     * Heal.
-     *
-     * @param amount the amount
-     */
     public void heal(int amount) {
         if (getSkills().heal(amount) > 0 && getId() == 2745) {
             spawnedMinions = false;
@@ -145,34 +130,12 @@ public final class TzhaarFightCaveNPC extends AbstractNPC {
         return NPC_IDS;
     }
 
-
-    /**
-     * The Combat action.
-     */
     static class CombatAction extends CombatSwingHandler {
-
-
         private final TzhaarFightCaveNPC npc;
-
-
         private CombatStyle main;
-
-
         private CombatStyle style;
-
-
-        /**
-         * The Jad.
-         */
         boolean jad;
 
-
-        /**
-         * Instantiates a new Combat action.
-         *
-         * @param npc  the npc
-         * @param main the main
-         */
         public CombatAction(TzhaarFightCaveNPC npc, CombatStyle main) {
             super(main);
             this.npc = npc;

@@ -2,6 +2,7 @@ package content.minigame.bountyhunter
 
 import core.api.removeAttribute
 import core.api.setAttribute
+import core.api.setInterfaceText
 import core.api.setVarp
 import core.game.activity.ActivityManager
 import core.game.activity.ActivityPlugin
@@ -83,7 +84,7 @@ class BountyHunterActivity @JvmOverloads constructor(val type: CraterType = Crat
         if (type == CraterType.LOW_LEVEL) {
             // Disable bounty hunter area as wilderness
             val check = Location.create(3166, 3679, 0)
-            for (border in WildernessZone.getInstance().borders) {
+            for (border in WildernessZone.instance.borders) {
                 if (border.insideBorder(check)) {
                     border.addException(ZoneBorders(3140, 3653, 3149, 3670))
                     border.addException(ZoneBorders(3150, 3656, 3154, 3676))
@@ -300,7 +301,7 @@ class BountyHunterActivity @JvmOverloads constructor(val type: CraterType = Crat
                 }
             }
         }
-        player.skullManager.isSkulled = true
+        player.skullManager.isSkulled()
         player.appearance.skullIcon = skull
         player.appearance.sync()
     }
@@ -355,18 +356,14 @@ class BountyHunterActivity @JvmOverloads constructor(val type: CraterType = Crat
         } else {
             removeAttribute(player, "exit_penalty")
         }
-        player.skullManager.isSkulled = false
+        !player.skullManager.isSkulled()
     }
 
     private fun joinWaitingRoom(player: Player) {
         waitingRoom.add(player)
         player.properties.teleportLocation = type.roomLocation
         player.interfaceManager.openOverlay(WAITING_OVERLAY)
-        player.packetDispatch.sendString(
-            "Players waiting (need " + MINIMUM_PLAYERS + "):",
-            656,
-            6
-        )
+        setInterfaceText(player, "Players waiting (need $MINIMUM_PLAYERS):", 656, 6)
         updateWaitingRoomSize()
         if (waitingRoom.size == MINIMUM_PLAYERS) {
             val time = Math.round(waitingTime * 0.6).toInt().toString() + " Sec"

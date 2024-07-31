@@ -12,14 +12,14 @@ import core.tools.END_DIALOGUE
 class ParrotyPeteDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        Parroty Pete is an employee
-        at Ardougne Zoo who cares for the parrots.
-        Location: 2611,3285
+     * Parroty Pete is an employee
+     * at Ardougne Zoo who cares for the parrots.
+     * Location: 2611,3285
      */
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npcl(FacialExpression.FRIENDLY, "Good day, good day. Come to admire the new parrot aviary have we?").also { stage = 0 }
+        npcl(FacialExpression.FRIENDLY, "Good day, good day. Come to admire the new parrot aviary have we?")
         return true
     }
 
@@ -27,7 +27,7 @@ class ParrotyPeteDialogue(player: Player? = null) : Dialogue(player) {
         when (stage) {
             0 -> options("It's very nice.", "When did you add it?", "What do you feed them?").also { stage++ }
             1 -> when (buttonId) {
-                1 -> playerl(FacialExpression.FRIENDLY, "It's very nice.").also { stage = 2 }
+                1 -> playerl(FacialExpression.FRIENDLY, "It's very nice.").also { stage++ }
                 2 -> playerl(FacialExpression.HALF_ASKING, "When did you add it?").also { stage = 3 }
                 3 -> playerl(FacialExpression.HALF_ASKING, "What do you feed them?").also { stage = 4 }
             }

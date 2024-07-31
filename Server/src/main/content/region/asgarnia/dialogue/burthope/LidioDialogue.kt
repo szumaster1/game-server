@@ -16,6 +16,7 @@ class LidioDialogue(player: Player? = null) : Dialogue(player) {
         npcl(FacialExpression.ASKING, "Greetings, warrior, how can I fill your stomach today?")
         return true
     }
+
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
             0 -> playerl(FacialExpression.NEUTRAL, "With food preferable.").also { stage++ }

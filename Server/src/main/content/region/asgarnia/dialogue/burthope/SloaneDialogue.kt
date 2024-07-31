@@ -16,10 +16,10 @@ class SloaneDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        if (isMaster(player, Skills.STRENGTH)) {
-            options("Ask about Skillcape", "Something else").also { stage = 0 }
-        } else {
+        if (!isMaster(player, Skills.STRENGTH)) {
             npc("Ahhh, hello there, " + player.username + ".").also { stage = 10 }
+        } else {
+            options("Ask about Skillcape", "Something else")
         }
         return true
     }

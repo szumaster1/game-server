@@ -20,7 +20,6 @@ class AmbassadorFernookDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         player(FacialExpression.HALF_GUILTY, "Hello Ambassador. Are you here visiting King Roald?")
-        stage = 0
         return true
     }
 

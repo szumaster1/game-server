@@ -14,7 +14,7 @@ import core.game.world.map.RegionManager.getLocalPlayers
 import core.game.world.map.zone.MapZone
 import core.game.world.map.zone.ZoneBorders
 
-class ModeratorZone: MapZone("Moderator Zone", true) {
+class ModeratorZone : MapZone("Moderator Zone", true) {
 
     override fun enter(entity: Entity): Boolean {
         if (entity !is Player) {
@@ -65,7 +65,8 @@ class ModeratorZone: MapZone("Moderator Zone", true) {
             }
         }
 
-        val toggleMessage: String = "The moderator room is currently " + (if (open) "available" else "not available") + " to player moderators."
+        val toggleMessage: String =
+            "The moderator room is currently " + (if (open) "available" else "not available") + " to player moderators."
 
         fun home(player: Player) {
             player.teleporter.send(ServerConstants.HOME_LOCATION, TeleportType.NORMAL)

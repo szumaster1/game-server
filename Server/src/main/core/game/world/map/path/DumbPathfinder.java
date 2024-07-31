@@ -11,6 +11,7 @@ import java.util.List;
  * A pathfinder implementation used for an easy path, where the pathfinder won't
  * find a way around clipped objects.. <br> This is used for NPC combat
  * following, NPC random movement, etc.
+ *
  * @author Emperor
  */
 public final class DumbPathfinder extends Pathfinder {

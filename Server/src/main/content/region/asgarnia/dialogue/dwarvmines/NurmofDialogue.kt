@@ -15,7 +15,7 @@ class NurmofDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npcl(FacialExpression.OLD_NORMAL, "Greetings and welcome to my pickaxe shop. Do you want to buy my premium quality pickaxes?").also { stage = 0 }
+        npcl(FacialExpression.OLD_NORMAL, "Greetings and welcome to my pickaxe shop. Do you want to buy my premium quality pickaxes?")
         return true
     }
 

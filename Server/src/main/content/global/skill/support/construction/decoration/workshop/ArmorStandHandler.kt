@@ -70,7 +70,7 @@ class ArmorStandHandler : UseWithHandler(494, 468, 474, 476, 478, 470, 472, 496,
     }
 
     // https://runescape.wiki/w/Armour_stand?oldid=907759
-    // sendDialogue(player, "You accidentally break the ${item.name.toLowerCase()} beyond repair.")
+    // sendDialogue(player, "You accidentally break the ${item.name.lowercase()} beyond repair.")
 
     private fun repairDamagedItems(player : Player, item: Item) {
         if (item.id == Items.BROKEN_ARROW_687) {

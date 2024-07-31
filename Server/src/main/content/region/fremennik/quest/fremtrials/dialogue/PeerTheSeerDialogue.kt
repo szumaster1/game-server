@@ -414,7 +414,7 @@ class PeerTheSeerDialogue(player: Player? = null): Dialogue(player) {
             //After Fremennik Trials
             150 -> npcl(FacialExpression.AMAZED, "!").also { stage++ }
             151 -> npcl(FacialExpression.HAPPY, "Ahem, sorry about that.").also {
-                stage = if (player.achievementDiaryManager.getDiary(DiaryType.FREMENNIK).isComplete(0)) {
+                stage = if (player.achievementDiaryManager.getDiary(DiaryType.FREMENNIK)!!.isComplete(0)) {
                     200
                 } else 152
             }

@@ -6,7 +6,6 @@ import core.game.interaction.InteractionListener
 
 class FamiliarListeners : InteractionListener {
 
-
     override fun defineListeners() {
         onUseWith(IntType.NPC, FOOD_ID[0], FAMILIAR_ID[1]) { player, used, with ->
             val f = with.asNpc() as Familiar as? Pet ?: return@onUseWith false

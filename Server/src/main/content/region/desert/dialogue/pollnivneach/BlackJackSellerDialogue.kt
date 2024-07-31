@@ -10,8 +10,7 @@ import core.tools.END_DIALOGUE
 class BlackJackSellerDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
-        npc("I'm not interested in selling to you. Not yet...").also { stage = END_DIALOGUE }
-        stage = 0
+        npc("The Blackjack Seller doesn't seem interested in you.").also { stage = END_DIALOGUE }
         return true
     }
 

@@ -11,7 +11,7 @@ import core.tools.END_DIALOGUE
 class SlugHemliggsenDialogue(player: Player? = null): Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
-        npcl(FacialExpression.WORRIED, "Shhh. Go away. I'm not allowed to talk to you.").also { stage = 0 }
+        npcl(FacialExpression.WORRIED, "Shhh. Go away. I'm not allowed to talk to you.")
         return true
     }
 

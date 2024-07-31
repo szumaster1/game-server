@@ -15,7 +15,7 @@ class KarimDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        npcl(FacialExpression.HAPPY, "Would you like to buy a nice kebab? Only one gold.").also { stage = 0 }
+        npcl(FacialExpression.HAPPY, "Would you like to buy a nice kebab? Only one gold.")
         return true
     }
 

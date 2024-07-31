@@ -86,7 +86,7 @@ class PlayerPeltablesListener : InteractionListener {
 
                 hitDelay -> {
                     if (gfx[2] != -1) other.graphics(Graphic(gfx[2]))
-                    sendMessage(other, "${player.username} has hit you with a ${getItemName(peltable).toLowerCase()}.")
+                    sendMessage(other, "${player.username} has hit you with a ${getItemName(peltable).lowercase()}.")
                     return true
                 }
             }

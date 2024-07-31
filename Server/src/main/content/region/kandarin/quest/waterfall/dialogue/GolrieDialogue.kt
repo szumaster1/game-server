@@ -17,7 +17,6 @@ class GolrieDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         player(FacialExpression.NEUTRAL, "Hello, is your name Golrie?")
-        stage = 0
         return true
     }
 

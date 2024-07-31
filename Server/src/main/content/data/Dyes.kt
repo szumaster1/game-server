@@ -3,9 +3,6 @@ package content.data
 import core.api.consts.Items
 import core.game.node.item.Item
 
-/**
- * @author Vexia
- */
 enum class Dyes(val item: Item) {
     BLACK(Item(Items.BLACK_MUSHROOM_INK_4622)),
     RED(Item(Items.RED_DYE_1763)),

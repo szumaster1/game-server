@@ -101,7 +101,7 @@ class ZaffDialogue : OptionHandler() {
                 }
 
                 10 -> {
-                    if (player.achievementDiaryManager.getDiary(DiaryType.VARROCK).levelRewarded.contains(true)) {
+                    if (player.achievementDiaryManager.getDiary(DiaryType.VARROCK)!!.levelRewarded.contains(true)) {
                         npcl(FacialExpression.FRIENDLY, "Would you like to hear about my battlestaves?")
                         stage = 1000
                     } else {
@@ -340,7 +340,7 @@ class ZaffDialogue : OptionHandler() {
 
         val maxStaffs: Int
             get() {
-                val level = player.achievementDiaryManager.getDiary(DiaryType.VARROCK).level
+                val level = player.achievementDiaryManager.getDiary(DiaryType.VARROCK)!!.level
                 return when (level) {
                     2 -> 64
                     1 -> 32

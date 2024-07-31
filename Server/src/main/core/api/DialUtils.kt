@@ -13,13 +13,16 @@ object DialUtils {
 
 /**
  * Automatically split a single continuous string into multiple comma-separated lines.
- * Should this not work out for any reason, you should fall back to standard npc and player methods for dialogue.
+ * Should this not work out for any reason, you should fall back to standard npc and
+ * player methods for dialogue.
  */
 fun splitLines(message: String, perLineLimit: Int = 54): Array<String> {
-    var lines =
-        Array(ceil(DialUtils.removeMatches(message, DialUtils.tagRegex).length / perLineLimit.toFloat()).toInt()) { "" }
 
-    //short circuit when possible because it's cheaper.
+    var lines = Array(ceil(DialUtils.removeMatches(message, DialUtils.tagRegex).length / perLineLimit.toFloat()).toInt()) { "" }
+
+    /*
+     * short circuit when possible because it's cheaper.
+     */
     if (lines.size == 1) {
         lines[0] = message
         return lines
@@ -34,11 +37,14 @@ fun splitLines(message: String, perLineLimit: Int = 54): Array<String> {
 
     fun pushLine() {
         if (line.isEmpty()) return
-
-        // find all tags that were opened or closed in the line
+        /*
+         * Find all tags that were opened or closed in the line
+         */
         for (lineTag in DialUtils.tagRegex.findAll(line)) {
             if (lineTag.value.get(1) == '/') {
-                // closing tag encountered; remove it from the list of open tags
+                /*
+                 * Closing tag encountered; remove it from the list of open tags.
+                 */
                 for (openTag in openTags.descendingIterator()) {
                     val lineTagName = lineTag.value.substring(2, lineTag.value.length - 1)
                     val openTagName = openTag.substring(1, lineTag.value.length - 2)
@@ -52,16 +58,18 @@ fun splitLines(message: String, perLineLimit: Int = 54): Array<String> {
             }
         }
 
-        //allow array to be resized - there are specific edgecases where it becomes necessary. (Check the unit test for example)
-        if (lines.size == index)
-            lines = lines.plus(line.toString())
-        else
-            lines[index] = line.toString()
+        /*
+         * Allow array to be resized - there are specific edgecases where it becomes necessary.
+         * (Check the unit test for example)
+         */
+        if (lines.size == index) lines = lines.plus(line.toString()) else lines[index] = line.toString()
         index++
         line.clear()
         accumulator = 0
 
-        // if any unclosed tags remain, add them to the beginning of the new line
+        /*
+         * If any unclosed tags remain, add them to the beginning of the new line.
+         */
         for (tag in openTags) line.append(tag)
         openTags.clear()
     }
@@ -82,7 +90,9 @@ fun splitLines(message: String, perLineLimit: Int = 54): Array<String> {
 
     pushLine()
 
-    // If there's 5 lines, merge lines 4 and 5 into line 4.
+    /*
+     * If there's 5 lines, merge lines 4 and 5 into line 4.
+     */
     if (lines.size > 4) {
         lines[3] = lines[3] + "<br>" + lines[4]
         lines = lines.sliceArray(0..3)

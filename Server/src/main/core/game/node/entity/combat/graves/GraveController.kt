@@ -222,7 +222,7 @@ class GraveController : PersistWorld, TickListener, InteractionListener, Command
 
         @JvmStatic
         fun allowGenerate(player: Player): Boolean {
-            if (player.skullManager.isSkulled)
+            if (player.skullManager.isSkulled())
                 return false
             if (player.skullManager.isWilderness)
                 return false

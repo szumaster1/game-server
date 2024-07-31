@@ -11,7 +11,7 @@ import core.tools.END_DIALOGUE
 class FaladorSquireDiaryDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
-        val replacementReward: Boolean = AchievementDiary.canReplaceReward(player, DiaryType.FALADOR, 2)
+        val replacementReward: Boolean = AchievementDiary.canReplaceReward(player!!, DiaryType.FALADOR, 2)
         npc = NPC(NPCs.SQUIRE_606)
         when (stage) {
             0 -> if (replacementReward) {
@@ -21,7 +21,7 @@ class FaladorSquireDiaryDialogue : DialogueFile() {
             }
 
             80 -> {
-                AchievementDiary.grantReplacement(player, DiaryType.FALADOR, 2)
+                AchievementDiary.grantReplacement(player!!, DiaryType.FALADOR, 2)
                 npc("Here's your replacement. Please be more careful.").also { stage = END_DIALOGUE }
             }
 
@@ -33,7 +33,7 @@ class FaladorSquireDiaryDialogue : DialogueFile() {
             }
 
             105 -> {
-                if (!AchievementDiary.hasClaimedLevelRewards(player, DiaryType.FALADOR, 2)) {
+                if (!AchievementDiary.hasClaimedLevelRewards(player!!, DiaryType.FALADOR, 2)) {
                     options("What is the Achievement Diary?", "What are the rewards?", "How do I claim the rewards?", "See you later.").also { stage = 106 }
                 } else {
                     options("Can you remind me what my Falador shield does, please?", "What is the Achievement Diary?", "What are the rewards?", "How do I claim the rewards?", "See you later.").also { stage = 107 }
@@ -70,9 +70,9 @@ class FaladorSquireDiaryDialogue : DialogueFile() {
             154 -> npc("He'll only offer them to you if you're wielding the", "Falador shield, though.").also { stage++ }
             155 -> npc("As well as all these features, the shield is pretty handy", "in combat, and gives you a big Prayer boost.").also { stage = 105 }
             200 -> {
-                if (AchievementDiary.hasClaimedLevelRewards(player, DiaryType.FALADOR, 2)) {
+                if (AchievementDiary.hasClaimedLevelRewards(player!!, DiaryType.FALADOR, 2)) {
                     npc("But you've already gotten yours!").also { stage = 105 }
-                } else if (AchievementDiary.hasCompletedLevel(player, DiaryType.FALADOR, 2)) {
+                } else if (AchievementDiary.hasCompletedLevel(player!!, DiaryType.FALADOR, 2)) {
                     npc("So, you've finished. Well done! I believe congratulations", "are in order.").also {
                         stage = 201
                     }
@@ -83,7 +83,7 @@ class FaladorSquireDiaryDialogue : DialogueFile() {
             201 -> player("I believe rewards are in order.").also { stage++ }
             202 -> npc("Right you are.").also { stage++ }
             203 -> {
-                AchievementDiary.flagRewarded(player, DiaryType.FALADOR, 2)
+                AchievementDiary.flagRewarded(player!!, DiaryType.FALADOR, 2)
                 npc("This is the final stage of the Falador shield: a tower", "shield. It grants you all the benefits fo the buckler", "and kiteshield did, full Prayer restore, and access to", "some interesting new seeds that my friend Wyson has").also { stage = 204 }
             }
             204 -> npc("found.").also { stage++ }

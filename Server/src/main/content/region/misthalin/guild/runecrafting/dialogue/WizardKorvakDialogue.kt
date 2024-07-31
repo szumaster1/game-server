@@ -26,7 +26,6 @@ class WizardKorvakDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         npcl(FacialExpression.HAPPY, "AAAAAAAAAAH!")
-        stage = 0
         return true
     }
 

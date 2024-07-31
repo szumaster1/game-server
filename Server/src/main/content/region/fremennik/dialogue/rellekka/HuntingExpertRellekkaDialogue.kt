@@ -21,11 +21,10 @@ class HuntingExpertRellekkaDialogue(player: Player? = null): Dialogue(player) {
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
-            START_DIALOGUE -> showTopics(
+            0 -> showTopics(
                 Topic(FacialExpression.ASKING, "Is there anything you can teach me?", 1),
                 Topic(FacialExpression.NEUTRAL, "Nevermind.", END_DIALOGUE)
             )
-
             1 -> npcl(FacialExpression.FRIENDLY, "I can teach you how to hunt.").also { stage++ }
             2 -> playerl(FacialExpression.THINKING, "What kind of creatures can I hunt?").also { stage++ }
             3 -> npcl(FacialExpression.FRIENDLY, "Many creatures in many ways. You need to make some traps " + "and catch birds!").also { stage++ }

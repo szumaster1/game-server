@@ -34,13 +34,13 @@ class SirKayDialogueFile : DialogueFile() {
                     playerl(FacialExpression.NEUTRAL, "Hello.")
                     stage++
                 } else {
-                    if (AchievementDiary.canReplaceReward(player, DiaryType.SEERS_VILLAGE, diaryLevel)) {
+                    if (AchievementDiary.canReplaceReward(player!!, DiaryType.SEERS_VILLAGE, diaryLevel)) {
                         player("I seem to have lost my seers' headband...")
                         stage = 35
-                    } else if (AchievementDiary.hasClaimedLevelRewards(player, DiaryType.SEERS_VILLAGE, diaryLevel)) {
+                    } else if (AchievementDiary.hasClaimedLevelRewards(player!!, DiaryType.SEERS_VILLAGE, diaryLevel)) {
                         player("Can you remind me what my headband does?")
                         stage = 40
-                    } else if (AchievementDiary.canClaimLevelRewards(player, DiaryType.SEERS_VILLAGE, diaryLevel)) {
+                    } else if (AchievementDiary.canClaimLevelRewards(player!!, DiaryType.SEERS_VILLAGE, diaryLevel)) {
                         player("Greetings, Sir Kay. I have completed all of the Hard", "tasks in my Achievement Diary. May I have a reward?")
                         stage = 45
                     } else {
@@ -106,7 +106,7 @@ class SirKayDialogueFile : DialogueFile() {
             // option 1
             35 -> {
                 npcl(FacialExpression.NEUTRAL, "Here's your replacement. Please be more careful.")
-                AchievementDiary.grantReplacement(player, DiaryType.SEERS_VILLAGE, diaryLevel)
+                AchievementDiary.grantReplacement(player!!, DiaryType.SEERS_VILLAGE, diaryLevel)
                 stage = END_DIALOGUE
             }
 
@@ -132,7 +132,7 @@ class SirKayDialogueFile : DialogueFile() {
                     npcl(FacialExpression.NEUTRAL, "I need your headband. Come back when you have it.")
                     stage = END_DIALOGUE
                 } else {
-                    AchievementDiary.flagRewarded(player, DiaryType.SEERS_VILLAGE, diaryLevel)
+                    AchievementDiary.flagRewarded(player!!, DiaryType.SEERS_VILLAGE, diaryLevel)
                     sendItemDialogue(player!!, Items.SEERS_HEADBAND_3_14660,"You hand Sir Kay your headband and he concentrates for a moment. Some mysterious knightly energy passes through his hands and he gives the headband back to you, along with an old lamp.")
                     stage++
                 }

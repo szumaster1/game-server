@@ -13,7 +13,7 @@ class ThakiTheDeliveryDwarfDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.OLD_NORMAL, "Arrr!").also { stage = 0 }
+        npc(FacialExpression.OLD_NORMAL, "Arrr!")
         return true
     }
 

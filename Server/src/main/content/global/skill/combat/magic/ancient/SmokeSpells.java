@@ -21,31 +21,18 @@ import java.util.List;
 import static core.api.ContentAPIKt.applyPoison;
 import static core.api.ContentAPIKt.playGlobalAudio;
 
-/**
- * The Smoke spells.
- */
 @Initializable
 public final class SmokeSpells extends CombatSpell {
 
     private static final Projectile RUSH_PROJECTILE = Projectile.create((Entity) null, null, 384, 40, 36, 52, 75, 15, 11);
-
     private static final Graphic RUSH_END = new Graphic(385, 96);
-
     private static final Projectile BURST_PROJECTILE = Projectile.create((Entity) null, null, 386, 40, 36, 52, 75, 15, 11);
-
     private static final Graphic BURST_END = new Graphic(387, 0);
-
     private static final Projectile BLITZ_PROJECTILE = Projectile.create((Entity) null, null, 389, 40, 36, 52, 75, 15, 11);
-
     private static final Graphic BLITZ_END = new Graphic(388, 96);
-
     private static final Projectile BARRAGE_PROJECTILE = Projectile.create((Entity) null, null, 391, 40, 36, 52, 75, 15, 11);
-
     private static final Graphic BARRAGE_END = new Graphic(390, 0);
 
-    /**
-     * Instantiates a new Smoke spells.
-     */
     public SmokeSpells() {
 
     }

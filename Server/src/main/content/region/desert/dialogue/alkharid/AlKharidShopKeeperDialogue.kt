@@ -15,7 +15,6 @@ class AlKharidShopKeeperDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         npcl(FacialExpression.HALF_ASKING, "Can I help you at all?")
-        stage = 0
         return true
     }
 
@@ -27,7 +26,7 @@ class AlKharidShopKeeperDialogue(player: Player? = null) : Dialogue(player) {
                     end()
                     openNpcShop(player, npc.id)
                 }
-                2 -> playerl(FacialExpression.ASKING, "How should I use your shop?").also { stage = 2 }
+                2 -> playerl(FacialExpression.ASKING, "How should I use your shop?").also { stage++ }
                 3 -> playerl(FacialExpression.NEUTRAL, "No, thanks.").also { stage = END_DIALOGUE }
             }
             2 -> npcl(FacialExpression.FRIENDLY, "I'm glad you ask! You can buy as many of the items stocked as you wish. You can also sell most items to the shop.").also { stage = END_DIALOGUE }

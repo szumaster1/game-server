@@ -76,7 +76,7 @@ open class RangeSwingHandler(vararg flags: SwingHandlerFlag) : CombatSwingHandle
         }
         var hit = 0
         if (isAccurateImpact(entity, victim, CombatStyle.RANGE)) {
-            val max = calculateHit(entity, victim, 1.0).also { if (entity?.name?.toLowerCase() == "test10") log(this::class.java, Log.FINE, "Damage: $it") }
+            val max = calculateHit(entity, victim, 1.0).also { if (entity?.name?.lowercase() == "test10") log(this::class.java, Log.FINE, "Damage: $it") }
             state.maximumHit = max
             hit = RandomFunction.random(max + 1)
         }

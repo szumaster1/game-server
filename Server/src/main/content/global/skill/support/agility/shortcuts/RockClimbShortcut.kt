@@ -14,8 +14,8 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 
 @Initializable
-class RockClimbShortcut :
-    AgilityShortcut(intArrayOf(9335, 9336, 2231, 26327, 26328, 26324, 26323, 19849, 9296, 9297), 1, 0.0, "climb") {
+class RockClimbShortcut : AgilityShortcut(intArrayOf(9335, 9336, 2231, 26327, 26328, 26324, 26323, 19849, 9296, 9297), 1, 0.0, "climb") {
+
     override fun run(player: Player, `object`: Scenery, option: String, failed: Boolean) {
         val scalingDownAnim = Animation(Animations.WALK_BACKWARDS_THEN_CLIMB_DOWN_WALL_1148)
         val scalingUpAnim = Animation(Animations.CLIMBING_DOWN_WALL_740)

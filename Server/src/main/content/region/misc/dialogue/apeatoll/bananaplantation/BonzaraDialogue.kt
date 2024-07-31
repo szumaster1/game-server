@@ -13,7 +13,7 @@ class BonzaraDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npcl(FacialExpression.OLD_DEFAULT, "It looks like you're trying to escape. Would you like some help?").also { stage = 0 }
+        npcl(FacialExpression.OLD_DEFAULT, "It looks like you're trying to escape. Would you like some help?")
         return true
     }
 

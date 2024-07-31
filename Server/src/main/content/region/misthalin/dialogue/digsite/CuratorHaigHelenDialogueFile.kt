@@ -22,7 +22,7 @@ class CuratorHaigHelenDialogueFile : DialogueFile() {
             START_DIALOGUE -> npcl(FacialExpression.NEUTRAL, "Welcome to Varrock Museum!").also {
                 if (player!!.getQuestRepository().points >= 50 && !player!!.achievementDiaryManager.hasCompletedTask(
                         DiaryType.VARROCK, 0, 12)) {
-                    player!!.achievementDiaryManager.finishTask(player, DiaryType.VARROCK, 0, 12)
+                    player!!.achievementDiaryManager.finishTask(player!!, DiaryType.VARROCK, 0, 12)
                 }
                 if (getQuestStage(player!!, "The Dig Site") == 1 && inInventory(player!!, Items.UNSTAMPED_LETTER_682) ) {
                     stage = 11 // Couldn't do a dialogueFile for digsite as it needs to resume the topic after.

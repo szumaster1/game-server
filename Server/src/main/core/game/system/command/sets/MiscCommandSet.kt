@@ -374,7 +374,7 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN) {
                 player.setAttribute("keepDialogueAlive", true)
                 val replyTo = player.getAttribute("replyTo", "").replace("_".toRegex(), " ")
                 sendInputDialogue(player, InputType.MESSAGE, StringUtils.formatDisplayName(replyTo)) { value ->
-                    CommunicationInfo.sendMessage(player, replyTo.toLowerCase(), value as String)
+                    CommunicationInfo.sendMessage(player, replyTo.lowercase(), value as String)
                     player.removeAttribute("keepDialogueAlive")
                 }
             } else {

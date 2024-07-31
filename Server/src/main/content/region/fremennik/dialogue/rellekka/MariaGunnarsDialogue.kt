@@ -36,13 +36,7 @@ class MariaGunnarsDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
-            0 -> options(
-                "Tell me about your husband.",
-                "Tell me about Jatizso.",
-                "Tell me about Neitiznot.",
-                "Can you ferry me to Rellekka?",
-                "I have nothing to ask you right now."
-            ).also { stage++ }
+            0 -> options("Tell me about your husband.", "Tell me about Jatizso.", "Tell me about Neitiznot.", "Can you ferry me to Rellekka?", "I have nothing to ask you right now.").also { stage++ }
             1 -> when(buttonId) {
                 1 -> player("Tell me about your husband.").also { stage++ }
                 2 -> player("Tell me about Jatizso.").also { stage = 8 }
@@ -77,13 +71,7 @@ class MariaGunnarsDialogue(player: Player? = null) : Dialogue(player) {
             20 -> end().also { sail(player, TravelDestination.NEITIZNOT_TO_RELLEKKA) }
             21 -> npc("Fare thee well.").also { stage = END_DIALOGUE }
 
-            22 -> options(
-                "Tell me about Neitiznot's geography.",
-                "Tell me about the islands' history.",
-                "Tell me about Burgher Mawnis Burowgar.",
-                "Can you ferry me to Neitiznot?",
-                "I just stopped to say 'hello'."
-            ).also { stage++ }
+            22 -> options("Tell me about Neitiznot's geography.", "Tell me about the islands' history.", "Tell me about Burgher Mawnis Burowgar.", "Can you ferry me to Neitiznot?", "I just stopped to say 'hello'.").also { stage++ }
             23 -> when(buttonId) {
                 1 -> player("Tell me about Neitiznot's geography.").also { stage++ }
                 2 -> player("Tell me about the islands' history.").also { stage = 39 }

@@ -12,54 +12,21 @@ class AliTheCamelManDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc("Welcome to my discount camel store.", "Can I help you with anything?")
-        stage = 0
         return true
     }
 
     override fun handle(interaceId: Int, buttonId: Int): Boolean {
         when (stage) {
-            0 -> {
-                sendDialogueOptions(player, "Select one.", "A discount camel store?", "Tell me about this town.", "Lovely day isn't it?", "Are those camels around the side for sale?", "I'm looking for Ali from Pollnivneach.")
-                stage = 10
+            0 -> sendDialogueOptions(player, "Select one.", "A discount camel store?", "Tell me about this town.", "Lovely day isn't it?", "Are those camels around the side for sale?", "I'm looking for Ali from Pollnivneach.").also { stage++ }
+            1 -> when (buttonId) {
+                1 -> player(FacialExpression.ASKING, "A discount camel store?").also { stage = 20 }
+                2 -> player(FacialExpression.THINKING, "Tell me about this town.").also { stage = 30 }
+                3 -> player(FacialExpression.ASKING, "Lovely day isn't it?").also { stage = 40 }
+                4 -> player(FacialExpression.ASKING, "Are those camels around the side for sale?").also { stage = 50 }
+                5 -> player(FacialExpression.ASKING, "I'm looking for Ali from Pollnivneach.").also { stage = 60 }
             }
-
-            10 -> when (buttonId) {
-                1 -> {
-                    player(FacialExpression.ASKING, "A discount camel store?")
-                    stage = 20
-                }
-
-                2 -> {
-                    player(FacialExpression.THINKING, "Tell me about this town.")
-                    stage = 30
-                }
-
-                3 -> {
-                    player(FacialExpression.ASKING, "Lovely day isn't it?")
-                    stage = 40
-                }
-
-                4 -> {
-                    player(FacialExpression.ASKING, "Are those camels around the side for sale?")
-                    stage = 50
-                }
-
-                5 -> {
-                    player(FacialExpression.ASKING, "I'm looking for Ali from Pollnivneach.")
-                    stage = 60
-                }
-            }
-
-            20 -> {
-                npc(FacialExpression.JOLLY, "Yes- a great idea - selling camels at discounted", "prices so that the common man can experience", "the joys of owning a camel too. They're not just", "a source of kebab meat you know!")
-                stage = 21
-            }
-
-            21 -> {
-                sendDialogueOptions(player, "Select one.", "So can I buy a camel then? I'm hungry!", "Yes camels are beautiful creatures.", "Filthy animals all they do is spit and...", "Actually I think I was a camel in a previous existence.", "So is business good then?")
-                stage = 22
-            }
-
+            20 -> npc(FacialExpression.JOLLY, "Yes- a great idea - selling camels at discounted", "prices so that the common man can experience", "the joys of owning a camel too. They're not just", "a source of kebab meat you know!").also { stage++ }
+            21 -> sendDialogueOptions(player, "Select one.", "So can I buy a camel then? I'm hungry!", "Yes camels are beautiful creatures.", "Filthy animals all they do is spit and...", "Actually I think I was a camel in a previous existence.", "So is business good then?").also { stage++ }
             22 -> when (buttonId) {
                 1 -> {
                     player(FacialExpression.ASKING, "So can I buy a camel then? I'm hungry!")

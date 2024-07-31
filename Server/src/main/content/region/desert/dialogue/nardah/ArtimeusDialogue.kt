@@ -13,7 +13,7 @@ class ArtimeusDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        npc("Greetings, friend; my business here deals with Hunter", "related items. Is there anything in which I can interest you?").also { stage = 0 }
+        npc("Greetings, friend; my business here deals with Hunter", "related items. Is there anything in which I can interest you?")
         return true
     }
 

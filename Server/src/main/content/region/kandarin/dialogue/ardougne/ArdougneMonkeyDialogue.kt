@@ -15,7 +15,6 @@ class ArdougneMonkeyDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.FRIENDLY, "").also { stage = 0 }
         if (!inEquipment(player, Items.MSPEAK_AMULET_4021, 1)) {
             npc(FacialExpression.OLD_LAUGH1, "Eeekeek ookeek!").also { stage = END_DIALOGUE }
         } else {

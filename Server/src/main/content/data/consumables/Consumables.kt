@@ -9,9 +9,6 @@ import core.game.world.update.flag.context.Animation
 import core.tools.minutesToTicks
 import core.tools.secondsToTicks
 
-/**
- * @author Vexia
- */
 enum class Consumables {
     BAT_SHISH(Food(intArrayOf(Items.BAT_SHISH_10964), HealingEffect(2))),
     FINGERS(Food(intArrayOf(Items.FINGERS_10965), HealingEffect(2))),

@@ -42,7 +42,6 @@ class PortalChamberDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any?): Boolean {
         setTitle(player, 4)
         sendDialogueOptions(player, "Select a destination", "Varrock", "Lumbridge", "Falador", "More...")
-        stage = 0
         return true
     }
 

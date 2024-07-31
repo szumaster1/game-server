@@ -5,21 +5,18 @@ import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
+import core.tools.END_DIALOGUE
 
 @Initializable
 class WhiteChiselDirectorDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        sendDialogue("White Chisel Director is too important to talk to you.")
-        stage = 0
+        sendDialogue("White Chisel Director is too important to talk to you.").also { stage = END_DIALOGUE }
         return true
     }
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
-        when (stage) {
-            0 -> end()
-        }
         return true
     }
 

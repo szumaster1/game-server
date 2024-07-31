@@ -26,7 +26,7 @@ class SeersvillageListeners : InteractionListener {
     override fun defineListeners() {
 
         /*
-            Seers Court house stairs interaction
+         * Seers Court house stairs interaction
          */
 
         on(COURTHOUSE_STAIRS, IntType.SCENERY, "climb-down") { player, _ ->
@@ -35,7 +35,7 @@ class SeersvillageListeners : InteractionListener {
         }
 
         /*
-            Seer cage unlock interaction.
+         * Seer cage unlock interaction.
          */
 
         on(CAGE, IntType.SCENERY, "unlock") { player, _ ->
@@ -44,7 +44,7 @@ class SeersvillageListeners : InteractionListener {
         }
 
         /*
-            Buy crate interaction.
+         * Buy crate interaction.
          */
 
         on(CRATE, IntType.SCENERY, "buy") { player, _ ->
@@ -53,7 +53,7 @@ class SeersvillageListeners : InteractionListener {
         }
 
         /*
-            Ticket merchant interaction - Ranging guild.
+         * Ticket merchant interaction - Ranging guild.
          */
 
         on(TICKET_MERCHANT, IntType.NPC, "trade") { player: Player, _: Node ->
@@ -62,7 +62,7 @@ class SeersvillageListeners : InteractionListener {
         }
 
         /*
-            McGrubor's Wood gates interaction.
+         * McGrubor's Wood gates interaction.
          */
 
         on(GATES, IntType.SCENERY, "open") { player, node ->

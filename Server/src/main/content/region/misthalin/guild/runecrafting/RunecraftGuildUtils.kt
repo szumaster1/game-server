@@ -66,5 +66,6 @@ object RunecraftGuildUtils {
 // Review https://www.youtube.com/watch?v=FtLRZuhinvo&ab_channel=TheChronicNoob
 // RC Map https://runescape.wiki/images/archive/20100723065527%21Rune_Altar_Map.png?2314f
 // Glitches & RC guild tab tp loc https://www.youtube.com/watch?v=Hi49BcN81hU&ab_channel=runescapewordspread
-
-// // "distracting the eyes in the Abyss to help you sneak past"
+//===================================================================
+// "distracting the eyes in the Abyss to help you sneak past"
+//===================================================================

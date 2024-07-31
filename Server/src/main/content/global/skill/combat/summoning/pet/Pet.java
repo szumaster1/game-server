@@ -9,44 +9,14 @@ import core.game.world.GameWorld;
 
 import static core.api.ContentAPIKt.setVarp;
 
-/**
- * Represents a pet.
- */
 public final class Pet extends Familiar {
 
-    /**
-     * The item id.
-     */
     private final int itemId;
-
-    /**
-     * The pet details.
-     */
     private final PetDetails details;
-
-    /**
-     * The growth rate of the pet.
-     */
     private double growthRate;
-
-    /**
-     * The pets type.
-     */
     private final Pets pet;
-
-    /**
-     * Whether a hunger warning has been fired yet; 0 = none, 1 = hungry, 2 = starving.
-     */
     private int hasWarned = 0;
 
-    /**
-     * Constructs a new {@code Pet} {@code Object}.
-     *
-     * @param owner   the owner.
-     * @param details the details.
-     * @param itemId  the itemId.
-     * @param id      the id.
-     */
     public Pet(Player owner, final PetDetails details, int itemId, int id) {
         super(owner, id, -1, -1, -1);
         this.pet = Pets.forId(itemId);
@@ -111,9 +81,6 @@ public final class Pet extends Familiar {
         setVarp(owner, 1175, ((int) details.getGrowth() << 1) | ((int) details.getHunger() << 9));
     }
 
-    /**
-     * Method used to grow the npc's next stage.
-     */
     public void growNextStage() {
         if (pet == null) {
             return;
@@ -150,40 +117,20 @@ public final class Pet extends Familiar {
         return false;
     }
 
-    /**
-     * Gets the itemId.
-     *
-     * @return The itemId.
-     */
     public int getItemId() {
         return itemId;
     }
 
-    /**
-     * Gets the itemId with the individual hashed in.
-     *
-     * @return The itemIdHash.
-     */
     public int getItemIdHash() {
         Item item = new Item(itemId);
         item.setCharge(details.getIndividual());
         return item.getIdHash();
     }
 
-    /**
-     * Gets the details.
-     *
-     * @return The details.
-     */
     public PetDetails getDetails() {
         return details;
     }
 
-    /**
-     * Gets the pet.
-     *
-     * @return The pet.
-     */
     public Pets getPet() {
         return pet;
     }

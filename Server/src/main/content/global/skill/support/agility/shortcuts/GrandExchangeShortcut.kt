@@ -14,6 +14,7 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
 class GrandExchangeShortcut : InteractionListener {
+
     companion object {
         val SHORTCUTS = mapOf(
             9311 to listOf(

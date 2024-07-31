@@ -22,9 +22,6 @@ import java.util.List;
 
 import static core.api.ContentAPIKt.*;
 
-/**
- * The Miasmic spells.
- */
 @Initializable
 public final class MiasmicSpells extends CombatSpell {
     private static final Graphic RUSH_START = new Graphic(1845, 0, 15);
@@ -37,9 +34,6 @@ public final class MiasmicSpells extends CombatSpell {
     private static final Graphic BARRAGE_END = new Graphic(1854, 0, 30);
     private static final int[] VALID_STAFF_IDS = {13867, 13869, 13841, 13843};
 
-    /**
-     * Instantiates a new Miasmic spells.
-     */
     public MiasmicSpells() {
     }
 

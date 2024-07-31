@@ -223,7 +223,7 @@ class RomilyWeaklaxDialogue(player: Player? = null) : Dialogue(player) {
         }
 
         override fun handle(event: NodeUsageEvent): Boolean {
-            if (!event.player.achievementDiaryManager.getDiary(DiaryType.VARROCK).isComplete(2, 5)) {
+            if (!event.player.achievementDiaryManager.getDiary(DiaryType.VARROCK)!!.isComplete(2, 5)) {
                 event.player.dialogueInterpreter.open(3205, event.usedItem)
             }
             return true

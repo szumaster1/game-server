@@ -6,13 +6,14 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
+import core.tools.END_DIALOGUE
 
 @Initializable
 class DrunkenManDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        player(FacialExpression.FRIENDLY, "Hello.").also { stage = 0 }
+        player(FacialExpression.FRIENDLY, "Hello.")
         return true
     }
 
@@ -24,8 +25,7 @@ class DrunkenManDialogue(player: Player? = null) : Dialogue(player) {
             3 -> player(FacialExpression.FRIENDLY, "There's only one of me, friend.").also { stage++ }
             4 -> npc(FacialExpression.DRUNK, "... no, two of you... you can't count...", "... maybe you drunk too much...").also { stage++ }
             5 -> player(FacialExpression.FRIENDLY, "Whatever you say, friend.").also { stage++ }
-            6 -> npc(FacialExpression.DRUNK, "... giant hairy cabbages...").also { stage = 99 }
-            99 -> end()
+            6 -> npc(FacialExpression.DRUNK, "... giant hairy cabbages...").also { stage = END_DIALOGUE }
         }
         return true
     }

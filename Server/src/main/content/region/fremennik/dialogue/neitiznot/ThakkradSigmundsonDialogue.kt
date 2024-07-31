@@ -11,7 +11,7 @@ import core.tools.END_DIALOGUE
 class ThakkradSigmundsonDialogue(player: Player? = null): Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
-        npcl(FacialExpression.FRIENDLY, "Greetings! I can cure your Yak Hides if you'd like!").also { stage = 0 }
+        npcl(FacialExpression.FRIENDLY, "Greetings! I can cure your Yak Hides if you'd like!")
         return true
     }
 

@@ -13,7 +13,7 @@ class FishmongerEtcDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npcl(FacialExpression.FRIENDLY, "Welcome, ${player.getAttribute("fremennikname", "fremmyname")}. My fish is fresher than any in Miscellania.").also { stage = 0 }
+        npcl(FacialExpression.FRIENDLY, "Welcome, ${player.getAttribute("fremennikname", "fremmyname")}. My fish is fresher than any in Miscellania.")
         return true
     }
 

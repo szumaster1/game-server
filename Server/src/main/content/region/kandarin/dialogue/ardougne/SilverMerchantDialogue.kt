@@ -14,17 +14,14 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
-/**
- * The Silver merchant dialogue.
- */
 @Initializable
 class SilverMerchantDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        Erin, the Silver merchant, runs the
-        Ardougne Silver Stall in East Ardougne.
-        Location: 2659,3316
-    */
+     * Erin, the Silver merchant, runs the
+     * Ardougne Silver Stall in East Ardougne.
+     * Location: 2659,3316
+     */
 
     override fun newInstance(player: Player): Dialogue {
         return SilverMerchantDialogue(player)
@@ -32,7 +29,7 @@ class SilverMerchantDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.HAPPY, "Silver! Silver! Best prices for buying and selling in all", "Kandarin!").also { stage = 0 }
+        npc(FacialExpression.HAPPY, "Silver! Silver! Best prices for buying and selling in all", "Kandarin!")
         return true
     }
 

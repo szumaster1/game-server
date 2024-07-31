@@ -169,7 +169,7 @@ class TouristTrapPlugin : OptionHandler() {
                 2688, 2687 -> {
                     if (!player.inventory.containsItem(TouristTrap.WROUGHT_IRON_KEY)) {
                         player.packetDispatch.sendMessage("This gate looks like it needs a key to open it.")
-                        
+
                     }
                     DoorActionHandler.handleAutowalkDoor(player, node as Scenery)
                 }
@@ -1109,9 +1109,9 @@ class TouristTrapPlugin : OptionHandler() {
 
             val path: Array<Location>
                 /**
-                 * Get path location [ ].
+                 * Get path location.
                  *
-                 * @return the location [ ]
+                 * @return the location.
                  */
                 get() = PATHS[index]
 

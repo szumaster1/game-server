@@ -5,6 +5,7 @@ import java.util.List;
 
 /**
  * Holds information of a certain game world.
+ *
  * @author Emperor
  */
 public final class WorldStatistics {

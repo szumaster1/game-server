@@ -65,9 +65,6 @@ public final class WildernessPlugin extends OptionHandler {
         return true;
     }
 
-    /**
-     * The Kbd plugin.
-     */
     public static final class KBDPlugin extends OptionHandler {
 
 
@@ -88,7 +85,10 @@ public final class WildernessPlugin extends OptionHandler {
             switch (option) {
                 case "climb-down":
                     switch (id) {
-                        case 1765:// kbd ladder.
+                        /*
+                         * KBD ladder.
+                         */
+                        case 1765:
                             if (node.getLocation().equals(LOCATIONS[0])) {
                                 ClimbActionHandler.climb(player, new Animation(827), LOCATIONS[1]);
                             } else {
@@ -100,7 +100,10 @@ public final class WildernessPlugin extends OptionHandler {
                     break;
                 case "climb-up":
                     switch (id) {
-                        case 1766:// kbd leave ladder.
+                        /*
+                         * KBD leave ladder.
+                         */
+                        case 1766:
                             if (node.getLocation().equals(LOCATIONS[6])) {
                                 ClimbActionHandler.climb(player, new Animation(828), LOCATIONS[3]);
                             } else {
@@ -112,7 +115,10 @@ public final class WildernessPlugin extends OptionHandler {
                     break;
                 case "pull":
                     switch (id) {
-                        case 1816:// kbd lever.
+                        /*
+                         * KBD lever.
+                         */
+                        case 1816:
                             if (player.getLocation().withinDistance(LOCATIONS[5])) {
                                 animate(player, 2140, false);
                                 playAudio(player, Sounds.LEVER_2400);
@@ -142,14 +148,6 @@ public final class WildernessPlugin extends OptionHandler {
 
         @Override
         public Location getDestination(Node node, Node n) {
-            // if (n instanceof GameObject) {
-            // int id = ((GameObject) n).getId();
-            // if (id == 1817) {
-            // return Location.create(2273, 4680, 0);
-            // } else if (id == 1816) {
-            // return Location.create(3067, 10253, 0);
-            // }
-            // }
             return null;
         }
     }

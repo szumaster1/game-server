@@ -15,11 +15,7 @@ class HicktonDialogue(player: Player? = null): Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.HAPPY,
-            "Welcome to Hickton's Archery Emporium. Do you",
-            "want to see my wares?"
-        )
-        stage = 0
+        npc(FacialExpression.HAPPY, "Welcome to Hickton's Archery Emporium. Do you", "want to see my wares?")
         return true
     }
 

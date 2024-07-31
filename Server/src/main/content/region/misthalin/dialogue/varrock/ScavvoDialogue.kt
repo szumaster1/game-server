@@ -24,7 +24,6 @@ class ScavvoDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         npc(FacialExpression.HALF_GUILTY, "'Ello matey! D'ya wanna buy some exiting new toys?")
-        stage = 0
         return true
     }
 

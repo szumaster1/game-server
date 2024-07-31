@@ -15,7 +15,7 @@ class GeoffreyDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         val diary = player.achievementDiaryManager.getDiary(DiaryType.SEERS_VILLAGE)
-        if (diary.levelRewarded.any()) {
+        if (diary!!.levelRewarded.any()) {
             player("Hello there. Are you Geoff-erm-Flax? I've been told that", "you'll give me some flax.")
             // If 1 day has not passed since last flax reward
             if (player.getAttribute("diary:seers:flax-timer", 0) > System.currentTimeMillis()) {

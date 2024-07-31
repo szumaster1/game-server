@@ -18,7 +18,6 @@ class ProfessorImblewynDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         player("I didn't realise gnomes were interested in magic.")
-        stage = 0
         return true
     }
 

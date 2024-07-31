@@ -35,18 +35,11 @@ import core.plugin.Plugin;
 
 import static core.api.ContentAPIKt.*;
 
-/**
- * The Summoning training room.
- */
 @Initializable
 public final class SummoningTrainingRoom extends OptionHandler {
-
     private static final Item BONES = new Item(2859, 2);
-
     private static final Item TRAPDOOR_KEY = new Item(12528);
-
     private static final Item HOWL_SCROLL = new Item(12425);
-
     private static final Item WOLF_POUCH = new Item(12047);
 
     @Override
@@ -160,25 +153,13 @@ public final class SummoningTrainingRoom extends OptionHandler {
         return true;
     }
 
-    /**
+    /*
      * The Fluffy cutscene.
      */
     public static final class FluffyCutscene extends CutscenePlugin {
-
-
-        /**
-         * Instantiates a new Fluffy cutscene.
-         */
         public FluffyCutscene() {
             super("fluffy cutscene");
         }
-
-
-        /**
-         * Instantiates a new Fluffy cutscene.
-         *
-         * @param player the player
-         */
         public FluffyCutscene(final Player player) {
             this();
             this.player = player;
@@ -226,50 +207,20 @@ public final class SummoningTrainingRoom extends OptionHandler {
             ClassScanner.definePlugin(new FluffyDialogue());
         }
 
-
-        /**
-         * The Fluffy dialogue.
-         */
         public static final class FluffyDialogue extends Dialogue {
-
-
             private static final Animation SCARED_ANIMATION = new Animation(2836);
-
-
             private static final Graphic GRAPHIC = new Graphic(1522);
-
-
             private static final Animation SHUDDER_ANIMATION = new Animation(8506);
-
-
             private static final Animation DEATH_ANIMATION = new Animation(8507);
-
-
             private CutscenePlugin cutscene;
-
-
             private Quest quest;
-
-
             private NPC fluffy;
-
-
             private NPC wolf;
 
-
-            /**
-             * Instantiates a new Fluffy dialogue.
-             */
             public FluffyDialogue() {
 
             }
 
-
-            /**
-             * Instantiates a new Fluffy dialogue.
-             *
-             * @param player the player
-             */
             public FluffyDialogue(final Player player) {
                 super(player);
             }

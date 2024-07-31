@@ -13,7 +13,7 @@ class ReffDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        npc("Greetings " + (if (player.appearance.isMale) "Sir" else "Madam") + ".").also { stage = 0 }
+        npc("Greetings " + (if (player.appearance.isMale) "Sir" else "Madam") + ".")
         return true
     }
 

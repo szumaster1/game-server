@@ -12,11 +12,20 @@ import core.game.world.GameWorld
 class DesertRockShortcut : InteractionListener {
 
     override fun defineListeners() {
+
+        /*
+         * Setup rock shortcut using rope on it.
+         */
+
         onUseWith(IntType.SCENERY, Items.ROPE_954, ROCK) { player, _, _ ->
             animate(player, TIE_ROPE)
             setVarbit(player, 4231, 1)
             return@onUseWith true
         }
+
+        /*
+         * Interaction with rock.
+         */
 
         on(ROCK, IntType.SCENERY, "climb down") { player, _ ->
             lock(player, 1000)

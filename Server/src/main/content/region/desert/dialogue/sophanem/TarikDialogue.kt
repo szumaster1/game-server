@@ -15,7 +15,7 @@ class TarikDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npcl(FacialExpression.WORRIED, "Ouch!").also { stage = 0 }
+        npcl(FacialExpression.WORRIED, "Ouch!")
         return true
     }
 

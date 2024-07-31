@@ -12,15 +12,15 @@ import core.plugin.Initializable
 class GemMerchantDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        The gem merchant runs the Ardougne Gem Stall in East Ardougne.
-        He sells sapphires, emeralds, rubies, and diamonds.
-        His stall's default stock is 0.
-        Location: 2669,3303
+     * The gem merchant runs the Ardougne Gem Stall in East Ardougne.
+     * He sells sapphires, emeralds, rubies, and diamonds.
+     * His stall's default stock is 0.
+     * Location: 2669,3303
      */
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.HAPPY, "Here, look at my lovely gems.").also { stage = 0 }
+        npc(FacialExpression.HAPPY, "Here, look at my lovely gems.")
         return true
     }
 

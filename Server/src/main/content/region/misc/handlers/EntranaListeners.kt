@@ -38,10 +38,18 @@ class EntranaListeners : InteractionListener {
             return@on true
         }
 
+        /*
+         * Ladder lead to Spirit tree (Lost City quest).
+         */
+
         on(Scenery.LADDER_2408, IntType.SCENERY, "climb-down") { player, _ ->
             openDialogue(player, CAVE_MONK, findNPC(CAVE_MONK)!!.asNpc())
             return@on true
         }
+
+        /*
+         * Secret doors lead to Brimhaven dungeon.
+         */
 
         on(MAGIC_DOOR, IntType.SCENERY, "open") { player, _ ->
             sendMessage(player, "You feel the world around you dissolve...")

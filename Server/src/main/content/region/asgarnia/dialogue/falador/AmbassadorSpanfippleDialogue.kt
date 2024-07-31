@@ -13,7 +13,7 @@ class AmbassadorSpanfippleDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.OLD_DEFAULT, "It's all very white round here, isn't it?").also { stage = 0 }
+        npc(FacialExpression.OLD_DEFAULT, "It's all very white round here, isn't it?")
         return true
     }
 

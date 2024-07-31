@@ -13,7 +13,7 @@ import core.tools.END_DIALOGUE
 class ZeneshaDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npcl(FacialExpression.SUSPICIOUS, "Hello there! I sell plate armour. Are you interested?").also { stage = 0 }
+        npcl(FacialExpression.SUSPICIOUS, "Hello there! I sell plate armour. Are you interested?")
         return true
     }
 

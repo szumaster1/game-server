@@ -18,13 +18,7 @@ class SteppingStoneShortcut : OptionHandler() {
 
     private val stones = HashMap<Location, SteppingStoneInstance>()
 
-    internal
-    class SteppingStoneInstance(
-        val pointA: Location,
-        val pointB: Location,
-        val option: String,
-        val levelReq: Int
-    )
+    internal class SteppingStoneInstance(val pointA: Location, val pointB: Location, val option: String, val levelReq: Int)
 
     override fun handle(player: Player?, node: Node?, option: String?): Boolean {
         player ?: return false

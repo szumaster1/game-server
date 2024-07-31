@@ -50,7 +50,7 @@ class RoguesCastleListeners : InteractionListener {
                 return@on true
             }
 
-            val item = FLOOR_1_LOOT.roll()[0]
+            val item = firstFloorLoot.roll()[0]
             addLoot(player, item)
             setCharge(scenery, 0)
             return@on true
@@ -104,7 +104,7 @@ class RoguesCastleListeners : InteractionListener {
                 return@on true
             }
 
-            val loot = FLOOR_2_LOOT.roll()[0]
+            val loot = secondFloorLoot.roll()[0]
             if (freeSlots(player) > 0) {
                 addItemOrDrop(player, loot.id, loot.amount)
                 sendMessage(player, "In the chest you find some ${loot.name.lowercase() + if (!loot.name.endsWith("s")) "s" else ""}!")
@@ -136,14 +136,14 @@ class RoguesCastleListeners : InteractionListener {
         })
     }
 
-    val FLOOR_1_LOOT = WeightBasedTable.create(
+    private val firstFloorLoot = WeightBasedTable.create(
         WeightedItem(Items.COINS_995, 8, 25, 70.0),
         WeightedItem(Items.NATURE_RUNE_561, 2, 3, 10.0),
         WeightedItem(Items.BLOOD_RUNE_565, 2, 3, 10.0),
         WeightedItem(Items.DEATH_RUNE_560, 3, 5, 10.0)
     )
 
-    val FLOOR_2_LOOT = WeightBasedTable.create(
+    private val secondFloorLoot = WeightBasedTable.create(
         WeightedItem(Items.COINS_995, 4, 57, 75.0),
         WeightedItem(Items.COINS_995, 107, 243, 5.0),
         WeightedItem(Items.BLOOD_RUNE_565, 2, 5, 5.0),

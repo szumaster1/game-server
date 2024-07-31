@@ -14,6 +14,11 @@ import core.game.world.update.flag.context.Animation
 class McGruborFenceShortcut : InteractionListener {
 
     override fun defineListeners() {
+
+        /*
+         * Shortcut in backyard of Mc grubor area.
+         */
+
         on(Scenery.LOOSE_RAILING_51, IntType.SCENERY, "squeeze-through") { player, _ ->
             queueScript(player, 1, QueueStrength.SOFT) {
                 AgilityHandler.forceWalk(

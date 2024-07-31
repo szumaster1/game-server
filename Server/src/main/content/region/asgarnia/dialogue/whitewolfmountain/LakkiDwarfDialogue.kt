@@ -19,7 +19,7 @@ class LakkiDwarfDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        player(FacialExpression.HALF_GUILTY, "Hello!").also { stage = 0 }
+        player(FacialExpression.HALF_GUILTY, "Hello!")
         return true
     }
 

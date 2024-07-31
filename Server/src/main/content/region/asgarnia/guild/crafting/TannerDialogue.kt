@@ -20,7 +20,6 @@ class TannerDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         npcl(FacialExpression.NEUTRAL, "Greetings friend. I am a manufacturer of leather.")
-        stage = 0
         return true
     }
 

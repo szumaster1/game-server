@@ -14,7 +14,7 @@ class HallaDialogue(player: Player? = null): Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.FRIENDLY, "Welcome to Miscellania's first clothing store!", "We sell clothing made especially for Fremenniks", "and Dwarves.").also { stage = 0 }
+        npc(FacialExpression.FRIENDLY, "Welcome to Miscellania's first clothing store!", "We sell clothing made especially for Fremenniks", "and Dwarves.")
         return true
     }
 
@@ -23,16 +23,16 @@ class HallaDialogue(player: Player? = null): Dialogue(player) {
             0 -> npc(FacialExpression.ASKING, "Can I help you with anything, your Royal Highness?").also { stage++ }
             1 -> options("I'd like to look at what you have for sale.", "No thank you, I'm fine.", "What's it like living down here?").also { stage++ }
             2 -> when (buttonId) {
-                1 -> player(FacialExpression.FRIENDLY, "I'd like to look at what you have for sale.").also { stage = 10 }
+                1 -> player(FacialExpression.FRIENDLY, "I'd like to look at what you have for sale.").also { stage++ }
                 2 -> player(FacialExpression.NEUTRAL, "No thank you, I'm fine.").also { stage = END_DIALOGUE }
-                3 -> player(FacialExpression.ASKING, "What's it like living down here?").also { stage = 20 }
+                3 -> player(FacialExpression.ASKING, "What's it like living down here?").also { stage = 4 }
             }
-            10 -> {
+            3 -> {
                 end()
                 openNpcShop(player, NPCs.HALLA_3921)
             }
-            20 -> npc(FacialExpression.NEUTRAL, "It's very spacious down here.", "One of the dwarves said that the caves go on for miles!").also { stage++ }
-            21 -> npc(FacialExpression.NEUTRAL, "The only problem I find is that the lighting's not very good,", "which means I make mistakes when cutting cloth.").also { stage = END_DIALOGUE }
+            4 -> npc(FacialExpression.NEUTRAL, "It's very spacious down here.", "One of the dwarves said that the caves go on for miles!").also { stage++ }
+            5 -> npc(FacialExpression.NEUTRAL, "The only problem I find is that the lighting's not very good,", "which means I make mistakes when cutting cloth.").also { stage = END_DIALOGUE }
         }
         return true
     }

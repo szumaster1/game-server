@@ -273,11 +273,11 @@ class GrimDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     fun getCandyTotals(player: Player): Int {
-        return ServerStore.getArchive("hween2021-candies").getInt(player.username.toLowerCase())
+        return ServerStore.getArchive("hween2021-candies").getInt(player.username.lowercase())
     }
 
     fun addToCandyTotal(player: Player, amount: Int) {
-        ServerStore.getArchive("hween2021-candies").put(player.username.toLowerCase(), getCandyTotals(player) + amount)
+        ServerStore.getArchive("hween2021-candies").put(player.username.lowercase(), getCandyTotals(player) + amount)
     }
 
     override fun getIds(): IntArray {

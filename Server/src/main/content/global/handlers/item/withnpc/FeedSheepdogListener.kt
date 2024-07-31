@@ -26,7 +26,7 @@ class FeedSheepdogListener : InteractionListener {
                 if (!removeItem(player, used.asItem())) {
                     return@onUseAnyWith true
                 }
-                sendDialogue(player, "You give the dog some nice ${used.name.toLowerCase()}. It happily gnaws on them.")
+                sendDialogue(player, "You give the dog some nice ${used.name.lowercase()}. It happily gnaws on them.")
             } else if (CONSUMABLE_MEATS.contains(used.id)) {
                 if (!removeItem(player, used.asItem())) {
                     return@onUseAnyWith true

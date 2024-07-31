@@ -32,7 +32,7 @@ class BrimhavenDungeonListeners : InteractionListener {
     override fun defineListeners() {
 
         on(ENTRANCE, IntType.SCENERY, "enter"){ player, _ ->
-            if (getAttribute(player, "saniboch:paid", false) || player.achievementDiaryManager.getDiary(DiaryType.KARAMJA).isComplete()) {
+            if (getAttribute(player, "saniboch:paid", false) || player.achievementDiaryManager.getDiary(DiaryType.KARAMJA)!!.isComplete) {
                 ClimbActionHandler.climb(player, ClimbActionHandler.CLIMB_UP, location(2713, 9564, 0))
                 removeAttribute(player, "saniboch:paid")
             } else {

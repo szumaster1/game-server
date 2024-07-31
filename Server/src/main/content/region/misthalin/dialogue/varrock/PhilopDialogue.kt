@@ -19,7 +19,6 @@ class PhilopDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         playerl(FacialExpression.HALF_GUILTY, "Hello, what's your name?")
-        stage = 0
         return true
     }
 

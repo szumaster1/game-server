@@ -20,7 +20,6 @@ class TzHaarMejJehDialogue(player: Player? = null): Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         npc(FacialExpression.CHILD_GUILTY, "You want help JalYt-Ket-" + player.username + "?")
-        stage = 0
         return true
     }
 

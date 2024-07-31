@@ -12,9 +12,6 @@ import core.plugin.Plugin;
 
 import static core.api.ContentAPIKt.sendMessage;
 
-/**
- * The Agility shortcut.
- */
 public abstract class AgilityShortcut extends OptionHandler {
     private final int[] ids;
     private final int level;
@@ -214,18 +211,18 @@ public abstract class AgilityShortcut extends OptionHandler {
     }
 
     /**
-     * Get ids int [ ].
+     * Get ids int.
      *
-     * @return the int [ ]
+     * @return the int
      */
     public int[] getIds() {
         return ids;
     }
 
     /**
-     * Get option string [ ].
+     * Get option string.
      *
-     * @return the string [ ]
+     * @return the string
      */
     public String[] getOption() {
         return options;

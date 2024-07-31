@@ -18,9 +18,6 @@ import core.plugin.Plugin;
 import static core.api.ContentAPIKt.animate;
 import static core.api.ContentAPIKt.lock;
 
-/**
- * The Thievable chest plugin.
- */
 @Initializable
 public final class ThievableChestPlugin extends OptionHandler {
     private static final Item LOCK_PICK = new Item(1523);
@@ -55,53 +52,20 @@ public final class ThievableChestPlugin extends OptionHandler {
         return true;
     }
 
-    /**
-     * The enum Chest.
-     */
     public enum Chest {
-        /**
-         * The Ten coin.
-         */
         TEN_COIN(2566, 13, 7.8, new Item[]{new Item(995, 10)}, 7),
-        /**
-         * The Nature rune.
-         */
         NATURE_RUNE(2567, 28, 25, new Item[]{new Item(995, 3), new Item(561, 1)}, 8),
-        /**
-         * The Fifty coin.
-         */
         FIFTY_COIN(2568, 43, 125, new Item[]{new Item(995, 50)}, 55),
-        /**
-         * The Steel arrowheads.
-         */
         STEEL_ARROWHEADS(2573, 47, 150, new Item[]{new Item(41, 5)}, 210),
-        /**
-         * The Blood runes.
-         */
         BLOOD_RUNES(2569, 59, 250, new Item[]{new Item(995, 500), new Item(565, 2)}, 135),
-        /**
-         * The Paladin.
-         */
         PALADIN(2570, 72, 500, new Item[]{new Item(995, 1000), new Item(383, 1), new Item(449, 1), new Item(1623, 1)}, 120);
 
-
         private final int[] objectIds;
-
-
         private final int level;
-
-
         private final double experience;
-
-
         private final Item[] rewards;
-
-
         private final int respawn;
-
-
         private int currentRespawn;
-
 
         Chest(int[] objectIds, int level, double experience, Item[] rewards, int respawn) {
             this.objectIds = objectIds;
@@ -111,11 +75,9 @@ public final class ThievableChestPlugin extends OptionHandler {
             this.respawn = respawn;
         }
 
-
         Chest(int objectId, int level, double experience, Item[] rewards, int respawn) {
             this(new int[]{objectId}, level, experience, rewards, respawn);
         }
-
 
         private void open(final Player player, final Scenery object) {
             if (isRespawning()) {
@@ -126,7 +88,6 @@ public final class ThievableChestPlugin extends OptionHandler {
             player.sendMessage("You have activated a trap on the chest.");
             player.getImpactHandler().manualHit(player, getHitAmount(player), HitsplatType.NORMAL);
         }
-
 
         private void searchTraps(final Player player, final Scenery object) {
             player.faceLocation(object.getLocation());
@@ -180,31 +141,14 @@ public final class ThievableChestPlugin extends OptionHandler {
             });
         }
 
-
-        /**
-         * Sets respawn.
-         */
         public void setRespawn() {
             currentRespawn = GameWorld.getTicks() + (int) (respawn / 0.6);
         }
 
-
-        /**
-         * Is respawning boolean.
-         *
-         * @return the boolean
-         */
         public boolean isRespawning() {
             return currentRespawn > GameWorld.getTicks();
         }
 
-
-        /**
-         * Gets hit amount.
-         *
-         * @param player the player
-         * @return the hit amount
-         */
         protected static int getHitAmount(Player player) {
             int hit = player.getSkills().getLifepoints() / 12;
             if (hit < 2) {
@@ -213,13 +157,6 @@ public final class ThievableChestPlugin extends OptionHandler {
             return hit;
         }
 
-
-        /**
-         * For id chest.
-         *
-         * @param id the id
-         * @return the chest
-         */
         public static Chest forId(int id) {
             for (Chest chest : values()) {
                 for (int i : chest.getObjectIds()) {
@@ -231,55 +168,20 @@ public final class ThievableChestPlugin extends OptionHandler {
             return null;
         }
 
-
-        /**
-         * Get object ids int [ ].
-         *
-         * @return the int [ ]
-         */
         public int[] getObjectIds() {
             return objectIds;
         }
-
-
-        /**
-         * Gets level.
-         *
-         * @return the level
-         */
         public int getLevel() {
             return level;
         }
-
-
-        /**
-         * Gets experience.
-         *
-         * @return the experience
-         */
         public double getExperience() {
             return experience;
         }
-
-
-        /**
-         * Get rewards item [ ].
-         *
-         * @return the item [ ]
-         */
         public Item[] getRewards() {
             return rewards;
         }
-
-
-        /**
-         * Gets respawn.
-         *
-         * @return the respawn
-         */
         public int getRespawn() {
             return respawn;
         }
-
     }
 }

@@ -15,13 +15,13 @@ class AliTheLeafletDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npcl(FacialExpression.CHILD_NORMAL, "I don't have the time to talk right now! Ali Morrisane is paying me to hand out these flyers.").also { stage = 0 }
+        npcl(FacialExpression.CHILD_NORMAL, "I don't have the time to talk right now! Ali Morrisane is paying me to hand out these flyers.")
         return true
     }
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
-            0 -> options("Who is Ali Morissane?", "What are the flyers for?", "What is there to do round here, boy?").also { stage++ }
+            0 -> options("Who is Ali Morissane?", "What are the flyers for?", "What is there to do round here, boy?").also { stage = 101 }
             101 -> when (buttonId) {
                 1 -> playerl(FacialExpression.ASKING, "Who is Ali Morissane?").also { stage = 201 }
                 2 -> playerl(FacialExpression.ASKING, "What are the flyers for?").also { stage = 301 }

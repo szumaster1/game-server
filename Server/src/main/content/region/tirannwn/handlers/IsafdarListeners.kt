@@ -22,6 +22,10 @@ class IsafdarListeners : InteractionListener {
             return@on true
         }
 
+        /*
+         * Search the bookcase in Lletya.
+         */
+
         on(Scenery.BOOKCASE_8752, IntType.SCENERY, "search") { player, _ ->
             if (!inInventory(player, Items.PRIFDDINAS_HISTORY_6073)) {
                 sendMessage(player, "You search the bookshelves...")

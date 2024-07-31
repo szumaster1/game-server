@@ -86,7 +86,7 @@ class SmeltingPulse : SkillPulse<Item?> {
         }
         if (success(player)) {
 
-            var amt = if (((freeSlots(player) != 0 && !superHeat && withinDistance(player, Location(3107, 3500, 0)) && player.inventory.containsItems(*bar.ores)) && player.achievementDiaryManager.getDiary(DiaryType.VARROCK).level != -1 && player.achievementDiaryManager.checkSmithReward(bar) && RandomFunction.random(100) <= 10)) 2 else 1
+            var amt = if (((freeSlots(player) != 0 && !superHeat && withinDistance(player, Location(3107, 3500, 0)) && player.inventory.containsItems(*bar.ores)) && player.achievementDiaryManager.getDiary(DiaryType.VARROCK)!!.level != -1 && player.achievementDiaryManager.checkSmithReward(bar) && RandomFunction.random(100) <= 10)) 2 else 1
             if (amt != 1) {
                 if (!removeItem(player, bar.ores)) {
                     amt = 1

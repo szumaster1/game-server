@@ -12,14 +12,14 @@ import core.tools.END_DIALOGUE
 class JimmyDazzlerDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        Jimmy Dazzler is a wealthy exterminator and
-        citizen of East Ardougne featured in the Rat Catchers quest.
-        Location: 2562,3320
+     * Jimmy Dazzler is a wealthy exterminator and
+     * citizen of East Ardougne featured in the Rat Catchers quest.
+     * Location: 2562,3320
      */
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npcl(FacialExpression.SUSPICIOUS, "What's your name and your business here?").also { stage = 0 }
+        npcl(FacialExpression.SUSPICIOUS, "What's your name and your business here?")
         return true
     }
 

@@ -19,14 +19,14 @@ class FurTraderDialogue(player: Player? = null): Dialogue(player) {
         if (!isQuestComplete(player, "Fremennik Trials")) {
             npc(FacialExpression.ANNOYED, "I don't sell to outerlanders.").also { stage = END_DIALOGUE }
         } else {
-            npcl(FacialExpression.FRIENDLY, "Welcome back, ${getAttribute(player, "fremennikname", "fremmyname")}. Have you seen the furs I have today?").also { stage = 10 }
+            npcl(FacialExpression.FRIENDLY, "Welcome back, ${getAttribute(player, "fremennikname", "fremmyname")}. Have you seen the furs I have today?")
         }
         return true
     }
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
-            10 -> {
+            0 -> {
                 end()
                 openNpcShop(player, NPCs.FUR_TRADER_1316)
             }

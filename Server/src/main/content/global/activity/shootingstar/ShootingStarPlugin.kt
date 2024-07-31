@@ -80,7 +80,7 @@ class ShootingStarPlugin : LoginListener, InteractionListener, TickListener, Com
 
                 override fun handle(componentID: Int, buttonID: Int) {
                     fun teleportToStar(player: Player) {
-                        val condition: (p: Player) -> Boolean = when (star.location.toLowerCase()) {
+                        val condition: (p: Player) -> Boolean = when (star.location.lowercase()) {
                             "canifis bank"              -> {p -> requireQuest(p, "Priest in Peril", "to access this.") }
                             "burgh de rott bank"        -> {p -> hasRequirement(p, "In Aid of the Myreque") } //disabled: crash
                             "crafting guild"            -> {p -> hasLevelStat(p, Skills.CRAFTING, 40)       }

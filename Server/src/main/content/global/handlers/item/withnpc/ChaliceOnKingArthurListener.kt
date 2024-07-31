@@ -24,8 +24,8 @@ class ChaliceOnKingArthurListener : InteractionListener {
                     npc = NPC(NPCs.KING_ARTHUR_251)
                     when (stage) {
                         0 -> npcl(FacialExpression.SAD, "You have chosen poorly.").also {
-                            if (!player.achievementDiaryManager.getDiary(DiaryType.SEERS_VILLAGE).isComplete(0, 3)) {
-                                player.achievementDiaryManager.getDiary(DiaryType.SEERS_VILLAGE).updateTask(player, 0, 3, true)
+                            if (!player.achievementDiaryManager.getDiary(DiaryType.SEERS_VILLAGE)!!.isComplete(0, 3)) {
+                                player.achievementDiaryManager.getDiary(DiaryType.SEERS_VILLAGE)!!.updateTask(player, 0, 3, true)
                             }
                             stage++
                         }

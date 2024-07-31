@@ -17,7 +17,6 @@ class VarrockEastBartenderDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         npc(FacialExpression.FRIENDLY, "What can I do yer for?")
-        stage = 0
         return true
     }
 

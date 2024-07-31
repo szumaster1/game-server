@@ -18,7 +18,6 @@ class CustomerDwarfDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         playerl(FacialExpression.FRIENDLY, "Hello, can you help me?").also { stage++ }
-        stage = 0
         return true
     }
 

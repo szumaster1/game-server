@@ -6,6 +6,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.item.Item
+import core.tools.END_DIALOGUE
 
 class OziachDSDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -227,8 +228,7 @@ class OziachDSDialogue(player: Player? = null) : Dialogue(player) {
                 -1 -> end()
                 0 -> {
                     if (!player.inventory.containsItem(DragonSlayer.ELVARG_HEAD)) {
-                        player("Nope, not yet.")
-                        stage = -1
+                        player("Nope, not yet.").also { stage = END_DIALOGUE }
                         return true
                     }
                     player("Yes, I have!")

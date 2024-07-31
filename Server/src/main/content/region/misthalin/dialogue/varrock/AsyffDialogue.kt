@@ -22,7 +22,6 @@ class AsyffDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         npc(FacialExpression.HAPPY, "Now you look like someone who goes to", "a lot of fancy dress parties.")
-        stage = 0
         return true
     }
 

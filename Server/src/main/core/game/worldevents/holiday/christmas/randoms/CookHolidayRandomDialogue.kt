@@ -7,20 +7,22 @@ import core.game.dialogue.FacialExpression
 import core.game.worldevents.holiday.HolidayRandoms
 
 class CookHolidayRandomDialogue : DialogueFile() {
+
     private val cakes = listOf(Items.CAKE_1891, Items.CHOCOLATE_CAKE_1897, Items.MINT_CAKE_9475)
+
     override fun handle(componentID: Int, buttonID: Int) {
         if (HolidayRandoms.getEventNpc(player!!) == null)
             player!!.dialogueInterpreter.close()
 
         when (stage) {
-            0 -> npcl(FacialExpression.HAPPY, "Greetings, ${player!!.username.capitalize()}. Every year around christmas I give away cake to the community. Would you care for a fresh baked cake?").also { stage++ }
+            0 -> npcl(FacialExpression.HAPPY, "Greetings, ${player!!.username}. Every year around christmas I give away cake to the community. Would you care for a fresh baked cake?").also { stage++ }
             1 -> options("Sure, I will take a cake.", "Why are you giving cakes away?", "No, thanks.").also { stage++ }
             2 -> when (buttonID) {
                 1 -> playerl(FacialExpression.HAPPY, "Sure, I will take a cake.").also { stage = 40 }
                 2 -> playerl(FacialExpression.HALF_ASKING, "Why are you giving away cakes?").also { stage = 20 }
                 3 -> playerl(FacialExpression.NEUTRAL, "No, thanks.").also { stage = 10 }
             }
-            10 -> npcl(FacialExpression.HAPPY, "Okay, I will find someone else who wants it. Merry Christmas, ${player!!.username.capitalize()}.").also { stage++ }
+            10 -> npcl(FacialExpression.HAPPY, "Okay, I will find someone else who wants it. Merry Christmas, ${player!!.username}.").also { stage++ }
             11 -> {
                 HolidayRandoms.terminateEventNpc(player!!)
                 end()
@@ -40,7 +42,7 @@ class CookHolidayRandomDialogue : DialogueFile() {
                 1 -> playerl(FacialExpression.HAPPY, "Sure, I will take a cake.").also { stage = 40 }
                 2 -> playerl(FacialExpression.NEUTRAL, "No, thanks.").also { stage = 10 }
             }
-            40 -> npcl(FacialExpression.HAPPY, "Here is a the finest cake you will ever have! Merry Christmas, ${player!!.username.capitalize()}.").also { stage++ }
+            40 -> npcl(FacialExpression.HAPPY, "Here is a the finest cake you will ever have! Merry Christmas, ${player!!.username}.").also { stage++ }
             41 -> {
                 HolidayRandoms.terminateEventNpc(player!!)
                 addItemOrDrop(player!!, cakes.random())

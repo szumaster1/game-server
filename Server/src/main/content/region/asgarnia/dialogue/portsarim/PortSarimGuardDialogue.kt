@@ -12,14 +12,13 @@ import core.tools.END_DIALOGUE
 class PortSarimGuardDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        Port Sarim guard (roof), Unlike most other guards, they are not attackable.
-        Location: 3012, 3185, 1
+     * Port Sarim guard (roof), Unlike most other guards, they are not attackable.
+     * Location: 3012, 3185, 1
      */
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         npc("HALT! Who goes there?")
-        stage = 0
         return true
     }
 

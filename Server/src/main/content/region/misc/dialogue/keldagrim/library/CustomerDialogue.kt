@@ -20,7 +20,6 @@ class CustomerDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         npcl(FacialExpression.FRIENDLY, "Oh, that's nice, another human visitor to Keldagrim!").also { stage++ }
-        stage = 0
         return true
     }
 

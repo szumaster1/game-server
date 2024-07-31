@@ -16,9 +16,9 @@ class YrsaDiaryDialogue : DialogueFile() {
         npc = NPC(NPCs.YRSA_1301)
         when (stage) {
             0 -> {
-                if (player!!.achievementDiaryManager.getDiary(DiaryType.FREMENNIK).isComplete(1, true) && !AchievementDiary.hasClaimedLevelRewards(player, DiaryType.FREMENNIK, 1)) {
+                if (player!!.achievementDiaryManager.getDiary(DiaryType.FREMENNIK)!!.isComplete(1, true) && !AchievementDiary.hasClaimedLevelRewards(player!!, DiaryType.FREMENNIK, 1)) {
                     player(FacialExpression.FRIENDLY, "I have question about my Achievement Diary").also { stage = 10 }
-                } else if (AchievementDiary.canReplaceReward(player, DiaryType.FREMENNIK, 1)) {
+                } else if (AchievementDiary.canReplaceReward(player!!, DiaryType.FREMENNIK, 1)) {
                     player(FacialExpression.FRIENDLY, "I need a new pair of boots.").also { stage = 12 }
                 } else {
                     player(FacialExpression.FRIENDLY, "About the Achievement Diary...").also { stage = 13 }
@@ -31,7 +31,7 @@ class YrsaDiaryDialogue : DialogueFile() {
                     npc(FacialExpression.FRIENDLY, "Although, you'll have to come back when you've the space", "to take them.").also { stage = END_DIALOGUE }
                 } else {
                     npc("There you go. They're powerful things in their own", "way, so take care to study them and find all the ways", "they can help you.").also {
-                        AchievementDiary.flagRewarded(player, DiaryType.FREMENNIK, 1)
+                        AchievementDiary.flagRewarded(player!!, DiaryType.FREMENNIK, 1)
                         stage = 21
                     }
                 }
@@ -42,7 +42,7 @@ class YrsaDiaryDialogue : DialogueFile() {
                     npc(FacialExpression.FRIENDLY, "Although, you'll have to come back when you've the space", "to take them.").also { stage = END_DIALOGUE }
                 } else {
                     npc("So you have. I have some special boots I've kept aside", "for you.").also {
-                        AchievementDiary.grantReplacement(player, DiaryType.FREMENNIK, 1)
+                        AchievementDiary.grantReplacement(player!!, DiaryType.FREMENNIK, 1)
                         stage = 21
                     }
                 }

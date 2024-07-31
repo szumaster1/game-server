@@ -14,7 +14,7 @@ class RimaeSirsalisDialogue(player: Player? = null): Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        player(FacialExpression.FRIENDLY, "Hello there.").also { stage = 0 }
+        player(FacialExpression.FRIENDLY, "Hello there.")
         return true
     }
 

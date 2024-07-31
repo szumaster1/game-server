@@ -13,7 +13,6 @@ class MagicStoreOwnerDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         npc("Welcome to the Magic Guild Store. Would you like to", "buy some magic supplies?")
-        stage = 0
         return true
     }
 

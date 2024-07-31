@@ -24,55 +24,18 @@ import java.util.Map;
 import static core.api.ContentAPIKt.getVarp;
 import static core.api.ContentAPIKt.setVarp;
 
-/**
- * Handles a player's familiar.
- */
 public final class FamiliarManager {
-
-    /**
-     * The familiars mapping.
-     */
     private static final Map<Integer, Familiar> FAMILIARS = new HashMap<>();
-
-    /**
-     * The pet details mapping, sorted by item id.
-     */
     private final Map<Integer, PetDetails> petDetails = new HashMap<Integer, PetDetails>();
-
-    /**
-     * The player.
-     */
     private final Player player;
-
-    /**
-     * The familiar.
-     */
     private Familiar familiar;
-
-    /**
-     * The combat level difference when using summoning.
-     */
     private int summoningCombatLevel;
-
-    /**
-     * If the player has a summoning pouch.
-     */
     private boolean hasPouch;
 
-    /**
-     * Constructs a new {@code FamiliarManager} {@code Object}.
-     *
-     * @param player The player.
-     */
     public FamiliarManager(Player player) {
         this.player = player;
     }
 
-    /**
-     * Parse.
-     *
-     * @param familiarData the familiar data
-     */
     public final void parse(JSONObject familiarData) {
         int currentPet = -1;
         if (familiarData.containsKey("currentPet")) {
@@ -129,9 +92,6 @@ public final class FamiliarManager {
         }
     }
 
-    /**
-     * Called when the player logs in.
-     */
     public void login() {
         if (hasFamiliar()) {
             familiar.init();
@@ -139,13 +99,6 @@ public final class FamiliarManager {
         player.getFamiliarManager().setConfig(243269632);
     }
 
-    /**
-     * Summons a familiar.
-     *
-     * @param item       The item.
-     * @param pet        If the familiar is a pet.
-     * @param deleteItem we should delete the item.
-     */
     public void summon(Item item, boolean pet, boolean deleteItem) {
         boolean renew = false;
         if (hasFamiliar()) {
@@ -204,23 +157,10 @@ public final class FamiliarManager {
         player.getAppearance().sync();
     }
 
-    /**
-     * Summons a familiar.
-     *
-     * @param item the item.
-     * @param pet  the pet.
-     */
     public void summon(final Item item, boolean pet) {
         summon(item, pet, true);
     }
 
-    /**
-     * Morphs a pet.
-     *
-     * @param item       the item.
-     * @param deleteItem the item.
-     * @param location   the location.
-     */
     public void morphPet(final Item item, boolean deleteItem, Location location) {
         if (hasFamiliar()) {
             familiar.dismiss();
@@ -228,20 +168,10 @@ public final class FamiliarManager {
         summonPet(item, deleteItem, true, location);
     }
 
-    /**
-     * Summons a pet.
-     * @param item the item.
-     * @param deleteItem the item.
-     */
     private boolean summonPet(final Item item, boolean deleteItem) {
         return summonPet(item, deleteItem, false, null);
     }
 
-    /**
-     * Summons a pet.
-     * @param item the item.
-     * @param morph the pet.
-     */
     private boolean summonPet(final Item item, boolean deleteItem, boolean morph, Location location) {
         final int itemId = item.getId();
         int itemIdHash = item.getIdHash();
@@ -257,8 +187,17 @@ public final class FamiliarManager {
             return false;
         }
 
-        // If this pet does not have an individual ID yet, we need to find it an available one.
-        // If it does, we need to verify that this ID is not already used for a different pet. This is needed to correct a historical bug that allowed multiple pets to be assigned the same individual ID (the historical code only checked the *current* stage item ID, failing to realize that we also need to account for *future* stage item IDs, in case the current pet grows up, resulting in a clash when it did). Saves affected by that bug will have multiple copies of the same item pointing to the same pet, which we have an opportunity to rectify now.
+        /*
+         * If this pet does not have an individual ID yet, we need to find it an available one.
+         *
+         * If it does, we need to verify that this ID is not already used for a different pet.
+         * This is needed to correct a historical bug that allowed multiple pets to be assigned
+         * the same individual ID (the historical code only checked the *current* stage item ID,
+         * failing to realize that we also need to account for *future* stage item IDs, in case
+         * the current pet grows up, resulting in a clash when it did). Saves affected by that
+         * bug will have multiple copies of the same item pointing to the same pet, which we
+         * have an opportunity to rectify now.
+         */
         ArrayList<Integer> taken = new ArrayList<Integer>();
         Container[] searchSpace = {player.getInventory(), player.getBankPrimary(), player.getBankSecondary()};
         for (int checkId = pets.babyItemId; checkId != -1; checkId = pets.getNextStageItemId(checkId)) {
@@ -271,7 +210,11 @@ public final class FamiliarManager {
         }
         PetDetails details = petDetails.get(itemIdHash);
         int individual = item.getCharge();
-        if (details != null) { //we have this pet on file, but we need to check that it wasn't affected by the historical bug mentioned above
+        if (details != null) {
+            /*
+             * we have this pet on file, but we need to check that it
+             * wasn't affected by the historical bug mentioned above.
+             */
             details.setIndividual(individual);
             int count = 0;
             for (int i : taken) {
@@ -279,7 +222,13 @@ public final class FamiliarManager {
                     count++;
                 }
             }
-            if (count > 1) { //this pet is sadly conjoined with another individual of its kind; untangle it by initializing it anew (which is what should have happened in the first place, save the minor detail of hunger propagation from the previous stage, which we no longer have any record of)
+            if (count > 1) {
+                /*
+                 * this pet is sadly conjoined with another individual of its kind;
+                 * untangle it by initializing it anew (which is what should have
+                 * happened in the first place, save the minor detail of hunger
+                 * propagation from the previous stage, which we no longer have any record of).
+                 */
                 details = null;
             }
         }
@@ -287,8 +236,13 @@ public final class FamiliarManager {
             details = new PetDetails(pets.growthRate == 0.0 ? 100.0 : 0.0);
             for (individual = 0; taken.contains(individual) && individual < 0xFFFF; individual++) {}
             details.setIndividual(individual);
-            // Make a copy of the item to extract what the item's idHash will be when including the individual ID as a "charge" value.
-            // The copy is necessary since the player's inventory still contains the default-charged item, which we will be removing only later.
+            /*
+             * Make a copy of the item to extract what the item's idHash
+             * will be when including the individual ID as a "charge" value.
+             *
+             * The copy is necessary since the player's inventory still contains the
+             * default-charged item, which we will be removing only later.
+             */
             Item newItem = item.copy();
             newItem.setCharge(individual);
             petDetails.put(newItem.getIdHash(), details);
@@ -298,9 +252,15 @@ public final class FamiliarManager {
             familiar = new Pet(player, details, itemId, npcId);
             if (deleteItem) {
                 player.animate(new Animation(827));
-                // We cannot use player().getInventory().remove(item), because that will remove the first pet item it sees, rather than the specific one (with the specific charge value) the player clicked.
-                // Instead, find the specific item the player dropped by slot, and remove that specific one.
+                /*
+                 * We cannot use player().getInventory().remove(item), because that will remove
+                 * the first pet item it sees, rather than the specific one
+                 * (with the specific charge value) the player clicked.
+                 */
                 int slot = player.getInventory().getSlotHash(item);
+                /*
+                 * Instead, find the specific item the player dropped by slot, and remove that specific one.
+                 */
                 player.getInventory().remove(item, slot, true);
             }
             if (morph) {
@@ -313,10 +273,8 @@ public final class FamiliarManager {
         return true;
     }
 
-    /**
+    /*
      * Morphs the current familiar.
-     *
-     * @param location the location.
      */
     public void morphFamiliar(Location location) {
         familiar.init(location, false);
@@ -324,7 +282,7 @@ public final class FamiliarManager {
         player.getInterfaceManager().setViewedTab(7);
     }
 
-    /**
+    /*
      * Spawns the current familiar.
      */
     public void spawnFamiliar() {
@@ -333,11 +291,8 @@ public final class FamiliarManager {
         player.getInterfaceManager().setViewedTab(7);
     }
 
-    /**
+    /*
      * Makes the pet eat.
-     *
-     * @param foodId The food item id.
-     * @param npc    The pet NPC.
      */
     public void eat(int foodId, Pet npc) {
         if (npc != familiar) {
@@ -361,7 +316,7 @@ public final class FamiliarManager {
         player.getPacketDispatch().sendMessage("Nothing interesting happens.");
     }
 
-    /**
+    /*
      * Picks up a pet.
      */
     public void pickup() {
@@ -380,10 +335,8 @@ public final class FamiliarManager {
         }
     }
 
-    /**
+    /*
      * Adjusts the battle state.
-     *
-     * @param state the state.
      */
     public void adjustBattleState(final BattleState state) {
         if (!hasFamiliar()) {
@@ -392,11 +345,8 @@ public final class FamiliarManager {
         familiar.adjustPlayerBattle(state);
     }
 
-    /**
+    /*
      * Gets a boost from a familiar.
-     *
-     * @param skill the skill.
-     * @return the boosted level.
      */
     public int getBoost(int skill) {
         if (!hasFamiliar()) {
@@ -405,25 +355,21 @@ public final class FamiliarManager {
         return familiar.getBoost(skill);
     }
 
-    /**
+    /*
      * Checks if the player has an active familiar.
-     *
-     * @return {@code True} if so.
      */
     public boolean hasFamiliar() {
         return familiar != null;
     }
 
-    /**
+    /*
      * Checks if the player has an active familiar and is a pet.
-     *
-     * @return {@code True} if so.
      */
     public boolean hasPet() {
         return hasFamiliar() && familiar instanceof Pet;
     }
 
-    /**
+    /*
      * Dismisses the familiar.
      */
     public void dismiss() {
@@ -432,20 +378,15 @@ public final class FamiliarManager {
         }
     }
 
-    /**
+    /*
      * Removes the details for this pet.
-     *
-     * @param itemIdHash The item id hash of the pet.
      */
     public void removeDetails(int itemIdHash) {
         petDetails.remove(itemIdHash);
     }
 
-    /**
+    /*
      * Checks if it's the owner of a familiar.
-     *
-     * @param familiar the familiar
-     * @return {@code True} if so.
      */
     public boolean isOwner(Familiar familiar) {
         if (!hasFamiliar()) {
@@ -458,10 +399,8 @@ public final class FamiliarManager {
         return true;
     }
 
-    /**
+    /*
      * Sets a config value.
-     *
-     * @param value the value.
      */
     public void setConfig(int value) {
         int current = getVarp(player, 1160);
@@ -469,83 +408,64 @@ public final class FamiliarManager {
         setVarp(player, 1160, newVal);
     }
 
-    /**
+    /*
      * Gets the familiar.
-     *
-     * @return The familiar.
      */
     public Familiar getFamiliar() {
         return familiar;
     }
 
-    /**
+    /*
      * Sets the familiar.
-     *
-     * @param familiar The familiar to set.
      */
     public void setFamiliar(Familiar familiar) {
         this.familiar = familiar;
     }
 
-    /**
+    /*
      * Gets the familiars.
-     *
-     * @return The familiars.
      */
     public static Map<Integer, Familiar> getFamiliars() {
         return FAMILIARS;
     }
 
-    /**
+    /*
      * Gets the usingSummoning.
-     *
-     * @return The usingSummoning.
      */
     public boolean isUsingSummoning() {
         return hasPouch || (hasFamiliar() && !hasPet());
     }
 
-    /**
+    /*
      * Gets the hasPouch.
-     *
-     * @return The hasPouch.
      */
     public boolean isHasPouch() {
         return hasPouch;
     }
 
-    /**
+    /*
      * Sets the hasPouch.
-     *
-     * @param hasPouch The hasPouch to set.
      */
     public void setHasPouch(boolean hasPouch) {
         this.hasPouch = hasPouch;
     }
 
-    /**
+    /*
      * Gets the summoningCombatLevel.
-     *
-     * @return The summoningCombatLevel.
      */
     public int getSummoningCombatLevel() {
         return summoningCombatLevel;
     }
 
-    /**
+    /*
      * Sets the summoningCombatLevel.
-     *
-     * @param summoningCombatLevel The summoningCombatLevel to set.
      */
     public void setSummoningCombatLevel(int summoningCombatLevel) {
         this.summoningCombatLevel = summoningCombatLevel;
     }
 
-
-    /**
+    /*
      * Gets pet details.
-     *
-     * @return the pet details
      */
     public Map<Integer, PetDetails> getPetDetails() {
         return petDetails;

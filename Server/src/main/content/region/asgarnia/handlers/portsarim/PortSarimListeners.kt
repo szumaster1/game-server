@@ -28,8 +28,8 @@ class PortSarimListeners : InteractionListener {
     override fun defineListeners() {
 
         /*
-            Ahab's beer is a glass of beer in the Port Sarim pub.
-        */
+         * Ahab's beer is a glass of beer in the Port Sarim pub.
+         */
 
         on(Items.AHABS_BEER_6561, IntType.GROUNDITEM, "take") { player, node ->
             face(player, node)
@@ -39,7 +39,7 @@ class PortSarimListeners : InteractionListener {
         }
 
         /*
-            Seaman (Karamja travel) interaction.
+         * Seaman (Karamja travel) interaction.
          */
 
         on(SEAMAN, IntType.NPC, "pay-fare") { player, node ->
@@ -49,7 +49,7 @@ class PortSarimListeners : InteractionListener {
         }
 
         /*
-            Wydin's Food Store doors.
+         * Wydin's Food Store doors.
          */
 
         on(WYDIN_STORE_DOOR, IntType.SCENERY, "open") { player, node ->
@@ -62,8 +62,8 @@ class PortSarimListeners : InteractionListener {
         }
 
         /*
-            Banana create - Wydin's store.
-        */
+         * Banana create - Wydin's store.
+         */
 
         on(WYDIN_BANANA_CRATE, IntType.SCENERY, "search") { player, _ ->
             if (freeSlots(player) == 0) {
@@ -125,7 +125,7 @@ class PortSarimListeners : InteractionListener {
         }
 
         /*
-            Monks take-boat interaction (Entrana travel).
+         * Monks take-boat interaction (Entrana travel).
          */
 
         on(MONKS_OF_ENTRANA, IntType.NPC, "take-boat") { player, node ->
@@ -134,7 +134,7 @@ class PortSarimListeners : InteractionListener {
         }
 
         /*
-            The Sleeping Guard in Port Sarim Jail.
+         * The Sleeping Guard in Port Sarim Jail.
          */
 
         on(SLEEPING_GUARD, IntType.NPC, "talk-to") { player, node ->
@@ -149,7 +149,7 @@ class PortSarimListeners : InteractionListener {
         }
 
         /*
-            Dragon slayer related interaction.
+         * Dragon slayer related interaction.
          */
 
         on(WORMBRAIN, IntType.NPC, "attack") { player, node ->
@@ -162,7 +162,7 @@ class PortSarimListeners : InteractionListener {
         }
 
         /*
-            Asgarnian Ice Dungeon - cave entrance to Wyverns.
+         * Asgarnian Ice Dungeon - cave entrance to Wyverns.
          */
 
         on(CAVE_ENTRANCE, IntType.SCENERY, "enter") { player, _ ->

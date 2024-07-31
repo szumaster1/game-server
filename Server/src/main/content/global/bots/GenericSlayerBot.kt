@@ -207,9 +207,9 @@ class GenericSlayerBot : Script() {
      * Item extension function to check for ignored items when banking.
      */
     fun Item.checkIgnored(): Boolean {
-        if (name.toLowerCase().contains("charm")) return true
-        if (name.toLowerCase().contains("lobster")) return true
-        if (name.toLowerCase().contains("clue")) return true
+        if (name.lowercase().contains("charm")) return true
+        if (name.lowercase().contains("lobster")) return true
+        if (name.lowercase().contains("clue")) return true
         if (!definition.isTradeable) return true
         return when (id) {
             Items.BONES_2530 -> true

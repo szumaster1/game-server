@@ -8,14 +8,13 @@ import core.game.interaction.QueueStrength
 import core.game.node.entity.player.link.emote.Emotes
 import core.game.worldevents.holiday.HolidayRandoms
 
-
 class SnowmanHolidayRandomDialogue : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         if (HolidayRandoms.getEventNpc(player!!) == null)
             player!!.dialogueInterpreter.close()
 
         when (stage) {
-            0 -> npcl(FacialExpression.CHILD_NEUTRAL, "Greetings, ${player!!.username.capitalize()}. I'm visiting from the Land of Snow, but I need some help.").also { stage++ }
+            0 -> npcl(FacialExpression.CHILD_NEUTRAL, "Greetings, ${player!!.username.replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }}. I'm visiting from the Land of Snow, but I need some help.").also { stage++ }
 
             1 -> options("What do you need?", "No, sorry.").also { stage++ }
             2 -> when (buttonID) {
@@ -35,14 +34,14 @@ class SnowmanHolidayRandomDialogue : DialogueFile() {
             }
 
             20 -> {
-                npcl(FacialExpression.CHILD_NEUTRAL, "Thank you, ${player!!.username.capitalize()}!").also { stage++ }
+                npcl(FacialExpression.CHILD_NEUTRAL, "Thank you, ${player!!.username}!").also { stage++ }
             }
 
             21 -> {
                 if (player!!.emoteManager.isUnlocked(Emotes.SNOWMAN_DANCE)) {
-                    npcl(FacialExpression.CHILD_NEUTRAL, "Please take this lamp I found on my travels. Happy holidays, ${player!!.username.capitalize()}!").also { stage = 22 }
+                    npcl(FacialExpression.CHILD_NEUTRAL, "Please take this lamp I found on my travels. Happy holidays, ${player!!.username}!").also { stage = 22 }
                 } else {
-                    npcl(FacialExpression.CHILD_NEUTRAL, "Before I leave I will show you how to dance like us snowmen. Happy holidays, ${player!!.username.capitalize()}!").also { stage = 23 }
+                    npcl(FacialExpression.CHILD_NEUTRAL, "Before I leave I will show you how to dance like us snowmen. Happy holidays, ${player!!.username}!").also { stage = 23 }
                 }
             }
 
@@ -66,7 +65,7 @@ class SnowmanHolidayRandomDialogue : DialogueFile() {
                 HolidayRandoms.terminateEventNpc(player!!)
             }
 
-            30 -> npcl(FacialExpression.CHILD_NEUTRAL, "I must be going before I melt. Happy Holidays, ${player!!.username.capitalize()}.").also { stage++ }
+            30 -> npcl(FacialExpression.CHILD_NEUTRAL, "I must be going before I melt. Happy Holidays, ${player!!.username}.").also { stage++ }
 
             31 -> {
                 end()

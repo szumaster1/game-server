@@ -30,7 +30,6 @@ class WizardAcanthaDialogue(player: Player? = null) : Dialogue(player) {
         // I'm ready!
         // Good, preparation is the key to success. Keep those yellow orbs away.
         // No. What am I supposed to do?
-        stage = 0
         return true
     }
 

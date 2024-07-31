@@ -18,56 +18,38 @@ import core.game.world.map.RegionManager.getObject
 import core.game.world.map.RegionManager.isTeleportPermitted
 import core.game.world.update.flag.context.Animation
 
-/**
- * Handles a ladder climbing reward.
- *
- * @author Emperor
- */
 object ClimbActionHandler {
-    /**
-     * Represents the climb up animation of ladders.
-     */
     @JvmField
     val CLIMB_UP: Animation = Animation(828)
 
-    /**
+    /*
      * Represents the climb down animation of ladders.
      */
     @JvmField
     val CLIMB_DOWN: Animation = Animation(827)
 
-    /**
+    /*
      * The climb dialogue.
      */
+
     var CLIMB_DIALOGUE: Dialogue = ClimbDialogue()
 
-    /**
+    /*
      * Handles the climbing of a rope.
-     *
-     * @param player The player.
-     * @param object The rope object.
-     * @param option The option.
      */
+
     fun climbRope(player: Player?, `object`: Scenery?, option: String?) {
     }
 
-    /**
+    /*
      * Handles the climbing of a trap door.
-     *
-     * @param player The player.
-     * @param object The trap door object.
-     * @param option The option.
      */
+
     fun climbTrapdoor(player: Player?, `object`: Scenery?, option: String?) {
     }
 
-    /**
+    /*
      * Handles the climbing of a ladder.
-     *
-     * @param player      The player.
-     * @param startLadder The scenery.
-     * @param option      The option.
-     * @return True if successfully climbed
      */
     @JvmStatic
     fun climbLadder(player: Player, startLadder: Scenery?, option: String?): Boolean {
@@ -118,11 +100,8 @@ object ClimbActionHandler {
         return true
     }
 
-    /**
+    /*
      * Gets the teleport destination.
-     *
-     * @param scenery The object to teleport to.
-     * @return The teleport destination.
      */
     @JvmStatic
     fun getDestination(scenery: Scenery): Location? {
@@ -146,13 +125,10 @@ object ClimbActionHandler {
         return null
     }
 
-    /**
+    /*
      * Gets the destination for the given object.
-     *
-     * @param scenery The object.
-     * @param dir    The preferred direction from the object.
-     * @return The teleporting destination.
      */
+
     private fun getDestination(scenery: Scenery, sizeX: Int, sizeY: Int, dir: Direction, count: Int): Location? {
         val loc = scenery.location
         if (dir.toInteger() % 2 != 0) {
@@ -184,13 +160,8 @@ object ClimbActionHandler {
         return getDestination(scenery, sizeX, sizeY, Direction.get((dir.toInteger() + 1) % 4), count + 1)
     }
 
-    /**
-     * Executes the climbing reward.
-     *
-     * @param player      The player.
-     * @param animation   The climbing animation.
-     * @param destination The destination.
-     * @param messages    the messages
+    /*
+     * Executes the climbing interaction.
      */
     @JvmStatic
     fun climb(player: Player, animation: Animation?, destination: Location?, vararg messages: String?) {
@@ -205,13 +176,10 @@ object ClimbActionHandler {
         }
     }
 
-    /**
+    /*
      * Gets the ladder the object leads to.
-     *
-     * @param scenery The ladder object.
-     * @param down   If the player is going down a floor.
-     * @return The ladder the current ladder object leads to.
      */
+
     private fun getLadder(scenery: Scenery?, down: Boolean): Scenery? {
         val mod = if (down) -1 else 1
         var ladder = getObject(scenery!!.location.transform(0, 0, mod))
@@ -233,12 +201,10 @@ object ClimbActionHandler {
         return ladder
     }
 
-    /**
+    /*
      * Finds a ladder (by searching a 10x10 area around the given location).
-     *
-     * @param l The location.
-     * @return The ladder.
      */
+
     private fun findLadder(l: Location): Scenery? {
         for (x in -5..5) {
             for (y in -5..5) {
@@ -251,12 +217,10 @@ object ClimbActionHandler {
         return null
     }
 
-    /**
+    /*
      * Checks if the object is a ladder.
-     *
-     * @param object The object.
-     * @return `True` if so.
      */
+
     private fun isLadder(`object`: Scenery): Boolean {
         for (option in `object`.definition.options) {
             if (option != null && (option.contains("Climb"))) {
@@ -266,32 +230,18 @@ object ClimbActionHandler {
         return `object`.name == "Trapdoor"
     }
 
-    /**
+    /*
      * Represents the dialogue plugin used for climbing stairs or a ladder.
-     *
-     * @author 'Vexia
-     * @version 1.0
      */
     internal class ClimbDialogue : Dialogue {
-        /**
-         * Constructs a new `ClimbDialogue` `Object`.
-         */
         constructor()
 
-        /**
-         * Constructs a new `ClimbDialogue` `Object`.
-         *
-         * @param player the player.
-         */
         constructor(player: Player?) : super(player)
 
         override fun newInstance(player: Player): Dialogue {
             return ClimbDialogue(player)
         }
 
-        /**
-         * Represents the object to use.
-         */
         private var `object`: Scenery? = null
 
         override fun open(vararg args: Any): Boolean {
@@ -335,9 +285,6 @@ object ClimbActionHandler {
         }
 
         companion object {
-            /**
-             * Represents the climbing dialogue id.
-             */
             const val ID: Int = 8 shl 16
         }
     }

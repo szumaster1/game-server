@@ -28,7 +28,7 @@ class ExplorersRingListener : InteractionListener {
          */
 
         on(RINGS, IntType.ITEM, "run-replenish") { player, node ->
-            val charges = getStoreFile().getInt(player.username.toLowerCase() + ":run")
+            val charges = getStoreFile().getInt(player.username.lowercase() + ":run")
             if (charges >= getRingLevel(node.id)) {
                 sendDialogue(player, "Your ring appears to have no more run energy recharges left for today.")
                 return@on true
@@ -40,7 +40,7 @@ class ExplorersRingListener : InteractionListener {
             player.settings.updateRunEnergy(-50.0)
             playAudio(player, 5035)
 
-            getStoreFile()[player.username.toLowerCase() + ":run"] = charges + 1
+            getStoreFile()[player.username.lowercase() + ":run"] = charges + 1
 
             sendMessage(player, "You feel refreshed as the ring revitalises you and a charge is used up.")
             visualize(player, 9988, Graphics.RECHARGE_RUN_1733)

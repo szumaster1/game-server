@@ -11,10 +11,10 @@ class NedDiaryDialogue : DialogueFile() {
         val level = 2
         when (stage) {
             0 -> {
-                if (AchievementDiary.canClaimLevelRewards(player, DiaryType.LUMBRIDGE, level)) {
+                if (AchievementDiary.canClaimLevelRewards(player!!, DiaryType.LUMBRIDGE, level)) {
                     player("I've done all the medium tasks in my Lumbridge", "Achievement Diary.")
                     stage = 50
-                } else if (AchievementDiary.canReplaceReward(player, DiaryType.LUMBRIDGE, level)) {
+                } else if (AchievementDiary.canReplaceReward(player!!, DiaryType.LUMBRIDGE, level)) {
                     player("I've seemed to have lost my explorer's ring...")
                     stage = 60
                 } else {
@@ -41,12 +41,12 @@ class NedDiaryDialogue : DialogueFile() {
             50 -> npc("Yes I see that, you'll be wanting your", "reward then I assume?").also { stage++ }
             51 -> player("Yes please.").also { stage++ }
             52 -> {
-                AchievementDiary.flagRewarded(player, DiaryType.LUMBRIDGE, level)
+                AchievementDiary.flagRewarded(player!!, DiaryType.LUMBRIDGE, level)
                 npc("This ring is a representation of the adventures you", "went on to complete your tasks.").also { stage++ }
             }
             53 -> player("Wow, thanks!").also { stage = 0 }
             60 -> {
-                AchievementDiary.grantReplacement(player, DiaryType.LUMBRIDGE, level)
+                AchievementDiary.grantReplacement(player!!, DiaryType.LUMBRIDGE, level)
                 npc("You better be more careful this time.").also { stage = 0 }
             }
         }

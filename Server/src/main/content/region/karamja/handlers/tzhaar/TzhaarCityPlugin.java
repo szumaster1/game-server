@@ -22,14 +22,14 @@ public final class TzhaarCityPlugin extends OptionHandler {
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
-        SceneryDefinition.forId(31284).getHandlers().put("option:enter", this);// karamja
-        // entrance inside cave
+        SceneryDefinition.forId(31284).getHandlers().put("option:enter", this);
+        // karamja entrance inside cave
         SceneryDefinition.forId(31292).getHandlers().put("option:go-through", this);
         // shortcut inside cave
         SceneryDefinition.forId(9358).getHandlers().put("option:go-through", this);
         // cave.
-        SceneryDefinition.forId(9359).getHandlers().put("option:enter", this);// tzhaar
-        // exit
+        SceneryDefinition.forId(9359).getHandlers().put("option:enter", this);
+        // tzhaar exit
         SceneryDefinition.forId(9356).getHandlers().put("option:enter", this);
         SceneryDefinition.forId(9369).getHandlers().put("option:pass", this);
         new TzhaarDialogue().init();
@@ -72,25 +72,11 @@ public final class TzhaarCityPlugin extends OptionHandler {
         return true;
     }
 
-    /**
-     * The Tzhaar dialogue.
-     */
     public static final class TzhaarDialogue extends Dialogue {
-
-
-        /**
-         * Instantiates a new Tzhaar dialogue.
-         */
         public TzhaarDialogue() {
 
         }
 
-
-        /**
-         * Instantiates a new Tzhaar dialogue.
-         *
-         * @param player the player
-         */
         public TzhaarDialogue(Player player) {
             super(player);
         }

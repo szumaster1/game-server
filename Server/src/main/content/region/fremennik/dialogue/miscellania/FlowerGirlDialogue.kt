@@ -16,24 +16,16 @@ class FlowerGirlDialogue(player: Player? = null): Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-
-        //issues getting throne of miscellania status
-        /*
-        when (player.questRepository.getQuest("Throne of Miscellania").isCompleted(player)) {
-            true -> npc(FacialExpression.HAPPY, "Good day, Your Royal Highness.").also { stage = 1 }
-            false -> npc(FacialExpression.NEUTRAL, "Hello.").also { stage = 1 }
-        }
-        */
-        npc(FacialExpression.NEUTRAL, "Hello.").also { stage = 1 }
+        npc(FacialExpression.NEUTRAL, "Hello.")
         return true
     }
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
-            1 -> player(FacialExpression.ASKING, "Good day. What are you doing?").also { stage++ }
-            2 -> npc(FacialExpression.NEUTRAL, "I'm selling flowers, 15gp for three. Would you like some?").also { stage++ }
-            3 -> options("Yes, please.", "No, thank you.").also { stage++ }
-            4 -> when (buttonId) {
+            0 -> player(FacialExpression.ASKING, "Good day. What are you doing?").also { stage++ }
+            1 -> npc(FacialExpression.NEUTRAL, "I'm selling flowers, 15gp for three. Would you like some?").also { stage++ }
+            2 -> options("Yes, please.", "No, thank you.").also { stage++ }
+            3 -> when (buttonId) {
                 1 -> {
                     if (inInventory(player, 995, 15)) {
                         npc(FacialExpression.HAPPY, "Thank you! Here you go.").also { stage = END_DIALOGUE }

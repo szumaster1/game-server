@@ -17,7 +17,7 @@ class AliTheSnakeCharmerDialogue(player: Player? = null) : Dialogue(player) {
             player("Wow a snake charmer. Can I have a go? Please?").also { stage = 5 }
             return true
         }
-        player("Wow a snake charmer. Can I have a go? Please?").also { stage = 0 }
+        player("Wow a snake charmer. Can I have a go? Please?")
         return true
     }
 

@@ -30,7 +30,6 @@ class RedbeardFrankDialogue(player: Player? = null) : Dialogue(player) {
         return true
     }
 
-    // https://www.youtube.com/watch?v=U_sNcqQ2dtQ - achievement diary branch.
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
             0 -> {

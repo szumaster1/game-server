@@ -133,7 +133,7 @@ class WysonTheGardenerDialogue(player: Player? = null) : Dialogue(player) {
         removeItem(player, Item(Items.MOLE_CLAW_7416, moleClaws))
         removeItem(player, Item(Items.MOLE_SKIN_7418, moleSkin))
 
-        if (moleSkin > 0 && player.achievementDiaryManager.getDiary(DiaryType.FALADOR).checkComplete(DiaryLevel.HARD)) {
+        if (moleSkin > 0 && player.achievementDiaryManager.getDiary(DiaryType.FALADOR)!!.checkComplete(DiaryLevel.HARD)) {
             player.inventory.add(Item(14589, moleSkin), player)
         }
 

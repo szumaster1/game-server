@@ -17,6 +17,7 @@ import core.plugin.Plugin
 
 @Initializable
 class PipeShortcut : AgilityShortcut {
+
     constructor() : super(intArrayOf(), 0, 0.0, "")
     constructor(ids: IntArray?, level: Int, experience: Double, vararg options: String?) : super(
         ids, level, experience, *options

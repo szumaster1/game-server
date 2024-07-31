@@ -31,6 +31,7 @@ class MapTableInterfaceListener : InterfaceListener, InteractionListener {
         /*
          * Use talisman with Map table to show altar location.
          */
+
         onUseWith(IntType.SCENERY, RunecraftGuildUtils.TALLYS, MAP_TABLE) { player, used, _ ->
             if (anyInInventory(player, *RunecraftGuildUtils.TALLYS)) {
                 openInterface(player, STUDY_INTERFACE)

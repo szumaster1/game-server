@@ -6,6 +6,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.world.map.RegionManager.getLocalNpcs
 import core.plugin.Initializable
+import core.tools.END_DIALOGUE
 
 @Initializable
 class HengelDialogue(player: Player? = null) : Dialogue(player) {
@@ -13,66 +14,24 @@ class HengelDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         player("Hello.")
-        stage = 0
         return true
     }
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
-            0 -> {
-                npc("What are you doing here?")
-                stage = 1
+            0 -> npc("What are you doing here?").also { stage++ }
+            1 -> options("I'm just wandering around.", "I was hoping you'd give me some free stuff.", "I've come to kill you.").also { stage++ }
+            2 -> when (buttonId) {
+                1 -> player("I'm just wondering around.").also { stage = 3 }
+                2 -> player("I was hoping you'd give me some free stuff.").also { stage = 7 }
+                3 -> player("I've come to kill you.").also { stage = 9 }
             }
-
-            1 -> {
-                options("I'm just wandering around.",
-                    "I was hoping you'd give me some free stuff.",
-                    "I've come to kill you."
-                )
-                stage = 2
-            }
-
-            2 -> if (buttonId == 1) {
-                player("I'm just wondering around.")
-                stage = 3
-            } else if (buttonId == 2) {
-                player("I was hoping you'd give me some free stuff.")
-                stage = 7
-            } else if (buttonId == 3) {
-                player("I've come to kill you.")
-                stage = 9
-            }
-
-            3 -> {
-                npc("You do realise you're wandering around in my house?")
-                stage++
-            }
-
-            4 -> {
-                player("Yep.")
-                stage++
-            }
-
-            5 -> {
-                npc("Well please get out!")
-                stage++
-            }
-
-            6 -> {
-                player("Sheesh, keep your wig on!")
-                stage = 605
-            }
-
-            7 -> {
-                npc("No, I jolly well wouldn't!", "Get out of my house")
-                stage++
-            }
-
-            8 -> {
-                player("Meanie!")
-                stage = 605
-            }
-
+            3 -> npc("You do realise you're wandering around in my house?").also { stage++ }
+            4 -> player("Yep.").also { stage++ }
+            5 -> npc("Well please get out!").also { stage++ }
+            6 -> player("Sheesh, keep your wig on!").also { stage = END_DIALOGUE }
+            7 -> npc("No, I jolly well wouldn't!", "Get out of my house").also { stage++ }
+            8 -> player("Meanie!").also { stage = END_DIALOGUE }
             9 -> {
                 npc.sendChat("Aaaaarrgh!")
                 for (npc1 in getLocalNpcs(player)) {
@@ -83,8 +42,6 @@ class HengelDialogue(player: Player? = null) : Dialogue(player) {
                 }
                 end()
             }
-
-            605 -> end()
         }
         return true
     }

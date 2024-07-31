@@ -13,7 +13,7 @@ class GreengrocerMiscDialogue(player: Player? = null): Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.FRIENDLY, "Welcome, Sir.", "I sell only the finest and freshest vegetables!").also { stage = 0 }
+        npc(FacialExpression.FRIENDLY, "Welcome, Sir.", "I sell only the finest and freshest vegetables!")
         return true
     }
 

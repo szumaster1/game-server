@@ -26,16 +26,14 @@ class SnowZone : MapZone("snow", true) {
 
     override fun enter(e: Entity): Boolean {
         if (e is Player) {
-            val player = e as Player
-            openSnowOverlay(player)
+            openSnowOverlay(e)
         }
         return true
     }
 
     override fun leave(e: Entity, logout: Boolean): Boolean {
         if (!logout && e is Player) {
-            val player = e as Player
-            closeOverlay(player)
+            closeOverlay(e)
         }
         return true
     }

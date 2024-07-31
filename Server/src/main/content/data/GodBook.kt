@@ -4,9 +4,6 @@ import core.api.hasRequirement
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
-/**
- * @author Vexia
- */
 enum class GodBook(
     name: String,
     val book: Item,

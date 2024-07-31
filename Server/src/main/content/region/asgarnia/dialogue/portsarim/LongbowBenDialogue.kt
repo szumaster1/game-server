@@ -15,7 +15,6 @@ class LongbowBenDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         npc(FacialExpression.HALF_GUILTY, "Arrr, matey!")
-        stage = 0
         return true
     }
 
@@ -23,8 +22,7 @@ class LongbowBenDialogue(player: Player? = null) : Dialogue(player) {
         when (stage) {
             0 -> {
                 setTitle(player, 2)
-                sendDialogueOptions(player, "What would you like to say?", "Why are you called Longbow Ben?", "Have you got any quests I could do?")
-                stage = 1
+                sendDialogueOptions(player, "What would you like to say?", "Why are you called Longbow Ben?", "Have you got any quests I could do?").also { stage++ }
             }
 
             1 -> when (buttonId) {

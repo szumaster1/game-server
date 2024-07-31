@@ -14,9 +14,6 @@ import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 import core.game.world.update.flag.context.Animation
 
-/**
- * @authors: Bonesy(@joshking071), szu.
- */
 class MuseumListeners : InteractionListener, InterfaceListener, MapArea {
 
     override fun areaEnter(entity: Entity) {
@@ -167,7 +164,6 @@ class MuseumListeners : InteractionListener, InterfaceListener, MapArea {
 
         /*
          * Museum map interaction.
-         * Author: Bonesy(@joshking071)
          */
 
         on(intArrayOf(Scenery.MAP_24390, Scenery.MAP_24391, Scenery.MAP_24392), IntType.SCENERY, "look-at", "take") { player, node ->

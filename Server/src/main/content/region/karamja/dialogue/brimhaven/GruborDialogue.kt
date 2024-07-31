@@ -21,7 +21,6 @@ class GruborDialogue(player: Player? = null): Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         npc(FacialExpression.HALF_GUILTY, "Yes? What do you want?")
-        stage = 0
         return true
     }
 

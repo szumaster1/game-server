@@ -6,7 +6,7 @@ package core.game.world.map.zone;
  */
 public enum ZoneRestriction {
 
-	/**
+    /**
 	 * No followers allowed in this zone.
 	 */
 	FOLLOWERS,
@@ -30,7 +30,8 @@ public enum ZoneRestriction {
 	 * No cannons allowed.
 	 */
 	CANNON,
-	/**
+
+    /**
 	 * Do not spawn a grave if a player dies here
 	 */
 	GRAVES,
@@ -41,10 +42,6 @@ public enum ZoneRestriction {
 	TELEPORT,
 	;
 
-	/**
-	 * Gets the restriction flag.
-	 * @return The flag.
-	 */
 	public int getFlag() {
 		return 1 << ordinal();
 	}

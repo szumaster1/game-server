@@ -31,7 +31,7 @@ class StarSpriteDialogue(player: Player? = null) : Dialogue(player) {
             npcl(FacialExpression.NEUTRAL, "I see you got ahold of a blueprint of those silly old rings we used to make.").also { stage = 1000 }
         } else if (inInventory(player, Items.ANCIENT_BLUEPRINT_14651) && getAttribute(player, "star-ring:bp-shown", false)) {
             playerl(FacialExpression.HALF_ASKING, "So about those rings...").also { stage = 2000 }
-        } else if (getStoreFile().getBoolean(player.username.toLowerCase()) || !inInventory(player, ShootingStarPlugin.STAR_DUST, 1)) {
+        } else if (getStoreFile().getBoolean(player.username.lowercase()) || !inInventory(player, ShootingStarPlugin.STAR_DUST, 1)) {
             npc("Hello, strange creature.").also { stage = 0 }
         } else {
             npc("Thank you for helping me out of here.").also { stage = 50 }
@@ -89,7 +89,7 @@ class StarSpriteDialogue(player: Player? = null) : Dialogue(player) {
                     player.inventory.add(Item(GOLD_ORE, goldOre), player)
                     player.inventory.add(Item(COINS, coins), player)
                     npc("I have rewarded you by making it so you can mine", "extra ore for the next 15 minutes. Also, have $cosmicRunes", "cosmic runes, $astralRunes astral runes, $goldOre gold ore and $coins", "coins.")
-                    getStoreFile()[player.username.toLowerCase()] = true //flag daily as completed
+                    getStoreFile()[player.username.lowercase()] = true //flag daily as completed
                     val timer = getOrStartTimer<StarBonus>(player)
                     timer.ticksLeft = 1500
 
@@ -171,7 +171,7 @@ class StarSpriteDialogue(player: Player? = null) : Dialogue(player) {
             sendMessage(player, colorize("%RYour ring shines brightly as if surging with energy and then fades out."))
         } else if (RandomFunction.roll(25)) {
             // Flag daily as uncompleted.
-            getStoreFile()[player.username.toLowerCase()] = false
+            getStoreFile()[player.username.lowercase()] = false
             sendMessage(player, colorize("%RYour ring vibrates briefly as if surging with power, and then stops."))
         }
     }

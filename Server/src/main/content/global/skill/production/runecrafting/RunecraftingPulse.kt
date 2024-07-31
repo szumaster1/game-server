@@ -273,7 +273,7 @@ class RunecraftingPulse(
             }
             val rcLevel = player.getSkills().getLevel(Skills.RUNECRAFTING)
             val runecraftingFormulaRevision = ServerConstants.RUNECRAFTING_FORMULA_REVISION
-            val lumbridgeDiary = player.achievementDiaryManager.getDiary(DiaryType.LUMBRIDGE).isComplete(1)
+            val lumbridgeDiary = player.achievementDiaryManager.getDiary(DiaryType.LUMBRIDGE)!!.isComplete(1)
             return getMultiplier(rcLevel, rune, runecraftingFormulaRevision, lumbridgeDiary)
         }
 

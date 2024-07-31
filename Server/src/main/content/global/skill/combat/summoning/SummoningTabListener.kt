@@ -10,6 +10,7 @@ import core.game.interaction.InterfaceListener
 class SummoningTabListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {
+
         on(Components.LORE_STATS_SIDE_662) { player, _, opcode, buttonID, _, _ ->
             when (buttonID) {
                 51 -> {
@@ -47,10 +48,14 @@ class SummoningTabListener : InterfaceListener {
                 53 -> {
                     if (player.familiarManager.hasFamiliar()) {
                         if (opcode == 155) {
-                            // Dismiss familiar.
+                            /*
+                             * Dismiss familiar.
+                             */
                             player.dialogueInterpreter.open("dismiss_dial")
                         } else if (opcode == 196) {
-                            // Dismiss now.
+                            /*
+                             * Dismiss now.
+                             */
                             if (player.familiarManager.familiar is Pet) {
                                 val pet = player.familiarManager.familiar as Pet
                                 player.familiarManager.removeDetails(pet.getItemIdHash())

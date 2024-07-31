@@ -46,7 +46,7 @@ class SirReniteeDialogue(player: Player? = null) : Dialogue(player) {
             220 -> npc(FacialExpression.HALF_GUILTY, "Mmm, " + player.username + ", let me see...").also { stage = 230 }
             230 -> if (getStatLevel(player, Skills.CONSTRUCTION) >= 16) {
                 if (getAttribute(player, "sir-renitee-assigned-crest", false)) {
-                    npc(FacialExpression.HALF_GUILTY, "According to my records, your crest is the symbol of ", "${player.houseManager.crest.name.toLowerCase().replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }}.")
+                    npc(FacialExpression.HALF_GUILTY, "According to my records, your crest is the symbol of ", "${player.houseManager.crest.name.lowercase().replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }}.")
                 } else {
                     val c = RandomFunction.random(4)
                     val crests = arrayOf(CrestType.VARROCK, CrestType.ASGARNIA, CrestType.KANDARIN, CrestType.MISTHALIN)
@@ -68,8 +68,8 @@ class SirReniteeDialogue(player: Player? = null) : Dialogue(player) {
                     }
                     npc(FacialExpression.HALF_GUILTY, "Well, I don't think you have any noble blood,", "but I see that your ancestors came from " + Util.enumToString(player.houseManager.crest.name) + ",", " so $message crest.")
                 }
-                if (!player.achievementDiaryManager.getDiary(DiaryType.FALADOR).isComplete(0, 4)) {
-                    player.achievementDiaryManager.getDiary(DiaryType.FALADOR).updateTask(player, 0, 4, true)
+                if (!player.achievementDiaryManager.getDiary(DiaryType.FALADOR)!!.isComplete(0, 4)) {
+                    player.achievementDiaryManager.getDiary(DiaryType.FALADOR)!!.updateTask(player, 0, 4, true)
                 }
                 stage = 240
             } else {
@@ -266,8 +266,8 @@ class SirReniteeDialogue(player: Player? = null) : Dialogue(player) {
                         removeAttribute(player, "con:crest-type")
                         setAttribute(player, "/save:con:crest-type", 13)
                         npcl(FacialExpression.HALF_GUILTY, "Ah, the great god Saradomin! May he smile on your house as you adorn it with his symbol!")
-                        if (!player.achievementDiaryManager.getDiary(DiaryType.FALADOR).isComplete(2, 1)) {
-                            player.achievementDiaryManager.getDiary(DiaryType.FALADOR).updateTask(player, 2, 1, true)
+                        if (!player.achievementDiaryManager.getDiary(DiaryType.FALADOR)!!.isComplete(2, 1)) {
+                            player.achievementDiaryManager.getDiary(DiaryType.FALADOR)!!.updateTask(player, 2, 1, true)
                         }
                     } else {
                         npc(FacialExpression.HALF_GUILTY, "You do not seem to be very devoted to any god. I will", "not let you have a divine symbol unless you have level","70 prayer.").also { stage = 310 }

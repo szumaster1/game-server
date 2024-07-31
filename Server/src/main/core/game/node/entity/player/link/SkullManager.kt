@@ -14,6 +14,15 @@ import kotlin.math.max
  * Represents a managing class of the active player skulls.
  */
 class SkullManager(val player: Player) {
+
+    var isWilderness: Boolean = false
+    var isWildernessDisabled: Boolean = false
+    var level = 0
+    private val skullCauses: MutableList<Player> = ArrayList()
+    private var skulled = false
+    var isSkullCheckDisabled: Boolean = false
+    private var deepWilderness = false
+
     enum class SkullIcon(val id: Int) {
         NONE(-1),
         WHITE(0),
@@ -41,20 +50,6 @@ class SkullManager(val player: Player) {
             }
         }
     }
-
-    var isWilderness: Boolean = false
-
-    var isWildernessDisabled: Boolean = false
-
-    private var level = 0
-
-    private val skullCauses: MutableList<Player> = ArrayList()
-
-    private var skulled = false
-
-    var isSkullCheckDisabled: Boolean = false
-
-    private var deepWilderness = false
 
     fun checkSkull(other: Entity?) {
         if (other !is Player || !isWilderness || isSkullCheckDisabled) {
@@ -86,20 +81,6 @@ class SkullManager(val player: Player) {
         player.appearance.sync()
     }
 
-    fun getLevel(): Int {
-        return level
-    }
-
-    fun setLevel(level: Int) {
-        if (!deepWilderness && level >= 49) setDeepWilderness(true)
-        else if (deepWilderness && level < 48) setDeepWilderness(false)
-
-        if (level > 20) player.locks.lockTeleport(1000000)
-        else player.locks.unlockTeleport()
-
-        this.level = level
-    }
-
     fun hasWildernessProtection(): Boolean {
         return level < 49
     }
@@ -112,19 +93,6 @@ class SkullManager(val player: Player) {
         return deepWilderness
     }
 
-    fun setDeepWilderness(deepWildy: Boolean) {
-        if (deepWildy) {
-            updateDWSkullIcon()
-        } else {
-            removeDWSkullIcon()
-        }
-        isSkullCheckDisabled = deepWildy
-        deepWilderness = deepWildy
-    }
-
-    /**
-     * Update dw skull icon.
-     */
     fun updateDWSkullIcon() {
         if (player.getAttribute<Any?>("deepwild-value-listener") == null) {
             val listener: ContainerListener = object : ContainerListener {

@@ -13,9 +13,10 @@ class FairyNuffDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npcl(FacialExpression.OLD_DEFAULT,"Hello, can I help you at all?").also { stage = 0 }
+        npcl(FacialExpression.OLD_DEFAULT,"Hello, can I help you at all?")
         return true
     }
+
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when(stage) {
             0 -> options("What do you do around here?", "No thanks. Just looking around.").also { stage++ }

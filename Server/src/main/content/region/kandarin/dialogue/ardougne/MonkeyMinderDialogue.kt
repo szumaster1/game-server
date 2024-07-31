@@ -14,11 +14,11 @@ import core.tools.END_DIALOGUE
 class MonkeyMinderDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        Men who look after the monkeys at Ardougne Zoo.
-        Players must transform into a monkey and talk to
-        a minder during the Monkey Madness quest to gain
-        access into the monkey cage.
-        Location: 2595,3277
+     * Men who look after the monkeys at Ardougne Zoo.
+     * Players must transform into a monkey and talk to
+     * a minder during the Monkey Madness quest to gain
+     * access into the monkey cage.
+     * Location: 2595,3277
      */
 
     private val talkbefore = "/save:monkeyminder:talk"

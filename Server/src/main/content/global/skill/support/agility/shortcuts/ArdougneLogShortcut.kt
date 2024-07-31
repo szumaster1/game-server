@@ -18,22 +18,15 @@ import kotlin.random.Random
 class ArdougneLogShortcut : InteractionListener {
 
     /*
-        Name: Log balance (East Ardougne).
-        Location: West of the Ardougne west bank.
-        Source: https://youtu.be/7z8DOcTqmdk?si=zs0NWttntU9gSqDL&t=121
-        Required level: 33
-        Scenery: 35997, 35999
-        Animations: Balance 9908, Fail 2581 2582
-        Hit: 1-7
-        Swimming route: https://i.imgur.com/ScG1XY7.png
-    */
-
-    private val ardougneLog = intArrayOf(Scenery.LOG_BALANCE_35997, Scenery.LOG_BALANCE_35999)
-    private val logBalanceAnimation = Animation(Animations.BALANCE_WALK_ACROSS_LOG_9908)
-    private val swimmingAnimation = Animation(Animations.SWIMMING_6988)
-    private val swimmingLoopAnimation = Animation(Animations.SWIMMING_LOOP_6989)
-    private val failLocation = Location(2600, 3335, 0)
-    private val splashGraphic = Graphic.create(Graphics.WATER_SPLASH_68)
+     * Name: Log balance (East Ardougne).
+     * Location: West of the Ardougne west bank.
+     * Source: https://youtu.be/7z8DOcTqmdk?si=zs0NWttntU9gSqDL&t=121
+     * Required level: 33
+     * Scenery: 35997, 35999
+     * Animations: Balance 9908, Fail 2581 2582
+     * Hit: 1-7
+     * Swimming route: https://i.imgur.com/ScG1XY7.png
+     */
 
     override fun defineListeners() {
 
@@ -81,5 +74,14 @@ class ArdougneLogShortcut : InteractionListener {
             }
             return@on true
         }
+    }
+
+    companion object {
+        private val ardougneLog = intArrayOf(Scenery.LOG_BALANCE_35997, Scenery.LOG_BALANCE_35999)
+        private val logBalanceAnimation = Animation(Animations.BALANCE_WALK_ACROSS_LOG_9908)
+        private val swimmingAnimation = Animation(Animations.SWIMMING_6988)
+        private val swimmingLoopAnimation = Animation(Animations.SWIMMING_LOOP_6989)
+        private val failLocation = Location(2600, 3335, 0)
+        private val splashGraphic = Graphic.create(Graphics.WATER_SPLASH_68)
     }
 }

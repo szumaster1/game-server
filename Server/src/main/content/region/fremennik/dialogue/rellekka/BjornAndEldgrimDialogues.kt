@@ -16,7 +16,7 @@ class BjornAndEldgrimDialogues(player: Player? = null): Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         if (!isQuestComplete(player, "Fremennik Trials")) {
-            player(FacialExpression.FRIENDLY, "Hello there.").also { stage = 0 }
+            player(FacialExpression.FRIENDLY, "Hello there.")
         } else if (isQuestComplete(player, "Fremennik Trials")) {
             npc(FacialExpression.DRUNK, "Hey! Itsh you again! Whatshyerfashe!").also { stage = 10 }
         }

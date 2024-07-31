@@ -25,7 +25,7 @@ class WaterSourceListener : InteractionListener {
                 return@onUseWith true
             }
             if (vessel == WaterVessel.BUCKET && with.id == 11661) {
-                if (!player.achievementDiaryManager.getDiary(DiaryType.FALADOR).isComplete(0, 7)) player.achievementDiaryManager.getDiary(DiaryType.FALADOR).updateTask(player, 0, 7, true)
+                if (!player.achievementDiaryManager.getDiary(DiaryType.FALADOR)!!.isComplete(0, 7)) player.achievementDiaryManager.getDiary(DiaryType.FALADOR)!!.updateTask(player, 0, 7, true)
             }
             player.pulseManager.run(object : Pulse(1) {
                 override fun pulse(): Boolean {

@@ -19,7 +19,6 @@ class MurphyDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         playerl(FacialExpression.FRIENDLY, "Good day to you Sir.")
-        stage = 0
         return true
     }
 

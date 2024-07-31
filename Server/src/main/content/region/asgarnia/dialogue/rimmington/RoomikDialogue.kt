@@ -15,8 +15,7 @@ class RoomikDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.HAPPY, "Would you like to buy some Crafting equipment?").also { stage = 0 }
-        stage = 0
+        npc(FacialExpression.HAPPY, "Would you like to buy some Crafting equipment?")
         return true
     }
 

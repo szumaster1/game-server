@@ -10,7 +10,7 @@ class TrollweissListeners : InteractionListener {
     override fun defineListeners() {
 
         /*
-            Keldagrim side tunnel to trollweiss mountain
+         * Keldagrim side tunnel to trollweiss mountain
          */
 
         on(Scenery.TUNNEL_5012, IntType.SCENERY, "enter") { player, _ ->
@@ -24,7 +24,7 @@ class TrollweissListeners : InteractionListener {
         }
 
         /*
-            Trollheim north to Trollweiss dungeon.
+         * Trollheim north to Trollweiss dungeon.
          */
 
         on(Scenery.CAVE_ENTRANCE_5007, IntType.SCENERY, "enter") { player, _ ->
@@ -38,7 +38,7 @@ class TrollweissListeners : InteractionListener {
         }
 
         /*
-            Keldagrim side tunnel to Trollweiss mountain.
+         * Keldagrim side tunnel to Trollweiss mountain.
          */
 
         on(Scenery.CREVASSE_33185, IntType.SCENERY, "enter") { player, _ ->

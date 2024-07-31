@@ -246,7 +246,7 @@ class WoodcuttingListener : InteractionListener {
         }
 
         // Seers village medium reward - extra 10% xp from maples while wearing headband.
-        if (reward == 1517 && player.achievementDiaryManager.getDiary(DiaryType.SEERS_VILLAGE).isComplete(1) && player.equipment.get(EquipmentContainer.SLOT_HAT) != null && player.equipment.get(EquipmentContainer.SLOT_HAT).id == 14631) {
+        if (reward == 1517 && player.achievementDiaryManager.getDiary(DiaryType.SEERS_VILLAGE)!!.isComplete(1) && player.equipment.get(EquipmentContainer.SLOT_HAT) != null && player.equipment.get(EquipmentContainer.SLOT_HAT).id == 14631) {
             experience *= 1.10
         }
         return experience * amount

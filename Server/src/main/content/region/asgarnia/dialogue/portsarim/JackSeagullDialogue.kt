@@ -14,7 +14,7 @@ class JackSeagullDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.HALF_GUILTY, "Arrr, matey!").also { stage = 0 }
+        npc(FacialExpression.HALF_GUILTY, "Arrr, matey!")
         return true
     }
 

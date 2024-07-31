@@ -15,12 +15,12 @@ class SnowmanHolidayRandomNPC : HolidayRandomEventNPC(NPCs.SNOWMAN_6746) {
     override fun init() {
         super.init()
         ticksLeft = minutesToTicks(2)
-        sendChat(this, "Happy holidays, ${player.username.capitalize()}!", 2)
+        sendChat(this, "Happy holidays, ${player.username}!", 2)
     }
 
     override fun tick() {
         if (RandomFunction.roll(15) && !hasTalkedWith)
-            sendChat(this, snowmanLines.random().replace("@name", player.username.capitalize()))
+            sendChat(this, snowmanLines.random().replace("@name", player.username))
 
         super.tick()
     }

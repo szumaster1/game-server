@@ -5,15 +5,7 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.game.world.update.flag.context.Animation
 
-/**
- * @author Emperor
- */
-enum class SkillingTool(
-    @JvmField val id: Int,
-    val level: Int,
-    @JvmField val ratio: Double,
-    @JvmField val animation: Animation
-) {
+enum class SkillingTool(@JvmField val id: Int, val level: Int, @JvmField val ratio: Double, @JvmField val animation: Animation) {
     /*
      * Axes.
      */

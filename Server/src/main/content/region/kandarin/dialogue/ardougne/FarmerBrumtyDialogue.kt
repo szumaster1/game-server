@@ -13,19 +13,17 @@ import core.tools.END_DIALOGUE
 class FarmerBrumtyDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        Farmer Brumty is a sheep keeper in East Ardougne
-        who is involved in the Sheep Herder quest.
-        Location: 2594,3357
+     * Farmer Brumty is a sheep keeper in East Ardougne
+     * who is involved in the Sheep Herder quest.
+     * Location: 2594,3357
      */
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         if (!isQuestComplete(player, "Sheep Herder")) {
             player("Hello there.")
-            stage = 0
         } else {
-            player(FacialExpression.HALF_GUILTY, "Hello there. Sorry about your sheep...")
-            stage = 2
+            player(FacialExpression.HALF_GUILTY, "Hello there. Sorry about your sheep...").also { stage = 2 }
         }
         return true
     }

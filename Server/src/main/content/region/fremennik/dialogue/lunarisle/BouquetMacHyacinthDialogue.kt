@@ -24,10 +24,9 @@ class BouquetMacHyacinthDialogue(player: Player? = null): Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-
         if (!teled) {
             if (inInventory(player, Items.SEAL_OF_PASSAGE_9083, 1) || inEquipment(player, Items.SEAL_OF_PASSAGE_9083, 1)) {
-                player(FacialExpression.FRIENDLY, "Hi! What are you up to?").also { stage = 0 }
+                player(FacialExpression.FRIENDLY, "Hi! What are you up to?")
             } else {
                 player(FacialExpression.FRIENDLY, "Hi, I...").also { stage = 5 }
             }

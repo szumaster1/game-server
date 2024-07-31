@@ -3241,7 +3241,7 @@ fun setMinimapState(player: Player, state: Int) {
  * @return true If the check succeeds, false otherwise.
  */
 fun isDiaryComplete(player: Player, type: DiaryType, level: Int): Boolean {
-    return player.achievementDiaryManager.getDiary(type).isComplete(level)
+    return player.achievementDiaryManager.getDiary(type)!!.isComplete(level)
 }
 
 /**

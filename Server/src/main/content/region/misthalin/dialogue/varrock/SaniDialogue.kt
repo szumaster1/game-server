@@ -21,7 +21,6 @@ class SaniDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         npc("Greetings, " + player.username, "I sell weapons and armour.")
-        stage = 0
         return true
     }
 

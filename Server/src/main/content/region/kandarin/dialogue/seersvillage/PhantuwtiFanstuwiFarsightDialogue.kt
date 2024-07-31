@@ -13,7 +13,6 @@ class PhantuwtiFanstuwiFarsightDialogue(player: Player? = null) : Dialogue(playe
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         options("Hello, what is this place?", "What do you do here?", "Do you have any quests?", "Ok, thanks.")
-        stage = 0
         return true
     }
 

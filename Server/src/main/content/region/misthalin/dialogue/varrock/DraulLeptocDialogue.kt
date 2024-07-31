@@ -18,7 +18,6 @@ class DraulLeptocDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         npc(FacialExpression.HALF_GUILTY, "What are you doing in my house..why the", "impertinence...the sheer cheek...how dare you violate my", "personal lodgings....")
-        stage = 0
         return true
     }
 

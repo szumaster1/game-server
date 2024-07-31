@@ -21,7 +21,7 @@ class PirateJackieDiaryDialogue : DialogueFile() {
         when (stage) {
             0 -> when {
                 AchievementDiary.canClaimLevelRewards(player!!, DiaryType.KARAMJA, 0) -> playerl(FacialExpression.NEUTRAL, "I've done all the easy tasks in my Karamja Achievement Diary.").also { stage = 2 }
-                AchievementDiary.canReplaceReward(player, DiaryType.KARAMJA, 0) -> playerl(FacialExpression.NEUTRAL, "I've seemed to have lost my gloves..").also { stage = 7 }
+                AchievementDiary.canReplaceReward(player!!, DiaryType.KARAMJA, 0) -> playerl(FacialExpression.NEUTRAL, "I've seemed to have lost my gloves..").also { stage = 7 }
                 else -> options("What is the Achievement Diary?", "What are the rewards?", "How do I claim the rewards?", "See you later.").also { stage++ }
             }
             1 -> when (buttonID) {
@@ -33,13 +33,13 @@ class PirateJackieDiaryDialogue : DialogueFile() {
             2 -> npcl(FacialExpression.FRIENDLY, "Arr, ye have that, I see yer list. I s'pose ye'll be wanting yer reward then!").also { stage++ }
             3 -> playerl(FacialExpression.HALF_GUILTY, "Yes please.").also { stage++ }
             4 -> {
-                AchievementDiary.flagRewarded(player, DiaryType.KARAMJA, 0)
+                AchievementDiary.flagRewarded(player!!, DiaryType.KARAMJA, 0)
                 npcl(FacialExpression.FRIENDLY, "These 'ere Karamja gloves be a symbol of yer explorin' on the island. All the merchants will recognise" + " 'em when yer wear 'em and mabe give ye a little discount. I'll ave a word with some of the seafarin' folk who ").also { stage++ }
             }
             5 -> npcl(FacialExpression.FRIENDLY, "sail to Port Sarim and Ardougne, so they'll take ye on board half price if year wearin' them. Arrr, take this" + " lamp I found washed ashore too.").also { stage++ }
             6 -> playerl(FacialExpression.HALF_GUILTY, "Wow, thanks!").also { stage = 0 }
             7 -> {
-                AchievementDiary.grantReplacement(player, DiaryType.KARAMJA, 0)
+                AchievementDiary.grantReplacement(player!!, DiaryType.KARAMJA, 0)
                 npcl(FacialExpression.FRIENDLY, "Arr matey, have another pair. Ye better be more careful this time.").also { stage = 0 }
             }
             8 -> npcl(FacialExpression.FRIENDLY, "It's a diary that helps you keep track of particular achievements. Here on Karamja it can help " + "you discover some quite useful things. Eventually, with enough exploration, the people of Karamja will reward you.").also { stage++ }

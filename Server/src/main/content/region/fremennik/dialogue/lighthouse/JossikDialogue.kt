@@ -20,7 +20,6 @@ class JossikDialogue(player: Player? = null) : Dialogue(player) {
             player.dialogueInterpreter.open(JossikRewardDialogue(), npc)
         } else {
             npc("Hello again, adventurer.", "What brings you this way?")
-            stage = 0
         }
         return true
     }
@@ -28,11 +27,7 @@ class JossikDialogue(player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         var uncompleted: MutableList<GodBook>? = null
         when (stage) {
-            0 -> {
-                options("Can I see your wares?", "Have you found any prayerbooks?")
-                stage++
-            }
-
+            0 -> options("Can I see your wares?", "Have you found any prayerbooks?").also { stage++ }
             1 -> stage = if (buttonId == 1) {
                 player("Can I see your wares?")
                 10

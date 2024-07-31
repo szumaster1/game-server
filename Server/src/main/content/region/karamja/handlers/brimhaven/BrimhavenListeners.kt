@@ -99,7 +99,7 @@ class BrimhavenListeners : InteractionListener {
         }
 
         /*
-         *  Info: Selecting the option 'Unlock diary' turns it into an Unlocked diary.
+         *  Selecting the option 'Unlock diary' turns it into an Unlocked diary.
          *  A player may fail to unlock the diary, and trigger a trap, resulting damage
          *  to hitpoints. This damage is equal to half the current hitpoints available.
          *  A higher Thieving level reduces the chances of this trap from triggering.

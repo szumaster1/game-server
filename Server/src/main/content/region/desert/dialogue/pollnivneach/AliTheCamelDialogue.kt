@@ -1,6 +1,7 @@
 package content.region.desert.dialogue.pollnivneach
 
 import core.api.consts.NPCs
+import core.api.sendDialogue
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
@@ -36,7 +37,7 @@ class AliTheCamelDialogue(player: Player? = null) : Dialogue(player) {
                         return true
                     }
                 })
-                player.dialogueInterpreter.sendDialogue("The camel tries to kick you for insulting it.")
+                sendDialogue(player, "The camel tries to kick you for insulting it.")
                 stage = 1
             }
 

@@ -19,7 +19,6 @@ import core.tools.RandomFunction
 class MonkeyBarShortcut : AgilityShortcut {
 
     constructor() : super(intArrayOf(29375), 1, 14.0, "swing across")
-
     constructor(ids: IntArray?, level: Int, experience: Double, option: String?) : super(ids, level, experience, option)
 
     override fun newInstance(arg: Any?): Plugin<Any> {

@@ -22,7 +22,6 @@ class DavonDialogue(player: Player? = null): Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         npc(FacialExpression.SUSPICIOUS, "Pssst! Come here if you want to do some amulet", "trading.")
-        stage = 0
         return true
     }
 

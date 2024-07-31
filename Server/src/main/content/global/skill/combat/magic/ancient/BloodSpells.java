@@ -21,27 +21,16 @@ import java.util.List;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
-/**
- * The Blood spells.
- */
 @Initializable
 public final class BloodSpells extends CombatSpell {
 
     private static final Projectile RUSH_PROJECTILE = Projectile.create((Entity) null, null, 372, 40, 36, 52, 75, 15, 11);
-
     private static final Graphic RUSH_END = new Graphic(373, 96);
-
     private static final Graphic BURST_END = new Graphic(376, 0);
-
     private static final Projectile BLITZ_PROJECTILE = Projectile.create((Entity) null, null, 374, 40, 36, 52, 75, 15, 11);
-
     private static final Graphic BLITZ_END = new Graphic(375, 96);
-
     private static final Graphic BARRAGE_END = new Graphic(377, 0);
 
-    /**
-     * Instantiates a new Blood spells.
-     */
     public BloodSpells() {
 
     }

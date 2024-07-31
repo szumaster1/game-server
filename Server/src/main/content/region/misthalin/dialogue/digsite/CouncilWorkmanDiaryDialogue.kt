@@ -20,9 +20,9 @@ class CouncilWorkmanDiaryDialogue : DialogueFile() {
             1 -> options("So you fixed the bridge?", "About the Achievement Diary...").also { stage = 2 }
             2 -> when (buttonID) {
                 1 -> player(FacialExpression.HALF_ASKING, "So you fixed the bridge?").also { stage = 3 }
-                2 -> if (player!!.achievementDiaryManager.getDiary(DiaryType.FREMENNIK).isComplete(0, true) && !AchievementDiary.hasClaimedLevelRewards(player, DiaryType.FREMENNIK, 0)) {
+                2 -> if (player!!.achievementDiaryManager.getDiary(DiaryType.FREMENNIK)!!.isComplete(0, true) && !AchievementDiary.hasClaimedLevelRewards(player!!, DiaryType.FREMENNIK, 0)) {
                     player(FacialExpression.FRIENDLY, "I have question about my Achievement Diary").also { stage = 11 }
-                } else if (AchievementDiary.canReplaceReward(player, DiaryType.FREMENNIK, 0)) {
+                } else if (AchievementDiary.canReplaceReward(player!!, DiaryType.FREMENNIK, 0)) {
                     player(FacialExpression.FRIENDLY, "I need a new pair of boots.").also { stage = 15 }
                 } else {
                     player(FacialExpression.FRIENDLY, "I have question about my Achievement Diary").also { stage = 5 }
@@ -48,7 +48,7 @@ class CouncilWorkmanDiaryDialogue : DialogueFile() {
                 npc(FacialExpression.FRIENDLY, "Although, you'll have to come back when you've the space", "to take them.").also { stage = END_DIALOGUE }
             } else {
                 npc(FacialExpression.NEUTRAL, "They're strange, them boots. I reckon they'll impress", "the Fremennik and their strange spirits. Look at them", "carefully, see if you can't work out what they do.",).also {
-                    AchievementDiary.flagRewarded(player, DiaryType.FREMENNIK, 0)
+                    AchievementDiary.flagRewarded(player!!, DiaryType.FREMENNIK, 0)
                     stage = 14
                 }
             }
@@ -59,7 +59,7 @@ class CouncilWorkmanDiaryDialogue : DialogueFile() {
                 npc(FacialExpression.FRIENDLY, "Although, you'll have to come back when you've the space", "to take them.").also { stage = END_DIALOGUE }
             } else {
                 npc(FacialExpression.NEUTRAL, "They're strange, them boots. I reckon they'll impress", "the Fremennik and their strange spirits. Look at them", "carefully, see if you can't work out what they do.",).also {
-                    AchievementDiary.grantReplacement(player, DiaryType.FREMENNIK, 0)
+                    AchievementDiary.grantReplacement(player!!, DiaryType.FREMENNIK, 0)
                     stage = 14
                 }
             }

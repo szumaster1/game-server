@@ -31,8 +31,8 @@ class ShilovillageListeners : InteractionListener {
         val ANTIQUE_ITEMS = intArrayOf(605, 606, 607, 608, 611, 616, 624, 4808)
 
         /*
-            Shilo cart interactions.
-        */
+         * Shilo cart interactions.
+         */
 
         class CartQuickPay : DialogueFile() {
             override fun handle(componentID: Int, buttonID: Int) {
@@ -77,7 +77,7 @@ class ShilovillageListeners : InteractionListener {
     override fun defineListeners() {
 
         /*
-            Drop "Bervirius Notes" interaction.
+         * Drop "Bervirius Notes" interaction.
          */
 
         on(NOTES, IntType.ITEM, "drop") { player, node ->
@@ -88,7 +88,7 @@ class ShilovillageListeners : InteractionListener {
         }
 
         /*
-            Blacksmith door interaction.
+         * Blacksmith door interaction.
          */
 
         on(BLACKSMITH_DOOR, IntType.SCENERY, "open") { player, node ->
@@ -101,7 +101,7 @@ class ShilovillageListeners : InteractionListener {
         }
 
         /*
-            Broken cart interaction.
+         * Broken cart interaction.
          */
 
         on(BROKEN_CART, IntType.SCENERY, "look-at") { player, node ->
@@ -156,7 +156,7 @@ class ShilovillageListeners : InteractionListener {
         }
 
         /*
-            Antique exchange interactions.
+         * Antique exchange interactions.
          */
 
         onUseWith(IntType.NPC, ANTIQUE_ITEMS, YANNI) { player, used, _ ->

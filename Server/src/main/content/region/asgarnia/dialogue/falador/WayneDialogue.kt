@@ -13,7 +13,7 @@ class WayneDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.HAPPY, "Welcome to Wayne's Chains. Do you wanna buy or", "sell some chain mail?").also { stage = 0 }
+        npc(FacialExpression.HAPPY, "Welcome to Wayne's Chains. Do you wanna buy or", "sell some chain mail?")
         return true
     }
 

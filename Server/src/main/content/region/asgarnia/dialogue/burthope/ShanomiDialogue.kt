@@ -13,7 +13,7 @@ class ShanomiDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        npc("Greetings " + player.username + ". Welcome you are in the test of", "combat.").also { stage = 0 }
+        npc("Greetings " + player.username + ". Welcome you are in the test of", "combat.")
         return true
     }
 
@@ -31,7 +31,7 @@ class ShanomiDialogue(player: Player? = null) : Dialogue(player) {
 
             }
             2 -> npc(FacialExpression.HALF_GUILTY, "A spare suit of plate armour need you will. Full helm", "plate, leggings and platebody. Placing it in the centre", "of the magical machines you will be doing. KA-POOF!", "The armour it attacks most furiously as if alive! Kill it").also { stage = -3 }
-           -3 -> npc("you must, yes.").also { stage++ }
+           -3 -> npc("you must, yes.").also { stage = 3 }
             3 -> player(FacialExpression.HALF_GUILTY, "So I use a full set of plate armour on the centre plate of", "the machines and it will animate it? Then I have to kill my", "own armour... how bizarre!").also { stage++ }
             4 -> npc(FacialExpression.HALF_GUILTY, "Yes. It is as you are saying. For this earn tokens you", "will. Also gain experience in combat you will. Trained", "long and hard here have I.").also { stage++ }
             5 -> player(FacialExpression.HALF_GUILTY, "You're not from around here are you...?").also { stage++ }

@@ -48,7 +48,7 @@ class TzhaarFightPitsPlugin : ActivityPlugin("fight pits", false, true, true, Zo
                     lastVictor = WAR_PLAYERS[0]
                     // Become the Champion of the Fight Pits
                     if (lastVictor != null) {
-                        lastVictor!!.achievementDiaryManager.finishTask(lastVictor, DiaryType.KARAMJA, 2, 0)
+                        lastVictor!!.achievementDiaryManager.finishTask(lastVictor!!, DiaryType.KARAMJA, 2, 0)
                         addTokkul(lastVictor)
                         lastVictor!!.appearance.skullIcon = SKULL_ID
                         lastVictor!!.updateAppearance()
@@ -207,11 +207,6 @@ class TzhaarFightPitsPlugin : ActivityPlugin("fight pits", false, true, true, Zo
             }
         }
 
-        /**
-         * Reset damage pulse.
-         *
-         * @param e the e
-         */
         fun resetDamagePulse(e: Entity?) {
             val pl = e!!.getAttribute<Pulse?>("fp_pulse", null)
             if (pl != null) {
@@ -352,11 +347,6 @@ class TzhaarFightPitsPlugin : ActivityPlugin("fight pits", false, true, true, Zo
                 return null
             }
 
-        /**
-         * Send players remaining.
-         *
-         * @param value the value
-         */
         fun sendPlayersRemaining(value: Int) {
             for (p in WAR_PLAYERS) {
                 setVarp(p, 560, value)

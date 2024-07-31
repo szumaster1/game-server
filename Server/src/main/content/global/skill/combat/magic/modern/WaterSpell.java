@@ -15,9 +15,6 @@ import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
-/**
- * The Water spell.
- */
 @Initializable
 public final class WaterSpell extends CombatSpell {
 

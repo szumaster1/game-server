@@ -58,7 +58,7 @@ class BarbarianHerbloreListener : InteractionListener {
         animate(player, Animations.PESTLE_MORTAR_364)
         addItem(player, potion.getProduct())
         rewardXP(player, Skills.HERBLORE, potion.getExp())
-        sendMessage(player, "you combine your potion with the ${getItemName(egg.id).toLowerCase()}.")
+        sendMessage(player, "you combine your potion with the ${getItemName(egg.id).lowercase()}.")
 
         if (getAttribute(player, BarbarianTraining.ATTR_BARB_TRAIN_HERBLORE_BEGIN, false)) {
             removeAttribute(player, BarbarianTraining.ATTR_BARB_TRAIN_HERBLORE_BEGIN)

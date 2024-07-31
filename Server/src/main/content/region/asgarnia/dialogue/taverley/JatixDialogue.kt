@@ -12,9 +12,9 @@ import core.plugin.Initializable
 class JatixDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        Jatix is the herblore skill tutor and the owner
-        of Jatix's Herblore Shop, a Herblore shop
-        in eastern Taverley.
+     * Jatix is the herblore skill tutor and the owner
+     * of Jatix's Herblore Shop, a Herblore shop
+     * in eastern Taverley.
      */
 
     override fun newInstance(player: Player): Dialogue {
@@ -23,7 +23,7 @@ class JatixDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.HAPPY, "Hello, adventurer.").also { stage = 0 }
+        npc(FacialExpression.HAPPY, "Hello, adventurer.")
         return true
     }
 

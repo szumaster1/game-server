@@ -20,7 +20,6 @@ class PhillipaDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         player(FacialExpression.HALF_GUILTY, "Hello, who are you?")
-        stage = 0
         return true
     }
 

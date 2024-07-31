@@ -17,16 +17,9 @@ import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
-/**
- * The Magic dart.
- */
 @Initializable
 public class MagicDart extends CombatSpell {
 
-
-    /**
-     * Instantiates a new Magic dart.
-     */
     public MagicDart() {
         super(SpellType.MAGIC_DART, SpellBook.MODERN, 50, 30.0, 218, 219, new Animation(1576, Priority.HIGH), null, Projectile.create((Entity) null, null, 330, 40, 36, 52, 75, 15, 11), new Graphic(331, 96), Runes.DEATH_RUNE.getItem(1), Runes.MIND_RUNE.getItem(4));
     }

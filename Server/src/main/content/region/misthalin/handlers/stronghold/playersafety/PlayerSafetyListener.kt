@@ -19,7 +19,7 @@ class PlayerSafetyListener : InteractionListener {
 
     companion object {
         /*
-            Door to interface
+         * Door to interface
          */
         private val DTI_MAP = mapOf(
             29595 to 701,
@@ -36,7 +36,7 @@ class PlayerSafetyListener : InteractionListener {
     override fun defineListeners() {
 
         /*
-            Test exam item interaction.
+         * Test exam item interaction.
          */
 
         on(Items.TEST_PAPER_12626, IntType.ITEM, "take exam") { player, _ ->
@@ -49,7 +49,7 @@ class PlayerSafetyListener : InteractionListener {
         }
 
         /*
-            Interaction with students.
+         * Interaction with students.
          */
 
         on((7151..7157).toIntArray(), IntType.NPC, "Talk-to") { player, _ ->
@@ -58,7 +58,7 @@ class PlayerSafetyListener : InteractionListener {
         }
 
         /*
-            Jail teleports interaction.
+         * Jail teleports interaction.
          */
 
         on(29603, IntType.SCENERY, "use") { player, _ ->
@@ -82,7 +82,7 @@ class PlayerSafetyListener : InteractionListener {
         }
 
         /*
-            Exam room door interaction.
+         * Exam room door interaction.
          */
 
         on(29732, IntType.SCENERY, "open") { player, node ->
@@ -99,7 +99,7 @@ class PlayerSafetyListener : InteractionListener {
         }
 
         /*
-            Crevice interaction (and rope).
+         * Crevice interaction (and rope).
          */
 
         on(29728, IntType.SCENERY, "enter") { player, _ ->
@@ -120,7 +120,7 @@ class PlayerSafetyListener : InteractionListener {
         }
 
         /*
-            Plaques interaction.
+         * Plaques interaction.
          */
 
         on((29595..29601).toIntArray(), IntType.SCENERY, "Read-plaque on") { player, node ->
@@ -147,7 +147,7 @@ class PlayerSafetyListener : InteractionListener {
         }
 
         /*
-            Jail doors interaction in 4 different places.
+         * Jail doors interaction in 4 different places.
          */
 
         on(29624, IntType.SCENERY, "open") { player, _ ->
@@ -176,7 +176,7 @@ class PlayerSafetyListener : InteractionListener {
         }
 
         /*
-            Stairs in the middle of the 1st/2nd floor interaction.
+         * Stairs in the middle of the 1st/2nd floor interaction.
          */
 
         on(29667, IntType.SCENERY, "climb-down") { player, _ ->
@@ -220,7 +220,7 @@ class PlayerSafetyListener : InteractionListener {
         }
 
         /*
-            Rewards chest interaction.
+         * Rewards chest interaction.
          */
 
         on(29577, IntType.SCENERY, "open") { player, _ ->
@@ -294,9 +294,9 @@ class PlayerSafetyListener : InteractionListener {
         class PlaqueCutscene(player: Player, val component: Component) : Cutscene(player) {
 
             /*
-                Since the component does not know the door's location
-                there needs to be some translation from player position
-                to the door location. This is component -> rotation (dx, dy)
+             * Since the component does not know the door's location
+             * there needs to be some translation from player position
+             * to the door location. This is component -> rotation (dx, dy)
              */
 
             private val rotationMapping = mapOf(

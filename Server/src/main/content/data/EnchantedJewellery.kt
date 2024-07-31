@@ -18,9 +18,6 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.tools.NumberConverter
 
-/**
- * @author Vexia, downthecrop, Player Name
- */
 enum class EnchantedJewellery(val options: Array<String>, val locations: Array<Location>, crumble: Boolean, vararg val ids: Int) {
     RING_OF_SLAYING(arrayOf("Sumona in Pollnivneach.", "Morytania Slayer Tower.", "Rellekka Slayer Caves.", "Nowhere."), arrayOf(Location.create(3361, 2994, 0), Location.create(3428, 3535, 0), Location.create(2792, 3615, 0),), true, Items.RING_OF_SLAYING8_13281, Items.RING_OF_SLAYING7_13282, Items.RING_OF_SLAYING6_13283, Items.RING_OF_SLAYING5_13284, Items.RING_OF_SLAYING4_13285, Items.RING_OF_SLAYING3_13286, Items.RING_OF_SLAYING2_13287, Items.RING_OF_SLAYING1_13288),
     RING_OF_DUELING(arrayOf("Al Kharid Duel Arena.", "Castle Wars Arena.", "Fist of Guthix.", "Nowhere."), arrayOf(Location.create(3314, 3235, 0), Location.create(2442, 3089, 0), Location.create(1693, 5600, 0)), true, Items.RING_OF_DUELLING8_2552, Items.RING_OF_DUELLING7_2554, Items.RING_OF_DUELLING6_2556, Items.RING_OF_DUELLING5_2558, Items.RING_OF_DUELLING4_2560, Items.RING_OF_DUELLING3_2562, Items.RING_OF_DUELLING2_2564, Items.RING_OF_DUELLING1_2566),
@@ -137,7 +134,7 @@ enum class EnchantedJewellery(val options: Array<String>, val locations: Array<L
             sendNPCDialogue(player, slayerManager.master!!.npc, "You need something new to hunt. Come and " + "see me when you can and I'll give you a new task.", FacialExpression.HALF_GUILTY)
             return
         }
-        sendNPCDialogue(player, slayerManager.master!!.npc, "You're currently " + "assigned to kill ${getSlayerTaskName(player).toLowerCase()}'s; " + "only ${getSlayerTaskKillsRemaining(player)} more to go.", FacialExpression.FRIENDLY)
+        sendNPCDialogue(player, slayerManager.master!!.npc, "You're currently " + "assigned to kill ${getSlayerTaskName(player).lowercase()}'s; " + "only ${getSlayerTaskKillsRemaining(player)} more to go.", FacialExpression.FRIENDLY)
         setVarp(player, 2502, slayerManager.flags.taskFlags shr 4)
     }
 

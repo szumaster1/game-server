@@ -11,10 +11,10 @@ interface Requirement {
 
 open class SkillReq(val skillId: Int, val level: Int, val soft: Boolean = false) : Requirement {
     override fun evaluate(player: Player): Pair<Boolean, List<Requirement>> {
-        val hasLevelRequirement = getStatLevel(
-            player,
-            skillId
-        ) >= level //if (soft) getDynLevel(player, skillId) >= level else getStatLevel(player, skillId) >= level
+        /*
+         * If (soft) getDynLevel(player, skillId) >= level else getStatLevel(player, skillId) >= level
+         */
+        val hasLevelRequirement = getStatLevel(entity = player, skill = skillId) >= level
         if (hasLevelRequirement) return Pair(true, listOf())
         else return Pair(false, listOf(this))
     }

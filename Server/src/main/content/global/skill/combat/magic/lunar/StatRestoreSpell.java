@@ -22,18 +22,12 @@ import java.util.List;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
-/**
- * The Stat restore spell.
- */
 @Initializable
 public class StatRestoreSpell extends MagicSpell {
     private static final Animation ANIMATION = new Animation(4413);
     private static final Graphic GRAPHIC = new Graphic(733, 130);
     private static final Consumables[] acceptedPotions = new Consumables[]{Consumables.RESTORE, Consumables.SUPER_RESTO, Consumables.PRAYER, Consumables.ENERGY, Consumables.SUPER_ENERGY};
 
-    /**
-     * Instantiates a new Stat restore spell.
-     */
     public StatRestoreSpell() {
         super(SpellBook.LUNAR, 81, 84, null, null, null, new Item[]{new Item(Runes.ASTRAL_RUNE.getId(), 2), new Item(Runes.EARTH_RUNE.getId(), 10), new Item(Runes.WATER_RUNE.getId(), 10)});
     }

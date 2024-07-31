@@ -16,7 +16,7 @@ class LunderwinDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.OLD_CALM_TALK1, "Buying cabbage am I, not have such thing where I from.", "Will pay money much handsome for wondrous object,", "cabbage you called. Say I 100 gold coins each fair price", "to be giving yes?").also { stage = 0 }
+        npc(FacialExpression.OLD_CALM_TALK1, "Buying cabbage am I, not have such thing where I from.", "Will pay money much handsome for wondrous object,", "cabbage you called. Say I 100 gold coins each fair price", "to be giving yes?")
         return true
     }
 

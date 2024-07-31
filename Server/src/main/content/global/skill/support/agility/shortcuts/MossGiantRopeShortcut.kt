@@ -22,7 +22,6 @@ class MossGiantRopeShortcut : InteractionListener {
 
     override fun defineListeners() {
         on(ROPESWING, IntType.SCENERY, "swing-on") { player, node ->
-
             if (!withinDistance(player, node.location, 4)) {
                 player.sendMessage("I can't reach that.")
                 return@on true

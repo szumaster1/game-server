@@ -12,11 +12,11 @@ class KalebParamayaDiaryDialogue : DialogueFile() {
         npc = NPC(NPCs.KALEB_PARAMAYA_512)
         when (stage) {
             0 -> {
-                if (AchievementDiary.canClaimLevelRewards(player, DiaryType.KARAMJA, 1)) {
+                if (AchievementDiary.canClaimLevelRewards(player!!, DiaryType.KARAMJA, 1)) {
                     player("I've done all the medium tasks in my Karamja", "Achievement Diary.")
                     stage = 440
                 }
-                if (AchievementDiary.canReplaceReward(player, DiaryType.KARAMJA, 1)) {
+                if (AchievementDiary.canReplaceReward(player!!, DiaryType.KARAMJA, 1)) {
                     player("I've seemed to have lost my gloves..")
                     stage = 450
                 }
@@ -32,14 +32,14 @@ class KalebParamayaDiaryDialogue : DialogueFile() {
             440 -> npc("Yes I see that, you'll be wanting your", "reward then I assume?").also { stage++ }
             441 -> player("Yes please.").also { stage++ }
             442 -> {
-                AchievementDiary.flagRewarded(player, DiaryType.KARAMJA, 1)
+                AchievementDiary.flagRewarded(player!!, DiaryType.KARAMJA, 1)
                 npc("These Karamja gloves are a symbol of your explorin'", "on the island. All the merchants will recognise them", "and mabe give you a discount. I'll", "have a word with some of the seafarin' folk who sail to")
                 stage++
             }
             443 -> npc("Port Sarim and Ardougne, so they'll take you on board", "half price if you're wearing them. Ttake this lamp I", "found washed ashore too.").also { stage++ }
             444 -> player("Wow, thanks!").also { stage = 0 }
             450 -> {
-                AchievementDiary.grantReplacement(player, DiaryType.KARAMJA, 1)
+                AchievementDiary.grantReplacement(player!!, DiaryType.KARAMJA, 1)
                 npc("You better be more careful this time.")
                 stage = 0
             }

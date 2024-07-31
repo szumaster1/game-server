@@ -18,6 +18,10 @@ class DraynorManorShortcut : InteractionListener {
 
     override fun defineListeners() {
 
+        /*
+         * Squeeze through fence.
+         */
+
         on(Scenery.BROKEN_RAILING_37703, IntType.SCENERY, "squeeze-through") { player, _ ->
             if (!hasLevelDyn(player, Skills.AGILITY, 28)) {
                 sendDialogue(player, "You need an agility level of at least 28 to do this.")

@@ -8,6 +8,7 @@ import core.network.packet.outgoing.ContactPackets;
 
 /**
  * The management server state.
+ *
  * @author Emperor
  */
 public enum ManagementServerState {

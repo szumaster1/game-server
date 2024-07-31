@@ -29,7 +29,6 @@ class DigUpPatchDialogue(player: Player? = null) : Dialogue(player) {
         }
         setTitle(player, 2)
         sendDialogueOptions(player, "Are you sure you want to dig up this patch?", "Yes, I want to clear it for new crops.", "No, I want to leave it as it is.")
-        stage = 0
         return true
     }
 

@@ -20,7 +20,9 @@ class SimonTempletonDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        //Handles what happens when using a pharoah scepter on him (required for accuracy)
+        /*
+         * Handles what happens when using a pharoah scepter on him (required for accuracy).
+         */
         if (args.size == 4) {
             if (args[3] as Int == 9044 || args[3] as Int == 9046 || args[3] as Int == 9048 || args[3] as Int == 9050) {
                 npc("You sellin' me this gold colored", "stick thing. Looks fake to me.", "I'll give you 100 gold for it.")

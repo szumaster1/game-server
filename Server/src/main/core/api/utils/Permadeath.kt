@@ -38,9 +38,11 @@ fun Permadeath(target: Player) {
     }
     for (type in DiaryType.values()) {
         val diary = target.achievementDiaryManager.getDiary(type)
-        for (level in 0 until diary.levelStarted.size) {
-            for (task in 0 until diary.taskCompleted[level].size) {
-                diary.resetTask(target, level, task)
+        if (diary != null) {
+            for (level in 0 until diary.levelStarted.size) {
+                for (task in 0 until diary.taskCompleted[level].size) {
+                    diary.resetTask(target, level, task)
+                }
             }
         }
     }

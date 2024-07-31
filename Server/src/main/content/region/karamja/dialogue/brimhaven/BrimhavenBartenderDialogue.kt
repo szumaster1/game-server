@@ -19,7 +19,6 @@ class BrimhavenBartenderDialogue(player: Player? = null): Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         npc(FacialExpression.HAPPY, "Yohoho me hearty what would you like to drink?")
-        stage = 0
         return true
     }
 

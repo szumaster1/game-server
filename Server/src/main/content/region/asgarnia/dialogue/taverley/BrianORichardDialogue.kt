@@ -14,21 +14,21 @@ import core.tools.END_DIALOGUE
 class BrianORichardDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        Brian O'Richard is located in the Rogues' Den
-        underneath the Pick and Lute in Taverley.
-        He used to operate the Rogues' Den maze.
+     * Brian O'Richard is located in the Rogues' Den
+     * underneath the Pick and Lute in Taverley.
+     * He used to operate the Rogues' Den maze.
      */
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.HALF_GUILTY, "Hi there, looking for a challenge are you?").also { stage = 1 }
+        npc(FacialExpression.HALF_GUILTY, "Hi there, looking for a challenge are you?")
         return true
     }
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
-            1 -> options("Yes, actually, what've you got?", "What is this place?", "No thanks.").also { stage++ }
-            2 -> when (buttonId) {
+            0 -> options("Yes, actually, what've you got?", "What is this place?", "No thanks.").also { stage++ }
+            1 -> when (buttonId) {
                 1 -> player(FacialExpression.HALF_GUILTY, "Yes actually, what've you got?").also { stage = 10 }
                 2 -> player(FacialExpression.HALF_GUILTY, "What is this place?").also { stage = 20 }
                 3 -> player(FacialExpression.HALF_GUILTY, "No thanks.").also { stage = END_DIALOGUE }

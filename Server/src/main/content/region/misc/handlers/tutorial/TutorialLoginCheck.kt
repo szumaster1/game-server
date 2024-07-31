@@ -8,14 +8,10 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld
 
 class TutorialLoginCheck : LoginListener {
+
     override fun login(player: Player) {
         if (!getAttribute(player, "tutorial:complete", false)) {
-            if (getAttribute(
-                    player,
-                    "tutorial:stage",
-                    0
-                ) == 0 && (player.skills.totalLevel > 33 || player.bank.itemCount() > 0 || player.inventory.itemCount() > 0)
-            ) {
+            if (getAttribute(entity = player, attribute = "tutorial:stage", default = 0) == 0 && (player.skills.totalLevel > 33 || player.bank.itemCount() > 0 || player.inventory.itemCount() > 0)) {
                 setAttribute(player, "/save:tutorial:complete", true)
                 return
             }

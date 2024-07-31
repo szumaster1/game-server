@@ -10,8 +10,8 @@ import core.tools.RandomFunction
 class AntonNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 
     /*
-        Anton is a smith located on the 1st floor of the Warriors' Guild in Burthorpe.
-        He runs the Warriors' Guild Armoury, selling various melee-based weaponry and armour.
+     * Anton is a smith located on the 1st floor of the Warriors' Guild in Burthorpe.
+     * He runs the Warriors' Guild Armoury, selling various melee-based weaponry and armour.
      */
 
     private val forceChat: Array<String> = arrayOf("Armour and axes to suit your needs.", "Imported weapons from the finest smithys around the lands!", "Ow, my toe! That armour is heavy.")

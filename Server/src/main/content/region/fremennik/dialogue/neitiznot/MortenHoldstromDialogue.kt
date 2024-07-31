@@ -11,7 +11,7 @@ import core.tools.END_DIALOGUE
 class MortenHoldstromDialogue(player: Player? = null): Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
-        npcl(FacialExpression.NEUTRAL, "Good day to you.").also { stage = 0 }
+        npcl(FacialExpression.NEUTRAL, "Good day to you.")
         return true
     }
 

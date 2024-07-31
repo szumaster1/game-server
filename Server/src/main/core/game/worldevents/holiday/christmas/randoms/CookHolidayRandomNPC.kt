@@ -14,13 +14,13 @@ class CookHolidayRandomNPC : HolidayRandomEventNPC(NPCs.COOK_4239) {
 
     override fun init() {
         ticksLeft = minutesToTicks(3)
-        sendChat(this, "Happy Holidays, ${player.username.capitalize()}!", 2)
+        sendChat(this, "Happy Holidays, ${player.username}!", 2)
         super.init()
     }
 
     override fun tick() {
         if (RandomFunction.roll(15) && !hasTalkedWith)
-            sendChat(this, cookLines.random().replace("@name", player.username.capitalize()))
+            sendChat(this, cookLines.random().replace("@name", player.username))
 
         super.tick()
     }

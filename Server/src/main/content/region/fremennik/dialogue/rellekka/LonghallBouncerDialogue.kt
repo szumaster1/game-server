@@ -17,7 +17,7 @@ class LonghallBouncerDialogue(player: Player? = null): Dialogue(player) {
         if (!isQuestComplete(player, "Fremennik Trials")) {
             npcl(FacialExpression.ANNOYED, "Hey, outerlander. You can't go through there. Talent only, backstage.").also { stage = END_DIALOGUE }
         } else {
-            npcl(FacialExpression.ANNOYED, "You can't go through there. Talent only, backstage.").also { stage = 0 }
+            npcl(FacialExpression.ANNOYED, "You can't go through there. Talent only, backstage.")
         }
         return true
     }

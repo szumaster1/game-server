@@ -12,14 +12,14 @@ import core.tools.END_DIALOGUE
 class LordDaquariusDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        Lord Daquarius Rennard is the current Lord of the Kinshra,
-        an organisation referred to as the Black Knights
-        by the city of Falador.
+     * Lord Daquarius Rennard is the current Lord of the Kinshra,
+     * an organisation referred to as the Black Knights
+     * by the city of Falador.
      */
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        player(FacialExpression.FRIENDLY, "Hello").also { stage = 0 }
+        player(FacialExpression.FRIENDLY, "Hello")
         return true
     }
 

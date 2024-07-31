@@ -27,16 +27,8 @@ class FritzGlassBlowerDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
-            0 -> {
-                npc(FacialExpression.HALF_GUILTY, "Would you like me to explain my craft to you?")
-                stage = 1
-            }
-
-            1 -> {
-                options("Yes please. I'd be fascinated to hear what you do.", "No thanks, I doubt I'll ever turn my hand to glassblowing.")
-                stage = 2
-            }
-
+            0 -> npc(FacialExpression.HALF_GUILTY, "Would you like me to explain my craft to you?").also { stage++ }
+            1 -> options("Yes please. I'd be fascinated to hear what you do.", "No thanks, I doubt I'll ever turn my hand to glassblowing.").also { stage++ }
             2 -> when (buttonId) {
                 1 -> {
                     player(FacialExpression.HALF_GUILTY, "Yes please. I'd be fascinated to hear what you do.")

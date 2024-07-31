@@ -13,7 +13,7 @@ class AliTheFarmerDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        playerl(FacialExpression.FRIENDLY, "Hello there!").also { stage = 0 }
+        playerl(FacialExpression.FRIENDLY, "Hello there!")
         return true
     }
 
@@ -21,14 +21,12 @@ class AliTheFarmerDialogue(player: Player? = null) : Dialogue(player) {
         when (stage) {
             0 -> npcl(FacialExpression.FRIENDLY, "Oh, er, hello. What do you want?").also { stage++ }
             1 -> options("What can you tell me about Al Kharid?", "So, what do you do here?", "I hear you work for Ali Morrisane...", "I hear you've been threatening the other shopkeepers.").also { stage++ }
-
             2 -> when (buttonId) {
                 1 -> playerl(FacialExpression.ASKING, "What can you tell me about Al Kharid?").also { stage = 10 }
                 2 -> playerl(FacialExpression.ASKING, "So, what do you do here?").also { stage = 19 }
                 3 -> playerl(FacialExpression.ASKING, "I hear you work for Ali Morrisane...").also { stage = 30 }
                 4 -> playerl(FacialExpression.ASKING, "I hear you've been threatening the other shopkeepers.").also { stage = 40 }
             }
-
             10 -> npcl(FacialExpression.FRIENDLY, "There's not much farming land around here. Only that little patch outside.").also { stage++ }
             11 -> playerl(FacialExpression.ASKING, "Can you give me any advice on farming here in the desert?").also { stage++ }
             12 -> npcl(FacialExpression.FRIENDLY, "Like I said, I only know about cactuses...").also { stage++ }

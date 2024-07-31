@@ -16,11 +16,9 @@ class TheFaceDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         if (!GameWorld.settings!!.isMembers) {
-            npc("I have no time for you.")
-            stage = 5
+            npc("I have no time for you.").also { stage = 5 }
         } else {
             player("Hello.")
-            stage = 0
         }
         return true
     }

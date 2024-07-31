@@ -112,7 +112,7 @@ public final class SlayerMasterDialogue extends Dialogue {
                     stage++;
                     break;
                 case 442:
-                    AchievementDiary.grantReplacement(player, DiaryType.VARROCK, level);
+                    AchievementDiary.Companion.grantReplacement(player, DiaryType.VARROCK, level);
                     npc(getExpression(master), "I'm happy to say that you've done well, so I will reward", "you suitably for your work.");
                     stage++;
                     break;
@@ -125,7 +125,7 @@ public final class SlayerMasterDialogue extends Dialogue {
                     stage++;
                     break;
                 case 450:
-                    AchievementDiary.grantReplacement(player, DiaryType.VARROCK, level);
+                    AchievementDiary.Companion.grantReplacement(player, DiaryType.VARROCK, level);
                     npc(getExpression(master),"You better be more careful this time.");
                     stage = -1;
                     break;
@@ -626,12 +626,12 @@ public final class SlayerMasterDialogue extends Dialogue {
 
     private void sendDiaryDialogue() {
         isDiary = true;
-        if (AchievementDiary.canClaimLevelRewards(player, DiaryType.VARROCK, level)) {
+        if (AchievementDiary.Companion.canClaimLevelRewards(player, DiaryType.VARROCK, level)) {
             player("I've completed all the hard tasks in my Varrock", "Achievement Diary and, let me tell you, it wasn't an", "easy job.");
             stage = 440;
             return;
         }
-        if (AchievementDiary.canReplaceReward(player, DiaryType.VARROCK, level)) {
+        if (AchievementDiary.Companion.canReplaceReward(player, DiaryType.VARROCK, level)) {
             player("I've seemed to have lost my armour...");
             stage = 460;
             return;

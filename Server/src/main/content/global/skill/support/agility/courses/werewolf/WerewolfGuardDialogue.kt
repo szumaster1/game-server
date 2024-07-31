@@ -13,7 +13,7 @@ class WerewolfGuardDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        playerl(FacialExpression.HALF_ASKING, "What's beneath the trapdoor?").also { stage = 0 }
+        playerl(FacialExpression.HALF_ASKING, "What's beneath the trapdoor?")
         return true
     }
 

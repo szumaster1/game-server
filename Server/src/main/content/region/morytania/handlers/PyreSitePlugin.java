@@ -30,35 +30,13 @@ import core.plugin.ClassScanner;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * The Pyre site plugin.
- */
 @Initializable
 public final class PyreSitePlugin extends OptionHandler {
 
-    /**
-     * The chance reward items.
-     */
     private static final ChanceItem[] REWARDS = new ChanceItem[]{new ChanceItem(560, 8, 15, DropFrequency.COMMON), new ChanceItem(565, 4, 7, DropFrequency.COMMON), new ChanceItem(1601, 2, 2, DropFrequency.UNCOMMON), new ChanceItem(532, 10, 10, DropFrequency.RARE), new ChanceItem(100, 2, 2, DropFrequency.COMMON), new ChanceItem(9145, 5, 5, DropFrequency.COMMON), new ChanceItem(9144, 10, 10, DropFrequency.UNCOMMON), new ChanceItem(892, 10, 10, DropFrequency.COMMON), new ChanceItem(867, 20, 20, DropFrequency.UNCOMMON), new ChanceItem(816, 20, 20, DropFrequency.COMMON), new ChanceItem(9419, 1, 1, DropFrequency.COMMON)};
-
-    /**
-     * The chewed bones item.
-     */
     private static final Item CHEWED_BONES = new Item(Items.CHEWED_BONES_11338);
-
-    /**
-     * The mangled bones item.
-     */
     private static final Item MANGLED_BONES = new Item(Items.MANGLED_BONES_11337);
-
-    /**
-     * The dragon full helm item (1/250) chance.
-     */
     private static final Item DFH = new Item(Items.DRAGON_FULL_HELM_11335);
-
-    /**
-     * The list of used pyre ship locations.
-     */
     private static final List<Location> USED_LOCATIONS = new ArrayList<>(20);
 
     @Override
@@ -103,12 +81,6 @@ public final class PyreSitePlugin extends OptionHandler {
         return true;
     }
 
-    /**
-     * Handles the pyre ritual.
-     *
-     * @param player the player.
-     * @param object the ship object.
-     */
     private void ritual(Player player, Scenery object) {
         player.lock();
         USED_LOCATIONS.add(object.getLocation());
@@ -116,14 +88,6 @@ public final class PyreSitePlugin extends OptionHandler {
         GameWorld.getPulser().submit(getPulse(player, object));
     }
 
-    /**
-     * Gets the ritu
-     * al pulse.
-     *
-     * @param player the player.
-     * @param object the object.
-     * @return the pulse.
-     */
     private Pulse getPulse(final Player player, final Scenery object) {
         final LogType logType = player.getAttribute("logType", LogType.NORMAL);
         final SkillingTool tool = SkillingTool.getHatchet(player);
@@ -176,23 +140,16 @@ public final class PyreSitePlugin extends OptionHandler {
         };
     }
 
-    /**
+    /*
      * Replaces the pyre site with a new object.
-     *
-     * @param newId the new id.
-     * @param ship  the ship.
      */
     private void replace(int newId, Scenery ship, Player player) {
         Scenery newShip = new Scenery(newId, getLocation(newId, ship), 10, ship.getLocation().getX() == 2503 ? 4 : 1);
         SceneryBuilder.add(newShip);
     }
 
-    /**
+    /*
      * Gets the location of where the object should be.
-     *
-     * @param newId the new Id.
-     * @param ship  the ship.
-     * @return the location.
      */
     private Location getLocation(int newId, Scenery ship) {
         Location location = ship.getLocation().transform(ship.getDirection(), -2);
@@ -204,11 +161,8 @@ public final class PyreSitePlugin extends OptionHandler {
         return location;
     }
 
-    /**
+    /*
      * Gets a random item.
-     *
-     * @param player the player.
-     * @return the random item.
      */
     private Item getRandomItem(Player player) {
         if (RandomFunction.random(250) == 10) {
@@ -226,11 +180,8 @@ public final class PyreSitePlugin extends OptionHandler {
         return null;
     }
 
-    /**
+    /*
      * Gets the animation for the skilling tool.
-     *
-     * @param tool the tool.
-     * @return the animation.
      */
     public Animation getAnimation(final SkillingTool tool) {
         Animation animation = null;
@@ -265,77 +216,26 @@ public final class PyreSitePlugin extends OptionHandler {
         return animation;
     }
 
-    /**
+    /*
      * The enum Log type.
      */
     public enum LogType {
-        /**
-         * The Normal.
-         */
         NORMAL(Log.NORMAL, 11, new double[]{10, 40}, 1),
-        /**
-         * The Achey.
-         */
         ACHEY(Log.ACHEY, 11, new double[]{10, 40}, 1),
-        /**
-         * The Oak.
-         */
         OAK(Log.OAK, 25, new double[]{15, 60}, 2),
-        /**
-         * The Willow.
-         */
         WILLOW(Log.WILLOW, 40, new double[]{22.5, 90}, 2),
-        /**
-         * The Teak.
-         */
         TEAK(Log.TEAK, 45, new double[]{26.2, 105}, 3),
-        /**
-         * The Arctic pine.
-         */
         ARCTIC_PINE(Log.ARCTIC_PINE, 52, new double[]{31.2, 125}, 3),
-        /**
-         * The Maple.
-         */
         MAPLE(Log.MAPLE, 55, new double[]{33.7, 135}, 3),
-        /**
-         * The Mahogany.
-         */
         MAHOGANY(Log.MAHOGANY, 60, new double[]{39.3, 157.5}, 3),
-        /**
-         * The Yew.
-         */
         YEW(Log.YEW, 70, new double[]{50.6, 202.5}, 4),
-        /**
-         * The Magic.
-         */
         MAGIC(Log.MAGIC, 85, new double[]{75.9, 303.8}, 5);
 
-
         private final Log log;
-
-        /**
-         * The level.
-         */
         private final int level;
-
-        /**
-         * The experiences required.
-         */
         private final double[] experiences;
-
-        /**
-         * The enhanced xp reward of bones.
-         */
         private final int enhancedExp;
 
-        /**
-         * Constructs a new {@code LogType} {@code Object}
-         *
-         * @param log         the log.
-         * @param level       the level.
-         * @param experiences the experiences.
-         * @param enhancedExp the enhanced exp.
-         */
         LogType(Log log, int level, double[] experiences, int enhancedExp) {
             this.log = log;
             this.level = level;
@@ -343,12 +243,6 @@ public final class PyreSitePlugin extends OptionHandler {
             this.enhancedExp = enhancedExp;
         }
 
-        /**
-         * Gets a log type.
-         *
-         * @param player the player.
-         * @return the type.
-         */
         public static LogType getType(Player player) {
             for (LogType type : values()) {
                 if (player.getInventory().contains(type.getLog().getLogId(), 1)) {
@@ -358,68 +252,30 @@ public final class PyreSitePlugin extends OptionHandler {
             return null;
         }
 
-        /**
-         * Gets log.
-         *
-         * @return the log
-         */
         public Log getLog() {
             return log;
         }
-
-        /**
-         * Gets level.
-         *
-         * @return the level
-         */
         public int getLevel() {
             return level;
         }
-
-        /**
-         * Get experiences double [ ].
-         *
-         * @return the double [ ]
-         */
         public double[] getExperiences() {
             return experiences;
         }
-
-        /**
-         * Gets enhanced exp.
-         *
-         * @return the enhanced exp
-         */
         public int getEnhancedExp() {
             return enhancedExp;
         }
 
     }
 
-    /**
-     * The Ferocious barbarian npc.
-     */
     public class FerociousBarbarianNPC extends AbstractNPC {
-
-
         private Player target;
 
-
-        /**
-         * Constructs a new {@code FerociousBarbarianNPC} {@code Object}
-         *
-         * @param id       the npc id.
-         * @param location the location.
-         */
         public FerociousBarbarianNPC(int id, Location location) {
             super(id, location);
             this.setRespawn(false);
             this.setAggressive(true);
         }
 
-        /**
-         * Constructs a new {@code FerociousBarbarianNPC} {@code Object}
-         */
         public FerociousBarbarianNPC() {
             this(-1, null);
         }

@@ -13,7 +13,7 @@ class AliTheGuardDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        playerl(FacialExpression.FRIENDLY, "Hello there!").also { stage = 0 }
+        playerl(FacialExpression.FRIENDLY, "Hello there!")
         return true
     }
 

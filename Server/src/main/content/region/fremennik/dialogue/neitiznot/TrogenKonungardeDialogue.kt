@@ -11,7 +11,7 @@ import core.tools.END_DIALOGUE
 class TrogenKonungardeDialogue(player: Player? = null): Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
-        npcl(FacialExpression.NEUTRAL, "I'm guarding the king, I cannot speak.").also { stage = 0 }
+        npcl(FacialExpression.NEUTRAL, "I'm guarding the king, I cannot speak.")
         return true
     }
 

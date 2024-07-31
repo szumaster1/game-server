@@ -14,7 +14,7 @@ class RanaelDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.HAPPY, "Do you want to buy any armoured skirts? Designed", "especially for ladies who like to fight.").also { stage = 0 }
+        npc(FacialExpression.HAPPY, "Do you want to buy any armoured skirts? Designed", "especially for ladies who like to fight.")
         return true
     }
 

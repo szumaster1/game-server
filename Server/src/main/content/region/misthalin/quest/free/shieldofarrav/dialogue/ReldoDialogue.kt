@@ -39,11 +39,15 @@ class ReldoDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         if (isDiary) {
-            // https://www.youtube.com/watch?v=2q-29WxUl1U
+            /*
+             * https://www.youtube.com/watch?v=2q-29WxUl1U
+             */
             when (stage) {
                 999 -> end()
                 -1 -> {
-                    // when available, "Can I change my Varrock teleport point?" is option 2
+                    /*
+                     * when available, "Can I change my Varrock teleport point?" is option 2
+                     */
                     options("What is the Achievement Diary?", "What are the rewards?", "How do I claim the rewards?", "See you later.")
                     stage++
                 }

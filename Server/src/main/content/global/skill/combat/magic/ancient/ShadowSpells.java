@@ -21,27 +21,16 @@ import java.util.List;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
-/**
- * The Shadow spells.
- */
 @Initializable
 public final class ShadowSpells extends CombatSpell {
 
     private static final Projectile RUSH_PROJECTILE = Projectile.create((Entity) null, null, 378, 40, 36, 52, 75, 15, 11);
-
     private static final Graphic RUSH_END = new Graphic(379, 96);
-
     private static final Projectile BURST_PROJECTILE = Projectile.create((Entity) null, null, 380, 40, 36, 52, 75, 15, 11);
-
     private static final Graphic BURST_END = new Graphic(381, 0);
-
     private static final Graphic BLITZ_END = new Graphic(382, 96);
-
     private static final Graphic BARRAGE_END = new Graphic(383, 0);
 
-    /**
-     * Instantiates a new Shadow spells.
-     */
     public ShadowSpells() {
 
     }

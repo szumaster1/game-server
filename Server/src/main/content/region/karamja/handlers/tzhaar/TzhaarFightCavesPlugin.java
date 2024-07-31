@@ -30,9 +30,6 @@ import java.util.Random;
 
 import static core.api.ContentAPIKt.*;
 
-/**
- * The Tzhaar fight caves plugin.
- */
 @Initializable
 public final class TzhaarFightCavesPlugin extends ActivityPlugin {
 
@@ -40,23 +37,12 @@ public final class TzhaarFightCavesPlugin extends ActivityPlugin {
 
     private static final Location[] SPAWN_LOCATIONS = {Location.create(8, 44, 0), Location.create(38, 47, 0), Location.create(5, 9, 0), Location.create(46, 21, 0), Location.create(28, 28, 0),};
 
-    /**
-     * The Active np cs.
-     */
     public List<NPC> activeNPCs = new ArrayList<>(20);
 
-    /**
-     * Instantiates a new Tzhaar fight caves plugin.
-     */
     public TzhaarFightCavesPlugin() {
         this(null);
     }
 
-    /**
-     * Instantiates a new Tzhaar fight caves plugin.
-     *
-     * @param player the player
-     */
     public TzhaarFightCavesPlugin(Player player) {
         super("fight caves", true, true, true, ZoneRestriction.CANNON, ZoneRestriction.RANDOM_EVENTS);
         super.player = player;
@@ -135,12 +121,6 @@ public final class TzhaarFightCavesPlugin extends ActivityPlugin {
         return true;
     }
 
-    /**
-     * Leave.
-     *
-     * @param player the player
-     * @param wave   the wave
-     */
     public void leave(Player player, int wave) {
         activeNPCs.clear();
         player.getProperties().setTeleportLocation(getSpawnLocation());
@@ -262,11 +242,6 @@ public final class TzhaarFightCavesPlugin extends ActivityPlugin {
         return true;
     }
 
-    /**
-     * Spawn wave.
-     *
-     * @param wave the wave
-     */
     public void spawnWave(int wave) {
         setAttribute(player, "/save:fc_wave", wave);
         int count = wave;
@@ -283,12 +258,6 @@ public final class TzhaarFightCavesPlugin extends ActivityPlugin {
         player.getPacketDispatch().sendMessage("Current wave: " + (wave + 1) + ".");
     }
 
-    /**
-     * Spawn tzhaar fight cave npc.
-     *
-     * @param npcId the npc id
-     * @return the tzhaar fight cave npc
-     */
     public TzhaarFightCaveNPC spawn(int npcId) {
         Random r = RandomFunction.RANDOM;
         Location l = SPAWN_LOCATIONS[r.nextInt(SPAWN_LOCATIONS.length)];

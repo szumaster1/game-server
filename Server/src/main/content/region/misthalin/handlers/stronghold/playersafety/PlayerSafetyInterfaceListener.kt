@@ -8,13 +8,6 @@ import core.plugin.Initializable
 @Initializable
 class PlayerSafetyInterfaceListener : InterfaceListener {
 
-    /*
-        Handles the player safety test.
-        * @author Tyler Telis
-        * @author Vexia
-        * @author gregf36665
-     */
-
     companion object {
         private val testQuestions = listOf(
             TestQuestion(697, 26, mapOf(4 to 37, 3 to 40, 5 to 43), 4),
@@ -30,7 +23,7 @@ class PlayerSafetyInterfaceListener : InterfaceListener {
         private var testQuestionNumber = 0
     }
 
-    /**
+    /*
      * Define a new Test Question
      * interfaceId: the base ID for the test question
      * baseChild: the ID of the Component child

@@ -21,7 +21,6 @@ class ZamboDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         npc(FacialExpression.HALF_GUILTY, "Hey, are you wanting to try some of my fine wines", "and spririts? All brewed locally on Karamja island.")
-        stage = 0
         return true
     }
 

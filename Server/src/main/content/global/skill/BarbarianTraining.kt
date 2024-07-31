@@ -2,7 +2,6 @@ package content.global.skill
 
 object BarbarianTraining {
 
-
     // Fishing
     val ATTR_BARB_TRAIN_FISHING_BEGIN = "barbtraining:fishing-start"
     val ATTR_BARB_TRAIN_FISHING = "barbtraining:fishing"

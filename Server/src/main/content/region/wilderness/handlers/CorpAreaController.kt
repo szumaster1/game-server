@@ -11,6 +11,7 @@ import core.game.world.map.zone.ZoneRestriction
 import core.tools.secondsToTicks
 
 class CorpAreaController : MapArea, TickListener {
+
     companion object {
         var activePlayers = ArrayList<Player>()
         var corpBeast: NPC? = null
@@ -32,7 +33,7 @@ class CorpAreaController : MapArea, TickListener {
                 entity.familiarManager.familiar.call()
             }
         } else if (entity is Familiar) {
-            entity.setAttribute("corp-time-remaining", secondsToTicks(10)) //Familiars last about 10 seconds, based on https://www.youtube.com/watch?v=kOd6q5Q5ZKI
+            entity.setAttribute("corp-time-remaining", secondsToTicks(10))
         } else if (entity is NPC && entity.behavior is CorporealBeastNPC) {
             corpBeast = entity
         }
@@ -50,7 +51,7 @@ class CorpAreaController : MapArea, TickListener {
                 it.skills.lifepoints = it.skills.maximumLifepoints
                 val behavior = it.behavior as CorporealBeastNPC
                 if (behavior.darkEnergyCore != null) {
-                    behavior.darkEnergyCore.clear()
+                    behavior.darkEnergyCore!!.clear()
                     behavior.darkEnergyCore = null
                 }
             }

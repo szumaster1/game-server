@@ -1,5 +1,6 @@
 package core.game.world.map.zone.impl
 
+import core.api.consts.Regions
 import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
 import core.game.world.map.Location
@@ -48,43 +49,29 @@ private constructor() : MapZone("Multicombat", true) {
         register(ZoneBorders(3136, 3523, 3328, 3710))
         registerRegion(13105, ZoneBorders(3282, 3159, 3303, 3177))
         registerRegion(12341)
-        // Kalphite queen lair.
-        registerRegion(13972)
-        // Abbys area.
-        registerRegion(12107)
+        registerRegion(Regions.KALPHITE_LAIR_REGION_13972)
+        registerRegion(Regions.ABYSS_AREA_REGION_12107)
         registerRegion(7505)
-        // Rock crabs.
-        registerRegion(10554)
-        // Wizards' tower.
-        registerRegion(12337)
-        // ZMI.
-        registerRegion(13131)
-        // Tzhaar caves.
+        registerRegion(Regions.FREMENNIK_ROCK_CRABS_REGION_10554)
+        registerRegion(Regions.WIZARDS_TOWER_REGION_12337)
+        registerRegion(Regions.ZMI_REGION_13131)
         register(ZoneBorders(2424, 5105, 2536, 5183))
         register(ZoneBorders(2487, 10113, 2563, 10174))
-        registerRegion(7236)
-        registerRegion(7492)
-        registerRegion(7748)
-        registerRegion(12610)
+        registerRegion(Regions.THZAAR_CAVE_REGION_7236)
+        registerRegion(Regions.THZAAR_CAVE_REGION_7492)
+        registerRegion(Regions.THZAAR_CAVE_REGION_7748)
+        registerRegion(Regions.THZAAR_CAVE_REGION_12610)
         register(ZoneBorders(3097, 4224, 3225, 4317))
         register(ZoneBorders(3116, 5412, 3362, 5584))
         register(ZoneBorders(3078, 5520, 3123, 5552, 0))
-        // Corporeal beast.
-        registerRegion(11844)
-        // TDS.
-        registerRegion(10329)
-        // Venenatis.
-        registerRegion(13370)
-        // Callisto.
-        registerRegion(12603)
-        // Isle north of Jatizso.
-        registerRegion(9532)
+        registerRegion(Regions.CORPOREAL_BEAST_REGION_11844)
+        registerRegion(Regions.TDS_REGION_10329)
+        registerRegion(Regions.NORTH_JATIZSO_REGION_9532)
         // Eastern rock crabs.
         register(ZoneBorders(2734, 3736, 2688, 3712))
-        // Desert bandits.
-        registerRegion(12590)
+        registerRegion(Regions.DESERT_BANDITS_REGION_12590)
         register(ZoneBorders(2855, 9928, 2880, 9968))
-        registerRegion(11318)
+        registerRegion(Regions.DESERT_BANDITS_REGION_11318)
         register(ZoneBorders(2685, 2685, 2825, 2825))
     }
 

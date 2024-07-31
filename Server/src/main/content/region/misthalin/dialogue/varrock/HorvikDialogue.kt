@@ -20,7 +20,6 @@ class HorvikDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         npc(FacialExpression.HAPPY, "Hello, do you need any help?")
-        stage = 0
         return true
     }
 

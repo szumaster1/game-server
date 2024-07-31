@@ -1,8 +1,9 @@
-package content.region.desert.handlers
+package core.game.world.map.zone.impl
 
+import core.api.*
 import core.api.consts.Animations
 import core.api.consts.Items
-import core.api.getRegionBorders
+import core.api.consts.Regions
 import core.cache.def.impl.ItemDefinition
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.ImpactHandler.HitsplatType
@@ -22,7 +23,6 @@ import core.tools.RandomFunction
 @Initializable
 class DesertZone : MapZone(DESERT_ZONE, true), Plugin<Any?> {
 
-
     override fun newInstance(arg: Any?): Plugin<Any?> {
         ZoneBuilder.configure(this)
         return this
@@ -33,33 +33,33 @@ class DesertZone : MapZone(DESERT_ZONE, true), Plugin<Any?> {
     }
 
     override fun configure() {
-        register(getRegionBorders(12589))
-        register(getRegionBorders(12590))
-        register(getRegionBorders(12591))
-        register(getRegionBorders(12843))
-        register(getRegionBorders(12844))
-        register(getRegionBorders(12845))
-        register(getRegionBorders(12847))
-        register(getRegionBorders(12848))
-        register(getRegionBorders(13100))
-        register(getRegionBorders(13101))
-        register(getRegionBorders(13102))
-        register(getRegionBorders(13103))
-        register(getRegionBorders(13355))
-        register(getRegionBorders(13356))
-        register(getRegionBorders(13357))
-        register(getRegionBorders(13359))
-        register(getRegionBorders(13360))
-        register(getRegionBorders(13361))
-        register(getRegionBorders(13611))
-        register(getRegionBorders(13612))
-        register(getRegionBorders(13613))
-        register(getRegionBorders(13614))
-        register(getRegionBorders(13615))
-        register(getRegionBorders(13616))
-        register(getRegionBorders(13617))
-        register(getRegionBorders(13872))
-        register(getRegionBorders(13873))
+        register(getRegionBorders(Regions.DESERT_REGION_12589))
+        register(getRegionBorders(Regions.DESERT_REGION_12590))
+        register(getRegionBorders(Regions.DESERT_REGION_12591))
+        register(getRegionBorders(Regions.DESERT_REGION_12843))
+        register(getRegionBorders(Regions.DESERT_REGION_12844))
+        register(getRegionBorders(Regions.DESERT_REGION_12845))
+        register(getRegionBorders(Regions.DESERT_REGION_12847))
+        register(getRegionBorders(Regions.DESERT_REGION_12848))
+        register(getRegionBorders(Regions.DESERT_REGION_13100))
+        register(getRegionBorders(Regions.DESERT_REGION_13101))
+        register(getRegionBorders(Regions.DESERT_REGION_13102))
+        register(getRegionBorders(Regions.DESERT_REGION_13103))
+        register(getRegionBorders(Regions.DESERT_REGION_13355))
+        register(getRegionBorders(Regions.DESERT_REGION_13356))
+        register(getRegionBorders(Regions.DESERT_REGION_13357))
+        register(getRegionBorders(Regions.DESERT_REGION_13359))
+        register(getRegionBorders(Regions.DESERT_REGION_13360))
+        register(getRegionBorders(Regions.DESERT_REGION_13361))
+        register(getRegionBorders(Regions.DESERT_REGION_13611))
+        register(getRegionBorders(Regions.DESERT_REGION_13612))
+        register(getRegionBorders(Regions.DESERT_REGION_13613))
+        register(getRegionBorders(Regions.DESERT_REGION_13614))
+        register(getRegionBorders(Regions.DESERT_REGION_13615))
+        register(getRegionBorders(Regions.DESERT_REGION_13616))
+        register(getRegionBorders(Regions.DESERT_REGION_13617))
+        register(getRegionBorders(Regions.DESERT_REGION_13872))
+        register(getRegionBorders(Regions.DESERT_REGION_13873))
         register(ZoneBorders(3264, 3072, 3327, 3116))
         pulse.stop()
     }
@@ -111,7 +111,7 @@ class DesertZone : MapZone(DESERT_ZONE, true), Plugin<Any?> {
         private val pulse: Pulse = object : Pulse(3) {
             override fun pulse(): Boolean {
                 for (player in PLAYERS) {
-                    if (!player.getAttribute(TUTORIAL_COMPLETE, false) || player.interfaceManager.isOpened || player.interfaceManager.hasChatbox() || player.locks.isMovementLocked) {
+                    if (!getAttribute(player, TUTORIAL_COMPLETE, false) || player.interfaceManager.isOpened || player.interfaceManager.hasChatbox() || player.locks.isMovementLocked) {
                         continue
                     }
                     if (player.getAttribute(DESERT_DELAY, -1) < ticks) {
@@ -128,20 +128,16 @@ class DesertZone : MapZone(DESERT_ZONE, true), Plugin<Any?> {
             if (drink(player)) {
                 return
             }
-            player.impactHandler.manualHit(
-                player,
-                RandomFunction.random(1, if (player.location.y < 2990) 12 else 8),
-                HitsplatType.NORMAL
-            )
-            player.packetDispatch.sendMessage("You start dying of thirst while you're in the desert.")
+            impact(player, RandomFunction.random(1, if (player.location.y < 2990) 12 else 8), HitsplatType.NORMAL)
+            sendMessage(player, "You start dying of thirst while you're in the desert.")
         }
 
         fun evaporate(player: Player) {
             for (i in VESSILS.indices) {
-                if (player.inventory.contains(VESSILS[i][0], 1)) {
-                    if (player.inventory.remove(Item(VESSILS[i][0]))) {
-                        player.inventory.add(Item(VESSILS[i][1]))
-                        player.packetDispatch.sendMessage("The water in your " + ItemDefinition.forId(VESSILS[i][0]).name.lowercase().replace("of water", "").trim { it <= ' ' } + " evaporates in the desert heat.")
+                if (inInventory(player, VESSILS[i][0], 1)) {
+                    if (removeItem(player, Item(VESSILS[i][0]))) {
+                        addItem(player, VESSILS[i][1])
+                        sendMessage(player, "The water in your " + getItemName(VESSILS[i][0]).lowercase().replace("of water", "").trim { it <= ' ' } + " evaporates in the desert heat.")
                     }
                 }
             }
@@ -149,30 +145,30 @@ class DesertZone : MapZone(DESERT_ZONE, true), Plugin<Any?> {
 
         fun drink(player: Player): Boolean {
             for (i in WATER_SKINS) {
-                if (player.inventory.containsItem(i) && player.inventory.remove(i)) {
-                    player.inventory.add(Item(i.id + 2))
-                    player.animate(ANIMATION)
-                    player.packetDispatch.sendMessage("You take a drink of water.")
+                if (inInventory(player, i.id) && removeItem(player, i)) {
+                    addItem(player, i.id + 2)
+                    animate(player, ANIMATION)
+                    sendMessage(player, "You take a drink of water.")
                     return true
                 }
             }
-            if (player.inventory.contains(Items.WATERSKIN0_1831, 1)) {
-                player.packetDispatch.sendMessage("Perhaps you should fill up one of your empty waterskins.")
+            if (inInventory(player, Items.WATERSKIN0_1831, 1)) {
+                sendMessage(player, "Perhaps you should fill up one of your empty waterskins.")
             } else {
-                player.packetDispatch.sendMessage("You should get a waterskin for any travelling in the desert.")
+                sendMessage(player, "You should get a waterskin for any travelling in the desert.")
             }
             return false
         }
 
         private fun getDelay(player: Player): Int {
             var delay = 116
-            if (player.equipment.contains(Items.DESERT_SHIRT_1833, 1)) {
+            if (inEquipment(player, Items.DESERT_SHIRT_1833, 1)) {
                 delay += 17
             }
-            if (player.equipment.contains(Items.DESERT_ROBE_1835, 1)) {
+            if (inEquipment(player, Items.DESERT_ROBE_1835, 1)) {
                 delay += 17
             }
-            if (player.equipment.contains(Items.DESERT_BOOTS_1837, 1)) {
+            if (inEquipment(player, Items.DESERT_BOOTS_1837, 1)) {
                 delay += 17
             }
             return delay

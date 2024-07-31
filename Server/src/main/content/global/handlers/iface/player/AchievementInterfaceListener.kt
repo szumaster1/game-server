@@ -9,7 +9,7 @@ class AchievementInterfaceListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {
         on(Components.AREA_TASK_259) { player, _, _, buttonID, _, _ ->
-            val diary = player.achievementDiaryManager.getDiary(DiaryType.forChild(buttonID))
+            val diary = player.achievementDiaryManager.getDiary(DiaryType.forChild(buttonID)!!)
             when (buttonID) {
                 8 -> {
                     player.interfaceManager.openTab(2, Component(Components.QUESTJOURNAL_V2_274))

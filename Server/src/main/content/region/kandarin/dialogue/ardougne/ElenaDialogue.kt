@@ -15,11 +15,11 @@ import core.tools.END_DIALOGUE
 class ElenaDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        Elena is an Ardougnese woman who voluntarily went to West Ardougne
-        to try to help the people there and research the plague.
-        Elena's house is rather small and can be found north-east of
-        Ardougne Castle, near that of her parents', Alrena and Edmond.
-        Location: 2591,3336
+     * Elena is an Ardougnese woman who voluntarily went to West Ardougne
+     * to try to help the people there and research the plague.
+     * Elena's house is rather small and can be found north-east of
+     * Ardougne Castle, near that of her parents', Alrena and Edmond.
+     * Location: 2591,3336
      */
 
     override fun open(vararg args: Any?): Boolean {

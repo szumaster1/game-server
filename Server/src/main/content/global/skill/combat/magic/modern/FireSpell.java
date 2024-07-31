@@ -15,41 +15,23 @@ import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
-/**
- * The Fire spell.
- */
 @Initializable
 public final class FireSpell extends CombatSpell {
 
     private static final Graphic STRIKE_START = new Graphic(99, 96);
-
     private static final Projectile STRIKE_PROJECTILE = Projectile.create((Entity) null, null, 100, 40, 36, 52, 75, 15, 11);
-
     private static final Graphic STRIKE_END = new Graphic(101, 96);
-
     private static final Graphic BOLT_START = new Graphic(126, 96);
-
     private static final Projectile BOLT_PROJECTILE = Projectile.create((Entity) null, null, 127, 40, 36, 52, 75, 15, 11);
-
     private static final Graphic BOLT_END = new Graphic(128, 96);
-
     private static final Graphic BLAST_START = new Graphic(129, 96);
-
     private static final Projectile BLAST_PROJECTILE = Projectile.create((Entity) null, null, 130, 40, 36, 52, 75, 15, 11);
-
     private static final Graphic BLAST_END = new Graphic(131, 96);
-
     private static final Graphic WAVE_START = new Graphic(155, 96);
-
     private static final Projectile WAVE_PROJECTILE = Projectile.create((Entity) null, null, 156, 40, 36, 52, 75, 15, 11);
-
     private static final Graphic WAVE_END = new Graphic(157, 96);
-
     private static final Animation ANIMATION = new Animation(711, Priority.HIGH);
 
-    /**
-     * Instantiates a new Fire spell.
-     */
     public FireSpell() {
 
     }

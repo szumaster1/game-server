@@ -12,7 +12,7 @@ class GoblinVillageGuardDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        player("You're a long way out from the city.").also { stage = 0 }
+        player("You're a long way out from the city.")
         return true
     }
 

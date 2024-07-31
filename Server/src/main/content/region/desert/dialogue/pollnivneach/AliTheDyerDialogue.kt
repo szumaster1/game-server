@@ -22,7 +22,6 @@ class AliTheDyerDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         playerl(FacialExpression.AMAZED, "Wow! look at this place, it's so colourful.")
-        stage = 0
         return true
     }
 

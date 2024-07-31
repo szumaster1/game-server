@@ -29,11 +29,9 @@ import java.util.Map.Entry;
 
 import static core.api.ContentAPIKt.hasRequirement;
 
-/**
- * The Chaos tunnel zone.
- */
 @Initializable
 public final class ChaosTunnelZone extends MapZone implements Plugin<Object> {
+
     private static final Object[][] ENTRANCE_DATA = new Object[][]{
             {28891, new Location(3182, 5471, 0), 28782, new Location(3059, 3549, 0)},// 1
             {28893, new Location(3248, 5489, 0), 28782, new Location(3120, 3571, 0)},// 2
@@ -43,9 +41,6 @@ public final class ChaosTunnelZone extends MapZone implements Plugin<Object> {
     };
     private static final Map<Location, Location> PORTALS = new HashMap<>();
 
-    /**
-     * Instantiates a new Chaos tunnel zone.
-     */
     public ChaosTunnelZone() {
         super("Chaos tunnel", true, ZoneRestriction.CANNON);
     }
@@ -279,12 +274,6 @@ public final class ChaosTunnelZone extends MapZone implements Plugin<Object> {
         return false;
     }
 
-    /**
-     * Gets location.
-     *
-     * @param location the location
-     * @return the location
-     */
     public Location getLocation(Location location) {
         Location l = PORTALS.get(location);
         if (l != null) {

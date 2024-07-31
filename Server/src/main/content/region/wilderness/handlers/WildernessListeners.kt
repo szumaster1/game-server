@@ -13,11 +13,11 @@ import core.api.consts.Components
 
 class WildernessListeners : InteractionListener {
 
-    companion object {
-        const val WILDERNESS_DITCH = 23271
-    }
-
     override fun defineListeners() {
+
+        /*
+         * Crossing the wilderness ditch interaction.
+         */
         on(WILDERNESS_DITCH, IntType.SCENERY, "cross") { player, node ->
             if (player.location.getDistance(node.location) < 3) {
                 handleDitch(player, node)
@@ -51,5 +51,9 @@ class WildernessListeners : InteractionListener {
             }
         }
         WarningInterfaceListener.handleDitch(player)
+    }
+
+    companion object {
+        const val WILDERNESS_DITCH = 23271
     }
 }

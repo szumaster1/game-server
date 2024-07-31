@@ -11,6 +11,7 @@ import core.game.world.GameWorld.Pulser
 import core.game.world.GameWorld.ticks
 import core.game.world.map.Location
 import core.game.world.map.RegionManager.getLocalPlayers
+import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 
 class DesertGuardDialogue(player: Player? = null) : Dialogue(player) {
@@ -81,7 +82,7 @@ class DesertGuardDialogue(player: Player? = null) : Dialogue(player) {
 
                     -10 -> {
                         player("Sorry, I don't have it yet.")
-                        stage = -11
+                        stage = END_DIALOGUE
                     }
 
                     -11 -> end()

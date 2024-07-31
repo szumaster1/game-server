@@ -72,7 +72,7 @@ class YrsaFTDialogue(player: Player? = null): Dialogue(player) {
             16 -> npcl(FacialExpression.HAPPY, "Yes, that all appears in order. Tell Olaf to come to me next time for shoes!").also { stage = END_DIALOGUE }
             20 -> npcl(FacialExpression.HAPPY, "Maybe if you pass your trial and become a full fledged member of the Fremennik...").also { stage = END_DIALOGUE }
             25 -> npcl(FacialExpression.ANNOYED, "Not me, I'm afraid.").also { stage = 1000 }
-            30 -> if (player!!.achievementDiaryManager.getDiary(DiaryType.FREMENNIK).isStarted(0)) {
+            30 -> if (player!!.achievementDiaryManager.getDiary(DiaryType.FREMENNIK)!!.isStarted(0)) {
                 options("I'd like to buy some clothes", "I'd like to change my shoes", "I have question about my Achievement Diary", "Nothing, thanks.").also { stage++ }
             } else {
                 options("I'd like to buy some clothes", "I'd like to change my shoes", "About the Achievement Diary...", "Nothing, thanks.").also { stage++ }

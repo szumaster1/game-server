@@ -17,7 +17,7 @@ class TalkToChiefDialogue(player: Player? = null): Dialogue(player) {
         if (!isQuestComplete(player, "Fremennik Trials")) {
             npcl(FacialExpression.ANNOYED, "I cannot speak to you outerlander! Talk to Brundt, the Chieftain!").also { stage = END_DIALOGUE }
         } else {
-            player(FacialExpression.FRIENDLY, "Hello.").also { stage = 0 }
+            player(FacialExpression.FRIENDLY, "Hello.")
         }
         return true
     }

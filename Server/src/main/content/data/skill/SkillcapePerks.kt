@@ -2,9 +2,6 @@ package content.data.skill
 
 import core.api.consts.Items
 
-/**
- * @author Empathy
- */
 enum class SkillcapePerks(vararg val skillcapeIds: Int) {
     ATTACK(Items.ATTACK_CAPE_9747, Items.ATTACK_CAPET_9748),
     STRENGTH(Items.STRENGTH_CAPE_9750, Items.STRENGTH_CAPET_9751),

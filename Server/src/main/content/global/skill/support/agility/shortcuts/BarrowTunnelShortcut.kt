@@ -10,6 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.world.map.Location
 
 class BarrowTunnelShortcut : InteractionListener {
+
     override fun defineListeners() {
         on(intArrayOf(Scenery.TRAPDOOR_5055, Scenery.WOODEN_DOORS_30261, Scenery.WOODEN_DOORS_30262, Scenery.WOODEN_DOORS_30265), IntType.SCENERY, "open") { player, node ->
             when(node.id){

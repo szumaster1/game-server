@@ -12,6 +12,10 @@ class OoglogListeners : InteractionListener {
         private const val GRIMECHIN = Scenery.GRIMECHIN_29106
     }
 
+    /*
+     * Talk-to Scenery npc.
+     */
+
     override fun defineListeners() {
         on(GRIMECHIN, IntType.SCENERY, "Talk-to") { player, _ ->
             openDialogue(player, GrimechinDialogue())

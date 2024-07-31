@@ -54,11 +54,11 @@ class PhasmatysListeners : InteractionListener {
     override fun defineListeners() {
 
         /*
-         *  Info: The pirate captain is a deceased pirate found on the shipwreck north-west of Port Phasmatys.
-         *  Despite having died a long time ago, his cabin boy acts as though he's still alive and is just
-         *  waiting for an ideal time to sail, often asking him for orders and interpreting them as he sees fit.
-         *  He led his pirates on a raid of Port Phasmatys at some point, stealing the book of haricanto and
-         *  locking it in a chest. His cabin boy later handed over the key to the chest.
+         * Info: The pirate captain is a deceased pirate found on the shipwreck north-west of Port Phasmatys.
+         * Despite having died a long time ago, his cabin boy acts as though he's still alive and is just
+         * waiting for an ideal time to sail, often asking him for orders and interpreting them as he sees fit.
+         * He led his pirates on a raid of Port Phasmatys at some point, stealing the book of haricanto and
+         * locking it in a chest. His cabin boy later handed over the key to the chest.
          */
 
         on(CAPTAIN, IntType.SCENERY, "talk-to") { player, _ ->
@@ -67,7 +67,7 @@ class PhasmatysListeners : InteractionListener {
         }
 
         /*
-            Collect ecto-tokens from NPC.
+         * Collect ecto-tokens from NPC.
          */
 
         on(GHOST, IntType.NPC, "collect") { player, node ->
@@ -76,8 +76,8 @@ class PhasmatysListeners : InteractionListener {
         }
 
         /*
-            Bedsheet interactions.
-        */
+         * Bedsheet interactions.
+         */
 
         onUseWith(IntType.ITEM, SLIME_BUCKET, Items.BEDSHEET_4284) { player, used, with ->
             if (removeItem(player, used.asItem()) && removeItem(player, with.asItem())) {
@@ -111,8 +111,8 @@ class PhasmatysListeners : InteractionListener {
         }
 
         /*
-            Energy barrier interaction.
-        */
+         * Energy barrier interaction.
+         */
 
         on(ENERGY_BARRIER, IntType.SCENERY, "pay-toll(2-ecto)", "pass") { player, node ->
             if (inEquipment(player, BEDSHEET_GREEN)) {

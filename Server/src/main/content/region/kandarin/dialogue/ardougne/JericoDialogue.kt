@@ -15,9 +15,9 @@ import core.tools.END_DIALOGUE
 class JericoDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        Jerico is a pigeon enthusiast living between
-        the chapel and the northern bank of East Ardougne.
-        Location: 2612,3324
+     * Jerico is a pigeon enthusiast living between
+     * the chapel and the northern bank of East Ardougne.
+     * Location: 2612,3324
      */
 
     override fun open(vararg args: Any?): Boolean {
@@ -25,8 +25,7 @@ class JericoDialogue(player: Player? = null) : Dialogue(player) {
         if (isQuestInProgress(player, "Biohazard", 1, 100)) {
             end().also { openDialogue(player, JericoDialogueFile()) }
         } else {
-            npcl(FacialExpression.SUSPICIOUS, "Hello.").also { stage = 0 }
-            stage = 0
+            npcl(FacialExpression.SUSPICIOUS, "Hello.")
         }
         return true
     }

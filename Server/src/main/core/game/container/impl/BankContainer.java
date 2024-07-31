@@ -20,7 +20,6 @@ import java.nio.ByteBuffer;
 
 import static core.api.ContentAPIKt.*;
 
-
 /**
  * Represents the bank container.
  *

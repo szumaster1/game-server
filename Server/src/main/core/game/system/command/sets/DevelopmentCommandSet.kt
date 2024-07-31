@@ -92,9 +92,11 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
         define("cleardiary", Privilege.ADMIN) { player, _ ->
             for (type in DiaryType.values()) {
                 val diary = player.achievementDiaryManager.getDiary(type)
-                for (level in 0 until diary.levelStarted.size) {
-                    for (task in 0 until diary.taskCompleted[level].size) {
-                        diary.resetTask(player, level, task)
+                if (diary != null) {
+                    for (level in 0 until diary.levelStarted.size) {
+                        for (task in 0 until diary.taskCompleted[level].size) {
+                            diary.resetTask(player, level, task)
+                        }
                     }
                 }
             }

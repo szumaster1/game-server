@@ -14,7 +14,6 @@ class AliTheMayorDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         npc(FacialExpression.FRIENDLY, "Welcome adventurer to the town of Pollnivneach,", "the gateway to Menaphos and Al-Kharid. My name is Ali", "and I'm the mayor of this town.", "I hope you enjoy your stay here.")
-        stage = 0
         return true
     }
 

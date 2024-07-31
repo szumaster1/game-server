@@ -4,6 +4,7 @@ import core.game.node.Node;
 
 /**
  * Wraps around a node to represent its entry in a queue.
+ *
  * @author Emperor
  */
 public class InitializationEntry {

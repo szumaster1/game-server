@@ -13,7 +13,7 @@ class RoladDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.OLD_NORMAL, "Oh, hello... do I know you?").also { stage = 0 }
+        npc(FacialExpression.OLD_NORMAL, "Oh, hello... do I know you?")
         return true
     }
 

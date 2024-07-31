@@ -14,8 +14,8 @@ import core.tools.END_DIALOGUE
 
 class KeldagrimListeners : InteractionListener {
 
-    //        SceneryDefinition.forId(Scenery.STAIRS_9084).handlers["option:climb-down"] = this
-    //        SceneryDefinition.forId(Scenery.STAIRS_9138).handlers["option:climb-up"] = this
+    // SceneryDefinition.forId(Scenery.STAIRS_9084).handlers["option:climb-down"] = this
+    // SceneryDefinition.forId(Scenery.STAIRS_9138).handlers["option:climb-up"] = this
     companion object {
         private val ENTRANCE = intArrayOf(5973,5998)
         private const val DOORWAY_1 = Scenery.DOORWAY_23286

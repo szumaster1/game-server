@@ -37,7 +37,6 @@ class SilkMerchantDialogue(player: Player? = null) : Dialogue(player) {
             }
             Pulser.submit(object : Pulse(1) {
                 var count: Int = 0
-
                 override fun pulse(): Boolean {
                     if (count == 0) sendChat(npc, "You're the one who stole something from me!")
                     if (count == 2) {

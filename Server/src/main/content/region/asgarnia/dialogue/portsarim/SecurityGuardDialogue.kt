@@ -17,7 +17,6 @@ class SecurityGuardDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         npc(FacialExpression.OLD_NORMAL, "Hiya. I'm giving out free books that teach you how to", "keep your account secure.")
-        stage = 0
         return true
     }
 

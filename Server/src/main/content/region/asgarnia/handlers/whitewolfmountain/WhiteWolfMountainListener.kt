@@ -1,4 +1,4 @@
-package content.region.asgarnia.whitewolfmountain
+package content.region.asgarnia.handlers.whitewolfmountain
 
 import content.data.skill.SkillingTool
 import core.api.*
@@ -7,9 +7,6 @@ import core.game.interaction.InteractionListener
 import core.game.interaction.QueueStrength
 import core.game.node.entity.skill.Skills
 
-/**
- *  Author: Oven Bread (https://gitlab.com/ovenbreado)
- */
 class WhiteWolfMountainListener : InteractionListener {
 
     override fun defineListeners() {

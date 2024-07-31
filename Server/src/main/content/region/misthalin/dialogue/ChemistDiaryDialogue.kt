@@ -15,14 +15,14 @@ class ChemistDiaryDialogue : DialogueFile() {
         npc = NPC(NPCs.CHEMIST_367)
         when (stage) {
             0 -> {
-                if (AchievementDiary.canReplaceReward(player, DiaryType.FALADOR, level)) {
+                if (AchievementDiary.canReplaceReward(player!!, DiaryType.FALADOR, level)) {
                     player("I seem to have lost my Falador shield...").also { stage = 80 }
                 } else {
                     npc("How are you getting on with the Achievement Diary?").also { stage = 90 }
                 }
             }
             80 -> {
-                AchievementDiary.grantReplacement(player, DiaryType.FALADOR, level)
+                AchievementDiary.grantReplacement(player!!, DiaryType.FALADOR, level)
                 npc("Here's your replacement. Please be more careful.").also { stage = 999 }
             }
             90 -> options("I've come for my reward.", "I'm doing good.", "I have a question.").also { stage = 91 }
@@ -32,7 +32,7 @@ class ChemistDiaryDialogue : DialogueFile() {
                 3 -> player("I have a question.").also { stage = 105 }
             }
             105 -> {
-                if (!AchievementDiary.hasClaimedLevelRewards(player, DiaryType.FALADOR, level)) {
+                if (!AchievementDiary.hasClaimedLevelRewards(player!!, DiaryType.FALADOR, level)) {
                     options("What is the Achievement Diary?", "What are the rewards?", "How do I claim the rewards?", "See you later.").also { stage = 106 }
                 } else {
                     options("Can you remind me what my Falador shield does, please?", "What is the Achievement Diary?", "What are the rewards?", "How do I claim the rewards?", "See you later.").also { stage = 107 }
@@ -65,9 +65,9 @@ class ChemistDiaryDialogue : DialogueFile() {
             152 -> npc("The increased Farming experience is only available at", "the allotments, flower and herb patches found just north", "of Port Sarim.").also { stage++ }
             153 -> npc("As well as all of these features, the shield is pretty", "handy in combat, and gives you a good Prayer boost.").also { stage = 105 }
             200 -> {
-                if (AchievementDiary.hasClaimedLevelRewards(player, DiaryType.FALADOR, level)) {
+                if (AchievementDiary.hasClaimedLevelRewards(player!!, DiaryType.FALADOR, level)) {
                     npc("But you've already gotten yours!").also { stage = 105 }
-                } else if (AchievementDiary.hasCompletedLevel(player, DiaryType.FALADOR, level)) {
+                } else if (AchievementDiary.hasCompletedLevel(player!!, DiaryType.FALADOR, level)) {
                     npc("So, you've finished. Well done! I believe congratulations", "are in order.").also { stage = 201 }
                 } else {
                     npc("But you haven't finished!").also { stage = 105 }
@@ -77,8 +77,8 @@ class ChemistDiaryDialogue : DialogueFile() {
             202 -> npc("Right you are.").also { stage++ }
             203 -> {
                 npc("This is the second stage of the Falador shield: a kite", "shield. It grants you all the benefits fo the buckler, but", "with increased Prayer restore, and Farming experience", "when using the patches near Falador.")
-                if (!AchievementDiary.hasClaimedLevelRewards(player, DiaryType.FALADOR, level)) {
-                    AchievementDiary.flagRewarded(player, DiaryType.FALADOR, level)
+                if (!AchievementDiary.hasClaimedLevelRewards(player!!, DiaryType.FALADOR, level)) {
+                    AchievementDiary.flagRewarded(player!!, DiaryType.FALADOR, level)
                 }
                 stage = 204
             }

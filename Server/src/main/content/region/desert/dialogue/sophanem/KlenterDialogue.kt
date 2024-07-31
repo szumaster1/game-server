@@ -13,13 +13,13 @@ import core.tools.END_DIALOGUE
 class KlenterDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        Klenter is a ghost who is located in Sophanem,
-        just south of the Pyramid Plunder pyramid.
+     * Klenter is a ghost who is located in Sophanem,
+     * just south of the Pyramid Plunder pyramid.
      */
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.OLD_NORMAL, "OOOOoOOOoOO").also { stage = 0 }
+        npc(FacialExpression.OLD_NORMAL, "OOOOoOOOoOO")
         return true
     }
 

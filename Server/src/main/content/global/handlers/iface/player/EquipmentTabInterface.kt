@@ -35,7 +35,7 @@ class EquipmentTabInterface : InterfaceListener {
         onOpen(ITEMS_KEPT_ON_DEATH_102) { player, component ->
             val zoneType = player.zoneMonitor.type
             val itemsKeptOnDeath = DeathTask.getContainers(player)[0]
-            val amountKeptOnDeath = if (!player.skullManager.isSkulled && itemsKeptOnDeath.itemCount() < 3) {
+            val amountKeptOnDeath = if (!player.skullManager.isSkulled() && itemsKeptOnDeath.itemCount() < 3) {
                 if (player.prayer[PrayerType.PROTECT_ITEMS]) 4 else 3
             } else {
                 itemsKeptOnDeath.itemCount()
@@ -44,7 +44,7 @@ class EquipmentTabInterface : InterfaceListener {
             val slot1 = itemsKeptOnDeath.getId(1)
             val slot2 = itemsKeptOnDeath.getId(2)
             val slot3 = itemsKeptOnDeath.getId(3)
-            val hasSkull = if (player.skullManager.isSkulled) 1 else 0
+            val hasSkull = if (player.skullManager.isSkulled()) 1 else 0
             val beast: BurdenBeast? = if (player.familiarManager.hasFamiliar() && player.familiarManager.familiar.isBurdenBeast) player.familiarManager.familiar as BurdenBeast else null
             val hasBob = if (beast != null && !beast.container.isEmpty) 1 else 0
             val message = "You are skulled."

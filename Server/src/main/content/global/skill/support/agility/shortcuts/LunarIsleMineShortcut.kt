@@ -16,14 +16,16 @@ import core.tools.DARK_RED
 class LunarIsleMineShortcut : InteractionListener {
 
     /*
-        Shortcut leading to Fallen Man which player
-        speak to start the Dream Mentor quest in
-        Lunar isle mine.
+     * Shortcut leading to Fallen Man which player
+     * speak to start the Dream Mentor quest in
+     * Lunar isle mine.
      */
 
     override fun defineListeners() {
         on(Scenery.CAVE_ENTRANCE_11399, IntType.SCENERY, "crawl-through") { player, _ ->
-            // When introducing a quest & find location -> turn it into a cutscene.
+            /*
+             * When introducing a quest & find location -> turn it into a cutscene.
+             */
             if (player.location.x != 2335) {
                 crawlingStart(player)
             } else {

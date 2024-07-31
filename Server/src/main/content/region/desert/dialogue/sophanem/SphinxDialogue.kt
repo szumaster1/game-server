@@ -18,7 +18,7 @@ class SphinxDialogue(player: Player? = null) : Dialogue(player) {
         if (player.familiarManager.hasPet() && player.familiarManager.familiar.id >= 761 && player.familiarManager.familiar.id < 767) {
             player("Good day.").also { stage = 7 }
         } else {
-            player("Good day.").also { stage = 0 }
+            player("Good day.")
         }
         return true
     }

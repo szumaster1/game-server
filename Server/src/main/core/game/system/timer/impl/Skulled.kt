@@ -14,7 +14,7 @@ class Skulled : PersistTimer(
     override fun onRegister(entity: Entity) {
         if (entity !is Player) return
         entity.skullManager.setSkullIcon(0)
-        entity.skullManager.isSkulled = true
+        entity.skullManager.isSkulled()
     }
 
     override fun run(entity: Entity): Boolean {

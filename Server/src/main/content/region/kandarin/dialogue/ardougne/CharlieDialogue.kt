@@ -15,10 +15,10 @@ import core.tools.END_DIALOGUE
 class CharlieDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        Charlie is a zookeeper involved in the Eagles' Peak quest.
-        He starts the quest by asking an adventurer to track down Nickolaus
-        who went hunting for a new exhibit for the zoo.
-        Location: 2607,3264
+     * Charlie is a zookeeper involved in the Eagles' Peak quest.
+     * He starts the quest by asking an adventurer to track down Nickolaus
+     * who went hunting for a new exhibit for the zoo.
+     * Location: 2607,3264
      */
 
     override fun open(vararg args: Any?): Boolean {
@@ -26,7 +26,7 @@ class CharlieDialogue(player: Player? = null) : Dialogue(player) {
         if (isQuestComplete(player, "Eagles' Peak")) {
             playerl(FacialExpression.HALF_ASKING, "Hi, how are you getting on with that ferret?").also { stage = 25 }
         } else {
-            playerl(FacialExpression.NEUTRAL, "Hi!").also { stage = 0 }
+            playerl(FacialExpression.NEUTRAL, "Hi!")
         }
         return true
     }

@@ -14,19 +14,19 @@ class FlynnDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.HAPPY, "Hello. Do you want to buy or sell any maces?").also { stage = 0 }
+        npc(FacialExpression.HAPPY, "Hello. Do you want to buy or sell any maces?")
         return true
     }
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
-            0 -> options("No, thanks.", "Well, I'll have a look, at least.").also { stage++ }
+            0 -> options("Well, I'll have a look, at least.", "No, thanks.").also { stage++ }
             1 -> when (buttonId) {
-                1 -> player(FacialExpression.NEUTRAL, "No, thanks.").also { stage = END_DIALOGUE }
-                2 -> {
+                1 -> {
                     end()
                     openNpcShop(player, NPCs.FLYNN_580)
                 }
+                2 -> player(FacialExpression.NEUTRAL, "No, thanks.").also { stage = END_DIALOGUE }
             }
         }
         return true

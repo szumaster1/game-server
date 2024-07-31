@@ -27,7 +27,7 @@ object TutorialButtonReceiver : EventHook<ButtonClickEvent> {
             }
 
             /*
-             * Click settings tab
+             * Click settings tab.
              * SD: 548,24
              * HD: 746,52
              */
@@ -37,7 +37,7 @@ object TutorialButtonReceiver : EventHook<ButtonClickEvent> {
             }
 
             /*
-             * Click inventory tab
+             * Click inventory tab.
              * SD: 548,41
              * HD: 746,44
              */
@@ -47,7 +47,7 @@ object TutorialButtonReceiver : EventHook<ButtonClickEvent> {
             }
 
             /*
-             * Click skills tab
+             * Click skills tab.
              * SD: 548,39
              * HD: 746,42
              */
@@ -57,7 +57,7 @@ object TutorialButtonReceiver : EventHook<ButtonClickEvent> {
             }
 
             /*
-             * Click music tab
+             * Click music tab.
              * SD: 548,26
              * HD: 746,54
              */
@@ -67,7 +67,7 @@ object TutorialButtonReceiver : EventHook<ButtonClickEvent> {
             }
 
             /*
-             * Click emote tab
+             * Click emote tab.
              * SD: 548,25
              * HD: 746,53
              */
@@ -93,7 +93,7 @@ object TutorialButtonReceiver : EventHook<ButtonClickEvent> {
             }
 
             /*
-             * Open quest journal tab
+             * Open quest journal tab.
              * SD: 548,40
              * HD: 746,43
              */
@@ -103,7 +103,7 @@ object TutorialButtonReceiver : EventHook<ButtonClickEvent> {
             }
 
             /*
-             * Open equipment tab
+             * Open equipment tab.
              * SD: 548,42
              * HD: 746,45
              */
@@ -113,7 +113,7 @@ object TutorialButtonReceiver : EventHook<ButtonClickEvent> {
             }
 
             /*
-             * Open weapon interface
+             * Open weapon interface.
              * SD: 548,38
              * HD: 746,41
              */
@@ -123,7 +123,7 @@ object TutorialButtonReceiver : EventHook<ButtonClickEvent> {
             }
 
             /*
-             * Open prayer interface
+             * Open prayer interface.
              * SD: 548,43
              * HD: 746,46
              */
@@ -133,7 +133,7 @@ object TutorialButtonReceiver : EventHook<ButtonClickEvent> {
             }
 
             /*
-             * Open friends tab
+             * Open friends tab.
              * SD: 548,21
              * HD: 746,49
              */
@@ -143,7 +143,7 @@ object TutorialButtonReceiver : EventHook<ButtonClickEvent> {
             }
 
             /*
-             * Open ignore list tab
+             * Open ignore list tab.
              * SD: 548,22
              * HD: 746,50
              */
@@ -153,7 +153,7 @@ object TutorialButtonReceiver : EventHook<ButtonClickEvent> {
             }
 
             /*
-             * Open magic tab
+             * Open magic tab.
              * SD: 548,44
              * HD: 746,47
              */

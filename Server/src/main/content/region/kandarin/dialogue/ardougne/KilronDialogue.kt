@@ -16,12 +16,12 @@ import core.tools.END_DIALOGUE
 class KilronDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        Man found in the south-eastern corner of the wall
-        isolating East Ardougne from West Ardougne.
-        He plays a minor role in the Biohazard quest,
-        helping to smuggle the player over the wall without
-        alerting the mourners with the aid of his partner Omart.
-        Location: 2556,3266
+     * Man found in the south-eastern corner of the wall
+     * isolating East Ardougne from West Ardougne.
+     * He plays a minor role in the Biohazard quest,
+     * helping to smuggle the player over the wall without
+     * alerting the mourners with the aid of his partner Omart.
+     * Location: 2556,3266
      */
 
     override fun open(vararg args: Any?): Boolean {

@@ -12,7 +12,7 @@ import core.tools.END_DIALOGUE
 class GardenSupplierDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
-        npc("Hello, I sell many plants. Would you like", "to see what I have?").also { stage = 0 }
+        npc("Hello, I sell many plants. Would you like", "to see what I have?")
         return true
     }
 

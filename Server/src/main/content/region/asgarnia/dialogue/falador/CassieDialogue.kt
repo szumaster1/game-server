@@ -14,7 +14,7 @@ class CassieDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npcl(FacialExpression.HAPPY, "I buy and sell shields; do you want to trade?").also { stage = 0 }
+        npcl(FacialExpression.HAPPY, "I buy and sell shields; do you want to trade?")
         return true
     }
 
@@ -25,7 +25,7 @@ class CassieDialogue(player: Player? = null) : Dialogue(player) {
                 1 -> playerl(FacialExpression.FRIENDLY, "Yes, please.").also { stage++ }
                 2 -> playerl(FacialExpression.FRIENDLY, "No, thanks.").also { stage = END_DIALOGUE }
             }
-            3 -> {
+            2 -> {
                 end()
                 openNpcShop(player, NPCs.CASSIE_577)
             }

@@ -31,9 +31,7 @@ class SirsalBankerDialogue(player: Player? = null): Dialogue(player) {
                 playerl(FacialExpression.HALF_WORRIED, "Hi, I...")
                 stage = 30
             }
-
             1 -> npcl(FacialExpression.NEUTRAL, "Before we go any further, I should inform you that you " + "have items ready for collection from the Grand Exchange.").also { stage++ }
-
             2 -> showTopics(
                 Topic(FacialExpression.NEUTRAL, "I'd like to access my bank account, please.", 10),
                 IfTopic(FacialExpression.NEUTRAL, "I'd like to switch to my ${getBankAccountName(player, true)} bank account.", 13, hasActivatedSecondaryBankAccount(player)),
@@ -89,9 +87,7 @@ class SirsalBankerDialogue(player: Player? = null): Dialogue(player) {
             30 -> npcl(FacialExpression.ANNOYED, "What are you doing here, Fremennik?!").also { stage++ }
             31 -> playerl(FacialExpression.WORRIED, "I have a Seal of Pass...").also { stage++ }
             32 -> npcl(FacialExpression.ANGRY, "No you don't! Begone!").also { stage = END_DIALOGUE }
-
         }
-
         return true
     }
 

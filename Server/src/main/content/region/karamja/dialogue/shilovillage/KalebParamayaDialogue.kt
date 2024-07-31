@@ -19,7 +19,6 @@ class KalebParamayaDialogue(player: Player? = null): Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         player("Hello.")
-        stage = 0
         return true
     }
 

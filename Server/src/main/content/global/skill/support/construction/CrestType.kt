@@ -68,7 +68,7 @@ enum class CrestType(name: String, val cost: Int = 5000) : CrestRequirement {
     },
     SKULL(SKULL_CREST_SYMBOL) {
         override fun eligible(player: Player): Boolean {
-            return player.skullManager.isSkulled
+            return player.skullManager.isSkulled()
         }
     },
     VARROCK(VARROCK_CREST_SYMBOL),

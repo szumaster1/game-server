@@ -18,7 +18,7 @@ class DagaDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.OLD_DEFAULT, "Would you like to buy or sell some scimitars?").also { stage = 0 }
+        npc(FacialExpression.OLD_DEFAULT, "Would you like to buy or sell some scimitars?")
         return true
     }
 

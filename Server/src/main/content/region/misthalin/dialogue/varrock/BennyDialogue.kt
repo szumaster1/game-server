@@ -23,7 +23,6 @@ class BennyDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         options("Can I have a newspaper, please?", "How much does a paper cost?", "Varrock Herald? Never heard of it.", "Anything interesting in there?")
-        stage = 0
         return true
     }
 

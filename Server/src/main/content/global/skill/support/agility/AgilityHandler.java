@@ -16,9 +16,6 @@ import kotlin.Unit;
 
 import static core.api.ContentAPIKt.*;
 
-/**
- * The Agility handler.
- */
 public final class AgilityHandler {
 
     /**

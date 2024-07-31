@@ -28,7 +28,7 @@ class GrandExchangeListeners : InteractionListener {
     override fun defineListeners() {
 
         /*
-            Interaction with NPC (clerks) at Grand Exchange.
+         * Interaction with NPC (clerks) at Grand Exchange.
          */
 
         on(CLERK, IntType.NPC, "talk-to", "exchange", "history", "sets") { player, node ->
@@ -44,7 +44,7 @@ class GrandExchangeListeners : InteractionListener {
         }
 
         /*
-            Interaction with desk (between players and clerks) at Grand Exchange.
+         * Interaction with desk (between players and clerks) at Grand Exchange.
          */
 
         on(Scenery.DESK_28089, IntType.SCENERY, "use", "exchange", "collect", "history") { player, _ ->
@@ -59,7 +59,7 @@ class GrandExchangeListeners : InteractionListener {
         }
 
         /*
-            Interaction with NPCs around Grand Exchange.
+         * Interaction with NPCs around Grand Exchange.
          */
 
         on(NPCs.FARID_MORRISANE_ORES_6523, IntType.NPC, "info-ores") { player, _ ->

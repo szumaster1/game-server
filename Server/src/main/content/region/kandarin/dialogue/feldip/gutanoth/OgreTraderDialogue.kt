@@ -16,7 +16,6 @@ class OgreTraderDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         npc(FacialExpression.OLD_ANGRY1,"Trade with me? Who do you think you are?")
-        stage = 0
         return true
     }
 

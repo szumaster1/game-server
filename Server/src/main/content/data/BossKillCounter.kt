@@ -4,9 +4,6 @@ import core.api.consts.NPCs
 import core.game.node.entity.player.Player
 import core.tools.StringUtils
 
-/**
- * @author Splinter
- */
 enum class BossKillCounter(val npc: IntArray, val bossName: String) {
     KING_BLACK_DRAGON(npc = intArrayOf(NPCs.KING_BLACK_DRAGON_50), bossName = "King Black Dragon"),
     BORK(npc = intArrayOf(NPCs.BORK_7133, NPCs.BORK_7134), bossName = "Bork"),

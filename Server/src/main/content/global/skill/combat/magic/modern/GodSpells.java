@@ -24,38 +24,22 @@ import core.plugin.Plugin;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
-/**
- * The God spells.
- */
 @Initializable
 public final class GodSpells extends CombatSpell {
 
     private static final String[] NAMES = new String[]{"Saradomin strike", "Guthix claws", "Flames of Zamorak"};
     private static final int[] GOD_STAVES = new int[]{Items.SARADOMIN_STAFF_2415, Items.GUTHIX_STAFF_2416, Items.ZAMORAK_STAFF_2417};
-
     private static final Graphic SARA_START = null;
-
     private static final Projectile SARA_PROJECTILE = null;
-
     private static final Graphic SARA_END = new Graphic(76, 0);
-
     private static final Graphic GUTHIX_START = null;
-
     private static final Projectile GUTHIX_PROJECTILE = null;
-
     private static final Graphic GUTHIX_END = new Graphic(77, 0);
-
     private static final Graphic ZAM_START = null;
-
     private static final Projectile ZAM_PROJECTILE = null;
-
     private static final Graphic ZAM_END = new Graphic(78, 0);
-
     private static final Animation ANIMATION = new Animation(811, Priority.HIGH);
 
-    /**
-     * Instantiates a new God spells.
-     */
     public GodSpells() {
 
     }

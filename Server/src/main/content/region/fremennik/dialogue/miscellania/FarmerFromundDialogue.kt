@@ -6,10 +6,6 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
-/*
- * File prevents direct face with the player.
- */
-
 class FarmerFromundDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

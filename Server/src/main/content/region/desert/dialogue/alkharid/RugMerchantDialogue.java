@@ -24,43 +24,15 @@ import kotlin.Unit;
 import static core.api.ContentAPIKt.*;
 import static core.tools.GlobalsKt.colorize;
 
-
-/**
- * The dialogue plugin used for the rug merchant.
- * @author 'Vexia
- * @version 1.0
- */
 @Initializable
 public final class RugMerchantDialogue extends Dialogue {
 
-	/**
-	 * The ids of the rug merchants.
-	 */
 	private static final int[] IDS = new int[] { 2291, 2292, 2293, 2294, 2296, 2298, 3020 };
-
-	/**
-	 * The floating animation.
-	 */
 	private static final Animation FLOATING_ANIMATION = new Animation(330);
-
-	/**
-	 * The current reg destination.
-	 */
 	private RugDestination current;
-
-	/**
-	 * The rug destination options,.
-	 */
 	private RugDestination[] options;
-
-	/**
-	 * The destinationt o travel to.
-	 */
 	private RugDestination destination;
 
-	/**
-	 * Constructs a new {@code RugMerchantDialogue} {@code Object}.
-	 */
 	public RugMerchantDialogue() {
 	}
 
@@ -70,10 +42,6 @@ public final class RugMerchantDialogue extends Dialogue {
 		ClassScanner.definePlugin(new RugMerchantPlugin());
 	}
 
-	/**
-	 * Constructs a new {@code RugMerchantDialogue} {@code Object}.
-	 * @param player the player.
-	 */
 	public RugMerchantDialogue(final Player player) {
 		super(player);
 	}
@@ -107,9 +75,8 @@ public final class RugMerchantDialogue extends Dialogue {
 		return true;
 	}
 
-	/**
+	/*
 	 * Handles the defeault dialogue.
-	 * @param buttonId the buttonId.
 	 */
 	private final void handleDefault(final int buttonId) {
 		switch (stage) {
@@ -178,9 +145,8 @@ public final class RugMerchantDialogue extends Dialogue {
 		}
 	}
 
-	/**
+	/*
 	 * Sends the rug travelling destination options.
-	 * @param destinations the destinations.
 	 */
 	private void sendOptions(RugDestination[] destinations) {
 		String[] options = new String[destinations.length];
@@ -195,10 +161,8 @@ public final class RugMerchantDialogue extends Dialogue {
 		interpreter.sendOptions("Select a Destination", options);
 	}
 
-	/**
+	/*
 	 * Gets the rug destinations for an npc id.
-	 * @param npcId the npc id.
-	 * @return the rug destinations.
 	 */
 	public static RugDestination[] getDestination(int npcId) {
 		switch (npcId) {
@@ -222,10 +186,8 @@ public final class RugMerchantDialogue extends Dialogue {
 		return IDS;
 	}
 
-	/**
+	/*
 	 * Handles the right click on the rug merchant.
-	 * @author Vexia
-	 *
 	 */
 	public class RugMerchantPlugin extends OptionHandler {
 
@@ -245,38 +207,17 @@ public final class RugMerchantDialogue extends Dialogue {
 
 	}
 
-	/**
+	/*
 	 * A destination for a rug.
-	 * @author 'Vexia
 	 */
 	public enum RugDestination {
 		SHANTAY_PASS(2291, Location.create(3308, 3110, 0), "Shantay Pass"), BEDABIN_CAMP(2292, Location.create(3180, 3045, 0), "Bedabin Camp", Location.create(3305, 3107, 0), Location.create(3299, 3107, 0), Location.create(3285, 3088, 0), Location.create(3285, 3073, 0), Location.create(3268, 3073, 0), Location.create(3263, 3068, 0), Location.create(3246, 3068, 0), Location.create(3246, 3057, 0), Location.create(3232, 3057, 0), Location.create(3215, 3057, 0), Location.create(3200, 3057, 0), Location.create(3179, 3057, 0), Location.create(3179, 3047, 0), Location.create(3180, 3045, 0)), NORTH_POLLNIVNEACH(2294, Location.create(3349, 3003, 0), "North Pollnivneach", new Location(3308, 3096, 0), new Location(3308, 3079, 0), new Location(3308, 3066, 0), new Location(3311, 3057, 0), new Location(3319, 3042, 0), new Location(3332, 3033, 0), new Location(3341, 3020, 0), new Location(3350, 3009, 0), new Location(3351, 3003, 0), new Location(3349, 3003, 0)), UZER(2293, Location.create(3469, 3113, 0), "Uzer", Location.create(3308, 3105, 0), Location.create(3325, 3105, 0), Location.create(3332, 3105, 0), Location.create(3332, 3080, 0), Location.create(3341, 3080, 0), Location.create(3341, 3082, 0), Location.create(3358, 3082, 0), Location.create(3370, 3082, 0), Location.create(3382, 3082, 0), Location.create(3396, 3082, 0), Location.create(3432, 3082, 0), Location.create(3432, 3093, 0), Location.create(3440, 3093, 0), Location.create(3454, 3107, 0), Location.create(3469, 3107, 0), Location.create(3469, 3113, 0)), NARDAH(2296, Location.create(3401, 2916, 0), "Nardah", new Location(3351, 2942, 0), new Location(3350, 2936, 0), new Location(3362, 2936, 0), new Location(3380, 2928, 0), new Location(3392, 2920, 0), new Location(3397, 2916, 0), new Location(3401, 2916, 0)), SOPHANEM(2298, Location.create(3285, 2813, 0), "Sophanem", Location.create(3351, 2934, 0), Location.create(3351, 2928, 0), Location.create(3351, 2919, 0), Location.create(3346, 2902, 0), Location.create(3339, 2884, 0), Location.create(3328, 2877, 0), Location.create(3328, 2862, 0), Location.create(3328, 2845, 0), Location.create(3318, 2838, 0), Location.create(3307, 2828, 0), Location.create(3292, 2817, 0), Location.create(3285, 2818, 0), Location.create(3285, 2813, 0)), SOUTH_POLLNIVNEACH(3020, Location.create(3351, 2942, 0), "South Pollnivneach");
 
-		/**
-		 * The npc id.
-		 */
 		private final int npc;
-
-		/**
-		 * The destination to go to.
-		 */
 		private final Location location;
-
-		/**
-		 * The name of the destination.
-		 */
 		private final String name;
-
-		/**
-		 * The location data.
-		 */
 		private final Location[] locData;
 
-		/**
-		 * Constructs a new {@code RugDestination} {@code Object}.
-		 * @param npc the npc.
-		 * @param destination the destination.
-		 */
 		private RugDestination(int npc, Location destination, String name, Location... locData) {
 			this.npc = npc;
 			this.location = destination;
@@ -284,10 +225,6 @@ public final class RugMerchantDialogue extends Dialogue {
 			this.locData = locData;
 		}
 
-		/**
-		 * Travels a player to a destination.
-		 * @param player the player.
-		 */
 		public void travel(final RugDestination current, final Player player) {
 			player.lock();
                         setVarp(player, 499, 0);
@@ -372,19 +309,15 @@ public final class RugMerchantDialogue extends Dialogue {
 			});
 		}
 
-		/**
+		/*
 		 * Checks if the player has the requirements.
-		 * @param player the player.
-		 * @return {@code True} if so.
 		 */
 		public boolean hasRequirements(final Player player) {
 			return true;
 		}
 
-		/**
+		/*
 		 * Gets the rug destination object for the npc id.
-		 * @param id the id.
-		 * @return the rug destination.
 		 */
 		public static RugDestination forId(int id) {
 			for (RugDestination dest : values()) {
@@ -395,33 +328,29 @@ public final class RugMerchantDialogue extends Dialogue {
 			return null;
 		}
 
-		/**
+		/*
 		 * Gets the npc.
-		 * @return The npc.
 		 */
 		public int getNpc() {
 			return npc;
 		}
 
-		/**
+		/*
 		 * Gets the destination.
-		 * @return The destination.
 		 */
 		public Location getLocation() {
 			return location;
 		}
 
-		/**
+		/*
 		 * Gets the name.
-		 * @return the name.
 		 */
 		public String getName() {
 			return name;
 		}
 
-		/**
-		 * Gets the locData.
-		 * @return the locData.
+		/*
+		 * Gets the location.
 		 */
 		public Location[] getLocData() {
 			return locData;

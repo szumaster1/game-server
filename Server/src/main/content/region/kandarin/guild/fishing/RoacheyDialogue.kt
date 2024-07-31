@@ -11,7 +11,6 @@ class RoacheyDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc("Would you like to buy some Fishing equipment or sell", "some fish?")
-        stage = 0
         return true
     }
 

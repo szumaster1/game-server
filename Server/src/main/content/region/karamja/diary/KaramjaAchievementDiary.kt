@@ -32,129 +32,208 @@ class KaramjaAchievementDiary : DiaryEventHookBase(DiaryType.KARAMJA) {
 
         object EasyTasks {
 
-            // Pick 5 bananas from the plantation located east of the volcano.
+            /*
+             * Pick 5 bananas from the plantation located east of the volcano.
+             */
             const val PICK_5_BANANAS = 0
 
-            // Use the rope swing to travel to the small island north-west of Karamja, where the Moss Giants are.
+            /*
+             * Use the rope swing to travel to the small island north-west of Karamja, where the Moss Giants are.
+             */
             const val TRAVEL_TO_MOSS_GIANTS_VIA_ROPESWING = 1
 
-            // Mine some gold from the rocks on the north-west peninsula of Karamja (not the ones near Brimhaven Dungeon).
+            /*
+             * Mine some gold from the rocks on the north-west peninsula of Karamja (not the ones near Brimhaven Dungeon).
+             */
             const val BRIMHAVEN_MINE_GOLD = 2
 
-            // Travel to Port Sarim via the dock, east of Musa Point.
+            /*
+             * Travel to Port Sarim via the dock, east of Musa Point.
+             */
             const val MUSA_POINT_CHARTER_SHIP_TO_PORT_SARIM = 3
 
-            // Travel to Ardougne via the port near Brimhaven.
+            /*
+             * Travel to Ardougne via the port near Brimhaven.
+             */
             const val BRIMHAVEN_CHARTER_SHIP_TO_ARDOUGNE = 4
 
-            // Explore Cairn Island to the west of Karamja.
+            /*
+             * Explore Cairn Island to the west of Karamja.
+             */
             const val CAIRN_ISLE_VISIT = 5
 
-            // Use the Fishing spots north of the banana plantation.
+            /*
+             * Use the Fishing spots north of the banana plantation.
+             */
             const val USE_FISHING_SPOTS_BANANA_PLANTATION = 6
 
-            // Collect 5 seaweed from anywhere on Karamja.
+            /*
+             * Collect 5 seaweed from anywhere on Karamja.
+             */
             const val PICK_5_SEAWEED = 7
 
-            // Attempt the TzHaar Fight Pits or Fight Cave.
+            /*
+             * Attempt the TzHaar Fight Pits or Fight Cave.
+             */
             const val ATTEMPT_TZHAAR_FIGHT_PITS_OR_FIGHT_CAVE = 8
 
-            // Kill a Jogre in the Pothole dungeon.
+            /*
+             * Kill a Jogre in the Pothole dungeon.
+             */
             const val POTHOLE_DUNGEON_KILL_JOGRE = 9
 
         }
 
         object MediumTasks {
-
-            // Claim a ticket from the Agility arena in Brimhaven.
+            /*
+             * Claim a ticket from the Agility arena in Brimhaven.
+             */
             const val BRIMHAVEN_CLAIM_AGILITY_ARENA_TICKET = 0
 
-            // Discover hidden wall in the dungeon below the volcano.
+            /*
+             * Discover hidden wall in the dungeon below the volcano.
+             */
             const val FIND_HIDDEN_WALL_BELOW_VOLCANO = 1
 
-            // Visit the Isle of Crandor via the dungeon below the volcano.
+            /*
+             * Visit the Isle of Crandor via the dungeon below the volcano.
+             */
             const val CRANDOR_ISLAND_VISIT = 2
 
-            // Use Vigroy and Hajedy's cart service.
+            /*
+             * Use Vigroy and Hajedy's cart service.
+             */
             const val USE_VIGROY_HAJEDY_CARTS = 3
 
-            // Earn 100% favour in the village of Tai Bwo Wannai Cleanup.
+            /*
+             * Earn 100% favour in the village of Tai Bwo Wannai Cleanup.
+             */
             const val TAI_BWO_WANNAI_EARN_FULL_FAVOR = 4
 
-            // Cook a spider on stick.
+            /*
+             * Cook a spider on stick.
+             */
             const val COOK_SPIDER_ON_STICK = 5
 
-            // Charter the Lady of the Waves from Cairn Isle to Port Khazard.
+            /*
+             * Charter the Lady of the Waves from Cairn Isle to Port Khazard.
+             */
             const val CAIRN_ISLE_CHARTER_LADY_OF_THE_WAVES = 6
 
-            // Cut a log from a teak tree.
+            /*
+             * Cut a log from a teak tree.
+             */
             const val CUT_TEAK_TREE = 7
 
-            // Cut a log from a mahogany tree.
+            /*
+             * Cut a log from a mahogany tree.
+             */
             const val CUT_MAHOGANY_TREE = 8
 
-            // Catch a karambwan.
+            /*
+             * Catch a karambwan.
+             */
             const val CATCH_KARAMBWAN = 9
 
-            // Exchange gems, a gout tuber, trading sticks for a machete (talk to Safta Doc in anvil house in Tai Bwo Wannai).
+            /*
+             * Exchange gems, a gout tuber, trading sticks for a machete (talk to Safta Doc in anvil house in Tai Bwo Wannai).
+             */
             const val EXCHANGE_GEMS_TUBER_TRADING_STICKS_FOR_MACHETE = 10
 
-            // Use the gnome glider to travel to Karamja.
+            /*
+             * Use the gnome glider to travel to Karamja.
+             */
             const val GNOME_GLIDE_TO_KARAMJA = 11
 
-            // Grow a healthy fruit tree in the patch near Brimhaven.
+            /*
+             * Grow a healthy fruit tree in the patch near Brimhaven.
+             */
             const val BRIMHAVEN_GROW_HEALTHY_FRUIT_TREE = 12
 
-            // Trap a Horned Graahk.
+            /*
+             * Trap a Horned Graahk.
+             */
             const val TRAP_HORNED_GRAAHK = 13
 
-            // Chop the vines to gain deeper access to Brimhaven Dungeon.
+            /*
+             * Chop the vines to gain deeper access to Brimhaven Dungeon.
+             */
             const val BRIMHAVEN_DUNGEON_CHOP_VINES = 14
 
-            // Cross the lava using the stepping stones within Brimhaven Dungeon.
+            /*
+             * Cross the lava using the stepping stones within Brimhaven Dungeon.
+             */
             const val BRIMHAVEN_DUNGEON_CROSS_LAVA_STEPPING_STONES = 15
 
-            // Climb the stairs within Brimhaven Dungeon. They're in the north, and lead up to Greater Demons.
+            /*
+             * Climb the stairs within Brimhaven Dungeon. They're in the north, and lead up to Greater Demons.
+             */
             const val BRIMHAVEN_DUNGEON_CLIMB_STAIRS = 16
 
-            // Charter a ship from the shipyard in the far east of Karamja (Southern-most dock).
+            /*
+             * Charter a ship from the shipyard in the far east of Karamja (Southern-most dock).
+             */
             const val CHARTER_SHIP_EAST = 17
 
-            // Mine a red topaz from a gem rock (can be mined from Tai Bwo Wannai Cleanup as well as the Shilo Village gem mine).
+            /*
+             * Mine a red topaz from a gem rock
+             * (can be mined from Tai Bwo Wannai Cleanup as well as the Shilo Village gem mine).
+             */
             const val MINE_RED_TOPAZ = 18
 
         }
 
         object HardTasks {
 
-            // Become the Champion of the Fight Pits.
+            /*
+             * Become the Champion of the Fight Pits.
+             */
             const val FIGHT_PITS_BECOME_CHAMPION = 0
 
-            // Successfully kill a Ket-Zek in the Fight Caves.
+            /*
+             * Successfully kill a Ket-Zek in the Fight Caves.
+             */
             const val FIGHT_CAVE_KILL_KET_ZEK = 1
 
-            // Eat an oomlie wrap.
+            /*
+             * Eat an oomlie wrap.
+             */
             const val EAT_OOMLIE_WRAP = 2
 
-            // Craft some nature runes.
+            /*
+             * Craft some nature runes.
+             */
             const val CRAFT_NATURE_RUNES = 3
 
-            // Cook a karambwan thoroughly.
+            /*
+             * Cook a karambwan thoroughly.
+             */
             const val COOK_KARAMBWAN_PROPERLY = 4
 
-            // Kill a deathwing in the dungeon (south-west of shilo) under the Kharazi Jungle (south of the door in Shaman's Cave).
+            /*
+             * Kill a deathwing in the dungeon (south-west of shilo) under the Kharazi Jungle (south of the door in Shaman's Cave).
+             */
             const val KHARAZI_JUNGLE_KILL_DEATHWING = 5
 
-            // Use the crossbow shortcut south of the volcano.
+            /*
+             * Use the crossbow shortcut south of the volcano.
+             */
             const val VOLCANO_USE_CROSSBOW_SHORTCUT_SOUTH = 6
 
-            // Collect 5 palm leaves (south of Shilo near oomlie).
+            /*
+             * Collect 5 palm leaves (south of Shilo near oomlie).
+             */
             const val PICK_5_PALM_LEAVES = 7
 
-            // Be assigned a Slayer task by Duradel (or his replacement Lapalok if you have completed While Guthix Sleeps) in Shilo Village.
+            /*
+             * Be assigned a Slayer task by Duradel
+             * (or his replacement Lapalok if you have completed While Guthix Sleeps) in Shilo Village.
+             */
             const val DURADEL_LAPALOK_GET_SLAYER_TASK = 8
 
-            // Kill a metal dragon in Brimhaven Dungeon.
+            /*
+             * Kill a metal dragon in Brimhaven Dungeon.
+             */
             const val BRIMHAVEN_DUNGEON_KILL_METAL_DRAGON = 9
 
         }

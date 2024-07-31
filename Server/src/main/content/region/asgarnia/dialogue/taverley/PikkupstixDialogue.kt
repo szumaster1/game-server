@@ -16,8 +16,8 @@ import core.plugin.Initializable
 class PikkupstixDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        Pikkupstix is the central character in the Summoning skill.
-        The player may begin the Wolf Whistle quest by speaking to him.
+     * Pikkupstix is the central character in the Summoning skill.
+     * The player may begin the Wolf Whistle quest by speaking to him.
      */
 
     override fun open(vararg args: Any?): Boolean {

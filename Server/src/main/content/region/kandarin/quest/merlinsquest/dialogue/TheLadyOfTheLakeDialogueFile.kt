@@ -21,7 +21,7 @@ class TheLadyOfTheLakeDialogueFile : DialogueFile() {
 
         when (stage) {
             0 -> {
-                if (player!!.achievementDiaryManager.getDiary(DiaryType.SEERS_VILLAGE).isComplete(2) && player!!.equipment.contains(14631, 1) && player!!.equipment.contains(35, 1)) {
+                if (player!!.achievementDiaryManager.getDiary(DiaryType.SEERS_VILLAGE)!!.isComplete(2) && player!!.equipment.contains(14631, 1) && player!!.equipment.contains(35, 1)) {
                     npcl(FacialExpression.HAPPY, "I am the Lady of the Lake.")
                     stage = 110
                 } else {

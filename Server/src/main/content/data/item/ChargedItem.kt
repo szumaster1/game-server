@@ -4,9 +4,6 @@ import core.api.consts.Items
 import core.api.toIntArray
 import core.cache.def.impl.ItemDefinition
 
-/**
- * @author RiL
- */
 enum class ChargedItem(val ids: IntArray) {
     AMULET_OF_GLORY(ids = (Items.AMULET_OF_GLORY4_1712 downTo Items.AMULET_OF_GLORY_1704 step 2).toIntArray()),
     RING_OF_DUELLING(ids = (Items.RING_OF_DUELLING8_2552..Items.RING_OF_DUELLING1_2566 step 2).toIntArray()),

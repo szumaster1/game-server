@@ -14,7 +14,7 @@ class GerrantDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.HAPPY, "Welcome! You can buy fishing equipment at my store.", "We'll also buy anything you catch off you.").also { stage = 0 }
+        npc(FacialExpression.HAPPY, "Welcome! You can buy fishing equipment at my store.", "We'll also buy anything you catch off you.")
         return true
     }
 

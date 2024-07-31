@@ -17,13 +17,12 @@ class SantaHolidayRandomNPC : HolidayRandomEventNPC(NPCs.SANTA_CLAUS_8540) {
         super.init()
         ticksLeft = minutesToTicks(2)
         setAttribute(this, "playerisnice", !RandomFunction.roll(3))
-        sendChat(this, "Ho Ho Ho! Merry Christmas, ${player.username.capitalize()}!", 2)
+        sendChat(this, "Ho Ho Ho! Merry Christmas, ${player.username}!", 2)
     }
 
     override fun tick() {
         if (RandomFunction.roll(10))
-            sendChat(this, "Ho Ho Ho! Merry Christmas, ${player.username.capitalize()}!")
-
+            sendChat(this, "Ho Ho Ho! Merry Christmas, ${player.username}!")
         super.tick()
     }
 

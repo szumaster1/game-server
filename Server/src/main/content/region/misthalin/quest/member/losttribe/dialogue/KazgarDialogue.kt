@@ -13,7 +13,6 @@ class KazgarDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any?): Boolean {
         npc = (args[0] as NPC).getShownNPC(player)
         npc(FacialExpression.OLD_NORMAL, "Hello, surface-dweller.")
-        stage = 0
         return true
     }
 

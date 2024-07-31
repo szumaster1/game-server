@@ -20,33 +20,19 @@ import java.util.List;
 
 import static core.api.ContentAPIKt.*;
 
-/**
- * The Ice spells.
- */
 @Initializable
 public final class IceSpells extends CombatSpell {
 
     private static final Graphic BARRAGE_ORB = new Graphic(1677, 96); //119
-
     private static final Projectile RUSH_PROJECTILE = Projectile.create((Entity) null, null, 360, 40, 36, 52, 75, 15, 11);
-
     private static final Graphic RUSH_END = new Graphic(361, 96);
-
     private static final Projectile BURST_PROJECTILE = Projectile.create((Entity) null, null, 362, 40, 36, 52, 75, 15, 11);
-
     private static final Graphic BURST_END = new Graphic(363, 0);
-
     private static final Graphic BLITZ_START = new Graphic(366, 96);
-
     private static final Graphic BLITZ_END = new Graphic(367, 96);
-
     private static final Projectile BARRAGE_PROJECTILE = Projectile.create((Entity) null, null, 368, 40, 36, 52, 75, 15, 11);
-
     private static final Graphic BARRAGE_END = new Graphic(369, 0);
 
-    /**
-     * Instantiates a new Ice spells.
-     */
     public IceSpells() {
 
     }

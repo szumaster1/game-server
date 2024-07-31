@@ -12,9 +12,6 @@ import kotlin.Unit;
 
 import static core.api.ContentAPIKt.sendInputDialogue;
 
-/**
- * The Burden interface plugin.
- */
 @Initializable
 public final class BurdenInterfacePlugin extends ComponentPlugin {
 

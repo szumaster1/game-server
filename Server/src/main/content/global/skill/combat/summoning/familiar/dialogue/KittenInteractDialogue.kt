@@ -21,7 +21,6 @@ class KittenInteractDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any?): Boolean {
         setTitle(player, 3)
         sendDialogueOptions(player,"Interact with Kitten", "Stroke", "Chase vermin", "Shoo away")
-        stage = 0
         return true
     }
 

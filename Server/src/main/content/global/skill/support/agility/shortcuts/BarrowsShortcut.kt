@@ -17,8 +17,11 @@ class BarrowsShortcut : InteractionListener {
 
     override fun defineListeners() {
 
-        on(Scenery.BROKEN_FENCE_18411, IntType.SCENERY, "climb-over") { player, _ ->
+        /*
+         * Interaction with stile between Barrows and Burgh de Rott.
+         */
 
+        on(Scenery.BROKEN_FENCE_18411, IntType.SCENERY, "climb-over") { player, _ ->
             if (!hasRequirement(player, "In Aid of the Myreque")) {
                 sendDialogue(player, "Um... those vampyres don't look very nice. I'm not going through here.")
                 return@on true

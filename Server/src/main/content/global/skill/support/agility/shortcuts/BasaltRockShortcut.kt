@@ -168,7 +168,6 @@ class BasaltRockShortcut : AgilityShortcut {
                         return true
                     }
 
-
                 }
                 return false
             }

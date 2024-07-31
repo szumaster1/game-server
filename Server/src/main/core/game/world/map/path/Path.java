@@ -8,6 +8,7 @@ import java.util.Deque;
 
 /**
  * Represents a path.
+ *
  * @author Emperor
  */
 public class Path {

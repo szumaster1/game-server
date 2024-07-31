@@ -15,7 +15,6 @@ class TeaSellerDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         npc(FacialExpression.HALF_GUILTY, "Greetings! Are you in need of refreshment?")
-        stage = 0
         return true
     }
 

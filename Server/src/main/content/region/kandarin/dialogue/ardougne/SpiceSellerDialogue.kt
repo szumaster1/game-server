@@ -20,7 +20,7 @@ class SpiceSellerDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.HAPPY, "Are you interested in buying or selling spice?").also { stage = 0 }
+        npc(FacialExpression.HAPPY, "Are you interested in buying or selling spice?")
         return true
     }
 

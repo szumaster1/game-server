@@ -26,7 +26,7 @@ class SQLStorageProvider : AccountStorageProvider {
         val conn = getConnection()
         conn.use {
             val compiledUsernameQuery = it.prepareStatement(usernameQuery)
-            compiledUsernameQuery.setString(1, username.toLowerCase())
+            compiledUsernameQuery.setString(1, username.lowercase())
             val result = compiledUsernameQuery.executeQuery()
             val exists = result.next()
             result.close()
@@ -38,7 +38,7 @@ class SQLStorageProvider : AccountStorageProvider {
         val conn = getConnection()
         conn.use { con ->
             val compiledAccountInfoQuery = con.prepareStatement(accountInfoQuery)
-            compiledAccountInfoQuery.setString(1, username.toLowerCase())
+            compiledAccountInfoQuery.setString(1, username.lowercase())
             val result = compiledAccountInfoQuery.executeQuery()
             if (result.next()) {
                 val userData = UserAccountInfo.createDefault()

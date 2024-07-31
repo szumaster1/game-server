@@ -19,7 +19,6 @@ public abstract class Pathfinder {
     public static final int PREVENT_SOUTHWEST = 0x12c010e;
     public static final int PREVENT_NORTHWEST = 0x12c0138;
 
-
     /**
      * The smart path finder.
      */

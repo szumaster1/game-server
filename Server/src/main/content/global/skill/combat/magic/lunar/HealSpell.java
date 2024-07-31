@@ -22,34 +22,18 @@ import java.util.List;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
-/**
- * The Heal spell.
- */
 @Initializable
 public final class HealSpell extends MagicSpell {
 
     private static final Animation ANIMATION = new Animation(4411);
-
     private static final Graphic GRAPHIC = new Graphic(738, 90);
-
     private static final Animation ANIMATION_G = new Animation(1979);
-
     private static final Graphic GRAPHIC_G = new Graphic(734, 90);
 
-    /**
-     * Instantiates a new Heal spell.
-     */
     public HealSpell() {
 
     }
 
-    /**
-     * Instantiates a new Heal spell.
-     *
-     * @param level      the level
-     * @param experience the experience
-     * @param runes      the runes
-     */
     public HealSpell(int level, int experience, Item[] runes) {
         super(SpellBook.LUNAR, level, experience, null, null, null, runes);
     }

@@ -13,7 +13,6 @@ class GrimgnashDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         npc(FacialExpression.HALF_GUILTY, "What you want, little human? Grimgnash hungry. Want", "tasty morsel like you!")
-        stage = 0
         return true
     }
 

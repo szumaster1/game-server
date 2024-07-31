@@ -231,7 +231,7 @@ class PitfallListeners : InteractionListener {
                 if (pitfall_npc != null && pitfall_npc.getLocation().getDistance(src) < 3.0) {
                     val last_pit_loc: Location? = pitfall_npc.getAttribute("last_pit_loc", null)
                     if (last_pit_loc == pit.location) {
-                        player.sendMessage("The ${pitfall_npc.name.toLowerCase()} won't jump the same pit twice in a row.")
+                        player.sendMessage("The ${pitfall_npc.name.lowercase()} won't jump the same pit twice in a row.")
                         return@on true
                     }
                     // TODO: what are the actual probabilities of a graahk jumping over a pit?
@@ -291,11 +291,11 @@ class PitfallListeners : InteractionListener {
             val entity = node as Entity
             val hunterReq = HUNTER_REQS[entity.name]!!
             if (player.skills.getLevel(Skills.HUNTER) < hunterReq) {
-                player.sendMessage("You need a hunter level of ${hunterReq} to hunt ${entity.name.toLowerCase()}s.")
+                player.sendMessage("You need a hunter level of ${hunterReq} to hunt ${entity.name.lowercase()}s.")
                 return@on true
             }
             if (!player.inventory.containsItem(TEASING_STICK)) {
-                player.sendMessage("You need a teasing stick to hunt ${entity.name.toLowerCase()}s.")
+                player.sendMessage("You need a teasing stick to hunt ${entity.name.lowercase()}s.")
                 return@on true
             }
             entity.attack(player)

@@ -323,7 +323,7 @@ class CombatPulse(val entity: Entity?) : Pulse(1, entity, null) {
     override fun removeFor(pulseType: String): Boolean {
         var pulse = pulseType
         if (isAttacking) {
-            pulse = pulse.toLowerCase()
+            pulse = pulse.lowercase()
             if (pulse.startsWith("interaction:attack")) {
                 if (victim.hashCode() == pulse.replace("interaction:attack:", "").toInt()) {
                     return false

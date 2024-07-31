@@ -5,15 +5,9 @@ import core.game.node.entity.player.Player;
 import core.game.node.entity.skill.Skills;
 import core.plugin.Plugin;
 
-/**
- * The Agility course.
- */
 public abstract class AgilityCourse extends OptionHandler {
-
     private final Player player;
-
     private final boolean[] obstaclesPassed;
-
     private final double completionExperience;
 
     /**

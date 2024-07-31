@@ -10,6 +10,7 @@ import java.util.List;
 
 /**
  * A pathfinder implementation used for checking projectile paths.
+ *
  * @author Emperor
  */
 public final class ProjectilePathfinder extends Pathfinder {

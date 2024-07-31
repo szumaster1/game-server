@@ -21,7 +21,6 @@ class WizardDistentorDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         npc("Welcome to the Magicians' Guild!")
-        stage = 0
         return true
     }
 

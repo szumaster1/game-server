@@ -18,14 +18,14 @@ import core.tools.END_DIALOGUE
 class WatchtowerShortcut : InteractionListener {
 
     /*
-        Name: Trellis wall obstacle.
-        Location: Outside of the Watchtower northern wall.
-        Source: https://youtu.be/8HyiUy6MwTM?si=BKLNWPjvEu6lf7Nu&t=146
-        Required level: 18
-        Scenery: 20056
-        Reward: 31xp
-        Image: https://i.imgur.com/HBMOccq.png
-    */
+     * Name: Trellis wall obstacle.
+     * Location: Outside of the Watchtower northern wall.
+     * Source: https://youtu.be/8HyiUy6MwTM?si=BKLNWPjvEu6lf7Nu&t=146
+     * Required level: 18
+     * Scenery: 20056
+     * Reward: 31xp
+     * Image: https://i.imgur.com/HBMOccq.png
+     */
 
     private val shortcutDestination = Location.create(2548, 3117, 1)
     private val climbStairsAnimation = Animation.create(Animations.HUMAN_CLIMB_STAIRS_828)

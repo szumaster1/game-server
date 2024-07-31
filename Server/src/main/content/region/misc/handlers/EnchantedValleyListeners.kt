@@ -41,6 +41,10 @@ class EnchantedValleyListeners : InteractionListener {
 
     override fun defineListeners() {
 
+        /*
+         * Interact with rock for Spawn NPC.
+         */
+
         on(ENCHANTED_V_ROCK, IntType.SCENERY, "mine") { player, _ ->
             val tool: SkillingTool? = SkillingTool.getPickaxe(player)
             tool ?: sendMessage(player, "You lack an pickaxe which you have the Mining level to use.").also { return@on true }
@@ -70,6 +74,9 @@ class EnchantedValleyListeners : InteractionListener {
             return@on true
         }
 
+        /*
+         * Interaction with Tree to spawn NPC.
+         */
 
         on(ENCHANTED_V_TREE, IntType.SCENERY, "chop-down") { player, _ ->
             val tool: SkillingTool? = SkillingTool.getHatchet(player)

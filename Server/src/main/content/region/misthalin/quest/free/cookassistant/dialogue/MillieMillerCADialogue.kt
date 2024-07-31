@@ -15,7 +15,6 @@ class MillieMillerCADialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         npc(FacialExpression.HAPPY, "Hello Adventurer. Welcome to Mill Lane Mill. Can I", "help you?")
-        stage = 0
         return true
     }
 

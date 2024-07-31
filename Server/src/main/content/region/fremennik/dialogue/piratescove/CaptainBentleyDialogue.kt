@@ -17,7 +17,6 @@ class CaptainBentleyDialogue(player: Player? = null): Dialogue(player) {
         onIsle = npc.location.regionId == 8508
         if (!onIsle) {
             player("Can we head to Lunar Isle?")
-            stage = 0
         } else {
             player("Hi.")
             stage = 2

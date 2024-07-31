@@ -20,13 +20,13 @@ class PenguinManager {
         fun registerTag(player: Player, location: Location) {
             val ordinal = Penguin.forLocation(location)?.ordinal ?: -1
             val list = tagMapping[ordinal] ?: JSONArray()
-            list.add(player.username.toLowerCase())
+            list.add(player.username.lowercase())
             tagMapping[ordinal] = list
             updateStoreFile()
         }
 
         fun hasTagged(player: Player, location: Location): Boolean {
-            return tagMapping[Penguin.forLocation(location)?.ordinal]?.contains(player.username.toLowerCase()) ?: false
+            return tagMapping[Penguin.forLocation(location)?.ordinal]?.contains(player.username.lowercase()) ?: false
         }
 
         private fun updateStoreFile() {

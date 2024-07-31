@@ -9,9 +9,6 @@ import core.game.node.item.Item;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
-/**
- * The Familiar item option plugin.
- */
 @Initializable
 public final class FamiliarItemOptionPlugin extends OptionHandler {
 

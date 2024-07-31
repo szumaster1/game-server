@@ -15,7 +15,7 @@ class MiningSkillCapeDwarfDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.OLD_NORMAL, "Welcome to the Mining Guild.", "Can I help you with anything?").also { stage = 0 }
+        npc(FacialExpression.OLD_NORMAL, "Welcome to the Mining Guild.", "Can I help you with anything?")
         return true
     }
 
@@ -25,7 +25,6 @@ class MiningSkillCapeDwarfDialogue(player: Player? = null) : Dialogue(player) {
                 sendDialogueOptions(player, "What would you like to say?", "What have you got in the Guild?", "What do you dwarves do with the ore you mine?", "Can you tell me about your skillcape?", "No thanks, I'm fine.")
                 stage = 1
             }
-
             1 -> when (buttonId) {
                 1 -> {
                     player(FacialExpression.HALF_GUILTY, "What have you got in the guild?")

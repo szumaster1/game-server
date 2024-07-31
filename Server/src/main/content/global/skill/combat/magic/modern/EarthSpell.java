@@ -15,41 +15,23 @@ import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
-/**
- * The Earth spell.
- */
 @Initializable
 public final class EarthSpell extends CombatSpell {
 
     private static final Graphic STRIKE_START = new Graphic(96, 96);
-
     private static final Projectile STRIKE_PROJECTILE = Projectile.create((Entity) null, null, 97, 40, 36, 52, 75, 15, 11);
-
     private static final Graphic STRIKE_END = new Graphic(98, 96);
-
     private static final Graphic BOLT_START = new Graphic(123, 96);
-
     private static final Projectile BOLT_PROJECTILE = Projectile.create((Entity) null, null, 124, 40, 36, 52, 75, 15, 11);
-
     private static final Graphic BOLT_END = new Graphic(125, 96);
-
     private static final Graphic BLAST_START = new Graphic(138, 96);
-
     private static final Projectile BLAST_PROJECTILE = Projectile.create((Entity) null, null, 139, 40, 36, 52, 75, 15, 11);
-
     private static final Graphic BLAST_END = new Graphic(140, 96);
-
     private static final Graphic WAVE_START = new Graphic(164, 96);
-
     private static final Projectile WAVE_PROJECTILE = Projectile.create((Entity) null, null, 165, 40, 36, 52, 75, 15, 11);
-
     private static final Graphic WAVE_END = new Graphic(166, 96);
-
     private static final Animation ANIMATION = new Animation(711, Priority.HIGH);
 
-    /**
-     * Instantiates a new Earth spell.
-     */
     public EarthSpell() {
 
     }

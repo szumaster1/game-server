@@ -22,7 +22,7 @@ class TindelMerchant : InteractionListener {
 
     override fun defineListeners() {
         /*
-         *  Antique shop ring bell interaction.
+         * Antique shop ring bell interaction.
          */
 
         on(ANTIQUE_SHOP_STALL, IntType.SCENERY, "ring-bell") { player, _ ->
@@ -36,7 +36,7 @@ class TindelMerchant : InteractionListener {
         }
 
         /*
-         *  Interaction for NPC before One Small Favour.
+         * Interaction for NPC before One Small Favour.
          */
 
         on(TINDEL, IntType.NPC, "talk-to", "Give-Sword") { player, _ ->

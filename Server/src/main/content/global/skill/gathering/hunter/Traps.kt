@@ -239,10 +239,10 @@ enum class Traps(@JvmField val settings: TrapSetting, vararg nodes: TrapNode) {
         }
 
         /**
-         * Get node object [ ].
+         * Get node object.
          *
          * @param id the id
-         * @return the object [ ]
+         * @return the object.
          */
         @JvmStatic
         fun getNode(id: Int): Array<Any>? {

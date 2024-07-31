@@ -14,7 +14,7 @@ class RimmingtonShopKeeperDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        npc(FacialExpression.HAPPY, "Can I help you at all?").also { stage = 0 }
+        npc(FacialExpression.HAPPY, "Can I help you at all?")
         return true
     }
 

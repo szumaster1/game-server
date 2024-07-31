@@ -28,7 +28,7 @@ class BurthopeListeners : InteractionListener {
     override fun defineListeners() {
 
         /*
-            Thieving guild | Rogues' Den interactions.
+         * Thieving guild | Rogues' Den interactions.
          */
 
         on(THIEVING_GUILD_PASSAGE, IntType.SCENERY, "enter") { player, node ->
@@ -51,7 +51,7 @@ class BurthopeListeners : InteractionListener {
         }
 
         /*
-            NPCs interaction at Rogues' Den.
+         * NPCs interaction at Rogues' Den.
          */
 
         on(BENEDICT, IntType.NPC, "bank") { player, _ ->
@@ -74,7 +74,7 @@ class BurthopeListeners : InteractionListener {
         }
 
         /*
-            Burthope soldiers interaction.
+         * Burthope soldiers interaction.
          */
 
         on(SERGEANTS, IntType.NPC, "talk-to") { player, _ ->

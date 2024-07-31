@@ -13,7 +13,7 @@ class GateKeeperDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        player("What happened to the old man who used to", "be the doorman?").also { stage = 0 }
+        player("What happened to the old man who used to", "be the doorman?")
         return true
     }
 

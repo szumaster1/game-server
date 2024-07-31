@@ -41,7 +41,7 @@ class KaramjaListeners : InteractionListener {
     }
 
     /*
-     *  Check requirements for interact with jungle bush.
+     * Check requirements for interact with jungle bush.
      */
 
     private fun checkRequirement(player: Player): Boolean {
@@ -61,8 +61,8 @@ class KaramjaListeners : InteractionListener {
     override fun defineListeners() {
 
         /*
-         *  Interaction with jungle bush.
-         *  TODO: It should be handled by WoodcuttingPulse.
+         * Interaction with jungle bush.
+         * TODO: It should be handled by WoodcuttingPulse.
          */
 
         on(JUNGLE_BUSH, IntType.SCENERY, "chop-down") { player, node ->
@@ -101,7 +101,7 @@ class KaramjaListeners : InteractionListener {
         }
 
         /*
-         *  Interaction with Custom officers.
+         * Interaction with Custom officers.
          */
 
         on(CUSTOM_OFFICERS, IntType.NPC, "pay-fare") { player, node ->
@@ -176,7 +176,7 @@ class KaramjaListeners : InteractionListener {
         }
 
        /*
-        *   Un-note essences interaction with Jiminua NPC.
+        * Un-note essences interaction with Jiminua NPC.
         */
 
         onUseWith(IntType.NPC, NOTED_PURE_ESSENCE, JIMINUA) { player, used, _ ->
@@ -213,7 +213,7 @@ class KaramjaListeners : InteractionListener {
         }
 
         /*
-            Trade interaction with NPC Tiadeche.
+         * Trade interaction with NPC Tiadeche.
          */
 
         on(TIADECHE, IntType.NPC, "trade") { player, _ ->

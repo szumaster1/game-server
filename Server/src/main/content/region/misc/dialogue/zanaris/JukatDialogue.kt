@@ -14,7 +14,7 @@ class JukatDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npcl(FacialExpression.OLD_DEFAULT, "Dragon swords! Here, dragon swords! Straight from Frenaskrae!").also { stage = 0 }
+        npcl(FacialExpression.OLD_DEFAULT, "Dragon swords! Here, dragon swords! Straight from Frenaskrae!")
         return true
     }
 

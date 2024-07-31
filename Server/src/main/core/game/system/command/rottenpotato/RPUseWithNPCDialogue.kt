@@ -24,7 +24,6 @@ class RPUseWithNPCDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         options("Remove NPC", "Enable Respawning", "Disable Respawning", "Kill", "Copy Appearance")
-        stage = 0
         return true
     }
 

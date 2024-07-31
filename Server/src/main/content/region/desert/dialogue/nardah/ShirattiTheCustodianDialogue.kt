@@ -15,7 +15,7 @@ class ShirattiTheCustodianDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         if (!isQuestComplete(player, "Spirits of the Elid")) {
-            options("Good day to you.", "What is this building?").also { stage = 0 }
+            options("Good day to you.", "What is this building?")
         } else {
             npcl(FacialExpression.FRIENDLY, "Thanks for returning the statuette. You have freed us of our curse. May you forever be considered a friend of Elidinis and her followers.").also { stage = END_DIALOGUE }
         }

@@ -19,7 +19,7 @@ class FishmongerRellekkaDialogue(player: Player? = null): Dialogue(player) {
         if (!isQuestComplete(player, "Fremennik Trials")) {
             npc(FacialExpression.ANNOYED, "I don't sell to outerlanders.").also { stage = END_DIALOGUE }
         } else {
-            npcl(FacialExpression.FRIENDLY, "Hello there, ${getAttribute(player, "fremennikname", "fremmyname")}. Looking for fresh fish?").also { stage = 0 }
+            npcl(FacialExpression.FRIENDLY, "Hello there, ${getAttribute(player, "fremennikname", "fremmyname")}. Looking for fresh fish?")
         }
         return true
     }

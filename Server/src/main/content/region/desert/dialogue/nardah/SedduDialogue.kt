@@ -13,7 +13,7 @@ class SedduDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        npc("I buy and sell adventurer's equipment, do you want to trade?").also { stage = 0 }
+        npc("I buy and sell adventurer's equipment, do you want to trade?")
         return true
     }
 

@@ -1,6 +1,5 @@
 package core.game.component;
 
-
 import java.util.HashMap;
 import java.util.Map;
 

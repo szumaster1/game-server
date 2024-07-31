@@ -305,7 +305,9 @@ public abstract class Entity extends Node {
         timers.onEntityDeath();
         removeAttribute("combat-time");
         face(null);
-        //Check if it's a Loar shade and transform back into the shadow version.
+        /*
+         * Check if it's a Loar shade and transform back into the shadow version.
+         */
         if (this.getId() == 1240 || this.getId() == 1241) {
             this.asNpc().transform(1240);
         }

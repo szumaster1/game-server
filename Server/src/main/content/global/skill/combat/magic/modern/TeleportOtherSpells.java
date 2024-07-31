@@ -17,33 +17,18 @@ import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
-/**
- * The Teleother spells.
- */
 @Initializable
-public final class TeleotherSpells extends MagicSpell {
+public final class TeleportOtherSpells extends MagicSpell {
 
     private String destination;
 
     private Location location;
 
-    /**
-     * Instantiates a new Teleother spells.
-     */
-    public TeleotherSpells() {
+    public TeleportOtherSpells() {
 
     }
 
-    /**
-     * Instantiates a new Teleother spells.
-     *
-     * @param level       the level
-     * @param experience  the experience
-     * @param destination the destination
-     * @param location    the location
-     * @param runes       the runes
-     */
-    public TeleotherSpells(int level, double experience, String destination, Location location, Item... runes) {
+    public TeleportOtherSpells(int level, double experience, String destination, Location location, Item... runes) {
         super(SpellBook.MODERN, level, experience, Animation.create(1818), Graphic.create(343), new Audio(Sounds.TELE_OTHER_CAST_199, 1, 0), runes);
         this.destination = destination;
         this.location = location;
@@ -51,9 +36,9 @@ public final class TeleotherSpells extends MagicSpell {
 
     @Override
     public Plugin<SpellType> newInstance(SpellType arg) throws Throwable {
-        SpellBook.MODERN.register(54, new TeleotherSpells(74, 84, "Lumbridge", Location.create(3222, 3217, 0), Runes.SOUL_RUNE.getItem(1), Runes.LAW_RUNE.getItem(1), Runes.EARTH_RUNE.getItem(1)));
-        SpellBook.MODERN.register(59, new TeleotherSpells(82, 92, "Falador", Location.create(2965, 3378, 0), Runes.SOUL_RUNE.getItem(1), Runes.LAW_RUNE.getItem(1), Runes.WATER_RUNE.getItem(1)));
-        SpellBook.MODERN.register(62, new TeleotherSpells(90, 100, "Camelot", Location.create(2758, 3478, 0), Runes.SOUL_RUNE.getItem(2), Runes.LAW_RUNE.getItem(1)));
+        SpellBook.MODERN.register(54, new TeleportOtherSpells(74, 84, "Lumbridge", Location.create(3222, 3217, 0), Runes.SOUL_RUNE.getItem(1), Runes.LAW_RUNE.getItem(1), Runes.EARTH_RUNE.getItem(1)));
+        SpellBook.MODERN.register(59, new TeleportOtherSpells(82, 92, "Falador", Location.create(2965, 3378, 0), Runes.SOUL_RUNE.getItem(1), Runes.LAW_RUNE.getItem(1), Runes.WATER_RUNE.getItem(1)));
+        SpellBook.MODERN.register(62, new TeleportOtherSpells(90, 100, "Camelot", Location.create(2758, 3478, 0), Runes.SOUL_RUNE.getItem(2), Runes.LAW_RUNE.getItem(1)));
         return this;
     }
 

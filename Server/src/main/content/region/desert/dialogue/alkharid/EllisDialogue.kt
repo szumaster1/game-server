@@ -15,7 +15,7 @@ class EllisDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
-        npcl(FacialExpression.FRIENDLY, "Greetings friend. I am a manufacturer of leather.").also { stage = 0 }
+        npcl(FacialExpression.FRIENDLY, "Greetings friend. I am a manufacturer of leather.")
         return true
     }
 
@@ -23,14 +23,12 @@ class EllisDialogue(player: Player? = null) : Dialogue(player) {
         when (stage) {
             0 -> {
                 var hasHides = false
-
                 for (tanningProduct in TanningData.values()) {
                     if (inInventory(player, tanningProduct.item)) {
                         hasHides = true
                         break
                     }
                 }
-
                 if(hasHides) {
                     npcl(FacialExpression.FRIENDLY, "I see you have brought me some hides. Would you like me to tan them for you?").also { stage = 10 }
                 } else {

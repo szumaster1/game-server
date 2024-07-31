@@ -16,55 +16,30 @@ import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
-/**
- * The Curse spells.
- */
 @Initializable
 public final class CurseSpells extends CombatSpell {
 
     private static final Graphic CONFUSE_START = new Graphic(102, 96);
-
     private static final Projectile CONFUSE_PROJECTILE = Projectile.create((Entity) null, null, 103, 40, 36, 52, 75, 15, 11);
-
     private static final Graphic CONFUSE_END = new Graphic(104, 96);
-
     private static final Graphic WEAKEN_START = new Graphic(105, 96);
-
     private static final Projectile WEAKEN_PROJECTILE = Projectile.create((Entity) null, null, 106, 40, 36, 52, 75, 15, 11);
-
     private static final Graphic WEAKEN_END = new Graphic(107, 96);
-
     private static final Graphic CURSE_START = new Graphic(108, 96);
-
     private static final Projectile CURSE_PROJECTILE = Projectile.create((Entity) null, null, 109, 40, 36, 52, 75, 15, 11);
-
     private static final Graphic CURSE_END = new Graphic(110, 96);
-
     private static final Graphic VULNER_START = new Graphic(167, 96);
-
     private static final Projectile VULNER_PROJECTILE = Projectile.create((Entity) null, null, 168, 40, 36, 52, 75, 15, 11);
-
     private static final Graphic VULNER_END = new Graphic(169, 96);
-
     private static final Graphic ENFEEBLE_START = new Graphic(170, 96);
-
     private static final Projectile ENFEEBLE_PROJECTILE = Projectile.create((Entity) null, null, 171, 40, 36, 52, 75, 15, 11);
-
     private static final Graphic ENFEEBLE_END = new Graphic(172, 96);
-
     private static final Graphic STUN_START = new Graphic(173, 96);
-
     private static final Projectile STUN_PROJECTILE = Projectile.create((Entity) null, null, 174, 40, 36, 52, 75, 15, 11);
-
     private static final Graphic STUN_END = new Graphic(107, 96);
-
     private static final Animation LOW_ANIMATION = new Animation(716, Priority.HIGH);
-
     private static final Animation HIGH_ANIMATION = new Animation(729, Priority.HIGH);
 
-    /**
-     * Instantiates a new Curse spells.
-     */
     public CurseSpells() {
 
     }

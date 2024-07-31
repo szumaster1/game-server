@@ -21,7 +21,6 @@ class ValaineDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
         npc(FacialExpression.HALF_GUILTY, "Hello there. Want to have a look at what we're selling", "today?")
-        stage = 0
         return true
     }
 

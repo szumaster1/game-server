@@ -31,10 +31,10 @@ private const val NONE = 0
 private val COINS = Item(995, 500)
 
 /*
- *  Appearance Indexes for Various Wrist guards.
- *  117S 118G 119S 120G 121S 122G 123S 124G 125S 126G M
- *  159S 160G 161S 162G 163S 164G 165S 166G 167S 168G F
- *  67SF 68NF 127GF 33SM 34NM 84GM
+ * Appearance Indexes for Various Wrist guards.
+ * 117S 118G 119S 120G 121S 122G 123S 124G 125S 126G M
+ * 159S 160G 161S 162G 163S 164G 165S 166G 167S 168G F
+ * 67SF 68NF 127GF 33SM 34NM 84GM
  */
 
 class SmithingEmporiumInterfaceListener : InterfaceListener {

@@ -15,7 +15,7 @@ class OllieTheCamelDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC
-        player(FacialExpression.HALF_GUILTY, "I wonder if that camel has fleas...").also { stage = 0 }
+        player(FacialExpression.HALF_GUILTY, "I wonder if that camel has fleas...")
         return true
     }
 

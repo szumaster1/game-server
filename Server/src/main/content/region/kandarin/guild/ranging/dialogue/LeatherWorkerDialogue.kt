@@ -12,7 +12,6 @@ class LeatherWorkerDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         player("Hello.")
-        stage = 0
         return true
     }
 

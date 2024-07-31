@@ -15,41 +15,23 @@ import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
-/**
- * The Air spell.
- */
 @Initializable
 public final class AirSpell extends CombatSpell {
 
     private static final Graphic STRIKE_START = new Graphic(90, 96);
-
     private static final Projectile STRIKE_PROJECTILE = Projectile.create((Entity) null, null, 91, 40, 36, 52, 75, 15, 11);
-
     private static final Graphic STRIKE_END = new Graphic(92, 96);
-
     private static final Graphic BOLT_START = new Graphic(117, 96);
-
     private static final Projectile BOLT_PROJECTILE = Projectile.create((Entity) null, null, 118, 40, 36, 52, 75, 15, 11);
-
     private static final Graphic BOLT_END = new Graphic(119, 96);
-
     private static final Graphic BLAST_START = new Graphic(132, 96); // 129
-
     private static final Projectile BLAST_PROJECTILE = Projectile.create((Entity) null, null, 133, 40, 36, 52, 75, 15, 11); // 130
-
     private static final Graphic BLAST_END = new Graphic(134, 96); // 131
-
     private static final Graphic WAVE_START = new Graphic(158, 96);
-
     private static final Projectile WAVE_PROJECTILE = Projectile.create((Entity) null, null, 159, 40, 36, 52, 75, 15, 11);
-
     private static final Graphic WAVE_END = new Graphic(160, 96);
-
     private static final Animation ANIMATION = new Animation(711, Priority.HIGH);
 
-    /**
-     * Instantiates a new Air spell.
-     */
     public AirSpell() {
 
     }

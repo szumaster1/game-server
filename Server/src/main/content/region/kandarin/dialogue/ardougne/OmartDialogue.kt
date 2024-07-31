@@ -14,11 +14,11 @@ import core.tools.END_DIALOGUE
 class OmartDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        Omart is a man located between the south-east corner of
-        West Ardougne's walls and Ceril Carnillean's house in East Ardougne,
-        just south of the castle. He plays a minor role in the Biohazard quest,
-        smuggling players into West Ardougne.
-        Location: 2559,3266
+     * Omart is a man located between the south-east corner of
+     * West Ardougne's walls and Ceril Carnillean's house in East Ardougne,
+     * just south of the castle. He plays a minor role in the Biohazard quest,
+     * smuggling players into West Ardougne.
+     * Location: 2559,3266
      */
 
     override fun open(vararg args: Any?): Boolean {
