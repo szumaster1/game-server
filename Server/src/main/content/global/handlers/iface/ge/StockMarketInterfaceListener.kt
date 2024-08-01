@@ -87,7 +87,7 @@ class StockMarketInterfaceListener : InterfaceListener {
                 209, 211 -> if (openedOffer == null) {
                     SystemLogger.logGE("[WARN] Player tried to withdraw item with null openedOffer!")
                     return@on false
-                } else withdraw(player, openedOffer, (button - 209) shr 1)
+                } else withdraw(player, openedOffer, (button - 209) shr 1, op)
 
                 190 -> confirmOffer(player, tempOffer, openedIndex).also { return@on true }
                 194 -> player.interfaceManager.openChatbox(Components.OBJDIALOG_389)
@@ -98,7 +98,12 @@ class StockMarketInterfaceListener : InterfaceListener {
                     if (op == 205) abortOffer(player, openedOffer)
                     else updateVarbits(player, openedOffer, openedIndex)
                     if (openedOffer != null) {
-                        player.packetDispatch.sendString(GrandExchange.getOfferStats(openedOffer.itemID, openedOffer.sell), 105, 142)
+                        player.packetDispatch.sendString(
+                            GrandExchange.getOfferStats(
+                                openedOffer.itemID,
+                                openedOffer.sell
+                            ), 105, 142
+                        )
                     }
                 }
 
@@ -114,7 +119,21 @@ class StockMarketInterfaceListener : InterfaceListener {
                     openedOffer = GrandExchangeRecords.getInstance(player).getOffer(openedIndex)
                     updateVarbits(player, openedOffer, openedIndex, true)
                     player.interfaceManager.openSingleTab(Component(Components.STOCKSIDE_107)).open(player)
-                    player.packetDispatch.sendRunScript(149, "IviiiIsssss", "", "", "", "Examine", "Offer", -1, 0, 7, 4, 93, 7012370)
+                    player.packetDispatch.sendRunScript(
+                        149,
+                        "IviiiIsssss",
+                        "",
+                        "",
+                        "",
+                        "Examine",
+                        "Offer",
+                        -1,
+                        0,
+                        7,
+                        4,
+                        93,
+                        7012370
+                    )
                     val settings = IfaceSettingsBuilder().enableOptions(0, 1).build()
                     player.packetDispatch.sendIfaceSettings(settings, 18, 107, 0, 27)
                 }
@@ -145,8 +164,18 @@ class StockMarketInterfaceListener : InterfaceListener {
                 }
 
                 180 -> updateOfferValue(player, tempOffer, GrandExchange.getRecommendedPrice(tempOffer.itemID))
-                177 -> updateOfferValue(player, tempOffer, (GrandExchange.getRecommendedPrice(tempOffer.itemID) * 0.95).toInt())
-                183 -> updateOfferValue(player, tempOffer, (GrandExchange.getRecommendedPrice(tempOffer.itemID) * 1.05).toInt())
+                177 -> updateOfferValue(
+                    player,
+                    tempOffer,
+                    (GrandExchange.getRecommendedPrice(tempOffer.itemID) * 0.95).toInt()
+                )
+
+                183 -> updateOfferValue(
+                    player,
+                    tempOffer,
+                    (GrandExchange.getRecommendedPrice(tempOffer.itemID) * 1.05).toInt()
+                )
+
                 171 -> updateOfferValue(player, tempOffer, tempOffer.offeredValue - 1)
                 173 -> updateOfferValue(player, tempOffer, tempOffer.offeredValue + 1)
                 185 -> sendInputDialogue(player, InputType.AMOUNT, "Enter the amount:") { value ->
@@ -190,7 +219,11 @@ class StockMarketInterfaceListener : InterfaceListener {
         sendMessage(player, "have already been completed.")
 
         if (!offer.isActive) {
-            log(this::class.java, Log.WARN, "Offer ${offer.uid}[${offer.index}]: ${if (offer.sell) "s" else "b"} ${offer.itemID}x ${offer.amount} was NO LONGER active when abort attempted")
+            log(
+                this::class.java,
+                Log.WARN,
+                "Offer ${offer.uid}[${offer.index}]: ${if (offer.sell) "s" else "b"} ${offer.itemID}x ${offer.amount} was NO LONGER active when abort attempted"
+            )
             return
         }
         offer.offerState = OfferState.ABORTED
@@ -303,22 +336,43 @@ class StockMarketInterfaceListener : InterfaceListener {
         }
 
         @JvmStatic
-        fun withdraw(player: Player, offer: GrandExchangeOffer, index: Int) {
+        fun withdraw(player: Player, offer: GrandExchangeOffer, index: Int, op: Int) {
             val item = offer.withdraw[index]
             if (item == null) {
                 log(this::class.java, Log.WARN, "Offer withdraw[$index] is null!")
                 return
             }
 
-            if (hasSpaceFor(player, item)) {
-                addItem(player, item.id, item.amount)
-            } else {
-                val note = item.noteChange
-                if (note == -1 || !hasSpaceFor(player, Item(note, item.amount))) {
-                    playAudio(player, Sounds.GE_TRADE_ERROR_4039)
-                    sendMessage(player, "You do not have enough room in your inventory.")
-                    return
-                } else addItem(player, note, item.amount)
+            when (op) {
+                /*
+                 * Withdraw notes.
+                 */
+                155 -> {
+                    val note = item.noteChange
+                    if (note == -1) {
+                        sendMessage(player, "This item cannot be noted")
+                        return
+                    }
+                    if (hasSpaceFor(player, Item(note, item.amount))) {
+                        addItem(player, note, item.amount)
+                    } else {
+                        playAudio(player, Sounds.GE_TRADE_ERROR_4039)
+                        sendMessage(player, "You do not have enough room in your inventory.")
+                        return
+                    }
+                }
+                /*
+                 * Withdraw items.
+                 */
+                196 -> {
+                    if (hasSpaceFor(player, item)) {
+                        addItem(player, item.id, item.amount)
+                    } else {
+                        playAudio(player, Sounds.GE_TRADE_ERROR_4039)
+                        sendMessage(player, "You do not have enough room in your inventory.")
+                        return
+                    }
+                }
             }
 
             offer.withdraw[index] = null

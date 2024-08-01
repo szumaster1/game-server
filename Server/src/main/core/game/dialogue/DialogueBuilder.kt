@@ -13,6 +13,7 @@ abstract class DialogueBuilderFile : DialogueFile() {
     var data: ArrayList<DialogueClause> = ArrayList()
 
     //var stages: ArrayList<Int> = ArrayList()
+
     abstract fun create(b: DialogueBuilder)
 
     init {

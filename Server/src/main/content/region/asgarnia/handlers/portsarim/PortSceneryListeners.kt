@@ -29,6 +29,10 @@ class PortSceneryListeners : InteractionListener {
             return@on true
         }
 
+        /*
+         * Cross gangplank to ship related to Dragon slayer interaction.
+         */
+
         on(Scenery.GANGPLANK_2593, IntType.SCENERY, "cross"){ player, _ ->
             if (isQuestComplete(player, "Dragon Slayer")) {
                 player.dialogueInterpreter.open(NPCs.KLARENSE_744, findNPC(NPCs.KLARENSE_744), true)
@@ -47,6 +51,10 @@ class PortSceneryListeners : InteractionListener {
             sendDialogueLines(player,"I don't think that whoever owns this ship will be happy", "with me wandering all over it.")
             return@on true
         }
+
+        /*
+         * Cross the gangplank to Ship.
+         */
 
         on(PLANK, IntType.SCENERY, "cross") { player, node ->
             forceMove(player, player.location, node.location, 10, 30, null, Animations.HUMAN_WALK_SHORT_819)

@@ -174,6 +174,10 @@ class PortSarimListeners : InteractionListener {
             return@on true
         }
 
+        /*
+         * Exit interaction from Ice dungeon.
+         */
+
         on(CAVE_EXIT, IntType.SCENERY, "exit") { player, _ ->
             openInterface(player, Components.CWS_WARNING_1_574)
             return@on true

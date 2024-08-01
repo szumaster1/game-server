@@ -97,7 +97,7 @@ class GrandExchangeInterfacePlugin : ComponentPlugin() {
         var offer: GrandExchangeOffer? = null
         val records = getInstance(player)
         if (index > -1 && (records.getOffer(records.offerRecords[index]).also { offer = it }) != null) {
-            withdraw(player!!, offer!!, slot shr 1)
+            withdraw(player!!, offer!!, slot shr 1, opcode);
         }
         return true
     }
