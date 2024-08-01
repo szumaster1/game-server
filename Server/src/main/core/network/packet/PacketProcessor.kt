@@ -12,6 +12,7 @@ import core.api.utils.Vector
 import core.cache.def.impl.ItemDefinition
 import core.cache.def.impl.NPCDefinition
 import core.cache.def.impl.SceneryDefinition
+import core.game.component.Component
 import core.game.container.Container
 import core.game.container.impl.BankContainer
 import core.game.event.ButtonClickEvent
@@ -202,7 +203,7 @@ object PacketProcessor {
             }
             is Packet.ChatMessage -> {
                 if (pkt.player.details.isMuted)
-                    pkt.player.sendMessage("You have been muted due to breaking a rule.")
+                    pkt.player.interfaceManager.open(Component(Components.QUICKCHAT_LOCKED_801))
                 else {
                     if (ServerConstants.ENABLE_GLOBALCHAT && pkt.message.startsWith("//")) {
                         if (getAttribute(pkt.player, GlobalChat.ATTR_GLOBAL_MUTE, false))
@@ -239,7 +240,7 @@ object PacketProcessor {
             }
             is Packet.PrivateMessage -> {
                 if (pkt.player.details.isMuted)
-                    pkt.player.sendMessage("You have been muted due to breaking a rule.")
+                    pkt.player.interfaceManager.open(Component(Components.QUICKCHAT_LOCKED_801))
                 else
                     CommunicationInfo.sendMessage(pkt.player, pkt.username, pkt.message)
                 PlayerMonitor.logPrivateChat(pkt.player, pkt.username, pkt.message)
