@@ -176,9 +176,11 @@ public class PickableDoorHandler extends OptionHandler {
         public int getLevel() {
             return level;
         }
+
         public double getExperience() {
             return experience;
         }
+
         public boolean isLockpick() {
             return lockpick;
         }

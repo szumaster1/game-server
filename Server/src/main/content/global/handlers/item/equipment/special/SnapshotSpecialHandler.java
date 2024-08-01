@@ -18,9 +18,6 @@ import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
-/**
- * The Snapshot special handler.
- */
 @Initializable
 public final class SnapshotSpecialHandler extends RangeSwingHandler implements Plugin<Object> {
 

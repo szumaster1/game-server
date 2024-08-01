@@ -15,9 +15,6 @@ import core.plugin.Plugin;
 
 import static core.api.ContentAPIKt.*;
 
-/**
- * The Edgeville node plugin.
- */
 @Initializable
 public final class EdgevilleNodePlugin extends OptionHandler {
 

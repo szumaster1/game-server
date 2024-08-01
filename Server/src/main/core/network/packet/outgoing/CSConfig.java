@@ -4,10 +4,6 @@ import core.network.packet.IoBuffer;
 import core.network.packet.OutgoingPacket;
 import core.network.packet.context.CSConfigContext;
 
-/**
- * The outgoing packet for client script configs.
- * @author Snickerize
- */
 public class CSConfig implements OutgoingPacket<CSConfigContext> {
 
     @Override

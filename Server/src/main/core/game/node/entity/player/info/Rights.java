@@ -3,9 +3,6 @@ package core.game.node.entity.player.info;
 import core.ServerConstants;
 import core.game.node.entity.player.Player;
 
-/**
- * @author 'Vexia
- */
 public enum Rights {
     REGULAR_PLAYER,
     PLAYER_MODERATOR,

@@ -94,7 +94,7 @@ CREATE TABLE `worlds` (
 --
 
 INSERT INTO `worlds` (`world`, `ip`, `players`, `country`, `member`, `revision`, `lastResponse`) VALUES
-(1, '127.0.0.1', 0, 22, 1, 530, '2020-09-23 18:27:05');
+(1, '127.0.0.1', 0, 22, 1, 530, '2024-08-01 10:00:00');
 
 --
 -- Indexes for dumped tables

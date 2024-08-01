@@ -11,10 +11,6 @@ import core.tools.StringUtils;
 
 import java.util.Random;
 
-/**
- * Handles communication message packet sending.
- * @author Emperor
- */
 public final class CommunicationMessage implements OutgoingPacket<MessageContext> {
 
     @Override
@@ -62,12 +58,6 @@ public final class CommunicationMessage implements OutgoingPacket<MessageContext
         player.getSession().write(buffer);
     }
 
-    /**
-     * Gets the message index.
-     *
-     * @param p The player.
-     * @return The message index.
-     */
     private static int getMessageIndex(Player p) {
         int count = p.getAttribute("pm_index", 0) + 1;
         p.setAttribute("pm_index", count);

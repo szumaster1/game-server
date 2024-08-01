@@ -19,33 +19,16 @@ import core.plugin.Initializable;
 
 import static core.api.ContentAPIKt.setAttribute;
 
-/**
- * The Fishing contest cutscene.
- */
 @Initializable
 public class FishingContestCutscene extends CutscenePlugin {
 
-    /**
-     * The S stranger.
-     */
     public final int S_STRANGER = 3678;
-    /**
-     * The Big dave.
-     */
     public final int BIG_DAVE = 228;
 
-    /**
-     * Instantiates a new Fishing contest cutscene.
-     */
     public FishingContestCutscene() {
         super("Fishing Contest Cutscene");
     }
 
-    /**
-     * Instantiates a new Fishing contest cutscene.
-     *
-     * @param player the player
-     */
     public FishingContestCutscene(Player player) {
         super("Fishing Contest Cutscene");
         this.player = player;
@@ -98,9 +81,6 @@ public class FishingContestCutscene extends CutscenePlugin {
 
     private
     class FishingPulse extends Pulse {
-        /**
-         * The Counter.
-         */
         int counter = 0;
 
         @Override
@@ -156,17 +136,8 @@ public class FishingContestCutscene extends CutscenePlugin {
         super.stop(fade);
     }
 
-    /**
-     * The Switch pulse.
-     */
     public class SwitchPulse extends Pulse {
-        /**
-         * The Stranger.
-         */
         NPC stranger = npcs.get(2);
-        /**
-         * The Counter.
-         */
         int counter = 0;
 
         @Override

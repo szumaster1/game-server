@@ -7,21 +7,12 @@ import core.game.node.scenery.Scenery;
 
 import java.util.HashMap;
 
-/**
- * The type Plugin interaction manager.
- */
 public class PluginInteractionManager {
     private static final HashMap<Integer, PluginInteraction> npcInteractions = new HashMap<>();
     private static final HashMap<Integer, PluginInteraction> objectInteractions = new HashMap<>();
     private static final HashMap<Integer, PluginInteraction> useWithInteractions = new HashMap<>();
     private static final HashMap<Integer, PluginInteraction> groundItemInteractions = new HashMap<>();
 
-    /**
-     * Register.
-     *
-     * @param interaction the interaction
-     * @param type        the type
-     */
     public static void register(PluginInteraction interaction, InteractionType type) {
         switch (type) {
             case OBJECT:
@@ -47,13 +38,6 @@ public class PluginInteractionManager {
         }
     }
 
-    /**
-     * Handle boolean.
-     *
-     * @param player the player
-     * @param object the object
-     * @return the boolean
-     */
     public static boolean handle(Player player, Scenery object) {
         PluginInteraction i = objectInteractions.get(object.getId());
         if (i == null) {
@@ -63,13 +47,6 @@ public class PluginInteractionManager {
         }
     }
 
-    /**
-     * Handle boolean.
-     *
-     * @param player the player
-     * @param event  the event
-     * @return the boolean
-     */
     public static boolean handle(Player player, NodeUsageEvent event) {
         PluginInteraction i = useWithInteractions.get(event.getUsed().asItem().getId());
         if (i == null) {
@@ -79,14 +56,6 @@ public class PluginInteractionManager {
         }
     }
 
-    /**
-     * Handle boolean.
-     *
-     * @param player the player
-     * @param npc    the npc
-     * @param option the option
-     * @return the boolean
-     */
     public static boolean handle(Player player, NPC npc, Option option) {
         PluginInteraction i = npcInteractions.get(npc.getId());
         if (i == null) {
@@ -96,14 +65,6 @@ public class PluginInteractionManager {
         }
     }
 
-    /**
-     * Handle boolean.
-     *
-     * @param player the player
-     * @param item   the item
-     * @param option the option
-     * @return the boolean
-     */
     public static boolean handle(Player player, Item item, Option option) {
         PluginInteraction i = groundItemInteractions.get(item.getId());
         if (i == null) {
@@ -113,25 +74,10 @@ public class PluginInteractionManager {
         }
     }
 
-    /**
-     * The enum Interaction type.
-     */
     public enum InteractionType {
-        /**
-         * Npc interaction type.
-         */
         NPC,
-        /**
-         * Object interaction type.
-         */
         OBJECT,
-        /**
-         * Usewith interaction type.
-         */
         USEWITH,
-        /**
-         * Item interaction type.
-         */
         ITEM;
     }
 }

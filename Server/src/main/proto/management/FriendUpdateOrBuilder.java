@@ -7,61 +7,21 @@ public interface FriendUpdateOrBuilder extends
         // @@protoc_insertion_point(interface_extends:management.FriendUpdate)
         com.google.protobuf.MessageOrBuilder {
 
-    /**
-     * <code>required .management.FriendUpdate.Type type = 1;</code>
-     *
-     * @return Whether the type field is set.
-     */
     boolean hasType();
 
-    /**
-     * <code>required .management.FriendUpdate.Type type = 1;</code>
-     *
-     * @return The type.
-     */
     proto.management.FriendUpdate.Type getType();
 
-    /**
-     * <code>required string username = 2;</code>
-     *
-     * @return Whether the username field is set.
-     */
     boolean hasUsername();
 
-    /**
-     * <code>required string username = 2;</code>
-     *
-     * @return The username.
-     */
     java.lang.String getUsername();
 
-    /**
-     * <code>required string username = 2;</code>
-     *
-     * @return The bytes for username.
-     */
     com.google.protobuf.ByteString
     getUsernameBytes();
 
-    /**
-     * <code>required string friend = 3;</code>
-     *
-     * @return Whether the friend field is set.
-     */
     boolean hasFriend();
 
-    /**
-     * <code>required string friend = 3;</code>
-     *
-     * @return The friend.
-     */
     java.lang.String getFriend();
 
-    /**
-     * <code>required string friend = 3;</code>
-     *
-     * @return The bytes for friend.
-     */
     com.google.protobuf.ByteString
     getFriendBytes();
 }

@@ -198,7 +198,9 @@ public abstract class Familiar extends NPC implements Plugin<Object> {
     }
 
     public abstract Familiar construct(Player owner, int id);
+
     protected abstract boolean specialMove(FamiliarSpecial special);
+
     protected void handleFamiliarTick() {
     }
 

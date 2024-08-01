@@ -44,9 +44,6 @@ public final class WaterSpell extends CombatSpell {
 
     private static final Animation ANIMATION = new Animation(711, Priority.HIGH);
 
-    /**
-     * Instantiates a new Water spell.
-     */
     public WaterSpell() {
 
     }

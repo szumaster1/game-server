@@ -16,9 +16,6 @@ import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
-/**
- * The Warstrike special handler.
- */
 @Initializable
 public final class WarstrikeSpecialHandler extends MeleeSwingHandler implements Plugin<Object> {
 

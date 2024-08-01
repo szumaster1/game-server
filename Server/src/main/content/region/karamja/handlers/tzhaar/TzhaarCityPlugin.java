@@ -12,9 +12,6 @@ import core.game.world.map.Location;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
-/**
- * The Tzhaar city plugin.
- */
 @Initializable
 public final class TzhaarCityPlugin extends OptionHandler {
 

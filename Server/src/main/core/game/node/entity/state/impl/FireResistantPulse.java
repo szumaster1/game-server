@@ -7,36 +7,14 @@ import core.game.world.GameWorld;
 
 import java.nio.ByteBuffer;
 
-/**
- * The pulse used for fire-resistant.
- *
- * @author Vexia
- */
 public class FireResistantPulse extends StatePulse {
 
-    /**
-     * The time to finish.
-     */
     private static int END_TIME = GameWorld.getSettings().isDevMode() ? 30 : 600;
 
-    /**
-     * The current tick.
-     */
     private int currentTick;
 
-    /**
-     * If the potion is an extended anti-fire.
-     */
     private boolean extended;
 
-    /**
-     * Constructs a new {@code FireResistantPulse} {@code Object}
-     *
-     * @param entity      the entity.
-     * @param ticks       the ticks.
-     * @param currentTick the current tick
-     * @param extended    the extended
-     */
     public FireResistantPulse(Entity entity, int ticks, int currentTick, boolean extended) {
         super(entity, ticks);
         this.extended = extended;

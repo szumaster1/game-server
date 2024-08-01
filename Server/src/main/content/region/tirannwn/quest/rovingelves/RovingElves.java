@@ -8,9 +8,6 @@ import core.game.node.item.Item;
 import core.plugin.ClassScanner;
 import core.plugin.Initializable;
 
-/**
- * The Roving elves.
- */
 @Initializable
 public class RovingElves extends Quest {
 

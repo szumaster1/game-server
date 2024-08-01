@@ -13,9 +13,6 @@ import core.plugin.ClassScanner;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
-/**
- * The Dwarf multi cannon plugin.
- */
 @Initializable
 public final class DwarfMultiCannonPlugin extends OptionHandler {
 

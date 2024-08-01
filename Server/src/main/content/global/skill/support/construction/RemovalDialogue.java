@@ -7,9 +7,6 @@ import core.plugin.Initializable;
 
 import java.util.Locale;
 
-/**
- * The Removal dialogue.
- */
 @Initializable
 public final class RemovalDialogue extends Dialogue {
 
@@ -19,18 +16,10 @@ public final class RemovalDialogue extends Dialogue {
 
     private Room room;
 
-    /**
-     * Instantiates a new Removal dialogue.
-     */
     public RemovalDialogue() {
         super();
     }
 
-    /**
-     * Instantiates a new Removal dialogue.
-     *
-     * @param player the player
-     */
     public RemovalDialogue(Player player) {
         super(player);
     }

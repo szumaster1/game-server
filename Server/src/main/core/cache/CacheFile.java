@@ -7,47 +7,18 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 
-/**
- * A cache file.
- *
- * @author Dragonkk
- */
 public final class CacheFile {
 
-    /**
-     * The index file id.
-     */
     private int indexFileId;
 
-    /**
-     * The cache file buffer.
-     */
     private byte[] cacheFileBuffer;
 
-    /**
-     * The maximum container size.
-     */
     private int maxContainerSize;
 
-    /**
-     * The index file.
-     */
     private RandomAccessFile indexFile;
 
-    /**
-     * The data file.
-     */
     private RandomAccessFile dataFile;
 
-    /**
-     * Construct a new cache file.
-     *
-     * @param indexFileId      The index file id.
-     * @param indexFile        The index file.
-     * @param dataFile         The data file.
-     * @param maxContainerSize The maximum container size.
-     * @param cacheFileBuffer  The cache file buffer.
-     */
     public CacheFile(int indexFileId, RandomAccessFile indexFile, RandomAccessFile dataFile, int maxContainerSize, byte[] cacheFileBuffer) {
         this.cacheFileBuffer = cacheFileBuffer;
         this.indexFileId = indexFileId;
@@ -56,13 +27,6 @@ public final class CacheFile {
         this.dataFile = dataFile;
     }
 
-    /**
-     * Get the unpacked container data.
-     *
-     * @param containerId The container id.
-     * @param xteaKeys    The container keys.
-     * @return The unpacked container data.
-     */
     public final byte[] getContainerUnpackedData(int containerId, int[] xteaKeys) {
         byte[] packedData = getContainerData(containerId);
         if (packedData == null) {
@@ -74,12 +38,6 @@ public final class CacheFile {
         return ContainersInformation.unpackCacheContainer(packedData);
     }
 
-    /**
-     * Get the container data for the specified container id.
-     *
-     * @param containerId The container id.
-     * @return The container data.
-     */
     public final byte[] getContainerData(int containerId) {
         synchronized (dataFile) {
             try {
@@ -133,19 +91,10 @@ public final class CacheFile {
         }
     }
 
-    /**
-     * Get the index file id.
-     */
     public int getIndexFileId() {
         return indexFileId;
     }
 
-    /**
-     * Get the unpacked container data.
-     *
-     * @param containerId The container id.
-     * @return The unpacked container data.
-     */
     public final byte[] getContainerUnpackedData(int containerId) {
         return getContainerUnpackedData(containerId, null);
     }

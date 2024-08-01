@@ -10,24 +10,12 @@ import java.nio.ByteBuffer;
 
 import static core.api.ContentAPIKt.log;
 
-/**
- * A cache reader.
- */
 public final class Cache {
 
-    /**
-     * The cache file manager.
-     */
     private static CacheFileManager[] cacheFileManagers;
 
-    /**
-     * The container cache file informer.
-     */
     private static CacheFile referenceFile;
 
-    /**
-     * Construct a new instance.
-     */
     private Cache(String location) {
         try {
             init(location);
@@ -36,12 +24,6 @@ public final class Cache {
         }
     }
 
-    /**
-     * Initialize the cache reader.
-     *
-     * @param path The cache path.x
-     * @throws Throwable When an exception occurs.
-     */
     public static void init(String path) throws Throwable {
         log(Cache.class, Log.FINE, "Initializing cache...");
         byte[] cacheFileBuffer = new byte[520];
@@ -65,9 +47,6 @@ public final class Cache {
         SceneryDefinition.parse();
     }
 
-    /**
-     * Initializes the cache.
-     */
     public static void init() {
         try {
             init(ServerConstants.CACHE_PATH);
@@ -76,15 +55,6 @@ public final class Cache {
         }
     }
 
-    /**
-     * Gets the archive buffer for the grab requests.
-     *
-     * @param index           The index id.
-     * @param archive         The archive id.
-     * @param priority        The priority.
-     * @param encryptionValue The current encryption value.
-     * @return The byte buffer.
-     */
     public static ByteBuffer getArchiveData(int index, int archive, boolean priority, int encryptionValue) {
         byte[] data = index == 255 ? referenceFile.getContainerData(archive) : cacheFileManagers[index].getCacheFile().getContainerData(archive);
         if (data == null || data.length < 1) {
@@ -121,11 +91,6 @@ public final class Cache {
         return buffer;
     }
 
-    /**
-     * Generate the reference data for the cache files.
-     *
-     * @return The reference data byte array.
-     */
     public static final byte[] generateReferenceData() {
         ByteBuffer buffer = ByteBuffer.allocate(cacheFileManagers.length * 8);
         for (int index = 0; index < cacheFileManagers.length; index++) {
@@ -140,88 +105,42 @@ public final class Cache {
         return buffer.array();
     }
 
-    /**
-     * Get the cache file managers.
-     *
-     * @return The cache file managers.
-     */
     public static final CacheFileManager[] getIndexes() {
         return cacheFileManagers;
     }
 
-    /**
-     * Get the container cache file informer.
-     *
-     * @return The container cache file informer.
-     */
     public static final CacheFile getReferenceFile() {
         return referenceFile;
     }
 
-    /**
-     * Method used to return the component size of the interface.
-     *
-     * @param interfaceId the interface.
-     * @return the value.
-     */
     public static final int getInterfaceDefinitionsComponentsSize(int interfaceId) {
         return getIndexes()[3].getFilesSize(interfaceId);
     }
 
-    /**
-     * Method used to return the max size of the interface definitions.
-     *
-     * @return the size.
-     */
     public static final int getInterfaceDefinitionsSize() {
         return getIndexes()[3].getContainersSize();
     }
 
-    /**
-     * Method used to return the {@link NPCDefinition} size.
-     *
-     * @return the size.
-     */
     public static final int getNPCDefinitionsSize() {
         int lastContainerId = getIndexes()[18].getContainersSize() - 1;
         return lastContainerId * 128 + getIndexes()[18].getFilesSize(lastContainerId);
     }
 
-    /**
-     * Method used to return the {@link GraphicDefinition} size.
-     *
-     * @return the size.
-     */
     public static final int getGraphicDefinitionsSize() {
         int lastContainerId = getIndexes()[21].getContainersSize() - 1;
         return lastContainerId * 256 + getIndexes()[21].getFilesSize(lastContainerId);
     }
 
-    /**
-     * Method used to return the {@link AnimationDefinition} size.
-     *
-     * @return the size.
-     */
     public static final int getAnimationDefinitionsSize() {
         int lastContainerId = getIndexes()[20].getContainersSize() - 1;
         return lastContainerId * 128 + getIndexes()[20].getFilesSize(lastContainerId);
     }
 
-    /**
-     * Method used to return the {@link SceneryDefinition} size.
-     *
-     * @return the size.
-     */
     public static final int getObjectDefinitionsSize() {
         int lastContainerId = getIndexes()[16].getContainersSize() - 1;
         return lastContainerId * 256 + getIndexes()[16].getFilesSize(lastContainerId);
     }
 
-    /**
-     * Method used to return the item definition size.
-     *
-     * @return the size.
-     */
     public static final int getItemDefinitionsSize() {
         int lastContainerId = getIndexes()[19].getContainersSize() - 1;
         return lastContainerId * 256 + getIndexes()[19].getFilesSize(lastContainerId);

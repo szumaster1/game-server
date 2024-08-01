@@ -11,31 +11,14 @@ import core.game.world.map.zone.ZoneRestriction;
 
 import static core.api.ContentAPIKt.*;
 
-/**
- * Handles the player owned house zone.
- */
 public final class HouseZone extends MapZone {
 
-    /**
-     * The house manager.
-     */
     private HouseManager house;
 
-    /**
-     * The previous house region id.
-     */
     private int previousRegion = -1;
 
-    /**
-     * The previous dungeon region id.
-     */
     private int previousDungeon = -1;
 
-    /**
-     * Constructs the house zone object.
-     *
-     * @param house the house
-     */
     public HouseZone(HouseManager house) {
         super("poh-zone" + house, true, ZoneRestriction.RANDOM_EVENTS, ZoneRestriction.FOLLOWERS);
         this.house = house;

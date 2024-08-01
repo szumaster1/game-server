@@ -25,87 +25,38 @@ import java.util.Map.Entry;
 import static core.api.ContentAPIKt.log;
 import static core.api.ContentAPIKt.setVarp;
 
-/**
- * Holds communication information.
- *
- * @author Emperor
- */
 public final class CommunicationInfo {
 
-    /**
-     * The maximum list size.
-     */
     public static final int MAX_LIST_SIZE = 200;
 
-    /**
-     * The clan ranks.
-     */
     private Map<String, Contact> contacts = new HashMap<>();
 
-    /**
-     * The list of blocked players.
-     */
     private final List<String> blocked = new ArrayList<>(20);
 
-    /**
-     * The player's clan name.
-     */
     private String clanName = "";
 
-    /**
-     * The current clan this player is in.
-     */
     private String currentClan = "";
 
-    /**
-     * The rank required for joining.
-     */
     private ClanRank joinRequirement = ClanRank.FRIEND;
 
-    /**
-     * The rank required for messaging.
-     */
     private ClanRank messageRequirement = ClanRank.NONE;
 
-    /**
-     * The rank required for kicking members.
-     */
     private ClanRank kickRequirement = ClanRank.OWNER;
 
-    /**
-     * The rank required for loot-share.
-     */
     private ClanRank lootRequirement = ClanRank.ADMINISTRATOR;
 
-    /**
-     * If lootshare is enabled.
-     */
     private boolean lootShare;
 
-    /**
-     * The current clan joined.
-     */
     private ClanRepository clan = null;
 
-    /**
-     * The loot-share pulse.
-     */
     private Pulse lootSharePulse;
 
-    /**
-     * Constructs a new {@code CommunicationInfo} {@code Object}.
-     */
     public CommunicationInfo() {
         /*
          * empty.
          */
     }
 
-    /**
-     * Saves the communication info.
-     *
-     * @param table The SQL table to update.
-     */
     public void save(SQLTable table) {
         String contacts = "";
         String blocked = "";
@@ -124,11 +75,6 @@ public final class CommunicationInfo {
         table.getColumn("clanReqs").updateValue(joinRequirement.ordinal() + "," + messageRequirement.ordinal() + "," + kickRequirement.ordinal() + "," + lootRequirement.ordinal());
     }
 
-    /**
-     * Parses the communication info from the database.
-     *
-     * @param table The sql table to parse.
-     */
     public void parse(SQLTable table) {
         String[] tokens = null;
         if (table.getColumn("contacts").getValue() != null) {
@@ -191,11 +137,6 @@ public final class CommunicationInfo {
         }
     }
 
-    /**
-     * Toggles the loot-share.
-     *
-     * @param player the player
-     */
     public void toggleLootshare(final Player player) {
         if (lootShare) {
             lootShare = false;
@@ -219,11 +160,6 @@ public final class CommunicationInfo {
         }
     }
 
-    /**
-     * Roar temp
-     *
-     * @param buffer the buffer
-     */
     public void parsePrevious(ByteBuffer buffer) {
         int size = buffer.get() & 0xFF;
         for (int i = 0; i < size; i++) {
@@ -241,13 +177,6 @@ public final class CommunicationInfo {
         }
     }
 
-    /**
-     * Sends a message to the target.
-     *
-     * @param player  The player sending the message.
-     * @param target  The target.
-     * @param message The message to send.
-     */
     public static void sendMessage(Player player, String target, String message) {
         PrivateMessage.Builder builder = PrivateMessage.newBuilder();
         builder.setSender(player.getName());
@@ -257,12 +186,6 @@ public final class CommunicationInfo {
         ManagementEvents.publish(builder.build());
     }
 
-    /**
-     * Adds a contact.
-     *
-     * @param player  the player
-     * @param contact The contact to add.
-     */
     public static void add(Player player, String contact) {
         CommunicationInfo info = player.getDetails().getCommunication();
         if (contact.isEmpty()) {
@@ -297,13 +220,6 @@ public final class CommunicationInfo {
         }
     }
 
-    /**
-     * Removes a contact.
-     *
-     * @param player  the player
-     * @param contact The contact to remove.
-     * @param block   If the contact should be removed from the block list.
-     */
     public static void remove(Player player, String contact, boolean block) {
         if (contact.isEmpty()) {
             player.sendMessage("Unable to find a player by that name. Please try again.");
@@ -339,12 +255,6 @@ public final class CommunicationInfo {
         }
     }
 
-    /**
-     * Adds a blocked contact.
-     *
-     * @param player  the player
-     * @param contact The contact to block.
-     */
     public static void block(Player player, String contact) {
         if (contact.isEmpty()) {
             player.sendMessage("Unable to find a player by that name. Please try again.");
@@ -370,13 +280,6 @@ public final class CommunicationInfo {
         }
     }
 
-    /**
-     * Updates the clan rank of a certain contact.
-     *
-     * @param player   the player
-     * @param contact  The contact.
-     * @param clanRank The clan rank to set.
-     */
     public static void updateClanRank(Player player, String contact, ClanRank clanRank) {
         if (contact.isEmpty()) {
             player.sendMessage("Unable to find a player by that name. Please try again.");
@@ -400,24 +303,10 @@ public final class CommunicationInfo {
         PacketRepository.send(ContactPackets.class, new ContactContext(player, contact, worldId));
     }
 
-    /**
-     * Checks if the player has the contact added.
-     *
-     * @param player  The player.
-     * @param contact The contact.
-     * @return {@code True} if so.
-     */
     public static boolean hasContact(Player player, String contact) {
         return player.getDetails().getCommunication().contacts.containsKey(contact);
     }
 
-    /**
-     * Checks if the target should be shown as online.
-     *
-     * @param player the player
-     * @param name   The target's name.
-     * @return {@code True} if so.
-     */
     public static boolean showActive(Player player, String name) {
         Player p = Repository.getPlayerByName(name);
         if (p != null) {
@@ -426,13 +315,6 @@ public final class CommunicationInfo {
         return false;
     }
 
-    /**
-     * Checks if the target should be shown as online.
-     *
-     * @param player the player
-     * @param target The target.
-     * @return {@True} if so.
-     */
     public static boolean showActive(Player player, Player target) {
         if (target.getName().equals(player.getName())) {
             return false;
@@ -452,175 +334,80 @@ public final class CommunicationInfo {
         return true;
     }
 
-    /**
-     * Gets the contacts value.
-     *
-     * @return The contacts.
-     */
     public Map<String, Contact> getContacts() {
         return contacts;
     }
 
-    /**
-     * Gets the blocked value.
-     *
-     * @return The blocked.
-     */
     public List<String> getBlocked() {
         return blocked;
     }
 
-    /**
-     * Gets the clanName value.
-     *
-     * @return The clanName.
-     */
     public String getClanName() {
         return clanName;
     }
 
-    /**
-     * Sets the clanName value.
-     *
-     * @param clanName The clanName to set.
-     */
     public void setClanName(String clanName) {
         this.clanName = clanName;
     }
 
-    /**
-     * Gets the currentClan value.
-     *
-     * @return The currentClan.
-     */
     public String getCurrentClan() {
         return currentClan == null ? "" : currentClan;
     }
 
-    /**
-     * Sets the currentClan value.
-     *
-     * @param currentClan The currentClan to set.
-     */
     @Deprecated
     public void setCurrentClan(String currentClan) {
         this.currentClan = currentClan;
     }
 
-    /**
-     * Gets the joinRequirement value.
-     *
-     * @return The joinRequirement.
-     */
     public ClanRank getJoinRequirement() {
         return joinRequirement;
     }
 
-    /**
-     * Sets the joinRequirement value.
-     *
-     * @param joinRequirement The joinRequirement to set.
-     */
     public void setJoinRequirement(ClanRank joinRequirement) {
         this.joinRequirement = joinRequirement;
     }
 
-    /**
-     * Gets the messageRequirement value.
-     *
-     * @return The messageRequirement.
-     */
     public ClanRank getMessageRequirement() {
         return messageRequirement;
     }
 
-    /**
-     * Sets the messageRequirement value.
-     *
-     * @param messageRequirement The messageRequirement to set.
-     */
     public void setMessageRequirement(ClanRank messageRequirement) {
         this.messageRequirement = messageRequirement;
     }
 
-    /**
-     * Gets the kickRequirement value.
-     *
-     * @return The kickRequirement.
-     */
     public ClanRank getKickRequirement() {
         return kickRequirement;
     }
 
-    /**
-     * Sets the kickRequirement value.
-     *
-     * @param kickRequirement The kickRequirement to set.
-     */
     public void setKickRequirement(ClanRank kickRequirement) {
         this.kickRequirement = kickRequirement;
     }
 
-    /**
-     * Gets the lootRequirement value.
-     *
-     * @return The lootRequirement.
-     */
     public ClanRank getLootRequirement() {
         return lootRequirement;
     }
 
-    /**
-     * Sets the lootRequirement value.
-     *
-     * @param lootRequirement The lootRequirement to set.
-     */
     public void setLootRequirement(ClanRank lootRequirement) {
         this.lootRequirement = lootRequirement;
     }
 
-    /**
-     * Gets the clan.
-     *
-     * @return the clan
-     */
     public ClanRepository getClan() {
         return clan;
     }
 
-    /**
-     * Sets the clan.
-     *
-     * @param clan the clan to set.
-     */
     public void setClan(ClanRepository clan) {
         this.clan = clan;
         this.currentClan = clan == null ? null : clan.getOwner();
     }
 
-    /**
-     * Gets the lootShare.
-     *
-     * @return the lootShare
-     */
     public boolean isLootShare() {
         return lootShare;
     }
 
-    /**
-     * Sets the lootShare.
-     *
-     * @param lootShare the lootShare to set.
-     */
     public void setLootShare(boolean lootShare) {
         this.lootShare = lootShare;
     }
 
-    /**
-     * Parse.
-     *
-     * @param accountInfo the account info
-     */
     public void parse(@NotNull UserAccountInfo accountInfo) {
         blocked.addAll(Arrays.asList(accountInfo.getBlocked().split(",")));
         clanName = accountInfo.getClanName();
@@ -637,12 +424,6 @@ public final class CommunicationInfo {
         this.contacts = parseContacts(contacts);
     }
 
-    /**
-     * Parse clan requirements clan rank [ ].
-     *
-     * @param clanReqs the clan reqs
-     * @return the clan rank [ ]
-     */
     public static ClanRank[] parseClanRequirements(String clanReqs) {
         ClanRank[] requirements = new ClanRank[4];
         String[] tokens = clanReqs.split(",");
@@ -677,12 +458,6 @@ public final class CommunicationInfo {
         return requirements;
     }
 
-    /**
-     * Parse contacts hash map.
-     *
-     * @param contacts the contacts
-     * @return the hash map
-     */
     public static HashMap<String, Contact> parseContacts(String contacts) {
         HashMap<String, Contact> theseContacts = new HashMap<>();
         String[] tokens;
@@ -703,11 +478,6 @@ public final class CommunicationInfo {
         return theseContacts;
     }
 
-    /**
-     * Gets contact string.
-     *
-     * @return the contact string
-     */
     public String getContactString() {
         StringBuilder sb = new StringBuilder();
 
@@ -724,11 +494,6 @@ public final class CommunicationInfo {
         return sb.toString();
     }
 
-    /**
-     * Gets blocked string.
-     *
-     * @return the blocked string
-     */
     public String getBlockedString() {
         StringBuilder sb = new StringBuilder();
 
@@ -741,11 +506,6 @@ public final class CommunicationInfo {
         return sb.toString();
     }
 
-    /**
-     * Gets clan req string.
-     *
-     * @return the clan req string
-     */
     public String getClanReqString() {
         return
             joinRequirement.ordinal()

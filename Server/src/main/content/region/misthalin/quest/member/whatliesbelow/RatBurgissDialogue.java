@@ -427,21 +427,11 @@ public class RatBurgissDialogue extends Dialogue {
     }
 
 
-    /**
-     * Is diary boolean.
-     *
-     * @return the boolean
-     */
     public boolean isDiary() {
         return isDiary;
     }
 
 
-    /**
-     * Sets diary.
-     *
-     * @param isDiary the is diary
-     */
     public void setDiary(boolean isDiary) {
         this.isDiary = isDiary;
     }

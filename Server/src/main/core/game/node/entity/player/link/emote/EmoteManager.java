@@ -7,28 +7,12 @@ import java.util.List;
 
 import static core.api.ContentAPIKt.setVarp;
 
-/**
- * Manages the players unlocked/locked emotes.
- *
- * @author Vexia
- */
 public class EmoteManager {
 
-    /**
-     * The list of unlocked emotes.
-     */
     private final List<Emotes> emotes = new ArrayList<>(20);
 
-    /**
-     * The player.
-     */
     private final Player player;
 
-    /**
-     * Constructs a new {@code EmoteManager} {@code Object}
-     *
-     * @param player the player.
-     */
     public EmoteManager(Player player) {
         this.player = player;
         for (int i = 0; i < 22; i++) {
@@ -36,9 +20,6 @@ public class EmoteManager {
         }
     }
 
-    /**
-     * Refreshes the emote tab.
-     */
     public void refresh() {
         int value1 = 0;
         if (isUnlocked(Emotes.IDEA)) {
@@ -112,12 +93,6 @@ public class EmoteManager {
         setVarp(player, 1085, value3, false);
     }
 
-    /**
-     * Locks an emote.
-     *
-     * @param emote the emote.
-     * @return {@code True} if locked.
-     */
     public boolean lock(Emotes emote) {
         if (emote.ordinal() <= 22) {
             return false;
@@ -127,12 +102,6 @@ public class EmoteManager {
         return locked;
     }
 
-    /**
-     * Unlocks an emote.
-     *
-     * @param emote the emote.
-     * @return {@code True} if unlocked.
-     */
     public boolean unlock(Emotes emote) {
         if (emotes.contains(emote)) {
             return true;
@@ -142,21 +111,10 @@ public class EmoteManager {
         return unlocked;
     }
 
-    /**
-     * Checks if an emote is unlocked.
-     *
-     * @param emote the emote.
-     * @return {@code True} if so.
-     */
     public boolean isUnlocked(Emotes emote) {
         return emotes.contains(emote);
     }
 
-    /**
-     * Checks if a save is required.
-     *
-     * @return {@code True} if so.
-     */
     public boolean isSaveRequired() {
         for (Emotes emote : emotes) {
             if (emote.ordinal() > 21) {
@@ -166,20 +124,10 @@ public class EmoteManager {
         return false;
     }
 
-    /**
-     * Gets the emotes.
-     *
-     * @return the emotes.
-     */
     public List<Emotes> getEmotes() {
         return emotes;
     }
 
-    /**
-     * Gets the player.
-     *
-     * @return the player.
-     */
     public Player getPlayer() {
         return player;
     }

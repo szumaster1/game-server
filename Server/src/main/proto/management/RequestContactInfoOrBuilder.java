@@ -7,39 +7,14 @@ public interface RequestContactInfoOrBuilder extends
         // @@protoc_insertion_point(interface_extends:management.RequestContactInfo)
         com.google.protobuf.MessageOrBuilder {
 
-    /**
-     * <code>required string username = 1;</code>
-     *
-     * @return Whether the username field is set.
-     */
     boolean hasUsername();
 
-    /**
-     * <code>required string username = 1;</code>
-     *
-     * @return The username.
-     */
     java.lang.String getUsername();
 
-    /**
-     * <code>required string username = 1;</code>
-     *
-     * @return The bytes for username.
-     */
     com.google.protobuf.ByteString
     getUsernameBytes();
 
-    /**
-     * <code>required int32 world = 2;</code>
-     *
-     * @return Whether the world field is set.
-     */
     boolean hasWorld();
 
-    /**
-     * <code>required int32 world = 2;</code>
-     *
-     * @return The world.
-     */
     int getWorld();
 }

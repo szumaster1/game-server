@@ -7,9 +7,6 @@ import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Represents an animation's definitions.
- */
 public final class AnimationDefinition {
 
     public int anInt2136;
@@ -69,11 +66,6 @@ public final class AnimationDefinition {
         }
     }
 
-    /**
-     * Gets the duration of this animation in milliseconds.
-     *
-     * @return The duration.
-     */
     public int getDuration() {
         if (durations == null) {
             return 0;
@@ -97,11 +89,6 @@ public final class AnimationDefinition {
         return duration;
     }
 
-    /**
-     * Gets the duration of this animation in (600ms) ticks.
-     *
-     * @return The duration in ticks.
-     */
     public int getDurationTicks() {
         int ticks = getDuration() / 600;
         return Math.max(ticks, 1);

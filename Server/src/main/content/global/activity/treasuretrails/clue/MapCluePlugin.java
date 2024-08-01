@@ -6,42 +6,17 @@ import core.game.world.map.Location;
 import core.game.world.map.zone.ZoneBorders;
 import core.plugin.Plugin;
 
-/**
- * Initializes the map clues.
- * @author Vexia
- */
 public final class MapCluePlugin extends MapClueScroll {
 
-	/**
-	 * Constructs a new {@code MapCluePlugin} {@code Object}
-	 */
-	public MapCluePlugin() {
+    public MapCluePlugin() {
 		this(null, -1, null, -1, null);
 	}
 
-	/**
-	 * Constructs a new {@code MapCluePlugin} {@code Object}
-	 * @param name the name.
-	 * @param clueId the clue id.
-	 * @param level the level.
-	 * @param interfaceId the interface id.
-	 * @param location the location.
-	 */
-	public MapCluePlugin(String name, int clueId, ClueLevel level, int interfaceId, Location location) {
+    public MapCluePlugin(String name, int clueId, ClueLevel level, int interfaceId, Location location) {
 		super(name, clueId, level, interfaceId, location);
 	}
 
-	/**
-	 * Constructs a new {@code MapCluePlugin} {@code Object}
-	 * @param name the name.
-	 * @param clueId the clue id.
-	 * @param level the level.
-	 * @param interfaceId the interface id.
-	 * @param location the location.
-	 * @param object the object.
-	 * @param borders the borders.
-	 */
-	public MapCluePlugin(String name, int clueId, ClueLevel level, int interfaceId, Location location, int object, ZoneBorders... borders) {
+    public MapCluePlugin(String name, int clueId, ClueLevel level, int interfaceId, Location location, int object, ZoneBorders... borders) {
 		super(name, clueId, level, interfaceId, location, object, borders);
 	}
 

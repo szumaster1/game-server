@@ -16,9 +16,6 @@ import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
-/**
- * The Quick smash special handler.
- */
 @Initializable
 public final class QuickSmashSpecialHandler extends MeleeSwingHandler implements Plugin<Object> {
 

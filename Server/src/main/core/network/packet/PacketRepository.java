@@ -11,16 +11,8 @@ import java.util.Map;
 
 import static core.api.ContentAPIKt.log;
 
-/**
- * The packet repository.
- *
- * @author Emperor
- */
 public final class PacketRepository {
 
-    /**
-     * The outgoing packets mapping.
-     */
     public final static Map<Class<?>, OutgoingPacket<? extends Context>> OUTGOING_PACKETS = new HashMap<>();
 
     static {
@@ -76,12 +68,6 @@ public final class PacketRepository {
         OUTGOING_PACKETS.put(InterfaceSetAngle.class, new InterfaceSetAngle());
     }
 
-    /**
-     * Sends a new packet.
-     *
-     * @param clazz   The class of the outgoing packet to send.
-     * @param context The context.
-     */
     @SuppressWarnings({"rawtypes", "unchecked"})
     public static void send(Class<? extends OutgoingPacket> clazz, Context context) {
         if (context.getPlayer() instanceof AIPlayer) return;

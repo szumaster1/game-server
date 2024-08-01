@@ -489,21 +489,11 @@ public class SurokMagisDialogue extends Dialogue {
     }
 
 
-    /**
-     * Gets cutscene.
-     *
-     * @return the cutscene
-     */
     public WhatLiesBelowCutscene getCutscene() {
         return cutscene;
     }
 
 
-    /**
-     * Sets cutscene.
-     *
-     * @param cutscene the cutscene
-     */
     public void setCutscene(WhatLiesBelowCutscene cutscene) {
         this.cutscene = cutscene;
     }

@@ -22,9 +22,6 @@ import core.plugin.Initializable;
 
 import static core.api.ContentAPIKt.*;
 
-/**
- * The Agility pyramid course.
- */
 @Initializable
 public final class AgilityPyramidCourse extends AgilityCourse {
 
@@ -38,18 +35,10 @@ public final class AgilityPyramidCourse extends AgilityCourse {
 
     private static final Location[][] GAP_CROSS_LOCATIONS = new Location[][]{{new Location(3368, 2831, 1), new Location(3370, 2831, 1), Location.create(3372, 2832, 1), Location.create(3367, 2832, 1), Location.create(3371, 2832, 1), Location.create(3368, 2832, 1)}, {new Location(3356, 2837, 2), new Location(3356, 2839, 2), Location.create(3357, 2841, 2), Location.create(3357, 2836, 2), Location.create(3357, 2840, 2), Location.create(3357, 2837, 2)}, {new Location(3360, 2849, 2), new Location(3362, 2849, 2), Location.create(3359, 2849, 2), Location.create(3364, 2849, 2), Location.create(3363, 2849, 2), Location.create(3360, 2849, 2)}};
 
-    /**
-     * Instantiates a new Agility pyramid course.
-     */
     public AgilityPyramidCourse() {
         this(null);
     }
 
-    /**
-     * Instantiates a new Agility pyramid course.
-     *
-     * @param player the player
-     */
     public AgilityPyramidCourse(Player player) {
         super(player, 5, 0);
     }
@@ -350,12 +339,6 @@ public final class AgilityPyramidCourse extends AgilityCourse {
         }
     }
 
-    /**
-     * Transform level location.
-     *
-     * @param location the location
-     * @return the location
-     */
     public static Location transformLevel(Location location) {
         int xDiff = 320;
         int yDiff = 1856;
@@ -409,14 +392,6 @@ public final class AgilityPyramidCourse extends AgilityCourse {
         return AgilityHandler.hasFailed(player, 10, mod);
     }
 
-    /**
-     * Add config.
-     *
-     * @param player   the player
-     * @param objectId the object id
-     * @param value    the value
-     * @param save     the save
-     */
     public static void addConfig(final Player player, final int objectId, final int value, boolean save) {
         final VarbitDefinition definition = VarbitDefinition.forObjectID(SceneryDefinition.forId(objectId).getVarbitID());
         final int oldVal = (definition.getValue(player) << definition.getStartBit());
@@ -424,14 +399,6 @@ public final class AgilityPyramidCourse extends AgilityCourse {
         setVarp(player, CONFIG_ID, (getVarp(player, CONFIG_ID) - oldVal) + newVal, save);
     }
 
-    /**
-     * Add config.
-     *
-     * @param player the player
-     * @param object the object
-     * @param value  the value
-     * @param save   the save
-     */
     public static void addConfig(final Player player, final Scenery object, final int value, boolean save) {
         addConfig(player, object.getId(), value, save);
     }

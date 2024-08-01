@@ -3,9 +3,6 @@
 
 package proto.management;
 
-/**
- * Protobuf type {@code management.SendClanInfo}
- */
 public final class SendClanInfo extends
         com.google.protobuf.GeneratedMessageV3 implements
         // @@protoc_insertion_point(message_implements:management.SendClanInfo)
@@ -141,60 +138,22 @@ public final class SendClanInfo extends
             // @@protoc_insertion_point(interface_extends:management.SendClanInfo.ClanMember)
             com.google.protobuf.MessageOrBuilder {
 
-        /**
-         * <code>required string username = 1;</code>
-         *
-         * @return Whether the username field is set.
-         */
         boolean hasUsername();
 
-        /**
-         * <code>required string username = 1;</code>
-         *
-         * @return The username.
-         */
         java.lang.String getUsername();
 
-        /**
-         * <code>required string username = 1;</code>
-         *
-         * @return The bytes for username.
-         */
         com.google.protobuf.ByteString
         getUsernameBytes();
 
-        /**
-         * <code>required int32 world = 2;</code>
-         *
-         * @return Whether the world field is set.
-         */
         boolean hasWorld();
 
-        /**
-         * <code>required int32 world = 2;</code>
-         *
-         * @return The world.
-         */
         int getWorld();
 
-        /**
-         * <code>required int32 rank = 3;</code>
-         *
-         * @return Whether the rank field is set.
-         */
         boolean hasRank();
 
-        /**
-         * <code>required int32 rank = 3;</code>
-         *
-         * @return The rank.
-         */
         int getRank();
     }
 
-    /**
-     * Protobuf type {@code management.SendClanInfo.ClanMember}
-     */
     public static final class ClanMember extends
             com.google.protobuf.GeneratedMessageV3 implements
             // @@protoc_insertion_point(message_implements:management.SendClanInfo.ClanMember)
@@ -295,21 +254,11 @@ public final class SendClanInfo extends
         public static final int USERNAME_FIELD_NUMBER = 1;
         private volatile java.lang.Object username_;
 
-        /**
-         * <code>required string username = 1;</code>
-         *
-         * @return Whether the username field is set.
-         */
         @java.lang.Override
         public boolean hasUsername() {
             return ((bitField0_ & 0x00000001) != 0);
         }
 
-        /**
-         * <code>required string username = 1;</code>
-         *
-         * @return The username.
-         */
         @java.lang.Override
         public java.lang.String getUsername() {
             java.lang.Object ref = username_;
@@ -326,11 +275,6 @@ public final class SendClanInfo extends
             }
         }
 
-        /**
-         * <code>required string username = 1;</code>
-         *
-         * @return The bytes for username.
-         */
         @java.lang.Override
         public com.google.protobuf.ByteString
         getUsernameBytes() {
@@ -349,21 +293,11 @@ public final class SendClanInfo extends
         public static final int WORLD_FIELD_NUMBER = 2;
         private int world_;
 
-        /**
-         * <code>required int32 world = 2;</code>
-         *
-         * @return Whether the world field is set.
-         */
         @java.lang.Override
         public boolean hasWorld() {
             return ((bitField0_ & 0x00000002) != 0);
         }
 
-        /**
-         * <code>required int32 world = 2;</code>
-         *
-         * @return The world.
-         */
         @java.lang.Override
         public int getWorld() {
             return world_;
@@ -372,21 +306,11 @@ public final class SendClanInfo extends
         public static final int RANK_FIELD_NUMBER = 3;
         private int rank_;
 
-        /**
-         * <code>required int32 rank = 3;</code>
-         *
-         * @return Whether the rank field is set.
-         */
         @java.lang.Override
         public boolean hasRank() {
             return ((bitField0_ & 0x00000004) != 0);
         }
 
-        /**
-         * <code>required int32 rank = 3;</code>
-         *
-         * @return The rank.
-         */
         @java.lang.Override
         public int getRank() {
             return rank_;
@@ -613,9 +537,6 @@ public final class SendClanInfo extends
             return builder;
         }
 
-        /**
-         * Protobuf type {@code management.SendClanInfo.ClanMember}
-         */
         public static final class Builder extends
                 com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
                 // @@protoc_insertion_point(builder_implements:management.SendClanInfo.ClanMember)
@@ -807,20 +728,10 @@ public final class SendClanInfo extends
 
             private java.lang.Object username_ = "";
 
-            /**
-             * <code>required string username = 1;</code>
-             *
-             * @return Whether the username field is set.
-             */
             public boolean hasUsername() {
                 return ((bitField0_ & 0x00000001) != 0);
             }
 
-            /**
-             * <code>required string username = 1;</code>
-             *
-             * @return The username.
-             */
             public java.lang.String getUsername() {
                 java.lang.Object ref = username_;
                 if (!(ref instanceof java.lang.String)) {
@@ -836,11 +747,6 @@ public final class SendClanInfo extends
                 }
             }
 
-            /**
-             * <code>required string username = 1;</code>
-             *
-             * @return The bytes for username.
-             */
             public com.google.protobuf.ByteString
             getUsernameBytes() {
                 java.lang.Object ref = username_;
@@ -855,12 +761,6 @@ public final class SendClanInfo extends
                 }
             }
 
-            /**
-             * <code>required string username = 1;</code>
-             *
-             * @param value The username to set.
-             * @return This builder for chaining.
-             */
             public Builder setUsername(
                     java.lang.String value) {
                 if (value == null) {
@@ -872,11 +772,6 @@ public final class SendClanInfo extends
                 return this;
             }
 
-            /**
-             * <code>required string username = 1;</code>
-             *
-             * @return This builder for chaining.
-             */
             public Builder clearUsername() {
                 bitField0_ = (bitField0_ & ~0x00000001);
                 username_ = getDefaultInstance().getUsername();
@@ -884,12 +779,6 @@ public final class SendClanInfo extends
                 return this;
             }
 
-            /**
-             * <code>required string username = 1;</code>
-             *
-             * @param value The bytes for username to set.
-             * @return This builder for chaining.
-             */
             public Builder setUsernameBytes(
                     com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -903,32 +792,16 @@ public final class SendClanInfo extends
 
             private int world_;
 
-            /**
-             * <code>required int32 world = 2;</code>
-             *
-             * @return Whether the world field is set.
-             */
             @java.lang.Override
             public boolean hasWorld() {
                 return ((bitField0_ & 0x00000002) != 0);
             }
 
-            /**
-             * <code>required int32 world = 2;</code>
-             *
-             * @return The world.
-             */
             @java.lang.Override
             public int getWorld() {
                 return world_;
             }
 
-            /**
-             * <code>required int32 world = 2;</code>
-             *
-             * @param value The world to set.
-             * @return This builder for chaining.
-             */
             public Builder setWorld(int value) {
                 bitField0_ |= 0x00000002;
                 world_ = value;
@@ -936,11 +809,6 @@ public final class SendClanInfo extends
                 return this;
             }
 
-            /**
-             * <code>required int32 world = 2;</code>
-             *
-             * @return This builder for chaining.
-             */
             public Builder clearWorld() {
                 bitField0_ = (bitField0_ & ~0x00000002);
                 world_ = 0;
@@ -950,32 +818,16 @@ public final class SendClanInfo extends
 
             private int rank_;
 
-            /**
-             * <code>required int32 rank = 3;</code>
-             *
-             * @return Whether the rank field is set.
-             */
             @java.lang.Override
             public boolean hasRank() {
                 return ((bitField0_ & 0x00000004) != 0);
             }
 
-            /**
-             * <code>required int32 rank = 3;</code>
-             *
-             * @return The rank.
-             */
             @java.lang.Override
             public int getRank() {
                 return rank_;
             }
 
-            /**
-             * <code>required int32 rank = 3;</code>
-             *
-             * @param value The rank to set.
-             * @return This builder for chaining.
-             */
             public Builder setRank(int value) {
                 bitField0_ |= 0x00000004;
                 rank_ = value;
@@ -983,11 +835,6 @@ public final class SendClanInfo extends
                 return this;
             }
 
-            /**
-             * <code>required int32 rank = 3;</code>
-             *
-             * @return This builder for chaining.
-             */
             public Builder clearRank() {
                 bitField0_ = (bitField0_ & ~0x00000004);
                 rank_ = 0;
@@ -1054,21 +901,11 @@ public final class SendClanInfo extends
     public static final int CLANOWNER_FIELD_NUMBER = 1;
     private volatile java.lang.Object clanOwner_;
 
-    /**
-     * <code>required string clanOwner = 1;</code>
-     *
-     * @return Whether the clanOwner field is set.
-     */
     @java.lang.Override
     public boolean hasClanOwner() {
         return ((bitField0_ & 0x00000001) != 0);
     }
 
-    /**
-     * <code>required string clanOwner = 1;</code>
-     *
-     * @return The clanOwner.
-     */
     @java.lang.Override
     public java.lang.String getClanOwner() {
         java.lang.Object ref = clanOwner_;
@@ -1085,11 +922,6 @@ public final class SendClanInfo extends
         }
     }
 
-    /**
-     * <code>required string clanOwner = 1;</code>
-     *
-     * @return The bytes for clanOwner.
-     */
     @java.lang.Override
     public com.google.protobuf.ByteString
     getClanOwnerBytes() {
@@ -1108,21 +940,11 @@ public final class SendClanInfo extends
     public static final int HASINFO_FIELD_NUMBER = 2;
     private boolean hasInfo_;
 
-    /**
-     * <code>required bool hasInfo = 2;</code>
-     *
-     * @return Whether the hasInfo field is set.
-     */
     @java.lang.Override
     public boolean hasHasInfo() {
         return ((bitField0_ & 0x00000002) != 0);
     }
 
-    /**
-     * <code>required bool hasInfo = 2;</code>
-     *
-     * @return The hasInfo.
-     */
     @java.lang.Override
     public boolean getHasInfo() {
         return hasInfo_;
@@ -1131,21 +953,11 @@ public final class SendClanInfo extends
     public static final int CLANNAME_FIELD_NUMBER = 3;
     private volatile java.lang.Object clanName_;
 
-    /**
-     * <code>optional string clanName = 3;</code>
-     *
-     * @return Whether the clanName field is set.
-     */
     @java.lang.Override
     public boolean hasClanName() {
         return ((bitField0_ & 0x00000004) != 0);
     }
 
-    /**
-     * <code>optional string clanName = 3;</code>
-     *
-     * @return The clanName.
-     */
     @java.lang.Override
     public java.lang.String getClanName() {
         java.lang.Object ref = clanName_;
@@ -1162,11 +974,6 @@ public final class SendClanInfo extends
         }
     }
 
-    /**
-     * <code>optional string clanName = 3;</code>
-     *
-     * @return The bytes for clanName.
-     */
     @java.lang.Override
     public com.google.protobuf.ByteString
     getClanNameBytes() {
@@ -1185,21 +992,11 @@ public final class SendClanInfo extends
     public static final int JOINREQUIREMENT_FIELD_NUMBER = 4;
     private int joinRequirement_;
 
-    /**
-     * <code>optional int32 joinRequirement = 4;</code>
-     *
-     * @return Whether the joinRequirement field is set.
-     */
     @java.lang.Override
     public boolean hasJoinRequirement() {
         return ((bitField0_ & 0x00000008) != 0);
     }
 
-    /**
-     * <code>optional int32 joinRequirement = 4;</code>
-     *
-     * @return The joinRequirement.
-     */
     @java.lang.Override
     public int getJoinRequirement() {
         return joinRequirement_;
@@ -1208,21 +1005,11 @@ public final class SendClanInfo extends
     public static final int KICKREQUIREMENT_FIELD_NUMBER = 5;
     private int kickRequirement_;
 
-    /**
-     * <code>optional int32 kickRequirement = 5;</code>
-     *
-     * @return Whether the kickRequirement field is set.
-     */
     @java.lang.Override
     public boolean hasKickRequirement() {
         return ((bitField0_ & 0x00000010) != 0);
     }
 
-    /**
-     * <code>optional int32 kickRequirement = 5;</code>
-     *
-     * @return The kickRequirement.
-     */
     @java.lang.Override
     public int getKickRequirement() {
         return kickRequirement_;
@@ -1231,21 +1018,11 @@ public final class SendClanInfo extends
     public static final int MESSAGEREQUIREMENT_FIELD_NUMBER = 6;
     private int messageRequirement_;
 
-    /**
-     * <code>optional int32 messageRequirement = 6;</code>
-     *
-     * @return Whether the messageRequirement field is set.
-     */
     @java.lang.Override
     public boolean hasMessageRequirement() {
         return ((bitField0_ & 0x00000020) != 0);
     }
 
-    /**
-     * <code>optional int32 messageRequirement = 6;</code>
-     *
-     * @return The messageRequirement.
-     */
     @java.lang.Override
     public int getMessageRequirement() {
         return messageRequirement_;
@@ -1254,21 +1031,11 @@ public final class SendClanInfo extends
     public static final int LOOTREQUIREMENT_FIELD_NUMBER = 7;
     private int lootRequirement_;
 
-    /**
-     * <code>optional int32 lootRequirement = 7;</code>
-     *
-     * @return Whether the lootRequirement field is set.
-     */
     @java.lang.Override
     public boolean hasLootRequirement() {
         return ((bitField0_ & 0x00000040) != 0);
     }
 
-    /**
-     * <code>optional int32 lootRequirement = 7;</code>
-     *
-     * @return The lootRequirement.
-     */
     @java.lang.Override
     public int getLootRequirement() {
         return lootRequirement_;
@@ -1277,42 +1044,27 @@ public final class SendClanInfo extends
     public static final int MEMBERS_FIELD_NUMBER = 8;
     private java.util.List<proto.management.SendClanInfo.ClanMember> members_;
 
-    /**
-     * <code>repeated .management.SendClanInfo.ClanMember members = 8;</code>
-     */
     @java.lang.Override
     public java.util.List<proto.management.SendClanInfo.ClanMember> getMembersList() {
         return members_;
     }
 
-    /**
-     * <code>repeated .management.SendClanInfo.ClanMember members = 8;</code>
-     */
     @java.lang.Override
     public java.util.List<? extends proto.management.SendClanInfo.ClanMemberOrBuilder>
     getMembersOrBuilderList() {
         return members_;
     }
 
-    /**
-     * <code>repeated .management.SendClanInfo.ClanMember members = 8;</code>
-     */
     @java.lang.Override
     public int getMembersCount() {
         return members_.size();
     }
 
-    /**
-     * <code>repeated .management.SendClanInfo.ClanMember members = 8;</code>
-     */
     @java.lang.Override
     public proto.management.SendClanInfo.ClanMember getMembers(int index) {
         return members_.get(index);
     }
 
-    /**
-     * <code>repeated .management.SendClanInfo.ClanMember members = 8;</code>
-     */
     @java.lang.Override
     public proto.management.SendClanInfo.ClanMemberOrBuilder getMembersOrBuilder(
             int index) {
@@ -1619,9 +1371,6 @@ public final class SendClanInfo extends
         return builder;
     }
 
-    /**
-     * Protobuf type {@code management.SendClanInfo}
-     */
     public static final class Builder extends
             com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
             // @@protoc_insertion_point(builder_implements:management.SendClanInfo)
@@ -1895,20 +1644,10 @@ public final class SendClanInfo extends
 
         private java.lang.Object clanOwner_ = "";
 
-        /**
-         * <code>required string clanOwner = 1;</code>
-         *
-         * @return Whether the clanOwner field is set.
-         */
         public boolean hasClanOwner() {
             return ((bitField0_ & 0x00000001) != 0);
         }
 
-        /**
-         * <code>required string clanOwner = 1;</code>
-         *
-         * @return The clanOwner.
-         */
         public java.lang.String getClanOwner() {
             java.lang.Object ref = clanOwner_;
             if (!(ref instanceof java.lang.String)) {
@@ -1924,11 +1663,6 @@ public final class SendClanInfo extends
             }
         }
 
-        /**
-         * <code>required string clanOwner = 1;</code>
-         *
-         * @return The bytes for clanOwner.
-         */
         public com.google.protobuf.ByteString
         getClanOwnerBytes() {
             java.lang.Object ref = clanOwner_;
@@ -1943,12 +1677,6 @@ public final class SendClanInfo extends
             }
         }
 
-        /**
-         * <code>required string clanOwner = 1;</code>
-         *
-         * @param value The clanOwner to set.
-         * @return This builder for chaining.
-         */
         public Builder setClanOwner(
                 java.lang.String value) {
             if (value == null) {
@@ -1960,11 +1688,6 @@ public final class SendClanInfo extends
             return this;
         }
 
-        /**
-         * <code>required string clanOwner = 1;</code>
-         *
-         * @return This builder for chaining.
-         */
         public Builder clearClanOwner() {
             bitField0_ = (bitField0_ & ~0x00000001);
             clanOwner_ = getDefaultInstance().getClanOwner();
@@ -1972,12 +1695,6 @@ public final class SendClanInfo extends
             return this;
         }
 
-        /**
-         * <code>required string clanOwner = 1;</code>
-         *
-         * @param value The bytes for clanOwner to set.
-         * @return This builder for chaining.
-         */
         public Builder setClanOwnerBytes(
                 com.google.protobuf.ByteString value) {
             if (value == null) {
@@ -1991,32 +1708,16 @@ public final class SendClanInfo extends
 
         private boolean hasInfo_;
 
-        /**
-         * <code>required bool hasInfo = 2;</code>
-         *
-         * @return Whether the hasInfo field is set.
-         */
         @java.lang.Override
         public boolean hasHasInfo() {
             return ((bitField0_ & 0x00000002) != 0);
         }
 
-        /**
-         * <code>required bool hasInfo = 2;</code>
-         *
-         * @return The hasInfo.
-         */
         @java.lang.Override
         public boolean getHasInfo() {
             return hasInfo_;
         }
 
-        /**
-         * <code>required bool hasInfo = 2;</code>
-         *
-         * @param value The hasInfo to set.
-         * @return This builder for chaining.
-         */
         public Builder setHasInfo(boolean value) {
             bitField0_ |= 0x00000002;
             hasInfo_ = value;
@@ -2024,11 +1725,6 @@ public final class SendClanInfo extends
             return this;
         }
 
-        /**
-         * <code>required bool hasInfo = 2;</code>
-         *
-         * @return This builder for chaining.
-         */
         public Builder clearHasInfo() {
             bitField0_ = (bitField0_ & ~0x00000002);
             hasInfo_ = false;
@@ -2038,20 +1734,10 @@ public final class SendClanInfo extends
 
         private java.lang.Object clanName_ = "";
 
-        /**
-         * <code>optional string clanName = 3;</code>
-         *
-         * @return Whether the clanName field is set.
-         */
         public boolean hasClanName() {
             return ((bitField0_ & 0x00000004) != 0);
         }
 
-        /**
-         * <code>optional string clanName = 3;</code>
-         *
-         * @return The clanName.
-         */
         public java.lang.String getClanName() {
             java.lang.Object ref = clanName_;
             if (!(ref instanceof java.lang.String)) {
@@ -2067,11 +1753,6 @@ public final class SendClanInfo extends
             }
         }
 
-        /**
-         * <code>optional string clanName = 3;</code>
-         *
-         * @return The bytes for clanName.
-         */
         public com.google.protobuf.ByteString
         getClanNameBytes() {
             java.lang.Object ref = clanName_;
@@ -2086,12 +1767,6 @@ public final class SendClanInfo extends
             }
         }
 
-        /**
-         * <code>optional string clanName = 3;</code>
-         *
-         * @param value The clanName to set.
-         * @return This builder for chaining.
-         */
         public Builder setClanName(
                 java.lang.String value) {
             if (value == null) {
@@ -2103,11 +1778,6 @@ public final class SendClanInfo extends
             return this;
         }
 
-        /**
-         * <code>optional string clanName = 3;</code>
-         *
-         * @return This builder for chaining.
-         */
         public Builder clearClanName() {
             bitField0_ = (bitField0_ & ~0x00000004);
             clanName_ = getDefaultInstance().getClanName();
@@ -2115,12 +1785,6 @@ public final class SendClanInfo extends
             return this;
         }
 
-        /**
-         * <code>optional string clanName = 3;</code>
-         *
-         * @param value The bytes for clanName to set.
-         * @return This builder for chaining.
-         */
         public Builder setClanNameBytes(
                 com.google.protobuf.ByteString value) {
             if (value == null) {
@@ -2134,32 +1798,16 @@ public final class SendClanInfo extends
 
         private int joinRequirement_;
 
-        /**
-         * <code>optional int32 joinRequirement = 4;</code>
-         *
-         * @return Whether the joinRequirement field is set.
-         */
         @java.lang.Override
         public boolean hasJoinRequirement() {
             return ((bitField0_ & 0x00000008) != 0);
         }
 
-        /**
-         * <code>optional int32 joinRequirement = 4;</code>
-         *
-         * @return The joinRequirement.
-         */
         @java.lang.Override
         public int getJoinRequirement() {
             return joinRequirement_;
         }
 
-        /**
-         * <code>optional int32 joinRequirement = 4;</code>
-         *
-         * @param value The joinRequirement to set.
-         * @return This builder for chaining.
-         */
         public Builder setJoinRequirement(int value) {
             bitField0_ |= 0x00000008;
             joinRequirement_ = value;
@@ -2167,11 +1815,6 @@ public final class SendClanInfo extends
             return this;
         }
 
-        /**
-         * <code>optional int32 joinRequirement = 4;</code>
-         *
-         * @return This builder for chaining.
-         */
         public Builder clearJoinRequirement() {
             bitField0_ = (bitField0_ & ~0x00000008);
             joinRequirement_ = 0;
@@ -2181,32 +1824,16 @@ public final class SendClanInfo extends
 
         private int kickRequirement_;
 
-        /**
-         * <code>optional int32 kickRequirement = 5;</code>
-         *
-         * @return Whether the kickRequirement field is set.
-         */
         @java.lang.Override
         public boolean hasKickRequirement() {
             return ((bitField0_ & 0x00000010) != 0);
         }
 
-        /**
-         * <code>optional int32 kickRequirement = 5;</code>
-         *
-         * @return The kickRequirement.
-         */
         @java.lang.Override
         public int getKickRequirement() {
             return kickRequirement_;
         }
 
-        /**
-         * <code>optional int32 kickRequirement = 5;</code>
-         *
-         * @param value The kickRequirement to set.
-         * @return This builder for chaining.
-         */
         public Builder setKickRequirement(int value) {
             bitField0_ |= 0x00000010;
             kickRequirement_ = value;
@@ -2214,11 +1841,6 @@ public final class SendClanInfo extends
             return this;
         }
 
-        /**
-         * <code>optional int32 kickRequirement = 5;</code>
-         *
-         * @return This builder for chaining.
-         */
         public Builder clearKickRequirement() {
             bitField0_ = (bitField0_ & ~0x00000010);
             kickRequirement_ = 0;
@@ -2228,32 +1850,16 @@ public final class SendClanInfo extends
 
         private int messageRequirement_;
 
-        /**
-         * <code>optional int32 messageRequirement = 6;</code>
-         *
-         * @return Whether the messageRequirement field is set.
-         */
         @java.lang.Override
         public boolean hasMessageRequirement() {
             return ((bitField0_ & 0x00000020) != 0);
         }
 
-        /**
-         * <code>optional int32 messageRequirement = 6;</code>
-         *
-         * @return The messageRequirement.
-         */
         @java.lang.Override
         public int getMessageRequirement() {
             return messageRequirement_;
         }
 
-        /**
-         * <code>optional int32 messageRequirement = 6;</code>
-         *
-         * @param value The messageRequirement to set.
-         * @return This builder for chaining.
-         */
         public Builder setMessageRequirement(int value) {
             bitField0_ |= 0x00000020;
             messageRequirement_ = value;
@@ -2261,11 +1867,6 @@ public final class SendClanInfo extends
             return this;
         }
 
-        /**
-         * <code>optional int32 messageRequirement = 6;</code>
-         *
-         * @return This builder for chaining.
-         */
         public Builder clearMessageRequirement() {
             bitField0_ = (bitField0_ & ~0x00000020);
             messageRequirement_ = 0;
@@ -2275,32 +1876,16 @@ public final class SendClanInfo extends
 
         private int lootRequirement_;
 
-        /**
-         * <code>optional int32 lootRequirement = 7;</code>
-         *
-         * @return Whether the lootRequirement field is set.
-         */
         @java.lang.Override
         public boolean hasLootRequirement() {
             return ((bitField0_ & 0x00000040) != 0);
         }
 
-        /**
-         * <code>optional int32 lootRequirement = 7;</code>
-         *
-         * @return The lootRequirement.
-         */
         @java.lang.Override
         public int getLootRequirement() {
             return lootRequirement_;
         }
 
-        /**
-         * <code>optional int32 lootRequirement = 7;</code>
-         *
-         * @param value The lootRequirement to set.
-         * @return This builder for chaining.
-         */
         public Builder setLootRequirement(int value) {
             bitField0_ |= 0x00000040;
             lootRequirement_ = value;
@@ -2308,11 +1893,6 @@ public final class SendClanInfo extends
             return this;
         }
 
-        /**
-         * <code>optional int32 lootRequirement = 7;</code>
-         *
-         * @return This builder for chaining.
-         */
         public Builder clearLootRequirement() {
             bitField0_ = (bitField0_ & ~0x00000040);
             lootRequirement_ = 0;
@@ -2333,9 +1913,6 @@ public final class SendClanInfo extends
         private com.google.protobuf.RepeatedFieldBuilderV3<
                 proto.management.SendClanInfo.ClanMember, proto.management.SendClanInfo.ClanMember.Builder, proto.management.SendClanInfo.ClanMemberOrBuilder> membersBuilder_;
 
-        /**
-         * <code>repeated .management.SendClanInfo.ClanMember members = 8;</code>
-         */
         public java.util.List<proto.management.SendClanInfo.ClanMember> getMembersList() {
             if (membersBuilder_ == null) {
                 return java.util.Collections.unmodifiableList(members_);
@@ -2344,9 +1921,6 @@ public final class SendClanInfo extends
             }
         }
 
-        /**
-         * <code>repeated .management.SendClanInfo.ClanMember members = 8;</code>
-         */
         public int getMembersCount() {
             if (membersBuilder_ == null) {
                 return members_.size();
@@ -2355,9 +1929,6 @@ public final class SendClanInfo extends
             }
         }
 
-        /**
-         * <code>repeated .management.SendClanInfo.ClanMember members = 8;</code>
-         */
         public proto.management.SendClanInfo.ClanMember getMembers(int index) {
             if (membersBuilder_ == null) {
                 return members_.get(index);
@@ -2366,9 +1937,6 @@ public final class SendClanInfo extends
             }
         }
 
-        /**
-         * <code>repeated .management.SendClanInfo.ClanMember members = 8;</code>
-         */
         public Builder setMembers(
                 int index, proto.management.SendClanInfo.ClanMember value) {
             if (membersBuilder_ == null) {
@@ -2384,9 +1952,6 @@ public final class SendClanInfo extends
             return this;
         }
 
-        /**
-         * <code>repeated .management.SendClanInfo.ClanMember members = 8;</code>
-         */
         public Builder setMembers(
                 int index, proto.management.SendClanInfo.ClanMember.Builder builderForValue) {
             if (membersBuilder_ == null) {
@@ -2399,9 +1964,6 @@ public final class SendClanInfo extends
             return this;
         }
 
-        /**
-         * <code>repeated .management.SendClanInfo.ClanMember members = 8;</code>
-         */
         public Builder addMembers(proto.management.SendClanInfo.ClanMember value) {
             if (membersBuilder_ == null) {
                 if (value == null) {
@@ -2416,9 +1978,6 @@ public final class SendClanInfo extends
             return this;
         }
 
-        /**
-         * <code>repeated .management.SendClanInfo.ClanMember members = 8;</code>
-         */
         public Builder addMembers(
                 int index, proto.management.SendClanInfo.ClanMember value) {
             if (membersBuilder_ == null) {
@@ -2434,9 +1993,6 @@ public final class SendClanInfo extends
             return this;
         }
 
-        /**
-         * <code>repeated .management.SendClanInfo.ClanMember members = 8;</code>
-         */
         public Builder addMembers(
                 proto.management.SendClanInfo.ClanMember.Builder builderForValue) {
             if (membersBuilder_ == null) {
@@ -2449,9 +2005,6 @@ public final class SendClanInfo extends
             return this;
         }
 
-        /**
-         * <code>repeated .management.SendClanInfo.ClanMember members = 8;</code>
-         */
         public Builder addMembers(
                 int index, proto.management.SendClanInfo.ClanMember.Builder builderForValue) {
             if (membersBuilder_ == null) {
@@ -2464,9 +2017,6 @@ public final class SendClanInfo extends
             return this;
         }
 
-        /**
-         * <code>repeated .management.SendClanInfo.ClanMember members = 8;</code>
-         */
         public Builder addAllMembers(
                 java.lang.Iterable<? extends proto.management.SendClanInfo.ClanMember> values) {
             if (membersBuilder_ == null) {
@@ -2480,9 +2030,6 @@ public final class SendClanInfo extends
             return this;
         }
 
-        /**
-         * <code>repeated .management.SendClanInfo.ClanMember members = 8;</code>
-         */
         public Builder clearMembers() {
             if (membersBuilder_ == null) {
                 members_ = java.util.Collections.emptyList();
@@ -2494,9 +2041,6 @@ public final class SendClanInfo extends
             return this;
         }
 
-        /**
-         * <code>repeated .management.SendClanInfo.ClanMember members = 8;</code>
-         */
         public Builder removeMembers(int index) {
             if (membersBuilder_ == null) {
                 ensureMembersIsMutable();
@@ -2508,17 +2052,11 @@ public final class SendClanInfo extends
             return this;
         }
 
-        /**
-         * <code>repeated .management.SendClanInfo.ClanMember members = 8;</code>
-         */
         public proto.management.SendClanInfo.ClanMember.Builder getMembersBuilder(
                 int index) {
             return getMembersFieldBuilder().getBuilder(index);
         }
 
-        /**
-         * <code>repeated .management.SendClanInfo.ClanMember members = 8;</code>
-         */
         public proto.management.SendClanInfo.ClanMemberOrBuilder getMembersOrBuilder(
                 int index) {
             if (membersBuilder_ == null) {
@@ -2528,9 +2066,6 @@ public final class SendClanInfo extends
             }
         }
 
-        /**
-         * <code>repeated .management.SendClanInfo.ClanMember members = 8;</code>
-         */
         public java.util.List<? extends proto.management.SendClanInfo.ClanMemberOrBuilder>
         getMembersOrBuilderList() {
             if (membersBuilder_ != null) {
@@ -2540,26 +2075,17 @@ public final class SendClanInfo extends
             }
         }
 
-        /**
-         * <code>repeated .management.SendClanInfo.ClanMember members = 8;</code>
-         */
         public proto.management.SendClanInfo.ClanMember.Builder addMembersBuilder() {
             return getMembersFieldBuilder().addBuilder(
                     proto.management.SendClanInfo.ClanMember.getDefaultInstance());
         }
 
-        /**
-         * <code>repeated .management.SendClanInfo.ClanMember members = 8;</code>
-         */
         public proto.management.SendClanInfo.ClanMember.Builder addMembersBuilder(
                 int index) {
             return getMembersFieldBuilder().addBuilder(
                     index, proto.management.SendClanInfo.ClanMember.getDefaultInstance());
         }
 
-        /**
-         * <code>repeated .management.SendClanInfo.ClanMember members = 8;</code>
-         */
         public java.util.List<proto.management.SendClanInfo.ClanMember.Builder>
         getMembersBuilderList() {
             return getMembersFieldBuilder().getBuilderList();

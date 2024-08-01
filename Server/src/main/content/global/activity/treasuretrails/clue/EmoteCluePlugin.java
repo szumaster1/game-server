@@ -8,45 +8,17 @@ import core.game.world.map.zone.ZoneBorders;
 import core.plugin.ClassScanner;
 import core.plugin.Plugin;
 
-/**
- * Initializes the emote clue plugins.
- * @author Vexia
- */
 public final class EmoteCluePlugin extends EmoteClueScroll {
 
-	/**
-	 * Constructs a new {@code EmoteCluePlugin} {@code Object}
-	 */
-	public EmoteCluePlugin() {
+    public EmoteCluePlugin() {
 		super(null, -1, null, null, null, null, null);
 	}
 
-	/**
-	 * Constructs a new {@code EmoteCluePlugin} {@code Object}
-	 * @param name the name.
-	 * @param clueId the clue id.
-	 * @param level the level.
-	 * @param emote the Emotes.
-	 * @param commenceEmote the commence Emotes.
-	 * @param equipment the equipment.
-	 * @param clue the clue.
-	 * @param borders the borders.
-	 */
-	public EmoteCluePlugin(String name, int clueId, ClueLevel level, Emotes emote, Emotes commenceEmote, int[][] equipment, String clue, ZoneBorders... borders) {
+    public EmoteCluePlugin(String name, int clueId, ClueLevel level, Emotes emote, Emotes commenceEmote, int[][] equipment, String clue, ZoneBorders... borders) {
 		super(name, clueId, level, emote, commenceEmote, equipment, clue, borders);
 	}
 
-	/**
-	 * Constructs a new {@code EmoteCluePlugin} {@code Object}
-	 * @param name the name.
-	 * @param clueId the clue id.
-	 * @param level the level.
-	 * @param emote the Emotes.
-	 * @param equipment the equipment.
-	 * @param clue the clue.
-	 * @param borders the borders.
-	 */
-	public EmoteCluePlugin(String name, int clueId, ClueLevel level, Emotes emote, int[][] equipment, String clue, ZoneBorders... borders) {
+    public EmoteCluePlugin(String name, int clueId, ClueLevel level, Emotes emote, int[][] equipment, String clue, ZoneBorders... borders) {
 		super(name, clueId, level, emote, null, equipment, clue, borders);
 	}
 

@@ -11,40 +11,19 @@ import core.game.world.map.Location;
 import core.game.world.map.RegionManager;
 import core.plugin.Plugin;
 
-/**
- * Handles saradomin npc.
- * @author Vexia
- */
 public final class ZamorakWizardNPC extends AbstractNPC {
 
-	/**
-	 * The npc ids.
-	 */
 	private static final int[] IDS = new int[] { 1007 };
 
-	/**
-	 * The clue scroll.
-	 */
 	private ClueScrollPlugin clueScroll;
 
-	/**
-	 * The player.
-	 */
 	private Player player;
 
-	/**
-	 * Constructs a new {@code SaradominWizardNPC} {@code Object}
-	 */
-	public ZamorakWizardNPC() {
+    public ZamorakWizardNPC() {
 		super(0, null);
 	}
 
-	/**
-	 * Constructs a new {@code SaradominWizardNPC} {@code Object}
-	 * @param id the id.
-	 * @param location the location.
-	 */
-	public ZamorakWizardNPC(int id, Location location) {
+    public ZamorakWizardNPC(int id, Location location) {
 		super(id, location, false);
 		this.setRespawn(false);
 	}
@@ -139,27 +118,15 @@ public final class ZamorakWizardNPC extends AbstractNPC {
 		return IDS;
 	}
 
-	/**
-	 * Gets the player.
-	 * @return the player
-	 */
-	public Player getPlayer() {
+    public Player getPlayer() {
 		return player;
 	}
 
-	/**
-	 * Sets the player.
-	 * @param player the player to set.
-	 */
-	public void setPlayer(Player player) {
+    public void setPlayer(Player player) {
 		this.player = player;
 	}
 
-	/**
-	 * Gets the clueScroll.
-	 * @return the clueScroll
-	 */
-	public ClueScrollPlugin getClueScroll() {
+    public ClueScrollPlugin getClueScroll() {
 		return clueScroll;
 	}
 

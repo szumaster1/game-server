@@ -22,7 +22,7 @@ import java.util.ArrayList;
 public final class PCObjectHandler extends OptionHandler {
 
 
-  //public boolean pcbotsSpawned = false;
+    //public boolean pcbotsSpawned = false;
     public boolean PCnBotsSpawned = false;
     public boolean PCiBotsSpawned = false;
 

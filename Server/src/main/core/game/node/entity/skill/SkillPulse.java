@@ -8,45 +8,18 @@ import core.game.node.entity.player.Player;
 import core.game.system.task.Pulse;
 import core.game.world.update.flag.context.Animation;
 
-/**
- * Pulse class specifically used for Skills.
- *
- * @param <T> the type parameter
- * @author Emperor
- */
 public abstract class SkillPulse<T extends Node> extends Pulse {
 
-    /**
-     * The player.
-     */
     protected final Player player;
 
-    /**
-     * The node.
-     */
     protected T node;
 
-    /**
-     * The tool used.
-     */
     protected SkillingTool tool;
 
-    /**
-     * The resource.
-     */
     protected SkillingResource resource;
 
-    /**
-     * If we should reset the anim at the end.
-     */
     protected boolean resetAnimation = true;
 
-    /**
-     * Constructs a new {@code SkillPulse} {@code Object}.
-     *
-     * @param player The player.
-     * @param node   The node.
-     */
     public SkillPulse(Player player, T node) {
         super(1, player, node);
         this.player = player;
@@ -80,30 +53,12 @@ public abstract class SkillPulse<T extends Node> extends Pulse {
         message(1);
     }
 
-    /**
-     * Checks if the player meets all the requirements.
-     *
-     * @return {@code True} if the player can continue, {@code false} if not.
-     */
     public abstract boolean checkRequirements();
 
-    /**
-     * Sends the animations related to the actions the player is doing.
-     */
     public abstract void animate();
 
-    /**
-     * Rewards the player.
-     *
-     * @return {@code True} if the player should stop this skilling pulse.
-     */
     public abstract boolean reward();
 
-    /**
-     * Sends a message to the player.
-     *
-     * @param type The message type (0: start message, 1: stop message).
-     */
     public void message(int type) {
 
     }

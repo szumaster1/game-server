@@ -6,15 +6,9 @@ import core.game.node.entity.player.link.quest.Quest;
 import core.game.node.entity.skill.Skills;
 import core.plugin.Initializable;
 
-/**
- * The Witchs house.
- */
 @Initializable
 public class WitchsHouse extends Quest {
 
-    /**
-     * Instantiates a new Witchs house.
-     */
     public WitchsHouse() {
         super("Witch's House", 124, 123, 4, Vars.VARP_QUEST_WTICHS_HOUSE_PROGRESS, 0, 1, 7);
     }

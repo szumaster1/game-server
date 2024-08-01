@@ -19,59 +19,26 @@ public abstract class Pathfinder {
     public static final int PREVENT_SOUTHWEST = 0x12c010e;
     public static final int PREVENT_NORTHWEST = 0x12c0138;
 
-    /**
-     * The smart path finder.
-     */
     public static final SmartPathfinder SMART = new SmartPathfinder();
 
-    /**
-     * The dumb path finder.
-     */
     public static final DumbPathfinder DUMB = new DumbPathfinder();
 
-    /**
-     * The projectile path finder.
-     */
     public static final ProjectilePathfinder PROJECTILE = new ProjectilePathfinder();
 
-    /**
-     * The south direction flag.
-     */
     public static final int SOUTH_FLAG = 0x1;
 
-    /**
-     * The west direction flag.
-     */
     public static final int WEST_FLAG = 0x2;
 
-    /**
-     * The north direction flag.
-     */
     public static final int NORTH_FLAG = 0x4;
 
-    /**
-     * The east direction flag.
-     */
     public static final int EAST_FLAG = 0x8;
 
-    /**
-     * The south-west direction flag.
-     */
     public static final int SOUTH_WEST_FLAG = SOUTH_FLAG | WEST_FLAG;
 
-    /**
-     * The north-west direction flag.
-     */
     public static final int NORTH_WEST_FLAG = NORTH_FLAG | WEST_FLAG;
 
-    /**
-     * The south-east direction flag.
-     */
     public static final int SOUTH_EAST_FLAG = SOUTH_FLAG | EAST_FLAG;
 
-    /**
-     * The north-east direction flag.
-     */
     public static final int NORTH_EAST_FLAG = NORTH_FLAG | EAST_FLAG;
 
     public static int flagForDirection(Direction d) {
@@ -97,44 +64,12 @@ public abstract class Pathfinder {
         }
     }
 
-    /**
-     * Finds a path from the location to the end location.
-     *
-     * @param location    The start location.
-     * @param size        The mover size.
-     * @param end         The end location.
-     * @param sizeX       The x-size of the destination node.
-     * @param sizeY       The y-size of the destination node.
-     * @param rotation    The object rotation.
-     * @param type        The object type.
-     * @param walkingFlag The object walking flag.
-     * @param near        If we should find the nearest location if a path can't be
-     *                    found.
-     * @return The path.
-     */
     public abstract Path find(Location location, int size, Location end, int sizeX, int sizeY, int rotation, int type, int walkingFlag, boolean near, ClipMaskSupplier clipMaskSupplier);
 
-    /**
-     * Finds a path from the start location to the end location.
-     *
-     * @param mover       The moving entity.
-     * @param destination The destination node.
-     * @return The path.
-     */
     public static Path find(Entity mover, Node destination) {
         return find(mover, destination, true, SMART);
     }
 
-    /**
-     * Finds a path from the start location to the end location.
-     *
-     * @param mover       The moving entity.
-     * @param destination The destination node.
-     * @param near        If we should move near the end location, if we can't reach
-     *                    it.
-     * @param finder      The pathfinder to use.
-     * @return The path.
-     */
     public static Path find(Entity mover, Node destination, boolean near, Pathfinder finder) {
         ClipMaskSupplier cms = null;
         if (mover instanceof NPC) {
@@ -153,12 +88,6 @@ public abstract class Pathfinder {
         return find(mover.getLocation(), mover.size(), destination, near, finder, clipMaskSupplier);
     }
 
-    /**
-     * Finds a path from the start location to the end location.
-     *
-     * @param destination The destination node.
-     * @return The path.
-     */
     public static Path find(Location start, Node destination) {
         return find(start, destination, true, SMART);
     }
@@ -167,28 +96,10 @@ public abstract class Pathfinder {
         return find(start, moverSize, destination, true, SMART, RegionManager::getClippingFlag);
     }
 
-    /**
-     * Finds a path from the start location to the end location.
-     *
-     * @param destination The destination node.
-     * @param near        If we should move near the end location, if we can't reach
-     *                    it.
-     * @param finder      The pathfinder to use.
-     * @return The path.
-     */
     public static Path find(Location start, Node destination, boolean near, Pathfinder finder) {
         return find(start, 1, destination, near, finder, RegionManager::getClippingFlag);
     }
 
-    /**
-     * Finds a path from the start location to the end location.
-     *
-     * @param destination The destination node.
-     * @param near        If we should move near the end location, if we can't reach
-     *                    it.
-     * @param finder      The pathfinder to use.
-     * @return The path.
-     */
     public static Path find(Location start, int moverSize, Node destination, boolean near, Pathfinder finder, ClipMaskSupplier clipMaskSupplier) {
         if (destination instanceof Scenery) {
             Scenery object = (Scenery) destination;
@@ -218,18 +129,6 @@ public abstract class Pathfinder {
         return finder.find(start, moverSize, destination.getLocation(), size, size, 0, 0, 0, near, clipMaskSupplier);
     }
 
-    /**
-     * Checks if interaction with decoration is possible.
-     *
-     * @param curX     The current x-coordinate in viewport.
-     * @param curY     The current y-coordinate in viewport.
-     * @param size     The mover size.
-     * @param destX    The destination x-coordinate in viewport.
-     * @param destY    The destination y-coordinate in viewport.
-     * @param type     The object type.
-     * @param rotation The object rotation.
-     * @return {@code True} if so.
-     */
     public static boolean canDecorationInteract(int curX, int curY, int size, int destX, int destY, int rotation, int type, int z, ClipMaskSupplier clipMaskSupplier) {
         if (size != 1) {
             if (destX >= curX && destX <= (curX + size) - 1 && destY <= (destY + size) - 1) {
@@ -343,18 +242,6 @@ public abstract class Pathfinder {
         return false;
     }
 
-    /**
-     * Checks if interaction with a door is possible.
-     *
-     * @param curX     The current x-coordinate in viewport.
-     * @param curY     The current y-coordinate in viewport.
-     * @param size     The mover size.
-     * @param destX    The destination x-coordinate in viewport.
-     * @param destY    The destination y-coordinate in viewport.
-     * @param type     The object type.
-     * @param rotation The object rotation.
-     * @return {@code True} if so.
-     */
     public static boolean canDoorInteract(int curX, int curY, int size, int destX, int destY, int type, int rotation, int z, ClipMaskSupplier clipMaskSupplier) {
         if (size != 1) {
             if (destX >= curX && destX <= size + curX - 1 && destY <= destY + size - 1) {
@@ -594,19 +481,6 @@ public abstract class Pathfinder {
         return false;
     }
 
-    /**
-     * Checks if the mover is standing on the destination.
-     *
-     * @param x          The current x-location (in viewport).
-     * @param y          The current y-location (in viewport).
-     * @param moverSizeX The mover x size.
-     * @param moverSizeY The mover y size.
-     * @param destX      The destination x-location in viewport.
-     * @param destY      The destination y-location in viewport.
-     * @param sizeX      The destination node x-size.
-     * @param sizeY      The destination node y-size.
-     * @return {@code True} if so.
-     */
     public static boolean isStandingIn(int x, int y, int moverSizeX, int moverSizeY, int destX, int destY, int sizeX, int sizeY) {
         if (x >= sizeX + destX || moverSizeX + x <= destX) {
             return false;
@@ -617,19 +491,6 @@ public abstract class Pathfinder {
         return true;
     }
 
-    /**
-     * Checks if interaction is possible from the current location.
-     *
-     * @param x         The current x-location (in viewport).
-     * @param y         The current y-location (in viewport).
-     * @param moverSize The mover size.
-     * @param destX     The destination x-location in viewport.
-     * @param destY     The destination y-location in viewport.
-     * @param sizeX     The destination node x-size.
-     * @param sizeY     The destination node y-size.
-     * @param walkFlag  The walking flag.
-     * @return {@code True} if so.
-     */
     public static boolean canInteract(int x, int y, int moverSize, int destX, int destY, int sizeX, int sizeY, int walkFlag, int z, ClipMaskSupplier clipMaskSupplier) {
         if (moverSize > 1) {
             return isStandingIn(x, y, moverSize, moverSize, destX, destY, sizeX, sizeY) || canInteractSized(x, y, moverSize, moverSize, destX, destY, sizeX, sizeY, walkFlag, z);
@@ -655,15 +516,6 @@ public abstract class Pathfinder {
         return false;
     }
 
-    /**
-     * Checks if interaction is possible from the current location.
-     *
-     * @param destX The destination x-location in viewport.
-     * @param destY The destination y-location in viewport.
-     * @param sizeX The destination node x-size.
-     * @param sizeY The destination node y-size.
-     * @return {@code True} if so.
-     */
     public static boolean canInteractSized(int curX, int curY, int moverSizeX, int moverSizeY, int destX, int destY, int sizeX, int sizeY, int walkingFlag, int z) {
         int fromCornerY = curY + moverSizeY;
         int fromCornerX = curX + moverSizeX;

@@ -299,9 +299,11 @@ public final class WaterBirthDungeonZone extends MapZone implements Plugin<Objec
     public static final class DoorSupportNPC extends AbstractNPC {
 
         private long deathSpawn = -1;
+
         public DoorSupportNPC() {
             super(-1, null);
         }
+
         public DoorSupportNPC(int id, Location location) {
             super(id, location);
         }

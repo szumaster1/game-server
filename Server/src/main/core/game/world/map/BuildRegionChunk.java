@@ -16,30 +16,12 @@ import java.util.ArrayList;
 
 import static core.api.ContentAPIKt.log;
 
-/**
- * A region chunk, used for easily modifying objects.
- *
- * @author Emperor, Player Name
- */
 public class BuildRegionChunk extends RegionChunk {
 
-    /**
-     * The maximum amount of objects to be stored on one tile in the chunk.
-     */
     public static final int ARRAY_SIZE = 10;
 
-    /**
-     * The list of changes made.
-     */
     private final Scenery[][][] objects;
 
-    /**
-     * Constructs a new {@code BuildRegionChunk} {@code Object}
-     *
-     * @param base     The base location.
-     * @param rotation The rotation.
-     * @param plane    The region plane.
-     */
     public BuildRegionChunk(Location base, int rotation, RegionPlane plane) {
         super(base, rotation, plane);
         this.objects = new Scenery[ARRAY_SIZE][8][8];
@@ -201,11 +183,6 @@ public class BuildRegionChunk extends RegionChunk {
         }
     }
 
-    /**
-     * Removes the scenery.
-     *
-     * @param object The object to remove.
-     */
     public void remove(Scenery object) {
         int chunkX = object.getLocation().getChunkOffsetX();
         int chunkY = object.getLocation().getChunkOffsetY();
@@ -228,11 +205,6 @@ public class BuildRegionChunk extends RegionChunk {
         object.setRenderable(false);
     }
 
-    /**
-     * Adds the scenery.
-     *
-     * @param object The object to add.
-     */
     public void add(Scenery object) {
         int chunkX = object.getLocation().getChunkOffsetX();
         int chunkY = object.getLocation().getChunkOffsetY();
@@ -257,11 +229,6 @@ public class BuildRegionChunk extends RegionChunk {
         object.setRenderable(true);
     }
 
-    /**
-     * Stores an object on the region chunk.
-     *
-     * @param object The object.
-     */
     public void store(Scenery object) {
         if (object == null) {
             return;
@@ -288,13 +255,6 @@ public class BuildRegionChunk extends RegionChunk {
         throw new IllegalStateException("Insufficient array length for storing all objects! ");
     }
 
-    /**
-     * Gets the objects index for the given object id.
-     *
-     * @param x        The x-coordinate on the region chunk.
-     * @param y        The y-coordinate on the region chunk.
-     * @param objectId The object id.
-     */
     public int getIndex(int x, int y, int objectId) {
         for (int i = 0; i < objects.length; i++) {
             Scenery o = get(x, y, i);
@@ -305,14 +265,6 @@ public class BuildRegionChunk extends RegionChunk {
         return 0;
     }
 
-    /**
-     * Gets a scenery.
-     *
-     * @param x     The chunk x-coordinate.
-     * @param y     The chunk y-coordinate.
-     * @param index The index (0 = default).
-     * @return The object.
-     */
     public Scenery get(int x, int y, int index) {
         return objects[index][x][y];
     }
@@ -326,12 +278,6 @@ public class BuildRegionChunk extends RegionChunk {
         return objects;
     }
 
-    /**
-     * Gets the objects.
-     *
-     * @param index The index.
-     * @return The objects array.
-     */
     public Scenery[][] getObjects(int index) {
         return objects[index];
     }

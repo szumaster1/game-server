@@ -22,71 +22,28 @@ import java.util.List;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
-/**
- * Represents a magic spell.
- *
- * @author Emperor
- */
 public abstract class MagicSpell implements Plugin<SpellType> {
 
-    /**
-     * The spell book.
-     */
     protected final SpellBook book;
 
-    /**
-     * The level requirement.
-     */
     protected final int level;
 
-    /**
-     * The animation.
-     */
     protected final Animation animation;
 
-    /**
-     * The casting graphics.
-     */
     protected final Graphic graphic;
 
-    /**
-     * The casting Audio.
-     */
     protected final Audio audio;
 
-    /**
-     * The item-array containing the runes required.
-     */
     protected final Item[] runes;
 
-    /**
-     * The spell id.
-     */
     protected int spellId;
 
-    /**
-     * The experience gained.
-     */
     private final double experience;
 
-    /**
-     * Constructs a new {@code MagicSpell} {@code Object}.
-     */
     public MagicSpell() {
         this(SpellBook.MODERN, 0, 0, null, null, null, new Item[0]);
     }
 
-    /**
-     * Constructs a new {@code MagicSpell} {@code Object}.
-     *
-     * @param book       The spell book this spell is from.
-     * @param level      The level requirement.
-     * @param experience the experience
-     * @param animation  the cast animation.
-     * @param graphic    The cast graphic.
-     * @param Audio      The casting Audio.
-     * @param runes      The runes required to cast the spell.
-     */
     public MagicSpell(SpellBook book, int level, final double experience, Animation animation, Graphic graphic, Audio Audio, Item[] runes) {
         this.book = book;
         this.level = level;
@@ -97,15 +54,6 @@ public abstract class MagicSpell implements Plugin<SpellType> {
         this.runes = runes;
     }
 
-    /**
-     * Casts a spell.
-     *
-     * @param p       The player casting the spell.
-     * @param book    the book
-     * @param spellId the spell id
-     * @param target  The target.
-     * @return the boolean
-     */
     public static boolean castSpell(final Player p, SpellBook book, int spellId, Node target) {
         if (p.getAttribute("magic-delay", 0) > GameWorld.getTicks()) {
             return false;
@@ -145,44 +93,18 @@ public abstract class MagicSpell implements Plugin<SpellType> {
         return false;
     }
 
-    /**
-     * Gets the delay.
-     *
-     * @return the delay.
-     */
     public int getDelay() {
         return 3;
     }
 
-    /**
-     * Starts the effect of this spell (if any).
-     *
-     * @param entity The entity.
-     * @param target the target
-     * @return the boolean
-     */
     public abstract boolean cast(Entity entity, Node target);
 
-    /**
-     * Visualizes the spell.
-     *
-     * @param entity The entity.
-     * @param target The target.
-     */
     public void visualize(Entity entity, Node target) {
         entity.graphics(graphic);
         entity.animate(animation);
         playGlobalAudio(entity.getLocation(), audio.id, 20);
     }
 
-    /**
-     * Checks if the player is holding the staff that will be used instead of
-     * the rune.
-     *
-     * @param p    The player.
-     * @param rune The rune item id.
-     * @return {@code True} if the player is wearing the correct staff for the rune.
-     */
     public boolean usingStaff(Player p, int rune) {
         Item weapon = p.getEquipment().get(3);
         if (weapon == null) {
@@ -201,14 +123,6 @@ public abstract class MagicSpell implements Plugin<SpellType> {
         return false;
     }
 
-    /**
-     * Checks if the casting entity meets the requirements to cast this spell.
-     *
-     * @param caster  The caster.
-     * @param message If a message should be send to the caster if it doesn't meet the requirements.
-     * @param remove  If we should remove the runes from the player's inventory.
-     * @return {@code True} if so.
-     */
     public boolean meetsRequirements(Entity caster, boolean message, boolean remove) {
         if (!checkLevelRequirement(caster, message)) {
             return false;
@@ -257,13 +171,6 @@ public abstract class MagicSpell implements Plugin<SpellType> {
         return true;
     }
 
-    /**
-     * Checks the level requirement.
-     *
-     * @param caster  The caster.
-     * @param message If we display the message.
-     * @return {@code True} if passed.
-     */
     public boolean checkLevelRequirement(Entity caster, boolean message) {
         if (caster instanceof Player && caster.getSkills().getLevel(Skills.MAGIC, this instanceof CombatSpell ? true : false) < levelRequirement()) {
             if (message && caster instanceof Player) {
@@ -274,15 +181,6 @@ public abstract class MagicSpell implements Plugin<SpellType> {
         return true;
     }
 
-    /**
-     * Checks if the player has a rune to remove.
-     *
-     * @param p        the player.
-     * @param item     the item.
-     * @param toRemove the list of items to remove.
-     * @param message  the message.
-     * @return {@code True} if so.
-     */
     public boolean hasRune(Player p, Item item, List<Item> toRemove, boolean message) {
         if (!usingStaff(p, item.getId())) {
             boolean hasBaseRune = p.getInventory().contains(item.getId(), item.getAmount());
@@ -318,12 +216,6 @@ public abstract class MagicSpell implements Plugin<SpellType> {
         return true;
     }
 
-    /**
-     * Adds the experience for casting this spell.
-     *
-     * @param entity The entity to reward with experience.
-     * @param hit    The hit.
-     */
     public void addExperience(Entity entity, int hit) {
         entity.getSkills().addExperience(Skills.MAGIC, experience, true);
         if (!(entity instanceof Player) || hit < 1) {
@@ -339,11 +231,6 @@ public abstract class MagicSpell implements Plugin<SpellType> {
         entity.getSkills().addExperience(Skills.MAGIC, hit * (CombatSwingHandler.EXPERIENCE_MOD), true);
     }
 
-    /**
-     * Gets the level requirement to cast this spell.
-     *
-     * @return The level requirement.
-     */
     public int levelRequirement() {
         return level;
     }
@@ -353,75 +240,34 @@ public abstract class MagicSpell implements Plugin<SpellType> {
         return null;
     }
 
-    /**
-     * Gets the audio.
-     *
-     * @return the audio.
-     */
     public Audio getAudio() {
         return audio;
     }
 
-    /**
-     * Gets the spell book for this spell.
-     *
-     * @return The spell book.
-     */
     public SpellBook getBook() {
         return book;
     }
 
-    /**
-     * Gets the item array of runes required to cast this spell.
-     *
-     * @return The item array of runes, or {@code null} if the spell doesn't need any runes.
-     */
     public Item[] getCastRunes() {
         return runes;
     }
 
-    /**
-     * Gets the spellId.
-     *
-     * @return The spellId.
-     */
     public int getSpellId() {
         return spellId;
     }
 
-    /**
-     * Sets the spellId.
-     *
-     * @param spellId The spellId to set.
-     */
     public void setSpellId(int spellId) {
         this.spellId = spellId;
     }
 
-    /**
-     * Gets the experience.
-     *
-     * @return The experience.
-     */
     public double getExperience() {
         return experience;
     }
 
-    /**
-     * Gets the experience.
-     *
-     * @param player the player.
-     * @return the experience.
-     */
     public double getExperience(Player player) {
         return experience;
     }
 
-    /**
-     * Gets the level requirement.
-     *
-     * @return The level requirement.
-     */
     public int getLevel() {
         return level;
     }

@@ -11,9 +11,6 @@ import java.nio.ByteBuffer;
 
 import static core.api.ContentAPIKt.log;
 
-/**
- * Holds definitions for render animations.
- */
 public class RenderAnimationDefinition {
 
     public int turn180Animation;
@@ -57,12 +54,6 @@ public class RenderAnimationDefinition {
     public int anInt993;
     public int anInt994;
 
-    /**
-     * Gets the render animation definitions for the given id.
-     *
-     * @param animId The render animation id.
-     * @return The render animation definitions.
-     */
     public static RenderAnimationDefinition forId(int animId) {
         if (animId == -1) {
             return null;

@@ -23,24 +23,12 @@ import core.tools.RandomFunction;
 import static core.api.ContentAPIKt.removeAttribute;
 import static core.api.ContentAPIKt.setAttribute;
 
-/**
- * The Witchs house plugin.
- */
 @Initializable
 public class WitchsHousePlugin extends OptionHandler {
     private static final Item LEATHER_GLOVES = new Item(1059);
-    /**
-     * The constant KEY.
-     */
     public static final Item KEY = new Item(2411);
-    /**
-     * The constant DOOR_KEY.
-     */
     public static final Item DOOR_KEY = new Item(2409);
     private static final Item MAGNET = new Item(2410);
-    /**
-     * The constant BALL.
-     */
     public static final Item BALL = new Item(2407);
     private static final Item CHEESE = new Item(1985);
 
@@ -203,9 +191,6 @@ public class WitchsHousePlugin extends OptionHandler {
         //ExperimentSession.create(player).start();
     }
 
-    /**
-     * The Witchs house use with handler.
-     */
     public static class WitchsHouseUseWithHandler extends UseWithHandler {
 
         private WitchsHouseUseWithHandler() {

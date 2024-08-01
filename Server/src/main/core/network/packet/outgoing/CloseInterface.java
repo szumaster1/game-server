@@ -4,10 +4,6 @@ import core.network.packet.IoBuffer;
 import core.network.packet.OutgoingPacket;
 import core.network.packet.context.InterfaceContext;
 
-/**
- * Represents the outgoing packet used for closing an interface.
- * @author Emperor
- */
 public final class CloseInterface implements OutgoingPacket<InterfaceContext> {
 
     @Override

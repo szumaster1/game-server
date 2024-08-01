@@ -5,10 +5,6 @@ import core.game.world.update.flag.context.Animation;
 import core.network.packet.IoBuffer;
 import core.network.packet.outgoing.AnimateScenery;
 
-/**
- * The animate object update flag.
- * @author Emperor
- */
 public final class AnimateObjectUpdateFlag extends UpdateFlag<Animation> {
 
     public AnimateObjectUpdateFlag(Animation context) {

@@ -10,13 +10,6 @@ public abstract class AgilityCourse extends OptionHandler {
     private final boolean[] obstaclesPassed;
     private final double completionExperience;
 
-    /**
-     * Instantiates a new Agility course.
-     *
-     * @param player               the player
-     * @param size                 the size
-     * @param completionExperience the completion experience
-     */
     public AgilityCourse(Player player, int size, double completionExperience) {
         this.player = player;
         this.obstaclesPassed = new boolean[size];
@@ -37,25 +30,10 @@ public abstract class AgilityCourse extends OptionHandler {
         return null;
     }
 
-    /**
-     * Configure.
-     */
     public abstract void configure();
 
-    /**
-     * Create instance agility course.
-     *
-     * @param player the player
-     * @return the agility course
-     */
     public abstract AgilityCourse createInstance(Player player);
 
-    /**
-     * Gets course.
-     *
-     * @param player the player
-     * @return the course
-     */
     public AgilityCourse getCourse(Player player) {
         AgilityCourse course = player.getExtension(AgilityCourse.class);
         if (course == null || course.getClass() != getClass()) {
@@ -68,9 +46,6 @@ public abstract class AgilityCourse extends OptionHandler {
         return course;
     }
 
-    /**
-     * Finish.
-     */
     public void finish() {
         if (isCompleted()) {
             player.getSkills().addExperience(Skills.AGILITY, completionExperience, true);
@@ -78,11 +53,6 @@ public abstract class AgilityCourse extends OptionHandler {
         reset();
     }
 
-    /**
-     * Is completed boolean.
-     *
-     * @return the boolean
-     */
     public boolean isCompleted() {
         for (boolean b : obstaclesPassed) {
             if (!b) {
@@ -92,20 +62,12 @@ public abstract class AgilityCourse extends OptionHandler {
         return true;
     }
 
-    /**
-     * Reset.
-     */
     public void reset() {
         for (int i = 0; i < obstaclesPassed.length; i++) {
             obstaclesPassed[i] = false;
         }
     }
 
-    /**
-     * Flag.
-     *
-     * @param index the index
-     */
     public void flag(int index) {
         obstaclesPassed[index] = true;
         if (index == obstaclesPassed.length - 1) {
@@ -114,12 +76,6 @@ public abstract class AgilityCourse extends OptionHandler {
     }
 
 
-    /**
-     * Gets hit amount.
-     *
-     * @param player the player
-     * @return the hit amount
-     */
     protected static int getHitAmount(Player player) {
         int hit = player.getSkills().getLifepoints() / 12;
         if (hit < 2) {
@@ -128,20 +84,10 @@ public abstract class AgilityCourse extends OptionHandler {
         return hit;
     }
 
-    /**
-     * Gets player.
-     *
-     * @return the player
-     */
     public Player getPlayer() {
         return player;
     }
 
-    /**
-     * Get passed obstacles boolean [ ].
-     *
-     * @return the boolean [ ]
-     */
     public boolean[] getPassedObstacles() {
         return obstaclesPassed;
     }

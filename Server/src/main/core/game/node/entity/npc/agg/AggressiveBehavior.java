@@ -10,21 +10,10 @@ import core.game.world.map.zone.impl.WildernessZone;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Handles an NPC's aggressive behaviour.
- *
- * @author Emperor
- */
 public class AggressiveBehavior {
 
-    /**
-     * The default aggressive behavior.
-     */
     public static final AggressiveBehavior DEFAULT = new AggressiveBehavior();
 
-    /**
-     * The wilderness aggressive behavior.
-     */
     public static final AggressiveBehavior WILDERNESS = new AggressiveBehavior() {
 
         @Override
@@ -48,22 +37,12 @@ public class AggressiveBehavior {
         }
     };
 
-    /**
-     * Constructs a new {@code AggressiveBehaviour} {@code Object}.
-     */
     public AggressiveBehavior() {
         /*
          * empty.
          */
     }
 
-    /**
-     * Checks if the NPC is aggressive towards the entity.
-     *
-     * @param entity The timed entry.
-     * @param target the target
-     * @return {@code True} if the NPC can select the entity as a target.
-     */
     public boolean canSelectTarget(Entity entity, Entity target) {
         int regionId = target.getLocation().getRegionId();
         if (!target.isActive() || DeathTask.isDead(target)) {
@@ -87,21 +66,10 @@ public class AggressiveBehavior {
         return true;
     }
 
-    /**
-     * Ignore combat level difference boolean.
-     *
-     * @return the boolean
-     */
     public boolean ignoreCombatLevelDifference() {
         return false;
     }
 
-    /**
-     * Gets the priority flag.
-     *
-     * @param target The target.
-     * @return The priority flag.
-     */
     public int getPriorityFlag(Entity target) {
         int flag = 0;
         if (target.inCombat()) {
@@ -117,13 +85,6 @@ public class AggressiveBehavior {
         return flag;
     }
 
-    /**
-     * Gets the list of possible targets.
-     *
-     * @param entity The entity.
-     * @param radius The aggressive radius.
-     * @return The list of possible targets.
-     */
     public List<Entity> getPossibleTargets(Entity entity, int radius) {
         List<Entity> targets = new ArrayList<>(20);
         for (Player player : RegionManager.getLocalPlayers(entity, radius)) {
@@ -134,13 +95,6 @@ public class AggressiveBehavior {
         return targets;
     }
 
-    /**
-     * Gets the most logical target from the targets list.
-     *
-     * @param entity          The entity.
-     * @param possibleTargets The possible targets list.
-     * @return The target.
-     */
     public Entity getLogicalTarget(Entity entity, List<Entity> possibleTargets) {
         Entity target = null;
         int comparingFlag = Integer.MAX_VALUE;

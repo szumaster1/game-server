@@ -5,28 +5,13 @@ import content.global.activity.treasuretrails.scroll.CoordinateClueScroll;
 import core.game.world.map.Location;
 import core.plugin.Plugin;
 
-/**
- * Initializes the coordinate clues.
- * @author Vexia
- */
 public final class CoordinateCluePlugin extends CoordinateClueScroll {
 
-	/**
-	 * Constructs a new {@code CoordinateCluePlugin} {@code Object}
-	 */
-	public CoordinateCluePlugin() {
+    public CoordinateCluePlugin() {
 		this(null, -1, null, null, null);
 	}
 
-	/**
-	 * Constructs a new {@code CoordinateCluePlugin} {@code Object}
-	 * @param name the name.
-	 * @param clueId the clue id.
-	 * @param level the level.
-	 * @param location the location.
-	 * @param clue the clue.
-	 */
-	public CoordinateCluePlugin(String name, int clueId, ClueLevel level, Location location, String clue) {
+    public CoordinateCluePlugin(String name, int clueId, ClueLevel level, Location location, String clue) {
 		super(name, clueId, level, location, clue);
 	}
 

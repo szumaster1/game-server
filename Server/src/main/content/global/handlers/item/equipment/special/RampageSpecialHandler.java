@@ -15,9 +15,6 @@ import core.plugin.Plugin;
 
 import static core.api.ContentAPIKt.playAudio;
 
-/**
- * The Rampage special handler.
- */
 @Initializable
 public final class RampageSpecialHandler extends MeleeSwingHandler implements Plugin<Object> {
 

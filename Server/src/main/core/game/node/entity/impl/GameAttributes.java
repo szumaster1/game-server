@@ -14,52 +14,25 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Handles an entity's game attributes.
- *
- * @author Emperor
- */
 public final class GameAttributes {
 
-    /**
-     * The attributes mapping.
-     */
     private final Map<String, Object> attributes = new HashMap<>();
 
-    /**
-     * The list of attributes to save.
-     */
     private final List<String> savedAttributes = new ArrayList<>(250);
 
-    /**
-     * The list of key expirations
-     */
     public final HashMap<String, Long> keyExpirations = new HashMap<>(250);
 
-    /**
-     * Constructs a new {@code GameAttributes} {@code Object}.
-     */
     public GameAttributes() {
         /*
          * Empty.
          */
     }
 
-    /**
-     * Writes the attribute data to the player buffer.
-     *
-     * @param file The player's data buffer.
-     */
     @Deprecated
     public void dump(String file) {
 
     }
 
-    /**
-     * Parses the saved attributes from the buffer.
-     *
-     * @param file The buffer.
-     */
     @Deprecated
     public void parse(String file) {
         File saveFile = new File(ServerConstants.PLAYER_ATTRIBUTE_PATH + file);
@@ -134,12 +107,6 @@ public final class GameAttributes {
         }
     }
 
-    /**
-     * Sets an attribute value.
-     *
-     * @param key   The attribute name.
-     * @param value The attribute value.
-     */
     public void setAttribute(String key, Object value) {
         if (key.startsWith("/save:")) {
             key = key.substring(6);
@@ -150,27 +117,12 @@ public final class GameAttributes {
         attributes.put(key, value);
     }
 
-    /**
-     * Gets an attribute.
-     *
-     * @param <T> the type parameter
-     * @param key The attribute name.
-     * @return The attribute value.
-     */
     @SuppressWarnings("unchecked")
     public <T> T getAttribute(String key) {
         key = key.replace("/save:", "");
         return (T) attributes.get(key);
     }
 
-    /**
-     * Gets an attribute.
-     *
-     * @param <T>    the type parameter
-     * @param string The attribute name.
-     * @param fail   The value to return if the attribute is null.
-     * @return The attribute value, or the fail argument when null.
-     */
     @SuppressWarnings("unchecked")
     public <T> T getAttribute(String string, T fail) {
         string = string.replace("/save:", "");
@@ -181,30 +133,15 @@ public final class GameAttributes {
         return fail;
     }
 
-    /**
-     * Removes an attribute.
-     *
-     * @param string The attribute name.
-     */
     public void removeAttribute(String string) {
         savedAttributes.remove(string);
         attributes.remove(string);
     }
 
-    /**
-     * Gets the attributes.
-     *
-     * @return The attributes.
-     */
     public Map<String, Object> getAttributes() {
         return attributes;
     }
 
-    /**
-     * Gets the savedAttributes.
-     *
-     * @return The savedAttributes.
-     */
     public List<String> getSavedAttributes() {
         return savedAttributes;
     }

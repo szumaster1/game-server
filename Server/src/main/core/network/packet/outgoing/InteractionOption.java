@@ -5,10 +5,6 @@ import core.network.packet.OutgoingPacket;
 import core.network.packet.PacketHeader;
 import core.network.packet.context.InteractionOptionContext;
 
-/**
- * Handles the interaction option changed outgoing packet.
- * @author Emperor
- */
 public final class InteractionOption implements OutgoingPacket<InteractionOptionContext> {
 
     @Override

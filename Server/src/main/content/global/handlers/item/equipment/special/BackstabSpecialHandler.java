@@ -16,9 +16,6 @@ import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
-/**
- * The Backstab special handler.
- */
 @Initializable
 public final class BackstabSpecialHandler extends MeleeSwingHandler implements Plugin<Object> {
 

@@ -7,24 +7,12 @@ import core.game.node.entity.player.link.quest.Quest;
 import core.game.node.item.GroundItemManager;
 import core.game.world.map.Location;
 
-/**
- * The Outlaw npc.
- */
 public class OutlawNPC extends AbstractNPC {
 
-    /**
-     * Instantiates a new Outlaw npc.
-     */
     public OutlawNPC() {
         super(-1, null);
     }
 
-    /**
-     * Instantiates a new Outlaw npc.
-     *
-     * @param id       the id
-     * @param location the location
-     */
     public OutlawNPC(int id, Location location) {
         super(id, location);
     }

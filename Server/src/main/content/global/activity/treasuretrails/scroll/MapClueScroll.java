@@ -11,46 +11,19 @@ import core.game.node.entity.player.Player;
 import core.game.world.map.Location;
 import core.game.world.map.zone.ZoneBorders;
 
-/**
- * A map clue scroll.
- * @author Vexia
- */
 public abstract class MapClueScroll extends ClueScrollPlugin {
 
-	/**
-	 * The location of the x spot.
-	 */
 	private final Location location;
 
-	/**
-	 * The object id.
-	 */
 	private final int object;
 
-	/**
-	 * Constructs a new {@code MapClueScroll} {@code Object}
-	 * @param name the name.
-	 * @param clueId the clue id.
-	 * @param level the level.
-	 * @param interfaceId the interface id.
-	 * @param location the location.
-	 * @param object the object.
-	 */
-	public MapClueScroll(String name, int clueId, ClueLevel level, int interfaceId, Location location, final int object, ZoneBorders... borders) {
+    public MapClueScroll(String name, int clueId, ClueLevel level, int interfaceId, Location location, final int object, ZoneBorders... borders) {
 		super(name, clueId, level, interfaceId, borders);
 		this.location = location;
 		this.object = object;
 	}
 
-	/**
-	 * Constructs a new {@code MapClueScroll} {@code Object}
-	 * @param name the name.
-	 * @param clueId the clue id.
-	 * @param level the level.
-	 * @param interfaceId the interface id.
-	 * @param location the location.
-	 */
-	public MapClueScroll(String name, int clueId, ClueLevel level, int interfaceId, Location location) {
+    public MapClueScroll(String name, int clueId, ClueLevel level, int interfaceId, Location location) {
 		this(name, clueId, level, interfaceId, location, 0);
 	}
 
@@ -76,20 +49,12 @@ public abstract class MapClueScroll extends ClueScrollPlugin {
 		super.configure();
 	}
 
-	/**
-	 * The dig method called when the player digs.
-	 * @param player the player.
-	 */
-	public void dig(Player player) {
+    public void dig(Player player) {
 		reward(player);
 		player.getDialogueInterpreter().sendItemMessage(405, "You've found a casket!");
 	}
 
-	/**
-	 * Handles the map digging reward.
-	 * @author Vexia
-	 */
-	public final class MapDigAction implements DigAction {
+    public final class MapDigAction implements DigAction {
 
 		@Override
 		public void run(Player player) {
@@ -102,28 +67,15 @@ public abstract class MapClueScroll extends ClueScrollPlugin {
 
 	}
 
-	/**
-	 * Checks if the player has the required items.
-	 * @param player the player.
-	 * @return {@code True} if so.
-	 */
-	public boolean hasRequiredItems(Player player) {
+    public boolean hasRequiredItems(Player player) {
 		return player.getInventory().contains(clueId, 1);
 	}
 
-	/**
-	 * Gets the location.
-	 * @return the location
-	 */
-	public Location getLocation() {
+    public Location getLocation() {
 		return location;
 	}
 
-	/**
-	 * Gets the object.
-	 * @return the object
-	 */
-	public int getObject() {
+    public int getObject() {
 		return object;
 	}
 

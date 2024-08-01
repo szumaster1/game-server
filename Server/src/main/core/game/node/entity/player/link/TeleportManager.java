@@ -13,88 +13,35 @@ import core.game.world.update.flag.context.Graphic;
 
 import static core.api.ContentAPIKt.*;
 
-/**
- * Handles the entity teleport.
- *
- * @author SonicForce41
- * @author Woah
- */
 public class TeleportManager {
 
-    /**
-     * The wildy teleport type.
-     */
     public static final int WILDY_TELEPORT = 1 << 16 | 8;
 
-    /**
-     * The animations used in the home teleport.
-     */
     private final static int[] HOME_ANIMATIONS = {1722, 1723, 1724, 1725, 2798, 2799, 2800, 3195, 4643, 4645, 4646, 4847, 4848, 4849, 4850, 4851, 4852, 65535};
 
-    /**
-     * The graphics used in the home teleport.
-     */
     private final static int[] HOME_GRAPHICS = {775, 800, 801, 802, 803, 804, 1703, 1704, 1705, 1706, 1707, 1708, 1709, 1710, 1711, 1712, 1713, 65535};
 
-    /**
-     * The entity being handled.
-     */
     private final Entity entity;
 
-    /**
-     * The last teleport of this <b>Entity</b>
-     */
     private Pulse lastTeleport;
 
-    /**
-     * The current teleport of this <b>Entity</b>
-     */
     private Pulse currentTeleport;
 
-    /**
-     * The current teleport type.
-     */
     private int teleportType;
 
-    /**
-     * Constructs a new {@code Teleporter.java} {@code Object}.
-     *
-     * @param entity the Entity
-     */
     public TeleportManager(Entity entity) {
         this.entity = entity;
         lastTeleport = TeleportType.HOME.getPulse(entity, ServerConstants.HOME_LOCATION);
     }
 
-    /**
-     * Sends the teleport.
-     *
-     * @param location the Location.
-     * @return {@code True} if the player successfully started teleporting.
-     */
     public boolean send(Location location) {
         return send(location, entity instanceof Player ? getType((Player) entity) : TeleportType.NORMAL, 0);
     }
 
-    /**
-     * Sends the teleport.
-     *
-     * @param location the Location.
-     * @param type     the NodeType.
-     * @return {@code True} if the player successfully started teleporting.
-     */
     public boolean send(Location location, TeleportType type) {
         return send(location, type, 0);
     }
 
-    /**
-     * Sends the teleport.
-     *
-     * @param location     the Location.
-     * @param type         the NodeType.
-     * @param teleportType The teleporting type. (0=spell, 1=item, 2=object, 3=npc -1= force)
-     * @return {@code True} if the player successfully started teleporting.
-     */
     public boolean send(Location location, TeleportType type, int teleportType) {
         if (teleportType == WILDY_TELEPORT || type == TeleportType.OBELISK) {
             if (hasTimerActive(entity, "teleblock")) return false;
@@ -135,23 +82,12 @@ public class TeleportManager {
         return true;
     }
 
-    /**
-     * Fires a random event.
-     *
-     * @param entity   The entity teleporting.
-     * @param location The destination lcoation.
-     */
     public static void fireRandom(Entity entity, Location location) {
         if (entity instanceof Player && entity.getTeleporter().getTeleportType() == 0) {
             Player p = (Player) entity;
         }
     }
 
-    /**
-     * Get the home teleport audio based on tick count.
-     *
-     * @param count
-     */
     private static int getAudio(int count) {
         switch (count) {
             case 0:
@@ -164,44 +100,21 @@ public class TeleportManager {
         return -1;
     }
 
-    /**
-     * Gets the entity.
-     *
-     * @return the Entity
-     */
     public final Entity getEntity() {
         return entity;
     }
 
-    /**
-     * Gets the last teleport pulse.
-     *
-     * @return the Pulse
-     */
     public final Pulse getLastTeleport() {
         return lastTeleport;
     }
 
-    /**
-     * Gets the current teleport pulse.
-     *
-     * @return the Pulse
-     */
     public final Pulse getCurrentTeleport() {
         return currentTeleport;
     }
 
 
-    /**
-     * Represents a NodeType for Teleporter
-     *
-     * @author SonicForce41
-     */
     public enum TeleportType {
 
-        /**
-         * The value types
-         */
         NORMAL(new TeleportSettings(8939, 8941, 1576, 1577)) {
             @Override
             public Pulse getPulse(final Entity entity, final Location location) {
@@ -236,9 +149,6 @@ public class TeleportManager {
                 };
             }
         },
-        /**
-         * The Ancient.
-         */
         ANCIENT(new TeleportSettings(1979, -1, 392, -1)) {
             @Override
             public Pulse getPulse(final Entity entity, final Location location) {
@@ -273,9 +183,6 @@ public class TeleportManager {
                 };
             }
         },
-        /**
-         * The Lunar.
-         */
         LUNAR(new TeleportSettings(1816, -1, 747, -1)) {
             @Override
             public Pulse getPulse(final Entity entity, final Location location) {
@@ -309,9 +216,6 @@ public class TeleportManager {
                 };
             }
         },
-        /**
-         * The Teletabs.
-         */
         TELETABS(new TeleportSettings(4731, -1, 678, -1)) {
             @Override
             public Pulse getPulse(final Entity entity, final Location location) {
@@ -348,9 +252,6 @@ public class TeleportManager {
                 };
             }
         },
-        /**
-         * The Home.
-         */
         HOME(new TeleportSettings(4847, 4857, 800, 804)) {
             @Override
             public Pulse getPulse(final Entity entity, final Location location) {
@@ -403,9 +304,6 @@ public class TeleportManager {
                 };
             }
         },
-        /**
-         * The Obelisk.
-         */
         OBELISK(new TeleportSettings(8939, 8941, 661, -1)) {
             @Override
             public Pulse getPulse(final Entity entity, final Location location) {
@@ -430,9 +328,6 @@ public class TeleportManager {
                 };
             }
         },
-        /**
-         * The Tele other.
-         */
         TELE_OTHER(new TeleportSettings(1816, -1, 342, -1)) {
             @Override
             public Pulse getPulse(final Entity entity, final Location location) {
@@ -458,9 +353,6 @@ public class TeleportManager {
                 };
             }
         },
-        /**
-         * The Fairy ring.
-         */
         FAIRY_RING(new TeleportSettings(-1, -1, -1, -1)) {
             @Override
             public Pulse getPulse(final Entity entity, final Location location) {
@@ -490,9 +382,6 @@ public class TeleportManager {
                 };
             }
         },
-        /**
-         * The Puro puro.
-         */
         PURO_PURO(new TeleportSettings(6601, 1118, -1, -1)) {
             @Override
             public Pulse getPulse(final Entity entity, final Location location) {
@@ -516,9 +405,6 @@ public class TeleportManager {
                 };
             }
         },
-        /**
-         * The Ectophial.
-         */
         ECTOPHIAL(new TeleportSettings(8939, 8941, 1587, 1588)) {
             @Override
             public Pulse getPulse(final Entity entity, final Location location) {
@@ -546,9 +432,6 @@ public class TeleportManager {
                 };
             }
         },
-        /**
-         * The Christmas.
-         */
         CHRISTMAS(new TeleportSettings(7534, -1, 1292, -1)) {
             @Override
             public Pulse getPulse(final Entity entity, final Location location) {
@@ -583,9 +466,6 @@ public class TeleportManager {
                 };
             }
         },
-        /**
-         * The Cabbage.
-         */
         CABBAGE(new TeleportSettings(9984, 9986, 1731, 1732)) {
             @Override
             public Pulse getPulse(final Entity entity, final Location location) {
@@ -623,9 +503,6 @@ public class TeleportManager {
                 };
             }
         },
-        /**
-         * The Entrana magic door.
-         */
         ENTRANA_MAGIC_DOOR(new TeleportSettings(10100, 9013, 1745, 1747)) { //
 
             @Override
@@ -661,9 +538,6 @@ public class TeleportManager {
                 };
             }
         },
-        /**
-         * The Random event.
-         */
         RANDOM_EVENT_OLD(new TeleportSettings(714, -1, -1, -1)) {
             @Override
             public Pulse getPulse(final Entity entity, final Location location) {
@@ -701,9 +575,6 @@ public class TeleportManager {
                 };
             }
         },
-        /**
-         * The Minigame.
-         */
         MINIGAME(new TeleportSettings(6601, 1118, -1, -1)) {
             @Override
             public Pulse getPulse(final Entity entity, final Location location) {
@@ -741,9 +612,6 @@ public class TeleportManager {
                 };
             }
         },
-        /**
-         * The Instant.
-         */
         INSTANT(new TeleportSettings(-1, -1, -1, -1)) {
             @Override
             public Pulse getPulse(final Entity entity, final Location location) {
@@ -768,74 +636,29 @@ public class TeleportManager {
             }
         };
 
-        /**
-         * The NodeSettings
-         */
         private TeleportSettings settings;
 
-        /**
-         * Gets pulse.
-         *
-         * @param entity   the entity
-         * @param location the location
-         * @return the Pulse
-         */
         public abstract Pulse getPulse(final Entity entity, final Location location);
 
-        /**
-         * Constructs a new {@code Teleporter.java} {@code Object}.
-         *
-         * @param settings the NodeSettings
-         */
         TeleportType(TeleportSettings settings) {
             this.settings = settings;
         }
 
-        /**
-         * Gets the NodeSettings
-         *
-         * @return the NodeSettings
-         */
         public final TeleportSettings getSettings() {
             return settings;
         }
     }
 
-    /**
-     * Represents teleport node settings
-     *
-     * @author SonicForce41
-     */
     static class TeleportSettings {
 
-        /**
-         * The start animation.
-         */
         private int startAnim;
 
-        /**
-         * The end animation.
-         */
         private int endAnim;
 
-        /**
-         * The start graphics.
-         */
         private int startGFX;
 
-        /**
-         * The end gfx.
-         */
         private int endGFX;
 
-        /**
-         * Constructs a new {@code Teleporter.java} {@code Object}.
-         *
-         * @param startAnim the start animation.
-         * @param endAnim   the end animation.
-         * @param startGfx  the start graphics.
-         * @param endGfx    the end graphiics.
-         */
         public TeleportSettings(int startAnim, int endAnim, int startGfx, int endGfx) {
             this.startAnim = startAnim;
             this.endAnim = endAnim;
@@ -843,50 +666,23 @@ public class TeleportManager {
             this.endGFX = endGfx;
         }
 
-        /**
-         * Gets start emote.
-         *
-         * @return the anim.
-         */
         public final int getStartEmote() {
             return startAnim;
         }
 
-        /**
-         * Gets end emote.
-         *
-         * @return the anim.
-         */
         public final int getEndEmote() {
             return endAnim;
         }
 
-        /**
-         * Gets start gfx.
-         *
-         * @return the start graphics.
-         */
         public final int getStartGfx() {
             return startGFX;
         }
 
-        /**
-         * Gets end gfx.
-         *
-         * @return the end gfx.
-         */
         public final int getEndGfx() {
             return endGFX;
         }
     }
 
-    /**
-     * Gets the teleporting type for the player depending on his/her current
-     * spellbook.
-     *
-     * @param player The player.
-     * @return The teleport type.
-     */
     public static TeleportType getType(Player player) {
         switch (player.getSpellBookManager().getSpellBook()) {
             case 193:
@@ -897,20 +693,10 @@ public class TeleportManager {
         return TeleportType.NORMAL;
     }
 
-    /**
-     * Gets the teleportType.
-     *
-     * @return The teleportType.
-     */
     public int getTeleportType() {
         return teleportType;
     }
 
-    /**
-     * Sets the teleportType.
-     *
-     * @param teleportType The teleportType to set.
-     */
     public void setTeleportType(int teleportType) {
         this.teleportType = teleportType;
     }

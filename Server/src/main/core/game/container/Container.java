@@ -13,80 +13,33 @@ import java.nio.ByteBuffer;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
-/**
- * Represents a container which contains items.
- *
- * @author Emperor
- */
 public class Container {
 
-    /**
-     * The item array. A crystalline
-     */
     private Item[] items;
 
-    /**
-     * The capacity.
-     */
     private final int capacity;
 
-    /**
-     * The current sort type.
-     */
     private SortType sortType;
 
-    /**
-     * The current container type.
-     */
     private final ContainerType type;
 
-    /**
-     * The current container event.
-     */
     private ContainerEvent event;
 
-    /**
-     * The container listeners.
-     */
     private final List<ContainerListener> listeners = new ArrayList<>(20);
 
-    /**
-     * Constructs a new {@code Container} {@code Object}.
-     *
-     * @param capacity The capacity.
-     */
     public Container(int capacity) {
         this(capacity, ContainerType.DEFAULT);
     }
 
-    /**
-     * Constructs a new {@code Container.java} {@code Object}.
-     *
-     * @param capacity the capacity.
-     * @param items    the items to add.
-     */
     public Container(int capacity, Item... items) {
         this(capacity);
         add(items);
     }
 
-    /**
-     * Constructs a new {@code Container} {@code Object}.
-     *
-     * @param capacity The capacity.
-     * @param type     The container type.
-     */
     public Container(int capacity, ContainerType type) {
         this(capacity, type, SortType.ID);
     }
 
-    /**
-     * Constructs a new {@code Container} {@code Object}.
-     *
-     * @param capacity The capacity.
-     * @param type     The container type.
-     * @param sortType The sort type.
-     */
     public Container(int capacity, ContainerType type, SortType sortType) {
         this.capacity = capacity;
         this.type = type;
@@ -95,23 +48,11 @@ public class Container {
         this.event = new ContainerEvent(capacity);
     }
 
-    /**
-     * Registers a container listener.
-     *
-     * @param listener The container listener.
-     * @return This container instance, for chaining.
-     */
     public Container register(ContainerListener listener) {
         listeners.add(listener);
         return this;
     }
 
-    /**
-     * Adds the items.
-     *
-     * @param items The items to add.
-     * @return {@code True} if successfully added <b>all</b> items.
-     */
     public boolean add(Item... items) {
         boolean addedAll = true;
         for (Item item : items) {
@@ -127,33 +68,15 @@ public class Container {
         return addedAll;
     }
 
-    /**
-     * Add list.
-     *
-     * @param items the items
-     */
     public void addList(List<Item> items) {
         items.stream().filter(Objects::nonNull).forEach(this::add);
         update();
     }
 
-    /**
-     * Inserts an item into a specific slot.
-     *
-     * @param fromSlot The original slot of the item.
-     * @param toSlot   The slot to insert into.
-     */
     public void insert(int fromSlot, int toSlot) {
         insert(fromSlot, toSlot, true);
     }
 
-    /**
-     * Inserts an item into a specific slot.
-     *
-     * @param fromSlot The original slot of the item.
-     * @param toSlot   The slot to insert into.
-     * @param update   If the container packets should be sent.
-     */
     public void insert(int fromSlot, int toSlot, boolean update) {
         Item temp = items[fromSlot];
         if (toSlot > fromSlot) {
@@ -168,13 +91,6 @@ public class Container {
         replace(temp, toSlot, update);
     }
 
-    /**
-     * Adds an item to this container if full it goes to ground.
-     *
-     * @param item   the item.
-     * @param player the player.
-     * @return {@code True} if added.
-     */
     public boolean add(final Item item, final Player player) {
         if (!add(item, true, -1)) {
             GroundItemManager.create(item, player);
@@ -183,12 +99,6 @@ public class Container {
         return true;
     }
 
-    /**
-     * Add if doesnt have boolean.
-     *
-     * @param item the item
-     * @return the boolean
-     */
     public boolean addIfDoesntHave(final Item item) {
         if (containsItem(item)) {
             return false;
@@ -198,35 +108,14 @@ public class Container {
         }
     }
 
-    /**
-     * Adds an item to this container.
-     *
-     * @param item The item.
-     * @return {@code True} if the item got added.
-     */
     public boolean add(Item item) {
         return add(item, true, -1);
     }
 
-    /**
-     * Adds an item to this container.
-     *
-     * @param item         The item to add.
-     * @param fireListener If we should update.
-     * @return {@code True} if the item got added.
-     */
     public boolean add(Item item, boolean fireListener) {
         return add(item, fireListener, -1);
     }
 
-    /**
-     * Adds an item to this container.
-     *
-     * @param item          The item to add.
-     * @param fireListener  If we should update.
-     * @param preferredSlot The slot to add the item in, when possible.
-     * @return {@code True} if the item got added.
-     */
     public boolean add(Item item, boolean fireListener, int preferredSlot) {
         item = item.copy();
         int maximum = getMaximumAdd(item);
@@ -283,12 +172,6 @@ public class Container {
         return false;
     }
 
-    /**
-     * Removes a set of items.
-     *
-     * @param items The set of items.
-     * @return {@code True} if all items got successfully removed.
-     */
     @CheckReturnValue
     public boolean remove(Item... items) {
         boolean removedAll = true;
@@ -301,24 +184,11 @@ public class Container {
         return removedAll;
     }
 
-    /**
-     * Removes an item.
-     *
-     * @param item The item.
-     * @return {@code True} if the item got removed, {@code false} if not.
-     */
     @CheckReturnValue
     public boolean remove(Item item) {
         return remove(item, true);
     }
 
-    /**
-     * Removes an item.
-     *
-     * @param item         The item to remove.
-     * @param fireListener If the fire listener should be "notified".
-     * @return {@code True} if the item got removed, <br> {@code false} if not.
-     */
     @CheckReturnValue
     public boolean remove(Item item, boolean fireListener) {
         int slot = getSlot(item);
@@ -328,14 +198,6 @@ public class Container {
         return false;
     }
 
-    /**
-     * Removes an item from this container.
-     *
-     * @param item         The item.
-     * @param slot         The item slot.
-     * @param fireListener If the fire listener should be "notified".
-     * @return {@code True} if the item got removed, <br> {@code false} if the item on the slot was null or the ids didn't match.
-     */
     @CheckReturnValue
     public boolean remove(Item item, int slot, boolean fireListener) {
         if (!contains(item.getId(), item.getAmount())) return false;
@@ -381,12 +243,6 @@ public class Container {
         return true;
     }
 
-    /**
-     * Removes all items from the container that have the passed in IDs
-     *
-     * @param ids Array of IDs to remove
-     * @return {@code True} if all the items got removed, <br> {@code false} if some of the found items were null
-     */
     public boolean removeAll(int[] ids) {
         boolean removedAll = true;
         for (int id : ids) {
@@ -398,12 +254,6 @@ public class Container {
         return removedAll;
     }
 
-    /**
-     * Removes all items from the container that have the passed in ID
-     *
-     * @param id Item ID to remove all instances of
-     * @return {@code True} if all the items got removed, <br> {@code false} if some of the found items were null
-     */
     public boolean removeAll(int id) {
         ArrayList<Item> matchingIdItems = new ArrayList<>();
         for (Item item : this.items) {
@@ -423,25 +273,10 @@ public class Container {
         return res;
     }
 
-    /**
-     * Replaces the item on the given slot with the argued item.
-     *
-     * @param item The item.
-     * @param slot The slot.
-     * @return The old item.
-     */
     public Item replace(Item item, int slot) {
         return replace(item, slot, true);
     }
 
-    /**
-     * Replaces the item on the given slot with the argued item.
-     *
-     * @param item         The item.
-     * @param slot         The slot.
-     * @param fireListener If the listener should be "notified".
-     * @return The old item.
-     */
     public Item replace(Item item, int slot, boolean fireListener) {
         if (item != null) {
             if (item.getAmount() < 1 && type != ContainerType.SHOP) {
@@ -464,9 +299,6 @@ public class Container {
         return oldItem;
     }
 
-    /**
-     * Updates the container.
-     */
     public void update() {
         if (event.getChangeCount() < 1 && !event.isClear()) {
             return;
@@ -478,11 +310,6 @@ public class Container {
         event = new ContainerEvent(capacity);
     }
 
-    /**
-     * Updates the container.
-     *
-     * @param force the force
-     */
     public void update(boolean force) {
         if (event.getChangeCount() < 1 && !force) {
             return;
@@ -493,9 +320,6 @@ public class Container {
         event = new ContainerEvent(capacity);
     }
 
-    /**
-     * Refreshes the entire container.
-     */
     public void refresh() {
         for (ContainerListener listener : listeners) {
             listener.refresh(this);
@@ -503,22 +327,11 @@ public class Container {
         event = new ContainerEvent(capacity);
     }
 
-    /**
-     * Refresh.
-     *
-     * @param listener the listener
-     */
     public void refresh(ContainerListener listener) {
         listener.refresh(this);
         event = new ContainerEvent(capacity);
     }
 
-    /**
-     * Gets the item on the given slot.
-     *
-     * @param slot The slot.
-     * @return The id of the item on the slot, or 0 if the item wasn't there.
-     */
     public int getAsId(int slot) {
         if (slot < 0 || slot >= items.length || items[slot] == null) {
             return 0;
@@ -527,12 +340,6 @@ public class Container {
     }
 
 
-    /**
-     * Gets the item on the given slot.
-     *
-     * @param slot The slot.
-     * @return The item on the slot, or {@code null} if the item wasn't there.
-     */
     public Item get(int slot) {
         if (slot < 0 || slot >= items.length) {
             return null;
@@ -540,12 +347,6 @@ public class Container {
         return items[slot];
     }
 
-    /**
-     * Gets the item on the given slot.
-     *
-     * @param slot The slot.
-     * @return The item on the slot, or a new constructed item with id 0 if the item wasn't there.
-     */
     public Item getNew(int slot) {
         Item item = items[slot];
         if (item != null) {
@@ -554,12 +355,6 @@ public class Container {
         return new Item(0);
     }
 
-    /**
-     * Gets the item id on the given slot.
-     *
-     * @param slot The slot.
-     * @return The id of the item on the slot.
-     */
     public int getId(int slot) {
         if (slot >= items.length) {
             return -1;
@@ -571,12 +366,6 @@ public class Container {
         return -1;
     }
 
-    /**
-     * Parses the container data from the byte buffer.
-     *
-     * @param buffer The byte buffer.
-     * @return The total value of all items (G.E price > Store price > High alchemy price).
-     */
     public int parse(ByteBuffer buffer) {
         int slot;
         int total = 0;
@@ -594,11 +383,6 @@ public class Container {
         return total;
     }
 
-    /**
-     * Parse.
-     *
-     * @param itemArray the item array
-     */
     public void parse(JSONArray itemArray) {
         AtomicInteger total = new AtomicInteger(0);
         itemArray.forEach(item -> {
@@ -616,12 +400,6 @@ public class Container {
         });
     }
 
-    /**
-     * Saves the item data on the byte buffer.
-     *
-     * @param buffer The byte buffer.
-     * @return The total value of all items (G.E price > Store price > High alchemy price).
-     */
     public long save(ByteBuffer buffer) {
         long totalValue = 0;
         for (int i = 0; i < items.length; i++) {
@@ -639,11 +417,6 @@ public class Container {
         return totalValue;
     }
 
-    /**
-     * Copies the container to this container.
-     *
-     * @param c The container to copy.
-     */
     public void copy(Container c) {
         items = new Item[c.items.length];
         for (int i = 0; i < items.length; i++) {
@@ -656,11 +429,6 @@ public class Container {
         }
     }
 
-    /**
-     * Formats a container for the SQL database.
-     *
-     * @return the string.
-     */
     public String format() {
         String log = "";
         Map<Integer, Integer> map = new HashMap<>();
@@ -681,22 +449,10 @@ public class Container {
         return log;
     }
 
-    /**
-     * Checks if the container contains an item.
-     *
-     * @param item the Item
-     * @return {@code True} if so.
-     */
     public boolean containsItem(Item item) {
         return contains(item.getId(), item.getAmount());
     }
 
-    /**
-     * Checks if the containers contains these items.
-     *
-     * @param items the items.
-     * @return {@code True} if so.
-     */
     public boolean containsItems(Item... items) {
         for (Item i : items) {
             if (!containsItem(i)) {
@@ -706,13 +462,6 @@ public class Container {
         return true;
     }
 
-    /**
-     * Checks if the container contains an item.
-     *
-     * @param itemId The item id.
-     * @param amount The amount.
-     * @return {@code True} if so.
-     */
     public boolean contains(int itemId, int amount) {
         int count = 0;
         for (Item item : items) {
@@ -725,12 +474,6 @@ public class Container {
         return false;
     }
 
-    /**
-     * Checks if the containers contains at least ONE item.
-     *
-     * @param itemId the item id
-     * @return boolean
-     */
     public boolean containsAtLeastOneItem(int itemId) {
         for (Item item : items) {
             if (item != null && item.getId() == itemId && item.getAmount() > 0) {
@@ -740,12 +483,6 @@ public class Container {
         return false;
     }
 
-    /**
-     * Checks if the containers contains AT LEAST ONE item from a list of items.
-     *
-     * @param itemIds the item ids
-     * @return true if at least one item from list of IDs is in the container
-     */
     public boolean containsAtLeastOneItem(int[] itemIds) {
         for (int id : itemIds) {
             if (getAmount(id) > 0) return true;
@@ -753,12 +490,6 @@ public class Container {
         return false;
     }
 
-    /**
-     * Contains at least one item boolean.
-     *
-     * @param items the items
-     * @return the boolean
-     */
     public boolean containsAtLeastOneItem(Item... items) {
         for (Item item : items) {
             if (containsItem(item)) {
@@ -768,12 +499,6 @@ public class Container {
         return false;
     }
 
-    /**
-     * Checks if the container contains all items.
-     *
-     * @param itemIds to check
-     * @return {@code True} if so.
-     */
     public boolean containsAll(int... itemIds) {
         for (int i : itemIds) {
             if (!containsAtLeastOneItem(i)) {
@@ -783,21 +508,10 @@ public class Container {
         return true;
     }
 
-    /**
-     * Adds a container to this container.
-     *
-     * @param container The container.
-     */
     public void addAll(Container container) {
         add(container.items);
     }
 
-    /**
-     * Checks the maximum amount of this item we can add.
-     *
-     * @param item The item.
-     * @return The maximum amount we can add.
-     */
     public int getMaximumAdd(Item item) {
         if (type != ContainerType.NEVER_STACK) {
             if (item.getDefinition().isStackable() || type == ContainerType.ALWAYS_STACK || type == ContainerType.SHOP) {
@@ -810,34 +524,16 @@ public class Container {
         return freeSlots();
     }
 
-    /**
-     * Checks if the container has space for the item.
-     *
-     * @param item The item to check.
-     * @return {@code True} if so.
-     */
     public boolean hasSpaceFor(Item item) {
         return item.getAmount() <= getMaximumAdd(item);
     }
 
-    /**
-     * Has space for boolean.
-     *
-     * @param items the items
-     * @return the boolean
-     */
     public boolean hasSpaceFor(Item... items) {
         Container c = new Container(28, ContainerType.DEFAULT);
         c.add(items);
         return this.hasSpaceFor(c);
     }
 
-    /**
-     * Checks if this container has space to add the other container.
-     *
-     * @param c The other container.
-     * @return {@code True} if so.
-     */
     public boolean hasSpaceFor(Container c) {
         if (c == null) {
             return false;
@@ -854,12 +550,6 @@ public class Container {
         return true;
     }
 
-    /**
-     * Gets the item slot.
-     *
-     * @param item The item.
-     * @return The slot of the item in this container.
-     */
     public int getSlot(Item item) {
         if (item == null) {
             return -1;
@@ -874,12 +564,6 @@ public class Container {
         return -1;
     }
 
-    /**
-     * Gets the item slot, taking into account the item's whole hash rather than just the ID part.
-     *
-     * @param item The item.
-     * @return The slot of the item in this container.
-     */
     public int getSlotHash(Item item) {
         if (item == null) {
             return -1;
@@ -894,22 +578,10 @@ public class Container {
         return -1;
     }
 
-    /**
-     * Gets the item instance.
-     *
-     * @param item the item.
-     * @return the item.
-     */
     public Item getItem(Item item) {
         return get(getSlot(item));
     }
 
-    /**
-     * Get item.
-     *
-     * @param item the item
-     * @return the item
-     */
     public Item get(Item item) {
         for (Item i : items) {
             if (i == null) continue;
@@ -918,13 +590,6 @@ public class Container {
         return null;
     }
 
-    /**
-     * Gets all instances of an item, and returns them.
-     *
-     * @param item the item.
-     * @return a list of all items that were found (can be length 0).
-     * @author Player Name
-     */
     public ArrayList<Item> getAll(Item item) {
         ArrayList<Item> ret = new ArrayList<Item>();
         for (Item i : items) {
@@ -934,11 +599,6 @@ public class Container {
         return ret;
     }
 
-    /**
-     * Gets the next free slot.
-     *
-     * @return The slot, or <code>-1</code> if there are no available slots.
-     */
     public int freeSlot() {
         for (int i = 0; i < items.length; i++) {
             if (items[i] == null) {
@@ -948,12 +608,6 @@ public class Container {
         return -1;
     }
 
-    /**
-     * Gets the slot of where to add the item.
-     *
-     * @param item The item to add.
-     * @return The slot where the item will go.
-     */
     public int getAddSlot(Item item) {
         if (type != ContainerType.NEVER_STACK && (item.getDefinition().isStackable() || type.equals(ContainerType.ALWAYS_STACK) || type == ContainerType.SHOP)) {
             boolean hashBased = sortType == SortType.HASH;
@@ -968,20 +622,10 @@ public class Container {
         return freeSlot();
     }
 
-    /**
-     * Gets the number of free slots.
-     *
-     * @return The number of free slots.
-     */
     public int freeSlots() {
         return capacity - itemCount();
     }
 
-    /**
-     * Gets the size of this container.
-     *
-     * @return The size of this container.
-     */
     public int itemCount() {
         int size = 0;
         for (int i = 0; i < items.length; i++) {
@@ -992,12 +636,6 @@ public class Container {
         return size;
     }
 
-    /**
-     * Checks if the player has all the item ids in the inventory.
-     *
-     * @param itemIds The item ids.
-     * @return {@code True} if so.
-     */
     public boolean containItems(int... itemIds) {
         for (int i = 0; i < itemIds.length; i++) {
             if (!contains(itemIds[i], 1)) {
@@ -1007,12 +645,6 @@ public class Container {
         return true;
     }
 
-    /**
-     * Gets the amount of an item.
-     *
-     * @param item The item.
-     * @return The amount of this item in this container.
-     */
     public int getAmount(Item item) {
         if (item == null) {
             return 0;
@@ -1026,19 +658,10 @@ public class Container {
         return count;
     }
 
-    /**
-     * Gets the amount.
-     *
-     * @param id the id.
-     * @return the amount.
-     */
     public int getAmount(int id) {
         return getAmount(new Item(id));
     }
 
-    /**
-     * Shifts the elements in the <b>Container</b> to the appropriate position.
-     */
     public void shift() {
         final Item itemss[] = items;
         clear(false);
@@ -1051,11 +674,6 @@ public class Container {
         refresh();
     }
 
-    /**
-     * Checks if the container is empty.
-     *
-     * @return {@code True} if so.
-     */
     public boolean isEmpty() {
         for (Item item : items) {
             if (item != null) {
@@ -1065,27 +683,14 @@ public class Container {
         return true;
     }
 
-    /**
-     * Checks if the container is full.
-     *
-     * @return {@code True} if so.
-     */
     public boolean isFull() {
         return freeSlots() < 1;
     }
 
-    /**
-     * Clears and updates the container.
-     */
     public void clear() {
         clear(true);
     }
 
-    /**
-     * Clears the container.
-     *
-     * @param update If the container should be updated.
-     */
     public void clear(boolean update) {
         items = new Item[capacity];
         event.flagEmpty();
@@ -1094,11 +699,6 @@ public class Container {
         }
     }
 
-    /**
-     * Gets the wealth.
-     *
-     * @return the wealth.
-     */
     public int getWealth() {
         int wealth = 0;
         for (Item i : items) {
@@ -1110,38 +710,18 @@ public class Container {
         return wealth;
     }
 
-    /**
-     * Returns an array representing this container.
-     *
-     * @return The array.
-     */
     public Item[] toArray() {
         return items;
     }
 
-    /**
-     * Gets the listeners.
-     *
-     * @return The listeners.
-     */
     public List<ContainerListener> getListeners() {
         return listeners;
     }
 
-    /**
-     * Gets the capacity.
-     *
-     * @return The capacity of this container.
-     */
     public int capacity() {
         return capacity;
     }
 
-    /**
-     * Gets the event.
-     *
-     * @return the event.
-     */
     public ContainerEvent getEvent() {
         return event;
     }

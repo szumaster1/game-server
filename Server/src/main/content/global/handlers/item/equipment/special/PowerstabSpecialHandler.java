@@ -20,9 +20,6 @@ import java.util.List;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
-/**
- * The Powerstab special handler.
- */
 @Initializable
 public final class PowerstabSpecialHandler extends MeleeSwingHandler implements Plugin<Object> {
 

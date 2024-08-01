@@ -32,9 +32,6 @@ import core.network.packet.outgoing.MinimapState;
 
 import static core.api.ContentAPIKt.*;
 
-/**
- * The Demon slayer cutscene.
- */
 public final class DemonSlayerCutscene extends CutscenePlugin {
 
     public static final int DELRITH = 879;

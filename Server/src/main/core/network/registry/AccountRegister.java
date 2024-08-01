@@ -16,24 +16,9 @@ import java.util.regex.Pattern;
 
 import static core.api.ContentAPIKt.log;
 
-/**
- * Handles the registry of new accounts.
- *
- * @author Vexia
- */
 public class AccountRegister {
-    /**
-     * The pattern compiler.
-     */
     private static final Pattern PATTERN = Pattern.compile("[a-z0-9_]{1,12}");
 
-    /**
-     * Reads the incoming opcode of an account register.
-     *
-     * @param session the session.
-     * @param opcode  the opcode.
-     * @param buffer  the buffer.
-     */
     public static void read(final IoSession session, int opcode, ByteBuffer buffer) {
         int day, month, year, country;
         UserAccountInfo info = UserAccountInfo.createDefault();
@@ -122,22 +107,12 @@ public class AccountRegister {
         }
     }
 
-    /**
-     * Sends a registry response code.
-     *
-     * @param response the response.
-     */
     private static void response(IoSession session, RegistryResponse response) {
         ByteBuffer buf = ByteBuffer.allocate(100);
         buf.put((byte) response.id);
         session.queue(buf.flip());
     }
 
-    /**
-     * Checks if a username is valid.
-     *
-     * @return {@code True} if so.
-     */
     public static boolean invalidUsername(final String username) {
         Matcher matcher = PATTERN.matcher(username);
         return !matcher.matches();

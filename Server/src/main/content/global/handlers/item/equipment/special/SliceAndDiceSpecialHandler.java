@@ -15,9 +15,6 @@ import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
-/**
- * The Slice and dice special handler.
- */
 @Initializable
 public final class SliceAndDiceSpecialHandler extends MeleeSwingHandler implements Plugin<Object> {
 

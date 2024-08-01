@@ -4,10 +4,6 @@ import core.network.packet.IoBuffer;
 import core.network.packet.OutgoingPacket;
 import core.network.packet.context.WindowsPaneContext;
 
-/**
- * Handles the windows pane outgoing packet.
- * @author Emperor
- */
 public final class WindowsPane implements OutgoingPacket<WindowsPaneContext> {
 
     @Override

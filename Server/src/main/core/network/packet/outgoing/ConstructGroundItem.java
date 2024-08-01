@@ -7,18 +7,8 @@ import core.network.packet.IoBuffer;
 import core.network.packet.OutgoingPacket;
 import core.network.packet.context.BuildItemContext;
 
-/**
- * Represents the outgoing packet of constructing a ground item.
- * @author Emperor
- */
 public final class ConstructGroundItem implements OutgoingPacket<BuildItemContext> {
 
-    /**
-     * Writes the packet.
-     *
-     * @param buffer The buffer.
-     * @param item   The item.
-     */
     public static IoBuffer write(IoBuffer buffer, Item item) {
         Location l = item.getLocation();
         buffer.put(33);

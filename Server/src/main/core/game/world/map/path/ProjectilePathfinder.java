@@ -8,31 +8,14 @@ import core.game.world.map.RegionManager;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * A pathfinder implementation used for checking projectile paths.
- *
- * @author Emperor
- */
 public final class ProjectilePathfinder extends Pathfinder {
 
-    /**
-     * If a path can be found.
-     */
     private boolean found;
 
-    /**
-     * The plane.
-     */
     private int z;
 
-    /**
-     * The x-coordinate.
-     */
     private int x;
 
-    /**
-     * The y-coordinate.
-     */
     private int y;
 
     @Override
@@ -65,12 +48,6 @@ public final class ProjectilePathfinder extends Pathfinder {
         return path;
     }
 
-    /**
-     * Checks traversal for a size 1 entity.
-     *
-     * @param points     The points list.
-     * @param directions The directions.
-     */
     private void checkSingleTraversal(List<Point> points, Direction... directions) {
         dir:
         for (Direction dir : directions) {
@@ -164,14 +141,6 @@ public final class ProjectilePathfinder extends Pathfinder {
         return (pFlag & pFlagMask) != 0 || (pFlag & 0x20000) != 0 || (RegionManager.getClippingFlag(z, x, y) & 0x20000) != 0;
     }
 
-    /**
-     * Gets the direction.
-     *
-     * @param startX The startX.
-     * @param startY The startY.
-     * @param end    The end direction.
-     * @return The direction.
-     */
     private static Direction[] getDirection(int startX, int startY, Location end) {
         int endX = end.getX();
         int endY = end.getY();

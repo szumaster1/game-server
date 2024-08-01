@@ -25,9 +25,6 @@ import core.plugin.Plugin;
 
 import static core.api.ContentAPIKt.*;
 
-/**
- * The Wl below plugin.
- */
 public class WhatLiesBelowHandler extends OptionHandler {
 
     @Override
@@ -161,9 +158,6 @@ public class WhatLiesBelowHandler extends OptionHandler {
         return true;
     }
 
-    /**
-     * The Metal wand handler.
-     */
     public static class MetalWandHandler extends UseWithHandler {
 
 
@@ -176,9 +170,6 @@ public class WhatLiesBelowHandler extends OptionHandler {
         private static final Item CHAOS_TIARA = new Item(5543);
 
 
-        /**
-         * Instantiates a new Metal wand handler.
-         */
         public MetalWandHandler() {
             super(WhatLiesBelow.WAND.getId());
         }
@@ -216,15 +207,9 @@ public class WhatLiesBelowHandler extends OptionHandler {
 
     }
 
-    /**
-     * The Folder handler.
-     */
     public class FolderHandler extends UseWithHandler {
 
 
-        /**
-         * Instantiates a new Folder handler.
-         */
         public FolderHandler() {
             super(WhatLiesBelow.EMPTY_FOLDER.getId(), WhatLiesBelow.USED_FOLDER.getId());
         }

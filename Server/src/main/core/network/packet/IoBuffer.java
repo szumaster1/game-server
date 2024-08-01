@@ -5,76 +5,32 @@ import core.cache.misc.buffer.ByteBufferUtils;
 
 import java.nio.ByteBuffer;
 
-/**
- * Represents the buffer used for reading/writing packets.
- *
- * @author Emperor
- */
 public class IoBuffer {
 
-    /**
-     * The bit masks.
-     */
     private static final int[] BIT_MASK = new int[32];
 
-    /**
-     * The packet size.
-     */
     private int packetSize;
 
-    /**
-     * The opcode.
-     */
     private int opcode;
 
-    /**
-     * The packet header.
-     */
     private final PacketHeader header;
 
-    /**
-     * The byte buffer.
-     */
     private ByteBuffer buf;
 
-    /**
-     * The bit position.
-     */
     private int bitPosition = 0;
 
-    /**
-     * Constructs a new {@code IoBuffer} {@code Object}.
-     */
     public IoBuffer() {
         this(-1, PacketHeader.NORMAL, ByteBuffer.allocate(2048));
     }
 
-    /**
-     * Constructs a new {@code IoBuffer} {@code Object}.
-     *
-     * @param opcode The opcode.
-     */
     public IoBuffer(int opcode) {
         this(opcode, PacketHeader.NORMAL, ByteBuffer.allocate(2048));
     }
 
-    /**
-     * Constructs a new {@code IoBuffer} {@code Object}.
-     *
-     * @param opcode The opcode.
-     * @param header The packet header.
-     */
     public IoBuffer(int opcode, PacketHeader header) {
         this(opcode, header, ByteBuffer.allocate((1 << 16) + 1));
     }
 
-    /**
-     * Constructs a new {@code IoBuffer} {@code Object}.
-     *
-     * @param opcode The opcode.
-     * @param header The packet header.
-     * @param buf    The byte buffer.
-     */
     public IoBuffer(int opcode, PacketHeader header, ByteBuffer buf) {
         this.opcode = opcode;
         this.header = header;
@@ -458,26 +414,12 @@ public class IoBuffer {
         return this;
     }
 
-    /**
-     * Puts a byte array as byte A in reverse.
-     *
-     * @param data   The data to put.
-     * @param start  The start index.
-     * @param offset The offset.
-     */
     public void putReverseA(byte[] data, int start, int offset) {
         for (int i = offset + start; i >= start; i--) {
             putA(data[i]);
         }
     }
 
-    /**
-     * Puts a byte array as byte A in reverse.
-     *
-     * @param data   The data to put.
-     * @param start  The start index.
-     * @param offset The offset.
-     */
     public void putReverse(byte[] data, int start, int offset) {
         for (int i = offset + start; i >= start; i--) {
             put(data[i]);
@@ -655,25 +597,14 @@ public class IoBuffer {
         return buf.array();
     }
 
-    /**
-     * @return the packetSize.
-     */
     public int getPacketSize() {
         return packetSize;
     }
 
-    /**
-     * @param packetSize the packetSize to set.
-     */
     public void setPacketSize(int packetSize) {
         this.packetSize = packetSize;
     }
 
-    /**
-     * Gets the bitPosition.
-     *
-     * @return The bitPosition.
-     */
     public int getBitPosition() {
         return bitPosition;
     }

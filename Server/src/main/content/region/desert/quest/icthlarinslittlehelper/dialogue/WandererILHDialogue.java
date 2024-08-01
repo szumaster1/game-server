@@ -4,23 +4,12 @@ import core.game.dialogue.Dialogue;
 import core.game.node.entity.player.Player;
 import core.plugin.Initializable;
 
-/**
- * The Wanderer ilh dialogue.
- */
 @Initializable
 public class WandererILHDialogue extends Dialogue {
 
-    /**
-     * Instantiates a new Wanderer ilh dialogue.
-     */
     public WandererILHDialogue() {
     }
 
-    /**
-     * Instantiates a new Wanderer ilh dialogue.
-     *
-     * @param player the player
-     */
     public WandererILHDialogue(Player player) {
         super(player);
     }

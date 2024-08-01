@@ -5,10 +5,6 @@ import core.network.packet.OutgoingPacket;
 import core.network.packet.PacketHeader;
 import core.network.packet.context.GameMessageContext;
 
-/**
- * The game message outgoing packet.
- * @author Emperor
- */
 public class GameMessage implements OutgoingPacket<GameMessageContext> {
 
     @Override

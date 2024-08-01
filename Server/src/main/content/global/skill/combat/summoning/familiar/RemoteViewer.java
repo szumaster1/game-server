@@ -83,12 +83,15 @@ public final class RemoteViewer {
     public Player getPlayer() {
         return player;
     }
+
     public Familiar getFamiliar() {
         return familiar;
     }
+
     public Animation getAnimation() {
         return animation;
     }
+
     public ViewType getType() {
         return type;
     }
@@ -118,18 +121,23 @@ public final class RemoteViewer {
         public Direction getDirection() {
             return direction;
         }
+
         public int getXOffset() {
             return data[0];
         }
+
         public int getYOffset() {
             return data[1];
         }
+
         public int getXRot() {
             return data[2];
         }
+
         public int getYRot() {
             return data[3];
         }
+
         public int[] getData() {
             return data;
         }

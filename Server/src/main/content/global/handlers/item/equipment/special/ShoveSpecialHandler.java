@@ -19,9 +19,6 @@ import core.plugin.Plugin;
 import static core.api.ContentAPIKt.playGlobalAudio;
 import static core.api.ContentAPIKt.stun;
 
-/**
- * The Shove special handler.
- */
 @Initializable
 public final class ShoveSpecialHandler extends MeleeSwingHandler implements Plugin<Object> {
 

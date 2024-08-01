@@ -7,18 +7,8 @@ import core.network.packet.IoBuffer;
 import core.network.packet.OutgoingPacket;
 import core.network.packet.context.BuildSceneryContext;
 
-/**
- * The construct scenery packet.
- * @author Emperor
- */
 public final class ConstructScenery implements OutgoingPacket<BuildSceneryContext> {
 
-    /**
-     * Writes the packet.
-     *
-     * @param buffer The buffer.
-     * @param object The object.
-     */
     public static IoBuffer write(IoBuffer buffer, Scenery object) {
         Location l = object.getLocation();
         buffer.put(179).putA((object.getType() << 2) | (object.getRotation() & 0x3)).put((l.getChunkOffsetX() << 4) | (l.getChunkOffsetY() & 0x7)).putShortA(object.getId());

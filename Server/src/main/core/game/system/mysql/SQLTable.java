@@ -3,33 +3,14 @@ package core.game.system.mysql;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Represents an SQL table.
- *
- * @author Emperor
- */
 public final class SQLTable {
 
-    /**
-     * The columns.
-     */
     private final SQLColumn[] columns;
 
-    /**
-     * Constructs a new {@code SQLTable} {@code Object}.
-     *
-     * @param columns The columns.
-     */
     public SQLTable(SQLColumn... columns) {
         this.columns = columns;
     }
 
-    /**
-     * Gets the column for the given name.
-     *
-     * @param name The column name.
-     * @return The column.
-     */
     public SQLColumn getColumn(String name) {
         for (SQLColumn column : columns) {
             if (column.getName().equals(name)) {
@@ -39,11 +20,6 @@ public final class SQLTable {
         return null;
     }
 
-    /**
-     * Gets the changed columns.
-     *
-     * @return The columns.
-     */
     public List<SQLColumn> getChanged() {
         List<SQLColumn> updated = new ArrayList<>(20);
         for (int i = 0; i < columns.length; i++) {
@@ -55,11 +31,6 @@ public final class SQLTable {
         return updated;
     }
 
-    /**
-     * Gets the columns.
-     *
-     * @return The columns.
-     */
     public SQLColumn[] getColumns() {
         return columns;
     }

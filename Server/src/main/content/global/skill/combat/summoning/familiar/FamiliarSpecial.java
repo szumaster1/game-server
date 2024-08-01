@@ -24,27 +24,35 @@ public class FamiliarSpecial {
     public Node getNode() {
         return node;
     }
+
     public void setNode(Node node) {
         this.node = node;
     }
+
     public int getInterfaceID() {
         return interfaceID;
     }
+
     public void setInterfaceID(int interfaceID) {
         this.interfaceID = interfaceID;
     }
+
     public int getComponent() {
         return component;
     }
+
     public void setComponent(int component) {
         this.component = component;
     }
+
     public Item getItem() {
         return item;
     }
+
     public void setItem(Item item) {
         this.item = item;
     }
+
     public Entity getTarget() {
         return (Entity) node;
     }

@@ -29,12 +29,15 @@ public final class PetDetails {
     public double getHunger() {
         return hunger;
     }
+
     public double getGrowth() {
         return growth;
     }
+
     public void setIndividual(int individual) {
         this.individual = individual;
     }
+
     public int getIndividual() {
         return individual;
     }

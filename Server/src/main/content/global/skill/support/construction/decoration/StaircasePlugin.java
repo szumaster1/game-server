@@ -17,9 +17,6 @@ import core.plugin.ClassScanner;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
-/**
- * The Staircase plugin.
- */
 @Initializable
 public final class StaircasePlugin extends OptionHandler {
 
@@ -95,14 +92,6 @@ public final class StaircasePlugin extends OptionHandler {
         return false;
     }
 
-    /**
-     * Climbs the staircase.
-     *
-     * @param player The player.
-     * @param z      The plane difference.
-     * @param house  The house the player is currently in.
-     * @param object The object.
-     */
     private static void climb(Player player, int z, HouseManager house, Scenery object) {
         Location l = player.getLocation();
         int plane = l.getZ() + z;
@@ -139,33 +128,16 @@ public final class StaircasePlugin extends OptionHandler {
         }
     }
 
-    /**
-     * Handles the climbing dialogue.
-     */
     static final class ClimbPohLadder extends Dialogue {
 
-        /**
-         * Represents the object to use.
-         */
         private HouseManager house;
 
-        /**
-         * The ladder.
-         */
         private Scenery ladder;
 
-        /**
-         * Constructs a new {@code ClimbPohLadder} {@code Object}.
-         */
         public ClimbPohLadder() {
             super();
         }
 
-        /**
-         * Constructs a new {@code ClimbPohLadder} {@code Object}.
-         *
-         * @param player the player.
-         */
         public ClimbPohLadder(final Player player) {
             super(player);
         }
@@ -225,50 +197,24 @@ public final class StaircasePlugin extends OptionHandler {
 
     }
 
-    /**
-     * Handles the creating a room on different floor dialogue.
-     */
     static final class BuildDialogue extends Dialogue {
 
-        /**
-         * The plane of the room to build.
-         */
         private int plane;
 
-        /**
-         * The room x-coordinate.
-         */
         private int roomX;
 
-        /**
-         * The room y-coordinate.
-         */
         private int roomY;
 
-        /**
-         * The room we're building on.
-         */
         private Room room;
 
-        /**
-         * The stairs object.
-         */
         private Scenery stairs;
 
-        /**
-         * Constructs a new {@code BuildDialogue} {@code Object}.
-         */
         public BuildDialogue() {
             /**
              * empty.
              */
         }
 
-        /**
-         * Constructs a new {@code BuildDialogue} {@code Object}.
-         *
-         * @param player the player.
-         */
         public BuildDialogue(final Player player) {
             super(player);
         }

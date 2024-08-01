@@ -2,9 +2,6 @@ package core.game.node.item;
 
 import core.tools.RandomFunction;
 
-/**
- * The type Weighted chance item.
- */
 public class WeightedChanceItem {
 
     int id,
@@ -12,14 +9,6 @@ public class WeightedChanceItem {
         maximum_amount;
     public int weight;
 
-    /**
-     * Instantiates a new Weighted chance item.
-     *
-     * @param id             the id
-     * @param minimum_amount the minimum amount
-     * @param maximum_amount the maximum amount
-     * @param weight         the weight
-     */
     public WeightedChanceItem(int id, int minimum_amount, int maximum_amount, int weight) {
         this.id = id;
         this.minimum_amount = minimum_amount;
@@ -27,22 +16,10 @@ public class WeightedChanceItem {
         this.weight = weight;
     }
 
-    /**
-     * Instantiates a new Weighted chance item.
-     *
-     * @param id     the id
-     * @param amount the amount
-     * @param weight the weight
-     */
     public WeightedChanceItem(int id, int amount, int weight) {
         this(id, amount, amount, weight);
     }
 
-    /**
-     * Get item item.
-     *
-     * @return the item
-     */
     public Item getItem() {
         return new Item(this.id, RandomFunction.random(this.minimum_amount, this.maximum_amount));
     }

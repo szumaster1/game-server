@@ -6,14 +6,8 @@ import core.game.world.map.zone.ZoneBuilder;
 import core.game.world.map.zone.ZoneRestriction;
 import core.plugin.Plugin;
 
-/**
- * The Dmc zone.
- */
 public class DMCZone extends MapZone implements Plugin<Object> {
 
-    /**
-     * Instantiates a new Dmc zone.
-     */
     public DMCZone() {
         super("DMC Zone", true, ZoneRestriction.CANNON);
     }

@@ -27,9 +27,6 @@ import core.network.packet.outgoing.CameraViewPacket;
 import static core.api.ContentAPIKt.removeAttribute;
 import static core.api.ContentAPIKt.setAttribute;
 
-/**
- * The Wl below cutscene.
- */
 public class WhatLiesBelowCutscene extends CutscenePlugin {
 
     private NPC surok;
@@ -38,18 +35,10 @@ public class WhatLiesBelowCutscene extends CutscenePlugin {
 
     private NPC zaff;
 
-    /**
-     * Instantiates a new Wl below cutscene.
-     */
     public WhatLiesBelowCutscene() {
         super("What Lies below");
     }
 
-    /**
-     * Instantiates a new Wl below cutscene.
-     *
-     * @param player the player
-     */
     public WhatLiesBelowCutscene(Player player) {
         this();
         this.player = player;
@@ -176,9 +165,6 @@ public class WhatLiesBelowCutscene extends CutscenePlugin {
         return super.teleport(e, type, node);
     }
 
-    /**
-     * Summon zaff.
-     */
     public void summonZaff() {
         if (!king.getAttribute("message", false)) {
             player.sendMessage("Zaff isn't ready to be summoned.");
@@ -221,17 +207,6 @@ public class WhatLiesBelowCutscene extends CutscenePlugin {
         });
     }
 
-    /**
-     * Send camera.
-     *
-     * @param x1     the x 1
-     * @param y1     the y 1
-     * @param x2     the x 2
-     * @param y2     the y 2
-     * @param height the height
-     * @param speed  the speed
-     * @param ticks  the ticks
-     */
     public void sendCamera(final int x1, final int y1, final int x2, final int y2, final int height, final int speed, int ticks) {
         GameWorld.getPulser().submit(new Pulse(ticks, player) {
 
@@ -244,26 +219,11 @@ public class WhatLiesBelowCutscene extends CutscenePlugin {
         });
     }
 
-    /**
-     * Send camera.
-     *
-     * @param x1     the x 1
-     * @param y1     the y 1
-     * @param x2     the x 2
-     * @param y2     the y 2
-     * @param height the height
-     * @param speed  the speed
-     */
     public void sendCamera(int x1, int y1, int x2, int y2, int height, int speed) {
         PacketRepository.send(CameraViewPacket.class, new CameraContext(player, CameraType.POSITION, player.getLocation().getX() + x1, player.getLocation().getY() + y1, height, 1, speed));
         PacketRepository.send(CameraViewPacket.class, new CameraContext(player, CameraType.ROTATION, player.getLocation().getX() + x2, player.getLocation().getY() + y2, height, 1, speed));
     }
 
-    /**
-     * Reset.
-     *
-     * @param ticks the ticks
-     */
     public void reset(int ticks) {
         GameWorld.getPulser().submit(new Pulse(1, player) {
 
@@ -276,9 +236,6 @@ public class WhatLiesBelowCutscene extends CutscenePlugin {
         });
     }
 
-    /**
-     * Reset.
-     */
     public void reset() {
         PacketRepository.send(CameraViewPacket.class, new CameraContext(player, CameraType.RESET, 0, 0, 0, 0, 0));
     }
@@ -305,56 +262,26 @@ public class WhatLiesBelowCutscene extends CutscenePlugin {
         registerRegion(region.getId());
     }
 
-    /**
-     * Gets surok.
-     *
-     * @return the surok
-     */
     public NPC getSurok() {
         return surok;
     }
 
-    /**
-     * Sets surok.
-     *
-     * @param surok the surok
-     */
     public void setSurok(NPC surok) {
         this.surok = surok;
     }
 
-    /**
-     * Gets king.
-     *
-     * @return the king
-     */
     public NPC getKing() {
         return king;
     }
 
-    /**
-     * Sets king.
-     *
-     * @param king the king
-     */
     public void setKing(NPC king) {
         this.king = king;
     }
 
-    /**
-     * Gets zaff.
-     *
-     * @return the zaff
-     */
     public NPC getZaff() {
         return zaff;
     }
 
-    /**
-     * Sets zaff.
-     *
-     * @param zaff the zaff
-     */
     public void setZaff(NPC zaff) {
         this.zaff = zaff;
     }

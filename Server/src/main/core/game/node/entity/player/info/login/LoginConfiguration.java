@@ -28,48 +28,23 @@ import static core.api.ContentAPIKt.*;
 import static core.tools.GlobalsKt.colorize;
 
 
-/**
- * Sends the login configuration packets.
- *
- * @author Emperor
- */
 public final class LoginConfiguration {
 
-    /**
-     * The login plugins.
-     */
     private static final List<Plugin<Object>> LOGIN_PLUGINS = new ArrayList<>(20);
 
-    /**
-     * The lobby pane component.
-     */
     private static final Component LOBBY_PANE = new Component(549);
 
-    /**
-     * The lobby interface component.
-     */
     private static final Component LOBBY_INTERFACE = new Component(378);
 
-    /**
-     * The lobby message of the week models & constant to be set for auto selecting the models
-     */
     private static final int[] MESSAGE_MODEL = {15, 16, 17, 18, 19, 20, 21, 22, 23, 405, 447, 622, 623, 679, 715, 800};
     private static int messModel;
 
-    /**
-     * Constructs a new {@code LoginConfiguration} {@code Object}
-     */
     public LoginConfiguration() {
         /*
          * empty.
          */
     }
 
-    /**
-     * Configures the lobby login.
-     *
-     * @param player The player.
-     */
     public static void configureLobby(Player player) {
         player.updateSceneGraph(true);
         if (!player.isArtificial() && player.getAttribute("tutorial:complete",false) && player.getAttribute("login_type", LoginType.NORMAL_LOGIN) != LoginType.RECONNECT_TYPE) {
@@ -79,11 +54,6 @@ public final class LoginConfiguration {
         }
     }
 
-    /**
-     * Sends the lobby interface-related packets.
-     *
-     * @param player The player.
-     */
     public static void sendLobbyScreen(Player player) {
         messModel = autoSelect();
         for(Player p : Repository.getLobbyPlayers()){
@@ -116,11 +86,6 @@ public final class LoginConfiguration {
         player.getDetails().setLastLogin(System.currentTimeMillis());
     }
 
-    /**
-     * Configures the game world.
-     *
-     * @param player The player.
-     */
     public static void configureGameWorld(final Player player) {
         sendGameConfiguration(player);
         Repository.getLobbyPlayers().remove(player);
@@ -174,11 +139,6 @@ public final class LoginConfiguration {
         */
     }
 
-    /**
-     * Sends the game configuration packets.
-     *
-     * @param player The player to send to.
-     */
     public static void sendGameConfiguration(final Player player) {
         player.getInterfaceManager().openWindowsPane(new Component(player.getInterfaceManager().isResizable() ? 746 : 548));
         player.getInterfaceManager().openChatbox(137);
@@ -195,11 +155,6 @@ public final class LoginConfiguration {
         player.getAppearance().sync();
     }
 
-    /**
-     * Method used to welcome the player.
-     *
-     * @param player the player. Fullscreen mode Object id:
-     */
     public static final void welcome(final Player player) {
         if (player.isArtificial()) {
             return;
@@ -211,11 +166,6 @@ public final class LoginConfiguration {
         }
     }
 
-    /**
-     * Method used to configure all possible settings for the player.
-     *
-     * @param player the player.
-     */
     public static final void config(final Player player) {
         if(!player.isArtificial())
             log(LoginConfiguration.class, Log.INFO, "configuring player " + player.getUsername());
@@ -238,12 +188,6 @@ public final class LoginConfiguration {
             log(LoginConfiguration.class, Log.INFO, "finished configuring player " + player.getUsername());
     }
 
-    /**
-     * Gets the message child for the inter id.
-     * @notice GameSettings.kt contains the list of what these are
-     * @param interfaceId The interface id.
-     * @return The child id.
-     */
     public static int getMessageChild(int interfaceId) {
         if (interfaceId == 622) {
             return 8;
@@ -263,20 +207,11 @@ public final class LoginConfiguration {
         return 0;
     }
 
-    /**
-     * Sets a random interface id for the "message of the week" models
-     */
     private final static int autoSelect() {
         boolean contains = IntStream.of(MESSAGE_MODEL).anyMatch(x -> x == GameWorld.getSettings().getMessage_model());
         return contains ? GameWorld.getSettings().getMessage_model():MESSAGE_MODEL[new Random().nextInt(MESSAGE_MODEL.length)];
     }
 
-    /**
-     * Gets the last login string for the lobby.
-     *
-     * @param player the player.
-     * @return the last login.
-     */
     public static String getLastLogin(Player player) {
         String lastIp = player.getDetails().accountInfo.getLastUsedIp();
         if (lastIp.equals("")) {
@@ -300,11 +235,6 @@ public final class LoginConfiguration {
     }
 
 
-    /**
-     * Gets the loginPlugins.
-     *
-     * @return The loginPlugins.
-     */
     public static List<Plugin<Object>> getLoginPlugins() {
         return LOGIN_PLUGINS;
     }

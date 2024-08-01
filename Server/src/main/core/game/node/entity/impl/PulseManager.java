@@ -11,33 +11,14 @@ import core.game.world.GameWorld;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/**
- * Represents an entity's pulse manager.
- *
- * @author Emperor
- */
 public final class PulseManager {
 
-    /**
-     * The movement pulse.
-     */
     private final HashMap<PulseType, Pulse> currentPulses = new HashMap<>();
 
-    /**
-     * Run.
-     *
-     * @param pulse the pulse
-     */
     public void run(Pulse pulse) {
         run(pulse, PulseType.STANDARD);
     }
 
-    /**
-     * Runs a pulse.
-     *
-     * @param pulse     The pulse.
-     * @param pulseType The pulse type we're trying to run.
-     */
     public void run(Pulse pulse, PulseType pulseType) {
         ArrayList<PulseType> toRemove = new ArrayList<>(currentPulses.size());
         currentPulses.forEach((key, value) -> {
@@ -67,21 +48,12 @@ public final class PulseManager {
         }
     }
 
-    /**
-     * Clear.
-     */
     public void clear() {
         currentPulses.forEach((type, pulse) -> {
             if (type != PulseType.STRONG && pulse != null) pulse.stop();
         });
     }
 
-    /**
-     * Clears the pulses.
-     *
-     * @param pulseType the pulse type
-     * @return the boolean
-     */
     public boolean clear(PulseType pulseType) {
         Pulse pulse = currentPulses.get(pulseType);
 
@@ -92,13 +64,6 @@ public final class PulseManager {
         return true;
     }
 
-    /**
-     * Runs the unhandled reward pulse ("Nothing interesting happens.")
-     *
-     * @param player    The player.
-     * @param pulseType The pulse type.
-     * @return The pulse.
-     */
     public Pulse runUnhandledAction(final Player player, PulseType pulseType) {
         Pulse pulse = new Pulse(1, player) {
             @Override
@@ -111,11 +76,6 @@ public final class PulseManager {
         return pulse;
     }
 
-    /**
-     * Checks if the current pulse moves the entity.
-     *
-     * @return {@code True} if so.
-     */
     public boolean isMovingPulse() {
         if (!hasPulseRunning()) {
             return false;
@@ -125,20 +85,10 @@ public final class PulseManager {
         return current instanceof MovementPulse || current instanceof CombatPulse;
     }
 
-    /**
-     * Checks if a pulse is running.
-     *
-     * @return {@code True} if so.
-     */
     public boolean hasPulseRunning() {
         return getCurrent() != null && getCurrent().isRunning();
     }
 
-    /**
-     * Cancels the death task, if any.
-     *
-     * @param e The entity.
-     */
     public static void cancelDeathTask(Entity e) {
         if (!DeathTask.isDead(e) || e.getPulseManager().getCurrent() == null) {
             return;
@@ -146,11 +96,6 @@ public final class PulseManager {
         e.getPulseManager().getCurrent().stop();
     }
 
-    /**
-     * Gets the current.
-     *
-     * @return The current.
-     */
     public Pulse getCurrent() {
         PulseType[] types = PulseType.values();
         for (PulseType type : types) {

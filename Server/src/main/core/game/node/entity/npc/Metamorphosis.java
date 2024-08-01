@@ -12,33 +12,15 @@ import core.plugin.ClassScanner;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
 
-/**
- * A superclass plugin for any pets that have a metamorphosis option.
- *
- * @author Empathy
- */
 public abstract class Metamorphosis extends OptionHandler {
 
-    /**
-     * The ids of the possible npcs to metamorph into.
-     */
     protected int[] ids;
 
 
-    /**
-     * Constructs a new {@code Metamorphosis} {@code Object}.
-     *
-     * @param ids the id to transform.
-     */
     public Metamorphosis(int... ids) {
         this.ids = ids;
     }
 
-    /**
-     * The dialogue plugin for the pet.
-     *
-     * @return the plugin.
-     */
     public abstract Dialogue getDialogue();
 
     @Override
@@ -77,21 +59,11 @@ public abstract class Metamorphosis extends OptionHandler {
         return true;
     }
 
-    /**
-     * Gets a random npc id.
-     *
-     * @return random npc id
-     */
     public int getRandomNpcId() {
         int i = RandomFunction.getRandom(getIds().length - 1);
         return getIds()[i];
     }
 
-    /**
-     * Gets the npc ids.
-     *
-     * @return the id.
-     */
     public int[] getIds() {
         return ids;
     }

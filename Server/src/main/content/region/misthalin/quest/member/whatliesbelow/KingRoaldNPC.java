@@ -51,11 +51,6 @@ public class KingRoaldNPC extends AbstractNPC {
         }
     }
 
-    /**
-     * Sets cutscene.
-     *
-     * @param cutscene the cutscene
-     */
     public void setCutscene(WhatLiesBelowCutscene cutscene) {
         this.cutscene = cutscene;
     }

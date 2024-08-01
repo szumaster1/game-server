@@ -19,7 +19,9 @@ public final class LeatherCraftDialogue extends Dialogue {
 
     private String type = "";
     private int leather;
+
     public LeatherCraftDialogue() {}
+
     public LeatherCraftDialogue(Player player) {
         super(player);
     }

@@ -18,27 +18,16 @@ import java.util.List;
 
 import static core.api.ContentAPIKt.setAttribute;
 
-/**
- * The Hunter manager.
- */
 public final class HunterManager implements LoginListener, LogoutListener, EventHook<TickEvent> {
 
     private final List<TrapWrapper> traps = new ArrayList<>(20);
 
     private final Player player;
 
-    /**
-     * Instantiates a new Hunter manager.
-     *
-     * @param player the player
-     */
     public HunterManager(final Player player) {
         this.player = player;
     }
 
-    /**
-     * Instantiates a new Hunter manager.
-     */
     public HunterManager() {
         this.player = null;
     }
@@ -79,14 +68,6 @@ public final class HunterManager implements LoginListener, LogoutListener, Event
         }
     }
 
-    /**
-     * Register boolean.
-     *
-     * @param trap   the trap
-     * @param node   the node
-     * @param object the object
-     * @return the boolean
-     */
     public boolean register(Traps trap, Node node, final Scenery object) {
         final TrapWrapper wrapper = new TrapWrapper(player, trap, object);
         trap.settings.reward(player, node, wrapper);
@@ -94,32 +75,14 @@ public final class HunterManager implements LoginListener, LogoutListener, Event
         return traps.add(wrapper);
     }
 
-    /**
-     * Deregister boolean.
-     *
-     * @param wrapper the wrapper
-     * @return the boolean
-     */
     public boolean deregister(final TrapWrapper wrapper) {
         return traps.remove(wrapper);
     }
 
-    /**
-     * Is owner boolean.
-     *
-     * @param object the object
-     * @return the boolean
-     */
     public boolean isOwner(Scenery object) {
         return getUid(object) == getUid();
     }
 
-    /**
-     * Gets wrapper.
-     *
-     * @param object the object
-     * @return the wrapper
-     */
     public TrapWrapper getWrapper(Scenery object) {
         for (TrapWrapper wrapper : traps) {
             if (wrapper.getObject() == object || (wrapper.getSecondary() != null && wrapper.getSecondary() == object)) {
@@ -129,12 +92,6 @@ public final class HunterManager implements LoginListener, LogoutListener, Event
         return null;
     }
 
-    /**
-     * Exceeds trap limit boolean.
-     *
-     * @param trap the trap
-     * @return the boolean
-     */
     public boolean exceedsTrapLimit(Traps trap) {
         if (trap.settings.exceedsLimit(player)) {
             return true;
@@ -142,77 +99,35 @@ public final class HunterManager implements LoginListener, LogoutListener, Event
         return traps.size() + 1 > getMaximumTraps();
     }
 
-    /**
-     * Gets trap amount.
-     *
-     * @return the trap amount
-     */
     public int getTrapAmount() {
         return traps.size();
     }
 
-    /**
-     * Gets maximum traps.
-     *
-     * @return the maximum traps
-     */
     public int getMaximumTraps() {
         final int level = getStaticLevel();
         return level >= 80 ? 5 : level >= 60 ? 4 : level >= 40 ? 3 : level >= 20 ? 2 : 1;
     }
 
-    /**
-     * Gets uid.
-     *
-     * @param object the object
-     * @return the uid
-     */
     public int getUid(Scenery object) {
         return object.getAttributes().getAttribute("trap-uid", 0);
     }
 
-    /**
-     * Gets uid.
-     *
-     * @return the uid
-     */
     public int getUid() {
         return player.getName().hashCode();
     }
 
-    /**
-     * Gets static level.
-     *
-     * @return the static level
-     */
     public int getStaticLevel() {
         return player.getSkills().getStaticLevel(Skills.HUNTER);
     }
 
-    /**
-     * Gets player.
-     *
-     * @return the player
-     */
     public Player getPlayer() {
         return player;
     }
 
-    /**
-     * Gets traps.
-     *
-     * @return the traps
-     */
     public List<TrapWrapper> getTraps() {
         return traps;
     }
 
-    /**
-     * Gets instance.
-     *
-     * @param player the player
-     * @return the instance
-     */
     public static HunterManager getInstance(Player player) {
         return player.getAttribute("hunter-manager");
     }

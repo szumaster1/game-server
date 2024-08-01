@@ -10,9 +10,6 @@ import core.plugin.Initializable;
 
 import static core.api.ContentAPIKt.setVarp;
 
-/**
- * The What lies below.
- */
 @Initializable
 public class WhatLiesBelow extends Quest {
 

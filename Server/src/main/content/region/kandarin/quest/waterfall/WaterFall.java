@@ -10,20 +10,11 @@ import core.game.node.item.Item;
 import core.plugin.ClassScanner;
 import core.plugin.Initializable;
 
-/**
- * The Water fall.
- */
 @Initializable
 public class WaterFall extends Quest {
 
-    /**
-     * The constant NAME.
-     */
     public static final String NAME = "Waterfall";
 
-    /**
-     * Instantiates a new Water fall.
-     */
     public WaterFall() {
         super("Waterfall", 65, 64, 1, Vars.VARP_QUEST_WATERFALL_PROGRESS, 0, 1, 10);
     }

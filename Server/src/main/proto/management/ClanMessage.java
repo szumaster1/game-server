@@ -3,9 +3,6 @@
 
 package proto.management;
 
-/**
- * Protobuf type {@code management.ClanMessage}
- */
 public final class ClanMessage extends
         com.google.protobuf.GeneratedMessageV3 implements
         // @@protoc_insertion_point(message_implements:management.ClanMessage)
@@ -115,21 +112,11 @@ public final class ClanMessage extends
     public static final int SENDER_FIELD_NUMBER = 1;
     private volatile java.lang.Object sender_;
 
-    /**
-     * <code>required string sender = 1;</code>
-     *
-     * @return Whether the sender field is set.
-     */
     @java.lang.Override
     public boolean hasSender() {
         return ((bitField0_ & 0x00000001) != 0);
     }
 
-    /**
-     * <code>required string sender = 1;</code>
-     *
-     * @return The sender.
-     */
     @java.lang.Override
     public java.lang.String getSender() {
         java.lang.Object ref = sender_;
@@ -146,11 +133,6 @@ public final class ClanMessage extends
         }
     }
 
-    /**
-     * <code>required string sender = 1;</code>
-     *
-     * @return The bytes for sender.
-     */
     @java.lang.Override
     public com.google.protobuf.ByteString
     getSenderBytes() {
@@ -169,21 +151,11 @@ public final class ClanMessage extends
     public static final int CLANNAME_FIELD_NUMBER = 2;
     private volatile java.lang.Object clanName_;
 
-    /**
-     * <code>required string clanName = 2;</code>
-     *
-     * @return Whether the clanName field is set.
-     */
     @java.lang.Override
     public boolean hasClanName() {
         return ((bitField0_ & 0x00000002) != 0);
     }
 
-    /**
-     * <code>required string clanName = 2;</code>
-     *
-     * @return The clanName.
-     */
     @java.lang.Override
     public java.lang.String getClanName() {
         java.lang.Object ref = clanName_;
@@ -200,11 +172,6 @@ public final class ClanMessage extends
         }
     }
 
-    /**
-     * <code>required string clanName = 2;</code>
-     *
-     * @return The bytes for clanName.
-     */
     @java.lang.Override
     public com.google.protobuf.ByteString
     getClanNameBytes() {
@@ -223,21 +190,11 @@ public final class ClanMessage extends
     public static final int MESSAGE_FIELD_NUMBER = 3;
     private volatile java.lang.Object message_;
 
-    /**
-     * <code>required string message = 3;</code>
-     *
-     * @return Whether the message field is set.
-     */
     @java.lang.Override
     public boolean hasMessage() {
         return ((bitField0_ & 0x00000004) != 0);
     }
 
-    /**
-     * <code>required string message = 3;</code>
-     *
-     * @return The message.
-     */
     @java.lang.Override
     public java.lang.String getMessage() {
         java.lang.Object ref = message_;
@@ -254,11 +211,6 @@ public final class ClanMessage extends
         }
     }
 
-    /**
-     * <code>required string message = 3;</code>
-     *
-     * @return The bytes for message.
-     */
     @java.lang.Override
     public com.google.protobuf.ByteString
     getMessageBytes() {
@@ -277,21 +229,11 @@ public final class ClanMessage extends
     public static final int RANK_FIELD_NUMBER = 4;
     private int rank_;
 
-    /**
-     * <code>required int32 rank = 4;</code>
-     *
-     * @return Whether the rank field is set.
-     */
     @java.lang.Override
     public boolean hasRank() {
         return ((bitField0_ & 0x00000008) != 0);
     }
 
-    /**
-     * <code>required int32 rank = 4;</code>
-     *
-     * @return The rank.
-     */
     @java.lang.Override
     public int getRank() {
         return rank_;
@@ -536,9 +478,6 @@ public final class ClanMessage extends
         return builder;
     }
 
-    /**
-     * Protobuf type {@code management.ClanMessage}
-     */
     public static final class Builder extends
             com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
             // @@protoc_insertion_point(builder_implements:management.ClanMessage)
@@ -746,20 +685,10 @@ public final class ClanMessage extends
 
         private java.lang.Object sender_ = "";
 
-        /**
-         * <code>required string sender = 1;</code>
-         *
-         * @return Whether the sender field is set.
-         */
         public boolean hasSender() {
             return ((bitField0_ & 0x00000001) != 0);
         }
 
-        /**
-         * <code>required string sender = 1;</code>
-         *
-         * @return The sender.
-         */
         public java.lang.String getSender() {
             java.lang.Object ref = sender_;
             if (!(ref instanceof java.lang.String)) {
@@ -775,11 +704,6 @@ public final class ClanMessage extends
             }
         }
 
-        /**
-         * <code>required string sender = 1;</code>
-         *
-         * @return The bytes for sender.
-         */
         public com.google.protobuf.ByteString
         getSenderBytes() {
             java.lang.Object ref = sender_;
@@ -794,12 +718,6 @@ public final class ClanMessage extends
             }
         }
 
-        /**
-         * <code>required string sender = 1;</code>
-         *
-         * @param value The sender to set.
-         * @return This builder for chaining.
-         */
         public Builder setSender(
                 java.lang.String value) {
             if (value == null) {
@@ -811,11 +729,6 @@ public final class ClanMessage extends
             return this;
         }
 
-        /**
-         * <code>required string sender = 1;</code>
-         *
-         * @return This builder for chaining.
-         */
         public Builder clearSender() {
             bitField0_ = (bitField0_ & ~0x00000001);
             sender_ = getDefaultInstance().getSender();
@@ -823,12 +736,6 @@ public final class ClanMessage extends
             return this;
         }
 
-        /**
-         * <code>required string sender = 1;</code>
-         *
-         * @param value The bytes for sender to set.
-         * @return This builder for chaining.
-         */
         public Builder setSenderBytes(
                 com.google.protobuf.ByteString value) {
             if (value == null) {
@@ -842,20 +749,10 @@ public final class ClanMessage extends
 
         private java.lang.Object clanName_ = "";
 
-        /**
-         * <code>required string clanName = 2;</code>
-         *
-         * @return Whether the clanName field is set.
-         */
         public boolean hasClanName() {
             return ((bitField0_ & 0x00000002) != 0);
         }
 
-        /**
-         * <code>required string clanName = 2;</code>
-         *
-         * @return The clanName.
-         */
         public java.lang.String getClanName() {
             java.lang.Object ref = clanName_;
             if (!(ref instanceof java.lang.String)) {
@@ -871,11 +768,6 @@ public final class ClanMessage extends
             }
         }
 
-        /**
-         * <code>required string clanName = 2;</code>
-         *
-         * @return The bytes for clanName.
-         */
         public com.google.protobuf.ByteString
         getClanNameBytes() {
             java.lang.Object ref = clanName_;
@@ -890,12 +782,6 @@ public final class ClanMessage extends
             }
         }
 
-        /**
-         * <code>required string clanName = 2;</code>
-         *
-         * @param value The clanName to set.
-         * @return This builder for chaining.
-         */
         public Builder setClanName(
                 java.lang.String value) {
             if (value == null) {
@@ -907,11 +793,6 @@ public final class ClanMessage extends
             return this;
         }
 
-        /**
-         * <code>required string clanName = 2;</code>
-         *
-         * @return This builder for chaining.
-         */
         public Builder clearClanName() {
             bitField0_ = (bitField0_ & ~0x00000002);
             clanName_ = getDefaultInstance().getClanName();
@@ -919,12 +800,6 @@ public final class ClanMessage extends
             return this;
         }
 
-        /**
-         * <code>required string clanName = 2;</code>
-         *
-         * @param value The bytes for clanName to set.
-         * @return This builder for chaining.
-         */
         public Builder setClanNameBytes(
                 com.google.protobuf.ByteString value) {
             if (value == null) {
@@ -938,20 +813,10 @@ public final class ClanMessage extends
 
         private java.lang.Object message_ = "";
 
-        /**
-         * <code>required string message = 3;</code>
-         *
-         * @return Whether the message field is set.
-         */
         public boolean hasMessage() {
             return ((bitField0_ & 0x00000004) != 0);
         }
 
-        /**
-         * <code>required string message = 3;</code>
-         *
-         * @return The message.
-         */
         public java.lang.String getMessage() {
             java.lang.Object ref = message_;
             if (!(ref instanceof java.lang.String)) {
@@ -967,11 +832,6 @@ public final class ClanMessage extends
             }
         }
 
-        /**
-         * <code>required string message = 3;</code>
-         *
-         * @return The bytes for message.
-         */
         public com.google.protobuf.ByteString
         getMessageBytes() {
             java.lang.Object ref = message_;
@@ -986,12 +846,6 @@ public final class ClanMessage extends
             }
         }
 
-        /**
-         * <code>required string message = 3;</code>
-         *
-         * @param value The message to set.
-         * @return This builder for chaining.
-         */
         public Builder setMessage(
                 java.lang.String value) {
             if (value == null) {
@@ -1003,11 +857,6 @@ public final class ClanMessage extends
             return this;
         }
 
-        /**
-         * <code>required string message = 3;</code>
-         *
-         * @return This builder for chaining.
-         */
         public Builder clearMessage() {
             bitField0_ = (bitField0_ & ~0x00000004);
             message_ = getDefaultInstance().getMessage();
@@ -1015,12 +864,6 @@ public final class ClanMessage extends
             return this;
         }
 
-        /**
-         * <code>required string message = 3;</code>
-         *
-         * @param value The bytes for message to set.
-         * @return This builder for chaining.
-         */
         public Builder setMessageBytes(
                 com.google.protobuf.ByteString value) {
             if (value == null) {
@@ -1034,32 +877,16 @@ public final class ClanMessage extends
 
         private int rank_;
 
-        /**
-         * <code>required int32 rank = 4;</code>
-         *
-         * @return Whether the rank field is set.
-         */
         @java.lang.Override
         public boolean hasRank() {
             return ((bitField0_ & 0x00000008) != 0);
         }
 
-        /**
-         * <code>required int32 rank = 4;</code>
-         *
-         * @return The rank.
-         */
         @java.lang.Override
         public int getRank() {
             return rank_;
         }
 
-        /**
-         * <code>required int32 rank = 4;</code>
-         *
-         * @param value The rank to set.
-         * @return This builder for chaining.
-         */
         public Builder setRank(int value) {
             bitField0_ |= 0x00000008;
             rank_ = value;
@@ -1067,11 +894,6 @@ public final class ClanMessage extends
             return this;
         }
 
-        /**
-         * <code>required int32 rank = 4;</code>
-         *
-         * @return This builder for chaining.
-         */
         public Builder clearRank() {
             bitField0_ = (bitField0_ & ~0x00000008);
             rank_ = 0;

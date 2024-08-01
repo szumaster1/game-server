@@ -7,9 +7,6 @@ import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Represents a Graphic's definition.
- */
 public class GraphicDefinition {
 
     public short[] aShortArray1435;
@@ -32,17 +29,8 @@ public class GraphicDefinition {
     // added
     public int intValue;
 
-    /**
-     * The definitions mapping.
-     */
     private static final Map<Integer, GraphicDefinition> graphicDefinitions = new HashMap<>();
 
-    /**
-     * Gets the graphic definition for the given graphic id.
-     *
-     * @param gfxId The graphic id.
-     * @return The definition.
-     */
     public static final GraphicDefinition forId(int gfxId) {
         GraphicDefinition def = graphicDefinitions.get(gfxId);
         if (def != null) {
@@ -58,11 +46,6 @@ public class GraphicDefinition {
         return def;
     }
 
-    /**
-     * The main method, used for running a graphic definition search.
-     *
-     * @param s The arguments cast on runtime.
-     */
     public static final void main(String... s) {
         try {
             Cache.init(ServerConstants.CACHE_PATH);
@@ -83,11 +66,6 @@ public class GraphicDefinition {
         }
     }
 
-    /**
-     * Reads and handles all data from the input stream.
-     *
-     * @param buffer The input stream.
-     */
     private void readValueLoop(ByteBuffer buffer) {
         for (; ; ) {
             int opcode = buffer.get() & 0xFF;
@@ -98,12 +76,6 @@ public class GraphicDefinition {
         }
     }
 
-    /**
-     * Reads the opcode values from the input stream.
-     *
-     * @param buffer The input stream.
-     * @param opcode The opcode to handle.
-     */
     public void readValues(ByteBuffer buffer, int opcode) {
         if (opcode != 1) {
             if (opcode == 2)
@@ -174,9 +146,6 @@ public class GraphicDefinition {
             defaultModel = buffer.getShort();
     }
 
-    /**
-     * Constructs a new {@code GraphicDefinition} {@code Object}.
-     */
     public GraphicDefinition() {
         byteValue = 0;
         intValue = -1;

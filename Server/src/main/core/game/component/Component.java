@@ -7,54 +7,24 @@ import core.network.packet.PacketRepository;
 import core.network.packet.context.InterfaceContext;
 import core.network.packet.outgoing.Interface;
 
-/**
- * Represents a component.
- *
- * @author Emperor
- */
 public class Component {
 
-    /**
-     * The component id.
-     */
     protected int id;
 
-    /**
-     * The component definitions.
-     */
     protected final ComponentDefinition definition;
 
-    /**
-     * The close event.
-     */
     protected CloseEvent closeEvent;
 
-    /**
-     * The component plugin.
-     */
     protected ComponentPlugin plugin;
 
-    /**
-     * If the component is hidden.
-     */
     private boolean hidden;
 
-    /**
-     * Constructs a new {@code Component} {@code Object}.
-     *
-     * @param id The component id.
-     */
     public Component(int id) {
         this.id = id;
         this.definition = ComponentDefinition.forId(id);
         this.plugin = definition.getPlugin();
     }
 
-    /**
-     * Opens the component.
-     *
-     * @param player the player
-     */
     public void open(Player player) {
         InterfaceManager manager = player.getInterfaceManager();
         InterfaceListeners.runOpen(player, this);
@@ -81,60 +51,27 @@ public class Component {
         }
     }
 
-    /**
-     * Closes the component.
-     *
-     * @param player The player.
-     * @return {@code True} if the component can be closed.
-     */
     public boolean close(Player player) {
         return (closeEvent == null || closeEvent.close(player, this)) && InterfaceListeners.runClose(player, this);
     }
 
-    /**
-     * Gets the id.
-     *
-     * @return The id.
-     */
     public int getId() {
         return id;
     }
 
-    /**
-     * Gets the definition.
-     *
-     * @return The definition.
-     */
     public ComponentDefinition getDefinition() {
         return definition;
     }
 
-    /**
-     * Gets the closeEvent.
-     *
-     * @return The closeEvent.
-     */
     public CloseEvent getCloseEvent() {
         return closeEvent;
     }
 
-    /**
-     * Sets the closeEvent.
-     *
-     * @param closeEvent The closeEvent to set.
-     * @return the close event
-     */
     public Component setCloseEvent(CloseEvent closeEvent) {
         this.closeEvent = closeEvent;
         return this;
     }
 
-    /**
-     * Sets the component unclosable.
-     *
-     * @param p the p
-     * @param c The component.
-     */
     public static void setUnclosable(Player p, Component c) {
         p.setAttribute("close_c_", true);
         c.setCloseEvent(new CloseEvent() {
@@ -145,20 +82,10 @@ public class Component {
         });
     }
 
-    /**
-     * Sets the plugin.
-     *
-     * @param plugin the plugin.
-     */
     public void setPlugin(ComponentPlugin plugin) {
         this.plugin = plugin;
     }
 
-    /**
-     * Gets the component plugin.
-     *
-     * @return the plugin.
-     */
     public ComponentPlugin getPlugin() {
         if (plugin == null) {
             ComponentPlugin p = ComponentDefinition.forId(getId()).getPlugin();
@@ -169,20 +96,10 @@ public class Component {
         return plugin;
     }
 
-    /**
-     * Gets the hidden value.
-     *
-     * @return The hidden.
-     */
     public boolean isHidden() {
         return hidden;
     }
 
-    /**
-     * Sets the hidden value.
-     *
-     * @param hidden The hidden to set.
-     */
     public void setHidden(boolean hidden) {
         this.hidden = hidden;
     }

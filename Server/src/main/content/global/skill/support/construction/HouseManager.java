@@ -33,69 +33,30 @@ import static core.api.regionspec.RegionSpecificationKt.using;
 import static core.tools.GlobalsKt.DARK_BLUE;
 
 
-/**
- * Manages the player's house.
- */
 public final class HouseManager {
 
-    /**
-     * The current region.
-     */
     private DynamicRegion houseRegion;
 
-    /**
-     * The current region.
-     */
     private DynamicRegion dungeonRegion;
 
-    /**
-     * The house location.
-     */
     private HouseLocation location = HouseLocation.NOWHERE;
 
-    /**
-     * The house style.
-     */
     private HousingStyle style = HousingStyle.BASIC_WOOD;
 
-    /**
-     * The house zone.
-     */
     private HouseZone zone = new HouseZone(this);
 
-    /**
-     * The player's houserooms.
-     */
     private final Room[][][] rooms = new Room[4][8][8];
 
-    /**
-     * If building mode is enabled.
-     */
     private boolean buildingMode;
 
-    /**
-     * If the player has used the portal to lock their house.
-     */
     private boolean locked;
 
-    /**
-     * The player's servant.
-     */
     private Servant servant;
 
-    /**
-     * If the house has a dungeon.
-     */
     private boolean hasDungeon;
 
-    /**
-     * The player's crest.
-     */
     private CrestType crest = CrestType.ASGARNIA;
 
-    /**
-     * Constructs a new {@code HouseManager} {@code Object}.
-     */
     public HouseManager() {
         /*
          * empty.
@@ -103,11 +64,6 @@ public final class HouseManager {
     }
 
 
-    /**
-     * Save.
-     *
-     * @param buffer the buffer
-     */
     public void save(ByteBuffer buffer) {
         buffer.put((byte) location.ordinal());
         buffer.put((byte) style.ordinal());
@@ -138,11 +94,6 @@ public final class HouseManager {
         buffer.put((byte) -1);
     }
 
-    /**
-     * Parse.
-     *
-     * @param data the data
-     */
     public void parse(JSONObject data) {
         location = HouseLocation.values()[Integer.parseInt(data.get("location").toString())];
         style = HousingStyle.values()[Integer.parseInt(data.get("style").toString())];
@@ -169,11 +120,6 @@ public final class HouseManager {
     }
 
 
-    /**
-     * Parse.
-     *
-     * @param buffer the buffer
-     */
     public void parse(ByteBuffer buffer) {
         location = HouseLocation.values()[buffer.get() & 0xFF];
         style = HousingStyle.values()[buffer.get() & 0xFF];
@@ -195,12 +141,6 @@ public final class HouseManager {
         }
     }
 
-    /**
-     * Prepares for entering the player's house.
-     *
-     * @param player       the player
-     * @param buildingMode the building mode
-     */
     public void preEnter(final Player player, boolean buildingMode) {
         if (this.buildingMode != buildingMode || !isLoaded()) {
             this.buildingMode = buildingMode;
@@ -212,24 +152,12 @@ public final class HouseManager {
             player.sendMessage("House location: " + houseRegion.getBaseLocation() + ", entry: " + getEnterLocation());
     }
 
-    /**
-     * Enters the player's house and plays the ding sound.
-     *
-     * @param player       the player
-     * @param buildingMode the building mode
-     */
     public void enter(final Player player, boolean buildingMode) {
         preEnter(player, buildingMode);
         player.getProperties().setTeleportLocation(getEnterLocation());
         postEnter(player, buildingMode);
     }
 
-    /**
-     * Performs post-house-enter administration.
-     *
-     * @param player       the player
-     * @param buildingMode the building mode
-     */
     public void postEnter(final Player player, boolean buildingMode) {
         openLoadInterface(player);
         checkForAndSpawnServant(player);
@@ -277,11 +205,6 @@ public final class HouseManager {
         player.getMusicPlayer().unlock(454, true);
     }
 
-    /**
-     * Leaves this house.
-     *
-     * @param player The player leaving.
-     */
     public static void leave(Player player) {
         HouseManager house = player.getAttribute("poh_entry", player.getHouseManager());
         if (house.getHouseRegion() == null) {
@@ -293,12 +216,6 @@ public final class HouseManager {
         }
     }
 
-    /**
-     * Toggles the building mode.
-     *
-     * @param player The house owner.
-     * @param enable If the building mode should be enabled.
-     */
     public void toggleBuildingMode(Player player, boolean enable) {
         /*
          * 27.08.2009
@@ -317,12 +234,6 @@ public final class HouseManager {
         }
     }
 
-    /**
-     * Reloads the house.
-     *
-     * @param player       The player.
-     * @param buildingMode If building mode should be enabled.                     NOTE: I think we should avoid this method, it might be causing some issues. It's actually really suspicious...
-     */
     public void reload(Player player, boolean buildingMode) {
         int diffX = player.getLocation().getLocalX();
         int diffY = player.getLocation().getLocalY();
@@ -334,11 +245,6 @@ public final class HouseManager {
         player.getProperties().setTeleportLocation(newLoc);
     }
 
-    /**
-     * Expels the guests from the house.
-     *
-     * @param player The house owner.
-     */
     public void expelGuests(Player player) {
         if (isLoaded()) {
             for (RegionPlane plane : houseRegion.getPlanes()) {
@@ -360,11 +266,6 @@ public final class HouseManager {
         }
     }
 
-    /**
-     * Gets the entering location.
-     *
-     * @return The entering location.
-     */
     public Location getEnterLocation() {
         if (houseRegion == null) {
             log(this.getClass(), Log.ERR, "House wasn't constructed yet!");
@@ -388,11 +289,6 @@ public final class HouseManager {
         return null;
     }
 
-    /**
-     * Redecorates the house.
-     *
-     * @param style The new style.
-     */
     public void redecorate(HousingStyle style) {
         this.style = style;
         for (int z = 0; z < 4; z++) {
@@ -407,9 +303,6 @@ public final class HouseManager {
         }
     }
 
-    /**
-     * Clears all the rooms (<b>Including portal room!</b>).
-     */
     @Deprecated
     public void clearRooms() {
         for (int z = 0; z < 4; z++) {
@@ -421,11 +314,6 @@ public final class HouseManager {
         }
     }
 
-    /**
-     * Creates the default house.
-     *
-     * @param location The house location.
-     */
     public void createNewHouseAt(HouseLocation location) {
         clearRooms();
         Room room = rooms[0][4][3] = new Room(RoomProperties.GARDEN);
@@ -434,11 +322,6 @@ public final class HouseManager {
         this.location = location;
     }
 
-    /**
-     * Constructs the dynamic region for the house.
-     *
-     * @return The region.
-     */
     public DynamicRegion construct() {
         houseRegion = getPreparedRegion();
         configureRoofs();
@@ -466,26 +349,10 @@ public final class HouseManager {
     }
 
     private class RoomLoadContract extends FillChunkContract {
-        /**
-         * The Rooms.
-         */
         Room[][][] rooms;
-        /**
-         * The Manager.
-         */
         HouseManager manager;
-        /**
-         * The Building mode.
-         */
         boolean buildingMode;
 
-        /**
-         * Instantiates a new Room load contract.
-         *
-         * @param manager      the manager
-         * @param buildingMode the building mode
-         * @param rooms        the rooms
-         */
         public RoomLoadContract(HouseManager manager, boolean buildingMode, Room[][][] rooms) {
             this.rooms = rooms;
             this.manager = manager;
@@ -527,9 +394,6 @@ public final class HouseManager {
         house.link(target);
     }
 
-    /**
-     * Configures the rooftops.
-     */
     public void configureRoofs() {
 //		boolean[][][] roofs = new boolean[2][8][8];
 //		for (int x = 0; x < 8; x++) {
@@ -547,12 +411,6 @@ public final class HouseManager {
 //		}
     }
 
-    /**
-     * Gets the current room plane.
-     *
-     * @param l The location.
-     * @return The plane of the room.
-     */
     public Room getRoom(Location l) {
         int z = l.getZ();
         if (dungeonRegion != null && l.getRegionId() == dungeonRegion.getId()) {
@@ -561,12 +419,6 @@ public final class HouseManager {
         return rooms[z][l.getChunkX()][l.getChunkY()];
     }
 
-    /**
-     * Gets the hotspot for the given object.
-     *
-     * @param object The object.
-     * @return The hotspot.
-     */
     public Hotspot getHotspot(Scenery object) {
         Room room = getRoom(object.getLocation());
         if (room == null) {
@@ -605,24 +457,11 @@ public final class HouseManager {
         return null;
     }
 
-    /**
-     * Checks if a room exists on the given location.
-     *
-     * @param z     The plane.
-     * @param roomX The room x-coordinate.
-     * @param roomY The room y-coordinate.
-     * @return {@code True} if so.
-     */
     public boolean hasRoomAt(int z, int roomX, int roomY) {
         Room room = rooms[z][roomX][roomY];
         return room != null && !room.getProperties().isRoof();
     }
 
-    /**
-     * Enters the dungeon.
-     *
-     * @param player The player.
-     */
     public void enterDungeon(Player player) {
         if (!hasDungeon()) {
             return;
@@ -632,26 +471,12 @@ public final class HouseManager {
         player.getProperties().setTeleportLocation(dungeonRegion.getBaseLocation().transform(diffX, diffY, 0));
     }
 
-    /**
-     * Checks if an exit exists on the given room.
-     *
-     * @param z         the z
-     * @param roomX     The x-coordinate of the room.
-     * @param roomY     The y-coordinate of the room.
-     * @param direction The exit direction.
-     * @return {@code True} if so.
-     */
     public boolean hasExit(int z, int roomX, int roomY, Direction direction) {
         Room room = rooms[z][roomX][roomY];
         int index = (direction.toInteger() + 3) % 4;
         return room != null && room.getExits()[index];
     }
 
-    /**
-     * Gets the amount of rooms.
-     *
-     * @return The amount of rooms.
-     */
     public int getRoomAmount() {
         int count = 0;
         for (int z = 0; z < 4; z++) {
@@ -667,11 +492,6 @@ public final class HouseManager {
         return count;
     }
 
-    /**
-     * Gets the amount of portals available.
-     *
-     * @return The amount of portals.
-     */
     public int getPortalAmount() {
         int count = 0;
         for (int x = 0; x < 8; x++) {
@@ -685,11 +505,6 @@ public final class HouseManager {
         return count;
     }
 
-    /**
-     * Gets the current house boundaries.
-     *
-     * @return The boundaries.
-     */
     public Rectangle getBoundaries() {
         int startX = 99;
         int startY = 99;
@@ -708,12 +523,6 @@ public final class HouseManager {
         return new Rectangle(startX, startY, (endX - startX) + 1, (endY - startY) + 1);
     }
 
-    /**
-     * Gets the maximum dimension for the house boundaries.
-     *
-     * @param player The player.
-     * @return The dimension value (value X value = dimension)
-     */
     public int getMaximumDimension(Player player) {
         int level = player.getSkills().getStaticLevel(Skills.CONSTRUCTION);
         if (level >= 60) {
@@ -731,12 +540,6 @@ public final class HouseManager {
         return 3;
     }
 
-    /**
-     * Gets the maximum amount of rooms available for the player.
-     *
-     * @param player The player.
-     * @return The maximum amount of rooms.
-     */
     public int getMaximumRooms(Player player) {
         int level = player.getSkills().getStaticLevel(Skills.CONSTRUCTION);
         if (level >= 99) return 30;
@@ -752,9 +555,6 @@ public final class HouseManager {
         return 20;
     }
 
-    /**
-     * Spawns the servant inside the player's home.
-     */
     private void spawnServant() {
         servant.setLocation(getEnterLocation());
         servant.setWalkRadius(getRoomAmount() * 2);
@@ -762,205 +562,93 @@ public final class HouseManager {
         servant.init();
     }
 
-    /**
-     * Checks if the player has a servant.
-     *
-     * @return {@code True} if so.
-     */
     public boolean hasServant() {
         return servant != null;
     }
 
-    /**
-     * Checks if the player is in his own house (or dungeon).
-     *
-     * @param player The player.
-     * @return {@code True} if so.
-     */
     public boolean isInHouse(Player player) {
         return isLoaded() && (player.getViewport().getRegion() == houseRegion || player.getViewport().getRegion() == dungeonRegion);
     }
 
-    /**
-     * Checks if the player is in his dungeon.
-     *
-     * @param player The player.
-     * @return {@code True} if so.
-     */
     public static boolean isInDungeon(Player player) {
         return player.getViewport().getRegion() == player.getHouseManager().dungeonRegion;
     }
 
-    /**
-     * Checks if the house region was constructed and active.
-     *
-     * @return {@code True} if an active region for the house exists.
-     */
-//public boolean isLoaded() {
+    //public boolean isLoaded() {
     //	return (houseRegion != null) || (dungeonRegion != null);
     //}
     public boolean isLoaded() {
         return (houseRegion != null && houseRegion.isActive()) || (dungeonRegion != null && dungeonRegion.isActive());
     }
 
-    /**
-     * Gets the hasHouse.
-     *
-     * @return The hasHouse.
-     */
     public boolean hasHouse() {
         return location != HouseLocation.NOWHERE;
     }
 
-    /**
-     * Checks if the house has a dungeon.
-     *
-     * @return {@code True} if so.
-     */
     public boolean hasDungeon() {
         return hasDungeon;
     }
 
-    /**
-     * Sets the has dungeon value.
-     *
-     * @param hasDungeon If the house has a dungeon.
-     */
     public void setHasDungeon(boolean hasDungeon) {
         this.hasDungeon = hasDungeon;
     }
 
-    /**
-     * Gets the rooms.
-     *
-     * @return The rooms.
-     */
     public Room[][][] getRooms() {
         return rooms;
     }
 
-    /**
-     * Gets the location.
-     *
-     * @return The location.
-     */
     public HouseLocation getLocation() {
         return location;
     }
 
-    /**
-     * Sets the location.
-     *
-     * @param location The location to set.
-     */
     public void setLocation(HouseLocation location) {
         this.location = location;
     }
 
-    /**
-     * Checks if the building mode is enabled.
-     *
-     * @return {@code True} if so.
-     */
     public boolean isBuildingMode() {
         return buildingMode;
     }
 
-    /**
-     * Checks if the player has locked their house.
-     *
-     * @return {@code True} if so.
-     */
     public boolean isLocked() {
         return locked;
     }
 
-    /**
-     * Sets the house to locked.
-     *
-     * @param locked true or false
-     */
     public void setLocked(boolean locked) {
         this.locked = locked;
     }
 
-    /**
-     * Gets the region.
-     *
-     * @return The region.
-     */
     public DynamicRegion getHouseRegion() {
         return houseRegion;
     }
 
-    /**
-     * Gets the dungeon region.
-     *
-     * @return The dungeon region.
-     */
     public Region getDungeonRegion() {
         return dungeonRegion;
     }
 
-    /**
-     * Gets the style.
-     *
-     * @return the style
-     */
     public HousingStyle getStyle() {
         return style;
     }
 
-    /**
-     * Sets the style.
-     *
-     * @param style the style to set.
-     */
     public void setStyle(HousingStyle style) {
         this.style = style;
     }
 
-    /**
-     * Gets the player's servant
-     *
-     * @return the servant.
-     */
     public Servant getServant() {
         return servant;
     }
 
-    /**
-     * Sets the player's servant
-     *
-     * @param servant The servant to set.
-     */
     public void setServant(Servant servant) {
         this.servant = servant;
     }
 
-    /**
-     * Gets the crest value.
-     *
-     * @return The crest.
-     */
     public CrestType getCrest() {
         return crest;
     }
 
-    /**
-     * Sets the crest value.
-     *
-     * @param crest The crest to set.
-     */
     public void setCrest(CrestType crest) {
         this.crest = crest;
     }
 
-    /**
-     * Gets zone.
-     *
-     * @return the zone
-     */
     public HouseZone getZone() {
         return zone;
     }

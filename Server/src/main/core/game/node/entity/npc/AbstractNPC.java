@@ -9,35 +9,14 @@ import java.util.Map;
 
 import static core.api.ContentAPIKt.log;
 
-/**
- * Used as superclass for "special NPC" plugins.
- *
- * @author Emperor
- */
 public abstract class AbstractNPC extends NPC implements Plugin<Object> {
 
-    /**
-     * The abstract NPC mapping.
-     */
     protected static Map<Integer, AbstractNPC> mapping = new HashMap<>();
 
-    /**
-     * Constructs a new {@code AbstractNPC} {@code Object}.
-     *
-     * @param id       The id.
-     * @param location The location.
-     */
     public AbstractNPC(int id, Location location) {
         this(id, location, true);
     }
 
-    /**
-     * Constructs a new {@code AbstractNPC} {@code Object}.
-     *
-     * @param id       The id.
-     * @param location The location.
-     * @param autowalk If the NPC should move around.
-     */
     public AbstractNPC(int id, Location location, boolean autowalk) {
         super(id, location);
         super.setWalks(autowalk);
@@ -63,29 +42,10 @@ public abstract class AbstractNPC extends NPC implements Plugin<Object> {
         return null;
     }
 
-    /**
-     * Constructs a new instance of this abstract NPC.
-     *
-     * @param id       The npc id.
-     * @param location The location.
-     * @param objects  TODO
-     * @return The abstract npc instance.
-     */
     public abstract AbstractNPC construct(int id, Location location, Object... objects);
 
-    /**
-     * Gets the NPC ids using this abstract NPC handler.
-     *
-     * @return The NPC ids.
-     */
     public abstract int[] getIds();
 
-    /**
-     * Gets the abstract NPC object for this NPC id.
-     *
-     * @param npcId The NPC id.
-     * @return The abstract NPC "loader" object for the given NPC id.
-     */
     public static AbstractNPC forId(int npcId) {
         return mapping.get(npcId);
     }

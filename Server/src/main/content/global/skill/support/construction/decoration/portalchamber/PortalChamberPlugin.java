@@ -21,15 +21,9 @@ import static core.api.ContentAPIKt.sendDialogueOptions;
 import static core.api.ContentAPIKt.setTitle;
 import static core.tools.GlobalsKt.DARK_RED;
 
-/**
- * The Portal chamber plugin.
- */
 @Initializable
 public class PortalChamberPlugin extends OptionHandler {
 
-    /**
-     * Locations
-     */
     private static enum Locations {
 
         VARROCK(Location.create(3213, 3428, 0), new Item(Rune.FIRE.getRune().getId(), 100), new Item(Rune.AIR.getRune().getId(), 300), new Item(Rune.LAW.getRune().getId(), 100)),

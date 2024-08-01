@@ -15,9 +15,6 @@ import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
-/**
- * The Ancient mace special handler.
- */
 @Initializable
 public final class AncientMaceSpecialHandler extends MeleeSwingHandler implements Plugin<Object> {
 

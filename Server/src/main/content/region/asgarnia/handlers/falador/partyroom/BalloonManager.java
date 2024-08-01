@@ -26,6 +26,7 @@ import static core.api.ContentAPIKt.setVarp;
 public final class BalloonManager extends OptionHandler {
     private static final List<Scenery> balloons = new ArrayList<>(20);
     private int countdown;
+
     public BalloonManager() {
     }
 
@@ -236,6 +237,7 @@ public final class BalloonManager extends OptionHandler {
         public int getBalloonId() {
             return balloonId;
         }
+
         public int getPopId() {
             return popId;
         }

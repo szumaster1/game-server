@@ -5,10 +5,6 @@ import core.network.packet.IoBuffer;
 import core.network.packet.OutgoingPacket;
 import core.network.packet.context.SkillContext;
 
-/**
- * Handles the update skill outgoing packet.
- * @author Emperor
- */
 public final class SkillLevel implements OutgoingPacket<SkillContext> {
 
     @Override

@@ -19,9 +19,6 @@ import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
-/**
- * The Descent of darkness special handler.
- */
 @Initializable
 public final class DescentOfDarknessSpecialHandler extends RangeSwingHandler implements Plugin<Object> {
 

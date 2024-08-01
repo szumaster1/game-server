@@ -20,20 +20,11 @@ import core.plugin.Plugin;
 
 import java.util.List;
 
-/**
- * The Nora t hagg npc.
- */
 @Initializable
 public class NoraTHaggNPC extends AbstractNPC {
 
-    /**
-     * The Walkdir.
-     */
     boolean walkdir;
 
-    /**
-     * Instantiates a new Nora t hagg npc.
-     */
     public NoraTHaggNPC() {
         super(896, Location.create(2904, 3463, 0));
     }

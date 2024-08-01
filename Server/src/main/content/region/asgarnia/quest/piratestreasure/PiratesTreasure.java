@@ -12,39 +12,15 @@ import core.plugin.Initializable;
 
 import static core.api.ContentAPIKt.removeAttribute;
 
-/**
- * The Pirates treasure.
- */
 @Initializable
 public final class PiratesTreasure extends Quest {
-    /**
-     * The constant MESSAGE_COMPONENT.
-     */
     public static final Component MESSAGE_COMPONENT = new Component(222);
-    /**
-     * The constant CASKET_REWARDS.
-     */
     public static final Item[] CASKET_REWARDS = new Item[]{new Item(995, 450), new Item(1635), new Item(1605)};
-    /**
-     * The constant KARAMJAN_RUM.
-     */
     public static final Item KARAMJAN_RUM = new Item(431);
-    /**
-     * The constant KEY.
-     */
     public static final Item KEY = new Item(432);
-    /**
-     * The constant PIRATE_MESSAGE.
-     */
     public static final Item PIRATE_MESSAGE = new Item(433);
-    /**
-     * The constant CASKET.
-     */
     public static final Item CASKET = new Item(7956);
 
-    /**
-     * Instantiates a new Pirates treasure.
-     */
     public PiratesTreasure() {
         super("Pirate's Treasure", 23, 22, 2, Vars.VARP_QUEST_PIRATES_TREASURE_PROGRESS, 0, 1, 4);
     }

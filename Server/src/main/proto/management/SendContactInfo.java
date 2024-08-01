@@ -3,9 +3,6 @@
 
 package proto.management;
 
-/**
- * Protobuf type {@code management.SendContactInfo}
- */
 public final class SendContactInfo extends
         com.google.protobuf.GeneratedMessageV3 implements
         // @@protoc_insertion_point(message_implements:management.SendContactInfo)
@@ -122,60 +119,22 @@ public final class SendContactInfo extends
             // @@protoc_insertion_point(interface_extends:management.SendContactInfo.Contact)
             com.google.protobuf.MessageOrBuilder {
 
-        /**
-         * <code>required string username = 1;</code>
-         *
-         * @return Whether the username field is set.
-         */
         boolean hasUsername();
 
-        /**
-         * <code>required string username = 1;</code>
-         *
-         * @return The username.
-         */
         java.lang.String getUsername();
 
-        /**
-         * <code>required string username = 1;</code>
-         *
-         * @return The bytes for username.
-         */
         com.google.protobuf.ByteString
         getUsernameBytes();
 
-        /**
-         * <code>optional int32 world = 2;</code>
-         *
-         * @return Whether the world field is set.
-         */
         boolean hasWorld();
 
-        /**
-         * <code>optional int32 world = 2;</code>
-         *
-         * @return The world.
-         */
         int getWorld();
 
-        /**
-         * <code>optional int32 rank = 3;</code>
-         *
-         * @return Whether the rank field is set.
-         */
         boolean hasRank();
 
-        /**
-         * <code>optional int32 rank = 3;</code>
-         *
-         * @return The rank.
-         */
         int getRank();
     }
 
-    /**
-     * Protobuf type {@code management.SendContactInfo.Contact}
-     */
     public static final class Contact extends
             com.google.protobuf.GeneratedMessageV3 implements
             // @@protoc_insertion_point(message_implements:management.SendContactInfo.Contact)
@@ -276,21 +235,11 @@ public final class SendContactInfo extends
         public static final int USERNAME_FIELD_NUMBER = 1;
         private volatile java.lang.Object username_;
 
-        /**
-         * <code>required string username = 1;</code>
-         *
-         * @return Whether the username field is set.
-         */
         @java.lang.Override
         public boolean hasUsername() {
             return ((bitField0_ & 0x00000001) != 0);
         }
 
-        /**
-         * <code>required string username = 1;</code>
-         *
-         * @return The username.
-         */
         @java.lang.Override
         public java.lang.String getUsername() {
             java.lang.Object ref = username_;
@@ -307,11 +256,6 @@ public final class SendContactInfo extends
             }
         }
 
-        /**
-         * <code>required string username = 1;</code>
-         *
-         * @return The bytes for username.
-         */
         @java.lang.Override
         public com.google.protobuf.ByteString
         getUsernameBytes() {
@@ -330,21 +274,11 @@ public final class SendContactInfo extends
         public static final int WORLD_FIELD_NUMBER = 2;
         private int world_;
 
-        /**
-         * <code>optional int32 world = 2;</code>
-         *
-         * @return Whether the world field is set.
-         */
         @java.lang.Override
         public boolean hasWorld() {
             return ((bitField0_ & 0x00000002) != 0);
         }
 
-        /**
-         * <code>optional int32 world = 2;</code>
-         *
-         * @return The world.
-         */
         @java.lang.Override
         public int getWorld() {
             return world_;
@@ -353,21 +287,11 @@ public final class SendContactInfo extends
         public static final int RANK_FIELD_NUMBER = 3;
         private int rank_;
 
-        /**
-         * <code>optional int32 rank = 3;</code>
-         *
-         * @return Whether the rank field is set.
-         */
         @java.lang.Override
         public boolean hasRank() {
             return ((bitField0_ & 0x00000004) != 0);
         }
 
-        /**
-         * <code>optional int32 rank = 3;</code>
-         *
-         * @return The rank.
-         */
         @java.lang.Override
         public int getRank() {
             return rank_;
@@ -586,9 +510,6 @@ public final class SendContactInfo extends
             return builder;
         }
 
-        /**
-         * Protobuf type {@code management.SendContactInfo.Contact}
-         */
         public static final class Builder extends
                 com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
                 // @@protoc_insertion_point(builder_implements:management.SendContactInfo.Contact)
@@ -774,20 +695,10 @@ public final class SendContactInfo extends
 
             private java.lang.Object username_ = "";
 
-            /**
-             * <code>required string username = 1;</code>
-             *
-             * @return Whether the username field is set.
-             */
             public boolean hasUsername() {
                 return ((bitField0_ & 0x00000001) != 0);
             }
 
-            /**
-             * <code>required string username = 1;</code>
-             *
-             * @return The username.
-             */
             public java.lang.String getUsername() {
                 java.lang.Object ref = username_;
                 if (!(ref instanceof java.lang.String)) {
@@ -803,11 +714,6 @@ public final class SendContactInfo extends
                 }
             }
 
-            /**
-             * <code>required string username = 1;</code>
-             *
-             * @return The bytes for username.
-             */
             public com.google.protobuf.ByteString
             getUsernameBytes() {
                 java.lang.Object ref = username_;
@@ -822,12 +728,6 @@ public final class SendContactInfo extends
                 }
             }
 
-            /**
-             * <code>required string username = 1;</code>
-             *
-             * @param value The username to set.
-             * @return This builder for chaining.
-             */
             public Builder setUsername(
                     java.lang.String value) {
                 if (value == null) {
@@ -839,11 +739,6 @@ public final class SendContactInfo extends
                 return this;
             }
 
-            /**
-             * <code>required string username = 1;</code>
-             *
-             * @return This builder for chaining.
-             */
             public Builder clearUsername() {
                 bitField0_ = (bitField0_ & ~0x00000001);
                 username_ = getDefaultInstance().getUsername();
@@ -851,12 +746,6 @@ public final class SendContactInfo extends
                 return this;
             }
 
-            /**
-             * <code>required string username = 1;</code>
-             *
-             * @param value The bytes for username to set.
-             * @return This builder for chaining.
-             */
             public Builder setUsernameBytes(
                     com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -870,32 +759,16 @@ public final class SendContactInfo extends
 
             private int world_;
 
-            /**
-             * <code>optional int32 world = 2;</code>
-             *
-             * @return Whether the world field is set.
-             */
             @java.lang.Override
             public boolean hasWorld() {
                 return ((bitField0_ & 0x00000002) != 0);
             }
 
-            /**
-             * <code>optional int32 world = 2;</code>
-             *
-             * @return The world.
-             */
             @java.lang.Override
             public int getWorld() {
                 return world_;
             }
 
-            /**
-             * <code>optional int32 world = 2;</code>
-             *
-             * @param value The world to set.
-             * @return This builder for chaining.
-             */
             public Builder setWorld(int value) {
                 bitField0_ |= 0x00000002;
                 world_ = value;
@@ -903,11 +776,6 @@ public final class SendContactInfo extends
                 return this;
             }
 
-            /**
-             * <code>optional int32 world = 2;</code>
-             *
-             * @return This builder for chaining.
-             */
             public Builder clearWorld() {
                 bitField0_ = (bitField0_ & ~0x00000002);
                 world_ = 0;
@@ -917,32 +785,16 @@ public final class SendContactInfo extends
 
             private int rank_;
 
-            /**
-             * <code>optional int32 rank = 3;</code>
-             *
-             * @return Whether the rank field is set.
-             */
             @java.lang.Override
             public boolean hasRank() {
                 return ((bitField0_ & 0x00000004) != 0);
             }
 
-            /**
-             * <code>optional int32 rank = 3;</code>
-             *
-             * @return The rank.
-             */
             @java.lang.Override
             public int getRank() {
                 return rank_;
             }
 
-            /**
-             * <code>optional int32 rank = 3;</code>
-             *
-             * @param value The rank to set.
-             * @return This builder for chaining.
-             */
             public Builder setRank(int value) {
                 bitField0_ |= 0x00000004;
                 rank_ = value;
@@ -950,11 +802,6 @@ public final class SendContactInfo extends
                 return this;
             }
 
-            /**
-             * <code>optional int32 rank = 3;</code>
-             *
-             * @return This builder for chaining.
-             */
             public Builder clearRank() {
                 bitField0_ = (bitField0_ & ~0x00000004);
                 rank_ = 0;
@@ -1021,21 +868,11 @@ public final class SendContactInfo extends
     public static final int USERNAME_FIELD_NUMBER = 1;
     private volatile java.lang.Object username_;
 
-    /**
-     * <code>required string username = 1;</code>
-     *
-     * @return Whether the username field is set.
-     */
     @java.lang.Override
     public boolean hasUsername() {
         return ((bitField0_ & 0x00000001) != 0);
     }
 
-    /**
-     * <code>required string username = 1;</code>
-     *
-     * @return The username.
-     */
     @java.lang.Override
     public java.lang.String getUsername() {
         java.lang.Object ref = username_;
@@ -1052,11 +889,6 @@ public final class SendContactInfo extends
         }
     }
 
-    /**
-     * <code>required string username = 1;</code>
-     *
-     * @return The bytes for username.
-     */
     @java.lang.Override
     public com.google.protobuf.ByteString
     getUsernameBytes() {
@@ -1075,42 +907,27 @@ public final class SendContactInfo extends
     public static final int CONTACTS_FIELD_NUMBER = 2;
     private java.util.List<proto.management.SendContactInfo.Contact> contacts_;
 
-    /**
-     * <code>repeated .management.SendContactInfo.Contact contacts = 2;</code>
-     */
     @java.lang.Override
     public java.util.List<proto.management.SendContactInfo.Contact> getContactsList() {
         return contacts_;
     }
 
-    /**
-     * <code>repeated .management.SendContactInfo.Contact contacts = 2;</code>
-     */
     @java.lang.Override
     public java.util.List<? extends proto.management.SendContactInfo.ContactOrBuilder>
     getContactsOrBuilderList() {
         return contacts_;
     }
 
-    /**
-     * <code>repeated .management.SendContactInfo.Contact contacts = 2;</code>
-     */
     @java.lang.Override
     public int getContactsCount() {
         return contacts_.size();
     }
 
-    /**
-     * <code>repeated .management.SendContactInfo.Contact contacts = 2;</code>
-     */
     @java.lang.Override
     public proto.management.SendContactInfo.Contact getContacts(int index) {
         return contacts_.get(index);
     }
 
-    /**
-     * <code>repeated .management.SendContactInfo.Contact contacts = 2;</code>
-     */
     @java.lang.Override
     public proto.management.SendContactInfo.ContactOrBuilder getContactsOrBuilder(
             int index) {
@@ -1120,41 +937,19 @@ public final class SendContactInfo extends
     public static final int BLOCKED_FIELD_NUMBER = 3;
     private com.google.protobuf.LazyStringList blocked_;
 
-    /**
-     * <code>repeated string blocked = 3;</code>
-     *
-     * @return A list containing the blocked.
-     */
     public com.google.protobuf.ProtocolStringList
     getBlockedList() {
         return blocked_;
     }
 
-    /**
-     * <code>repeated string blocked = 3;</code>
-     *
-     * @return The count of blocked.
-     */
     public int getBlockedCount() {
         return blocked_.size();
     }
 
-    /**
-     * <code>repeated string blocked = 3;</code>
-     *
-     * @param index The index of the element to return.
-     * @return The blocked at the given index.
-     */
     public java.lang.String getBlocked(int index) {
         return blocked_.get(index);
     }
 
-    /**
-     * <code>repeated string blocked = 3;</code>
-     *
-     * @param index The index of the value to return.
-     * @return The bytes of the blocked at the given index.
-     */
     public com.google.protobuf.ByteString
     getBlockedBytes(int index) {
         return blocked_.getByteString(index);
@@ -1377,9 +1172,6 @@ public final class SendContactInfo extends
         return builder;
     }
 
-    /**
-     * Protobuf type {@code management.SendContactInfo}
-     */
     public static final class Builder extends
             com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
             // @@protoc_insertion_point(builder_implements:management.SendContactInfo)
@@ -1611,20 +1403,10 @@ public final class SendContactInfo extends
 
         private java.lang.Object username_ = "";
 
-        /**
-         * <code>required string username = 1;</code>
-         *
-         * @return Whether the username field is set.
-         */
         public boolean hasUsername() {
             return ((bitField0_ & 0x00000001) != 0);
         }
 
-        /**
-         * <code>required string username = 1;</code>
-         *
-         * @return The username.
-         */
         public java.lang.String getUsername() {
             java.lang.Object ref = username_;
             if (!(ref instanceof java.lang.String)) {
@@ -1640,11 +1422,6 @@ public final class SendContactInfo extends
             }
         }
 
-        /**
-         * <code>required string username = 1;</code>
-         *
-         * @return The bytes for username.
-         */
         public com.google.protobuf.ByteString
         getUsernameBytes() {
             java.lang.Object ref = username_;
@@ -1659,12 +1436,6 @@ public final class SendContactInfo extends
             }
         }
 
-        /**
-         * <code>required string username = 1;</code>
-         *
-         * @param value The username to set.
-         * @return This builder for chaining.
-         */
         public Builder setUsername(
                 java.lang.String value) {
             if (value == null) {
@@ -1676,11 +1447,6 @@ public final class SendContactInfo extends
             return this;
         }
 
-        /**
-         * <code>required string username = 1;</code>
-         *
-         * @return This builder for chaining.
-         */
         public Builder clearUsername() {
             bitField0_ = (bitField0_ & ~0x00000001);
             username_ = getDefaultInstance().getUsername();
@@ -1688,12 +1454,6 @@ public final class SendContactInfo extends
             return this;
         }
 
-        /**
-         * <code>required string username = 1;</code>
-         *
-         * @param value The bytes for username to set.
-         * @return This builder for chaining.
-         */
         public Builder setUsernameBytes(
                 com.google.protobuf.ByteString value) {
             if (value == null) {
@@ -1718,9 +1478,6 @@ public final class SendContactInfo extends
         private com.google.protobuf.RepeatedFieldBuilderV3<
                 proto.management.SendContactInfo.Contact, proto.management.SendContactInfo.Contact.Builder, proto.management.SendContactInfo.ContactOrBuilder> contactsBuilder_;
 
-        /**
-         * <code>repeated .management.SendContactInfo.Contact contacts = 2;</code>
-         */
         public java.util.List<proto.management.SendContactInfo.Contact> getContactsList() {
             if (contactsBuilder_ == null) {
                 return java.util.Collections.unmodifiableList(contacts_);
@@ -1729,9 +1486,6 @@ public final class SendContactInfo extends
             }
         }
 
-        /**
-         * <code>repeated .management.SendContactInfo.Contact contacts = 2;</code>
-         */
         public int getContactsCount() {
             if (contactsBuilder_ == null) {
                 return contacts_.size();
@@ -1740,9 +1494,6 @@ public final class SendContactInfo extends
             }
         }
 
-        /**
-         * <code>repeated .management.SendContactInfo.Contact contacts = 2;</code>
-         */
         public proto.management.SendContactInfo.Contact getContacts(int index) {
             if (contactsBuilder_ == null) {
                 return contacts_.get(index);
@@ -1751,9 +1502,6 @@ public final class SendContactInfo extends
             }
         }
 
-        /**
-         * <code>repeated .management.SendContactInfo.Contact contacts = 2;</code>
-         */
         public Builder setContacts(
                 int index, proto.management.SendContactInfo.Contact value) {
             if (contactsBuilder_ == null) {
@@ -1769,9 +1517,6 @@ public final class SendContactInfo extends
             return this;
         }
 
-        /**
-         * <code>repeated .management.SendContactInfo.Contact contacts = 2;</code>
-         */
         public Builder setContacts(
                 int index, proto.management.SendContactInfo.Contact.Builder builderForValue) {
             if (contactsBuilder_ == null) {
@@ -1784,9 +1529,6 @@ public final class SendContactInfo extends
             return this;
         }
 
-        /**
-         * <code>repeated .management.SendContactInfo.Contact contacts = 2;</code>
-         */
         public Builder addContacts(proto.management.SendContactInfo.Contact value) {
             if (contactsBuilder_ == null) {
                 if (value == null) {
@@ -1801,9 +1543,6 @@ public final class SendContactInfo extends
             return this;
         }
 
-        /**
-         * <code>repeated .management.SendContactInfo.Contact contacts = 2;</code>
-         */
         public Builder addContacts(
                 int index, proto.management.SendContactInfo.Contact value) {
             if (contactsBuilder_ == null) {
@@ -1819,9 +1558,6 @@ public final class SendContactInfo extends
             return this;
         }
 
-        /**
-         * <code>repeated .management.SendContactInfo.Contact contacts = 2;</code>
-         */
         public Builder addContacts(
                 proto.management.SendContactInfo.Contact.Builder builderForValue) {
             if (contactsBuilder_ == null) {
@@ -1834,9 +1570,6 @@ public final class SendContactInfo extends
             return this;
         }
 
-        /**
-         * <code>repeated .management.SendContactInfo.Contact contacts = 2;</code>
-         */
         public Builder addContacts(
                 int index, proto.management.SendContactInfo.Contact.Builder builderForValue) {
             if (contactsBuilder_ == null) {
@@ -1849,9 +1582,6 @@ public final class SendContactInfo extends
             return this;
         }
 
-        /**
-         * <code>repeated .management.SendContactInfo.Contact contacts = 2;</code>
-         */
         public Builder addAllContacts(
                 java.lang.Iterable<? extends proto.management.SendContactInfo.Contact> values) {
             if (contactsBuilder_ == null) {
@@ -1865,9 +1595,6 @@ public final class SendContactInfo extends
             return this;
         }
 
-        /**
-         * <code>repeated .management.SendContactInfo.Contact contacts = 2;</code>
-         */
         public Builder clearContacts() {
             if (contactsBuilder_ == null) {
                 contacts_ = java.util.Collections.emptyList();
@@ -1879,9 +1606,6 @@ public final class SendContactInfo extends
             return this;
         }
 
-        /**
-         * <code>repeated .management.SendContactInfo.Contact contacts = 2;</code>
-         */
         public Builder removeContacts(int index) {
             if (contactsBuilder_ == null) {
                 ensureContactsIsMutable();
@@ -1893,17 +1617,11 @@ public final class SendContactInfo extends
             return this;
         }
 
-        /**
-         * <code>repeated .management.SendContactInfo.Contact contacts = 2;</code>
-         */
         public proto.management.SendContactInfo.Contact.Builder getContactsBuilder(
                 int index) {
             return getContactsFieldBuilder().getBuilder(index);
         }
 
-        /**
-         * <code>repeated .management.SendContactInfo.Contact contacts = 2;</code>
-         */
         public proto.management.SendContactInfo.ContactOrBuilder getContactsOrBuilder(
                 int index) {
             if (contactsBuilder_ == null) {
@@ -1913,9 +1631,6 @@ public final class SendContactInfo extends
             }
         }
 
-        /**
-         * <code>repeated .management.SendContactInfo.Contact contacts = 2;</code>
-         */
         public java.util.List<? extends proto.management.SendContactInfo.ContactOrBuilder>
         getContactsOrBuilderList() {
             if (contactsBuilder_ != null) {
@@ -1925,26 +1640,17 @@ public final class SendContactInfo extends
             }
         }
 
-        /**
-         * <code>repeated .management.SendContactInfo.Contact contacts = 2;</code>
-         */
         public proto.management.SendContactInfo.Contact.Builder addContactsBuilder() {
             return getContactsFieldBuilder().addBuilder(
                     proto.management.SendContactInfo.Contact.getDefaultInstance());
         }
 
-        /**
-         * <code>repeated .management.SendContactInfo.Contact contacts = 2;</code>
-         */
         public proto.management.SendContactInfo.Contact.Builder addContactsBuilder(
                 int index) {
             return getContactsFieldBuilder().addBuilder(
                     index, proto.management.SendContactInfo.Contact.getDefaultInstance());
         }
 
-        /**
-         * <code>repeated .management.SendContactInfo.Contact contacts = 2;</code>
-         */
         public java.util.List<proto.management.SendContactInfo.Contact.Builder>
         getContactsBuilderList() {
             return getContactsFieldBuilder().getBuilderList();
@@ -1974,53 +1680,24 @@ public final class SendContactInfo extends
             }
         }
 
-        /**
-         * <code>repeated string blocked = 3;</code>
-         *
-         * @return A list containing the blocked.
-         */
         public com.google.protobuf.ProtocolStringList
         getBlockedList() {
             return blocked_.getUnmodifiableView();
         }
 
-        /**
-         * <code>repeated string blocked = 3;</code>
-         *
-         * @return The count of blocked.
-         */
         public int getBlockedCount() {
             return blocked_.size();
         }
 
-        /**
-         * <code>repeated string blocked = 3;</code>
-         *
-         * @param index The index of the element to return.
-         * @return The blocked at the given index.
-         */
         public java.lang.String getBlocked(int index) {
             return blocked_.get(index);
         }
 
-        /**
-         * <code>repeated string blocked = 3;</code>
-         *
-         * @param index The index of the value to return.
-         * @return The bytes of the blocked at the given index.
-         */
         public com.google.protobuf.ByteString
         getBlockedBytes(int index) {
             return blocked_.getByteString(index);
         }
 
-        /**
-         * <code>repeated string blocked = 3;</code>
-         *
-         * @param index The index to set the value at.
-         * @param value The blocked to set.
-         * @return This builder for chaining.
-         */
         public Builder setBlocked(
                 int index, java.lang.String value) {
             if (value == null) {
@@ -2032,12 +1709,6 @@ public final class SendContactInfo extends
             return this;
         }
 
-        /**
-         * <code>repeated string blocked = 3;</code>
-         *
-         * @param value The blocked to add.
-         * @return This builder for chaining.
-         */
         public Builder addBlocked(
                 java.lang.String value) {
             if (value == null) {
@@ -2049,12 +1720,6 @@ public final class SendContactInfo extends
             return this;
         }
 
-        /**
-         * <code>repeated string blocked = 3;</code>
-         *
-         * @param values The blocked to add.
-         * @return This builder for chaining.
-         */
         public Builder addAllBlocked(
                 java.lang.Iterable<java.lang.String> values) {
             ensureBlockedIsMutable();
@@ -2064,11 +1729,6 @@ public final class SendContactInfo extends
             return this;
         }
 
-        /**
-         * <code>repeated string blocked = 3;</code>
-         *
-         * @return This builder for chaining.
-         */
         public Builder clearBlocked() {
             blocked_ = com.google.protobuf.LazyStringArrayList.EMPTY;
             bitField0_ = (bitField0_ & ~0x00000004);
@@ -2076,12 +1736,6 @@ public final class SendContactInfo extends
             return this;
         }
 
-        /**
-         * <code>repeated string blocked = 3;</code>
-         *
-         * @param value The bytes of the blocked to add.
-         * @return This builder for chaining.
-         */
         public Builder addBlockedBytes(
                 com.google.protobuf.ByteString value) {
             if (value == null) {

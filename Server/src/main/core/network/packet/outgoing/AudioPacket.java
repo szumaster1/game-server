@@ -6,10 +6,6 @@ import core.network.packet.IoBuffer;
 import core.network.packet.OutgoingPacket;
 import core.network.packet.context.DefaultContext;
 
-/**
- * Sends an audio packet.
- * @author Vexia
- */
 public class AudioPacket implements OutgoingPacket<DefaultContext> {
 
     public static IoBuffer write(IoBuffer buffer, Audio audio, Location loc) {

@@ -4,10 +4,6 @@ import core.network.packet.IoBuffer;
 import core.network.packet.OutgoingPacket;
 import core.network.packet.context.MusicContext;
 
-/**
- * Outgoing Music packet
- * @author SonicForce41
- */
 public class MusicPacket implements OutgoingPacket<MusicContext> {
 
     @Override

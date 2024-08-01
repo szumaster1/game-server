@@ -22,65 +22,24 @@ import java.util.List;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
-/**
- * Represents a combat magic spell.
- *
- * @author Emperor
- */
 public abstract class CombatSpell extends MagicSpell {
 
-    /**
-     * The autocast animation.
-     */
     public static final Animation AUTOCAST_ANIMATION = new Animation(1162, Priority.HIGH);
 
-    /**
-     * The splash graphics.
-     */
     public static final Graphic SPLASH_GRAPHIC = new Graphic(85, 96);
 
-    /**
-     * The current spell type.
-     */
     protected final SpellType type;
 
-    /**
-     * The projectile.
-     */
     protected Projectile projectile;
 
-    /**
-     * The end graphic.
-     */
     protected final Graphic endGraphic;
 
-    /**
-     * The impact Audio.
-     */
     protected final int impactAudio;
 
-    /**
-     * Constructs a new {@code CombatSpell} {@code Object}
-     */
     public CombatSpell() {
         this(SpellType.NULL, SpellBookManager.SpellBook.MODERN, 1, 0.0, -1, -1, null, null, null, null);
     }
 
-    /**
-     * Constructs a new {@code CombatSpell} {@code Object}
-     *
-     * @param type           The spell type.
-     * @param book           The spell book.
-     * @param level          The level required.
-     * @param baseExperience The base experience.
-     * @param castAudio      The Audio id of the casting Audio.
-     * @param impactAudio    The Audio id of the impact Audio.
-     * @param animation      the cast animation.
-     * @param startGraphic   The start graphic.
-     * @param projectile     The projectile.
-     * @param endGraphic     The end graphic.
-     * @param runes          The runes required to cast this spell.
-     */
     public CombatSpell(SpellType type, SpellBookManager.SpellBook book, int level, double baseExperience, int castAudio, int impactAudio, Animation animation, Graphic startGraphic, Projectile projectile, Graphic endGraphic, Item... runes) {
         super(book, level, baseExperience, animation, startGraphic, new Audio(castAudio, 1, 0), runes);
         this.type = type;
@@ -89,35 +48,12 @@ public abstract class CombatSpell extends MagicSpell {
         this.endGraphic = endGraphic;
     }
 
-    /**
-     * Gets the maximum impact amount of this spell.
-     *
-     * @param entity The entity.
-     * @param victim The victim.
-     * @param state  The battle state.
-     * @return The maximum impact amount.
-     */
     public abstract int getMaximumImpact(Entity entity, Entity victim, BattleState state);
 
-    /**
-     * Starts the effect of this spell (if any).
-     *
-     * @param entity The entity.
-     * @param victim The victim.
-     * @param state  The battle state.
-     */
     public void fireEffect(Entity entity, Entity victim, BattleState state) {
 
     }
 
-    /**
-     * Gets a list of possible targets for a multihitting spell.
-     *
-     * @param entity The caster of the spell.
-     * @param target The victim.
-     * @param max    The max amount of victims.
-     * @return The list of targets.
-     */
     public List<Entity> getMultihitTargets(Entity entity, Entity target, int max) {
         List<Entity> list = new ArrayList<>(20);
         list.add(target);
@@ -133,13 +69,6 @@ public abstract class CombatSpell extends MagicSpell {
         return list;
     }
 
-    /**
-     * Visualizes the impact.
-     *
-     * @param entity The entity.
-     * @param target The target.
-     * @param state  The battle state.
-     */
     public void visualizeImpact(Entity entity, Entity target, BattleState state) {
         if (state.getEstimatedHit() == -1) {
             playGlobalAudio(target.getLocation(), Sounds.SPELLFAIL_227, 20);
@@ -201,49 +130,22 @@ public abstract class CombatSpell extends MagicSpell {
         return true;
     }
 
-    /**
-     * Gets the targets list.
-     *
-     * @param entity The entity
-     * @param target The target.
-     * @return The targets array.
-     */
     public BattleState[] getTargets(Entity entity, Entity target) {
         return new BattleState[]{new BattleState(entity, target)};
     }
 
-    /**
-     * Gets the accuracy modifier.
-     *
-     * @return The accuracy modifier.
-     */
     public double getAccuracyMod() {
         return type.getAccuracyMod();
     }
 
-    /**
-     * Gets type.
-     *
-     * @return the type.
-     */
     public SpellType getType() {
         return type;
     }
 
-    /**
-     * Gets animation.
-     *
-     * @return the animation.
-     */
     public Animation getAnimation() {
         return animation;
     }
 
-    /**
-     * Gets the splash graphic.
-     *
-     * @return The splash graphic.
-     */
     public Graphic getSplashGraphic() {
         return SPLASH_GRAPHIC;
     }

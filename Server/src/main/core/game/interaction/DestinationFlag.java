@@ -8,21 +8,10 @@ import core.game.world.map.Direction;
 import core.game.world.map.Location;
 import core.game.world.map.RegionManager;
 
-/**
- * Holds the destination flags for all types of nodes.
- *
- * @author Emperor
- */
 public class DestinationFlag {
 
-    /**
-     * The Location destination flag.
-     */
     public static final DestinationFlag LOCATION = new DestinationFlag();
 
-    /**
-     * The entity destination flag.
-     */
     public static final DestinationFlag ENTITY = new DestinationFlag() {
 
         @Override
@@ -40,9 +29,6 @@ public class DestinationFlag {
         }
     };
 
-    /**
-     * The following an entity destination flag.
-     */
     public static final DestinationFlag FOLLOW_ENTITY = new DestinationFlag() {
 
         @Override
@@ -64,9 +50,6 @@ public class DestinationFlag {
         }
     };
 
-    /**
-     * The entity destination flag.
-     */
     public static final DestinationFlag COMBAT = new DestinationFlag() {
 
         @Override
@@ -75,9 +58,6 @@ public class DestinationFlag {
         }
     };
 
-    /**
-     * The item destination flag.
-     */
     public static final DestinationFlag ITEM = new DestinationFlag() {
 
         @Override
@@ -90,9 +70,6 @@ public class DestinationFlag {
 
     };
 
-    /**
-     * The object destination flag.
-     */
     public static final DestinationFlag OBJECT = new DestinationFlag() {
 
         @Override
@@ -173,46 +150,20 @@ public class DestinationFlag {
         }
     };
 
-    /**
-     * Constructs a new {@code DestinationFlag} {@code Object}.
-     */
     public DestinationFlag() {
         /*
          * empty.
          */
     }
 
-    /**
-     * Gets the default destination location.
-     *
-     * @param mover The moving entity.
-     * @param node  The node to move to.
-     * @return The location to walk to.
-     */
     public Location getDestination(Entity mover, Node node) {
         return node.getLocation();
     }
 
-    /**
-     * Checks if traversal is permitted.
-     *
-     * @param l   The location to check.
-     * @param dir The direction to move.
-     * @return {@code True}.
-     */
     public boolean checkTraversal(Location l, Direction dir) {
         return Direction.get((dir.toInteger() + 2) % 4).canMove(l);
     }
 
-    /**
-     * Gets the closest destination to the current destination, to reach the
-     * node.
-     *
-     * @param mover      The moving entity.
-     * @param node       The node to move to.
-     * @param suggestion The suggested destination location.
-     * @return The destination location.
-     */
     public Location getClosestTo(Entity mover, Node node, Location suggestion) {
         Location nl = node.getLocation();
         int diffX = suggestion.getX() - nl.getX();

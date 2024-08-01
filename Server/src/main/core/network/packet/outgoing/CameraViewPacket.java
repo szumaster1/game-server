@@ -6,10 +6,6 @@ import core.network.packet.IoBuffer;
 import core.network.packet.OutgoingPacket;
 import core.network.packet.context.CameraContext;
 
-/**
- * Handles the outgoing camera view packets.
- * @author Emperor
- */
 public final class CameraViewPacket implements OutgoingPacket<CameraContext> {
 
     @Override

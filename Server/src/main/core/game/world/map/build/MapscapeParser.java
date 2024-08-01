@@ -4,19 +4,8 @@ import core.game.world.map.Region;
 
 import java.nio.ByteBuffer;
 
-/**
- * A utility class used for parsing mapscapes.
- *
- * @author Emperor
- */
 public final class MapscapeParser {
 
-    /**
-     * Parses the mapscape buffer.
-     *
-     * @param r      The region.
-     * @param buffer The buffer.
-     */
     public static void parse(Region r, byte[][][] mapscape, ByteBuffer buffer) {
         for (int z = 0; z < 4; z++) {
             boolean[][] landscape = r.getPlanes()[z].getFlags().getLandscape();
@@ -50,12 +39,6 @@ public final class MapscapeParser {
         }
     }
 
-    /**
-     * Clips the mapscape.
-     *
-     * @param r        The region.
-     * @param mapscape The mapscape.
-     */
     public static void clipMapscape(Region r, byte[][][] mapscape) {
         for (int z = 0; z < 4; z++) {
             for (int x = 0; x < 64; x++) {

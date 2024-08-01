@@ -8,35 +8,14 @@ import core.game.node.entity.player.Player;
 import core.game.node.entity.skill.Skills;
 import core.game.world.map.Location;
 
-/**
- * Handles NPCs that are idle on default but can be disturbed (rock crabs, kraken, ...)
- *
- * @author Emperor
- */
 public abstract class IdleAbstractNPC extends AbstractNPC {
 
-    /**
-     * The active NPC id.
-     */
     private int activeId;
 
-    /**
-     * If the NPC is currently idle.
-     */
     private boolean idle = true;
 
-    /**
-     * The timeout ticks.
-     */
     protected int timeout = 30; //18 second time out to go idle again
 
-    /**
-     * Constructs a new {@code IdleAbstractNPC} {@code Object}.
-     *
-     * @param idleId   The NPC id.
-     * @param activeId the active id
-     * @param location The location.
-     */
     public IdleAbstractNPC(int idleId, int activeId, Location location) {
         super(idleId, location);
         this.activeId = activeId;
@@ -77,12 +56,6 @@ public abstract class IdleAbstractNPC extends AbstractNPC {
         return true;
     }
 
-    /**
-     * Checks if the entity is in range for disturbing this NPC.
-     *
-     * @param disturber The entity.
-     * @return {@code True} if so.
-     */
     public boolean inDisturbingRange(Entity disturber) {
         if (idle && disturber.getSwingHandler(false).canSwing(disturber, this) != InteractionType.NO_INTERACT) {
             return true;
@@ -90,21 +63,10 @@ public abstract class IdleAbstractNPC extends AbstractNPC {
         return false;
     }
 
-    /**
-     * Checks if the entity can currently disturb this NPC (and returns {@code true}), or returns {@code false}.
-     *
-     * @param disturber The disturber.
-     * @return {@code True} if the entity could disturb this NPC.
-     */
     public boolean canDisturb(Entity disturber) {
         return idle;
     }
 
-    /**
-     * Disturbs the NPC so it becomes active.
-     *
-     * @param disturber The entity disturbing this NPC.
-     */
     public void disturb(Entity disturber) {
         if (disturber != null) {
             disturber.getProperties().getCombatPulse().setCombatFlags(this);
@@ -116,9 +78,6 @@ public abstract class IdleAbstractNPC extends AbstractNPC {
         idle = false;
     }
 
-    /**
-     * Makes the NPC go idle again.
-     */
     public void goIdle() {
         if (idle) {
             return;
@@ -127,20 +86,10 @@ public abstract class IdleAbstractNPC extends AbstractNPC {
         reTransform();
     }
 
-    /**
-     * Gets the idle value.
-     *
-     * @return The idle.
-     */
     public boolean isIdle() {
         return idle;
     }
 
-    /**
-     * Sets the idle value.
-     *
-     * @param idle The idle to set.
-     */
     public void setIdle(boolean idle) {
         this.idle = idle;
     }

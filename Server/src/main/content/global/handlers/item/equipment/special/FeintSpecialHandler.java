@@ -14,9 +14,6 @@ import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
-/**
- * The Feint special handler.
- */
 @Initializable
 public final class FeintSpecialHandler extends MeleeSwingHandler implements Plugin<Object> {
 

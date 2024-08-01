@@ -6,41 +6,16 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 
-/**
- * A class which represents a list of nodes.
- *
- * @param <E> The type of Node.
- * @author Graham Edgecombe
- * @author Emperor
- */
 public class NodeList<E extends Node> implements Collection<E>, Iterable<E> {
 
-    /**
-     * Internal nodes array.
-     */
     private Node[] nodes;
 
-    /**
-     * Current size.
-     */
     private int size = 0;
 
-    /**
-     * Creates a Node list with the specified capacity.
-     *
-     * @param capacity The capacity.
-     */
     public NodeList(int capacity) {
         nodes = new Node[capacity + 1]; // do not use idx 0
     }
 
-    /**
-     * Gets an Node.
-     *
-     * @param index The index.
-     * @return The Node.
-     * @throws IndexOutOufBoundException if the index is out of bounds.
-     */
     @SuppressWarnings("unchecked")
     public E get(int index) {
         synchronized (this) {
@@ -51,20 +26,10 @@ public class NodeList<E extends Node> implements Collection<E>, Iterable<E> {
         }
     }
 
-    /**
-     * Gets the index of an Node.
-     *
-     * @return The index in the list.
-     */
     public int indexOf(Node node) {
         return node.getIndex();
     }
 
-    /**
-     * Gets the next free id.
-     *
-     * @return The next free id.
-     */
     private int getNextId() {
         for (int i = 1; i < nodes.length; i++) {
             if (nodes[i] == null) {
@@ -144,12 +109,6 @@ public class NodeList<E extends Node> implements Collection<E>, Iterable<E> {
         return new NodeListIterator<E>(this);
     }
 
-    /**
-     * Removes the node on this index.
-     *
-     * @param index The index.
-     * @return {@code True} if a node got removed.
-     */
     public boolean remove(int index) {
         synchronized (this) {
             Node n = nodes[index];

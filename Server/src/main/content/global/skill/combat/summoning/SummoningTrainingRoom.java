@@ -160,6 +160,7 @@ public final class SummoningTrainingRoom extends OptionHandler {
         public FluffyCutscene() {
             super("fluffy cutscene");
         }
+
         public FluffyCutscene(final Player player) {
             this();
             this.player = player;

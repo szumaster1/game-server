@@ -4,19 +4,8 @@ import java.io.ObjectInputStream;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
 
-/**
- * Holds utility methods for reading/writing a byte buffer.
- *
- * @author Emperor
- */
 public final class ByteBufferUtils {
 
-    /**
-     * Gets a string from the byte buffer.
-     *
-     * @param buffer The byte buffer.
-     * @return The string.
-     */
     public static String getString(ByteBuffer buffer) {
         StringBuilder sb = new StringBuilder();
         byte b;
@@ -26,37 +15,16 @@ public final class ByteBufferUtils {
         return sb.toString();
     }
 
-    /**
-     * Puts a string on the byte buffer.
-     *
-     * @param s      The string to put.
-     * @param buffer The byte buffer.
-     */
     public static void putString(String s, ByteBuffer buffer) {
         buffer.put(s.getBytes(StandardCharsets.UTF_8)).put((byte) 0);
     }
 
-    /**
-     * Gets a string from the byte buffer.
-     *
-     * @param s      The string.
-     * @param buffer The byte buffer.
-     * @return The string.
-     */
     public static ByteBuffer putGJ2String(String s, ByteBuffer buffer) {
         byte[] packed = new byte[256];
         int length = packGJString2(0, packed, s);
         return buffer.put((byte) 0).put(packed, 0, length).put((byte) 0);
     }
 
-    /**
-     * Decodes the XTEA encryption.
-     *
-     * @param keys   The keys.
-     * @param start  The start index.
-     * @param end    The end index.
-     * @param buffer The byte buffer.
-     */
     public static void decodeXTEA(int[] keys, int start, int end, ByteBuffer buffer) {
         int l = buffer.position();
         buffer.position(start);
@@ -78,14 +46,6 @@ public final class ByteBufferUtils {
         buffer.position(l);
     }
 
-    /**
-     * Converts a String to an Integer?
-     *
-     * @param position The position.
-     * @param buffer   The buffer used.
-     * @param string   The String to convert.
-     * @return The Integer.
-     */
     public static int packGJString2(int position, byte[] buffer, String string) {
         int length = string.length();
         int offset = position;
@@ -106,22 +66,10 @@ public final class ByteBufferUtils {
         return offset - position;
     }
 
-    /**
-     * Gets a tri-byte from the buffer.
-     *
-     * @param buffer The buffer.
-     * @return The value.
-     */
     public static int getMedium(ByteBuffer buffer) {
         return ((buffer.get() & 0xFF) << 16) + ((buffer.get() & 0xFF) << 8) + (buffer.get() & 0xFF);
     }
 
-    /**
-     * Gets a smart from the buffer.
-     *
-     * @param buffer The buffer.
-     * @return The value.
-     */
     public static int getSmart(ByteBuffer buffer) {
         int peek = buffer.get() & 0xFF;
         if (peek <= Byte.MAX_VALUE) {
@@ -130,12 +78,6 @@ public final class ByteBufferUtils {
         return ((peek << 8) | (buffer.get() & 0xFF)) - 32768;
     }
 
-    /**
-     * Gets a smart from the buffer.
-     *
-     * @param buffer The buffer.
-     * @return The value.
-     */
     public static int getBigSmart(ByteBuffer buffer) {
         int value = 0;
         int current = getSmart(buffer);
@@ -161,12 +103,6 @@ public final class ByteBufferUtils {
      * buffer.putInt(b.remaining()); if (b.remaining() > 0) { buffer.put(b); } }
      */
 
-    /**
-     * Gets an object from the byte buffer.
-     *
-     * @param buffer The buffer.
-     * @return The object.
-     */
     public static Object getObject(ByteBuffer buffer) {
         int length = buffer.getInt();
         if (length > 0) {
@@ -181,9 +117,6 @@ public final class ByteBufferUtils {
         return null;
     }
 
-    /**
-     * Constructs a new {@code ByteBufferUtils} {@code Object}.
-     */
     private ByteBufferUtils() {
         /*
          * empty.

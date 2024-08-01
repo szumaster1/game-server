@@ -97,273 +97,115 @@ import static core.game.system.command.sets.StatsAttributeSetKt.STATS_BASE;
 import static core.game.system.command.sets.StatsAttributeSetKt.STATS_DEATHS;
 import static core.tools.GlobalsKt.colorize;
 
-/**
- * Represents a player entity.
- *
- * @author Emperor
- * @author Vexia
- */
 public class Player extends Entity {
 
-    /**
-     * The details of the player.
-     */
     private PlayerDetails details;
 
-    /**
-     * The In wardrobe.
-     */
     public boolean inWardrobe = false;
 
-    /**
-     * The Start location.
-     */
     public Location startLocation = null;
 
     private final Graphic wardrobe_hold_graphic = new Graphic(1182, 0, 0);
 
-    /**
-     * The New player.
-     */
     public boolean newPlayer = getSkills().getTotalLevel() < 50;
 
-    /**
-     * The Drop log.
-     */
     public BankContainer dropLog = new BankContainer(this);
 
-    /**
-     * The Degrader.
-     */
     public EquipmentDegrader degrader = new EquipmentDegrader();
 
-    /**
-     * The Pouch manager.
-     */
     public PouchManager pouchManager = new PouchManager(this);
 
-    /**
-     * The Varp manager.
-     */
     public VarpManager varpManager = new VarpManager(this);
 
-    /**
-     * The Varp map.
-     */
     public HashMap<Integer, Integer> varpMap = new HashMap<>();
-    /**
-     * The Save varp.
-     */
     public HashMap<Integer, Boolean> saveVarp = new HashMap<>();
 
-    /**
-     * The States.
-     */
     public HashMap<String, State> states = new HashMap<>();
 
-    /**
-     * The LogoutPacket listeners.
-     */
     public HashMap<String, Function1<Player, Unit>> logoutListeners = new HashMap<>();
 
-    /**
-     * The inventory.
-     */
     private final Container inventory = new Container(28).register(new InventoryListener(this));
 
-    /**
-     * The equipment.
-     */
     private final EquipmentContainer equipment = new EquipmentContainer(this);
 
-    /**
-     * The bank container.
-     */
     private final BankContainer bank = new BankContainer(this);
 
-    /**
-     * The secondary bank container.
-     */
     private final BankContainer bankSecondary = new BankContainer(this);
 
-    /**
-     * Is secondary bank in use or not
-     */
     public boolean useSecondaryBank = false;
 
-    /**
-     * The Blast Furnace Coal Container.
-     */
     public final Container blastCoal = new Container(225, ContainerType.NEVER_STACK);
 
-    /**
-     * The Blast Furnace Ore Container.
-     */
     public final Container blastOre = new Container(28, ContainerType.NEVER_STACK);
 
-    /**
-     * The Blast Furnace Bars Container.
-     */
     public final Container blastBars = new Container(28, ContainerType.NEVER_STACK);
 
-    /**
-     * The packet dispatcher.
-     */
     private final PacketDispatch packetDispatch = new PacketDispatch(this);
 
-    /**
-     * The spell book manager.
-     */
     private final SpellBookManager spellBookManager = new SpellBookManager();
 
-    /**
-     * The rendering info.
-     */
     private final RenderInfo renderInfo = new RenderInfo(this);
 
-    /**
-     * The interface manager.
-     */
     private final InterfaceManager interfaceManager = new InterfaceManager(this);
 
-    /**
-     * The emote manager.
-     */
     private final EmoteManager emoteManager = new EmoteManager(this);
 
-    /**
-     * The player flags.
-     */
     private final PlayerFlags playerFlags = new PlayerFlags();
 
-    /**
-     * The appearance.
-     */
     private final Appearance appearance = new Appearance(this);
 
-    /**
-     * The settings of the player.
-     */
     private final Settings settings = new Settings(this);
 
-    /**
-     * The dialogue interpreter.
-     */
     private final DialogueInterpreter dialogueInterpreter = new DialogueInterpreter(this);
 
-    /**
-     * The hint icon manager.
-     */
     private final HintIconManager hintIconManager = new HintIconManager();
 
-    /**
-     * The quest repository.
-     */
     public QuestRepository questRepository = new QuestRepository(this);
 
-    /**
-     * The prayer manager.
-     */
     private final Prayer prayer = new Prayer(this);
 
-    /**
-     * The skull manager.
-     */
     private final SkullManager skullManager = new SkullManager(this);
 
-    /**
-     * The familiar manager.
-     */
     private final FamiliarManager familiarManager = new FamiliarManager(this);
 
-    /**
-     * The saved data.
-     */
     public SavedData savedData = new SavedData(this);
 
-    /**
-     * The request manager.
-     */
     private final RequestManager requestManager = new RequestManager(this);
 
     /**
      * The farming manager.
      */
 
-    /**
-     * Represents the players warning messages.
-     */
     private final WarningMessages warningMessages = new WarningMessages();
 
-    /**
-     * The music player instance.
-     */
     private final MusicPlayer musicPlayer = new MusicPlayer(this);
 
-    /**
-     * The house manager.
-     */
     private final HouseManager houseManager = new HouseManager();
 
-    /**
-     * The bank pin manager.
-     */
     private final BankPinManager bankPinManager = new BankPinManager(this);
 
-    /**
-     * The achievement diary manager.
-     */
     private final AchievementDiaryManager achievementDiaryManager = new AchievementDiaryManager(this);
 
-    /**
-     * The Ironman manager.
-     */
     private final IronmanManager ironmanManager = new IronmanManager(this);
 
-    /**
-     * The boolean for the player playing.
-     */
     private boolean playing;
 
-    /**
-     * If the player is invisible.
-     */
     private boolean invisible;
 
-    /**
-     * If the player is artificial.
-     */
     protected boolean artificial;
 
-    /**
-     * A custom state for bot debugging
-     */
     private String customState = "";
 
-    /**
-     * The amount of targets that the player can shoot left for the archery minigame.
-     */
     private int archeryTargets = 0;
 
     private int archeryTotal = 0;
 
     public int version = ServerConstants.CURRENT_SAVEFILE_VERSION;
 
-    /**
-     * The Op counts.
-     */
     public byte[] opCounts = new byte[255];
 
-    /**
-     * The Invalid packet count.
-     */
     public int invalidPacketCount = 0;
 
-    /**
-     * Constructs a new {@code Player} {@code Object}.
-     *
-     * @param details The player's details.
-     */
     public Player(PlayerDetails details) {
         super(details.getUsername(), ServerConstants.START_LOCATION);
         super.active = false;
@@ -396,11 +238,6 @@ public class Player extends Entity {
         details.save();
     }
 
-    /**
-     * Clears the player from the game.
-     * You should NEVER call this manually. This can only be called by the DisconnectionQueue doing its job.
-     * If you think you need to call this manually, you're wrong. Stop. Turn around. Go back. Here be monsters.
-     */
     public void finishClear() {
         if (!isArtificial())
             GameWorld.getLogoutListeners().forEach((it) -> it.logout(this));
@@ -438,11 +275,6 @@ public class Player extends Entity {
         }
     }
 
-    /**
-     * Toggle wardrobe.
-     *
-     * @param intoWardrobe the into wardrobe
-     */
     public void toggleWardrobe(boolean intoWardrobe) {
         class wardrobePulse extends Pulse {
             final Player player;
@@ -838,19 +670,10 @@ public class Player extends Entity {
         degrader.checkArmourDegrades(this);
     }
 
-    /**
-     * Random walk.
-     *
-     * @param radiusX the radius x
-     * @param radiusY the radius y
-     */
     public void randomWalk(int radiusX, int radiusY) {
         Pathfinder.find(this, this.getLocation().transform(RandomFunction.random(radiusX, (radiusX * -1)), RandomFunction.random(radiusY, (radiusY * -1)), 0), false, Pathfinder.SMART).walk(this);
     }
 
-    /**
-     * Initializes the player for reconnection.
-     */
     public void initReconnect() {
         getInterfaceManager().setChatbox(null);
         getPulseManager().clear();
@@ -866,12 +689,6 @@ public class Player extends Entity {
         Arrays.fill(renderInfo.getAppearanceStamps(), 0);
     }
 
-    /**
-     * Checks if the player is wearing void.
-     *
-     * @param style the style
-     * @return the boolean
-     */
     public boolean isWearingVoid(CombatStyle style) {
         int helm;
         if (style == CombatStyle.MELEE) {
@@ -890,11 +707,6 @@ public class Player extends Entity {
         return inEquipment(this, helm, 1) && legs && top && gloves;
     }
 
-    /**
-     * Updates the player's scene graph.
-     *
-     * @param login If the player is logging in.
-     */
     public void updateSceneGraph(boolean login) {
         Region region = getViewport().getRegion();
         if (region instanceof DynamicRegion || region == null && (region = RegionManager.forId(location.getRegionId())) instanceof DynamicRegion) {
@@ -904,57 +716,29 @@ public class Player extends Entity {
         }
     }
 
-    /**
-     * Toggles the debug mode.
-     */
     public void toggleDebug() {
         boolean debug = getAttribute("debug", false);
         setAttribute("debug", !debug);
         getPacketDispatch().sendMessage("Your debug mode is toggled to " + !debug + ".");
     }
 
-    /**
-     * Wrapper method for sending a message.
-     *
-     * @param messages the messages.
-     */
     public void sendMessages(String... messages) {
         packetDispatch.sendMessages(messages);
     }
 
-    /**
-     * Wrapper method for sending a message.
-     *
-     * @param message the message.
-     */
     public void sendMessage(String message) {
         sendMessages(message);
     }
 
-    /**
-     * Sends a notification message.
-     *
-     * @param message The message.
-     */
     public void sendNotificationMessage(String message) {
         sendMessages("<col=ff0000>" + message + "</col>");
     }
 
-    /**
-     * Checks if the player can spawn. & Location
-     *
-     * @return {@code True} if so.
-     */
     public boolean spawnZone() {
         return (getLocation().getX() > 3090 && getLocation().getY() < 3500
             && getLocation().getX() < 3099 && getLocation().getY() > 3487);
     }
 
-    /**
-     * Can spawn boolean.
-     *
-     * @return the boolean
-     */
     public boolean canSpawn() {
         if (!spawnZone()) {
             sendMessage("You can only spawn items inside the edgeville bank.");
@@ -967,41 +751,20 @@ public class Player extends Entity {
         return false;
     }
 
-    /**
-     * Sends a message on a tick.
-     *
-     * @param message the message.
-     * @param ticks   the ticks.
-     */
     public void sendMessage(String message, int ticks) {
         packetDispatch.sendMessage(message, ticks);
     }
 
-    /**
-     * Sends a message to the player if it's an administrator.
-     *
-     * @param string The message.
-     */
     public void debug(String string) {
         if (getAttribute("debug", false)) {
             packetDispatch.sendMessage(string);
         }
     }
 
-    /**
-     * Grabs a players gender, using shorter amount of code
-     *
-     * @return the boolean
-     */
     public boolean isMale() {
         return this.getAppearance().getGender().ordinal() == 0;
     }
 
-    /**
-     * Sets the player details.
-     *
-     * @param details The player details.
-     */
     @SuppressWarnings("deprecation")
     public void updateDetails(PlayerDetails details) {
         if (this.details != null) {
@@ -1012,248 +775,112 @@ public class Player extends Entity {
         this.details = details;
     }
 
-    /**
-     * Checks if the player is allowed to be removed from the game.
-     *
-     * @return {@code True} if so.
-     */
     public boolean allowRemoval() {
         return !(inCombat() || getSkills().getLifepoints() < 1 || DeathTask.isDead(this) || isTeleporting() || scripts.hasTypeInQueue(QueueStrength.SOFT));
     }
 
-    /**
-     * Checks if the containers have this item.
-     *
-     * @param item the item.
-     * @return {@code True} if so.
-     */
     public boolean hasItem(Item item) {
         return getInventory().containsItem(item) || getBank().containsItem(item) || getEquipment().containsItem(item);
     }
 
-    /**
-     * Gets the player extra experience mod.
-     *
-     * @return the mod.
-     */
     public double getExperienceMod() {
         return getSavedData().globalData.hasDoubleExp() ? 2 : 1;
     }
 
-    /**
-     * Checks if the player is a staff member.
-     *
-     * @return {@code True} if so.
-     */
     public boolean isStaff() {
         return getDetails().getRights() != Rights.REGULAR_PLAYER;
     }
 
-    /**
-     * Checks if the player is an admin.
-     *
-     * @return true if so.
-     */
     public boolean isAdmin() {
         return getDetails().getRights() == Rights.ADMINISTRATOR;
     }
 
-    /**
-     * Checks if the player is debugging.
-     *
-     * @return {@code True} if so.
-     */
     public boolean isDebug() {
         return details.getRights() == Rights.ADMINISTRATOR && getAttribute("debug", false);
     }
 
-    /**
-     * Gets the uid info.
-     *
-     * @return the info.
-     */
     public UIDInfo getUidInfo() {
         return details.getInfo();
     }
 
-    /**
-     * Gets the {@code PlayerDetails}.
-     *
-     * @return the details.
-     */
     public PlayerDetails getDetails() {
         return details;
     }
 
-    /**
-     * Gets the name.
-     *
-     * @return the name.
-     */
     public String getName() {
 //		return display ? details.getDisplayName() : super.getName();
         return super.getName();
     }
 
-    /**
-     * Gets the players {@code Session}.
-     *
-     * @return the {@code PlayerDetails} {@code Object} session.
-     */
     public IoSession getSession() {
         return details.getSession();
     }
 
-    /**
-     * Gets the {@code Equipment}
-     *
-     * @return {@code Equipment}.
-     */
     public EquipmentContainer getEquipment() {
         return equipment;
     }
 
-    /**
-     * Gets the current active bank.
-     *
-     * @return Current active bank.
-     */
     public BankContainer getBank() {
         return useSecondaryBank ? bankSecondary : bank;
     }
 
-    /**
-     * Gets the primary bank.
-     *
-     * @return Primary bank
-     */
     public BankContainer getBankPrimary() {
         return bank;
     }
 
-    /**
-     * Gets the Secondary bank.
-     *
-     * @return Secondary bank
-     */
     public BankContainer getBankSecondary() {
         return bankSecondary;
     }
 
-    /**
-     * Gets drop log.
-     *
-     * @return the drop log
-     */
     public BankContainer getDropLog() {
         return dropLog;
     }
 
-    /**
-     * Gets inventory.
-     *
-     * @return the inventory
-     */
     public Container getInventory() {
         return inventory;
     }
 
-    /**
-     * Sets the playing flag.
-     *
-     * @param playing the flag to set.
-     */
     public void setPlaying(boolean playing) {
         this.playing = playing;
     }
 
-    /**
-     * Checks if the player is playing.
-     *
-     * @return {@code True} if so.
-     */
     public boolean isPlaying() {
         return playing;
     }
 
-    /**
-     * Gets the rights of the player.
-     *
-     * @return the rights.
-     */
     public Rights getRights() {
         return details.getRights();
     }
 
-    /**
-     * Gets the renderInfo.
-     *
-     * @return The renderInfo.
-     */
     public RenderInfo getRenderInfo() {
         return renderInfo;
     }
 
-    /**
-     * Gets the appearance.
-     *
-     * @return The appearance.
-     */
     public Appearance getAppearance() {
         return appearance;
     }
 
-    /**
-     * Gets the playerFlags.
-     *
-     * @return The playerFlags.
-     */
     public PlayerFlags getPlayerFlags() {
         return playerFlags;
     }
 
-    /**
-     * Gets the {@code PacketDispatch}.
-     *
-     * @return the packet dispatch.
-     */
     public PacketDispatch getPacketDispatch() {
         return packetDispatch;
     }
 
 
-    /**
-     * Gets spell book manager.
-     *
-     * @return the spellBookManager
-     */
     public SpellBookManager getSpellBookManager() {
         return spellBookManager;
     }
 
-    /**
-     * Gets the settings.
-     *
-     * @return The settings.
-     */
     public Settings getSettings() {
         return settings;
     }
 
-    /**
-     * Gets interface manager.
-     *
-     * @return the interface manager.
-     */
     public InterfaceManager getInterfaceManager() {
         return interfaceManager;
     }
 
-    /**
-     * Has modal open boolean.
-     *
-     * @return the boolean
-     */
     public boolean hasModalOpen() {
         int[] excludedIds = new int[]{372, 421, InterfaceManager.DEFAULT_CHATBOX}; //excludes plain message, plain message with scrollbar, and normal chatbox
         Component openedIface = interfaceManager.getOpened();
@@ -1276,101 +903,46 @@ public class Player extends Entity {
         return hasModal;
     }
 
-    /**
-     * Gets the dialogue interpreter.
-     *
-     * @return The dialogue interpreter.
-     */
     public DialogueInterpreter getDialogueInterpreter() {
         return dialogueInterpreter;
     }
 
-    /**
-     * Gets hint icon manager.
-     *
-     * @return the hintIconManager
-     */
     public HintIconManager getHintIconManager() {
         return hintIconManager;
     }
 
-    /**
-     * Checks if the player is artifical (AIPlayer).
-     *
-     * @return {@code True} if so.
-     */
     public boolean isArtificial() {
         return artificial;
     }
 
-    /**
-     * Gets quest repository.
-     *
-     * @return the questRepository.
-     */
     public QuestRepository getQuestRepository() {
         return questRepository;
     }
 
-    /**
-     * Gets prayer.
-     *
-     * @return the prayer.
-     */
     public Prayer getPrayer() {
         return prayer;
     }
 
-    /**
-     * Gets skull manager.
-     *
-     * @return the skullManager.
-     */
     public SkullManager getSkullManager() {
         return skullManager;
     }
 
-    /**
-     * Gets familiar manager.
-     *
-     * @return the familiarManager.
-     */
     public FamiliarManager getFamiliarManager() {
         return familiarManager;
     }
 
-    /**
-     * Gets the communication.
-     *
-     * @return The communication.
-     */
     public CommunicationInfo getCommunication() {
         return details.getCommunication();
     }
 
-    /**
-     * Gets the requestManager.
-     *
-     * @return The requestManager.
-     */
     public RequestManager getRequestManager() {
         return requestManager;
     }
 
-    /**
-     * Gets the savedData.
-     *
-     * @return The savedData.
-     */
     public SavedData getSavedData() {
         return savedData;
     }
 
-    /**
-     * Gets the global data.
-     *
-     * @return the global data.
-     */
     public GlobalData getGlobalData() {
         return savedData.globalData;
     }
@@ -1381,83 +953,38 @@ public class Player extends Entity {
      */
 
 
-    /**
-     * Gets the warningMessages.
-     *
-     * @return The warningMessages.
-     */
     public WarningMessages getWarningMessages() {
         return warningMessages;
     }
 
-    /**
-     * Gets the musicPlayer.
-     *
-     * @return The musicPlayer.
-     */
     public MusicPlayer getMusicPlayer() {
         return musicPlayer;
     }
 
-    /**
-     * Gets the houseManager.
-     *
-     * @return The houseManager.
-     */
     public HouseManager getHouseManager() {
         return houseManager;
     }
 
-    /**
-     * Gets the bankPinManager.
-     *
-     * @return the bankPinManager
-     */
     public BankPinManager getBankPinManager() {
         return bankPinManager;
     }
 
-    /**
-     * Gets the achievementDiaryManager.
-     *
-     * @return the achievementDiaryManager
-     */
     public AchievementDiaryManager getAchievementDiaryManager() {
         return achievementDiaryManager;
     }
 
-    /**
-     * Gets the ironmanManager.
-     *
-     * @return the ironmanManager
-     */
     public IronmanManager getIronmanManager() {
         return ironmanManager;
     }
 
-    /**
-     * Gets the emoteManager.
-     *
-     * @return the emoteManager.
-     */
     public EmoteManager getEmoteManager() {
         return emoteManager;
     }
 
-    /**
-     * Gets the invisible.
-     *
-     * @return the invisible
-     */
     public boolean isInvisible() {
         return invisible;
     }
 
-    /**
-     * Sets the invisible.
-     *
-     * @param invisible the invisible to set.
-     */
     public void setInvisible(boolean invisible) {
         this.invisible = invisible;
     }
@@ -1473,66 +1000,30 @@ public class Player extends Entity {
     }
 
 
-    /**
-     * Gets custom state.
-     *
-     * @return the custom state
-     */
     public String getCustomState() {
         return customState;
     }
 
-    /**
-     * Sets custom state.
-     *
-     * @param state the state
-     */
     public void setCustomState(String state) {
         this.customState = state;
     }
 
-    /**
-     * Gets archery targets.
-     *
-     * @return the archery targets
-     */
     public int getArcheryTargets() {
         return archeryTargets;
     }
 
-    /**
-     * Sets archery targets.
-     *
-     * @param archeryTargets the archery targets
-     */
     public void setArcheryTargets(int archeryTargets) {
         this.archeryTargets = archeryTargets;
     }
 
-    /**
-     * Gets archery total.
-     *
-     * @return the archery total
-     */
     public int getArcheryTotal() {
         return archeryTotal;
     }
 
-    /**
-     * Sets archery total.
-     *
-     * @param archeryTotal the archery total
-     */
     public void setArcheryTotal(int archeryTotal) {
         this.archeryTotal = archeryTotal;
     }
 
-    /**
-     * Has active state boolean.
-     *
-     * @param key the key
-     * @return the boolean
-     */
     public boolean hasActiveState(String key) {
         State state = states.get(key);
         if (state != null && state.getPulse() != null) {
@@ -1541,21 +1032,10 @@ public class Player extends Entity {
         return false;
     }
 
-    /**
-     * Register state state.
-     *
-     * @param key the key
-     * @return the state
-     */
     public State registerState(String key) {
         return StateRepository.forKey(key, this);
     }
 
-    /**
-     * Clear state.
-     *
-     * @param key the key
-     */
     public void clearState(String key) {
         State state = states.get(key);
         if (state == null) return;
@@ -1566,16 +1046,10 @@ public class Player extends Entity {
         states.remove(key);
     }
 
-    /**
-     * Update appearance.
-     */
     public void updateAppearance() {
         getUpdateMasks().register(EntityFlag.Appearance, this);
     }
 
-    /**
-     * Increment invalid packet count.
-     */
     public void incrementInvalidPacketCount() {
         invalidPacketCount++;
         if (invalidPacketCount >= 5) {

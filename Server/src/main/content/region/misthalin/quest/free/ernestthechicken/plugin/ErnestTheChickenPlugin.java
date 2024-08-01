@@ -23,9 +23,6 @@ import java.util.Arrays;
 
 import static core.api.ContentAPIKt.setVarp;
 
-/**
- * The Ernest the chicken plugin.
- */
 @Initializable
 public final class ErnestTheChickenPlugin extends OptionHandler {
 
@@ -67,9 +64,6 @@ public final class ErnestTheChickenPlugin extends OptionHandler {
         return true;
     }
 
-    /**
-     * The Lever cache extension.
-     */
     public static class LeverCacheExtension {
 
 
@@ -85,22 +79,11 @@ public final class ErnestTheChickenPlugin extends OptionHandler {
         private final boolean[] levers = new boolean[Lever.values().length];
 
 
-        /**
-         * Instantiates a new Lever cache extension.
-         *
-         * @param player the player
-         */
         public LeverCacheExtension(final Player player) {
             this.player = player;
         }
 
 
-        /**
-         * Extend lever cache extension.
-         *
-         * @param player the player
-         * @return the lever cache extension
-         */
         public static LeverCacheExtension extend(final Player player) {
             LeverCacheExtension extension = player.getExtension(LeverCacheExtension.class);
             if (extension == null) {
@@ -111,12 +94,6 @@ public final class ErnestTheChickenPlugin extends OptionHandler {
         }
 
 
-        /**
-         * Pull.
-         *
-         * @param lever  the lever
-         * @param object the object
-         */
         public final void pull(final Lever lever, final Scenery object) {
             final boolean up = isUp(lever);
             levers[lever.ordinal()] = !up;
@@ -133,21 +110,11 @@ public final class ErnestTheChickenPlugin extends OptionHandler {
         }
 
 
-        /**
-         * Inspect.
-         *
-         * @param lever the lever
-         */
         public final void inspect(final Lever lever) {
             player.getPacketDispatch().sendMessage("The lever is " + (isUp(lever) ? "up" : "down") + ".");
         }
 
 
-        /**
-         * Walk.
-         *
-         * @param object the object
-         */
         public final void walk(final Scenery object) {
             player.lock(4);
             GameWorld.getPulser().submit(new Pulse(1, player, object) {
@@ -174,9 +141,6 @@ public final class ErnestTheChickenPlugin extends OptionHandler {
         }
 
 
-        /**
-         * Update configs.
-         */
         public final void updateConfigs() {
             setVarp(player, LEVER_CONFIG, calculateLeverConfig());
             setVarp(player, DOOR_CONFIG, calculateDoorConfig());
@@ -184,9 +148,6 @@ public final class ErnestTheChickenPlugin extends OptionHandler {
         }
 
 
-        /**
-         * Save.
-         */
         public final void save() {
             boolean value = false;
             for (int index = 0; index < levers.length; index++) {
@@ -198,9 +159,6 @@ public final class ErnestTheChickenPlugin extends OptionHandler {
         }
 
 
-        /**
-         * Read.
-         */
         public final void read() {
             boolean value = false;
             for (int i = 0; i < Lever.values().length; i++) {
@@ -211,11 +169,6 @@ public final class ErnestTheChickenPlugin extends OptionHandler {
         }
 
 
-        /**
-         * Calculate lever config int.
-         *
-         * @return the int
-         */
         public final int calculateLeverConfig() {
             int value = 0;
             for (int i = 0; i < levers.length; i++) {
@@ -227,11 +180,6 @@ public final class ErnestTheChickenPlugin extends OptionHandler {
         }
 
 
-        /**
-         * Calculate door config int.
-         *
-         * @return the int
-         */
         public final int calculateDoorConfig() {
             final int downCount = getDownCount();
             int value = 0;
@@ -336,11 +284,6 @@ public final class ErnestTheChickenPlugin extends OptionHandler {
         }
 
 
-        /**
-         * Get walk data object [ ].
-         *
-         * @return the object [ ]
-         */
         public final Object[] getWalkData() {
             Object[] data = null;
             final int x = player.getLocation().getX();
@@ -386,9 +329,6 @@ public final class ErnestTheChickenPlugin extends OptionHandler {
         }
 
 
-        /**
-         * Reset.
-         */
         public void reset() {
             Arrays.fill(levers, true);
             Arrays.fill(player.getSavedData().questData.getDraynorLevers(), true);
@@ -396,11 +336,6 @@ public final class ErnestTheChickenPlugin extends OptionHandler {
         }
 
 
-        /**
-         * Gets down count.
-         *
-         * @return the down count
-         */
         public final int getDownCount() {
             int count = 0;
             for (int i = 0; i < levers.length; i++) {
@@ -410,37 +345,20 @@ public final class ErnestTheChickenPlugin extends OptionHandler {
         }
 
 
-        /**
-         * Is up boolean.
-         *
-         * @param lever the lever
-         * @return the boolean
-         */
         public final boolean isUp(final Lever lever) {
             return levers[lever.ordinal()];
         }
 
 
-        /**
-         * Gets player.
-         *
-         * @return the player
-         */
         public Player getPlayer() {
             return player;
         }
 
     }
 
-    /**
-     * The Lever zone.
-     */
     public class LeverZone extends MapZone {
 
 
-        /**
-         * Instantiates a new Lever zone.
-         */
         public LeverZone() {
             super("Draynor lever zone", true);
         }
@@ -472,33 +390,12 @@ public final class ErnestTheChickenPlugin extends OptionHandler {
         }
     }
 
-    /**
-     * The enum Lever.
-     */
     public enum Lever {
-        /**
-         * Lever a lever.
-         */
         LEVER_A(11451, 11452),
-        /**
-         * Lever b lever.
-         */
         LEVER_B(11453, 11454),
-        /**
-         * Lever c lever.
-         */
         LEVER_C(11455, 11456),
-        /**
-         * Lever d lever.
-         */
         LEVER_D(11457, 11458),
-        /**
-         * Lever e lever.
-         */
         LEVER_E(11459, 11460),
-        /**
-         * Lever f lever.
-         */
         LEVER_F(11461, 11462);
 
 
@@ -510,22 +407,11 @@ public final class ErnestTheChickenPlugin extends OptionHandler {
         }
 
 
-        /**
-         * Get object ids int [ ].
-         *
-         * @return the int [ ]
-         */
         public int[] getObjectIds() {
             return objectIds;
         }
 
 
-        /**
-         * For object lever.
-         *
-         * @param objectId the object id
-         * @return the lever
-         */
         public static Lever forObject(final int objectId) {
             for (Lever lever : Lever.values()) {
                 for (int i : lever.getObjectIds()) {

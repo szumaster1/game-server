@@ -171,15 +171,19 @@ public final class ThievableChestPlugin extends OptionHandler {
         public int[] getObjectIds() {
             return objectIds;
         }
+
         public int getLevel() {
             return level;
         }
+
         public double getExperience() {
             return experience;
         }
+
         public Item[] getRewards() {
             return rewards;
         }
+
         public int getRespawn() {
             return respawn;
         }

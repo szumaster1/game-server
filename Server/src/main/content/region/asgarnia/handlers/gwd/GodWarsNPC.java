@@ -23,9 +23,6 @@ import java.util.List;
 import static core.api.ContentAPIKt.getPathableRandomLocalCoordinate;
 import static core.api.ContentAPIKt.sendGraphics;
 
-/**
- * The God wars npc.
- */
 @Initializable
 public final class GodWarsNPC extends AbstractNPC {
     private static final int IMP_TELEPORT_CHANCE_ON_HIT = 10; // 1/10
@@ -71,19 +68,10 @@ public final class GodWarsNPC extends AbstractNPC {
 
     private GodWarsFaction faction;
 
-    /**
-     * Instantiates a new God wars npc.
-     */
     public GodWarsNPC() {
         super(-1, null);
     }
 
-    /**
-     * Instantiates a new God wars npc.
-     *
-     * @param id       the id
-     * @param location the location
-     */
     public GodWarsNPC(int id, Location location) {
         super(id, location);
     }

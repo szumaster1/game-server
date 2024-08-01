@@ -20,107 +20,45 @@ import core.tools.Log;
 import static core.api.ContentAPIKt.*;
 
 
-/**
- * Manages a player's interfaces.
- *
- * @author Emperor
- */
 public final class InterfaceManager {
 
-    /**
-     * The default windows pane.
-     */
     public static final int WINDOWS_PANE = Components.TOPLEVEL_548;
 
-    /**
-     * The default chat box interface.
-     */
     public static final int DEFAULT_CHATBOX = Components.CHATDEFAULT_137;
 
-    /**
-     * The default tabs.
-     */
     public static final int[] DEFAULT_TABS = {Components.WEAPON_FISTS_SEL_92, Components.STATS_320, Components.QUESTJOURNAL_V2_274,
         Components.INVENTORY_149, Components.WORNITEMS_387, Components.PRAYER_271, Components.MAGIC_192, Components.LORE_STATS_SIDE_662,
         Components.FRIENDS2_550, Components.IGNORE2_551, Components.CLANJOIN_589, Components.OPTIONS_261, Components.EMOTES_464,
         Components.MUSIC_V3_187, Components.LOGOUT_182};
 
-    /**
-     * The player.
-     */
     private final Player player;
 
-    /**
-     * The amount of interface packets sent.
-     */
     private int packetCount;
 
-    /**
-     * The windows pane.
-     */
     private Component windowsPane;
 
-    /**
-     * The currently opened component.
-     */
     private Component opened;
 
-    /**
-     * The tabs.
-     */
     private Component[] tabs = new Component[15];
 
-    /**
-     * The chatbox component.
-     */
     private Component chatbox;
 
-    /**
-     * The single tab.
-     */
     private Component singleTab;
 
-    /**
-     * The overlay component.
-     */
     private Component overlay;
 
-    /**
-     * The wilderness overlay component
-     */
     private Component wildyOverlay;
 
-    /**
-     * The currently opened tab's index.
-     */
     private int currentTabIndex = 3;
 
-    /**
-     * Constructs a new {@code InterfaceManager} {@code Object}.
-     *
-     * @param player The player.
-     */
     public InterfaceManager(Player player) {
         this.player = player;
     }
 
-    /**
-     * Opens the windows pane.
-     *
-     * @param windowsPane The windows pane.
-     * @return The component instance.
-     */
     public Component openWindowsPane(Component windowsPane) {
         return openWindowsPane(windowsPane, false);
     }
 
-    /**
-     * Opens the windows pane.
-     *
-     * @param windowsPane The windows pane.
-     * @param overlap     the overlap
-     * @return The component instance.
-     */
     public Component openWindowsPane(Component windowsPane, boolean overlap) {
         this.windowsPane = windowsPane;
         if (windowsPane.getDefinition().getType() != InterfaceType.WINDOW_PANE) {
@@ -137,12 +75,6 @@ public final class InterfaceManager {
         return windowsPane;
     }
 
-    /**
-     * Open windows pane.
-     *
-     * @param windowsPane the windows pane
-     * @param type        the type
-     */
     public void openWindowsPane(Component windowsPane, int type) {
         this.windowsPane = windowsPane;
         if (windowsPane.getDefinition().getType() != InterfaceType.WINDOW_PANE) {
@@ -157,22 +89,10 @@ public final class InterfaceManager {
             player.dispatch(new InterfaceOpenEvent(opened));
     }
 
-    /**
-     * Opens a component.
-     *
-     * @param componentId The component id.
-     * @return The opened component.
-     */
     public Component openComponent(int componentId) {
         return open(new Component(componentId));
     }
 
-    /**
-     * Opens a component.
-     *
-     * @param component The component to open.
-     * @return The opened component.
-     */
     public Component open(Component component) {
         if (!close()) {
             return null;
@@ -185,29 +105,14 @@ public final class InterfaceManager {
         return opened;
     }
 
-    /**
-     * Checks if a main interface.
-     *
-     * @return {@code True} if so.
-     */
     public boolean isOpened() {
         return opened != null;
     }
 
-    /**
-     * Checks if the player has a chat box interface opened (disregarding default chat box).
-     *
-     * @return {@code True} if so.
-     */
     public boolean hasChatbox() {
         return chatbox != null && chatbox.getId() != DEFAULT_CHATBOX;
     }
 
-    /**
-     * Safely closes the currently opened interface.
-     *
-     * @return the boolean
-     */
     public boolean close() {
         if (player.getAttribute("runscript", null) != null) {
             player.removeAttribute("runscript");
@@ -227,11 +132,6 @@ public final class InterfaceManager {
         return opened == null;
     }
 
-    /**
-     * Checks if the current interface is walkable.
-     *
-     * @return <code>True</code> if so.
-     */
     public boolean isWalkable() {
         if (opened != null) {
             if (opened.getId() == Components.OBJDIALOG_389) {
@@ -244,12 +144,6 @@ public final class InterfaceManager {
         return true;
     }
 
-    /**
-     * Safely closes the component.
-     *
-     * @param component The component.
-     * @return {@code True} if the component successfully closed.
-     */
     public boolean close(Component component) {
         if (component.close(player)) {
             if (component.getId() == DEFAULT_CHATBOX) {
@@ -265,9 +159,6 @@ public final class InterfaceManager {
         return false;
     }
 
-    /**
-     * Closes the chatbox interface.
-     */
     public void closeChatbox() {
         if (chatbox != null && chatbox.getId() != DEFAULT_CHATBOX) {
             if (close(chatbox)) {
@@ -277,12 +168,6 @@ public final class InterfaceManager {
         }
     }
 
-    /**
-     * Opens a tab and removes the other tabs.
-     *
-     * @param component The component to open.
-     * @return The component.
-     */
     public Component openSingleTab(Component component) {
         if (component.getDefinition().getType() != InterfaceType.SINGLE_TAB) {
             log(this.getClass(), Log.WARN, "Set interface type to SINGLE_TAB for component " + component.getId() + ", definition requires updating!");
@@ -298,11 +183,6 @@ public final class InterfaceManager {
         return singleTab = component;
     }
 
-    /**
-     * Closes the current single tab opened.
-     *
-     * @return the boolean
-     */
     public boolean closeSingleTab() {
         if (singleTab != null && close(singleTab)) {
             singleTab = null;
@@ -310,20 +190,10 @@ public final class InterfaceManager {
         return true;
     }
 
-    /**
-     * Gets the currently opened single tab.
-     *
-     * @return The tab opened.
-     */
     public Component getSingleTab() {
         return singleTab;
     }
 
-    /**
-     * Removes the tabs.
-     *
-     * @param tabs The tab indexes.
-     */
     public void removeTabs(int... tabs) {
         boolean changeViewedTab = false;
         for (int slot : tabs) {
@@ -354,9 +224,6 @@ public final class InterfaceManager {
         }
     }
 
-    /**
-     * Restores the tabs.
-     */
     public void restoreTabs() {
         for (int i = 0; i < tabs.length; i++) {
             Component tab = tabs[i];
@@ -390,9 +257,6 @@ public final class InterfaceManager {
         }
     }
 
-    /**
-     * Opens the default tabs.
-     */
     public void openDefaultTabs() {
         // player.getPacketDispatch().sendInterfaceConfig(548, 51, false);
         WeaponInterface inter = player.getExtension(WeaponInterface.class);
@@ -422,9 +286,6 @@ public final class InterfaceManager {
         }
     }
 
-    /**
-     * Opens the information bars (orbs).
-     */
     public void openInfoBars() {
         //Hp orb
         PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 13 : 70, Components.TOPSTAT_HITPOINTS_748, true));
@@ -440,9 +301,6 @@ public final class InterfaceManager {
         PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 71 : 10, Components.PMCHAT_754, true));
     }
 
-    /**
-     * Closes the default tabs.
-     */
     public void closeDefaultTabs() {
         WeaponInterface inter = player.getExtension(WeaponInterface.class);
         if (inter != null) {
@@ -465,12 +323,6 @@ public final class InterfaceManager {
         //close(new Component(Components.LOGOUT_182)); // LogoutPacket
     }
 
-    /**
-     * Opens a tab.
-     *
-     * @param slot      The tab slot;
-     * @param component The component.
-     */
     public void openTab(int slot, Component component) {
         if (component.getId() == Components.WEAPON_FISTS_SEL_92 && !(component instanceof WeaponInterface)) {
             throw new IllegalStateException("Attack tab can only be instanced as " + WeaponInterface.class.getCanonicalName() + "!");
@@ -487,11 +339,6 @@ public final class InterfaceManager {
         tabs[slot] = component;
     }
 
-    /**
-     * Opens a tab.
-     *
-     * @param component The component to open.
-     */
     public void openTab(Component component) {
         if (component.getDefinition().getTabIndex() < 0) {
             log(this.getClass(), Log.WARN, "No component definitions found for tab " + component.getId() + "!");
@@ -500,20 +347,10 @@ public final class InterfaceManager {
         openTab(component.getDefinition().getTabIndex(), component);
     }
 
-    /**
-     * Opens a chat box interface.
-     *
-     * @param componentId The component id.
-     */
     public void openChatbox(int componentId) {
         openChatbox(new Component(componentId));
     }
 
-    /**
-     * Opens a chat box interface.
-     *
-     * @param component The component to open.
-     */
     public void openChatbox(Component component) {
         if (component.getId() == DEFAULT_CHATBOX) {
             if (chatbox == null || (chatbox.getId() != DEFAULT_CHATBOX && chatbox.getDefinition().getType() == InterfaceType.CHATBOX)) {
@@ -533,11 +370,6 @@ public final class InterfaceManager {
         }
     }
 
-    /**
-     * Switches the player's window mode (fixed, resizable, fullscreen).
-     *
-     * @param windowMode The window mode.
-     */
     public void switchWindowMode(int windowMode) {
         if (windowMode != player.getSession().getClientInfo().getWindowMode()) {
             player.getSession().getClientInfo().setWindowMode(windowMode);
@@ -553,12 +385,6 @@ public final class InterfaceManager {
         }
     }
 
-    /**
-     * Gets the component for the given component id.
-     *
-     * @param componentId The component id.
-     * @return The component.
-     */
     public Component getComponent(int componentId) {
         if (opened != null && opened.getId() == componentId) {
             return opened;
@@ -587,11 +413,6 @@ public final class InterfaceManager {
         return null;
     }
 
-    /**
-     * Sets the currently viewed tab.
-     *
-     * @param tabIndex The tab index.
-     */
     public void setViewedTab(int tabIndex) {
         if (tabs[tabIndex] == null) {
             return;
@@ -614,21 +435,10 @@ public final class InterfaceManager {
         player.getPacketDispatch().sendRunScript(115, "i", tabIndex);
     }
 
-    /**
-     * Checks if the main component opened matches the given component id.
-     *
-     * @param id The component id.
-     * @return {@code True} if so.
-     */
     public boolean hasMainComponent(int id) {
         return opened != null && opened.getId() == id;
     }
 
-    /**
-     * Opens an overlay.
-     *
-     * @param component The component.
-     */
     public void openOverlay(Component component) {
         if (overlay != null && !overlay.close(player)) {
             return;
@@ -642,137 +452,64 @@ public final class InterfaceManager {
         overlay.open(player);
     }
 
-    /**
-     * Closes the current overlay.
-     */
     public void closeOverlay() {
         if (overlay != null && close(overlay)) {
             overlay = null;
         }
     }
 
-    /**
-     * Gets the weapon tab interface.
-     *
-     * @return The weapon interface.
-     */
     public WeaponInterface getWeaponTab() {
         return player.getExtension(WeaponInterface.class);
     }
 
-    /**
-     * Gets the opened.
-     *
-     * @return The opened.
-     */
     public Component getOpened() {
         return opened;
     }
 
-    /**
-     * Sets the opened.
-     *
-     * @param opened The opened to set.
-     */
     public void setOpened(Component opened) {
         this.opened = opened;
     }
 
-    /**
-     * Gets the tabs.
-     *
-     * @return The tabs.
-     */
     public Component[] getTabs() {
         return tabs;
     }
 
-    /**
-     * Sets the tabs.
-     *
-     * @param tabs The tabs to set.
-     */
     public void setTabs(Component[] tabs) {
         this.tabs = tabs;
     }
 
-    /**
-     * Gets the chatbox.
-     *
-     * @return The chatbox.
-     */
     public Component getChatbox() {
         return chatbox;
     }
 
-    /**
-     * Sets the chatbox.
-     *
-     * @param chatbox The chatbox to set.
-     */
     public void setChatbox(Component chatbox) {
         this.chatbox = chatbox;
     }
 
-    /**
-     * Gets the overlay.
-     *
-     * @return The overlay.
-     */
     public Component getOverlay() {
         return overlay;
     }
 
-    /**
-     * Sets the overlay.
-     *
-     * @param overlay The overlay to set.
-     */
     public void setOverlay(Component overlay) {
         this.overlay = overlay;
     }
 
-    /**
-     * Gets the player.
-     *
-     * @return The player.
-     */
     public Player getPlayer() {
         return player;
     }
 
-    /**
-     * Gets the currentTabIndex.
-     *
-     * @return The currentTabIndex.
-     */
     public int getCurrentTabIndex() {
         return currentTabIndex;
     }
 
-    /**
-     * Sets the currentTabIndex.
-     *
-     * @param currentTabIndex The currentTabIndex to set.
-     */
     public void setCurrentTabIndex(int currentTabIndex) {
         this.currentTabIndex = currentTabIndex;
     }
 
-    /**
-     * Gets the windowsPane.
-     *
-     * @return The windowsPane.
-     */
     public Component getWindowsPane() {
         return windowsPane;
     }
 
-    /**
-     * Gets the windows pane id.
-     *
-     * @return The window pane id.
-     */
     public int getWindowPaneId() {
         if (windowsPane == null) {
             return Components.TOPLEVEL_548;
@@ -780,20 +517,10 @@ public final class InterfaceManager {
         return windowsPane.getId();
     }
 
-    /**
-     * Gets the default child id.
-     *
-     * @return The default child id.
-     */
     public int getDefaultChildId() {
         return isResizable() ? 6 : 11;
     }
 
-    /**
-     * Checks if the player's client is resizable.
-     *
-     * @return {@code True} if so.
-     */
     public boolean isResizable() {
         if (player.getSession().getClientInfo() == null) {
             return false;
@@ -801,12 +528,6 @@ public final class InterfaceManager {
         return player.getSession().getClientInfo().isResizable();
     }
 
-    /**
-     * Gets the amount of times an interface related packet was sent, then increments it.
-     *
-     * @param increment The amount to increment the counter with.
-     * @return The amount of times an interface packet was sent.
-     */
     public int getPacketCount(int increment) {
         int count = packetCount;
         packetCount += increment;

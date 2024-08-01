@@ -17,44 +17,18 @@ import core.tools.Log;
 
 import static core.api.ContentAPIKt.log;
 
-/**
- * Handles interaction between nodes.
- *
- * @author Emperor
- */
 public class InteractPlugin {
 
-    /**
-     * The current options.
-     */
     private Option[] options = new Option[8];
 
-    /**
-     * The player.
-     */
     private final Node node;
 
-    /**
-     * If the interaction option handlers have been initialized.
-     */
     private boolean initialized;
 
-    /**
-     * Constructs a new {@code Interaction} {@code Object}.
-     *
-     * @param node The node reference.
-     */
     public InteractPlugin(Node node) {
         this.node = node;
     }
 
-    /**
-     * Sends the current option.
-     *
-     * @param node  The node.
-     * @param index The index.
-     * @param name  The option name.
-     */
     public static void sendOption(Node node, int index, String name) {
         if (!(node instanceof Player)) {
             return;
@@ -62,12 +36,6 @@ public class InteractPlugin {
         PacketRepository.send(InteractionOption.class, new InteractionOptionContext((Player) node, index, name));
     }
 
-    /**
-     * Handles an interaction option being clicked.
-     *
-     * @param player The player using the option.
-     * @param option The option used.
-     */
     public void handle(final Player player, final Option option) {
         try {
             if (player.getLocks().isInteractionLocked() || option == null) {
@@ -94,13 +62,6 @@ public class InteractPlugin {
         }
     }
 
-    /**
-     * Handles an item option.
-     *
-     * @param player    The player.
-     * @param option    The option.
-     * @param container The container the item is in.
-     */
     public void handleItemOption(final Player player, final Option option, final Container container) {
         if (player.getLocks().isInteractionLocked()) {
             return;
@@ -131,13 +92,6 @@ public class InteractPlugin {
         });
     }
 
-    /**
-     * Handles an invalid interaction.
-     *
-     * @param player The player.
-     * @param node   The node to interact with.
-     * @param option the option
-     */
     public static void handleInvalidInteraction(final Player player, final Node node, final Option option) {
         if (node == null) {
             return;
@@ -167,13 +121,6 @@ public class InteractPlugin {
         }
     }
 
-    /**
-     * Handles an option requiring the player to walk to the node.
-     *
-     * @param player    The player.
-     * @param option    The option.
-     * @param pulseType The pulse type.
-     */
     private void handleWalkOption(final Player player, final Option option, PulseType pulseType) {
         if (node.getLocation() == null) {
             player.getPulseManager().runUnhandledAction(player, pulseType);
@@ -203,13 +150,6 @@ public class InteractPlugin {
         }, pulseType);
     }
 
-    /**
-     * Handles a default option.
-     *
-     * @param player    The player.
-     * @param option    The option.
-     * @param pulseType The pulse type.
-     */
     private void handleDefaultOption(final Player player, final Option option, PulseType pulseType) {
         if (!option.getHandler().isDelayed(player)) {
             if (player.getZoneMonitor().interact(node, option)) {
@@ -235,12 +175,6 @@ public class InteractPlugin {
         }, pulseType);
     }
 
-    /**
-     * Initializes the interaction options.
-     *
-     * @param nodeId The node id.
-     * @param names  The option names.
-     */
     public void init(int nodeId, String... names) {
         options = new Option[names.length];
         for (int i = 0; i < options.length; i++) {
@@ -252,9 +186,6 @@ public class InteractPlugin {
         }
     }
 
-    /**
-     * Sets the default option handlers (if not yet initialized).
-     */
     public void setDefault() {
         if (initialized) {
             return;
@@ -285,22 +216,11 @@ public class InteractPlugin {
         initialized = true;
     }
 
-    /**
-     * Sets a new option.
-     *
-     * @param option The option.
-     */
     public void set(Option option) {
         options[option.getIndex()] = option;
         sendOption(node, option.getIndex(), option.getName());
     }
 
-    /**
-     * Removes an option.
-     *
-     * @param option the option
-     * @return {@code True} if the option got removed, {@code false} if the option wasn't set.
-     */
     public boolean remove(Option option) {
         if (options[option.getIndex()] == option) {
             remove(option.getIndex());
@@ -309,11 +229,6 @@ public class InteractPlugin {
         return false;
     }
 
-    /**
-     * Removes an option.
-     *
-     * @param index The index.
-     */
     public void remove(int index) {
         if (options[index] == null) {
             return;
@@ -322,39 +237,18 @@ public class InteractPlugin {
         sendOption(node, index, "null");
     }
 
-    /**
-     * Gets the option on the requested slot.
-     *
-     * @param index The slot index.
-     * @return The option on that slot, or {@code null} if there was no option.
-     */
     public Option get(int index) {
         return options[index];
     }
 
-    /**
-     * Gets the options.
-     *
-     * @return The options.
-     */
     public Option[] getOptions() {
         return options;
     }
 
-    /**
-     * Gets the initialized value.
-     *
-     * @return The initialized.
-     */
     public boolean isInitialized() {
         return initialized;
     }
 
-    /**
-     * Sets the initialized value.
-     *
-     * @param initialized The initialized to set.
-     */
     public void setInitialized(boolean initialized) {
         this.initialized = initialized;
     }

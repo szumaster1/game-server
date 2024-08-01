@@ -34,67 +34,31 @@ public final class AssistSession extends Pulse implements RequestModule {
 
     private static final int[] CHILD_VALUES = {46, 48, 50, 52, 54, 56, 58, 60, 62};
 
-    /**
-     * Represents the current skills being used.
-     */
     private boolean[] skills = new boolean[9];
 
-    /**
-     * Represents if the session is restricted from gaining experience.
-     */
     private boolean restricted = false;
 
-    /**
-     * Represents the gained exp for the skill(index-experience).
-     */
     private double exp[] = new double[9];
 
-    /**
-     * Represents a kill switch for the session.
-     */
     private boolean kill = false;
 
-    /**
-     * Represents the start time.
-     */
     private long time;
 
-    /**
-     * Constructs a new {@code RequestAssist} {@code Object}.
-     *
-     * @param player  the player.
-     * @param partner the partner.
-     */
     public AssistSession(final Player player, final Player partner) {
         this.player = player;
         this.partner = partner;
     }
 
-    /**
-     * Constructs a new {@code AssistSession} {@code Object}.
-     */
     public AssistSession() {
         /**
          * empty.
          */
     }
 
-    /**
-     * Method used to add the extension of this class to the {@literal Player}.
-     *
-     * @param player  the player.
-     * @param partner the partner.
-     */
     public static final void extend(final Player player, final Player partner) {
         player.addExtension(AssistSession.class, new AssistSession(player, partner));
     }
 
-    /**
-     * Method used to get the extension of this class from the {@link Player}.
-     *
-     * @param player the player.
-     * @return the {@link AssistSession} (this).
-     */
     public final static AssistSession getExtension(final Player player) {
         return player.getExtension(AssistSession.class);
     }
@@ -110,10 +74,6 @@ public final class AssistSession extends Pulse implements RequestModule {
         AssistSession.getExtension(player).open();
     }
 
-    /**
-     * Method used to be called only for the {@link #player} of this class which
-     * then extends this class to the partner.
-     */
     public final void open() {
         partner.addExtension(AssistSession.class, this);
         player.lock();
@@ -135,11 +95,6 @@ public final class AssistSession extends Pulse implements RequestModule {
         refresh();
     }
 
-    /**
-     * Method used to get the {@link CloseEvent} of the {@link Component}.
-     *
-     * @return the close event of the {@link #component}.
-     */
     public final CloseEvent getCloseEvent() {
         return new CloseEvent() {
             @Override
@@ -159,24 +114,12 @@ public final class AssistSession extends Pulse implements RequestModule {
         };
     }
 
-    /**
-     * Method used to toggle the assisting icons.
-     *
-     * @param player the player.
-     * @param hide   the icon or not.
-     */
     public final void toggleIcon(final Player player, final boolean hide) {
         for (int i = 79; i < 81; i++) {
             player.getPacketDispatch().sendInterfaceConfig(548, i, hide);
         }
     }
 
-    /**
-     * Method used to override the adding of experience when the player is the assisted.
-     *
-     * @param skill      the skill.
-     * @param experience the experience.
-     */
     public final void addExperience(final int skill, final double experience) {
         if (restricted || getTotalExperience() >= 30000) {
             restricted = true;
@@ -195,9 +138,6 @@ public final class AssistSession extends Pulse implements RequestModule {
         refresh();
     }
 
-    /**
-     * Method used to refresh the interface.
-     */
     public final void refresh() {
         int value = 0;
         double totalXp = 0;
@@ -225,31 +165,14 @@ public final class AssistSession extends Pulse implements RequestModule {
         setVarp(player, 1088, (int) totalXp * 10);
     }
 
-    /**
-     * Method used to toggle the skill button.
-     *
-     * @param id the id.
-     */
     public final void toggleButton(final byte id) {
         skills[id] = skills[id] ? false : true;
     }
 
-    /**
-     * Method used to check if a specified skill is currently toggled.
-     *
-     * @param skill the skill.
-     * @return <code>True</code> if toggled.
-     */
     public final boolean isToggled(final int skill) {
         return skills[getSkillIndex(skill)];
     }
 
-    /**
-     * Method used to get the skill index by the skill id.
-     *
-     * @param skill the skill id.
-     * @return the index.
-     */
     public final int getSkillIndex(int skill) {
         switch (skill) {
             case Skills.RUNECRAFTING:
@@ -274,20 +197,10 @@ public final class AssistSession extends Pulse implements RequestModule {
         return -1;
     }
 
-    /**
-     * Method used to get the skill array.
-     *
-     * @return the array of skill's turned on.
-     */
     public boolean[] getSkills() {
         return skills;
     }
 
-    /**
-     * Method used to get the amount of time left.
-     *
-     * @return the formated time.
-     */
     public String getTimeLeft() {
         Date date2 = new Date(time);
         Date date1 = new Date(System.currentTimeMillis());
@@ -310,11 +223,6 @@ public final class AssistSession extends Pulse implements RequestModule {
         return "" + diffSeconds + " seconds";
     }
 
-    /**
-     * Method used to return the total experience gained.
-     *
-     * @return the experience gained.
-     */
     public double getTotalExperience() {
         double xp = 0;
         for (int i = 0; i < 9; i++) {
@@ -323,18 +231,10 @@ public final class AssistSession extends Pulse implements RequestModule {
         return xp;
     }
 
-    /**
-     * Method used to return the {@link Player}.
-     *
-     * @return the <code>Player</code>.
-     */
     public final Player getPlayer() {
         return player;
     }
 
-    /**
-     * Method used to load the information.
-     */
     public final void load() {
         time = player.getSavedData().globalData.getAssistTime();
         if (time == 0) {
@@ -345,18 +245,12 @@ public final class AssistSession extends Pulse implements RequestModule {
         }
     }
 
-    /**
-     * Method used to save the assist data.
-     */
     public final void save() {
         player.getSkills().refresh();
         player.getSavedData().globalData.setAssistTime(time);
         player.getSavedData().globalData.setAssistExperience(exp);
     }
 
-    /**
-     * Method used to reset the assist data.
-     */
     public final void reset() {
         player.getSavedData().globalData.setAssistTime(0L);
         player.getSavedData().globalData.setAssistExperience(new double[9]);
@@ -379,15 +273,6 @@ public final class AssistSession extends Pulse implements RequestModule {
         return kill;
     }
 
-    /**
-     * Translates experience to another player.
-     *
-     * @param p          the p.
-     * @param slot       the slot.
-     * @param experience the exp.
-     * @param mod        the mod.
-     * @return {@code True} if translated.
-     */
     public boolean translateExperience(Player p, int slot, double experience, double mod) {
         if (getPlayer() != p) {
             int index = getSkillIndex(slot);
@@ -412,47 +297,22 @@ public final class AssistSession extends Pulse implements RequestModule {
         return false;
     }
 
-    /**
-     * Method used to return if the assist session is restricted.
-     *
-     * @return <code>True</code> if so.
-     */
     public boolean isRestricted() {
         return restricted;
     }
 
-    /**
-     * Gets the exp.
-     *
-     * @return the exp.
-     */
     public double[] getExp() {
         return exp;
     }
 
-    /**
-     * Sets th exp.
-     *
-     * @param exp the exp.
-     */
     public void setExp(double[] exp) {
         this.exp = exp;
     }
 
-    /**
-     * Gets the partner.
-     *
-     * @return the partner
-     */
     public Player getPartner() {
         return partner;
     }
 
-    /**
-     * Sets the partner.
-     *
-     * @param partner the partner to set.
-     */
     public void setPartner(Player partner) {
         this.partner = partner;
     }

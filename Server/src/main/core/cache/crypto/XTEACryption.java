@@ -2,57 +2,24 @@ package core.cache.crypto;
 
 import java.nio.ByteBuffer;
 
-/**
- * Holds XTEA cryption methods.
- *
- * @author ?
- * @author Emperor
- */
 public final class XTEACryption {
 
-    /**
-     * The delta value
-     */
     private static final int DELTA = -1640531527;
 
-    /**
-     * The sum.
-     */
     private static final int SUM = -957401312;
 
-    /**
-     * The amount of "cryption cycles".
-     */
     private static final int NUM_ROUNDS = 32;
 
-    /**
-     * Constructs a new {@code XTEACryption}.
-     */
     private XTEACryption() {
         /*
          * empty.
          */
     }
 
-    /**
-     * Decrypts the contents of the buffer.
-     *
-     * @param keys   The cryption keys.
-     * @param buffer The buffer.
-     */
     public static ByteBuffer decrypt(int[] keys, ByteBuffer buffer) {
         return decrypt(keys, buffer, buffer.position(), buffer.limit());
     }
 
-    /**
-     * Decrypts the buffer data.
-     *
-     * @param keys   The keys.
-     * @param buffer The buffer to decrypt.
-     * @param offset The offset of the data to decrypt.
-     * @param length The length.
-     * @return The decrypted data.
-     */
     public static ByteBuffer decrypt(int[] keys, ByteBuffer buffer, int offset, int length) {
         int numBlocks = (length - offset) / 8;
         int[] block = new int[2];
@@ -67,12 +34,6 @@ public final class XTEACryption {
         return buffer;
     }
 
-    /**
-     * Deciphers the values.
-     *
-     * @param keys  The cryption key.
-     * @param block The values to decipher.
-     */
     private static void decipher(int[] keys, int[] block) {
         long sum = SUM;
         for (int i = 0; i < NUM_ROUNDS; i++) {
@@ -82,25 +43,10 @@ public final class XTEACryption {
         }
     }
 
-    /**
-     * Encrypts the contents of the byte buffer.
-     *
-     * @param keys   The cryption keys.
-     * @param buffer The buffer to encrypt.
-     */
     public static void encrypt(int[] keys, ByteBuffer buffer) {
         encrypt(keys, buffer, buffer.position(), buffer.limit());
     }
 
-    /**
-     * Encrypts the buffer data.
-     *
-     * @param keys   The keys.
-     * @param buffer The buffer to encrypt.
-     * @param offset The offset of the data to encrypt.
-     * @param length The length.
-     * @return The encrypted data.
-     */
     public static void encrypt(int[] keys, ByteBuffer buffer, int offset, int length) {
         int numBlocks = (length - offset) / 8;
         int[] block = new int[2];
@@ -114,12 +60,6 @@ public final class XTEACryption {
         }
     }
 
-    /**
-     * Enciphers the values of the block.
-     *
-     * @param keys  The cryption keys.
-     * @param block The block to encipher.
-     */
     private static void encipher(int[] keys, int[] block) {
         long sum = 0;
         for (int i = 0; i < NUM_ROUNDS; i++) {

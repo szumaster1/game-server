@@ -6,33 +6,16 @@ import java.util.ArrayList;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-/**
- * A node list implementation backed by an initialization queue.
- *
- * @author Emperor
- */
 public final class InitializingNodeList<T extends Node> extends ArrayList<T> {
 
-    /**
-     * The serial UID.
-     */
     private static final long serialVersionUID = 7727358901001709156L;
 
-    /**
-     * The queue.
-     */
     private final Queue<InitializationEntry> queue = new ConcurrentLinkedQueue<>();
 
-    /**
-     * Constructs a new {@code InitializingNodeList} {@code Object}.
-     */
     public InitializingNodeList() {
         super();
     }
 
-    /**
-     * Synchronizes the backing queue with this list.
-     */
     @SuppressWarnings("unchecked")
     public void sync() {
         while (!queue.isEmpty()) {

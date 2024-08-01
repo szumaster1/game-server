@@ -10,32 +10,16 @@ import core.game.world.map.Location;
 import core.game.world.map.RegionManager;
 import core.plugin.Initializable;
 
-/**
- * The Witchs experiment npc.
- */
 @Initializable
 public class WitchsExperimentNPC extends AbstractNPC {
     private ExperimentType type;
     private boolean commenced;
-    /**
-     * The P.
-     */
     Player p;
 
-    /**
-     * Instantiates a new Witchs experiment npc.
-     */
     public WitchsExperimentNPC() {
         super(0, null);
     }
 
-    /**
-     * Instantiates a new Witchs experiment npc.
-     *
-     * @param id       the id
-     * @param location the location
-     * @param player   the player
-     */
     WitchsExperimentNPC(int id, Location location, Player player) {
         super(id, location);
         this.setWalks(true);
@@ -90,56 +74,23 @@ public class WitchsExperimentNPC extends AbstractNPC {
         return new int[]{897, 898, 899, 900};
     }
 
-    /**
-     * Sets type.
-     *
-     * @param type the type
-     */
     public void setType(ExperimentType type) {
         this.type = type;
     }
 
-    /**
-     * Gets type.
-     *
-     * @return the type
-     */
     public ExperimentType getType() {
         return type;
     }
 
-    /**
-     * Sets commenced.
-     *
-     * @param commenced the commenced
-     */
     public void setCommenced(boolean commenced) {
         this.commenced = commenced;
     }
 
-    /**
-     * The enum Experiment type.
-     */
     public enum ExperimentType {
-        /**
-         * First experiment type.
-         */
         FIRST(897, ""),
-        /**
-         * The Second.
-         */
         SECOND(898, "The shapeshifter's body begins to deform!", "The shapeshifter turns into a spider!"),
-        /**
-         * The Third.
-         */
         THIRD(899, "The shapeshifter's body begins to twist!", "The shapeshifter turns into a bear!"),
-        /**
-         * The Fourth.
-         */
         FOURTH(900, "The shapeshifter's body pulses!", "The shapeshifter turns into a wolf!"),
-        /**
-         * The End.
-         */
         END(-1, "You finally kill the shapeshifter once and for all."),
 
         ;
@@ -153,12 +104,6 @@ public class WitchsExperimentNPC extends AbstractNPC {
         }
 
 
-        /**
-         * Transform.
-         *
-         * @param npc    the npc
-         * @param player the player
-         */
         public void transform(final WitchsExperimentNPC npc, final Player player) {
             final ExperimentType newType = next();
             npc.lock();
@@ -200,12 +145,6 @@ public class WitchsExperimentNPC extends AbstractNPC {
             });
         }
 
-        /**
-         * For id experiment type.
-         *
-         * @param id the id
-         * @return the experiment type
-         */
         public static ExperimentType forId(int id) {
             for (ExperimentType type : values()) {
                 if (type.getId() == id) {
@@ -217,29 +156,14 @@ public class WitchsExperimentNPC extends AbstractNPC {
 
         private static final ExperimentType[] experimentTypes = values();
 
-        /**
-         * Next experiment type.
-         *
-         * @return the experiment type
-         */
         public ExperimentType next() {
             return experimentTypes[this.ordinal() + 1];
         }
 
-        /**
-         * Gets id.
-         *
-         * @return the id
-         */
         public int getId() {
             return id;
         }
 
-        /**
-         * Get message string [ ].
-         *
-         * @return the string [ ]
-         */
         public String[] getMessage() {
             return message;
         }

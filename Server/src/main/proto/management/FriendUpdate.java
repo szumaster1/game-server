@@ -3,9 +3,6 @@
 
 package proto.management;
 
-/**
- * Protobuf type {@code management.FriendUpdate}
- */
 public final class FriendUpdate extends
         com.google.protobuf.GeneratedMessageV3 implements
         // @@protoc_insertion_point(message_implements:management.FriendUpdate)
@@ -112,28 +109,13 @@ public final class FriendUpdate extends
                         proto.management.FriendUpdate.class, proto.management.FriendUpdate.Builder.class);
     }
 
-    /**
-     * Protobuf enum {@code management.FriendUpdate.Type}
-     */
     public enum Type
             implements com.google.protobuf.ProtocolMessageEnum {
-        /**
-         * <code>ADD = 0;</code>
-         */
         ADD(0),
-        /**
-         * <code>REMOVE = 1;</code>
-         */
         REMOVE(1),
         ;
 
-        /**
-         * <code>ADD = 0;</code>
-         */
         public static final int ADD_VALUE = 0;
-        /**
-         * <code>REMOVE = 1;</code>
-         */
         public static final int REMOVE_VALUE = 1;
 
 
@@ -141,20 +123,11 @@ public final class FriendUpdate extends
             return value;
         }
 
-        /**
-         * @param value The numeric wire value of the corresponding enum entry.
-         * @return The enum associated with the given numeric wire value.
-         * @deprecated Use {@link #forNumber(int)} instead.
-         */
         @java.lang.Deprecated
         public static Type valueOf(int value) {
             return forNumber(value);
         }
 
-        /**
-         * @param value The numeric wire value of the corresponding enum entry.
-         * @return The enum associated with the given numeric wire value.
-         */
         public static Type forNumber(int value) {
             switch (value) {
                 case 0:
@@ -218,21 +191,11 @@ public final class FriendUpdate extends
     public static final int TYPE_FIELD_NUMBER = 1;
     private int type_;
 
-    /**
-     * <code>required .management.FriendUpdate.Type type = 1;</code>
-     *
-     * @return Whether the type field is set.
-     */
     @java.lang.Override
     public boolean hasType() {
         return ((bitField0_ & 0x00000001) != 0);
     }
 
-    /**
-     * <code>required .management.FriendUpdate.Type type = 1;</code>
-     *
-     * @return The type.
-     */
     @java.lang.Override
     public proto.management.FriendUpdate.Type getType() {
         @SuppressWarnings("deprecation")
@@ -243,21 +206,11 @@ public final class FriendUpdate extends
     public static final int USERNAME_FIELD_NUMBER = 2;
     private volatile java.lang.Object username_;
 
-    /**
-     * <code>required string username = 2;</code>
-     *
-     * @return Whether the username field is set.
-     */
     @java.lang.Override
     public boolean hasUsername() {
         return ((bitField0_ & 0x00000002) != 0);
     }
 
-    /**
-     * <code>required string username = 2;</code>
-     *
-     * @return The username.
-     */
     @java.lang.Override
     public java.lang.String getUsername() {
         java.lang.Object ref = username_;
@@ -274,11 +227,6 @@ public final class FriendUpdate extends
         }
     }
 
-    /**
-     * <code>required string username = 2;</code>
-     *
-     * @return The bytes for username.
-     */
     @java.lang.Override
     public com.google.protobuf.ByteString
     getUsernameBytes() {
@@ -297,21 +245,11 @@ public final class FriendUpdate extends
     public static final int FRIEND_FIELD_NUMBER = 3;
     private volatile java.lang.Object friend_;
 
-    /**
-     * <code>required string friend = 3;</code>
-     *
-     * @return Whether the friend field is set.
-     */
     @java.lang.Override
     public boolean hasFriend() {
         return ((bitField0_ & 0x00000004) != 0);
     }
 
-    /**
-     * <code>required string friend = 3;</code>
-     *
-     * @return The friend.
-     */
     @java.lang.Override
     public java.lang.String getFriend() {
         java.lang.Object ref = friend_;
@@ -328,11 +266,6 @@ public final class FriendUpdate extends
         }
     }
 
-    /**
-     * <code>required string friend = 3;</code>
-     *
-     * @return The bytes for friend.
-     */
     @java.lang.Override
     public com.google.protobuf.ByteString
     getFriendBytes() {
@@ -567,9 +500,6 @@ public final class FriendUpdate extends
         return builder;
     }
 
-    /**
-     * Protobuf type {@code management.FriendUpdate}
-     */
     public static final class Builder extends
             com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
             // @@protoc_insertion_point(builder_implements:management.FriendUpdate)
@@ -763,21 +693,11 @@ public final class FriendUpdate extends
 
         private int type_ = 0;
 
-        /**
-         * <code>required .management.FriendUpdate.Type type = 1;</code>
-         *
-         * @return Whether the type field is set.
-         */
         @java.lang.Override
         public boolean hasType() {
             return ((bitField0_ & 0x00000001) != 0);
         }
 
-        /**
-         * <code>required .management.FriendUpdate.Type type = 1;</code>
-         *
-         * @return The type.
-         */
         @java.lang.Override
         public proto.management.FriendUpdate.Type getType() {
             @SuppressWarnings("deprecation")
@@ -785,12 +705,6 @@ public final class FriendUpdate extends
             return result == null ? proto.management.FriendUpdate.Type.ADD : result;
         }
 
-        /**
-         * <code>required .management.FriendUpdate.Type type = 1;</code>
-         *
-         * @param value The type to set.
-         * @return This builder for chaining.
-         */
         public Builder setType(proto.management.FriendUpdate.Type value) {
             if (value == null) {
                 throw new NullPointerException();
@@ -801,11 +715,6 @@ public final class FriendUpdate extends
             return this;
         }
 
-        /**
-         * <code>required .management.FriendUpdate.Type type = 1;</code>
-         *
-         * @return This builder for chaining.
-         */
         public Builder clearType() {
             bitField0_ = (bitField0_ & ~0x00000001);
             type_ = 0;
@@ -815,20 +724,10 @@ public final class FriendUpdate extends
 
         private java.lang.Object username_ = "";
 
-        /**
-         * <code>required string username = 2;</code>
-         *
-         * @return Whether the username field is set.
-         */
         public boolean hasUsername() {
             return ((bitField0_ & 0x00000002) != 0);
         }
 
-        /**
-         * <code>required string username = 2;</code>
-         *
-         * @return The username.
-         */
         public java.lang.String getUsername() {
             java.lang.Object ref = username_;
             if (!(ref instanceof java.lang.String)) {
@@ -844,11 +743,6 @@ public final class FriendUpdate extends
             }
         }
 
-        /**
-         * <code>required string username = 2;</code>
-         *
-         * @return The bytes for username.
-         */
         public com.google.protobuf.ByteString
         getUsernameBytes() {
             java.lang.Object ref = username_;
@@ -863,12 +757,6 @@ public final class FriendUpdate extends
             }
         }
 
-        /**
-         * <code>required string username = 2;</code>
-         *
-         * @param value The username to set.
-         * @return This builder for chaining.
-         */
         public Builder setUsername(
                 java.lang.String value) {
             if (value == null) {
@@ -880,11 +768,6 @@ public final class FriendUpdate extends
             return this;
         }
 
-        /**
-         * <code>required string username = 2;</code>
-         *
-         * @return This builder for chaining.
-         */
         public Builder clearUsername() {
             bitField0_ = (bitField0_ & ~0x00000002);
             username_ = getDefaultInstance().getUsername();
@@ -892,12 +775,6 @@ public final class FriendUpdate extends
             return this;
         }
 
-        /**
-         * <code>required string username = 2;</code>
-         *
-         * @param value The bytes for username to set.
-         * @return This builder for chaining.
-         */
         public Builder setUsernameBytes(
                 com.google.protobuf.ByteString value) {
             if (value == null) {
@@ -911,20 +788,10 @@ public final class FriendUpdate extends
 
         private java.lang.Object friend_ = "";
 
-        /**
-         * <code>required string friend = 3;</code>
-         *
-         * @return Whether the friend field is set.
-         */
         public boolean hasFriend() {
             return ((bitField0_ & 0x00000004) != 0);
         }
 
-        /**
-         * <code>required string friend = 3;</code>
-         *
-         * @return The friend.
-         */
         public java.lang.String getFriend() {
             java.lang.Object ref = friend_;
             if (!(ref instanceof java.lang.String)) {
@@ -940,11 +807,6 @@ public final class FriendUpdate extends
             }
         }
 
-        /**
-         * <code>required string friend = 3;</code>
-         *
-         * @return The bytes for friend.
-         */
         public com.google.protobuf.ByteString
         getFriendBytes() {
             java.lang.Object ref = friend_;
@@ -959,12 +821,6 @@ public final class FriendUpdate extends
             }
         }
 
-        /**
-         * <code>required string friend = 3;</code>
-         *
-         * @param value The friend to set.
-         * @return This builder for chaining.
-         */
         public Builder setFriend(
                 java.lang.String value) {
             if (value == null) {
@@ -976,11 +832,6 @@ public final class FriendUpdate extends
             return this;
         }
 
-        /**
-         * <code>required string friend = 3;</code>
-         *
-         * @return This builder for chaining.
-         */
         public Builder clearFriend() {
             bitField0_ = (bitField0_ & ~0x00000004);
             friend_ = getDefaultInstance().getFriend();
@@ -988,12 +839,6 @@ public final class FriendUpdate extends
             return this;
         }
 
-        /**
-         * <code>required string friend = 3;</code>
-         *
-         * @param value The bytes for friend to set.
-         * @return This builder for chaining.
-         */
         public Builder setFriendBytes(
                 com.google.protobuf.ByteString value) {
             if (value == null) {

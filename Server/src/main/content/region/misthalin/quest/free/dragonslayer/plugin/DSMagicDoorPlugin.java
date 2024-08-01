@@ -8,18 +8,12 @@ import core.game.node.entity.player.Player;
 import core.game.world.map.Location;
 import core.plugin.Plugin;
 
-/**
- * The Ds magic door plugin.
- */
 public final class DSMagicDoorPlugin extends UseWithHandler {
 
     private static final Location LOC = Location.create(3049, 9840, 0);
 
     private static final int[] IDS = new int[]{301, 1791, 950, 1907};
 
-    /**
-     * Instantiates a new Ds magic door plugin.
-     */
     public DSMagicDoorPlugin() {
         super(301, 1791, 950, 1907);
     }

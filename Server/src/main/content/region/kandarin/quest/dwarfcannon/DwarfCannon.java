@@ -14,44 +14,20 @@ import core.plugin.Initializable;
 
 import static core.api.ContentAPIKt.*;
 
-/**
- * The Dwarf cannon.
- */
 @Initializable
 public class DwarfCannon extends Quest {
 
-    /**
-     * The constant NAME.
-     */
     public static final String NAME = "Dwarf Cannon";
 
-    /**
-     * The constant DWARF_REMAINS.
-     */
     public static final Item DWARF_REMAINS = new Item(0);
 
-    /**
-     * The constant TOOL_KIT.
-     */
     public static final Item TOOL_KIT = new Item(1);
 
-    /**
-     * The constant NULODION_NOTES.
-     */
     public static final Item NULODION_NOTES = new Item(3);
 
-    /**
-     * The constant MOULD.
-     */
     public static final Item MOULD = new Item(4);
-    /**
-     * The constant railVarbits.
-     */
     public static int[] railVarbits = new int[]{2240, 2241, 2242, 2243, 2244, 2245};
 
-    /**
-     * Instantiates a new Dwarf cannon.
-     */
     public DwarfCannon() {
         super(NAME, 49, 48, 1);
     }
@@ -132,12 +108,6 @@ public class DwarfCannon extends Quest {
         return new int[]{0, val};
     }
 
-    /**
-     * All rails fixed boolean.
-     *
-     * @param player the player
-     * @return the boolean
-     */
     public static boolean allRailsFixed(Player player) {
         for (int i = 0; i < 6; i++) {
             if (getVarbit(player, railVarbits[i]) != 1)

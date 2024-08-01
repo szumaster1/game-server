@@ -4,10 +4,6 @@ import core.network.packet.IoBuffer;
 import core.network.packet.OutgoingPacket;
 import core.network.packet.context.PlayerContext;
 
-/**
- * The outgoing logout packet.
- * @author Emperor
- */
 public class LogoutPacket implements OutgoingPacket<PlayerContext> {
 
     @Override

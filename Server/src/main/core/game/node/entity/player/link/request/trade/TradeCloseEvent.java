@@ -11,11 +11,6 @@ import core.network.packet.outgoing.ContainerPacket;
 import static core.api.ContentAPIKt.setVarp;
 
 
-/**
- * Represents the close event invoked at the closing of a trade interface.
- *
- * @author Vexia
- */
 public final class TradeCloseEvent implements CloseEvent {
 
     @Override
@@ -46,11 +41,6 @@ public final class TradeCloseEvent implements CloseEvent {
         return true;
     }
 
-    /**
-     * Method used to close the trade interface.
-     *
-     * @param player the player.
-     */
     private void closeInterfaces(final Player player) {
         player.removeExtension(TradeModule.class);
         player.getInterfaceManager().closeSingleTab();
@@ -59,21 +49,11 @@ public final class TradeCloseEvent implements CloseEvent {
         player.getPacketDispatch().sendRunScript(101, "");
     }
 
-    /**
-     * Method used to end the trade session.
-     *
-     * @param player the player.
-     */
     private void end(final Player player) {
         setVarp(player, 1043, 0);
         setVarp(player, 1042, 0);
     }
 
-    /**
-     * Method used to retain the trade container.
-     *
-     * @param player the player.
-     */
     private void retainContainer(final Player player) {
         final TradeModule module = TradeModule.getExtension(player);
         if (module == null || module.isRetained()) {

@@ -1,9 +1,5 @@
 package core.game.world.map.zone;
 
-/**
- * Represents the default zone types.
- * @author Emperor
- */
 public enum ZoneType {
 
 	DEFAULT(0),

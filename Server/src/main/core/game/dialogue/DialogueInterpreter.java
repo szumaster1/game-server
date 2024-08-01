@@ -24,79 +24,32 @@ import java.util.regex.Pattern;
 import static core.tools.DialogueHelperKt.END_DIALOGUE;
 
 
-/**
- * Handles the dialogues.
- *
- * @author Emperor
- */
 @PluginManifest(type = PluginType.DIALOGUE)
 public final class DialogueInterpreter {
-    /**
-     * The Active topics.
-     */
     public ArrayList<Topic<?>> activeTopics = new ArrayList<>();
 
-    /**
-     * The dialogue plugins.
-     */
     private static final Map<Integer, Dialogue> PLUGINS = new HashMap<>();
 
-    /**
-     * a List of dialogue actions.
-     */
     private final List<DialogueAction> actions = new ArrayList<>(10);
 
-    /**
-     * The currently opened dialogue.
-     */
     private Dialogue dialogue;
 
-    /**
-     * The current dialogue key.
-     */
     private int key;
 
-    /**
-     * The player.
-     */
     private final Player player;
 
-    /**
-     * Constructs a new {@code DialogueInterpreter} {@code Object}.
-     *
-     * @param player The player.
-     */
     public DialogueInterpreter(Player player) {
         this.player = player;
     }
 
-    /**
-     * Sets dialogue.
-     *
-     * @param dialogue the dialogue to set.
-     */
     public void setDialogue(Dialogue dialogue) {
         this.dialogue = dialogue;
     }
 
-    /**
-     * Opens the dialogue for the given dialogue type.
-     *
-     * @param dialogueType The dialogue type.
-     * @param args         the args.
-     * @return {@code True} if successful.
-     */
     public boolean open(String dialogueType, Object... args) {
         return open(getDialogueKey(dialogueType), args);
     }
 
-    /**
-     * Opens the dialogue for the given NPC id.
-     *
-     * @param dialogueKey The dialogue key (usually NPC id).
-     * @param args        The arguments.
-     * @return {@code True} if successful.
-     */
     public boolean open(int dialogueKey, Object... args) {
         key = dialogueKey;
         if (args.length > 0 && args[0] instanceof NPC) {
@@ -131,23 +84,11 @@ public final class DialogueInterpreter {
         return true;
     }
 
-    /**
-     * Open.
-     *
-     * @param file the file
-     * @param args the args
-     */
     public void open(DialogueFile file, Object... args) {
         this.dialogue = new EmptyDialogue(player, file);
         this.dialogue.open(args);
     }
 
-    /**
-     * Handles an dialogue input.
-     *
-     * @param componentId The id of the chatbox component.
-     * @param buttonId    The button id.
-     */
     public void handle(int componentId, int buttonId) {
         player.setAttribute("chatbox-buttonid", buttonId);
         if ((player.getDialogueInterpreter().getDialogue().file != null && player.getDialogueInterpreter().getDialogue().file.getCurrentStage() == END_DIALOGUE) || player.getDialogueInterpreter().getDialogue().stage == END_DIALOGUE) {
@@ -190,11 +131,6 @@ public final class DialogueInterpreter {
         }
     }
 
-    /**
-     * Closes the current dialogue.
-     *
-     * @return {@code True} if successful.
-     */
     public boolean close() {
         if (dialogue != null) {
             actions.clear();
@@ -213,12 +149,6 @@ public final class DialogueInterpreter {
         return dialogue == null;
     }
 
-    /**
-     * Puts a dialogue plugin on the mapping.
-     *
-     * @param id     The NPC id (or {@code 1 << 16 | dialogueId} when the dialogue isn't for an NPC).
-     * @param plugin The plugin.
-     */
     public static void add(int id, Dialogue plugin) {
         if (PLUGINS.containsKey(id)) {
             throw new IllegalArgumentException("dialogue " + (id & 0xFFFF) + " is already in use - [old=" + PLUGINS.get(id).getClass().getSimpleName() + ", new=" + plugin.getClass().getSimpleName() + "]!");
@@ -226,12 +156,6 @@ public final class DialogueInterpreter {
         PLUGINS.put(id, plugin);
     }
 
-    /**
-     * Send plain messages based on the amount of specified messages.
-     *
-     * @param messages The messages.
-     * @return The chatbox component.
-     */
     public Component sendDialogue(String... messages) {
         if (messages.length < 1 || messages.length > 4) {
             return null;
@@ -245,26 +169,12 @@ public final class DialogueInterpreter {
         return player.getInterfaceManager().getChatbox();
     }
 
-    /**
-     * Sends a plane message and hides the continue button.
-     *
-     * @param hideContinue if we should hide it or not.
-     * @param messages     the messages.
-     * @return the component.
-     */
     public Component sendPlainMessage(final boolean hideContinue, String... messages) {
         sendDialogue(messages);
         player.getPacketDispatch().sendInterfaceConfig(player.getInterfaceManager().getChatbox().getId(), (messages.length + 1), hideContinue);
         return player.getInterfaceManager().getChatbox();
     }
 
-    /**
-     * Opens the destroy item chatbox interface.
-     *
-     * @param id      The item id.
-     * @param message The message to display.
-     * @return The component.
-     */
     public Component sendDestroyItem(int id, String message) {
         String text = ItemDefinition.forId(id).getConfiguration(ItemConfigParser.DESTROY_MESSAGE, "Are you sure you want to destroy this object?");
         if (text.length() > 200) {
@@ -288,13 +198,6 @@ public final class DialogueInterpreter {
         return player.getInterfaceManager().getChatbox();
     }
 
-    /**
-     * Send plane messages with a blue title.
-     *
-     * @param title    The title.
-     * @param messages The messages.
-     * @return The chatbox component.
-     */
     public Component sendPlaneMessageWithBlueTitle(String title, String... messages) {
         player.getPacketDispatch().sendString(title, 372, 0);
         for (int i = 0; i < messages.length; i++) {
@@ -304,13 +207,6 @@ public final class DialogueInterpreter {
         return player.getInterfaceManager().getChatbox();
     }
 
-    /**
-     * Send plane messages with scroll and a blue title.
-     *
-     * @param title    The title.
-     * @param messages The messages.
-     * @return The chatbox component.
-     */
     public Component sendScrollMessageWithBlueTitle(String title, String... messages) {
         for (int i = 0; i < 11; i++) {
             player.getPacketDispatch().sendString(" ", 421, i + 2);
@@ -323,13 +219,6 @@ public final class DialogueInterpreter {
         return player.getInterfaceManager().getChatbox();
     }
 
-    /**
-     * Send a message with an item next to it.
-     *
-     * @param itemId   The item id.
-     * @param messages the messages
-     * @return the component
-     */
     public Component sendItemMessage(int itemId, String... messages) {
         if (1 <= messages.length && messages.length < 4) {
             ArrayList<String> packedMessages = new ArrayList();
@@ -389,25 +278,10 @@ public final class DialogueInterpreter {
         return player.getInterfaceManager().getChatbox();
     }
 
-    /**
-     * Send a message with an item next to it.
-     *
-     * @param item     the item
-     * @param messages the messages
-     * @return the component
-     */
     public Component sendItemMessage(final Item item, String... messages) {
         return sendItemMessage(item.getId(), messages);
     }
 
-    /**
-     * Send a message with an item next to it.
-     *
-     * @param first   the first
-     * @param second  the second
-     * @param message The message.
-     * @return the component
-     */
     public Component sendDoubleItemMessage(int first, int second, String message) {
         player.getInterfaceManager().openChatbox(131);
         player.getPacketDispatch().sendString(message, 131, 1);
@@ -416,14 +290,6 @@ public final class DialogueInterpreter {
         return player.getInterfaceManager().getChatbox();
     }
 
-    /**
-     * Send a message with an item next to it.
-     *
-     * @param first   the first
-     * @param second  the second
-     * @param message The message.
-     * @return the component
-     */
     public Component sendDoubleItemMessage(Item first, Item second, String message) {
         player.getInterfaceManager().openChatbox(131);
         player.getPacketDispatch().sendString(message, 131, 1);
@@ -432,95 +298,32 @@ public final class DialogueInterpreter {
         return player.getInterfaceManager().getChatbox();
     }
 
-    /**
-     * Send dialogues based on the amount of specified messages.
-     *
-     * @param entity     The entity.
-     * @param expression The entity's facial expression.
-     * @param messages   The messages.
-     * @return The chatbox component.
-     */
     public Component sendDialogues(Entity entity, FacialExpression expression, String... messages) {
         return sendDialogues(entity, expression == null ? -1 : expression.getAnimationId(), messages);
     }
 
-    /**
-     * Send dialogues based on the amount of specified messages.
-     *
-     * @param entity     The entity.
-     * @param expression The entity's facial expression.
-     * @param messages   The messages.
-     * @return The chatbox component.
-     */
     public Component sendDialogues(Entity entity, int expression, String... messages) {
         return sendDialogues(entity instanceof Player ? -1 : ((NPC) entity).getShownNPC(player).getId(), expression, false, messages);
     }
 
-    /**
-     * Send dialogues based on the amount of specified messages.
-     *
-     * @param npcId      The npc id.
-     * @param expression The entity's facial expression.
-     * @param hide       the continue.
-     * @param messages   The messages.
-     * @return The chatbox component.
-     */
     public Component sendDialogues(int npcId, FacialExpression expression, boolean hide, String... messages) {
         return sendDialogues(npcId, expression == null ? -1 : expression.getAnimationId(), hide, messages);
     }
 
-    /**
-     * Send dialogues based on the amount of specified messages.
-     *
-     * @param entity     the entity
-     * @param expression The entity's facial expression.
-     * @param hide       the continue.
-     * @param messages   The messages.
-     * @param hide       the continue.
-     * @return The chatbox component.
-     */
     public Component sendDialogues(Entity entity, FacialExpression expression, boolean hide, String... messages) {
         return sendDialogues(entity.getId(), expression == null ? -1 : expression.getAnimationId(), hide, messages);
     }
 
-    /**
-     * Send dialogues based on the amount of specified messages.
-     *
-     * @param entity     the entity
-     * @param expression The entity's facial expression.
-     * @param hide       the continue.
-     * @param messages   The messages.
-     * @param hide       should the continue button be hidden?
-     * @return The chatbox component.
-     */
     public Component sendDialogues(Entity entity, int expression, boolean hide, String... messages) {
         return sendDialogues(entity.getId(), expression, hide, messages);
     }
 
-    /**
-     * Send dialogues based on the amount of specified messages.
-     *
-     * @param npcId      The npc id.
-     * @param expression The entity's facial expression.
-     * @param messages   The messages.
-     * @return The chatbox component.
-     */
     public Component sendDialogues(int npcId, FacialExpression expression, String... messages) {
         return sendDialogues(npcId, expression == null ? -1 : expression.getAnimationId(), false, messages);
     }
 
-    /**
-     * The Gendered substitution.
-     */
     static Pattern GENDERED_SUBSTITUTION = Pattern.compile("@g\\[([^,]*),([^\\]]*)\\]");
 
-    /**
-     * Do substitutions string.
-     *
-     * @param player the player
-     * @param msg    the msg
-     * @return the string
-     */
     public static String doSubstitutions(Player player, String msg) {
         msg = msg.replace("@name", player.getUsername());
         StringBuilder sb = new StringBuilder();
@@ -533,27 +336,10 @@ public final class DialogueInterpreter {
         return sb.toString();
     }
 
-    /**
-     * Send dialogues based on the amount of specified messages.
-     *
-     * @param npcId      The npc id.
-     * @param expression The entity's facial expression.
-     * @param messages   The messages.
-     * @return The chatbox component.
-     */
     public Component sendDialogues(int npcId, int expression, String... messages) {
         return sendDialogues(npcId, expression, false, messages);
     }
 
-    /**
-     * Send dialogues based on the amount of specified messages.
-     *
-     * @param npcId      The npc id.
-     * @param expression The entity's facial expression.
-     * @param messages   The messages.
-     * @param hide       should the continue button be hidden?
-     * @return The chatbox component.
-     */
     public Component sendDialogues(int npcId, int expression, boolean hide, String... messages) {
         if (messages.length < 1 || messages.length > 4) {
             System.err.println("Invalid amount of messages: " + messages.length);
@@ -583,13 +369,6 @@ public final class DialogueInterpreter {
         return player.getInterfaceManager().getChatbox();
     }
 
-    /**
-     * Send options based on the amount of specified options.
-     *
-     * @param title   The title.
-     * @param options The options.
-     * @return the component
-     */
     public Component sendOptions(Object title, String... options) {
         int interfaceId = 224 + (2 * options.length);
         if (options.length < 2 || options.length > 5) {
@@ -605,16 +384,6 @@ public final class DialogueInterpreter {
         return player.getInterfaceManager().getChatbox();
     }
 
-    /**
-     * Send double item options component.
-     *
-     * @param title the title
-     * @param i1    the 1
-     * @param i2    the 2
-     * @param o1    the o 1
-     * @param o2    the o 2
-     * @return the component
-     */
     public Component sendDoubleItemOptions(String title, int i1, int i2, String o1, String o2) {
         player.getInterfaceManager().openChatbox(140);
 
@@ -628,16 +397,6 @@ public final class DialogueInterpreter {
         return player.getInterfaceManager().getChatbox();
     }
 
-    /**
-     * Send double item options component.
-     *
-     * @param title the title
-     * @param i1    the 1
-     * @param i2    the 2
-     * @param o1    the o 1
-     * @param o2    the o 2
-     * @return the component
-     */
     public Component sendDoubleItemOptions(String title, Item i1, Item i2, String o1, String o2) {
         player.getInterfaceManager().openChatbox(140);
 
@@ -651,77 +410,34 @@ public final class DialogueInterpreter {
         return player.getInterfaceManager().getChatbox();
     }
 
-    /**
-     * Send a input run script.
-     *
-     * @param string  The strings.
-     * @param objects The arguments.
-     */
     public void sendInput(boolean string, Object... objects) {
         player.getPacketDispatch().sendRunScript(string ? 109 : 108, "s", objects);
     }
 
-    /**
-     * Sends a long input.
-     *
-     * @param objects the objects.
-     */
     public void sendLongInput(Object... objects) {
         player.getPacketDispatch().sendRunScript(110, "s", objects);
     }
 
-    /**
-     * Sends the private message input.
-     *
-     * @param receiver The receiver.
-     */
     public void sendMessageInput(String receiver) {
         player.getPacketDispatch().sendRunScript(107, "s", receiver);
     }
 
-    /**
-     * Checks if the dialogue for the given id is added.
-     *
-     * @param id The NPC id/dialogue id.
-     * @return {@code True} if so.
-     */
     public static boolean contains(int id) {
         return PLUGINS.containsKey(id);
     }
 
-    /**
-     * Gets the currently opened dialogue.
-     *
-     * @return The dialogue plugin.
-     */
     public Dialogue getDialogue() {
         return dialogue;
     }
 
-    /**
-     * Reserves a key for the name.
-     *
-     * @param name The name.
-     * @return The key.
-     */
     public static int getDialogueKey(String name) {
         return 1 << 16 | name.hashCode();
     }
 
-    /**
-     * Adds a dialogue reward.
-     *
-     * @param action the reward.
-     */
     public void addAction(DialogueAction action) {
         actions.add(action);
     }
 
-    /**
-     * Gets the actions.
-     *
-     * @return The actions.
-     */
     public List<DialogueAction> getActions() {
         return actions;
     }

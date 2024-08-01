@@ -18,9 +18,6 @@ import core.game.world.update.flag.context.Animation;
 import core.game.world.update.flag.context.Graphic;
 import core.tools.RandomFunction;
 
-/**
- * The Tzhaar fight cave npc.
- */
 public final class TzhaarFightCaveNPC extends AbstractNPC {
     private static final int[] NPC_IDS = {2734, 2735, 2736, 2737, 2738, 2739, 2740, 2741, 2742, 2743, 2744, 2745, 2746};
 

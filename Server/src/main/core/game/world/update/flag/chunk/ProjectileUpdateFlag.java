@@ -7,10 +7,6 @@ import core.game.world.map.Location;
 import core.game.world.update.flag.UpdateFlag;
 import core.network.packet.IoBuffer;
 
-/**
- * Handles the projectile updating.
- * @author Emperor
- */
 public final class ProjectileUpdateFlag extends UpdateFlag<Projectile> {
 
     public ProjectileUpdateFlag(Projectile projectile) {

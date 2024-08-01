@@ -5,11 +5,6 @@ import java.util.Date;
 
 public class Util {
 
-    /**
-     * Capitalize the first letter of the string
-     *
-     * @return Capitalized string
-     */
     public static String capitalize(String name) {
         if (name != null && name.length() != 0) {
             char[] chars = name.toCharArray();

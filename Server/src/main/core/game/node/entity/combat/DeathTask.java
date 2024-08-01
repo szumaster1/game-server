@@ -20,16 +20,8 @@ import core.game.world.map.Location;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
-/**
- * Handles an entity death task.
- *
- * @author Emperor
- */
 public final class DeathTask extends NodeTask {
 
-    /**
-     * The death task singleton.
-     */
     private static final DeathTask SINGLETON = new DeathTask();
 
     private DeathTask() {
@@ -91,12 +83,6 @@ public final class DeathTask extends NodeTask {
         return false;
     }
 
-    /**
-     * Gets the player's death containers.
-     *
-     * @param player The player.
-     * @return The containers, index 0 = kept items, index 1 = lost items.
-     */
     public static Container[] getContainers(Player player) {
         Container[] containers = new Container[2];
         Container wornItems = new Container(42, ContainerType.ALWAYS_STACK);
@@ -143,12 +129,6 @@ public final class DeathTask extends NodeTask {
         return containers;
     }
 
-    /**
-     * Starts the death task for an entity.
-     *
-     * @param entity The entity.
-     * @param killer The entity's killer.
-     */
     @SuppressWarnings("deprecation")
     public static void startDeath(Entity entity, Entity killer) {
         if (!isDead(entity)) {
@@ -160,23 +140,12 @@ public final class DeathTask extends NodeTask {
         }
     }
 
-    /**
-     * Checks if the entity is dead.
-     *
-     * @param e The entity.
-     * @return {@code True} if so.
-     */
     public static boolean isDead(Entity e) {
         if (e instanceof NPC)
             return ((NPC) e).getRespawnTick() > GameWorld.getTicks() || e.getAttribute("state:death", false);
         else return e.getAttribute("state:death", false);
     }
 
-    /**
-     * Gets the singleton.
-     *
-     * @return The singleton.
-     */
     public static DeathTask getSingleton() {
         return SINGLETON;
     }

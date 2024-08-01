@@ -17,30 +17,15 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Handles the building a room dialogue.
- */
 @Initializable
 public final class BuildRoomDialogue extends Dialogue {
 
-    /**
-     * The door hotspot.
-     */
     private Scenery door;
 
-    /**
-     * The direction.
-     */
     private Direction[] directions;
 
-    /**
-     * The room exits.
-     */
     private boolean[] exits;
 
-    /**
-     * The rotation index.
-     */
     private int index;
     private List<Scenery> boundaries = new ArrayList<>(20);
     private Room room;
@@ -48,18 +33,10 @@ public final class BuildRoomDialogue extends Dialogue {
     private int roomY;
     private int roomZ;
 
-    /**
-     * Instantiates a new Build room dialogue.
-     */
     public BuildRoomDialogue() {
         super();
     }
 
-    /**
-     * Instantiates a new Build room dialogue.
-     *
-     * @param player the player
-     */
     public BuildRoomDialogue(Player player) {
         super(player);
     }
@@ -135,11 +112,6 @@ public final class BuildRoomDialogue extends Dialogue {
         return true;
     }
 
-    /**
-     * Checks if the room to be built is in the available boundaries of the house.
-     *
-     * @return The boundaries.
-     */
     private boolean inBounds() {
         Rectangle bounds = player.getHouseManager().getBoundaries();
         int max = player.getHouseManager().getMaximumDimension(player);
@@ -197,11 +169,6 @@ public final class BuildRoomDialogue extends Dialogue {
         return false;
     }
 
-    /**
-     * Rotates the room.
-     *
-     * @param counter If we're rotating counterclockwise.
-     */
     private void rotate(boolean counter) {
         Direction direction = null;
         while ((direction = directions[index = (index + (counter ? 3 : 1)) % 4]) == null) {
@@ -211,9 +178,6 @@ public final class BuildRoomDialogue extends Dialogue {
         drawGhostRoom();
     }
 
-    /**
-     * Draws the current boundaries of the room to build.
-     */
     private void drawGhostRoom() {
         for (Scenery object : boundaries) {
             SceneryBuilder.remove(object);

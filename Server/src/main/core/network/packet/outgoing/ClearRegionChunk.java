@@ -5,10 +5,6 @@ import core.network.packet.IoBuffer;
 import core.network.packet.OutgoingPacket;
 import core.network.packet.context.ClearChunkContext;
 
-/**
- * Handles the clear region chunk outgoing packet.
- * @author Emperor
- */
 public final class ClearRegionChunk implements OutgoingPacket<ClearChunkContext> {
 
     @Override

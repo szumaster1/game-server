@@ -8,44 +8,17 @@ import core.game.node.entity.player.link.emote.Emotes;
 import core.game.world.map.zone.ZoneBorders;
 import core.game.world.update.flag.context.Graphic;
 
-/**
- * Handles an emote clue scroll.
- * @author Vexia
- */
 public abstract class EmoteClueScroll extends ClueScrollPlugin {
 
-	/**
-	 * The emote id.
-	 */
 	private final Emotes emote;
 
-	/**
-	 * The commening emote.
-	 */
 	private final Emotes commenceEmote;
 
-	/**
-	 * The equipment ids.
-	 */
 	private final int[][] equipment;
 
-	/**
-	 * The clue message.
-	 */
 	private final String clue;
 
-	/**
-	 * Constructs a new {@code EmoteClueScroll} {@code Object}
-	 * @param name the name.
-	 * @param clueId the clue id.
-	 * @param level the level.
-	 * @param emote the emote.
-	 * @param commenceEmote the emote.
-	 * @param equipment the equipment.
-	 * @param clue the clue.
-	 * @param borders the borders.
-	 */
-	public EmoteClueScroll(String name, int clueId, ClueLevel level, Emotes emote, Emotes commenceEmote, int[][] equipment, final String clue, ZoneBorders... borders) {
+    public EmoteClueScroll(String name, int clueId, ClueLevel level, Emotes emote, Emotes commenceEmote, int[][] equipment, final String clue, ZoneBorders... borders) {
 		super(name, clueId, level, 345, borders);
 		this.emote = emote;
 		this.commenceEmote = commenceEmote;
@@ -87,11 +60,7 @@ public abstract class EmoteClueScroll extends ClueScrollPlugin {
 		player.getPacketDispatch().sendString(clue.replace("<br>", "<br><br>"), interfaceId, 1);
 	}
 
-	/**
-	 * Spawns the uri npc for the player.
-	 * @param player the player.
-	 */
-	public void spawnUri(Player player) {
+    public void spawnUri(Player player) {
 		boolean doubleAgent = level == ClueLevel.HARD && player.getAttribute("killed-agent", 0) != clueId;
 		//changed  this
 		int id = 5141;
@@ -119,35 +88,19 @@ public abstract class EmoteClueScroll extends ClueScrollPlugin {
 		}
 	}
 
-	/**
-	 * Checks if a commence emote is needed.
-	 * @return {@code True} if so.
-	 */
-	public boolean hasCommencEmote() {
+    public boolean hasCommencEmote() {
 		return commenceEmote != null;
 	}
 
-	/**
-	 * Gets the emote.
-	 * @return the emote.
-	 */
-	public Emotes getEmote() {
+    public Emotes getEmote() {
 		return emote;
 	}
 
-	/**
-	 * Gets the bequipment.
-	 * @return the equipment
-	 */
-	public int[][] getEquipment() {
+    public int[][] getEquipment() {
 		return equipment;
 	}
 
-	/**
-	 * Gets the bcommenceEmote.
-	 * @return the commenceEmote
-	 */
-	public Emotes getCommenceEmote() {
+    public Emotes getCommenceEmote() {
 		return commenceEmote;
 	}
 

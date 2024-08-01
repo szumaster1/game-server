@@ -13,57 +13,22 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Represents range ammunition types.
- *
- * @author Emperor
- */
 public final class Ammunition {
 
-    /**
-     * The ammunition mapping.
-     */
     private static final Map<Integer, Ammunition> AMMUNITION = new HashMap<Integer, Ammunition>();
 
-    /**
-     * The ammunition item id.
-     */
     private final int itemId;
 
-    /**
-     * The start graphics.
-     */
     private final Graphic startGraphic;
 
-    /**
-     * The start graphics when using Dark bow.
-     */
     private final Graphic darkBowGraphic;
 
-    /**
-     * The projectile.
-     */
     private final Projectile projectile;
 
-    /**
-     * The poison damage.
-     */
     private final int poisonDamage;
 
-    /**
-     * The bolt effect.
-     */
     private BoltEffect effect;
 
-    /**
-     * Constructs a new {@code Ammunition} object.
-     *
-     * @param itemId         The item id.
-     * @param startGraphic   The start graphics.
-     * @param darkBowGraphic The dark bow start graphics.
-     * @param projectile     The projectile.
-     * @param poisonDamage   The poison damage the ammunition can do.
-     */
     public Ammunition(int itemId, Graphic startGraphic, Graphic darkBowGraphic, Projectile projectile, int poisonDamage) {
         this.itemId = itemId;
         this.startGraphic = startGraphic;
@@ -72,11 +37,6 @@ public final class Ammunition {
         this.projectile = projectile;
     }
 
-    /**
-     * Loads all the {@code Ammunition} info to the mapping.
-     *
-     * @return {@code True}.
-     */
     public static final boolean initialize() {
         Document doc;
         try {
@@ -127,93 +87,42 @@ public final class Ammunition {
         return true;
     }
 
-    /**
-     * The entry point of application.
-     *
-     * @param args the input arguments
-     */
     public static void main(String... args) {
         initialize();
     }
 
-    /**
-     * Gets the ammunition mapping.
-     *
-     * @return The mapping.
-     */
     public static Map<Integer, Ammunition> getAmmunition() {
         return AMMUNITION;
     }
 
-    /**
-     * Gets an ammunition object from the mapping.
-     *
-     * @param id The ammo id.
-     * @return The ammunition object.
-     */
     public static final Ammunition get(int id) {
         return AMMUNITION.get(id);
     }
 
-    /**
-     * Gets item id.
-     *
-     * @return the itemId
-     */
     public int getItemId() {
         return itemId;
     }
 
-    /**
-     * Gets start graphics.
-     *
-     * @return the startGraphic
-     */
     public Graphic getStartGraphics() {
         return startGraphic;
     }
 
-    /**
-     * Gets dark bow graphics.
-     *
-     * @return the darkBowGraphic
-     */
     public Graphic getDarkBowGraphics() {
         return darkBowGraphic;
     }
 
-    /**
-     * Gets projectile.
-     *
-     * @return the projectile
-     */
     public Projectile getProjectile() {
         return projectile;
     }
 
-    /**
-     * Gets poison damage.
-     *
-     * @return the poisonDamage
-     */
     public int getPoisonDamage() {
         return poisonDamage;
     }
 
-    /**
-     * Gets the effect.
-     *
-     * @return the effect
-     */
     public BoltEffect getEffect() {
         return effect;
     }
 
-    /**
-     * Sets the bolt effects.
-     *
-     * @param effect the effect to set.
-     */
     public void setEffect(BoltEffect effect) {
         this.effect = effect;
     }

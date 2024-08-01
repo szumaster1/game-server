@@ -17,17 +17,16 @@ import java.util.List;
 
 import static core.api.ContentAPIKt.addItemOrDrop;
 
-/**
- * A clue scroll level.
- */
 public enum ClueLevel {
-	EASY(Items.CASKET_2714, 1, 5),
-	MEDIUM(Items.CASKET_2717, 1, 6),
-	HARD(Items.CASKET_2720, 1, 8),
-	UNKNOWN(0, 0, 0)
+    EASY(Items.CASKET_2714, 1, 5),
+    MEDIUM(Items.CASKET_2717, 1, 6),
+    HARD(Items.CASKET_2720, 1, 8),
+    UNKNOWN(0, 0, 0)
 	;
 
-	public int casketId, minSteps, maxSteps;
+    public int casketId,
+    minSteps,
+    maxSteps;
 
 	private ClueLevel(int casketId, int minSteps, int maxSteps) {
 		this.casketId = casketId;
@@ -48,7 +47,7 @@ public enum ClueLevel {
 		return ClueLevel.UNKNOWN;
 	}
 
-	public static void open(Player player, Item casket) {
+    public static void open(Player player, Item casket) {
 		if (casket == null || !player.getInventory().containsItem(casket)) {
 			return;
 		}
@@ -116,7 +115,7 @@ public enum ClueLevel {
 		player.getDialogueInterpreter().sendItemMessage(newClue, "You've found another clue!");
 	}
 
-	public static List<Item> rollLoot(Player player, ClueLevel level) {
+    public static List<Item> rollLoot(Player player, ClueLevel level) {
 		ArrayList<Item> loot = new ArrayList();
 		int itemCount = RandomFunction.random(1,6);
 
@@ -145,12 +144,7 @@ public enum ClueLevel {
 		return loot;
 	}
 
-	/**
-	 * Gets the Chat color to send on completed clues.
-	 * @param level The clue level.
-	 * @return the chat color.
-	 */
-	public static String getChatColor(ClueLevel level) {
+    public static String getChatColor(ClueLevel level) {
 		if (level == ClueLevel.HARD) {
 			return "<col=ff1a1a>";
 		}
@@ -159,38 +153,20 @@ public enum ClueLevel {
 		}
 		return "<col=00e673>";
 	}
-	/**
-	 * Gets the maximum length.
-	 *
-	 * @return the length.
-	 */
-	public int getMaximumLength() {
+
+    public int getMaximumLength() {
 		return maxSteps;
 	}
 
-	/**
-	 * Gets the minimum length.
-	 *
-	 * @return the length.
-	 */
-	public int getMinimumLength() {
+    public int getMinimumLength() {
 		return minSteps;
 	}
 
-	/**
-	 * Gets the bcasket.
-	 *
-	 * @return the casket
-	 */
-	public Item getCasket() {
+    public Item getCasket() {
 		return new Item(casketId);
 	}
 
-	/**
-	 * Gets the name of the clue level.
-	 * @return the name.
-	 */
-	public String getName() {
+    public String getName() {
 		return toString();
 	}
 }

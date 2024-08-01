@@ -3,9 +3,6 @@
 
 package proto.management;
 
-/**
- * Protobuf type {@code management.LeaveClanRequest}
- */
 public final class LeaveClanRequest extends
         com.google.protobuf.GeneratedMessageV3 implements
         // @@protoc_insertion_point(message_implements:management.LeaveClanRequest)
@@ -103,21 +100,11 @@ public final class LeaveClanRequest extends
     public static final int USERNAME_FIELD_NUMBER = 1;
     private volatile java.lang.Object username_;
 
-    /**
-     * <code>required string username = 1;</code>
-     *
-     * @return Whether the username field is set.
-     */
     @java.lang.Override
     public boolean hasUsername() {
         return ((bitField0_ & 0x00000001) != 0);
     }
 
-    /**
-     * <code>required string username = 1;</code>
-     *
-     * @return The username.
-     */
     @java.lang.Override
     public java.lang.String getUsername() {
         java.lang.Object ref = username_;
@@ -134,11 +121,6 @@ public final class LeaveClanRequest extends
         }
     }
 
-    /**
-     * <code>required string username = 1;</code>
-     *
-     * @return The bytes for username.
-     */
     @java.lang.Override
     public com.google.protobuf.ByteString
     getUsernameBytes() {
@@ -157,21 +139,11 @@ public final class LeaveClanRequest extends
     public static final int CLANNAME_FIELD_NUMBER = 2;
     private volatile java.lang.Object clanName_;
 
-    /**
-     * <code>required string clanName = 2;</code>
-     *
-     * @return Whether the clanName field is set.
-     */
     @java.lang.Override
     public boolean hasClanName() {
         return ((bitField0_ & 0x00000002) != 0);
     }
 
-    /**
-     * <code>required string clanName = 2;</code>
-     *
-     * @return The clanName.
-     */
     @java.lang.Override
     public java.lang.String getClanName() {
         java.lang.Object ref = clanName_;
@@ -188,11 +160,6 @@ public final class LeaveClanRequest extends
         }
     }
 
-    /**
-     * <code>required string clanName = 2;</code>
-     *
-     * @return The bytes for clanName.
-     */
     @java.lang.Override
     public com.google.protobuf.ByteString
     getClanNameBytes() {
@@ -408,9 +375,6 @@ public final class LeaveClanRequest extends
         return builder;
     }
 
-    /**
-     * Protobuf type {@code management.LeaveClanRequest}
-     */
     public static final class Builder extends
             com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
             // @@protoc_insertion_point(builder_implements:management.LeaveClanRequest)
@@ -592,20 +556,10 @@ public final class LeaveClanRequest extends
 
         private java.lang.Object username_ = "";
 
-        /**
-         * <code>required string username = 1;</code>
-         *
-         * @return Whether the username field is set.
-         */
         public boolean hasUsername() {
             return ((bitField0_ & 0x00000001) != 0);
         }
 
-        /**
-         * <code>required string username = 1;</code>
-         *
-         * @return The username.
-         */
         public java.lang.String getUsername() {
             java.lang.Object ref = username_;
             if (!(ref instanceof java.lang.String)) {
@@ -621,11 +575,6 @@ public final class LeaveClanRequest extends
             }
         }
 
-        /**
-         * <code>required string username = 1;</code>
-         *
-         * @return The bytes for username.
-         */
         public com.google.protobuf.ByteString
         getUsernameBytes() {
             java.lang.Object ref = username_;
@@ -640,12 +589,6 @@ public final class LeaveClanRequest extends
             }
         }
 
-        /**
-         * <code>required string username = 1;</code>
-         *
-         * @param value The username to set.
-         * @return This builder for chaining.
-         */
         public Builder setUsername(
                 java.lang.String value) {
             if (value == null) {
@@ -657,11 +600,6 @@ public final class LeaveClanRequest extends
             return this;
         }
 
-        /**
-         * <code>required string username = 1;</code>
-         *
-         * @return This builder for chaining.
-         */
         public Builder clearUsername() {
             bitField0_ = (bitField0_ & ~0x00000001);
             username_ = getDefaultInstance().getUsername();
@@ -669,12 +607,6 @@ public final class LeaveClanRequest extends
             return this;
         }
 
-        /**
-         * <code>required string username = 1;</code>
-         *
-         * @param value The bytes for username to set.
-         * @return This builder for chaining.
-         */
         public Builder setUsernameBytes(
                 com.google.protobuf.ByteString value) {
             if (value == null) {
@@ -688,20 +620,10 @@ public final class LeaveClanRequest extends
 
         private java.lang.Object clanName_ = "";
 
-        /**
-         * <code>required string clanName = 2;</code>
-         *
-         * @return Whether the clanName field is set.
-         */
         public boolean hasClanName() {
             return ((bitField0_ & 0x00000002) != 0);
         }
 
-        /**
-         * <code>required string clanName = 2;</code>
-         *
-         * @return The clanName.
-         */
         public java.lang.String getClanName() {
             java.lang.Object ref = clanName_;
             if (!(ref instanceof java.lang.String)) {
@@ -717,11 +639,6 @@ public final class LeaveClanRequest extends
             }
         }
 
-        /**
-         * <code>required string clanName = 2;</code>
-         *
-         * @return The bytes for clanName.
-         */
         public com.google.protobuf.ByteString
         getClanNameBytes() {
             java.lang.Object ref = clanName_;
@@ -736,12 +653,6 @@ public final class LeaveClanRequest extends
             }
         }
 
-        /**
-         * <code>required string clanName = 2;</code>
-         *
-         * @param value The clanName to set.
-         * @return This builder for chaining.
-         */
         public Builder setClanName(
                 java.lang.String value) {
             if (value == null) {
@@ -753,11 +664,6 @@ public final class LeaveClanRequest extends
             return this;
         }
 
-        /**
-         * <code>required string clanName = 2;</code>
-         *
-         * @return This builder for chaining.
-         */
         public Builder clearClanName() {
             bitField0_ = (bitField0_ & ~0x00000002);
             clanName_ = getDefaultInstance().getClanName();
@@ -765,12 +671,6 @@ public final class LeaveClanRequest extends
             return this;
         }
 
-        /**
-         * <code>required string clanName = 2;</code>
-         *
-         * @param value The bytes for clanName to set.
-         * @return This builder for chaining.
-         */
         public Builder setClanNameBytes(
                 com.google.protobuf.ByteString value) {
             if (value == null) {

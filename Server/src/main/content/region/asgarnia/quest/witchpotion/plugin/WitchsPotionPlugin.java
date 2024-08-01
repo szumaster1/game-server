@@ -8,9 +8,6 @@ import core.game.node.entity.player.link.quest.Quest;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
-/**
- * The Witchs potion plugin.
- */
 @Initializable
 public final class WitchsPotionPlugin extends OptionHandler {
 

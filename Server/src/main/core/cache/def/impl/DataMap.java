@@ -13,14 +13,8 @@ import static core.api.ContentAPIKt.log;
 
 public class DataMap {
 
-    /**
-     * The config definitions mapping.
-     */
     private static final Map<Integer, DataMap> definitions = new HashMap<>();
 
-    /**
-     * The enum id.
-     */
     private final int id;
 
     public char keyType = '?';

@@ -12,59 +12,23 @@ import core.plugin.Plugin;
 import core.plugin.PluginManifest;
 import core.plugin.PluginType;
 
-/**
- * A plugin implementation used for activity plugins.
- *
- * @author Emperor
- */
 @PluginManifest(type = PluginType.ACTIVITY)
 public abstract class ActivityPlugin extends MapZone implements Plugin<Player> {
 
-    /**
-     * If the activity is instanced.
-     */
     private boolean instanced;
 
-    /**
-     * If the activity is multicombat.
-     */
     private boolean multicombat;
 
-    /**
-     * If the activity is safe.
-     */
     private boolean safe;
 
-    /**
-     * The region of the activity.
-     */
     protected DynamicRegion region;
 
-    /**
-     * The base location.
-     */
     protected Location base;
 
-    /**
-     * A location which the player is teleported to in the case of death, if this activity is safe.
-     * Defaults to the home location of the server.
-     */
     protected Location safeRespawn = ServerConstants.HOME_LOCATION;
 
-    /**
-     * The player.
-     */
     protected Player player;
 
-    /**
-     * Constructs a new {@code ActivityPlugin} {@code Object}.
-     *
-     * @param name         The name.
-     * @param instanced    If the activity is instanced.
-     * @param multicombat  If the activity is multicombat.
-     * @param safe         If the activity is safe (the player does not lose his/her items).
-     * @param restrictions the restrictions
-     */
     public ActivityPlugin(String name, boolean instanced, boolean multicombat, boolean safe, ZoneRestriction... restrictions) {
         super(name, true, ZoneRestriction.RANDOM_EVENTS);
         for (ZoneRestriction restriction : restrictions) {
@@ -86,9 +50,6 @@ public abstract class ActivityPlugin extends MapZone implements Plugin<Player> {
         super.register(borders);
     }
 
-    /**
-     * Sets the region base location.
-     */
     protected void setRegionBase() {
         if (region != null) {
             if (multicombat) {
@@ -98,11 +59,6 @@ public abstract class ActivityPlugin extends MapZone implements Plugin<Player> {
         }
     }
 
-    /**
-     * Sets the region base for multiple regions.
-     *
-     * @param regions The regions.
-     */
     protected void setRegionBase(DynamicRegion[] regions) {
         region = regions[0];
         Location l = region.getBaseLocation();
@@ -124,14 +80,6 @@ public abstract class ActivityPlugin extends MapZone implements Plugin<Player> {
         setBase(Location.create(borders.getSouthWestX(), borders.getSouthWestY(), 0));
     }
 
-    /**
-     * Starts the activity for the player.
-     *
-     * @param player The player.
-     * @param login  If the player is logging in.
-     * @param args   The arguments.
-     * @return {@code True} if successfully started the activity.
-     */
     public boolean start(Player player, boolean login, Object... args) {
         this.player = player;
         return true;
@@ -164,9 +112,6 @@ public abstract class ActivityPlugin extends MapZone implements Plugin<Player> {
         return super.leave(e, logout);
     }
 
-    /**
-     * Method used to do anything on registration.
-     */
     public void register() {
     }
 
@@ -178,90 +123,40 @@ public abstract class ActivityPlugin extends MapZone implements Plugin<Player> {
     @Override
     public abstract ActivityPlugin newInstance(Player p) throws Throwable;
 
-    /**
-     * Gets the spawn location for this activity.
-     *
-     * @return the spawn location
-     */
     public abstract Location getSpawnLocation();
 
-    /**
-     * Gets the instanced.
-     *
-     * @return The instanced.
-     */
     public boolean isInstanced() {
         return instanced;
     }
 
-    /**
-     * Sets the instanced.
-     *
-     * @param instanced The instanced to set.
-     */
     public void setInstanced(boolean instanced) {
         this.instanced = instanced;
     }
 
-    /**
-     * Gets the multicombat.
-     *
-     * @return The multicombat.
-     */
     public boolean isMulticombat() {
         return multicombat;
     }
 
-    /**
-     * Sets the multicombat.
-     *
-     * @param multicombat The multicombat to set.
-     */
     public void setMulticombat(boolean multicombat) {
         this.multicombat = multicombat;
     }
 
-    /**
-     * Gets the safe.
-     *
-     * @return The safe.
-     */
     public boolean isSafe() {
         return safe;
     }
 
-    /**
-     * Sets the safe.
-     *
-     * @param safe The safe to set.
-     */
     public void setSafe(boolean safe) {
         this.safe = safe;
     }
 
-    /**
-     * Gets the player.
-     *
-     * @return The player.
-     */
     public Player getPlayer() {
         return player;
     }
 
-    /**
-     * Gets the base.
-     *
-     * @return The base.
-     */
     public Location getBase() {
         return base;
     }
 
-    /**
-     * Sets the base.
-     *
-     * @param base The base to set.
-     */
     public void setBase(Location base) {
         this.base = base;
     }

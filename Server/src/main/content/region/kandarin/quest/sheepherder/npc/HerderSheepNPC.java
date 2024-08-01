@@ -7,25 +7,10 @@ import core.game.world.GameWorld;
 import core.game.world.map.Location;
 import core.game.world.map.path.Pathfinder;
 
-/**
- * The Herder sheep npc.
- */
 public class HerderSheepNPC extends NPC {
-    /**
-     * The Ticks til return.
-     */
     public int ticksTilReturn = 0;
-    /**
-     * The Spawn location.
-     */
     public Location spawnLocation;
 
-    /**
-     * Instantiates a new Herder sheep npc.
-     *
-     * @param id       the id
-     * @param location the location
-     */
     public HerderSheepNPC(int id, Location location) {
         super(id, location);
         this.spawnLocation = location;
@@ -61,11 +46,6 @@ public class HerderSheepNPC extends NPC {
         }
     }
 
-    /**
-     * Move to.
-     *
-     * @param l the l
-     */
     public void moveTo(Location l) {
         this.getPulseManager().run(new MovementPulse(this, l) {
             @Override

@@ -10,20 +10,11 @@ import core.plugin.Initializable;
 import static core.api.ContentAPIKt.getVarp;
 import static core.api.ContentAPIKt.removeAttribute;
 
-/**
- * The Wolf whistle.
- */
 @Initializable
 public class WolfWhistle extends Quest {
 
-    /**
-     * The constant WOLF_BONES.
-     */
     public static final Item WOLF_BONES = new Item(2859, 2);
 
-    /**
-     * Instantiates a new Wolf whistle.
-     */
     public WolfWhistle() {
         super("Wolf Whistle", 146, 145, 1);
     }

@@ -7,59 +7,24 @@ import java.nio.ByteBuffer;
 import java.util.Arrays;
 import java.util.zip.CRC32;
 
-/**
- * A class holding the containers information.
- *
- * @author Dragonkk
- */
 public final class ContainersInformation {
 
-    /**
-     * The information container.
-     */
     private Container informationContainer;
 
-    /**
-     * The protocol.
-     */
     private int protocol;
 
-    /**
-     * The revision.
-     */
     private int revision;
 
-    /**
-     * The container indexes.
-     */
     private int[] containersIndexes;
 
-    /**
-     * The containers.
-     */
     private FilesContainer[] containers;
 
-    /**
-     * If files have to be named.
-     */
     private boolean filesNamed;
 
-    /**
-     * If it has to be whirpool.
-     */
     private boolean whirpool;
 
-    /**
-     * The data.
-     */
     private final byte[] data;
 
-    /**
-     * Construct a new containers' information.
-     *
-     * @param informationContainerPackedData The information container data
-     *                                       packed.
-     */
     public ContainersInformation(byte[] informationContainerPackedData) {
         this.data = Arrays.copyOf(informationContainerPackedData, informationContainerPackedData.length);
         informationContainer = new Container();
@@ -70,12 +35,6 @@ public final class ContainersInformation {
         decodeContainersInformation(unpackCacheContainer(informationContainerPackedData));
     }
 
-    /**
-     * Unpacks a container.
-     *
-     * @param packedData The packed container data.
-     * @return The unpacked data.
-     */
     public static byte[] unpackCacheContainer(byte[] packedData) {
         ByteBuffer buffer = ByteBuffer.wrap(packedData);
         int compression = buffer.get() & 0xFF;
@@ -103,47 +62,22 @@ public final class ContainersInformation {
         return decompressedData;
     }
 
-    /**
-     * Get the container indexes.
-     *
-     * @return The container indexes.
-     */
     public int[] getContainersIndexes() {
         return containersIndexes;
     }
 
-    /**
-     * Get the containers.
-     *
-     * @return The containers.
-     */
     public FilesContainer[] getContainers() {
         return containers;
     }
 
-    /**
-     * Get the information container.
-     *
-     * @return The information container.
-     */
     public Container getInformationContainer() {
         return informationContainer;
     }
 
-    /**
-     * Get the revision.
-     *
-     * @return The revision.
-     */
     public int getRevision() {
         return revision;
     }
 
-    /**
-     * Decode the containers information.
-     *
-     * @param data The data.
-     */
     public void decodeContainersInformation(byte[] data) {
         ByteBuffer buffer = ByteBuffer.wrap(data);
         protocol = buffer.get() & 0xFF;
@@ -217,20 +151,10 @@ public final class ContainersInformation {
         }
     }
 
-    /**
-     * If is whirpool.
-     *
-     * @return If is whirpool {@code true}.
-     */
     public boolean isWhirpool() {
         return whirpool;
     }
 
-    /**
-     * Gets the data.
-     *
-     * @return The data.
-     */
     public byte[] getData() {
         return data;
     }

@@ -15,9 +15,6 @@ import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
-/**
- * The Seercull special handler.
- */
 @Initializable
 public final class SeercullSpecialHandler extends RangeSwingHandler implements Plugin<Object> {
 

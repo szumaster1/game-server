@@ -18,9 +18,6 @@ import core.network.packet.outgoing.CameraViewPacket;
 import core.tools.RandomFunction;
 import kotlin.Unit;
 
-/**
- * The Dart trap.
- */
 public final class DartTrap implements MovementHook {
 
     @Override

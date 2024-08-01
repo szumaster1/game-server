@@ -21,50 +21,20 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.stream.Collectors;
 
-/**
- * Class used for handling combat impacts.
- *
- * @author Emperor
- */
 public final class ImpactHandler {
 
-    /**
-     * The entity.
-     */
     private final Entity entity;
 
-    /**
-     * The amount of ticks impacts have been disabled for.
-     */
     private int disabledTicks;
 
-    /**
-     * The impact log.
-     */
     private final Map<Entity, Integer> impactLog = new HashMap<>();
 
-    /**
-     * Gets the current hitsplats to show.
-     */
     private final Queue<Impact> impactQueue = new LinkedList<Impact>();
 
-    /**
-     * Constructs a new {@code ImpactHandler} {@code Object}.
-     *
-     * @param entity The entity.
-     */
     public ImpactHandler(Entity entity) {
         this.entity = entity;
     }
 
-    /**
-     * Manually hits the entity.
-     *
-     * @param source The entity dealing the hit.
-     * @param hit    The amount to hit.
-     * @param type   The hitsplat type.
-     * @return The impact object.
-     */
     public Impact manualHit(Entity source, int hit, HitsplatType type) {
         if (hit > entity.getSkills().getLifepoints()) {
             hit = entity.getSkills().getLifepoints();
@@ -72,15 +42,6 @@ public final class ImpactHandler {
         return handleImpact(source, hit, null, null, type);
     }
 
-    /**
-     * Manually hits the entity.
-     *
-     * @param source The entity dealing the hit.
-     * @param hit    The amount to hit.
-     * @param type   The hitsplat type.
-     * @param ticks  The delay before handling the hit.
-     * @return The impact object (or null if a pulse got submitted).
-     */
     public Impact manualHit(final Entity source, int hit, final HitsplatType type, int ticks) {
         if (ticks > 0) {
             final int damage = hit;
@@ -96,56 +57,18 @@ public final class ImpactHandler {
         return manualHit(source, hit, type);
     }
 
-    /**
-     * Handles an impact.
-     *
-     * @param source The impact-dealing entity.
-     * @param hit    The hit amount.
-     * @param style  The combat style used to deal the impact.
-     * @return The impact object created.
-     */
     public Impact handleImpact(Entity source, int hit, CombatStyle style) {
         return handleImpact(source, hit, style, null, null, false);
     }
 
-    /**
-     * Handles an impact.
-     *
-     * @param source The impact-dealing entity.
-     * @param hit    The hit amount.
-     * @param style  The combat style used to deal the impact.
-     * @param state  The battle state.
-     * @return The impact object created.
-     */
     public Impact handleImpact(Entity source, int hit, CombatStyle style, BattleState state) {
         return handleImpact(source, hit, style, state, null, false);
     }
 
-    /**
-     * Handles an impact.
-     *
-     * @param source The impact-dealing entity.
-     * @param hit    The hit amount.
-     * @param style  The combat style used to deal the impact.
-     * @param state  The battle state.
-     * @param type   The hitsplat type.
-     * @return The impact object created.
-     */
     public Impact handleImpact(Entity source, int hit, CombatStyle style, BattleState state, HitsplatType type) {
         return handleImpact(source, hit, style, state, type, false);
     }
 
-    /**
-     * Handles an impact.
-     *
-     * @param source    The impact-dealing entity.
-     * @param hit       The hit amount.
-     * @param style     The combat style used to deal the impact.
-     * @param state     The battle state.
-     * @param type      The hitsplat type.
-     * @param secondary the secondary
-     * @return The impact object created.
-     */
     public Impact handleImpact(Entity source, int hit, final CombatStyle style, final BattleState state, HitsplatType type, boolean secondary) {
         if (DeathTask.isDead(this.entity)) {
             this.entity.getProperties().getCombatPulse().setVictim(null);
@@ -221,12 +144,6 @@ public final class ImpactHandler {
         return impact;
     }
 
-    /**
-     * Handles the recoil effect.
-     *
-     * @param attacker The attacker.
-     * @param hit      The hit to handle.
-     */
     public void handleRecoilEffect(Entity attacker, int hit) {
         int damage = (int) Math.ceil(hit * 0.1);
         if (entity instanceof Player) {
@@ -246,12 +163,6 @@ public final class ImpactHandler {
         }
     }
 
-    /**
-     * Gets the player who's dealt the most damage.
-     *
-     * @param killer The killer.
-     * @return The player.
-     */
     public Entity getMostDamageEntity(Entity killer) {
         Entity entity = this.entity;
         if (entity instanceof Player) {
@@ -271,96 +182,41 @@ public final class ImpactHandler {
         return entity;
     }
 
-    /**
-     * Gets the impact log.
-     *
-     * @return The impact log.
-     */
     public Map<Entity, Integer> getImpactLog() {
         return impactLog;
     }
 
-    /**
-     * Gets the impact log filtered for Player objects
-     *
-     * @return The impact log of each Player and their damage
-     */
     public Map<Player, Integer> getPlayerImpactLog() {
         return impactLog.entrySet().stream().filter(entry -> entry.getKey() instanceof Player).collect(
             Collectors.toMap(m -> m.getKey().asPlayer(), m -> m.getValue()));
     }
 
-    /**
-     * Checks if the entity needs a hit update.
-     *
-     * @return {@code True} if so.
-     */
     public boolean isHitUpdate() {
         return impactQueue.peek() != null;
     }
 
-    /**
-     * Gets the hitsplats.
-     *
-     * @return The hitsplats.
-     */
     public Queue<Impact> getImpactQueue() {
         return impactQueue;
     }
 
-    /**
-     * Gets the disabledTicks.
-     *
-     * @return The disabledTicks.
-     */
     public int getDisabledTicks() {
         return disabledTicks;
     }
 
-    /**
-     * Sets the disabledTicks.
-     *
-     * @param ticks the ticks
-     */
     public void setDisabledTicks(int ticks) {
         this.disabledTicks = GameWorld.getTicks() + ticks;
     }
 
-    /**
-     * Represents an impact.
-     *
-     * @author Emperor
-     */
     public static class Impact {
 
-        /**
-         * The impact-dealing entity.
-         */
         private final Entity source;
 
-        /**
-         * The hit amount.
-         */
         private final int amount;
 
-        /**
-         * The combat style used to deal the hit.
-         */
         private final CombatStyle style;
 
-        /**
-         * The hitsplat type.
-         */
         private final HitsplatType type;
 
-        /**
-         * Constructs a new {@code ImpactHandler} {@code Object}.
-         *
-         * @param source The impact-dealing entity.
-         * @param amount The hit amount.
-         * @param style  The combat style used to deal the hit.
-         * @param type   The hitsplat type.
-         */
         public Impact(Entity source, int amount, CombatStyle style, HitsplatType type) {
             this.source = source;
             this.amount = amount;
@@ -368,72 +224,29 @@ public final class ImpactHandler {
             this.type = type;
         }
 
-        /**
-         * Gets the source.
-         *
-         * @return The source.
-         */
         public Entity getSource() {
             return source;
         }
 
-        /**
-         * Gets the amount.
-         *
-         * @return The amount.
-         */
         public int getAmount() {
             return amount;
         }
 
-        /**
-         * Gets the style.
-         *
-         * @return The style.
-         */
         public CombatStyle getStyle() {
             return style;
         }
 
-        /**
-         * Gets the type.
-         *
-         * @return The type.
-         */
         public HitsplatType getType() {
             return type;
         }
     }
 
-    /**
-     * Represents the hitsplat types.
-     *
-     * @author Emperor
-     */
     public static enum HitsplatType {
-        /**
-         * Miss hitsplat type.
-         */
         MISS,
-        /**
-         * Normal hitsplat type.
-         */
         NORMAL,
-        /**
-         * Poison hitsplat type.
-         */
         POISON,
-        /**
-         * Disease hitsplat type.
-         */
         DISEASE,
-        /**
-         * Normal 1 hitsplat type.
-         */
         NORMAL_1,
-        /**
-         * Venom hitsplat type.
-         */
         VENOM;
     }
 }

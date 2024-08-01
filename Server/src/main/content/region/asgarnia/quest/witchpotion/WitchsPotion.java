@@ -6,15 +6,9 @@ import core.game.node.entity.player.link.quest.Quest;
 import core.game.node.entity.skill.Skills;
 import core.plugin.Initializable;
 
-/**
- * The Witchs potion.
- */
 @Initializable
 public class WitchsPotion extends Quest {
 
-    /**
-     * Instantiates a new Witchs potion.
-     */
     public WitchsPotion() {
         super("Witch's Potion", 31, 30, 1, Vars.VARP_QUEST_WITCHS_POTION_PROGRESS, 0, 1, 3);
     }

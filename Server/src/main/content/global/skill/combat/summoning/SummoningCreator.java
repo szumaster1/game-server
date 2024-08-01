@@ -131,18 +131,23 @@ public final class SummoningCreator {
         public Item[] getRequired() {
             return required;
         }
+
         public Item getProduct() {
             return product;
         }
+
         public double getExperience() {
             return experience;
         }
+
         public int getLevel() {
             return level;
         }
+
         public Object getBase() {
             return base;
         }
+
         public boolean isPouch() {
             return base instanceof SummoningPouch;
         }

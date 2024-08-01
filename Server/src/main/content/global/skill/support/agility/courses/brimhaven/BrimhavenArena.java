@@ -29,9 +29,6 @@ import java.util.Map;
 
 import static core.api.ContentAPIKt.*;
 
-/**
- * The Brimhaven arena.
- */
 @Initializable
 public final class BrimhavenArena extends MapZone implements Plugin<Object> {
 
@@ -44,15 +41,9 @@ public final class BrimhavenArena extends MapZone implements Plugin<Object> {
     private static final Item TICKET = new Item(2996);
 
 
-    /**
-     * The constant sawBladeActive.
-     */
     public static boolean sawBladeActive;
 
 
-    /**
-     * Instantiates a new Brimhaven arena.
-     */
     public BrimhavenArena() {
         super("Brimhaven agility arena", true);
     }
@@ -273,13 +264,7 @@ public final class BrimhavenArena extends MapZone implements Plugin<Object> {
     }
 
     private enum PlankSet {
-        /**
-         * The First.
-         */
         FIRST(new Location[]{Location.create(2797, 9591, 3), Location.create(2797, 9590, 3), Location.create(2797, 9589, 3)}, new Location[]{Location.create(2802, 9591, 3), Location.create(2802, 9590, 3), Location.create(2802, 9589, 3)}),
-        /**
-         * The Second.
-         */
         SECOND(new Location[]{Location.create(2764, 9558, 3), Location.create(2764, 9557, 3), Location.create(2764, 9556, 3)}, new Location[]{Location.create(2769, 9558, 3), Location.create(2769, 9557, 3), Location.create(2769, 9556, 3)});
 
 
@@ -289,15 +274,9 @@ public final class BrimhavenArena extends MapZone implements Plugin<Object> {
         }
 
 
-        /**
-         * Entrance plank set.
-         */
         Location[] entrance;
 
 
-        /**
-         * Exit plank set.
-         */
         Location[] exit;
     }
 

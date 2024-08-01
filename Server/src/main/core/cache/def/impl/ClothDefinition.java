@@ -5,57 +5,24 @@ import core.cache.Cache;
 
 import java.nio.ByteBuffer;
 
-/**
- * The definitions for player clothing/look.
- */
 public final class ClothDefinition {
 
-    /**
-     * The equipment slot.
-     */
     private int equipmentSlot;
 
-    /**
-     * The model ids.
-     */
     private int[] modelIds;
 
-    /**
-     * Unknown boolean.
-     */
     private boolean unknownBool;
 
-    /**
-     * Original colors.
-     */
     private int[] originalColors;
 
-    /**
-     * The colors to change to.
-     */
     private int[] modifiedColors;
 
-    /**
-     * Original texture colors.
-     */
     private int[] originalTextureColors;
 
-    /**
-     * Texture colors to change to.
-     */
     private int[] modifiedTextureColors;
 
-    /**
-     * Other model ids(?)
-     */
     private int[] models = {-1, -1, -1, -1, -1};
 
-    /**
-     * Gets the definitions for the given cloth id.
-     *
-     * @param clothId The clothing id.
-     * @return The definition.
-     */
     public static ClothDefinition forId(int clothId) {
         ClothDefinition def = new ClothDefinition();
         byte[] bs = Cache.getIndexes()[2].getFileData(3, clothId);
@@ -65,11 +32,6 @@ public final class ClothDefinition {
         return def;
     }
 
-    /**
-     * The main method.
-     *
-     * @param args The arguments cast on runtime.
-     */
     public static void main(String... args) {
         try {
             Cache.init(ServerConstants.CACHE_PATH);
@@ -83,11 +45,6 @@ public final class ClothDefinition {
         }
     }
 
-    /**
-     * Loads the definitions.
-     *
-     * @param buffer The buffer.
-     */
     public void load(ByteBuffer buffer) {
         int opcode;
         while ((opcode = buffer.get() & 0xFF) != 0) {
@@ -95,12 +52,6 @@ public final class ClothDefinition {
         }
     }
 
-    /**
-     * Parses an opcode.
-     *
-     * @param opcode The opcode.
-     * @param buffer The buffer to read the data from.
-     */
     private void parse(int opcode, ByteBuffer buffer) {
         switch (opcode) {
             case 1:
@@ -142,74 +93,34 @@ public final class ClothDefinition {
         }
     }
 
-    /**
-     * Gets the unknown.
-     *
-     * @return The unknown.
-     */
     public int getUnknown() {
         return equipmentSlot;
     }
 
-    /**
-     * Gets the modelIds.
-     *
-     * @return The modelIds.
-     */
     public int[] getModelIds() {
         return modelIds;
     }
 
-    /**
-     * Gets the unknownBool.
-     *
-     * @return The unknownBool.
-     */
     public boolean isUnknownBool() {
         return unknownBool;
     }
 
-    /**
-     * Gets the originalColors.
-     *
-     * @return The originalColors.
-     */
     public int[] getOriginalColors() {
         return originalColors;
     }
 
-    /**
-     * Gets the modifiedColors.
-     *
-     * @return The modifiedColors.
-     */
     public int[] getModifiedColors() {
         return modifiedColors;
     }
 
-    /**
-     * Gets the originalTextureColors.
-     *
-     * @return The originalTextureColors.
-     */
     public int[] getOriginalTextureColors() {
         return originalTextureColors;
     }
 
-    /**
-     * Gets the modifiedTextureColors.
-     *
-     * @return The modifiedTextureColors.
-     */
     public int[] getModifiedTextureColors() {
         return modifiedTextureColors;
     }
 
-    /**
-     * Gets the models.
-     *
-     * @return The models.
-     */
     public int[] getModels() {
         return models;
     }

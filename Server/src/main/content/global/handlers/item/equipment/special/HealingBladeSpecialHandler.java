@@ -15,9 +15,6 @@ import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
-/**
- * The Healing blade special handler.
- */
 @Initializable
 public final class HealingBladeSpecialHandler extends MeleeSwingHandler implements Plugin<Object> {
 

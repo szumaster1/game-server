@@ -16,25 +16,14 @@ import core.game.world.GameWorld;
 import core.game.world.map.Location;
 import core.game.world.map.path.Pathfinder;
 
-/**
- * The House servant dialogue.
- */
 public class HouseServantDialogue extends Dialogue {
 
     private boolean sawmill;
     private Item logs;
 
-    /**
-     * Instantiates a new House servant dialogue.
-     */
     public HouseServantDialogue() {
     }
 
-    /**
-     * Instantiates a new House servant dialogue.
-     *
-     * @param player the player
-     */
     public HouseServantDialogue(Player player) {
         super(player);
     }

@@ -255,12 +255,15 @@ public final class PyreSitePlugin extends OptionHandler {
         public Log getLog() {
             return log;
         }
+
         public int getLevel() {
             return level;
         }
+
         public double[] getExperiences() {
             return experiences;
         }
+
         public int getEnhancedExp() {
             return enhancedExp;
         }

@@ -19,54 +19,23 @@ import java.util.Map;
 
 import static core.api.ContentAPIKt.log;
 
-/**
- * Represents a clue scroll plugin.
- * @author Vexia
- */
 public abstract class ClueScrollPlugin extends MapZone implements Plugin<Object> {
 
-	/**
-	 * The wilderness cape ids.
-	 */
-	protected static final int[] WILDY_CAPES = new int[] { 4315, 4316, 4317, 4318, 4319, 4320, 4321, 4322, 4323, 4324, 4325, 4326, 4327, 4328, 4329, 4330, 4331, 4332, 4333, 4334, 4335, 4336, 4337, 4338, 4339, 4340, 4341, 4342, 4343, 4344, 4345, 4346, 4347, 4348, 4349, 4350, 4351, 4352, 4353, 4354, 4355, 4356, 4357, 4358, 4359, 4360, 4361, 4362, 4363, 4364, 4365, 4366, 4367, 4368, 4369, 4370, 4371, 4372, 4373, 4374, 4375, 4376, 4377, 4378, 4379, 4380, 4381, 4382, 4383, 4384, 4385, 4386, 4387, 4388, 4389, 4390, 4391, 4392, 4393, 4394, 4395, 4396, 4397, 4398, 4399, 4400, 4401, 4402, 4403, 4404, 4405, 4406, 4407, 4408, 4409, 4410, 4411, 4412, 4413, 4414, 10638 };
+    protected static final int[] WILDY_CAPES = new int[] { 4315, 4316, 4317, 4318, 4319, 4320, 4321, 4322, 4323, 4324, 4325, 4326, 4327, 4328, 4329, 4330, 4331, 4332, 4333, 4334, 4335, 4336, 4337, 4338, 4339, 4340, 4341, 4342, 4343, 4344, 4345, 4346, 4347, 4348, 4349, 4350, 4351, 4352, 4353, 4354, 4355, 4356, 4357, 4358, 4359, 4360, 4361, 4362, 4363, 4364, 4365, 4366, 4367, 4368, 4369, 4370, 4371, 4372, 4373, 4374, 4375, 4376, 4377, 4378, 4379, 4380, 4381, 4382, 4383, 4384, 4385, 4386, 4387, 4388, 4389, 4390, 4391, 4392, 4393, 4394, 4395, 4396, 4397, 4398, 4399, 4400, 4401, 4402, 4403, 4404, 4405, 4406, 4407, 4408, 4409, 4410, 4411, 4412, 4413, 4414, 10638 };
 
-	/**
-	 * The mapping of clue scrolls.
-	 */
 	private static final Map<Integer, ClueScrollPlugin> CLUE_SCROLLS = new HashMap<>();
 
-	/**
-	 * A map of pre organized clue scrolls.
-	 */
 	private static final Map<ClueLevel, List<ClueScrollPlugin>> ORGANIZED = new HashMap<>();
 
-	/**
-	 * The id of the clue scroll.
-	 */
-	protected final int clueId;
+    protected final int clueId;
 
-	/**
-	 * The clue scroll level.
-	 */
-	protected final ClueLevel level;
+    protected final ClueLevel level;
 
-	/**
-	 * The interface id of the clue.
-	 */
-	protected final int interfaceId;
+    protected final int interfaceId;
 
-	/**
-	 * The zone borders.
-	 */
-	protected final ZoneBorders[] borders;
+    protected final ZoneBorders[] borders;
 
-	/**
-	 * Constructs a new {@code ClueScrollPlugin} {@code Object}
-	 * @param clueId the id.
-	 * @param level the level.
-	 * @param interfaceId the id.
-	 */
-	public ClueScrollPlugin(final String name, final int clueId, ClueLevel level, final int interfaceId, final ZoneBorders... borders) {
+    public ClueScrollPlugin(final String name, final int clueId, ClueLevel level, final int interfaceId, final ZoneBorders... borders) {
 		super(name, true);
 		this.clueId = clueId;
 		this.level = level;
@@ -79,12 +48,7 @@ public abstract class ClueScrollPlugin extends MapZone implements Plugin<Object>
 		return null;
 	}
 
-	/**
-	 * Rewards the player with a casket.
-	 * @param player the player.
-	 * @param casket if we give a casket.
-	 */
-	public void reward(Player player, boolean casket) {
+    public void reward(Player player, boolean casket) {
 		Item clue = player.getInventory().getItem(new Item(getClueId()));
 		if (clue == null) {
 			return;
@@ -97,20 +61,11 @@ public abstract class ClueScrollPlugin extends MapZone implements Plugin<Object>
 		}
 	}
 
-	/**
-	 * Rewards the player.
-	 * @param player the player.
-	 */
-	public void reward(Player player) {
+    public void reward(Player player) {
 		reward(player, true);
 	}
 
-	/**
-	 * Increments the next stage of the clue.
-	 * @param player the player.
-	 * @param clue the clue.
-	 */
-	public void nextStage(Player player, Item clue) {
+    public void nextStage(Player player, Item clue) {
 		if (!TreasureTrailManager.getInstance(player).hasTrail() || TreasureTrailManager.getInstance(player).hasTrail() && clue.getId() != TreasureTrailManager.getInstance(player).getClueId()) {
 			TreasureTrailManager.getInstance(player).startTrail(this);
 		}
@@ -122,11 +77,7 @@ public abstract class ClueScrollPlugin extends MapZone implements Plugin<Object>
 		}
 	}
 
-	/**
-	 * Reads a clue scroll.
-	 * @param player the player.
-	 */
-	public void read(Player player) {
+    public void read(Player player) {
 		if (player.getInterfaceManager().isOpened()) {
 			player.sendMessage("Please finish what you're doing first.");
 			return;
@@ -134,11 +85,7 @@ public abstract class ClueScrollPlugin extends MapZone implements Plugin<Object>
 		player.getInterfaceManager().open(new Component(interfaceId));
 	}
 
-	/**
-	 * Registers a clue scroll into the repository.
-	 * @param clue the plugin.
-	 */
-	public void register(ClueScrollPlugin clue) {
+    public void register(ClueScrollPlugin clue) {
 		if(clue.getClueId() == 2681)
 			return;
 		if (CLUE_SCROLLS.containsKey(clue.getClueId())) {
@@ -165,12 +112,7 @@ public abstract class ClueScrollPlugin extends MapZone implements Plugin<Object>
 		}
 	}
 
-	/**
-	 * Gets a clue item.
-	 * @param clueLevel the level.
-	 * @return the item.
-	 */
-	public static Item getClue(ClueLevel clueLevel) {
+    public static Item getClue(ClueLevel clueLevel) {
 		List<ClueScrollPlugin> clues = ORGANIZED.get(clueLevel);
 		if (clues == null) {
 			log(ClueScrollPlugin.class, Log.ERR, "Error! There are no clues for level " + clueLevel + "!");
@@ -180,13 +122,7 @@ public abstract class ClueScrollPlugin extends MapZone implements Plugin<Object>
 		return new Item(clue.getClueId());
 	}
 
-	/**
-	 * Checks if the player has equipment.
-	 * @param player the player.
-	 * @param equipment the equipment.
-	 * @return {@code True} if so.
-	 */
-	public boolean hasEquipment(Player player, int[][] equipment) {
+    public boolean hasEquipment(Player player, int[][] equipment) {
 		if (equipment == null || equipment.length == 0) {
 			return true;
 		}
@@ -202,35 +138,19 @@ public abstract class ClueScrollPlugin extends MapZone implements Plugin<Object>
 		return hasAmt == equipment.length;
 	}
 
-	/**
-	 * Gets the clueId.
-	 * @return the clueId
-	 */
-	public int getClueId() {
+    public int getClueId() {
 		return clueId;
 	}
 
-	/**
-	 * Gets the level.
-	 * @return the level
-	 */
-	public ClueLevel getLevel() {
+    public ClueLevel getLevel() {
 		return level;
 	}
 
-	/**
-	 * Gets the clueScrolls.
-	 * @return the clueScrolls
-	 */
-	public static Map<Integer, ClueScrollPlugin> getClueScrolls() {
+    public static Map<Integer, ClueScrollPlugin> getClueScrolls() {
 		return CLUE_SCROLLS;
 	}
 
-	/**
-	 * Gets the interfaceId.
-	 * @return the interfaceId
-	 */
-	public int getInterfaceId() {
+    public int getInterfaceId() {
 		return interfaceId;
 	}
 

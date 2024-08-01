@@ -13,9 +13,6 @@ import core.game.world.update.flag.context.Animation;
 import core.game.world.update.flag.context.Graphic;
 import kotlin.Unit;
 
-/**
- * The Pressure pad.
- */
 public final class PressurePad implements MovementHook {
 
     @Override

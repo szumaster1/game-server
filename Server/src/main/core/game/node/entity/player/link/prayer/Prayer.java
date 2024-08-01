@@ -24,41 +24,18 @@ import java.util.List;
 import static core.api.ContentAPIKt.playAudio;
 import static core.api.ContentAPIKt.setVarp;
 
-/**
- * Represents a managing class of a players prayers.
- *
- * @author Vexia
- * @author Emperor
- */
 public final class Prayer {
 
-    /**
-     * Represents the list of active prayers.
-     */
     private final List<PrayerType> active = new ArrayList<>(20);
 
-    /**
-     * Represents the player instance.
-     */
     private final Player player;
 
     private int prayerActiveTicks = 0;
 
-    /**
-     * Constructs a new {@code Prayer} {@code Object}.
-     *
-     * @param player the player
-     */
     public Prayer(Player player) {
         this.player = player;
     }
 
-    /**
-     * Method used to toggle a prayer.
-     *
-     * @param type the type of prayer.
-     * @return the boolean
-     */
     public final boolean toggle(final PrayerType type) {
         if (!permitted(type)) {
             return false;
@@ -66,9 +43,6 @@ public final class Prayer {
         return type.toggle(player, !active.contains(type));
     }
 
-    /**
-     * Method used to reset this prayer managers cached prayers.
-     */
     public void reset() {
         // Immediately clear the lights on the client interface and terminate any bonuses
         for (PrayerType type : getActive()) {
@@ -87,9 +61,6 @@ public final class Prayer {
         });
     }
 
-    /**
-     * Starts the redemption effect.
-     */
     public void startRedemption() {
         playAudio(player, Sounds.REDEMPTION_HEAL_2681);
         player.graphics(Graphic.create(436));
@@ -98,11 +69,6 @@ public final class Prayer {
         reset();
     }
 
-    /**
-     * Starts the retribution effect.
-     *
-     * @param killer The entity who killed this player.
-     */
     public void startRetribution(Entity killer) {
         Location l = player.getLocation();
         for (int x = -1; x < 2; x++) {
@@ -135,9 +101,6 @@ public final class Prayer {
         }
     }
 
-    /**
-     * Tick.
-     */
     public void tick() {
         if (!getActive().isEmpty()) prayerActiveTicks++;
         else prayerActiveTicks = 0;
@@ -165,12 +128,6 @@ public final class Prayer {
         }
     }
 
-    /**
-     * Gets the skill bonus for the given skill id.
-     *
-     * @param skillId The skill id.
-     * @return The bonus for the given skill.
-     */
     public double getSkillBonus(int skillId) {
         double bonus = 0.0;
         for (PrayerType type : active) {
@@ -183,41 +140,18 @@ public final class Prayer {
         return bonus;
     }
 
-    /**
-     * Method used to check if we're permitted to toggle this prayer.
-     *
-     * @param type the type.
-     * @return <code>True</code> if permitted to be toggled.
-     */
     private boolean permitted(final PrayerType type) {
         return player.getSkills().getPrayerPoints() > 0 && type.permitted(player);
     }
 
-    /**
-     * Method used to return value of {@code True} if the {@link #active}
-     * prayers contains the prayer type.
-     *
-     * @param type the type of prayer.
-     * @return {@code True} if so.
-     */
     public boolean get(PrayerType type) {
         return active.contains(type);
     }
 
-    /**
-     * Gets the player.
-     *
-     * @return The player.
-     */
     public Player getPlayer() {
         return player;
     }
 
-    /**
-     * Gets the active prayers.
-     *
-     * @return The active.
-     */
     public List<PrayerType> getActive() {
         return active;
     }

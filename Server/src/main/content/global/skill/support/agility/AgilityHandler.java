@@ -18,14 +18,6 @@ import static core.api.ContentAPIKt.*;
 
 public final class AgilityHandler {
 
-    /**
-     * Has failed boolean.
-     *
-     * @param player     the player
-     * @param level      the level
-     * @param failChance the fail chance
-     * @return the boolean
-     */
     public static boolean hasFailed(Player player, int level, double failChance) {
         int levelDiff = player.getSkills().getLevel(Skills.AGILITY) - level;
         if (levelDiff > 69) {
@@ -36,21 +28,6 @@ public final class AgilityHandler {
         return chance <= (Math.random() * failChance);
     }
 
-    /**
-     * Fail walk force movement.
-     *
-     * @param player    the player
-     * @param delay     the delay
-     * @param start     the start
-     * @param end       the end
-     * @param dest      the dest
-     * @param anim      the anim
-     * @param speed     the speed
-     * @param hit       the hit
-     * @param message   the message
-     * @param direction the direction
-     * @return the force movement
-     */
     public static ForceMovement failWalk(final Player player, int delay, Location start, Location end, final Location dest, Animation anim, int speed, final int hit, final String message, Direction direction) {
         ForceMovement movement = new ForceMovement(player, start, end, anim, speed) {
             @Override
@@ -75,34 +52,10 @@ public final class AgilityHandler {
         return movement;
     }
 
-    /**
-     * Fail walk force movement.
-     *
-     * @param player  the player
-     * @param delay   the delay
-     * @param start   the start
-     * @param end     the end
-     * @param dest    the dest
-     * @param anim    the anim
-     * @param speed   the speed
-     * @param hit     the hit
-     * @param message the message
-     * @return the force movement
-     */
     public static ForceMovement failWalk(final Player player, int delay, Location start, Location end, final Location dest, Animation anim, int speed, final int hit, final String message) {
         return failWalk(player, delay, start, end, dest, anim, speed, hit, message, null);
     }
 
-    /**
-     * Fail.
-     *
-     * @param player  the player
-     * @param delay   the delay
-     * @param dest    the dest
-     * @param anim    the anim
-     * @param hit     the hit
-     * @param message the message
-     */
     public static void fail(final Player player, int delay, final Location dest, Animation anim, final int hit, final String message) {
         if (anim != null) {
             animate(player, anim, true);
@@ -130,19 +83,6 @@ public final class AgilityHandler {
         }
     }
 
-    /**
-     * Force walk force movement.
-     *
-     * @param player      the player
-     * @param courseIndex the course index
-     * @param start       the start
-     * @param end         the end
-     * @param animation   the animation
-     * @param speed       the speed
-     * @param experience  the experience
-     * @param message     the message
-     * @return the force movement
-     */
     public static ForceMovement forceWalk(final Player player, final int courseIndex, Location start, Location end, Animation animation, int speed, final double experience, final String message) {
         player.logoutListeners.put("forcewalk", p -> {
             p.setLocation(player.getLocation().transform(0, 0, 0));
@@ -168,20 +108,6 @@ public final class AgilityHandler {
         return movement;
     }
 
-    /**
-     * Force walk force movement.
-     *
-     * @param player      the player
-     * @param courseIndex the course index
-     * @param start       the start
-     * @param end         the end
-     * @param animation   the animation
-     * @param speed       the speed
-     * @param experience  the experience
-     * @param message     the message
-     * @param delay       the delay
-     * @return the force movement
-     */
     public static ForceMovement forceWalk(final Player player, final int courseIndex, Location start, Location end, Animation animation, int speed, final double experience, final String message, int delay) {
         player.logoutListeners.put("forcewalk", p -> {
             p.setLocation(player.getLocation().transform(0, 0, 0));
@@ -216,31 +142,10 @@ public final class AgilityHandler {
         return movement;
     }
 
-    /**
-     * Climb.
-     *
-     * @param player      the player
-     * @param courseIndex the course index
-     * @param animation   the animation
-     * @param destination the destination
-     * @param experience  the experience
-     * @param message     the message
-     */
     public static void climb(final Player player, final int courseIndex, Animation animation, final Location destination, final double experience, final String message) {
         climb(player, courseIndex, animation, destination, experience, message, 2);
     }
 
-    /**
-     * Climb.
-     *
-     * @param player      the player
-     * @param courseIndex the course index
-     * @param animation   the animation
-     * @param destination the destination
-     * @param experience  the experience
-     * @param message     the message
-     * @param delay       the delay
-     */
     public static void climb(final Player player, final int courseIndex, Animation animation, final Location destination, final double experience, final String message, int delay) {
         player.lock(delay + 1);
         player.animate(animation);
@@ -260,33 +165,10 @@ public final class AgilityHandler {
         });
     }
 
-    /**
-     * Walk.
-     *
-     * @param player      the player
-     * @param courseIndex the course index
-     * @param start       the start
-     * @param end         the end
-     * @param animation   the animation
-     * @param experience  the experience
-     * @param message     the message
-     */
     public static void walk(final Player player, final int courseIndex, final Location start, final Location end, final Animation animation, final double experience, final String message) {
         walk(player, courseIndex, start, end, animation, experience, message, false);
     }
 
-    /**
-     * Walk.
-     *
-     * @param player      the player
-     * @param courseIndex the course index
-     * @param start       the start
-     * @param end         the end
-     * @param animation   the animation
-     * @param experience  the experience
-     * @param message     the message
-     * @param infiniteRun the infinite run
-     */
     public static void walk(final Player player, final int courseIndex, final Location start, final Location end, final Animation animation, final double experience, final String message, final boolean infiniteRun) {
         if (!player.getLocation().equals(start)) {
             player.getPulseManager().run(new MovementPulse(player, start) {
@@ -331,12 +213,6 @@ public final class AgilityHandler {
         });
     }
 
-    /**
-     * Sets obstacle flag.
-     *
-     * @param player      the player
-     * @param courseIndex the course index
-     */
     public static void setObstacleFlag(Player player, int courseIndex) {
         if (courseIndex < 0) {
             return;

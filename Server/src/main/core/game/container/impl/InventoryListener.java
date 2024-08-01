@@ -10,33 +10,14 @@ import core.network.packet.PacketRepository;
 import core.network.packet.context.ContainerContext;
 import core.network.packet.outgoing.ContainerPacket;
 
-/**
- * Handles the inventory container listening.
- *
- * @author Emperor
- */
 public final class InventoryListener implements ContainerListener {
 
-    /**
-     * The player.
-     */
     private final Player player;
 
-    /**
-     * Constructs a new {@code InventoryListener} {@code Object}.
-     *
-     * @param player The player.
-     */
     public InventoryListener(Player player) {
         this.player = player;
     }
 
-    /**
-     * Updates the required settings etc for the player when the container
-     * updates.
-     *
-     * @param c The container.
-     */
     public void update(Container c) {
         player.getSettings().updateWeight();
         boolean hadPouch = player.getFamiliarManager().isHasPouch();

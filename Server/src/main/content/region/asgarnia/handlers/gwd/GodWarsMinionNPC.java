@@ -10,27 +10,15 @@ import core.game.world.GameWorld;
 import core.game.world.map.Location;
 import core.plugin.Initializable;
 
-/**
- * The God wars minion npc.
- */
 @Initializable
 public final class GodWarsMinionNPC extends AbstractNPC {
 
     private NPC boss;
 
-    /**
-     * Instantiates a new God wars minion npc.
-     */
     public GodWarsMinionNPC() {
         super(6223, null);
     }
 
-    /**
-     * Instantiates a new God wars minion npc.
-     *
-     * @param id       the id
-     * @param location the location
-     */
     public GodWarsMinionNPC(int id, Location location) {
         super(id, location);
     }

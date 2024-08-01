@@ -15,9 +15,6 @@ import core.tools.Log;
 
 import static core.api.ContentAPIKt.log;
 
-/**
- * The build option handling plugin.
- */
 @Initializable
 public final class BuildOptionPlugin extends OptionHandler {
 
@@ -72,13 +69,6 @@ public final class BuildOptionPlugin extends OptionHandler {
         return true;
     }
 
-    /**
-     * Checks if the hotspot can be used.
-     *
-     * @param player  The player.
-     * @param hotspot The hotspot.
-     * @return {@code True} if so.
-     */
     private static boolean isBuildable(Player player, Scenery object, Hotspot hotspot) {
         Room room = player.getHouseManager().getRoom(object.getLocation());
         if (room == null) {
@@ -121,28 +111,14 @@ public final class BuildOptionPlugin extends OptionHandler {
         }
     }
 
-    /**
-     * Handles the removing a decoration dialogue.
-     */
     private static class RemoveDialogue extends Dialogue {
 
-        /**
-         * The object.
-         */
         private Scenery object;
 
-        /**
-         * Constructs a new {@code RemoveDialogue} {@code Object}.
-         */
         public RemoveDialogue() {
             super();
         }
 
-        /**
-         * Constructs a new {@code RemoveDialogue} {@code Object}.
-         *
-         * @param player The player.
-         */
         public RemoveDialogue(Player player) {
             super(player);
         }

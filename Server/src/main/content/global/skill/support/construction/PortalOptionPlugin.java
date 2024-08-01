@@ -14,9 +14,6 @@ import kotlin.Unit;
 import static core.api.ContentAPIKt.sendInputDialogue;
 import static core.api.ContentAPIKt.sendMessage;
 
-/**
- * The Portal option plugin.
- */
 @Initializable
 public final class PortalOptionPlugin extends OptionHandler {
 
@@ -55,18 +52,10 @@ public final class PortalOptionPlugin extends OptionHandler {
     @PluginManifest(type = PluginType.DIALOGUE)
     private class PortalDialogue extends Dialogue {
 
-        /**
-         * Instantiates a new Portal dialogue.
-         */
         public PortalDialogue() {
 
         }
 
-        /**
-         * Instantiates a new Portal dialogue.
-         *
-         * @param player the player
-         */
         public PortalDialogue(Player player) {
             super(player);
         }

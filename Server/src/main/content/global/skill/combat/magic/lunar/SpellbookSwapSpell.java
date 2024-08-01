@@ -61,11 +61,6 @@ public class SpellbookSwapSpell extends MagicSpell {
         return true;
     }
 
-    /**
-     * Remove temporary spell.
-     *
-     * @param player the player
-     */
     public static void removeTemporarySpell(final Player player) {
         removeAttribute(player, "spell:swap");
         player.getSpellBookManager().setSpellBook(SpellBook.LUNAR);

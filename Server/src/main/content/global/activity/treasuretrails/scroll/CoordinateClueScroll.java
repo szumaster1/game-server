@@ -7,46 +7,19 @@ import core.game.node.item.Item;
 import core.game.world.map.Location;
 import core.game.world.update.flag.context.Graphic;
 
-/**
- * Represents a coordinate clue scroll.
- * @author Vexia
- */
 public abstract class CoordinateClueScroll extends MapClueScroll {
 
-	/**
-	 * The sextant item.
-	 */
-	public static final Item SEXTANT = new Item(2574);
+    public static final Item SEXTANT = new Item(2574);
 
-	/**
-	 * The watch item.
-	 */
-	public static final Item WATCH = new Item(2575);
+    public static final Item WATCH = new Item(2575);
 
-	/**
-	 * The chart item.
-	 */
-	public static final Item CHART = new Item(2576);
+    public static final Item CHART = new Item(2576);
 
-	/**
-	 * The clock tower location.
-	 */
-	public static final Location CLOCK_TOWER = new Location(2440, 3161, 0);
+    public static final Location CLOCK_TOWER = new Location(2440, 3161, 0);
 
-	/**
-	 * The clue message.
-	 */
 	private final String clue;
 
-	/**
-	 * Constructs a new {@code CoordinateClueScroll} {@code Object}
-	 * @param name the name.
-	 * @param clueId the clue id.
-	 * @param level the level.
-	 * @param location the location.
-	 * @param clue the clue.
-	 */
-	public CoordinateClueScroll(String name, int clueId, ClueLevel level, Location location, String clue) {
+    public CoordinateClueScroll(String name, int clueId, ClueLevel level, Location location, String clue) {
 		super(name, clueId, level, 345, location, 0);
 		this.clue = clue;
 	}
@@ -75,10 +48,6 @@ public abstract class CoordinateClueScroll extends MapClueScroll {
 		player.removeAttribute("killed-wizard");
 	}
 
-	/**
-	 * Spawns a zamorak or saradomin wizard.
-	 * @param player the player.
-	 */
 	private void spawnWizard(Player player) {
 		int id = !player.getSkullManager().isWilderness() ? 1264 : 1007;
 		final NPC wizard = NPC.create(id, player.getLocation().transform(1, 0, 0));
@@ -92,11 +61,7 @@ public abstract class CoordinateClueScroll extends MapClueScroll {
 		wizard.getProperties().getCombatPulse().attack(player);
 	}
 
-	/**
-	 * Gets the clue.
-	 * @return the clue
-	 */
-	public String getClue() {
+    public String getClue() {
 		return clue;
 	}
 }

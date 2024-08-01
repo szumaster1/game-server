@@ -122,9 +122,6 @@ public final class KalphiteQueenNPC extends AbstractNPC {
         return this;
     }
 
-    /**
-     * The Kq combat swing handler.
-     */
     static class KQCombatSwingHandler extends CombatSwingHandler {
         private static final Animation MELEE_ATTACK_1 = new Animation(6241, Priority.HIGH);
         private static final Animation RANGE_ATTACK_1 = new Animation(6240, Priority.HIGH);
@@ -136,9 +133,6 @@ public final class KalphiteQueenNPC extends AbstractNPC {
         private CombatStyle style = CombatStyle.RANGE;
 
 
-        /**
-         * Instantiates a new Kq combat swing handler.
-         */
         public KQCombatSwingHandler() {
             super(CombatStyle.RANGE);
         }

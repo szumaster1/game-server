@@ -6,11 +6,6 @@ import core.network.packet.IoBuffer;
 import core.network.packet.OutgoingPacket;
 import core.network.packet.context.LocationContext;
 
-/**
- * Outgoing packet used for updating a
- * player's location solely on his own client.
- * @author Emperor
- */
 public final class InstancedLocationUpdate implements OutgoingPacket<LocationContext> {
 
     @Override

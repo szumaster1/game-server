@@ -16,9 +16,6 @@ import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
-/**
- * The Sever special handler.
- */
 @Initializable
 public final class SeverSpecialHandler extends MeleeSwingHandler implements Plugin<Object> {
 

@@ -23,157 +23,65 @@ import java.util.Deque;
 
 import static core.api.ContentAPIKt.*;
 
-/**
- * Handles a movement task.
- *
- * @author Emperor
- */
 public abstract class MovementPulse extends Pulse {
 
-    /**
-     * The moving entity.
-     */
     protected Entity mover;
 
-    /**
-     * The destination node.
-     */
     protected Node destination;
 
-    /**
-     * The destination's last location.
-     */
     private Location last;
 
-    /**
-     * The pathfinder.
-     */
     private Pathfinder pathfinder;
 
-    /**
-     * If running should be forced.
-     */
     private boolean forceRun;
 
-    /**
-     * The option handler.
-     */
     private OptionHandler optionHandler;
 
-    /**
-     * The use with handler.
-     */
     private UseWithHandler useHandler;
 
-    /**
-     * The destination flag.
-     */
     private DestinationFlag destinationFlag;
 
-    /**
-     * The location to interact from.
-     */
     private Location interactLocation;
 
-    /**
-     * If the path couldn't be fully found.
-     */
     private boolean near;
 
     private Function2<Entity, Node, Location> overrideMethod;
 
     private Location previousLoc;
 
-    /**
-     * Constructs a new {@code MovementPulse} {@code Object}.
-     *
-     * @param mover       The moving entity.
-     * @param destination The destination node.
-     */
     public MovementPulse(Entity mover, Node destination) {
         this(mover, destination, null, false);
     }
 
-    /**
-     * Constructs a new {@code MovementPulse} {@code Object}.
-     *
-     * @param mover       The moving entity.
-     * @param destination The destination node.
-     * @param forceRun    If the entity is forced to run.
-     */
     public MovementPulse(Entity mover, Node destination, boolean forceRun) {
         this(mover, destination, null, forceRun);
     }
 
-    /**
-     * Constructs a new {@code MovementPulse} {@code Object}.
-     *
-     * @param mover       The moving entity.
-     * @param destination The destination node.
-     * @param pathfinder  The pathfinder to use.
-     */
     public MovementPulse(Entity mover, Node destination, Pathfinder pathfinder) {
         this(mover, destination, pathfinder, false);
     }
 
-    /**
-     * Constructs a new {@code MovementPulse} {@code Object}.
-     *
-     * @param mover         The moving entity.
-     * @param destination   The destination node.
-     * @param optionHandler The option handler used.
-     */
     public MovementPulse(Entity mover, Node destination, OptionHandler optionHandler) {
         this(mover, destination, null, false);
         this.optionHandler = optionHandler;
     }
 
-    /**
-     * Constructs a new {@code MovementPulse} {@code Object}.
-     *
-     * @param mover       The moving entity.
-     * @param destination The destination node.
-     * @param useHandler  The use with handler used.
-     */
     public MovementPulse(Entity mover, Node destination, UseWithHandler useHandler) {
         this(mover, destination, null, false);
         this.useHandler = useHandler;
     }
 
-    /**
-     * Constructs a new {@code MovementPulse} {@code Object}.
-     *
-     * @param mover           The moving entity.
-     * @param destination     The destination node.
-     * @param destinationFlag The destination flag.
-     */
     public MovementPulse(Entity mover, Node destination, DestinationFlag destinationFlag) {
         this(mover, destination, null, false);
         this.destinationFlag = destinationFlag;
     }
 
-    /**
-     * Instantiates a new Movement pulse.
-     *
-     * @param mover           the mover
-     * @param destination     the destination
-     * @param destinationFlag the destination flag
-     * @param method          the method
-     */
     public MovementPulse(Entity mover, Node destination, DestinationFlag destinationFlag, Function2<Entity, Node, Location> method) {
         this(mover, destination, null, false);
         this.destinationFlag = destinationFlag;
         this.overrideMethod = method;
     }
 
-    /**
-     * Constructs a new {@code MovementPulse} {@code Object}.
-     *
-     * @param mover       The moving entity.
-     * @param destination The destination node.
-     * @param pathfinder  The pathfinder to use.
-     * @param forceRun    If the entity is forced to run.
-     */
     public MovementPulse(Entity mover, Node destination, Pathfinder pathfinder, boolean forceRun) {
         super(1, mover, destination);
         this.mover = mover;
@@ -276,15 +184,9 @@ public abstract class MovementPulse extends Pulse {
         last = null;
     }
 
-    /**
-     * Finds a path to the destination, if necessary.
-     */
     private boolean usingTruncatedPath = false;
     private boolean isMoveNearSet = false;
 
-    /**
-     * Update path.
-     */
     public void updatePath() {
         if (mover instanceof NPC && mover.asNpc().isNeverWalks()) {
             return;
@@ -437,11 +339,6 @@ public abstract class MovementPulse extends Pulse {
         return findBorderLocation(destination.getLocation());
     }
 
-    /**
-     * Finds the closest location next to the node.
-     *
-     * @return The location to walk to.
-     */
     private Location findBorderLocation(Location centerDestLoc) {
         int size = destination.size();
         Location centerDest = centerDestLoc.transform(size >> 1, size >> 1, 0);
@@ -505,12 +402,6 @@ public abstract class MovementPulse extends Pulse {
         return null;
     }
 
-    /**
-     * Checks if the mover is standing on an invalid position.
-     *
-     * @param l The location.
-     * @return {@code True} if so.
-     */
     private boolean isInsideEntity(Location l) {
         if (!(destination instanceof Entity)) {
             return false;
@@ -523,38 +414,18 @@ public abstract class MovementPulse extends Pulse {
         return Pathfinder.isStandingIn(l.getX(), l.getY(), mover.size(), mover.size(), loc.getX(), loc.getY(), size, size);
     }
 
-    /**
-     * Gets the forceRun.
-     *
-     * @return The forceRun.
-     */
     public boolean isForceRun() {
         return forceRun;
     }
 
-    /**
-     * Sets the forceRun.
-     *
-     * @param forceRun The forceRun to set.
-     */
     public void setForceRun(boolean forceRun) {
         this.forceRun = forceRun;
     }
 
-    /**
-     * Sets the current destination.
-     *
-     * @param destination The destination.
-     */
     public void setDestination(Node destination) {
         this.destination = destination;
     }
 
-    /**
-     * Sets the last location.
-     *
-     * @param last The last location.
-     */
     public void setLast(Location last) {
         this.last = last;
     }

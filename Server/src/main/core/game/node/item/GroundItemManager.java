@@ -13,83 +13,31 @@ import core.network.packet.outgoing.UpdateGroundItemAmount;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Handles ground items.
- *
- * @author Emperor
- */
 public final class GroundItemManager {
-    /**
-     * The list of ground items.
-     */
     private static final List<GroundItem> GROUND_ITEMS = new ArrayList<>(20);
 
-    /**
-     * Creates a ground item.
-     *
-     * @param item     The ground item to create.
-     * @param location The location to set the ground item on.
-     * @return the ground item
-     */
     public static GroundItem create(Item item, Location location) {
         return create(new GroundItem(item, location, null));
     }
 
-    /**
-     * Create ground item.
-     *
-     * @param item      the item
-     * @param location  the location
-     * @param playerUid the player uid
-     * @param ticks     the ticks
-     * @return the ground item
-     */
     public static GroundItem create(Item item, Location location, int playerUid, int ticks) {
         return create(new GroundItem(item, location, playerUid, ticks));
     }
 
-    /**
-     * Creates a ground item.
-     *
-     * @param item   the item.
-     * @param player the player.
-     * @return ground item
-     */
     public static GroundItem create(Item item, final Player player) {
         return create(new GroundItem(item, player.getLocation(), player));
     }
 
-    /**
-     * Creates a ground item.
-     *
-     * @param item     The ground item to create.
-     * @param location The location to set the ground item on.
-     * @param player   The player creating the ground item.
-     * @return the ground item
-     */
     public static GroundItem create(Item item, Location location, Player player) {
         return create(new GroundItem(item, location, player));
     }
 
-    /**
-     * Creates a ground item.
-     *
-     * @param item     The ground item to create.
-     * @param location The location to set the ground item on.
-     * @param player   The player creating the ground item.
-     */
     public static void create(Item[] item, Location location, Player player) {
         for (int i = 0; i < item.length; i++) {
             create(new GroundItem(item[i], location, player));
         }
     }
 
-    /**
-     * Creates a ground item.
-     *
-     * @param item The ground item to create.
-     * @return The ground item.
-     */
     public static GroundItem create(GroundItem item) {
         if (!item.getDefinition().isTradeable()) {
             item.setRemainPrivate(true);
@@ -105,12 +53,6 @@ public final class GroundItemManager {
         return null;
     }
 
-    /**
-     * Destroys the ground item.
-     *
-     * @param item The ground item.
-     * @return the ground item
-     */
     public static GroundItem destroy(GroundItem item) {
         if (item == null) {
             return null;
@@ -123,27 +65,10 @@ public final class GroundItemManager {
         return item;
     }
 
-    /**
-     * Gets a ground item.
-     *
-     * @param itemId   The item id.
-     * @param location The location.
-     * @param player   The player.
-     * @return The ground item, or {@code null} if the ground item wasn't found.
-     */
     public static GroundItem get(int itemId, Location location, Player player) {
         return RegionManager.getRegionPlane(location).getItem(itemId, location, player);
     }
 
-    /**
-     * Increases the amount of a ground item on the floor, or creates a new
-     * ground item.
-     *
-     * @param item     The item to drop.
-     * @param location The drop location.
-     * @param p        The player.
-     * @return The ground item.
-     */
     public static GroundItem increase(Item item, Location location, Player p) {
         GroundItem g = get(item.getId(), location, p);
         if (g == null || !g.droppedBy(p) || !g.isPrivate() || g.isRemoved()) {
@@ -155,9 +80,6 @@ public final class GroundItemManager {
         return g;
     }
 
-    /**
-     * Handles the ground items.
-     */
     public static void pulse() {
         Object[] giArray = GROUND_ITEMS.toArray();
         int size = giArray.length;
@@ -184,11 +106,6 @@ public final class GroundItemManager {
         }
     }
 
-    /**
-     * Gets the list of ground items.
-     *
-     * @return The ground items.
-     */
     public static List<GroundItem> getItems() {
         return GROUND_ITEMS;
     }

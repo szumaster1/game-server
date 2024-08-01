@@ -11,17 +11,7 @@ import java.io.OutputStream;
 
 import static core.api.ContentAPIKt.log;
 
-/**
- * Class used to abstract the process of loading a player save.
- * @author Ceikry
- */
 public final class PlayerParser {
-    /**
-     * Parses or creates the player's save file depending on whether or not it exists.
-     *
-     * @param player The player.
-     * @return the player save parser
-     */
     public static PlayerSaveParser parse(Player player) {
         PlayerSaveParser parser = new PlayerSaveParser(player);
 
@@ -34,29 +24,14 @@ public final class PlayerParser {
         }
     }
 
-    /**
-     * Saves the player's details to the character file at data/players/player_name.json
-     *
-     * @param player The player.
-     */
     public static void save(Player player) {
         player.setAttribute("flagged-for-save", true);
     }
 
-    /**
-     * Save immediately.
-     *
-     * @param player the player
-     */
     public static void saveImmediately(Player player) {
         new PlayerSaver(player).save();
     }
 
-    /**
-     * Copies the template at data/players/template/template.json to data/players/player_name.json
-     *
-     * @param player the player to copy the template for.
-     */
     public static void makeFromTemplate(Player player) {
         InputStream is = null;
         OutputStream os = null;

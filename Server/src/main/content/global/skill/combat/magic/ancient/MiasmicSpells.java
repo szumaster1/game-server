@@ -72,12 +72,6 @@ public final class MiasmicSpells extends CombatSpell {
         }
     }
 
-    /**
-     * Valid staff equipped boolean.
-     *
-     * @param entity the entity
-     * @return the boolean
-     */
     public boolean validStaffEquipped(Entity entity) {
         for (int validStaffId : VALID_STAFF_IDS) {
             if (((Player) entity).getEquipment().getNew(EquipmentContainer.SLOT_WEAPON).getId() == validStaffId) {

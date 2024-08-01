@@ -6,19 +6,10 @@ import core.plugin.ClassScanner;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
-/**
- * The House servant plugin.
- */
 @Initializable
 public class HouseServantPlugin extends UseWithHandler {
-    /**
-     * The Ids.
-     */
     final static int[] IDS = {1511, 1521, 6333, 6332};
 
-    /**
-     * Instantiates a new House servant plugin.
-     */
     public HouseServantPlugin() {
         super(IDS);
     }

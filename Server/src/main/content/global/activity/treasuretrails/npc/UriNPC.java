@@ -14,40 +14,19 @@ import core.plugin.ClassScanner;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
 
-/**
- * Handles the uri npc.
- * @author Vexia
- */
 public final class UriNPC extends AbstractNPC {
 
-	/**
-	 * The npc ids.
-	 */
 	private static final int[] IDS = new int[] { 5141, 5142, 5143, 5144, 5145 };
 
-	/**
-	 * The clue scroll.
-	 */
 	private ClueScrollPlugin clueScroll;
 
-	/**
-	 * The player.
-	 */
 	private Player player;
 
-	/**
-	 * Constructs a new {@code UriNPC} {@code Object}
-	 */
-	public UriNPC() {
+    public UriNPC() {
 		super(0, null);
 	}
 
-	/**
-	 * Constructs a new {@code UriNPC} {@code Object}
-	 * @param id the id.
-	 * @param location the location.
-	 */
-	public UriNPC(int id, Location location) {
+    public UriNPC(int id, Location location) {
 		super(id, location, false);
 		this.setRespawn(false);
 	}
@@ -131,63 +110,33 @@ public final class UriNPC extends AbstractNPC {
 		return IDS;
 	}
 
-	/**
-	 * Checks if uri is a double agent.
-	 * @return {@code True} if so.
-	 */
-	public boolean isDoubleAgent() {
+    public boolean isDoubleAgent() {
 		return getAttribute("double-agent", false);
 	}
 
-	/**
-	 * Gets the player.
-	 * @return the player
-	 */
-	public Player getPlayer() {
+    public Player getPlayer() {
 		return player;
 	}
 
-	/**
-	 * Sets the player.
-	 * @param player the player to set.
-	 */
-	public void setPlayer(Player player) {
+    public void setPlayer(Player player) {
 		this.player = player;
 	}
 
-	/**
-	 * Gets the clueScroll.
-	 * @return the clueScroll
-	 */
-	public ClueScrollPlugin getClueScroll() {
+    public ClueScrollPlugin getClueScroll() {
 		return clueScroll;
 	}
 
-	/**
-	 * Handles the uri dialogue.
-	 * @author Vexia
-	 */
-	public static final class UriDialogue extends Dialogue {
+    public static final class UriDialogue extends Dialogue {
 
-		/**
-		 * The quotes uri says.
-		 */
 		private static final String[] QUOTES = new String[] { "Once, I was a poor man, but then I found a party hat.", "There were three goblins in a bar, which one left first?", "Would you like to buy a pewter spoon?", "In the end, only the three-legged survive.", "I heard that the tall man fears only strong winds.", "In Canifis the men are known for eating much spam.", "I am the egg man, are you one of the egg men?", "I believe that it is very rainy in Varrock.", "The slowest of fishermen catch the swiftest of fish.", "It is quite easy being green.", "Don't forget to find the jade monkey.", "Don't forget to find the jade monkey.", "Do you want ants? Because that's how you get ants.", "I once named a duck after a girl. Big mistake.", "Loser says what.", "I'm looking for a girl named Molly. I can't find her.", "Guys, let's lake dive!", "I gave you what you needed; not what you think you needed.", "Want to see me bend a spoon?", "Is that Deziree?", "This is the last night you'll spend alone.", "(Breathing intensifies)", "Init doe. Lyk, I hope yer reward iz goodd aye?" };
 
-		/**
-		 * Constructs a new {@code UriDialogue} {@code Object}
-		 */
-		public UriDialogue() {
+        public UriDialogue() {
 			/**
 			 * empty.
 			 */
 		}
 
-		/**
-		 * Constructs a new {@code UriDialogue} {@code Object}
-		 * @param player
-		 */
-		public UriDialogue(Player player) {
+        public UriDialogue(Player player) {
 			super(player);
 		}
 
@@ -239,11 +188,7 @@ public final class UriNPC extends AbstractNPC {
 			return super.close();
 		}
 
-		/**
-		 * Checks if the player can speak to the npc.
-		 * @return {@code True} if so.
-		 */
-		public boolean canSpeak() {
+        public boolean canSpeak() {
 			EmoteClueScroll scroll = (EmoteClueScroll) asUri().getClueScroll();
 			if (asUri().getPlayer() != player || !player.getAttribute("commence-emote", !scroll.hasCommencEmote())) {
 				return false;
@@ -251,11 +196,7 @@ public final class UriNPC extends AbstractNPC {
 			return scroll.hasEquipment(player, scroll.getEquipment());
 		}
 
-		/**
-		 * Casts to the uri npc.
-		 * @return the npc.
-		 */
-		public UriNPC asUri() {
+        public UriNPC asUri() {
 			return (UriNPC) npc;
 		}
 

@@ -14,9 +14,6 @@ import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
-/**
- * The Powershot special handler.
- */
 @Initializable
 public final class PowershotSpecialHandler extends RangeSwingHandler implements Plugin<Object> {
 

@@ -3,9 +3,6 @@
 
 package proto.management;
 
-/**
- * Protobuf type {@code management.RequestContactInfo}
- */
 public final class RequestContactInfo extends
         com.google.protobuf.GeneratedMessageV3 implements
         // @@protoc_insertion_point(message_implements:management.RequestContactInfo)
@@ -101,21 +98,11 @@ public final class RequestContactInfo extends
     public static final int USERNAME_FIELD_NUMBER = 1;
     private volatile java.lang.Object username_;
 
-    /**
-     * <code>required string username = 1;</code>
-     *
-     * @return Whether the username field is set.
-     */
     @java.lang.Override
     public boolean hasUsername() {
         return ((bitField0_ & 0x00000001) != 0);
     }
 
-    /**
-     * <code>required string username = 1;</code>
-     *
-     * @return The username.
-     */
     @java.lang.Override
     public java.lang.String getUsername() {
         java.lang.Object ref = username_;
@@ -132,11 +119,6 @@ public final class RequestContactInfo extends
         }
     }
 
-    /**
-     * <code>required string username = 1;</code>
-     *
-     * @return The bytes for username.
-     */
     @java.lang.Override
     public com.google.protobuf.ByteString
     getUsernameBytes() {
@@ -155,21 +137,11 @@ public final class RequestContactInfo extends
     public static final int WORLD_FIELD_NUMBER = 2;
     private int world_;
 
-    /**
-     * <code>required int32 world = 2;</code>
-     *
-     * @return Whether the world field is set.
-     */
     @java.lang.Override
     public boolean hasWorld() {
         return ((bitField0_ & 0x00000002) != 0);
     }
 
-    /**
-     * <code>required int32 world = 2;</code>
-     *
-     * @return The world.
-     */
     @java.lang.Override
     public int getWorld() {
         return world_;
@@ -376,9 +348,6 @@ public final class RequestContactInfo extends
         return builder;
     }
 
-    /**
-     * Protobuf type {@code management.RequestContactInfo}
-     */
     public static final class Builder extends
             com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
             // @@protoc_insertion_point(builder_implements:management.RequestContactInfo)
@@ -558,20 +527,10 @@ public final class RequestContactInfo extends
 
         private java.lang.Object username_ = "";
 
-        /**
-         * <code>required string username = 1;</code>
-         *
-         * @return Whether the username field is set.
-         */
         public boolean hasUsername() {
             return ((bitField0_ & 0x00000001) != 0);
         }
 
-        /**
-         * <code>required string username = 1;</code>
-         *
-         * @return The username.
-         */
         public java.lang.String getUsername() {
             java.lang.Object ref = username_;
             if (!(ref instanceof java.lang.String)) {
@@ -587,11 +546,6 @@ public final class RequestContactInfo extends
             }
         }
 
-        /**
-         * <code>required string username = 1;</code>
-         *
-         * @return The bytes for username.
-         */
         public com.google.protobuf.ByteString
         getUsernameBytes() {
             java.lang.Object ref = username_;
@@ -606,12 +560,6 @@ public final class RequestContactInfo extends
             }
         }
 
-        /**
-         * <code>required string username = 1;</code>
-         *
-         * @param value The username to set.
-         * @return This builder for chaining.
-         */
         public Builder setUsername(
                 java.lang.String value) {
             if (value == null) {
@@ -623,11 +571,6 @@ public final class RequestContactInfo extends
             return this;
         }
 
-        /**
-         * <code>required string username = 1;</code>
-         *
-         * @return This builder for chaining.
-         */
         public Builder clearUsername() {
             bitField0_ = (bitField0_ & ~0x00000001);
             username_ = getDefaultInstance().getUsername();
@@ -635,12 +578,6 @@ public final class RequestContactInfo extends
             return this;
         }
 
-        /**
-         * <code>required string username = 1;</code>
-         *
-         * @param value The bytes for username to set.
-         * @return This builder for chaining.
-         */
         public Builder setUsernameBytes(
                 com.google.protobuf.ByteString value) {
             if (value == null) {
@@ -654,32 +591,16 @@ public final class RequestContactInfo extends
 
         private int world_;
 
-        /**
-         * <code>required int32 world = 2;</code>
-         *
-         * @return Whether the world field is set.
-         */
         @java.lang.Override
         public boolean hasWorld() {
             return ((bitField0_ & 0x00000002) != 0);
         }
 
-        /**
-         * <code>required int32 world = 2;</code>
-         *
-         * @return The world.
-         */
         @java.lang.Override
         public int getWorld() {
             return world_;
         }
 
-        /**
-         * <code>required int32 world = 2;</code>
-         *
-         * @param value The world to set.
-         * @return This builder for chaining.
-         */
         public Builder setWorld(int value) {
             bitField0_ |= 0x00000002;
             world_ = value;
@@ -687,11 +608,6 @@ public final class RequestContactInfo extends
             return this;
         }
 
-        /**
-         * <code>required int32 world = 2;</code>
-         *
-         * @return This builder for chaining.
-         */
         public Builder clearWorld() {
             bitField0_ = (bitField0_ & ~0x00000002);
             world_ = 0;

@@ -7,46 +7,21 @@ import org.json.simple.JSONObject;
 
 import java.nio.ByteBuffer;
 
-/**
- * The Servant.
- */
 public final class Servant extends NPC {
 
-    /**
-     * The servant type.
-     */
     private final ServantType type;
 
-    /**
-     * The item the servant is carrying.
-     */
     private Item item;
 
-    /**
-     * The amount this servant has been used.
-     */
     private int uses;
 
-    /**
-     * If the servant is greeting players entering the house.
-     */
     private boolean greet;
 
-    /**
-     * Constructs a new {@code Servant} {@code Object}.
-     *
-     * @param type The servant type.
-     */
     public Servant(ServantType type) {
         super(type.getId());
         this.type = type;
     }
 
-    /**
-     * Saves the servant details.
-     *
-     * @param buffer The buffer to write on.
-     */
     public void save(ByteBuffer buffer) {
         buffer.put((byte) type.ordinal());
         buffer.putShort((byte) uses);
@@ -59,12 +34,6 @@ public final class Servant extends NPC {
         buffer.put((byte) (greet ? 1 : 0));
     }
 
-    /**
-     * Parses the servant from the buffer.
-     *
-     * @param data the data
-     * @return The servant.
-     */
     public static Servant parse(JSONObject data) {
         int type = Integer.parseInt(data.get("type").toString());
         Servant servant = new Servant(ServantType.values()[type]);
@@ -78,12 +47,6 @@ public final class Servant extends NPC {
         return servant;
     }
 
-    /**
-     * Parse servant.
-     *
-     * @param buffer the buffer
-     * @return the servant
-     */
     public static Servant parse(ByteBuffer buffer) {
         int type = buffer.get();
         if (type == -1) {
@@ -99,65 +62,30 @@ public final class Servant extends NPC {
         return servant;
     }
 
-    /**
-     * Gets the item value.
-     *
-     * @return The item.
-     */
     public Item getItem() {
         return item;
     }
 
-    /**
-     * Sets the item value.
-     *
-     * @param item The item to set.
-     */
     public void setItem(Item item) {
         this.item = item;
     }
 
-    /**
-     * Gets the uses value.
-     *
-     * @return The uses.
-     */
     public int getUses() {
         return uses;
     }
 
-    /**
-     * Sets the uses value.
-     *
-     * @param uses The uses to set.
-     */
     public void setUses(int uses) {
         this.uses = uses;
     }
 
-    /**
-     * Gets the greet value.
-     *
-     * @return The greet.
-     */
     public boolean isGreet() {
         return greet;
     }
 
-    /**
-     * Sets the greet value.
-     *
-     * @param greet The greet to set.
-     */
     public void setGreet(boolean greet) {
         this.greet = greet;
     }
 
-    /**
-     * Gets the type value.
-     *
-     * @return The type.
-     */
     public ServantType getType() {
         return type;
     }

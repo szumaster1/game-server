@@ -12,73 +12,30 @@ import core.game.world.update.flag.context.Animation;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-/**
- * Represents an appearance managing class of a player.
- *
- * @author Emperor
- * @author Vexia
- */
 public final class Appearance {
 
-    /**
-     * Represents the player instance.
-     */
     private final Player player;
 
-    /**
-     * Represents the cached animations.
-     */
     private final int[] animationCache = new int[]{AppearanceCache.STAND_ANIM, AppearanceCache.STAND_TURN_ANIM, AppearanceCache.WALK_ANIM, AppearanceCache.TURN_180_AIM, AppearanceCache.TURN_90_CW, AppearanceCache.TUNR_90_CWW, AppearanceCache.RUN_ANIM};
 
-    /**
-     * Represents the cached icons.
-     */
     private final int[] iconCache = new int[]{-1, -1};
 
-    /**
-     * Represents the shown body parts.
-     */
     private final int[] bodyParts = new int[14];
 
-    /**
-     * Represents the cached body parts (default male).
-     */
     private BodyPart[] appearanceCache = Gender.MALE.generateCache();
 
-    /**
-     * Represents the gender of a player.
-     */
     private Gender gender = Gender.MALE;
 
-    /**
-     * Represents the npc id to represent if not -1.
-     */
     private int npcId = -1;
 
-    /**
-     * The render animation id.
-     */
     private int renderAnimationId = 1426;
 
-    /**
-     * If the player is riding a mining cart.
-     */
     private boolean ridingMinecart;
 
-    /**
-     * Constructs a new {@code Appearance} {@code Object}.
-     *
-     * @param player the player of this appearance.
-     */
     public Appearance(final Player player) {
         this.player = player;
     }
 
-    /**
-     * Parse.
-     *
-     * @param appearance the appearance
-     */
     public void parse(JSONObject appearance) {
         gender = gender.asByte(Byte.parseByte(appearance.get("gender").toString()));
         JSONArray appCache = (JSONArray) appearance.get("appearance_cache");
@@ -87,11 +44,6 @@ public final class Appearance {
         }
     }
 
-    /**
-     * Transforms the player into an NPC.
-     *
-     * @param id The NPC id.
-     */
     public void transformNPC(int id) {
         this.npcId = id;
         setAnimations();
@@ -124,9 +76,6 @@ public final class Appearance {
         sync();
     }
 
-    /**
-     * Sets the rendering animations.
-     */
     public void setAnimations() {
         if (npcId == -1) {
             Item weapon = player.getEquipment().get(3);
@@ -184,28 +133,15 @@ public final class Appearance {
         }
     }
 
-    /**
-     * Sets the animations.
-     *
-     * @param anim the animation.
-     */
     public void setAnimations(Animation anim) {
         renderAnimationId = anim.getId();
         sync();
     }
 
-    /**
-     * Method used to sync this appearance with the client.
-     */
     public void sync() {
         player.updateAppearance();
     }
 
-    /**
-     * Copies the appearance.
-     *
-     * @param appearance The appearance to copy from.
-     */
     public void copy(Appearance appearance) {
         gender = appearance.gender;
         for (int i = 0; i < appearanceCache.length; i++) {
@@ -217,49 +153,24 @@ public final class Appearance {
         renderAnimationId = appearance.renderAnimationId;
     }
 
-    /**
-     * Draws an item on a body part.
-     *
-     * @param part The body part.
-     * @param item The item to draw.
-     */
     public void drawItem(int part, Item item) {
         this.bodyParts[part] = item.getDefinition().getEquipId() + 0x8000;
     }
 
-    /**
-     * Draws clothing on a body part.
-     *
-     * @param part      The body part.
-     * @param clothesId The clothes id.
-     */
     public void drawClothes(int part, int clothesId) {
         this.bodyParts[part] = clothesId + 0x100;
     }
 
-    /**
-     * Clears a body part.
-     *
-     * @param part The part to clear.
-     */
     public void clearBodyPart(int part) {
         this.bodyParts[part] = 0;
     }
 
-    /**
-     * Flag hat clipping.
-     */
     public void flagHatClipping() {
         boolean isBald = getHair().getLook() == (isMale() ? 0 : 45);
         int hairLook = isBald ? getHair().getLook() : (isMale() ? 5 : 51);
         this.bodyParts[8] = hairLook + 0x100;
     }
 
-    /**
-     * Prepares the data used for the appearance update mask.
-     *
-     * @param player The player.
-     */
     public void prepareBodyData(Player player) {
         if (player.getRenderInfo().preparedAppearance()) {
             return;
@@ -346,11 +257,6 @@ public final class Appearance {
 
     }
 
-    /**
-     * Rides a mine cart.
-     *
-     * @param ride the ride
-     */
     public void rideCart(boolean ride) {
         if (!ride) {
             setAnimations();
@@ -361,9 +267,6 @@ public final class Appearance {
         player.getAppearance().sync();
     }
 
-    /**
-     * Flys a gnome copter.
-     */
     public void flyCopter() {
         player.animate(Animation.create(8956));
         player.getEquipment().replace(new Item(12842), 3);
@@ -376,227 +279,104 @@ public final class Appearance {
         player.getAppearance().setStandTurnAnimation(8963);
     }
 
-    /**
-     * Gets the player.
-     *
-     * @return The player.
-     */
     public Player getPlayer() {
         return player;
     }
 
-    /**
-     * Gets the hair body part.
-     *
-     * @return the hair.
-     */
     public BodyPart getHair() {
         return appearanceCache[AppearanceCache.HAIR];
     }
 
-    /**
-     * Gets the beard body part.
-     *
-     * @return the beard.
-     */
     public BodyPart getBeard() {
         return appearanceCache[AppearanceCache.FACIAL_HAIR];
     }
 
-    /**
-     * Gets the torso body part.
-     *
-     * @return the torso.
-     */
     public BodyPart getTorso() {
         return appearanceCache[AppearanceCache.TORSO];
     }
 
-    /**
-     * Gets the arms body part.
-     *
-     * @return the body part.
-     */
     public BodyPart getArms() {
         return appearanceCache[AppearanceCache.ARMS];
     }
 
-    /**
-     * Gets the wrist part part.
-     *
-     * @return the body part.
-     */
     public BodyPart getWrists() {
         return appearanceCache[AppearanceCache.WRISTS];
     }
 
-    /**
-     * Gets the skin part.
-     *
-     * @return the part.
-     */
     public BodyPart getSkin() {
         return appearanceCache[AppearanceCache.WRISTS];
     }
 
-    /**
-     * Getsthe leg body parts.
-     *
-     * @return the legs.
-     */
     public BodyPart getLegs() {
         return appearanceCache[AppearanceCache.LEGS];
     }
 
-    /**
-     * Gets the feet body parts.
-     *
-     * @return the feet.
-     */
     public BodyPart getFeet() {
         return appearanceCache[AppearanceCache.FEET];
     }
 
-    /**
-     * Gets the stand animation.
-     *
-     * @return the animation.
-     */
     public int getStandAnimation() {
         return animationCache[0];
     }
 
-    /**
-     * Method used to set the stand animation.
-     *
-     * @param animation the animation
-     */
     public void setStandAnimation(int animation) {
         animationCache[0] = animation;
     }
 
-    /**
-     * Gets the standing turn animation.
-     *
-     * @return the animation.
-     */
     public int getStandTurnAnimation() {
         return animationCache[1];
     }
 
-    /**
-     * Sets the standing turn animation.
-     *
-     * @param animation the animation
-     */
     public void setStandTurnAnimation(int animation) {
         animationCache[1] = animation;
     }
 
-    /**
-     * Gets the walk animation.
-     *
-     * @return the animation.
-     */
     public int getWalkAnimation() {
         return animationCache[2];
     }
 
-    /**
-     * Sets the walk animation.
-     *
-     * @param animation the animation.
-     */
     public void setWalkAnimation(int animation) {
         animationCache[2] = animation;
     }
 
-    /**
-     * Gets the turning 180 animation.
-     *
-     * @return the animation.
-     */
     public int getTurn180() {
         return animationCache[3];
     }
 
-    /**
-     * Sets the tunring 180 animation.
-     *
-     * @param animation the animation.
-     */
     public void setTurn180(int animation) {
         animationCache[3] = animation;
     }
 
-    /**
-     * Gets the turn90cw animation.
-     *
-     * @return the animation.
-     */
     public int getTurn90cw() {
         return animationCache[4];
     }
 
-    /**
-     * Sets the turn90cw animation.
-     *
-     * @param animation the animation.
-     */
     public void setTurn90cw(int animation) {
         animationCache[4] = animation;
     }
 
-    /**
-     * Gets the turn90ccw animation.
-     *
-     * @return the animation.
-     */
     public int getTurn90ccw() {
         return animationCache[5];
     }
 
-    /**
-     * Sets thr turn90cww animation.
-     *
-     * @param animation the animation
-     */
     public void setTurn90ccw(int animation) {
         animationCache[5] = animation;
     }
 
-    /**
-     * Gets the run animation.
-     *
-     * @return the animation.
-     */
     public int getRunAnimation() {
         return animationCache[6];
     }
 
-    /**
-     * Sets the running animation.
-     *
-     * @param animation the animation.
-     */
     public void setRunAnimation(int animation) {
         animationCache[6] = animation;
     }
 
-    /**
-     * Gets the render animation id.
-     *
-     * @return The render animation id.
-     */
     public int getRenderAnimation() {
         if (player.getAttribute("render-anim-override") != null)
             return player.getAttribute("render-anim-override", renderAnimationId);
         return renderAnimationId;
     }
 
-    /**
-     * Method used to set the default animations.
-     */
     public void setDefaultAnimations() {
         for (int i = 0; i < animationCache.length; i++) {
             animationCache[i] = AppearanceCache.ANIMATIONS[i];
@@ -604,248 +384,108 @@ public final class Appearance {
         renderAnimationId = 1426;
     }
 
-    /**
-     * Gets the skull icon.
-     *
-     * @return the icon.
-     */
     public int getSkullIcon() {
         return iconCache[0];
     }
 
-    /**
-     * Sets the skull icon.
-     *
-     * @param icon the icon.
-     */
     public void setSkullIcon(int icon) {
         iconCache[0] = icon;
     }
 
-    /**
-     * Gets the head icon.
-     *
-     * @return the icon.
-     */
     public int getHeadIcon() {
         return iconCache[1];
     }
 
-    /**
-     * Sets the head icon.
-     *
-     * @param icon the icon.
-     */
     public void setHeadIcon(int icon) {
         this.iconCache[1] = icon;
     }
 
-    /**
-     * Gets the gender.
-     *
-     * @return The gender.
-     */
     public Gender getGender() {
         return gender;
     }
 
-    /**
-     * Method used to change the gender of a player.
-     *
-     * @param gender the gender.
-     */
     public void changeGender(Gender gender) {
         setGender(gender);
         sync();
     }
 
-    /**
-     * Method used to set the gender.
-     *
-     * @param gender the gender.
-     */
     public void setGender(final Gender gender) {
         this.gender = gender;
         this.appearanceCache = gender.generateCache();
     }
 
-    /**
-     * Gets the value {@code True} if male.
-     *
-     * @return {@code True} if so.
-     */
     public boolean isMale() {
         return gender == Gender.MALE;
     }
 
-    /**
-     * Gets the npc id.
-     *
-     * @return the npc id.
-     */
     public int getNpcId() {
         return npcId;
     }
 
-    /**
-     * If the player's appearance is a NPC.
-     *
-     * @return If the player's appearance is a NPC {@code true}.
-     */
     public boolean isNpc() {
         return npcId != -1;
     }
 
-    /**
-     * Gets the appearanceCache.
-     *
-     * @return The appearanceCache.
-     */
     public BodyPart[] getAppearanceCache() {
         return appearanceCache;
     }
 
-    /**
-     * Gets the animationCache.
-     *
-     * @return The animationCache.
-     */
     public int[] getAnimationCache() {
         return animationCache;
     }
 
-    /**
-     * Gets the bodyParts.
-     *
-     * @return The bodyParts.
-     */
     public int[] getBodyParts() {
         return bodyParts;
     }
 
-    /**
-     * Gets the ridingMinecart.
-     *
-     * @return The ridingMinecart.
-     */
     public boolean isRidingMinecart() {
         return ridingMinecart;
     }
 
-    /**
-     * Sets the ridingMinecart.
-     *
-     * @param ridingMinecart The ridingMinecart to set.
-     */
     public void setRidingMinecart(boolean ridingMinecart) {
         this.ridingMinecart = ridingMinecart;
     }
 
-    /**
-     * Represents a class of cached appearance related information.
-     *
-     * @author 'Vexia
-     */
     public static class AppearanceCache {
 
-        /**
-         * Represents the appearance animations.
-         */
         public static final int[] ANIMATIONS = new int[]{0x328, 0x337, 0x333, 0x334, 0x335, 0x336, 0x338};
 
-        /**
-         * Represents the index hair apperance is cached at.
-         */
         public static final int HAIR = 0;
 
-        /**
-         * Represents the index facial hair appearance is cached at.
-         */
         public static final int FACIAL_HAIR = 1;
 
-        /**
-         * Represents the index torso appearance is cached at.
-         */
         public static final int TORSO = 2;
 
-        /**
-         * Represents the index arm appearance is cached at.
-         */
         public static final int ARMS = 3;
 
-        /**
-         * Represents the index wrist appearance is cached at.
-         */
         public static final int WRISTS = 4;
 
-        /**
-         * Represents the index leg appearance is cached at.
-         */
         public static final int LEGS = 5;
 
-        /**
-         * Represents the index feet appearance is cached at.
-         */
         public static final int FEET = 6;
 
-        /**
-         * Represents the index hair color is cached at.
-         */
         public static final int HAIR_COLOR = 0;
 
-        /**
-         * Represents the index torso color is cached at.
-         */
         public static final int TORSO_COLOR = 1;
 
-        /**
-         * Represents the index leg color is cached at.
-         */
         public static final int LEG_COLOR = 2;
 
-        /**
-         * Represents the index feet color is cached at.
-         */
         public static final int FEET_COLOR = 3;
 
-        /**
-         * Represents the index skin color is cached at.
-         */
         public static final int SKIN_COLOR = 4;
 
-        /**
-         * The player's stand animation.
-         */
         private static final int STAND_ANIM = 0x328;
 
-        /**
-         * The player's turn animation for standing.
-         */
         private static final int STAND_TURN_ANIM = 0x337;
 
-        /**
-         * The player's walk animation.
-         */
         public static final int WALK_ANIM = 0x333;
 
-        /**
-         * The player's turn 180 degrees animation.
-         */
         private static final int TURN_180_AIM = 0x334;
 
-        /**
-         * The player's turn 90 degrees animation.
-         */
         private static final int TURN_90_CW = 0x335;
 
-        /**
-         * The player's turn 90 degrees animation.
-         */
         private static final int TUNR_90_CWW = 0x336;
 
-        /**
-         * The player's run animation.
-         */
         private static final int RUN_ANIM = 0x338;
 
     }

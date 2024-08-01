@@ -4,10 +4,6 @@ import core.network.packet.IoBuffer;
 import core.network.packet.OutgoingPacket;
 import core.network.packet.context.ChildPositionContext;
 
-/**
- * Handles the "reposition interface child" outgoing packet.
- * @author Emperor
- */
 public final class RepositionChild implements OutgoingPacket<ChildPositionContext> {
 
     @Override

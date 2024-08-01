@@ -21,11 +21,6 @@ import java.util.ArrayList;
 
 import static core.api.ContentAPIKt.setVarp;
 
-/**
- * Represents the equipment container.
- *
- * @author Emperor
- */
 public final class EquipmentContainer extends Container {
 
     public static final int SLOT_HAT = 0,
@@ -40,21 +35,10 @@ public final class EquipmentContainer extends Container {
         SLOT_RING = 12,
         SLOT_ARROWS = 13;
 
-    /**
-     * The bonus names.
-     */
     private static final String[] BONUS_NAMES = {"Stab: ", "Slash: ", "Crush: ", "Magic: ", "Ranged: ", "Stab: ", "Slash: ", "Crush: ", "Magic: ", "Ranged: ", "Summoning: ", "Strength: ", "Prayer: "};
 
-    /**
-     * The player.
-     */
     private final Player player;
 
-    /**
-     * Constructs a new {@code EquipmentContainer} {@code Object}.
-     *
-     * @param player The player.
-     */
     public EquipmentContainer(Player player) {
         super(14);
         this.player = player;
@@ -66,27 +50,10 @@ public final class EquipmentContainer extends Container {
         return add(item, fire, true);
     }
 
-    /**
-     * Adds an item to the equipment container.
-     *
-     * @param item          The item to add.
-     * @param fire          If we should refresh.
-     * @param fromInventory If the item is being equipped from the inventory.
-     * @return {@code True} if succesful, {@code false} if not.
-     */
     public boolean add(Item item, boolean fire, boolean fromInventory) {
         return add(item, player.getInventory().getSlot(item), fire, fromInventory);
     }
 
-    /**
-     * Adds an item to the equipment container.
-     *
-     * @param newItem       The item to add.
-     * @param inventorySlot The inventory slot of the item to add.
-     * @param fire          If we should refresh.
-     * @param fromInventory If the item is being equipped from the inventory.
-     * @return {@code True} if succesful, {@code false} if not.
-     */
     public boolean add(Item newItem, int inventorySlot, boolean fire, boolean fromInventory) {
         int equipmentSlot = newItem.getDefinition().getConfiguration(ItemConfigParser.EQUIP_SLOT, -1);
         if (!isEquippable(newItem, equipmentSlot)) return false;
@@ -252,11 +219,6 @@ public final class EquipmentContainer extends Container {
         replace(transferItem, slot);
     }
 
-    /**
-     * Listens to the equipment container.
-     *
-     * @author Emperor
-     */
     private static class EquipmentListener implements ContainerListener {
 
         private final Player player;
@@ -301,11 +263,6 @@ public final class EquipmentContainer extends Container {
             player.getProperties().updateDefenceAnimation();
         }
 
-        /**
-         * Updates the bonuses, weight, animations, ...
-         *
-         * @param c The container.
-         */
         public void update(Container c) {
             if (c.getNew(SLOT_SHIELD).getId() != 11283 && player.getAttribute("dfs_spec", false)) {
                 player.removeAttribute("dfs_spec");
@@ -321,11 +278,6 @@ public final class EquipmentContainer extends Container {
         }
     }
 
-    /**
-     * Updates the bonuses.
-     *
-     * @param player The player.
-     */
     public static void updateBonuses(Player player) {
         int[] bonuses = new int[15];
         for (Item item : player.getEquipment().toArray()) {
@@ -366,11 +318,6 @@ public final class EquipmentContainer extends Container {
         }
     }
 
-    /**
-     * Updates the equipment stats interface.
-     *
-     * @param player The player to update for.
-     */
     public static void update(Player player) {
         int index = 0;
         int[] bonuses = player.getProperties().getBonuses();

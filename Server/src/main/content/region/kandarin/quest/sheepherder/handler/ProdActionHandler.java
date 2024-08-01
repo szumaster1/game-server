@@ -15,9 +15,6 @@ import core.plugin.Initializable;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
 
-/**
- * The Prod action handler.
- */
 @Initializable
 public class ProdActionHandler extends PluginInteraction {
 
@@ -37,23 +34,10 @@ public class ProdActionHandler extends PluginInteraction {
         return false;
     }
 
-    /**
-     * Gets destination.
-     *
-     * @param p the p
-     * @param n the n
-     * @return the destination
-     */
     public Location getDestination(Player p, Node n) {
         return DestinationFlag.ENTITY.getDestination(p, n);
     }
 
-    /**
-     * Handle prod.
-     *
-     * @param p the p
-     * @param n the n
-     */
     public void handleProd(Player p, HerderSheepNPC n) {
         p.faceLocation(n.getLocation());
         Pulse prodPulse = new Pulse() {

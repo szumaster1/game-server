@@ -8,52 +8,22 @@ import core.tools.RandomFunction;
 
 import java.util.Random;
 
-/**
- * The Impling node.
- */
 public final class ImplingNode extends BNetNode {
 
     private final ChanceItem[] loot;
 
     private final int respawnTime;
 
-    /**
-     * Instantiates a new Impling node.
-     *
-     * @param npcs        the npcs
-     * @param level       the level
-     * @param exp         the exp
-     * @param puroExp     the puro exp
-     * @param reward      the reward
-     * @param respawnTime the respawn time
-     * @param loot        the loot
-     */
     public ImplingNode(int[] npcs, int level, double exp, double puroExp, Item reward, final int respawnTime, final ChanceItem... loot) {
         super(npcs, new int[]{level}, new double[]{exp, puroExp}, null, reward);
         this.loot = loot;
         this.respawnTime = respawnTime;
     }
 
-    /**
-     * Instantiates a new Impling node.
-     *
-     * @param npcs    the npcs
-     * @param level   the level
-     * @param exp     the exp
-     * @param puroExp the puro exp
-     * @param reward  the reward
-     * @param loot    the loot
-     */
     public ImplingNode(int[] npcs, int level, double exp, double puroExp, Item reward, final ChanceItem... loot) {
         this(npcs, level, exp, puroExp, reward, 16, loot);
     }
 
-    /**
-     * Loot.
-     *
-     * @param player the player
-     * @param item   the item
-     */
     public void loot(final Player player, final Item item) {
         player.lock(1);
         if (player.getInventory().freeSlots() < 1) {
@@ -105,20 +75,10 @@ public final class ImplingNode extends BNetNode {
         return IMPLING_JAR;
     }
 
-    /**
-     * Get loot chance item [ ].
-     *
-     * @return the chance item [ ]
-     */
     public ChanceItem[] getLoot() {
         return loot;
     }
 
-    /**
-     * Gets respawn time.
-     *
-     * @return the respawn time
-     */
     public int getRespawnTime() {
         return respawnTime;
     }
