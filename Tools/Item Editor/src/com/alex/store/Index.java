@@ -21,7 +21,7 @@ public final class Index {
       byte[] archiveData = index255.getArchiveData(this.getId());
       if(archiveData != null) {
          this.crc = CRC32HGenerator.getHash(archiveData);
-         this.whirlpool = Whirlpool.getHash(archiveData, 0, archiveData.length);
+         this.whirlpool = Whirlpool.whirlpool(archiveData, 0, archiveData.length);
          Archive archive = new Archive(this.getId(), archiveData, keys);
          this.table = new ReferenceTable(archive);
          this.resetCachedFiles();
@@ -260,7 +260,7 @@ public final class Index {
          Archive var131 = new Archive(archiveId, compression, reference.getRevision(), archiveData);
          byte[] var141 = var131.compress();
          reference.setCrc(CRC32HGenerator.getHash(var141, 0, var141.length - 2));
-         reference.setWhirpool(Whirlpool.getHash(var141, 0, var141.length - 2));
+         reference.setWhirpool(Whirlpool.whirlpool(var141, 0, var141.length - 2));
          if(!this.mainFile.putArchiveData(archiveId, var141)) {
             return false;
          } else if(!this.rewriteTable()) {
@@ -329,7 +329,7 @@ public final class Index {
       Archive var181 = new Archive(archiveId, compression, reference.getRevision(), archiveData);
       byte[] var191 = var181.compress();
       reference.setCrc(CRC32HGenerator.getHash(var191, 0, var191.length - 2));
-      reference.setWhirpool(Whirlpool.getHash(var191, 0, var191.length - 2));
+      reference.setWhirpool(Whirlpool.whirlpool(var191, 0, var191.length - 2));
       if(archiveName != -1) {
          reference.setNameHash(archiveName);
       }
@@ -372,7 +372,7 @@ public final class Index {
                archive.setKeys(keys);
                byte[] closedArchive = archive.compress();
                reference.setCrc(CRC32HGenerator.getHash(closedArchive, 0, closedArchive.length - 2));
-               reference.setWhirpool(Whirlpool.getHash(closedArchive, 0, closedArchive.length - 2));
+               reference.setWhirpool(Whirlpool.whirlpool(closedArchive, 0, closedArchive.length - 2));
                if(!this.mainFile.putArchiveData(archiveId, closedArchive)) {
                   return false;
                } else if(rewriteTable && !this.rewriteTable()) {

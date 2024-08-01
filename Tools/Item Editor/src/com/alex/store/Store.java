@@ -79,7 +79,7 @@ public final class Store {
       stream.getBytes(var91, 0, var91.length);
       OutputStream var111 = new OutputStream(65);
       var111.writeByte(0);
-      var111.writeBytes(Whirlpool.getHash(var91, 0, var91.length));
+      var111.writeBytes(Whirlpool.whirlpool(var91, 0, var91.length));
       byte[] var121 = new byte[var111.getOffset()];
       var111.setOffset(0);
       var111.getBytes(var121, 0, var121.length);

@@ -15,8 +15,7 @@ public class Main {
         Console.redirectSystemStreams();
         (new Console()).setVisible(true);
         (new ToolSelection()).setVisible(true);
-        log("Main", "Frosty's Cache Editor");
-        log("Main", "Edited to support the #562 revision by Jens.");
+        log("Main", "Cache Editor");
     }
 
     public static void log(String className, String message) {

@@ -129,7 +129,7 @@ public class Archive {
       }
 
       byte[] compressed = this.compress();
-      return !mainFile.putArchiveData(this.id, compressed)?null:new Object[]{Integer.valueOf(CRC32HGenerator.getHash(compressed)), Whirlpool.getHash(compressed, 0, compressed.length)};
+      return !mainFile.putArchiveData(this.id, compressed)?null:new Object[]{Integer.valueOf(CRC32HGenerator.getHash(compressed)), Whirlpool.whirlpool(compressed, 0, compressed.length)};
    }
 
    public int getId() {
