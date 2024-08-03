@@ -12,7 +12,7 @@ import core.plugin.Initializable
 @Initializable
 class TokTzKetDill : Quest("TokTz-Ket-Dill", 152, 151, 1, Vars.VARBIT_QUEST_TOKTZ_KET_DRILL_4700, 0, 1, 63) {
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -23,7 +23,7 @@ class TokTzKetDill : Quest("TokTz-Ket-Dill", 152, 151, 1, Vars.VARBIT_QUEST_TOKT
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

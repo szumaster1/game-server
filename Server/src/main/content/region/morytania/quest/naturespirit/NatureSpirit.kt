@@ -11,7 +11,8 @@ import core.plugin.Initializable
 
 @Initializable
 class NatureSpirit : Quest("Nature Spirit", 95, 94, 2, Vars.VARP_QUEST_NATURE_SPIRIT_PROGRESS, 0, 1, 110) {
-    override fun drawJournal(player: Player?, stage: Int) {
+
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         player ?: return
         var line = 11
@@ -104,7 +105,7 @@ class NatureSpirit : Quest("Nature Spirit", 95, 94, 2, Vars.VARP_QUEST_NATURE_SP
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

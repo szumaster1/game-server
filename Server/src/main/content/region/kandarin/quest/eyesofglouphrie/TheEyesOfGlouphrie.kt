@@ -13,7 +13,7 @@ import core.plugin.Initializable
 class TheEyesOfGlouphrie :
     Quest("The Eyes of Glouphrie", 56, 55, 2, Vars.VARBIT_QUEST_THE_EYE_OF_GLOUPHRIE_2497, 0, 1, 60) {
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -24,7 +24,7 @@ class TheEyesOfGlouphrie :
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

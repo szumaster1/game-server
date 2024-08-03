@@ -11,7 +11,7 @@ import core.plugin.Initializable
 @Initializable
 class SweptAway : Quest("Swept Away", 160, 159, 2, Vars.VARBIT_QUEST_SWEPT_AWAY_5448, 0, 1, 50) {
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -22,7 +22,7 @@ class SweptAway : Quest("Swept Away", 160, 159, 2, Vars.VARBIT_QUEST_SWEPT_AWAY_
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

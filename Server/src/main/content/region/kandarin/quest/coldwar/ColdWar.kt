@@ -13,7 +13,7 @@ import core.plugin.Initializable
 @Initializable
 class ColdWar : Quest("Cold War", 132, 131, 1, Vars.VARBIT_QUEST_COLD_WAR_3293, 0, 1, 135) {
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -134,7 +134,7 @@ class ColdWar : Quest("Cold War", 132, 131, 1, Vars.VARBIT_QUEST_COLD_WAR_3293, 
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

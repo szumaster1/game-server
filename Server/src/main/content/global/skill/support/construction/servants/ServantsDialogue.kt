@@ -5,6 +5,7 @@ import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.game.world.GameWorld
+import core.tools.BLUE
 
 class ServantRickDialogue : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
@@ -87,8 +88,8 @@ class ServantButlerDialogue : DialogueFile() {
         npc = NPC(NPCs.BUTLER_4241)
         when (stage) {
             0 -> player("What can you do?").also { stage++ }
-            1 -> npcl(FacialExpression.HALF_GUILTY, "I can fulfill all sir's domestic service needs with efficiency and impeccable manners.").also { stage++ }
-            2 -> npcl(FacialExpression.HALF_GUILTY, "I hate to boast, but I can say with confidence that no mortal can make trips to the bank or sawmill faster than I!").also { stage++ }
+            1 -> npcl(FacialExpression.HALF_GUILTY, BLUE + "I can fulfill all sir's domestic service needs with efficiency and impeccable manners.").also { stage++ }
+            2 -> npcl(FacialExpression.HALF_GUILTY, BLUE + "I hate to boast, but I can say with confidence that no mortal can make trips to the bank or sawmill faster than I!").also { stage++ }
             3 -> end()
         }
     }
@@ -99,9 +100,9 @@ class ServantButlerDialogueExtension : DialogueFile() {
         npc = NPC(NPCs.BUTLER_4241)
         when (stage) {
             0 -> player("Tell me about your previous jobs.").also { stage++ }
-            1 -> npcl(FacialExpression.HALF_GUILTY, "From a humble beginning as a dish-washer I have worked my way up through the ranks of domestic service in the households of nobles from Varrock and Ardougne.").also { stage++ }
-            2 -> npcl(FacialExpression.HALF_GUILTY, "As a life-long servant I have naturally suppressed any personality of my own and trained myself never to use the second person when talking to a superior.").also { stage++ }
-            3 -> npcl(FacialExpression.HALF_GUILTY, "I have usually worked in the large households of the aristocracy, but now that such a large number of private persons are building their own houses I decided to offer them my services.").also { stage++ }
+            1 -> npcl(FacialExpression.HALF_GUILTY, BLUE + "From a humble beginning as a dish-washer I have worked my way up through the ranks of domestic service in the households of nobles from Varrock and Ardougne.").also { stage++ }
+            2 -> npcl(FacialExpression.HALF_GUILTY, BLUE + "As a life-long servant I have naturally suppressed any personality of my own and trained myself never to use the second person when talking to a superior.").also { stage++ }
+            3 -> npcl(FacialExpression.HALF_GUILTY, BLUE + "I have usually worked in the large households of the aristocracy, but now that such a large number of private persons are building their own houses I decided to offer them my services.").also { stage++ }
             4 -> end()
         }
     }
@@ -112,8 +113,8 @@ class ServantDemonButlerDialogue : DialogueFile() {
         npc = NPC(NPCs.DEMON_BUTLER_4243)
         when (stage) {
             0 -> player("What can you do?").also { stage++ }
-            1 -> npcl(FacialExpression.OLD_NORMAL, "I have learned my trade under the leash of some of the harshest masters of the Demon Dimensions.").also { stage++ }
-            2 -> npcl(FacialExpression.OLD_NORMAL, "I can cook to satisfy the most infernal stomachs, and fly on wings of flame to deposit thine items in the bank or bring planks from the sawmill in seconds.").also { stage++ }
+            1 -> npcl(FacialExpression.OLD_NORMAL,BLUE + "I have learned my trade under the leash of some of the harshest masters of the Demon Dimensions.").also { stage++ }
+            2 -> npcl(FacialExpression.OLD_NORMAL,BLUE + "I can cook to satisfy the most infernal stomachs, and fly on wings of flame to deposit thine items in the bank or bring planks from the sawmill in seconds.").also { stage++ }
             3 -> end()
         }
     }
@@ -124,9 +125,9 @@ class ServantDemonButlerDialogueExtension : DialogueFile() {
         npc = NPC(NPCs.DEMON_BUTLER_4243)
         when (stage) {
             0 -> player("Tell me about your previous jobs.").also { stage++ }
-            1 -> npcl(FacialExpression.OLD_NORMAL, "For millennia I have served and waited on the mighty Demon Lords of the Infernal Dimensions.").also { stage++ }
-            2 -> npcl(FacialExpression.OLD_NORMAL, "I began as a humble footman in the household of Lord Thammaron, and for several centuries I was the private valet to Delrith.").also { stage++ }
-            3 -> npcl(FacialExpression.OLD_NORMAL, "I have also worked in the Grim Underworld, escorting the souls of the dead to their final abodes. But the incessant shadows and hellfire wary me, so I have come to serve mortal masters in the realms of light.").also { stage++ }
+            1 -> npcl(FacialExpression.OLD_NORMAL,BLUE + "For millennia I have served and waited on the mighty Demon Lords of the Infernal Dimensions.").also { stage++ }
+            2 -> npcl(FacialExpression.OLD_NORMAL,BLUE + "I began as a humble footman in the household of Lord Thammaron, and for several centuries I was the private valet to Delrith.").also { stage++ }
+            3 -> npcl(FacialExpression.OLD_NORMAL,BLUE + "I have also worked in the Grim Underworld, escorting the souls of the dead to their final abodes. But the incessant shadows and hellfire wary me, so I have come to serve mortal masters in the realms of light.").also { stage++ }
             4 -> end()
         }
     }

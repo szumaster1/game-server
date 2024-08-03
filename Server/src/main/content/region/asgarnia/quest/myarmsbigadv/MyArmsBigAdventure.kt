@@ -14,7 +14,7 @@ import core.plugin.Initializable
 class MyArmsBigAdventure :
     Quest("My Arm's Big Adventure", 94, 93, 1, Vars.VARBIT_QUEST_MY_ARMS_BIG_ADVENTURE_2790, 0, 1, 311) {
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -25,7 +25,7 @@ class MyArmsBigAdventure :
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

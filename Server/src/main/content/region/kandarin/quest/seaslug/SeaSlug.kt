@@ -23,7 +23,7 @@ class SeaSlug : Quest("Sea Slug", 109, 108, 1, Vars.VARP_QUEST_SEA_SLUG_PROGRESS
         const val ATTRIBUTE_TALK_WITH_KENT = "seaslug:kent-dialogue"
     }
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -86,7 +86,7 @@ class SeaSlug : Quest("Sea Slug", 109, 108, 1, Vars.VARP_QUEST_SEA_SLUG_PROGRESS
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

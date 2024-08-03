@@ -2,9 +2,6 @@ package core.api.utils
 
 import core.tools.RandomFunction
 
-/**
- * Implementation of a weighted table that supports generic (particularly non-Item) types.
- */
 class WeightedTable<T> : ArrayList<Pair<T?, Double>>() {
     var totalWeight: Double = 0.0
 

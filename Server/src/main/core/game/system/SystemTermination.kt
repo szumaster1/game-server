@@ -18,13 +18,9 @@ import core.tools.Log
 import java.io.File
 import java.util.function.Consumer
 
-/**
- * Handles the terminating of the system.
- * @author Emperor
- */
 class SystemTermination {
 
-    /**
+    /*
      * Terminates the system safely.
      */
     fun terminate() {
@@ -55,7 +51,9 @@ class SystemTermination {
             for (wld in worldPersists) {
                 if (wld is ServerStore) s = wld else wld.save()
             }
-            //ServerStore should ***always*** save last. Fudging a race condition here :)
+            /*
+             * ServerStore should ***always*** save last. Fudging a race condition here :)
+             */
             s?.save()
             if (ServerConstants.DATA_PATH != null) save(ServerConstants.DATA_PATH)
         } catch (e: Throwable) {
@@ -64,9 +62,8 @@ class SystemTermination {
         log(this.javaClass, Log.INFO, "Server successfully terminated!")
     }
 
-    /**
+    /*
      * Saves all system data on the directory.
-     * @param directory The base directory.
      */
     fun save(directory: String?) {
         val file = File(directory)

@@ -33,120 +33,6 @@ import java.io.OutputStream;
 import static com.alex.util.bzip2.BZip2Constants.MAX_ALPHA_SIZE;
 import static com.alex.util.bzip2.BZip2Constants.N_GROUPS;
 
-/**
- * An output stream that compresses into the BZip2 format (without the file
- * header chars) into another stream.
- * <p/>
- * <p>
- * The compression requires large amounts of memory. Thus you should call the
- * {@link #close() close()} method as soon as possible, to force
- * <tt>CBZip2OutputStream</tt> to release the allocated memory.
- * </p>
- * <p/>
- * <p>
- * You can shrink the amount of allocated memory and maybe raise the compression
- * speed by choosing a lower blocksize, which in turn may cause a lower
- * compression ratio. You can avoid unnecessary memory allocation by avoiding
- * using a blocksize which is bigger than the size of the input.
- * </p>
- * <p/>
- * <p>
- * You can compute the memory usage for compressing by the following formula:
- * </p>
- * <p/>
- * 
- * <pre>
- * &lt;code&gt;400k + (9 * blocksize)&lt;/code&gt;.
- * </pre>
- * <p/>
- * <p>
- * To get the memory required for decompression by {@link CBZip2InputStream
- * CBZip2InputStream} use
- * </p>
- * <p/>
- * 
- * <pre>
- * &lt;code&gt;65k + (5 * blocksize)&lt;/code&gt;.
- * </pre>
- * <p/>
- * <table width="100%" border="1">
- * <colgroup> <col width="33%" /> <col width="33%" /> <col width="33%" />
- * </colgroup>
- * <tr>
- * <th colspan="3">Memory usage by blocksize</th>
- * </tr>
- * <tr>
- * <th align="right">Blocksize</th>
- * <th align="right">Compression<br>
- * memory usage</th>
- * <th align="right">Decompression<br>
- * memory usage</th>
- * </tr>
- * <tr>
- * <td align="right">100k</td>
- * <td align="right">1300k</td>
- * <td align="right">565k</td>
- * </tr>
- * <tr>
- * <td align="right">200k</td>
- * <td align="right">2200k</td>
- * <td align="right">1065k</td>
- * </tr>
- * <tr>
- * <td align="right">300k</td>
- * <td align="right">3100k</td>
- * <td align="right">1565k</td>
- * </tr>
- * <tr>
- * <td align="right">400k</td>
- * <td align="right">4000k</td>
- * <td align="right">2065k</td>
- * </tr>
- * <tr>
- * <td align="right">500k</td>
- * <td align="right">4900k</td>
- * <td align="right">2565k</td>
- * </tr>
- * <tr>
- * <td align="right">600k</td>
- * <td align="right">5800k</td>
- * <td align="right">3065k</td>
- * </tr>
- * <tr>
- * <td align="right">700k</td>
- * <td align="right">6700k</td>
- * <td align="right">3565k</td>
- * </tr>
- * <tr>
- * <td align="right">800k</td>
- * <td align="right">7600k</td>
- * <td align="right">4065k</td>
- * </tr>
- * <tr>
- * <td align="right">900k</td>
- * <td align="right">8500k</td>
- * <td align="right">4565k</td>
- * </tr>
- * </table>
- * <p/>
- * <p>
- * For decompression <tt>CBZip2InputStream</tt> allocates less memory if the
- * bzipped input is smaller than one block.
- * </p>
- * <p/>
- * <p>
- * Instances of this class are not threadsafe.
- * </p>
- * <p/>
- * <p>
- * TODO: Update to BZip2 1.0.1
- * </p>
- * <p/>
- * <p>
- * <strong>This class has been modified so it does not use randomized blocks as
- * these are not supported by the client's bzip2 implementation.</strong>
- * </p>
- */
 public class CBZip2OutputStream extends OutputStream implements BZip2Constants {
 
 	private static final class Data extends Object {
@@ -193,10 +79,6 @@ public class CBZip2OutputStream extends OutputStream implements BZip2Constants {
 		// 8433529 byte
 		// ============
 
-		/**
-		 * Array instance identical to sfmap, both are used only temporarily and
-		 * indepently, so we do not need to allocate additional memory.
-		 */
 		final char[] quadrant;
 
 		Data(int blockSize100k) {
@@ -211,88 +93,28 @@ public class CBZip2OutputStream extends OutputStream implements BZip2Constants {
 
 	}
 
-	/**
-	 * The minimum supported blocksize <tt> == 1</tt>.
-	 */
 	public static final int MIN_BLOCKSIZE = 1;
 
-	/**
-	 * The maximum supported blocksize <tt> == 9</tt>.
-	 */
 	public static final int MAX_BLOCKSIZE = 9;
 
-	/**
-	 * This constant is accessible by subclasses for historical purposes. If you
-	 * don't know what it means then you don't need it.
-	 */
 	protected static final int SETMASK = (1 << 21);
 
-	/**
-	 * This constant is accessible by subclasses for historical purposes. If you
-	 * don't know what it means then you don't need it.
-	 */
 	protected static final int CLEARMASK = (~SETMASK);
 
-	/**
-	 * This constant is accessible by subclasses for historical purposes. If you
-	 * don't know what it means then you don't need it.
-	 */
 	protected static final int GREATER_ICOST = 15;
 
-	/**
-	 * This constant is accessible by subclasses for historical purposes. If you
-	 * don't know what it means then you don't need it.
-	 */
 	protected static final int LESSER_ICOST = 0;
 
-	/**
-	 * This constant is accessible by subclasses for historical purposes. If you
-	 * don't know what it means then you don't need it.
-	 */
 	protected static final int SMALL_THRESH = 20;
 
-	/**
-	 * This constant is accessible by subclasses for historical purposes. If you
-	 * don't know what it means then you don't need it.
-	 */
 	protected static final int DEPTH_THRESH = 10;
 
-	/**
-	 * This constant is accessible by subclasses for historical purposes. If you
-	 * don't know what it means then you don't need it.
-	 */
 	protected static final int WORK_FACTOR = 30;
 
-	/**
-	 * This constant is accessible by subclasses for historical purposes. If you
-	 * don't know what it means then you don't need it.
-	 * <p>
-	 * If you are ever unlucky/improbable enough to get a stack overflow whilst
-	 * sorting, increase the following constant and try again. In practice I
-	 * have never seen the stack go above 27 elems, so the following limit seems
-	 * very generous.
-	 * </p>
-	 */
 	protected static final int QSORT_STACK_SIZE = 1000;
 
-	/**
-	 * Knuth's increments seem to work better than Incerpi-Sedgewick here.
-	 * Possibly because the number of elems to sort is usually small, typically
-	 * &lt;= 20.
-	 */
 	private static final int[] INCS = { 1, 4, 13, 40, 121, 364, 1093, 3280, 9841, 29524, 88573, 265720, 797161, 2391484 };
 
-	/**
-	 * Chooses a blocksize based on the given length of the data to compress.
-	 * 
-	 * @param inputLength
-	 *            The length of the data which will be compressed by
-	 *            <tt>CBZip2OutputStream</tt>.
-	 * @return The blocksize, between {@link #MIN_BLOCKSIZE} and
-	 *         {@link #MAX_BLOCKSIZE} both inclusive. For a negative
-	 *         <tt>inputLength</tt> this method returns <tt>MAX_BLOCKSIZE</tt>
-	 *         always.
-	 */
 	public static int chooseBlockSize(long inputLength) {
 		return (inputLength > 0) ? (int) Math.min((inputLength / 132000) + 1, 9) : MAX_BLOCKSIZE;
 	}
@@ -452,10 +274,6 @@ public class CBZip2OutputStream extends OutputStream implements BZip2Constants {
 		}
 	}
 
-	/**
-	 * This method is accessible by subclasses for historical purposes. If you
-	 * don't know what it does then you don't need it.
-	 */
 	protected static void hbMakeCodeLengths(char[] len, int[] freq, int alphaSize, int maxLen) {
 		/*
 		 * Nodes and heap entries run from 1. Entry 0 for both the heap and
@@ -615,19 +433,9 @@ public class CBZip2OutputStream extends OutputStream implements BZip2Constants {
 		}
 	}
 
-	/**
-	 * Index of the last char in the block, so the block size == last + 1.
-	 */
 	private int last;
-	/**
-	 * Index in fmap[] of original string after sorting.
-	 */
 	private int origPtr;
 
-	/**
-	 * Always: in the range 0 .. 9. The current block size is 100000 * this
-	 * number.
-	 */
 	private final int blockSize100k;
 
 	private boolean blockRandomised;
@@ -657,55 +465,14 @@ public class CBZip2OutputStream extends OutputStream implements BZip2Constants {
 
 	private int allowableBlockSize;
 
-	/**
-	 * All memory intensive stuff.
-	 */
 	private Data data;
 
 	private OutputStream out;
 
-	/**
-	 * Constructs a new <tt>CBZip2OutputStream</tt> with a blocksize of 900k.
-	 * <p/>
-	 * <p>
-	 * <b>Attention: </b>The caller is resonsible to write the two BZip2 magic
-	 * bytes <tt>"BZ"</tt> to the specified stream prior to calling this
-	 * constructor.
-	 * </p>
-	 * 
-	 * @param out
-	 *            * the destination stream.
-	 * @throws IOException
-	 *             if an I/O error occurs in the specified stream.
-	 * @throws NullPointerException
-	 *             if <code>out == null</code>.
-	 */
 	public CBZip2OutputStream(final OutputStream out) throws IOException {
 		this(out, MAX_BLOCKSIZE);
 	}
 
-	/**
-	 * Constructs a new <tt>CBZip2OutputStream</tt> with specified blocksize.
-	 * <p/>
-	 * <p>
-	 * <b>Attention: </b>The caller is resonsible to write the two BZip2 magic
-	 * bytes <tt>"BZ"</tt> to the specified stream prior to calling this
-	 * constructor.
-	 * </p>
-	 * 
-	 * @param out
-	 *            the destination stream.
-	 * @param blockSize
-	 *            the blockSize as 100k units.
-	 * @throws IOException
-	 *             if an I/O error occurs in the specified stream.
-	 * @throws IllegalArgumentException
-	 *             if <code>(blockSize < 1) || (blockSize > 9)</code>.
-	 * @throws NullPointerException
-	 *             if <code>out == null</code>.
-	 * @see #MIN_BLOCKSIZE
-	 * @see #MAX_BLOCKSIZE
-	 */
 	public CBZip2OutputStream(final OutputStream out, final int blockSize) throws IOException {
 		super();
 
@@ -853,9 +620,6 @@ public class CBZip2OutputStream extends OutputStream implements BZip2Constants {
 		bsFinishedWithStream();
 	}
 
-	/**
-	 * Overriden to close the stream.
-	 */
 	protected void finalize() throws Throwable {
 		finish();
 		super.finalize();
@@ -987,9 +751,6 @@ public class CBZip2OutputStream extends OutputStream implements BZip2Constants {
 		this.nMTF = wr + 1;
 	}
 
-	/**
-	 * Returns the blocksize parameter specified at construction time.
-	 */
 	public final int getBlockSize() {
 		return this.blockSize100k;
 	}
@@ -1027,9 +788,6 @@ public class CBZip2OutputStream extends OutputStream implements BZip2Constants {
 		this.allowableBlockSize = (this.blockSize100k * BZip2Constants.baseBlockSize) - 20;
 	}
 
-	/**
-	 * Method "mainQSort3", file "blocksort.c", BZip2 1.0.2
-	 */
 	private void mainQSort3(final Data dataShadow, final int loSt, final int hiSt, final int dSt) {
 		final int[] stack_ll = dataShadow.stack_ll;
 		final int[] stack_hh = dataShadow.stack_hh;
@@ -1128,16 +886,6 @@ public class CBZip2OutputStream extends OutputStream implements BZip2Constants {
 		}
 	}
 
-	/**
-	 * This is the most hammered method of this class.
-	 * <p/>
-	 * <p>
-	 * This is the version using unrolled loops. Normally I never use such ones
-	 * in Java code. The unrolling has shown a noticable performance improvement
-	 * on JRE 1.4.2 (Linux i586 / HotSpot Client). Of course it depends on the
-	 * JIT compiler of the vm.
-	 * </p>
-	 */
 	private boolean mainSimpleSort(final Data dataShadow, final int lo, final int hi, final int d) {
 		final int bigN = hi - lo + 1;
 		if (bigN < 2) {

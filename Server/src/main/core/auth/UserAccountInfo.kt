@@ -28,25 +28,24 @@ class UserAccountInfo(
         @JvmStatic
         fun createDefault(): UserAccountInfo {
             return UserAccountInfo(
-                "",
-                "",
-                0,
-                0,
-                0,
-                "",
-                "",
-                0L,
-                0L,
-                "",
-                "",
-                "",
-                "",
-                "1,0,8,9",
-                0L,
-                0L,
-                false,
-                joinDate = Timestamp(System.currentTimeMillis())
-            ).also { it.setInitialReferenceValues() }
+                username = "",
+                password = "",
+                uid = 0,
+                rights = 0,
+                credits = 0,
+                ip = "",
+                lastUsedIp = "",
+                muteEndTime = 0L,
+                banEndTime = 0L,
+                contacts = "",
+                blocked = "",
+                clanName = "",
+                currentClan = "",
+                clanReqs = "1,0,8,9",
+                timePlayed = 0L,
+                lastLogin = 0L,
+                online = false,
+                joinDate = Timestamp(System.currentTimeMillis())).also { it.setInitialReferenceValues() }
         }
     }
 
@@ -68,26 +67,7 @@ class UserAccountInfo(
     }
 
     fun toArray(): Array<Any> {
-        return arrayOf(
-            username,
-            password,
-            uid,
-            rights,
-            credits,
-            ip,
-            lastUsedIp,
-            muteEndTime,
-            banEndTime,
-            contacts,
-            blocked,
-            clanName,
-            currentClan,
-            clanReqs,
-            timePlayed,
-            lastLogin,
-            online,
-            joinDate
-        )
+        return arrayOf(username, password, uid, rights, credits, ip, lastUsedIp, muteEndTime, banEndTime, contacts, blocked, clanName, currentClan, clanReqs, timePlayed, lastLogin, online, joinDate)
     }
 
     override fun toString(): String {

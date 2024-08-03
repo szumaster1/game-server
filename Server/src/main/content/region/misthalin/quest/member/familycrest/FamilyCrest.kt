@@ -20,7 +20,7 @@ class FamilyCrest : Quest("Family Crest", 59, 58, 1, Vars.VARP_QUEST_FAMILY_CRES
         return this
     }
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -105,7 +105,7 @@ class FamilyCrest : Quest("Family Crest", 59, 58, 1, Vars.VARP_QUEST_FAMILY_CRES
         return false
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

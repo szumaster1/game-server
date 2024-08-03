@@ -27,9 +27,6 @@ import java.util.*
 import java.util.concurrent.BlockingDeque
 import java.util.concurrent.LinkedBlockingDeque
 
-/**
- * Processes management-related events e.g clan messages, etc.
- */
 object ManagementEvents {
     private var isRunning: Boolean = true
     private val eventQueue: BlockingDeque<Message> = LinkedBlockingDeque()
@@ -155,11 +152,11 @@ object ManagementEvents {
                     PacketRepository.send(
                         CommunicationMessage::class.java,
                         MessageContext(
-                            receiver,
-                            event.sender,
-                            event.rank,
-                            MessageContext.RECEIVE_MESSAGE,
-                            event.message
+                            player = receiver,
+                            other = event.sender,
+                            chatIcon = event.rank,
+                            opcode = MessageContext.RECEIVE_MESSAGE,
+                            message = event.message
                         )
                     )
                 }
@@ -261,7 +258,10 @@ object ManagementEvents {
                     } else {
                         SystemLogger.logMS("Creating default server clan")
                         if (GameWorld.settings!!.enable_default_clan && event.clanOwner == ServerConstants.SERVER_NAME.lowercase()) {
-                            //Create a user with the default clan and some basic settings and stick them in the account storage
+                            /*
+                             * Create a user with the default clan and some
+                             * basic settings and stick them in the account storage.
+                             */
                             if (info == UserAccountInfo.createDefault()) {
                                 info.username = ServerConstants.SERVER_NAME.lowercase()
                                 info.password = ServerConstants.MS_SECRET_KEY
@@ -271,7 +271,10 @@ object ManagementEvents {
                             }
 
                             info.clanName = "Global"
-                            info.clanReqs = "-1,-1,7,7" //Any join, any message, owner kick, owner loot
+                            /*
+                             * Any join, any message, owner kick, owner loot.
+                             */
+                            info.clanReqs = "-1,-1,7,7"
                             GameWorld.accountStorage.update(info)
                             initializeClanWith(info)
                         }

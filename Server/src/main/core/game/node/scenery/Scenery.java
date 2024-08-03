@@ -21,23 +21,14 @@ import static core.api.ContentAPIKt.setVarp;
 public class Scenery extends Node {
 
     private final int id;
-
     private final int type;
-
     private int rotation;
-
     private final SceneryDefinition definition;
-
     private Pulse restorePulse;
-
     private Pulse destructionPulse;
-
     private int charge = 1000;
-
     private final GameAttributes attributes = new GameAttributes();
-
     private final Scenery[] childs;
-
     private Scenery wrapper;
 
     public Scenery(int id, int x, int y, int z) {

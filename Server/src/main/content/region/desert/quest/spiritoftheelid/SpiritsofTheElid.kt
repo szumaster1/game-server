@@ -14,7 +14,7 @@ import core.plugin.Initializable
 class SpiritsofTheElid :
     Quest("Spirits of the Elid", 116, 115, 2, Vars.VARBIT_QUEST_SPIRITS_OF_THE_ELID_1444, 0, 1, 60) {
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -25,7 +25,7 @@ class SpiritsofTheElid :
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

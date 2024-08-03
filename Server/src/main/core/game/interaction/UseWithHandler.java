@@ -23,11 +23,8 @@ import static core.api.ContentAPIKt.log;
 public abstract class UseWithHandler implements Plugin<Object> {
 
     public static final int ITEM_TYPE = 0;
-
     public static final int NPC_TYPE = 1;
-
     public static final int OBJECT_TYPE = 2;
-
     public static final int PLAYER_TYPE = 3;
 
     private static final Map<Integer, List<UseWithHandler>> HANDLERS = new HashMap<>();

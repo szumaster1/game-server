@@ -60,7 +60,7 @@ class Observatory : Quest("Observatory Quest", 96, 95, 2, Vars.VARP_QUEST_OBSERV
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

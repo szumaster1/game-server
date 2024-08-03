@@ -12,7 +12,7 @@ import core.plugin.Initializable
 @Initializable
 class ThePathofGlouphrie : Quest("The Path of Glouphrie", 142, 141, 1, Vars.VARBIT_QUEST_THE_PATH_OF_GLOUPHRIE_3954, 0, 1, 200) {
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -23,7 +23,7 @@ class ThePathofGlouphrie : Quest("The Path of Glouphrie", 142, 141, 1, Vars.VARB
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

@@ -11,25 +11,16 @@ import core.game.node.scenery.Scenery;
 public final class Option {
 
     public static final Option _P_ATTACK = new Option("Attack", 0);
-
     public static final Option _P_FOLLOW = new Option("Follow", 2);
-
     public static final Option _P_TRADE = new Option("Trade with", 3);
     public static final Option _P_GIVETO = new Option("Give-to", 3);
-
     public static final Option _P_PICKPOCKET = new Option("Pickpocket", 4);
-
-
     public static final Option _P_EXAMINE = new Option("Examine", 7);
-
     public static final Option _P_ASSIST = new Option("Req Assist", 6);
-
     public static final Option NULL = new Option("null", 0);
 
     private final String name;
-
     private final int index;
-
     private OptionHandler handler;
 
     public Option(String name, int index) {

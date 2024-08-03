@@ -11,7 +11,7 @@ import core.plugin.Initializable
 class MourningsEndPartI :
     Quest("Mourning's End Part I", 91, 90, 2, Vars.VARP_QUEST_MOURNINGS_ENDS_PART_I_517, 0, 1, 8) {
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -22,7 +22,7 @@ class MourningsEndPartI :
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

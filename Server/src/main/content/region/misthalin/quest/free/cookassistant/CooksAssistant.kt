@@ -15,7 +15,7 @@ class CooksAssistant : Quest("Cook's Assistant", 15, 14, 1, Vars.VARP_QUEST_COOK
     val FLOUR = 1933
     val EGG = 1944
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 12
         var stage = player?.questRepository?.getStage("Cook's Assistant")!!

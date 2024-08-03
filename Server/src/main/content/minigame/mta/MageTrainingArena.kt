@@ -2,6 +2,7 @@ package content.minigame.mta
 
 import content.global.skill.support.agility.AgilityHandler
 import content.minigame.mta.impl.TelekineticZone
+import core.api.consts.Items
 import core.cache.def.impl.ItemDefinition
 import core.cache.def.impl.NPCDefinition
 import core.cache.def.impl.SceneryDefinition
@@ -55,10 +56,7 @@ class MageTrainingArena : OptionHandler() {
                 SHOP.open(player)
             }
 
-            6885 -> player.dialogueInterpreter.open(
-                3096,
-                *if (option == "destroy") arrayOf(node, true, true) else arrayOf()
-            )
+            6885 -> player.dialogueInterpreter.open(3096, *if (option == "destroy") arrayOf(node, true, true) else arrayOf())
 
             3102 -> player.dialogueInterpreter.open(node.id, node)
         }
@@ -100,7 +98,7 @@ class MageTrainingArena : OptionHandler() {
     }
 
     companion object {
-        val PROGRESS_HAT = Item(6885)
+        val PROGRESS_HAT = Item(Items.PROGRESS_HAT_6885)
         val SHOP = MTAShopInterfaceListener()
     }
 }

@@ -12,7 +12,7 @@ import core.plugin.Initializable
 @Initializable
 class DesertTreasure : Quest("Desert Treasure",45, 44, 3,Vars.VARBIT_QUEST_DESERT_TREASURE_358,0,1,15){
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 12
 

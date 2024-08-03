@@ -64,11 +64,7 @@ class ImpBoxPlugin : OptionHandler() {
         }
 
         override fun open(vararg args: Any): Boolean {
-            interpreter.sendDialogues(
-                708,
-                FacialExpression.FURIOUS,
-                MESSAGES[RandomFunction.getRandom(MESSAGES.size - 1)]
-            )
+            interpreter.sendDialogues(708, FacialExpression.FURIOUS, MESSAGES[RandomFunction.getRandom(MESSAGES.size - 1)])
             return true
         }
 

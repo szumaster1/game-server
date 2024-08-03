@@ -144,7 +144,9 @@ public abstract class MovementPulse extends Pulse {
 
     private boolean tryInteract() {
         Location ml = mover.getLocation();
-        // Allow being within 1 square of moving entities to interact with them.
+        /*
+         * Allow being within 1 square of moving entities to interact with them.
+         */
         int radius = destination instanceof Entity && ((Entity) destination).getWalkingQueue().hasPath() ? 1 : 0;
         if (interactLocation == null)
             return false;
@@ -277,7 +279,11 @@ public abstract class MovementPulse extends Pulse {
             Deque<Point> npcPath = e.getWalkingQueue().getQueue();
             if (e.getWalkingQueue().hasPath() && e.getProperties().getCombatPulse().isRunning() && e.getProperties().getCombatPulse().getVictim() == mover)
                 canMove = false;
-            if (!canMove) { //If we normally shouldn't move, but the NPC's pathfinding is not letting them move, then move.
+            if (!canMove) {
+                /*
+                 * If we normally shouldn't move, but the NPC's pathfinding is
+                 * not letting them move, then move.
+                 */
                 if (npcPath.size() == 1) {
                     Point pathElement = npcPath.peek();
                     if (pathElement.getX() == l.getX() && pathElement.getY() == l.getY())
@@ -291,7 +297,10 @@ public abstract class MovementPulse extends Pulse {
     private Location checkForEntityPathInterrupt(Location loc) {
         Location ml = mover.getLocation();
         Location dl = destination.getLocation();
-        // Lead the target if they're walking/running, unless they're already within interaction range
+        /*
+         * Lead the target if they're walking/running,
+         * unless they're already within interaction range.
+         */
         if (loc != null && destination instanceof Entity) {
             WalkingQueue wq = ((Entity) destination).getWalkingQueue();
             if (wq.hasPath()) {
@@ -309,8 +318,11 @@ public abstract class MovementPulse extends Pulse {
                             break;
                         }
 
-                        // Otherwise, we target the farthest point along target's planned movement that's within 1 tick's running,
-                        // this ensures the player will run to catch up to the target if able.
+                        /*
+                         * Otherwise, we target the farthest point along target's planned
+                         * movement that's within 1 tick's running, this ensures the player
+                         * will run to catch up to the target if able.
+                         */
                         if (moverDist <= 2) {
                             p = points[i];
                         }

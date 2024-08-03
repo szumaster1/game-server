@@ -12,7 +12,7 @@ import core.plugin.Initializable
 @Initializable
 class Regicide : Quest("Regicide", 104, 103, 3, Vars.VARP_QUEST_REGICIDE_328, 0, 1, 15) {
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -23,7 +23,7 @@ class Regicide : Quest("Regicide", 104, 103, 3, Vars.VARP_QUEST_REGICIDE_328, 0,
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

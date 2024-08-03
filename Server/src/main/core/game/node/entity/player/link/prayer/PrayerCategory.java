@@ -1,7 +1,7 @@
 package core.game.node.entity.player.link.prayer;
 
 public enum PrayerCategory {
-    BABY_BLUE,
+    LIGHT_BLUE,
     GREEN,
     PINK,
     LIME_GREEN,

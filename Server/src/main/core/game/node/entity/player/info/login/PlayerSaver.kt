@@ -195,7 +195,7 @@ class PlayerSaver(val player: Player) {
             }
             diary["rewardedLevels"] = rewardedLevels
             val diaryCollector = JSONObject()
-            diaryCollector[it.type.name] = diary
+            diaryCollector[it.type.diaryName] = diary
             achievementData.add(diaryCollector)
         }
         root["achievementDiaries"] = achievementData

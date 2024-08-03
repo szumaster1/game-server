@@ -1,8 +1,5 @@
 package core.tools
 
-/**
- * The type Number converter.
- */
 object NumberConverter {
 
     val units: Array<String> = arrayOf(

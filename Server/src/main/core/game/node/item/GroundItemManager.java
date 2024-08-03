@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class GroundItemManager {
+
     private static final List<GroundItem> GROUND_ITEMS = new ArrayList<>(20);
 
     public static GroundItem create(Item item, Location location) {

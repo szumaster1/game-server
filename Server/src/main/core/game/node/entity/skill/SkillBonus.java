@@ -3,9 +3,7 @@ package core.game.node.entity.skill;
 public final class SkillBonus {
 
     private final int skillId;
-
     private final double bonus;
-
     private final int baseBonus;
 
     public SkillBonus(int skillId, double bonus) {

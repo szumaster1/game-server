@@ -1,6 +1,6 @@
 package content.region.asgarnia.quest.witchhouse.npc;
 
-import content.region.asgarnia.quest.witchhouse.plugin.WitchsHousePlugin;
+import content.region.asgarnia.quest.witchhouse.plugin.WitchHousePlugin;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.CombatSwingHandler;
 import core.game.node.entity.combat.DeathTask;
@@ -93,9 +93,9 @@ public class NoraTHaggNPC extends AbstractNPC {
             public boolean pulse() {
                 if (delay == 0) {
                     face(player);
-                    player.getInventory().remove(WitchsHousePlugin.BALL);
-                    player.getInventory().remove(WitchsHousePlugin.KEY);
-                    player.getInventory().remove(WitchsHousePlugin.DOOR_KEY);
+                    player.getInventory().remove(WitchHousePlugin.Companion.getBALL());
+                    player.getInventory().remove(WitchHousePlugin.Companion.getKEY());
+                    player.getInventory().remove(WitchHousePlugin.Companion.getDOOR_KEY());
                     sendChat("Stop! Thief!");
                     player.getPacketDispatch().sendMessage("You've been spotted by the witch.");
                     player.graphics(new Graphic(110, 100));

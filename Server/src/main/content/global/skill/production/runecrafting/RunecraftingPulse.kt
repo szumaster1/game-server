@@ -152,17 +152,23 @@ class RunecraftingPulse(
                  * Achievement Diary handling.
                  */
 
-                // Craft some nature runes.
+                /*
+                 * Craft some nature runes.
+                 */
                 if (altar == Altar.NATURE) {
                     finishDiaryTask(player, DiaryType.KARAMJA, 2, 3)
                 }
 
-                // Craft 196 or more air runes simultaneously.
+                /*
+                 * Craft 196 or more air runes simultaneously.
+                 */
                 if (altar == Altar.AIR && i.amount >= 196) {
                     finishDiaryTask(player, DiaryType.FALADOR, 2, 2)
                 }
 
-                // Craft a water rune at the Water altar.
+                /*
+                 * Craft a water rune at the Water altar.
+                 */
                 if (altar == Altar.WATER && rune == Rune.WATER) {
                     finishDiaryTask(player, DiaryType.LUMBRIDGE, 1, 11)
                 }
@@ -291,14 +297,8 @@ class RunecraftingPulse(
         private val ANIMATION = Animation(Animations.OLD_RUNECRAFTING_791, Priority.HIGH)
         private val GRAPHIC = Graphic(Graphics.RUNECRAFTING_GRAPHIC_186, 100)
 
-        /**
+        /*
          * Gets multiplier.
-         *
-         * @param rcLevel           The rc level.
-         * @param rune              The rune.
-         * @param rcFormulaRevision The runecrafting formula revision.
-         * @param lumbridgeDiary    The lumbridge diary.
-         * @return the multiplier
          */
         fun getMultiplier(rcLevel: Int, rune: Rune, rcFormulaRevision: Int, lumbridgeDiary: Boolean): Int {
             val multipleLevels = rune.getMultiple()

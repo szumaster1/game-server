@@ -64,7 +64,7 @@ class ZombiePirateProtestingCutscene(player: Player) : Cutscene(player) {
                 move(getNPC(ZOMBIE_3)!!, 0, 3)
                 move(getNPC(ZOMBIE_4)!!, 6, 5)
                 move(getNPC(ZOMBIE_0)!!, 3, 4)
-                player.questRepository.setStageNonmonotonic(player.questRepository.forIndex(107), 2)
+                player.questRepository.setStageNonmonotonic(player.questRepository.forIndex(107)!!, 2)
                 timedUpdate(6)
             }
 

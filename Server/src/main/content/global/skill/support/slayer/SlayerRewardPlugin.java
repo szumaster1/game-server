@@ -289,17 +289,10 @@ public class SlayerRewardPlugin extends ComponentPlugin {
 
 
     public static class SlayerHelmCraftPlugin extends UseWithHandler {
-
-
         private static final Item SLAYER_HELM = new Item(13263);
-
-
         private static final Item SPINY_HELMET = new Item(4551);
-
-
         private static final int[] INGREDIENTS = new int[]{4168, 4166, 4164, 8921};
-
-
+        
         public SlayerHelmCraftPlugin() {
             super(INGREDIENTS);
         }

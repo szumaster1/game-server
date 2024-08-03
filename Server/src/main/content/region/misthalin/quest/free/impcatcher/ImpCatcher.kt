@@ -23,7 +23,7 @@ class ImpCatcher : Quest("Imp Catcher", 21, 20, 1, Vars.VARP_QUEST_IMP_CATCHER_P
         They have stolen a lot of things belonging to the Wizard Mizgog, including his magic beads.
     */
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -70,7 +70,7 @@ class ImpCatcher : Quest("Imp Catcher", 21, 20, 1, Vars.VARP_QUEST_IMP_CATCHER_P
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

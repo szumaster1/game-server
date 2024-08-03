@@ -9,7 +9,7 @@ public abstract class RunScript {
     protected Object value;
 
     public RunScript() {
-        /**
+        /*
          * empty.
          */
     }

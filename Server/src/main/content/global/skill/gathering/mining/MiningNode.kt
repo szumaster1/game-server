@@ -4,14 +4,11 @@ import core.ServerConstants
 import core.game.node.item.WeightedChanceItem
 import core.game.world.repository.Repository.players
 
-
-
 enum class MiningNode(
     var id: Int,
     var emptyId: Int,
     var identifier: Byte
 ) {
-
     COPPER_ORE_0(2090, 450, 1.toByte()),
     COPPER_ORE_1(2091, 452, 1.toByte()),
     COPPER_ORE_2(4976, 4994, 1.toByte()),
@@ -560,19 +557,15 @@ enum class MiningNode(
     }
 
     val rewardAmount: Int
-
         get() = 1
 
     val minimumRespawn: Int
-
         get() = respawnRate and 0xFFFF
 
     val maximumRespawn: Int
-
         get() = (respawnRate shr 16) and 0xFFFF
 
     val respawnDuration: Int
-
         get() {
             val minimum = respawnRate and 0xFFFF
             val maximum = (respawnRate shr 16) and 0xFFFF
@@ -581,7 +574,6 @@ enum class MiningNode(
         }
 
     companion object {
-
         var gemRockGems: MutableList<WeightedChanceItem> = ArrayList(20)
 
         init {
@@ -606,11 +598,9 @@ enum class MiningNode(
             }
         }
 
-
         fun forId(id: Int): MiningNode? {
             return NODE_MAP[id]
         }
-
 
         fun isEmpty(id: Int): Boolean {
             return EMPTY_MAP[id] != null

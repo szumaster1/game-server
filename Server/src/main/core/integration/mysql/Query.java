@@ -1,4 +1,4 @@
-package core.services.mysql;
+package core.integration.mysql;
 
 public class Query {
 

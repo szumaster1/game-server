@@ -15,7 +15,7 @@ import core.plugin.Initializable
 class DealingWithScarabas :
     Quest("Dealing with Scabaras", 145, 144, 1, Vars.VARBIT_QUEST_DEALING_WITH_SCARABAS_4230, 0, 1, 700) {
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 12
         player ?: return
@@ -64,7 +64,7 @@ class DealingWithScarabas :
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

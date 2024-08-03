@@ -5,7 +5,6 @@ import core.game.node.Node;
 public abstract class NodeTask {
 
     private final int ticks;
-
     private Pulse pulse;
 
     public NodeTask() {

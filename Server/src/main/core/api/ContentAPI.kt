@@ -2218,7 +2218,7 @@ fun hasRequirement(player: Player, req: QuestReq, message: Boolean = true): Bool
         }
     }
 
-    var neededQp = min(max(totalSoftQp, totalHardQp), player.questRepository.getAvailablePoints())
+    var neededQp = min(max(totalSoftQp, totalHardQp), player.questRepository.availablePoints)
 
     isMet = isMet && neededQp <= player.questRepository.points
 

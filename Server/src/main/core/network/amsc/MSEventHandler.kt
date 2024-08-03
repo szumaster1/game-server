@@ -10,10 +10,6 @@ import java.nio.channels.Selector
 import java.nio.channels.SocketChannel
 import java.util.concurrent.Executors
 
-/**
- * Handles the management server events.
- * @author Emperor
- */
 class MSEventHandler : IoEventHandler(Executors.newSingleThreadExecutor()) {
 
     @Throws(IOException::class)

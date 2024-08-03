@@ -4,11 +4,15 @@ import core.game.node.entity.Entity
 import kotlin.reflect.full.createInstance
 
 /**
- * Class for the timer feature of the engine. If you have some task which should repeat periodically, such as applying poison damage, etc, use a timer.
- * If the `isAuto` value of a timer is set to `true`, then the timer is automatically added to an entity on creation and started. This is separate from the
- * default PersistTimer behavior, which automatically starts the timer only if there's saved data for that timer present. In truth, there's very few
+ * Class for the timer feature of the engine.
+ * If you have some task which should repeat periodically,
+ * such as applying poison damage, etc, use a timer.
+ * If the `isAuto` value of a timer is set to `true`,
+ * then the timer is automatically added to an entity on creation and started.
+ * This is separate from the default PersistTimer behavior, which automatically
+ * starts the timer only if there's saved data for that timer present. In truth, there's very few
  * timers that should have isAuto true.
- **/
+ */
 abstract class RSTimer(
     var runInterval: Int,
     val identifier: String = "generictimer",

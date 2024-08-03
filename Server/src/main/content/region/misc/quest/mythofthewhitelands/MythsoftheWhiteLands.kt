@@ -12,7 +12,7 @@ import core.plugin.Initializable
 class MythsoftheWhiteLands :
     Quest("Myths of the White Lands", 163, 162, 2, Vars.VARBIT_QUEST_MYTHS_OF_THE_WHITE_LANDS_5733, 0, 1, 60) {
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 12
         player ?: return
@@ -29,7 +29,7 @@ class MythsoftheWhiteLands :
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

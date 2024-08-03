@@ -1,5 +1,6 @@
 package content.global.skill.gathering.hunter.implings
 
+import core.api.consts.NPCs
 import core.api.utils.WeightedTable
 import core.game.world.map.Location
 import core.game.world.map.RegionManager
@@ -7,16 +8,16 @@ import core.game.world.map.build.RegionFlags
 import core.game.world.map.path.ClipMaskSupplier
 
 enum class Impling(val npcId: Int, val puroId: Int) {
-    Baby(1028, 6055),
-    Young(1029, 6056),
-    Gourmet(1030, 6057),
-    Earth(1031, 6058),
-    Essence(1032, 6059),
-    Eclectic(1033, 6060),
-    Ninja(6053, 6063),
-    Nature(1034, 6061),
-    Magpie(1035, 6062),
-    Dragon(6054, 6064);
+    Baby(npcId = NPCs.BABY_IMPLING_1028, puroId = NPCs.BABY_IMPLING_6055),
+    Young(npcId = NPCs.YOUNG_IMPLING_1029, puroId = NPCs.YOUNG_IMPLING_6056),
+    Gourmet(npcId = NPCs.GOURMET_IMPLING_1030, puroId = NPCs.GOURMET_IMPLING_6057),
+    Earth(npcId = NPCs.EARTH_IMPLING_1031, puroId = NPCs.EARTH_IMPLING_6058),
+    Essence(npcId = NPCs.ESSENCE_IMPLING_1032, puroId = NPCs.ESSENCE_IMPLING_6059),
+    Eclectic(npcId = NPCs.ECLECTIC_IMPLING_1033, puroId = NPCs.ECLECTIC_IMPLING_6060),
+    Ninja(npcId = NPCs.NINJA_IMPLING_6053, puroId = NPCs.NINJA_IMPLING_6063),
+    Nature(npcId = NPCs.NATURE_IMPLING_1034, puroId = NPCs.NATURE_IMPLING_6061),
+    Magpie(npcId = NPCs.MAGPIE_IMPLING_1035, puroId = NPCs.MAGPIE_IMPLING_6062),
+    Dragon(npcId = NPCs.DRAGON_IMPLING_6054, puroId = NPCs.DRAGON_IMPLING_6064);
 
     companion object {
         fun getIds(): IntArray {
@@ -198,6 +199,10 @@ enum class ImplingSpawnLocations(val type: ImplingSpawnTypes, vararg val locatio
 object ImplingClipper : ClipMaskSupplier {
     override fun getClippingFlag(z: Int, x: Int, y: Int): Int {
         var flag = RegionManager.getClippingFlag(z, x, y)
-        return flag and (RegionFlags.SOLID_TILE.inv()) and (RegionFlags.TILE_OBJECT.inv()) //Allow walking on water and flying over small objects, but keep all other tile flags the same.
+        /*
+         * Allow walking on water and flying over small objects,
+         * but keep all other tile flags the same.
+         */
+        return flag and (RegionFlags.SOLID_TILE.inv()) and (RegionFlags.TILE_OBJECT.inv())
     }
 }

@@ -12,7 +12,7 @@ import core.plugin.Initializable
 class AnotherSliceOfHam :
     Quest("Another Slice of H.A.M.", 138, 137, 1, Vars.VARBIT_QUEST_ANOTHER_SLICE_OF_HAM_3550, 0, 1, 11) {
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -78,7 +78,7 @@ class AnotherSliceOfHam :
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

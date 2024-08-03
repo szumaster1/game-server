@@ -16,17 +16,12 @@ import static core.api.ContentAPIKt.*;
 public class TeleportManager {
 
     public static final int WILDY_TELEPORT = 1 << 16 | 8;
-
     private final static int[] HOME_ANIMATIONS = {1722, 1723, 1724, 1725, 2798, 2799, 2800, 3195, 4643, 4645, 4646, 4847, 4848, 4849, 4850, 4851, 4852, 65535};
-
     private final static int[] HOME_GRAPHICS = {775, 800, 801, 802, 803, 804, 1703, 1704, 1705, 1706, 1707, 1708, 1709, 1710, 1711, 1712, 1713, 65535};
 
     private final Entity entity;
-
     private Pulse lastTeleport;
-
     private Pulse currentTeleport;
-
     private int teleportType;
 
     public TeleportManager(Entity entity) {
@@ -650,13 +645,9 @@ public class TeleportManager {
     }
 
     static class TeleportSettings {
-
         private int startAnim;
-
         private int endAnim;
-
         private int startGFX;
-
         private int endGFX;
 
         public TeleportSettings(int startAnim, int endAnim, int startGfx, int endGfx) {

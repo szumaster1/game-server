@@ -61,24 +61,12 @@ import java.util.Arrays;
 
 public class Whirlpool {
 
-    /**
-     * The message digest size (in bits)
-     */
     public static final int DIGESTBITS = 512;
 
-    /**
-     * The message digest size (in bytes)
-     */
     public static final int DIGESTBYTES = DIGESTBITS >>> 3;
 
-    /**
-     * The number of rounds of the internal dedicated block cipher.
-     */
     protected static final int R = 10;
 
-    /**
-     * The substitution box.
-     */
     private static final String sbox =
             "\u1823\uc6E8\u87B8\u014F\u36A6\ud2F5\u796F\u9152" +
                     "\u60Bc\u9B8E\uA30c\u7B35\u1dE0\ud7c2\u2E4B\uFE57" +
@@ -167,29 +155,14 @@ public class Whirlpool {
         return digest;
     }
 
-    /**
-     * Global number of hashed bits (256-bit counter).
-     */
     protected byte[] bitLength = new byte[32];
 
-    /**
-     * Buffer of data to hash.
-     */
     protected byte[] buffer = new byte[64];
 
-    /**
-     * Current number of bits on the buffer.
-     */
     protected int bufferBits = 0;
 
-    /**
-     * Current (possibly incomplete) byte slot on the buffer.
-     */
     protected int bufferPos = 0;
 
-    /**
-     * The hashing state.
-     */
     protected long[] hash = new long[8];
     protected long[] K = new long[8]; // the round key
     protected long[] L = new long[8];
@@ -199,14 +172,6 @@ public class Whirlpool {
     public Whirlpool() {
     }
 
-    /**
-     * Delivers input data to the hashing algorithm.
-     *
-     * @param source     plaintext data to hash.
-     * @param sourceBits how many bits of plaintext to process.
-     *                   <p/>
-     *                   This method maintains the invariant: bufferBits < 512
-     */
     public void NESSIEadd(byte[] source, long sourceBits) {
         /*
                            sourcePos
@@ -284,13 +249,6 @@ public class Whirlpool {
         }
     }
 
-    /**
-     * Delivers string input data to the hashing algorithm.
-     *
-     * @param source plaintext data to hash (ASCII text string).
-     *               <p/>
-     *               This method maintains the invariant: bufferBits < 512
-     */
     public void NESSIEadd(String source) {
         if (source.length() > 0) {
             byte[] data = new byte[source.length()];
@@ -301,11 +259,6 @@ public class Whirlpool {
         }
     }
 
-    /**
-     * Get the hash value from the hashing state.
-     * <p/>
-     * This method uses the invariant: bufferBits < 512
-     */
     public void NESSIEfinalize(byte[] digest) {
         // append a '1'-bit:
         buffer[bufferPos] |= 0x80 >>> (bufferBits & 7);
@@ -341,9 +294,6 @@ public class Whirlpool {
         }
     }
 
-    /**
-     * Initialize the hashing state.
-     */
     public void NESSIEinit() {
         Arrays.fill(bitLength, (byte) 0);
         bufferBits = bufferPos = 0;
@@ -351,9 +301,6 @@ public class Whirlpool {
         Arrays.fill(hash, 0L); // initial value
     }
 
-    /**
-     * The core Whirlpool transform.
-     */
     protected void processBuffer() {
         /*
          * map the buffer to a block:

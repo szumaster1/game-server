@@ -52,7 +52,6 @@ class TheDigSite : Quest("The Dig Site", 47, 46, 2, 131, 0, 1, 9) {
         removeAttribute(player, attributeStudentPurpleExam3Talked)
         removeAttribute(player, attributeStudentPurpleExam3ObtainAnswer)
         removeAttribute(player, attributeStudentBrownExam3ObtainAnswer)
-
         removeAttribute(player, attributeRopeNorthEastWinch)
         removeAttribute(player, attributeRopeWestWinch)
     }

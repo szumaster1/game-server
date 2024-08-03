@@ -13,7 +13,7 @@ import core.plugin.Initializable
 @Initializable
 class EaglesPeak : Quest("Eagles' Peak", 51, 50, 2, Vars.VARBIT_QUEST_EAGLES_PEAK_2780, 0, 1, 40) {
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -35,7 +35,7 @@ class EaglesPeak : Quest("Eagles' Peak", 51, 50, 2, Vars.VARBIT_QUEST_EAGLES_PEA
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

@@ -14,7 +14,7 @@ import core.game.node.entity.skill.Skills
 //@Initializable
 class TowerOfLife : Quest("Tower of Life", 134, 133, 2, Vars.VARBIT_QUEST_TOWER_OF_LIFE_PROGRESS, 0, 1, 18) {
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -57,7 +57,7 @@ class TowerOfLife : Quest("Tower of Life", 134, 133, 2, Vars.VARBIT_QUEST_TOWER_
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

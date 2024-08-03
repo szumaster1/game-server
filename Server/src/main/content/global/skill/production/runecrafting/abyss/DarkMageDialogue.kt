@@ -56,9 +56,6 @@ class DarkMageDialogue(player: Player? = null) : Dialogue(player) {
         return true
     }
 
-    /**
-     * @author Player Name, Vexia.
-     */
     fun repair(): Boolean {
         player.pouchManager.pouches.forEach { (id: Int, pouch: RCPouch) ->
             pouch.currentCap = pouch.capacity
@@ -93,7 +90,6 @@ class DarkMageDialogue(player: Player? = null) : Dialogue(player) {
         }
         return true
     }
-
 
     override fun getIds(): IntArray {
         return intArrayOf(NPCs.DARK_MAGE_2262)

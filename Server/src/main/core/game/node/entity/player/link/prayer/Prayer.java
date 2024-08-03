@@ -44,13 +44,18 @@ public final class Prayer {
     }
 
     public void reset() {
-        // Immediately clear the lights on the client interface and terminate any bonuses
+        /*
+         * Immediately clear the lights on the client
+         * interface and terminate any bonuses.
+         */
         for (PrayerType type : getActive()) {
             setVarp(player, type.getConfig(), 0, false);
             player.dispatch(new PrayerDeactivatedEvent(type));
         }
         getActive().clear();
-        // Clear the overhead prayer icon a tick later
+        /*
+         * Clear the overhead prayer icon a tick later.
+         */
         GameWorld.getPulser().submit(new Pulse(1) {
             @Override
             public boolean pulse() {

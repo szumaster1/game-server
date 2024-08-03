@@ -45,7 +45,7 @@ object QuestTabUtils {
         messageList.add(" ")
         messageList.add(colorize("%B[Other Reqs]"))
 
-        val totalQpRequirement = QPReq(min(max(maxQpReq, qpPenalty), player.questRepository.getAvailablePoints()))
+        val totalQpRequirement = QPReq(min(max(maxQpReq, qpPenalty), player.questRepository.availablePoints))
         val (meetsQp, _) = totalQpRequirement.evaluate(player)
         isMet = isMet && meetsQp
 

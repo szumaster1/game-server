@@ -15,7 +15,7 @@ class TheGiantDwarf : Quest("The Giant Dwarf", 69, 68, 2, Vars.VARBIT_QUEST_GIAN
         const val questName = "The Giant Dwarf"
     }
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -37,7 +37,7 @@ class TheGiantDwarf : Quest("The Giant Dwarf", 69, 68, 2, Vars.VARBIT_QUEST_GIAN
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

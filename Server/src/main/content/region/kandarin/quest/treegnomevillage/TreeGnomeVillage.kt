@@ -17,7 +17,7 @@ class TreeGnomeVillage : Quest("Tree Gnome Village", 125, 124, 2, Vars.VARP_QUES
         val mazeEntrance = Location(2504, 3192, 0)
     }
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 12
         player ?: return
@@ -78,7 +78,7 @@ class TreeGnomeVillage : Quest("Tree Gnome Village", 125, 124, 2, Vars.VARP_QUES
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

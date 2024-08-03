@@ -14,7 +14,7 @@ import core.plugin.Initializable
 @Initializable
 class CabinFever : Quest("Cabin Fever", 37, 36, 2, Vars.VARP_QUEST_CABIN_FEVER_655, 0, 1, 131) {
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -107,7 +107,7 @@ class CabinFever : Quest("Cabin Fever", 37, 36, 2, Vars.VARP_QUEST_CABIN_FEVER_6
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

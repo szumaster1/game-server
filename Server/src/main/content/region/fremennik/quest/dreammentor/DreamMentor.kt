@@ -14,7 +14,7 @@ import core.plugin.Initializable
 @Initializable
 class DreamMentor : Quest("Dream Mentor", 139, 138, 2, Vars.VARBIT_QUEST_DREAM_MENTOR_3618, 0, 1, 28) {
     // NPC 2347,10362 | 435 -> 5893
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 12
         player ?: return
@@ -35,7 +35,7 @@ class DreamMentor : Quest("Dream Mentor", 139, 138, 2, Vars.VARBIT_QUEST_DREAM_M
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

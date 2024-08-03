@@ -11,8 +11,14 @@ import core.game.node.scenery.Scenery
 import core.plugin.Plugin
 
 class CombinationRune : UseWithHandler(
-    Talisman.AIR.talisman.id, Talisman.WATER.talisman.id, Talisman.EARTH.talisman.id, Talisman.FIRE.talisman.id,
-    Rune.WATER.rune.id, Rune.EARTH.rune.id, Rune.AIR.rune.id, Rune.FIRE.rune.id
+    Talisman.AIR.talisman.id,
+    Talisman.WATER.talisman.id,
+    Talisman.EARTH.talisman.id,
+    Talisman.FIRE.talisman.id,
+    Rune.WATER.rune.id,
+    Rune.EARTH.rune.id,
+    Rune.AIR.rune.id,
+    Rune.FIRE.rune.id
 ) {
 
     override fun newInstance(arg: Any?): Plugin<Any> {

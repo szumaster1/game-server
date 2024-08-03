@@ -11,7 +11,7 @@ public abstract class ItemPlugin implements Plugin<Object> {
     protected static final int DROP = 1;
 
     public ItemPlugin() {
-        /**
+        /*
          * empty.
          */
     }

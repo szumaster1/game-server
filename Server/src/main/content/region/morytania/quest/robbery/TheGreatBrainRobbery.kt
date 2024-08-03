@@ -14,7 +14,7 @@ import core.plugin.Initializable
 class TheGreatBrainRobbery :
     Quest("The Great Brain Robbery", 135, 134, 2, Vars.VARBIT_QUEST_THE_GREAT_BRAIN_ROBBERY_980, 0, 1, 130) {
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -25,7 +25,7 @@ class TheGreatBrainRobbery :
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

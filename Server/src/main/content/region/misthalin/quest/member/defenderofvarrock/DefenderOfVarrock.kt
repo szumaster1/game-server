@@ -15,7 +15,7 @@ import core.plugin.Initializable
 class DefenderOfVarrock :
     Quest("Defender of Varrock", 159, 158, 2, Vars.VARBIT_QUEST_DEFENDER_OF_VARROCK_5387, 0, 1, 250) {
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 12
         player ?: return
@@ -65,7 +65,7 @@ class DefenderOfVarrock :
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

@@ -195,15 +195,9 @@ object InteractionListeners {
         else return false
 
         val destOverride = if (flipped) {
-            getOverride(type.ordinal, used.id, "use") ?: getOverride(type.ordinal, with.id) ?: getOverride(
-                type.ordinal,
-                "use"
-            )
+            getOverride(type.ordinal, used.id, "use") ?: getOverride(type.ordinal, with.id) ?: getOverride(type.ordinal, "use")
         } else {
-            getOverride(type.ordinal, with.id, "use") ?: getOverride(type.ordinal, used.id) ?: getOverride(
-                type.ordinal,
-                "use"
-            )
+            getOverride(type.ordinal, with.id, "use") ?: getOverride(type.ordinal, used.id) ?: getOverride(type.ordinal, "use")
         }
 
 
@@ -306,32 +300,18 @@ object InteractionListeners {
         return instantClasses.contains(className)
     }
 
-    fun addMetadata(
-        ids: IntArray,
-        type: IntType,
-        options: Array<out String>,
-        metadata: InteractionListener.InteractionMetadata
-    ) {
+    fun addMetadata(ids: IntArray, type: IntType, options: Array<out String>, metadata: InteractionListener.InteractionMetadata) {
         for (id in ids)
             for (opt in options)
                 interactions["${type.ordinal}:$id:${opt.lowercase()}"] = metadata
     }
 
-    fun addMetadata(
-        id: Int,
-        type: IntType,
-        options: Array<out String>,
-        metadata: InteractionListener.InteractionMetadata
-    ) {
+    fun addMetadata(id: Int, type: IntType, options: Array<out String>, metadata: InteractionListener.InteractionMetadata) {
         for (opt in options)
             interactions["${type.ordinal}:$id:${opt.lowercase()}"] = metadata
     }
 
-    fun addGenericMetadata(
-        options: Array<out String>,
-        type: IntType,
-        metadata: InteractionListener.InteractionMetadata
-    ) {
+    fun addGenericMetadata(options: Array<out String>, type: IntType, metadata: InteractionListener.InteractionMetadata) {
         for (opt in options)
             interactions["${type.ordinal}:$opt"] = metadata
     }

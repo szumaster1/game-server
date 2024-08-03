@@ -9,7 +9,7 @@ import core.game.world.repository.Repository
 import core.network.packet.PacketRepository
 import core.network.packet.context.PlayerContext
 import core.network.packet.outgoing.ClearMinimapFlag
-import core.services.grafana.Grafana
+import core.integration.grafana.Grafana
 
 /**
  * The entity update sequence.

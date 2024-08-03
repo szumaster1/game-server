@@ -16,9 +16,6 @@ import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
 import core.tools.StringUtils
 
-/**
- * @author 'Vexia
- */
 class ThievingStallPulse(player: Player?, node: Scenery?, private val stall: Stall?) : SkillPulse<Scenery?>(player, node) {
 
     private var ticks = 0

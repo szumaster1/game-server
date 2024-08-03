@@ -82,7 +82,7 @@ class TheGolemQuest : Quest("The Golem", 70, 69, 1, Vars.VARBIT_QUEST_THE_GOLEM_
         return getStatLevel(player!!, Skills.CRAFTING) >= 20 && getStatLevel(player, Skills.THIEVING) >= 25
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10
@@ -98,8 +98,8 @@ class TheGolemQuest : Quest("The Golem", 70, 69, 1, Vars.VARBIT_QUEST_THE_GOLEM_
         return this
     }
 
-    override fun updateVarps(player: Player) {
-        TheGolemListeners.updateVarps(player)
+    override fun updateVarps(player: Player?) {
+        TheGolemListeners.updateVarps(player!!)
     }
 }
 

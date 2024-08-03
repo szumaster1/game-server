@@ -9,7 +9,7 @@ import core.plugin.PluginType;
 import java.util.Arrays;
 import java.util.Random;
 
-import static core.api.ContentAPIKt.playJingle;
+import static core.api.ContentAPIKt.*;
 
 @PluginManifest(type = PluginType.QUEST)
 public abstract class Quest implements Plugin<Object> {
@@ -78,10 +78,10 @@ public abstract class Quest implements Plugin<Object> {
         player.getQuestRepository().setStage(this, 100);
         player.getQuestRepository().incrementPoints(getQuestPoints());
         player.getQuestRepository().syncronizeTab(player);
-        player.getInterfaceManager().open(new Component(277)).setCloseEvent((p, c) -> {
+        player.getInterfaceManager().open(new Component(277).setCloseEvent((p, c) -> {
             this.questCloseEvent(p, c);
             return true;
-        });
+        }));
         player.getPacketDispatch().sendString("" + player.getQuestRepository().getPoints() + "", 277, 7);
         player.getPacketDispatch().sendString("You have completed the " + getName() + " Quest!", 277, 4);
         player.getPacketDispatch().sendMessage("Congratulations! Quest complete!");

@@ -11,7 +11,7 @@ object DialUtils {
     }
 }
 
-/**
+/*
  * Automatically split a single continuous string into multiple comma-separated lines.
  * Should this not work out for any reason, you should fall back to standard npc and
  * player methods for dialogue.

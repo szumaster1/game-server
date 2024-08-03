@@ -5,9 +5,9 @@ import core.api.consts.NPCs
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
-enum class DiaryType(name: String, val child: Int, val levelNames: Array<String>, val achievements: Array<Array<String>>, val rewards: Array<Array<Item>>, val info: String, val npcs: IntArray) {
+enum class DiaryType(val diaryName: String, val buttonId: Int, val levelNames: Array<String>, val achievements: Array<Array<String>>, val rewards: Array<Array<Item>>, val info: String, val npcs: IntArray) {
     KARAMJA(
-        name = "Karamja", child = 11, levelNames = arrayOf("Easy", "Medium", "Hard"),
+        diaryName = "Karamja", buttonId = 11, levelNames = arrayOf("Easy", "Medium", "Hard"),
         achievements = arrayOf(
             // --------------- KARAMJA EASY TASKS ----------------------
             arrayOf(
@@ -77,8 +77,8 @@ enum class DiaryType(name: String, val child: Int, val levelNames: Array<String>
         // - Teleport to underground gem mine
     ),
     VARROCK(
-        name = "Varrock",
-        child = 15,
+        diaryName = "Varrock",
+        buttonId = 15,
         levelNames = arrayOf("Easy", "Medium", "Hard"),
         achievements = arrayOf(
             // --------------- VARROCK EASY TASKS ----------------------
@@ -175,8 +175,8 @@ enum class DiaryType(name: String, val child: Int, val levelNames: Array<String>
 
     ),
     LUMBRIDGE(
-        name = "Lumbridge",
-        child = 2,
+        diaryName = "Lumbridge",
+        buttonId = 2,
         levelNames = arrayOf("Beginner", "Easy", "Medium"),
         achievements = arrayOf(
             // --------------- LUMBRIDGE BEGINNER TASKS ----------------------
@@ -253,8 +253,8 @@ enum class DiaryType(name: String, val child: Int, val levelNames: Array<String>
         npcs = intArrayOf(NPCs.EXPLORER_JACK_7969, NPCs.BOB_519, NPCs.NED_743)
     ),
     FALADOR(
-        name = "Falador",
-        child = 23,
+        diaryName = "Falador",
+        buttonId = 23,
         levelNames = arrayOf("Easy", "Medium", "Hard"),
         achievements = arrayOf(
             // --------------- FALADOR EASY TASKS --------------------------
@@ -314,8 +314,8 @@ enum class DiaryType(name: String, val child: Int, val levelNames: Array<String>
         npcs = intArrayOf(NPCs.REDBEARD_FRANK_375, NPCs.CHEMIST_367, NPCs.SQUIRE_606)
     ),
     FREMENNIK(
-        name = "Fremennik",
-        child = 19,
+        diaryName = "Fremennik",
+        buttonId = 19,
         levelNames = arrayOf("Easy", "Medium", "Hard"),
         achievements = arrayOf(
             // --------------- FREMENNIK EASY TASKS ----------------------
@@ -369,8 +369,8 @@ enum class DiaryType(name: String, val child: Int, val levelNames: Array<String>
         npcs = intArrayOf(NPCs.COUNCIL_WORKMAN_1287, NPCs.YRSA_1301, NPCs.ADVISOR_GHRIM_1375)
     ),
     SEERS_VILLAGE(
-        name = "Seers' Village",
-        child = 27,
+        diaryName = "Seers' Village",
+        buttonId = 27,
         levelNames = arrayOf("Easy", "Medium", "Hard"),
         achievements = arrayOf(
             // --------------- SEERS VILLAGE EASY TASKS ---------------------
@@ -461,11 +461,11 @@ enum class DiaryType(name: String, val child: Int, val levelNames: Array<String>
     }
 
     companion object {
-
+        @JvmStatic
         fun forChild(child: Int): DiaryType? {
             for (type in values()) {
                 for (i in 0..3) {
-                    if (child == type.child + i) {
+                    if (child == type.buttonId + i) {
                         return type
                     }
                 }

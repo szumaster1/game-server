@@ -24,8 +24,7 @@ class EnchantSpell : MagicSpell {
     }
 
 
-    constructor(
-        level: Int, experience: Double, jewellery: Map<Int, Item>, runes: Array<Item>?
+    constructor(level: Int, experience: Double, jewellery: Map<Int, Item>, runes: Array<Item>?
     ) : super(SpellBook.MODERN, level, experience, ANIMATION, GRAPHIC, Audio(115, 1, 0), runes) {
         this.jewellery = jewellery
     }
@@ -76,8 +75,7 @@ class EnchantSpell : MagicSpell {
             entity.graphics(Graphic.create(237, 110))
             var pizazz = 0
             if (target.id == 6903) {
-                pizazz =
-                    (if (getSpellId() == 5) 1 else if (getSpellId() == 16) 2 else if (getSpellId() == 28) 3 else if (getSpellId() == 36) 4 else if (getSpellId() == 51) 5 else 6) * 2
+                pizazz = (if (getSpellId() == 5) 1 else if (getSpellId() == 16) 2 else if (getSpellId() == 28) 3 else if (getSpellId() == 36) 4 else if (getSpellId() == 51) 5 else 6) * 2
             } else {
                 val shape = EnchantingZone.Shapes.forItem(target)
                 if (shape != null) {
@@ -229,10 +227,7 @@ class EnchantSpell : MagicSpell {
     }
 
     companion object {
-
         private val ANIMATION = Animation.create(719)
-
-
         private val GRAPHIC = Graphic(114, 95)
     }
 }

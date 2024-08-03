@@ -10,9 +10,7 @@ import core.game.node.entity.combat.equipment.DegradableEquipment;
 public class Item extends Node {
 
     private int idHash;
-
     private int amount;
-
     private ItemDefinition definition;
 
     public Item() {

@@ -12,7 +12,7 @@ import core.plugin.Initializable
 @Initializable
 class DoricsQuest : Quest("Doric's Quest", 17, 16, 1, Vars.VARP_QUEST_DORICS_QUEST_PROGRESS, 0, 1, 100) {
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         player ?: return
         var line = 11
@@ -40,7 +40,7 @@ class DoricsQuest : Quest("Doric's Quest", 17, 16, 1, Vars.VARP_QUEST_DORICS_QUE
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var line = 10

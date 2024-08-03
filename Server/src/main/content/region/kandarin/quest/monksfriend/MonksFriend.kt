@@ -12,7 +12,7 @@ import core.plugin.Initializable
 @Initializable
 class MonksFriend : Quest("Monk's Friend", 89, 88, 1, Vars.VARP_QUEST_MONKS_FRIEND_PROGRESS, 0, 1, 80) {
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -48,7 +48,7 @@ class MonksFriend : Quest("Monk's Friend", 89, 88, 1, Vars.VARP_QUEST_MONKS_FRIE
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

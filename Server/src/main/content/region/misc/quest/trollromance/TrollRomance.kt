@@ -14,7 +14,7 @@ import core.plugin.Initializable
 @Initializable
 class TrollRomance : Quest("Troll Romance", 127, 126, 2, Vars.VARP_QUEST_TROLL_ROMANCE_385, 0, 1, 45) {
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -62,7 +62,7 @@ class TrollRomance : Quest("Troll Romance", 127, 126, 2, Vars.VARP_QUEST_TROLL_R
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

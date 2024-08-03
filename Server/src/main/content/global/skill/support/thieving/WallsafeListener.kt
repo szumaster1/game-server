@@ -1,4 +1,4 @@
-package content.global.handlers.scenery
+package content.global.skill.support.thieving
 
 import core.api.*
 import core.api.consts.Items
@@ -13,32 +13,37 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.game.node.item.ChanceItem
 import core.game.node.item.Item
-import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
 import kotlin.math.ceil
 
-class RoguesDenListener : InteractionListener {
+class WallsafeListener : InteractionListener {
 
     override fun defineListeners() {
 
         /*
-            Rogues' Den, Wall safe interaction.
+         * Wallsafe interactions.
          */
 
-        on(wallSafe, IntType.SCENERY, "crack", "open", "disarm", "search") { player, node ->
-            if(getUsedOption(player) == "open") {
-                sendNPCDialogue(player, NPCs.BRIAN_ORICHARD_2266, "And where do you think you're going? A little too eager I think. Come and talk to me before you go wandering around in there.")
+        on(OBJECTS, IntType.SCENERY, "crack", "open", "disarm", "search") { player, node ->
+            if (getUsedOption(player) == "open") {
+                sendNPCDialogue(
+                    player,
+                    NPCs.BRIAN_ORICHARD_2266,
+                    "And where do you think you're going? A little too eager I think. Come and talk to me before you go wandering around in there."
+                )
                 return@on true
             }
 
-            if(getUsedOption(player) == "search") {
-                animate(player, animations[3])
+            if (getUsedOption(player) == "search") {
+                animate(player, ANIMATIONS[3])
                 sendMessage(player, "You temporarily disarm the trap!")
                 return@on true
             }
 
-            if(getUsedOption(player) == "crack") {
+            if (getUsedOption(player) == "crack") {
+                if (finishedMoving(player))
+
                 if (getStatLevel(player, Skills.THIEVING) < 50) {
                     sendMessage(player, "You need to be level 50 thief to crack this safe.")
                     return@on true
@@ -51,21 +56,23 @@ class RoguesDenListener : InteractionListener {
 
                 val success = success(player, Skills.THIEVING)
                 val trapped = RandomFunction.random(3) == 1
+
                 lock(player, 4)
-                player.faceLocation(if(player.location.x < 3057) Location(3055, 4974, 1) else Location(3057, 4974,0))
                 sendMessage(player, "You start cracking the safe.")
                 playAudio(player, Sounds.SAFE_CRACK_1243)
-                animate(player, animations[if (success) 1 else 0])
+                animate(player, ANIMATIONS[if (success) 1 else 0])
                 queueScript(player, 3, QueueStrength.SOFT) {
                     if (success) {
                         handleSuccess(player, node.asScenery())
                         playAudio(player, Sounds.ROGUE_SAFE_OPEN_1238)
-                        playAudio(player, rogueSafeCloseSound, 1)
                     } else if (trapped) {
-                        animate(player, animations[2])
-                        playAudio(player, rogueSafeFailSound, 1)
+                        animate(player, ANIMATIONS[2])
                         sendMessage(player, "You slip and trigger a trap!")
-                        player.impactHandler.manualHit(player, RandomFunction.random(2, 6), ImpactHandler.HitsplatType.NORMAL)
+                        impact(
+                            player,
+                            RandomFunction.random(2, 6),
+                            ImpactHandler.HitsplatType.NORMAL
+                        )
                         runTask(player, 1) {
                             resetAnimator(player)
                         }
@@ -85,7 +92,7 @@ class RoguesDenListener : InteractionListener {
     }
 
     private fun addItem(player: Player) {
-        val l = if (RandomFunction.random(2) == 1) gemReward else coinsReward
+        val l = if (RandomFunction.random(2) == 1) GEMS_REWARD else COINS_REWARD
         val chances: MutableList<ChanceItem?> = ArrayList(20)
         for (c in l) {
             chances.add(c)
@@ -102,7 +109,7 @@ class RoguesDenListener : InteractionListener {
             }
             if (tries > chances.size) {
                 if (i.id == 1617) {
-                    item = coinsReward[0]
+                    item = COINS_REWARD[0]
                     break
                 }
                 item = i
@@ -126,12 +133,15 @@ class RoguesDenListener : InteractionListener {
     }
 
     companion object {
-        private val wallSafe = intArrayOf(Scenery.WALL_SAFE_7236, Scenery.FLOOR_7227, Scenery.DOORWAY_7256)
-        private val coinsReward = arrayOf(ChanceItem(995, 20, 20, 90.0), ChanceItem(995, 40, 40, 80.0))
-        private val gemReward = arrayOf(ChanceItem(1623, 1, 1, 80.0), ChanceItem(1621, 1, 1, 60.0), ChanceItem(1619, 1, 1, 8.0), ChanceItem(1617, 1, 1, 7.0))
-        private val animations = arrayOf(Animation(2247), Animation(2248), Animation(1113), Animation(2244))
-        private val rogueSafeCloseSound = 1244
-        private val rogueSafeFailSound = 1245
+        private val OBJECTS = intArrayOf(Scenery.WALL_SAFE_7236, Scenery.FLOOR_7227, Scenery.DOORWAY_7256)
+        private val ANIMATIONS = arrayOf(Animation(2247), Animation(2248), Animation(1113), Animation(2244))
+        private val COINS_REWARD = arrayOf(ChanceItem(Items.COINS_995, 20, 20, 90.0), ChanceItem(995, 40, 40, 80.0))
+        private val GEMS_REWARD = arrayOf(
+            ChanceItem(Items.UNCUT_SAPPHIRE_1623, 1, 1, 80.0),
+            ChanceItem(Items.UNCUT_EMERALD_1621, 1, 1, 60.0),
+            ChanceItem(Items.UNCUT_RUBY_1619, 1, 1, 8.0),
+            ChanceItem(Items.UNCUT_DIAMOND_1617, 1, 1, 7.0)
+        )
     }
 
 }

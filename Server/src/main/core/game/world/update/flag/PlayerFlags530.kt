@@ -130,7 +130,7 @@ sealed class PlayerFlags530(p: Int, o: Int, f: EntityFlag) : EFlagProvider(530, 
                 }
                 if (GameWorld.settings!!.isPvp) {
                     //displays a player's combat level in white if the player is not within combat range
-                    buffer.p1(context.skullManager!!.level) //combat range
+                    buffer.p1(context.skullManager.level) //combat range
                 } else {
                     //disables the client code that makes combat levels white
                     buffer.p1(-1) //combat range

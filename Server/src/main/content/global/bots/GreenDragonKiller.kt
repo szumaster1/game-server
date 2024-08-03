@@ -126,7 +126,7 @@ class GreenDragonKiller(val style: CombatStyle, area: ZoneBorders? = null) : Scr
                     }
                     sendTrashTalk()
                     attemptToBuryBone()
-                    scriptAPI!!.walkTo(WildernessZone.instance.borders.random().randomLoc)
+                    scriptAPI!!.walkTo(WildernessZone.getInstance().borders.random().randomLoc)
                 }
             }
 

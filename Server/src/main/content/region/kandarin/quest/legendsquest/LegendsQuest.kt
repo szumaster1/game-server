@@ -9,7 +9,7 @@ import core.plugin.Initializable
 
 @Initializable
 class LegendsQuest : Quest("Legend's Quest", 82, 81, 4, Vars.VARP_QUEST_LEGENDS_QUEST_139, 0, 1, 75) {
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -20,7 +20,7 @@ class LegendsQuest : Quest("Legend's Quest", 82, 81, 4, Vars.VARP_QUEST_LEGENDS_
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

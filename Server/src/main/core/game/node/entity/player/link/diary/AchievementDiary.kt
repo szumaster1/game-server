@@ -12,10 +12,6 @@ import core.game.node.item.Item
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 
-/**
- * Represents an achievement diary.
- * @author Vexia
- */
 class AchievementDiary(val type: DiaryType) {
 
     val levelStarted: BooleanArray = BooleanArray(3)
@@ -24,9 +20,9 @@ class AchievementDiary(val type: DiaryType) {
 
     fun open(player: Player) {
         clear(player)
-        sendString(player, "<red>Achievement Diary - " + type.name, 2)
+        sendString(player, "<red>Achievement Diary - " + type.diaryName, 2)
         var child = 12
-        sendString(player, ((if (isComplete) GREEN else if (isStarted) YELLOW else "<red>") + type.name).toString() + " Area Tasks", child++)
+        sendString(player, ((if (isComplete) GREEN else if (isStarted) YELLOW else "<red>") + type.diaryName) + " Area Tasks", child++)
         if (type.info.isNotEmpty() && !this.isStarted) {
             sendString(player, type.info, child++)
             child += type.info.split("<br><br>".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray().size
@@ -66,7 +62,7 @@ class AchievementDiary(val type: DiaryType) {
 
     private fun clear(player: Player) {
         for (i in 0..310) {
-            player.packetDispatch.sendString("", DIARY_COMPONENT, i)
+            setInterfaceText(player, "", DIARY_COMPONENT, i)
         }
     }
 
@@ -95,9 +91,9 @@ class AchievementDiary(val type: DiaryType) {
 
     fun drawStatus(player: Player) {
         if (isStarted) {
-            setInterfaceText(player, (if (isComplete) GREEN else YELLOW) + type.name, 259, type.child)
+            setInterfaceText(player, (if (isComplete) GREEN else YELLOW) + type.diaryName, 259, type.buttonId)
             for (i in 0..2) {
-                setInterfaceText(player, (if (isComplete(i)) GREEN else if (isStarted(i)) YELLOW else "<col=FF0000>") + getLevel(i), 259, type.child + (i + 1))
+                setInterfaceText(player, (if (isComplete(i)) GREEN else if (isStarted(i)) YELLOW else "<col=FF0000>") + getLevel(i), 259, type.buttonId + (i + 1))
             }
         }
     }
@@ -108,21 +104,21 @@ class AchievementDiary(val type: DiaryType) {
             levelStarted[level] = true
         }
         if (!complete) {
-            sendMessage(player, "Well done! A " + type.name + " task has been updated.")
+            sendMessage(player, "Well done! A " + type.diaryName + " task has been updated.")
         } else {
             taskCompleted[level][index] = true
             val tempLevel = if (this.type == DiaryType.LUMBRIDGE) level - 1 else level
-            sendMessage(player,"Well done! You have completed " + (if (tempLevel == -1) "a beginner" else if (tempLevel == 0) "an easy" else if (tempLevel == 1) "a medium" else "a hard") + " task in the " + type.name + " area. Your Achievement")
+            sendMessage(player,"Well done! You have completed " + (if (tempLevel == -1) "a beginner" else if (tempLevel == 0) "an easy" else if (tempLevel == 1) "a medium" else "a hard") + " task in the " + type.diaryName + " area. Your Achievement")
             sendMessage(player, "Diary has been updated.")
         }
         if (isComplete(level)) {
-            val message = "Congratulations! You have completed all of the " + getLevel(level).lowercase() + " tasks in the " + type.name + " area."
+            val message = "Congratulations! You have completed all of the " + getLevel(level).lowercase() + " tasks in the " + type.diaryName + " area."
             sendMessage(player, message)
             sendDialogue(player, message)
             addDialogueAction(player){ player1: Player?, buttonId: Int ->
                 if (buttonId == 3) {
                     if (isComplete(level) != levelStarted[level]) {
-                        sendDialogue(player1!!, "To upgrade your reward visit " + NPCDefinition.forId(type.npcs[level]).name.lowercase() + " in " + type.name + ".")
+                        sendDialogue(player1!!, "To upgrade your reward visit " + NPCDefinition.forId(type.npcs[level]).name.lowercase() + " in " + type.diaryName + ".")
                     } else {
                         sendDialogue(player1!!, "Speak to " + NPCDefinition.forId(type.npcs[level]).name.lowercase() + " to claim your reward.")
                     }

@@ -13,7 +13,7 @@ class TearsOfGuthix : Quest("Tears of Guthix", 120, 119, 0, Vars.VARBIT_QUEST_TE
         const val TearsOfGuthix = "Tears of Guthix"
     }
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -24,7 +24,7 @@ class TearsOfGuthix : Quest("Tears of Guthix", 120, 119, 0, Vars.VARBIT_QUEST_TE
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

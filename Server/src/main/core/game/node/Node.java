@@ -14,21 +14,13 @@ import core.tools.StringUtils;
 public abstract class Node {
 
     protected String name;
-
     protected Location location;
-
     protected int index;
-
     protected Direction direction;
-
     protected int size = 1;
-
     protected boolean active = true;
-
     protected InteractPlugin interactPlugin;
-
     protected DestinationFlag destinationFlag;
-
     protected boolean renderable = true;
 
     public Node(String name, Location location) {

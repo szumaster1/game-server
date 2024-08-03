@@ -1,5 +1,9 @@
 package core.game.node.entity.player.link
 
+import core.api.consts.Components
+import core.api.consts.Vars
+import core.api.openInterface
+import core.api.sendMessage
 import core.api.setVarp
 import core.game.component.Component
 import core.game.node.entity.player.Player
@@ -9,7 +13,7 @@ class WarningMessages {
     private val messages: MutableList<WarningMessage> = ArrayList(20)
 
     fun open(player: Player) {
-        player.interfaceManager.open(Component(583))
+        openInterface(player, Components.CWS_DOOMSAYER_583)
         refresh(player)
     }
 
@@ -31,18 +35,17 @@ class WarningMessages {
     private val configValue: Int
         get() = 0
 
-
     inner class WarningMessage(val index: Int) {
 
         fun toggle(player: Player) {
             if (!isActive) {
-                player.packetDispatch.sendMessage("You cannot toggle the warning screen on or off. You need to go to the area it")
-                player.packetDispatch.sendMessage("is linked to enough times to have the option to do so.")
+                sendMessage(player, "You cannot toggle the warning screen on or off. You need to go to the area it")
+                sendMessage(player, "is linked to enough times to have the option to do so.")
                 return
             }
             val on = !isToggled
             refresh(player)
-            player.packetDispatch.sendMessage("You have toggled this warning screen " + (if (on) "on" else "off") + ". You will " + (if (on) "see this interface again." else "no longer see this warning screen."))
+            sendMessage(player,"You have toggled this warning screen " + (if (on) "on" else "off") + ". You will " + (if (on) "see this interface again." else "no longer see this warning screen."))
         }
 
         private val isToggled: Boolean
@@ -53,7 +56,6 @@ class WarningMessages {
     }
 
     companion object {
-
-        private const val CONFIG = 1045
+        private const val CONFIG = Vars.VARBIT_IFACE_WARNING_MESSAGES_1045
     }
 }

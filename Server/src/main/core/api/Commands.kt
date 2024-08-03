@@ -17,7 +17,7 @@ import core.tools.colorize
  * Commands should ideally be defined in the required [defineCommands] method.
  */
 interface Commands : ContentInterface {
-    /**
+    /*
      * Glorified player.sendMessage with red text coloring. Please use this
      * rather than just player.sendMessage for anything that involves informing the player
      * of proper usage or invalid syntax. Throws an IllegalStateException and ends command execution immediately.
@@ -29,7 +29,7 @@ interface Commands : ContentInterface {
         throw IllegalStateException()
     }
 
-    /**
+    /*
      * Glorified player.sendMessage with black text coloring and an arrow. Use this when you need to
      * notify/inform a player of some information from within the command without ending execution.
      */
@@ -41,15 +41,13 @@ interface Commands : ContentInterface {
     /**
      * Used to define commands. define("name",(optional) privilege override){ handle }
      * @param name the name of the command. Example: ::example would be just "example"
-     * @param privilege the rights level needed to execute the command. Options are [Privilege.ADMIN], [Privilege.MODERATOR], [Privilege.ADMIN]. Defaults to [Privilege.ADMIN]
+     * @param privilege the rights level needed to execute the command.
+     *
+     * Options are [Privilege.STANDARD], [Privilege.ADMIN], [Privilege.MODERATOR]
+     *
+     * Defaults to [Privilege.ADMIN]
      */
-    fun define(
-        name: String,
-        privilege: Privilege = Privilege.ADMIN,
-        usage: String = "",
-        description: String = "",
-        handle: (Player, Array<String>) -> Unit
-    ) {
+    fun define(name: String, privilege: Privilege = Privilege.ADMIN, usage: String = "", description: String = "", handle: (Player, Array<String>) -> Unit) {
         CommandMapping.register(
             Command(
                 name = name,

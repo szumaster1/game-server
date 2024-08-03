@@ -8,7 +8,6 @@ import core.api.consts.Sounds;
 import core.game.event.DynamicSkillLevelChangeEvent;
 import core.game.event.XPGainEvent;
 import core.game.node.entity.Entity;
-import core.game.node.entity.combat.ImpactHandler;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.info.PlayerMonitor;
@@ -33,9 +32,7 @@ import static java.lang.Math.max;
 public final class Skills {
 
     public double experienceMultiplier = 50.0;
-
     public static final String[] SKILL_NAME = {"Attack", "Defence", "Strength", "Hitpoints", "Ranged", "Prayer", "Magic", "Cooking", "Woodcutting", "Fletching", "Fishing", "Firemaking", "Crafting", "Smithing", "Mining", "Herblore", "Agility", "Thieving", "Slayer", "Farming", "Runecrafting", "Hunter", "Construction", "Summoning"};
-
     public static final int ATTACK = 0,
 
     DEFENCE = 1,
@@ -63,33 +60,19 @@ public final class Skills {
         SUMMONING = 23;
 
     public static final int NUM_SKILLS = 24;
-
     private final Entity entity;
-
     private final double[] experience;
-
     private double[] lastUpdateXp = null;
-
     private int lastUpdate = GameWorld.getTicks();
-
     private final int[] staticLevels;
-
     private final int[] dynamicLevels;
-
     private double prayerPoints = 1.;
-
     private int lifepoints = 10;
-
     private int lifepointsIncrease = 0;
-
     private double experienceGained = 0;
-
     private boolean lifepointsUpdate;
-
     private int combatMilestone;
-
     private int skillMilestone;
-
     public int lastTrainedSkill = -1;
     public int lastXpGain = 0;
 

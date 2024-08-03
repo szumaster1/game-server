@@ -20,7 +20,7 @@ class ClockTower : Quest("Clock Tower", 38, 37, 1, Vars.VARP_QUEST_CLOCK_TOWER_P
         const val ASK_ABOUT_RATS_ATTR = "quest:clocktower-askkojoaboutrats"
     }
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
 
         var line = 12

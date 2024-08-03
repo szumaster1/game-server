@@ -14,7 +14,7 @@ import core.plugin.Initializable
 class IcthlarinsLittleHelper :
     Quest("Icthlarin's Little Helper", 78, 77, 2, Vars.VARBIT_QUEST_ICTHLARINS_LITTLE_HELPER_418, 0, 1, 26) {
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -25,7 +25,7 @@ class IcthlarinsLittleHelper :
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

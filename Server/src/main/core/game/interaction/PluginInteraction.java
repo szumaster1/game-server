@@ -14,13 +14,9 @@ public abstract class PluginInteraction implements Plugin<Object> {
         return false;
     }
 
-    ;
-
     public boolean handle(Player player, NodeUsageEvent event) {
         return false;
     }
-
-    ;
 
     public boolean handle(Player player, NPC npc, Option option) {
         return false;

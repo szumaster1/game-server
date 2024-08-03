@@ -144,7 +144,7 @@ class Abyss : InteractionListener {
             })
         }
 
-        /**
+        /*
          * Represents getting the inner ring location corresponding to a node in the outer ring.
          * Used to send a player to the inner ring when they pass an obstacle.
          */
@@ -158,7 +158,7 @@ class Abyss : InteractionListener {
         }
 
 
-        /**
+        /*
          * Represents rotating the abyssal obstacles for the player.
          * Used to make sure the player lands by the blocked obstacle.
          */
@@ -166,8 +166,9 @@ class Abyss : InteractionListener {
             setVarbit(player, Vars.VARBIT_SCENERY_ABYSS_OBSTACLES, abyssLoc.getSegment(), true)
         }
 
-        /**
-         * Handles attempts at passing abyssal obstacles to get from outer ring to inner ring
+        /*
+         * Handles attempts at passing abyssal obstacles to
+         * get from outer ring to inner ring
          */
         const val MINE_PROGRESS = 12
         const val CHOP_PROGRESS = 14
@@ -221,32 +222,37 @@ class Abyss : InteractionListener {
     }
 }
 
-/**
- * Polar coordinates class for abyss
+/*
+ * Polar coordinates class for abyss.
  */
 class AbyssLoc(val radius: Double, val angle: Double) {
 
-    /**
-     * Attract the location towards the center
+    /*
+     * Attract the location towards the center.
      */
     fun attract(steps: Int = 1): AbyssLoc {
         return AbyssLoc(radius - steps.toDouble(), angle)
     }
 
-    /**
-     * Get the segment of an abyssloc - its angle as an integer modulo 12, with south = 0 and positive = clockwise
-     * this is used to determine which of the 12 evenly spaced obstacles around the outer ring the location is nearest to
+    /*
+     * Get the segment of an abyssloc - its angle as an integer modulo 12,
+     * with south = 0 and positive = clockwise this is used to determine
+     * which of the 12 evenly spaced obstacles around the outer ring the
+     * location is nearest to
      */
     fun getSegment(): Int {
         val segments = 12
         val angleToCircle = angle * segments / (2 * Math.PI)
         val angleSegment = (angleToCircle + 0.5).toInt()
-        // now 'normalize' the segment, so that 0 is the southernmost obstacle and 1 is clockwise from it
+        /*
+         * now 'normalize' the segment, so that 0 is the southernmost
+         * obstacle and 1 is clockwise from it.
+         */
         val normalSegment = (9 - angleSegment).mod(12)
         return normalSegment
     }
 
-    /**
+    /*
      * Transform back to absolute coordinates
      */
     fun toAbs(): Location {
@@ -255,7 +261,7 @@ class AbyssLoc(val radius: Double, val angle: Double) {
         return origin.transform(x, y, 0)
     }
 
-    /**
+    /*
      * Check if location is valid
      */
     fun isValid(): Boolean {
@@ -265,16 +271,20 @@ class AbyssLoc(val radius: Double, val angle: Double) {
 
     companion object {
 
-        /**
-         * origin and outer radius values of the abyss itself
+        /*
+         * origin and outer radius values of the abyss itself:
+         * origin: the exact center of the abyss, inside that spinny ball thing
          */
-        // origin: the exact center of the abyss, inside that spinny ball thing
         val origin = Location(3039, 4832, 0)
 
-        // the outer ring is generally at radius 24-26; testing shows that a minimum of 25.1 guarantees that players don't end up on an obstacle or inner wall
+        /*
+         * the outer ring is generally at radius 24-26;
+         * testing shows that a minimum of 25.1 guarantees that
+         * players don't end up on an obstacle or inner wall.
+         */
         const val outerRadius = 25.1
 
-        /**
+        /*
          * turn an absolute location into an abyss location
          */
         fun fromAbs(loc: Location): AbyssLoc {
@@ -284,7 +294,7 @@ class AbyssLoc(val radius: Double, val angle: Double) {
             return AbyssLoc(radius, angle)
         }
 
-        /**
+        /*
          * get a random location around the abyss outer ring
          */
         fun randomLoc(): AbyssLoc {

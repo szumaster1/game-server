@@ -166,7 +166,7 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN) {
         define("calcmaxhit", Privilege.STANDARD, "", "Calculates and shows you your current max hit.") { player, _ ->
             val swingHandler = player.getSwingHandler(false)
             val hit = swingHandler.calculateHit(player, player, 1.0)
-            notify(player, "max hit (${(swingHandler as Object).getClass().getName()}): ${hit}")
+            notify(player, "max hit (${(swingHandler as Object).getClass().getName()}): $hit")
         }
 
         /*
@@ -630,7 +630,7 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN) {
         }
 
         define("grow", Privilege.ADMIN, "", "Grows all planted crops by 1 stage.") { player, _ ->
-            val state = getOrStartTimer<CropGrowth>(player)!!
+            val state = getOrStartTimer<CropGrowth>(player)
 
             for (patch in state.getPatches()) {
                 patch.nextGrowth = System.currentTimeMillis() - 1

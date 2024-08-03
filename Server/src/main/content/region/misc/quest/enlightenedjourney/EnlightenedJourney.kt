@@ -17,7 +17,7 @@ class EnlightenedJourney :
 
     val requirements = arrayListOf<SkillRequirement>()
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -92,7 +92,7 @@ class EnlightenedJourney :
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

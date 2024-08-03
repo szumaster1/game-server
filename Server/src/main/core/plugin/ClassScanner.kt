@@ -30,11 +30,8 @@ import io.github.classgraph.ClassInfo
 import io.github.classgraph.ScanResult
 import java.util.function.Consumer
 
-/**
- * A class used to reflectively scan the classpath and load classes.
- * @author: Ceikry
- */
 object ClassScanner {
+
     var disabledPlugins = HashMap<String, Boolean>()
 
     var amountLoaded = 0

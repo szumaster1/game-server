@@ -16,7 +16,7 @@ import core.plugin.Initializable
 @Initializable
 class TheGrandTree : Quest("The Grand Tree", 71, 70, 5, Vars.VARP_QUEST_THE_GRAND_TREE_PROGRESS, 0, 1, 160) {
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 12
         player ?: return
@@ -87,7 +87,7 @@ class TheGrandTree : Quest("The Grand Tree", 71, 70, 5, Vars.VARP_QUEST_THE_GRAN
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

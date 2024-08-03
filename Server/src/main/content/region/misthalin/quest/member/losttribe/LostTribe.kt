@@ -18,7 +18,7 @@ class LostTribe : Quest("Lost Tribe", 84, 83, 1) {
         return this
     }
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         player ?: return
         var line = 11
@@ -38,22 +38,12 @@ class LostTribe : Quest("Lost Tribe", 84, 83, 1) {
                 line(player, "if anyone had seen what happened in the !!cellar??.", line++, stage >= 20)
             }
             if (stage >= 20) {
-                line(
-                    player,
-                    "I found out that someone had seen a !!goblin-like?? creature in the cellar.",
-                    line++,
-                    stage >= 30
-                )
+                line(player, "I found out that someone had seen a !!goblin-like?? creature in the cellar.", line++, stage >= 30)
                 line(player, "I should go speak to !!The Duke?? about this.", line++, stage >= 30)
             }
             if (stage >= 30) {
                 line(player, "The Duke gave me permission to investigate !!the tunnel??.", line++, stage >= 40)
-                line(
-                    player,
-                    "I should get down into the !!cellar?? and try to unblock the !!tunnel??.",
-                    line++,
-                    stage >= 40
-                )
+                line(player, "I should get down into the !!cellar?? and try to unblock the !!tunnel??.", line++, stage >= 40)
             }
             if (stage >= 40) {
                 line(player, "The Duke asked me to speak with the !!librarian?? in !!Varrock??", line++, stage >= 43)
@@ -99,7 +89,7 @@ class LostTribe : Quest("Lost Tribe", 84, 83, 1) {
 
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

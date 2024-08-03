@@ -7,7 +7,7 @@ public class ZoneBuilder implements StartupListener {
 
     @Override
     public void startup() {
-        configure(WildernessZone.Companion.getInstance());
+        configure(WildernessZone.getInstance());
         configure(MultiwayCombatZone.Companion.getInstance());
         configure(new ModeratorZone());
         configure(new DarkZone());

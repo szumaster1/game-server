@@ -15,12 +15,12 @@ class DeathPlateau : Quest("Death Plateau", 44, 43, 1, 314, 0, 1, 80) {
         const val questName = "Death Plateau"
     }
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 12
         var stage = getStage(player)
 
-        var started = player?.questRepository?.getStage(questName)!! > 0
+        var started = player.questRepository?.getStage(questName)!! > 0
 
         if (!started) {
             line(player, "I can start this quest by speaking to !!Denulth?? who is in his", line++)
@@ -33,7 +33,10 @@ class DeathPlateau : Quest("Death Plateau", 44, 43, 1, 314, 0, 1, 80) {
                         line(player, "!!Death Plateau.?? I also need to find the !!combination?? to the", line++)
                         line(player, "!!equipment room?? and !!unlock?? the door.", line++)
                     }
-                    // Technically this part is to be done in parallel with the ball mechanism part above.
+                    /*
+                     * Technically this part is to be done in parallel
+                     * with the ball mechanism part above.
+                     */
                     in 19..100 -> {
                         line(player, "I have found another way up Death Plateau.", line++, stage > 26)
                         line++
@@ -57,30 +60,15 @@ class DeathPlateau : Quest("Death Plateau", 44, 43, 1, 314, 0, 1, 80) {
 
                     in 13..14 -> {
                         line(player, "The equipment room guard is staying at the local inn, the", line++, stage > 18)
-                        line(
-                            player,
-                            "!!Toad and Chicken.?? the guard wouldn't talk to me! I bought",
-                            line++,
-                            stage > 18
-                        )
+                        line(player, "!!Toad and Chicken.?? the guard wouldn't talk to me! I bought", line++, stage > 18)
                         line(player, "the guard a drink and he seemed more helpful.", line++, stage > 18)
                     }
 
                     in 15..100 -> {
                         line(player, "The equipment room guard is staying at the local inn, the", line++, stage > 18)
-                        line(
-                            player,
-                            "!!Toad and Chicken.?? the guard wouldn't talk to me! I bought",
-                            line++,
-                            stage > 18
-                        )
+                        line(player, "!!Toad and Chicken.?? the guard wouldn't talk to me! I bought", line++, stage > 18)
                         line(player, "the guard a drink and he seemed more helpful. I gambled", line++, stage > 18)
-                        line(
-                            player,
-                            "with the guard until he ran out of money, he wrote out an !!IOU.??",
-                            line++,
-                            stage > 18
-                        )
+                        line(player, "with the guard until he ran out of money, he wrote out an !!IOU.??", line++, stage > 18)
                         line++
                     }
                 }
@@ -94,12 +82,7 @@ class DeathPlateau : Quest("Death Plateau", 44, 43, 1, 314, 0, 1, 80) {
 
                     in 17..100 -> {
                         line(player, "It turned out the IOU was written on the back of the", line++, stage > 18)
-                        line(
-                            player,
-                            "combination! I put the stone balls in the right places on the",
-                            line++,
-                            stage > 18
-                        )
+                        line(player, "combination! I put the stone balls in the right places on the", line++, stage > 18)
                         line(player, "stone mechanism and unlocked the door!", line++, stage > 18)
                         line++
                     }
@@ -108,35 +91,20 @@ class DeathPlateau : Quest("Death Plateau", 44, 43, 1, 314, 0, 1, 80) {
             if (stage >= 20) {
                 when (stage) {
                     20 -> {
-                        line(
-                            player,
-                            "!!Saba?? says that there is a !!sherpa?? living !!nearby?? that may",
-                            line++,
-                            false
-                        )
+                        line(player, "!!Saba?? says that there is a !!sherpa?? living !!nearby?? that may", line++, false)
                         line(player, "know another way up Death Plateau.", line++, false)
                     }
 
                     21 -> {
                         line(player, "I found the !!sherpa's?? house.", line++, true)
                         // Note: You must give him the 21 items in one go. The items will cross out when you have them in your inventory.
-                        line(
-                            player,
-                            "!!Tenzing?? will show me a !!secret way?? up Death Plateau if I get",
-                            line++,
-                            false
-                        )
+                        line(player, "!!Tenzing?? will show me a !!secret way?? up Death Plateau if I get", line++, false)
                         line(player, "him some items:", line++, false)
                         line(player, "Ten loaves of bread.", line++, getAttribute(player, "deathplateau:bread", false))
                         line(player, "Ten cooked trout.", line++, getAttribute(player, "deathplateau:trout", false))
                         line(player, "Spiked boots.", line++, getAttribute(player, "deathplateau:boots", false))
                         line++
-                        line(
-                            player,
-                            "!!Tenzing?? gave me his !!climbing boots??, I need to take them to",
-                            line++,
-                            false
-                        )
+                        line(player, "!!Tenzing?? gave me his !!climbing boots??, I need to take them to", line++, false)
                         line(player, "!!Dunstan?? in !!Burthorpe?? for the !!spikes??", line++, false)
                     }
 
@@ -145,12 +113,7 @@ class DeathPlateau : Quest("Death Plateau", 44, 43, 1, 314, 0, 1, 80) {
                         line(player, "of bread, ten cooked trout and the Spiked boots. Tenzing", line++, true)
                         line(player, "has given me a map of the secret way.", line++, true)
                         line++
-                        line(
-                            player,
-                            "I need to !!check?? that the !!secret way?? is !!safe?? for the !!Imperial??",
-                            line++,
-                            false
-                        )
+                        line(player, "I need to !!check?? that the !!secret way?? is !!safe?? for the !!Imperial??", line++, false)
                         line(player, "!!Guard?? to use.", line++, false)
                     }
 
@@ -159,12 +122,7 @@ class DeathPlateau : Quest("Death Plateau", 44, 43, 1, 314, 0, 1, 80) {
                         line(player, "of bread, ten cooked trout and the Spiked boots. Tenzing", line++, true)
                         line(player, "has given me a map of the secret way.", line++, true)
                         line++
-                        line(
-                            player,
-                            "I need to !!check?? that the !!secret way?? is !!safe?? for the !!Imperial??",
-                            line++,
-                            false
-                        )
+                        line(player, "I need to !!check?? that the !!secret way?? is !!safe?? for the !!Imperial??", line++, false)
                         line(player, "!!Guard?? to use.", line++, false)
                     }
 

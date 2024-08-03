@@ -11,13 +11,9 @@ import core.game.world.update.flag.context.Animation;
 public abstract class SkillPulse<T extends Node> extends Pulse {
 
     protected final Player player;
-
     protected T node;
-
     protected SkillingTool tool;
-
     protected SkillingResource resource;
-
     protected boolean resetAnimation = true;
 
     public SkillPulse(Player player, T node) {

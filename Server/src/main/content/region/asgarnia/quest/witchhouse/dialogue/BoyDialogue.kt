@@ -1,5 +1,7 @@
 package content.region.asgarnia.quest.witchhouse.dialogue
 
+import core.api.consts.Items
+import core.api.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
@@ -133,10 +135,10 @@ class BoyDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun getIds(): IntArray {
-        return intArrayOf(895)
+        return intArrayOf(NPCs.BOY_895)
     }
 
     companion object {
-        private val BALL = Item(2407)
+        private val BALL = Item(Items.BALL_2407)
     }
 }

@@ -18,7 +18,7 @@ class ElementalWorkshop : Quest("Elemental Workshop I", 52, 51, 1), Commands {
         return this
     }
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         player ?: return
         var line = 11
@@ -86,7 +86,7 @@ class ElementalWorkshop : Quest("Elemental Workshop I", 52, 51, 1), Commands {
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

@@ -103,7 +103,7 @@ class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
                     }
                     2 -> {
                         setTitle(player!!, 4)
-                        sendDialogueOptions(player!!, "What experience multiplier do you choose?", "10.0x", "25.0x", "50.0x", "100x")
+                        sendDialogueOptions(player!!, "What experience multiplier do you choose?", "1.0x", "25.0x", "50.0x", "100x")
                         stage = 20
                     }
                     3 -> npcl(FacialExpression.FRIENDLY, "Well, you're all finished here now. I'll give you a reasonable number of starting items when you leave.").also { stage = 30 }
@@ -122,7 +122,7 @@ class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 20 -> {
-                    val rates = arrayOf(10.0, 25.0, 50.0, 100.0)
+                    val rates = arrayOf(1.0, 25.0, 50.0, 100.0)
                     val rate = rates[buttonId - 1]
                     if (rate == 100.0 && player.ironmanManager.mode != IronmanMode.HARDCORE) {
                         sendDialogue(player,"100.0x is only available to Hardcore Ironmen!")

@@ -6,58 +6,18 @@ import java.io.FileInputStream
 import java.io.IOException
 import java.util.*
 
-/**
- * Represents the game settings used for this game instance.
- * @author Vexia
- */
 class GameSettings internal constructor(
-    /**
-     * The name of the namme.
-     */
     var name: String,
-    /**
-     * If the game is in beta mode.
-     */
     var isBeta: Boolean,
-    /**
-     * If the game is in developer mode.
-     */
     var isDevMode: Boolean,
-    /**
-     * If the gui is enabled.
-     */
     var isGui: Boolean,
-    /**
-     * The world id of the server.
-     */
     var worldId: Int,
-    /**
-     * The country index.
-     */
     var countryIndex: Int,
-    /**
-     * The activity.
-     */
     var activity: String,
-    /**
-     * If the world is members only.
-     */
     var isMembers: Boolean,
-    /**
-     * If the world is a pvp world.
-     */
     var isPvp: Boolean,
-    /**
-     * If only quick chat can be used on the world.
-     */
     var isQuickChat: Boolean,
-    /**
-     * If lootshare option is enabled on this world.
-     */
     var isLootshare: Boolean,
-    /**
-     * The address of the Management server.
-     */
     var msAddress: String,
     var default_xp_rate: Double,
     var allow_slayer_reroll: Boolean,
@@ -76,7 +36,7 @@ class GameSettings internal constructor(
     var smartpathfinder_bfs: Boolean,
     var enable_castle_wars: Boolean,
 
-    /**"Lobby" interface
+    /*"Lobby" interface
      * The message of the week models to display
      * 15 & 22 = keys & lock || 16 = fly swat || 17 = person with question marks || 18 & 447 = wise old man
      * 19 = man & woman with mouth closed || 20 = man & lock & key || 21 = closed chests
@@ -86,7 +46,7 @@ class GameSettings internal constructor(
      */
     var message_model: Int,
 
-    /**"Lobby" interface
+    /*"Lobby" interface
      * The message of the week text
      * The "child" for writing text to these interfaces is located inside of LoginConfiguration.java
      * method: getMessageChild
@@ -101,11 +61,8 @@ class GameSettings internal constructor(
     }
 
     companion object {
-        /**
+        /*
          * Parses a JSONObject and creates a new GameSettings object from it.
-         * @param data the JSONObject to parse.
-         * @return the settings object.
-         * @author Ceikry
          */
         fun parse(data: JSONObject): GameSettings {
             val name = ServerConstants.SERVER_NAME
@@ -135,44 +92,11 @@ class GameSettings internal constructor(
             val allow_token_purchase = data["allow_token_purchase"] as Boolean
             val message_of_the_week_identifier = data["message_of_the_week_identifier"].toString().toInt()
             val message_of_the_week_text = data["message_of_the_week_text"].toString()
-            return GameSettings(
-                name,
-                debug,
-                dev,
-                startGui,
-                worldId,
-                countryId,
-                activity,
-                true,
-                pvpWorld,
-                false,
-                false,
-                msip,
-                default_xp_rate,
-                allow_slayer_reroll,
-                enable_default_clan,
-                enable_bots,
-                autostock_ge,
-                allow_token_purchase,
-                skillcape_perks,
-                increased_door_time,
-                enable_botting,
-                max_adv_bots,
-                enable_doubling_money_scammers,
-                wild_pvp_enabled,
-                jad_practice_enabled,
-                ge_announcement_limit,
-                smartpathfinder_bfs,
-                enable_castle_wars,
-                message_of_the_week_identifier,
-                message_of_the_week_text
-            )
+            return GameSettings(name, debug, dev, startGui, worldId, countryId, activity, true, pvpWorld, false, false, msip, default_xp_rate, allow_slayer_reroll, enable_default_clan, enable_bots, autostock_ge, allow_token_purchase, skillcape_perks, increased_door_time, enable_botting, max_adv_bots, enable_doubling_money_scammers, wild_pvp_enabled, jad_practice_enabled, ge_announcement_limit, smartpathfinder_bfs, enable_castle_wars, message_of_the_week_identifier, message_of_the_week_text)
         }
 
-        /**
+        /*
          * Gets the properties.
-         * @param path the path.
-         * @return the properties.
          */
         private fun getProperties(path: String): Properties {
             val file: FileInputStream

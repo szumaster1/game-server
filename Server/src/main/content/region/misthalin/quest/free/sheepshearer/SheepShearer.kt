@@ -79,7 +79,7 @@ class SheepShearer : Quest("Sheep Shearer", 28, 27, 1, Vars.VARP_QUEST_SHEEP_SHE
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
 

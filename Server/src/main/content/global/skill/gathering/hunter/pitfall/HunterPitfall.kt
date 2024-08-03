@@ -35,10 +35,11 @@ import java.util.concurrent.TimeUnit
 
 @Initializable
 class HunterPitfall : OptionHandler() {
-    //19227,
+
     val graahkPitIds = intArrayOf(19227, 19268, 19267, 19266, 19264, 19265)
-    val GRAAHK_ID = 5105
-    val hunterReq = 41
+    val graahkIds = 5105
+    val levelRequirements = 41
+
     override fun handle(player: Player?, node: Node?, option: String?): Boolean {
         node ?: return true
         player ?: return true
@@ -53,43 +54,44 @@ class HunterPitfall : OptionHandler() {
     override fun newInstance(arg: Any?): Plugin<Any> {
         for (graahkPit in graahkPitIds) {
             SceneryDefinition.forId(graahkPit).handlers["option:trap"] = this
-            NPCDefinition.forId(GRAAHK_ID).handlers["option:tease"] = this
+            NPCDefinition.forId(graahkIds).handlers["option:tease"] = this
         }
         return this
     }
 }
 
 val LARUPIA_IDS: IntArray = intArrayOf(NPCs.SPINED_LARUPIA_5104)
-val GRAAHK_IDS: IntArray =
-    intArrayOf(NPCs.HORNED_GRAAHK_5105, NPCs.HORNED_GRAAHK_5106, NPCs.HORNED_GRAAHK_5107, NPCs.HORNED_GRAAHK_5108)
+val GRAAHK_IDS: IntArray = intArrayOf(NPCs.HORNED_GRAAHK_5105, NPCs.HORNED_GRAAHK_5106, NPCs.HORNED_GRAAHK_5107, NPCs.HORNED_GRAAHK_5108)
 val KYATT_IDS: IntArray = intArrayOf(NPCs.SABRE_TOOTHED_KYATT_5103, NPCs.SABRE_TOOTHED_KYATT_7497)
 val BEAST_IDS: IntArray = intArrayOf(*LARUPIA_IDS, *GRAAHK_IDS, *KYATT_IDS)
-val HUNTER_REQS = hashMapOf(
-    "Spined larupia" to 31,
-    "Horned graahk" to 41,
-    "Sabre-toothed kyatt" to 55,
-)
+val HUNTER_REQS = hashMapOf("Spined larupia" to 31, "Horned graahk" to 41, "Sabre-toothed kyatt" to 55)
 
 val pitVarpOffsets = hashMapOf(19264 to 3, 19265 to 6, 19266 to 9, 19267 to 12, 19268 to 15)
 
 data class Pit(val varbitId: Int, val horizontal: Boolean)
 
 val pitVarps = hashMapOf(
-    // Larupia pits (the duplicate 24 is likely authentic)
+    /*
+     * Larupia pits (the duplicate 24 is likely authentic).
+     */
     Location.create(2565, 2888) to Pit(2967, true),
     Location.create(2573, 2885) to Pit(2968, false),
     Location.create(2556, 2893) to Pit(2964, false),
     Location.create(2552, 2904) to Pit(2966, true),
     Location.create(2543, 2908) to Pit(2965, false),
     Location.create(2538, 2899) to Pit(2966, true),
-    // Kyatt pits
+    /*
+     * Kyatt pits.
+     */
     Location.create(2700, 3795) to Pit(2958, true),
     Location.create(2700, 3785) to Pit(2959, false),
     Location.create(2706, 3789) to Pit(2960, false),
     Location.create(2730, 3791) to Pit(2961, true),
     Location.create(2737, 3784) to Pit(2962, true),
     Location.create(2730, 3780) to Pit(2963, false),
-    // Graahk pits
+    /*
+     * Graahk pits.
+     */
     Location.create(2766, 3010) to Pit(2969, false),
     Location.create(2762, 3005) to Pit(2970, false),
     Location.create(2771, 3004) to Pit(2971, true),

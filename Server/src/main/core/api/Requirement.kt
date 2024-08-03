@@ -44,7 +44,7 @@ open class QuestReq(val questReq: QuestRequirements, val stageRequired: Int = 10
 
 open class QPReq(val amount: Int) : Requirement {
     override fun evaluate(player: Player): Pair<Boolean, List<Requirement>> {
-        val needed = min(amount, player.questRepository.getAvailablePoints())
+        val needed = min(amount, player.questRepository.availablePoints)
         val hasNeeded = player.questRepository.points >= needed
 
         return Pair(hasNeeded, if (hasNeeded) listOf() else listOf(this))

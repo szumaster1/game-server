@@ -120,21 +120,16 @@ enum class WoodcuttingNode {
     @JvmField
     var reward: Int = 0
 
-
     @JvmField
     var respawnRate: Int = 0
-
 
     @JvmField
     var level: Int = 0
 
-
     var rewardAmount: Int = 0
-
 
     @JvmField
     var experience: Double = 0.0
-
 
     var rate: Double = 0.0
 
@@ -142,12 +137,16 @@ enum class WoodcuttingNode {
     var identifier: Byte
 
     var isFarming: Boolean
+
     @JvmField
     var baseLow: Double = 2.0
+
     @JvmField
     var baseHigh: Double = 6.0
+
     @JvmField
     var tierModLow: Double = 1.0
+
     @JvmField
     var tierModHigh: Double = 3.0
 

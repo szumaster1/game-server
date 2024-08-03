@@ -172,10 +172,6 @@ public class Player extends Entity {
 
     private final RequestManager requestManager = new RequestManager(this);
 
-    /**
-     * The farming manager.
-     */
-
     private final WarningMessages warningMessages = new WarningMessages();
 
     private final MusicPlayer musicPlayer = new MusicPlayer(this);
@@ -947,12 +943,6 @@ public class Player extends Entity {
         return savedData.globalData;
     }
 
-    /**
-     * Gets the farmingManager.
-     * @return The farmingManager.
-     */
-
-
     public WarningMessages getWarningMessages() {
         return warningMessages;
     }
@@ -998,7 +988,6 @@ public class Player extends Entity {
     public String toString() {
         return "Player [name=" + name + ", getRights()=" + getRights() + "]";
     }
-
 
     public String getCustomState() {
         return customState;

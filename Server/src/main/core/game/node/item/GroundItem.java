@@ -7,17 +7,11 @@ import core.game.world.map.Location;
 public class GroundItem extends Item {
 
     private Player dropper;
-
     private int dropperUid;
-
     private int ticks;
-
     private int decayTime;
-
     private boolean remainPrivate;
-
     private boolean removed;
-
     public boolean forceVisible;
 
     public GroundItem(Item item) {

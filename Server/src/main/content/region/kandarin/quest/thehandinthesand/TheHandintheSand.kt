@@ -13,7 +13,7 @@ import core.plugin.Initializable
 class TheHandintheSand :
     Quest("The Hand in the Sand", 72, 71, 1, Vars.VARBIT_QUEST_THE_HAND_IN_THE_SAND_1527, 0, 1, 160) {
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -24,7 +24,7 @@ class TheHandintheSand :
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

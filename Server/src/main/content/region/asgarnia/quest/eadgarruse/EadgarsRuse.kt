@@ -12,7 +12,7 @@ import core.plugin.Initializable
 @Initializable
 class EadgarsRuse : Quest("Eadgar's Ruse", 50, 49, 1, Vars.VARP_QUEST_EADGARS_RUSE_335, 0, 1, 110) {
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -29,7 +29,7 @@ class EadgarsRuse : Quest("Eadgar's Ruse", 50, 49, 1, Vars.VARP_QUEST_EADGARS_RU
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

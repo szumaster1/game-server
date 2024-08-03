@@ -18,10 +18,6 @@ import java.net.BindException
 import java.util.*
 import kotlin.system.exitProcess
 
-/**
- * The main class, for those that are unable to read the class' name.
- * @author Ceikry, Emperor.
- */
 object Server {
 
     /*
@@ -66,7 +62,11 @@ object Server {
             log(this::class.java, Log.ERR, "Port " + (43594 + GameWorld.settings?.worldId!!) + " is already in use!")
             throw e
         }
-        //WorldCommunicator.connect()
+
+        /*
+         * WorldCommunicator.connect()
+         */
+
         log(this::class.java, Log.INFO, GameWorld.settings?.name + " flags " + GameWorld.settings?.toString())
         log(
             this::class.java,

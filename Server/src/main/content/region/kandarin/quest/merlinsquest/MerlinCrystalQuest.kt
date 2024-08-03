@@ -14,7 +14,7 @@ class MerlinCrystalQuest : Quest("Merlin's Crystal", 87, 86, 6, Vars.VARP_QUEST_
         return this
     }
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         player ?: return
         var ln = 11

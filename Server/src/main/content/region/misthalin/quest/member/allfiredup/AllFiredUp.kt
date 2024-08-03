@@ -16,7 +16,7 @@ import core.api.consts.Items
 @Initializable
 class AllFiredUp : Quest("All Fired Up", 157, 156, 1){
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -132,7 +132,7 @@ class AllFiredUp : Quest("All Fired Up", 157, 156, 1){
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         player.packetDispatch.sendString("20,000gp,", 277, 8 + 2)

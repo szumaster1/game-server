@@ -12,7 +12,7 @@ import core.plugin.Initializable
 @Initializable
 class ATailofTwoCats : Quest("A Tail of Two Cats", 119, 118, 2, Vars.VARBIT_QUEST_A_TAIL_OF_TWO_CATS_1028, 0, 1, 70) {
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -64,7 +64,7 @@ class ATailofTwoCats : Quest("A Tail of Two Cats", 119, 118, 2, Vars.VARBIT_QUES
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

@@ -1,6 +1,7 @@
 package content.global.handlers.item
 
 import core.api.*
+import core.api.consts.Animations
 import core.api.consts.Items
 import core.api.consts.Sounds
 import core.game.interaction.IntType
@@ -67,7 +68,7 @@ class EnchantJewelleryTabListener : InteractionListener {
                         if (removeItem(player, node.id) && (removeItem(player, item.id))) {
                             addItem(player, product)
                             playAudio(player, Sounds.POH_TABLET_BREAK_979)
-                            animate(player, 4069, true)
+                            animate(player, Animations.BREAK_SPELL_TABLET_A_4069, true)
                             break
                         }
                     }

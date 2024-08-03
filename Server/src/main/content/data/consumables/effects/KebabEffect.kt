@@ -24,9 +24,9 @@ class KebabEffect : ConsumableEffect() {
             sendMessage(player, "That was a good kebab. You feel a lot better.")
         } else if (randomNumber < 96) {
             /*
-                As the probability of lowering by 3 a non-combat skill or
-                all melee skills is not specified, 50% is the percentage
-                that was chosen.
+             * As the probability of lowering by 3 a non-combat skill or
+             * all melee skills is not specified, 50% is the percentage
+             * that was chosen.
              */
             if (RandomFunction.nextInt(100) < 50) {
                 val affectedSkillSlot = RandomFunction.nextInt(Skills.NUM_SKILLS - 1)

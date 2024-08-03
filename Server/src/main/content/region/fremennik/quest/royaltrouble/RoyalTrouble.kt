@@ -13,7 +13,7 @@ import core.plugin.Initializable
 @Initializable
 class RoyalTrouble : Quest("Royal Trouble", 106, 105, 1, Vars.VARBIT_QUEST_ROYAL_TROUBLE_2140, 0, 1, 21) {
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -24,7 +24,7 @@ class RoyalTrouble : Quest("Royal Trouble", 106, 105, 1, Vars.VARBIT_QUEST_ROYAL
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

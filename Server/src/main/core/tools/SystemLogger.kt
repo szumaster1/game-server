@@ -8,11 +8,6 @@ import core.game.world.GameWorld
 import java.text.SimpleDateFormat
 import java.util.*
 
-/**
- * Handles server log printing
- * @author Ceikry
- * Thanks to the awesome library made by AJ Alt
- */
 object SystemLogger {
     val t = Terminal()
     val errT = t.forStdErr()

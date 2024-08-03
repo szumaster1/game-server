@@ -89,11 +89,8 @@ public final class ByteBufferUtils {
         return value;
     }
 
-    /*	*//**
-     * Writes an object on the buffer.
-     * @param buffer The buffer to write on.
-     * @param o The object.
-     */
+    /*	*/
+
     /*
      * public static void putObject(ByteBuffer buffer, Object o) { ByteBuffer b;
      * try (ObjectOutputStream out = new ObjectOutputStream(new

@@ -12,7 +12,7 @@ import core.plugin.Initializable
 @Initializable
 class SmokingKills : Quest("Smoking Kills", 153, 152, 1, Vars.VARBIT_QUEST_SMOKING_KILLS_4764, 0, 1, 250) {
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -96,7 +96,7 @@ class SmokingKills : Quest("Smoking Kills", 153, 152, 1, Vars.VARBIT_QUEST_SMOKI
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

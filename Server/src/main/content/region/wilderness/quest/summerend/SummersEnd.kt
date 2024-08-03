@@ -18,7 +18,7 @@ class SummersEnd : Quest("Summer's End", 158, 157, 1, Vars.VARBIT_QUEST_SUMMERS_
      * together with the elders, take on the Beast to save them.
      */
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 12
         player ?: return
@@ -131,7 +131,7 @@ class SummersEnd : Quest("Summer's End", 158, 157, 1, Vars.VARBIT_QUEST_SUMMERS_
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

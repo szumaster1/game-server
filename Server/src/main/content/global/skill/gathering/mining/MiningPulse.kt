@@ -145,7 +145,7 @@ class MiningPulse(private val player: Player, private val node: Node) : Pulse(1,
         }
 
         /*
-            Reward logic.
+         * Reward logic.
          */
 
         var reward = resource!!.reward
@@ -157,14 +157,14 @@ class MiningPulse(private val player: Player, private val node: Node) : Pulse(1,
             player.dispatch(ResourceProducedEvent(reward, rewardAmount, node))
 
             /*
-                Reward mining experience.
+             * Reward mining experience.
              */
 
             val experience = resource!!.experience * rewardAmount
             rewardXP(player, Skills.MINING, experience)
 
             /*
-                If player is wearing Bracelet of Clay, soften.
+             * If player is wearing Bracelet of Clay, soften.
              */
 
             if (reward == Items.CLAY_434) {
@@ -301,10 +301,10 @@ class MiningPulse(private val player: Player, private val node: Node) : Pulse(1,
         return amount
     }
 
-        /*
-         * If the player is mining sandstone or granite, then get size of sandstone/granite
-         * and xp reward for that size.
-         */
+    /*
+     * If the player is mining sandstone or granite, then get size of sandstone/granite
+     * and xp reward for that size.
+     */
 
     private fun calculateReward(reward: Int): Int {
         var reward = reward

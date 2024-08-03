@@ -64,7 +64,6 @@ class QuickChatPacketHandler : IncomingPacket {
             else -> {}
         }
 
-
         //Prints the values of each byte in the buffer to server log
         //If the world is in dev mode
         if (GameWorld.settings?.isDevMode == true) {

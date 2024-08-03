@@ -19,7 +19,7 @@ class TrollStronghold : Quest("Troll Stronghold", 128, 127, 1, Vars.VARP_QUEST_T
      * Journey through Trollheim to the Troll Stronghold, and rescue him!
      */
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 12
         var stage = getStage(player)

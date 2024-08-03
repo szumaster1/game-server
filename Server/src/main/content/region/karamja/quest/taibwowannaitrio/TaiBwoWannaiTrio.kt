@@ -12,7 +12,7 @@ import core.plugin.Initializable
 @Initializable
 class TaiBwoWannaiTrio : Quest("Tai Bwo Wannai Trio", 118, 117, 2, Vars.VARP_QUEST_TAI_BWO_WANNAI_TRIO_320, 0, 1, 6) {
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -23,7 +23,7 @@ class TaiBwoWannaiTrio : Quest("Tai Bwo Wannai Trio", 118, 117, 2, Vars.VARP_QUE
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

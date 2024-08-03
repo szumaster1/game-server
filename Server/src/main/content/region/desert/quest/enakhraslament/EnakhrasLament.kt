@@ -14,7 +14,7 @@ import core.plugin.Initializable
 @Initializable
 class EnakhrasLament : Quest("Enakhra's Lament", 54, 53, 2, Vars.VARBIT_QUEST_ENAKHRAS_LAMENT_1560, 0, 1, 70) {
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -56,7 +56,7 @@ class EnakhrasLament : Quest("Enakhra's Lament", 54, 53, 2, Vars.VARBIT_QUEST_EN
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

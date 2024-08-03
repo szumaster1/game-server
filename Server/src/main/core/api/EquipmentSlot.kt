@@ -1,7 +1,20 @@
 package core.api
 
 enum class EquipmentSlot {
-    HEAD, CAPE, NECK, WEAPON, CHEST, SHIELD, HIDDEN_1, LEGS, HIDDEN_2, HANDS, FEET, HIDDEN_3, RING, AMMO;
+    HEAD,
+    CAPE,
+    NECK,
+    WEAPON,
+    CHEST,
+    SHIELD,
+    HIDDEN_1,
+    LEGS,
+    HIDDEN_2,
+    HANDS,
+    FEET,
+    HIDDEN_3,
+    RING,
+    AMMO;
 
     companion object {
         private val slotMap = HashMap<String, EquipmentSlot>()
@@ -20,7 +33,7 @@ enum class EquipmentSlot {
             slotMap["ammo"] = AMMO; slotMap["ammunition"] = AMMO
         }
 
-        /**
+        /*
          * Return the equipment slot by name. Return null if matching no slot.
          */
         fun slotByName(input: String): EquipmentSlot? {

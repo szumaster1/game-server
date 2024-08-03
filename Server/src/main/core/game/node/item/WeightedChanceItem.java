@@ -4,9 +4,7 @@ import core.tools.RandomFunction;
 
 public class WeightedChanceItem {
 
-    int id,
-        minimum_amount,
-        maximum_amount;
+    int id, minimum_amount, maximum_amount;
     public int weight;
 
     public WeightedChanceItem(int id, int minimum_amount, int maximum_amount, int weight) {

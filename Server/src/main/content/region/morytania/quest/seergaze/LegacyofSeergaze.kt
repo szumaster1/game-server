@@ -14,7 +14,7 @@ import core.plugin.Initializable
 class LegacyofSeergaze :
     Quest("Legacy of Seergaze", 150, 149, 2, Vars.VARBIT_QUEST_LEGACY_OF_SEERGAZE_4569, 0, 1, 500) {
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -25,7 +25,7 @@ class LegacyofSeergaze :
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

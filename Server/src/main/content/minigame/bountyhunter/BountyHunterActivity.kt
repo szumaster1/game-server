@@ -84,7 +84,7 @@ class BountyHunterActivity @JvmOverloads constructor(val type: CraterType = Crat
         if (type == CraterType.LOW_LEVEL) {
             // Disable bounty hunter area as wilderness
             val check = Location.create(3166, 3679, 0)
-            for (border in WildernessZone.instance.borders) {
+            for (border in WildernessZone.getInstance().borders) {
                 if (border.insideBorder(check)) {
                     border.addException(ZoneBorders(3140, 3653, 3149, 3670))
                     border.addException(ZoneBorders(3150, 3656, 3154, 3676))

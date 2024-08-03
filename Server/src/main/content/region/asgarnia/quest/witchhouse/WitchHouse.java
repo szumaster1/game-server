@@ -5,16 +5,17 @@ import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.quest.Quest;
 import core.game.node.entity.skill.Skills;
 import core.plugin.Initializable;
+import org.jetbrains.annotations.NotNull;
 
 @Initializable
-public class WitchsHouse extends Quest {
+public class WitchHouse extends Quest {
 
-    public WitchsHouse() {
+    public WitchHouse() {
         super("Witch's House", 124, 123, 4, Vars.VARP_QUEST_WTICHS_HOUSE_PROGRESS, 0, 1, 7);
     }
 
     @Override
-    public void drawJournal(Player player, int stage) {
+    public void drawJournal(@NotNull Player player, int stage) {
         super.drawJournal(player, stage);
         switch (getStage(player)) {
             case 0:
@@ -39,7 +40,7 @@ public class WitchsHouse extends Quest {
     }
 
     @Override
-    public void finish(Player player) {
+    public void finish(@NotNull Player player) {
         super.finish(player);
         player.getPacketDispatch().sendString("4 Quest Points", 277, 8 + 2);
         player.getPacketDispatch().sendString("6325 Hitpoints XP", 277, 9 + 2);
@@ -48,8 +49,9 @@ public class WitchsHouse extends Quest {
         player.getPacketDispatch().sendItemZoomOnInterface(2407, 240, 277, 3 + 2);
     }
 
+    @NotNull
     @Override
-    public Quest newInstance(Object object) {
+    public Quest newInstance(@NotNull Object object) {
         return this;
     }
 }

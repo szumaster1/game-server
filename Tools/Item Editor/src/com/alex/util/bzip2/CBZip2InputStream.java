@@ -28,28 +28,6 @@ import java.io.InputStream;
 
 import static com.alex.util.bzip2.BZip2Constants.*;
 
-/**
- * An input stream that decompresses from the BZip2 format (without the file
- * header chars) to be read as any other stream.
- * <p/>
- * <p>
- * The decompression requires large amounts of memory. Thus you should call the
- * {@link #close() close()} method as soon as possible, to force
- * <tt>CBZip2InputStream</tt> to release the allocated memory. See
- * {@link CBZip2OutputStream CBZip2OutputStream} for information about memory
- * usage.
- * </p>
- * <p/>
- * <p>
- * <tt>CBZip2InputStream</tt> reads bytes from the compressed source stream via
- * the single byte {@link InputStream#read() read()} method exclusively.
- * Thus you should consider to use a buffered source stream.
- * </p>
- * <p/>
- * <p>
- * Instances of this class are not threadsafe.
- * </p>
- */
 public class CBZip2InputStream extends InputStream implements BZip2Constants {
 
 	private static final class Data extends Object {
@@ -61,10 +39,6 @@ public class CBZip2InputStream extends InputStream implements BZip2Constants {
 		final byte[] selector = new byte[MAX_SELECTORS]; // 18002 byte
 		final byte[] selectorMtf = new byte[MAX_SELECTORS]; // 18002 byte
 
-		/**
-		 * Freq table collected to save a pass over the data during
-		 * decompression.
-		 */
 		final int[] unzftab = new int[256]; // 1024 byte
 
 		final int[][] limit = new int[N_GROUPS][MAX_ALPHA_SIZE]; // 6192 byte
@@ -93,13 +67,6 @@ public class CBZip2InputStream extends InputStream implements BZip2Constants {
 			this.ll8 = new byte[blockSize100k * BZip2Constants.baseBlockSize];
 		}
 
-		/**
-		 * Initializes the {@link #tt} array.
-		 * <p/>
-		 * This method is called when the required length of the array is known.
-		 * I don't initialize it at construction time to avoid unneccessary
-		 * memory allocation when compressing small files.
-		 */
 		final int[] initTT(int length) {
 			int[] ttShadow = this.tt;
 
@@ -124,20 +91,10 @@ public class CBZip2InputStream extends InputStream implements BZip2Constants {
 		// System.err.println("BZip2 CRC error");
 	}
 
-	/**
-	 * Index of the last char in the block, so the block size == last + 1.
-	 */
 	private int last;
 
-	/**
-	 * Index in zptr[] of original string after sorting.
-	 */
 	private int origPtr;
 
-	/**
-	 * always: in the range 0 .. 9. The current block size is 100000 * this
-	 * number.
-	 */
 	private int blockSize100k;
 
 	private boolean blockRandomised;
@@ -161,9 +118,6 @@ public class CBZip2InputStream extends InputStream implements BZip2Constants {
 	private static final int NO_RAND_PART_B_STATE = 6;
 	private static final int NO_RAND_PART_C_STATE = 7;
 
-	/**
-	 * Called by createHuffmanDecodingTables() exclusively.
-	 */
 	private static void hbCreateDecodeTables(final int[] limit, final int[] base, final int[] perm, final char[] length, final int minLen, final int maxLen, final int alphaSize) {
 		for (int i = minLen, pp = 0; i <= maxLen; i++) {
 			for (int j = 0; j < alphaSize; j++) {
@@ -217,27 +171,8 @@ public class CBZip2InputStream extends InputStream implements BZip2Constants {
 
 	private char su_z;
 
-	/**
-	 * All memory intensive stuff. This field is initialized by initBlock().
-	 */
 	private Data data;
 
-	/**
-	 * Constructs a new CBZip2InputStream which decompresses bytes read from the
-	 * specified stream.
-	 * <p/>
-	 * <p>
-	 * Although BZip2 headers are marked with the magic <tt>"Bz"</tt> this
-	 * constructor expects the next byte in the stream to be the first one after
-	 * the magic. Thus callers have to skip the first two bytes. Otherwise this
-	 * constructor will throw an exception.
-	 * </p>
-	 * 
-	 * @throws IOException
-	 *             if the stream content is malformed or an I/O error occurs.
-	 * @throws NullPointerException
-	 *             if <tt>in == null</tt>
-	 */
 	public CBZip2InputStream(final InputStream in) throws IOException {
 		super();
 
@@ -321,9 +256,6 @@ public class CBZip2InputStream extends InputStream implements BZip2Constants {
 		}
 	}
 
-	/**
-	 * Called by recvDecodingTables() exclusively.
-	 */
 	private void createHuffmanDecodingTables(final int alphaSize, final int nGroups) {
 		final Data dataShadow = this.data;
 		final char[][] len = dataShadow.temp_charArray2d;

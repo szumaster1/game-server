@@ -13,7 +13,7 @@ import core.plugin.Initializable
 @Initializable
 class HazeelCult : Quest("Hazeel Cult", 74, 73, 1, Vars.VARP_QUEST_HAZEEL_CULT_PROGRESS, 0, 1, 9) {
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         var attributeMahjarrat = getAttribute(player!!, HazeelCultListeners.MAHJARRAT, true)
         var attributeCarnillean = getAttribute(player, HazeelCultListeners.CARNILLEAN, true)
 
@@ -99,7 +99,7 @@ class HazeelCult : Quest("Hazeel Cult", 74, 73, 1, Vars.VARP_QUEST_HAZEEL_CULT_P
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

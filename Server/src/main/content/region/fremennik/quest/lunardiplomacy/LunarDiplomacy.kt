@@ -11,7 +11,7 @@ import core.plugin.Initializable
 @Initializable
 class LunarDiplomacy : Quest("Lunar Diplomacy", 85, 84, 2, Vars.VARBIT_QUEST_LUNAR_DIPLOMACY_2448, 0, 1, 190) {
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -175,7 +175,7 @@ class LunarDiplomacy : Quest("Lunar Diplomacy", 85, 84, 2, Vars.VARBIT_QUEST_LUN
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

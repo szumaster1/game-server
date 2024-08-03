@@ -6,14 +6,13 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.api.consts.Items
 
+class InSearchOfTheMyreque : Quest("In Search of the Myreque", 80, 79, 2, Vars.VARP_QUEST_IN_SEARCH_OF_MYREQUE_PROGRESS, 0, 1, 101) {
 
-class InSearchOfTheMyreque :
-    Quest("In Search of the Myreque", 80, 79, 2, Vars.VARP_QUEST_IN_SEARCH_OF_MYREQUE_PROGRESS, 0, 1, 101) {
     companion object {
         const val questName = "In Search of the Myreque"
     }
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -69,7 +68,7 @@ class InSearchOfTheMyreque :
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

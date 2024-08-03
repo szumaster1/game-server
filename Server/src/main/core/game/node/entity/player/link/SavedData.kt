@@ -3,10 +3,6 @@ package core.game.node.entity.player.link
 import core.game.node.entity.player.Player
 import java.nio.ByteBuffer
 
-/**
- * Represents a managing class of saved data related to in-game interactions,
- * such as questing data, npc talking data, etc.
- */
 class SavedData(val player: Player) {
 
     @JvmField
@@ -19,12 +15,8 @@ class SavedData(val player: Player) {
     val questData: QuestData = QuestData()
 
     companion object {
-        /**
+        /*
          * Method used to save an activity var that isn't valued at default.
-         *
-         * @param buffer the buffer.
-         * @param var    the variable to save.
-         * @param index  the index
          */
         fun save(buffer: ByteBuffer, `var`: Any?, index: Int) {
             if (if (`var` is Int) `var` != 0 else if (`var` is Double) `var` != 0.0 else if (`var` is Byte) `var`.toInt() != 0 else if (`var` is Short) `var`.toInt() != 0 else if (`var` is Long) `var` != 0L else if (`var` is Boolean) `var` != false else `var` != null) {
@@ -60,22 +52,10 @@ class SavedData(val player: Player) {
             }
         }
 
-        /**
-         * Gets the boolean value.
-         *
-         * @param value the value.
-         * @return the value.
-         */
         fun getBoolean(value: Byte): Boolean {
             return value.toInt() == 1
         }
 
-        /**
-         * Gets the boolean value.
-         *
-         * @param buffer the buffer.
-         * @return the value.
-         */
         fun getBoolean(buffer: ByteBuffer): Boolean {
             return getBoolean(buffer.get())
         }

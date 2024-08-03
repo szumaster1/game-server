@@ -11,20 +11,21 @@ import core.game.world.map.RegionManager;
 import core.plugin.Initializable;
 
 @Initializable
-public class WitchsExperimentNPC extends AbstractNPC {
+public class WitchExperimentNPC extends AbstractNPC {
+
     private ExperimentType type;
     private boolean commenced;
     Player p;
 
-    public WitchsExperimentNPC() {
+    public WitchExperimentNPC() {
         super(0, null);
     }
 
-    WitchsExperimentNPC(int id, Location location, Player player) {
+    WitchExperimentNPC(int id, Location location, Player player) {
         super(id, location);
         this.setWalks(true);
         this.setRespawn(false);
-        this.type = WitchsExperimentNPC.ExperimentType.forId(id);
+        this.type = WitchExperimentNPC.ExperimentType.forId(id);
         p = player;
     }
 
@@ -66,7 +67,7 @@ public class WitchsExperimentNPC extends AbstractNPC {
 
     @Override
     public AbstractNPC construct(int id, Location location, Object... objects) {
-        return new WitchsExperimentNPC(id, location, null);
+        return new WitchExperimentNPC(id, location, null);
     }
 
     @Override
@@ -104,7 +105,7 @@ public class WitchsExperimentNPC extends AbstractNPC {
         }
 
 
-        public void transform(final WitchsExperimentNPC npc, final Player player) {
+        public void transform(final WitchExperimentNPC npc, final Player player) {
             final ExperimentType newType = next();
             npc.lock();
             npc.getPulseManager().clear();

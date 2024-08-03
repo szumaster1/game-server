@@ -34,7 +34,7 @@ class RagAndBoneMan : Quest("Rag and Bone Man", 100, 99, 2, 714, 0, 1, 4) {
         )
     }
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 12
         var stage = getStage(player)
@@ -102,7 +102,7 @@ class RagAndBoneMan : Quest("Rag and Bone Man", 100, 99, 2, 714, 0, 1, 4) {
     }
 
     private fun boneChecklist(
-        player: Player?,
+        player: Player,
         line: Int,
         mob: String,
         boneEnum: BoneBoiler,
@@ -110,7 +110,7 @@ class RagAndBoneMan : Quest("Rag and Bone Man", 100, 99, 2, 714, 0, 1, 4) {
     ) {
         line(
             player,
-            if (getAttribute(player!!, questAttribute, false))
+            if (getAttribute(player, questAttribute, false))
                 "!!$mob.??"
             else if (inInventory(player, boneEnum.polishedBone))
                 "!!$mob.?? (I have a prepared one !!with me.??)"

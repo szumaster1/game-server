@@ -105,7 +105,7 @@ class BigChompyBirdHunting : Quest("Big Chompy Bird Hunting", 35, 34, 2, Vars.VA
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
 

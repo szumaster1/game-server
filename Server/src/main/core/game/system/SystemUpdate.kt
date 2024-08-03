@@ -10,10 +10,6 @@ import core.game.world.GameWorld.majorUpdateWorker
 import core.game.world.repository.Repository.players
 import java.util.concurrent.Executors
 
-/**
- * Handles a system update.
- * @author Emperor
- */
 class SystemUpdate : Pulse(DEFAULT_COUNTDOWN) {
 
     var isCreateBackup = false
@@ -31,7 +27,7 @@ class SystemUpdate : Pulse(DEFAULT_COUNTDOWN) {
         return true
     }
 
-    /**
+    /*
      * Notifies the players.
      */
     fun notifyPlayers() {
@@ -49,7 +45,7 @@ class SystemUpdate : Pulse(DEFAULT_COUNTDOWN) {
         }
     }
 
-    /**
+    /*
      * Schedules an update.
      */
     fun schedule() {
@@ -74,9 +70,8 @@ class SystemUpdate : Pulse(DEFAULT_COUNTDOWN) {
         }
     }
 
-    /**
+    /*
      * Sets the system update countdown.
-     * @param ticks The amount of ticks.
      */
     fun setCountdown(ticks: Int) {
         var ticks = ticks
@@ -89,7 +84,7 @@ class SystemUpdate : Pulse(DEFAULT_COUNTDOWN) {
         super.setDelay(ticks)
     }
 
-    /**
+    /*
      * Cancels the system update task.
      */
     fun cancel() {

@@ -11,7 +11,7 @@ import core.plugin.Initializable
 @Initializable
 class HeroesQuest : Quest("Heroes' Quest", 75, 74, 1, Vars.VARP_QUEST_HEROES_QUEST_188, 0, 1, 15) {
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -22,7 +22,7 @@ class HeroesQuest : Quest("Heroes' Quest", 75, 74, 1, Vars.VARP_QUEST_HEROES_QUE
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

@@ -27,10 +27,6 @@ import java.text.SimpleDateFormat
 import java.util.*
 import java.util.function.Consumer
 
-/**
- * Represents the game world.
- * @author Ceikry
- */
 object GameWorld {
 
     @JvmStatic val worldPersists = ArrayList<PersistWorld>()
@@ -61,10 +57,8 @@ object GameWorld {
     @JvmStatic var ticks = 0
     @JvmStatic var Pulser = PulseRunner()
 
-    /**
+    /*
      * Submits a pulse.
-     *
-     * @param pulse the pulse.
      */
     @Deprecated("", ReplaceWith("Pulser.submit(pulse!!)", "core.game.world.GameWorld.Pulser"))
     fun submit(pulse: Pulse?) {
@@ -92,22 +86,16 @@ object GameWorld {
         return weeklySdf.format(Date()).toInt()
     }
 
-    /**
-     * Prompts the [GameWorld] to begin it's initialization.
-     *
-     * @param directory the directory to the properties.
-     * @throws Throwable when the exception occurs.
+    /*
+     * Prompts the [GameWorld] to begin its initialization.
      */
     @Throws(Throwable::class)
     fun prompt(directory: String?) {
         prompt(true, directory)
     }
 
-    /**
+    /*
      * Prompts the game world.
-     *
-     * @param running if running.
-     * @throws Throwable the throwable.
      */
     @Throws(Throwable::class)
     @JvmStatic
@@ -115,18 +103,17 @@ object GameWorld {
         prompt(running, "server.properties")
     }
 
-    /**
+    /*
      * Prompts the [GameWorld] to begin its initialization.
-     *
-     * @param run       If the server should be running.
-     * @param directory the path to the dir.
-     * @throws Throwable When an exception occurs.
      */
     @Throws(Throwable::class)
     fun prompt(run: Boolean, directory: String?) {
         log(GameWorld::class.java, Log.FINE, "Prompting ${settings?.name} Game World...")
         Cache.init(ServerConstants.CACHE_PATH)
-        //go overboard with checks to make sure dev mode authenticator never triggers on live
+        /*
+         * Go overboard with checks to make sure
+         * dev mode authenticator never triggers on live.
+         */
         Auth.configure()
         ConfigParser().prePlugin()
         ClassScanner.scanClasspath()

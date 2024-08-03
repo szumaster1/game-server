@@ -23,7 +23,7 @@ class ASoulsBane : Quest("A Soul's Bane", 115, 114, 1,Vars.VARBIT_QUEST_A_SOULS_
      * ultimately lost his humanity.
      */
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -54,7 +54,7 @@ class ASoulsBane : Quest("A Soul's Bane", 115, 114, 1,Vars.VARBIT_QUEST_A_SOULS_
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

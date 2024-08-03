@@ -66,7 +66,7 @@ public class BallInteractionPlugin extends PluginInteraction {
                 player.getSkills().setLevel(i, player.getSkills().getLevel(i) > 5 ? player.getSkills().getLevel(i) - 5 : 1);
             }
             player.getPacketDispatch().sendMessage("<col=ff0000>The experiment glares at you, and you feel yourself weaken.</col>");
-            new WitchsExperimentNPC(player.getAttribute("witchs_house:experiment_id", 897), Location.create(2936, 3463, 0), player).init();
+            new WitchExperimentNPC(player.getAttribute("witchs_house:experiment_id", 897), Location.create(2936, 3463, 0), player).init();
             setAttribute(player, "witchs-experiment:npc_spawned", true);
             handled = true;
         }

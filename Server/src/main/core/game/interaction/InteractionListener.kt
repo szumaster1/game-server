@@ -34,21 +34,11 @@ interface InteractionListener : ContentInterface {
         InteractionListeners.add(option, type.ordinal, handler)
     }
 
-    fun onUseWith(
-        type: IntType,
-        used: Int,
-        vararg with: Int,
-        handler: (player: Player, used: Node, with: Node) -> Boolean
-    ) {
+    fun onUseWith(type: IntType, used: Int, vararg with: Int, handler: (player: Player, used: Node, with: Node) -> Boolean) {
         InteractionListeners.add(type.ordinal, used, with, handler)
     }
 
-    fun onUseWith(
-        type: IntType,
-        used: IntArray,
-        vararg with: Int,
-        handler: (player: Player, used: Node, with: Node) -> Boolean
-    ) {
+    fun onUseWith(type: IntType, used: IntArray, vararg with: Int, handler: (player: Player, used: Node, with: Node) -> Boolean) {
         InteractionListeners.add(type.ordinal, used, with, handler)
     }
 
@@ -62,11 +52,7 @@ interface InteractionListener : ContentInterface {
 
     // Note: wildcard listeners incur overhead on every use-with interaction, only use them as a space-time tradeoff when something
     // is actually supposed to have a response to every item used with it (e.g. imp boxes, certain quest npcs)
-    fun onUseWithWildcard(
-        type: IntType,
-        predicate: (used: Int, with: Int) -> Boolean,
-        handler: (player: Player, used: Node, with: Node) -> Boolean
-    ) {
+    fun onUseWithWildcard(type: IntType, predicate: (used: Int, with: Int) -> Boolean, handler: (player: Player, used: Node, with: Node) -> Boolean) {
         InteractionListeners.addWildcard(type.ordinal, predicate, handler)
     }
 
@@ -109,24 +95,11 @@ interface InteractionListener : ContentInterface {
         InteractionListeners.instantClasses.add(name)
     }
 
-    fun defineInteraction(
-        type: IntType,
-        ids: IntArray,
-        vararg options: String,
-        persistent: Boolean = false,
-        allowedDistance: Int = 1,
-        handler: (player: Player, node: Node, state: Int) -> Boolean
-    ) {
+    fun defineInteraction(type: IntType, ids: IntArray, vararg options: String, persistent: Boolean = false, allowedDistance: Int = 1, handler: (player: Player, node: Node, state: Int) -> Boolean) {
         InteractionListeners.addMetadata(ids, type, options, InteractionMetadata(handler, allowedDistance, persistent))
     }
 
-    fun defineInteraction(
-        type: IntType,
-        vararg options: String,
-        persist: Boolean = false,
-        allowedDistance: Int = 1,
-        handler: (player: Player, node: Node, state: Int) -> Boolean
-    ) {
+    fun defineInteraction(type: IntType, vararg options: String, persist: Boolean = false, allowedDistance: Int = 1, handler: (player: Player, node: Node, state: Int) -> Boolean) {
         InteractionListeners.addGenericMetadata(options, type, InteractionMetadata(handler, allowedDistance, persist))
     }
 

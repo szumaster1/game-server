@@ -61,17 +61,18 @@ public abstract class Entity extends Node {
     private final ZoneMonitor zoneMonitor = new ZoneMonitor(this);
 
     private final ActionLocks locks = new ActionLocks();
+
     public ScriptProcessor scripts = new ScriptProcessor(this);
+
     public final int[] clocks = new int[10];
 
     public MovementPulse currentMovement;
 
-
     private HashMap<Class<?>, ArrayList<EventHook>> hooks = new HashMap<>();
+
     public TimerManager timers = new TimerManager(this);
 
     private boolean invisible;
-
 
     public Entity(String name, Location location) {
         super(name, location);

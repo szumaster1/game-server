@@ -12,7 +12,7 @@ import core.plugin.Initializable
 @Initializable
 class TheSlugMenace : Quest("The Slug Menace", 110, 109, 1, Vars.VARBIT_QUEST_THE_SLUG_MENACE_2610, 0, 1, 14) {
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -95,7 +95,7 @@ class TheSlugMenace : Quest("The Slug Menace", 110, 109, 1, Vars.VARBIT_QUEST_TH
     }
 
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

@@ -11,6 +11,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 class WitchesDiaryBook : InteractionListener {
+
     companion object {
         private val TITLE = "Witches' Diary"
         private val CONTENTS = arrayOf(

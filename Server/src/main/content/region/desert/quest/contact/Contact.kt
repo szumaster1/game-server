@@ -18,7 +18,7 @@ class Contact : Quest("Contact!", 39, 38, 1, Vars.VARBIT_QUEST_CONTACT_3274, 0, 
         const val Contact = "Contact!"
     }
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -43,7 +43,7 @@ class Contact : Quest("Contact!", 39, 38, 1, Vars.VARBIT_QUEST_CONTACT_3274, 0, 
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

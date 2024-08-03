@@ -11,7 +11,7 @@ import core.plugin.Initializable
 class InAidOfTheMyreque :
     Quest("In Aid of the Myreque", 79, 78, 2, Vars.VARBIT_QUEST_IN_AID_OF_THE_MYREQUE_1990, 0, 1, 421) {
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -22,7 +22,7 @@ class InAidOfTheMyreque :
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

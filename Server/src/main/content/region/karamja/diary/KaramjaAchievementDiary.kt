@@ -136,7 +136,8 @@ class KaramjaAchievementDiary : DiaryEventHookBase(DiaryType.KARAMJA) {
             const val CATCH_KARAMBWAN = 9
 
             /*
-             * Exchange gems, a gout tuber, trading sticks for a machete (talk to Safta Doc in anvil house in Tai Bwo Wannai).
+             * Exchange gems, a gout tuber, trading sticks for a machete
+             * (talk to Safta Doc in anvil house in Tai Bwo Wannai).
              */
             const val EXCHANGE_GEMS_TUBER_TRADING_STICKS_FOR_MACHETE = 10
 
@@ -166,7 +167,8 @@ class KaramjaAchievementDiary : DiaryEventHookBase(DiaryType.KARAMJA) {
             const val BRIMHAVEN_DUNGEON_CROSS_LAVA_STEPPING_STONES = 15
 
             /*
-             * Climb the stairs within Brimhaven Dungeon. They're in the north, and lead up to Greater Demons.
+             * Climb the stairs within Brimhaven Dungeon. They're in the north,
+             * and lead up to Greater Demons.
              */
             const val BRIMHAVEN_DUNGEON_CLIMB_STAIRS = 16
 
@@ -211,7 +213,8 @@ class KaramjaAchievementDiary : DiaryEventHookBase(DiaryType.KARAMJA) {
             const val COOK_KARAMBWAN_PROPERLY = 4
 
             /*
-             * Kill a deathwing in the dungeon (south-west of shilo) under the Kharazi Jungle (south of the door in Shaman's Cave).
+             * Kill a deathwing in the dungeon (south-west of shilo) under
+             * the Kharazi Jungle (south of the door in Shaman's Cave).
              */
             const val KHARAZI_JUNGLE_KILL_DEATHWING = 5
 

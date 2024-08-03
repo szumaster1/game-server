@@ -8,9 +8,6 @@ import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills
 import core.game.node.scenery.Scenery
 
-/**
- * The Trap dismantle pulse.
- */
 class TrapDismantlePulse(player: Player?, node: Scenery?, wrapper: TrapWrapper) : SkillPulse<Scenery?>(player, node) {
 
     val wrapper: TrapWrapper = wrapper

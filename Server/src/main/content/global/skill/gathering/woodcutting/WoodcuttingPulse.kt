@@ -120,7 +120,9 @@ class WoodcuttingPulse(private val player: Player, private val node: Scenery) : 
             return false
         }
 
-        // 20% chance to auto burn logs when using "inferno adze" item.
+        /*
+         * 20% chance to auto burn logs when using "inferno adze" item.
+         */
         if (getHatchet(player)!!.id == 13661 && RandomFunction.random(100) < 25) {
             sendMessage(player,"You chop some logs. The heat of the inferno adze incinerates them.")
             Projectile.create(player, null, 1776, 35, 30, 20, 25).transform(player, Location(player.location.x + 2, player.location.y), true, 25, 25).send()
@@ -237,7 +239,9 @@ class WoodcuttingPulse(private val player: Player, private val node: Scenery) : 
             return 1.0
         }
         if (reward == 3239) {
-            // If we receive the item, give the full experience points otherwise give the base amount.
+            /*
+             * If we receive the item, give the full experience points otherwise give the base amount.
+             */
             if (amount >= 1) {
                 experience = 275.2
             } else {

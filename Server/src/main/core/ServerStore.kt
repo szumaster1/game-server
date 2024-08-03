@@ -17,6 +17,7 @@ import java.io.FileWriter
 import javax.script.ScriptEngineManager
 
 class ServerStore : PersistWorld {
+
     override fun parse() {
         logStartup("Parsing server store...")
         val dir = File(ServerConstants.STORE_PATH!!)
@@ -146,7 +147,7 @@ class ServerStore : PersistWorld {
             array.add(value)
         }
 
-        /** NPCItemMemory
+        /*
          * These next methods handle the NPCItemMemory database. these are server-stored JSON objects,
          * which are based on an npc and an item.
          * each NPC can have a JSON object for itself for any item.
@@ -164,7 +165,7 @@ class ServerStore : PersistWorld {
             return getArchive(NPCItemFilename(npc, item, period))
         }
 
-        /** NPCItemMemory Player Access
+        /*
          * These next functions handle individual player access to the NPC Item Memory database.
          * each of the functions has at least 3 mandatory arguments: npc, item, player.
          * These functions can be used to allow players to access a daily- or weekly-reset stock of a particular item overseen by a particular NPC.
@@ -174,7 +175,7 @@ class ServerStore : PersistWorld {
          * these functions simply return and update the NPCItemMemory database numbers in useful ways.
          */
 
-        /** getNPCItemStock:
+        /*
          * gets the available stock of a particular item at a particular NPC for a particular player.
          */
         fun getNPCItemStock(npc: Int, item: Int, limit: Int, player: Player, period: String = "daily"): Int {
@@ -185,7 +186,7 @@ class ServerStore : PersistWorld {
             return stock
         }
 
-        /** getNPCItemAmount:
+        /*
          * gets the usable amount of a particular item from a particular npc for a particular player.
          * this is essentially just a requested amount cut to conform to stock and nonnegative requirements.
          * what this function does is it takes a requested amount, cuts it down to be equal to available stock if
@@ -205,8 +206,8 @@ class ServerStore : PersistWorld {
             return realamount
         }
 
-        /** addNPCItemAmount:
-         * this function updates the NPC Item Memory database entry for a particular player.
+        /*
+         * This function updates the NPC Item Memory database entry for a particular player.
          * it is intended to be called after all the actions that use the number have been successfully completed.
          * this function will *add* the amount argument to the current npc item memory entry for that player. this means that
          * the amount argument is the amount to add, not the absolute final amount.

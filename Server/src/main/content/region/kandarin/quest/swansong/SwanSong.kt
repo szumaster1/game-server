@@ -11,7 +11,7 @@ import core.plugin.Initializable
 @Initializable
 class SwanSong : Quest("Swan Song", 117, 116, 2, Vars.VARBIT_QUEST_SWAN_SONG_2098, 0, 1, 200) {
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -90,7 +90,7 @@ class SwanSong : Quest("Swan Song", 117, 116, 2, Vars.VARBIT_QUEST_SWAN_SONG_209
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

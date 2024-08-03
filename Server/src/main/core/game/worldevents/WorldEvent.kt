@@ -8,14 +8,10 @@ import core.tools.Log
 import org.json.simple.JSONObject
 import java.util.*
 
-/**
- * The class other world events should extend off of.
- * @author Ceikry
- */
 abstract class WorldEvent(var name: String) : ContentInterface {
     var plugins = PluginSet()
 
-    /**
+    /*
      * if the event is active or not. Can be used to check dates or just always return true
      * whatever you need for this specific event
      */
@@ -23,14 +19,14 @@ abstract class WorldEvent(var name: String) : ContentInterface {
         return false
     }
 
-    /**
+    /*
      * Used to initialize the event
      * The WorldEventInitializer runs this if checkActive() returns true.
      */
     open fun initEvent() {
     }
 
-    /**
+    /*
      * Used to log world event messages in a standard and organized way.
      */
     fun log(message: String) {
@@ -39,7 +35,7 @@ abstract class WorldEvent(var name: String) : ContentInterface {
 }
 
 
-/**
+/*
  * A class that holds a set of plugins that shouldn't be initialized by default.
  * Can be used to initialize all of its plugins cleanly.
  */
@@ -54,7 +50,7 @@ class PluginSet(vararg val plugins: Plugin<*>) {
     }
 }
 
-/**
+/*
  * Static object for storing instances of loaded events.
  */
 object WorldEvents {

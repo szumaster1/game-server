@@ -3,10 +3,6 @@ package core.game.node.entity.skill
 import core.api.getStatLevel
 import core.game.node.entity.player.Player
 
-/**
- * Skill levels with unlocks
- **/
-
 private val attack: IntArray = intArrayOf(5, 10, 15, 20, 30, 40, 50, 60, 70, 75 ,78, 99)
 private val mining: IntArray = intArrayOf(6, 10, 15, 20, 21, 30, 31, 35, 40, 41, 45, 46, 50, 55, 60, 70, 80, 85, 90, 99)
 private val smithing: IntArray = intArrayOf(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 46, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 68, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99)
@@ -26,11 +22,6 @@ private val runecrafting: IntArray = intArrayOf(2, 5, 6, 9, 10, 11, 13, 14, 15, 
 private val slayer: IntArray = intArrayOf(5, 7, 10, 15, 17, 20, 22, 25, 30, 32, 33, 35, 37, 39, 40, 42, 45, 47, 50, 51, 52, 55, 56, 57, 58, 59, 60, 63, 65, 68, 70, 72, 75, 80, 83, 85, 90, 99)
 private val farming: IntArray = intArrayOf(2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 36, 38, 39, 42, 44, 45, 47, 48, 50, 51, 52, 53, 55, 56, 57, 59, 60, 62, 63, 67, 68, 70, 72, 73, 75, 79, 83, 85, 99)
 
-/**
- * Gets the jingleId to play based on skill slot id and skill level
- * @param player the player
- * @param slot the skill slot id
- **/
 fun getSkillJingle(player: Player, slot: Int) : Int {
     val skillLevel = getStatLevel(player, slot)
     when (slot) {

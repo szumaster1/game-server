@@ -3,13 +3,6 @@ package core.game.world.map;
 import core.game.world.map.path.ClipMaskSupplier;
 
 public enum Direction {
-    /**
-     * 0   1   2
-     *   \ | /
-     * 3 - . - 4
-     *   / | \
-     * 5   6   7
-     */
 
 
     NORTH_WEST(-1, 1, 7, 0x12c0108, 0x12c0120, 0x12c0138),

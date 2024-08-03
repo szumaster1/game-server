@@ -36,7 +36,7 @@ class HolyGrail : Quest("Holy Grail", 76, 75, 1, 5, 0, 1, 10) {
         const val VARP_SHOW_MERLIN_VALUE = 45
     }
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var ln = 11
         player ?: return
@@ -155,7 +155,7 @@ class HolyGrail : Quest("Holy Grail", 76, 75, 1, 5, 0, 1, 10) {
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

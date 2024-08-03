@@ -18,7 +18,7 @@ class TribalTotem : Quest("Tribal Totem", 126, 125, 1, Vars.VARP_QUEST_TRIBAL_TO
 
     val requirements = arrayListOf<SkillRequirement>()
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         val started = player?.questRepository?.getStage("Tribal Totem")!! > 0
@@ -55,7 +55,7 @@ class TribalTotem : Quest("Tribal Totem", 126, 125, 1, Vars.VARP_QUEST_TRIBAL_TO
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

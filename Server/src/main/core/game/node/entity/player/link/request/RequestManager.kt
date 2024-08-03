@@ -3,24 +3,15 @@ package core.game.node.entity.player.link.request
 import core.game.node.entity.player.Player
 import core.game.world.GameWorld.ticks
 
-/**
- * Represents a managing class for requests of a player.
- * @author Vexia
- * @author dginovker
- * @version 2.0
- */
 class RequestManager(val player: Player) {
-    /**
+    /*
      * Represents the target being requested.
      */
     var target: Player? = null
         private set
 
-    /**
+    /*
      * Method used to send a request type to a target.
-     * @param target the target.
-     * @param type the type of request.
-     * @return `True` if successful.
      */
     fun request(target: Player, type: RequestType): Boolean {
         if (!canRequest(type, target)) {
@@ -36,11 +27,8 @@ class RequestManager(val player: Player) {
         return true
     }
 
-    /**
+    /*
      * Method used to check if a player can continue with a request.
-     * @param type the type.
-     * @param target the target.
-     * @return `True` if so.
      */
     private fun canRequest(type: RequestType, target: Player): Boolean {
         if (target === player) {
@@ -63,11 +51,8 @@ class RequestManager(val player: Player) {
         } else type.canRequest(player, target)
     }
 
-    /**
+    /*
      * Method used to check if we can accept an existing request.
-     * @param target the target.
-     * @param type the type.
-     * @return `True` if so.
      */
     private fun acceptExisting(target: Player, type: RequestType): Boolean {
         val lastType = target.getAttribute<RequestType>("lastRequest", null)
@@ -84,9 +69,8 @@ class RequestManager(val player: Player) {
         return false
     }
 
-    /**
+    /*
      * Closes the components for the player.
-     * @param player the player.
      */
     private fun close(player: Player) {
         player.dialogueInterpreter.close()
@@ -94,7 +78,7 @@ class RequestManager(val player: Player) {
         player.interfaceManager.closeChatbox()
     }
 
-    /**
+    /*
      * Method used to clear the cached target.
      */
     fun clear() {

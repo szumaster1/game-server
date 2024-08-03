@@ -1,9 +1,9 @@
-package core.services.grafana
+package core.integration.grafana
 
 import core.ServerConstants
 import core.api.StartupListener
 import core.game.bots.AIRepository
-import core.services.mysql.DatabaseManager
+import core.integration.mysql.DatabaseManager
 import kotlinx.coroutines.Job
 import org.json.simple.JSONObject
 import java.util.*

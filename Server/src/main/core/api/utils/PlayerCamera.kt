@@ -8,7 +8,7 @@ import core.network.packet.outgoing.CameraViewPacket
 class PlayerCamera(val player: Player?) {
     var ctx: CameraContext? = null
 
-    /**
+    /*
      * Positions the camera to the given region-local coordinates.
      */
     fun setPosition(x: Int, y: Int, height: Int) {
@@ -17,7 +17,7 @@ class PlayerCamera(val player: Player?) {
         PacketRepository.send(CameraViewPacket::class.java, ctx)
     }
 
-    /**
+    /*
      * Rotates the camera to face the given region-local coordinates?.
      */
     fun rotateTo(x: Int, y: Int, height: Int, speed: Int) {
@@ -26,7 +26,7 @@ class PlayerCamera(val player: Player?) {
         PacketRepository.send(CameraViewPacket::class.java, ctx)
     }
 
-    /**
+    /*
      * Rotates the camera by given region-local coordinates.
      */
 
@@ -45,7 +45,7 @@ class PlayerCamera(val player: Player?) {
         PacketRepository.send(CameraViewPacket::class.java, ctx)
     }
 
-    /**
+    /*
      * Moves the camera to the given region-local coordinates.
      */
     fun panTo(x: Int, y: Int, height: Int, speed: Int) {
@@ -54,7 +54,7 @@ class PlayerCamera(val player: Player?) {
         PacketRepository.send(CameraViewPacket::class.java, ctx)
     }
 
-    /**
+    /*
      * Camera movement type (0-4) Frequency (0-255).
      */
     fun shake(cameraType: Int, jitter: Int, amplitude: Int, frequency: Int, speed: Int) {
@@ -63,7 +63,7 @@ class PlayerCamera(val player: Player?) {
         PacketRepository.send(CameraViewPacket::class.java, ctx)
     }
 
-    /**
+    /*
      * Resets the current camera position.
      */
     fun reset() {

@@ -14,7 +14,7 @@ import core.plugin.Initializable
 @Initializable
 class MakingHistory : Quest("Making History", 86, 85, 3, Vars.VARBIT_QUEST_MAKING_HISTORY_PROGRESS, 0, 1, 4) {
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -58,7 +58,7 @@ class MakingHistory : Quest("Making History", 86, 85, 3, Vars.VARBIT_QUEST_MAKIN
 
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

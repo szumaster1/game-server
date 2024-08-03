@@ -29,7 +29,7 @@ class ScorpionCatcher : Quest("Scorpion Catcher", 108, 107, 1, Vars.VARP_QUEST_S
         val ATTRIBUTE_MONK = "scorpion_catcher:caught_monk"
     }
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         player ?: return
         var line = 11
@@ -88,7 +88,7 @@ class ScorpionCatcher : Quest("Scorpion Catcher", 108, 107, 1, Vars.VARP_QUEST_S
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

@@ -17,7 +17,7 @@ class ShadowoftheStorm : Quest("Shadow of the Storm", 112, 111, 1,Vars.VARBIT_QU
 class SkillRequirement(val skill: Int?, val level: Int?)
 
     val requirements = arrayListOf<SkillRequirement>()
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -63,7 +63,7 @@ class SkillRequirement(val skill: Int?, val level: Int?)
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10

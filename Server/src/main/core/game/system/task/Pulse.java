@@ -5,11 +5,8 @@ import core.game.node.Node;
 public abstract class Pulse implements Runnable {
 
     public boolean running = true;
-
     private int delay;
-
     int ticksPassed;
-
     protected Node[] checks;
 
     public Pulse() {

@@ -4,9 +4,6 @@ import core.game.world.GameWorld.settings
 import core.game.world.map.Location
 import core.tools.RandomFunction
 
-/**
- * The Trap hook.
- */
 class TrapHook(val wrapper: TrapWrapper, val locations: Array<Location>) {
 
     val chanceLocation: Location?

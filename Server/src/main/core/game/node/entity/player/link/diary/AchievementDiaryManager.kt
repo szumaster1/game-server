@@ -7,10 +7,6 @@ import core.game.node.entity.player.Player
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 
-/**
- * Manages the achievement diary of a player.
- * @author Vexia
- */
 class AchievementDiaryManager(val player: Player) {
 
     val diaries: Array<AchievementDiary> = arrayOf(
@@ -28,7 +24,7 @@ class AchievementDiaryManager(val player: Player) {
             var name = diary.keys.toTypedArray()[0] as String
             name = name.replace("_", "' ")
             for (ii in diaries.indices) {
-                if (diaries[ii].type.name == name) {
+                if (diaries[ii].type.diaryName == name) {
                     (diary[name.replace("' ", "_")] as JSONObject?)?.let { diaries[ii].parse(it) }
                 }
             }

@@ -5,7 +5,7 @@ package core.api
  * Deprecates [core.game.container.access.InterfaceContainer]
  */
 class IfaceSettingsBuilder {
-    /**
+    /*
      * Contains the value which should be sent in access mask packet.
      */
     private var value = 0
@@ -49,7 +49,7 @@ class IfaceSettingsBuilder {
         return this
     }
 
-    /**
+    /*
      * Sets use on option settings. If nothing is allowed then 'use' option will
      * not appear in right click menu.
      */

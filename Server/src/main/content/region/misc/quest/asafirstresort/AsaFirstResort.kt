@@ -17,7 +17,7 @@ class AsaFirstResort : Quest("As a First Resort", 147, 146, 1) {
 
     val requirements = arrayListOf<SkillRequirement>()
 
-    override fun drawJournal(player: Player?, stage: Int) {
+    override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
         var line = 11
         player ?: return
@@ -140,7 +140,7 @@ class AsaFirstResort : Quest("As a First Resort", 147, 146, 1) {
         }
     }
 
-    override fun finish(player: Player?) {
+    override fun finish(player: Player) {
         super.finish(player)
         player ?: return
         var ln = 10
