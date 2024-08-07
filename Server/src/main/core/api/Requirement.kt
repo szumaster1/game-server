@@ -152,6 +152,7 @@ enum class QuestRequirements(val questName: String, vararg val requirements: Req
     RUM_DEAL("Rum Deal", QuestReq(ZOGRE), QuestReq(PRIEST), SkillReq(Skills.CRAFTING, 42, true), SkillReq(Skills.FISHING, 50, true), SkillReq(Skills.FARMING, 40, true), SkillReq(Skills.PRAYER, 47, true), SkillReq(Skills.SLAYER, 42)),
     SHADOW("Shadow of the Storm", SkillReq(Skills.CRAFTING, 30, true), QuestReq(GOLEM), QuestReq(DEMON_SLAYER)),
     HISTORY("Making History", QuestReq(PRIEST), QuestReq(RESTLESS_GHOST)),
+    MEETING_HISTORY("Meeting History", QuestReq(HISTORY), QuestReq(RESTLESS_GHOST), QuestReq(DRUIDIC_RITUAL), QuestReq(PRIEST)),
     RATCATCHERS("Ratcatchers", QuestReq(ICTHLARIN), QuestReq(GIANT_DWARF)),
     SPIRITS_ELID("Spirits of the Elid", SkillReq(Skills.MAGIC, 33, true), SkillReq(Skills.RANGE, 37, true), SkillReq(Skills.MINING, 37, true), SkillReq(Skills.THIEVING, 37, true)),
     DEVIOUS("Devious Minds", SkillReq(Skills.SMITHING, 65, true), SkillReq(Skills.RUNECRAFTING, 50, true), SkillReq(Skills.FLETCHING, 50, true), QuestReq(WANTED), QuestReq(TROLL_STRONGHOLD), QuestReq(DORIC)),
