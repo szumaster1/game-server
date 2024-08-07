@@ -5,6 +5,7 @@
 [![Kotlin version][kotlin-version]][kotlin-url]
 [![Java version][java-version]][java-url]
 [![Sp-release][sp-release]][sp-url]
+[![Wiki][wiki-shield]][wiki-url]
 
 </div>
 
@@ -22,7 +23,7 @@ Fork for educational purposes & single-player experience.
 
 1. Create a GitLab account if you haven't done so already.
 
-2. Follow the Git Basics guide [over on the wiki.](https://gitlab.com/rs-source/game/-/wikis/home)
+2. Follow the Git Basics guide [over on the wiki.](https://gitlab.com/rs-source/2009scape/-/wikis/home)
 
 **If at anytime you have an issue with GitLab please refer to the [GitLab help center](https://gitlab.com/help).**
 
@@ -86,3 +87,6 @@ AGPL 3.0 license, which can be found [here](https://www.gnu.org/licenses/agpl-3.
 
 [java-version]: https://img.shields.io/badge/java-11-blue.svg?logo=openjdk
 [java-url]: https://adoptium.net/temurin/releases/?version=11
+
+[wiki-shield]: https://img.shields.io/badge/wiki-guides-blue.svg?logo=wikipedia
+[wiki-url]: https://gitlab.com/rs-source/2009scape/-/wikis/home
