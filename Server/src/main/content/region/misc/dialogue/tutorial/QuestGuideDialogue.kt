@@ -13,6 +13,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Quest guide dialogue.
+ */
 @Initializable
 class QuestGuideDialogue(player: Player? = null) : Dialogue(player) {
 

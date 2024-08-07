@@ -15,6 +15,9 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Light source lighter handler.
+ */
 @Initializable
 class LightSourceLighterHandler : UseWithHandler(Items.TINDERBOX_590, Items.CANDLE_36, Items.BLACK_CANDLE_38) {
 
@@ -46,12 +49,26 @@ class LightSourceLighterHandler : UseWithHandler(Items.TINDERBOX_590, Items.CAND
         return true
     }
 
+    /**
+     * Replace
+     *
+     * @param item
+     * @param with
+     */
     fun Container.replace(item: Item, with: Item) {
         if (remove(item)) {
             add(with)
         }
     }
 
+    /**
+     * Light
+     *
+     * @param player
+     * @param item
+     * @param lightSource
+     * @return
+     */
     fun light(player: Player, item: Item, lightSource: LightSourceData): Boolean {
         val requiredLevel = lightSource.levelRequired
         val playerLevel = getStatLevel(player, Skills.FIREMAKING)

@@ -13,6 +13,11 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 import core.tools.RandomFunction
 
+/**
+ * Sunder special handler
+ *
+ * @constructor Sunder special handler
+ */
 @Initializable
 class SunderSpecialHandler : MeleeSwingHandler(), Plugin<Any> {
 

@@ -10,6 +10,9 @@ import core.game.dialogue.Topic
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Larder listener.
+ */
 class LarderListener : InteractionListener {
 
     private val larderIds = intArrayOf(Scenery.WOODEN_LARDER_13565, Scenery.OAK_LARDER_13566, Scenery.TEAK_LARDER_13567)

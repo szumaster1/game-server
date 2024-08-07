@@ -6,6 +6,9 @@ import core.game.node.entity.player.Player
 import core.game.system.task.Pulse
 import core.game.world.map.Location
 
+/**
+ * Fishing platform.
+ */
 object FishingPlatform {
 
     @JvmStatic

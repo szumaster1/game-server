@@ -29,6 +29,9 @@ import java.util.List;
 import static core.api.ContentAPIKt.sendItemDialogue;
 import static core.api.ContentAPIKt.setVarp;
 
+/**
+ * Dragon slayer plugin.
+ */
 public final class DragonSlayerPlugin extends OptionHandler {
 
     private static final Animation HAMMER_ANIM = new Animation(3676);

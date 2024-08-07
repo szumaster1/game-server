@@ -12,6 +12,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Message log.
+ */
 public class MessageLog {
 
     private final DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
@@ -22,20 +25,40 @@ public class MessageLog {
 
     private boolean uniqueLogging;
 
+    /**
+     * Instantiates a new Message log.
+     */
     public MessageLog() {
         this(-1, false);
     }
 
+    /**
+     * Instantiates a new Message log.
+     *
+     * @param capacity the capacity
+     */
     public MessageLog(int capacity) {
         this(capacity, false);
     }
 
+    /**
+     * Instantiates a new Message log.
+     *
+     * @param capacity      the capacity
+     * @param uniqueLogging the unique logging
+     */
     public MessageLog(int capacity, boolean uniqueLogging) {
         this.capacity = capacity;
         this.messages = new ArrayList<>(20);
         this.uniqueLogging = uniqueLogging;
     }
 
+    /**
+     * Log.
+     *
+     * @param message   the message
+     * @param timeStamp the time stamp
+     */
     public void log(String message, boolean timeStamp) {
         if (messages.size() == capacity) {
             messages.remove(0);
@@ -50,6 +73,11 @@ public class MessageLog {
         messages.add(message);
     }
 
+    /**
+     * Write.
+     *
+     * @param fileName the file name
+     */
     public void write(String fileName) {
         if (messages.isEmpty()) {
             return;
@@ -77,14 +105,29 @@ public class MessageLog {
         messages.clear();
     }
 
+    /**
+     * Gets messages.
+     *
+     * @return the messages
+     */
     public List<String> getMessages() {
         return messages;
     }
 
+    /**
+     * Sets messages.
+     *
+     * @param messages the messages
+     */
     public void setMessages(List<String> messages) {
         this.messages = messages;
     }
 
+    /**
+     * Gets capacity.
+     *
+     * @return the capacity
+     */
     public int getCapacity() {
         return capacity;
     }

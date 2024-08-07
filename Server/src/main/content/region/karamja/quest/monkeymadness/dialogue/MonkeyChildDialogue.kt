@@ -7,6 +7,11 @@ import core.api.setAttribute
 import core.game.dialogue.DialogueFile
 import core.tools.END_DIALOGUE
 
+/**
+ * Monkey child first dialogue
+ *
+ * @constructor Monkey child first dialogue
+ */
 class MonkeyChildFirstDialogue: DialogueFile(){
 
     override fun handle(componentID: Int, buttonID: Int) {
@@ -22,6 +27,11 @@ class MonkeyChildFirstDialogue: DialogueFile(){
     }
 }
 
+/**
+ * Monkey child second dialogue
+ *
+ * @constructor Monkey child second dialogue
+ */
 class MonkeyChildSecondDialogue: DialogueFile(){
 
     override fun handle(componentID: Int, buttonID: Int) {
@@ -44,6 +54,11 @@ class MonkeyChildSecondDialogue: DialogueFile(){
     }
 }
 
+/**
+ * Monkey child third dialogue
+ *
+ * @constructor Monkey child third dialogue
+ */
 class MonkeyChildThirdDialogue: DialogueFile(){
 
     override fun handle(componentID: Int, buttonID: Int) {
@@ -72,6 +87,11 @@ class MonkeyChildThirdDialogue: DialogueFile(){
     }
 }
 
+/**
+ * Monkey child bananas dialogue
+ *
+ * @constructor Monkey child bananas dialogue
+ */
 class MonkeyChildBananasDialogue: DialogueFile(){
 
     override fun handle(componentID: Int, buttonID: Int) {
@@ -92,6 +112,11 @@ class MonkeyChildBananasDialogue: DialogueFile(){
     }
 }
 
+/**
+ * Monkey child talisman dialogue
+ *
+ * @constructor Monkey child talisman dialogue
+ */
 class MonkeyChildTalismanDialogue: DialogueFile(){
 
     override fun handle(componentID: Int, buttonID: Int) {
@@ -110,6 +135,11 @@ class MonkeyChildTalismanDialogue: DialogueFile(){
     }
 }
 
+/**
+ * Monkey child without amulet dialogue
+ *
+ * @constructor Monkey child without amulet dialogue
+ */
 class MonkeyChildWithoutAmuletDialogue: DialogueFile(){
     override fun handle(componentID: Int, buttonID: Int) {
         when (stage){

@@ -11,6 +11,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Gnome waiter dialogue.
+ */
 @Initializable
 class GnomeWaiterDialogue(player: Player? = null) : Dialogue(player) {
 

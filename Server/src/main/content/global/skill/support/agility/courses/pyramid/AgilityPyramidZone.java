@@ -13,10 +13,19 @@ import core.plugin.Plugin;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Agility pyramid zone.
+ */
 public final class AgilityPyramidZone extends MapZone implements Plugin<Object> {
 
+    /**
+     * The constant LOCATION_TRAPS.
+     */
     public static final Map<Location, MovementHook> LOCATION_TRAPS = new HashMap<>();
 
+    /**
+     * Instantiates a new Agility pyramid zone.
+     */
     public AgilityPyramidZone() {
         super("agility pyramid", true);
     }

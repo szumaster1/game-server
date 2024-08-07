@@ -13,6 +13,9 @@ import core.network.packet.PacketRepository
 import core.network.packet.context.CameraContext
 import core.network.packet.outgoing.CameraViewPacket
 
+/**
+ * Gnome glider listeners.
+ */
 class GnomeGliderListeners : InteractionListener {
 
     override fun defineListeners() {
@@ -27,6 +30,15 @@ class GnomeGliderListeners : InteractionListener {
         }
     }
 
+    /**
+     * Glider pulse
+     *
+     * @property player
+     * @property glider
+     * @constructor
+     *
+     * @param delay
+     */
     class GliderPulse(delay: Int, private val player: Player, private val glider: GnomeGlider) : Pulse(delay, player) {
         private var count: Int = 0
 

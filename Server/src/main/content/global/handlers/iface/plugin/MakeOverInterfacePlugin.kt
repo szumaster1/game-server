@@ -18,6 +18,11 @@ private const val TEXT_CHILD = 88
 
 private val skincolorButtons = (93..100)
 
+/**
+ * Make over interface plugin
+ *
+ * @constructor Make over interface plugin
+ */
 @Initializable
 class MakeOverInterfacePlugin : ComponentPlugin() {
     override fun open(player: Player?, component: Component?) {
@@ -77,10 +82,21 @@ class MakeOverInterfacePlugin : ComponentPlugin() {
         return true
     }
 
+    /**
+     * Update gender
+     *
+     * @param player
+     * @param male
+     */
     fun updateGender(player: Player, male: Boolean) {
         setAttribute(player, "mm-gender", if (male) Gender.MALE.ordinal else Gender.FEMALE.ordinal)
     }
 
+    /**
+     * Pay
+     *
+     * @param player
+     */
     fun pay(player: Player) {
         val newColor = player.getAttribute("mm-previous", player.appearance.skin.color)
         val newGender = player.getAttribute("mm-gender", player.appearance.gender.ordinal)
@@ -102,6 +118,12 @@ class MakeOverInterfacePlugin : ComponentPlugin() {
         }
     }
 
+    /**
+     * Update interface configs
+     *
+     * @param player
+     * @param button
+     */
     fun updateInterfaceConfigs(player: Player, button: Int) {
         val old = player.getAttribute("mm-previous", 0)
         setAttribute(player, "mm-previous", button - skincolorButtons.first)

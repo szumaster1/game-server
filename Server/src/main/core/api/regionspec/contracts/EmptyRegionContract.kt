@@ -2,6 +2,11 @@ package core.api.regionspec.contracts
 
 import core.game.world.map.build.DynamicRegion
 
+/**
+ * Empty region contract
+ *
+ * @constructor Empty region contract
+ */
 class EmptyRegionContract : RegionSpecContract {
     override fun instantiateRegion(): DynamicRegion {
         val borders = DynamicRegion.reserveArea(8, 8)

@@ -16,8 +16,8 @@ import core.tools.START_DIALOGUE
 import core.tools.StringUtils
 
 /**
- * @author Swizey
- * @date 14.02.2023
+ * The dialogue file to handle a player asking about work
+ * with any employer which they aren't currently working for.
  */
 class StartJobDialogueFile : DialogueFile() {
     companion object {

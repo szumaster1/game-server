@@ -7,6 +7,9 @@ import core.game.world.GameWorld;
 
 import java.nio.ByteBuffer;
 
+/**
+ * Fire resistant pulse.
+ */
 public class FireResistantPulse extends StatePulse {
 
     private static int END_TIME = GameWorld.getSettings().isDevMode() ? 30 : 600;
@@ -15,6 +18,14 @@ public class FireResistantPulse extends StatePulse {
 
     private boolean extended;
 
+    /**
+     * Instantiates a new Fire resistant pulse.
+     *
+     * @param entity      the entity
+     * @param ticks       the ticks
+     * @param currentTick the current tick
+     * @param extended    the extended
+     */
     public FireResistantPulse(Entity entity, int ticks, int currentTick, boolean extended) {
         super(entity, ticks);
         this.extended = extended;

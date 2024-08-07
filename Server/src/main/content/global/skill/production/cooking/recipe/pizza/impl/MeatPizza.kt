@@ -4,6 +4,9 @@ import content.global.skill.production.cooking.recipe.pizza.PizzaRecipe
 import core.api.consts.Items
 import core.game.node.item.Item
 
+/**
+ * Meat pizza.
+ */
 class MeatPizza : PizzaRecipe() {
 
     override fun getExperience(): Double {

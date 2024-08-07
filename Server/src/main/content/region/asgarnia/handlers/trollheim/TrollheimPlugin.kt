@@ -35,6 +35,9 @@ import core.plugin.ClassScanner.definePlugin
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Trollheim plugin.
+ */
 @Initializable
 class TrollheimPlugin : OptionHandler() {
 
@@ -279,10 +282,28 @@ class TrollheimPlugin : OptionHandler() {
         return true
     }
 
+    /**
+     * Bandaid
+     *
+     * @param player
+     * @param l
+     * @param e
+     * @param a
+     */
     fun bandaid(player: Player, l: Location?, e: Location?, a: Animation?) {
         player.properties.teleportLocation = e
     }
 
+    /**
+     * Bandaid
+     *
+     * @param player
+     * @param l
+     * @param e
+     * @param a
+     * @param b
+     * @param d
+     */
     fun bandaid(player: Player, l: Location?, e: Location?, a: Animation?, b: Animation?, d: Direction?) {
         player.properties.teleportLocation = e
     }
@@ -318,7 +339,9 @@ class TrollheimPlugin : OptionHandler() {
     }
 
     /**
-     * The Warning zone.
+     * Warning zone
+     *
+     * @constructor Warning zone
      */
     class WarningZone : MapZone("trollheim-warning", true), Plugin<Any?> {
         override fun enter(entity: Entity): Boolean {
@@ -351,7 +374,9 @@ class TrollheimPlugin : OptionHandler() {
     }
 
     /**
-     * The Warning cutscene.
+     * Warning cutscene
+     *
+     * @constructor Warning cutscene
      */
     class WarningCutscene : CutscenePlugin {
         constructor() : super("trollheim-warning")

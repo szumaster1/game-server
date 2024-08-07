@@ -28,6 +28,9 @@ import core.game.world.map.zone.ZoneRestriction
 import core.plugin.Initializable
 import core.tools.RandomFunction
 
+/**
+ * Tzhaar fight pits plugin.
+ */
 @Initializable
 class TzhaarFightPitsPlugin : ActivityPlugin("fight pits", false, true, true, ZoneRestriction.CANNON) {
     override fun continueAttack(e: Entity, target: Node, style: CombatStyle, message: Boolean): Boolean {
@@ -40,6 +43,11 @@ class TzhaarFightPitsPlugin : ActivityPlugin("fight pits", false, true, true, Zo
         return minutes > 3
     }
 
+    /**
+     * Remove from battle.
+     *
+     * @param e the entity.
+     */
     fun removeFromBattle(e: Entity?) {
         if (WAR_PLAYERS.remove(e)) {
             if (WAR_PLAYERS.size < 2) {

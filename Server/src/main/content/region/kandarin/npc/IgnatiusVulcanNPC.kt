@@ -14,6 +14,9 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 import core.tools.RandomFunction
 
+/**
+ * Ignatius vulcan NPC.
+ */
 @Initializable
 class IgnatiusVulcanNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 

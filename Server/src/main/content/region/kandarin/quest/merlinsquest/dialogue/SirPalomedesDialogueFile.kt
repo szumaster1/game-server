@@ -7,6 +7,11 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
+/**
+ * Sir palomedes dialogue file
+ *
+ * @constructor Sir palomedes dialogue file
+ */
 class SirPalomedesDialogueFile : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

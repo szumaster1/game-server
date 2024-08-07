@@ -11,6 +11,11 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 import core.api.consts.NPCs
 
+/**
+ * Council workman diary dialogue
+ *
+ * @constructor Council workman diary dialogue
+ */
 class CouncilWorkmanDiaryDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

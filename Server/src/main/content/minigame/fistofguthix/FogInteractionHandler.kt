@@ -10,6 +10,9 @@ import core.game.node.scenery.Scenery
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * FOG interaction handler.
+ */
 @Initializable
 class FogInteractionHandler : PluginInteraction(30204, 30203) {
 
@@ -22,6 +25,13 @@ class FogInteractionHandler : PluginInteraction(30204, 30203) {
     }
 
 
+    /**
+     * Climb pulse
+     *
+     * @property player
+     * @property obj
+     * @constructor Climb pulse
+     */
     class ClimbPulse(val player: Player, val obj: Scenery) : MovementPulse(player, obj, DestinationFlag.OBJECT) {
         override fun pulse(): Boolean {
             player.faceLocation(obj.location)

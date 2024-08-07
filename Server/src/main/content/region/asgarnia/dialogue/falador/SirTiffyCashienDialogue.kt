@@ -12,6 +12,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Sir tiffy cashien dialogue.
+ */
 @Initializable
 class SirTiffyCashienDialogue(player: Player? = null) : Dialogue(player) {
 

@@ -14,6 +14,9 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 
+/**
+ * Spirit scorpion familiar.
+ */
 @Initializable
 class SpiritScorpionNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.SPIRIT_SCORPION_6837) :
     Familiar(owner, id, 1700, 12055, 6, WeaponInterface.STYLE_CONTROLLED) {

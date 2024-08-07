@@ -11,6 +11,9 @@ import core.game.world.map.path.Pathfinder
 import core.plugin.Initializable
 import core.tools.secondsToTicks
 
+/**
+ * Gardener ghost NPC.
+ */
 @Initializable
 class GardenerGhostNPC : AbstractNPC {
     var target: Player? = null
@@ -64,6 +67,11 @@ class GardenerGhostNPC : AbstractNPC {
         }
     }
 
+    /**
+     * Start following
+     *
+     * @param player
+     */
     fun startFollowing(player: Player) {
         ticksLeft = secondsToTicks(120) // You have two minutes to let him show you where his grave is.
         target = player
@@ -77,6 +85,11 @@ class GardenerGhostNPC : AbstractNPC {
         }), PulseType.STANDARD)
     }
 
+    /**
+     * Continue following
+     *
+     * @param player
+     */
     fun continueFollowing(player: Player) {
         pulseManager.run((object : MovementPulse(this, player, Pathfinder.DUMB) {
             override fun pulse(): Boolean {

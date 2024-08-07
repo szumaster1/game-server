@@ -14,6 +14,9 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Blinkin dialogue.
+ */
 @Initializable
 class BlinkinDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -32,71 +35,39 @@ class BlinkinDialogue(player: Player? = null) : Dialogue(player) {
     }
 }
 
+/**
+ * Blinkin dialogue file.
+ */
 class BlinkinDialogueFile : FlagsHandler() {
     override fun handle(componentID: Int, buttonID: Int) {
         when (stage) {
-            0 -> npcl(
-                FacialExpression.OLD_NORMAL, "'Ello there! Welcome to Winkin's Farm. What can I do for ya?"
-            ).also { stage++ }
-
+            0 -> npcl(FacialExpression.OLD_NORMAL, "'Ello there! Welcome to Winkin's Farm. What can I do for ya?").also { stage++ }
             1 -> options("What is this place?", "Do you have any flags?", "Where is Mr. Winkin?").also { stage++ }
             2 -> when (buttonID) {
                 1 -> playerl("What is this place?").also { stage = 10 }
                 2 -> playerl("Do you have any flags?").also { stage = 20 }
                 3 -> playerl("Where is Mr. Winkin?").also { stage = 30 }
             }
-
-            10 -> npcl(
-                FacialExpression.OLD_NORMAL,
-                "Ha! I told ya, it's Winkin's Farm. This is where we grow the magical ogleroots for the rest of the world."
-            ).also { stage++ }
-
+            10 -> npcl(FacialExpression.OLD_NORMAL, "Ha! I told ya, it's Winkin's Farm. This is where we grow the magical ogleroots for the rest of the world.").also { stage++ }
             11 -> playerl("So, what can I do here?").also { stage++ }
-            12 -> npcl(
-                FacialExpression.OLD_NORMAL,
-                "Ya can improve yer Farming skill by getting some flags from me or Mrs. Winkin, inside. Then, head out to the fields and flag where ya think plants are, er, planted."
-            ).also { stage++ }
-
+            12 -> npcl(FacialExpression.OLD_NORMAL, "Ya can improve yer Farming skill by getting some flags from me or Mrs. Winkin, inside. Then, head out to the fields and flag where ya think plants are, er, planted.").also { stage++ }
             13 -> playerl("Is that it?").also { stage++ }
-            14 -> npcl(
-                FacialExpression.OLD_NORMAL,
-                "Not at all! There's more. When ya've placed yar flags, the farmers will collect them up and give out points. Ya can trade these points for seeds or experience at the shop inside."
-            ).also { stage++ }
-
+            14 -> npcl(FacialExpression.OLD_NORMAL, "Not at all! There's more. When ya've placed yar flags, the farmers will collect them up and give out points. Ya can trade these points for seeds or experience at the shop inside.").also { stage++ }
             15 -> playerl("Okay, that sounds great! I'll get planting, then.").also { stage++ }
-            16 -> npcl(
-                FacialExpression.OLD_NORMAL,
-                "Aye, but be careful where ya plant the flags. If there's no plant under yar flag, the farmer will keep it and they cost a pretty penny to buy more."
-            ).also { stage++ }
-
+            16 -> npcl(FacialExpression.OLD_NORMAL, "Aye, but be careful where ya plant the flags. If there's no plant under yar flag, the farmer will keep it and they cost a pretty penny to buy more.").also { stage++ }
             17 -> playerl("I see. Thanks for the help.").also { stage++ }
-            18 -> npcl(
-                FacialExpression.OLD_NORMAL, "Bye, for now. If I have to say 'flag' one more time, I tell ya..."
-            ).also { stage = END_DIALOGUE }
-
+            18 -> npcl(FacialExpression.OLD_NORMAL, "Bye, for now. If I have to say 'flag' one more time, I tell ya...").also { stage = END_DIALOGUE }
             20, 21, 22, 220, 221, 222, 223, 23 -> handleFlags(componentID, buttonID, BLINKIN_FLAG_LINES)
-            30 -> npcl(
-                FacialExpression.OLD_NORMAL,
-                "Farmer Winkin? Well, last I 'eard he was heading into market with a fresh load of Ogleroots."
-            ).also { stage++ }
-
+            30 -> npcl(FacialExpression.OLD_NORMAL, "Farmer Winkin? Well, last I 'eard he was heading into market with a fresh load of Ogleroots.").also { stage++ }
             31 -> playerl("Ogleroots?").also { stage++ }
-            32 -> npcl(
-                FacialExpression.OLD_NORMAL,
-                "Aye! We get them growing a lot here in the farmyard. We dig 'em up and sell 'em to yar lot."
-            ).also { stage++ }
-
+            32 -> npcl(FacialExpression.OLD_NORMAL, "Aye! We get them growing a lot here in the farmyard. We dig 'em up and sell 'em to yar lot.").also { stage++ }
             33 -> playerl("My lot?").also { stage++ }
             34 -> npcl(FacialExpression.OLD_NORMAL, "Aye! Humans.").also { stage++ }
             35 -> playerl("Oh, I see. Thanks!").also { stage++ }
             36 -> npcl(FacialExpression.OLD_NORMAL, "Bye now!").also { stage = END_DIALOGUE }
             // Not accessible in normal conversation, requires "buy-roots" right click
             40 -> playerl("Do you have any Ogleroots to feed the rabbits?").also { stage++ }
-            41 -> npcl(
-                FacialExpression.OLD_NORMAL,
-                "I sure do. They'll cost ya 10 gold each. Any ya leave with will be returned to us, but ya'll get yer money back for 'em. How many do ya want?"
-            ).also { stage++ }
-
+            41 -> npcl(FacialExpression.OLD_NORMAL, "I sure do. They'll cost ya 10 gold each. Any ya leave with will be returned to us, but ya'll get yer money back for 'em. How many do ya want?").also { stage++ }
             42 -> {
                 sendInputDialogue(player!!, InputType.AMOUNT, "Enter an amount:") { value ->
                     val amount = value as Int

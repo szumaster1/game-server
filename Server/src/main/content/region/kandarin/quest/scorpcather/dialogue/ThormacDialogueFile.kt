@@ -14,6 +14,11 @@ import core.game.node.entity.skill.Skills
 import core.game.world.GameWorld
 import core.tools.END_DIALOGUE
 
+/**
+ * Thormac dialogue file
+ *
+ * @constructor Thormac dialogue file
+ */
 class ThormacDialogueFile : DialogueFile() {
 
     // Thormac is a npc who lives at the top of the Sorcerer's Tower south of Seers Village.

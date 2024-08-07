@@ -16,6 +16,9 @@ import core.plugin.ClassScanner.definePlugin
 import core.plugin.Plugin
 import core.tools.RandomFunction
 
+/**
+ * Rowdy slave NPC.
+ */
 class RowdySlaveNPC : AbstractNPC {
 
     constructor() : super(0, null)

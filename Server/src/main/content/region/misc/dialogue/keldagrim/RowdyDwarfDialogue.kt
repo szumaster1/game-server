@@ -8,6 +8,9 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
+/**
+ * Rowdy dwarf dialogue.
+ */
 @Initializable
 class RowdyDwarfDialogue(player: Player? = null) : Dialogue(player) {
 

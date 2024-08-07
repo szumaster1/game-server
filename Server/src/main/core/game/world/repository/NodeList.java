@@ -6,16 +6,32 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 
+/**
+ * Node list.
+ *
+ * @param <E> the type parameter
+ */
 public class NodeList<E extends Node> implements Collection<E>, Iterable<E> {
 
     private Node[] nodes;
 
     private int size = 0;
 
+    /**
+     * Instantiates a new Node list.
+     *
+     * @param capacity the capacity
+     */
     public NodeList(int capacity) {
         nodes = new Node[capacity + 1]; // do not use idx 0
     }
 
+    /**
+     * Get e.
+     *
+     * @param index the index
+     * @return the e
+     */
     @SuppressWarnings("unchecked")
     public E get(int index) {
         synchronized (this) {
@@ -26,6 +42,12 @@ public class NodeList<E extends Node> implements Collection<E>, Iterable<E> {
         }
     }
 
+    /**
+     * Index of int.
+     *
+     * @param node the node
+     * @return the int
+     */
     public int indexOf(Node node) {
         return node.getIndex();
     }
@@ -109,6 +131,12 @@ public class NodeList<E extends Node> implements Collection<E>, Iterable<E> {
         return new NodeListIterator<E>(this);
     }
 
+    /**
+     * Remove boolean.
+     *
+     * @param index the index
+     * @return the boolean
+     */
     public boolean remove(int index) {
         synchronized (this) {
             Node n = nodes[index];
@@ -169,6 +197,11 @@ public class NodeList<E extends Node> implements Collection<E>, Iterable<E> {
         return size;
     }
 
+    /**
+     * Length int.
+     *
+     * @return the int
+     */
     public int length() {
         return nodes.length;
     }

@@ -7,7 +7,6 @@ import core.game.node.item.GroundItem
 
 /**
  * A repository for bots to make use of that can contain any info that might be useful to them.
- * @author Ceikry
  */
 class AIRepository {
     companion object {

@@ -11,7 +11,11 @@ import core.game.world.update.flag.context.Animation
 import core.tools.minutesToTicks
 import core.tools.secondsToTicks
 
+/**
+ * Strange plant NPC.
+ */
 class StrangePlantNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs.STRANGE_PLANT_407) {
+
     private val strangePlantGrowAnim = Animation(348)
     private val strangePlantTransformAnim = Animation(351)
     private val strangePlantPickedAnim = Animation(350)

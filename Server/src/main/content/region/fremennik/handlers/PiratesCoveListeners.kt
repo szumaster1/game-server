@@ -10,6 +10,9 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.tools.RandomFunction
 
+/**
+ * Pirates cove listeners.
+ */
 class PiratesCoveListeners : InteractionListener {
 
     companion object {

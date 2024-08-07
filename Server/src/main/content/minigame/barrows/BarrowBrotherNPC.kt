@@ -12,6 +12,10 @@ import core.game.node.entity.player.link.HintIconManager
 import core.game.world.map.Location
 import core.tools.RandomFunction
 
+/**
+ * Handles a barrow brother NPC.
+ * @author Emperor
+ */
 class BarrowBrotherNPC(val player: Player, id: Int, location: Location?) : NPC(id, location) {
 
     override fun init() {

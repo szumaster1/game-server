@@ -11,6 +11,9 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 
+/**
+ * Spirit larupia familiar.
+ */
 @Initializable
 class SpiritLarupiaNPC(owner: Player? = null, id: Int = NPCs.SPIRIT_LARUPIA_7337) : Familiar(owner, id, 4900, 12784, 6, WeaponInterface.STYLE_CONTROLLED) {
 

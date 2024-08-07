@@ -8,6 +8,10 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Commander connad dialogue.
+ * @author Szumaster
+ */
 @Initializable
 class CommanderConnadDialogue(player: Player? = null) : Dialogue(player) {
 

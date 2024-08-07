@@ -9,6 +9,9 @@ import core.game.node.entity.skill.Skills
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 
+/**
+ * Obsidian golem familiar.
+ */
 @Initializable
 class ObsidianGolemNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 7345) : Familiar(owner, id, 5500, 12792, 12, WeaponInterface.STYLE_AGGRESSIVE) {
 

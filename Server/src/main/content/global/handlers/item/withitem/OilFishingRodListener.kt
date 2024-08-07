@@ -10,6 +10,11 @@ import core.game.interaction.InteractionListener
 import core.game.system.task.Pulse
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Oil fishing rod listener
+ *
+ * @constructor Oil fishing rod listener
+ */
 class OilFishingRodListener : InteractionListener {
 
     private val blamishOil = Items.BLAMISH_OIL_1582

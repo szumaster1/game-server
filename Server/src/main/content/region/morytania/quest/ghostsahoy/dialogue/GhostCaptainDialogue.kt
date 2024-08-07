@@ -11,6 +11,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Ghost captain dialogue.
+ */
 @Initializable
 class GhostCaptainDialogue(player: Player? = null) : Dialogue(player) {
 

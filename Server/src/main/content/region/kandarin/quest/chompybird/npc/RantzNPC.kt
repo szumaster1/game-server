@@ -9,6 +9,9 @@ import core.game.node.entity.player.Player
 import core.game.world.map.Location
 import core.plugin.Initializable
 
+/**
+ * Rantz NPC.
+ */
 @Initializable
 class RantzNPC : AbstractNPC {
     constructor() : super(NPCs.RANTZ_1010, null, true)

@@ -16,6 +16,9 @@ import core.game.world.GameWorld.Pulser
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Traiborn dialogue.
+ */
 class TraibornDialogue(player: Player? = null) : Dialogue(player) {
 
     private var quest: Quest? = null

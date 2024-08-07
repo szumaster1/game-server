@@ -9,6 +9,9 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 
+/**
+ * Lady zay dialogues.
+ */
 @Initializable
 class LadyZayDialogues(player: Player? = null): Dialogue(player) {
 

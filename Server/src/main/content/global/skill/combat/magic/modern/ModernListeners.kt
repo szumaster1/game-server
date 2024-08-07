@@ -35,6 +35,11 @@ import core.network.packet.PacketRepository
 import core.network.packet.context.MinimapStateContext
 import core.network.packet.outgoing.MinimapState
 
+/**
+ * Modern listeners
+ *
+ * @constructor Modern listeners
+ */
 class ModernListeners : SpellListener("modern") {
 
     override fun defineListeners() {
@@ -287,6 +292,15 @@ class ModernListeners : SpellListener("modern") {
         setDelay(player, false)
     }
 
+    /**
+     * Alchemize
+     *
+     * @param player
+     * @param item
+     * @param high
+     * @param explorersRing
+     * @return
+     */
     fun alchemize(player: Player, item: Item, high: Boolean, explorersRing: Boolean = false): Boolean {
         if (item.name == "Coins") sendMessage(player, "You can't alchemize something that's already gold!").also { return false }
         if ((!item.definition.isTradeable) && (!item.definition.isAlchemizable)) sendMessage(player, "You can't cast this spell on something like that.").also { return false }

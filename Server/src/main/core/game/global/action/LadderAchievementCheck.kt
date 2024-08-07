@@ -3,12 +3,15 @@ package core.game.global.action
 import core.game.node.entity.player.Player
 
 /**
- * The interface Ladder achievement check.
+ * Ladder achievement check
+ *
+ * @constructor Ladder achievement check
  */
 internal interface LadderAchievementCheck {
     /**
-     * Check achievement.
-     * @param player the player
+     * Check achievement
+     *
+     * @param player
      */
     fun checkAchievement(player: Player) {
         return

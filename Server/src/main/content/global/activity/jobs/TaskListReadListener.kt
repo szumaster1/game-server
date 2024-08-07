@@ -12,6 +12,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.item.Item
 import core.tools.StringUtils
 
+/**
+ * Handles the read option of the Task List item.
+ */
 class TaskListReadListener : InteractionListener {
     override fun defineListeners() {
         on(Items.TASK_LIST_13464, ITEM, "read") { player, _ ->

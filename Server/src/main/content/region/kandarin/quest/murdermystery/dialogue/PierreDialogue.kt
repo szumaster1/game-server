@@ -11,6 +11,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Pierre dialogue.
+ */
 @Initializable
 class PierreDialogue(player: Player? = null) : Dialogue(player) {
 

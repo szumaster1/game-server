@@ -7,6 +7,9 @@ import core.game.world.map.Point;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Dumb pathfinder.
+ */
 public final class DumbPathfinder extends Pathfinder {
     private boolean found;
 

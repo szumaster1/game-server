@@ -8,10 +8,22 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.plugin.Initializable
 
+/**
+ * Lost city
+ *
+ * @constructor Lost city
+ */
 @Initializable
 class LostCity : Quest("Lost City", 83, 82, 3, Vars.VARP_QUEST_LOST_CITY_PROGRESS, 0, 1, 6) {
 
 
+    /**
+     * Skill requirement
+     *
+     * @property skill
+     * @property level
+     * @constructor Skill requirement
+     */
     class SkillRequirement(val skill: Int?, val level: Int?)
 
     val requirements = arrayListOf<SkillRequirement>()

@@ -7,6 +7,11 @@ import core.api.sendMessage
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Desert disguised listener
+ *
+ * @constructor Desert disguised listener
+ */
 class DesertDisguisedListener : InteractionListener {
 
     private val headPiece = Items.KARIDIAN_HEADPIECE_4591

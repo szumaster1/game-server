@@ -9,6 +9,9 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.plugin.Initializable
 
+/**
+ * Harlan dialogue.
+ */
 @Initializable
 class HarlanDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -168,6 +171,11 @@ class HarlanDialogue(player: Player? = null) : Dialogue(player) {
         return intArrayOf(705)
     }
 
+    /**
+     * Has both
+     *
+     * @return
+     */
     fun hasBoth(): Boolean {
         val containers = arrayOf(player.inventory, player.bank, player.equipment)
         var count = 0
@@ -182,6 +190,12 @@ class HarlanDialogue(player: Player? = null) : Dialogue(player) {
         return count >= 2
     }
 
+    /**
+     * Has item
+     *
+     * @param item
+     * @return
+     */
     fun hasItem(item: Item?): Boolean {
         val containers = arrayOf(player.inventory, player.bank, player.equipment)
         for (c in containers) {

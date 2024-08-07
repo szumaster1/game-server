@@ -17,6 +17,9 @@ import core.game.world.map.zone.impl.WildernessZone
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Lava titan dialogue.
+ */
 @Initializable
 class LavaTitanDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -54,7 +57,12 @@ class LavaTitanDialogue(player: Player? = null) : Dialogue(player) {
         return intArrayOf(NPCs.LAVA_TITAN_7341, NPCs.LAVA_TITAN_7342)
     }
 
-     class LavaTitanDialogueFile : DialogueFile() {
+    /**
+     * Lava titan dialogue file
+     *
+     * @constructor Lava titan dialogue file
+     */
+    class LavaTitanDialogueFile : DialogueFile() {
 
         override fun handle(componentID: Int, buttonID: Int) {
             npc = NPC(NPCs.LAVA_TITAN_7341)

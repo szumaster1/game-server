@@ -8,6 +8,11 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 
+/**
+ * Cooks assistant
+ *
+ * @constructor Cooks assistant
+ */
 @Initializable
 class CooksAssistant : Quest("Cook's Assistant", 15, 14, 1, Vars.VARP_QUEST_COOKS_ASSISTANT_PROGRESS, 0, 1, 2) {
 

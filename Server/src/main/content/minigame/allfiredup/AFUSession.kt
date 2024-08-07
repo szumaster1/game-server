@@ -9,12 +9,19 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld
 import core.tools.colorize
 
+/**
+ * Handles keeping track of lit beacons and their burn time remaining.
+ * @author Ceikry
+ */
 class AFUSession(val player: Player? = null) : LogoutListener {
     private val beaconTimers = Array(14) { i -> BeaconTimer(0, AFUBeacon.values()[i]) }
     private val logInventories = Array(14) { Item(0, 0) }
     private val beaconWatched = Array(14) { false }
     private var isActive = false
 
+    /**
+     * Init.
+     */
     fun init() {
         isActive = true
         GameWorld.Pulser.submit(object : Pulse() {
@@ -60,24 +67,49 @@ class AFUSession(val player: Player? = null) : LogoutListener {
         player!!.setAttribute("afu-session", this)
     }
 
+    /**
+     * Get lit beacons.
+     *
+     * @return The number of lit beacons.
+     */
     fun getLitBeacons(): Int {
         return beaconTimers.count { it.ticks > 0 }
     }
 
+    /**
+     * End.
+     */
     fun end() {
         isActive = false
     }
 
+    /**
+     * Set logs.
+     *
+     * @param beaconIndex The index of the beacon.
+     * @param logs The logs to set.
+     */
     fun setLogs(beaconIndex: Int, logs: Item) {
         logInventories[beaconIndex] = logs
     }
 
+    /**
+     * Start timer.
+     *
+     * @param beaconIndex The index of the beacon.
+     */
     fun startTimer(beaconIndex: Int) {
         val ticks = getTicks(logInventories[beaconIndex].id) * 20
         logInventories[beaconIndex] = Item(0, 0)
         beaconTimers[beaconIndex].ticks = ticks
     }
 
+    /**
+     * Refresh timer.
+     *
+     * @param beacon The beacon to refresh.
+     * @param logID The ID of the logs.
+     */
     fun refreshTimer(beacon: AFUBeacon, logID: Int) {
         val ticks = getTicks(logID) * 5
         beaconTimers.forEach {
@@ -85,15 +117,33 @@ class AFUSession(val player: Player? = null) : LogoutListener {
         }
     }
 
+    /**
+     * Set watcher.
+     *
+     * @param index The index of the watcher.
+     * @param logs The logs to set.
+     */
     fun setWatcher(index: Int, logs: Item) {
         beaconWatched[index] = true
         logInventories[index] = logs
     }
 
+    /**
+     * Is watched.
+     *
+     * @param index The index of the watcher.
+     * @return True if the beacon is being watched, false otherwise.
+     */
     fun isWatched(index: Int): Boolean {
         return beaconWatched[index]
     }
 
+    /**
+     * Get ticks.
+     *
+     * @param logID The ID of the logs.
+     * @return The number of ticks.
+     */
     fun getTicks(logID: Int): Int {
         val ticks = when (logID) {
             Items.LOGS_1511 -> 65
@@ -107,6 +157,11 @@ class AFUSession(val player: Player? = null) : LogoutListener {
         return ticks
     }
 
+    /**
+     * Get bonus experience.
+     *
+     * @return The bonus experience.
+     */
     fun getBonusExperience(): Double {
         return when (getLitBeacons()) {
             1 -> 608.4
@@ -134,5 +189,12 @@ class AFUSession(val player: Player? = null) : LogoutListener {
         removeAttribute(player, "afu-session")
     }
 
+    /**
+     * Beacon timer.
+     *
+     * @property ticks The number of ticks remaining.
+     * @property beacon The beacon associated with the timer.
+     * @constructor Creates a beacon timer.
+     */
     internal class BeaconTimer(var ticks: Int, val beacon: AFUBeacon)
 }

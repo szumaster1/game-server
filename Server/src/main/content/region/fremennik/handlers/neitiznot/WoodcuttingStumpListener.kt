@@ -14,6 +14,9 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Woodcutting stump listener.
+ */
 class WoodcuttingStumpListener : InteractionListener {
 
     companion object {

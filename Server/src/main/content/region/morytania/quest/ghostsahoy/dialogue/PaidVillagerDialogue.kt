@@ -10,7 +10,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
-
+/**
+ * Paid villager dialogue.
+ */
 class PaidVillagerDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

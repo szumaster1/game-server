@@ -8,6 +8,9 @@ import core.api.utils.WeightBasedTable
 import core.game.node.entity.npc.NPC
 import core.game.system.timer.impl.AntiMacro
 
+/**
+ * Pillory guard NPC.
+ */
 class PilloryGuardNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs.PILLORY_GUARD_2573) {
 
     override fun init() {
@@ -25,6 +28,9 @@ class PilloryGuardNPC(override var loot: WeightBasedTable? = null) : RandomEvent
     override fun talkTo(npc: NPC) {
     }
 }
-//29 projectile
-//30 throw
-//31 contact with target/White splash
+
+/*
+ * 29 - projectile.
+ * 30 - throw.
+ * 31 - contact with target/White splash.
+ */

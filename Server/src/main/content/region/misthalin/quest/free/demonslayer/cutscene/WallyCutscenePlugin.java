@@ -11,12 +11,23 @@ import core.network.packet.context.CameraContext;
 import core.network.packet.context.CameraContext.CameraType;
 import core.network.packet.outgoing.CameraViewPacket;
 
+/**
+ * Wally cutscene plugin.
+ */
 public class WallyCutscenePlugin extends CutscenePlugin {
 
+    /**
+     * Instantiates a new Wally cutscene plugin.
+     */
     public WallyCutscenePlugin() {
         this(null);
     }
 
+    /**
+     * Instantiates a new Wally cutscene plugin.
+     *
+     * @param player the player
+     */
     public WallyCutscenePlugin(final Player player) {
         super("Wally cutscene");
         this.player = player;

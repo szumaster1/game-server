@@ -4,7 +4,9 @@ import core.game.node.entity.player.Player
 import java.util.*
 
 /**
- * The type Preset manager.
+ * Preset manager
+ *
+ * @constructor Preset manager
  */
 class PresetManager {
     private val player: Player? = null
@@ -12,10 +14,10 @@ class PresetManager {
     private val currentPresets: MutableMap<String, Preset> = HashMap()
 
     /**
-     * Store set preset manager.
+     * Store set
      *
-     * @param nameKey the name key
-     * @return the preset manager
+     * @param nameKey
+     * @return
      */
     fun storeSet(nameKey: String): PresetManager {
         var name = nameKey
@@ -31,7 +33,8 @@ class PresetManager {
     }
 
     /**
-     * Print available setups.
+     * Print available setups
+     *
      */
     fun printAvailableSetups() {
         val size = currentPresets.size
@@ -44,6 +47,11 @@ class PresetManager {
         }
     }
 
+    /**
+     * Max size
+     *
+     * @return
+     */
     fun maxSize(): Int {
         return 6
     }

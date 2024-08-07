@@ -7,6 +7,9 @@ import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Odd old man dialogue.
+ */
 @Initializable
 class OddOldManDialogue(player: Player? = null) : Dialogue(player) {
 

@@ -10,10 +10,12 @@ import core.game.node.scenery.SceneryBuilder
 import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
 
+/**
+ * Burner listener.
+ */
 class BurnerListener : InteractionListener {
 
-    private val burnerIds =
-        intArrayOf(13202, 13203, 13204, 13205, 13206, 13207, 13208, 13209, 13210, 13211, 13212, 13213)
+    private val burnerIds = intArrayOf(13202, 13203, 13204, 13205, 13206, 13207, 13208, 13209, 13210, 13211, 13212, 13213)
 
     override fun defineListeners() {
         on(burnerIds, IntType.SCENERY, "light") { player, node ->

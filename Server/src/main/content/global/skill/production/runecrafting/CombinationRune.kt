@@ -10,6 +10,9 @@ import core.game.interaction.UseWithHandler
 import core.game.node.scenery.Scenery
 import core.plugin.Plugin
 
+/**
+ * Combination rune.
+ */
 class CombinationRune : UseWithHandler(
     Talisman.AIR.talisman.id,
     Talisman.WATER.talisman.id,

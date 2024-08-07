@@ -14,6 +14,9 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Silver merchant dialogue.
+ */
 @Initializable
 class SilverMerchantDialogue(player: Player? = null) : Dialogue(player) {
 

@@ -7,6 +7,9 @@ import core.game.node.entity.player.Player
 import core.game.node.item.GroundItemManager
 import core.game.world.map.Location
 
+/**
+ * Maze demon NPC.
+ */
 class MazeDemonNPC : AbstractNPC {
 
     constructor() : super(0, null)

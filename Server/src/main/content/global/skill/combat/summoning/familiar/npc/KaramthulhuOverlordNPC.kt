@@ -7,7 +7,9 @@ import core.game.node.entity.combat.equipment.WeaponInterface
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
-
+/**
+ * Karamthulhu overlord familiar.
+ */
 @Initializable
 class KaramthulhuOverlordNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.KARAMTHULHU_OVERLORD_6809) : Familiar(owner, id, 4400, 12023, 3, WeaponInterface.STYLE_RANGE_ACCURATE) {
 

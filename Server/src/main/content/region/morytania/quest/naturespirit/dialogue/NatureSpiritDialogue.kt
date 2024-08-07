@@ -13,6 +13,9 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Nature spirit dialogue.
+ */
 @Initializable
 class NatureSpiritDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -98,6 +101,13 @@ class NatureSpiritDialogue(player: Player? = null) : Dialogue(player) {
     }
 
 
+    /**
+     * Sickle bless pulse
+     *
+     * @property player
+     * @property spirit
+     * @constructor Sickle bless pulse
+     */
     internal class SickleBlessPulse(val player: Player, val spirit: NPC) : Pulse() {
         var ticks = 0
         val locs: MutableList<Location> = player.location.surroundingTiles
@@ -133,6 +143,11 @@ class NatureSpiritDialogue(player: Player? = null) : Dialogue(player) {
         }
     }
 
+    /**
+     * Set quest
+     *
+     * @param stage
+     */
     fun setQuest(stage: Int) {
         player!!.questRepository.getQuest("Nature Spirit").setStage(player!!, stage)
     }

@@ -2,6 +2,11 @@ package content.region.karamja.quest.monkeymadness.dialogue
 
 import core.game.dialogue.DialogueFile
 
+/**
+ * Lumo dialogue
+ *
+ * @constructor  Lumo dialogue
+ */
 class LumoDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

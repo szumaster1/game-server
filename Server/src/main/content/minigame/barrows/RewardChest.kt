@@ -13,6 +13,10 @@ import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 import core.tools.RandomFunction
 
+/**
+ * Reward chest.
+ * @author Ceikry, kermit, Player Name
+ */
 object RewardChest {
     private val REGULAR_DROPS = WeightBasedTable.create(
         WeightedItem(Items.COINS_995, 1, 777, 380.0),
@@ -33,6 +37,11 @@ object RewardChest {
     private val VERAC = arrayOf(4753, 4755, 4757, 4759)
     private val BARROWS_DROP_IDS = arrayOf(AHRIM, DHAROK, GUTHAN, KARIL, TORAG, VERAC)
 
+    /**
+     * Rewards the player.
+     *
+     * @param player The player.
+     */
     @JvmStatic
     fun reward(player: Player) {
         var barrowsRewardsIDs: MutableList<Int> = ArrayList()

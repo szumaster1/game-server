@@ -7,6 +7,11 @@ import core.game.system.timer.PersistTimer
 import core.game.system.timer.RSTimer
 import core.game.system.timer.TimerFlag
 
+/**
+ * Miasmic immunity
+ *
+ * @constructor Miasmic immunity
+ */
 class MiasmicImmunity : PersistTimer(
     runInterval = 1,
     identifier = "miasmic:immunity",

@@ -6,6 +6,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
 import core.tools.RandomFunction
 
+/**
+ * Trade refee NPC.
+ */
 class TradeRefeeNPC : NPCBehavior(NPCs.TRADE_REFEREE_2127) {
 
     private val forceChat = arrayOf(

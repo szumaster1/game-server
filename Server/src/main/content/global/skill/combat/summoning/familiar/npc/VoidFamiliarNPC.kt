@@ -22,6 +22,9 @@ import core.plugin.ClassScanner.definePlugin
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Void familiar NPC.
+ */
 @Initializable
 class VoidFamiliarNPC : Plugin<Any> {
 
@@ -37,8 +40,12 @@ class VoidFamiliarNPC : Plugin<Any> {
         return null
     }
 
-    /*
+    /**
      * Handles the call to arms scroll.
+     *
+     * @param familiar
+     * @param special
+     * @return
      */
     fun callToArms(familiar: Familiar, special: FamiliarSpecial?): Boolean {
         val owner = familiar.owner
@@ -62,7 +69,16 @@ class VoidFamiliarNPC : Plugin<Any> {
         return true
     }
 
-    inner class VoidRavagerNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 7370) : Forager(owner, id, 2700, 12818, 3, WeaponInterface.STYLE_AGGRESSIVE, *ITEMS) {
+    /**
+     * Void ravager NPC
+     *
+     * @constructor
+     *
+     * @param owner the owner id.
+     * @param id the id.
+     */
+    inner class VoidRavagerNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 7370) :
+        Forager(owner, id, 2700, 12818, 3, WeaponInterface.STYLE_AGGRESSIVE, *ITEMS) {
 
         init {
             boosts.add(SkillBonus(Skills.MINING, 1.0))
@@ -81,7 +97,16 @@ class VoidFamiliarNPC : Plugin<Any> {
         }
     }
 
-    inner class VoidShifterNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 7367) : Familiar(owner, id, 9400, 12814, 3, WeaponInterface.STYLE_ACCURATE) {
+    /**
+     * Void shifter NPC
+     *
+     * @constructor
+     *
+     * @param owner the owner id.
+     * @param id the id.
+     */
+    inner class VoidShifterNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 7367) :
+        Familiar(owner, id, 9400, 12814, 3, WeaponInterface.STYLE_ACCURATE) {
 
         override fun construct(owner: Player, id: Int): Familiar {
             return VoidShifterNPC(owner, id)
@@ -105,6 +130,14 @@ class VoidFamiliarNPC : Plugin<Any> {
     }
 
 
+    /**
+     * Void spinner NPC
+     *
+     * @constructor
+     *
+     * @param owner the owner id.
+     * @param id the id.
+     */
     inner class VoidSpinnerNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 7333) :
         Familiar(owner, id, 2700, 12780, 3, WeaponInterface.STYLE_DEFENSIVE) {
         // The delay till the next heal.
@@ -131,6 +164,14 @@ class VoidFamiliarNPC : Plugin<Any> {
         }
     }
 
+    /**
+     * Void torcher NPC
+     *
+     * @constructor
+     *
+     * @param owner the owner id.
+     * @param id the id.
+     */
     inner class VoidTorcherNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 7351) :
         Familiar(owner, id, 9400, 12798, 3, WeaponInterface.STYLE_CAST) {
         override fun construct(owner: Player, id: Int): Familiar {

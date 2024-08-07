@@ -12,6 +12,9 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Wizard korvak dialogue.
+ */
 @Initializable
 class WizardKorvakDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -218,7 +221,9 @@ class WizardKorvakDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     /**
-     * @author Ceikry, Player Name, Vexia
+     * Repair
+     *
+     * @return
      */
     fun repair(): Boolean {
         player.pouchManager.pouches.forEach { (id: Int, pouch: RCPouch) ->

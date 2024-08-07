@@ -11,6 +11,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Postie pete dialogue.
+ */
 @Initializable
 class PostiePeteDialogue(player: Player? = null) : Dialogue(player) {
 

@@ -10,6 +10,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Mining instructor dialogue.
+ */
 @Initializable
 class MiningInstructorDialogue(player: Player? = null) : Dialogue(player) {
 

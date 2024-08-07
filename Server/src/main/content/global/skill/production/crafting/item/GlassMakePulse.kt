@@ -8,6 +8,14 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.game.system.task.Pulse
 
+/**
+ * Glass make pulse
+ *
+ * @property player
+ * @property product
+ * @property amount
+ * @constructor Glass make pulse
+ */
 class GlassMakePulse(private val player: Player, val product: Int, private var amount: Int) : Pulse() {
 
     override fun pulse(): Boolean {

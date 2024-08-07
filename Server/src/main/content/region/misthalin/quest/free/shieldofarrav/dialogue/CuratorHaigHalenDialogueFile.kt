@@ -4,6 +4,11 @@ import content.region.misthalin.quest.free.shieldofarrav.ShieldofArrav
 import core.api.sendItemDialogue
 import core.game.dialogue.DialogueFile
 
+/**
+ * Curator haig halen dialogue file.
+ *
+ * @constructor Curator haig halen dialogue file
+ */
 class CuratorHaigHalenDialogueFile : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

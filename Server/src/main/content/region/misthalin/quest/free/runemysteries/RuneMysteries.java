@@ -5,9 +5,15 @@ import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.quest.Quest;
 import core.plugin.Initializable;
 
+/**
+ * Rune mysteries.
+ */
 @Initializable
 public class RuneMysteries extends Quest {
 
+    /**
+     * Instantiates a new Rune mysteries.
+     */
     public RuneMysteries() {
         super("Rune Mysteries", 27, 26, 1, Vars.VARP_QUEST_RUNE_MYSTERIES_PROGRESS, 0, 1, 6);
     }

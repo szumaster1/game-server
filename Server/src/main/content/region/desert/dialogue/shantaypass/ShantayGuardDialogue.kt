@@ -17,6 +17,9 @@ import core.game.world.map.path.Pathfinder
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Shantay guard dialogue.
+ */
 @Initializable
 class ShantayGuardDialogue(player: Player? = null) : Dialogue(player) {
 

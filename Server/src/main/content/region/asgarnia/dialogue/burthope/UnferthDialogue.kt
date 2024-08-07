@@ -8,6 +8,9 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
+/**
+ * Unferth dialogue.
+ */
 @Initializable
 class UnferthDialogue(player: Player? = null) : Dialogue(player) {
 

@@ -8,6 +8,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Cuffs dialogue.
+ */
 @Initializable
 class CuffsDialogue(player: Player? = null) : Dialogue(player) {
 

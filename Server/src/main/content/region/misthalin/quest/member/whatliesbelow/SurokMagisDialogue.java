@@ -7,14 +7,25 @@ import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.quest.Quest;
 import core.game.world.update.flag.context.Animation;
 
+/**
+ * Surok magis dialogue.
+ */
 public class SurokMagisDialogue extends Dialogue {
 
     private Quest quest;
     private WhatLiesBelowCutscene cutscene;
 
+    /**
+     * Instantiates a new Surok magis dialogue.
+     */
     public SurokMagisDialogue() {
     }
 
+    /**
+     * Instantiates a new Surok magis dialogue.
+     *
+     * @param player the player
+     */
     public SurokMagisDialogue(Player player) {
         super(player);
     }
@@ -489,11 +500,21 @@ public class SurokMagisDialogue extends Dialogue {
     }
 
 
+    /**
+     * Gets cutscene.
+     *
+     * @return the cutscene
+     */
     public WhatLiesBelowCutscene getCutscene() {
         return cutscene;
     }
 
 
+    /**
+     * Sets cutscene.
+     *
+     * @param cutscene the cutscene
+     */
     public void setCutscene(WhatLiesBelowCutscene cutscene) {
         this.cutscene = cutscene;
     }

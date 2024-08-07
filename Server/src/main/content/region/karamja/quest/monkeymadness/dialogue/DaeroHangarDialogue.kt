@@ -8,6 +8,11 @@ import core.api.setQuestStage
 import core.game.dialogue.DialogueFile
 import core.tools.END_DIALOGUE
 
+/**
+ * Daero hangar dialogue
+ *
+ * @constructor Daero hangar dialogue
+ */
 class DaeroHangarDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

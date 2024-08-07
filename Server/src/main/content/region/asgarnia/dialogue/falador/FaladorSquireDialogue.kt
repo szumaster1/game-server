@@ -13,6 +13,9 @@ import core.game.world.GameWorld.settings
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Falador squire dialogue.
+ */
 @Initializable
 class FaladorSquireDialogue(player: Player? = null) : Dialogue(player) {
 

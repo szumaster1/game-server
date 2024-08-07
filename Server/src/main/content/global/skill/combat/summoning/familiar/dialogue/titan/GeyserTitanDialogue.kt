@@ -11,6 +11,9 @@ import core.game.world.GameWorld
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Geyser titan dialogue.
+ */
 @Initializable
 class GeyserTitanDialogue(player: Player? = null) : Dialogue(player) {
 

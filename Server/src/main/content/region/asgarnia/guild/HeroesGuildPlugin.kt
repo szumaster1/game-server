@@ -20,6 +20,9 @@ import core.plugin.ClassScanner.definePlugin
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Heroes guild plugin.
+ */
 @Initializable
 class HeroesGuildPlugin : OptionHandler() {
 
@@ -46,6 +49,11 @@ class HeroesGuildPlugin : OptionHandler() {
         return true
     }
 
+    /**
+     * Jewellery recharge plugin
+     *
+     * @constructor Jewellery recharge plugin
+     */
     class JewelleryRechargePlugin : UseWithHandler(*IDS) {
 
         override fun newInstance(arg: Any?): Plugin<Any> {

@@ -9,6 +9,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.RandomFunction
 
+/**
+ * Baby chinchompa NPC.
+ */
 @Initializable
 class BabyChinchompaNPC : Metamorphosis(*CHINCHOMPA_IDS) {
 
@@ -29,6 +32,11 @@ class BabyChinchompaNPC : Metamorphosis(*CHINCHOMPA_IDS) {
         return getIds()[i]
     }
 
+    /**
+     * Baby chinchompa dialogue
+     *
+     * @constructor Baby chinchompa dialogue
+     */
     inner class BabyChinchompaDialogue : Dialogue {
         constructor()
 

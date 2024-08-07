@@ -11,6 +11,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Tracker gnome dialogue3.
+ */
 @Initializable
 class TrackerGnomeDialogue3(player: Player? = null) : Dialogue(player) {
     private val xcoordMap =

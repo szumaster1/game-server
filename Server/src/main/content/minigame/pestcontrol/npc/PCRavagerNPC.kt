@@ -20,6 +20,9 @@ import core.game.world.map.path.Pathfinder
 import core.game.world.map.zone.ZoneBorders
 import core.tools.RandomFunction
 
+/**
+ * Pest Control ravager NPC.
+ */
 class PCRavagerNPC : AbstractNPC {
 
     private var session: PestControlSession? = null

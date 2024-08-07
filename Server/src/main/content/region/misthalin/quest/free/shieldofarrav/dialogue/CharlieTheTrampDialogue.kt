@@ -12,6 +12,9 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Charlie the tramp dialogue.
+ */
 @Initializable
 class CharlieTheTrampDialogue(player: Player? = null) : Dialogue(player) {
     var q = "Shield of Arrav"

@@ -12,6 +12,9 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.system.task.Pulse
 
+/**
+ * Pass gnome ball listeners.
+ */
 class PassGnomeBallListeners : InteractionListener {
 
     override fun defineListeners() {
@@ -36,6 +39,12 @@ class PassGnomeBallListeners : InteractionListener {
         }
     }
 
+    /**
+     * Player pass pulse.
+     *
+     * @property thrower the thrower.
+     * @property catcher the catcher.
+     */
     internal class PlayerPlayerPassPulse(private val thrower: Player, private val catcher: Player) : Pulse() {
         override fun pulse(): Boolean {
             face(thrower, catcher)
@@ -51,6 +60,12 @@ class PassGnomeBallListeners : InteractionListener {
         }
     }
 
+    /**
+     * Player NPC pass pulse.
+     *
+     * @property player the player.
+     * @property npc the npc id.
+     */
     internal class PlayerNPCPassPulse(private val player: Player, private val npc: NPC) : Pulse() {
         override fun pulse(): Boolean {
             player.face(npc)

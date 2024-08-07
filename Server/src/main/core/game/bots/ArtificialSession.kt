@@ -5,8 +5,6 @@ import java.nio.ByteBuffer
 
 /**
  * Represents an artificial networking session.
- *
- * @author Emperor
  */
 class ArtificialSession private constructor() : IoSession(null, null) {
 

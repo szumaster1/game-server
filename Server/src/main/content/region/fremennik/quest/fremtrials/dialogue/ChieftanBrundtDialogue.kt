@@ -11,6 +11,9 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import kotlin.random.Random
 
+/**
+ * Chieftan brundt dialogue.
+ */
 @Initializable
 class ChieftanBrundtDialogue(player: Player? = null): Dialogue(player) {
 
@@ -304,6 +307,11 @@ class ChieftanBrundtDialogue(player: Player? = null): Dialogue(player) {
 
 }
 
+/**
+ * Generate fremennik name
+ *
+ * @return
+ */
 fun GenerateFremennikName(): String {
 
     val namePrefixes = arrayOf("Bal", "Bar", "Dal", "Dar", "Den", "Dok", "Jar", "Jik", "Lar", "Rak", "Ral", "Ril", "Sig", "Tal", "Thor", "Ton")
@@ -314,6 +322,11 @@ fun GenerateFremennikName(): String {
     return "${namePrefixes[randomPrefix]}${nameSuffixes[randomSuffix]}"
 }
 
+/**
+ * Cleanup attributes
+ *
+ * @param player
+ */
 fun cleanupAttributes(player: Player) {
     removeAttribute(player, "PeerStarted")
     removeAttribute(player, "housepuzzlesolved")

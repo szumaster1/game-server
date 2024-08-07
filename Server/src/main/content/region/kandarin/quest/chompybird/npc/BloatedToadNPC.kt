@@ -16,6 +16,9 @@ import core.game.world.map.zone.ZoneBorders
 import core.plugin.Initializable
 import core.tools.RandomFunction
 
+/**
+ * Bloated toad NPC.
+ */
 @Initializable
 class BloatedToadNPC : AbstractNPC {
     constructor() : super(NPCs.BLOATED_TOAD_1014, null, true)
@@ -77,6 +80,11 @@ class BloatedToadNPC : AbstractNPC {
 
 }
 
+/**
+ * Bloated toad listeners
+ *
+ * @constructor Bloated toad listeners
+ */
 class BloatedToadListeners : InteractionListener, StartupListener, Commands {
     lateinit var borders: ZoneBorders
     val extraBorders = ArrayList<ZoneBorders>()

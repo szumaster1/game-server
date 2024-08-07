@@ -15,6 +15,9 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Ranging guild plugin.
+ */
 @Initializable
 class RangingGuildPlugin : OptionHandler() {
 
@@ -36,11 +39,7 @@ class RangingGuildPlugin : OptionHandler() {
                             return true
                         }
                     }
-                    handleAutowalkDoor(player, (node as Scenery), if (player.location.y >= 3438) Location.create(2659, 3437, 0) else Location.create(
-                            2657,
-                            3439,
-                            0
-                        ))
+                    handleAutowalkDoor(player, (node as Scenery), if (player.location.y >= 3438) Location.create(2659, 3437, 0) else Location.create(2657, 3439, 0))
                 }
             }
 

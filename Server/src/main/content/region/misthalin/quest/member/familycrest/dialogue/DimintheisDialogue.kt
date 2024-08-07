@@ -8,6 +8,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Dimintheis dialogue.
+ */
 @Initializable
 class DimintheisDialogue(player: Player? = null) : Dialogue(player) {
 

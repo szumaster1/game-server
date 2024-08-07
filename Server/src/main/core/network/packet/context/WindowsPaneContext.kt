@@ -5,7 +5,6 @@ import core.network.packet.Context
 
 /**
  * Represents the windows pane packet context.
- * @author Emperor
  */
 class WindowsPaneContext(
     private val player: Player,

@@ -10,6 +10,11 @@ import core.game.interaction.InteractionListener
 import core.game.interaction.InterfaceListener
 import core.game.interaction.QueueStrength
 
+/**
+ * Metal doors listeners
+ *
+ * @constructor Metal doors listeners
+ */
 class MetalDoorsListeners : InteractionListener, InterfaceListener {
     override fun defineListeners() {
         on(HFTDUtils.METAL_DOORS, IntType.SCENERY, "study") { player, _ ->

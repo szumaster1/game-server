@@ -9,6 +9,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
+/**
+ * Tarns diary
+ *
+ * @constructor Tarns diary
+ */
 class TarnsDiary : InteractionListener {
 
     // Tarn is a necromancer who has

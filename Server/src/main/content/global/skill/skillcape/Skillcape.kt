@@ -1,30 +1,182 @@
 package content.global.skill.skillcape
 
+/**
+ * Skillcape.
+ */
 enum class Skillcape {
+    /**
+     * Attack
+     *
+     * @constructor Attack
+     */
     ATTACK,
+
+    /**
+     * Strength
+     *
+     * @constructor Strength
+     */
     STRENGTH,
+
+    /**
+     * Defence
+     *
+     * @constructor Defence
+     */
     DEFENCE,
+
+    /**
+     * Ranging
+     *
+     * @constructor Ranging
+     */
     RANGING,
+
+    /**
+     * Prayer
+     *
+     * @constructor Prayer
+     */
     PRAYER,
+
+    /**
+     * Magic
+     *
+     * @constructor Magic
+     */
     MAGIC,
+
+    /**
+     * Runecrafting
+     *
+     * @constructor Runecrafting
+     */
     RUNECRAFTING,
+
+    /**
+     * Hitpoints
+     *
+     * @constructor Hitpoints
+     */
     HITPOINTS,
+
+    /**
+     * Agility
+     *
+     * @constructor Agility
+     */
     AGILITY,
+
+    /**
+     * Herblore
+     *
+     * @constructor Herblore
+     */
     HERBLORE,
+
+    /**
+     * Thieving
+     *
+     * @constructor Thieving
+     */
     THIEVING,
+
+    /**
+     * Crafting
+     *
+     * @constructor Crafting
+     */
     CRAFTING,
+
+    /**
+     * Fletching
+     *
+     * @constructor Fletching
+     */
     FLETCHING,
+
+    /**
+     * Slayer
+     *
+     * @constructor Slayer
+     */
     SLAYER,
+
+    /**
+     * Construction
+     *
+     * @constructor Construction
+     */
     CONSTRUCTION,
+
+    /**
+     * Mining
+     *
+     * @constructor Mining
+     */
     MINING,
+
+    /**
+     * Smithing
+     *
+     * @constructor Smithing
+     */
     SMITHING,
+
+    /**
+     * Fishing
+     *
+     * @constructor Fishing
+     */
     FISHING,
+
+    /**
+     * Cooking
+     *
+     * @constructor Cooking
+     */
     COOKING,
+
+    /**
+     * Firemaking
+     *
+     * @constructor Firemaking
+     */
     FIREMAKING,
+
+    /**
+     * Woodcutting
+     *
+     * @constructor Woodcutting
+     */
     WOODCUTTING,
+
+    /**
+     * Farming
+     *
+     * @constructor Farming
+     */
     FARMING,
+
+    /**
+     * Hunting
+     *
+     * @constructor Hunting
+     */
     HUNTING,
+
+    /**
+     * Summoning
+     *
+     * @constructor Summoning
+     */
     SUMMONING,
+
+    /**
+     * None
+     *
+     * @constructor None
+     */
     NONE;
 
     companion object {

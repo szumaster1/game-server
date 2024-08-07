@@ -7,6 +7,9 @@ import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Sir kuam ferentse dialogue.
+ */
 @Initializable
 class SirKuamFerentseDialogue(player: Player? = null) : Dialogue(player) {
 

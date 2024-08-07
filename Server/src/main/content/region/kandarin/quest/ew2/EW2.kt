@@ -8,9 +8,20 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 
-//@Initializable
+/**
+ * Ew2
+ *
+ * @constructor Ew2
+ *///@Initializable
 class EW2 : Quest("Elemental Workshop II", 53, 52, 1, Vars.VARBIT_QUEST_ELEMENTAL_WORKSHOP_II_PROGRESS, 0, 1, 11) {
 
+    /**
+     * Skill requirement
+     *
+     * @property skill
+     * @property level
+     * @constructor Skill requirement
+     */
     class SkillRequirement(val skill: Int?, val level: Int?)
 
     val requirements = arrayListOf<SkillRequirement>()

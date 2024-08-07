@@ -14,6 +14,9 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 
+/**
+ * Elemental rock NPC.
+ */
 @Initializable
 class ElementalRockNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location), InteractionListener {
     private val ELEMENTAL_ROCK_TRANSFORMATION_4865 = Animation(4865)

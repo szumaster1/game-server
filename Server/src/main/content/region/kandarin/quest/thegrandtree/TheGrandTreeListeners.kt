@@ -23,8 +23,18 @@ import core.game.node.scenery.SceneryBuilder
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
+/**
+ * The grand tree listeners
+ *
+ * @constructor The grand tree listeners
+ */
 class TheGrandTreeListeners : InteractionListener {
 
+    /**
+     * Unlock t u z o door
+     *
+     * @param player
+     */
     fun unlockTUZODoor(player: Player) {
         if (getAttribute(player, GTUtils.TWIG_0, false) &&
             getAttribute(player, GTUtils.TWIG_1, false) &&

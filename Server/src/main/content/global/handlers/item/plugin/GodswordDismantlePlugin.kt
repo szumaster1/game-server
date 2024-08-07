@@ -10,6 +10,11 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Godsword dismantle plugin
+ *
+ * @constructor Godsword dismantle plugin
+ */
 @Initializable
 class GodswordDismantlePlugin : OptionHandler() {
 

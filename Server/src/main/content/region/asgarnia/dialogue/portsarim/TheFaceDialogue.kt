@@ -10,6 +10,9 @@ import core.game.node.entity.player.Player
 import core.game.world.GameWorld
 import core.plugin.Initializable
 
+/**
+ * The face dialogue.
+ */
 @Initializable
 class TheFaceDialogue(player: Player? = null) : Dialogue(player) {
 

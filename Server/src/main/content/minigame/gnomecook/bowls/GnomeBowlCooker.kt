@@ -12,6 +12,9 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Gnome bowl cooker.
+ */
 @Initializable
 class GnomeBowlCooker : UseWithHandler(Items.RAW_GNOMEBOWL_2178, 9558, 9559, 9561, 9563) {
     override fun newInstance(arg: Any?): Plugin<Any> {
@@ -37,6 +40,13 @@ class GnomeBowlCooker : UseWithHandler(Items.RAW_GNOMEBOWL_2178, 9558, 9559, 956
         return true
     }
 
+    /**
+     * Cook
+     *
+     * @param player
+     * @param raw
+     * @param product
+     */
     fun cook(player: Player, raw: Item, product: Item) {
         GameWorld.Pulser.submit(object : Pulse() {
             var counter = 0

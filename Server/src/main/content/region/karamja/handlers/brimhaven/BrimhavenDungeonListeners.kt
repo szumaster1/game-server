@@ -1,6 +1,5 @@
 package content.region.karamja.handlers.brimhaven
 
-
 import content.global.skill.support.agility.AgilityHandler
 import core.api.consts.NPCs
 import core.api.consts.Scenery
@@ -17,6 +16,9 @@ import core.game.node.entity.skill.Skills
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Brimhaven dungeon listeners.
+ */
 class BrimhavenDungeonListeners : InteractionListener {
 
     companion object {

@@ -11,6 +11,9 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Skulgrimen dialogue.
+ */
 @Initializable
 class SkulgrimenDialogue(player: Player? = null): Dialogue(player) {
 

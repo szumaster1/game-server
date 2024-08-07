@@ -7,7 +7,11 @@ import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 import kotlin.random.Random
 
-
+/**
+ * Pest control helper
+ *
+ * @constructor Create empty Pest control helper
+ */
 object PestControlHelper {
     var GATE_ENTRIES = listOf(14233, 14235)
     var Portals_AttackableN = listOf(6142, 6143, 6144, 6145).toMutableList()

@@ -4,6 +4,11 @@ import content.region.misc.handlers.tutorial.CharacterDesign
 import core.api.consts.Components
 import core.game.interaction.InterfaceListener
 
+/**
+ * Character design interface listener
+ *
+ * @constructor Character design interface listener
+ */
 class CharacterDesignInterfaceListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {

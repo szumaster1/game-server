@@ -17,6 +17,9 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.tools.RandomFunction
 
+/**
+ * Essence teleport.
+ */
 object EssenceTeleport {
 
     val LOCATIONS = arrayOf(

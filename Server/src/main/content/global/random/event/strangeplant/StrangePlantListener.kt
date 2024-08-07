@@ -10,7 +10,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.system.timer.impl.AntiMacro
 
+/**
+ * Strange plant listener.
+ */
 class StrangePlantListener : InteractionListener {
+
     override fun defineListeners() {
         on(NPCs.STRANGE_PLANT_407, IntType.NPC, "pick") { player, node ->
             if (AntiMacro.getEventNpc(player) != node) {

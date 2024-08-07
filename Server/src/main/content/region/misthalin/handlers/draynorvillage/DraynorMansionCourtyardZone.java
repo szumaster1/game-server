@@ -8,9 +8,15 @@ import core.game.world.map.zone.ZoneBuilder;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
+/**
+ * Draynor mansion courtyard zone.
+ */
 @Initializable
 public class DraynorMansionCourtyardZone extends MapZone implements Plugin<Object> {
 
+    /**
+     * Instantiates a new Draynor mansion courtyard zone.
+     */
     public DraynorMansionCourtyardZone() {
         super("draynor-mansion-courtyard", true);
     }

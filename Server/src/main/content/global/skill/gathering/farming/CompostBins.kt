@@ -6,10 +6,31 @@ import core.cache.def.impl.SceneryDefinition
 import core.game.node.entity.player.Player
 import core.game.node.scenery.Scenery
 
+/**
+ * Compost bins
+ *
+ * @property varbit
+ * @constructor Compost bins
+ */
 enum class CompostBins(val varbit: Int) {
+    /**
+     * Falador Compost.
+     */
     FALADOR_COMPOST(740),
+
+    /**
+     * Catherby Compost.
+     */
     CATHERBY_COMPOST(741),
+
+    /**
+     * Port Phas Compost.
+     */
     PORT_PHAS_COMPOST(742),
+
+    /**
+     * Ardougne Compost.
+     */
     ARDOUGNE_COMPOST(743);
 
     companion object {
@@ -28,6 +49,12 @@ enum class CompostBins(val varbit: Int) {
         }
     }
 
+    /**
+     * Get bin for player
+     *
+     * @param player
+     * @return
+     */
     fun getBinForPlayer(player: Player) : CompostBin {
         val bins = getOrStartTimer <Compost> (player)
         return bins.getBin (this)

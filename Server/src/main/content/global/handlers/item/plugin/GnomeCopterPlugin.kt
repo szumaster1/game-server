@@ -8,6 +8,11 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Gnome copter plugin
+ *
+ * @constructor Gnome copter plugin
+ */
 @Initializable
 class GnomeCopterPlugin : Plugin<Any> {
 

@@ -21,6 +21,9 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 
+/**
+ * Gnome copter activity.
+ */
 @Initializable
 class GnomeCopterActivity : ActivityPlugin("Gnome copters", false, false, true) {
     private val usedLandingPads = BooleanArray(4)

@@ -4,6 +4,9 @@ import content.global.skill.production.cooking.recipe.pie.PieRecipe
 import core.api.consts.Items
 import core.game.node.item.Item
 
+/**
+ * Admiral pie.
+ */
 class AdmiralPie : PieRecipe() {
 
     override fun getProduct(): Item {

@@ -9,6 +9,9 @@ import core.game.world.GameWorld;
 
 import static core.api.ContentAPIKt.setVarp;
 
+/**
+ * Pet.
+ */
 public final class Pet extends Familiar {
 
     private final int itemId;
@@ -17,6 +20,14 @@ public final class Pet extends Familiar {
     private final Pets pet;
     private int hasWarned = 0;
 
+    /**
+     * Instantiates a new Pet.
+     *
+     * @param owner   the owner
+     * @param details the details
+     * @param itemId  the item id
+     * @param id      the id
+     */
     public Pet(Player owner, final PetDetails details, int itemId, int id) {
         super(owner, id, -1, -1, -1);
         this.pet = Pets.forId(itemId);
@@ -81,6 +92,9 @@ public final class Pet extends Familiar {
         setVarp(owner, 1175, ((int) details.getGrowth() << 1) | ((int) details.getHunger() << 9));
     }
 
+    /**
+     * Grow next stage.
+     */
     public void growNextStage() {
         if (pet == null) {
             return;
@@ -117,20 +131,40 @@ public final class Pet extends Familiar {
         return false;
     }
 
+    /**
+     * Gets item id.
+     *
+     * @return the item id
+     */
     public int getItemId() {
         return itemId;
     }
 
+    /**
+     * Gets item id hash.
+     *
+     * @return the item id hash
+     */
     public int getItemIdHash() {
         Item item = new Item(itemId);
         item.setCharge(details.getIndividual());
         return item.getIdHash();
     }
 
+    /**
+     * Gets details.
+     *
+     * @return the details
+     */
     public PetDetails getDetails() {
         return details;
     }
 
+    /**
+     * Gets pet.
+     *
+     * @return the pet
+     */
     public Pets getPet() {
         return pet;
     }

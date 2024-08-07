@@ -1,7 +1,7 @@
 package core.cache.def.impl
 
 /**
- * The type Linked scripts.
+ * Linked scripts.
  */
 class LinkedScripts {
     @JvmField

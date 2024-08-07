@@ -15,8 +15,11 @@ import core.game.world.GameWorld.Pulser
 import core.game.world.GameWorld.ticks
 import core.plugin.Plugin
 
+/**
+ * Drop party lever.
+ */
 class DropPartyLever : OptionHandler() {
-    @Throws(Throwable::class)
+
     override fun newInstance(arg: Any?): Plugin<Any> {
         SceneryDefinition.forId(26194).handlers["option:pull"] = this
         return this

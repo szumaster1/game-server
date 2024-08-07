@@ -4,11 +4,36 @@ import content.global.activity.jobs.Job
 import content.global.activity.jobs.JobType
 import core.api.consts.NPCs
 
+/**
+ * An enum of the possible combat jobs that can be assigned to a player.
+ *
+ * Note: Due to how player save files keep track of the player's current job, it is essential that
+ * new entries are only appended to the end of this enum, and the ordering of existing entries is not changed.
+ */
 enum class CombatJobs(val monsterIds: List<Int>, override val employer: Employers) : Job {
+    /**
+     * Chickens.
+     */
     CHICKENS(Monsters.CHICKENS, Employers.RANGED_TUTOR),
+
+    /**
+     * Cows.
+     */
     COWS(Monsters.COWS, Employers.MAGIC_TUTOR),
+
+    /**
+     * Giant Spiders.
+     */
     GIANT_SPIDERS(Monsters.GIANT_SPIDERS, Employers.MAGIC_TUTOR),
+
+    /**
+     * Scorpions.
+     */
     SCORPIONS(Monsters.SCORPIONS, Employers.MELEE_TUTOR),
+
+    /**
+     * Goblins.
+     */
     GOBLINS(Monsters.GOBLINS, Employers.MELEE_TUTOR);
 
     override val type = JobType.COMBAT

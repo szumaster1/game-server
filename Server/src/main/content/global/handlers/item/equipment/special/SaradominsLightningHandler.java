@@ -15,6 +15,9 @@ import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
+/**
+ * Saradomins lightning handler.
+ */
 @Initializable
 public final class SaradominsLightningHandler extends MeleeSwingHandler implements Plugin<Object> {
 

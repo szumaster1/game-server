@@ -10,6 +10,9 @@ import core.plugin.Initializable
 import core.tools.DARK_RED
 import core.tools.END_DIALOGUE
 
+/**
+ * Grand exchange tutor dialogue.
+ */
 @Initializable
 class GrandExchangeTutorDialogue(player: Player? = null) : Dialogue(player) {
 

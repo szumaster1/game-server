@@ -7,6 +7,11 @@ import core.game.interaction.InteractionListener
 import core.game.node.item.GroundItem
 import core.game.world.map.RegionManager
 
+/**
+ * Take wine of zamorak listener
+ *
+ * @constructor Take wine of zamorak listener
+ */
 class TakeWineOfZamorakListener : InteractionListener {
 
     private val wineOfZamorak = Items.WINE_OF_ZAMORAK_245

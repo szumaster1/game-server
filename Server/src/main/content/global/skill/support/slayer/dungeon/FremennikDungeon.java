@@ -21,9 +21,15 @@ import core.plugin.Initializable;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
 
+/**
+ * Fremennik dungeon.
+ */
 @Initializable
 public final class FremennikDungeon extends MapZone implements Plugin<Object> {
 
+    /**
+     * Instantiates a new Fremennik dungeon.
+     */
     public FremennikDungeon() {
         super("fremennik", true, ZoneRestriction.CANNON);
     }

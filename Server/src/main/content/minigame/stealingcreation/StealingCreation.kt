@@ -9,6 +9,9 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import java.util.*
 
+/**
+ * Stealing creation.
+ */
 object StealingCreation {
     private val redTeam = ArrayList<Player>()
     private val blueTeam = ArrayList<Player>()

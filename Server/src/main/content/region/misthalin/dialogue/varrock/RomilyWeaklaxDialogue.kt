@@ -15,6 +15,9 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 import core.tools.RandomFunction
 
+/**
+ * Romily weaklax dialogue.
+ */
 @Initializable
 class RomilyWeaklaxDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -196,11 +199,46 @@ class RomilyWeaklaxDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     private enum class PieReward(var id: Int, var reward: Int) {
+        /**
+         * Apple
+         *
+         * @constructor Apple
+         */
         APPLE(Items.APPLE_PIE_2323, 84),
+
+        /**
+         * Redberry
+         *
+         * @constructor Redberry
+         */
         REDBERRY(Items.REDBERRY_PIE_2325, 90),
+
+        /**
+         * Meat
+         *
+         * @constructor Meat
+         */
         MEAT(Items.MEAT_PIE_2327, 96),
+
+        /**
+         * Garden
+         *
+         * @constructor Garden
+         */
         GARDEN(Items.GARDEN_PIE_7178, 112),
+
+        /**
+         * Fish
+         *
+         * @constructor Fish
+         */
         FISH(Items.FISH_PIE_7188, 125),
+
+        /**
+         * Admiral
+         *
+         * @constructor Admiral
+         */
         ADMIRAL(Items.ADMIRAL_PIE_7198, 387);
 
         companion object {
@@ -215,6 +253,11 @@ class RomilyWeaklaxDialogue(player: Player? = null) : Dialogue(player) {
         }
     }
 
+    /**
+     * Romily wild pie handler
+     *
+     * @constructor Romily wild pie handler
+     */
     class RomilyWildPieHandler : UseWithHandler(Items.WILD_PIE_7208) {
 
         override fun newInstance(arg: Any?): Plugin<Any> {

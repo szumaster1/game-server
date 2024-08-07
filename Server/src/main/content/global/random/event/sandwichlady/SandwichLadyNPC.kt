@@ -7,6 +7,9 @@ import core.api.utils.WeightBasedTable
 import core.game.node.entity.npc.NPC
 import core.tools.RandomFunction
 
+/**
+ * Sandwich lady NPC.
+ */
 class SandwichLadyNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs.SANDWICH_LADY_3117) {
 
     val phrases = arrayOf("Hello, @name, can you hear me?", "Sandwiches, @name!", "Are you ignoring me @name??", "Yoohoo! Sandwiches, @name!", "Hello, @name?", "Come get your sandwiches @name!", "How could you ignore me like this @name?!", "Do you even want your sandwiches, @name?")
@@ -28,6 +31,9 @@ class SandwichLadyNPC(override var loot: WeightBasedTable? = null) : RandomEvent
             player.name.replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }))
     }
 
+    /**
+     * Assign item.
+     */
     fun assignItem() {
         assigned_item = items.random()
         player.setAttribute("sandwich-lady:item", assigned_item)

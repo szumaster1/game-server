@@ -7,6 +7,11 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 
+/**
+ * Recruitment drive
+ *
+ * @constructor Recruitment drive
+ */
 @Initializable
 class RecruitmentDrive : Quest("Recruitment Drive", 103, 102, 1, 496, 0, 1, 2) {
     companion object {

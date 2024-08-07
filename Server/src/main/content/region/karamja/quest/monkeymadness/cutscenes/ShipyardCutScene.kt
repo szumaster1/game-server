@@ -13,6 +13,9 @@ import core.game.world.GameWorld
 import core.game.world.map.Direction
 import core.game.world.map.Location
 
+/**
+ * Shipyard cut scene.
+ */
 class ShipyardCutScene(player: Player) : Cutscene(player) {
 
     val interfaceId = Components.QUEST_COMPLETE_SCROLL_277

@@ -5,7 +5,6 @@ import core.game.node.entity.player.info.Rights
 
 /**
  * Represents a chat message.
- * @author Emperor
  */
 class ChatMessage(player: Player, text: String, effects: Int, numChars: Int) {
     /**

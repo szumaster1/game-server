@@ -19,6 +19,11 @@ import core.tools.Log
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
+/**
+ * Pathfinder tests
+ *
+ * @constructor Pathfinder tests
+ */
 class PathfinderTests {
     companion object {init {
         TestUtils.preTestSetup(); GatheringListener().defineListeners(); WoodcuttingListener().defineListeners()
@@ -26,6 +31,10 @@ class PathfinderTests {
         val NPC_TEST_LOC = ServerConstants.HOME_LOCATION!!.transform(2, 10, 0)
     }
 
+    /**
+     * Get occupied tiles should return correct set of tiles that an object occupies at all rotations
+     *
+     */
     @Test
     fun getOccupiedTilesShouldReturnCorrectSetOfTilesThatAnObjectOccupiesAtAllRotations() {
         //clay fireplace - 13609 - sizex: 1, sizey: 2
@@ -48,6 +57,10 @@ class PathfinderTests {
         Assertions.assertArrayEquals(arrayOf(Location.create(50, 50), Location.create(49, 50)), occupiedAt3)
     }
 
+    /**
+     * Movement pulse should stop early if next to a tile occupied by target object
+     *
+     */
     @Test
     fun movementPulseShouldStopEarlyIfNextToATileOccupiedByTargetObject() {
         val start = Location.create(2731, 3481)
@@ -61,6 +74,10 @@ class PathfinderTests {
         Assertions.assertEquals(Location.create(2722, 3475, 0), p.location)
     }
 
+    /**
+     * Movement interaction should trigger
+     *
+     */
     @Test
     fun movementInteractionShouldTrigger() {
         val npc = NPC.create(0, NPC_TEST_LOC)
@@ -107,6 +124,10 @@ class PathfinderTests {
         }
     }
 
+    /**
+     * Entity moving to stationary NPC should not idle indefinitely
+     *
+     */
     @Test
     fun entityMovingToStationaryNPCShouldNotIdleIndefinitely() {
         TestUtils.getMockPlayer("idlenpcdest").use { p ->
@@ -125,6 +146,10 @@ class PathfinderTests {
         }
     }
 
+    /**
+     * Entity target movement pulse should not stop on same tile as entity
+     *
+     */
     @Test
     fun entityTargetMovementPulseShouldNotStopOnSameTileAsEntity() {
         TestUtils.getMockPlayer("entitystoptest").use { p ->
@@ -143,6 +168,10 @@ class PathfinderTests {
         }
     }
 
+    /**
+     * Entity target movement pulse with explicit params should not stop on same tile
+     *
+     */
     @Test
     fun entityTargetMovementPulseWithExplicitParamsShouldNotStopOnSameTile() {
         TestUtils.getMockPlayer("entitystoptest2").use { p ->
@@ -161,6 +190,10 @@ class PathfinderTests {
         }
     }
 
+    /**
+     * Double movement pulse to entity should not stop on same tile
+     *
+     */
     @Test
     fun doubleMovementPulseToEntityShouldNotStopOnSameTile() {
         TestUtils.getMockPlayer("entitystoptest3").use { p ->
@@ -185,6 +218,10 @@ class PathfinderTests {
         }
     }
 
+    /**
+     * Simulated interaction packet with movement from plugin should not end on same tile
+     *
+     */
     @Test
     fun simulatedInteractionPacketWithMovementFromPluginShouldNotEndOnSameTile() {
         val testHandler = object : OptionHandler() {
@@ -216,6 +253,10 @@ class PathfinderTests {
         }
     }
 
+    /**
+     * Simulated interaction packet with movement from listener should not end on same tile
+     *
+     */
     @Test
     fun simulatedInteractionPacketWithMovementFromListenerShouldNotEndOnSameTile() {
         val npc = NPC.create(0, NPC_TEST_LOC)
@@ -242,6 +283,10 @@ class PathfinderTests {
         }
     }
 
+    /**
+     * Npc should reliably return to spawn location if too far
+     *
+     */
     @Test
     fun npcShouldReliablyReturnToSpawnLocationIfTooFar() {
         //spawn a player into the area just to make sure it ticks...
@@ -259,6 +304,10 @@ class PathfinderTests {
         }
     }
 
+    /**
+     * Npc should reliably return to spawn even if region unloaded
+     *
+     */
     @Test
     fun npcShouldReliablyReturnToSpawnEvenIfRegionUnloaded() {
         //spawn a player into the area just to make sure it ticks...

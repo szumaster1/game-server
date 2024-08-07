@@ -17,6 +17,11 @@ import core.tools.Log
 import core.tools.SystemLogger
 import kotlin.math.min
 
+/**
+ * Stock market interface listener
+ *
+ * @constructor Stock market interface listener
+ */
 class StockMarketInterfaceListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {
@@ -200,16 +205,36 @@ class StockMarketInterfaceListener : InterfaceListener {
         }
     }
 
+    /**
+     * Update offer value
+     *
+     * @param player
+     * @param offer
+     * @param newAmt
+     */
     fun updateOfferValue(player: Player, offer: GrandExchangeOffer, newAmt: Int) {
         offer.offeredValue = newAmt
         setVarp(player, 1111, newAmt)
     }
 
+    /**
+     * Update offer amount
+     *
+     * @param player
+     * @param offer
+     * @param newAmt
+     */
     fun updateOfferAmount(player: Player, offer: GrandExchangeOffer, newAmt: Int) {
         offer.amount = newAmt
         setVarp(player, 1110, newAmt)
     }
 
+    /**
+     * Abort offer
+     *
+     * @param player
+     * @param offer
+     */
     fun abortOffer(player: Player, offer: GrandExchangeOffer?) {
         if (offer == null) {
             log(this::class.java, Log.WARN, "Opened offer was null and was attempted to be aborted!")
@@ -233,10 +258,63 @@ class StockMarketInterfaceListener : InterfaceListener {
         offer.visualize(player)
     }
 
+    /**
+     * Offer confirm result
+     *
+     * @constructor Offer confirm result
+     */
     enum class OfferConfirmResult {
-        Success, ZeroCoins, TooManyCoins, NotEnoughItemsOrCoins, ItemRemovalFailure, OfferPlacementError
+        /**
+         * Success
+         *
+         * @constructor Success
+         */
+        Success,
+
+        /**
+         * Zero coins
+         *
+         * @constructor Zero coins
+         */
+        ZeroCoins,
+
+        /**
+         * Too many coins
+         *
+         * @constructor Too many coins
+         */
+        TooManyCoins,
+
+        /**
+         * Not enough items or coins
+         *
+         * @constructor Not enough items or coins
+         */
+        NotEnoughItemsOrCoins,
+
+        /**
+         * Item removal failure
+         *
+         * @constructor Item removal failure
+         */
+        ItemRemovalFailure,
+
+        /**
+         * Offer placement error
+         *
+         * @constructor Offer placement error
+         */
+        OfferPlacementError
     }
 
+    /**
+     * Confirm offer
+     *
+     * @param player
+     * @param offer
+     * @param index
+     * @return
+     */
     fun confirmOffer(player: Player, offer: GrandExchangeOffer, index: Int): OfferConfirmResult {
         if (offer.offeredValue < 1) {
             playAudio(player, Sounds.GE_TRADE_ERROR_4039)
@@ -288,6 +366,13 @@ class StockMarketInterfaceListener : InterfaceListener {
         return OfferConfirmResult.Success
     }
 
+    /**
+     * Get inventory amount
+     *
+     * @param player
+     * @param itemId
+     * @return
+     */
     fun getInventoryAmount(player: Player, itemId: Int): Int {
         val item = Item(itemId)
         var amount = player.inventory.getAmount(item)

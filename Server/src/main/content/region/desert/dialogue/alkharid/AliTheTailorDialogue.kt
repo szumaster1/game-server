@@ -8,6 +8,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Ali the tailor dialogue.
+ */
 @Initializable
 class AliTheTailorDialogue(player: Player? = null) : Dialogue(player) {
 

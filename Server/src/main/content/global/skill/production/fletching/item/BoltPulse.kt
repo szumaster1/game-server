@@ -8,6 +8,17 @@ import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
+/**
+ * Bolt pulse
+ *
+ * @property feather
+ * @property sets
+ * @constructor
+ *
+ * @param player
+ * @param node
+ * @param bolt
+ */
 class BoltPulse(player: Player?, node: Item?, bolt: Bolt, private val feather: Item, private var sets: Int) : SkillPulse<Item?>(player, node) {
 
     private val bolt: Bolt = bolt

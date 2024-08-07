@@ -12,6 +12,9 @@ import core.game.world.map.RegionManager.getSpawnLocation
 import core.game.world.map.path.Pathfinder
 import core.plugin.Plugin
 
+/**
+ * Pyramid plunder NPC.
+ */
 abstract class PyramidPlunderNPC(
     id: Int, location: Location?,
     val player: Player
@@ -68,11 +71,17 @@ abstract class PyramidPlunderNPC(
     }
 
 
+    /**
+     * Handle player leave
+     */
     fun handlePlayerLeave() {
         clear()
     }
 
 
+    /**
+     * Handle time up
+     */
     fun handleTimeUp() {}
     override fun isAttackable(entity: Entity, style: CombatStyle, message: Boolean): Boolean {
         if (entity is Player && entity !== player) {
@@ -92,6 +101,9 @@ abstract class PyramidPlunderNPC(
     }
 
 
+    /**
+     * Start following
+     */
     fun startFollowing() {
         pulseManager.run(object : MovementPulse(this, player, Pathfinder.DUMB) {
             override fun pulse(): Boolean {

@@ -28,6 +28,9 @@ import core.plugin.ClassScanner.definePlugin
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Desert wyrm familiar.
+ */
 @Initializable
 class DesertWyrmNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.DESERT_WYRM_6831) :
     Forager(owner, id, 1900, 12049, 6, WeaponInterface.STYLE_AGGRESSIVE) {

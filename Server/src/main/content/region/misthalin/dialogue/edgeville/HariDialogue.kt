@@ -8,6 +8,9 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.api.consts.NPCs
 
+/**
+ * Hari dialogue.
+ */
 @Initializable
 class HariDialogue(player: Player? = null) : Dialogue(player) {
 

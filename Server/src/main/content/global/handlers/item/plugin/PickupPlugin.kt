@@ -11,6 +11,11 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Pickup plugin
+ *
+ * @constructor Pickup plugin
+ */
 @Initializable
 class PickupPlugin : OptionHandler() {
 

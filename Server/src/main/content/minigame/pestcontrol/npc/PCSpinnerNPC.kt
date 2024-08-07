@@ -19,6 +19,9 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.tools.RandomFunction
 
+/**
+ * Pest Control spinner NPC.
+ */
 class PCSpinnerNPC : AbstractNPC {
     private var session: PestControlSession? = null
     private var portalIndex = 0
@@ -52,6 +55,10 @@ class PCSpinnerNPC : AbstractNPC {
         }
     }
 
+    /**
+     * Heal
+     *
+     */
     fun heal() {
         val portal = session!!.portals[portalIndex]
         if (!portal.isActive || portal.getSkills().lifepoints < 1) {
@@ -63,6 +70,10 @@ class PCSpinnerNPC : AbstractNPC {
         (portal as PCPortalNPC).updateLifepoints = true
     }
 
+    /**
+     * Explode
+     *
+     */
     fun explode() {
         animate(properties.deathAnimation)
         for (p in getLocalPlayers(this, 1)) {
@@ -95,6 +106,12 @@ class PCSpinnerNPC : AbstractNPC {
         }
     }
 
+    /**
+     * Set portal index
+     *
+     * @param portalIndex
+     * @return
+     */
     fun setPortalIndex(portalIndex: Int): PCSpinnerNPC {
         this.portalIndex = portalIndex
         return this

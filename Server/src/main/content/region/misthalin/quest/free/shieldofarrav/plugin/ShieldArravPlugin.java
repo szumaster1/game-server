@@ -25,6 +25,9 @@ import core.plugin.Plugin;
 
 import java.util.List;
 
+/**
+ * Shield arrav plugin.
+ */
 public final class ShieldArravPlugin extends OptionHandler {
 
     private static final Component MESSAGE_COMPONENT = new Component(222);

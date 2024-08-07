@@ -9,7 +9,6 @@ import java.sql.Connection
 
 /**
  * Collection of methods for interacting with the grand exchange databases
- * @author Ceikry
  */
 object GEDB {
     lateinit var db: DatabaseManager

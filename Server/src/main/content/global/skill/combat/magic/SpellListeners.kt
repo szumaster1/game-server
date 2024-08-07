@@ -11,16 +11,40 @@ import core.game.node.entity.player.link.SpellBookManager
 import core.game.world.map.path.Pathfinder
 import core.tools.Log
 
+/**
+ * Spell listeners.
+ */
 object SpellListeners {
 
     val castMap = HashMap<String, (Player, Node?) -> Unit>()
     val spellRanges = HashMap<String, Int>()
 
+    /**
+     * Add
+     *
+     * @param spellID
+     * @param type
+     * @param book
+     * @param distance
+     * @param method
+     * @receiver
+     */
     fun add(spellID: Int, type: Int, book: String, distance: Int, method: (Player, Node?) -> Unit) {
         castMap["$book:$spellID:$type"] = method
         spellRanges["$book:$spellID:$type"] = distance
     }
 
+    /**
+     * Add
+     *
+     * @param spellID
+     * @param type
+     * @param ids
+     * @param book
+     * @param distance
+     * @param method
+     * @receiver
+     */
     fun add(spellID: Int, type: Int, ids: IntArray, book: String, distance: Int, method: (Player, Node?) -> Unit) {
         for (id in ids) {
             castMap["$book:$spellID:$type:$id"] = method
@@ -28,16 +52,42 @@ object SpellListeners {
         }
     }
 
+    /**
+     * Get
+     *
+     * @param spellID
+     * @param type
+     * @param book
+     * @return
+     */
     fun get(spellID: Int, type: Int, book: String): Pair<Int, ((Player, Node?) -> Unit)?> {
         log(this::class.java, Log.FINE, "Getting $book:$spellID:$type")
         return Pair(spellRanges["$book:$spellID:$type"] ?: 10, castMap["$book:$spellID:$type"])
     }
 
+    /**
+     * Get
+     *
+     * @param spellID
+     * @param type
+     * @param id
+     * @param book
+     * @return
+     */
     fun get(spellID: Int, type: Int, id: Int, book: String): Pair<Int, ((Player, Node?) -> Unit)?> {
         log(this::class.java, Log.FINE, "Getting $book:$spellID:$type:$id")
         return Pair(spellRanges["$book:$spellID:$type:$id"] ?: 10, castMap["$book:$spellID:$type:$id"])
     }
 
+    /**
+     * Run
+     *
+     * @param button
+     * @param type
+     * @param book
+     * @param player
+     * @param node
+     */
     @JvmStatic
     fun run(button: Int, type: Int, book: String, player: Player, node: Node? = null) {
         var (range, method) = get(button, type, node?.id ?: 0, book)

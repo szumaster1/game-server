@@ -9,6 +9,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
+/**
+ * Pie recipes book
+ *
+ * @constructor Pie recipes book
+ */
 class PieRecipesBook : InteractionListener {
 
     // It can be purchased from Romily

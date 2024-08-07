@@ -12,6 +12,9 @@ import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 import core.tools.RandomFunction
 
+/**
+ * Vampire bat familiar.
+ */
 @Initializable
 class VampireBatNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.VAMPIRE_BAT_6835) : Familiar(owner, id, 3300, 12053, 4, WeaponInterface.STYLE_CONTROLLED) {
 

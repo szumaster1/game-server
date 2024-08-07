@@ -7,6 +7,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Silas dahcsnu dialogue.
+ */
 @Initializable
 class SilasDahcsnuDialogue(player: Player? = null) : Dialogue(player) {
 

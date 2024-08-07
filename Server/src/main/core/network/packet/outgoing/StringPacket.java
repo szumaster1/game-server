@@ -5,6 +5,10 @@ import core.network.packet.OutgoingPacket;
 import core.network.packet.PacketHeader;
 import core.network.packet.context.StringContext;
 
+/**
+ * The outgoing set component string packet.
+ * @author Emperor
+ */
 public class StringPacket implements OutgoingPacket<StringContext> {
 
     @Override

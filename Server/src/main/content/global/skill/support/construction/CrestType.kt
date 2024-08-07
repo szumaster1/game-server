@@ -22,34 +22,89 @@ private val SKULL_CREST_SYMBOL      = "a skull"
 private val VARROCK_CREST_SYMBOL    = "the symbol of Varrock"
 private val ZAMORAK_CREST_SYMBOL    = "the symbol of Zamorak"
 
+/**
+ * Crest type
+ *
+ * @property cost
+ * @constructor
+ *
+ * @param name
+ */
 enum class CrestType(name: String, val cost: Int = 5000) : CrestRequirement {
+    /**
+     * Arrav
+     *
+     * @constructor Arrav
+     */
     ARRAV(ARRAV_CREST_SYMBOL) {
         override fun eligible(player: Player): Boolean {
             return isQuestComplete(player, "Shield of Arrav")
         }
     },
+
+    /**
+     * Asgarnia
+     *
+     * @constructor Asgarnia
+     */
     ASGARNIA(ASGARNIA_CREST_SYMBOL),
+
+    /**
+     * Dorgeshuun
+     *
+     * @constructor Dorgeshuun
+     */
     DORGESHUUN(DORGESHUUN_CREST_SYMBOL) {
         override fun eligible(player: Player): Boolean {
             return isQuestComplete(player, "The Lost Tribe")
         }
     },
+
+    /**
+     * Dragon
+     *
+     * @constructor Dragon
+     */
     DRAGON(DRAGON_CREST_SYMBOL) {
         override fun eligible(player: Player): Boolean {
             return isQuestComplete(player, "Dragon Slayer")
         }
     },
+
+    /**
+     * Fairy
+     *
+     * @constructor Fairy
+     */
     FAIRY(FAIRY_CREST_SYMBOL) {
         override fun eligible(player: Player): Boolean {
             return isQuestComplete(player, "Lost City")
         }
     },
+
+    /**
+     * Guthix
+     *
+     * @constructor Guthix
+     */
     GUTHIX(GUTHIX_CREST_SYMBOL) {
         override fun eligible(player: Player): Boolean {
             return player.getSkills().hasLevel(Skills.PRAYER, 70)
         }
     },
+
+    /**
+     * Ham
+     *
+     * @constructor Ham
+     */
     HAM(H_A_M_CREST_SYMBOL),
+
+    /**
+     * Horse
+     *
+     * @constructor Horse
+     */
     HORSE(HORSE_CREST_SYMBOL) {
         override fun eligible(player: Player): Boolean {
             return player.inventory.containsAtLeastOneItem(
@@ -57,21 +112,69 @@ enum class CrestType(name: String, val cost: Int = 5000) : CrestRequirement {
             )
         }
     },
+
+    /**
+     * Jogre
+     *
+     * @constructor Jogre
+     */
     JOGRE(JOGRE_CREST_SYMBOL),
+
+    /**
+     * Kandarin
+     *
+     * @constructor Kandarin
+     */
     KANDARIN(KANDARIN_CREST_SYMBOL),
+
+    /**
+     * Misthalin
+     *
+     * @constructor Misthalin
+     */
     MISTHALIN(MISTHALIN_CREST_SYMBOL),
+
+    /**
+     * Money
+     *
+     * @constructor Money
+     */
     MONEY(MONEY_CREST_SYMBOL, 500000),
+
+    /**
+     * Saradomin
+     *
+     * @constructor Saradomin
+     */
     SARADOMIN(SARADOMIN_CREST_SYMBOL) {
         override fun eligible(player: Player): Boolean {
             return player.getSkills().hasLevel(Skills.PRAYER, 70)
         }
     },
+
+    /**
+     * Skull
+     *
+     * @constructor Skull
+     */
     SKULL(SKULL_CREST_SYMBOL) {
         override fun eligible(player: Player): Boolean {
             return player.skullManager.isSkulled()
         }
     },
+
+    /**
+     * Varrock
+     *
+     * @constructor Varrock
+     */
     VARROCK(VARROCK_CREST_SYMBOL),
+
+    /**
+     * Zamorak
+     *
+     * @constructor Zamorak
+     */
     ZAMORAK(ZAMORAK_CREST_SYMBOL) {
         override fun eligible(player: Player): Boolean {
             return player.getSkills().hasLevel(Skills.PRAYER, 70)

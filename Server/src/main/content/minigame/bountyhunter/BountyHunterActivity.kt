@@ -37,6 +37,12 @@ import core.plugin.Plugin
 import core.tools.RandomFunction
 import java.util.*
 
+/**
+ * Handles the Bounty hunter activity.
+ *
+ * @property type
+ * @constructor Bounty hunter activity
+ */
 @Initializable
 class BountyHunterActivity @JvmOverloads constructor(val type: CraterType = CraterType.LOW_LEVEL) : ActivityPlugin("BH " + type.name.lowercase(Locale.getDefault()), false, false, false, ZoneRestriction.FOLLOWERS) {
 
@@ -306,6 +312,11 @@ class BountyHunterActivity @JvmOverloads constructor(val type: CraterType = Crat
         player.appearance.sync()
     }
 
+    /**
+     * Enter crater
+     *
+     * @param player
+     */
     fun enterCrater(player: Player) {
         val offset = RandomFunction.getRandomElement<Point>(EXIT_OFFSETS)
         val destination = Location.create(type.zone.southWestX + offset.x, type.zone.southWestY + offset.y, 0)
@@ -313,6 +324,13 @@ class BountyHunterActivity @JvmOverloads constructor(val type: CraterType = Crat
         player.animate(Animation.create(7377))
     }
 
+    /**
+     * Leave crater
+     *
+     * @param player
+     * @param logout
+     * @param entry
+     */
     fun leaveCrater(player: Player, logout: Boolean, entry: BountyEntry) {
         if (entry.hunter != null) {
             val other = players[entry.hunter]
@@ -383,6 +401,11 @@ class BountyHunterActivity @JvmOverloads constructor(val type: CraterType = Crat
         }
     }
 
+    /**
+     * Leaves the waiting room.
+     *
+     * @param player The player.
+     */
     @Suppress("deprecation")
     fun leaveWaitingRoom(player: Player, logout: Boolean) {
         waitingRoom.remove(player)
@@ -401,6 +424,11 @@ class BountyHunterActivity @JvmOverloads constructor(val type: CraterType = Crat
         }
     }
 
+    /**
+     * Finds a target for the specified player.
+     *
+     * @param player The player.
+     */
     private fun findTarget(player: Player) {
         var target: Player? = null
         var other: BountyEntry? = null
@@ -430,6 +458,9 @@ class BountyHunterActivity @JvmOverloads constructor(val type: CraterType = Crat
         entry.update(player)
     }
 
+    /**
+     * Updates the amount of players in the waiting room.
+     */
     private fun updateWaitingRoomSize() {
         val size = Integer.toString(waitingRoom.size)
         for (player in waitingRoom) {
@@ -482,6 +513,12 @@ class BountyHunterActivity @JvmOverloads constructor(val type: CraterType = Crat
         return false
     }
 
+    /**
+     * Handles a rogue kill.
+     *
+     * @param player The player who killed the victim.
+     * @param victim The victim.
+     */
     private fun handleRogueKill(player: Player, victim: Player, entry: BountyEntry) {
         player.packetDispatch.sendMessage("You killed " + victim.username + ". They were not your target, so your Rogue PvP rating")
         player.packetDispatch.sendMessage("increases!")
@@ -518,13 +555,21 @@ class BountyHunterActivity @JvmOverloads constructor(val type: CraterType = Crat
     }
 
     companion object {
+
+        /**
+         * The skull values.
+         */
         private val SKULL_VALUES = intArrayOf(
             100000,  // Bronze skull
             500000,  // Iron skull
-            1100000,  // Adamant skull
-            2500000,  // Runite skull
-            -1 // Dragon skull
+            1100000, // Adamant skull
+            2500000, // Runite skull
+            -1       // Dragon skull
         )
+
+        /**
+         * The exit offsets.
+         */
         private val EXIT_OFFSETS = arrayOf(
             Point(19, 58),
             Point(24, 44),
@@ -557,8 +602,20 @@ class BountyHunterActivity @JvmOverloads constructor(val type: CraterType = Crat
             Point(163, 153),
             Point(173, 136)
         )
+
+        /**
+         * The minimum amount of players to enter the crater.
+         */
         private const val MINIMUM_PLAYERS = 2
+
+        /**
+         * The waiting room overlay.
+         */
         private val WAITING_OVERLAY = Component(656)
+
+        /**
+         * The game overlay.
+         */
         private val GAME_OVERLAY = Component(653)
     }
 }

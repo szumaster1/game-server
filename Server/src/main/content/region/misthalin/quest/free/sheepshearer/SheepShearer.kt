@@ -10,6 +10,11 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import kotlin.math.min
 
+/**
+ * Sheep shearer
+ *
+ * @constructor Sheep shearer
+ */
 @Initializable
 class SheepShearer : Quest("Sheep Shearer", 28, 27, 1, Vars.VARP_QUEST_SHEEP_SHEARER_PROGRESS, 0, 20, 21) {
     companion object {

@@ -8,7 +8,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * The Swamp titan npc.
+ * Swamp titan familiar.
  */
 @Initializable
 class SwampTitanNPC(owner: Player? = null, id: Int = NPCs.SWAMP_TITAN_7329) : Familiar(owner, id, 5600, 12776, 6, WeaponInterface.STYLE_ACCURATE) {

@@ -6,6 +6,11 @@ import core.cache.def.impl.ItemDefinition
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Hat stand listener
+ *
+ * @constructor Hat stand listener
+ */
 class HatStandListener : InteractionListener {
 
     val hats = ItemDefinition.getDefinitions().values.filter { it.getConfiguration("equipment_slot", 0) == EquipmentSlot.HEAD.ordinal }.map { it.id }.toIntArray()

@@ -26,6 +26,11 @@ import core.tools.StringUtils
 import core.tools.colorize
 import java.util.*
 
+/**
+ * Easter event
+ *
+ * @constructor Easter event
+ */
 class EasterEvent : WorldEvent("easter"), TickListener, InteractionListener, LoginListener, Commands {
     private val spawnedItems = ArrayList<GroundItem>()
     private var timeUntilNextEggSpawn = 0
@@ -81,6 +86,11 @@ class EasterEvent : WorldEvent("easter"), TickListener, InteractionListener, Log
     }
 
 
+    /**
+     * Get random locations
+     *
+     * @return
+     */
     fun getRandomLocations(): Pair<String, List<Location>> {
         val toReturn = ArrayList<Location>()
         val name = locNames.random()

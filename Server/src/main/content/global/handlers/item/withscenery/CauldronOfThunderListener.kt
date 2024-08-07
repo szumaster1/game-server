@@ -10,6 +10,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Cauldron of thunder listener
+ *
+ * @constructor Cauldron of thunder listener
+ */
 class CauldronOfThunderListener : InteractionListener {
 
     companion object {

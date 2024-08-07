@@ -12,6 +12,9 @@ import core.game.world.GameWorld
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Rewards mystic dialogue.
+ */
 @Initializable
 class RewardsMysticDialogue(player: Player? = null) : Dialogue(player) {
 

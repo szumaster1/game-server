@@ -15,6 +15,12 @@ import core.game.world.repository.Repository
 import core.tools.END_DIALOGUE
 import core.tools.secondsToTicks
 
+/**
+ * Sir percival holy grail dialogue file
+ *
+ * @property interactionType
+ * @constructor Sir percival holy grail dialogue file
+ */
 class SirPercivalHolyGrailDialogueFile(val interactionType: String) : DialogueFile() {
 
     val STAGE_COME_KING = 10

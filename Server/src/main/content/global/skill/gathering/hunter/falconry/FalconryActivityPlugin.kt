@@ -21,6 +21,9 @@ import core.plugin.ClassScanner.definePlugin
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Falconry activity plugin.
+ */
 @Initializable
 class FalconryActivityPlugin : ActivityPlugin("falconry", false, false, false) {
 
@@ -54,6 +57,11 @@ class FalconryActivityPlugin : ActivityPlugin("falconry", false, false, false) {
         definePlugin(FalconryPlugin())
     }
 
+    /**
+     * Falconry plugin
+     *
+     * @constructor Falconry plugin
+     */
     @Initializable
     class FalconryPlugin : OptionHandler() {
         override fun newInstance(arg: Any?): Plugin<Any> {

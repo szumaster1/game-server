@@ -44,6 +44,9 @@ import kotlin.math.min
 import core.api.consts.Graphics as Gfx
 import core.api.consts.Scenery as Sceneries
 
+/**
+ * Vinesweeper minigame.
+ */
 class VinesweeperMinigame : InteractionListener, InterfaceListener, MapArea {
 
     override fun defineAreaBorders(): Array<ZoneBorders> {
@@ -275,6 +278,14 @@ class VinesweeperMinigame : InteractionListener, InterfaceListener, MapArea {
         }
     }
 
+    /**
+     * Seed destination
+     *
+     * @property player
+     * @property loc
+     * @property alive
+     * @constructor Seed destination
+     */
     data class SeedDestination(val player: Player, val loc: Location, val alive: Boolean) {
         override fun equals(other: Any?): Boolean {
             return if (other is SeedDestination) {
@@ -581,6 +592,9 @@ class VinesweeperMinigame : InteractionListener, InterfaceListener, MapArea {
     }
 }
 
+/**
+ * Vinesweeper NPC.
+ */
 @Initializable
 class VinesweeperNPC : AbstractNPC {
     var seedDestinations: ArrayList<VinesweeperMinigame.SeedDestination> = ArrayList()
@@ -636,6 +650,12 @@ class VinesweeperNPC : AbstractNPC {
         }
     }
 
+    /**
+     * Handle rabbit seed
+     *
+     * @param scenery
+     * @param dest
+     */
     fun handleRabbitSeed(scenery: Scenery, dest: VinesweeperMinigame.SeedDestination) {
         if (SEED_LOCS.contains(dest.loc)) {
             val replacement = Sceneries.DEAD_PLANT_29456
@@ -648,6 +668,12 @@ class VinesweeperNPC : AbstractNPC {
         }
     }
 
+    /**
+     * Handle farmer seed
+     *
+     * @param scenery
+     * @param dest
+     */
     fun handleFarmerSeed(scenery: Scenery, dest: VinesweeperMinigame.SeedDestination) {
         lock()
         var i = 0
@@ -680,6 +706,12 @@ class VinesweeperNPC : AbstractNPC {
         })
     }
 
+    /**
+     * Handle farmer flag
+     *
+     * @param scenery
+     * @param dest
+     */
     fun handleFarmerFlag(scenery: Scenery, dest: VinesweeperMinigame.SeedDestination) {
         val npc = this
         lock()
@@ -725,6 +757,11 @@ class VinesweeperNPC : AbstractNPC {
         })
     }
 
+    /**
+     * Farmer clear
+     *
+     * @param dest
+     */
     fun farmerClear(dest: VinesweeperMinigame.SeedDestination) {
         for (dx in -FARMER_CLEAR_RADIUS..FARMER_CLEAR_RADIUS) {
             for (dy in -FARMER_CLEAR_RADIUS..FARMER_CLEAR_RADIUS) {

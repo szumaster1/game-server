@@ -4,8 +4,12 @@ import core.game.consumable.ConsumableEffect
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 
+/**
+ * Wizards mind bomb effect.
+ */
 class WizardsMindBombEffect : ConsumableEffect() {
 
+    // Calculate magic level boost based on player's magic level
     override fun activate(player: Player) {
         val magicLevelBoost = if (player.getSkills().getLevel(Skills.MAGIC) > 50) 3 else 2
         val effect = MultiEffect(
@@ -18,6 +22,7 @@ class WizardsMindBombEffect : ConsumableEffect() {
         effect.activate(player)
     }
 
+    // Get the health effect value for the player
     override fun getHealthEffectValue(player: Player): Int {
         return HEALING
     }

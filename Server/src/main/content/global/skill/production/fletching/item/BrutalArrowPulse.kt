@@ -8,6 +8,12 @@ import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
+/**
+ * Brutal arrow pulse.
+ * @param node
+ * @param arrow
+ * @param sets
+ */
 class BrutalArrowPulse(player: Player?, node: Item?, arrow: BrutalArrow, sets: Int) : SkillPulse<Item?>(player, node) {
 
     private val arrow: BrutalArrow = arrow

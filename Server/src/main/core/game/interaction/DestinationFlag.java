@@ -8,10 +8,19 @@ import core.game.world.map.Direction;
 import core.game.world.map.Location;
 import core.game.world.map.RegionManager;
 
+/**
+ * Destination flag.
+ */
 public class DestinationFlag {
 
+    /**
+     * The constant LOCATION.
+     */
     public static final DestinationFlag LOCATION = new DestinationFlag();
 
+    /**
+     * The constant ENTITY.
+     */
     public static final DestinationFlag ENTITY = new DestinationFlag() {
 
         @Override
@@ -29,6 +38,9 @@ public class DestinationFlag {
         }
     };
 
+    /**
+     * The constant FOLLOW_ENTITY.
+     */
     public static final DestinationFlag FOLLOW_ENTITY = new DestinationFlag() {
 
         @Override
@@ -50,6 +62,9 @@ public class DestinationFlag {
         }
     };
 
+    /**
+     * The constant COMBAT.
+     */
     public static final DestinationFlag COMBAT = new DestinationFlag() {
 
         @Override
@@ -58,6 +73,9 @@ public class DestinationFlag {
         }
     };
 
+    /**
+     * The constant ITEM.
+     */
     public static final DestinationFlag ITEM = new DestinationFlag() {
 
         @Override
@@ -70,6 +88,9 @@ public class DestinationFlag {
 
     };
 
+    /**
+     * The constant OBJECT.
+     */
     public static final DestinationFlag OBJECT = new DestinationFlag() {
 
         @Override
@@ -150,20 +171,45 @@ public class DestinationFlag {
         }
     };
 
+    /**
+     * Instantiates a new Destination flag.
+     */
     public DestinationFlag() {
         /*
          * empty.
          */
     }
 
+    /**
+     * Gets destination.
+     *
+     * @param mover the mover
+     * @param node  the node
+     * @return the destination
+     */
     public Location getDestination(Entity mover, Node node) {
         return node.getLocation();
     }
 
+    /**
+     * Check traversal boolean.
+     *
+     * @param l   the l
+     * @param dir the dir
+     * @return the boolean
+     */
     public boolean checkTraversal(Location l, Direction dir) {
         return Direction.get((dir.toInteger() + 2) % 4).canMove(l);
     }
 
+    /**
+     * Gets closest to.
+     *
+     * @param mover      the mover
+     * @param node       the node
+     * @param suggestion the suggestion
+     * @return the closest to
+     */
     public Location getClosestTo(Entity mover, Node node, Location suggestion) {
         Location nl = node.getLocation();
         int diffX = suggestion.getX() - nl.getX();

@@ -14,6 +14,9 @@ import core.game.node.item.Item
 import core.game.world.GameWorld.settings
 import core.plugin.Initializable
 
+/**
+ * Tz haar mej jeh dialogue.
+ */
 @Initializable
 class TzHaarMejJehDialogue(player: Player? = null): Dialogue(player) {
 

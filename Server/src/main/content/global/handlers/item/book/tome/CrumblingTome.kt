@@ -9,6 +9,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
+/**
+ * Crumbling tome
+ *
+ * @constructor Crumbling tome
+ */
 class CrumblingTome : InteractionListener {
 
     // The crumbling tome, also known as

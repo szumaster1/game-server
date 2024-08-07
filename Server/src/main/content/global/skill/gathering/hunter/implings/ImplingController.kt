@@ -8,6 +8,9 @@ import core.tools.secondsToTicks
 import kotlin.math.ceil
 import kotlin.math.min
 
+/**
+ * Impling controller.
+ */
 class ImplingController : TickListener, Commands {
     override fun tick() {
         if (--nextCycle > getTicksBeforeNextCycleToDespawn())

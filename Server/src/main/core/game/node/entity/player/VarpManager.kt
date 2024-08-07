@@ -6,7 +6,6 @@ import org.json.simple.JSONObject
 /**
  * Manages the collection of a player's varps.
  * Also handles saving and loading of saved varps.
- * @author Ceikry
  */
 class VarpManager(val player: Player) {
     fun save(root: JSONObject) {

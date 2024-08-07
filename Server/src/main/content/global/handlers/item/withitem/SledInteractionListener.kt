@@ -10,6 +10,11 @@ import core.game.node.entity.player.link.emote.Emotes
 import core.game.node.item.Item
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Sled interaction listener
+ *
+ * @constructor Sled interaction listener
+ */
 class SledInteractionListener : InteractionListener {
 
     private val SLED = Items.SLED_4084

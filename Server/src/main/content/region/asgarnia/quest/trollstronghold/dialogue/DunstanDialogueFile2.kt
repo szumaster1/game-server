@@ -8,6 +8,11 @@ import core.game.dialogue.Topic
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
+/**
+ * Dunstan dialogue file2
+ *
+ * @constructor Dunstan dialogue file2
+ */
 class DunstanDialogueFile2 : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

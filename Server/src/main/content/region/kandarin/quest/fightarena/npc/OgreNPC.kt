@@ -11,6 +11,9 @@ import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.plugin.Initializable
 
+/**
+ * Ogre NPC.
+ */
 @Initializable
 class OgreNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 

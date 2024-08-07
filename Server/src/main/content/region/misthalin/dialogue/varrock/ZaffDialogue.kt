@@ -19,6 +19,11 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 import org.json.simple.JSONObject
 
+/**
+ * Zaff dialogue
+ *
+ * @constructor Zaff dialogue
+ */
 @Initializable
 class ZaffDialogue : OptionHandler() {
 
@@ -34,6 +39,11 @@ class ZaffDialogue : OptionHandler() {
         return true
     }
 
+    /**
+     * Zaff quest dialogue
+     *
+     * @constructor Zaff quest dialogue
+     */
     class ZaffQuestDialogue : Dialogue {
         private var quest: Quest? = null
 
@@ -331,6 +341,11 @@ class ZaffDialogue : OptionHandler() {
     }
 
 
+    /**
+     * Zaff battlestaffs dialogue
+     *
+     * @constructor Zaff battlestaffs dialogue
+     */
     inner
     class ZaffBattlestaffsDialogue : Dialogue {
 

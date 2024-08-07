@@ -8,6 +8,11 @@ import core.game.dialogue.Topic
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
+/**
+ * Door renegade knight dialogue file
+ *
+ * @constructor Door renegade knight dialogue file
+ */
 class DoorRenegadeKnightDialogueFile : DialogueFile() {
 
     var STAGE_NO = 10

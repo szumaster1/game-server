@@ -13,6 +13,9 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
+/**
+ * Golrie dialogue.
+ */
 class GolrieDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {

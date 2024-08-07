@@ -16,6 +16,9 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 import core.tools.RandomFunction
 
+/**
+ * Giant ent familiar.
+ */
 @Initializable
 class GiantEntNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 6800) :
     Forager(owner, id, 4900, 12013, 6, WeaponInterface.STYLE_CONTROLLED, *ITEMS) {
@@ -62,6 +65,12 @@ class GiantEntNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 680
             })
     }
 
+    /**
+     * Modify farming reward
+     *
+     * @param fPatch
+     * @param reward
+     */
     fun modifyFarmingReward(fPatch: FarmingPatch, reward: Item) {
         val patchType = fPatch.type
         if (patchType == PatchType.FRUIT_TREE_PATCH || patchType == PatchType.BUSH_PATCH || patchType == PatchType.BELLADONNA_PATCH || patchType == PatchType.CACTUS_PATCH) {

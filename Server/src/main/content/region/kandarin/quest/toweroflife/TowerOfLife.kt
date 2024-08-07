@@ -11,7 +11,11 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 
-//@Initializable
+/**
+ * Tower of life
+ *
+ * @constructor Tower of life
+ *///@Initializable
 class TowerOfLife : Quest("Tower of Life", 134, 133, 2, Vars.VARBIT_QUEST_TOWER_OF_LIFE_PROGRESS, 0, 1, 18) {
 
     override fun drawJournal(player: Player, stage: Int) {

@@ -7,7 +7,11 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
 import core.tools.RandomFunction
 
+/**
+ * Swarm NPC behavior.
+ */
 class SwarmNPCBehavior : NPCBehavior(NPCs.SWARM_411) {
+
     override fun beforeAttackFinalized(self: NPC, victim: Entity, state: BattleState) {
         state.estimatedHit = RandomFunction.getRandom(1)
     }

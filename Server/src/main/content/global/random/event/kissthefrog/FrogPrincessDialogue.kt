@@ -1,5 +1,6 @@
 package content.global.random.event.kissthefrog
 
+import core.api.closeAllInterfaces
 import core.api.consts.NPCs
 import core.api.lock
 import core.api.queueScript
@@ -10,6 +11,9 @@ import core.game.interaction.QueueStrength
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Frog princess dialogue.
+ */
 @Initializable
 class FrogPrincessDialogue(player: Player? = null) : Dialogue(player) {
 

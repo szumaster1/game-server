@@ -14,6 +14,11 @@ import core.plugin.PluginManifest
 import core.plugin.PluginType
 import java.util.concurrent.TimeUnit
 
+/**
+ * Login validation plugin
+ *
+ * @constructor Login validation plugin
+ */
 @Initializable
 @PluginManifest(type = PluginType.LOGIN)
 class LoginValidationPlugin : Plugin<Player> {

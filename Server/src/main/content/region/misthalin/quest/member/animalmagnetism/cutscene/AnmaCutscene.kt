@@ -9,6 +9,9 @@ import core.game.node.entity.combat.ImpactHandler
 import core.game.node.entity.player.Player
 import core.game.world.map.Direction
 
+/**
+ * Anma cutscene.
+ */
 class AnmaCutscene(player: Player) : Cutscene(player) {
 
     override fun setup() {

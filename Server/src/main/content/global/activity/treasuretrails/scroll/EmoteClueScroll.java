@@ -8,6 +8,9 @@ import core.game.node.entity.player.link.emote.Emotes;
 import core.game.world.map.zone.ZoneBorders;
 import core.game.world.update.flag.context.Graphic;
 
+/**
+ * Emote clue scroll.
+ */
 public abstract class EmoteClueScroll extends ClueScrollPlugin {
 
 	private final Emotes emote;
@@ -18,6 +21,18 @@ public abstract class EmoteClueScroll extends ClueScrollPlugin {
 
 	private final String clue;
 
+    /**
+     * Instantiates a new Emote clue scroll.
+     *
+     * @param name          the name
+     * @param clueId        the clue id
+     * @param level         the level
+     * @param emote         the emote
+     * @param commenceEmote the commence emote
+     * @param equipment     the equipment
+     * @param clue          the clue
+     * @param borders       the borders
+     */
     public EmoteClueScroll(String name, int clueId, ClueLevel level, Emotes emote, Emotes commenceEmote, int[][] equipment, final String clue, ZoneBorders... borders) {
 		super(name, clueId, level, 345, borders);
 		this.emote = emote;
@@ -60,6 +75,11 @@ public abstract class EmoteClueScroll extends ClueScrollPlugin {
 		player.getPacketDispatch().sendString(clue.replace("<br>", "<br><br>"), interfaceId, 1);
 	}
 
+    /**
+     * Spawn uri.
+     *
+     * @param player the player
+     */
     public void spawnUri(Player player) {
 		boolean doubleAgent = level == ClueLevel.HARD && player.getAttribute("killed-agent", 0) != clueId;
 		//changed  this
@@ -88,18 +108,38 @@ public abstract class EmoteClueScroll extends ClueScrollPlugin {
 		}
 	}
 
+    /**
+     * Has commenc emote boolean.
+     *
+     * @return the boolean
+     */
     public boolean hasCommencEmote() {
 		return commenceEmote != null;
 	}
 
+    /**
+     * Gets emote.
+     *
+     * @return the emote
+     */
     public Emotes getEmote() {
 		return emote;
 	}
 
+    /**
+     * Get equipment int [ ] [ ].
+     *
+     * @return the int [ ] [ ]
+     */
     public int[][] getEquipment() {
 		return equipment;
 	}
 
+    /**
+     * Gets commence emote.
+     *
+     * @return to commence emote
+     */
     public Emotes getCommenceEmote() {
 		return commenceEmote;
 	}

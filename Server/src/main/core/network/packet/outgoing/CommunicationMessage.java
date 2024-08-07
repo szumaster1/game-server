@@ -11,6 +11,10 @@ import core.tools.StringUtils;
 
 import java.util.Random;
 
+/**
+ * Communication message.
+ * @author Emperor
+ */
 public final class CommunicationMessage implements OutgoingPacket<MessageContext> {
 
     @Override

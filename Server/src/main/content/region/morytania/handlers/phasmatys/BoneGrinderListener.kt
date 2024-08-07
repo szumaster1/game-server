@@ -16,6 +16,9 @@ import core.game.world.GameWorld.Pulser
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Bone grinder listener.
+ */
 class BoneGrinderListener : InteractionListener {
 
     companion object {
@@ -33,42 +36,37 @@ class BoneGrinderListener : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
-         * Handle the bone loader/hopper fill option
+        /**
+         * Handle the bone loader/hopper fill option.
          */
-
         on(Scenery.LOADER_11162, IntType.SCENERY, "fill") { player, _ ->
             handleFill(player)
         }
 
-        /*
-         * Handle the wheel's wind option
+        /**
+         * Handle the wheel's wind option.
          */
-
         on(Scenery.BONE_GRINDER_11163, IntType.SCENERY, "wind") { player, _ ->
             handleWind(player)
         }
 
-        /*
-         * Handle the wheel's status option
+        /**
+         * Handle the wheel's status option.
          */
-
         on(Scenery.BONE_GRINDER_11163, IntType.SCENERY, "status") { player, _ ->
             handleStatus(player)
         }
 
-        /*
-         * Handle the bin's empty option
+        /**
+         * Handle the bin's empty option.
          */
-
         on(Scenery.BIN_11164, IntType.SCENERY, "empty") { player, _ ->
             handleEmpty(player)
         }
 
-        /*
-         * Handle Bone -> Hopper
+        /**
+         * Handle Bone -> Hopper.
          */
-
         onUseWith(IntType.SCENERY, Scenery.LOADER_11162, *boneIDs) { player, _, _ ->
             handleFill(player)
             return@onUseWith true
@@ -76,6 +74,12 @@ class BoneGrinderListener : InteractionListener {
 
     }
 
+    /**
+     * Handle fill.
+     *
+     * @param player the player.
+     * @return
+     */
     fun handleFill(player: Player): Boolean{
         val bone = getBone(player)
         if((bone == null) || (bone.bonemealId == null)) {
@@ -164,6 +168,12 @@ class BoneGrinderListener : InteractionListener {
         return true
     }
 
+    /**
+     * Handle wind.
+     *
+     * @param player the player.
+     * @return
+     */
     fun handleWind(player: Player): Boolean{
         if(!getAttribute(player, BONE_HOPPER_KEY,false)){
             sendMessage(player,"You have no bones loaded to grind.")
@@ -213,6 +223,12 @@ class BoneGrinderListener : InteractionListener {
         return true
     }
 
+    /**
+     * Handle empty.
+     *
+     * @param player the player.
+     * @return
+     */
     fun handleEmpty(player: Player): Boolean {
         val inHopper = getAttribute(player, BONE_HOPPER_KEY, false)
         val boneType = getAttribute(player, LOADED_BONE_KEY, -1)
@@ -260,6 +276,12 @@ class BoneGrinderListener : InteractionListener {
         return true
     }
 
+    /**
+     * Get bone.
+     *
+     * @param player the player.
+     * @return
+     */
     fun getBone(player: Player): Bones? {
         for(bone in Bones.values()){
             if(inInventory(player,bone.itemId)) return bone

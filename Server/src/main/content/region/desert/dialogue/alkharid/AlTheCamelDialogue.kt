@@ -10,6 +10,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.RandomFunction
 
+/**
+ * Al the camel dialogue.
+ */
 @Initializable
 class AlTheCamelDialogue(player: Player? = null) : Dialogue(player) {
 

@@ -9,7 +9,7 @@ import core.game.node.item.Item
 import core.game.world.update.flag.context.Animation
 
 /**
- * The type Food.
+ * Food.
  */
 open class Food : Consumable {
     /**

@@ -21,17 +21,41 @@ import static core.api.ContentAPIKt.sendDialogueOptions;
 import static core.api.ContentAPIKt.setTitle;
 import static core.tools.GlobalsKt.DARK_RED;
 
+/**
+ * Portal chamber plugin.
+ */
 @Initializable
 public class PortalChamberPlugin extends OptionHandler {
 
     private static enum Locations {
 
+        /**
+         * The Varrock.
+         */
         VARROCK(Location.create(3213, 3428, 0), new Item(Rune.FIRE.getRune().getId(), 100), new Item(Rune.AIR.getRune().getId(), 300), new Item(Rune.LAW.getRune().getId(), 100)),
+        /**
+         * The Lumbridge.
+         */
         LUMBRIDGE(Location.create(3222, 3217, 0), new Item(Rune.EARTH.getRune().getId(), 100), new Item(Rune.AIR.getRune().getId(), 300), new Item(Rune.LAW.getRune().getId(), 100)),
+        /**
+         * The Falador.
+         */
         FALADOR(Location.create(2965, 3380, 0), new Item(Rune.WATER.getRune().getId(), 100), new Item(Rune.AIR.getRune().getId(), 300), new Item(Rune.LAW.getRune().getId(), 100)),
+        /**
+         * The Camelot.
+         */
         CAMELOT(Location.create(2730, 3485, 0), new Item(Rune.AIR.getRune().getId(), 500), new Item(Rune.LAW.getRune().getId(), 100)),
+        /**
+         * The Ardougne.
+         */
         ARDOUGNE(Location.create(2663, 3305, 0), new Item(Rune.WATER.getRune().getId(), 200), new Item(Rune.LAW.getRune().getId(), 200)),
+        /**
+         * The Yanille.
+         */
         YANILLE(Location.create(2554, 3114, 0), new Item(Rune.EARTH.getRune().getId(), 200), new Item(Rune.LAW.getRune().getId(), 200)),
+        /**
+         * The Kharyrll.
+         */
         KHARYRLL(Location.create(3493, 3474, 0), new Item(Rune.BLOOD.getRune().getId(), 100), new Item(Rune.LAW.getRune().getId(), 200));
         private Location location;
         private Item[] runes;
@@ -42,6 +66,12 @@ public class PortalChamberPlugin extends OptionHandler {
         }
     }
 
+    /**
+     * Direct.
+     *
+     * @param player     the player
+     * @param identifier the identifier
+     */
     /*
      * Directs a portal.
      */
@@ -121,10 +151,18 @@ public class PortalChamberPlugin extends OptionHandler {
     }
 
     private static final class DirectPortalDialogue extends Dialogue {
+        /**
+         * Instantiates a new Direct portal dialogue.
+         */
         public DirectPortalDialogue() {
 
         }
 
+        /**
+         * Instantiates a new Direct portal dialogue.
+         *
+         * @param player the player
+         */
         public DirectPortalDialogue(Player player) {
             super(player);
         }

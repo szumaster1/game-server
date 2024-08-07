@@ -9,6 +9,11 @@ import core.game.node.entity.player.Player
 import core.tools.colorize
 import kotlin.math.min
 
+/**
+ * F o g gloves manager
+ *
+ * @constructor F o g gloves manager
+ */
 class FOGGlovesManager {
     companion object {
         private val MAX_CHARGES = intArrayOf(100, 100, 100, 100, 1000, 1000, 1000, 1000, 1000, 1000)

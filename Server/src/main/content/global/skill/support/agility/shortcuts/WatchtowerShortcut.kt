@@ -15,9 +15,12 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.tools.END_DIALOGUE
 
+/**
+ * Watchtower shortcut.
+ */
 class WatchtowerShortcut : InteractionListener {
 
-    /*
+    /**
      * Name: Trellis wall obstacle.
      * Location: Outside of the Watchtower northern wall.
      * Source: https://youtu.be/8HyiUy6MwTM?si=BKLNWPjvEu6lf7Nu&t=146

@@ -12,6 +12,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Bob dialogue.
+ */
 @Initializable
 class BobDialogue(player: Player? = null) : Dialogue(player) {
 

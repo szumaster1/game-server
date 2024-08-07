@@ -5,6 +5,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.api.consts.Scenery
 
+/**
+ * A souls bane listener
+ *
+ * @constructor A souls bane listener
+ */
 class ASoulsBaneListener : InteractionListener {
 
     override fun defineListeners() {

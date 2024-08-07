@@ -36,6 +36,11 @@ val FAKE_CONTENT = arrayOf(
     PageSet(Page(), Page()),
 )
 
+/**
+ * Stats command set
+ *
+ * @constructor Stats command set
+ */
 @Initializable
 class StatsCommandSet : CommandSet(Privilege.STANDARD) {
 

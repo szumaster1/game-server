@@ -12,6 +12,9 @@ import core.game.node.entity.player.Player
 import core.game.world.map.Location
 import core.plugin.Initializable
 
+/**
+ * Khazard warlord NPC.
+ */
 @Initializable
 class KhazardWarlordNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location), InteractionListener {
 

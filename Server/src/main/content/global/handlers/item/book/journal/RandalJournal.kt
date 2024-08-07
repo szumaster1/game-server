@@ -9,6 +9,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
+/**
+ * Randal journal
+ *
+ * @constructor Randal journal
+ */
 class RandalJournal : InteractionListener {
 
     // Randas's Journal is a quest item used in the Underground pass quest.

@@ -8,6 +8,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Kanel dialogue.
+ */
 @Initializable
 class KanelDialogue(player: Player? = null) : Dialogue(player) {
 

@@ -9,6 +9,9 @@ import core.game.node.entity.player.Player
 import core.game.world.GameWorld
 import core.plugin.Plugin
 
+/**
+ * Duel component plugin.
+ */
 class DuelComponentPlugin : ComponentPlugin() {
 
     @Throws(Throwable::class)

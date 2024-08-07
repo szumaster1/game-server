@@ -10,6 +10,11 @@ import core.game.node.scenery.SceneryBuilder
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Tribal totem listeners
+ *
+ * @constructor Tribal totem listeners
+ */
 class TribalTotemListeners : InteractionListener {
 
     val frontDoor = 2706

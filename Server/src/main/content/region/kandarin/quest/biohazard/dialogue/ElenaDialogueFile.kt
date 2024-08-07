@@ -10,6 +10,11 @@ import core.game.dialogue.Topic
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
+/**
+ * Elena dialogue file
+ *
+ * @constructor Elena dialogue file
+ */
 class ElenaDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         val questStage = getQuestStage(player!!, "Biohazard")

@@ -11,6 +11,11 @@ import core.game.node.item.Item
 import core.game.system.task.Pulse
 import core.tools.END_DIALOGUE
 
+/**
+ * Sithik dialogue files
+ *
+ * @constructor Sithik dialogue files
+ */
 class SithikDialogueFiles : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.SITHIK_INTS_2061)
@@ -34,6 +39,11 @@ class SithikDialogueFiles : DialogueFile() {
     }
 }
 
+/**
+ * Sithik permission dialogue file
+ *
+ * @constructor Sithik permission dialogue file
+ */
 class SithikPermissionDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.SITHIK_INTS_2061)
@@ -45,6 +55,11 @@ class SithikPermissionDialogueFile : DialogueFile() {
     }
 }
 
+/**
+ * Sithik quest dialogue file
+ *
+ * @constructor Sithik quest dialogue file
+ */
 class SithikQuestDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.SITHIK_INTS_2061)
@@ -102,6 +117,11 @@ class SithikQuestDialogueFile : DialogueFile() {
     }
 }
 
+/**
+ * Sithik ints portraiture book dialogue file
+ *
+ * @constructor Sithik ints portraiture book dialogue file
+ */
 class SithikIntsPortraitureBookDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.SITHIK_INTS_2061)
@@ -115,6 +135,11 @@ class SithikIntsPortraitureBookDialogueFile : DialogueFile() {
     }
 }
 
+/**
+ * Sithik ints ham book dialogue file
+ *
+ * @constructor Sithik ints ham book dialogue file
+ */
 class SithikIntsHamBookDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.SITHIK_INTS_2061)
@@ -129,6 +154,11 @@ class SithikIntsHamBookDialogueFile : DialogueFile() {
     }
 }
 
+/**
+ * Sithik ints necromancy book dialogue file
+ *
+ * @constructor Sithik ints necromancy book dialogue file
+ */
 class SithikIntsNecromancyBookDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.SITHIK_INTS_2061)
@@ -143,6 +173,11 @@ class SithikIntsNecromancyBookDialogueFile : DialogueFile() {
     }
 }
 
+/**
+ * Sithik ints torn page dialogue file
+ *
+ * @constructor Sithik ints torn page dialogue file
+ */
 class SithikIntsTornPageDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.SITHIK_INTS_2061)
@@ -156,6 +191,11 @@ class SithikIntsTornPageDialogueFile : DialogueFile() {
     }
 }
 
+/**
+ * Sithik ints black prism dialogue file
+ *
+ * @constructor Sithik ints black prism dialogue file
+ */
 class SithikIntsBlackPrismDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.SITHIK_INTS_2061)
@@ -169,6 +209,11 @@ class SithikIntsBlackPrismDialogueFile : DialogueFile() {
     }
 }
 
+/**
+ * Sithik ints dragon tankard dialogue file
+ *
+ * @constructor Sithik ints dragon tankard dialogue file
+ */
 class SithikIntsDragonTankardDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.SITHIK_INTS_2061)
@@ -183,6 +228,11 @@ class SithikIntsDragonTankardDialogueFile : DialogueFile() {
     }
 }
 
+/**
+ * Sithik ints portrait dialogue file
+ *
+ * @constructor Sithik ints portrait dialogue file
+ */
 class SithikIntsPortraitDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         val papyrus = Item(Items.PAPYRUS_970)
@@ -219,6 +269,11 @@ class SithikIntsPortraitDialogueFile : DialogueFile() {
     }
 }
 
+/**
+ * Sithik ints used portrait dialogue file
+ *
+ * @constructor Sithik ints used portrait dialogue file
+ */
 class SithikIntsUsedPortraitDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.SITHIK_INTS_2061)
@@ -235,6 +290,11 @@ class SithikIntsUsedPortraitDialogueFile : DialogueFile() {
     }
 }
 
+/**
+ * Sithik ints signed portrait dialogue file
+ *
+ * @constructor Sithik ints signed portrait dialogue file
+ */
 class SithikIntsSignedPortraitDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.SITHIK_INTS_2061)
@@ -267,6 +327,11 @@ class SithikIntsSignedPortraitDialogueFile : DialogueFile() {
     }
 }
 
+/**
+ * Sithik ints strange potion dialogue file
+ *
+ * @constructor Sithik ints strange potion dialogue file
+ */
 class SithikIntsStrangePotionDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.SITHIK_INTS_2061)
@@ -277,6 +342,11 @@ class SithikIntsStrangePotionDialogueFile : DialogueFile() {
     }
 }
 
+/**
+ * Sithik ints after transform dialogue file
+ *
+ * @constructor Sithik ints after transform dialogue file
+ */
 class SithikIntsAfterTransformDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.SITHIK_INTS_2062)
@@ -309,6 +379,11 @@ class SithikIntsAfterTransformDialogueFile : DialogueFile() {
     }
 }
 
+/**
+ * Sithik talk again after transform dialogue file
+ *
+ * @constructor Sithik talk again after transform dialogue file
+ */
 class SithikTalkAgainAfterTransformDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.SITHIK_INTS_2062)

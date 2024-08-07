@@ -3,37 +3,104 @@
 
 package proto.management;
 
+/**
+ * The interface Send contact info or builder.
+ */
 public interface SendContactInfoOrBuilder extends
         // @@protoc_insertion_point(interface_extends:management.SendContactInfo)
         com.google.protobuf.MessageOrBuilder {
 
+    /**
+     * Has username boolean.
+     *
+     * @return the boolean
+     */
     boolean hasUsername();
 
-    java.lang.String getUsername();
+    /**
+     * Gets username.
+     *
+     * @return the username
+     */
+    String getUsername();
 
+    /**
+     * Gets username bytes.
+     *
+     * @return the username bytes
+     */
     com.google.protobuf.ByteString
     getUsernameBytes();
 
-    java.util.List<proto.management.SendContactInfo.Contact>
+    /**
+     * Gets contacts list.
+     *
+     * @return the contacts list
+     */
+    java.util.List<SendContactInfo.Contact>
     getContactsList();
 
-    proto.management.SendContactInfo.Contact getContacts(int index);
+    /**
+     * Gets contacts.
+     *
+     * @param index the index
+     * @return the contacts
+     */
+    SendContactInfo.Contact getContacts(int index);
 
+    /**
+     * Gets contacts count.
+     *
+     * @return the contacts count
+     */
     int getContactsCount();
 
-    java.util.List<? extends proto.management.SendContactInfo.ContactOrBuilder>
+    /**
+     * Gets contacts or builder list.
+     *
+     * @return the contacts or builder list
+     */
+    java.util.List<? extends SendContactInfo.ContactOrBuilder>
     getContactsOrBuilderList();
 
-    proto.management.SendContactInfo.ContactOrBuilder getContactsOrBuilder(
+    /**
+     * Gets contacts or builder.
+     *
+     * @param index the index
+     * @return the contacts or builder
+     */
+    SendContactInfo.ContactOrBuilder getContactsOrBuilder(
             int index);
 
-    java.util.List<java.lang.String>
+    /**
+     * Gets blocked list.
+     *
+     * @return the blocked list
+     */
+    java.util.List<String>
     getBlockedList();
 
+    /**
+     * Gets blocked count.
+     *
+     * @return the blocked count
+     */
     int getBlockedCount();
 
-    java.lang.String getBlocked(int index);
+    /**
+     * Gets blocked.
+     *
+     * @param index the index
+     * @return the blocked
+     */
+    String getBlocked(int index);
 
+    /**
+     * Gets blocked bytes.
+     *
+     * @param index the index
+     * @return the blocked bytes
+     */
     com.google.protobuf.ByteString
     getBlockedBytes(int index);
 }

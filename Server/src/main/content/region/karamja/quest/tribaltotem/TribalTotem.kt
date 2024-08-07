@@ -11,9 +11,21 @@ import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 import core.plugin.Initializable
 
+/**
+ * Tribal totem
+ *
+ * @constructor Tribal totem
+ */
 @Initializable
 class TribalTotem : Quest("Tribal Totem", 126, 125, 1, Vars.VARP_QUEST_TRIBAL_TOTEM_PROGRESS, 0, 1, 5) {
 
+    /**
+     * Skill requirement
+     *
+     * @property skill
+     * @property level
+     * @constructor Skill requirement
+     */
     class SkillRequirement(val skill: Int?, val level: Int?)
 
     val requirements = arrayListOf<SkillRequirement>()

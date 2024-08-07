@@ -8,6 +8,9 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
+/**
+ * Factory worker dialogue2.
+ */
 @Initializable
 class FactoryWorkerDialogue2(player: Player? = null) : Dialogue(player) {
 

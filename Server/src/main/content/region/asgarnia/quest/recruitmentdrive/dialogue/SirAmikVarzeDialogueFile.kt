@@ -7,6 +7,11 @@ import core.game.dialogue.DialogueBuilder
 import core.game.dialogue.DialogueBuilderFile
 import core.game.dialogue.FacialExpression
 
+/**
+ * Sir amik varze dialogue file
+ *
+ * @constructor Sir amik varze dialogue file
+ */
 class SirAmikVarzeDialogueFile : DialogueBuilderFile() {
 
     override fun create(b: DialogueBuilder) {

@@ -7,6 +7,9 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.SpellBookManager.SpellBook
 import core.plugin.Initializable
 
+/**
+ * Spellbook swap dialogue.
+ */
 @Initializable
 class SpellbookSwapDialogue(player: Player? = null) : Dialogue(player) {
 

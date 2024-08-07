@@ -6,6 +6,11 @@ import core.api.runTask
 import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.info.login.LoginConfiguration
 
+/**
+ * Login interface listener
+ *
+ * @constructor Login interface listener
+ */
 class LoginInterfaceListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {

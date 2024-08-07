@@ -35,6 +35,9 @@ import core.plugin.Plugin;
 
 import static core.api.ContentAPIKt.*;
 
+/**
+ * Summoning training room.
+ */
 @Initializable
 public final class SummoningTrainingRoom extends OptionHandler {
     private static final Item BONES = new Item(2859, 2);
@@ -42,6 +45,12 @@ public final class SummoningTrainingRoom extends OptionHandler {
     private static final Item HOWL_SCROLL = new Item(12425);
     private static final Item WOLF_POUCH = new Item(12047);
 
+    /**
+     *
+     * @param arg the arg
+     * @return
+     * @throws Throwable
+     */
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
         SceneryDefinition.forId(28675).getHandlers().put("option:open", this);
@@ -55,6 +64,13 @@ public final class SummoningTrainingRoom extends OptionHandler {
         return this;
     }
 
+    /**
+     *
+     * @param player the player
+     * @param node   the node
+     * @param option the option
+     * @return
+     */
     @Override
     public boolean handle(final Player player, Node node, String option) {
         Scenery object = (Scenery) node;
@@ -153,14 +169,22 @@ public final class SummoningTrainingRoom extends OptionHandler {
         return true;
     }
 
-    /*
+    /**
      * The Fluffy cutscene.
      */
     public static final class FluffyCutscene extends CutscenePlugin {
+        /**
+         * Instantiates a new Fluffy cutscene.
+         */
         public FluffyCutscene() {
             super("fluffy cutscene");
         }
 
+        /**
+         * Instantiates a new Fluffy cutscene.
+         *
+         * @param player the player
+         */
         public FluffyCutscene(final Player player) {
             this();
             this.player = player;
@@ -208,6 +232,9 @@ public final class SummoningTrainingRoom extends OptionHandler {
             ClassScanner.definePlugin(new FluffyDialogue());
         }
 
+        /**
+         * Fluffy dialogue.
+         */
         public static final class FluffyDialogue extends Dialogue {
             private static final Animation SCARED_ANIMATION = new Animation(2836);
             private static final Graphic GRAPHIC = new Graphic(1522);
@@ -218,10 +245,18 @@ public final class SummoningTrainingRoom extends OptionHandler {
             private NPC fluffy;
             private NPC wolf;
 
+            /**
+             * Instantiates a new Fluffy dialogue.
+             */
             public FluffyDialogue() {
 
             }
 
+            /**
+             * Instantiates a new Fluffy dialogue.
+             *
+             * @param player the player
+             */
             public FluffyDialogue(final Player player) {
                 super(player);
             }

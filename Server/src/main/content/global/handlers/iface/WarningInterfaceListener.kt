@@ -16,6 +16,11 @@ import core.game.world.map.Location
 import core.game.world.map.RegionManager.getLocalNpcs
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Warning interface listener
+ *
+ * @constructor Warning interface listener
+ */
 class WarningInterfaceListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {
@@ -148,6 +153,17 @@ class WarningInterfaceListener : InterfaceListener {
         on(Components.WILDERNESS_WARNING_382, ::handle)
     }
 
+    /**
+     * Handle
+     *
+     * @param player
+     * @param component
+     * @param opcode
+     * @param button
+     * @param slot
+     * @param itemId
+     * @return
+     */
     fun handle(player: Player, component: Component, opcode: Int, button: Int, slot: Int, itemId: Int): Boolean {
         closeInterface(player)
         if (button != 18) {

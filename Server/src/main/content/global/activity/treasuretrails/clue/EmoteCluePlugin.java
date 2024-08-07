@@ -8,16 +8,45 @@ import core.game.world.map.zone.ZoneBorders;
 import core.plugin.ClassScanner;
 import core.plugin.Plugin;
 
+/**
+ * Emote clue plugin.
+ */
 public final class EmoteCluePlugin extends EmoteClueScroll {
 
+    /**
+     * Instantiates a new Emote clue plugin.
+     */
     public EmoteCluePlugin() {
 		super(null, -1, null, null, null, null, null);
 	}
 
+    /**
+     * Instantiates a new Emote clue plugin.
+     *
+     * @param name          the name
+     * @param clueId        the clue id
+     * @param level         the level
+     * @param emote         the emote
+     * @param commenceEmote the commence emote
+     * @param equipment     the equipment
+     * @param clue          the clue
+     * @param borders       the borders
+     */
     public EmoteCluePlugin(String name, int clueId, ClueLevel level, Emotes emote, Emotes commenceEmote, int[][] equipment, String clue, ZoneBorders... borders) {
 		super(name, clueId, level, emote, commenceEmote, equipment, clue, borders);
 	}
 
+    /**
+     * Instantiates a new Emote clue plugin.
+     *
+     * @param name      the name
+     * @param clueId    the clue id
+     * @param level     the level
+     * @param emote     the emote
+     * @param equipment the equipment
+     * @param clue      the clue
+     * @param borders   the borders
+     */
     public EmoteCluePlugin(String name, int clueId, ClueLevel level, Emotes emote, int[][] equipment, String clue, ZoneBorders... borders) {
 		super(name, clueId, level, emote, null, equipment, clue, borders);
 	}

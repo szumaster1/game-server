@@ -12,6 +12,11 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Vine interaction
+ *
+ * @constructor Vine interaction
+ */
 @Initializable
 class VineInteraction : PluginInteraction() {
 

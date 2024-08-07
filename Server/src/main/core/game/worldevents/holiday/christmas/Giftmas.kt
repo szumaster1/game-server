@@ -20,12 +20,22 @@ import core.tools.RandomFunction
 import core.tools.colorize
 import org.json.simple.JSONObject
 
+/**
+ * Giftmas
+ *
+ * @constructor Giftmas
+ */
 class Giftmas : Commands, StartupListener, LoginListener, InteractionListener {
     override fun startup() {
         if (checkActive())
             init()
     }
 
+    /**
+     * Check active
+     *
+     * @return
+     */
     fun checkActive(): Boolean {
         val archive = getArchive()
         return archive.getBoolean("active")
@@ -36,6 +46,10 @@ class Giftmas : Commands, StartupListener, LoginListener, InteractionListener {
         player.hook(Event.XpGained, XpGainHook)
     }
 
+    /**
+     * Init
+     *
+     */
     fun init() {
         try {
             on(Items.MYSTERY_BOX_6199, IntType.ITEM, "open") { player, node ->
@@ -54,6 +68,10 @@ class Giftmas : Commands, StartupListener, LoginListener, InteractionListener {
             player.hook(Event.XpGained, XpGainHook)
     }
 
+    /**
+     * Cleanup
+     *
+     */
     fun cleanup() {
         for (player in Repository.players)
             player.unhook(XpGainHook)

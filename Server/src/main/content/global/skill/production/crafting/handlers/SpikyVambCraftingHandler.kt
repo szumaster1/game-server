@@ -9,6 +9,9 @@ import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Spiky vamb crafting handler.
+ */
 @Initializable
 class SpikyVambCraftingHandler : UseWithHandler(Items.KEBBIT_CLAWS_10113) {
 

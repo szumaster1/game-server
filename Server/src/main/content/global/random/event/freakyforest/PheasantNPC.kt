@@ -10,6 +10,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
 import core.game.node.item.Item
 
+/**
+ * Pheasant NPC.
+ */
 class PheasantNPC : NPCBehavior(NPCs.PHEASANT_2459, NPCs.PHEASANT_2460, NPCs.PHEASANT_2461, NPCs.PHEASANT_2462) {
 
     override fun onDropTableRolled(self: NPC, killer: Entity, drops: ArrayList<Item>) {

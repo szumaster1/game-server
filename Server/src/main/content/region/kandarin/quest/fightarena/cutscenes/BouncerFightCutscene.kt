@@ -6,6 +6,9 @@ import core.game.global.action.DoorActionHandler
 import core.game.node.entity.player.Player
 import core.game.world.map.Direction
 
+/**
+ * Bouncer fight cutscene.
+ */
 class BouncerFightCutscene(player: Player) : Cutscene(player) {
 
     override fun setup() {

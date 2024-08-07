@@ -9,6 +9,9 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Sack basket option handler.
+ */
 @Initializable
 class SackBasketOptionHandler : OptionHandler() {
 

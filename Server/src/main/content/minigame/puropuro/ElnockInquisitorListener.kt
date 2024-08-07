@@ -8,6 +8,9 @@ import core.api.sendNPCDialogue
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Elnock inquisitor listener.
+ */
 class ElnockInquisitorListener : InteractionListener {
 
     companion object {
@@ -31,11 +34,7 @@ class ElnockInquisitorListener : InteractionListener {
                 addItemOrDrop(player, 11260, 6)
                 sendNPCDialogue(player, ELNOCK_INQUISITOR, "Here you go!")
             } else {
-                sendNPCDialogue(
-                    player,
-                    ELNOCK_INQUISITOR,
-                    "Since I have already given you some equipment for free, I'll be willing to sell you some now."
-                )
+                sendNPCDialogue(player, ELNOCK_INQUISITOR, "Since I have already given you some equipment for free, I'll be willing to sell you some now.")
             }
             return@on true
         }

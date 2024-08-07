@@ -11,6 +11,15 @@ import core.game.node.entity.skill.Skills
 import core.game.node.scenery.Scenery
 import core.game.system.task.Pulse
 
+/**
+ * Silver craft pulse
+ *
+ * @property player
+ * @property product
+ * @property furnace
+ * @property amount
+ * @constructor Silver craft pulse
+ */
 class SilverCraftPulse(
     val player: Player,
     val product: SilverData,

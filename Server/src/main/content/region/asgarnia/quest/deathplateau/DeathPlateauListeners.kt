@@ -10,6 +10,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.item.GroundItemManager
 
+/**
+ * Death plateau listeners
+ *
+ * @constructor Death plateau listeners
+ */
 class DeathPlateauListeners : InteractionListener {
 
     companion object {

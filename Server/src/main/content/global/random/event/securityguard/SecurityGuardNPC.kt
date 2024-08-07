@@ -11,8 +11,13 @@ import core.game.node.entity.Entity
 import core.game.node.entity.npc.NPC
 import core.game.system.timer.impl.AntiMacro
 
+/**
+ * Security guard NPC.
+ */
 class SecurityGuardNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs.SECURITY_GUARD_4375) {
+
     private var timeLeft = 0
+
     override fun init() {
         super.init()
         sendChat("Stop right there " + player.username + "!")

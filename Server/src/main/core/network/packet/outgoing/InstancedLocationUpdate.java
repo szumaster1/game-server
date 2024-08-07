@@ -6,6 +6,10 @@ import core.network.packet.IoBuffer;
 import core.network.packet.OutgoingPacket;
 import core.network.packet.context.LocationContext;
 
+/**
+ * Instanced location update.
+ * @author Emperor
+ */
 public final class InstancedLocationUpdate implements OutgoingPacket<LocationContext> {
 
     @Override

@@ -10,6 +10,12 @@ private const val STAGE_KNIT_SWEATER = 10
 private const val STAGE_KNIT_WIG = 20
 private const val STAGE_REPAIR_HOLES = 30
 
+/**
+ * Ned dialogue file
+ *
+ * @property questStage
+ * @constructor Ned dialogue file
+ */
 class NedDialogueFile(val questStage: Int) : DialogueFile() {
 
     private val WIG_WOOL = Item(1759, 3)

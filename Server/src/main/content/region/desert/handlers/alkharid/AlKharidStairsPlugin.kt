@@ -12,6 +12,9 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Al kharid stairs plugin.
+ */
 @Initializable
 class AlKharidStairsPlugin : OptionHandler() {
     private val zekeStairsTop = Scenery(35645, Location(3284, 3190, 1), 2, 0)

@@ -3,6 +3,12 @@ package content.region.fremennik.quest.fremtrials.npc
 import core.api.consts.NPCs
 import core.game.node.entity.player.Player
 
+/**
+ * Koschei session
+ *
+ * @property player
+ * @constructor Koschei session
+ */
 class KoscheiSession(val player: Player) {
     private val koschei: KoscheiNPC = KoscheiNPC(
         NPCs.KOSCHEI_THE_DEATHLESS_1290,
@@ -17,11 +23,19 @@ class KoscheiSession(val player: Player) {
         player.addExtension(KoscheiSession::class.java, this)
     }
 
+    /**
+     * Start
+     *
+     */
     fun start() {
         koschei.init()
         player.unlock()
     }
 
+    /**
+     * Close
+     *
+     */
     fun close() {
         koschei.clear()
         player.removeExtension(KoscheiSession::class.java)

@@ -9,24 +9,25 @@ import core.game.interaction.InteractionListener
 import core.game.system.task.Pulse
 import core.game.world.GameWorld
 
+/**
+ * Desert rock shortcut.
+ */
 class DesertRockShortcut : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Setup rock shortcut using rope on it.
          */
-
         onUseWith(IntType.SCENERY, Items.ROPE_954, ROCK) { player, _, _ ->
             animate(player, TIE_ROPE)
             setVarbit(player, 4231, 1)
             return@onUseWith true
         }
 
-        /*
+        /**
          * Interaction with rock.
          */
-
         on(ROCK, IntType.SCENERY, "climb down") { player, _ ->
             lock(player, 1000)
             lockInteractions(player, 1000)
@@ -59,7 +60,7 @@ class DesertRockShortcut : InteractionListener {
         }
     }
 
-    /*
+    /**
      * Location: https://i.imgur.com/pzs942s.png
      */
     companion object {

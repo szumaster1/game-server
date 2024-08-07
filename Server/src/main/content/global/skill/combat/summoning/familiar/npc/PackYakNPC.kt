@@ -16,6 +16,9 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 
+/**
+ * Pack yak familiar.
+ */
 @Initializable
 class PackYakNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.PACK_YAK_6873) : BurdenBeast(owner, id, 5800, 12093, 12, 30, WeaponInterface.STYLE_AGGRESSIVE) {
 

@@ -17,6 +17,9 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 
+/**
+ * Ape atoll course.
+ */
 @Initializable
 class ApeAtollCourse
 @JvmOverloads constructor(player: Player? = null) : AgilityCourse(player, 6, 450.0) {

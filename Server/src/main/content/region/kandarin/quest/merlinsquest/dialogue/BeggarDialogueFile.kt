@@ -16,6 +16,12 @@ import core.game.node.scenery.Scenery
 import core.game.world.map.Location
 import core.tools.END_DIALOGUE
 
+/**
+ * Beggar dialogue file
+ *
+ * @property door
+ * @constructor Beggar dialogue file
+ */
 class BeggarDialogueFile(val door: Scenery?) : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.BEGGAR_252)
@@ -113,6 +119,11 @@ class BeggarDialogueFile(val door: Scenery?) : DialogueFile() {
         player.setAttribute(MerlinUtils.TEMP_ATTR_LADY, beggar)
     }
 
+    /**
+     * Init beggar
+     *
+     * @param player
+     */
     fun initBeggar(player: Player) {
         val beggar = BeggarNPC(NPCs.BEGGAR_252, Location.create(3016, 3247, 0))
         player.setAttribute(MerlinUtils.TEMP_ATTR_BEGGAR, beggar)

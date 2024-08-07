@@ -6,8 +6,11 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Gillie groats dialogue.
+ */
 @Initializable
-class GillieGroatsCADialogue(player: Player? = null) : Dialogue(player) {
+class GillieGroatsDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         var milk = false

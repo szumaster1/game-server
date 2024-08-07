@@ -12,6 +12,11 @@ import core.game.node.entity.npc.NPC
 import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
+/**
+ * Border guard dialogue
+ *
+ * @constructor Border guard dialogue
+ */
 class BorderGuardDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

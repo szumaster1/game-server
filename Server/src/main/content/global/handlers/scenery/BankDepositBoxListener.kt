@@ -15,6 +15,11 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.IronmanMode
 import core.game.world.GameWorld
 
+/**
+ * Bank deposit box listener
+ *
+ * @constructor Bank deposit box listener
+ */
 class BankDepositBoxListener : InteractionListener {
 
     private fun openDepositBox(player: Player, node: Node, state: Int): Boolean {

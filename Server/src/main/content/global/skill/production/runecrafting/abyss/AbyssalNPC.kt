@@ -9,6 +9,9 @@ import core.game.node.item.Item
 import core.game.world.map.Location
 import core.tools.RandomFunction
 
+/**
+ * Abyssal NPC.
+ */
 class AbyssalNPC : AbstractNPC {
 
     constructor() : super(0, null, true) {

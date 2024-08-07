@@ -22,6 +22,9 @@ import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Falador grapple.
+ */
 @Initializable
 class FaladorGrapple : OptionHandler() {
 

@@ -20,6 +20,11 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Plugin
 
+/**
+ * B k fortress plugin
+ *
+ * @constructor B k fortress plugin
+ */
 class BKFortressPlugin : OptionHandler() {
 
     override fun newInstance(arg: Any?): Plugin<Any> {

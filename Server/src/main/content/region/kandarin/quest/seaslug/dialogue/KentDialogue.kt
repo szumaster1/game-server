@@ -13,6 +13,9 @@ import core.game.system.task.Pulse
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Kent dialogue.
+ */
 @Initializable
 class KentDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -81,6 +84,11 @@ class KentDialogue(player: Player? = null) : Dialogue(player) {
         return intArrayOf(NPCs.KENT_701)
     }
 
+    /**
+     * Kent dialogue file
+     *
+     * @constructor Kent dialogue file
+     */
     internal class KentDialogueFile : DialogueFile() {
         override fun handle(componentID: Int, buttonID: Int) {
             npc = NPC(NPCs.KENT_701)

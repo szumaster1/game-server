@@ -17,6 +17,15 @@ import core.game.world.map.Location
 import core.game.world.repository.Repository.findNPC
 import core.tools.RandomFunction
 
+/**
+ * Falconry catch pulse
+ *
+ * @property falconCatch
+ * @constructor
+ *
+ * @param player
+ * @param node
+ */
 class FalconryCatchPulse(player: Player?, node: NPC, private val falconCatch: FalconCatch) :
     SkillPulse<NPC?>(player, node) {
     private val originalLocation: Location = node.location
@@ -120,6 +129,11 @@ class FalconryCatchPulse(player: Player?, node: NPC, private val falconCatch: Fa
     val distance: Int
         get() = (2 + player.location.getDistance(node!!.asNpc().location) * 0.5).toInt()
 
+    /**
+     * Success
+     *
+     * @return
+     */
     fun success(): Boolean {
         return if (originalLocation !== node!!.asNpc().location) {
             RandomFunction.random(1, 3) == 2

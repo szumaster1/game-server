@@ -9,10 +9,22 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 
+/**
+ * Fremennik trials
+ *
+ * @constructor Fremennik trials
+ */
 @Initializable
 class FremennikTrials : Quest("Fremennik Trials", 64, 63, 3, Vars.VARP_QUEST_FREMENNIK_TRIALS_PROGRESS, 0, 1, 10) {
 
 
+    /**
+     * Skill requirement
+     *
+     * @property skill
+     * @property level
+     * @constructor Skill requirement
+     */
     class SkillRequirement(val skill: Int?, val level: Int?)
 
     val requirements = arrayListOf<SkillRequirement>()

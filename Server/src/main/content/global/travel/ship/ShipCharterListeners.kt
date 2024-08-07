@@ -6,6 +6,9 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.interaction.InterfaceListener
 
+/**
+ * Ship charter listeners.
+ */
 class ShipCharterListeners : InteractionListener, InterfaceListener {
 
     override fun defineListeners() {

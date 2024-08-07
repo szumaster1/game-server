@@ -7,6 +7,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.START_DIALOGUE
 
+/**
+ * Seegud dialogue.
+ */
 @Initializable
 class SeegudDialogue(player: Player? = null) : Dialogue(player) {
 

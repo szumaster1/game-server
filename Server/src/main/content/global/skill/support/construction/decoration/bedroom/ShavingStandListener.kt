@@ -8,6 +8,9 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.system.task.Pulse
 
+/**
+ * Shaving stand listener.
+ */
 class ShavingStandListener : InteractionListener {
 
     private val shavingStandIDs = intArrayOf(13162, 13163, 13168)

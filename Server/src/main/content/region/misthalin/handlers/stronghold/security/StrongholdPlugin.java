@@ -37,11 +37,17 @@ import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.*;
 
+/**
+ * Stronghold plugin.
+ */
 @Initializable
 public final class StrongholdPlugin extends MapZone implements Plugin<Object> {
 
     private static final Object[][] PORTALS = new Object[][]{{16150, Location.create(1914, 5222, 0)}, {16082, Location.create(2021, 5223, 0)}, {16116, Location.create(2146, 5287, 0)}, {16050, Location.create(2341, 5219, 0)}};
 
+    /**
+     * Instantiates a new Stronghold plugin.
+     */
     public StrongholdPlugin() {
         super("strong hold of security", true);
     }
@@ -273,14 +279,25 @@ public final class StrongholdPlugin extends MapZone implements Plugin<Object> {
         register(new ZoneBorders(2297, 5166, 2391, 5261));// fourth level.
     }
 
+    /**
+     * Stronghold dialogue.
+     */
     public static final class StrongholdDialogue extends Dialogue {
         private Scenery door;
         private int npcId;
 
+        /**
+         * Instantiates a new Stronghold dialogue.
+         *
+         * @param player the player
+         */
         public StrongholdDialogue(final Player player) {
             super(player);
         }
 
+        /**
+         * Instantiates a new Stronghold dialogue.
+         */
         public StrongholdDialogue() {
         }
 
@@ -800,14 +817,25 @@ public final class StrongholdPlugin extends MapZone implements Plugin<Object> {
 
     }
 
+    /**
+     * Explorer dialogue.
+     */
     public static final class ExplorerDialogue extends Dialogue {
         private static final Item STRONGHOLD_NOTES = new Item(9004);
         private static final Animation ANIMATION = new Animation(881);
 
+        /**
+         * Instantiates a new Explorer dialogue.
+         *
+         * @param player the player
+         */
         public ExplorerDialogue(final Player player) {
             super(player);
         }
 
+        /**
+         * Instantiates a new Explorer dialogue.
+         */
         public ExplorerDialogue() {
 
         }
@@ -852,9 +880,17 @@ public final class StrongholdPlugin extends MapZone implements Plugin<Object> {
 
     }
 
+    /**
+     * Stronghold component plugin.
+     */
     public final class StrongholdComponentPlugin extends ComponentPlugin {
         private final Location destination;
 
+        /**
+         * Instantiates a new Stronghold component plugin.
+         *
+         * @param destination the destination
+         */
         public StrongholdComponentPlugin(final Location destination) {
             this.destination = destination;
         }

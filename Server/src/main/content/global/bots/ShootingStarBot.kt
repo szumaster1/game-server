@@ -11,6 +11,9 @@ import core.game.node.item.Item
 import core.game.world.map.Location
 import core.tools.RandomFunction
 
+/**
+ * Shooting star bot.
+ */
 class ShootingStarBot : Script() {
     private var state = State.FULL_IDLE
     private var timerCountdown = 0
@@ -59,25 +62,75 @@ class ShootingStarBot : Script() {
         return ShootingStarBot()
     }
 
+    /**
+     * Activate
+     *
+     * @param instant
+     */
     fun activate(instant: Boolean) {
         state = State.TELEPORT_TO
         if (!instant) timerCountdown = RandomFunction.random(500)
     }
 
+    /**
+     * Sleep
+     *
+     */
     fun sleep() {
         state = State.TELEPORT_BACK
     }
 
+    /**
+     * Is mining
+     *
+     * @return
+     */
     fun isMining(): Boolean {
         return state == State.MINING
     }
 
+    /**
+     * Is idle
+     *
+     * @return
+     */
     fun isIdle(): Boolean {
         return state == State.FULL_IDLE
     }
 
+    /**
+     * State
+     *
+     * @constructor State
+     */
     internal enum class State {
-        FULL_IDLE, TELEPORT_TO, MINING, TELEPORT_BACK
+        /**
+         * Full Idle
+         *
+         * @constructor Full Idle
+         */
+        FULL_IDLE,
+
+        /**
+         * Teleport To
+         *
+         * @constructor Teleport To
+         */
+        TELEPORT_TO,
+
+        /**
+         * Mining
+         *
+         * @constructor Mining
+         */
+        MINING,
+
+        /**
+         * Teleport Back
+         *
+         * @constructor Teleport Back
+         */
+        TELEPORT_BACK
     }
 
     companion object {

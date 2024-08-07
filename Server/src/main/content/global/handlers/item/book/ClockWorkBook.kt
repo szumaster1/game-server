@@ -9,6 +9,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
+/**
+ * Clock work book
+ *
+ * @constructor Clock work book
+ */
 class ClockWorkBook : InteractionListener {
 
     // Obtainable during the Cold War quest.

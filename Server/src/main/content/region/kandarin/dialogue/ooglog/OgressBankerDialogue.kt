@@ -8,6 +8,9 @@ import core.game.node.entity.player.Player
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
+/**
+ * Ogress banker dialogue.
+ */
 class OgressBankerDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {

@@ -2,6 +2,9 @@ package core.cache.crypto;
 
 import java.nio.ByteBuffer;
 
+/**
+ * Xtea cryption.
+ */
 public final class XTEACryption {
 
     private static final int DELTA = -1640531527;
@@ -16,10 +19,26 @@ public final class XTEACryption {
          */
     }
 
+    /**
+     * Decrypt byte buffer.
+     *
+     * @param keys   the keys
+     * @param buffer the buffer
+     * @return the byte buffer
+     */
     public static ByteBuffer decrypt(int[] keys, ByteBuffer buffer) {
         return decrypt(keys, buffer, buffer.position(), buffer.limit());
     }
 
+    /**
+     * Decrypt byte buffer.
+     *
+     * @param keys   the keys
+     * @param buffer the buffer
+     * @param offset the offset
+     * @param length the length
+     * @return the byte buffer
+     */
     public static ByteBuffer decrypt(int[] keys, ByteBuffer buffer, int offset, int length) {
         int numBlocks = (length - offset) / 8;
         int[] block = new int[2];
@@ -43,10 +62,24 @@ public final class XTEACryption {
         }
     }
 
+    /**
+     * Encrypt.
+     *
+     * @param keys   the keys
+     * @param buffer the buffer
+     */
     public static void encrypt(int[] keys, ByteBuffer buffer) {
         encrypt(keys, buffer, buffer.position(), buffer.limit());
     }
 
+    /**
+     * Encrypt.
+     *
+     * @param keys   the keys
+     * @param buffer the buffer
+     * @param offset the offset
+     * @param length the length
+     */
     public static void encrypt(int[] keys, ByteBuffer buffer, int offset, int length) {
         int numBlocks = (length - offset) / 8;
         int[] block = new int[2];

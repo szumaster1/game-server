@@ -15,6 +15,9 @@ import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.plugin.Initializable
 
+/**
+ * Sir leye NPC.
+ */
 @Initializable
 class SirLeyeNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
     var clearTime = 0

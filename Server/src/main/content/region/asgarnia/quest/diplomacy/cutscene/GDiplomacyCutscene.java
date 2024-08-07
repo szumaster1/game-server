@@ -33,12 +33,23 @@ import static core.api.ContentAPIKt.setAttribute;
 import static core.api.ContentAPIKt.setVarbit;
 
 
+/**
+ * G diplomacy cutscene.
+ */
 public final class GDiplomacyCutscene extends CutscenePlugin {
 
+    /**
+     * Instantiates a new G diplomacy cutscene.
+     */
     public GDiplomacyCutscene() {
         this(null);
     }
 
+    /**
+     * Instantiates a new G diplomacy cutscene.
+     *
+     * @param player the player
+     */
     public GDiplomacyCutscene(final Player player) {
         super("Goblin Diplomacy Cutscene");
         this.player = player;
@@ -93,6 +104,9 @@ public final class GDiplomacyCutscene extends CutscenePlugin {
         return new GDiplomacyCutscene(p);
     }
 
+    /**
+     * Goblin general dialogue.
+     */
     public static final class GoblinGeneralDialogue extends Dialogue {
 
 
@@ -120,11 +134,19 @@ public final class GDiplomacyCutscene extends CutscenePlugin {
         private GrubFoot type;
 
 
+        /**
+         * Instantiates a new Goblin general dialogue.
+         */
         public GoblinGeneralDialogue() {
 
         }
 
 
+        /**
+         * Instantiates a new Goblin general dialogue.
+         *
+         * @param player the player
+         */
         public GoblinGeneralDialogue(Player player) {
             super(player);
         }
@@ -388,6 +410,11 @@ public final class GDiplomacyCutscene extends CutscenePlugin {
         }
 
 
+        /**
+         * Parse dialogue.
+         *
+         * @param dialogue the dialogue
+         */
         public void parseDialogue(String[] dialogue) {
             if (index == DIALOGUES.length - 1) {
                 if (quest.getStage(player) == 0) {
@@ -422,6 +449,11 @@ public final class GDiplomacyCutscene extends CutscenePlugin {
         }
 
 
+        /**
+         * Default options.
+         *
+         * @param buttonId the button id
+         */
         public void defaultOptions(int buttonId) {
             switch (stage) {
                 case 10:
@@ -528,6 +560,11 @@ public final class GDiplomacyCutscene extends CutscenePlugin {
         }
 
 
+        /**
+         * Handle default.
+         *
+         * @param buttonId the button id
+         */
         public void handleDefault(int buttonId) {
             if (stage > 99) {
                 handleFinishDialogues();
@@ -596,6 +633,12 @@ public final class GDiplomacyCutscene extends CutscenePlugin {
         }
 
 
+        /**
+         * Send grub foot.
+         *
+         * @param grubFoot the grub foot
+         * @param endStage the end stage
+         */
         public void sendGrubFoot(final GrubFoot grubFoot, final int endStage) {
             Pathfinder.find(grubfoot, grubfoot.getLocation().transform(-4, 0, 0)).walk(grubfoot);
             GameWorld.getPulser().submit(new Pulse(1, player) {
@@ -800,21 +843,45 @@ public final class GDiplomacyCutscene extends CutscenePlugin {
         }
 
 
+        /**
+         * Gets speaker.
+         *
+         * @param line the line
+         * @return the speaker
+         */
         public Entity getSpeaker(final String line) {
             return line.contains("@player") ? player : line.contains("@base") ? npc : other;
         }
 
 
+        /**
+         * Gets color.
+         *
+         * @param line the line
+         * @return the color
+         */
         public String getColor(final String line) {
             return npc.getId() == 4494 ? "green" : "red";
         }
 
 
+        /**
+         * Gets other color.
+         *
+         * @param line the line
+         * @return the other color
+         */
         public String getOtherColor(final String line) {
             return other.getId() == 4493 ? "red" : "green";
         }
 
 
+        /**
+         * Get lines string [ ].
+         *
+         * @param line the line
+         * @return the string [ ]
+         */
         public String[] getLines(final String line) {
             return line.split("/n");
         }

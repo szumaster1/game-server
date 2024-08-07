@@ -14,6 +14,11 @@ import core.game.world.repository.Repository
 import core.plugin.Initializable
 import kotlin.system.exitProcess
 
+/**
+ * System command set
+ *
+ * @constructor System command set
+ */
 @Initializable
 class SystemCommandSet : CommandSet(Privilege.ADMIN) {
     override fun defineCommands() {

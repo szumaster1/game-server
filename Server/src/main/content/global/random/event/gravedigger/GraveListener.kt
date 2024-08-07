@@ -8,6 +8,9 @@ import core.game.interaction.InteractionListener
 import core.game.node.scenery.*
 import core.game.world.map.Location
 
+/**
+ * Grave listener.
+ */
 class GraveListener : InteractionListener {
     private val grave1 = Scenery.GRAVE_12722
     private val grave2 = Scenery.GRAVE_12724

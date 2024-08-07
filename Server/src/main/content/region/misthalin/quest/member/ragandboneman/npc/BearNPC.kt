@@ -10,7 +10,9 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.tools.RandomFunction
 
-
+/**
+ * Bear NPC.
+ */
 class BearNPC : NPCBehavior(*bearIds) {
 
     companion object {

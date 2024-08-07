@@ -14,6 +14,9 @@ import java.net.HttpURLConnection
 import java.net.URL
 
 
+/**
+ * Discord.
+ */
 class Discord : TickListener {
     override fun tick() {
         if (removeList.isNotEmpty()) {

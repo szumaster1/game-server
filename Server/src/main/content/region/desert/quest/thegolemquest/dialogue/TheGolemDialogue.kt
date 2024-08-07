@@ -11,6 +11,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Clay golem dialogue.
+ */
 @Initializable
 class ClayGolemDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -29,6 +32,11 @@ class ClayGolemDialogue(player: Player? = null) : Dialogue(player) {
     }
 }
 
+/**
+ * Clay golem dialogue file
+ *
+ * @constructor Clay golem dialogue file
+ */
 class ClayGolemDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {
         val opt1 = b.onQuestStages("The Golem", 0)
@@ -106,6 +114,11 @@ class ClayGolemDialogueFile : DialogueBuilderFile() {
     }
 }
 
+/**
+ * Clay golem program dialogue file
+ *
+ * @constructor Clay golem program dialogue file
+ */
 class ClayGolemProgramDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {
         b.onQuestStages("The Golem", 8)
@@ -116,6 +129,11 @@ class ClayGolemProgramDialogueFile : DialogueBuilderFile() {
     }
 }
 
+/**
+ * Curator haig halen golem dialogue
+ *
+ * @constructor Curator haig halen golem dialogue
+ */
 class CuratorHaigHalenGolemDialogue : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {
         val opt1 = b.onQuestStages("The Golem", 3)

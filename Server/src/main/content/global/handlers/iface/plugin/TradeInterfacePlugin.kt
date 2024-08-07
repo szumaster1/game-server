@@ -10,6 +10,11 @@ import core.game.node.entity.player.link.request.trade.TradeModule.Companion.get
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Trade interface plugin
+ *
+ * @constructor Trade interface plugin
+ */
 @Initializable
 class TradeInterfacePlugin : ComponentPlugin() {
 

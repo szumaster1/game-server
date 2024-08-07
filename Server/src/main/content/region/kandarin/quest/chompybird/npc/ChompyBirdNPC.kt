@@ -22,6 +22,9 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 import core.tools.RandomFunction
 
+/**
+ * Chompy bird NPC.
+ */
 @Initializable
 class ChompyBirdNPC : AbstractNPC, InteractionListener {
     constructor() : super(NPCs.CHOMPY_BIRD_1550, null, true)

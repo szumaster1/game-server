@@ -4,7 +4,6 @@ import core.game.node.item.Item
 
 /**
  * Holds the Grand Exchange item sets.
- * @author Emperor
  */
 enum class GEItemSet(
     val itemId: Int,

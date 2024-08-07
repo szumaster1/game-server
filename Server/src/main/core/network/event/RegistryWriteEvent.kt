@@ -8,6 +8,13 @@ import core.network.IoWriteEvent;
 
 import java.nio.ByteBuffer;
 
+/**
+ * Registry write event.
+ * @author Emperor
+ *
+ * @param session the session.
+ * @param context the context.
+ */
 class RegistryWriteEvent(session: IoSession, context: Any) : IoWriteEvent(session, context) {
 
     companion object {

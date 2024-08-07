@@ -13,6 +13,11 @@ import core.game.node.entity.npc.NPC
 import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
+/**
+ * Professor dialogue file
+ *
+ * @constructor Professor dialogue file
+ */
 class ProfessorDialogueFile : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
@@ -238,6 +243,11 @@ class ProfessorDialogueFile : DialogueFile() {
     }
 }
 
+/**
+ * Professor constellations dialogue
+ *
+ * @constructor Professor constellations dialogue
+ */
 class ProfessorConstellationsDialogue() : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

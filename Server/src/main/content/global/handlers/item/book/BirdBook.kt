@@ -9,6 +9,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
+/**
+ * Bird book
+ *
+ * @constructor Bird book
+ */
 class BirdBook : InteractionListener {
 
     // Find as part of the Eagles' Peak quest.

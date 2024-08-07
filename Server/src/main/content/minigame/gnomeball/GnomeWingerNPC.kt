@@ -13,6 +13,9 @@ import core.game.node.entity.npc.NPCBehavior
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
+/**
+ * Gnome winger NPC.
+ */
 private class GnomeWingerNPC : NPCBehavior(NPCs.GNOME_WINGER_633) {
 
     lateinit var player: Player
@@ -33,6 +36,12 @@ private class GnomeWingerNPC : NPCBehavior(NPCs.GNOME_WINGER_633) {
         return true
     }
 
+    /**
+     * Pass
+     *
+     * @param player
+     * @param self
+     */
     fun pass(player: Player, self: NPC) {
         self.face(player)
         animate(self, Animations.BALLER_THROW_201)

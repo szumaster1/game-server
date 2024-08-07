@@ -9,18 +9,28 @@ import java.nio.charset.CoderResult
 
 object CP1252 : Charset("Cp1252", null) {
 
+    // Define the code page mapping for CP1252 characters
     private val CODE_PAGE = charArrayOf(
         '\u20AC', '\u0000', '\u201A', '\u0192', '\u201E', '\u2026', '\u2020', '\u2021',
         '\u02C6', '\u2030', '\u0160', '\u2039', '\u0152', '\u0000', '\u017D', '\u0000',
         '\u0000', '\u2018', '\u2019', '\u201C', '\u201D', '\u2022', '\u2013', '\u2014',
         '\u02DC', '\u2122', '\u0161', '\u203A', '\u0153', '\u0000', '\u017E', '\u0178'
     )
+
+    // Define the encode table for CP1252 characters
     private val ENCODE_TABLE = ByteArray(65536)
+
+    // Define the decode table for CP1252 characters
     private val DECODE_TABLE = CharArray(256)
+
+    // Define the replacement character for unmappable characters
     private const val REPLACEMENT_CHAR = '\uFFFD'
+
+    // Define the replacement byte for unmappable characters
     private const val REPLACEMENT_BYTE = 0x003F.toByte()
 
     init {
+        // Populate the encode and decode tables with the code page mapping
         for (b in 0 until 256) {
             val c = if (b in 0x80 until 0xA0) {
                 CODE_PAGE[b and 0x7F]
@@ -35,6 +45,7 @@ object CP1252 : Charset("Cp1252", null) {
         }
     }
 
+    // Decode a byte to a CP1252 character
     @JvmStatic
     fun decode(byte: Byte): Char {
         val char = DECODE_TABLE[byte.toInt() and 0xFF]
@@ -45,6 +56,7 @@ object CP1252 : Charset("Cp1252", null) {
         }
     }
 
+    // Encode a CP1252 character to a byte
     fun encode(char: Char): Byte {
         val byte = ENCODE_TABLE[char.code]
         return if (byte.toInt() == 0) {

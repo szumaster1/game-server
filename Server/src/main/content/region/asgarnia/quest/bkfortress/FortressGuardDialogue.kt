@@ -14,6 +14,9 @@ import core.game.world.map.RegionManager.getObject
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Fortress guard dialogue.
+ */
 @Initializable
 class FortressGuardDialogue(player: Player? = null) : Dialogue(player) {
 

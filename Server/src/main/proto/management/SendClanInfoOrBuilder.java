@@ -3,54 +3,164 @@
 
 package proto.management;
 
+/**
+ * The interface Send clan info or builder.
+ */
 public interface SendClanInfoOrBuilder extends
         // @@protoc_insertion_point(interface_extends:management.SendClanInfo)
         com.google.protobuf.MessageOrBuilder {
 
+    /**
+     * Has clan owner boolean.
+     *
+     * @return the boolean
+     */
     boolean hasClanOwner();
 
-    java.lang.String getClanOwner();
+    /**
+     * Gets clan owner.
+     *
+     * @return the clan owner
+     */
+    String getClanOwner();
 
+    /**
+     * Gets clan owner bytes.
+     *
+     * @return the clan owner bytes
+     */
     com.google.protobuf.ByteString
     getClanOwnerBytes();
 
+    /**
+     * Has has info boolean.
+     *
+     * @return the boolean
+     */
     boolean hasHasInfo();
 
+    /**
+     * Gets has info.
+     *
+     * @return the has info
+     */
     boolean getHasInfo();
 
+    /**
+     * Has clan name boolean.
+     *
+     * @return the boolean
+     */
     boolean hasClanName();
 
-    java.lang.String getClanName();
+    /**
+     * Gets clan name.
+     *
+     * @return the clan name
+     */
+    String getClanName();
 
+    /**
+     * Gets clan name bytes.
+     *
+     * @return the clan name bytes
+     */
     com.google.protobuf.ByteString
     getClanNameBytes();
 
+    /**
+     * Has join requirement boolean.
+     *
+     * @return the boolean
+     */
     boolean hasJoinRequirement();
 
+    /**
+     * Gets join requirement.
+     *
+     * @return the join requirement
+     */
     int getJoinRequirement();
 
+    /**
+     * Has kick requirement boolean.
+     *
+     * @return the boolean
+     */
     boolean hasKickRequirement();
 
+    /**
+     * Gets kick requirement.
+     *
+     * @return the kick requirement
+     */
     int getKickRequirement();
 
+    /**
+     * Has message requirement boolean.
+     *
+     * @return the boolean
+     */
     boolean hasMessageRequirement();
 
+    /**
+     * Gets message requirement.
+     *
+     * @return the message requirement
+     */
     int getMessageRequirement();
 
+    /**
+     * Has loot requirement boolean.
+     *
+     * @return the boolean
+     */
     boolean hasLootRequirement();
 
+    /**
+     * Gets loot requirement.
+     *
+     * @return the loot requirement
+     */
     int getLootRequirement();
 
-    java.util.List<proto.management.SendClanInfo.ClanMember>
+    /**
+     * Gets members list.
+     *
+     * @return the members list
+     */
+    java.util.List<SendClanInfo.ClanMember>
     getMembersList();
 
-    proto.management.SendClanInfo.ClanMember getMembers(int index);
+    /**
+     * Gets members.
+     *
+     * @param index the index
+     * @return the members
+     */
+    SendClanInfo.ClanMember getMembers(int index);
 
+    /**
+     * Gets members count.
+     *
+     * @return the members count
+     */
     int getMembersCount();
 
-    java.util.List<? extends proto.management.SendClanInfo.ClanMemberOrBuilder>
+    /**
+     * Gets members or builder list.
+     *
+     * @return the members or builder list
+     */
+    java.util.List<? extends SendClanInfo.ClanMemberOrBuilder>
     getMembersOrBuilderList();
 
-    proto.management.SendClanInfo.ClanMemberOrBuilder getMembersOrBuilder(
+    /**
+     * Gets members or builder.
+     *
+     * @param index the index
+     * @return the members or builder
+     */
+    SendClanInfo.ClanMemberOrBuilder getMembersOrBuilder(
             int index);
 }

@@ -12,6 +12,9 @@ import core.game.node.item.Item
 import core.game.world.map.Location
 import core.tools.RandomFunction
 
+/**
+ * Varrock smither.
+ */
 class VarrockSmither : Script() {
     var state = State.SMITHING
     override fun tick() {
@@ -59,7 +62,24 @@ class VarrockSmither : Script() {
         inventory.add(Item(Items.STEEL_BAR_2353, 27))
     }
 
+    /**
+     * State
+     *
+     * @constructor State
+     */
     enum class State {
-        SMITHING, BANKING
+        /**
+         * Smithing
+         *
+         * @constructor Smithing
+         */
+        SMITHING,
+
+        /**
+         * Banking
+         *
+         * @constructor Banking
+         */
+        BANKING
     }
 }

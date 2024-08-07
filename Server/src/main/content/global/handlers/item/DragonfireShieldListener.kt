@@ -25,6 +25,11 @@ import core.plugin.Plugin
 import core.tools.minutesToTicks
 import core.tools.secondsToTicks
 
+/**
+ * Dragonfire shield listener
+ *
+ * @constructor Dragonfire shield listener
+ */
 class DragonfireShieldListener : InteractionListener {
 
     val dragonfireShields = intArrayOf(Items.DRAGONFIRE_SHIELD_11283, Items.DRAGONFIRE_SHIELD_11284)
@@ -160,7 +165,9 @@ class DragonfireShieldListener : InteractionListener {
 }
 
 /**
- * Drops the uncharged dragon fire shield item id on death.
+ * D f s item plugin
+ *
+ * @constructor D f s item plugin
  */
 
 @Initializable

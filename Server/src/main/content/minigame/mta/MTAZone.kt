@@ -12,6 +12,9 @@ import core.game.world.map.zone.MapZone
 import core.game.world.map.zone.ZoneRestriction
 import core.game.world.map.zone.ZoneType
 
+/**
+ * MTA zone.
+ */
 open class MTAZone(name: String?, val items: Array<Item>) :
     MapZone(name, false, ZoneRestriction.RANDOM_EVENTS, ZoneRestriction.FOLLOWERS) {
 
@@ -94,11 +97,23 @@ open class MTAZone(name: String?, val items: Array<Item>) :
         }
     }
 
+    /**
+     * Increment points
+     *
+     * @param player
+     * @param index
+     * @param amount
+     */
     fun incrementPoints(player: Player, index: Int, amount: Int) {
         player.getSavedData().activityData.incrementPizazz(index, amount)
         update(player)
     }
 
+    /**
+     * Update
+     *
+     * @param player
+     */
     open fun update(player: Player?) {
         if (type == null) {
             return

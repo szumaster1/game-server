@@ -13,6 +13,9 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Tramp dialogue.
+ */
 @Initializable
 class TrampDialogue(player: Player? = null) : Dialogue(player) {
 

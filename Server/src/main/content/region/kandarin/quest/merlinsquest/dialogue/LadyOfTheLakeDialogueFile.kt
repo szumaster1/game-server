@@ -11,6 +11,11 @@ import core.game.dialogue.Topic
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
+/**
+ * Lady of the lake dialogue file
+ *
+ * @constructor Lady of the lake dialogue file
+ */
 class LadyOfTheLakeDialogueFile : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

@@ -9,6 +9,9 @@ import core.game.node.entity.player.Player
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 
+/**
+ * Ravenous locust familiar.
+ */
 @Initializable
 class RavenousLocustNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.RAVENOUS_LOCUST_7372) : Familiar(owner, id, 2400, 12820, 12, WeaponInterface.STYLE_ACCURATE) {
 

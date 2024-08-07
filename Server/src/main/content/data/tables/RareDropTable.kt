@@ -19,10 +19,6 @@ import javax.xml.parsers.DocumentBuilder
 import javax.xml.parsers.DocumentBuilderFactory
 import javax.xml.parsers.ParserConfigurationException
 
-/*
- * @author Ceikry
- * @date 29.01.2023
- */
 class RareDropTable : StartupListener {
 
     override fun startup() {

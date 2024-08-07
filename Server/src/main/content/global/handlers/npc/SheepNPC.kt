@@ -20,7 +20,9 @@ import core.tools.RandomFunction
 
 private val sheepIds = intArrayOf(NPCs.SHEEP_42, NPCs.SHEEP_43, NPCs.GOLDEN_SHEEP_1271, NPCs.GOLDEN_SHEEP_1272, NPCs.SHEEP_1529, NPCs.SHEEP_1762, NPCs.SHEEP_1763, NPCs.SHEEP_1764, NPCs.SHEEP_1765, NPCs.SICK_LOOKING_SHEEP_1_2377, NPCs.SICK_LOOKING_SHEEP_2_2378, NPCs.SICK_LOOKING_SHEEP_3_2379, NPCs.SICK_LOOKING_SHEEP_4_2380, NPCs.SHEEP_3310, NPCs.SHEEP_3311, NPCs.SHEEP_3579, NPCs.SHEEP_5148, NPCs.SHEEP_5149, NPCs.SHEEP_5150, NPCs.SHEEP_5151, NPCs.SHEEP_5152, NPCs.SHEEP_5153, NPCs.SHEEP_5154, NPCs.SHEEP_5155, NPCs.SHEEP_5156, NPCs.SHEEP_5157, NPCs.SHEEP_5158, NPCs.SHEEP_5159, NPCs.SHEEP_5160, NPCs.SHEEP_5161, NPCs.SHEEP_5162, NPCs.SHEEP_5163, NPCs.SHEEP_5164, NPCs.SHEEP_5165, NPCs.GOLDEN_SHEEP_5172, NPCs.GOLDEN_SHEEP_5173)
 
-
+/**
+ * Sheep NPC.
+ */
 class SheepNPC : NPCBehavior(*sheepIds), InteractionListener {
     override fun tick(self: NPC): Boolean {
         if (self.properties.combatPulse.isAttacking || DeathTask.isDead(self)) {
@@ -80,6 +82,13 @@ class SheepNPC : NPCBehavior(*sheepIds), InteractionListener {
         }
     }
 
+    /**
+     * Sheep back away
+     *
+     * @param player
+     * @param sheep
+     * @param messagePlayer
+     */
     fun sheepBackAway(player: Player, sheep: NPC, messagePlayer: String) {
         val playerLocation = player.location
         val sheepLocation = sheep.location

@@ -18,6 +18,9 @@ import java.util.List;
 import static core.api.ContentAPIKt.setVarbit;
 import static core.api.ContentAPIKt.setVarp;
 
+/**
+ * Scenery.
+ */
 public class Scenery extends Node {
 
     private final int id;
@@ -31,30 +34,84 @@ public class Scenery extends Node {
     private final Scenery[] childs;
     private Scenery wrapper;
 
+    /**
+     * Instantiates a new Scenery.
+     *
+     * @param id the id
+     * @param x  the x
+     * @param y  the y
+     * @param z  the z
+     */
     public Scenery(int id, int x, int y, int z) {
         this(id, Location.create(x, y, z), 10, 0);
     }
 
+    /**
+     * Instantiates a new Scenery.
+     *
+     * @param id       the id
+     * @param location the location
+     */
     public Scenery(int id, Location location) {
         this(id, location, 10, 0);
     }
 
+    /**
+     * Instantiates a new Scenery.
+     *
+     * @param id       the id
+     * @param location the location
+     * @param rotation the rotation
+     */
     public Scenery(int id, Location location, int rotation) {
         this(id, location, 10, rotation);
     }
 
+    /**
+     * Instantiates a new Scenery.
+     *
+     * @param id        the id
+     * @param location  the location
+     * @param rotation  the rotation
+     * @param direction the direction
+     */
     public Scenery(int id, Location location, int rotation, Direction direction) {
         this(id, location, 10, rotation);
     }
 
+    /**
+     * Instantiates a new Scenery.
+     *
+     * @param id       the id
+     * @param x        the x
+     * @param y        the y
+     * @param z        the z
+     * @param type     the type
+     * @param rotation the rotation
+     */
     public Scenery(int id, int x, int y, int z, int type, int rotation) {
         this(id, Location.create(x, y, z), type, rotation);
     }
 
+    /**
+     * Instantiates a new Scenery.
+     *
+     * @param id       the id
+     * @param type     the type
+     * @param rotation the rotation
+     */
     public Scenery(int id, int type, int rotation) {
         this(id, Location.create(0, 0, 0), type, rotation);
     }
 
+    /**
+     * Instantiates a new Scenery.
+     *
+     * @param id       the id
+     * @param location the location
+     * @param type     the type
+     * @param rotation the rotation
+     */
     public Scenery(int id, Location location, int type, int rotation) {
         super(SceneryDefinition.forId(id).getName(), location);
         if (rotation < 0) {
@@ -83,15 +140,28 @@ public class Scenery extends Node {
         }
     }
 
+    /**
+     * Instantiates a new Scenery.
+     *
+     * @param other the other
+     */
     public Scenery(Scenery other) {
         this(other.getId(), other.getLocation(), other.getType(), other.getRotation());
     }
 
+    /**
+     * Remove.
+     */
     public void remove() {
     }
 
     ;
 
+    /**
+     * Gets size x.
+     *
+     * @return the size x
+     */
     public int getSizeX() {
         if (direction.toInteger() % 2 != 0) {
             return definition.sizeY;
@@ -99,6 +169,11 @@ public class Scenery extends Node {
         return definition.sizeX;
     }
 
+    /**
+     * Gets size y.
+     *
+     * @return the size y
+     */
     public int getSizeY() {
         if (direction.toInteger() % 2 != 0) {
             return definition.sizeX;
@@ -114,6 +189,12 @@ public class Scenery extends Node {
         super.setActive(active);
     }
 
+    /**
+     * Gets child.
+     *
+     * @param player the player
+     * @return the child
+     */
     public Scenery getChild(Player player) {
         if (childs != null) {
             SceneryDefinition def = definition.getChildObject(player);
@@ -126,6 +207,12 @@ public class Scenery extends Node {
         return this;
     }
 
+    /**
+     * Sets child index.
+     *
+     * @param player the player
+     * @param index  the index
+     */
     public void setChildIndex(Player player, int index) {
         SceneryDefinition def = getDefinition();
         if (childs == null && wrapper != null) {
@@ -141,26 +228,65 @@ public class Scenery extends Node {
         }
     }
 
+    /**
+     * Transform scenery.
+     *
+     * @param id the id
+     * @return the scenery
+     */
     public Scenery transform(int id) {
         return new Scenery(id, location, type, rotation);
     }
 
+    /**
+     * Transform scenery.
+     *
+     * @param id       the id
+     * @param rotation the rotation
+     * @return the scenery
+     */
     public Scenery transform(int id, int rotation) {
         return new Scenery(id, location, type, rotation);
     }
 
+    /**
+     * Transform scenery.
+     *
+     * @param id       the id
+     * @param rotation the rotation
+     * @param location the location
+     * @return the scenery
+     */
     public Scenery transform(int id, int rotation, Location location) {
         return new Scenery(id, location, type, rotation);
     }
 
+    /**
+     * Transform scenery.
+     *
+     * @param id       the id
+     * @param rotation the rotation
+     * @param type     the type
+     * @return the scenery
+     */
     public Scenery transform(int id, int rotation, int type) {
         return new Scenery(id, location, type, rotation);
     }
 
+    /**
+     * Is permanent boolean.
+     *
+     * @return the boolean
+     */
     public boolean isPermanent() {
         return true;
     }
 
+    /**
+     * As constructed constructed.
+     *
+     * @return the constructed
+     */
     public Constructed asConstructed() {
         return new Constructed(id, location, type, rotation);
     }
@@ -169,14 +295,29 @@ public class Scenery extends Node {
         return id;
     }
 
+    /**
+     * Gets type.
+     *
+     * @return the type
+     */
     public int getType() {
         return type;
     }
 
+    /**
+     * Gets rotation.
+     *
+     * @return the rotation
+     */
     public int getRotation() {
         return rotation;
     }
 
+    /**
+     * Sets rotation.
+     *
+     * @param rot the rot
+     */
     public void setRotation(int rot) {
         rotation = rot;
     }
@@ -186,6 +327,11 @@ public class Scenery extends Node {
         return location;
     }
 
+    /**
+     * Gets definition.
+     *
+     * @return the definition
+     */
     public SceneryDefinition getDefinition() {
         return definition;
     }
@@ -209,38 +355,83 @@ public class Scenery extends Node {
         return "[Scenery " + id + ", " + location + ", type=" + type + ", rot=" + rotation + "]";
     }
 
+    /**
+     * Gets restore pulse.
+     *
+     * @return the restore pulse
+     */
     public Pulse getRestorePulse() {
         return restorePulse;
     }
 
+    /**
+     * Sets restore pulse.
+     *
+     * @param restorePulse the restore pulse
+     */
     public void setRestorePulse(Pulse restorePulse) {
         this.restorePulse = restorePulse;
     }
 
+    /**
+     * Gets charge.
+     *
+     * @return the charge
+     */
     public int getCharge() {
         return charge;
     }
 
+    /**
+     * Sets charge.
+     *
+     * @param charge the charge
+     */
     public void setCharge(int charge) {
         this.charge = charge;
     }
 
+    /**
+     * Gets destruction pulse.
+     *
+     * @return the destruction pulse
+     */
     public Pulse getDestructionPulse() {
         return destructionPulse;
     }
 
+    /**
+     * Sets destruction pulse.
+     *
+     * @param destructionPulse the destruction pulse
+     */
     public void setDestructionPulse(Pulse destructionPulse) {
         this.destructionPulse = destructionPulse;
     }
 
+    /**
+     * Gets attributes.
+     *
+     * @return the attributes
+     */
     public GameAttributes getAttributes() {
         return attributes;
     }
 
+    /**
+     * Get childs scenery [ ].
+     *
+     * @return the scenery [ ]
+     */
     public Scenery[] getChilds() {
         return childs;
     }
 
+    /**
+     * Gets wrapper.
+     *
+     * @return the wrapper
+     */
     public Scenery getWrapper() {
         if (wrapper == null) {
             return this;
@@ -248,10 +439,20 @@ public class Scenery extends Node {
         return wrapper;
     }
 
+    /**
+     * Sets wrapper.
+     *
+     * @param wrapper the wrapper
+     */
     public void setWrapper(Scenery wrapper) {
         this.wrapper = wrapper;
     }
 
+    /**
+     * Gets occupied tiles.
+     *
+     * @return the occupied tiles
+     */
     @SuppressWarnings("SuspiciousNameCombination")
     @NotNull
     public List<Location> getOccupiedTiles() {

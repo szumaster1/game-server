@@ -10,6 +10,9 @@ import core.game.node.entity.player.link.SpellBookManager.SpellBook
 import core.game.world.map.Location
 import core.tools.RandomFunction
 
+/**
+ * Spinolyp NPC.
+ */
 class SpinolypNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 
     init {

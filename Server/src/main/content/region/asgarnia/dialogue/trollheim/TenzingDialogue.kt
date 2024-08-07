@@ -12,6 +12,9 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Tenzing dialogue.
+ */
 @Initializable
 class TenzingDialogue(player: Player? = null) : Dialogue(player) {
 

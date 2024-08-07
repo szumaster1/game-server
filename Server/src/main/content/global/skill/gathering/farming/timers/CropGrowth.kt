@@ -10,6 +10,11 @@ import org.json.simple.JSONObject
 import java.time.LocalTime
 import java.util.concurrent.TimeUnit
 
+/**
+ * Crop growth
+ *
+ * @constructor Crop growth
+ */
 class CropGrowth : PersistTimer (500, "farming:crops", isSoft = true) {
     private val patchMap = HashMap<FarmingPatch, Patch>()
     lateinit var player: Player
@@ -84,10 +89,21 @@ class CropGrowth : PersistTimer (500, "farming:crops", isSoft = true) {
         }
     }
 
+    /**
+     * Get patch
+     *
+     * @param patch
+     * @return
+     */
     fun getPatch(patch: FarmingPatch): Patch {
         return patchMap[patch] ?: (Patch(player,patch).also { patchMap[patch] = it })
     }
 
+    /**
+     * Get patches
+     *
+     * @return
+     */
     fun getPatches(): MutableCollection<Patch>{
         return patchMap.values
     }

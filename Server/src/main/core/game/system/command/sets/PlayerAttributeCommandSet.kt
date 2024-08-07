@@ -7,6 +7,11 @@ import core.game.system.command.Privilege
 import core.game.world.repository.Repository
 import core.plugin.Initializable
 
+/**
+ * Player attribute command set
+ *
+ * @constructor Player attribute command set
+ */
 @Initializable
 class PlayerAttributeCommandSet : CommandSet(Privilege.ADMIN) {
 

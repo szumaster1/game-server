@@ -2,6 +2,17 @@ package content.global.skill.production.smithing.data
 
 import core.api.consts.Items
 
+/**
+ * Enum class for Barbarian weapons.
+ *
+ * @param requiredWood  required wood type.
+ * @param requiredBar   required bar type.
+ * @param spearId       the spear id.
+ * @param hastaId       the hasta id.
+ * @param amount        amount.
+ * @param requiredLevel requirement level.
+ * @param experience    the experience received.
+ */
 enum class BarbarianWeapon(
     val requiredWood: Int,
     val requiredBar: Int,
@@ -11,6 +22,9 @@ enum class BarbarianWeapon(
     var requiredLevel: Int,
     val experience: Double
 ) {
+    /**
+     * Bronze Spear.
+     */
     BRONZE_SPEAR(
         requiredWood = Items.LOGS_1511,
         requiredBar = Items.BRONZE_BAR_2349,
@@ -20,6 +34,10 @@ enum class BarbarianWeapon(
         requiredLevel = 5,
         experience = 25.00
     ),
+
+    /**
+     * Iron Spear.
+     */
     IRON_SPEAR(
         requiredWood = Items.OAK_LOGS_1521,
         requiredBar = Items.IRON_BAR_2351,
@@ -29,6 +47,10 @@ enum class BarbarianWeapon(
         requiredLevel = 20,
         experience = 50.00
     ),
+
+    /**
+     * Steel Spear.
+     */
     STEEL_SPEAR(
         requiredWood = Items.WILLOW_LOGS_1519,
         requiredBar = Items.STEEL_BAR_2353,
@@ -38,6 +60,10 @@ enum class BarbarianWeapon(
         requiredLevel = 35,
         experience = 75.00
     ),
+
+    /**
+     * Mithril Spear.
+     */
     MITHRIL_SPEAR(
         requiredWood = Items.MAPLE_LOGS_1517,
         requiredBar = Items.MITHRIL_BAR_2359,
@@ -47,6 +73,10 @@ enum class BarbarianWeapon(
         requiredLevel = 55,
         experience = 100.00
     ),
+
+    /**
+     * Adamant Spear.
+     */
     ADAMANT_SPEAR(
         requiredWood = Items.YEW_LOGS_1515,
         requiredBar = Items.ADAMANTITE_BAR_2361,
@@ -56,6 +86,10 @@ enum class BarbarianWeapon(
         requiredLevel = 75,
         experience = 125.00
     ),
+
+    /**
+     * Rune Spear.
+     */
     RUNE_SPEAR(
         requiredWood = Items.MAGIC_LOGS_1513,
         requiredBar = Items.RUNITE_BAR_2363,

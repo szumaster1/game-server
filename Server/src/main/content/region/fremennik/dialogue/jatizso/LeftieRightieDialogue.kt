@@ -7,6 +7,11 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
+/**
+ * Leftie rightie dialogue
+ *
+ * @constructor Leftie rightie dialogue
+ */
 class LeftieRightieDialogue : DialogueFile() {
 
     val rightie = NPCs.GUARD_5491
@@ -28,6 +33,11 @@ class LeftieRightieDialogue : DialogueFile() {
         }
     }
 
+    /**
+     * Npc2
+     *
+     * @param messages
+     */
     fun npc2(messages: String) {
         sendNormalDialogue(leftie, FacialExpression.NEUTRAL, *splitLines(messages))
     }

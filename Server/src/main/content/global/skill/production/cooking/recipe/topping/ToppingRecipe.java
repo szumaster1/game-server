@@ -7,8 +7,14 @@ import core.game.node.entity.player.Player;
 import core.game.node.entity.skill.Skills;
 import core.game.node.item.Item;
 
+/**
+ * Topping recipe.
+ */
 public abstract class ToppingRecipe extends Recipe {
 
+    /**
+     * The constant BOWL.
+     */
     protected static final Item BOWL = new Item(Items.BOWL_1923);
 
     @Override
@@ -36,8 +42,18 @@ public abstract class ToppingRecipe extends Recipe {
         return true;
     }
 
+    /**
+     * Gets level.
+     *
+     * @return the level
+     */
     public abstract int getLevel();
 
+    /**
+     * Gets experience.
+     *
+     * @return the experience
+     */
     public abstract double getExperience();
 
 }

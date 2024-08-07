@@ -8,6 +8,16 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.world.GameWorld.ticks
 
+/**
+ * Kebbit bolt pulse
+ *
+ * @property bolts
+ * @property amount
+ * @constructor
+ *
+ * @param player
+ * @param node
+ */
 class KebbitBoltPulse(player: Player?, node: Item, private val bolts: KebbitBolt, private var amount: Int) : SkillPulse<Item?>(player, node) {
 
     override fun checkRequirements(): Boolean {

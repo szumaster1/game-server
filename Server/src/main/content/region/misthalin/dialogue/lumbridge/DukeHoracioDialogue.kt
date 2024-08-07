@@ -14,6 +14,9 @@ import core.game.node.entity.player.Player
 import core.tools.DIALOGUE_INITIAL_OPTIONS_HANDLE
 import core.tools.END_DIALOGUE
 
+/**
+ * Duke horacio dialogue.
+ */
 class DukeHoracioDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {

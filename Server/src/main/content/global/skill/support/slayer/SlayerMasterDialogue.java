@@ -19,6 +19,9 @@ import org.json.simple.JSONObject;
 
 import static core.tools.DialogueHelperKt.END_DIALOGUE;
 
+/**
+ * Slayer master dialogue.
+ */
 @Initializable
 public final class SlayerMasterDialogue extends Dialogue {
 
@@ -36,8 +39,16 @@ public final class SlayerMasterDialogue extends Dialogue {
     private final int level = 2;
     private int rerolls = 0;
 
+    /**
+     * Instantiates a new Slayer master dialogue.
+     */
     public SlayerMasterDialogue() {}
 
+    /**
+     * Instantiates a new Slayer master dialogue.
+     *
+     * @param player the player
+     */
     public SlayerMasterDialogue(Player player) {
         super(player);
     }

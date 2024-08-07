@@ -28,16 +28,30 @@ import core.tools.RandomFunction;
 import static core.api.ContentAPIKt.sendNews;
 
 
+/**
+ * Wilderness zone.
+ */
 public final class WildernessZone extends MapZone {
     private static int[] PVP_GEAR = {13887, 13893, 13899, 13905, 13870, 13873, 13876, 13879, 13883, 13884, 13890, 13896, 13902, 13858, 13861, 13864, 13867};
 
     private static final WildernessZone INSTANCE = new WildernessZone(new ZoneBorders(2944, 3525, 3400, 3975), new ZoneBorders(3070, 9924, 3135, 10002), ZoneBorders.forRegion(12192), ZoneBorders.forRegion(12193), ZoneBorders.forRegion(11937));
 
+    /**
+     * The constant WILDERNESS_PROT_ATTR.
+     */
     public static final String WILDERNESS_PROT_ATTR = "/save:wilderness-protection-active";
+    /**
+     * The constant WILDERNESS_HIGHER_NEXTFEE.
+     */
     public static final String WILDERNESS_HIGHER_NEXTFEE = "/save:wilderness-higher-next-fee";
 
     private ZoneBorders[] borders;
 
+    /**
+     * Instantiates a new Wilderness zone.
+     *
+     * @param borders the borders
+     */
     public WildernessZone(ZoneBorders... borders) {
         super("Wilderness", true, ZoneRestriction.RANDOM_EVENTS);
         this.borders = borders;
@@ -50,6 +64,12 @@ public final class WildernessZone extends MapZone {
         }
     }
 
+    /**
+     * Gets new drop rate.
+     *
+     * @param combatLevel the combat level
+     * @return the new drop rate
+     */
     public int getNewDropRate(int combatLevel) {
         double x = combatLevel;
         double A = 44044.5491;
@@ -161,6 +181,11 @@ public final class WildernessZone extends MapZone {
         return true;
     }
 
+    /**
+     * Leave.
+     *
+     * @param p the p
+     */
     public final void leave(final Player p) {
         Component overlay = new Component(381);
         if (overlay.getId() == 381) {
@@ -171,6 +196,11 @@ public final class WildernessZone extends MapZone {
         p.getSkullManager().setLevel(0);
     }
 
+    /**
+     * Show.
+     *
+     * @param p the p
+     */
     public static final void show(final Player p) {
         if (p.getSkullManager().isWildernessDisabled()) {
             return;
@@ -198,6 +228,13 @@ public final class WildernessZone extends MapZone {
         return true;
     }
 
+    /**
+     * Check teleport boolean.
+     *
+     * @param p     the p
+     * @param level the level
+     * @return the boolean
+     */
     public static boolean checkTeleport(Player p, int level) {
         if (p.getSkullManager().getLevel() > level && !p.getSkullManager().isWildernessDisabled()) {
             message(p, "You can't teleport this deep in the wilderness!");
@@ -235,6 +272,12 @@ public final class WildernessZone extends MapZone {
         }
     }
 
+    /**
+     * Is in zone boolean.
+     *
+     * @param e the e
+     * @return the boolean
+     */
     public static boolean isInZone(Entity e) {
         Location l = e.getLocation();
         for (ZoneBorders z : INSTANCE.borders) {
@@ -244,6 +287,12 @@ public final class WildernessZone extends MapZone {
         return false;
     }
 
+    /**
+     * Is in zone boolean.
+     *
+     * @param l the l
+     * @return the boolean
+     */
     public static boolean isInZone(Location l) {
         for (ZoneBorders z : INSTANCE.borders) {
             if (z.insideBorder(l)) return true;
@@ -251,6 +300,12 @@ public final class WildernessZone extends MapZone {
         return false;
     }
 
+    /**
+     * Gets wilderness.
+     *
+     * @param e the e
+     * @return the wilderness
+     */
     public static int getWilderness(Entity e) {
         int y = e.getLocation().getY();
         if (6400 < y) {
@@ -260,10 +315,20 @@ public final class WildernessZone extends MapZone {
         }
     }
 
+    /**
+     * Get borders zone borders [ ].
+     *
+     * @return the zone borders [ ]
+     */
     public ZoneBorders[] getBorders() {
         return borders;
     }
 
+    /**
+     * Gets instance.
+     *
+     * @return the instance
+     */
     public static WildernessZone getInstance() {
         return INSTANCE;
     }

@@ -7,6 +7,9 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Ali the camel man dialogue.
+ */
 @Initializable
 class AliTheCamelManDialogue(player: Player? = null) : Dialogue(player) {
 

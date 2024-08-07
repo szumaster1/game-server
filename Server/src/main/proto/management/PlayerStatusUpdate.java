@@ -3,6 +3,9 @@
 
 package proto.management;
 
+/**
+ * Player status update.
+ */
 public final class PlayerStatusUpdate extends
         com.google.protobuf.GeneratedMessageV3 implements
         // @@protoc_insertion_point(message_implements:management.PlayerStatusUpdate)
@@ -18,14 +21,14 @@ public final class PlayerStatusUpdate extends
         username_ = "";
     }
 
-    @java.lang.Override
+    @Override
     @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
+    protected Object newInstance(
             UnusedPrivateParameter unused) {
         return new PlayerStatusUpdate();
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
         return this.unknownFields;
@@ -37,7 +40,7 @@ public final class PlayerStatusUpdate extends
             throws com.google.protobuf.InvalidProtocolBufferException {
         this();
         if (extensionRegistry == null) {
-            throw new java.lang.NullPointerException();
+            throw new NullPointerException();
         }
         int mutable_bitField0_ = 0;
         com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -86,37 +89,45 @@ public final class PlayerStatusUpdate extends
         }
     }
 
+    /**
+     * Gets descriptor.
+     *
+     * @return the descriptor
+     */
     public static final com.google.protobuf.Descriptors.Descriptor
     getDescriptor() {
-        return proto.management.ManagementProtos.internal_static_management_PlayerStatusUpdate_descriptor;
+        return ManagementProtos.internal_static_management_PlayerStatusUpdate_descriptor;
     }
 
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    @Override
+    protected FieldAccessorTable
     internalGetFieldAccessorTable() {
-        return proto.management.ManagementProtos.internal_static_management_PlayerStatusUpdate_fieldAccessorTable
+        return ManagementProtos.internal_static_management_PlayerStatusUpdate_fieldAccessorTable
                 .ensureFieldAccessorsInitialized(
-                        proto.management.PlayerStatusUpdate.class, proto.management.PlayerStatusUpdate.Builder.class);
+                        PlayerStatusUpdate.class, Builder.class);
     }
 
     private int bitField0_;
+    /**
+     * The constant USERNAME_FIELD_NUMBER.
+     */
     public static final int USERNAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object username_;
+    private volatile Object username_;
 
-    @java.lang.Override
+    @Override
     public boolean hasUsername() {
         return ((bitField0_ & 0x00000001) != 0);
     }
 
-    @java.lang.Override
-    public java.lang.String getUsername() {
-        java.lang.Object ref = username_;
-        if (ref instanceof java.lang.String) {
-            return (java.lang.String) ref;
+    @Override
+    public String getUsername() {
+        Object ref = username_;
+        if (ref instanceof String) {
+            return (String) ref;
         } else {
             com.google.protobuf.ByteString bs =
                     (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
+            String s = bs.toStringUtf8();
             if (bs.isValidUtf8()) {
                 username_ = s;
             }
@@ -124,14 +135,14 @@ public final class PlayerStatusUpdate extends
         }
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.ByteString
     getUsernameBytes() {
-        java.lang.Object ref = username_;
-        if (ref instanceof java.lang.String) {
+        Object ref = username_;
+        if (ref instanceof String) {
             com.google.protobuf.ByteString b =
                     com.google.protobuf.ByteString.copyFromUtf8(
-                            (java.lang.String) ref);
+                            (String) ref);
             username_ = b;
             return b;
         } else {
@@ -139,35 +150,41 @@ public final class PlayerStatusUpdate extends
         }
     }
 
+    /**
+     * The constant WORLD_FIELD_NUMBER.
+     */
     public static final int WORLD_FIELD_NUMBER = 2;
     private int world_;
 
-    @java.lang.Override
+    @Override
     public boolean hasWorld() {
         return ((bitField0_ & 0x00000002) != 0);
     }
 
-    @java.lang.Override
+    @Override
     public int getWorld() {
         return world_;
     }
 
+    /**
+     * The constant NOTIFYFRIENDSONLY_FIELD_NUMBER.
+     */
     public static final int NOTIFYFRIENDSONLY_FIELD_NUMBER = 3;
     private boolean notifyFriendsOnly_;
 
-    @java.lang.Override
+    @Override
     public boolean hasNotifyFriendsOnly() {
         return ((bitField0_ & 0x00000004) != 0);
     }
 
-    @java.lang.Override
+    @Override
     public boolean getNotifyFriendsOnly() {
         return notifyFriendsOnly_;
     }
 
     private byte memoizedIsInitialized = -1;
 
-    @java.lang.Override
+    @Override
     public final boolean isInitialized() {
         byte isInitialized = memoizedIsInitialized;
         if (isInitialized == 1) return true;
@@ -189,7 +206,7 @@ public final class PlayerStatusUpdate extends
         return true;
     }
 
-    @java.lang.Override
+    @Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
             throws java.io.IOException {
         if (((bitField0_ & 0x00000001) != 0)) {
@@ -204,7 +221,7 @@ public final class PlayerStatusUpdate extends
         unknownFields.writeTo(output);
     }
 
-    @java.lang.Override
+    @Override
     public int getSerializedSize() {
         int size = memoizedSize;
         if (size != -1) return size;
@@ -226,15 +243,15 @@ public final class PlayerStatusUpdate extends
         return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
         if (obj == this) {
             return true;
         }
-        if (!(obj instanceof proto.management.PlayerStatusUpdate)) {
+        if (!(obj instanceof PlayerStatusUpdate)) {
             return super.equals(obj);
         }
-        proto.management.PlayerStatusUpdate other = (proto.management.PlayerStatusUpdate) obj;
+        PlayerStatusUpdate other = (PlayerStatusUpdate) obj;
 
         if (hasUsername() != other.hasUsername()) return false;
         if (hasUsername()) {
@@ -255,7 +272,7 @@ public final class PlayerStatusUpdate extends
         return true;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
         if (memoizedHashCode != 0) {
             return memoizedHashCode;
@@ -280,51 +297,111 @@ public final class PlayerStatusUpdate extends
         return hash;
     }
 
-    public static proto.management.PlayerStatusUpdate parseFrom(
+    /**
+     * Parse from player status update.
+     *
+     * @param data the data
+     * @return the player status update
+     * @throws InvalidProtocolBufferException the invalid protocol buffer exception
+     */
+    public static PlayerStatusUpdate parseFrom(
             java.nio.ByteBuffer data)
             throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
     }
 
-    public static proto.management.PlayerStatusUpdate parseFrom(
+    /**
+     * Parse from player status update.
+     *
+     * @param data              the data
+     * @param extensionRegistry the extension registry
+     * @return the player status update
+     * @throws InvalidProtocolBufferException the invalid protocol buffer exception
+     */
+    public static PlayerStatusUpdate parseFrom(
             java.nio.ByteBuffer data,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
     }
 
-    public static proto.management.PlayerStatusUpdate parseFrom(
+    /**
+     * Parse from player status update.
+     *
+     * @param data the data
+     * @return the player status update
+     * @throws InvalidProtocolBufferException the invalid protocol buffer exception
+     */
+    public static PlayerStatusUpdate parseFrom(
             com.google.protobuf.ByteString data)
             throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
     }
 
-    public static proto.management.PlayerStatusUpdate parseFrom(
+    /**
+     * Parse from player status update.
+     *
+     * @param data              the data
+     * @param extensionRegistry the extension registry
+     * @return the player status update
+     * @throws InvalidProtocolBufferException the invalid protocol buffer exception
+     */
+    public static PlayerStatusUpdate parseFrom(
             com.google.protobuf.ByteString data,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
     }
 
-    public static proto.management.PlayerStatusUpdate parseFrom(byte[] data)
+    /**
+     * Parse from player status update.
+     *
+     * @param data the data
+     * @return the player status update
+     * @throws InvalidProtocolBufferException the invalid protocol buffer exception
+     */
+    public static PlayerStatusUpdate parseFrom(byte[] data)
             throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
     }
 
-    public static proto.management.PlayerStatusUpdate parseFrom(
+    /**
+     * Parse from player status update.
+     *
+     * @param data              the data
+     * @param extensionRegistry the extension registry
+     * @return the player status update
+     * @throws InvalidProtocolBufferException the invalid protocol buffer exception
+     */
+    public static PlayerStatusUpdate parseFrom(
             byte[] data,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
     }
 
-    public static proto.management.PlayerStatusUpdate parseFrom(java.io.InputStream input)
+    /**
+     * Parse from player status update.
+     *
+     * @param input the input
+     * @return the player status update
+     * @throws IOException the io exception
+     */
+    public static PlayerStatusUpdate parseFrom(java.io.InputStream input)
             throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
                 .parseWithIOException(PARSER, input);
     }
 
-    public static proto.management.PlayerStatusUpdate parseFrom(
+    /**
+     * Parse from player status update.
+     *
+     * @param input             the input
+     * @param extensionRegistry the extension registry
+     * @return the player status update
+     * @throws IOException the io exception
+     */
+    public static PlayerStatusUpdate parseFrom(
             java.io.InputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
@@ -332,13 +409,28 @@ public final class PlayerStatusUpdate extends
                 .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static proto.management.PlayerStatusUpdate parseDelimitedFrom(java.io.InputStream input)
+    /**
+     * Parse delimited from player status update.
+     *
+     * @param input the input
+     * @return the player status update
+     * @throws IOException the io exception
+     */
+    public static PlayerStatusUpdate parseDelimitedFrom(java.io.InputStream input)
             throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
                 .parseDelimitedWithIOException(PARSER, input);
     }
 
-    public static proto.management.PlayerStatusUpdate parseDelimitedFrom(
+    /**
+     * Parse delimited from player status update.
+     *
+     * @param input             the input
+     * @param extensionRegistry the extension registry
+     * @return the player status update
+     * @throws IOException the io exception
+     */
+    public static PlayerStatusUpdate parseDelimitedFrom(
             java.io.InputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
@@ -346,14 +438,29 @@ public final class PlayerStatusUpdate extends
                 .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static proto.management.PlayerStatusUpdate parseFrom(
+    /**
+     * Parse from player status update.
+     *
+     * @param input the input
+     * @return the player status update
+     * @throws IOException the io exception
+     */
+    public static PlayerStatusUpdate parseFrom(
             com.google.protobuf.CodedInputStream input)
             throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
                 .parseWithIOException(PARSER, input);
     }
 
-    public static proto.management.PlayerStatusUpdate parseFrom(
+    /**
+     * Parse from player status update.
+     *
+     * @param input             the input
+     * @param extensionRegistry the extension registry
+     * @return the player status update
+     * @throws IOException the io exception
+     */
+    public static PlayerStatusUpdate parseFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
@@ -361,47 +468,66 @@ public final class PlayerStatusUpdate extends
                 .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @java.lang.Override
+    @Override
     public Builder newBuilderForType() {
         return newBuilder();
     }
 
+    /**
+     * New builder builder.
+     *
+     * @return the builder
+     */
     public static Builder newBuilder() {
         return DEFAULT_INSTANCE.toBuilder();
     }
 
-    public static Builder newBuilder(proto.management.PlayerStatusUpdate prototype) {
+    /**
+     * New builder builder.
+     *
+     * @param prototype the prototype
+     * @return the builder
+     */
+    public static Builder newBuilder(PlayerStatusUpdate prototype) {
         return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
 
-    @java.lang.Override
+    @Override
     public Builder toBuilder() {
         return this == DEFAULT_INSTANCE
                 ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            BuilderParent parent) {
         Builder builder = new Builder(parent);
         return builder;
     }
 
+    /**
+     * Builder.
+     */
     public static final class Builder extends
             com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
             // @@protoc_insertion_point(builder_implements:management.PlayerStatusUpdate)
-            proto.management.PlayerStatusUpdateOrBuilder {
+            PlayerStatusUpdateOrBuilder {
+        /**
+         * Gets descriptor.
+         *
+         * @return the descriptor
+         */
         public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-            return proto.management.ManagementProtos.internal_static_management_PlayerStatusUpdate_descriptor;
+            return ManagementProtos.internal_static_management_PlayerStatusUpdate_descriptor;
         }
 
-        @java.lang.Override
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        @Override
+        protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-            return proto.management.ManagementProtos.internal_static_management_PlayerStatusUpdate_fieldAccessorTable
+            return ManagementProtos.internal_static_management_PlayerStatusUpdate_fieldAccessorTable
                     .ensureFieldAccessorsInitialized(
-                            proto.management.PlayerStatusUpdate.class, proto.management.PlayerStatusUpdate.Builder.class);
+                            PlayerStatusUpdate.class, Builder.class);
         }
 
         // Construct using proto.management.PlayerStatusUpdate.newBuilder()
@@ -410,7 +536,7 @@ public final class PlayerStatusUpdate extends
         }
 
         private Builder(
-                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+                BuilderParent parent) {
             super(parent);
             maybeForceBuilderInitialization();
         }
@@ -421,7 +547,7 @@ public final class PlayerStatusUpdate extends
             }
         }
 
-        @java.lang.Override
+        @Override
         public Builder clear() {
             super.clear();
             username_ = "";
@@ -433,29 +559,29 @@ public final class PlayerStatusUpdate extends
             return this;
         }
 
-        @java.lang.Override
+        @Override
         public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-            return proto.management.ManagementProtos.internal_static_management_PlayerStatusUpdate_descriptor;
+            return ManagementProtos.internal_static_management_PlayerStatusUpdate_descriptor;
         }
 
-        @java.lang.Override
-        public proto.management.PlayerStatusUpdate getDefaultInstanceForType() {
-            return proto.management.PlayerStatusUpdate.getDefaultInstance();
+        @Override
+        public PlayerStatusUpdate getDefaultInstanceForType() {
+            return PlayerStatusUpdate.getDefaultInstance();
         }
 
-        @java.lang.Override
-        public proto.management.PlayerStatusUpdate build() {
-            proto.management.PlayerStatusUpdate result = buildPartial();
+        @Override
+        public PlayerStatusUpdate build() {
+            PlayerStatusUpdate result = buildPartial();
             if (!result.isInitialized()) {
                 throw newUninitializedMessageException(result);
             }
             return result;
         }
 
-        @java.lang.Override
-        public proto.management.PlayerStatusUpdate buildPartial() {
-            proto.management.PlayerStatusUpdate result = new proto.management.PlayerStatusUpdate(this);
+        @Override
+        public PlayerStatusUpdate buildPartial() {
+            PlayerStatusUpdate result = new PlayerStatusUpdate(this);
             int from_bitField0_ = bitField0_;
             int to_bitField0_ = 0;
             if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -475,56 +601,62 @@ public final class PlayerStatusUpdate extends
             return result;
         }
 
-        @java.lang.Override
+        @Override
         public Builder clone() {
             return super.clone();
         }
 
-        @java.lang.Override
+        @Override
         public Builder setField(
                 com.google.protobuf.Descriptors.FieldDescriptor field,
-                java.lang.Object value) {
+                Object value) {
             return super.setField(field, value);
         }
 
-        @java.lang.Override
+        @Override
         public Builder clearField(
                 com.google.protobuf.Descriptors.FieldDescriptor field) {
             return super.clearField(field);
         }
 
-        @java.lang.Override
+        @Override
         public Builder clearOneof(
                 com.google.protobuf.Descriptors.OneofDescriptor oneof) {
             return super.clearOneof(oneof);
         }
 
-        @java.lang.Override
+        @Override
         public Builder setRepeatedField(
                 com.google.protobuf.Descriptors.FieldDescriptor field,
-                int index, java.lang.Object value) {
+                int index, Object value) {
             return super.setRepeatedField(field, index, value);
         }
 
-        @java.lang.Override
+        @Override
         public Builder addRepeatedField(
                 com.google.protobuf.Descriptors.FieldDescriptor field,
-                java.lang.Object value) {
+                Object value) {
             return super.addRepeatedField(field, value);
         }
 
-        @java.lang.Override
+        @Override
         public Builder mergeFrom(com.google.protobuf.Message other) {
-            if (other instanceof proto.management.PlayerStatusUpdate) {
-                return mergeFrom((proto.management.PlayerStatusUpdate) other);
+            if (other instanceof PlayerStatusUpdate) {
+                return mergeFrom((PlayerStatusUpdate) other);
             } else {
                 super.mergeFrom(other);
                 return this;
             }
         }
 
-        public Builder mergeFrom(proto.management.PlayerStatusUpdate other) {
-            if (other == proto.management.PlayerStatusUpdate.getDefaultInstance()) return this;
+        /**
+         * Merge from builder.
+         *
+         * @param other the other
+         * @return the builder
+         */
+        public Builder mergeFrom(PlayerStatusUpdate other) {
+            if (other == PlayerStatusUpdate.getDefaultInstance()) return this;
             if (other.hasUsername()) {
                 bitField0_ |= 0x00000001;
                 username_ = other.username_;
@@ -541,7 +673,7 @@ public final class PlayerStatusUpdate extends
             return this;
         }
 
-        @java.lang.Override
+        @Override
         public final boolean isInitialized() {
             if (!hasUsername()) {
                 return false;
@@ -555,16 +687,16 @@ public final class PlayerStatusUpdate extends
             return true;
         }
 
-        @java.lang.Override
+        @Override
         public Builder mergeFrom(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws java.io.IOException {
-            proto.management.PlayerStatusUpdate parsedMessage = null;
+            PlayerStatusUpdate parsedMessage = null;
             try {
                 parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
             } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                parsedMessage = (proto.management.PlayerStatusUpdate) e.getUnfinishedMessage();
+                parsedMessage = (PlayerStatusUpdate) e.getUnfinishedMessage();
                 throw e.unwrapIOException();
             } finally {
                 if (parsedMessage != null) {
@@ -576,34 +708,34 @@ public final class PlayerStatusUpdate extends
 
         private int bitField0_;
 
-        private java.lang.Object username_ = "";
+        private Object username_ = "";
 
         public boolean hasUsername() {
             return ((bitField0_ & 0x00000001) != 0);
         }
 
-        public java.lang.String getUsername() {
-            java.lang.Object ref = username_;
-            if (!(ref instanceof java.lang.String)) {
+        public String getUsername() {
+            Object ref = username_;
+            if (!(ref instanceof String)) {
                 com.google.protobuf.ByteString bs =
                         (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
+                String s = bs.toStringUtf8();
                 if (bs.isValidUtf8()) {
                     username_ = s;
                 }
                 return s;
             } else {
-                return (java.lang.String) ref;
+                return (String) ref;
             }
         }
 
         public com.google.protobuf.ByteString
         getUsernameBytes() {
-            java.lang.Object ref = username_;
+            Object ref = username_;
             if (ref instanceof String) {
                 com.google.protobuf.ByteString b =
                         com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
+                                (String) ref);
                 username_ = b;
                 return b;
             } else {
@@ -611,8 +743,14 @@ public final class PlayerStatusUpdate extends
             }
         }
 
+        /**
+         * Sets username.
+         *
+         * @param value the value
+         * @return the username
+         */
         public Builder setUsername(
-                java.lang.String value) {
+                String value) {
             if (value == null) {
                 throw new NullPointerException();
             }
@@ -622,6 +760,11 @@ public final class PlayerStatusUpdate extends
             return this;
         }
 
+        /**
+         * Clear username builder.
+         *
+         * @return the builder
+         */
         public Builder clearUsername() {
             bitField0_ = (bitField0_ & ~0x00000001);
             username_ = getDefaultInstance().getUsername();
@@ -629,6 +772,12 @@ public final class PlayerStatusUpdate extends
             return this;
         }
 
+        /**
+         * Sets username bytes.
+         *
+         * @param value the value
+         * @return the username bytes
+         */
         public Builder setUsernameBytes(
                 com.google.protobuf.ByteString value) {
             if (value == null) {
@@ -642,16 +791,22 @@ public final class PlayerStatusUpdate extends
 
         private int world_;
 
-        @java.lang.Override
+        @Override
         public boolean hasWorld() {
             return ((bitField0_ & 0x00000002) != 0);
         }
 
-        @java.lang.Override
+        @Override
         public int getWorld() {
             return world_;
         }
 
+        /**
+         * Sets world.
+         *
+         * @param value the value
+         * @return the world
+         */
         public Builder setWorld(int value) {
             bitField0_ |= 0x00000002;
             world_ = value;
@@ -659,6 +814,11 @@ public final class PlayerStatusUpdate extends
             return this;
         }
 
+        /**
+         * Clear world builder.
+         *
+         * @return the builder
+         */
         public Builder clearWorld() {
             bitField0_ = (bitField0_ & ~0x00000002);
             world_ = 0;
@@ -668,16 +828,22 @@ public final class PlayerStatusUpdate extends
 
         private boolean notifyFriendsOnly_;
 
-        @java.lang.Override
+        @Override
         public boolean hasNotifyFriendsOnly() {
             return ((bitField0_ & 0x00000004) != 0);
         }
 
-        @java.lang.Override
+        @Override
         public boolean getNotifyFriendsOnly() {
             return notifyFriendsOnly_;
         }
 
+        /**
+         * Sets notify friends only.
+         *
+         * @param value the value
+         * @return the notify friends only
+         */
         public Builder setNotifyFriendsOnly(boolean value) {
             bitField0_ |= 0x00000004;
             notifyFriendsOnly_ = value;
@@ -685,6 +851,11 @@ public final class PlayerStatusUpdate extends
             return this;
         }
 
+        /**
+         * Clear notify friends only builder.
+         *
+         * @return the builder
+         */
         public Builder clearNotifyFriendsOnly() {
             bitField0_ = (bitField0_ & ~0x00000004);
             notifyFriendsOnly_ = false;
@@ -692,13 +863,13 @@ public final class PlayerStatusUpdate extends
             return this;
         }
 
-        @java.lang.Override
+        @Override
         public final Builder setUnknownFields(
                 final com.google.protobuf.UnknownFieldSet unknownFields) {
             return super.setUnknownFields(unknownFields);
         }
 
-        @java.lang.Override
+        @Override
         public final Builder mergeUnknownFields(
                 final com.google.protobuf.UnknownFieldSet unknownFields) {
             return super.mergeUnknownFields(unknownFields);
@@ -709,20 +880,28 @@ public final class PlayerStatusUpdate extends
     }
 
     // @@protoc_insertion_point(class_scope:management.PlayerStatusUpdate)
-    private static final proto.management.PlayerStatusUpdate DEFAULT_INSTANCE;
+    private static final PlayerStatusUpdate DEFAULT_INSTANCE;
 
     static {
-        DEFAULT_INSTANCE = new proto.management.PlayerStatusUpdate();
+        DEFAULT_INSTANCE = new PlayerStatusUpdate();
     }
 
-    public static proto.management.PlayerStatusUpdate getDefaultInstance() {
+    /**
+     * Gets default instance.
+     *
+     * @return the default instance
+     */
+    public static PlayerStatusUpdate getDefaultInstance() {
         return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated
+    /**
+     * The constant PARSER.
+     */
+    @Deprecated
     public static final com.google.protobuf.Parser<PlayerStatusUpdate>
             PARSER = new com.google.protobuf.AbstractParser<PlayerStatusUpdate>() {
-        @java.lang.Override
+        @Override
         public PlayerStatusUpdate parsePartialFrom(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -731,17 +910,22 @@ public final class PlayerStatusUpdate extends
         }
     };
 
+    /**
+     * Parser com . google . protobuf . parser.
+     *
+     * @return the com . google . protobuf . parser
+     */
     public static com.google.protobuf.Parser<PlayerStatusUpdate> parser() {
         return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<PlayerStatusUpdate> getParserForType() {
         return PARSER;
     }
 
-    @java.lang.Override
-    public proto.management.PlayerStatusUpdate getDefaultInstanceForType() {
+    @Override
+    public PlayerStatusUpdate getDefaultInstanceForType() {
         return DEFAULT_INSTANCE;
     }
 

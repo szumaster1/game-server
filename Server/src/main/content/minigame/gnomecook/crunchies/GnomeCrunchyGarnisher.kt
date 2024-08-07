@@ -8,8 +8,12 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Gnome crunchy garnisher.
+ */
 @Initializable
 class GnomeCrunchyGarnisher : UseWithHandler(9578, 9580, 9582, 9584) {
+
     override fun newInstance(arg: Any?): Plugin<Any> {
         addHandler(Items.CHOCOLATE_DUST_1975, ITEM_TYPE, this)
         addHandler(Items.GNOME_SPICE_2169, ITEM_TYPE, this)

@@ -7,6 +7,9 @@ import core.game.node.entity.npc.AbstractNPC
 import core.game.world.map.Location
 import core.plugin.Initializable
 
+/**
+ * Salarin twisted NPC.
+ */
 @Initializable
 class SalarinTwistedNPC : AbstractNPC {
 

@@ -16,6 +16,9 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.tools.END_DIALOGUE
 
+/**
+ * Gnome spirit teleport.
+ */
 class GnomeSpiritTeleport: InteractionListener {
 
     val spiritTrees = intArrayOf(Scenery.SPIRIT_TREE_1317,Scenery.SPIRIT_TREE_1293,Scenery.SPIRIT_TREE_1294)
@@ -32,6 +35,9 @@ class GnomeSpiritTeleport: InteractionListener {
     }
 }
 
+/**
+ * Gnome spirit tree teleport dialogue.
+ */
 class GnomeSpiritTreeTeleportDialogue: DialogueFile() {
     private val locationArray = arrayOf(
         Location(2542, 3170, 0),
@@ -45,6 +51,12 @@ class GnomeSpiritTreeTeleportDialogue: DialogueFile() {
         Graphic(1229)
     )
 
+    /**
+     * Has quest completed
+     *
+     * @param player
+     * @return
+     */
     fun hasQuestCompleted(player: Player): Boolean {
         if (!isQuestComplete(player, "Tree Gnome Village")) {
             sendDialogue(player, "The tree doesn't feel like talking.")
@@ -101,6 +113,9 @@ class GnomeSpiritTreeTeleportDialogue: DialogueFile() {
     }
 }
 
+/**
+ * Gnome spirit tree dialogue.
+ */
 class GnomeSpiritTreeDialogue: DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         if(!GnomeSpiritTreeTeleportDialogue().hasQuestCompleted(player!!)) {

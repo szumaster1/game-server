@@ -1,10 +1,21 @@
 package core.cache.bzip2;
 
+/**
+ * B zip 2 decompressor.
+ */
 public class BZip2Decompressor {
 
     private static int[] anIntArray257;
     private static BZip2BlockEntry entryInstance = new BZip2BlockEntry();
 
+    /**
+     * Decompress.
+     *
+     * @param decompressedData the decompressed data
+     * @param packedData       the packed data
+     * @param containerSize    the container size
+     * @param blockSize        the block size
+     */
     public static final void decompress(byte[] decompressedData, byte[] packedData, int containerSize, int blockSize) {
         synchronized (entryInstance) {
             entryInstance.aByteArray2224 = packedData;
@@ -209,6 +220,9 @@ public class BZip2Decompressor {
         return j;
     }
 
+    /**
+     * Clear block entry instance.
+     */
     public static void clearBlockEntryInstance() {
         entryInstance = null;
     }

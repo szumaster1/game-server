@@ -14,6 +14,9 @@ import core.plugin.ClassScanner;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
 
+/**
+ * Uri npc.
+ */
 public final class UriNPC extends AbstractNPC {
 
 	private static final int[] IDS = new int[] { 5141, 5142, 5143, 5144, 5145 };
@@ -22,10 +25,19 @@ public final class UriNPC extends AbstractNPC {
 
 	private Player player;
 
+    /**
+     * Instantiates a new Uri npc.
+     */
     public UriNPC() {
 		super(0, null);
 	}
 
+    /**
+     * Instantiates a new Uri npc.
+     *
+     * @param id       the id
+     * @param location the location
+     */
     public UriNPC(int id, Location location) {
 		super(id, location, false);
 		this.setRespawn(false);
@@ -110,32 +122,63 @@ public final class UriNPC extends AbstractNPC {
 		return IDS;
 	}
 
+    /**
+     * Is double agent boolean.
+     *
+     * @return the boolean
+     */
     public boolean isDoubleAgent() {
 		return getAttribute("double-agent", false);
 	}
 
+    /**
+     * Gets player.
+     *
+     * @return the player
+     */
     public Player getPlayer() {
 		return player;
 	}
 
+    /**
+     * Sets player.
+     *
+     * @param player the player
+     */
     public void setPlayer(Player player) {
 		this.player = player;
 	}
 
+    /**
+     * Gets clue scroll.
+     *
+     * @return the clue scroll
+     */
     public ClueScrollPlugin getClueScroll() {
 		return clueScroll;
 	}
 
+    /**
+     * Uri dialogue.
+     */
     public static final class UriDialogue extends Dialogue {
 
 		private static final String[] QUOTES = new String[] { "Once, I was a poor man, but then I found a party hat.", "There were three goblins in a bar, which one left first?", "Would you like to buy a pewter spoon?", "In the end, only the three-legged survive.", "I heard that the tall man fears only strong winds.", "In Canifis the men are known for eating much spam.", "I am the egg man, are you one of the egg men?", "I believe that it is very rainy in Varrock.", "The slowest of fishermen catch the swiftest of fish.", "It is quite easy being green.", "Don't forget to find the jade monkey.", "Don't forget to find the jade monkey.", "Do you want ants? Because that's how you get ants.", "I once named a duck after a girl. Big mistake.", "Loser says what.", "I'm looking for a girl named Molly. I can't find her.", "Guys, let's lake dive!", "I gave you what you needed; not what you think you needed.", "Want to see me bend a spoon?", "Is that Deziree?", "This is the last night you'll spend alone.", "(Breathing intensifies)", "Init doe. Lyk, I hope yer reward iz goodd aye?" };
 
+        /**
+         * Instantiates a new Uri dialogue.
+         */
         public UriDialogue() {
 			/**
 			 * empty.
 			 */
 		}
 
+        /**
+         * Instantiates a new Uri dialogue.
+         *
+         * @param player the player
+         */
         public UriDialogue(Player player) {
 			super(player);
 		}
@@ -188,6 +231,11 @@ public final class UriNPC extends AbstractNPC {
 			return super.close();
 		}
 
+        /**
+         * Can speak boolean.
+         *
+         * @return the boolean
+         */
         public boolean canSpeak() {
 			EmoteClueScroll scroll = (EmoteClueScroll) asUri().getClueScroll();
 			if (asUri().getPlayer() != player || !player.getAttribute("commence-emote", !scroll.hasCommencEmote())) {
@@ -196,6 +244,11 @@ public final class UriNPC extends AbstractNPC {
 			return scroll.hasEquipment(player, scroll.getEquipment());
 		}
 
+        /**
+         * As uri uri npc.
+         *
+         * @return the uri npc
+         */
         public UriNPC asUri() {
 			return (UriNPC) npc;
 		}

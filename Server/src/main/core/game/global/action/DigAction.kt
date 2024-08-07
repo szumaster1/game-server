@@ -4,8 +4,6 @@ import core.game.node.entity.player.Player
 
 /**
  * Handles a digging reward.
- *
- * @author Emperor
  */
 interface DigAction {
     /**

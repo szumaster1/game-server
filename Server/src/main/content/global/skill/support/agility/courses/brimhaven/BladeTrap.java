@@ -12,6 +12,9 @@ import core.game.world.map.RegionManager;
 import core.game.world.update.flag.context.Animation;
 import kotlin.Unit;
 
+/**
+ * Blade trap.
+ */
 public final class BladeTrap implements MovementHook {
 
     @Override

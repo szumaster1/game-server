@@ -11,6 +11,11 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.world.update.flag.context.Graphic
 
+/**
+ * Staff of the raven
+ *
+ * @constructor Staff of the raven
+ */
 class StaffOfTheRaven : InteractionListener {
 
     private val staffOfTheRaven = intArrayOf(
@@ -48,6 +53,14 @@ class StaffOfTheRaven : InteractionListener {
         }
     }
 
+    /**
+     * Switch staff
+     *
+     * @param player
+     * @param to
+     * @param equipped
+     * @param original
+     */
     fun switchStaff(player: Player, to: Int?, equipped: Boolean, original: Item) {
         player.graphics(Graphic(Graphics.IMPLING_TP_WHITE_SMOKE_PUFF_1119))
         val item: Item? = if (to != null) Item(to) else to

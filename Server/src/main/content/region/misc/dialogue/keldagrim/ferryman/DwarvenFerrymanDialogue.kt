@@ -15,6 +15,9 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
+/**
+ * Dwarven ferryman forth dialogue.
+ */
 @Initializable
 class DwarvenFerrymanForthDialogue(player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {

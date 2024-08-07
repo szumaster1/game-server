@@ -15,6 +15,9 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Fishing guild handler.
+ */
 @Initializable
 class FishingGuildHandler : OptionHandler() {
 

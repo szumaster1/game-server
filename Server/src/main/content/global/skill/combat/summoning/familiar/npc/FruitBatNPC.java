@@ -19,6 +19,9 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Fruit bat npc.
+ */
 @Initializable
 public class FruitBatNPC extends Forager {
 
@@ -50,10 +53,19 @@ public class FruitBatNPC extends Forager {
             new WeightedChanceItem(0, 1, 4)
     };
 
+    /**
+     * Instantiates a new Fruit bat npc.
+     */
     public FruitBatNPC() {
         this(null, 6817);
     }
 
+    /**
+     * Instantiates a new Fruit bat npc.
+     *
+     * @param owner the owner
+     * @param id    the id
+     */
     public FruitBatNPC(Player owner, int id) {
         super(owner, id, 4500, 12033, 6, FRUIT_FORAGE);
     }

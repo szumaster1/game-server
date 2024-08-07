@@ -12,6 +12,9 @@ import core.game.node.entity.player.link.diary.DiaryType;
 import core.game.node.item.Item;
 import core.game.world.GameWorld;
 
+/**
+ * Bob dialogue.
+ */
 public final class BobDialogue extends Dialogue {
 
     private int itemId = 0;
@@ -19,9 +22,17 @@ public final class BobDialogue extends Dialogue {
     private static RepairItem repairitem = null;
     private final int level = 1;
 
+    /**
+     * Instantiates a new Bob dialogue.
+     */
     public BobDialogue() {
     }
 
+    /**
+     * Instantiates a new Bob dialogue.
+     *
+     * @param player the player
+     */
     public BobDialogue(Player player) {
         super(player);
     }
@@ -304,6 +315,9 @@ public final class BobDialogue extends Dialogue {
         return new int[]{519, 3797};
     }
 
+    /**
+     * Barrows equipment.
+     */
     public static class BarrowsEquipment {
 
 
@@ -328,6 +342,13 @@ public final class BobDialogue extends Dialogue {
         private static final Object[][] ITEMS = {{4856, "Ahrim's hood"}, {4857, "Ahrim's hood"}, {4858, "Ahrim's hood"}, {4859, "Ahrim's hood"}, {4860, "Ahrim's hood"}, {4862, "Ahrim's staff"}, {4863, "Ahrim's staff"}, {4864, "Ahrim's staff"}, {4865, "Ahrim's staff"}, {4866, "Ahrim's staff"}, {4868, "Ahrim's top"}, {4869, "Ahrim's top"}, {4870, "Ahrim's top"}, {4871, "Ahrim's top"}, {4872, "Ahrim's top"}, {4874, "Ahrim's skirt"}, {4875, "Ahrim's skirt"}, {4876, "Ahrim's skirt"}, {4877, "Ahrim's skirt"}, {4878, "Ahrim's skirt"}, {4880, "Dharok's helm"}, {4881, "Dharok's helm"}, {4882, "Dharok's helm"}, {4883, "Dharok's helm"}, {4884, "Dharok's helm"}, {4886, "Dharok's greataxe"}, {4887, "Dharok's greataxe"}, {4888, "Dharok's greataxe"}, {4889, "Dharok's greataxe"}, {4890, "Dharok's greataxe"}, {4892, "Dharok's platebody"}, {4893, "Dharok's platebody"}, {4894, "Dharok's platebody"}, {4895, "Dharok's platebody"}, {4896, "Dharok's platebody"}, {4898, "Dharok's platelegs"}, {4899, "Dharok's platelegs"}, {4900, "Dharok's platelegs"}, {4901, "Dharok's platelegs"}, {4902, "Dharok's platelegs"}, {4904, "Guthan's helm"}, {4905, "Guthan's helm"}, {4906, "Guthan's helm"}, {4907, "Guthan's helm"}, {4908, "Guthan's helm"}, {4910, "Guthan's spear"}, {4911, "Guthan's spear"}, {4912, "Guthan's spear"}, {4913, "Guthan's spear"}, {4914, "Guthan's spear"}, {4916, "Guthan's body"}, {4917, "Guthan's body"}, {4918, "Guthan's body"}, {4919, "Guthan's body"}, {4920, "Guthan's body"}, {4922, "Guthan's skirt"}, {4923, "Guthan's skirt"}, {4924, "Guthan's skirt"}, {4925, "Guthan's skirt"}, {4926, "Guthan's skirt"}, {4928, "Karil's coif"}, {4929, "Karil's coif"}, {4930, "Karil's coif"}, {4931, "Karil's coif"}, {4932, "Karil's coif"}, {4934, "Karil's x-bow"}, {4935, "Karil's x-bow"}, {4936, "Karil's x-bow"}, {4937, "Karil's x-bow"}, {4938, "Karil's x-bow"}, {4940, "Karil's top"}, {4941, "Karil's top"}, {4942, "Karil's top"}, {4943, "Karil's top"}, {4944, "Karil's top"}, {4946, "Karil's skirt"}, {4947, "Karil's skirt"}, {4948, "Karil's skirt"}, {4949, "Karil's skirt"}, {4950, "Karil's skirt"}, {4952, "Torag's helm"}, {4953, "Torag's helm"}, {4954, "Torag's helm"}, {4955, "Torag's helm"}, {4956, "Torag's helm"}, {4958, "Torag's hammers"}, {4959, "Torag's hammers"}, {4960, "Torag's hammers"}, {4961, "Torag's hammers"}, {4962, "Torag's hammers"}, {4964, "Torag's body"}, {4965, "Torag's body"}, {4966, "Torag's body"}, {4967, "Torag's body"}, {4968, "Torag's body"}, {4970, "Torag's legs"}, {4971, "Torag's legs"}, {4972, "Torag's legs"}, {4973, "Torag's legs"}, {4974, "Torag's legs"}, {4976, "Verac's helm"}, {4977, "Verac's helm"}, {4978, "Verac's helm"}, {4979, "Verac's helm"}, {4980, "Verac's helm"}, {4982, "Verac's flail"}, {4983, "Verac's flail"}, {4984, "Verac's flail"}, {4985, "Verac's flail"}, {4986, "Verac's flail"}, {4988, "Verac's top"}, {4989, "Verac's top"}, {4990, "Verac's top"}, {4991, "Verac's top"}, {4992, "Verac's top"}, {4994, "Verac's skirt"}, {4995, "Verac's skirt"}, {4996, "Verac's skirt"}, {4997, "Verac's skirt"}, {4998, "Verac's skirt"}};
 
 
+        /**
+         * Gets formated cost.
+         *
+         * @param name the name
+         * @param item the item
+         * @return the formated cost
+         */
         public static int getFormatedCost(String name, Item item) {
             int ticks = BarrowsEquipmentRegister.TICKS;
             int[] degrades = new int[]{100, 75, 50, 25, 0};
@@ -350,6 +371,12 @@ public final class BobDialogue extends Dialogue {
         }
 
 
+        /**
+         * Gets cost.
+         *
+         * @param name the name
+         * @return the cost
+         */
         public static int getCost(String name) {
             for (int i = 0; i < prices.length; i++) {
                 String check = (String) prices[i][0];
@@ -361,6 +388,12 @@ public final class BobDialogue extends Dialogue {
         }
 
 
+        /**
+         * Is barrows item boolean.
+         *
+         * @param id the id
+         * @return the boolean
+         */
         public static boolean isBarrowsItem(int id) {
             for (int i = 0; i < ITEMS.length; i++) {
                 if ((int) ITEMS[i][0] == id) {
@@ -371,6 +404,12 @@ public final class BobDialogue extends Dialogue {
         }
 
 
+        /**
+         * Formated name string.
+         *
+         * @param id the id
+         * @return the string
+         */
         public static String formatedName(int id) {
             for (int i = 0; i < ITEMS.length; i++) {
                 if ((int) ITEMS[i][0] == id) {
@@ -381,6 +420,12 @@ public final class BobDialogue extends Dialogue {
         }
 
 
+        /**
+         * Gets equipment type.
+         *
+         * @param name the name
+         * @return the equipment type
+         */
         public static String getEquipmentType(String name) {
             name = name.toLowerCase().replace("verac's", "").replace("karil's", "").replace("dharok's", "").replace("torag's", "").replace("guthan's", "").replace("ahrim's", "").trim();
             for (int i = 0; i < weapon_names.length; i++) {
@@ -407,6 +452,12 @@ public final class BobDialogue extends Dialogue {
         }
 
 
+        /**
+         * Gets single name.
+         *
+         * @param name the name
+         * @return the single name
+         */
         public static String getSingleName(String name) {
             name = name.toLowerCase().replace("verac's", "").replace("karil's", "").replace("dharok's", "").replace("torag's", "").replace("guthan's", "").replace("ahrim's", "").trim();
             for (int i = 0; i < weapon_names.length; i++) {
@@ -433,35 +484,115 @@ public final class BobDialogue extends Dialogue {
         }
 
 
+        /**
+         * Get base string [ ].
+         *
+         * @return the string [ ]
+         */
         public String[] getBase() {
             return base;
         }
 
 
+        /**
+         * The enum Barrows full equipment.
+         */
         public enum BarrowsFullEquipment {
+            /**
+             * The Verac legs.
+             */
             VERAC_LEGS(new Item(4759, 1)),
+            /**
+             * The Verac top.
+             */
             VERAC_TOP(new Item(4757, 1)),
+            /**
+             * The Verac weapon.
+             */
             VERAC_WEAPON(new Item(4755, 1)),
+            /**
+             * The Verac helm.
+             */
             VERAC_HELM(new Item(4753, 1)),
+            /**
+             * The Torag legs.
+             */
             TORAG_LEGS(new Item(4751, 1)),
+            /**
+             * The Torag body.
+             */
             TORAG_BODY(new Item(4749, 1)),
+            /**
+             * The Torag helm.
+             */
             TORAG_HELM(new Item(4745, 1)),
+            /**
+             * The Torag weapon.
+             */
             TORAG_WEAPON(new Item(4747, 1)),
+            /**
+             * The Karil helm.
+             */
             KARIL_HELM(new Item(4732, 1)),
+            /**
+             * The Karil weapon.
+             */
             KARIL_WEAPON(new Item(4734, 1)),
+            /**
+             * The Karil body.
+             */
             KARIL_BODY(new Item(4736, 1)),
+            /**
+             * The Karil legs.
+             */
             KARIL_LEGS(new Item(4738, 1)),
+            /**
+             * The Guthan helm.
+             */
             GUTHAN_HELM(new Item(4724, 1)),
+            /**
+             * The Guthan body.
+             */
             GUTHAN_BODY(new Item(4728, 1)),
+            /**
+             * The Guthan legs.
+             */
             GUTHAN_LEGS(new Item(4730, 1)),
+            /**
+             * The Guthan weapon.
+             */
             GUTHAN_WEAPON(new Item(4726, 1)),
+            /**
+             * The Dharok helm.
+             */
             DHAROK_HELM(new Item(4716, 1)),
+            /**
+             * The Dharok body.
+             */
             DHAROK_BODY(new Item(4720, 1)),
+            /**
+             * The Dharok legs.
+             */
             DHAROK_LEGS(new Item(4722, 1)),
+            /**
+             * The Dharok weapon.
+             */
             DHAROK_WEAPON(new Item(4718, 1)),
+            /**
+             * The Ahrim helm.
+             */
             AHRIM_HELM(new Item(4708, 1)),
+            /**
+             * The Ahrim body.
+             */
             AHRIM_BODY(new Item(4712, 1)),
+            /**
+             * The Ahrim legs.
+             */
             AHRIM_LEGS(new Item(4714, 1)),
+            /**
+             * The Ahrim weapon.
+             */
             AHRIM_WEAPON(new Item(4710, 1));
 
 
@@ -473,6 +604,12 @@ public final class BobDialogue extends Dialogue {
             private final Item full;
 
 
+            /**
+             * For name barrows full equipment.
+             *
+             * @param name the name
+             * @return the barrows full equipment
+             */
             public static BarrowsFullEquipment forName(String name) {
                 if (name.equals("guthan body body")) {
                     name = "guthan body";
@@ -490,6 +627,11 @@ public final class BobDialogue extends Dialogue {
             }
 
 
+            /**
+             * Gets full.
+             *
+             * @return the full
+             */
             public Item getFull() {
                 return full;
             }

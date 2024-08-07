@@ -12,6 +12,11 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.tools.RandomFunction
 
+/**
+ * Weight based table
+ *
+ * @constructor Weight based table
+ */
 open class WeightBasedTable : ArrayList<WeightedItem>() {
     var totalWeight = 0.0
     val guaranteedItems = ArrayList<WeightedItem>()
@@ -32,10 +37,23 @@ open class WeightBasedTable : ArrayList<WeightedItem>() {
         }
     }
 
+    /**
+     * Roll
+     *
+     * @param receiver
+     * @return
+     */
     open fun roll(receiver: Entity? = null): ArrayList<Item> {
         return roll(receiver, 1)
     }
 
+    /**
+     * Roll
+     *
+     * @param receiver
+     * @param times
+     * @return
+     */
     open fun roll(receiver: Entity? = null, times: Int = 1): ArrayList<Item> {
         val items = ArrayList<WeightedItem>((guaranteedItems.size + 1) * times)
 
@@ -59,6 +77,13 @@ open class WeightBasedTable : ArrayList<WeightedItem>() {
         return convertWeightedItems(items, receiver)
     }
 
+    /**
+     * Convert weighted items
+     *
+     * @param weightedItems
+     * @param receiver
+     * @return
+     */
     fun convertWeightedItems(weightedItems: ArrayList<WeightedItem>, receiver: Entity?): ArrayList<Item> {
         val safeItems = ArrayList<Item>()
         for (e in weightedItems) {
@@ -101,56 +126,122 @@ open class WeightBasedTable : ArrayList<WeightedItem>() {
         return safeItems
     }
 
+    /**
+     * Can roll
+     *
+     * @param player
+     * @return
+     */
     open fun canRoll(player: Player): Boolean {
         val guaranteed = guaranteedItems.map { it.getItem() }.toTypedArray()
         return (guaranteed.isNotEmpty() && player.inventory.hasSpaceFor(*guaranteed)) || !player.inventory.isFull
     }
 
+    /**
+     * Insert easy clue
+     *
+     * @param weight
+     * @return
+     */
     fun insertEasyClue(weight: Double): WeightBasedTable {
         this.add(WeightedItem(SLOT_CLUE_EASY, 1, 1, weight, false))
         return this
     }
 
+    /**
+     * Insert medium clue
+     *
+     * @param weight
+     * @return
+     */
     fun insertMediumClue(weight: Double): WeightBasedTable {
         this.add(WeightedItem(SLOT_CLUE_MEDIUM, 1, 1, weight, false))
         return this
     }
 
+    /**
+     * Insert hard clue
+     *
+     * @param weight
+     * @return
+     */
     fun insertHardClue(weight: Double): WeightBasedTable {
         this.add(WeightedItem(SLOT_CLUE_HARD, 1, 1, weight, false))
         return this
     }
 
+    /**
+     * Insert r d t roll
+     *
+     * @param weight
+     * @return
+     */
     fun insertRDTRoll(weight: Double): WeightBasedTable {
         this.add(WeightedItem(SLOT_RDT, 1, 1, weight, false))
         return this
     }
 
+    /**
+     * Insert c e l e d t roll
+     *
+     * @param weight
+     * @return
+     */
     fun insertCELEDTRoll(weight: Double): WeightBasedTable {
         this.add(WeightedItem(SLOT_CELEDT, 1, 1, weight, false))
         return this
     }
 
+    /**
+     * Insert s e e d d t roll
+     *
+     * @param weight
+     * @return
+     */
     fun insertSEEDDTRoll(weight: Double): WeightBasedTable {
         this.add(WeightedItem(SLOT_USDT, 1, 1, weight, false))
         return this
     }
 
+    /**
+     * Insert h e r b d t roll
+     *
+     * @param weight
+     * @return
+     */
     fun insertHERBDTRoll(weight: Double): WeightBasedTable {
         this.add(WeightedItem(SLOT_HDT, 1, 1, weight, false))
         return this
     }
 
+    /**
+     * Insert g d t roll
+     *
+     * @param weight
+     * @return
+     */
     fun insertGDTRoll(weight: Double): WeightBasedTable {
         this.add(WeightedItem(SLOT_GDT, 1, 1, weight, false))
         return this
     }
 
+    /**
+     * Insert r s d t roll
+     *
+     * @param weight
+     * @return
+     */
     fun insertRSDTRoll(weight: Double): WeightBasedTable {
         this.add(WeightedItem(SLOT_RSDT, 1, 1, weight, false))
         return this
     }
 
+    /**
+     * Insert a s d t roll
+     *
+     * @param weight
+     * @return
+     */
     fun insertASDTRoll(weight: Double): WeightBasedTable {
         this.add(WeightedItem(SLOT_ASDT, 1, 1, weight, false))
         return this

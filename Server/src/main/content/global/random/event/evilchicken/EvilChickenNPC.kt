@@ -14,6 +14,9 @@ import java.lang.Integer.max
 
 val ids = 2463..2468
 
+/**
+ * Evil chicken NPC.
+ */
 class EvilChickenNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs.EVIL_CHICKEN_2463) {
 
     val phrases = arrayOf(

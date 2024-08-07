@@ -4,6 +4,9 @@ import core.network.packet.IoBuffer;
 import core.network.packet.OutgoingPacket;
 import core.network.packet.context.InterfaceContext;
 
+/**
+ * Reset interface.
+ */
 public class ResetInterface implements OutgoingPacket<InterfaceContext> {
     @Override
     public void send(InterfaceContext ic) {

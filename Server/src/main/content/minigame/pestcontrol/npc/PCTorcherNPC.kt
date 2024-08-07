@@ -17,6 +17,9 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Plugin
 
+/**
+ * Pest Control torcher NPC.
+ */
 class PCTorcherNPC : AbstractNPC {
     private var session: PestControlSession? = null
 
@@ -93,6 +96,11 @@ class PCTorcherNPC : AbstractNPC {
     }
 }
 
+/**
+ * Torcher spell
+ *
+ * @constructor Torcher spell
+ */
 internal class TorcherSpell : CombatSpell(
     SpellType.STRIKE,
     SpellBook.MODERN,

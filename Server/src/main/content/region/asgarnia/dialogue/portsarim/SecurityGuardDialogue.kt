@@ -11,6 +11,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Security guard dialogue.
+ */
 @Initializable
 class SecurityGuardDialogue(player: Player? = null) : Dialogue(player) {
 

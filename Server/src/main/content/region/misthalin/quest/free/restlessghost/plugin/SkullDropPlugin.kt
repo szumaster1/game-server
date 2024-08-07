@@ -7,6 +7,11 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Skull drop plugin
+ *
+ * @constructor Skull drop plugin
+ */
 @Initializable
 class SkullDropPlugin : OptionHandler() {
 

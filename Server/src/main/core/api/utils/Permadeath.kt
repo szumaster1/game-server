@@ -13,6 +13,11 @@ import core.game.node.entity.player.link.quest.QuestRepository
 import core.game.node.entity.skill.Skills
 import core.game.world.map.Location
 
+/**
+ * Permadeath
+ *
+ * @param target
+ */
 fun Permadeath(target: Player) {
     teleport(target, Location.create(3094, 3107, 0))
     target.equipment.clear()

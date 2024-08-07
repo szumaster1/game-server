@@ -10,6 +10,9 @@ import core.game.node.entity.skill.Skills
 import core.tools.RandomUtils
 import kotlin.math.min
 
+/**
+ * Limestone bricks crafting listener.
+ */
 class LimestoneBricksCraftingListener : InteractionListener {
 
     override fun defineListeners() {

@@ -8,6 +8,9 @@ import core.game.world.map.Location
 import core.tools.RandomFunction
 import java.util.*
 
+/**
+ * Pest control test bot.
+ */
 class PestControlTestBot(l: Location) : PvMBots(legitimizeLocation(l)) {
     var tick = 0
     var combatMoveTimer = 0
@@ -21,8 +24,34 @@ class PestControlTestBot(l: Location) : PvMBots(legitimizeLocation(l)) {
 
     var time = 0
 
+    /**
+     * State.
+     */
     enum class State {
-        REFRESH, OUTSIDE_GANGPLANK, WAITING_IN_BOAT, PLAY_GAME, GET_TO_PC
+        /**
+         * Refresh.
+         */
+        REFRESH,
+
+        /**
+         * Outside Gangplank.
+         */
+        OUTSIDE_GANGPLANK,
+
+        /**
+         * Waiting In Boat.
+         */
+        WAITING_IN_BOAT,
+
+        /**
+         * Play Game.
+         */
+        PLAY_GAME,
+
+        /**
+         * Get To Pc.
+         */
+        GET_TO_PC
     }
 
     //Novice Lander co-ords (2657, 2639, 0)
@@ -79,6 +108,9 @@ class PestControlTestBot(l: Location) : PvMBots(legitimizeLocation(l)) {
 
         }
 
+    /**
+     * Attack NPCs.
+     */
     fun attackNPCs() {
         if (PestControlHelper.outsideGangplankContainsLoc(getLocation())) {
             PestControlActivityPlugin().leave(this, false)
@@ -100,6 +132,10 @@ class PestControlTestBot(l: Location) : PvMBots(legitimizeLocation(l)) {
     }
 
     var insideBoatWalks = 3
+
+    /**
+     * Idle in boat.
+     */
     fun idleInBoat() {
         justStartedGame = true
         openedGate = false
@@ -129,6 +165,9 @@ class PestControlTestBot(l: Location) : PvMBots(legitimizeLocation(l)) {
         }
     }
 
+    /**
+     * Enter boat.
+     */
     fun enterBoat() {
         if (PestControlHelper.outsideGangplankContainsLoc(getLocation())) {
             movetimer = Random().nextInt(10)
@@ -161,6 +200,10 @@ class PestControlTestBot(l: Location) : PvMBots(legitimizeLocation(l)) {
     }
 
     var switch = false
+
+    /**
+     * to Pest Control.
+     */
     fun toPC() {
         time = 0
         if (!switch) {

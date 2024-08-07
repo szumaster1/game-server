@@ -7,6 +7,9 @@ import core.game.node.item.Item
 import core.game.world.map.Location
 import core.tools.RandomFunction
 
+/**
+ * Aip builder.
+ */
 class AIPBuilder {
     private val ITEMS: List<Item> = ArrayList(
         arrayListOf(

@@ -9,6 +9,9 @@ import core.game.node.scenery.SceneryBuilder
 import core.game.world.map.Location
 import core.game.world.map.RegionManager.getObject
 
+/**
+ * Bedabin nomad dialogue.
+ */
 class BedabinNomadDialogue(player: Player? = null) : Dialogue(player) {
 
     private var quest: Quest? = null

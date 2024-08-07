@@ -20,6 +20,11 @@ import core.game.world.update.flag.context.Animation
 import core.tools.BLUE
 import core.tools.RandomFunction
 
+/**
+ * Gu tanoth crypt listeners
+ *
+ * @constructor Gu tanoth crypt listeners
+ */
 class GuTanothCryptListeners : InteractionListener {
 
     companion object {

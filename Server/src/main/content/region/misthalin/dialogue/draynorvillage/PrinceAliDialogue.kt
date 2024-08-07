@@ -11,6 +11,9 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld.Pulser
 import core.plugin.Initializable
 
+/**
+ * Prince ali dialogue.
+ */
 @Initializable
 class PrinceAliDialogue(player: Player? = null) : Dialogue(player) {
 

@@ -11,7 +11,11 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.SpellBookManager.SpellBook
 import core.game.node.entity.skill.Skills
 
+/**
+ * Magic altar listener.
+ */
 class MagicAltarListener : InteractionListener {
+
     override fun defineListeners() {
         on(intArrayOf(ANCIENT_ALTAR, LUNAR_ALTAR), IntType.SCENERY, "pray-at", "pray") { player, node ->
             if (meetsRequirements(player, node)) {
@@ -22,6 +26,9 @@ class MagicAltarListener : InteractionListener {
         }
     }
 
+    /**
+     * Meets requirements.
+     */
     private fun meetsRequirements(player: Player, altar: Node): Boolean {
         val level = if (altar.id == ANCIENT_ALTAR) 50 else 65
 
@@ -37,6 +44,9 @@ class MagicAltarListener : InteractionListener {
         return true
     }
 
+    /**
+     * Swap spell book.
+     */
     private fun swapSpellBook(player: Player, altar: Node) {
         lock(player, 3)
         playAudio(player, Sounds.PRAYER_RECHARGE_2674)

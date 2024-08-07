@@ -12,6 +12,9 @@ import core.game.node.item.Item
 import core.game.world.map.Location
 import core.game.world.map.path.Pathfinder
 
+/**
+ * Seers flax.
+ */
 class SeersFlax : Script() {
 
     var state = State.PICKING
@@ -140,8 +143,74 @@ class SeersFlax : Script() {
         }
     }
 
+    /**
+     * State
+     *
+     * @constructor State
+     */
     enum class State {
-        PICKING, SPINNING, TO_SPINNER, FIND_BANK, BANKING, TELE_GE, SELL_GE, RETURN_TO_FLAX, TELE_CAMELOT
+        /**
+         * Picking
+         *
+         * @constructor Picking
+         */
+        PICKING,
+
+        /**
+         * Spinning
+         *
+         * @constructor Spinning
+         */
+        SPINNING,
+
+        /**
+         * To Spinner
+         *
+         * @constructor To Spinner
+         */
+        TO_SPINNER,
+
+        /**
+         * Find Bank
+         *
+         * @constructor Find Bank
+         */
+        FIND_BANK,
+
+        /**
+         * Banking
+         *
+         * @constructor Banking
+         */
+        BANKING,
+
+        /**
+         * Tele Ge
+         *
+         * @constructor Tele Ge
+         */
+        TELE_GE,
+
+        /**
+         * Sell Ge
+         *
+         * @constructor Sell Ge
+         */
+        SELL_GE,
+
+        /**
+         * Return To Flax
+         *
+         * @constructor Return To Flax
+         */
+        RETURN_TO_FLAX,
+
+        /**
+         * Tele Camelot
+         *
+         * @constructor Tele Camelot
+         */
+        TELE_CAMELOT
     }
 
     init {

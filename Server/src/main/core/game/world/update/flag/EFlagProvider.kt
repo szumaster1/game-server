@@ -6,8 +6,24 @@ import core.network.packet.IoBuffer
 import core.tools.Log
 import kotlin.reflect.KType
 
+/**
+ * E flag type
+ *
+ * @constructor E flag type
+ */
 enum class EFlagType {
+    /**
+     * Player
+     *
+     * @constructor Player
+     */
     Player,
+
+    /**
+     * Npc
+     *
+     * @constructor Npc
+     */
     NPC;
 
     companion object {
@@ -19,6 +35,16 @@ enum class EFlagType {
     }
 }
 
+/**
+ * E flag provider
+ *
+ * @property revision
+ * @property type
+ * @property presenceFlag
+ * @property ordinal
+ * @property flag
+ * @constructor E flag provider
+ */
 open class EFlagProvider(
     val revision: Int,
     val type: EFlagType,
@@ -26,11 +52,31 @@ open class EFlagProvider(
     val ordinal: Int,
     val flag: EntityFlag
 ) {
+    /**
+     * Write to
+     *
+     * @param buffer
+     * @param context
+     */
     open fun writeTo(buffer: IoBuffer, context: Any?) {}
+
+    /**
+     * Write to dynamic
+     *
+     * @param buffer
+     * @param context
+     * @param e
+     */
     open fun writeToDynamic(buffer: IoBuffer, context: Any?, e: Entity) {
         writeTo(buffer, context)
     }
 
+    /**
+     * Log invalid type
+     *
+     * @param context
+     * @param expected
+     */
     fun logInvalidType(context: Any?, expected: KType) {
         logWithStack(
             this::class.java,

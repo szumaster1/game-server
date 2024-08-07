@@ -8,6 +8,9 @@ import core.game.node.entity.player.link.quest.Quest
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Oracle dialogue.
+ */
 @Initializable
 class OracleDialogue(player: Player? = null) : Dialogue(player) {
 

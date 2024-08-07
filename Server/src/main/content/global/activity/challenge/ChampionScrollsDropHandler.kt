@@ -13,8 +13,8 @@ import core.tools.RandomFunction
 import core.tools.colorize
 
 /**
- * @author Ceikry, skelsoft, phil pips
- * @Patch 15.06.2023
+ * Handles the drop for champion challenge.
+ * @authors Phil, Skelsoft, Ceikry
  */
 class ChampionScrollsDropHandler : ChampionScrollsEventHookBase() {
     companion object {

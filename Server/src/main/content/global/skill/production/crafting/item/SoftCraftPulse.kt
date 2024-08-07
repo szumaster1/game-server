@@ -14,6 +14,16 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.tools.StringUtils
 
+/**
+ * Soft craft pulse
+ *
+ * @property soft
+ * @property amount
+ * @constructor
+ *
+ * @param player
+ * @param node
+ */
 class SoftCraftPulse(player: Player?, node: Item?, val soft: SoftLeather, var amount: Int) :
     SkillPulse<Item?>(player, node) {
 

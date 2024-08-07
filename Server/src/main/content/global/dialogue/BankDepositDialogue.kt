@@ -6,6 +6,9 @@ import core.api.sendMessage
 import core.game.dialogue.DialogueFile
 import core.tools.START_DIALOGUE
 
+/**
+ * Bank deposit dialogue.
+ */
 class BankDepositDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

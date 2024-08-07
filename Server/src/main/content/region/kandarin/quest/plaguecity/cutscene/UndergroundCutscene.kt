@@ -7,6 +7,9 @@ import core.game.node.entity.player.Player
 import core.game.world.map.Direction
 import core.game.world.map.Location
 
+/**
+ * Underground cutscene.
+ */
 class UndergroundCutscene(player: Player) : Cutscene(player) {
 
     override fun setup() {

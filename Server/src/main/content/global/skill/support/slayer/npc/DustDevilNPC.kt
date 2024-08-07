@@ -10,6 +10,9 @@ import core.game.node.entity.skill.Skills
 import core.game.world.map.Location
 import core.plugin.Initializable
 
+/**
+ * Dust devil NPC.
+ */
 @Initializable
 class DustDevilNPC : AbstractNPC {
 

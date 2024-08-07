@@ -9,6 +9,9 @@ import core.game.system.task.Pulse
 import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 
+/**
+ * Cow killer.
+ */
 class CowKiller : Script() {
     var state = State.KILLING
     var spawnZone = ZoneBorders(3254, 3255, 3264, 3281)
@@ -138,8 +141,67 @@ class CowKiller : Script() {
         }
     }
 
+    /**
+     * State
+     *
+     * @constructor State
+     */
     enum class State {
-        KILLING, LOOTING, BANKING, TO_BANK, BACK_TO_COWS, SELL_GE, TELE_GE, TELE_LUM
+        /**
+         * Killing
+         *
+         * @constructor Killing
+         */
+        KILLING,
+
+        /**
+         * Looting
+         *
+         * @constructor Looting
+         */
+        LOOTING,
+
+        /**
+         * Banking
+         *
+         * @constructor Banking
+         */
+        BANKING,
+
+        /**
+         * To Bank
+         *
+         * @constructor To Bank
+         */
+        TO_BANK,
+
+        /**
+         * Back To Cows
+         *
+         * @constructor Back To Cows
+         */
+        BACK_TO_COWS,
+
+        /**
+         * Sell Ge
+         *
+         * @constructor Sell Ge
+         */
+        SELL_GE,
+
+        /**
+         * Tele Ge
+         *
+         * @constructor Tele Ge
+         */
+        TELE_GE,
+
+        /**
+         * Tele Lum
+         *
+         * @constructor Tele Lum
+         */
+        TELE_LUM
     }
 
     override fun newInstance(): Script {

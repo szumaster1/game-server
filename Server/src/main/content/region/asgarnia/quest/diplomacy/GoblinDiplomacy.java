@@ -12,9 +12,15 @@ import core.game.node.item.Item;
 import core.plugin.ClassScanner;
 import core.plugin.Initializable;
 
+/**
+ * Goblin diplomacy.
+ */
 @Initializable
 public class GoblinDiplomacy extends Quest {
 
+    /**
+     * The constant NAME.
+     */
     public static final String NAME = "Goblin Diplomacy";
 
     private static final Item ORANGE_MAIL = new Item(286);
@@ -25,6 +31,9 @@ public class GoblinDiplomacy extends Quest {
 
     private static final Item GOLD_BAR = new Item(2357);
 
+    /**
+     * Instantiates a new Goblin diplomacy.
+     */
     public GoblinDiplomacy() {
         super("Goblin Diplomacy", 20, 19, 5);
     }

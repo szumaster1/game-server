@@ -45,6 +45,9 @@ val gnomeItems = arrayOf(
 
 val ALUFT_ALOFT_BOX = Item(Items.ALUFT_ALOFT_BOX_9477)
 
+/**
+ * Aluft gianne snr dialogue.
+ */
 @Initializable
 class AluftGianneSnrDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -187,6 +190,13 @@ class AluftGianneSnrDialogue(player: Player? = null) : Dialogue(player) {
         }
     }
 
+    /**
+     * Gnome restaurant pulse
+     *
+     * @property player
+     * @property minutes
+     * @constructor Gnome restaurant pulse
+     */
     internal class GnomeRestaurantPulse(val player: Player, val minutes: Long) : Pulse() {
         var endTime = 0L
         var timerMsgSent = false

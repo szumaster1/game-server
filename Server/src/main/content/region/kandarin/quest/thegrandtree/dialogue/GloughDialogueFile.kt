@@ -12,6 +12,11 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.tools.END_DIALOGUE
 
+/**
+ * Glough dialogue file
+ *
+ * @constructor Glough dialogue file
+ */
 class GloughDialogueFile : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

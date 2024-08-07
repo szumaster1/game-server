@@ -14,6 +14,9 @@ import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 import core.tools.RandomFunction
 
+/**
+ * Abyssal demon NPC.
+ */
 @Initializable
 class AbyssalDemonNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 

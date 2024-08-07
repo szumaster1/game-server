@@ -4,6 +4,9 @@ import core.api.*
 import core.api.consts.Items
 import core.game.interaction.InteractionListener
 
+/**
+ * Enchanted key activity listener.
+ */
 class EnchantedKeyActivityListener : InteractionListener {
 
     override fun defineListeners() {

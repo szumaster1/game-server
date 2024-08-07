@@ -10,6 +10,9 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.tools.RandomFunction
 
+/**
+ * Giant rat NPC.
+ */
 class GiantRatNPC : NPCBehavior(*giantRatIds) {
 
     companion object {

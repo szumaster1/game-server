@@ -6,6 +6,9 @@ import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Roachey dialogue.
+ */
 @Initializable
 class RoacheyDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -21,7 +24,6 @@ class RoacheyDialogue(player: Player? = null) : Dialogue(player) {
                 1 -> player("Yes, please.").also { stage++ }
                 2 -> end()
             }
-
             2 -> end().also { openNpcShop(player, NPCs.ROACHEY_592) }
         }
         return true

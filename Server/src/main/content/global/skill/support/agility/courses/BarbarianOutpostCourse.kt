@@ -24,6 +24,9 @@ import core.game.world.update.flag.context.Graphic
 import core.plugin.ClassScanner
 import core.plugin.Initializable
 
+/**
+ * Barbarian outpost course.
+ */
 @Initializable
 class BarbarianOutpostCourse
 @JvmOverloads constructor(player: Player? = null) : AgilityCourse(player, 6, 46.2) {
@@ -169,6 +172,13 @@ class BarbarianOutpostCourse
     }
 
 
+    /**
+     * Barbarian guard dialogue
+     *
+     * @constructor
+     *
+     * @param player
+     */
     class BarbarianGuardDialogue(player: Player? = null) : Dialogue(player) {
 
         override fun newInstance(player: Player): Dialogue {

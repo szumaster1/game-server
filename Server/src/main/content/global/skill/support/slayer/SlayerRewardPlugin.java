@@ -20,6 +20,9 @@ import core.plugin.Plugin;
 
 import static core.api.ContentAPIKt.hasRequirement;
 
+/**
+ * Slayer reward plugin.
+ */
 @Initializable
 public class SlayerRewardPlugin extends ComponentPlugin {
 
@@ -268,6 +271,9 @@ public class SlayerRewardPlugin extends ComponentPlugin {
     }
 
 
+    /**
+     * Slayer master plugin.
+     */
     public class SlayerMasterPlugin extends OptionHandler {
 
         @Override
@@ -288,11 +294,17 @@ public class SlayerRewardPlugin extends ComponentPlugin {
     }
 
 
+    /**
+     * Slayer helm craft plugin.
+     */
     public static class SlayerHelmCraftPlugin extends UseWithHandler {
         private static final Item SLAYER_HELM = new Item(13263);
         private static final Item SPINY_HELMET = new Item(4551);
         private static final int[] INGREDIENTS = new int[]{4168, 4166, 4164, 8921};
-        
+
+        /**
+         * Instantiates a new Slayer helm craft plugin.
+         */
         public SlayerHelmCraftPlugin() {
             super(INGREDIENTS);
         }

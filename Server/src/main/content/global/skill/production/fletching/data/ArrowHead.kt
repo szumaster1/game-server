@@ -2,49 +2,105 @@ package content.global.skill.production.fletching.data
 
 import core.api.consts.Items
 
+/**
+ * Arrow head
+ *
+ * @property unfinished
+ * @property finished
+ * @property level
+ * @property experience
+ * @constructor Arrow head
+ */
 enum class ArrowHead(var unfinished: Int, var finished: Int, var level: Int, var experience: Double) {
+    /**
+     * Bronze Arrow
+     *
+     * @constructor Bronze Arrow
+     */
     BRONZE_ARROW(
         unfinished = Items.BRONZE_ARROWTIPS_39,
         finished = Items.BRONZE_ARROW_882,
         level = 1,
         experience = 2.6
     ),
+
+    /**
+     * Iron Arrow
+     *
+     * @constructor Iron Arrow
+     */
     IRON_ARROW(
         unfinished = Items.IRON_ARROWTIPS_40,
         finished = Items.IRON_ARROW_884,
         level = 15,
         experience = 3.8
     ),
+
+    /**
+     * Steel Arrow
+     *
+     * @constructor Steel Arrow
+     */
     STEEL_ARROW(
         unfinished = Items.STEEL_ARROWTIPS_41,
         finished = Items.STEEL_ARROW_886,
         level = 30,
         experience = 6.3
     ),
+
+    /**
+     * Mithril Arrow
+     *
+     * @constructor Mithril Arrow
+     */
     MITHRIL_ARROW(
         unfinished = Items.MITHRIL_ARROWTIPS_42,
         finished = Items.MITHRIL_ARROW_888,
         level = 45,
         experience = 8.8
     ),
+
+    /**
+     * Adamant Arrow
+     *
+     * @constructor Adamant Arrow
+     */
     ADAMANT_ARROW(
         unfinished = Items.ADAMANT_ARROWTIPS_43,
         finished = Items.ADAMANT_ARROW_890,
         level = 60,
         experience = 11.3
     ),
+
+    /**
+     * Rune Arrow
+     *
+     * @constructor Rune Arrow
+     */
     RUNE_ARROW(
         unfinished = Items.RUNE_ARROWTIPS_44,
         finished = Items.RUNE_ARROW_892,
         level = 75,
         experience = 13.8
     ),
+
+    /**
+     * Dragon Arrow
+     *
+     * @constructor Dragon Arrow
+     */
     DRAGON_ARROW(
         unfinished = Items.DRAGON_ARROWTIPS_11237,
         finished = Items.DRAGON_ARROW_11212,
         level = 90,
         experience = 16.3
     ),
+
+    /**
+     * Broad Arrow
+     *
+     * @constructor Broad Arrow
+     */
     BROAD_ARROW(
         unfinished = Items.BROAD_ARROW_HEADS_13278,
         finished = Items.BROAD_ARROW_4160,

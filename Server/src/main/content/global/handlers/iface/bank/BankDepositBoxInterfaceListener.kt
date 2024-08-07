@@ -5,6 +5,10 @@ import core.api.consts.Animations
 import core.game.interaction.InterfaceListener
 import core.game.interaction.QueueStrength
 
+/**
+ * Allows the user to interact with the Bank Deposit Box interface.
+ * @author vddCore
+ */
 class BankDepositBoxInterfaceListener : InterfaceListener {
 
     private val menuElement = 11

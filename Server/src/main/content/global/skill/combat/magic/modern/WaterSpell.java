@@ -15,6 +15,9 @@ import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
+/**
+ * Water spell.
+ */
 @Initializable
 public final class WaterSpell extends CombatSpell {
 
@@ -44,6 +47,9 @@ public final class WaterSpell extends CombatSpell {
 
     private static final Animation ANIMATION = new Animation(711, Priority.HIGH);
 
+    /**
+     * Instantiates a new Water spell.
+     */
     public WaterSpell() {
 
     }

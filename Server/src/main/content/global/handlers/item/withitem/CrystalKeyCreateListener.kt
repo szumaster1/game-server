@@ -7,6 +7,11 @@ import core.api.sendMessage
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Crystal key create listener
+ *
+ * @constructor Crystal key create listener
+ */
 class CrystalKeyCreateListener : InteractionListener {
 
     private val loopKeyPiece = Items.LOOP_HALF_OF_A_KEY_987

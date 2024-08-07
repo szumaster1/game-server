@@ -13,6 +13,9 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Agility boss dialogue.
+ */
 @Initializable
 class AgilityBossDialogue(player: Player? = null) : Dialogue(player) {
 

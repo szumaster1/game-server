@@ -6,6 +6,9 @@ import core.game.node.entity.npc.AbstractNPC
 import core.game.world.map.Location
 import core.plugin.Initializable
 
+/**
+ * Filliman tarlock NPC.
+ */
 @Initializable
 class FillimanTarlockNPC : AbstractNPC {
     var spawnedTicks = 0

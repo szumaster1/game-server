@@ -15,6 +15,10 @@ import core.game.world.GameWorld.Pulser
 import core.game.world.map.Location
 import core.tools.RandomFunction
 
+/**
+ * Dagannoth mother NPC.
+ * @param session
+ */
 class DagannothMotherNPC(id: Int = 0, location: Location? = null, session: DagannothSession? = null) :
     AbstractNPC(id, location) {
     private val airSpells = intArrayOf(1, 10, 24, 45)
@@ -218,14 +222,63 @@ class DagannothMotherNPC(id: Int = 0, location: Location? = null, session: Dagan
         )
     }
 
+    /**
+     * Dagannoth type
+     *
+     * @property npcId
+     * @property sendChat
+     * @property sendMessage
+     * @constructor Dagannoth type
+     */
     enum class DagannothType(var npcId: Int, var sendChat: String?, var sendMessage: String?) {
+        /**
+         * White
+         *
+         * @constructor White
+         */
         WHITE(NPCs.DAGANNOTH_MOTHER_1351, "Tktktktktktkt", null),
+
+        /**
+         * Blue
+         *
+         * @constructor Blue
+         */
         BLUE(NPCs.DAGANNOTH_MOTHER_1352, "Krrrrrrk", "the dagannoth changes to blue..."),
+
+        /**
+         * Red
+         *
+         * @constructor Red
+         */
         RED(NPCs.DAGANNOTH_MOTHER_1353, "Sssssrrrkkkkk", "the dagannoth changes to red..."),
+
+        /**
+         * Brown
+         *
+         * @constructor Brown
+         */
         BROWN(NPCs.DAGANNOTH_MOTHER_1354, "Krrrrrrssssssss", "the dagannoth changes to brown..."),
+
+        /**
+         * Green
+         *
+         * @constructor Green
+         */
         GREEN(NPCs.DAGANNOTH_MOTHER_1355, "Krkrkrkrkrkrkrkr", "the dagannoth changes to green..."),
+
+        /**
+         * Orange
+         *
+         * @constructor Orange
+         */
         ORANGE(NPCs.DAGANNOTH_MOTHER_1356, "Chkhkhkhkhk", "the dagannoth changes to orange...");
 
+        /**
+         * Transform
+         *
+         * @param dagannoth
+         * @param player
+         */
         fun transform(dagannoth: DagannothMotherNPC, player: Player) {
             val newType = next()
             val oldHp = dagannoth.getSkills().lifepoints
@@ -236,6 +289,11 @@ class DagannothMotherNPC(id: Int = 0, location: Location? = null, session: Dagan
             dagannoth.getSkills().setLifepoints(oldHp)
         }
 
+        /**
+         * Next
+         *
+         * @return
+         */
         operator fun next(): DagannothType {
             return values().random()
         }
@@ -253,6 +311,13 @@ class DagannothMotherNPC(id: Int = 0, location: Location? = null, session: Dagan
     }
 
 
+    /**
+     * Dagannoth transform
+     *
+     * @property player
+     * @property dagannoth
+     * @constructor Dagannoth transform
+     */
     class DagannothTransform(val player: Player?, val dagannoth: DagannothMotherNPC) : Pulse() {
         var counter = 0
         override fun pulse(): Boolean {

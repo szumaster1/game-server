@@ -8,6 +8,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * First mate davey boy dialogue.
+ */
 @Initializable
 class FirstMateDaveyBoyDialogue(player: Player? = null): Dialogue(player) {
 

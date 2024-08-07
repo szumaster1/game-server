@@ -5,6 +5,11 @@ import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
 
+/**
+ * System config
+ *
+ * @constructor System config
+ */
 class SystemConfig {
     /*
      * The system-object configurations.
@@ -12,6 +17,10 @@ class SystemConfig {
     private val configs: MutableMap<String, Any?> = HashMap()
     val betaUsers: List<String> = ArrayList(20)
 
+    /**
+     * Parse
+     *
+     */
     /*
      * Parses system configurations from the SQL database.
      */
@@ -47,7 +56,12 @@ class SystemConfig {
         }
     }
 
-    /*
+    /**
+     * Valid login
+     *
+     * @param player
+     * @return
+     *//*
      * Checks if the player passes the system configuration validation.
      */
     fun validLogin(player: Player?): Boolean {
@@ -63,7 +77,13 @@ class SystemConfig {
             return date.after(Date())
         }
 
-    /*
+    /**
+     * Split
+     *
+     * @param data
+     * @param regex
+     * @return
+     *//*
      * Splits the data into an array list using a regex.
      */
     fun split(data: String, regex: String): List<String> {
@@ -80,14 +100,25 @@ class SystemConfig {
         return split
     }
 
-    /*
+    /**
+     * Is beta user
+     *
+     * @param name
+     * @return
+     *//*
      * Checks if a username is a beta user.
      */
     fun isBetaUser(name: String): Boolean {
         return betaUsers.contains(name)
     }
 
-    /*
+    /**
+     * Get config
+     *
+     * @param T
+     * @param key
+     * @return
+     *//*
      * Gets an attribute.
      */
     fun <T> getConfig(key: String): T? {
@@ -96,7 +127,14 @@ class SystemConfig {
         } else configs[key] as T?
     }
 
-    /*
+    /**
+     * Get config
+     *
+     * @param T
+     * @param string
+     * @param fail
+     * @return
+     *//*
      * Gets an attribute.
      */
     fun <T> getConfig(string: String, fail: T): T {
@@ -106,7 +144,11 @@ class SystemConfig {
         } else fail
     }
 
-    /*
+    /**
+     * Get configs
+     *
+     * @return
+     *//*
      * Gets the configs.
      */
     fun getConfigs(): Map<String, Any?> {

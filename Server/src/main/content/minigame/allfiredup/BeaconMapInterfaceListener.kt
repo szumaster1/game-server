@@ -3,6 +3,9 @@ package content.minigame.allfiredup
 import core.api.consts.Components
 import core.game.interaction.InterfaceListener
 
+/**
+ * Beacon map interface listener.
+ */
 class BeaconMapInterfaceListener : InterfaceListener {
 
     companion object {

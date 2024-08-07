@@ -8,6 +8,9 @@ import core.game.node.entity.npc.NPCBehavior
 import core.game.world.map.Location
 import core.tools.RandomFunction
 
+/**
+ * Gnome coach NPC.
+ */
 class GnomeCoachNPC : NPCBehavior(NPCs.GNOME_COACH_2802) {
 
     private val forceChat = arrayOf(

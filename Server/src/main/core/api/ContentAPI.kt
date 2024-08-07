@@ -87,8 +87,10 @@ import java.util.regex.*
 import kotlin.math.*
 
 /**
- * Gets a training tool which the player has the level to use and is in their inventory.
- * @param player  the player to get the tool for
+ * Gets a training tool which the player has the level
+ * to use and is in their inventory.
+ *
+ * @param player  the player to get the tool for.
  * @param pickaxe whether we are trying to get a pickaxe.
  * @return the tool which meets the requirements or null if none.
  */
@@ -97,42 +99,46 @@ fun getTool(player: Player, pickaxe: Boolean): SkillingTool? {
 }
 
 /**
- * Check if a player has a given level (buffable/debuffable)
- * @param player the player to check the stat for
- * @param skill  the Skill to check. There is an enum for this called Skills. Example: Skills.STRENGTH
- * @param level  the level to check against
- * @return true if the check succeeds, false otherwise
+ * Check if a player has a given level (buffable/debuffable).
+ *
+ * @param player the player to check the stat for.
+ * @param skill  the Skill to check. There is an enum for this called Skills. Example: Skills.STRENGTH.
+ * @param level  the level to check against.
+ * @return true if the check succeeds, false otherwise.
  */
 fun hasLevelDyn(player: Player, skill: Int, level: Int): Boolean {
     return player.skills.getLevel(skill) >= level
 }
 
 /**
- * Check if a player's static skill level meets a certain value
- * @param player the player to check the stat for
- * @param skill  the Skill to check. There is an enum for this called Skills. Example: Skills.STRENGTH
- * @param level  the level to check against
- * @return true if the check succeeds, false otherwise
+ * Check if a player's static skill level meets a certain value.
+ *
+ * @param player the player to check the stat for.
+ * @param skill  the Skill to check. There is an enum for this called Skills. Example: Skills.STRENGTH.
+ * @param level  the level to check against.
+ * @return true if the check succeeds, false otherwise.
  */
 fun hasLevelStat(player: Player, skill: Int, level: Int): Boolean {
     return player.skills.getStaticLevel(skill) >= level
 }
 
 /**
- * Check the amount of a given item in the player's inventory
- * @param player the player whose inventory to check
- * @param id     the ID of the item to check for the amount of
- * @return the amount of the given ID in the player's inventory
+ * Check the amount of a given item in the player's inventory.
+ *
+ * @param player the player whose inventory to check.
+ * @param id     the ID of the item to check for the amount of.
+ * @return the amount of the given ID in the player's inventory.
  */
 fun amountInInventory(player: Player, id: Int): Int {
     return player.inventory.getAmount(id)
 }
 
 /**
- * Check the amount of a given item in the player's bank
- * @param player           the player to check
- * @param id               the ID of the item to check for
- * @param includeSecondary if the secondary bank should be included in the search
+ * Check the amount of a given item in the player's bank.
+ *
+ * @param player           the player to check.
+ * @param id               the ID of the item to check for.
+ * @param includeSecondary if the secondary bank should be included in the search.
  * @return the amount of the ID in the player's bank.
  */
 fun amountInBank(player: Player, id: Int, includeSecondary: Boolean = true): Int {
@@ -140,11 +146,13 @@ fun amountInBank(player: Player, id: Int, includeSecondary: Boolean = true): Int
 }
 
 /**
- * More performant way to check the amount of a given item in the player's bank
- * Uses the alwaysStack property of banks to short circuit the search.
- * @param player    the player to check
- * @param id        the ID of the item to check for
- * @param secondary if the secondary bank should be searched instead
+ * More performant way to check the amount of a given
+ * item in the player's bank. Uses the alwaysStack property
+ * of banks to short circuit the search.
+ *
+ * @param player    the player to check.
+ * @param id        the ID of the item to check for.
+ * @param secondary if the secondary bank should be searched instead.
  * @return the amount of the ID in the player's bank.
  */
 private fun getAmountInBank(player: Player, id: Int, secondary: Boolean = false): Int {
@@ -154,9 +162,11 @@ private fun getAmountInBank(player: Player, id: Int, secondary: Boolean = false)
 }
 
 /**
- * Check the amount of a given item in the player's equipment slots
- * @param player the player to check
- * @param id     the ID of the item to check for
+ * Check the amount of a given item in the player's
+ * equipment slots.
+ *
+ * @param player the player to check.
+ * @param id     the ID of the item to check for.
  * @return the amount of the ID in the player's equipment.
  */
 fun amountInEquipment(player: Player, id: Int): Int {
@@ -166,10 +176,11 @@ fun amountInEquipment(player: Player, id: Int): Int {
 }
 
 /**
- * Check if an item exists in a player's inventory
- * @param player the player whose inventory to check
- * @param id     the ID of the item to check for
- * @param amount the amount to check for
+ * Check if an item exists in a player's inventory.
+ *
+ * @param player the player whose inventory to check.
+ * @param id     the ID of the item to check for.
+ * @param amount the amount to check for.
  * @return true if the player has >= the given item in the given amount, false otherwise.
  */
 fun inInventory(player: Player, id: Int, amount: Int = 1): Boolean {
@@ -177,10 +188,11 @@ fun inInventory(player: Player, id: Int, amount: Int = 1): Boolean {
 }
 
 /**
- * Check if an item exists in a player's bank
- * @param player the player whose bank to check
- * @param id     the ID of the item to check for
- * @param amount the amount to check for, defaults to 1
+ * Check if an item exists in a player's bank.
+ *
+ * @param player the player whose bank to check.
+ * @param id     the ID of the item to check for.
+ * @param amount the amount to check for, defaults to 1.
  * @return true if the item exists in the given amount in the player's bank.
  */
 fun inBank(player: Player, id: Int, amount: Int = 1): Boolean {
@@ -188,10 +200,11 @@ fun inBank(player: Player, id: Int, amount: Int = 1): Boolean {
 }
 
 /**
- * Check if an item exists in a player's equipment
- * @param player the player whose equipment to check
- * @param id     the ID of the item to check for
- * @param amount the amount to check for, defaults to 1
+ * Check if an item exists in a player's equipment.
+ *
+ * @param player the player whose equipment to check.
+ * @param id     the ID of the item to check for.
+ * @param amount the amount to check for, defaults to 1.
  * @return true if the item exists in the given amount in the player's equipment.
  */
 fun inEquipment(player: Player, id: Int, amount: Int = 1): Boolean {
@@ -199,10 +212,12 @@ fun inEquipment(player: Player, id: Int, amount: Int = 1): Boolean {
 }
 
 /**
- * Check if an item exists in a player's equipment or inventory
- * @param player the player whose equipment to check
- * @param id     the ID of the item to check for
- * @param amount the amount to check for, defaults to 1
+ * Check if an item exists in a player's equipment
+ * or inventory.
+ *
+ * @param player the player whose equipment to check.
+ * @param id     the ID of the item to check for.
+ * @param amount the amount to check for, defaults to 1.
  * @return true if the item exists in the given amount in the player's equipment or inventory.
  */
 fun inEquipmentOrInventory(player: Player, id: Int, amount: Int = 1): Boolean {
@@ -221,9 +236,11 @@ fun allInEquipment(player: Player, vararg ids: Int): Boolean {
 }
 
 /**
- * Check that at least one item from a set of items is equipped by the given player
- * @param player the player
- * @param ids    the set of item ids to check
+ * Check that at least one item from a set of items
+ * is equipped by the given player.
+ *
+ * @param player the player.
+ * @param ids    the set of item ids to check.
  * @return true if the player has at least one of the items equipped, false if none are equipped.
  */
 fun anyInEquipment(player: Player, vararg ids: Int): Boolean {
@@ -233,9 +250,11 @@ fun anyInEquipment(player: Player, vararg ids: Int): Boolean {
 }
 
 /**
- * Check that at least one item from a set of items is in inventory by the given player
- * @param player the player
- * @param ids    the set of item ids to check
+ * Check that at least one item from a set of items is
+ * in inventory by the given player.
+ *
+ * @param player the player.
+ * @param ids    the set of item ids to check.
  * @return true if the player has at least one of the items in inventory, false if none.
  */
 fun anyInInventory(player: Player, vararg ids: Int): Boolean {
@@ -245,8 +264,9 @@ fun anyInInventory(player: Player, vararg ids: Int): Boolean {
 }
 
 /**
- * Gets the item in the given equipment slot for the given player
- * @param player the player whose equipment to pull from
+ * Gets the item in the given equipment slot for the given player.
+ *
+ * @param player the player whose equipment to pull from.
  * @param slot   the Equipment slot to use, EquipmentSlot enum contains the options.
  * @return the Item in the given slot, or null if none.
  */
@@ -266,8 +286,11 @@ class ContainerisedItem(val container: core.game.container.Container?, val itemI
 
 
 /**
- * Check if player has any of the specified item IDs equipped, in inventory, or in banks
- * Returns a ContainerisedItem containing the container and the item ID if found, otherwise ContainerisedItem(null, -1) if not found
+ * Check if player has any of the specified item IDs
+ * equipped, in inventory, or in banks.
+ *
+ * @return a ContainerisedItem containing the container and the
+ * item ID if found, otherwise ContainerisedItem(null, -1) if not found.
  */
 fun hasAnItem(player: Player, vararg ids: Int): ContainerisedItem {
     for (searchSpace in arrayOf(player.inventory, player.equipment, player.bankPrimary, player.bankSecondary)) {
@@ -281,10 +304,12 @@ fun hasAnItem(player: Player, vararg ids: Int): ContainerisedItem {
 }
 
 /**
- * Check if a player has an item equipped which corresponds to the given God
- * @param player the player to check
- * @param god    the God whose equipment we are checking for
- * @return true if the player has an item corresponding to the given god, false otherwise
+ * Check if a player has an item equipped which corresponds
+ * to the given God.
+ *
+ * @param player the player to check.
+ * @param god    the God whose equipment we are checking for.
+ * @return true if the player has an item corresponding to the given god, false otherwise.
  */
 fun hasGodItem(player: Player, god: God): Boolean {
     god.validItems.forEach { if (inEquipment(player, it)) return true }
@@ -292,9 +317,11 @@ fun hasGodItem(player: Player, god: God): Boolean {
 }
 
 /**
- * Check if the given player should have the "remove nothing" RoW effect active.
- * @param player the player we are checking
- * @return whether we should ignore nothings
+ * Check if the given player should have the "remove nothing"
+ * RoW effect active.
+ *
+ * @param player the player we are checking.
+ * @return whether we should ignore nothings.
  */
 fun shouldRemoveNothings(player: Player): Boolean {
     val ring = getItemFromEquipment(player, EquipmentSlot.RING)
@@ -302,10 +329,12 @@ fun shouldRemoveNothings(player: Player): Boolean {
 }
 
 /**
- * Remove an item from a player's inventory
- * @param player    the player whose inventory to remove the item from
- * @param item      the ID or Item object to remove from the player's inventory
- * @param container the Container to remove the items from. An enum exists for this in the api package called Container. Ex: api.Container.BANK
+ * Remove an item from a player's inventory.
+ *
+ * @param player    the player whose inventory to remove the item from.
+ * @param item      the ID or Item object to remove from the player's inventory.
+ * @param container the Container to remove the items from. An enum exists for
+ *                  this in the api package called Container. Ex: api.Container.BANK.
  */
 fun <T> removeItem(player: Player, item: T, container: Container = Container.INVENTORY): Boolean {
     item ?: return false
@@ -323,12 +352,13 @@ fun <T> removeItem(player: Player, item: T, container: Container = Container.INV
 }
 
 /**
- * Add an item to the given player's given container
- * @param player    the player whose container to modify
- * @param id        the ID of the item to add
- * @param amount    the amount of the item to add
- * @param container the Container to modify
- * @return true if the item was successfully added
+ * Add an item to the given player's given container.
+ *
+ * @param player    the player whose container to modify.
+ * @param id        the ID of the item to add.
+ * @param amount    the amount of the item to add.
+ * @param container the Container to modify.
+ * @return true if the item was successfully added.
  */
 fun addItem(player: Player, id: Int, amount: Int = 1, container: Container = Container.INVENTORY): Boolean {
     val cont = when (container) {
@@ -341,10 +371,13 @@ fun addItem(player: Player, id: Int, amount: Int = 1, container: Container = Con
 }
 
 /**
- * Add an item with a variable quantity or bank it if a player does not have enough space, or drop it if that still doesn't work
- * @param player    The player whose inventory to add to
- * @param id        The ID of the item to add to the player's inventory
- * @param amount    The amount of the ID to add to the player's inventory, defaults to 1
+ * Add an item with a variable quantity or bank it if a
+ * player does not have enough space, or drop it if that
+ * still doesn't work.
+ *
+ * @param player The player whose inventory to add to.
+ * @param id     The ID of the item to add to the player's inventory.
+ * @param amount The amount of the ID to add to the player's inventory, defaults to 1.
  */
 fun addItemOrBank(player: Player, id: Int, amount: Int = 1) {
     val item = Item(id, amount)
@@ -355,20 +388,19 @@ fun addItemOrBank(player: Player, id: Int, amount: Int = 1) {
             sendMessage(player, colorize("%RThe ${item.name} has been sent to your secondary bank."))
         } else {
             GroundItemManager.create(item, player)
-            sendMessage(
-                player,
-                colorize("%RAs your inventory and bank account(s) are all full, the ${item.name} has been placed on the ground under your feet. Don't forget to grab it. (Also consider cleaning out some stuff, maybe? I mean, Jesus!)")
-            )
+            sendMessage(player, colorize("%RAs your inventory and bank account(s) are all full, the ${item.name} has been placed on the ground under your feet. Don't forget to grab it. (Also consider cleaning out some stuff, maybe? I mean, Jesus!)"))
         }
     }
 }
 
 /**
- * Replaces the item in the given slot in the given container with the given item.
- * @param player    the player whose container to modify
- * @param slot      the slot to use
- * @param item      the item to replace the slot with
- * @param container the Container to modify
+ * Replaces the item in the given slot in the given
+ * container with the given item.
+ *
+ * @param player    the player whose container to modify.
+ * @param slot      the slot to use.
+ * @param item      the item to replace the slot with.
+ * @param container the Container to modify.
  * @return the item that was previously in the slot, or null if none.
  */
 fun replaceSlot(
@@ -404,10 +436,12 @@ fun replaceSlot(
 }
 
 /**
- * Add an item with a variable quantity or drop it if a player does not have enough space
- * @param player the player whose inventory to add to
- * @param id     the ID of the item to add to the player's inventory
- * @param amount the amount of the ID to add to the player's inventory, defaults to 1
+ * Add an item with a variable quantity or drop it if
+ * a player does not have enough space.
+ *
+ * @param player the player whose inventory to add to.
+ * @param id     the ID of the item to add to the player's inventory.
+ * @param amount the amount of the ID to add to the player's inventory, defaults to 1.
  */
 fun addItemOrDrop(player: Player, id: Int, amount: Int = 1) {
     val item = Item(id, amount)
@@ -422,8 +456,10 @@ fun addItemOrDrop(player: Player, id: Int, amount: Int = 1) {
 }
 
 /**
- * Clears an NPC with the "poof" smoke graphics commonly seen with random event NPCs.
- * @param npc the NPC object to initialize
+ * Clears an NPC with the "poof" smoke graphics
+ * commonly seen with random event NPCs.
+ *
+ * @param npc the NPC object to initialize.
  */
 fun poofClear(npc: NPC) {
     submitWorldPulse(object : Pulse() {
@@ -444,9 +480,10 @@ fun poofClear(npc: NPC) {
 }
 
 /**
- * Get number of free slots in a player's inventory
- * @param player the player to check
- * @return the number of free slots in the player's inventory
+ * Get number of free slots in a player's inventory.
+ *
+ * @param player the player to check.
+ * @return the number of free slots in the player's inventory.
  */
 fun freeSlots(player: Player): Int {
     return player.inventory.freeSlots()
@@ -454,7 +491,8 @@ fun freeSlots(player: Player): Int {
 
 /**
  * Get an animation by ID.
- * @param id the ID of the animation to use
+ *
+ * @param id the ID of the animation to use.
  * @return an Animation object with the given ID.
  */
 fun getAnimation(id: Int): Animation {
@@ -462,27 +500,30 @@ fun getAnimation(id: Int): Animation {
 }
 
 /**
- * Get an animation by ID with priority
- * @param id        the ID of the animation to get
- * @param priority  the Animator.Priority enum instance to represent the desired priority
- * @return an Animation object with the given ID and priority
+ * Get an animation by ID with priority.
+ *
+ * @param id       the ID of the animation to get.
+ * @param priority the Animator.Priority enum instance to represent the desired priority.
+ * @return an Animation object with the given ID and priority.
  */
 fun getAnimationWithPriority(id: Int, priority: Animator.Priority): Animation {
     return Animation(id, Animator.Priority.values()[priority.ordinal])
 }
 
 /**
- * Reset a player's animator
- * @param player the player whose animator to reset
+ * Reset a player's animator.
+ *
+ * @param player the player whose animator to reset.
  */
 fun resetAnimator(player: Player) {
     player.animator.animate(Animation(-1, Animator.Priority.VERY_HIGH))
 }
 
 /**
- * Get the number of ticks an animation lasts
- * @param animation the Animation object to check the duration of
- * @return the number of ticks the given animation lasts for
+ * Get the number of ticks an animation lasts.
+ *
+ * @param animation the Animation object to check the duration of.
+ * @return the number of ticks the given animation lasts for.
  */
 fun animationDuration(animation: Animation): Int {
     return animation.definition.durationTicks
@@ -494,19 +535,22 @@ fun animationCycles(animation: Int): Int {
 }
 
 /**
- * Give a player some amount of experience in a specific skill
- * @param player    the player to award XP to
- * @param skill     the Skill ID to reward XP for. There is a Skills enum you can use for this. Example: Skills.STRENGTH
- * @param amount    the amount, including decimal place, of experience to award
+ * Give a player some amount of experience in a specific skill.
+ *
+ * @param player the player to award XP to.
+ * @param skill  the Skill ID to reward XP for. There is a Skills enum.
+ *               you can use for this. Example: Skills.STRENGTH.
+ * @param amount the amount, including decimal place, of experience to award.
  */
 fun rewardXP(player: Player, skill: Int, amount: Double) {
     player.skills.addExperience(skill, amount)
 }
 
 /**
- * Replace an object with the given revert timer
- * @param toReplace the Scenery instance we are replacing
- * @param with      the ID of the Scenery we wish to replace toReplace with
+ * Replace an object with the given revert timer.
+ *
+ * @param toReplace the Scenery instance we are replacing.
+ * @param with      the ID of the Scenery we wish to replace toReplace with.
  * @param forTicks  the number of ticks the object should be replaced for. Use -1 for permanent.
  * @param loc       the location to move the new object to if necessary. Defaults to null.
  */
@@ -528,12 +572,14 @@ fun addScenery(scenery: Scenery) {
 }
 
 /**
- * Add a scenery to the world
- * @param sceneryId the ID of the scenery to add
- * @param location  the location to place it at
- * @param rotation  the rotation of the scenery (default 0)
- * @param type      the type of the scenery (default 22)
- * @return the created scenery */
+ * Add a scenery to the world.
+ *
+ * @param sceneryId the ID of the scenery to add.
+ * @param location  the location to place it at.
+ * @param rotation  the rotation of the scenery (default 0).
+ * @param type      the type of the scenery (default 22).
+ * @return the created scenery.
+ */
 fun addScenery(sceneryId: Int, location: Location, rotation: Int = 0, type: Int = 22): Scenery {
     val scenery = Scenery(sceneryId, location, type, rotation)
     SceneryBuilder.add(scenery)
@@ -541,19 +587,22 @@ fun addScenery(sceneryId: Int, location: Location, rotation: Int = 0, type: Int 
 }
 
 /**
- * Remove a scenery from the world
+ * Remove a scenery from the world.
+ *
  * @param scenery the Scenery object to remove.
- **/
+ */
 fun removeScenery(scenery: Scenery) {
     SceneryBuilder.remove(scenery)
 }
 
 /**
- * Replace an object with the given revert timer with the given rotation
- * @param toReplace the Scenery instance we are replacing
- * @param with      the ID of the Scenery we wish to replace toReplace with
+ * Replace an object with the given revert timer
+ * with the given rotation.
+ *
+ * @param toReplace the Scenery instance we are replacing.
+ * @param with      the ID of the Scenery we wish to replace toReplace with.
  * @param forTicks  the number of ticks the object should be replaced for. Use -1 for permanent.
- * @Param rotation  the Direction of the rotation it should use. Direction.NORTH, Direction.SOUTH, etc
+ * @Param rotation  the Direction of the rotation it should use. Direction.NORTH, Direction.SOUTH, etc.
  * @param loc       the location to move the new object to if necessary. Defaults to null.
  */
 fun replaceScenery(toReplace: Scenery, with: Int, forTicks: Int, rotation: Direction, loc: Location? = null) {
@@ -581,58 +630,65 @@ fun replaceScenery(toReplace: Scenery, with: Int, forTicks: Int, rotation: Direc
 
 /**
  * Gets the name of an item.
- * @param id the ID of the item to get the name of
- * @return the name of the item
+ *
+ * @param id the ID of the item to get the name of.
+ * @return the name of the item.
  */
 fun getItemName(id: Int): String {
     return ItemDefinition.forId(id).name
 }
 
 /**
- * Removes a ground item
- * @param node the GroundItem object to remove
+ * Removes a ground item.
+ *
+ * @param node the GroundItem object to remove.
  */
 fun removeGroundItem(node: GroundItem) {
     GroundItemManager.destroy(node)
 }
 
 /**
- * Checks if a ground item is valid/still exists/should exist
- * @param node the GroundItem object to check the validity of
- * @return true if the node is valid, false otherwise
+ * Checks if a ground item is valid/still exists/should exist.
+ *
+ * @param node the GroundItem object to check the validity of.
+ * @return true if the node is valid, false otherwise.
  */
 fun isValidGroundItem(node: GroundItem): Boolean {
     return GroundItemManager.getItems().contains(node)
 }
 
 /**
- * Checks if a player has space for an item
- * @param player the player whose inventory to check
- * @param item   the Item to check against
- * @return true if the player's inventory has space for the item
+ * Checks if a player has space for an item.
+ *
+ * @param player the player whose inventory to check.
+ * @param item   the Item to check against.
+ * @return true if the player's inventory has space for the item.
  */
 fun hasSpaceFor(player: Player, item: Item): Boolean {
     return player.inventory.hasSpaceFor(item)
 }
 
 /**
- * Get the number of ticks passed since server startup
+ * Get the number of ticks passed
+ * since server startup.
  */
 fun getWorldTicks(): Int {
     return GameWorld.ticks
 }
 
 /**
- * Gets an Audio object with specified id, volume, etc
+ * Gets an Audio object with specified id,
+ * volume, etc.
  */
 fun getAudio(id: Int, volume: Int = 10, delay: Int = 1): Audio {
     return Audio(id, volume, delay)
 }
 
 /**
- * Plays a jingle by id
- * @param player   the player to play the jingle for
- * @param jingleId the jingle to play
+ * Plays a jingle by id.
+ *
+ * @param player   the player to play the jingle for.
+ * @param jingleId the jingle to play.
  */
 fun playJingle(player: Player, jingleId: Int) {
     PacketRepository.send(MusicPacket::class.java, MusicContext(player, jingleId, true))
@@ -640,18 +696,22 @@ fun playJingle(player: Player, jingleId: Int) {
 
 
 /**
- * Impact an enemy with the given amount of damage and the given hitsplat type
- * @param entity the entity to damage
- * @param amount the amount of damage to deal
- * @param type   the type of hit splat to use, ImpactHandler.HitsplatType is an enum containing these options.
+ * Impact an enemy with the given amount of damage and
+ * the given hitsplat type.
+ *
+ * @param entity the entity to damage.
+ * @param amount the amount of damage to deal.
+ * @param type   the type of hit splat to use, ImpactHandler.HitsplatType
+ *               is an enum containing these options.
  */
 fun impact(entity: Entity, amount: Int, type: ImpactHandler.HitsplatType = ImpactHandler.HitsplatType.NORMAL) {
     entity.impactHandler.manualHit(entity, amount, type)
 }
 
 /**
- * Get an item's definition
- * @param id the ID of the item to get the definition of
+ * Get an item's definition.
+ *
+ * @param id the ID of the item to get the definition of.
  * @return the ItemDefinition for the given ID.
  */
 fun itemDefinition(id: Int): ItemDefinition {
@@ -664,7 +724,8 @@ fun itemDefinition(id: Int): ItemDefinition {
  * @param node   An NPC, a scenery object or an item to inspect.
  * @param option The name of the interaction option to check for existence of.
  *
- * @return A Boolean value indicating the presence of the specified option in the given node.
+ * @return A Boolean value indicating the presence of the specified
+ * option in the given node.
  */
 fun hasOption(node: Node, option: String): Boolean {
     return when (node) {
@@ -676,14 +737,14 @@ fun hasOption(node: Node, option: String): Boolean {
 }
 
 /**
- * Send an object animation
+ * Send an object animation.
  */
 fun animateScenery(player: Player, obj: Scenery, animationId: Int, global: Boolean = false) {
     player.packetDispatch.sendSceneryAnimation(obj, getAnimation(animationId), global)
 }
 
 /**
- * Send an object animation independent of a player
+ * Send an object animation independent of a player.
  */
 fun animateScenery(obj: Scenery, animationId: Int) {
     val animation = Animation(animationId)
@@ -699,7 +760,9 @@ fun produceGroundItem(player: Player, item: Int) {
 }
 
 /**
- * Produces a ground item with the given ID and amount at the given location
+ * Produces a ground item with the given ID and amount
+ * at the given location.
+ *
  * @param owner    the owner of the ground item, use null for none.
  * @param id       the id of the item.
  * @param amount   the amount of the item.
@@ -711,22 +774,23 @@ fun produceGroundItem(owner: Player?, id: Int, amount: Int, location: Location):
 }
 
 /**
- * Spawns a projectile
+ * Spawns a projectile.
  */
 fun spawnProjectile(source: Entity, dest: Entity, projectileId: Int) {
     Projectile.create(source, dest, projectileId).send()
 }
 
 /**
- * Spawns a projectile with more advanced parameters
- * @param source      the initial Location of the projectile
- * @param dest        the final Location of the projectile
- * @param projectile  the ID of the gfx used for the projectile
- * @param startHeight the height the projectile spawns at
- * @param endHeight   the height the projectile ends at
- * @param delay       the delay before the projectile spawns
- * @param speed       the speed the projectile travels at
- * @param angle       the angle the projectile travels at
+ * Spawns a projectile with more advanced parameters.
+ *
+ * @param source      the initial Location of the projectile.
+ * @param dest        the final Location of the projectile.
+ * @param projectile  the ID of the gfx used for the projectile.
+ * @param startHeight the height the projectile spawns at.
+ * @param endHeight   the height the projectile ends at.
+ * @param delay       the delay before the projectile spawns.
+ * @param speed       the speed the projectile travels at.
+ * @param angle       the angle the projectile travels at.
  */
 fun spawnProjectile(
     source: Location,
@@ -744,10 +808,11 @@ fun spawnProjectile(
 }
 
 /**
- * Causes the given entity to face the given toFace
- * @param entity   the entity you wish to face something
- * @param toFace   the thing to face
- * @param duration how long you wish to face the thing for
+ * Causes the given entity to face the given toFace.
+ *
+ * @param entity   the entity you wish to face something.
+ * @param toFace   the thing to face.
+ * @param duration how long you wish to face the thing for.
  */
 fun face(entity: Entity, toFace: Node, duration: Int = -1) {
     if (duration == -1) {
@@ -764,7 +829,9 @@ fun face(entity: Entity, toFace: Node, duration: Int = -1) {
 }
 
 /**
- * Causes the given entity to reset its face direction.
+ * Causes the given entity to reset its
+ * face direction.
+ *
  * @param entity the entity to reset.
  **/
 fun resetFace(entity: Entity) {
@@ -773,16 +840,19 @@ fun resetFace(entity: Entity) {
 }
 
 /**
- * Opens the given interface for the given player
- * @param player the player to open the interface for
- * @param id     the ID of the interface to open
+ * Opens the given interface for the given player.
+ *
+ * @param player the player to open the interface for.
+ * @param id     the ID of the interface to open.
  */
 fun openInterface(player: Player, id: Int) {
     player.interfaceManager.open(Component(id))
 }
 
 /**
- * Opens the given interface as an overlay for the given player.
+ * Opens the given interface as an overlay for
+ * the given player.
+ *
  * @param player the player to open the interface for.
  * @param id     the ID of the interface to open.
  */
@@ -791,7 +861,9 @@ fun openOverlay(player: Player, id: Int) {
 }
 
 /**
- * Opens the given interface as an chatbox for the given player.
+ * Opens the given interface as an chatbox for
+ * the given player.
+ *
  * @param player the player to open the interface for.
  * @param id     the ID of the interface to open.
  */
@@ -801,6 +873,7 @@ fun openChatbox(player: Player, id: Int) {
 
 /**
  * Closes any open overlays for the given player.
+ *
  * @param player the player to close for.
  */
 fun closeOverlay(player: Player) {
@@ -808,9 +881,10 @@ fun closeOverlay(player: Player) {
 }
 
 /**
- * Runs the given Emote for the given Entity
- * @param entity the entity to run the emote on
- * @param emote  the Emotes enum entry to run
+ * Runs the given Emote for the given Entity.
+ *
+ * @param entity the entity to run the emote on.
+ * @param emote  the Emotes enum entry to run.
  */
 fun emote(entity: Entity, emote: Emotes) {
     entity.animate(emote.animation)
@@ -818,6 +892,7 @@ fun emote(entity: Entity, emote: Emotes) {
 
 /**
  * Gets the emote for the given ID.
+ *
  * @param player   The player.
  * @param emoteId  The emote id to unlock.
  */
@@ -827,6 +902,7 @@ fun unlockEmote(player: Player, emoteId: Int) {
 
 /**
  * Sends a message to the given player.
+ *
  * @param player the player to send the message to.
  */
 fun sendMessage(player: Player, message: String) {
@@ -834,7 +910,9 @@ fun sendMessage(player: Player, message: String) {
 }
 
 /**
- * Sends a message to the given player after the indicated time.
+ * Sends a message to the given player after
+ * the indicated time.
+ *
  * @param player the player to send the message to.
  * @param ticks  the number of ticks after the message is sent.
  */
@@ -843,9 +921,11 @@ fun sendMessageWithDelay(player: Player, message: String, ticks: Int) {
 }
 
 /**
- * Forces an above-head chat message for the given entity
- * @param entity  the entity to send the chat for
- * @param message the message to display
+ * Forces an above-head chat message for
+ * the given entity.
+ *
+ * @param entity  the entity to send the chat for.
+ * @param message the message to display.
  */
 fun sendChat(entity: Entity, message: String, delay: Int = -1) {
     if (delay > -1) {
@@ -857,8 +937,9 @@ fun sendChat(entity: Entity, message: String, delay: Int = -1) {
 }
 
 /**
- * Sends a message to a player's dialogue box
- * @param player  the player to send the dialogue to
+ * Sends a message to a player's dialogue box.
+ *
+ * @param player  the player to send the dialogue to.
  * @param message the message to send, lines are split automatically.
  */
 fun sendDialogue(player: Player, message: String) {
@@ -866,8 +947,9 @@ fun sendDialogue(player: Player, message: String) {
 }
 
 /**
- * Sends a message to the player's dialogue box
- * @param player the player to send the dialogue to
+ * Sends a message to the player's dialogue box.
+ *
+ * @param player the player to send the dialogue to.
  * @param lines  the lines of dialogue to send. No automatic splitting.
  */
 fun sendDialogueLines(player: Player, vararg message: String) {
@@ -876,6 +958,7 @@ fun sendDialogueLines(player: Player, vararg message: String) {
 
 /**
  * Sends options dialogue to the given player.
+ *
  * @param player  the player to send the options to.
  * @param title   the title of the dialogue options.
  * @param options the options to present to the player.
@@ -886,6 +969,7 @@ fun sendDialogueOptions(player: Player, title: String, vararg options: String) {
 
 /**
  * Sends plain dialogue to the given player.
+ *
  * @param player  the player to send the options to.
  * @param message the message to present to the player.
  */
@@ -896,6 +980,7 @@ fun sendPlainDialogue(player: Player, hideContinue: Boolean = false, vararg mess
 
 /**
  * Sends unclosable plain dialogue to the given player.
+ *
  * @param player  the player to send the options to.
  * @param message the message to present to the player.
  */
@@ -905,6 +990,7 @@ fun sendUnclosableDialogue(player: Player, hideContinue: Boolean = false, vararg
 
 /**
  * Send item options based on the amount of specified options.
+ *
  * @param title the title.
  * @param i1    the first item to send to dialogue box (left side).
  * @param i2    the second item to send to dialogue box (right side).
@@ -931,10 +1017,11 @@ fun sendDoubleItemOptions(player: Player, title: String, i1: Any, i2: Any, o1: S
 }
 
 /**
- * Plays an animation on the entity
- * @param entity the entity to animate
+ * Plays an animation on the entity.
+ *
+ * @param entity the entity to animate.
  * @param anim   the animation to play, can be an ID or an Animation object.
- * @param forced whether to force the animation (usually not necessary)
+ * @param forced whether to force the animation (usually not necessary).
  */
 fun <T> animate(entity: Entity, anim: T, forced: Boolean = false) {
     val animation = when (anim) {
@@ -951,13 +1038,14 @@ fun <T> animate(entity: Entity, anim: T, forced: Boolean = false) {
 }
 
 /**
- * Plays audio for the player
- * @param player   the player to play the defined audio for
- * @param id       the audio id to play
+ * Plays audio for the player.
+ *
+ * @param player   the player to play the defined audio for.
+ * @param id       the audio id to play.
  * @param delay    the delay in client cycles (50 cycles = 1 second)
- * @param loops    the number of times to loop audio (for some audio ids it is used to define how many times to loop the audio)
- * @param location the location where the audio will play from (The sound will fade with distance)
- * @param radius   the distance the audio can be heard from the defined location (default = 8 tiles if undefined)
+ * @param loops    the number of times to loop audio (for some audio ids it is used to define how many times to loop the audio).
+ * @param location the location where the audio will play from (The sound will fade with distance).
+ * @param radius   the distance the audio can be heard from the defined location (default = 8 tiles if undefined).
  */
 @JvmOverloads
 fun playAudio(
@@ -972,12 +1060,14 @@ fun playAudio(
 }
 
 /**
- * Plays audio for players near a defined location
- * @param location the location where the audio will play from (The sound will fade with distance)
- * @param id       the audio id to play
- * @param delay    the delay in client cycles (50 cycles = 1 second)
- * @param loops    the number of times to loop audio (for some audio ids it is used to define how many times to loop the audio)
- * @param radius   the distance the audio can be heard from the defined location (default = 8 tiles if undefined)
+ * Plays audio for players near a defined location.
+ *
+ * @param location the location where the audio will play from (The sound will fade with distance).
+ * @param id       the audio id to play.
+ * @param delay    the delay in client cycles (50 cycles = 1 second).
+ * @param loops    the number of times to loop audio (for some audio ids it is used to define
+ *                 how many times to loop the audio).
+ * @param radius   the distance the audio can be heard from the defined location (default = 8 tiles if undefined).
  */
 @JvmOverloads
 fun playGlobalAudio(
@@ -992,9 +1082,10 @@ fun playGlobalAudio(
 }
 
 /**
- * Plays a random hurt audio for the player based on gender
- * @param player the player to play hurt audio for
- * @param delay  the delay in client cycles (50 cycles = 1 second)
+ * Plays a random hurt audio for the player based on gender.
+ *
+ * @param player the player to play hurt audio for.
+ * @param delay  the delay in client cycles (50 cycles = 1 second).
  */
 fun playHurtAudio(player: Player, delay: Int = 0) {
     val maleHurtAudio =
@@ -1009,10 +1100,12 @@ fun playHurtAudio(player: Player, delay: Int = 0) {
 }
 
 /**
- * Opens a dialogue with the given dialogue key or dialogue file, depending which is passed.
- * @param player   the player to open the dialogue for
- * @param dialogue either the dialogue key or an instance of a DialogueFile
- * @param args     various args to pass to the opened dialogue
+ * Opens a dialogue with the given dialogue key or dialogue file,
+ * depending on which is passed.
+ *
+ * @param player   the player to open the dialogue for.
+ * @param dialogue either the dialogue key or an instance of a DialogueFile.
+ * @param args     various args to pass to the opened dialogue.
  */
 fun openDialogue(player: Player, dialogue: Any, vararg args: Any) {
     player.dialogueInterpreter.close()
@@ -1039,25 +1132,30 @@ fun closeDialogue(player: Player) {
 
 /**
  * Gets an NPC with the given ID from the repository.
- * @param   id the ID of the NPC to locate
- * @returns an NPC instance matching the ID if it finds one, null otherwise
+ *
+ * @param id the ID of the NPC to locate.
+ * @returns an NPC instance matching the ID if it finds one, null otherwise.
  */
 fun findNPC(id: Int): NPC? {
     return Repository.findNPC(id)
 }
 
 /**
- * Gets the spawned scenery from the world map using the given coordinates
- * @param x the X coordinate to use
- * @param y the Y coordinate to use
- * @param z the Z coordinate to use
+ * Gets the spawned scenery from the world map
+ * using the given coordinates.
+ *
+ * @param x the X coordinate to use.
+ * @param y the Y coordinate to use.
+ * @param z the Z coordinate to use.
  */
 fun getScenery(x: Int, y: Int, z: Int): Scenery? {
     return RegionManager.getObject(z, x, y)
 }
 
 /**
- * Gets the spawned scenery from the world map using the given Location object.
+ * Gets the spawned scenery from the world map using
+ * the given Location object.
+ *
  * @param loc the Location object to use.
  */
 fun getScenery(loc: Location): Scenery? {
@@ -1065,30 +1163,36 @@ fun getScenery(loc: Location): Scenery? {
 }
 
 /**
- * Gets an NPC within render distance of the refLoc that matches the given ID
- * @param refLoc the Location to find the closes NPC to
- * @param id     the ID of the NPC to locate
- * @returns an NPC instance matching the ID if it finds one, null otherwise
+ * Gets an NPC within render distance of the
+ * refLoc that matches the given ID.
+ *
+ * @param refLoc the Location to find the closes NPC to.
+ * @param id     the ID of the NPC to locate.
+ * @returns an NPC instance matching the ID if it finds one, null otherwise.
  */
 fun findNPC(refLoc: Location, id: Int): NPC? {
     return Repository.npcs.firstOrNull { it.id == id && it.location.withinDistance(refLoc) }
 }
 
 /**
- * Gets an NPC with the given ID in the same general area  as the given Entity
- * @param entity the entity to search around
- * @param id     the ID of the NPC to locate
- * @returns an NPC matching the given ID or null if none is found
+ * Gets an NPC with the given ID in the same
+ * general area as the given Entity.
+ *
+ * @param entity the entity to search around.
+ * @param id     the ID of the NPC to locate.
+ * @returns an NPC matching the given ID or null if none is found.
  */
 fun findLocalNPC(entity: Entity, id: Int): NPC? {
     return RegionManager.getLocalNpcs(entity).firstOrNull { it.id == id }
 }
 
 /**
- * Gets an NPC with the given ID in the same general area  as the given Entity
+ * Gets an NPC with the given ID in the same general area
+ * as the given Entity.
+ *
  * @param location The location to search around.
  * @param distance The maximum distance to the entity.
- * @returns an NPC matching the given ID or null if none is found
+ * @returns an NPC matching the given ID or null if none is found.
  */
 fun findLocalNPCs(location: Location, distance: Int): MutableList<NPC> {
     return RegionManager.getLocalNpcs(location, distance)
@@ -1097,8 +1201,9 @@ fun findLocalNPCs(location: Location, distance: Int): MutableList<NPC> {
 
 /**
  * Gets a list of nearby NPCs that match the given IDs.
- * @param entity the entity to check around
- * @param ids    the IDs of the NPCs to look for
+ *
+ * @param entity the entity to check around.
+ * @param ids    the IDs of the NPCs to look for.
  */
 fun findLocalNPCs(entity: Entity, ids: IntArray): List<NPC> {
     return RegionManager.getLocalNpcs(entity).filter { it.id in ids }.toList()
@@ -1106,8 +1211,9 @@ fun findLocalNPCs(entity: Entity, ids: IntArray): List<NPC> {
 
 /**
  * Gets a list of nearby NPCs that match the given IDs.
- * @param entity   the entity to check around
- * @param ids      the IDs of the NPCs to look for
+ *
+ * @param entity   the entity to check around.
+ * @param ids      the IDs of the NPCs to look for.
  * @param distance the maximum distance to the entity.
  */
 fun findLocalNPCs(entity: Entity, ids: IntArray, distance: Int): List<NPC> {
@@ -1115,28 +1221,34 @@ fun findLocalNPCs(entity: Entity, ids: IntArray, distance: Int): List<NPC> {
 }
 
 /**
- * @param regionId the ID of the region
- * @return a [ZoneBorders] encapsulating the entire region indicated by the provided regionId
+ * @param regionId the ID of the region.
+ *
+ * @return a [ZoneBorders] encapsulating the entire.
+ *                         region indicated by the provided regionId.
  */
 fun getRegionBorders(regionId: Int): ZoneBorders {
     return ZoneBorders.forRegion(regionId)
 }
 
 /**
- * Gets the value of an attribute key from the Entity's attributes store
- * @param entity    the entity to get the attribute from
- * @param attribute the attribute key to use
- * @param default   the default value to return if the attribute does not exist
+ * Gets the value of an attribute key from the
+ * Entity's attributes store.
+ *
+ * @param entity    the entity to get the attribute from.
+ * @param attribute the attribute key to use.
+ * @param default   the default value to return if the attribute does not exist.
  */
 fun <T> getAttribute(entity: Entity, attribute: String, default: T): T {
     return entity.getAttribute(attribute, default)
 }
 
 /**
- * Sets an attribute key to the given value in an Entity's attribute store
- * @param entity    the entity to set the attribute for
- * @param attribute the attribute key to use
- * @param value     the value to set the attribute to
+ * Sets an attribute key to the given value in an
+ * Entity's attribute store.
+ *
+ * @param entity    the entity to set the attribute for.
+ * @param attribute the attribute key to use.
+ * @param value     the value to set the attribute to.
  */
 fun <T> setAttribute(entity: Entity, attribute: String, value: T) {
     entity.setAttribute(attribute, value)
@@ -1152,21 +1264,25 @@ fun removeAttributes(entity: Entity, vararg attributes: String) {
 
 /**
  * Adds the given timer to the entity's active timers.
- * @param entity the entity whose timers are being added to
- * @param timer  the timer being added
- **/
+ *
+ * @param entity the entity whose timers are being added to.
+ * @param timer  the timer being added.
+ */
 fun registerTimer(entity: Entity, timer: RSTimer?) {
     if (timer == null) return
     entity.timers.registerTimer(timer)
 }
 
 /**
- * Used to fetch the existing, active, non-abstract and non-anonymous timer with the given identifier, or start a new timer if none exists and return that.
- * @param entity     the entity whose timers we're retrieving
+ * Used to fetch the existing, active, non-abstract and non-anonymous
+ * timer with the given identifier, or start a new timer if none exists
+ * and return that.
+ *
+ * @param entity     the entity whose timers we're retrieving.
  * @param identifier the identifier of the timer, refer to the individual timer class for this token.
  * @param args       various args to pass to the initialization of the timer, if applicable.
  * @return Either the existing active timer, or a new timer initialized with the passed args if none exists yet.
- **/
+ */
 fun getOrStartTimer(entity: Entity, identifier: String, vararg args: Any): RSTimer? {
     val existing = getTimer(entity, identifier)
     if (existing != null) return existing
@@ -1174,12 +1290,14 @@ fun getOrStartTimer(entity: Entity, identifier: String, vararg args: Any): RSTim
 }
 
 /**
- * Used to fetch the existing, active, non-abstract and non-anonymous timer with the given type, or start a new timer if none exists and return that.
- * @param entity the entity whose timer we're retrieving
- * @param T      the type of timer we are fetching
+ * Used to fetch the existing, active, non-abstract and non-anonymous timer
+ * with the given type, or start a new timer if none exists and return that.
+ *
+ * @param entity the entity whose timer we're retrieving.
+ * @param T      the type of timer we are fetching.
  * @param args   the various args to pass to the initialization of the timer, if applicable.
  * @return Either the existing, active timer or a new timer initialized with the passed args if none exists yet.
- **/
+ */
 inline fun <reified T : RSTimer> getOrStartTimer(entity: Entity, vararg args: Any): T {
     val existing = getTimer<T>(entity)
     if (existing != null) return existing
@@ -1187,39 +1305,45 @@ inline fun <reified T : RSTimer> getOrStartTimer(entity: Entity, vararg args: An
 }
 
 /**
- * Used to fetch a new instance of a registered (see: non-anonymous, non-abstract) timer with the given configuration args
- * @param identifier the string identifier for the timer. e.g. poison's is "poison"
+ * Used to fetch a new instance of a registered (see: non-anonymous, non-abstract)
+ * timer with the given configuration args.
+ *
+ * @param identifier the string identifier for the timer. e.g. poison's is "poison".
  * @param args       various arbitrary arguments to be passed to the timer's constructor. Refer to the timer in question for what the args are expected to be.
  * @return a timer instance configured with your given args, or null if no timer with the given key exists in the registry.
- **/
+ */
 fun spawnTimer(identifier: String, vararg args: Any): RSTimer? {
     return TimerRegistry.getTimerInstance(identifier, *args)
 }
 
 /**
- * Used to fetch a new instance of a registered (see: non-anonymous, non-abstract) timer with the given configuration args
+ * Used to fetch a new instance of a registered (see: non-anonymous, non-abstract) timer
+ * with the given configuration args.
+ *
  * @param T    the type of the timer you're trying to retrieve. The timer registry will be searched for a timer of this type.
  * @param args various arbitrary arguments to be passed to the timer's constructor. Refer to the timer in question for what the args are expected to be.
- * @return a timer instance configured with your given args, or null if the timer is not listed in the registry (if this happens, your timer is either abstract or anonymous.)
- **/
+ * @return a timer instance configured with your given args, or null if the timer is not listed in the registry (if this happens, your timer is either abstract or anonymous).
+ */
 inline fun <reified T : RSTimer> spawnTimer(vararg args: Any): T {
     return TimerRegistry.getTimerInstance<T>(*args)!!
 }
 
 /**
  * Used to check if a timer of the given type is registered and active in the entity's timers.
- * @param T      the type of timer
- * @param entity the entity whose timers are being checked
+ *
+ * @param T      the type of timer.
+ * @param entity the entity whose timers are being checked.
  * @return true if there is a timer registered and active with the given type.
- **/
+ */
 inline fun <reified T : RSTimer> hasTimerActive(entity: Entity): Boolean {
     return getTimer<T>(entity) != null
 }
 
 /**
  * Used to get the active instance of a timer with the given type from the entity's timers.
- * @param T      the type of timer
- * @param entity the entity whose timers we are checking
+ *
+ * @param T      the type of timer.
+ * @param entity the entity whose timers we are checking.
  * @return the active instance of the given type in the entity's timers, or null.
  */
 inline fun <reified T : RSTimer> getTimer(entity: Entity): T? {
@@ -1227,83 +1351,102 @@ inline fun <reified T : RSTimer> getTimer(entity: Entity): T? {
 }
 
 /**
- * Removes any active timers of the given type from the entity's active timers. This will remove ALL matching instances.
- * @param T      the type of timer
- * @param entity the entity whose timers are being checked
- **/
+ * Removes any active timers of the given type
+ * from the entity's active timers. This will
+ * remove ALL matching instances.
+ *
+ * @param T      the type of timer.
+ * @param entity the entity whose timers are being checked.
+ */
 inline fun <reified T : RSTimer> removeTimer(entity: Entity) {
     entity.timers.removeTimer<T>()
 }
 
 /**
- * Used to check if a timer with the given identifier string is registered and active in the entity's timers.
- * @param identifier the identifier token assigned to the timer. You'll have to refer to the actual timer class for this string.
- * @param entity     the entity whose timers are being checked
- * @return true if there's a timer with the given identifier active in the entity's timers
- **/
+ * Used to check if a timer with the given identifier string is
+ * registered and active in the entity's timers.
+ *
+ * @param identifier the identifier token assigned to the timer.
+ *                   You'll have to refer to the actual timer class for this string.
+ * @param entity     the entity whose timers are being checked.
+ * @return true if there's a timer with the given identifier active in the entity's timers.
+ */
 fun hasTimerActive(entity: Entity, identifier: String): Boolean {
     return getTimer(entity, identifier) != null
 }
 
 /**
  * Used to get the active instance of a timer with the given identifier from the entity's timers.
- * @param identifier the string identifier of the timer we are looking for. You'll have to refer to the actual timer class for this string.
- * @param entity     the entity whose timers are being checked
+ *
+ * @param identifier the string identifier of the timer we are looking for.
+ *                   You'll have to refer to the actual timer class for this string.
+ * @param entity     the entity whose timers are being checked.
  * @return the instance of the active timer if found, null otherwise.
- **/
+ */
 fun getTimer(entity: Entity, identifier: String): RSTimer? {
     return entity.timers.getTimer(identifier)
 }
 
 /**
- * Removes any active timers with the given identifier from the entity's active timers. This will remove ALL matching instances.
- * @param identifier the identifier token assigned to the timer. You'll have to refer to the actual timer class for this string.
+ * Removes any active timers with the given identifier from the entity's active timers.
+ * This will remove ALL matching instances.
+ *
+ * @param identifier the identifier token assigned to the timer.
+ *                   You'll have to refer to the actual timer class for this string.
  * @param entity     the entity whose timers are being checked
- **/
+ */
 fun removeTimer(entity: Entity, identifier: String) {
     entity.timers.removeTimer(identifier)
 }
 
 /**
- * Removes the given timer from the entity's active timers. Note this variant will only work with a reference to the same exact timer you want to remove.
- * @param entity the entity whose timers we are modifying
- * @param timer  the timer to remove
- **/
+ * Removes the given timer from the entity's active timers.
+ * Note this variant will only work with a reference to the
+ * same exact timer you want to remove.
+ *
+ * @param entity the entity whose timers we are modifying.
+ * @param timer  the timer to remove.
+ */
 fun removeTimer(entity: Entity, timer: RSTimer) {
     entity.timers.removeTimer(timer)
 }
 
 /**
- * Locks the given entity for the given number of ticks
- * @param entity   the entity to lock
- * @param duration the number of ticks to lock for
+ * Locks the given entity for the given number of ticks.
+ *
+ * @param entity   the entity to lock.
+ * @param duration the number of ticks to lock for.
  */
 fun lock(entity: Entity, duration: Int) {
     entity.lock(duration)
 }
 
 /**
- * Locks specifically an entity's interactions, allowing movement still
- * @param entity   the entity to lock
- * @param duration the duration in ticks to lock for
+ * Locks specifically an entity's interactions,
+ * allowing movement still.
+ *
+ * @param entity   the entity to lock.
+ * @param duration the duration in ticks to lock for.
  */
 fun lockInteractions(entity: Entity, duration: Int) {
     entity.locks.lockInteractions(duration)
 }
 
 /**
- * Unlocks the given entity
- * @param entity the entity to unlock
+ * Unlocks the given entity.
+ *
+ * @param entity the entity to unlock.
  */
 fun unlock(entity: Entity) {
     entity.unlock()
 }
 
 /**
- * Transforms an NPC for the given number of ticks
- * @param npc          the NPC object to transform
- * @param transformTo  the ID of the NPC to turn into
- * @param restoreTicks the number of ticks until the NPC returns to normal
+ * Transforms an NPC for the given number of ticks.
+ *
+ * @param npc          the NPC object to transform.
+ * @param transformTo  the ID of the NPC to turn into.
+ * @param restoreTicks the number of ticks until the NPC returns to normal.
  */
 fun transformNpc(npc: NPC, transformTo: Int, restoreTicks: Int) {
     npc.transform(transformTo)
@@ -1316,28 +1459,32 @@ fun transformNpc(npc: NPC, transformTo: Int, restoreTicks: Int) {
 }
 
 /**
- * Produces a Location object using the given x,y,z values
+ * Produces a Location object using the
+ * given x,y,z values.
  */
 fun location(x: Int, y: Int, z: Int): Location {
     return Location.create(x, y, z)
 }
 
 /**
- * Checks if the given entity is within the given ZoneBorders
+ * Checks if the given entity is within the
+ * given ZoneBorders.
  */
 fun inBorders(entity: Entity, borders: ZoneBorders): Boolean {
     return borders.insideBorder(entity)
 }
 
 /**
- * Checks if the given entity is within the given borders
+ * Checks if the given entity is within the
+ * given borders.
  */
 fun inBorders(entity: Entity, swX: Int, swY: Int, neX: Int, neY: Int): Boolean {
     return ZoneBorders(swX, swY, neX, neY).insideBorder(entity)
 }
 
 /**
- * AHeals the given entity for the given number of hitpoints
+ * AHeals the given entity for the
+ * given number of hitpoints.
  */
 fun heal(entity: Entity, amount: Int) {
     entity.skills.heal(amount)
@@ -1397,9 +1544,12 @@ fun reinitVarps(player: Player) {
 
 /**
  * Force an entity to walk to a given destination.
- * @param entity the entity to forcewalk
- * @param dest   the Location object to walk to
- * @param type   the type of pathfinder to use. "smart" for the SMART pathfinder, "clip" for the noclip pathfinder, anything else for DUMB.
+ *
+ * @param entity the entity to forcewalk.
+ * @param dest   the Location object to walk to.
+ * @param type   the type of pathfinder to use. "smart" for
+ *               the SMART pathfinder, "clip" for the
+ *               noclip pathfinder, anything else for DUMB.
  */
 fun forceWalk(entity: Entity, dest: Location, type: String) {
     if (type == "clip") {
@@ -1415,8 +1565,10 @@ fun forceWalk(entity: Entity, dest: Location, type: String) {
 }
 
 /**
- * Returns a location truncated to the appropriate pathfinding limit
- **/
+ * Returns a location truncated to the appropriate.
+ *
+ * pathfinding limit.
+ */
 fun truncateLoc(mover: Entity, destination: Location): Pair<Boolean, Location> {
     val vector = Vector.betweenLocs(mover.location, destination)
     val normVec = vector.normalized()
@@ -1431,17 +1583,19 @@ fun truncateLoc(mover: Entity, destination: Location): Pair<Boolean, Location> {
 }
 
 /**
- * Force a player to move from the start location to the dest location
- * @param player      the player we are moving
- * @param start       the start location
- * @param dest        the end location
- * @param startArrive the number of client cycles to take moving the player to the start location
- * @param destArrive  the number of client cycles to take moving the player to the end location from the start location
- * @param direction   (optional) the direction to face the player during the movement
- * @param anim        (optional) the animation to use throughout the movement
- * @param callback    (optional) a callback called when the forced  movement completes
+ * Force a player to move from the start location to the dest location.
+ *
+ * @param player      the player we are moving.
+ * @param start       the start location.
+ * @param dest        the end location.
+ * @param startArrive the number of client cycles to take moving the player to the start location.
+ * @param destArrive  the number of client cycles to take moving the player to the end
+ *                    location from the start location.
+ * @param direction   (optional) the direction to face the player during the movement.
+ * @param anim        (optional) the animation to use throughout the movement.
+ * @param callback    (optional) a callback called when the forced  movement completes.
  * @see NOTE:         There are 30 client cycles per second.
- **/
+ */
 fun forceMove(
     player: Player,
     start: Location,
@@ -1498,15 +1652,17 @@ fun forceMove(
 }
 
 /**
- * Interrupts a given entity's walking queue
- * @param entity the entity to interrupt
+ * Interrupts a given entity's walking queue.
+ *
+ * @param entity the entity to interrupt.
  */
 fun stopWalk(entity: Entity) {
     entity.walkingQueue.reset()
 }
 
 /**
- * Returns a list of all valid children IDs for a given scenery ID
+ * Returns a list of all valid children IDs for
+ * a given scenery ID.
  */
 fun getChildren(scenery: Int): IntArray {
     return SceneryDefinition.forId(scenery).getChildrenIds().filter { it != -1 }.toIntArray()
@@ -1514,8 +1670,9 @@ fun getChildren(scenery: Int): IntArray {
 
 /**
  * Adjusts the charge for the given node.
- * @param node   the node to adjust the charge of
- * @param amount the amount to adjust by
+ *
+ * @param node   the node to adjust the charge of.
+ * @param amount the amount to adjust by.
  */
 fun adjustCharge(node: Node, amount: Int) {
     when (node) {
@@ -1530,8 +1687,9 @@ fun adjustCharge(node: Node, amount: Int) {
 }
 
 /**
- * Get the current charge of the given node
- * @param node  the node whose charge to check
+ * Get the current charge of the given node.
+ *
+ * @param node  the node whose charge to check.
  * @return amount of charges the node has, or -1 if the node does not accept charges.
  */
 fun getCharge(node: Node): Int {
@@ -1546,8 +1704,9 @@ fun getCharge(node: Node): Int {
 
 /**
  * Set the charge of the given node to the given amount.
- * @param node   the node to set the charge for
- * @param charge the amount to set the node's charge to (default is 1000)
+ *
+ * @param node   the node to set the charge for.
+ * @param charge the amount to set the node's charge to (default is 1000).
  */
 fun setCharge(node: Node, charge: Int) {
     when (node) {
@@ -1561,6 +1720,7 @@ fun setCharge(node: Node, charge: Int) {
 
 /**
  * Gets the used option in the context of an interaction.
+ *
  * @param player the player to get the used option for.
  * @return the option the player used
  */
@@ -1571,7 +1731,8 @@ fun getUsedOption(player: Player): String {
 /**
  * Used to play both an Animation and Graphic object simultaneously.
  * Use -1 in place of anim or graphics if not needed.
- * @param entity the entity to perform this on
+ *
+ * @param entity the entity to perform this on.
  * @param anim   the Animation object to use, can also be an ID.
  * @param gfx    the Graphic object to use, can also be an ID.
  */
@@ -1593,16 +1754,19 @@ fun <A, G> visualize(entity: Entity, anim: A, gfx: G) {
 
 /**
  * Used to submit a pulse to the GameWorld's Pulser.
- * @param pulse     the Pulse object to submit
+ *
+ * @param pulse the Pulse object to submit.
  */
 fun submitWorldPulse(pulse: Pulse) {
     Pulser.submit(pulse)
 }
 
 /**
- * Used to submit a pulse to the GameWorld's Pulser, albeit with a cleaner syntax.
- * @param task  an anonymous function that will be run in the Pulse
- * @return the newly submitted Pulse
+ * Used to submit a pulse to the GameWorld's Pulser,
+ * albeit with a cleaner syntax.
+ *
+ * @param task an anonymous function that will be run in the Pulse.
+ * @return the newly submitted Pulse.
  */
 fun runWorldTask(task: () -> Unit): Pulse {
     val pulse = object : Pulse() {
@@ -1617,7 +1781,9 @@ fun runWorldTask(task: () -> Unit): Pulse {
 }
 
 /**
- * Teleports or "instantly moves" an entity to a given Location object.
+ * Teleports or "instantly moves" an entity to a given
+ * Location object.
+ *
  * @param entity the entity to move.
  * @param loc    the Location object to move them to.
  * @param type   the teleport type to use (defaults to instant). An enum exists as TeleportManager.TeleportType.
@@ -1633,9 +1799,10 @@ fun teleport(
 
 /**
  * Sets the dynamic or "temporary" (restores) level of a skill.
- * @param entity the entity to set the level for
- * @param skill  the Skill to set. A Skills enum exists that can be used. Ex: Skills.STRENGTH
- * @param level  the level to set the skill to
+ *
+ * @param entity the entity to set the level for.
+ * @param skill  the Skill to set. A Skills enum exists that can be used. Ex: Skills.STRENGTH.
+ * @param level  the level to set the skill to.
  */
 fun setTempLevel(entity: Entity, skill: Int, level: Int) {
     entity.skills.setLevel(skill, level)
@@ -1643,9 +1810,10 @@ fun setTempLevel(entity: Entity, skill: Int, level: Int) {
 
 /**
  * Gets the static (unchanging/max) level of an entity's skill.
- * @param entity the entity to get the level for
- * @param skill  the Skill to get the level of. A Skills enum exists that can be used. Ex: Skills.STRENGTH
- * @return the static level of the skill
+ *
+ * @param entity the entity to get the level for.
+ * @param skill  the Skill to get the level of. A Skills enum exists that can be used. Ex: Skills.STRENGTH.
+ * @return the static level of the skill.
  */
 fun getStatLevel(entity: Entity, skill: Int): Int {
     return entity.skills.getStaticLevel(skill)
@@ -1653,9 +1821,10 @@ fun getStatLevel(entity: Entity, skill: Int): Int {
 
 /**
  * Gets the dynamic (boostable/debuffable/restoring) level of an entity's skill.
- * @param entity the entity to get the level for
- * @param skill  the Skill to get the level of. A Skills enum exists that can be used. Ex: Skills.STRENGTH
- * @return the dynamic level of the skill
+ *
+ * @param entity the entity to get the level for.
+ * @param skill  the Skill to get the level of. A Skills enum exists that can be used. Ex: Skills.STRENGTH.
+ * @return the dynamic level of the skill.
  */
 fun getDynLevel(entity: Entity, skill: Int): Int {
     return entity.skills.getLevel(skill)
@@ -1663,9 +1832,10 @@ fun getDynLevel(entity: Entity, skill: Int): Int {
 
 /**
  * Adjusts (buffs/debuffs) the given Skill by the amount given.
- * @param entity the entity to adjust the skill for
- * @param skill  the Skill to adjust. A Skills enum exists that can be used. Ex: Skills.STRENGTH
- * @param amount the amount to adjust the skill by. Ex-Buff: 5, Ex-Debuff: -5
+ *
+ * @param entity the entity to adjust the skill for.
+ * @param skill  the Skill to adjust. A Skills enum exists that can be used. Ex: Skills.STRENGTH.
+ * @param amount the amount to adjust the skill by. Ex-Buff: 5, Ex-Debuff: -5.
  */
 fun adjustLevel(entity: Entity, skill: Int, amount: Int) {
     entity.skills.setLevel(skill, entity.skills.getStaticLevel(skill) + amount)
@@ -1673,9 +1843,10 @@ fun adjustLevel(entity: Entity, skill: Int, amount: Int) {
 
 /**
  * Remove all of a given item from the given container.
- * @param player    the player to remove the item from
+ *
+ * @param player    the player to remove the item from.
  * @param item      the item to remove. Can be an Item object or an ID.
- * @param container the Container to remove the item from. An enum exists for this called Container. Ex: Container.BANK
+ * @param container the Container to remove the item from. An enum exists for this called Container. Ex: Container.BANK.
  */
 fun <T> removeAll(player: Player, item: T, container: Container = Container.INVENTORY): Boolean {
     item ?: return false
@@ -1699,6 +1870,7 @@ fun <T> removeAll(player: Player, item: T, container: Container = Container.INVE
 
 /**
  * Sends a string to a specific interface child.
+ *
  * @param player the player to send the packet to.
  * @param string the string to send to the child.
  * @param iface  the ID of the interface to use.
@@ -1710,6 +1882,7 @@ fun setInterfaceText(player: Player, string: String, iface: Int, child: Int) {
 
 /**
  * Closes any open (non-chat) interfaces for the player.
+ *
  * @param player the player to close the interface for.
  */
 fun closeInterface(player: Player) {
@@ -1718,6 +1891,7 @@ fun closeInterface(player: Player) {
 
 /**
  * Closes any opened tab interfaces for the player.
+ *
  * @param player the player to close the tab for.
  */
 
@@ -1727,6 +1901,7 @@ fun closeTabInterface(player: Player) {
 
 /**
  * Closes any chatbox interface for the player.
+ *
  * @param player the player to close the chat for.
  */
 fun closeChatBox(player: Player) {
@@ -1735,6 +1910,7 @@ fun closeChatBox(player: Player) {
 
 /**
  * Allows you to hide or show specific children in an interface.
+ *
  * @param player The player to send the packet to.
  * @param iface  The ID of the interface to use.
  * @param child  The index of the child to hide or show.
@@ -1746,6 +1922,7 @@ fun setComponentVisibility(player: Player, iface: Int, child: Int, hide: Boolean
 
 /**
  * Allows sword sprites to be moved when title is too long.
+ *
  * @param player  The player to send the packet to.
  * @param options The number of the dialogue options.
  */
@@ -1768,19 +1945,22 @@ fun setTitle(player: Player, options: Int) {
 
 /**
  * Sends a dialogue that uses the player's chathead.
+ *
  * @param player The player to send the dialogue to.
  * @param msg    The message to send.
- * @param expr   The FacialExpression to use. An enum exists for these called FacialExpression. Defaults to FacialExpression.FRIENDLY
+ * @param expr   The FacialExpression to use. An enum exists for these called
+ *               FacialExpression. Defaults to FacialExpression.FRIENDLY.
  */
 fun sendPlayerDialogue(player: Player, msg: String, expr: FacialExpression = FacialExpression.FRIENDLY) {
     player.dialogueInterpreter.sendDialogues(player, expr, *splitLines(msg))
 }
 
 /**
- * Sends a player model to a specific interface child
- * @param player The player to send the packet to and whose model to use
- * @param iface  The ID of the interface to send it to
- * @param child  The index of the child on the interface to send the model to
+ * Sends a player model to a specific interface child.
+ *
+ * @param player The player to send the packet to and whose model to use.
+ * @param iface  The ID of the interface to send it to.
+ * @param child  The index of the child on the interface to send the model to.
  */
 fun sendPlayerOnInterface(player: Player, iface: Int, child: Int) {
     player.packetDispatch.sendPlayerOnInterface(iface, child)
@@ -1788,11 +1968,12 @@ fun sendPlayerOnInterface(player: Player, iface: Int, child: Int) {
 
 /**
  * Sends a dialogue that uses the player's chathead.
- * @param player The player to send the dialogue to
- * @param npc    The ID of the NPC to use for the chathead
+ * @param player The player to send the dialogue to.
+ * @param npc    The ID of the NPC to use for the chathead.
  * @param msg    The message to send.
- * @param hide   The continue button to hide
- * @param expr   The FacialExpression to use. An enum exists for these called FacialExpression. Defaults to FacialExpression. FRIENDLY
+ * @param hide   The continue button to hide.
+ * @param expr   The FacialExpression to use. An enum exists for these called FacialExpression.
+ *               Defaults to FacialExpression. FRIENDLY.
  */
 fun sendNPCDialogue(player: Player, npc: Int, msg: String, expr: FacialExpression = FacialExpression.FRIENDLY) {
     player.dialogueInterpreter.sendDialogues(npc, expr, *splitLines(msg))
@@ -1800,7 +1981,8 @@ fun sendNPCDialogue(player: Player, npc: Int, msg: String, expr: FacialExpressio
 
 /**
  * Sends a dialogue that uses the player's chathead.
- * @param player The player to send the dialogue to
+ *
+ * @param player The player to send the dialogue to.
  * @param npc    The ID of the NPC to use for the chathead.
  * @param expr   The FacialExpression to use. An enum exists for these called FacialExpression.
  * @param msg    The message to send.
@@ -1812,6 +1994,7 @@ fun sendNPCDialogueLines(player: Player, npc: Int, expr: FacialExpression, hideC
 
 /**
  * Sends an animation to a specific interface child.
+ *
  * @param player The player to send the packet to.
  * @param anim   The ID of the animation to send to the interface.
  * @param iface  The ID of the interface to send the animation to.
@@ -1822,7 +2005,9 @@ fun sendAnimationOnInterface(player: Player, anim: Int, iface: Int, child: Int) 
 }
 
 /**
- * Register a logout listener to a player. LogoutPacket listeners are methods that run when a player logs out.
+ * Register a logout listener to a player. LogoutPacket
+ * listeners are methods that run when a player logs out.
+ *
  * @param player  The player to register the listener for.
  * @param handler The method to run when the listener is invoked (when the player logs out).
  */
@@ -1832,8 +2017,9 @@ fun registerLogoutListener(player: Player, key: String, handler: (p: Player) -> 
 
 /**
  * Removes a logout listener based on the key from a player.
- * @param player  The player to remove the logout listener from.
- * @param key     The key of the logout listener to remove.
+ *
+ * @param player The player to remove the logout listener from.
+ * @param key    The key of the logout listener to remove.
  */
 fun clearLogoutListener(player: Player, key: String) {
     player.logoutListeners.remove(key)
@@ -1854,7 +2040,8 @@ fun clearEquipment(player: Player) {
 }
 
 /**
- * Removes an items from a player equipment and inventory.
+ * Removes an items from a player equipment and
+ * inventory.
  */
 fun clearInventoryAndEquipment(player: Player) {
     player.equipment.clear()
@@ -1863,6 +2050,7 @@ fun clearInventoryAndEquipment(player: Player) {
 
 /**
  * Sends an item to a specific child on an interface.
+ *
  * @param player The player to send the packet to.
  * @param iface  The ID of the interface to send the item onto.
  * @Param child  The index of the child on the interface to send the item onto.
@@ -1875,11 +2063,12 @@ fun sendItemOnInterface(player: Player, iface: Int, child: Int, item: Int, amoun
 
 /**
  * Sends an model to a specific child on an interface.
+ *
  * @param player The player to send the packet to.
  * @param iface  The ID of the interface to send the item onto.
  * @Param child  The index of the child on the interface to send the item onto.
  * @param model  The ID of the model to send.
- * @param zoom   The amount of zoom to apply to the item - defaults to 1
+ * @param zoom   The amount of zoom to apply to the item - defaults to 1.
  */
 fun sendModelOnInterface(player: Player, iface: Int, child: Int, model: Int, zoom: Int = 1) {
     player.packetDispatch.sendModelOnInterface(model, iface, child, zoom)
@@ -1887,6 +2076,7 @@ fun sendModelOnInterface(player: Player, iface: Int, child: Int, model: Int, zoo
 
 /**
  * Sends an model to a specific child on an interface.
+ *
  * @param player The player to send the packet to.
  * @param iface  The ID of the interface to send the item onto.
  * @Param child  The index of the child on the interface to send the item onto.
@@ -1899,6 +2089,7 @@ fun sendAngleOnInterface(player: Player, iface: Int, child: Int, zoom: Int, pitc
 
 /**
  * Sends a dialogue box with a single item and some text.
+ *
  * @param player  The player to send it to.
  * @param item    The ID of the item to show.
  * @param message The text to display.
@@ -1916,6 +2107,7 @@ fun sendItemDialogue(player: Player, item: Any, message: String) {
 
 /**
  * Sends a dialogue box with two items and some text.
+ *
  * @param player  The player to send it to.
  * @param item1   The ID of the first item to show.
  * @param item2   The ID of the second item to show.
@@ -1930,6 +2122,7 @@ fun sendDoubleItemDialogue(player: Player, item1: Any, item2: Any, message: Stri
 
 /**
  * Send an input dialogue to retrieve a specified value from the player.
+ *
  * @param player  The player to send the input dialogue to.
  * @param numeric Whether the input is numeric.
  * @param prompt  What to prompt the player.
@@ -1941,7 +2134,9 @@ fun sendInputDialogue(player: Player, numeric: Boolean, prompt: String, handler:
 }
 
 /**
- * Send input dialogues based on type. Some dialogues are special and can't be covered by the other sendInputDialogue method.
+ * Send input dialogues based on type. Some dialogues are special
+ * and can't be covered by the other sendInputDialogue method.
+ *
  * @param player  The player to send the input dialogue to.
  * @param type    The input type to send - an enum is available for this called InputType.
  * @param prompt  What to prompt the player.
@@ -1967,7 +2162,8 @@ fun sendInputDialogue(player: Player, type: InputType, prompt: String, handler: 
 }
 
 /**
- * Forces an NPC to "flee" from a player or other entity
+ * Forces an NPC to "flee" from a player or other entity.
+ *
  * @param entity The entity to make flee.
  * @param from   The entity to flee from.
  */
@@ -1982,16 +2178,20 @@ fun flee(entity: Entity, from: Entity) {
 }
 
 /**
- * Submits an individual or "weak" pulse to a specific entity's pulse manager. Pulses submitted this way can be overridden by other pulses.
- * @param entity the entity to submit the pulse to
- * @param pulse  the pulse to submit
+ * Submits an individual or "weak" pulse to a specific
+ * entity's pulse manager. Pulses submitted this way can
+ * be overridden by other pulses.
+ *
+ * @param entity the entity to submit the pulse to.
+ * @param pulse  the pulse to submit.
  */
 fun submitIndividualPulse(entity: Entity, pulse: Pulse) {
     entity.pulseManager.run(pulse)
 }
 
 /**
- * Similar to submitIndividualPulse, but for non-repeating tasks, with a cleaner syntax.
+ * Similar to submitIndividualPulse, but for
+ * non-repeating tasks, with a cleaner syntax.
  */
 fun runTask(entity: Entity, delay: Int = 0, repeatTimes: Int = 1, task: () -> Unit) {
     var cycles = repeatTimes
@@ -2004,12 +2204,13 @@ fun runTask(entity: Entity, delay: Int = 0, repeatTimes: Int = 1, task: () -> Un
 }
 
 /**
- * Sends a zoomed item to a specific child on an interface
- * @param player the player to send the packet to
- * @param iface  the ID of the interface to send the item onto
- * @Param child  the index of the child on the interface to send the item onto
- * @param item   the ID of the item to send
- * @param zoom   the amount of zoom to apply to the item - defaults to 230
+ * Sends a zoomed item to a specific child on an interface.
+ *
+ * @param player the player to send the packet to.
+ * @param iface  the ID of the interface to send the item onto.
+ * @Param child  the index of the child on the interface to send the item onto.
+ * @param item   the ID of the item to send.
+ * @param zoom   the amount of zoom to apply to the item - defaults to 230.
  */
 fun sendItemZoomOnInterface(player: Player, iface: Int, child: Int, item: Int, zoom: Int = 230) {
     player.packetDispatch.sendItemZoomOnInterface(item, zoom, iface, child)
@@ -2017,23 +2218,26 @@ fun sendItemZoomOnInterface(player: Player, iface: Int, child: Int, item: Int, z
 
 
 /**
- * Gets the number of QP a player has
- * @param player the player to get the QP for
- * @return the number of QP the player has
+ * Gets the number of QP a player has.
+ *
+ * @param player the player to get the QP for.
+ * @return the number of QP the player has.
  */
 fun getQuestPoints(player: Player): Int {
     return player.questRepository.points
 }
 
 /**
- * Gets the stage for the given quest for the given player
+ * Gets the stage for the given quest for
+ * the given player.
  */
 fun getQuestStage(player: Player, quest: String): Int {
     return player.questRepository.getStage(quest)
 }
 
 /**
- * Sets the stage for the given quest for the given player
+ * Sets the stage for the given quest for
+ * the given player.
  */
 fun setQuestStage(player: Player, quest: String, stage: Int) {
     player.questRepository.setStage(QuestRepository.getQuests()[quest]!!, stage)
@@ -2041,21 +2245,22 @@ fun setQuestStage(player: Player, quest: String, stage: Int) {
 }
 
 /**
- * Updates a given quest in the quest tab, changing color.
+ * Updates a given quest in the quest tab,
+ * changing color.
  */
 fun updateQuestTab(player: Player) {
     player.questRepository.syncronizeTab(player)
 }
 
 /**
- * Check if a quest is in progress
+ * Check if a quest is in progress.
  */
 fun isQuestInProgress(player: Player, quest: String, startStage: Int, endStage: Int): Boolean {
     return player.questRepository.getStage(quest) in startStage..endStage
 }
 
 /**
- * Check if a quest is complete
+ * Check if a quest is complete.
  */
 fun isQuestComplete(player: Player, quest: String): Boolean {
     return player.questRepository.getStage(quest) == 100
@@ -2063,16 +2268,19 @@ fun isQuestComplete(player: Player, quest: String): Boolean {
 
 /**
  * Get the quest for a player.
+ *
  * @param player the player to get the quest for.
- * @param quest  the quest name string
- * @return the quest object
+ * @param quest  the quest name string.
+ * @return the quest object.
  */
 fun getQuest(player: Player, quest: String): Quest {
     return player.questRepository.getQuest(quest)
 }
 
 /**
- * Check if a player meets the requirements to start a quest, and then starts it if they do. Returns success bool
+ * Check if a player meets the requirements to
+ * start a quest, and then starts it if they do.
+ * @return success bool.
  */
 fun startQuest(player: Player, quest: String): Boolean {
     val quest = player.questRepository.getQuest(quest)
@@ -2083,25 +2291,28 @@ fun startQuest(player: Player, quest: String): Boolean {
 }
 
 /**
- * Finishes a quest, gives rewards, marks as completed, etc
+ * Finishes a quest, gives rewards, marks as
+ * completed, etc.
  */
 fun finishQuest(player: Player, quest: String) {
     player.questRepository.getQuest(quest).finish(player)
 }
 
 /**
- * Gets a scenery definition from the given ID
+ * Gets a scenery definition from the given ID.
+ *
  * @param id the ID of the scenery to get the definition for.
- * @return the scenery definition
+ * @return the scenery definition.
  */
 fun sceneryDefinition(id: Int): SceneryDefinition {
     return SceneryDefinition.forId(id)
 }
 
 /**
- * Register a map zone
- * @param zone    the zone to register
- * @param borders the ZoneBorders that compose the zone
+ * Register a map zone.
+ *
+ * @param zone    the zone to register.
+ * @param borders the ZoneBorders that compose the zone.
  */
 fun registerMapZone(zone: MapZone, borders: ZoneBorders) {
     ZoneBuilder.configure(zone)
@@ -2110,6 +2321,7 @@ fun registerMapZone(zone: MapZone, borders: ZoneBorders) {
 
 /**
  * Animates a component of an interface.
+ *
  * @param player the player to animate the interface for.
  * @param iface  the ID of the interface to animate.
  * @param child  the child on the interface to animate.
@@ -2121,6 +2333,7 @@ fun animateInterface(player: Player, iface: Int, child: Int, anim: Int) {
 
 /**
  * Adds a climb destination to the ladder handler.
+ *
  * @param ladderLoc the location of the ladder/stairs object you want to climb.
  * @param dest      the destination for the climb.
  */
@@ -2130,6 +2343,7 @@ fun addClimbDest(ladderLoc: Location, dest: Location) {
 
 /**
  * Sends a news announcement in game chat.
+ *
  * @param message the message to announce
  */
 fun sendNews(message: String) {
@@ -2138,8 +2352,9 @@ fun sendNews(message: String) {
 
 /**
  * Sends a given Graphic object, or graphics ID, to the given location.
+ *
  * @param gfx      the Graphic object, or the Integer ID of the graphics, to send. Either works.
- * @param location the location to send it to
+ * @param location the location to send it to.
  */
 fun <G> sendGraphics(gfx: G, location: Location) {
     when (gfx) {
@@ -2154,11 +2369,13 @@ fun <G> sendGraphics(gfx: G, location: Location) {
 }
 
 /**
- * Instructs the given player's client to execute a given CS2 script with the given arguments
- * @param player    the Player
- * @param scriptId  the ID of the CS2 script to execute
+ * Instructs the given player's client to execute a given
+ * CS2 script with the given arguments.
+ *
+ * @param player    the Player.
+ * @param scriptId  the ID of the CS2 script to execute.
  * @param arguments the various arguments passed to the script.
- **/
+ */
 fun runcs2(player: Player, scriptId: Int, vararg arguments: Any) {
     var typeString = StringBuilder()
     var finalArgs = Array<Any?>(arguments.size) { null }
@@ -2177,12 +2394,16 @@ fun runcs2(player: Player, scriptId: Int, vararg arguments: Any) {
 }
 
 /**
- * Opens a generic item selection prompt with a glowing background, with your own callback to handle the selection.
- * @param player    the player we are openinig the prompt for
- * @param options   the right-click options the items should have
- * @param keepAlive whether the selection prompt should remain open for multiple interactions
- * @param callback  a callback to handle the selection. The parameters passed to the callback are the slot in the inventory of the selected item, and the 0-9 index of the option clicked.
- **/
+ * Opens a generic item selection prompt with a glowing background,
+ * with your own callback to handle the selection.
+ *
+ * @param player    the player we are openinig the prompt for.
+ * @param options   the right-click options the items should have.
+ * @param keepAlive whether the selection prompt should remain open for multiple interactions.
+ * @param callback  a callback to handle the selection. The parameters passed to
+ *                  the callback are the slot in the inventory of the selected item,
+ *                  and the 0-9 index of the option clicked.
+ */
 @JvmOverloads
 fun sendItemSelect(
     player: Player, vararg options: String, keepAlive: Boolean = false, callback: (slot: Int, optionIndex: Int) -> Unit
@@ -2243,9 +2464,11 @@ fun hasRequirement(player: Player, quest: String, message: Boolean = true): Bool
 }
 
 /**
- * Generates a list of skill names which the player has mastered
- * @param player the player
- * @return a List<String> of skill names
+ * Generates a list of skill names which the
+ * player has mastered.
+ *
+ * @param player the player.
+ * @return a List<String> of skill names.
  */
 fun getMasteredSkillNames(player: Player): List<String> {
     val hasMastered = player.getSkills().masteredSkills > 0
@@ -2263,7 +2486,8 @@ fun getMasteredSkillNames(player: Player): List<String> {
 
 /**
  * Empties the provided container into the player's bank.
- * @param player    the player
+ *
+ * @param player    the player.
  * @param container the container to be emptied.
  * @return The amount of items which were successfully transferred to the bank.
  */
@@ -2303,7 +2527,9 @@ fun dumpContainer(player: Player, container: core.game.container.Container): Int
 }
 
 /**
- * Attempts to empty the player's Beast of Burden's inventory into the player's bank.
+ * Attempts to empty the player's Beast of Burden's inventory
+ * into the player's bank.
+ *
  * @param player The player whose Beast of Burden's inventory to empty.
  */
 fun dumpBeastOfBurden(player: Player) {
@@ -2344,7 +2570,8 @@ fun dumpBeastOfBurden(player: Player) {
 }
 
 /**
- * Gets the player's familiar boost in the given skill
+ * Gets the player's familiar boost in the given skill.
+ *
  * @param player The player who owns the familiar.
  * @param skill  The skill to check boost of.
  * @return The amount of skill boost gained from the player's familiar.
@@ -2355,8 +2582,10 @@ fun getFamiliarBoost(player: Player, skill: Int): Int {
 
 /**
  * Converts an item into its noted representation.
+ *
  * @param item The item to convert.
- * @return Noted form of the item or the item itself if it's already, or cannot be, noted.
+ * @return Noted form of the item or the item itself
+ * if it's already, or cannot be, noted.
  */
 fun note(item: Item): Item {
     if (!item.definition.isUnnoted) return item
@@ -2370,7 +2599,8 @@ fun note(item: Item): Item {
  * Converts a noted item into its unnoted representation.
  *
  * @param item The item to convert.
- * @return Unnoted form of the item, or the item itself if it's already unnoted.
+ * @return Unnoted form of the item, or the item
+ * itself if it's already unnoted.
  */
 fun unnote(item: Item): Item {
     if (item.definition.isUnnoted) return item
@@ -2379,7 +2609,8 @@ fun unnote(item: Item): Item {
 }
 
 /**
- * Checks if the player has the Seal of Passage equipped or if it's present in the inventory.
+ * Checks if the player has the Seal of Passage
+ * equipped or if it's present in the inventory.
  *
  * @param player The player to inspect for item's presence.
  * @return True if Seal of Passage present, false otherwise.
@@ -2390,6 +2621,7 @@ fun hasSealOfPassage(player: Player): Boolean {
 
 /**
  * Returns a boolean indicating if the player has a house.
+ *
  * @param player the player.
  * @return boolean indicating presence of house.
  */
@@ -2429,9 +2661,11 @@ fun getPathableRandomLocalCoordinate(target: Entity, radius: Int, center: Locati
 }
 
 /**
- * Returns a pathable cardinal location in a 1 tile radius in order of west, south, east, north.
- * @param entity the entity used to check if the loc is pathable
- * @param center the center location
+ * Returns a pathable cardinal location in a 1 tile radius
+ * in order of west, south, east, north.
+ *
+ * @param entity the entity used to check if the loc is pathable.
+ * @param center the center location.
  */
 fun getPathableCardinal(target: Entity, center: Location): Location {
     var tiles = center.cardinalTiles
@@ -2446,6 +2680,7 @@ fun getPathableCardinal(target: Entity, center: Location): Location {
 
 /**
  * Returns the player's active slayer task.
+ *
  * @param player the player whose task we are checking.
  * @return the slayer task.
  */
@@ -2455,6 +2690,7 @@ fun getSlayerTask(player: Player): Tasks? {
 
 /**
  * Returns the name of the player's active slayer task.
+ *
  * @param player the player whose task we are checking.
  * @return the name of the slayer task.
  */
@@ -2464,6 +2700,7 @@ fun getSlayerTaskName(player: Player): String {
 
 /**
  * Returns the player's remaining kills for their active slayer task.
+ *
  * @param player the player whose task we are checking.
  * @return the remaining kills of the slayer task.
  */
@@ -2473,6 +2710,7 @@ fun getSlayerTaskKillsRemaining(player: Player): Int {
 
 /**
  * Returns the player's slayer master as npc.
+ *
  * @param player the player whose master we are checking.
  * @return the slayer master as NPC.
  */
@@ -2482,6 +2720,7 @@ fun getSlayerMaster(player: Player): NPC {
 
 /**
  * Returns the player's slayer master location as string.
+ *
  * @param player the player whose master we are checking.
  * @return the slayer master location as String.
  */
@@ -2498,6 +2737,7 @@ fun getSlayerMasterLocation(player: Player): String {
 
 /**
  * Returns the player's slayer task tip as String.
+ *
  * @param player the player whose task tip we are checking.
  * @return the task tip as String.
  */
@@ -2511,6 +2751,7 @@ fun getSlayerTip(player: Player): Array<out String> {
 
 /**
  * Returns the player's slayer task flags as Int.
+ *
  * @param player the player whose task flags we are checking.
  * @return the task flags as Int.
  */
@@ -2520,6 +2761,7 @@ fun getSlayerTaskFlags(player: Player): Int {
 
 /**
  * Returns whether the player has a task.
+ *
  * @param player the player whose task we are checking.
  * @return has task as Boolean.
  */
@@ -2528,7 +2770,8 @@ fun hasSlayerTask(player: Player): Boolean {
 }
 
 /**
- * Checks whether a player plays in a specific Ironman mode.
+ * Checks whether a player plays in a specific
+ * Ironman mode.
  *
  * @param player      Player whose Ironman status to check.
  * @param restriction The Ironman restriction level to check the player against.
@@ -2539,7 +2782,8 @@ fun hasIronmanRestriction(player: Player, restriction: IronmanMode): Boolean {
 }
 
 /**
- * Conditionally executes an action based on the player's Ironman status.
+ * Conditionally executes an action based on
+ * the player's Ironman status.
  *
  * @param player      Player whose action to restrict.
  * @param restriction Ironman mode that will be used as the restriction criterion.
@@ -2553,6 +2797,7 @@ fun restrictForIronman(player: Player, restriction: IronmanMode, action: () -> U
 
 /**
  * Opens the given player's Grand Exchange interface.
+ *
  * @param player The player whose Grand Exchange interface to open.
  */
 fun openGrandExchange(player: Player) {
@@ -2562,8 +2807,11 @@ fun openGrandExchange(player: Player) {
 }
 
 /**
- * Checks if the player has any items to collect from the Grand Exchange
- * @param player The player whose Grand Exchange collection box to inspect.
+ * Checks if the player has any items to collect
+ * from the Grand Exchange.
+ *
+ * @param player The player whose Grand Exchange
+ *               collection box to inspect.
  */
 fun hasAwaitingGrandExchangeCollections(player: Player): Boolean {
     val records = GrandExchangeRecords.getInstance(player)
@@ -2580,6 +2828,7 @@ fun hasAwaitingGrandExchangeCollections(player: Player): Boolean {
 /**
  * Opens the given player's Grand Exchange collection box.
  * It will send a prohibition message to Ultimate Ironmen.
+ *
  * @param player The player whose collection box to open.
  */
 
@@ -2591,8 +2840,9 @@ fun openGrandExchangeCollectionBox(player: Player) {
 
 /**
  * Opens the given player's bank account. If the player has a PIN set,
- * the PIN interface will be shown first.
- * It will send a prohibition message to Ultimate Ironmen.
+ * the PIN interface will be shown first. It will send a prohibition message
+ * to Ultimate Ironmen.
+ *
  * @param player The player whose bank account to open.
  */
 fun openBankAccount(player: Player) {
@@ -2604,6 +2854,7 @@ fun openBankAccount(player: Player) {
 /**
  * Opens the given player's bank deposit box interface.
  * It will send a prohibition message to Ultimate Ironmen.
+ *
  * @param player The player whose bank account to open.
  */
 fun openDepositBox(player: Player) {
@@ -2615,6 +2866,7 @@ fun openDepositBox(player: Player) {
 /**
  * Opens the given player's bank PIN settings interface.
  * It will send a prohibition message to Ultimate Ironmen.
+ *
  * @param player The player whose PIN settings to open.
  */
 fun openBankPinSettings(player: Player) {
@@ -2628,7 +2880,9 @@ enum class SecondaryBankAccountActivationResult {
 }
 
 /**
- * Activates the secondary bank account and handles all the fees required.
+ * Activates the secondary bank account and handles
+ * all the fees required.
+ *
  * @param player The player whose secondary bank account to activate.
  * @returns Whether the operation was successful or not.
  */
@@ -2673,6 +2927,7 @@ fun activateSecondaryBankAccount(player: Player): SecondaryBankAccountActivation
 
 /**
  * Checks if the player has unlocked their secondary bank account.
+ *
  * @param player The player whose secondary bank activation status to inspect.
  * @return Secondary bank activation status.
  */
@@ -2684,6 +2939,7 @@ fun hasActivatedSecondaryBankAccount(player: Player): Boolean {
  * Toggles between the player's primary and/or secondary bank account.
  * Has no effect if the secondary bank account hasn't been activated.
  * It will send a prohibition message to Ultimate Ironmen.
+ *
  * @param player The player whose bank accounts to toggle.
  */
 fun toggleBankAccount(player: Player) {
@@ -2698,6 +2954,7 @@ fun toggleBankAccount(player: Player) {
 
 /**
  * Checks if a player is currentl using their secondary bank account.
+ *
  * @param player The player whose bank account toggle state to inspect.
  */
 fun isUsingSecondaryBankAccount(player: Player): Boolean {
@@ -2707,6 +2964,7 @@ fun isUsingSecondaryBankAccount(player: Player): Boolean {
 /**
  * Returns 'primary' or 'secondary' strings based on which
  * bank account is activated for the given user.
+ *
  * @param player The player whose bank account name to retrieve.
  * @param invert Whether to invert the return value.
  * @return Bank account name according to the given criteria.
@@ -2721,6 +2979,7 @@ fun getBankAccountName(player: Player, invert: Boolean = false): String {
 
 /**
  * Opens a shop for the given NPC in the provided player's context.
+ *
  * @param player the player serving as the shop context.
  * @param npc    the NPC ID whose shop to open.
  */
@@ -2788,10 +3047,11 @@ class SkillDialogueBuilder {
 }
 
 /**
- * Registers a hint icon with the given height at the given location
- * @param player   the player to register the hint icon for
- * @param height   the height of the hint icon
- * @param location the location of the hint icon
+ * Registers a hint icon with the given height at the given location.
+ *
+ * @param player   the player to register the hint icon for.
+ * @param height   the height of the hint icon.
+ * @param location the location of the hint icon.
  */
 fun registerHintIcon(player: Player, location: Location, height: Int) {
     setAttribute(
@@ -2803,6 +3063,7 @@ fun registerHintIcon(player: Player, location: Location, height: Int) {
 
 /**
  * Registers a hint icon for the given Node.
+ *
  * @param player the player to show a hint icon to.
  * @param node   the Node to register a hint icon for.
  */
@@ -2812,8 +3073,9 @@ fun registerHintIcon(player: Player, node: Node) {
 }
 
 /**
- * Clears the active ContentAPI-originated hint icon
- * @param player the player to clear the active hint icon for
+ * Clears the active ContentAPI-originated hint icon.
+ *
+ * @param player the player to clear the active hint icon for.
  */
 fun clearHintIcon(player: Player) {
     val slot = getAttribute(player, "hinticon", -1)
@@ -2822,17 +3084,19 @@ fun clearHintIcon(player: Player) {
 }
 
 /**
- * Checks if a given player's hands are free
- * @param player the player to check the status of
- * @return true if players hands are free
+ * Checks if a given player's hands are free.
+ *
+ * @param player the player to check the status of.
+ * @return true if players hands are free.
  */
 fun hasHandsFree(player: Player): Boolean {
     return getItemFromEquipment(player, EquipmentSlot.WEAPON) != null
 }
 
 /**
- * Gets the equipment slot the item belongs to
- * @param item the Id of the item to check
+ * Gets the equipment slot the item belongs to.
+ *
+ * @param item the id (int) of the item to check.
  * @return the EquipmentSlot, or null if the item cannot be equipped, or has no slot defined.
  */
 fun equipSlot(item: Int): EquipmentSlot? {
@@ -2840,10 +3104,12 @@ fun equipSlot(item: Int): EquipmentSlot? {
 }
 
 /**
- * Adjusts the user's credits by the given amount
- * @param player the player whose credits to adjust
+ * Adjusts the user's credits by the given amount.
+ *
+ * @param player the player whose credits to adjust.
  * @param amount the amount to adjust by - add with positive, remove with negative.
- * @return true if successful. Success is defined as always true when adding, but can be false if we are trying to remove, and it would put the amount below 0.
+ * @return true if successful. Success is defined as always true when adding, but
+ * can be false if we are trying to remove, and it would put the amount below 0.
  */
 fun updateCredits(player: Player, amount: Int): Boolean {
     val creds = getCredits(player) + amount
@@ -2856,19 +3122,22 @@ fun updateCredits(player: Player, amount: Int): Boolean {
 
 /**
  * Gets the number of credits a user has.
- * @param player the player to check
- * @return the number of credits they have
+ *
+ * @param player the player to check.
+ * @return the number of credits they have.
  */
 fun getCredits(player: Player): Int {
     return player.details.accountInfo.credits
 }
 
 /**
- * Asserts that a quest is required, and sends the player "You must have completed the $questName quest $message"
- * @param player    the player we are checking
- * @param questName the name of the quest we are checking for
- * @param message   the text appended to "You must have completed the $questName quest ..." if the quest is not complete.
- * @return whether the quest has been completed
+ * Asserts that a quest is required, and sends the player "You must have completed the $questName quest $message".
+ *
+ * @param player    the player we are checking.
+ * @param questName the name of the quest we are checking for.
+ * @param message   the text appended to "You must have completed the $questName quest ..."
+ *                  if the quest is not complete.
+ * @return whether the quest has been completed.
  */
 fun requireQuest(player: Player, questName: String, message: String): Boolean {
     if (!isQuestComplete(player, questName)) {
@@ -2879,27 +3148,30 @@ fun requireQuest(player: Player, questName: String, message: String): Boolean {
 }
 
 /**
- * Determines whether specified node is a player
- * @param entity the node whom we are checking
- * @return whether the entity is a player
+ * Determines whether specified node is a player.
+ *
+ * @param entity the node whom we are checking.
+ * @return whether the entity is a player.
  */
 fun isPlayer(node: Node): Boolean {
     return (node is Player)
 }
 
 /**
- * Adds a dialogue action to the player's dialogue interpreter
- * @param player the player to add the dialogue action to
- * @param action the dialogue action to add
+ * Adds a dialogue action to the player's dialogue interpreter.
+ *
+ * @param player the player to add the dialogue action to.
+ * @param action the dialogue action to add.
  */
 fun addDialogueAction(player: Player, action: DialogueAction) {
     player.dialogueInterpreter.addAction(action)
 }
 
 /**
- * Logs a message to the server console
- * @param origin  simply put (Kotlin) this::class.java or (Java) this.getClass()
- * @param type    the type of log: Log. FINE (default, visible on VERBOSE), Log.INFO (visible on DETAILED), Log. WARN (visible on CAUTIOUS), Log. ERR (always visible)
+ * Logs a message to the server console.
+ *
+ * @param origin  simply put (Kotlin) this::class.java or (Java) this.getClass().
+ * @param type    the type of log: Log. FINE (default, visible on VERBOSE), Log.INFO (visible on DETAILED), Log. WARN (visible on CAUTIOUS), Log. ERR (always visible).
  * @param message the actual message to log.
  */
 fun log(origin: Class<*>, type: Log, message: String) {
@@ -2907,11 +3179,13 @@ fun log(origin: Class<*>, type: Log, message: String) {
 }
 
 /**
- * Logs a message to the server console along with a stack trace leading up to it.
- * @param origin  simply put (Kotlin) this::class.java or (Java) this.getClass()
- * @param type    the type of log: Log. FINE (default, visible on VERBOSE), Log.INFO (visible on DETAILED), Log. WARN (visible on CAUTIOUS), Log. ERR (always visible)
+ * Logs a message to the server console along with a
+ * stack trace leading up to it.
+ *
+ * @param origin  simply put (Kotlin) this::class.java or (Java) this.getClass().
+ * @param type    the type of log: Log. FINE (default, visible on VERBOSE), Log.INFO (visible on DETAILED), Log. WARN (visible on CAUTIOUS), Log. ERR (always visible).
  * @param message the actual message to log.
- **/
+ */
 fun logWithStack(origin: Class<*>, type: Log, message: String) {
     try {
         throw Exception(message)
@@ -2921,10 +3195,13 @@ fun logWithStack(origin: Class<*>, type: Log, message: String) {
 }
 
 /**
- * Takes an exception as an argument, and sends back the complete exception with stack trace as a standard string. Useful for various things.
+ * Takes an exception as an argument, and sends back
+ * the complete exception with stack trace as a standard string.
+ * Useful for various things.
+ *
  * @param e The exception you wish to convert.
- * @return a string with the full stack trace of the exception
- **/
+ * @return a string with the full stack trace of the exception.
+ */
 fun exceptionToString(e: Exception): String {
     val sw = StringWriter()
     val pw = PrintWriter(sw)
@@ -2932,9 +3209,9 @@ fun exceptionToString(e: Exception): String {
     return sw.toString()
 }
 
-
 /**
- * Used by content handlers to check if the entity is done moving yet
+ * Used by content handlers to check
+ * if the entity is done moving yet.
  */
 fun finishedMoving(entity: Entity): Boolean {
     return entity.clocks[Clocks.MOVEMENT] < GameWorld.ticks
@@ -2942,7 +3219,7 @@ fun finishedMoving(entity: Entity): Boolean {
 
 
 /**
- * Delay the execution of the currently running script
+ * Delay the execution of the currently running script.
  */
 fun delayScript(entity: Entity, ticks: Int): Boolean {
     entity.scripts.getActiveScript()?.let { it.nextExecution = GameWorld.ticks + ticks }
@@ -2950,7 +3227,8 @@ fun delayScript(entity: Entity, ticks: Int): Boolean {
 }
 
 /**
- * Set the global delay for the entity, pausing execution of all queues/scripts until passed.
+ * Set the global delay for the entity, pausing execution
+ * of all queues/scripts until passed.
  */
 fun delayEntity(entity: Entity, ticks: Int) {
     entity.scripts.delay = GameWorld.ticks + ticks
@@ -2977,11 +3255,7 @@ fun clearScripts(entity: Entity): Boolean {
 
 fun restartScript(entity: Entity): Boolean {
     if (entity.scripts.getActiveScript()?.persist != true) {
-        log(
-            entity.scripts.getActiveScript()!!::class.java,
-            Log.ERR,
-            "Tried to call restartScript on a non-persistent script! Either use stopExecuting() or make the script persistent."
-        )
+        log(entity.scripts.getActiveScript()!!::class.java, Log.ERR, "Tried to call restartScript on a non-persistent script! Either use stopExecuting() or make the script persistent.")
         return clearScripts(entity)
     }
     return true
@@ -2994,11 +3268,7 @@ fun keepRunning(entity: Entity): Boolean {
 
 fun stopExecuting(entity: Entity): Boolean {
     if (entity.scripts.getActiveScript()?.persist == true) {
-        log(
-            entity.scripts.getActiveScript()!!::class.java,
-            Log.ERR,
-            "Tried to call stopExecuting() on a persistent script! To halt execution of a persistent script, you MUST call clearScripts()!"
-        )
+        log(entity.scripts.getActiveScript()!!::class.java, Log.ERR, "Tried to call stopExecuting() on a persistent script! To halt execution of a persistent script, you MUST call clearScripts()!")
         return clearScripts(entity)
     }
     return true
@@ -3018,22 +3288,24 @@ fun queueScript(
 
 /**
  * Sets the clock to the value of WORLD_TICKS + ticks.
- * @param entity the entity whose clock we are updating
+ *
+ * @param entity the entity whose clock we are updating.
  * @param clock  the clock we are updating. Please use [core.game.interaction.Clocks] for this argument.
- * @param ticks  the number of ticks to delay by
+ * @param ticks  the number of ticks to delay by.
  * @return always returns false so this can be used as a script return value.
- **/
+ */
 fun delayClock(entity: Entity, clock: Int, ticks: Int): Boolean {
     entity.clocks[clock] = getWorldTicks() + ticks
     return false
 }
 
 /**
- * Checks if a clock is ready (have we elapsed any delay put into it)
- * @param entity the entity whose clock we are checking
+ * Checks if a clock is ready (have we elapsed any delay put into it).
+ *
+ * @param entity the entity whose clock we are checking.
  * @param clock  the clock we are checking. Please use [core.game.interaction.Clocks] for this argument.
- * @return true if we have elapsed the clock's wait
- **/
+ * @return true if we have elapsed the clock's wait.
+ */
 fun clockReady(entity: Entity, clock: Int): Boolean {
     return entity.clocks[clock] <= getWorldTicks()
 }
@@ -3067,12 +3339,13 @@ fun isStunned(entity: Entity): Boolean {
 }
 
 /**
- * Applies poison to the target. (In other words, creates and starts a poison timer.)
+ * Applies poison to the target. (In other words, creates and starts a poison timer.).
+ *
  * @param entity   the entity who will be receiving the poison damage.
  * @param source   the entity to whom credit for the damage should be awarded (the attacker.) You should award credit to the victim if the poison is sourceless (e.g. from a trap or plant or something)
  * @param severity the severity of the poison damage. Severity is not a 1:1 representation of damage, rather the formula `floor((severity + 4) / 5)` is used. Severity is decreased by 1 with each application of the poison, and ends when it reaches 0.
  * @see To         those whe ask "why severity instead of plain damage?" to which the answer is: severity is how it works authentically, and allows for scenarios where, e.g. a poison should hit 6 once, and then drop to 5 immediately.
- **/
+ */
 fun applyPoison(entity: Entity, source: Entity, severity: Int) {
     if (hasTimerActive<PoisonImmunity>(entity)) {
         return
@@ -3108,9 +3381,11 @@ fun setCurrentScriptState(entity: Entity, state: Int) {
 }
 
 /**
- * Modifies prayer points by value
- * @param player the player to modify prayer points
- * @param amount the amount of points to modify by (positive for increment, negative for decrement)
+ * Modifies prayer points by value.
+ *
+ * @param player the player to modify prayer points.
+ * @param amount the amount of points to modify by
+ *               (positive for increment, negative for decrement).
  */
 fun modPrayerPoints(player: Player, amount: Double) {
     if (amount > 0) player.skills.incrementPrayerPoints(amount)
@@ -3119,10 +3394,14 @@ fun modPrayerPoints(player: Player, amount: Double) {
 }
 
 /**
- * Iterates a container and "decants" every potion type in the container. (Decanting is the process of condensing multiple variable-dose potions into the minimum number of max-dose potions)
- * @param container the container to iterate
- * @return a pair where the first element is the list of items to be removed, and the second element is the list of items to add.
- **/
+ * Iterates a container and "decants" every potion type in the container.
+ * (Decanting is the process of condensing multiple variable-dose potions
+ * into the minimum number of max-dose potions).
+ *
+ * @param container the container to iterate.
+ * @return a pair where the first element is the list of items to be removed,
+ * and the second element is the list of items to add.
+ */
 fun decantContainer(container: core.game.container.Container): Pair<List<Item>, List<Item>> {
     val doseCount = HashMap<Consumable, Int>()
     val toRemove = ArrayList<Item>()
@@ -3154,8 +3433,11 @@ fun decantContainer(container: core.game.container.Container): Pair<List<Item>, 
 
 /**
  * Checks whether the user has a valid anti-dragonfire shield equipped.
+ *
  * @param player the player whose shield we are checking.
- * @param wyvern an optional parameter (default false) whether we are checking against wyvern fire, which ignores normal anti-dragon-shields, but accepts elemental/mind shields, etc.
+ * @param wyvern an optional parameter (default false) whether we are
+ *               checking against wyvern fire, which ignores normal
+ *               anti-dragon-shields, but accepts elemental/mind shields, etc.
  * @return whether the player is protected by their shield.
  */
 fun hasDragonfireShieldProtection(player: Player, wyvern: Boolean = false): Boolean {
@@ -3169,12 +3451,16 @@ fun hasDragonfireShieldProtection(player: Player, wyvern: Boolean = false): Bool
 }
 
 /**
- * Calculates the expected max hit of dragonfire after checking/applying valid protections.
+ * Calculates the expected max hit of dragonfire after
+ * checking/applying valid protections.
+ *
  * @param entity              the entity whose protection we are checking.
  * @param maxDamage           the max damage the dragonfire can do without protection.
  * @param wyvern              an optional parameter (default false) that defines whether or not this is wyvern fire. Wyvern fire ignores anti-fire potions and regular anti-dragon shield.
  * @param unprotectableDamage an optional parameter (default 0) that defines how much damage cannot be protected against. Think of it as a minimum-max-hit.
- * @param sendMessage         an optional parameter (default false) whether to send a message notifying the player of the damage being blocked.
+ * @param sendMessage         an optional parameter (default false)
+ *                            whether to send a message notifying the player
+ *                            of the damage being blocked.
  * @return the maximum amount of damage that can be done to the player.
  */
 fun calculateDragonfireMaxHit(
@@ -3217,8 +3503,9 @@ fun calculateDragonfireMaxHit(
 
 /**
  * Opens a single interface tab from given ID.
- * @param player    the player to open interface for
- * @param component the component ID to open
+ *
+ * @param player    the player to open interface for.
+ * @param component the component ID to open.
  */
 fun openSingleTab(player: Player, component: Int) {
     player.interfaceManager.openSingleTab(Component(component))
@@ -3226,6 +3513,7 @@ fun openSingleTab(player: Player, component: Int) {
 
 /**
  * Set minimap state.
+ *
  * @param player the player to which the minimap relates.
  * @param state the state ID.
  */
@@ -3235,9 +3523,10 @@ fun setMinimapState(player: Player, state: Int) {
 
 /**
  * Check if a diary is complete.
- * @param player    The player whom we are checking.
- * @param type      The type [DiaryType.VARROCK] as example.
- * @param level     The level to check.
+ *
+ * @param player The player whom we are checking.
+ * @param type   The type [DiaryType.VARROCK] as example.
+ * @param level  The level to check.
  * @return true If the check succeeds, false otherwise.
  */
 fun isDiaryComplete(player: Player, type: DiaryType, level: Int): Boolean {
@@ -3246,9 +3535,10 @@ fun isDiaryComplete(player: Player, type: DiaryType, level: Int): Boolean {
 
 /**
  * Check if a player has a task completed.
- * @param player    The player to check the diary for.
- * @param type      The [DiaryType.VARROCK] as example.
- * @param level     The level to check against.
+ *
+ * @param player The player to check the diary for.
+ * @param type   The [DiaryType.VARROCK] as example.
+ * @param level  The level to check against.
  * @return true If the check succeeds, false otherwise.
  */
 fun hasDiaryTaskComplete(player: Player, type: DiaryType, level: Int, index: Int): Boolean {
@@ -3257,9 +3547,10 @@ fun hasDiaryTaskComplete(player: Player, type: DiaryType, level: Int, index: Int
 
 /**
  * Returns if a player is within a specified distance.
- * @param player    The player.
- * @param other     The other location.
- * @param distance  The amount of distance.
+ *
+ * @param player   The player.
+ * @param other    The other location.
+ * @param distance The amount of distance.
  * @return If you're within the other distance.
  */
 fun withinDistance(player: Player, other: Location, distance: Int? = null): Boolean {
@@ -3273,10 +3564,11 @@ fun withinDistance(player: Player, other: Location, distance: Int? = null): Bool
 
 /**
  * Finish diary task.
- * @param player    The player.
- * @param type      [DiaryType.FREMENNIK] as example.
- * @param level     The level of diary type.
- * @param task      The task to finish.
+ *
+ * @param player The player.
+ * @param type   [DiaryType.FREMENNIK] as example.
+ * @param level  The level of diary type.
+ * @param task   The task to finish.
  */
 fun finishDiaryTask(player: Player, type: DiaryType, level: Int, task: Int) {
     return player.achievementDiaryManager.finishTask(player, type, level, task)
@@ -3284,6 +3576,7 @@ fun finishDiaryTask(player: Player, type: DiaryType, level: Int, task: Int) {
 
 /**
  * Relocate sprites on the fly.
+ *
  * @param player        The player to send the packet to.
  * @param interfaceId   The id of the interface to use.
  * @param childId       The index of the sub elements to be relocated to.
@@ -3299,6 +3592,7 @@ fun setInterfaceSprite(player: Player, interfaceId: Int, childId: Int, positionX
 
 /**
  * Check if a prayer type is active.
+ *
  * @param type The type.
  */
 fun isPrayerActive(player: Player, type: PrayerType): Boolean {
@@ -3307,6 +3601,7 @@ fun isPrayerActive(player: Player, type: PrayerType): Boolean {
 
 /**
  * Removes the tabs.
+ *
  * @param tabs The tab indexes.
  */
 fun removeTabs(player: Player, vararg tabs: Int) {
@@ -3323,9 +3618,20 @@ fun restoreTabs(player: Player) {
 /**
  * Checks if the player has a pet.
  */
-
 fun hasPet(player: Player): Boolean {
     return player.familiarManager.hasPet()
+}
+
+/**
+ * Closes any open (both chat and non-chat) interfaces
+ * for the player.
+ *
+ * @param player the player to close the interfaces for.
+ */
+fun closeAllInterfaces(player: Player) {
+    player.interfaceManager.close()
+    player.interfaceManager.closeChatbox()
+    player.dialogueInterpreter.close()
 }
 
 private class ContentAPI

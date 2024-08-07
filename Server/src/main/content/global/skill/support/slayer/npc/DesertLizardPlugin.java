@@ -13,6 +13,9 @@ import core.game.world.map.Location;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
+/**
+ * Desert lizard plugin.
+ */
 @Initializable
 public final class DesertLizardPlugin implements Plugin<Object> {
 
@@ -30,10 +33,16 @@ public final class DesertLizardPlugin implements Plugin<Object> {
         return null;
     }
 
+    /**
+     * Icecooler plugin.
+     */
     public static final class IcecoolerPlugin extends UseWithHandler {
 
         private static final Item ICE_COOLER = new Item(6696);
 
+        /**
+         * Instantiates a new Icecooler plugin.
+         */
         public IcecoolerPlugin() {
             super(ICE_COOLER.getId());
         }
@@ -67,12 +76,24 @@ public final class DesertLizardPlugin implements Plugin<Object> {
 
     }
 
+    /**
+     * Dezert lizard npc.
+     */
     public final class DezertLizardNPC extends AbstractNPC {
 
+        /**
+         * Instantiates a new Dezert lizard npc.
+         *
+         * @param id       the id
+         * @param location the location
+         */
         public DezertLizardNPC(int id, Location location) {
             super(id, location);
         }
 
+        /**
+         * Instantiates a new Dezert lizard npc.
+         */
         public DezertLizardNPC() {
             super(0, null);
         }

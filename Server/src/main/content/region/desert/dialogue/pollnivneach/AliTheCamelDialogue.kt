@@ -11,6 +11,9 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 import core.tools.RandomFunction
 
+/**
+ * Ali the camel dialogue.
+ */
 @Initializable
 class AliTheCamelDialogue(player: Player? = null) : Dialogue(player) {
 

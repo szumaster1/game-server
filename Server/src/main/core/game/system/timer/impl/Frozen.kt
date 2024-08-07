@@ -8,6 +8,11 @@ import core.game.system.timer.RSTimer
 import core.game.system.timer.TimerFlag
 import org.json.simple.JSONObject
 
+/**
+ * Frozen
+ *
+ * @constructor Frozen
+ */
 class Frozen : PersistTimer(
     runInterval = 1,
     identifier = "frozen",

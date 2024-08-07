@@ -5,18 +5,38 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.Plugin
 
+/**
+ * Degradable equipment
+ *
+ * @property slot
+ * @property itemIds
+ * @constructor Degradable equipment
+ */
 abstract class DegradableEquipment(val slot: Int, vararg val itemIds: Int) : Plugin<Any?> {
 
     /*
      * Called when the player receives a hit.
      */
 
+    /**
+     * Degrade
+     *
+     * @param player
+     * @param entity
+     * @param item
+     */
     abstract fun degrade(player: Player?, entity: Entity?, item: Item?)
 
     /*
      * Gets the item to drop when this equipment is getting dropped.
      */
 
+    /**
+     * Get drop item
+     *
+     * @param itemId
+     * @return
+     */
     abstract fun getDropItem(itemId: Int): Int
 
     override fun newInstance(arg: Any?): DegradableEquipment {

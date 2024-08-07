@@ -11,6 +11,11 @@ import core.game.node.entity.npc.NPC
 import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
+/**
+ * Mistag easter egg listener
+ *
+ * @constructor Mistag easter egg listener
+ */
 class MistagEasterEggListener : InteractionListener {
 
     private val diamond = Items.DIAMOND_1601

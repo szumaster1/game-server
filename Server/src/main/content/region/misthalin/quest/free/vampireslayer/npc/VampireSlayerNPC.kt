@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.RandomFunction
 
 /**
- * The Vampire slayer npc.
+ * Vampire slayer NPC.
  */
 @Initializable
 class VampireSlayerNPC : AbstractNPC {

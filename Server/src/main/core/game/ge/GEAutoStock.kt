@@ -8,6 +8,11 @@ import org.json.simple.parser.JSONParser
 import java.io.File
 import java.io.FileReader
 
+/**
+ * G e auto stock
+ *
+ * @constructor G e auto stock
+ */
 class GEAutoStock : StartupListener {
     override fun startup() {
         autostock()

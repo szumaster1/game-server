@@ -9,6 +9,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
+/**
+ * Big bangs book
+ *
+ * @constructor Big bangs book
+ */
 class BigBangsBook : InteractionListener {
 
     // Obtainable from Lord Iorwerth and

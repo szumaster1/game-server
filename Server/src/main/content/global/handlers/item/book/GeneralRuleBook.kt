@@ -9,6 +9,11 @@ import core.api.setAttribute
 import core.game.node.entity.player.Player
 import core.game.world.GameWorld
 
+/**
+ * General rule book
+ *
+ * @constructor General rule book
+ */
 class GeneralRuleBook {
 
     //  This is not an item book,

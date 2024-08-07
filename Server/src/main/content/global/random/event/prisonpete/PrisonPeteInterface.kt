@@ -3,6 +3,9 @@ package content.global.random.event.prisonpete
 import core.api.consts.Components
 import core.game.interaction.InterfaceListener
 
+/**
+ * Prison pete interface.
+ */
 class PrisonPeteInterface : InterfaceListener {
 
     val PRISON_PETE_INTERFACE = Components.PRISONPETE_273

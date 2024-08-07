@@ -18,12 +18,18 @@ import core.plugin.Plugin;
 import static core.api.ContentAPIKt.playAudio;
 import static core.api.ContentAPIKt.setAttribute;
 
+/**
+ * Magic imbue spell.
+ */
 @Initializable
 public class MagicImbueSpell extends MagicSpell {
 
     private static final Graphic GRAPHIC = new Graphic(141, 96);
     private static final Animation ANIMATION = new Animation(722);
 
+    /**
+     * Instantiates a new Magic imbue spell.
+     */
     public MagicImbueSpell() {
         super(SpellBook.LUNAR, 82, 86, null, null, null, new Item[]{new Item(Runes.ASTRAL_RUNE.getId(), 2), new Item(Runes.FIRE_RUNE.getId(), 7), new Item(Runes.WATER_RUNE.getId(), 7)});
     }

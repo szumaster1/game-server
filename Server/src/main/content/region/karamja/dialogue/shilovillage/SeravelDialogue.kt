@@ -9,6 +9,9 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Seravel dialogue.
+ */
 @Initializable
 class SeravelDialogue(player: Player? = null): Dialogue(player) {
 

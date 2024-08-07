@@ -10,6 +10,9 @@ import core.game.world.map.*
 import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
 
+/**
+ * Pest Control portal NPC.
+ */
 class PCPortalNPC(id: Int = 6142, l: Location? = null) : AbstractNPC(id, l) {
 
     var updateLifepoints = true
@@ -62,6 +65,10 @@ class PCPortalNPC(id: Int = 6142, l: Location? = null) : AbstractNPC(id, l) {
     }
 
 
+    /**
+     * Spawn NPCs
+     *
+     */
     fun spawnNPCs() {
         val dir = Direction.getLogicalDirection(getLocation(), session!!.squire.location)
         val index = difficultyIndex

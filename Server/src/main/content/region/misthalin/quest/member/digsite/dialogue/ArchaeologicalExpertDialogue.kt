@@ -10,6 +10,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 
+/**
+ * Archaeological expert dialogue.
+ */
 @Initializable
 class ArchaeologicalExpertDialogue (player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
@@ -22,6 +25,11 @@ class ArchaeologicalExpertDialogue (player: Player? = null) : Dialogue(player) {
     }
 }
 
+/**
+ * Archaeological expert dialogue file
+ *
+ * @constructor Archaeological expert dialogue file
+ */
 class ArchaeologicalExpertDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {
 

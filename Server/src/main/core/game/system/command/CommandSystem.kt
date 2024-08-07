@@ -5,7 +5,6 @@ import core.tools.colorize
 
 /**
  * Represents a managing system used to dispatch incoming commands.
- * @author Vexia
  */
 class CommandSystem {
     /**

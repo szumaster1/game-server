@@ -8,6 +8,11 @@ import core.game.dialogue.FacialExpression
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
+/**
+ * Denulth dialogue file2
+ *
+ * @constructor Denulth dialogue file2
+ */
 class DenulthDialogueFile2 : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

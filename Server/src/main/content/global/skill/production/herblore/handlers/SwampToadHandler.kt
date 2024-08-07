@@ -10,6 +10,9 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Swamp toad handler.
+ */
 @Initializable
 class SwampToadHandler : OptionHandler() {
 

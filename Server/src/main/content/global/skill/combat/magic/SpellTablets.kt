@@ -11,9 +11,14 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Spell tablets.
+ */
 class SpellTablets : InteractionListener {
+
     val B2P_TABLET = Items.BONES_TO_PEACHES_8015
     val B2B_TABLET = Items.BONES_TO_BANANAS_8014
+
     override fun defineListeners() {
 
         on(B2B_TABLET, IntType.ITEM, "break") { player, node ->
@@ -32,6 +37,11 @@ class SpellTablets : InteractionListener {
 
     }
 
+    /**
+     * Break tablet
+     *
+     * @param player
+     */
     fun breakTablet(player: Player) {
         playAudio(player, Sounds.POH_TABLET_BREAK_979)
         player.animator.forceAnimation(Animation(4069))

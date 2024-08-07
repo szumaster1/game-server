@@ -7,6 +7,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
+/**
+ * Slashed book handler
+ *
+ * @constructor Slashed book handler
+ */
 class SlashedBookHandler : InteractionListener {
     companion object {
         private val TITLE = "Book of the elemental shield"

@@ -6,6 +6,11 @@ import core.api.openInterface
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Olafs quest listeners
+ *
+ * @constructor Olafs quest listeners
+ */
 class OlafsQuestListeners : InteractionListener {
 
     //iface 252	olaf2_lock_gate

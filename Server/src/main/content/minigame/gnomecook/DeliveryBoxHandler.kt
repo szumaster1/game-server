@@ -9,6 +9,9 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Delivery box handler.
+ */
 @Initializable
 class DeliveryBoxHandler : OptionHandler() {
 

@@ -12,15 +12,31 @@ import core.plugin.ClassScanner;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
 
+/**
+ * Metamorphosis.
+ */
 public abstract class Metamorphosis extends OptionHandler {
 
+    /**
+     * The Ids.
+     */
     protected int[] ids;
 
 
+    /**
+     * Instantiates a new Metamorphosis.
+     *
+     * @param ids the ids
+     */
     public Metamorphosis(int... ids) {
         this.ids = ids;
     }
 
+    /**
+     * Gets dialogue.
+     *
+     * @return the dialogue
+     */
     public abstract Dialogue getDialogue();
 
     @Override
@@ -59,11 +75,21 @@ public abstract class Metamorphosis extends OptionHandler {
         return true;
     }
 
+    /**
+     * Gets random npc id.
+     *
+     * @return the random npc id
+     */
     public int getRandomNpcId() {
         int i = RandomFunction.getRandom(getIds().length - 1);
         return getIds()[i];
     }
 
+    /**
+     * Get ids int [ ].
+     *
+     * @return the int [ ]
+     */
     public int[] getIds() {
         return ids;
     }

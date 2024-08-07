@@ -11,7 +11,7 @@ import java.nio.ByteBuffer
 
 /**
  * Handles login reading events.
- * @author Ceikry
+ * @author Emperor
  */
 class LoginReadEvent(session: IoSession?, buffer: ByteBuffer?) : IoReadEvent(session, buffer) {
 

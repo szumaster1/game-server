@@ -6,6 +6,9 @@ import core.api.utils.WeightBasedTable
 import core.game.node.entity.npc.NPC
 import core.tools.RandomFunction
 
+/**
+ * Frog herald NPC.
+ */
 class FrogHeraldNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs.FROG_2471) {
 
     val phrases = arrayOf(

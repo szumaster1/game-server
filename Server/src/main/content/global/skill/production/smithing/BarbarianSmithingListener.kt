@@ -10,15 +10,18 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.skill.Skills
 
+/**
+ * Barbarian smithing listener.
+ */
 class BarbarianSmithingListener : InteractionListener {
 
     private val bars = BarbarianWeapon.values().map(BarbarianWeapon::requiredBar).toIntArray()
 
     override fun defineListeners() {
-        /*
+
+        /**
          * Used bar on barbarian anvil.
          */
-
         onUseWith(IntType.SCENERY, bars, Scenery.BARBARIAN_ANVIL_25349) { player, used, _ ->
             val weapon = BarbarianWeapon.weaponMap[used.id] ?: return@onUseWith true
             if (getStatLevel(player, Skills.SMITHING) < weapon.requiredLevel) {

@@ -10,6 +10,11 @@ import core.tools.ticksToSeconds
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 
+/**
+ * Incubator timer
+ *
+ * @constructor Incubator timer
+ */
 class IncubatorTimer : PersistTimer(500, "incubation") {
 
     val incubatingEggs = HashMap<Int, IncubatingEgg>()
@@ -52,6 +57,15 @@ class IncubatorTimer : PersistTimer(500, "incubation") {
         return !incubatingEggs.isEmpty()
     }
 
+    /**
+     * Incubating egg
+     *
+     * @property region
+     * @property egg
+     * @property endTime
+     * @property finished
+     * @constructor Incubating egg
+     */
     data
     class IncubatingEgg(
         val region: Int,
@@ -60,6 +74,11 @@ class IncubatorTimer : PersistTimer(500, "incubation") {
         var finished: Boolean = false
     )
 
+    /**
+     * Is done
+     *
+     * @return
+     */
     fun IncubatingEgg.isDone(): Boolean {
         return endTime < System.currentTimeMillis()
     }

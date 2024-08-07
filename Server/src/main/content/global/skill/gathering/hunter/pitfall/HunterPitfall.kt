@@ -33,6 +33,9 @@ import core.plugin.Plugin
 import core.tools.RandomFunction
 import java.util.concurrent.TimeUnit
 
+/**
+ * Hunter pitfall.
+ */
 @Initializable
 class HunterPitfall : OptionHandler() {
 
@@ -68,6 +71,12 @@ val HUNTER_REQS = hashMapOf("Spined larupia" to 31, "Horned graahk" to 41, "Sabr
 
 val pitVarpOffsets = hashMapOf(19264 to 3, 19265 to 6, 19266 to 9, 19267 to 12, 19268 to 15)
 
+/**
+ * Pit.
+ *
+ * @property varbitId the varbit id.
+ * @property horizontal boolean.
+ */
 data class Pit(val varbitId: Int, val horizontal: Boolean)
 
 val pitVarps = hashMapOf(
@@ -132,6 +141,12 @@ val pitJumpSpots = hashMapOf(
     ),
 )
 
+/**
+ * Pit jump spots.
+ *
+ * @param loc the location.
+ * @return
+ */
 fun pitJumpSpots(loc: Location): HashMap<Location, Direction>? {
     val pit = pitVarps[loc] ?: return null
     return if (pit.horizontal) {
@@ -161,6 +176,9 @@ val GRAAHK_PIT = 19231
 val LARUPIA_PIT = 19232
 val KYATT_PIT = 19233
 
+/**
+ * Pitfall listeners.
+ */
 class PitfallListeners : InteractionListener {
 
     override fun defineListeners() {
@@ -307,6 +325,15 @@ class PitfallListeners : InteractionListener {
         }
     }
 
+    /**
+     * Loot corpse.
+     *
+     * @param player the player.
+     * @param pit the pit.
+     * @param xp the xp.
+     * @param goodFur the good fur.
+     * @param badFur the bad fur.
+     */
     fun lootCorpse(player: Player, pit: Scenery, xp: Double, goodFur: Int, badFur: Int) {
         if (player.inventory.freeSlots() < 2) {
             player.sendMessage("You don't have enough inventory space. You need 2 more free slots.")
@@ -325,12 +352,22 @@ class PitfallListeners : InteractionListener {
         }
     }
 
+    /**
+     * Set pit state.
+     *
+     * @param player the player.
+     * @param loc the location.
+     * @param state the state.
+     */
     fun setPitState(player: Player, loc: Location, state: Int) {
         val pit = pitVarps[loc]!!
         setVarbit(player, pit.varbitId, state)
     }
 }
 
+/**
+ * Pitfall NPC.
+ */
 @Initializable
 class PitfallNPC : AbstractNPC {
     constructor() : super(NPCs.HORNED_GRAAHK_5105, null, true) {}

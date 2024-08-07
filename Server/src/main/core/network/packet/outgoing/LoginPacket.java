@@ -7,6 +7,10 @@ import core.network.packet.context.PlayerContext;
 
 import java.nio.ByteBuffer;
 
+/**
+ * Handles the login outgoing packet.
+ * @author Emperor
+ */
 public final class LoginPacket implements OutgoingPacket<PlayerContext> {
 
     @Override

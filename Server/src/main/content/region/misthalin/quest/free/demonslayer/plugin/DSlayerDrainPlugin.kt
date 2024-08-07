@@ -12,6 +12,11 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.plugin.Plugin
 
+/**
+ * D slayer drain plugin
+ *
+ * @constructor D slayer drain plugin
+ */
 class DSlayerDrainPlugin: UseWithHandler(1929) {
 
     override fun newInstance(arg: Any?): Plugin<Any> {

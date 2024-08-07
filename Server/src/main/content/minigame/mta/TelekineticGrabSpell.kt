@@ -25,6 +25,9 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Plugin
 
+/**
+ * Telekinetic grab spell.
+ */
 class TelekineticGrabSpell : MagicSpell(SpellBookManager.SpellBook.MODERN, 33, 43.0, ANIMATION, START_GRAPHIC, SOUND, arrayOf(Item(Runes.AIR_RUNE.id), Item(Runes.LAW_RUNE.id, 1))) {
 
     override fun newInstance(arg: SpellType?): Plugin<SpellType> {
@@ -49,6 +52,13 @@ class TelekineticGrabSpell : MagicSpell(SpellBookManager.SpellBook.MODERN, 33, 4
         getProjectile(entity, target as GroundItem).send()
     }
 
+    /**
+     * Get grab pulse
+     *
+     * @param entity
+     * @param ground
+     * @return
+     */
     fun getGrabPulse(entity: Entity, ground: GroundItem): Pulse {
         return object : Pulse(getDelay(ground.location.getDistance(entity.location)), entity) {
             override fun pulse(): Boolean {
@@ -89,6 +99,13 @@ class TelekineticGrabSpell : MagicSpell(SpellBookManager.SpellBook.MODERN, 33, 4
         }
     }
 
+    /**
+     * Can cast
+     *
+     * @param entity
+     * @param item
+     * @return
+     */
     fun canCast(entity: Entity, item: GroundItem?): Boolean {
         if (entity.locks.isInteractionLocked || entity.locks.isComponentLocked) {
             return false
@@ -110,10 +127,23 @@ class TelekineticGrabSpell : MagicSpell(SpellBookManager.SpellBook.MODERN, 33, 4
         return super.meetsRequirements(entity, true, true)
     }
 
+    /**
+     * Get projectile
+     *
+     * @param entity
+     * @param item
+     * @return
+     */
     fun getProjectile(entity: Entity, item: GroundItem): Projectile {
         return Projectile.create(entity.location, item.location, PROJECTILE_ID, START_HEIGHT, END_HEIGHT, START_DELAY, Projectile.getSpeed(entity, item.location), ANGLE, 11)
     }
 
+    /**
+     * Get delay
+     *
+     * @param distance
+     * @return
+     */
     fun getDelay(distance: Double): Int {
         return (2 + distance * 0.5).toInt()
     }

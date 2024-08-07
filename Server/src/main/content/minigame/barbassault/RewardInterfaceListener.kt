@@ -7,6 +7,9 @@ import core.api.consts.NPCs
 import core.game.interaction.InterfaceListener
 import core.game.node.item.Item
 
+/**
+ * Reward interface listener.
+ */
 class RewardInterfaceListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {

@@ -7,6 +7,9 @@ import core.api.sendItemDialogue
 import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player
 
+/**
+ * Dragon slayer chest dialogue.
+ */
 class DSChestDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {

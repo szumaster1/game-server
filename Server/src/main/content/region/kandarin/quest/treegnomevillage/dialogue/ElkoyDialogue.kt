@@ -13,7 +13,18 @@ import core.game.world.GameWorld.Pulser
 import core.game.world.map.Location
 import core.tools.END_DIALOGUE
 
+/**
+ * Elkoy dialogue
+ *
+ * @constructor Elkoy dialogue
+ */
 class ElkoyDialogue : DialogueFile() {
+    /**
+     * Travel cutscene
+     *
+     * @param player
+     * @param location
+     */
     fun travelCutscene(player: Player, location: Location) {
         sendDialogue(player, "Elkoy escorts you through the maze...")
         Pulser.submit(object : Pulse(0) {

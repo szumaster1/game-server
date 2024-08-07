@@ -17,6 +17,9 @@ import core.game.world.update.flag.context.Graphic
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 
+/**
+ * Mounted glory.
+ */
 class MountedGlory : InteractionListener {
 
     val MOUNTED_GLORY = 13523

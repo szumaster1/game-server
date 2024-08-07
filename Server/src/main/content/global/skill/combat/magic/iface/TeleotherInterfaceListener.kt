@@ -5,6 +5,11 @@ import core.api.consts.Components
 import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.link.TeleportManager.TeleportType
 
+/**
+ * Teleother interface listener
+ *
+ * @constructor Teleother interface listener
+ */
 class TeleotherInterfaceListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {

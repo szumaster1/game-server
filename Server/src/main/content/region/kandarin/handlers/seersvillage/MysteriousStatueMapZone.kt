@@ -12,6 +12,9 @@ import core.game.world.map.zone.ZoneBuilder
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Mysterious statue map zone.
+ */
 @Initializable
 class MysteriousStatueMapZone : MapZone("mysterious-statue", true), Plugin<Any?> {
 
@@ -43,13 +46,11 @@ class MysteriousStatueMapZone : MapZone("mysterious-statue", true), Plugin<Any?>
             val player = e.asPlayer()
             if (!player.achievementDiaryManager.hasCompletedTask(DiaryType.SEERS_VILLAGE, 0, 1) && player.getAttribute("seersStatueProgress", -1) !in 0..3) {
                 setAttribute(player, "seersStatueProgress", 0)
-                println("statue started")
             } else {
                 when (player.location) {
                     northWest -> {
                         if (player.getAttribute("seersStatueProgress", -1) == 0) {
                             setAttribute(player, "seersStatueProgress", 1)
-                            println(player.getAttribute("seersStatueProgress", -1))
                         } else if (player.getAttribute("seersStatueProgress", -1) in 2..3) {
                             setAttribute(player, "seersStatueProgress", 0)
                         }

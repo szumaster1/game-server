@@ -7,7 +7,9 @@ import core.api.getAttribute
 import core.api.getItemFromEquipment
 import core.game.node.entity.player.Player
 
-
+/**
+ * Slayer equipment flags.
+ */
 object SlayerEquipmentFlags {
 
     private val blackMasks = (Items.BLACK_MASK_10_8901..Items.BLACK_MASK_8921).map { it }.toIntArray()

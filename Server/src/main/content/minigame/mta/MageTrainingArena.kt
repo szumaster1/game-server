@@ -20,6 +20,9 @@ import core.plugin.ClassScanner.definePlugins
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Mage training arena.
+ */
 @Initializable
 class MageTrainingArena : OptionHandler() {
 

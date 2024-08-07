@@ -14,25 +14,44 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Game attributes.
+ */
 public final class GameAttributes {
 
     private final Map<String, Object> attributes = new HashMap<>();
 
     private final List<String> savedAttributes = new ArrayList<>(250);
 
+    /**
+     * The Key expirations.
+     */
     public final HashMap<String, Long> keyExpirations = new HashMap<>(250);
 
+    /**
+     * Instantiates a new Game attributes.
+     */
     public GameAttributes() {
         /*
          * Empty.
          */
     }
 
+    /**
+     * Dump.
+     *
+     * @param file the file
+     */
     @Deprecated
     public void dump(String file) {
 
     }
 
+    /**
+     * Parse.
+     *
+     * @param file the file
+     */
     @Deprecated
     public void parse(String file) {
         File saveFile = new File(ServerConstants.PLAYER_ATTRIBUTE_PATH + file);
@@ -107,6 +126,12 @@ public final class GameAttributes {
         }
     }
 
+    /**
+     * Sets attribute.
+     *
+     * @param key   the key
+     * @param value the value
+     */
     public void setAttribute(String key, Object value) {
         if (key.startsWith("/save:")) {
             key = key.substring(6);
@@ -117,12 +142,27 @@ public final class GameAttributes {
         attributes.put(key, value);
     }
 
+    /**
+     * Gets attribute.
+     *
+     * @param <T> the type parameter
+     * @param key the key
+     * @return the attribute
+     */
     @SuppressWarnings("unchecked")
     public <T> T getAttribute(String key) {
         key = key.replace("/save:", "");
         return (T) attributes.get(key);
     }
 
+    /**
+     * Gets attribute.
+     *
+     * @param <T>    the type parameter
+     * @param string the string
+     * @param fail   the fail
+     * @return the attribute
+     */
     @SuppressWarnings("unchecked")
     public <T> T getAttribute(String string, T fail) {
         string = string.replace("/save:", "");
@@ -133,15 +173,30 @@ public final class GameAttributes {
         return fail;
     }
 
+    /**
+     * Remove attribute.
+     *
+     * @param string the string
+     */
     public void removeAttribute(String string) {
         savedAttributes.remove(string);
         attributes.remove(string);
     }
 
+    /**
+     * Gets attributes.
+     *
+     * @return the attributes
+     */
     public Map<String, Object> getAttributes() {
         return attributes;
     }
 
+    /**
+     * Gets saved attributes.
+     *
+     * @return the saved attributes
+     */
     public List<String> getSavedAttributes() {
         return savedAttributes;
     }

@@ -14,6 +14,9 @@ import core.game.world.map.RegionManager.getLocalPlayers
 import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
 
+/**
+ * Kharidian desert listeners.
+ */
 class KharidianDesertListeners : InteractionListener {
 
     companion object {
@@ -111,6 +114,12 @@ class KharidianDesertListeners : InteractionListener {
         }
     }
 
+    /**
+     * Get water skin
+     *
+     * @param player
+     * @return
+     */
     fun getWaterSkin(player: Player): Item? {
         for (item in WATER_SKINS) {
             if (player.inventory.containsItem(item)) {

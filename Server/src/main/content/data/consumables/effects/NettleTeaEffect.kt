@@ -3,6 +3,9 @@ package content.data.consumables.effects
 import core.game.consumable.ConsumableEffect
 import core.game.node.entity.player.Player
 
+/**
+ * Nettle tea effect.
+ */
 class NettleTeaEffect : ConsumableEffect() {
 
     override fun activate(player: Player) {

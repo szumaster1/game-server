@@ -27,6 +27,9 @@ import core.plugin.ClassScanner.definePlugin
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Runecrafting.
+ */
 @Initializable
 class Runecrafting : OptionHandler() {
 

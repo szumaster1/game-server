@@ -9,6 +9,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
 import core.tools.RandomFunction
 
+/**
+ * Yak NPC.
+ */
 class YakNPC : NPCBehavior(NPCs.YAK_5529), InteractionListener {
 
     override fun tick(self: NPC): Boolean {

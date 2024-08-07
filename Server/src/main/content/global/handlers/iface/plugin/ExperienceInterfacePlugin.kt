@@ -12,6 +12,11 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 import core.tools.Log
 
+/**
+ * Experience interface plugin
+ *
+ * @constructor Experience interface plugin
+ */
 @Initializable
 class ExperienceInterfacePlugin : ComponentPlugin() {
 

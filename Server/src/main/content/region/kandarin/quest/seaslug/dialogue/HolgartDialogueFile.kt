@@ -10,6 +10,11 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
+/**
+ * Holgart dialogue file
+ *
+ * @constructor Holgart dialogue file
+ */
 class HolgartDialogueFile : DialogueFile() {
     /*
      * setVarbit(player, 2614, 2)

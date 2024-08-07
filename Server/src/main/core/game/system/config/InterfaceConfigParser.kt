@@ -9,9 +9,19 @@ import org.json.simple.JSONObject
 import org.json.simple.parser.JSONParser
 import java.io.FileReader
 
+/**
+ * Interface config parser
+ *
+ * @constructor Interface config parser
+ */
 class InterfaceConfigParser {
     val parser = JSONParser()
     var reader: FileReader? = null
+
+    /**
+     * Load
+     *
+     */
     fun load() {
         var count = 0
         reader = FileReader(ServerConstants.CONFIG_PATH + "interface_configs.json")

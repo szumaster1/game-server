@@ -10,6 +10,11 @@ import core.network.amsc.MSPacketRepository
 import core.network.amsc.WorldCommunicator
 import core.tools.StringUtils
 
+/**
+ * Clan tab interface listener
+ *
+ * @constructor Clan tab interface listener
+ */
 class ClanTabInterfaceListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {
@@ -97,6 +102,12 @@ class ClanTabInterfaceListener : InterfaceListener {
         }
     }
 
+    /**
+     * Get rank
+     *
+     * @param opcode
+     * @return
+     */
     fun getRank(opcode: Int): ClanRank {
         return when (opcode) {
             155 -> ClanRank.NONE

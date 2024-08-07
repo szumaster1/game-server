@@ -11,9 +11,15 @@ import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.addItemOrBank;
 
+/**
+ * Gertrudes cat.
+ */
 @Initializable
 public class GertrudesCat extends Quest {
 
+    /**
+     * Instantiates a new Gertrudes cat.
+     */
     public GertrudesCat() {
         super("Gertrude's Cat", 67, 66, 1, Vars.VARP_QUEST_GERTRUDES_CAT_PROGRESS, 0, 1, 100);
     }
@@ -94,6 +100,11 @@ public class GertrudesCat extends Quest {
         }
     }
 
+    /**
+     * Gets kitten.
+     *
+     * @return the kitten
+     */
     public Item getKitten() {
         return new Item(RandomFunction.random(1555, 1560));
     }

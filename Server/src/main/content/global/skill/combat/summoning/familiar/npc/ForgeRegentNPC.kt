@@ -26,6 +26,9 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 import core.tools.RandomFunction
 
+/**
+ * Forge regent familiar.
+ */
 @Initializable
 class ForgeRegentNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 7335) : Familiar(owner, id, 4500, 12782, 6, WeaponInterface.STYLE_RANGE_ACCURATE) {
 
@@ -80,6 +83,11 @@ class ForgeRegentNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 
         return intArrayOf(7335, 7336)
     }
 
+    /**
+     * Forge regent firemake
+     *
+     * @constructor Forge regent firemake
+     */
     inner class ForgeRegentFiremake : UseWithHandler(1511, 2862, 1521, 1519, 6333, 10810, 1517, 6332, 12581, 1515, 1513, 13567, 10329, 10328, 7406, 7405, 7404) {
 
         override fun newInstance(arg: Any?): Plugin<Any> {

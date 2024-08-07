@@ -8,6 +8,9 @@ import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
+/**
+ * King roald AFU dialogue.
+ */
 class KingRoaldAFUDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

@@ -16,6 +16,9 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.plugin.Plugin
 
+/**
+ * Yak armour crafting handler.
+ */
 class YakArmourCraftingHandler : UseWithHandler(Items.NEEDLE_1733) {
 
     override fun newInstance(arg: Any?): Plugin<Any> {
@@ -39,6 +42,16 @@ class YakArmourCraftingHandler : UseWithHandler(Items.NEEDLE_1733) {
         return true
     }
 
+    /**
+     * Yak armour pulse
+     *
+     * @property index
+     * @property amount
+     * @constructor
+     *
+     * @param player
+     * @param node
+     */
     inner class YakArmourPulse(player: Player?, node: Item?, private val index: Int, private var amount: Int) :
         SkillPulse<Item?>(player, node) {
         private var ticks = 0

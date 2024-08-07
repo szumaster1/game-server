@@ -10,6 +10,15 @@ import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
+/**
+ * Cannonball pulse
+ *
+ * @property item
+ * @property amount
+ * @constructor
+ *
+ * @param player
+ */
 class CannonballPulse(player: Player?, val item: Item?, private var amount: Int) :
     SkillPulse<Item?>(player, null) {
 

@@ -34,6 +34,10 @@ import core.plugin.Initializable
 import core.tools.RandomFunction
 import java.util.stream.IntStream
 
+/**
+ * Handles the barrows activity plugin.
+ * @author Emperor
+ */
 @Initializable
 class BarrowsActivityPlugin : ActivityPlugin("Barrows", false, false, false) {
 
@@ -206,11 +210,7 @@ class BarrowsActivityPlugin : ActivityPlugin("Barrows", false, false, false) {
                 6774 -> {
                     player.lock(1)
                     val brother = player.getSavedData().activityData.barrowTunnelIndex
-                    if (!player.getSavedData().activityData.barrowBrothers[brother] && !player.getAttribute<Boolean>(
-                            "brother:$brother",
-                            false
-                        )
-                    ) {
+                    if (!player.getSavedData().activityData.barrowBrothers[brother] && !player.getAttribute<Boolean>("brother:$brother", false)) {
                         BarrowsCrypt.getCrypt(brother)
                             .spawnBrother(player, getTeleportLocation(target.getCenterLocation(), 4))
                     }
@@ -242,6 +242,17 @@ class BarrowsActivityPlugin : ActivityPlugin("Barrows", false, false, false) {
         return false
     }
 
+    /**
+     * Action button method to handle player interactions with buttons on interfaces.
+     *
+     * @param player the player interacting with the button
+     * @param interfaceId the ID of the interface where the button is located
+     * @param buttonId the ID of the button being interacted with
+     * @param slot the slot of the item related to the button interaction
+     * @param itemId the ID of the item related to the button interaction
+     * @param opcode the opcode associated with the button action
+     * @return a boolean value indicating the success of the action
+     */
     override fun actionButton(
         player: Player,
         interfaceId: Int,
@@ -286,8 +297,15 @@ class BarrowsActivityPlugin : ActivityPlugin("Barrows", false, false, false) {
     }
 
     companion object {
-        private val TUNNEL_CONFIGS =
-            intArrayOf(55328769, 2867201, 44582944, 817160, 537688072, 40763408, 44320784, 23478274)
+
+        /**
+         * The tunnel configuration values.
+         */
+        private val TUNNEL_CONFIGS = intArrayOf(55328769, 2867201, 44582944, 817160, 537688072, 40763408, 44320784, 23478274)
+
+        /**
+         * Represents the tunnels between 2 rooms in the barrows tunnels.
+         */
         val MINI_TUNNELS = arrayOf(
             ZoneBorders(3532, 9665, 3570, 9671),
             ZoneBorders(3575, 9676, 3570, 9671),
@@ -307,7 +325,15 @@ class BarrowsActivityPlugin : ActivityPlugin("Barrows", false, false, false) {
             ZoneBorders(3541, 9677, 3545, 9678),
             ZoneBorders(3558, 9677, 3562, 9678)
         )
+
+        /**
+         * The overlay.
+         */
         private val OVERLAY = Component(24)
+
+        /**
+         * The activity handling pulse.
+         */
         private val PULSE: Pulse = object : Pulse(0) {
             override fun pulse(): Boolean {
                 var end = true
@@ -348,12 +374,20 @@ class BarrowsActivityPlugin : ActivityPlugin("Barrows", false, false, false) {
             }
         }
 
+        /**
+         * "Shuffles" the catacomb gates.
+         * @param player The player.
+         */
         fun shuffleCatacombs(player: Player?) {
             var value = TUNNEL_CONFIGS[RandomFunction.random(TUNNEL_CONFIGS.size)]
             value = value or (1 shl 6 + RandomFunction.random(4))
             setVarp(player!!, 452, value)
         }
 
+        /**
+         * Sends the kill count configuration.
+         * @param player The player.
+         */
         fun sendConfiguration(player: Player) {
             val data = player.getSavedData().activityData
             var config = data.barrowKills shl 17

@@ -9,6 +9,11 @@ import core.game.world.GameWorld.Pulser
 import core.tools.BLUE
 import core.tools.END_DIALOGUE
 
+/**
+ * Knockat door dialogue
+ *
+ * @constructor Knockat door dialogue
+ */
 class KnockatDoorDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

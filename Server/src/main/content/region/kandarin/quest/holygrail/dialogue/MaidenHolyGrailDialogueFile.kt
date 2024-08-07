@@ -9,6 +9,12 @@ import core.game.node.entity.npc.NPC
 import core.game.world.map.Location
 import core.tools.END_DIALOGUE
 
+/**
+ * Maiden holy grail dialogue file
+ *
+ * @property forced
+ * @constructor Maiden holy grail dialogue file
+ */
 class MaidenHolyGrailDialogueFile(var forced: Boolean) : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

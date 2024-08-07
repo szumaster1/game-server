@@ -5,6 +5,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Joshua dialogue.
+ */
 @Initializable
 class JoshuaDialogue(player: Player? = null) : Dialogue(player) {
 

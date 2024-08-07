@@ -17,7 +17,11 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 
+/**
+ * Pharaoh sceptre listener.
+ */
 class PharaohSceptre : InteractionListener {
+
     override fun defineListeners() {
         val SCEPTRES = intArrayOf(
             Items.PHARAOHS_SCEPTRE_9044,
@@ -26,6 +30,7 @@ class PharaohSceptre : InteractionListener {
             Items.PHARAOHS_SCEPTRE_9050
         )
 
+        // This listener handles the interaction with the Pharaoh's Sceptre items.
         on(SCEPTRES, IntType.ITEM, "teleport", "operate") { player, node ->
             if (!hasRequirement(player, "Icthlarin's Little Helper")) return@on true
             val sceptre = node.asItem()
@@ -40,8 +45,10 @@ class PharaohSceptre : InteractionListener {
         }
     }
 
-
+    // This class represents the dialogue file for the Pharaoh's Sceptre.
     class SceptreDialogueFile : DialogueFile() {
+
+        // This function handles the teleportation action of the sceptre.
         fun teleport(location: Location?, player: Player) {
             player.lock()
             player.visualize(ANIMATION, Graphic)
@@ -80,7 +87,7 @@ class PharaohSceptre : InteractionListener {
 
                         4 -> return
                     }
-                    //Checks the equipment slot. 9044 = full, 9046 = 2 charges, 9048 = 1 charge, 9050 = 0 charges.
+                    // This section checks the charges of the Pharaoh's Sceptre and updates them accordingly.
                     if (player!!.equipment.containsItem(Item(Items.PHARAOHS_SCEPTRE_9044))) {
                         player!!.equipment.replace(Item(Items.PHARAOHS_SCEPTRE_9046), EquipmentSlot.WEAPON.ordinal)
                         player!!.packetDispatch.sendMessage("<col=7f03ff>Your Pharoah's Sceptre has 2 charges remaining.")
@@ -90,9 +97,7 @@ class PharaohSceptre : InteractionListener {
                     } else if (player!!.equipment.containsItem(Item(Items.PHARAOHS_SCEPTRE_9048))) {
                         player!!.equipment.replace(Item(Items.PHARAOHS_SCEPTRE_9050), EquipmentSlot.WEAPON.ordinal)
                         player!!.packetDispatch.sendMessage("<col=7f03ff>Your Pharoah's Sceptre has no charges remaining.")
-                    }
-                    //Checks the inventory.  9044 = full, 9046 = 2 charges, 9048 = 1 charge, 9050 = 0 charges.
-                    else if (player!!.inventory.containsItem(Item(Items.PHARAOHS_SCEPTRE_9044))) {
+                    } else if (player!!.inventory.containsItem(Item(Items.PHARAOHS_SCEPTRE_9044))) {
                         if (player!!.inventory.remove(Item(Items.PHARAOHS_SCEPTRE_9044))) {
                             player!!.inventory.add(Item(Items.PHARAOHS_SCEPTRE_9046))
                             player!!.packetDispatch.sendMessage("<col=7f03ff>Your Pharoah's Sceptre has 2 charges remaining.")

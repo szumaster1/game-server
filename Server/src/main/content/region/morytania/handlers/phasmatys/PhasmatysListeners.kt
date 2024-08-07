@@ -17,6 +17,9 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.tools.END_DIALOGUE
 
+/**
+ * Phasmatys listeners.
+ */
 class PhasmatysListeners : InteractionListener {
 
     companion object {
@@ -66,7 +69,7 @@ class PhasmatysListeners : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Collect ecto-tokens from NPC.
          */
 
@@ -75,7 +78,7 @@ class PhasmatysListeners : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Bedsheet interactions.
          */
 
@@ -87,12 +90,18 @@ class PhasmatysListeners : InteractionListener {
             return@onUseWith true
         }
 
+        /**
+         * Equip the bedsheet brown item.
+         */
         onEquip(BEDSHEET_BROWN) { player, _ ->
             if (inEquipment(player, BEDSHEET_GREEN)) return@onEquip false
             player.appearance.transformNPC(1707)
             return@onEquip true
         }
 
+        /**
+         * Equip the bedsheet green item (Quest related).
+         */
         onEquip(BEDSHEET_GREEN) { player, _ ->
             if (inEquipment(player, BEDSHEET_BROWN)) return@onEquip false
             if (inBorders(player, 3673, 9955, 3685, 9964) || inBorders(player, 3650, 3456, 3737, 3508)) {
@@ -110,10 +119,9 @@ class PhasmatysListeners : InteractionListener {
             return@onUnequip true
         }
 
-        /*
+        /**
          * Energy barrier interaction.
          */
-
         on(ENERGY_BARRIER, IntType.SCENERY, "pay-toll(2-ecto)", "pass") { player, node ->
             if (inEquipment(player, BEDSHEET_GREEN)) {
                 sendDialogue(player, "You can't pass the barriers of Port Phasmatys while wearing the bedsheet.")
@@ -173,6 +181,9 @@ class PhasmatysListeners : InteractionListener {
             return@on true
         }
 
+        /**
+         * Get the bucket of slime.
+         */
         onUseWith(IntType.SCENERY, EMPTY_BUCKET, *ECTO) { player, used, _ ->
             animate(player, Animation.create(4471))
             playAudio(player, Sounds.FILL_ECTOPLASM_1132)

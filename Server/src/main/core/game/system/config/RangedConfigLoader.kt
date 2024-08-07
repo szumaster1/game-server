@@ -17,10 +17,19 @@ import org.json.simple.JSONObject
 import org.json.simple.parser.JSONParser
 import java.io.FileReader
 
+/**
+ * Ranged config loader
+ *
+ * @constructor Ranged config loader
+ */
 class RangedConfigLoader {
     val parser = JSONParser()
     var reader: FileReader? = null
 
+    /**
+     * Load
+     *
+     */
     fun load() {
         var count = 0
         reader = FileReader(ServerConstants.CONFIG_PATH + "ammo_configs.json")

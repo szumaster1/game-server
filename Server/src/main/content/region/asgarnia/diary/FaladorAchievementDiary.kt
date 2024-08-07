@@ -17,6 +17,9 @@ import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.entity.skill.Skills
 import core.game.world.map.zone.ZoneBorders
 
+/**
+ * Falador achievement diary.
+ */
 class FaladorAchievementDiary : DiaryEventHookBase(DiaryType.FALADOR) {
     companion object {
         private const val ATTRIBUTE_PINK_DYE_FROM_BETTY = "diary:falador:pink-dye-from-betty"

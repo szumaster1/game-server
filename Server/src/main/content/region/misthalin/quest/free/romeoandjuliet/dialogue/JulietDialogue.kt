@@ -19,6 +19,9 @@ import core.game.world.repository.Repository.findNPC
 import core.game.world.update.flag.context.Animation
 import core.tools.END_DIALOGUE
 
+/**
+ * Juliet dialogue.
+ */
 class JulietDialogue(player: Player? = null) : Dialogue(player) {
 
     private var quest: Quest? = null

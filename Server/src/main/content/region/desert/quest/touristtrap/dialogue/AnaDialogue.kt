@@ -16,6 +16,9 @@ import core.game.world.map.Location
 import core.game.world.map.RegionManager.getNpc
 import core.plugin.Plugin
 
+/**
+ * Ana dialogue.
+ */
 class AnaDialogue(player: Player? = null) : Dialogue(player) {
 
     private var quest: Quest? = null
@@ -269,6 +272,11 @@ class AnaDialogue(player: Player? = null) : Dialogue(player) {
         return intArrayOf(822)
     }
 
+    /**
+     * Ana barrel handler
+     *
+     * @constructor Ana barrel handler
+     */
     class AnaBarrelHandler: UseWithHandler(TouristTrap.BARREL.id) {
         override fun newInstance(arg: Any?): Plugin<Any> {
             addHandler(822, NPC_TYPE, this)
@@ -286,6 +294,9 @@ class AnaDialogue(player: Player? = null) : Dialogue(player) {
         }
     }
 
+    /**
+     * Ana NPC.
+     */
     class AnaNPC : AbstractNPC {
 
         constructor() : super(0, null)

@@ -8,6 +8,11 @@ import core.api.sendMessage
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Hangover cure listener
+ *
+ * @constructor Hangover cure listener
+ */
 class HangoverCureListener : InteractionListener {
 
     private val chocolateDust = Items.CHOCOLATE_DUST_1975

@@ -19,6 +19,9 @@ import core.game.node.item.Item
 import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 
+/**
+ * Seers village achievement diary.
+ */
 class SeersVillageAchievementDiary : DiaryEventHookBase(DiaryType.SEERS_VILLAGE) {
 
     companion object {

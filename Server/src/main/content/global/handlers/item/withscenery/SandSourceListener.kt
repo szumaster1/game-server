@@ -8,6 +8,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.system.task.Pulse
 
+/**
+ * Sand source listener
+ *
+ * @constructor Sand source listener
+ */
 class SandSourceListener : InteractionListener {
 
     companion object {

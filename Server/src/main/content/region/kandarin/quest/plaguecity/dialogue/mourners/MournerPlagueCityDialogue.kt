@@ -9,6 +9,11 @@ import core.game.node.entity.npc.NPC
 import core.game.world.map.RegionManager.getObject
 import core.tools.END_DIALOGUE
 
+/**
+ * Mourner plague city dialogue
+ *
+ * @constructor Mourner plague city dialogue
+ */
 class MournerPlagueCityDialogue : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.MOURNER_3216)

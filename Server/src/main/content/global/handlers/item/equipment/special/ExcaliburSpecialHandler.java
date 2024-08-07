@@ -16,6 +16,9 @@ import core.plugin.Plugin;
 
 import static core.api.ContentAPIKt.*;
 
+/**
+ * Excalibur special handler.
+ */
 @Initializable
 public final class ExcaliburSpecialHandler extends MeleeSwingHandler implements Plugin<Object> {
 

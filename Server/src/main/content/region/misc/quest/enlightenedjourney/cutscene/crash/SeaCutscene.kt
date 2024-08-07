@@ -4,6 +4,9 @@ import core.api.location
 import core.game.activity.Cutscene
 import core.game.node.entity.player.Player
 
+/**
+ * Sea cutscene.
+ */
 class SeaCutscene(player: Player) : Cutscene(player) {
     override fun setup() {
         setExit(location(0, 0, 0))

@@ -14,6 +14,9 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld.Pulser
 import core.game.world.map.Location
 
+/**
+ * Party room.
+ */
 object PartyRoom {
 
     private val isCluttered: Boolean

@@ -13,6 +13,9 @@ import core.game.world.map.Location
 import core.game.world.map.zone.MapZone
 import core.game.world.map.zone.ZoneBorders
 
+/**
+ * Neitiznot listeners.
+ */
 class NeitiznotListeners : InteractionListener {
 
 

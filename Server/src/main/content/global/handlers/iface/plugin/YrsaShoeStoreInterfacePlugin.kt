@@ -16,6 +16,11 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 import core.tools.END_DIALOGUE
 
+/**
+ * Yrsa shoe store interface plugin
+ *
+ * @constructor Yrsa shoe store interface plugin
+ */
 @Initializable
 class YrsaShoeStoreInterfacePlugin : ComponentPlugin() {
     private val paymentCheck = "yrsa-paid"
@@ -74,6 +79,11 @@ class YrsaShoeStoreInterfacePlugin : ComponentPlugin() {
         return true
     }
 
+    /**
+     * Pay
+     *
+     * @param player
+     */
     fun pay(player: Player) {
         val newColor = getAttribute(player, previousColor, player.appearance.skin.color)
         if (newColor == player.appearance.feet.color) {
@@ -110,6 +120,11 @@ class YrsaShoeStoreInterfacePlugin : ComponentPlugin() {
     }
 
 
+    /**
+     * Yrsa close event dialogue
+     *
+     * @constructor Yrsa close event dialogue
+     */
     class YrsaCloseEventDialogue : DialogueFile() {
         override fun handle(componentID: Int, buttonID: Int) {
             npc = NPC(NPCs.YRSA_1301)

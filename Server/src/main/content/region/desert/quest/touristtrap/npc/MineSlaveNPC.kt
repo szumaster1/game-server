@@ -6,6 +6,9 @@ import core.game.world.GameWorld.ticks
 import core.game.world.map.Location
 import core.tools.RandomFunction
 
+/**
+ * Mine slave NPC.
+ */
 class MineSlaveNPC : AbstractNPC {
 
     private var delay = 0

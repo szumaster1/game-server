@@ -11,6 +11,9 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Gam fred dialoue.
+ */
 @Initializable
 class GamFredDialoue(player: Player? = null) : Dialogue(player) {
 

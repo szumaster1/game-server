@@ -11,6 +11,9 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 
+/**
+ * Spirit tzkih familiar.
+ */
 @Initializable
 class SpiritTzKihNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.SPIRIT_TZ_KIH_7361) : Familiar(owner, id, 1800, 12808, 6, WeaponInterface.STYLE_CAST) {
 

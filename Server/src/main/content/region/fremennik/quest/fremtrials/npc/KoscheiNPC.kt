@@ -14,6 +14,10 @@ import core.game.world.map.Location
 import core.game.world.repository.Repository
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Koschei NPC.
+ * @param session
+ */
 class KoscheiNPC(id: Int = 0, location: Location? = null, session: KoscheiSession? = null) :
     AbstractNPC(id, location) {
 
@@ -113,19 +117,50 @@ class KoscheiNPC(id: Int = 0, location: Location? = null, session: KoscheiSessio
     }
 
 
+    /**
+     * Koschei type
+     *
+     * @property npcId
+     * @property appearMessage
+     * @property appearDialogues
+     * @constructor Koschei type
+     */
     enum class KoscheiType(var npcId: Int, var appearMessage: String?, vararg var appearDialogues: String?) {
+        /**
+         * First Form
+         *
+         * @constructor First Form
+         */
         FIRST_FORM(NPCs.KOSCHEI_THE_DEATHLESS_1290, "You must prove yourself... now!"),
+
+        /**
+         * Second Form
+         *
+         * @constructor Second Form
+         */
         SECOND_FORM(
             NPCs.KOSCHEI_THE_DEATHLESS_1291,
             "This is only the beginning; you can't beat me!",
             "It seems you have some idea of combat after all,",
             "outerlander! I will not hold back so much this time!"
         ),
+
+        /**
+         * Third Form
+         *
+         * @constructor Third Form
+         */
         THIRD_FORM(
             NPCs.KOSCHEI_THE_DEATHLESS_1292,
             "Foolish mortal; I am unstoppable.",
             "Impressive start... But now we fight for real!"
         ),
+
+        /**
+         * Fourth Form
+         *
+         * @constructor Fourth Form
+         */
         FOURTH_FORM(
             NPCs.KOSCHEI_THE_DEATHLESS_1293,
             "Aaaaaaaarrgghhhh! The power!",
@@ -135,6 +170,12 @@ class KoscheiNPC(id: Int = 0, location: Location? = null, session: KoscheiSessio
         );
 
 
+        /**
+         * Transform
+         *
+         * @param koschei
+         * @param player
+         */
         fun transform(koschei: KoscheiNPC, player: Player) {
             val newType = next()
             koschei.lock()
@@ -147,6 +188,11 @@ class KoscheiNPC(id: Int = 0, location: Location? = null, session: KoscheiSessio
             Pulser.submit(KoscheiSpawnPulse(player, koschei))
         }
 
+        /**
+         * Next
+         *
+         * @return
+         */
         operator fun next(): KoscheiType {
             return values()[ordinal + 1]
         }
@@ -165,6 +211,13 @@ class KoscheiNPC(id: Int = 0, location: Location? = null, session: KoscheiSessio
     }
 
 
+    /**
+     * Koschei spawn pulse
+     *
+     * @property player
+     * @property koschei
+     * @constructor Koschei spawn pulse
+     */
     class KoscheiSpawnPulse(val player: Player?, val koschei: KoscheiNPC) : Pulse() {
         var counter = 0
         override fun pulse(): Boolean {
@@ -191,6 +244,13 @@ class KoscheiNPC(id: Int = 0, location: Location? = null, session: KoscheiSessio
     }
 
 
+    /**
+     * Fight end pulse
+     *
+     * @property player
+     * @property koschei
+     * @constructor Fight end pulse
+     */
     class FightEndPulse(val player: Player?, val koschei: KoscheiNPC) : Pulse() {
         var counter = 0
         override fun pulse(): Boolean {

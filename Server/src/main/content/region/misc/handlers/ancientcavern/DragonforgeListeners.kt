@@ -15,6 +15,9 @@ import core.game.system.task.Pulse
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 
+/**
+ * Dragonforge listeners.
+ */
 class DragonforgeListeners : InteractionListener {
 
     companion object {
@@ -36,10 +39,9 @@ class DragonforgeListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Dragonkin anvil interaction.
          */
-
         onUseWith(IntType.SCENERY, DRAGON_ANVIL, *RUINED_PIECES) { player, _, _ ->
             if (!hasRequirement(player, "While Guthix Sleeps")) return@onUseWith false
 
@@ -85,10 +87,9 @@ class DragonforgeListeners : InteractionListener {
             return@onUseWith true
         }
 
-        /*
+        /**
          * Mithril doors interaction.
          */
-
         on(MITHRIL_DOOR, IntType.SCENERY, "open") { player, node ->
             if (!inInventory(player, Items.DRAGONKIN_KEY_14471) && !hasRequirement(player, "While Guthix Sleeps", false)) {
                 sendDialogue(player, "The door is solid and resists all attempts to open it. There's no way past it at all, so best to ignore it.")
@@ -116,10 +117,9 @@ class DragonforgeListeners : InteractionListener {
             return@onUseWith true
         }
 
-        /*
+        /**
          * Dragonkin key fusing.
          */
-
         onUseWith(IntType.NPC, STRANGE_KEYS, *MITHRIL_DRAGON_NPC) { player, _, with ->
             val npc = with.asNpc()
             if (player.inventory.containItems(*STRANGE_KEYS) && player.equipment.containsAtLeastOneItem(REQUIRED_SHIELD)) {

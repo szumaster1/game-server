@@ -9,6 +9,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
+/**
+ * Edern journal
+ *
+ * @constructor Edern journal
+ */
 class EdernJournal : InteractionListener {
 
     // Edern's journal can be found by searching

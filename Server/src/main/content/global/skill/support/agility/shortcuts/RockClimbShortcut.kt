@@ -13,6 +13,9 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 
+/**
+ * Rock climb shortcut.
+ */
 @Initializable
 class RockClimbShortcut : AgilityShortcut(intArrayOf(9335, 9336, 2231, 26327, 26328, 26324, 26323, 19849, 9296, 9297), 1, 0.0, "climb") {
 
@@ -30,7 +33,7 @@ class RockClimbShortcut : AgilityShortcut(intArrayOf(9335, 9336, 2231, 26327, 26
                 }
             }
 
-            /*
+            /**
              * Eagles Peak
              */
             19849 -> {
@@ -51,7 +54,7 @@ class RockClimbShortcut : AgilityShortcut(intArrayOf(9335, 9336, 2231, 26327, 26
             9335 -> ForceMovement.run(player, player.location, Location.create(3427, 3478, 0), scalingUpAnim, scalingUpAnim, Direction.WEST, 13).endAnimation = Animation.RESET
             9336 -> ForceMovement.run(player, player.location, Location.create(3424, 3476, 0), scalingDownAnim, scalingDownAnim, Direction.WEST, 13).endAnimation = Animation.RESET
 
-            /*
+            /**
              * GodWars shortcut.
              */
             26327 -> {
@@ -62,7 +65,7 @@ class RockClimbShortcut : AgilityShortcut(intArrayOf(9335, 9336, 2231, 26327, 26
                 }
             }
 
-            /*
+            /**
              * GodWars shortcut.
              */
             26328 -> {
@@ -73,7 +76,7 @@ class RockClimbShortcut : AgilityShortcut(intArrayOf(9335, 9336, 2231, 26327, 26
                 }
             }
 
-            /*
+            /**
              * GodWars shortcut.
              */
             26324 -> {
@@ -84,7 +87,7 @@ class RockClimbShortcut : AgilityShortcut(intArrayOf(9335, 9336, 2231, 26327, 26
                 }
             }
 
-            /*
+            /**
              * GodWars shortcut.
              */
             26323 -> {
@@ -95,7 +98,7 @@ class RockClimbShortcut : AgilityShortcut(intArrayOf(9335, 9336, 2231, 26327, 26
                 }
             }
 
-            /*
+            /**
              * Arandar.
              */
             9297 -> {
@@ -110,7 +113,7 @@ class RockClimbShortcut : AgilityShortcut(intArrayOf(9335, 9336, 2231, 26327, 26
                 }
             }
 
-            /*
+            /**
              * Arandar.
              */
             9296 -> {

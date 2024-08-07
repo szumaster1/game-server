@@ -7,6 +7,11 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.Plugin
 
+/**
+ * Bird nest plugin
+ *
+ * @constructor Bird nest plugin
+ */
 class BirdNestPlugin : OptionHandler() {
 
     override fun newInstance(arg: Any?): Plugin<Any?>? {

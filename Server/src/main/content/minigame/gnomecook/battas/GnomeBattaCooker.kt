@@ -12,6 +12,9 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Gnome batta cooker.
+ */
 @Initializable
 class GnomeBattaCooker : UseWithHandler(Items.RAW_BATTA_2250, 9478, 9480, 9482, 9483, 9485) {
 
@@ -39,6 +42,13 @@ class GnomeBattaCooker : UseWithHandler(Items.RAW_BATTA_2250, 9478, 9480, 9482, 
         return true
     }
 
+    /**
+     * Cook
+     *
+     * @param player
+     * @param raw
+     * @param product
+     */
     fun cook(player: Player, raw: Item, product: Item) {
         GameWorld.Pulser.submit(object : Pulse() {
             var counter = 0

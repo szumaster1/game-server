@@ -7,10 +7,13 @@ import core.game.node.entity.Entity
 import core.game.node.entity.npc.NPC
 import kotlin.math.max
 
+/**
+ * Tree spirit NPC.
+ */
 class TreeSpiritNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs.TREE_SPIRIT_438) {
 
     val ids = (438..443).toList()
-    override fun talkTo(npc: NPC) {}
+
     override fun init() {
         super.init()
         val index = max(0, (player.properties.combatLevel / 20) - 1)
@@ -32,5 +35,7 @@ class TreeSpiritNPC(override var loot: WeightBasedTable? = null) : RandomEventNP
         super.tick()
         if (!player.viewport.currentPlane.npcs.contains(this)) this.clear()
     }
+
+    override fun talkTo(npc: NPC) {}
 
 }

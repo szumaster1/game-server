@@ -6,6 +6,9 @@ import core.game.node.entity.npc.NPCBehavior
 import core.tools.RandomFunction
 import core.api.consts.NPCs
 
+/**
+ * Miltog NPC.
+ */
 class MiltogNPC : NPCBehavior(NPCs.MILTOG_5781) {
 
 

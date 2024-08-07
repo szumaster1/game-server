@@ -12,6 +12,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Bardur dialogue.
+ */
 @Initializable
 class BardurDialogue(player: Player? = null): Dialogue(player) {
 
@@ -71,6 +74,11 @@ class BardurDialogue(player: Player? = null): Dialogue(player) {
 
 }
 
+/**
+ * Bardur exchange dialogue
+ *
+ * @constructor Bardur exchange dialogue
+ */
 class BardurExchangeDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

@@ -13,6 +13,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.world.map.Direction
 
+/**
+ * First experiment cutscene.
+ */
 class FirstExperimentCutscene(player: Player) : Cutscene(player) {
     override fun setup() {
         setExit(location(2808, 3355, 0))

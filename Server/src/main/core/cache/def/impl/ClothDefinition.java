@@ -5,6 +5,9 @@ import core.cache.Cache;
 
 import java.nio.ByteBuffer;
 
+/**
+ * Cloth definition.
+ */
 public final class ClothDefinition {
 
     private int equipmentSlot;
@@ -23,6 +26,12 @@ public final class ClothDefinition {
 
     private int[] models = {-1, -1, -1, -1, -1};
 
+    /**
+     * For id cloth definition.
+     *
+     * @param clothId the cloth id
+     * @return the cloth definition
+     */
     public static ClothDefinition forId(int clothId) {
         ClothDefinition def = new ClothDefinition();
         byte[] bs = Cache.getIndexes()[2].getFileData(3, clothId);
@@ -32,6 +41,11 @@ public final class ClothDefinition {
         return def;
     }
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String... args) {
         try {
             Cache.init(ServerConstants.CACHE_PATH);
@@ -45,6 +59,11 @@ public final class ClothDefinition {
         }
     }
 
+    /**
+     * Load.
+     *
+     * @param buffer the buffer
+     */
     public void load(ByteBuffer buffer) {
         int opcode;
         while ((opcode = buffer.get() & 0xFF) != 0) {
@@ -93,34 +112,74 @@ public final class ClothDefinition {
         }
     }
 
+    /**
+     * Gets unknown.
+     *
+     * @return the unknown
+     */
     public int getUnknown() {
         return equipmentSlot;
     }
 
+    /**
+     * Get model ids int [ ].
+     *
+     * @return the int [ ]
+     */
     public int[] getModelIds() {
         return modelIds;
     }
 
+    /**
+     * Is unknown bool boolean.
+     *
+     * @return the boolean
+     */
     public boolean isUnknownBool() {
         return unknownBool;
     }
 
+    /**
+     * Get original colors int [ ].
+     *
+     * @return the int [ ]
+     */
     public int[] getOriginalColors() {
         return originalColors;
     }
 
+    /**
+     * Get modified colors int [ ].
+     *
+     * @return the int [ ]
+     */
     public int[] getModifiedColors() {
         return modifiedColors;
     }
 
+    /**
+     * Get original texture colors int [ ].
+     *
+     * @return the int [ ]
+     */
     public int[] getOriginalTextureColors() {
         return originalTextureColors;
     }
 
+    /**
+     * Get modified texture colors int [ ].
+     *
+     * @return the int [ ]
+     */
     public int[] getModifiedTextureColors() {
         return modifiedTextureColors;
     }
 
+    /**
+     * Get models int [ ].
+     *
+     * @return the int [ ]
+     */
     public int[] getModels() {
         return models;
     }

@@ -10,11 +10,20 @@ import core.game.system.timer.impl.SkillRestore
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
+/**
+ * Timer tests
+ *
+ * @constructor Timer tests
+ */
 class TimerTests {
     init {
         TestUtils.preTestSetup()
     }
 
+    /**
+     * Timer with no flags should not be cleared on death
+     *
+     */
     @Test
     fun timerWithNoFlagsShouldNotBeClearedOnDeath() {
         TestUtils.getMockPlayer("noflagnoclear").use { p ->
@@ -36,6 +45,10 @@ class TimerTests {
         }
     }
 
+    /**
+     * Timer with clear on death flag should clear on death
+     *
+     */
     @Test
     fun timerWithClearOnDeathFlagShouldClearOnDeath() {
         TestUtils.getMockPlayer("clearflagtimer").use { p ->
@@ -57,6 +70,10 @@ class TimerTests {
         }
     }
 
+    /**
+     * Skill restore timer should slowly raise lowered stats
+     *
+     */
     @Test
     fun skillRestoreTimerShouldSlowlyRaiseLoweredStats() {
         TestUtils.getMockPlayer("statrestore-slowrestore").use { p ->
@@ -70,6 +87,10 @@ class TimerTests {
         }
     }
 
+    /**
+     * Skill restore timer should slowly lower boosted stats
+     *
+     */
     @Test
     fun skillRestoreTimerShouldSlowlyLowerBoostedStats() {
         TestUtils.getMockPlayer("statrestore-slowdrain").use { p ->
@@ -82,6 +103,10 @@ class TimerTests {
         }
     }
 
+    /**
+     * Skill restore timer should raise lowered hp
+     *
+     */
     @Test
     fun skillRestoreTimerShouldRaiseLoweredHp() {
         TestUtils.getMockPlayer("statrestore-raiseloweredhp").use { p ->
@@ -93,6 +118,10 @@ class TimerTests {
         }
     }
 
+    /**
+     * Skill restore timer should never lower boosted hp
+     *
+     */
     @Test
     fun skillRestoreTimerShouldNeverLowerBoostedHp() {
         TestUtils.getMockPlayer("statrestore-neverlowerhp").use { p ->

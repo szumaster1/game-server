@@ -9,6 +9,9 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 
+/**
+ * Wise old man task dialogue.
+ */
 class WiseOldManTaskDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

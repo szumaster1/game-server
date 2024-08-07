@@ -4,6 +4,11 @@ import content.global.skill.combat.summoning.pet.Pet
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Familiar listeners
+ *
+ * @constructor Familiar listeners
+ */
 class FamiliarListeners : InteractionListener {
 
     override fun defineListeners() {

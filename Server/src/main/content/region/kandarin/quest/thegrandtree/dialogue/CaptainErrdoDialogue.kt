@@ -13,6 +13,9 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Captain errdo dialogue.
+ */
 @Initializable
 class CaptainErrdoDialogue(player: Player? = null) : Dialogue(player) {
 

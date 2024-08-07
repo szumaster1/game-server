@@ -7,12 +7,28 @@ import core.game.node.entity.player.Player;
 import core.game.node.entity.skill.Skills;
 import core.game.node.item.Item;
 
+/**
+ * Pizza recipe.
+ */
 public abstract class PizzaRecipe extends Recipe {
 
+    /**
+     * The constant PLAIN_PIZZA.
+     */
     protected static final Item PLAIN_PIZZA = new Item(Items.PLAIN_PIZZA_2289);
 
+    /**
+     * Gets experience.
+     *
+     * @return the experience
+     */
     public abstract double getExperience();
 
+    /**
+     * Gets level.
+     *
+     * @return the level
+     */
     public abstract int getLevel();
 
     @Override

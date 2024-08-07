@@ -13,6 +13,9 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 
+/**
+ * Spirit kalphite familiar.
+ */
 @Initializable
 class SpiritKalphiteNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 6994) :
     BurdenBeast(owner, id, 2200, 12063, 6, 6, WeaponInterface.STYLE_DEFENSIVE) {

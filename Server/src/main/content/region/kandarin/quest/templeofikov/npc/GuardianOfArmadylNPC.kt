@@ -10,6 +10,9 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.tools.RandomFunction
 
+/**
+ * Guardian of armadyl NPC.
+ */
 class GuardianOfArmadylNPC: NPCBehavior(*guardianOfArmadylIds) {
 
     companion object {

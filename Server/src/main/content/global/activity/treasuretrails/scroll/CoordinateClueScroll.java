@@ -7,18 +7,42 @@ import core.game.node.item.Item;
 import core.game.world.map.Location;
 import core.game.world.update.flag.context.Graphic;
 
+/**
+ * Coordinate clue scroll.
+ */
 public abstract class CoordinateClueScroll extends MapClueScroll {
 
+    /**
+     * The constant SEXTANT.
+     */
     public static final Item SEXTANT = new Item(2574);
 
+    /**
+     * The constant WATCH.
+     */
     public static final Item WATCH = new Item(2575);
 
+    /**
+     * The constant CHART.
+     */
     public static final Item CHART = new Item(2576);
 
+    /**
+     * The constant CLOCK_TOWER.
+     */
     public static final Location CLOCK_TOWER = new Location(2440, 3161, 0);
 
 	private final String clue;
 
+    /**
+     * Instantiates a new Coordinate clue scroll.
+     *
+     * @param name     the name
+     * @param clueId   the clue id
+     * @param level    the level
+     * @param location the location
+     * @param clue     the clue
+     */
     public CoordinateClueScroll(String name, int clueId, ClueLevel level, Location location, String clue) {
 		super(name, clueId, level, 345, location, 0);
 		this.clue = clue;
@@ -61,6 +85,11 @@ public abstract class CoordinateClueScroll extends MapClueScroll {
 		wizard.getProperties().getCombatPulse().attack(player);
 	}
 
+    /**
+     * Gets clue.
+     *
+     * @return the clue
+     */
     public String getClue() {
 		return clue;
 	}

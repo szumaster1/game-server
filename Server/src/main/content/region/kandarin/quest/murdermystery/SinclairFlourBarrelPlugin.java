@@ -18,6 +18,9 @@ import static core.api.ContentAPIKt.sendMessage;
 import static core.api.ContentAPIKt.setAttribute;
 
 
+/**
+ * Sinclair flour barrel plugin.
+ */
 @Initializable
 public final class SinclairFlourBarrelPlugin extends OptionHandler {
     private final static Item EMPTY_POT = new Item(Items.EMPTY_POT_1931);
@@ -28,6 +31,13 @@ public final class SinclairFlourBarrelPlugin extends OptionHandler {
         return getFlour(player, (Scenery) node);
     }
 
+    /**
+     * Gets flour.
+     *
+     * @param player the player
+     * @param object the object
+     * @return the flour
+     */
     public boolean getFlour(final Player player, final Scenery object) {
         if (!player.getInventory().containsItem(EMPTY_POT)) {
             player.getPacketDispatch().sendMessage("I need an empty pot to hold the flour in.");
@@ -65,6 +75,9 @@ public final class SinclairFlourBarrelPlugin extends OptionHandler {
 
     private class FlourHandler extends UseWithHandler {
 
+        /**
+         * Instantiates a new Flour handler.
+         */
         public FlourHandler() {
             super(EMPTY_POT.getId());
         }

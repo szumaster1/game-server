@@ -10,6 +10,9 @@ import core.game.world.map.zone.ZoneBorders
 import core.game.world.map.zone.ZoneRestriction
 import core.tools.secondsToTicks
 
+/**
+ * Corp area controller.
+ */
 class CorpAreaController : MapArea, TickListener {
 
     companion object {

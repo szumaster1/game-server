@@ -9,6 +9,9 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 import core.api.consts.Items
 
+/**
+ * Chemicals book.
+ */
 class ChemicalsBook : InteractionListener {
 
     companion object {

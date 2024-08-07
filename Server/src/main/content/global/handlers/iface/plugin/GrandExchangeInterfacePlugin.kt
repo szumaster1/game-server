@@ -23,6 +23,10 @@ import core.network.packet.outgoing.ContainerPacket
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Handles the Grand Exchange interface options.
+ * @author Emperor
+ */
 @Initializable
 class GrandExchangeInterfacePlugin : ComponentPlugin() {
 
@@ -78,6 +82,16 @@ class GrandExchangeInterfacePlugin : ComponentPlugin() {
         return true
     }
 
+    /**
+     * Handle search interface
+     *
+     * @param player
+     * @param opcode
+     * @param button
+     * @param slot
+     * @param itemId
+     * @return
+     */
     fun handleSearchInterface(player: Player, opcode: Int, button: Int, slot: Int, itemId: Int): Boolean {
         when (button) {
             10 -> {
@@ -88,6 +102,16 @@ class GrandExchangeInterfacePlugin : ComponentPlugin() {
         return false
     }
 
+    /**
+     * Handle collection box
+     *
+     * @param player
+     * @param opcode
+     * @param button
+     * @param slot
+     * @param itemId
+     * @return
+     */
     fun handleCollectionBox(player: Player?, opcode: Int, button: Int, slot: Int, itemId: Int): Boolean {
         var index = -1
         when (button) {

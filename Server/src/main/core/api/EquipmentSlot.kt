@@ -1,19 +1,107 @@
 package core.api
 
+/**
+ * Equipment slot
+ *
+ * @constructor Equipment slot
+ */
 enum class EquipmentSlot {
+    /**
+     * Head
+     *
+     * @constructor Head
+     */
     HEAD,
+
+    /**
+     * Cape
+     *
+     * @constructor Cape
+     */
     CAPE,
+
+    /**
+     * Neck
+     *
+     * @constructor Neck
+     */
     NECK,
+
+    /**
+     * Weapon
+     *
+     * @constructor Weapon
+     */
     WEAPON,
+
+    /**
+     * Chest
+     *
+     * @constructor Chest
+     */
     CHEST,
+
+    /**
+     * Shield
+     *
+     * @constructor Shield
+     */
     SHIELD,
+
+    /**
+     * Hidden 1
+     *
+     * @constructor Hidden 1
+     */
     HIDDEN_1,
+
+    /**
+     * Legs
+     *
+     * @constructor Legs
+     */
     LEGS,
+
+    /**
+     * Hidden 2
+     *
+     * @constructor Hidden 2
+     */
     HIDDEN_2,
+
+    /**
+     * Hands
+     *
+     * @constructor Hands
+     */
     HANDS,
+
+    /**
+     * Feet
+     *
+     * @constructor Feet
+     */
     FEET,
+
+    /**
+     * Hidden 3
+     *
+     * @constructor Hidden 3
+     */
     HIDDEN_3,
+
+    /**
+     * Ring
+     *
+     * @constructor Ring
+     */
     RING,
+
+    /**
+     * Ammo
+     *
+     * @constructor Ammo
+     */
     AMMO;
 
     companion object {

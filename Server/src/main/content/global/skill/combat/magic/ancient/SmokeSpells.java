@@ -21,6 +21,9 @@ import java.util.List;
 import static core.api.ContentAPIKt.applyPoison;
 import static core.api.ContentAPIKt.playGlobalAudio;
 
+/**
+ * Smoke spells.
+ */
 @Initializable
 public final class SmokeSpells extends CombatSpell {
 
@@ -33,6 +36,9 @@ public final class SmokeSpells extends CombatSpell {
     private static final Projectile BARRAGE_PROJECTILE = Projectile.create((Entity) null, null, 391, 40, 36, 52, 75, 15, 11);
     private static final Graphic BARRAGE_END = new Graphic(390, 0);
 
+    /**
+     * Instantiates a new Smoke spells.
+     */
     public SmokeSpells() {
 
     }

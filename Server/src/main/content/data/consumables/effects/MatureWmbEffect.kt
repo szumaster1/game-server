@@ -4,6 +4,9 @@ import core.game.consumable.ConsumableEffect
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 
+/**
+ * Mature wmb effect.
+ */
 class MatureWmbEffect : ConsumableEffect() {
 
     override fun activate(player: Player) {

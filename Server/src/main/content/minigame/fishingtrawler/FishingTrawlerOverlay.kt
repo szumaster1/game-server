@@ -10,6 +10,9 @@ private const val netRippedChild = 28
 private const val fishChild = 29
 private const val timeChild = 30
 
+/**
+ * Fishing trawler overlay.
+ */
 object FishingTrawlerOverlay {
     @JvmStatic
     fun sendUpdate(player: Player, waterPercent: Int, NetRipped: Boolean, fishCaught: Int, timeLeft: Int) {

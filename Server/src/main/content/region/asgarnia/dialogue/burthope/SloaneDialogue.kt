@@ -11,6 +11,9 @@ import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Sloane dialogue.
+ */
 @Initializable
 class SloaneDialogue(player: Player? = null) : Dialogue(player) {
 

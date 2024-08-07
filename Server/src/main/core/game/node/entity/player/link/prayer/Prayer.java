@@ -24,6 +24,9 @@ import java.util.List;
 import static core.api.ContentAPIKt.playAudio;
 import static core.api.ContentAPIKt.setVarp;
 
+/**
+ * Prayer.
+ */
 public final class Prayer {
 
     private final List<PrayerType> active = new ArrayList<>(20);
@@ -32,10 +35,21 @@ public final class Prayer {
 
     private int prayerActiveTicks = 0;
 
+    /**
+     * Instantiates a new Prayer.
+     *
+     * @param player the player
+     */
     public Prayer(Player player) {
         this.player = player;
     }
 
+    /**
+     * Toggle boolean.
+     *
+     * @param type the type
+     * @return the boolean
+     */
     public final boolean toggle(final PrayerType type) {
         if (!permitted(type)) {
             return false;
@@ -43,6 +57,9 @@ public final class Prayer {
         return type.toggle(player, !active.contains(type));
     }
 
+    /**
+     * Reset.
+     */
     public void reset() {
         /*
          * Immediately clear the lights on the client
@@ -66,6 +83,9 @@ public final class Prayer {
         });
     }
 
+    /**
+     * Start redemption.
+     */
     public void startRedemption() {
         playAudio(player, Sounds.REDEMPTION_HEAL_2681);
         player.graphics(Graphic.create(436));
@@ -74,6 +94,11 @@ public final class Prayer {
         reset();
     }
 
+    /**
+     * Start retribution.
+     *
+     * @param killer the killer
+     */
     public void startRetribution(Entity killer) {
         Location l = player.getLocation();
         for (int x = -1; x < 2; x++) {
@@ -106,6 +131,9 @@ public final class Prayer {
         }
     }
 
+    /**
+     * Tick.
+     */
     public void tick() {
         if (!getActive().isEmpty()) prayerActiveTicks++;
         else prayerActiveTicks = 0;
@@ -133,6 +161,12 @@ public final class Prayer {
         }
     }
 
+    /**
+     * Gets skill bonus.
+     *
+     * @param skillId the skill id
+     * @return the skill bonus
+     */
     public double getSkillBonus(int skillId) {
         double bonus = 0.0;
         for (PrayerType type : active) {
@@ -149,14 +183,30 @@ public final class Prayer {
         return player.getSkills().getPrayerPoints() > 0 && type.permitted(player);
     }
 
+    /**
+     * Get boolean.
+     *
+     * @param type the type
+     * @return the boolean
+     */
     public boolean get(PrayerType type) {
         return active.contains(type);
     }
 
+    /**
+     * Gets player.
+     *
+     * @return the player
+     */
     public Player getPlayer() {
         return player;
     }
 
+    /**
+     * Gets active.
+     *
+     * @return the active
+     */
     public List<PrayerType> getActive() {
         return active;
     }

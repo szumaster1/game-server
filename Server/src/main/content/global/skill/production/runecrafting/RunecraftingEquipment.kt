@@ -13,6 +13,9 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
+/**
+ * Runecrafting equipment.
+ */
 class RunecraftingEquipment : InteractionListener {
 
     private val talismanStaff = Staff.values().map { it.item.id }.toIntArray()

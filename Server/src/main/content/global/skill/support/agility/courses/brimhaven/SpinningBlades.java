@@ -13,6 +13,9 @@ import core.game.world.map.RegionManager;
 import core.game.world.update.flag.context.Animation;
 import kotlin.Unit;
 
+/**
+ * Spinning blades.
+ */
 public final class SpinningBlades implements MovementHook {
 
     @Override

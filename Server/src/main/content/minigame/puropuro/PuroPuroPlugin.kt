@@ -30,6 +30,9 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 import core.tools.RandomFunction
 
+/**
+ * Puro-puro plugin.
+ */
 @Initializable
 class PuroPuroPlugin : MapZone("puro puro", true), Plugin<Any> {
     init {
@@ -93,10 +96,7 @@ class PuroPuroPlugin : MapZone("puro puro", true), Plugin<Any> {
             return
         }
         if (hasImplingBox(player)) {
-            sendDialogue(
-                player,
-                "Something prevents you from entering. You think the portal is offended by your imp boxes. They are not popular on imp and impling planes."
-            )
+            sendDialogue(player, "Something prevents you from entering. You think the portal is offended by your imp boxes. They are not popular on imp and impling planes.")
             return
         }
         val dest = `object`.location.transform(Direction.getLogicalDirection(player.location, `object`.location), 1)
@@ -168,6 +168,9 @@ class PuroPuroPlugin : MapZone("puro puro", true), Plugin<Any> {
     }
 
 
+    /**
+     * Puro-puro option handler.
+     */
     inner class PuroOptionHandler : OptionHandler() {
         @Throws(Throwable::class)
         override fun newInstance(arg: Any?): Plugin<Any> {
@@ -251,7 +254,6 @@ class PuroPuroPlugin : MapZone("puro puro", true), Plugin<Any> {
         }
     }
 
-
     class WheatSet(private val rot: Int, vararg locations: Location) {
 
         val locations: Array<Location> = locations as Array<Location>
@@ -259,6 +261,7 @@ class PuroPuroPlugin : MapZone("puro puro", true), Plugin<Any> {
         var nextWhilt: Int = 0
         private var busyTicks = 0
         private var removed = false
+
         fun init() {
             for ((index, location) in locations.withIndex()) {
                 val `object` = Scenery(25021, location, 22, rot)

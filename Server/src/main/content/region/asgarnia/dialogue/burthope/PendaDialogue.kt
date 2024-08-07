@@ -10,6 +10,9 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
+/**
+ * Penda dialogue.
+ */
 @Initializable
 class PendaDialogue(player: Player? = null) : Dialogue(player) {
 

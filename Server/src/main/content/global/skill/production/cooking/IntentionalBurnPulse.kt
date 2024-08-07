@@ -10,6 +10,16 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.node.scenery.Scenery
 
+/**
+ * Intentional burn pulse
+ *
+ * @property player
+ * @property scenery
+ * @property initial
+ * @property product
+ * @property amount
+ * @constructor Intentional burn pulse
+ */
 class IntentionalBurnPulse
 internal constructor(
     override var player: Player,

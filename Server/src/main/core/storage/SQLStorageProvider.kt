@@ -6,16 +6,34 @@ import core.game.world.repository.Repository
 import java.lang.Long.max
 import java.sql.*
 
+/**
+ * SQL storage provider
+ *
+ * @constructor SQL storage provider.
+ */
 class SQLStorageProvider : AccountStorageProvider {
     var connectionString = ""
     var connectionUsername = ""
     var connectionPassword = ""
 
+    /**
+     * Get connection
+     *
+     * @return the database connection
+     */
     fun getConnection(): Connection {
         Class.forName("com.mysql.cj.jdbc.Driver")
         return DriverManager.getConnection(connectionString, connectionUsername, connectionPassword)
     }
 
+    /**
+     * Configure the database connection.
+     *
+     * @param host the host of the database.
+     * @param databaseName the name of the database.
+     * @param username the username for the database connection.
+     * @param password the password for the database connection.
+     */
     fun configure(host: String, databaseName: String, username: String, password: String) {
         connectionString = "jdbc:mysql://$host/$databaseName?useTimezone=true&serverTimezone=UTC"
         connectionUsername = username

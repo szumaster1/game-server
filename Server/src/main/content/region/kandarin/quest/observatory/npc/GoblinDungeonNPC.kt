@@ -6,6 +6,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
 import core.tools.RandomFunction
 
+/**
+ * Goblin dungeon NPC.
+ */
 class GoblinDungeonNPC : NPCBehavior(NPCs.WAGCHIN_6124, NPCs.NAGHEAD_6123) {
 
     /*

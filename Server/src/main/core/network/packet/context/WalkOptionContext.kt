@@ -5,7 +5,6 @@ import core.network.packet.Context
 
 /**
  * Represents the set walk-to option context.
- * @author Emperor
  */
 class WalkOptionContext(
     private val player: Player,

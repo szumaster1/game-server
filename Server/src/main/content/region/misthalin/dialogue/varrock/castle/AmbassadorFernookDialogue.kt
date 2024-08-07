@@ -8,6 +8,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Ambassador fernook dialogue.
+ */
 @Initializable
 class AmbassadorFernookDialogue(player: Player? = null) : Dialogue(player) {
 

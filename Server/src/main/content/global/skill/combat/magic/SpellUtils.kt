@@ -7,7 +7,18 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
+/**
+ * Spell utils.
+ */
 object SpellUtils {
+
+    /**
+     * Using staff
+     *
+     * @param p
+     * @param rune
+     * @return
+     */
     fun usingStaff(p: Player, rune: Int): Boolean {
         val weapon = p.equipment[3] ?: return false
         val staff = MagicStaff.forId(rune) ?: return false
@@ -20,6 +31,13 @@ object SpellUtils {
         return false
     }
 
+    /**
+     * Has rune
+     *
+     * @param p
+     * @param rune
+     * @return
+     */
     fun hasRune(p: Player, rune: Item): Boolean {
         val removeItems = p.getAttribute("spell:runes", ArrayList<Item>())
         if (usingStaff(p, rune.id)) return true
@@ -47,6 +65,15 @@ object SpellUtils {
         return amtRemaining <= 0
     }
 
+    /**
+     * Has rune
+     *
+     * @param p
+     * @param item
+     * @param toRemove
+     * @param message
+     * @return
+     */
     fun hasRune(p: Player, item: Item, toRemove: MutableList<Item?>, message: Boolean): Boolean {
         if (!usingStaff(p, item.id)) {
             val hasBaseRune = p.inventory.contains(item.id, item.amount)
@@ -82,10 +109,22 @@ object SpellUtils {
         return true
     }
 
+    /**
+     * Attackable NPC
+     *
+     * @param npc
+     * @return
+     */
     fun attackableNPC(npc: NPC): Boolean {
         return npc.definition.hasAction("attack")
     }
 
+    /**
+     * Get book from interface
+     *
+     * @param id
+     * @return
+     */
     @JvmStatic
     fun getBookFromInterface(id: Int): String {
         return when (id) {

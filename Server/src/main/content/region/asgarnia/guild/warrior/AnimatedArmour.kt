@@ -14,6 +14,15 @@ import core.game.world.map.path.Pathfinder
 import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
 
+/**
+ * Animated armour
+ *
+ * @property player
+ * @property set
+ * @constructor
+ *
+ * @param location
+ */
 class AnimatedArmour internal constructor(
     private val player: Player,
     location: Location?,

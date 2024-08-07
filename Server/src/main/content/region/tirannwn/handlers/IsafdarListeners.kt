@@ -8,6 +8,9 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.link.TeleportManager
 import core.game.world.map.Location
 
+/**
+ * Isafdar listeners.
+ */
 class IsafdarListeners : InteractionListener {
 
     override fun defineListeners() {
@@ -22,10 +25,9 @@ class IsafdarListeners : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Search the bookcase in Lletya.
          */
-
         on(Scenery.BOOKCASE_8752, IntType.SCENERY, "search") { player, _ ->
             if (!inInventory(player, Items.PRIFDDINAS_HISTORY_6073)) {
                 sendMessage(player, "You search the bookshelves...")

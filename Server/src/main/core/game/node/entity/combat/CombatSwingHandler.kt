@@ -29,7 +29,6 @@ import kotlin.math.floor
 
 /**
  * Handles a combat swing.
- * @author Ceikry, Emperor
  */
 abstract class CombatSwingHandler(var type: CombatStyle?) {
     var flags: Array<out SwingHandlerFlag> = emptyArray()

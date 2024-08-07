@@ -8,6 +8,9 @@ import kotlinx.coroutines.Job
 import org.json.simple.JSONObject
 import java.util.*
 
+/**
+ * Grafana
+ */
 class Grafana : StartupListener {
     override fun startup() {
         if (!ServerConstants.GRAFANA_LOGGING) return
@@ -16,6 +19,22 @@ class Grafana : StartupListener {
         db.pruneOldData(ServerConstants.GRAFANA_TTL_DAYS)
     }
 
+    /**
+     * Grafana data
+     *
+     * @property playerTickTime
+     * @property npcTickTime
+     * @property playerRenderTime
+     * @property totalTickTime
+     * @property packetProcessTime
+     * @property botPulseTime
+     * @property otherPulseTime
+     * @property pulseTimes
+     * @property pulseCounts
+     * @property botCount
+     * @property timeSecs
+     * @constructor Grafana data
+     */
     data class GrafanaData(
         val playerTickTime: Int,
         val npcTickTime: Int,

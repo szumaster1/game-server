@@ -12,6 +12,9 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 
+/**
+ * Albino rat familiar.
+ */
 @Initializable
 class AlbinoRatNPC(owner: Player? = null, id: Int = 6847) : Forager(owner, id, 2200, 12067, 6, WeaponInterface.STYLE_ACCURATE, CHEESE) {
 

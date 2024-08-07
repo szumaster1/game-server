@@ -274,11 +274,52 @@ object PlayerMonitor {
 
 }
 
+/**
+ * Log type
+ *
+ * @property token
+ * @constructor Log type
+ */
 enum class LogType(val token: String) {
+    /**
+     * Dupe Alert
+     *
+     * @constructor Dupe Alert
+     */
     DUPE_ALERT("dupe_warning"),
+
+    /**
+     * Duel Info
+     *
+     * @constructor Duel Info
+     */
     DUEL_INFO("Duel"),
+
+    /**
+     * Pk
+     *
+     * @constructor Pk
+     */
     PK("PK"),
+
+    /**
+     * Drop Trade
+     *
+     * @constructor Drop Trade
+     */
     DROP_TRADE("DropTrade"),
+
+    /**
+     * Command
+     *
+     * @constructor Command
+     */
     COMMAND("CommandUsed"),
+
+    /**
+     * Ip Log
+     *
+     * @constructor Ip Log
+     */
     IP_LOG("login_ip")
 }

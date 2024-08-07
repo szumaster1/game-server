@@ -10,6 +10,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Spirit pengatrice dialogue.
+ */
 @Initializable
 class SpiritPengatriceDialogue(player: Player? = null) : Dialogue(player) {
 

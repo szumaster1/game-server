@@ -9,6 +9,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
+/**
+ * Sinkeths diary
+ *
+ * @constructor Sinkeths diary
+ */
 class SinkethsDiary : InteractionListener {
 
     // Obtainable during the What Lies Below quest.

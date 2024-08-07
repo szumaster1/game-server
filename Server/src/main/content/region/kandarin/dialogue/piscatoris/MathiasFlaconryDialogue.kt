@@ -12,6 +12,9 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.plugin.Initializable
 
+/**
+ * Mathias flaconry dialogue.
+ */
 @Initializable
 class MathiasFlaconryDialogue(player: Player? = null) : Dialogue(player) {
 

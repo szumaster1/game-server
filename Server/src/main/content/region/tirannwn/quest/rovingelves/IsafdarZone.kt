@@ -12,6 +12,9 @@ import core.game.world.map.zone.ZoneBuilder
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Isafdar zone.
+ */
 @Initializable
 class IsafdarZone : MapZone("Isafdar", true), Plugin<Any?> {
 

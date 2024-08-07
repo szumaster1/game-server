@@ -18,9 +18,14 @@ import java.net.BindException
 import java.util.*
 import kotlin.system.exitProcess
 
+/**
+ * The main class, for those that are unable to read the class' name.
+ * @author Emperor
+ * @author Ceikry
+ */
 object Server {
 
-    /*
+    /**
      * The time stamp of when the server started running.
      */
 
@@ -35,7 +40,7 @@ object Server {
     @JvmStatic
     var reactor: NioReactor? = null
 
-    /*
+    /**
      * The main method, in this method we load background utilities such as
      * cache and our world, then end with starting networking.
      */

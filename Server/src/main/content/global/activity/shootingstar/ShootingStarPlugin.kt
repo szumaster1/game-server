@@ -18,6 +18,9 @@ import core.tools.Log
 import core.tools.secondsToTicks
 import org.json.simple.JSONObject
 
+/**
+ * Handling various functionalities related to shooting stars in the game.
+ */
 class ShootingStarPlugin : LoginListener, InteractionListener, TickListener, Commands, StartupListener {
 
     override fun login(player: Player) {

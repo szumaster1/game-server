@@ -23,6 +23,11 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.tools.Log
 
+/**
+ * Elemental workshop listeners
+ *
+ * @constructor Elemental workshop listeners
+ */
 class ElementalWorkshopListeners : InteractionListener {
 
     private val batteredBook = Item(Items.BATTERED_BOOK_2886)

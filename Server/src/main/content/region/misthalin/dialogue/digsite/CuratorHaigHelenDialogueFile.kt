@@ -14,6 +14,11 @@ import core.tools.START_DIALOGUE
 import core.api.consts.Items
 import core.api.consts.NPCs
 
+/**
+ * Curator haig helen dialogue file
+ *
+ * @constructor Curator haig helen dialogue file
+ */
 class CuratorHaigHelenDialogueFile : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

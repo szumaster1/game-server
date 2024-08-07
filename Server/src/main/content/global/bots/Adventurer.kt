@@ -28,18 +28,16 @@ import java.time.format.DateTimeFormatter
 import kotlin.random.Random
 
 /**
- * A bot script for Adventurers who explore the world!
+ * A bot script for Adventurers who explore the world.
+ *
  * @param counter used in the bots random idling function.
  * @param random is used to generate random number.
  * @param city determines the home city of the bot!!.
  * @param freshspawn determines if the bot has just been spawned.
  * @param random_city is the list of cities that can be randomly chosen as the home city.
  * @param tree_list is the list of trees that a bot can start cutting randomly.
- * @author Sir Kermit
- * @author Ceikry
+ * @author Sir Kermit, Ceikry
  */
-
-//Adventure Bots v4.0.0 -Expansion Edition-
 class Adventurer(val style: CombatStyle) : Script() {
 
     var city: Location = lumbridge

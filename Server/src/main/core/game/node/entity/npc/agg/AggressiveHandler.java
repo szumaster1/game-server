@@ -9,6 +9,9 @@ import core.game.node.entity.player.info.Rights;
 import core.game.world.GameWorld;
 import core.tools.RandomFunction;
 
+/**
+ * Aggressive handler.
+ */
 public final class AggressiveHandler {
 
     private final Entity entity;
@@ -27,11 +30,22 @@ public final class AggressiveHandler {
 
     private boolean allowTolerance = true;
 
+    /**
+     * Instantiates a new Aggressive handler.
+     *
+     * @param entity   the entity
+     * @param behavior the behavior
+     */
     public AggressiveHandler(Entity entity, AggressiveBehavior behavior) {
         this.entity = entity;
         this.behavior = behavior;
     }
 
+    /**
+     * Select target boolean.
+     *
+     * @return the boolean
+     */
     public boolean selectTarget() {
         if (pauseTicks > GameWorld.getTicks() || entity.getLocks().isInteractionLocked()) {
             return false;
@@ -64,46 +78,101 @@ public final class AggressiveHandler {
         return entity.getProperties().getCombatPulse().isAttacking();
     }
 
+    /**
+     * Remove tolerance.
+     *
+     * @param index the index
+     */
     public synchronized void removeTolerance(int index) {
         playerTolerance[index] = 0;
     }
 
+    /**
+     * Gets radius.
+     *
+     * @return the radius
+     */
     public int getRadius() {
         return radius;
     }
 
+    /**
+     * Sets radius.
+     *
+     * @param radius the radius
+     */
     public void setRadius(int radius) {
         this.radius = radius;
     }
 
+    /**
+     * Gets pause ticks.
+     *
+     * @return the pause ticks
+     */
     public int getPauseTicks() {
         return pauseTicks;
     }
 
+    /**
+     * Sets pause ticks.
+     *
+     * @param pauseTicks the pause ticks
+     */
     public void setPauseTicks(int pauseTicks) {
         this.pauseTicks = GameWorld.getTicks() + pauseTicks;
     }
 
+    /**
+     * Get player tolerance int [ ].
+     *
+     * @return the int [ ]
+     */
     public int[] getPlayerTolerance() {
         return playerTolerance;
     }
 
+    /**
+     * Is target switching boolean.
+     *
+     * @return the boolean
+     */
     public boolean isTargetSwitching() {
         return targetSwitching;
     }
 
+    /**
+     * Sets target switching.
+     *
+     * @param targetSwitching the target switching
+     */
     public void setTargetSwitching(boolean targetSwitching) {
         this.targetSwitching = targetSwitching;
     }
 
+    /**
+     * Gets chance ratio.
+     *
+     * @return the chance ratio
+     */
     public int getChanceRatio() {
         return chanceRatio;
     }
 
+    /**
+     * Sets chance ratio.
+     *
+     * @param chanceRatio the chance ratio
+     */
     public void setChanceRatio(int chanceRatio) {
         this.chanceRatio = chanceRatio;
     }
 
+    /**
+     * Is allow tolerance boolean.
+     *
+     * @return the boolean
+     */
     public boolean isAllowTolerance() {
         boolean configSetting = true;
         if (entity instanceof NPC) {
@@ -112,6 +181,11 @@ public final class AggressiveHandler {
         return allowTolerance && configSetting;
     }
 
+    /**
+     * Sets allow tolerance.
+     *
+     * @param allowTolerance the allow tolerance
+     */
     public void setAllowTolerance(boolean allowTolerance) {
         this.allowTolerance = allowTolerance;
     }

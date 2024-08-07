@@ -22,6 +22,9 @@ import core.network.packet.PacketRepository
 import core.network.packet.context.MinimapStateContext
 import core.network.packet.outgoing.MinimapState
 
+/**
+ * Balloon listeners.
+ */
 class BalloonListeners : InterfaceListener, InteractionListener {
 
     companion object {

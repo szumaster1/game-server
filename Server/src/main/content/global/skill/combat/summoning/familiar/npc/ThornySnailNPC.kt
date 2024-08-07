@@ -18,6 +18,9 @@ import core.plugin.Initializable
 import core.tools.RandomFunction
 import kotlin.math.floor
 
+/**
+ * Thorny snail familiar.
+ */
 @Initializable
 class ThornySnailNPC(owner: Player? = null, id: Int = NPCs.THORNY_SNAIL_6806) : BurdenBeast(owner, id, 1600, 12019, 3, 3) {
 

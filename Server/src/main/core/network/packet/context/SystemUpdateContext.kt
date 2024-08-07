@@ -5,7 +5,6 @@ import core.network.packet.Context
 
 /**
  * Represents a system update.
- * @author 'Vexia
  */
 class SystemUpdateContext(
     private val player: Player,

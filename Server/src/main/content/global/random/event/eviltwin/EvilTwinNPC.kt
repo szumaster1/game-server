@@ -6,6 +6,9 @@ import core.api.utils.WeightBasedTable
 import core.game.node.entity.npc.NPC
 import core.game.system.timer.impl.AntiMacro
 
+/**
+ * Evil twin NPC.
+ */
 class EvilTwinNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(-1) {
 
     override fun init() {

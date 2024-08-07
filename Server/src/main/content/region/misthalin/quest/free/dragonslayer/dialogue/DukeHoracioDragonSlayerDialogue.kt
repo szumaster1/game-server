@@ -7,6 +7,12 @@ import core.game.node.item.GroundItemManager
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
+/**
+ * Duke horacio dragon slayer dialogue
+ *
+ * @property questStage
+ * @constructor Duke horacio dragon slayer dialogue
+ */
 class DukeHoracioDragonSlayerDialogue(val questStage: Int) : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
@@ -59,6 +65,12 @@ class DukeHoracioDragonSlayerDialogue(val questStage: Int) : DialogueFile() {
         }
     }
 
+    /**
+     * Has shield
+     *
+     * @param player
+     * @return
+     */
     fun hasShield(player: Player): Boolean {
         return player.inventory.containsItem(DragonSlayer.SHIELD) || player.bank.containsItem(DragonSlayer.SHIELD) || player.equipment.containsItem(
             DragonSlayer.SHIELD

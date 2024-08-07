@@ -5,8 +5,16 @@ import core.game.world.update.flag.context.Animation;
 import core.network.packet.IoBuffer;
 import core.network.packet.outgoing.AnimateScenery;
 
+/**
+ * Animate object update flag.
+ */
 public final class AnimateObjectUpdateFlag extends UpdateFlag<Animation> {
 
+    /**
+     * Instantiates a new Animate object update flag.
+     *
+     * @param context the context
+     */
     public AnimateObjectUpdateFlag(Animation context) {
         super(context);
     }

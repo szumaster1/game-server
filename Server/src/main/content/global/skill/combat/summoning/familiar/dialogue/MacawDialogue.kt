@@ -15,6 +15,9 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Macaw dialogue.
+ */
 @Initializable
 class MacawDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -49,10 +52,20 @@ class MacawDialogue(player: Player? = null) : Dialogue(player) {
     }
 
 
+    /**
+     * Get view animation
+     *
+     * @return
+     */
     fun getViewAnimation(): Animation {
         return Animation.create(8013)
     }
 
+    /**
+     * Get random
+     *
+     * @return
+     */
     fun getRandom(): Int {
         return 40
     }
@@ -63,6 +76,11 @@ class MacawDialogue(player: Player? = null) : Dialogue(player) {
 
 }
 
+/**
+ * Macaw dialogue file
+ *
+ * @constructor Macaw dialogue file
+ */
 class MacawDialogueFile : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

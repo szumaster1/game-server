@@ -11,6 +11,9 @@ import core.game.node.entity.player.link.IronmanMode
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
+/**
+ * Jade dialogue.
+ */
 class JadeDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {

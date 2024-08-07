@@ -13,6 +13,9 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 
+/**
+ * Chromatic dragon NPC.
+ */
 @Initializable
 class ChromaticDragonNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 

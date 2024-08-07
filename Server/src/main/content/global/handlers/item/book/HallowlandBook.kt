@@ -10,6 +10,11 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 import core.game.world.GameWorld.settings
 
+/**
+ * Hallowland book
+ *
+ * @constructor Hallowland book
+ */
 class HallowlandBook : InteractionListener {
 
     // Obtainable during In Aid of the Myreque.

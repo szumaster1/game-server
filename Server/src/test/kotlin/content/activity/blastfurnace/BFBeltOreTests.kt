@@ -7,11 +7,20 @@ import core.api.consts.Items
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
+/**
+ * B f belt ore tests
+ *
+ * @constructor B f belt ore tests
+ */
 class BFBeltOreTests {
     init {
         TestUtils.preTestSetup()
     }
 
+    /**
+     * Ore should move closer to pot when ticked
+     *
+     */
     @Test
     fun oreShouldMoveCloserToPotWhenTicked() {
         TestUtils.getMockPlayer("bf-oremove-test").use { p ->
@@ -31,6 +40,10 @@ class BFBeltOreTests {
         }
     }
 
+    /**
+     * Ore should be added to ore container after reaching end
+     *
+     */
     @Test
     fun oreShouldBeAddedToOreContainerAfterReachingEnd() {
         TestUtils.getMockPlayer("bf-oremoveadd-test").use { p ->

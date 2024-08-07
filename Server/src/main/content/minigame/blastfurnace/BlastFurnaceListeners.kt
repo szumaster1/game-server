@@ -16,6 +16,10 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.tools.END_DIALOGUE
 
+/**
+ * Blast furnace listeners.
+ * @author Ceikry
+ */
 class BlastFurnaceListeners : InteractionListener {
     companion object {
         var initialized = false

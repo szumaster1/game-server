@@ -9,6 +9,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
+/**
+ * Feathered journal
+ *
+ * @constructor Feathered journal
+ */
 class FeatheredJournal : InteractionListener {
 
     // Book that players will find as part of the Eagles' Peak quest.

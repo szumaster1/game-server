@@ -9,10 +9,10 @@ import core.game.node.item.Item
 import core.plugin.Plugin
 
 /**
- * Author: Ceikry, Player Name
+ * Rune pouch plugin.
  */
 class RunePouchPlugin : OptionHandler() {
-    @Throws(Throwable::class)
+
     override fun newInstance(arg: Any?): Plugin<Any>? {
         for (i in 5509..5515) {
             val itemDef = ItemDefinition.forId(i)

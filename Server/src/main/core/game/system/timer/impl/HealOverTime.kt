@@ -9,6 +9,11 @@ import core.game.system.timer.TimerFlag
 import org.json.simple.JSONObject
 import kotlin.math.min
 
+/**
+ * Heal over time
+ *
+ * @constructor Heal over time
+ */
 class HealOverTime : PersistTimer(
     runInterval = 1,
     identifier = "healovertime",

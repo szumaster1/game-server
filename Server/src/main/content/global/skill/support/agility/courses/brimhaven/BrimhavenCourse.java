@@ -17,6 +17,9 @@ import core.plugin.Initializable;
 import core.plugin.Plugin;
 import kotlin.Unit;
 
+/**
+ * Brimhaven course.
+ */
 @Initializable
 public final class BrimhavenCourse extends OptionHandler {
 

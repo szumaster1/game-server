@@ -12,6 +12,11 @@ import core.game.world.update.flag.context.Graphic
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
+/**
+ * Harold dialogue file
+ *
+ * @constructor Harold dialogue file
+ */
 class HaroldDialogueFile : DialogueFile() {
 
     companion object {

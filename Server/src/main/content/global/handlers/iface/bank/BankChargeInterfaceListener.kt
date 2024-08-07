@@ -10,6 +10,10 @@ import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
+/**
+ * Handles bank charge interface for Eniola at ZMI altar.
+ * @author vddCore
+ */
 class BankChargeInterfaceListener : InterfaceListener {
     companion object {
         private const val BUTTON_AIR_RUNE = 28

@@ -9,6 +9,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
+/**
+ * Leather book
+ *
+ * @constructor Leather book
+ */
 class LeatherBook : InteractionListener {
 
     // Obtained from the ancient library during

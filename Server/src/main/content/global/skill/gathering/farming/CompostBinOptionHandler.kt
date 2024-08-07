@@ -8,6 +8,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Compost bin option handler.
+ */
 @Initializable
 class CompostBinOptionHandler : OptionHandler() {
     override fun newInstance(arg: Any?): Plugin<Any> {

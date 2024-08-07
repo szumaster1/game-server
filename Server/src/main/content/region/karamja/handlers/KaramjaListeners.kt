@@ -14,6 +14,9 @@ import core.game.system.task.Pulse
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Karamja listeners.
+ */
 class KaramjaListeners : InteractionListener {
 
     companion object {
@@ -40,10 +43,9 @@ class KaramjaListeners : InteractionListener {
         private val JUNGLE_BUSH = intArrayOf(Scenery.JUNGLE_BUSH_2892, Scenery.JUNGLE_BUSH_2893)
     }
 
-    /*
+    /**
      * Check requirements for interact with jungle bush.
      */
-
     private fun checkRequirement(player: Player): Boolean {
         return anyInEquipment(player, *MACHETE_ID) || anyInInventory(player, *MACHETE_ID)
     }
@@ -60,11 +62,10 @@ class KaramjaListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Interaction with jungle bush.
          * TODO: It should be handled by WoodcuttingPulse.
          */
-
         on(JUNGLE_BUSH, IntType.SCENERY, "chop-down") { player, node ->
             val randomChop = (1..5).random()
             val chopDown = getAttribute(player, "chop-bush", randomChop)
@@ -100,10 +101,9 @@ class KaramjaListeners : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Interaction with Custom officers.
          */
-
         on(CUSTOM_OFFICERS, IntType.NPC, "pay-fare") { player, node ->
             if (!isQuestComplete(player, "Pirate's Treasure")) {
                 openDialogue(player, node.asNpc().id, node)
@@ -175,10 +175,9 @@ class KaramjaListeners : InteractionListener {
             return@on true
         }
 
-       /*
+       /**
         * Un-note essences interaction with Jiminua NPC.
         */
-
         onUseWith(IntType.NPC, NOTED_PURE_ESSENCE, JIMINUA) { player, used, _ ->
             assert(used.id == Items.PURE_ESSENCE_7937)
             val ess: Int = amountInInventory(player, Items.PURE_ESSENCE_7937)
@@ -212,10 +211,9 @@ class KaramjaListeners : InteractionListener {
             return@onUseWith true
         }
 
-        /*
-         * Trade interaction with NPC Tiadeche.
+        /**
+         * Trade interaction with NPC Tiadeche NPC.
          */
-
         on(TIADECHE, IntType.NPC, "trade") { player, _ ->
             if (!hasRequirement(player, "Tai Bwo Wannai Trio")) return@on true
             openNpcShop(player, TIADECHE)

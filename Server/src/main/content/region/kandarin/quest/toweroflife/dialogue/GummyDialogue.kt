@@ -11,6 +11,9 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
+/**
+ * Gummy dialogue.
+ */
 @Initializable
 class GummyDialogue(player: Player? = null) : Dialogue(player) {
 

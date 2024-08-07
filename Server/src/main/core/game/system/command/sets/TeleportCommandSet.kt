@@ -12,6 +12,11 @@ import core.plugin.Initializable
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
+/**
+ * Teleport command set
+ *
+ * @constructor Teleport command set
+ */
 @Initializable
 class TeleportCommandSet : CommandSet(Privilege.ADMIN) {
 

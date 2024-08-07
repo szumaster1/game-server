@@ -10,6 +10,9 @@ import core.game.interaction.UseWithHandler
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Finished potion handler.
+ */
 @Initializable
 class FinishedPotionHandler : UseWithHandler(*unfinishedItems) {
 

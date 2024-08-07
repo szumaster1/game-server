@@ -11,6 +11,11 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 import core.tools.BLUE
 
+/**
+ * Barbarian book
+ *
+ * @constructor Barbarian book
+ */
 class BarbarianBook : InteractionListener {
 
     companion object {

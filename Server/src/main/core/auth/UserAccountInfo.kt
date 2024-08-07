@@ -2,6 +2,29 @@ package core.auth
 
 import java.sql.Timestamp
 
+/**
+ * User account info
+ *
+ * @property username
+ * @property password
+ * @property uid
+ * @property rights
+ * @property credits
+ * @property ip
+ * @property lastUsedIp
+ * @property muteEndTime
+ * @property banEndTime
+ * @property contacts
+ * @property blocked
+ * @property clanName
+ * @property currentClan
+ * @property clanReqs
+ * @property timePlayed
+ * @property lastLogin
+ * @property online
+ * @property joinDate
+ * @constructor User account info
+ */
 class UserAccountInfo(
     var username: String,
     var password: String,
@@ -51,10 +74,19 @@ class UserAccountInfo(
 
     lateinit var initialValues: Array<Any>
 
+    /**
+     * Set initial reference values
+     *
+     */
     fun setInitialReferenceValues() {
         initialValues = toArray()
     }
 
+    /**
+     * Get changed fields
+     *
+     * @return
+     */
     fun getChangedFields(): Pair<ArrayList<Int>, Array<Any>> {
         val current = toArray()
         val changed = ArrayList<Int>()
@@ -66,6 +98,11 @@ class UserAccountInfo(
         return Pair(changed, current)
     }
 
+    /**
+     * To array
+     *
+     * @return
+     */
     fun toArray(): Array<Any> {
         return arrayOf(username, password, uid, rights, credits, ip, lastUsedIp, muteEndTime, banEndTime, contacts, blocked, clanName, currentClan, clanReqs, timePlayed, lastLogin, online, joinDate)
     }
@@ -122,6 +159,11 @@ class UserAccountInfo(
         return result
     }
 
+    /**
+     * Is default
+     *
+     * @return
+     */
     fun isDefault(): Boolean {
         return this == default
     }

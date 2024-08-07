@@ -10,6 +10,13 @@ import core.network.producer.MSEventProducer
 import core.tools.Log
 import java.nio.ByteBuffer
 
+/**
+ * Registry read event.
+ * @author Emperor
+ *
+ * @param session the session.
+ * @param buffer the buffer.
+ */
 class RegistryReadEvent(session: IoSession, buffer: ByteBuffer) : IoReadEvent(session, buffer) {
 
     companion object {

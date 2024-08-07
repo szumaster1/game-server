@@ -17,7 +17,6 @@ import kotlin.system.exitProcess
 /**
  * Class for parsing the server config, I.E default.toml
  * @param path the path to the TOML file to parse.
- * @author Ceikry
  */
 object ServerConfigParser {
     var confFile: File? = null
@@ -190,8 +189,7 @@ object ServerConfigParser {
     }
 
     /**
-     * Parses a location from the format "x,y,z"
-     * @author Ceikry
+     * Parses a location from the format "x,y,z".
      * @param locString The string to parse
      * @return Location
      */
@@ -202,7 +200,6 @@ object ServerConfigParser {
 
     /**
      * Parses a path string
-     * @author Ceikry
      * @param pathString The string to parse
      * @return a String with the proper file separators for the current OS.
      */

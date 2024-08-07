@@ -12,6 +12,9 @@ import core.game.node.entity.player.Player
 import core.game.world.map.Location
 import core.plugin.Initializable
 
+/**
+ * Twig NPC.
+ */
 @Initializable
 class TwigNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
     override fun construct(id: Int, location: Location, vararg objects: Any): AbstractNPC {

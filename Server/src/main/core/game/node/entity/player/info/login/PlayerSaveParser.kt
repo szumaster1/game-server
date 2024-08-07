@@ -25,7 +25,6 @@ import java.util.*
 /**
  * Class used for parsing JSON player saves.
  * @param player The player we are parsing.
- * @author Ceikry
  */
 class PlayerSaveParser(val player: Player) {
     companion object {

@@ -15,7 +15,17 @@ import core.game.world.map.Direction
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Brimhaven utils.
+ */
 object BrimhavenUtils {
+    /**
+     * Get vine destination
+     *
+     * @param player
+     * @param node
+     * @return
+     */
     fun getVineDestination(player: Player, node: Scenery): Location {
         if (node.rotation % 2 != 0) {
             return if (player.location.x > node.location.x) {
@@ -27,6 +37,12 @@ object BrimhavenUtils {
         } else node.location.transform(0, 1, 0)
     }
 
+    /**
+     * Handle stairs
+     *
+     * @param node
+     * @param player
+     */
     fun handleStairs(node: Scenery, player: Player) {
         when (node.id) {
             5094 -> ClimbActionHandler.climb(player, null, Location.create(2643, 9594, 2))
@@ -36,6 +52,12 @@ object BrimhavenUtils {
         }
     }
 
+    /**
+     * Handle stepping stones
+     *
+     * @param player
+     * @param node
+     */
     fun handleSteppingStones(player: Player, node: Scenery) {
         if (player.skills.getLevel(Skills.AGILITY) < 12) {
             player.packetDispatch.sendMessage("You need an agility level of 12 to cross this.")
@@ -75,6 +97,12 @@ object BrimhavenUtils {
         })
     }
 
+    /**
+     * Handle vines
+     *
+     * @param player
+     * @param node
+     */
     fun handleVines(player: Player, node: Scenery) {
         val level: Int = 10 + (node.id - 5103) * 6
         if (player.skills.getLevel(Skills.WOODCUTTING) < level) {

@@ -10,6 +10,9 @@ import core.game.node.entity.player.Player
 import core.game.world.map.Location
 import core.plugin.Initializable
 
+/**
+ * Thora dialogue.
+ */
 @Initializable
 class ThoraDialogue(player: Player? = null): Dialogue(player) {
 

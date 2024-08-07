@@ -9,7 +9,11 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.item.Item
 
-// @Initializable
+/**
+ * Monkey madness
+ *
+ * @constructor Monkey madness
+ */// @Initializable
 class MonkeyMadness : Quest("Monkey Madness", 88, 87, 3, Vars.VARP_QUEST_MONKEY_MADNESS_PROGRESS, 0, 1, 9) {
 
     override fun drawJournal(player: Player, stage: Int) {

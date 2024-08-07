@@ -7,14 +7,16 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.world.map.Direction
 
+/**
+ * Tree gnome village fence shortcut.
+ */
 class TreeGnomeVillageFenceShortcut : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Squeeze through fence between labirynth and Tree gnome village.
          */
-
         on(Scenery.LOOSE_RAILING_2186, IntType.SCENERY, "squeeze-through") { player, _ ->
             var dest = if (player.location.y >= 3161) player.location.transform(
                 Direction.SOUTH,

@@ -13,6 +13,9 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 
+/**
+ * Gnome stronghold course.
+ */
 @Initializable
 class GnomeStrongholdCourse
 @JvmOverloads constructor(player: Player? = null) : AgilityCourse(player, 7, 39.0) {

@@ -15,6 +15,9 @@ import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.applyPoison;
 
+/**
+ * Gwd tsutsaroth swing handler.
+ */
 public final class GWDTsutsarothSwingHandler extends CombatSwingHandler {
 
     private static final Animation MELEE_ATTACK = new Animation(6945, Priority.HIGH);
@@ -22,6 +25,9 @@ public final class GWDTsutsarothSwingHandler extends CombatSwingHandler {
     private static final Graphic MAGIC_START = new Graphic(1210);
     private boolean special;
 
+    /**
+     * Instantiates a new Gwd tsutsaroth swing handler.
+     */
     public GWDTsutsarothSwingHandler() {
         super(CombatStyle.MELEE);
     }

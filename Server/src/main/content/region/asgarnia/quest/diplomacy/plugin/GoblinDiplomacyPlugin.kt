@@ -17,6 +17,11 @@ import core.plugin.Plugin
 import core.tools.StringUtils
 import java.util.*
 
+/**
+ * Goblin diplomacy plugin
+ *
+ * @constructor Goblin diplomacy plugin
+ */
 class GoblinDiplomacyPlugin : OptionHandler() {
 
     override fun newInstance(arg: Any?): Plugin<Any> {
@@ -61,7 +66,9 @@ class GoblinDiplomacyPlugin : OptionHandler() {
     }
 
     /**
-     * The Goblin mail plugin.
+     * Goblin mail plugin
+     *
+     * @constructor Goblin mail plugin
      */
     class GoblinMailPlugin : UseWithHandler(1763, 1769, 1765, 1771, 1767, 1773, 4622, 11808, 6955) {
 
@@ -92,6 +99,13 @@ class GoblinDiplomacyPlugin : OptionHandler() {
             return true
         }
 
+        /**
+         * Handle dye mix
+         *
+         * @param player
+         * @param dye
+         * @param event
+         */
         fun handleDyeMix(player: Player, dye: Dyes?, event: NodeUsageEvent?) {
             if (dye == null) {
                 player.packetDispatch.sendMessage("Those dyes dont mix together.")
@@ -106,39 +120,99 @@ class GoblinDiplomacyPlugin : OptionHandler() {
                 .trim { it <= ' ' } + " one.")
         }
 
+        /**
+         * Goblin mail
+         *
+         * @property dye
+         * @property product
+         * @constructor Goblin mail
+         */
         enum class GoblinMail(val dye: Item, val product: Item) {
+            /**
+             * Red
+             *
+             * @constructor Red
+             */
             RED(
                 dye = Item(1763),
                 product = Item(9054)
             ),
+
+            /**
+             * Orange
+             *
+             * @constructor Orange
+             */
             ORANGE(
                 dye = Item(1769),
                 product = Item(286)
             ),
+
+            /**
+             * Yellow
+             *
+             * @constructor Yellow
+             */
             YELLOW(
                 dye = Item(1765),
                 product = Item(9056)
             ),
+
+            /**
+             * Green
+             *
+             * @constructor Green
+             */
             GREEN(
                 dye = Item(1771),
                 product = Item(9057)
             ),
+
+            /**
+             * Blue
+             *
+             * @constructor Blue
+             */
             BLUE(
                 dye = Item(1767),
                 product = Item(287)
             ),
+
+            /**
+             * Purple
+             *
+             * @constructor Purple
+             */
             PURPLE(
                 dye = Item(1773),
                 product = Item(9058)
             ),
+
+            /**
+             * Black
+             *
+             * @constructor Black
+             */
             BLACK(
                 dye = Item(4622),
                 product = Item(9055)
             ),
+
+            /**
+             * White
+             *
+             * @constructor White
+             */
             WHITE(
                 dye = Item(11808),
                 product = Item(11791)
             ),
+
+            /**
+             * Pink
+             *
+             * @constructor Pink
+             */
             PINK(
                 dye = Item(6955),
                 product = Item(9059)
@@ -158,17 +232,42 @@ class GoblinDiplomacyPlugin : OptionHandler() {
             }
         }
 
+        /**
+         * Dyes
+         *
+         * @property product
+         * @constructor
+         *
+         * @param materials
+         */
         enum class Dyes(val product: Item, vararg materials: Item) {
+            /**
+             * Orange
+             *
+             * @constructor Orange
+             */
             ORANGE(
                 Item(1769),
                 Item(1763),
                 Item(1765)
             ),
+
+            /**
+             * Green
+             *
+             * @constructor Green
+             */
             GREEN(
                 Item(1771),
                 Item(1765),
                 Item(1767)
             ),
+
+            /**
+             * Purple
+             *
+             * @constructor Purple
+             */
             PURPLE(
                 Item(1773),
                 Item(1767),

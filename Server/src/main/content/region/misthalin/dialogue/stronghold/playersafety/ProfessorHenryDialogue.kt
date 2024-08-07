@@ -13,6 +13,9 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
+/**
+ * Professor henry dialogue.
+ */
 @Initializable
 class ProfessorHenryDialogue(player: Player? = null) : Dialogue(player) {
 

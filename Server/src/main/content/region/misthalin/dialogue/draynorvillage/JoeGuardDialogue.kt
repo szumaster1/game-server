@@ -11,6 +11,9 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.item.Item
 import core.plugin.Initializable
 
+/**
+ * Joe guard dialogue.
+ */
 @Initializable
 class JoeGuardDialogue(player: Player? = null) : Dialogue(player) {
 

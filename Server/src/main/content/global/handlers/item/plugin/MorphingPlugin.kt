@@ -18,6 +18,11 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 import core.tools.RandomFunction
 
+/**
+ * Morphing plugin
+ *
+ * @constructor Morphing plugin
+ */
 @Initializable
 class MorphingPlugin : Plugin<Any> {
 
@@ -67,6 +72,11 @@ class MorphingPlugin : Plugin<Any> {
         player.interfaceManager.restoreTabs()
     }
 
+    /**
+     * Morph interface plugin
+     *
+     * @constructor Morph interface plugin
+     */
     inner class MorphInterfacePlugin : ComponentPlugin() {
 
         override fun newInstance(arg: Any?): Plugin<Any> {

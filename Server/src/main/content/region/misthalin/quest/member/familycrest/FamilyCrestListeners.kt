@@ -15,6 +15,11 @@ import core.network.packet.outgoing.ClearScenery
 import core.network.packet.outgoing.ConstructScenery
 import core.network.packet.outgoing.UpdateAreaPosition
 
+/**
+ * Family crest listeners
+ *
+ * @constructor Family crest listeners
+ */
 class FamilyCrestListeners : InteractionListener {
 
     val POISON = intArrayOf(Items.ANTIPOISON4_2446, Items.ANTIPOISON3_175, Items.ANTIPOISON2_177, Items.ANTIPOISON1_179)
@@ -125,6 +130,12 @@ class FamilyCrestListeners : InteractionListener {
         }
     }
 
+    /**
+     * Do door
+     *
+     * @param player
+     * @param scenery
+     */
     fun doDoor(player: Player, scenery: Scenery) {
 
         val d = if (scenery.rotation == 0 || scenery.rotation == 3) {

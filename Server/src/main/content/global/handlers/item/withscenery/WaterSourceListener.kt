@@ -9,6 +9,11 @@ import core.game.node.entity.player.link.diary.DiaryType
 import core.game.system.task.Pulse
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Water source listener
+ *
+ * @constructor Water source listener
+ */
 class WaterSourceListener : InteractionListener {
 
     companion object {
@@ -56,13 +61,64 @@ class WaterSourceListener : InteractionListener {
         return sb.toString()
     }
 
+    /**
+     * Water vessel
+     *
+     * @property inputs
+     * @property output
+     * @property wellable
+     * @property autofill
+     * @property fillMsg
+     * @constructor Water vessel
+     */
     internal enum class WaterVessel(val inputs: IntArray, val output: Int, val wellable: Boolean = false, val autofill: Boolean = true, val fillMsg: String = "You fill the @.") {
+        /**
+         * Bucket
+         *
+         * @constructor Bucket
+         */
         BUCKET(inputs = intArrayOf(Items.BUCKET_1925), output = Items.BUCKET_OF_WATER_1929, wellable = true),
+
+        /**
+         * Vial
+         *
+         * @constructor Vial
+         */
         VIAL(inputs = intArrayOf(Items.VIAL_229), output = Items.VIAL_OF_WATER_227,),
+
+        /**
+         * Jug
+         *
+         * @constructor Jug
+         */
         JUG(inputs = intArrayOf(Items.JUG_1935), output = Items.JUG_OF_WATER_1937),
+
+        /**
+         * Bowl
+         *
+         * @constructor Bowl
+         */
         BOWL(inputs = intArrayOf(Items.BOWL_1923), output = Items.BOWL_OF_WATER_1921),
+
+        /**
+         * Watering Can
+         *
+         * @constructor Watering Can
+         */
         WATERING_CAN(inputs = intArrayOf(Items.WATERING_CAN_5331, Items.WATERING_CAN1_5333, Items.WATERING_CAN2_5334, Items.WATERING_CAN3_5335, Items.WATERING_CAN4_5336, Items.WATERING_CAN5_5337, Items.WATERING_CAN6_5338, Items.WATERING_CAN7_5339), output = Items.WATERING_CAN8_5340),
+
+        /**
+         * Water Skin
+         *
+         * @constructor Water Skin
+         */
         WATER_SKIN(inputs = intArrayOf(Items.WATERSKIN0_1831, Items.WATERSKIN1_1829, Items.WATERSKIN2_1827, Items.WATERSKIN3_1825), output = Items.WATERSKIN4_1823),
+
+        /**
+         * Fishbowl
+         *
+         * @constructor Fishbowl
+         */
         FISHBOWL(inputs = intArrayOf(Items.FISHBOWL_6667), output = Items.FISHBOWL_6668);
 
         companion object {

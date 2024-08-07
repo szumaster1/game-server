@@ -6,7 +6,6 @@ import core.network.packet.Context
 
 /**
  * Packet context used for location based packets.
- * @author Emperor
  */
 class LocationContext(
     private val player: Player,

@@ -7,6 +7,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.world.map.Location
 
+/**
+ * General shadow listeners
+ *
+ * @constructor General shadow listeners
+ */
 class GeneralShadowListeners : InteractionListener {
 
     companion object {

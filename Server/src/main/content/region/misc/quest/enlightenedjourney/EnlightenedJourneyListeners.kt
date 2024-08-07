@@ -8,6 +8,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.item.Item
 
+/**
+ * Enlightened journey listeners
+ *
+ * @constructor Enlightened journey listeners
+ */
 class EnlightenedJourneyListeners : InteractionListener {
 
     companion object {

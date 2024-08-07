@@ -6,6 +6,11 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
+/**
+ * Knight notes dialogue
+ *
+ * @constructor Knight notes dialogue
+ */
 class KnightNotesDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
@@ -40,6 +45,11 @@ class KnightNotesDialogue : DialogueFile() {
         }
     }
 
+    /**
+     * Broken knight notes
+     *
+     * @constructor Broken knight notes
+     */
     class BrokenKnightNotes : DialogueFile() {
         override fun handle(componentID: Int, buttonID: Int) {
             when (stage) {

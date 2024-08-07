@@ -12,6 +12,9 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
 
+/**
+ * Lumberyard listeners.
+ */
 class LumberyardListeners : InteractionListener {
 
     companion object {
@@ -23,10 +26,9 @@ class LumberyardListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Quest related interaction with crates. (Gertrude's Cat)
          */
-
         on(CRATE, IntType.SCENERY, "search") { player, node ->
 
             if (getQuestStage(player, "Gertrude's Cat") == 50 && hasAnItem(player, Items.THREE_LITTLE_KITTENS_13236).container != null) {
@@ -57,20 +59,18 @@ class LumberyardListeners : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Squeeze-under hole interaction
          * on the yard's west wall.
          */
-
         on(LUMBERYARD_FENCE, IntType.SCENERY, "squeeze-under") { player, _ ->
             forceMove(player, player.location, player.location.transform(if (player.location.x < 3296) Direction.EAST else Direction.WEST, 1), 0, SQUEEZE_UNDER_ANIM.duration, null, SQUEEZE_UNDER_ANIM.id)
             return@on true
         }
 
-        /*
+        /**
          * Sawmill operator interactions.
          */
-
         on(SAWMILL_OPERATOR, IntType.NPC, "talk-to") { player, _ ->
             openDialogue(player, SawmillOperatorDialogue())
             return@on true

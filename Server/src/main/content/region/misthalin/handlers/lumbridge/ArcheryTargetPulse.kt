@@ -11,6 +11,13 @@ import core.game.system.task.Pulse
 import core.game.world.update.flag.context.Animation
 import kotlin.math.floor
 
+/**
+ * Archery target pulse.
+ *
+ * @property player the player.
+ * @property node the node.
+ * @constructor Archery target pulse.
+ */
 class ArcheryTargetPulse(private val player: Player, private val node: Scenery) : Pulse(1, player, node) {
 
     override fun pulse(): Boolean {

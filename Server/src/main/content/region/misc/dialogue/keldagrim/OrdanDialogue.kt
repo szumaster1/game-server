@@ -13,6 +13,9 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
+/**
+ * Ordan dialogue.
+ */
 @Initializable
 class OrdanDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -29,6 +32,11 @@ class OrdanDialogue(player: Player? = null) : Dialogue(player) {
         return intArrayOf(NPCs.ORDAN_2564)
     }
 
+    /**
+     * Ordan unnote listener
+     *
+     * @constructor Ordan unnote listener
+     */
     class OrdanUnnoteListener : InteractionListener {
         val notedOre = intArrayOf(
             Items.IRON_ORE_441,

@@ -11,6 +11,9 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
+/**
+ * The guns dialogue.
+ */
 @Initializable
 class TheGunsDialogue(player: Player? = null) : Dialogue(player) {
 

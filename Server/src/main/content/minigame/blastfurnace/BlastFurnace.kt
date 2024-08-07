@@ -12,6 +12,10 @@ import core.game.world.map.zone.ZoneBorders
 import core.tools.RandomFunction
 import org.json.simple.JSONObject
 
+/**
+ * Blast furnace.
+ * @author Ceikry
+ */
 class BlastFurnace : MapArea, PersistPlayer, TickListener {
     override fun defineAreaBorders(): Array<ZoneBorders> {
         return arrayOf(bfArea)

@@ -8,6 +8,9 @@ import core.game.node.entity.player.Player
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 
+/**
+ * Barker toad familiar.
+ */
 @Initializable
 class BarkerToadNPC(owner: Player? = null, id: Int = NPCs.BARKER_TOAD_6889) : Familiar(owner, id, 800, 12123, 6, WeaponInterface.STYLE_AGGRESSIVE) {
 

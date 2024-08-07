@@ -9,10 +9,9 @@ import core.network.packet.QCRepository
 import core.tools.Log
 
 /**
- * Decodes the quick chat packet
+ * Decodes the quick chat packet.
  * @author Ceikry
- */
-/*
+ *
  * There's different varieties of the quick chat packet.
  * Standard, which is only 3 (sometimes 4) bytes and has no string replacement selections.
  * Single-replacement, which is 5 bytes and has one string replacement. The last 3 bytes can and should be converted to a Short.
@@ -64,8 +63,10 @@ class QuickChatPacketHandler : IncomingPacket {
             else -> {}
         }
 
-        //Prints the values of each byte in the buffer to server log
-        //If the world is in dev mode
+        /*
+         * Prints the values of each byte in the buffer to server log
+         * If the world is in dev mode
+         */
         if (GameWorld.settings?.isDevMode == true) {
             log(this::class.java, Log.FINE, "Begin QuickChat Packet Buffer Dump---------")
             log(this::class.java, Log.FINE, "Packet Type: ${packetType.name} Chat Type: ${if (forClan) "Clan" else "Public"}")

@@ -3,12 +3,20 @@ package core.game.system.security;
 import java.io.UnsupportedEncodingException;
 import java.security.SecureRandom;
 
+/**
+ * Encryption manager.
+ */
 public class EncryptionManager {
 
     // Define the BCrypt workload to use when generating password hashes. 10-31
     // is a valid value.
     private static int workload = 12;
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String... args) {
 
         String pass = "lugi";
@@ -23,17 +31,37 @@ public class EncryptionManager {
 
     }
 
+    /**
+     * Hash password string.
+     *
+     * @param password_plaintext the password plaintext
+     * @return the string
+     */
     public String hashPassword(String password_plaintext) {
         String salt = BCrypt.gensalt(workload);
         String hashed_password = BCrypt.hashpw(password_plaintext, salt);
         return (hashed_password);
     }
 
+    /**
+     * Hash password string.
+     *
+     * @param password_plaintext the password plaintext
+     * @param salt               the salt
+     * @return the string
+     */
     public String hashPassword(String password_plaintext, String salt) {
         String hashed_password = BCrypt.hashpw(password_plaintext, salt);
         return (hashed_password);
     }
 
+    /**
+     * Check password boolean.
+     *
+     * @param password_plaintext the password plaintext
+     * @param stored_hash        the stored hash
+     * @return the boolean
+     */
     public boolean checkPassword(String password_plaintext, String stored_hash) {
         boolean password_verified = false;
         if (null == stored_hash || !stored_hash.startsWith("$2a$"))
@@ -56,6 +84,9 @@ public class EncryptionManager {
     // ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
     // OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
+    /**
+     * B crypt.
+     */
     public static class BCrypt {
         // BCrypt parameters
         private static final int GENSALT_DEFAULT_LOG2_ROUNDS = 10;
@@ -274,6 +305,13 @@ public class EncryptionManager {
             return ret;
         }
 
+        /**
+         * Hashpw string.
+         *
+         * @param password the password
+         * @param salt     the salt
+         * @return the string
+         */
         public static String hashpw(String password, String salt) {
             BCrypt B;
             String real_salt;
@@ -318,6 +356,13 @@ public class EncryptionManager {
             return rs.toString();
         }
 
+        /**
+         * Gensalt string.
+         *
+         * @param log_rounds the log rounds
+         * @param random     the random
+         * @return the string
+         */
         public static String gensalt(int log_rounds, SecureRandom random) {
             StringBuffer rs = new StringBuffer();
             byte rnd[] = new byte[BCRYPT_SALT_LEN];
@@ -332,14 +377,32 @@ public class EncryptionManager {
             return rs.toString();
         }
 
+        /**
+         * Gensalt string.
+         *
+         * @param log_rounds the log rounds
+         * @return the string
+         */
         public static String gensalt(int log_rounds) {
             return gensalt(log_rounds, new SecureRandom());
         }
 
+        /**
+         * Gensalt string.
+         *
+         * @return the string
+         */
         public static String gensalt() {
             return gensalt(GENSALT_DEFAULT_LOG2_ROUNDS);
         }
 
+        /**
+         * Checkpw boolean.
+         *
+         * @param plaintext the plaintext
+         * @param hashed    the hashed
+         * @return the boolean
+         */
         public static boolean checkpw(String plaintext, String hashed) {
             return (hashed.compareTo(hashpw(plaintext, hashed)) == 0);
         }

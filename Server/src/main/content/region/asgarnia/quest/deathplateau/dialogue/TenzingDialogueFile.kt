@@ -9,6 +9,11 @@ import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
+/**
+ * Tenzing dialogue file
+ *
+ * @constructor Tenzing dialogue file
+ */
 class TenzingDialogueFile : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

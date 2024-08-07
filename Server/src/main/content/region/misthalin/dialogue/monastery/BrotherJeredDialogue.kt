@@ -10,6 +10,9 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.plugin.Initializable
 
+/**
+ * Brother jered dialogue.
+ */
 @Initializable
 class BrotherJeredDialogue(player: Player? = null) : Dialogue(player) {
 

@@ -10,6 +10,14 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.game.system.task.Pulse
 
+/**
+ * Glass craft pulse
+ *
+ * @property player
+ * @property product
+ * @property amount
+ * @constructor Glass craft pulse
+ */
 class GlassCraftPulse(
     private val player: Player,
     private val product: GlassData,

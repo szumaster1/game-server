@@ -9,6 +9,9 @@ import core.game.world.map.Direction
 import core.game.world.map.Location
 import core.plugin.Initializable
 
+/**
+ * Tegid dialogue.
+ */
 @Initializable
 class TegidDialogue(player: Player? = null) : Dialogue(player) {
 

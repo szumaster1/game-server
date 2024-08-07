@@ -3,9 +3,21 @@ package core.game.node.entity.player.info;
 import core.ServerConstants;
 import core.game.node.entity.player.Player;
 
+/**
+ * The enum Rights.
+ */
 public enum Rights {
+    /**
+     * Regular player rights.
+     */
     REGULAR_PLAYER,
+    /**
+     * Player moderator rights.
+     */
     PLAYER_MODERATOR,
+    /**
+     * The Administrator.
+     */
     ADMINISTRATOR() {
         @Override
         public boolean isVisible(Player player) {
@@ -13,6 +25,12 @@ public enum Rights {
         }
     };
 
+    /**
+     * Gets chat icon.
+     *
+     * @param player the player
+     * @return the chat icon
+     */
     /*
      * Gets the chat icon.
      */
@@ -29,6 +47,12 @@ public enum Rights {
         return 0;
     }
 
+    /**
+     * Is hidden boolean.
+     *
+     * @param player the player
+     * @return the boolean
+     */
     /*
      * Checks if the player has a hidden rank.
      */
@@ -36,6 +60,11 @@ public enum Rights {
         return player.getAttribute("visible_rank", player.getDetails().getRights()) != player.getDetails().getRights();
     }
 
+    /**
+     * To integer int.
+     *
+     * @return the int
+     */
     /*
      * Gets the ordinal of the rights.
      */
@@ -43,6 +72,12 @@ public enum Rights {
         return ordinal();
     }
 
+    /**
+     * For id rights.
+     *
+     * @param id the id
+     * @return the rights
+     */
     /*
      * Method used to get the credentials based off the id.
      */
@@ -53,6 +88,12 @@ public enum Rights {
         return values()[id];
     }
 
+    /**
+     * Is visible boolean.
+     *
+     * @param username the username
+     * @return the boolean
+     */
     /*
      * Checks if the player's rank is visible.
      */

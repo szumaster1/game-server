@@ -10,6 +10,9 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
+/**
+ * Tuna and corn.
+ */
 class TunaAndCorn : Recipe() {
 
     override fun mix(player: Player, event: NodeUsageEvent) {

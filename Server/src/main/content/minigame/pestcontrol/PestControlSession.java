@@ -16,9 +16,14 @@ import java.util.*;
 import static core.api.ContentAPIKt.setAttribute;
 import static core.api.ContentAPIKt.setVarp;
 
-
+/**
+ * Pest control session.
+ */
 public final class PestControlSession {
 
+    /**
+     * The constant INVALID_OBJECT_IDS.
+     */
     public static final int[] INVALID_OBJECT_IDS = {
             14230, 14231, 14232, // Barricades
             14245, 14246, 14247, 14248, // Gates
@@ -37,13 +42,22 @@ public final class PestControlSession {
 
     private boolean active = true;
 
-
+    /**
+     * Instantiates a new Pest control session.
+     *
+     * @param region   the region
+     * @param activity the activity
+     */
     public PestControlSession(DynamicRegion region, PestControlActivityPlugin activity) {
         this.region = region;
         this.activity = activity;
     }
 
-
+    /**
+     * Update boolean.
+     *
+     * @return the boolean
+     */
     public boolean update() {
         if (!region.isActive()) {
             return true;
@@ -70,7 +84,11 @@ public final class PestControlSession {
         return false;
     }
 
-
+    /**
+     * Send message.
+     *
+     * @param message the message
+     */
     public void sendMessage(String message) {
         for (Player p : region.getPlanes()[0].getPlayers()) {
             if (p.isActive()) {
@@ -79,7 +97,12 @@ public final class PestControlSession {
         }
     }
 
-
+    /**
+     * Send string.
+     *
+     * @param message the message
+     * @param child   the child
+     */
     public void sendString(String message, int child) {
         for (Player p : region.getPlanes()[0].getPlayers()) {
             if (p.isActive()) {
@@ -88,7 +111,12 @@ public final class PestControlSession {
         }
     }
 
-
+    /**
+     * Add zeal gained.
+     *
+     * @param player the player
+     * @param zeal   the zeal
+     */
     public void addZealGained(Player player, int zeal) {
         int total = zeal + player.getAttribute("pc_zeal", 0);
         setAttribute(player, "pc_zeal", total);
@@ -100,7 +128,11 @@ public final class PestControlSession {
         }
     }
 
-
+    /**
+     * Send config.
+     *
+     * @param value the value
+     */
     public void sendConfig(int value) {
         for (Player p : region.getPlanes()[0].getPlayers()) {
             if (p.isActive()) {
@@ -109,7 +141,11 @@ public final class PestControlSession {
         }
     }
 
-
+    /**
+     * Remove portal shield.
+     *
+     * @param index the index
+     */
     public void removePortalShield(int index) {
         String message = null;
         switch (index) {
@@ -139,7 +175,11 @@ public final class PestControlSession {
         aportals.add(portal);
     }
 
-
+    /**
+     * Start game.
+     *
+     * @param waitingPlayers the waiting players
+     */
     public void startGame(PriorityQueue<Player> waitingPlayers) {
         region.flagActive();
         initBarricadesList();
@@ -221,7 +261,12 @@ public final class PestControlSession {
         addNPC(NPC.create(3781, l.transform(30, 47, 0)));
     }
 
-
+    /**
+     * Add npc npc.
+     *
+     * @param npc the npc
+     * @return the npc
+     */
     public NPC addNPC(NPC npc) {
         npc.addExtension(PestControlSession.class, this);
         npc.setAttribute("no-spawn-return", true);
@@ -229,47 +274,83 @@ public final class PestControlSession {
         return npc;
     }
 
-
+    /**
+     * Gets ticks.
+     *
+     * @return the ticks
+     */
     public int getTicks() {
         return ticks;
     }
 
-
+    /**
+     * Gets activity.
+     *
+     * @return the activity
+     */
     public PestControlActivityPlugin getActivity() {
         return activity;
     }
 
-
+    /**
+     * Gets region.
+     *
+     * @return the region
+     */
     public DynamicRegion getRegion() {
         return region;
     }
 
-
+    /**
+     * Gets squire.
+     *
+     * @return the squire
+     */
     public NPC getSquire() {
         return squire;
     }
 
-
+    /**
+     * Get portals npc [ ].
+     *
+     * @return the npc [ ]
+     */
     public NPC[] getPortals() {
         return portals;
     }
 
-
+    /**
+     * Gets aportals.
+     *
+     * @return the aportals
+     */
     public List<NPC> getAportals() {
         return aportals;
     }
 
-
+    /**
+     * Is active boolean.
+     *
+     * @return the boolean
+     */
     public boolean isActive() {
         return active;
     }
 
-
+    /**
+     * Sets active.
+     *
+     * @param active the active
+     */
     public void setActive(boolean active) {
         this.active = active;
     }
 
-
+    /**
+     * Gets barricades.
+     *
+     * @return the barricades
+     */
     public List<Scenery> getBarricades() {
         return barricades;
     }

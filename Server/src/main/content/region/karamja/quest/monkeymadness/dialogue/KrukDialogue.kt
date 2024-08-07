@@ -2,6 +2,11 @@ package content.region.karamja.quest.monkeymadness.dialogue
 
 import core.game.dialogue.DialogueFile
 
+/**
+ * Kruk dialogue
+ *
+ * @constructor Kruk dialogue
+ */
 class KrukDialogue: DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

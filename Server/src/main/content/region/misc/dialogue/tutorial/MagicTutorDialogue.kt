@@ -20,6 +20,9 @@ import core.tools.END_DIALOGUE
 import core.worker.ManagementEvents
 import proto.management.JoinClanRequest
 
+/**
+ * Magic tutor dialogue.
+ */
 @Initializable
 class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
     private val STARTER_PACK = arrayOf(

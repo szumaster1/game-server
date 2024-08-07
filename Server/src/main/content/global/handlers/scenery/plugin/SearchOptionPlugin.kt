@@ -14,10 +14,27 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Search option plugin
+ *
+ * @constructor Search option plugin
+ */
 @Initializable
 class SearchOptionPlugin : OptionHandler() {
 
+    /**
+     * Search
+     *
+     * @property scenery
+     * @property item
+     * @constructor Search
+     */
     enum class Search(val scenery: Int, val item: Item) {
+        /**
+         * Default
+         *
+         * @constructor Default
+         */
         DEFAULT(-1, Item(Items.LEATHER_GLOVES_1059, 1));
 
         companion object {

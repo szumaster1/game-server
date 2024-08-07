@@ -7,6 +7,9 @@ import core.game.dialogue.DialogueInterpreter
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Remote view dialogue.
+ */
 @Initializable
 class RemoteViewDialogue(player: Player? = null) : Dialogue(player) {
 

@@ -8,75 +8,348 @@ import java.nio.ByteBuffer;
 import java.util.Arrays;
 import java.util.HashMap;
 
+/**
+ * Iface definition.
+ */
 public class IfaceDefinition {
     private static HashMap<Integer, IfaceDefinition> defCache = new HashMap<>();
+    /**
+     * The Id.
+     */
     public int id;
+    /**
+     * The Type.
+     */
     public ComponentType type;
+    /**
+     * The Version.
+     */
     public int version;
+    /**
+     * The Client code.
+     */
     public int clientCode;
-    public int baseX, baseY;
-    public int baseWidth, baseHeight;
-    public int dynWidth, dynHeight;
-    public int xMode, yMode;
+    /**
+     * The Base x.
+     */
+    public int baseX, /**
+     * The Base y.
+     */
+    baseY;
+    /**
+     * The Base width.
+     */
+    public int baseWidth, /**
+     * The Base height.
+     */
+    baseHeight;
+    /**
+     * The Dyn width.
+     */
+    public int dynWidth, /**
+     * The Dyn height.
+     */
+    dynHeight;
+    /**
+     * The X mode.
+     */
+    public int xMode, /**
+     * The Y mode.
+     */
+    yMode;
+    /**
+     * The Overlayer.
+     */
     public int overlayer;
+    /**
+     * The Hidden.
+     */
     public boolean hidden;
-    public int scrollMaxH, scrollMaxV;
+    /**
+     * The Scroll max h.
+     */
+    public int scrollMaxH, /**
+     * The Scroll max v.
+     */
+    scrollMaxV;
+    /**
+     * The No click through.
+     */
     public boolean noClickThrough;
-    public int spriteId, activeSpriteId;
+    /**
+     * The Sprite id.
+     */
+    public int spriteId, /**
+     * The Active sprite id.
+     */
+    activeSpriteId;
+    /**
+     * The Angle 2 d.
+     */
     public int angle2d;
+    /**
+     * The Has alpha.
+     */
     public boolean hasAlpha;
+    /**
+     * The Sprite tiling.
+     */
     public boolean spriteTiling;
+    /**
+     * The Alpha.
+     */
     public int alpha;
+    /**
+     * The Outline thickness.
+     */
     public int outlineThickness;
+    /**
+     * The Shadow color.
+     */
     public int shadowColor;
-    public boolean hFlip, vFlip;
-    public int modelType, activeModelType;
-    public int modelId, activeModelId;
+    /**
+     * The H flip.
+     */
+    public boolean hFlip, /**
+     * The V flip.
+     */
+    vFlip;
+    /**
+     * The Model type.
+     */
+    public int modelType, /**
+     * The Active model type.
+     */
+    activeModelType;
+    /**
+     * The Model id.
+     */
+    public int modelId, /**
+     * The Active model id.
+     */
+    activeModelId;
+    /**
+     * The Unknown model prop 1.
+     */
     public int unknownModelProp_1;
+    /**
+     * The Unknown model prop 2.
+     */
     public int unknownModelProp_2;
-    public int modelXAngle, modelYAngle;
+    /**
+     * The Model x angle.
+     */
+    public int modelXAngle, /**
+     * The Model y angle.
+     */
+    modelYAngle;
+    /**
+     * The Model y offset.
+     */
     public int modelYOffset;
+    /**
+     * The Model zoom.
+     */
     public int modelZoom;
-    public int modelAnimId, activeModelAnimId;
+    /**
+     * The Model anim id.
+     */
+    public int modelAnimId, /**
+     * The Active model anim id.
+     */
+    activeModelAnimId;
+    /**
+     * The Model ortho.
+     */
     public boolean modelOrtho;
+    /**
+     * The Unknown model prop 3.
+     */
     public int unknownModelProp_3;
+    /**
+     * The Unknown model prop 4.
+     */
     public int unknownModelProp_4;
+    /**
+     * The Unknown model prop 5.
+     */
     public boolean unknownModelProp_5;
+    /**
+     * The Unknown model prop 6.
+     */
     public int unknownModelProp_6;
+    /**
+     * The Unknown model prop 7.
+     */
     public int unknownModelProp_7;
+    /**
+     * The Font.
+     */
     public int font;
-    public String text, activeText;
+    /**
+     * The Text.
+     */
+    public String text, /**
+     * The Active text.
+     */
+    activeText;
+    /**
+     * The V padding.
+     */
     public int vPadding;
-    public int halign, valign;
+    /**
+     * The Halign.
+     */
+    public int halign, /**
+     * The Valign.
+     */
+    valign;
+    /**
+     * The Shadowed.
+     */
     public boolean shadowed;
-    public int color, activeColor, overColor, unknownColor;
+    /**
+     * The Color.
+     */
+    public int color, /**
+     * The Active color.
+     */
+    activeColor, /**
+     * The Over color.
+     */
+    overColor, /**
+     * The Unknown color.
+     */
+    unknownColor;
+    /**
+     * The Filled.
+     */
     public boolean filled;
+    /**
+     * The Line width.
+     */
     public int lineWidth;
+    /**
+     * The Unknown prop 8.
+     */
     public boolean unknownProp_8;
+    /**
+     * The Unknown int array 1.
+     */
     public int[] unknownIntArray_1;
+    /**
+     * The Unknown int array 2.
+     */
     public int[] unknownIntArray_2;
+    /**
+     * The Unknown byte array 1.
+     */
     public byte[] unknownByteArray_1;
+    /**
+     * The Unknown byte array 2.
+     */
     public byte[] unknownByteArray_2;
+    /**
+     * The Option base.
+     */
     public String optionBase;
+    /**
+     * The Ops.
+     */
     public String[] ops;
+    /**
+     * The Drag deadzone.
+     */
     public int dragDeadzone;
+    /**
+     * The Drag deadtime.
+     */
     public int dragDeadtime;
+    /**
+     * The Drag render behavior.
+     */
     public boolean dragRenderBehavior;
-    public String opCircumfix, opSuffix, option;
-    public int unknownProp_9, unknownProp_10, unknownProp_11;
-    public int[] cs1ComparisonOperands, cs1ComparisonOpcodes;
+    /**
+     * The Op circumfix.
+     */
+    public String opCircumfix, /**
+     * The Op suffix.
+     */
+    opSuffix, /**
+     * The Option.
+     */
+    option;
+    /**
+     * The Unknown prop 9.
+     */
+    public int unknownProp_9, /**
+     * The Unknown prop 10.
+     */
+    unknownProp_10, /**
+     * The Unknown prop 11.
+     */
+    unknownProp_11;
+    /**
+     * The Cs 1 comparison operands.
+     */
+    public int[] cs1ComparisonOperands, /**
+     * The Cs 1 comparison opcodes.
+     */
+    cs1ComparisonOpcodes;
+    /**
+     * The Cs 1 scripts.
+     */
     public int[][] cs1Scripts;
+    /**
+     * The Obj counts.
+     */
     public int[] objCounts;
+    /**
+     * The Obj types.
+     */
     public int[] objTypes;
-    public int invMarginX, invMarginY;
-    public int[] invOffsetX, invOffsetY;
+    /**
+     * The Inv margin x.
+     */
+    public int invMarginX, /**
+     * The Inv margin y.
+     */
+    invMarginY;
+    /**
+     * The Inv offset x.
+     */
+    public int[] invOffsetX, /**
+     * The Inv offset y.
+     */
+    invOffsetY;
+    /**
+     * The Inv sprite.
+     */
     public int[] invSprite;
+    /**
+     * The Button type.
+     */
     public int buttonType;
+    /**
+     * The Inv options.
+     */
     public String[] invOptions;
+    /**
+     * The Scripts.
+     */
     public LinkedScripts scripts;
+    /**
+     * The Triggers.
+     */
     public ScriptTriggers triggers;
 
+    /**
+     * The Children.
+     */
     public IfaceDefinition[] children;
+    /**
+     * The Parent.
+     */
     public int parent;
 
     @Override
@@ -88,6 +361,12 @@ public class IfaceDefinition {
         }
     }
 
+    /**
+     * For id iface definition.
+     *
+     * @param id the id
+     * @return the iface definition
+     */
     public static IfaceDefinition forId(int id) {
         if (defCache.containsKey(id)) {
             return defCache.get(id);
@@ -97,6 +376,13 @@ public class IfaceDefinition {
         return def;
     }
 
+    /**
+     * For id iface definition.
+     *
+     * @param id    the id
+     * @param child the child
+     * @return the iface definition
+     */
     public static IfaceDefinition forId(int id, int child) {
         if (defCache.containsKey(child + (id << 16))) return defCache.get(child + (id << 16));
         IfaceDefinition def = forId(id);

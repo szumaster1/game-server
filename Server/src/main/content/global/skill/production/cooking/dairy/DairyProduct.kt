@@ -4,23 +4,44 @@ import core.api.consts.Items
 import core.game.node.item.Item
 import java.util.*
 
+/**
+ * Dairy product
+ *
+ * @property level
+ * @property experience
+ * @property product
+ * @constructor
+ *
+ * @param inputs
+ */
 enum class DairyProduct(
     val level: Int,
     val experience: Double,
     val product: Item, inputs: Array<Int>
 ) {
+    /**
+     * Pot Of Cream.
+     */
     POT_OF_CREAM(
         level = 21,
         experience = 18.0,
         product = Item(Items.POT_OF_CREAM_2130, 1),
         inputs = arrayOf(Items.BUCKET_OF_MILK_1927)
     ),
+
+    /**
+     * Pat Of Butter.
+     */
     PAT_OF_BUTTER(
         level = 38,
         experience = 40.5,
         product = Item(Items.PAT_OF_BUTTER_6697, 1),
         inputs = arrayOf(Items.BUCKET_OF_MILK_1927, Items.POT_OF_CREAM_2130)
     ),
+
+    /**
+     * Cheese.
+     */
     CHEESE(
         level = 48,
         experience = 64.0,

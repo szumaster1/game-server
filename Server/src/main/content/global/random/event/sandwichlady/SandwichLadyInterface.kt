@@ -6,6 +6,9 @@ import core.game.interaction.InterfaceListener
 import core.game.node.item.Item
 import core.game.system.timer.impl.AntiMacro
 
+/**
+ * Sandwich lady interface.
+ */
 class SandwichLadyInterface : InterfaceListener {
 
     val SANDWICH_INTERFACE = 297
@@ -25,37 +28,14 @@ class SandwichLadyInterface : InterfaceListener {
                 return@on true
             }
             val item = when (buttonID) {
-                7 -> {
-                    Item(baguette)
-                }
-
-                8 -> {
-                    Item(triangle_sandwich)
-                }
-
-                9 -> {
-                    Item(sandwich)
-                }
-
-                10 -> {
-                    Item(roll)
-                }
-
-                11 -> {
-                    Item(pie)
-                }
-
-                12 -> {
-                    Item(kebab)
-                }
-
-                13 -> {
-                    Item(chocobar)
-                }
-
-                else -> {
-                    Item(baguette)
-                }
+                7 -> Item(baguette)
+                8 -> Item(triangle_sandwich)
+                9 -> Item(sandwich)
+                10 -> Item(roll)
+                11 -> Item(pie)
+                12 -> Item(kebab)
+                13 -> Item(chocobar)
+                else -> Item(baguette)
             }
 
             setAttribute(player, "sandwich-lady:choice", item.id)

@@ -11,6 +11,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.START_DIALOGUE
 
+/**
+ * Hops dialogue.
+ */
 @Initializable
 class HopsDialogue(player: Player? = null) : Dialogue(player) {
 

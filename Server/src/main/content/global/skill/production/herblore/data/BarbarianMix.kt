@@ -2,7 +2,15 @@ package content.global.skill.production.herblore.data
 
 import core.api.consts.Items
 
+/**
+ * Barbarian mix.
+ */
 enum class BarbarianMix {
+    /**
+     * Attack Potion
+     *
+     * @constructor Attack Potion
+     */
     ATTACK_POTION(
         item = Items.ATTACK_POTION2_123,
         level = 4,
@@ -10,6 +18,12 @@ enum class BarbarianMix {
         exp = 8.0,
         both = true
     ),
+
+    /**
+     * Anti Poision Potion
+     *
+     * @constructor Anti Poision Potion
+     */
     ANTI_POISION_POTION(
         item = Items.ANTIPOISON2_177,
         level = 6,
@@ -17,6 +31,12 @@ enum class BarbarianMix {
         exp = 12.0,
         both = true
     ),
+
+    /**
+     * Relic
+     *
+     * @constructor Relic
+     */
     RELIC(
         item = Items.RELICYMS_BALM2_4846,
         level = 9,
@@ -24,6 +44,12 @@ enum class BarbarianMix {
         exp = 14.0,
         both = true
     ),
+
+    /**
+     * Strength Potion
+     *
+     * @constructor Strength Potion
+     */
     STRENGTH_POTION(
         item = Items.STRENGTH_POTION2_117,
         level = 14,
@@ -31,6 +57,12 @@ enum class BarbarianMix {
         exp = 17.0,
         both = true
     ),
+
+    /**
+     * Restore Potion
+     *
+     * @constructor Restore Potion
+     */
     RESTORE_POTION(
         item = Items.RESTORE_POTION2_129,
         level = 24,
@@ -38,6 +70,12 @@ enum class BarbarianMix {
         exp = 21.0,
         both = true
     ),
+
+    /**
+     * Energy Potion
+     *
+     * @constructor Energy Potion
+     */
     ENERGY_POTION(
         item = Items.ENERGY_POTION2_3012,
         level = 29,
@@ -45,6 +83,12 @@ enum class BarbarianMix {
         exp = 23.0,
         both = false
     ),
+
+    /**
+     * Defence Potion
+     *
+     * @constructor Defence Potion
+     */
     DEFENCE_POTION(
         item = Items.DEFENCE_POTION2_135,
         level = 33,
@@ -52,6 +96,12 @@ enum class BarbarianMix {
         exp = 25.0,
         both = false
     ),
+
+    /**
+     * Agility Potion
+     *
+     * @constructor Agility Potion
+     */
     AGILITY_POTION(
         item = Items.AGILITY_POTION2_3036,
         level = 37,
@@ -59,6 +109,12 @@ enum class BarbarianMix {
         exp = 27.0,
         both = false
     ),
+
+    /**
+     * Combat Potion
+     *
+     * @constructor Combat Potion
+     */
     COMBAT_POTION(
         item = Items.COMBAT_POTION2_9743,
         level = 40,
@@ -66,6 +122,12 @@ enum class BarbarianMix {
         exp = 28.0,
         both = false
     ),
+
+    /**
+     * Prayer Potion
+     *
+     * @constructor Prayer Potion
+     */
     PRAYER_POTION(
         item = Items.PRAYER_POTION2_141,
         level = 42,
@@ -73,6 +135,12 @@ enum class BarbarianMix {
         exp = 29.0,
         both = false
     ),
+
+    /**
+     * Super Attack Potion
+     *
+     * @constructor Super Attack Potion
+     */
     SUPER_ATTACK_POTION(
         item = Items.SUPER_ATTACK2_147,
         level = 47,
@@ -80,6 +148,12 @@ enum class BarbarianMix {
         exp = 33.0,
         both = false
     ),
+
+    /**
+     * Super Antipoision Potion
+     *
+     * @constructor Super Antipoision Potion
+     */
     SUPER_ANTIPOISION_POTION(
         item = Items.SUPER_ANTIPOISON2_183,
         level = 51,
@@ -87,6 +161,12 @@ enum class BarbarianMix {
         exp = 35.0,
         both = false
     ),
+
+    /**
+     * Fishing Potion
+     *
+     * @constructor Fishing Potion
+     */
     FISHING_POTION(
         item = Items.FISHING_POTION2_153,
         level = 53,
@@ -94,6 +174,12 @@ enum class BarbarianMix {
         exp = 38.0,
         both = false
     ),
+
+    /**
+     * Super Energy Potion
+     *
+     * @constructor Super Energy Potion
+     */
     SUPER_ENERGY_POTION(
         item = Items.SUPER_ENERGY2_3020,
         level = 56,
@@ -101,6 +187,12 @@ enum class BarbarianMix {
         exp = 42.0,
         both = false
     ),
+
+    /**
+     * Hunter Potion
+     *
+     * @constructor Hunter Potion
+     */
     HUNTER_POTION(
         item = Items.HUNTER_POTION2_10002,
         level = 58,
@@ -108,6 +200,12 @@ enum class BarbarianMix {
         exp = 40.0,
         both = false
     ),
+
+    /**
+     * Super Strength Potion
+     *
+     * @constructor Super Strength Potion
+     */
     SUPER_STRENGTH_POTION(
         item = Items.SUPER_STRENGTH2_159,
         level = 59,
@@ -115,6 +213,12 @@ enum class BarbarianMix {
         exp = 42.0,
         both = false
     ),
+
+    /**
+     * Super Restore
+     *
+     * @constructor Super Restore
+     */
     SUPER_RESTORE(
         item = Items.SUPER_RESTORE2_3028,
         level = 67,
@@ -122,6 +226,12 @@ enum class BarbarianMix {
         exp = 48.0,
         both = false
     ),
+
+    /**
+     * Super Defence Potion
+     *
+     * @constructor Super Defence Potion
+     */
     SUPER_DEFENCE_POTION(
         item = Items.SUPER_DEFENCE2_165,
         level = 71,
@@ -129,6 +239,12 @@ enum class BarbarianMix {
         exp = 50.0,
         both = false
     ),
+
+    /**
+     * Antidote Plus
+     *
+     * @constructor Antidote Plus
+     */
     ANTIDOTE_PLUS(
         item = Items.ANTIPOISON_PLUS2_5947,
         level = 74,
@@ -136,6 +252,12 @@ enum class BarbarianMix {
         exp = 52.0,
         both = false
     ),
+
+    /**
+     * Antifire Potion
+     *
+     * @constructor Antifire Potion
+     */
     ANTIFIRE_POTION(
         item = Items.ANTIFIRE_POTION2_2456,
         level = 75,
@@ -143,6 +265,12 @@ enum class BarbarianMix {
         exp = 53.0,
         both = false
     ),
+
+    /**
+     * Ranging Potion
+     *
+     * @constructor Ranging Potion
+     */
     RANGING_POTION(
         item = Items.RANGING_POTION2_171,
         level = 80,
@@ -150,6 +278,12 @@ enum class BarbarianMix {
         exp = 54.0,
         both = false
     ),
+
+    /**
+     * Magic Potion
+     *
+     * @constructor Magic Potion
+     */
     MAGIC_POTION(
         item = Items.MAGIC_POTION2_3044,
         level = 83,
@@ -157,6 +291,12 @@ enum class BarbarianMix {
         exp = 57.0,
         both = false
     ),
+
+    /**
+     * Zamorak Brew
+     *
+     * @constructor Zamorak Brew
+     */
     ZAMORAK_BREW(
         item = Items.ZAMORAK_BREW2_191,
         level = 85,
@@ -179,22 +319,47 @@ enum class BarbarianMix {
     private val exp: Double
     private val both: Boolean
 
+    /**
+     * Get item
+     *
+     * @return
+     */
     fun getItem(): Int {
         return item
     }
 
+    /**
+     * Get product
+     *
+     * @return
+     */
     fun getProduct(): Int {
         return product
     }
 
+    /**
+     * Get level
+     *
+     * @return
+     */
     fun getLevel(): Int {
         return level
     }
 
+    /**
+     * Get exp
+     *
+     * @return
+     */
     fun getExp(): Double {
         return exp
     }
 
+    /**
+     * Is both
+     *
+     * @return
+     */
     fun isBoth(): Boolean {
         return both
     }

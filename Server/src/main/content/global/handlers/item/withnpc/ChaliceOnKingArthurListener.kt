@@ -12,6 +12,11 @@ import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
+/**
+ * Chalice on king arthur listener
+ *
+ * @constructor Chalice on king arthur listener
+ */
 class ChaliceOnKingArthurListener : InteractionListener {
 
     private val poisonChalice = Items.POISON_CHALICE_197

@@ -13,6 +13,9 @@ import core.game.node.item.Item
 import core.game.system.task.Pulse
 import core.tools.END_DIALOGUE
 
+/**
+ * Larry handler.
+ */
 class LarryHandler(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {

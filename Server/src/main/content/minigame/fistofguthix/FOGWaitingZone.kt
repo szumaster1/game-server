@@ -8,6 +8,9 @@ import core.game.world.map.zone.ZoneBuilder
 import core.plugin.Plugin
 import java.util.*
 
+/**
+ * FOG waiting zone.
+ */
 class FOGWaitingZone : MapZone("Fog Waiting Room", true), Plugin<Any?> {
 
     @Throws(Throwable::class)

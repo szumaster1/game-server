@@ -12,6 +12,9 @@ import core.game.event.*
 import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
 
+/**
+ * Tutorial button receiver.
+ */
 object TutorialButtonReceiver : EventHook<ButtonClickEvent> {
 
     override fun process(entity: Entity, event: ButtonClickEvent) {

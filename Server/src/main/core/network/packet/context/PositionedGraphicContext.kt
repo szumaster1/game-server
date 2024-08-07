@@ -7,7 +7,6 @@ import core.network.packet.Context
 
 /**
  * The packet context for the positioned graphic packet.
- * @author Emperor
  */
 class PositionedGraphicContext(
     private val player: Player,

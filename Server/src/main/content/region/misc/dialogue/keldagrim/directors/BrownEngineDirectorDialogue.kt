@@ -5,8 +5,12 @@ import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
+import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
+/**
+ * Brown engine director dialogue.
+ */
 @Initializable
 class BrownEngineDirectorDialogue(player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
@@ -25,10 +29,9 @@ class BrownEngineDirectorDialogue(player: Player? = null) : Dialogue(player) {
             }
             1 -> player(FacialExpression.SAD, "But...").also { stage++ }
             2 -> when ((1..2).random()) {
-                1 -> npc(FacialExpression.OLD_NORMAL, "I said go!").also { stage = 100 }
-                2 -> npc(FacialExpression.OLD_NORMAL, "I told you to leave, human!").also { stage = 100 }
+                1 -> npc(FacialExpression.OLD_NORMAL, "I said go!").also { stage = END_DIALOGUE }
+                2 -> npc(FacialExpression.OLD_NORMAL, "I told you to leave, human!").also { stage = END_DIALOGUE }
             }
-            100 -> end()
         }
         return true
     }

@@ -6,7 +6,6 @@ import core.network.packet.Context
 /**
  * The packet context of the grand exchange update
  * packet.
- * @author Emperor
  */
 class GrandExchangeContext(
     private val player: Player,

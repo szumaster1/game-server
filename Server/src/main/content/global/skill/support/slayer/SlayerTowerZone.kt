@@ -16,6 +16,9 @@ import core.game.world.map.zone.ZoneRestriction
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Slayer tower zone.
+ */
 @Initializable
 class SlayerTowerZone : MapZone("slayer tower", true, ZoneRestriction.CANNON), Plugin<Any?> {
 

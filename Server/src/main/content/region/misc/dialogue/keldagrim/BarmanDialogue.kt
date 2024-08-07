@@ -12,6 +12,9 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.Initializable
 
+/**
+ * Barman dialogue.
+ */
 @Initializable
 class BarmanDialogue(player: Player? = null) : Dialogue(player) {
 

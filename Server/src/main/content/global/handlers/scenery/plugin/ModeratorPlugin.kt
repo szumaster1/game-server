@@ -12,6 +12,11 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Moderator plugin
+ *
+ * @constructor Moderator plugin
+ */
 @Initializable
 class ModeratorPlugin : OptionHandler() {
 

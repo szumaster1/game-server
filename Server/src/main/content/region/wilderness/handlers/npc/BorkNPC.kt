@@ -40,6 +40,9 @@ import core.plugin.Plugin
 import core.tools.RandomFunction
 import java.util.*
 
+/**
+ * Bork NPC.
+ */
 @Initializable
 class BorkNPC : AbstractNPC {
 
@@ -190,6 +193,11 @@ class BorkNPC : AbstractNPC {
         })
     }
 
+    /**
+     * Set player
+     *
+     * @param player
+     */
     fun setPlayer(player: Player?) {
         this.player = player
     }
@@ -206,6 +214,11 @@ class BorkNPC : AbstractNPC {
         return intArrayOf(NPCs.BORK_7133)
     }
 
+    /**
+     * Ork legion
+     *
+     * @constructor Ork legion
+     */
     inner class OrkLegion : AbstractNPC {
         private var player: Player? = null
 
@@ -248,6 +261,11 @@ class BorkNPC : AbstractNPC {
         }
     }
 
+    /**
+     * Dagon elite
+     *
+     * @constructor Dagon elite
+     */
     inner class DagonElite : AbstractNPC {
         private var player: Player? = null
 
@@ -292,6 +310,11 @@ class BorkNPC : AbstractNPC {
         }
     }
 
+    /**
+     * Bork cutscene
+     *
+     * @constructor Bork cutscene
+     */
     inner class BorkCutscene() : CutscenePlugin("Bork cutscene") {
         private var bork: BorkNPC? = null
         var wizard: NPC? = null
@@ -345,6 +368,10 @@ class BorkNPC : AbstractNPC {
             end()
         }
 
+        /**
+         * Commence fight
+         *
+         */
         fun commenceFight() {
             bork!!.unlock()
             wizard!!.unlock()
@@ -392,6 +419,11 @@ class BorkNPC : AbstractNPC {
         }
     }
 
+    /**
+     * Dagon dialogue
+     *
+     * @constructor Dagon dialogue
+     */
     inner class DagonDialogue : Dialogue {
         private var cutscene: BorkCutscene? = null
 

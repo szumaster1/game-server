@@ -8,6 +8,9 @@ import core.cache.def.impl.NPCDefinition
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Pest control listeners.
+ */
 class PestControlListeners : InteractionListener {
 
     override fun defineListeners() {

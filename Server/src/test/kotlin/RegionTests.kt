@@ -4,6 +4,11 @@ import core.game.world.map.build.DynamicRegion
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
+/**
+ * Region tests
+ *
+ * @constructor Region tests
+ */
 class RegionTests {
     companion object {
         init {
@@ -11,6 +16,10 @@ class RegionTests {
         }
     }
 
+    /**
+     * Test region load
+     *
+     */
     @Test
     fun testRegionLoad() {
         val region = RegionManager.forId(12850)
@@ -18,6 +27,10 @@ class RegionTests {
         Assertions.assertNotEquals(0, region.objectCount, "Region has no objects! (Failed to parse?)")
     }
 
+    /**
+     * Should have different id for dynamic copy
+     *
+     */
     @Test
     fun shouldHaveDifferentIdForDynamicCopy() {
         val region = RegionManager.forId(12850)
@@ -25,6 +38,10 @@ class RegionTests {
         Assertions.assertNotEquals(region.regionId, (dynamic.x shl 8) or dynamic.y)
     }
 
+    /**
+     * Dynamic region creation should not replace original
+     *
+     */
     @Test
     fun dynamicRegionCreationShouldNotReplaceOriginal() {
         val region = RegionManager.forId(12850)
@@ -32,6 +49,10 @@ class RegionTests {
         Assertions.assertEquals(false, RegionManager.forId(12850) is DynamicRegion)
     }
 
+    /**
+     * Test dynamic region has same objects
+     *
+     */
     @Test
     fun testDynamicRegionHasSameObjects() {
         val base = RegionManager.forId(12850)
@@ -42,6 +63,10 @@ class RegionTests {
         Assertions.assertEquals(true, dynamic.objectCount > 0, "Dynamic and standard have differing object counts!")
     }
 
+    /**
+     * Test object exists in standard region
+     *
+     */
     @Test
     fun testObjectExistsInStandardRegion() {
         val base = RegionManager.forId(12850)
@@ -55,6 +80,10 @@ class RegionTests {
         )
     }
 
+    /**
+     * Test object exists in dynamic region
+     *
+     */
     @Test
     fun testObjectExistsInDynamicRegion() {
         val base = RegionManager.forId(12850)
@@ -70,6 +99,10 @@ class RegionTests {
         )
     }
 
+    /**
+     * Test object exists in copied chunk
+     *
+     */
     @Test
     fun testObjectExistsInCopiedChunk() {
         val base = RegionManager.forId(12850)
@@ -87,6 +120,10 @@ class RegionTests {
         )
     }
 
+    /**
+     * Test object exists in copied chunk using build flag
+     *
+     */
     @Test
     fun testObjectExistsInCopiedChunkUsingBuildFlag() {
         val base = RegionManager.forId(12850)
@@ -104,6 +141,10 @@ class RegionTests {
         )
     }
 
+    /**
+     * Test object exists in copied chunk copied into blank region
+     *
+     */
     @Test
     fun testObjectExistsInCopiedChunkCopiedIntoBlankRegion() {
         val base = RegionManager.forId(12850)
@@ -122,6 +163,10 @@ class RegionTests {
         )
     }
 
+    /**
+     * Test object exists in copied chunk in linked region
+     *
+     */
     @Test
     fun testObjectExistsInCopiedChunkInLinkedRegion() {
         val base = DynamicRegion.create(12850)

@@ -9,6 +9,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
+/**
+ * Eastern discovery book
+ *
+ * @constructor Eastern discovery book
+ */
 class EasternDiscoveryBook : InteractionListener {
 
     // Explains some of the history

@@ -15,7 +15,6 @@ import java.util.concurrent.locks.ReentrantLock
 
 /**
  * Manages the regions.
- * @author Emperor
  */
 object RegionManager {
     /**
@@ -147,7 +146,6 @@ object RegionManager {
     /**
      * Gets the water variant of a tile's clipping flag
      * Essentially strips the landscape flag off a tile and keeps other flags, and makes normally walkable tiles unwalkable.
-     * @author Ceikry
      */
     @JvmStatic
     fun getWaterClipFlag(z: Int, x: Int, y: Int): Int {

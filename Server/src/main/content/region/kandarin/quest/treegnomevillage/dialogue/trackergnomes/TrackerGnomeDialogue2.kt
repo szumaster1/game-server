@@ -12,6 +12,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Tracker gnome dialogue2.
+ */
 @Initializable
 class TrackerGnomeDialogue2(player: Player? = null) : Dialogue(player) {
     override fun handle(componentID: Int, buttonID: Int): Boolean {

@@ -20,6 +20,9 @@ import core.plugin.Plugin
 import core.tools.RandomFunction
 import kotlin.math.ceil
 
+/**
+ * King black dragon NPC.
+ */
 @Initializable
 class KingBlackDragonNPC : AbstractNPC {
 
@@ -58,6 +61,11 @@ class KingBlackDragonNPC : AbstractNPC {
         return super.newInstance(arg)
     }
 
+    /**
+     * K b d combat swing handler
+     *
+     * @constructor K b d combat swing handler
+     */
     internal class KBDCombatSwingHandler : CombatSwingHandler(CombatStyle.RANGE) {
 
         private var style = CombatStyle.RANGE

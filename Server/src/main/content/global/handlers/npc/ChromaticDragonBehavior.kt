@@ -9,6 +9,11 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.tools.RandomFunction
 
+/**
+ * Chromatic dragon behavior
+ *
+ * @constructor Chromatic dragon behavior
+ */
 class ChromaticDragonBehavior : NPCBehavior(*greenDragons, *blueDragons, *redDragons, *blackDragons) {
 
     override fun onDropTableRolled(self: NPC, killer: Entity, drops: ArrayList<Item>) {

@@ -14,6 +14,9 @@ import kotlin.Unit;
 
 import static core.api.ContentAPIKt.sendInputDialogue;
 
+/**
+ * Summoning creation plugin.
+ */
 @Initializable
 public final class SummoningCreationPlugin extends ComponentPlugin {
 
@@ -66,9 +69,15 @@ public final class SummoningCreationPlugin extends ComponentPlugin {
         return opcode == 155 ? 1 : opcode == 196 ? 5 : opcode == 124 ? 10 : opcode == 199 ? 28 : -1;
     }
 
+    /**
+     * Obelisk handler.
+     */
     public static final class ObeliskHandler extends UseWithHandler {
         private static final int[] IDS = new int[]{28716, 28719, 28722, 28725, 28278, 28731, 28734};
 
+        /**
+         * Instantiates a new Obelisk handler.
+         */
         public ObeliskHandler() {
             super(12047, 12043, 12059, 12019, 12009, 12778, 12049, 12055, 12808, 2067, 12064, 12091, 12800, 12053, 12065, 12021, 12818, 12781, 12798, 12814, 12073, 12075, 12077, 12079, 12081, 12083, 12087, 12071, 12051, 12095, 12097, 12099, 12101, 12103, 12105, 12107, 12816, 12041, 12061, 12007, 12035, 12027, 12531, 12812, 12784, 12710, 12023, 12085, 12037, 12015, 12045, 12123, 12031, 12029, 12033, 12820, 12057, 12792, 12069, 12011, 12782, 12794, 12013, 12025, 12017, 12039, 12089, 12093, 12802, 12804, 12806, 12788, 12776, 12786, 12796, 12822, 12790);
         }

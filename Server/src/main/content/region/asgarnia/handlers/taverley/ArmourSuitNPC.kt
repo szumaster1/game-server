@@ -9,6 +9,9 @@ import core.game.world.GameWorld.Pulser
 import core.game.world.map.Location
 import core.plugin.Initializable
 
+/**
+ * Armour suit NPC.
+ */
 @Initializable
 class ArmourSuitNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 

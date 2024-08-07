@@ -14,6 +14,9 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Basalt rock shortcut.
+ */
 @Initializable
 class BasaltRockShortcut : AgilityShortcut {
 

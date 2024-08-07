@@ -11,6 +11,14 @@ import core.tools.START_DIALOGUE
 
 const val COUNCIL_WORKER = 1287
 
+/**
+ * Council worker dialogue
+ *
+ * @property questStage
+ * @property isBeerInteraction
+ * @property beerId
+ * @constructor Council worker dialogue
+ */
 class CouncilWorkerDialogue(val questStage: Int, var isBeerInteraction: Boolean = false, val beerId: Int? = null) :
     DialogueFile() {
 

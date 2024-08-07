@@ -6,6 +6,9 @@ import core.api.openInterface
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Stich crafting listener.
+ */
 class StichCraftingListener : InteractionListener {
 
     override fun defineListeners() {

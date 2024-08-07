@@ -5,6 +5,9 @@ import core.api.consts.NPCs
 import core.api.consts.Scenery
 import core.game.world.map.zone.ZoneBorders
 
+/**
+ * Castle wars.
+ */
 object CastleWars {
     // Scenery IDs
     const val joinSaradominTeamPortal: Int = Scenery.SARADOMIN_PORTAL_4387

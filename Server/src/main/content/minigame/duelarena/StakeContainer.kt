@@ -10,6 +10,13 @@ import core.network.packet.PacketRepository
 import core.network.packet.context.ContainerContext
 import core.network.packet.outgoing.ContainerPacket
 
+/**
+ * Stake container
+ *
+ * @property player
+ * @property session
+ * @constructor Stake container
+ */
 class StakeContainer(private val player: Player, val session: DuelSession) :
     Container(28, ContainerType.DEFAULT, SortType.ID) {
 
@@ -20,6 +27,9 @@ class StakeContainer(private val player: Player, val session: DuelSession) :
         listeners.add(StakeListener().also { listener = it })
     }
 
+    /**
+     * Open
+     */
     fun open() {
         player.interfaceManager.openSingleTab(OVERLAY)
         player.packetDispatch.sendRunScript(150, "IviiiIssssssss", *INVY_PARAMS)
@@ -27,6 +37,12 @@ class StakeContainer(private val player: Player, val session: DuelSession) :
         PacketRepository.send(ContainerPacket::class.java, ContainerContext(player, -1, 2, 93, player.inventory, false))
     }
 
+    /**
+     * Offer
+     *
+     * @param slot
+     * @param amount
+     */
     fun offer(slot: Int, amount: Int) {
         val item = player.inventory[slot] ?: return
         if (slot < 0 || slot > player.inventory.capacity() || amount < 1) {
@@ -52,6 +68,12 @@ class StakeContainer(private val player: Player, val session: DuelSession) :
         }
     }
 
+    /**
+     * Withdraw
+     *
+     * @param slot
+     * @param amount
+     */
     fun withdraw(slot: Int, amount: Int) {
         val item = get(slot) ?: return
         if (slot < 0 || slot > player.inventory.capacity() || amount < 1) {
@@ -77,6 +99,9 @@ class StakeContainer(private val player: Player, val session: DuelSession) :
         }
     }
 
+    /**
+     * Release
+     */
     fun release() {
         if (released) {
             return
@@ -91,6 +116,9 @@ class StakeContainer(private val player: Player, val session: DuelSession) :
         PlayerParser.save(player)
     }
 
+    /**
+     * Stake listener
+     */
     inner class StakeListener : ContainerListener {
         override fun update(c: Container?, event: ContainerEvent?) {
             InterfaceContainer.generateItems(

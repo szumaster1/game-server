@@ -10,6 +10,9 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 import core.tools.RandomFunction
 
+/**
+ * Cave horror NPC.
+ */
 @Initializable
 class CaveHorrorNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 

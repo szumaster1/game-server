@@ -6,6 +6,9 @@ import core.game.node.entity.player.Player
 import core.game.system.timer.PersistTimer
 import org.json.simple.JSONObject
 
+/**
+ * Star bonus persist timer.
+ */
 class StarBonus : PersistTimer(1, "shootingstar:bonus") {
     var ticksLeft = 1500
 
@@ -18,9 +21,12 @@ class StarBonus : PersistTimer(1, "shootingstar:bonus") {
     }
 
     override fun run(entity: Entity): Boolean {
+        // Check if the entity is a Player and if the ticksLeft is 500
         if (entity is Player && ticksLeft == 500) {
             sendMessage(entity, "<col=f0f095>You have 5 minutes of your mining bonus left</col>")
-        } else if (entity is Player && ticksLeft == 0) {
+        }
+        // Check if the entity is a Player and if the ticksLeft is 0
+        else if (entity is Player && ticksLeft == 0) {
             sendMessage(entity,"<col=FF0000>Your mining bonus has run out!</col>")
         }
         return ticksLeft-- > 0

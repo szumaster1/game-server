@@ -7,6 +7,11 @@ import core.api.sendDialogue
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Doogle sardine listener
+ *
+ * @constructor Doogle sardine listener
+ */
 class DoogleSardineListener : InteractionListener {
 
     private val rawSardine = Items.RAW_SARDINE_327

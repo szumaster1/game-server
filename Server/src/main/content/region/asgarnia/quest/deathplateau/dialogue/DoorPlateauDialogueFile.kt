@@ -10,6 +10,12 @@ import core.game.global.action.DoorActionHandler
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
+/**
+ * Door plateau dialogue file
+ *
+ * @property door
+ * @constructor Door plateau dialogue file
+ */
 class DoorPlateauDialogueFile(val door: Int) : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

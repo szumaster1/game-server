@@ -16,6 +16,9 @@ import core.game.node.scenery.Scenery
 import core.game.system.task.Pulse
 import core.tools.RandomFunction
 
+/**
+ * Rogues castle listeners.
+ */
 class RoguesCastleListeners : InteractionListener {
 
     companion object {
@@ -116,6 +119,12 @@ class RoguesCastleListeners : InteractionListener {
         }
     }
 
+    /**
+     * Open chest.
+     *
+     * @param player the player.
+     * @param scenery the scenery id.
+     */
     fun openChest(player: Player, scenery: Scenery) {
         animate(player, CHEST_ANIM)
         submitIndividualPulse(player, object : Pulse(animationDuration(CHEST_ANIM)) {
@@ -125,6 +134,12 @@ class RoguesCastleListeners : InteractionListener {
         })
     }
 
+    /**
+     * Add loot
+     *
+     * @param player
+     * @param item
+     */
     fun addLoot(player: Player, item: Item) {
         sendMessage(player, "You search the chest...")
         submitIndividualPulse(player, object : Pulse() {

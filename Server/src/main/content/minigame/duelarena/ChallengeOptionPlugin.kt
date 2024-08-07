@@ -8,6 +8,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Plugin
 import java.util.*
 
+/**
+ * Challenge option plugin.
+ */
 class ChallengeOptionPlugin : OptionHandler() {
 
     @Throws(Throwable::class)

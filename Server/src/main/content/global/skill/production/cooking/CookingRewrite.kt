@@ -12,6 +12,11 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.node.scenery.Scenery
 
+/**
+ * Cooking rewrite
+ *
+ * @constructor Cooking rewrite
+ */
 class CookingRewrite : InteractionListener {
 
     val RAW_FOODS: IntArray

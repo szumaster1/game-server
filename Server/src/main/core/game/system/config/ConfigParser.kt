@@ -8,7 +8,16 @@ import core.game.world.repository.Repository
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
+/**
+ * Config parser
+ *
+ * @constructor Config parser
+ */
 class ConfigParser : Commands {
+    /**
+     * Pre plugin
+     *
+     */
     fun prePlugin() {
         NPCConfigParser().load()
         ItemConfigParser().load()
@@ -17,6 +26,10 @@ class ConfigParser : Commands {
         InterfaceConfigParser().load()
     }
 
+    /**
+     * Post plugin
+     *
+     */
     fun postPlugin() {
         ShopParser().load()
         DropTableParser().load()
@@ -29,6 +42,12 @@ class ConfigParser : Commands {
         ClueRewardParser().load()
     }
 
+    /**
+     * Reload configs
+     *
+     * @param callback
+     * @receiver
+     */
     fun reloadConfigs(callback: () -> Unit) {
         GlobalScope.launch {
             Repository.npcs.toTypedArray().forEach { npc ->

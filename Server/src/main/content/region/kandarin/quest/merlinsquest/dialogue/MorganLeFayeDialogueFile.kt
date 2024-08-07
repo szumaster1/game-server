@@ -13,6 +13,11 @@ import core.game.node.entity.npc.NPC
 import core.game.world.repository.Repository
 import core.tools.END_DIALOGUE
 
+/**
+ * Morgan le faye dialogue file
+ *
+ * @constructor Morgan le faye dialogue file
+ */
 class MorganLeFayeDialogueFile : DialogueFile() {
 
     var STAGE_VANISH = 50
@@ -88,6 +93,11 @@ class MorganLeFayeDialogueFile : DialogueFile() {
         }
     }
 
+    /**
+     * Morgan disapear
+     *
+     * @param sendMessage
+     */
     fun morganDisapear(sendMessage: Boolean) {
         val morgan = player!!.getAttribute<NPC>(MerlinUtils.TEMP_ATTR_MORGAN, null)
 

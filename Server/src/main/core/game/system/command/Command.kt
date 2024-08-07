@@ -5,8 +5,14 @@ import core.game.node.entity.player.Player
 import core.game.world.GameWorld
 
 /**
- * Base class for Commands in the new system. Can pass a lambda as part of the constructor or after the constructor.
- * @author Ceikry
+ * Command
+ *
+ * @property name
+ * @property privilege
+ * @property usage
+ * @property description
+ * @property handle
+ * @constructor Command
  */
 class Command(
     val name: String,
@@ -15,6 +21,12 @@ class Command(
     val description: String = "UNDOCUMENTED",
     val handle: (Player, Array<String>) -> Unit
 ) {
+    /**
+     * Attempt handling
+     *
+     * @param player
+     * @param args
+     */
     fun attemptHandling(player: Player, args: Array<String>?) {
         args ?: return
         if (player.rights.ordinal >= privilege.ordinal || GameWorld.settings?.isDevMode == true || ServerConstants.I_AM_A_CHEATER) {

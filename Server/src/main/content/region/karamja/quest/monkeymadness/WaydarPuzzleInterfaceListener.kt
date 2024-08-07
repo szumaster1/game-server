@@ -10,6 +10,11 @@ import core.network.packet.context.ContainerContext
 import core.network.packet.outgoing.ContainerPacket
 import kotlin.math.abs
 
+/**
+ * Waydar puzzle interface listener
+ *
+ * @constructor Waydar puzzle interface listener
+ */
 class WaydarPuzzleInterfaceListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {

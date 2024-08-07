@@ -7,11 +7,17 @@ import core.game.node.entity.skill.Skills;
 import core.game.node.item.Item;
 import core.plugin.Initializable;
 
+/**
+ * The knights sword.
+ */
 @Initializable
 public class TheKnightsSword extends Quest {
 
     private static final Item PORTRAIT = new Item(666);
 
+    /**
+     * Instantiates a new The knights sword.
+     */
     public TheKnightsSword() {
         super("The Knight's Sword", 22, 21, 1, Vars.VARP_QUEST_KNIGHTS_SWORD_PROGRESS, 0, 1, 7);
     }

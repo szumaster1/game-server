@@ -13,22 +13,67 @@ import java.util.HashMap;
 
 import static core.api.ContentAPIKt.removeAttributes;
 
+/**
+ * Sheep herder.
+ */
 @Initializable
 public class SheepHerder extends Quest {
+    /**
+     * The constant CATTLE_PROD.
+     */
     public static Item CATTLE_PROD = new Item(Items.CATTLEPROD_278);
+    /**
+     * The constant POISON.
+     */
     public static Item POISON = new Item(279);
+    /**
+     * The constant PLAGUE_TOP.
+     */
     public static Item PLAGUE_TOP = new Item(284);
+    /**
+     * The constant PLAGUE_BOTTOM.
+     */
     public static Item PLAGUE_BOTTOM = new Item(285);
+    /**
+     * The constant RED_SHEEP_BONES.
+     */
     public static Item RED_SHEEP_BONES = new Item(Items.SHEEP_BONES_1_280);
+    /**
+     * The constant GREEN_SHEEP_BONES.
+     */
     public static Item GREEN_SHEEP_BONES = new Item(Items.SHEEP_BONES_2_281);
+    /**
+     * The constant BLUE_SHEEP_BONES.
+     */
     public static Item BLUE_SHEEP_BONES = new Item(Items.SHEEP_BONES_3_282);
+    /**
+     * The constant YELLOW_SHEEP_BONES.
+     */
     public static Item YELLOW_SHEEP_BONES = new Item(Items.SHEEP_BONES_4_283);
+    /**
+     * The constant RED_SHEEP.
+     */
     public static int RED_SHEEP = 2345;
+    /**
+     * The constant GREEN_SHEEP.
+     */
     public static int GREEN_SHEEP = 2346;
+    /**
+     * The constant BLUE_SHEEP.
+     */
     public static int BLUE_SHEEP = 2347;
+    /**
+     * The constant YELLOW_SHEEP.
+     */
     public static int YELLOW_SHEEP = 2348;
+    /**
+     * The constant FARMER_BRUMTY.
+     */
     public static int FARMER_BRUMTY = 291;
 
+    /**
+     * The constant boneMap.
+     */
     public static HashMap<Integer, Item> boneMap = new HashMap<>();
 
     static {
@@ -38,6 +83,9 @@ public class SheepHerder extends Quest {
         boneMap.put(BLUE_SHEEP, BLUE_SHEEP_BONES);
     }
 
+    /**
+     * Instantiates a new Sheep herder.
+     */
     public SheepHerder() {
         super("Sheep Herder", 113, 112, 4, Vars.VARP_QUEST_SHEEP_HERDER_PROGRESS, 0, 1, 3);
     }

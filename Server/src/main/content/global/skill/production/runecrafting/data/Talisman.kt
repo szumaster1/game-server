@@ -5,63 +5,152 @@ import core.api.sendMessage
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
+/**
+ * Talisman
+ *
+ * @property talisman
+ * @property ruin
+ * @constructor Talisman
+ */
 enum class Talisman(
     val talisman: Item,
     private val ruin: MysteriousRuin?
 ) {
+    /**
+     * Air
+     *
+     * @constructor Air
+     */
     AIR(
         talisman = Item(Items.AIR_TALISMAN_1438),
         ruin = MysteriousRuin.AIR
     ),
+
+    /**
+     * Mind
+     *
+     * @constructor Mind
+     */
     MIND(
         talisman = Item(Items.MIND_TALISMAN_1448),
         ruin = MysteriousRuin.MIND
     ),
+
+    /**
+     * Water
+     *
+     * @constructor Water
+     */
     WATER(
         talisman = Item(Items.WATER_TALISMAN_1444),
         ruin = MysteriousRuin.WATER
     ),
+
+    /**
+     * Earth
+     *
+     * @constructor Earth
+     */
     EARTH(
         talisman = Item(Items.EARTH_TALISMAN_1440),
         ruin = MysteriousRuin.EARTH
     ),
+
+    /**
+     * Fire
+     *
+     * @constructor Fire
+     */
     FIRE(
         talisman = Item(Items.FIRE_TALISMAN_1442),
         ruin = MysteriousRuin.FIRE
     ),
+
+    /**
+     * Elemental
+     *
+     * @constructor Elemental
+     */
     ELEMENTAL(
         talisman = Item(Items.ELEMENTAL_TALISMAN_5516),
         ruin = null
     ),
+
+    /**
+     * Body
+     *
+     * @constructor Body
+     */
     BODY(
         talisman = Item(Items.BODY_TALISMAN_1446),
         ruin = MysteriousRuin.BODY
     ),
+
+    /**
+     * Cosmic
+     *
+     * @constructor Cosmic
+     */
     COSMIC(
         talisman = Item(Items.COSMIC_TALISMAN_1454),
         ruin = MysteriousRuin.COSMIC
     ),
+
+    /**
+     * Chaos
+     *
+     * @constructor Chaos
+     */
     CHAOS(
         talisman = Item(Items.CHAOS_TALISMAN_1452),
         ruin = MysteriousRuin.CHAOS
     ),
+
+    /**
+     * Nature
+     *
+     * @constructor Nature
+     */
     NATURE(
         talisman = Item(Items.NATURE_TALISMAN_1462),
         ruin = MysteriousRuin.NATURE
     ),
+
+    /**
+     * Law
+     *
+     * @constructor Law
+     */
     LAW(
         talisman = Item(Items.LAW_TALISMAN_1458),
         ruin = MysteriousRuin.LAW
     ),
+
+    /**
+     * Death
+     *
+     * @constructor Death
+     */
     DEATH(
         talisman = Item(Items.DEATH_TALISMAN_1456),
         ruin = MysteriousRuin.DEATH
     ),
+
+    /**
+     * Blood
+     *
+     * @constructor Blood
+     */
     BLOOD(
         talisman = Item(Items.BLOOD_TALISMAN_1450),
         ruin = MysteriousRuin.BLOOD
     );
 
+    /**
+     * Locate
+     *
+     * @param player
+     */
     fun locate(player: Player) {
         if (this == ELEMENTAL || ruin == null) {
             sendMessage(player, "You cannot tell which direction the Talisman is pulling...")
@@ -82,10 +171,20 @@ enum class Talisman(
         sendMessage(player, "The talisman pulls towards the $direction.")
     }
 
+    /**
+     * Get ruin
+     *
+     * @return
+     */
     fun getRuin(): MysteriousRuin? {
         return MysteriousRuin.values().find { it.name == name }
     }
 
+    /**
+     * Get tiara
+     *
+     * @return
+     */
     fun getTiara(): Tiara? {
         return Tiara.values().find { it.name == name }
     }

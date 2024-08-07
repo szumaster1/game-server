@@ -5,6 +5,9 @@ import core.game.node.entity.player.Player;
 import core.game.world.GameWorld;
 import core.game.world.map.Location;
 
+/**
+ * Mouse npc.
+ */
 public class MouseNPC extends AbstractNPC {
 
     private Player player;
@@ -14,6 +17,9 @@ public class MouseNPC extends AbstractNPC {
     private static final int[] ID = {901};
 
 
+    /**
+     * Instantiates a new Mouse npc.
+     */
     public MouseNPC() {
         super(0, null);
     }
@@ -55,11 +61,21 @@ public class MouseNPC extends AbstractNPC {
     }
 
 
+    /**
+     * Sets player.
+     *
+     * @param player the player
+     */
     public void setPlayer(Player player) {
         this.player = player;
     }
 
 
+    /**
+     * Gets player.
+     *
+     * @return the player
+     */
     public Player getPlayer() {
         return player;
     }

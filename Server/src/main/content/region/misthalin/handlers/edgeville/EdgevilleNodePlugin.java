@@ -15,6 +15,9 @@ import core.plugin.Plugin;
 
 import static core.api.ContentAPIKt.*;
 
+/**
+ * Edgeville node plugin.
+ */
 @Initializable
 public final class EdgevilleNodePlugin extends OptionHandler {
 
@@ -24,10 +27,9 @@ public final class EdgevilleNodePlugin extends OptionHandler {
         SceneryDefinition.forId(9261).getHandlers().put("option:take-seed", this);
         SceneryDefinition.forId(30806).getHandlers().put("option:take-seed", this);
 
-        /*
+        /**
          * Dungeon Wilderness gates.
          */
-
         SceneryDefinition.forId(29319).getHandlers().put("option:open", this);
         SceneryDefinition.forId(29320).getHandlers().put("option:open", this);
         SceneryDefinition.forId(26933).getHandlers().put("option:open", this);
@@ -54,7 +56,7 @@ public final class EdgevilleNodePlugin extends OptionHandler {
                     setVarp(player, 680, 0);
                 }
                 break;
-            /*
+            /**
              * Edgeville Dungeon trapdoor (when closed).
              */
             case 26933:
@@ -64,7 +66,7 @@ public final class EdgevilleNodePlugin extends OptionHandler {
                     SceneryBuilder.replace(node.asScenery(), node.asScenery().transform(26934), 500);
                 }
                 break;
-            /*
+            /**
              * Edgeville Dungeon trapdoor (when open).
              */
             case 26934:
@@ -77,7 +79,7 @@ public final class EdgevilleNodePlugin extends OptionHandler {
                     ClimbActionHandler.climbLadder(player, (Scenery) node, option);
                 }
                 break;
-            /*
+            /**
              * Edgeville Dungeon wilderness entrance.
              */
             case 29319:
@@ -86,7 +88,7 @@ public final class EdgevilleNodePlugin extends OptionHandler {
                     player.getInterfaceManager().openComponent(382);
                     setAttribute(player, "wildy-gate", node);
                 } else {
-                    /*
+                    /**
                      * Leaving the wilderness.
                      */
                     DoorActionHandler.handleAutowalkDoor(player, (Scenery) node);

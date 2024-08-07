@@ -11,6 +11,9 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.Initializable
 
+/**
+ * Candle seller dialogue.
+ */
 @Initializable
 class CandleSellerDialogue(player: Player? = null) : Dialogue(player) {
 

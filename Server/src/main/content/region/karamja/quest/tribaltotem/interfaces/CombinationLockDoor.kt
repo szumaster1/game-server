@@ -4,6 +4,11 @@ import core.api.*
 import core.game.interaction.InterfaceListener
 import core.game.world.map.Location
 
+/**
+ * Combination lock door
+ *
+ * @constructor Combination lock door
+ */
 class CombinationLockDoor : InterfaceListener {
 
     override fun defineInterfaceListeners() {

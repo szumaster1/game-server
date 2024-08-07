@@ -3,6 +3,10 @@ package core.network;
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+/**
+ * Handles the JS5 queue for a session.
+ * @author Techdaan
+ */
 public final class JS5Queue {
 
     public static AtomicBoolean RUNNING = new AtomicBoolean(true);
@@ -44,6 +48,14 @@ public final class JS5Queue {
         private final int archive;
         private final boolean priority;
 
+        /**
+         * Instantiates a new JS-5 request.
+         *
+         * @param queue    the queue
+         * @param index    the index
+         * @param archive  the archive
+         * @param priority the priority
+         */
         public Js5Request(JS5Queue queue, int index, int archive, boolean priority) {
             this.queue = queue;
             this.index = index;
@@ -52,17 +64,41 @@ public final class JS5Queue {
         }
     }
 
+    /**
+     * The I/O session.
+     */
     private final IoSession session;
 
+    /**
+     * Instantiates a new JS-5 queue.
+     *
+     * @param session the session
+     */
     public JS5Queue(IoSession session) {
         this.session = session;
     }
 
+    /**
+     * Queues a JS-5 request.
+     * Timers:
+     * 1000ms queue up files for this long
+     * 100ms  release a file from the queue
+     *
+     * @param container The container.
+     * @param archive The archive.
+     * @param highPriority If the request is high priority.
+     *
+     */
     public void queue(int container, int archive, boolean highPriority) {
         Js5Request request = new Js5Request(this, container, archive, highPriority);
         handler.requests.add(request);
     }
 
+    /**
+     * Gets session.
+     *
+     * @return the session
+     */
     public IoSession getSession() {
         return session;
     }

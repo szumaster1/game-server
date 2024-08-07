@@ -25,6 +25,9 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 import java.util.*
 
+/**
+ * Hunter plugin.
+ */
 @Initializable
 class HunterPlugin : OptionHandler() {
 
@@ -110,7 +113,11 @@ class HunterPlugin : OptionHandler() {
         return false
     }
 
-    /*
+    /**
+     * Hunting item use with handler
+     *
+     * @constructor Hunting item use with handler
+     *//*
      * The Hunting item use with handler.
      */
     class HuntingItemUseWithHandler : UseWithHandler(*ids) {
@@ -161,7 +168,11 @@ class HunterPlugin : OptionHandler() {
         }
     }
 
-    /*
+    /**
+     * Hunter item plugin
+     *
+     * @constructor Hunter item plugin
+     *//*
      * The Hunter item plugin.
      */
     class HunterItemPlugin : OptionHandler() {
@@ -191,11 +202,27 @@ class HunterPlugin : OptionHandler() {
         }
 
 
-        /*
+        /**
+         * Release type
+         *
+         * @property ids
+         * @constructor Release type
+         *//*
          * The enum Release type.
          */
         enum class ReleaseType(vararg val ids: Int) {
+            /**
+             * Traps
+             *
+             * @constructor Traps
+             */
             TRAPS(10033, 10034, 10092, 10146, 10147, 10148, 10149),
+
+            /**
+             * Butterfly
+             *
+             * @constructor Butterfly
+             */
             BUTTERFLY(10020, 10018, 10016, 10014) {
                 override fun release(player: Player, item: Item) {
                     val node = BNetTypes.forItem(item)
@@ -209,10 +236,10 @@ class HunterPlugin : OptionHandler() {
 
 
             /**
-             * Release.
+             * Release
              *
-             * @param player the player
-             * @param item   the item
+             * @param player
+             * @param item
              */
             open fun release(player: Player, item: Item) {
                 val multiple = item.amount > 1
@@ -236,7 +263,11 @@ class HunterPlugin : OptionHandler() {
         }
     }
 
-    /*
+    /**
+     * Hunter net plugin
+     *
+     * @constructor Hunter net plugin
+     *//*
      * The Hunter net plugin.
      */
     class HunterNetPlugin : OptionHandler() {

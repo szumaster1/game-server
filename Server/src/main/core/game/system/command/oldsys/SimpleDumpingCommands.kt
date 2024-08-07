@@ -11,6 +11,11 @@ import core.plugin.Plugin
 import java.io.BufferedWriter
 import java.io.File
 
+/**
+ * Simple dumping commands
+ *
+ * @constructor Simple dumping commands
+ */
 @Initializable
 class SimpleDumpingCommands : CommandPlugin() {
     override fun parse(player: Player?, name: String?, args: Array<String?>?): Boolean {

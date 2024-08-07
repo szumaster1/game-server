@@ -8,6 +8,14 @@ import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
+/**
+ * Godsword assembling pulse
+ *
+ * @property used
+ * @constructor
+ *
+ * @param player
+ */
 class GodswordAssemblingPulse(player: Player?, val used: Item) : SkillPulse<Item>(player, null) {
 
     private val animation = Animations.HUMAN_ANVIL_HAMMER_SMITHING_898

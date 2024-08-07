@@ -9,9 +9,13 @@ import core.game.node.entity.player.Player
 import core.game.system.task.Pulse
 import core.tools.Log
 
+/**
+ * Generic item select listener.
+ */
 class GenericItemSelectListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {
+        // This listener is triggered when the item select interface is opened.
         onOpen(Components.ITEM_SELECT_12) { player, _ ->
             player.pulseManager.run(object : Pulse() {
                 override fun pulse(): Boolean {
@@ -25,11 +29,13 @@ class GenericItemSelectListener : InterfaceListener {
             return@onOpen true
         }
 
+        // This listener is triggered when an option in the item select interface is clicked.
         on(Components.ITEM_SELECT_12) { player, _, opcode, _, slot, _ ->
             processResponse(player, opcode, slot)
             return@on true
         }
 
+        // This listener is triggered when the item select interface is closed.
         onClose(Components.ITEM_SELECT_12) { player, _ ->
             removeAttribute(player, "itemselect-callback")
             removeAttribute(player, "itemselect-keepalive")

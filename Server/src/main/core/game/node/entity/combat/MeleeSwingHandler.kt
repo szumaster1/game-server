@@ -18,18 +18,15 @@ import kotlin.math.ceil
 import kotlin.math.floor
 
 /**
- * Handles a melee combat swing.
- * @author Ceikry, Emperor
+ * Melee swing handler
+ *
+ * @constructor
+ *
+ * @param flags
  */
 open class MeleeSwingHandler(vararg flags: SwingHandlerFlag) : CombatSwingHandler(CombatStyle.MELEE, *flags) {
 
     override fun canSwing(entity: Entity, victim: Entity): InteractionType? {
-
-        /*
-            Credits wolfenzi,
-            https://www.rune-server.ee/2009scape-development/rs2-server/snippets/608720-arios-hybridding-improve.html
-         */
-
         var distance = if (usingHalberd(entity)) 2 else 1
         var type = InteractionType.STILL_INTERACT
         var goodRange = canMelee(entity, victim, distance)

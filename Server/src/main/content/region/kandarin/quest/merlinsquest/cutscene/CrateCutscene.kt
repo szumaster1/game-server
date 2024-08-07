@@ -10,6 +10,9 @@ import core.network.packet.PacketRepository
 import core.network.packet.context.MinimapStateContext
 import core.network.packet.outgoing.MinimapState
 
+/**
+ * Crate cutscene.
+ */
 class CrateCutscene(player: Player) : Cutscene(player) {
 
     override fun setup() {

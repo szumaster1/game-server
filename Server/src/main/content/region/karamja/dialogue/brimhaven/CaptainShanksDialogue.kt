@@ -13,6 +13,9 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 
+/**
+ * Captain shanks dialogue.
+ */
 @Initializable
 class CaptainShanksDialogue(player: Player? = null) : Dialogue(player) {
 

@@ -25,9 +25,11 @@ import kotlin.math.ceil
 import kotlin.math.floor
 
 /**
- * Handles the range combat swings.
- * @author Emperor
- * @author Ceikry, conversion to Kotlin + cleanup
+ * Range swing handler
+ *
+ * @constructor
+ *
+ * @param flags
  */
 open class RangeSwingHandler(vararg flags: SwingHandlerFlag) : CombatSwingHandler(CombatStyle.RANGE, *flags) {
     override fun canSwing(entity: Entity, victim: Entity): InteractionType? {
@@ -97,9 +99,10 @@ open class RangeSwingHandler(vararg flags: SwingHandlerFlag) : CombatSwingHandle
     }
 
     /**
-     * Configures the range data.
-     * @param entity The entity.
-     * @param state The battle state.
+     * Configure range data
+     *
+     * @param entity
+     * @param state
      */
     fun configureRangeData(entity: Entity?, state: BattleState?) {
         state!!.style = CombatStyle.RANGE

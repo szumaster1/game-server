@@ -22,9 +22,15 @@ import core.plugin.Plugin;
 
 import static core.api.ContentAPIKt.*;
 
+/**
+ * Gnome stronghold plugin.
+ */
 @Initializable
 public final class GnomeStrongholdPlugin extends OptionHandler {
 
+    /**
+     * The constant GRAND_TREE.
+     */
     public static final ZoneBorders GRAND_TREE = new ZoneBorders(2465, 3491, 2466, 3493);
 
     @Override

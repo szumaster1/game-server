@@ -3,6 +3,12 @@ package core.game.node.entity.player.link.request
 import core.game.node.entity.player.Player
 import core.game.world.GameWorld.ticks
 
+/**
+ * Request manager
+ *
+ * @property player
+ * @constructor Request manager
+ */
 class RequestManager(val player: Player) {
     /*
      * Represents the target being requested.
@@ -10,7 +16,13 @@ class RequestManager(val player: Player) {
     var target: Player? = null
         private set
 
-    /*
+    /**
+     * Request
+     *
+     * @param target
+     * @param type
+     * @return
+     *//*
      * Method used to send a request type to a target.
      */
     fun request(target: Player, type: RequestType): Boolean {
@@ -78,7 +90,10 @@ class RequestManager(val player: Player) {
         player.interfaceManager.closeChatbox()
     }
 
-    /*
+    /**
+     * Clear
+     *
+     *//*
      * Method used to clear the cached target.
      */
     fun clear() {

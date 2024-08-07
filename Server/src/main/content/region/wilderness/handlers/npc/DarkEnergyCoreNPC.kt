@@ -16,6 +16,9 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 import core.tools.RandomFunction
 
+/**
+ * Dark energy core NPC.
+ */
 @Initializable
 class DarkEnergyCoreNPC @JvmOverloads constructor(id: Int = 8127, location: Location? = null) : AbstractNPC(id, location, false) {
 

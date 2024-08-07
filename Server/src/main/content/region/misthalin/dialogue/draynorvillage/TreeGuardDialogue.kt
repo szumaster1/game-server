@@ -10,6 +10,11 @@ import core.game.system.task.Pulse
 import core.game.world.map.Location
 import core.tools.END_DIALOGUE
 
+/**
+ * Tree guard dialogue
+ *
+ * @constructor Tree guard dialogue
+ */
 class TreeGuardDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

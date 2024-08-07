@@ -3,6 +3,12 @@ package content.minigame.duelarena
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.request.RequestModule
 
+/**
+ * Duel req module
+ *
+ * @property staked
+ * @constructor Duel req module
+ */
 class DuelReqModule(private val staked: Boolean) : RequestModule {
 
     override fun open(player: Player?, target: Player?) {

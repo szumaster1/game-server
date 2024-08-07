@@ -13,32 +13,79 @@ import core.network.packet.outgoing.UpdateGroundItemAmount;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Ground item manager.
+ */
 public final class GroundItemManager {
 
     private static final List<GroundItem> GROUND_ITEMS = new ArrayList<>(20);
 
+    /**
+     * Create ground item.
+     *
+     * @param item     the item
+     * @param location the location
+     * @return the ground item
+     */
     public static GroundItem create(Item item, Location location) {
         return create(new GroundItem(item, location, null));
     }
 
+    /**
+     * Create ground item.
+     *
+     * @param item      the item
+     * @param location  the location
+     * @param playerUid the player uid
+     * @param ticks     the ticks
+     * @return the ground item
+     */
     public static GroundItem create(Item item, Location location, int playerUid, int ticks) {
         return create(new GroundItem(item, location, playerUid, ticks));
     }
 
+    /**
+     * Create ground item.
+     *
+     * @param item   the item
+     * @param player the player
+     * @return the ground item
+     */
     public static GroundItem create(Item item, final Player player) {
         return create(new GroundItem(item, player.getLocation(), player));
     }
 
+    /**
+     * Create ground item.
+     *
+     * @param item     the item
+     * @param location the location
+     * @param player   the player
+     * @return the ground item
+     */
     public static GroundItem create(Item item, Location location, Player player) {
         return create(new GroundItem(item, location, player));
     }
 
+    /**
+     * Create.
+     *
+     * @param item     the item
+     * @param location the location
+     * @param player   the player
+     */
     public static void create(Item[] item, Location location, Player player) {
         for (int i = 0; i < item.length; i++) {
             create(new GroundItem(item[i], location, player));
         }
     }
 
+    /**
+     * Create ground item.
+     *
+     * @param item the item
+     * @return the ground item
+     */
     public static GroundItem create(GroundItem item) {
         if (!item.getDefinition().isTradeable()) {
             item.setRemainPrivate(true);
@@ -54,6 +101,12 @@ public final class GroundItemManager {
         return null;
     }
 
+    /**
+     * Destroy ground item.
+     *
+     * @param item the item
+     * @return the ground item
+     */
     public static GroundItem destroy(GroundItem item) {
         if (item == null) {
             return null;
@@ -66,10 +119,26 @@ public final class GroundItemManager {
         return item;
     }
 
+    /**
+     * Get ground item.
+     *
+     * @param itemId   the item id
+     * @param location the location
+     * @param player   the player
+     * @return the ground item
+     */
     public static GroundItem get(int itemId, Location location, Player player) {
         return RegionManager.getRegionPlane(location).getItem(itemId, location, player);
     }
 
+    /**
+     * Increase ground item.
+     *
+     * @param item     the item
+     * @param location the location
+     * @param p        the p
+     * @return the ground item
+     */
     public static GroundItem increase(Item item, Location location, Player p) {
         GroundItem g = get(item.getId(), location, p);
         if (g == null || !g.droppedBy(p) || !g.isPrivate() || g.isRemoved()) {
@@ -81,6 +150,9 @@ public final class GroundItemManager {
         return g;
     }
 
+    /**
+     * Pulse.
+     */
     public static void pulse() {
         Object[] giArray = GROUND_ITEMS.toArray();
         int size = giArray.length;
@@ -107,6 +179,11 @@ public final class GroundItemManager {
         }
     }
 
+    /**
+     * Gets items.
+     *
+     * @return the items
+     */
     public static List<GroundItem> getItems() {
         return GROUND_ITEMS;
     }

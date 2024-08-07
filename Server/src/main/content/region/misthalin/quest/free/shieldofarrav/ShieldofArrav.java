@@ -19,23 +19,50 @@ import core.plugin.Initializable;
 import static core.api.ContentAPIKt.removeAttribute;
 import static core.api.ContentAPIKt.setAttribute;
 
+/**
+ * Shieldof arrav.
+ */
 @Initializable
 public class ShieldofArrav extends Quest {
 
+    /**
+     * The constant BOOK.
+     */
     public static final Item BOOK = new Item(757);
 
+    /**
+     * The constant INTEL_REPORT.
+     */
     public static final Item INTEL_REPORT = new Item(761);
 
+    /**
+     * The constant KEY.
+     */
     public static final Item KEY = new Item(759);
 
+    /**
+     * The constant PHOENIX_SHIELD.
+     */
     public static final Item PHOENIX_SHIELD = new Item(763);
 
+    /**
+     * The constant BLACKARM_SHIELD.
+     */
     public static final Item BLACKARM_SHIELD = new Item(765);
 
+    /**
+     * The constant BLACKARM_CERTIFICATE.
+     */
     public static final Item BLACKARM_CERTIFICATE = new Item(11174, 2);
 
+    /**
+     * The constant PHOENIX_CERTIFICATE.
+     */
     public static final Item PHOENIX_CERTIFICATE = new Item(11173, 2);
 
+    /**
+     * Instantiates a new Shieldof arrav.
+     */
     public ShieldofArrav() {
         super("Shield of Arrav", 29, 28, 1, Vars.VARP_QUEST_SHIELD_OF_ARRAV_PROGRESS, 0, 1, 7);
     }
@@ -192,38 +219,88 @@ public class ShieldofArrav extends Quest {
         player.getPacketDispatch().sendItemZoomOnInterface(767, 1, 230, 277, 3 + 2);
     }
 
+    /**
+     * Sets phoenix.
+     *
+     * @param player the player
+     */
     public static void setPhoenix(final Player player) {
         setAttribute(player, "/save:phoenix-gang", true);
     }
 
+    /**
+     * Sets black arm.
+     *
+     * @param player the player
+     */
     public static void setBlackArm(final Player player) {
         setAttribute(player, "/save:black-arm-gang", true);
     }
 
+    /**
+     * Is phoenix boolean.
+     *
+     * @param player the player
+     * @return the boolean
+     */
     public static boolean isPhoenix(final Player player) {
         return player.getAttribute("phoenix-gang", false);
     }
 
+    /**
+     * Is black arm boolean.
+     *
+     * @param player the player
+     * @return the boolean
+     */
     public static boolean isBlackArm(final Player player) {
         return player.getAttribute("black-arm-gang", false);
     }
 
+    /**
+     * Sets phoenix mission.
+     *
+     * @param player the player
+     */
     public static void setPhoenixMission(final Player player) {
         setAttribute(player, "/save:phoenix-mission", true);
     }
 
+    /**
+     * Sets black arm mission.
+     *
+     * @param player the player
+     */
     public static void setBlackArmMission(final Player player) {
         setAttribute(player, "/save:blackarm-mission", true);
     }
 
+    /**
+     * Is black arm mission boolean.
+     *
+     * @param player the player
+     * @return the boolean
+     */
     public static boolean isBlackArmMission(final Player player) {
         return player.getAttribute("blackarm-mission", false);
     }
 
+    /**
+     * Is phoenix mission boolean.
+     *
+     * @param player the player
+     * @return the boolean
+     */
     public static boolean isPhoenixMission(final Player player) {
         return player.getAttribute("phoenix-mission", false);
     }
 
+    /**
+     * Gets shield.
+     *
+     * @param player the player
+     * @return the shield
+     */
     public static final Item getShield(final Player player) {
         return isBlackArm(player) ? BLACKARM_SHIELD : PHOENIX_SHIELD;
     }

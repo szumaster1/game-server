@@ -7,14 +7,16 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.item.Item
 
+/**
+ * Fire lighter listener.
+ */
 class FireLighterListener : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Use gnomish firelighter to colour the log.
          */
-
         onUseWith(IntType.ITEM, NORMAL_LOG, *FIRELIGHTER) { player, used, with ->
             var firelighter = GnomishFirelighters.forProduct(with.id)
             if (with.asItem().id == firelighter!!.product || used.id == firelighter.base) {

@@ -6,10 +6,22 @@ import core.cache.misc.buffer.ByteBufferUtils
 import core.tools.Log
 import java.nio.ByteBuffer
 
+/**
+ * Struct
+ *
+ * @property id
+ * @constructor Struct
+ */
 class Struct(val id: Int) {
 
     var dataStore: HashMap<Int, Any> = HashMap()
 
+    /**
+     * Get int
+     *
+     * @param key
+     * @return
+     */
     fun getInt(key: Int): Int {
         if (!dataStore.containsKey(key)) {
             log(this.javaClass, Log.ERR, "Invalid value passed for key: $key struct: $id")
@@ -18,6 +30,12 @@ class Struct(val id: Int) {
         return dataStore[key] as Int
     }
 
+    /**
+     * Get string
+     *
+     * @param key
+     * @return
+     */
     fun getString(key: Int): String? {
         return dataStore[key] as String?
     }

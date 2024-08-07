@@ -10,6 +10,9 @@ import core.game.world.map.Location;
 import core.plugin.ClassScanner;
 import core.plugin.Initializable;
 
+/**
+ * Ernest the chicken.
+ */
 @Initializable
 public final class ErnestTheChicken extends Quest {
 
@@ -21,6 +24,9 @@ public final class ErnestTheChicken extends Quest {
 
     private static final Item COINS = new Item(995, 300);
 
+    /**
+     * Instantiates a new Ernest the chicken.
+     */
     public ErnestTheChicken() {
         super("Ernest the Chicken", 19, 18, 4, Vars.VARP_QUEST_ERNEST_THE_CHICKEN_PROGRESS, 0, 1, 3);
     }
@@ -75,12 +81,18 @@ public final class ErnestTheChicken extends Quest {
         }
     }
 
+    /**
+     * Ernest chicken npc.
+     */
     public final static class ErnestChickenNPC extends AbstractNPC {
 
 
         private static final int[] ID = {288};
 
 
+        /**
+         * Instantiates a new Ernest chicken npc.
+         */
         public ErnestChickenNPC() {
             super(0, null, false);
         }
@@ -107,12 +119,18 @@ public final class ErnestTheChicken extends Quest {
 
     }
 
+    /**
+     * Ernest npc.
+     */
     public final static class ErnestNPC extends AbstractNPC {
 
 
         private static final int[] ID = {287};
 
 
+        /**
+         * Instantiates a new Ernest npc.
+         */
         public ErnestNPC() {
             super(0, null, false);
         }

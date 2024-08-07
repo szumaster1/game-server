@@ -6,6 +6,9 @@ import core.game.node.entity.npc.NPCBehavior
 import core.tools.RandomFunction
 import core.api.consts.NPCs
 
+/**
+ * Gundik NPC.
+ */
 class GundikNPC : NPCBehavior(NPCs.GUNDIK_5796) {
 
     private val forceChat = arrayOf(

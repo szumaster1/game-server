@@ -5,6 +5,9 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.world.map.Location
 
+/**
+ * Monastery listeners.
+ */
 class MonasteryListeners : InteractionListener {
 
     companion object {
@@ -13,10 +16,9 @@ class MonasteryListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Entrance leading to the 1st floor of the monastery.
          */
-
         on(STAIRS, IntType.SCENERY, "climb-up"){ player, node ->
             when (node.id) {
                 2641 -> {

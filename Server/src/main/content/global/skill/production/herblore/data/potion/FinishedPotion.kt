@@ -4,6 +4,16 @@ import content.global.skill.production.herblore.data.GrindingItem
 import core.api.consts.Items
 import core.game.node.item.Item
 
+/**
+ * Finished potion
+ *
+ * @property unfinished
+ * @property ingredient
+ * @property level
+ * @property experience
+ * @property potion
+ * @constructor Finished potion
+ */
 enum class FinishedPotion(
     val unfinished: UnfinishedPotion,
     val ingredient: Item,
@@ -11,6 +21,11 @@ enum class FinishedPotion(
     val experience: Double,
     val potion: Item
 ) {
+    /**
+     * Attack Potion
+     *
+     * @constructor Attack Potion
+     */
     ATTACK_POTION(
         unfinished = UnfinishedPotion.GUAM,
         ingredient = Item(Items.EYE_OF_NEWT_221),
@@ -18,6 +33,12 @@ enum class FinishedPotion(
         experience = 25.0,
         potion = Item(Items.ATTACK_POTION3_121)
     ),
+
+    /**
+     * Antipoison Potion
+     *
+     * @constructor Antipoison Potion
+     */
     ANTIPOISON_POTION(
         unfinished = UnfinishedPotion.MARRENTILL,
         ingredient = Item(Items.UNICORN_HORN_DUST_235),
@@ -25,6 +46,12 @@ enum class FinishedPotion(
         experience = 37.5,
         potion = Item(Items.ANTIPOISON3_175)
     ),
+
+    /**
+     * Relicym Balm
+     *
+     * @constructor Relicym Balm
+     */
     RELICYM_BALM(
         unfinished = UnfinishedPotion.ROGUE_PURSE,
         ingredient = Item(Items.CLEAN_SNAKE_WEED_1526),
@@ -32,6 +59,12 @@ enum class FinishedPotion(
         experience = 0.0,
         potion = Item(Items.RELICYMS_BALM3_4844)
     ),
+
+    /**
+     * Strength Potion
+     *
+     * @constructor Strength Potion
+     */
     STRENGTH_POTION(
         unfinished = UnfinishedPotion.TARROMIN,
         ingredient = Item(Items.LIMPWURT_ROOT_225),
@@ -39,6 +72,12 @@ enum class FinishedPotion(
         experience = 50.0,
         potion = Item(Items.STRENGTH_POTION3_115)
     ),
+
+    /**
+     * Restore Potion
+     *
+     * @constructor Restore Potion
+     */
     RESTORE_POTION(
         unfinished = UnfinishedPotion.HARRALANDER,
         ingredient = Item(Items.RED_SPIDERS_EGGS_223),
@@ -46,6 +85,12 @@ enum class FinishedPotion(
         experience = 62.5,
         potion = Item(Items.RESTORE_POTION3_127)
     ),
+
+    /**
+     * Energy Potion
+     *
+     * @constructor Energy Potion
+     */
     ENERGY_POTION(
         unfinished = UnfinishedPotion.HARRALANDER,
         ingredient = Item(Items.CHOCOLATE_DUST_1975),
@@ -53,6 +98,12 @@ enum class FinishedPotion(
         experience = 67.5,
         potion = Item(Items.ENERGY_POTION3_3010)
     ),
+
+    /**
+     * Defence Potion
+     *
+     * @constructor Defence Potion
+     */
     DEFENCE_POTION(
         unfinished = UnfinishedPotion.RANARR,
         ingredient = Item(Items.WHITE_BERRIES_239),
@@ -60,6 +111,12 @@ enum class FinishedPotion(
         experience = 45.0,
         potion = Item(Items.DEFENCE_POTION3_133)
     ),
+
+    /**
+     * Agility Potion
+     *
+     * @constructor Agility Potion
+     */
     AGILITY_POTION(
         unfinished = UnfinishedPotion.TOADFLAX,
         ingredient = Item(Items.TOADS_LEGS_2152),
@@ -67,6 +124,12 @@ enum class FinishedPotion(
         experience = 80.0,
         potion = Item(Items.AGILITY_POTION3_3034)
     ),
+
+    /**
+     * Combat Potion
+     *
+     * @constructor Combat Potion
+     */
     COMBAT_POTION(
         unfinished = UnfinishedPotion.HARRALANDER,
         ingredient = Item(Items.GOAT_HORN_DUST_9736),
@@ -74,6 +137,12 @@ enum class FinishedPotion(
         experience = 84.0,
         potion = Item(Items.COMBAT_POTION3_9741)
     ),
+
+    /**
+     * Prayer Potion
+     *
+     * @constructor Prayer Potion
+     */
     PRAYER_POTION(
         unfinished = UnfinishedPotion.RANARR,
         ingredient = Item(Items.SNAPE_GRASS_231),
@@ -81,6 +150,12 @@ enum class FinishedPotion(
         experience = 87.5,
         potion = Item(Items.PRAYER_POTION3_139)
     ),
+
+    /**
+     * Summoning Potion
+     *
+     * @constructor Summoning Potion
+     */
     SUMMONING_POTION(
         unfinished = UnfinishedPotion.SPIRIT_WEED,
         ingredient = Item(Items.COCKATRICE_EGG_12109),
@@ -88,6 +163,12 @@ enum class FinishedPotion(
         experience = 92.0,
         potion = Item(Items.SUMMONING_POTION3_12142)
     ),
+
+    /**
+     * Super Attack
+     *
+     * @constructor Super Attack
+     */
     SUPER_ATTACK(
         unfinished = UnfinishedPotion.IRIT,
         ingredient = Item(Items.EYE_OF_NEWT_221),
@@ -95,6 +176,12 @@ enum class FinishedPotion(
         experience = 100.0,
         potion = Item(Items.SUPER_ATTACK3_145)
     ),
+
+    /**
+     * Super Antipoison
+     *
+     * @constructor Super Antipoison
+     */
     SUPER_ANTIPOISON(
         unfinished = UnfinishedPotion.IRIT,
         ingredient = Item(Items.UNICORN_HORN_DUST_235),
@@ -102,6 +189,12 @@ enum class FinishedPotion(
         experience = 106.3,
         potion = Item(Items.SUPER_ANTIPOISON3_181)
     ),
+
+    /**
+     * Fishing Potion
+     *
+     * @constructor Fishing Potion
+     */
     FISHING_POTION(
         unfinished = UnfinishedPotion.AVANTOE,
         ingredient = Item(Items.SNAPE_GRASS_231),
@@ -109,6 +202,12 @@ enum class FinishedPotion(
         experience = 112.5,
         potion = Item(Items.FISHING_POTION3_151)
     ),
+
+    /**
+     * Super Energy
+     *
+     * @constructor Super Energy
+     */
     SUPER_ENERGY(
         unfinished = UnfinishedPotion.AVANTOE,
         ingredient = Item(Items.MORT_MYRE_FUNGUS_2970),
@@ -116,6 +215,12 @@ enum class FinishedPotion(
         experience = 117.5,
         potion = Item(Items.SUPER_ENERGY3_3018)
     ),
+
+    /**
+     * Hunting Potion
+     *
+     * @constructor Hunting Potion
+     */
     HUNTING_POTION(
         unfinished = UnfinishedPotion.AVANTOE,
         ingredient = Item(Items.KEBBIT_TEETH_DUST_10111),
@@ -123,6 +228,12 @@ enum class FinishedPotion(
         experience = 120.0,
         potion = Item(Items.HUNTER_POTION3_10000)
     ),
+
+    /**
+     * Super Strength
+     *
+     * @constructor Super Strength
+     */
     SUPER_STRENGTH(
         unfinished = UnfinishedPotion.KWUARM,
         ingredient = Item(Items.LIMPWURT_ROOT_225),
@@ -130,6 +241,12 @@ enum class FinishedPotion(
         experience = 125.0,
         potion = Item(Items.SUPER_STRENGTH3_157)
     ),
+
+    /**
+     * Weapon Poison
+     *
+     * @constructor Weapon Poison
+     */
     WEAPON_POISON(
         unfinished = UnfinishedPotion.KWUARM,
         ingredient = Item(Items.DRAGON_SCALE_DUST_241),
@@ -137,6 +254,12 @@ enum class FinishedPotion(
         experience = 137.5,
         potion = Item(Items.WEAPON_POISON_187)
     ),
+
+    /**
+     * Super Restore
+     *
+     * @constructor Super Restore
+     */
     SUPER_RESTORE(
         unfinished = UnfinishedPotion.SNAPDRAGON,
         ingredient = Item(Items.RED_SPIDERS_EGGS_223),
@@ -144,6 +267,12 @@ enum class FinishedPotion(
         experience = 142.5,
         potion = Item(Items.SUPER_RESTORE3_3026)
     ),
+
+    /**
+     * Super Defence
+     *
+     * @constructor Super Defence
+     */
     SUPER_DEFENCE(
         unfinished = UnfinishedPotion.CADANTINE,
         ingredient = Item(Items.WHITE_BERRIES_239),
@@ -151,6 +280,12 @@ enum class FinishedPotion(
         experience = 160.0,
         potion = Item(Items.SUPER_DEFENCE3_163)
     ),
+
+    /**
+     * Antifire
+     *
+     * @constructor Antifire
+     */
     ANTIFIRE(
         unfinished = UnfinishedPotion.LANTADYME,
         ingredient = Item(Items.DRAGON_SCALE_DUST_241),
@@ -158,6 +293,12 @@ enum class FinishedPotion(
         experience = 157.5,
         potion = Item(Items.ANTIFIRE_POTION3_2454)
     ),
+
+    /**
+     * Super Ranging Potion
+     *
+     * @constructor Super Ranging Potion
+     */
     SUPER_RANGING_POTION(
         unfinished = UnfinishedPotion.DWARF_WEED,
         ingredient = Item(Items.WINE_OF_ZAMORAK_245),
@@ -165,6 +306,12 @@ enum class FinishedPotion(
         experience = 162.5,
         potion = Item(Items.RANGING_POTION3_169)
     ),
+
+    /**
+     * Super Magic
+     *
+     * @constructor Super Magic
+     */
     SUPER_MAGIC(
         unfinished = UnfinishedPotion.LANTADYME,
         ingredient = Item(Items.POTATO_CACTUS_3138),
@@ -172,6 +319,12 @@ enum class FinishedPotion(
         experience = 172.5,
         potion = Item(Items.MAGIC_POTION3_3042)
     ),
+
+    /**
+     * Zamorak Brew
+     *
+     * @constructor Zamorak Brew
+     */
     ZAMORAK_BREW(
         unfinished = UnfinishedPotion.TORSTOL,
         ingredient = Item(Items.JANGERBERRIES_247),
@@ -179,6 +332,12 @@ enum class FinishedPotion(
         experience = 175.0,
         potion = Item(Items.ZAMORAK_BREW3_189)
     ),
+
+    /**
+     * Saradomin Brew
+     *
+     * @constructor Saradomin Brew
+     */
     SARADOMIN_BREW(
         unfinished = UnfinishedPotion.TOADFLAX,
         ingredient = GrindingItem.BIRDS_NEST.product,
@@ -186,6 +345,12 @@ enum class FinishedPotion(
         experience = 180.0,
         potion = Item(Items.SARADOMIN_BREW3_6687)
     ),
+
+    /**
+     * Strong Weapon Poison
+     *
+     * @constructor Strong Weapon Poison
+     */
     STRONG_WEAPON_POISON(
         unfinished = UnfinishedPotion.STRONG_WEAPON_POISON,
         ingredient = Item(Items.RED_SPIDERS_EGGS_223),
@@ -193,6 +358,12 @@ enum class FinishedPotion(
         experience = 165.0,
         potion = Item(Items.WEAPON_POISON_PLUS_5937)
     ),
+
+    /**
+     * Super Strong Weapon Poison
+     *
+     * @constructor Super Strong Weapon Poison
+     */
     SUPER_STRONG_WEAPON_POISON(
         unfinished = UnfinishedPotion.SUPER_STRONG_WEAPON_POISON,
         ingredient = Item(Items.POISON_IVY_BERRIES_6018),
@@ -200,6 +371,12 @@ enum class FinishedPotion(
         experience = 190.0,
         potion = Item(Items.WEAPON_POISON_PLUS_PLUS_5940)
     ),
+
+    /**
+     * Strong Antipoison
+     *
+     * @constructor Strong Antipoison
+     */
     STRONG_ANTIPOISON(
         unfinished = UnfinishedPotion.STRONG_ANTIPOISON,
         ingredient = Item(Items.YEW_ROOTS_6049),
@@ -207,6 +384,12 @@ enum class FinishedPotion(
         experience = 155.0,
         potion = Item(Items.ANTIPOISON_PLUS3_5945)
     ),
+
+    /**
+     * Super Strong Antipoison
+     *
+     * @constructor Super Strong Antipoison
+     */
     SUPER_STRONG_ANTIPOISON(
         unfinished = UnfinishedPotion.SUPER_STRONG_ANTIPOISON,
         ingredient = Item(Items.MAGIC_ROOTS_6051),
@@ -214,6 +397,12 @@ enum class FinishedPotion(
         experience = 177.5,
         potion = Item(Items.ANTIPOISON_PLUS_PLUS3_5954)
     ),
+
+    /**
+     * Blamish Oil
+     *
+     * @constructor Blamish Oil
+     */
     BLAMISH_OIL(
         unfinished = UnfinishedPotion.HARRALANDER,
         ingredient = Item(Items.BLAMISH_SNAIL_SLIME_1581),

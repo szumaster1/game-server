@@ -5,7 +5,6 @@ import core.network.packet.Context
 
 /**
  * The default packet context.
- * @author Emperor
  */
 class PlayerContext(private val player: Player) : Context {
 

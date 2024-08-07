@@ -13,6 +13,9 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 
+/**
+ * Man dialogue.
+ */
 @Initializable
 class ManDialogue(player: Player? = null) : Dialogue(player) {
 

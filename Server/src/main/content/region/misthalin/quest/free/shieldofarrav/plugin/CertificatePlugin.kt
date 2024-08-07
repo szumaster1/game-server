@@ -6,6 +6,11 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Certificate plugin
+ *
+ * @constructor Certificate plugin
+ */
 @Initializable
 class CertificatePlugin : UseWithHandler(11173) {
 

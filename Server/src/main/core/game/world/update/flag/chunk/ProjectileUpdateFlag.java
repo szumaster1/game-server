@@ -7,8 +7,16 @@ import core.game.world.map.Location;
 import core.game.world.update.flag.UpdateFlag;
 import core.network.packet.IoBuffer;
 
+/**
+ * Projectile update flag.
+ */
 public final class ProjectileUpdateFlag extends UpdateFlag<Projectile> {
 
+    /**
+     * Instantiates a new Projectile update flag.
+     *
+     * @param projectile the projectile
+     */
     public ProjectileUpdateFlag(Projectile projectile) {
         super(projectile);
     }

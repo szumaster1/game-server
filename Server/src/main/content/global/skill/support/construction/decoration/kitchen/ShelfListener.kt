@@ -10,7 +10,9 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
-
+/**
+ * Shelf listener.
+ */
 class ShelfListener : InteractionListener {
 
 
@@ -22,6 +24,13 @@ class ShelfListener : InteractionListener {
         }
     }
 
+    /**
+     * Shelf dialogue
+     *
+     * @constructor
+     *
+     * @param player
+     */
     inner class ShelfDialogue(player: Player? = null) : Dialogue(player) {
 
         override fun newInstance(player: Player): Dialogue {

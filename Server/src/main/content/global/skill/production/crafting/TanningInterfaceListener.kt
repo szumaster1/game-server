@@ -6,6 +6,9 @@ import core.api.sendInputDialogue
 import core.game.interaction.InterfaceListener
 import core.game.node.item.Item
 
+/**
+ * Tanning interface listener.
+ */
 class TanningInterfaceListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {

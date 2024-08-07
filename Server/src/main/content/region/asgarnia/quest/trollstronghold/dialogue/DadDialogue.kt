@@ -13,6 +13,9 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
+/**
+ * Dad dialogue.
+ */
 @Initializable
 class DadDialogue(player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
@@ -47,6 +50,12 @@ class DadDialogue(player: Player? = null) : Dialogue(player) {
     }
 }
 
+/**
+ * Dad t s dialogue file
+ *
+ * @property dialogueNum
+ * @constructor Dad t s dialogue file
+ */
 class DadTSDialogueFile(private val dialogueNum: Int = 0) : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

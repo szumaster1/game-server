@@ -5,7 +5,16 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import java.util.*
 
+/**
+ * Easter event tests
+ *
+ * @constructor Easter event tests
+ */
 class EasterEventTests {
+    /**
+     * Event should only trigger in april
+     *
+     */
     @Test fun eventShouldOnlyTriggerInApril()
     {
         val inst = EasterEvent()
@@ -27,6 +36,10 @@ class EasterEventTests {
         Assertions.assertEquals(false, inst.checkActive(calInst))
     }
 
+    /**
+     * Get locations for name should return expected list
+     *
+     */
     @Test fun getLocationsForNameShouldReturnExpectedList()
     {
         val expectations = arrayOf(
@@ -44,6 +57,10 @@ class EasterEventTests {
         }
     }
 
+    /**
+     * Get random location data should return a random location name and list of unique random locations
+     *
+     */
     @Test fun getRandomLocationDataShouldReturnARandomLocationNameAndListOfUniqueRandomLocations()
     {
         val inst = EasterEvent()
@@ -64,6 +81,10 @@ class EasterEventTests {
         Assertions.assertEquals(true, similarityTolerance > 0)
     }
 
+    /**
+     * Each location group should contain no duplicate locations
+     *
+     */
     @Test fun eachLocationGroupShouldContainNoDuplicateLocations() {
         for (locSet in arrayOf(
             EasterEvent.FALADOR_SPOTS,
@@ -84,6 +105,10 @@ class EasterEventTests {
         }
     }
 
+    /**
+     * Gfx for egg should return correct gfx
+     *
+     */
     @Test fun gfxForEggShouldReturnCorrectGfx()
     {
         val expectations = arrayOf(

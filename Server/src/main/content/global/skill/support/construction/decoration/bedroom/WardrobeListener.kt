@@ -10,6 +10,9 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.system.task.Pulse
 
+/**
+ * Wardrobe listener.
+ */
 class WardrobeListener: InteractionListener {
 
     private val wardrobeIds =

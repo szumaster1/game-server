@@ -7,6 +7,18 @@ import core.api.consts.Sounds
 import core.game.node.item.Item
 import core.game.world.update.flag.context.Graphic
 
+/**
+ * Charge orb data
+ *
+ * @property obelisk
+ * @property requiredRunes
+ * @property level
+ * @property experience
+ * @property graphics
+ * @property sound
+ * @property chargedOrb
+ * @constructor Charge orb data
+ */
 enum class ChargeOrbData(
     val obelisk: Int,
     val requiredRunes: Array<Item>,
@@ -16,6 +28,11 @@ enum class ChargeOrbData(
     val sound: Int,
     val chargedOrb: Int
 ) {
+    /**
+     * Charge Water Orb
+     *
+     * @constructor Charge Water Orb
+     */
     CHARGE_WATER_ORB(
         obelisk = Scenery.OBELISK_OF_WATER_2151,
         requiredRunes = arrayOf(Item(Items.COSMIC_RUNE_564, 3), Item(Items.WATER_RUNE_555, 30), Item(Items.UNPOWERED_ORB_567)),
@@ -25,6 +42,12 @@ enum class ChargeOrbData(
         sound = Sounds.CHARGE_WATER_ORB_118,
         chargedOrb = Items.WATER_ORB_571
     ),
+
+    /**
+     * Charge Earth Orb
+     *
+     * @constructor Charge Earth Orb
+     */
     CHARGE_EARTH_ORB(
         obelisk = Scenery.OBELISK_OF_EARTH_29415,
         requiredRunes = arrayOf(Item(Items.COSMIC_RUNE_564, 3), Item(Items.EARTH_RUNE_557, 30), Item(Items.UNPOWERED_ORB_567)),
@@ -34,6 +57,12 @@ enum class ChargeOrbData(
         sound = Sounds.CHARGE_EARTH_ORB_115,
         chargedOrb = Items.EARTH_ORB_575
     ),
+
+    /**
+     * Charge Fire Orb
+     *
+     * @constructor Charge Fire Orb
+     */
     CHARGE_FIRE_ORB(
         obelisk = Scenery.OBELISK_OF_FIRE_2153,
         requiredRunes = arrayOf(Item(Items.COSMIC_RUNE_564, 3), Item(Items.FIRE_RUNE_554, 30), Item(Items.UNPOWERED_ORB_567)),
@@ -43,6 +72,12 @@ enum class ChargeOrbData(
         sound = Sounds.CHARGE_FIRE_ORB_117,
         chargedOrb = Items.FIRE_ORB_569
     ),
+
+    /**
+     * Charge Air Orb
+     *
+     * @constructor Charge Air Orb
+     */
     CHARGE_AIR_ORB(
         obelisk = Scenery.OBELISK_OF_AIR_2152,
         requiredRunes = arrayOf(Item(Items.COSMIC_RUNE_564, 3), Item(Items.AIR_RUNE_556, 30), Item(Items.UNPOWERED_ORB_567)),

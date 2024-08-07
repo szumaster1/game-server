@@ -18,6 +18,9 @@ import core.plugin.Plugin
 import kotlin.math.ceil
 import kotlin.math.roundToInt
 
+/**
+ * Grind item handler.
+ */
 @Initializable
 class GrindItemHandler : UseWithHandler(Items.PESTLE_AND_MORTAR_233) {
 

@@ -10,6 +10,9 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 
+/**
+ * Al kharid pit shortcut.
+ */
 @Initializable
 class AlKharidPitShortcut : AgilityShortcut(intArrayOf(9331, 9332), 38, 0.0, "climb") {
 

@@ -3,6 +3,10 @@ package content.global.handlers.iface.bank
 import core.api.consts.Components
 import core.game.interaction.InterfaceListener
 
+/**
+ * Handles the bank pin interfaces.
+ * @author Vexia
+ */
 class BankPinkInterfaceListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {

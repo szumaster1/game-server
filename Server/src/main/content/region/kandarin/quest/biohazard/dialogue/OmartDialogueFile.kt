@@ -6,6 +6,11 @@ import core.game.dialogue.DialogueFile
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
+/**
+ * Omart dialogue file
+ *
+ * @constructor Omart dialogue file
+ */
 class OmartDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         val questStage = getQuestStage(player!!, "Biohazard")

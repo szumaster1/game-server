@@ -9,6 +9,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.START_DIALOGUE
 
+/**
+ * Dawg dialogue.
+ */
 @Initializable
 class DawgDialogue(player: Player? = null) : Dialogue(player) {
 

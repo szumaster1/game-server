@@ -12,6 +12,9 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Martin thwait dialogue.
+ */
 @Initializable
 class MartinThwaitDialogue(player: Player? = null) : Dialogue(player) {
 

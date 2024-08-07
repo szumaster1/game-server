@@ -12,6 +12,9 @@ import core.game.node.entity.player.link.SpellBookManager.SpellBook
 import core.game.world.map.Location
 import core.tools.RandomFunction
 
+/**
+ * Battle mage NPC.
+ */
 class BattleMageNPC : AbstractNPC {
 
     private val type: GodType?

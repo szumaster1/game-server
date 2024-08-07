@@ -10,6 +10,11 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 import core.tools.RED
 
+/**
+ * Goblin book
+ *
+ * @constructor Goblin book
+ */
 class GoblinBook : InteractionListener {
     companion object {
         private val TITLE = "The Book of the Big High War God"

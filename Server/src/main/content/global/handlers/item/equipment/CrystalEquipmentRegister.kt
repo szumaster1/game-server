@@ -3,6 +3,11 @@ package content.global.handlers.item.equipment
 import core.api.StartupListener
 import core.api.consts.Items
 
+/**
+ * Crystal equipment register
+ *
+ * @constructor Crystal equipment register
+ */
 class CrystalEquipmentRegister : StartupListener {
 
     val shield: Array<Int> = arrayOf(

@@ -24,6 +24,9 @@ import kotlin.Unit;
 import static core.api.ContentAPIKt.*;
 import static core.tools.GlobalsKt.colorize;
 
+/**
+ * Rug merchant dialogue.
+ */
 @Initializable
 public final class RugMerchantDialogue extends Dialogue {
 
@@ -33,6 +36,9 @@ public final class RugMerchantDialogue extends Dialogue {
 	private RugDestination[] options;
 	private RugDestination destination;
 
+    /**
+     * Instantiates a new Rug merchant dialogue.
+     */
     public RugMerchantDialogue() {
 	}
 
@@ -42,6 +48,11 @@ public final class RugMerchantDialogue extends Dialogue {
 		ClassScanner.definePlugin(new RugMerchantPlugin());
 	}
 
+    /**
+     * Instantiates a new Rug merchant dialogue.
+     *
+     * @param player the player
+     */
     public RugMerchantDialogue(final Player player) {
 		super(player);
 	}
@@ -161,6 +172,12 @@ public final class RugMerchantDialogue extends Dialogue {
 		interpreter.sendOptions("Select a Destination", options);
 	}
 
+    /**
+     * Get destination rug destination [ ].
+     *
+     * @param npcId the npc id
+     * @return the rug destination [ ]
+     */
     /*
 	 * Gets the rug destinations for an npc id.
 	 */
@@ -186,6 +203,9 @@ public final class RugMerchantDialogue extends Dialogue {
 		return IDS;
 	}
 
+    /**
+     * Rug merchant plugin.
+     */
     /*
 	 * Handles the right click on the rug merchant.
 	 */
@@ -207,16 +227,40 @@ public final class RugMerchantDialogue extends Dialogue {
 
 	}
 
+    /**
+     * The enum Rug destination.
+     */
     /*
 	 * A destination for a rug.
 	 */
 	public enum RugDestination {
+        /**
+         * The Shantay pass.
+         */
         SHANTAY_PASS(2291, Location.create(3308, 3110, 0), "Shantay Pass"),
+        /**
+         * The Bedabin camp.
+         */
         BEDABIN_CAMP(2292, Location.create(3180, 3045, 0), "Bedabin Camp", Location.create(3305, 3107, 0), Location.create(3299, 3107, 0), Location.create(3285, 3088, 0), Location.create(3285, 3073, 0), Location.create(3268, 3073, 0), Location.create(3263, 3068, 0), Location.create(3246, 3068, 0), Location.create(3246, 3057, 0), Location.create(3232, 3057, 0), Location.create(3215, 3057, 0), Location.create(3200, 3057, 0), Location.create(3179, 3057, 0), Location.create(3179, 3047, 0), Location.create(3180, 3045, 0)),
+        /**
+         * The North pollnivneach.
+         */
         NORTH_POLLNIVNEACH(2294, Location.create(3349, 3003, 0), "North Pollnivneach", new Location(3308, 3096, 0), new Location(3308, 3079, 0), new Location(3308, 3066, 0), new Location(3311, 3057, 0), new Location(3319, 3042, 0), new Location(3332, 3033, 0), new Location(3341, 3020, 0), new Location(3350, 3009, 0), new Location(3351, 3003, 0), new Location(3349, 3003, 0)),
+        /**
+         * Uzer rug destination.
+         */
         UZER(2293, Location.create(3469, 3113, 0), "Uzer", Location.create(3308, 3105, 0), Location.create(3325, 3105, 0), Location.create(3332, 3105, 0), Location.create(3332, 3080, 0), Location.create(3341, 3080, 0), Location.create(3341, 3082, 0), Location.create(3358, 3082, 0), Location.create(3370, 3082, 0), Location.create(3382, 3082, 0), Location.create(3396, 3082, 0), Location.create(3432, 3082, 0), Location.create(3432, 3093, 0), Location.create(3440, 3093, 0), Location.create(3454, 3107, 0), Location.create(3469, 3107, 0), Location.create(3469, 3113, 0)),
+        /**
+         * The Nardah.
+         */
         NARDAH(2296, Location.create(3401, 2916, 0), "Nardah", new Location(3351, 2942, 0), new Location(3350, 2936, 0), new Location(3362, 2936, 0), new Location(3380, 2928, 0), new Location(3392, 2920, 0), new Location(3397, 2916, 0), new Location(3401, 2916, 0)),
+        /**
+         * Sophanem rug destination.
+         */
         SOPHANEM(2298, Location.create(3285, 2813, 0), "Sophanem", Location.create(3351, 2934, 0), Location.create(3351, 2928, 0), Location.create(3351, 2919, 0), Location.create(3346, 2902, 0), Location.create(3339, 2884, 0), Location.create(3328, 2877, 0), Location.create(3328, 2862, 0), Location.create(3328, 2845, 0), Location.create(3318, 2838, 0), Location.create(3307, 2828, 0), Location.create(3292, 2817, 0), Location.create(3285, 2818, 0), Location.create(3285, 2813, 0)),
+        /**
+         * The South pollnivneach.
+         */
         SOUTH_POLLNIVNEACH(3020, Location.create(3351, 2942, 0), "South Pollnivneach");
 
 		private final int npc;
@@ -231,6 +275,12 @@ public final class RugMerchantDialogue extends Dialogue {
 			this.locData = locData;
 		}
 
+        /**
+         * Travel.
+         *
+         * @param current the current
+         * @param player  the player
+         */
         public void travel(final RugDestination current, final Player player) {
 			player.lock();
                         setVarp(player, 499, 0);
@@ -315,6 +365,12 @@ public final class RugMerchantDialogue extends Dialogue {
 			});
 		}
 
+        /**
+         * Has requirements boolean.
+         *
+         * @param player the player
+         * @return the boolean
+         */
         /*
 		 * Checks if the player has the requirements.
 		 */
@@ -322,6 +378,12 @@ public final class RugMerchantDialogue extends Dialogue {
 			return true;
 		}
 
+        /**
+         * For id rug destination.
+         *
+         * @param id the id
+         * @return the rug destination
+         */
         /*
 		 * Gets the rug destination object for the npc id.
 		 */
@@ -334,6 +396,11 @@ public final class RugMerchantDialogue extends Dialogue {
 			return null;
 		}
 
+        /**
+         * Gets npc.
+         *
+         * @return the npc
+         */
         /*
 		 * Gets the npc.
 		 */
@@ -341,6 +408,11 @@ public final class RugMerchantDialogue extends Dialogue {
 			return npc;
 		}
 
+        /**
+         * Gets location.
+         *
+         * @return the location
+         */
         /*
 		 * Gets the destination.
 		 */
@@ -348,6 +420,11 @@ public final class RugMerchantDialogue extends Dialogue {
 			return location;
 		}
 
+        /**
+         * Gets name.
+         *
+         * @return the name
+         */
         /*
 		 * Gets the name.
 		 */
@@ -355,6 +432,11 @@ public final class RugMerchantDialogue extends Dialogue {
 			return name;
 		}
 
+        /**
+         * Get loc data location [ ].
+         *
+         * @return the location [ ]
+         */
         /*
 		 * Gets the location.
 		 */

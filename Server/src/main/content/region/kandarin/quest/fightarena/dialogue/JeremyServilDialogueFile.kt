@@ -11,6 +11,11 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 
+/**
+ * Jeremy servil dialogue file
+ *
+ * @constructor Jeremy servil dialogue file
+ */
 class JeremyServilDialogueFile : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

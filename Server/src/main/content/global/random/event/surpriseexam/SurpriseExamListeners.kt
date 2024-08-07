@@ -10,10 +10,14 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.world.map.Location
 
+/**
+ * Surprise exam listeners.
+ */
 class SurpriseExamListeners : InteractionListener {
 
     val MORDAUT = NPCs.MR_MORDAUT_6117
     val BOOK_OF_KNOWLEDGE = Items.BOOK_OF_KNOWLEDGE_11640
+
     override fun defineListeners() {
 
         on(MORDAUT, IntType.NPC, "talk-to") { player, node ->

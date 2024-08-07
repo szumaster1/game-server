@@ -3,32 +3,90 @@
 
 package proto.management;
 
+/**
+ * The interface Clan message or builder.
+ */
 public interface ClanMessageOrBuilder extends
         // @@protoc_insertion_point(interface_extends:management.ClanMessage)
         com.google.protobuf.MessageOrBuilder {
 
+    /**
+     * Has sender boolean.
+     *
+     * @return the boolean
+     */
     boolean hasSender();
 
-    java.lang.String getSender();
+    /**
+     * Gets sender.
+     *
+     * @return the sender
+     */
+    String getSender();
 
+    /**
+     * Gets sender bytes.
+     *
+     * @return the sender bytes
+     */
     com.google.protobuf.ByteString
     getSenderBytes();
 
+    /**
+     * Has clan name boolean.
+     *
+     * @return the boolean
+     */
     boolean hasClanName();
 
-    java.lang.String getClanName();
+    /**
+     * Gets clan name.
+     *
+     * @return the clan name
+     */
+    String getClanName();
 
+    /**
+     * Gets clan name bytes.
+     *
+     * @return the clan name bytes
+     */
     com.google.protobuf.ByteString
     getClanNameBytes();
 
+    /**
+     * Has message boolean.
+     *
+     * @return the boolean
+     */
     boolean hasMessage();
 
-    java.lang.String getMessage();
+    /**
+     * Gets message.
+     *
+     * @return the message
+     */
+    String getMessage();
 
+    /**
+     * Gets message bytes.
+     *
+     * @return the message bytes
+     */
     com.google.protobuf.ByteString
     getMessageBytes();
 
+    /**
+     * Has rank boolean.
+     *
+     * @return the boolean
+     */
     boolean hasRank();
 
+    /**
+     * Gets rank.
+     *
+     * @return the rank
+     */
     int getRank();
 }

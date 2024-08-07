@@ -1,5 +1,6 @@
-package core.tools
+package core.tools;
 
+// Define color constants
 const val BLACK = "<col=000000>"
 const val RED = "<col=ff0000>"
 const val ORANGE = "<col=ff6600>"
@@ -16,7 +17,10 @@ const val DARK_GREEN = "<col=007d0c>"
 const val DARK_BLUE = "<col=08088a>"
 const val DARK_PURPLE = "<col=734a75>"
 
+// Define regex pattern for hex color codes
 private val pattern = Regex("%[0-9a-fA-F]{6}")
+
+// Define test data
 private val testData = arrayOf(
     "This is a string with no colors.",
     "This %R is a string with one color.",
@@ -24,6 +28,12 @@ private val testData = arrayOf(
     "This %ffffff is an arbitrary hex string."
 )
 
+/**
+ * Colorize font util function.
+ *
+ * @param line the string.
+ * @return colored text.
+ */
 fun colorize(line: String): String {
     return line
         .replace("%BK", BLACK)
@@ -44,18 +54,42 @@ fun colorize(line: String): String {
         .append("</col>") + " "
 }
 
+/**
+ * Colorize.
+ *
+ * @param line the string.
+ * @param hexColor the string.
+ * @return hex replace with color for string.
+ */
 fun colorize(line: String, hexColor: String): String {
     return line.prepend("<col=$hexColor>").append("</col>")
 }
 
+/**
+ * Append
+ *
+ * @param line the string.
+ * @return the concatenated string.
+ */
 fun String.append(line: String): String {
     return this + line
 }
 
+/**
+ * Prepend
+ *
+ * @param line the string.
+ * @return the concatenated string.
+ */
 fun String.prepend(line: String): String {
     return line + this
 }
 
+/**
+ * Shuffle.
+ *
+ * @return the shuffled string.
+ */
 fun String.shuffle(): String {
     var new = ""
     val old = this.split("").toMutableList()
@@ -68,9 +102,10 @@ fun String.shuffle(): String {
 }
 
 /**
- * Prepends 'a' or 'an' to a noun depending on whether it starts with a vowel.
- * @param noun the noun to check grammar rules against.
- * @return either 'a $noun' or 'a $noun' depending on the first letter.
+ * Prepend article.
+ *
+ * @param noun the string.
+ * @return the string with the appropriate article.
  */
 fun prependArticle(noun: String): String {
     if (noun == null) return noun
@@ -83,4 +118,3 @@ fun prependArticle(noun: String): String {
         else -> "a $noun"
     }
 }
-

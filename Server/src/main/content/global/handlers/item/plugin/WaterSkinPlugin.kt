@@ -7,6 +7,11 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Water skin plugin
+ *
+ * @constructor Water skin plugin
+ */
 @Initializable
 class WaterSkinPlugin :
     UseWithHandler(Items.WATERSKIN3_1825, Items.WATERSKIN2_1827, Items.WATERSKIN1_1829, Items.WATERSKIN0_1831) {

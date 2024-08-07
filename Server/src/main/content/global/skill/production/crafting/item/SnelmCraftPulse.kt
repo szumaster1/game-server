@@ -6,6 +6,11 @@ import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
+/**
+ * Snelm craft pulse.
+ * @param node
+ * @param data
+ */
 class SnelmCraftPulse(player: Player?, node: Item?, data: IntArray) : SkillPulse<Item?>(player, node) {
 
     private val data: IntArray

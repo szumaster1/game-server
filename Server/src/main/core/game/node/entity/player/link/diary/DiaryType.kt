@@ -5,7 +5,24 @@ import core.api.consts.NPCs
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
+/**
+ * Diary type
+ *
+ * @property diaryName
+ * @property buttonId
+ * @property levelNames
+ * @property achievements
+ * @property rewards
+ * @property info
+ * @property npcs
+ * @constructor Diary type
+ */
 enum class DiaryType(val diaryName: String, val buttonId: Int, val levelNames: Array<String>, val achievements: Array<Array<String>>, val rewards: Array<Array<Item>>, val info: String, val npcs: IntArray) {
+    /**
+     * Karamja
+     *
+     * @constructor Karamja
+     */
     KARAMJA(
         diaryName = "Karamja", buttonId = 11, levelNames = arrayOf("Easy", "Medium", "Hard"),
         achievements = arrayOf(
@@ -76,6 +93,12 @@ enum class DiaryType(val diaryName: String, val buttonId: Int, val levelNames: A
         // - Gem mine ladder access
         // - Teleport to underground gem mine
     ),
+
+    /**
+     * Varrock
+     *
+     * @constructor Varrock
+     */
     VARROCK(
         diaryName = "Varrock",
         buttonId = 15,
@@ -174,6 +197,12 @@ enum class DiaryType(val diaryName: String, val buttonId: Int, val levelNames: A
         // - Option to change Varrock tele location to the GE by talking to Vannaka
 
     ),
+
+    /**
+     * Lumbridge
+     *
+     * @constructor Lumbridge
+     */
     LUMBRIDGE(
         diaryName = "Lumbridge",
         buttonId = 2,
@@ -252,6 +281,12 @@ enum class DiaryType(val diaryName: String, val buttonId: Int, val levelNames: A
         info = "To start marking off tasks in your journal, speak to<br><br>Explorer Jack near the Lumbridge General Store, Bob<br><br>in his axe store or Ned in his house in Draynor Village.",  // Tasks NPC:
         npcs = intArrayOf(NPCs.EXPLORER_JACK_7969, NPCs.BOB_519, NPCs.NED_743)
     ),
+
+    /**
+     * Falador
+     *
+     * @constructor Falador
+     */
     FALADOR(
         diaryName = "Falador",
         buttonId = 23,
@@ -313,6 +348,12 @@ enum class DiaryType(val diaryName: String, val buttonId: Int, val levelNames: A
         info = "To start marking off tasks in your journal, speak to<br><br>Redbeard Frank outside the bar in Port Sarim, The<br><br>Chemist west of Rimmington, or Sir Vyvin's Squire in the<br><br>Falador Castle courtyard.",  // Tasks NPC:
         npcs = intArrayOf(NPCs.REDBEARD_FRANK_375, NPCs.CHEMIST_367, NPCs.SQUIRE_606)
     ),
+
+    /**
+     * Fremennik
+     *
+     * @constructor Fremennik
+     */
     FREMENNIK(
         diaryName = "Fremennik",
         buttonId = 19,
@@ -368,6 +409,12 @@ enum class DiaryType(val diaryName: String, val buttonId: Int, val levelNames: A
         info = "To start marking off tasks in your journal, speak to<br><br>Council Workman south of the city, Yrsa in Relleka,<br><br> or Advisor Ghrim in the 1st floor of the castle in Miscellania.",  // Tasks NPC:
         npcs = intArrayOf(NPCs.COUNCIL_WORKMAN_1287, NPCs.YRSA_1301, NPCs.ADVISOR_GHRIM_1375)
     ),
+
+    /**
+     * Seers Village
+     *
+     * @constructor Seers Village
+     */
     SEERS_VILLAGE(
         diaryName = "Seers' Village",
         buttonId = 27,
@@ -439,10 +486,22 @@ enum class DiaryType(val diaryName: String, val buttonId: Int, val levelNames: A
         // - Enhanced Excalibur - lady of the lake
     );
 
+    /**
+     * Get npc
+     *
+     * @param level
+     * @return
+     */
     fun getNpc(level: Int): Int {
         return npcs[level]
     }
 
+    /**
+     * Has reward equipment
+     *
+     * @param player
+     * @return
+     */
     fun hasRewardEquipment(player: Player): Boolean {
         for (tier in rewards) {
             for (item in tier) {
@@ -452,10 +511,22 @@ enum class DiaryType(val diaryName: String, val buttonId: Int, val levelNames: A
         return false
     }
 
+    /**
+     * Get rewards
+     *
+     * @param level
+     * @return
+     */
     fun getRewards(level: Int): Array<Item> {
         return rewards[level]
     }
 
+    /**
+     * Get achievements
+     *
+     * @param level
+     * @return
+     */
     fun getAchievements(level: Int): Array<String> {
         return achievements[level]
     }

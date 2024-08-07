@@ -9,6 +9,9 @@ import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * King arthur dialogue.
+ */
 @Initializable
 class KingArthurDialogue(player: Player? = null) : Dialogue(player) {
 

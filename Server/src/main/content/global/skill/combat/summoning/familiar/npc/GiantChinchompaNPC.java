@@ -16,13 +16,25 @@ import core.tools.RandomFunction;
 
 import java.util.List;
 
+/**
+ * Giant chinchompa npc.
+ */
 @Initializable
 public class GiantChinchompaNPC extends Familiar {
 
+    /**
+     * Instantiates a new Giant chinchompa npc.
+     */
     public GiantChinchompaNPC() {
         this(null, 7353);
     }
 
+    /**
+     * Instantiates a new Giant chinchompa npc.
+     *
+     * @param owner the owner
+     * @param id    the id
+     */
     public GiantChinchompaNPC(Player owner, int id) {
         super(owner, id, 3100, 12800, 3, WeaponInterface.STYLE_RANGE_ACCURATE);
     }

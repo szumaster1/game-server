@@ -7,6 +7,11 @@ import core.api.sendMessage
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Mining helmet listener
+ *
+ * @constructor Mining helmet listener
+ */
 class MiningHelmetListener : InteractionListener {
 
     private val miningHelmet = Items.MINING_HELMET_5013

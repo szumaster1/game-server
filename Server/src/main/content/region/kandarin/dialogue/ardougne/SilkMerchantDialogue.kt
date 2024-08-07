@@ -13,6 +13,9 @@ import core.game.world.map.RegionManager.getLocalNpcs
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Silk merchant dialogue.
+ */
 @Initializable
 class SilkMerchantDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -132,6 +135,11 @@ class SilkMerchantDialogue(player: Player? = null) : Dialogue(player) {
         return true
     }
 
+    /**
+     * Buy
+     *
+     * @param price
+     */
     fun buy(price: Int) {
         end()
         val amt = player.inventory.getAmount(silk)

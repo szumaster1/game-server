@@ -31,6 +31,9 @@ import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.*;
 
+/**
+ * Fishing explosive plugin.
+ */
 @Initializable
 public final class FishingExplosivePlugin extends OptionHandler {
 
@@ -58,6 +61,9 @@ public final class FishingExplosivePlugin extends OptionHandler {
         return node.getLocation();
     }
 
+    /**
+     * Fishing explosive handler.
+     */
     public static final class FishingExplosiveHandler extends UseWithHandler {
 
         private static final Animation ANIMATION = new Animation(Animations.THROW_385);
@@ -68,6 +74,9 @@ public final class FishingExplosivePlugin extends OptionHandler {
 
         private static final String[] MESSAGES = new String[]{"Da boom-boom kill all da fishies!", "I smack you good!", "Smash stupid human!", "Tasty human!", "Human hit me on the head!", "I get you!", "Human scare all da fishies!"};
 
+        /**
+         * Instantiates a new Fishing explosive handler.
+         */
         public FishingExplosiveHandler() {
             super(6664, 12633);
         }
@@ -132,12 +141,24 @@ public final class FishingExplosivePlugin extends OptionHandler {
         }
     }
 
+    /**
+     * Mogre npc.
+     */
     public final class MogreNPC extends AbstractNPC {
 
+        /**
+         * Instantiates a new Mogre npc.
+         *
+         * @param id       the id
+         * @param location the location
+         */
         public MogreNPC(int id, Location location) {
             super(id, location, true);
         }
 
+        /**
+         * Instantiates a new Mogre npc.
+         */
         public MogreNPC() {
             super(0, null);
         }

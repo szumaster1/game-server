@@ -7,6 +7,11 @@ import core.game.interaction.UseWithHandler
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Leather craft interface plugin
+ *
+ * @constructor Leather craft interface plugin
+ */
 @Initializable
 class LeatherCraftInterfacePlugin : UseWithHandler(
     LeatherData.LEATHER,

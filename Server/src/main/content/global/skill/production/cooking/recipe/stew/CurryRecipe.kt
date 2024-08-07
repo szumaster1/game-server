@@ -7,6 +7,9 @@ import core.game.interaction.NodeUsageEvent
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
+/**
+ * Curry recipe.
+ */
 class CurryRecipe : Recipe() {
 
     override fun mix(player: Player, event: NodeUsageEvent) {

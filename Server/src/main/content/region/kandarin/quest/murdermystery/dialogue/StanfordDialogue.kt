@@ -11,6 +11,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Stanford dialogue.
+ */
 @Initializable
 class StanfordDialogue(player: Player? = null) : Dialogue(player) {
 

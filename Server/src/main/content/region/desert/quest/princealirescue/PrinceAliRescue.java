@@ -13,6 +13,9 @@ import core.plugin.Initializable;
 
 import static core.api.ContentAPIKt.removeAttribute;
 
+/**
+ * Prince ali rescue.
+ */
 @Initializable
 public class PrinceAliRescue extends Quest {
     private static final Item ROPE = new Item(954);
@@ -21,6 +24,9 @@ public class PrinceAliRescue extends Quest {
     private static final Item PASTE = new Item(2424);
     private static final Item COINS = new Item(995, 700);
 
+    /**
+     * Instantiates a new Prince ali rescue.
+     */
     public PrinceAliRescue() {
         super("Prince Ali Rescue", 24, 23, 3, Vars.VARP_QUEST_PRINCE_ALI_RESCUE_PROGRESS, 0, 1, 110);
     }
@@ -153,6 +159,13 @@ public class PrinceAliRescue extends Quest {
         }
     }
 
+    /**
+     * Has item boolean.
+     *
+     * @param player the player
+     * @param item   the item
+     * @return the boolean
+     */
     public static boolean hasItem(final Player player, final Item item) {
         return player.getInventory().containsItem(item);
     }

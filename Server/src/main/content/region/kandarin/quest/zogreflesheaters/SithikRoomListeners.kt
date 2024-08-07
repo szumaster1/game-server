@@ -13,6 +13,11 @@ import core.game.node.item.Item
 import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 
+/**
+ * Sithik room listeners
+ *
+ * @constructor Sithik room listeners
+ */
 class SithikRoomListeners : InteractionListener, MapArea {
 
     companion object {

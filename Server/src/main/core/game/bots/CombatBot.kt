@@ -13,6 +13,9 @@ import core.game.world.map.Location
 import core.tools.RandomFunction
 import kotlin.random.Random
 
+/**
+ * Combat bot.
+ */
 class CombatBot(location: Location) : AIPlayer(location) {
     var tick = 0
 
@@ -34,10 +37,20 @@ class CombatBot(location: Location) : AIPlayer(location) {
         }
     }
 
+    /**
+     * Check prayer.
+     *
+     * @param type the type.
+     */
     fun CheckPrayer(type: Array<PrayerType?>) {
         for (i in type.indices) prayer.toggle(type[i])
     }
 
+    /**
+     * Eat.
+     *
+     * @param foodId the food id.
+     */
     fun eat(foodId: Int) {
         val foodItem = Item(foodId)
         if (skills.getStaticLevel(Skills.HITPOINTS) >= skills.lifepoints * 3 && inventory.containsItem(foodItem)) {
@@ -52,9 +65,7 @@ class CombatBot(location: Location) : AIPlayer(location) {
             properties.combatPulse.delayNextAttack(3)
         }
         if (!checkVictimIsPlayer()) if (!inventory.contains(foodId, 1)) inventory.add(
-            Item(
-                foodId, 5
-            )
-        ) //Add Food to Inventory
+            Item(foodId, 5)
+        )
     }
 }

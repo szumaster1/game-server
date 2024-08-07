@@ -6,8 +6,12 @@ import core.game.node.entity.npc.NPC
 import core.tools.RandomFunction
 
 /**
- * Handles combat swings with switching combat styles.
- * @author Ceikry, Emperor
+ * Multi swing handler
+ *
+ * @constructor
+ *
+ * @param meleeDistance
+ * @param attacks
  */
 open class MultiSwingHandler(meleeDistance: Boolean, vararg attacks: SwitchAttack) :
     CombatSwingHandler(CombatStyle.RANGE) {
@@ -158,21 +162,23 @@ open class MultiSwingHandler(meleeDistance: Boolean, vararg attacks: SwitchAttac
     }
 
     /**
-     * Checks if an attack switch can be selected.
-     * @param attack The attack to switch to.
-     * @return `True` if selectable.
+     * Can select
+     *
+     * @param attack
+     * @return
      */
     fun canSelect(attack: SwitchAttack?): Boolean {
         return true
     }
 
     /**
-     * Gets the next switch attack.
-     * @param entity the entity.
-     * @param victim the victim.
-     * @param state the state.
-     * @param index the index.
-     * @return the next attack.
+     * Get next
+     *
+     * @param entity
+     * @param victim
+     * @param state
+     * @param index
+     * @return
      */
     fun getNext(entity: Entity?, victim: Entity?, state: BattleState?, index: Int): SwitchAttack {
         var index = index

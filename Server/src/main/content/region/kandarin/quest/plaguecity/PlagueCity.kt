@@ -8,6 +8,11 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 
+/**
+ * Plague city
+ *
+ * @constructor Plague city
+ */
 @Initializable
 class PlagueCity : Quest("Plague City", 98, 97, 1, Vars.VARP_QUEST_PLAGUE_CITY_PROGRESS, 0, 1, 29) {
     override fun newInstance(`object`: Any?): Quest {

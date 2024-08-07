@@ -8,6 +8,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.world.map.Location
 
+/**
+ * Signpost listener
+ *
+ * @constructor Signpost listener
+ */
 class SignpostListener : InteractionListener {
 
     override fun defineListeners() {

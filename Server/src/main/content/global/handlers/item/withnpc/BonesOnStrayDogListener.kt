@@ -11,6 +11,11 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.npc.NPC
 import core.game.node.item.Item
 
+/**
+ * Bones on stray dog listener
+ *
+ * @constructor Bones on stray dog listener
+ */
 class BonesOnStrayDogListener : InteractionListener {
 
     override fun defineListeners() {

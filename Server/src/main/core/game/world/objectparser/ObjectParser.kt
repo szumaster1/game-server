@@ -9,8 +9,17 @@ import org.w3c.dom.Node
 import java.io.File
 import javax.xml.parsers.DocumentBuilderFactory
 
+/**
+ * Object parser
+ *
+ * @constructor Object parser
+ */
 class ObjectParser : StartupListener {
 
+    /**
+     * Parse objects
+     *
+     */
     fun parseObjects() {
         if (ServerConstants.OBJECT_PARSER_PATH == null) return
         val f = File(ServerConstants.OBJECT_PARSER_PATH)

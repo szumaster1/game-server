@@ -8,10 +8,16 @@ import core.game.dialogue.DialogueFile
 import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
+/**
+ * Blast furnace door dialogue
+ *
+ * @property fee
+ * @constructor Blast furnace door dialogue
+ */
 class BlastFurnaceDoorDialogue(val fee: Int) : DialogueFile() {
 
     var init = true
-    
+
     override fun handle(componentID: Int, buttonID: Int) {
         when (stage) {
             0 -> sendDialogue(player!!, "You must be Smithing Level 60 or higher in order to enter the Blast Furnace").also { stage++ }

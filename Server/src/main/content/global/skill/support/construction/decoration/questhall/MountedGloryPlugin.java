@@ -18,6 +18,9 @@ import core.plugin.Plugin;
 import static core.api.ContentAPIKt.playGlobalAudio;
 import static core.api.ContentAPIKt.setTitle;
 
+/**
+ * Mounted glory plugin.
+ */
 @Initializable
 public class MountedGloryPlugin extends OptionHandler {
 

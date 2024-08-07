@@ -9,6 +9,9 @@ import core.game.dialogue.DialogueFile
 import core.game.node.item.Item
 import core.tools.START_DIALOGUE
 
+/**
+ * Bank help dialogue.
+ */
 class BankHelpDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

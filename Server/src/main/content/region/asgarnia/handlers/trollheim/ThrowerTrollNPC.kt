@@ -10,6 +10,9 @@ import core.game.node.entity.npc.agg.AggressiveHandler
 import core.game.world.map.Location
 import core.plugin.Initializable
 
+/**
+ * Thrower troll NPC.
+ */
 @Initializable
 class ThrowerTrollNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 

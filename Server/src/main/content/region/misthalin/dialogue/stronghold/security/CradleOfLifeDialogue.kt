@@ -7,6 +7,9 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.emote.Emotes
 import core.game.node.item.Item
 
+/**
+ * Cradle of life dialogue.
+ */
 class CradleOfLifeDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
@@ -150,10 +153,10 @@ class CradleOfLifeDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     /**
-     * Swap boolean.
+     * Swap
      *
-     * @param container the container
-     * @return the boolean
+     * @param container
+     * @return
      */
     fun swap(container: Container): Boolean {
         if (container.contains(9005, 1)) {

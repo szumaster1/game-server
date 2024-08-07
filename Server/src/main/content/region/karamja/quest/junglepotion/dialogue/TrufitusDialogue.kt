@@ -10,6 +10,9 @@ import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 
+/**
+ * Trufitus dialogue.
+ */
 class TrufitusDialogue(player: Player? = null) : Dialogue(player) {
 
     private var objective: JungleObjective? = null

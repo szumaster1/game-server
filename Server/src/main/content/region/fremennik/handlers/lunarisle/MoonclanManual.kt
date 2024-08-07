@@ -9,6 +9,9 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
+/**
+ * Moonclan manual.
+ */
 class MoonclanManual : InteractionListener {
 
     // Player can buy the book for one coin from Baba Yaga on the Lunar Isle.

@@ -16,6 +16,11 @@ import core.game.system.task.Pulse
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Creature of fenkenstrain listeners
+ *
+ * @constructor Creature of fenkenstrain listeners
+ */
 class CreatureOfFenkenstrainListeners : InteractionListener {
     companion object {
         private val itemToAttribute = hashMapOf(

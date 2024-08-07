@@ -32,18 +32,15 @@ if (offer.itemId == 383 && offer.amount >= 1000) {
 
 /**
  * A bot script for fishing sharks in the Fishing Guild - Fishes, Banks, Sells.
+ *
  * @param mycounter used in the bots random idling function.
  * @param pause is currently not used.
  * @param limit is the number of Raw Sharks in the GE the bots will sleep at.
- * @author Sir Kermit
- * Training Wheel Manufacturer @Ceikry
- * Very slight ge modifications by @Angle
  */
 @PlayerCompatible
 @ScriptName("Guild Sharks")
 @ScriptDescription("Start in the fishing guild with a harpoon", "in your inventory.")
 @ScriptIdentifier("guild_sharks")
-
 class SharkCatcher : Script() {
     //val shark = Items.RAW_SHARK
     val pause = (1000..3000)

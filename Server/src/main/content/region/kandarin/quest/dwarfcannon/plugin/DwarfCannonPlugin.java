@@ -28,6 +28,9 @@ import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.*;
 
+/**
+ * Dwarf cannon plugin.
+ */
 public class DwarfCannonPlugin extends OptionHandler {
 
     private static NPC lollk;
@@ -240,6 +243,9 @@ public class DwarfCannonPlugin extends OptionHandler {
         return null;
     }
 
+    /**
+     * Tool kit handler.
+     */
     public static final class ToolKitHandler extends ComponentPlugin {
 
 
@@ -296,9 +302,21 @@ public class DwarfCannonPlugin extends OptionHandler {
         }
 
 
+        /**
+         * The enum Tool.
+         */
         public enum Tool {
+            /**
+             * Wrench tool.
+             */
             WRENCH(1, 2017, Part.GEAR),
+            /**
+             * Pliers tool.
+             */
             PLIERS(2, 2018, Part.SAFETY_SWITCH),
+            /**
+             * Hook tool.
+             */
             HOOK(3, 2020, Part.SPRING);
 
 
@@ -318,12 +336,24 @@ public class DwarfCannonPlugin extends OptionHandler {
             }
 
 
+            /**
+             * Select tool.
+             *
+             * @param player the player
+             * @return the tool
+             */
             public Tool select(Player player) {
                 //setVarp(player, 1, configValue);
                 return this;
             }
 
 
+            /**
+             * For id tool.
+             *
+             * @param id the id
+             * @return the tool
+             */
             public static Tool forId(int id) {
                 for (Tool tool : values()) {
                     if (tool.getButton() == id) {
@@ -334,16 +364,31 @@ public class DwarfCannonPlugin extends OptionHandler {
             }
 
 
+            /**
+             * Gets button.
+             *
+             * @return the button
+             */
             public int getButton() {
                 return button;
             }
 
 
+            /**
+             * Gets config value.
+             *
+             * @return the config value
+             */
             public int getConfigValue() {
                 return configValue;
             }
 
 
+            /**
+             * Gets part.
+             *
+             * @return the part
+             */
             public Part getPart() {
                 return part;
             }
@@ -351,9 +396,21 @@ public class DwarfCannonPlugin extends OptionHandler {
         }
 
 
+        /**
+         * The enum Part.
+         */
         public enum Part {
+            /**
+             * Spring part.
+             */
             SPRING(8, 2025),
+            /**
+             * Safety switch part.
+             */
             SAFETY_SWITCH(7, 2026),
+            /**
+             * Gear part.
+             */
             GEAR(9, 2036);
 
 
@@ -369,11 +426,24 @@ public class DwarfCannonPlugin extends OptionHandler {
             }
 
 
+            /**
+             * Interact.
+             *
+             * @param player  the player
+             * @param tool    the tool
+             * @param toggled the toggled
+             */
             public void interact(Player player, Tool tool, boolean toggled) {
                 //setVarp(player, 1, toggled ? getConfigValue() : tool.getConfigValue());
             }
 
 
+            /**
+             * For id part.
+             *
+             * @param id the id
+             * @return the part
+             */
             public static Part forId(int id) {
                 for (Part part : values()) {
                     if (part.getButton() == id) {
@@ -384,11 +454,21 @@ public class DwarfCannonPlugin extends OptionHandler {
             }
 
 
+            /**
+             * Gets button.
+             *
+             * @return the button
+             */
             public int getButton() {
                 return button;
             }
 
 
+            /**
+             * Gets config value.
+             *
+             * @return the config value
+             */
             public int getConfigValue() {
                 return configValue;
             }

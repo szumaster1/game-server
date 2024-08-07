@@ -10,6 +10,9 @@ import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Robe store dialogue.
+ */
 @Initializable
 class RobeStoreDialogue(player: Player? = null) : Dialogue(player) {
 

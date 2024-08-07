@@ -27,9 +27,7 @@ import java.util.*
 import kotlin.math.min
 
 /**
- * A bot that doubles money
- * 30% chance to double money, 70% chance to scam
- * @author dginovker
+ * A bot that doubles money 30% chance to double money, 70% chance to scam.
  */
 class DoublingMoney : Script() {
     /**

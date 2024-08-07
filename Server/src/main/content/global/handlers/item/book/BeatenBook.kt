@@ -11,6 +11,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
+/**
+ * Beaten book
+ *
+ * @constructor Beaten book
+ */
 class BeatenBook : InteractionListener {
 
     // begins the Elemental Workshop II quest.

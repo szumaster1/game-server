@@ -12,6 +12,9 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.skill.Skills
 import core.game.world.map.Location
 
+/**
+ * Crafting guild listeners.
+ */
 class CraftingGuildListeners : InteractionListener {
 
     override fun defineListeners() {

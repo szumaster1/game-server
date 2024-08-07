@@ -14,16 +14,30 @@ import static core.api.ContentAPIKt.sendMessage;
 import static core.tools.GlobalsKt.colorize;
 
 
+/**
+ * Trade container.
+ */
 public final class TradeContainer extends Container {
 
 	private final Player player;
 
+    /**
+     * Instantiates a new Trade container.
+     *
+     * @param player the player
+     */
     public TradeContainer(final Player player) {
 		super(28, ContainerType.DEFAULT, SortType.ID);
 		this.player = player;
 		this.getListeners().add(new TradeListener());
 	}
 
+    /**
+     * Offer.
+     *
+     * @param slot   the slot
+     * @param amount the amount
+     */
     public void offer(final int slot, int amount) {
 		final Item item = getItem(slot, player.getInventory());
 		if (!canUse()) {
@@ -52,6 +66,12 @@ public final class TradeContainer extends Container {
 		}
 	}
 
+    /**
+     * Withdraw.
+     *
+     * @param slot   the slot
+     * @param amount the amount
+     */
     public void withdraw(final int slot, int amount) {
 		Item item = getItem(slot, this);
 		if (!canUse()) {
@@ -169,6 +189,9 @@ public final class TradeContainer extends Container {
 		}
 	}
 
+    /**
+     * Trade listener.
+     */
     public final class TradeListener implements ContainerListener {
 
 		@Override

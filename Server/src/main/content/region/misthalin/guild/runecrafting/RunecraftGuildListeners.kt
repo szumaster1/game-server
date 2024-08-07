@@ -9,6 +9,9 @@ import core.game.world.map.Location
 import core.api.consts.*
 import core.game.node.item.Item
 
+/**
+ * Runecraft guild listeners.
+ */
 class RunecraftGuildListeners : InteractionListener {
 
     companion object {
@@ -20,10 +23,9 @@ class RunecraftGuildListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Remove and apply goggles to the Runecraft hat.
          */
-
         on(RC_HAT, IntType.ITEM, "Goggles") { player, node ->
             when (node.id) {
                 13626 -> replaceSlot(player, node.asItem().slot, Item(13625))
@@ -48,10 +50,9 @@ class RunecraftGuildListeners : InteractionListener {
 
         on(RC_PORTAL, IntType.SCENERY, "Enter") { player, _ ->
 
-            /*
+            /**
              * Wizards' Tower to Runecrafting Guild Portal.
              */
-
             if (getStatLevel(player, Skills.RUNECRAFTING) >= 50 && isQuestComplete(player, "Rune Mysteries")) {
                 if (player.viewport.region.regionId == 12337) {
                     lock(player, 6)

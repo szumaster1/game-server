@@ -10,6 +10,9 @@ import core.tools.RandomFunction
 import core.api.consts.Items
 import core.api.consts.NPCs
 
+/**
+ * Unicorn NPC.
+ */
 class UnicornNPC : NPCBehavior(*unicornIds) {
 
     companion object {

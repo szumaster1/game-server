@@ -29,16 +29,27 @@ import java.util.List;
 import static core.api.ContentAPIKt.setAttribute;
 import static core.api.ContentAPIKt.setVarp;
 
+/**
+ * Dragon slayer cutscene.
+ */
 public final class DragonSlayerCutscene extends CutscenePlugin {
 
     private static final Animation ANIMATION = new Animation(4191);
 
     private final BobingPulse bobinPulse = new BobingPulse();
 
+    /**
+     * Instantiates a new Dragon slayer cutscene.
+     */
     public DragonSlayerCutscene() {
         this(null);
     }
 
+    /**
+     * Instantiates a new Dragon slayer cutscene.
+     *
+     * @param p the p
+     */
     public DragonSlayerCutscene(final Player p) {
         super("Dragon Slayer", true);
         this.player = p;
@@ -100,6 +111,12 @@ public final class DragonSlayerCutscene extends CutscenePlugin {
         return base.transform(38, 5, 1);
     }
 
+    /**
+     * Bob.
+     *
+     * @param position the position
+     * @param rotation the rotation
+     */
     public void bob(final CameraContext position, final CameraContext rotation) {
         PacketRepository.send(CameraViewPacket.class, position);
         PacketRepository.send(CameraViewPacket.class, rotation);
@@ -110,9 +127,15 @@ public final class DragonSlayerCutscene extends CutscenePlugin {
         bobinPulse.rotation = rotation;
     }
 
+    /**
+     * Bobing pulse.
+     */
     public class BobingPulse extends Pulse {
 
 
+        /**
+         * The Alternate.
+         */
         boolean alternate = false;
 
 
@@ -125,6 +148,9 @@ public final class DragonSlayerCutscene extends CutscenePlugin {
         private int counter = 0;
 
 
+        /**
+         * Instantiates a new Bobing pulse.
+         */
         public BobingPulse() {
             super(1);
         }
@@ -185,10 +211,18 @@ public final class DragonSlayerCutscene extends CutscenePlugin {
         };
     }
 
+    /**
+     * Gets bobin pulse.
+     *
+     * @return the bobin pulse
+     */
     public BobingPulse getBobinPulse() {
         return bobinPulse;
     }
 
+    /**
+     * Ds ned dialogue.
+     */
     public static final class DSNedDialogue extends Dialogue {
 
 
@@ -210,11 +244,19 @@ public final class DragonSlayerCutscene extends CutscenePlugin {
         private boolean finished = false;
 
 
+        /**
+         * Instantiates a new Ds ned dialogue.
+         */
         public DSNedDialogue() {
 
         }
 
 
+        /**
+         * Instantiates a new Ds ned dialogue.
+         *
+         * @param player the player
+         */
         public DSNedDialogue(Player player) {
             super(player);
         }
@@ -468,6 +510,9 @@ public final class DragonSlayerCutscene extends CutscenePlugin {
         }
 
 
+        /**
+         * Start fires.
+         */
         public void startFires() {
             for (Location fire : fires) {
                 player.getPacketDispatch().sendPositionedGraphic(453, 0, 1, fire);

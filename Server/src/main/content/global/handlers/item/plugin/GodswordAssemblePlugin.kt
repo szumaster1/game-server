@@ -9,6 +9,11 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 import core.tools.StringUtils
 
+/**
+ * Godsword assemble plugin
+ *
+ * @constructor Godsword assemble plugin
+ */
 @Initializable
 class GodswordAssemblePlugin : UseWithHandler(11702, 11704, 11706, 11708) {
 

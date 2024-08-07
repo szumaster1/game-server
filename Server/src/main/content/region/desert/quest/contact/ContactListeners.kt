@@ -7,6 +7,11 @@ import core.api.setInterfaceText
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Contact listeners
+ *
+ * @constructor Contact listeners
+ */
 class ContactListeners : InteractionListener {
 
     companion object {

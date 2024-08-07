@@ -3,6 +3,16 @@ package core.network.packet.context
 import core.game.node.entity.player.Player
 import core.network.packet.Context
 
+/**
+ * The animate interface context.
+ * @author Emperor
+ *
+ * @property player The player associated with the context
+ * @property animationId The ID of the animation
+ * @property interfaceId The ID of the interface
+ * @property childId The ID of the child component
+ * @constructor Creates an AnimateInterfaceContext with the specified parameters
+ */
 class AnimateInterfaceContext(
     private val player: Player,
     val animationId: Int,

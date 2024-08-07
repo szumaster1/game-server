@@ -11,6 +11,9 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Port sarim bartender dialogue.
+ */
 @Initializable
 class PortSarimBartenderDialogue(player: Player? = null) : Dialogue(player) {
 

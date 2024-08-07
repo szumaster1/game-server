@@ -13,6 +13,11 @@ import core.game.node.item.Item
 import core.game.world.map.Location
 import core.tools.END_DIALOGUE
 
+/**
+ * Making history listener
+ *
+ * @constructor Making history listener
+ */
 class MakingHistoryListener : InteractionListener {
 
     companion object;

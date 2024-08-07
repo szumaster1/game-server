@@ -8,6 +8,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Tribal weapon salesman dialogue.
+ */
 @Initializable
 class TribalWeaponSalesmanDialogue(player: Player? = null) : Dialogue(player) {
 

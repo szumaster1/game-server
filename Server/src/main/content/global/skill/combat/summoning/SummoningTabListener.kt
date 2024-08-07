@@ -7,10 +7,14 @@ import core.api.consts.Components
 import core.api.sendMessage
 import core.game.interaction.InterfaceListener
 
+/**
+ * Summoning tab listener
+ *
+ * @constructor Summoning tab listener
+ */
 class SummoningTabListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {
-
         on(Components.LORE_STATS_SIDE_662) { player, _, opcode, buttonID, _, _ ->
             when (buttonID) {
                 51 -> {

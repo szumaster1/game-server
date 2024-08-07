@@ -7,6 +7,9 @@ import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player
 import core.game.world.map.Location
 
+/**
+ * Beggar NPC.
+ */
 class BeggarNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
     var spawnedTicks = 0
     var player: Player? = null

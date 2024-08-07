@@ -8,7 +8,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
-
+/**
+ * Pirate pete dialogue.
+ */
 @Initializable
 class PiratePeteDialogue(player: Player? = null) : Dialogue(player) {
 

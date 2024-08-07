@@ -8,6 +8,11 @@ import org.json.simple.JSONArray
 import org.json.simple.parser.JSONParser
 import java.io.FileReader
 
+/**
+ * Shop parser
+ *
+ * @constructor Shop parser
+ */
 class ShopParser {
     val parser = JSONParser()
     var reader: FileReader? = null
@@ -26,6 +31,10 @@ class ShopParser {
         }
     }
 
+    /**
+     * Load
+     *
+     */
     fun load() {
         var count = 0
         reader = FileReader(ServerConstants.CONFIG_PATH + "shops.json")

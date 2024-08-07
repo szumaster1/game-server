@@ -11,6 +11,11 @@ import core.game.node.item.Item
 import core.game.world.map.zone.ZoneBorders
 import core.tools.ticksPerMinute
 
+/**
+ * Castle wars waiting area
+ *
+ * @constructor Castle wars waiting area
+ */
 class CastleWarsWaitingArea : CastleWarsArea(), TickListener {
 
     companion object {

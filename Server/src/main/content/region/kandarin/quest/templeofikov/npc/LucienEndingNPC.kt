@@ -12,6 +12,9 @@ import core.game.node.entity.player.Player
 import core.game.world.map.Location
 import core.plugin.Initializable
 
+/**
+ * Lucien ending NPC.
+ */
 @Initializable
 class LucienEndingNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 

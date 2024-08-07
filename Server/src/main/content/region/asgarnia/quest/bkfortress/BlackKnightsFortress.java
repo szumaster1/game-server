@@ -7,11 +7,20 @@ import core.game.node.item.Item;
 import core.plugin.ClassScanner;
 import core.plugin.Initializable;
 
+/**
+ * Black knights fortress.
+ */
 @Initializable
 public final class BlackKnightsFortress extends Quest {
 
+    /**
+     * The constant DOSSIER.
+     */
     public static final Item DOSSIER = new Item(9589);
 
+    /**
+     * Instantiates a new Black knights fortress.
+     */
     public BlackKnightsFortress() {
         super("Black Knights' Fortress", 14, 13, 3, Vars.VARP_QUEST_BLACK_KNIGHTS_FORTRESS_PROGRESS, 0, 1, 4);
     }

@@ -12,6 +12,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Cabin boy dialogue.
+ */
 @Initializable
 class CabinBoyDialogue(player: Player? = null): Dialogue(player) {
 

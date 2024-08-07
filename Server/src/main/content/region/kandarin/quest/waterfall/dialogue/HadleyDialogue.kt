@@ -8,6 +8,9 @@ import core.game.node.entity.player.Player
 import core.game.world.GameWorld.settings
 import core.tools.END_DIALOGUE
 
+/**
+ * Hadley dialogue.
+ */
 class HadleyDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {

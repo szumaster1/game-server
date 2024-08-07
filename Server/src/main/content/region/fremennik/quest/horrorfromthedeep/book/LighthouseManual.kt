@@ -9,6 +9,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
+/**
+ * Lighthouse manual
+ *
+ * @constructor Lighthouse manual
+ */
 class LighthouseManual : InteractionListener {
     companion object {
         private val TITLE = "Manual"

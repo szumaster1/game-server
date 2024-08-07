@@ -8,6 +8,9 @@ import core.game.node.entity.npc.NPC
 import core.game.world.GameWorld
 import core.tools.END_DIALOGUE
 
+/**
+ * Velorina dialogue file.
+ */
 class VelorinaDialogueFile : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

@@ -7,6 +7,11 @@ import core.api.sendDialogue
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Silver sickle listener
+ *
+ * @constructor Silver sickle listener
+ */
 class SilverSickleListener : InteractionListener {
 
     private val silverSickle = 2963

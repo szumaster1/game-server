@@ -15,6 +15,9 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Kalphite entrance handler.
+ */
 @Initializable
 class KalphiteEntranceHandler : OptionHandler() {
 

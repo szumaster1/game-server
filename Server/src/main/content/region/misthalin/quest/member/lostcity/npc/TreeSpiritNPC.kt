@@ -10,6 +10,9 @@ import core.game.node.entity.player.Player
 import core.game.world.map.Location
 import core.plugin.Initializable
 
+/**
+ * Tree spirit NPC.
+ */
 @Initializable
 class TreeSpiritNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 

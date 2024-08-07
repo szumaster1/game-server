@@ -16,6 +16,9 @@ import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 import core.tools.START_DIALOGUE
 
+/**
+ * Head trophy listener.
+ */
 class HeadTrophyListener : InteractionListener {
     private val crawlingTrophy = Scenery.CRAWLING_HAND_13481
     private val cockatriceTrophy = Scenery.COCKATRICE_HEAD_13482
@@ -63,6 +66,11 @@ class HeadTrophyListener : InteractionListener {
     }
 }
 
+/**
+ * Abyssal demon head trophy dialogue
+ *
+ * @constructor Abyssal demon head trophy dialogue
+ */
 class AbyssalDemonHeadTrophyDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
@@ -165,6 +173,11 @@ class AbyssalDemonHeadTrophyDialogue : DialogueFile() {
     }
 }
 
+/**
+ * Basilisk head trophy dialogue
+ *
+ * @constructor Basilisk head trophy dialogue
+ */
 class BasiliskHeadTrophyDialogue : DialogueFile() {
 
     private val randomWord_0 =
@@ -300,6 +313,11 @@ class BasiliskHeadTrophyDialogue : DialogueFile() {
 }
 
 
+/**
+ * Cockatrice head trophy dialogue
+ *
+ * @constructor Cockatrice head trophy dialogue
+ */
 class CockatriceHeadTrophyDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
@@ -386,6 +404,11 @@ class CockatriceHeadTrophyDialogue : DialogueFile() {
     }
 }
 
+/**
+ * Crawling hand trophy dialogue
+ *
+ * @constructor Crawling hand trophy dialogue
+ */
 class CrawlingHandTrophyDialogue : DialogueFile() {
 
     private val randomConversation = RandomFunction.getRandomElement(arrayOf(0, 1, 2))
@@ -437,6 +460,12 @@ class CrawlingHandTrophyDialogue : DialogueFile() {
         }
     }
 }
+
+/**
+ * Kalphite queen head trophy dialogue
+ *
+ * @constructor Kalphite queen head trophy dialogue
+ */
 class KalphiteQueenHeadTrophyDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
@@ -505,6 +534,11 @@ class KalphiteQueenHeadTrophyDialogue : DialogueFile() {
     }
 }
 
+/**
+ * King black dragon head trophy dialogue
+ *
+ * @constructor King black dragon head trophy dialogue
+ */
 class KingBlackDragonHeadTrophyDialogue : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         when (stage) {
@@ -672,6 +706,11 @@ class KingBlackDragonHeadTrophyDialogue : DialogueFile() {
 }
 
 
+/**
+ * Kurask head trophy dialogue
+ *
+ * @constructor Kurask head trophy dialogue
+ */
 class KuraskHeadTrophyDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

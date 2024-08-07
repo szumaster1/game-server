@@ -8,6 +8,9 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld.Pulser
 import core.plugin.Initializable
 
+/**
+ * Barcrawl dialogue.
+ */
 @Initializable
 class BarcrawlDialogue(player: Player? = null) : Dialogue(player) {
 

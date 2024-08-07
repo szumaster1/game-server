@@ -19,6 +19,9 @@ import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.*;
 
+/**
+ * Dragonfire swing handler.
+ */
 public class DragonfireSwingHandler extends CombatSwingHandler {
 
     private boolean meleeRange;
@@ -30,6 +33,14 @@ public class DragonfireSwingHandler extends CombatSwingHandler {
     private boolean fire;
 
 
+    /**
+     * Instantiates a new Dragonfire swing handler.
+     *
+     * @param meleeRange the melee range
+     * @param maximumHit the maximum hit
+     * @param attack     the attack
+     * @param fire       the fire
+     */
     public DragonfireSwingHandler(boolean meleeRange, int maximumHit, SwitchAttack attack, boolean fire) {
         super(CombatStyle.MAGIC);
         this.meleeRange = meleeRange;
@@ -39,6 +50,17 @@ public class DragonfireSwingHandler extends CombatSwingHandler {
     }
 
 
+    /**
+     * Get switch attack.
+     *
+     * @param meleeRange   the melee range
+     * @param maximumHit   the maximum hit
+     * @param animation    the animation
+     * @param startGraphic the start graphic
+     * @param endGraphic   the end graphic
+     * @param projectile   the projectile
+     * @return the switch attack
+     */
     public static SwitchAttack get(boolean meleeRange, int maximumHit, Animation animation, Graphic startGraphic, Graphic endGraphic, Projectile projectile) {
         SwitchAttack attack = new SwitchAttack(null, animation, startGraphic, endGraphic, projectile).setUseHandler(true);
         attack.setHandler(new DragonfireSwingHandler(meleeRange, maximumHit, attack, true));
@@ -46,6 +68,18 @@ public class DragonfireSwingHandler extends CombatSwingHandler {
     }
 
 
+    /**
+     * Get switch attack.
+     *
+     * @param meleeRange   the melee range
+     * @param maximumHit   the maximum hit
+     * @param animation    the animation
+     * @param startGraphic the start graphic
+     * @param endGraphic   the end graphic
+     * @param projectile   the projectile
+     * @param fire         the fire
+     * @return the switch attack
+     */
     public static SwitchAttack get(boolean meleeRange, int maximumHit, Animation animation, Graphic startGraphic, Graphic endGraphic, Projectile projectile, boolean fire) {
         SwitchAttack attack = new SwitchAttack(null, animation, startGraphic, endGraphic, projectile).setUseHandler(true);
         attack.setHandler(new DragonfireSwingHandler(meleeRange, maximumHit, attack, fire));

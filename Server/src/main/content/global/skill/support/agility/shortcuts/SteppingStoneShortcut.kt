@@ -13,11 +13,23 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Stepping stone shortcut.
+ */
 @Initializable
 class SteppingStoneShortcut : OptionHandler() {
 
     private val stones = HashMap<Location, SteppingStoneInstance>()
 
+    /**
+     * Stepping stone instance
+     *
+     * @property pointA
+     * @property pointB
+     * @property option
+     * @property levelReq
+     * @constructor Stepping stone instance
+     */
     internal class SteppingStoneInstance(val pointA: Location, val pointB: Location, val option: String, val levelReq: Int)
 
     override fun handle(player: Player?, node: Node?, option: String?): Boolean {
@@ -62,6 +74,15 @@ class SteppingStoneShortcut : OptionHandler() {
         return Pair(diffX, diffY)
     }
 
+    /**
+     * Configure
+     *
+     * @param objects
+     * @param pointA
+     * @param pointB
+     * @param option
+     * @param levelReq
+     */
     fun configure(objects: IntArray, pointA: Location, pointB: Location, option: String, levelReq: Int) {
         val instance = SteppingStoneInstance(pointA, pointB, option, levelReq)
         objects.forEach {

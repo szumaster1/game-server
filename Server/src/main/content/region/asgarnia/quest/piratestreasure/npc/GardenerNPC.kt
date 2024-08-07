@@ -11,12 +11,12 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * The Gardener npc.
+ * Gardener NPC.
  */
 @Initializable
 class GardenerNPC : AbstractNPC {
     /**
-     * Instantiates a new Gardener npc.
+     * Instantiates a new Gardener NPC.
      */
     constructor() : super(0, null, true)
 

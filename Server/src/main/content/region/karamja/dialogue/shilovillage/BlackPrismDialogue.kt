@@ -8,6 +8,11 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
+/**
+ * Black prism dialogue
+ *
+ * @constructor Black prism dialogue
+ */
 class BlackPrismDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

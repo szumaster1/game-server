@@ -11,6 +11,9 @@ import core.tools.START_DIALOGUE
 import core.api.consts.Items
 import core.api.consts.NPCs
 
+/**
+ * Tindar dialogue.
+ */
 @Initializable
 class TindarDialogue(player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {

@@ -10,14 +10,27 @@ import core.network.packet.PacketRepository;
 import core.network.packet.context.ContainerContext;
 import core.network.packet.outgoing.ContainerPacket;
 
+/**
+ * Inventory listener.
+ */
 public final class InventoryListener implements ContainerListener {
 
     private final Player player;
 
+    /**
+     * Instantiates a new Inventory listener.
+     *
+     * @param player the player
+     */
     public InventoryListener(Player player) {
         this.player = player;
     }
 
+    /**
+     * Update.
+     *
+     * @param c the c
+     */
     public void update(Container c) {
         player.getSettings().updateWeight();
         boolean hadPouch = player.getFamiliarManager().isHasPouch();

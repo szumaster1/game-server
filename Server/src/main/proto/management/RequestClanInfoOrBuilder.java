@@ -3,18 +3,46 @@
 
 package proto.management;
 
+/**
+ * The interface Request clan info or builder.
+ */
 public interface RequestClanInfoOrBuilder extends
         // @@protoc_insertion_point(interface_extends:management.RequestClanInfo)
         com.google.protobuf.MessageOrBuilder {
 
+    /**
+     * Has world boolean.
+     *
+     * @return the boolean
+     */
     boolean hasWorld();
 
+    /**
+     * Gets world.
+     *
+     * @return the world
+     */
     int getWorld();
 
+    /**
+     * Has clan owner boolean.
+     *
+     * @return the boolean
+     */
     boolean hasClanOwner();
 
-    java.lang.String getClanOwner();
+    /**
+     * Gets clan owner.
+     *
+     * @return the clan owner
+     */
+    String getClanOwner();
 
+    /**
+     * Gets clan owner bytes.
+     *
+     * @return the clan owner bytes
+     */
     com.google.protobuf.ByteString
     getClanOwnerBytes();
 }

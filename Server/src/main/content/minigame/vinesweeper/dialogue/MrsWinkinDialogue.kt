@@ -14,6 +14,9 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Mrs winkin dialogue.
+ */
 @Initializable
 class MrsWinkinDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -32,17 +35,14 @@ class MrsWinkinDialogue(player: Player? = null) : Dialogue(player) {
     }
 }
 
+/**
+ * Mrs winkin dialogue file.
+ */
 class MrsWinkinDialogueFile : FlagsHandler() {
     override fun handle(componentID: Int, buttonID: Int) {
         when (stage) {
             0 -> npcl(FacialExpression.OLD_NORMAL, "Oh, hello there, dear. How can I help you?").also { stage++ }
-            1 -> options(
-                "Where are we?",
-                "Have you got any flags?",
-                "Do you have a spare spade?",
-                "Do you have anything for trade?",
-                "Nothing. I'm fine, thanks."
-            ).also { stage++ }
+            1 -> options("Where are we?", "Have you got any flags?", "Do you have a spare spade?", "Do you have anything for trade?", "Nothing. I'm fine, thanks.").also { stage++ }
 
             2 -> when (buttonID) {
                 1 -> playerl("Where are we?").also { stage = 10 }
@@ -54,16 +54,11 @@ class MrsWinkinDialogueFile : FlagsHandler() {
 
             10 -> npcl(FacialExpression.OLD_NORMAL, "This is Winkin's Farm, dear.").also { stage++ }
             11 -> playerl("Oh, I see. So where is Mr. Winkin?").also { stage++ }
-            12 -> npcl(
-                FacialExpression.OLD_NORMAL,
-                "Oh, he headed off to the market a while back. We look after the farm while he's gone."
-            ).also { stage++ }
+            12 -> npcl(FacialExpression.OLD_NORMAL, "Oh, he headed off to the market a while back. We look after the farm while he's gone.").also { stage++ }
 
             13 -> npcl(FacialExpression.OLD_NORMAL, "Now, was there anything else you wanted?").also { stage = 1 }
             20, 21, 22, 220, 221, 222, 223, 23 -> handleFlags(componentID, buttonID, WINKIN_FLAG_LINES)
-            30 -> npcl(
-                FacialExpression.OLD_NORMAL, "Why, of course. I can sell you one for 5 gold pieces."
-            ).also { stage++ }
+            30 -> npcl(FacialExpression.OLD_NORMAL, "Why, of course. I can sell you one for 5 gold pieces.").also { stage++ }
 
             31 -> options("Okay, thanks.", "Actually, I've changed my mind.").also { stage++ }
             32 -> when (buttonID) {
@@ -81,10 +76,7 @@ class MrsWinkinDialogueFile : FlagsHandler() {
                     }
                     stage = END_DIALOGUE
                 } else {
-                    npcl(
-                        FacialExpression.OLD_NORMAL,
-                        "I'm afraid it looks like you don't have enough money, dear. Come back and see me again when you have a bit more."
-                    )
+                    npcl(FacialExpression.OLD_NORMAL, "I'm afraid it looks like you don't have enough money, dear. Come back and see me again when you have a bit more.")
                     stage = END_DIALOGUE
                 }
             }

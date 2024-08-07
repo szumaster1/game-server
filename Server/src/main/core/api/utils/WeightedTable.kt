@@ -2,14 +2,33 @@ package core.api.utils
 
 import core.tools.RandomFunction
 
+/**
+ * Weighted table
+ *
+ * @param T
+ * @constructor Weighted table
+ */
 class WeightedTable<T> : ArrayList<Pair<T?, Double>>() {
     var totalWeight: Double = 0.0
 
+    /**
+     * Add
+     *
+     * @param element
+     * @param weight
+     * @return
+     */
     fun add(element: T?, weight: Double): Boolean {
         totalWeight += weight
         return super.add(Pair(element, weight))
     }
 
+    /**
+     * Remove
+     *
+     * @param element
+     * @return
+     */
     fun remove(element: T?): Boolean {
         var index = -1
         for ((i, pair) in this.withIndex()) {
@@ -31,6 +50,11 @@ class WeightedTable<T> : ArrayList<Pair<T?, Double>>() {
         return super.removeAt(index)
     }
 
+    /**
+     * Roll
+     *
+     * @return
+     */
     fun roll(): T? {
         if (this.size == 1) return this[0].component1()
         else if (this.size == 0) return null

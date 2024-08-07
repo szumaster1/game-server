@@ -10,6 +10,9 @@ import core.api.utils.WeightBasedTable
 import core.game.node.entity.npc.NPC
 import core.tools.RandomFunction
 
+/**
+ * Genie NPC.
+ */
 class GenieNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs.GENIE_409) {
 
     val phrases =
@@ -31,6 +34,9 @@ class GenieNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPC
         sendChat(phrases.random().replace("@name", player.name.replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }))
     }
 
+    /**
+     * Assign item.
+     */
     fun assignItem() {
         assigned_item = items.random()
         setAttribute(player, "genie:item", assigned_item)

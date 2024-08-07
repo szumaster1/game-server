@@ -15,6 +15,9 @@ import static core.api.ContentAPIKt.log;
 import static core.api.ContentAPIKt.*;
 
 
+/**
+ * Quest repository.
+ */
 public final class QuestRepository {
 
     private static final Map<String, Quest> QUESTS = new TreeMap<>();
@@ -25,6 +28,11 @@ public final class QuestRepository {
 
     private int points;
 
+    /**
+     * Instantiates a new Quest repository.
+     *
+     * @param player the player
+     */
     public QuestRepository(final Player player) {
         this.player = player;
         for (Quest quest : QUESTS.values()) {
@@ -32,6 +40,11 @@ public final class QuestRepository {
         }
     }
 
+    /**
+     * Parse.
+     *
+     * @param questData the quest data
+     */
     public void parse(JSONObject questData) {
         points = Integer.parseInt(questData.get("points").toString());
         JSONArray questArray = (JSONArray) questData.get("questStages");
@@ -42,6 +55,11 @@ public final class QuestRepository {
         syncPoints();
     }
 
+    /**
+     * Syncronize tab.
+     *
+     * @param player the player
+     */
     public void syncronizeTab(Player player) {
         setVarp(player, 101, points);
         int[] config = null;
@@ -62,6 +80,12 @@ public final class QuestRepository {
         }
     }
 
+    /**
+     * Sets stage.
+     *
+     * @param quest the quest
+     * @param stage the stage
+     */
     public void setStage(Quest quest, int stage) {
         int oldStage = getStage(quest);
         if (oldStage < stage) {
@@ -71,18 +95,37 @@ public final class QuestRepository {
         }
     }
 
+    /**
+     * Sets stage nonmonotonic.
+     *
+     * @param quest the quest
+     * @param stage the stage
+     */
     public void setStageNonmonotonic(Quest quest, int stage) {
         quests.put(quest.getIndex(), stage);
     }
 
+    /**
+     * Increment points.
+     *
+     * @param value the value
+     */
     public void incrementPoints(int value) {
         points += value;
     }
 
+    /**
+     * Dock points.
+     *
+     * @param value the value
+     */
     public void dockPoints(int value) {
         points -= value;
     }
 
+    /**
+     * Sync points.
+     */
     public void syncPoints() {
         int points = 0;
         for (Quest quest : QUESTS.values()) {
@@ -93,6 +136,11 @@ public final class QuestRepository {
         this.points = points;
     }
 
+    /**
+     * Gets available points.
+     *
+     * @return the available points
+     */
     public int getAvailablePoints() {
         int points = 0;
         for (Quest quest : QUESTS.values()) {
@@ -101,6 +149,12 @@ public final class QuestRepository {
         return points;
     }
 
+    /**
+     * For button id quest.
+     *
+     * @param buttonId the button id
+     * @return the quest
+     */
     public Quest forButtonId(int buttonId) {
         for (Quest q : QUESTS.values()) {
             if (q.getButtonId() == buttonId) {
@@ -110,6 +164,12 @@ public final class QuestRepository {
         return null;
     }
 
+    /**
+     * For index quest.
+     *
+     * @param index the index
+     * @return the quest
+     */
     public Quest forIndex(int index) {
         for (Quest q : QUESTS.values()) {
             if (q.getIndex() == index) {
@@ -119,10 +179,21 @@ public final class QuestRepository {
         return null;
     }
 
+    /**
+     * Has completed all boolean.
+     *
+     * @return the boolean
+     */
     public boolean hasCompletedAll() {
         return getPoints() >= getAvailablePoints();
     }
 
+    /**
+     * Is complete boolean.
+     *
+     * @param name the name
+     * @return the boolean
+     */
     public boolean isComplete(String name) {
         Quest quest = getQuest(name);
         if (quest == null) {
@@ -132,6 +203,12 @@ public final class QuestRepository {
         return quest.getStage(player) >= 100;
     }
 
+    /**
+     * Has started boolean.
+     *
+     * @param name the name
+     * @return the boolean
+     */
     public boolean hasStarted(String name) {
         Quest quest = getQuest(name);
         if (quest == null) {
@@ -142,6 +219,12 @@ public final class QuestRepository {
     }
 
 
+    /**
+     * Gets stage.
+     *
+     * @param name the name
+     * @return the stage
+     */
     public int getStage(String name) {
         var quest = QUESTS.get(name);
         if (quest == null) {
@@ -150,30 +233,67 @@ public final class QuestRepository {
         return getStage(quest);
     }
 
+    /**
+     * Gets stage.
+     *
+     * @param quest the quest
+     * @return the stage
+     */
     public int getStage(Quest quest) {
         return quests.get(quest.getIndex());
     }
 
+    /**
+     * Gets quest.
+     *
+     * @param name the name
+     * @return the quest
+     */
     public Quest getQuest(String name) {
         return QUESTS.get(name);
     }
 
+    /**
+     * Gets points.
+     *
+     * @return the points
+     */
     public int getPoints() {
         return points;
     }
 
+    /**
+     * Gets player.
+     *
+     * @return the player
+     */
     public Player getPlayer() {
         return player;
     }
 
+    /**
+     * Register.
+     *
+     * @param quest the quest
+     */
     public static void register(Quest quest) {
         QUESTS.put(quest.getName(), quest);
     }
 
+    /**
+     * Gets quests.
+     *
+     * @return the quests
+     */
     public static Map<String, Quest> getQuests() {
         return QUESTS;
     }
 
+    /**
+     * Gets quest list.
+     *
+     * @return the quest list
+     */
     public Map<Integer, Integer> getQuestList() {
         return quests;
     }

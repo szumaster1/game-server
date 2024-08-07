@@ -10,6 +10,9 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.Initializable
 
+/**
+ * Brother bordiss dialogue.
+ */
 @Initializable
 class BrotherBordissDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -67,6 +70,12 @@ class BrotherBordissDialogue(player: Player? = null) : Dialogue(player) {
     }
 
 
+    /**
+     * Get sigil
+     *
+     * @param player
+     * @return
+     */
     fun getSigil(player: Player): Item? {
         for (sigil in arrayOf(Items.ARCANE_SIGIL_13746, Items.DIVINE_SIGIL_13748, Items.SPECTRAL_SIGIL_13752, Items.ELYSIAN_SIGIL_13750)) {
             if (inInventory(player, sigil, 1)) return Item(sigil)
@@ -74,6 +83,13 @@ class BrotherBordissDialogue(player: Player? = null) : Dialogue(player) {
         return null
     }
 
+    /**
+     * Get shield
+     *
+     * @param player
+     * @param sigil
+     * @return
+     */
     fun getShield(player: Player, sigil: Item): Item? {
         return when (sigil.id) {
             Items.ARCANE_SIGIL_13746 -> Item(Items.ARCANE_SPIRIT_SHIELD_13738)

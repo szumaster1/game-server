@@ -9,10 +9,7 @@ import core.plugin.Initializable
 /**
  * Camera command set
  *
- * @constructor Create empty Camera command set
- *
- * WARNING: Playing around with camera values may potentially trigger seizures for people with photosensitive epilepsy.
- * Please use care when discovering camera values.
+ * @constructor Camera command set
  */
 @Initializable
 class CameraCommandSet : CommandSet(Privilege.ADMIN) {

@@ -3,15 +3,30 @@ package core.api.utils
 import core.game.node.entity.Entity
 import core.game.node.item.Item
 
+/**
+ * NPC drop table.
+ */
 class NPCDropTable : WeightBasedTable() {
 
     private val charmDrops = WeightBasedTable()
     private val tertiaryDrops = WeightBasedTable()
 
+    /**
+     * Add to charms.
+     *
+     * @param element the element.
+     * @return
+     */
     fun addToCharms(element: WeightedItem): Boolean {
         return charmDrops.add(element)
     }
 
+    /**
+     * Add to tertiary.
+     *
+     * @param element the element.
+     * @return
+     */
     fun addToTertiary(element: WeightedItem): Boolean {
         return tertiaryDrops.add(element)
     }

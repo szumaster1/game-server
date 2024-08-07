@@ -12,11 +12,20 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.tools.StringUtils
 
+/**
+ * Smithing interface builder.
+ * @param item the item.
+ */
 class SmithingInterfaceBuilder(item: Item) {
 
     val type: BarType? = BarType.getBarTypeForId(item.id)
     val bar: Bar? = Bar.forId(item.id)
 
+    /**
+     * Build smithing interface.
+     *
+     * @param player the player.
+     */
     fun build(player: Player) {
         player.gameAttributes.removeAttribute("smith-type")
         player.gameAttributes.setAttribute("smith-type", type)

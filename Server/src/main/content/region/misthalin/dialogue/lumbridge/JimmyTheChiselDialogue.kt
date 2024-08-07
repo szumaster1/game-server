@@ -8,6 +8,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Jimmy the chisel dialogue.
+ */
 @Initializable
 class JimmyTheChiselDialogue(player: Player? = null) : Dialogue(player) {
 

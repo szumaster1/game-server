@@ -9,6 +9,9 @@ import core.game.world.GameWorld.Pulser
 import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 
+/**
+ * Father lawrence dialogue.
+ */
 @Initializable
 class FatherLawrenceDialogue(player: Player? = null) : Dialogue(player) {
 

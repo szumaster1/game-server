@@ -3,6 +3,11 @@ package content.region.karamja.quest.monkeymadness.dialogue
 import core.api.setQuestStage
 import core.game.dialogue.DialogueFile
 
+/**
+ * Awowogei challenge dialogue
+ *
+ * @constructor Awowogei challenge dialogue
+ */
 class AwowogeiChallengeDialogue: DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

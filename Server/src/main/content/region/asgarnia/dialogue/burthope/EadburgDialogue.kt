@@ -8,6 +8,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Eadburg dialogue.
+ */
 @Initializable
 class EadburgDialogue(player: Player? = null) : Dialogue(player) {
 

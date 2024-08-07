@@ -6,6 +6,9 @@ import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
 import core.game.world.map.zone.ZoneBorders
 
+/**
+ * Werewolf course map area.
+ */
 class WerewolfCourseMapArea : MapArea {
 
     override fun defineAreaBorders(): Array<ZoneBorders> {

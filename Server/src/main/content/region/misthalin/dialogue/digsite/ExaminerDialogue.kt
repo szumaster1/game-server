@@ -8,6 +8,9 @@ import core.plugin.Initializable
 import core.api.consts.Items
 import core.api.consts.NPCs
 
+/**
+ * Examiner dialogue.
+ */
 @Initializable
 class ExaminerDialogue (player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
@@ -21,6 +24,12 @@ class ExaminerDialogue (player: Player? = null) : Dialogue(player) {
         return intArrayOf(NPCs.EXAMINER_618, NPCs.EXAMINER_4566, NPCs.EXAMINER_4567)
     }
 }
+
+/**
+ * Examiner dialogue file
+ *
+ * @constructor Examiner dialogue file
+ */
 class ExaminerDialogueFile : DialogueBuilderFile() {
 
     companion object;

@@ -1,5 +1,8 @@
 package content.global.skill
 
+/**
+ * Barbarian training.
+ */
 object BarbarianTraining {
 
     // Fishing

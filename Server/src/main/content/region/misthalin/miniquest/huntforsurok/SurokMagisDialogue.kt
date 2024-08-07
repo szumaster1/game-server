@@ -10,6 +10,9 @@ import core.game.world.map.Location
 import core.game.world.map.build.DynamicRegion
 import core.plugin.Initializable
 
+/**
+ * Surok magis dialogue.
+ */
 @Initializable
 class SurokMagisDialogue(player: Player? = null) : Dialogue(player) {
     /*
@@ -70,6 +73,11 @@ class SurokMagisDialogue(player: Player? = null) : Dialogue(player) {
         return intArrayOf(7136)
     }
 
+    /**
+     * Surok cutscene
+     *
+     * @constructor Surok cutscene
+     */
     class SurokCutscene() : CutscenePlugin("Surok Cutscene") {
         var scene: SurokScene? = null
 
@@ -98,7 +106,20 @@ class SurokMagisDialogue(player: Player? = null) : Dialogue(player) {
         }
 
         override fun configure() {}
+
+        /**
+         * Surok scene
+         *
+         * @property regionId
+         * @property startData
+         * @constructor Surok scene
+         */
         enum class SurokScene(val regionId: Int, val startData: IntArray) {
+            /**
+             * Escape
+             *
+             * @constructor Escape
+             */
             ESCAPE(-1, intArrayOf())
 
         }

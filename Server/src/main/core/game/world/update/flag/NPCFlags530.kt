@@ -8,7 +8,13 @@ import core.game.world.update.flag.context.HitMark
 import core.network.packet.IoBuffer
 import kotlin.reflect.typeOf
 
+/**
+ * NPC flags530.
+ */
 sealed class NPCFlags530(p: Int, o: Int, f: EntityFlag) : EFlagProvider(530, EFlagType.NPC, p, o, f) {
+    /**
+     * Primary hit.
+     */
     class PrimaryHit : NPCFlags530(0x40, 0, EntityFlag.PrimaryHit) {
         override fun writeTo(buffer: IoBuffer, context: Any?) {
             if (context !is HitMark) {
@@ -27,6 +33,9 @@ sealed class NPCFlags530(p: Int, o: Int, f: EntityFlag) : EFlagProvider(530, EFl
         }
     }
 
+    /**
+     * Secondary hit.
+     */
     class SecondaryHit : NPCFlags530(0x2, 1, EntityFlag.SecondaryHit) {
         override fun writeTo(buffer: IoBuffer, context: Any?) {
             if (context !is HitMark) {
@@ -38,6 +47,9 @@ sealed class NPCFlags530(p: Int, o: Int, f: EntityFlag) : EFlagProvider(530, EFl
         }
     }
 
+    /**
+     * Animate.
+     */
     class Animate : NPCFlags530(0x10, 2, EntityFlag.Animate) {
         override fun writeTo(buffer: IoBuffer, context: Any?) {
             if (context !is Animation) {
@@ -49,6 +61,9 @@ sealed class NPCFlags530(p: Int, o: Int, f: EntityFlag) : EFlagProvider(530, EFl
         }
     }
 
+    /**
+     * Face entity.
+     */
     class FaceEntity : NPCFlags530(0x4, 3, EntityFlag.FaceEntity) {
         override fun writeTo(buffer: IoBuffer, context: Any?) {
             if (context !is Entity?) {
@@ -63,6 +78,9 @@ sealed class NPCFlags530(p: Int, o: Int, f: EntityFlag) : EFlagProvider(530, EFl
         }
     }
 
+    /**
+     * Spot anim.
+     */
     class SpotAnim : NPCFlags530(0x80, 4, EntityFlag.SpotAnim) {
         override fun writeTo(buffer: IoBuffer, context: Any?) {
             if (context !is Graphic) {
@@ -74,6 +92,9 @@ sealed class NPCFlags530(p: Int, o: Int, f: EntityFlag) : EFlagProvider(530, EFl
         }
     }
 
+    /**
+     * Type swap.
+     */
     class TypeSwap : NPCFlags530(0x1, 5, EntityFlag.TypeSwap) {
         override fun writeTo(buffer: IoBuffer, context: Any?) {
             if (context !is Int) {
@@ -84,6 +105,9 @@ sealed class NPCFlags530(p: Int, o: Int, f: EntityFlag) : EFlagProvider(530, EFl
         }
     }
 
+    /**
+     * Force chat.
+     */
     class ForceChat : NPCFlags530(0x20, 6, EntityFlag.ForceChat) {
         override fun writeTo(buffer: IoBuffer, context: Any?) {
             if (context !is String) {
@@ -94,10 +118,16 @@ sealed class NPCFlags530(p: Int, o: Int, f: EntityFlag) : EFlagProvider(530, EFl
         }
     }
 
+    /**
+     * Animation sequence.
+     */
     class AnimationSequence : NPCFlags530(0x100, 7, EntityFlag.AnimSeq) {
         //TODO
     }
 
+    /**
+     * Face location.
+     */
     class FaceLocation : NPCFlags530(0x200, 8, EntityFlag.FaceLocation) {
         override fun writeTo(buffer: IoBuffer, context: Any?) {
             if (context !is Location) {

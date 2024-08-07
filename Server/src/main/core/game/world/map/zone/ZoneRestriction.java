@@ -1,23 +1,52 @@
 package core.game.world.map.zone;
 
+/**
+ * The enum Zone restriction.
+ */
 public enum ZoneRestriction {
 
+    /**
+     * Followers zone restriction.
+     */
     FOLLOWERS,
 
-	RANDOM_EVENTS,
+    /**
+     * Random events zone restriction.
+     */
+    RANDOM_EVENTS,
 
-	FIRES,
+    /**
+     * Fires zone restriction.
+     */
+    FIRES,
 
-	MEMBERS,
+    /**
+     * Members zone restriction.
+     */
+    MEMBERS,
 
-	CANNON,
+    /**
+     * Cannon zone restriction.
+     */
+    CANNON,
 
+    /**
+     * Graves zone restriction.
+     */
     GRAVES,
 
-	TELEPORT,
+    /**
+     * Teleport zone restriction.
+     */
+    TELEPORT,
 	;
 
-	public int getFlag() {
+    /**
+     * Gets flag.
+     *
+     * @return the flag
+     */
+    public int getFlag() {
 		return 1 << ordinal();
 	}
 }

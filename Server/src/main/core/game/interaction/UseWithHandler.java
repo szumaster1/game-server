@@ -20,29 +20,66 @@ import java.util.Map;
 
 import static core.api.ContentAPIKt.log;
 
+/**
+ * Use with handler.
+ */
 public abstract class UseWithHandler implements Plugin<Object> {
 
+    /**
+     * The constant ITEM_TYPE.
+     */
     public static final int ITEM_TYPE = 0;
+    /**
+     * The constant NPC_TYPE.
+     */
     public static final int NPC_TYPE = 1;
+    /**
+     * The constant OBJECT_TYPE.
+     */
     public static final int OBJECT_TYPE = 2;
+    /**
+     * The constant PLAYER_TYPE.
+     */
     public static final int PLAYER_TYPE = 3;
 
     private static final Map<Integer, List<UseWithHandler>> HANDLERS = new HashMap<>();
 
     private int[] allowedNodes;
 
+    /**
+     * Instantiates a new Use with handler.
+     *
+     * @param allowedNodes the allowed nodes
+     */
     public UseWithHandler(int... allowedNodes) {
         this.allowedNodes = allowedNodes;
     }
 
+    /**
+     * Instantiates a new Use with handler.
+     *
+     * @param allowedNodes the allowed nodes
+     */
     public UseWithHandler(ArrayList<Integer> allowedNodes) {
         this.allowedNodes = allowedNodes.stream().mapToInt(i -> i).toArray();
     }
 
+    /**
+     * Sets allowed nodes.
+     *
+     * @param allowedNodes the allowed nodes
+     */
     public void setAllowedNodes(ArrayList<Integer> allowedNodes) {
         this.allowedNodes = allowedNodes.stream().mapToInt(i -> i).toArray();
     }
 
+    /**
+     * Add handler.
+     *
+     * @param id      the id
+     * @param type    the type
+     * @param handler the handler
+     */
     public static void addHandler(int id, int type, UseWithHandler handler) {
         int key = id | type << 16;
         List<UseWithHandler> handlers = HANDLERS.get(key);
@@ -62,6 +99,11 @@ public abstract class UseWithHandler implements Plugin<Object> {
         handlers.add(handler);
     }
 
+    /**
+     * Run.
+     *
+     * @param event the event
+     */
     public static void run(final NodeUsageEvent event) {
         try {
             if (event.getPlayer() != null) {
@@ -158,6 +200,12 @@ public abstract class UseWithHandler implements Plugin<Object> {
         return null;
     }
 
+    /**
+     * Get valid children int [ ].
+     *
+     * @param wrapper the wrapper
+     * @return the int [ ]
+     */
     public int[] getValidChildren(int wrapper) {
         final SceneryDefinition definition = SceneryDefinition.forId(wrapper);
         final List<Integer> list = new ArrayList<>(20);
@@ -177,10 +225,23 @@ public abstract class UseWithHandler implements Plugin<Object> {
         return array;
     }
 
+    /**
+     * Gets destination.
+     *
+     * @param player the player
+     * @param with   the with
+     * @return the destination
+     */
     public Location getDestination(Player player, Node with) {
         return null;
     }
 
+    /**
+     * Node allowed boolean.
+     *
+     * @param nodeId the node id
+     * @return the boolean
+     */
     public boolean nodeAllowed(int nodeId) {
         if (isDynamic()) {
             return true;
@@ -193,8 +254,19 @@ public abstract class UseWithHandler implements Plugin<Object> {
         return false;
     }
 
+    /**
+     * Handle boolean.
+     *
+     * @param event the event
+     * @return the boolean
+     */
     public abstract boolean handle(NodeUsageEvent event);
 
+    /**
+     * Is dynamic boolean.
+     *
+     * @return the boolean
+     */
     public boolean isDynamic() {
         return false;
     }

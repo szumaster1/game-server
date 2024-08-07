@@ -10,6 +10,9 @@ import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Gardener ghost dialogue.
+ */
 @Initializable
 class GardenerGhostDialogue(player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
@@ -37,6 +40,11 @@ class GardenerGhostDialogue(player: Player? = null) : Dialogue(player) {
     }
 }
 
+/**
+ * Gardener ghost dialogue file
+ *
+ * @constructor Gardener ghost dialogue file
+ */
 class GardenerGhostDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {
         b.onPredicate { player -> !player.equipment.containsAtLeastOneItem(Items.GHOSTSPEAK_AMULET_552) }

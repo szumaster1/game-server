@@ -6,6 +6,9 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 
+/**
+ * Wizard tower dialogue.
+ */
 @Initializable
 class WizardTowerDialogue(player: Player? = null) : Dialogue(player) {
 

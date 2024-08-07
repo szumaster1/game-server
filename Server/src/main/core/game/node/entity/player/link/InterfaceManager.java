@@ -20,12 +20,24 @@ import core.tools.Log;
 import static core.api.ContentAPIKt.*;
 
 
+/**
+ * Interface manager.
+ */
 public final class InterfaceManager {
 
+    /**
+     * The constant WINDOWS_PANE.
+     */
     public static final int WINDOWS_PANE = Components.TOPLEVEL_548;
 
+    /**
+     * The constant DEFAULT_CHATBOX.
+     */
     public static final int DEFAULT_CHATBOX = Components.CHATDEFAULT_137;
 
+    /**
+     * The constant DEFAULT_TABS.
+     */
     public static final int[] DEFAULT_TABS = {Components.WEAPON_FISTS_SEL_92, Components.STATS_320, Components.QUESTJOURNAL_V2_274,
         Components.INVENTORY_149, Components.WORNITEMS_387, Components.PRAYER_271, Components.MAGIC_192, Components.LORE_STATS_SIDE_662,
         Components.FRIENDS2_550, Components.IGNORE2_551, Components.CLANJOIN_589, Components.OPTIONS_261, Components.EMOTES_464,
@@ -51,14 +63,32 @@ public final class InterfaceManager {
 
     private int currentTabIndex = 3;
 
+    /**
+     * Instantiates a new Interface manager.
+     *
+     * @param player the player
+     */
     public InterfaceManager(Player player) {
         this.player = player;
     }
 
+    /**
+     * Open windows pane component.
+     *
+     * @param windowsPane the windows pane
+     * @return the component
+     */
     public Component openWindowsPane(Component windowsPane) {
         return openWindowsPane(windowsPane, false);
     }
 
+    /**
+     * Open windows pane component.
+     *
+     * @param windowsPane the windows pane
+     * @param overlap     the overlap
+     * @return the component
+     */
     public Component openWindowsPane(Component windowsPane, boolean overlap) {
         this.windowsPane = windowsPane;
         if (windowsPane.getDefinition().getType() != InterfaceType.WINDOW_PANE) {
@@ -75,6 +105,12 @@ public final class InterfaceManager {
         return windowsPane;
     }
 
+    /**
+     * Open windows pane.
+     *
+     * @param windowsPane the windows pane
+     * @param type        the type
+     */
     public void openWindowsPane(Component windowsPane, int type) {
         this.windowsPane = windowsPane;
         if (windowsPane.getDefinition().getType() != InterfaceType.WINDOW_PANE) {
@@ -89,10 +125,22 @@ public final class InterfaceManager {
             player.dispatch(new InterfaceOpenEvent(opened));
     }
 
+    /**
+     * Open component component.
+     *
+     * @param componentId the component id
+     * @return the component
+     */
     public Component openComponent(int componentId) {
         return open(new Component(componentId));
     }
 
+    /**
+     * Open component.
+     *
+     * @param component the component
+     * @return the component
+     */
     public Component open(Component component) {
         if (!close()) {
             return null;
@@ -105,14 +153,29 @@ public final class InterfaceManager {
         return opened;
     }
 
+    /**
+     * Is opened boolean.
+     *
+     * @return the boolean
+     */
     public boolean isOpened() {
         return opened != null;
     }
 
+    /**
+     * Has chatbox boolean.
+     *
+     * @return the boolean
+     */
     public boolean hasChatbox() {
         return chatbox != null && chatbox.getId() != DEFAULT_CHATBOX;
     }
 
+    /**
+     * Close boolean.
+     *
+     * @return the boolean
+     */
     public boolean close() {
         if (player.getAttribute("runscript", null) != null) {
             player.removeAttribute("runscript");
@@ -132,6 +195,11 @@ public final class InterfaceManager {
         return opened == null;
     }
 
+    /**
+     * Is walkable boolean.
+     *
+     * @return the boolean
+     */
     public boolean isWalkable() {
         if (opened != null) {
             if (opened.getId() == Components.OBJDIALOG_389) {
@@ -144,6 +212,12 @@ public final class InterfaceManager {
         return true;
     }
 
+    /**
+     * Close boolean.
+     *
+     * @param component the component
+     * @return the boolean
+     */
     public boolean close(Component component) {
         if (component.close(player)) {
             if (component.getId() == DEFAULT_CHATBOX) {
@@ -159,6 +233,9 @@ public final class InterfaceManager {
         return false;
     }
 
+    /**
+     * Close chatbox.
+     */
     public void closeChatbox() {
         if (chatbox != null && chatbox.getId() != DEFAULT_CHATBOX) {
             if (close(chatbox)) {
@@ -168,6 +245,12 @@ public final class InterfaceManager {
         }
     }
 
+    /**
+     * Open single tab component.
+     *
+     * @param component the component
+     * @return the component
+     */
     public Component openSingleTab(Component component) {
         if (component.getDefinition().getType() != InterfaceType.SINGLE_TAB) {
             log(this.getClass(), Log.WARN, "Set interface type to SINGLE_TAB for component " + component.getId() + ", definition requires updating!");
@@ -183,6 +266,11 @@ public final class InterfaceManager {
         return singleTab = component;
     }
 
+    /**
+     * Close single tab boolean.
+     *
+     * @return the boolean
+     */
     public boolean closeSingleTab() {
         if (singleTab != null && close(singleTab)) {
             singleTab = null;
@@ -190,10 +278,20 @@ public final class InterfaceManager {
         return true;
     }
 
+    /**
+     * Gets single tab.
+     *
+     * @return the single tab
+     */
     public Component getSingleTab() {
         return singleTab;
     }
 
+    /**
+     * Remove tabs.
+     *
+     * @param tabs the tabs
+     */
     public void removeTabs(int... tabs) {
         boolean changeViewedTab = false;
         for (int slot : tabs) {
@@ -224,6 +322,9 @@ public final class InterfaceManager {
         }
     }
 
+    /**
+     * Restore tabs.
+     */
     public void restoreTabs() {
         for (int i = 0; i < tabs.length; i++) {
             Component tab = tabs[i];
@@ -257,6 +358,9 @@ public final class InterfaceManager {
         }
     }
 
+    /**
+     * Open default tabs.
+     */
     public void openDefaultTabs() {
         // player.getPacketDispatch().sendInterfaceConfig(548, 51, false);
         WeaponInterface inter = player.getExtension(WeaponInterface.class);
@@ -286,6 +390,9 @@ public final class InterfaceManager {
         }
     }
 
+    /**
+     * Open info bars.
+     */
     public void openInfoBars() {
         //Hp orb
         PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 13 : 70, Components.TOPSTAT_HITPOINTS_748, true));
@@ -301,6 +408,9 @@ public final class InterfaceManager {
         PacketRepository.send(Interface.class, new InterfaceContext(player, getWindowPaneId(), isResizable() ? 71 : 10, Components.PMCHAT_754, true));
     }
 
+    /**
+     * Close default tabs.
+     */
     public void closeDefaultTabs() {
         WeaponInterface inter = player.getExtension(WeaponInterface.class);
         if (inter != null) {
@@ -323,6 +433,12 @@ public final class InterfaceManager {
         //close(new Component(Components.LOGOUT_182)); // LogoutPacket
     }
 
+    /**
+     * Open tab.
+     *
+     * @param slot      the slot
+     * @param component the component
+     */
     public void openTab(int slot, Component component) {
         if (component.getId() == Components.WEAPON_FISTS_SEL_92 && !(component instanceof WeaponInterface)) {
             throw new IllegalStateException("Attack tab can only be instanced as " + WeaponInterface.class.getCanonicalName() + "!");
@@ -339,6 +455,11 @@ public final class InterfaceManager {
         tabs[slot] = component;
     }
 
+    /**
+     * Open tab.
+     *
+     * @param component the component
+     */
     public void openTab(Component component) {
         if (component.getDefinition().getTabIndex() < 0) {
             log(this.getClass(), Log.WARN, "No component definitions found for tab " + component.getId() + "!");
@@ -347,10 +468,20 @@ public final class InterfaceManager {
         openTab(component.getDefinition().getTabIndex(), component);
     }
 
+    /**
+     * Open chatbox.
+     *
+     * @param componentId the component id
+     */
     public void openChatbox(int componentId) {
         openChatbox(new Component(componentId));
     }
 
+    /**
+     * Open chatbox.
+     *
+     * @param component the component
+     */
     public void openChatbox(Component component) {
         if (component.getId() == DEFAULT_CHATBOX) {
             if (chatbox == null || (chatbox.getId() != DEFAULT_CHATBOX && chatbox.getDefinition().getType() == InterfaceType.CHATBOX)) {
@@ -370,6 +501,11 @@ public final class InterfaceManager {
         }
     }
 
+    /**
+     * Switch window mode.
+     *
+     * @param windowMode the window mode
+     */
     public void switchWindowMode(int windowMode) {
         if (windowMode != player.getSession().getClientInfo().getWindowMode()) {
             player.getSession().getClientInfo().setWindowMode(windowMode);
@@ -385,6 +521,12 @@ public final class InterfaceManager {
         }
     }
 
+    /**
+     * Gets component.
+     *
+     * @param componentId the component id
+     * @return the component
+     */
     public Component getComponent(int componentId) {
         if (opened != null && opened.getId() == componentId) {
             return opened;
@@ -413,6 +555,11 @@ public final class InterfaceManager {
         return null;
     }
 
+    /**
+     * Sets viewed tab.
+     *
+     * @param tabIndex the tab index
+     */
     public void setViewedTab(int tabIndex) {
         if (tabs[tabIndex] == null) {
             return;
@@ -435,10 +582,21 @@ public final class InterfaceManager {
         player.getPacketDispatch().sendRunScript(115, "i", tabIndex);
     }
 
+    /**
+     * Has main component boolean.
+     *
+     * @param id the id
+     * @return the boolean
+     */
     public boolean hasMainComponent(int id) {
         return opened != null && opened.getId() == id;
     }
 
+    /**
+     * Open overlay.
+     *
+     * @param component the component
+     */
     public void openOverlay(Component component) {
         if (overlay != null && !overlay.close(player)) {
             return;
@@ -452,64 +610,137 @@ public final class InterfaceManager {
         overlay.open(player);
     }
 
+    /**
+     * Close overlay.
+     */
     public void closeOverlay() {
         if (overlay != null && close(overlay)) {
             overlay = null;
         }
     }
 
+    /**
+     * Gets weapon tab.
+     *
+     * @return the weapon tab
+     */
     public WeaponInterface getWeaponTab() {
         return player.getExtension(WeaponInterface.class);
     }
 
+    /**
+     * Gets opened.
+     *
+     * @return the opened
+     */
     public Component getOpened() {
         return opened;
     }
 
+    /**
+     * Sets opened.
+     *
+     * @param opened the opened
+     */
     public void setOpened(Component opened) {
         this.opened = opened;
     }
 
+    /**
+     * Get tabs component [ ].
+     *
+     * @return the component [ ]
+     */
     public Component[] getTabs() {
         return tabs;
     }
 
+    /**
+     * Sets tabs.
+     *
+     * @param tabs the tabs
+     */
     public void setTabs(Component[] tabs) {
         this.tabs = tabs;
     }
 
+    /**
+     * Gets chatbox.
+     *
+     * @return the chatbox
+     */
     public Component getChatbox() {
         return chatbox;
     }
 
+    /**
+     * Sets chatbox.
+     *
+     * @param chatbox the chatbox
+     */
     public void setChatbox(Component chatbox) {
         this.chatbox = chatbox;
     }
 
+    /**
+     * Gets overlay.
+     *
+     * @return the overlay
+     */
     public Component getOverlay() {
         return overlay;
     }
 
+    /**
+     * Sets overlay.
+     *
+     * @param overlay the overlay
+     */
     public void setOverlay(Component overlay) {
         this.overlay = overlay;
     }
 
+    /**
+     * Gets player.
+     *
+     * @return the player
+     */
     public Player getPlayer() {
         return player;
     }
 
+    /**
+     * Gets current tab index.
+     *
+     * @return the current tab index
+     */
     public int getCurrentTabIndex() {
         return currentTabIndex;
     }
 
+    /**
+     * Sets current tab index.
+     *
+     * @param currentTabIndex the current tab index
+     */
     public void setCurrentTabIndex(int currentTabIndex) {
         this.currentTabIndex = currentTabIndex;
     }
 
+    /**
+     * Gets windows pane.
+     *
+     * @return the windows pane
+     */
     public Component getWindowsPane() {
         return windowsPane;
     }
 
+    /**
+     * Gets window pane id.
+     *
+     * @return the window pane id
+     */
     public int getWindowPaneId() {
         if (windowsPane == null) {
             return Components.TOPLEVEL_548;
@@ -517,10 +748,20 @@ public final class InterfaceManager {
         return windowsPane.getId();
     }
 
+    /**
+     * Gets default child id.
+     *
+     * @return the default child id
+     */
     public int getDefaultChildId() {
         return isResizable() ? 6 : 11;
     }
 
+    /**
+     * Is resizable boolean.
+     *
+     * @return the boolean
+     */
     public boolean isResizable() {
         if (player.getSession().getClientInfo() == null) {
             return false;
@@ -528,6 +769,12 @@ public final class InterfaceManager {
         return player.getSession().getClientInfo().isResizable();
     }
 
+    /**
+     * Gets packet count.
+     *
+     * @param increment the increment
+     * @return the packet count
+     */
     public int getPacketCount(int increment) {
         int count = packetCount;
         packetCount += increment;

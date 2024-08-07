@@ -17,6 +17,9 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 import core.tools.RandomFunction
 
+/**
+ * Ham hideout plugin.
+ */
 @Initializable
 class HamHideoutPlugin : OptionHandler() {
     @Throws(Throwable::class)

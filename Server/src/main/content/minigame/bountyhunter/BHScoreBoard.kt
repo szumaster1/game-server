@@ -6,6 +6,10 @@ import core.game.node.entity.player.Player
 import core.tools.StringUtils
 import java.nio.ByteBuffer
 
+/**
+ * The score board.
+ * @author Emperor
+ */
 class BHScoreBoard {
     private val names = arrayOfNulls<String>(SIZE)
     private val scores = IntArray(SIZE)
@@ -16,6 +20,11 @@ class BHScoreBoard {
         }
     }
 
+    /**
+     * Opens the score board.
+     *
+     * @param player The player.
+     */
     fun open(player: Player) {
         var component = 654
         if (this == ROGUES) {
@@ -28,6 +37,11 @@ class BHScoreBoard {
         }
     }
 
+    /**
+     * Checks if the ratings of the player is good enough for the score board.
+     *
+     * @param player The player.
+     */
     fun check(player: Player) {
         var score = player.getSavedData().activityData.bountyHunterRate
         if (this == ROGUES) {
@@ -42,6 +56,13 @@ class BHScoreBoard {
         }
     }
 
+    /**
+     * Inserts the player in the score board.
+     *
+     * @param player The player.
+     * @param score The score.
+     * @param index The board index.
+     */
     private fun insert(player: Player, score: Int, index: Int) {
         if (names[index] == player.name) {
             scores[index] = score
@@ -82,8 +103,19 @@ class BHScoreBoard {
             //AriosStore.setArchive("bh_scores", buffer);
         }
 
+        /**
+         * Gets the rogues.
+         *
+         * @return The rogues.
+         */
         val rogues: BHScoreBoard
             get() = ROGUES
+
+        /**
+         * Gets the hunters.
+         *
+         * @return The hunters.
+         */
         val hunters: BHScoreBoard
             get() = HUNTERS
     }

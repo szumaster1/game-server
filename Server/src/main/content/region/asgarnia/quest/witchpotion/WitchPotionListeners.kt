@@ -7,6 +7,11 @@ import core.api.sendPlayerDialogue
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Witch potion listeners
+ *
+ * @constructor Witch potion listeners
+ */
 class WitchPotionListeners : InteractionListener {
 
     override fun defineListeners() {

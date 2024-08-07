@@ -13,7 +13,6 @@ import java.util.concurrent.ConcurrentHashMap
 
 /**
  * Handles world communication.
- * @author Emperor
  */
 object WorldCommunicator {
     private val HANDSHAKE_PRODUCER: EventProducer = MSHSEventProducer()

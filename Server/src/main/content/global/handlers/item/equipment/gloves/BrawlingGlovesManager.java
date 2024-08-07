@@ -14,14 +14,31 @@ import java.util.Objects;
 
 import static core.api.ContentAPIKt.setAttribute;
 
+/**
+ * Brawling gloves manager.
+ */
 public class BrawlingGlovesManager implements LoginListener, PersistPlayer {
+    /**
+     * The Player.
+     */
     final Player player;
+    /**
+     * The Glove charges.
+     */
     public HashMap<Integer, Integer> GloveCharges = new HashMap<Integer, Integer>();
 
+    /**
+     * Instantiates a new Brawling gloves manager.
+     *
+     * @param player the player
+     */
     public BrawlingGlovesManager(Player player) {
         this.player = player;
     }
 
+    /**
+     * Instantiates a new Brawling gloves manager.
+     */
     public BrawlingGlovesManager() {
         this.player = null;
     }
@@ -58,6 +75,11 @@ public class BrawlingGlovesManager implements LoginListener, PersistPlayer {
         }
     }
 
+    /**
+     * Register glove.
+     *
+     * @param id the id
+     */
     public void registerGlove(int id) {
         try {
             registerGlove(id, Objects.requireNonNull(BrawlingGloves.forId(id)).getCharges());
@@ -66,11 +88,23 @@ public class BrawlingGlovesManager implements LoginListener, PersistPlayer {
         }
     }
 
+    /**
+     * Register glove.
+     *
+     * @param id      the id
+     * @param charges the charges
+     */
     public void registerGlove(int id, int charges) {
         GloveCharges.putIfAbsent(id, charges);
     }
 
 
+    /**
+     * Update charges.
+     *
+     * @param glove   the glove
+     * @param charges the charges
+     */
     public void updateCharges(int glove, int charges) {
         if (GloveCharges.get(glove) != null) {
             if (GloveCharges.get(glove) - charges <= 0) {
@@ -88,6 +122,11 @@ public class BrawlingGlovesManager implements LoginListener, PersistPlayer {
         }
     }
 
+    /**
+     * Gets experience bonus.
+     *
+     * @return the experience bonus
+     */
     public double getExperienceBonus() {
         double bonus;
         int level = player.getSkullManager().getLevel();
@@ -99,6 +138,12 @@ public class BrawlingGlovesManager implements LoginListener, PersistPlayer {
         return bonus;
     }
 
+    /**
+     * Gets instance.
+     *
+     * @param player the player
+     * @return the instance
+     */
     public static BrawlingGlovesManager getInstance(Player player) {
         return player.getAttribute("bg-manager", new BrawlingGlovesManager());
     }

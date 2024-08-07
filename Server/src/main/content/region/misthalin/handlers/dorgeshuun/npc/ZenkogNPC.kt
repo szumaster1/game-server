@@ -6,6 +6,9 @@ import core.game.node.entity.npc.NPCBehavior
 import core.tools.RandomFunction
 import core.api.consts.NPCs
 
+/**
+ * Zenkog NPC.
+ */
 class ZenkogNPC : NPCBehavior(NPCs.ZENKOG_5797) {
 
     private val forceChat = arrayOf(

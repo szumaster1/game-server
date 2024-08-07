@@ -11,6 +11,9 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.plugin.Initializable
 
+/**
+ * Barlak dialogue.
+ */
 @Initializable
 class BarlakDialogue(player: Player? = null) : Dialogue(player) {
 

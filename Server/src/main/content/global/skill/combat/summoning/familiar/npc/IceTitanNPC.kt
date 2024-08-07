@@ -9,6 +9,9 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 
+/**
+ * Ice titan familiar.
+ */
 @Initializable
 class IceTitanNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.ICE_TITAN_7359) :
     ElementalTitanNPC(owner, id, 6400, 12806, 20, WeaponInterface.STYLE_ACCURATE) {

@@ -14,6 +14,13 @@ import core.game.world.map.zone.impl.WildernessZone
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 
+/**
+ * Revenant combat handler.
+ *
+ * @param meleeAnimation the melee animation id.
+ * @param magicAnimation the magic animation id.
+ * @param rangeAnimation the range animation id.
+ */
 class RevenantCombatHandler(meleeAnimation: Animation?, magicAnimation: Animation?, rangeAnimation: Animation?) :
     MultiSwingHandler(
         true,

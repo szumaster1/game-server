@@ -15,6 +15,11 @@ import core.tools.RandomFunction
 import core.tools.colorize
 import org.json.simple.JSONObject
 
+/**
+ * Anti macro
+ *
+ * @constructor Anti macro
+ */
 class AntiMacro : PersistTimer(
     runInterval = 0,
     identifier = "antimacro",
@@ -119,6 +124,13 @@ class AntiMacro : PersistTimer(
         }
     }
 
+    /**
+     * Command args
+     *
+     * @property targetPlayer
+     * @property targetEvent
+     * @constructor Command args
+     */
     data class CommandArgs(val targetPlayer: String, val targetEvent: RandomEvents?)
 
     companion object {

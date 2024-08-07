@@ -11,26 +11,55 @@ import java.util.Map;
 
 import static core.api.ContentAPIKt.log;
 
+/**
+ * Data map.
+ */
 public class DataMap {
 
     private static final Map<Integer, DataMap> definitions = new HashMap<>();
 
     private final int id;
 
+    /**
+     * The Key type.
+     */
     public char keyType = '?';
 
+    /**
+     * The Value type.
+     */
     public char valueType = '?';
 
+    /**
+     * The Default string.
+     */
     public String defaultString;
 
+    /**
+     * The Default int.
+     */
     public int defaultInt;
 
+    /**
+     * The Data store.
+     */
     public HashMap<Integer, Object> dataStore = new HashMap<>();
 
+    /**
+     * Instantiates a new Data map.
+     *
+     * @param id the id
+     */
     public DataMap(int id) {
         this.id = id;
     }
 
+    /**
+     * Gets int.
+     *
+     * @param key the key
+     * @return the int
+     */
     public int getInt(int key) {
         if (!dataStore.containsKey(key)) {
             log(this.getClass(), Log.ERR, "Invalid value passed for key: " + key + " map: " + id);
@@ -39,6 +68,12 @@ public class DataMap {
         return (int) dataStore.get(key);
     }
 
+    /**
+     * Gets string.
+     *
+     * @param key the key
+     * @return the string
+     */
     public String getString(int key) {
         return (String) dataStore.get(key);
     }
@@ -56,6 +91,12 @@ public class DataMap {
             '}' + "\n";
     }
 
+    /**
+     * Get data map.
+     *
+     * @param id the id
+     * @return the data map
+     */
     public static DataMap get(int id) {
         DataMap def = definitions.get(id);
         if (def != null) {
@@ -67,6 +108,13 @@ public class DataMap {
         return def;
     }
 
+    /**
+     * Parse data map.
+     *
+     * @param id   the id
+     * @param data the data
+     * @return the data map
+     */
     public static DataMap parse(int id, byte[] data) {
         DataMap def = new DataMap(id);
         if (data != null) {
@@ -103,6 +151,11 @@ public class DataMap {
         return def;
     }
 
+    /**
+     * Gets id.
+     *
+     * @return the id
+     */
     public int getId() {
         return id;
     }

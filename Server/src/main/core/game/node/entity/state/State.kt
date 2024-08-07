@@ -8,7 +8,6 @@ import org.json.simple.JSONObject
 /**
  * A class representing a state that the player or some associated thing can be in.
  * @param player The player the state is for
- * @author Ceikry
  */
 abstract class State(val player: Player? = null) {
     var pulse: Pulse? = null

@@ -17,6 +17,9 @@ import core.game.world.map.zone.ZoneBuilder
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Water birth island zone.
+ */
 @Initializable
 class WaterBirthIslandZone : MapZone("Water birth island", true), Plugin<Any?> {
 

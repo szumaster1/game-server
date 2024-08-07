@@ -17,9 +17,15 @@ import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
+/**
+ * Iban blast.
+ */
 @Initializable
 public final class IbanBlast extends CombatSpell {
 
+    /**
+     * Instantiates a new Iban blast.
+     */
     public IbanBlast() {
         super(SpellType.IBANS_BLAST, SpellBook.MODERN, 50, 60.5, Sounds.FIREWAVE_CAST_AND_FIRE_162, Sounds.FIREWAVE_HIT_163, new Animation(708, Priority.HIGH), new Graphic(87, 96), Projectile.create((Entity) null, null, 88, 40, 36, 52, 75, 15, 11), new Graphic(89, 96), Runes.FIRE_RUNE.getItem(5), Runes.DEATH_RUNE.getItem(1));
     }

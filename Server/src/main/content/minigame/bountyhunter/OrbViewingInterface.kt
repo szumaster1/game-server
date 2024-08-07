@@ -18,7 +18,7 @@ import core.plugin.ClassScanner.definePlugin
 import core.plugin.Plugin
 
 /**
- * @author Vexia, Emperor
+ * Orb viewing interface.
  */
 class OrbViewingInterface : ComponentPlugin() {
 
@@ -117,7 +117,6 @@ class OrbViewingInterface : ComponentPlugin() {
 
     /**
      * Handles the close event of a viewing interface.
-     * @author Vexia
      */
     class ViewCloseEvent : CloseEvent {
         override fun close(player: Player, c: Component): Boolean {

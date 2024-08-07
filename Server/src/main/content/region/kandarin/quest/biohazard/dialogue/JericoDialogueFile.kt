@@ -6,6 +6,11 @@ import core.api.setQuestStage
 import core.game.dialogue.DialogueFile
 import core.game.node.entity.npc.NPC
 
+/**
+ * Jerico dialogue file
+ *
+ * @constructor Jerico dialogue file
+ */
 class JericoDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         val questStage = getQuestStage(player!!, "Biohazard")

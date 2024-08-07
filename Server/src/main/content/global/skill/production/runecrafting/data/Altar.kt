@@ -8,7 +8,22 @@ import core.game.node.entity.player.Player
 import core.game.node.scenery.Scenery
 import core.api.consts.Scenery as Object
 
+/**
+ * Altar
+ *
+ * @property scenery
+ * @property portal
+ * @property riftId
+ * @property ruin
+ * @property rune
+ * @constructor Altar
+ */
 enum class Altar(val scenery: Int, val portal: Int, val riftId: Int, val ruin: MysteriousRuin?, val rune: Rune?) {
+    /**
+     * Air
+     *
+     * @constructor Air
+     */
     AIR(
         scenery = Object.AIR_ALTAR_2478,
         portal = Object.AIR_ALTAR_EXIT_2465,
@@ -16,6 +31,12 @@ enum class Altar(val scenery: Int, val portal: Int, val riftId: Int, val ruin: M
         ruin = MysteriousRuin.AIR,
         rune = Rune.AIR
     ),
+
+    /**
+     * Mind
+     *
+     * @constructor Mind
+     */
     MIND(
         scenery = Object.MIND_ALTAR_2479,
         portal = Object.MIND_ALTAR_EXIT_2466,
@@ -23,6 +44,12 @@ enum class Altar(val scenery: Int, val portal: Int, val riftId: Int, val ruin: M
         ruin = MysteriousRuin.MIND,
         rune = Rune.MIND
     ),
+
+    /**
+     * Water
+     *
+     * @constructor Water
+     */
     WATER(
         scenery = Object.WATER_ALTAR_2480,
         portal = Object.WATER_ALTAR_EXIT_2467,
@@ -30,6 +57,12 @@ enum class Altar(val scenery: Int, val portal: Int, val riftId: Int, val ruin: M
         ruin = MysteriousRuin.WATER,
         rune = Rune.WATER
     ),
+
+    /**
+     * Earth
+     *
+     * @constructor Earth
+     */
     EARTH(
         scenery = Object.EARTH_ALTAR_2481,
         portal = Object.EARTH_ALTAR_EXIT_2468,
@@ -38,6 +71,11 @@ enum class Altar(val scenery: Int, val portal: Int, val riftId: Int, val ruin: M
         rune = Rune.EARTH
     ),
 
+    /**
+     * Fire
+     *
+     * @constructor Fire
+     */
     FIRE(
         scenery = Object.FIRE_ALTAR_2482,
         portal = Object.FIRE_ALTAR_EXIT_2469,
@@ -45,6 +83,12 @@ enum class Altar(val scenery: Int, val portal: Int, val riftId: Int, val ruin: M
         ruin = MysteriousRuin.FIRE,
         rune = Rune.FIRE
     ),
+
+    /**
+     * Body
+     *
+     * @constructor Body
+     */
     BODY(
         scenery = Object.BODY_ALTAR_2483,
         portal = Object.BODY_ALTAR_EXIT_2470,
@@ -52,6 +96,12 @@ enum class Altar(val scenery: Int, val portal: Int, val riftId: Int, val ruin: M
         ruin = MysteriousRuin.BODY,
         rune = Rune.BODY
     ),
+
+    /**
+     * Cosmic
+     *
+     * @constructor Cosmic
+     */
     COSMIC(
         scenery = Object.COSMIC_ALTAR_2484,
         portal = Object.COSMIC_ALTAR_EXIT_2471,
@@ -59,6 +109,12 @@ enum class Altar(val scenery: Int, val portal: Int, val riftId: Int, val ruin: M
         ruin = MysteriousRuin.COSMIC,
         rune = Rune.COSMIC
     ),
+
+    /**
+     * Chaos
+     *
+     * @constructor Chaos
+     */
     CHAOS(
         scenery = Object.CHAOS_ALTAR_2487,
         portal = Object.CHAOS_ALTAR_EXIT_2474,
@@ -66,6 +122,12 @@ enum class Altar(val scenery: Int, val portal: Int, val riftId: Int, val ruin: M
         ruin = MysteriousRuin.CHAOS,
         rune = Rune.CHAOS
     ),
+
+    /**
+     * Astral
+     *
+     * @constructor Astral
+     */
     ASTRAL(
         scenery = Object.ALTAR_17010,
         portal = 0,
@@ -73,6 +135,12 @@ enum class Altar(val scenery: Int, val portal: Int, val riftId: Int, val ruin: M
         ruin = null,
         rune = Rune.ASTRAL
     ),
+
+    /**
+     * Nature
+     *
+     * @constructor Nature
+     */
     NATURE(
         scenery = Object.NATURE_ALTAR_2486,
         portal = Object.NATURE_ALTAR_EXIT_2473,
@@ -80,6 +148,12 @@ enum class Altar(val scenery: Int, val portal: Int, val riftId: Int, val ruin: M
         ruin = MysteriousRuin.NATURE,
         rune = Rune.NATURE
     ),
+
+    /**
+     * Law
+     *
+     * @constructor Law
+     */
     LAW(
         scenery = Object.LAW_ALTAR_2485,
         portal = Object.LAW_PORTAL_EXIT_2472,
@@ -87,6 +161,12 @@ enum class Altar(val scenery: Int, val portal: Int, val riftId: Int, val ruin: M
         ruin = MysteriousRuin.LAW,
         rune = Rune.LAW
     ),
+
+    /**
+     * Death
+     *
+     * @constructor Death
+     */
     DEATH(
         scenery = Object.DEATH_ALTAR_2488,
         portal = Object.DEATH_ALTAR_EXIT_2475,
@@ -94,6 +174,12 @@ enum class Altar(val scenery: Int, val portal: Int, val riftId: Int, val ruin: M
         ruin = MysteriousRuin.DEATH,
         rune = Rune.DEATH
     ),
+
+    /**
+     * Blood
+     *
+     * @constructor Blood
+     */
     BLOOD(
         scenery = Object.BLOOD_ALTAR_30624,
         portal = Object.BLOOD_ALTAR_EXIT_2477,
@@ -101,6 +187,12 @@ enum class Altar(val scenery: Int, val portal: Int, val riftId: Int, val ruin: M
         ruin = MysteriousRuin.BLOOD,
         rune = Rune.BLOOD
     ),
+
+    /**
+     * Ourania
+     *
+     * @constructor Ourania
+     */
     OURANIA(
         scenery = Object.OURANIA_ALTAR_26847,
         portal = 0,
@@ -109,6 +201,11 @@ enum class Altar(val scenery: Int, val portal: Int, val riftId: Int, val ruin: M
         rune = null
     );
 
+    /**
+     * Enter rift
+     *
+     * @param player
+     */
     fun enterRift(player: Player) {
         if (this == ASTRAL) {
             if (!hasRequirement(player, "Lunar Diplomacy")) return

@@ -7,9 +7,15 @@ import core.game.node.entity.skill.Skills;
 import core.plugin.Initializable;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Witch house.
+ */
 @Initializable
 public class WitchHouse extends Quest {
 
+    /**
+     * Instantiates a new Witch house.
+     */
     public WitchHouse() {
         super("Witch's House", 124, 123, 4, Vars.VARP_QUEST_WTICHS_HOUSE_PROGRESS, 0, 1, 7);
     }

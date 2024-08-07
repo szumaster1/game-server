@@ -5,6 +5,10 @@ import core.network.packet.OutgoingPacket;
 import core.network.packet.PacketHeader;
 import core.network.packet.context.RunScriptContext;
 
+/**
+ * The run script outgoing packet.
+ * @author Snickerize
+ */
 public class RunScriptPacket implements OutgoingPacket<RunScriptContext> {
 
     @Override

@@ -8,6 +8,9 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Reinald dialogue.
+ */
 @Initializable
 class ReinaldDialogue(player: Player? = null) : Dialogue(player) {
 

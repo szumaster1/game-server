@@ -16,6 +16,9 @@ import core.tools.RandomFunction
 import core.tools.colorize
 import org.json.simple.JSONObject
 
+/**
+ * Star sprite dialogue.
+ */
 @Initializable
 class StarSpriteDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -163,19 +166,26 @@ class StarSpriteDialogue(player: Player? = null) : Dialogue(player) {
 
     fun rollForRingBonus(player: Player, bonusId: Int, bonusBaseAmt: Int) {
         if (RandomFunction.roll(3)) {
+            // Roll for a bonus effect with a 3/100 chance.
             var bonus = getOrStartTimer<StarBonus>(player)
             bonus.ticksLeft += 500
             sendMessage(player, colorize("%RYour ring shines dimly as if imbued with energy."))
         } else if (RandomFunction.roll(5)) {
+            // Roll for a bonus effect with a 5/100 chance.
             addItem(player, bonusId, bonusBaseAmt)
             sendMessage(player, colorize("%RYour ring shines brightly as if surging with energy and then fades out."))
         } else if (RandomFunction.roll(25)) {
-            // Flag daily as uncompleted.
+            // Roll for a bonus effect with a 25/100 chance and flag the daily as uncompleted.
             getStoreFile()[player.username.lowercase()] = false
             sendMessage(player, colorize("%RYour ring vibrates briefly as if surging with power, and then stops."))
         }
     }
 
+    /**
+     * Get store file from the ServerStore archive.
+     *
+     * @return JSONObject representing the store file.
+     */
     fun getStoreFile(): JSONObject {
         return ServerStore.getArchive("daily-shooting-star")
     }

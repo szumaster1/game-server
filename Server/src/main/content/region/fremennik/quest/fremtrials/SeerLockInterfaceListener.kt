@@ -7,6 +7,11 @@ import core.api.sendMessage
 import core.api.setAttribute
 import core.game.interaction.InterfaceListener
 
+/**
+ * Seer lock interface listener
+ *
+ * @constructor Seer lock interface listener
+ */
 class SeerLockInterfaceListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {

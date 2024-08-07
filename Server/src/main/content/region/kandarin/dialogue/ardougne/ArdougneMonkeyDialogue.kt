@@ -10,6 +10,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Ardougne monkey dialogue.
+ */
 @Initializable
 class ArdougneMonkeyDialogue(player: Player? = null) : Dialogue(player) {
 

@@ -11,6 +11,9 @@ import core.game.world.map.Location;
 import core.game.world.map.RegionManager;
 import core.plugin.Plugin;
 
+/**
+ * Zamorak wizard npc.
+ */
 public final class ZamorakWizardNPC extends AbstractNPC {
 
 	private static final int[] IDS = new int[] { 1007 };
@@ -19,10 +22,19 @@ public final class ZamorakWizardNPC extends AbstractNPC {
 
 	private Player player;
 
+    /**
+     * Instantiates a new Zamorak wizard npc.
+     */
     public ZamorakWizardNPC() {
 		super(0, null);
 	}
 
+    /**
+     * Instantiates a new Zamorak wizard npc.
+     *
+     * @param id       the id
+     * @param location the location
+     */
     public ZamorakWizardNPC(int id, Location location) {
 		super(id, location, false);
 		this.setRespawn(false);
@@ -118,14 +130,29 @@ public final class ZamorakWizardNPC extends AbstractNPC {
 		return IDS;
 	}
 
+    /**
+     * Gets player.
+     *
+     * @return the player
+     */
     public Player getPlayer() {
 		return player;
 	}
 
+    /**
+     * Sets player.
+     *
+     * @param player the player
+     */
     public void setPlayer(Player player) {
 		this.player = player;
 	}
 
+    /**
+     * Gets clue scroll.
+     *
+     * @return the clue scroll
+     */
     public ClueScrollPlugin getClueScroll() {
 		return clueScroll;
 	}

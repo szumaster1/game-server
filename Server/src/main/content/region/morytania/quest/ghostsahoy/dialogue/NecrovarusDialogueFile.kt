@@ -9,6 +9,9 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
+/**
+ * Necrovarus dialogue file.
+ */
 class NecrovarusDialogueFile : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

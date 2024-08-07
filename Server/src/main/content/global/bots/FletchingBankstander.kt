@@ -8,6 +8,9 @@ import core.game.bots.SkillingBotAssembler
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
+/**
+ * Fletching bankstander.
+ */
 class FletchingBankstander : Script() {
 
     var state = State.FLETCHING
@@ -43,7 +46,24 @@ class FletchingBankstander : Script() {
         return script
     }
 
+    /**
+     * State
+     *
+     * @constructor State
+     */
     enum class State {
-        FLETCHING, BANKING
+        /**
+         * Fletching
+         *
+         * @constructor Fletching
+         */
+        FLETCHING,
+
+        /**
+         * Banking
+         *
+         * @constructor Banking
+         */
+        BANKING
     }
 }

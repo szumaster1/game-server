@@ -33,6 +33,9 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 import core.tools.RandomFunction
 
+/**
+ * Catapult room.
+ */
 @Initializable
 class CatapultRoom : MapZone("wg catapult", true), Plugin<Any> {
 
@@ -42,24 +45,47 @@ class CatapultRoom : MapZone("wg catapult", true), Plugin<Any> {
         val success: Animation,
         val fail: Animation
     ) {
+        /**
+         * Spiky Ball
+         *
+         * @constructor Spiky Ball
+         */
         SPIKY_BALL(
             graphicId = 679,
             objectId = 15617,
             success = Animation.create(4169),
             fail = Animation.create(4173)
         ),
+
+        /**
+         * Flung Anvil
+         *
+         * @constructor Flung Anvil
+         */
         FLUNG_ANVIL(
             graphicId = 680,
             objectId = 15619,
             success = Animation.create(4168),
             fail = Animation.create(4172)
         ),
+
+        /**
+         * Slashing Blades
+         *
+         * @constructor Slashing Blades
+         */
         SLASHING_BLADES(
             graphicId = 681,
             objectId = 15620,
             success = Animation.create(4170),
             fail = Animation.create(4174)
         ),
+
+        /**
+         * Magic Missile
+         *
+         * @constructor Magic Missile
+         */
         MAGIC_MISSILE(
             graphicId = 682,
             objectId = 15618,

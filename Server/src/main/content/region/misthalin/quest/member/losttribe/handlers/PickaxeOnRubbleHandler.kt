@@ -11,6 +11,11 @@ import core.game.world.GameWorld
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Pickaxe on rubble handler
+ *
+ * @constructor Pickaxe on rubble handler
+ */
 @Initializable
 class PickaxeOnRubbleHandler : UseWithHandler(
     Items.BRONZE_PICKAXE_1265,

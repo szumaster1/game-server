@@ -3,7 +3,21 @@ import content.global.skill.production.runecrafting.RunecraftingPulse
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
+/**
+ * Runecraft tests
+ *
+ * @constructor Runecraft tests
+ */
 class RunecraftTests {
+    /**
+     * Roll rc
+     *
+     * @param rcLevel
+     * @param rune
+     * @param revision
+     * @param lo
+     * @param hi
+     */
     fun rollRc(rcLevel: Int, rune: Rune, revision: Int, lo: Double, hi: Double) {
         var total = 0.0
         for (i in 0 until 3000) {
@@ -13,6 +27,10 @@ class RunecraftTests {
         Assertions.assertTrue(lo <= average && average <= hi, "rollRc: ${rcLevel} ${rune.name} ${revision}: ${average}")
     }
 
+    /**
+     * Test nature rc multipliers
+     *
+     */
     @Test
     fun testNatureRcMultipliers() {
         rollRc(44, Rune.NATURE, 530, 1.0, 1.0);
@@ -36,6 +54,10 @@ class RunecraftTests {
         rollRc(99, Rune.NATURE, 581, 2.04, 2.14);
     }
 
+    /**
+     * Test law rc multipliers
+     *
+     */
     @Test
     fun testLawRcMultipliers() {
         rollRc(54, Rune.LAW, 530, 1.0, 1.0);

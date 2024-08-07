@@ -7,6 +7,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.START_DIALOGUE
 
+/**
+ * Snurgh dialogue.
+ */
 @Initializable
 class SnurghDialogue(player: Player? = null) : Dialogue(player) {
 

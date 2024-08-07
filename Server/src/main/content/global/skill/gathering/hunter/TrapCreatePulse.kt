@@ -14,6 +14,15 @@ import core.game.node.scenery.SceneryBuilder
 import core.game.world.map.Location
 import core.game.world.map.RegionManager.getObject
 
+/**
+ * Trap create pulse
+ *
+ * @property trap
+ * @constructor
+ *
+ * @param player
+ * @param node
+ */
 class TrapCreatePulse(player: Player, node: Node, val trap: Traps) : SkillPulse<Node?>(player, node) {
 
     private val startLocation: Location = if (node is GroundItem) node.getLocation() else player.location

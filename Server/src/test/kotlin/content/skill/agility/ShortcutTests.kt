@@ -6,7 +6,16 @@ import core.game.world.map.Location
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
+/**
+ * Shortcut tests
+ *
+ * @constructor Shortcut tests
+ */
 class ShortcutTests {
+    /**
+     * Stile get interaction loc should return correct loc
+     *
+     */
     @Test
     fun stileGetInteractionLocShouldReturnCorrectLoc() {
         data class StileTestData(
@@ -74,6 +83,10 @@ class ShortcutTests {
         }
     }
 
+    /**
+     * Stile get orientation should return correct orientation
+     *
+     */
     @Test
     fun stileGetOrientationShouldReturnCorrectOrientation() {
         val testData = arrayOf(

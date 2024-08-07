@@ -7,6 +7,11 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.link.TeleportManager
 import core.game.node.item.Item
 
+/**
+ * House teleport tab listener
+ *
+ * @constructor House teleport tab listener
+ */
 class HouseTeleportTabListener : InteractionListener {
 
     private val houseTeleport = Items.TELEPORT_TO_HOUSE_8013

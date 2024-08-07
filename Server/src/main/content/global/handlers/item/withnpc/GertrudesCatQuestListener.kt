@@ -12,6 +12,11 @@ import core.game.world.map.Location
 import core.game.world.map.path.Path
 import core.game.world.map.path.Pathfinder
 
+/**
+ * Gertrudes cat quest listener
+ *
+ * @constructor Gertrudes cat quest listener
+ */
 class GertrudesCatQuestListener : InteractionListener {
 
     private val gertrudeCat = "Gertrude's Cat"

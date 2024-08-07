@@ -11,6 +11,9 @@ import core.game.node.entity.player.Player
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
+/**
+ * Bookcase west.
+ */
 class BookcaseWest : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         when (stage) {
@@ -32,6 +35,9 @@ class BookcaseWest : DialogueFile() {
     }
 }
 
+/**
+ * Bookcase east dialogue file.
+ */
 class BookcaseEastDialogueFile : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
@@ -59,7 +65,7 @@ class BookcaseEastDialogueFile : DialogueFile() {
 }
 
 /**
- * Chimney Sweeping on a Budget Book
+ * Chimney sweeping on a budget book.
  */
 class ChimneySweepingOnABudgetBook {
     companion object {

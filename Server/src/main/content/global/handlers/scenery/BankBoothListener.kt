@@ -16,6 +16,11 @@ import core.game.world.map.Direction
 import core.game.world.map.Location
 import core.game.world.repository.Repository
 
+/**
+ * Bank booth listener
+ *
+ * @constructor Bank booth listener
+ */
 class BankBoothListener : InteractionListener {
 
     companion object {

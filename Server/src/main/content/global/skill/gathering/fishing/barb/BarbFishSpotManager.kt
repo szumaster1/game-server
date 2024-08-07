@@ -8,6 +8,9 @@ import core.game.node.entity.npc.NPC
 import core.game.world.map.Location
 import core.tools.RandomFunction
 
+/**
+ * Barb fish spot manager.
+ */
 class BarbFishSpotManager : TickListener, StartupListener {
     var ticks = 0
     val spots = ArrayList<BarbFishingSpot>()
@@ -39,10 +42,20 @@ class BarbFishSpotManager : TickListener, StartupListener {
     }
 }
 
+/**
+ * Get new ttl
+ *
+ * @return
+ */
 fun getNewTTL(): Int {
     return RandomFunction.random(400, 2000)
 }
 
+/**
+ * Get new loc
+ *
+ * @return
+ */
 fun getNewLoc(): Location {
 
     val possibleLoc = ArrayList<Location>()
@@ -52,6 +65,13 @@ fun getNewLoc(): Location {
     return loc
 }
 
+/**
+ * Barb fishing spot
+ *
+ * @property loc
+ * @property ttl
+ * @constructor Barb fishing spot
+ */
 class BarbFishingSpot(var loc: Location? = null, var ttl: Int) : NPC(1176) {
     init {
         location = loc

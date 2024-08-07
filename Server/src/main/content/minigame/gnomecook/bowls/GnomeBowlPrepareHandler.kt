@@ -9,6 +9,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Gnome bowl prepare handler.
+ */
 @Initializable
 class GnomeBowlPrepareHandler : OptionHandler() {
     override fun newInstance(arg: Any?): Plugin<Any> {

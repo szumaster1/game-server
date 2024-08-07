@@ -9,6 +9,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
+/**
+ * Ardougne guide book
+ *
+ * @constructor Ardougne guide book
+ */
 class ArdougneGuideBook : InteractionListener {
 
     companion object {

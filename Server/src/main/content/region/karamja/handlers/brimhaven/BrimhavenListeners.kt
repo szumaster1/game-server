@@ -19,6 +19,9 @@ import core.game.world.repository.Repository
 import core.tools.RandomFunction
 import kotlin.math.ceil
 
+/**
+ * Brimhaven listeners.
+ */
 class BrimhavenListeners : InteractionListener {
 
     companion object {

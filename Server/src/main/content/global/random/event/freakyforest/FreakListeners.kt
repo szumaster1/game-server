@@ -11,6 +11,9 @@ import core.game.system.task.Pulse
 import core.game.world.map.zone.ZoneBorders
 import core.game.world.map.zone.ZoneRestriction
 
+/**
+ * Freak listeners.
+ */
 class FreakListeners : InteractionListener, MapArea {
     private val exitPortal = Scenery.PORTAL_8972
     private val freakNpc = NPCs.FREAKY_FORESTER_2458

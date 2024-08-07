@@ -14,14 +14,25 @@ import kotlin.Unit;
 
 import static core.api.ContentAPIKt.sendInputDialogue;
 
+/**
+ * Leather craft dialogue.
+ */
 @Initializable
 public final class LeatherCraftDialogue extends Dialogue {
 
     private String type = "";
     private int leather;
 
+    /**
+     * Instantiates a new Leather craft dialogue.
+     */
     public LeatherCraftDialogue() {}
 
+    /**
+     * Instantiates a new Leather craft dialogue.
+     *
+     * @param player the player
+     */
     public LeatherCraftDialogue(Player player) {
         super(player);
     }

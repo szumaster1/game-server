@@ -10,20 +10,59 @@ import core.plugin.Initializable;
 
 import static core.api.ContentAPIKt.setVarp;
 
+/**
+ * What lies below.
+ */
 @Initializable
 public class WhatLiesBelow extends Quest {
 
+    /**
+     * The constant NAME.
+     */
     public static final String NAME = "What Lies Below";
+    /**
+     * The constant BOWL.
+     */
     public static final Item BOWL = new Item(Items.BOWL_1923);
+    /**
+     * The constant SIN_KETH_DIARY.
+     */
     public static final Item SIN_KETH_DIARY = new Item(Items.SINKETHS_DIARY_11002);
+    /**
+     * The constant EMPTY_FOLDER.
+     */
     public static final Item EMPTY_FOLDER = new Item(Items.AN_EMPTY_FOLDER_11003);
+    /**
+     * The constant USED_FOLDER.
+     */
     public static final Item USED_FOLDER = new Item(Items.USED_FOLDER_11006);
+    /**
+     * The constant FULL_FOLDER.
+     */
     public static final Item FULL_FOLDER = new Item(Items.FULL_FOLDER_11007);
+    /**
+     * The constant RATS_PAPER.
+     */
     public static final Item RATS_PAPER = new Item(Items.RATS_PAPER_11008);
+    /**
+     * The constant RATS_LETTER.
+     */
     public static final Item RATS_LETTER = new Item(Items.RATS_LETTER_11009);
+    /**
+     * The constant SUROKS_LETTER.
+     */
     public static final Item SUROKS_LETTER = new Item(Items.SUROKS_LETTER_11010);
+    /**
+     * The constant WAND.
+     */
     public static final Item WAND = new Item(Items.WAND_11012);
+    /**
+     * The constant INFUSED_WAND.
+     */
     public static final Item INFUSED_WAND = new Item(Items.INFUSED_WAND_11013);
+    /**
+     * The constant BEACON_RING.
+     */
     public static final Item BEACON_RING = new Item(Items.BEACON_RING_11014);
 
     private static final String[] REQS = new String[]{
@@ -35,6 +74,9 @@ public class WhatLiesBelow extends Quest {
 
     private final boolean[] requirements = new boolean[4];
 
+    /**
+     * Instantiates a new What lies below.
+     */
     public WhatLiesBelow() {
         super(NAME, 136, 135, 1);
     }
@@ -100,6 +142,12 @@ public class WhatLiesBelow extends Quest {
         player.getQuestRepository().syncronizeTab(player);
     }
 
+    /**
+     * Gets req message.
+     *
+     * @param player the player
+     * @return the req message
+     */
     public String getReqMessage(Player player) {
         hasRequirements(player);
         String s = "";

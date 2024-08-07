@@ -19,7 +19,6 @@ import java.nio.ByteBuffer
 
 /**
  * Handles the sending of quick chat messages and string-replacement for specific messages.
- * @author Ceikry
  */
 object QCRepository {
     private val quickChatIndex = Cache.getIndexes()[24]

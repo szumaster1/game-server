@@ -7,6 +7,9 @@ import core.api.sendMessage
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Carved evil turnip listener.
+ */
 class CarvedEvilTurnipListener : InteractionListener {
 
     val knife = Items.KNIFE_946

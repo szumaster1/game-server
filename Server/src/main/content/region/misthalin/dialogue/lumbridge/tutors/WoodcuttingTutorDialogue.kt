@@ -11,6 +11,9 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Woodcutting tutor dialogue.
+ */
 @Initializable
 class WoodcuttingTutorDialogue(player: Player? = null) : Dialogue(player) {
 

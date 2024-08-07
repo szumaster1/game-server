@@ -6,16 +6,42 @@ import core.game.world.map.Location;
 import core.game.world.map.zone.ZoneBorders;
 import core.plugin.Plugin;
 
+/**
+ * Map clue plugin.
+ */
 public final class MapCluePlugin extends MapClueScroll {
 
+    /**
+     * Instantiates a new Map clue plugin.
+     */
     public MapCluePlugin() {
 		this(null, -1, null, -1, null);
 	}
 
+    /**
+     * Instantiates a new Map clue plugin.
+     *
+     * @param name        the name
+     * @param clueId      the clue id
+     * @param level       the level
+     * @param interfaceId the interface id
+     * @param location    the location
+     */
     public MapCluePlugin(String name, int clueId, ClueLevel level, int interfaceId, Location location) {
 		super(name, clueId, level, interfaceId, location);
 	}
 
+    /**
+     * Instantiates a new Map clue plugin.
+     *
+     * @param name        the name
+     * @param clueId      the clue id
+     * @param level       the level
+     * @param interfaceId the interface id
+     * @param location    the location
+     * @param object      the object
+     * @param borders     the borders
+     */
     public MapCluePlugin(String name, int clueId, ClueLevel level, int interfaceId, Location location, int object, ZoneBorders... borders) {
 		super(name, clueId, level, interfaceId, location, object, borders);
 	}

@@ -6,6 +6,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
 import core.tools.RandomFunction
 
+/**
+ * Agility boss NPC.
+ */
 class AgilityBossNPC : NPCBehavior(NPCs.AGILITY_BOSS_1661) {
 
     override fun tick(self: NPC): Boolean {

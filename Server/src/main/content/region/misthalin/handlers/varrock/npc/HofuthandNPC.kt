@@ -6,6 +6,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
 import core.tools.RandomFunction
 
+/**
+ * Hofuthand NPC.
+ */
 class HofuthandNPC : NPCBehavior(NPCs.HOFUTHAND_ARMOUR_AND_WEAPONS_6527) {
 
     private val forceChat = arrayOf(

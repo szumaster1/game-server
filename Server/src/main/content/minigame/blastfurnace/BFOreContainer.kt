@@ -9,11 +9,21 @@ import core.game.node.item.Item
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 
+/**
+ * Blast Furnace ore container.
+ * @author Ceikry
+ */
 class BFOreContainer {
     private var coalRemaining = 0 //this is the actual important value needed for the calculations and is unit tested
     private var ores = Array(BlastUtils.ORE_LIMIT * 2) { -1 }
     private var barAmounts = Array(9) { 0 }
 
+    /**
+     * Add coal
+     *
+     * @param amount The amount of coal to add
+     * @return The amount of coal that could not be added
+     */
     fun addCoal(amount: Int): Int {
         val maxAdd = BlastUtils.COAL_LIMIT - coalRemaining
         val toAdd = amount.coerceAtMost(maxAdd)
@@ -21,10 +31,22 @@ class BFOreContainer {
         return amount - toAdd
     }
 
+    /**
+     * Coal amount
+     *
+     * @return The amount of coal remaining
+     */
     fun coalAmount(): Int {
         return coalRemaining
     }
 
+    /**
+     * Add ore
+     *
+     * @param id The ID of the ore to add
+     * @param amount The amount of ore to add
+     * @return The amount of ore that could not be added
+     */
     fun addOre(id: Int, amount: Int): Int {
         if (id == Items.COAL_453) return addCoal(amount)
 
@@ -42,6 +64,12 @@ class BFOreContainer {
         return amountLeft
     }
 
+    /**
+     * Get ore amount
+     *
+     * @param id The ID of the ore
+     * @return The amount of ore
+     */
     fun getOreAmount(id: Int): Int {
         if (id == Items.COAL_453) return coalAmount()
 
@@ -52,11 +80,22 @@ class BFOreContainer {
         return oreCount
     }
 
+    /**
+     * Index of ore
+     *
+     * @param id The ID of the ore
+     * @return The index of the ore in the container
+     */
     fun indexOfOre(id: Int): Int {
         for (i in ores.indices) if (ores[i] == id) return i
         return -1
     }
 
+    /**
+     * Get ore amounts
+     *
+     * @return A HashMap containing the ore IDs and their respective amounts
+     */
     fun getOreAmounts(): HashMap<Int, Int> {
         val map = HashMap<Int, Int>()
         for (ore in ores) {
@@ -66,6 +105,12 @@ class BFOreContainer {
         return map
     }
 
+    /**
+     * Convert to bars
+     *
+     * @param level The Smithing level
+     * @return The experience reward for converting the ores to bars
+     */
     fun convertToBars(level: Int = 99): Double {
         val newOres = Array(BlastUtils.ORE_LIMIT * 2) { -1 }
         var oreIndex = 0
@@ -112,16 +157,34 @@ class BFOreContainer {
         return xpReward
     }
 
+    /**
+     * Get bar amount
+     *
+     * @param bar The Bar type
+     * @return The amount of bars
+     */
     fun getBarAmount(bar: Bar): Int {
         return barAmounts[bar.ordinal]
     }
 
+    /**
+     * Get total bar amount
+     *
+     * @return The total amount of bars
+     */
     fun getTotalBarAmount(): Int {
         var total = 0
         for (i in barAmounts) total += i
         return total
     }
 
+    /**
+     * Take bars
+     *
+     * @param bar The Bar type
+     * @param amount The amount of bars to take
+     * @return An Item object representing the taken bars
+     */
     fun takeBars(bar: Bar, amount: Int): Item? {
         val amt = amount.coerceAtMost(barAmounts[bar.ordinal])
         if (amt == 0) return null
@@ -130,6 +193,13 @@ class BFOreContainer {
         return Item(bar.product.id, amt)
     }
 
+    /**
+     * Get available space
+     *
+     * @param ore The ID of the ore
+     * @param level The Smithing level
+     * @return The available space for the ore
+     */
     fun getAvailableSpace(ore: Int, level: Int = 99): Int {
         if (ore == Items.COAL_453) return BlastUtils.COAL_LIMIT - coalRemaining
 
@@ -149,10 +219,20 @@ class BFOreContainer {
         return (freeSlots - getBarAmount(bar)).coerceAtLeast(0)
     }
 
+    /**
+     * Has any ore
+     *
+     * @return true if there is any ore in the container, false otherwise
+     */
     fun hasAnyOre(): Boolean {
         return ores[0] != -1
     }
 
+    /**
+     * To json
+     *
+     * @return A JSONObject representing the BFOreContainer
+     */
     fun toJson(): JSONObject {
         val root = JSONObject()
         val ores = JSONArray()
@@ -168,6 +248,12 @@ class BFOreContainer {
     }
 
     companion object {
+        /**
+         * Create a BFOreContainer from a JSONObject
+         *
+         * @param root The JSONObject representing the BFOreContainer
+         * @return The created BFOreContainer object
+         */
         fun fromJson(root: JSONObject): BFOreContainer {
             val cont = BFOreContainer()
             val jsonOres = root["ores"] as? JSONArray ?: return cont

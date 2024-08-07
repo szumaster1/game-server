@@ -9,11 +9,20 @@ import core.api.amountInInventory
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
+/**
+ * B f player state tests
+ *
+ * @constructor B f player state tests
+ */
 class BFPlayerStateTests {
     init {
         TestUtils.preTestSetup()
     }
 
+    /**
+     * Process ore into bars should do nothing if bars not cooled
+     *
+     */
     @Test
     fun processOreIntoBarsShouldDoNothingIfBarsNotCooled() {
         TestUtils.getMockPlayer("bf-barsnotcooled").use { p ->
@@ -30,6 +39,10 @@ class BFPlayerStateTests {
         }
     }
 
+    /**
+     * Process ore into bars should do nothing if bars unchecked
+     *
+     */
     @Test
     fun processOreIntoBarsShouldDoNothingIfBarsUnchecked() {
         TestUtils.getMockPlayer("bf-barsnotchecked").use { p ->
@@ -49,6 +62,10 @@ class BFPlayerStateTests {
         }
     }
 
+    /**
+     * Should be able to claim bars
+     *
+     */
     @Test
     fun shouldBeAbleToClaimBars() {
         TestUtils.getMockPlayer("bf-barclaiminig").use { p ->
@@ -63,6 +80,10 @@ class BFPlayerStateTests {
         }
     }
 
+    /**
+     * Should not be able to claim more bars than free inventory slots
+     *
+     */
     @Test
     fun shouldNotBeAbleToClaimMoreBarsThanFreeInventorySlots() {
         TestUtils.getMockPlayer("bf-claimbarslessslots").use { p ->
@@ -79,6 +100,10 @@ class BFPlayerStateTests {
         }
     }
 
+    /**
+     * Claim bars should do nothing and grant no item if inventory full
+     *
+     */
     @Test
     fun claimBarsShouldDoNothingAndGrantNoItemIfInventoryFull() {
         TestUtils.getMockPlayer("bf-claimbarsnoslots").use { p ->
@@ -95,6 +120,10 @@ class BFPlayerStateTests {
         }
     }
 
+    /**
+     * Claim bars should do nothing if bars not cooled
+     *
+     */
     @Test
     fun claimBarsShouldDoNothingIfBarsNotCooled() {
         TestUtils.getMockPlayer("bf-claimbarsnotcooled").use { p ->

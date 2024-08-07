@@ -10,6 +10,11 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 import core.game.world.GameWorld
 
+/**
+ * Glassblowing guide
+ *
+ * @constructor Glassblowing guide
+ */
 class GlassblowingGuide : InteractionListener {
 
     // The glassblowing book is a book that players can obtain from the reception

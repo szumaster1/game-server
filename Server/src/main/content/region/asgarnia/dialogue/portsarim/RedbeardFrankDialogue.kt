@@ -14,6 +14,9 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Redbeard frank dialogue.
+ */
 @Initializable
 class RedbeardFrankDialogue(player: Player? = null) : Dialogue(player) {
 

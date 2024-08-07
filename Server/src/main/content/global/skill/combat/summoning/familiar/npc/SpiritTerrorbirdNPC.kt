@@ -12,6 +12,9 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 
+/**
+ * Spirit terrorbird familiar.
+ */
 @Initializable
 class SpiritTerrorbirdNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.SPIRIT_TERRORBIRD_6794) : BurdenBeast(owner, id, 3600, 12007, 8, 12, WeaponInterface.STYLE_CONTROLLED) {
 

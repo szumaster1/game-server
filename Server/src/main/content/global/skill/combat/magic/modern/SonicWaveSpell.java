@@ -11,11 +11,17 @@ import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
+/**
+ * Sonic wave spell.
+ */
 @Initializable
 public final class SonicWaveSpell extends CombatSpell {
 
     private static final Projectile STRIKE_PROJECTILE = Projectile.create((Entity) null, null, 337, 8, 8, 52, 100, 15, 1);
 
+    /**
+     * Instantiates a new Sonic wave spell.
+     */
     public SonicWaveSpell() {
 
     }

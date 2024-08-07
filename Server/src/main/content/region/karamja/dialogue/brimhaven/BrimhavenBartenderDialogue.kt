@@ -13,6 +13,9 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Brimhaven bartender dialogue.
+ */
 @Initializable
 class BrimhavenBartenderDialogue(player: Player? = null): Dialogue(player) {
 

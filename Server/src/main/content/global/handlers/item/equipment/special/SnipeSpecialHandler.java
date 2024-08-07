@@ -16,6 +16,9 @@ import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
+/**
+ * Snipe special handler.
+ */
 @Initializable
 public final class SnipeSpecialHandler extends RangeSwingHandler implements Plugin<Object> {
 

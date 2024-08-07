@@ -5,6 +5,11 @@ import core.game.node.Node;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+/**
+ * Node list iterator.
+ *
+ * @param <E> the type parameter
+ */
 public class NodeListIterator<E extends Node> implements Iterator<E> {
 
     private Node[] nodes;
@@ -17,6 +22,11 @@ public class NodeListIterator<E extends Node> implements Iterator<E> {
 
     private int size;
 
+    /**
+     * Instantiates a new Node list iterator.
+     *
+     * @param nodeList the node list
+     */
     public NodeListIterator(NodeList<E> nodeList) {
         this.entityList = nodeList;
         nodes = nodeList.toArray(new Node[0]);

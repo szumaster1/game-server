@@ -8,6 +8,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
+/**
+ * Combination scroll
+ *
+ * @constructor Combination scroll
+ */
 class CombinationScroll : InteractionListener {
 
     companion object {

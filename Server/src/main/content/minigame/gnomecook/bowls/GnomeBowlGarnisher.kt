@@ -7,8 +7,12 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Gnome bowl garnisher.
+ */
 @Initializable
 class GnomeBowlGarnisher : UseWithHandler(9560, 9562, 9564) {
+
     override fun newInstance(arg: Any?): Plugin<Any> {
         addHandler(Items.EQUA_LEAVES_2128, ITEM_TYPE, this)
         addHandler(Items.POT_OF_CREAM_2130, ITEM_TYPE, this)

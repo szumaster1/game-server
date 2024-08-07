@@ -18,6 +18,9 @@ import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.stun;
 
+/**
+ * Minotaur familiar npc.
+ */
 @Initializable
 public final class MinotaurFamiliarNPC implements Plugin<Object> {
 
@@ -37,6 +40,14 @@ public final class MinotaurFamiliarNPC implements Plugin<Object> {
         return null;
     }
 
+    /**
+     * Bull rush boolean.
+     *
+     * @param familiar the familiar
+     * @param special  the special
+     * @param maxHit   the max hit
+     * @return the boolean
+     */
     public boolean bullRush(final Familiar familiar, final FamiliarSpecial special, final int maxHit) {
         final Entity target = (Entity) special.getNode();
         if (!familiar.canCombatSpecial(target)) {
@@ -58,12 +69,24 @@ public final class MinotaurFamiliarNPC implements Plugin<Object> {
         return true;
     }
 
+    /**
+     * Bronze minotaur npc.
+     */
     public class BronzeMinotaurNPC extends Familiar {
 
+        /**
+         * Instantiates a new Bronze minotaur npc.
+         */
         public BronzeMinotaurNPC() {
             this(null, 6853);
         }
 
+        /**
+         * Instantiates a new Bronze minotaur npc.
+         *
+         * @param owner the owner
+         * @param id    the id
+         */
         public BronzeMinotaurNPC(Player owner, int id) {
             super(owner, id, 3000, 12073, 6, WeaponInterface.STYLE_DEFENSIVE);
         }
@@ -90,12 +113,24 @@ public final class MinotaurFamiliarNPC implements Plugin<Object> {
 
     }
 
+    /**
+     * Iron minotaur npc.
+     */
     public class IronMinotaurNPC extends Familiar {
 
+        /**
+         * Instantiates a new Iron minotaur npc.
+         */
         public IronMinotaurNPC() {
             this(null, 6855);
         }
 
+        /**
+         * Instantiates a new Iron minotaur npc.
+         *
+         * @param owner the owner
+         * @param id    the id
+         */
         public IronMinotaurNPC(Player owner, int id) {
             super(owner, id, 3700, 12075, 6, WeaponInterface.STYLE_DEFENSIVE);
         }
@@ -122,12 +157,24 @@ public final class MinotaurFamiliarNPC implements Plugin<Object> {
 
     }
 
+    /**
+     * Steel minotaur npc.
+     */
     public class SteelMinotaurNPC extends Familiar {
 
+        /**
+         * Instantiates a new Steel minotaur npc.
+         */
         public SteelMinotaurNPC() {
             this(null, 6857);
         }
 
+        /**
+         * Instantiates a new Steel minotaur npc.
+         *
+         * @param owner the owner
+         * @param id    the id
+         */
         public SteelMinotaurNPC(Player owner, int id) {
             super(owner, id, 4600, 12077, 6, WeaponInterface.STYLE_DEFENSIVE);
         }
@@ -159,12 +206,24 @@ public final class MinotaurFamiliarNPC implements Plugin<Object> {
 
     }
 
+    /**
+     * Mithril minotaur npc.
+     */
     public class MithrilMinotaurNPC extends Familiar {
 
+        /**
+         * Instantiates a new Mithril minotaur npc.
+         */
         public MithrilMinotaurNPC() {
             this(null, 6859);
         }
 
+        /**
+         * Instantiates a new Mithril minotaur npc.
+         *
+         * @param owner the owner
+         * @param id    the id
+         */
         public MithrilMinotaurNPC(Player owner, int id) {
             super(owner, id, 5500, 12079, 6, WeaponInterface.STYLE_DEFENSIVE);
         }
@@ -191,12 +250,24 @@ public final class MinotaurFamiliarNPC implements Plugin<Object> {
 
     }
 
+    /**
+     * Adamant minotaur npc.
+     */
     public class AdamantMinotaurNPC extends Familiar {
 
+        /**
+         * Instantiates a new Adamant minotaur npc.
+         */
         public AdamantMinotaurNPC() {
             this(null, 6861);
         }
 
+        /**
+         * Instantiates a new Adamant minotaur npc.
+         *
+         * @param owner the owner
+         * @param id    the id
+         */
         public AdamantMinotaurNPC(Player owner, int id) {
             super(owner, id, 6600, 12081, 6, WeaponInterface.STYLE_DEFENSIVE);
         }
@@ -228,12 +299,24 @@ public final class MinotaurFamiliarNPC implements Plugin<Object> {
 
     }
 
+    /**
+     * Rune minotaur npc.
+     */
     public class RuneMinotaurNPC extends Familiar {
 
+        /**
+         * Instantiates a new Rune minotaur npc.
+         */
         public RuneMinotaurNPC() {
             this(null, 6863);
         }
 
+        /**
+         * Instantiates a new Rune minotaur npc.
+         *
+         * @param owner the owner
+         * @param id    the id
+         */
         public RuneMinotaurNPC(Player owner, int id) {
             super(owner, id, 15100, 12083, 6, WeaponInterface.STYLE_DEFENSIVE);
         }

@@ -8,6 +8,16 @@ import core.game.dialogue.SkillDialogueHandler
 import core.game.dialogue.SkillDialogueHandler.SkillDialogue.ONE_OPTION
 import core.game.node.entity.player.Player
 
+/**
+ * Enchant tiara dialogue
+ *
+ * @property talisman
+ * @property tiara
+ * @property altar
+ * @constructor
+ *
+ * @param player
+ */
 class EnchantTiaraDialogue(player: Player, val talisman: Talisman, val tiara: TalismanStaff, val altar: Altar) :
     SkillDialogueHandler(player, ONE_OPTION, tiara.item) {
 

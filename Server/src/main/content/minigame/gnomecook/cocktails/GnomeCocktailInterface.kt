@@ -18,6 +18,9 @@ private const val DRUNK_DRAGON = 2092
 private const val CHOC_SATURDAY = 2074
 private const val BLURBERRY_SPECIAL = 2064
 
+/**
+ * Gnome cocktail interface.
+ */
 @Initializable
 class GnomeCocktailInterface : ComponentPlugin() {
 
@@ -88,24 +91,50 @@ class GnomeCocktailInterface : ComponentPlugin() {
         return this
     }
 
+    /**
+     * Fruit cocktail
+     *
+     * @property levelReq
+     * @property experience
+     * @property product
+     * @property requiredItems
+     * @constructor Fruit cocktail
+     */
     internal enum class FruitCocktail(
         val levelReq: Int,
         val experience: Double,
         val product: Int,
         val requiredItems: Array<Item>
     ) {
+        /**
+         * Fruit Blast
+         *
+         * @constructor Fruit Blast
+         */
         FRUIT_BLAST(
             6,
             50.0,
             9568,
             arrayOf(Item(Items.PINEAPPLE_2114), Item(Items.LEMON_2102), Item(Items.ORANGE_2108))
         ),
+
+        /**
+         * Pineapple Punch
+         *
+         * @constructor Pineapple Punch
+         */
         PINEAPPLE_PUNCH(
             8,
             70.0,
             9569,
             arrayOf(Item(Items.PINEAPPLE_2114, 2), Item(Items.LEMON_2102), Item(Items.ORANGE_2108))
         ),
+
+        /**
+         * Wizard Blizzard
+         *
+         * @constructor Wizard Blizzard
+         */
         WIZARD_BLIZZARD(
             18,
             110.0,
@@ -118,13 +147,31 @@ class GnomeCocktailInterface : ComponentPlugin() {
                 Item(Items.ORANGE_2108)
             )
         ),
+
+        /**
+         * Short Green Guy
+         *
+         * @constructor Short Green Guy
+         */
         SHORT_GREEN_GUY(20, 120.0, 9567, arrayOf(Item(Items.VODKA_2015), Item(Items.LIME_2120, 3))),
+
+        /**
+         * Drunk Dragon
+         *
+         * @constructor Drunk Dragon
+         */
         DRUNK_DRAGON(
             32,
             160.0,
             9574,
             arrayOf(Item(Items.VODKA_2015), Item(Items.GIN_2019), Item(Items.DWELLBERRIES_2126))
         ),
+
+        /**
+         * Choc Saturday
+         *
+         * @constructor Choc Saturday
+         */
         CHOC_SATURDAY(
             33,
             170.0,
@@ -136,6 +183,12 @@ class GnomeCocktailInterface : ComponentPlugin() {
                 Item(Items.BUCKET_OF_MILK_1927)
             )
         ),
+
+        /**
+         * Blurberry Spec
+         *
+         * @constructor Blurberry Spec
+         */
         BLURBERRY_SPEC(
             37,
             180.0,

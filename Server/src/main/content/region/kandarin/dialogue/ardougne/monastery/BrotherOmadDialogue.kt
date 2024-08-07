@@ -10,6 +10,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Brother omad dialogue.
+ */
 @Initializable
 class BrotherOmadDialogue(player: Player? = null) : Dialogue(player) {
 

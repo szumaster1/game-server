@@ -11,6 +11,9 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
+/**
+ * Mawnis burowgar dialogue.
+ */
 class MawnisBurowgarDialogue(player: Player? = null) : Dialogue(player) {
 
 

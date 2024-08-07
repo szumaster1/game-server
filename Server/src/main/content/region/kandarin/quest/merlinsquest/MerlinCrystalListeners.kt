@@ -13,6 +13,11 @@ import core.game.interaction.QueueStrength
 import core.game.node.entity.player.Player
 import core.game.world.map.Location
 
+/**
+ * Merlin crystal listeners
+ *
+ * @constructor Merlin crystal listeners
+ */
 class MerlinCrystalListeners : InteractionListener {
 
     override fun defineListeners() {

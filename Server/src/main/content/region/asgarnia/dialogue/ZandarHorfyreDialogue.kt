@@ -10,6 +10,9 @@ import core.game.node.entity.player.link.TeleportManager
 import core.game.world.map.Location
 import core.plugin.Initializable
 
+/**
+ * Zandar horfyre dialogue.
+ */
 @Initializable
 class ZandarHorfyreDialogue(player: Player? = null) : Dialogue(player) {
 

@@ -11,6 +11,9 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.node.scenery.Scenery
 
+/**
+ * Flatpack listener.
+ */
 class FlatpackListener: InteractionListener {
     val FLATPACK = Decoration.values().map { it.flatpackItemID }.toIntArray()
     val HOTSPOT = BuildHotspot.values().map { it.objectId }.toIntArray()

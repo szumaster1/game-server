@@ -6,6 +6,9 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * R p d t employee dialogue.
+ */
 @Initializable
 class RPDTEmployeeDialogue(player: Player? = null) : Dialogue(player) {
 

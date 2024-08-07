@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * The Zahwa dialogue.
+ * Zahwa dialogue.
  */
 @Initializable
 class ZahwaDialogue(player: Player? = null) : Dialogue(player) {

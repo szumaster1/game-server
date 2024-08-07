@@ -7,6 +7,9 @@ import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.tools.END_DIALOGUE
 
+/**
+ * Drezel dialogue file.
+ */
 class DrezelDialogueFile : DialogueFile() {
     var questStage = 0
     override fun handle(componentID: Int, buttonID: Int) {

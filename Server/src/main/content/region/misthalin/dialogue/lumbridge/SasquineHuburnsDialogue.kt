@@ -11,6 +11,9 @@ import core.game.node.entity.player.link.diary.DiaryType
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Sasquine huburns dialogue.
+ */
 @Initializable
 class SasquineHuburnsDialogue(player: Player? = null) : Dialogue(player) {
 

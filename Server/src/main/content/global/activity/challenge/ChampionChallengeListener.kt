@@ -25,6 +25,9 @@ import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 import core.game.world.map.zone.ZoneRestriction
 
+/**
+ * Represents the Champion challenge.
+ */
 class ChampionChallengeListener : InteractionListener, MapArea {
 
     val EARTH_WARRIOR_SCROLL = Items.CHAMPION_SCROLL_6798
@@ -80,44 +83,53 @@ class ChampionChallengeListener : InteractionListener, MapArea {
     private val TRAPDOOR_OPEN = Scenery.TRAPDOOR_10559
     private val ARENA_ZONE = 12696
 
+    // Register listeners for various interactions related to the Champion Challenge.
     override fun defineListeners() {
 
+        // Handle reading champion scrolls.
         on(ChampionScrollsDropHandler.SCROLLS, IntType.ITEM, "read") { player, node ->
             updateAndReadScroll(player, node.asItem())
             return@on true
         }
 
+        // Handle opening the trapdoor.
         on(TRAPDOOR_CLOSED, IntType.SCENERY, "open") { _, node ->
             replaceScenery(node.asScenery(), TRAPDOOR_OPEN, 100, node.location)
             return@on true
         }
 
+        // Handle using champion scrolls on Larxus.
         onUseWith(IntType.NPC,
             ChampionScrollsDropHandler.SCROLLS, NPCs.LARXUS_3050) { player, _, _ ->
             openDialogue(player, LarxusDialogueFile(true))
             return@onUseWith true
         }
 
+        // Handle closing the trapdoor.
         on(TRAPDOOR_OPEN, IntType.SCENERY, "close") { _, node ->
             replaceScenery(node.asScenery(), TRAPDOOR_CLOSED, -1, node.location)
             return@on true
         }
 
+        // Handle opening the champion statue.
         on(CHAMPION_STATUE_CLOSED, IntType.SCENERY, "open") { _, node ->
             replaceScenery(node.asScenery(), CHAMPION_STATUE_OPEN, 100, node.location)
             return@on true
         }
 
+        // Handle climbing up the ladder.
         on(LADDER, IntType.SCENERY, "climb-up") { player, _ ->
             teleport(player, Location.create(3185, 9758, 0))
             return@on true
         }
 
+        // Handle climbing down the champion statue.
         on(CHAMPION_STATUE_OPEN, IntType.SCENERY, "climb-down") { player, _ ->
             teleport(player, Location.create(3182, 9758, 0))
             return@on true
         }
 
+        // Handle opening the portcullis and starting the champion challenge.
         on(PORTCULLIS, IntType.SCENERY, "open") { player, node ->
             if (player.getAttribute("championsarena:start", false) == false) {
                 sendNPCDialogue(
@@ -156,6 +168,7 @@ class ChampionChallengeListener : InteractionListener, MapArea {
         }
     }
 
+    // Handle updating and reading champion scrolls.
     private fun updateAndReadScroll(player: Player, item: Item) {
         val id = item.id
         openInterface(player, MESSAGE_SCROLL).also {
@@ -185,16 +198,19 @@ class ChampionChallengeListener : InteractionListener, MapArea {
         }
     }
 
+    // Override the destination for climbing down the trapdoor.
     override fun defineDestinationOverrides() {
         setDest(IntType.SCENERY, intArrayOf(TRAPDOOR_OPEN), "climb-down") { _, _ ->
             return@setDest Location.create(3191, 3355, 0)
         }
     }
 
+    // Define the area borders for the champion challenge.
     override fun defineAreaBorders(): Array<ZoneBorders> {
         return arrayOf(getRegionBorders(ARENA_ZONE))
     }
 
+    // Define the restrictions for the champion challenge area.
     override fun getRestrictions(): Array<ZoneRestriction> {
         return arrayOf(ZoneRestriction.CANNON, ZoneRestriction.FIRES, ZoneRestriction.RANDOM_EVENTS)
     }

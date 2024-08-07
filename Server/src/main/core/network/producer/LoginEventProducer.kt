@@ -14,10 +14,12 @@ import java.nio.ByteBuffer
  */
 class LoginEventProducer : EventProducer {
 
+    // Override method to produce a reader event for login.
     override fun produceReader(session: IoSession, buffer: ByteBuffer): IoReadEvent {
         return LoginReadEvent(session, buffer)
     }
 
+    // Override method to produce a writer event for login.
     override fun produceWriter(session: IoSession, context: Any): IoWriteEvent {
         return LoginWriteEvent(session, context)
     }

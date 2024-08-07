@@ -3,6 +3,11 @@ package content.global.handlers.item.equipment
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Barrows equipment register
+ *
+ * @constructor Barrows equipment register
+ */
 @Initializable
 class BarrowsEquipmentRegister : Plugin<Any> {
     companion object {

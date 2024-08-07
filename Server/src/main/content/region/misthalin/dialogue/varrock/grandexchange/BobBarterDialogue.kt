@@ -9,6 +9,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Bob barter dialogue.
+ */
 @Initializable
 class BobBarterDialogue(player: Player? = null) : Dialogue(player) {
 

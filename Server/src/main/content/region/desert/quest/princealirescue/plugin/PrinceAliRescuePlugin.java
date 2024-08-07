@@ -14,6 +14,9 @@ import core.game.world.map.Location;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
+/**
+ * Prince ali rescue plugin.
+ */
 @Initializable
 public class PrinceAliRescuePlugin extends OptionHandler {
 
@@ -62,6 +65,9 @@ public class PrinceAliRescuePlugin extends OptionHandler {
         return true;
     }
 
+    /**
+     * The Locs.
+     */
     static Location[] locs = new Location[]{new Location(3268, 3227, 0), Location.create(3268, 3228, 0), Location.create(3267, 3228, 0), Location.create(3267, 3227, 0)};
 
     @Override

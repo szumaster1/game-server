@@ -7,6 +7,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Citizen dialogue.
+ */
 @Initializable
 class CitizenDialogue(player: Player? = null): Dialogue(player) {
 

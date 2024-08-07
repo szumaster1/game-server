@@ -8,6 +8,9 @@ import core.game.world.map.Location
 import core.tools.RandomFunction
 import java.util.*
 
+/**
+ * Pest control.
+ */
 class PestControlTestBot2(l: Location) : PvMBots(legitimizeLocation(l)) {
 
     var tick = 0
@@ -22,8 +25,36 @@ class PestControlTestBot2(l: Location) : PvMBots(legitimizeLocation(l)) {
 
     var time = 0
 
+    /**
+     * State
+     *
+     * @constructor State
+     */
     enum class State {
-        OUTSIDE_GANGPLANK, REFRESH, WAITING_IN_BOAT, PLAY_GAME, GET_TO_PC
+        /**
+         * Outside Gangplank
+         */
+        OUTSIDE_GANGPLANK,
+
+        /**
+         * Refresh
+         */
+        REFRESH,
+
+        /**
+         * Waiting In Boat
+         */
+        WAITING_IN_BOAT,
+
+        /**
+         * Play Game
+         */
+        PLAY_GAME,
+
+        /**
+         * Get To Pc
+         */
+        GET_TO_PC
     }
 
     //Novice Lander co-ords (2657, 2639, 0)
@@ -104,6 +135,10 @@ class PestControlTestBot2(l: Location) : PvMBots(legitimizeLocation(l)) {
     }
 
     private var insideBoatWalks = 3
+
+    /**
+     * Idle in boat.
+     */
     fun idleInBoat() {
         justStartedGame = true
         openedGate = false

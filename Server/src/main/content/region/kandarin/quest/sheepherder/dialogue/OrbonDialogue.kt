@@ -12,6 +12,9 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Orbon dialogue.
+ */
 @Initializable
 class OrbonDialogue(player: Player? = null) : Dialogue(player) {
 

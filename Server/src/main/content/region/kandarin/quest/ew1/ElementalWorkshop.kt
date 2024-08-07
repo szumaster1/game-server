@@ -11,6 +11,11 @@ import core.game.system.command.Privilege
 import core.game.world.map.Location
 import core.plugin.Initializable
 
+/**
+ * Elemental workshop
+ *
+ * @constructor Elemental workshop
+ */
 @Initializable
 class ElementalWorkshop : Quest("Elemental Workshop I", 52, 51, 1), Commands {
 

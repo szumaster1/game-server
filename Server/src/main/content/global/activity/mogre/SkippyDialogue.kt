@@ -11,6 +11,9 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Skippy dialogue.
+ */
 @Initializable
 class SkippyDialogue(player: Player? = null) : Dialogue(player) {
 

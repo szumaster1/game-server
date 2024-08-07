@@ -19,6 +19,9 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 import core.tools.RandomFunction
 
+/**
+ * Imp box plugin.
+ */
 @Initializable
 class ImpBoxPlugin : OptionHandler() {
 
@@ -50,7 +53,11 @@ class ImpBoxPlugin : OptionHandler() {
         return false
     }
 
-    /*
+    /**
+     * Imp box dialogue
+     *
+     * @constructor Imp box dialogue
+     *//*
      * The Imp box dialogue.
      */
     class ImpBoxDialogue : Dialogue {
@@ -83,7 +90,12 @@ class ImpBoxPlugin : OptionHandler() {
         }
     }
 
-    /*
+    /**
+     * Imp interface handler
+     *
+     * @property box
+     * @constructor Imp interface handler
+     *//*
      * The Imp interface handler.
      */
     inner class ImpInterfaceHandler(private var box: Item?) : ComponentPlugin() {

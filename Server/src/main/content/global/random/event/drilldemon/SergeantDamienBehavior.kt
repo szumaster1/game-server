@@ -6,6 +6,11 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
 import core.game.world.map.Location
 
+/**
+ * Sergeant damien behavior
+ *
+ * @constructor Sergeant damien behavior
+ */
 class SergeantDamienBehavior : NPCBehavior(NPCs.SERGEANT_DAMIEN_2790) {
 
     override fun onCreation(self: NPC) {

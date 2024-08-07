@@ -10,9 +10,12 @@ import java.io.PrintWriter
 import java.io.StringWriter
 import java.nio.BufferUnderflowException
 
+/**
+ * Decoders 530.
+ */
 enum class Decoders530(val opcode: Int) {
     /**
-     * ITEM INTERACTIONS
+     * Item Action 1.
      */
     ITEM_ACTION_1(156) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
@@ -23,6 +26,10 @@ enum class Decoders530(val opcode: Int) {
             return Packet.ItemAction(player, 0, itemId, slot, iface, button)
         }
     },
+
+    /**
+     * Item Action 2.
+     */
     ITEM_ACTION_2(55) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val itemId = buffer.leShort
@@ -32,6 +39,10 @@ enum class Decoders530(val opcode: Int) {
             return Packet.ItemAction(player, 1, itemId, slot, iface, button)
         }
     },
+
+    /**
+     * Item Action 3.
+     */
     ITEM_ACTION_3(153) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val ifHash = buffer.leInt
@@ -41,6 +52,10 @@ enum class Decoders530(val opcode: Int) {
             return Packet.ItemAction(player, 2, itemId, slot, iface, button)
         }
     },
+
+    /**
+     * Item Action 4.
+     */
     ITEM_ACTION_4(161) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val ifHash = buffer.leInt
@@ -50,6 +65,10 @@ enum class Decoders530(val opcode: Int) {
             return Packet.ItemAction(player, 3, itemId, slot, iface, button)
         }
     },
+
+    /**
+     * Item Action 5.
+     */
     ITEM_ACTION_5(135) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val itemId = buffer.shortA
@@ -62,7 +81,7 @@ enum class Decoders530(val opcode: Int) {
 
 
     /**
-     * NPC INTERACTIONS
+     * Npc Action 1.
      */
     NPC_ACTION_1(78) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
@@ -70,24 +89,40 @@ enum class Decoders530(val opcode: Int) {
             return Packet.NpcAction(player, 0, npcIndex)
         }
     },
+
+    /**
+     * Npc Action 2.
+     */
     NPC_ACTION_2(3) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val npcIndex = buffer.leShortA
             return Packet.NpcAction(player, 1, npcIndex)
         }
     },
+
+    /**
+     * Npc Action 3.
+     */
     NPC_ACTION_3(148) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val npcIndex = buffer.shortA
             return Packet.NpcAction(player, 2, npcIndex)
         }
     },
+
+    /**
+     * Npc Action 4.
+     */
     NPC_ACTION_4(30) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val npcIndex = buffer.short
             return Packet.NpcAction(player, 3, npcIndex)
         }
     },
+
+    /**
+     * Npc Action 5.
+     */
     NPC_ACTION_5(218) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val npcIndex = buffer.leShort
@@ -96,7 +131,7 @@ enum class Decoders530(val opcode: Int) {
     },
 
     /**
-     * SCENERY INTERACTIONS
+     * Scenery Action 1.
      */
     SCENERY_ACTION_1(254) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
@@ -106,6 +141,10 @@ enum class Decoders530(val opcode: Int) {
             return Packet.SceneryAction(player, 0, objId, x, y)
         }
     },
+
+    /**
+     * Scenery Action 2.
+     */
     SCENERY_ACTION_2(194) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val y = buffer.leShortA
@@ -114,6 +153,10 @@ enum class Decoders530(val opcode: Int) {
             return Packet.SceneryAction(player, 1, objId, x, y)
         }
     },
+
+    /**
+     * Scenery Action 3.
+     */
     SCENERY_ACTION_3(84) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val objId = buffer.leShortA and 0xFFFF
@@ -122,6 +165,10 @@ enum class Decoders530(val opcode: Int) {
             return Packet.SceneryAction(player, 2, objId, x, y)
         }
     },
+
+    /**
+     * Scenery Action 4.
+     */
     SCENERY_ACTION_4(247) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val y = buffer.leShort and 0xFFFF
@@ -130,6 +177,10 @@ enum class Decoders530(val opcode: Int) {
             return Packet.SceneryAction(player, 3, objId, x, y)
         }
     },
+
+    /**
+     * Scenery Action 5.
+     */
     SCENERY_ACTION_5(170) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val objId = buffer.leShortA and 0xFFFF
@@ -140,7 +191,7 @@ enum class Decoders530(val opcode: Int) {
     },
 
     /**
-     * PLAYER INTERACTIONS
+     * Player Action 1.
      */
     PLAYER_ACTION_1(68) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
@@ -148,24 +199,40 @@ enum class Decoders530(val opcode: Int) {
             return Packet.PlayerAction(player, 0, pIndex)
         }
     },
+
+    /**
+     * Player Action 3.
+     */
     PLAYER_ACTION_3(71) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val pIndex = buffer.leShortA
             return Packet.PlayerAction(player, 2, pIndex)
         }
     },
+
+    /**
+     * Player Action 4.
+     */
     PLAYER_ACTION_4(180) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val pIndex = buffer.leShortA
             return Packet.PlayerAction(player, 3, pIndex)
         }
     },
+
+    /**
+     * Player Action 7.
+     */
     PLAYER_ACTION_7(114) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val index = buffer.leShortA
             return Packet.PlayerAction(player, 6, index)
         }
     },
+
+    /**
+     * Player Action 8.
+     */
     PLAYER_ACTION_8(175) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val pIndex = buffer.shortA
@@ -174,7 +241,7 @@ enum class Decoders530(val opcode: Int) {
     },
 
     /**
-     * OBJSTACK (Ground Item) INTERACTIONS
+     * Objstack Action 1.
      */
     OBJSTACK_ACTION_1(66) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
@@ -184,6 +251,10 @@ enum class Decoders530(val opcode: Int) {
             return Packet.GroundItemAction(player, 2, itemId, x, y)
         }
     },
+
+    /**
+     * Objstack Action 2.
+     */
     OBJSTACK_ACTION_2(33) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val itemId = buffer.short
@@ -194,7 +265,7 @@ enum class Decoders530(val opcode: Int) {
     },
 
     /**
-     * USEWITH INTERACTIONS
+     * Usewith Npc.
      */
     USEWITH_NPC(115) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
@@ -206,6 +277,10 @@ enum class Decoders530(val opcode: Int) {
             return Packet.UseWithNpc(player, itemId, npcIndex, iface, slot)
         }
     },
+
+    /**
+     * Usewih Player.
+     */
     USEWIH_PLAYER(248) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val otherIndex = buffer.leShortA
@@ -216,6 +291,10 @@ enum class Decoders530(val opcode: Int) {
             return Packet.UseWithPlayer(player, itemId, otherIndex, iface, slot)
         }
     },
+
+    /**
+     * Usewith Item.
+     */
     USEWITH_ITEM(27) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val usedSlot = buffer.short
@@ -232,6 +311,10 @@ enum class Decoders530(val opcode: Int) {
             )
         }
     },
+
+    /**
+     * Usewith Scenery.
+     */
     USEWITH_SCENERY(134) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val x = buffer.shortA
@@ -244,6 +327,10 @@ enum class Decoders530(val opcode: Int) {
             return Packet.UseWithScenery(player, id, slot, sceneryId, x, y)
         }
     },
+
+    /**
+     * Usewith Grounditem.
+     */
     USEWITH_GROUNDITEM(101) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val x = buffer.leShortA
@@ -258,7 +345,7 @@ enum class Decoders530(val opcode: Int) {
     },
 
     /**
-     * INTERFACE INTERACTIONS
+     * If Action 1.
      */
     IF_ACTION_1(155) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
@@ -268,6 +355,10 @@ enum class Decoders530(val opcode: Int) {
             return Packet.IfAction(player, opcode, 0, iface, button, slot)
         }
     },
+
+    /**
+     * If Action 2.
+     */
     IF_ACTION_2(196) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val ifHash = buffer.int
@@ -276,6 +367,10 @@ enum class Decoders530(val opcode: Int) {
             return Packet.IfAction(player, opcode, 1, iface, button, slot)
         }
     },
+
+    /**
+     * If Action 3.
+     */
     IF_ACTION_3(124) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val ifHash = buffer.int
@@ -284,6 +379,10 @@ enum class Decoders530(val opcode: Int) {
             return Packet.IfAction(player, opcode, 2, iface, button, slot)
         }
     },
+
+    /**
+     * If Action 4.
+     */
     IF_ACTION_4(199) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val ifHash = buffer.int
@@ -292,6 +391,10 @@ enum class Decoders530(val opcode: Int) {
             return Packet.IfAction(player, opcode, 3, iface, button, slot)
         }
     },
+
+    /**
+     * If Action 5.
+     */
     IF_ACTION_5(234) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val ifHash = buffer.int
@@ -300,6 +403,10 @@ enum class Decoders530(val opcode: Int) {
             return Packet.IfAction(player, opcode, 4, iface, button, slot)
         }
     },
+
+    /**
+     * If Action 6.
+     */
     IF_ACTION_6(168) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val ifHash = buffer.int
@@ -308,6 +415,10 @@ enum class Decoders530(val opcode: Int) {
             return Packet.IfAction(player, opcode, 5, iface, button, slot)
         }
     },
+
+    /**
+     * If Action 7.
+     */
     IF_ACTION_7(166) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val ifHash = buffer.int
@@ -316,6 +427,10 @@ enum class Decoders530(val opcode: Int) {
             return Packet.IfAction(player, opcode, 6, iface, button, slot)
         }
     },
+
+    /**
+     * If Action 8.
+     */
     IF_ACTION_8(64) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val ifHash = buffer.int
@@ -324,6 +439,10 @@ enum class Decoders530(val opcode: Int) {
             return Packet.IfAction(player, opcode, 7, iface, button, slot)
         }
     },
+
+    /**
+     * If Action 9.
+     */
     IF_ACTION_9(53) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val ifHash = buffer.int
@@ -332,6 +451,10 @@ enum class Decoders530(val opcode: Int) {
             return Packet.IfAction(player, opcode, 8, iface, button, slot)
         }
     },
+
+    /**
+     * If Action 10.
+     */
     IF_ACTION_10(9) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val ifHash = buffer.int
@@ -340,6 +463,10 @@ enum class Decoders530(val opcode: Int) {
             return Packet.IfAction(player, opcode, 9, iface, button, slot)
         }
     },
+
+    /**
+     * If Action Cs.
+     */
     IF_ACTION_CS(10) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val ifHash = buffer.int
@@ -347,6 +474,10 @@ enum class Decoders530(val opcode: Int) {
             return Packet.IfAction(player, opcode, -1, iface, button, -1, -1)
         }
     },
+
+    /**
+     * Continue Opt.
+     */
     CONTINUE_OPT(132) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val ifHash = buffer.intA
@@ -355,11 +486,19 @@ enum class Decoders530(val opcode: Int) {
             return Packet.ContinueOption(player, iface, button, slot, 132)
         }
     },
+
+    /**
+     * Close Iface.
+     */
     CLOSE_IFACE(184) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             return Packet.CloseIface(player)
         }
     },
+
+    /**
+     * If Grounditem Action.
+     */
     IF_GROUNDITEM_ACTION(73) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val ifHash = buffer.intA
@@ -371,46 +510,66 @@ enum class Decoders530(val opcode: Int) {
             return Packet.ComponentGroundItemAction(player, iface, child, slot, itemId, x, y)
         }
     },
+
+    /**
+     * If Player Action.
+     */
     IF_PLAYER_ACTION(195) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
-            buffer.shortA //Arios ignoring more data... nice
+            buffer.shortA
             val child = buffer.leShort
             val iface = buffer.leShort
             val otherIndex = buffer.leShortA
             return Packet.ComponentPlayerAction(player, otherIndex, iface, child)
         }
     },
+
+    /**
+     * If Scenery Action.
+     */
     IF_SCENERY_ACTION(233) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val y = buffer.leShortA
             val x = buffer.shortA
-            val itemId = buffer.leShortA //probably misnamed/mislabeled by Arios.
+            val itemId = buffer.leShortA
             val ifHash = buffer.intA
             val (iface, child) = deHash(ifHash)
             val objId = buffer.shortA
             return Packet.ComponentSceneryAction(player, iface, child, objId, x, y)
         }
     },
+
+    /**
+     * If Npc Action.
+     */
     IF_NPC_ACTION(239) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val child = buffer.leShort
             val iface = buffer.leShort
-            buffer.shortA //more ignored data....
+            buffer.shortA
             val index = buffer.leShortA
             return Packet.ComponentNpcAction(player, iface, child, index)
         }
     },
+
+    /**
+     * If Item Action.
+     */
     IF_ITEM_ACTION(253) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val child = buffer.leShort
             val iface = buffer.leShort
             val itemSlot = buffer.leShortA
-            val unused = buffer.leInt //unused???
+            val unused = buffer.leInt
             val itemId = buffer.shortA
-            buffer.shortA //more ignored data....
+            buffer.shortA
             return Packet.ComponentItemAction(player, iface, child, itemId, itemSlot)
         }
     },
+
+    /**
+     * Slotswitch Multi.
+     */
     SLOTSWITCH_MULTI(79) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val srcHash = buffer.intB
@@ -422,6 +581,10 @@ enum class Decoders530(val opcode: Int) {
             return Packet.SlotSwitchMultiComponent(player, srcIface, srcChild, srcSlot, destIface, destChild, destSlot)
         }
     },
+
+    /**
+     * Slotswitch Single.
+     */
     SLOTSWITCH_SINGLE(231) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val srcSlot = buffer.short
@@ -432,6 +595,10 @@ enum class Decoders530(val opcode: Int) {
             return Packet.SlotSwitchSingleComponent(player, iface, child, srcSlot, destSlot, isInsert)
         }
     },
+
+    /**
+     * If Item Opt 1.
+     */
     IF_ITEM_OPT_1(81) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val slot = buffer.shortA
@@ -441,6 +608,10 @@ enum class Decoders530(val opcode: Int) {
             return Packet.IfAction(player, opcode, 0, iface, child, slot, itemId)
         }
     },
+
+    /**
+     * If Item Opt 2.
+     */
     IF_ITEM_OPT_2(206) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val itemId = buffer.shortA
@@ -452,18 +623,26 @@ enum class Decoders530(val opcode: Int) {
     },
 
     /**
-     * EXAMINE
+     * Examine Scenery.
      */
     EXAMINE_SCENERY(94) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             return Packet.SceneryExamine(player, buffer.leShortA)
         }
     },
+
+    /**
+     * Examine Item.
+     */
     EXAMINE_ITEM(92) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             return Packet.ItemExamine(player, buffer.leShortA)
         }
     },
+
+    /**
+     * Examine Npc.
+     */
     EXAMINE_NPC(72) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             return Packet.NpcExamine(player, buffer.short)
@@ -471,7 +650,7 @@ enum class Decoders530(val opcode: Int) {
     },
 
     /**
-     * CLANS
+     * Clan Join.
      */
     CLAN_JOIN(104) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
@@ -479,6 +658,10 @@ enum class Decoders530(val opcode: Int) {
             return Packet.JoinClan(player, clanName)
         }
     },
+
+    /**
+     * Clan SetRank.
+     */
     CLAN_SETRANK(188) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val rank = buffer.a
@@ -486,6 +669,10 @@ enum class Decoders530(val opcode: Int) {
             return Packet.SetClanRank(player, name, rank)
         }
     },
+
+    /**
+     * Clan Kick.
+     */
     CLAN_KICK(162) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val name = StringUtils.longToString(buffer.long)
@@ -494,28 +681,44 @@ enum class Decoders530(val opcode: Int) {
     },
 
     /**
-     * FRIENDS/IGNORES
+     * Add Friend.
      */
     ADD_FRIEND(120) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             return Packet.AddFriend(player, StringUtils.longToString(buffer.long))
         }
     },
+
+    /**
+     * Remove Friend.
+     */
     REMOVE_FRIEND(57) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             return Packet.RemoveFriend(player, StringUtils.longToString(buffer.long))
         }
     },
+
+    /**
+     * Add Ignore.
+     */
     ADD_IGNORE(34) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             return Packet.AddIgnore(player, StringUtils.longToString(buffer.long))
         }
     },
+
+    /**
+     * Remove Ignore.
+     */
     REMOVE_IGNORE(213) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             return Packet.RemoveIgnore(player, StringUtils.longToString(buffer.long))
         }
     },
+
+    /**
+     * Private Message.
+     */
     PRIVATE_MESSAGE(201) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val name = StringUtils.longToString(buffer.long)
@@ -525,13 +728,17 @@ enum class Decoders530(val opcode: Int) {
     },
 
     /**
-     * INPUT TRACKING
+     * Focus Change.
      */
     FOCUS_CHANGE(22) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             return Packet.TrackingFocus(player, buffer.get() == 1)
         }
     },
+
+    /**
+     * Camera Movement.
+     */
     CAMERA_MOVEMENT(21) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val x = buffer.shortA
@@ -539,6 +746,10 @@ enum class Decoders530(val opcode: Int) {
             return Packet.TrackingCameraPos(player, x, y)
         }
     },
+
+    /**
+     * Display Update.
+     */
     DISPLAY_UPDATE(243) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val windowMode = buffer.get()
@@ -548,11 +759,19 @@ enum class Decoders530(val opcode: Int) {
             return Packet.TrackingDisplayUpdate(player, windowMode, screenWidth, screenHeight, displayMode)
         }
     },
+
+    /**
+     * Afk Timeout.
+     */
     AFK_TIMEOUT(245) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             return Packet.TrackingAfkTimeout(player)
         }
     },
+
+    /**
+     * Mouse Clicked.
+     */
     MOUSE_CLICKED(75) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val data = buffer.leShortA
@@ -566,7 +785,7 @@ enum class Decoders530(val opcode: Int) {
     },
 
     /**
-     * WALKING
+     * Worldspace Walk.
      */
     WORLDSPACE_WALK(215) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
@@ -574,13 +793,16 @@ enum class Decoders530(val opcode: Int) {
             return Packet.WorldspaceWalk(player, x, y, running)
         }
     },
+
+    /**
+     * Minimap Walk.
+     */
     MINIMAP_WALK(39) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val (running, x, y) = decodeWalkInformation(buffer, true)
             val clickedX = buffer.get()
             val clickedY = buffer.get()
             val rotation = buffer.short
-            //Unlabeled data ignored by arios
             buffer.get()
             buffer.get()
             buffer.get()
@@ -592,6 +814,10 @@ enum class Decoders530(val opcode: Int) {
             return Packet.MinimapWalk(player, x, y, clickedX, clickedY, rotation, running)
         }
     },
+
+    /**
+     * Interact Walk.
+     */
     INTERACT_WALK(77) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val (running, x, y) = decodeWalkInformation(buffer, false)
@@ -600,18 +826,26 @@ enum class Decoders530(val opcode: Int) {
     },
 
     /**
-     * INPUT PROMPT RESPONSE
+     * Input Short String Response.
      */
     INPUT_SHORT_STRING_RESPONSE(244) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             return Packet.InputPromptResponse(player, StringUtils.longToString(buffer.long))
         }
     },
+
+    /**
+     * Input Long String Response.
+     */
     INPUT_LONG_STRING_RESPONSE(65) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             return Packet.InputPromptResponse(player, buffer.string)
         }
     },
+
+    /**
+     * Input Int Response.
+     */
     INPUT_INT_RESPONSE(23) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             return Packet.InputPromptResponse(player, buffer.int)
@@ -619,7 +853,7 @@ enum class Decoders530(val opcode: Int) {
     },
 
     /**
-     * ASSORTED
+     * Ge Set Offer Item.
      */
     GE_SET_OFFER_ITEM(111) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
@@ -627,6 +861,10 @@ enum class Decoders530(val opcode: Int) {
             return Packet.GESetOfferItem(player, itemId)
         }
     },
+
+    /**
+     * Command.
+     */
     COMMAND(44) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             if (buffer.toByteBuffer().remaining() > 1) {
@@ -641,6 +879,10 @@ enum class Decoders530(val opcode: Int) {
             return Packet.NoProcess()
         }
     },
+
+    /**
+     * Chat Settings.
+     */
     CHAT_SETTINGS(157) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             return Packet.ChatSetting(
@@ -648,6 +890,10 @@ enum class Decoders530(val opcode: Int) {
             )
         }
     },
+
+    /**
+     * Chat Message.
+     */
     CHAT_MESSAGE(237) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val effectPrefix = clamp(buffer.get(), 0, 11)
@@ -658,12 +904,20 @@ enum class Decoders530(val opcode: Int) {
             return Packet.ChatMessage(player, effects, message)
         }
     },
+
+    /**
+     * Music Track Finished.
+     */
     MUSIC_TRACK_FINISHED(137) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val trackId = buffer.leShortA
             return Packet.TrackFinished(player, trackId)
         }
     },
+
+    /**
+     * Report Abuse.
+     */
     REPORT_ABUSE(99) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val target = StringUtils.longToString(buffer.long)
@@ -672,17 +926,29 @@ enum class Decoders530(val opcode: Int) {
             return Packet.ReportAbuse(player, target, ruleId, modMute)
         }
     },
+
+    /**
+     * Update Packet Count.
+     */
     UPDATE_PACKET_COUNT(177) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val count = buffer.short
             return Packet.PacketCountUpdate(player, count)
         }
     },
+
+    /**
+     * Ping.
+     */
     PING(93) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             return Packet.Ping(player)
         }
     },
+
+    /**
+     * Quickchat.
+     */
     QUICKCHAT(167) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val x = buffer.toByteBuffer()
@@ -727,16 +993,28 @@ enum class Decoders530(val opcode: Int) {
             )
         }
     },
+
+    /**
+     * Map Rebuild Started.
+     */
     MAP_REBUILD_STARTED(20) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             return Packet.NoProcess()
         }
     },
+
+    /**
+     * Map Rebuild Finished.
+     */
     MAP_REBUILD_FINISHED(110) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             return Packet.NoProcess()
         }
     },
+
+    /**
+     * Player Prefs Update.
+     */
     PLAYER_PREFS_UPDATE(98) {
         override fun decode(player: Player, buffer: IoBuffer): Packet {
             val prefs = buffer.int

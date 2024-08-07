@@ -15,6 +15,9 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Dr harlow dialogue.
+ */
 @Initializable
 class DrHarlowDialogue(player: Player? = null) : Dialogue(player) {
 

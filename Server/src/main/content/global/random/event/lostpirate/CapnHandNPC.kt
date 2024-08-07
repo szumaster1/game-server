@@ -9,6 +9,9 @@ import core.game.node.entity.Entity
 import core.game.node.entity.npc.NPC
 import core.game.system.timer.impl.AntiMacro
 
+/**
+ * Capn hand NPC.
+ */
 class CapnHandNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs.CAPN_HAND_2539) {
 
     private var attackDelay = 0

@@ -10,6 +10,9 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 
+/**
+ * Bull ant familiar.
+ */
 @Initializable
 class BullAntNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 6867) :
     BurdenBeast(owner, id, 3000, 12087, 12, 9, WeaponInterface.STYLE_CONTROLLED) {

@@ -16,6 +16,9 @@ import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 import core.tools.RandomFunction
 
+/**
+ * Granite lobster familiar.
+ */
 @Initializable
 class GraniteLobsterNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.GRANITE_LOBSTER_6849) :
     Forager(owner, id, 4700, 12069, 6) {

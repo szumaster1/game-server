@@ -17,6 +17,9 @@ import core.network.packet.context.ChildPositionContext
 import core.network.packet.outgoing.RepositionChild
 import kotlin.math.min
 
+/**
+ * Fletching listeners.
+ */
 class FletchingListeners : InteractionListener {
 
     private val arrowShaftId = Items.ARROW_SHAFT_52

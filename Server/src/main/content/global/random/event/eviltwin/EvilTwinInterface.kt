@@ -11,6 +11,9 @@ import core.game.world.GameWorld
 import core.game.world.map.Direction
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Evil twin interface.
+ */
 class EvilTwinInterface : InterfaceListener {
 
     override fun defineInterfaceListeners() {
@@ -73,7 +76,7 @@ class EvilTwinInterface : InterfaceListener {
                                             playAudio(player, Sounds.TWIN_CRANE_DROP_2271)
                                             if (evilTwin) {
                                                 EvilTwinUtils.removeSuspects(player)
-                                                npc.animate(Animation.create(859), 1)
+                                                npc.animate(Animation.create(859))
                                                 runTask(player, 16) { npc.clear() }
                                             } else {
                                                 npc.sendChat("You're putting me in prison?!")

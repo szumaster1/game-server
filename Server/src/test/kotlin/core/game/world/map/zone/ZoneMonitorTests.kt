@@ -11,6 +11,11 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 
+/**
+ * Zone monitor tests
+ *
+ * @constructor Zone monitor tests
+ */
 class ZoneMonitorTests {
 
     val GLORIES = intArrayOf(1710, 1708, 1706, 1704)
@@ -19,7 +24,12 @@ class ZoneMonitorTests {
         TestUtils.preTestSetup()
     }
 
-    /*
+    /**
+     * Teleport with glory
+     *
+     * @param expected
+     * @param p
+     *//*
      * Evalutes success of glory teleport using all glory charged items.
      */
     fun teleportWithGlory(expected : Boolean, p : Player) {
@@ -29,9 +39,18 @@ class ZoneMonitorTests {
         }
     }
 
+    /**
+     * Glory teleport success
+     *
+     * @constructor Glory teleport success
+     */
     @Nested
     inner class GloryTeleportSuccess {
 
+        /**
+         * Success on level21wilderness
+         *
+         */
         @Test
         fun successOnLevel21Wilderness() {
             TestUtils.getMockPlayer("").use {p ->
@@ -43,6 +62,10 @@ class ZoneMonitorTests {
             }
         }
 
+        /**
+         * Success on level30wilderness
+         *
+         */
         @Test
         fun successOnLevel30Wilderness() {
             TestUtils.getMockPlayer("").use {p ->
@@ -54,6 +77,10 @@ class ZoneMonitorTests {
             }
         }
 
+        /**
+         * Success on no restrictions
+         *
+         */
         @Test
         fun successOnNoRestrictions() {
             TestUtils.getMockPlayer("").use {p ->
@@ -68,9 +95,18 @@ class ZoneMonitorTests {
 
     }
 
+    /**
+     * Glory teleport failure
+     *
+     * @constructor Glory teleport failure
+     */
     @Nested
     inner class GloryTeleportFailure {
 
+        /**
+         * Fail on tele block
+         *
+         */
         @Test
         fun failOnTeleBlock() {
             TestUtils.getMockPlayer("").use { p ->
@@ -80,6 +116,10 @@ class ZoneMonitorTests {
             }
         }
 
+        /**
+         * Fail on lock
+         *
+         */
         @Test
         fun failOnLock() {
             TestUtils.getMockPlayer("").use { p ->

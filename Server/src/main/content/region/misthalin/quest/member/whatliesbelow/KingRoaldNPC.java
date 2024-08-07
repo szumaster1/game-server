@@ -4,14 +4,26 @@ import core.game.node.entity.combat.BattleState;
 import core.game.node.entity.npc.AbstractNPC;
 import core.game.world.map.Location;
 
+/**
+ * King roald npc.
+ */
 public class KingRoaldNPC extends AbstractNPC {
 
     private WhatLiesBelowCutscene cutscene;
 
+    /**
+     * Instantiates a new King roald npc.
+     *
+     * @param id       the id
+     * @param location the location
+     */
     public KingRoaldNPC(int id, Location location) {
         super(id, location);
     }
 
+    /**
+     * Instantiates a new King roald npc.
+     */
     public KingRoaldNPC() {
         super(-1, null);
     }
@@ -51,6 +63,11 @@ public class KingRoaldNPC extends AbstractNPC {
         }
     }
 
+    /**
+     * Sets cutscene.
+     *
+     * @param cutscene the cutscene
+     */
     public void setCutscene(WhatLiesBelowCutscene cutscene) {
         this.cutscene = cutscene;
     }

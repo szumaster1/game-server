@@ -18,10 +18,7 @@ import kotlin.math.min
 
 /**
  * A struct holding all the data for grand exchange offers.
- *
- * @author Ceikry
  */
-
 class GrandExchangeOffer {
     var itemID = 0
     var completedAmount = 0

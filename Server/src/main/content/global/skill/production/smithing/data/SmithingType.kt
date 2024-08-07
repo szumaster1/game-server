@@ -3,6 +3,16 @@ package content.global.skill.production.smithing.data
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
+/**
+ * Smithing type enum class.
+ *
+ * @param requiredBar the required bar id (int).
+ * @param childId child id of smithing interafce.
+ * @param nameId the name id.
+ * @param button the button id.
+ * @param productAmount the product amount.
+ * @return Smithing type.
+ */
 enum class SmithingType(
     val requiredBar: Int,
     val childId: Int,
@@ -10,6 +20,9 @@ enum class SmithingType(
     val button: IntArray,
     val productAmount: Int
 ) {
+    /**
+     * Type Dagger.
+     */
     TYPE_DAGGER(
         requiredBar = 1,
         childId = 18,
@@ -17,6 +30,10 @@ enum class SmithingType(
         button = intArrayOf(24, 23, 22, 21),
         productAmount = 1
     ),
+
+    /**
+     * Type Axe.
+     */
     TYPE_AXE(
         requiredBar = 1,
         childId = 26,
@@ -24,6 +41,10 @@ enum class SmithingType(
         button = intArrayOf(32, 31, 30, 29),
         productAmount = 1
     ),
+
+    /**
+     * Type Mace.
+     */
     TYPE_MACE(
         requiredBar = 1,
         childId = 34,
@@ -31,6 +52,10 @@ enum class SmithingType(
         button = intArrayOf(40, 39, 38, 37),
         productAmount = 1
     ),
+
+    /**
+     * Type Medium Helm.
+     */
     TYPE_MEDIUM_HELM(
         requiredBar = 1,
         childId = 42,
@@ -38,6 +63,10 @@ enum class SmithingType(
         button = intArrayOf(48, 47, 46, 45),
         productAmount = 1
     ),
+
+    /**
+     * Type Crossbow Bolt.
+     */
     TYPE_CROSSBOW_BOLT(
         requiredBar = 1,
         childId = 50,
@@ -45,6 +74,10 @@ enum class SmithingType(
         button = intArrayOf(56, 55, 54, 53),
         productAmount = 10
     ),
+
+    /**
+     * Type Sword.
+     */
     TYPE_SWORD(
         requiredBar = 1,
         childId = 58,
@@ -52,6 +85,10 @@ enum class SmithingType(
         button = intArrayOf(64, 63, 62, 61),
         productAmount = 1
     ),
+
+    /**
+     * Type Dart Tip.
+     */
     TYPE_DART_TIP(
         requiredBar = 1,
         childId = 66,
@@ -59,6 +96,10 @@ enum class SmithingType(
         button = intArrayOf(72, 71, 70, 69),
         productAmount = 10
     ),
+
+    /**
+     * Type Nail.
+     */
     TYPE_NAIL(
         requiredBar = 1,
         childId = 74,
@@ -66,6 +107,10 @@ enum class SmithingType(
         button = intArrayOf(80, 79, 78, 77),
         productAmount = 15
     ),
+
+    /**
+     * Type Bullseye.
+     */
     TYPE_BULLSEYE(
         requiredBar = 1,
         childId = 162,
@@ -73,6 +118,10 @@ enum class SmithingType(
         button = intArrayOf(168, 167, 166, 165),
         productAmount = 1
     ),
+
+    /**
+     * Type Spit Iron.
+     */
     TYPE_SPIT_IRON(
         requiredBar = 1,
         childId = 90,
@@ -80,6 +129,10 @@ enum class SmithingType(
         button = intArrayOf(96, 95, 94, 93),
         productAmount = 1
     ),
+
+    /**
+     * Type Wire.
+     */
     TYPE_WIRE(
         requiredBar = 1,
         childId = 82,
@@ -87,6 +140,10 @@ enum class SmithingType(
         button = intArrayOf(88, 87, 86, 85),
         productAmount = 1
     ),
+
+    /**
+     * Type Arrow Tip.
+     */
     TYPE_ARROW_TIP(
         requiredBar = 1,
         childId = 106,
@@ -94,6 +151,10 @@ enum class SmithingType(
         button = intArrayOf(112, 111, 110, 109),
         productAmount = 15
     ),
+
+    /**
+     * Type Scimitar.
+     */
     TYPE_SCIMITAR(
         requiredBar = 2,
         childId = 114,
@@ -101,6 +162,10 @@ enum class SmithingType(
         button = intArrayOf(120, 119, 118, 117),
         productAmount = 1
     ),
+
+    /**
+     * Type Crossbow Limb.
+     */
     TYPE_CROSSBOW_LIMB(
         requiredBar = 1,
         childId = 122,
@@ -108,6 +173,10 @@ enum class SmithingType(
         button = intArrayOf(128, 127, 126, 125),
         productAmount = 1
     ),
+
+    /**
+     * Type Longsword.
+     */
     TYPE_LONGSWORD(
         requiredBar = 2,
         childId = 130,
@@ -115,6 +184,10 @@ enum class SmithingType(
         button = intArrayOf(136, 135, 134, 133),
         productAmount = 1
     ),
+
+    /**
+     * Type Throwing Knife.
+     */
     TYPE_THROWING_KNIFE(
         requiredBar = 1,
         childId = 138,
@@ -122,6 +195,10 @@ enum class SmithingType(
         button = intArrayOf(144, 143, 142, 141),
         productAmount = 5
     ),
+
+    /**
+     * Type Full Helm.
+     */
     TYPE_FULL_HELM(
         requiredBar = 2,
         childId = 146,
@@ -129,6 +206,10 @@ enum class SmithingType(
         button = intArrayOf(152, 151, 150, 149),
         productAmount = 1
     ),
+
+    /**
+     * Type Square Shield.
+     */
     TYPE_SQUARE_SHIELD(
         requiredBar = 2,
         childId = 154,
@@ -136,6 +217,10 @@ enum class SmithingType(
         button = intArrayOf(160, 159, 158, 157),
         productAmount = 1
     ),
+
+    /**
+     * Type Lantern.
+     */
     TYPE_LANTERN(
         requiredBar = 1,
         childId = 162,
@@ -143,6 +228,10 @@ enum class SmithingType(
         button = intArrayOf(168, 167, 166, 165),
         productAmount = 1
     ),
+
+    /**
+     * Type Oil Lantern.
+     */
     TYPE_OIL_LANTERN(
         requiredBar = 1,
         childId = 162,
@@ -150,6 +239,10 @@ enum class SmithingType(
         button = intArrayOf(168, 167, 166, 165),
         productAmount = 1
     ),
+
+    /**
+     * Type Grapple Tip.
+     */
     TYPE_GRAPPLE_TIP(
         requiredBar = 1,
         childId = 170,
@@ -157,6 +250,10 @@ enum class SmithingType(
         button = intArrayOf(175, 176, 175, 174, 173),
         productAmount = 1
     ),
+
+    /**
+     * Type Studs.
+     */
     TYPE_STUDS(
         requiredBar = 1,
         childId = 98,
@@ -164,6 +261,10 @@ enum class SmithingType(
         button = intArrayOf(104, 103, 102, 101, 100),
         productAmount = 1
     ),
+
+    /**
+     * Type Warhammer.
+     */
     TYPE_WARHAMMER(
         requiredBar = 3,
         childId = 178,
@@ -171,6 +272,10 @@ enum class SmithingType(
         button = intArrayOf(184, 183, 182, 181),
         productAmount = 1
     ),
+
+    /**
+     * Type Battle Axe.
+     */
     TYPE_BATTLE_AXE(
         requiredBar = 3,
         childId = 186,
@@ -178,6 +283,10 @@ enum class SmithingType(
         button = intArrayOf(192, 191, 190, 189),
         productAmount = 1
     ),
+
+    /**
+     * Type Chainbody.
+     */
     TYPE_CHAINBODY(
         requiredBar = 3,
         childId = 194,
@@ -185,6 +294,10 @@ enum class SmithingType(
         button = intArrayOf(200, 199, 198, 197),
         productAmount = 1
     ),
+
+    /**
+     * Type Kite Shield.
+     */
     TYPE_KITE_SHIELD(
         requiredBar = 3,
         childId = 202,
@@ -192,6 +305,10 @@ enum class SmithingType(
         button = intArrayOf(208, 207, 206, 205),
         productAmount = 1
     ),
+
+    /**
+     * Type Claws.
+     */
     TYPE_CLAWS(
         requiredBar = 2,
         childId = 210,
@@ -199,6 +316,10 @@ enum class SmithingType(
         button = intArrayOf(216, 215, 214, 213),
         productAmount = 1
     ),
+
+    /**
+     * Type Two Hand Sword.
+     */
     TYPE_TWO_HAND_SWORD(
         requiredBar = 3,
         childId = 218,
@@ -206,6 +327,10 @@ enum class SmithingType(
         button = intArrayOf(224, 223, 222, 221),
         productAmount = 1
     ),
+
+    /**
+     * Type Plate Skirt.
+     */
     TYPE_PLATE_SKIRT(
         requiredBar = 3,
         childId = 226,
@@ -213,6 +338,10 @@ enum class SmithingType(
         button = intArrayOf(232, 231, 230, 229),
         productAmount = 1
     ),
+
+    /**
+     * Type platelegs.
+     */
     TYPE_Platelegs(
         requiredBar = 3,
         childId = 234,
@@ -220,6 +349,10 @@ enum class SmithingType(
         button = intArrayOf(240, 239, 238, 237),
         productAmount = 1
     ),
+
+    /**
+     * Type Platebody.
+     */
     TYPE_PLATEBODY(
         requiredBar = 5,
         childId = 242,
@@ -227,6 +360,10 @@ enum class SmithingType(
         button = intArrayOf(248, 247, 246, 245),
         productAmount = 1
     ),
+
+    /**
+     * Blurite crossbow bolts.
+     */
     TYPE_Crossbow_Bolt(
         requiredBar = 1,
         childId = 251,
@@ -234,6 +371,10 @@ enum class SmithingType(
         button = intArrayOf(257, 256, 255, 254),
         productAmount = 10
     ),
+
+    /**
+     * Blurite crossbow limb.
+     */
     TYPE_Crossbow_Limb(
         requiredBar = 1,
         childId = 259,
@@ -241,6 +382,10 @@ enum class SmithingType(
         button = intArrayOf(265, 264, 263, 262),
         productAmount = 1
     ),
+
+    /**
+     * Type Pickaxe.
+     */
     TYPE_PICKAXE(
         requiredBar = 2,
         childId = 267,

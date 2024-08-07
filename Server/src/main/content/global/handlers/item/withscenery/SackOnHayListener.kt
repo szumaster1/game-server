@@ -9,6 +9,11 @@ import core.api.sendMessage
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Sack on hay listener
+ *
+ * @constructor Sack on hay listener
+ */
 class SackOnHayListener : InteractionListener {
 
     companion object {

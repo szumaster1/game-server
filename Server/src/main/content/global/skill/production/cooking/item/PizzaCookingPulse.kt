@@ -5,6 +5,17 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.node.scenery.Scenery
 
+/**
+ * Pizza cooking pulse
+ *
+ * @property player
+ * @property scenery
+ * @constructor
+ *
+ * @param initial
+ * @param product
+ * @param amount
+ */
 class PizzaCookingPulse(
     override var player: Player,
     override var scenery: Scenery,

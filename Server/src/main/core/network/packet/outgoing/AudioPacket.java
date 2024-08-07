@@ -6,8 +6,20 @@ import core.network.packet.IoBuffer;
 import core.network.packet.OutgoingPacket;
 import core.network.packet.context.DefaultContext;
 
+/**
+ * Audio packet.
+ * @author Emperor
+ */
 public class AudioPacket implements OutgoingPacket<DefaultContext> {
 
+    /**
+     * Write io buffer.
+     *
+     * @param buffer the buffer
+     * @param audio  the audio
+     * @param loc    the loc
+     * @return the io buffer
+     */
     public static IoBuffer write(IoBuffer buffer, Audio audio, Location loc) {
         if (loc == null) {
             buffer.put((byte) 172);

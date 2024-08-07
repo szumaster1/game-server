@@ -7,6 +7,9 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.skill.Skills
 
+/**
+ * Wine ferment listener.
+ */
 class WineFermentListener : InteractionListener {
 
     override fun defineListeners() {

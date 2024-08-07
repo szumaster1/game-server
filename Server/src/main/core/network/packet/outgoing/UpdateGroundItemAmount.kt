@@ -11,6 +11,9 @@ import core.network.packet.context.BuildItemContext
  */
 class UpdateGroundItemAmount : OutgoingPacket<BuildItemContext> {
 
+    /**
+     * Writes the packet.
+     */
     override fun send(context: BuildItemContext) {
         val player = context.player
         val item = context.item

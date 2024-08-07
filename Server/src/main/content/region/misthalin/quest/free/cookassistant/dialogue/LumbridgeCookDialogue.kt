@@ -10,8 +10,11 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.Initializable
 
+/**
+ * Lumbridge cook dialogue.
+ */
 @Initializable
-class LumbridgeCookCADialogue(player: Player? = null) : Dialogue(player) {
+class LumbridgeCookDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC

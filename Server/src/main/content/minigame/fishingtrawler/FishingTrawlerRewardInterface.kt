@@ -8,6 +8,9 @@ import core.game.node.item.Item
 import core.plugin.Plugin
 import kotlin.math.ceil
 
+/**
+ * Fishing trawler reward interface.
+ */
 class FishingTrawlerRewardInterface : ComponentPlugin() {
     override fun newInstance(arg: Any?): Plugin<Any> {
         ComponentDefinition.put(367, this)

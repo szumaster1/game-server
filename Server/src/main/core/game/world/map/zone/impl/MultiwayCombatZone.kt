@@ -16,7 +16,6 @@ import core.network.packet.outgoing.Interface
 
 /**
  * Handles the multiway combat zones.
- * @author Emperor
  */
 class MultiwayCombatZone
 

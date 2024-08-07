@@ -8,6 +8,12 @@ import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
+/**
+ * Duke horacio rune mysteries dialogue.
+ *
+ * @property questStage
+ * @constructor Duke horacio rune mysteries dialogue
+ */
 class DukeHoracioRuneMysteriesDialogue(val questStage: Int) : DialogueFile() {
 
     private val talisman = Item(1438)

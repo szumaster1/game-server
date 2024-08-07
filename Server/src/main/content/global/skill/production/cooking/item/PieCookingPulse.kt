@@ -6,6 +6,17 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.node.scenery.Scenery
 
+/**
+ * Pie cooking pulse
+ *
+ * @property player
+ * @property scenery
+ * @constructor
+ *
+ * @param initial
+ * @param product
+ * @param amount
+ */
 class PieCookingPulse(
     override val player: Player,
     override val scenery: Scenery,

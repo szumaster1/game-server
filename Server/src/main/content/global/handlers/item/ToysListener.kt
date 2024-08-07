@@ -8,6 +8,11 @@ import core.game.interaction.InteractionListener
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 
+/**
+ * Toys listener
+ *
+ * @constructor Toys listener
+ */
 class ToysListener : InteractionListener {
 
     override fun defineListeners() {

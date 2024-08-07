@@ -12,6 +12,9 @@ import core.game.node.entity.player.link.TeleportManager
 import core.game.world.map.Location
 import core.tools.END_DIALOGUE
 
+/**
+ * Keldagrim listeners.
+ */
 class KeldagrimListeners : InteractionListener {
 
     // SceneryDefinition.forId(Scenery.STAIRS_9084).handlers["option:climb-down"] = this
@@ -41,28 +44,25 @@ class KeldagrimListeners : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Reinald - Smithing Emporium.
          */
-
         on(REINALD, IntType.NPC, "change-armguards") { player, _ ->
             openInterface(player, 593)
             return@on true
         }
 
-        /*
+        /**
          * Interaction with foreman (Blast furnace mini-game).
          */
-
         onUseWith(IntType.NPC, FUSION_HAMMER, FOREMAN) { player, _, npc ->
             openDialogue(player, BlastFusionHammerDialogue(), npc)
             return@onUseWith true
         }
 
-        /*
+        /**
          * Cave entrance to Keldagrim.
          */
-
         on(ENTRANCE, IntType.SCENERY, "go-through") { player, node ->
             if(node.id == Scenery.CAVE_ENTRANCE_5973){
                 runTask(player, 1) {
@@ -76,10 +76,9 @@ class KeldagrimListeners : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Travel interaction between Keldagrim and Grand exchange.
          */
-
         on(HIDDEN_TRAPDOOR, IntType.SCENERY, "open") { player, _ ->
             val keldagrimVisited = getAttribute(player, "keldagrim-visited", false)
             openDialogue(player, object : DialogueFile() {
@@ -103,10 +102,9 @@ class KeldagrimListeners : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Library +1 bookcase interaction.
          */
-
         on(Scenery.BOOKCASE_6091, IntType.SCENERY, "search") { player, _ ->
             if (inInventory(player, Items.EXPLORERS_NOTES_11677)) {
                 sendMessage(player, "You search the books...")

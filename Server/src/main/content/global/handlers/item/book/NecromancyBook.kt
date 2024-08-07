@@ -11,6 +11,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
+/**
+ * Necromancy book
+ *
+ * @constructor Necromancy book
+ */
 class NecromancyBook : InteractionListener {
 
     // The necromancy book is used during the

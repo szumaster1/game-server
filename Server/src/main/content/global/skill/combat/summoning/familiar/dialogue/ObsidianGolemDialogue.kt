@@ -10,6 +10,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Obsidian golem dialogue.
+ */
 @Initializable
 class ObsidianGolemDialogue(player: Player? = null) : Dialogue(player) {
 

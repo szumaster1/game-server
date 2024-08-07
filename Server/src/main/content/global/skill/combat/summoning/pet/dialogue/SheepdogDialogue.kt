@@ -10,6 +10,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Sheepdog dialogue.
+ */
 @Initializable
 class SheepdogDialogue(player: Player? = null) : Dialogue(player) {
 

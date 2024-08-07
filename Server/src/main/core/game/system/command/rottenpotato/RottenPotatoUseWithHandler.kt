@@ -7,8 +7,7 @@ import core.game.node.item.Item
 import core.game.node.scenery.Scenery
 
 /**
- * Rotten Potato use-with handling
- * @author Ceikry
+ * Rotten Potato use-with handling.
  */
 object RottenPotatoUseWithHandler {
     @JvmStatic

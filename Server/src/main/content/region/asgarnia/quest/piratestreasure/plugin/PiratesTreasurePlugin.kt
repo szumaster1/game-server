@@ -18,6 +18,11 @@ import core.game.node.scenery.Scenery
 import core.game.world.map.Location
 import core.plugin.Plugin
 
+/**
+ * Pirates treasure plugin
+ *
+ * @constructor Pirates treasure plugin
+ */
 class PiratesTreasurePlugin : OptionHandler() {
 
     override fun newInstance(arg: Any?): Plugin<Any> {
@@ -58,6 +63,11 @@ class PiratesTreasurePlugin : OptionHandler() {
         return true
     }
 
+    /**
+     * Treasure dig plugin
+     *
+     * @constructor Treasure dig plugin
+     */
     class TreasureDigPlugin : DigAction {
         override fun run(player: Player?) {
             val quest = player!!.getQuestRepository().getQuest("Pirate's Treasure")

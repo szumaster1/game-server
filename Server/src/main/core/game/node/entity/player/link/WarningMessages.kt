@@ -8,10 +8,20 @@ import core.api.setVarp
 import core.game.component.Component
 import core.game.node.entity.player.Player
 
+/**
+ * Warning messages
+ *
+ * @constructor Warning messages
+ */
 class WarningMessages {
 
     private val messages: MutableList<WarningMessage> = ArrayList(20)
 
+    /**
+     * Open
+     *
+     * @param player
+     */
     fun open(player: Player) {
         openInterface(player, Components.CWS_DOOMSAYER_583)
         refresh(player)
@@ -21,6 +31,12 @@ class WarningMessages {
         setVarp(player, CONFIG, configValue, true)
     }
 
+    /**
+     * Get message
+     *
+     * @param index
+     * @return
+     */
     fun getMessage(index: Int): WarningMessage {
         for (m in messages) {
             if (m.index == index) {
@@ -35,8 +51,19 @@ class WarningMessages {
     private val configValue: Int
         get() = 0
 
+    /**
+     * Warning message
+     *
+     * @property index
+     * @constructor Warning message
+     */
     inner class WarningMessage(val index: Int) {
 
+        /**
+         * Toggle
+         *
+         * @param player
+         */
         fun toggle(player: Player) {
             if (!isActive) {
                 sendMessage(player, "You cannot toggle the warning screen on or off. You need to go to the area it")

@@ -17,15 +17,26 @@ import core.network.packet.outgoing.CameraViewPacket;
 import core.plugin.ClassScanner;
 import core.plugin.Initializable;
 
+/**
+ * Juliet cutscene.
+ */
 @Initializable
 public final class JulietCutscene extends CutscenePlugin {
 
     private static final Location SPAWN_LOCATION = Location.create(3166, 3431, 1);
 
+    /**
+     * Instantiates a new Juliet cutscene.
+     */
     public JulietCutscene() {
         this(null);
     }
 
+    /**
+     * Instantiates a new Juliet cutscene.
+     *
+     * @param player the player
+     */
     public JulietCutscene(final Player player) {
         super("Juliet Cutscene");
         this.player = player;
@@ -93,6 +104,11 @@ public final class JulietCutscene extends CutscenePlugin {
         return SPAWN_LOCATION;
     }
 
+    /**
+     * Gets phillipia.
+     *
+     * @return the phillipia
+     */
     public NPC getPhillipia() {
         return npcs.get(1);
     }

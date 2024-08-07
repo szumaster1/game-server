@@ -9,6 +9,9 @@ import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 import core.plugin.Initializable
 
+/**
+ * Magic tutor dialogue.
+ */
 @Initializable
 class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -203,9 +206,9 @@ class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     /**
-     * Add.
+     * Add
      *
-     * @param mind the mind
+     * @param mind
      */
     fun add(mind: Boolean) {
         if (mind) {

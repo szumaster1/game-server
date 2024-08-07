@@ -16,6 +16,11 @@ import core.game.world.map.zone.ZoneBuilder
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Black knight titan zone
+ *
+ * @constructor Black knight titan zone
+ */
 @Initializable
 class BlackKnightTitanZone : MapZone("BlackKnightTitanZone",true), Plugin<Any?> {
 

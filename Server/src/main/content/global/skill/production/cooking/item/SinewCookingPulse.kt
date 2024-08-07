@@ -5,6 +5,13 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.node.scenery.Scenery
 
+/**
+ * Sinew cooking pulse.
+ * @param scenery
+ * @param initial
+ * @param product
+ * @param amount
+ */
 class SinewCookingPulse(
     player: Player?,
     scenery: Scenery?,

@@ -23,16 +23,43 @@ import kotlin.Unit;
 import static core.api.ContentAPIKt.playAudio;
 import static core.api.ContentAPIKt.setAttribute;
 
+/**
+ * Animation room.
+ */
 @Initializable
 public final class AnimationRoom extends MapZone implements Plugin<Object> {
 
+    /**
+     * The enum Armour set.
+     */
     enum ArmourSet {
+        /**
+         * Bronze armour set.
+         */
         BRONZE(4278, 5, 1155, 1117, 1075),
+        /**
+         * Iron armour set.
+         */
         IRON(4279, 10, 1153, 1115, 1067),
+        /**
+         * Steel armour set.
+         */
         STEEL(4280, 15, 1157, 1119, 1069),
+        /**
+         * Black armour set.
+         */
         BLACK(4281, 20, 1165, 1125, 1077),
+        /**
+         * Mithril armour set.
+         */
         MITHRIL(4282, 25, 1159, 1121, 1071),
+        /**
+         * Adamant armour set.
+         */
         ADAMANT(4283, 30, 1161, 1123, 1073),
+        /**
+         * Rune armour set.
+         */
         RUNE(4284, 40, 1163, 1127, 1079);
 
         private final int npcId;
@@ -45,20 +72,38 @@ public final class AnimationRoom extends MapZone implements Plugin<Object> {
             this.pieces = pieces;
         }
 
+        /**
+         * Gets npc id.
+         *
+         * @return the npc id
+         */
         public int getNpcId() {
             return npcId;
         }
 
+        /**
+         * Gets token amount.
+         *
+         * @return the token amount
+         */
         public int getTokenAmount() {
             return tokenAmount;
         }
 
+        /**
+         * Get pieces int [ ].
+         *
+         * @return the int [ ]
+         */
         public int[] getPieces() {
             return pieces;
         }
 
     }
 
+    /**
+     * Instantiates a new Animation room.
+     */
     public AnimationRoom() {
         super("wg animation", true);
     }

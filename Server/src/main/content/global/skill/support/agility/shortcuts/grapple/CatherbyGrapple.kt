@@ -12,6 +12,9 @@ import core.game.system.task.Pulse
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Catherby grapple.
+ */
 class CatherbyGrapple : InteractionListener {
 
     companion object {

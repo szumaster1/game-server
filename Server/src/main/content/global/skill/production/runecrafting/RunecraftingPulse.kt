@@ -27,6 +27,17 @@ import core.tools.NumberConverter
 import core.tools.RandomFunction
 import kotlin.math.max
 
+/**
+ * Runecrafting pulse
+ *
+ * @property altar
+ * @property combination
+ * @property combo
+ * @constructor
+ *
+ * @param player
+ * @param node
+ */
 class RunecraftingPulse(
     player: Player?, node: Item?,
     val altar: Altar,
@@ -283,7 +294,11 @@ class RunecraftingPulse(
             return getMultiplier(rcLevel, rune, runecraftingFormulaRevision, lumbridgeDiary)
         }
 
-    /*
+    /**
+     * Has binding necklace
+     *
+     * @return
+     *//*
      * Method used to check if the player has a binding necklace.
      */
     fun hasBindingNecklace(): Boolean {

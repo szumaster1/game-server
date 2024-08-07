@@ -8,6 +8,9 @@ import core.game.dialogue.DialogueInterpreter
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Dismiss dialogue.
+ */
 @Initializable
 class DismissDialogue(player: Player? = null) : Dialogue(player) {
 

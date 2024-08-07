@@ -17,11 +17,26 @@ import core.tools.RandomFunction
 import core.tools.StringUtils
 import kotlin.random.Random
 
+/**
+ * B net pulse
+ *
+ * @property type
+ * @constructor
+ *
+ * @param player
+ * @param node
+ */
 class BNetPulse(player: Player?, node: NPC?, private val type: BNetNode) : SkillPulse<NPC?>(player, node) {
     private var success = false
 
     private var ticks = 0
 
+    /**
+     * Update lumbridge impling task
+     *
+     * @param player
+     * @return
+     */
     fun updateLumbridgeImplingTask(player: Player): Boolean {
         return player.zoneMonitor.isInZone("puro puro")
     }

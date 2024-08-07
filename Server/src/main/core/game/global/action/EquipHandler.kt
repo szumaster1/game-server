@@ -18,7 +18,9 @@ import core.game.system.config.ItemConfigParser
 import core.plugin.Plugin
 
 /**
- * Represents the equipment equipping handler plugin.
+ * Equip handler
+ *
+ * @constructor Equip handler
  */
 class EquipHandler : InteractionListener {
 

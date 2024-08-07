@@ -11,6 +11,9 @@ import core.game.interaction.InteractionListener
 import core.game.node.item.Item
 import kotlin.math.min
 
+/**
+ * Granite split listener.
+ */
 class GraniteSplitListener : InteractionListener {
 
     override fun defineListeners() {

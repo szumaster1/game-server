@@ -10,6 +10,12 @@ import core.network.packet.IoBuffer
 import core.tools.*
 import java.util.concurrent.atomic.AtomicBoolean
 
+/**
+ * Update masks
+ *
+ * @property owner
+ * @constructor Update masks
+ */
 class UpdateMasks(val owner: Entity) {
     var appearanceStamp: Long = 0
     private val type = EFlagType.of(owner)
@@ -21,6 +27,14 @@ class UpdateMasks(val owner: Entity) {
 
     private data class MaskElement(val encoder: EFlagProvider, val context: Any?)
 
+    /**
+     * Register
+     *
+     * @param flag
+     * @param context
+     * @param sync
+     * @return
+     */
     @JvmOverloads
     fun register(flag: EntityFlag, context: Any?, sync: Boolean = false): Boolean {
         var synced = sync
@@ -49,9 +63,10 @@ class UpdateMasks(val owner: Entity) {
     }
 
     /**
-     * Unregisters a synced update mask.
-     * @param maskData The mask data.
-     * @return `True` if the mask got removed.
+     * Unregister synced
+     *
+     * @param ordinal
+     * @return
      */
     fun unregisterSynced(ordinal: Int): Boolean {
         if (syncedElements[ordinal] != null) {
@@ -63,10 +78,11 @@ class UpdateMasks(val owner: Entity) {
     }
 
     /**
-     * Writes the flags.
-     * @param p The player.
-     * @param e The entity to update.
-     * @param buffer The buffer to write on.
+     * Write
+     *
+     * @param p
+     * @param e
+     * @param buffer
      */
     fun write(p: Player?, e: Entity?, buffer: IoBuffer) {
         var maskData = presenceFlags
@@ -83,11 +99,12 @@ class UpdateMasks(val owner: Entity) {
     }
 
     /**
-     * Writes the update masks on synchronization.
-     * @param p The player.
-     * @param e The entity to update.
-     * @param buffer The buffer to write on.
-     * @param appearance If the appearance mask should be written.
+     * Write synced
+     *
+     * @param p
+     * @param e
+     * @param buffer
+     * @param appearance
      */
     fun writeSynced(p: Player?, e: Entity?, buffer: IoBuffer, appearance: Boolean) {
         var maskData = presenceFlags
@@ -116,8 +133,9 @@ class UpdateMasks(val owner: Entity) {
     }
 
     /**
-     * Adds the dynamic update flags.
-     * @param entity The entity.
+     * Prepare
+     *
+     * @param entity
      */
     fun prepare(entity: Entity) {
         val handler = entity.impactHandler
@@ -144,7 +162,8 @@ class UpdateMasks(val owner: Entity) {
     }
 
     /**
-     * Resets the update masks.
+     * Reset
+     *
      */
     fun reset() {
         for (i in elements.indices) {
@@ -154,6 +173,11 @@ class UpdateMasks(val owner: Entity) {
         updating.set(false)
     }
 
+    /**
+     * Is updating
+     *
+     * @return
+     */
     fun isUpdating(): Boolean {
         return updating.get()
     }
@@ -166,8 +190,9 @@ class UpdateMasks(val owner: Entity) {
         get() = presenceFlags != 0
 
     /**
-     * Checks if synced update masks have been registered.
-     * @return `True` if so.
+     * Has synced
+     *
+     * @return
      */
     fun hasSynced(): Boolean {
         return syncedPresenceFlags != 0

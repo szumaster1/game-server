@@ -7,6 +7,9 @@ import core.api.setAttribute
 import core.api.setComponentVisibility
 import core.game.interaction.InterfaceListener
 
+/**
+ * Pillory interface.
+ */
 class PilloryInterface : InterfaceListener {
 
     private val RE_INTER = Components.MACRO_PILLORY_GUARD_188

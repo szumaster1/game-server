@@ -8,7 +8,11 @@ import core.api.utils.WeightBasedTable
 import core.game.node.entity.npc.NPC
 import core.tools.minutesToTicks
 
+/**
+ * Swarm NPC.
+ */
 class SwarmNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs.SWARM_411) {
+
     override fun init() {
         super.init()
         this.setAttribute("no-spawn-return", true)

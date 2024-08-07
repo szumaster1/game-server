@@ -4,6 +4,16 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
+/**
+ * Trap node
+ *
+ * @property npcIds
+ * @property level
+ * @property experience
+ * @property objectIds
+ * @property rewards
+ * @constructor Trap node
+ */
 open class TrapNode(
     val npcIds: IntArray,
     @JvmField val level: Int,
@@ -12,6 +22,13 @@ open class TrapNode(
     @JvmField val rewards: Array<Item>
 ) {
 
+    /**
+     * Can catch
+     *
+     * @param wrapper
+     * @param npc
+     * @return
+     */
     open fun canCatch(wrapper: TrapWrapper, npc: NPC): Boolean {
         val player = wrapper.player
         if (wrapper.isCaught || wrapper.isBusy || wrapper.isFailed) {

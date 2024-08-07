@@ -15,7 +15,16 @@ import org.json.simple.JSONObject
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
+/**
+ * Blast furnace area tests
+ *
+ * @constructor Blast furnace area tests
+ */
 class BlastFurnaceAreaTests {
+    /**
+     * Should be able to enter bf area
+     *
+     */
     @Test
     fun shouldBeAbleToEnterBfArea() {
         TestUtils.getMockPlayer("bf-enterable").use { p ->
@@ -27,6 +36,10 @@ class BlastFurnaceAreaTests {
         }
     }
 
+    /**
+     * Should be able to leave bf area
+     *
+     */
     @Test
     fun shouldBeAbleToLeaveBfArea() {
         TestUtils.getMockPlayer("bf-leavable").use { p ->
@@ -37,6 +50,10 @@ class BlastFurnaceAreaTests {
         }
     }
 
+    /**
+     * Should not be able to enter with less than60smithing
+     *
+     */
     @Test
     fun shouldNotBeAbleToEnterWithLessThan60Smithing() {
         TestUtils.getMockPlayer("bf-60smith").use { p ->
@@ -47,6 +64,10 @@ class BlastFurnaceAreaTests {
         }
     }
 
+    /**
+     * Get fee price returns expected values
+     *
+     */
     @Test
     fun getFeePriceReturnsExpectedValues() {
         val testData = arrayOf(
@@ -61,6 +82,10 @@ class BlastFurnaceAreaTests {
             Assertions.assertEquals(expected, BlastFurnace.getEntranceFee(hasCharos, smithLevel))
     }
 
+    /**
+     * Enter with fee should kick player out after10minutes
+     *
+     */
     @Test
     fun enterWithFeeShouldKickPlayerOutAfter10Minutes() {
         TestUtils.getMockPlayer("bf-fee-kickout").use { p ->
@@ -70,6 +95,10 @@ class BlastFurnaceAreaTests {
         }
     }
 
+    /**
+     * Should be able to leave and enter freely while timer active
+     *
+     */
     @Test
     fun shouldBeAbleToLeaveAndEnterFreelyWhileTimerActive() {
         TestUtils.getMockPlayer("bf-fee-reentry").use { p ->
@@ -92,6 +121,10 @@ class BlastFurnaceAreaTests {
         }
     }
 
+    /**
+     * Player should only be teleported if inside b f area
+     *
+     */
     @Test
     fun playerShouldOnlyBeTeleportedIfInsideBFArea() {
         TestUtils.getMockPlayer("bf-fee-timeout-notele-outside-bf").use { p ->
@@ -106,6 +139,10 @@ class BlastFurnaceAreaTests {
         }
     }
 
+    /**
+     * Player should be able to place ore on belt
+     *
+     */
     @Test
     fun playerShouldBeAbleToPlaceOreOnBelt() {
         TestUtils.getMockPlayer("bf-placeoreonbelt").use { p ->
@@ -116,6 +153,10 @@ class BlastFurnaceAreaTests {
         }
     }
 
+    /**
+     * Player should not be able to place more ore than can fit on belt
+     *
+     */
     @Test
     fun playerShouldNotBeAbleToPlaceMoreOreThanCanFitOnBelt() {
         TestUtils.getMockPlayer("bf-toomuchoreonbelt").use { p ->
@@ -136,6 +177,10 @@ class BlastFurnaceAreaTests {
         }
     }
 
+    /**
+     * Belt ore limits should account for created bars
+     *
+     */
     @Test
     fun beltOreLimitsShouldAccountForCreatedBars() {
         TestUtils.getMockPlayer("bf-baraccountedfor").use { p ->
@@ -150,6 +195,10 @@ class BlastFurnaceAreaTests {
         }
     }
 
+    /**
+     * Player should be able to only place specific ore on belt
+     *
+     */
     @Test
     fun playerShouldBeAbleToOnlyPlaceSpecificOreOnBelt() {
         TestUtils.getMockPlayer("bf-specific-oreplace").use { p ->
@@ -163,6 +212,10 @@ class BlastFurnaceAreaTests {
         }
     }
 
+    /**
+     * Player should not be able to place ores they lack the level for
+     *
+     */
     @Test
     fun playerShouldNotBeAbleToPlaceOresTheyLackTheLevelFor() {
         TestUtils.getMockPlayer("bf-levelgate-oreplace").use { p ->
@@ -172,6 +225,10 @@ class BlastFurnaceAreaTests {
         }
     }
 
+    /**
+     * Should not be able to occupy extra bronze slots with more than28tin or copper
+     *
+     */
     @Test
     fun shouldNotBeAbleToOccupyExtraBronzeSlotsWithMoreThan28TinOrCopper() {
         TestUtils.getMockPlayer("bf-bronze-orelimit").use { p ->
@@ -195,6 +252,10 @@ class BlastFurnaceAreaTests {
         }
     }
 
+    /**
+     * Should not be able to place more than28total non coal ore on the belt
+     *
+     */
     @Test
     fun shouldNotBeAbleToPlaceMoreThan28TotalNonCoalOreOnTheBelt() {
         TestUtils.getMockPlayer("bf-orelimit").use { p ->
@@ -210,6 +271,10 @@ class BlastFurnaceAreaTests {
         }
     }
 
+    /**
+     * Should be able to place28copper and tin ore on the belt
+     *
+     */
     @Test
     fun shouldBeAbleToPlace28CopperAndTinOreOnTheBelt() {
         TestUtils.getMockPlayer("bf-orelimit").use { p ->
@@ -225,6 +290,10 @@ class BlastFurnaceAreaTests {
         }
     }
 
+    /**
+     * B f area should persist info across player relogs
+     *
+     */
     @Test
     fun BFAreaShouldPersistInfoAcrossPlayerRelogs() {
         TestUtils.getMockPlayer("bf-persistence").use { p ->

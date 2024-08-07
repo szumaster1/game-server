@@ -9,6 +9,16 @@ import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
+/**
+ * Jewellery craft pulse
+ *
+ * @property type
+ * @property amount
+ * @constructor
+ *
+ * @param player
+ * @param node
+ */
 class JewelleryCraftPulse(
     player: Player?,
     node: Item?,

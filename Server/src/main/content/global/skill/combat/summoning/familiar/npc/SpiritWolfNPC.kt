@@ -19,6 +19,9 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 
+/**
+ * Spirit wolf familiar.
+ */
 @Initializable
 class SpiritWolfNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 6829) :
     Familiar(owner, id, 600, 12047, 3, WeaponInterface.STYLE_ACCURATE) {

@@ -5,6 +5,11 @@ import core.game.component.Component
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
+/**
+ * Leather data
+ *
+ * @constructor Create empty Leather data
+ */
 object LeatherData {
 
     const val NEEDLE: Int = 1733

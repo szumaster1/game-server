@@ -12,6 +12,9 @@ import core.plugin.Initializable
 
 // https://runescape.wiki/w/Summoned_Zombie?oldid=1887450
 
+/**
+ * Summoned zombie NPC.
+ */
 @Initializable
 class SummonedZombieNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 

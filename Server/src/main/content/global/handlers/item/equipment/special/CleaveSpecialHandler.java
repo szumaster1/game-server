@@ -15,6 +15,9 @@ import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
+/**
+ * Cleave special handler.
+ */
 @Initializable
 public final class CleaveSpecialHandler extends MeleeSwingHandler implements Plugin<Object> {
 

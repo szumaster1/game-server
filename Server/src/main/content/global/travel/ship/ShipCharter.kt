@@ -14,8 +14,11 @@ import core.game.world.map.Location
 import core.game.world.repository.Repository.findNPC
 import core.tools.StringUtils
 
+/**
+ * Ship charter.
+ */
 object ShipCharter {
-    
+
     val component: Component = Component(Components.SAILING_TRANSPORT_WORLD_MAP_95)
     private val RING_OF_CHAROS = Item(Items.RING_OF_CHAROSA_6465)
 
@@ -75,7 +78,7 @@ object ShipCharter {
         return arrayChilds
     }
 
-    
+
     enum class Destination(
         val location: Location,
         val button: Int,

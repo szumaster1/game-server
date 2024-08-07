@@ -3,11 +3,13 @@ package content.global.bots
 import core.game.bots.*
 import core.game.world.map.zone.ZoneBorders
 
+/**
+ * Gnome agility.
+ */
 @PlayerCompatible
 @ScriptName("Gnome Agility Course Script")
 @ScriptDescription("Start the script while standing front of the balancing log")
 @ScriptIdentifier("gnome_agility")
-
 class GnomeAgility : Script() {
 
     var state = State.INIT
@@ -141,7 +143,73 @@ class GnomeAgility : Script() {
         return script
     }
 
+    /**
+     * State
+     *
+     * @constructor State
+     */
     enum class State {
-        START, LOG, FIRSTNET, BRANCHUP, ROPE, BRANCHDOWN, SECONDNET, PIPE, INIT
+        /**
+         * Start
+         *
+         * @constructor Start
+         */
+        START,
+
+        /**
+         * Log
+         *
+         * @constructor Log
+         */
+        LOG,
+
+        /**
+         * Firstnet
+         *
+         * @constructor Firstnet
+         */
+        FIRSTNET,
+
+        /**
+         * Branchup
+         *
+         * @constructor Branchup
+         */
+        BRANCHUP,
+
+        /**
+         * Rope
+         *
+         * @constructor Rope
+         */
+        ROPE,
+
+        /**
+         * Branchdown
+         *
+         * @constructor Branchdown
+         */
+        BRANCHDOWN,
+
+        /**
+         * Secondnet
+         *
+         * @constructor Secondnet
+         */
+        SECONDNET,
+
+        /**
+         * Pipe
+         *
+         * @constructor Pipe
+         */
+        PIPE,
+
+        /**
+         * Init
+         *
+         * @constructor Init
+         */
+        INIT
     }
 }

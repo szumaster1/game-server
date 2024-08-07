@@ -11,6 +11,9 @@ import core.game.node.entity.player.Player
 import core.game.world.map.Location
 import core.plugin.Initializable
 
+/**
+ * Troll generals NPC.
+ */
 @Initializable
 class TrollGeneralsNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 

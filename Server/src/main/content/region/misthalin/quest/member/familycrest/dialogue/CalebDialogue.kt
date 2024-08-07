@@ -10,6 +10,9 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.Initializable
 
+/**
+ * Caleb dialogue.
+ */
 @Initializable
 class CalebDialogue(player: Player? = null) : Dialogue(player) {
 

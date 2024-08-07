@@ -13,7 +13,6 @@ import core.integration.grafana.Grafana
 
 /**
  * The entity update sequence.
- * @author Emperor
  */
 class UpdateSequence {
     var lobbyList: List<Player>? = null

@@ -7,6 +7,11 @@ import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.tools.END_DIALOGUE
 
+/**
+ * Combination scroll dialogue
+ *
+ * @constructor Combination scroll dialogue
+ */
 class CombinationScrollDialogue : DialogueFile() {
     var a = 0
     override fun handle(componentID: Int, buttonID: Int) {

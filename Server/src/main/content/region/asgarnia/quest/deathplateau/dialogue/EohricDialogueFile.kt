@@ -7,6 +7,11 @@ import core.game.dialogue.FacialExpression
 import core.game.dialogue.Topic
 import core.tools.END_DIALOGUE
 
+/**
+ * Eohric dialogue file
+ *
+ * @constructor Eohric dialogue file
+ */
 class EohricDialogueFile : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

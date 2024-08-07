@@ -29,36 +29,120 @@ import static core.api.ContentAPIKt.*;
 import static java.lang.Math.floor;
 import static java.lang.Math.max;
 
+/**
+ * Skills.
+ */
 public final class Skills {
 
+    /**
+     * The Experience multiplier.
+     */
     public double experienceMultiplier = 50.0;
+    /**
+     * The constant SKILL_NAME.
+     */
     public static final String[] SKILL_NAME = {"Attack", "Defence", "Strength", "Hitpoints", "Ranged", "Prayer", "Magic", "Cooking", "Woodcutting", "Fletching", "Fishing", "Firemaking", "Crafting", "Smithing", "Mining", "Herblore", "Agility", "Thieving", "Slayer", "Farming", "Runecrafting", "Hunter", "Construction", "Summoning"};
+    /**
+     * The constant ATTACK.
+     */
     public static final int ATTACK = 0,
 
+    /**
+     * The Defence.
+     */
     DEFENCE = 1,
-        STRENGTH = 2,
-        HITPOINTS = 3,
-        RANGE = 4,
-        PRAYER = 5,
-        MAGIC = 6,
-        COOKING = 7,
-        WOODCUTTING = 8,
-        FLETCHING = 9,
-        FISHING = 10,
-        FIREMAKING = 11,
-        CRAFTING = 12,
-        SMITHING = 13,
-        MINING = 14,
-        HERBLORE = 15,
-        AGILITY = 16,
-        THIEVING = 17,
-        SLAYER = 18,
-        FARMING = 19,
-        RUNECRAFTING = 20,
-        HUNTER = 21,
-        CONSTRUCTION = 22,
-        SUMMONING = 23;
+    /**
+     * The Strength.
+     */
+    STRENGTH = 2,
+    /**
+     * The Hitpoints.
+     */
+    HITPOINTS = 3,
+    /**
+     * The Range.
+     */
+    RANGE = 4,
+    /**
+     * The Prayer.
+     */
+    PRAYER = 5,
+    /**
+     * The Magic.
+     */
+    MAGIC = 6,
+    /**
+     * The Cooking.
+     */
+    COOKING = 7,
+    /**
+     * The Woodcutting.
+     */
+    WOODCUTTING = 8,
+    /**
+     * The Fletching.
+     */
+    FLETCHING = 9,
+    /**
+     * The Fishing.
+     */
+    FISHING = 10,
+    /**
+     * The Firemaking.
+     */
+    FIREMAKING = 11,
+    /**
+     * The Crafting.
+     */
+    CRAFTING = 12,
+    /**
+     * The Smithing.
+     */
+    SMITHING = 13,
+    /**
+     * The Mining.
+     */
+    MINING = 14,
+    /**
+     * The Herblore.
+     */
+    HERBLORE = 15,
+    /**
+     * The Agility.
+     */
+    AGILITY = 16,
+    /**
+     * The Thieving.
+     */
+    THIEVING = 17,
+    /**
+     * The Slayer.
+     */
+    SLAYER = 18,
+    /**
+     * The Farming.
+     */
+    FARMING = 19,
+    /**
+     * The Runecrafting.
+     */
+    RUNECRAFTING = 20,
+    /**
+     * The Hunter.
+     */
+    HUNTER = 21,
+    /**
+     * The Construction.
+     */
+    CONSTRUCTION = 22,
+    /**
+     * The Summoning.
+     */
+    SUMMONING = 23;
 
+    /**
+     * The constant NUM_SKILLS.
+     */
     public static final int NUM_SKILLS = 24;
     private final Entity entity;
     private final double[] experience;
@@ -73,9 +157,20 @@ public final class Skills {
     private boolean lifepointsUpdate;
     private int combatMilestone;
     private int skillMilestone;
+    /**
+     * The Last trained skill.
+     */
     public int lastTrainedSkill = -1;
+    /**
+     * The Last xp gain.
+     */
     public int lastXpGain = 0;
 
+    /**
+     * Instantiates a new Skills.
+     *
+     * @param entity the entity
+     */
     public Skills(Entity entity) {
         this.entity = entity;
         this.experience = new double[24];
@@ -92,6 +187,12 @@ public final class Skills {
     }
 
 
+    /**
+     * Is combat boolean.
+     *
+     * @param skill the skill
+     * @return the boolean
+     */
     public boolean isCombat(int skill) {
         if ((skill >= ATTACK && skill <= MAGIC) || (skill == SUMMONING)) {
             return true;
@@ -99,16 +200,27 @@ public final class Skills {
         return false;
     }
 
+    /**
+     * Configure.
+     */
     public void configure() {
         updateCombatLevel();
     }
 
+    /**
+     * Pulse.
+     */
     public void pulse() {
         if (lifepoints < 1) {
             return;
         }
     }
 
+    /**
+     * Copy.
+     *
+     * @param skills the skills
+     */
     public void copy(Skills skills) {
         for (int i = 0; i < 24; i++) {
             this.staticLevels[i] = skills.staticLevels[i];
@@ -121,6 +233,13 @@ public final class Skills {
         experienceGained = skills.experienceGained;
     }
 
+    /**
+     * Add experience.
+     *
+     * @param slot       the slot
+     * @param experience the experience
+     * @param playerMod  the player mod
+     */
     public void addExperience(int slot, double experience, boolean playerMod) {
         if (lastUpdateXp == null)
             lastUpdateXp = this.experience.clone();
@@ -213,10 +332,21 @@ public final class Skills {
         return experienceMultiplier;
     }
 
+    /**
+     * Add experience.
+     *
+     * @param slot       the slot
+     * @param experience the experience
+     */
     public void addExperience(final int slot, double experience) {
         addExperience(slot, experience, false);
     }
 
+    /**
+     * Gets highest combat skill id.
+     *
+     * @return the highest combat skill id
+     */
     public int getHighestCombatSkillId() {
         int id = 0;
         int last = 0;
@@ -229,6 +359,9 @@ public final class Skills {
         return id;
     }
 
+    /**
+     * Restore.
+     */
     public void restore() {
         for (int i = 0; i < 24; i++) {
             int staticLevel = getStaticLevel(i);
@@ -240,6 +373,11 @@ public final class Skills {
         rechargePrayerPoints();
     }
 
+    /**
+     * Parse.
+     *
+     * @param buffer the buffer
+     */
     public void parse(ByteBuffer buffer) {
         for (int i = 0; i < 24; i++) {
             experience[i] = ((double) buffer.getInt() / 10D);
@@ -254,6 +392,11 @@ public final class Skills {
         experienceGained = buffer.getInt();
     }
 
+    /**
+     * Parse.
+     *
+     * @param skillData the skill data
+     */
     public void parse(JSONArray skillData) {
         for (int i = 0; i < skillData.size(); i++) {
             JSONObject skill = (JSONObject) skillData.get(i);
@@ -269,6 +412,11 @@ public final class Skills {
         }
     }
 
+    /**
+     * Correct.
+     *
+     * @param divisor the divisor
+     */
     public void correct(double divisor) {
         for (int i = 0; i < staticLevels.length; i++) {
             experience[i] /= divisor;
@@ -285,6 +433,11 @@ public final class Skills {
         updateCombatLevel();
     }
 
+    /**
+     * Parse exp rate.
+     *
+     * @param buffer the buffer
+     */
     public void parseExpRate(ByteBuffer buffer) {
         experienceMultiplier = buffer.getDouble();
         if (GameWorld.getSettings().getDefault_xp_rate() != experienceMultiplier) {
@@ -292,6 +445,11 @@ public final class Skills {
         }
     }
 
+    /**
+     * Save.
+     *
+     * @param buffer the buffer
+     */
     public void save(ByteBuffer buffer) {
         for (int i = 0; i < 24; i++) {
             buffer.putInt((int) (experience[i] * 10));
@@ -307,10 +465,18 @@ public final class Skills {
         buffer.putInt((int) experienceGained);
     }
 
+    /**
+     * Save exp rate.
+     *
+     * @param buffer the buffer
+     */
     public void saveExpRate(ByteBuffer buffer) {
         buffer.putDouble(experienceMultiplier);
     }
 
+    /**
+     * Refresh.
+     */
     public void refresh() {
         if (!(entity instanceof Player)) {
             return;
@@ -322,6 +488,12 @@ public final class Skills {
         LevelUp.sendFlashingIcons(player, -1);
     }
 
+    /**
+     * Gets static level by experience.
+     *
+     * @param slot the slot
+     * @return the static level by experience
+     */
     public int getStaticLevelByExperience(int slot) {
         double exp = experience[slot];
 
@@ -337,6 +509,12 @@ public final class Skills {
         return 99;
     }
 
+    /**
+     * Level from xp int.
+     *
+     * @param exp the exp
+     * @return the int
+     */
     public int levelFromXP(double exp) {
 
         int points = 0;
@@ -351,6 +529,12 @@ public final class Skills {
         return 99;
     }
 
+    /**
+     * Gets experience by level.
+     *
+     * @param level the level
+     * @return the experience by level
+     */
     public int getExperienceByLevel(int level) {
         int points = 0;
         int output = 0;
@@ -364,6 +548,11 @@ public final class Skills {
         return 0;
     }
 
+    /**
+     * Update combat level boolean.
+     *
+     * @return the boolean
+     */
     @SuppressWarnings("deprecation")
     public boolean updateCombatLevel() {
         boolean update = false;
@@ -394,26 +583,59 @@ public final class Skills {
         return (int) (base + max(meleeBase, max(rangeBase, magicBase)));
     }
 
+    /**
+     * Gets entity.
+     *
+     * @return the entity
+     */
     public Entity getEntity() {
         return entity;
     }
 
+    /**
+     * Gets experience.
+     *
+     * @param slot the slot
+     * @return the experience
+     */
     public double getExperience(int slot) {
         return experience[slot];
     }
 
+    /**
+     * Gets static level.
+     *
+     * @param slot the slot
+     * @return the static level
+     */
     public int getStaticLevel(int slot) {
         return staticLevels[slot];
     }
 
+    /**
+     * Sets experience gained.
+     *
+     * @param experienceGained the experience gained
+     */
     public void setExperienceGained(double experienceGained) {
         this.experienceGained = experienceGained;
     }
 
+    /**
+     * Gets experience gained.
+     *
+     * @return the experience gained
+     */
     public double getExperienceGained() {
         return experienceGained;
     }
 
+    /**
+     * Sets level.
+     *
+     * @param slot  the slot
+     * @param level the level
+     */
     public void setLevel(int slot, int level) {
         if (slot == HITPOINTS) {
             lifepoints = level;
@@ -430,6 +652,13 @@ public final class Skills {
         }
     }
 
+    /**
+     * Gets level.
+     *
+     * @param slot          the slot
+     * @param discardAssist the discard assist
+     * @return the level
+     */
     public int getLevel(int slot, boolean discardAssist) {
         if (!discardAssist) {
             if (entity instanceof Player) {
@@ -455,10 +684,21 @@ public final class Skills {
         return dynamicLevels[slot];
     }
 
+    /**
+     * Gets level.
+     *
+     * @param slot the slot
+     * @return the level
+     */
     public int getLevel(int slot) {
         return getLevel(slot, false);
     }
 
+    /**
+     * Sets lifepoints.
+     *
+     * @param lifepoints the lifepoints
+     */
     public void setLifepoints(int lifepoints) {
         this.lifepoints = lifepoints;
         if (this.lifepoints < 0) {
@@ -467,10 +707,20 @@ public final class Skills {
         lifepointsUpdate = true;
     }
 
+    /**
+     * Gets lifepoints.
+     *
+     * @return the lifepoints
+     */
     public int getLifepoints() {
         return lifepoints;
     }
 
+    /**
+     * Gets maximum lifepoints.
+     *
+     * @return the maximum lifepoints
+     */
     public int getMaximumLifepoints() {
         if (this.entity instanceof Player && SkillcapePerks.isActive(SkillcapePerks.DAMAGE_SPONG, this.getEntity().asPlayer())) {
             lifepointsIncrease = 11;
@@ -480,10 +730,21 @@ public final class Skills {
         return staticLevels[HITPOINTS] + lifepointsIncrease;
     }
 
+    /**
+     * Sets lifepoints increase.
+     *
+     * @param amount the amount
+     */
     public void setLifepointsIncrease(int amount) {
         this.lifepointsIncrease = amount;
     }
 
+    /**
+     * Heal int.
+     *
+     * @param health the health
+     * @return the int
+     */
     public int heal(int health) {
         lifepoints += health;
         int left = 0;
@@ -495,11 +756,22 @@ public final class Skills {
         return left;
     }
 
+    /**
+     * Heal no restrictions.
+     *
+     * @param amount the amount
+     */
     public void healNoRestrictions(int amount) {
         lifepoints += amount;
         lifepointsUpdate = true;
     }
 
+    /**
+     * Hit int.
+     *
+     * @param damage the damage
+     * @return the int
+     */
     public int hit(int damage) {
         lifepoints -= damage;
         int left = 0;
@@ -511,10 +783,18 @@ public final class Skills {
         return left;
     }
 
+    /**
+     * Gets prayer points.
+     *
+     * @return the prayer points
+     */
     public double getPrayerPoints() {
         return prayerPoints;
     }
 
+    /**
+     * Recharge prayer points.
+     */
     public void rechargePrayerPoints() {
         prayerPoints = staticLevels[PRAYER];
         if (entity instanceof Player) {
@@ -522,6 +802,11 @@ public final class Skills {
         }
     }
 
+    /**
+     * Decrement prayer points.
+     *
+     * @param amount the amount
+     */
     public void decrementPrayerPoints(double amount) {
         prayerPoints -= amount;
         if (prayerPoints < 0) {
@@ -535,6 +820,11 @@ public final class Skills {
         }
     }
 
+    /**
+     * Increment prayer points.
+     *
+     * @param amount the amount
+     */
     public void incrementPrayerPoints(double amount) {
         prayerPoints += amount;
         if (prayerPoints < 0) {
@@ -548,6 +838,11 @@ public final class Skills {
         }
     }
 
+    /**
+     * Sets prayer points.
+     *
+     * @param amount the amount
+     */
     public void setPrayerPoints(double amount) {
         prayerPoints = amount;
         if (entity instanceof Player) {
@@ -555,6 +850,14 @@ public final class Skills {
         }
     }
 
+    /**
+     * Update level int.
+     *
+     * @param skill   the skill
+     * @param amount  the amount
+     * @param maximum the maximum
+     * @return the int
+     */
     public int updateLevel(int skill, int amount, int maximum) {
         if (amount > 0 && dynamicLevels[skill] > maximum) {
             return -amount;
@@ -574,16 +877,36 @@ public final class Skills {
         return left;
     }
 
+    /**
+     * Update level int.
+     *
+     * @param skill  the skill
+     * @param amount the amount
+     * @return the int
+     */
     public int updateLevel(int skill, int amount) {
         return updateLevel(skill, amount, amount >= 0 ? getStaticLevel(skill) + amount : getStaticLevel(skill) - amount);
     }
 
+    /**
+     * Drain level.
+     *
+     * @param skill                  the skill
+     * @param drainPercentage        the drain percentage
+     * @param maximumDrainPercentage the maximum drain percentage
+     */
     public void drainLevel(int skill, double drainPercentage, double maximumDrainPercentage) {
         int drain = (int) (dynamicLevels[skill] * drainPercentage);
         int minimum = (int) (staticLevels[skill] * (1.0 - maximumDrainPercentage));
         updateLevel(skill, -drain, minimum);
     }
 
+    /**
+     * Sets static level.
+     *
+     * @param skill the skill
+     * @param level the level
+     */
     public void setStaticLevel(int skill, int level) {
         experience[skill] = getExperienceByLevel(staticLevels[skill] = dynamicLevels[skill] = level);
         if (entity instanceof Player) {
@@ -591,6 +914,11 @@ public final class Skills {
         }
     }
 
+    /**
+     * Gets mastered skills.
+     *
+     * @return the mastered skills
+     */
     public int getMasteredSkills() {
         int count = 0;
         for (int i = 0; i < 23; i++) {
@@ -601,6 +929,12 @@ public final class Skills {
         return count;
     }
 
+    /**
+     * Gets skill by name.
+     *
+     * @param name the name
+     * @return the skill by name
+     */
     public static int getSkillByName(final String name) {
         for (int i = 0; i < SKILL_NAME.length; i++) {
             if (SKILL_NAME[i].equalsIgnoreCase(name)) {
@@ -610,6 +944,11 @@ public final class Skills {
         return -1;
     }
 
+    /**
+     * Gets total level.
+     *
+     * @return the total level
+     */
     public int getTotalLevel() {
         int level = 0;
         for (int i = 0; i < 24; i++) {
@@ -618,6 +957,11 @@ public final class Skills {
         return level;
     }
 
+    /**
+     * Gets total xp.
+     *
+     * @return the total xp
+     */
     public int getTotalXp() {
         int total = 0;
         for (int skill = 0; skill < Skills.SKILL_NAME.length; skill++) {
@@ -626,38 +970,85 @@ public final class Skills {
         return total;
     }
 
+    /**
+     * Is lifepoints update boolean.
+     *
+     * @return the boolean
+     */
     public boolean isLifepointsUpdate() {
         return lifepointsUpdate;
     }
 
+    /**
+     * Sets lifepoints update.
+     *
+     * @param lifepointsUpdate the lifepoints update
+     */
     public void setLifepointsUpdate(boolean lifepointsUpdate) {
         this.lifepointsUpdate = lifepointsUpdate;
     }
 
+    /**
+     * Get static levels int [ ].
+     *
+     * @return the int [ ]
+     */
     public int[] getStaticLevels() {
         return staticLevels;
     }
 
+    /**
+     * Has level boolean.
+     *
+     * @param skillId the skill id
+     * @param i       the
+     * @return the boolean
+     */
     public boolean hasLevel(int skillId, int i) {
         return getStaticLevel(skillId) >= i;
     }
 
+    /**
+     * Gets combat milestone.
+     *
+     * @return the combat milestone
+     */
     public int getCombatMilestone() {
         return combatMilestone;
     }
 
+    /**
+     * Sets combat milestone.
+     *
+     * @param combatMilestone the combat milestone
+     */
     public void setCombatMilestone(int combatMilestone) {
         this.combatMilestone = combatMilestone;
     }
 
+    /**
+     * Gets skill milestone.
+     *
+     * @return the skill milestone
+     */
     public int getSkillMilestone() {
         return skillMilestone;
     }
 
+    /**
+     * Sets skill milestone.
+     *
+     * @param skillMilestone the skill milestone
+     */
     public void setSkillMilestone(int skillMilestone) {
         this.skillMilestone = skillMilestone;
     }
 
+    /**
+     * Get dynamic levels int [ ].
+     *
+     * @return the int [ ]
+     */
     public int[] getDynamicLevels() {
         return dynamicLevels;
     }

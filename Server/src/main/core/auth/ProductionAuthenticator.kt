@@ -8,6 +8,11 @@ import core.storage.SQLStorageProvider
 import java.sql.SQLDataException
 import java.sql.Timestamp
 
+/**
+ * Production authenticator
+ *
+ * @constructor Production authenticator
+ */
 class ProductionAuthenticator : AuthProvider<AccountStorageProvider>() {
     override fun configureFor(provider: AccountStorageProvider) {
         storageProvider = provider

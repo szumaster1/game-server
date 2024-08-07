@@ -10,6 +10,11 @@ import core.game.node.entity.player.link.diary.AchievementDiary
 import core.game.node.entity.player.link.diary.DiaryType
 import core.tools.END_DIALOGUE
 
+/**
+ * Rat burgiss diary dialogue
+ *
+ * @constructor Rat burgiss diary dialogue
+ */
 class RatBurgissDiaryDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

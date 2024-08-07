@@ -18,6 +18,9 @@ import core.game.world.update.flag.context.Graphic
 import core.tools.RandomFunction
 import core.tools.StringUtils
 
+/**
+ * Smelting pulse.
+ */
 class SmeltingPulse : SkillPulse<Item?> {
 
     private val bar: Bar?
@@ -112,10 +115,22 @@ class SmeltingPulse : SkillPulse<Item?> {
         return amount < 1
     }
 
+    /**
+     * Has forging ring
+     *
+     * @param player
+     * @return
+     */
     fun hasForgingRing(player: Player): Boolean {
         return inEquipment(player, RING_OF_FORGING)
     }
 
+    /**
+     * Success
+     *
+     * @param player
+     * @return
+     */
     fun success(player: Player): Boolean {
         if (bar == Bar.IRON && !superHeat) {
             return if (hasForgingRing(player)) {

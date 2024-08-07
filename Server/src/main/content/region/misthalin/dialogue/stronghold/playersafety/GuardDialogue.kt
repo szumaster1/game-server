@@ -11,6 +11,9 @@ import core.tools.START_DIALOGUE
 import core.api.consts.NPCs
 import core.api.sendMessage
 
+/**
+ * Guard dialogue.
+ */
 @Initializable
 class GuardDialogue(player: Player? = null) : Dialogue(player) {
 

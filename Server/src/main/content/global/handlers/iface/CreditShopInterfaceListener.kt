@@ -9,6 +9,11 @@ import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
+/**
+ * Credit shop interface listener
+ *
+ * @constructor Credit shop interface listener
+ */
 class CreditShopInterfaceListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {
@@ -57,10 +62,22 @@ class CreditShopInterfaceListener : InterfaceListener {
         }
     }
 
+    /**
+     * Send credits
+     *
+     * @param player
+     */
     fun sendCredits(player: Player) {
         setInterfaceText(player, "You have ${player.details.credits} credits to spend.", Components.CREDIT_SHOP_837, 39)
     }
 
+    /**
+     * Attempt purchase
+     *
+     * @param player
+     * @param item
+     * @param price
+     */
     fun attemptPurchase(player: Player, item: Int, price: Int) {
         if (player.details.credits < price) {
             sendDialogue(player, "You don't have enough credits for that.")
@@ -75,5 +92,12 @@ class CreditShopInterfaceListener : InterfaceListener {
         sendCredits(player)
     }
 
+    /**
+     * Shop item
+     *
+     * @property id
+     * @property price
+     * @constructor Shop item
+     */
     internal class ShopItem(val id: Int, val price: Int)
 }

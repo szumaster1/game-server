@@ -14,6 +14,11 @@ import core.game.world.map.zone.ZoneBorders
 import core.game.world.map.zone.ZoneBuilder
 import core.plugin.Plugin
 
+/**
+ * Mining camp zone
+ *
+ * @constructor Mining camp zone
+ */
 class MiningCampZone: MapZone("mining camp", true), Plugin<Any> {
 
     override fun newInstance(arg: Any?): Plugin<Any> {
@@ -59,6 +64,12 @@ class MiningCampZone: MapZone("mining camp", true), Plugin<Any> {
         }
     }
 
+    /**
+     * Check anna
+     *
+     * @param p
+     * @return
+     */
     fun checkAnna(p: Player): Boolean {
         val quest = p.getQuestRepository().getQuest(TouristTrap.NAME)
         if (p.getAttribute("ana-delay", 0) > ticks) {

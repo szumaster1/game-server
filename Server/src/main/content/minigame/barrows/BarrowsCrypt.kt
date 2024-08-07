@@ -11,8 +11,24 @@ import core.game.world.map.Direction
 import core.game.world.map.Location
 import core.game.world.map.RegionManager.getTeleportLocation
 
+/**
+ * Handles a barrows crypt.
+ * @author Emperor
+ *
+ * @property index The index of the crypt
+ * @property npcId The ID of the NPC associated with the crypt
+ * @property enterLocation The location where players enter the crypt
+ * @property exitLocation The location where players exit the crypt
+ * @constructor Creates a Barrows crypt with the specified properties
+ */
 open class BarrowsCrypt(val index: Int, val npcId: Int, val enterLocation: Location, val exitLocation: Location) {
 
+    /**
+     * Open sarcophagus
+     *
+     * @param player The player who is opening the sarcophagus
+     * @param object The scenery object representing the sarcophagus
+     */
     fun openSarcophagus(player: Player, `object`: Scenery) {
         if (index == player.getSavedData().activityData.barrowTunnelIndex) {
             player.dialogueInterpreter.open("barrow_tunnel", index)
@@ -31,6 +47,13 @@ open class BarrowsCrypt(val index: Int, val npcId: Int, val enterLocation: Locat
         spawnBrother(player, location)
     }
 
+    /**
+     * Spawn brother
+     *
+     * @param player The player who is spawning the brother
+     * @param location The location where the brother will be spawned
+     * @return True if the brother was successfully spawned, false otherwise
+     */
     fun spawnBrother(player: Player, location: Location?): Boolean {
         if (player.getAttribute("brother:$index", false)) {
             return false
@@ -42,6 +65,11 @@ open class BarrowsCrypt(val index: Int, val npcId: Int, val enterLocation: Locat
         return true
     }
 
+    /**
+     * Enter the crypt
+     *
+     * @param player The player who is entering the crypt
+     */
     protected fun enter(player: Player) {
         player.addExtension(BarrowsCrypt::class.java, this)
         sendMessage(player, "You've broken into a crypt!")
@@ -65,6 +93,9 @@ open class BarrowsCrypt(val index: Int, val npcId: Int, val enterLocation: Locat
             BarrowsCrypt(VERAC, 2030, Location.create(3578, 9706, 3), Location.create(3557, 3298, 0))
         )
 
+        /**
+         * Initialize the Barrows crypts
+         */
         fun init() {
             for (crypt in CRYPTS) {
                 val action: DigAction = object : DigAction {
@@ -82,6 +113,12 @@ open class BarrowsCrypt(val index: Int, val npcId: Int, val enterLocation: Locat
             }
         }
 
+        /**
+         * Get the Barrows crypt with the specified index
+         *
+         * @param index The index of the crypt
+         * @return The Barrows crypt with the specified index
+         */
         fun getCrypt(index: Int): BarrowsCrypt {
             return CRYPTS[index]
         }

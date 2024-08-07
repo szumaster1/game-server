@@ -24,6 +24,9 @@ import org.jetbrains.annotations.NotNull;
 
 import static core.api.ContentAPIKt.*;
 
+/**
+ * Dmc handler.
+ */
 public final class DMCHandler implements LogoutListener {
 
     private final Player player;
@@ -35,14 +38,27 @@ public final class DMCHandler implements LogoutListener {
     private DMCRevolution direction = DMCRevolution.NORTH;
     private CannonTimer timer;
 
+    /**
+     * Instantiates a new Dmc handler.
+     */
     public DMCHandler() {
         this.player = null;
     }
 
+    /**
+     * Instantiates a new Dmc handler.
+     *
+     * @param player the player
+     */
     public DMCHandler(final Player player) {
         this.player = player;
     }
 
+    /**
+     * Rotate boolean.
+     *
+     * @return the boolean
+     */
     public boolean rotate() {
         if (cannonballs < 1) {
             player.getPacketDispatch().sendMessage("Your cannon has run out of ammo!");
@@ -71,6 +87,9 @@ public final class DMCHandler implements LogoutListener {
         return true;
     }
 
+    /**
+     * Start firing.
+     */
     public void startFiring() {
         if (cannon == null || !cannon.isActive()) {
             player.getPacketDispatch().sendMessage("You don't have a cannon active.");
@@ -101,6 +120,11 @@ public final class DMCHandler implements LogoutListener {
         timer.setFiring(true);
     }
 
+    /**
+     * Explode.
+     *
+     * @param decay the decay
+     */
     public void explode(boolean decay) {
         if (!cannon.isActive()) {
             return;
@@ -112,6 +136,11 @@ public final class DMCHandler implements LogoutListener {
         clear(false);
     }
 
+    /**
+     * Construct.
+     *
+     * @param player the player
+     */
     public static void construct(final Player player) {
         final Location spawn = RegionManager.getSpawnLocation(player, new Scenery(6, player.getLocation()));
         if (spawn == null) {
@@ -173,6 +202,11 @@ public final class DMCHandler implements LogoutListener {
         });
     }
 
+    /**
+     * Configure.
+     *
+     * @param cannon the cannon
+     */
     public void configure(Scenery cannon) {
         this.cannon = cannon;
     }
@@ -185,6 +219,11 @@ public final class DMCHandler implements LogoutListener {
         }
     }
 
+    /**
+     * Clear.
+     *
+     * @param pickup the pickup
+     */
     public void clear(boolean pickup) {
         SceneryBuilder.remove(cannon);
         removeAttribute(player, "dmc");
@@ -201,22 +240,47 @@ public final class DMCHandler implements LogoutListener {
         }
     }
 
+    /**
+     * Gets player.
+     *
+     * @return the player
+     */
     public Player getPlayer() {
         return player;
     }
 
+    /**
+     * Gets cannon.
+     *
+     * @return the cannon
+     */
     public Scenery getCannon() {
         return cannon;
     }
 
+    /**
+     * Sets cannon.
+     *
+     * @param cannon the cannon
+     */
     public void setCannon(Scenery cannon) {
         this.cannon = cannon;
     }
 
+    /**
+     * Gets cannonballs.
+     *
+     * @return the cannonballs
+     */
     public int getCannonballs() {
         return cannonballs;
     }
 
+    /**
+     * Sets cannonballs.
+     *
+     * @param cannonballs the cannonballs
+     */
     public void setCannonballs(int cannonballs) {
         this.cannonballs = cannonballs;
     }

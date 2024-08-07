@@ -5,6 +5,11 @@ import core.api.sendItemDialogue
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Cadava potion listener
+ *
+ * @constructor Cadava potion listener
+ */
 class CadavaPotionListener : InteractionListener {
 
     private val cadavaPotion = Items.CADAVA_POTION_756

@@ -6,6 +6,11 @@ import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 import core.tools.START_DIALOGUE
 
+/**
+ * Woman dialogue
+ *
+ * @constructor Woman dialogue
+ */
 class WomanDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

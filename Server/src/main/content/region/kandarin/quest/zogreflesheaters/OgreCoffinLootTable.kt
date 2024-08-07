@@ -5,7 +5,19 @@ import core.api.consts.Scenery
 import core.api.utils.WeightBasedTable
 import core.api.utils.WeightedItem
 
+/**
+ * Ogre coffin loot table
+ *
+ * @property sceneryId
+ * @property table
+ * @constructor Ogre coffin loot table
+ */
 enum class OgreCoffinLootTable(val sceneryId: IntArray, val table: WeightBasedTable) {
+    /**
+     * Ogre Coffin
+     *
+     * @constructor Ogre Coffin
+     */
     OGRE_COFFIN(intArrayOf(Scenery.OGRE_COFFIN_6848, Scenery.OGRE_COFFIN_6850),
         WeightBasedTable.create(
             WeightedItem(Items.COINS_995, 6, 20, 15.0),

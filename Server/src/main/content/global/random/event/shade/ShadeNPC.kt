@@ -8,6 +8,9 @@ import core.game.node.entity.npc.NPC
 import kotlin.math.max
 import kotlin.math.min
 
+/**
+ * Shade NPC.
+ */
 class ShadeNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs.SHADE_425) {
 
     val ids = (425..430).toList()

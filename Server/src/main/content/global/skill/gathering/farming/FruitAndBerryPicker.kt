@@ -15,6 +15,9 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 import java.util.concurrent.TimeUnit
 
+/**
+ * Fruit and berry picker.
+ */
 @Initializable
 class FruitAndBerryPicker : OptionHandler() {
     override fun newInstance(arg: Any?): Plugin<Any> {

@@ -17,9 +17,15 @@ import core.plugin.Plugin;
 
 import static core.api.ContentAPIKt.*;
 
+/**
+ * Charge spell.
+ */
 @Initializable
 public final class ChargeSpell extends MagicSpell {
 
+    /**
+     * Instantiates a new Charge spell.
+     */
     public ChargeSpell() {
         super(SpellBook.MODERN, 80, 180, Animation.create(811), new Graphic(6, 96), new Audio(Sounds.CHARGE_1651), new Item[]{Runes.FIRE_RUNE.getItem(3), Runes.BLOOD_RUNE.getItem(3), Runes.AIR_RUNE.getItem(3)});
     }

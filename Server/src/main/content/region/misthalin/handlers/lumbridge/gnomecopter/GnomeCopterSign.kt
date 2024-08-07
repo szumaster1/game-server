@@ -3,8 +3,17 @@ package content.region.misthalin.handlers.lumbridge.gnomecopter
 import core.game.component.Component
 import core.game.node.entity.player.Player
 
+/**
+ * Gnome copter sign.
+ *
+ * @property button the button (string).
+ * @param info the info (string).
+ */
 enum class GnomeCopterSign(private val button: String, vararg info: String) {
 
+    /**
+     * Entrance text content.
+     */
     ENTRANCE(
         "~ Gnomecopter Tours ~",
         "Welcome to Gnomecopter",
@@ -21,12 +30,13 @@ enum class GnomeCopterSign(private val button: String, vararg info: String) {
         "least 2ft, 6ins tall."
     );
 
-    private val info: Array<String>
+    private val info: Array<String> = info as Array<String>
 
-    init {
-        this.info = info as Array<String>
-    }
-
+    /**
+     * Read.
+     *
+     * @param player the player.
+     */
     fun read(player: Player) {
         player.interfaceManager.openSingleTab(Component(723))
         player.packetDispatch.sendString(button, 723, 9)

@@ -10,6 +10,13 @@ import java.sql.Connection
 import java.util.concurrent.TimeUnit
 import java.util.concurrent.locks.ReentrantLock
 
+/**
+ * Database manager
+ *
+ * @property path
+ * @property expectedTables
+ * @constructor Database manager
+ */
 class DatabaseManager(private val path: String, private val expectedTables: HashMap<String, String>? = null) {
     private var connection: Connection? = null
     private var connectionRefs = 0
@@ -18,6 +25,11 @@ class DatabaseManager(private val path: String, private val expectedTables: Hash
     private val coroutineScope = CoroutineScope(Dispatchers.IO)
     private lateinit var sqlitePath: String
 
+    /**
+     * Init tables
+     *
+     * @param tableCreatedCallback
+     */
     fun initTables(tableCreatedCallback: ((String) -> Unit)? = null) {
         val pathTokens = File(path).absolutePath.split(File.separator)
         val file = pathTokens.last()
@@ -37,6 +49,12 @@ class DatabaseManager(private val path: String, private val expectedTables: Hash
         }
     }
 
+    /**
+     * Prune old data
+     *
+     * @param daysToKeep
+     * @param timestampFieldName
+     */
     fun pruneOldData(daysToKeep: Int, timestampFieldName: String = "ts") {
         if (expectedTables?.isEmpty() != false) return
         val timeDiff = daysToKeep * 24 * 60 * 60
@@ -50,10 +68,23 @@ class DatabaseManager(private val path: String, private val expectedTables: Hash
         }
     }
 
+    /**
+     * Run async
+     *
+     * @param closure
+     * @receiver
+     * @return
+     */
     fun runAsync(closure: (conn: Connection) -> Unit): Job {
         return coroutineScope.launch { run(closure) }
     }
 
+    /**
+     * Run
+     *
+     * @param closure
+     * @receiver
+     */
     fun run(closure: (conn: Connection) -> Unit) {
         dbRunLock.tryLock(10000L, TimeUnit.MILLISECONDS)
 

@@ -5,6 +5,11 @@ import core.api.setAttribute
 import core.game.dialogue.DialogueFile
 import core.game.node.entity.skill.Skills
 
+/**
+ * Daero training post quest dialogue
+ *
+ * @constructor Daero training post quest dialogue
+ */
 class DaeroTrainingPostQuestDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

@@ -11,6 +11,9 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 import core.tools.RandomFunction
 
+/**
+ * Burthorpe train NPC.
+ */
 @Initializable
 class BurthorpeTrainNPC : AbstractNPC {
 

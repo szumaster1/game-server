@@ -25,12 +25,24 @@ import java.util.List;
 
 import static core.api.ContentAPIKt.announceIfRare;
 
+/**
+ * Npc drop tables.
+ */
 public final class NPCDropTables {
 
+    /**
+     * The constant DROP_RATES.
+     */
     public static final int[] DROP_RATES = {750, 150, 15, 5};
 
+    /**
+     * The constant MESSAGE_NPCS.
+     */
     public static final int[] MESSAGE_NPCS = {50, 7133, 7134, 2881, 2882, 2883, 3200, 3340, 6247, 6203, 6260, 6222, 2745, 1160, 8133, 8610, 8611, 8612, 8613, 8614, 6204, 6206, 6208, 6261, 6263, 6265, 6223, 6225, 6227};
 
+    /**
+     * The Table.
+     */
     public NPCDropTable table = new NPCDropTable();
 
     private final NPCDefinition def;
@@ -39,10 +51,21 @@ public final class NPCDropTables {
 
     private double modRate;
 
+    /**
+     * Instantiates a new Npc drop tables.
+     *
+     * @param def the def
+     */
     public NPCDropTables(NPCDefinition def) {
         this.def = def;
     }
 
+    /**
+     * Drop.
+     *
+     * @param npc    the npc
+     * @param looter the looter
+     */
     public void drop(NPC npc, Entity looter) {
         Player p = looter instanceof Player ? (Player) looter : null;
         ArrayList<Item> drops = table.roll(looter, 1);
@@ -50,12 +73,28 @@ public final class NPCDropTables {
         drops.forEach(item -> createDrop(item, p, npc, npc.getDropLocation()));
     }
 
+    /**
+     * Roll list.
+     *
+     * @param npc    the npc
+     * @param looter the looter
+     * @param times  the times
+     * @return the list
+     */
     public List<Item> roll(NPC npc, Entity looter, int times) {
         ArrayList<Item> drops = table.roll(looter, times);
         npc.behavior.onDropTableRolled(npc, looter, drops);
         return drops;
     }
 
+    /**
+     * Create drop.
+     *
+     * @param item   the item
+     * @param player the player
+     * @param npc    the npc
+     * @param l      the l
+     */
     public void createDrop(Item item, Player player, NPC npc, Location l) {
         if (item == null || item.getId() == 0 || l == null || item.getName().equals("null") || player == null) {
             return;
@@ -98,6 +137,14 @@ public final class NPCDropTables {
         }
     }
 
+    /**
+     * Gets looter.
+     *
+     * @param player the player
+     * @param npc    the npc
+     * @param item   the item
+     * @return the looter
+     */
     public Player getLooter(Player player, NPC npc, Item item) {
         int itemId = item.getDefinition().isUnnoted() ? item.getId() : item.getNoteChange();
         if (player != null && npc.getProperties().isMultiZone() && (item.getDefinition().isTradeable() || item.getName().endsWith("charm")) && player.getCommunication().getClan() != null && player.getCommunication().isLootShare() && player.getCommunication().getLootRequirement().ordinal() >= player.getCommunication().getClan().getLootRequirement().ordinal() && !player.getIronmanManager().isIronman()) {
@@ -159,14 +206,29 @@ public final class NPCDropTables {
         return true;
     }
 
+    /**
+     * Gets stabilizer ratio.
+     *
+     * @return the stabilizer ratio
+     */
     public double getStabilizerRatio() {
         return ((double) 1 / (1 + def.getCombatLevel())) * 10;
     }
 
+    /**
+     * Gets mod rate.
+     *
+     * @return the mod rate
+     */
     public double getModRate() {
         return modRate;
     }
 
+    /**
+     * Sets mod rate.
+     *
+     * @param modRate the mod rate
+     */
     public void setModRate(double modRate) {
         this.modRate = modRate;
     }

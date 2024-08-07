@@ -12,6 +12,9 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Yohnus dialogue.
+ */
 @Initializable
 class YohnusDialogue(player: Player? = null): Dialogue(player) {
 

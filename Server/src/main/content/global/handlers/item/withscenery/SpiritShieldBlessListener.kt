@@ -9,6 +9,11 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Spirit shield bless listener
+ *
+ * @constructor Spirit shield bless listener
+ */
 class SpiritShieldBlessListener : InteractionListener {
 
     companion object {

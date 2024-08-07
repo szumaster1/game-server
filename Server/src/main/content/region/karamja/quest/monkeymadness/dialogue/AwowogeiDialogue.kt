@@ -5,6 +5,11 @@ import core.api.setQuestStage
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 
+/**
+ * Awowogei dialogue
+ *
+ * @constructor Awowogei dialogue
+ */
 class AwowogeiDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

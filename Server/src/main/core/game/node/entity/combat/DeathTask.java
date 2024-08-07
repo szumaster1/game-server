@@ -20,6 +20,9 @@ import core.game.world.map.Location;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
+/**
+ * Death task.
+ */
 public final class DeathTask extends NodeTask {
 
     private static final DeathTask SINGLETON = new DeathTask();
@@ -83,6 +86,12 @@ public final class DeathTask extends NodeTask {
         return false;
     }
 
+    /**
+     * Get containers container [ ].
+     *
+     * @param player the player
+     * @return the container [ ]
+     */
     public static Container[] getContainers(Player player) {
         Container[] containers = new Container[2];
         Container wornItems = new Container(42, ContainerType.ALWAYS_STACK);
@@ -129,6 +138,12 @@ public final class DeathTask extends NodeTask {
         return containers;
     }
 
+    /**
+     * Start death.
+     *
+     * @param entity the entity
+     * @param killer the killer
+     */
     @SuppressWarnings("deprecation")
     public static void startDeath(Entity entity, Entity killer) {
         if (!isDead(entity)) {
@@ -140,12 +155,23 @@ public final class DeathTask extends NodeTask {
         }
     }
 
+    /**
+     * Is dead boolean.
+     *
+     * @param e the e
+     * @return the boolean
+     */
     public static boolean isDead(Entity e) {
         if (e instanceof NPC)
             return ((NPC) e).getRespawnTick() > GameWorld.getTicks() || e.getAttribute("state:death", false);
         else return e.getAttribute("state:death", false);
     }
 
+    /**
+     * Gets singleton.
+     *
+     * @return the singleton
+     */
     public static DeathTask getSingleton() {
         return SINGLETON;
     }

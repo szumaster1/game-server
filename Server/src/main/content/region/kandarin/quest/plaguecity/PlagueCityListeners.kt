@@ -20,6 +20,11 @@ import core.game.world.map.Direction
 import core.game.world.map.Location
 import core.tools.END_DIALOGUE
 
+/**
+ * Plague city listeners
+ *
+ * @constructor Plague city listeners
+ */
 class PlagueCityListeners : InteractionListener {
 
     companion object {

@@ -11,6 +11,9 @@ import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 import core.game.system.task.Pulse
 
+/**
+ * Surprise exam utils.
+ */
 object SurpriseExamUtils {
 
     val SE_KEY_LOC = "/save:original-loc"

@@ -24,6 +24,11 @@ import core.network.packet.PacketRepository
 import core.network.packet.context.MinimapStateContext
 import core.network.packet.outgoing.MinimapState
 
+/**
+ * Recruitment drive listeners
+ *
+ * @constructor Recruitment drive listeners
+ */
 class RecruitmentDriveListeners : InteractionListener, MapArea {
 
     override fun areaLeave(entity: Entity, logout: Boolean) {
@@ -222,6 +227,13 @@ class RecruitmentDriveListeners : InteractionListener, MapArea {
         }
     }
 
+    /**
+     * Start test cutscene
+     *
+     * @constructor
+     *
+     * @param player
+     */
     class StartTestCutscene(player: Player) : Cutscene(player) {
         override fun setup() {
             loadRegion(9805)
@@ -285,6 +297,13 @@ class RecruitmentDriveListeners : InteractionListener, MapArea {
         }
     }
 
+    /**
+     * Fail test cutscene
+     *
+     * @constructor
+     *
+     * @param player
+     */
     class FailTestCutscene(player: Player) : Cutscene(player) {
         override fun setup() {
             loadRegion(9805)
@@ -330,6 +349,13 @@ class RecruitmentDriveListeners : InteractionListener, MapArea {
         }
     }
 
+    /**
+     * Complete test cutscene
+     *
+     * @constructor
+     *
+     * @param player
+     */
     class CompleteTestCutscene(player: Player) : Cutscene(player) {
         override fun setup() {
             loadRegion(9805)

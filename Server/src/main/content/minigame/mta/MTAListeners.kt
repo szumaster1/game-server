@@ -15,6 +15,9 @@ import core.game.world.map.Direction
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 
+/**
+ * MTA listeners.
+ */
 class MTAListeners : InteractionListener {
 
     override fun defineListeners() {
@@ -28,6 +31,9 @@ class MTAListeners : InteractionListener {
     }
 }
 
+/**
+ * MTA spell listeners.
+ */
 class MTASpellListeners : SpellListener("modern") {
     private val LOW_ALCH_ANIM = Animation(Animations.HUMAN_CAST_LOW_ALCHEMY_SPELL_712)
     private val LOW_ALCH_GFX = Graphic(112, 5)

@@ -10,10 +10,19 @@ import core.game.world.map.zone.impl.WildernessZone;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Aggressive behavior.
+ */
 public class AggressiveBehavior {
 
+    /**
+     * The constant DEFAULT.
+     */
     public static final AggressiveBehavior DEFAULT = new AggressiveBehavior();
 
+    /**
+     * The constant WILDERNESS.
+     */
     public static final AggressiveBehavior WILDERNESS = new AggressiveBehavior() {
 
         @Override
@@ -37,12 +46,22 @@ public class AggressiveBehavior {
         }
     };
 
+    /**
+     * Instantiates a new Aggressive behavior.
+     */
     public AggressiveBehavior() {
         /*
          * empty.
          */
     }
 
+    /**
+     * Can select target boolean.
+     *
+     * @param entity the entity
+     * @param target the target
+     * @return the boolean
+     */
     public boolean canSelectTarget(Entity entity, Entity target) {
         int regionId = target.getLocation().getRegionId();
         if (!target.isActive() || DeathTask.isDead(target)) {
@@ -66,10 +85,21 @@ public class AggressiveBehavior {
         return true;
     }
 
+    /**
+     * Ignore combat level difference boolean.
+     *
+     * @return the boolean
+     */
     public boolean ignoreCombatLevelDifference() {
         return false;
     }
 
+    /**
+     * Gets priority flag.
+     *
+     * @param target the target
+     * @return the priority flag
+     */
     public int getPriorityFlag(Entity target) {
         int flag = 0;
         if (target.inCombat()) {
@@ -85,6 +115,13 @@ public class AggressiveBehavior {
         return flag;
     }
 
+    /**
+     * Gets possible targets.
+     *
+     * @param entity the entity
+     * @param radius the radius
+     * @return the possible targets
+     */
     public List<Entity> getPossibleTargets(Entity entity, int radius) {
         List<Entity> targets = new ArrayList<>(20);
         for (Player player : RegionManager.getLocalPlayers(entity, radius)) {
@@ -95,6 +132,13 @@ public class AggressiveBehavior {
         return targets;
     }
 
+    /**
+     * Gets logical target.
+     *
+     * @param entity          the entity
+     * @param possibleTargets the possible targets
+     * @return the logical target
+     */
     public Entity getLogicalTarget(Entity entity, List<Entity> possibleTargets) {
         Entity target = null;
         int comparingFlag = Integer.MAX_VALUE;

@@ -18,6 +18,14 @@ import core.tools.RandomFunction
 import java.text.DecimalFormat
 import java.util.*
 
+/**
+ * Duel session
+ *
+ * @property player
+ * @property other
+ * @property staked
+ * @constructor Duel session
+ */
 class DuelSession(val player: Player? = null, val other: Player? = null, val staked: Boolean) : ComponentPlugin() {
 
     val rules = arrayOfNulls<DuelRule>(DuelRule.values().size)
@@ -27,6 +35,9 @@ class DuelSession(val player: Player? = null, val other: Player? = null, val sta
     var fightState = 0
 
 
+    /**
+     * End
+     */
     fun end() {
         removeAttribute(player!!, "duel:partner")
         other!!.removeAttribute("duel:partner")
@@ -55,6 +66,11 @@ class DuelSession(val player: Player? = null, val other: Player? = null, val sta
     }
 
 
+    /**
+     * Heal
+     *
+     * @param p
+     */
     fun heal(p: Player) {
         p.fullRestore()
         if (isPoisoned(p)) {
@@ -64,6 +80,9 @@ class DuelSession(val player: Player? = null, val other: Player? = null, val sta
     }
 
 
+    /**
+     * Open rules
+     */
     fun openRules() {
         setAttribute(player!!, "duel:partner", other)
         other!!.setAttribute("duel:partner", player)
@@ -99,6 +118,12 @@ class DuelSession(val player: Player? = null, val other: Player? = null, val sta
     }
 
 
+    /**
+     * Leave
+     *
+     * @param p
+     * @param type
+     */
     fun leave(p: Player, type: Int) {
         if (fightState == 2) {
             return
@@ -127,6 +152,11 @@ class DuelSession(val player: Player? = null, val other: Player? = null, val sta
     }
 
 
+    /**
+     * Victory
+     *
+     * @param player
+     */
     fun victory(player: Player) {
         val component: Component =
             if (staked) STAKE_VICTORY else FRIENDLY_VICTORY
@@ -301,6 +331,11 @@ class DuelSession(val player: Player? = null, val other: Player? = null, val sta
     }
 
 
+    /**
+     * Apply rules
+     *
+     * @param player
+     */
     fun applyRules(player: Player) {
         for (rule in rules) {
             if (rule != null) {
@@ -542,6 +577,12 @@ class DuelSession(val player: Player? = null, val other: Player? = null, val sta
     }
 
 
+    /**
+     * Request accept
+     *
+     * @param player
+     * @param component
+     */
     fun requestAccept(player: Player, component: Component?) {
         val session = player.getExtension<DuelSession>(DuelSession::class.java) ?: return
         // 1 & 5 are waiing.
@@ -561,12 +602,23 @@ class DuelSession(val player: Player? = null, val other: Player? = null, val sta
         }
     }
 
+    /**
+     * Reset accept
+     *
+     */
     fun resetAccept() {
         acceptState = if (acceptState < 3) 0 else 4
         removeAttribute(player!!, "duel:accepted")
         removeAttribute(other!!, "duel:accepted")
     }
 
+    /**
+     * Clear childs
+     *
+     * @param player
+     * @param interfaceId
+     * @param childs
+     */
     fun clearChilds(player: Player, interfaceId: Int, vararg childs: Int) {
         for (i in childs) {
             player.packetDispatch.sendString("", interfaceId, i)
@@ -609,6 +661,12 @@ class DuelSession(val player: Player? = null, val other: Player? = null, val sta
     }
 
 
+    /**
+     * Has fun weapon
+     *
+     * @param player
+     * @return
+     */
     fun hasFunWeapon(player: Player): Boolean {
         val c = core.game.container.Container(60)
         c.addAll(player.inventory)
@@ -624,6 +682,12 @@ class DuelSession(val player: Player? = null, val other: Player? = null, val sta
         return false
     }
 
+    /**
+     * Is restricted equipment
+     *
+     * @param item
+     * @return
+     */
     fun isRestrictedEquipment(item: Item?): Boolean {
         if (item == null) {
             return false
@@ -647,6 +711,11 @@ class DuelSession(val player: Player? = null, val other: Player? = null, val sta
         return false
     }
 
+    /**
+     * Has equipment rules
+     *
+     * @return
+     */
     fun hasEquipmentRules(): Boolean {
         for (rule in rules) {
             if (rule != null && rule.ordinal >= DuelRule.NO_HATS.ordinal) {
@@ -656,14 +725,32 @@ class DuelSession(val player: Player? = null, val other: Player? = null, val sta
         return false
     }
 
+    /**
+     * Has rule
+     *
+     * @param r
+     * @return
+     */
     fun hasRule(r: DuelRule): Boolean {
         return rules[r.ordinal] != null
     }
 
+    /**
+     * Get opposite container
+     *
+     * @param player
+     * @return
+     */
     fun getOppositeContainer(player: Player): StakeContainer? {
         return if (player === this.player) targetContainer else playerContainer
     }
 
+    /**
+     * Get container
+     *
+     * @param player
+     * @return
+     */
     fun getContainer(player: Player): StakeContainer? {
         return if (player === this.player) playerContainer else targetContainer
     }
@@ -684,11 +771,23 @@ class DuelSession(val player: Player? = null, val other: Player? = null, val sta
         }
 
 
+    /**
+     * Get opposite
+     *
+     * @param player
+     * @return
+     */
     fun getOpposite(player: Player): Player {
         return if (this.player === player) other!! else this.player!!
     }
 
 
+    /**
+     * Get other
+     *
+     * @param player
+     * @return
+     */
     fun getOther(player: Player): Player {
         return if (player === this.player) other!! else player
     }

@@ -5,7 +5,6 @@ import core.network.packet.Context
 
 /**
  * The context for ClientScript configurations.
- * @author Torchic
  */
 class CSConfigContext(
     private var player: Player,

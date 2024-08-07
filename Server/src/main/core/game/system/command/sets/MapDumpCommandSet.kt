@@ -9,6 +9,11 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 import java.util.*
 
+/**
+ * Map dump command set
+ *
+ * @constructor Map dump command set
+ */
 @Initializable
 class MapDumpCommandSet : CommandPlugin() {
 

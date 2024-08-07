@@ -15,8 +15,12 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import kotlin.random.Random
 
+/**
+ * Sinclair mansion log shortcut.
+ */
 class SinclairMansionLogShortcut : InteractionListener {
-    /*
+
+    /**
      * Name: Sinclair Mansion Log shortcut.
      * Location: North of the mansion that brings you to the Fremennik Province.
      * Source: https://youtu.be/7XSVFKnUM9Y?si=hH414fk1MUnVi4tD&t=658

@@ -5,6 +5,9 @@ import core.game.node.item.Item
 import core.game.node.item.WeightedChanceItem
 import core.tools.RandomFunction
 
+/**
+ * Gnome tipper.
+ */
 object GnomeTipper {
     private val easyTips = arrayListOf(
         WeightedChanceItem(995, 50, 100, 30), WeightedChanceItem(995, 23, 76, 50), WeightedChanceItem(995, 10, 250, 20)

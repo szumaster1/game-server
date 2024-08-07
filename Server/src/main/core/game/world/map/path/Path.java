@@ -6,6 +6,9 @@ import core.game.world.map.Point;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
+/**
+ * Path.
+ */
 public class Path {
 
     private boolean succesful;
@@ -14,12 +17,20 @@ public class Path {
 
     private Deque<Point> points = new ArrayDeque<Point>();
 
+    /**
+     * Instantiates a new Path.
+     */
     public Path() {
         /*
          * empty.
          */
     }
 
+    /**
+     * Walk.
+     *
+     * @param entity the entity
+     */
     public void walk(Entity entity) {
         if (entity.getLocks().isMovementLocked()) {
             return;
@@ -30,26 +41,56 @@ public class Path {
         }
     }
 
+    /**
+     * Is successful boolean.
+     *
+     * @return the boolean
+     */
     public boolean isSuccessful() {
         return succesful;
     }
 
+    /**
+     * Sets succesful.
+     *
+     * @param succesful the succesful
+     */
     public void setSuccesful(boolean succesful) {
         this.succesful = succesful;
     }
 
+    /**
+     * Gets points.
+     *
+     * @return the points
+     */
     public Deque<Point> getPoints() {
         return points;
     }
 
+    /**
+     * Sets points.
+     *
+     * @param points the points
+     */
     public void setPoints(Deque<Point> points) {
         this.points = points;
     }
 
+    /**
+     * Is move near boolean.
+     *
+     * @return the boolean
+     */
     public boolean isMoveNear() {
         return moveNear;
     }
 
+    /**
+     * Sets move near.
+     *
+     * @param moveNear the move near
+     */
     public void setMoveNear(boolean moveNear) {
         this.moveNear = moveNear;
     }

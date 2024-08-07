@@ -7,16 +7,62 @@ import core.game.world.map.RegionManager
 import core.game.world.map.build.RegionFlags
 import core.game.world.map.path.ClipMaskSupplier
 
+/**
+ * Impling
+ *
+ * @property npcId
+ * @property puroId
+ * @constructor Impling
+ */
 enum class Impling(val npcId: Int, val puroId: Int) {
+    /**
+     * Baby.
+     */
     Baby(npcId = NPCs.BABY_IMPLING_1028, puroId = NPCs.BABY_IMPLING_6055),
+
+    /**
+     * Young.
+     */
     Young(npcId = NPCs.YOUNG_IMPLING_1029, puroId = NPCs.YOUNG_IMPLING_6056),
+
+    /**
+     * Gourmet.
+     */
     Gourmet(npcId = NPCs.GOURMET_IMPLING_1030, puroId = NPCs.GOURMET_IMPLING_6057),
+
+    /**
+     * Earth.
+     */
     Earth(npcId = NPCs.EARTH_IMPLING_1031, puroId = NPCs.EARTH_IMPLING_6058),
+
+    /**
+     * Essence.
+     */
     Essence(npcId = NPCs.ESSENCE_IMPLING_1032, puroId = NPCs.ESSENCE_IMPLING_6059),
+
+    /**
+     * Eclectic.
+     */
     Eclectic(npcId = NPCs.ECLECTIC_IMPLING_1033, puroId = NPCs.ECLECTIC_IMPLING_6060),
+
+    /**
+     * Ninja.
+     */
     Ninja(npcId = NPCs.NINJA_IMPLING_6053, puroId = NPCs.NINJA_IMPLING_6063),
+
+    /**
+     * Nature.
+     */
     Nature(npcId = NPCs.NATURE_IMPLING_1034, puroId = NPCs.NATURE_IMPLING_6061),
+
+    /**
+     * Magpie.
+     */
     Magpie(npcId = NPCs.MAGPIE_IMPLING_1035, puroId = NPCs.MAGPIE_IMPLING_6062),
+
+    /**
+     * Dragon.
+     */
     Dragon(npcId = NPCs.DRAGON_IMPLING_6054, puroId = NPCs.DRAGON_IMPLING_6064);
 
     companion object {
@@ -31,7 +77,19 @@ enum class Impling(val npcId: Int, val puroId: Int) {
     }
 }
 
+/**
+ * Impling spawner
+ *
+ * @property npcId
+ * @property table
+ * @constructor Impling spawner
+ */
 enum class ImplingSpawner(val npcId: Int, val table: WeightedTable<Impling>) {
+    /**
+     * Low tier
+     *
+     * @constructor Low tier
+     */
     LowTier(
         npcId = 1024, WeightedTable.create
             (
@@ -43,6 +101,12 @@ enum class ImplingSpawner(val npcId: Int, val table: WeightedTable<Impling>) {
             Pair(Impling.Eclectic, 10.0)
         )
     ),
+
+    /**
+     * Mid tier
+     *
+     * @constructor Mid tier
+     */
     MidTier(
         npcId = 1025, WeightedTable.create
             (
@@ -55,6 +119,12 @@ enum class ImplingSpawner(val npcId: Int, val table: WeightedTable<Impling>) {
             Pair(Impling.Ninja, 1.0)
         )
     ),
+
+    /**
+     * High tier
+     *
+     * @constructor High tier
+     */
     HighTier(
         npcId = 1026, WeightedTable.create
             (
@@ -64,6 +134,12 @@ enum class ImplingSpawner(val npcId: Int, val table: WeightedTable<Impling>) {
             Pair(Impling.Dragon, 10.0)
         )
     ),
+
+    /**
+     * Low puro tier
+     *
+     * @constructor Low puro tier
+     */
     LowPuroTier(
         npcId = 6065, WeightedTable.create
             (
@@ -75,6 +151,12 @@ enum class ImplingSpawner(val npcId: Int, val table: WeightedTable<Impling>) {
             Pair(Impling.Eclectic, 10.0)
         )
     ),
+
+    /**
+     * Mid puro tier
+     *
+     * @constructor Mid puro tier
+     */
     MidPuroTier(
         npcId = 6066, WeightedTable.create
             (
@@ -87,6 +169,12 @@ enum class ImplingSpawner(val npcId: Int, val table: WeightedTable<Impling>) {
             Pair(Impling.Ninja, 1.0)
         )
     ),
+
+    /**
+     * High puro tier
+     *
+     * @constructor High puro tier
+     */
     HighPuroTier(
         npcId = 6067, WeightedTable.create
             (
@@ -96,6 +184,12 @@ enum class ImplingSpawner(val npcId: Int, val table: WeightedTable<Impling>) {
             Pair(Impling.Dragon, 10.0),
         )
     ),
+
+    /**
+     * Nothing
+     *
+     * @constructor Nothing
+     */
     Nothing(npcId = -1, WeightedTable<Impling>());
 
     companion object {
@@ -111,7 +205,19 @@ enum class ImplingSpawner(val npcId: Int, val table: WeightedTable<Impling>) {
     }
 }
 
+/**
+ * Impling spawn types
+ *
+ * @property table
+ * @property spawnRolls
+ * @constructor Impling spawn types
+ */
 enum class ImplingSpawnTypes(val table: WeightedTable<ImplingSpawner>, val spawnRolls: Int) {
+    /**
+     * Standard
+     *
+     * @constructor Standard
+     */
     Standard(
         WeightedTable.create
             (
@@ -121,24 +227,48 @@ enum class ImplingSpawnTypes(val table: WeightedTable<ImplingSpawner>, val spawn
             Pair(ImplingSpawner.Nothing, 75.0)
         ), spawnRolls = 3
     ),
+
+    /**
+     * Low tier only
+     *
+     * @constructor Low tier only
+     */
     LowTierOnly(
         WeightedTable.create
             (
             Pair(ImplingSpawner.LowTier, 100.0)
         ), spawnRolls = 1
     ),
+
+    /**
+     * Mid tier only
+     *
+     * @constructor Mid tier only
+     */
     MidTierOnly(
         WeightedTable.create
             (
             Pair(ImplingSpawner.MidTier, 100.0)
         ), spawnRolls = 1
     ),
+
+    /**
+     * High tier only
+     *
+     * @constructor High tier only
+     */
     HighTierOnly(
         WeightedTable.create
             (
             Pair(ImplingSpawner.HighTier, 100.0)
         ), spawnRolls = 1
     ),
+
+    /**
+     * High puro tier only
+     *
+     * @constructor High puro tier only
+     */
     HighPuroTierOnly(
         WeightedTable.create
             (
@@ -147,7 +277,19 @@ enum class ImplingSpawnTypes(val table: WeightedTable<ImplingSpawner>, val spawn
     )
 }
 
+/**
+ * Impling spawn locations
+ *
+ * @property type
+ * @property locations
+ * @constructor Impling spawn locations
+ */
 enum class ImplingSpawnLocations(val type: ImplingSpawnTypes, vararg val locations: Location) {
+    /**
+     * Standard spawns
+     *
+     * @constructor Standard spawns
+     */
     StandardSpawns(
         ImplingSpawnTypes.Standard,
         Location.create(2204, 3232, 0),
@@ -182,6 +324,12 @@ enum class ImplingSpawnLocations(val type: ImplingSpawnTypes, vararg val locatio
         Location.create(3449, 3488, 0),
         Location.create(3441, 3352, 0)
     ),
+
+    /**
+     * Low tier only spawns
+     *
+     * @constructor Low tier only spawns
+     */
     LowTierOnlySpawns(
         ImplingSpawnTypes.LowTierOnly,
         Location.create(2348, 3610, 0),

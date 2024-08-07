@@ -13,6 +13,9 @@ import core.tools.RandomFunction;
 
 import java.util.List;
 
+/**
+ * Draynor tree NPC.
+ */
 @Initializable
 public final class DraynorTreeNPC extends AbstractNPC {
 
@@ -22,6 +25,9 @@ public final class DraynorTreeNPC extends AbstractNPC {
 
     private int attackDelay;
 
+    /**
+     * Instantiates a new Draynor tree NPC.
+     */
     public DraynorTreeNPC() {
         super(0, null, false);
     }

@@ -7,6 +7,9 @@ import core.api.sendMessage
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Pie shell listener.
+ */
 class PieShellListener : InteractionListener {
 
     override fun defineListeners() {

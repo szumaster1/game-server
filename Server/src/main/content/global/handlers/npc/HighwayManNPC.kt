@@ -10,6 +10,9 @@ import core.game.node.entity.player.link.diary.DiaryType
 import core.game.world.map.Location
 import core.plugin.Initializable
 
+/**
+ * Highway man NPC.
+ */
 @Initializable
 class HighwayManNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 

@@ -4,6 +4,9 @@ import content.global.skill.production.cooking.recipe.potato.PotatoRecipe
 import core.api.consts.Items
 import core.game.node.item.Item
 
+/**
+ * Chilli potato.
+ */
 class ChilliPotato : PotatoRecipe() {
 
     override fun getProduct(): Item {

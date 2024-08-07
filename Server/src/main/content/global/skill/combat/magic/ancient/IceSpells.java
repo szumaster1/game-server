@@ -20,6 +20,9 @@ import java.util.List;
 
 import static core.api.ContentAPIKt.*;
 
+/**
+ * Ice spells.
+ */
 @Initializable
 public final class IceSpells extends CombatSpell {
 
@@ -33,6 +36,9 @@ public final class IceSpells extends CombatSpell {
     private static final Projectile BARRAGE_PROJECTILE = Projectile.create((Entity) null, null, 368, 40, 36, 52, 75, 15, 11);
     private static final Graphic BARRAGE_END = new Graphic(369, 0);
 
+    /**
+     * Instantiates a new Ice spells.
+     */
     public IceSpells() {
 
     }

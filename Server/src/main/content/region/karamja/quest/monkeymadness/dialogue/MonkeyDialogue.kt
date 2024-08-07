@@ -3,6 +3,11 @@ package content.region.karamja.quest.monkeymadness.dialogue
 import core.api.setQuestStage
 import core.game.dialogue.DialogueFile
 
+/**
+ * Monkey dialogue
+ *
+ * @constructor Monkey dialogue
+ */
 class MonkeyDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

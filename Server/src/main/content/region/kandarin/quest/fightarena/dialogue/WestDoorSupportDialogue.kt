@@ -7,6 +7,11 @@ import core.game.dialogue.FacialExpression
 import core.game.global.action.DoorActionHandler
 import core.game.node.entity.npc.NPC
 
+/**
+ * West door support dialogue
+ *
+ * @constructor West door support dialogue
+ */
 class WestDoorSupportDialogue : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.KHAZARD_GUARD_257)

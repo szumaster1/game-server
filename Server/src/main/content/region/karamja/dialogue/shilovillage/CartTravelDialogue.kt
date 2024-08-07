@@ -9,6 +9,11 @@ import core.api.sendDialogue
 import core.game.dialogue.DialogueFile
 import core.tools.END_DIALOGUE
 
+/**
+ * Cart travel dialogue
+ *
+ * @constructor Cart travel dialogue
+ */
 class CartTravelDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

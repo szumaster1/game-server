@@ -20,6 +20,11 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 import core.tools.RandomFunction
 
+/**
+ * Clobber special handler
+ *
+ * @constructor Clobber special handler
+ */
 @Initializable
 class ClobberSpecialHandler : MeleeSwingHandler(), Plugin<Any> {
     override fun newInstance(arg: Any?): Plugin<Any> {

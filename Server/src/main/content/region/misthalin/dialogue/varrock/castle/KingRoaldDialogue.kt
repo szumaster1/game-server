@@ -16,6 +16,9 @@ import core.tools.DIALOGUE_INITIAL_OPTIONS_HANDLE
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
+/**
+ * King roald dialogue.
+ */
 class KingRoaldDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
@@ -48,7 +51,6 @@ class KingRoaldDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
-        //Default (non-specific) dialogue
         when (stage) {
             DIALOGUE_INITIAL_OPTIONS_HANDLE -> {
                 player("Greetings, your Majesty.")

@@ -12,6 +12,9 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 import java.util.*
 
+/**
+ * Clan wars challenge room.
+ */
 @Initializable
 class ClanWarsChallengeRoom : MapZone("clan wars cr", true, ZoneRestriction.RANDOM_EVENTS), Plugin<Any?> {
     override fun configure() {

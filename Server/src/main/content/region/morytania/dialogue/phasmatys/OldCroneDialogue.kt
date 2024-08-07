@@ -13,6 +13,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Old crone dialogue.
+ */
 @Initializable
 class OldCroneDialogue(player: Player? = null) : Dialogue(player) {
 

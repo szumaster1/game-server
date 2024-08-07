@@ -11,6 +11,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Droalak dialogue.
+ */
 @Initializable
 class DroalakDialogue(player: Player? = null) : Dialogue(player) {
 

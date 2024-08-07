@@ -8,6 +8,9 @@ import core.game.dialogue.FacialExpression
 import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
+/**
+ * Flags handler.
+ */
 abstract class FlagsHandler : DialogueFile() {
 
     companion object {
@@ -44,6 +47,13 @@ abstract class FlagsHandler : DialogueFile() {
         }
     }
 
+    /**
+     * Handle flags
+     *
+     * @param componentID
+     * @param buttonID
+     * @param lines
+     */
     fun handleFlags(componentID: Int, buttonID: Int, lines: Array<String>) {
         when (stage) {
             20 -> npcl(FacialExpression.OLD_NORMAL, lines[0]).also { stage++ }

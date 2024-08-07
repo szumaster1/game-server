@@ -12,6 +12,11 @@ import core.game.node.Node
 import core.game.node.entity.player.Player
 import core.tools.StringUtils
 
+/**
+ * Incubator handler
+ *
+ * @constructor Incubator handler
+ */
 class IncubatorHandler : InteractionListener {
 
     val eggIds = IncubatorEgg.values().map { it.egg.id }.toIntArray()
@@ -23,6 +28,14 @@ class IncubatorHandler : InteractionListener {
         onUseWith(IntType.SCENERY, eggIds, *incubators, handler = ::handleEggOnIncubator)
     }
 
+    /**
+     * Handle egg on incubator
+     *
+     * @param player
+     * @param used
+     * @param with
+     * @return
+     */
     fun handleEggOnIncubator(player: Player, used: Node, with: Node): Boolean {
         val egg = IncubatorEgg.forItem(used.asItem()) ?: return false
         val activeEgg = IncubatorTimer.getEggFor(player, player.location.regionId)
@@ -37,6 +50,13 @@ class IncubatorHandler : InteractionListener {
         return true
     }
 
+    /**
+     * Handle inspect option
+     *
+     * @param player
+     * @param node
+     * @return
+     */
     fun handleInspectOption(player: Player, node: Node): Boolean {
         val activeEgg = IncubatorTimer.getEggFor(player, player.location.regionId)
 
@@ -58,6 +78,13 @@ class IncubatorHandler : InteractionListener {
         return true
     }
 
+    /**
+     * Handle take option
+     *
+     * @param player
+     * @param node
+     * @return
+     */
     fun handleTakeOption(player: Player, node: Node): Boolean {
         val region = player.location.regionId
         val activeEgg = IncubatorTimer.getEggFor(player, region) ?: return false

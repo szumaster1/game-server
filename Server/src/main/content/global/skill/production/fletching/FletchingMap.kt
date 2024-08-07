@@ -3,6 +3,9 @@ package content.global.skill.production.fletching
 import core.api.consts.Items
 import core.game.node.item.Item
 
+/**
+ * Fletching map.
+ */
 object FletchingMap {
 
     private val logMap = HashMap<Int, Array<FletchingItems>>()

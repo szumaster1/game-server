@@ -17,6 +17,9 @@ import core.tools.Log;
 
 import static core.api.ContentAPIKt.log;
 
+/**
+ * Interact plugin.
+ */
 public class InteractPlugin {
 
     private Option[] options = new Option[8];
@@ -25,10 +28,22 @@ public class InteractPlugin {
 
     private boolean initialized;
 
+    /**
+     * Instantiates a new Interact plugin.
+     *
+     * @param node the node
+     */
     public InteractPlugin(Node node) {
         this.node = node;
     }
 
+    /**
+     * Send option.
+     *
+     * @param node  the node
+     * @param index the index
+     * @param name  the name
+     */
     public static void sendOption(Node node, int index, String name) {
         if (!(node instanceof Player)) {
             return;
@@ -36,6 +51,12 @@ public class InteractPlugin {
         PacketRepository.send(InteractionOption.class, new InteractionOptionContext((Player) node, index, name));
     }
 
+    /**
+     * Handle.
+     *
+     * @param player the player
+     * @param option the option
+     */
     public void handle(final Player player, final Option option) {
         try {
             if (player.getLocks().isInteractionLocked() || option == null) {
@@ -62,6 +83,13 @@ public class InteractPlugin {
         }
     }
 
+    /**
+     * Handle item option.
+     *
+     * @param player    the player
+     * @param option    the option
+     * @param container the container
+     */
     public void handleItemOption(final Player player, final Option option, final Container container) {
         if (player.getLocks().isInteractionLocked()) {
             return;
@@ -92,6 +120,13 @@ public class InteractPlugin {
         });
     }
 
+    /**
+     * Handle invalid interaction.
+     *
+     * @param player the player
+     * @param node   the node
+     * @param option the option
+     */
     public static void handleInvalidInteraction(final Player player, final Node node, final Option option) {
         if (node == null) {
             return;
@@ -175,6 +210,12 @@ public class InteractPlugin {
         }, pulseType);
     }
 
+    /**
+     * Init.
+     *
+     * @param nodeId the node id
+     * @param names  the names
+     */
     public void init(int nodeId, String... names) {
         options = new Option[names.length];
         for (int i = 0; i < options.length; i++) {
@@ -186,6 +227,9 @@ public class InteractPlugin {
         }
     }
 
+    /**
+     * Sets default.
+     */
     public void setDefault() {
         if (initialized) {
             return;
@@ -216,11 +260,22 @@ public class InteractPlugin {
         initialized = true;
     }
 
+    /**
+     * Set.
+     *
+     * @param option the option
+     */
     public void set(Option option) {
         options[option.getIndex()] = option;
         sendOption(node, option.getIndex(), option.getName());
     }
 
+    /**
+     * Remove boolean.
+     *
+     * @param option the option
+     * @return the boolean
+     */
     public boolean remove(Option option) {
         if (options[option.getIndex()] == option) {
             remove(option.getIndex());
@@ -229,6 +284,11 @@ public class InteractPlugin {
         return false;
     }
 
+    /**
+     * Remove.
+     *
+     * @param index the index
+     */
     public void remove(int index) {
         if (options[index] == null) {
             return;
@@ -237,18 +297,39 @@ public class InteractPlugin {
         sendOption(node, index, "null");
     }
 
+    /**
+     * Get option.
+     *
+     * @param index the index
+     * @return the option
+     */
     public Option get(int index) {
         return options[index];
     }
 
+    /**
+     * Get options option [ ].
+     *
+     * @return the option [ ]
+     */
     public Option[] getOptions() {
         return options;
     }
 
+    /**
+     * Is initialized boolean.
+     *
+     * @return the boolean
+     */
     public boolean isInitialized() {
         return initialized;
     }
 
+    /**
+     * Sets initialized.
+     *
+     * @param initialized the initialized
+     */
     public void setInitialized(boolean initialized) {
         this.initialized = initialized;
     }

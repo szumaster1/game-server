@@ -7,6 +7,9 @@ import core.game.node.entity.npc.NPC
 import core.game.world.GameWorld
 import core.tools.BLUE
 
+/**
+ * Servant rick dialogue.
+ */
 class ServantRickDialogue : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.RICK_4235)
@@ -19,6 +22,9 @@ class ServantRickDialogue : DialogueFile() {
     }
 }
 
+/**
+ * Servant rick dialogue extension.
+ */
 class ServantRickDialogueExtension : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.RICK_4235)
@@ -32,6 +38,9 @@ class ServantRickDialogueExtension : DialogueFile() {
     }
 }
 
+/**
+ * Servant maid dialogue.
+ */
 class ServantMaidDialogue : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.MAID_4237)
@@ -44,6 +53,9 @@ class ServantMaidDialogue : DialogueFile() {
     }
 }
 
+/**
+ * Servant maid dialogue extension.
+ */
 class ServantMaidDialogueExtension : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.MAID_4237)
@@ -58,6 +70,9 @@ class ServantMaidDialogueExtension : DialogueFile() {
     }
 }
 
+/**
+ * Servant cook dialogue.
+ */
 class ServantCookDialogue : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.COOK_4239)
@@ -70,6 +85,9 @@ class ServantCookDialogue : DialogueFile() {
     }
 }
 
+/**
+ * Servant cook dialogue extension.
+ */
 class ServantCookDialogueExtension : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.COOK_4239)
@@ -83,6 +101,9 @@ class ServantCookDialogueExtension : DialogueFile() {
     }
 }
 
+/**
+ * Servant butler dialogue.
+ */
 class ServantButlerDialogue : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.BUTLER_4241)
@@ -95,6 +116,9 @@ class ServantButlerDialogue : DialogueFile() {
     }
 }
 
+/**
+ * Servant butler dialogue extension.
+ */
 class ServantButlerDialogueExtension : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.BUTLER_4241)
@@ -108,6 +132,9 @@ class ServantButlerDialogueExtension : DialogueFile() {
     }
 }
 
+/**
+ * Servant demon butler dialogue.
+ */
 class ServantDemonButlerDialogue : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.DEMON_BUTLER_4243)
@@ -120,6 +147,9 @@ class ServantDemonButlerDialogue : DialogueFile() {
     }
 }
 
+/**
+ * Servant demon butler dialogue extension.
+ */
 class ServantDemonButlerDialogueExtension : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.DEMON_BUTLER_4243)

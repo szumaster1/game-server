@@ -12,6 +12,11 @@ import core.game.system.task.Pulse
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Graphic
 
+/**
+ * Skull sceptre listener
+ *
+ * @constructor Skull sceptre listener
+ */
 class SkullSceptreListener : InteractionListener {
 
     override fun defineListeners() {

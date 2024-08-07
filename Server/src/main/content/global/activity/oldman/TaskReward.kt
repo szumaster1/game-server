@@ -5,8 +5,21 @@ import core.api.consts.NPCs
 import core.api.utils.WeightBasedTable
 import core.api.utils.WeightedItem
 
+/**
+ * Task reward.
+ *
+ * @property npc An array of NPC IDs that can give rewards.
+ * @property table The reward table containing weighted items.
+ * @constructor Initializes the TaskReward enum.
+ */
 enum class TaskReward(val npc: IntArray, val table: WeightBasedTable) {
-    REWARD_TABLE(intArrayOf(NPCs.WISE_OLD_MAN_2253),
+    /**
+     * Reward Table.
+     *
+     * @constructor Initializes the Reward Table enum.
+     */
+    REWARD_TABLE(
+        intArrayOf(NPCs.WISE_OLD_MAN_2253),
         WeightBasedTable.create(
             WeightedItem(Items.UNCUT_DIAMOND_1617, 1, 1, 1.0),
             WeightedItem(Items.UNCUT_RUBY_1619, 1, 1, 5.0),
@@ -86,6 +99,12 @@ enum class TaskReward(val npc: IntArray, val table: WeightBasedTable) {
             }
         }
 
+        /**
+         * Get the reward table for a specific NPC ID.
+         *
+         * @param id The NPC ID.
+         * @return The reward table for the NPC ID.
+         */
         fun forId(id: Int): WeightBasedTable? {
             return rewardMap[id]
         }

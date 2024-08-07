@@ -9,6 +9,9 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.plugin.Initializable
 
+/**
+ * Osman dialogue.
+ */
 @Initializable
 class OsmanDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -471,6 +474,11 @@ class OsmanDialogue(player: Player? = null) : Dialogue(player) {
     }
 
 
+    /**
+     * Handle sqirks
+     *
+     * @param buttonId
+     */
     fun handleSqirks(buttonId: Int) {
         when (stage) {
             0 -> if (!hasSqirks()) {
@@ -728,6 +736,11 @@ class OsmanDialogue(player: Player? = null) : Dialogue(player) {
         }
 
 
+    /**
+     * Has sqirk fruit
+     *
+     * @return
+     */
     fun hasSqirkFruit(): Boolean {
         for (i in FRUITS) {
             if (player.inventory.contains(i, 1)) {
@@ -738,6 +751,11 @@ class OsmanDialogue(player: Player? = null) : Dialogue(player) {
     }
 
 
+    /**
+     * Has sqirk juice
+     *
+     * @return
+     */
     fun hasSqirkJuice(): Boolean {
         for (i in JUICES) {
             if (player.inventory.contains(i, 1)) {
@@ -748,6 +766,11 @@ class OsmanDialogue(player: Player? = null) : Dialogue(player) {
     }
 
 
+    /**
+     * Has sqirks
+     *
+     * @return
+     */
     fun hasSqirks(): Boolean {
         return hasSqirkFruit() || hasSqirkJuice()
     }

@@ -8,6 +8,16 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
 
+/**
+ * Dart pulse
+ *
+ * @property dart
+ * @property sets
+ * @constructor
+ *
+ * @param player
+ * @param node
+ */
 class DartPulse(player: Player?, node: Item?, private val dart: Dart, private var sets: Int) : SkillPulse<Item?>(player, node) {
 
     override fun checkRequirements(): Boolean {

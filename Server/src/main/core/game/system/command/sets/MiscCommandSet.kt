@@ -39,6 +39,11 @@ import java.awt.HeadlessException
 import java.awt.Toolkit
 import java.awt.datatransfer.StringSelection
 
+/**
+ * Misc command set
+ *
+ * @constructor Misc command set
+ */
 @Initializable
 class MiscCommandSet : CommandSet(Privilege.ADMIN) {
     override fun defineCommands() {
@@ -765,6 +770,12 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN) {
         }
     }
 
+    /**
+     * Set plaque read status
+     *
+     * @param player
+     * @param status
+     */
     fun setPlaqueReadStatus(player: Player, status: Boolean) {
         // For some reason the loop has to be this way to have read write access
         for (i in 0 until player.savedData.globalData.readPlaques.size) {
@@ -773,6 +784,12 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN) {
 
     }
 
+    /**
+     * Show ge botsearch
+     *
+     * @param player
+     * @param searchTerm
+     */
     fun showGeBotsearch(player: Player, searchTerm: String) {
         val offerAmounts = HashMap<Int, Int>()
         val offerPrice = HashMap<Int, Int>()
@@ -799,6 +816,11 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN) {
         showGeBook(player, "Bot Stock - \"$searchTerm\"", leftLines, rightLines)
     }
 
+    /**
+     * Show ge bots
+     *
+     * @param player
+     */
     fun showGeBots(player: Player) {
         val offerAmounts = HashMap<Int, Int>()
         val offerPrice = HashMap<Int, Int>()
@@ -820,6 +842,11 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN) {
         showGeBook(player, "Bot Stock", leftLines, rightLines)
     }
 
+    /**
+     * Show ge sell
+     *
+     * @param player
+     */
     fun showGeSell(player: Player) {
         val offerAmounts = HashMap<Int, Int>()
         val lowestPrice = HashMap<Int, Int>()
@@ -848,6 +875,11 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN) {
         showGeBook(player, "Active Sell Offers", leftLines, rightLines)
     }
 
+    /**
+     * Show ge buy
+     *
+     * @param player
+     */
     fun showGeBuy(player: Player) {
         val offerAmounts = HashMap<Int, Int>()
         val highestPrice = HashMap<Int, Int>()
@@ -876,6 +908,12 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN) {
         showGeBook(player, "Active Buy Offers", leftLines, rightLines)
     }
 
+    /**
+     * Show offers
+     *
+     * @param player
+     * @param searchTerm
+     */
     fun showOffers(player: Player, searchTerm: String) {
         val offers = GrandExchange.getValidOffers().filter {
             getItemName(it.itemID).contains(searchTerm, true) || getItemName(it.itemID).equals(

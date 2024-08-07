@@ -4,6 +4,11 @@ import core.api.consts.Components
 import core.api.setInterfaceText
 import core.game.interaction.InterfaceListener
 
+/**
+ * Star chart interface listener
+ *
+ * @constructor Star chart interface listener
+ */
 class StarChartInterfaceListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {

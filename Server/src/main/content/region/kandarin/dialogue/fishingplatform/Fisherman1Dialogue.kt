@@ -9,6 +9,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Fisherman1dialogue.
+ */
 @Initializable
 class Fisherman1Dialogue(player: Player? = null) : Dialogue(player) {
 

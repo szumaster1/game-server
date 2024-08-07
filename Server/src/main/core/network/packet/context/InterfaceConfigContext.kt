@@ -5,7 +5,6 @@ import core.network.packet.Context
 
 /**
  * The interface config packet context.
- * @author Emperor
  */
 class InterfaceConfigContext(
     private val player: Player,

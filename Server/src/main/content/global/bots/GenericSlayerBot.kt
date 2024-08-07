@@ -13,8 +13,8 @@ import core.game.world.map.zone.ZoneBorders
 import core.tools.RandomFunction
 
 /**
- * A bot that does various random slayer tasks throughout the game and sells the loot on the GE.
- * @author Ceikry
+ * A bot that does various random slayer tasks throughout the
+ * game and sells the loot on the GE.
  */
 class GenericSlayerBot : Script() {
 

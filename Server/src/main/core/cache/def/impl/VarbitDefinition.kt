@@ -6,7 +6,9 @@ import core.game.node.entity.player.Player
 import java.nio.ByteBuffer
 
 /**
- * Handles config definition reading.
+ * Varbit definition
+ *
+ * @constructor Varbit definition
  */
 class VarbitDefinition {
     /**
@@ -49,10 +51,10 @@ class VarbitDefinition {
     }
 
     /**
-     * Gets the current config value for this file.
+     * Get value
      *
-     * @param player The player.
-     * @return The config value.
+     * @param player
+     * @return
      */
     fun getValue(player: Player?): Int {
         return getVarbit(player!!, id)

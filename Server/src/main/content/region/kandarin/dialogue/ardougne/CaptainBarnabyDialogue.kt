@@ -9,6 +9,11 @@ import core.game.dialogue.DialogueFile
 import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
+/**
+ * Captain barnaby dialogue
+ *
+ * @constructor Captain barnaby dialogue
+ */
 class CaptainBarnabyDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

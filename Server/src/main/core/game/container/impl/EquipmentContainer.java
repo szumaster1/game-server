@@ -21,24 +21,65 @@ import java.util.ArrayList;
 
 import static core.api.ContentAPIKt.setVarp;
 
+/**
+ * Equipment container.
+ */
 public final class EquipmentContainer extends Container {
 
+    /**
+     * The constant SLOT_HAT.
+     */
     public static final int SLOT_HAT = 0,
-        SLOT_CAPE = 1,
-        SLOT_AMULET = 2,
-        SLOT_WEAPON = 3,
-        SLOT_CHEST = 4,
-        SLOT_SHIELD = 5,
-        SLOT_LEGS = 7,
-        SLOT_HANDS = 9,
-        SLOT_FEET = 10,
-        SLOT_RING = 12,
-        SLOT_ARROWS = 13;
+    /**
+     * The Slot cape.
+     */
+    SLOT_CAPE = 1,
+    /**
+     * The Slot amulet.
+     */
+    SLOT_AMULET = 2,
+    /**
+     * The Slot weapon.
+     */
+    SLOT_WEAPON = 3,
+    /**
+     * The Slot chest.
+     */
+    SLOT_CHEST = 4,
+    /**
+     * The Slot shield.
+     */
+    SLOT_SHIELD = 5,
+    /**
+     * The Slot legs.
+     */
+    SLOT_LEGS = 7,
+    /**
+     * The Slot hands.
+     */
+    SLOT_HANDS = 9,
+    /**
+     * The Slot feet.
+     */
+    SLOT_FEET = 10,
+    /**
+     * The Slot ring.
+     */
+    SLOT_RING = 12,
+    /**
+     * The Slot arrows.
+     */
+    SLOT_ARROWS = 13;
 
     private static final String[] BONUS_NAMES = {"Stab: ", "Slash: ", "Crush: ", "Magic: ", "Ranged: ", "Stab: ", "Slash: ", "Crush: ", "Magic: ", "Ranged: ", "Summoning: ", "Strength: ", "Prayer: "};
 
     private final Player player;
 
+    /**
+     * Instantiates a new Equipment container.
+     *
+     * @param player the player
+     */
     public EquipmentContainer(Player player) {
         super(14);
         this.player = player;
@@ -50,10 +91,27 @@ public final class EquipmentContainer extends Container {
         return add(item, fire, true);
     }
 
+    /**
+     * Add boolean.
+     *
+     * @param item          the item
+     * @param fire          the fire
+     * @param fromInventory the from inventory
+     * @return the boolean
+     */
     public boolean add(Item item, boolean fire, boolean fromInventory) {
         return add(item, player.getInventory().getSlot(item), fire, fromInventory);
     }
 
+    /**
+     * Add boolean.
+     *
+     * @param newItem       the new item
+     * @param inventorySlot the inventory slot
+     * @param fire          the fire
+     * @param fromInventory the from inventory
+     * @return the boolean
+     */
     public boolean add(Item newItem, int inventorySlot, boolean fire, boolean fromInventory) {
         int equipmentSlot = newItem.getDefinition().getConfiguration(ItemConfigParser.EQUIP_SLOT, -1);
         if (!isEquippable(newItem, equipmentSlot)) return false;
@@ -223,6 +281,11 @@ public final class EquipmentContainer extends Container {
 
         private final Player player;
 
+        /**
+         * Instantiates a new Equipment listener.
+         *
+         * @param player the player
+         */
         public EquipmentListener(Player player) {
             this.player = player;
         }
@@ -263,6 +326,11 @@ public final class EquipmentContainer extends Container {
             player.getProperties().updateDefenceAnimation();
         }
 
+        /**
+         * Update.
+         *
+         * @param c the c
+         */
         public void update(Container c) {
             if (c.getNew(SLOT_SHIELD).getId() != 11283 && player.getAttribute("dfs_spec", false)) {
                 player.removeAttribute("dfs_spec");
@@ -278,6 +346,11 @@ public final class EquipmentContainer extends Container {
         }
     }
 
+    /**
+     * Update bonuses.
+     *
+     * @param player the player
+     */
     public static void updateBonuses(Player player) {
         int[] bonuses = new int[15];
         for (Item item : player.getEquipment().toArray()) {
@@ -318,6 +391,11 @@ public final class EquipmentContainer extends Container {
         }
     }
 
+    /**
+     * Update.
+     *
+     * @param player the player
+     */
     public static void update(Player player) {
         int index = 0;
         int[] bonuses = player.getProperties().getBonuses();

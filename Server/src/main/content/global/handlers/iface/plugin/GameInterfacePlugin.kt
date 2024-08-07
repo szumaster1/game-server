@@ -12,6 +12,11 @@ import core.game.world.GameWorld.settings
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Game interface plugin
+ *
+ * @constructor Game interface plugin
+ */
 @Initializable
 class GameInterfacePlugin : ComponentPlugin() {
 

@@ -7,6 +7,9 @@ import java.nio.ByteBuffer;
 import java.util.Arrays;
 import java.util.zip.CRC32;
 
+/**
+ * Containers information.
+ */
 public final class ContainersInformation {
 
     private Container informationContainer;
@@ -25,6 +28,11 @@ public final class ContainersInformation {
 
     private final byte[] data;
 
+    /**
+     * Instantiates a new Containers information.
+     *
+     * @param informationContainerPackedData the information container packed data
+     */
     public ContainersInformation(byte[] informationContainerPackedData) {
         this.data = Arrays.copyOf(informationContainerPackedData, informationContainerPackedData.length);
         informationContainer = new Container();
@@ -35,6 +43,12 @@ public final class ContainersInformation {
         decodeContainersInformation(unpackCacheContainer(informationContainerPackedData));
     }
 
+    /**
+     * Unpack cache container byte [ ].
+     *
+     * @param packedData the packed data
+     * @return the byte [ ]
+     */
     public static byte[] unpackCacheContainer(byte[] packedData) {
         ByteBuffer buffer = ByteBuffer.wrap(packedData);
         int compression = buffer.get() & 0xFF;
@@ -62,22 +76,47 @@ public final class ContainersInformation {
         return decompressedData;
     }
 
+    /**
+     * Get containers indexes int [ ].
+     *
+     * @return the int [ ]
+     */
     public int[] getContainersIndexes() {
         return containersIndexes;
     }
 
+    /**
+     * Get containers files container [ ].
+     *
+     * @return the files container [ ]
+     */
     public FilesContainer[] getContainers() {
         return containers;
     }
 
+    /**
+     * Gets information container.
+     *
+     * @return the information container
+     */
     public Container getInformationContainer() {
         return informationContainer;
     }
 
+    /**
+     * Gets revision.
+     *
+     * @return the revision
+     */
     public int getRevision() {
         return revision;
     }
 
+    /**
+     * Decode containers information.
+     *
+     * @param data the data
+     */
     public void decodeContainersInformation(byte[] data) {
         ByteBuffer buffer = ByteBuffer.wrap(data);
         protocol = buffer.get() & 0xFF;
@@ -151,10 +190,20 @@ public final class ContainersInformation {
         }
     }
 
+    /**
+     * Is whirpool boolean.
+     *
+     * @return the boolean
+     */
     public boolean isWhirpool() {
         return whirpool;
     }
 
+    /**
+     * Get data byte [ ].
+     *
+     * @return the byte [ ]
+     */
     public byte[] getData() {
         return data;
     }

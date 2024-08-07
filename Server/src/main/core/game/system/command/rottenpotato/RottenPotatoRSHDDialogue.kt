@@ -15,7 +15,6 @@ import core.tools.colorize
 
 /**
  * Rotten Potato "RS HD" options menu.
- * @author Ceikry
  */
 @Initializable
 class RottenPotatoRSHDDialogue(player: Player? = null) : Dialogue(player) {

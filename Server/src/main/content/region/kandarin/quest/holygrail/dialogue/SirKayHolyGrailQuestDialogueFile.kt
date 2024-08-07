@@ -9,6 +9,11 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
+/**
+ * Sir kay holy grail quest dialogue file
+ *
+ * @constructor Sir kay holy grail quest dialogue file
+ */
 class SirKayHolyGrailQuestDialogueFile  : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

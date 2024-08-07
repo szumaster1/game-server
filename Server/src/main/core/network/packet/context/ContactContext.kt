@@ -5,7 +5,6 @@ import core.network.packet.Context
 
 /**
  * The packet context for the contact packets.
- * @author Emperor
  */
 class ContactContext : Context {
     private val player: Player

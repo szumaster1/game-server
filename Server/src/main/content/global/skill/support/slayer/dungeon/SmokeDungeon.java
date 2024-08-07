@@ -24,6 +24,9 @@ import java.util.List;
 
 import static core.api.ContentAPIKt.setAttribute;
 
+/**
+ * Smoke dungeon.
+ */
 @Initializable
 public final class SmokeDungeon extends MapZone implements Plugin<Object> {
 
@@ -48,6 +51,9 @@ public final class SmokeDungeon extends MapZone implements Plugin<Object> {
         }
     };
 
+    /**
+     * Instantiates a new Smoke dungeon.
+     */
     public SmokeDungeon() {
         super("smoke dungeon", true);
     }

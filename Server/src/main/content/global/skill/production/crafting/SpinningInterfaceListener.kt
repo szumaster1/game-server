@@ -7,6 +7,9 @@ import core.api.consts.Components
 import core.game.interaction.InterfaceListener
 import core.game.node.item.Item
 
+/**
+ * Spinning interface listener.
+ */
 class SpinningInterfaceListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {

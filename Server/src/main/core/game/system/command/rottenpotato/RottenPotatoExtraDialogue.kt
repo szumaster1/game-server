@@ -10,11 +10,10 @@ import core.game.world.repository.Repository
 import core.plugin.Initializable
 import core.tools.colorize
 
-@Initializable
 /**
- * Rotten Potato Right click -> Extra dialogue menu
- * @author Ceikry
+ * Rotten Potato Right click -> Extra dialogue menu.
  */
+@Initializable
 class RottenPotatoExtraDialogue(player: Player? = null) : Dialogue(player) {
 
     val ID = 38575794

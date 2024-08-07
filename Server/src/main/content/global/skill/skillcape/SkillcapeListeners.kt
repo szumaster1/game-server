@@ -3,6 +3,9 @@ package content.global.skill.skillcape
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Skillcape listeners.
+ */
 class SkillcapeListeners : InteractionListener {
 
     private val capeIds = ArrayList<Int>()

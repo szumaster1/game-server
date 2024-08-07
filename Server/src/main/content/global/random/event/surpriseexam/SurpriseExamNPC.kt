@@ -11,6 +11,9 @@ import core.game.node.entity.player.link.TeleportManager
 import core.game.system.timer.impl.AntiMacro
 import core.game.world.map.Location
 
+/**
+ * Surprise exam NPC.
+ */
 class SurpriseExamNPC(var type: String = "", override var loot: WeightBasedTable? = null) :
     RandomEventNPC(NPCs.MYSTERIOUS_OLD_MAN_410) {
 

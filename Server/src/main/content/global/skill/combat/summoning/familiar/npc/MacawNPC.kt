@@ -15,6 +15,9 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 import core.tools.RandomFunction
 
+/**
+ * Macaw familiar.
+ */
 @Initializable
 class MacawNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 6851) : Forager(owner, id, 3100, 12071, 12, *HERBS) {
 

@@ -10,6 +10,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Hegir dialogue.
+ */
 @Initializable
 class HegirDialogue(player: Player? = null) : Dialogue(player) {
 

@@ -16,6 +16,9 @@ import core.game.world.map.path.ClipMaskSupplier
 import core.tools.Log
 import core.tools.RandomFunction
 
+/**
+ * Impling NPC.
+ */
 class ImplingNPC : NPCBehavior(*Impling.getIds()) {
     override fun onCreation(self: NPC) {
         self.isWalks = true
@@ -71,7 +74,8 @@ class ImplingNPC : NPCBehavior(*Impling.getIds()) {
         }
     }
 
-    //manually clear any rolled drops so any drops set by JSON are properly ignored.
+    // Manually clear any rolled drops so any drops set
+    // by JSON are properly ignored.
     override fun onDropTableRolled(self: NPC, killer: Entity, drops: ArrayList<Item>) {
         drops.clear()
     }

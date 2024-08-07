@@ -23,6 +23,11 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 import core.tools.RandomFunction
 
+/**
+ * Fishbowl plugin
+ *
+ * @constructor Fishbowl plugin
+ */
 @Initializable
 class FishbowlPlugin : OptionHandler() {
 
@@ -89,6 +94,13 @@ class FishbowlPlugin : OptionHandler() {
         }
     }
 
+    /**
+     * Fishbowl dialogue
+     *
+     * @constructor
+     *
+     * @param player
+     */
     inner class FishbowlDialogue(player: Player? = null) : Dialogue(player) {
         private var fishbowl: Item? = null
         private var option: String? = null
@@ -181,6 +193,11 @@ class FishbowlPlugin : OptionHandler() {
         }
     }
 
+    /**
+     * Aquarium plugin
+     *
+     * @constructor Aquarium plugin
+     */
     class AquariumPlugin : OptionHandler() {
 
         override fun newInstance(arg: Any?): Plugin<Any?> {
@@ -193,6 +210,12 @@ class FishbowlPlugin : OptionHandler() {
             return getFish(player)
         }
 
+        /**
+         * Get fish
+         *
+         * @param player
+         * @return
+         */
         fun getFish(player: Player): Boolean {
             if (!player.inventory.containsAtLeastOneItem(TINY_NET)) {
                 player.packetDispatch.sendMessage("You see some tiny fish swimming around... but how to catch them?")

@@ -17,6 +17,9 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Wizard guild handler.
+ */
 @Initializable
 class WizardGuildHandler : OptionHandler() {
 
@@ -50,11 +53,7 @@ class WizardGuildHandler : OptionHandler() {
                     DoorActionHandler.handleAutowalkDoor(player, node as Scenery)
                 }
 
-                2155, 2154 -> sendNPCDialogue(
-                    player,
-                    NPCs.WIZARD_FRUMSCONE_460,
-                    "You can't attack the Zombies in the room, my Zombies are for magic target practice only and should be attacked from the other side of the fence."
-                )
+                2155, 2154 -> sendNPCDialogue(player, NPCs.WIZARD_FRUMSCONE_460, "You can't attack the Zombies in the room, my Zombies are for magic target practice only and should be attacked from the other side of the fence.")
             }
 
             "teleport" -> {

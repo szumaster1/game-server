@@ -11,6 +11,11 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 
+/**
+ * Observatory
+ *
+ * @constructor Observatory
+ */
 @Initializable
 class Observatory : Quest("Observatory Quest", 96, 95, 2, Vars.VARP_QUEST_OBSERVATORY_QUEST_PROGRESS, 0, 1, 7) {
 

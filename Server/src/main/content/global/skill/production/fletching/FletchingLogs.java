@@ -9,9 +9,15 @@ import core.game.node.item.Item;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
+/**
+ * Fletching logs.
+ */
 @Initializable
 public class FletchingLogs extends UseWithHandler {
 
+    /**
+     * Instantiates a new Fletching logs.
+     */
     public FletchingLogs() {
         super(Items.LOGS_1511, Items.OAK_LOGS_1521, Items.WILLOW_LOGS_1519, Items.MAPLE_LOGS_1517, Items.YEW_LOGS_1515, Items.MAGIC_LOGS_1513, Items.ACHEY_TREE_LOGS_2862, Items.MAHOGANY_LOGS_6332, Items.TEAK_LOGS_6333);
     }

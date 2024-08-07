@@ -14,6 +14,9 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.tools.StringUtils
 
+/**
+ * Jewellery interface listener.
+ */
 class JewelleryInterfaceListener : InterfaceListener {
 
     companion object {

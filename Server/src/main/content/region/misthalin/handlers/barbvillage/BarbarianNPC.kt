@@ -9,6 +9,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
 import core.tools.RandomFunction
 
+/**
+ * Barbarian NPC.
+ */
 class BarbarianNPC : NPCBehavior(*ID) {
 
     override fun afterDamageReceived(self: NPC, attacker: Entity, state: BattleState) {

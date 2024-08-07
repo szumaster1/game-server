@@ -11,6 +11,9 @@ import core.network.packet.outgoing.ContainerPacket;
 
 import static core.api.ContentAPIKt.setVarp;
 
+/**
+ * Chest viewer.
+ */
 public final class ChestViewer {
     private static final Object[] BEING_DROPPED = new Object[]{"", "", "", "", "", "", "", "", "", -1, 0, 39, 6, 92, 647 << 16 | 27};
     private static final Object[] READY_TO_DROP = new Object[]{"", "", "", "", "", "", "", "", "", -1, 0, 39, 6, 91, 647 << 16 | 28};
@@ -19,11 +22,21 @@ public final class ChestViewer {
     private final Player player;
     private final DepositContainer container;
 
+    /**
+     * Instantiates a new Chest viewer.
+     *
+     * @param player the player
+     */
     public ChestViewer(Player player) {
         this.player = player;
         this.container = new DepositContainer(player);
     }
 
+    /**
+     * View chest viewer.
+     *
+     * @return the chest viewer
+     */
     public ChestViewer view() {
         container.open();
         player.getInventory().refresh();
@@ -38,6 +51,12 @@ public final class ChestViewer {
         return this;
     }
 
+    /**
+     * Update.
+     *
+     * @param type  the type
+     * @param event the event
+     */
     public void update(int type, ContainerEvent event) {
         if (event == null) {
             player.getPacketDispatch().sendIfaceSettings(1278, 27, 647, 0, 10);
@@ -60,6 +79,9 @@ public final class ChestViewer {
         }
     }
 
+    /**
+     * Accept.
+     */
     public void accept() {
         if (PartyRoomOptions.chestQueue.itemCount() + getContainer().itemCount() > 215) {
             player.sendMessage("The chest is full.");
@@ -72,14 +94,27 @@ public final class ChestViewer {
         PartyRoomOptions.update(1, null);
     }
 
+    /**
+     * Gets container.
+     *
+     * @return the container
+     */
     public DepositContainer getContainer() {
         return container;
     }
 
+    /**
+     * Gets player.
+     *
+     * @return the player
+     */
     public Player getPlayer() {
         return player;
     }
 
+    /**
+     * Chest close event.
+     */
     public class ChestCloseEvent implements CloseEvent {
 
         private boolean given = false;
@@ -99,17 +134,30 @@ public final class ChestViewer {
 
     }
 
+    /**
+     * Deposit container.
+     */
     public class DepositContainer extends Container {
 
         private final Player player;
         private final PartyDepositListener listener;
 
+        /**
+         * Instantiates a new Deposit container.
+         *
+         * @param player the player
+         */
         public DepositContainer(Player player) {
             super(8, ContainerType.DEFAULT, SortType.ID);
             super.getListeners().add(listener = new PartyDepositListener(player));
             this.player = player;
         }
 
+        /**
+         * Open deposit container.
+         *
+         * @return the deposit container
+         */
         public DepositContainer open() {
             super.refresh();
             player.getInventory().getListeners().add(listener);
@@ -119,6 +167,12 @@ public final class ChestViewer {
             return this;
         }
 
+        /**
+         * Add item.
+         *
+         * @param slot   the slot
+         * @param amount the amount
+         */
         public void addItem(int slot, int amount) {
             if (slot < 0 || slot > player.getInventory().capacity() || amount < 1) {
                 return;
@@ -152,6 +206,12 @@ public final class ChestViewer {
             }
         }
 
+        /**
+         * Take item.
+         *
+         * @param slot   the slot
+         * @param amount the amount
+         */
         public void takeItem(int slot, int amount) {
             if (slot < 0 || slot > super.capacity() || amount <= 0) {
                 return;
@@ -198,6 +258,11 @@ public final class ChestViewer {
         class PartyDepositListener implements ContainerListener {
             private final Player player;
 
+            /**
+             * Instantiates a new Party deposit listener.
+             *
+             * @param player the player
+             */
             public PartyDepositListener(Player player) {
                 this.player = player;
             }

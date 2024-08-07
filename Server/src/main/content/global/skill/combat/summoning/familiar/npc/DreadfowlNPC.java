@@ -17,6 +17,9 @@ import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.tools.RandomFunction;
 
+/**
+ * Dreadfowl npc.
+ */
 @Initializable
 public final class DreadfowlNPC extends Familiar {
     private boolean specialMove;
@@ -44,10 +47,19 @@ public final class DreadfowlNPC extends Familiar {
 
     };
 
+    /**
+     * Instantiates a new Dreadfowl npc.
+     */
     public DreadfowlNPC() {
         this(null, 6825);
     }
 
+    /**
+     * Instantiates a new Dreadfowl npc.
+     *
+     * @param owner the owner
+     * @param id    the id
+     */
     public DreadfowlNPC(Player owner, int id) {
         super(owner, id, 400, 12043, 3, WeaponInterface.STYLE_CAST);
         super.setCombatHandler(COMBAT_HANDLER);

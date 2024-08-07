@@ -11,6 +11,9 @@ import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.entity.skill.Skills
 import core.tools.RandomFunction
 
+/**
+ * Slayer utils.
+ */
 object SlayerUtils {
     fun generate(player: Player, master: SlayerMaster): Tasks? {
         val tasks: MutableList<SlayerMaster.Task?> = ArrayList(10)

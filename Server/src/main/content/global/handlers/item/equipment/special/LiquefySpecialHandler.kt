@@ -7,6 +7,11 @@ import core.game.node.entity.combat.MeleeSwingHandler
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Liquefy special handler
+ *
+ * @constructor Liquefy special handler
+ */
 @Initializable
 class LiquefySpecialHandler : MeleeSwingHandler(), Plugin<Any> {
     override fun newInstance(arg: Any?): Plugin<Any> {

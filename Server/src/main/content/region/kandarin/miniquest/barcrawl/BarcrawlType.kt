@@ -15,12 +15,22 @@ import core.network.packet.context.CameraContext
 import core.network.packet.outgoing.CameraViewPacket
 import core.tools.StringUtils
 
+/**
+ * Barcrawl type
+ *
+ * @constructor Barcrawl type
+ */
 enum class BarcrawlType {
 
     /*
      * The Blue moon.
      */
 
+    /**
+     * Blue Moon
+     *
+     * @constructor Blue Moon
+     */
     BLUE_MOON(NPCs.BARTENDER_733, 50, "Uncle Humphrey's Gutrot", arrayOf("Oh no not another of you guys. These barbarian", "barcrawls cause too much damage to my bar."), arrayOf("You're going to have to pay me 50 gold for the Uncle", "Humphrey's Gutrot.")) {
         override fun effect(player: Player) {
             sendChat(player, "Blearrgh!")
@@ -41,6 +51,11 @@ enum class BarcrawlType {
      * The Blueberry bar.
      */
 
+    /**
+     * Blueberry Bar
+     *
+     * @constructor Blueberry Bar
+     */
     BLUEBERRY_BAR(NPCs.BLURBERRY_848, 10, "Fire Toad Blast", arrayOf("Ah, you've come to the best stop on your list! I'll give", "you my famous Fire Toad last! It'll cost you 10", "coins.")) {
         override fun effect(player: Player) {
             impact(player, 1, ImpactHandler.HitsplatType.NORMAL)
@@ -60,6 +75,11 @@ enum class BarcrawlType {
      * The Deadman chest.
      */
 
+    /**
+     * Deadman Chest
+     *
+     * @constructor Deadman Chest
+     */
     DEADMAN_CHEST(NPCs.BARTENDER_735, 15, "Supergrog", arrayOf("Haha time to be breaking out the old Supergrog. That'll", "be 15 coins please.")) {
         override fun effect(player: Player) {
             addBonus(player, 1, Skills.ATTACK, Skills.DEFENCE, Skills.HERBLORE, Skills.CONSTRUCTION, Skills.PRAYER)
@@ -78,6 +98,11 @@ enum class BarcrawlType {
      * The Dragon inn.
      */
 
+    /**
+     * Dragon Inn
+     *
+     * @constructor Dragon Inn
+     */
     DRAGON_INN(NPCs.BARTENDER_739, 12, "Fire Brandy", arrayOf("I suppose you'll be wanting some Fire Brandy. That'll", "cost you 12 coins.")) {
         override fun effect(player: Player) {
             addBonus(player, 1, Skills.ATTACK, Skills.DEFENCE)
@@ -96,6 +121,11 @@ enum class BarcrawlType {
      * The Flying horse inn.
      */
 
+    /**
+     * Flying Horse Inn
+     *
+     * @constructor Flying Horse Inn
+     */
     FLYING_HORSE_INN(NPCs.BARTENDER_737, 8, "Heart Stopper", arrayOf("Fancy a bit of Heart Stopper then do you? It'll only be", "8 coins.")) {
         override fun effect(player: Player) {
             impact(player, (getStatLevel(player, Skills.HITPOINTS) * 0.15).toInt(), ImpactHandler.HitsplatType.NORMAL)
@@ -114,6 +144,11 @@ enum class BarcrawlType {
      * The Foresters arm.
      */
 
+    /**
+     * Foresters Arms
+     *
+     * @constructor Foresters Arms
+     */
     FORESTERS_ARMS(NPCs.BARTENDER_738, 18, "Liverbane Ale", arrayOf("Oh you're a barbarian then. Now which of these barrels", "contained the Liverbane Ale? That'll be 18 coins please.")) {
         override fun effect(player: Player) {
             addBonus(player, Skills.ATTACK, Skills.DEFENCE, Skills.FLETCHING, Skills.FIREMAKING, Skills.WOODCUTTING)
@@ -132,6 +167,11 @@ enum class BarcrawlType {
      * The Jolly boar.
      */
 
+    /**
+     * Jolly Boar
+     *
+     * @constructor Jolly Boar
+     */
     JOLLY_BOAR(NPCs.BARTENDER_731, 10, "Olde Suspiciouse", arrayOf("Ah, there seems to be a fair few doing that one these", "days. My supply of Olde suspiciouse is starting to run", "low, it'll cost you 10 coins.")) {
         override fun effect(player: Player) {
             addBonus(player, 1, Skills.ATTACK, Skills.DEFENCE, Skills.STRENGTH, Skills.MINING, Skills.CRAFTING, Skills.MAGIC)
@@ -152,6 +192,11 @@ enum class BarcrawlType {
      * The Karamja spirits.
      */
 
+    /**
+     * Karamja Spirits
+     *
+     * @constructor Karamja Spirits
+     */
     KARAMJA_SPIRITS(NPCs.ZAMBO_568, 7, "Ape Bite Liqueur", arrayOf("Ah, you'll be wanting some Ape Bite Liqueur then. It's", "got a lovely bannana taste, and it'll only cost you 7", "coins.")) {
         override fun effect(player: Player) {
             addBonus(player, 1, Skills.ATTACK, Skills.DEFENCE)
@@ -171,6 +216,11 @@ enum class BarcrawlType {
      * The Rising sunn inn.
      */
 
+    /**
+     * Rising Sunn Inn
+     *
+     * @constructor Rising Sunn Inn
+     */
     RISING_SUNN_INN(intArrayOf(NPCs.KAYLEE_3217, NPCs.EMILY_736), 70, "Hand of Death Cocktail", arrayOf("Heehee, this'll be fun!"), arrayOf("You'll be after our Hand of Death cocktail, then. Lots", "of expensive parts to the cocktail, though, so it will cost", "you 70 coins.")) {
         override fun effect(player: Player) {
             addBonus(player, 1, Skills.ATTACK, Skills.DEFENCE, Skills.RANGE, Skills.FIREMAKING)
@@ -197,6 +247,11 @@ enum class BarcrawlType {
      * The Rusty anchor inn.
      */
 
+    /**
+     * Rusty Anchor Inn
+     *
+     * @constructor Rusty Anchor Inn
+     */
     RUSTY_ANCHOR_INN(NPCs.BARTENDER_734, 8, "Black Skull Ale", arrayOf("Okay, one Black Skull Ale coming up. Eight coins, please.")) {
         override fun effect(player: Player) {
             sendChat(player, "Hiccup!")
@@ -244,9 +299,20 @@ enum class BarcrawlType {
         this.dialogue = arrayOf(first)
     }
 
+    /**
+     * Effect
+     *
+     * @param player
+     */
     open fun effect(player: Player) {
     }
 
+    /**
+     * Message
+     *
+     * @param player
+     * @param start
+     */
     open fun message(player: Player, start: Boolean) {
         if (!start) {
             sendMessage(player, "The bartender signs your card.")
@@ -255,6 +321,13 @@ enum class BarcrawlType {
         }
     }
 
+    /**
+     * Add bonus
+     *
+     * @param player
+     * @param amount
+     * @param skills
+     */
     fun addBonus(player: Player, amount: Int, vararg skills: Int) {
         for (i in skills) {
             player.getSkills().updateLevel(i, -amount, 0)

@@ -7,6 +7,11 @@ import core.api.submitIndividualPulse
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Axe on tree listener
+ *
+ * @constructor Axe on tree listener
+ */
 class AxeOnTreeListener : InteractionListener {
 
     val axes = intArrayOf(Items.BRONZE_AXE_1351, Items.MITHRIL_AXE_1355, Items.IRON_AXE_1349, Items.BLACK_AXE_1361, Items.STEEL_AXE_1353, Items.ADAMANT_AXE_1357, Items.RUNE_AXE_1359, Items.DRAGON_AXE_6739, Items.INFERNO_ADZE_13661)

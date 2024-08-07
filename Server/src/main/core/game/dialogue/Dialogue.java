@@ -17,47 +17,105 @@ import static core.api.DialUtilsKt.splitLines;
 import static core.tools.DialogueHelperKt.DIALOGUE_INITIAL_OPTIONS_HANDLE;
 import static core.tools.DialogueHelperKt.START_DIALOGUE;
 
+/**
+ * Dialogue.
+ */
 @PluginManifest(type = PluginType.DIALOGUE)
 public abstract class Dialogue implements Plugin<Player> {
 
+    /**
+     * The constant RED.
+     */
     protected static final String RED = "<col=8A0808>";
 
+    /**
+     * The constant BLUE.
+     */
     protected static final String BLUE = "<col=08088A>";
 
+    /**
+     * The Player.
+     */
     protected Player player;
 
+    /**
+     * The Interpreter.
+     */
     protected DialogueInterpreter interpreter;
 
+    /**
+     * The File.
+     */
     public DialogueFile file;
 
+    /**
+     * The Option names.
+     */
     protected ArrayList<String> optionNames = new ArrayList<String>(10);
+    /**
+     * The Option files.
+     */
     protected ArrayList<DialogueFile> optionFiles = new ArrayList<DialogueFile>(10);
 
+    /**
+     * The Two options.
+     */
     protected final int TWO_OPTIONS = 228;
 
+    /**
+     * The Three options.
+     */
     protected final int THREE_OPTIONS = 230;
 
+    /**
+     * The Four options.
+     */
     protected final int FOUR_OPTIONS = 232;
 
+    /**
+     * The Five options.
+     */
     protected final int FIVE_OPTIONS = 234;
 
+    /**
+     * The Npc.
+     */
     protected NPC npc;
 
+    /**
+     * The Stage.
+     */
     public int stage;
 
+    /**
+     * The Finished.
+     */
     protected boolean finished;
 
+    /**
+     * Instantiates a new Dialogue.
+     */
     public Dialogue() {
         /*
          * empty.
          */
     }
 
+    /**
+     * Pirate gender string.
+     *
+     * @return the string
+     */
     public String pirateGender() {
         return (player.isMale() ? "lad" : "lass");
 
     }
 
+    /**
+     * Instantiates a new Dialogue.
+     *
+     * @param player the player
+     */
     public Dialogue(Player player) {
         this.player = player;
         if (player != null) {
@@ -65,12 +123,20 @@ public abstract class Dialogue implements Plugin<Player> {
         }
     }
 
+    /**
+     * Init.
+     */
     public void init() {
         for (int id : getIds()) {
             DialogueInterpreter.add(id, this);
         }
     }
 
+    /**
+     * Close boolean.
+     *
+     * @return the boolean
+     */
     public boolean close() {
         player.getInterfaceManager().closeChatbox();
         player.getInterfaceManager().openChatbox(137);
@@ -79,25 +145,46 @@ public abstract class Dialogue implements Plugin<Player> {
         return true;
     }
 
+    /**
+     * Send normal dialogue.
+     *
+     * @param entity     the entity
+     * @param expression the expression
+     * @param messages   the messages
+     */
     public void sendNormalDialogue(Entity entity, FacialExpression expression, String... messages) {
         interpreter.sendDialogues(entity, expression, messages);
     }
 
+    /**
+     * Increment.
+     */
     public void increment() {
         stage++;
     }
 
 
+    /**
+     * Gets and increment.
+     *
+     * @return the and increment
+     */
     public int getAndIncrement() {
         return stage++;
     }
 
+    /**
+     * End.
+     */
     public void end() {
         if (interpreter != null) {
             interpreter.close();
         }
     }
 
+    /**
+     * Finish.
+     */
     public void finish() {
         setStage(-1);
     }
@@ -120,6 +207,12 @@ public abstract class Dialogue implements Plugin<Player> {
         }
     }
 
+    /**
+     * Open boolean.
+     *
+     * @param args the args
+     * @return the boolean
+     */
     public boolean open(Object... args) {
         player.getDialogueInterpreter().activeTopics.clear();
         if (args.length > 0 && args[0] instanceof NPC) {
@@ -134,10 +227,28 @@ public abstract class Dialogue implements Plugin<Player> {
         return true;
     }
 
+    /**
+     * Handle boolean.
+     *
+     * @param interfaceId the interface id
+     * @param buttonId    the button id
+     * @return the boolean
+     */
     public abstract boolean handle(int interfaceId, int buttonId);
 
+    /**
+     * Get ids int [ ].
+     *
+     * @return the int [ ]
+     */
     public abstract int[] getIds();
 
+    /**
+     * Npc component.
+     *
+     * @param messages the messages
+     * @return the component
+     */
     public Component npc(final String... messages) {
         if (npc == null) {
             return interpreter.sendDialogues(getIds()[0], getIds()[0] > 8591 ? FacialExpression.OLD_NORMAL : FacialExpression.FRIENDLY, messages);
@@ -145,14 +256,34 @@ public abstract class Dialogue implements Plugin<Player> {
         return interpreter.sendDialogues(npc, npc.getId() > 8591 ? FacialExpression.OLD_NORMAL : FacialExpression.FRIENDLY, messages);
     }
 
+    /**
+     * Npc component.
+     *
+     * @param id       the id
+     * @param messages the messages
+     * @return the component
+     */
     public Component npc(int id, final String... messages) {
         return interpreter.sendDialogues(id, FacialExpression.FRIENDLY, messages);
     }
 
+    /**
+     * Send dialogue component.
+     *
+     * @param messages the messages
+     * @return the component
+     */
     public Component sendDialogue(String... messages) {
         return interpreter.sendDialogue(messages);
     }
 
+    /**
+     * Npc component.
+     *
+     * @param expression the expression
+     * @param messages   the messages
+     * @return the component
+     */
     public Component npc(FacialExpression expression, final String... messages) {
         if (npc == null) {
             return interpreter.sendDialogues(getIds()[0], expression, messages);
@@ -160,34 +291,75 @@ public abstract class Dialogue implements Plugin<Player> {
         return interpreter.sendDialogues(npc, expression, messages);
     }
 
+    /**
+     * Player component.
+     *
+     * @param messages the messages
+     * @return the component
+     */
     public Component player(final String... messages) {
         return interpreter.sendDialogues(player, null, messages);
     }
 
+    /**
+     * Player component.
+     *
+     * @param expression the expression
+     * @param messages   the messages
+     * @return the component
+     */
     public Component player(FacialExpression expression, final String... messages) {
         return interpreter.sendDialogues(player, expression, messages);
     }
 
+    /**
+     * Options.
+     *
+     * @param options the options
+     */
     public void options(final String... options) {
         interpreter.sendOptions("Select an Option", options);
     }
 
+    /**
+     * Is finished boolean.
+     *
+     * @return the boolean
+     */
     public boolean isFinished() {
         return finished;
     }
 
+    /**
+     * Gets player.
+     *
+     * @return the player
+     */
     public Player getPlayer() {
         return player;
     }
 
+    /**
+     * Sets stage.
+     *
+     * @param i the
+     */
     public void setStage(int i) {
         this.stage = i;
     }
 
+    /**
+     * Next.
+     */
     public void next() {
         this.stage += 1;
     }
 
+    /**
+     * Load file.
+     *
+     * @param file the file
+     */
     public void loadFile(DialogueFile file) {
         if (file == null) return;
         this.file = file.load(player, npc, interpreter);
@@ -195,11 +367,22 @@ public abstract class Dialogue implements Plugin<Player> {
         stage = START_DIALOGUE;
     }
 
+    /**
+     * Add option.
+     *
+     * @param name the name
+     * @param file the file
+     */
     public void addOption(String name, DialogueFile file) {
         optionNames.add("Talk about " + name);
         optionFiles.add(file);
     }
 
+    /**
+     * Send choices boolean.
+     *
+     * @return the boolean
+     */
     public boolean sendChoices() {
         if (optionNames.size() == 1) {
             loadFile(optionFiles.get(0));
@@ -214,14 +397,34 @@ public abstract class Dialogue implements Plugin<Player> {
         }
     }
 
+    /**
+     * Npcl component.
+     *
+     * @param expr the expr
+     * @param msg  the msg
+     * @return the component
+     */
     public Component npcl(FacialExpression expr, String msg) {
         return npc(expr, splitLines(msg, 54));
     }
 
+    /**
+     * Playerl component.
+     *
+     * @param expr the expr
+     * @param msg  the msg
+     * @return the component
+     */
     public Component playerl(FacialExpression expr, String msg) {
         return player(expr, splitLines(msg, 54));
     }
 
+    /**
+     * Show topics boolean.
+     *
+     * @param topics the topics
+     * @return the boolean
+     */
     public boolean showTopics(Topic<?>... topics) {
         ArrayList<String> validTopics = new ArrayList<>();
         for (Topic<?> topic : topics) {

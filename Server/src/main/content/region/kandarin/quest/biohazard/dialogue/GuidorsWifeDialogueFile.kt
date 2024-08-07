@@ -6,6 +6,11 @@ import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 
+/**
+ * Guidors wife dialogue file
+ *
+ * @constructor Guidors wife dialogue file
+ */
 class GuidorsWifeDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.GUIDORS_WIFE_342)

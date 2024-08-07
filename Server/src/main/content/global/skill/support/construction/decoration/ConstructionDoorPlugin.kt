@@ -13,7 +13,6 @@ import core.plugin.Plugin
 
 /**
  * Handles Construction related doors.
- * @author Emperor
  */
 @Initializable
 class ConstructionDoorPlugin : OptionHandler() {

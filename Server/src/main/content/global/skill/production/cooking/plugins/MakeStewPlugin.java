@@ -7,9 +7,15 @@ import core.game.interaction.UseWithHandler;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
+/**
+ * Make stew plugin.
+ */
 @Initializable
 public class MakeStewPlugin extends UseWithHandler {
 
+    /**
+     * Instantiates a new Make stew plugin.
+     */
     public MakeStewPlugin() {
         super(Items.UNCOOKED_STEW_2001);
     }

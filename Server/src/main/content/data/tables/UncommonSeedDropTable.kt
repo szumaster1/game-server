@@ -19,10 +19,6 @@ import javax.xml.parsers.DocumentBuilder
 import javax.xml.parsers.DocumentBuilderFactory
 import javax.xml.parsers.ParserConfigurationException
 
-/*
- * @author Von Hresvelg
- * @date 30.11.2022
- */
 class UncommonSeedDropTable: StartupListener {
 
     override fun startup() {

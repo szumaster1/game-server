@@ -18,6 +18,9 @@ import core.plugin.ClassScanner.definePlugin
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Unicorn stallion familiar.
+ */
 @Initializable
 class UnicornStallionNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 6822) :
     Familiar(owner, id, 5400, 12039, 20, WeaponInterface.STYLE_CONTROLLED) {

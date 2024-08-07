@@ -8,6 +8,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 
+/**
+ * Zooknock listener
+ *
+ * @constructor Zooknock listener
+ */
 open class ZooknockListener : InteractionListener {
 
     val goldBar = Items.GOLD_BAR_2357

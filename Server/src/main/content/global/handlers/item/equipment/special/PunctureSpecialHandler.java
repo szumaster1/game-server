@@ -15,6 +15,9 @@ import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
+/**
+ * Puncture special handler.
+ */
 @Initializable
 public final class PunctureSpecialHandler extends MeleeSwingHandler implements Plugin<Object> {
 

@@ -8,14 +8,40 @@ import core.game.node.entity.player.Player;
 import core.game.system.task.Pulse;
 import core.game.world.update.flag.context.Animation;
 
+/**
+ * Skill pulse.
+ *
+ * @param <T> the type parameter
+ */
 public abstract class SkillPulse<T extends Node> extends Pulse {
 
+    /**
+     * The Player.
+     */
     protected final Player player;
+    /**
+     * The Node.
+     */
     protected T node;
+    /**
+     * The Tool.
+     */
     protected SkillingTool tool;
+    /**
+     * The Resource.
+     */
     protected SkillingResource resource;
+    /**
+     * The Reset animation.
+     */
     protected boolean resetAnimation = true;
 
+    /**
+     * Instantiates a new Skill pulse.
+     *
+     * @param player the player
+     * @param node   the node
+     */
     public SkillPulse(Player player, T node) {
         super(1, player, node);
         this.player = player;
@@ -49,12 +75,30 @@ public abstract class SkillPulse<T extends Node> extends Pulse {
         message(1);
     }
 
+    /**
+     * Check requirements boolean.
+     *
+     * @return the boolean
+     */
     public abstract boolean checkRequirements();
 
+    /**
+     * Animate.
+     */
     public abstract void animate();
 
+    /**
+     * Reward boolean.
+     *
+     * @return the boolean
+     */
     public abstract boolean reward();
 
+    /**
+     * Message.
+     *
+     * @param type the type
+     */
     public void message(int type) {
 
     }

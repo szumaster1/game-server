@@ -7,6 +7,16 @@ import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
+/**
+ * Limb pulse
+ *
+ * @property limb
+ * @property amount
+ * @constructor
+ *
+ * @param player
+ * @param node
+ */
 class LimbPulse(player: Player?, node: Item, private val limb: Limb, private var amount: Int) : SkillPulse<Item?>(player, node) {
 
     override fun checkRequirements(): Boolean {

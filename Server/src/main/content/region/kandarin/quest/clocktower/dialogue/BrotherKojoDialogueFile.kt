@@ -11,6 +11,11 @@ import core.game.dialogue.Topic
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
+/**
+ * Brother kojo dialogue file
+ *
+ * @constructor Brother kojo dialogue file
+ */
 class BrotherKojoDialogueFile : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

@@ -14,6 +14,11 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.prayer.PrayerType
 import core.tools.Log
 
+/**
+ * Equipment tab interface
+ *
+ * @constructor Equipment tab interface
+ */
 class EquipmentTabInterface : InterfaceListener {
 
     /** (Highlight white items are auto destroyed on death Enum#616 (Items kept on death interface)

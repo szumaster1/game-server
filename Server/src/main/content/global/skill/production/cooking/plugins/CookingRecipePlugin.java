@@ -15,10 +15,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+/**
+ * Cooking recipe plugin.
+ */
 @Initializable
 public final class CookingRecipePlugin extends UseWithHandler {
 
 
+    /**
+     * Instantiates a new Cooking recipe plugin.
+     */
     public CookingRecipePlugin() {
         super(getAllowedNodes());
     }

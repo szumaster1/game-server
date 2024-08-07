@@ -16,6 +16,9 @@ import core.tools.END_DIALOGUE
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 
+/**
+ * Bouquet mac hyacinth dialogue.
+ */
 @Initializable
 class BouquetMacHyacinthDialogue(player: Player? = null): Dialogue(player) {
 

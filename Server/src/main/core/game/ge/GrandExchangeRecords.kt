@@ -17,11 +17,7 @@ import java.util.*
 
 /**
  * Handles the grand exchange interfaces for the player.
- *
- * @author Emperor
- * @author Angle
  */
-
 class GrandExchangeRecords(private val player: Player? = null) : PersistPlayer, LoginListener {
     var history = arrayOfNulls<GrandExchangeOffer>(5)
     val offerRecords = arrayOfNulls<OfferRecord>(6)

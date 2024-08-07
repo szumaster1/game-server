@@ -5,6 +5,10 @@ import core.network.packet.IoBuffer;
 import core.network.packet.OutgoingPacket;
 import core.network.packet.context.DefaultContext;
 
+/**
+ * Interface set angle.
+ * @author Emperor
+ */
 public final class InterfaceSetAngle implements OutgoingPacket<DefaultContext> {
     @Override
     public void send(DefaultContext context) {

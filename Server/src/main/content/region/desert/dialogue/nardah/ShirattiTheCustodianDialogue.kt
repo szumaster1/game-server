@@ -9,6 +9,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Shiratti the custodian dialogue.
+ */
 @Initializable
 class ShirattiTheCustodianDialogue(player: Player? = null) : Dialogue(player) {
 

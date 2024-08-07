@@ -7,6 +7,11 @@ import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 
+/**
+ * Hengrad dialogue file
+ *
+ * @constructor Hengrad dialogue file
+ */
 class HengradDialogueFile : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

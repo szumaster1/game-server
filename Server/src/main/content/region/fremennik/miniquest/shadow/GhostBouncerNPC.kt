@@ -14,6 +14,9 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 
+/**
+ * Ghost bouncer NPC.
+ */
 @Initializable
 class GhostBouncerNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 

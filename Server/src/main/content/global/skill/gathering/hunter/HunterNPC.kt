@@ -14,6 +14,9 @@ import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.tools.RandomFunction
 
+/**
+ * Hunter NPC.
+ */
 class HunterNPC(id: Int, location: Location?, val trap: Traps?, val type: TrapNode?) : AbstractNPC(id, location) {
 
     constructor() : this(0, null, null, null) {

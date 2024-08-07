@@ -10,6 +10,9 @@ import core.game.node.entity.player.link.diary.DiaryType
 import core.game.world.map.Location
 import core.plugin.Initializable
 
+/**
+ * Black knight NPC.
+ */
 @Initializable
 class BlackKnightNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 

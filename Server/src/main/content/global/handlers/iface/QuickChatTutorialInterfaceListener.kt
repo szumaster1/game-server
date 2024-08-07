@@ -5,6 +5,11 @@ import core.api.consts.Components
 import core.api.consts.Vars
 import core.game.interaction.InterfaceListener
 
+/**
+ * Quick chat tutorial interface listener
+ *
+ * @constructor Quick chat tutorial interface listener
+ */
 class QuickChatTutorialInterfaceListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {

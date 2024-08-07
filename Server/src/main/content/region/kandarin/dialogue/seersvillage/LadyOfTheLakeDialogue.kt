@@ -9,6 +9,9 @@ import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Lady of the lake dialogue.
+ */
 @Initializable
 class LadyOfTheLakeDialogue(player: Player? = null) : Dialogue(player) {
 

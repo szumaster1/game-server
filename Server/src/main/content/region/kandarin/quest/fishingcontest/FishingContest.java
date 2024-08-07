@@ -8,19 +8,49 @@ import core.plugin.Initializable;
 
 import static core.api.ContentAPIKt.removeAttribute;
 
+/**
+ * Fishing contest.
+ */
 @Initializable
 public class FishingContest extends Quest {
+    /**
+     * Instantiates a new Fishing contest.
+     */
     public FishingContest() {
         super("Fishing Contest", 62, 61, 1, 11, 0, 1, 5);
     }
 
+    /**
+     * The constant FISHING_ROD.
+     */
     public static final Item FISHING_ROD = new Item(307);
+    /**
+     * The constant FISHING_PASS.
+     */
     public static final Item FISHING_PASS = new Item(27);
+    /**
+     * The constant RED_VINE_WORM.
+     */
     public static final Item RED_VINE_WORM = new Item(25);
+    /**
+     * The constant RAW_GIANT_CARP.
+     */
     public static final Item RAW_GIANT_CARP = new Item(338);
+    /**
+     * The constant GIANT_CARP.
+     */
     public static final Item GIANT_CARP = new Item(337);
+    /**
+     * The constant FISHING_TROPHY.
+     */
     public static final Item FISHING_TROPHY = new Item(26);
+    /**
+     * The constant GARLIC.
+     */
     public static final Item GARLIC = new Item(1550);
+    /**
+     * The constant SPADE.
+     */
     public static final Item SPADE = new Item(952);
 
 

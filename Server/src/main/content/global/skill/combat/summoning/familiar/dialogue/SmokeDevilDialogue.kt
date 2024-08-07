@@ -8,6 +8,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Smoke devil dialogue.
+ */
 @Initializable
 class SmokeDevilDialogue(player: Player? = null) : Dialogue(player) {
 

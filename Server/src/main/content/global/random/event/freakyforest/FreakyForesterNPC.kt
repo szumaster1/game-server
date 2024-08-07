@@ -11,6 +11,9 @@ import core.game.system.timer.impl.AntiMacro
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Graphic
 
+/**
+ * Freaky forester NPC.
+ */
 class FreakyForesterNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs.FREAKY_FORESTER_2458) {
 
     override fun init() {

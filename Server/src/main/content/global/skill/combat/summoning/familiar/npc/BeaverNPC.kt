@@ -17,6 +17,9 @@ import core.plugin.Initializable
 import core.tools.RandomFunction
 import kotlin.math.floor
 
+/**
+ * Beaver familiar.
+ */
 @Initializable
 class BeaverNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 6808) :
     Forager(owner, id, 2700, 12021, 6, *ITEMS) {

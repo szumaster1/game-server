@@ -97,31 +97,67 @@ import static core.game.system.command.sets.StatsAttributeSetKt.STATS_BASE;
 import static core.game.system.command.sets.StatsAttributeSetKt.STATS_DEATHS;
 import static core.tools.GlobalsKt.colorize;
 
+/**
+ * Player.
+ */
 public class Player extends Entity {
 
     private PlayerDetails details;
 
+    /**
+     * The In wardrobe.
+     */
     public boolean inWardrobe = false;
 
+    /**
+     * The Start location.
+     */
     public Location startLocation = null;
 
     private final Graphic wardrobe_hold_graphic = new Graphic(1182, 0, 0);
 
+    /**
+     * The New player.
+     */
     public boolean newPlayer = getSkills().getTotalLevel() < 50;
 
+    /**
+     * The Drop log.
+     */
     public BankContainer dropLog = new BankContainer(this);
 
+    /**
+     * The Degrader.
+     */
     public EquipmentDegrader degrader = new EquipmentDegrader();
 
+    /**
+     * The Pouch manager.
+     */
     public PouchManager pouchManager = new PouchManager(this);
 
+    /**
+     * The Varp manager.
+     */
     public VarpManager varpManager = new VarpManager(this);
 
+    /**
+     * The Varp map.
+     */
     public HashMap<Integer, Integer> varpMap = new HashMap<>();
+    /**
+     * The Save varp.
+     */
     public HashMap<Integer, Boolean> saveVarp = new HashMap<>();
 
+    /**
+     * The States.
+     */
     public HashMap<String, State> states = new HashMap<>();
 
+    /**
+     * The Logout listeners.
+     */
     public HashMap<String, Function1<Player, Unit>> logoutListeners = new HashMap<>();
 
     private final Container inventory = new Container(28).register(new InventoryListener(this));
@@ -132,12 +168,24 @@ public class Player extends Entity {
 
     private final BankContainer bankSecondary = new BankContainer(this);
 
+    /**
+     * The Use secondary bank.
+     */
     public boolean useSecondaryBank = false;
 
+    /**
+     * The Blast coal.
+     */
     public final Container blastCoal = new Container(225, ContainerType.NEVER_STACK);
 
+    /**
+     * The Blast ore.
+     */
     public final Container blastOre = new Container(28, ContainerType.NEVER_STACK);
 
+    /**
+     * The Blast bars.
+     */
     public final Container blastBars = new Container(28, ContainerType.NEVER_STACK);
 
     private final PacketDispatch packetDispatch = new PacketDispatch(this);
@@ -160,6 +208,9 @@ public class Player extends Entity {
 
     private final HintIconManager hintIconManager = new HintIconManager();
 
+    /**
+     * The Quest repository.
+     */
     public QuestRepository questRepository = new QuestRepository(this);
 
     private final Prayer prayer = new Prayer(this);
@@ -168,6 +219,9 @@ public class Player extends Entity {
 
     private final FamiliarManager familiarManager = new FamiliarManager(this);
 
+    /**
+     * The Saved data.
+     */
     public SavedData savedData = new SavedData(this);
 
     private final RequestManager requestManager = new RequestManager(this);
@@ -188,6 +242,9 @@ public class Player extends Entity {
 
     private boolean invisible;
 
+    /**
+     * The Artificial.
+     */
     protected boolean artificial;
 
     private String customState = "";
@@ -196,12 +253,26 @@ public class Player extends Entity {
 
     private int archeryTotal = 0;
 
+    /**
+     * The Version.
+     */
     public int version = ServerConstants.CURRENT_SAVEFILE_VERSION;
 
+    /**
+     * The Op counts.
+     */
     public byte[] opCounts = new byte[255];
 
+    /**
+     * The Invalid packet count.
+     */
     public int invalidPacketCount = 0;
 
+    /**
+     * Instantiates a new Player.
+     *
+     * @param details the details
+     */
     public Player(PlayerDetails details) {
         super(details.getUsername(), ServerConstants.START_LOCATION);
         super.active = false;
@@ -234,6 +305,9 @@ public class Player extends Entity {
         details.save();
     }
 
+    /**
+     * Finish clear.
+     */
     public void finishClear() {
         if (!isArtificial())
             GameWorld.getLogoutListeners().forEach((it) -> it.logout(this));
@@ -271,6 +345,11 @@ public class Player extends Entity {
         }
     }
 
+    /**
+     * Toggle wardrobe.
+     *
+     * @param intoWardrobe the into wardrobe
+     */
     public void toggleWardrobe(boolean intoWardrobe) {
         class wardrobePulse extends Pulse {
             final Player player;
@@ -666,10 +745,19 @@ public class Player extends Entity {
         degrader.checkArmourDegrades(this);
     }
 
+    /**
+     * Random walk.
+     *
+     * @param radiusX the radius x
+     * @param radiusY the radius y
+     */
     public void randomWalk(int radiusX, int radiusY) {
         Pathfinder.find(this, this.getLocation().transform(RandomFunction.random(radiusX, (radiusX * -1)), RandomFunction.random(radiusY, (radiusY * -1)), 0), false, Pathfinder.SMART).walk(this);
     }
 
+    /**
+     * Init reconnect.
+     */
     public void initReconnect() {
         getInterfaceManager().setChatbox(null);
         getPulseManager().clear();
@@ -685,6 +773,12 @@ public class Player extends Entity {
         Arrays.fill(renderInfo.getAppearanceStamps(), 0);
     }
 
+    /**
+     * Is wearing void boolean.
+     *
+     * @param style the style
+     * @return the boolean
+     */
     public boolean isWearingVoid(CombatStyle style) {
         int helm;
         if (style == CombatStyle.MELEE) {
@@ -703,6 +797,11 @@ public class Player extends Entity {
         return inEquipment(this, helm, 1) && legs && top && gloves;
     }
 
+    /**
+     * Update scene graph.
+     *
+     * @param login the login
+     */
     public void updateSceneGraph(boolean login) {
         Region region = getViewport().getRegion();
         if (region instanceof DynamicRegion || region == null && (region = RegionManager.forId(location.getRegionId())) instanceof DynamicRegion) {
@@ -712,29 +811,57 @@ public class Player extends Entity {
         }
     }
 
+    /**
+     * Toggle debug.
+     */
     public void toggleDebug() {
         boolean debug = getAttribute("debug", false);
         setAttribute("debug", !debug);
         getPacketDispatch().sendMessage("Your debug mode is toggled to " + !debug + ".");
     }
 
+    /**
+     * Send messages.
+     *
+     * @param messages the messages
+     */
     public void sendMessages(String... messages) {
         packetDispatch.sendMessages(messages);
     }
 
+    /**
+     * Send message.
+     *
+     * @param message the message
+     */
     public void sendMessage(String message) {
         sendMessages(message);
     }
 
+    /**
+     * Send notification message.
+     *
+     * @param message the message
+     */
     public void sendNotificationMessage(String message) {
         sendMessages("<col=ff0000>" + message + "</col>");
     }
 
+    /**
+     * Spawn zone boolean.
+     *
+     * @return the boolean
+     */
     public boolean spawnZone() {
         return (getLocation().getX() > 3090 && getLocation().getY() < 3500
             && getLocation().getX() < 3099 && getLocation().getY() > 3487);
     }
 
+    /**
+     * Can spawn boolean.
+     *
+     * @return the boolean
+     */
     public boolean canSpawn() {
         if (!spawnZone()) {
             sendMessage("You can only spawn items inside the edgeville bank.");
@@ -747,20 +874,41 @@ public class Player extends Entity {
         return false;
     }
 
+    /**
+     * Send message.
+     *
+     * @param message the message
+     * @param ticks   the ticks
+     */
     public void sendMessage(String message, int ticks) {
         packetDispatch.sendMessage(message, ticks);
     }
 
+    /**
+     * Debug.
+     *
+     * @param string the string
+     */
     public void debug(String string) {
         if (getAttribute("debug", false)) {
             packetDispatch.sendMessage(string);
         }
     }
 
+    /**
+     * Is male boolean.
+     *
+     * @return the boolean
+     */
     public boolean isMale() {
         return this.getAppearance().getGender().ordinal() == 0;
     }
 
+    /**
+     * Update details.
+     *
+     * @param details the details
+     */
     @SuppressWarnings("deprecation")
     public void updateDetails(PlayerDetails details) {
         if (this.details != null) {
@@ -771,34 +919,75 @@ public class Player extends Entity {
         this.details = details;
     }
 
+    /**
+     * Allow removal boolean.
+     *
+     * @return the boolean
+     */
     public boolean allowRemoval() {
         return !(inCombat() || getSkills().getLifepoints() < 1 || DeathTask.isDead(this) || isTeleporting() || scripts.hasTypeInQueue(QueueStrength.SOFT));
     }
 
+    /**
+     * Has item boolean.
+     *
+     * @param item the item
+     * @return the boolean
+     */
     public boolean hasItem(Item item) {
         return getInventory().containsItem(item) || getBank().containsItem(item) || getEquipment().containsItem(item);
     }
 
+    /**
+     * Gets experience mod.
+     *
+     * @return the experience mod
+     */
     public double getExperienceMod() {
         return getSavedData().globalData.hasDoubleExp() ? 2 : 1;
     }
 
+    /**
+     * Is staff boolean.
+     *
+     * @return the boolean
+     */
     public boolean isStaff() {
         return getDetails().getRights() != Rights.REGULAR_PLAYER;
     }
 
+    /**
+     * Is admin boolean.
+     *
+     * @return the boolean
+     */
     public boolean isAdmin() {
         return getDetails().getRights() == Rights.ADMINISTRATOR;
     }
 
+    /**
+     * Is debug boolean.
+     *
+     * @return the boolean
+     */
     public boolean isDebug() {
         return details.getRights() == Rights.ADMINISTRATOR && getAttribute("debug", false);
     }
 
+    /**
+     * Gets uid info.
+     *
+     * @return the uid info
+     */
     public UIDInfo getUidInfo() {
         return details.getInfo();
     }
 
+    /**
+     * Gets details.
+     *
+     * @return the details
+     */
     public PlayerDetails getDetails() {
         return details;
     }
@@ -808,75 +997,165 @@ public class Player extends Entity {
         return super.getName();
     }
 
+    /**
+     * Gets session.
+     *
+     * @return the session
+     */
     public IoSession getSession() {
         return details.getSession();
     }
 
+    /**
+     * Gets equipment.
+     *
+     * @return the equipment
+     */
     public EquipmentContainer getEquipment() {
         return equipment;
     }
 
+    /**
+     * Gets bank.
+     *
+     * @return the bank
+     */
     public BankContainer getBank() {
         return useSecondaryBank ? bankSecondary : bank;
     }
 
+    /**
+     * Gets bank primary.
+     *
+     * @return the bank primary
+     */
     public BankContainer getBankPrimary() {
         return bank;
     }
 
+    /**
+     * Gets bank secondary.
+     *
+     * @return the bank secondary
+     */
     public BankContainer getBankSecondary() {
         return bankSecondary;
     }
 
+    /**
+     * Gets drop log.
+     *
+     * @return the drop log
+     */
     public BankContainer getDropLog() {
         return dropLog;
     }
 
+    /**
+     * Gets inventory.
+     *
+     * @return the inventory
+     */
     public Container getInventory() {
         return inventory;
     }
 
+    /**
+     * Sets playing.
+     *
+     * @param playing the playing
+     */
     public void setPlaying(boolean playing) {
         this.playing = playing;
     }
 
+    /**
+     * Is playing boolean.
+     *
+     * @return the boolean
+     */
     public boolean isPlaying() {
         return playing;
     }
 
+    /**
+     * Gets rights.
+     *
+     * @return the rights
+     */
     public Rights getRights() {
         return details.getRights();
     }
 
+    /**
+     * Gets render info.
+     *
+     * @return the render info
+     */
     public RenderInfo getRenderInfo() {
         return renderInfo;
     }
 
+    /**
+     * Gets appearance.
+     *
+     * @return the appearance
+     */
     public Appearance getAppearance() {
         return appearance;
     }
 
+    /**
+     * Gets player flags.
+     *
+     * @return the player flags
+     */
     public PlayerFlags getPlayerFlags() {
         return playerFlags;
     }
 
+    /**
+     * Gets packet dispatch.
+     *
+     * @return the packet dispatch
+     */
     public PacketDispatch getPacketDispatch() {
         return packetDispatch;
     }
 
 
+    /**
+     * Gets spell book manager.
+     *
+     * @return the spell book manager
+     */
     public SpellBookManager getSpellBookManager() {
         return spellBookManager;
     }
 
+    /**
+     * Gets settings.
+     *
+     * @return the settings
+     */
     public Settings getSettings() {
         return settings;
     }
 
+    /**
+     * Gets interface manager.
+     *
+     * @return the interface manager
+     */
     public InterfaceManager getInterfaceManager() {
         return interfaceManager;
     }
 
+    /**
+     * Has modal open boolean.
+     *
+     * @return the boolean
+     */
     public boolean hasModalOpen() {
         int[] excludedIds = new int[]{372, 421, InterfaceManager.DEFAULT_CHATBOX}; //excludes plain message, plain message with scrollbar, and normal chatbox
         Component openedIface = interfaceManager.getOpened();
@@ -899,74 +1178,164 @@ public class Player extends Entity {
         return hasModal;
     }
 
+    /**
+     * Gets dialogue interpreter.
+     *
+     * @return the dialogue interpreter
+     */
     public DialogueInterpreter getDialogueInterpreter() {
         return dialogueInterpreter;
     }
 
+    /**
+     * Gets hint icon manager.
+     *
+     * @return the hint icon manager
+     */
     public HintIconManager getHintIconManager() {
         return hintIconManager;
     }
 
+    /**
+     * Is artificial boolean.
+     *
+     * @return the boolean
+     */
     public boolean isArtificial() {
         return artificial;
     }
 
+    /**
+     * Gets quest repository.
+     *
+     * @return the quest repository
+     */
     public QuestRepository getQuestRepository() {
         return questRepository;
     }
 
+    /**
+     * Gets prayer.
+     *
+     * @return the prayer
+     */
     public Prayer getPrayer() {
         return prayer;
     }
 
+    /**
+     * Gets skull manager.
+     *
+     * @return the skull manager
+     */
     public SkullManager getSkullManager() {
         return skullManager;
     }
 
+    /**
+     * Gets familiar manager.
+     *
+     * @return the familiar manager
+     */
     public FamiliarManager getFamiliarManager() {
         return familiarManager;
     }
 
+    /**
+     * Gets communication.
+     *
+     * @return the communication
+     */
     public CommunicationInfo getCommunication() {
         return details.getCommunication();
     }
 
+    /**
+     * Gets request manager.
+     *
+     * @return the request manager
+     */
     public RequestManager getRequestManager() {
         return requestManager;
     }
 
+    /**
+     * Gets saved data.
+     *
+     * @return the saved data
+     */
     public SavedData getSavedData() {
         return savedData;
     }
 
+    /**
+     * Gets global data.
+     *
+     * @return the global data
+     */
     public GlobalData getGlobalData() {
         return savedData.globalData;
     }
 
+    /**
+     * Gets warning messages.
+     *
+     * @return the warning messages
+     */
     public WarningMessages getWarningMessages() {
         return warningMessages;
     }
 
+    /**
+     * Gets music player.
+     *
+     * @return the music player
+     */
     public MusicPlayer getMusicPlayer() {
         return musicPlayer;
     }
 
+    /**
+     * Gets house manager.
+     *
+     * @return the house manager
+     */
     public HouseManager getHouseManager() {
         return houseManager;
     }
 
+    /**
+     * Gets bank pin manager.
+     *
+     * @return the bank pin manager
+     */
     public BankPinManager getBankPinManager() {
         return bankPinManager;
     }
 
+    /**
+     * Gets achievement diary manager.
+     *
+     * @return the achievement diary manager
+     */
     public AchievementDiaryManager getAchievementDiaryManager() {
         return achievementDiaryManager;
     }
 
+    /**
+     * Gets ironman manager.
+     *
+     * @return the ironman manager
+     */
     public IronmanManager getIronmanManager() {
         return ironmanManager;
     }
 
+    /**
+     * Gets emote manager.
+     *
+     * @return the emote manager
+     */
     public EmoteManager getEmoteManager() {
         return emoteManager;
     }
@@ -989,30 +1358,66 @@ public class Player extends Entity {
         return "Player [name=" + name + ", getRights()=" + getRights() + "]";
     }
 
+    /**
+     * Gets custom state.
+     *
+     * @return the custom state
+     */
     public String getCustomState() {
         return customState;
     }
 
+    /**
+     * Sets custom state.
+     *
+     * @param state the state
+     */
     public void setCustomState(String state) {
         this.customState = state;
     }
 
+    /**
+     * Gets archery targets.
+     *
+     * @return the archery targets
+     */
     public int getArcheryTargets() {
         return archeryTargets;
     }
 
+    /**
+     * Sets archery targets.
+     *
+     * @param archeryTargets the archery targets
+     */
     public void setArcheryTargets(int archeryTargets) {
         this.archeryTargets = archeryTargets;
     }
 
+    /**
+     * Gets archery total.
+     *
+     * @return the archery total
+     */
     public int getArcheryTotal() {
         return archeryTotal;
     }
 
+    /**
+     * Sets archery total.
+     *
+     * @param archeryTotal the archery total
+     */
     public void setArcheryTotal(int archeryTotal) {
         this.archeryTotal = archeryTotal;
     }
 
+    /**
+     * Has active state boolean.
+     *
+     * @param key the key
+     * @return the boolean
+     */
     public boolean hasActiveState(String key) {
         State state = states.get(key);
         if (state != null && state.getPulse() != null) {
@@ -1021,10 +1426,21 @@ public class Player extends Entity {
         return false;
     }
 
+    /**
+     * Register state state.
+     *
+     * @param key the key
+     * @return the state
+     */
     public State registerState(String key) {
         return StateRepository.forKey(key, this);
     }
 
+    /**
+     * Clear state.
+     *
+     * @param key the key
+     */
     public void clearState(String key) {
         State state = states.get(key);
         if (state == null) return;
@@ -1035,10 +1451,16 @@ public class Player extends Entity {
         states.remove(key);
     }
 
+    /**
+     * Update appearance.
+     */
     public void updateAppearance() {
         getUpdateMasks().register(EntityFlag.Appearance, this);
     }
 
+    /**
+     * Increment invalid packet count.
+     */
     public void incrementInvalidPacketCount() {
         invalidPacketCount++;
         if (invalidPacketCount >= 5) {

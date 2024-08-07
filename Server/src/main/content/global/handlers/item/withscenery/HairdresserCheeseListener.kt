@@ -8,6 +8,11 @@ import core.api.setAttribute
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Hairdresser cheese listener
+ *
+ * @constructor Hairdresser cheese listener
+ */
 class HairdresserCheeseListener : InteractionListener {
 
     override fun defineListeners() {

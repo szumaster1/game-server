@@ -12,6 +12,11 @@ import java.util.*
 import java.util.concurrent.Executors
 import kotlin.concurrent.schedule
 
+/**
+ * Immerse world
+ *
+ * @constructor Immerse world
+ */
 class ImmerseWorld : StartupListener {
 
     override fun startup() {

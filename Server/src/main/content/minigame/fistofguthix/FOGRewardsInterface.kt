@@ -12,9 +12,20 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 import core.tools.Log
 
+/**
+ * FOG rewards interface.
+ */
 @Initializable
 class FOGRewardsInterface : ComponentPlugin() {
 
+    /**
+     * Shop item
+     *
+     * @property id
+     * @property price
+     * @property amount
+     * @constructor Shop item
+     */
     class ShopItem(val id: Int, val price: Int, val amount: Int)
 
     override fun handle(

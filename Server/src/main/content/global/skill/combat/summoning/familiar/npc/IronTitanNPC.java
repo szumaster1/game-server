@@ -14,15 +14,27 @@ import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.tools.RandomFunction;
 
+/**
+ * Iron titan npc.
+ */
 @Initializable
 public class IronTitanNPC extends Familiar {
     private boolean specialMove;
     private static final SwitchAttack[] ATTACKS = {new SwitchAttack(CombatStyle.MELEE.getSwingHandler(), Animation.create(8183))};
 
+    /**
+     * Instantiates a new Iron titan npc.
+     */
     public IronTitanNPC() {
         this(null, 7375);
     }
 
+    /**
+     * Instantiates a new Iron titan npc.
+     *
+     * @param owner the owner
+     * @param id    the id
+     */
     public IronTitanNPC(Player owner, int id) {
         super(owner, id, 6000, 12822, 12, WeaponInterface.STYLE_DEFENSIVE);
         super.setCombatHandler(new MultiSwingHandler(true, ATTACKS) {

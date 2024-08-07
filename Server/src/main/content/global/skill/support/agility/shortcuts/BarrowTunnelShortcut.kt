@@ -9,6 +9,9 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.world.map.Location
 
+/**
+ * Barrow tunnel shortcut.
+ */
 class BarrowTunnelShortcut : InteractionListener {
 
     override fun defineListeners() {

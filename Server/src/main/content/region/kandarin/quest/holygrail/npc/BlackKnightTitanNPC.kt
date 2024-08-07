@@ -6,6 +6,9 @@ import core.game.node.entity.npc.AbstractNPC
 import core.game.world.map.Location
 import core.plugin.Initializable
 
+/**
+ * Black knight titan NPC.
+ */
 @Initializable
 class BlackKnightTitanNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 

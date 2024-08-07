@@ -9,9 +9,12 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Dron dialogue.
+ */
 @Initializable
 class DronDialogue(player: Player? = null) : Dialogue(player) {
-    
+
     override fun open(vararg args: Any): Boolean {
         if (getQuestStage(player, "Making History") >= 1 || getVarbit(player, MHUtils.DRON_PROGRESS) == 3) {
             playerl(FacialExpression.FRIENDLY, "I need to talk to you.")

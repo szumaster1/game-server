@@ -10,6 +10,9 @@ import core.tools.RandomFunction
 import core.api.consts.Items
 import core.api.consts.NPCs
 
+/**
+ * Giant bat NPC.
+ */
 class GiantBatNPC : NPCBehavior(*giantBatIds) {
 
     companion object {

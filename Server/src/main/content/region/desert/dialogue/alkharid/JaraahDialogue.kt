@@ -13,6 +13,9 @@ import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Jaraah dialogue.
+ */
 @Initializable
 class JaraahDialogue(player: Player? = null) : Dialogue(player) {
 

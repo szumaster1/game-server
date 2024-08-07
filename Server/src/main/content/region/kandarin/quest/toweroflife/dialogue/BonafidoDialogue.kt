@@ -12,6 +12,9 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
+/**
+ * Bonafido dialogue.
+ */
 @Initializable
 class BonafidoDialogue(player: Player? = null) : Dialogue(player) {
 

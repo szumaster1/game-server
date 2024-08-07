@@ -10,6 +10,9 @@ import core.tools.RandomFunction
 
 private val TRIBESMAN_NPC = intArrayOf(NPCs.TRIBESMAN_191, NPCs.TRIBESMAN_2496, NPCs.TRIBESMAN_2497)
 
+/**
+ * Tribesman NPC.
+ */
 class TribesmanNPC : NPCBehavior(*TRIBESMAN_NPC) {
 
     override fun beforeAttackFinalized(self: NPC, victim: Entity, state: BattleState) {

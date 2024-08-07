@@ -6,6 +6,11 @@ import core.game.node.entity.player.Player
 import core.game.system.timer.RSTimer
 import core.tools.colorize
 
+/**
+ * Cannon timer
+ *
+ * @constructor Cannon timer
+ */
 class CannonTimer : RSTimer(1, "dmc:timer") {
     lateinit var dmcHandler: DMCHandler
     var ticksUntilDecay = 2500

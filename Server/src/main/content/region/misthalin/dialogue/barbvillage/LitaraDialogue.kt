@@ -9,6 +9,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Litara dialogue.
+ */
 @Initializable
 class LitaraDialogue(player: Player? = null) : Dialogue(player) {
 

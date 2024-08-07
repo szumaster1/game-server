@@ -9,6 +9,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
+/**
+ * Ratpit manual
+ *
+ * @constructor Ratpit manual
+ */
 class RatpitManual : InteractionListener {
 
     companion object {

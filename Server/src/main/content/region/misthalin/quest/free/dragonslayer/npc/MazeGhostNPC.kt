@@ -8,6 +8,9 @@ import core.game.node.item.GroundItemManager
 import core.game.world.map.Location
 import core.tools.RandomFunction
 
+/**
+ * Maze ghost NPC.
+ */
 class MazeGhostNPC : AbstractNPC {
 
     constructor() : super(0, null)

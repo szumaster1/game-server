@@ -26,6 +26,13 @@ import core.plugin.Initializable
 import core.tools.RandomFunction
 import kotlin.math.abs
 
+/**
+ * Revenant NPC.
+ *
+ * @property routes the routes.
+ * @param id the id.
+ * @param location the location.
+ */
 @Initializable
 class RevenantNPC @JvmOverloads constructor(id: Int = -1, location: Location? = null, val routes: Array<Array<Location>>? = null) : AbstractNPC(id, location) {
 

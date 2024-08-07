@@ -4,6 +4,10 @@ import core.network.packet.IoBuffer;
 import core.network.packet.OutgoingPacket;
 import core.network.packet.context.PlayerContext;
 
+/**
+ * Clear minimap flag.
+ * @author Emperor
+ */
 public final class ClearMinimapFlag implements OutgoingPacket<PlayerContext> {
 
     @Override

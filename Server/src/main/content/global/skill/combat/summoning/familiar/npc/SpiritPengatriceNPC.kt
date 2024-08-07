@@ -5,6 +5,9 @@ import content.global.skill.combat.summoning.familiar.FamiliarSpecial
 import core.api.consts.NPCs
 import core.game.node.entity.player.Player
 
+/**
+ * Spirit pengatrice familiar.
+ */
 class SpiritPengatriceNPC@JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.SPIRIT_PENGATRICE_6883) : Familiar(owner, id, 3600, 12103, 3) {
 
     override fun construct(owner: Player, id: Int): Familiar {

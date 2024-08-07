@@ -10,6 +10,11 @@ import core.game.interaction.UseWithHandler
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Gem cut plugin
+ *
+ * @constructor Gem cut plugin
+ */
 @Initializable
 class GemCutPlugin : UseWithHandler(
     Items.UNCUT_DIAMOND_1617,

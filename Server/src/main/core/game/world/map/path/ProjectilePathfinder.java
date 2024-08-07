@@ -8,6 +8,9 @@ import core.game.world.map.RegionManager;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Projectile pathfinder.
+ */
 public final class ProjectilePathfinder extends Pathfinder {
 
     private boolean found;

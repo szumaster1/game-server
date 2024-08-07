@@ -12,6 +12,11 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 
 
+/**
+ * Lost tribe
+ *
+ * @constructor Lost tribe
+ */
 @Initializable
 class LostTribe : Quest("Lost Tribe", 84, 83, 1) {
     override fun newInstance(`object`: Any?): Quest {

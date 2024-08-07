@@ -3,22 +3,60 @@
 
 package proto.management;
 
+/**
+ * The interface Player status update or builder.
+ */
 public interface PlayerStatusUpdateOrBuilder extends
         // @@protoc_insertion_point(interface_extends:management.PlayerStatusUpdate)
         com.google.protobuf.MessageOrBuilder {
 
+    /**
+     * Has username boolean.
+     *
+     * @return the boolean
+     */
     boolean hasUsername();
 
-    java.lang.String getUsername();
+    /**
+     * Gets username.
+     *
+     * @return the username
+     */
+    String getUsername();
 
+    /**
+     * Gets username bytes.
+     *
+     * @return the username bytes
+     */
     com.google.protobuf.ByteString
     getUsernameBytes();
 
+    /**
+     * Has world boolean.
+     *
+     * @return the boolean
+     */
     boolean hasWorld();
 
+    /**
+     * Gets world.
+     *
+     * @return the world
+     */
     int getWorld();
 
+    /**
+     * Has notify friends only boolean.
+     *
+     * @return the boolean
+     */
     boolean hasNotifyFriendsOnly();
 
+    /**
+     * Gets notify friends only.
+     *
+     * @return the notify friends only
+     */
     boolean getNotifyFriendsOnly();
 }

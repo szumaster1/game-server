@@ -1,4 +1,4 @@
-package content.global.skill.crafting.glass
+package content.global.skill.production.crafting.handlers
 
 import content.global.skill.production.crafting.data.GlassData
 import content.global.skill.production.crafting.item.GlassCraftPulse
@@ -11,6 +11,9 @@ import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 
+/**
+ * Glass crafting listener.
+ */
 class GlassCraftingListener : InteractionListener, InterfaceListener {
 
     companion object {

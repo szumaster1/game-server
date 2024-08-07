@@ -14,6 +14,9 @@ import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.plugin.Initializable
 
+/**
+ * Represents the Giant champion NPC for Champions challenge.
+ */
 @Initializable
 class GiantChampionNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
     var clearTime = 0

@@ -19,6 +19,9 @@ import core.plugin.Initializable
 import core.tools.RandomFunction
 import java.util.*
 
+/**
+ * Duel arena activity.
+ */
 @Initializable
 class DuelArenaActivity : ActivityPlugin("Duel arena", false, false, true) {
     override fun enter(e: Entity): Boolean {

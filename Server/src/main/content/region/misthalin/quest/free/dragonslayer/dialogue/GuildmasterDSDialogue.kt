@@ -7,6 +7,9 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.item.GroundItemManager
 
+/**
+ * Guildmaster dragon slayer dialogue.
+ */
 class GuildmasterDSDialogue(player: Player? = null) : Dialogue(player) {
 
     private var quest: Quest? = null
@@ -593,9 +596,9 @@ class GuildmasterDSDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     /**
-     * Handle description.
+     * Handle description
      *
-     * @param buttonId the button id
+     * @param buttonId
      */
     fun handleDescription(buttonId: Int) {
         when (buttonId) {

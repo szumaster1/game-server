@@ -9,11 +9,13 @@ import core.game.node.scenery.Scenery
 import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 
+/**
+ * Nature crafter.
+ */
 @PlayerCompatible
 @ScriptName("Nature Rune Crafter")
 @ScriptDescription("Crafts nat runes. Start in Zanaris w/ dramen staff + Nat tiara.")
 @ScriptIdentifier("nature_crafter")
-
 class NatureCrafter : Script() {
     var state = State.INIT
     var runeCounter = 0
@@ -156,7 +158,80 @@ class NatureCrafter : Script() {
         return this
     }
 
+    /**
+     * State
+     *
+     * @constructor State
+     */
     enum class State {
-        INIT, BANKING, RUNNING_TO_TELE, TELE_WAIT, RUNNING_TO_ALTER, CRAFTING, LEAVING_ALTER, RETURNING_TO_TELE, RETURN_WAIT, INVALID
+        /**
+         * Init
+         *
+         * @constructor Init
+         */
+        INIT,
+
+        /**
+         * Banking
+         *
+         * @constructor Banking
+         */
+        BANKING,
+
+        /**
+         * Running To Tele
+         *
+         * @constructor Running To Tele
+         */
+        RUNNING_TO_TELE,
+
+        /**
+         * Tele Wait
+         *
+         * @constructor Tele Wait
+         */
+        TELE_WAIT,
+
+        /**
+         * Running To Alter
+         *
+         * @constructor Running To Alter
+         */
+        RUNNING_TO_ALTER,
+
+        /**
+         * Crafting
+         *
+         * @constructor Crafting
+         */
+        CRAFTING,
+
+        /**
+         * Leaving Alter
+         *
+         * @constructor Leaving Alter
+         */
+        LEAVING_ALTER,
+
+        /**
+         * Returning To Tele
+         *
+         * @constructor Returning To Tele
+         */
+        RETURNING_TO_TELE,
+
+        /**
+         * Return Wait
+         *
+         * @constructor Return Wait
+         */
+        RETURN_WAIT,
+
+        /**
+         * Invalid
+         *
+         * @constructor Invalid
+         */
+        INVALID
     }
 }

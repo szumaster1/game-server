@@ -19,6 +19,9 @@ import core.network.packet.outgoing.MinimapState
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Lokar searunner dialogue.
+ */
 @Initializable
 class LokarSearunnerDialogue(player: Player? = null): Dialogue(player) {
 

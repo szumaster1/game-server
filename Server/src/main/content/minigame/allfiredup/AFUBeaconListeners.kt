@@ -27,6 +27,10 @@ private val VALID_LOGS = intArrayOf(
 private val FILL_ANIM = Animation(9136)
 private val LIGHT_ANIM = Animation(7307)
 
+/**
+ * Interactions for beacons.
+ * @author Ceikry
+ */
 class AFUBeaconListeners : InteractionListener {
 
     override fun defineListeners() {
@@ -52,6 +56,13 @@ class AFUBeaconListeners : InteractionListener {
         }
     }
 
+    /**
+     * Fill beacon
+     *
+     * @param player
+     * @param beacon
+     * @param questComplete
+     */
     fun fillBeacon(player: Player, beacon: AFUBeacon, questComplete: Boolean) {
 
         when (beacon) {
@@ -123,6 +134,13 @@ class AFUBeaconListeners : InteractionListener {
         }
     }
 
+    /**
+     * Light beacon
+     *
+     * @param player
+     * @param beacon
+     * @param questComplete
+     */
     fun lightBeacon(player: Player, beacon: AFUBeacon, questComplete: Boolean) {
         var session: AFUSession? = null
         if (questComplete) {
@@ -171,6 +189,13 @@ class AFUBeaconListeners : InteractionListener {
         }
     }
 
+    /**
+     * Restore beacon
+     *
+     * @param player
+     * @param beacon
+     * @param questComplete
+     */
     fun restoreBeacon(player: Player, beacon: AFUBeacon, questComplete: Boolean) {
         var session: AFUSession? = null
         if (questComplete) {
@@ -204,6 +229,13 @@ class AFUBeaconListeners : InteractionListener {
         }
     }
 
+    /**
+     * Get logs
+     *
+     * @param player
+     * @param amount
+     * @return
+     */
     fun getLogs(player: Player, amount: Int): Item {
         var logId = 0
         for (log in VALID_LOGS) if (player.inventory.getAmount(log) >= amount) {
@@ -212,18 +244,33 @@ class AFUBeaconListeners : InteractionListener {
         return Item(logId, amount)
     }
 
+    /**
+     * Has fire ring
+     *
+     * @return
+     */
     fun Player.hasFireRing(): Boolean {
         return inventory.containsItem(Item(Items.RING_OF_FIRE_13659)) || bank.containsItem(Item(Items.RING_OF_FIRE_13659)) || equipment.containsItem(
             Item(Items.RING_OF_FIRE_13659)
         )
     }
 
+    /**
+     * Has flame gloves
+     *
+     * @return
+     */
     fun Player.hasFlameGloves(): Boolean {
         return inventory.containsItem(Item(Items.FLAME_GLOVES_13660)) || bank.containsItem(Item(Items.FLAME_GLOVES_13660)) || equipment.containsItem(
             Item(Items.FLAME_GLOVES_13660)
         )
     }
 
+    /**
+     * Has inferno adze
+     *
+     * @return
+     */
     fun Player.hasInfernoAdze(): Boolean {
         return inventory.containsItem(Item(Items.INFERNO_ADZE_13661)) || bank.containsItem(Item(Items.INFERNO_ADZE_13661)) || equipment.containsItem(
             Item(Items.INFERNO_ADZE_13661)

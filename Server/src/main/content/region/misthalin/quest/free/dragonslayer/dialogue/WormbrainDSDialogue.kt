@@ -10,6 +10,9 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 
+/**
+ * Wormbrain Dragon slayer dialogue.
+ */
 class WormbrainDSDialogue(player: Player? = null) : Dialogue(player) {
 
     private var quest: Quest? = null
@@ -100,6 +103,11 @@ class WormbrainDSDialogue(player: Player? = null) : Dialogue(player) {
         return intArrayOf(NPCs.WORMBRAIN_745)
     }
 
+    /**
+     * Default dialogue
+     *
+     * @param buttonId
+     */
     fun defaultDialogue(buttonId: Int) {
         when (stage) {
             -1 -> {

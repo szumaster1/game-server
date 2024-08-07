@@ -4,6 +4,10 @@ import core.network.packet.IoBuffer;
 import core.network.packet.OutgoingPacket;
 import core.network.packet.context.CSConfigContext;
 
+/**
+ * Cs config.
+ * @author Emperor
+ */
 public class CSConfig implements OutgoingPacket<CSConfigContext> {
 
     @Override

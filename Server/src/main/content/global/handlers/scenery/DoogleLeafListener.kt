@@ -7,6 +7,11 @@ import core.api.sendMessage
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Doogle leaf listener
+ *
+ * @constructor Doogle leaf listener
+ */
 class DoogleLeafListener : InteractionListener {
 
     override fun defineListeners() {

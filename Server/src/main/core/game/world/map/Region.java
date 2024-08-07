@@ -23,8 +23,14 @@ import java.util.concurrent.TimeUnit;
 
 import static core.api.ContentAPIKt.log;
 
+/**
+ * Region.
+ */
 public class Region {
 
+    /**
+     * The constant SIZE.
+     */
     public static final int SIZE = 64;
 
     private final int x;
@@ -55,6 +61,12 @@ public class Region {
 
     private boolean updateAllPlanes;
 
+    /**
+     * Instantiates a new Region.
+     *
+     * @param x the x
+     * @param y the y
+     */
     public Region(int x, int y) {
         this.x = x;
         this.y = y;
@@ -71,10 +83,20 @@ public class Region {
         activityPulse.stop();
     }
 
+    /**
+     * Gets base location.
+     *
+     * @return the base location
+     */
     public Location getBaseLocation() {
         return Location.create(x << 6, y << 6, 0);
     }
 
+    /**
+     * Add.
+     *
+     * @param zone the zone
+     */
     public void add(RegionZone zone) {
         regionZones.add(zone);
         for (RegionPlane plane : planes) {
@@ -87,6 +109,11 @@ public class Region {
         }
     }
 
+    /**
+     * Remove.
+     *
+     * @param zone the zone
+     */
     public void remove(RegionZone zone) {
         regionZones.remove(zone);
         for (RegionPlane plane : planes) {
@@ -99,16 +126,31 @@ public class Region {
         }
     }
 
+    /**
+     * Add.
+     *
+     * @param player the player
+     */
     public void add(Player player) {
         planes[player.getLocation().getZ()].add(player);
         tolerances.put(player.getUsername(), System.currentTimeMillis());
         flagActive();
     }
 
+    /**
+     * Add.
+     *
+     * @param npc the npc
+     */
     public void add(NPC npc) {
         planes[npc.getLocation().getZ()].add(npc);
     }
 
+    /**
+     * Remove.
+     *
+     * @param npc the npc
+     */
     public void remove(NPC npc) {
         RegionPlane plane = npc.getViewport().getCurrentPlane();
         if (plane != null && plane != planes[npc.getLocation().getZ()]) {
@@ -117,20 +159,42 @@ public class Region {
         planes[npc.getLocation().getZ()].remove(npc);
     }
 
+    /**
+     * Remove.
+     *
+     * @param player the player
+     */
     public void remove(Player player) {
         player.getViewport().getCurrentPlane().remove(player);
         tolerances.remove(player.getUsername());
         checkInactive();
     }
 
+    /**
+     * Is tolerated boolean.
+     *
+     * @param player the player
+     * @return the boolean
+     */
     public boolean isTolerated(Player player) {
         return System.currentTimeMillis() - tolerances.getOrDefault(player.getUsername(), System.currentTimeMillis()) > TimeUnit.MINUTES.toMillis(10);
     }
 
+    /**
+     * Check inactive boolean.
+     *
+     * @return the boolean
+     */
     public boolean checkInactive() {
         return isInactive(true);
     }
 
+    /**
+     * Is inactive boolean.
+     *
+     * @param runPulse the run pulse
+     * @return the boolean
+     */
     public boolean isInactive(boolean runPulse) {
         if (isViewed()) {
             return false;
@@ -150,10 +214,18 @@ public class Region {
         return true;
     }
 
+    /**
+     * Is pending removal boolean.
+     *
+     * @return the boolean
+     */
     public boolean isPendingRemoval() {
         return activityPulse.isRunning();
     }
 
+    /**
+     * Flag active.
+     */
     public void flagActive() {
         activityPulse.stop();
         if (!active) {
@@ -169,6 +241,12 @@ public class Region {
         }
     }
 
+    /**
+     * Flag inactive boolean.
+     *
+     * @param force the force
+     * @return the boolean
+     */
     public boolean flagInactive(boolean force) {
         if (unload(this, force)) {
             active = false;
@@ -178,14 +256,30 @@ public class Region {
         }
     }
 
+    /**
+     * Flag inactive boolean.
+     *
+     * @return the boolean
+     */
     public boolean flagInactive() {
         return flagInactive(false);
     }
 
+    /**
+     * Load.
+     *
+     * @param r the r
+     */
     public static void load(Region r) {
         load(r, r.build);
     }
 
+    /**
+     * Load.
+     *
+     * @param r     the r
+     * @param build the build
+     */
     public static void load(Region r, boolean build) {
         try {
             if (r.isLoaded() && r.isBuild() == build) {
@@ -234,10 +328,23 @@ public class Region {
         }
     }
 
+    /**
+     * Unload boolean.
+     *
+     * @param r the r
+     * @return the boolean
+     */
     public static boolean unload(Region r) {
         return unload(r, false);
     }
 
+    /**
+     * Unload boolean.
+     *
+     * @param r     the r
+     * @param force the force
+     * @return the boolean
+     */
     public static boolean unload(Region r, boolean force) {
         if (!force && r.isViewed()) {
             log(CommunicationInfo.class, Log.ERR, "Players viewing region!");
@@ -265,18 +372,33 @@ public class Region {
         return true;
     }
 
+    /**
+     * Is viewed boolean.
+     *
+     * @return the boolean
+     */
     public boolean isViewed() {
         synchronized (this) {
             return viewAmount > 0;
         }
     }
 
+    /**
+     * Increment view amount int.
+     *
+     * @return the int
+     */
     public int incrementViewAmount() {
         synchronized (this) {
             return ++viewAmount;
         }
     }
 
+    /**
+     * Decrement view amount int.
+     *
+     * @return the int
+     */
     public int decrementViewAmount() {
         synchronized (this) {
             if (viewAmount < 1) {
@@ -287,87 +409,192 @@ public class Region {
         }
     }
 
+    /**
+     * Is active boolean.
+     *
+     * @return the boolean
+     */
     public boolean isActive() {
         return active;
     }
 
+    /**
+     * Sets active.
+     *
+     * @param active the active
+     */
     @Deprecated
     public void setActive(boolean active) {
         this.active = active;
     }
 
+    /**
+     * Gets id.
+     *
+     * @return the id
+     */
     public int getId() {
         return x << 8 | y;
     }
 
+    /**
+     * Gets region id.
+     *
+     * @return the region id
+     */
     public int getRegionId() {
         return getId();
     }
 
+    /**
+     * Gets x.
+     *
+     * @return the x
+     */
     public int getX() {
         return x;
     }
 
+    /**
+     * Gets y.
+     *
+     * @return the y
+     */
     public int getY() {
         return y;
     }
 
+    /**
+     * Get planes region plane [ ].
+     *
+     * @return the region plane [ ]
+     */
     public RegionPlane[] getPlanes() {
         return planes;
     }
 
+    /**
+     * Gets region zones.
+     *
+     * @return the region zones
+     */
     public List<RegionZone> getRegionZones() {
         return regionZones;
     }
 
+    /**
+     * Gets music zones.
+     *
+     * @return the music zones
+     */
     public List<MusicZone> getMusicZones() {
         return musicZones;
     }
 
+    /**
+     * Gets object count.
+     *
+     * @return the object count
+     */
     public int getObjectCount() {
         return objectCount;
     }
 
+    /**
+     * Sets object count.
+     *
+     * @param objectCount the object count
+     */
     public void setObjectCount(int objectCount) {
         this.objectCount = objectCount;
     }
 
+    /**
+     * Is has flags boolean.
+     *
+     * @return the boolean
+     */
     public boolean isHasFlags() {
         return hasFlags;
     }
 
+    /**
+     * Sets has flags.
+     *
+     * @param hasFlags the has flags
+     */
     public void setHasFlags(boolean hasFlags) {
         this.hasFlags = hasFlags;
     }
 
+    /**
+     * Sets region time out.
+     *
+     * @param ticks the ticks
+     */
     public void setRegionTimeOut(int ticks) {
         activityPulse.setDelay(ticks);
     }
 
+    /**
+     * Is loaded boolean.
+     *
+     * @return the boolean
+     */
     public boolean isLoaded() {
         return loaded;
     }
 
+    /**
+     * Sets loaded.
+     *
+     * @param loaded the loaded
+     */
     public void setLoaded(boolean loaded) {
         this.loaded = loaded;
     }
 
+    /**
+     * Sets view amount.
+     *
+     * @param viewAmount the view amount
+     */
     public void setViewAmount(int viewAmount) {
         this.viewAmount = viewAmount;
     }
 
+    /**
+     * Is build boolean.
+     *
+     * @return the boolean
+     */
     public boolean isBuild() {
         return build;
     }
 
+    /**
+     * Sets build.
+     *
+     * @param build the build
+     */
     public void setBuild(boolean build) {
         this.build = build;
     }
 
+    /**
+     * Is update all planes boolean.
+     *
+     * @return the boolean
+     */
     public boolean isUpdateAllPlanes() {
         return updateAllPlanes;
     }
 
+    /**
+     * Sets update all planes.
+     *
+     * @param updateAllPlanes the update all planes
+     */
     public void setUpdateAllPlanes(boolean updateAllPlanes) {
         this.updateAllPlanes = updateAllPlanes;
     }

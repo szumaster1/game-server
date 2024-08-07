@@ -20,15 +20,27 @@ import core.plugin.Initializable;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
 
+/**
+ * Compost mound npc.
+ */
 @Initializable
 public class CompostMoundNPC extends Forager {
 
     private static final Item[] ITEMS = new Item[]{new Item(6032), new Item(6034), new Item(5318), new Item(5319), new Item(5324), new Item(5322), new Item(5320), new Item(5323), new Item(5321), new Item(5305), new Item(5307), new Item(5308), new Item(5306), new Item(5309), new Item(5310), new Item(5311), new Item(5101), new Item(5102), new Item(5103), new Item(5104), new Item(5105), new Item(5106), new Item(5096), new Item(5097), new Item(5098), new Item(5099), new Item(5100), new Item(5291), new Item(5292), new Item(5293), new Item(5294), new Item(5295), new Item(12176), new Item(5296), new Item(5298), new Item(5299), new Item(5300), new Item(5301), new Item(5302), new Item(5303), new Item(5304)};
 
+    /**
+     * Instantiates a new Compost mound npc.
+     */
     public CompostMoundNPC() {
         this(null, 6871);
     }
 
+    /**
+     * Instantiates a new Compost mound npc.
+     *
+     * @param owner the owner
+     * @param id    the id
+     */
     public CompostMoundNPC(Player owner, int id) {
         super(owner, id, 2400, 12091, 12, WeaponInterface.STYLE_AGGRESSIVE, ITEMS);
     }
@@ -83,8 +95,14 @@ public class CompostMoundNPC extends Forager {
      * The Compost bucket plugin.
      */
 
+    /**
+     * Compost bucket plugin.
+     */
     public class CompostBucketPlugin extends UseWithHandler {
 
+        /**
+         * Instantiates a new Compost bucket plugin.
+         */
         public CompostBucketPlugin() {
             super(1925);
         }

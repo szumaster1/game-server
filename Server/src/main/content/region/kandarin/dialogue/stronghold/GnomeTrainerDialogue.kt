@@ -9,6 +9,9 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 
+/**
+ * Gnome trainer dialogue.
+ */
 @Initializable
 class GnomeTrainerDialogue(player: Player? = null) : Dialogue(player) {
 

@@ -8,6 +8,9 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.api.consts.NPCs
 
+/**
+ * Lumbridge swamp archer dialogue.
+ */
 @Initializable
 class LumbridgeSwampArcherDialogue(player: Player? = null) : Dialogue(player) {
 

@@ -1,33 +1,21 @@
 package core.tools
 
+/**
+ * Object that provides functions to convert numbers into words.
+ */
 object NumberConverter {
 
-    val units: Array<String> = arrayOf(
-        "",
-        "one",
-        "two",
-        "three",
-        "four",
-        "five",
-        "six",
-        "seven",
-        "eight",
-        "nine",
-        "ten",
-        "eleven",
-        "twelve",
-        "thirteen",
-        "fourteen",
-        "fifteen",
-        "sixteen",
-        "seventeen",
-        "eighteen",
-        "nineteen"
-    )
-    val tens: Array<String> =
-        arrayOf("", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety")
+    // Array representing units from 0 to 19
+    val units: Array<String> = arrayOf("", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen")
 
+    // Array representing tens from 0 to 90
+    val tens: Array<String> = arrayOf("", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety")
 
+    /**
+     * Converts a given integer into its word representation.
+     * @param n The integer to convert.
+     * @return The word representation of the integer.
+     */
     fun convert(n: Int): String {
         if (n < 0) {
             return "minus " + convert(-n)
@@ -56,5 +44,3 @@ object NumberConverter {
         return convert(n / 10000000) + " ten million" + (if ((n % 10000000 != 0)) " " else "") + convert(n % 10000000)
     }
 }
-
-

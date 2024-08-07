@@ -15,6 +15,9 @@ import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 import core.tools.RandomFunction
 
+/**
+ * Granite crab familiar.
+ */
 @Initializable
 class GraniteCrabNPC(owner: Player? = null, id: Int = NPCs.GRANITE_CRAB_6796) : Forager(owner, id, 1800, 12009, 12, WeaponInterface.STYLE_DEFENSIVE) {
 

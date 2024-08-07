@@ -14,6 +14,9 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
+/**
+ * Ghost villager dialogue.
+ */
 @Initializable
 class GhostVillagerDialogue(player: Player? = null) : Dialogue(player) {
 

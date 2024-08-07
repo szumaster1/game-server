@@ -8,6 +8,9 @@ import core.api.sendMessage
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Saucy kebab listener.
+ */
 class SaucyKebabListener : InteractionListener {
 
     private val KEBABS = intArrayOf(Items.KEBAB_1971, Items.UGTHANKI_KEBAB_1883, Items.UGTHANKI_KEBAB_1885)

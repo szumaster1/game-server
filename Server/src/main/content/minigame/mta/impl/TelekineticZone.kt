@@ -23,6 +23,12 @@ import core.network.packet.context.CameraContext
 import core.network.packet.outgoing.CameraViewPacket
 import core.tools.RandomFunction
 
+/**
+ * Telekinetic zone
+ *
+ * @property player
+ * @constructor Telekinetic zone
+ */
 class TelekineticZone(val player: Player? = null) :
     MTAZone("Telekinetic Theatre", arrayOf()) {
 
@@ -95,6 +101,10 @@ class TelekineticZone(val player: Player? = null) :
         registerRegion(region!!.id)
     }
 
+    /**
+     * Setup
+     *
+     */
     fun setup() {
         // TODO CHECK
         var maze = if (maze == null) RandomFunction.getRandomElement(Maze.values()) else null
@@ -110,6 +120,10 @@ class TelekineticZone(val player: Player? = null) :
         player!!.teleport(base!!.transform(maze.base))
     }
 
+    /**
+     * Set nodes
+     *
+     */
     fun setNodes() {
         if (statue != null) {
             GroundItemManager.destroy(statue)
@@ -123,6 +137,11 @@ class TelekineticZone(val player: Player? = null) :
         guardian!!.init()
     }
 
+    /**
+     * Move statue
+     *
+     * @param location
+     */
     fun moveStatue(location: Location?) {
         if (statue != null) {
             GroundItemManager.destroy(statue)
@@ -130,6 +149,12 @@ class TelekineticZone(val player: Player? = null) :
         GroundItemManager.create(createGroundItem(location).also { statue = it })
     }
 
+    /**
+     * Create ground item
+     *
+     * @param location
+     * @return
+     */
     fun createGroundItem(location: Location?): GroundItem {
         return object : GroundItem(Item(STATUE), location, player) {
             override fun isActive(): Boolean {
@@ -169,6 +194,10 @@ class TelekineticZone(val player: Player? = null) :
         mazeGuard.init()
     }
 
+    /**
+     * Move statue
+     *
+     */
     fun moveStatue() {
         val dir = dir
         if (dir == null) {
@@ -203,6 +232,11 @@ class TelekineticZone(val player: Player? = null) :
         })
     }
 
+    /**
+     * Observe
+     *
+     * @param player
+     */
     fun observe(player: Player) {
         if (player.getAttribute("camera", false)) {
             PacketRepository.send(
@@ -233,6 +267,11 @@ class TelekineticZone(val player: Player? = null) :
         PacketRepository.send(CameraViewPacket::class.java, CameraContext(player, CameraContext.CameraType.ROTATION, x + xInc, y + yInc, height, 1, speed))
     }
 
+    /**
+     * Reset
+     *
+     * @param player
+     */
     fun reset(player: Player?) {
         moveStatue(base!!.transform(maze!!.statueLocation))
     }
@@ -256,6 +295,17 @@ class TelekineticZone(val player: Player? = null) :
             return null
         }
 
+    /**
+     * Maze
+     *
+     * @property base
+     * @property statueLocation
+     * @property guardianLocation
+     * @property endLocation
+     * @property cameraLocation
+     * @property data
+     * @constructor Maze
+     */
     enum class Maze(
         val base: Location,
         val statueLocation: Location,
@@ -264,6 +314,11 @@ class TelekineticZone(val player: Player? = null) :
         val cameraLocation: Location,
         val data: IntArray
     ) {
+        /**
+         * First
+         *
+         * @constructor First
+         */
         FIRST(
             Location(8, 54, 0),
             Location(15, 41, 0),
@@ -272,6 +327,12 @@ class TelekineticZone(val player: Player? = null) :
             Location(15, 45, 0),
             intArrayOf(51, 40, 9, 20)
         ),
+
+        /**
+         * Second
+         *
+         * @constructor Second
+         */
         SECOND(
             Location(34, 49, 1),
             Location(22, 53, 1),
@@ -280,6 +341,12 @@ class TelekineticZone(val player: Player? = null) :
             Location(17, 48, 1),
             intArrayOf(54, 43, 12, 23)
         ),
+
+        /**
+         * Third
+         *
+         * @constructor Third
+         */
         THIRD(
             Location(54, 34, 1),
             Location(48, 22, 1),
@@ -288,6 +355,12 @@ class TelekineticZone(val player: Player? = null) :
             Location(53, 17, 1),
             intArrayOf(23, 12, 47, 58)
         ),
+
+        /**
+         * Fourth
+         *
+         * @constructor Fourth
+         */
         FOURTH(
             Location(50, 42, 1),
             Location(46, 49, 1),
@@ -296,6 +369,12 @@ class TelekineticZone(val player: Player? = null) :
             Location(50, 53, 1),
             intArrayOf(59, 48, 45, 56)
         ),
+
+        /**
+         * Fith
+         *
+         * @constructor Fith
+         */
         FITH(
             Location(46, 32, 0),
             Location(45, 14, 0),
@@ -304,6 +383,12 @@ class TelekineticZone(val player: Player? = null) :
             Location(45, 13, 0),
             intArrayOf(19, 8, 40, 51)
         ),
+
+        /**
+         * Sixth
+         *
+         * @constructor Sixth
+         */
         SIXTH(
             Location(26, 26, 0),
             Location(15, 16, 0),
@@ -312,6 +397,12 @@ class TelekineticZone(val player: Player? = null) :
             Location(14, 15, 0),
             intArrayOf(21, 10, 9, 10)
         ),
+
+        /**
+         * Seventh
+         *
+         * @constructor Seventh
+         */
         SEVENTH(
             Location(51, 52, 0),
             Location(40, 48, 0),
@@ -320,6 +411,12 @@ class TelekineticZone(val player: Player? = null) :
             Location(43, 51, 0),
             intArrayOf(57, 46, 37, 48)
         ),
+
+        /**
+         * Eigth
+         *
+         * @constructor Eigth
+         */
         EIGTH(
             Location(31, 37, 2),
             Location(18, 54, 2),
@@ -328,6 +425,12 @@ class TelekineticZone(val player: Player? = null) :
             Location(19, 49, 2),
             intArrayOf(55, 44, 14, 25)
         ),
+
+        /**
+         * Ninth
+         *
+         * @constructor Ninth
+         */
         NINTH(
             Location(40, 16, 2),
             Location(20, 10, 2),
@@ -336,6 +439,12 @@ class TelekineticZone(val player: Player? = null) :
             Location(16, 14, 2),
             intArrayOf(20, 9, 10, 21)
         ),
+
+        /**
+         * Tenth
+         *
+         * @constructor Tenth
+         */
         TENTH(
             Location(27, 29, 1),
             Location(23, 20, 1),

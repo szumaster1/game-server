@@ -16,6 +16,9 @@ import core.plugin.Plugin;
 
 import static core.api.ContentAPIKt.setAttribute;
 
+/**
+ * Ball interaction plugin.
+ */
 @Initializable
 public class BallInteractionPlugin extends PluginInteraction {
     private boolean handled;
@@ -45,6 +48,11 @@ public class BallInteractionPlugin extends PluginInteraction {
         return handled;
     }
 
+    /**
+     * Handle ball.
+     *
+     * @param player the player
+     */
     public void handleBall(Player player) {
         if (player.getAttribute("witchs_house:experiment_killed", false)) {
             if (player.getInventory().containsItem(new Item(2407))) {

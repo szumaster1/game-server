@@ -9,6 +9,9 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 
+/**
+ * Afflicted dialogue.
+ */
 @Initializable
 class AfflictedDialogue(player: Player? = null) : Dialogue(player) {
 

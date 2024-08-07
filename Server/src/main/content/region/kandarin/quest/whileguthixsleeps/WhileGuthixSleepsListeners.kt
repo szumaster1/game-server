@@ -10,6 +10,11 @@ import core.game.interaction.InteractionListener
 import core.game.system.task.Pulse
 import core.game.world.map.Location
 
+/**
+ * While guthix sleeps listeners
+ *
+ * @constructor While guthix sleeps listeners
+ */
 class WhileGuthixSleepsListeners : InteractionListener {
     override fun defineListeners() {
         onUseWith(IntType.ITEM, Items.ENRICHED_SNAPDRAGON_14487, Items.TRUTH_SERUM_6952) { player, used, with ->

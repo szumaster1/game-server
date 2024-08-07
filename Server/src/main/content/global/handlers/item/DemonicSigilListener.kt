@@ -11,6 +11,11 @@ import core.game.interaction.InteractionListener
 import core.game.system.task.Pulse
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Demonic sigil listener
+ *
+ * @constructor Demonic sigil listener
+ */
 class DemonicSigilListener : InteractionListener {
 
     private val demonicSigilId = Items.DEMONIC_SIGIL_6748

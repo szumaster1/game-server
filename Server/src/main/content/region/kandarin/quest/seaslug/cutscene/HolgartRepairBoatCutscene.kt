@@ -7,6 +7,9 @@ import core.game.node.entity.player.Player
 import core.game.world.map.Direction
 import core.game.world.map.Location
 
+/**
+ * Holgart repair boat cutscene.
+ */
 class HolgartRepairBoatCutscene(player: Player) : Cutscene(player) {
 
     override fun setup() {

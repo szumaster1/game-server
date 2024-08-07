@@ -1,10 +1,14 @@
 package content.minigame.pyramidplunder
 
+import core.api.consts.NPCs
 import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
 import core.game.world.map.Location
 import core.tools.RandomFunction
 
+/**
+ * Pyramid plunder swarm NPC.
+ */
 class PyramidPlunderSwarmNPC
     (location: Location?, player: Player?) :
     PyramidPlunderNPC(IDS[0], location, player!!) {
@@ -36,6 +40,6 @@ class PyramidPlunderSwarmNPC
     }
 
     companion object {
-        private val IDS = intArrayOf(2001)
+        private val IDS = intArrayOf(NPCs.SCARAB_SWARM_2001)
     }
 }

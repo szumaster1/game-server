@@ -2,11 +2,47 @@ package content.global.skill.support.firemaking.data
 
 import core.api.consts.Items
 
+/**
+ * Gnomish firelighters
+ *
+ * @property base
+ * @property product
+ * @constructor Gnomish firelighters
+ */
 enum class GnomishFirelighters(val base: Int, val product: Int) {
+    /**
+     * Red
+     *
+     * @constructor Red
+     */
     RED(Items.RED_FIRELIGHTER_7329, Items.RED_LOGS_7404),
+
+    /**
+     * Green
+     *
+     * @constructor Green
+     */
     GREEN(Items.GREEN_FIRELIGHTER_7330, Items.GREEN_LOGS_7405),
+
+    /**
+     * Blue
+     *
+     * @constructor Blue
+     */
     BLUE(Items.BLUE_FIRELIGHTER_7331, Items.BLUE_LOGS_7406),
+
+    /**
+     * Purple
+     *
+     * @constructor Purple
+     */
     PURPLE(Items.PURPLE_FIRELIGHTER_10326, Items.PURPLE_LOGS_10329),
+
+    /**
+     * White
+     *
+     * @constructor White
+     */
     WHITE(Items.WHITE_FIRELIGHTER_10327, Items.WHITE_LOGS_10328);
 
     companion object {

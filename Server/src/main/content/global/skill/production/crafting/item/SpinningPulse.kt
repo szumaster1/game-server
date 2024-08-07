@@ -14,6 +14,16 @@ import core.game.node.item.Item
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Spinning pulse
+ *
+ * @property amount
+ * @property type
+ * @constructor
+ *
+ * @param player
+ * @param node
+ */
 class SpinningPulse(player: Player?, node: Item?, var amount: Int, val type: SpinningData) : SkillPulse<Item?>(player, node) {
 
     var ticks = 0

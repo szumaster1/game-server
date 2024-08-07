@@ -13,9 +13,20 @@ import core.plugin.Plugin
 import core.tools.RandomFunction
 import java.util.*
 
+/**
+ * Represents a Barrows puzzle.
+ *
+ * @property questionModels Array of question models
+ * @property answerModels Variable number of answer models
+ * @constructor Initializes a Barrows puzzle with question and answer models
+ */
 class BarrowsPuzzle private constructor(private val questionModels: IntArray, private vararg val answerModels: Int) :
     ComponentPlugin() {
 
+    /**
+     * Creates a new barrows puzzle instance of this puzzle.
+     * @return The new barrows puzzle instance.
+     */
     fun create(): BarrowsPuzzle {
         val answers = answerModels.copyOf(answerModels.size)
         val list: MutableList<Int> = ArrayList(20)
@@ -80,6 +91,10 @@ class BarrowsPuzzle private constructor(private val questionModels: IntArray, pr
         )
         private val COMPONENT = Component(25)
 
+        /**
+         * Opens a random barrows puzzle.
+         * @param player The player.
+         */
         fun open(player: Player) {
             var index = RandomFunction.random(4)
             if (index == player.getAttribute("puzzle:index", -1)) {
@@ -88,6 +103,12 @@ class BarrowsPuzzle private constructor(private val questionModels: IntArray, pr
             open(player, index)
         }
 
+        /**
+         * Opens the barrows puzzle for the given index.
+         * @param player The player.
+         * @param index The index (0 = shapes, 1 = lines, 2 = squares, 3 =
+         * triangle-on-circle).
+         */
         fun open(player: Player, index: Int) {
             var puzzle = SHAPES
             when (index) {
@@ -100,23 +121,47 @@ class BarrowsPuzzle private constructor(private val questionModels: IntArray, pr
             setAttribute(player, "puzzle:answers", puzzle.answerModels)
             player.interfaceManager.open(COMPONENT)
             for (i in puzzle.questionModels.indices) {
-                PacketRepository.send(
-                    DisplayModel::class.java,
-                    DisplayModelContext(player, DisplayModelContext.ModelType.MODEL, puzzle.questionModels[i], 0, 25, 6 + i)
-                )
+                PacketRepository.send(DisplayModel::class.java, DisplayModelContext(
+                        player,
+                        DisplayModelContext.ModelType.MODEL,
+                        puzzle.questionModels[i],
+                        0,
+                        25,
+                        6 + i
+                    ))
             }
             for (i in puzzle.answerModels.indices) {
                 PacketRepository.send(
                     DisplayModel::class.java,
-                    DisplayModelContext(player, DisplayModelContext.ModelType.MODEL, puzzle.answerModels[i] and 0xFFFF, 0, 25, 2 + i)
+                    DisplayModelContext(
+                        player,
+                        DisplayModelContext.ModelType.MODEL,
+                        puzzle.answerModels[i] and 0xFFFF,
+                        0,
+                        25,
+                        2 + i
+                    )
                 )
             }
             PacketRepository.send(
                 DisplayModel::class.java,
-                DisplayModelContext(player, DisplayModelContext.ModelType.MODEL, puzzle.answerModels[2] and 0xFFFF, 0, 25, 5)
+                DisplayModelContext(
+                    player,
+                    DisplayModelContext.ModelType.MODEL,
+                    puzzle.answerModels[2] and 0xFFFF,
+                    0,
+                    25,
+                    5
+                )
             )
         }
 
+        /**
+         * Gets the answer model id.
+         * @param modelId The model id.
+         * @param correct If the answer is correct.
+         * @return The model id hash.
+         */
         private fun getAnswerModel(modelId: Int, correct: Boolean): Int {
             return modelId or ((if (correct) 1 else 0) shl 16)
         }

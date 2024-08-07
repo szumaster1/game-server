@@ -4,6 +4,9 @@ import core.api.consts.Components
 import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.link.prayer.PrayerType
 
+/**
+ * Prayer interface listener.
+ */
 class PrayerInterfaceListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {

@@ -14,6 +14,10 @@ import core.network.packet.context.DynamicSceneContext;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Build dynamic scene.
+ * @author Emperor
+ */
 public final class BuildDynamicScene implements OutgoingPacket<DynamicSceneContext> {
 
     @Override

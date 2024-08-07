@@ -12,13 +12,17 @@ import core.game.world.repository.Repository
 import java.util.function.Consumer
 
 /**
- * Parses the login of a player.
+ * Login parser
+ *
+ * @property details
+ * @constructor Login parser
  */
 class LoginParser(val details: PlayerDetails) {
     /**
-     * Initializes the player.
-     * @param player The player.
-     * @param reconnect If the player data should be parsed.
+     * Initialize
+     *
+     * @param player
+     * @param reconnect
      */
     fun initialize(player: Player, reconnect: Boolean) {
         if (!validateRequest()) return
@@ -90,9 +94,10 @@ class LoginParser(val details: PlayerDetails) {
     }
 
     /**
-     * Flags a response.
-     * @param response the [Response].
-     * @return `True` if successfully logged in.
+     * Flag
+     *
+     * @param response
+     * @return
      */
     fun flag(response: AuthResponse): Boolean {
         details.session.write(response, true)

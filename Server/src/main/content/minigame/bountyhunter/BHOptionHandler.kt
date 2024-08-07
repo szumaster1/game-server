@@ -12,6 +12,10 @@ import core.game.world.GameWorld.ticks
 import core.game.world.update.flag.context.Animation
 import core.plugin.Plugin
 
+/**
+ * Handles the bounty hunter options.
+ * @author Emperor
+ */
 class BHOptionHandler : OptionHandler() {
     @Throws(Throwable::class)
     override fun newInstance(arg: Any?): Plugin<Any> {

@@ -10,6 +10,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.tools.RandomFunction
 
+/**
+ * Beer on drunken ali listener
+ *
+ * @constructor Beer on drunken ali listener
+ */
 class BeerOnDrunkenAliListener : InteractionListener {
 
     private val beer = Items.BEER_1917

@@ -19,6 +19,9 @@ import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
 import kotlin.math.abs
 
+/**
+ * Canoe listeners.
+ */
 class CanoeListeners : InteractionListener, InterfaceListener {
 
     companion object {

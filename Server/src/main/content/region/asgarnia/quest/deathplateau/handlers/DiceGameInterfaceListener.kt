@@ -6,6 +6,11 @@ import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.Player
 import core.game.system.task.Pulse
 
+/**
+ * Dice game interface listener
+ *
+ * @constructor Dice game interface listener
+ */
 class DiceGameInterfaceListener : InterfaceListener {
     companion object {
         val GOLDSTACKS = intArrayOf(995, 996, 997, 998, 999, 1000, 1001, 1002, 1003, 1004)

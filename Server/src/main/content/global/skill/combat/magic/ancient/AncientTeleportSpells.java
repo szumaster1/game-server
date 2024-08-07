@@ -15,15 +15,29 @@ import core.plugin.Initializable;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
 
+/**
+ * Ancient teleport spells.
+ */
 @Initializable
 public final class AncientTeleportSpells extends MagicSpell {
 
     private Location location;
 
+    /**
+     * Instantiates a new Ancient teleport spells.
+     */
     public AncientTeleportSpells() {
 
     }
 
+    /**
+     * Instantiates a new Ancient teleport spells.
+     *
+     * @param level      the level
+     * @param experience the experience
+     * @param location   the location
+     * @param items      the items
+     */
     public AncientTeleportSpells(final int level, final double experience, final Location location, final Item... items) {
         super(SpellBook.ANCIENT, level, experience, null, null, null, items);
         this.location = location;

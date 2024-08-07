@@ -11,6 +11,21 @@ import java.util.concurrent.TimeUnit
 import kotlin.math.ceil
 import kotlin.math.min
 
+/**
+ * Patch
+ *
+ * @property player
+ * @property patch
+ * @property plantable
+ * @property currentGrowthStage
+ * @property isDiseased
+ * @property isDead
+ * @property isWatered
+ * @property nextGrowth
+ * @property harvestAmt
+ * @property isCheckHealth
+ * @constructor Patch
+ */
 class Patch(val player: Player, val patch: FarmingPatch, var plantable: Plantable?, var currentGrowthStage: Int, var isDiseased: Boolean, var isDead: Boolean, var isWatered: Boolean, var nextGrowth: Long, var harvestAmt: Int, var isCheckHealth: Boolean) {
     constructor(player: Player, patch: FarmingPatch) : this(player,patch,null,0,false,false,false,0L,0,false)
 
@@ -19,6 +34,10 @@ class Patch(val player: Player, val patch: FarmingPatch, var plantable: Plantabl
     var protectionPaid = false
     var cropLives = 3
 
+    /**
+     * Set new harvest amount
+     *
+     */
     fun setNewHarvestAmount() {
         val compostMod = when(compost) {
             CompostType.NONE -> 0
@@ -39,6 +58,12 @@ class Patch(val player: Player, val patch: FarmingPatch, var plantable: Plantabl
         cropLives = 3 + compostMod
     }
 
+    /**
+     * Roll lives decrement
+     *
+     * @param farmingLevel
+     * @param magicSecateurs
+     */
     fun rollLivesDecrement(farmingLevel: Int, magicSecateurs: Boolean){
         if(patch.type == PatchType.HERB_PATCH){
             //authentic formula thanks to released data.
@@ -88,28 +113,59 @@ class Patch(val player: Player, val patch: FarmingPatch, var plantable: Plantabl
         if(cropLives <= 0) clear()
     }
 
+    /**
+     * Is weedy
+     *
+     * @return
+     */
     fun isWeedy(): Boolean {
         return getCurrentState() in 0..2
     }
 
+    /**
+     * Is empty and weeded
+     *
+     * @return
+     */
     fun isEmptyAndWeeded(): Boolean {
         return getCurrentState() == 3
     }
 
+    /**
+     * Get current state
+     *
+     * @return
+     */
     fun getCurrentState(): Int{
         return getVarbit(player, patch.varbit)
     }
 
+    /**
+     * Set current state
+     *
+     * @param state
+     */
     fun setCurrentState(state: Int){
         setVarbit(player, patch.varbit, state)
         updateBit()
     }
 
+    /**
+     * Set visual state
+     *
+     * @param state
+     */
     fun setVisualState (state: Int) {
         val finalState = ensureStateSanity(state)
         setVarbit(player, patch.varbit, finalState)
     }
 
+    /**
+     * Ensure state sanity
+     *
+     * @param state
+     * @return
+     */
     fun ensureStateSanity (state: Int) : Int {
         val patchDef = FarmingPatch.getSceneryDefByVarbit(patch.varbit) ?: return state
         val currentStateDef = patchDef.getChildObjectAtIndex(state)
@@ -134,21 +190,28 @@ class Patch(val player: Player, val patch: FarmingPatch, var plantable: Plantabl
         return state
     }
 
+    /**
+     * Is fertilized
+     *
+     * @return
+     */
     fun isFertilized(): Boolean {
         return compost != CompostType.NONE
     }
 
     /**
-     * Returns true if the patch is fully grown.
+     * Is grown
      *
-     * Note: This returns true if the patch is fully weedy.
-     * Use `plantable == null` to check if a patch does
-     * not have anything planted.
+     * @return
      */
     fun isGrown(): Boolean{
         return currentGrowthStage == (plantable?.stages ?: 0)
     }
 
+    /**
+     * Update bit
+     *
+     */
     fun updateBit(){
         if(isCheckHealth){
             when(patch.type){
@@ -203,12 +266,20 @@ class Patch(val player: Player, val patch: FarmingPatch, var plantable: Plantabl
         }
     }
 
+    /**
+     * Cure disease
+     *
+     */
     fun cureDisease() {
         setVarbit(player, patch.varbit, (plantable?.value ?: 0) + currentGrowthStage)
         isDiseased = false
         updateBit()
     }
 
+    /**
+     * Water
+     *
+     */
     fun water() {
         isWatered = true
         updateBit()
@@ -326,6 +397,10 @@ class Patch(val player: Player, val patch: FarmingPatch, var plantable: Plantabl
         regrowIfTreeStump()
     }
 
+    /**
+     * Regrow if tree stump
+     *
+     */
     fun regrowIfTreeStump() {
         if(patch.type == PatchType.TREE_PATCH && plantable != null) {
             // plantable.value + plantable.stages is the check-health stage, so +1 is the choppable tree, and +2 is the stump
@@ -336,11 +411,20 @@ class Patch(val player: Player, val patch: FarmingPatch, var plantable: Plantabl
         }
     }
 
+    /**
+     * Update
+     *
+     */
     fun update(){
         grow()
         updateBit()
     }
 
+    /**
+     * Plant
+     *
+     * @param plantable
+     */
     fun plant(plantable: Plantable){
         nextGrowth = System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(plantable.applicablePatch.stageGrowthTime.toLong())
         this.plantable = plantable
@@ -350,6 +434,10 @@ class Patch(val player: Player, val patch: FarmingPatch, var plantable: Plantabl
         setCurrentState(plantable.value)
     }
 
+    /**
+     * Clear
+     *
+     */
     fun clear(){
         isCheckHealth = false
         isDiseased = false
@@ -363,11 +451,21 @@ class Patch(val player: Player, val patch: FarmingPatch, var plantable: Plantabl
         protectionPaid = false
     }
 
+    /**
+     * Get fruit or berry count
+     *
+     * @return
+     */
     fun getFruitOrBerryCount() : Int {
         plantable ?: return 0
         return getCurrentState() - plantable!!.value - plantable!!.stages
     }
 
+    /**
+     * Get stage growth minutes
+     *
+     * @return
+     */
     fun getStageGrowthMinutes() : Int {
         var minutes = patch.type.stageGrowthTime
         if(patch.type == PatchType.FRUIT_TREE_PATCH && isGrown()) {
@@ -378,6 +476,11 @@ class Patch(val player: Player, val patch: FarmingPatch, var plantable: Plantabl
         return minutes
     }
 
+    /**
+     * Is flower protected
+     *
+     * @return
+     */
     fun isFlowerProtected(): Boolean{
         if(patch.type != PatchType.ALLOTMENT) return false
 

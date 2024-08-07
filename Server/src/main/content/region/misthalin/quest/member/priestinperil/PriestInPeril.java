@@ -10,9 +10,15 @@ import core.plugin.Initializable;
 
 import static core.api.ContentAPIKt.removeAttribute;
 
+/**
+ * Priest in peril.
+ */
 @Initializable
 public class PriestInPeril extends Quest {
 
+    /**
+     * Instantiates a new Priest in peril.
+     */
     public PriestInPeril() {
         super("Priest in Peril", 99, 98, 1, Vars.VARP_QUEST_PRIEST_IN_PERIL_PROGRESS, 0, 1, 100);
     }

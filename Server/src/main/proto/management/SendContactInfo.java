@@ -3,6 +3,9 @@
 
 package proto.management;
 
+/**
+ * Send contact info.
+ */
 public final class SendContactInfo extends
         com.google.protobuf.GeneratedMessageV3 implements
         // @@protoc_insertion_point(message_implements:management.SendContactInfo)
@@ -20,14 +23,14 @@ public final class SendContactInfo extends
         blocked_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
-    @java.lang.Override
+    @Override
     @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
+    protected Object newInstance(
             UnusedPrivateParameter unused) {
         return new SendContactInfo();
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
         return this.unknownFields;
@@ -39,7 +42,7 @@ public final class SendContactInfo extends
             throws com.google.protobuf.InvalidProtocolBufferException {
         this();
         if (extensionRegistry == null) {
-            throw new java.lang.NullPointerException();
+            throw new NullPointerException();
         }
         int mutable_bitField0_ = 0;
         com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -60,11 +63,11 @@ public final class SendContactInfo extends
                     }
                     case 18: {
                         if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                            contacts_ = new java.util.ArrayList<proto.management.SendContactInfo.Contact>();
+                            contacts_ = new java.util.ArrayList<Contact>();
                             mutable_bitField0_ |= 0x00000002;
                         }
                         contacts_.add(
-                                input.readMessage(proto.management.SendContactInfo.Contact.PARSER, extensionRegistry));
+                                input.readMessage(Contact.PARSER, extensionRegistry));
                         break;
                     }
                     case 26: {
@@ -102,39 +105,85 @@ public final class SendContactInfo extends
         }
     }
 
+    /**
+     * Gets descriptor.
+     *
+     * @return the descriptor
+     */
     public static final com.google.protobuf.Descriptors.Descriptor
     getDescriptor() {
-        return proto.management.ManagementProtos.internal_static_management_SendContactInfo_descriptor;
+        return ManagementProtos.internal_static_management_SendContactInfo_descriptor;
     }
 
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    @Override
+    protected FieldAccessorTable
     internalGetFieldAccessorTable() {
-        return proto.management.ManagementProtos.internal_static_management_SendContactInfo_fieldAccessorTable
+        return ManagementProtos.internal_static_management_SendContactInfo_fieldAccessorTable
                 .ensureFieldAccessorsInitialized(
-                        proto.management.SendContactInfo.class, proto.management.SendContactInfo.Builder.class);
+                        SendContactInfo.class, Builder.class);
     }
 
+    /**
+     * The interface Contact or builder.
+     */
     public interface ContactOrBuilder extends
             // @@protoc_insertion_point(interface_extends:management.SendContactInfo.Contact)
             com.google.protobuf.MessageOrBuilder {
 
+        /**
+         * Has username boolean.
+         *
+         * @return the boolean
+         */
         boolean hasUsername();
 
-        java.lang.String getUsername();
+        /**
+         * Gets username.
+         *
+         * @return the username
+         */
+        String getUsername();
 
+        /**
+         * Gets username bytes.
+         *
+         * @return the username bytes
+         */
         com.google.protobuf.ByteString
         getUsernameBytes();
 
+        /**
+         * Has world boolean.
+         *
+         * @return the boolean
+         */
         boolean hasWorld();
 
+        /**
+         * Gets world.
+         *
+         * @return the world
+         */
         int getWorld();
 
+        /**
+         * Has rank boolean.
+         *
+         * @return the boolean
+         */
         boolean hasRank();
 
+        /**
+         * Gets rank.
+         *
+         * @return the rank
+         */
         int getRank();
     }
 
+    /**
+     * Contact.
+     */
     public static final class Contact extends
             com.google.protobuf.GeneratedMessageV3 implements
             // @@protoc_insertion_point(message_implements:management.SendContactInfo.Contact)
@@ -150,14 +199,14 @@ public final class SendContactInfo extends
             username_ = "";
         }
 
-        @java.lang.Override
+        @Override
         @SuppressWarnings({"unused"})
-        protected java.lang.Object newInstance(
+        protected Object newInstance(
                 UnusedPrivateParameter unused) {
             return new Contact();
         }
 
-        @java.lang.Override
+        @Override
         public final com.google.protobuf.UnknownFieldSet
         getUnknownFields() {
             return this.unknownFields;
@@ -169,7 +218,7 @@ public final class SendContactInfo extends
                 throws com.google.protobuf.InvalidProtocolBufferException {
             this();
             if (extensionRegistry == null) {
-                throw new java.lang.NullPointerException();
+                throw new NullPointerException();
             }
             int mutable_bitField0_ = 0;
             com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -218,37 +267,45 @@ public final class SendContactInfo extends
             }
         }
 
+        /**
+         * Gets descriptor.
+         *
+         * @return the descriptor
+         */
         public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-            return proto.management.ManagementProtos.internal_static_management_SendContactInfo_Contact_descriptor;
+            return ManagementProtos.internal_static_management_SendContactInfo_Contact_descriptor;
         }
 
-        @java.lang.Override
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        @Override
+        protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-            return proto.management.ManagementProtos.internal_static_management_SendContactInfo_Contact_fieldAccessorTable
+            return ManagementProtos.internal_static_management_SendContactInfo_Contact_fieldAccessorTable
                     .ensureFieldAccessorsInitialized(
-                            proto.management.SendContactInfo.Contact.class, proto.management.SendContactInfo.Contact.Builder.class);
+                            Contact.class, Builder.class);
         }
 
         private int bitField0_;
+        /**
+         * The constant USERNAME_FIELD_NUMBER.
+         */
         public static final int USERNAME_FIELD_NUMBER = 1;
-        private volatile java.lang.Object username_;
+        private volatile Object username_;
 
-        @java.lang.Override
+        @Override
         public boolean hasUsername() {
             return ((bitField0_ & 0x00000001) != 0);
         }
 
-        @java.lang.Override
-        public java.lang.String getUsername() {
-            java.lang.Object ref = username_;
-            if (ref instanceof java.lang.String) {
-                return (java.lang.String) ref;
+        @Override
+        public String getUsername() {
+            Object ref = username_;
+            if (ref instanceof String) {
+                return (String) ref;
             } else {
                 com.google.protobuf.ByteString bs =
                         (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
+                String s = bs.toStringUtf8();
                 if (bs.isValidUtf8()) {
                     username_ = s;
                 }
@@ -256,14 +313,14 @@ public final class SendContactInfo extends
             }
         }
 
-        @java.lang.Override
+        @Override
         public com.google.protobuf.ByteString
         getUsernameBytes() {
-            java.lang.Object ref = username_;
-            if (ref instanceof java.lang.String) {
+            Object ref = username_;
+            if (ref instanceof String) {
                 com.google.protobuf.ByteString b =
                         com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
+                                (String) ref);
                 username_ = b;
                 return b;
             } else {
@@ -271,35 +328,41 @@ public final class SendContactInfo extends
             }
         }
 
+        /**
+         * The constant WORLD_FIELD_NUMBER.
+         */
         public static final int WORLD_FIELD_NUMBER = 2;
         private int world_;
 
-        @java.lang.Override
+        @Override
         public boolean hasWorld() {
             return ((bitField0_ & 0x00000002) != 0);
         }
 
-        @java.lang.Override
+        @Override
         public int getWorld() {
             return world_;
         }
 
+        /**
+         * The constant RANK_FIELD_NUMBER.
+         */
         public static final int RANK_FIELD_NUMBER = 3;
         private int rank_;
 
-        @java.lang.Override
+        @Override
         public boolean hasRank() {
             return ((bitField0_ & 0x00000004) != 0);
         }
 
-        @java.lang.Override
+        @Override
         public int getRank() {
             return rank_;
         }
 
         private byte memoizedIsInitialized = -1;
 
-        @java.lang.Override
+        @Override
         public final boolean isInitialized() {
             byte isInitialized = memoizedIsInitialized;
             if (isInitialized == 1) return true;
@@ -313,7 +376,7 @@ public final class SendContactInfo extends
             return true;
         }
 
-        @java.lang.Override
+        @Override
         public void writeTo(com.google.protobuf.CodedOutputStream output)
                 throws java.io.IOException {
             if (((bitField0_ & 0x00000001) != 0)) {
@@ -328,7 +391,7 @@ public final class SendContactInfo extends
             unknownFields.writeTo(output);
         }
 
-        @java.lang.Override
+        @Override
         public int getSerializedSize() {
             int size = memoizedSize;
             if (size != -1) return size;
@@ -350,15 +413,15 @@ public final class SendContactInfo extends
             return size;
         }
 
-        @java.lang.Override
-        public boolean equals(final java.lang.Object obj) {
+        @Override
+        public boolean equals(final Object obj) {
             if (obj == this) {
                 return true;
             }
-            if (!(obj instanceof proto.management.SendContactInfo.Contact)) {
+            if (!(obj instanceof Contact)) {
                 return super.equals(obj);
             }
-            proto.management.SendContactInfo.Contact other = (proto.management.SendContactInfo.Contact) obj;
+            Contact other = (Contact) obj;
 
             if (hasUsername() != other.hasUsername()) return false;
             if (hasUsername()) {
@@ -379,7 +442,7 @@ public final class SendContactInfo extends
             return true;
         }
 
-        @java.lang.Override
+        @Override
         public int hashCode() {
             if (memoizedHashCode != 0) {
                 return memoizedHashCode;
@@ -403,51 +466,111 @@ public final class SendContactInfo extends
             return hash;
         }
 
-        public static proto.management.SendContactInfo.Contact parseFrom(
+        /**
+         * Parse from contact.
+         *
+         * @param data the data
+         * @return the contact
+         * @throws InvalidProtocolBufferException the invalid protocol buffer exception
+         */
+        public static Contact parseFrom(
                 java.nio.ByteBuffer data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
 
-        public static proto.management.SendContactInfo.Contact parseFrom(
+        /**
+         * Parse from contact.
+         *
+         * @param data              the data
+         * @param extensionRegistry the extension registry
+         * @return the contact
+         * @throws InvalidProtocolBufferException the invalid protocol buffer exception
+         */
+        public static Contact parseFrom(
                 java.nio.ByteBuffer data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
 
-        public static proto.management.SendContactInfo.Contact parseFrom(
+        /**
+         * Parse from contact.
+         *
+         * @param data the data
+         * @return the contact
+         * @throws InvalidProtocolBufferException the invalid protocol buffer exception
+         */
+        public static Contact parseFrom(
                 com.google.protobuf.ByteString data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
 
-        public static proto.management.SendContactInfo.Contact parseFrom(
+        /**
+         * Parse from contact.
+         *
+         * @param data              the data
+         * @param extensionRegistry the extension registry
+         * @return the contact
+         * @throws InvalidProtocolBufferException the invalid protocol buffer exception
+         */
+        public static Contact parseFrom(
                 com.google.protobuf.ByteString data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
 
-        public static proto.management.SendContactInfo.Contact parseFrom(byte[] data)
+        /**
+         * Parse from contact.
+         *
+         * @param data the data
+         * @return the contact
+         * @throws InvalidProtocolBufferException the invalid protocol buffer exception
+         */
+        public static Contact parseFrom(byte[] data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
 
-        public static proto.management.SendContactInfo.Contact parseFrom(
+        /**
+         * Parse from contact.
+         *
+         * @param data              the data
+         * @param extensionRegistry the extension registry
+         * @return the contact
+         * @throws InvalidProtocolBufferException the invalid protocol buffer exception
+         */
+        public static Contact parseFrom(
                 byte[] data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
 
-        public static proto.management.SendContactInfo.Contact parseFrom(java.io.InputStream input)
+        /**
+         * Parse from contact.
+         *
+         * @param input the input
+         * @return the contact
+         * @throws IOException the io exception
+         */
+        public static Contact parseFrom(java.io.InputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input);
         }
 
-        public static proto.management.SendContactInfo.Contact parseFrom(
+        /**
+         * Parse from contact.
+         *
+         * @param input             the input
+         * @param extensionRegistry the extension registry
+         * @return the contact
+         * @throws IOException the io exception
+         */
+        public static Contact parseFrom(
                 java.io.InputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws java.io.IOException {
@@ -455,13 +578,28 @@ public final class SendContactInfo extends
                     .parseWithIOException(PARSER, input, extensionRegistry);
         }
 
-        public static proto.management.SendContactInfo.Contact parseDelimitedFrom(java.io.InputStream input)
+        /**
+         * Parse delimited from contact.
+         *
+         * @param input the input
+         * @return the contact
+         * @throws IOException the io exception
+         */
+        public static Contact parseDelimitedFrom(java.io.InputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseDelimitedWithIOException(PARSER, input);
         }
 
-        public static proto.management.SendContactInfo.Contact parseDelimitedFrom(
+        /**
+         * Parse delimited from contact.
+         *
+         * @param input             the input
+         * @param extensionRegistry the extension registry
+         * @return the contact
+         * @throws IOException the io exception
+         */
+        public static Contact parseDelimitedFrom(
                 java.io.InputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws java.io.IOException {
@@ -469,14 +607,29 @@ public final class SendContactInfo extends
                     .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
         }
 
-        public static proto.management.SendContactInfo.Contact parseFrom(
+        /**
+         * Parse from contact.
+         *
+         * @param input the input
+         * @return the contact
+         * @throws IOException the io exception
+         */
+        public static Contact parseFrom(
                 com.google.protobuf.CodedInputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input);
         }
 
-        public static proto.management.SendContactInfo.Contact parseFrom(
+        /**
+         * Parse from contact.
+         *
+         * @param input             the input
+         * @param extensionRegistry the extension registry
+         * @return the contact
+         * @throws IOException the io exception
+         */
+        public static Contact parseFrom(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws java.io.IOException {
@@ -484,47 +637,66 @@ public final class SendContactInfo extends
                     .parseWithIOException(PARSER, input, extensionRegistry);
         }
 
-        @java.lang.Override
+        @Override
         public Builder newBuilderForType() {
             return newBuilder();
         }
 
+        /**
+         * New builder builder.
+         *
+         * @return the builder
+         */
         public static Builder newBuilder() {
             return DEFAULT_INSTANCE.toBuilder();
         }
 
-        public static Builder newBuilder(proto.management.SendContactInfo.Contact prototype) {
+        /**
+         * New builder builder.
+         *
+         * @param prototype the prototype
+         * @return the builder
+         */
+        public static Builder newBuilder(Contact prototype) {
             return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
         }
 
-        @java.lang.Override
+        @Override
         public Builder toBuilder() {
             return this == DEFAULT_INSTANCE
                     ? new Builder() : new Builder().mergeFrom(this);
         }
 
-        @java.lang.Override
+        @Override
         protected Builder newBuilderForType(
-                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+                BuilderParent parent) {
             Builder builder = new Builder(parent);
             return builder;
         }
 
+        /**
+         * Builder.
+         */
         public static final class Builder extends
                 com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
                 // @@protoc_insertion_point(builder_implements:management.SendContactInfo.Contact)
-                proto.management.SendContactInfo.ContactOrBuilder {
+                ContactOrBuilder {
+            /**
+             * Gets descriptor.
+             *
+             * @return the descriptor
+             */
             public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-                return proto.management.ManagementProtos.internal_static_management_SendContactInfo_Contact_descriptor;
+                return ManagementProtos.internal_static_management_SendContactInfo_Contact_descriptor;
             }
 
-            @java.lang.Override
-            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            @Override
+            protected FieldAccessorTable
             internalGetFieldAccessorTable() {
-                return proto.management.ManagementProtos.internal_static_management_SendContactInfo_Contact_fieldAccessorTable
+                return ManagementProtos.internal_static_management_SendContactInfo_Contact_fieldAccessorTable
                         .ensureFieldAccessorsInitialized(
-                                proto.management.SendContactInfo.Contact.class, proto.management.SendContactInfo.Contact.Builder.class);
+                                Contact.class, Builder.class);
             }
 
             // Construct using proto.management.SendContactInfo.Contact.newBuilder()
@@ -533,7 +705,7 @@ public final class SendContactInfo extends
             }
 
             private Builder(
-                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+                    BuilderParent parent) {
                 super(parent);
                 maybeForceBuilderInitialization();
             }
@@ -544,7 +716,7 @@ public final class SendContactInfo extends
                 }
             }
 
-            @java.lang.Override
+            @Override
             public Builder clear() {
                 super.clear();
                 username_ = "";
@@ -556,29 +728,29 @@ public final class SendContactInfo extends
                 return this;
             }
 
-            @java.lang.Override
+            @Override
             public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-                return proto.management.ManagementProtos.internal_static_management_SendContactInfo_Contact_descriptor;
+                return ManagementProtos.internal_static_management_SendContactInfo_Contact_descriptor;
             }
 
-            @java.lang.Override
-            public proto.management.SendContactInfo.Contact getDefaultInstanceForType() {
-                return proto.management.SendContactInfo.Contact.getDefaultInstance();
+            @Override
+            public Contact getDefaultInstanceForType() {
+                return Contact.getDefaultInstance();
             }
 
-            @java.lang.Override
-            public proto.management.SendContactInfo.Contact build() {
-                proto.management.SendContactInfo.Contact result = buildPartial();
+            @Override
+            public Contact build() {
+                Contact result = buildPartial();
                 if (!result.isInitialized()) {
                     throw newUninitializedMessageException(result);
                 }
                 return result;
             }
 
-            @java.lang.Override
-            public proto.management.SendContactInfo.Contact buildPartial() {
-                proto.management.SendContactInfo.Contact result = new proto.management.SendContactInfo.Contact(this);
+            @Override
+            public Contact buildPartial() {
+                Contact result = new Contact(this);
                 int from_bitField0_ = bitField0_;
                 int to_bitField0_ = 0;
                 if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -598,56 +770,62 @@ public final class SendContactInfo extends
                 return result;
             }
 
-            @java.lang.Override
+            @Override
             public Builder clone() {
                 return super.clone();
             }
 
-            @java.lang.Override
+            @Override
             public Builder setField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
+                    Object value) {
                 return super.setField(field, value);
             }
 
-            @java.lang.Override
+            @Override
             public Builder clearField(
                     com.google.protobuf.Descriptors.FieldDescriptor field) {
                 return super.clearField(field);
             }
 
-            @java.lang.Override
+            @Override
             public Builder clearOneof(
                     com.google.protobuf.Descriptors.OneofDescriptor oneof) {
                 return super.clearOneof(oneof);
             }
 
-            @java.lang.Override
+            @Override
             public Builder setRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, java.lang.Object value) {
+                    int index, Object value) {
                 return super.setRepeatedField(field, index, value);
             }
 
-            @java.lang.Override
+            @Override
             public Builder addRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
+                    Object value) {
                 return super.addRepeatedField(field, value);
             }
 
-            @java.lang.Override
+            @Override
             public Builder mergeFrom(com.google.protobuf.Message other) {
-                if (other instanceof proto.management.SendContactInfo.Contact) {
-                    return mergeFrom((proto.management.SendContactInfo.Contact) other);
+                if (other instanceof Contact) {
+                    return mergeFrom((Contact) other);
                 } else {
                     super.mergeFrom(other);
                     return this;
                 }
             }
 
-            public Builder mergeFrom(proto.management.SendContactInfo.Contact other) {
-                if (other == proto.management.SendContactInfo.Contact.getDefaultInstance()) return this;
+            /**
+             * Merge from builder.
+             *
+             * @param other the other
+             * @return the builder
+             */
+            public Builder mergeFrom(Contact other) {
+                if (other == Contact.getDefaultInstance()) return this;
                 if (other.hasUsername()) {
                     bitField0_ |= 0x00000001;
                     username_ = other.username_;
@@ -664,7 +842,7 @@ public final class SendContactInfo extends
                 return this;
             }
 
-            @java.lang.Override
+            @Override
             public final boolean isInitialized() {
                 if (!hasUsername()) {
                     return false;
@@ -672,16 +850,16 @@ public final class SendContactInfo extends
                 return true;
             }
 
-            @java.lang.Override
+            @Override
             public Builder mergeFrom(
                     com.google.protobuf.CodedInputStream input,
                     com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                     throws java.io.IOException {
-                proto.management.SendContactInfo.Contact parsedMessage = null;
+                Contact parsedMessage = null;
                 try {
                     parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
                 } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                    parsedMessage = (proto.management.SendContactInfo.Contact) e.getUnfinishedMessage();
+                    parsedMessage = (Contact) e.getUnfinishedMessage();
                     throw e.unwrapIOException();
                 } finally {
                     if (parsedMessage != null) {
@@ -693,34 +871,34 @@ public final class SendContactInfo extends
 
             private int bitField0_;
 
-            private java.lang.Object username_ = "";
+            private Object username_ = "";
 
             public boolean hasUsername() {
                 return ((bitField0_ & 0x00000001) != 0);
             }
 
-            public java.lang.String getUsername() {
-                java.lang.Object ref = username_;
-                if (!(ref instanceof java.lang.String)) {
+            public String getUsername() {
+                Object ref = username_;
+                if (!(ref instanceof String)) {
                     com.google.protobuf.ByteString bs =
                             (com.google.protobuf.ByteString) ref;
-                    java.lang.String s = bs.toStringUtf8();
+                    String s = bs.toStringUtf8();
                     if (bs.isValidUtf8()) {
                         username_ = s;
                     }
                     return s;
                 } else {
-                    return (java.lang.String) ref;
+                    return (String) ref;
                 }
             }
 
             public com.google.protobuf.ByteString
             getUsernameBytes() {
-                java.lang.Object ref = username_;
+                Object ref = username_;
                 if (ref instanceof String) {
                     com.google.protobuf.ByteString b =
                             com.google.protobuf.ByteString.copyFromUtf8(
-                                    (java.lang.String) ref);
+                                    (String) ref);
                     username_ = b;
                     return b;
                 } else {
@@ -728,8 +906,14 @@ public final class SendContactInfo extends
                 }
             }
 
+            /**
+             * Sets username.
+             *
+             * @param value the value
+             * @return the username
+             */
             public Builder setUsername(
-                    java.lang.String value) {
+                    String value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -739,6 +923,11 @@ public final class SendContactInfo extends
                 return this;
             }
 
+            /**
+             * Clear username builder.
+             *
+             * @return the builder
+             */
             public Builder clearUsername() {
                 bitField0_ = (bitField0_ & ~0x00000001);
                 username_ = getDefaultInstance().getUsername();
@@ -746,6 +935,12 @@ public final class SendContactInfo extends
                 return this;
             }
 
+            /**
+             * Sets username bytes.
+             *
+             * @param value the value
+             * @return the username bytes
+             */
             public Builder setUsernameBytes(
                     com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -759,16 +954,22 @@ public final class SendContactInfo extends
 
             private int world_;
 
-            @java.lang.Override
+            @Override
             public boolean hasWorld() {
                 return ((bitField0_ & 0x00000002) != 0);
             }
 
-            @java.lang.Override
+            @Override
             public int getWorld() {
                 return world_;
             }
 
+            /**
+             * Sets world.
+             *
+             * @param value the value
+             * @return the world
+             */
             public Builder setWorld(int value) {
                 bitField0_ |= 0x00000002;
                 world_ = value;
@@ -776,6 +977,11 @@ public final class SendContactInfo extends
                 return this;
             }
 
+            /**
+             * Clear world builder.
+             *
+             * @return the builder
+             */
             public Builder clearWorld() {
                 bitField0_ = (bitField0_ & ~0x00000002);
                 world_ = 0;
@@ -785,16 +991,22 @@ public final class SendContactInfo extends
 
             private int rank_;
 
-            @java.lang.Override
+            @Override
             public boolean hasRank() {
                 return ((bitField0_ & 0x00000004) != 0);
             }
 
-            @java.lang.Override
+            @Override
             public int getRank() {
                 return rank_;
             }
 
+            /**
+             * Sets rank.
+             *
+             * @param value the value
+             * @return the rank
+             */
             public Builder setRank(int value) {
                 bitField0_ |= 0x00000004;
                 rank_ = value;
@@ -802,6 +1014,11 @@ public final class SendContactInfo extends
                 return this;
             }
 
+            /**
+             * Clear rank builder.
+             *
+             * @return the builder
+             */
             public Builder clearRank() {
                 bitField0_ = (bitField0_ & ~0x00000004);
                 rank_ = 0;
@@ -809,13 +1026,13 @@ public final class SendContactInfo extends
                 return this;
             }
 
-            @java.lang.Override
+            @Override
             public final Builder setUnknownFields(
                     final com.google.protobuf.UnknownFieldSet unknownFields) {
                 return super.setUnknownFields(unknownFields);
             }
 
-            @java.lang.Override
+            @Override
             public final Builder mergeUnknownFields(
                     final com.google.protobuf.UnknownFieldSet unknownFields) {
                 return super.mergeUnknownFields(unknownFields);
@@ -826,20 +1043,28 @@ public final class SendContactInfo extends
         }
 
         // @@protoc_insertion_point(class_scope:management.SendContactInfo.Contact)
-        private static final proto.management.SendContactInfo.Contact DEFAULT_INSTANCE;
+        private static final Contact DEFAULT_INSTANCE;
 
         static {
-            DEFAULT_INSTANCE = new proto.management.SendContactInfo.Contact();
+            DEFAULT_INSTANCE = new Contact();
         }
 
-        public static proto.management.SendContactInfo.Contact getDefaultInstance() {
+        /**
+         * Gets default instance.
+         *
+         * @return the default instance
+         */
+        public static Contact getDefaultInstance() {
             return DEFAULT_INSTANCE;
         }
 
-        @java.lang.Deprecated
+        /**
+         * The constant PARSER.
+         */
+        @Deprecated
         public static final com.google.protobuf.Parser<Contact>
                 PARSER = new com.google.protobuf.AbstractParser<Contact>() {
-            @java.lang.Override
+            @Override
             public Contact parsePartialFrom(
                     com.google.protobuf.CodedInputStream input,
                     com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -848,40 +1073,48 @@ public final class SendContactInfo extends
             }
         };
 
+        /**
+         * Parser com . google . protobuf . parser.
+         *
+         * @return the com . google . protobuf . parser
+         */
         public static com.google.protobuf.Parser<Contact> parser() {
             return PARSER;
         }
 
-        @java.lang.Override
+        @Override
         public com.google.protobuf.Parser<Contact> getParserForType() {
             return PARSER;
         }
 
-        @java.lang.Override
-        public proto.management.SendContactInfo.Contact getDefaultInstanceForType() {
+        @Override
+        public Contact getDefaultInstanceForType() {
             return DEFAULT_INSTANCE;
         }
 
     }
 
     private int bitField0_;
+    /**
+     * The constant USERNAME_FIELD_NUMBER.
+     */
     public static final int USERNAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object username_;
+    private volatile Object username_;
 
-    @java.lang.Override
+    @Override
     public boolean hasUsername() {
         return ((bitField0_ & 0x00000001) != 0);
     }
 
-    @java.lang.Override
-    public java.lang.String getUsername() {
-        java.lang.Object ref = username_;
-        if (ref instanceof java.lang.String) {
-            return (java.lang.String) ref;
+    @Override
+    public String getUsername() {
+        Object ref = username_;
+        if (ref instanceof String) {
+            return (String) ref;
         } else {
             com.google.protobuf.ByteString bs =
                     (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
+            String s = bs.toStringUtf8();
             if (bs.isValidUtf8()) {
                 username_ = s;
             }
@@ -889,14 +1122,14 @@ public final class SendContactInfo extends
         }
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.ByteString
     getUsernameBytes() {
-        java.lang.Object ref = username_;
-        if (ref instanceof java.lang.String) {
+        Object ref = username_;
+        if (ref instanceof String) {
             com.google.protobuf.ByteString b =
                     com.google.protobuf.ByteString.copyFromUtf8(
-                            (java.lang.String) ref);
+                            (String) ref);
             username_ = b;
             return b;
         } else {
@@ -904,36 +1137,42 @@ public final class SendContactInfo extends
         }
     }
 
+    /**
+     * The constant CONTACTS_FIELD_NUMBER.
+     */
     public static final int CONTACTS_FIELD_NUMBER = 2;
-    private java.util.List<proto.management.SendContactInfo.Contact> contacts_;
+    private java.util.List<Contact> contacts_;
 
-    @java.lang.Override
-    public java.util.List<proto.management.SendContactInfo.Contact> getContactsList() {
+    @Override
+    public java.util.List<Contact> getContactsList() {
         return contacts_;
     }
 
-    @java.lang.Override
-    public java.util.List<? extends proto.management.SendContactInfo.ContactOrBuilder>
+    @Override
+    public java.util.List<? extends ContactOrBuilder>
     getContactsOrBuilderList() {
         return contacts_;
     }
 
-    @java.lang.Override
+    @Override
     public int getContactsCount() {
         return contacts_.size();
     }
 
-    @java.lang.Override
-    public proto.management.SendContactInfo.Contact getContacts(int index) {
+    @Override
+    public Contact getContacts(int index) {
         return contacts_.get(index);
     }
 
-    @java.lang.Override
-    public proto.management.SendContactInfo.ContactOrBuilder getContactsOrBuilder(
+    @Override
+    public ContactOrBuilder getContactsOrBuilder(
             int index) {
         return contacts_.get(index);
     }
 
+    /**
+     * The constant BLOCKED_FIELD_NUMBER.
+     */
     public static final int BLOCKED_FIELD_NUMBER = 3;
     private com.google.protobuf.LazyStringList blocked_;
 
@@ -946,7 +1185,7 @@ public final class SendContactInfo extends
         return blocked_.size();
     }
 
-    public java.lang.String getBlocked(int index) {
+    public String getBlocked(int index) {
         return blocked_.get(index);
     }
 
@@ -957,7 +1196,7 @@ public final class SendContactInfo extends
 
     private byte memoizedIsInitialized = -1;
 
-    @java.lang.Override
+    @Override
     public final boolean isInitialized() {
         byte isInitialized = memoizedIsInitialized;
         if (isInitialized == 1) return true;
@@ -977,7 +1216,7 @@ public final class SendContactInfo extends
         return true;
     }
 
-    @java.lang.Override
+    @Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
             throws java.io.IOException {
         if (((bitField0_ & 0x00000001) != 0)) {
@@ -992,7 +1231,7 @@ public final class SendContactInfo extends
         unknownFields.writeTo(output);
     }
 
-    @java.lang.Override
+    @Override
     public int getSerializedSize() {
         int size = memoizedSize;
         if (size != -1) return size;
@@ -1018,15 +1257,15 @@ public final class SendContactInfo extends
         return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
         if (obj == this) {
             return true;
         }
-        if (!(obj instanceof proto.management.SendContactInfo)) {
+        if (!(obj instanceof SendContactInfo)) {
             return super.equals(obj);
         }
-        proto.management.SendContactInfo other = (proto.management.SendContactInfo) obj;
+        SendContactInfo other = (SendContactInfo) obj;
 
         if (hasUsername() != other.hasUsername()) return false;
         if (hasUsername()) {
@@ -1041,7 +1280,7 @@ public final class SendContactInfo extends
         return true;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
         if (memoizedHashCode != 0) {
             return memoizedHashCode;
@@ -1065,51 +1304,111 @@ public final class SendContactInfo extends
         return hash;
     }
 
-    public static proto.management.SendContactInfo parseFrom(
+    /**
+     * Parse from send contact info.
+     *
+     * @param data the data
+     * @return the send contact info
+     * @throws InvalidProtocolBufferException the invalid protocol buffer exception
+     */
+    public static SendContactInfo parseFrom(
             java.nio.ByteBuffer data)
             throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
     }
 
-    public static proto.management.SendContactInfo parseFrom(
+    /**
+     * Parse from send contact info.
+     *
+     * @param data              the data
+     * @param extensionRegistry the extension registry
+     * @return the send contact info
+     * @throws InvalidProtocolBufferException the invalid protocol buffer exception
+     */
+    public static SendContactInfo parseFrom(
             java.nio.ByteBuffer data,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
     }
 
-    public static proto.management.SendContactInfo parseFrom(
+    /**
+     * Parse from send contact info.
+     *
+     * @param data the data
+     * @return the send contact info
+     * @throws InvalidProtocolBufferException the invalid protocol buffer exception
+     */
+    public static SendContactInfo parseFrom(
             com.google.protobuf.ByteString data)
             throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
     }
 
-    public static proto.management.SendContactInfo parseFrom(
+    /**
+     * Parse from send contact info.
+     *
+     * @param data              the data
+     * @param extensionRegistry the extension registry
+     * @return the send contact info
+     * @throws InvalidProtocolBufferException the invalid protocol buffer exception
+     */
+    public static SendContactInfo parseFrom(
             com.google.protobuf.ByteString data,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
     }
 
-    public static proto.management.SendContactInfo parseFrom(byte[] data)
+    /**
+     * Parse from send contact info.
+     *
+     * @param data the data
+     * @return the send contact info
+     * @throws InvalidProtocolBufferException the invalid protocol buffer exception
+     */
+    public static SendContactInfo parseFrom(byte[] data)
             throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
     }
 
-    public static proto.management.SendContactInfo parseFrom(
+    /**
+     * Parse from send contact info.
+     *
+     * @param data              the data
+     * @param extensionRegistry the extension registry
+     * @return the send contact info
+     * @throws InvalidProtocolBufferException the invalid protocol buffer exception
+     */
+    public static SendContactInfo parseFrom(
             byte[] data,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
     }
 
-    public static proto.management.SendContactInfo parseFrom(java.io.InputStream input)
+    /**
+     * Parse from send contact info.
+     *
+     * @param input the input
+     * @return the send contact info
+     * @throws IOException the io exception
+     */
+    public static SendContactInfo parseFrom(java.io.InputStream input)
             throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
                 .parseWithIOException(PARSER, input);
     }
 
-    public static proto.management.SendContactInfo parseFrom(
+    /**
+     * Parse from send contact info.
+     *
+     * @param input             the input
+     * @param extensionRegistry the extension registry
+     * @return the send contact info
+     * @throws IOException the io exception
+     */
+    public static SendContactInfo parseFrom(
             java.io.InputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
@@ -1117,13 +1416,28 @@ public final class SendContactInfo extends
                 .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static proto.management.SendContactInfo parseDelimitedFrom(java.io.InputStream input)
+    /**
+     * Parse delimited from send contact info.
+     *
+     * @param input the input
+     * @return the send contact info
+     * @throws IOException the io exception
+     */
+    public static SendContactInfo parseDelimitedFrom(java.io.InputStream input)
             throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
                 .parseDelimitedWithIOException(PARSER, input);
     }
 
-    public static proto.management.SendContactInfo parseDelimitedFrom(
+    /**
+     * Parse delimited from send contact info.
+     *
+     * @param input             the input
+     * @param extensionRegistry the extension registry
+     * @return the send contact info
+     * @throws IOException the io exception
+     */
+    public static SendContactInfo parseDelimitedFrom(
             java.io.InputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
@@ -1131,14 +1445,29 @@ public final class SendContactInfo extends
                 .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static proto.management.SendContactInfo parseFrom(
+    /**
+     * Parse from send contact info.
+     *
+     * @param input the input
+     * @return the send contact info
+     * @throws IOException the io exception
+     */
+    public static SendContactInfo parseFrom(
             com.google.protobuf.CodedInputStream input)
             throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
                 .parseWithIOException(PARSER, input);
     }
 
-    public static proto.management.SendContactInfo parseFrom(
+    /**
+     * Parse from send contact info.
+     *
+     * @param input             the input
+     * @param extensionRegistry the extension registry
+     * @return the send contact info
+     * @throws IOException the io exception
+     */
+    public static SendContactInfo parseFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
@@ -1146,47 +1475,66 @@ public final class SendContactInfo extends
                 .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @java.lang.Override
+    @Override
     public Builder newBuilderForType() {
         return newBuilder();
     }
 
+    /**
+     * New builder builder.
+     *
+     * @return the builder
+     */
     public static Builder newBuilder() {
         return DEFAULT_INSTANCE.toBuilder();
     }
 
-    public static Builder newBuilder(proto.management.SendContactInfo prototype) {
+    /**
+     * New builder builder.
+     *
+     * @param prototype the prototype
+     * @return the builder
+     */
+    public static Builder newBuilder(SendContactInfo prototype) {
         return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
 
-    @java.lang.Override
+    @Override
     public Builder toBuilder() {
         return this == DEFAULT_INSTANCE
                 ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            BuilderParent parent) {
         Builder builder = new Builder(parent);
         return builder;
     }
 
+    /**
+     * Builder.
+     */
     public static final class Builder extends
             com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
             // @@protoc_insertion_point(builder_implements:management.SendContactInfo)
-            proto.management.SendContactInfoOrBuilder {
+            SendContactInfoOrBuilder {
+        /**
+         * Gets descriptor.
+         *
+         * @return the descriptor
+         */
         public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-            return proto.management.ManagementProtos.internal_static_management_SendContactInfo_descriptor;
+            return ManagementProtos.internal_static_management_SendContactInfo_descriptor;
         }
 
-        @java.lang.Override
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        @Override
+        protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-            return proto.management.ManagementProtos.internal_static_management_SendContactInfo_fieldAccessorTable
+            return ManagementProtos.internal_static_management_SendContactInfo_fieldAccessorTable
                     .ensureFieldAccessorsInitialized(
-                            proto.management.SendContactInfo.class, proto.management.SendContactInfo.Builder.class);
+                            SendContactInfo.class, Builder.class);
         }
 
         // Construct using proto.management.SendContactInfo.newBuilder()
@@ -1195,7 +1543,7 @@ public final class SendContactInfo extends
         }
 
         private Builder(
-                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+                BuilderParent parent) {
             super(parent);
             maybeForceBuilderInitialization();
         }
@@ -1207,7 +1555,7 @@ public final class SendContactInfo extends
             }
         }
 
-        @java.lang.Override
+        @Override
         public Builder clear() {
             super.clear();
             username_ = "";
@@ -1223,29 +1571,29 @@ public final class SendContactInfo extends
             return this;
         }
 
-        @java.lang.Override
+        @Override
         public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-            return proto.management.ManagementProtos.internal_static_management_SendContactInfo_descriptor;
+            return ManagementProtos.internal_static_management_SendContactInfo_descriptor;
         }
 
-        @java.lang.Override
-        public proto.management.SendContactInfo getDefaultInstanceForType() {
-            return proto.management.SendContactInfo.getDefaultInstance();
+        @Override
+        public SendContactInfo getDefaultInstanceForType() {
+            return SendContactInfo.getDefaultInstance();
         }
 
-        @java.lang.Override
-        public proto.management.SendContactInfo build() {
-            proto.management.SendContactInfo result = buildPartial();
+        @Override
+        public SendContactInfo build() {
+            SendContactInfo result = buildPartial();
             if (!result.isInitialized()) {
                 throw newUninitializedMessageException(result);
             }
             return result;
         }
 
-        @java.lang.Override
-        public proto.management.SendContactInfo buildPartial() {
-            proto.management.SendContactInfo result = new proto.management.SendContactInfo(this);
+        @Override
+        public SendContactInfo buildPartial() {
+            SendContactInfo result = new SendContactInfo(this);
             int from_bitField0_ = bitField0_;
             int to_bitField0_ = 0;
             if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -1271,56 +1619,62 @@ public final class SendContactInfo extends
             return result;
         }
 
-        @java.lang.Override
+        @Override
         public Builder clone() {
             return super.clone();
         }
 
-        @java.lang.Override
+        @Override
         public Builder setField(
                 com.google.protobuf.Descriptors.FieldDescriptor field,
-                java.lang.Object value) {
+                Object value) {
             return super.setField(field, value);
         }
 
-        @java.lang.Override
+        @Override
         public Builder clearField(
                 com.google.protobuf.Descriptors.FieldDescriptor field) {
             return super.clearField(field);
         }
 
-        @java.lang.Override
+        @Override
         public Builder clearOneof(
                 com.google.protobuf.Descriptors.OneofDescriptor oneof) {
             return super.clearOneof(oneof);
         }
 
-        @java.lang.Override
+        @Override
         public Builder setRepeatedField(
                 com.google.protobuf.Descriptors.FieldDescriptor field,
-                int index, java.lang.Object value) {
+                int index, Object value) {
             return super.setRepeatedField(field, index, value);
         }
 
-        @java.lang.Override
+        @Override
         public Builder addRepeatedField(
                 com.google.protobuf.Descriptors.FieldDescriptor field,
-                java.lang.Object value) {
+                Object value) {
             return super.addRepeatedField(field, value);
         }
 
-        @java.lang.Override
+        @Override
         public Builder mergeFrom(com.google.protobuf.Message other) {
-            if (other instanceof proto.management.SendContactInfo) {
-                return mergeFrom((proto.management.SendContactInfo) other);
+            if (other instanceof SendContactInfo) {
+                return mergeFrom((SendContactInfo) other);
             } else {
                 super.mergeFrom(other);
                 return this;
             }
         }
 
-        public Builder mergeFrom(proto.management.SendContactInfo other) {
-            if (other == proto.management.SendContactInfo.getDefaultInstance()) return this;
+        /**
+         * Merge from builder.
+         *
+         * @param other the other
+         * @return the builder
+         */
+        public Builder mergeFrom(SendContactInfo other) {
+            if (other == SendContactInfo.getDefaultInstance()) return this;
             if (other.hasUsername()) {
                 bitField0_ |= 0x00000001;
                 username_ = other.username_;
@@ -1367,7 +1721,7 @@ public final class SendContactInfo extends
             return this;
         }
 
-        @java.lang.Override
+        @Override
         public final boolean isInitialized() {
             if (!hasUsername()) {
                 return false;
@@ -1380,16 +1734,16 @@ public final class SendContactInfo extends
             return true;
         }
 
-        @java.lang.Override
+        @Override
         public Builder mergeFrom(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws java.io.IOException {
-            proto.management.SendContactInfo parsedMessage = null;
+            SendContactInfo parsedMessage = null;
             try {
                 parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
             } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                parsedMessage = (proto.management.SendContactInfo) e.getUnfinishedMessage();
+                parsedMessage = (SendContactInfo) e.getUnfinishedMessage();
                 throw e.unwrapIOException();
             } finally {
                 if (parsedMessage != null) {
@@ -1401,34 +1755,34 @@ public final class SendContactInfo extends
 
         private int bitField0_;
 
-        private java.lang.Object username_ = "";
+        private Object username_ = "";
 
         public boolean hasUsername() {
             return ((bitField0_ & 0x00000001) != 0);
         }
 
-        public java.lang.String getUsername() {
-            java.lang.Object ref = username_;
-            if (!(ref instanceof java.lang.String)) {
+        public String getUsername() {
+            Object ref = username_;
+            if (!(ref instanceof String)) {
                 com.google.protobuf.ByteString bs =
                         (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
+                String s = bs.toStringUtf8();
                 if (bs.isValidUtf8()) {
                     username_ = s;
                 }
                 return s;
             } else {
-                return (java.lang.String) ref;
+                return (String) ref;
             }
         }
 
         public com.google.protobuf.ByteString
         getUsernameBytes() {
-            java.lang.Object ref = username_;
+            Object ref = username_;
             if (ref instanceof String) {
                 com.google.protobuf.ByteString b =
                         com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
+                                (String) ref);
                 username_ = b;
                 return b;
             } else {
@@ -1436,8 +1790,14 @@ public final class SendContactInfo extends
             }
         }
 
+        /**
+         * Sets username.
+         *
+         * @param value the value
+         * @return the username
+         */
         public Builder setUsername(
-                java.lang.String value) {
+                String value) {
             if (value == null) {
                 throw new NullPointerException();
             }
@@ -1447,6 +1807,11 @@ public final class SendContactInfo extends
             return this;
         }
 
+        /**
+         * Clear username builder.
+         *
+         * @return the builder
+         */
         public Builder clearUsername() {
             bitField0_ = (bitField0_ & ~0x00000001);
             username_ = getDefaultInstance().getUsername();
@@ -1454,6 +1819,12 @@ public final class SendContactInfo extends
             return this;
         }
 
+        /**
+         * Sets username bytes.
+         *
+         * @param value the value
+         * @return the username bytes
+         */
         public Builder setUsernameBytes(
                 com.google.protobuf.ByteString value) {
             if (value == null) {
@@ -1465,20 +1836,20 @@ public final class SendContactInfo extends
             return this;
         }
 
-        private java.util.List<proto.management.SendContactInfo.Contact> contacts_ =
+        private java.util.List<Contact> contacts_ =
                 java.util.Collections.emptyList();
 
         private void ensureContactsIsMutable() {
             if (!((bitField0_ & 0x00000002) != 0)) {
-                contacts_ = new java.util.ArrayList<proto.management.SendContactInfo.Contact>(contacts_);
+                contacts_ = new java.util.ArrayList<Contact>(contacts_);
                 bitField0_ |= 0x00000002;
             }
         }
 
         private com.google.protobuf.RepeatedFieldBuilderV3<
-                proto.management.SendContactInfo.Contact, proto.management.SendContactInfo.Contact.Builder, proto.management.SendContactInfo.ContactOrBuilder> contactsBuilder_;
+                Contact, Contact.Builder, ContactOrBuilder> contactsBuilder_;
 
-        public java.util.List<proto.management.SendContactInfo.Contact> getContactsList() {
+        public java.util.List<Contact> getContactsList() {
             if (contactsBuilder_ == null) {
                 return java.util.Collections.unmodifiableList(contacts_);
             } else {
@@ -1494,7 +1865,7 @@ public final class SendContactInfo extends
             }
         }
 
-        public proto.management.SendContactInfo.Contact getContacts(int index) {
+        public Contact getContacts(int index) {
             if (contactsBuilder_ == null) {
                 return contacts_.get(index);
             } else {
@@ -1502,8 +1873,15 @@ public final class SendContactInfo extends
             }
         }
 
+        /**
+         * Sets contacts.
+         *
+         * @param index the index
+         * @param value the value
+         * @return the contacts
+         */
         public Builder setContacts(
-                int index, proto.management.SendContactInfo.Contact value) {
+                int index, Contact value) {
             if (contactsBuilder_ == null) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -1517,8 +1895,15 @@ public final class SendContactInfo extends
             return this;
         }
 
+        /**
+         * Sets contacts.
+         *
+         * @param index           the index
+         * @param builderForValue the builder for value
+         * @return the contacts
+         */
         public Builder setContacts(
-                int index, proto.management.SendContactInfo.Contact.Builder builderForValue) {
+                int index, Contact.Builder builderForValue) {
             if (contactsBuilder_ == null) {
                 ensureContactsIsMutable();
                 contacts_.set(index, builderForValue.build());
@@ -1529,7 +1914,13 @@ public final class SendContactInfo extends
             return this;
         }
 
-        public Builder addContacts(proto.management.SendContactInfo.Contact value) {
+        /**
+         * Add contacts builder.
+         *
+         * @param value the value
+         * @return the builder
+         */
+        public Builder addContacts(Contact value) {
             if (contactsBuilder_ == null) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -1543,8 +1934,15 @@ public final class SendContactInfo extends
             return this;
         }
 
+        /**
+         * Add contacts builder.
+         *
+         * @param index the index
+         * @param value the value
+         * @return the builder
+         */
         public Builder addContacts(
-                int index, proto.management.SendContactInfo.Contact value) {
+                int index, Contact value) {
             if (contactsBuilder_ == null) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -1558,8 +1956,14 @@ public final class SendContactInfo extends
             return this;
         }
 
+        /**
+         * Add contacts builder.
+         *
+         * @param builderForValue the builder for value
+         * @return the builder
+         */
         public Builder addContacts(
-                proto.management.SendContactInfo.Contact.Builder builderForValue) {
+                Contact.Builder builderForValue) {
             if (contactsBuilder_ == null) {
                 ensureContactsIsMutable();
                 contacts_.add(builderForValue.build());
@@ -1570,8 +1974,15 @@ public final class SendContactInfo extends
             return this;
         }
 
+        /**
+         * Add contacts builder.
+         *
+         * @param index           the index
+         * @param builderForValue the builder for value
+         * @return the builder
+         */
         public Builder addContacts(
-                int index, proto.management.SendContactInfo.Contact.Builder builderForValue) {
+                int index, Contact.Builder builderForValue) {
             if (contactsBuilder_ == null) {
                 ensureContactsIsMutable();
                 contacts_.add(index, builderForValue.build());
@@ -1582,8 +1993,14 @@ public final class SendContactInfo extends
             return this;
         }
 
+        /**
+         * Add all contacts builder.
+         *
+         * @param values the values
+         * @return the builder
+         */
         public Builder addAllContacts(
-                java.lang.Iterable<? extends proto.management.SendContactInfo.Contact> values) {
+                Iterable<? extends Contact> values) {
             if (contactsBuilder_ == null) {
                 ensureContactsIsMutable();
                 com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -1595,6 +2012,11 @@ public final class SendContactInfo extends
             return this;
         }
 
+        /**
+         * Clear contacts builder.
+         *
+         * @return the builder
+         */
         public Builder clearContacts() {
             if (contactsBuilder_ == null) {
                 contacts_ = java.util.Collections.emptyList();
@@ -1606,6 +2028,12 @@ public final class SendContactInfo extends
             return this;
         }
 
+        /**
+         * Remove contacts builder.
+         *
+         * @param index the index
+         * @return the builder
+         */
         public Builder removeContacts(int index) {
             if (contactsBuilder_ == null) {
                 ensureContactsIsMutable();
@@ -1617,12 +2045,18 @@ public final class SendContactInfo extends
             return this;
         }
 
-        public proto.management.SendContactInfo.Contact.Builder getContactsBuilder(
+        /**
+         * Gets contacts builder.
+         *
+         * @param index the index
+         * @return the contacts builder
+         */
+        public Contact.Builder getContactsBuilder(
                 int index) {
             return getContactsFieldBuilder().getBuilder(index);
         }
 
-        public proto.management.SendContactInfo.ContactOrBuilder getContactsOrBuilder(
+        public ContactOrBuilder getContactsOrBuilder(
                 int index) {
             if (contactsBuilder_ == null) {
                 return contacts_.get(index);
@@ -1631,7 +2065,7 @@ public final class SendContactInfo extends
             }
         }
 
-        public java.util.List<? extends proto.management.SendContactInfo.ContactOrBuilder>
+        public java.util.List<? extends ContactOrBuilder>
         getContactsOrBuilderList() {
             if (contactsBuilder_ != null) {
                 return contactsBuilder_.getMessageOrBuilderList();
@@ -1640,28 +2074,44 @@ public final class SendContactInfo extends
             }
         }
 
-        public proto.management.SendContactInfo.Contact.Builder addContactsBuilder() {
+        /**
+         * Add contacts builder contact . builder.
+         *
+         * @return the contact . builder
+         */
+        public Contact.Builder addContactsBuilder() {
             return getContactsFieldBuilder().addBuilder(
-                    proto.management.SendContactInfo.Contact.getDefaultInstance());
+                    Contact.getDefaultInstance());
         }
 
-        public proto.management.SendContactInfo.Contact.Builder addContactsBuilder(
+        /**
+         * Add contacts builder contact . builder.
+         *
+         * @param index the index
+         * @return the contact . builder
+         */
+        public Contact.Builder addContactsBuilder(
                 int index) {
             return getContactsFieldBuilder().addBuilder(
-                    index, proto.management.SendContactInfo.Contact.getDefaultInstance());
+                    index, Contact.getDefaultInstance());
         }
 
-        public java.util.List<proto.management.SendContactInfo.Contact.Builder>
+        /**
+         * Gets contacts builder list.
+         *
+         * @return the contacts builder list
+         */
+        public java.util.List<Contact.Builder>
         getContactsBuilderList() {
             return getContactsFieldBuilder().getBuilderList();
         }
 
         private com.google.protobuf.RepeatedFieldBuilderV3<
-                proto.management.SendContactInfo.Contact, proto.management.SendContactInfo.Contact.Builder, proto.management.SendContactInfo.ContactOrBuilder>
+                Contact, Contact.Builder, ContactOrBuilder>
         getContactsFieldBuilder() {
             if (contactsBuilder_ == null) {
                 contactsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-                        proto.management.SendContactInfo.Contact, proto.management.SendContactInfo.Contact.Builder, proto.management.SendContactInfo.ContactOrBuilder>(
+                        Contact, Contact.Builder, ContactOrBuilder>(
                         contacts_,
                         ((bitField0_ & 0x00000002) != 0),
                         getParentForChildren(),
@@ -1689,7 +2139,7 @@ public final class SendContactInfo extends
             return blocked_.size();
         }
 
-        public java.lang.String getBlocked(int index) {
+        public String getBlocked(int index) {
             return blocked_.get(index);
         }
 
@@ -1698,8 +2148,15 @@ public final class SendContactInfo extends
             return blocked_.getByteString(index);
         }
 
+        /**
+         * Sets blocked.
+         *
+         * @param index the index
+         * @param value the value
+         * @return the blocked
+         */
         public Builder setBlocked(
-                int index, java.lang.String value) {
+                int index, String value) {
             if (value == null) {
                 throw new NullPointerException();
             }
@@ -1709,8 +2166,14 @@ public final class SendContactInfo extends
             return this;
         }
 
+        /**
+         * Add blocked builder.
+         *
+         * @param value the value
+         * @return the builder
+         */
         public Builder addBlocked(
-                java.lang.String value) {
+                String value) {
             if (value == null) {
                 throw new NullPointerException();
             }
@@ -1720,8 +2183,14 @@ public final class SendContactInfo extends
             return this;
         }
 
+        /**
+         * Add all blocked builder.
+         *
+         * @param values the values
+         * @return the builder
+         */
         public Builder addAllBlocked(
-                java.lang.Iterable<java.lang.String> values) {
+                Iterable<String> values) {
             ensureBlockedIsMutable();
             com.google.protobuf.AbstractMessageLite.Builder.addAll(
                     values, blocked_);
@@ -1729,6 +2198,11 @@ public final class SendContactInfo extends
             return this;
         }
 
+        /**
+         * Clear blocked builder.
+         *
+         * @return the builder
+         */
         public Builder clearBlocked() {
             blocked_ = com.google.protobuf.LazyStringArrayList.EMPTY;
             bitField0_ = (bitField0_ & ~0x00000004);
@@ -1736,6 +2210,12 @@ public final class SendContactInfo extends
             return this;
         }
 
+        /**
+         * Add blocked bytes builder.
+         *
+         * @param value the value
+         * @return the builder
+         */
         public Builder addBlockedBytes(
                 com.google.protobuf.ByteString value) {
             if (value == null) {
@@ -1747,13 +2227,13 @@ public final class SendContactInfo extends
             return this;
         }
 
-        @java.lang.Override
+        @Override
         public final Builder setUnknownFields(
                 final com.google.protobuf.UnknownFieldSet unknownFields) {
             return super.setUnknownFields(unknownFields);
         }
 
-        @java.lang.Override
+        @Override
         public final Builder mergeUnknownFields(
                 final com.google.protobuf.UnknownFieldSet unknownFields) {
             return super.mergeUnknownFields(unknownFields);
@@ -1764,20 +2244,28 @@ public final class SendContactInfo extends
     }
 
     // @@protoc_insertion_point(class_scope:management.SendContactInfo)
-    private static final proto.management.SendContactInfo DEFAULT_INSTANCE;
+    private static final SendContactInfo DEFAULT_INSTANCE;
 
     static {
-        DEFAULT_INSTANCE = new proto.management.SendContactInfo();
+        DEFAULT_INSTANCE = new SendContactInfo();
     }
 
-    public static proto.management.SendContactInfo getDefaultInstance() {
+    /**
+     * Gets default instance.
+     *
+     * @return the default instance
+     */
+    public static SendContactInfo getDefaultInstance() {
         return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated
+    /**
+     * The constant PARSER.
+     */
+    @Deprecated
     public static final com.google.protobuf.Parser<SendContactInfo>
             PARSER = new com.google.protobuf.AbstractParser<SendContactInfo>() {
-        @java.lang.Override
+        @Override
         public SendContactInfo parsePartialFrom(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1786,17 +2274,22 @@ public final class SendContactInfo extends
         }
     };
 
+    /**
+     * Parser com . google . protobuf . parser.
+     *
+     * @return the com . google . protobuf . parser
+     */
     public static com.google.protobuf.Parser<SendContactInfo> parser() {
         return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<SendContactInfo> getParserForType() {
         return PARSER;
     }
 
-    @java.lang.Override
-    public proto.management.SendContactInfo getDefaultInstanceForType() {
+    @Override
+    public SendContactInfo getDefaultInstanceForType() {
         return DEFAULT_INSTANCE;
     }
 

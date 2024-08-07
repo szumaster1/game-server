@@ -3,114 +3,633 @@ package content.global.skill.gathering.woodcutting
 import core.ServerConstants
 import core.game.world.repository.Repository.players
 
+/**
+ * Woodcutting node
+ *
+ * @constructor Woodcutting node
+ */
 enum class WoodcuttingNode {
+    /**
+     * Standard Tree 1
+     *
+     * @constructor Standard Tree 1
+     */
     STANDARD_TREE_1(1276, 1342, 1.toByte()),
+
+    /**
+     * Standard Tree 2
+     *
+     * @constructor Standard Tree 2
+     */
     STANDARD_TREE_2(1277, 1343, 1.toByte()),
+
+    /**
+     * Standard Tree 3
+     *
+     * @constructor Standard Tree 3
+     */
     STANDARD_TREE_3(1278, 1342, 1.toByte()),
+
+    /**
+     * Standard Tree 4
+     *
+     * @constructor Standard Tree 4
+     */
     STANDARD_TREE_4(1279, 1345, 1.toByte()),
+
+    /**
+     * Standard Tree 5
+     *
+     * @constructor Standard Tree 5
+     */
     STANDARD_TREE_5(1280, 1343, 1.toByte()),
+
+    /**
+     * Standard Tree 6
+     *
+     * @constructor Standard Tree 6
+     */
     STANDARD_TREE_6(1330, 1341, 1.toByte()),
+
+    /**
+     * Standard Tree 7
+     *
+     * @constructor Standard Tree 7
+     */
     STANDARD_TREE_7(1331, 1341, 1.toByte()),
+
+    /**
+     * Standard Tree 8
+     *
+     * @constructor Standard Tree 8
+     */
     STANDARD_TREE_8(1332, 1341, 1.toByte()),
+
+    /**
+     * Standard Tree 9
+     *
+     * @constructor Standard Tree 9
+     */
     STANDARD_TREE_9(2409, 1342, 1.toByte()),
+
+    /**
+     * Standard Tree 10
+     *
+     * @constructor Standard Tree 10
+     */
     STANDARD_TREE_10(3033, 1345, 1.toByte()),
+
+    /**
+     * Standard Tree 11
+     *
+     * @constructor Standard Tree 11
+     */
     STANDARD_TREE_11(3034, 1345, 1.toByte()),
+
+    /**
+     * Standard Tree 12
+     *
+     * @constructor Standard Tree 12
+     */
     STANDARD_TREE_12(3035, 1347, 1.toByte()),
+
+    /**
+     * Standard Tree 13
+     *
+     * @constructor Standard Tree 13
+     */
     STANDARD_TREE_13(3036, 1351, 1.toByte()),
+
+    /**
+     * Standard Tree 14
+     *
+     * @constructor Standard Tree 14
+     */
     STANDARD_TREE_14(3879, 3880, 1.toByte()),
+
+    /**
+     * Standard Tree 15
+     *
+     * @constructor Standard Tree 15
+     */
     STANDARD_TREE_15(3881, 3880, 1.toByte()),
+
+    /**
+     * Standard Tree 16
+     *
+     * @constructor Standard Tree 16
+     */
     STANDARD_TREE_16(3882, 3880, 1.toByte()),
+
+    /**
+     * Standard Tree 17
+     *
+     * @constructor Standard Tree 17
+     */
     STANDARD_TREE_17(3883, 3884, 1.toByte()),
+
+    /**
+     * Standard Tree 18
+     *
+     * @constructor Standard Tree 18
+     */
     STANDARD_TREE_18(10041, 1342, 1.toByte()),
+
+    /**
+     * Standard Tree 19
+     *
+     * @constructor Standard Tree 19
+     */
     STANDARD_TREE_19(14308, 1342, 1.toByte()),
+
+    /**
+     * Standard Tree 20
+     *
+     * @constructor Standard Tree 20
+     */
     STANDARD_TREE_20(14309, 1342, 1.toByte()),
+
+    /**
+     * Standard Tree 21
+     *
+     * @constructor Standard Tree 21
+     */
     STANDARD_TREE_21(16264, 1342, 1.toByte()),
+
+    /**
+     * Standard Tree 22
+     *
+     * @constructor Standard Tree 22
+     */
     STANDARD_TREE_22(16265, 1342, 1.toByte()),
+
+    /**
+     * Standard Tree 23
+     *
+     * @constructor Standard Tree 23
+     */
     STANDARD_TREE_23(30132, 1342, 1.toByte()),
+
+    /**
+     * Standard Tree 24
+     *
+     * @constructor Standard Tree 24
+     */
     STANDARD_TREE_24(30133, 1342, 1.toByte()),
+
+    /**
+     * Standard Tree 25
+     *
+     * @constructor Standard Tree 25
+     */
     STANDARD_TREE_25(37477, 1342, 1.toByte()),
+
+    /**
+     * Standard Tree 26
+     *
+     * @constructor Standard Tree 26
+     */
     STANDARD_TREE_26(37478, 37653, 1.toByte()),
+
+    /**
+     * Standard Tree 27
+     *
+     * @constructor Standard Tree 27
+     */
     STANDARD_TREE_27(37652, 37653, 1.toByte()),
 
+    /**
+     * Dead Tree 1
+     *
+     * @constructor Dead Tree 1
+     */
     DEAD_TREE_1(1282, 1347, 2.toByte()),
+
+    /**
+     * Dead Tree 2
+     *
+     * @constructor Dead Tree 2
+     */
     DEAD_TREE_2(1283, 1347, 2.toByte()),
+
+    /**
+     * Dead Tree 3
+     *
+     * @constructor Dead Tree 3
+     */
     DEAD_TREE_3(1284, 1348, 2.toByte()),
+
+    /**
+     * Dead Tree 4
+     *
+     * @constructor Dead Tree 4
+     */
     DEAD_TREE_4(1285, 1349, 2.toByte()),
+
+    /**
+     * Dead Tree 5
+     *
+     * @constructor Dead Tree 5
+     */
     DEAD_TREE_5(1286, 1351, 2.toByte()),
+
+    /**
+     * Dead Tree 6
+     *
+     * @constructor Dead Tree 6
+     */
     DEAD_TREE_6(1289, 1353, 2.toByte()),
+
+    /**
+     * Dead Tree 7
+     *
+     * @constructor Dead Tree 7
+     */
     DEAD_TREE_7(1290, 1354, 2.toByte()),
+
+    /**
+     * Dead Tree 8
+     *
+     * @constructor Dead Tree 8
+     */
     DEAD_TREE_8(1291, 23054, 2.toByte()),
+
+    /**
+     * Dead Tree 9
+     *
+     * @constructor Dead Tree 9
+     */
     DEAD_TREE_9(1365, 1352, 2.toByte()),
+
+    /**
+     * Dead Tree 10
+     *
+     * @constructor Dead Tree 10
+     */
     DEAD_TREE_10(1383, 1358, 2.toByte()),
+
+    /**
+     * Dead Tree 11
+     *
+     * @constructor Dead Tree 11
+     */
     DEAD_TREE_11(1384, 1359, 2.toByte()),
+
+    /**
+     * Dead Tree 12
+     *
+     * @constructor Dead Tree 12
+     */
     DEAD_TREE_12(5902, 1347, 2.toByte()),
+
+    /**
+     * Dead Tree 13
+     *
+     * @constructor Dead Tree 13
+     */
     DEAD_TREE_13(5903, 1353, 2.toByte()),
+
+    /**
+     * Dead Tree 14
+     *
+     * @constructor Dead Tree 14
+     */
     DEAD_TREE_14(5904, 1353, 2.toByte()),
+
+    /**
+     * Dead Tree 15
+     *
+     * @constructor Dead Tree 15
+     */
     DEAD_TREE_15(32294, 1353, 2.toByte()),
+
+    /**
+     * Dead Tree 16
+     *
+     * @constructor Dead Tree 16
+     */
     DEAD_TREE_16(37481, 1347, 2.toByte()),
+
+    /**
+     * Dead Tree 17
+     *
+     * @constructor Dead Tree 17
+     */
     DEAD_TREE_17(37482, 1351, 2.toByte()),
+
+    /**
+     * Dead Tree 18
+     *
+     * @constructor Dead Tree 18
+     */
     DEAD_TREE_18(37483, 1358, 2.toByte()),
+
+    /**
+     * Dead Tree 19
+     *
+     * @constructor Dead Tree 19
+     */
     DEAD_TREE_19(24168, 24169, 2.toByte()),
 
+    /**
+     * Evergreen 1
+     *
+     * @constructor Evergreen 1
+     */
     EVERGREEN_1(1315, 1342, 3.toByte()),
+
+    /**
+     * Evergreen 2
+     *
+     * @constructor Evergreen 2
+     */
     EVERGREEN_2(1316, 1355, 3.toByte()),
+
+    /**
+     * Evergreen 3
+     *
+     * @constructor Evergreen 3
+     */
     EVERGREEN_3(1318, 1355, 3.toByte()),
+
+    /**
+     * Evergreen 4
+     *
+     * @constructor Evergreen 4
+     */
     EVERGREEN_4(1319, 1355, 3.toByte()),
 
+    /**
+     * Jungle Tree 1
+     *
+     * @constructor Jungle Tree 1
+     */
     JUNGLE_TREE_1(2887, 0, 4.toByte()),
+
+    /**
+     * Jungle Tree 2
+     *
+     * @constructor Jungle Tree 2
+     */
     JUNGLE_TREE_2(2889, 0, 4.toByte()),
+
+    /**
+     * Jungle Tree 3
+     *
+     * @constructor Jungle Tree 3
+     */
     JUNGLE_TREE_3(2890, 0, 4.toByte()),
+
+    /**
+     * Jungle Tree 4
+     *
+     * @constructor Jungle Tree 4
+     */
     JUNGLE_TREE_4(4818, 0, 4.toByte()),
+
+    /**
+     * Jungle Tree 5
+     *
+     * @constructor Jungle Tree 5
+     */
     JUNGLE_TREE_5(4820, 0, 4.toByte()),
 
+    /**
+     * Jungle Bush 1
+     *
+     * @constructor Jungle Bush 1
+     */
     JUNGLE_BUSH_1(2892, 2894, 5.toByte()),
+
+    /**
+     * Jungle Bush 2
+     *
+     * @constructor Jungle Bush 2
+     */
     JUNGLE_BUSH_2(2893, 2895, 5.toByte()),
 
+    /**
+     * Achey Tree
+     *
+     * @constructor Achey Tree
+     */
     ACHEY_TREE(2023, 3371, 6.toByte()),
 
+    /**
+     * Oak Tree 1
+     *
+     * @constructor Oak Tree 1
+     */
     OAK_TREE_1(1281, 1356, 7.toByte()),
+
+    /**
+     * Oak Tree 2
+     *
+     * @constructor Oak Tree 2
+     */
     OAK_TREE_2(3037, 1357, 7.toByte()),
+
+    /**
+     * Oak Tree 3
+     *
+     * @constructor Oak Tree 3
+     */
     OAK_TREE_3(37479, 1356, 7.toByte()),
+
+    /**
+     * Oak Tree 4
+     *
+     * @constructor Oak Tree 4
+     */
     OAK_TREE_4(8467, 1356, 19.toByte(), true),
 
+    /**
+     * Willow Tree 1
+     *
+     * @constructor Willow Tree 1
+     */
     WILLOW_TREE_1(1308, 7399, 8.toByte()),
+
+    /**
+     * Willow Tree 2
+     *
+     * @constructor Willow Tree 2
+     */
     WILLOW_TREE_2(5551, 5554, 8.toByte()),
+
+    /**
+     * Willow Tree 3
+     *
+     * @constructor Willow Tree 3
+     */
     WILLOW_TREE_3(5552, 5554, 8.toByte()),
+
+    /**
+     * Willow Tree 4
+     *
+     * @constructor Willow Tree 4
+     */
     WILLOW_TREE_4(5553, 5554, 8.toByte()),
+
+    /**
+     * Willow Tree 5
+     *
+     * @constructor Willow Tree 5
+     */
     WILLOW_TREE_5(37480, 7399, 8.toByte()),
+
+    /**
+     * Willow Tree 6
+     *
+     * @constructor Willow Tree 6
+     */
     WILLOW_TREE_6(8488, 7399, 20.toByte(), true),
 
+    /**
+     * Teak 1
+     *
+     * @constructor Teak 1
+     */
     TEAK_1(9036, 9037, 9.toByte()),
+
+    /**
+     * Teak 2
+     *
+     * @constructor Teak 2
+     */
     TEAK_2(15062, 9037, 9.toByte()),
 
+    /**
+     * Maple Tree 1
+     *
+     * @constructor Maple Tree 1
+     */
     MAPLE_TREE_1(1307, 7400, 10.toByte()),
+
+    /**
+     * Maple Tree 2
+     *
+     * @constructor Maple Tree 2
+     */
     MAPLE_TREE_2(4674, 7400, 10.toByte()),
+
+    /**
+     * Maple Tree 3
+     *
+     * @constructor Maple Tree 3
+     */
     MAPLE_TREE_3(8444, 7400, 21.toByte(), true),
 
+    /**
+     * Hollow Tree 1
+     *
+     * @constructor Hollow Tree 1
+     */
     HOLLOW_TREE_1(2289, 2310, 11.toByte()),
+
+    /**
+     * Hollow Tree 2
+     *
+     * @constructor Hollow Tree 2
+     */
     HOLLOW_TREE_2(4060, 4061, 11.toByte()),
 
+    /**
+     * Mahogany
+     *
+     * @constructor Mahogany
+     */
     MAHOGANY(9034, 9035, 12.toByte()),
 
+    /**
+     * Swaying Tree
+     *
+     * @constructor Swaying Tree
+     */
     SWAYING_TREE(4142, -1, 30.toByte()),
 
+    /**
+     * Arctic Pine
+     *
+     * @constructor Arctic Pine
+     */
     ARCTIC_PINE(21273, 21274, 13.toByte()),
 
+    /**
+     * Eucalyptus 1
+     *
+     * @constructor Eucalyptus 1
+     */
     EUCALYPTUS_1(28951, 28954, 14.toByte()),
+
+    /**
+     * Eucalyptus 2
+     *
+     * @constructor Eucalyptus 2
+     */
     EUCALYPTUS_2(28952, 28955, 14.toByte()),
+
+    /**
+     * Eucalyptus 3
+     *
+     * @constructor Eucalyptus 3
+     */
     EUCALYPTUS_3(28953, 28956, 14.toByte()),
 
+    /**
+     * Yew
+     *
+     * @constructor Yew
+     */
     YEW(1309, 7402, 15.toByte()),
+
+    /**
+     * Yew 1
+     *
+     * @constructor Yew 1
+     */
     YEW_1(8513, 7402, 22.toByte(), true),
 
+    /**
+     * Magic Tree 1
+     *
+     * @constructor Magic Tree 1
+     */
     MAGIC_TREE_1(1306, 7401, 16.toByte()),
+
+    /**
+     * Magic Tree 2
+     *
+     * @constructor Magic Tree 2
+     */
     MAGIC_TREE_2(37823, 37824, 16.toByte()),
+
+    /**
+     * Magic Tree 3
+     *
+     * @constructor Magic Tree 3
+     */
     MAGIC_TREE_3(8409, 37824, 23.toByte(), true),
 
+    /**
+     * Cursed Magic Tree
+     *
+     * @constructor Cursed Magic Tree
+     */
     CURSED_MAGIC_TREE(37821, 37822, 17.toByte()),
 
+    /**
+     * Dramen Tree
+     *
+     * @constructor Dramen Tree
+     */
     DRAMEN_TREE(1292, -1, 18.toByte()),
 
+    /**
+     * Windswept Tree
+     *
+     * @constructor Windswept Tree
+     */
     WINDSWEPT_TREE(18137, 1353, 19.toByte());
 
 

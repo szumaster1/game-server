@@ -18,6 +18,9 @@ import core.tools.secondsToTicks
 import kotlin.random.Random
 import kotlin.reflect.full.createInstance
 
+/**
+ * Random event NPC.
+ */
 abstract class RandomEventNPC(id: Int) : NPC(id) {
     lateinit var player: Player
     abstract var loot: WeightBasedTable?
@@ -28,6 +31,9 @@ abstract class RandomEventNPC(id: Int) : NPC(id) {
     var timerPaused = false
     var ticksLeft = secondsToTicks(180)
 
+    /**
+     * Create random event npc.
+     */
     open fun create(player: Player, loot: WeightBasedTable? = null, type: String = ""): RandomEventNPC {
         val event = this::class.createInstance()
         if (event is SurpriseExamNPC) event.type = type
@@ -37,6 +43,9 @@ abstract class RandomEventNPC(id: Int) : NPC(id) {
         return event
     }
 
+    /**
+     * Terminate.
+     */
     open fun terminate() {
         finalized = true
         pulseManager.clear(PulseType.STRONG)
@@ -45,6 +54,9 @@ abstract class RandomEventNPC(id: Int) : NPC(id) {
         }
     }
 
+    /**
+     * Follow.
+     */
     open fun follow() {
         pulseManager.run((object : MovementPulse(this, player, Pathfinder.DUMB) {
             override fun pulse(): Boolean {
@@ -86,11 +98,17 @@ abstract class RandomEventNPC(id: Int) : NPC(id) {
         super.init()
     }
 
+    /**
+     * On time up.
+     */
     open fun onTimeUp() {
         noteAndTeleport()
         terminate()
     }
 
+    /**
+     * Note and teleport.
+     */
     fun noteAndTeleport() {
         player.pulseManager.clear()
         for (item in player.inventory.toArray()) {
@@ -113,5 +131,8 @@ abstract class RandomEventNPC(id: Int) : NPC(id) {
         if (player.getAttribute<RandomEventNPC?>("re-npc", null) == this) player.removeAttribute("re-npc")
     }
 
+    /**
+     * Talk to.
+     */
     abstract fun talkTo(npc: NPC)
 }

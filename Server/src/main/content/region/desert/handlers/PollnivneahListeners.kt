@@ -11,6 +11,9 @@ import core.game.interaction.InteractionListener
 import core.game.node.item.Item
 import core.game.world.map.Location
 
+/**
+ * Pollnivneah listeners.
+ */
 class PollnivneahListeners : InteractionListener {
 
     companion object {
@@ -52,8 +55,8 @@ class PollnivneahListeners : InteractionListener {
             return@on true
         }
 
-        /*
-            The Snake charmer basket interaction.
+        /**
+         * The Snake charmer basket interaction.
          */
 
         onUseWith(IntType.SCENERY, MONEY_POT, COINS){ player, _, _ ->

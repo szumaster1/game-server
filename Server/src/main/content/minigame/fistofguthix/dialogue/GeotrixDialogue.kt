@@ -9,6 +9,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Geotrix dialogue.
+ */
 @Initializable
 class GeotrixDialogue(player: Player? = null) : Dialogue(player) {
 

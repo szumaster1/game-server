@@ -13,6 +13,9 @@ import core.plugin.Initializable;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
 
+/**
+ * Hamstring special handler.
+ */
 @Initializable
 public final class HamstringSpecialHandler extends RangeSwingHandler implements Plugin<Object> {
     private static final int SPECIAL_ENERGY = 50;

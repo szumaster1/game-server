@@ -5,6 +5,11 @@ import core.api.openInterface
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Newcomer map listener
+ *
+ * @constructor Newcomer map listener
+ */
 class NewcomerMapListener : InteractionListener {
 
     private val newcomerMap = Items.NEWCOMER_MAP_550

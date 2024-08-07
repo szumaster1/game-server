@@ -30,6 +30,9 @@ val gnomeItems = arrayOf(
     Items.SPICY_CRUNCHIES_2213
 )
 
+/**
+ * GC reward token handler.
+ */
 @Initializable
 class GCRewardTokenHandler : OptionHandler() {
     override fun newInstance(arg: Any?): Plugin<Any> {
@@ -57,6 +60,13 @@ class GCRewardTokenHandler : OptionHandler() {
         return true
     }
 
+    /**
+     * Reward token activation dialogue
+     *
+     * @constructor
+     *
+     * @param player
+     */
     @Initializable
     class RewardTokenActivationDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -79,6 +89,12 @@ class GCRewardTokenHandler : OptionHandler() {
             return true
         }
 
+        /**
+         * Send charges
+         *
+         * @param amount
+         * @param player
+         */
         fun sendCharges(amount: Int, player: Player) {
             val playerCharges = player.getAttribute("$GC_BASE_ATTRIBUTE:$GC_REDEEMABLE_FOOD", 0)
             if (playerCharges < amount) {
@@ -103,6 +119,13 @@ class GCRewardTokenHandler : OptionHandler() {
         }
 
 
+        /**
+         * Delivery pulse
+         *
+         * @property player
+         * @property items
+         * @constructor Delivery pulse
+         */
         class DeliveryPulse(val player: Player, val items: ArrayList<Item>) : Pulse(RandomFunction.random(15, 30)) {
             override fun pulse(): Boolean {
                 player.inventory.add(*items.toTypedArray())

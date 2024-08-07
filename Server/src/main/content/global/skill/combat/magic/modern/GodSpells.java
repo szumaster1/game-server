@@ -24,6 +24,9 @@ import core.plugin.Plugin;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
+/**
+ * God spells.
+ */
 @Initializable
 public final class GodSpells extends CombatSpell {
 
@@ -40,6 +43,9 @@ public final class GodSpells extends CombatSpell {
     private static final Graphic ZAM_END = new Graphic(78, 0);
     private static final Animation ANIMATION = new Animation(811, Priority.HIGH);
 
+    /**
+     * Instantiates a new God spells.
+     */
     public GodSpells() {
 
     }

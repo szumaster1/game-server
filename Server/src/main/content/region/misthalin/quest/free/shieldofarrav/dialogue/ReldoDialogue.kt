@@ -12,6 +12,9 @@ import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.item.GroundItemManager
 
+/**
+ * Reldo dialogue.
+ */
 class ReldoDialogue(player: Player? = null) : Dialogue(player) {
     private var knightSword: Quest? = null
     private var shieldArrav: Quest? = null
@@ -377,6 +380,11 @@ class ReldoDialogue(player: Player? = null) : Dialogue(player) {
         return true
     }
 
+    /**
+     * Handle quest
+     *
+     * @param buttonId
+     */
     fun handleQuest(buttonId: Int) {
         when (stage) {
             10 -> {
@@ -412,6 +420,11 @@ class ReldoDialogue(player: Player? = null) : Dialogue(player) {
         }
     }
 
+    /**
+     * Regular
+     *
+     * @param buttonId
+     */
     fun regular(buttonId: Int) {
         when (stage) {
             1 -> when (buttonId) {
@@ -466,6 +479,11 @@ class ReldoDialogue(player: Player? = null) : Dialogue(player) {
         }
     }
 
+    /**
+     * Handle knight sword
+     *
+     * @param buttonId
+     */
     fun handleKnightSword(buttonId: Int) {
         when (stage) {
             0 -> {

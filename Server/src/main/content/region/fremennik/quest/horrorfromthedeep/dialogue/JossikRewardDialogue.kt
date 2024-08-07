@@ -8,6 +8,11 @@ import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 
+/**
+ * Jossik reward dialogue
+ *
+ * @constructor Jossik reward dialogue
+ */
 class JossikRewardDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

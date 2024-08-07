@@ -10,6 +10,9 @@ import core.tools.RandomFunction
 import core.api.consts.Items
 import core.api.consts.NPCs
 
+/**
+ * Bat NPC.
+ */
 class BatNPC : NPCBehavior(*BAT_NPC) {
 
     companion object {

@@ -26,6 +26,9 @@ import core.tools.RandomFunction
 import java.util.*
 import kotlin.math.ceil
 
+/**
+ * Corporeal beast NPC.
+ */
 @Initializable
 class CorporealBeastNPC: NPCBehavior(NPCs.CORPOREAL_BEAST_8133) {
 
@@ -69,6 +72,11 @@ class CorporealBeastNPC: NPCBehavior(NPCs.CORPOREAL_BEAST_8133) {
         }
     }
 
+    /**
+     * Combat handler
+     *
+     * @constructor Combat handler
+     */
     internal class CombatHandler : MultiSwingHandler(
         /*
          * Melee (crush).
@@ -189,6 +197,12 @@ class CorporealBeastNPC: NPCBehavior(NPCs.CORPOREAL_BEAST_8133) {
             })
         }
 
+        /**
+         * Do stomp attack
+         *
+         * @param entity
+         * @return
+         */
         fun doStompAttack(entity: Entity?): Boolean {
             val l = entity!!.location
             var stompTargets: MutableList<Player>? = null

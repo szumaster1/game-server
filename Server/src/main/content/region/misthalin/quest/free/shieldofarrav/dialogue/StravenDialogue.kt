@@ -7,6 +7,9 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.node.item.GroundItemManager
 
+/**
+ * Straven dialogue.
+ */
 class StravenDialogue(player: Player? = null) : Dialogue(player) {
 
     private var quest: Quest? = null
@@ -406,9 +409,9 @@ class StravenDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     /**
-     * Handle default.
+     * Handle default
      *
-     * @param buttonId the button id
+     * @param buttonId
      */
     fun handleDefault(buttonId: Int) {
         when (stage) {

@@ -9,7 +9,7 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
 /**
- * The type Potion.
+ * Potion.
  */
 open class Potion
 /**

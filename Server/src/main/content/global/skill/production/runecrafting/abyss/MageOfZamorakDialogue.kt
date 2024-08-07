@@ -11,6 +11,9 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Mage of zamorak dialogue.
+ */
 @Initializable
 class MageOfZamorakDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -182,6 +185,11 @@ class MageOfZamorakDialogue(player: Player? = null) : Dialogue(player) {
         setVarp(player, 492, stage, true)
     }
 
+    /**
+     * Get stage
+     *
+     * @return
+     */
     fun getStage(): Int {
         return getVarp(player, 492)
     }

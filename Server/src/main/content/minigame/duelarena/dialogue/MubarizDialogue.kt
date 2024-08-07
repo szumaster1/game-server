@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * The Mubariz dialogue.
+ * Mubariz dialogue.
  */
 @Initializable
 class MubarizDialogue(player: Player? = null) : Dialogue(player) {

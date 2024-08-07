@@ -14,6 +14,9 @@ import core.game.world.map.RegionManager.getLocalPlayers
 import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 
+/**
+ * Desert guard dialogue.
+ */
 class DesertGuardDialogue(player: Player? = null) : Dialogue(player) {
 
     private var quest: Quest? = null
@@ -238,18 +241,18 @@ class DesertGuardDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     /**
-     * The Desert guard npc.
+     * Desert guard NPC.
      */
     class DesertGuardNPC : AbstractNPC {
         private var lastCheck = 0
 
         /**
-         * Instantiates a new Desert guard npc.
+         * Instantiates a new Desert guard NPC.
          */
         constructor() : super(0, null)
 
         /**
-         * Instantiates a new Desert guard npc.
+         * Instantiates a new Desert guard NPC.
          *
          * @param id       the id
          * @param location the location

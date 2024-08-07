@@ -11,6 +11,9 @@ import core.game.world.map.Location
 import core.game.world.map.RegionManager.getLocalNpcs
 import core.tools.RandomFunction
 
+/**
+ * Pvm bots.
+ */
 open class PvMBots : AIPlayer {
 
     private var tick = 0
@@ -19,6 +22,13 @@ open class PvMBots : AIPlayer {
 
     constructor(copyFromFile: String?, l: Location?) : super(copyFromFile!!, l!!)
 
+    /**
+     * Find targets
+     *
+     * @param entity
+     * @param radius
+     * @return
+     */
     fun FindTargets(entity: Entity?, radius: Int): List<Entity>? {
         val targets: MutableList<Entity> = ArrayList(20)
         val localNPCs: Array<Any> = getLocalNpcs(entity!!, radius).toTypedArray()
@@ -36,6 +46,12 @@ open class PvMBots : AIPlayer {
         return targets
     }
 
+    /**
+     * Check valid targets
+     *
+     * @param target
+     * @return
+     */
     fun checkValidTargets(target: NPC): Boolean {
         if (!target.isActive) {
             return false
@@ -49,10 +65,23 @@ open class PvMBots : AIPlayer {
         return true
     }
 
+    /**
+     * Attack npcs in radius
+     *
+     * @param radius
+     * @return
+     */
     fun AttackNpcsInRadius(radius: Int): Boolean {
         return AttackNpcsInRadius(this, radius)
     }
 
+    /**
+     * Attack npcs in radius
+     *
+     * @param bot
+     * @param radius
+     * @return
+     */
     fun AttackNpcsInRadius(bot: Player, radius: Int): Boolean {
         if (bot.inCombat()) return true
         var creatures = FindTargets(bot, radius) ?: return false
@@ -94,10 +123,20 @@ open class PvMBots : AIPlayer {
         //this.getPrayer().toggle()
     }
 
+    /**
+     * Check prayer
+     *
+     * @param type
+     */
     fun CheckPrayer(type: Array<PrayerType?>) {
         for (i in type.indices) prayer.toggle(type[i])
     }
 
+    /**
+     * Eat
+     *
+     * @param foodId
+     */
     fun eat(foodId: Int) {
         val foodItem = Item(foodId)
 

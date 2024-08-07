@@ -9,6 +9,9 @@ import core.game.shops.Shops
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Gabooty dialogue.
+ */
 @Initializable
 class GabootyDialogue(player: Player? = null) : Dialogue(player) {
 

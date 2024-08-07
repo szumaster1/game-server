@@ -8,6 +8,11 @@ import core.api.removeItem
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Darklight listener
+ *
+ * @constructor Darklight listener
+ */
 class DarklightListener : InteractionListener {
     override fun defineListeners() {
         onUseWith(IntType.ITEM, Items.BLACK_MUSHROOM_INK_4622, Items.SILVERLIGHT_2402) { player, used, with ->

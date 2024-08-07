@@ -21,6 +21,9 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Water orb grapple.
+ */
 @Initializable
 class WaterOrbGrapple : OptionHandler() {
 

@@ -5,7 +5,6 @@ import core.network.packet.Context
 
 /**
  * Represents the player on interface context.
- * @author Emperor
  */
 class DisplayModelContext : Context {
 

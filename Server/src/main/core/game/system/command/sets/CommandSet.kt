@@ -11,7 +11,6 @@ import core.tools.colorize
  * Command sets allow you to organize sets of commands by category/type. It also provides
  * a clean way to define them and get them registered to the command mapping, as well as
  * a couple other small utiltiies.
- * @author Ceikry
  * @param defaultPrivilege the default privilege level for all commands in this set.
  */
 abstract class CommandSet(val defaultPrivilege: Privilege) : Plugin<Any?> {

@@ -8,6 +8,12 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.diary.DiaryType
 import core.game.world.map.zone.ZoneBorders
 
+/**
+ * Diary event hook base
+ *
+ * @property diaryType
+ * @constructor Diary event hook base
+ */
 abstract class DiaryEventHookBase(private val diaryType: DiaryType) : MapArea, LoginListener {
     protected companion object {
         private fun <T> forEligibleEntityDo(entity: Entity, event: T, handler: (Player, T) -> Unit) {
@@ -18,6 +24,14 @@ abstract class DiaryEventHookBase(private val diaryType: DiaryType) : MapArea, L
         }
     }
 
+    /**
+     * Event handler
+     *
+     * @param T
+     * @property owner
+     * @property handler
+     * @constructor Event handler
+     */
     class EventHandler<T : core.game.event.Event>(
         private val owner: DiaryEventHookBase,
         private val handler: (Player, T) -> Unit
@@ -74,6 +88,14 @@ abstract class DiaryEventHookBase(private val diaryType: DiaryType) : MapArea, L
         player.hook(Event.PrayerPointsRecharged, EventHandler(this, ::onPrayerPointsRecharged))
     }
 
+    /**
+     * Fulfill task requirement
+     *
+     * @param player
+     * @param level
+     * @param task
+     * @param attribute
+     */
     protected fun fulfillTaskRequirement(player: Player, level: DiaryLevel, task: Int, attribute: String) {
         if (getAttribute(player, attribute, false)) return
 
@@ -84,6 +106,14 @@ abstract class DiaryEventHookBase(private val diaryType: DiaryType) : MapArea, L
         setAttribute(player, "/save:$attribute", true)
     }
 
+    /**
+     * When task requirement fulfilled
+     *
+     * @param player
+     * @param attribute
+     * @param then
+     * @receiver
+     */
     protected fun whenTaskRequirementFulfilled(player: Player, attribute: String, then: () -> Unit) {
         if (getAttribute(player, attribute, false)) {
             then()
@@ -91,6 +121,15 @@ abstract class DiaryEventHookBase(private val diaryType: DiaryType) : MapArea, L
         }
     }
 
+    /**
+     * Progress incremental task
+     *
+     * @param player
+     * @param level
+     * @param task
+     * @param attribute
+     * @param maxProgress
+     */
     protected fun progressIncrementalTask(
         player: Player, level: DiaryLevel, task: Int, attribute: String, maxProgress: Int
     ) {
@@ -112,6 +151,16 @@ abstract class DiaryEventHookBase(private val diaryType: DiaryType) : MapArea, L
         }
     }
 
+    /**
+     * Progress flagged task
+     *
+     * @param player
+     * @param level
+     * @param task
+     * @param attribute
+     * @param bit
+     * @param targetValue
+     */
     protected fun progressFlaggedTask(
         player: Player, level: DiaryLevel, task: Int, attribute: String, bit: Int, targetValue: Int
     ) {
@@ -138,6 +187,13 @@ abstract class DiaryEventHookBase(private val diaryType: DiaryType) : MapArea, L
         }
     }
 
+    /**
+     * Finish task
+     *
+     * @param player
+     * @param level
+     * @param task
+     */
     protected fun finishTask(player: Player, level: DiaryLevel, task: Int) {
         player.achievementDiaryManager.finishTask(
             player, diaryType, findIndexFor(level), task
@@ -161,6 +217,11 @@ abstract class DiaryEventHookBase(private val diaryType: DiaryType) : MapArea, L
         return levelIndex
     }
 
+    /**
+     * On area visited
+     *
+     * @param player
+     */
     protected open fun onAreaVisited(player: Player) {
         areaTasks.forEach {
             it.whenSatisfied(player) {
@@ -171,31 +232,218 @@ abstract class DiaryEventHookBase(private val diaryType: DiaryType) : MapArea, L
         }
     }
 
+    /**
+     * On area left
+     *
+     * @param player
+     */
     protected open fun onAreaLeft(player: Player) {}
+
+    /**
+     * On resource produced
+     *
+     * @param player
+     * @param event
+     */
     protected open fun onResourceProduced(player: Player, event: ResourceProducedEvent) {}
+
+    /**
+     * On npc killed
+     *
+     * @param player
+     * @param event
+     */
     protected open fun onNpcKilled(player: Player, event: NPCKillEvent) {}
+
+    /**
+     * On teleported
+     *
+     * @param player
+     * @param event
+     */
     protected open fun onTeleported(player: Player, event: TeleportEvent) {}
+
+    /**
+     * On fire lit
+     *
+     * @param player
+     * @param event
+     */
     protected open fun onFireLit(player: Player, event: LitFireEvent) {}
+
+    /**
+     * On light source lit
+     *
+     * @param player
+     * @param event
+     */
     protected open fun onLightSourceLit(player: Player, event: LitLightSourceEvent) {}
+
+    /**
+     * On interacted
+     *
+     * @param player
+     * @param event
+     */
     protected open fun onInteracted(player: Player, event: InteractionEvent) {}
+
+    /**
+     * On button clicked
+     *
+     * @param player
+     * @param event
+     */
     protected open fun onButtonClicked(player: Player, event: ButtonClickEvent) {}
+
+    /**
+     * On dialogue opened
+     *
+     * @param player
+     * @param event
+     */
     protected open fun onDialogueOpened(player: Player, event: DialogueOpenEvent) {}
+
+    /**
+     * On dialogue closed
+     *
+     * @param player
+     * @param event
+     */
     protected open fun onDialogueClosed(player: Player, event: DialogueCloseEvent) {}
+
+    /**
+     * On dialogue option selected
+     *
+     * @param player
+     * @param event
+     */
     protected open fun onDialogueOptionSelected(player: Player, event: DialogueOptionSelectionEvent) {}
+
+    /**
+     * On used with
+     *
+     * @param player
+     * @param event
+     */
     protected open fun onUsedWith(player: Player, event: UseWithEvent) {}
+
+    /**
+     * On picked up
+     *
+     * @param player
+     * @param event
+     */
     protected open fun onPickedUp(player: Player, event: PickUpEvent) {}
+
+    /**
+     * On interface opened
+     *
+     * @param player
+     * @param event
+     */
     protected open fun onInterfaceOpened(player: Player, event: InterfaceOpenEvent) {}
+
+    /**
+     * On interface closed
+     *
+     * @param player
+     * @param event
+     */
     protected open fun onInterfaceClosed(player: Player, event: InterfaceCloseEvent) {}
+
+    /**
+     * On attribute set
+     *
+     * @param player
+     * @param event
+     */
     protected open fun onAttributeSet(player: Player, event: AttributeSetEvent) {}
+
+    /**
+     * On attribute removed
+     *
+     * @param player
+     * @param event
+     */
     protected open fun onAttributeRemoved(player: Player, event: AttributeRemoveEvent) {}
+
+    /**
+     * On spell cast
+     *
+     * @param player
+     * @param event
+     */
     protected open fun onSpellCast(player: Player, event: SpellCastEvent) {}
+
+    /**
+     * On item alchemized
+     *
+     * @param player
+     * @param event
+     */
     protected open fun onItemAlchemized(player: Player, event: ItemAlchemizationEvent) {}
+
+    /**
+     * On item equipped
+     *
+     * @param player
+     * @param event
+     */
     protected open fun onItemEquipped(player: Player, event: ItemEquipEvent) {}
+
+    /**
+     * On item unequipped
+     *
+     * @param player
+     * @param event
+     */
     protected open fun onItemUnequipped(player: Player, event: ItemUnequipEvent) {}
+
+    /**
+     * On item purchased from shop
+     *
+     * @param player
+     * @param event
+     */
     protected open fun onItemPurchasedFromShop(player: Player, event: ItemShopPurchaseEvent) {}
+
+    /**
+     * On item sold to shop
+     *
+     * @param player
+     * @param event
+     */
     protected open fun onItemSoldToShop(player: Player, event: ItemShopSellEvent) {}
+
+    /**
+     * On job assigned
+     *
+     * @param player
+     * @param event
+     */
     protected open fun onJobAssigned(player: Player, event: JobAssignmentEvent) {}
+
+    /**
+     * On fairy ring dialed
+     *
+     * @param player
+     * @param event
+     */
     protected open fun onFairyRingDialed(player: Player, event: FairyRingDialEvent) {}
+
+    /**
+     * On summoning points recharged
+     *
+     * @param player
+     * @param event
+     */
     protected open fun onSummoningPointsRecharged(player: Player, event: SummoningPointsRechargeEvent) {}
+
+    /**
+     * On prayer points recharged
+     *
+     * @param player
+     * @param event
+     */
     protected open fun onPrayerPointsRecharged(player: Player, event: PrayerPointsRechargeEvent) {}
 }

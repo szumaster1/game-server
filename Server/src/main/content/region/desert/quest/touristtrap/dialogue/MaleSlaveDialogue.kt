@@ -10,6 +10,9 @@ import core.game.world.GameWorld.Pulser
 import core.game.world.map.Location
 import core.tools.RandomFunction
 
+/**
+ * Male slave dialogue.
+ */
 class MaleSlaveDialogue(player: Player? = null) : Dialogue(player) {
 
     private var quest: Quest? = null

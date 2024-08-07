@@ -17,6 +17,9 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Build room dialogue.
+ */
 @Initializable
 public final class BuildRoomDialogue extends Dialogue {
 
@@ -33,10 +36,18 @@ public final class BuildRoomDialogue extends Dialogue {
     private int roomY;
     private int roomZ;
 
+    /**
+     * Instantiates a new Build room dialogue.
+     */
     public BuildRoomDialogue() {
         super();
     }
 
+    /**
+     * Instantiates a new Build room dialogue.
+     *
+     * @param player the player
+     */
     public BuildRoomDialogue(Player player) {
         super(player);
     }

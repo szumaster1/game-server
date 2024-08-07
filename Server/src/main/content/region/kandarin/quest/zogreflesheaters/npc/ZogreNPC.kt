@@ -9,6 +9,9 @@ import core.game.node.entity.npc.NPCBehavior
 import core.game.node.entity.player.Player
 import core.game.system.timer.impl.Disease
 
+/**
+ * Zogre NPC.
+ */
 class ZogreNPC : NPCBehavior(*ZogreAndSkogreNPCs) {
 
     override fun onCreation(self: NPC) {

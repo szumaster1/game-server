@@ -6,9 +6,15 @@ import core.game.node.entity.player.link.quest.Quest;
 import core.game.node.entity.skill.Skills;
 import core.plugin.Initializable;
 
+/**
+ * Vampire slayer.
+ */
 @Initializable
 public class VampireSlayer extends Quest {
 
+    /**
+     * Instantiates a new Vampire slayer.
+     */
     public VampireSlayer() {
         super("Vampire Slayer", 30, 29, 3, Vars.VARP_QUEST_VAMPIRE_SLAYER_PROGRESS, 0, 1, 3);
     }

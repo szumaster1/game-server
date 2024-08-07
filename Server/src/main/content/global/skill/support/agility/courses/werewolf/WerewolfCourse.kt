@@ -20,6 +20,9 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 
+/**
+ * Werewolf course.
+ */
 @Initializable
 class WerewolfCourse
 @JvmOverloads constructor(player: Player? = null) : AgilityCourse(player, 5, 0.0) {
@@ -36,6 +39,12 @@ class WerewolfCourse
         return true
     }
 
+    /**
+     * Stepping stone obstacle
+     *
+     * @param p
+     * @param n
+     */
     fun steppingStoneObstacle(p: Player, n: Scenery) {
         val loc = p.location
         val dir = Vector.betweenLocs(loc, n.location).toDirection()
@@ -61,6 +70,12 @@ class WerewolfCourse
         })
     }
 
+    /**
+     * Jump hurdle obstacle
+     *
+     * @param p
+     * @param n
+     */
     fun jumpHurdleObstacle(p: Player, n: Scenery) {
         val loc = p.location
         if (loc.y in arrayOf(9894, 9897, 9900)) return sendMessage(p, "You can't do that from here.")
@@ -71,6 +86,12 @@ class WerewolfCourse
         return
     }
 
+    /**
+     * Squeeze through pipe obstacle
+     *
+     * @param p
+     * @param n
+     */
     fun squeezeThroughPipeObstacle(p: Player, n: Node) {
         val loc = p.location
         if (loc.y > 9908) return sendMessage(p, "You can't do that from here.")
@@ -91,6 +112,12 @@ class WerewolfCourse
     }
 
 
+    /**
+     * Climb skull slope obstacle
+     *
+     * @param p
+     * @param n
+     */
     fun climbSkullSlopeObstacle(p: Player, n: Node) {
         val loc = p.location
         if (loc.x == 3530) return sendMessage(p, "You can't do that from here.")
@@ -104,6 +131,12 @@ class WerewolfCourse
         })
     }
 
+    /**
+     * Zip line obstacle
+     *
+     * @param p
+     * @param n
+     */
     fun zipLineObstacle(p: Player, n: Node) {
         val loc = p.location
         val helmet = getItemFromEquipment(p, EquipmentSlot.HEAD)

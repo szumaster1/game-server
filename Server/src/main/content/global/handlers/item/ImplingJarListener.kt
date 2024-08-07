@@ -9,6 +9,11 @@ import core.api.utils.WeightedItem
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Impling jar listener
+ *
+ * @constructor Impling jar listener
+ */
 class ImplingJarListener : InteractionListener {
 
     val JARS = ImplingLoot.values().map { it.jarId }.toIntArray()
@@ -30,7 +35,19 @@ class ImplingJarListener : InteractionListener {
 }
 
 
+/**
+ * Impling loot
+ *
+ * @property jarId
+ * @property table
+ * @constructor Impling loot
+ */
 enum class ImplingLoot(val jarId: Int, val table: WeightBasedTable) {
+    /**
+     * Baby Impling
+     *
+     * @constructor Baby Impling
+     */
     BABY_IMPLING(
         Items.BABY_IMPLING_JAR_11238, WeightBasedTable.create(
             WeightedItem(Items.CHISEL_1755, 1, 1, 10.0),
@@ -54,6 +71,11 @@ enum class ImplingLoot(val jarId: Int, val table: WeightBasedTable) {
         ).insertEasyClue(1.0)
     ),
 
+    /**
+     * Young Impling
+     *
+     * @constructor Young Impling
+     */
     YOUNG_IMPLING(
         Items.YOUNG_IMPLING_JAR_11240, WeightBasedTable.create(
             WeightedItem(Items.STEEL_NAILS_1539, 5, 5, 10.0),
@@ -78,6 +100,11 @@ enum class ImplingLoot(val jarId: Int, val table: WeightBasedTable) {
         ).insertEasyClue(2.0)
     ),
 
+    /**
+     * Gourmet Impling
+     *
+     * @constructor Gourmet Impling
+     */
     GOURMET_IMPLING(
         Items.GOURM_IMPLING_JAR_11242, WeightBasedTable.create(
             WeightedItem(Items.TUNA_361, 1, 1, 20.0),
@@ -101,6 +128,11 @@ enum class ImplingLoot(val jarId: Int, val table: WeightBasedTable) {
         ).insertEasyClue(4.0)
     ),
 
+    /**
+     * Earth Impling
+     *
+     * @constructor Earth Impling
+     */
     EARTH_IMPLING(
         Items.EARTH_IMPLING_JAR_11244, WeightBasedTable.create(
             WeightedItem(Items.FIRE_TALISMAN_1442, 1, 1, 10.0),
@@ -125,6 +157,11 @@ enum class ImplingLoot(val jarId: Int, val table: WeightBasedTable) {
         ).insertMediumClue(1.0)
     ),
 
+    /**
+     * Essence Impling
+     *
+     * @constructor Essence Impling
+     */
     ESSENCE_IMPLING(
         Items.ESS_IMPLING_JAR_11246, WeightBasedTable.create(
             WeightedItem(Items.PURE_ESSENCE_7937, 20, 20, 10.0),
@@ -149,6 +186,11 @@ enum class ImplingLoot(val jarId: Int, val table: WeightBasedTable) {
         ).insertMediumClue(2.0)
     ),
 
+    /**
+     * Eclectic Impling
+     *
+     * @constructor Eclectic Impling
+     */
     ECLECTIC_IMPLING(
         Items.ECLECTIC_IMPLING_JAR_11248, WeightBasedTable.create(
             WeightedItem(Items.MITHRIL_PICKAXE_1273, 1, 1, 10.0),
@@ -173,6 +215,11 @@ enum class ImplingLoot(val jarId: Int, val table: WeightBasedTable) {
         ).insertMediumClue(4.0)
     ),
 
+    /**
+     * Nature Impling
+     *
+     * @constructor Nature Impling
+     */
     NATURE_IMPLING(
         Items.NATURE_IMPLING_JAR_11250, WeightBasedTable.create(
             WeightedItem(Items.LIMPWURT_SEED_5100, 1, 1, 10.0),
@@ -197,6 +244,11 @@ enum class ImplingLoot(val jarId: Int, val table: WeightBasedTable) {
         ).insertHardClue(1.0)
     ),
 
+    /**
+     * Magpie Impling
+     *
+     * @constructor Magpie Impling
+     */
     MAGPIE_IMPLING(
         Items.MAGPIE_IMPLING_JAR_11252, WeightBasedTable.create(
             WeightedItem(Items.BLACK_DRAGONHIDE_1748, 6, 6, 10.0),
@@ -221,6 +273,11 @@ enum class ImplingLoot(val jarId: Int, val table: WeightBasedTable) {
         ).insertHardClue(2.0)
     ),
 
+    /**
+     * Ninja Impling
+     *
+     * @constructor Ninja Impling
+     */
     NINJA_IMPLING(
         Items.NINJA_IMPLING_JAR_11254, WeightBasedTable.create(
             WeightedItem(Items.SNAKESKIN_BOOTS_6328, 1, 1, 1.65),
@@ -245,6 +302,11 @@ enum class ImplingLoot(val jarId: Int, val table: WeightBasedTable) {
         ).insertHardClue(1.0)
     ),
 
+    /**
+     * Dragon Impling
+     *
+     * @constructor Dragon Impling
+     */
     DRAGON_IMPLING(
         Items.DRAGON_IMPLING_JAR_11256, WeightBasedTable.create(
             WeightedItem(Items.DRAGON_BOLT_TIPS_9193, 10, 30, 2.0),

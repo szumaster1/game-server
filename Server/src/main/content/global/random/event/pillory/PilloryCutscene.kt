@@ -9,6 +9,9 @@ import core.api.teleport
 import core.game.activity.Cutscene
 import core.game.node.entity.player.Player
 
+/**
+ * Pillory cutscene.
+ */
 class PilloryCutscene(player: Player) : Cutscene(player) {
 
     override fun setup() {

@@ -3,25 +3,68 @@
 
 package proto.management;
 
+/**
+ * The interface Friend update or builder.
+ */
 public interface FriendUpdateOrBuilder extends
         // @@protoc_insertion_point(interface_extends:management.FriendUpdate)
         com.google.protobuf.MessageOrBuilder {
 
+    /**
+     * Has type boolean.
+     *
+     * @return the boolean
+     */
     boolean hasType();
 
-    proto.management.FriendUpdate.Type getType();
+    /**
+     * Gets type.
+     *
+     * @return the type
+     */
+    FriendUpdate.Type getType();
 
+    /**
+     * Has username boolean.
+     *
+     * @return the boolean
+     */
     boolean hasUsername();
 
-    java.lang.String getUsername();
+    /**
+     * Gets username.
+     *
+     * @return the username
+     */
+    String getUsername();
 
+    /**
+     * Gets username bytes.
+     *
+     * @return the username bytes
+     */
     com.google.protobuf.ByteString
     getUsernameBytes();
 
+    /**
+     * Has friend boolean.
+     *
+     * @return the boolean
+     */
     boolean hasFriend();
 
-    java.lang.String getFriend();
+    /**
+     * Gets friend.
+     *
+     * @return the friend
+     */
+    String getFriend();
 
+    /**
+     * Gets friend bytes.
+     *
+     * @return the friend bytes
+     */
     com.google.protobuf.ByteString
     getFriendBytes();
 }

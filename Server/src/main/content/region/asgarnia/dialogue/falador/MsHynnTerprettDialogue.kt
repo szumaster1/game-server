@@ -7,6 +7,9 @@ import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Ms hynn terprett dialogue.
+ */
 @Initializable
 class MsHynnTerprettDialogue(player: Player? = null) : Dialogue(player) {
 

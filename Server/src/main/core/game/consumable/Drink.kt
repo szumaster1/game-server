@@ -7,7 +7,7 @@ import core.game.node.item.Item
 import core.game.world.update.flag.context.Animation
 
 /**
- * The type Drink.
+ * Drink.
  */
 open class Drink : Consumable {
     /**

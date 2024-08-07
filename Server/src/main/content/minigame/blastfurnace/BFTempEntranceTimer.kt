@@ -6,6 +6,10 @@ import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
 import core.game.system.timer.PersistTimer
 
+/**
+ * BF temp entrance timer.
+ * @author Ceikry
+ */
 class BFTempEntranceTimer : PersistTimer(BlastUtils.FEE_ENTRANCE_DURATION, "bf-tempentrance") {
     override fun run(entity: Entity): Boolean {
         if (entity !is Player) return false

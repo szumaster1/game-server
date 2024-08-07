@@ -9,6 +9,9 @@ import core.game.node.entity.npc.NPC
 import core.game.system.timer.impl.AntiMacro
 import core.tools.RED
 
+/**
+ * Sergeant damien NPC.
+ */
 class SergeantDamienNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs.SERGEANT_DAMIEN_2790) {
 
     override fun init() {

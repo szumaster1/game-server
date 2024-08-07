@@ -5,12 +5,21 @@ import core.game.consumable.ConsumableEffect
 import core.game.node.entity.combat.ImpactHandler
 import core.game.node.entity.player.Player
 
+/**
+ * Damage effect.
+ *
+ * @property amt The amount of damage to be inflicted.
+ * @property isPercent Indicates if the damage is in percentage.
+ * @constructor Damage effect constructor.
+ */
 class DamageEffect(val amt: Double, val isPercent: Boolean) : ConsumableEffect() {
 
+    // Activates the damage effect on the player
     override fun activate(player: Player) {
         impact(player, -getHealthEffectValue(player), ImpactHandler.HitsplatType.NORMAL)
     }
 
+    // Calculates the health effect value based on the amount and percentage
     override fun getHealthEffectValue(player: Player): Int {
         var amount = amt
         if (isPercent) {

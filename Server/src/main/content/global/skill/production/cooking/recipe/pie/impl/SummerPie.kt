@@ -4,6 +4,9 @@ import content.global.skill.production.cooking.recipe.pie.PieRecipe
 import core.api.consts.Items
 import core.game.node.item.Item
 
+/**
+ * Summer pie.
+ */
 class SummerPie : PieRecipe() {
 
     override fun getProduct(): Item {

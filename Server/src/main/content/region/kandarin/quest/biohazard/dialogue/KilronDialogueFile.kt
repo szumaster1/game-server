@@ -8,6 +8,11 @@ import core.game.dialogue.DialogueFile
 import core.game.node.entity.npc.NPC
 import core.game.world.map.Location
 
+/**
+ * Kilron dialogue file
+ *
+ * @constructor Kilron dialogue file
+ */
 class KilronDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         val questStage = getQuestStage(player!!, "Biohazard")

@@ -8,6 +8,9 @@ import core.game.node.entity.player.Player
 import core.game.world.map.Location
 import core.plugin.Initializable
 
+/**
+ * Kurask NPC.
+ */
 @Initializable
 class KuraskNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 

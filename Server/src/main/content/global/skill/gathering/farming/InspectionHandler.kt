@@ -10,6 +10,9 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 import core.tools.prependArticle
 
+/**
+ * Inspection handler.
+ */
 @Initializable
 class InspectionHandler : OptionHandler() {
     override fun newInstance(arg: Any?): Plugin<Any> {

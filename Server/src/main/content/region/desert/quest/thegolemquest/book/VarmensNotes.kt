@@ -10,6 +10,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
+/**
+ * Varmens notes
+ *
+ * @constructor Varmens notes
+ */
 class VarmensNotes : InteractionListener {
     companion object {
 

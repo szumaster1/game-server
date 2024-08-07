@@ -32,18 +32,41 @@ import core.network.packet.outgoing.MinimapState;
 
 import static core.api.ContentAPIKt.*;
 
+/**
+ * Demon slayer cutscene.
+ */
 public final class DemonSlayerCutscene extends CutscenePlugin {
 
+    /**
+     * The constant DELRITH.
+     */
     public static final int DELRITH = 879;
+    /**
+     * The constant WEAKENED_DELRITH.
+     */
     public static final int WEAKENED_DELRITH = 880;
     private static final Animation WIZARD_ANIM = new Animation(4617);
+    /**
+     * The Stone table.
+     */
     public Scenery stoneTable;
+    /**
+     * The Delrith.
+     */
     public NPC delrith;
 
+    /**
+     * Instantiates a new Demon slayer cutscene.
+     */
     public DemonSlayerCutscene() {
         super("Demon Slayer Cutscene");
     }
 
+    /**
+     * Instantiates a new Demon slayer cutscene.
+     *
+     * @param player the player
+     */
     public DemonSlayerCutscene(final Player player) {
         super("Demon Slayer Cutscene");
         this.player = player;
@@ -159,6 +182,9 @@ public final class DemonSlayerCutscene extends CutscenePlugin {
         }
     }
 
+    /**
+     * Dark wizard npc.
+     */
     /*
      * The Dark wizard npc.
      */
@@ -166,6 +192,9 @@ public final class DemonSlayerCutscene extends CutscenePlugin {
 
         private static final int[] IDS = {4658};
 
+        /**
+         * Instantiates a new Dark wizard npc.
+         */
         public DarkWizardNPC() {
             super(0, null);
         }
@@ -201,6 +230,9 @@ public final class DemonSlayerCutscene extends CutscenePlugin {
 
     }
 
+    /**
+     * Delrith npc.
+     */
     /*
      * The Delrith npc.
      */
@@ -208,6 +240,9 @@ public final class DemonSlayerCutscene extends CutscenePlugin {
 
         private final int[] IDS = {WEAKENED_DELRITH, DELRITH};
 
+        /**
+         * Instantiates a new Delrith npc.
+         */
         public DelrithNPC() {
             super(0, null);
         }
@@ -259,16 +294,27 @@ public final class DemonSlayerCutscene extends CutscenePlugin {
         }
     }
 
+    /**
+     * Delrith dialogue.
+     */
     public static final class DelrithDialogue extends Dialogue {
         private static final String[] WORDS = new String[]{"Carlem", "Aber", "Camerinthum", "Purchai", "Gabindo"};
         private int counter = 0;
         private DemonSlayerCutscene cutscene;
         private final StringBuilder incantation = new StringBuilder();
 
+        /**
+         * Instantiates a new Delrith dialogue.
+         */
         public DelrithDialogue() {
 
         }
 
+        /**
+         * Instantiates a new Delrith dialogue.
+         *
+         * @param player the player
+         */
         public DelrithDialogue(Player player) {
             super(player);
         }
@@ -357,14 +403,28 @@ public final class DemonSlayerCutscene extends CutscenePlugin {
         }
     }
 
+    /**
+     * Denath dialogue.
+     */
     public static final class DenathDialogue extends Dialogue {
         private static final Animation ANIMATION = new Animation(4623);
+        /**
+         * The Cutscene.
+         */
         public DemonSlayerCutscene cutscene;
 
+        /**
+         * Instantiates a new Denath dialogue.
+         */
         public DenathDialogue() {
 
         }
 
+        /**
+         * Instantiates a new Denath dialogue.
+         *
+         * @param player the player
+         */
         public DenathDialogue(Player player) {
             super(player);
         }

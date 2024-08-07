@@ -8,10 +8,13 @@ import core.game.node.entity.npc.NPC
 import kotlin.math.max
 import kotlin.math.min
 
+/**
+ * Zombie NPC.
+ */
 class ZombieNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs.ZOMBIE_419) {
 
     val ids = (419..424).toList()
-    override fun talkTo(npc: NPC) {}
+
     override fun init() {
         super.init()
         val index = max(0, min(ids.size, (player.properties.combatLevel / 20) - 1))
@@ -33,5 +36,7 @@ class ZombieNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NP
         super.tick()
         if (!player.viewport.currentPlane.npcs.contains(this)) this.clear()
     }
+
+    override fun talkTo(npc: NPC) {}
 
 }

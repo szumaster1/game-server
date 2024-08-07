@@ -6,6 +6,9 @@ import core.game.node.entity.combat.equipment.WeaponInterface
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Moss titan familiar.
+ */
 @Initializable
 class MossTitanNPC(owner: Player? = null, id: Int = NPCs.MOSS_TITAN_7357) : ElementalTitanNPC(owner, id, 5800, 12804, 20, WeaponInterface.STYLE_AGGRESSIVE) {
 

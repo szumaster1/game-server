@@ -10,6 +10,9 @@ import core.tools.END_DIALOGUE
 import core.api.consts.Items
 import core.api.consts.NPCs
 
+/**
+ * Cooking tutor dialogue.
+ */
 @Initializable
 class CookingTutorDialogue(player: Player? = null) : Dialogue(player) {
 

@@ -9,6 +9,11 @@ import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 
+/**
+ * Jossik dialogue file
+ *
+ * @constructor Jossik dialogue file
+ */
 class JossikDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.JOSSIK_1335)

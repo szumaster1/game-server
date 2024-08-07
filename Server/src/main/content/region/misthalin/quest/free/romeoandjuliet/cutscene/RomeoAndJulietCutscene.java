@@ -14,15 +14,26 @@ import core.network.packet.outgoing.CameraViewPacket;
 import core.plugin.Initializable;
 
 
+/**
+ * Romeo and juliet cutscene.
+ */
 @Initializable
 public final class RomeoAndJulietCutscene extends CutscenePlugin {
 
     private static final Location SPAWN_LOCATION = Location.create(3211, 3424, 0);
 
+    /**
+     * Instantiates a new Romeo and juliet cutscene.
+     */
     public RomeoAndJulietCutscene() {
         this(null);
     }
 
+    /**
+     * Instantiates a new Romeo and juliet cutscene.
+     *
+     * @param player the player
+     */
     public RomeoAndJulietCutscene(final Player player) {
         super("Romeo & Juliet Cutscene");
         this.player = player;
@@ -88,6 +99,11 @@ public final class RomeoAndJulietCutscene extends CutscenePlugin {
         return SPAWN_LOCATION;
     }
 
+    /**
+     * Gets phillipia.
+     *
+     * @return the phillipia
+     */
     public NPC getPhillipia() {
         return npcs.get(1);
     }

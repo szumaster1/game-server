@@ -9,6 +9,12 @@ import core.game.node.entity.npc.NPC
 import core.game.world.repository.Repository
 import core.tools.END_DIALOGUE
 
+/**
+ * Black knight titan dialogue file
+ *
+ * @property forced
+ * @constructor Black knight titan dialogue file
+ */
 class BlackKnightTitanDialogueFile(val forced: Boolean) : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.BLACK_KNIGHT_TITAN_221)

@@ -11,24 +11,25 @@ import core.game.interaction.InteractionListener
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Edgeville listeners.
+ */
 class EdgevilleListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Passing through goblin jail to player safety underground.
          */
-
         on(Scenery.POSTER_29586, IntType.SCENERY, "pull-back") { player, _ ->
             sendDialogue(player, "There appears to be a tunnel behind this poster.")
             teleport(player, Location(3140, 4230, 2))
             return@on true
         }
 
-        /*
+        /**
          * Trapdoor to Evil Dave location.
          */
-
         on(Scenery.TRAPDOOR_12267, IntType.SCENERY, "open") { player, _ ->
             setVarbit(player, 1888, 1)
             return@on true

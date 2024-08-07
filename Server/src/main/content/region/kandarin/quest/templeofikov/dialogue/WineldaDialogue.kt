@@ -13,6 +13,9 @@ import core.game.node.item.Item
 import core.game.world.map.Location
 import core.plugin.Initializable
 
+/**
+ * Winelda dialogue.
+ */
 @Initializable
 class WineldaDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -31,6 +34,11 @@ class WineldaDialogue(player: Player? = null) : Dialogue(player) {
 
 }
 
+/**
+ * Winelda dialogue file
+ *
+ * @constructor Winelda dialogue file
+ */
 class WineldaDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {
         b.onQuestStages("Temple of Ikov", 5, 6, 7, 100)

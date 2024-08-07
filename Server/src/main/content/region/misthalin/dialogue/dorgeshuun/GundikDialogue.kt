@@ -11,6 +11,9 @@ import core.tools.START_DIALOGUE
 import core.api.consts.Items
 import core.api.consts.NPCs
 
+/**
+ * Gundik dialogue.
+ */
 @Initializable
 class GundikDialogue(player: Player? = null) : Dialogue(player) {
 

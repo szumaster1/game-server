@@ -13,6 +13,11 @@ import core.game.world.GameWorld.Pulser
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Combat tab interface plugin
+ *
+ * @constructor Combat tab interface plugin
+ */
 @Initializable
 class CombatTabInterfacePlugin : ComponentPlugin() {
 

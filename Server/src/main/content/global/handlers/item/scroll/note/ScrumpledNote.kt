@@ -8,6 +8,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
+/**
+ * Scrumpled note
+ *
+ * @constructor Scrumpled note
+ */
 class ScrumpledNote : InteractionListener {
 
 

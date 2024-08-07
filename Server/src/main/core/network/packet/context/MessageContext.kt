@@ -6,7 +6,6 @@ import core.network.packet.Context
 
 /**
  * Packet context for communication message packets.
- * @author Emperor
  */
 class MessageContext : Context {
 

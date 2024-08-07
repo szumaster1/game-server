@@ -9,6 +9,9 @@ import core.game.node.item.Item
 import core.game.world.GameWorld.settings
 import core.plugin.Initializable
 
+/**
+ * Void knight dialogue.
+ */
 @Initializable
 class VoidKnightDialogue(player: Player? = null) : Dialogue(player) {
 

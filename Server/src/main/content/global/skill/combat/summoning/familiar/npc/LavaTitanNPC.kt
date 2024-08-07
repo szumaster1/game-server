@@ -9,6 +9,9 @@ import core.game.node.entity.skill.SkillBonus
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 
+/**
+ * Lava titan familiar.
+ */
 @Initializable
 class LavaTitanNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.LAVA_TITAN_7341) : Familiar(owner, id, 6100, 12788, 4, WeaponInterface.STYLE_AGGRESSIVE) {
 

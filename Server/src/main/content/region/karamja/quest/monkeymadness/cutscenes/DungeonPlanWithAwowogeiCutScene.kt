@@ -11,6 +11,9 @@ import core.game.world.GameWorld
 import core.game.world.map.Direction
 import core.game.world.map.Location
 
+/**
+ * Dungeon plan with awowogei cut scene.
+ */
 class DungeonPlanWithAwowogeiCutScene(player: Player) : Cutscene(player) {
 
     override fun setup() {

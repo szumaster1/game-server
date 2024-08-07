@@ -9,14 +9,16 @@ import core.game.interaction.InterfaceListener
 import core.game.world.GameWorld
 import core.api.consts.Scenery
 
+/**
+ * Map table interface listener.
+ */
 class MapTableInterfaceListener : InterfaceListener, InteractionListener {
 
     override fun defineInterfaceListeners() {
 
-        /*
+        /**
          * Open an interface showing location of altars.
          */
-
         onOpen(STUDY_INTERFACE) { player, _ ->
             if (inEquipment(player, Items.OMNI_TALISMAN_STAFF_13642) || inEquipment(player, Items.OMNI_TIARA_13655))
                 for (rune in ALTAR_MAP_MODELS) setComponentVisibility(player, STUDY_INTERFACE, rune, false).also {
@@ -28,10 +30,9 @@ class MapTableInterfaceListener : InterfaceListener, InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Use talisman with Map table to show altar location.
          */
-
         onUseWith(IntType.SCENERY, RunecraftGuildUtils.TALLYS, MAP_TABLE) { player, used, _ ->
             if (anyInInventory(player, *RunecraftGuildUtils.TALLYS)) {
                 openInterface(player, STUDY_INTERFACE)
@@ -40,10 +41,9 @@ class MapTableInterfaceListener : InterfaceListener, InteractionListener {
             return@onUseWith true
         }
 
-        /*
+        /**
          * Use Omni items to show all altar locations.
          */
-
         onUseWith(IntType.SCENERY, OMNI_TALISMAN, MAP_TABLE) { player, _, _ ->
             if (!inEquipment(player, OMNI_TALISMAN) || !inEquipment(player, OMNI_TIARA)) {
                 openInterface(player, STUDY_INTERFACE)

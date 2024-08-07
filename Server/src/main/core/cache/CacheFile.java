@@ -7,6 +7,9 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 
+/**
+ * Cache file.
+ */
 public final class CacheFile {
 
     private int indexFileId;
@@ -19,6 +22,15 @@ public final class CacheFile {
 
     private RandomAccessFile dataFile;
 
+    /**
+     * Instantiates a new Cache file.
+     *
+     * @param indexFileId      the index file id
+     * @param indexFile        the index file
+     * @param dataFile         the data file
+     * @param maxContainerSize the max container size
+     * @param cacheFileBuffer  the cache file buffer
+     */
     public CacheFile(int indexFileId, RandomAccessFile indexFile, RandomAccessFile dataFile, int maxContainerSize, byte[] cacheFileBuffer) {
         this.cacheFileBuffer = cacheFileBuffer;
         this.indexFileId = indexFileId;
@@ -27,6 +39,13 @@ public final class CacheFile {
         this.dataFile = dataFile;
     }
 
+    /**
+     * Get container unpacked data byte [ ].
+     *
+     * @param containerId the container id
+     * @param xteaKeys    the xtea keys
+     * @return the byte [ ]
+     */
     public final byte[] getContainerUnpackedData(int containerId, int[] xteaKeys) {
         byte[] packedData = getContainerData(containerId);
         if (packedData == null) {
@@ -38,6 +57,12 @@ public final class CacheFile {
         return ContainersInformation.unpackCacheContainer(packedData);
     }
 
+    /**
+     * Get container data byte [ ].
+     *
+     * @param containerId the container id
+     * @return the byte [ ]
+     */
     public final byte[] getContainerData(int containerId) {
         synchronized (dataFile) {
             try {
@@ -91,10 +116,21 @@ public final class CacheFile {
         }
     }
 
+    /**
+     * Gets index file id.
+     *
+     * @return the index file id
+     */
     public int getIndexFileId() {
         return indexFileId;
     }
 
+    /**
+     * Get container unpacked data byte [ ].
+     *
+     * @param containerId the container id
+     * @return the byte [ ]
+     */
     public final byte[] getContainerUnpackedData(int containerId) {
         return getContainerUnpackedData(containerId, null);
     }

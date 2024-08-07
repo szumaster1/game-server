@@ -6,6 +6,9 @@ import core.game.node.entity.player.Player
 import core.game.system.task.Pulse
 import core.game.world.map.Location
 
+/**
+ * Pirates cove utils.
+ */
 object PiratesCoveUtils {
 
     @JvmStatic
@@ -28,7 +31,26 @@ object PiratesCoveUtils {
     }
 }
 
+/**
+ * Reach destination
+ *
+ * @property destName
+ * @property destLoc
+ * @property ladyZayAnim
+ * @constructor Reach destination
+ */
 enum class ReachDestination(val destName: String, val destLoc: Location, val ladyZayAnim: Int) {
+    /**
+     * Pirates Cove To Moonclan Island
+     *
+     * @constructor Pirates Cove To Moonclan Island
+     */
     PIRATES_COVE_TO_MOONCLAN_ISLAND("Pirates' Cove", Location.create(2131, 3900, 2), 2344),
+
+    /**
+     * Moonclan Island To Pirates Cove
+     *
+     * @constructor Moonclan Island To Pirates Cove
+     */
     MOONCLAN_ISLAND_TO_PIRATES_COVE("Moonclan Island", Location.create(2216, 3797, 2), 2345),
 }

@@ -18,6 +18,9 @@ import core.game.node.item.Item
 import core.game.world.GameWorld.settings
 import core.tools.END_DIALOGUE
 
+/**
+ * Ava dialogue.
+ */
 class AvaDialogue(player: Player? = null) : Dialogue(player) {
 
     private var quest: Quest? = null

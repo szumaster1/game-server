@@ -10,6 +10,9 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Dark mage dialogue.
+ */
 @Initializable
 class DarkMageDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -56,6 +59,11 @@ class DarkMageDialogue(player: Player? = null) : Dialogue(player) {
         return true
     }
 
+    /**
+     * Repair
+     *
+     * @return
+     */
     fun repair(): Boolean {
         player.pouchManager.pouches.forEach { (id: Int, pouch: RCPouch) ->
             pouch.currentCap = pouch.capacity

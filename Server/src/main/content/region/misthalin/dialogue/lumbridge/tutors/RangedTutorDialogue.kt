@@ -8,6 +8,9 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.Initializable
 
+/**
+ * Ranged tutor dialogue.
+ */
 @Initializable
 class RangedTutorDialogue(player: Player? = null) : Dialogue(player) {
 

@@ -11,8 +11,13 @@ import core.network.packet.outgoing.RepositionChild
 import core.tools.StringUtils
 
 /**
- * Represents a skill dialogue handler class.
- * @author Vexia
+ * Skill dialogue handler
+ *
+ * @property player
+ * @property type
+ * @constructor
+ *
+ * @param data
  */
 open class SkillDialogueHandler(val player: Player, val type: SkillDialogue?, vararg data: Any) {
 
@@ -22,14 +27,16 @@ open class SkillDialogueHandler(val player: Player, val type: SkillDialogue?, va
     val data: Array<Any>
 
     /**
-     * Method used to open a skill dialogue.
+     * Open
+     *
      */
     fun open() {
         player.dialogueInterpreter.open(SKILL_DIALOGUE, this)
     }
 
     /**
-     * Method used to display the content on the dialogue.
+     * Display
+     *
      */
     fun display() {
         if (type == null) {
@@ -40,35 +47,47 @@ open class SkillDialogueHandler(val player: Player, val type: SkillDialogue?, va
     }
 
     /**
-     * Method used to create a product.
-     * @param amount the amount.
-     * @param index the index.
+     * Create
+     *
+     * @param amount
+     * @param index
      */
     open fun create(amount: Int, index: Int) {}
 
     /**
-     * Gets the total amount of items to be made.
-     * @param index the index.
-     * @return the amount.
+     * Get all
+     *
+     * @param index
+     * @return
      */
     open fun getAll(index: Int): Int {
         return player.inventory.getAmount(data[0] as Item)
     }
 
     /**
-     * Gets the name.
-     * @param item the item.
-     * @return the name.
+     * Get name
+     *
+     * @param item
+     * @return
      */
     protected open fun getName(item: Item): String {
         return StringUtils.formatDisplayName(item.name.replace("Unfired", ""))
     }
 
     /**
-     * Represents a skill dialogue type.
-     * @author 'Vexia
+     * Skill dialogue
+     *
+     * @property interfaceId
+     * @property baseButton
+     * @property length
+     * @constructor Skill dialogue
      */
     enum class SkillDialogue(val interfaceId: Int, private val baseButton: Int, private val length: Int) {
+        /**
+         * One Option
+         *
+         * @constructor One Option
+         */
         ONE_OPTION(309, 5, 1) {
             override fun display(player: Player, handler: SkillDialogueHandler) {
                 val item = handler.data[0] as Item
@@ -95,6 +114,12 @@ open class SkillDialogueHandler(val player: Player, val type: SkillDialogue?, va
                 }
             }
         },
+
+        /**
+         * Make Set One Option
+         *
+         * @constructor Make Set One Option
+         */
         MAKE_SET_ONE_OPTION(582, 4, 1) {
             override fun display(player: Player, handler: SkillDialogueHandler) {
                 val item = handler.data[0] as Item
@@ -124,6 +149,12 @@ open class SkillDialogueHandler(val player: Player, val type: SkillDialogue?, va
                 }
             }
         },
+
+        /**
+         * Two Option
+         *
+         * @constructor Two Option
+         */
         TWO_OPTION(303, 7, 2) {
             override fun display(player: Player, handler: SkillDialogueHandler) {
                 var item: Item
@@ -155,6 +186,12 @@ open class SkillDialogueHandler(val player: Player, val type: SkillDialogue?, va
                 return 1
             }
         },
+
+        /**
+         * Three Option
+         *
+         * @constructor Three Option
+         */
         THREE_OPTION(304, 8, 3) {
             override fun display(player: Player, handler: SkillDialogueHandler) {
                 var item: Item? = null
@@ -186,6 +223,12 @@ open class SkillDialogueHandler(val player: Player, val type: SkillDialogue?, va
                 return 1
             }
         },
+
+        /**
+         * Four Option
+         *
+         * @constructor Four Option
+         */
         FOUR_OPTION(305, 9, 4) {
             override fun display(player: Player, handler: SkillDialogueHandler) {
                 var item: Item? = null
@@ -218,6 +261,12 @@ open class SkillDialogueHandler(val player: Player, val type: SkillDialogue?, va
                 return 1
             }
         },
+
+        /**
+         * Five Option
+         *
+         * @constructor Five Option
+         */
         FIVE_OPTION(306, 7, 5) {
             /**
              * Represents the position data.
@@ -270,17 +319,19 @@ open class SkillDialogueHandler(val player: Player, val type: SkillDialogue?, va
          */
 
         /**
-         * Method used to display the content for this type.
-         * @param player the player.
-         * @param handler the handler.
+         * Display
+         *
+         * @param player
+         * @param handler
          */
         open fun display(player: Player, handler: SkillDialogueHandler) {}
 
         /**
-         * Gets the amount.
-         * @param handler the handler.
-         * @param buttonId the buttonId.
-         * @return the amount.
+         * Get amount
+         *
+         * @param handler
+         * @param buttonId
+         * @return
          */
         open fun getAmount(handler: SkillDialogueHandler, buttonId: Int): Int {
             for (k in 0..3) {
@@ -295,10 +346,11 @@ open class SkillDialogueHandler(val player: Player, val type: SkillDialogue?, va
         }
 
         /**
-         * Gets the index selected.
-         * @param handler the handler.
-         * @param buttonId the buttonId.
-         * @return the index selected.
+         * Get index
+         *
+         * @param handler
+         * @param buttonId
+         * @return
          */
         open fun getIndex(handler: SkillDialogueHandler?, buttonId: Int): Int {
             var index = 0

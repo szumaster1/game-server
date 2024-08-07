@@ -7,6 +7,11 @@ import core.game.system.timer.PersistTimer
 import core.game.system.timer.RSTimer
 import core.game.system.timer.TimerFlag
 
+/**
+ * Teleblock
+ *
+ * @constructor Teleblock
+ */
 class Teleblock : PersistTimer(
     runInterval = 1,
     identifier = "teleblock",

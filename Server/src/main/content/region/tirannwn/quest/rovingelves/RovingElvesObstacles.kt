@@ -13,6 +13,11 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.plugin.Plugin
 
+/**
+ * Roving elves obstacles
+ *
+ * @constructor Roving elves obstacles
+ */
 class RovingElvesObstacles : OptionHandler() {
 
     private val LEAF_SUCCESS_MSG = "You safely jump across."

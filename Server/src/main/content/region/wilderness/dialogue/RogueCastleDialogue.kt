@@ -6,6 +6,9 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
+/**
+ * Rogue castle dialogue.
+ */
 class RogueCastleDialogue : DialogueFile() {
 
     /*

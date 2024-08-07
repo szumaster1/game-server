@@ -12,10 +12,8 @@ import core.game.node.item.Item
 import java.text.DecimalFormat
 
 /**
- * Represents the module use to handle a request between trading of two players.
- * @author Vexia
- * @author dginovker
- * @version 2.0
+ * Trade module.
+ * @param target
  */
 class TradeModule(player: Player?, target: Player?) : RequestModule {
     /**
@@ -73,7 +71,8 @@ class TradeModule(player: Player?, target: Player?) : RequestModule {
     }
 
     /**
-     * Method used to update the trade interfaces.
+     * Update
+     *
      */
     fun update() {
         display(stage)
@@ -141,17 +140,19 @@ class TradeModule(player: Player?, target: Player?) : RequestModule {
     }
 
     /**
-     * Gets the interface for the current stage.
-     * @param stage the stage, defaults to this TradeModule's stage.
-     * @return the component.
+     * Get interface
+     *
+     * @param stage
+     * @return
      */
     fun getInterface(stage: Int = this.stage): Component {
         return if (stage == 0) MAIN_INTERFACE else ACCEPT_INTERFACE
     }
 
     /**
-     * Gets the interface for the TradeModule stage
-     * @return the component
+     * Get interface
+     *
+     * @return
      */
     fun getInterface(): Component {
         return getInterface(stage)
@@ -180,8 +181,9 @@ class TradeModule(player: Player?, target: Player?) : RequestModule {
     }
 
     /**
-     * Method used to display flashing alert if the trade has been modified.
-     * @param slot the slot.
+     * Alert
+     *
+     * @param slot
      */
     fun alert(slot: Int) {
         player!!.packetDispatch.sendRunScript(143, "Iiii", *arrayOf<Any>(slot, 7, 4, 21954594))
@@ -190,7 +192,8 @@ class TradeModule(player: Player?, target: Player?) : RequestModule {
 
 
     /**
-     * Method used to decline this offer.
+     * Decline
+     *
      */
     fun decline() {
         closeInterface(player!!)
@@ -257,8 +260,10 @@ class TradeModule(player: Player?, target: Player?) : RequestModule {
     }
 
     /**
-     * Method used to set the value of accepted.
-     * @param accept whether the trade was accepted or declined
+     * Set accepted
+     *
+     * @param accept
+     * @param update
      */
     fun setAccepted(accept: Boolean, update: Boolean) {
         isAccepted = accept
@@ -411,7 +416,8 @@ class TradeModule(player: Player?, target: Player?) : RequestModule {
     }
 
     /**
-     * Method used to increment the stage.
+     * Increment stage
+     *
      */
     fun incrementStage() {
         stage++

@@ -5,6 +5,11 @@ import core.cache.def.impl.ComponentType
 import core.cache.def.impl.IfaceDefinition
 import core.game.system.command.Privilege
 
+/**
+ * Interface command set
+ *
+ * @constructor Interface command set
+ */
 class InterfaceCommandSet : Commands {
     override fun defineCommands() {
 

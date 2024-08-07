@@ -3,7 +3,22 @@ package content.global.skill.production.crafting.data
 import core.api.consts.Items
 import core.game.node.item.Item
 
+/**
+ * Pottery data
+ *
+ * @property unfinished
+ * @property product
+ * @property level
+ * @property exp
+ * @property fireExp
+ * @constructor Pottery data
+ */
 enum class PotteryData(val unfinished: Item, val product: Item, val level: Int, val exp: Double, val fireExp: Double) {
+    /**
+     * Pot
+     *
+     * @constructor Pot
+     */
     POT(
         unfinished = Item(Items.UNFIRED_POT_1787),
         product = Item(Items.EMPTY_POT_1931),
@@ -11,6 +26,12 @@ enum class PotteryData(val unfinished: Item, val product: Item, val level: Int, 
         exp = 6.3,
         fireExp = 6.3
     ),
+
+    /**
+     * Dish
+     *
+     * @constructor Dish
+     */
     DISH(
         unfinished = Item(Items.UNFIRED_PIE_DISH_1789),
         product = Item(Items.PIE_DISH_2313),
@@ -18,11 +39,23 @@ enum class PotteryData(val unfinished: Item, val product: Item, val level: Int, 
         exp = 15.0,
         fireExp = 10.0
     ),
+
+    /**
+     * Bowl
+     *
+     * @constructor Bowl
+     */
     BOWL(unfinished = Item(Items.UNFIRED_BOWL_1791),
         product = Item(Items.BOWL_1923),
         level = 8, 18.0,
         fireExp = 15.0
     ),
+
+    /**
+     * Plant
+     *
+     * @constructor Plant
+     */
     PLANT(
         unfinished = Item(Items.UNFIRED_PLANT_POT_5352),
         product = Item(Items.PLANT_POT_5350),
@@ -30,6 +63,12 @@ enum class PotteryData(val unfinished: Item, val product: Item, val level: Int, 
         exp = 20.0,
         fireExp = 17.5
     ),
+
+    /**
+     * Lid
+     *
+     * @constructor Lid
+     */
     LID(
         unfinished = Item(Items.UNFIRED_POT_LID_4438),
         product = Item(Items.POT_LID_4440),

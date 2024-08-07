@@ -10,6 +10,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Spirit wolf dialogue.
+ */
 @Initializable
 class SpiritWolfDialogue(player: Player? = null) : Dialogue(player) {
 

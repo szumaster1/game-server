@@ -17,6 +17,9 @@ import core.game.world.map.RegionManager
 import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 
+/**
+ * Wilderness course.
+ */
 @Initializable
 class WildernessCourse
 @JvmOverloads constructor(player: Player? = null) : AgilityCourse(player, 5, 499.0) {

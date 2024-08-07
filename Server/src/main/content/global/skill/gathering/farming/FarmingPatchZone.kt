@@ -10,6 +10,9 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.game.world.map.zone.ZoneBorders
 
+/**
+ * Farming patch zone.
+ */
 class FarmingPatchZone : MapArea, TickListener {
     private val playersInZone = hashMapOf<Player,Int>()
 
@@ -59,6 +62,12 @@ class FarmingPatchZone : MapArea, TickListener {
         openDialogue(player, SpiritDialogue(firstDialogue), npc)
     }
 
+    /**
+     * Spirit dialogue
+     *
+     * @property firstDialogue
+     * @constructor Spirit dialogue
+     */
     internal class SpiritDialogue(private val firstDialogue: Boolean) : DialogueFile(){
         override fun handle(componentID: Int, buttonID: Int) {
             when(stage){

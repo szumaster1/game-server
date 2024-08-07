@@ -12,11 +12,20 @@ import core.game.node.entity.skill.Skills
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
+/**
+ * Drop table tests
+ *
+ * @constructor Drop table tests
+ */
 class DropTableTests {
     init {
         TestUtils.preTestSetup()
     }
 
+    /**
+     * Chromatic dragons should drop eggs only after99summoning
+     *
+     */
     @Test
     fun chromaticDragonsShouldDropEggsOnlyAfter99Summoning() {
         val npc = NPC.create(NPCs.BLACK_DRAGON_54, ServerConstants.HOME_LOCATION)

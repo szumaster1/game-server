@@ -7,6 +7,11 @@ import core.storage.InMemoryStorageProvider
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
+/**
+ * Development authenticator tests
+ *
+ * @constructor Development authenticator tests
+ */
 class DevelopmentAuthenticatorTests {
     private val authProvider = DevelopmentAuthenticator()
     private val storageProvider = InMemoryStorageProvider()
@@ -15,6 +20,10 @@ class DevelopmentAuthenticatorTests {
         authProvider.configureFor(storageProvider)
     }
 
+    /**
+     * Should allow checking if account exists
+     *
+     */
     @Test
     fun shouldAllowCheckingIfAccountExists() {
         val info = UserAccountInfo.createDefault()
@@ -24,6 +33,10 @@ class DevelopmentAuthenticatorTests {
         Assertions.assertEquals(false, authProvider.canCreateAccountWith(info))
     }
 
+    /**
+     * Login with valid account info returns success
+     *
+     */
     @Test
     fun loginWithValidAccountInfoReturnsSuccess() {
         val info = UserAccountInfo.createDefault()
@@ -32,7 +45,10 @@ class DevelopmentAuthenticatorTests {
         Assertions.assertEquals(AuthResponse.Success, authProvider.checkLogin("Billy", "").first)
     }
 
-    //Development authenticator should work regardless if account exists or not.
+    /**
+     * Login with invalid account info returns success
+     *
+     *///Development authenticator should work regardless if account exists or not.
     @Test
     fun loginWithInvalidAccountInfoReturnsSuccess() {
         val info = UserAccountInfo.createDefault()
@@ -41,6 +57,10 @@ class DevelopmentAuthenticatorTests {
         Assertions.assertEquals(AuthResponse.Success, authProvider.checkLogin("Bilbo", "ebbeb").first)
     }
 
+    /**
+     * Login username is not case sensitive
+     *
+     */
     @Test
     fun loginUsernameIsNotCaseSensitive() {
         val info = UserAccountInfo.createDefault()
@@ -50,7 +70,10 @@ class DevelopmentAuthenticatorTests {
         Assertions.assertEquals(AuthResponse.Success, authProvider.checkLogin("billy", "").first)
     }
 
-    //Development authenticator should basically bypass needing/creating an account entirely. useful for SP too.
+    /**
+     * Login to unregistered account creates it
+     *
+     *///Development authenticator should basically bypass needing/creating an account entirely. useful for SP too.
     @Test
     fun loginToUnregisteredAccountCreatesIt() {
         authProvider.checkLogin("masterbaggins", "whatever")

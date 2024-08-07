@@ -5,12 +5,48 @@ import core.api.setVarp
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
+/**
+ * Grub foot
+ *
+ * @property id
+ * @property value
+ * @property mail
+ * @constructor Grub foot
+ */
 enum class GrubFoot(val id: Int, val value: Int, val mail: Item) {
+    /**
+     * Normal
+     *
+     * @constructor Normal
+     */
     NORMAL(4495, 1, Item(288)),
+
+    /**
+     * Orange
+     *
+     * @constructor Orange
+     */
     ORANGE(4497, 4, Item(286)),
+
+    /**
+     * Blue
+     *
+     * @constructor Blue
+     */
     BLUE(4498, 5, Item(287)),
+
+    /**
+     * Brown
+     *
+     * @constructor Brown
+     */
     BROWN(4496, 6, Item(288));
 
+    /**
+     * Set config
+     *
+     * @param player
+     */
     fun setConfig(player: Player?) {
         setVarp(player!!, 62, value)
     }

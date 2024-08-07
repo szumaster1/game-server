@@ -3,6 +3,9 @@ package core.game.world.map.zone;
 import core.api.StartupListener;
 import core.game.world.map.zone.impl.*;
 
+/**
+ * Zone builder.
+ */
 public class ZoneBuilder implements StartupListener {
 
     @Override
@@ -16,6 +19,11 @@ public class ZoneBuilder implements StartupListener {
         configure(new SnowZone());
     }
 
+    /**
+     * Configure.
+     *
+     * @param zone the zone
+     */
     public static void configure(MapZone zone) {
         zone.setUid(zone.getName().hashCode());
         zone.configure();

@@ -14,6 +14,11 @@ import core.game.world.map.RegionManager.getLocalPlayers
 import core.game.world.map.zone.MapZone
 import core.game.world.map.zone.ZoneBorders
 
+/**
+ * Moderator zone
+ *
+ * @constructor Moderator zone
+ */
 class ModeratorZone : MapZone("Moderator Zone", true) {
 
     override fun enter(entity: Entity): Boolean {

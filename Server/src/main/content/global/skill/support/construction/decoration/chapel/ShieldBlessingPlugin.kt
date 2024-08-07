@@ -18,6 +18,9 @@ import core.plugin.Plugin
 const val HOLY_ELIXER = 13754
 const val SPIRIT_SHIELD = 13734
 
+/**
+ * Shield blessing plugin.
+ */
 @Initializable
 class ShieldBlessingPlugin : UseWithHandler(HOLY_ELIXER, SPIRIT_SHIELD) {
     override fun newInstance(arg: Any?): Plugin<Any> {

@@ -6,6 +6,9 @@ import core.game.node.entity.combat.equipment.WeaponInterface
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Spirit dagannoth familiar.
+ */
 @Initializable
 class SpiritDagannothNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 6804) : Familiar(owner, id, 5700, 12017, 6, WeaponInterface.STYLE_CONTROLLED) {
 

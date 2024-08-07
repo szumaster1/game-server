@@ -18,6 +18,9 @@ import java.util.concurrent.TimeUnit
 
 private const val CHEST = 2827
 
+/**
+ * Gutanoth chest interaction handler.
+ */
 class GutanothChestInteractionHandler : InteractionListener {
 
     override fun defineListeners() {
@@ -30,6 +33,14 @@ class GutanothChestInteractionHandler : InteractionListener {
 
     }
 
+    /**
+     * Chest pulse
+     *
+     * @property player
+     * @property isLoot
+     * @property chest
+     * @constructor Chest pulse
+     */
     class ChestPulse(val player: Player, val isLoot: Boolean, val chest: Scenery) : Pulse() {
         var ticks = 0
         override fun pulse(): Boolean {
@@ -48,6 +59,11 @@ class GutanothChestInteractionHandler : InteractionListener {
             return false
         }
 
+        /**
+         * Loot chest
+         *
+         * @param player
+         */
         fun lootChest(player: Player) {
             if (isLoot) {
                 setAttribute(
@@ -78,16 +94,63 @@ class GutanothChestInteractionHandler : InteractionListener {
             }
         }
 
+        /**
+         * Rewards
+         *
+         * @property id
+         * @property type
+         * @property message
+         * @constructor Rewards
+         */
         enum class Rewards(val id: Int, val type: Type, val message: String) {
+            /**
+             * Bones.
+             */
             BONES(Items.BONES_2530, Type.ITEM, "Oh! Some bones. Delightful."),
+
+            /**
+             * Emerald.
+             */
             EMERALD(Items.EMERALD_1605, Type.ITEM, "Ooh! A lovely emerald!"),
+
+            /**
+             * Rotten Apple.
+             */
             ROTTEN_APPLE(Items.ROTTEN_APPLE_1984, Type.ITEM, "Oh, joy, spoiled fruit! My favorite!"),
+
+            /**
+             * Chaos Dwarf.
+             */
             CHAOS_DWARF(NPCs.CHAOS_DWARF_119, Type.NPC, "You've gotta be kidding me, a dwarf?!"),
+
+            /**
+             * Rat.
+             */
             RAT(NPCs.RAT_47, Type.NPC, "Eek!"),
+
+            /**
+             * Scorpion.
+             */
             SCORPION(NPCs.SCORPION_1477, Type.NPC, "Zoinks!"),
+
+            /**
+             * Spider.
+             */
             SPIDER(NPCs.SPIDER_1004, Type.NPC, "Awh, a cute lil spidey!")
         }
 
-        enum class Type { ITEM, NPC }
+        /**
+         * Type.
+         */
+        enum class Type {
+            /**
+             * Item.
+             */
+            ITEM,
+
+            /**
+             * Npc.
+             */
+            NPC }
     }
 }

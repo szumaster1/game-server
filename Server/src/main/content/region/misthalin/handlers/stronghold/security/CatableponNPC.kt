@@ -12,6 +12,9 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 
+/**
+ * Catablepon NPC.
+ */
 @Initializable
 class CatableponNPC : AbstractNPC {
 
@@ -28,20 +31,42 @@ class CatableponNPC : AbstractNPC {
         this.isAggressive = true
     }
 
+    /**
+     * Configuration.
+     */
     override fun configure() {
         super.configure()
         super.getProperties().spell = SpellBook.MODERN.getSpell(7) as CombatSpell?
         super.getProperties().autocastSpell = SpellBook.MODERN.getSpell(7) as CombatSpell?
     }
 
+    /**
+     * Construct
+     *
+     * @param id the id.
+     * @param location the location.
+     * @param objects the objects.
+     * @return
+     */
     override fun construct(id: Int, location: Location, vararg objects: Any): AbstractNPC {
         return CatableponNPC(id, location)
     }
 
+    /**
+     * Get swing handler.
+     *
+     * @param swing the swing boolean.
+     * @return
+     */
     override fun getSwingHandler(swing: Boolean): CombatSwingHandler {
         return combatHandler
     }
 
+    /**
+     * Get ids.
+     *
+     * @return
+     */
     override fun getIds(): IntArray {
         return ID
     }

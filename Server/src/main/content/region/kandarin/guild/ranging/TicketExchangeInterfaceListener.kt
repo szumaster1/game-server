@@ -9,12 +9,44 @@ import core.game.dialogue.FacialExpression
 import core.game.interaction.InterfaceListener
 import core.game.node.item.Item
 
+/**
+ * Ticket exchange
+ *
+ * @property item
+ * @property tickets
+ * @property slot
+ * @property value
+ * @constructor Ticket exchange
+ */
 enum class TicketExchange(val item: Item, val tickets: Int, val slot: Int, val value: String) {
+    /**
+     * Barb Bolt Tips.
+     */
     BARB_BOLT_TIPS(Item(Items.BARB_BOLTTIPS_47, 30), 140, 0, "The 30 Barb Boltips cost 140 Archery Tickets."),
+
+    /**
+     * Studded Body.
+     */
     STUDDED_BODY(Item(Items.STUDDED_BODY_1133, 1), 150, 1, "The Studded Body costs 150 Archery Tickets."),
+
+    /**
+     * Rune Arrow.
+     */
     RUNE_ARROW(Item(Items.RUNE_ARROW_892, 50), 2000, 2, "The 50 Rune Arrows cost 2,000 Archery Tickets."),
+
+    /**
+     * Coif.
+     */
     COIF(Item(Items.COIF_1169, 1), 100, 3, "The Coif costs 100 Archery Tickets."),
+
+    /**
+     * Green D Hide.
+     */
     GREEN_D_HIDE(Item(Items.GREEN_DHIDE_BODY_1135, 1), 2400, 4, "The Dragonhide body costs 2,400 Archery Tickets."),
+
+    /**
+     * Adamant Javelin.
+     */
     ADAMANT_JAVELIN(Item(Items.ADAMANT_JAVELIN_829, 20), 2000, 5, "The 20 Adamant Javelins cost 2,000 Archery Tickets.");
 
     companion object {
@@ -29,6 +61,9 @@ enum class TicketExchange(val item: Item, val tickets: Int, val slot: Int, val v
 
 }
 
+/**
+ * Ticket exchange interface listener.
+ */
 class TicketExchangeInterfaceListener : InterfaceListener {
 
     private val itemIds = intArrayOf(Items.BARB_BOLTTIPS_47, Items.STUDDED_BODY_1133, Items.RUNE_ARROW_892, Items.COIF_1169, Items.GREEN_DHIDE_BODY_1135, Items.ADAMANT_JAVELIN_829)

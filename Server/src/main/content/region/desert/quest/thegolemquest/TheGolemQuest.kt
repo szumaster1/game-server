@@ -24,6 +24,11 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 import core.tools.RandomFunction
 
+/**
+ * The golem quest
+ *
+ * @constructor The golem quest
+ */
 @Initializable
 class TheGolemQuest : Quest("The Golem", 70, 69, 1, Vars.VARBIT_QUEST_THE_GOLEM_PROGRESS, 0, 1, 10) {
 
@@ -103,6 +108,9 @@ class TheGolemQuest : Quest("The Golem", 70, 69, 1, Vars.VARBIT_QUEST_THE_GOLEM_
     }
 }
 
+/**
+ * Clay golem NPC.
+ */
 @Initializable
 class ClayGolemNPC : AbstractNPC {
     constructor() : super(NPCs.BROKEN_CLAY_GOLEM_1908, null, true)
@@ -117,6 +125,9 @@ class ClayGolemNPC : AbstractNPC {
     }
 }
 
+/**
+ * Letter listener.
+ */
 class LetterListener : InterfaceListener {
     override fun defineInterfaceListeners() {
         onOpen(220) { player, _ ->
@@ -130,6 +141,9 @@ class LetterListener : InterfaceListener {
     }
 }
 
+/**
+ * Display case listener.
+ */
 class DisplayCaseListener : InterfaceListener {
     override fun defineInterfaceListeners() {
         onOpen(534) { player, _ ->
@@ -144,7 +158,16 @@ class DisplayCaseListener : InterfaceListener {
     }
 }
 
+/**
+ * The golem listeners.
+ */
 class TheGolemListeners : InteractionListener {
+    /**
+     * Repair golem
+     *
+     * @param player
+     * @return
+     */
     fun repairGolem(player: Player): Boolean {
         if (player.questRepository.getStage("The Golem") == 1) {
             var clayUsed = player.getAttribute("the-golem:clay-used", 0)
@@ -171,6 +194,9 @@ class TheGolemListeners : InteractionListener {
         return true
     }
 
+    /**
+     * Take throne gems.
+     */
     fun takeThroneGems(player: Player) {
         if (player.getAttribute("the-golem:gems-taken", false)) {
             return
@@ -255,6 +281,13 @@ class TheGolemListeners : InteractionListener {
         }
     }
 
+    /**
+     * Display case
+     *
+     * @param player
+     * @param node
+     * @return
+     */
     fun displayCase(player: Player, node: Scenery): Boolean {
         val model = node.definition.modelIds[0]
         setAttribute(player, "ifaces:534:model", model)
@@ -262,6 +295,13 @@ class TheGolemListeners : InteractionListener {
         return true
     }
 
+    /**
+     * Open display case
+     *
+     * @param player
+     * @param node
+     * @return
+     */
     fun openDisplayCase(player: Player, node: Node): Boolean {
         if (!player.inventory.containsAtLeastOneItem(4617)) {
             sendMessage(player, "You can't open the display case without the key.")
@@ -275,6 +315,12 @@ class TheGolemListeners : InteractionListener {
         return true
     }
 
+    /**
+     * Place statuette
+     *
+     * @param player
+     * @return
+     */
     fun placeStatuette(player: Player): Boolean {
 
         if (player.inventory.remove(Item(4618))) {
@@ -285,6 +331,13 @@ class TheGolemListeners : InteractionListener {
         return true
     }
 
+    /**
+     * Turn statuette
+     *
+     * @param player
+     * @param node
+     * @return
+     */
     fun turnStatuette(player: Player, node: Scenery): Boolean {
         playGlobalAudio(player.location, Sounds.TURN_STATUE_1852)
         if (player.getAttribute("the-golem:door-open", false)) {
@@ -312,6 +365,11 @@ class TheGolemListeners : InteractionListener {
         return true
     }
 
+    /**
+     * Check door
+     *
+     * @param player
+     */
     fun checkDoor(player: Player) {
         if (!player.getAttribute("the-golem:door-open", false)) {
             val rotation0 = player.getAttribute("the-golem:statuette-rotation:0", 0)
@@ -326,6 +384,12 @@ class TheGolemListeners : InteractionListener {
         }
     }
 
+    /**
+     * Mortar on mushroom
+     *
+     * @param player
+     * @return
+     */
     fun mortarOnMushroom(player: Player): Boolean {
         if (!player.inventory.containsAtLeastOneItem(Items.VIAL_229)) {
             sendMessage(player, "You need a vial to do that.")
@@ -342,6 +406,12 @@ class TheGolemListeners : InteractionListener {
         return true
     }
 
+    /**
+     * Feather on ink
+     *
+     * @param player
+     * @return
+     */
     fun featherOnInk(player: Player): Boolean {
         if (player.inventory.remove(Item(Items.PHOENIX_FEATHER_4621, 1))) {
             sendItemDialogue(player, Items.PHOENIX_QUILL_PEN_4623, "You dip the phoenix feather into the ink.")
@@ -350,6 +420,12 @@ class TheGolemListeners : InteractionListener {
         return true
     }
 
+    /**
+     * Pen on papyrus
+     *
+     * @param player
+     * @return
+     */
     fun penOnPapyrus(player: Player): Boolean {
         if (!player.getAttribute("the-golem:varmen-notes-read", false)) {
             sendMessage(player, "You don't know what to write.")
@@ -362,6 +438,12 @@ class TheGolemListeners : InteractionListener {
         return true
     }
 
+    /**
+     * Implement on golem
+     *
+     * @param player
+     * @return
+     */
     fun implementOnGolem(player: Player): Boolean {
         if (!player.getAttribute("the-golem:varmen-notes-read", false)) {
             sendMessage(player, "You don't know what that would do.")
@@ -374,6 +456,14 @@ class TheGolemListeners : InteractionListener {
         return true
     }
 
+    /**
+     * Program on golem
+     *
+     * @param player
+     * @param used
+     * @param with
+     * @return
+     */
     fun programOnGolem(player: Player, used: Node, with: Node): Boolean {
         playGlobalAudio(player.location, Sounds.GOLEM_PROGRAM_1849)
         player.dialogueInterpreter.open(ClayGolemProgramDialogueFile(), with)

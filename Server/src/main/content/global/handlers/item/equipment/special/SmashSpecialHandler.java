@@ -16,6 +16,9 @@ import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
+/**
+ * Smash special handler.
+ */
 @Initializable
 public final class SmashSpecialHandler extends MeleeSwingHandler implements Plugin<Object> {
 

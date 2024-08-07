@@ -22,6 +22,9 @@ private var activity: FishingTrawlerActivity? = null
 private var nextStart = GameWorld.ticks + WAIT_TIME
 private val ftWaitingArea = arrayOf(ZoneBorders(2668, 3165, 2675, 3184))
 
+/**
+ * Fishing trawler activity.
+ */
 @Initializable
 class FishingTrawlerActivity : ActivityPlugin(
     "fishing trawler",
@@ -75,6 +78,11 @@ class FishingTrawlerActivity : ActivityPlugin(
         return true
     }
 
+    /**
+     * Add player
+     *
+     * @param player
+     */
     fun addPlayer(player: Player) {
         if (waitingPlayers.isEmpty()) {
             nextStart = GameWorld.ticks + WAIT_TIME
@@ -85,6 +93,11 @@ class FishingTrawlerActivity : ActivityPlugin(
         waitingPlayers.add(player)
     }
 
+    /**
+     * Remove player
+     *
+     * @param player
+     */
     fun removePlayer(player: Player) {
         waitingPlayers.remove(player)
     }

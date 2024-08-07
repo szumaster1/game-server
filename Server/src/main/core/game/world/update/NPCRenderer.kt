@@ -10,7 +10,6 @@ import java.nio.ByteBuffer
 
 /**
  * The NPC renderer.
- * @author Emperor
  */
 object NPCRenderer {
     /**

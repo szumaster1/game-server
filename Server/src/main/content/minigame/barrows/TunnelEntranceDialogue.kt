@@ -8,9 +8,16 @@ import core.game.node.entity.player.Player
 import core.game.world.map.Location
 import core.plugin.Initializable
 
+/**
+ * The tunnel entrance dialogue handling plugin.
+ * @author Emperor
+ */
 @Initializable
 class TunnelEntranceDialogue(player: Player? = null) : Dialogue(player) {
 
+    /**
+     * The crypt index.
+     */
     private var index = 0
 
     override fun open(vararg args: Any): Boolean {

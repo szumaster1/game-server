@@ -7,6 +7,9 @@ import core.api.sendMessage
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Dairy churn listener.
+ */
 class DairyChurnListener : InteractionListener {
 
     override fun defineListeners() {

@@ -15,6 +15,9 @@ import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
+/**
+ * Judgement special handler.
+ */
 @Initializable
 public final class JudgementSpecialHandler extends MeleeSwingHandler implements Plugin<Object> {
 

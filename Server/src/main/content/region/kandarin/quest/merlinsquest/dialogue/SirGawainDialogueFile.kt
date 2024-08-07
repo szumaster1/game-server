@@ -9,6 +9,11 @@ import core.game.dialogue.Topic
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
+/**
+ * Sir gawain dialogue file
+ *
+ * @constructor Sir gawain dialogue file
+ */
 class SirGawainDialogueFile : DialogueFile() {
 
     val STAGE_LE_FAYE_END = 20

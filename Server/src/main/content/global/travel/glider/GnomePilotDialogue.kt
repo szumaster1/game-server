@@ -11,6 +11,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Gnome pilot dialogue.
+ */
 @Initializable
 class GnomePilotDialogue(player: Player? = null) : Dialogue(player) {
 

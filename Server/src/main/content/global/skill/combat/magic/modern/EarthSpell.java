@@ -15,6 +15,9 @@ import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
+/**
+ * Earth spell.
+ */
 @Initializable
 public final class EarthSpell extends CombatSpell {
 
@@ -32,6 +35,9 @@ public final class EarthSpell extends CombatSpell {
     private static final Graphic WAVE_END = new Graphic(166, 96);
     private static final Animation ANIMATION = new Animation(711, Priority.HIGH);
 
+    /**
+     * Instantiates a new Earth spell.
+     */
     public EarthSpell() {
 
     }

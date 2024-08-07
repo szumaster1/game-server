@@ -11,6 +11,9 @@ import core.game.global.action.DoorActionHandler
 import core.game.node.entity.player.Player
 import core.game.world.map.Direction
 
+/**
+ * Jeremy rescue cutscene.
+ */
 class JeremyRescueCutscene(player: Player) : Cutscene(player) {
     override fun setup() {
         setExit(location(2603, 3155, 0))

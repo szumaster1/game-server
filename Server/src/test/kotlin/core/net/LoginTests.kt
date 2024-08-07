@@ -6,7 +6,16 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import java.nio.ByteBuffer
 
+/**
+ * Login tests
+ *
+ * @constructor Login tests
+ */
 class LoginTests {
+    /**
+     * Should decode correctly encoded packet
+     *
+     */
     @Test
     fun shouldDecodeCorrectlyEncodedPacket() {
         val localCopy = validLoginPacket.copyOf(validLoginPacket.size)
@@ -14,6 +23,10 @@ class LoginTests {
         Assertions.assertEquals(AuthResponse.Success, loginInfo.first, "Info: ${loginInfo.second}")
     }
 
+    /**
+     * Should never throw exception but return unexpected error response instead
+     *
+     */
     @Test
     fun shouldNeverThrowExceptionButReturnUnexpectedErrorResponseInstead() {
         val localCopy = validLoginPacket.copyOf(validLoginPacket.size)
@@ -29,6 +42,10 @@ class LoginTests {
         Assertions.assertEquals(AuthResponse.UnexpectedError, response)
     }
 
+    /**
+     * Login packet with invalid opcode should return a helpful response
+     *
+     */
     @Test
     fun loginPacketWithInvalidOpcodeShouldReturnAHelpfulResponse() {
         val localCopy = validLoginPacket.copyOf(validLoginPacket.size)

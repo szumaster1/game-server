@@ -21,6 +21,9 @@ private const val DRUNK_DRAG_MIX = 9574
 private val mixers =
     arrayOf(WIZ_BLIZ_MIX, SGG_MIX, F_BLAST_MIX, P_PUNCH_MIX, BLU_SPEC_MIX, CHOC_SAT_MIX, DRUNK_DRAG_MIX)
 
+/**
+ * Pour mixer plugin.
+ */
 @Initializable
 class PourMixerPlugin : OptionHandler() {
     override fun newInstance(arg: Any?): Plugin<Any> {
@@ -71,14 +74,50 @@ class PourMixerPlugin : OptionHandler() {
         player.skills.addExperience(Skills.COOKING, 50.0)
     }
 
+    /**
+     * Poured drink
+     *
+     * @property product
+     * @property requiredItems
+     * @constructor Poured drink
+     */
     internal enum class PouredDrink(val product: Int, val requiredItems: Array<Item>) {
+        /**
+         * Fruit Blast
+         *
+         * @constructor Fruit Blast
+         */
         FRUIT_BLAST(9514, arrayOf(Item(Items.LEMON_SLICES_2106))),
+
+        /**
+         * Pine Punch
+         *
+         * @constructor Pine Punch
+         */
         PINE_PUNCH(
             9512,
             arrayOf(Item(Items.LIME_CHUNKS_2122), Item(Items.PINEAPPLE_CHUNKS_2116), Item(Items.ORANGE_SLICES_2112))
         ),
+
+        /**
+         * Wiz Blizz
+         *
+         * @constructor Wiz Blizz
+         */
         WIZ_BLIZZ(9508, arrayOf(Item(Items.PINEAPPLE_CHUNKS_2116), Item(Items.LIME_SLICES_2124))),
+
+        /**
+         * Short G G
+         *
+         * @constructor Short G G
+         */
         SHORT_G_G(9510, arrayOf(Item(Items.LIME_SLICES_2124), Item(Items.EQUA_LEAVES_2128))),
+
+        /**
+         * Drunk Drag
+         *
+         * @constructor Drunk Drag
+         */
         DRUNK_DRAG(
             9575,
             arrayOf(
@@ -89,6 +128,12 @@ class PourMixerPlugin : OptionHandler() {
                 Item(Items.POT_OF_CREAM_2130)
             )
         ),
+
+        /**
+         * Choc Sat
+         *
+         * @constructor Choc Sat
+         */
         CHOC_SAT(
             9572,
             arrayOf(
@@ -100,6 +145,12 @@ class PourMixerPlugin : OptionHandler() {
                 Item(Items.CHOCOLATE_BAR_1973)
             )
         ),
+
+        /**
+         * Blur Spec
+         *
+         * @constructor Blur Spec
+         */
         BLUR_SPEC(
             9520,
             arrayOf(

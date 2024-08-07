@@ -8,6 +8,9 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.api.consts.NPCs
 
+/**
+ * Miningtutor dialogue.
+ */
 @Initializable
 class MiningtutorDialogue(player: Player? = null) : Dialogue(player) {
 

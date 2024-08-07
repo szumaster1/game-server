@@ -4,6 +4,9 @@ import core.network.packet.IoBuffer;
 import core.network.packet.OutgoingPacket;
 import core.network.packet.context.VarbitContext;
 
+/**
+ * Varbit.
+ */
 public class Varbit implements OutgoingPacket<VarbitContext> {
     @Override
     public void send(VarbitContext varbitContext) {

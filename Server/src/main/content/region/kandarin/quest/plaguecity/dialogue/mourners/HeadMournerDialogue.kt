@@ -8,6 +8,11 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
+/**
+ * Head mourner dialogue
+ *
+ * @constructor Head mourner dialogue
+ */
 class HeadMournerDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

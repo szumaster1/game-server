@@ -9,6 +9,11 @@ import core.game.node.entity.skill.Skills
 import core.game.world.map.Location
 import core.plugin.Initializable
 
+/**
+ * Tree gnome village
+ *
+ * @constructor Tree gnome village
+ */
 @Initializable
 class TreeGnomeVillage : Quest("Tree Gnome Village", 125, 124, 2, Vars.VARP_QUEST_TREE_GNOME_VILLAGE_PROGRESS, 0, 1, 9) {
 

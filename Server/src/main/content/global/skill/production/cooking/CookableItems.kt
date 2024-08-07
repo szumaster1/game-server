@@ -3,9 +3,25 @@ package content.global.skill.production.cooking
 import core.api.consts.Items
 import core.game.node.item.Item
 
+/**
+ * Cookable items
+ *
+ * @property cooked
+ * @property raw
+ * @property burnt
+ * @property level
+ * @property experience
+ * @property low
+ * @property high
+ * @property lowRange
+ * @property highRange
+ * @constructor Cookable items
+ */
 enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val level: Int, val experience: Double, val low: Int, val high: Int, val lowRange: Int, val highRange: Int) {
-    /*
-     * Meats
+    /**
+     * Chicken
+     *
+     * @constructor Chicken
      */
     CHICKEN(
         cooked = 2140,
@@ -18,6 +34,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 128,
         highRange = 512
     ),
+
+    /**
+     * Ugthanki
+     *
+     * @constructor Ugthanki
+     */
     UGTHANKI(
         cooked = 2140,
         raw = 2138,
@@ -29,6 +51,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 30,
         highRange = 253
     ),
+
+    /**
+     * Rabbit
+     *
+     * @constructor Rabbit
+     */
     RABBIT(
         cooked = 3228,
         raw = 3226,
@@ -40,6 +68,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 128,
         highRange = 512
     ),
+
+    /**
+     * Crab
+     *
+     * @constructor Crab
+     */
     CRAB(
         cooked = 7521,
         raw = 7518,
@@ -51,6 +85,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 57,
         highRange = 377
     ),
+
+    /**
+     * Chompy
+     *
+     * @constructor Chompy
+     */
     CHOMPY(
         cooked = 2878,
         raw = 2876,
@@ -62,6 +102,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 200,
         highRange = 255
     ),
+
+    /**
+     * Jubbly
+     *
+     * @constructor Jubbly
+     */
     JUBBLY(
         cooked = 7568,
         raw = 7566,
@@ -74,8 +120,10 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         highRange = 250
     ),
 
-    /*
-     * Fishes.
+    /**
+     * Crayfish
+     *
+     * @constructor Crayfish
      */
     CRAYFISH(
         cooked = 13433,
@@ -88,6 +136,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 128,
         highRange = 512
     ),
+
+    /**
+     * Shrimp
+     *
+     * @constructor Shrimp
+     */
     SHRIMP(
         cooked = 315,
         raw = 317,
@@ -99,6 +153,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 128,
         highRange = 512
     ),
+
+    /**
+     * Karambwanji
+     *
+     * @constructor Karambwanji
+     */
     KARAMBWANJI(
         cooked = 3151,
         raw = 3150,
@@ -110,6 +170,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 200,
         highRange = 400
     ),
+
+    /**
+     * Sardine
+     *
+     * @constructor Sardine
+     */
     SARDINE(
         cooked = 325,
         raw = 327,
@@ -121,6 +187,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 118,
         highRange = 492
     ),
+
+    /**
+     * Anchovies
+     *
+     * @constructor Anchovies
+     */
     ANCHOVIES(
         cooked = 319,
         raw = 321,
@@ -132,6 +204,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 128,
         highRange = 512
     ),
+
+    /**
+     * Herring
+     *
+     * @constructor Herring
+     */
     HERRING(
         cooked = 347,
         raw = 345,
@@ -143,6 +221,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 108,
         highRange = 472
     ),
+
+    /**
+     * Mackerel
+     *
+     * @constructor Mackerel
+     */
     MACKEREL(
         cooked = 355,
         raw = 353,
@@ -154,6 +238,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 98,
         highRange = 452
     ),
+
+    /**
+     * Trout
+     *
+     * @constructor Trout
+     */
     TROUT(
         cooked = 333,
         raw = 335,
@@ -165,6 +255,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 88,
         highRange = 432
     ),
+
+    /**
+     * Cod
+     *
+     * @constructor Cod
+     */
     COD(
         cooked = 339,
         raw = 341,
@@ -176,6 +272,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 88,
         highRange = 432
     ),
+
+    /**
+     * Pike
+     *
+     * @constructor Pike
+     */
     PIKE(
         cooked = 351,
         raw = 349,
@@ -187,6 +289,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 78,
         highRange = 412
     ),
+
+    /**
+     * Salmon
+     *
+     * @constructor Salmon
+     */
     SALMON(
         cooked = 329,
         raw = 331,
@@ -198,6 +306,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 68,
         highRange = 392
     ),
+
+    /**
+     * Slimy Eel
+     *
+     * @constructor Slimy Eel
+     */
     SLIMY_EEL(
         cooked = 3381,
         raw = 3379,
@@ -209,6 +323,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 63,
         highRange = 382
     ),
+
+    /**
+     * Tuna
+     *
+     * @constructor Tuna
+     */
     TUNA(
         cooked = 361,
         raw = 359,
@@ -220,6 +340,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 58,
         highRange = 372
     ),
+
+    /**
+     * Rainbow Fish
+     *
+     * @constructor Rainbow Fish
+     */
     RAINBOW_FISH(
         cooked = 10136,
         raw = 10138,
@@ -231,6 +357,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 56,
         highRange = 370
     ),
+
+    /**
+     * Cave Eel
+     *
+     * @constructor Cave Eel
+     */
     CAVE_EEL(
         cooked = 5003,
         raw = 5001,
@@ -242,6 +374,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 38,
         highRange = 332
     ),
+
+    /**
+     * Lobster
+     *
+     * @constructor Lobster
+     */
     LOBSTER(
         cooked = 379,
         raw = 377,
@@ -253,6 +391,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 38,
         highRange = 332
     ),
+
+    /**
+     * Bass
+     *
+     * @constructor Bass
+     */
     BASS(
         cooked = 365,
         raw = 363,
@@ -264,6 +408,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 33,
         highRange = 312
     ),
+
+    /**
+     * Swordfish
+     *
+     * @constructor Swordfish
+     */
     SWORDFISH(
         cooked = 373,
         raw = 371,
@@ -275,6 +425,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 30,
         highRange = 310
     ),
+
+    /**
+     * Lava Eel
+     *
+     * @constructor Lava Eel
+     */
     LAVA_EEL(
         cooked = 2149,
         raw = 2148,
@@ -286,6 +442,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 256,
         highRange = 256
     ),
+
+    /**
+     * Monkfish
+     *
+     * @constructor Monkfish
+     */
     MONKFISH(
         cooked = 7946,
         raw = 7944,
@@ -297,6 +459,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 13,
         highRange = 280
     ),
+
+    /**
+     * Shark
+     *
+     * @constructor Shark
+     */
     SHARK(
         cooked = 385,
         raw = 383,
@@ -308,6 +476,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 1,
         highRange = 232
     ),
+
+    /**
+     * Sea Turtle
+     *
+     * @constructor Sea Turtle
+     */
     SEA_TURTLE(
         cooked = 397,
         raw = 395,
@@ -319,6 +493,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 1,
         highRange = 222
     ),
+
+    /**
+     * Manta Ray
+     *
+     * @constructor Manta Ray
+     */
     MANTA_RAY(
         cooked = 391,
         raw = 389,
@@ -330,6 +510,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 1,
         highRange = 222
     ),
+
+    /**
+     * Karambwan
+     *
+     * @constructor Karambwan
+     */
     KARAMBWAN(
         cooked = 3144,
         raw = 3142,
@@ -342,8 +528,10 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         highRange = 255
     ),
 
-    /*
-     * Snails.
+    /**
+     * Thin Snail
+     *
+     * @constructor Thin Snail
      */
     THIN_SNAIL(
         cooked = 3369,
@@ -356,6 +544,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 93,
         highRange = 444
     ),
+
+    /**
+     * Lean Snail
+     *
+     * @constructor Lean Snail
+     */
     LEAN_SNAIL(
         cooked = 3371,
         raw = 3365,
@@ -367,6 +561,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 93,
         highRange = 444
     ),
+
+    /**
+     * Fat Snail
+     *
+     * @constructor Fat Snail
+     */
     FAT_SNAIL(
         cooked = 3373,
         raw = 3367,
@@ -379,8 +579,10 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         highRange = 402
     ),
 
-    /*
-     * Bread.
+    /**
+     * Bread
+     *
+     * @constructor Bread
      */
     BREAD(
         cooked = 2309,
@@ -393,6 +595,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 118,
         highRange = 492
     ),
+
+    /**
+     * Pitta Bread
+     *
+     * @constructor Pitta Bread
+     */
     PITTA_BREAD(
         cooked = 1865,
         raw = 1863,
@@ -405,8 +613,10 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         highRange = 492
     ),
 
-    /*
-     * Cake.
+    /**
+     * Cake
+     *
+     * @constructor Cake
      */
     CAKE(
         cooked = 1891,
@@ -420,8 +630,10 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         highRange = 332
     ),
 
-    /*
-     * Beef.
+    /**
+     * Beef
+     *
+     * @constructor Beef
      */
     BEEF(
         cooked = 2142,
@@ -434,6 +646,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 128,
         highRange = 512
     ),
+
+    /**
+     * Rat Meat
+     *
+     * @constructor Rat Meat
+     */
     RAT_MEAT(
         cooked = 2142,
         raw = 2134,
@@ -445,6 +663,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 128,
         highRange = 512
     ),
+
+    /**
+     * Bear Meat
+     *
+     * @constructor Bear Meat
+     */
     BEAR_MEAT(
         cooked = 2142,
         raw = 2136,
@@ -456,6 +680,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 128,
         highRange = 512
     ),
+
+    /**
+     * Yak Meat
+     *
+     * @constructor Yak Meat
+     */
     YAK_MEAT(
         cooked = 2142,
         raw = 10816,
@@ -468,8 +698,10 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         highRange = 512
     ),
 
-    /*
-     * Skewered.
+    /**
+     * Skewer Chompy
+     *
+     * @constructor Skewer Chompy
      */
     SKEWER_CHOMPY(
         cooked = 2878,
@@ -482,6 +714,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 200,
         highRange = 255
     ),
+
+    /**
+     * Skewer Roast Rabbit
+     *
+     * @constructor Skewer Roast Rabbit
+     */
     SKEWER_ROAST_RABBIT(
         cooked = 7223,
         raw = 7224,
@@ -493,6 +731,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 160,
         highRange = 255
     ),
+
+    /**
+     * Skewer Roast Bird
+     *
+     * @constructor Skewer Roast Bird
+     */
     SKEWER_ROAST_BIRD(
         cooked = 9980,
         raw = 9984,
@@ -504,6 +748,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 155,
         highRange = 255
     ),
+
+    /**
+     * Skewer Roast Beast
+     *
+     * @constructor Skewer Roast Beast
+     */
     SKEWER_ROAST_BEAST(
         cooked = 9988,
         raw = 9992,
@@ -516,8 +766,10 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         highRange = 255
     ),
 
-    /*
-     * Pies.
+    /**
+     * Redberry Pie
+     *
+     * @constructor Redberry Pie
      */
     REDBERRY_PIE(
         cooked = 2325,
@@ -530,6 +782,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 98,
         highRange = 452
     ),
+
+    /**
+     * Meat Pie
+     *
+     * @constructor Meat Pie
+     */
     MEAT_PIE(
         cooked = 2327,
         raw = 2319,
@@ -541,6 +799,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 78,
         highRange = 412
     ),
+
+    /**
+     * Mud Pie
+     *
+     * @constructor Mud Pie
+     */
     MUD_PIE(
         cooked = 7170,
         raw = 7168,
@@ -552,6 +816,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 58,
         highRange = 372
     ),
+
+    /**
+     * Apple Pie
+     *
+     * @constructor Apple Pie
+     */
     APPLE_PIE(
         cooked = 2323,
         raw = 2317,
@@ -563,6 +833,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 58,
         highRange = 372
     ),
+
+    /**
+     * Garden Pie
+     *
+     * @constructor Garden Pie
+     */
     GARDEN_PIE(
         cooked = 7178,
         raw = 7176,
@@ -574,6 +850,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 48,
         highRange = 352
     ),
+
+    /**
+     * Fish Pie
+     *
+     * @constructor Fish Pie
+     */
     FISH_PIE(
         cooked = 7188,
         raw = 7186,
@@ -585,6 +867,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 38,
         highRange = 332
     ),
+
+    /**
+     * Admiral Pie
+     *
+     * @constructor Admiral Pie
+     */
     ADMIRAL_PIE(
         cooked = 7198,
         raw = 7196,
@@ -596,6 +884,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 15,
         highRange = 270
     ),
+
+    /**
+     * Wild Pie
+     *
+     * @constructor Wild Pie
+     */
     WILD_PIE(
         cooked = 7208,
         raw = 7206,
@@ -607,6 +901,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 1,
         highRange = 222
     ),
+
+    /**
+     * Summer Pie
+     *
+     * @constructor Summer Pie
+     */
     SUMMER_PIE(
         cooked = 7218,
         raw = 7216,
@@ -619,8 +919,10 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         highRange = 212
     ),
 
-    /*
-     * Pizza.
+    /**
+     * Pizza Plain
+     *
+     * @constructor Pizza Plain
      */
     PIZZA_PLAIN(
         cooked = 2289,
@@ -634,7 +936,11 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         highRange = 352
     ),
 
-    /*
+    /**
+     * Bowl Stew
+     *
+     * @constructor Bowl Stew
+     *//*
      * Food in bowl.
      */
     BOWL_STEW(
@@ -648,6 +954,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 68,
         highRange = 392
     ),
+
+    /**
+     * Bowl Curry
+     *
+     * @constructor Bowl Curry
+     */
     BOWL_CURRY(
         cooked = 2011,
         raw = 2009,
@@ -659,6 +971,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 38,
         highRange = 332
     ),
+
+    /**
+     * Bowl Nettle
+     *
+     * @constructor Bowl Nettle
+     */
     BOWL_NETTLE(
         cooked = 4239,
         raw = 4237,
@@ -670,6 +988,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 78,
         highRange = 412
     ),
+
+    /**
+     * Bowl Egg
+     *
+     * @constructor Bowl Egg
+     */
     BOWL_EGG(
         cooked = 7078,
         raw = 7076,
@@ -681,6 +1005,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 90,
         highRange = 438
     ),
+
+    /**
+     * Bowl Onion
+     *
+     * @constructor Bowl Onion
+     */
     BOWL_ONION(
         cooked = 7084,
         raw = 1871,
@@ -692,6 +1022,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 36,
         highRange = 322
     ),
+
+    /**
+     * Bowl Mushroom
+     *
+     * @constructor Bowl Mushroom
+     */
     BOWL_MUSHROOM(
         cooked = 7082,
         raw = 7080,
@@ -704,8 +1040,10 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         highRange = 282
     ),
 
-    /*
-     * Vegetables.
+    /**
+     * Baked Potato
+     *
+     * @constructor Baked Potato
      */
     BAKED_POTATO(
         cooked = 6701,
@@ -718,6 +1056,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 108,
         highRange = 472
     ),
+
+    /**
+     * Sweetcorn
+     *
+     * @constructor Sweetcorn
+     */
     SWEETCORN(
         cooked = 5988,
         raw = 5986,
@@ -730,8 +1074,10 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         highRange = 412
     ),
 
-    /*
-     * Miscellaneous.
+    /**
+     * Barley Malt
+     *
+     * @constructor Barley Malt
      */
     BARLEY_MALT(
         cooked = 6008,
@@ -744,6 +1090,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 0,
         highRange = 0
     ),
+
+    /**
+     * Raw Oomlie
+     *
+     * @constructor Raw Oomlie
+     */
     RAW_OOMLIE(
         cooked = 2337,
         raw = 0,
@@ -755,6 +1107,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 0,
         highRange = 0
     ),
+
+    /**
+     * Oomlie Wrap
+     *
+     * @constructor Oomlie Wrap
+     */
     OOMLIE_WRAP(
         cooked = 2343,
         raw = 2341,
@@ -766,6 +1124,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 112,
         highRange = 476
     ),
+
+    /**
+     * Seaweed
+     *
+     * @constructor Seaweed
+     */
     SEAWEED(
         cooked = 401,
         raw = 0,
@@ -777,6 +1141,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 0,
         highRange = 0
     ),
+
+    /**
+     * Sinew
+     *
+     * @constructor Sinew
+     */
     SINEW(
         cooked = 9436,
         raw = 2132,
@@ -788,6 +1158,12 @@ enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val leve
         lowRange = 0,
         highRange = 0
     ),
+
+    /**
+     * Swamp Paste
+     *
+     * @constructor Swamp Paste
+     */
     SWAMP_PASTE(
         cooked = 1941,
         raw = 1940,

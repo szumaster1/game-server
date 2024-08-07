@@ -14,6 +14,9 @@ import core.game.node.entity.player.link.quest.Quest
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Fycie chompy dialogue.
+ */
 @Initializable
 class FycieChompyDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -39,6 +42,12 @@ class FycieChompyDialogue(player: Player? = null) : Dialogue(player) {
     }
 }
 
+/**
+ * Fycie chompy dialogue file
+ *
+ * @property quest
+ * @constructor Fycie chompy dialogue file
+ */
 class FycieChompyDialogueFile(val quest: Quest) : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

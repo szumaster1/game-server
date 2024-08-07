@@ -13,8 +13,7 @@ import core.plugin.Plugin
 import core.tools.colorize
 
 /**
- * Handles the Rotten Potato options
- * @author Ceikry
+ * Handles the Rotten Potato options.
  */
 private val ROTTEN_POTATO_OPTIONS = arrayOf("RS HD", "Heal", "Extra", "Commands")
 

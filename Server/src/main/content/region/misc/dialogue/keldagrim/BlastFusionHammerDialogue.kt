@@ -11,6 +11,11 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
+/**
+ * Blast fusion hammer dialogue
+ *
+ * @constructor Blast fusion hammer dialogue
+ */
 class BlastFusionHammerDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

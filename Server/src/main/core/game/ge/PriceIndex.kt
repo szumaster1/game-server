@@ -114,6 +114,16 @@ object PriceIndex {
     const val GET_VALUE_QUERY = "SELECT value FROM price_index WHERE item_id = ?;"
 }
 
+/**
+ * Price info
+ *
+ * @property itemId
+ * @property currentValue
+ * @property totalValue
+ * @property uniqueTrades
+ * @property lastUpdate
+ * @constructor Price info
+ */
 data class PriceInfo(
     var itemId: Int,
     var currentValue: Int,
@@ -121,6 +131,11 @@ data class PriceInfo(
     var uniqueTrades: Int,
     var lastUpdate: Long
 ) {
+    /**
+     * Copy
+     *
+     * @return
+     */
     fun copy() : PriceInfo {
         return PriceInfo(itemId, currentValue, totalValue, uniqueTrades, lastUpdate)
     }

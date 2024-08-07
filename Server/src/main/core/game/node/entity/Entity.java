@@ -34,6 +34,9 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 
+/**
+ * Entity.
+ */
 public abstract class Entity extends Node {
 
     private final Properties properties = new Properties(this);
@@ -42,6 +45,9 @@ public abstract class Entity extends Node {
 
     private final WalkingQueue walkingQueue = new WalkingQueue(this);
 
+    /**
+     * The Skills.
+     */
     public Skills skills = new Skills(this);
 
     private final Map<Class<?>, Object> extensions = new HashMap<Class<?>, Object>();
@@ -62,23 +68,44 @@ public abstract class Entity extends Node {
 
     private final ActionLocks locks = new ActionLocks();
 
+    /**
+     * The Scripts.
+     */
     public ScriptProcessor scripts = new ScriptProcessor(this);
 
+    /**
+     * The Clocks.
+     */
     public final int[] clocks = new int[10];
 
+    /**
+     * The Current movement.
+     */
     public MovementPulse currentMovement;
 
     private HashMap<Class<?>, ArrayList<EventHook>> hooks = new HashMap<>();
 
+    /**
+     * The Timers.
+     */
     public TimerManager timers = new TimerManager(this);
 
     private boolean invisible;
 
+    /**
+     * Instantiates a new Entity.
+     *
+     * @param name     the name
+     * @param location the location
+     */
     public Entity(String name, Location location) {
         super(name, location);
         super.destinationFlag = DestinationFlag.ENTITY;
     }
 
+    /**
+     * Move step.
+     */
     public void moveStep() {
         if (locks.isMovementLocked()) {
             return;
@@ -98,6 +125,11 @@ public abstract class Entity extends Node {
         }
     }
 
+    /**
+     * Dispatch.
+     *
+     * @param event the event
+     */
     public void dispatch(Event event) {
         if (this.hooks.containsKey(event.getClass())) {
             ArrayList<EventHook> processList = new ArrayList(this.hooks.get(event.getClass()));
@@ -107,14 +139,31 @@ public abstract class Entity extends Node {
         }
     }
 
+    /**
+     * Unhook.
+     *
+     * @param hook the hook
+     */
     public void unhook(EventHook hook) {
         for (ArrayList<EventHook> s : hooks.values()) s.remove(hook);
     }
 
+    /**
+     * Hook.
+     *
+     * @param event the event
+     * @param hook  the hook
+     */
     public void hook(Event event, EventHook hook) {
         hook(event.getClass(), hook);
     }
 
+    /**
+     * Hook.
+     *
+     * @param event the event
+     * @param hook  the hook
+     */
     public void hook(Class<?> event, EventHook hook) {
         ArrayList<EventHook> hookList;
         if (hooks.get(event) != null) {
@@ -127,11 +176,17 @@ public abstract class Entity extends Node {
         hooks.put(event, hookList);
     }
 
+    /**
+     * Init.
+     */
     public void init() {
         active = true;
         TimerRegistry.addAutoTimers(this);
     }
 
+    /**
+     * Tick.
+     */
     public void tick() {
         scripts.preMovement();
         dispatch(new TickEvent(GameWorld.getTicks()));
@@ -143,33 +198,60 @@ public abstract class Entity extends Node {
         updateMasks.prepare(this);
     }
 
+    /**
+     * Update.
+     */
     public void update() {
     }
 
+    /**
+     * Reset.
+     */
     public void reset() {
         updateMasks.reset();
         properties.setTeleporting(false);
     }
 
+    /**
+     * Clear.
+     */
     public void clear() {
         active = false;
         viewport.remove(this);
         pulseManager.clear();
     }
 
+    /**
+     * In combat boolean.
+     *
+     * @return the boolean
+     */
     public boolean inCombat() {
         return getAttribute("combat-time", 0L) > System.currentTimeMillis();
     }
 
+    /**
+     * Full restore.
+     */
     public void fullRestore() {
         skills.restore();
         timers.removeTimer("poison");
         timers.removeTimer("poison:immunity");
     }
 
+    /**
+     * Commence death.
+     *
+     * @param killer the killer
+     */
     public void commenceDeath(Entity killer) {
     }
 
+    /**
+     * Finalize death.
+     *
+     * @param killer the killer
+     */
     public void finalizeDeath(Entity killer) {
         skills.restore();
         skills.rechargePrayerPoints();
@@ -186,10 +268,21 @@ public abstract class Entity extends Node {
         }
     }
 
+    /**
+     * Update location.
+     *
+     * @param last the last
+     */
     public void updateLocation(Location last) {
 
     }
 
+    /**
+     * Is ignore multi boundaries boolean.
+     *
+     * @param victim the victim
+     * @return the boolean
+     */
     public boolean isIgnoreMultiBoundaries(Entity victim) {
         if (this instanceof NPC) {
             return ((NPC) this).behavior.shouldIgnoreMultiRestrictions((NPC) this, victim);
@@ -197,10 +290,21 @@ public abstract class Entity extends Node {
         return false;
     }
 
+    /**
+     * Should prevent stacking boolean.
+     *
+     * @param mover the mover
+     * @return the boolean
+     */
     public boolean shouldPreventStacking(Entity mover) {
         return false;
     }
 
+    /**
+     * Check impact.
+     *
+     * @param state the state
+     */
     public void checkImpact(BattleState state) {
         getProperties().getCombatPulse().setLastReceivedAttack(GameWorld.getTicks());
         int ticks = GameWorld.getTicks() - getProperties().getCombatPulse().getLastSentAttack();
@@ -216,6 +320,12 @@ public abstract class Entity extends Node {
         }
     }
 
+    /**
+     * On impact.
+     *
+     * @param entity the entity
+     * @param state  the state
+     */
     public void onImpact(final Entity entity, BattleState state) {
         if (DeathTask.isDead(this))
             state.neutralizeHits();
@@ -229,22 +339,49 @@ public abstract class Entity extends Node {
         }
     }
 
+    /**
+     * On attack.
+     *
+     * @param target the target
+     */
     public void onAttack(final Entity target) {
 
     }
 
+    /**
+     * Attack.
+     *
+     * @param node the node
+     */
     public void attack(final Node node) {
         getProperties().getCombatPulse().attack(node);
     }
 
+    /**
+     * Can move boolean.
+     *
+     * @param destination the destination
+     * @return the boolean
+     */
     public boolean canMove(Location destination) {
         return true;
     }
 
+    /**
+     * Teleport.
+     *
+     * @param location the location
+     */
     public void teleport(Location location) {
         getProperties().setTeleportLocation(location);
     }
 
+    /**
+     * Teleport.
+     *
+     * @param location the location
+     * @param ticks    the ticks
+     */
     public void teleport(final Location location, int ticks) {
         GameWorld.getPulser().submit(new Pulse(ticks, this) {
             @Override
@@ -255,22 +392,53 @@ public abstract class Entity extends Node {
         });
     }
 
+    /**
+     * Lock.
+     */
     public void lock() {
         locks.lock();
     }
 
+    /**
+     * Lock.
+     *
+     * @param time the time
+     */
     public void lock(int time) {
         locks.lock(time);
     }
 
+    /**
+     * Unlock.
+     */
     public void unlock() {
         locks.unlock();
     }
 
+    /**
+     * Has protection prayer boolean.
+     *
+     * @param style the style
+     * @return the boolean
+     */
     public abstract boolean hasProtectionPrayer(CombatStyle style);
 
+    /**
+     * Gets dragonfire protection.
+     *
+     * @param fire the fire
+     * @return the dragonfire protection
+     */
     public abstract int getDragonfireProtection(boolean fire);
 
+    /**
+     * Is attackable boolean.
+     *
+     * @param entity  the entity
+     * @param style   the style
+     * @param message the message
+     * @return the boolean
+     */
     public boolean isAttackable(Entity entity, CombatStyle style, boolean message) {
         if (DeathTask.isDead(this)) {
             return false;
@@ -281,14 +449,33 @@ public abstract class Entity extends Node {
         return true;
     }
 
+    /**
+     * Graphics boolean.
+     *
+     * @param graphic the graphic
+     * @return the boolean
+     */
     public boolean graphics(Graphic graphic) {
         return animator.graphics(graphic);
     }
 
+    /**
+     * Animate boolean.
+     *
+     * @param animation the animation
+     * @return the boolean
+     */
     public boolean animate(Animation animation) {
         return animator.animate(animation);
     }
 
+    /**
+     * Graphics boolean.
+     *
+     * @param graphic the graphic
+     * @param delay   the delay
+     * @return the boolean
+     */
     public boolean graphics(final Graphic graphic, int delay) {
         GameWorld.getPulser().submit(new Pulse(delay, this) {
             @Override
@@ -300,10 +487,25 @@ public abstract class Entity extends Node {
         return true;
     }
 
+    /**
+     * Continue attack boolean.
+     *
+     * @param target  the target
+     * @param style   the style
+     * @param message the message
+     * @return the boolean
+     */
     public boolean continueAttack(Entity target, CombatStyle style, boolean message) {
         return true;
     }
 
+    /**
+     * Animate boolean.
+     *
+     * @param animation the animation
+     * @param delay     the delay
+     * @return the boolean
+     */
     public boolean animate(final Animation animation, int delay) {
         GameWorld.getPulser().submit(new Pulse(delay, this) {
             @Override
@@ -315,22 +517,55 @@ public abstract class Entity extends Node {
         return true;
     }
 
+    /**
+     * Send impact.
+     *
+     * @param state the state
+     */
     public void sendImpact(BattleState state) {
         getProperties().getCombatPulse().setLastSentAttack(GameWorld.getTicks());
     }
 
+    /**
+     * Can select target boolean.
+     *
+     * @param target the target
+     * @return the boolean
+     */
     public boolean canSelectTarget(Entity target) {
         return true;
     }
 
+    /**
+     * Visualize boolean.
+     *
+     * @param animation the animation
+     * @param graphic   the graphic
+     * @return the boolean
+     */
     public boolean visualize(Animation animation, Graphic graphic) {
         return animator.animate(animation, graphic);
     }
 
+    /**
+     * Face temporary boolean.
+     *
+     * @param entity the entity
+     * @param ticks  the ticks
+     * @return the boolean
+     */
     public boolean faceTemporary(Entity entity, int ticks) {
         return faceTemporary(entity, null, ticks);
     }
 
+    /**
+     * Face temporary boolean.
+     *
+     * @param entity the entity
+     * @param reset  the reset
+     * @param ticks  the ticks
+     * @return the boolean
+     */
     public boolean faceTemporary(Entity entity, final Entity reset, int ticks) {
         if (face(entity)) {
             GameWorld.getPulser().submit(new Pulse(ticks + 1, this) {
@@ -345,6 +580,13 @@ public abstract class Entity extends Node {
         return false;
     }
 
+    /**
+     * Gets formatted hit.
+     *
+     * @param state the state
+     * @param hit   the hit
+     * @return the formatted hit
+     */
     public double getFormattedHit(BattleState state, int hit) {
         if (state.getAttacker() == null || state.getVictim() == null || state.getStyle() == null) {
             return hit;
@@ -358,10 +600,21 @@ public abstract class Entity extends Node {
         return hit;
     }
 
+    /**
+     * Is ignore protection boolean.
+     *
+     * @param style the style
+     * @return the boolean
+     */
     public boolean isIgnoreProtection(CombatStyle style) {
         return false;
     }
 
+    /**
+     * Start death.
+     *
+     * @param killer the killer
+     */
     public void startDeath(Entity killer) {
         if (zoneMonitor.startDeath(this, killer)) {
             DeathTask.startDeath(this, killer);
@@ -372,10 +625,21 @@ public abstract class Entity extends Node {
         return (Player) this;
     }
 
+    /**
+     * Is player boolean.
+     *
+     * @return the boolean
+     */
     public boolean isPlayer() {
         return this instanceof Player;
     }
 
+    /**
+     * Face boolean.
+     *
+     * @param entity the entity
+     * @return the boolean
+     */
     public boolean face(Entity entity) {
         if (entity == null) {
             int ordinal = EntityFlags.getOrdinal(EFlagType.of(this), EntityFlag.FaceEntity);
@@ -387,6 +651,12 @@ public abstract class Entity extends Node {
         return getUpdateMasks().register(EntityFlag.FaceEntity, entity, true);
     }
 
+    /**
+     * Face location boolean.
+     *
+     * @param location the location
+     * @return the boolean
+     */
     public boolean faceLocation(Location location) {
         if (location == null) {
             int ordinal = EntityFlags.getOrdinal(EFlagType.of(this), EntityFlag.FaceLocation);
@@ -396,14 +666,37 @@ public abstract class Entity extends Node {
         return getUpdateMasks().register(EntityFlag.FaceLocation, location, true);
     }
 
+    /**
+     * Send chat boolean.
+     *
+     * @param string the string
+     * @return the boolean
+     */
     public boolean sendChat(String string) {
         return getUpdateMasks().register(EntityFlag.ForceChat, string);
     }
 
+    /**
+     * Gets swing handler.
+     *
+     * @param swing the swing
+     * @return the swing handler
+     */
     public abstract CombatSwingHandler getSwingHandler(boolean swing);
 
+    /**
+     * Is poison immune boolean.
+     *
+     * @return the boolean
+     */
     public abstract boolean isPoisonImmune();
 
+    /**
+     * Send chat.
+     *
+     * @param string the string
+     * @param ticks  the ticks
+     */
     public void sendChat(final String string, int ticks) {
         GameWorld.getPulser().submit(new Pulse(ticks, this) {
             @Override
@@ -414,35 +707,83 @@ public abstract class Entity extends Node {
         });
     }
 
+    /**
+     * Gets level mod.
+     *
+     * @param entity the entity
+     * @param victim the victim
+     * @return the level mod
+     */
     public double getLevelMod(Entity entity, Entity victim) {
         return 0;
     }
 
+    /**
+     * Gets locks.
+     *
+     * @return the locks
+     */
     public ActionLocks getLocks() {
         return locks;
     }
 
+    /**
+     * Gets client index.
+     *
+     * @return the client index
+     */
     public int getClientIndex() {
         return index;
     }
 
+    /**
+     * Gets properties.
+     *
+     * @return the properties
+     */
     public Properties getProperties() {
         return properties;
     }
 
+    /**
+     * Gets update masks.
+     *
+     * @return the update masks
+     */
     public UpdateMasks getUpdateMasks() {
         return updateMasks;
     }
 
+    /**
+     * Add extension.
+     *
+     * @param clazz  the clazz
+     * @param object the object
+     */
     public void addExtension(Class<?> clazz, Object object) {
         extensions.put(clazz, object);
     }
 
+    /**
+     * Gets extension.
+     *
+     * @param <T>   the type parameter
+     * @param clazz the clazz
+     * @return the extension
+     */
     @SuppressWarnings("unchecked")
     public <T> T getExtension(Class<?> clazz) {
         return (T) extensions.get(clazz);
     }
 
+    /**
+     * Gets extension.
+     *
+     * @param <T>   the type parameter
+     * @param clazz the clazz
+     * @param fail  the fail
+     * @return the extension
+     */
     @SuppressWarnings("unchecked")
     public <T> T getExtension(Class<?> clazz, T fail) {
         T extension = (T) extensions.get(clazz);
@@ -452,97 +793,218 @@ public abstract class Entity extends Node {
         return extension;
     }
 
+    /**
+     * Remove extension.
+     *
+     * @param clazz the clazz
+     */
     public void removeExtension(Class<?> clazz) {
         extensions.remove(clazz);
     }
 
+    /**
+     * Gets attributes.
+     *
+     * @return the attributes
+     */
     public Map<String, Object> getAttributes() {
         return attributes.getAttributes();
     }
 
+    /**
+     * Clear attributes.
+     */
     public void clearAttributes() {
         this.attributes.getAttributes().clear();
         this.attributes.getSavedAttributes().clear();
     }
 
+    /**
+     * Sets attribute.
+     *
+     * @param key   the key
+     * @param value the value
+     */
     public void setAttribute(String key, Object value) {
         attributes.setAttribute(key, value);
         dispatch(new AttributeSetEvent(this, key, value));
     }
 
+    /**
+     * Gets attribute.
+     *
+     * @param <T> the type parameter
+     * @param key the key
+     * @return the attribute
+     */
     public <T> T getAttribute(String key) {
         return attributes.getAttribute(key);
     }
 
+    /**
+     * Increment attribute.
+     *
+     * @param key the key
+     */
     public void incrementAttribute(String key) {
         incrementAttribute(key, 1);
     }
 
+    /**
+     * Increment attribute.
+     *
+     * @param key    the key
+     * @param amount the amount
+     */
     public void incrementAttribute(String key, int amount) {
         attributes.setAttribute(key, attributes.getAttribute(key, 0) + amount);
     }
 
+    /**
+     * Gets attribute.
+     *
+     * @param <T>    the type parameter
+     * @param string the string
+     * @param fail   the fail
+     * @return the attribute
+     */
     public <T> T getAttribute(String string, T fail) {
         return attributes.getAttribute(string, fail);
     }
 
+    /**
+     * Remove attribute.
+     *
+     * @param string the string
+     */
     public void removeAttribute(String string) {
         attributes.removeAttribute(string);
         dispatch(new AttributeRemoveEvent(this, string));
     }
 
+    /**
+     * Gets game attributes.
+     *
+     * @return the game attributes
+     */
     public GameAttributes getGameAttributes() {
         return attributes;
     }
 
+    /**
+     * Gets walking queue.
+     *
+     * @return the walking queue
+     */
     public WalkingQueue getWalkingQueue() {
         return walkingQueue;
     }
 
+    /**
+     * Gets viewport.
+     *
+     * @return the viewport
+     */
     public Viewport getViewport() {
         return viewport;
     }
 
+    /**
+     * Gets skills.
+     *
+     * @return the skills
+     */
     public Skills getSkills() {
         return skills;
     }
 
+    /**
+     * Gets pulse manager.
+     *
+     * @return the pulse manager
+     */
     public PulseManager getPulseManager() {
         return pulseManager;
     }
 
+    /**
+     * Gets impact handler.
+     *
+     * @return the impact handler
+     */
     public ImpactHandler getImpactHandler() {
         return impactHandler;
     }
 
+    /**
+     * Gets animator.
+     *
+     * @return the animator
+     */
     public Animator getAnimator() {
         return animator;
     }
 
+    /**
+     * Gets teleporter.
+     *
+     * @return the teleporter
+     */
     public TeleportManager getTeleporter() {
         return teleporter;
     }
 
+    /**
+     * Gets zone monitor.
+     *
+     * @return the zone monitor
+     */
     public ZoneMonitor getZoneMonitor() {
         return zoneMonitor;
     }
 
+    /**
+     * Has fire resistance boolean.
+     *
+     * @return the boolean
+     */
     public boolean hasFireResistance() {
         return getAttribute("fire:immune", 0) >= GameWorld.getTicks();
     }
 
+    /**
+     * Is tele blocked boolean.
+     *
+     * @return the boolean
+     */
     public boolean isTeleBlocked() {
         return timers.getTimer("teleblock") != null || getLocks().isTeleportLocked() || getZoneMonitor().isRestricted(ZoneRestriction.TELEPORT);
     }
 
+    /**
+     * Is invisible boolean.
+     *
+     * @return the boolean
+     */
     public boolean isInvisible() {
         return invisible;
     }
 
+    /**
+     * Sets invisible.
+     *
+     * @param invisible the invisible
+     */
     public void setInvisible(boolean invisible) {
         this.invisible = invisible;
     }
 
+    /**
+     * Gets closest occupied tile.
+     *
+     * @param other the other
+     * @return the closest occupied tile
+     */
     public Location getClosestOccupiedTile(@NotNull Location other) {
         List<Location> occupied = getOccupiedTiles();
 
@@ -561,6 +1023,11 @@ public abstract class Entity extends Node {
         return closest;
     }
 
+    /**
+     * Gets occupied tiles.
+     *
+     * @return the occupied tiles
+     */
     public List<Location> getOccupiedTiles() {
         ArrayList<Location> occupied = new ArrayList<>();
 
@@ -574,10 +1041,20 @@ public abstract class Entity extends Node {
         return occupied;
     }
 
+    /**
+     * Delayed boolean.
+     *
+     * @return the boolean
+     */
     public boolean delayed() {
         return scripts.getDelay() > GameWorld.getTicks();
     }
 
+    /**
+     * Is teleporting boolean.
+     *
+     * @return the boolean
+     */
     public boolean isTeleporting() {
         return getAttribute("tele-pulse", null) != null || properties.getTeleportLocation() != null;
     }

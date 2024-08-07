@@ -11,6 +11,9 @@ import core.game.world.map.zone.ZoneRestriction;
 
 import static core.api.ContentAPIKt.*;
 
+/**
+ * House zone.
+ */
 public final class HouseZone extends MapZone {
 
     private HouseManager house;
@@ -19,6 +22,11 @@ public final class HouseZone extends MapZone {
 
     private int previousDungeon = -1;
 
+    /**
+     * Instantiates a new House zone.
+     *
+     * @param house the house
+     */
     public HouseZone(HouseManager house) {
         super("poh-zone" + house, true, ZoneRestriction.RANDOM_EVENTS, ZoneRestriction.FOLLOWERS);
         this.house = house;

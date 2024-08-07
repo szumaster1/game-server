@@ -11,7 +11,9 @@ import core.game.world.map.zone.ZoneBuilder
 import core.plugin.Plugin
 import java.util.*
 
-
+/**
+ * FOG lobby zone.
+ */
 class FOGLobbyZone : MapZone("Fog Lobby", true), Plugin<Any?> {
 
     @Throws(Throwable::class)

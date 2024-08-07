@@ -9,6 +9,9 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.item.Item
 import core.plugin.Initializable
 
+/**
+ * Klarense dialogue.
+ */
 @Initializable
 class KlarenseDialogue(player: Player? = null) : Dialogue(player) {
 

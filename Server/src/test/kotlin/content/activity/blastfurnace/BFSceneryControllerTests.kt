@@ -6,11 +6,20 @@ import core.api.getScenery
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
+/**
+ * B f scenery controller tests
+ *
+ * @constructor B f scenery controller tests
+ */
 class BFSceneryControllerTests {
     init {
         TestUtils.preTestSetup(); BFSceneryController().resetAllScenery()
     }
 
+    /**
+     * Update broken should replace with correct variants
+     *
+     */
     @Test
     fun updateBrokenShouldReplaceWithCorrectVariants() {
         val scenCont = BFSceneryController()
@@ -28,6 +37,10 @@ class BFSceneryControllerTests {
         Assertions.assertEquals(BFSceneryController.DEFAULT_PUMP_PIPE, getScenery(BFSceneryController.pumpPipeLoc)?.id)
     }
 
+    /**
+     * Stove id should correspond to temperature
+     *
+     */
     @Test
     fun stoveIdShouldCorrespondToTemperature() {
         val testData = arrayOf(

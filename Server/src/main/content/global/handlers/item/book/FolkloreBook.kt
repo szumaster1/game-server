@@ -9,6 +9,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
+/**
+ * Folklore book
+ *
+ * @constructor Folklore book
+ */
 class FolkloreBook : InteractionListener {
 
     // Book found on the  bookshelves in the Wise Old Man's house

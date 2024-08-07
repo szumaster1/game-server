@@ -13,6 +13,11 @@ import core.game.node.scenery.Scenery
 import core.game.world.map.Location
 import core.api.consts.Scenery as Sceneries
 
+/**
+ * Dramen tree listener
+ *
+ * @constructor Dramen tree listener
+ */
 class DramenTreeListener : InteractionListener {
 
     override fun defineListeners() {

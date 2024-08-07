@@ -9,6 +9,11 @@ import core.api.sendItemDialogue
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Cat on civilians listener
+ *
+ * @constructor Cat on civilians listener
+ */
 class CatOnCiviliansListener : InteractionListener {
 
     private val civilians = intArrayOf(NPCs.CIVILIAN_785, NPCs.CIVILIAN_786, NPCs.CIVILIAN_787)

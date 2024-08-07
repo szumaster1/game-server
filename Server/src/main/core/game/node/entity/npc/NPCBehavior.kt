@@ -11,6 +11,12 @@ import core.game.world.map.RegionManager
 import core.game.world.map.path.ClipMaskSupplier
 import core.game.world.map.path.Pathfinder
 
+/**
+ * NPC behavior
+ *
+ * @property ids to toIntArray()
+ * @constructor NPC behavior
+ */
 open class NPCBehavior(vararg val ids: Int = intArrayOf()) : ContentInterface {
     companion object {
         private val idMap = HashMap<Int, NPCBehavior>()

@@ -12,18 +12,16 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
+/**
+ * Bury bones listener.
+ */
 class BuryBonesListener : InteractionListener {
-
-    /*
-     * Author: Bonesy(https://gitlab.com/joshking071)
-     */
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Handles the bury options for bones in Bones.kt
          */
-
         on(Bones.array, IntType.ITEM, "bury") { player, node ->
             val bones = Bones.forId(node.id) ?: return@on true
             if (!clockReady(player, Clocks.SKILLING)) return@on true
@@ -48,6 +46,13 @@ class BuryBonesListener : InteractionListener {
         }
     }
 
+    /**
+     * Remove bones
+     *
+     * @param player
+     * @param item
+     * @return
+     */
     private fun removeBones(player: Player, item: Item): Boolean {
         val removedBones = replaceSlot(player, item.slot, Item())
         return removedBones == item && removedBones.slot == item.slot

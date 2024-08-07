@@ -6,6 +6,11 @@ import core.game.dialogue.DialogueFile
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
+/**
+ * Peksa dialogue file
+ *
+ * @constructor Peksa dialogue file
+ */
 class PeksaDialogueFile : DialogueFile() {
 
     // Peksa is a barbarian who owns the Helmet Shop in Gunnarsgrunn. He sells helmets up to adamant quality excluding black and white.

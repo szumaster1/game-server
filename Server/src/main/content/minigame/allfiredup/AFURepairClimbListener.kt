@@ -16,6 +16,10 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import kotlin.random.Random
 
+/**
+ * Handles repairing and climbing of the 3 beacon shortcuts needed to access them.
+ * @author Ceikry
+ */
 class AFURepairClimbListener : InteractionListener {
 
     val repairIDs = intArrayOf(38480, 38470, 38494)
@@ -131,32 +135,79 @@ class AFURepairClimbListener : InteractionListener {
         val destinationDown: Location?,
         val levelRequirement: Pair<Int, Int>?
     ) {
+        /**
+         * Death Plateau
+         *
+         * @constructor Death Plateau
+         */
         DEATH_PLATEAU(
             5161,
             Location.create(2949, 3623, 0),
             Location.create(2954, 3623, 0),
             Pair(Skills.CONSTRUCTION, 42)
         ),
+
+        /**
+         * Burthorpe
+         *
+         * @constructor Burthorpe
+         */
         BURTHORPE(5160, Location.create(2941, 3563, 0), Location.create(2934, 3563, 0), Pair(Skills.SMITHING, 56)),
+
+        /**
+         * Gwd
+         *
+         * @constructor Gwd
+         */
         GWD(5163, null, null, Pair(Skills.CRAFTING, 60)),
+
+        /**
+         * Temple
+         *
+         * @constructor Temple
+         */
         TEMPLE(5164, Location.create(2949, 3835, 0), Location.create(2956, 3835, 0), Pair(Skills.SMITHING, 64));
 
+        /**
+         * Get other location
+         *
+         * @param player
+         * @return
+         */
         fun getOtherLocation(player: Player): Location? {
             if (player.location == destinationDown) return destinationUp
             else return destinationDown
         }
 
+        /**
+         * Get animation
+         *
+         * @param player
+         * @return
+         */
         fun getAnimation(player: Player): Animation {
             if (getOtherLocation(player) == destinationDown) return Animation(1148)
             else return Animation(740)
         }
 
+        /**
+         * Get direction
+         *
+         * @param player
+         * @return
+         */
         fun getDirection(player: Player): Direction {
             if (this == BURTHORPE) {
                 return Direction.EAST
             } else return Direction.WEST
         }
 
+        /**
+         * Is repaired
+         *
+         * @param player
+         * @return
+         */
         fun isRepaired(player: Player): Boolean {
             return getVarbit(player, varbit) == 1
         }

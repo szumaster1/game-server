@@ -14,6 +14,9 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Chocolate bar handler.
+ */
 @Initializable
 class ChocolateBarHandler : UseWithHandler(Items.KNIFE_946) {
 

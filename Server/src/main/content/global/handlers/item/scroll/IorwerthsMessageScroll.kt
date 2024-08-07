@@ -6,6 +6,11 @@ import core.api.openInterface
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Iorwerths message scroll
+ *
+ * @constructor Iorwerths message scroll
+ */
 class IorwerthsMessageScroll : InteractionListener {
 
     // Receive from the Lord Iorwerth after

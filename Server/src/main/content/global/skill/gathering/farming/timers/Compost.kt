@@ -8,6 +8,11 @@ import core.game.system.timer.PersistTimer
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 
+/**
+ * Compost
+ *
+ * @constructor Compost
+ */
 class Compost : PersistTimer (500, "farming:compost", isSoft = true) {
     private val binMap = HashMap<CompostBins, CompostBin>()
     lateinit var player: Player
@@ -35,10 +40,21 @@ class Compost : PersistTimer (500, "farming:compost", isSoft = true) {
         return binMap.isNotEmpty()
     }
 
+    /**
+     * Get bin
+     *
+     * @param bin
+     * @return
+     */
     fun getBin (bin: CompostBins) : CompostBin{
         return binMap[bin] ?: (CompostBin (player, bin).also { binMap[bin] = it })
     }
 
+    /**
+     * Get bins
+     *
+     * @return
+     */
     fun getBins(): MutableCollection<CompostBin>{
         return binMap.values
     }

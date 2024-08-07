@@ -3,6 +3,9 @@ package core.game.bots
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
+/**
+ * Script.
+ */
 abstract class Script {
     var scriptAPI: ScriptAPI? = null
     var inventory: ArrayList<Item> = ArrayList(20)
@@ -16,6 +19,11 @@ abstract class Script {
     var running: Boolean = true
     var endDialogue: Boolean = true
 
+    /**
+     * Init
+     *
+     * @param isPlayer
+     */
     fun init(isPlayer: Boolean) {
         //bot.init();
         scriptAPI = ScriptAPI(bot!!)
@@ -42,8 +50,18 @@ abstract class Script {
         return bot!!.name + " is a " + this.javaClass.simpleName + " at location " + bot!!.location.toString() + " Current pulse: " + bot!!.pulseManager.current
     }
 
+    /**
+     * Tick
+     *
+     */
     abstract fun tick()
 
+    /**
+     * Set level
+     *
+     * @param skill
+     * @param level
+     */
     fun setLevel(skill: Int, level: Int) {
         bot!!.getSkills().setLevel(skill, level)
         bot!!.getSkills().setStaticLevel(skill, level)
@@ -51,6 +69,10 @@ abstract class Script {
         bot!!.appearance.sync()
     }
 
-    // This does not get called and all implementations should be removed
+    /**
+     * New instance
+     *
+     * @return
+     */// This does not get called and all implementations should be removed
     abstract fun newInstance(): Script?
 }

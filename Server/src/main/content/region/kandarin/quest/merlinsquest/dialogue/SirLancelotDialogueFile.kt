@@ -9,6 +9,11 @@ import core.game.dialogue.Topic
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
+/**
+ * Sir lancelot dialogue file
+ *
+ * @constructor Sir lancelot dialogue file
+ */
 class SirLancelotDialogueFile : DialogueFile() {
 
     val STAGE_FULL_OF_YOURSELF = 2

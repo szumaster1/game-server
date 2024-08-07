@@ -18,6 +18,11 @@ import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Seers house listeners
+ *
+ * @constructor Seers house listeners
+ */
 class SeersHouseListeners : InteractionListener {
 
     val WESTDOOR = 4165
@@ -1124,6 +1129,11 @@ class SeersHouseListeners : InteractionListener {
     }
 }
 
+/**
+ * Bull head dialogue
+ *
+ * @constructor Bull head dialogue
+ */
 class BullHeadDialogue : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         when (stage) {
@@ -1145,6 +1155,11 @@ class BullHeadDialogue : DialogueFile() {
     }
 }
 
+/**
+ * Unicorn head dialogue
+ *
+ * @constructor Unicorn head dialogue
+ */
 class UnicornHeadDialogue : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         when (stage) {
@@ -1166,6 +1181,9 @@ class UnicornHeadDialogue : DialogueFile() {
     }
 }
 
+/**
+ * Door riddle dialogue.
+ */
 class DoorRiddleDialogue(player: Player) : DialogueFile() {
     private val RIDDLEONE = arrayOf(
         "My first is in the well, but not at sea.",

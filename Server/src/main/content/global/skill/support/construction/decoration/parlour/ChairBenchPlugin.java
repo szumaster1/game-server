@@ -13,6 +13,9 @@ import core.plugin.Plugin;
 
 import static core.api.ContentAPIKt.forceMove;
 
+/**
+ * Chair bench plugin.
+ */
 @Initializable
 public final class ChairBenchPlugin extends OptionHandler {
 

@@ -15,6 +15,11 @@ import core.tools.secondsToTicks
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
+/**
+ * Death tests
+ *
+ * @constructor Death tests
+ */
 class DeathTests {
     init {
         //explicitly register the GraveController as a tick listener because tests don't run reflection
@@ -23,6 +28,10 @@ class DeathTests {
     }
     //Grave requirements source: https://gravecontroller.wiki/w/Gravestone?oldid=854455
 
+    /**
+     * Grave utils produce grave should produce correct grave
+     *
+     */
     @Test
     fun graveUtilsProduceGraveShouldProduceCorrectGrave() {
         val type = GraveType.MEM_PLAQUE
@@ -31,6 +40,10 @@ class DeathTests {
         Assertions.assertEquals(type, grave.type)
     }
 
+    /**
+     * Grave initialized with items should initialize correctly
+     *
+     */
     @Test
     fun graveInitializedWithItemsShouldInitializeCorrectly() {
         val inventory = arrayOf(
@@ -57,6 +70,10 @@ class DeathTests {
         }
     }
 
+    /**
+     * Grave initialized with no items should not spawn
+     *
+     */
     @Test
     fun graveInitializedWithNoItemsShouldNotSpawn() {
         val grave = GraveController.produceGrave(GraveType.MEM_PLAQUE)
@@ -66,6 +83,10 @@ class DeathTests {
         Assertions.assertEquals(false, grave.isActive)
     }
 
+    /**
+     * Grave initialized with ectophial and pouches should not keep them
+     *
+     */
     @Test
     fun graveInitializedWithEctophialAndPouchesShouldNotKeepThem() {
         val inventory = arrayOf(
@@ -86,6 +107,10 @@ class DeathTests {
         Assertions.assertEquals(false, grave.isActive)
     }
 
+    /**
+     * Grave initialized with droppable untradables should keep them
+     *
+     */
     @Test
     fun graveInitializedWithDroppableUntradablesShouldKeepThem() {
         val inventory = arrayOf(
@@ -100,6 +125,10 @@ class DeathTests {
         Assertions.assertEquals(true, grave.isActive)
     }
 
+    /**
+     * Grave initialized with destroyable items should not keep them
+     *
+     */
     @Test
     fun graveInitializedWithDestroyableItemsShouldNotKeepThem() {
         val inventory = arrayOf(
@@ -113,6 +142,10 @@ class DeathTests {
         Assertions.assertEquals(false, grave.isActive)
     }
 
+    /**
+     * Grave initialized with releasable items should not keep them
+     *
+     */
     @Test
     fun graveInitializedWithReleasableItemsShouldNotKeepThem() {
         val inventory = arrayOf(
@@ -128,11 +161,19 @@ class DeathTests {
         Assertions.assertEquals(false, grave.isActive)
     }
 
+    /**
+     * Grave initialized with item that has drop transform should contain transformed item
+     *
+     */
     @Test
     fun graveInitializedWithItemThatHasDropTransformShouldContainTransformedItem() {
         //We actually don't have any items that have this implemented yet, but we should test it once we do.
     }
 
+    /**
+     * Grave should serialize and deserialize from json correctly
+     *
+     */
     @Test
     fun graveShouldSerializeAndDeserializeFromJsonCorrectly() {
         val inventory = arrayOf(
@@ -164,6 +205,10 @@ class DeathTests {
         Assertions.assertEquals(true, newGrave?.isActive)
     }
 
+    /**
+     * Grave deserialized from server store should naturally expire
+     *
+     */
     @Test
     fun graveDeserializedFromServerStoreShouldNaturallyExpire() {
         TestUtils.getMockPlayer("graveExpirationFromDeserializationTest").use { p ->
@@ -198,6 +243,10 @@ class DeathTests {
         }
     }
 
+    /**
+     * Regular death should spawn grave with items
+     *
+     */
     @Test
     fun regularDeathShouldSpawnGraveWithItems() {
         val inventory = arrayOf(
@@ -222,6 +271,10 @@ class DeathTests {
         Assertions.assertEquals(false, grave?.getItems()?.map { it.id }?.contains(Items.RUNE_SCIMITAR_1333))
     }
 
+    /**
+     * Skulled death should not spawn grave
+     *
+     */
     @Test
     fun skulledDeathShouldNotSpawnGrave() {
         val inventory = arrayOf(
@@ -245,6 +298,10 @@ class DeathTests {
         Assertions.assertNull(grave)
     }
 
+    /**
+     * Creating new grave with grave already active should destroy old grave
+     *
+     */
     @Test
     fun creatingNewGraveWithGraveAlreadyActiveShouldDestroyOldGrave() {
         val inventory1 = arrayOf(
@@ -274,6 +331,10 @@ class DeathTests {
         )
     }
 
+    /**
+     * Death with only3items should not produce a grave
+     *
+     */
     @Test
     fun deathWithOnly3ItemsShouldNotProduceAGrave() {
         val inventory = arrayOf(
@@ -293,6 +354,10 @@ class DeathTests {
         Assertions.assertNull(GraveController.activeGraves[p.details.uid])
     }
 
+    /**
+     * Death inside wilderness should not produce a grave
+     *
+     */
     @Test
     fun deathInsideWildernessShouldNotProduceAGrave() {
         val inventory = arrayOf(
@@ -314,6 +379,10 @@ class DeathTests {
         Assertions.assertNull(GraveController.activeGraves[p.details.uid])
     }
 
+    /**
+     * Death with r f d gloves should keep r f d gloves
+     *
+     */
     @Test
     fun deathWithRFDGlovesShouldKeepRFDGloves() {
         val inventory = arrayOf(
@@ -340,6 +409,10 @@ class DeathTests {
         Assertions.assertEquals(7, g?.getItems()?.size ?: -1)
     }
 
+    /**
+     * Should not be able to drop item on grave
+     *
+     */
     @Test
     fun shouldNotBeAbleToDropItemOnGrave() {
         val inventory = arrayOf(

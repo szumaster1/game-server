@@ -4,6 +4,9 @@ import content.global.skill.production.cooking.recipe.potato.PotatoRecipe
 import core.api.consts.Items
 import core.game.node.item.Item
 
+/**
+ * Tuna potato.
+ */
 class TunaPotato : PotatoRecipe() {
 
     override fun getProduct(): Item {

@@ -7,6 +7,9 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.tools.BLUE
 
+/**
+ * Old man dialogue.
+ */
 class OldManDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

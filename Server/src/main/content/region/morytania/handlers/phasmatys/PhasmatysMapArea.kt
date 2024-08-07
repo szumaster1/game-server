@@ -3,12 +3,13 @@ package content.region.morytania.handlers.phasmatys
 import core.api.consts.Items
 import core.api.*
 import core.game.global.action.EquipHandler
-import core.game.interaction.IntType
-import core.game.interaction.InteractionListener
 import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
 import core.game.world.map.zone.ZoneBorders
 
+/**
+ * Phasmatys map area.
+ */
 class PhasmatysMapArea : MapArea {
 
     override fun defineAreaBorders(): Array<ZoneBorders> {

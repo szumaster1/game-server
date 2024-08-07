@@ -11,6 +11,9 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
+/**
+ * Chilli con carne.
+ */
 class ChilliConCarne : Recipe() {
 
     override fun mix(player: Player, event: NodeUsageEvent) {

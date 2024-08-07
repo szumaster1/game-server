@@ -6,6 +6,9 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 import core.tools.RandomFunction
 
+/**
+ * Shanomi NPC.
+ */
 @Initializable
 class ShanomiNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 

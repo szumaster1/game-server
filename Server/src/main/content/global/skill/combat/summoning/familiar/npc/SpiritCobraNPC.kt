@@ -10,6 +10,9 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.Initializable
 
+/**
+ * Spirit cobra familiar.
+ */
 @Initializable
 class SpiritCobraNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.SPIRIT_COBRA_6802) : Familiar(owner, id, 5600, 12015, 3, WeaponInterface.STYLE_ACCURATE) {
 
@@ -33,13 +36,61 @@ class SpiritCobraNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 
     }
 
 
+    /**
+     * Egg
+     *
+     * @property egg
+     * @property product
+     * @constructor Egg
+     */
     enum class Egg(val egg: Item, val product: Item) {
+        /**
+         * Cockatrice
+         *
+         * @constructor Cockatrice
+         */
         COCKATRICE(Item(Items.EGG_1944), Item(Items.COCKATRICE_EGG_12109)),
+
+        /**
+         * Saratrice
+         *
+         * @constructor Saratrice
+         */
         SARATRICE(Item(Items.BLUE_EGG_10533), Item(Items.SARATRICE_EGG_12113)),
+
+        /**
+         * Zamatrice
+         *
+         * @constructor Zamatrice
+         */
         ZAMATRICE(Item(Items.RED_EGG_10532), Item(Items.ZAMATRICE_EGG_12115)),
+
+        /**
+         * Guthatrice
+         *
+         * @constructor Guthatrice
+         */
         GUTHATRICE(Item(Items.GREEN_EGG_10531), Item(Items.GUTHATRICE_EGG_12111)),
+
+        /**
+         * Coracatrice
+         *
+         * @constructor Coracatrice
+         */
         CORACATRICE(Item(Items.RAVEN_EGG_11964), Item(Items.CORAXATRICE_EGG_12119)),
+
+        /**
+         * Pengatrice
+         *
+         * @constructor Pengatrice
+         */
         PENGATRICE(Item(Items.PENGUIN_EGG_12483), Item(Items.PENGATRICE_EGG_12117)),
+
+        /**
+         * Vulatrice
+         *
+         * @constructor Vulatrice
+         */
         VULATRICE(Item(Items.VULTURE_EGG_11965), Item(Items.VULATRICE_EGG_12121));
 
 

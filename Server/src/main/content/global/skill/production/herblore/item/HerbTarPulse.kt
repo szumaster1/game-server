@@ -9,6 +9,16 @@ import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
+/**
+ * Herb tar pulse
+ *
+ * @property tar
+ * @property amount
+ * @constructor
+ *
+ * @param player
+ * @param node
+ */
 class HerbTarPulse(player: Player?, node: Item?, val tar: Tar, private var amount: Int) :
     SkillPulse<Item?>(player, node) {
 

@@ -9,6 +9,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Ezekial lovecraft dialogue.
+ */
 @Initializable
 class EzekialLovecraftDialogue(player: Player? = null) : Dialogue(player) {
 

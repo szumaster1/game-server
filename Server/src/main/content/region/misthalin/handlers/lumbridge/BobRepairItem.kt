@@ -8,6 +8,9 @@ import core.plugin.ClassScanner.definePlugin
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Bob repair item handler.
+ */
 @Initializable
 class BobRepairItem : UseWithHandler() {
 

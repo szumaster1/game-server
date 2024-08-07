@@ -5,10 +5,19 @@ import core.game.world.update.flag.UpdateFlag;
 import core.game.world.update.flag.context.Graphic;
 import core.network.packet.IoBuffer;
 
+/**
+ * Graphic update flag.
+ */
 public final class GraphicUpdateFlag extends UpdateFlag<Graphic> {
 
     private final Location location;
 
+    /**
+     * Instantiates a new Graphic update flag.
+     *
+     * @param graphic  the graphic
+     * @param location the location
+     */
     public GraphicUpdateFlag(Graphic graphic, Location location) {
         super(graphic);
         this.location = location;

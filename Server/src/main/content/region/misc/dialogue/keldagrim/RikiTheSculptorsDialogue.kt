@@ -9,6 +9,9 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 
+/**
+ * Riki the sculptors dialogue.
+ */
 @Initializable
 class RikiTheSculptorsDialogue(player: Player? = null) : Dialogue(player) {
 

@@ -16,6 +16,9 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Rope swing shortcut.
+ */
 @Initializable
 class RopeSwingShortcut : UseWithHandler() {
 

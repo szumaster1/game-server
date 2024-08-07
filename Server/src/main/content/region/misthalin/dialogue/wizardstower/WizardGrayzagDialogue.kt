@@ -7,6 +7,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Wizard grayzag dialogue.
+ */
 @Initializable
 class WizardGrayzagDialogue(player: Player? = null) : Dialogue(player) {
 

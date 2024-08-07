@@ -9,6 +9,11 @@ import core.game.node.entity.npc.NPC
 import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
+/**
+ * A lazy guard dialogue file
+ *
+ * @constructor A lazy guard dialogue file
+ */
 class ALazyGuardDialogueFile : DialogueFile() {
 
     companion object {

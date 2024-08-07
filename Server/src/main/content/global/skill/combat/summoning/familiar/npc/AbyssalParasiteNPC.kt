@@ -11,6 +11,9 @@ import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 import core.tools.RandomFunction
 
+/**
+ * Abyssal parasite familiar.
+ */
 @Initializable
 class AbyssalParasiteNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 6818) : BurdenBeast(owner, id, 3000, 12035, 1, 7) {
 

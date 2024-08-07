@@ -12,6 +12,9 @@ import core.tools.START_DIALOGUE
 import core.api.consts.Items
 import core.api.consts.NPCs
 
+/**
+ * Digsite workman dialogue.
+ */
 @Initializable
 class DigsiteWorkmanDialogue (player: Player? = null) : Dialogue(player), InteractionListener {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
@@ -55,6 +58,12 @@ class DigsiteWorkmanDialogue (player: Player? = null) : Dialogue(player), Intera
         }
     }
 }
+
+/**
+ * Digsite workman dialogue file
+ *
+ * @constructor Digsite workman dialogue file
+ */
 class DigsiteWorkmanDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {
 

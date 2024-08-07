@@ -10,6 +10,12 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.skill.Skills
 import core.tools.END_DIALOGUE
 
+/**
+ * Evil bob dialogue.
+ *
+ * @param rewardDialogue boolean.
+ * @param rewardXpSkill the reward xp.
+ */
 class EvilBobDialogue(val rewardDialogue: Boolean = false, val rewardXpSkill: Int = Skills.FISHING) : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

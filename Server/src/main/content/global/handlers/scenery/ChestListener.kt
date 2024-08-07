@@ -6,6 +6,11 @@ import core.api.sendMessage
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Chest listener
+ *
+ * @constructor Chest listener
+ */
 class ChestListener : InteractionListener {
 
     override fun defineListeners() {

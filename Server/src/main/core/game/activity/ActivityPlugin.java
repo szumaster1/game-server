@@ -12,6 +12,9 @@ import core.plugin.Plugin;
 import core.plugin.PluginManifest;
 import core.plugin.PluginType;
 
+/**
+ * Activity plugin.
+ */
 @PluginManifest(type = PluginType.ACTIVITY)
 public abstract class ActivityPlugin extends MapZone implements Plugin<Player> {
 
@@ -21,14 +24,35 @@ public abstract class ActivityPlugin extends MapZone implements Plugin<Player> {
 
     private boolean safe;
 
+    /**
+     * The Region.
+     */
     protected DynamicRegion region;
 
+    /**
+     * The Base.
+     */
     protected Location base;
 
+    /**
+     * The Safe respawn.
+     */
     protected Location safeRespawn = ServerConstants.HOME_LOCATION;
 
+    /**
+     * The Player.
+     */
     protected Player player;
 
+    /**
+     * Instantiates a new Activity plugin.
+     *
+     * @param name         the name
+     * @param instanced    the instanced
+     * @param multicombat  the multicombat
+     * @param safe         the safe
+     * @param restrictions the restrictions
+     */
     public ActivityPlugin(String name, boolean instanced, boolean multicombat, boolean safe, ZoneRestriction... restrictions) {
         super(name, true, ZoneRestriction.RANDOM_EVENTS);
         for (ZoneRestriction restriction : restrictions) {
@@ -50,6 +74,9 @@ public abstract class ActivityPlugin extends MapZone implements Plugin<Player> {
         super.register(borders);
     }
 
+    /**
+     * Sets region base.
+     */
     protected void setRegionBase() {
         if (region != null) {
             if (multicombat) {
@@ -59,6 +86,11 @@ public abstract class ActivityPlugin extends MapZone implements Plugin<Player> {
         }
     }
 
+    /**
+     * Sets region base.
+     *
+     * @param regions the regions
+     */
     protected void setRegionBase(DynamicRegion[] regions) {
         region = regions[0];
         Location l = region.getBaseLocation();
@@ -80,6 +112,14 @@ public abstract class ActivityPlugin extends MapZone implements Plugin<Player> {
         setBase(Location.create(borders.getSouthWestX(), borders.getSouthWestY(), 0));
     }
 
+    /**
+     * Start boolean.
+     *
+     * @param player the player
+     * @param login  the login
+     * @param args   the args
+     * @return the boolean
+     */
     public boolean start(Player player, boolean login, Object... args) {
         this.player = player;
         return true;
@@ -112,6 +152,9 @@ public abstract class ActivityPlugin extends MapZone implements Plugin<Player> {
         return super.leave(e, logout);
     }
 
+    /**
+     * Register.
+     */
     public void register() {
     }
 
@@ -123,40 +166,90 @@ public abstract class ActivityPlugin extends MapZone implements Plugin<Player> {
     @Override
     public abstract ActivityPlugin newInstance(Player p) throws Throwable;
 
+    /**
+     * Gets spawn location.
+     *
+     * @return the spawn location
+     */
     public abstract Location getSpawnLocation();
 
+    /**
+     * Is instanced boolean.
+     *
+     * @return the boolean
+     */
     public boolean isInstanced() {
         return instanced;
     }
 
+    /**
+     * Sets instanced.
+     *
+     * @param instanced the instanced
+     */
     public void setInstanced(boolean instanced) {
         this.instanced = instanced;
     }
 
+    /**
+     * Is multicombat boolean.
+     *
+     * @return the boolean
+     */
     public boolean isMulticombat() {
         return multicombat;
     }
 
+    /**
+     * Sets multicombat.
+     *
+     * @param multicombat the multicombat
+     */
     public void setMulticombat(boolean multicombat) {
         this.multicombat = multicombat;
     }
 
+    /**
+     * Is safe boolean.
+     *
+     * @return the boolean
+     */
     public boolean isSafe() {
         return safe;
     }
 
+    /**
+     * Sets safe.
+     *
+     * @param safe the safe
+     */
     public void setSafe(boolean safe) {
         this.safe = safe;
     }
 
+    /**
+     * Gets player.
+     *
+     * @return the player
+     */
     public Player getPlayer() {
         return player;
     }
 
+    /**
+     * Gets base.
+     *
+     * @return the base
+     */
     public Location getBase() {
         return base;
     }
 
+    /**
+     * Sets base.
+     *
+     * @param base the base
+     */
     public void setBase(Location base) {
         this.base = base;
     }

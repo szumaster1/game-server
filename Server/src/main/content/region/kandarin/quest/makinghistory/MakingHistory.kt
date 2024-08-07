@@ -11,6 +11,11 @@ import core.game.node.entity.skill.Skills
 import core.game.world.GameWorld
 import core.plugin.Initializable
 
+/**
+ * Making history
+ *
+ * @constructor Making history
+ */
 @Initializable
 class MakingHistory : Quest("Making History", 86, 85, 3, Vars.VARBIT_QUEST_MAKING_HISTORY_PROGRESS, 0, 1, 4) {
 

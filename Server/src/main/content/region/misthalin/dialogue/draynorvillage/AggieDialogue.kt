@@ -12,6 +12,9 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 
+/**
+ * Aggie dialogue.
+ */
 @Initializable
 class AggieDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -306,6 +309,11 @@ class AggieDialogue(player: Player? = null) : Dialogue(player) {
         return true
     }
 
+    /**
+     * Make
+     *
+     * @param dye
+     */
     fun make(dye: Int) {
         stopWalk(npc!!)
         npc.animate(ANIMATION)

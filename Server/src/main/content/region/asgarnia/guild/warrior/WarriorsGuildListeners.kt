@@ -6,6 +6,9 @@ import core.game.container.impl.EquipmentContainer
 import core.game.interaction.InteractionListener
 import core.game.node.item.Item
 
+/**
+ * Warriors guild listeners.
+ */
 class WarriorsGuildListeners : InteractionListener {
     override fun defineListeners() {
         onEquip(Items.DEFENSIVE_SHIELD_8856) { player, node ->

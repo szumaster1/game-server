@@ -12,6 +12,9 @@ import core.game.node.scenery.Scenery
 import core.game.node.scenery.SceneryBuilder
 import core.game.system.task.Pulse
 
+/**
+ * Piscatoris listeners.
+ */
 class PiscatorisListeners : InteractionListener {
 
     companion object {

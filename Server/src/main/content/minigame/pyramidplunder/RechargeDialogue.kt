@@ -5,6 +5,9 @@ import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
+/**
+ * Recharge dialogue.
+ */
 class RechargeDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
@@ -26,13 +29,7 @@ class RechargeDialogue(player: Player? = null) : Dialogue(player) {
 
             1 -> when (buttonId) {
                 1 -> {
-                    sendDialogueOptions(
-                        player,
-                        "Recharge with?",
-                        "Clay/Ivory Artefacts(24)",
-                        "Stone Artefacts(12)",
-                        "Gold Artefacts(6)"
-                    )
+                    sendDialogueOptions(player, "Recharge with?", "Clay/Ivory Artefacts(24)", "Stone Artefacts(12)", "Gold Artefacts(6)")
                     stage = 20
                 }
 

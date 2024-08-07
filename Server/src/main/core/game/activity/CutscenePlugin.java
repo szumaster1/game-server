@@ -17,11 +17,17 @@ import core.plugin.PluginType;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Cutscene plugin.
+ */
 @PluginManifest(type = PluginType.ACTIVITY)
 public abstract class CutscenePlugin extends ActivityPlugin {
 
     private static final int[] TABS = new int[]{0, 1, 2, 3, 4, 5, 6, 11, 12};
 
+    /**
+     * The Npcs.
+     */
     protected final List<NPC> npcs = new ArrayList<>(100);
 
     private final StartPulse startPulse = new StartPulse();
@@ -30,11 +36,22 @@ public abstract class CutscenePlugin extends ActivityPlugin {
 
     private final boolean fade;
 
+    /**
+     * Instantiates a new Cutscene plugin.
+     *
+     * @param name the name
+     * @param fade the fade
+     */
     public CutscenePlugin(String name, final boolean fade) {
         super(name, true, false, true);
         this.fade = fade;
     }
 
+    /**
+     * Instantiates a new Cutscene plugin.
+     *
+     * @param name the name
+     */
     public CutscenePlugin(final String name) {
         this(name, true);
     }
@@ -83,6 +100,11 @@ public abstract class CutscenePlugin extends ActivityPlugin {
         return null;
     }
 
+    /**
+     * Stop.
+     *
+     * @param fade the fade
+     */
     public void stop(boolean fade) {
         if (fade) {
             GameWorld.getPulser().submit(endPulse);
@@ -91,6 +113,9 @@ public abstract class CutscenePlugin extends ActivityPlugin {
         }
     }
 
+    /**
+     * End.
+     */
     public void end() {
         if (region != null) {
             for (int i = 0; i < region.getPlanes().length; i++) {
@@ -108,10 +133,16 @@ public abstract class CutscenePlugin extends ActivityPlugin {
         player.getWalkingQueue().reset();
     }
 
+    /**
+     * Start pulse.
+     */
     public class StartPulse extends Pulse {
 
         private int counter = 0;
 
+        /**
+         * Instantiates a new Start pulse.
+         */
         public StartPulse() {
             super(1, player);
         }
@@ -144,10 +175,16 @@ public abstract class CutscenePlugin extends ActivityPlugin {
 
     }
 
+    /**
+     * End pulse.
+     */
     public class EndPulse extends Pulse {
 
         private int counter = 0;
 
+        /**
+         * Instantiates a new End pulse.
+         */
         public EndPulse() {
             super(1, player);
         }
@@ -186,26 +223,50 @@ public abstract class CutscenePlugin extends ActivityPlugin {
 
     }
 
+    /**
+     * Open.
+     */
     public void open() {
 
     }
 
+    /**
+     * Fade.
+     */
     public void fade() {
 
     }
 
+    /**
+     * Gets map state.
+     *
+     * @return the map state
+     */
     public int getMapState() {
         return 2;
     }
 
+    /**
+     * Get removed tabs int [ ].
+     *
+     * @return the int [ ]
+     */
     public int[] getRemovedTabs() {
         return TABS;
     }
 
+    /**
+     * Gets start location.
+     *
+     * @return the start location
+     */
     public Location getStartLocation() {
         return getBase();
     }
 
+    /**
+     * Unpause.
+     */
     public final void unpause() {
         stop(true);
     }
@@ -214,22 +275,47 @@ public abstract class CutscenePlugin extends ActivityPlugin {
         return player;
     }
 
+    /**
+     * Gets region.
+     *
+     * @return the region
+     */
     public DynamicRegion getRegion() {
         return region;
     }
 
+    /**
+     * Gets npcs.
+     *
+     * @return the npcs
+     */
     public List<NPC> getNPCS() {
         return npcs;
     }
 
+    /**
+     * Is fade boolean.
+     *
+     * @return the boolean
+     */
     public boolean isFade() {
         return fade;
     }
 
+    /**
+     * Gets start pulse.
+     *
+     * @return the start pulse
+     */
     public Pulse getStartPulse() {
         return startPulse;
     }
 
+    /**
+     * Gets end pulse.
+     *
+     * @return the end pulse
+     */
     public Pulse getEndPulse() {
         return new EndPulse();
     }

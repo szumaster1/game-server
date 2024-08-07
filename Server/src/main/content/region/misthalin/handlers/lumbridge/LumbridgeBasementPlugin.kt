@@ -23,6 +23,9 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 import core.tools.RandomFunction
 
+/**
+ * Lumbridge basement plugin.
+ */
 @Initializable
 class LumbridgeBasementPlugin : OptionHandler() {
 
@@ -149,10 +152,9 @@ class LumbridgeBasementPlugin : OptionHandler() {
         return null
     }
 
-    /*
+    /**
      * The Light creature handler.
      */
-
     inner class LightCreatureHandler : UseWithHandler(4700, 4701, 4702) {
 
         override fun newInstance(arg: Any?): Plugin<Any> {
@@ -176,11 +178,9 @@ class LumbridgeBasementPlugin : OptionHandler() {
         }
     }
 
-
-    /*
+    /**
      * The Light creature npc.
      */
-
     inner class LightCreatureNPC : AbstractNPC {
         constructor() : super(0, null) {
             this.isWalks = true

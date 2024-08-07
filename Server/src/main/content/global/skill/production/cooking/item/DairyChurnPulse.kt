@@ -12,6 +12,12 @@ import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 import core.tools.StringUtils
 
+/**
+ * Dairy churn pulse.
+ * @param item
+ * @param product
+ * @param amount
+ */
 class DairyChurnPulse(player: Player?, item: Item?, product: DairyProduct, amount: Int) :
     SkillPulse<Item?>(player, item) {
 

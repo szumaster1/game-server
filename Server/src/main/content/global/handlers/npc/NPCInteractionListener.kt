@@ -26,32 +26,32 @@ import core.game.worldevents.holiday.HolidayRandomEvents
 import core.game.worldevents.holiday.HolidayRandoms
 import core.tools.END_DIALOGUE
 
+/**
+ * NPC interaction listener.
+ */
 class NPCInteractionListener : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Milk cow interaction.
          */
-
         onUseWith(IntType.ITEM, Items.BUCKET_1925, *cowSceneryIds) { player, _, with ->
             milk(player, with.asScenery())
             return@onUseWith true
         }
 
-        /*
+        /**
          * Hair-cut interaction.
          */
-
         on(NPCs.HAIRDRESSER_598, IntType.NPC, "hair-cut") { player, node ->
             player.dialogueInterpreter.open(NPCs.HAIRDRESSER_598, (node as NPC?), true)
             return@on true
         }
 
-        /*
+        /**
          * Interaction with dummy scenery.
          */
-
         on(dummySceneryIds, IntType.SCENERY, "attack") { player, _ ->
             lock(player, 3)
             animate(player, player.properties.attackAnimation)
@@ -75,10 +75,9 @@ class NPCInteractionListener : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Deposit interaction for Peer the Seer.
          */
-
         on(peerTheSeerNPC, IntType.NPC, "deposit") { player, _ ->
             if (anyInEquipment(player, Items.FREMENNIK_SEA_BOOTS_1_14571, Items.FREMENNIK_SEA_BOOTS_2_14572, Items.FREMENNIK_SEA_BOOTS_3_14573)) {
                 openDepositBox(player)
@@ -89,10 +88,9 @@ class NPCInteractionListener : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Barcrawl NPC interaction.
          */
-
         on(barCrawlNPCs, IntType.NPC, "talk-to", "talk") { player, node ->
             val type = BarcrawlType.forId(node.id)
             val instance = BarcrawlManager.getInstance(player)
@@ -104,10 +102,9 @@ class NPCInteractionListener : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Global Interactions.
          */
-
         on(IntType.NPC, "disturb") { player, node ->
             if (node is IdleAbstractNPC) {
                 if (node.canDisturb(player)) {
@@ -176,10 +173,9 @@ class NPCInteractionListener : InteractionListener {
         val cowSceneryIds = intArrayOf(8689, 12111)
         val items: Array<Item> = arrayOf(Item(1925, 1), Item(3727, 1), Item(1927, 1))
 
-        /*
+        /**
          * Milking pulse.
          */
-
         fun milk(player: Player, node: Node): Boolean {
             if (!anyInInventory(player, Items.BUCKET_1925, Items.EMPTY_BUCKET_3727)) {
                 player.dialogueInterpreter.open(3807, true, true)

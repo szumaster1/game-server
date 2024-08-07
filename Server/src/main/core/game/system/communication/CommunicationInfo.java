@@ -25,8 +25,14 @@ import java.util.Map.Entry;
 import static core.api.ContentAPIKt.log;
 import static core.api.ContentAPIKt.setVarp;
 
+/**
+ * Communication info.
+ */
 public final class CommunicationInfo {
 
+    /**
+     * The constant MAX_LIST_SIZE.
+     */
     public static final int MAX_LIST_SIZE = 200;
 
     private Map<String, Contact> contacts = new HashMap<>();
@@ -51,12 +57,20 @@ public final class CommunicationInfo {
 
     private Pulse lootSharePulse;
 
+    /**
+     * Instantiates a new Communication info.
+     */
     public CommunicationInfo() {
         /*
          * empty.
          */
     }
 
+    /**
+     * Save.
+     *
+     * @param table the table
+     */
     public void save(SQLTable table) {
         String contacts = "";
         String blocked = "";
@@ -75,6 +89,11 @@ public final class CommunicationInfo {
         table.getColumn("clanReqs").updateValue(joinRequirement.ordinal() + "," + messageRequirement.ordinal() + "," + kickRequirement.ordinal() + "," + lootRequirement.ordinal());
     }
 
+    /**
+     * Parse.
+     *
+     * @param table the table
+     */
     public void parse(SQLTable table) {
         String[] tokens = null;
         if (table.getColumn("contacts").getValue() != null) {
@@ -137,6 +156,11 @@ public final class CommunicationInfo {
         }
     }
 
+    /**
+     * Toggle lootshare.
+     *
+     * @param player the player
+     */
     public void toggleLootshare(final Player player) {
         if (lootShare) {
             lootShare = false;
@@ -160,6 +184,11 @@ public final class CommunicationInfo {
         }
     }
 
+    /**
+     * Parse previous.
+     *
+     * @param buffer the buffer
+     */
     public void parsePrevious(ByteBuffer buffer) {
         int size = buffer.get() & 0xFF;
         for (int i = 0; i < size; i++) {
@@ -177,6 +206,13 @@ public final class CommunicationInfo {
         }
     }
 
+    /**
+     * Send message.
+     *
+     * @param player  the player
+     * @param target  the target
+     * @param message the message
+     */
     public static void sendMessage(Player player, String target, String message) {
         PrivateMessage.Builder builder = PrivateMessage.newBuilder();
         builder.setSender(player.getName());
@@ -186,6 +222,12 @@ public final class CommunicationInfo {
         ManagementEvents.publish(builder.build());
     }
 
+    /**
+     * Add.
+     *
+     * @param player  the player
+     * @param contact the contact
+     */
     public static void add(Player player, String contact) {
         CommunicationInfo info = player.getDetails().getCommunication();
         if (contact.isEmpty()) {
@@ -220,6 +262,13 @@ public final class CommunicationInfo {
         }
     }
 
+    /**
+     * Remove.
+     *
+     * @param player  the player
+     * @param contact the contact
+     * @param block   the block
+     */
     public static void remove(Player player, String contact, boolean block) {
         if (contact.isEmpty()) {
             player.sendMessage("Unable to find a player by that name. Please try again.");
@@ -255,6 +304,12 @@ public final class CommunicationInfo {
         }
     }
 
+    /**
+     * Block.
+     *
+     * @param player  the player
+     * @param contact the contact
+     */
     public static void block(Player player, String contact) {
         if (contact.isEmpty()) {
             player.sendMessage("Unable to find a player by that name. Please try again.");
@@ -280,6 +335,13 @@ public final class CommunicationInfo {
         }
     }
 
+    /**
+     * Update clan rank.
+     *
+     * @param player   the player
+     * @param contact  the contact
+     * @param clanRank the clan rank
+     */
     public static void updateClanRank(Player player, String contact, ClanRank clanRank) {
         if (contact.isEmpty()) {
             player.sendMessage("Unable to find a player by that name. Please try again.");
@@ -303,10 +365,24 @@ public final class CommunicationInfo {
         PacketRepository.send(ContactPackets.class, new ContactContext(player, contact, worldId));
     }
 
+    /**
+     * Has contact boolean.
+     *
+     * @param player  the player
+     * @param contact the contact
+     * @return the boolean
+     */
     public static boolean hasContact(Player player, String contact) {
         return player.getDetails().getCommunication().contacts.containsKey(contact);
     }
 
+    /**
+     * Show active boolean.
+     *
+     * @param player the player
+     * @param name   the name
+     * @return the boolean
+     */
     public static boolean showActive(Player player, String name) {
         Player p = Repository.getPlayerByName(name);
         if (p != null) {
@@ -315,6 +391,13 @@ public final class CommunicationInfo {
         return false;
     }
 
+    /**
+     * Show active boolean.
+     *
+     * @param player the player
+     * @param target the target
+     * @return the boolean
+     */
     public static boolean showActive(Player player, Player target) {
         if (target.getName().equals(player.getName())) {
             return false;
@@ -334,80 +417,175 @@ public final class CommunicationInfo {
         return true;
     }
 
+    /**
+     * Gets contacts.
+     *
+     * @return the contacts
+     */
     public Map<String, Contact> getContacts() {
         return contacts;
     }
 
+    /**
+     * Gets blocked.
+     *
+     * @return the blocked
+     */
     public List<String> getBlocked() {
         return blocked;
     }
 
+    /**
+     * Gets clan name.
+     *
+     * @return the clan name
+     */
     public String getClanName() {
         return clanName;
     }
 
+    /**
+     * Sets clan name.
+     *
+     * @param clanName the clan name
+     */
     public void setClanName(String clanName) {
         this.clanName = clanName;
     }
 
+    /**
+     * Gets current clan.
+     *
+     * @return the current clan
+     */
     public String getCurrentClan() {
         return currentClan == null ? "" : currentClan;
     }
 
+    /**
+     * Sets current clan.
+     *
+     * @param currentClan the current clan
+     */
     @Deprecated
     public void setCurrentClan(String currentClan) {
         this.currentClan = currentClan;
     }
 
+    /**
+     * Gets join requirement.
+     *
+     * @return the join requirement
+     */
     public ClanRank getJoinRequirement() {
         return joinRequirement;
     }
 
+    /**
+     * Sets join requirement.
+     *
+     * @param joinRequirement the join requirement
+     */
     public void setJoinRequirement(ClanRank joinRequirement) {
         this.joinRequirement = joinRequirement;
     }
 
+    /**
+     * Gets message requirement.
+     *
+     * @return the message requirement
+     */
     public ClanRank getMessageRequirement() {
         return messageRequirement;
     }
 
+    /**
+     * Sets message requirement.
+     *
+     * @param messageRequirement the message requirement
+     */
     public void setMessageRequirement(ClanRank messageRequirement) {
         this.messageRequirement = messageRequirement;
     }
 
+    /**
+     * Gets kick requirement.
+     *
+     * @return the kick requirement
+     */
     public ClanRank getKickRequirement() {
         return kickRequirement;
     }
 
+    /**
+     * Sets kick requirement.
+     *
+     * @param kickRequirement the kick requirement
+     */
     public void setKickRequirement(ClanRank kickRequirement) {
         this.kickRequirement = kickRequirement;
     }
 
+    /**
+     * Gets loot requirement.
+     *
+     * @return the loot requirement
+     */
     public ClanRank getLootRequirement() {
         return lootRequirement;
     }
 
+    /**
+     * Sets loot requirement.
+     *
+     * @param lootRequirement the loot requirement
+     */
     public void setLootRequirement(ClanRank lootRequirement) {
         this.lootRequirement = lootRequirement;
     }
 
+    /**
+     * Gets clan.
+     *
+     * @return the clan
+     */
     public ClanRepository getClan() {
         return clan;
     }
 
+    /**
+     * Sets clan.
+     *
+     * @param clan the clan
+     */
     public void setClan(ClanRepository clan) {
         this.clan = clan;
         this.currentClan = clan == null ? null : clan.getOwner();
     }
 
+    /**
+     * Is loot share boolean.
+     *
+     * @return the boolean
+     */
     public boolean isLootShare() {
         return lootShare;
     }
 
+    /**
+     * Sets loot share.
+     *
+     * @param lootShare the loot share
+     */
     public void setLootShare(boolean lootShare) {
         this.lootShare = lootShare;
     }
 
+    /**
+     * Parse.
+     *
+     * @param accountInfo the account info
+     */
     public void parse(@NotNull UserAccountInfo accountInfo) {
         blocked.addAll(Arrays.asList(accountInfo.getBlocked().split(",")));
         clanName = accountInfo.getClanName();
@@ -424,6 +602,12 @@ public final class CommunicationInfo {
         this.contacts = parseContacts(contacts);
     }
 
+    /**
+     * Parse clan requirements clan rank [ ].
+     *
+     * @param clanReqs the clan reqs
+     * @return the clan rank [ ]
+     */
     public static ClanRank[] parseClanRequirements(String clanReqs) {
         ClanRank[] requirements = new ClanRank[4];
         String[] tokens = clanReqs.split(",");
@@ -458,6 +642,12 @@ public final class CommunicationInfo {
         return requirements;
     }
 
+    /**
+     * Parse contacts hash map.
+     *
+     * @param contacts the contacts
+     * @return the hash map
+     */
     public static HashMap<String, Contact> parseContacts(String contacts) {
         HashMap<String, Contact> theseContacts = new HashMap<>();
         String[] tokens;
@@ -478,6 +668,11 @@ public final class CommunicationInfo {
         return theseContacts;
     }
 
+    /**
+     * Gets contact string.
+     *
+     * @return the contact string
+     */
     public String getContactString() {
         StringBuilder sb = new StringBuilder();
 
@@ -494,6 +689,11 @@ public final class CommunicationInfo {
         return sb.toString();
     }
 
+    /**
+     * Gets blocked string.
+     *
+     * @return the blocked string
+     */
     public String getBlockedString() {
         StringBuilder sb = new StringBuilder();
 
@@ -506,6 +706,11 @@ public final class CommunicationInfo {
         return sb.toString();
     }
 
+    /**
+     * Gets clan req string.
+     *
+     * @return the clan req string
+     */
     public String getClanReqString() {
         return
             joinRequirement.ordinal()

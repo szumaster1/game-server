@@ -8,6 +8,11 @@ import org.json.simple.JSONObject
 import org.json.simple.parser.JSONParser
 import java.io.FileReader
 
+/**
+ * Xtea parser
+ *
+ * @constructor Xtea parser
+ */
 class XteaParser {
     companion object {
         val REGION_XTEA = HashMap<Int, IntArray>()
@@ -31,6 +36,10 @@ class XteaParser {
     var reader: FileReader? = null
 
 
+    /**
+     * Load
+     *
+     */
     fun load() {
         var count = 0
         reader = FileReader(ServerConstants.CONFIG_PATH + "xteas.json")

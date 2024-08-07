@@ -9,6 +9,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
+/**
+ * Prifddinas history book
+ *
+ * @constructor Prifddinas history book
+ */
 class PrifddinasHistoryBook : InteractionListener {
     companion object {
         private val TITLE = "The Creation of Prifddinas"

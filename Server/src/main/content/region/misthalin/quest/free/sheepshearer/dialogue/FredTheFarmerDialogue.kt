@@ -8,6 +8,12 @@ import core.game.dialogue.FacialExpression
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
+/**
+ * Fred the farmer dialogue.
+ *
+ * @property questStage
+ * @constructor Fred the farmer dialogue
+ */
 class FredTheFarmerDialogue(val questStage: Int) : DialogueFile() {
     companion object {
         const val STAGE_BEGIN_QUEST = 1000

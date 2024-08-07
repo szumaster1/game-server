@@ -7,6 +7,12 @@ import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
+/**
+ * Gem bolt pulse.
+ * @param node
+ * @param bolt
+ * @param sets
+ */
 class GemBoltPulse(player: Player?, node: Item?, bolt: GemBolt, sets: Int) : SkillPulse<Item?>(player, node) {
 
     private val bolts: GemBolt = bolt

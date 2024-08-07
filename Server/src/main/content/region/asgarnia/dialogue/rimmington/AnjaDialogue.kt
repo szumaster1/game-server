@@ -11,6 +11,9 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 
+/**
+ * Anja dialogue.
+ */
 @Initializable
 class AnjaDialogue(player: Player? = null) : Dialogue(player) {
 

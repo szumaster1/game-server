@@ -11,18 +11,41 @@ import core.game.node.entity.player.Player;
 import core.game.world.map.Location;
 import core.game.world.map.zone.ZoneBorders;
 
+/**
+ * Map clue scroll.
+ */
 public abstract class MapClueScroll extends ClueScrollPlugin {
 
 	private final Location location;
 
 	private final int object;
 
+    /**
+     * Instantiates a new Map clue scroll.
+     *
+     * @param name        the name
+     * @param clueId      the clue id
+     * @param level       the level
+     * @param interfaceId the interface id
+     * @param location    the location
+     * @param object      the object
+     * @param borders     the borders
+     */
     public MapClueScroll(String name, int clueId, ClueLevel level, int interfaceId, Location location, final int object, ZoneBorders... borders) {
 		super(name, clueId, level, interfaceId, borders);
 		this.location = location;
 		this.object = object;
 	}
 
+    /**
+     * Instantiates a new Map clue scroll.
+     *
+     * @param name        the name
+     * @param clueId      the clue id
+     * @param level       the level
+     * @param interfaceId the interface id
+     * @param location    the location
+     */
     public MapClueScroll(String name, int clueId, ClueLevel level, int interfaceId, Location location) {
 		this(name, clueId, level, interfaceId, location, 0);
 	}
@@ -49,11 +72,19 @@ public abstract class MapClueScroll extends ClueScrollPlugin {
 		super.configure();
 	}
 
+    /**
+     * Dig.
+     *
+     * @param player the player
+     */
     public void dig(Player player) {
 		reward(player);
 		player.getDialogueInterpreter().sendItemMessage(405, "You've found a casket!");
 	}
 
+    /**
+     * Map dig action.
+     */
     public final class MapDigAction implements DigAction {
 
 		@Override
@@ -67,14 +98,30 @@ public abstract class MapClueScroll extends ClueScrollPlugin {
 
 	}
 
+    /**
+     * Has required items boolean.
+     *
+     * @param player the player
+     * @return the boolean
+     */
     public boolean hasRequiredItems(Player player) {
 		return player.getInventory().contains(clueId, 1);
 	}
 
+    /**
+     * Gets location.
+     *
+     * @return the location
+     */
     public Location getLocation() {
 		return location;
 	}
 
+    /**
+     * Gets object.
+     *
+     * @return the object
+     */
     public int getObject() {
 		return object;
 	}

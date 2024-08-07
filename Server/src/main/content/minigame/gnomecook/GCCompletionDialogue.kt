@@ -7,6 +7,9 @@ import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 import core.tools.colorize
 
+/**
+ * GC completion dialogue.
+ */
 class GCCompletionDialogue(val job: GnomeCookingJob) : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

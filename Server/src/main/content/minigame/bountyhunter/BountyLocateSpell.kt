@@ -16,6 +16,10 @@ import core.game.world.GameWorld
 import core.game.world.map.RegionManager.getTeleportLocation
 import core.plugin.Plugin
 
+/**
+ * Handles the bounty target locate spell.
+ * @author Emperor
+ */
 class BountyLocateSpell
     : MagicSpell(
     SpellBookManager.SpellBook.MODERN,

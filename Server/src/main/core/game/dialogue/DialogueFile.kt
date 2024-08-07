@@ -7,6 +7,11 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.tools.START_DIALOGUE
 
+/**
+ * Dialogue file
+ *
+ * @constructor Dialogue file
+ */
 abstract class DialogueFile {
     var player: Player? = null
     var npc: NPC? = null
@@ -14,8 +19,22 @@ abstract class DialogueFile {
     open var stage = START_DIALOGUE
     var dialogue: Dialogue? = null
 
+    /**
+     * Handle
+     *
+     * @param componentID
+     * @param buttonID
+     */
     abstract fun handle(componentID: Int, buttonID: Int)
 
+    /**
+     * Load
+     *
+     * @param player
+     * @param npc
+     * @param interpreter
+     * @return
+     */
     fun load(player: Player, npc: NPC?, interpreter: DialogueInterpreter): DialogueFile {
         this.player = player
         this.npc = npc
@@ -25,6 +44,12 @@ abstract class DialogueFile {
         return this
     }
 
+    /**
+     * Npc
+     *
+     * @param messages
+     * @return
+     */
     open fun npc(vararg messages: String?): Component? {
         if (npc != null) {
             return interpreter!!.sendDialogues(
@@ -34,83 +59,178 @@ abstract class DialogueFile {
         return null
     }
 
+    /**
+     * Npc
+     *
+     * @param id
+     * @param messages
+     * @return
+     */
     open fun npc(id: Int, vararg messages: String?): Component? {
         return interpreter!!.sendDialogues(id, FacialExpression.FRIENDLY, *messages)
     }
 
+    /**
+     * Npc
+     *
+     * @param expression
+     * @param messages
+     * @return
+     */
     open fun npc(expression: FacialExpression?, vararg messages: String?): Component? {
         return if (npc == null) {
             interpreter!!.sendDialogues(0, expression, *messages)
         } else interpreter!!.sendDialogues(npc, expression, *messages)
     }
 
+    /**
+     * Npc
+     *
+     * @param id
+     * @param expression
+     * @param messages
+     * @return
+     */
     open fun npc(id: Int, expression: FacialExpression?, vararg messages: String?): Component? {
         val chatBoxComponent = interpreter!!.sendDialogues(id, expression, *messages)
         return chatBoxComponent
     }
 
+    /**
+     * Npc
+     *
+     * @param id
+     * @param title
+     * @param expression
+     * @param messages
+     * @return
+     */
     open fun npc(id: Int, title: String, expression: FacialExpression?, vararg messages: String?): Component? {
         val chatBoxComponent = interpreter!!.sendDialogues(id, expression, *messages)
         player!!.packetDispatch.sendString(title, chatBoxComponent.id, 3)
         return chatBoxComponent
     }
 
+    /**
+     * Player
+     *
+     * @param messages
+     * @return
+     */
     open fun player(vararg messages: String?): Component? {
         return interpreter!!.sendDialogues(player, null, *messages)
     }
 
+    /**
+     * Player
+     *
+     * @param expression
+     * @param messages
+     * @return
+     */
     open fun player(expression: FacialExpression?, vararg messages: String?): Component? {
         return interpreter!!.sendDialogues(player, expression, *messages)
     }
 
     /**
-     * Use the automatic linesplitting feature in DialUtils to produce npc dialogues
-     * @param expr the FacialExpression to use, located in the FacialExpression enum.
-     * @param msg the message for the NPC to say
+     * Npcl
+     *
+     * @param expr
+     * @param msg
+     * @return
      */
     open fun npcl(expr: FacialExpression?, msg: String?): Component? {
         return npc(expr, *splitLines(msg!!))
     }
 
+    /**
+     * Npcl
+     *
+     * @param id
+     * @param expr
+     * @param msg
+     * @return
+     */
     open fun npcl(id: Int, expr: FacialExpression?, msg: String?): Component? {
         return npc(id, expr, *splitLines(msg!!))
     }
 
+    /**
+     * Npcl
+     *
+     * @param id
+     * @param title
+     * @param expr
+     * @param msg
+     * @return
+     */
     open fun npcl(id: Int, title: String, expr: FacialExpression?, msg: String?): Component? {
         return npc(id, title, expr, *splitLines(msg!!))
     }
 
+    /**
+     * Npcl
+     *
+     * @param msg
+     * @return
+     */
     open fun npcl(msg: String?): Component? {
         return npc(*splitLines(msg!!))
     }
 
     /**
-     * Use the automatic linesplitting feature in DialUtils to produce player dialogues
-     * @param expr the FacialExpression to use, located in the FacialExpression enum.
-     * @param msg the message for the player to say
+     * Playerl
+     *
+     * @param expr
+     * @param msg
+     * @return
      */
     open fun playerl(expr: FacialExpression?, msg: String?): Component? {
         return player(expr, *splitLines(msg!!))
     }
 
+    /**
+     * Playerl
+     *
+     * @param msg
+     * @return
+     */
     open fun playerl(msg: String?): Component? {
         return player(*splitLines(msg!!))
     }
 
+    /**
+     * End
+     *
+     */
     open fun end() {
         if (interpreter != null) interpreter!!.close()
     }
 
+    /**
+     * Send normal dialogue
+     *
+     * @param entity
+     * @param expression
+     * @param messages
+     */
     open fun sendNormalDialogue(entity: Entity?, expression: FacialExpression?, vararg messages: String?) {
         interpreter!!.sendDialogues(entity, expression, *messages)
     }
 
+    /**
+     * Options
+     *
+     * @param options
+     * @param title
+     */
     open fun options(vararg options: String?, title: String = "Select an Option") {
         interpreter!!.sendOptions(title, *options)
     }
 
     /**
-     * Use in place of setting the stage to END_DIALOGUE when you want to return to the default dialogue plugin at START_DIALOGUE
+     * End file
+     *
      */
     fun endFile() {
         interpreter!!.dialogue.file = null
@@ -118,9 +238,9 @@ abstract class DialogueFile {
     }
 
     /**
-     * Return to the default dialogue plugin at the given stage.
-     * Should be used in place of setting a new stage. I.E. instead of "stage = END_DIALOGUE" use "returnAtStage(whatever stage)"
-     * @param stage The stage to return to.
+     * Return at stage
+     *
+     * @param toStage
      */
     fun returnAtStage(toStage: Int) {
         dialogue!!.file = null
@@ -128,26 +248,49 @@ abstract class DialogueFile {
     }
 
     /**
-     * Use when you've entered a DialogueFile but current state does not match any possible conditionals.
-     * Sort-of a fail-safe in a sense.
+     * Abandon file
+     *
      */
     fun abandonFile() {
         interpreter!!.dialogue.file = null
         player("Nevermind.")
     }
 
+    /**
+     * Get current stage
+     *
+     * @return
+     */
     open fun getCurrentStage(): Int {
         return stage
     }
 
+    /**
+     * Substage
+     *
+     * @param stage
+     * @return
+     */
     fun Int.substage(stage: Int): Int {
         return this + stage
     }
 
+    /**
+     * Dialogue
+     *
+     * @param messages
+     */
     fun dialogue(vararg messages: String) {
         player?.dialogueInterpreter?.sendDialogue(*messages)
     }
 
+    /**
+     * Show topics
+     *
+     * @param topics
+     * @param title
+     * @return
+     */
     fun showTopics(vararg topics: Topic<*>, title: String = "Select an Option:"): Boolean {
         val validTopics = ArrayList<String>()
         topics.filter { if (it is IfTopic) it.showCondition else true }.forEach { topic ->

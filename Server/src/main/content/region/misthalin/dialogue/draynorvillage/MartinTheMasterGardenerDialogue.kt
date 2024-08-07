@@ -9,6 +9,9 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 
+/**
+ * Martin the master gardener dialogue.
+ */
 @Initializable
 class MartinTheMasterGardenerDialogue(player: Player? = null) : Dialogue(player) {
 

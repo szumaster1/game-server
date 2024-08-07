@@ -7,6 +7,9 @@ import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.tools.END_DIALOGUE
 
+/**
+ * Freaky forester dialogue.
+ */
 class FreakyForesterDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

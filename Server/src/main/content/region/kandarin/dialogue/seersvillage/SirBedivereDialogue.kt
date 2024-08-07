@@ -9,6 +9,9 @@ import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Sir bedivere dialogue.
+ */
 @Initializable
 class SirBedivereDialogue(player: Player? = null) : Dialogue(player) {
 

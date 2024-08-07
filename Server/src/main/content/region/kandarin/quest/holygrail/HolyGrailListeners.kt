@@ -19,6 +19,11 @@ import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 import core.tools.secondsToTicks
 
+/**
+ * Holy grail listeners
+ *
+ * @constructor Holy grail listeners
+ */
 class HolyGrailListeners : InteractionListener {
     override fun defineListeners() {
 

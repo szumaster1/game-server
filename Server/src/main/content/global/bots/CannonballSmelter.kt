@@ -16,11 +16,13 @@ import core.game.node.item.Item
 import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 
+/**
+ * Cannonball smelter.
+ */
 @PlayerCompatible
 @ScriptName("Falador Cannonball Smelter")
 @ScriptDescription("Start in Falador East Bank with a pick equipped", "or in your inventory.")
 @ScriptIdentifier("fally_cballs")
-
 class CannonballSmelter : Script() {
     var state = State.INIT
     val bottomLadder = ZoneBorders(3016, 9736, 3024, 9742)
@@ -236,6 +238,13 @@ class CannonballSmelter : Script() {
         }
     }
 
+    /**
+     * Banking pulse
+     *
+     * @property script
+     * @property bank
+     * @constructor Banking pulse
+     */
     open class BankingPulse(val script: Script, val bank: Node) :
         MovementPulse(script.bot!!, bank, DestinationFlag.OBJECT) {
         override fun pulse(): Boolean {
@@ -250,8 +259,95 @@ class CannonballSmelter : Script() {
         return script
     }
 
+    /**
+     * State
+     *
+     * @constructor State
+     */
     enum class State {
-        MINING, TO_MINE, TO_BANK, TO_FURNACE, SMELTING_CBALLS, BANKING, TO_GE, SELLING, GO_BACK, TO_IRONMINE, MINING_IRON, INIT
+        /**
+         * Mining
+         *
+         * @constructor Mining
+         */
+        MINING,
+
+        /**
+         * To Mine
+         *
+         * @constructor To Mine
+         */
+        TO_MINE,
+
+        /**
+         * To Bank
+         *
+         * @constructor To Bank
+         */
+        TO_BANK,
+
+        /**
+         * To Furnace
+         *
+         * @constructor To Furnace
+         */
+        TO_FURNACE,
+
+        /**
+         * Smelting Cballs
+         *
+         * @constructor Smelting Cballs
+         */
+        SMELTING_CBALLS,
+
+        /**
+         * Banking
+         *
+         * @constructor Banking
+         */
+        BANKING,
+
+        /**
+         * To Ge
+         *
+         * @constructor To Ge
+         */
+        TO_GE,
+
+        /**
+         * Selling
+         *
+         * @constructor Selling
+         */
+        SELLING,
+
+        /**
+         * Go Back
+         *
+         * @constructor Go Back
+         */
+        GO_BACK,
+
+        /**
+         * To Ironmine
+         *
+         * @constructor To Ironmine
+         */
+        TO_IRONMINE,
+
+        /**
+         * Mining Iron
+         *
+         * @constructor Mining Iron
+         */
+        MINING_IRON,
+
+        /**
+         * Init
+         *
+         * @constructor Init
+         */
+        INIT
     }
 
     init {

@@ -14,6 +14,11 @@ import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 import kotlin.random.Random
 
+/**
+ * Big chompy bird hunting
+ *
+ * @constructor Big chompy bird hunting
+ */
 @Initializable
 class BigChompyBirdHunting : Quest("Big Chompy Bird Hunting", 35, 34, 2, Vars.VARP_QUEST_CHOMPY_PROGRESS, 0, 1, 65),
     InteractionListener {

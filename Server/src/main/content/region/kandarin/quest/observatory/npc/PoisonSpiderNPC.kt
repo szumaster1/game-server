@@ -9,6 +9,9 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld
 import core.game.world.map.Location
 
+/**
+ * Poison spider NPC.
+ */
 class PoisonSpiderNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 
     override fun construct(id: Int, location: Location, vararg objects: Any): AbstractNPC {

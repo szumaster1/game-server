@@ -4,8 +4,18 @@ import core.game.world.map.Region;
 
 import java.nio.ByteBuffer;
 
+/**
+ * Mapscape parser.
+ */
 public final class MapscapeParser {
 
+    /**
+     * Parse.
+     *
+     * @param r        the r
+     * @param mapscape the mapscape
+     * @param buffer   the buffer
+     */
     public static void parse(Region r, byte[][][] mapscape, ByteBuffer buffer) {
         for (int z = 0; z < 4; z++) {
             boolean[][] landscape = r.getPlanes()[z].getFlags().getLandscape();
@@ -39,6 +49,12 @@ public final class MapscapeParser {
         }
     }
 
+    /**
+     * Clip mapscape.
+     *
+     * @param r        the r
+     * @param mapscape the mapscape
+     */
     public static void clipMapscape(Region r, byte[][][] mapscape) {
         for (int z = 0; z < 4; z++) {
             for (int x = 0; x < 64; x++) {

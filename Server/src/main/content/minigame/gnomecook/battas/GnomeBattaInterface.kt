@@ -18,6 +18,9 @@ private const val CHEESE_TOM_BATTA = 2223
 private const val FRUIT_BATTA = 2225
 private const val VEG_BATTA = 2227
 
+/**
+ * Gnome batta interface.
+ */
 @Initializable
 class GnomeBattaInterface : ComponentPlugin() {
 
@@ -31,7 +34,6 @@ class GnomeBattaInterface : ComponentPlugin() {
         player.packetDispatch.sendItemOnInterface(VEG_BATTA, component.id, component.id, 34)
         player.packetDispatch.sendItemOnInterface(CHEESE_TOM_BATTA, component.id, component.id, 47)
     }
-
 
     override fun handle(
         player: Player?,
@@ -89,18 +91,38 @@ class GnomeBattaInterface : ComponentPlugin() {
         player.interfaceManager.close()
     }
 
+    /**
+     * Cooked product
+     *
+     * @property product
+     * @property levelReq
+     * @property experience
+     * @property requiredItems
+     * @constructor Cooked product
+     */
     internal enum class CookedProduct(
         val product: Int,
         val levelReq: Int,
         val experience: Double,
         val requiredItems: Array<Item>
     ) {
+        /**
+         * Half Made Ct
+         *
+         * @constructor Half Made Ct
+         */
         HALF_MADE_CT(
             9478,
             29,
             40.0,
             arrayOf(Item(Items.TOMATO_1982), Item(Items.CHEESE_1985))
         ),
+
+        /**
+         * Half Made Fr
+         *
+         * @constructor Half Made Fr
+         */
         HALF_MADE_FR(
             9480,
             25,
@@ -112,12 +134,24 @@ class GnomeBattaInterface : ComponentPlugin() {
                 Item(Items.PINEAPPLE_CHUNKS_2116)
             )
         ),
+
+        /**
+         * Half Made To
+         *
+         * @constructor Half Made To
+         */
         HALF_MADE_TO(
             9482,
             26,
             40.0,
             arrayOf(Item(Items.EQUA_LEAVES_2128), Item(Items.CHEESE_1985), Item(Items.TOADS_LEGS_2152))
         ),
+
+        /**
+         * Half Made Ve
+         *
+         * @constructor Half Made Ve
+         */
         HALF_MADE_VE(
             9483,
             28,
@@ -130,6 +164,12 @@ class GnomeBattaInterface : ComponentPlugin() {
                 Item(Items.CABBAGE_1965)
             )
         ),
+
+        /**
+         * Half Made Wo
+         *
+         * @constructor Half Made Wo
+         */
         HALF_MADE_WO(
             9485,
             27,

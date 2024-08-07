@@ -6,6 +6,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Tarquin dialogue.
+ */
 @Initializable
 class TarquinDialogue(player: Player? = null) : Dialogue(player) {
 

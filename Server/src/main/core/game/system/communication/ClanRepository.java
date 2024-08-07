@@ -21,6 +21,9 @@ import proto.management.ClanLeaveNotification;
 
 import java.util.*;
 
+/**
+ * Clan repository.
+ */
 public final class ClanRepository {
 
     private static final int MAX_MEMBERS = 100;
@@ -47,10 +50,21 @@ public final class ClanRepository {
 
     private ActivityPlugin clanWar;
 
+    /**
+     * Instantiates a new Clan repository.
+     *
+     * @param owner the owner
+     */
     public ClanRepository(String owner) {
         this.owner = owner;
     }
 
+    /**
+     * Enter boolean.
+     *
+     * @param player the player
+     * @return the boolean
+     */
     public boolean enter(Player player) {
         if (!owner.equals(ServerConstants.SERVER_NAME.toLowerCase()) && players.size() >= MAX_MEMBERS) {
             player.getPacketDispatch().sendMessage("The channel you tried to join is full.:clan:");
@@ -91,6 +105,11 @@ public final class ClanRepository {
         return true;
     }
 
+    /**
+     * Clean.
+     *
+     * @param disable the disable
+     */
     public void clean(boolean disable) {
         if (WorldCommunicator.isEnabled()) {
             return;
@@ -114,6 +133,12 @@ public final class ClanRepository {
         update();
     }
 
+    /**
+     * Is banned boolean.
+     *
+     * @param name the name
+     * @return the boolean
+     */
     public boolean isBanned(String name) {
         if (banned.containsKey(name)) {
             long time = banned.get(name);
@@ -125,6 +150,12 @@ public final class ClanRepository {
         return false;
     }
 
+    /**
+     * Message.
+     *
+     * @param player  the player
+     * @param message the message
+     */
     public void message(Player player, String message) {
         if (player.getLocks().isLocked("cc_message") || isBanned(player.getName())) {
             return;
@@ -147,6 +178,12 @@ public final class ClanRepository {
         }
     }
 
+    /**
+     * Kick.
+     *
+     * @param player the player
+     * @param target the target
+     */
     public void kick(Player player, Player target) {
         ClanRank rank = getRank(player);
         if (target.getDetails().getRights() == Rights.ADMINISTRATOR) {
@@ -173,10 +210,23 @@ public final class ClanRepository {
         banned.put(target.getName(), System.currentTimeMillis() + (3_600_000));
     }
 
+    /**
+     * Leave.
+     *
+     * @param player the player
+     * @param remove the remove
+     */
     public void leave(Player player, boolean remove) {
         leave(player, remove, "You have left the channel.:clan:");
     }
 
+    /**
+     * Leave.
+     *
+     * @param player  the player
+     * @param remove  the remove
+     * @param message the message
+     */
     public void leave(Player player, boolean remove, String message) {
         if (remove) {
             players.remove(new ClanEntry(player));
@@ -198,6 +248,12 @@ public final class ClanRepository {
         ManagementEvents.publish(event.build());
     }
 
+    /**
+     * Rank.
+     *
+     * @param name the name
+     * @param rank the rank
+     */
     public void rank(String name, ClanRank rank) {
         boolean update;
         if (rank == ClanRank.NONE) {
@@ -210,6 +266,9 @@ public final class ClanRepository {
         }
     }
 
+    /**
+     * Update.
+     */
     public void update() {
         for (Iterator<ClanEntry> it = players.iterator(); it.hasNext(); ) {
             ClanEntry e = it.next();
@@ -219,6 +278,12 @@ public final class ClanRepository {
         }
     }
 
+    /**
+     * Gets rank.
+     *
+     * @param entry the entry
+     * @return the rank
+     */
     public ClanRank getRank(ClanEntry entry) {
         if (entry.getPlayer() != null) {
             return getRank(entry.getPlayer());
@@ -230,6 +295,12 @@ public final class ClanRepository {
         return rank;
     }
 
+    /**
+     * Gets rank.
+     *
+     * @param player the player
+     * @return the rank
+     */
     public ClanRank getRank(Player player) {
         ClanRank rank = ranks.get(player.getName());
         if (player.getDetails().getRights() == Rights.ADMINISTRATOR && !player.getName().equals(owner)) {
@@ -244,6 +315,11 @@ public final class ClanRepository {
         return rank;
     }
 
+    /**
+     * Open settings.
+     *
+     * @param player the player
+     */
     public static void openSettings(Player player) {
         player.getInterfaceManager().open(new Component(590));
         ClanRepository c = get(player.getName());
@@ -252,6 +328,11 @@ public final class ClanRepository {
         }
     }
 
+    /**
+     * Update settings.
+     *
+     * @param player the player
+     */
     public void updateSettings(Player player) {
         player.getPacketDispatch().sendString(name, 590, 22);
         // player.getPacketDispatch().sendConfig(1083, (isCoinshare() ? 1 : 0)
@@ -262,10 +343,23 @@ public final class ClanRepository {
         player.getPacketDispatch().sendString(lootRequirement.getInfo(), 590, 26);
     }
 
+    /**
+     * Get clan repository.
+     *
+     * @param owner the owner
+     * @return the clan repository
+     */
     public static ClanRepository get(String owner) {
         return get(owner, false);
     }
 
+    /**
+     * Get clan repository.
+     *
+     * @param owner  the owner
+     * @param create the create
+     * @return the clan repository
+     */
     public static ClanRepository get(String owner, boolean create) {
         ClanRepository clan = CLAN_REPOSITORY.get(owner);
         if (clan != null) {
@@ -298,85 +392,183 @@ public final class ClanRepository {
         return clan;
     }
 
+    /**
+     * Is default boolean.
+     *
+     * @return the boolean
+     */
     public boolean isDefault() {
         return owner.equals(GameWorld.getSettings().getName().toLowerCase());
     }
 
+    /**
+     * Gets default.
+     *
+     * @return the default
+     */
     public static ClanRepository getDefault() {
         return get(GameWorld.getSettings().getName().toLowerCase());
     }
 
+    /**
+     * Delete.
+     */
     public void delete() {
         CLAN_REPOSITORY.remove(owner);
         clean(true);
     }
 
+    /**
+     * Gets clans.
+     *
+     * @return the clans
+     */
     public static Map<String, ClanRepository> getClans() {
         return CLAN_REPOSITORY;
     }
 
+    /**
+     * Gets players.
+     *
+     * @return the players
+     */
     public List<ClanEntry> getPlayers() {
         return players;
     }
 
+    /**
+     * Gets join requirement.
+     *
+     * @return the join requirement
+     */
     public ClanRank getJoinRequirement() {
         return joinRequirement;
     }
 
+    /**
+     * Sets join requirement.
+     *
+     * @param joinRequirement the join requirement
+     */
     public void setJoinRequirement(ClanRank joinRequirement) {
         this.joinRequirement = joinRequirement;
         clean(false);
     }
 
+    /**
+     * Gets message requirement.
+     *
+     * @return the message requirement
+     */
     public ClanRank getMessageRequirement() {
         return messageRequirement;
     }
 
+    /**
+     * Sets message requirement.
+     *
+     * @param messageRequirement the message requirement
+     */
     public void setMessageRequirement(ClanRank messageRequirement) {
         this.messageRequirement = messageRequirement;
     }
 
+    /**
+     * Gets kick requirement.
+     *
+     * @return the kick requirement
+     */
     public ClanRank getKickRequirement() {
         return kickRequirement;
     }
 
+    /**
+     * Sets kick requirement.
+     *
+     * @param kickRequirement the kick requirement
+     */
     public void setKickRequirement(ClanRank kickRequirement) {
         this.kickRequirement = kickRequirement;
         update();
     }
 
+    /**
+     * Gets loot requirement.
+     *
+     * @return the loot requirement
+     */
     public ClanRank getLootRequirement() {
         return lootRequirement;
     }
 
+    /**
+     * Gets banned.
+     *
+     * @return the banned
+     */
     public Map<String, Long> getBanned() {
         return banned;
     }
 
+    /**
+     * Sets loot requirement.
+     *
+     * @param lootRequirement the loot requirement
+     */
     public void setLootRequirement(ClanRank lootRequirement) {
         this.lootRequirement = lootRequirement;
     }
 
+    /**
+     * Gets owner.
+     *
+     * @return the owner
+     */
     public String getOwner() {
         return owner;
     }
 
+    /**
+     * Gets name.
+     *
+     * @return the name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Sets name.
+     *
+     * @param name the name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * Gets ranks.
+     *
+     * @return the ranks
+     */
     public Map<String, ClanRank> getRanks() {
         return ranks;
     }
 
+    /**
+     * Gets clan war.
+     *
+     * @return the clan war
+     */
     public ActivityPlugin getClanWar() {
         return clanWar;
     }
 
+    /**
+     * Sets clan war.
+     *
+     * @param clanWar the clan war
+     */
     public void setClanWar(ActivityPlugin clanWar) {
         this.clanWar = clanWar;
     }

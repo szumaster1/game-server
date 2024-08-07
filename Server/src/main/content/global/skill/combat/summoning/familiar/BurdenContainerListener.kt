@@ -8,6 +8,9 @@ import core.network.packet.PacketRepository
 import core.network.packet.context.ContainerContext
 import core.network.packet.outgoing.ContainerPacket
 
+/**
+ * Burden container listener.
+ */
 class BurdenContainerListener(val player: Player?) : ContainerListener {
 
     override fun update(c: Container?, event: ContainerEvent?) {

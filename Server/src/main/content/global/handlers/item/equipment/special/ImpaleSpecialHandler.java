@@ -16,6 +16,9 @@ import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
+/**
+ * Impale special handler.
+ */
 @Initializable
 public final class ImpaleSpecialHandler extends MeleeSwingHandler implements Plugin<Object> {
 

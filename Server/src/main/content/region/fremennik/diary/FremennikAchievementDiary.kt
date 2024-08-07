@@ -24,6 +24,9 @@ import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.entity.skill.Skills
 import core.game.world.map.zone.ZoneBorders
 
+/**
+ * Fremennik achievement diary.
+ */
 class FremennikAchievementDiary : DiaryEventHookBase(DiaryType.FREMENNIK) {
 
     companion object {

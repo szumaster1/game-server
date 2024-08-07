@@ -20,6 +20,9 @@ import core.plugin.Plugin;
 import static core.api.ContentAPIKt.playAudio;
 import static core.api.ContentAPIKt.submitIndividualPulse;
 
+/**
+ * Bone offer plugin.
+ */
 @Initializable
 public class BoneOfferPlugin extends UseWithHandler {
 
@@ -27,6 +30,9 @@ public class BoneOfferPlugin extends UseWithHandler {
 
     private final Animation ANIM = new Animation(896);
 
+    /**
+     * Instantiates a new Bone offer plugin.
+     */
     public BoneOfferPlugin() {
         super(526, 2859, 528, 3183, 3179, 530, 532, 3125, 4812, 3123, 534, 6812, 536, 4830, 4832, 6729, 4834, 14693);
     }

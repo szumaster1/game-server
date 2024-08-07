@@ -5,6 +5,11 @@ import core.api.sendMessage
 import core.game.interaction.InterfaceListener
 import core.game.world.repository.Repository
 
+/**
+ * Logout interface listener
+ *
+ * @constructor Logout interface listener
+ */
 class LogoutInterfaceListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {

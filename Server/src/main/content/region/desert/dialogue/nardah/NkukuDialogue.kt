@@ -8,6 +8,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Nkuku dialogue.
+ */
 @Initializable
 class NkukuDialogue(player: Player? = null) : Dialogue(player) {
 

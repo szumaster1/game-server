@@ -20,6 +20,9 @@ import core.game.world.map.path.Pathfinder
 import core.tools.BLACK
 import java.util.*
 
+/**
+ * House servant dialogue.
+ */
 class HouseServantDialogue(player: Player? = null) : Dialogue(player) {
 
     private var sawmill = false

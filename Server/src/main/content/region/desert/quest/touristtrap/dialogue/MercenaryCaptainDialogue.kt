@@ -9,6 +9,9 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.game.world.map.Location
 
+/**
+ * Mercenary captain dialogue.
+ */
 class MercenaryCaptainDialogue(player: Player? = null) : Dialogue(player) {
 
     private var quest: Quest? = null
@@ -131,7 +134,9 @@ class MercenaryCaptainDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     /**
-     * The Mercenary captain.
+     * Mercenary captain
+     *
+     * @constructor Mercenary captain
      */
     class MercenaryCaptain : AbstractNPC {
         /**

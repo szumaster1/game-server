@@ -7,10 +7,13 @@ import core.game.node.entity.Entity
 import core.game.node.entity.npc.NPC
 import java.lang.Integer.max
 
+/**
+ * River troll NPC.
+ */
 class RiverTrollNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs.RIVER_TROLL_391) {
 
     val ids = (391..396).toList()
-    override fun talkTo(npc: NPC) {}
+
     override fun init() {
         super.init()
         val index = max(0, (player.properties.combatLevel / 20) - 1)
@@ -32,5 +35,7 @@ class RiverTrollNPC(override var loot: WeightBasedTable? = null) : RandomEventNP
         super.tick()
         if (!player.viewport.currentPlane.npcs.contains(this)) this.clear()
     }
+
+    override fun talkTo(npc: NPC) {}
 
 }

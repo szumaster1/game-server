@@ -12,6 +12,12 @@ import core.game.node.entity.npc.NPC
 import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
 
+/**
+ * Drunken dwarf NPC
+ *
+ * @property loot
+ * @constructor Drunken dwarf NPC
+ */
 class DrunkenDwarfNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs.DRUNKEN_DWARF_956) {
 
     val phrases = arrayOf(
@@ -45,7 +51,7 @@ class DrunkenDwarfNPC(override var loot: WeightBasedTable? = null) : RandomEvent
         if (RandomFunction.roll(20) && !attackPhrase) sendPhrases()
         if (ticksLeft <= 10) {
             ticksLeft = 10
-            if (!attackPhrase) sendChat("I hates you, ${player.username.replaceFirstChar { 
+            if (!attackPhrase) sendChat("I hates you, ${player.username.replaceFirstChar {
                 if (it.isLowerCase()) it.titlecase() else it.toString() }}!").also { attackPhrase = true }
             if (attackDelay <= getWorldTicks()) this.attack(player)
         }

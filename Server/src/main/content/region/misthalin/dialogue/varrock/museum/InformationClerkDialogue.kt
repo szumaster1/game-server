@@ -11,6 +11,9 @@ import core.game.world.GameWorld.settings
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Information clerk dialogue.
+ */
 @Initializable
 class InformationClerkDialogue(player: Player? = null) : Dialogue(player) {
 

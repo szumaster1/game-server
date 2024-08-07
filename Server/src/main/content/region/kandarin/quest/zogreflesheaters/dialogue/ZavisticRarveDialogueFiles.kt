@@ -12,6 +12,11 @@ import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
+/**
+ * Zavistic rarve dialogue files
+ *
+ * @constructor Zavistic rarve dialogue files
+ */
 class ZavisticRarveDialogueFiles : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
@@ -45,6 +50,11 @@ class ZavisticRarveDialogueFiles : DialogueFile() {
 }
 
 
+/**
+ * Zavistic rarve default dialogue
+ *
+ * @constructor Zavistic rarve default dialogue
+ */
 class ZavisticRarveDefaultDialogue : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.ZAVISTIC_RARVE_2059)
@@ -64,6 +74,11 @@ class ZavisticRarveDefaultDialogue : DialogueFile() {
     }
 }
 
+/**
+ * Zavistic rarve default quest dialogue
+ *
+ * @constructor Zavistic rarve default quest dialogue
+ */
 class ZavisticRarveDefaultQuestDialogue : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.ZAVISTIC_RARVE_2059)
@@ -157,6 +172,11 @@ class ZavisticRarveDefaultQuestDialogue : DialogueFile() {
     }
 }
 
+/**
+ * Zavistic rarve has both items dialogue
+ *
+ * @constructor Zavistic rarve has both items dialogue
+ */
 class ZavisticRarveHasBothItemsDialogue : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.ZAVISTIC_RARVE_2059)
@@ -188,6 +208,11 @@ class ZavisticRarveHasBothItemsDialogue : DialogueFile() {
     }
 }
 
+/**
+ * Zavistic rarve tankard dialogue
+ *
+ * @constructor Zavistic rarve tankard dialogue
+ */
 class ZavisticRarveTankardDialogue : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.ZAVISTIC_RARVE_2059)
@@ -200,6 +225,11 @@ class ZavisticRarveTankardDialogue : DialogueFile() {
     }
 }
 
+/**
+ * Zavistic rarve torn page dialogue
+ *
+ * @constructor Zavistic rarve torn page dialogue
+ */
 class ZavisticRarveTornPageDialogue : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.ZAVISTIC_RARVE_2059)
@@ -217,6 +247,11 @@ class ZavisticRarveTornPageDialogue : DialogueFile() {
     }
 }
 
+/**
+ * Zavistic rarve black prism dialogue
+ *
+ * @constructor Zavistic rarve black prism dialogue
+ */
 class ZavisticRarveBlackPrismDialogue : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.ZAVISTIC_RARVE_2059)
@@ -242,6 +277,11 @@ class ZavisticRarveBlackPrismDialogue : DialogueFile() {
     }
 }
 
+/**
+ * Zavistic rarve potion dialogue
+ *
+ * @constructor Zavistic rarve potion dialogue
+ */
 class ZavisticRarvePotionDialogue : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.ZAVISTIC_RARVE_2059)
@@ -268,6 +308,11 @@ class ZavisticRarvePotionDialogue : DialogueFile() {
     }
 }
 
+/**
+ * Zavistic rarve last dialogue
+ *
+ * @constructor Zavistic rarve last dialogue
+ */
 class ZavisticRarveLastDialogue : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.ZAVISTIC_RARVE_2059)
@@ -281,6 +326,11 @@ class ZavisticRarveLastDialogue : DialogueFile() {
     }
 }
 
+/**
+ * Zavistic rarve sell black prism dialogue
+ *
+ * @constructor Zavistic rarve sell black prism dialogue
+ */
 class ZavisticRarveSellBlackPrismDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

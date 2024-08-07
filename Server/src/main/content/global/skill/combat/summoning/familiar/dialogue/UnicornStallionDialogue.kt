@@ -8,6 +8,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Unicorn stallion dialogue.
+ */
 @Initializable
 class UnicornStallionDialogue(player: Player? = null) : Dialogue(player) {
 

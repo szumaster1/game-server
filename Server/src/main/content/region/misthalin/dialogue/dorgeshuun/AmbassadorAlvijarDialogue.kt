@@ -8,6 +8,9 @@ import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 import core.api.consts.NPCs
 
+/**
+ * Ambassador alvijar dialogue.
+ */
 @Initializable
 class AmbassadorAlvijarDialogue(player: Player? = null) : Dialogue(player) {
 

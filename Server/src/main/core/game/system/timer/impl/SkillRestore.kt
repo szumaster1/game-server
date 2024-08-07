@@ -11,6 +11,11 @@ import core.game.node.entity.player.link.prayer.PrayerType
 import core.game.node.entity.skill.Skills
 import core.game.system.timer.RSTimer
 
+/**
+ * Skill restore
+ *
+ * @constructor Skill restore
+ */
 class SkillRestore : RSTimer(
     runInterval = 1,
     identifier = "skillrestore",

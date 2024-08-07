@@ -11,6 +11,11 @@ import core.game.node.scenery.Scenery
 import core.game.world.map.Location
 import core.tools.END_DIALOGUE
 
+/**
+ * Shipyard worker dialogue file
+ *
+ * @constructor Shipyard worker dialogue file
+ */
 class ShipyardWorkerDialogueFile : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

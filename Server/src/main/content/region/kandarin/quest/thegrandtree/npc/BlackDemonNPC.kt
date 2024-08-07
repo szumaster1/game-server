@@ -12,6 +12,9 @@ import core.game.world.map.Direction
 import core.game.world.map.Location
 import core.plugin.Initializable
 
+/**
+ * Black demon NPC.
+ */
 @Initializable
 class BlackDemonNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 

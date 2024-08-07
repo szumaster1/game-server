@@ -8,6 +8,10 @@ import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 
 val FURNACE_AREA = ZoneBorders(3104, 3498, 3108, 3502)
+
+/**
+ * Jeffery NPC.
+ */
 class JefferyNPC : NPCBehavior(NPCs.JEFFERY_6298) {
 
     override fun onCreation(self: NPC) {

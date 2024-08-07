@@ -12,6 +12,9 @@ import core.game.node.entity.skill.Skills
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Werewolf course listeners.
+ */
 class WerewolfCourseListeners : InteractionListener {
 
     override fun defineDestinationOverrides() {
@@ -21,10 +24,9 @@ class WerewolfCourseListeners : InteractionListener {
     }
 
     override fun defineListeners() {
-        /*
-            Trapdoors to Werewolf Agility course.
+        /**
+         * Trapdoors to Werewolf Agility course.
          */
-
         on(TRAPDOOR, IntType.SCENERY, "open") { player, node ->
             sendMessage(player, "The trapdoor opens...")
             replaceScenery(node.asScenery(), OPEN_TRAPDOOR, -1)
@@ -54,10 +56,9 @@ class WerewolfCourseListeners : InteractionListener {
             return@on true
         }
 
-        /*
-            Interaction with Agility Trainer.
-        */
-
+        /**
+         * Interaction with Agility Trainer.
+         */
         on(AGILITY_TRAINER, IntType.NPC, "Give-Stick") { player, _ ->
             if (!removeAll(player, Items.STICK_4179)) {
                 openDialogue(player, AgilityTrainerStickDialogue())

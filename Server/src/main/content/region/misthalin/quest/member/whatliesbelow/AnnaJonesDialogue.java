@@ -5,13 +5,24 @@ import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.quest.Quest;
 import core.game.node.item.Item;
 
+/**
+ * Anna jones dialogue.
+ */
 public class AnnaJonesDialogue extends Dialogue {
 
     private Quest quest;
 
+    /**
+     * Instantiates a new Anna jones dialogue.
+     */
     public AnnaJonesDialogue() {
     }
 
+    /**
+     * Instantiates a new Anna jones dialogue.
+     *
+     * @param player the player
+     */
     public AnnaJonesDialogue(Player player) {
         super(player);
     }

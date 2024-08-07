@@ -10,6 +10,9 @@ import core.game.world.GameWorld.Pulser
 import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 
+/**
+ * Mithril seeds dialogue.
+ */
 @Initializable
 class MithrilSeedsDialogue(player: Player? = null) : Dialogue(player) {
 

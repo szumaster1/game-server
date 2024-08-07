@@ -26,6 +26,9 @@ import core.plugin.ClassScanner;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
+/**
+ * Treasure trail plugin.
+ */
 @Initializable
 public final class TreasureTrailPlugin extends OptionHandler {
 
@@ -83,6 +86,9 @@ public final class TreasureTrailPlugin extends OptionHandler {
 		return false;
 	}
 
+    /**
+     * T trail option handler.
+     */
     public static final class TTrailOptionHandler extends OptionHandler {
 
 		@Override
@@ -105,6 +111,9 @@ public final class TreasureTrailPlugin extends OptionHandler {
 
 	}
 
+    /**
+     * Clue item plugin.
+     */
     public final class ClueItemPlugin extends ItemPlugin {
 
 		@Override
@@ -138,6 +147,9 @@ public final class TreasureTrailPlugin extends OptionHandler {
 
 	}
 
+    /**
+     * Sextant component plugin.
+     */
     public class SextantComponentPlugin extends ComponentPlugin {
 
 		@Override

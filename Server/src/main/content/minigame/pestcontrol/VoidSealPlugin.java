@@ -13,6 +13,9 @@ import core.game.world.update.flag.context.Graphic;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
 
+/**
+ * Void seal plugin.
+ */
 public final class VoidSealPlugin extends OptionHandler {
 
     private static boolean canTarget(NPC npc) {

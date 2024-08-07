@@ -8,6 +8,9 @@ import core.game.dialogue.DialogueFile
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
+/**
+ * Old man g a dialogue.
+ */
 class OldManGADialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

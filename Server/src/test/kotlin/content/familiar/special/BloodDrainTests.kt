@@ -16,11 +16,20 @@ import core.game.system.timer.impl.Poison
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
+/**
+ * Blood drain tests
+ *
+ * @constructor Blood drain tests
+ */
 class BloodDrainTests {
     init {
         TestUtils.preTestSetup()
     }
 
+    /**
+     * Blood drain should not restore prayer
+     *
+     */
     @Test
     fun bloodDrainShouldNotRestorePrayer() {
         TestUtils.getMockPlayer("bloodDrainPrayer").use { p ->
@@ -35,6 +44,10 @@ class BloodDrainTests {
         }
     }
 
+    /**
+     * Blood drain should damage owner
+     *
+     */
     @Test
     fun bloodDrainShouldDamageOwner() {
         TestUtils.getMockPlayer("bloodDrainHealth").use { p ->
@@ -52,6 +65,10 @@ class BloodDrainTests {
         }
     }
 
+    /**
+     * Blood drain should not heal
+     *
+     */
     @Test
     fun bloodDrainShouldNotHeal() {
         TestUtils.getMockPlayer("bloodDrainHealth2").use { p ->
@@ -69,6 +86,10 @@ class BloodDrainTests {
         }
     }
 
+    /**
+     * Blood drain should only restore percent of stats
+     *
+     */
     @Test
     fun bloodDrainShouldOnlyRestorePercentOfStats() {
         TestUtils.getMockPlayer("bloodDrainStats").use { p ->
@@ -87,6 +108,10 @@ class BloodDrainTests {
         }
     }
 
+    /**
+     * Blood drain should not boost stats
+     *
+     */
     @Test
     fun bloodDrainShouldNotBoostStats() {
         TestUtils.getMockPlayer("bloodDrainStats2").use { p ->
@@ -105,6 +130,10 @@ class BloodDrainTests {
         }
     }
 
+    /**
+     * Blood drain cures poison and disease
+     *
+     */
     @Test
     fun bloodDrainCuresPoisonAndDisease() {
         TestUtils.getMockPlayer("bloodDrainAilments").use { p ->

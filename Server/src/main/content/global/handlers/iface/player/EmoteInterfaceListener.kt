@@ -4,6 +4,11 @@ import core.api.consts.Components
 import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.link.emote.Emotes
 
+/**
+ * Emote interface listener
+ *
+ * @constructor Emote interface listener
+ */
 class EmoteInterfaceListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {

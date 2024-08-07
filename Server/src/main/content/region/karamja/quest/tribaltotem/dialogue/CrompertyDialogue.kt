@@ -18,6 +18,9 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 
+/**
+ * Cromperty dialogue.
+ */
 @Initializable
 class CrompertyDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -99,6 +102,12 @@ class CrompertyDialogue(player: Player? = null) : Dialogue(player) {
         return intArrayOf(844)
     }
 
+    /**
+     * Tribal totem teleport
+     *
+     * @param player
+     * @param npc
+     */
     fun TribalTotemTeleport(player: Player, npc: NPC) {
         val LOCATIONS = arrayOf(Location.create(2649, 3272, 0), Location.create(2642, 3321, 0))
         npc.animate(Animation(437))

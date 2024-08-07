@@ -9,12 +9,19 @@ import core.game.world.map.zone.MapZone;
 import core.game.world.map.zone.ZoneBorders;
 import core.game.world.map.zone.ZoneRestriction;
 
-
+/**
+ * Pest Control lander zone.
+ */
 public final class PCLanderZone extends MapZone {
 
     private final PestControlActivityPlugin[] activities;
 
 
+    /**
+     * Instantiates a new Pest Control lander zone.
+     *
+     * @param activities the activities
+     */
     public PCLanderZone(PestControlActivityPlugin[] activities) {
         super("pest control lander", true, ZoneRestriction.RANDOM_EVENTS, ZoneRestriction.FIRES, ZoneRestriction.FOLLOWERS, ZoneRestriction.CANNON);
         this.activities = activities;

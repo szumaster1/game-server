@@ -24,6 +24,9 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Restless ghost plugin.
+ */
 @Initializable
 class RestlessGhostPlugin : OptionHandler() {
 
@@ -130,7 +133,9 @@ class RestlessGhostPlugin : OptionHandler() {
         skeleton.properties.combatPulse.attack(player)
     }
 
-
+    /**
+     * Restless ghost NPC.
+     */
     class RestlessGhostNPC : AbstractNPC {
         constructor() : super(0, null)
 

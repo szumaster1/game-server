@@ -9,6 +9,9 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
+/**
+ * Heraldry listener.
+ */
 class HeraldryListener : InteractionListener {
 
     private val heraldryStand = intArrayOf(Scenery.HELMET_PLUMING_STAND_13716, Scenery.PAINTING_STAND_13717, Scenery.BANNER_MAKING_STAND_13718)

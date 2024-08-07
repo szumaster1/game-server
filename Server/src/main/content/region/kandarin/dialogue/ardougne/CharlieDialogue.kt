@@ -11,6 +11,9 @@ import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Charlie dialogue.
+ */
 @Initializable
 class CharlieDialogue(player: Player? = null) : Dialogue(player) {
 

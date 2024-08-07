@@ -11,6 +11,11 @@ import core.game.node.item.Item
 import core.game.system.task.Pulse
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Sap collect listener
+ *
+ * @constructor Sap collect listener
+ */
 class SapCollectListener : InteractionListener {
 
     companion object {

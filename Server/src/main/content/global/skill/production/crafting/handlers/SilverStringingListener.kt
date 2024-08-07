@@ -9,6 +9,9 @@ import core.game.interaction.InteractionListener
 import core.game.node.Node
 import core.game.node.entity.player.Player
 
+/**
+ * Silver stringing listener.
+ */
 class SilverStringingListener : InteractionListener {
 
     companion object {

@@ -6,6 +6,12 @@ import core.game.node.entity.player.Player
 import core.game.system.task.Pulse
 import core.game.world.map.Location
 
+/**
+ * Kolodion session
+ *
+ * @property player
+ * @constructor Kolodion session
+ */
 class KolodionSession(val player: Player) {
 
     private val kolodion = KolodionNPC(
@@ -21,6 +27,9 @@ class KolodionSession(val player: Player) {
         player.addExtension(KolodionSession::class.java, this)
     }
 
+    /**
+     * Start
+     */
     fun start() {
         if (kolodion.type!!.ordinal > 0) {
             kolodion.init()
@@ -49,6 +58,9 @@ class KolodionSession(val player: Player) {
         })
     }
 
+    /**
+     * Close
+     */
     fun close() {
         kolodion.clear()
         getSession(player).close()

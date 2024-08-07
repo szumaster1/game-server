@@ -14,6 +14,16 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.tools.StringUtils
 
+/**
+ * Dragon craft pulse
+ *
+ * @property hide
+ * @property amount
+ * @constructor
+ *
+ * @param player
+ * @param node
+ */
 class DragonCraftPulse(player: Player?, node: Item?, val hide: DragonHide, var amount: Int) : SkillPulse<Item?>(player, node) {
 
     var ticks = 0

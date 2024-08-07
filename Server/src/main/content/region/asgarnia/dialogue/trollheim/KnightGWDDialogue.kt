@@ -10,6 +10,9 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Knight g w d dialogue.
+ */
 @Initializable
 class KnightGWDDialogue(player: Player? = null) : Dialogue(player) {
 

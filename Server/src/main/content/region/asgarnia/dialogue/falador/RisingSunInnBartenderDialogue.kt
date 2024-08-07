@@ -13,6 +13,9 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
+/**
+ * Rising sun inn bartender dialogue.
+ */
 @Initializable
 class RisingSunInnBartenderDialogue(player: Player? = null) : Dialogue(player) {
 

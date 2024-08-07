@@ -17,6 +17,9 @@ import core.game.world.map.RegionManager.getLocalNpcs
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Lady keli dialogue.
+ */
 @Initializable
 class LadyKeliDialogue(player: Player? = null) : Dialogue(player) {
 

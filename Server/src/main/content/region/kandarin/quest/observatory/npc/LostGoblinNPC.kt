@@ -6,6 +6,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
 import core.tools.RandomFunction
 
+/**
+ * Lost goblin NPC.
+ */
 class LostGoblinNPC : NPCBehavior(NPCs.GOBLIN_6126) {
 
     /*

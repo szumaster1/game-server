@@ -7,6 +7,11 @@ import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 
+/**
+ * King lathas dialogue file
+ *
+ * @constructor King lathas dialogue file
+ */
 class KingLathasDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         val questStage = getQuestStage(player!!, "Biohazard")

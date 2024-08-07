@@ -8,9 +8,18 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Legends guard dialogue.
+ */
 @Initializable
 class LegendsGuardDialogue(player: Player? = null) : Dialogue(player) {
 
+    /**
+     * Gender
+     *
+     * @param male
+     * @param female
+     */
     fun gender(male: String = "sir", female: String = "madam") = if (player.isMale) male else female
 
     override fun open(vararg args: Any?): Boolean {

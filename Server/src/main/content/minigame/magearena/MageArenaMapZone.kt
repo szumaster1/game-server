@@ -15,6 +15,9 @@ import core.game.world.map.zone.ZoneBuilder
 import core.game.world.map.zone.ZoneRestriction
 import core.plugin.Plugin
 
+/**
+ * Mage arena map zone.
+ */
 class MageArenaMapZone : MapZone("mage arena", true, ZoneRestriction.RANDOM_EVENTS), Plugin<Any?> {
 
     override fun newInstance(arg: Any?): Plugin<Any?> {
@@ -67,10 +70,22 @@ class MageArenaMapZone : MapZone("mage arena", true, ZoneRestriction.RANDOM_EVEN
         return super.continueAttack(e, target, style, message)
     }
 
+    /**
+     * Get session
+     *
+     * @param player
+     * @return
+     */
     fun getSession(player: Player?): KolodionSession {
         return KolodionSession.getSession(player!!)
     }
 
+    /**
+     * Has session
+     *
+     * @param player
+     * @return
+     */
     fun hasSession(player: Player?): Boolean {
         KolodionSession.getSession(player!!)
         return true

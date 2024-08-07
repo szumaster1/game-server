@@ -10,6 +10,9 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 
+/**
+ * Hickton dialogue.
+ */
 @Initializable
 class HicktonDialogue(player: Player? = null): Dialogue(player) {
 

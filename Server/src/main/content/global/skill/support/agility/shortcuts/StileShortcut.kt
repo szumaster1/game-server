@@ -1,9 +1,6 @@
 package content.global.skill.support.agility.shortcuts
 
-import core.api.animationCycles
-import core.api.forceMove
-import core.api.queueScript
-import core.api.stopExecuting
+import core.api.*
 import core.api.utils.Vector
 import core.game.activity.ActivityManager
 import core.game.interaction.IntType
@@ -13,6 +10,9 @@ import core.game.node.entity.player.Player
 import core.game.world.map.Direction
 import core.game.world.map.Location
 
+/**
+ * Stile shortcut.
+ */
 class StileShortcut : InteractionListener {
 
     val ids = intArrayOf(993, 3730, 7527, 12982, 19222, 22302, 29460, 33842, 34776, 39508, 39509, 39510)
@@ -27,7 +27,7 @@ class StileShortcut : InteractionListener {
             p.walkingQueue.reset()
             p.walkingQueue.addPath(startLoc.x, startLoc.y)
             forceMove(p, startLoc, endLoc, 0, animationCycles(839), direction, 839)
-
+            closeAllInterfaces(p)
             queueScript(p, 5, QueueStrength.SOFT) { _ ->
                 val end = endLoc.transform(direction, 1)
                 p.walkingQueue.reset()
@@ -76,8 +76,18 @@ class StileShortcut : InteractionListener {
         }
     }
 
+    /**
+     * Orientation.
+     */
     enum class Orientation {
+        /**
+         * Horizontal.
+         */
         Horizontal,
+
+        /**
+         * Vertical.
+         */
         Vertical
     }
 }

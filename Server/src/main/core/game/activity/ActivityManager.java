@@ -9,6 +9,9 @@ import java.util.Map;
 
 import static core.api.ContentAPIKt.log;
 
+/**
+ * Activity manager.
+ */
 public final class ActivityManager {
 
     private static final Map<String, ActivityPlugin> ACTIVITIES = new HashMap<>();
@@ -19,6 +22,11 @@ public final class ActivityManager {
          */
     }
 
+    /**
+     * Register.
+     *
+     * @param plugin the plugin
+     */
     public static void register(ActivityPlugin plugin) {
         plugin.register();
         ACTIVITIES.put(plugin.getName(), plugin);
@@ -27,6 +35,15 @@ public final class ActivityManager {
         }
     }
 
+    /**
+     * Start boolean.
+     *
+     * @param player the player
+     * @param name   the name
+     * @param login  the login
+     * @param args   the args
+     * @return the boolean
+     */
     public static boolean start(Player player, String name, boolean login, Object... args) {
         ActivityPlugin plugin = ACTIVITIES.get(name);
         if (plugin == null) {
@@ -49,6 +66,12 @@ public final class ActivityManager {
         return false;
     }
 
+    /**
+     * Gets activity.
+     *
+     * @param name the name
+     * @return the activity
+     */
     public static ActivityPlugin getActivity(String name) {
         return ACTIVITIES.get(name);
     }

@@ -10,12 +10,25 @@ import core.game.node.item.Item
 import core.game.world.update.flag.context.Graphic
 import core.tools.RandomFunction
 
+/**
+ * Armour set
+ *
+ * @property endGraphic
+ * @constructor
+ *
+ * @param set
+ */
 enum class ArmourSet(private val endGraphic: Graphic?, set: Array<IntArray>) {
 
     /*
      * Ahrim the blighted barrows set.
      */
 
+    /**
+     * Ahrim
+     *
+     * @constructor Ahrim
+     */
     AHRIM(
         Graphic(401, 96),
         arrayOf(
@@ -69,6 +82,11 @@ enum class ArmourSet(private val endGraphic: Graphic?, set: Array<IntArray>) {
      * Dharok the wretched barrows set.
      */
 
+    /**
+     * Dharok
+     *
+     * @constructor Dharok
+     */
     DHAROK(
         null,
         arrayOf(
@@ -114,6 +132,11 @@ enum class ArmourSet(private val endGraphic: Graphic?, set: Array<IntArray>) {
      * Guthan the infested barrows set.
      */
 
+    /**
+     * Guthan
+     *
+     * @constructor Guthan
+     */
     GUTHAN(
         Graphic(398, 96),
         arrayOf(
@@ -167,6 +190,11 @@ enum class ArmourSet(private val endGraphic: Graphic?, set: Array<IntArray>) {
      * Karil the tainted barrows set.
      */
 
+    /**
+     * Karil
+     *
+     * @constructor Karil
+     */
     KARIL(
         Graphic(400, 96),
         arrayOf(
@@ -220,6 +248,11 @@ enum class ArmourSet(private val endGraphic: Graphic?, set: Array<IntArray>) {
      * Torag the corrupted barrows set.
      */
 
+    /**
+     * Torag
+     *
+     * @constructor Torag
+     */
     TORAG(
         Graphic(399, 96),
         arrayOf(
@@ -275,6 +308,11 @@ enum class ArmourSet(private val endGraphic: Graphic?, set: Array<IntArray>) {
      * Verac the defiled barrows set.
      */
 
+    /**
+     * Verac
+     *
+     * @constructor Verac
+     */
     VERAC(
         null,
         arrayOf(
@@ -331,6 +369,12 @@ enum class ArmourSet(private val endGraphic: Graphic?, set: Array<IntArray>) {
      * Visualizes the effect.
      */
 
+    /**
+     * Visualize
+     *
+     * @param e
+     * @param victim
+     */
     fun visualize(e: Entity?, victim: Entity) {
         if (endGraphic != null) {
             victim.graphics(endGraphic)
@@ -341,6 +385,14 @@ enum class ArmourSet(private val endGraphic: Graphic?, set: Array<IntArray>) {
      * Handles the effect of the armour set.
      */
 
+    /**
+     * Effect
+     *
+     * @param e
+     * @param victim
+     * @param state
+     * @return
+     */
     open fun effect(e: Entity, victim: Entity, state: BattleState): Boolean {
         return false
     }
@@ -349,6 +401,12 @@ enum class ArmourSet(private val endGraphic: Graphic?, set: Array<IntArray>) {
      * Checks if the entity is wearing this armour set.
      */
 
+    /**
+     * Is using
+     *
+     * @param e
+     * @return
+     */
     open fun isUsing(e: Entity?): Boolean {
         if (e !is Player) {
             return false

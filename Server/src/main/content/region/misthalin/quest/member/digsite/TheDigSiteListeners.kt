@@ -23,6 +23,11 @@ import core.api.consts.Items
 import core.api.consts.NPCs
 import core.api.consts.Scenery
 
+/**
+ * The dig site listeners
+ *
+ * @constructor The dig site listeners
+ */
 class TheDigSiteListeners : InteractionListener {
 
     companion object {

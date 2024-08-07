@@ -9,13 +9,25 @@ import core.plugin.Initializable;
 
 import static core.api.ContentAPIKt.setVarp;
 
+/**
+ * Restless ghost.
+ */
 @Initializable
 public class RestlessGhost extends Quest {
 
+    /**
+     * The constant NAME.
+     */
     public static final String NAME = "The Restless Ghost";
 
+    /**
+     * The constant AMULET.
+     */
     public static final Item AMULET = new Item(552);
 
+    /**
+     * Instantiates a new Restless ghost.
+     */
     public RestlessGhost() {
         super(NAME, 25, 24, 1, Vars.VARP_QUEST_RESTLESS_GHOST_PROGRESS, 0, 4, 5);
     }

@@ -1,6 +1,7 @@
 package content.global.skill.support.agility.shortcuts
 
 import content.global.skill.support.agility.AgilityHandler
+import core.api.closeAllInterfaces
 import core.api.consts.Animations
 import core.api.consts.Scenery
 import core.api.queueScript
@@ -11,14 +12,16 @@ import core.game.interaction.QueueStrength
 import core.game.world.map.Direction
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Mc grubor fence shortcut.
+ */
 class McGruborFenceShortcut : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Shortcut in backyard of Mc grubor area.
          */
-
         on(Scenery.LOOSE_RAILING_51, IntType.SCENERY, "squeeze-through") { player, _ ->
             queueScript(player, 1, QueueStrength.SOFT) {
                 AgilityHandler.forceWalk(

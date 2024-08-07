@@ -7,6 +7,11 @@ import core.api.setVarbit
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * G w d entrance rope listener
+ *
+ * @constructor G w d entrance rope listener
+ */
 class GWDEntranceRopeListener : InteractionListener {
 
     override fun defineListeners() {

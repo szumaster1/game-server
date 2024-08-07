@@ -8,6 +8,14 @@ import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
+/**
+ * Dragon sq shield pulse
+ *
+ * @property item
+ * @constructor
+ *
+ * @param player
+ */
 class DragonSqShieldPulse(player: Player?, val item: Item) : SkillPulse<Item>(player, null) {
 
     private val SHIELD_LEFT_HALF = Items.SHIELD_LEFT_HALF_2366

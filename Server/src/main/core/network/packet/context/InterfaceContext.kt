@@ -5,7 +5,6 @@ import core.network.packet.Context
 
 /**
  * The interface packet context.
- * @author Emperor
  */
 class InterfaceContext(
     private var player: Player,

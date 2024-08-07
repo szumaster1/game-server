@@ -7,6 +7,11 @@ import core.game.node.entity.player.link.diary.AchievementDiary
 import core.game.node.entity.player.link.diary.DiaryType
 import core.api.consts.NPCs
 
+/**
+ * Chemist diary dialogue
+ *
+ * @constructor Chemist diary dialogue
+ */
 class ChemistDiaryDialogue : DialogueFile() {
 
     private val level = 1

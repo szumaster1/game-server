@@ -5,8 +5,13 @@ import core.api.sendDialogue
 import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player
 import core.game.world.GameWorld
+import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Head mystic dialogue.
+ */
+@Initializable
 class HeadMysticDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {

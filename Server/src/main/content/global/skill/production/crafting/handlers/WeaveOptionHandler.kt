@@ -18,6 +18,9 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 import core.tools.StringUtils
 
+/**
+ * Weave option handler.
+ */
 @Initializable
 class WeaveOptionHandler : OptionHandler() {
 
@@ -35,6 +38,16 @@ class WeaveOptionHandler : OptionHandler() {
         return true
     }
 
+    /**
+     * Weave pulse
+     *
+     * @property type
+     * @property amount
+     * @constructor
+     *
+     * @param player
+     * @param node
+     */
     class WeavePulse(player: Player?, node: Scenery?, private val type: WeavingItem, private var amount: Int) :
         SkillPulse<Scenery?>(player, node) {
 
@@ -85,19 +98,45 @@ class WeaveOptionHandler : OptionHandler() {
         }
     }
 
+    /**
+     * Weaving item
+     *
+     * @property product
+     * @property required
+     * @property level
+     * @property experience
+     * @constructor Weaving item
+     */
     enum class WeavingItem(val product: Item, val required: Item, val level: Int, val experience: Double) {
+        /**
+         * Sack
+         *
+         * @constructor Sack
+         */
         SACK(
             product = Item(Items.EMPTY_SACK_5418),
             required = Item(Items.JUTE_FIBRE_5931, 4),
             level = 21,
             experience = 38.0
         ),
+
+        /**
+         * Basket
+         *
+         * @constructor Basket
+         */
         BASKET(
             product = Item(Items.BASKET_5376),
             required = Item(Items.WILLOW_BRANCH_5933, 6),
             level = 36,
             experience = 56.0
         ),
+
+        /**
+         * Cloth
+         *
+         * @constructor Cloth
+         */
         CLOTH(
             product = Item(Items.STRIP_OF_CLOTH_3224),
             required = Item(Items.BALL_OF_WOOL_1759, 4),

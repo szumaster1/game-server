@@ -4,6 +4,9 @@ import content.global.skill.production.cooking.recipe.pie.PieRecipe
 import core.api.consts.Items
 import core.game.node.item.Item
 
+/**
+ * Redberry pie.
+ */
 class RedberryPie : PieRecipe() {
 
     override fun getProduct(): Item {

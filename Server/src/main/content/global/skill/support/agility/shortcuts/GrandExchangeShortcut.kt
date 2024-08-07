@@ -13,6 +13,9 @@ import core.game.system.task.Pulse
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Grand exchange shortcut.
+ */
 class GrandExchangeShortcut : InteractionListener {
 
     companion object {

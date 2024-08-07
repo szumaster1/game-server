@@ -9,12 +9,23 @@ import core.game.node.Node
 import core.game.node.entity.player.Player
 import core.tools.prependArticle
 
+/**
+ * Seedling listener.
+ */
 class SeedlingListener : InteractionListener {
     override fun defineListeners() {
         onUseWith(IntType.ITEM, TREE_SEEDS, Items.PLANT_POT_5354, handler = ::addSeedToPot)
         onUseWith(IntType.ITEM, TREE_SEEDLINGS, *WATERING_CANS, handler = ::waterSeedling)
     }
 
+    /**
+     * Add seed to pot
+     *
+     * @param player
+     * @param used
+     * @param with
+     * @return
+     */
     fun addSeedToPot(player: Player, used: Node, with: Node) : Boolean {
         val seed = used.asItem() ?: return false
         val pot = with.asItem() ?: return false
@@ -33,6 +44,14 @@ class SeedlingListener : InteractionListener {
         return true
     }
 
+    /**
+     * Water seedling
+     *
+     * @param player
+     * @param used
+     * @param with
+     * @return
+     */
     fun waterSeedling(player: Player, used: Node, with: Node) : Boolean {
         val seedling = used.asItem() ?: return false
         val can = with.asItem() ?: return false
@@ -55,6 +74,12 @@ class SeedlingListener : InteractionListener {
         return if (index != WATERING_CANS.size -1) WATERING_CANS[index + 1] else Items.WATERING_CAN_5331
     }
 
+    /**
+     * Get seedling
+     *
+     * @param id
+     * @return
+     */
     fun getSeedling(id: Int) : Int {
         return when (id) {
             Items.ACORN_5312 ->            Items.OAK_SEEDLING_5358

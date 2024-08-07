@@ -21,6 +21,9 @@ import core.tools.RandomFunction
 import core.tools.colorize
 import org.json.simple.JSONObject
 
+/**
+ * Deep wildy threat.
+ */
 object DeepWildyThreat {
 
     @JvmStatic
@@ -45,6 +48,9 @@ object DeepWildyThreat {
     }
 }
 
+/**
+ * Deep wildy thread timer.
+ */
 class DWThreatTimer : PersistTimer(1, "dw-threat"), Commands {
     var ticksLeft = 0
     var lastMessage = 0
@@ -102,6 +108,9 @@ class DWThreatTimer : PersistTimer(1, "dw-threat"), Commands {
     }
 }
 
+/**
+ * Revenant guardian NPC.
+ */
 class RevenantGuardianNPC : NPCBehavior() {
 
     val deathMessages = arrayOf(

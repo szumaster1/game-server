@@ -12,6 +12,9 @@ import core.network.packet.context.MinimapStateContext
 import core.network.packet.outgoing.MinimapState
 import core.tools.RandomFunction
 
+/**
+ * Leo NPC.
+ */
 class LeoNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs.LEO_3508) {
     override fun init() {
         super.init()

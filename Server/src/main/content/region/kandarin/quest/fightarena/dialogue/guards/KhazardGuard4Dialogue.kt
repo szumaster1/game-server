@@ -11,6 +11,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Khazard guard4dialogue.
+ */
 @Initializable
 class KhazardGuard4Dialogue(player: Player? = null) : Dialogue(player) {
 

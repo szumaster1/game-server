@@ -76,6 +76,11 @@ private val ITEMS = arrayOf(
     null,null,null, SPOTTIER_CAPE,null
 )
 
+/**
+ * Fur clothing interface plugin
+ *
+ * @constructor Fur clothing interface plugin
+ */
 @Initializable
 class FurClothingInterfacePlugin : ComponentPlugin() {
 
@@ -169,26 +174,155 @@ class FurClothingInterfacePlugin : ComponentPlugin() {
         return this
     }
 
+    /**
+     * Fur Clothing
+     *
+     * @property requiredFur
+     * @property price
+     * @property product
+     * @property textChildID
+     * @property textContent
+     * @constructor Fur Clothing
+     */
     internal enum class FUR_CLOTHING(val requiredFur: Item, val price: Int, val product: Item, val textChildID: Int, val textContent: String) {
+        /**
+         * Polar Kebbit Top
+         *
+         * @constructor Polar Kebbit Top
+         */
         POLAR_KEBBIT_TOP(Item(10117, 2), 20, POLAR_CAMO_TOP, 18, "Polar kebbit"),
+
+        /**
+         * Polar Kebbit Bot
+         *
+         * @constructor Polar Kebbit Bot
+         */
         POLAR_KEBBIT_BOT(Item(10117, 2), 20, POLAR_CAMO_LEGS, 18, "Polar kebbit"),
+
+        /**
+         * Common Kebbit Top
+         *
+         * @constructor Common Kebbit Top
+         */
         COMMON_KEBBIT_TOP(Item(10121, 2), 20, WOOD_CAMO_TOP, 19, "Common kebbit"),
+
+        /**
+         * Common Kebbit Bot
+         *
+         * @constructor Common Kebbit Bot
+         */
         COMMON_KEBBIT_BOT(Item(10121, 2), 20, WOOD_CAMO_LEGS, 19, "Common kebbit"),
+
+        /**
+         * Feldip Weasel Top
+         *
+         * @constructor Feldip Weasel Top
+         */
         FELDIP_WEASEL_TOP(Item(10119, 2), 20, JUNGLE_CAMO_TOP, 20, "Feldip weasel"),
+
+        /**
+         * Feldip Weasel Legs
+         *
+         * @constructor Feldip Weasel Legs
+         */
         FELDIP_WEASEL_LEGS(Item(10119, 2), 20, JUNGLE_CAMO_LEGS, 20, "Feldip weasel"),
+
+        /**
+         * Desert Devil Top
+         *
+         * @constructor Desert Devil Top
+         */
         DESERT_DEVIL_TOP(Item(10123, 2), 20, DESERT_CAMO_TOP, 21, "Desert devil"),
+
+        /**
+         * Desert Devil Legs
+         *
+         * @constructor Desert Devil Legs
+         */
         DESERT_DEVIL_LEGS(Item(10123, 2), 20, DESERT_CAMO_LEGS, 21, "Desert devil"),
+
+        /**
+         * Larupia Head
+         *
+         * @constructor Larupia Head
+         */
         LARUPIA_HEAD(Item(10095), 500, LARUPIA_HAT, 15, "Larupia"),
+
+        /**
+         * Larupia Chest
+         *
+         * @constructor Larupia Chest
+         */
         LARUPIA_CHEST(Item(10095), 100, LARUPIA_TOP, 15, "Larupia"),
+
+        /**
+         * Larupia Bot
+         *
+         * @constructor Larupia Bot
+         */
         LARUPIA_BOT(Item(10095), 100, LARUPIA_LEGS, 15, "Larupia"),
+
+        /**
+         * Graahk Head
+         *
+         * @constructor Graahk Head
+         */
         GRAAHK_HEAD(Item(10099), 750, GRAAHK_HEADDRESS, 16, "Graahk"),
+
+        /**
+         * Graahk Chest
+         *
+         * @constructor Graahk Chest
+         */
         GRAAHK_CHEST(Item(10099), 150, GRAAHK_TOP, 16, "Graahk"),
+
+        /**
+         * Graahk Bot
+         *
+         * @constructor Graahk Bot
+         */
         GRAAHK_BOT(Item(10099), 150, GRAAHK_LEGS, 16, "Graahk"),
+
+        /**
+         * Kyatt Head
+         *
+         * @constructor Kyatt Head
+         */
         KYATT_HEAD(Item(10103), 1000, KYATT_HAT, 17, "Kyatt"),
+
+        /**
+         * Kyatt Chest
+         *
+         * @constructor Kyatt Chest
+         */
         KYATT_CHEST(Item(10103), 200, KYATT_TOP, 17, "Kyatt"),
+
+        /**
+         * Kyatt Bot
+         *
+         * @constructor Kyatt Bot
+         */
         KYATT_BOT(Item(10103), 200, KYATT_LEGS, 17, "Kyatt"),
+
+        /**
+         * Gloves Silence
+         *
+         * @constructor Gloves Silence
+         */
         GLOVES_SILENCE(Item(10115, 2), 600, GLOVES_OF_SILENCE, 22, "Dark kebbit"),
+
+        /**
+         * Spot Cape
+         *
+         * @constructor Spot Cape
+         */
         SPOT_CAPE(Item(10125, 2), 400, SPOTTED_CAPE, 23, "Spotted kebbit"),
+
+        /**
+         * Dash Cape
+         *
+         * @constructor Dash Cape
+         */
         DASH_CAPE(Item(10127, 2), 800, SPOTTIER_CAPE, 24, "Dashing kebbit")
     }
 

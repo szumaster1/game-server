@@ -9,6 +9,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
+/**
+ * Barbarian assault guide
+ *
+ * @constructor Barbarian assault guide
+ */
 class BarbarianAssaultGuide : InteractionListener {
 
     // Obtainable during the Barbarian Assault minigame.

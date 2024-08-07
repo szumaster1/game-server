@@ -2,23 +2,50 @@ package core.game.world.map;
 
 import core.game.world.map.path.ClipMaskSupplier;
 
+/**
+ * The enum Direction.
+ */
 public enum Direction {
 
 
+    /**
+     * North west direction.
+     */
     NORTH_WEST(-1, 1, 7, 0x12c0108, 0x12c0120, 0x12c0138),
 
+    /**
+     * North direction.
+     */
     NORTH(0, 1, 0, 0x12c0120),
 
+    /**
+     * North east direction.
+     */
     NORTH_EAST(1, 1, 4, 0x12c0180, 0x12c0120, 0x12c01e0),
 
+    /**
+     * West direction.
+     */
     WEST(-1, 0, 3, 0x12c0108),
 
+    /**
+     * East direction.
+     */
     EAST(1, 0, 1, 0x12c0180),
 
+    /**
+     * South west direction.
+     */
     SOUTH_WEST(-1, -1, 6, 0x12c0108, 0x12c0102, 0x12c010e),
 
+    /**
+     * South direction.
+     */
     SOUTH(0, -1, 2, 0x12c0102),
 
+    /**
+     * South east direction.
+     */
     SOUTH_EAST(1, -1, 5, 0x12c0180, 0x12c0102, 0x12c0183);
 
     private final int stepX;
@@ -36,6 +63,12 @@ public enum Direction {
         this.setTraversal(traversal);
     }
 
+    /**
+     * Get direction.
+     *
+     * @param rotation the rotation
+     * @return the direction
+     */
     public static Direction get(int rotation) {
         for (Direction dir : Direction.values()) {
             if (dir.value == rotation) {
@@ -45,14 +78,34 @@ public enum Direction {
         throw new IllegalArgumentException("Invalid direction value - " + rotation);
     }
 
+    /**
+     * Gets walk point.
+     *
+     * @param direction the direction
+     * @return the walk point
+     */
     public static Point getWalkPoint(Direction direction) {
         return new Point(direction.stepX, direction.stepY);
     }
 
+    /**
+     * Gets direction.
+     *
+     * @param location the location
+     * @param l        the l
+     * @return the direction
+     */
     public static Direction getDirection(Location location, Location l) {
         return getDirection(l.getX() - location.getX(), l.getY() - location.getY());
     }
 
+    /**
+     * Gets direction.
+     *
+     * @param diffX the diff x
+     * @param diffY the diff y
+     * @return the direction
+     */
     public static Direction getDirection(int diffX, int diffY) {
         if (diffX < 0) {
             if (diffY < 0) {
@@ -75,6 +128,13 @@ public enum Direction {
         return NORTH;
     }
 
+    /**
+     * For walk flag direction.
+     *
+     * @param walkingFlag the walking flag
+     * @param rotation    the rotation
+     * @return the direction
+     */
     public static Direction forWalkFlag(int walkingFlag, int rotation) {
         if (rotation != 0) {
             walkingFlag = (walkingFlag << rotation & 0xf) + (walkingFlag >> 4 - rotation);
@@ -96,10 +156,22 @@ public enum Direction {
         return null;
     }
 
+    /**
+     * Gets opposite.
+     *
+     * @return the opposite
+     */
     public Direction getOpposite() {
         return Direction.get(toInteger() + 2 & 3);
     }
 
+    /**
+     * Gets logical direction.
+     *
+     * @param location the location
+     * @param l        the l
+     * @return the logical direction
+     */
     public static Direction getLogicalDirection(Location location, Location l) {
         int offsetX = Math.abs(l.getX() - location.getX());
         int offsetY = Math.abs(l.getY() - location.getY());
@@ -115,22 +187,49 @@ public enum Direction {
         return Direction.NORTH;
     }
 
+    /**
+     * To name string.
+     *
+     * @param direction the direction
+     * @return the string
+     */
     public String toName(Direction direction) {
         return direction.name().toLowerCase();
     }
 
+    /**
+     * To integer int.
+     *
+     * @return the int
+     */
     public int toInteger() {
         return value;
     }
 
+    /**
+     * Gets step x.
+     *
+     * @return the step x
+     */
     public int getStepX() {
         return stepX;
     }
 
+    /**
+     * Gets step y.
+     *
+     * @return the step y
+     */
     public int getStepY() {
         return stepY;
     }
 
+    /**
+     * Can move boolean.
+     *
+     * @param l the l
+     * @return the boolean
+     */
     public boolean canMove(Location l) {
         int flag = RegionManager.getClippingFlag(l.getZ(), l.getX(), l.getY());
         for (int f : traversal) {
@@ -141,6 +240,15 @@ public enum Direction {
         return true;
     }
 
+    /**
+     * Can move from boolean.
+     *
+     * @param z                the z
+     * @param x                the x
+     * @param y                the y
+     * @param clipMaskSupplier the clip mask supplier
+     * @return the boolean
+     */
     public boolean canMoveFrom(int z, int x, int y, ClipMaskSupplier clipMaskSupplier) {
         int dx, dy;
         boolean ret = true;

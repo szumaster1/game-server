@@ -8,6 +8,9 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.plugin.Initializable
 
+/**
+ * Hunting expert dialogue.
+ */
 @Initializable
 class HuntingExpertDialogue(player: Player? = null) : Dialogue(player) {
 

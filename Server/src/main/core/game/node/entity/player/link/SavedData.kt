@@ -3,6 +3,12 @@ package core.game.node.entity.player.link
 import core.game.node.entity.player.Player
 import java.nio.ByteBuffer
 
+/**
+ * Saved data
+ *
+ * @property player
+ * @constructor Saved data
+ */
 class SavedData(val player: Player) {
 
     @JvmField

@@ -9,6 +9,9 @@ import core.api.submitIndividualPulse
 import core.game.interaction.InterfaceListener
 import core.game.node.item.Item
 
+/**
+ * Leather craft interface listener.
+ */
 class LeatherCraftInterfaceListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {

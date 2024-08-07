@@ -9,9 +9,7 @@ import core.game.node.item.Item
 
 /**
  * Runs one-time save-version-related hooks.
- * @author Player Name
  */
-
 class SaveVersionHooks : LoginListener {
 
     override fun login(player: Player) {

@@ -9,6 +9,16 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.world.map.zone.ZoneBorders
 
+/**
+ * String pulse
+ *
+ * @property bow
+ * @property amount
+ * @constructor
+ *
+ * @param player
+ * @param node
+ */
 open class StringPulse(player: Player, node: Item, private val bow: BowString, private var amount: Int) : SkillPulse<Item>(player, node) {
 
     override fun checkRequirements(): Boolean {

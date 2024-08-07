@@ -9,6 +9,9 @@ import core.game.node.entity.player.Player
 import core.game.world.GameWorld.settings
 import core.plugin.Initializable
 
+/**
+ * Squire dialogue.
+ */
 @Initializable
 class SquireDialogue(player: Player? = null) : Dialogue(player) {
 

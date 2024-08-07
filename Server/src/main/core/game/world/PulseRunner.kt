@@ -8,15 +8,29 @@ import core.integration.grafana.Grafana
 import core.tools.Log
 import java.util.concurrent.LinkedBlockingQueue
 
+/**
+ * Pulse runner
+ *
+ * @constructor Pulse runner
+ */
 class PulseRunner {
     private val pulses = LinkedBlockingQueue<Pulse>()
 
     val currentPulses: Array<Pulse> get() = pulses.toTypedArray()
 
+    /**
+     * Submit
+     *
+     * @param pulse
+     */
     fun submit(pulse: Pulse) {
         pulses.add(pulse)
     }
 
+    /**
+     * Update all
+     *
+     */
     fun updateAll() {
         val pulseCount = pulses.size
 

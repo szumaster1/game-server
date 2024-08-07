@@ -26,6 +26,9 @@ import core.tools.RandomFunction
     Workman: Bleah
  */
 
+/**
+ * Museum guard NPC.
+ */
 class MuseumGuardNPC : NPCBehavior(*guardsNPCs) {
 
     companion object{

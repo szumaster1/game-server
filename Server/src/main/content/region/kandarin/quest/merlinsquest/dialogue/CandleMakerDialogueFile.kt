@@ -11,6 +11,11 @@ import core.game.node.entity.npc.NPC
 import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
+/**
+ * Candle maker dialogue file
+ *
+ * @constructor Candle maker dialogue file
+ */
 class CandleMakerDialogueFile : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

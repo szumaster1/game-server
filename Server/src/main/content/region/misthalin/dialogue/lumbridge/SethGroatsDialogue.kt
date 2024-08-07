@@ -8,6 +8,9 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.api.consts.NPCs
 
+/**
+ * Seth groats dialogue.
+ */
 @Initializable
 class SethGroatsDialogue(player: Player? = null) : Dialogue(player) {
 

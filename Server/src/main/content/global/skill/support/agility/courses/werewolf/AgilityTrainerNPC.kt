@@ -6,6 +6,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
 import core.tools.RandomFunction
 
+/**
+ * Agility trainer NPC.
+ */
 class AgilityTrainerNPC : NPCBehavior(NPCs.AGILITY_TRAINER_1663, NPCs.AGILITY_TRAINER_1664) {
 
     override fun tick(self: NPC): Boolean {

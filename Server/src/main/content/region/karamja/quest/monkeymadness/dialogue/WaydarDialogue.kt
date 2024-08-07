@@ -8,6 +8,11 @@ import core.game.component.Component
 import core.game.dialogue.DialogueFile
 import core.tools.END_DIALOGUE
 
+/**
+ * Waydar dialogue
+ *
+ * @constructor Waydar dialogue
+ */
 class WaydarDialogue: DialogueFile(){
 
     override fun handle(componentID: Int, buttonID: Int) {

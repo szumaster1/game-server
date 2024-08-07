@@ -2,7 +2,18 @@ package core.api
 
 import core.api.consts.Items
 
+/**
+ * God
+ *
+ * @property validItems
+ * @constructor God
+ */
 enum class God(vararg val validItems: Int) {
+    /**
+     * Armadyl
+     *
+     * @constructor Armadyl
+     */
     ARMADYL(
         Items.ARMADYL_CHESTPLATE_11720,
         Items.ARMADYL_GODSWORD_11694,
@@ -12,6 +23,12 @@ enum class God(vararg val validItems: Int) {
         Items.ARMADYL_PENDANT_87,
         Items.ARMADYL_PLATESKIRT_11722,
     ),
+
+    /**
+     * Bandos
+     *
+     * @constructor Bandos
+     */
     BANDOS(
         Items.ANCIENT_MACE_11061,
         Items.BANDOS_BOOTS_11728,
@@ -19,6 +36,12 @@ enum class God(vararg val validItems: Int) {
         Items.BANDOS_GODSWORD_11696,
         Items.BANDOS_TASSETS_11726,
     ),
+
+    /**
+     * Saradomin
+     *
+     * @constructor Saradomin
+     */
     SARADOMIN(
         Items.ANCIENT_SYMBOL_11181,
         Items.GILDED_KITESHIELD_3489,
@@ -52,6 +75,12 @@ enum class God(vararg val validItems: Int) {
         Items.SARADOMIN_SYMBOL_8055,
         Items.STEEL_HERALDIC_HELM_8706,
     ),
+
+    /**
+     * Zamorak
+     *
+     * @constructor Zamorak
+     */
     ZAMORAK(
         Items.DAGONHAI_HAT_14499,
         Items.DAGONHAI_ROBE_TOP_14497,
@@ -89,6 +118,12 @@ enum class God(vararg val validItems: Int) {
         Items.ZAMORAK_STOLE_10474,
         Items.ZAMORAK_SYMBOL_8056,
     ),
+
+    /**
+     * Guthix
+     *
+     * @constructor Guthix
+     */
     GUTHIX(
         Items.STEEL_HERALDIC_HELM_8692,
         Items.RUNE_HERALDIC_HELM_8474,
@@ -120,6 +155,12 @@ enum class God(vararg val validItems: Int) {
         Items.GUTHIX_STOLE_10472,
         Items.GUTHIX_SYMBOL_8057
     ),
+
+    /**
+     * Zaros
+     *
+     * @constructor Zaros
+     */
     ZAROS(
         Items.ANCIENT_STAFF_13406,
         Items.ANCIENT_STAFF_4675,

@@ -8,6 +8,9 @@ import core.game.interaction.NodeUsageEvent
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
+/**
+ * Meat pie.
+ */
 class MeatPie : PieRecipe() {
 
     override fun mix(player: Player, event: NodeUsageEvent) {

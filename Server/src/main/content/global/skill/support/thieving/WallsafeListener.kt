@@ -17,6 +17,9 @@ import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
 import kotlin.math.ceil
 
+/**
+ * Wallsafe listener.
+ */
 class WallsafeListener : InteractionListener {
 
     override fun defineListeners() {
@@ -120,6 +123,13 @@ class WallsafeListener : InteractionListener {
         player.inventory.add(item)
     }
 
+    /**
+     * Success
+     *
+     * @param player
+     * @param skill
+     * @return
+     */
     fun success(player: Player, skill: Int): Boolean {
         val level = player.getSkills().getLevel(skill).toDouble()
         val req = 50.0

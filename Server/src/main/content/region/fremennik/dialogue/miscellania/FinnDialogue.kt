@@ -9,6 +9,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Finn dialogue.
+ */
 @Initializable
 class FinnDialogue(player: Player? = null): Dialogue(player) {
 

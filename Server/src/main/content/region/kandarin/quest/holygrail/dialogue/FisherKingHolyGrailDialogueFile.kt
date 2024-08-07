@@ -10,6 +10,11 @@ import core.game.dialogue.Topic
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
+/**
+ * Fisher king holy grail dialogue file
+ *
+ * @constructor Fisher king holy grail dialogue file
+ */
 class FisherKingHolyGrailDialogueFile : DialogueFile() {
 
     var STAGE_SEEK_GRAIL = 10

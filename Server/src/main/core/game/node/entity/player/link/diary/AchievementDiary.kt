@@ -12,12 +12,23 @@ import core.game.node.item.Item
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 
+/**
+ * Achievement diary
+ *
+ * @property type
+ * @constructor Achievement diary
+ */
 class AchievementDiary(val type: DiaryType) {
 
     val levelStarted: BooleanArray = BooleanArray(3)
     val levelRewarded: BooleanArray = BooleanArray(3)
     val taskCompleted: Array<BooleanArray> = Array(type.achievements.size) { BooleanArray(25) }
 
+    /**
+     * Open
+     *
+     * @param player
+     */
     fun open(player: Player) {
         clear(player)
         sendString(player, "<red>Achievement Diary - " + type.diaryName, 2)
@@ -66,6 +77,11 @@ class AchievementDiary(val type: DiaryType) {
         }
     }
 
+    /**
+     * Parse
+     *
+     * @param data
+     */
     fun parse(data: JSONObject) {
         val startedArray = data["startedLevels"] as JSONArray
         for (i in startedArray.indices) {
@@ -89,6 +105,11 @@ class AchievementDiary(val type: DiaryType) {
         }
     }
 
+    /**
+     * Draw status
+     *
+     * @param player
+     */
     fun drawStatus(player: Player) {
         if (isStarted) {
             setInterfaceText(player, (if (isComplete) GREEN else YELLOW) + type.diaryName, 259, type.buttonId)
@@ -98,7 +119,14 @@ class AchievementDiary(val type: DiaryType) {
         }
     }
 
-    // TODO: NPC for each level, NPC location for each level.
+    /**
+     * Update task
+     *
+     * @param player
+     * @param level
+     * @param index
+     * @param complete
+     */// TODO: NPC for each level, NPC location for each level.
     fun updateTask(player: Player, level: Int, index: Int, complete: Boolean) {
         if (!levelStarted[level]) {
             levelStarted[level] = true
@@ -129,6 +157,13 @@ class AchievementDiary(val type: DiaryType) {
         drawStatus(player)
     }
 
+    /**
+     * Finish task
+     *
+     * @param player
+     * @param level
+     * @param index
+     */
     fun finishTask(player: Player, level: Int, index: Int) {
         if (!this.isComplete(level, index)) {
             this.updateTask(player, level, index, true)
@@ -145,6 +180,13 @@ class AchievementDiary(val type: DiaryType) {
         }
     }
 
+    /**
+     * Reset task
+     *
+     * @param player
+     * @param level
+     * @param index
+     */
     fun resetTask(player: Player, level: Int, index: Int) {
         taskCompleted[level][index] = false
         if (!isStarted(level)) {
@@ -156,6 +198,12 @@ class AchievementDiary(val type: DiaryType) {
         drawStatus(player)
     }
 
+    /**
+     * Check complete
+     *
+     * @param level
+     * @return
+     */
     fun checkComplete(level: DiaryLevel): Boolean {
         if (type != DiaryType.LUMBRIDGE && level == DiaryLevel.BEGINNER) {
             return false
@@ -172,14 +220,31 @@ class AchievementDiary(val type: DiaryType) {
         setInterfaceText(player, string.replace("<blue>", BLUE).replace("<red>", RED), DIARY_COMPONENT, child)
     }
 
+    /**
+     * Set level started
+     *
+     * @param level
+     */
     fun setLevelStarted(level: Int) {
         levelStarted[level] = true
     }
 
+    /**
+     * Set completed
+     *
+     * @param level
+     * @param index
+     */
     fun setCompleted(level: Int, index: Int) {
         taskCompleted[level][index] = true
     }
 
+    /**
+     * Is started
+     *
+     * @param level
+     * @return
+     */
     fun isStarted(level: Int): Boolean {
         return levelStarted[level]
     }
@@ -194,10 +259,23 @@ class AchievementDiary(val type: DiaryType) {
             return false
         }
 
+    /**
+     * Is complete
+     *
+     * @param level
+     * @param index
+     * @return
+     */
     fun isComplete(level: Int, index: Int): Boolean {
         return taskCompleted[level][index]
     }
 
+    /**
+     * Is complete
+     *
+     * @param level
+     * @return
+     */
     fun isComplete(level: Int): Boolean {
         for (i in type.getAchievements(level).indices) {
             if (!taskCompleted[level][i]) {
@@ -207,6 +285,13 @@ class AchievementDiary(val type: DiaryType) {
         return true
     }
 
+    /**
+     * Is complete
+     *
+     * @param level
+     * @param cumulative
+     * @return
+     */
     fun isComplete(level: Int, cumulative: Boolean): Boolean {
         return if (isComplete(level)) {
             !cumulative || level <= 0 || isComplete(level - 1, true)
@@ -233,18 +318,41 @@ class AchievementDiary(val type: DiaryType) {
     val reward: Int
         get() = if (isLevelRewarded(2)) 2 else if (isLevelRewarded(1)) 1 else if (isLevelRewarded(0)) 0 else -1
 
+    /**
+     * Get level
+     *
+     * @param level
+     * @return
+     */
     fun getLevel(level: Int): String {
         return type.levelNames[level]
     }
 
+    /**
+     * Get status
+     *
+     * @param level
+     * @return
+     */
     fun getStatus(level: Int): String {
         return if (!isStarted(level)) RED else if (isComplete(level)) GREEN else YELLOW
     }
 
+    /**
+     * Set level rewarded
+     *
+     * @param level
+     */
     fun setLevelRewarded(level: Int) {
         levelRewarded[level] = true
     }
 
+    /**
+     * Is level rewarded
+     *
+     * @param level
+     * @return
+     */
     fun isLevelRewarded(level: Int): Boolean {
         return levelRewarded[level]
     }

@@ -19,6 +19,9 @@ import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 import core.tools.RandomFunction
 
+/**
+ * Slash bash NPC.
+ */
 @Initializable
 class SlashBashNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 

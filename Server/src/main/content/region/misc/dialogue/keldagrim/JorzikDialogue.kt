@@ -10,6 +10,9 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
+/**
+ * Jorzik dialogue.
+ */
 @Initializable
 class JorzikDialogue(player: Player? = null) : Dialogue(player) {
 

@@ -7,6 +7,9 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.Initializable
 
+/**
+ * Grandpa jack dialogue.
+ */
 @Initializable
 class GrandpaJackDialogue(player: Player? = null) : Dialogue(player) {
 

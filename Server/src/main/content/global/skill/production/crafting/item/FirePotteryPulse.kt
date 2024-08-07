@@ -10,6 +10,16 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.world.map.Location
 
+/**
+ * Fire pottery pulse
+ *
+ * @property pottery
+ * @property amount
+ * @constructor
+ *
+ * @param player
+ * @param node
+ */
 class FirePotteryPulse(player: Player?, node: Item?, val pottery: PotteryData, var amount: Int) : SkillPulse<Item?>(player, node) {
 
     var ticks = 0

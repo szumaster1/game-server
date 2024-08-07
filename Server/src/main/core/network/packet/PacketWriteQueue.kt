@@ -8,24 +8,41 @@ import java.io.PrintWriter
 import java.io.StringWriter
 import java.util.*
 
+/**
+ * Packet write queue.
+ *
+ * @constructor Initializes the PacketWriteQueue class.
+ */
 class PacketWriteQueue {
     companion object {
         private val packetsToWrite = LinkedList<QueuedPacket<*>>()
 
+        /**
+         * Handles the outgoing packet.
+         *
+         * @param packet The outgoing packet to handle.
+         * @param context The context in which the packet is being handled.
+         */
         @JvmStatic
         fun <T> handle(packet: OutgoingPacket<T>, context: T) {
             when (packet) {
-                //Dynamic packets need to be sent immediately
+                // Dynamic packets need to be sent immediately
                 is UpdateSceneGraph,
                 is BuildDynamicScene,
                 is InstancedLocationUpdate,
                 is LogoutPacket,
                 is ClearRegionChunk -> packet.send(context)
-                //Rest get queued up and sent at the end of the tick (authentic)
+                // Rest get queued up and sent at the end of the tick (authentic)
                 else -> push(packet, context)
             }
         }
 
+        /**
+         * Pushes the outgoing packet to the write queue.
+         *
+         * @param packet The outgoing packet to push.
+         * @param context The context in which the packet is being pushed.
+         */
         @JvmStatic
         fun <T> push(packet: OutgoingPacket<T>, context: T) {
             if (context == null) {
@@ -35,6 +52,9 @@ class PacketWriteQueue {
             packetsToWrite.add(QueuedPacket(packet, context))
         }
 
+        /**
+         * Flushes the write queue by sending all the packets.
+         */
         @JvmStatic
         fun flush() {
             var countThisCycle = packetsToWrite.size
@@ -52,6 +72,13 @@ class PacketWriteQueue {
             }
         }
 
+        /**
+         * Writes the outgoing packet to the context.
+         *
+         * @param out The outgoing packet to write.
+         * @param context The context in which the packet is being written.
+         * @throws IllegalStateException if the packet or context casting fails.
+         */
         @Suppress("UNCHECKED_CAST")
         fun <T> write(out: OutgoingPacket<*>, context: T) {
             val pack = out as? OutgoingPacket<T>
@@ -64,4 +91,12 @@ class PacketWriteQueue {
     }
 }
 
+/**
+ * Queued packet
+ *
+ * @param T The type of the packet.
+ * @property out The outgoing packet.
+ * @property context The context in which the packet is being handled.
+ * @constructor Initializes the QueuedPacket class.
+ */
 class QueuedPacket<T>(val out: OutgoingPacket<T>, val context: T)

@@ -12,6 +12,11 @@ import org.json.simple.JSONObject
 import org.json.simple.parser.JSONParser
 import java.io.FileReader
 
+/**
+ * Item config parser
+ *
+ * @constructor Item config parser
+ */
 class ItemConfigParser {
 
     companion object {
@@ -62,6 +67,11 @@ class ItemConfigParser {
 
     val parser = JSONParser()
     var reader: FileReader? = null
+
+    /**
+     * Load
+     *
+     */
     fun load() {
         var count = 0
         reader = FileReader(ServerConstants.CONFIG_PATH + "item_configs.json")

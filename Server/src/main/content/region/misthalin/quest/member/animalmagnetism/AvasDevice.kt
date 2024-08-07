@@ -11,6 +11,11 @@ import core.game.node.entity.player.Player
 import core.tools.colorize
 import core.tools.secondsToTicks
 
+/**
+ * Avas device
+ *
+ * @constructor Avas device
+ */
 class AvasDevice : InteractionListener, EventHook<TickEvent> {
 
     override fun defineListeners() {

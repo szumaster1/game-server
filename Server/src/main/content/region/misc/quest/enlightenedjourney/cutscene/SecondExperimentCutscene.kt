@@ -8,6 +8,9 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.game.world.map.Direction
 
+/**
+ * Second experiment cutscene.
+ */
 class SecondExperimentCutscene(player: Player) : Cutscene(player) {
     override fun setup() {
         setExit(location(2808, 3355, 0))

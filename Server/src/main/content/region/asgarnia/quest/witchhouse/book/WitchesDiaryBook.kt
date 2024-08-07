@@ -10,6 +10,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
+/**
+ * Witches diary book
+ *
+ * @constructor Witches diary book
+ */
 class WitchesDiaryBook : InteractionListener {
 
     companion object {

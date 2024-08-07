@@ -15,6 +15,9 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 import core.tools.RandomFunction
 
+/**
+ * Elemental wizard NPC.
+ */
 @Initializable
 class ElementalWizardNPC : AbstractNPC {
 

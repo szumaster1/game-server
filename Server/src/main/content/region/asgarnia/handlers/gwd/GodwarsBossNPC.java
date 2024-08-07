@@ -15,6 +15,9 @@ import core.game.world.map.zone.ZoneBorders;
 import core.plugin.Initializable;
 import core.tools.RandomFunction;
 
+/**
+ * Godwars boss npc.
+ */
 @Initializable
 public final class GodwarsBossNPC extends AbstractNPC {
 
@@ -42,10 +45,19 @@ public final class GodwarsBossNPC extends AbstractNPC {
 
     private boolean targetFocus;
 
+    /**
+     * Instantiates a new Godwars boss npc.
+     */
     public GodwarsBossNPC() {
         super(6203, null);
     }
 
+    /**
+     * Instantiates a new Godwars boss npc.
+     *
+     * @param id       the id
+     * @param location the location
+     */
     public GodwarsBossNPC(int id, Location location) {
         super(id, location);
     }

@@ -9,6 +9,11 @@ import core.game.node.entity.combat.equipment.WeaponInterface.WeaponInterfaces
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.info.Rights
 
+/**
+ * Main game interface listener
+ *
+ * @constructor Main game interface listener
+ */
 class MainGameInterfaceListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {
@@ -47,6 +52,11 @@ class MainGameInterfaceListener : InterfaceListener {
         }
     }
 
+    /**
+     * Open report
+     *
+     * @param player
+     */
     fun openReport(player: Player) {
         player.interfaceManager.open(Component(REPORT_ABUSE)).closeEvent =
             CloseEvent { player1: Player, c: Component? ->

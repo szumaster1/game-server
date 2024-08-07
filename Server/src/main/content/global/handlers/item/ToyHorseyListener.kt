@@ -8,6 +8,11 @@ import core.api.stopWalk
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Toy horsey listener
+ *
+ * @constructor Toy horsey listener
+ */
 class ToyHorseyListener : InteractionListener {
 
     private val horseyMap = mapOf(

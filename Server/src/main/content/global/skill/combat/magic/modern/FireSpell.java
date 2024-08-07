@@ -15,6 +15,9 @@ import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
+/**
+ * Fire spell.
+ */
 @Initializable
 public final class FireSpell extends CombatSpell {
 
@@ -32,6 +35,9 @@ public final class FireSpell extends CombatSpell {
     private static final Graphic WAVE_END = new Graphic(157, 96);
     private static final Animation ANIMATION = new Animation(711, Priority.HIGH);
 
+    /**
+     * Instantiates a new Fire spell.
+     */
     public FireSpell() {
 
     }

@@ -2,22 +2,30 @@ package content.minigame.blastfurnace
 
 import core.tools.RandomFunction
 
+/**
+ * Blast state.
+ */
 class BlastState {
-    var disableBreaking = false
-    var forceBreaking = false
-    var potPipeBroken = false
-    var pumpPipeBroken = false
-    var beltBroken = false
-    var cogBroken = false
-    var ticksElapsed = 0
+    var disableBreaking = false // Indicates whether breaking is disabled.
+    var forceBreaking = false // Indicates whether breaking is forced.
+    var potPipeBroken = false // Indicates whether the pot pipe is broken.
+    var pumpPipeBroken = false // Indicates whether the pump pipe is broken.
+    var beltBroken = false // Indicates whether the belt is broken.
+    var cogBroken = false // Indicates whether the cog is broken.
+    var ticksElapsed = 0 // Keeps track of the number of ticks elapsed.
 
-    var stoveTemp = 0
+    var stoveTemp = 0 // Stores the temperature of the stove.
         private set
-    var furnaceTemp = 0
+    var furnaceTemp = 0 // Stores the temperature of the furnace.
         private set
-    var cokeInStove = 0
-        private set
+    var cokeInStove = 0 // Stores the amount of coke in the stove.
 
+    /**
+     * Tick
+     *
+     * @param pumping Indicates whether pumping is happening.
+     * @param pedaling Indicates whether pedaling is happening.
+     */
     fun tick(pumping: Boolean, pedaling: Boolean) {
         ticksElapsed++
 
@@ -64,6 +72,11 @@ class BlastState {
         if (ticksElapsed % 10 == 0) cokeInStove = (cokeInStove - 1).coerceAtLeast(0)
     }
 
+    /**
+     * Add coke
+     *
+     * @param amount The amount of coke to add.
+     */
     fun addCoke(amount: Int) {
         cokeInStove += amount.coerceAtMost(BlastUtils.COKE_LIMIT - cokeInStove)
     }

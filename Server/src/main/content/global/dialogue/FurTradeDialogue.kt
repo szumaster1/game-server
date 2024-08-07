@@ -9,6 +9,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Fur trade dialogue.
+ */
 @Initializable
 class FurTradeDialogue(player: Player? = null) : Dialogue(player) {
 

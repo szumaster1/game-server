@@ -9,6 +9,9 @@ import core.game.world.map.zone.ZoneBuilder
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Stone circle map zone.
+ */
 @Initializable
 class StoneCircleMapZone : MapZone("stone circle", true), Plugin<Any> {
 

@@ -7,6 +7,10 @@ import core.network.packet.OutgoingPacket;
 import core.network.packet.PacketHeader;
 import core.network.packet.context.SceneGraphContext;
 
+/**
+ * The update scene graph outgoing packet.
+ * @author Emperor
+ */
 public final class UpdateSceneGraph implements OutgoingPacket<SceneGraphContext> {
 
     @Override

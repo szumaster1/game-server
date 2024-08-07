@@ -8,19 +8,31 @@ import core.game.world.map.Location
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 
+/**
+ * Blast Furnace player state.
+ * @author Ceikry
+ */
 class BFPlayerState(val player: Player) {
     var container = BFOreContainer()
     val oresOnBelt = ArrayList<BFBeltOre>()
     var barsNeedCooled = false
         private set
 
+    /**
+     * Process ores into bars
+     *
+     * @return
+     */
     fun processOresIntoBars(): Boolean {
+        // Check if bars need to be cooled and if the dispenser state is 1
         if (barsNeedCooled && getVarbit(player, DISPENSER_STATE) == 1) {
             setVarbit(player, DISPENSER_STATE, 2, true)
             return false
         }
+        // Check if the dispenser state is not 0 and if the container has any ore
         if (getVarbit(player, DISPENSER_STATE) != 0 || !container.hasAnyOre()) return false
 
+        // Convert ores to bars and get the XP reward
         val xpReward = container.convertToBars(getStatLevel(player, Skills.SMITHING))
         if (xpReward > 0) {
             rewardXP(player, Skills.SMITHING, xpReward)
@@ -32,45 +44,71 @@ class BFPlayerState(val player: Player) {
         return false
     }
 
+    /**
+     * Update ores.
+     */
     fun updateOres() {
         val toRemove = ArrayList<BFBeltOre>()
         for (ore in oresOnBelt) {
+            // Tick the ore and check if it needs to be removed
             if (ore.tick()) toRemove.add(ore)
         }
         oresOnBelt.removeAll(toRemove)
     }
 
+    /**
+     * Cool bars.
+     */
     fun coolBars() {
+        // Set barsNeedCooled to false and update the dispenser state
         barsNeedCooled = false
         setVarbit(player, DISPENSER_STATE, 3, true)
     }
 
+    /**
+     * Check bars.
+     */
     fun checkBars() {
+        // Check if the dispenser state is 3 and update it to 0
         if (getVarbit(player, DISPENSER_STATE) == 3) setVarbit(player, DISPENSER_STATE, 0, true)
     }
 
+    /**
+     * Has bars claimable.
+     */
     fun hasBarsClaimable(): Boolean {
+        // Check if the container has any bars that can be claimed
         return container.getTotalBarAmount() > 0
     }
 
+    /**
+     * Claim bars.
+     */
     fun claimBars(bar: Bar, amount: Int): Boolean {
+        // Check if bars need to be cooled
         if (barsNeedCooled) return false
 
+        // Calculate the maximum amount of bars that can be claimed
         val maxAmt = amount.coerceAtMost(freeSlots(player))
         if (maxAmt == 0) return false
 
+        // Take the bars from the container and add them to the player's inventory
         val reward = container.takeBars(bar, maxAmt) ?: return false
         addItem(player, reward.id, reward.amount)
         setBarClaimVarbits()
         return true
     }
 
+    /**
+     * Set bar claim varbits.
+     */
     fun setBarClaimVarbits() {
         for (bar in Bar.values()) {
             val amount = container.getBarAmount(bar)
             val varbit = getVarbitForBar(bar)
             if (varbit == 0) continue
 
+            // Check if the varbit value is already equal to the amount, if not, update it
             if (getVarbit(player, varbit) == amount) continue
 
             setVarbit(player, varbit, amount, true)
@@ -87,6 +125,7 @@ class BFPlayerState(val player: Player) {
     }
 
     private fun getVarbitForBar(bar: Bar): Int {
+        // Get the corresponding varbit for the given bar type
         return when (bar) {
             Bar.BRONZE -> BRONZE_COUNT
             Bar.IRON -> IRON_COUNT
@@ -94,8 +133,8 @@ class BFPlayerState(val player: Player) {
             Bar.MITHRIL -> MITHRIL_COUNT
             Bar.ADAMANT -> ADDY_COUNT
             Bar.RUNITE -> RUNITE_COUNT
-            Bar.SILVER -> SILVER_COUNT
             Bar.GOLD -> GOLD_COUNT
+            Bar.SILVER -> SILVER_COUNT
             else -> 0
         }
     }

@@ -15,6 +15,11 @@ import java.io.File
 import java.io.FileReader
 import java.io.FileWriter
 
+/**
+ * Global kill counter
+ *
+ * @constructor Global kill counter
+ */
 class GlobalKillCounter : StartupListener, ShutdownListener {
     override fun startup() {
         logStartup("Parsing Global Kill Counts")

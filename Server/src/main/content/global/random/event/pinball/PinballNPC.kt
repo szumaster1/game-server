@@ -11,6 +11,9 @@ import core.game.system.task.Pulse
 import core.game.system.timer.impl.AntiMacro
 import core.tools.RandomFunction
 
+/**
+ * Pinball NPC.
+ */
 class PinballNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs.MYSTERIOUS_OLD_MAN_410) {
 
     override fun init() {

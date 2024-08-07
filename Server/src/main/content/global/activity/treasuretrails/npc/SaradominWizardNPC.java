@@ -14,6 +14,9 @@ import core.game.world.map.Location;
 import core.game.world.map.RegionManager;
 import core.plugin.Plugin;
 
+/**
+ * Saradomin wizard npc.
+ */
 public final class SaradominWizardNPC extends AbstractNPC {
 
 	private static final MultiSwingHandler COMBAT_HANDLER = new MultiSwingHandler(new SwitchAttack(CombatStyle.MELEE).setUseHandler(true), new SwitchAttack(CombatStyle.MAGIC).setUseHandler(true));
@@ -24,10 +27,19 @@ public final class SaradominWizardNPC extends AbstractNPC {
 
 	private Player player;
 
+    /**
+     * Instantiates a new Saradomin wizard npc.
+     */
     public SaradominWizardNPC() {
 		super(0, null);
 	}
 
+    /**
+     * Instantiates a new Saradomin wizard npc.
+     *
+     * @param id       the id
+     * @param location the location
+     */
     public SaradominWizardNPC(int id, Location location) {
 		super(id, location, false);
 		this.setRespawn(false);
@@ -128,14 +140,29 @@ public final class SaradominWizardNPC extends AbstractNPC {
 		return IDS;
 	}
 
+    /**
+     * Gets player.
+     *
+     * @return the player
+     */
     public Player getPlayer() {
 		return player;
 	}
 
+    /**
+     * Sets player.
+     *
+     * @param player the player
+     */
     public void setPlayer(Player player) {
 		this.player = player;
 	}
 
+    /**
+     * Gets clue scroll.
+     *
+     * @return the clue scroll
+     */
     public ClueScrollPlugin getClueScroll() {
 		return clueScroll;
 	}

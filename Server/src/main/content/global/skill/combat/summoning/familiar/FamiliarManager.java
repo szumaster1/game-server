@@ -24,6 +24,9 @@ import java.util.Map;
 import static core.api.ContentAPIKt.getVarp;
 import static core.api.ContentAPIKt.setVarp;
 
+/**
+ * Familiar manager.
+ */
 public final class FamiliarManager {
     private static final Map<Integer, Familiar> FAMILIARS = new HashMap<>();
     private final Map<Integer, PetDetails> petDetails = new HashMap<Integer, PetDetails>();
@@ -32,10 +35,20 @@ public final class FamiliarManager {
     private int summoningCombatLevel;
     private boolean hasPouch;
 
+    /**
+     * Instantiates a new Familiar manager.
+     *
+     * @param player the player
+     */
     public FamiliarManager(Player player) {
         this.player = player;
     }
 
+    /**
+     * Parse.
+     *
+     * @param familiarData the familiar data
+     */
     public final void parse(JSONObject familiarData) {
         int currentPet = -1;
         if (familiarData.containsKey("currentPet")) {
@@ -92,6 +105,9 @@ public final class FamiliarManager {
         }
     }
 
+    /**
+     * Login.
+     */
     public void login() {
         if (hasFamiliar()) {
             familiar.init();
@@ -99,6 +115,13 @@ public final class FamiliarManager {
         player.getFamiliarManager().setConfig(243269632);
     }
 
+    /**
+     * Summon.
+     *
+     * @param item       the item
+     * @param pet        the pet
+     * @param deleteItem the delete item
+     */
     public void summon(Item item, boolean pet, boolean deleteItem) {
         boolean renew = false;
         if (hasFamiliar()) {
@@ -157,10 +180,23 @@ public final class FamiliarManager {
         player.getAppearance().sync();
     }
 
+    /**
+     * Summon.
+     *
+     * @param item the item
+     * @param pet  the pet
+     */
     public void summon(final Item item, boolean pet) {
         summon(item, pet, true);
     }
 
+    /**
+     * Morph pet.
+     *
+     * @param item       the item
+     * @param deleteItem the delete item
+     * @param location   the location
+     */
     public void morphPet(final Item item, boolean deleteItem, Location location) {
         if (hasFamiliar()) {
             familiar.dismiss();
@@ -273,8 +309,10 @@ public final class FamiliarManager {
         return true;
     }
 
-    /*
+    /**
      * Morphs the current familiar.
+     *
+     * @param location the location
      */
     public void morphFamiliar(Location location) {
         familiar.init(location, false);
@@ -282,7 +320,7 @@ public final class FamiliarManager {
         player.getInterfaceManager().setViewedTab(7);
     }
 
-    /*
+    /**
      * Spawns the current familiar.
      */
     public void spawnFamiliar() {
@@ -291,8 +329,11 @@ public final class FamiliarManager {
         player.getInterfaceManager().setViewedTab(7);
     }
 
-    /*
+    /**
      * Makes the pet eat.
+     *
+     * @param foodId the food id
+     * @param npc    the npc
      */
     public void eat(int foodId, Pet npc) {
         if (npc != familiar) {
@@ -316,7 +357,7 @@ public final class FamiliarManager {
         player.getPacketDispatch().sendMessage("Nothing interesting happens.");
     }
 
-    /*
+    /**
      * Picks up a pet.
      */
     public void pickup() {
@@ -335,8 +376,10 @@ public final class FamiliarManager {
         }
     }
 
-    /*
+    /**
      * Adjusts the battle state.
+     *
+     * @param state the state
      */
     public void adjustBattleState(final BattleState state) {
         if (!hasFamiliar()) {
@@ -345,8 +388,11 @@ public final class FamiliarManager {
         familiar.adjustPlayerBattle(state);
     }
 
-    /*
+    /**
      * Gets a boost from a familiar.
+     *
+     * @param skill the skill
+     * @return the boost
      */
     public int getBoost(int skill) {
         if (!hasFamiliar()) {
@@ -355,21 +401,25 @@ public final class FamiliarManager {
         return familiar.getBoost(skill);
     }
 
-    /*
+    /**
      * Checks if the player has an active familiar.
+     *
+     * @return the boolean
      */
     public boolean hasFamiliar() {
         return familiar != null;
     }
 
-    /*
+    /**
      * Checks if the player has an active familiar and is a pet.
+     *
+     * @return the boolean
      */
     public boolean hasPet() {
         return hasFamiliar() && familiar instanceof Pet;
     }
 
-    /*
+    /**
      * Dismisses the familiar.
      */
     public void dismiss() {
@@ -378,15 +428,20 @@ public final class FamiliarManager {
         }
     }
 
-    /*
+    /**
      * Removes the details for this pet.
+     *
+     * @param itemIdHash the item id hash
      */
     public void removeDetails(int itemIdHash) {
         petDetails.remove(itemIdHash);
     }
 
-    /*
+    /**
      * Checks if it's the owner of a familiar.
+     *
+     * @param familiar the familiar
+     * @return the boolean
      */
     public boolean isOwner(Familiar familiar) {
         if (!hasFamiliar()) {
@@ -399,8 +454,10 @@ public final class FamiliarManager {
         return true;
     }
 
-    /*
+    /**
      * Sets a config value.
+     *
+     * @param value the value
      */
     public void setConfig(int value) {
         int current = getVarp(player, 1160);
@@ -408,64 +465,82 @@ public final class FamiliarManager {
         setVarp(player, 1160, newVal);
     }
 
-    /*
+    /**
      * Gets the familiar.
+     *
+     * @return the familiar
      */
     public Familiar getFamiliar() {
         return familiar;
     }
 
-    /*
+    /**
      * Sets the familiar.
+     *
+     * @param familiar the familiar
      */
     public void setFamiliar(Familiar familiar) {
         this.familiar = familiar;
     }
 
-    /*
+    /**
      * Gets the familiars.
+     *
+     * @return the familiars
      */
     public static Map<Integer, Familiar> getFamiliars() {
         return FAMILIARS;
     }
 
-    /*
+    /**
      * Gets the usingSummoning.
+     *
+     * @return the boolean
      */
     public boolean isUsingSummoning() {
         return hasPouch || (hasFamiliar() && !hasPet());
     }
 
-    /*
+    /**
      * Gets the hasPouch.
+     *
+     * @return the boolean
      */
     public boolean isHasPouch() {
         return hasPouch;
     }
 
-    /*
+    /**
      * Sets the hasPouch.
+     *
+     * @param hasPouch the has pouch
      */
     public void setHasPouch(boolean hasPouch) {
         this.hasPouch = hasPouch;
     }
 
-    /*
+    /**
      * Gets the summoningCombatLevel.
+     *
+     * @return the summoning combat level
      */
     public int getSummoningCombatLevel() {
         return summoningCombatLevel;
     }
 
-    /*
+    /**
      * Sets the summoningCombatLevel.
+     *
+     * @param summoningCombatLevel the summoning combat level
      */
     public void setSummoningCombatLevel(int summoningCombatLevel) {
         this.summoningCombatLevel = summoningCombatLevel;
     }
 
-    /*
+    /**
      * Gets pet details.
+     *
+     * @return the pet details
      */
     public Map<Integer, PetDetails> getPetDetails() {
         return petDetails;

@@ -7,6 +7,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Archeologists dialogue.
+ */
 @Initializable
 class ArcheologistsDialogue(player: Player? = null) : Dialogue(player) {
 

@@ -7,6 +7,9 @@ import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.emote.Emotes
 
+/**
+ * Gift of peace dialogue.
+ */
 class GiftOfPeaceDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {

@@ -11,6 +11,9 @@ import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.plugin.Initializable
 
+/**
+ * Dagonnoth baby NPC.
+ */
 @Initializable
 class DagonnothBabyNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
     override fun construct(id: Int, location: Location, vararg objects: Any): AbstractNPC {

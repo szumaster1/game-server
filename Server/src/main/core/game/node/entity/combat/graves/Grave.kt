@@ -17,6 +17,11 @@ import core.tools.colorize
 import core.tools.secondsToTicks
 import core.tools.ticksToSeconds
 
+/**
+ * Grave
+ *
+ * @constructor Grave
+ */
 @Initializable
 class Grave : AbstractNPC {
     lateinit var type: GraveType
@@ -37,12 +42,24 @@ class Grave : AbstractNPC {
         return GraveType.ids
     }
 
+    /**
+     * Configure type
+     *
+     * @param type
+     */
     fun configureType(type: GraveType) {
         this.type = type
         this.transform(type.npcId)
         this.ticksRemaining = secondsToTicks(type.durationMinutes * 60)
     }
 
+    /**
+     * Initialize
+     *
+     * @param player
+     * @param location
+     * @param inventory
+     */
     fun initialize(player: Player, location: Location, inventory: Array<Item>) {
         if (!GraveController.allowGenerate(player))
             return
@@ -92,6 +109,15 @@ class Grave : AbstractNPC {
         )
     }
 
+    /**
+     * Setup from json params
+     *
+     * @param playerUid
+     * @param ticks
+     * @param location
+     * @param items
+     * @param username
+     */
     fun setupFromJsonParams(playerUid: Int, ticks: Int, location: Location, items: Array<Item>, username: String) {
         this.ownerUid = playerUid
         this.ticksRemaining = ticks
@@ -119,6 +145,11 @@ class Grave : AbstractNPC {
         }
     }
 
+    /**
+     * Add time
+     *
+     * @param ticks
+     */
     fun addTime(ticks: Int) {
         ticksRemaining += ticks
         for (gi in items) {
@@ -132,6 +163,10 @@ class Grave : AbstractNPC {
             transform(type.npcId)
     }
 
+    /**
+     * Collapse
+     *
+     */
     fun collapse() {
         for (item in items) {
             GroundItemManager.destroy(item)
@@ -144,6 +179,10 @@ class Grave : AbstractNPC {
         }
     }
 
+    /**
+     * Demolish
+     *
+     */
     fun demolish() {
         val owner = Repository.uid_map[ownerUid] ?: return
         for (item in items) {
@@ -157,16 +196,31 @@ class Grave : AbstractNPC {
         clearHintIcon(owner)
     }
 
+    /**
+     * Get items
+     *
+     * @return
+     */
     fun getItems(): Array<GroundItem> {
         return this.items.toTypedArray()
     }
 
+    /**
+     * Retrieve formatted text
+     *
+     * @return
+     */
     fun retrieveFormattedText(): String {
         return type.text
             .replace("@name", ownerUsername)
             .replace("@mins", getFormattedTimeRemaining())
     }
 
+    /**
+     * Get formatted time remaining
+     *
+     * @return
+     */
     fun getFormattedTimeRemaining(): String {
         val seconds = ticksToSeconds(ticksRemaining)
         val timeQty = if (seconds / 60 > 0) seconds / 60 else seconds

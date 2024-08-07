@@ -9,6 +9,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
+/**
+ * Chicken book
+ *
+ * @constructor Chicken book
+ */
 class ChickenBook : InteractionListener {
 
     // Book about the Evil Chicken found on

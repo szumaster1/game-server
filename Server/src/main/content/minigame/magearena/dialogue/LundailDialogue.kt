@@ -9,6 +9,9 @@ import core.game.world.GameWorld.settings
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Lundail dialogue.
+ */
 @Initializable
 class LundailDialogue(player: Player? = null) : Dialogue(player) {
 

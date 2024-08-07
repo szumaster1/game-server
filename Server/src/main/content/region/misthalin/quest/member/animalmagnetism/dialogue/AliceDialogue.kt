@@ -9,6 +9,9 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.tools.END_DIALOGUE
 
+/**
+ * Alice dialogue.
+ */
 class AliceDialogue(player: Player? = null) : Dialogue(player) {
 
     private var quest: Quest? = null

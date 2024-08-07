@@ -16,6 +16,9 @@ import core.game.world.update.flag.context.Graphic
 import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 
+/**
+ * NPC contact interface listener.
+ */
 class NPCContactInterfaceListener : InterfaceListener {
 
     private val contactNPCs = arrayOf(
@@ -92,6 +95,9 @@ class NPCContactInterfaceListener : InterfaceListener {
         }
     }
 
+    /**
+     * Blurberry.
+     */
     class Blurberry : DialogueFile() {
         override fun handle(componentID: Int, buttonID: Int) {
             npc = NPC(NPCs.BLURBERRY_848)
@@ -107,6 +113,9 @@ class NPCContactInterfaceListener : InterfaceListener {
         }
     }
 
+    /**
+     * Camel.
+     */
     class Camel : DialogueFile() {
         override fun handle(componentID: Int, buttonID: Int) {
             npc = NPC(NPCs.AL_THE_CAMEL_2809)
@@ -127,6 +136,9 @@ class NPCContactInterfaceListener : InterfaceListener {
         }
     }
 
+    /**
+     * Captain cain.
+     */
     class CaptainCain : DialogueFile() {
         override fun handle(componentID: Int, buttonID: Int) {
             npc = NPC(NPCs.CAPTAIN_CAIN_5030)
@@ -145,6 +157,9 @@ class NPCContactInterfaceListener : InterfaceListener {
         }
     }
 
+    /**
+     * Cyrisus.
+     */
     class Cyrisus: DialogueFile() {
         private val randomConversation = RandomFunction.getRandomElement(arrayOf(1, 2, 3, 4, 5, 6))
         override fun handle(componentID: Int, buttonID: Int) {
@@ -215,6 +230,9 @@ class NPCContactInterfaceListener : InterfaceListener {
     }
 
 
+    /**
+     * Drunken dwarf.
+     */
     class DrunkenDwarf : DialogueFile() {
         override fun handle(componentID: Int, buttonID: Int) {
             npc = NPC(NPCs.DRUNKEN_DWARF_956)
@@ -234,6 +252,9 @@ class NPCContactInterfaceListener : InterfaceListener {
         }
     }
 
+    /**
+     * Evil bob.
+     */
     class EvilBob : DialogueFile() {
         override fun handle(componentID: Int, buttonID: Int) {
             npc = NPC(NPCs.EVIL_BOB_2478)
@@ -261,6 +282,9 @@ class NPCContactInterfaceListener : InterfaceListener {
 
     }
 
+    /**
+     * Evil dave.
+     */
     class EvilDave : DialogueFile() {
         override fun handle(componentID: Int, buttonID: Int) {
             npc = NPC(NPCs.EVIL_DAVE_2909)
@@ -277,6 +301,9 @@ class NPCContactInterfaceListener : InterfaceListener {
         }
     }
 
+    /**
+     * Father urhney.
+     */
     class FatherUrhney : DialogueFile() {
         override fun handle(componentID: Int, buttonID: Int) {
             npc = NPC(NPCs.FATHER_URHNEY_458)
@@ -291,6 +318,9 @@ class NPCContactInterfaceListener : InterfaceListener {
         }
     }
 
+    /**
+     * General wartface.
+     */
     class GeneralWartface : DialogueFile() {
         override fun handle(componentID: Int, buttonID: Int) {
             npc = NPC(NPCs.GENERAL_WARTFACE_3391)
@@ -314,6 +344,9 @@ class NPCContactInterfaceListener : InterfaceListener {
         }
     }
 
+    /**
+     * Gypsy aris.
+     */
     class GypsyAris : DialogueFile() {
         override fun handle(componentID: Int, buttonID: Int) {
             npc = NPC(NPCs.GYPSY_ARIS_882)
@@ -331,6 +364,9 @@ class NPCContactInterfaceListener : InterfaceListener {
         }
     }
 
+    /**
+     * Hans.
+     */
     class Hans : DialogueFile() {
         override fun handle(componentID: Int, buttonID: Int) {
             npc = NPC(NPCs.HANS_0)
@@ -344,6 +380,9 @@ class NPCContactInterfaceListener : InterfaceListener {
         }
     }
 
+    /**
+     * Homunculus.
+     */
     class Homunculus : DialogueFile() {
         override fun handle(componentID: Int, buttonID: Int) {
             npc = NPC(NPCs.HOMUNCULUS_5581)
@@ -359,6 +398,9 @@ class NPCContactInterfaceListener : InterfaceListener {
         }
     }
 
+    /**
+     * Kgp agent.
+     */
     class KGPAgent : DialogueFile() {
 
         private val randomConversation = RandomFunction.getRandomElement(arrayOf(1, 2))
@@ -386,6 +428,9 @@ class NPCContactInterfaceListener : InterfaceListener {
         }
     }
 
+    /**
+     * Lumbridge cow.
+     */
     class LumbridgeCow : DialogueFile() {
         override fun handle(componentID: Int, buttonID: Int) {
             npc = NPC(NPCs.COW_3309)
@@ -403,6 +448,9 @@ class NPCContactInterfaceListener : InterfaceListener {
         }
     }
 
+    /**
+     * Lumbridge guide.
+     */
     class LumbridgeGuide : DialogueFile() {
         override fun handle(componentID: Int, buttonID: Int) {
             npc = NPC(NPCs.LUMBRIDGE_GUIDE_2244)
@@ -419,6 +467,9 @@ class NPCContactInterfaceListener : InterfaceListener {
         }
     }
 
+    /**
+     * Lumbridge sheep.
+     */
     class LumbridgeSheep : DialogueFile() {
         override fun handle(componentID: Int, buttonID: Int) {
             npc = NPC(NPCs.SHEEP_1529)
@@ -433,6 +484,9 @@ class NPCContactInterfaceListener : InterfaceListener {
     }
 
 
+    /**
+     * Man.
+     */
     class Man : DialogueFile() {
         override fun handle(componentID: Int, buttonID: Int) {
             npc = NPC(NPCs.MAN_1)
@@ -449,6 +503,9 @@ class NPCContactInterfaceListener : InterfaceListener {
         }
     }
 
+    /**
+     * My arm.
+     */
     class MyArm : DialogueFile() {
         override fun handle(componentID: Int, buttonID: Int) {
             npc = NPC(NPCs.MY_ARM_4947)
@@ -469,6 +526,9 @@ class NPCContactInterfaceListener : InterfaceListener {
         }
     }
 
+    /**
+     * Osman.
+     */
     class Osman : DialogueFile() {
         override fun handle(componentID: Int, buttonID: Int) {
             npc = NPC(NPCs.OSMAN_924)
@@ -481,6 +541,9 @@ class NPCContactInterfaceListener : InterfaceListener {
         }
     }
 
+    /**
+     * Party pete.
+     */
     class PartyPete : DialogueFile() {
         override fun handle(componentID: Int, buttonID: Int) {
             npc = NPC(NPCs.PARTY_PETE_659)
@@ -497,6 +560,9 @@ class NPCContactInterfaceListener : InterfaceListener {
         }
     }
 
+    /**
+     * Romeo.
+     */
     class Romeo : DialogueFile() {
         override fun handle(componentID: Int, buttonID: Int) {
             npc = NPC(NPCs.ROMEO_639)
@@ -512,6 +578,9 @@ class NPCContactInterfaceListener : InterfaceListener {
         }
     }
 
+    /**
+     * Wise old man.
+     */
     class WiseOldMan : DialogueFile() {
         override fun handle(componentID: Int, buttonID: Int) {
             npc = NPC(NPCs.WISE_OLD_MAN_2253)

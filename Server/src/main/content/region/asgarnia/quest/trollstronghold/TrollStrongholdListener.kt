@@ -17,6 +17,11 @@ import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
 import kotlin.math.ceil
 
+/**
+ * Troll stronghold listener
+ *
+ * @constructor Troll stronghold listener
+ */
 class TrollStrongholdListener : InteractionListener {
 
     override fun defineListeners() {
@@ -326,6 +331,13 @@ class TrollStrongholdListener : InteractionListener {
         }
     }
 
+    /**
+     * Success
+     *
+     * @param player
+     * @param skill
+     * @return
+     */
     fun success(player: Player, skill: Int): Boolean {
         val level = player.getSkills().getLevel(skill).toDouble()
         val req = 30.0

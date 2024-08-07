@@ -7,6 +7,9 @@ import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.game.world.map.zone.ZoneRestriction
 
+/**
+ * Gnome ball activity.
+ */
 class GnomeBallActivity : ActivityPlugin(
     "gnomeball",
     false,
@@ -37,6 +40,11 @@ class GnomeBallActivity : ActivityPlugin(
         return true
     }
 
+    /**
+     * Add player
+     *
+     * @param player
+     */
     fun addPlayer(player: Player) {
         if (waitingPlayers.isEmpty()) {
             nextStart = GameWorld.ticks + waitTime
@@ -44,6 +52,11 @@ class GnomeBallActivity : ActivityPlugin(
         waitingPlayers.add(player)
     }
 
+    /**
+     * Remove player
+     *
+     * @param player
+     */
     fun removePlayer(player: Player) {
         waitingPlayers.remove(player)
     }

@@ -6,6 +6,11 @@ import core.api.sendMessage
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Fish easter egg listener
+ *
+ * @constructor Fish easter egg listener
+ */
 class FishEasterEggListener : InteractionListener {
 
     private val tree = WoodcuttingNode.values().map { it.id }.toIntArray()

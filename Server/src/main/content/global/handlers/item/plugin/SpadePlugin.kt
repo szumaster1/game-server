@@ -11,6 +11,11 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Spade plugin
+ *
+ * @constructor Spade plugin
+ */
 @Initializable
 class SpadePlugin : OptionHandler() {
 

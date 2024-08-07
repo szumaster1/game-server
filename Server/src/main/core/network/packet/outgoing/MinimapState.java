@@ -4,6 +4,10 @@ import core.network.packet.IoBuffer;
 import core.network.packet.OutgoingPacket;
 import core.network.packet.context.MinimapStateContext;
 
+/**
+ * Handles the sending of the minimap state outgoing packet.
+ * @author Emperor
+ */
 public final class MinimapState implements OutgoingPacket<MinimapStateContext> {
 
     @Override

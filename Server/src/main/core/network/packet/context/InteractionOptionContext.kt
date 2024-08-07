@@ -6,7 +6,6 @@ import core.network.packet.Context
 /**
  * The context implementation used for the InteractionOption
  * outgoing packet.
- * @author Emperor
  */
 class InteractionOptionContext : Context {
     private val player: Player

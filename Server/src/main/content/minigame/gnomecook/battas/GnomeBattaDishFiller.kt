@@ -11,6 +11,9 @@ private const val GIANNE_DOUGH = 2171
 private const val BATTA_MOULD = 2164
 private const val RAW_CRUNCHIES = 2202
 
+/**
+ * Gnome batta dish filler.
+ */
 @Initializable
 class GnomeBattaDishFiller : UseWithHandler(GIANNE_DOUGH) {
 

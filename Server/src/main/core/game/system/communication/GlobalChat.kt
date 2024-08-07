@@ -8,6 +8,11 @@ import core.game.system.command.Privilege
 import core.game.world.repository.Repository
 import core.tools.colorize
 
+/**
+ * Global chat
+ *
+ * @constructor Global chat
+ */
 class GlobalChat : Commands {
 
     override fun defineCommands() {

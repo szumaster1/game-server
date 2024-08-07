@@ -8,6 +8,11 @@ import core.game.world.GameWorld
 import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 
+/**
+ * Animation command set
+ *
+ * @constructor Animation command set
+ */
 @Initializable
 class AnimationCommandSet : CommandSet(Privilege.ADMIN) {
 

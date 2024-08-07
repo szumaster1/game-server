@@ -9,6 +9,9 @@ import core.game.node.entity.player.Player
 import core.game.node.scenery.Scenery
 import core.plugin.Initializable
 
+/**
+ * Priest door dialogue.
+ */
 @Initializable
 class PriestDoorDialogue(player: Player? = null) : Dialogue(player) {
 

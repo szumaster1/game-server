@@ -10,6 +10,9 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 
+/**
+ * Sir amik varze dialogue.
+ */
 class SirAmikVarzeDialogue(player: Player? = null) : Dialogue(player) {
 
     private var quest: Quest? = null

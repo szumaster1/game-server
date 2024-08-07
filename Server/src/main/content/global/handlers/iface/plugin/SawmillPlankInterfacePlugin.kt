@@ -13,6 +13,11 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Sawmill plank interface plugin
+ *
+ * @constructor Sawmill plank interface plugin
+ */
 @Initializable
 class SawmillPlankInterfacePlugin : ComponentPlugin() {
 
@@ -84,9 +89,40 @@ class SawmillPlankInterfacePlugin : ComponentPlugin() {
     }
 }
 
+/**
+ * Plank
+ *
+ * @property log
+ * @property plank
+ * @property price
+ * @constructor Plank
+ */
 enum class Plank(val log: Item, val plank: Item, val price: Int) {
+    /**
+     * Wood
+     *
+     * @constructor Wood
+     */
     WOOD(Item(Items.LOGS_1511), Item(Items.PLANK_960), 100),
+
+    /**
+     * Oak
+     *
+     * @constructor Oak
+     */
     OAK(Item(Items.OAK_LOGS_1521), Item(Items.OAK_PLANK_8778), 250),
+
+    /**
+     * Teak
+     *
+     * @constructor Teak
+     */
     TEAK(Item(Items.TEAK_LOGS_6333), Item(Items.TEAK_PLANK_8780), 500),
+
+    /**
+     * Mahogany
+     *
+     * @constructor Mahogany
+     */
     MAHOGANY(Item(Items.MAHOGANY_LOGS_6332), Item(Items.MAHOGANY_PLANK_8782), 1500)
 }

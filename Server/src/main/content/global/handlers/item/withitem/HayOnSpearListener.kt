@@ -7,6 +7,11 @@ import core.api.sendMessage
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Hay on spear listener
+ *
+ * @constructor Hay on spear listener
+ */
 class HayOnSpearListener : InteractionListener {
 
     override fun defineListeners() {

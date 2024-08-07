@@ -13,6 +13,11 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 
+/**
+ * Cave goblins dialogue file
+ *
+ * @constructor Cave goblins dialogue file
+ */
 class CaveGoblinsDialogueFile : DialogueFile() {
 
     private val randomConversation = RandomFunction.getRandomElement(arrayOf(0, 1, 2, 3, 4, 5))

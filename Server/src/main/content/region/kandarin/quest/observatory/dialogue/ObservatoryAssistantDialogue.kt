@@ -10,6 +10,11 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
+/**
+ * Observatory assistant dialogue
+ *
+ * @constructor Observatory assistant dialogue
+ */
 class ObservatoryAssistantDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
@@ -43,6 +48,12 @@ class ObservatoryAssistantDialogue : DialogueFile() {
     }
 }
 
+/**
+ * Assistant talk about planks dialogue
+ *
+ * @property planks
+ * @constructor Assistant talk about planks dialogue
+ */
 class AssistantTalkAboutPlanksDialogue(val planks : Int) : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
@@ -79,6 +90,11 @@ class AssistantTalkAboutPlanksDialogue(val planks : Int) : DialogueFile() {
     }
 }
 
+/**
+ * Assistant talk about bronze bar dialogue
+ *
+ * @constructor Assistant talk about bronze bar dialogue
+ */
 class AssistantTalkAboutBronzeBarDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
@@ -102,6 +118,11 @@ class AssistantTalkAboutBronzeBarDialogue : DialogueFile() {
     }
 }
 
+/**
+ * Assistant talk about molten glass dialogue
+ *
+ * @constructor Assistant talk about molten glass dialogue
+ */
 class AssistantTalkAboutMoltenGlassDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
@@ -127,6 +148,11 @@ class AssistantTalkAboutMoltenGlassDialogue : DialogueFile() {
     }
 }
 
+/**
+ * Assistant talk about the mould dialogue
+ *
+ * @constructor Assistant talk about the mould dialogue
+ */
 class AssistantTalkAboutTheMouldDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
@@ -156,6 +182,11 @@ class AssistantTalkAboutTheMouldDialogue : DialogueFile() {
     }
 }
 
+/**
+ * Assistant talk about observatory lens dialogue
+ *
+ * @constructor Assistant talk about observatory lens dialogue
+ */
 class AssistantTalkAboutObservatoryLensDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
@@ -177,6 +208,11 @@ class AssistantTalkAboutObservatoryLensDialogue : DialogueFile() {
     }
 }
 
+/**
+ * Assistant talk about observatory dialogue
+ *
+ * @constructor Assistant talk about observatory dialogue
+ */
 class AssistantTalkAboutObservatoryDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

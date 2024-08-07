@@ -4,6 +4,9 @@ import core.api.consts.Scenery
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Fire pottery listener.
+ */
 class FirePotteryListener : InteractionListener {
 
     override fun defineListeners() {

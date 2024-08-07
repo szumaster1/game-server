@@ -22,6 +22,9 @@ import core.game.world.map.zone.ZoneBuilder
 import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
 
+/**
+ * Yanille dungeon listeners.
+ */
 class YanilleDungeonListeners : InteractionListener, MapZone("Yanille agility", true) {
 
     companion object {
@@ -111,6 +114,12 @@ class YanilleDungeonListeners : InteractionListener, MapZone("Yanille agility", 
     }
 
 
+    /**
+     * Handle balancing ledge
+     *
+     * @param player
+     * @param scenery
+     */
     fun handleBalancingLedge(player: Player, scenery: Scenery) {
         if (getStatLevel(player, Skills.AGILITY) < 40) {
             sendMessage(player, "You need an agility level of at least 40 in order to do this.")

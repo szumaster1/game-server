@@ -6,6 +6,11 @@ import content.global.handlers.iface.Page
 import content.global.handlers.iface.PageSet
 import core.game.node.entity.player.Player
 
+/**
+ * Historyofthe outpost
+ *
+ * @constructor Historyofthe outpost
+ */
 class HistoryoftheOutpost {
 
     companion object {

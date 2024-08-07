@@ -17,6 +17,9 @@ import core.plugin.Plugin;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Tool store plugin.
+ */
 @Initializable
 public class ToolStorePlugin extends OptionHandler {
 
@@ -40,22 +43,34 @@ public class ToolStorePlugin extends OptionHandler {
     }
 
     private enum ToolStore {
+        /**
+         * Toolstore 1 tool store.
+         */
         TOOLSTORE_1(13699,
                 Items.SAW_8794,
                 Items.CHISEL_1755,
                 Items.HAMMER_2347,
                 Items.SHEARS_1735
         ),
+        /**
+         * Toolstore 2 tool store.
+         */
         TOOLSTORE_2(13700,
                 Items.BUCKET_1925,
                 Items.SPADE_952,
                 Items.TINDERBOX_590
         ),
+        /**
+         * Toolstore 3 tool store.
+         */
         TOOLSTORE_3(13701,
                 Items.BROWN_APRON_1757,
                 Items.GLASSBLOWING_PIPE_1785,
                 Items.NEEDLE_1733
         ),
+        /**
+         * Toolstore 4 tool store.
+         */
         TOOLSTORE_4(13702,
                 Items.AMULET_MOULD_1595,
                 Items.NECKLACE_MOULD_1597,
@@ -63,6 +78,9 @@ public class ToolStorePlugin extends OptionHandler {
                 Items.HOLY_MOULD_1599,
                 Items.TIARA_MOULD_5523
         ),
+        /**
+         * Toolstore 5 tool store.
+         */
         TOOLSTORE_5(13703,
                 Items.RAKE_5341,
                 Items.SPADE_952,
@@ -93,6 +111,11 @@ public class ToolStorePlugin extends OptionHandler {
         private ToolDialogue() {
         }
 
+        /**
+         * Instantiates a new Tool dialogue.
+         *
+         * @param player the player
+         */
         public ToolDialogue(Player player) {
             super(player);
         }

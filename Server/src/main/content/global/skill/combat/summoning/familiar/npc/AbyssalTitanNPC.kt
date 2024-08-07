@@ -16,6 +16,9 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 
+/**
+ * Abyssal titan familiar.
+ */
 @Initializable
 class AbyssalTitanNPC(owner: Player? = null, id: Int = NPCs.ABYSSAL_TITAN_7349) :
     BurdenBeast(owner, id, 3200, Items.ABYSSAL_TITAN_POUCH_12796, 6, 7, WeaponInterface.STYLE_ACCURATE) {

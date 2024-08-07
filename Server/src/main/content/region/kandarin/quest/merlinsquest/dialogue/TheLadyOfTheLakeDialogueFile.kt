@@ -13,6 +13,11 @@ import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
+/**
+ * The lady of the lake dialogue file
+ *
+ * @constructor The lady of the lake dialogue file
+ */
 class TheLadyOfTheLakeDialogueFile : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

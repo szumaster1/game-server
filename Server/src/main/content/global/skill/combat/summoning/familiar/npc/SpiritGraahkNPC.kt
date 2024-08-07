@@ -8,6 +8,9 @@ import core.game.node.entity.skill.SkillBonus
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 
+/**
+ * Spirit graahk familiar.
+ */
 @Initializable
 class SpiritGraahkNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 7363) :
     Familiar(owner, id, 4900, 12810, 3, WeaponInterface.STYLE_AGGRESSIVE) {

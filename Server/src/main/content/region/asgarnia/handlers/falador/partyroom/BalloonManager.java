@@ -23,10 +23,16 @@ import java.util.List;
 
 import static core.api.ContentAPIKt.setVarp;
 
+/**
+ * Balloon manager.
+ */
 public final class BalloonManager extends OptionHandler {
     private static final List<Scenery> balloons = new ArrayList<>(20);
     private int countdown;
 
+    /**
+     * Instantiates a new Balloon manager.
+     */
     public BalloonManager() {
     }
 
@@ -53,6 +59,9 @@ public final class BalloonManager extends OptionHandler {
         return n.getLocation();
     }
 
+    /**
+     * Start.
+     */
     public void start() {
         if (isCountingDown()) {
             return;
@@ -110,6 +119,11 @@ public final class BalloonManager extends OptionHandler {
         return new Scenery(PartyBalloon.values()[RandomFunction.random(PartyBalloon.values().length)].getBalloonId(), location);
     }
 
+    /**
+     * Is cluttered boolean.
+     *
+     * @return the boolean
+     */
     public boolean isCluttered() {
         for (Scenery object : balloons) {
             if (RegionManager.getObject(object.getLocation()) != null) {
@@ -119,6 +133,11 @@ public final class BalloonManager extends OptionHandler {
         return false;
     }
 
+    /**
+     * Gets drop delay.
+     *
+     * @return the drop delay
+     */
     public int getDropDelay() {
         int wealth = getWealth();
         if (wealth <= 50000) {
@@ -133,30 +152,77 @@ public final class BalloonManager extends OptionHandler {
         return 0;
     }
 
+    /**
+     * Gets wealth.
+     *
+     * @return the wealth
+     */
     public int getWealth() {
         return PartyRoomOptions.chestQueue.getWealth() + PartyRoomOptions.partyChest.getWealth();
     }
 
+    /**
+     * Is counting down boolean.
+     *
+     * @return the boolean
+     */
     public boolean isCountingDown() {
         return countdown > GameWorld.getTicks();
     }
 
+    /**
+     * Gets balloons.
+     *
+     * @return the balloons
+     */
     public static List<Scenery> getBalloons() {
         return balloons;
     }
 
+    /**
+     * Gets countdown.
+     *
+     * @return the countdown
+     */
     public int getCountdown() {
         return countdown;
     }
 
+    /**
+     * The enum Party balloon.
+     */
     enum PartyBalloon {
+        /**
+         * Yellow party balloon.
+         */
         YELLOW(115, 123),
+        /**
+         * Red party balloon.
+         */
         RED(116, 124),
+        /**
+         * Blue party balloon.
+         */
         BLUE(117, 125),
+        /**
+         * Green party balloon.
+         */
         GREEN(118, 126),
+        /**
+         * Purple party balloon.
+         */
         PURPLE(119, 127),
+        /**
+         * White party balloon.
+         */
         WHITE(120, 128),
+        /**
+         * Green blue party balloon.
+         */
         GREEN_BLUE(121, 129),
+        /**
+         * Tri party balloon.
+         */
         TRI(122, 130);
 
         private final int balloonId;
@@ -167,6 +233,12 @@ public final class BalloonManager extends OptionHandler {
             this.popId = popId;
         }
 
+        /**
+         * Burst.
+         *
+         * @param player the player
+         * @param object the object
+         */
         public void burst(final Player player, final Scenery object) {
             final Scenery popped = object.transform(popId);
             if (!getBalloons().contains(object)) {
@@ -225,6 +297,12 @@ public final class BalloonManager extends OptionHandler {
             return null;
         }
 
+        /**
+         * For id party balloon.
+         *
+         * @param id the id
+         * @return the party balloon
+         */
         public static PartyBalloon forId(int id) {
             for (PartyBalloon balloon : values()) {
                 if (balloon.getBalloonId() == id) {
@@ -234,10 +312,20 @@ public final class BalloonManager extends OptionHandler {
             return null;
         }
 
+        /**
+         * Gets balloon id.
+         *
+         * @return the balloon id
+         */
         public int getBalloonId() {
             return balloonId;
         }
 
+        /**
+         * Gets pop id.
+         *
+         * @return the pop id
+         */
         public int getPopId() {
             return popId;
         }

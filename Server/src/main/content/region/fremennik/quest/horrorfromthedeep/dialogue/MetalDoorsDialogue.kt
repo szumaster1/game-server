@@ -7,6 +7,12 @@ import core.api.consts.Items
 import core.game.dialogue.DialogueFile
 import core.game.node.item.Item
 
+/**
+ * Metal doors interaction dialogue
+ *
+ * @property qitems
+ * @constructor Metal doors interaction dialogue
+ */
 class MetalDoorsInteractionDialogue(private var qitems: Int) : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

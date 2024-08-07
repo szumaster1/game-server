@@ -16,6 +16,11 @@ private const val METER_VARP = 1201
 private const val BUTTON_ADD_COLD = 16
 private const val BUTTON_ADD_HOT = 18
 
+/**
+ * Incubation interface
+ *
+ * @constructor Incubation interface
+ */
 class IncubationInterface : ComponentPlugin() {
 
     override fun handle(player: Player?, component: Component?, opcode: Int, button: Int, slot: Int, itemId: Int): Boolean {

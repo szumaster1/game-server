@@ -12,6 +12,9 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Amulet stringing handler.
+ */
 @Initializable
 class AmuletStringingHandler : UseWithHandler(
     Items.GOLD_AMULET_1673,

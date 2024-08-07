@@ -12,12 +12,14 @@ import core.game.node.entity.player.link.diary.DiaryType
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Miscellania shortcut.
+ */
 class MiscellaniaShortcut : InteractionListener {
 
-    /*
+    /**
      * Broken pier shortcut between Miscellania and Etceteria.
      */
-
     override fun defineListeners() {
         on(Scenery.BROKEN_PIER_41531, IntType.SCENERY, "step") { player, _ ->
             if (!isDiaryComplete(player, DiaryType.FREMENNIK, 1)) {

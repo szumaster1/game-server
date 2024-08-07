@@ -3,7 +3,12 @@ package core.game.global.presets
 import core.game.node.item.Item
 
 /**
- * The type Preset.
+ * Preset
+ *
+ * @constructor
+ *
+ * @param equipment
+ * @param inventory
  */
 class Preset(equipment: ArrayList<Item>, inventory: ArrayList<Item>) {
 

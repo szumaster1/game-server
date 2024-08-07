@@ -34,6 +34,9 @@ import core.plugin.Plugin
 import core.tools.RandomFunction
 import java.util.*
 
+/**
+ * Clan wars activity plugin.
+ */
 @Initializable
 class ClanWarsActivityPlugin : ActivityPlugin("Clan wars", true, false, true) {
     private var firstClan: ClanRepository? = null
@@ -98,6 +101,10 @@ class ClanWarsActivityPlugin : ActivityPlugin("Clan wars", true, false, true) {
     }
 
 
+    /**
+     * Finish war
+     *
+     */
     fun finishWar() {
         firstClan!!.clanWar = null
         secondClan!!.clanWar = null
@@ -131,6 +138,10 @@ class ClanWarsActivityPlugin : ActivityPlugin("Clan wars", true, false, true) {
     }
 
 
+    /**
+     * Send game data
+     *
+     */
     fun sendGameData() {
         for (p in firstClanPlayers) {
             sendGameData(p)
@@ -144,6 +155,11 @@ class ClanWarsActivityPlugin : ActivityPlugin("Clan wars", true, false, true) {
     }
 
 
+    /**
+     * Send game data
+     *
+     * @param p
+     */
     fun sendGameData(p: Player) {
         var value = 0
         val first = p.communication.clan == firstClan
@@ -195,6 +211,12 @@ class ClanWarsActivityPlugin : ActivityPlugin("Clan wars", true, false, true) {
     }
 
 
+    /**
+     * Enter viewing room
+     *
+     * @param player
+     * @return
+     */
     fun enterViewingRoom(player: Player): Boolean {
         var destination: Location? = null
         destination = if (player.communication.clan == firstClan) {
@@ -245,6 +267,12 @@ class ClanWarsActivityPlugin : ActivityPlugin("Clan wars", true, false, true) {
     }
 
 
+    /**
+     * Remove
+     *
+     * @param player
+     * @param players
+     */
     fun remove(player: Player, players: MutableList<Player>) {
         players.remove(player)
         if (!pulse!!.isRunning && players.isEmpty()) {
@@ -304,6 +332,11 @@ class ClanWarsActivityPlugin : ActivityPlugin("Clan wars", true, false, true) {
     }
 
 
+    /**
+     * Join
+     *
+     * @param player
+     */
     fun join(player: Player) {
         if (!pulse!!.isRunning) {
             enterViewingRoom(player)

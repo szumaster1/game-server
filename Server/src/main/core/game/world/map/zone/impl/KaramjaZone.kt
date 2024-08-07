@@ -8,6 +8,11 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.world.map.zone.MapZone
 
+/**
+ * Karamja zone
+ *
+ * @constructor Karamja zone
+ */
 class KaramjaZone : MapZone("karamja", true) {
 
     override fun configure() {

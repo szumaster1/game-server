@@ -4,8 +4,17 @@ import java.io.ObjectInputStream;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
 
+/**
+ * Byte buffer utils.
+ */
 public final class ByteBufferUtils {
 
+    /**
+     * Gets string.
+     *
+     * @param buffer the buffer
+     * @return the string
+     */
     public static String getString(ByteBuffer buffer) {
         StringBuilder sb = new StringBuilder();
         byte b;
@@ -15,16 +24,37 @@ public final class ByteBufferUtils {
         return sb.toString();
     }
 
+    /**
+     * Put string.
+     *
+     * @param s      the s
+     * @param buffer the buffer
+     */
     public static void putString(String s, ByteBuffer buffer) {
         buffer.put(s.getBytes(StandardCharsets.UTF_8)).put((byte) 0);
     }
 
+    /**
+     * Put gj 2 string byte buffer.
+     *
+     * @param s      the s
+     * @param buffer the buffer
+     * @return the byte buffer
+     */
     public static ByteBuffer putGJ2String(String s, ByteBuffer buffer) {
         byte[] packed = new byte[256];
         int length = packGJString2(0, packed, s);
         return buffer.put((byte) 0).put(packed, 0, length).put((byte) 0);
     }
 
+    /**
+     * Decode xtea.
+     *
+     * @param keys   the keys
+     * @param start  the start
+     * @param end    the end
+     * @param buffer the buffer
+     */
     public static void decodeXTEA(int[] keys, int start, int end, ByteBuffer buffer) {
         int l = buffer.position();
         buffer.position(start);
@@ -46,6 +76,14 @@ public final class ByteBufferUtils {
         buffer.position(l);
     }
 
+    /**
+     * Pack gj string 2 int.
+     *
+     * @param position the position
+     * @param buffer   the buffer
+     * @param string   the string
+     * @return the int
+     */
     public static int packGJString2(int position, byte[] buffer, String string) {
         int length = string.length();
         int offset = position;
@@ -66,10 +104,22 @@ public final class ByteBufferUtils {
         return offset - position;
     }
 
+    /**
+     * Gets medium.
+     *
+     * @param buffer the buffer
+     * @return the medium
+     */
     public static int getMedium(ByteBuffer buffer) {
         return ((buffer.get() & 0xFF) << 16) + ((buffer.get() & 0xFF) << 8) + (buffer.get() & 0xFF);
     }
 
+    /**
+     * Gets smart.
+     *
+     * @param buffer the buffer
+     * @return the smart
+     */
     public static int getSmart(ByteBuffer buffer) {
         int peek = buffer.get() & 0xFF;
         if (peek <= Byte.MAX_VALUE) {
@@ -78,6 +128,12 @@ public final class ByteBufferUtils {
         return ((peek << 8) | (buffer.get() & 0xFF)) - 32768;
     }
 
+    /**
+     * Gets big smart.
+     *
+     * @param buffer the buffer
+     * @return the big smart
+     */
     public static int getBigSmart(ByteBuffer buffer) {
         int value = 0;
         int current = getSmart(buffer);
@@ -100,6 +156,12 @@ public final class ByteBufferUtils {
      * buffer.putInt(b.remaining()); if (b.remaining() > 0) { buffer.put(b); } }
      */
 
+    /**
+     * Gets object.
+     *
+     * @param buffer the buffer
+     * @return the object
+     */
     public static Object getObject(ByteBuffer buffer) {
         int length = buffer.getInt();
         if (length > 0) {

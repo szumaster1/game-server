@@ -8,6 +8,9 @@ import core.game.system.task.Pulse
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Waterfall tree dialogue.
+ */
 class WaterfallTreeDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun getIds(): IntArray {

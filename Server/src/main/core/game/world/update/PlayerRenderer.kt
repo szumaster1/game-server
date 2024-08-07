@@ -8,7 +8,6 @@ import core.network.packet.PacketHeader
 
 /**
  * Handles the player rendering.
- * @author Emperor
  */
 object PlayerRenderer {
     /**

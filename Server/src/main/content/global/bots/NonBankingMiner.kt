@@ -9,6 +9,9 @@ import core.game.interaction.InteractionListeners
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
+/**
+ * Non banking miner.
+ */
 class NonBankingMiner : Script() {
 
     override fun tick() {

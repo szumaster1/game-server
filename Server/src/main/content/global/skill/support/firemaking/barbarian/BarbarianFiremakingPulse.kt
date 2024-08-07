@@ -18,6 +18,11 @@ import core.game.world.GameWorld
 import core.tools.RandomFunction
 import kotlin.math.ceil
 
+/**
+ * Barbarian firemaking pulse.
+ * @param node
+ * @param groundItem
+ */
 class BarbarianFiremakingPulse(player: Player, node: Item, groundItem: GroundItem?) : SkillPulse<Item?>(player, node) {
 
     private val fire = Log.forId(node.id)
@@ -89,6 +94,10 @@ class BarbarianFiremakingPulse(player: Player, node: Item, groundItem: GroundIte
         return true
     }
 
+    /**
+     * Create fire
+     *
+     */
     fun createFire() {
         if (!groundItem!!.isActive) {
             return
@@ -122,6 +131,10 @@ class BarbarianFiremakingPulse(player: Player, node: Item, groundItem: GroundIte
 
     val lastFire: Int get() = getAttribute(player, "last-firemake", 0)
 
+    /**
+     * Set last fire
+     *
+     */
     fun setLastFire() {
         setAttribute(player, "last-firemake", GameWorld.ticks + 2)
     }

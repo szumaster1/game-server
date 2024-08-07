@@ -10,6 +10,9 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
+/**
+ * Breoca dialogue.
+ */
 @Initializable
 class BreocaDialogue(player: Player? = null) : Dialogue(player) {
 

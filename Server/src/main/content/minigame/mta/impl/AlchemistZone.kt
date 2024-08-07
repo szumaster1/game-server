@@ -23,6 +23,11 @@ import core.game.world.map.zone.ZoneBorders
 import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
 
+/**
+ * Alchemist zone
+ *
+ * @constructor Alchemist zone
+ */
 class AlchemistZone :
     MTAZone("Alchemists' Playground", arrayOf(Item(8890), Item(6893), Item(6894), Item(6895), Item(6896), Item(6897))) {
 
@@ -152,6 +157,12 @@ class AlchemistZone :
     }
 
 
+    /**
+     * Alchemist session
+     *
+     * @property player
+     * @constructor Alchemist session
+     */
     class AlchemistSession(val player: Player) {
         private var indexer = 0
 
@@ -161,6 +172,12 @@ class AlchemistZone :
         }
 
 
+        /**
+         * Get item
+         *
+         * @param id
+         * @return
+         */
         fun getItem(id: Int): AlchemistItem? {
             val ids = intArrayOf(10797, 10795, 10793, 10791, 10789, 10787, 10785, 10783)
             var index = 0
@@ -210,6 +227,10 @@ class AlchemistZone :
             } else AlchemistItem.values()[finalIndex]
         }
 
+        /**
+         * Shuffle objects
+         *
+         */
         fun shuffleObjects() {
             indexer++
             if (indexer > 7) {
@@ -219,11 +240,46 @@ class AlchemistZone :
     }
 
 
+    /**
+     * Alchemist item
+     *
+     * @property item
+     * @constructor Alchemist item
+     */
     enum class AlchemistItem(val item: Item) {
+        /**
+         * Leather Boots
+         *
+         * @constructor Leather Boots
+         */
         LEATHER_BOOTS(Item(6893)),
+
+        /**
+         * Adamant Kiteshield
+         *
+         * @constructor Adamant Kiteshield
+         */
         ADAMANT_KITESHIELD(Item(6894)),
+
+        /**
+         * Adamant Helm
+         *
+         * @constructor Adamant Helm
+         */
         ADAMANT_HELM(Item(6895)),
+
+        /**
+         * Emerald
+         *
+         * @constructor Emerald
+         */
         EMERALD(Item(6896)),
+
+        /**
+         * Rune Longsword
+         *
+         * @constructor Rune Longsword
+         */
         RUNE_LONGSWORD(Item(6897));
 
         var cost = 0

@@ -4,6 +4,10 @@ import core.network.packet.IoBuffer;
 import core.network.packet.OutgoingPacket;
 import core.network.packet.context.PlayerContext;
 
+/**
+ * Updates the random.dat file for the player.
+ * @author Emperor
+ */
 public final class UpdateRandomFile implements OutgoingPacket<PlayerContext> {
 
     @Override

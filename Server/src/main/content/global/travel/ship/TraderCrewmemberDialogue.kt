@@ -11,6 +11,9 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.StringUtils
 
+/**
+ * Trader crewmember dialogue.
+ */
 @Initializable
 class TraderCrewmemberDialogue (player: Player? = null) : Dialogue(player) {
 

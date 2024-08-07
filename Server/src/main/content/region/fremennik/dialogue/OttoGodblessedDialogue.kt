@@ -13,6 +13,9 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Otto godblessed dialogue.
+ */
 @Initializable
 class OttoGodblessedDialogue(player: Player? = null) : Dialogue(player) {
 

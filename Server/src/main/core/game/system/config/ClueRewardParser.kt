@@ -8,6 +8,11 @@ import org.json.simple.JSONObject
 import org.json.simple.parser.JSONParser
 import java.io.FileReader
 
+/**
+ * Clue reward parser
+ *
+ * @constructor Clue reward parser
+ */
 class ClueRewardParser {
     companion object {
         @JvmStatic
@@ -27,6 +32,10 @@ class ClueRewardParser {
     val parser = JSONParser()
     var reader: FileReader? = null
 
+    /**
+     * Load
+     *
+     */
     fun load() {
         reader = FileReader(ServerConstants.CONFIG_PATH + "clue_rewards.json")
 

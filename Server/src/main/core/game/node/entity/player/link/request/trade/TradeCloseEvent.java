@@ -11,6 +11,9 @@ import core.network.packet.outgoing.ContainerPacket;
 import static core.api.ContentAPIKt.setVarp;
 
 
+/**
+ * Trade close event.
+ */
 public final class TradeCloseEvent implements CloseEvent {
 
     @Override

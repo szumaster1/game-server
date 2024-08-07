@@ -12,7 +12,9 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * Represents the "Holy Grail" quest.
+ * Holy grail
+ *
+ * @constructor Holy grail
  */
 
 @Initializable

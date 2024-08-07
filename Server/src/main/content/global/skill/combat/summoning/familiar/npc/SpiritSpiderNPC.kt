@@ -14,6 +14,9 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 import core.tools.RandomFunction
 
+/**
+ * Spirit spider familiar.
+ */
 @Initializable
 class SpiritSpiderNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 6841) :
     Familiar(owner, id, 1500, 12059, 6, WeaponInterface.STYLE_CONTROLLED) {

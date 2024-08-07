@@ -5,12 +5,27 @@ import content.global.activity.treasuretrails.scroll.CoordinateClueScroll;
 import core.game.world.map.Location;
 import core.plugin.Plugin;
 
+/**
+ * Coordinate clue plugin.
+ */
 public final class CoordinateCluePlugin extends CoordinateClueScroll {
 
+    /**
+     * Instantiates a new Coordinate clue plugin.
+     */
     public CoordinateCluePlugin() {
 		this(null, -1, null, null, null);
 	}
 
+    /**
+     * Instantiates a new Coordinate clue plugin.
+     *
+     * @param name     the name
+     * @param clueId   the clue id
+     * @param level    the level
+     * @param location the location
+     * @param clue     the clue
+     */
     public CoordinateCluePlugin(String name, int clueId, ClueLevel level, Location location, String clue) {
 		super(name, clueId, level, location, clue);
 	}

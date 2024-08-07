@@ -8,6 +8,10 @@ import core.api.sendDialogue
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Barbarian assault listeners.
+ * @author Szumaster
+ */
 class BarbarianAssaultListeners : InteractionListener {
 
     override fun defineListeners() {

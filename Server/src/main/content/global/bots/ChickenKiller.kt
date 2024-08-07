@@ -6,11 +6,13 @@ import core.game.node.item.Item
 import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 
+/**
+ * Chicken killer.
+ */
 @PlayerCompatible
 @ScriptName("Chicken Killer")
 @ScriptDescription("Kills chickens and loots feathers. Start in any chicken area.")
 @ScriptIdentifier("chicken_killer")
-
 class ChickenKiller : Script() {
     var state = State.INIT
     var chickenCounter = 0
@@ -101,7 +103,59 @@ class ChickenKiller : Script() {
         return this
     }
 
+    /**
+     * State
+     *
+     * @constructor State
+     */
     enum class State {
-        IDLE, INIT, KILLING, CONFIG, LOOTFEATHER, LOOTBONES, BURYBONES
+        /**
+         * Idle
+         *
+         * @constructor Idle
+         */
+        IDLE,
+
+        /**
+         * Init
+         *
+         * @constructor Init
+         */
+        INIT,
+
+        /**
+         * Killing
+         *
+         * @constructor Killing
+         */
+        KILLING,
+
+        /**
+         * Config
+         *
+         * @constructor Config
+         */
+        CONFIG,
+
+        /**
+         * Lootfeather
+         *
+         * @constructor Lootfeather
+         */
+        LOOTFEATHER,
+
+        /**
+         * Lootbones
+         *
+         * @constructor Lootbones
+         */
+        LOOTBONES,
+
+        /**
+         * Burybones
+         *
+         * @constructor Burybones
+         */
+        BURYBONES
     }
 }

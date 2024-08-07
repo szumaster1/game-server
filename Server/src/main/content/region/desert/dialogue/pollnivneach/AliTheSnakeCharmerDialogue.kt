@@ -9,6 +9,9 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Ali the snake charmer dialogue.
+ */
 @Initializable
 class AliTheSnakeCharmerDialogue(player: Player? = null) : Dialogue(player) {
 

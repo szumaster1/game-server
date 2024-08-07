@@ -23,12 +23,18 @@ import java.util.List;
 import static core.api.ContentAPIKt.playAudio;
 import static core.api.ContentAPIKt.sendMessage;
 
+/**
+ * Pickable door handler.
+ */
 @Initializable
 public class PickableDoorHandler extends OptionHandler {
     private static final Item LOCK_PICK = new Item(1523);
     private static final List<PickableDoor> pickableDoors = new ArrayList<>(20);
     private static final int[] DOORS = new int[]{42028, 2550, 2551, 2554, 2555, 2556, 2557, 2558, 2559, 5501, 7246, 9565, 13314, 13317, 13320, 13323, 13326, 13344, 13345, 13346, 13347, 13348, 13349, 15759, 34005, 34805, 34806, 34812, 4799};
 
+    /**
+     * The Door.
+     */
     PickableDoor door;
 
     @Override
@@ -98,6 +104,9 @@ public class PickableDoorHandler extends OptionHandler {
         return null;
     }
 
+    /**
+     * Pickable door.
+     */
     public class PickableDoor {
         private final Location[] locations;
         private final int level;
@@ -105,6 +114,15 @@ public class PickableDoorHandler extends OptionHandler {
         private final boolean lockpick;
         private final boolean flipped;
 
+        /**
+         * Instantiates a new Pickable door.
+         *
+         * @param locations  the locations
+         * @param level      the level
+         * @param experience the experience
+         * @param lockpick   the lockpick
+         * @param flipped    the flipped
+         */
         public PickableDoor(final Location[] locations, int level, double experience, boolean lockpick, boolean flipped) {
             this.locations = locations;
             this.level = level;
@@ -113,18 +131,44 @@ public class PickableDoorHandler extends OptionHandler {
             this.flipped = flipped;
         }
 
+        /**
+         * Instantiates a new Pickable door.
+         *
+         * @param locations  the locations
+         * @param level      the level
+         * @param experience the experience
+         * @param lockpick   the lockpick
+         */
         public PickableDoor(final Location[] locations, int level, double experience, boolean lockpick) {
             this(locations, level, experience, lockpick, false);
         }
 
+        /**
+         * Instantiates a new Pickable door.
+         *
+         * @param locations  the locations
+         * @param level      the level
+         * @param experience the experience
+         */
         public PickableDoor(Location[] locations, int level, double experience) {
             this(locations, level, experience, false);
         }
 
+        /**
+         * Get locations location [ ].
+         *
+         * @return the location [ ]
+         */
         public Location[] getLocations() {
             return locations;
         }
 
+        /**
+         * Open.
+         *
+         * @param player the player
+         * @param object the object
+         */
         public void open(Player player, Scenery object) {
             if (isInside(player, object) != flipped) {
                 DoorActionHandler.handleAutowalkDoor(player, object);
@@ -134,6 +178,12 @@ public class PickableDoorHandler extends OptionHandler {
             }
         }
 
+        /**
+         * Pick lock.
+         *
+         * @param player the player
+         * @param object the object
+         */
         public void pickLock(Player player, Scenery object) {
             boolean success = RandomFunction.random(12) >= 4;
             if (isInside(player, object) != flipped) {
@@ -173,14 +223,29 @@ public class PickableDoorHandler extends OptionHandler {
             return inside;
         }
 
+        /**
+         * Gets level.
+         *
+         * @return the level
+         */
         public int getLevel() {
             return level;
         }
 
+        /**
+         * Gets experience.
+         *
+         * @return the experience
+         */
         public double getExperience() {
             return experience;
         }
 
+        /**
+         * Is lockpick boolean.
+         *
+         * @return the boolean
+         */
         public boolean isLockpick() {
             return lockpick;
         }

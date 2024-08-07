@@ -20,12 +20,18 @@ import core.tools.RandomFunction;
 import static core.api.ContentAPIKt.removeAttribute;
 import static core.api.ContentAPIKt.setAttribute;
 
+/**
+ * Spellbook swap spell.
+ */
 @Initializable
 public class SpellbookSwapSpell extends MagicSpell {
 
     private final Animation ANIMATION = new Animation(6299);
     private final Graphic GRAPHIC = new Graphic(1062);
 
+    /**
+     * Instantiates a new Spellbook swap spell.
+     */
     public SpellbookSwapSpell() {
         super(SpellBook.LUNAR, 96, 130, null, null, null, new Item[]{new Item(Runes.LAW_RUNE.getId(), 1), new Item(Runes.COSMIC_RUNE.getId(), 2), new Item(Runes.ASTRAL_RUNE.getId(), 3)});
     }
@@ -61,6 +67,11 @@ public class SpellbookSwapSpell extends MagicSpell {
         return true;
     }
 
+    /**
+     * Remove temporary spell.
+     *
+     * @param player the player
+     */
     public static void removeTemporarySpell(final Player player) {
         removeAttribute(player, "spell:swap");
         player.getSpellBookManager().setSpellBook(SpellBook.LUNAR);

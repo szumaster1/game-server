@@ -9,6 +9,9 @@ import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 import core.plugin.Initializable
 
+/**
+ * Apothecary dialogue.
+ */
 @Initializable
 class ApothecaryDialogue(player: Player? = null) : Dialogue(player) {
 

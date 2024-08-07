@@ -6,6 +6,10 @@ import core.network.packet.IoBuffer;
 import core.network.packet.OutgoingPacket;
 import core.network.packet.context.PositionedGraphicContext;
 
+/**
+ * The positioned graphic outgoing packet.
+ * @author Emperor
+ */
 public final class PositionedGraphic implements OutgoingPacket<PositionedGraphicContext> {
 
     /*

@@ -11,6 +11,9 @@ import core.game.interaction.InteractionListener
 import core.game.interaction.InterfaceListener
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Treasure chest listener.
+ */
 class TreasureChestListener : InterfaceListener, InteractionListener {
 
     private val treasureChestInterface = 467

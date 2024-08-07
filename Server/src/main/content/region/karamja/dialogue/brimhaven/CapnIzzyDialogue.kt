@@ -11,6 +11,12 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
+/**
+ * Capn izzy dialogue.
+ *
+ * @property it
+ * @constructor Capn izzy dialogue
+ */
 class CapnIzzyDialogue(private val it: Int) : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

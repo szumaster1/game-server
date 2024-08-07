@@ -15,15 +15,16 @@ import core.game.node.entity.npc.NPC
 import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
-
+/**
+ * Dwarven mines listeners.
+ */
 class DwarvenMinesListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Dwarven mines train cart.
          */
-
         on(Scenery.TRAIN_CART_7029, IntType.SCENERY, "ride") { player, _ ->
             var visitedKeldagrim = player.getAttribute("keldagrim-visited", false)
             openDialogue(player, object : DialogueFile() {

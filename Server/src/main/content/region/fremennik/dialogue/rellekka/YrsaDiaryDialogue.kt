@@ -10,6 +10,11 @@ import core.game.node.entity.player.link.diary.DiaryType
 import core.game.world.GameWorld
 import core.tools.END_DIALOGUE
 
+/**
+ * Yrsa diary dialogue
+ *
+ * @constructor Yrsa diary dialogue
+ */
 class YrsaDiaryDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

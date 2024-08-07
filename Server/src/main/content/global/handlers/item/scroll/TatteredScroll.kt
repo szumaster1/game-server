@@ -7,6 +7,11 @@ import core.api.consts.Items
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Tattered scroll
+ *
+ * @constructor Tattered scroll
+ */
 class TatteredScroll : InteractionListener {
     companion object {
         private const val SCROLL_INTERFACE = Components.MESSAGESCROLL_220

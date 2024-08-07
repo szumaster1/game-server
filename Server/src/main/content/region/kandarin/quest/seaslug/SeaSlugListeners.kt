@@ -15,6 +15,11 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.world.map.Location
 
+/**
+ * Sea slug listeners
+ *
+ * @constructor Sea slug listeners
+ */
 class SeaSlugListeners : InteractionListener {
 
     companion object {

@@ -10,6 +10,9 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
+/**
+ * Skewered food listener.
+ */
 class SkeweredFoodListener : InteractionListener {
 
     val skeweredFood = SkeweredSet.values().map { it.raw.id }.toIntArray()
@@ -29,10 +32,32 @@ class SkeweredFoodListener : InteractionListener {
     }
 }
 
+/**
+ * Skewered set
+ *
+ * @property raw
+ * @property product
+ * @constructor Skewered set
+ */
 enum class SkeweredSet(val raw: Item, val product: Item) {
+    /**
+     * Chompy.
+     */
     CHOMPY(raw = Item(Items.RAW_CHOMPY_2876), product = Item(Items.SKEWERED_CHOMPY_7230)),
+
+    /**
+     * Rabbit.
+     */
     RABBIT(raw = Item(Items.RAW_RABBIT_3226), product = Item(Items.SKEWERED_RABBIT_7224)),
+
+    /**
+     * Bird.
+     */
     BIRD(raw = Item(Items.RAW_BIRD_MEAT_9978), product = Item(Items.SKEWERED_BIRD_MEAT_9984)),
+
+    /**
+     * Beast.
+     */
     BEAST(raw = Item(Items.RAW_BEAST_MEAT_9986), product = Item(Items.SKEWERED_BEAST_9992));
 
 

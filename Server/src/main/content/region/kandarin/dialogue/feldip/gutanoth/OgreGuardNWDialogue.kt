@@ -8,6 +8,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Ogre guard n w dialogue.
+ */
 @Initializable
 class OgreGuardNWDialogue(player: Player? = null) : Dialogue(player) {
 

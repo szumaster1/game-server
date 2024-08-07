@@ -9,6 +9,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
+/**
+ * Nulodions notes
+ *
+ * @constructor Nulodions notes
+ */
 class NulodionsNotes : InteractionListener {
     companion object {
         private val TITLE = "Nulodion's notes"

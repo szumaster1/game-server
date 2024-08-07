@@ -21,6 +21,9 @@ import java.util.List;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
+/**
+ * Shadow spells.
+ */
 @Initializable
 public final class ShadowSpells extends CombatSpell {
 
@@ -31,6 +34,9 @@ public final class ShadowSpells extends CombatSpell {
     private static final Graphic BLITZ_END = new Graphic(382, 96);
     private static final Graphic BARRAGE_END = new Graphic(383, 0);
 
+    /**
+     * Instantiates a new Shadow spells.
+     */
     public ShadowSpells() {
 
     }

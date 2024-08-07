@@ -15,6 +15,11 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 import core.tools.RandomFunction
 
+/**
+ * Cave zone
+ *
+ * @constructor Cave zone
+ */
 @Initializable
 class CaveZone : MapZone("TLT Cave Zone", true), Plugin<Unit> {
 
@@ -44,6 +49,11 @@ class CaveZone : MapZone("TLT Cave Zone", true), Plugin<Unit> {
         return super.move(e, from, to)
     }
 
+    /**
+     * Trigger
+     *
+     * @param player
+     */
     fun trigger(player: Player) {
         if (RandomFunction.random(1, 6) <= 2) {
             player.animator.animate(Animation(1950),

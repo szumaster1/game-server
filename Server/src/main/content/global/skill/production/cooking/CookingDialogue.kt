@@ -8,6 +8,12 @@ import core.game.dialogue.DialogueFile
 import core.game.node.scenery.Scenery
 import core.tools.START_DIALOGUE
 
+/**
+ * Cooking dialogue
+ *
+ * @property args
+ * @constructor Cooking dialogue
+ */
 class CookingDialogue(vararg val args: Any) : DialogueFile() {
 
     var initial = 0
@@ -107,6 +113,10 @@ class CookingDialogue(vararg val args: Any) : DialogueFile() {
         return -1
     }
 
+    /**
+     * Display
+     *
+     */
     fun display() {
         sendItemZoomOnInterface(player!!, Components.SKILL_COOKMANY_307, 2, initial, 160)
         setInterfaceText(player!!, "<br><br><br><br>${getItemName(initial)}", Components.SKILL_COOKMANY_307, 6)

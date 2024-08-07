@@ -19,6 +19,9 @@ import core.plugin.Plugin;
 
 import static core.api.ContentAPIKt.*;
 
+/**
+ * Teleblock spell.
+ */
 @Initializable
 public final class TeleblockSpell extends CombatSpell {
 
@@ -28,10 +31,26 @@ public final class TeleblockSpell extends CombatSpell {
 
     private static final Graphic TELEBLOCK_START = new Graphic(1841, 0);
 
+    /**
+     * Instantiates a new Teleblock spell.
+     */
     public TeleblockSpell() {
 
     }
 
+    /**
+     * Instantiates a new Teleblock spell.
+     *
+     * @param type           the type
+     * @param level          the level
+     * @param baseExperience the base experience
+     * @param impactSound    the impact sound
+     * @param anim           the anim
+     * @param start          the start
+     * @param projectile     the projectile
+     * @param end            the end
+     * @param runes          the runes
+     */
     public TeleblockSpell(SpellType type, int level, double baseExperience, int impactSound, Animation anim, Graphic start, Projectile projectile, Graphic end, Item... runes) {
         super(type, SpellBook.MODERN, level, baseExperience, 202, 203, anim, TELEBLOCK_START, TELEBLOCK_ORB, TELEBLOCK_SUCCESS, runes);
     }

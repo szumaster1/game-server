@@ -12,10 +12,18 @@ import core.game.world.map.path.Pathfinder
 import core.tools.RandomFunction
 import java.util.*
 
+/**
+ * Combat state.
+ *
+ * @property bot the bot id.
+ */
 class CombatState(val bot: PestControlTestBot) {
     private val Random = Random()
     val randomtype = Random().nextInt(100)
 
+    /**
+     * Go to portals.
+     */
     fun goToPortals() {
         bot.customState = "I'm at portals."
         val gate = bot.getClosestNodeWithEntry(75, GATE_ENTRIES)
@@ -83,6 +91,9 @@ class CombatState(val bot: PestControlTestBot) {
         bot.customState = "Absolutely nothing. Everything is dead"
     }
 
+    /**
+     * Fight NPCs.
+     */
     fun fightNPCs() {
         bot.customState = "Fight NPCs"
         bot.AttackNpcsInRadius(8)
@@ -94,6 +105,12 @@ class CombatState(val bot: PestControlTestBot) {
         }
     }
 
+    /**
+     * Random walk to
+     *
+     * @param loc the location.
+     * @param radius the radius.
+     */
     fun randomWalkTo(loc: Location, radius: Int) {
         var newloc = loc.transform(
             RandomFunction.random(radius, -radius), RandomFunction.random(radius, -radius), 0

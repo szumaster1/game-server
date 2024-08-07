@@ -10,6 +10,9 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.skill.Skills
 import core.game.world.map.Location
 
+/**
+ * Burthope listeners.
+ */
 class BurthopeListeners : InteractionListener {
 
     companion object {
@@ -27,10 +30,9 @@ class BurthopeListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Thieving guild | Rogues' Den interactions.
          */
-
         on(THIEVING_GUILD_PASSAGE, IntType.SCENERY, "enter") { player, node ->
             if (node.id == 7257) {
                 teleport(player, Location(3061, 4985, 1))
@@ -50,10 +52,9 @@ class BurthopeListeners : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * NPCs interaction at Rogues' Den.
          */
-
         on(BENEDICT, IntType.NPC, "bank") { player, _ ->
             openBankAccount(player)
             return@on true
@@ -73,10 +74,9 @@ class BurthopeListeners : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Burthope soldiers interaction.
          */
-
         on(SERGEANTS, IntType.NPC, "talk-to") { player, _ ->
             sendDialogue(player, "The Sergeant is busy training the soldiers.")
             return@on true

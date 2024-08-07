@@ -6,6 +6,9 @@ import core.game.node.entity.npc.AbstractNPC
 import core.game.world.map.Location
 import core.plugin.Initializable
 
+/**
+ * Suspect NPC.
+ */
 @Initializable
 class SuspectNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 

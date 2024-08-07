@@ -10,6 +10,9 @@ import core.game.node.entity.player.link.TeleportManager
 import core.game.system.timer.impl.AntiMacro
 import core.tools.RandomFunction
 
+/**
+ * Mime NPC.
+ */
 class MimeNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs.MYSTERIOUS_OLD_MAN_410) {
 
     override fun init() {

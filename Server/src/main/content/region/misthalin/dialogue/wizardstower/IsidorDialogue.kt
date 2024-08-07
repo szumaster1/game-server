@@ -13,6 +13,9 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 
+/**
+ * Isidor dialogue.
+ */
 @Initializable
 class IsidorDialogue(player: Player? = null) : Dialogue(player) {
 

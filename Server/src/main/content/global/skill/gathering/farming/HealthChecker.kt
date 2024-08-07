@@ -13,6 +13,9 @@ import core.plugin.Plugin
 import core.tools.Log
 import java.util.concurrent.TimeUnit
 
+/**
+ * Health checker.
+ */
 @Initializable
 class HealthChecker : OptionHandler() {
     override fun newInstance(arg: Any?): Plugin<Any> {

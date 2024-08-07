@@ -8,6 +8,12 @@ import core.game.dialogue.DialogueFile
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
+/**
+ * Silver merchant dialogue file
+ *
+ * @property stage
+ * @constructor Silver merchant dialogue file
+ */
 class SilverMerchantDialogueFile(override var stage: Int) : DialogueFile() {
 
 

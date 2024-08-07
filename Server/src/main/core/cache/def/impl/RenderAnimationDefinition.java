@@ -11,49 +11,178 @@ import java.nio.ByteBuffer;
 
 import static core.api.ContentAPIKt.log;
 
+/**
+ * Render animation definition.
+ */
 public class RenderAnimationDefinition {
 
+    /**
+     * The Turn 180 animation.
+     */
     public int turn180Animation;
+    /**
+     * The An int 951.
+     */
     public int anInt951 = -1;
+    /**
+     * The An int 952.
+     */
     public int anInt952;
+    /**
+     * The Turn cw animation.
+     */
     public int turnCWAnimation = -1;
+    /**
+     * The An int 954.
+     */
     public int anInt954;
+    /**
+     * The An int 955.
+     */
     public int anInt955;
+    /**
+     * The An int 956.
+     */
     public int anInt956;
+    /**
+     * The An int 957.
+     */
     public int anInt957;
+    /**
+     * The An int 958.
+     */
     public int anInt958;
+    /**
+     * The An int array 959.
+     */
     public int[] anIntArray959 = null;
+    /**
+     * The An int 960.
+     */
     public int anInt960;
+    /**
+     * The An int 961.
+     */
     public int anInt961 = 0;
+    /**
+     * The An int 962.
+     */
     public int anInt962;
+    /**
+     * The Walk animation id.
+     */
     public int walkAnimationId;
+    /**
+     * The An int 964.
+     */
     public int anInt964;
+    /**
+     * The An int 965.
+     */
     public int anInt965;
+    /**
+     * The An int 966.
+     */
     public int anInt966;
+    /**
+     * The Stand animation ids.
+     */
     public int[] standAnimationIds;
+    /**
+     * The An int 969.
+     */
     public int anInt969;
+    /**
+     * The An int array 971.
+     */
     public int[] anIntArray971;
+    /**
+     * The Stand animation id.
+     */
     public int standAnimationId;
+    /**
+     * The An int 973.
+     */
     public int anInt973;
+    /**
+     * The An int 974.
+     */
     public int anInt974;
+    /**
+     * The An int 975.
+     */
     public int anInt975;
+    /**
+     * The Run animation id.
+     */
     public int runAnimationId;
+    /**
+     * The An int 977.
+     */
     public int anInt977;
+    /**
+     * The A boolean 978.
+     */
     public boolean aBoolean978;
+    /**
+     * The An int array array 979.
+     */
     public int[][] anIntArrayArray979;
+    /**
+     * The An int 980.
+     */
     public int anInt980;
+    /**
+     * The Turn ccw animation.
+     */
     public int turnCCWAnimation;
+    /**
+     * The An int 983.
+     */
     public int anInt983;
+    /**
+     * The An int 985.
+     */
     public int anInt985;
+    /**
+     * The An int 986.
+     */
     public int anInt986;
+    /**
+     * The An int 987.
+     */
     public int anInt987;
+    /**
+     * The An int 988.
+     */
     public int anInt988;
+    /**
+     * The An int 989.
+     */
     public int anInt989;
+    /**
+     * The An int 990.
+     */
     public int anInt990;
+    /**
+     * The An int 992.
+     */
     public int anInt992;
+    /**
+     * The An int 993.
+     */
     public int anInt993;
+    /**
+     * The An int 994.
+     */
     public int anInt994;
 
+    /**
+     * For id render animation definition.
+     *
+     * @param animId the anim id
+     * @return the render animation definition
+     */
     public static RenderAnimationDefinition forId(int animId) {
         if (animId == -1) {
             return null;
@@ -242,6 +371,9 @@ public class RenderAnimationDefinition {
         }
     }
 
+    /**
+     * Instantiates a new Render animation definition.
+     */
     public RenderAnimationDefinition() {
         anInt957 = -1;
         anInt954 = -1;
@@ -279,6 +411,12 @@ public class RenderAnimationDefinition {
         anInt993 = 0;
     }
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     * @throws Throwable the throwable
+     */
     public static void main(String... args) throws Throwable {
         GameWorld.prompt(false);
         RenderAnimationDefinition def = RenderAnimationDefinition.forId(1426);

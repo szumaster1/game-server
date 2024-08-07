@@ -12,11 +12,13 @@ import core.game.world.map.Location
 import core.game.world.map.path.Pathfinder
 import core.game.world.map.zone.ZoneBorders
 
+/**
+ * Gnome bowstring.
+ */
 @PlayerCompatible
 @ScriptName("Gnome Stronghold Bowstring")
 @ScriptDescription("Start in Gnome Stronghold, South of the Agility Course")
 @ScriptIdentifier("gnome_bowstring")
-
 class GnomeBowstring : Script() {
     var state = State.PICKING
     var stage = 0
@@ -167,6 +169,65 @@ class GnomeBowstring : Script() {
     }
 }
 
+/**
+ * State
+ *
+ * @constructor State
+ */
 enum class State {
-    PICKING, MINING, SPINNING, TO_SPINNER, FIND_BANK, RETURN_TO_FLAX, BANKING, INIT
+    /**
+     * Picking
+     *
+     * @constructor Picking
+     */
+    PICKING,
+
+    /**
+     * Mining
+     *
+     * @constructor Mining
+     */
+    MINING,
+
+    /**
+     * Spinning
+     *
+     * @constructor Spinning
+     */
+    SPINNING,
+
+    /**
+     * To Spinner
+     *
+     * @constructor To Spinner
+     */
+    TO_SPINNER,
+
+    /**
+     * Find Bank
+     *
+     * @constructor Find Bank
+     */
+    FIND_BANK,
+
+    /**
+     * Return To Flax
+     *
+     * @constructor Return To Flax
+     */
+    RETURN_TO_FLAX,
+
+    /**
+     * Banking
+     *
+     * @constructor Banking
+     */
+    BANKING,
+
+    /**
+     * Init
+     *
+     * @constructor Init
+     */
+    INIT
 }

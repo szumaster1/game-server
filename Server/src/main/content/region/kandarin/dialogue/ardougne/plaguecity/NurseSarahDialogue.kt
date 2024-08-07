@@ -11,6 +11,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Nurse sarah dialogue.
+ */
 @Initializable
 class NurseSarahDialogue(player: Player? = null) : Dialogue(player) {
 

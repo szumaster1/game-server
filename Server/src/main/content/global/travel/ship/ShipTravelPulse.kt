@@ -7,6 +7,13 @@ import core.game.node.entity.player.link.diary.DiaryType
 import core.game.system.task.Pulse
 import core.tools.StringUtils
 
+/**
+ * Ship travel pulse
+ *
+ * @property player
+ * @property ship
+ * @constructor Ship travel pulse
+ */
 class ShipTravelPulse(private val player: Player, private val ship: Ships) : Pulse(1) {
 
     private var counter = 0

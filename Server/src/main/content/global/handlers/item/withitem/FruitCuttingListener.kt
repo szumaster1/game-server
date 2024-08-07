@@ -11,13 +11,55 @@ import core.game.node.item.Item
 import core.game.world.update.flag.context.Animation
 import core.tools.START_DIALOGUE
 
+/**
+ * Fruit cutting listener
+ *
+ * @constructor Fruit cutting listener
+ */
 class FruitCuttingListener : InteractionListener {
 
+    /**
+     * Fruits
+     *
+     * @property fruit
+     * @property chunk
+     * @property slice
+     * @constructor Fruits
+     */
     internal enum class Fruits(val fruit: Int, val chunk: Int, val slice: Item) {
+        /**
+         * Pineapple
+         *
+         * @constructor Pineapple
+         */
         PINEAPPLE(Items.PINEAPPLE_2114, Items.PINEAPPLE_CHUNKS_2116, Item(Items.PINEAPPLE_RING_2118, 4)),
+
+        /**
+         * Banana
+         *
+         * @constructor Banana
+         */
         BANANA(Items.BANANA_1963, -1, Item(Items.SLICED_BANANA_3162)),
+
+        /**
+         * Lemon
+         *
+         * @constructor Lemon
+         */
         LEMON(Items.LEMON_2102, Items.LEMON_CHUNKS_2104, Item(Items.LEMON_SLICES_2106)),
+
+        /**
+         * Lime
+         *
+         * @constructor Lime
+         */
         LIME(Items.LIME_2120, Items.LIME_CHUNKS_2122, Item(Items.LIME_SLICES_2124)),
+
+        /**
+         * Orange
+         *
+         * @constructor Orange
+         */
         ORANGE(Items.ORANGE_2108, Items.ORANGE_CHUNKS_2110, Item(Items.ORANGE_SLICES_2112));
 
         companion object {
@@ -47,6 +89,14 @@ class FruitCuttingListener : InteractionListener {
         }
     }
 
+    /**
+     * Fruit cutting dialogue
+     *
+     * @property fruit
+     * @property chunk
+     * @property slice
+     * @constructor Fruit cutting dialogue
+     */
     internal class FruitCuttingDialogue(val fruit: Int, val chunk: Int, val slice: Item) : DialogueFile() {
 
         private val anim = Animation(Animations.HUMAN_FRUIT_CUTTING_1192)

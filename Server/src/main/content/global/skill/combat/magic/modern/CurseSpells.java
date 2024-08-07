@@ -16,6 +16,9 @@ import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
+/**
+ * Curse spells.
+ */
 @Initializable
 public final class CurseSpells extends CombatSpell {
 
@@ -40,6 +43,9 @@ public final class CurseSpells extends CombatSpell {
     private static final Animation LOW_ANIMATION = new Animation(716, Priority.HIGH);
     private static final Animation HIGH_ANIMATION = new Animation(729, Priority.HIGH);
 
+    /**
+     * Instantiates a new Curse spells.
+     */
     public CurseSpells() {
 
     }

@@ -10,6 +10,11 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.combat.ImpactHandler
 import core.tools.RandomFunction
 
+/**
+ * Hay interaction listener
+ *
+ * @constructor Hay interaction listener
+ */
 class HayInteractionListener : InteractionListener {
 
     override fun defineListeners() {

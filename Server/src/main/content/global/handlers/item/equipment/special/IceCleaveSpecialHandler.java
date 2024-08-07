@@ -15,6 +15,9 @@ import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.*;
 
+/**
+ * Ice cleave special handler.
+ */
 @Initializable
 public final class IceCleaveSpecialHandler extends MeleeSwingHandler implements Plugin<Object> {
 

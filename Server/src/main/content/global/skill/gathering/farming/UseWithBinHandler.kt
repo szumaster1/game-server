@@ -7,6 +7,9 @@ import core.game.interaction.InteractionListener
 import core.game.system.task.Pulse
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Use with bin handler.
+ */
 class UseWithBinHandler : InteractionListener {
     @JvmField
     val allowedNodes = ArrayList<Int>(100)
@@ -79,6 +82,10 @@ class UseWithBinHandler : InteractionListener {
         }
     }
 
+    /**
+     * Load nodes
+     *
+     */
     fun loadNodes() {
         for (p in Plantable.values()) {
             if (p.harvestItem != Items.SCARECROW_6059) {

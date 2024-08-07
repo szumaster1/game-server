@@ -12,6 +12,9 @@ import core.game.world.update.flag.context.Animation;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+/**
+ * Appearance.
+ */
 public final class Appearance {
 
     private final Player player;
@@ -32,10 +35,20 @@ public final class Appearance {
 
     private boolean ridingMinecart;
 
+    /**
+     * Instantiates a new Appearance.
+     *
+     * @param player the player
+     */
     public Appearance(final Player player) {
         this.player = player;
     }
 
+    /**
+     * Parse.
+     *
+     * @param appearance the appearance
+     */
     public void parse(JSONObject appearance) {
         gender = gender.asByte(Byte.parseByte(appearance.get("gender").toString()));
         JSONArray appCache = (JSONArray) appearance.get("appearance_cache");
@@ -44,6 +57,11 @@ public final class Appearance {
         }
     }
 
+    /**
+     * Transform npc.
+     *
+     * @param id the id
+     */
     public void transformNPC(int id) {
         this.npcId = id;
         setAnimations();
@@ -76,6 +94,9 @@ public final class Appearance {
         sync();
     }
 
+    /**
+     * Sets animations.
+     */
     public void setAnimations() {
         if (npcId == -1) {
             Item weapon = player.getEquipment().get(3);
@@ -133,15 +154,28 @@ public final class Appearance {
         }
     }
 
+    /**
+     * Sets animations.
+     *
+     * @param anim the anim
+     */
     public void setAnimations(Animation anim) {
         renderAnimationId = anim.getId();
         sync();
     }
 
+    /**
+     * Sync.
+     */
     public void sync() {
         player.updateAppearance();
     }
 
+    /**
+     * Copy.
+     *
+     * @param appearance the appearance
+     */
     public void copy(Appearance appearance) {
         gender = appearance.gender;
         for (int i = 0; i < appearanceCache.length; i++) {
@@ -153,24 +187,49 @@ public final class Appearance {
         renderAnimationId = appearance.renderAnimationId;
     }
 
+    /**
+     * Draw item.
+     *
+     * @param part the part
+     * @param item the item
+     */
     public void drawItem(int part, Item item) {
         this.bodyParts[part] = item.getDefinition().getEquipId() + 0x8000;
     }
 
+    /**
+     * Draw clothes.
+     *
+     * @param part      the part
+     * @param clothesId the clothes id
+     */
     public void drawClothes(int part, int clothesId) {
         this.bodyParts[part] = clothesId + 0x100;
     }
 
+    /**
+     * Clear body part.
+     *
+     * @param part the part
+     */
     public void clearBodyPart(int part) {
         this.bodyParts[part] = 0;
     }
 
+    /**
+     * Flag hat clipping.
+     */
     public void flagHatClipping() {
         boolean isBald = getHair().getLook() == (isMale() ? 0 : 45);
         int hairLook = isBald ? getHair().getLook() : (isMale() ? 5 : 51);
         this.bodyParts[8] = hairLook + 0x100;
     }
 
+    /**
+     * Prepare body data.
+     *
+     * @param player the player
+     */
     public void prepareBodyData(Player player) {
         if (player.getRenderInfo().preparedAppearance()) {
             return;
@@ -257,6 +316,11 @@ public final class Appearance {
 
     }
 
+    /**
+     * Ride cart.
+     *
+     * @param ride the ride
+     */
     public void rideCart(boolean ride) {
         if (!ride) {
             setAnimations();
@@ -267,6 +331,9 @@ public final class Appearance {
         player.getAppearance().sync();
     }
 
+    /**
+     * Fly copter.
+     */
     public void flyCopter() {
         player.animate(Animation.create(8956));
         player.getEquipment().replace(new Item(12842), 3);
@@ -279,104 +346,227 @@ public final class Appearance {
         player.getAppearance().setStandTurnAnimation(8963);
     }
 
+    /**
+     * Gets player.
+     *
+     * @return the player
+     */
     public Player getPlayer() {
         return player;
     }
 
+    /**
+     * Gets hair.
+     *
+     * @return the hair
+     */
     public BodyPart getHair() {
         return appearanceCache[AppearanceCache.HAIR];
     }
 
+    /**
+     * Gets beard.
+     *
+     * @return the beard
+     */
     public BodyPart getBeard() {
         return appearanceCache[AppearanceCache.FACIAL_HAIR];
     }
 
+    /**
+     * Gets torso.
+     *
+     * @return the torso
+     */
     public BodyPart getTorso() {
         return appearanceCache[AppearanceCache.TORSO];
     }
 
+    /**
+     * Gets arms.
+     *
+     * @return the arms
+     */
     public BodyPart getArms() {
         return appearanceCache[AppearanceCache.ARMS];
     }
 
+    /**
+     * Gets wrists.
+     *
+     * @return the wrists
+     */
     public BodyPart getWrists() {
         return appearanceCache[AppearanceCache.WRISTS];
     }
 
+    /**
+     * Gets skin.
+     *
+     * @return the skin
+     */
     public BodyPart getSkin() {
         return appearanceCache[AppearanceCache.WRISTS];
     }
 
+    /**
+     * Gets legs.
+     *
+     * @return the legs
+     */
     public BodyPart getLegs() {
         return appearanceCache[AppearanceCache.LEGS];
     }
 
+    /**
+     * Gets feet.
+     *
+     * @return the feet
+     */
     public BodyPart getFeet() {
         return appearanceCache[AppearanceCache.FEET];
     }
 
+    /**
+     * Gets stand animation.
+     *
+     * @return the stand animation
+     */
     public int getStandAnimation() {
         return animationCache[0];
     }
 
+    /**
+     * Sets stand animation.
+     *
+     * @param animation the animation
+     */
     public void setStandAnimation(int animation) {
         animationCache[0] = animation;
     }
 
+    /**
+     * Gets stand turn animation.
+     *
+     * @return the stand turn animation
+     */
     public int getStandTurnAnimation() {
         return animationCache[1];
     }
 
+    /**
+     * Sets stand turn animation.
+     *
+     * @param animation the animation
+     */
     public void setStandTurnAnimation(int animation) {
         animationCache[1] = animation;
     }
 
+    /**
+     * Gets walk animation.
+     *
+     * @return the walk animation
+     */
     public int getWalkAnimation() {
         return animationCache[2];
     }
 
+    /**
+     * Sets walk animation.
+     *
+     * @param animation the animation
+     */
     public void setWalkAnimation(int animation) {
         animationCache[2] = animation;
     }
 
+    /**
+     * Gets turn 180.
+     *
+     * @return the turn 180
+     */
     public int getTurn180() {
         return animationCache[3];
     }
 
+    /**
+     * Sets turn 180.
+     *
+     * @param animation the animation
+     */
     public void setTurn180(int animation) {
         animationCache[3] = animation;
     }
 
+    /**
+     * Gets turn 90 cw.
+     *
+     * @return the turn 90 cw
+     */
     public int getTurn90cw() {
         return animationCache[4];
     }
 
+    /**
+     * Sets turn 90 cw.
+     *
+     * @param animation the animation
+     */
     public void setTurn90cw(int animation) {
         animationCache[4] = animation;
     }
 
+    /**
+     * Gets turn 90 ccw.
+     *
+     * @return the turn 90 ccw
+     */
     public int getTurn90ccw() {
         return animationCache[5];
     }
 
+    /**
+     * Sets turn 90 ccw.
+     *
+     * @param animation the animation
+     */
     public void setTurn90ccw(int animation) {
         animationCache[5] = animation;
     }
 
+    /**
+     * Gets run animation.
+     *
+     * @return the run animation
+     */
     public int getRunAnimation() {
         return animationCache[6];
     }
 
+    /**
+     * Sets run animation.
+     *
+     * @param animation the animation
+     */
     public void setRunAnimation(int animation) {
         animationCache[6] = animation;
     }
 
+    /**
+     * Gets render animation.
+     *
+     * @return the render animation
+     */
     public int getRenderAnimation() {
         if (player.getAttribute("render-anim-override") != null)
             return player.getAttribute("render-anim-override", renderAnimationId);
         return renderAnimationId;
     }
 
+    /**
+     * Sets default animations.
+     */
     public void setDefaultAnimations() {
         for (int i = 0; i < animationCache.length; i++) {
             animationCache[i] = AppearanceCache.ANIMATIONS[i];
@@ -384,100 +574,220 @@ public final class Appearance {
         renderAnimationId = 1426;
     }
 
+    /**
+     * Gets skull icon.
+     *
+     * @return the skull icon
+     */
     public int getSkullIcon() {
         return iconCache[0];
     }
 
+    /**
+     * Sets skull icon.
+     *
+     * @param icon the icon
+     */
     public void setSkullIcon(int icon) {
         iconCache[0] = icon;
     }
 
+    /**
+     * Gets head icon.
+     *
+     * @return the head icon
+     */
     public int getHeadIcon() {
         return iconCache[1];
     }
 
+    /**
+     * Sets head icon.
+     *
+     * @param icon the icon
+     */
     public void setHeadIcon(int icon) {
         this.iconCache[1] = icon;
     }
 
+    /**
+     * Gets gender.
+     *
+     * @return the gender
+     */
     public Gender getGender() {
         return gender;
     }
 
+    /**
+     * Change gender.
+     *
+     * @param gender the gender
+     */
     public void changeGender(Gender gender) {
         setGender(gender);
         sync();
     }
 
+    /**
+     * Sets gender.
+     *
+     * @param gender the gender
+     */
     public void setGender(final Gender gender) {
         this.gender = gender;
         this.appearanceCache = gender.generateCache();
     }
 
+    /**
+     * Is male boolean.
+     *
+     * @return the boolean
+     */
     public boolean isMale() {
         return gender == Gender.MALE;
     }
 
+    /**
+     * Gets npc id.
+     *
+     * @return the npc id
+     */
     public int getNpcId() {
         return npcId;
     }
 
+    /**
+     * Is npc boolean.
+     *
+     * @return the boolean
+     */
     public boolean isNpc() {
         return npcId != -1;
     }
 
+    /**
+     * Get appearance cache body part [ ].
+     *
+     * @return the body part [ ]
+     */
     public BodyPart[] getAppearanceCache() {
         return appearanceCache;
     }
 
+    /**
+     * Get animation cache int [ ].
+     *
+     * @return the int [ ]
+     */
     public int[] getAnimationCache() {
         return animationCache;
     }
 
+    /**
+     * Get body parts int [ ].
+     *
+     * @return the int [ ]
+     */
     public int[] getBodyParts() {
         return bodyParts;
     }
 
+    /**
+     * Is riding minecart boolean.
+     *
+     * @return the boolean
+     */
     public boolean isRidingMinecart() {
         return ridingMinecart;
     }
 
+    /**
+     * Sets riding minecart.
+     *
+     * @param ridingMinecart the riding minecart
+     */
     public void setRidingMinecart(boolean ridingMinecart) {
         this.ridingMinecart = ridingMinecart;
     }
 
+    /**
+     * Appearance cache.
+     */
     public static class AppearanceCache {
 
+        /**
+         * The constant ANIMATIONS.
+         */
         public static final int[] ANIMATIONS = new int[]{0x328, 0x337, 0x333, 0x334, 0x335, 0x336, 0x338};
 
+        /**
+         * The constant HAIR.
+         */
         public static final int HAIR = 0;
 
+        /**
+         * The constant FACIAL_HAIR.
+         */
         public static final int FACIAL_HAIR = 1;
 
+        /**
+         * The constant TORSO.
+         */
         public static final int TORSO = 2;
 
+        /**
+         * The constant ARMS.
+         */
         public static final int ARMS = 3;
 
+        /**
+         * The constant WRISTS.
+         */
         public static final int WRISTS = 4;
 
+        /**
+         * The constant LEGS.
+         */
         public static final int LEGS = 5;
 
+        /**
+         * The constant FEET.
+         */
         public static final int FEET = 6;
 
+        /**
+         * The constant HAIR_COLOR.
+         */
         public static final int HAIR_COLOR = 0;
 
+        /**
+         * The constant TORSO_COLOR.
+         */
         public static final int TORSO_COLOR = 1;
 
+        /**
+         * The constant LEG_COLOR.
+         */
         public static final int LEG_COLOR = 2;
 
+        /**
+         * The constant FEET_COLOR.
+         */
         public static final int FEET_COLOR = 3;
 
+        /**
+         * The constant SKIN_COLOR.
+         */
         public static final int SKIN_COLOR = 4;
 
         private static final int STAND_ANIM = 0x328;
 
         private static final int STAND_TURN_ANIM = 0x337;
 
+        /**
+         * The constant WALK_ANIM.
+         */
         public static final int WALK_ANIM = 0x333;
 
         private static final int TURN_180_AIM = 0x334;

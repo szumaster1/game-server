@@ -10,6 +10,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Granite crab dialogue.
+ */
 @Initializable
 class GraniteCrabDialogue(player: Player? = null) : Dialogue(player) {
 

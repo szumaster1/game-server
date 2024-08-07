@@ -11,6 +11,9 @@ import core.game.node.entity.npc.NPC
 import core.game.world.map.Location
 import core.tools.RandomFunction
 
+/**
+ * Port sarim listeners.
+ */
 class PortSarimListeners : InteractionListener {
 
     companion object {

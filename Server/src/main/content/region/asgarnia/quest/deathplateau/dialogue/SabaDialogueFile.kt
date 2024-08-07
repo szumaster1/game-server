@@ -7,6 +7,11 @@ import core.game.dialogue.FacialExpression
 import core.game.dialogue.Topic
 import core.tools.END_DIALOGUE
 
+/**
+ * Saba dialogue file
+ *
+ * @constructor Saba dialogue file
+ */
 class SabaDialogueFile : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

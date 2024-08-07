@@ -19,6 +19,9 @@ import java.util.Map;
 
 import static core.api.ContentAPIKt.getVarp;
 
+/**
+ * Npc definition.
+ */
 public final class NPCDefinition extends Definition<NPC> {
     /*
         Debug NPC Opcodes Line 483, Uncomment
@@ -28,12 +31,21 @@ public final class NPCDefinition extends Definition<NPC> {
 
     private static final Map<String, OptionHandler> OPTION_HANDLERS = new HashMap<>();
 
+    /**
+     * The Size.
+     */
     public int size = 1;
 
     private int combatLevel;
 
+    /**
+     * The Head icons.
+     */
     public int headIcons;
 
+    /**
+     * The Is visible on map.
+     */
     public boolean isVisibleOnMap;
 
 
@@ -41,48 +53,177 @@ public final class NPCDefinition extends Definition<NPC> {
 
     private NPCDropTables dropTables = new NPCDropTables(this);
 
+    /**
+     * The An int 833.
+     */
     public int anInt833;
+    /**
+     * The An int 836.
+     */
     public int anInt836;
+    /**
+     * The An int 837.
+     */
     public int anInt837;
+    /**
+     * The A boolean 841.
+     */
     public boolean aBoolean841;
+    /**
+     * The An int 842.
+     */
     public int anInt842;
+    /**
+     * The Config file id.
+     */
     public int configFileId;
+    /**
+     * The Child npc ids.
+     */
     public int[] childNPCIds;
+    /**
+     * The An int 846.
+     */
     public int anInt846;
+    /**
+     * The An int 850.
+     */
     public int anInt850;
+    /**
+     * The A byte 851.
+     */
     public byte aByte851;
+    /**
+     * The A boolean 852.
+     */
     public boolean aBoolean852;
+    /**
+     * The An int 853.
+     */
     public int anInt853;
+    /**
+     * The A byte 854.
+     */
     public byte aByte854;
+    /**
+     * The A boolean 856.
+     */
     public boolean aBoolean856;
+    /**
+     * The A boolean 857.
+     */
     public boolean aBoolean857;
+    /**
+     * The A short array 859.
+     */
     public short[] aShortArray859;
+    /**
+     * The A byte array 861.
+     */
     public byte[] aByteArray861;
+    /**
+     * The A short 862.
+     */
     public short aShort862;
+    /**
+     * The A boolean 863.
+     */
     public boolean aBoolean863;
+    /**
+     * The An int 864.
+     */
     public int anInt864;
+    /**
+     * The A short array 866.
+     */
     public short[] aShortArray866;
+    /**
+     * The An int array 868.
+     */
     public int[] anIntArray868;
+    /**
+     * The An int 869.
+     */
     public int anInt869;
+    /**
+     * The An int 870.
+     */
     public int anInt870;
+    /**
+     * The An int 871.
+     */
     public int anInt871;
+    /**
+     * The An int 872.
+     */
     public int anInt872;
+    /**
+     * The An int 874.
+     */
     public int anInt874;
+    /**
+     * The An int 875.
+     */
     public int anInt875;
+    /**
+     * The An int 876.
+     */
     public int anInt876;
+    /**
+     * The An int 879.
+     */
     public int anInt879;
+    /**
+     * The A short array 880.
+     */
     public short[] aShortArray880;
+    /**
+     * The An int 884.
+     */
     public int anInt884;
+    /**
+     * The Config id.
+     */
     public int configId;
+    /**
+     * The An int 889.
+     */
     public int anInt889;
+    /**
+     * The An int array 892.
+     */
     public int[] anIntArray892;
+    /**
+     * The A short 894.
+     */
     public short aShort894;
+    /**
+     * The A short array 896.
+     */
     public short[] aShortArray896;
+    /**
+     * The An int 897.
+     */
     public int anInt897;
+    /**
+     * The An int 899.
+     */
     public int anInt899;
+    /**
+     * The An int 901.
+     */
     public int anInt901;
+    /**
+     * The Stand animation.
+     */
     public int standAnimation;
+    /**
+     * The Walk animation.
+     */
     public int walkAnimation;
+    /**
+     * The Render animation id.
+     */
     public int renderAnimationId;
 
     private int combatDistance;
@@ -97,6 +238,11 @@ public final class NPCDefinition extends Definition<NPC> {
 
     private int turnCCWAnimation;
 
+    /**
+     * Instantiates a new Npc definition.
+     *
+     * @param id the id
+     */
     public NPCDefinition(int id) {
         this.id = id;
         anInt842 = -1;
@@ -141,6 +287,12 @@ public final class NPCDefinition extends Definition<NPC> {
         anIntArray868 = new int[0];
     }
 
+    /**
+     * For id npc definition.
+     *
+     * @param id the id
+     * @return the npc definition
+     */
     public static NPCDefinition forId(int id) {
         NPCDefinition def = DEFINITIONS.get(id);
         if (def == null) {
@@ -158,6 +310,12 @@ public final class NPCDefinition extends Definition<NPC> {
         return def;
     }
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     * @throws Throwable the throwable
+     */
     public static void main(String... args) throws Throwable {
         GameWorld.prompt(false);
 
@@ -171,6 +329,12 @@ public final class NPCDefinition extends Definition<NPC> {
         // }
     }
 
+    /**
+     * Gets child npc.
+     *
+     * @param player the player
+     * @return the child npc
+     */
     public NPCDefinition getChildNPC(Player player) {
         if (childNPCIds == null || childNPCIds.length < 1) {
             return this;
@@ -418,6 +582,11 @@ public final class NPCDefinition extends Definition<NPC> {
         }
     }
 
+    /**
+     * Has attack option boolean.
+     *
+     * @return the boolean
+     */
     public boolean hasAttackOption() {
         for (String option : options) {
             if (option != null && option.equalsIgnoreCase("attack")) {
@@ -427,6 +596,13 @@ public final class NPCDefinition extends Definition<NPC> {
         return false;
     }
 
+    /**
+     * Gets option handler.
+     *
+     * @param nodeId the node id
+     * @param name   the name
+     * @return the option handler
+     */
     public static OptionHandler getOptionHandler(int nodeId, String name) {
         NPCDefinition def = forId(nodeId);
         OptionHandler handler = def.getConfiguration("option:" + name);
@@ -436,6 +612,12 @@ public final class NPCDefinition extends Definition<NPC> {
         return OPTION_HANDLERS.get(name);
     }
 
+    /**
+     * Has action boolean.
+     *
+     * @param optionName the option name
+     * @return the boolean
+     */
     public boolean hasAction(String optionName) {
         if (options == null) {
             return false;
@@ -451,14 +633,31 @@ public final class NPCDefinition extends Definition<NPC> {
         return false;
     }
 
+    /**
+     * Sets option handler.
+     *
+     * @param name    the name
+     * @param handler the handler
+     * @return the option handler
+     */
     public static boolean setOptionHandler(String name, OptionHandler handler) {
         return OPTION_HANDLERS.put(name, handler) != null;
     }
 
+    /**
+     * Gets option handlers.
+     *
+     * @return the option handlers
+     */
     public static Map<String, OptionHandler> getOptionHandlers() {
         return OPTION_HANDLERS;
     }
 
+    /**
+     * Gets definitions.
+     *
+     * @return the definitions
+     */
     public static final Map<Integer, NPCDefinition> getDefinitions() {
         return DEFINITIONS;
     }
@@ -478,6 +677,11 @@ public final class NPCDefinition extends Definition<NPC> {
         this.examine = examine;
     }
 
+    /**
+     * Init combat graphics.
+     *
+     * @param config the config
+     */
     public void initCombatGraphics(Map<String, Object> config) {
         if (config.containsKey(NPCConfigParser.START_GRAPHIC)) {
             combatGraphics[0] = new Graphic((Integer) config.get(NPCConfigParser.START_GRAPHIC), getConfiguration(NPCConfigParser.START_HEIGHT, 0));
@@ -490,6 +694,12 @@ public final class NPCDefinition extends Definition<NPC> {
         }
     }
 
+    /**
+     * Gets combat animation.
+     *
+     * @param index the index
+     * @return the combat animation
+     */
     public Animation getCombatAnimation(int index) {
         String name = "";
         switch (index) {
@@ -514,152 +724,337 @@ public final class NPCDefinition extends Definition<NPC> {
         return getConfiguration(name, null);
     }
 
+    /**
+     * Gets size.
+     *
+     * @return the size
+     */
     public int getSize() {
         return size;
     }
 
+    /**
+     * Gets head icons.
+     *
+     * @return the head icons
+     */
     public int getHeadIcons() {
         return headIcons;
     }
 
+    /**
+     * Is visible on map boolean.
+     *
+     * @return the boolean
+     */
     public boolean isVisibleOnMap() {
         return isVisibleOnMap;
     }
 
+    /**
+     * Gets an int 833.
+     *
+     * @return the an int 833
+     */
     public int getAnInt833() {
         return anInt833;
     }
 
+    /**
+     * Gets an int 836.
+     *
+     * @return the an int 836
+     */
     public int getAnInt836() {
         return anInt836;
     }
 
+    /**
+     * Gets an int 837.
+     *
+     * @return the an int 837
+     */
     public int getAnInt837() {
         return anInt837;
     }
 
+    /**
+     * Isa boolean 841 boolean.
+     *
+     * @return the boolean
+     */
     public boolean isaBoolean841() {
         return aBoolean841;
     }
 
+    /**
+     * Gets an int 842.
+     *
+     * @return the an int 842
+     */
     public int getAnInt842() {
         return anInt842;
     }
 
+    /**
+     * Gets config file id.
+     *
+     * @return the config file id
+     */
     public int getConfigFileId() {
         return configFileId;
     }
 
+    /**
+     * Get child npc ids int [ ].
+     *
+     * @return the int [ ]
+     */
     public int[] getChildNPCIds() {
         return childNPCIds;
     }
 
+    /**
+     * Gets an int 846.
+     *
+     * @return the an int 846
+     */
     public int getAnInt846() {
         return anInt846;
     }
 
+    /**
+     * Gets an int 850.
+     *
+     * @return the an int 850
+     */
     public int getAnInt850() {
         return anInt850;
     }
 
+    /**
+     * Gets byte 851.
+     *
+     * @return the byte 851
+     */
     public byte getaByte851() {
         return aByte851;
     }
 
+    /**
+     * Isa boolean 852 boolean.
+     *
+     * @return the boolean
+     */
     public boolean isaBoolean852() {
         return aBoolean852;
     }
 
+    /**
+     * Gets an int 853.
+     *
+     * @return the an int 853
+     */
     public int getAnInt853() {
         return anInt853;
     }
 
+    /**
+     * Gets byte 854.
+     *
+     * @return the byte 854
+     */
     public byte getaByte854() {
         return aByte854;
     }
 
+    /**
+     * Isa boolean 856 boolean.
+     *
+     * @return the boolean
+     */
     public boolean isaBoolean856() {
         return aBoolean856;
     }
 
+    /**
+     * Isa boolean 857 boolean.
+     *
+     * @return the boolean
+     */
     public boolean isaBoolean857() {
         return aBoolean857;
     }
 
+    /**
+     * Geta short array 859 short [ ].
+     *
+     * @return the short [ ]
+     */
     public short[] getaShortArray859() {
         return aShortArray859;
     }
 
+    /**
+     * Geta byte array 861 byte [ ].
+     *
+     * @return the byte [ ]
+     */
     public byte[] getaByteArray861() {
         return aByteArray861;
     }
 
+    /**
+     * Gets short 862.
+     *
+     * @return the short 862
+     */
     public short getaShort862() {
         return aShort862;
     }
 
+    /**
+     * Isa boolean 863 boolean.
+     *
+     * @return the boolean
+     */
     public boolean isaBoolean863() {
         return aBoolean863;
     }
 
+    /**
+     * Gets an int 864.
+     *
+     * @return the an int 864
+     */
     public int getAnInt864() {
         return anInt864;
     }
 
+    /**
+     * Geta short array 866 short [ ].
+     *
+     * @return the short [ ]
+     */
     public short[] getaShortArray866() {
         return aShortArray866;
     }
 
+    /**
+     * Get an int array 868 int [ ].
+     *
+     * @return the int [ ]
+     */
     public int[] getAnIntArray868() {
         return anIntArray868;
     }
 
+    /**
+     * Gets an int 869.
+     *
+     * @return the an int 869
+     */
     public int getAnInt869() {
         return anInt869;
     }
 
+    /**
+     * Gets an int 870.
+     *
+     * @return the an int 870
+     */
     public int getAnInt870() {
         return anInt870;
     }
 
+    /**
+     * Gets an int 871.
+     *
+     * @return the an int 871
+     */
     public int getAnInt871() {
         return anInt871;
     }
 
+    /**
+     * Gets an int 872.
+     *
+     * @return the an int 872
+     */
     public int getAnInt872() {
         return anInt872;
     }
 
+    /**
+     * Gets an int 874.
+     *
+     * @return the an int 874
+     */
     public int getAnInt874() {
         return anInt874;
     }
 
+    /**
+     * Gets an int 875.
+     *
+     * @return the an int 875
+     */
     public int getAnInt875() {
         return anInt875;
     }
 
+    /**
+     * Gets an int 876.
+     *
+     * @return the an int 876
+     */
     public int getAnInt876() {
         return anInt876;
     }
 
+    /**
+     * Gets an int 879.
+     *
+     * @return the an int 879
+     */
     public int getAnInt879() {
         return anInt879;
     }
 
+    /**
+     * Geta short array 880 short [ ].
+     *
+     * @return the short [ ]
+     */
     public short[] getaShortArray880() {
         return aShortArray880;
     }
 
+    /**
+     * Gets an int 884.
+     *
+     * @return the an int 884
+     */
     public int getAnInt884() {
         return anInt884;
     }
 
+    /**
+     * Gets config id.
+     *
+     * @return the config id
+     */
     public int getConfigId() {
         if (configFileId != -1) {
             return VarbitDefinition.forNPCID(configFileId).getVarpId();
         } else return configFileId;
     }
 
+    /**
+     * Gets varbit offset.
+     *
+     * @return the varbit offset
+     */
     public int getVarbitOffset() {
         if (configFileId != -1) {
             return VarbitDefinition.forNPCID(configFileId).getStartBit();
@@ -667,6 +1062,11 @@ public final class NPCDefinition extends Definition<NPC> {
         return -1;
     }
 
+    /**
+     * Gets varbit size.
+     *
+     * @return the varbit size
+     */
     public int getVarbitSize() {
         if (configFileId != -1) {
             return VarbitDefinition.forNPCID(configFileId).getEndBit() - VarbitDefinition.forNPCID(configFileId).getStartBit();
@@ -674,94 +1074,209 @@ public final class NPCDefinition extends Definition<NPC> {
         return -1;
     }
 
+    /**
+     * Gets an int 889.
+     *
+     * @return the an int 889
+     */
     public int getAnInt889() {
         return anInt889;
     }
 
+    /**
+     * Get an int array 892 int [ ].
+     *
+     * @return the int [ ]
+     */
     public int[] getAnIntArray892() {
         return anIntArray892;
     }
 
+    /**
+     * Gets short 894.
+     *
+     * @return the short 894
+     */
     public short getaShort894() {
         return aShort894;
     }
 
+    /**
+     * Geta short array 896 short [ ].
+     *
+     * @return the short [ ]
+     */
     public short[] getaShortArray896() {
         return aShortArray896;
     }
 
+    /**
+     * Gets an int 897.
+     *
+     * @return the an int 897
+     */
     public int getAnInt897() {
         return anInt897;
     }
 
+    /**
+     * Gets an int 899.
+     *
+     * @return the an int 899
+     */
     public int getAnInt899() {
         return anInt899;
     }
 
+    /**
+     * Gets an int 901.
+     *
+     * @return the an int 901
+     */
     public int getAnInt901() {
         return anInt901;
     }
 
+    /**
+     * Gets stand animation.
+     *
+     * @return the stand animation
+     */
     public int getStandAnimation() {
         return standAnimation;
     }
 
+    /**
+     * Gets walk animation.
+     *
+     * @return the walk animation
+     */
     public int getWalkAnimation() {
         return walkAnimation;
     }
 
+    /**
+     * Gets turn animation.
+     *
+     * @return the turn animation
+     */
     public int getTurnAnimation() {
         return turnAnimation;
     }
 
+    /**
+     * Gets turn 180 animation.
+     *
+     * @return the turn 180 animation
+     */
     public int getTurn180Animation() {
         return turn180Animation;
     }
 
+    /**
+     * Gets turn cw animation.
+     *
+     * @return the turn cw animation
+     */
     public int getTurnCWAnimation() {
         return turnCWAnimation;
     }
 
+    /**
+     * Gets turn ccw animation.
+     *
+     * @return the turn ccw animation
+     */
     public int getTurnCCWAnimation() {
         return turnCCWAnimation;
     }
 
+    /**
+     * Gets drop tables.
+     *
+     * @return the drop tables
+     */
     public NPCDropTables getDropTables() {
         return dropTables;
     }
 
+    /**
+     * Sets drop tables.
+     *
+     * @param dropTables the drop tables
+     */
     public void setDropTables(NPCDropTables dropTables) {
         this.dropTables = dropTables;
     }
 
+    /**
+     * Gets combat level.
+     *
+     * @return the combat level
+     */
     public int getCombatLevel() {
         return combatLevel;
     }
 
+    /**
+     * Sets combat level.
+     *
+     * @param combatLevel the combat level
+     */
     public void setCombatLevel(int combatLevel) {
         this.combatLevel = combatLevel;
     }
 
+    /**
+     * Gets combat distance.
+     *
+     * @return the combat distance
+     */
     public int getCombatDistance() {
         return combatDistance;
     }
 
+    /**
+     * Sets combat distance.
+     *
+     * @param combatDistance the combat distance
+     */
     public void setCombatDistance(int combatDistance) {
         this.combatDistance = combatDistance;
     }
 
+    /**
+     * Get combat graphics graphic [ ].
+     *
+     * @return the graphic [ ]
+     */
     public Graphic[] getCombatGraphics() {
         return combatGraphics;
     }
 
+    /**
+     * Sets combat graphics.
+     *
+     * @param combatGraphics the combat graphics
+     */
     public void setCombatGraphics(Graphic[] combatGraphics) {
         this.combatGraphics = combatGraphics;
     }
 
+    /**
+     * Gets render animation id.
+     *
+     * @return the render animation id
+     */
     public int getRenderAnimationId() {
         return renderAnimationId;
     }
 
+    /**
+     * Sets render animation id.
+     *
+     * @param renderAnimationId the render animation id
+     */
     public void setRenderAnimationId(int renderAnimationId) {
         this.renderAnimationId = renderAnimationId;
     }

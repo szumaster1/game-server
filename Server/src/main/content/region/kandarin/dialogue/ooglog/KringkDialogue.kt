@@ -11,6 +11,9 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.START_DIALOGUE
 
+/**
+ * Kringk dialogue.
+ */
 @Initializable
 class KringkDialogue(player: Player? = null) : Dialogue(player) {
 

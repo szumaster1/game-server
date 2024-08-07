@@ -19,6 +19,11 @@ import core.game.world.map.path.Pathfinder
 import core.game.world.update.flag.context.Animation
 import core.tools.END_DIALOGUE
 
+/**
+ * King narnode dialogue file
+ *
+ * @constructor King narnode dialogue file
+ */
 class KingNarnodeDialogueFile : DialogueFile() {
 
     val trapdoorLocation = Location(2464, 3497, 0)
@@ -27,6 +32,10 @@ class KingNarnodeDialogueFile : DialogueFile() {
     val tunnels = Location(2464, 9897, 0)
     val ladderClimbAnimation = Animation(827)
 
+    /**
+     * Lead down ladder
+     *
+     */
     fun leadDownLadder() {
         // Animate Narnode to walk to the trapdoor and climb the ladder
         GameWorld.Pulser.submit(object : Pulse(0) {
@@ -356,6 +365,11 @@ class KingNarnodeDialogueFile : DialogueFile() {
     }
 }
 
+/**
+ * King narnode upstairs dialogue
+ *
+ * @constructor King narnode upstairs dialogue
+ */
 class KingNarnodeUpstairsDialogue : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         when (stage) {
@@ -369,6 +383,11 @@ class KingNarnodeUpstairsDialogue : DialogueFile() {
 
 }
 
+/**
+ * King narnode under ground dialogue
+ *
+ * @constructor King narnode under ground dialogue
+ */
 class KingNarnodeUnderGroundDialogue : DialogueFile() {
     private fun leadUpLadder() {
         val ladderLoc = Location.create(2464, 9897, 0)

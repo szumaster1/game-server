@@ -8,6 +8,11 @@ import core.game.node.item.Item
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 
+/**
+ * Barcrawl manager
+ *
+ * @constructor Barcrawl manager
+ */
 class BarcrawlManager : LoginListener, PersistPlayer {
 
     private val player: Player?
@@ -47,6 +52,10 @@ class BarcrawlManager : LoginListener, PersistPlayer {
         save["barCrawl"] = barCrawl
     }
 
+    /**
+     * Read
+     *
+     */
     fun read() {
         if (isFinished) {
             sendMessage(player!!, "You are too drunk to be able to read the barcrawl card.")
@@ -65,6 +74,11 @@ class BarcrawlManager : LoginListener, PersistPlayer {
         }
     }
 
+    /**
+     * Complete
+     *
+     * @param index
+     */
     fun complete(index: Int) {
         bars[index] = true
     }
@@ -79,6 +93,10 @@ class BarcrawlManager : LoginListener, PersistPlayer {
             return true
         }
 
+    /**
+     * Reset
+     *
+     */
     fun reset() {
         started = false
         for (i in bars.indices) {
@@ -86,18 +104,39 @@ class BarcrawlManager : LoginListener, PersistPlayer {
         }
     }
 
+    /**
+     * Is completed
+     *
+     * @param index
+     * @return
+     */
     fun isCompleted(index: Int): Boolean {
         return bars[index]
     }
 
+    /**
+     * Has card
+     *
+     * @return
+     */
     fun hasCard(): Boolean {
         return inInventory(player!!, Items.BARCRAWL_CARD_455) || inBank(player, Items.BARCRAWL_CARD_455)
     }
 
+    /**
+     * Is started
+     *
+     * @return
+     */
     fun isStarted(): Boolean {
         return started
     }
 
+    /**
+     * Set started
+     *
+     * @param started
+     */
     fun setStarted(started: Boolean) {
         this.started = started
     }

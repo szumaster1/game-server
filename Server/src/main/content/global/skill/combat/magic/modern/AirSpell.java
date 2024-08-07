@@ -15,6 +15,9 @@ import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
+/**
+ * Air spell.
+ */
 @Initializable
 public final class AirSpell extends CombatSpell {
 
@@ -32,6 +35,9 @@ public final class AirSpell extends CombatSpell {
     private static final Graphic WAVE_END = new Graphic(160, 96);
     private static final Animation ANIMATION = new Animation(711, Priority.HIGH);
 
+    /**
+     * Instantiates a new Air spell.
+     */
     public AirSpell() {
 
     }

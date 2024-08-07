@@ -12,6 +12,9 @@ import core.game.dialogue.FacialExpression
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Ranging guild listeners.
+ */
 class RangingGuildListeners : InteractionListener {
 
     override fun defineListeners() {
@@ -29,8 +32,6 @@ class RangingGuildListeners : InteractionListener {
             submitIndividualPulse(player, ArcheryCompetitionPulse(player, (node.asScenery())))
             return@on true
         }
-
-
     }
 
     companion object {

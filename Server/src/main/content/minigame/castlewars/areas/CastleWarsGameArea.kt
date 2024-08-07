@@ -13,6 +13,11 @@ import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 import core.tools.ticksPerMinute
 
+/**
+ * Castle wars game area
+ *
+ * @constructor Castle wars game area
+ */
 class CastleWarsGameArea : CastleWarsArea(), TickListener {
     //https://github.com/RSPSApp/elvarg-rsps/blob/master/ElvargServer/game/src/main/java/com/elvarg/game/model/areas/impl/castlewars/CastleWarsGameArea.java
     companion object {

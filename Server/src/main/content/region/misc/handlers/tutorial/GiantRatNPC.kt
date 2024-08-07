@@ -10,6 +10,9 @@ import core.game.node.item.Item
 import core.game.world.map.Location
 import core.plugin.Initializable
 
+/**
+ * Giant rat NPC.
+ */
 @Initializable
 class GiantRatNPC : AbstractNPC {
 

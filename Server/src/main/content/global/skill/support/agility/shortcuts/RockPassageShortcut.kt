@@ -9,6 +9,9 @@ import core.game.interaction.QueueStrength
 import core.game.node.entity.skill.Skills
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Rock passage shortcut.
+ */
 class RockPassageShortcut : InteractionListener {
 
     override fun defineListeners() {

@@ -10,6 +10,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Ernest dialogue.
+ */
 @Initializable
 class ErnestDialogue(player: Player? = null) : Dialogue(player) {
 

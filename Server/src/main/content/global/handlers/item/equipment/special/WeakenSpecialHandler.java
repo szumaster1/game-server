@@ -16,6 +16,9 @@ import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
+/**
+ * Weaken special handler.
+ */
 @Initializable
 public final class WeakenSpecialHandler extends MeleeSwingHandler implements Plugin<Object> {
 

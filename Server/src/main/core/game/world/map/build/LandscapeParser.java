@@ -10,8 +10,19 @@ import core.game.world.map.RegionPlane;
 
 import java.nio.ByteBuffer;
 
+/**
+ * Landscape parser.
+ */
 public final class LandscapeParser {
 
+    /**
+     * Parse.
+     *
+     * @param r            the r
+     * @param mapscape     the mapscape
+     * @param buffer       the buffer
+     * @param storeObjects the store objects
+     */
     public static void parse(Region r, byte[][][] mapscape, ByteBuffer buffer, boolean storeObjects) {
         int objectId = -1;
         for (; ; ) {
@@ -49,15 +60,36 @@ public final class LandscapeParser {
         }
     }
 
+    /**
+     * Add scenery.
+     *
+     * @param object the object
+     */
     public static void addScenery(Scenery object) {
         addScenery(object, false);
     }
 
+    /**
+     * Add scenery.
+     *
+     * @param object    the object
+     * @param landscape the landscape
+     */
     public static void addScenery(Scenery object, boolean landscape) {
         Location l = object.getLocation();
         flagScenery(RegionManager.getRegionPlane(l), l.getLocalX(), l.getLocalY(), object, landscape, false);
     }
 
+    /**
+     * Flag scenery.
+     *
+     * @param plane        the plane
+     * @param localX       the local x
+     * @param localY       the local y
+     * @param object       the object
+     * @param landscape    the landscape
+     * @param storeObjects the store objects
+     */
     public static void flagScenery(RegionPlane plane, int localX, int localY, Scenery object, boolean landscape, boolean storeObjects) {
         Region.load(plane.getRegion());
         SceneryDefinition def = object.getDefinition();
@@ -74,6 +106,15 @@ public final class LandscapeParser {
         }
     }
 
+    /**
+     * Apply clipping flags for boolean.
+     *
+     * @param plane  the plane
+     * @param localX the local x
+     * @param localY the local y
+     * @param object the object
+     * @return the boolean
+     */
     public static boolean applyClippingFlagsFor(RegionPlane plane, int localX, int localY, Scenery object) {
         SceneryDefinition def = object.getDefinition();
         int sizeX;
@@ -126,6 +167,12 @@ public final class LandscapeParser {
         plane.add(object, localX, localY, landscape && !storeAll);
     }
 
+    /**
+     * Remove scenery scenery.
+     *
+     * @param object the object
+     * @return the scenery
+     */
     public static Scenery removeScenery(Scenery object) {
         if (!object.isRenderable()) {
             return null;

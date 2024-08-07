@@ -14,6 +14,9 @@ import core.game.world.update.flag.context.Animation;
 
 import static core.api.ContentAPIKt.playAudio;
 
+/**
+ * Summoning creator.
+ */
 public final class SummoningCreator {
     private static final Animation ANIMATION = new Animation(9068);
     private static final Object[] POUCH_PARAMS = new Object[]{"List<col=FF9040>", "Infuse-X<col=FF9040>", "Infuse-All<col=FF9040>", "Infuse-10<col=FF9040>", "Infuse-5<col=FF9040>", "Infuse<col=FF9040>", 20, 4, 669 << 16 | 15};
@@ -21,16 +24,35 @@ public final class SummoningCreator {
     private static final Component SUMMONING_COMPONENT = new Component(669);
     private static final Component SCROLL_COMPONENT = new Component(673);
 
+    /**
+     * Open.
+     *
+     * @param player the player
+     * @param pouch  the pouch
+     */
     public static void open(final Player player, final boolean pouch) {
         configure(player, pouch);
     }
 
+    /**
+     * Configure.
+     *
+     * @param player the player
+     * @param pouch  the pouch
+     */
     public static void configure(final Player player, final boolean pouch) {
         player.getInterfaceManager().open(pouch ? SUMMONING_COMPONENT : SCROLL_COMPONENT);
         player.getPacketDispatch().sendRunScript(pouch ? 757 : 765, pouch ? "Iiissssss" : "Iiisssss", pouch ? POUCH_PARAMS : SCROLL_PARAMS);
         player.getPacketDispatch().sendIfaceSettings(pouch ? 190 : 126, 15, pouch ? 669 : 673, 0, 78);
     }
 
+    /**
+     * Create.
+     *
+     * @param player the player
+     * @param amount the amount
+     * @param node   the node
+     */
     public static void create(final Player player, final int amount, Object node) {
         if (node == null) {
             return;
@@ -38,15 +60,32 @@ public final class SummoningCreator {
         player.getPulseManager().run(new CreatePulse(player, null, SummoningNode.parse(node), amount));
     }
 
+    /**
+     * List.
+     *
+     * @param player the player
+     * @param pouch  the pouch
+     */
     public static void list(final Player player, final SummoningPouch pouch) {
         player.getPacketDispatch().sendMessage((String) CS2Mapping.forId(1186).getMap().get(pouch.getPouchId()));
     }
 
+    /**
+     * Create pulse.
+     */
     public static final class CreatePulse extends SkillPulse<Item> {
         private final SummoningCreator.SummoningNode type;
         private final Scenery object;
         private final int amount;
 
+        /**
+         * Instantiates a new Create pulse.
+         *
+         * @param player the player
+         * @param node   the node
+         * @param type   the type
+         * @param amount the amount
+         */
         public CreatePulse(Player player, Item node, final SummoningCreator.SummoningNode type, final int amount) {
             super(player, node);
             this.type = type;
@@ -113,6 +152,9 @@ public final class SummoningCreator {
 
     }
 
+    /**
+     * Summoning node.
+     */
     public static class SummoningNode {
         private final Object base;
         private final Item[] required;
@@ -120,6 +162,15 @@ public final class SummoningCreator {
         private final double experience;
         private final int level;
 
+        /**
+         * Instantiates a new Summoning node.
+         *
+         * @param base       the base
+         * @param required   the required
+         * @param product    the product
+         * @param experience the experience
+         * @param level      the level
+         */
         public SummoningNode(final Object base, Item[] required, Item product, double experience, int level) {
             this.base = base;
             this.required = required;
@@ -128,30 +179,66 @@ public final class SummoningCreator {
             this.level = level;
         }
 
+        /**
+         * Get required item [ ].
+         *
+         * @return the item [ ]
+         */
         public Item[] getRequired() {
             return required;
         }
 
+        /**
+         * Gets product.
+         *
+         * @return the product
+         */
         public Item getProduct() {
             return product;
         }
 
+        /**
+         * Gets experience.
+         *
+         * @return the experience
+         */
         public double getExperience() {
             return experience;
         }
 
+        /**
+         * Gets level.
+         *
+         * @return the level
+         */
         public int getLevel() {
             return level;
         }
 
+        /**
+         * Gets base.
+         *
+         * @return the base
+         */
         public Object getBase() {
             return base;
         }
 
+        /**
+         * Is pouch boolean.
+         *
+         * @return the boolean
+         */
         public boolean isPouch() {
             return base instanceof SummoningPouch;
         }
 
+        /**
+         * Parse summoning node.
+         *
+         * @param node the node
+         * @return the summoning node
+         */
         public static SummoningNode parse(final Object node) {
             final Item[] required = node instanceof SummoningPouch ? ((SummoningPouch) node).getItems() : createList(((SummoningScroll) node).getItems());
             final Item product = node instanceof SummoningPouch ? new Item(((SummoningPouch) node).getPouchId(), 1) : new Item(((SummoningScroll) node).getItemId(), 10);

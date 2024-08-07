@@ -10,6 +10,9 @@ import core.plugin.Plugin
 private const val GNOME_BOWL_MOLD = 2166
 private const val GIANNE_DOUGH = 2171
 
+/**
+ * Gnomebowl mould filler.
+ */
 @Initializable
 class GnomebowlMouldFiller : UseWithHandler(GIANNE_DOUGH) {
     override fun newInstance(arg: Any?): Plugin<Any> {

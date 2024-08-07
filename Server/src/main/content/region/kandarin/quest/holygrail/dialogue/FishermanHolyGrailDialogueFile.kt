@@ -11,6 +11,11 @@ import core.game.node.item.Item
 import core.game.world.map.Location
 import core.tools.END_DIALOGUE
 
+/**
+ * Fisherman holy grail dialogue file
+ *
+ * @constructor Fisherman holy grail dialogue file
+ */
 class FishermanHolyGrailDialogueFile : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

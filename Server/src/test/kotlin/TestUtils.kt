@@ -155,6 +155,14 @@ object TestUtils {
     }
 }
 
+/**
+ * Mock player
+ *
+ * @property isBot
+ * @constructor
+ *
+ * @param name
+ */
 class MockPlayer(name: String, val isBot: Boolean) : Player(PlayerDetails(name)), AutoCloseable {
     var hasInit = false
 
@@ -162,6 +170,10 @@ class MockPlayer(name: String, val isBot: Boolean) : Player(PlayerDetails(name))
         configureBasicProperties(); flagTutComplete(false); init(); flagTutComplete(true)
     }
 
+    /**
+     * Configure basic properties
+     *
+     */
     fun configureBasicProperties() {
         this.details.session = MockSession()
         this.location = ServerConstants.HOME_LOCATION
@@ -169,6 +181,11 @@ class MockPlayer(name: String, val isBot: Boolean) : Player(PlayerDetails(name))
         this.artificial = isBot
     }
 
+    /**
+     * Flag tut complete
+     *
+     * @param complete
+     */
     fun flagTutComplete(complete: Boolean) {
         this.setAttribute("/save:tutorial:complete", complete)
         this.setAttribute("/save:rules:confirmed", complete)
@@ -196,6 +213,11 @@ class MockPlayer(name: String, val isBot: Boolean) : Player(PlayerDetails(name))
         this.playerFlags.lastSceneGraph = location
     }
 
+    /**
+     * Relog
+     *
+     * @param ticksToWait
+     */
     fun relog(ticksToWait: Int = -1) {
         val json = PlayerSaver(this).populate()
         val parse = PlayerSaveParser(this)
@@ -228,10 +250,22 @@ class MockPlayer(name: String, val isBot: Boolean) : Player(PlayerDetails(name))
     }
 }
 
+/**
+ * Mock session
+ *
+ * @constructor Mock session
+ */
 class MockSession : IoSession(null, null) {
     val receivedPackets = ArrayList<Packet>()
     var disconnected = false
 
+    /**
+     * Packet
+     *
+     * @property opcode
+     * @property payload
+     * @constructor Packet
+     */
     @Suppress("ArrayInDataClass")
     data class Packet(val opcode: Int, val payload: ByteArray)
 
@@ -245,11 +279,23 @@ class MockSession : IoSession(null, null) {
         }
     }
 
+    /**
+     * Has packet ready
+     *
+     * @param opcode
+     * @return
+     */
     fun hasPacketReady(opcode: Int): Boolean {
         for (pkt in receivedPackets) if (pkt.opcode == opcode) return true
         return false
     }
 
+    /**
+     * Get packets with opcode
+     *
+     * @param opcode
+     * @return
+     */
     fun getPacketsWithOpcode(opcode: Int): ArrayList<ByteArray> {
         val list = ArrayList<ByteArray>()
         for (pkt in receivedPackets) if (pkt.opcode == opcode) list.add(pkt.payload)
@@ -268,6 +314,10 @@ class MockSession : IoSession(null, null) {
         disconnected = true
     }
 
+    /**
+     * Clear
+     *
+     */
     fun clear() {
         receivedPackets.clear()
     }

@@ -11,6 +11,9 @@ import core.game.node.item.Item
 import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 
+/**
+ * Draynor fisher.
+ */
 class DraynorFisher : Script() {
     val fishingZone = ZoneBorders(3085, 3223, 3089, 3233)
     val bankZone = ZoneBorders(3092, 3240, 3094, 3246)
@@ -66,8 +69,24 @@ class DraynorFisher : Script() {
         inventory.add(Item(Items.SMALL_FISHING_NET_303))
     }
 
+    /**
+     * State
+     *
+     * @constructor State
+     */
     enum class State {
+        /**
+         * Fishing
+         *
+         * @constructor Fishing
+         */
         FISHING,
+
+        /**
+         * Banking
+         *
+         * @constructor Banking
+         */
         BANKING
     }
 }

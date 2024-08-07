@@ -15,6 +15,9 @@ import core.game.system.task.Pulse
 import core.game.world.map.Location
 import core.game.world.repository.Repository
 
+/**
+ * Tutorial listeners.
+ */
 class TutorialListeners : InteractionListener {
 
     val GUIDE_HOUSE_DOOR = 3014

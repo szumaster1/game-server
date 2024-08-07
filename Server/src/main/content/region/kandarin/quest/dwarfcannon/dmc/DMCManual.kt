@@ -9,6 +9,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
+/**
+ * D m c manual
+ *
+ * @constructor D m c manual
+ */
 class DMCManual : InteractionListener {
     companion object {
         private val TITLE = "Dwarf multicannon manual"

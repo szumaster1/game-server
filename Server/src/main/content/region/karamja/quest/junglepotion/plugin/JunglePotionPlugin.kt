@@ -18,6 +18,11 @@ import core.game.node.scenery.SceneryBuilder
 import core.game.world.map.Location
 import core.plugin.Plugin
 
+/**
+ * Jungle potion plugin
+ *
+ * @constructor Jungle potion plugin
+ */
 class JunglePotionPlugin : OptionHandler() {
 
     override fun newInstance(arg: Any?): Plugin<Any> {
@@ -69,6 +74,11 @@ class JunglePotionPlugin : OptionHandler() {
         return null
     }
 
+    /**
+     * Jogre cavern dialogue
+     *
+     * @constructor Jogre cavern dialogue
+     */
     class JogreCavernDialogue : Dialogue {
 
         constructor()

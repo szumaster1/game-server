@@ -8,7 +8,6 @@ import core.network.packet.Context
 
 /**
  * Represents the hint icon packet context.
- * @author Emperor
  */
 class HintIconContext @JvmOverloads constructor(
     private val player: Player,

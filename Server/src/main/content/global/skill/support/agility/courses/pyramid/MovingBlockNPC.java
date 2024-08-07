@@ -15,6 +15,9 @@ import core.game.world.update.flag.context.Animation;
 
 import static core.api.ContentAPIKt.playAudio;
 
+/**
+ * Moving block npc.
+ */
 public final class MovingBlockNPC extends AbstractNPC {
 
     private static final Location[][] LOCATIONS = new Location[][]{{Location.create(3366, 2847, 3), Location.create(3367, 2847, 3), Location.create(3367, 2848, 3), Location.create(3366, 2848, 3), Location.create(3365, 2847, 3), Location.create(3365, 2848, 3), Location.create(3368, 2847, 3), Location.create(3368, 2848, 3)}, {Location.create(3374, 2847, 1), Location.create(3374, 2848, 1), Location.create(3375, 2848, 1), Location.create(3375, 2847, 1), Location.create(3374, 2849, 1), Location.create(3375, 2849, 1), Location.create(3374, 2846, 1), Location.create(3375, 2846, 1)}};
@@ -23,10 +26,19 @@ public final class MovingBlockNPC extends AbstractNPC {
 
     private boolean moving;
 
+    /**
+     * Instantiates a new Moving block npc.
+     */
     public MovingBlockNPC() {
         super(-1, null);
     }
 
+    /**
+     * Instantiates a new Moving block npc.
+     *
+     * @param id       the id
+     * @param location the location
+     */
     public MovingBlockNPC(int id, Location location) {
         super(id, location, false);
     }
@@ -85,6 +97,11 @@ public final class MovingBlockNPC extends AbstractNPC {
         return new MovingBlockNPC(id, location);
     }
 
+    /**
+     * Check block.
+     *
+     * @param player the player
+     */
     public void checkBlock(final Player player) {
         if (player.getAttribute("block-move", -1) > GameWorld.getTicks()) {
             return;
@@ -124,6 +141,11 @@ public final class MovingBlockNPC extends AbstractNPC {
         }
     }
 
+    /**
+     * Get tile locations location [ ].
+     *
+     * @return the location [ ]
+     */
     public Location[] getTileLocations() {
         return LOCATIONS[3125 - getId()];
     }
@@ -133,6 +155,9 @@ public final class MovingBlockNPC extends AbstractNPC {
         return new int[]{3124, 3125};
     }
 
+    /**
+     * Moving block trap.
+     */
     public final class MovingBlockTrap implements MovementHook {
 
         @Override

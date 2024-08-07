@@ -10,6 +10,9 @@ import core.plugin.Initializable
 
 private var id = 0
 
+/**
+ * Shilop dialogue.
+ */
 @Initializable
 class ShilopDialogue(player: Player? = null) : Dialogue(player) {
 

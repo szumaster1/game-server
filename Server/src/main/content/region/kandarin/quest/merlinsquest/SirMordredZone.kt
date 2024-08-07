@@ -10,6 +10,11 @@ import core.game.world.map.zone.ZoneBuilder
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Sir mordred zone
+ *
+ * @constructor Sir mordred zone
+ */
 @Initializable
 class SirMordredZone : MapZone("SirMordredZone",true), Plugin<Any?> {
 

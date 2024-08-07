@@ -25,10 +25,9 @@ object RunecraftGuildUtils {
 
     val TALLYS = Talisman.values().map { it.talisman.id }.toIntArray()
 
-    /*
+    /**
      * Check for omni talisman reward.
      */
-
     fun checkReward(player: Player) {
         for (i in TALLYS.indices) {
             if (getAttribute(player, AIR_ITEMS, 0) == 2 && getAttribute(player, MIND_ITEMS, 0) == 2 &&
@@ -46,6 +45,7 @@ object RunecraftGuildUtils {
     }
 
 }
+/**
 //===================================================================
 // Repairing Pouches
 // 9,000 coins for a Large Pouch (50 Runecrafting required)
@@ -65,7 +65,9 @@ object RunecraftGuildUtils {
 // https://www.tip.it/runescape/pages/view/runecrafting_guild.html
 // Review https://www.youtube.com/watch?v=FtLRZuhinvo&ab_channel=TheChronicNoob
 // RC Map https://runescape.wiki/images/archive/20100723065527%21Rune_Altar_Map.png?2314f
-// Glitches & RC guild tab tp loc https://www.youtube.com/watch?v=Hi49BcN81hU&ab_channel=runescapewordspread
+// Glitches & RC guild tab tp loc
+// https://www.youtube.com/watch?v=Hi49BcN81hU&ab_channel=runescapewordspread
 //===================================================================
 // "distracting the eyes in the Abyss to help you sneak past"
 //===================================================================
+*/

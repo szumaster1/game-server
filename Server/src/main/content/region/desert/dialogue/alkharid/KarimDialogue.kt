@@ -10,6 +10,9 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Karim dialogue.
+ */
 @Initializable
 class KarimDialogue(player: Player? = null) : Dialogue(player) {
 

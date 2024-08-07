@@ -211,10 +211,39 @@ private val femaleLegIDs = intArrayOf(
 
 private val COINS = Item(995, 1000)
 
+/**
+ * Thessalia interface plugin
+ *
+ * @constructor Thessalia interface plugin
+ */
 @Initializable
 class ThessaliaInterfacePlugin : ComponentPlugin() {
+    /**
+     * Color type
+     *
+     * @constructor Color type
+     */
     enum class colorType {
-        TORSO, ARMS, LEGS
+        /**
+         * Torso
+         *
+         * @constructor Torso
+         */
+        TORSO,
+
+        /**
+         * Arms
+         *
+         * @constructor Arms
+         */
+        ARMS,
+
+        /**
+         * Legs
+         *
+         * @constructor Legs
+         */
+        LEGS
     }
 
     override fun open(player: Player?, component: Component?) {
@@ -291,6 +320,11 @@ class ThessaliaInterfacePlugin : ComponentPlugin() {
         return true
     }
 
+    /**
+     * Pay
+     *
+     * @param player
+     */
     fun pay(player: Player) {
         if (player.inventory.containsItem(COINS)) {
             player.inventory.remove(COINS)
@@ -301,6 +335,13 @@ class ThessaliaInterfacePlugin : ComponentPlugin() {
         }
     }
 
+    /**
+     * Update top
+     *
+     * @param player
+     * @param button
+     * @param male
+     */
     fun updateTop(player: Player, button: Int, male: Boolean) {
         val usedArray = if (male) maleTorsoIDs else femaleTopIDs
         val subtractor = if (male) maleTorsoButtonRange.first else femaleTorsoButtonRange.first
@@ -308,6 +349,13 @@ class ThessaliaInterfacePlugin : ComponentPlugin() {
         player.appearance.sync()
     }
 
+    /**
+     * Update legs
+     *
+     * @param player
+     * @param button
+     * @param male
+     */
     fun updateLegs(player: Player, button: Int, male: Boolean) {
         val usedArray = if (male) maleLegIDs else femaleLegIDs
         val subtractor = if (male) maleLegsButtonRange.first else femaleLegsButtonRange.first
@@ -315,6 +363,13 @@ class ThessaliaInterfacePlugin : ComponentPlugin() {
         player.appearance.sync()
     }
 
+    /**
+     * Update arms
+     *
+     * @param player
+     * @param button
+     * @param male
+     */
     fun updateArms(player: Player, button: Int, male: Boolean) {
         val usedArray = if (male) maleSleeveIDs else femaleArmIDs
         val subtractor = if (male) maleArmsButtonRange.first else femaleArmsButtonRange.first
@@ -322,6 +377,14 @@ class ThessaliaInterfacePlugin : ComponentPlugin() {
         player.appearance.sync()
     }
 
+    /**
+     * Update color
+     *
+     * @param player
+     * @param button
+     * @param male
+     * @param type
+     */
     fun updateColor(player: Player, button: Int, male: Boolean, type: colorType) {
         val subtractor = if (male) maleColorButtonRange.first else femaleColorButtonRange.first
         when (type) {

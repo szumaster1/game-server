@@ -8,6 +8,9 @@ import core.game.node.entity.player.link.quest.QuestRepository
 import core.game.node.item.Item
 import core.plugin.Initializable
 
+/**
+ * Bonzo dialogue.
+ */
 @Initializable
 class BonzoDialogue(player: Player? = null) : Dialogue(player) {
 

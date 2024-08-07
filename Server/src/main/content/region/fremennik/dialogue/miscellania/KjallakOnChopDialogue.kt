@@ -3,6 +3,11 @@ package content.region.fremennik.dialogue.miscellania
 import core.game.dialogue.DialogueFile
 import core.tools.END_DIALOGUE
 
+/**
+ * Kjallak on chop dialogue
+ *
+ * @constructor Kjallak on chop dialogue
+ */
 class KjallakOnChopDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

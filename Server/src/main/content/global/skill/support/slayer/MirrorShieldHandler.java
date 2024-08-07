@@ -6,7 +6,13 @@ import core.game.node.entity.combat.MeleeSwingHandler;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.skill.Skills;
 
+/**
+ * Mirror shield handler.
+ */
 public final class MirrorShieldHandler extends MeleeSwingHandler {
+    /**
+     * The constant SINGLETON.
+     */
     public static final MirrorShieldHandler SINGLETON = new MirrorShieldHandler();
     private static final int[] SKILLS = new int[]{Skills.ATTACK, Skills.STRENGTH, Skills.DEFENCE, Skills.RANGE};
 
@@ -25,6 +31,11 @@ public final class MirrorShieldHandler extends MeleeSwingHandler {
         super.impact(entity, victim, state);
     }
 
+    /**
+     * Check impact.
+     *
+     * @param state the state
+     */
     public void checkImpact(final BattleState state) {
         if (state.getAttacker() instanceof Player) {
             final Player player = (Player) state.getAttacker();

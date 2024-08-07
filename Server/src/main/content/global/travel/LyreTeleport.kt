@@ -14,6 +14,12 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import org.json.simple.JSONObject
 
+/**
+ * Lyre teleport
+ *
+ * @property player
+ * @constructor Lyre teleport
+ */
 class LyreTeleport(val player: Player) : Pulse() {
 
     companion object {

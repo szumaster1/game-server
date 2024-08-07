@@ -9,10 +9,19 @@ import org.json.simple.JSONObject
 import org.json.simple.parser.JSONParser
 import java.io.FileReader
 
+/**
+ * Custom varbit parser
+ *
+ * @constructor Custom varbit parser
+ */
 class CustomVarbitParser {
     val parser = JSONParser()
     var reader: FileReader? = null
 
+    /**
+     * Load
+     *
+     */
     fun load() {
         var count = 0
 

@@ -3,6 +3,11 @@ package core.game.ge
 import core.api.consts.Items
 import core.cache.def.impl.ItemDefinition
 
+/**
+ * Bot prices
+ *
+ * @constructor Bot prices
+ */
 class BotPrices {
 
     companion object {

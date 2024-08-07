@@ -24,12 +24,14 @@ import java.util.concurrent.TimeUnit
 import kotlin.math.abs
 
 
+/**
+ * Moderation command set
+ *
+ * @constructor Moderation command set
+ */
 @Initializable
 class ModerationCommandSet : CommandSet(Privilege.MODERATOR) {
 
-    /*
-        Author: Ceikry (https://gitlab.com/Ceikry)
-     */
     override fun defineCommands() {
         val maxJailTime = 1800 //Max jail time (in seconds)
 

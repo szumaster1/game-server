@@ -23,6 +23,11 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 import core.tools.RandomFunction
 
+/**
+ * Witch house plugin
+ *
+ * @constructor Witch house plugin
+ */
 @Initializable
 class WitchHousePlugin : OptionHandler() {
 
@@ -172,6 +177,11 @@ class WitchHousePlugin : OptionHandler() {
         player.getSavedData().questData.isWitchsExperimentKilled = false
     }
 
+    /**
+     * Witch house use with handler
+     *
+     * @constructor Witch house use with handler
+     */
     class WitchHouseUseWithHandler : UseWithHandler(CHEESE.id) {
 
         override fun newInstance(arg: Any?): Plugin<Any> {

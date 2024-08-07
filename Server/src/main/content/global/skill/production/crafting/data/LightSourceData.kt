@@ -3,6 +3,17 @@ package content.global.skill.production.crafting.data
 import core.api.consts.Items
 import core.api.consts.Sounds
 
+/**
+ * Light source data
+ *
+ * @property emptyId
+ * @property fullId
+ * @property litId
+ * @property sfxId
+ * @property levelRequired
+ * @property openFlame
+ * @constructor Light source data
+ */
 enum class LightSourceData(
     val emptyId: Int,
     val fullId: Int,
@@ -11,6 +22,11 @@ enum class LightSourceData(
     val levelRequired: Int,
     val openFlame: Boolean
 ) {
+    /**
+     * White Candle
+     *
+     * @constructor White Candle
+     */
     WHITE_CANDLE(
         emptyId = 0,
         fullId = Items.CANDLE_36,
@@ -19,6 +35,12 @@ enum class LightSourceData(
         levelRequired = 0,
         true
     ),
+
+    /**
+     * Black Candle
+     *
+     * @constructor Black Candle
+     */
     BLACK_CANDLE(
         emptyId = 0,
         fullId = Items.BLACK_CANDLE_38,
@@ -27,6 +49,12 @@ enum class LightSourceData(
         levelRequired = 0,
         true
     ),
+
+    /**
+     * Torch
+     *
+     * @constructor Torch
+     */
     TORCH(
         emptyId = 0,
         fullId = Items.UNLIT_TORCH_596,
@@ -35,6 +63,12 @@ enum class LightSourceData(
         levelRequired = 0,
         true
     ),
+
+    /**
+     * White Candle Lantern
+     *
+     * @constructor White Candle Lantern
+     */
     WHITE_CANDLE_LANTERN(
         emptyId = Items.CANDLE_LANTERN_4527,
         fullId = Items.CANDLE_LANTERN_4529,
@@ -43,6 +77,12 @@ enum class LightSourceData(
         levelRequired = 4,
         true
     ),
+
+    /**
+     * Black Candle Lantern
+     *
+     * @constructor Black Candle Lantern
+     */
     BLACK_CANDLE_LANTERN(
         emptyId = Items.CANDLE_LANTERN_4527,
         fullId = Items.CANDLE_LANTERN_4532,
@@ -51,6 +91,12 @@ enum class LightSourceData(
         levelRequired = 4,
         true
     ),
+
+    /**
+     * Oil Lamp
+     *
+     * @constructor Oil Lamp
+     */
     OIL_LAMP(
         emptyId = Items.OIL_LAMP_4525,
         fullId = Items.OIL_LAMP_4522,
@@ -59,6 +105,12 @@ enum class LightSourceData(
         levelRequired = 12,
         true
     ),
+
+    /**
+     * Bug Lantern
+     *
+     * @constructor Bug Lantern
+     */
     BUG_LANTERN(
         emptyId = Items.UNLIT_BUG_LANTERN_7051,
         fullId = Items.UNLIT_BUG_LANTERN_7051,
@@ -67,6 +119,12 @@ enum class LightSourceData(
         levelRequired = 33,
         false
     ),
+
+    /**
+     * Oil Lantern
+     *
+     * @constructor Oil Lantern
+     */
     OIL_LANTERN(
         emptyId = Items.OIL_LANTERN_4535,
         fullId = Items.OIL_LANTERN_4537,
@@ -75,6 +133,12 @@ enum class LightSourceData(
         levelRequired = 26,
         false
     ),
+
+    /**
+     * Bullseye Lantern
+     *
+     * @constructor Bullseye Lantern
+     */
     BULLSEYE_LANTERN(
         emptyId = Items.BULLSEYE_LANTERN_4546,
         fullId = Items.BULLSEYE_LANTERN_4548,
@@ -83,6 +147,12 @@ enum class LightSourceData(
         levelRequired = 49,
         false
     ),
+
+    /**
+     * Sapphire Lantern
+     *
+     * @constructor Sapphire Lantern
+     */
     SAPPHIRE_LANTERN(
         emptyId = 0,
         fullId = Items.SAPPHIRE_LANTERN_4701,
@@ -91,6 +161,12 @@ enum class LightSourceData(
         levelRequired = 49,
         false
     ),
+
+    /**
+     * Mining Helmet
+     *
+     * @constructor Mining Helmet
+     */
     MINING_HELMET(
         emptyId = 0,
         fullId = Items.MINING_HELMET_5014,
@@ -99,6 +175,12 @@ enum class LightSourceData(
         levelRequired = 65,
         false
     ),
+
+    /**
+     * Emerald Lantern
+     *
+     * @constructor Emerald Lantern
+     */
     EMERALD_LANTERN(
         emptyId = 0,
         fullId = Items.EMERALD_LANTERN_9064,

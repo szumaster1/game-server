@@ -7,6 +7,11 @@ import core.api.consts.Sounds
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Chest key listener
+ *
+ * @constructor Chest key listener
+ */
 class ChestKeyListener : InteractionListener {
 
     override fun defineListeners() {

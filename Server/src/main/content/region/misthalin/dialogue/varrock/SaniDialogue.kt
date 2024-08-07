@@ -10,6 +10,9 @@ import core.game.shops.Shops.Companion.openId
 import core.game.world.GameWorld
 import core.plugin.Initializable
 
+/**
+ * Sani dialogue.
+ */
 @Initializable
 class SaniDialogue(player: Player? = null) : Dialogue(player) {
 

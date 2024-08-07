@@ -17,6 +17,9 @@ import core.plugin.ClassScanner;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
+/**
+ * Crafting table plugin.
+ */
 @Initializable
 public class CraftingTablePlugin extends OptionHandler {
 
@@ -37,13 +40,37 @@ public class CraftingTablePlugin extends OptionHandler {
     }
 
     private enum Craftable {
+        /**
+         * Toy horsey craftable.
+         */
         TOY_HORSEY(Items.TOY_HORSEY_2520, 10, BuildingUtils.PLANK),
+        /**
+         * The Clockwork.
+         */
         CLOCKWORK(Items.CLOCKWORK_8792, 8, new Item(Items.STEEL_BAR_2353)),
+        /**
+         * The Toy soldier.
+         */
         TOY_SOLDIER(Items.TOY_SOLDIER_7759, 13, BuildingUtils.PLANK, new Item(Items.CLOCKWORK_8792)),
+        /**
+         * The Toy doll.
+         */
         TOY_DOLL(Items.TOY_DOLL_7763, 18, BuildingUtils.PLANK, new Item(Items.CLOCKWORK_8792)),
+        /**
+         * The Toy mouse.
+         */
         TOY_MOUSE(Items.TOY_MOUSE_7767, 33, BuildingUtils.PLANK, new Item(Items.CLOCKWORK_8792)),
+        /**
+         * The Toy cat.
+         */
         TOY_CAT(Items.CLOCKWORK_CAT_7771, 85, BuildingUtils.PLANK, new Item(Items.CLOCKWORK_8792)),
+        /**
+         * The Watch.
+         */
         WATCH(Items.WATCH_2575, 28, new Item(Items.CLOCKWORK_8792), new Item(Items.STEEL_BAR_2353)),
+        /**
+         * The Sextant.
+         */
         SEXTANT(Items.SEXTANT_2574, 23, new Item(Items.STEEL_BAR_2353));
 
 
@@ -66,11 +93,22 @@ public class CraftingTablePlugin extends OptionHandler {
     private final class CraftingTableDialogue extends Dialogue {
 
 
+        /**
+         * The Decoration.
+         */
         Decoration decoration;
 
+        /**
+         * Instantiates a new Crafting table dialogue.
+         */
         public CraftingTableDialogue() {
         }
 
+        /**
+         * Instantiates a new Crafting table dialogue.
+         *
+         * @param player the player
+         */
         public CraftingTableDialogue(Player player) {
             super(player);
         }

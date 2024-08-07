@@ -12,6 +12,9 @@ import core.game.world.map.RegionManager;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
+/**
+ * Slayer tower plugin.
+ */
 @Initializable
 public final class SlayerTowerPlugin extends OptionHandler {
     private static final Location[] LOCATIONS = new Location[]{new Location(3430, 3534, 0), new Location(3426, 3534, 0)};

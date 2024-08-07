@@ -11,6 +11,11 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.tools.END_DIALOGUE
 
+/**
+ * Crate dialogue file
+ *
+ * @constructor Crate dialogue file
+ */
 class CrateDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
 

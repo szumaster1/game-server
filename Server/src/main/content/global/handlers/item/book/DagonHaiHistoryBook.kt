@@ -9,6 +9,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
+/**
+ * Dagon hai history book
+ *
+ * @constructor Dagon hai history book
+ */
 class DagonHaiHistoryBook : InteractionListener {
 
     // Book found in the Varrock library.

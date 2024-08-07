@@ -12,11 +12,13 @@ import core.game.node.item.Item
 import core.game.world.map.zone.ZoneBorders
 import core.tools.colorize
 
+/**
+ * Draynor willows.
+ */
 @PlayerCompatible
 @ScriptName("Draynor Willows")
 @ScriptDescription("Start in Draynor with an axe equipped or in inventory.")
 @ScriptIdentifier("draynor_trees")
-
 class DraynorWillows : Script() {
     val willowZone = ZoneBorders(3084, 3225, 3091, 3239)
     val bankZone = ZoneBorders(3092, 3245, 3092, 3242)
@@ -87,7 +89,31 @@ class DraynorWillows : Script() {
         return script
     }
 
+    /**
+     * State
+     *
+     * @constructor State
+     */
     enum class State {
-        CHOPPING, BANKING, INIT
+        /**
+         * Chopping
+         *
+         * @constructor Chopping
+         */
+        CHOPPING,
+
+        /**
+         * Banking
+         *
+         * @constructor Banking
+         */
+        BANKING,
+
+        /**
+         * Init
+         *
+         * @constructor Init
+         */
+        INIT
     }
 }

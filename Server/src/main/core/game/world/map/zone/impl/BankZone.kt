@@ -4,6 +4,11 @@ import core.game.world.map.zone.MapZone
 import core.game.world.map.zone.ZoneBorders
 import core.game.world.map.zone.ZoneRestriction
 
+/**
+ * Bank zone
+ *
+ * @constructor Bank zone
+ */
 class BankZone : MapZone("bank", true) {
 
     override fun configure() {
@@ -90,6 +95,11 @@ class BankZone : MapZone("bank", true) {
         var BANK_ZONE_36 = ZoneBorders(3118, 3123, 3124, 3125)
     }
 
+    /**
+     * Get restrictions
+     *
+     * @return
+     */
     fun getRestrictions(): Array<ZoneRestriction> {
         return arrayOf(ZoneRestriction.FIRES, ZoneRestriction.CANNON)
     }

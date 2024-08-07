@@ -26,6 +26,9 @@ import core.tools.RandomFunction;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Kalphite queen npc.
+ */
 @Initializable
 public final class KalphiteQueenNPC extends AbstractNPC {
 
@@ -34,10 +37,19 @@ public final class KalphiteQueenNPC extends AbstractNPC {
     private static final Animation TRANSFORM_ANIM = new Animation(6270, Priority.HIGH);
     private final CombatSwingHandler combatHandler = new KQCombatSwingHandler();
 
+    /**
+     * Instantiates a new Kalphite queen npc.
+     */
     public KalphiteQueenNPC() {
         this(1158, DEFAULT_SPAWN);
     }
 
+    /**
+     * Instantiates a new Kalphite queen npc.
+     *
+     * @param id    the id
+     * @param spawn the spawn
+     */
     public KalphiteQueenNPC(int id, Location spawn) {
         super(id, spawn);
         super.setAggressive(true);
@@ -122,6 +134,9 @@ public final class KalphiteQueenNPC extends AbstractNPC {
         return this;
     }
 
+    /**
+     * Kq combat swing handler.
+     */
     static class KQCombatSwingHandler extends CombatSwingHandler {
         private static final Animation MELEE_ATTACK_1 = new Animation(6241, Priority.HIGH);
         private static final Animation RANGE_ATTACK_1 = new Animation(6240, Priority.HIGH);
@@ -133,6 +148,9 @@ public final class KalphiteQueenNPC extends AbstractNPC {
         private CombatStyle style = CombatStyle.RANGE;
 
 
+        /**
+         * Instantiates a new Kq combat swing handler.
+         */
         public KQCombatSwingHandler() {
             super(CombatStyle.RANGE);
         }

@@ -6,6 +6,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
 import core.tools.RandomFunction
 
+/**
+ * Benny NPC.
+ */
 class BennyNPC : NPCBehavior(NPCs.BENNY_5925) {
 
     private val forceChat = arrayOf(

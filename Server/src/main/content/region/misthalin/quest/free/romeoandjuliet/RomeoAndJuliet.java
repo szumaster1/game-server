@@ -5,9 +5,15 @@ import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.quest.Quest;
 import core.plugin.Initializable;
 
+/**
+ * Romeo and juliet.
+ */
 @Initializable
 public class RomeoAndJuliet extends Quest {
 
+    /**
+     * Instantiates a new Romeo and juliet.
+     */
     public RomeoAndJuliet() {
         super("Romeo & Juliet", 26, 25, 5, Vars.VARP_QUEST_ROMEO_JULIET_PROGRESS, 0, 1, 100);
     }

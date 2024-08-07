@@ -4,7 +4,7 @@ import core.game.node.entity.player.Player
 
 
 /**
- * The type Consumable effect.
+ * Consumable effect.
  */
 abstract class ConsumableEffect {
     /**

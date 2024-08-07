@@ -28,6 +28,9 @@ import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Karamja grapple.
+ */
 @Initializable
 class KaramjaGrapple : OptionHandler() {
 
@@ -54,6 +57,12 @@ class KaramjaGrapple : OptionHandler() {
         return this
     }
 
+    /**
+     * Handle objects
+     *
+     * @param add
+     * @param player
+     */
     fun handleObjects(add: Boolean, player: Player) {
         val current = player.location
         if (add) {

@@ -9,6 +9,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
+/**
+ * Locked diary
+ *
+ * @constructor Locked diary
+ */
 class LockedDiary : InteractionListener {
 
     // Found by searching Sandy's desk in Brimhaven

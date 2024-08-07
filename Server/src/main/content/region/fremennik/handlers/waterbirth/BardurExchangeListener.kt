@@ -9,6 +9,9 @@ import core.api.sendNPCDialogue
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Bardur exchange listener.
+ */
 class BardurExchangeListener : InteractionListener {
 
     override fun defineListeners() {

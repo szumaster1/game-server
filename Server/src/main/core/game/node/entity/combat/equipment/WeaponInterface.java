@@ -23,6 +23,9 @@ import core.network.packet.outgoing.StringPacket;
 import static core.api.ContentAPIKt.setVarp;
 
 
+/**
+ * Weapon interface.
+ */
 public final class WeaponInterface extends Component {
 
     private static final int[] MODERN_SPELL_IDS = {1, 4, 6, 8, 10, 14, 17, 20, 24, 27, 33, 38, 45, 48, 52, 55};
@@ -33,34 +36,79 @@ public final class WeaponInterface extends Component {
 
     private static final int[] VOID_STAFF_SPELL_IDS = {22, 42, 45, 48, 52, 55};
 
+    /**
+     * The constant DEFAULT_ANIMS.
+     */
     public static final Animation[] DEFAULT_ANIMS = {new Animation(422, Priority.HIGH), new Animation(423, Priority.HIGH), new Animation(422, Priority.HIGH), new Animation(422, Priority.HIGH)};
 
+    /**
+     * The constant BONUS_STAB.
+     */
     public static final int BONUS_STAB = 0;
 
+    /**
+     * The constant BONUS_SLASH.
+     */
     public static final int BONUS_SLASH = 1;
 
+    /**
+     * The constant BONUS_CRUSH.
+     */
     public static final int BONUS_CRUSH = 2;
 
+    /**
+     * The constant BONUS_MAGIC.
+     */
     public static final int BONUS_MAGIC = 3;
 
+    /**
+     * The constant BONUS_RANGE.
+     */
     public static final int BONUS_RANGE = 4;
 
+    /**
+     * The constant STYLE_ACCURATE.
+     */
     public static final int STYLE_ACCURATE = 0;
 
+    /**
+     * The constant STYLE_AGGRESSIVE.
+     */
     public static final int STYLE_AGGRESSIVE = 1;
 
+    /**
+     * The constant STYLE_CONTROLLED.
+     */
     public static final int STYLE_CONTROLLED = 2;
 
+    /**
+     * The constant STYLE_DEFENSIVE.
+     */
     public static final int STYLE_DEFENSIVE = 3;
 
+    /**
+     * The constant STYLE_RANGE_ACCURATE.
+     */
     public static final int STYLE_RANGE_ACCURATE = 4;
 
+    /**
+     * The constant STYLE_RAPID.
+     */
     public static final int STYLE_RAPID = 5;
 
+    /**
+     * The constant STYLE_LONG_RANGE.
+     */
     public static final int STYLE_LONG_RANGE = 6;
 
+    /**
+     * The constant STYLE_DEFENSIVE_CAST.
+     */
     public static final int STYLE_DEFENSIVE_CAST = 7;
 
+    /**
+     * The constant STYLE_CAST.
+     */
     public static final int STYLE_CAST = 8;
 
     private final Player player;
@@ -71,6 +119,11 @@ public final class WeaponInterface extends Component {
 
     private Animation[] attackAnimations;
 
+    /**
+     * Instantiates a new Weapon interface.
+     *
+     * @param player the player
+     */
     public WeaponInterface(Player player) {
         super(92);
         this.player = player;
@@ -139,6 +192,9 @@ public final class WeaponInterface extends Component {
         return 10;
     }
 
+    /**
+     * Update interface.
+     */
     public void updateInterface() {
         player.getInterfaceManager().getTabs()[0] = this;
         Item weapon = player.getEquipment().get(EquipmentContainer.SLOT_WEAPON);
@@ -180,6 +236,12 @@ public final class WeaponInterface extends Component {
         }
     }
 
+    /**
+     * Sets attack style.
+     *
+     * @param button the button
+     * @return the attack style
+     */
     public boolean setAttackStyle(int button) {
         int slot = button - 1;
         if (current != WeaponInterfaces.STAFF) {
@@ -224,6 +286,12 @@ public final class WeaponInterface extends Component {
 
     ;
 
+    /**
+     * Gets autospell id.
+     *
+     * @param spellId the spell id
+     * @return the autospell id
+     */
     public int getAutospellId(int spellId) {
         boolean modern = player.getSpellBookManager().getSpellBook() == Components.MAGIC_192;
         int[] data = modern ? MODERN_SPELL_IDS : ANCIENT_SPELL_IDS;
@@ -241,6 +309,12 @@ public final class WeaponInterface extends Component {
         return -1;
     }
 
+    /**
+     * Select auto spell.
+     *
+     * @param buttonId          the button id
+     * @param adjustAttackStyle the adjust attack style
+     */
     public void selectAutoSpell(int buttonId, boolean adjustAttackStyle) {
         boolean modern = player.getSpellBookManager().getSpellBook() == Components.MAGIC_192;
         int[] data = modern ? MODERN_SPELL_IDS : ANCIENT_SPELL_IDS;
@@ -330,6 +404,9 @@ public final class WeaponInterface extends Component {
 
     }
 
+    /**
+     * Open autocast select.
+     */
     public void openAutocastSelect() {
         if (current != WeaponInterfaces.STAFF) {
             return;
@@ -355,6 +432,12 @@ public final class WeaponInterface extends Component {
         player.getInterfaceManager().openTab(component);
     }
 
+    /**
+     * Can autocast boolean.
+     *
+     * @param message the message
+     * @return the boolean
+     */
     public boolean canAutocast(boolean message) {
         if (current != WeaponInterfaces.STAFF) {
             return false;
@@ -376,6 +459,12 @@ public final class WeaponInterface extends Component {
         return true;
     }
 
+    /**
+     * Gets weapon interface.
+     *
+     * @param weapon the weapon
+     * @return the weapon interface
+     */
     public static WeaponInterfaces getWeaponInterface(Item weapon) {
         if (weapon == null) {
             return WeaponInterfaces.values()[0];
@@ -384,74 +473,168 @@ public final class WeaponInterface extends Component {
         return WeaponInterfaces.values()[slot];
     }
 
+    /**
+     * Attack style.
+     */
     public static class AttackStyle {
 
         private final int style;
 
         private final int bonusType;
 
+        /**
+         * Instantiates a new Attack style.
+         *
+         * @param style     the style
+         * @param bonusType the bonus type
+         */
         public AttackStyle(int style, int bonusType) {
             this.style = style;
             this.bonusType = bonusType;
         }
 
+        /**
+         * Gets style.
+         *
+         * @return the style
+         */
         public int getStyle() {
             return style;
         }
 
+        /**
+         * Gets bonus type.
+         *
+         * @return the bonus type
+         */
         public int getBonusType() {
             return bonusType;
         }
     }
 
+    /**
+     * The enum Weapon interfaces.
+     */
     public static enum WeaponInterfaces {
 
+        /**
+         * The Unarmed.
+         */
         UNARMED(Components.WEAPON_FISTS_SEL_92, new AttackStyle(STYLE_ACCURATE, BONUS_CRUSH), new AttackStyle(STYLE_AGGRESSIVE, BONUS_CRUSH), new AttackStyle(STYLE_DEFENSIVE, BONUS_CRUSH)),
 
+        /**
+         * The Staff.
+         */
         STAFF(Components.WEAPON_STAFF_SEL_90, new AttackStyle(STYLE_ACCURATE, BONUS_CRUSH), new AttackStyle(STYLE_AGGRESSIVE, BONUS_CRUSH), new AttackStyle(STYLE_DEFENSIVE, BONUS_CRUSH), new AttackStyle(STYLE_DEFENSIVE_CAST, BONUS_MAGIC), new AttackStyle(STYLE_CAST, BONUS_MAGIC)),
 
+        /**
+         * The Axe.
+         */
         AXE(Components.WEAPON_BAXE_SEL_75, new AttackStyle(STYLE_ACCURATE, BONUS_SLASH), new AttackStyle(STYLE_AGGRESSIVE, BONUS_SLASH), new AttackStyle(STYLE_AGGRESSIVE, BONUS_CRUSH), new AttackStyle(STYLE_DEFENSIVE, BONUS_SLASH)),
 
+        /**
+         * The Scepter.
+         */
         SCEPTER(Components.WEAPON_SCEPTER_SEL_85, new AttackStyle(STYLE_ACCURATE, BONUS_CRUSH), new AttackStyle(STYLE_AGGRESSIVE, BONUS_CRUSH), new AttackStyle(STYLE_DEFENSIVE, BONUS_CRUSH)),
 
+        /**
+         * The Pickaxe.
+         */
         PICKAXE(Components.WEAPON_PICKAXE_SEL_83, new AttackStyle(STYLE_ACCURATE, BONUS_STAB), new AttackStyle(STYLE_AGGRESSIVE, BONUS_STAB), new AttackStyle(STYLE_AGGRESSIVE, BONUS_CRUSH), new AttackStyle(STYLE_DEFENSIVE, BONUS_STAB)),
 
+        /**
+         * The Sword dagger.
+         */
         SWORD_DAGGER(Components.WEAPON_DAGGER_SEL_89, new AttackStyle(STYLE_ACCURATE, BONUS_STAB), new AttackStyle(STYLE_AGGRESSIVE, BONUS_STAB), new AttackStyle(STYLE_AGGRESSIVE, BONUS_SLASH), new AttackStyle(STYLE_DEFENSIVE, BONUS_STAB)),
 
+        /**
+         * The Scimitar.
+         */
         SCIMITAR(Components.WEAPON_SCIMITAR_SEL_81, new AttackStyle(STYLE_ACCURATE, BONUS_SLASH), new AttackStyle(STYLE_AGGRESSIVE, BONUS_SLASH), new AttackStyle(STYLE_CONTROLLED, BONUS_STAB), new AttackStyle(STYLE_DEFENSIVE, BONUS_SLASH)),
 
+        /**
+         * The Two h sword.
+         */
         TWO_H_SWORD(Components.WEAPON_2H_SWORD_SEL_82, new AttackStyle(STYLE_ACCURATE, BONUS_SLASH), new AttackStyle(STYLE_AGGRESSIVE, BONUS_SLASH), new AttackStyle(STYLE_AGGRESSIVE, BONUS_CRUSH), new AttackStyle(STYLE_DEFENSIVE, BONUS_SLASH)),
 
+        /**
+         * The Mace.
+         */
         MACE(Components.WEAPON_MACE_SEL_88, new AttackStyle(STYLE_ACCURATE, BONUS_CRUSH), new AttackStyle(STYLE_AGGRESSIVE, BONUS_CRUSH), new AttackStyle(STYLE_CONTROLLED, BONUS_STAB), new AttackStyle(STYLE_DEFENSIVE, BONUS_CRUSH)),
 
+        /**
+         * The Claws.
+         */
         CLAWS(Components.WEAPON_CLAWS_SEL_78, new AttackStyle(STYLE_ACCURATE, BONUS_SLASH), new AttackStyle(STYLE_AGGRESSIVE, BONUS_SLASH), new AttackStyle(STYLE_CONTROLLED, BONUS_STAB), new AttackStyle(STYLE_DEFENSIVE, BONUS_SLASH)),
 
+        /**
+         * The Warhammer maul.
+         */
         WARHAMMER_MAUL(Components.WEAPON_WARHAMMER_SEL_76, new AttackStyle(STYLE_ACCURATE, BONUS_CRUSH), new AttackStyle(STYLE_AGGRESSIVE, BONUS_CRUSH), new AttackStyle(STYLE_DEFENSIVE, BONUS_CRUSH)),
 
+        /**
+         * The Whip.
+         */
         WHIP(Components.WEAPON_WHIP_SEL_93, new AttackStyle(STYLE_ACCURATE, BONUS_SLASH), new AttackStyle(STYLE_CONTROLLED, BONUS_SLASH), new AttackStyle(STYLE_DEFENSIVE, BONUS_SLASH)),
 
+        /**
+         * The Flowers.
+         */
         FLOWERS(Components.WEAPON_WARHAMMER_SEL_76, new AttackStyle(STYLE_ACCURATE, BONUS_CRUSH), new AttackStyle(STYLE_AGGRESSIVE, BONUS_CRUSH), new AttackStyle(STYLE_DEFENSIVE, BONUS_CRUSH)),
 
+        /**
+         * The Mud pie.
+         */
         MUD_PIE(Components.WEAPON_THROWN_SEL_91, new AttackStyle(STYLE_RANGE_ACCURATE, BONUS_RANGE), new AttackStyle(STYLE_RAPID, BONUS_RANGE), new AttackStyle(STYLE_LONG_RANGE, BONUS_RANGE)),
 
+        /**
+         * The Spear.
+         */
         SPEAR(Components.WEAPON_SPEAR_SEL_87, new AttackStyle(STYLE_CONTROLLED, BONUS_STAB), new AttackStyle(STYLE_CONTROLLED, BONUS_SLASH), new AttackStyle(STYLE_CONTROLLED, BONUS_CRUSH), new AttackStyle(STYLE_DEFENSIVE, BONUS_STAB)),
 
+        /**
+         * The Halberd.
+         */
         HALBERD(Components.WEAPON_HALBERD_SEL_84, new AttackStyle(STYLE_CONTROLLED, BONUS_STAB), new AttackStyle(STYLE_AGGRESSIVE, BONUS_SLASH), new AttackStyle(STYLE_DEFENSIVE, BONUS_STAB)),
 
+        /**
+         * The Bow.
+         */
         BOW(Components.WEAPON_BOW_SEL_77, new AttackStyle(STYLE_RANGE_ACCURATE, BONUS_RANGE), new AttackStyle(STYLE_RAPID, BONUS_RANGE), new AttackStyle(STYLE_LONG_RANGE, BONUS_RANGE)),
 
+        /**
+         * The Crossbow.
+         */
         CROSSBOW(Components.WEAPON_XBOW_SEL_79, new AttackStyle(STYLE_RANGE_ACCURATE, BONUS_RANGE), new AttackStyle(STYLE_RAPID, BONUS_RANGE), new AttackStyle(STYLE_LONG_RANGE, BONUS_RANGE)),
 
+        /**
+         * The Thrown weapons.
+         */
         THROWN_WEAPONS(Components.WEAPON_THROWN_SEL_91, new AttackStyle(STYLE_RANGE_ACCURATE, BONUS_RANGE), new AttackStyle(STYLE_RAPID, BONUS_RANGE), new AttackStyle(STYLE_LONG_RANGE, BONUS_RANGE)),
 
+        /**
+         * The Chinchompa.
+         */
         CHINCHOMPA(Components.WEAPON_CHINCHOMPA_SEL_473, new AttackStyle(STYLE_RANGE_ACCURATE, BONUS_RANGE), new AttackStyle(STYLE_RAPID, BONUS_RANGE), new AttackStyle(STYLE_LONG_RANGE, BONUS_RANGE)),
 
+        /**
+         * The Fixed device.
+         */
         FIXED_DEVICE(Components.WEAPON_FIXED_DEVICE_SEL_80, new AttackStyle(STYLE_RANGE_ACCURATE, BONUS_RANGE), new AttackStyle(STYLE_AGGRESSIVE, BONUS_CRUSH)),
 
+        /**
+         * The Salamander.
+         */
         SALAMANDER(Components.WEAPON_SALAMANDER_SEL_474, new AttackStyle(STYLE_AGGRESSIVE, BONUS_SLASH), new AttackStyle(STYLE_RANGE_ACCURATE, BONUS_RANGE), new AttackStyle(STYLE_DEFENSIVE_CAST, BONUS_MAGIC)),
 
+        /**
+         * The Scythe.
+         */
         SCYTHE(Components.WEAPON_SCYTHE_SEL_86, new AttackStyle(STYLE_ACCURATE, BONUS_SLASH), new AttackStyle(STYLE_AGGRESSIVE, BONUS_STAB), new AttackStyle(STYLE_AGGRESSIVE, BONUS_CRUSH), new AttackStyle(STYLE_DEFENSIVE, BONUS_SLASH)),
 
+        /**
+         * The Ivandis flail.
+         */
         IVANDIS_FLAIL(Components.WEAPON_SCEPTER_SEL_85, new AttackStyle(STYLE_ACCURATE, BONUS_CRUSH), new AttackStyle(STYLE_AGGRESSIVE, BONUS_CRUSH), new AttackStyle(STYLE_DEFENSIVE, BONUS_CRUSH));
 
         private final int interfaceId;
@@ -463,19 +646,39 @@ public final class WeaponInterface extends Component {
             this.attackStyles = attackStyles;
         }
 
+        /**
+         * Gets interface id.
+         *
+         * @return the interface id
+         */
         public int getInterfaceId() {
             return interfaceId;
         }
 
+        /**
+         * Get attack styles attack style [ ].
+         *
+         * @return the attack style [ ]
+         */
         public AttackStyle[] getAttackStyles() {
             return attackStyles;
         }
     }
 
+    /**
+     * Gets weapon interface.
+     *
+     * @return the weapon interface
+     */
     public WeaponInterfaces getWeaponInterface() {
         return current;
     }
 
+    /**
+     * Is special bar boolean.
+     *
+     * @return the boolean
+     */
     public boolean isSpecialBar() {
         return specialBar;
     }

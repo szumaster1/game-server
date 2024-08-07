@@ -18,6 +18,9 @@ import java.lang.Integer.min
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
+/**
+ * Revenant controller.
+ */
 class RevenantController : TickListener, Commands {
 
     companion object {
@@ -267,13 +270,21 @@ class RevenantController : TickListener, Commands {
         }
     }
 
-    /*
+    /**
      * The current task for any given revenant - execute is called every tick.
      */
+
     enum class RevenantTask {
+        /**
+         * None.
+         */
         NONE {
             override fun execute(revenantNPC: RevenantNPC) {}
         },
+
+        /**
+         * Random Roam.
+         */
         RANDOM_ROAM {
             private val MAX_ROAM_TICKS: Int = 250
 
@@ -293,6 +304,12 @@ class RevenantController : TickListener, Commands {
                 taskTimeRemaining[revenantNPC] = RandomFunction.random(MAX_ROAM_TICKS)
             }
 
+            /**
+             * Can move.
+             *
+             * @param revenantNPC the npc id.
+             * @return
+             */
             fun canMove(revenantNPC: RevenantNPC): Boolean {
                 return !revenantNPC.walkingQueue.isMoving
                         && !revenantNPC.pulseManager.hasPulseRunning()
@@ -300,12 +317,22 @@ class RevenantController : TickListener, Commands {
                         && !revenantNPC.properties.combatPulse.isInCombat
             }
 
+            /**
+             * Get next location.
+             *
+             * @param revenantNPC the npc id.
+             * @return
+             */
             fun getNextLocation(revenantNPC: RevenantNPC): Location {
                 val nextX = RandomFunction.random(-revenantNPC.walkRadius, revenantNPC.walkRadius)
                 val nextY = RandomFunction.random(-revenantNPC.walkRadius, revenantNPC.walkRadius)
                 return revenantNPC.location.transform(nextX, nextY, 0)
             }
         },
+
+        /**
+         * Patrolling Route.
+         */
         PATROLLING_ROUTE {
             private val MAXIMUM_GROUP_PATROL_LEVEL = 105
 
@@ -382,6 +409,12 @@ class RevenantController : TickListener, Commands {
                 }
             }
 
+            /**
+             * Can move.
+             *
+             * @param revenantNPC the npc id.
+             * @return
+             */
             fun canMove(revenantNPC: RevenantNPC): Boolean {
                 return !revenantNPC.walkingQueue.isMoving
                         && !revenantNPC.pulseManager.hasPulseRunning()
@@ -393,7 +426,18 @@ class RevenantController : TickListener, Commands {
         }
         ;
 
+        /**
+         * Execute.
+         *
+         * @param revenantNPC the npc id.
+         */
         abstract fun execute(revenantNPC: RevenantNPC)
+
+        /**
+         * Assign.
+         *
+         * @param revenantNPC the npc id.
+         */
         open fun assign(revenantNPC: RevenantNPC) {}
     }
 }

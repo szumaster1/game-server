@@ -11,6 +11,10 @@ import core.game.container.Container
 import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.Player
 
+/**
+ * Allows the user to interact with the Bank Interface.
+ * @author vddCore
+ */
 class BankInterfaceListener : InterfaceListener {
     companion object {
         private const val MAIN_BUTTON_CLOSE = 10

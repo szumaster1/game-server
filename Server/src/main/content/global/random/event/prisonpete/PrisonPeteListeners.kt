@@ -10,6 +10,9 @@ import core.game.world.map.zone.ZoneBorders
 import core.game.world.map.zone.ZoneRestriction
 import core.game.world.update.flag.context.Graphic
 
+/**
+ * Prison pete listeners.
+ */
 class PrisonPeteListeners : InteractionListener, MapArea {
 
     override fun defineListeners() {

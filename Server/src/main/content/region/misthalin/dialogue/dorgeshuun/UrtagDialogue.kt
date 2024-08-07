@@ -10,6 +10,9 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 import core.api.consts.NPCs
 
+/**
+ * Urtag dialogue.
+ */
 @Initializable
 class UrtagDialogue(player: Player? = null) : Dialogue(player) {
 

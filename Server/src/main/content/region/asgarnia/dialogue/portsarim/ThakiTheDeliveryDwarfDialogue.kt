@@ -8,6 +8,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Thaki the delivery dwarf dialogue.
+ */
 @Initializable
 class ThakiTheDeliveryDwarfDialogue(player: Player? = null) : Dialogue(player) {
 

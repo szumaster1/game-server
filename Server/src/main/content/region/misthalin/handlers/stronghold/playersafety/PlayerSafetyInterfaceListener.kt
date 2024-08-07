@@ -5,6 +5,9 @@ import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Player safety interface listener.
+ */
 @Initializable
 class PlayerSafetyInterfaceListener : InterfaceListener {
 
@@ -23,15 +26,23 @@ class PlayerSafetyInterfaceListener : InterfaceListener {
         private var testQuestionNumber = 0
     }
 
-    /*
-     * Define a new Test Question
-     * interfaceId: the base ID for the test question
-     * baseChild: the ID of the Component child
-     * answers: A map of button press: child to display
-     * correctOption: The button number for the correct option
+    /**
+     * Test question.
+     *
+     * @property interfaceId the base ID for the test question.
+     * @property baseChild the ID of the Component child.
+     * @property answers A map of button press: child to display.
+     * @property correctOption The button number for the correct option.
+     * @constructor Test question.
      */
     class TestQuestion(val interfaceId: Int, val baseChild: Int, val answers: Map<Int, Int>, val correctOption: Int) {
 
+        /**
+         * Show answer.
+         *
+         * @param player the player.
+         * @param button the button.
+         */
         fun showAnswer(player: Player, button: Int) {
             setComponentVisibility(player, interfaceId, baseChild, false)
             answers[button]?.let { setComponentVisibility(player, interfaceId, it, false) }
@@ -39,6 +50,12 @@ class PlayerSafetyInterfaceListener : InterfaceListener {
         }
     }
 
+    /**
+     * Check answer.
+     *
+     * @param player the player.
+     * @param button the button.
+     */
     private fun checkAnswer(player: Player, button: Int) {
         val question = testQuestions[testQuestionNumber]
         question.showAnswer(player, button)
@@ -47,6 +64,11 @@ class PlayerSafetyInterfaceListener : InterfaceListener {
         }
     }
 
+    /**
+     * Completed test.
+     *
+     * @param player the player.
+     */
     private fun completedTest(player: Player) {
         closeInterface(player)
         player.savedData.globalData.setTestStage(2)
@@ -54,6 +76,11 @@ class PlayerSafetyInterfaceListener : InterfaceListener {
         sendDialogue(player, "Congratulations! The test has been completed. " + "Hand the paper in to Professor Henry for marking.")
     }
 
+    /**
+     * Update.
+     *
+     * @param player the player.
+     */
     fun update(player: Player) {
         closeInterface(player)
         testQuestions.forEachIndexed { index, testQuestion ->

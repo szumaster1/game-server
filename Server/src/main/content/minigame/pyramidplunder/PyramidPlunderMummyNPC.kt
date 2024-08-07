@@ -1,10 +1,14 @@
 package content.minigame.pyramidplunder
 
+import core.api.consts.NPCs
 import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
 import core.game.world.map.Location
 import core.tools.RandomFunction
 
+/**
+ * Pyramid plunder mummy NPC.
+ */
 class PyramidPlunderMummyNPC(location: Location?, player: Player?) : PyramidPlunderNPC(IDS.get(0), location, player!!) {
 
     override fun init() {
@@ -35,6 +39,6 @@ class PyramidPlunderMummyNPC(location: Location?, player: Player?) : PyramidPlun
     }
 
     companion object {
-        private val IDS = intArrayOf(1958)
+        private val IDS = intArrayOf(NPCs.MUMMY_1958)
     }
 }

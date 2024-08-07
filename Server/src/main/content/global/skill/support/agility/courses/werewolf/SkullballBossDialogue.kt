@@ -10,6 +10,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Skullball boss dialogue.
+ */
 @Initializable
 class SkullballBossDialogue(player: Player? = null) : Dialogue(player) {
 

@@ -6,6 +6,11 @@ import core.api.consts.NPCs
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Rope on lady keli listener
+ *
+ * @constructor Rope on lady keli listener
+ */
 class RopeOnLadyKeliListener : InteractionListener {
 
     private val rope = Items.ROPE_954

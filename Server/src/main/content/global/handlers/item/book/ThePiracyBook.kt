@@ -9,6 +9,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
+/**
+ * The piracy book
+ *
+ * @constructor The piracy book
+ */
 class ThePiracyBook : InteractionListener {
 
     // Obtainable during the

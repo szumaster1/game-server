@@ -13,6 +13,13 @@ import core.game.world.map.path.Pathfinder
 import core.tools.secondsToTicks
 import kotlin.reflect.full.createInstance
 
+/**
+ * Holiday random even NPC
+ *
+ * @constructor
+ *
+ * @param id
+ */
 abstract class HolidayRandomEventNPC(id: Int) : NPC(id) {
     lateinit var player: Player
     var spawnLocation: Location? = null
@@ -21,6 +28,13 @@ abstract class HolidayRandomEventNPC(id: Int) : NPC(id) {
     var timerPaused = false
     var ticksLeft = secondsToTicks(30)
 
+    /**
+     * Create
+     *
+     * @param player
+     * @param type
+     * @return
+     */
     open fun create(player: Player, type: String = ""): HolidayRandomEventNPC {
         val event = this::class.createInstance()
         event.player = player
@@ -28,6 +42,10 @@ abstract class HolidayRandomEventNPC(id: Int) : NPC(id) {
         return event
     }
 
+    /**
+     * Terminate
+     *
+     */
     open fun terminate() {
         pulseManager.clear(PulseType.STANDARD)
         if (initialized && !finalized) {
@@ -37,6 +55,10 @@ abstract class HolidayRandomEventNPC(id: Int) : NPC(id) {
         finalized = true
     }
 
+    /**
+     * Follow
+     *
+     */
     open fun follow() {
         pulseManager.run((object : MovementPulse(this, player, Pathfinder.DUMB) {
             override fun pulse(): Boolean {
@@ -86,5 +108,10 @@ abstract class HolidayRandomEventNPC(id: Int) : NPC(id) {
         ) player.removeAttribute("holiday-npc")
     }
 
+    /**
+     * Talk to
+     *
+     * @param npc
+     */
     abstract fun talkTo(npc: NPC)
 }

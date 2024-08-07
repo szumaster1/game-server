@@ -12,6 +12,9 @@ import core.plugin.Plugin
 private const val UNF_CHOC_SAT = 9573
 private const val UNF_DRUN_DRA = 9575
 
+/**
+ * Cocktail finisher.
+ */
 @Initializable
 class CocktailFinisher : OptionHandler() {
     override fun newInstance(arg: Any?): Plugin<Any> {
@@ -49,8 +52,26 @@ class CocktailFinisher : OptionHandler() {
         player.inventory.add(Item(drink.product))
     }
 
+    /**
+     * Finished drinks
+     *
+     * @property product
+     * @property requiredItems
+     * @constructor Finished drinks
+     */
     internal enum class FinishedDrinks(val product: Int, val requiredItems: Array<Item>) {
+        /**
+         * Fin Choc Sat
+         *
+         * @constructor Fin Choc Sat
+         */
         FIN_CHOC_SAT(2074, arrayOf(Item(Items.CHOCOLATE_DUST_1975), Item(Items.POT_OF_CREAM_2130))),
+
+        /**
+         * Fin Drun Dra
+         *
+         * @constructor Fin Drun Dra
+         */
         FIN_DRUN_DRA(9576, arrayOf(Item(Items.PINEAPPLE_CHUNKS_2116), Item(Items.POT_OF_CREAM_2130)))
     }
 

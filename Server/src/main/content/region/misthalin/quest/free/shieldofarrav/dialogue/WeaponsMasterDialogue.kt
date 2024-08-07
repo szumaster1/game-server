@@ -6,6 +6,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 
+/**
+ * Weapons master dialogue.
+ */
 class WeaponsMasterDialogue(player: Player? = null) : Dialogue(player) {
 
     private var quest: Quest? = null

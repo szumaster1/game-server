@@ -5,7 +5,6 @@ import core.network.packet.Context
 
 /**
  * The skill context.
- * @author Emperor
  */
 class SkillContext(
     private val player: Player,

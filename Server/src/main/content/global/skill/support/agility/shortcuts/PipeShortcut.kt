@@ -15,6 +15,9 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Pipe shortcut.
+ */
 @Initializable
 class PipeShortcut : AgilityShortcut {
 

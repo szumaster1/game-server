@@ -8,6 +8,11 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Look at option plugin
+ *
+ * @constructor Look at option plugin
+ */
 @Initializable
 class LookAtOptionPlugin : OptionHandler() {
 

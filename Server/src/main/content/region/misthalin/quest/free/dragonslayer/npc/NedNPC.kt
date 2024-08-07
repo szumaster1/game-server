@@ -5,7 +5,9 @@ import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player
 import core.game.world.map.Location
 
-
+/**
+ * Ned NPC.
+ */
 class NedNPC : AbstractNPC {
 
     constructor() : super(0, null)

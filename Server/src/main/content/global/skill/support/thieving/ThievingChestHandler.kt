@@ -18,6 +18,9 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Thieving chest handler.
+ */
 @Initializable
 class ThievingChestHandler : OptionHandler() {
 
@@ -51,6 +54,16 @@ class ThievingChestHandler : OptionHandler() {
         return true
     }
 
+    /**
+     * Chest
+     *
+     * @property objectIds
+     * @property level
+     * @property experience
+     * @property rewards
+     * @property respawn
+     * @constructor Chest
+     */
     enum class Chest(
         val objectIds: IntArray,
         val level: Int,
@@ -58,11 +71,46 @@ class ThievingChestHandler : OptionHandler() {
         val rewards: Array<Item>,
         val respawn: Int,
     ) {
+        /**
+         * Ten Coin
+         *
+         * @constructor Ten Coin
+         */
         TEN_COIN(2566, 13, 7.8, arrayOf(Item(Items.COINS_995, 10)), 7),
+
+        /**
+         * Nature Rune
+         *
+         * @constructor Nature Rune
+         */
         NATURE_RUNE(2567, 28, 25.0, arrayOf(Item(Items.COINS_995, 3), Item(Items.NATURE_RUNE_561, 1)), 8),
+
+        /**
+         * Fifty Coin
+         *
+         * @constructor Fifty Coin
+         */
         FIFTY_COIN(2568, 43, 125.0, arrayOf(Item(Items.COINS_995, 50)), 55),
+
+        /**
+         * Steel Arrowheads
+         *
+         * @constructor Steel Arrowheads
+         */
         STEEL_ARROWHEADS(2573, 47, 150.0, arrayOf(Item(41, 5)), 210),
+
+        /**
+         * Blood Runes
+         *
+         * @constructor Blood Runes
+         */
         BLOOD_RUNES(2569, 59, 250.0, arrayOf(Item(Items.COINS_995, 500), Item(Items.BLOOD_RUNE_565, 2)), 135),
+
+        /**
+         * Paladin
+         *
+         * @constructor Paladin
+         */
         PALADIN(2570, 72, 500.0, arrayOf(Item(Items.COINS_995, 1000), Item(Items.RAW_SHARK_383, 1), Item(Items.ADAMANTITE_ORE_449, 1), Item(Items.UNCUT_SAPPHIRE_1623, 1)), 120);
 
         private var currentRespawn = 0
@@ -75,6 +123,12 @@ class ThievingChestHandler : OptionHandler() {
             respawn: Int,
         ) : this(intArrayOf(objectId), level, experience, rewards, respawn)
 
+        /**
+         * Open
+         *
+         * @param player
+         * @param scenery
+         */
         internal fun open(player: Player, scenery: Scenery) {
             if (isRespawning) {
                 sendMessage(player, "It looks like this chest has already been looted.")
@@ -85,6 +139,12 @@ class ThievingChestHandler : OptionHandler() {
             impact(player, getHitAmount(player), HitsplatType.NORMAL)
         }
 
+        /**
+         * Search traps
+         *
+         * @param player
+         * @param scenery
+         */
         fun searchTraps(player: Player, scenery: Scenery) {
             player.faceLocation(scenery.location)
             if (isRespawning) {
@@ -136,6 +196,10 @@ class ThievingChestHandler : OptionHandler() {
             })
         }
 
+        /**
+         * Set respawn
+         *
+         */
         fun setRespawn() {
             currentRespawn = ticks + (respawn / 0.6).toInt()
         }

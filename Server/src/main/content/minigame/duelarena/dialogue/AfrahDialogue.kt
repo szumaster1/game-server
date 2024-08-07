@@ -8,6 +8,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Afrah dialogue.
+ */
 @Initializable
 class AfrahDialogue(player: Player? = null) : Dialogue(player) {
     private val conversations = arrayOf(0, 4, 10, 11, 15, 17, 20, 22, 23, 24, 29, 32)

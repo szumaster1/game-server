@@ -12,8 +12,6 @@ import core.tools.Log
 
 /**
  * Handles digging with a spade.
- *
- * @author Emperor
  */
 object DigSpadeHandler {
 

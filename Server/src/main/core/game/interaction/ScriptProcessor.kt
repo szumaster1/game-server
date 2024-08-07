@@ -16,6 +16,12 @@ import java.io.PrintWriter
 import java.io.StringWriter
 import java.lang.Integer.max
 
+/**
+ * Script processor
+ *
+ * @property entity
+ * @constructor Script processor
+ */
 class ScriptProcessor(val entity: Entity) {
     private var apScript: Script<*>? = null
     private var opScript: Script<*>? = null
@@ -30,6 +36,10 @@ class ScriptProcessor(val entity: Entity) {
     var persistent = false
     var targetDestination: Location? = null
 
+    /**
+     * Pre movement
+     *
+     */
     fun preMovement() {
         var allSkipped = false
         while (!allSkipped) {
@@ -57,6 +67,11 @@ class ScriptProcessor(val entity: Entity) {
         }
     }
 
+    /**
+     * Post movement
+     *
+     * @param didMove
+     */
     fun postMovement(didMove: Boolean) {
         if (didMove)
             entity.clocks[Clocks.MOVEMENT] = GameWorld.ticks + if (entity.walkingQueue.isRunning) 0 else 1
@@ -86,6 +101,11 @@ class ScriptProcessor(val entity: Entity) {
         if (interactTarget != null && interactTarget?.isActive != true) reset()
     }
 
+    /**
+     * Process queue
+     *
+     * @return
+     */
     fun processQueue(): Boolean {
         var strongInQueue = false
         var softInQueue = false
@@ -95,9 +115,7 @@ class ScriptProcessor(val entity: Entity) {
 
         if (softInQueue || strongInQueue) {
             if (entity is Player) {
-                entity.interfaceManager.close()
-                entity.interfaceManager.closeChatbox()
-                entity.dialogueInterpreter.close()
+                closeAllInterfaces(entity.asPlayer())
             }
         }
 
@@ -115,9 +133,7 @@ class ScriptProcessor(val entity: Entity) {
                     if (script.nextExecution > GameWorld.ticks)
                         continue
                     if ((script.strength == QueueStrength.STRONG || script.strength == QueueStrength.SOFT) && entity is Player) {
-                        entity.interfaceManager.close()
-                        entity.interfaceManager.closeChatbox()
-                        entity.dialogueInterpreter.close()
+                        closeAllInterfaces(entity.asPlayer())
                     }
                     script.nextExecution = GameWorld.ticks + 1
                     val finished = executeScript(script)
@@ -140,9 +156,7 @@ class ScriptProcessor(val entity: Entity) {
                     if (script.nextExecution > GameWorld.ticks)
                         continue
                     if ((script.strength == QueueStrength.STRONG || script.strength == QueueStrength.SOFT)) {
-                        entity.interfaceManager.close()
-                        entity.interfaceManager.closeChatbox()
-                        entity.dialogueInterpreter.close()
+                        closeAllInterfaces(entity.asPlayer())
                     }
                     script.nextExecution = GameWorld.ticks + 1
                     val finished = executeScript(script)
@@ -160,10 +174,21 @@ class ScriptProcessor(val entity: Entity) {
         return !anyExecuted
     }
 
+    /**
+     * Is persist
+     *
+     * @param script
+     * @return
+     */
     fun isPersist(script: Script<*>): Boolean {
         return script.persist
     }
 
+    /**
+     * Process interact script
+     *
+     * @param script
+     */
     fun processInteractScript(script: Script<*>) {
         if (interactTarget == null || !interactTarget!!.isActive) {
             log(this::class.java, Log.FINE, "Interact target $interactTarget no longer active, cancelling interaction.")
@@ -178,6 +203,12 @@ class ScriptProcessor(val entity: Entity) {
         }
     }
 
+    /**
+     * Execute script
+     *
+     * @param script
+     * @return
+     */
     fun executeScript(script: Script<*>): Boolean {
         currentScript = script
         try {
@@ -207,27 +238,35 @@ class ScriptProcessor(val entity: Entity) {
             val sw = StringWriter()
             val pw = PrintWriter(sw)
             e.printStackTrace(pw)
-            log(
-                this::class.java,
-                Log.ERR,
-                "Error processing ${script::class.java.simpleName} - stopping the script. Exception follows: $sw"
-            )
+            log(this::class.java, Log.ERR, "Error processing ${script::class.java.simpleName} - stopping the script. Exception follows: $sw")
             reset()
         }
         currentScript = null
         return true
     }
 
+    /**
+     * Remove weak scripts
+     *
+     */
     fun removeWeakScripts() {
-        queue.removeAll(queue.filter { it is QueuedScript && it.strength == QueueStrength.WEAK || it is QueuedUseWith && it.strength == QueueStrength.WEAK }
-            .toSet())
+        queue.removeAll(queue.filter { it is QueuedScript && it.strength == QueueStrength.WEAK || it is QueuedUseWith && it.strength == QueueStrength.WEAK }.toSet())
     }
 
+    /**
+     * Remove normal scripts
+     *
+     */
     fun removeNormalScripts() {
-        queue.removeAll(queue.filter { it is QueuedScript && it.strength == QueueStrength.NORMAL || it is QueuedUseWith && it.strength == QueueStrength.NORMAL }
-            .toSet())
+        queue.removeAll(queue.filter { it is QueuedScript && it.strength == QueueStrength.NORMAL || it is QueuedUseWith && it.strength == QueueStrength.NORMAL }.toSet())
     }
 
+    /**
+     * In approach distance
+     *
+     * @param script
+     * @return
+     */
     fun inApproachDistance(script: Script<*>): Boolean {
         val distance = when (script) {
             is Interaction -> script.distance
@@ -240,6 +279,11 @@ class ScriptProcessor(val entity: Entity) {
         return false
     }
 
+    /**
+     * In operable distance
+     *
+     * @return
+     */
     fun inOperableDistance(): Boolean {
         targetDestination?.let {
             return it.cardinalTiles.any { loc -> loc == entity.location } && hasLineOfSight(entity, it)
@@ -247,6 +291,10 @@ class ScriptProcessor(val entity: Entity) {
         return false
     }
 
+    /**
+     * Reset
+     *
+     */
     fun reset() {
         apScript = null
         opScript = null
@@ -260,6 +308,12 @@ class ScriptProcessor(val entity: Entity) {
         resetAnimator(entity as? Player ?: return)
     }
 
+    /**
+     * Set interaction script
+     *
+     * @param target
+     * @param script
+     */
     fun setInteractionScript(target: Node, script: Script<*>?) {
         if (apScript != null && script != null && script.execution == apScript!!.execution) return
         if (opScript != null && script != null && script.execution == opScript!!.execution) return
@@ -298,6 +352,12 @@ class ScriptProcessor(val entity: Entity) {
         }
     }
 
+    /**
+     * Add to queue
+     *
+     * @param script
+     * @param strength
+     */
     fun addToQueue(script: Script<*>, strength: QueueStrength) {
         if (script !is QueuedScript && script !is QueuedUseWith) {
             log(
@@ -316,6 +376,11 @@ class ScriptProcessor(val entity: Entity) {
         queue.add(script)
     }
 
+    /**
+     * Get active script
+     *
+     * @return
+     */
     fun getActiveScript(): Script<*>? {
         return currentScript ?: getActiveInteraction()
     }
@@ -324,6 +389,12 @@ class ScriptProcessor(val entity: Entity) {
         return opScript ?: apScript
     }
 
+    /**
+     * Has type in queue
+     *
+     * @param type
+     * @return
+     */
     fun hasTypeInQueue(type: QueueStrength): Boolean {
         for (script in queue) {
             if (script is QueuedScript && script.strength == type)

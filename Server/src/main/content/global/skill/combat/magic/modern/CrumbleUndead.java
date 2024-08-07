@@ -17,9 +17,15 @@ import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
+/**
+ * Crumble undead.
+ */
 @Initializable
 public final class CrumbleUndead extends CombatSpell {
 
+    /**
+     * Instantiates a new Crumble undead.
+     */
     public CrumbleUndead() {
         super(SpellType.CRUMBLE_UNDEAD, SpellBook.MODERN, 39, 24.5, Sounds.CRUMBLE_CAST_AND_FIRE_122, Sounds.CRUMBLE_HIT_124, new Animation(724, Priority.HIGH), new Graphic(145, 96), Projectile.create((Entity) null, null, 146, 40, 36, 52, 75, 15, 11), new Graphic(147, 96), Runes.EARTH_RUNE.getItem(2), Runes.AIR_RUNE.getItem(2), Runes.CHAOS_RUNE.getItem(1));
     }

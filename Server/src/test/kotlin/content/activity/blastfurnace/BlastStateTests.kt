@@ -5,7 +5,16 @@ import content.minigame.blastfurnace.BlastState
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
+/**
+ * Blast state tests
+ *
+ * @constructor Blast state tests
+ */
 class BlastStateTests {
+    /**
+     * Tick passed with coke in stove should increase stove temp
+     *
+     */
     @Test
     fun tickPassedWithCokeInStoveShouldIncreaseStoveTemp() {
         val state = BlastState(); state.disableBreaking = true
@@ -16,6 +25,10 @@ class BlastStateTests {
         Assertions.assertEquals(1, state.stoveTemp)
     }
 
+    /**
+     * Stove temp should never exceed100
+     *
+     */
     @Test
     fun stoveTempShouldNeverExceed100() {
         val state = BlastState(); state.disableBreaking = true
@@ -26,6 +39,10 @@ class BlastStateTests {
         Assertions.assertEquals(100, state.stoveTemp)
     }
 
+    /**
+     * Coke should disappear from stove
+     *
+     */
     @Test
     fun cokeShouldDisappearFromStove() {
         val state = BlastState(); state.disableBreaking = true
@@ -35,6 +52,10 @@ class BlastStateTests {
         Assertions.assertEquals(0, state.cokeInStove)
     }
 
+    /**
+     * Stove temp should lower without coke
+     *
+     */
     @Test
     fun stoveTempShouldLowerWithoutCoke() {
         val state = BlastState(); state.disableBreaking = true
@@ -47,6 +68,10 @@ class BlastStateTests {
         Assertions.assertEquals(0, state.stoveTemp)
     }
 
+    /**
+     * Stove temp should never go below0
+     *
+     */
     @Test
     fun stoveTempShouldNeverGoBelow0() {
         val state = BlastState(); state.disableBreaking = true
@@ -55,6 +80,10 @@ class BlastStateTests {
         Assertions.assertEquals(0, state.stoveTemp)
     }
 
+    /**
+     * Furnace temp should increase proportionally to stove temp while pumping
+     *
+     */
     @Test
     fun furnaceTempShouldIncreaseProportionallyToStoveTempWhilePumping() {
         val testData = arrayOf(
@@ -74,6 +103,10 @@ class BlastStateTests {
         }
     }
 
+    /**
+     * Pumping should not transfer heat if pipes broken
+     *
+     */
     @Test
     fun pumpingShouldNotTransferHeatIfPipesBroken() {
         val state1 = BlastState(); state1.disableBreaking = true
@@ -89,6 +122,10 @@ class BlastStateTests {
         Assertions.assertEquals(0, state2.furnaceTemp)
     }
 
+    /**
+     * Pumping should not transfer heat if belt broken
+     *
+     */
     @Test
     fun pumpingShouldNotTransferHeatIfBeltBroken() {
         val state = BlastState(); state.disableBreaking = true

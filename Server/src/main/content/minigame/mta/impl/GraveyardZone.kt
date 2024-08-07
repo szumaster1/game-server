@@ -23,6 +23,11 @@ import core.game.world.update.flag.context.Graphic
 import core.tools.RandomFunction
 import core.tools.StringUtils
 
+/**
+ * Graveyard zone
+ *
+ * @constructor Graveyard zone
+ */
 class GraveyardZone :
     MTAZone("Creature Graveyard", arrayOf(Item(6904), Item(6905), Item(6906), Item(6907), Item(1963), Item(6883))) {
 
@@ -126,13 +131,49 @@ class GraveyardZone :
     }
 
 
+    /**
+     * Bone type
+     *
+     * @property objectId
+     * @property item
+     * @constructor Bone type
+     */
     enum class BoneType(val objectId: Int, val item: Item) {
 
+        /**
+         * First
+         *
+         * @constructor First
+         */
         FIRST(10725, Item(6904)),
+
+        /**
+         * Second
+         *
+         * @constructor Second
+         */
         SECOND(10726, Item(6905)),
+
+        /**
+         * Third
+         *
+         * @constructor Third
+         */
         THIRD(10727, Item(6906)),
+
+        /**
+         * Fourth
+         *
+         * @constructor Fourth
+         */
         FOURTH(10728, Item(6907));
 
+        /**
+         * Grab
+         *
+         * @param player
+         * @param object
+         */
         fun grab(player: Player, `object`: Scenery) {
             if (player.inventory.freeSlots() < 1) {
                 player.sendMessage("You have no free space!")

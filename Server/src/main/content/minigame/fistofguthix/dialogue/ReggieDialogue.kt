@@ -8,8 +8,12 @@ import core.game.node.item.Item
 import core.game.world.GameWorld
 import core.plugin.Initializable
 
+/**
+ * Reggie dialogue.
+ */
 @Initializable
 class ReggieDialogue(player: Player? = null) : Dialogue(player) {
+
     override fun open(vararg args: Any): Boolean {
         if (GameWorld.settings?.allow_token_purchase == true) {
             options("Can I see your shop?", "Nevermind.", "Can I buy some tokens?")
@@ -19,7 +23,7 @@ class ReggieDialogue(player: Player? = null) : Dialogue(player) {
         stage = 0
         return true
     }
-    
+
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         var buyAmount = 0
         when (stage) {

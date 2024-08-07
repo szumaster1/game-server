@@ -10,8 +10,20 @@ import core.game.node.item.Item
 import core.game.system.task.Pulse
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Barb fish cutting pulse
+ *
+ * @property player
+ * @property fish
+ * @constructor Barb fish cutting pulse
+ */
 class BarbFishCuttingPulse(val player: Player, val fish: Int) : Pulse(0) {
 
+    /**
+     * Check requirements
+     *
+     * @return
+     */
     fun checkRequirements(): Boolean {
         if (!(freeSlots(player) >= 2 || (freeSlots(player) >= 1 && inInventory(player, Items.FISH_OFFCUTS_11334)))) {
             sendMessage(player, "You don't have enough space in your pack to attempt cutting open the fish.")

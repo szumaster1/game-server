@@ -3,6 +3,9 @@
 
 package proto.management;
 
+/**
+ * Private message.
+ */
 public final class PrivateMessage extends
         com.google.protobuf.GeneratedMessageV3 implements
         // @@protoc_insertion_point(message_implements:management.PrivateMessage)
@@ -20,14 +23,14 @@ public final class PrivateMessage extends
         message_ = "";
     }
 
-    @java.lang.Override
+    @Override
     @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
+    protected Object newInstance(
             UnusedPrivateParameter unused) {
         return new PrivateMessage();
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
         return this.unknownFields;
@@ -39,7 +42,7 @@ public final class PrivateMessage extends
             throws com.google.protobuf.InvalidProtocolBufferException {
         this();
         if (extensionRegistry == null) {
-            throw new java.lang.NullPointerException();
+            throw new NullPointerException();
         }
         int mutable_bitField0_ = 0;
         com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -95,37 +98,45 @@ public final class PrivateMessage extends
         }
     }
 
+    /**
+     * Gets descriptor.
+     *
+     * @return the descriptor
+     */
     public static final com.google.protobuf.Descriptors.Descriptor
     getDescriptor() {
-        return proto.management.ManagementProtos.internal_static_management_PrivateMessage_descriptor;
+        return ManagementProtos.internal_static_management_PrivateMessage_descriptor;
     }
 
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    @Override
+    protected FieldAccessorTable
     internalGetFieldAccessorTable() {
-        return proto.management.ManagementProtos.internal_static_management_PrivateMessage_fieldAccessorTable
+        return ManagementProtos.internal_static_management_PrivateMessage_fieldAccessorTable
                 .ensureFieldAccessorsInitialized(
-                        proto.management.PrivateMessage.class, proto.management.PrivateMessage.Builder.class);
+                        PrivateMessage.class, Builder.class);
     }
 
     private int bitField0_;
+    /**
+     * The constant SENDER_FIELD_NUMBER.
+     */
     public static final int SENDER_FIELD_NUMBER = 1;
-    private volatile java.lang.Object sender_;
+    private volatile Object sender_;
 
-    @java.lang.Override
+    @Override
     public boolean hasSender() {
         return ((bitField0_ & 0x00000001) != 0);
     }
 
-    @java.lang.Override
-    public java.lang.String getSender() {
-        java.lang.Object ref = sender_;
-        if (ref instanceof java.lang.String) {
-            return (java.lang.String) ref;
+    @Override
+    public String getSender() {
+        Object ref = sender_;
+        if (ref instanceof String) {
+            return (String) ref;
         } else {
             com.google.protobuf.ByteString bs =
                     (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
+            String s = bs.toStringUtf8();
             if (bs.isValidUtf8()) {
                 sender_ = s;
             }
@@ -133,14 +144,14 @@ public final class PrivateMessage extends
         }
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.ByteString
     getSenderBytes() {
-        java.lang.Object ref = sender_;
-        if (ref instanceof java.lang.String) {
+        Object ref = sender_;
+        if (ref instanceof String) {
             com.google.protobuf.ByteString b =
                     com.google.protobuf.ByteString.copyFromUtf8(
-                            (java.lang.String) ref);
+                            (String) ref);
             sender_ = b;
             return b;
         } else {
@@ -148,23 +159,26 @@ public final class PrivateMessage extends
         }
     }
 
+    /**
+     * The constant RECEIVER_FIELD_NUMBER.
+     */
     public static final int RECEIVER_FIELD_NUMBER = 2;
-    private volatile java.lang.Object receiver_;
+    private volatile Object receiver_;
 
-    @java.lang.Override
+    @Override
     public boolean hasReceiver() {
         return ((bitField0_ & 0x00000002) != 0);
     }
 
-    @java.lang.Override
-    public java.lang.String getReceiver() {
-        java.lang.Object ref = receiver_;
-        if (ref instanceof java.lang.String) {
-            return (java.lang.String) ref;
+    @Override
+    public String getReceiver() {
+        Object ref = receiver_;
+        if (ref instanceof String) {
+            return (String) ref;
         } else {
             com.google.protobuf.ByteString bs =
                     (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
+            String s = bs.toStringUtf8();
             if (bs.isValidUtf8()) {
                 receiver_ = s;
             }
@@ -172,14 +186,14 @@ public final class PrivateMessage extends
         }
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.ByteString
     getReceiverBytes() {
-        java.lang.Object ref = receiver_;
-        if (ref instanceof java.lang.String) {
+        Object ref = receiver_;
+        if (ref instanceof String) {
             com.google.protobuf.ByteString b =
                     com.google.protobuf.ByteString.copyFromUtf8(
-                            (java.lang.String) ref);
+                            (String) ref);
             receiver_ = b;
             return b;
         } else {
@@ -187,23 +201,26 @@ public final class PrivateMessage extends
         }
     }
 
+    /**
+     * The constant MESSAGE_FIELD_NUMBER.
+     */
     public static final int MESSAGE_FIELD_NUMBER = 3;
-    private volatile java.lang.Object message_;
+    private volatile Object message_;
 
-    @java.lang.Override
+    @Override
     public boolean hasMessage() {
         return ((bitField0_ & 0x00000004) != 0);
     }
 
-    @java.lang.Override
-    public java.lang.String getMessage() {
-        java.lang.Object ref = message_;
-        if (ref instanceof java.lang.String) {
-            return (java.lang.String) ref;
+    @Override
+    public String getMessage() {
+        Object ref = message_;
+        if (ref instanceof String) {
+            return (String) ref;
         } else {
             com.google.protobuf.ByteString bs =
                     (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
+            String s = bs.toStringUtf8();
             if (bs.isValidUtf8()) {
                 message_ = s;
             }
@@ -211,14 +228,14 @@ public final class PrivateMessage extends
         }
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.ByteString
     getMessageBytes() {
-        java.lang.Object ref = message_;
-        if (ref instanceof java.lang.String) {
+        Object ref = message_;
+        if (ref instanceof String) {
             com.google.protobuf.ByteString b =
                     com.google.protobuf.ByteString.copyFromUtf8(
-                            (java.lang.String) ref);
+                            (String) ref);
             message_ = b;
             return b;
         } else {
@@ -226,22 +243,25 @@ public final class PrivateMessage extends
         }
     }
 
+    /**
+     * The constant RANK_FIELD_NUMBER.
+     */
     public static final int RANK_FIELD_NUMBER = 4;
     private int rank_;
 
-    @java.lang.Override
+    @Override
     public boolean hasRank() {
         return ((bitField0_ & 0x00000008) != 0);
     }
 
-    @java.lang.Override
+    @Override
     public int getRank() {
         return rank_;
     }
 
     private byte memoizedIsInitialized = -1;
 
-    @java.lang.Override
+    @Override
     public final boolean isInitialized() {
         byte isInitialized = memoizedIsInitialized;
         if (isInitialized == 1) return true;
@@ -267,7 +287,7 @@ public final class PrivateMessage extends
         return true;
     }
 
-    @java.lang.Override
+    @Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
             throws java.io.IOException {
         if (((bitField0_ & 0x00000001) != 0)) {
@@ -285,7 +305,7 @@ public final class PrivateMessage extends
         unknownFields.writeTo(output);
     }
 
-    @java.lang.Override
+    @Override
     public int getSerializedSize() {
         int size = memoizedSize;
         if (size != -1) return size;
@@ -309,15 +329,15 @@ public final class PrivateMessage extends
         return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
         if (obj == this) {
             return true;
         }
-        if (!(obj instanceof proto.management.PrivateMessage)) {
+        if (!(obj instanceof PrivateMessage)) {
             return super.equals(obj);
         }
-        proto.management.PrivateMessage other = (proto.management.PrivateMessage) obj;
+        PrivateMessage other = (PrivateMessage) obj;
 
         if (hasSender() != other.hasSender()) return false;
         if (hasSender()) {
@@ -343,7 +363,7 @@ public final class PrivateMessage extends
         return true;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
         if (memoizedHashCode != 0) {
             return memoizedHashCode;
@@ -371,51 +391,111 @@ public final class PrivateMessage extends
         return hash;
     }
 
-    public static proto.management.PrivateMessage parseFrom(
+    /**
+     * Parse from private message.
+     *
+     * @param data the data
+     * @return the private message
+     * @throws InvalidProtocolBufferException the invalid protocol buffer exception
+     */
+    public static PrivateMessage parseFrom(
             java.nio.ByteBuffer data)
             throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
     }
 
-    public static proto.management.PrivateMessage parseFrom(
+    /**
+     * Parse from private message.
+     *
+     * @param data              the data
+     * @param extensionRegistry the extension registry
+     * @return the private message
+     * @throws InvalidProtocolBufferException the invalid protocol buffer exception
+     */
+    public static PrivateMessage parseFrom(
             java.nio.ByteBuffer data,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
     }
 
-    public static proto.management.PrivateMessage parseFrom(
+    /**
+     * Parse from private message.
+     *
+     * @param data the data
+     * @return the private message
+     * @throws InvalidProtocolBufferException the invalid protocol buffer exception
+     */
+    public static PrivateMessage parseFrom(
             com.google.protobuf.ByteString data)
             throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
     }
 
-    public static proto.management.PrivateMessage parseFrom(
+    /**
+     * Parse from private message.
+     *
+     * @param data              the data
+     * @param extensionRegistry the extension registry
+     * @return the private message
+     * @throws InvalidProtocolBufferException the invalid protocol buffer exception
+     */
+    public static PrivateMessage parseFrom(
             com.google.protobuf.ByteString data,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
     }
 
-    public static proto.management.PrivateMessage parseFrom(byte[] data)
+    /**
+     * Parse from private message.
+     *
+     * @param data the data
+     * @return the private message
+     * @throws InvalidProtocolBufferException the invalid protocol buffer exception
+     */
+    public static PrivateMessage parseFrom(byte[] data)
             throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
     }
 
-    public static proto.management.PrivateMessage parseFrom(
+    /**
+     * Parse from private message.
+     *
+     * @param data              the data
+     * @param extensionRegistry the extension registry
+     * @return the private message
+     * @throws InvalidProtocolBufferException the invalid protocol buffer exception
+     */
+    public static PrivateMessage parseFrom(
             byte[] data,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
     }
 
-    public static proto.management.PrivateMessage parseFrom(java.io.InputStream input)
+    /**
+     * Parse from private message.
+     *
+     * @param input the input
+     * @return the private message
+     * @throws IOException the io exception
+     */
+    public static PrivateMessage parseFrom(java.io.InputStream input)
             throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
                 .parseWithIOException(PARSER, input);
     }
 
-    public static proto.management.PrivateMessage parseFrom(
+    /**
+     * Parse from private message.
+     *
+     * @param input             the input
+     * @param extensionRegistry the extension registry
+     * @return the private message
+     * @throws IOException the io exception
+     */
+    public static PrivateMessage parseFrom(
             java.io.InputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
@@ -423,13 +503,28 @@ public final class PrivateMessage extends
                 .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static proto.management.PrivateMessage parseDelimitedFrom(java.io.InputStream input)
+    /**
+     * Parse delimited from private message.
+     *
+     * @param input the input
+     * @return the private message
+     * @throws IOException the io exception
+     */
+    public static PrivateMessage parseDelimitedFrom(java.io.InputStream input)
             throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
                 .parseDelimitedWithIOException(PARSER, input);
     }
 
-    public static proto.management.PrivateMessage parseDelimitedFrom(
+    /**
+     * Parse delimited from private message.
+     *
+     * @param input             the input
+     * @param extensionRegistry the extension registry
+     * @return the private message
+     * @throws IOException the io exception
+     */
+    public static PrivateMessage parseDelimitedFrom(
             java.io.InputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
@@ -437,14 +532,29 @@ public final class PrivateMessage extends
                 .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static proto.management.PrivateMessage parseFrom(
+    /**
+     * Parse from private message.
+     *
+     * @param input the input
+     * @return the private message
+     * @throws IOException the io exception
+     */
+    public static PrivateMessage parseFrom(
             com.google.protobuf.CodedInputStream input)
             throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
                 .parseWithIOException(PARSER, input);
     }
 
-    public static proto.management.PrivateMessage parseFrom(
+    /**
+     * Parse from private message.
+     *
+     * @param input             the input
+     * @param extensionRegistry the extension registry
+     * @return the private message
+     * @throws IOException the io exception
+     */
+    public static PrivateMessage parseFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
@@ -452,47 +562,66 @@ public final class PrivateMessage extends
                 .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @java.lang.Override
+    @Override
     public Builder newBuilderForType() {
         return newBuilder();
     }
 
+    /**
+     * New builder builder.
+     *
+     * @return the builder
+     */
     public static Builder newBuilder() {
         return DEFAULT_INSTANCE.toBuilder();
     }
 
-    public static Builder newBuilder(proto.management.PrivateMessage prototype) {
+    /**
+     * New builder builder.
+     *
+     * @param prototype the prototype
+     * @return the builder
+     */
+    public static Builder newBuilder(PrivateMessage prototype) {
         return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
 
-    @java.lang.Override
+    @Override
     public Builder toBuilder() {
         return this == DEFAULT_INSTANCE
                 ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            BuilderParent parent) {
         Builder builder = new Builder(parent);
         return builder;
     }
 
+    /**
+     * Builder.
+     */
     public static final class Builder extends
             com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
             // @@protoc_insertion_point(builder_implements:management.PrivateMessage)
-            proto.management.PrivateMessageOrBuilder {
+            PrivateMessageOrBuilder {
+        /**
+         * Gets descriptor.
+         *
+         * @return the descriptor
+         */
         public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-            return proto.management.ManagementProtos.internal_static_management_PrivateMessage_descriptor;
+            return ManagementProtos.internal_static_management_PrivateMessage_descriptor;
         }
 
-        @java.lang.Override
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        @Override
+        protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-            return proto.management.ManagementProtos.internal_static_management_PrivateMessage_fieldAccessorTable
+            return ManagementProtos.internal_static_management_PrivateMessage_fieldAccessorTable
                     .ensureFieldAccessorsInitialized(
-                            proto.management.PrivateMessage.class, proto.management.PrivateMessage.Builder.class);
+                            PrivateMessage.class, Builder.class);
         }
 
         // Construct using proto.management.PrivateMessage.newBuilder()
@@ -501,7 +630,7 @@ public final class PrivateMessage extends
         }
 
         private Builder(
-                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+                BuilderParent parent) {
             super(parent);
             maybeForceBuilderInitialization();
         }
@@ -512,7 +641,7 @@ public final class PrivateMessage extends
             }
         }
 
-        @java.lang.Override
+        @Override
         public Builder clear() {
             super.clear();
             sender_ = "";
@@ -526,29 +655,29 @@ public final class PrivateMessage extends
             return this;
         }
 
-        @java.lang.Override
+        @Override
         public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-            return proto.management.ManagementProtos.internal_static_management_PrivateMessage_descriptor;
+            return ManagementProtos.internal_static_management_PrivateMessage_descriptor;
         }
 
-        @java.lang.Override
-        public proto.management.PrivateMessage getDefaultInstanceForType() {
-            return proto.management.PrivateMessage.getDefaultInstance();
+        @Override
+        public PrivateMessage getDefaultInstanceForType() {
+            return PrivateMessage.getDefaultInstance();
         }
 
-        @java.lang.Override
-        public proto.management.PrivateMessage build() {
-            proto.management.PrivateMessage result = buildPartial();
+        @Override
+        public PrivateMessage build() {
+            PrivateMessage result = buildPartial();
             if (!result.isInitialized()) {
                 throw newUninitializedMessageException(result);
             }
             return result;
         }
 
-        @java.lang.Override
-        public proto.management.PrivateMessage buildPartial() {
-            proto.management.PrivateMessage result = new proto.management.PrivateMessage(this);
+        @Override
+        public PrivateMessage buildPartial() {
+            PrivateMessage result = new PrivateMessage(this);
             int from_bitField0_ = bitField0_;
             int to_bitField0_ = 0;
             if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -572,56 +701,62 @@ public final class PrivateMessage extends
             return result;
         }
 
-        @java.lang.Override
+        @Override
         public Builder clone() {
             return super.clone();
         }
 
-        @java.lang.Override
+        @Override
         public Builder setField(
                 com.google.protobuf.Descriptors.FieldDescriptor field,
-                java.lang.Object value) {
+                Object value) {
             return super.setField(field, value);
         }
 
-        @java.lang.Override
+        @Override
         public Builder clearField(
                 com.google.protobuf.Descriptors.FieldDescriptor field) {
             return super.clearField(field);
         }
 
-        @java.lang.Override
+        @Override
         public Builder clearOneof(
                 com.google.protobuf.Descriptors.OneofDescriptor oneof) {
             return super.clearOneof(oneof);
         }
 
-        @java.lang.Override
+        @Override
         public Builder setRepeatedField(
                 com.google.protobuf.Descriptors.FieldDescriptor field,
-                int index, java.lang.Object value) {
+                int index, Object value) {
             return super.setRepeatedField(field, index, value);
         }
 
-        @java.lang.Override
+        @Override
         public Builder addRepeatedField(
                 com.google.protobuf.Descriptors.FieldDescriptor field,
-                java.lang.Object value) {
+                Object value) {
             return super.addRepeatedField(field, value);
         }
 
-        @java.lang.Override
+        @Override
         public Builder mergeFrom(com.google.protobuf.Message other) {
-            if (other instanceof proto.management.PrivateMessage) {
-                return mergeFrom((proto.management.PrivateMessage) other);
+            if (other instanceof PrivateMessage) {
+                return mergeFrom((PrivateMessage) other);
             } else {
                 super.mergeFrom(other);
                 return this;
             }
         }
 
-        public Builder mergeFrom(proto.management.PrivateMessage other) {
-            if (other == proto.management.PrivateMessage.getDefaultInstance()) return this;
+        /**
+         * Merge from builder.
+         *
+         * @param other the other
+         * @return the builder
+         */
+        public Builder mergeFrom(PrivateMessage other) {
+            if (other == PrivateMessage.getDefaultInstance()) return this;
             if (other.hasSender()) {
                 bitField0_ |= 0x00000001;
                 sender_ = other.sender_;
@@ -645,7 +780,7 @@ public final class PrivateMessage extends
             return this;
         }
 
-        @java.lang.Override
+        @Override
         public final boolean isInitialized() {
             if (!hasSender()) {
                 return false;
@@ -662,16 +797,16 @@ public final class PrivateMessage extends
             return true;
         }
 
-        @java.lang.Override
+        @Override
         public Builder mergeFrom(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws java.io.IOException {
-            proto.management.PrivateMessage parsedMessage = null;
+            PrivateMessage parsedMessage = null;
             try {
                 parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
             } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                parsedMessage = (proto.management.PrivateMessage) e.getUnfinishedMessage();
+                parsedMessage = (PrivateMessage) e.getUnfinishedMessage();
                 throw e.unwrapIOException();
             } finally {
                 if (parsedMessage != null) {
@@ -683,34 +818,34 @@ public final class PrivateMessage extends
 
         private int bitField0_;
 
-        private java.lang.Object sender_ = "";
+        private Object sender_ = "";
 
         public boolean hasSender() {
             return ((bitField0_ & 0x00000001) != 0);
         }
 
-        public java.lang.String getSender() {
-            java.lang.Object ref = sender_;
-            if (!(ref instanceof java.lang.String)) {
+        public String getSender() {
+            Object ref = sender_;
+            if (!(ref instanceof String)) {
                 com.google.protobuf.ByteString bs =
                         (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
+                String s = bs.toStringUtf8();
                 if (bs.isValidUtf8()) {
                     sender_ = s;
                 }
                 return s;
             } else {
-                return (java.lang.String) ref;
+                return (String) ref;
             }
         }
 
         public com.google.protobuf.ByteString
         getSenderBytes() {
-            java.lang.Object ref = sender_;
+            Object ref = sender_;
             if (ref instanceof String) {
                 com.google.protobuf.ByteString b =
                         com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
+                                (String) ref);
                 sender_ = b;
                 return b;
             } else {
@@ -718,8 +853,14 @@ public final class PrivateMessage extends
             }
         }
 
+        /**
+         * Sets sender.
+         *
+         * @param value the value
+         * @return the sender
+         */
         public Builder setSender(
-                java.lang.String value) {
+                String value) {
             if (value == null) {
                 throw new NullPointerException();
             }
@@ -729,6 +870,11 @@ public final class PrivateMessage extends
             return this;
         }
 
+        /**
+         * Clear sender builder.
+         *
+         * @return the builder
+         */
         public Builder clearSender() {
             bitField0_ = (bitField0_ & ~0x00000001);
             sender_ = getDefaultInstance().getSender();
@@ -736,6 +882,12 @@ public final class PrivateMessage extends
             return this;
         }
 
+        /**
+         * Sets sender bytes.
+         *
+         * @param value the value
+         * @return the sender bytes
+         */
         public Builder setSenderBytes(
                 com.google.protobuf.ByteString value) {
             if (value == null) {
@@ -747,34 +899,34 @@ public final class PrivateMessage extends
             return this;
         }
 
-        private java.lang.Object receiver_ = "";
+        private Object receiver_ = "";
 
         public boolean hasReceiver() {
             return ((bitField0_ & 0x00000002) != 0);
         }
 
-        public java.lang.String getReceiver() {
-            java.lang.Object ref = receiver_;
-            if (!(ref instanceof java.lang.String)) {
+        public String getReceiver() {
+            Object ref = receiver_;
+            if (!(ref instanceof String)) {
                 com.google.protobuf.ByteString bs =
                         (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
+                String s = bs.toStringUtf8();
                 if (bs.isValidUtf8()) {
                     receiver_ = s;
                 }
                 return s;
             } else {
-                return (java.lang.String) ref;
+                return (String) ref;
             }
         }
 
         public com.google.protobuf.ByteString
         getReceiverBytes() {
-            java.lang.Object ref = receiver_;
+            Object ref = receiver_;
             if (ref instanceof String) {
                 com.google.protobuf.ByteString b =
                         com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
+                                (String) ref);
                 receiver_ = b;
                 return b;
             } else {
@@ -782,8 +934,14 @@ public final class PrivateMessage extends
             }
         }
 
+        /**
+         * Sets receiver.
+         *
+         * @param value the value
+         * @return the receiver
+         */
         public Builder setReceiver(
-                java.lang.String value) {
+                String value) {
             if (value == null) {
                 throw new NullPointerException();
             }
@@ -793,6 +951,11 @@ public final class PrivateMessage extends
             return this;
         }
 
+        /**
+         * Clear receiver builder.
+         *
+         * @return the builder
+         */
         public Builder clearReceiver() {
             bitField0_ = (bitField0_ & ~0x00000002);
             receiver_ = getDefaultInstance().getReceiver();
@@ -800,6 +963,12 @@ public final class PrivateMessage extends
             return this;
         }
 
+        /**
+         * Sets receiver bytes.
+         *
+         * @param value the value
+         * @return the receiver bytes
+         */
         public Builder setReceiverBytes(
                 com.google.protobuf.ByteString value) {
             if (value == null) {
@@ -811,34 +980,34 @@ public final class PrivateMessage extends
             return this;
         }
 
-        private java.lang.Object message_ = "";
+        private Object message_ = "";
 
         public boolean hasMessage() {
             return ((bitField0_ & 0x00000004) != 0);
         }
 
-        public java.lang.String getMessage() {
-            java.lang.Object ref = message_;
-            if (!(ref instanceof java.lang.String)) {
+        public String getMessage() {
+            Object ref = message_;
+            if (!(ref instanceof String)) {
                 com.google.protobuf.ByteString bs =
                         (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
+                String s = bs.toStringUtf8();
                 if (bs.isValidUtf8()) {
                     message_ = s;
                 }
                 return s;
             } else {
-                return (java.lang.String) ref;
+                return (String) ref;
             }
         }
 
         public com.google.protobuf.ByteString
         getMessageBytes() {
-            java.lang.Object ref = message_;
+            Object ref = message_;
             if (ref instanceof String) {
                 com.google.protobuf.ByteString b =
                         com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
+                                (String) ref);
                 message_ = b;
                 return b;
             } else {
@@ -846,8 +1015,14 @@ public final class PrivateMessage extends
             }
         }
 
+        /**
+         * Sets message.
+         *
+         * @param value the value
+         * @return the message
+         */
         public Builder setMessage(
-                java.lang.String value) {
+                String value) {
             if (value == null) {
                 throw new NullPointerException();
             }
@@ -857,6 +1032,11 @@ public final class PrivateMessage extends
             return this;
         }
 
+        /**
+         * Clear message builder.
+         *
+         * @return the builder
+         */
         public Builder clearMessage() {
             bitField0_ = (bitField0_ & ~0x00000004);
             message_ = getDefaultInstance().getMessage();
@@ -864,6 +1044,12 @@ public final class PrivateMessage extends
             return this;
         }
 
+        /**
+         * Sets message bytes.
+         *
+         * @param value the value
+         * @return the message bytes
+         */
         public Builder setMessageBytes(
                 com.google.protobuf.ByteString value) {
             if (value == null) {
@@ -877,16 +1063,22 @@ public final class PrivateMessage extends
 
         private int rank_;
 
-        @java.lang.Override
+        @Override
         public boolean hasRank() {
             return ((bitField0_ & 0x00000008) != 0);
         }
 
-        @java.lang.Override
+        @Override
         public int getRank() {
             return rank_;
         }
 
+        /**
+         * Sets rank.
+         *
+         * @param value the value
+         * @return the rank
+         */
         public Builder setRank(int value) {
             bitField0_ |= 0x00000008;
             rank_ = value;
@@ -894,6 +1086,11 @@ public final class PrivateMessage extends
             return this;
         }
 
+        /**
+         * Clear rank builder.
+         *
+         * @return the builder
+         */
         public Builder clearRank() {
             bitField0_ = (bitField0_ & ~0x00000008);
             rank_ = 0;
@@ -901,13 +1098,13 @@ public final class PrivateMessage extends
             return this;
         }
 
-        @java.lang.Override
+        @Override
         public final Builder setUnknownFields(
                 final com.google.protobuf.UnknownFieldSet unknownFields) {
             return super.setUnknownFields(unknownFields);
         }
 
-        @java.lang.Override
+        @Override
         public final Builder mergeUnknownFields(
                 final com.google.protobuf.UnknownFieldSet unknownFields) {
             return super.mergeUnknownFields(unknownFields);
@@ -918,20 +1115,28 @@ public final class PrivateMessage extends
     }
 
     // @@protoc_insertion_point(class_scope:management.PrivateMessage)
-    private static final proto.management.PrivateMessage DEFAULT_INSTANCE;
+    private static final PrivateMessage DEFAULT_INSTANCE;
 
     static {
-        DEFAULT_INSTANCE = new proto.management.PrivateMessage();
+        DEFAULT_INSTANCE = new PrivateMessage();
     }
 
-    public static proto.management.PrivateMessage getDefaultInstance() {
+    /**
+     * Gets default instance.
+     *
+     * @return the default instance
+     */
+    public static PrivateMessage getDefaultInstance() {
         return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated
+    /**
+     * The constant PARSER.
+     */
+    @Deprecated
     public static final com.google.protobuf.Parser<PrivateMessage>
             PARSER = new com.google.protobuf.AbstractParser<PrivateMessage>() {
-        @java.lang.Override
+        @Override
         public PrivateMessage parsePartialFrom(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -940,17 +1145,22 @@ public final class PrivateMessage extends
         }
     };
 
+    /**
+     * Parser com . google . protobuf . parser.
+     *
+     * @return the com . google . protobuf . parser
+     */
     public static com.google.protobuf.Parser<PrivateMessage> parser() {
         return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<PrivateMessage> getParserForType() {
         return PARSER;
     }
 
-    @java.lang.Override
-    public proto.management.PrivateMessage getDefaultInstanceForType() {
+    @Override
+    public PrivateMessage getDefaultInstanceForType() {
         return DEFAULT_INSTANCE;
     }
 

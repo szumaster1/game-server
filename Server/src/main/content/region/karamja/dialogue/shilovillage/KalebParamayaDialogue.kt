@@ -13,6 +13,9 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Kaleb paramaya dialogue.
+ */
 @Initializable
 class KalebParamayaDialogue(player: Player? = null): Dialogue(player) {
 

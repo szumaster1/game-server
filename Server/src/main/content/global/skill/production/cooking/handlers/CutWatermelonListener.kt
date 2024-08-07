@@ -9,6 +9,9 @@ import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Cut watermelon listener.
+ */
 class CutWatermelonListener : InteractionListener {
 
     override fun defineListeners() {

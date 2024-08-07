@@ -9,6 +9,11 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 
+/**
+ * Troll stronghold
+ *
+ * @constructor Troll stronghold
+ */
 @Initializable
 class TrollStronghold : Quest("Troll Stronghold", 128, 127, 1, Vars.VARP_QUEST_TROLL_SRONGHOLD_PROGRESS, 0, 1, 50) {
 

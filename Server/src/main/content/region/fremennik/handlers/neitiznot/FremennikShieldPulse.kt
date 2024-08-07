@@ -9,6 +9,15 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Fremennik shield pulse
+ *
+ * @property item
+ * @property amount
+ * @constructor
+ *
+ * @param player
+ */
 class FremennikShieldPulse(player: Player?, val item: Item, var amount: Int) : SkillPulse<Item>(player, Item(Items.FREMENNIK_ROUND_SHIELD_10826)) {
 
     override fun checkRequirements(): Boolean {

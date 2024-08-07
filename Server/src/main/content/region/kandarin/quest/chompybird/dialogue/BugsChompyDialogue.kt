@@ -14,6 +14,9 @@ import core.game.node.entity.player.link.quest.Quest
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Bugs chompy dialogue.
+ */
 @Initializable
 class BugsChompyDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -40,6 +43,12 @@ class BugsChompyDialogue(player: Player? = null) : Dialogue(player) {
     }
 }
 
+/**
+ * Bugs chompy dialogue file
+ *
+ * @property quest
+ * @constructor Bugs chompy dialogue file
+ */
 class BugsChompyDialogueFile(val quest: Quest) : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         when (quest.getStage(player)) {

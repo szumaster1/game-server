@@ -28,6 +28,11 @@ import core.game.world.map.Location
 import core.game.world.map.RegionManager
 import core.game.world.update.flag.context.Animation
 
+/**
+ * T f t interaction listeners
+ *
+ * @constructor T f t interaction listeners
+ */
 class TFTInteractionListeners : InteractionListener {
     private val BEER = intArrayOf(Items.BEER_3803, Items.BEER_1917)
     private val WORKER = NPCs.COUNCIL_WORKMAN_1287
@@ -297,12 +302,32 @@ class TFTInteractionListeners : InteractionListener {
     }
 
 
+    /**
+     * Dest room
+     *
+     * @property swx
+     * @property swy
+     * @property nex
+     * @property ney
+     * @constructor Dest room
+     */
     class DestRoom(val swx: Int, val swy: Int, val nex: Int, val ney: Int)
 
+    /**
+     * Get center
+     *
+     * @return
+     */
     fun DestRoom.getCenter(): Location {
         return Location((swx + nex) / 2, (swy + ney) / 2).transform(1, 0, 0)
     }
 
+    /**
+     * Get random location
+     *
+     * @param player
+     * @return
+     */
     fun getRandomLocation(player: Player?): Location {
         var obj: Scenery? = null
 
@@ -316,6 +341,12 @@ class TFTInteractionListeners : InteractionListener {
         return obj.location
     }
 
+    /**
+     * Has equippable items
+     *
+     * @param player
+     * @return
+     */
     fun hasEquippableItems(player: Player?): Boolean {
         val container = arrayOf(player!!.inventory, player.equipment)
         for (c in container) {
@@ -339,6 +370,13 @@ class TFTInteractionListeners : InteractionListener {
     }
 
 
+    /**
+     * Spirit pulse
+     *
+     * @property player
+     * @property fish
+     * @constructor Spirit pulse
+     */
     class SpiritPulse(val player: Player, val fish: Int) : Pulse() {
         var counter = 0
         val npc = NPC(1273, player.location)
@@ -395,6 +433,13 @@ class TFTInteractionListeners : InteractionListener {
     }
 
 
+    /**
+     * Lyre concert pulse
+     *
+     * @property player
+     * @property Lyre
+     * @constructor Lyre concert pulse
+     */
     class LyreConcertPulse(val player: Player, val Lyre: Int) : Pulse() {
         val GENERIC_LYRICS = arrayOf(
             "${player.name.replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }} is my name,",
@@ -493,6 +538,12 @@ class TFTInteractionListeners : InteractionListener {
     }
 
 
+    /**
+     * Branch fletching pulse
+     *
+     * @property player
+     * @constructor Branch fletching pulse
+     */
     class BranchFletchingPulse(val player: Player) : Pulse() {
         var counter = 0
         override fun pulse(): Boolean {
@@ -510,6 +561,12 @@ class TFTInteractionListeners : InteractionListener {
     }
 
 
+    /**
+     * Koschei pulse
+     *
+     * @property player
+     * @constructor Koschei pulse
+     */
     class KoscheiPulse(val player: Player) : Pulse() {
         var counter = 0
         override fun pulse(): Boolean {

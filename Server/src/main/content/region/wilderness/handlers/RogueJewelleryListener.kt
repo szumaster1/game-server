@@ -11,13 +11,16 @@ import core.game.node.entity.npc.NPC
 import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
+/**
+ * Rogue jewellery listener.
+ */
 class RogueJewelleryListener : InteractionListener {
 
     val JEWELLERY_ITEMS = RogueJewellery.values().map { it.item }.toIntArray()
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Interaction with Rogue NPC in Varrock.
          */
         onUseWith(IntType.NPC, JEWELLERY_ITEMS, NPCs.ROGUE_8122) { player, used, _ ->

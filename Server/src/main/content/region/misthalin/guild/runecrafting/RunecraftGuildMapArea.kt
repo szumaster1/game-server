@@ -4,6 +4,9 @@ import core.api.MapArea
 import core.game.world.map.zone.ZoneBorders
 import core.game.world.map.zone.ZoneRestriction
 
+/**
+ * Runecraft guild map area.
+ */
 class RunecraftGuildMapArea : MapArea {
 
     override fun defineAreaBorders(): Array<ZoneBorders> {

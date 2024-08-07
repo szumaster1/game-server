@@ -18,6 +18,11 @@ import core.plugin.ClassScanner
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Snow globe plugin
+ *
+ * @constructor Snow globe plugin
+ */
 @Initializable
 class SnowGlobePlugin : OptionHandler() {
 
@@ -36,6 +41,11 @@ class SnowGlobePlugin : OptionHandler() {
         return true
     }
 
+    /**
+     * Snow globe interface
+     *
+     * @constructor Snow globe interface
+     */
     inner class SnowGlobeInterface : ComponentPlugin() {
         override fun newInstance(arg: Any?): Plugin<Any?> {
             ComponentDefinition.put(INTERFACE.id, this)

@@ -11,6 +11,9 @@ import core.game.node.entity.skill.Skills
 import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 
+/**
+ * Spirit jelly familiar.
+ */
 @Initializable
 class SpiritJellyNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.SPIRIT_JELLY_6992) : Familiar(owner, id, 4300, 12027, 6, WeaponInterface.STYLE_AGGRESSIVE) {
 

@@ -8,6 +8,16 @@ import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
+/**
+ * Arrow head pulse
+ *
+ * @property sets
+ * @constructor
+ *
+ * @param player
+ * @param node
+ * @param arrow
+ */
 class ArrowHeadPulse(player: Player?, node: Item?, arrow: ArrowHead, private var sets: Int) : SkillPulse<Item?>(player, node) {
 
     private val arrows: ArrowHead = arrow

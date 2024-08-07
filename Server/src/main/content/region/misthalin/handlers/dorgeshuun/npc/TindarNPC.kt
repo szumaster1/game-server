@@ -6,6 +6,11 @@ import core.game.node.entity.npc.NPCBehavior
 import core.tools.RandomFunction
 import core.api.consts.NPCs
 
+/**
+ * Tindar NPC
+ *
+ * @constructor Tindar NPC
+ */
 class TindarNPC : NPCBehavior(NPCs.TINDAR_5795) {
 
     private val forceChat = arrayOf(

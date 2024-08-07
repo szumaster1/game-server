@@ -15,6 +15,9 @@ import core.game.node.entity.skill.Skills
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 
+/**
+ * Slayer manager.
+ */
 class SlayerManager(val player: Player? = null) : LoginListener, PersistPlayer, EventHook<NPCKillEvent> {
 
     override fun login(player: Player) {
@@ -142,12 +145,21 @@ class SlayerManager(val player: Player? = null) : LoginListener, PersistPlayer, 
     }
 
 
+    /**
+     * Generate
+     *
+     * @param master
+     */
     fun generate(master: SlayerMaster) {
         val task = SlayerUtils.generate(player!!, master) ?: return
         SlayerUtils.assign(player, task, master)
     }
 
 
+    /**
+     * Clear
+     *
+     */
     fun clear() {
         amount = 0
     }
@@ -183,6 +195,11 @@ class SlayerManager(val player: Player? = null) : LoginListener, PersistPlayer, 
         }
 
 
+    /**
+     * Has task
+     *
+     * @return
+     */
     fun hasTask(): Boolean {
         return amount > 0
     }
@@ -197,12 +214,22 @@ class SlayerManager(val player: Player? = null) : LoginListener, PersistPlayer, 
             flags.setTaskAmount(amount)
         }
 
+    /**
+     * Decrement amount
+     *
+     * @param amount
+     */
     fun decrementAmount(amount: Int) {
         flags.decrementTaskAmount(amount)
         setVarp(player!!, 2502, flags.taskFlags shr 4)
     }
 
 
+    /**
+     * Has started
+     *
+     * @return
+     */
     fun hasStarted(): Boolean {
         return flags.completedTasks > 0 || flags.getTaskAmount() > 0
     }

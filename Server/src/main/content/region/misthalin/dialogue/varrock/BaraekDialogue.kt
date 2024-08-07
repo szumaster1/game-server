@@ -12,6 +12,9 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Baraek dialogue.
+ */
 @Initializable
 class BaraekDialogue(player: Player? = null) : Dialogue(player) {
 

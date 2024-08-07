@@ -11,6 +11,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Jerico dialogue.
+ */
 @Initializable
 class JericoDialogue(player: Player? = null) : Dialogue(player) {
 

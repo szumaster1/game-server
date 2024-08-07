@@ -9,6 +9,9 @@ import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Sir gawain dialogue.
+ */
 @Initializable
 class SirGawainDialogue(player: Player? = null) : Dialogue(player) {
 

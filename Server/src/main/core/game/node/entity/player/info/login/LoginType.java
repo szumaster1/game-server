@@ -1,9 +1,18 @@
 package core.game.node.entity.player.info.login;
 
+/**
+ * The enum Login type.
+ */
 public enum LoginType {
 
+    /**
+     * Normal login login type.
+     */
     NORMAL_LOGIN(16),
 
+    /**
+     * Reconnect type login type.
+     */
     RECONNECT_TYPE(18);
 
     private int type;
@@ -12,6 +21,12 @@ public enum LoginType {
         this.setType(type);
     }
 
+    /**
+     * From type login type.
+     *
+     * @param type the type
+     * @return the login type
+     */
     public static LoginType fromType(int type) {
         for (LoginType login : LoginType.values()) {
             if (login.getType() == type) {
@@ -21,6 +36,11 @@ public enum LoginType {
         return null;
     }
 
+    /**
+     * Gets type.
+     *
+     * @return the type
+     */
     public int getType() {
         return type;
     }

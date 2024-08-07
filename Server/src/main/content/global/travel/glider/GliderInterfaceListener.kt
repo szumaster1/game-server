@@ -6,6 +6,9 @@ import core.api.submitWorldPulse
 import core.api.unlock
 import core.game.interaction.InterfaceListener
 
+/**
+ * Glider interface listener.
+ */
 class GliderInterfaceListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {

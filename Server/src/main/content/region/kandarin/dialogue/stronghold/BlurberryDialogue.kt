@@ -15,6 +15,9 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Blurberry dialogue.
+ */
 @Initializable
 class BlurberryDialogue(player: Player? = null) : Dialogue(player) {
 

@@ -8,6 +8,9 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
+/**
+ * Eluned dialogue.
+ */
 class ElunedDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
@@ -185,6 +188,12 @@ class ElunedDialogue(player: Player? = null) : Dialogue(player) {
         return intArrayOf(NPCs.ELUNED_1679)
     }
 
+    /**
+     * Crystal teleport price
+     *
+     * @param timesRecharged
+     * @return
+     */
     fun crystalTeleportPrice(timesRecharged: Int): Int {
         return Math.max(750 - 150 * timesRecharged, 150)
     }

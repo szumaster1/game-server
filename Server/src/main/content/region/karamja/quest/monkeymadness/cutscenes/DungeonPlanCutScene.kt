@@ -11,6 +11,9 @@ import core.game.world.GameWorld
 import core.game.world.map.Direction
 import core.game.world.map.Location
 
+/**
+ * Dungeon plan cut scene.
+ */
 class DungeonPlanCutScene(player: Player) : Cutscene(player) {
 
     override fun setup() {

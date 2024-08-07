@@ -7,7 +7,6 @@ import core.network.packet.Context
 
 /**
  * Represents the context for the container packet.
- * @author Emperor
  */
 class ContainerContext : Context {
     private var player: Player

@@ -15,6 +15,9 @@ import core.game.world.map.Direction
 import core.game.world.map.Location
 import core.plugin.Initializable
 
+/**
+ * Banker NPC.
+ */
 @Initializable
 class BankerNPC : AbstractNPC, InteractionListener {
 

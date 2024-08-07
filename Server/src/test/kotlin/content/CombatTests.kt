@@ -11,11 +11,20 @@ import core.game.node.entity.skill.Skills
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
+/**
+ * Combat tests
+ *
+ * @constructor Combat tests
+ */
 class CombatTests {
     init {
         TestUtils.preTestSetup()
     }
 
+    /**
+     * Swing handlers flagged as ignore stats should not influence damage
+     *
+     */
     @Test
     fun swingHandlersFlaggedAsIgnoreStatsShouldNotInfluenceDamage() {
         val testRangeHandler = RangeSwingHandler(SwingHandlerFlag.IGNORE_STAT_BOOSTS_DAMAGE)
@@ -34,6 +43,10 @@ class CombatTests {
         }
     }
 
+    /**
+     * Swing handlers flagged as ignore stats should not influence accuracy
+     *
+     */
     @Test
     fun swingHandlersFlaggedAsIgnoreStatsShouldNotInfluenceAccuracy() {
         val testRangeHandler = RangeSwingHandler(SwingHandlerFlag.IGNORE_STAT_BOOSTS_ACCURACY)
@@ -61,6 +74,10 @@ class CombatTests {
         }
     }
 
+    /**
+     * Swing handlers flagged as ignore prayer should not influence damage
+     *
+     */
     @Test
     fun swingHandlersFlaggedAsIgnorePrayerShouldNotInfluenceDamage() {
         val testRangeHandler = RangeSwingHandler(SwingHandlerFlag.IGNORE_PRAYER_BOOSTS_DAMAGE)
@@ -84,6 +101,10 @@ class CombatTests {
         }
     }
 
+    /**
+     * Swing handlers flagged as ignore prayer should not influence accuracy
+     *
+     */
     @Test
     fun swingHandlersFlaggedAsIgnorePrayerShouldNotInfluenceAccuracy() {
         val testRangeHandler = RangeSwingHandler(SwingHandlerFlag.IGNORE_PRAYER_BOOSTS_ACCURACY)
@@ -114,6 +135,10 @@ class CombatTests {
         }
     }
 
+    /**
+     * Chinchompa swing handler ignores stats for damage
+     *
+     */
     @Test
     fun chinchompaSwingHandlerIgnoresStatsForDamage() {
         val handler = content.global.handlers.item.equipment.special.ChinchompaSwingHandler()

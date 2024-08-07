@@ -8,6 +8,9 @@ import core.game.interaction.QueueStrength
 import core.game.node.entity.skill.Skills
 import core.tools.RandomFunction
 
+/**
+ * Lost and found listeners.
+ */
 class LostAndFoundListeners : InteractionListener {
 
     private val sceneryIDs = (8998..9006).toIntArray()

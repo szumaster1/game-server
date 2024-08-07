@@ -15,6 +15,11 @@ import core.api.hasAnItem
 import core.api.consts.Items
 import core.api.consts.NPCs
 
+/**
+ * Chronozon cave zone
+ *
+ * @constructor Chronozon cave zone
+ */
 @Initializable
 class ChronozonCaveZone : MapZone("FC ChronozoneZone", true), Plugin<Unit> {
 

@@ -17,6 +17,9 @@ import core.plugin.Plugin;
 import static core.api.ContentAPIKt.*;
 import static core.game.node.entity.player.link.TeleportManager.WILDY_TELEPORT;
 
+/**
+ * Wilderness plugin.
+ */
 @Initializable
 public final class WildernessPlugin extends OptionHandler {
 
@@ -65,6 +68,9 @@ public final class WildernessPlugin extends OptionHandler {
         return true;
     }
 
+    /**
+     * Kbd plugin.
+     */
     public static final class KBDPlugin extends OptionHandler {
 
 

@@ -15,14 +15,16 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
+/**
+ * Smithing interaction listener
+ */
 class SmithingInteractionListener : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Cannonball smithing.
          */
-
         onUseWith(IntType.SCENERY, Items.STEEL_BAR_2353, *FURNACE) { player, used, _ ->
             val handler: SkillDialogueHandler =
                 object : SkillDialogueHandler(player, SkillDialogue.ONE_OPTION, used.asItem()) {
@@ -39,10 +41,9 @@ class SmithingInteractionListener : InteractionListener {
             return@onUseWith true
         }
 
-        /*
+        /**
          * The two shield halves combining at anvil to produce dragon square shield.
          */
-
         onUseWith(IntType.SCENERY, DRAGON, *ANVIL) { player, used, _ ->
             if (getDynLevel(player, Skills.SMITHING) < 60) {
                 sendDialogue(player, "You need to have a Smithing level of at least 60 to do this.")
@@ -65,10 +66,9 @@ class SmithingInteractionListener : InteractionListener {
             return@onUseWith true
         }
 
-        /*
+        /**
          * Anti-dragon shield fused with a draconic visage.
          */
-
         onUseWith(IntType.SCENERY, DRACONIC, *ANVIL) { player, used, _ ->
             if (getDynLevel(player, Skills.SMITHING) < 90) {
                 sendDialogue(player, "You need to have a Smithing level of at least 90 to do this.")
@@ -90,10 +90,9 @@ class SmithingInteractionListener : InteractionListener {
             return@onUseWith true
         }
 
-        /*
+        /**
          * Fuse godsword shards at an anvil to get godsword blade.
          */
-
         onUseWith(IntType.SCENERY, GODSWORD, *ANVIL) { player, used, _ ->
             if (!inInventory(player, Items.HAMMER_2347, 1) && !SkillcapePerks.isActive(SkillcapePerks.BAREFISTED_SMITHING, player)) {
                 sendDialogue(player, "You need a hammer to work the metal with.")
@@ -123,10 +122,9 @@ class SmithingInteractionListener : InteractionListener {
             return@onUseWith true
         }
 
-        /*
-         * Smithing resources.
+        /**
+         * Smithing bars on anvil.
          */
-
         onUseWith(IntType.SCENERY, BARS, *ANVIL) { player, used, with ->
             if (!isQuestComplete(player, "Doric's Quest") && with.asScenery().id == Scenery.ANVIL_2782) {
                 sendDialogue(player, "Property of Doric the Dwarf.")

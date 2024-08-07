@@ -3,18 +3,46 @@
 
 package proto.management;
 
+/**
+ * The interface Request contact info or builder.
+ */
 public interface RequestContactInfoOrBuilder extends
         // @@protoc_insertion_point(interface_extends:management.RequestContactInfo)
         com.google.protobuf.MessageOrBuilder {
 
+    /**
+     * Has username boolean.
+     *
+     * @return the boolean
+     */
     boolean hasUsername();
 
-    java.lang.String getUsername();
+    /**
+     * Gets username.
+     *
+     * @return the username
+     */
+    String getUsername();
 
+    /**
+     * Gets username bytes.
+     *
+     * @return the username bytes
+     */
     com.google.protobuf.ByteString
     getUsernameBytes();
 
+    /**
+     * Has world boolean.
+     *
+     * @return the boolean
+     */
     boolean hasWorld();
 
+    /**
+     * Gets world.
+     *
+     * @return the world
+     */
     int getWorld();
 }

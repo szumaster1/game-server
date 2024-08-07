@@ -10,6 +10,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Zavistic rarve dialogue.
+ */
 @Initializable
 class ZavisticRarveDialogue(player: Player? = null) : Dialogue(player) {
 

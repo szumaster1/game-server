@@ -8,6 +8,10 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Private paldo dialogue.
+ * @author Szumaster
+ */
 @Initializable
 class PrivatePaldoDialogue(player: Player? = null) : Dialogue(player) {
 

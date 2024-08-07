@@ -11,6 +11,9 @@ import core.game.node.Node
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 
+/**
+ * Barbarian herblore listener.
+ */
 class BarbarianHerbloreListener : InteractionListener {
 
     override fun defineListeners() {
@@ -38,6 +41,14 @@ class BarbarianHerbloreListener : InteractionListener {
 
     }
 
+    /**
+     * Handle
+     *
+     * @param player
+     * @param inputPotion
+     * @param egg
+     * @return
+     */
     fun handle(player: Player, inputPotion: Node, egg: Node): Boolean {
         val potion: BarbarianMix = BarbarianMix.forId(inputPotion.id) ?: return false
 

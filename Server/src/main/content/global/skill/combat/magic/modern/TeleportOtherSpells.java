@@ -17,6 +17,9 @@ import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
+/**
+ * Teleport other spells.
+ */
 @Initializable
 public final class TeleportOtherSpells extends MagicSpell {
 
@@ -24,10 +27,22 @@ public final class TeleportOtherSpells extends MagicSpell {
 
     private Location location;
 
+    /**
+     * Instantiates a new Teleport other spells.
+     */
     public TeleportOtherSpells() {
 
     }
 
+    /**
+     * Instantiates a new Teleport other spells.
+     *
+     * @param level       the level
+     * @param experience  the experience
+     * @param destination the destination
+     * @param location    the location
+     * @param runes       the runes
+     */
     public TeleportOtherSpells(int level, double experience, String destination, Location location, Item... runes) {
         super(SpellBook.MODERN, level, experience, Animation.create(1818), Graphic.create(343), new Audio(Sounds.TELE_OTHER_CAST_199, 1, 0), runes);
         this.destination = destination;

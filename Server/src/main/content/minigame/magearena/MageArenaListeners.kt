@@ -15,6 +15,9 @@ import core.game.world.map.Direction
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Graphic
 
+/**
+ * Mage arena listeners.
+ */
 class MageArenaListeners : InteractionListener {
 
     private val godCapes = intArrayOf(Items.SARADOMIN_CAPE_2412, Items.GUTHIX_CAPE_2413, Items.ZAMORAK_CAPE_2414)

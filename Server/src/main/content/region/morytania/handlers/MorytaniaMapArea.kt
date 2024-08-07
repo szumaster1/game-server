@@ -15,6 +15,9 @@ import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 
+/**
+ * Morytania map area.
+ */
 class MorytaniaMapArea : MapArea {
 
     override fun defineAreaBorders(): Array<ZoneBorders> {
@@ -56,6 +59,9 @@ class MorytaniaMapArea : MapArea {
     }
 }
 
+/**
+ * Watch dog dialogue file.
+ */
 class WatchDogDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         when (stage) {

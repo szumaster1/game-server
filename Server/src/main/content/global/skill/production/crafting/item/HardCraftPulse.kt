@@ -12,6 +12,15 @@ import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
+/**
+ * Hard craft pulse
+ *
+ * @property amount
+ * @constructor
+ *
+ * @param player
+ * @param node
+ */
 class HardCraftPulse(player: Player?, node: Item?, var amount: Int) : SkillPulse<Item?>(player, node) {
 
     var ticks = 0

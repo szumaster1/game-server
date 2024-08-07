@@ -19,13 +19,24 @@ import core.plugin.Plugin;
 
 import java.util.ArrayList;
 
+/**
+ * Pest Control object handler.
+ */
 public final class PCObjectHandler extends OptionHandler {
 
-
-    //public boolean pcbotsSpawned = false;
+    /**
+     * The Pest Control bots spawned.
+     */
+//public boolean pcbotsSpawned = false;
     public boolean PCnBotsSpawned = false;
+    /**
+     * The Pest Control bots spawned.
+     */
     public boolean PCiBotsSpawned = false;
 
+    /**
+     * The Players joined.
+     */
     public ArrayList<String> playersJoined = new ArrayList<>(20);
 
     private static void handleGates(Player player, PestControlSession session, Scenery object) {
@@ -75,6 +86,12 @@ public final class PCObjectHandler extends OptionHandler {
         return 0;
     }
 
+    /**
+     * Gets second door.
+     *
+     * @param object the object
+     * @return the second door
+     */
     public static Scenery getSecondDoor(Scenery object) {
         Location l = object.getLocation();
         Scenery o = null;

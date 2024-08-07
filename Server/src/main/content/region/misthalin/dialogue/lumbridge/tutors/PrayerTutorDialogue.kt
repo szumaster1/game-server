@@ -9,6 +9,9 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.api.consts.NPCs
 
+/**
+ * Prayer tutor dialogue.
+ */
 @Initializable
 class PrayerTutorDialogue(player: Player? = null) : Dialogue(player) {
 

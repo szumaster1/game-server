@@ -16,6 +16,9 @@ import core.game.node.entity.player.link.TeleportManager.TeleportType
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Zanaris listeners.
+ */
 class ZanarisListeners : InteractionListener {
 
     companion object {
@@ -39,10 +42,9 @@ class ZanarisListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
-            Zanaris magic doors interaction.
+        /**
+         * Zanaris magic doors interaction.
          */
-
         on(MAGIC_DOORS, IntType.SCENERY, "open") { player, node ->
             if ((node.id == 12045 && node.location == Location(2469, 4438, 0) && player.location.x >= 2470) || (player.location.y < 4434 && (node.id == 12045 || node.id == 12047 && node.location == Location(2465, 4434, 0))) || (node.id == 12047 && player.location.x >= 2470)) {
                 DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
@@ -52,12 +54,10 @@ class ZanarisListeners : InteractionListener {
             return@on true
         }
 
-        /*
-            Evil Chicken lair interactions.
+        /**
+         * Evil Chicken lair interactions.
          */
-
         onUseWith(IntType.SCENERY, REQUIRED_ITEMS, CHICKEN_SHRINE) { player, used, _ ->
-            if (!hasRequirement(player, "Tower of Life")) return@onUseWith false
             if (used.id != Items.RAW_CHICKEN_2138) {
                 sendMessage(player, "Nice idea, but nothing interesting happens.")
                 return@onUseWith false
@@ -118,10 +118,9 @@ class ZanarisListeners : InteractionListener {
             return@on true
         }
 
-        /*
-            Fairy ring interactions.
+        /**
+         * Fairy ring interactions.
          */
-
         fun fairyMagic(player: Player): Boolean {
             if (!hasRequirement(player, "Fairytale I - Growing Pains")) {
                 sendMessage(player, "The fairy ring is inert.")
@@ -153,11 +152,13 @@ class ZanarisListeners : InteractionListener {
             teleport(player, if (ring == ZANARIS_MARKET_RING) Location.create(3261, 3168, 0) else Location.create(2412, 4434, 0), TeleportType.FAIRY_RING)
             return@on true
         }
+
         on(MAIN_RING, IntType.SCENERY, "use") { player, _ ->
             if (!fairyMagic(player)) return@on true
             openFairyRing(player)
             return@on true
         }
+
         on(ENTRY_RING, IntType.SCENERY, "use") { player, _ ->
             if (!fairyMagic(player)) return@on true
             teleport(player, Location.create(3203, 3168, 0), TeleportType.FAIRY_RING)

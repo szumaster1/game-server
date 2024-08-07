@@ -10,6 +10,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
+/**
+ * Portraiture book
+ *
+ * @constructor Portraiture book
+ */
 class PortraitureBook : InteractionListener {
 
     // The book of portraiture is a quest item

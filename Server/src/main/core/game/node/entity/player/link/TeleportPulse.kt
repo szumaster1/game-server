@@ -5,6 +5,12 @@ import core.api.setAttribute
 import core.game.node.entity.Entity
 import core.game.system.task.Pulse
 
+/**
+ * Teleport pulse
+ *
+ * @property entity
+ * @constructor Teleport pulse
+ */
 internal abstract class TeleportPulse(private val entity: Entity) : Pulse() {
     abstract override fun pulse(): Boolean
 

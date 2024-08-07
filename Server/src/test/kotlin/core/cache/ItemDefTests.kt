@@ -6,6 +6,11 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import java.io.File
 
+/**
+ * Item def tests
+ *
+ * @constructor Item def tests
+ */
 class ItemDefTests {
     val knownGood = HashMap<Int, Int>()
 
@@ -13,6 +18,10 @@ class ItemDefTests {
         TestUtils.preTestSetup()
     }
 
+    /**
+     * Item defs should have expected values
+     *
+     */
     @Test
     fun itemDefsShouldHaveExpectedValues() {
         File(TestUtils.loadFile("530_cache_item_values_from_client.csv")).useLines { lines ->

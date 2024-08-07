@@ -7,8 +7,7 @@ import core.network.packet.context.AnimateSceneryContext
 
 /**
  * Represents the packet used to animate an object.
- * @author Vexia
- * @date 10/11/2013
+ * @author Emperor
  */
 class AnimateScenery : OutgoingPacket<AnimateSceneryContext> {
 

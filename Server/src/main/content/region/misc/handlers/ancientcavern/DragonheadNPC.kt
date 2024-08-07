@@ -11,6 +11,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
 import core.game.node.entity.player.Player
 
+/**
+ * Dragonhead NPC.
+ */
 class DragonheadNPC : NPCBehavior(*DRAGON_HEAD) {
 
     override fun canBeAttackedBy(self: NPC, attacker: Entity, style: CombatStyle, shouldSendMessage: Boolean): Boolean {

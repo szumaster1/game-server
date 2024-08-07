@@ -7,6 +7,9 @@ import core.game.world.map.path.ClipMaskSupplier
 import core.tools.Log
 import core.tools.secondsToTicks
 
+/**
+ * Impling spawner behavior.
+ */
 class ImplingSpawnerBehavior : NPCBehavior(*ImplingSpawner.getIds()) {
     override fun onCreation(self: NPC) {
         val isPuro = isPuroSpawner(self)

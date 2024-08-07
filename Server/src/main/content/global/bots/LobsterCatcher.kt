@@ -17,11 +17,13 @@ import core.game.world.update.flag.context.Graphic
 import core.tools.RandomFunction
 import kotlin.random.Random
 
+/**
+ * Lobster catcher.
+ */
 @PlayerCompatible
 @ScriptName("Catherby Lobs")
 @ScriptDescription("Start in Catherby bank with a lobster pot in your inventory.")
 @ScriptIdentifier("cath_lobs")
-
 class LobsterCatcher : Script() {
     private val ANIMATION = Animation(714)
     val offers = HashMap<Int, Int>()
@@ -33,12 +35,53 @@ class LobsterCatcher : Script() {
      */
     private val Graphic = Graphic(308, 100, 50)
 
+    /**
+     * Sets
+     *
+     * @property equipment
+     * @constructor Sets
+     */
     internal enum class Sets(val equipment: List<Item>) {
+        /**
+         * Set 1
+         *
+         * @constructor Set 1
+         */
         SET_1(listOf(Item(2643), Item(9470), Item(10756), Item(10394), Item(88), Item(9793))),
+
+        /**
+         * Set 2
+         *
+         * @constructor Set 2
+         */
         SET_2(listOf(Item(2643), Item(6585), Item(10750), Item(10394), Item(88), Item(9793))),
+
+        /**
+         * Set 3
+         *
+         * @constructor Set 3
+         */
         SET_3(listOf(Item(9472), Item(9470), Item(10750), Item(10394), Item(88), Item(9786))),
+
+        /**
+         * Set 4
+         *
+         * @constructor Set 4
+         */
         SET_4(listOf(Item(2639), Item(6585), Item(10752), Item(10394), Item(88), Item(9786))),
+
+        /**
+         * Set 5
+         *
+         * @constructor Set 5
+         */
         SET_5(listOf(Item(2639), Item(9470), Item(10750), Item(10394), Item(88), Item(9784))),
+
+        /**
+         * Set 6
+         *
+         * @constructor Set 6
+         */
         SET_6(listOf(Item(2639), Item(6585), Item(10750), Item(10394), Item(88), Item(9784)));
     }
 
@@ -163,8 +206,74 @@ class LobsterCatcher : Script() {
         skills[Skills.FISHING] == 40
     }
 
+    /**
+     * State
+     *
+     * @constructor State
+     */
     enum class State {
-        FISHING, BANKING, FIND_BANK, FIND_SPOT, TELEPORT_GE, SELL_GE, TELE_CATH, IDLE, INIT
+        /**
+         * Fishing
+         *
+         * @constructor Fishing
+         */
+        FISHING,
+
+        /**
+         * Banking
+         *
+         * @constructor Banking
+         */
+        BANKING,
+
+        /**
+         * Find Bank
+         *
+         * @constructor Find Bank
+         */
+        FIND_BANK,
+
+        /**
+         * Find Spot
+         *
+         * @constructor Find Spot
+         */
+        FIND_SPOT,
+
+        /**
+         * Teleport Ge
+         *
+         * @constructor Teleport Ge
+         */
+        TELEPORT_GE,
+
+        /**
+         * Sell Ge
+         *
+         * @constructor Sell Ge
+         */
+        SELL_GE,
+
+        /**
+         * Tele Cath
+         *
+         * @constructor Tele Cath
+         */
+        TELE_CATH,
+
+        /**
+         * Idle
+         *
+         * @constructor Idle
+         */
+        IDLE,
+
+        /**
+         * Init
+         *
+         * @constructor Init
+         */
+        INIT
     }
 
     override fun newInstance(): Script {

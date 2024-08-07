@@ -16,7 +16,9 @@ import core.network.packet.context.ContainerContext
 import core.network.packet.outgoing.ContainerPacket
 import kotlin.math.min
 
-
+/**
+ * Workbench listener.
+ */
 class WorkbenchListener: InterfaceListener, InteractionListener {
     override fun defineListeners() {
         on(intArrayOf(13704, 13705, 13706, 13707, 13708), IntType.SCENERY, "work-at") { player, obj ->

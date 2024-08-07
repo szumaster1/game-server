@@ -17,13 +17,28 @@ import core.plugin.Plugin;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
+/**
+ * Vengeance spell.
+ */
 @Initializable
 public final class VengeanceSpell extends MagicSpell {
 
+    /**
+     * Instantiates a new Vengeance spell.
+     */
     public VengeanceSpell() {
 
     }
 
+    /**
+     * Instantiates a new Vengeance spell.
+     *
+     * @param level      the level
+     * @param experience the experience
+     * @param anim       the anim
+     * @param graphic    the graphic
+     * @param runes      the runes
+     */
     public VengeanceSpell(int level, double experience, Animation anim, Graphic graphic, Item... runes) {
         super(SpellBook.LUNAR, level, experience, anim, graphic, null, runes);
     }

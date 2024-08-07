@@ -14,6 +14,11 @@ import core.game.world.update.flag.context.Animation
 import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 
+/**
+ * Pet rock listener
+ *
+ * @constructor Pet rock listener
+ */
 class PetRockListener : InteractionListener {
 
     private val petRock = Items.PET_ROCK_3695

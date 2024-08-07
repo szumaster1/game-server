@@ -9,6 +9,9 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.Initializable
 
+/**
+ * Sigli the huntsman dialogue.
+ */
 @Initializable
 class SigliTheHuntsmanDialogue(player: Player? = null): Dialogue(player) {
     override fun open(vararg args: Any): Boolean {

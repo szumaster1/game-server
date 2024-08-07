@@ -15,9 +15,12 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import kotlin.random.Random
 
+/**
+ * Ardougne log shortcut.
+ */
 class ArdougneLogShortcut : InteractionListener {
 
-    /*
+    /**
      * Name: Log balance (East Ardougne).
      * Location: West of the Ardougne west bank.
      * Source: https://youtu.be/7z8DOcTqmdk?si=zs0NWttntU9gSqDL&t=121
@@ -27,7 +30,6 @@ class ArdougneLogShortcut : InteractionListener {
      * Hit: 1-7
      * Swimming route: https://i.imgur.com/ScG1XY7.png
      */
-
     override fun defineListeners() {
 
         on(ardougneLog, IntType.SCENERY, "walk-across") { player, node ->

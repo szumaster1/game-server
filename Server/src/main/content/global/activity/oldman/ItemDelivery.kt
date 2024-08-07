@@ -3,71 +3,462 @@ package content.global.activity.oldman
 import core.api.consts.Items
 import core.tools.RandomFunction
 
+/**
+ * Item delivery.
+ *
+ * @property item The item being delivered.
+ * @property min The minimum quantity of the item.
+ * @property max The maximum quantity of the item.
+ * @constructor Creates an instance of ItemDelivery.
+ */
 enum class ItemDelivery(val item: Int, val min: Int, val max: Int) {
-    ANCHOVIES(Items.ANCHOVIES_319, 1,15),
-    BALL_OF_WOOL(Items.BALL_OF_WOOL_1759, 1,15),
-    BEER_GLASS(Items.BEER_GLASS_1919, 1,15),
-    BONES(Items.BONES_526, 1,15),
-    BREAD(Items.BREAD_2309, 1,15),
-    BRONZE_ARROW(Items.BRONZE_ARROW_882, 1,15),
-    BRONZE_BAR(Items.BRONZE_BAR_2349, 1,15),
-    BRONZE_DAGGER(Items.BRONZE_DAGGER_1205, 1,15),
-    BRONZE_AXE(Items.BRONZE_AXE_1351, 1,15),
-    BRONZE_FULL_HELM(Items.BRONZE_FULL_HELM_1155, 1,15),
-    BRONZE_KNIFE(Items.BRONZE_KNIFE_864, 1,15),
-    BRONZE_MACE(Items.BRONZE_MACE_1422, 1,15),
-    BRONZE_MEDIUM_HELM(Items.BRONZE_MED_HELM_1139, 1,15),
-    BRONZE_SPEAR(Items.BRONZE_SPEAR_1237, 1,15),
-    BRONZE_SWORD(Items.BRONZE_SWORD_1277, 1,15),
-    BRONZE_WARHAMMER(Items.BRONZE_WARHAMMER_1337, 1,15),
-    BRONZE_WIRE(Items.BRONZE_WIRE_1794, 1,15),
-    BEER(Items.BEER_1917, 1,15),
-    BOWSTRING(Items.BOW_STRING_1777, 1,15),
-    CADAVA_BERRIES(Items.CADAVA_BERRIES_753, 1,15),
-    COOKED_CHICKEN(Items.COOKED_CHICKEN_2140, 1,15),
-    COOKED_MEAT(Items.COOKED_MEAT_2142, 1,15),
-    COPPER_ORE(Items.COPPER_ORE_436, 1,15),
-    COWHIDE(Items.COWHIDE_1739, 1,15),
-    EGG(Items.EGG_1944, 1,15),
-    FEATHERS(Items.FEATHER_314, 1,15),
-    GRAIN(Items.GRAIN_1947, 1,15),
-    HEADLESS_ARROWS(Items.HEADLESS_ARROW_53, 1,15),
-    IRON_ARROWTIPS(Items.IRON_ARROWTIPS_40, 1,15),
-    IRON_MACE(Items.IRON_MACE_1420, 1,15),
-    IRON_ORE(Items.IRON_ORE_440, 1,15),
-    IRON_THROWING_KNIVES(Items.IRON_THROWNAXE_801, 1,15),
-    IRON_WARHAMMER(Items.IRON_WARHAMMER_1335, 1,15),
-    LEATHER_BOOTS(Items.LEATHER_BOOTS_1061, 1,15),
-    LEATHER_COWL(Items.LEATHER_COWL_1167, 1,15),
-    LEATHER_GLOVES(Items.LEATHER_GLOVES_1059, 1,15),
-    LOGS(Items.LOGS_1511, 1,15),
-    MOLTEN_GLASS(Items.MOLTEN_GLASS_1775, 1,15),
-    POT_OF_FLOUR(Items.POT_OF_FLOUR_1933, 1,15),
-    POTATOES(Items.POTATO_1942, 1,15),
-    RAW_ANCHOVIES(Items.RAW_ANCHOVIES_321, 1,15),
-    RAW_RAT_MEAT(Items.RAW_RAT_MEAT_2134, 1,15),
-    RUNE_ESSENCE(Items.RUNE_ESSENCE_1436, 1,15),
-    PURE_ESSENCE(Items.PURE_ESSENCE_7936, 1,15),
-    SHRIMP(Items.SHRIMPS_315, 1,15),
-    SILK(Items.SILK_950, 1,15),
-    SOFT_CLAY(Items.SOFT_CLAY_1761,1,15);
+    /**
+     * Anchovies.
+     */
+    ANCHOVIES(
+        item = Items.ANCHOVIES_319,
+        min = 1,
+        max = 15
+    ),
 
+    /**
+     * Ball Of Wool.
+     */
+    BALL_OF_WOOL(
+        item = Items.BALL_OF_WOOL_1759,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Beer Glass.
+     */
+    BEER_GLASS(
+        item = Items.BEER_GLASS_1919,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Bones.
+     */
+    BONES(
+        item = Items.BONES_526,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Bread.
+     */
+    BREAD(
+        item = Items.BREAD_2309,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Bronze Arrow.
+     */
+    BRONZE_ARROW(
+        item = Items.BRONZE_ARROW_882,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Bronze Bar.
+     */
+    BRONZE_BAR(
+        item = Items.BRONZE_BAR_2349,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Bronze Dagger.
+     */
+    BRONZE_DAGGER(
+        item = Items.BRONZE_DAGGER_1205,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Bronze Axe.
+     */
+    BRONZE_AXE(
+        item = Items.BRONZE_AXE_1351,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Bronze Full Helm.
+     */
+    BRONZE_FULL_HELM(
+        item = Items.BRONZE_FULL_HELM_1155,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Bronze Knife.
+     */
+    BRONZE_KNIFE(
+        item = Items.BRONZE_KNIFE_864,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Bronze Mace.
+     */
+    BRONZE_MACE(
+        item = Items.BRONZE_MACE_1422,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Bronze Medium Helm.
+     */
+    BRONZE_MEDIUM_HELM(
+        item = Items.BRONZE_MED_HELM_1139,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Bronze Spear.
+     */
+    BRONZE_SPEAR(
+        item = Items.BRONZE_SPEAR_1237,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Bronze Sword.
+     */
+    BRONZE_SWORD(
+        item = Items.BRONZE_SWORD_1277,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Bronze Warhammer.
+     */
+    BRONZE_WARHAMMER(
+        item = Items.BRONZE_WARHAMMER_1337,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Bronze Wire.
+     */
+    BRONZE_WIRE(
+        item = Items.BRONZE_WIRE_1794,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Beer.
+     */
+    BEER(
+        item = Items.BEER_1917,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Bowstring.
+     */
+    BOWSTRING(
+        item = Items.BOW_STRING_1777,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Cadava Berries.
+     */
+    CADAVA_BERRIES(
+        item = Items.CADAVA_BERRIES_753,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Cooked Chicken.
+     */
+    COOKED_CHICKEN(
+        item = Items.COOKED_CHICKEN_2140,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Cooked Meat.
+     */
+    COOKED_MEAT(
+        item = Items.COOKED_MEAT_2142,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Copper Ore.
+     */
+    COPPER_ORE(
+        item = Items.COPPER_ORE_436,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Cowhide.
+     */
+    COWHIDE(
+        item = Items.COWHIDE_1739,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Egg.
+     */
+    EGG(
+        item = Items.EGG_1944,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Feathers.
+     */
+    FEATHERS(
+        item = Items.FEATHER_314,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Grain.
+     */
+    GRAIN(
+        item = Items.GRAIN_1947,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Headless Arrows.
+     */
+    HEADLESS_ARROWS(
+        item = Items.HEADLESS_ARROW_53,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Iron Arrowtips.
+     */
+    IRON_ARROWTIPS(
+        item = Items.IRON_ARROWTIPS_40,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Iron Mace.
+     */
+    IRON_MACE(
+        item = Items.IRON_MACE_1420,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Iron Ore.
+     */
+    IRON_ORE(
+        item = Items.IRON_ORE_440,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Iron Throwing Knives.
+     */
+    IRON_THROWING_KNIVES(
+        item = Items.IRON_THROWNAXE_801,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Iron Warhammer.
+     */
+    IRON_WARHAMMER(
+        item = Items.IRON_WARHAMMER_1335,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Leather Boots.
+     */
+    LEATHER_BOOTS(
+        item = Items.LEATHER_BOOTS_1061,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Leather Cowl.
+     */
+    LEATHER_COWL(
+        item = Items.LEATHER_COWL_1167,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Leather Gloves.
+     */
+    LEATHER_GLOVES(
+        item = Items.LEATHER_GLOVES_1059,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Logs.
+     */
+    LOGS(
+        item = Items.LOGS_1511,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Molten Glass.
+     */
+    MOLTEN_GLASS(
+        item = Items.MOLTEN_GLASS_1775,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Pot Of Flour.
+     */
+    POT_OF_FLOUR(
+        item = Items.POT_OF_FLOUR_1933,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Potatoes.
+     */
+    POTATOES(
+        item = Items.POTATO_1942,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Raw Anchovies.
+     */
+    RAW_ANCHOVIES(
+        item = Items.RAW_ANCHOVIES_321,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Raw Rat Meat.
+     */
+    RAW_RAT_MEAT(
+        item = Items.RAW_RAT_MEAT_2134,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Rune Essence.
+     */
+    RUNE_ESSENCE(
+        item = Items.RUNE_ESSENCE_1436,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Pure Essence.
+     */
+    PURE_ESSENCE(
+        item = Items.PURE_ESSENCE_7936,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Shrimp.
+     */
+    SHRIMP(
+        item = Items.SHRIMPS_315,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Silk.
+     */
+    SILK(
+        item = Items.SILK_950,
+        min = 1,
+        max = 15
+    ),
+
+    /**
+     * Soft Clay.
+     */
+    SOFT_CLAY(
+        item = Items.SOFT_CLAY_1761,
+        min = 1,
+        max = 15
+    );
+
+    // Generates a random amount between min and max
     val amount = RandomFunction.random(min, max)
 
     companion object {
         val deliveryMap = HashMap<Int, ItemDelivery>()
 
-
         init {
+            // Populates the deliveryMap with the item and its corresponding ItemDelivery enum
             for (delivery in ItemDelivery.values()) {
                 deliveryMap[delivery.item] = delivery
             }
 
+            // Populates the deliveryMap with the amount and its corresponding ItemDelivery enum
             for (amount in ItemDelivery.values()){
                 deliveryMap[amount.item] = amount
             }
         }
 
+        /**
+         * Returns the ItemDelivery enum for the given item ID.
+         *
+         * @param task The item ID.
+         * @return The corresponding ItemDelivery enum, or null if not found.
+         */
         fun forId(task: Int): ItemDelivery? {
             for (id in ItemDelivery.values()) {
                 if (id.item == task) {
@@ -76,7 +467,5 @@ enum class ItemDelivery(val item: Int, val min: Int, val max: Int) {
             }
             return null
         }
-
     }
-
 }

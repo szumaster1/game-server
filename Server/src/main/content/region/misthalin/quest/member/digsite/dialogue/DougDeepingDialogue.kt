@@ -7,6 +7,9 @@ import core.plugin.Initializable
 import core.api.consts.Items
 import core.api.consts.NPCs
 
+/**
+ * Doug deeping dialogue.
+ */
 @Initializable
 class DougDeepingDialogue (player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
@@ -23,6 +26,11 @@ class DougDeepingDialogue (player: Player? = null) : Dialogue(player) {
     }
 }
 
+/**
+ * Doug deeping dialogue file
+ *
+ * @constructor Doug deeping dialogue file
+ */
 class DougDeepingDialogueFile : DialogueBuilderFile() {
 
     override fun create(b: DialogueBuilder) {

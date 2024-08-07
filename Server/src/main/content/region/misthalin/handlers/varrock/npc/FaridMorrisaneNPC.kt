@@ -6,6 +6,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
 import core.tools.RandomFunction
 
+/**
+ * Farid morrisane NPC.
+ */
 class FaridMorrisaneNPC : NPCBehavior(NPCs.FARID_MORRISANE_ORES_6523) {
 
     private val forceChat = arrayOf(

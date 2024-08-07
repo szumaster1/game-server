@@ -13,6 +13,9 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 
+/**
+ * Magpie NPC.
+ */
 @Initializable
 class MagpieNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.MAGPIE_6824) : Forager(owner, id, 3400, 12041, 3, *ITEMS) {
 

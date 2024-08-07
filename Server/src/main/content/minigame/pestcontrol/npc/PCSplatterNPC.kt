@@ -17,6 +17,9 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.tools.RandomFunction
 
+/**
+ * Pest Control splatter NPC.
+ */
 class PCSplatterNPC : AbstractNPC {
 
     private var session: PestControlSession? = null

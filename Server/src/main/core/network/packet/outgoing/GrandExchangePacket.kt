@@ -5,6 +5,10 @@ import core.network.packet.OutgoingPacket
 import core.network.packet.PacketHeader
 import core.network.packet.context.GrandExchangeContext
 
+/**
+ * Grand exchange packet.
+ * @author Emperor
+ */
 class GrandExchangePacket : OutgoingPacket<GrandExchangeContext> {
     private val removed = 6
     private val aborted = 2

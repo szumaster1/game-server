@@ -7,6 +7,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Ali the operator dialogue.
+ */
 @Initializable
 class AliTheOperatorDialogue(player: Player? = null) : Dialogue(player) {
 

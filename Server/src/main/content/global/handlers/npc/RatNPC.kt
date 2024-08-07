@@ -11,6 +11,9 @@ import core.game.node.item.Item
 import core.game.world.map.Location
 import core.plugin.Initializable
 
+/**
+ * Rat NPC.
+ */
 @Initializable
 class RatNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 

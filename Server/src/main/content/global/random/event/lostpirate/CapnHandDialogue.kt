@@ -5,6 +5,9 @@ import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.system.timer.impl.AntiMacro
 
+/**
+ * Capn hand dialogue.
+ */
 class CapnHandDialogue(val rand : Int) : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         stage = rand

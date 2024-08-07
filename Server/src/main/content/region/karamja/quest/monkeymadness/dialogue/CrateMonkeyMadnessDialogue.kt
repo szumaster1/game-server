@@ -10,6 +10,12 @@ import core.game.system.task.Pulse
 import core.game.world.map.Location
 import core.tools.RandomFunction
 
+/**
+ * Crate monkey madness dialogue
+ *
+ * @property it
+ * @constructor Crate monkey madness dialogue
+ */
 class CrateMonkeyMadnessDialogue(val it: Int) : DialogueFile() {
 
     private val monkeymadnessDungeon = Location.create(2804, 9168, 0)

@@ -16,6 +16,11 @@ private val CAPES = arrayOf(Items.BLACK_CAPE_1019, Items.RED_CAPE_1007, Items.BL
 
 private val DYES = Dyes.values().map { it.item.id }.toIntArray()
 
+/**
+ * Cape dyer plugin
+ *
+ * @constructor Cape dyer plugin
+ */
 @Initializable
 class CapeDyerPlugin : UseWithHandler(*CAPES.copyOfRange(0, CAPES.size - 1).toIntArray()) {
 
@@ -56,35 +61,89 @@ class CapeDyerPlugin : UseWithHandler(*CAPES.copyOfRange(0, CAPES.size - 1).toIn
         return true
     }
 
+    /**
+     * Cape
+     *
+     * @property dye
+     * @property product
+     * @constructor Cape
+     */
     internal enum class Cape(val dye: Dyes, val product: Item) {
+        /**
+         * Black
+         *
+         * @constructor Black
+         */
         BLACK(
             dye = Dyes.BLACK,
             product = Item(Items.BLACK_CAPE_1019)
         ),
+
+        /**
+         * Red
+         *
+         * @constructor Red
+         */
         RED(
             dye = Dyes.RED,
             product = Item(Items.RED_CAPE_1007)
         ),
+
+        /**
+         * Blue
+         *
+         * @constructor Blue
+         */
         BLUE(
             dye = Dyes.BLUE,
             product = Item(Items.BLUE_CAPE_1021)
         ),
+
+        /**
+         * Yellow
+         *
+         * @constructor Yellow
+         */
         YELLOW(
             dye = Dyes.YELLOW,
             product = Item(Items.YELLOW_CAPE_1023)
         ),
+
+        /**
+         * Green
+         *
+         * @constructor Green
+         */
         GREEN(
             dye = Dyes.GREEN,
             product = Item(Items.GREEN_CAPE_1027)
         ),
+
+        /**
+         * Purple
+         *
+         * @constructor Purple
+         */
         PURPLE(
             dye = Dyes.PURPLE,
             product = Item(Items.PURPLE_CAPE_1029)
         ),
+
+        /**
+         * Orange
+         *
+         * @constructor Orange
+         */
         ORANGE(
             dye = Dyes.ORANGE,
             product = Item(Items.ORANGE_CAPE_1031)
         ),
+
+        /**
+         * Pink
+         *
+         * @constructor Pink
+         */
         PINK(
             dye = Dyes.PINK,
             product = Item(Items.PINK_CAPE_6959)

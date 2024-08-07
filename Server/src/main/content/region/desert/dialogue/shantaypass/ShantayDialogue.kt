@@ -14,6 +14,9 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Shantay dialogue.
+ */
 @Initializable
 class ShantayDialogue(player: Player? = null) : Dialogue(player) {
 

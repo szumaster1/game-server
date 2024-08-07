@@ -9,6 +9,9 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.Initializable
 
+/**
+ * Simon templeton dialogue.
+ */
 @Initializable
 class SimonTempletonDialogue(player: Player? = null) : Dialogue(player) {
 

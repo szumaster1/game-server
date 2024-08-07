@@ -17,6 +17,9 @@ import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 import core.tools.RandomFunction
 
+/**
+ * Mithril dragon NPC.
+ */
 @Initializable
 class MithrilDragonNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 

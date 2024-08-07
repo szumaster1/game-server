@@ -6,6 +6,11 @@ import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.system.timer.impl.AntiMacro
 
+/**
+ * Drunken dwarf dialogue
+ *
+ * @constructor Drunken dwarf dialogue
+ */
 class DrunkenDwarfDialogue : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         when (stage) {

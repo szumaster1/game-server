@@ -3,12 +3,19 @@ package core
 import core.game.world.map.Location
 import java.io.File
 
+/**
+ * Json utils.
+ * @author Ceikry
+ */
 class JSONUtils {
 
     companion object {
 
-        /*
-         * Parses a location from the format "x,y,z"
+        /**
+         * Parses a location from the format "x,y,z".
+         *
+         * @param locString The string to parse
+         * @return Location
          */
         @JvmStatic
         fun parseLocation(locString: String): Location {
@@ -16,8 +23,11 @@ class JSONUtils {
             return Location(locTokens[0], locTokens[1], locTokens[2])
         }
 
-        /*
-         * Parses a path string
+        /**
+         * Parses a path string.
+         *
+         * @param pathString The string to parse
+         * @return a String with the proper file separators for the current OS.
          */
         @JvmStatic
         fun parsePath(pathString: String): String {
@@ -27,7 +37,8 @@ class JSONUtils {
             else if (pathString.contains("\\"))
                 pathTokens = pathString.split("\\")
 
-            pathTokens ?: return pathString //return the initial pathString if path does not contain file separators.
+            pathTokens ?: return pathString // return the initial pathString if
+                                            // path does not contain file separators.
             var pathProduct = ""
             for (token in pathTokens) {
                 if (token != "")

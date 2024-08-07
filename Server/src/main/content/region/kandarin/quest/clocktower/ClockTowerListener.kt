@@ -14,6 +14,11 @@ import core.game.world.map.Location
 import core.game.world.map.path.Pathfinder
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Clock tower listener
+ *
+ * @constructor Clock tower listener
+ */
 class ClockTowerListener : InteractionListener {
 
     companion object {

@@ -16,6 +16,9 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Customs officer dialogue.
+ */
 @Initializable
 class CustomsOfficerDialogue(player: Player? = null): Dialogue(player) {
 
@@ -108,6 +111,11 @@ class CustomsOfficerDialogue(player: Player? = null): Dialogue(player) {
     }
 
 
+    /**
+     * Get price
+     *
+     * @return
+     */
     fun getPrice(): Int {
         if (player.achievementDiaryManager.karamjaGlove != -1) {
             sendMessage(player, "The Captain's grin broadens as he recognises you as having earned Karamja gloves")

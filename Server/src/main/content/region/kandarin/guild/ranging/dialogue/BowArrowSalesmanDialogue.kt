@@ -7,6 +7,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Bow arrow salesman dialogue.
+ */
 @Initializable
 class BowArrowSalesmanDialogue(player: Player? = null) : Dialogue(player) {
 

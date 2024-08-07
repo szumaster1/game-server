@@ -7,6 +7,11 @@ import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
 import core.game.system.timer.PersistTimer
 
+/**
+ * Spell charge
+ *
+ * @constructor Spell charge
+ */
 class SpellCharge : PersistTimer(700, "magic:spellcharge") {
 
     override fun run(entity: Entity): Boolean {

@@ -9,6 +9,9 @@ import core.game.node.item.Item
 import core.game.world.map.Location
 import core.tools.RandomFunction
 
+/**
+ * Zombie rat NPC.
+ */
 class ZombieRatNPC : AbstractNPC {
 
     constructor() : super(0, null)

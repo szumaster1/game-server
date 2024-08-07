@@ -7,11 +7,13 @@ import core.game.node.scenery.Scenery
 import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 
+/**
+ * Cosmic crafter.
+ */
 @PlayerCompatible
 @ScriptName("Cosmic Rune Crafter")
 @ScriptDescription("Crafts cosmic runes. Start in Zanaris w/ cosmic tiara.")
 @ScriptIdentifier("cosmic_crafter")
-
 class CosmicCrafter : Script() {
     var state = State.INIT
     var runeCounter = 0
@@ -157,8 +159,67 @@ class CosmicCrafter : Script() {
         return this
     }
 
+    /**
+     * State
+     *
+     * @constructor State
+     */
     enum class State {
-        INIT, BANKING, FIRST_AGILITY, RETURN_AGILITY, RUNNING_TO_ALTER, CRAFTING, LEAVING_ALTER, INVALID
+        /**
+         * Init
+         *
+         * @constructor Init
+         */
+        INIT,
+
+        /**
+         * Banking
+         *
+         * @constructor Banking
+         */
+        BANKING,
+
+        /**
+         * First Agility
+         *
+         * @constructor First Agility
+         */
+        FIRST_AGILITY,
+
+        /**
+         * Return Agility
+         *
+         * @constructor Return Agility
+         */
+        RETURN_AGILITY,
+
+        /**
+         * Running To Alter
+         *
+         * @constructor Running To Alter
+         */
+        RUNNING_TO_ALTER,
+
+        /**
+         * Crafting
+         *
+         * @constructor Crafting
+         */
+        CRAFTING,
+
+        /**
+         * Leaving Alter
+         *
+         * @constructor Leaving Alter
+         */
+        LEAVING_ALTER,
+
+        /**
+         * Invalid
+         *
+         * @constructor Invalid
+         */
+        INVALID
     }
 
 }

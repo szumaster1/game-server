@@ -7,6 +7,9 @@ import core.game.world.map.zone.ZoneBuilder
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Crandor zone.
+ */
 @Initializable
 class CrandorZone : MapZone("crandor", true), Plugin<Any?> {
 

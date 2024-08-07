@@ -5,7 +5,6 @@ import core.network.packet.Context
 
 /**
  * The StringPacket packet context.
- * @author Emperor
  */
 class StringContext(
     private val player: Player,

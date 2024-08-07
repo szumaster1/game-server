@@ -13,6 +13,9 @@ import core.game.node.entity.impl.PulseType
 import core.game.node.entity.player.Player
 import core.game.shops.Shops.Companion.openId
 
+/**
+ * Seersvillage listeners.
+ */
 class SeersvillageListeners : InteractionListener {
 
     companion object {
@@ -25,46 +28,41 @@ class SeersvillageListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Seers Court house stairs interaction
          */
-
         on(COURTHOUSE_STAIRS, IntType.SCENERY, "climb-down") { player, _ ->
             sendMessage(player, "Court is not in session.")
             return@on true
         }
 
-        /*
+        /**
          * Seer cage unlock interaction.
          */
-
         on(CAGE, IntType.SCENERY, "unlock") { player, _ ->
             sendMessage(player, "You can't unlock the pillory, you'll let all the prisoners out!")
             return@on true
         }
 
-        /*
+        /**
          * Buy crate interaction.
          */
-
         on(CRATE, IntType.SCENERY, "buy") { player, _ ->
             openId(player, 93)
             return@on true
         }
 
-        /*
+        /**
          * Ticket merchant interaction - Ranging guild.
          */
-
         on(TICKET_MERCHANT, IntType.NPC, "trade") { player: Player, _: Node ->
             openInterface(player, Components.RANGING_GUILD_TICKET_EXCHANGE_278)
             return@on true
         }
 
-        /*
+        /**
          * McGrubor's Wood gates interaction.
          */
-
         on(GATES, IntType.SCENERY, "open") { player, node ->
             if(node.id == 47 || node.id == 48) {
                 if (!getAttribute(player, "fishing_contest:pass-shown", false) || getQuestStage(player, "Fishing Contest") < 10) {

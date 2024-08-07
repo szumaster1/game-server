@@ -8,6 +8,11 @@ import core.game.node.item.Item
 import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 
+/**
+ * Castle wars respawn area
+ *
+ * @constructor Castle wars respawn area
+ */
 class CastleWarsRespawnArea : CastleWarsArea(), TickListener {
 
     companion object {

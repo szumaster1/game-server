@@ -11,19 +11,40 @@ import java.util.Random;
 
 import static core.api.ContentAPIKt.*;
 
+/**
+ * Quest.
+ */
 @PluginManifest(type = PluginType.QUEST)
 public abstract class Quest implements Plugin<Object> {
 
+    /**
+     * The constant RED.
+     */
     public static final String RED = "<col=8A0808>";
 
+    /**
+     * The constant BRIGHT_RED.
+     */
     public static final String BRIGHT_RED = "<col=FF0000>";
 
+    /**
+     * The constant BLUE.
+     */
     public static final String BLUE = "<col=08088A>";
 
+    /**
+     * The constant BLACK.
+     */
     public static final String BLACK = "<col=000000>";
 
+    /**
+     * The constant JOURNAL_COMPONENT.
+     */
     public static final int JOURNAL_COMPONENT = 275;
 
+    /**
+     * The constant REWARD_COMPONENT.
+     */
     public static final int REWARD_COMPONENT = 277;
 
     private final String name;
@@ -36,6 +57,15 @@ public abstract class Quest implements Plugin<Object> {
 
     private final int[] configs;
 
+    /**
+     * Instantiates a new Quest.
+     *
+     * @param name        the name
+     * @param index       the index
+     * @param buttonId    the button id
+     * @param questPoints the quest points
+     * @param configs     the configs
+     */
     public Quest(String name, int index, int buttonId, int questPoints, int... configs) {
         this.name = name;
         this.index = index;
@@ -52,11 +82,22 @@ public abstract class Quest implements Plugin<Object> {
     @Override
     public abstract Quest newInstance(Object object);
 
+    /**
+     * Start.
+     *
+     * @param player the player
+     */
     public void start(Player player) {
         player.getQuestRepository().setStage(this, 10);
         player.getQuestRepository().syncronizeTab(player);
     }
 
+    /**
+     * Draw journal.
+     *
+     * @param player the player
+     * @param stage  the stage
+     */
     public void drawJournal(Player player, int stage) {
         for (int i = 0; i < 311; i++) {
             player.getPacketDispatch().sendString("", JOURNAL_COMPONENT, i);
@@ -65,6 +106,11 @@ public abstract class Quest implements Plugin<Object> {
 
     }
 
+    /**
+     * Finish.
+     *
+     * @param player the player
+     */
     public void finish(Player player) {
         if (player.getQuestRepository().isComplete(name)) {
             throw new IllegalStateException("Tried to complete quest " + name + " twice, which is not allowed!");
@@ -89,12 +135,30 @@ public abstract class Quest implements Plugin<Object> {
         playJingle(player, questJingles[new Random().nextInt(3)]);
     }
 
+    /**
+     * Reset.
+     *
+     * @param player the player
+     */
     public void reset(Player player) {
     }
 
+    /**
+     * Quest close event.
+     *
+     * @param player    the player
+     * @param component the component
+     */
     public void questCloseEvent(Player player, Component component) {
     }
 
+    /**
+     * Line.
+     *
+     * @param player  the player
+     * @param message the message
+     * @param line    the line
+     */
     public void line(Player player, String message, int line) {
         String send = BLUE + "" + message.replace("<n>", "<br><br>").replace("<blue>", BLUE).replace("<red>", RED);
         if (send.contains("<br><br>") || send.contains("<n>")) {
@@ -109,6 +173,14 @@ public abstract class Quest implements Plugin<Object> {
         }
     }
 
+    /**
+     * Line.
+     *
+     * @param player  the player
+     * @param message the message
+     * @param line    the line
+     * @param crossed the crossed
+     */
     public void line(Player player, String message, int line, final boolean crossed) {
         String send;
         if (!crossed) {
@@ -121,14 +193,34 @@ public abstract class Quest implements Plugin<Object> {
         player.getPacketDispatch().sendString(crossed ? "<str>" + send + "</str>" : send, JOURNAL_COMPONENT, line);
     }
 
+    /**
+     * Draw reward.
+     *
+     * @param player the player
+     * @param string the string
+     * @param line   the line
+     */
     public void drawReward(Player player, final String string, final int line) {
         player.getPacketDispatch().sendString(string, REWARD_COMPONENT, line);
     }
 
+    /**
+     * Sets stage.
+     *
+     * @param player the player
+     * @param stage  the stage
+     */
     public void setStage(Player player, int stage) {
         player.getQuestRepository().setStage(this, stage);
     }
 
+    /**
+     * Get config int [ ].
+     *
+     * @param player the player
+     * @param stage  the stage
+     * @return the int [ ]
+     */
     public int[] getConfig(Player player, int stage) {
         if (configs.length < 4) {
             throw new IndexOutOfBoundsException("Quest -> " + name + " configs array length was not valid. config length = " + configs.length + "!");
@@ -141,41 +233,95 @@ public abstract class Quest implements Plugin<Object> {
         return new int[]{configs[0], stage == 0 ? configs[1] : stage >= 100 ? configs[3] : configs[2]};
     }
 
+    /**
+     * Update varps.
+     *
+     * @param player the player
+     */
     public void updateVarps(Player player) {
     }
 
+    /**
+     * Is started boolean.
+     *
+     * @param player the player
+     * @return the boolean
+     */
     public boolean isStarted(Player player) {
         return getStage(player) > 0 && getStage(player) < 100;
     }
 
+    /**
+     * Is completed boolean.
+     *
+     * @param player the player
+     * @return the boolean
+     */
     public boolean isCompleted(Player player) {
         return getStage(player) >= 100;
     }
 
+    /**
+     * Gets stage.
+     *
+     * @param player the player
+     * @return the stage
+     */
     public int getStage(Player player) {
         return player.getQuestRepository().getStage(this);
     }
 
+    /**
+     * Has requirements boolean.
+     *
+     * @param player the player
+     * @return the boolean
+     */
     public boolean hasRequirements(Player player) {
         return true;
     }
 
+    /**
+     * Gets name.
+     *
+     * @return the name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Gets index.
+     *
+     * @return the index
+     */
     public int getIndex() {
         return index;
     }
 
+    /**
+     * Gets button id.
+     *
+     * @return the button id
+     */
     public int getButtonId() {
         return buttonId;
     }
 
+    /**
+     * Gets quest points.
+     *
+     * @return the quest points
+     */
     public int getQuestPoints() {
         return questPoints;
     }
 
+    /**
+     * Get configs int [ ].
+     *
+     * @return the int [ ]
+     */
     public int[] getConfigs() {
         return configs;
     }

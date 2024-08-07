@@ -10,6 +10,9 @@ import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.entity.player.link.prayer.PrayerType
 import core.game.world.map.zone.ZoneBorders
 
+/**
+ * Seers courthouse map area.
+ */
 class SeersCourthouseMapArea : MapArea {
 
     override fun defineAreaBorders(): Array<ZoneBorders> {

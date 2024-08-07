@@ -10,6 +10,9 @@ import core.game.world.map.Location;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
+/**
+ * Wizard tower handler.
+ */
 @Initializable
 public final class WizardTowerHandler extends OptionHandler {
 

@@ -12,6 +12,9 @@ import core.plugin.Plugin;
 
 import static core.api.ContentAPIKt.sendMessage;
 
+/**
+ * Agility shortcut.
+ */
 public abstract class AgilityShortcut extends OptionHandler {
     private final int[] ids;
     private final int level;
@@ -20,6 +23,16 @@ public abstract class AgilityShortcut extends OptionHandler {
     private double failChance;
     private final String[] options;
 
+    /**
+     * Instantiates a new Agility shortcut.
+     *
+     * @param ids        the ids
+     * @param level      the level
+     * @param experience the experience
+     * @param canFail    the can fail
+     * @param failChance the fail chance
+     * @param options    the options
+     */
     public AgilityShortcut(int[] ids, int level, double experience, boolean canFail, double failChance, String... options) {
         this.ids = ids;
         this.level = level;
@@ -29,6 +42,14 @@ public abstract class AgilityShortcut extends OptionHandler {
         this.options = options;
     }
 
+    /**
+     * Instantiates a new Agility shortcut.
+     *
+     * @param ids        the ids
+     * @param level      the level
+     * @param experience the experience
+     * @param options    the options
+     */
     public AgilityShortcut(int[] ids, int level, double experience, String... options) {
         this(ids, level, experience, false, 0.0, options);
     }
@@ -48,8 +69,22 @@ public abstract class AgilityShortcut extends OptionHandler {
         return true;
     }
 
+    /**
+     * Run.
+     *
+     * @param player the player
+     * @param object the object
+     * @param option the option
+     * @param failed the failed
+     */
     public abstract void run(Player player, Scenery object, String option, boolean failed);
 
+    /**
+     * Check requirements boolean.
+     *
+     * @param player the player
+     * @return the boolean
+     */
     public boolean checkRequirements(Player player) {
         if (player.getSkills().getLevel(Skills.AGILITY) < level) {
             sendMessage(player, "You need an agility level of at least " + level + " to negotiate this obstacle.");
@@ -65,6 +100,11 @@ public abstract class AgilityShortcut extends OptionHandler {
         return AgilityHandler.hasFailed(player, level, failChance);
     }
 
+    /**
+     * Configure.
+     *
+     * @param shortcut the shortcut
+     */
     public void configure(AgilityShortcut shortcut) {
         for (int objectId : shortcut.ids) {
             SceneryDefinition def = SceneryDefinition.forId(objectId);
@@ -74,10 +114,24 @@ public abstract class AgilityShortcut extends OptionHandler {
         }
     }
 
+    /**
+     * Gets object direction.
+     *
+     * @param direction the direction
+     * @return the object direction
+     */
     protected Direction getObjectDirection(Direction direction) {
         return direction == Direction.NORTH ? Direction.EAST : direction == Direction.SOUTH ? Direction.WEST : direction == Direction.EAST ? Direction.NORTH : Direction.SOUTH;
     }
 
+    /**
+     * Pipe destination location.
+     *
+     * @param player the player
+     * @param object the object
+     * @param steps  the steps
+     * @return the location
+     */
     public Location pipeDestination(Player player, Scenery object, int steps) {
         player.faceLocation(object.getLocation());
         int diffX = object.getLocation().getX() - player.getLocation().getX();
@@ -98,6 +152,14 @@ public abstract class AgilityShortcut extends OptionHandler {
         return dest;
     }
 
+    /**
+     * Agility destination location.
+     *
+     * @param player the player
+     * @param object the object
+     * @param steps  the steps
+     * @return the location
+     */
     public Location agilityDestination(Player player, Scenery object, int steps) {
         player.faceLocation(object.getLocation());
         int diffX = object.getLocation().getX() - player.getLocation().getX();
@@ -106,30 +168,65 @@ public abstract class AgilityShortcut extends OptionHandler {
         return dest;
     }
 
+    /**
+     * Gets level.
+     *
+     * @return the level
+     */
     public int getLevel() {
         return level;
     }
 
+    /**
+     * Gets experience.
+     *
+     * @return the experience
+     */
     public double getExperience() {
         return experience;
     }
 
+    /**
+     * Is can fail boolean.
+     *
+     * @return the boolean
+     */
     public boolean isCanFail() {
         return canFail;
     }
 
+    /**
+     * Gets fail chance.
+     *
+     * @return the fail chance
+     */
     public double getFailChance() {
         return failChance;
     }
 
+    /**
+     * Sets fail chance.
+     *
+     * @param failChance the fail chance
+     */
     public void setFailChance(double failChance) {
         this.failChance = failChance;
     }
 
+    /**
+     * Get ids int [ ].
+     *
+     * @return the int [ ]
+     */
     public int[] getIds() {
         return ids;
     }
 
+    /**
+     * Get option string [ ].
+     *
+     * @return the string [ ]
+     */
     public String[] getOption() {
         return options;
     }

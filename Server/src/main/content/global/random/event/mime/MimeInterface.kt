@@ -5,6 +5,9 @@ import core.api.consts.Components
 import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.link.emote.Emotes
 
+/**
+ * Mime interface.
+ */
 class MimeInterface : InterfaceListener {
 
     override fun defineInterfaceListeners() {

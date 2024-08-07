@@ -5,7 +5,13 @@ import core.game.world.map.Region;
 import core.game.world.map.RegionChunk;
 import core.game.world.map.RegionManager;
 
+/**
+ * The enum Room properties.
+ */
 public enum RoomProperties {
+    /**
+     * The Parlour.
+     */
     PARLOUR(1000, 1, 0, 0, 7, Room.CHAMBER, new Hotspot(BuildHotspot.BOOKCASE, 0, 1),
         new Hotspot(BuildHotspot.WINDOW, 0, 2),
         new Hotspot(BuildHotspot.WINDOW, 0, 5),
@@ -45,6 +51,9 @@ public enum RoomProperties {
         new Hotspot(BuildHotspot.CHAIRS_2, 5, 4),
         new Hotspot(BuildHotspot.BOOKCASE, 7, 1)),
 
+    /**
+     * The Garden.
+     */
     GARDEN(1000, 1, 0, 0, 1, Room.LAND, new Hotspot(BuildHotspot.CENTREPIECE_1, 3, 3, 4, 4),
         new Hotspot(BuildHotspot.BIG_PLANT_2, 0, 0, 1, 1),
         new Hotspot(BuildHotspot.BIG_TREE_1, 1, 5, 2, 6),
@@ -53,6 +62,9 @@ public enum RoomProperties {
         new Hotspot(BuildHotspot.BIG_PLANT_1, 6, 0, 7, 1),
         new Hotspot(BuildHotspot.TREE_1, 6, 6, 7, 7)),
 
+    /**
+     * The Kitchen.
+     */
     KITCHEN(5000, 5, 0, 2, 7, Room.CHAMBER, new Hotspot(BuildHotspot.CAT_BLANKET, 0, 0),
         new Hotspot(BuildHotspot.WINDOW, 0, 2),
         new Hotspot(BuildHotspot.WINDOW, 0, 5),
@@ -71,6 +83,9 @@ public enum RoomProperties {
         new Hotspot(BuildHotspot.SHELVES, 6, 7),
         new Hotspot(BuildHotspot.SHELVES_2, 7, 6)),
 
+    /**
+     * The Dining room.
+     */
     DINING_ROOM(5000, 10, 0, 4, 7, Room.CHAMBER, new Hotspot(BuildHotspot.FIREPLACE_DINING, 3, 7, 4, 7),
         new Hotspot(BuildHotspot.WINDOW, 0, 2),
         new Hotspot(BuildHotspot.WINDOW, 0, 5),
@@ -97,6 +112,9 @@ public enum RoomProperties {
         new Hotspot(BuildHotspot.ROPE_BELL_PULL, 0, 0),
         new Hotspot(BuildHotspot.DINING_TABLE, 2, 3, 5, 4)),
 
+    /**
+     * The Workshop.
+     */
     WORKSHOP(10000, 15, 0, 0, 5, Room.CHAMBER, new Hotspot(BuildHotspot.WORKBENCH, 3, 4, 4, 4),
         new Hotspot(BuildHotspot.WINDOW, 0, 2),
         new Hotspot(BuildHotspot.WINDOW, 0, 5),
@@ -116,6 +134,9 @@ public enum RoomProperties {
         new Hotspot(BuildHotspot.TOOL3, 0, 1),
         new Hotspot(BuildHotspot.TOOL5, 0, 6)),
 
+    /**
+     * The Bedroom.
+     */
     BEDROOM(10000, 20, 0, 6, 7, Room.CHAMBER, new Hotspot(BuildHotspot.BED, 3, 6, 4, 7),
         new Hotspot(BuildHotspot.FIREPLACE2, 7, 3, 7, 4),
         new Hotspot(BuildHotspot.CLOCK, 7, 0),
@@ -166,6 +187,9 @@ public enum RoomProperties {
         new Hotspot(BuildHotspot.BEDROOM_RUG3, 6, 1),
         new Hotspot(BuildHotspot.BEDROOM_RUG3, 6, 4)),
 
+    /**
+     * The Skill hall.
+     */
     SKILL_HALL(15000, 25, 0, 1, 6, Room.CHAMBER, new Hotspot(BuildHotspot.STAIRWAYS, 3, 3, 4, 4),
         new Hotspot(BuildHotspot.ARMOUR_SPACE, 2, 3),
         new Hotspot(BuildHotspot.ARMOUR_SPACE2, 5, 3),
@@ -217,6 +241,9 @@ public enum RoomProperties {
         new Hotspot(BuildHotspot.HALL_RUG3, 6, 1),
         new Hotspot(BuildHotspot.HALL_RUG3, 6, 6)),
 
+    /**
+     * The Games room.
+     */
     GAMES_ROOM(25000, 30, 0, 5, 4, Room.CHAMBER,
         new Hotspot(BuildHotspot.RANGING_GAME, 1, 0),
         new Hotspot(BuildHotspot.ATTACK_STONE, 2, 4),
@@ -232,6 +259,9 @@ public enum RoomProperties {
         new Hotspot(BuildHotspot.WINDOW, 2, 7),
         new Hotspot(BuildHotspot.WINDOW, 5, 7)),
 
+    /**
+     * The Combat room.
+     */
     COMBAT_ROOM(25000, 32, 0, 3, 4, Room.CHAMBER, new Hotspot(BuildHotspot.STORAGE_SPACE, 3, 7),
         new Hotspot(BuildHotspot.WALL_DECORATION2, 1, 7),
         new Hotspot(BuildHotspot.WALL_DECORATION2, 6, 7),
@@ -284,6 +314,9 @@ public enum RoomProperties {
         new Hotspot(BuildHotspot.CR_INVISIBLE_WALL, 5, 3),
         new Hotspot(BuildHotspot.CR_INVISIBLE_WALL, 4, 2)),
 
+    /**
+     * The Quest hall.
+     */
     QUEST_HALL(25000, 35, 0, 5, 6, Room.CHAMBER, new Hotspot(BuildHotspot.QUEST_STAIRWAYS, 3, 3, 4, 4),
         new Hotspot(BuildHotspot.MAP, 7, 1),
         new Hotspot(BuildHotspot.SWORD, 7, 6),
@@ -336,6 +369,9 @@ public enum RoomProperties {
         new Hotspot(BuildHotspot.Q_HALL_RUG3, 6, 1),
         new Hotspot(BuildHotspot.Q_HALL_RUG3, 6, 6)),
 
+    /**
+     * The Study room.
+     */
     STUDY_ROOM(50000, 40, 0, 4, 5, Room.CHAMBER, new Hotspot(BuildHotspot.GLOBE, 1, 4, 3, 6),
         new Hotspot(BuildHotspot.LECTERN, 2, 2),
         new Hotspot(BuildHotspot.CRYSTAL_BALL, 5, 2),
@@ -355,6 +391,9 @@ public enum RoomProperties {
         new Hotspot(BuildHotspot.WINDOW, 2, 7),
         new Hotspot(BuildHotspot.WINDOW, 5, 7)),
 
+    /**
+     * The Costume room.
+     */
     COSTUME_ROOM(50000, 42, 0, 6, 1, Room.CHAMBER, new Hotspot(BuildHotspot.WINDOW, 0, 2),
         new Hotspot(BuildHotspot.WINDOW, 0, 5),
         new Hotspot(BuildHotspot.WINDOW, 2, 0),
@@ -368,6 +407,9 @@ public enum RoomProperties {
         new Hotspot(BuildHotspot.TOY_BOX, 7, 3, 7, 4),
         new Hotspot(BuildHotspot.COSTUME_BOX, 3, 3, 4, 4)),
 
+    /**
+     * The Chapel.
+     */
     CHAPEL(50000, 45, 0, 2, 5, Room.CHAMBER,
         new Hotspot(BuildHotspot.ALTAR, 3, 5, 4, 5),
         new Hotspot(BuildHotspot.STATUE, 7, 0),
@@ -393,6 +435,9 @@ public enum RoomProperties {
         new Hotspot(BuildHotspot.CHAPEL_WINDOW, 7, 5),
         new Hotspot(BuildHotspot.CHAPEL_WINDOW, 7, 2)),
 
+    /**
+     * The Portal chamber.
+     */
     PORTAL_CHAMBER(100000, 50, 0, 1, 4, Room.CHAMBER, new Hotspot(BuildHotspot.TELEPORT_FOCUS, 3, 3, 4, 4),
         new Hotspot(BuildHotspot.PORTAL1, 0, 3, 0, 4),
         new Hotspot(BuildHotspot.PORTAL2, 3, 7, 4, 7),
@@ -406,6 +451,9 @@ public enum RoomProperties {
         new Hotspot(BuildHotspot.WINDOW, 2, 7),
         new Hotspot(BuildHotspot.WINDOW, 5, 7)),
 
+    /**
+     * The Formal garden.
+     */
     FORMAL_GARDEN(75000, 55, 0, 2, 1, Room.LAND, new Hotspot(BuildHotspot.CENTREPIECE_2, 3, 3, 4, 4),
         new Hotspot(BuildHotspot.FENCING, 0, 0),
         new Hotspot(BuildHotspot.FENCING, 1, 0),
@@ -465,6 +513,9 @@ public enum RoomProperties {
         new Hotspot(BuildHotspot.BIG_PLANT1, 1, 1),
         new Hotspot(BuildHotspot.BIG_PLANT1, 6, 1)),
 
+    /**
+     * The Throne room.
+     */
     THRONE_ROOM(150000, 60, 0, 6, 5, Room.CHAMBER,
         new Hotspot(BuildHotspot.WINDOW, 0, 2),
         new Hotspot(BuildHotspot.WINDOW, 0, 5),
@@ -497,6 +548,9 @@ public enum RoomProperties {
         new Hotspot(BuildHotspot.DECORATION, 3, 7),
         new Hotspot(BuildHotspot.DECORATION, 4, 7)),
 
+    /**
+     * The Oubilette.
+     */
     OUBILETTE(150000, 65, 0, 6, 3, Room.DUNGEON,
         new Hotspot(BuildHotspot.FLOOR_CORNER, 2, 2),
         new Hotspot(BuildHotspot.FLOOR_CORNER, 5, 2),
@@ -553,6 +607,9 @@ public enum RoomProperties {
         new Hotspot(BuildHotspot.PRISON, 4, 5),
         new Hotspot(BuildHotspot.PRISON_DOOR, 3, 5)),
 
+    /**
+     * The Dungeon corridor.
+     */
     DUNGEON_CORRIDOR(7500, 70, 0, 4, 3, Room.DUNGEON,
         new Hotspot(BuildHotspot.DUNGEON_DOOR_RIGHT, 3, 1),
         new Hotspot(BuildHotspot.DUNGEON_DOOR_LEFT, 4, 1),
@@ -570,6 +627,9 @@ public enum RoomProperties {
         new Hotspot(BuildHotspot.DUNGEON_LIGHT, 3, 6),
         new Hotspot(BuildHotspot.DUNGEON_LIGHT, 4, 6)),
 
+    /**
+     * The Dungeon junction.
+     */
     DUNGEON_JUNCTION(7500, 70, 0, 0, 3, Room.DUNGEON,
         new Hotspot(BuildHotspot.DUNGEON_DOOR_RIGHT, 3, 1),
         new Hotspot(BuildHotspot.DUNGEON_DOOR_LEFT, 4, 1),
@@ -587,6 +647,9 @@ public enum RoomProperties {
         new Hotspot(BuildHotspot.DUNGEON_LIGHT, 1, 4),
         new Hotspot(BuildHotspot.DUNGEON_LIGHT, 6, 3)),
 
+    /**
+     * The Dungeon stairs.
+     */
     DUNGEON_STAIRS(7500, 70, 0, 2, 3, Room.DUNGEON,
         new Hotspot(BuildHotspot.STAIRWAYS_DUNGEON, 3, 3),
         new Hotspot(BuildHotspot.HALL_RUG, 3, 3),
@@ -618,6 +681,9 @@ public enum RoomProperties {
         new Hotspot(BuildHotspot.DUNGEON_DECO, 6, 1),
         new Hotspot(BuildHotspot.DUNGEON_DECO, 1, 6)),
 
+    /**
+     * The Dungeon pit.
+     */
     DUNGEON_PIT(10000, 70, 0, 5, 2, Room.DUNGEON,
         new Hotspot(BuildHotspot.DUNGEON_DOOR_RIGHT3, 3, 1),
         new Hotspot(BuildHotspot.DUNGEON_DOOR_LEFT3, 4, 1),
@@ -639,6 +705,9 @@ public enum RoomProperties {
         new Hotspot(BuildHotspot.DUNGEON_LIGHT, 6, 5),
         new Hotspot(BuildHotspot.DUNGEON_PIT_GUARD, 3, 3)),
 
+    /**
+     * The Treasure room.
+     */
     TREASURE_ROOM(250000, 75, 0, 7, 4, Room.DUNGEON,
         new Hotspot(BuildHotspot.DUNGEON_DOOR_RIGHT2, 3, 1),
         new Hotspot(BuildHotspot.DUNGEON_DOOR_LEFT2, 4, 1),
@@ -653,12 +722,24 @@ public enum RoomProperties {
         new Hotspot(BuildHotspot.WALL_DECORATION1, 3, 6),
         new Hotspot(BuildHotspot.WALL_DECORATION1, 4, 6)),
 
+    /**
+     * Roof 2 exit room properties.
+     */
     ROOF_2_EXIT(0, 0, 0, 1, 2, Room.ROOF),
 
+    /**
+     * Roof 3 exit room properties.
+     */
     ROOF_3_EXIT(0, 0, 0, 3, 2, Room.ROOF),
 
+    /**
+     * Roof 4 exit room properties.
+     */
     ROOF_4_EXIT(0, 0, 0, 5, 2, Room.ROOF),
 
+    /**
+     * The Skill hall 2.
+     */
     SKILL_HALL_2(0, 25, 0, 3, 6, Room.CHAMBER, new Hotspot(BuildHotspot.STAIRS_DOWN, 3, 3),
         new Hotspot(BuildHotspot.ARMOUR_SPACE, 2, 3),
         new Hotspot(BuildHotspot.ARMOUR_SPACE2, 5, 3),
@@ -710,6 +791,9 @@ public enum RoomProperties {
         new Hotspot(BuildHotspot.HALL_RUG3, 6, 1),
         new Hotspot(BuildHotspot.HALL_RUG3, 6, 6)),
 
+    /**
+     * The Quest hall 2.
+     */
     QUEST_HALL_2(25000, 35, 0, 7, 6, Room.CHAMBER, new Hotspot(BuildHotspot.STAIRS_DOWN2, 3, 3),
         new Hotspot(BuildHotspot.MAP, 7, 1),
         new Hotspot(BuildHotspot.SWORD, 7, 6),
@@ -787,10 +871,20 @@ public enum RoomProperties {
         this.hotspots = hotspots;
     }
 
+    /**
+     * Gets name.
+     *
+     * @return the name
+     */
     public String getName() {
         return name().toLowerCase().replaceAll("_", " ").replaceAll("\\d", "");
     }
 
+    /**
+     * Get exits boolean [ ].
+     *
+     * @return the boolean [ ]
+     */
     public boolean[] getExits() {
         Region region = RegionManager.forId(7503);
         Region.load(region, true);
@@ -807,42 +901,92 @@ public enum RoomProperties {
         return false;
     }
 
+    /**
+     * Is chamber boolean.
+     *
+     * @return the boolean
+     */
     public boolean isChamber() {
         return !isLand() && !isRoof(); //&& !isDungeon();
     }
 
+    /**
+     * Is land boolean.
+     *
+     * @return the boolean
+     */
     public boolean isLand() {
         return (configuration & Room.LAND) != 0;
     }
 
+    /**
+     * Is roof boolean.
+     *
+     * @return the boolean
+     */
     public boolean isRoof() {
         return (configuration & Room.ROOF) != 0;
     }
 
+    /**
+     * Is dungeon boolean.
+     *
+     * @return the boolean
+     */
     public boolean isDungeon() {
         return (configuration & Room.DUNGEON) != 0;
     }
 
+    /**
+     * Gets z.
+     *
+     * @return the z
+     */
     public int getZ() {
         return z;
     }
 
+    /**
+     * Gets chunk x.
+     *
+     * @return the chunk x
+     */
     public int getChunkX() {
         return chunkX;
     }
 
+    /**
+     * Gets chunk y.
+     *
+     * @return the chunk y
+     */
     public int getChunkY() {
         return chunkY;
     }
 
+    /**
+     * Get hotspots hotspot [ ].
+     *
+     * @return the hotspot [ ]
+     */
     public Hotspot[] getHotspots() {
         return hotspots;
     }
 
+    /**
+     * Gets cost.
+     *
+     * @return the cost
+     */
     public int getCost() {
         return cost;
     }
 
+    /**
+     * Gets level.
+     *
+     * @return the level
+     */
     public int getLevel() {
         return level;
     }

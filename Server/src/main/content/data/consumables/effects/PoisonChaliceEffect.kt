@@ -8,6 +8,9 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.tools.RandomFunction
 
+/**
+ * Poison chalice effect.
+ */
 class PoisonChaliceEffect : ConsumableEffect() {
 
     override fun activate(player: Player) {

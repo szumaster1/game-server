@@ -13,6 +13,11 @@ import org.json.simple.parser.JSONParser
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
+/**
+ * A p i tests
+ *
+ * @constructor A p i tests
+ */
 class APITests {
     var testPlayer: MockPlayer
     var testPlayer2: MockPlayer
@@ -23,6 +28,10 @@ class APITests {
         testPlayer2 = TestUtils.getMockPlayer("test2")
     }
 
+    /**
+     * Test iface settings
+     *
+     */
     @Test
     fun testIfaceSettings() {
         var builder = IfaceSettingsBuilder()
@@ -67,6 +76,10 @@ class APITests {
         Assertions.assertEquals(15466494, testAllOptions, "Testing all options")
     }
 
+    /**
+     * Test slayer manager save and load and save produces equivalent j s o n
+     *
+     */
     @Test
     fun testSlayerManagerSaveAndLoadAndSaveProducesEquivalentJSON() {
         var manager = SlayerManager()
@@ -89,6 +102,10 @@ class APITests {
         Assertions.assertEquals(jsonFirst.toJSONString(), jsonSecond.toJSONString())
     }
 
+    /**
+     * Test slayer save and parse produces equivalent
+     *
+     */
     @Test
     fun testSlayerSaveAndParseProducesEquivalent() {
         var manager = SlayerManager()
@@ -109,6 +126,10 @@ class APITests {
         Assertions.assertEquals(true, manager.flags.isRingUnlocked(), "Ring was not unlocked!")
     }
 
+    /**
+     * Test slayer decrement task amount has no side effects
+     *
+     */
     @Test
     fun testSlayerDecrementTaskAmountHasNoSideEffects() {
         var manager = SlayerManager()
@@ -139,6 +160,10 @@ class APITests {
         )
     }
 
+    /**
+     * Test known problem save parses correctly
+     *
+     */
     @Test
     fun testKnownProblemSaveParsesCorrectly() {
         val jsonString = "{\"slayer\": {\n" +
@@ -163,6 +188,10 @@ class APITests {
         Assertions.assertEquals(true, manager.flags.isHelmUnlocked())
     }
 
+    /**
+     * Line split should split at limit and preserve all words
+     *
+     */
     @Test
     fun lineSplitShouldSplitAtLimitAndPreserveAllWords() {
         var testCase =
@@ -201,6 +230,10 @@ class APITests {
         Assertions.assertEquals(expectedLine3, lines.getOrNull(2) ?: "")
     }
 
+    /**
+     * Consumable stackable item should not remove stack
+     *
+     */
     @Test
     fun consumableStackableItemShouldNotRemoveStack() {
         val stackableItem = Item(Items.PURPLE_SWEETS_10476, 999)
@@ -223,6 +256,10 @@ class APITests {
         }
     }
 
+    /**
+     * Consumable multi piece item should be removed from correct slot
+     *
+     */
     @Test
     fun consumableMultiPieceItemShouldBeRemovedFromCorrectSlot() {
         val consumables: Array<Item?> = arrayOf(
@@ -257,6 +294,10 @@ class APITests {
         }
     }
 
+    /**
+     * Consumable multi piece item should add return item to correct slot
+     *
+     */
     @Test
     fun consumableMultiPieceItemShouldAddReturnItemToCorrectSlot() {
         val PIE_DISH_NONCONSUMABLE_2313 = Items.PIE_DISH_2313
@@ -308,6 +349,10 @@ class APITests {
         }
     }
 
+    /**
+     * Consumable item should not have return item
+     *
+     */
     @Test
     fun consumableItemShouldNotHaveReturnItem() {
         val consumables: Array<Item?> = arrayOf(
@@ -372,6 +417,10 @@ class APITests {
         }
     }
 
+    /**
+     * Vector to direction should return expected directions
+     *
+     */
     @Test
     fun vectorToDirectionShouldReturnExpectedDirections() {
         val testData = arrayOf(

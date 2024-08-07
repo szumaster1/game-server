@@ -13,6 +13,9 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Thurgo dialogue.
+ */
 @Initializable
 class ThurgoDialogue(player: Player? = null) : Dialogue(player) {
 

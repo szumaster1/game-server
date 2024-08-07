@@ -8,8 +8,12 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Cocktail shaker handler.
+ */
 @Initializable
 class CocktailShakerHandler : OptionHandler() {
+
     override fun newInstance(arg: Any?): Plugin<Any> {
         ItemDefinition.forId(2025).handlers["option:mix-cocktail"] = this
         return this

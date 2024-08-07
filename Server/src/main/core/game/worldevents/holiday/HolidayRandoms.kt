@@ -16,6 +16,11 @@ import org.json.simple.JSONObject
 import java.time.LocalDate
 import java.time.Month
 
+/**
+ * Holiday randoms
+ *
+ * @constructor Holiday randoms
+ */
 class HolidayRandoms : PersistTimer(0, "holiday", isAuto = true), Commands {
     var paused = false
     var nextRandom: HolidayRandomEvents? = null
@@ -75,6 +80,11 @@ class HolidayRandoms : PersistTimer(0, "holiday", isAuto = true), Commands {
             setNextExecution()
     }
 
+    /**
+     * Check if holiday
+     *
+     * @return
+     */
     fun checkIfHoliday(): String {
         val currentDate = LocalDate.now()
         if ((!currentDate.isBefore(halloweenStartDate) && !currentDate.isAfter(halloweenEndDate)) || ServerConstants.FORCE_HALLOWEEN_EVENTS)
@@ -225,6 +235,13 @@ class HolidayRandoms : PersistTimer(0, "holiday", isAuto = true), Commands {
         }
     }
 
+    /**
+     * Command args
+     *
+     * @property targetPlayer
+     * @property targetEvent
+     * @constructor Command args
+     */
     data class CommandArgs(val targetPlayer: String, val targetEvent: HolidayRandomEvents?)
 
     companion object {

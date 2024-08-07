@@ -11,6 +11,9 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 
+/**
+ * Odd old man dialogue file.
+ */
 class OddOldManDialogueFile : DialogueFile() {
     // BONES_3674 is the Sack on ODD_OLD_MAN_3670
     // There are probably FacialExpressions for the bone sack, but that's too much work.

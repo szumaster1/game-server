@@ -13,6 +13,9 @@ import core.game.world.GameWorld.settings
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Town crier dialogue.
+ */
 @Initializable
 class TownCrierDialogue(player: Player? = null) : Dialogue(player) {
 

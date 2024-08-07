@@ -14,6 +14,9 @@ import core.plugin.Initializable;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
 
+/**
+ * Tz rek jad NPC.
+ */
 @Initializable
 public class TzRekJadNPC extends OptionHandler {
 
@@ -42,14 +45,25 @@ public class TzRekJadNPC extends OptionHandler {
         return true;
     }
 
+    /**
+     * Tzhaar mej jal dialogue.
+     */
     public final class TzhaarMejJalDialogue extends Dialogue {
 
 
+        /**
+         * Instantiates a new Tzhaar mej jal dialogue.
+         */
         public TzhaarMejJalDialogue() {
 
         }
 
 
+        /**
+         * Instantiates a new Tzhaar mej jal dialogue.
+         *
+         * @param player the player
+         */
         public TzhaarMejJalDialogue(Player player) {
             super(player);
         }
@@ -149,14 +163,25 @@ public class TzRekJadNPC extends OptionHandler {
         }
     }
 
+    /**
+     * Tz rek jad dialogue.
+     */
     public final class TzRekJadDialogue extends Dialogue {
 
 
+        /**
+         * Instantiates a new Tz rek jad dialogue.
+         */
         public TzRekJadDialogue() {
 
         }
 
 
+        /**
+         * Instantiates a new Tz rek jad dialogue.
+         *
+         * @param player the player
+         */
         public TzRekJadDialogue(Player player) {
             super(player);
         }

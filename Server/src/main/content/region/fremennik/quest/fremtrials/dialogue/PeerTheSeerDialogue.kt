@@ -12,6 +12,9 @@ import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 import kotlin.random.Random
 
+/**
+ * Peer the seer dialogue.
+ */
 @Initializable
 class PeerTheSeerDialogue(player: Player? = null): Dialogue(player) {
 

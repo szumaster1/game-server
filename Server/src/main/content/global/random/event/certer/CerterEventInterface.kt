@@ -7,6 +7,11 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.system.timer.impl.AntiMacro
 
+/**
+ * Certer event interface
+ *
+ * @constructor Certer event interface
+ */
 class CerterEventInterface : InterfaceListener {
 
     val CERTER_INTERFACE = 184
@@ -60,6 +65,11 @@ class CerterEventInterface : InterfaceListener {
         }
     }
 
+    /**
+     * Generate options
+     *
+     * @param player
+     */
     fun generateOptions(player: Player) {
         val correct = items.keys.random()
         val indexes = arrayListOf(1, 2, 3)
@@ -82,6 +92,12 @@ class CerterEventInterface : InterfaceListener {
         player.packetDispatch.sendModelOnInterface(iFaceModelId, CERTER_INTERFACE, ITEM_CHILD, iFaceZoom)
     }
 
+    /**
+     * Option from index
+     *
+     * @param index
+     * @return
+     */
     fun optionFromIndex(index: Int): Int {
         return when (index) {
             1 -> OPTION_A_CHILD

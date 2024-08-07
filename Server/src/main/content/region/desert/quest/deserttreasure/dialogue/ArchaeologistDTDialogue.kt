@@ -9,6 +9,9 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 
+/**
+ * Archaeologist d t dialogue.
+ */
 @Initializable
 class ArchaeologistDTDialogue(player: Player? = null) : Dialogue(player) {
 

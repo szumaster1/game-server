@@ -19,6 +19,11 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.plugin.Plugin
 
+/**
+ * Demon slayer plugin
+ *
+ * @constructor Demon slayer plugin
+ */
 class DemonSlayerPlugin : OptionHandler() {
 
     override fun newInstance(arg: Any?): Plugin<Any> {

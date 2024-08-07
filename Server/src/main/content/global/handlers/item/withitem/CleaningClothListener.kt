@@ -7,6 +7,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.item.Item
 
+/**
+ * Cleaning cloth listener
+ *
+ * @constructor Cleaning cloth listener
+ */
 class CleaningClothListener : InteractionListener {
 
     override fun defineListeners() {

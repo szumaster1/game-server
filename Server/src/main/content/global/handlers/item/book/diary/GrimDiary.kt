@@ -9,6 +9,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
+/**
+ * Grim diary
+ *
+ * @constructor Grim diary
+ */
 class GrimDiary : InteractionListener {
 
     // Obtained during the Halloween event.

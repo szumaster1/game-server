@@ -8,6 +8,12 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
+/**
+ * Duke horacio lost tribe dialogue.
+ *
+ * @property questStage
+ * @constructor Duke horacio lost tribe dialogue
+ */
 class DukeHoracioLostTribeDialogue(val questStage: Int) : DialogueFile() {
 
     private val sigmund = NPC(2082)

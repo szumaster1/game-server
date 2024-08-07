@@ -12,6 +12,11 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.world.GameWorld
 
+/**
+ * Consumable listener
+ *
+ * @constructor Consumable listener
+ */
 class ConsumableListener : InteractionListener {
 
     override fun defineListeners() {

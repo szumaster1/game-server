@@ -10,6 +10,9 @@ import core.game.node.item.WeightedChanceItem
 import core.tools.RandomFunction
 import core.tools.colorize
 
+/**
+ * Trawler loot.
+ */
 object TrawlerLoot {
     private val junkItems = arrayOf(
         Items.BROKEN_ARMOUR_698,

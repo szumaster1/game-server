@@ -9,6 +9,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Familiar NPC option plugin.
+ */
 @Initializable
 class FamiliarNPCOptionPlugin : OptionHandler() {
 

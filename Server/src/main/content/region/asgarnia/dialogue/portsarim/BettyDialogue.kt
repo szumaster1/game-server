@@ -11,6 +11,9 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Betty dialogue.
+ */
 @Initializable
 class BettyDialogue(player: Player? = null) : Dialogue(player) {
 

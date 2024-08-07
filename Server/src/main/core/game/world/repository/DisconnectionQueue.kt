@@ -9,7 +9,6 @@ import core.tools.Log
 
 /**
  * Handles disconnecting players queuing.
- * @author Emperor
  */
 class DisconnectionQueue {
     /**A

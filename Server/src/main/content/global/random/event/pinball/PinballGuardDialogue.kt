@@ -6,6 +6,9 @@ import core.game.dialogue.FacialExpression
 import core.game.system.timer.impl.AntiMacro
 import core.tools.BLUE
 
+/**
+ * Pinball guard dialogue.
+ */
 class PinballGuardDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

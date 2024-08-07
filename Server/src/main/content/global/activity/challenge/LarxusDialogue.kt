@@ -12,6 +12,9 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
+/**
+ * Larxus dialogue.
+ */
 @Initializable
 class LarxusDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -44,6 +47,12 @@ class LarxusDialogue(player: Player? = null) : Dialogue(player) {
     }
 }
 
+/**
+ * Larxus dialogue file
+ *
+ * @property challengeStart
+ * @constructor Larxus dialogue file
+ */
 class LarxusDialogueFile(val challengeStart: Boolean = false) : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

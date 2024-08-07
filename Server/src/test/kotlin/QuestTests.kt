@@ -3,6 +3,11 @@ import core.game.node.entity.player.link.quest.QuestRepository
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
+/**
+ * Quest tests
+ *
+ * @constructor Quest tests
+ */
 class QuestTests {
     lateinit var testPlayer: MockPlayer
 
@@ -11,6 +16,11 @@ class QuestTests {
         testPlayer = TestUtils.getMockPlayer("test")
     }
 
+    /**
+     * Test quest
+     *
+     * @constructor Test quest
+     */
     class TestQuest : Quest("Test Quest", 0, 0, 1, 1, 0, 1, 2) {
         override fun newInstance(`object`: Any?): Quest {
             return this
@@ -19,6 +29,10 @@ class QuestTests {
 
     val testQuest = TestQuest()
 
+    /**
+     * Get index should not throw exception
+     *
+     */
     @Test
     fun getIndexShouldNotThrowException() {
         Assertions.assertDoesNotThrow {
@@ -26,12 +40,20 @@ class QuestTests {
         }
     }
 
+    /**
+     * Register should make quest immediately available
+     *
+     */
     @Test
     fun registerShouldMakeQuestImmediatelyAvailable() {
         QuestRepository.register(testQuest)
         Assertions.assertNotNull(QuestRepository.getQuests()[testQuest.name])
     }
 
+    /**
+     * Register should make quest immediately available to instances
+     *
+     */
     @Test
     fun registerShouldMakeQuestImmediatelyAvailableToInstances() {
         QuestRepository.register(testQuest)
@@ -39,6 +61,10 @@ class QuestTests {
         Assertions.assertNotNull(instance.getQuest(testQuest.name))
     }
 
+    /**
+     * Get stage on unstarted quest should not throw exception
+     *
+     */
     @Test
     fun getStageOnUnstartedQuestShouldNotThrowException() {
         QuestRepository.register(testQuest)
@@ -48,6 +74,10 @@ class QuestTests {
         }
     }
 
+    /**
+     * Set stage on unstarted quest should not throw exception
+     *
+     */
     @Test
     fun setStageOnUnstartedQuestShouldNotThrowException() {
         QuestRepository.register(testQuest)
@@ -57,6 +87,10 @@ class QuestTests {
         }
     }
 
+    /**
+     * Complete quest should throw exception if already complete
+     *
+     */
     @Test
     fun completeQuestShouldThrowExceptionIfAlreadyComplete() {
         Assertions.assertThrows(IllegalStateException::class.java, {

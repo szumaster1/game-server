@@ -41,6 +41,9 @@ import core.tools.RandomFunction;
 import static core.game.system.command.sets.StatsAttributeSetKt.STATS_BASE;
 import static core.game.system.command.sets.StatsAttributeSetKt.STATS_ENEMIES_KILLED;
 
+/**
+ * Npc.
+ */
 public class NPC extends Entity {
 
     private int id;
@@ -55,20 +58,41 @@ public class NPC extends Entity {
 
     private boolean respawn = true;
 
+    /**
+     * The Movement path.
+     */
     protected Location[] movementPath;
 
+    /**
+     * The Walk radius.
+     */
     protected int walkRadius = 11;
 
+    /**
+     * The Movement index.
+     */
     protected int movementIndex;
 
     private int respawnTick = -1;
 
+    /**
+     * The Path bound movement.
+     */
     protected boolean pathBoundMovement;
 
+    /**
+     * The Dialogue player.
+     */
     protected Player dialoguePlayer;
 
+    /**
+     * The Aggressive handler.
+     */
     protected AggressiveHandler aggressiveHandler;
 
+    /**
+     * The Next walk.
+     */
     protected int nextWalk;
 
     private NPC[] children;
@@ -81,14 +105,32 @@ public class NPC extends Entity {
 
     private String forceTalk;
 
+    /**
+     * The Behavior.
+     */
     public NPCBehavior behavior;
 
+    /**
+     * The Is respawning.
+     */
     public boolean isRespawning = false;
 
+    /**
+     * Instantiates a new Npc.
+     *
+     * @param id the id
+     */
     public NPC(int id) {
         this(id, null);
     }
 
+    /**
+     * Instantiates a new Npc.
+     *
+     * @param id        the id
+     * @param location  the location
+     * @param direction the direction
+     */
     protected NPC(int id, Location location, Direction direction) {
         super(NPCDefinition.forId(id).getName(), location);
         this.id = id;
@@ -100,10 +142,25 @@ public class NPC extends Entity {
         this.behavior = NPCBehavior.forId(id);
     }
 
+    /**
+     * Instantiates a new Npc.
+     *
+     * @param id       the id
+     * @param location the location
+     */
     public NPC(int id, Location location) {
         this(id, location, Direction.SOUTH);
     }
 
+    /**
+     * Create npc.
+     *
+     * @param id        the id
+     * @param location  the location
+     * @param direction the direction
+     * @param objects   the objects
+     * @return the npc
+     */
     public static NPC create(int id, Location location, Direction direction, Object... objects) {
         NPC n = AbstractNPC.forId(id);
 
@@ -116,6 +173,14 @@ public class NPC extends Entity {
         return n;
     }
 
+    /**
+     * Create npc.
+     *
+     * @param id       the id
+     * @param location the location
+     * @param objects  the objects
+     * @return the npc
+     */
     public static NPC create(int id, Location location, Object... objects) {
         return create(id, location, Direction.SOUTH, objects);
     }
@@ -158,6 +223,9 @@ public class NPC extends Entity {
         // getViewport().setRegion(null);
     }
 
+    /**
+     * Configure boss data.
+     */
     public void configureBossData() {
         getProperties().setNPCWalkable(true);
         getProperties().setCombatTimeOut(2);
@@ -174,6 +242,9 @@ public class NPC extends Entity {
         walkRadius = 64;
     }
 
+    /**
+     * Init config.
+     */
     public void initConfig() {
         int defaultLevel = definition.getCombatLevel() / 2;
         getProperties().setCombatLevel(definition.getCombatLevel());
@@ -229,6 +300,12 @@ public class NPC extends Entity {
         }
     }
 
+    /**
+     * Open shop boolean.
+     *
+     * @param player the player
+     * @return the boolean
+     */
     public boolean openShop(Player player) {
         if (getName().contains("assistant")) {
             NPC n = RegionManager.getNpc(this, getId() - 1);
@@ -257,10 +334,19 @@ public class NPC extends Entity {
         return super.isInvisible();
     }
 
+    /**
+     * Is hidden boolean.
+     *
+     * @param player the player
+     * @return the boolean
+     */
     public boolean isHidden(Player player) {
         return isInvisible();
     }
 
+    /**
+     * Sets default behavior.
+     */
     public void setDefaultBehavior() {
         if (aggressive && definition.getCombatLevel() > 0) {
             aggressiveHandler = new AggressiveHandler(this, AggressiveBehavior.DEFAULT);
@@ -268,6 +354,11 @@ public class NPC extends Entity {
         }
     }
 
+    /**
+     * Configure movement path.
+     *
+     * @param movementPath the movement path
+     */
     public void configureMovementPath(Location... movementPath) {
         this.movementPath = movementPath;
         this.movementIndex = 0;
@@ -325,9 +416,15 @@ public class NPC extends Entity {
         super.tick();
     }
 
+    /**
+     * On respawn.
+     */
     protected void onRespawn() {
     }
 
+    /**
+     * Handle tick actions.
+     */
     public void handleTickActions() {
         if (!behavior.tick(this))
             return;
@@ -406,15 +503,24 @@ public class NPC extends Entity {
         return false;
     }
 
+    /**
+     * Sets next walk.
+     */
     public void setNextWalk() {
         nextWalk = GameWorld.getTicks() + 5 + RandomFunction.randomize(10);
     }
 
+    /**
+     * Reset walk.
+     */
     public void resetWalk() {
         nextWalk = GameWorld.getTicks() - 1;
         getWalkingQueue().reset();
     }
 
+    /**
+     * On region inactivity.
+     */
     public void onRegionInactivity() {
         getWalkingQueue().reset();
         getPulseManager().clear();
@@ -458,6 +564,11 @@ public class NPC extends Entity {
         setRespawnTick(GameWorld.getTicks() + definition.getConfiguration(NPCConfigParser.RESPAWN_DELAY, 17));
     }
 
+    /**
+     * Sets respawn ticks.
+     *
+     * @param ticks the ticks
+     */
     public void setRespawnTicks(int ticks) {
         definition.getHandlers().put(NPCConfigParser.RESPAWN_DELAY, ticks);
     }
@@ -467,6 +578,12 @@ public class NPC extends Entity {
         behavior.onDeathStarted(this, killer);
     }
 
+    /**
+     * Handle drops.
+     *
+     * @param p      the p
+     * @param killer the killer
+     */
     public void handleDrops(Player p, Entity killer) {
         if (getAttribute("disable:drop", false)) {
             return;
@@ -496,6 +613,12 @@ public class NPC extends Entity {
         return behavior.getSwingHandlerOverride(this, original);
     }
 
+    /**
+     * Gets audio.
+     *
+     * @param index the index
+     * @return the audio
+     */
     public Audio getAudio(int index) {
         int[] audios = getDefinition().getConfiguration(NPCConfigParser.COMBAT_AUDIO, null);
         if (audios != null) {
@@ -507,6 +630,9 @@ public class NPC extends Entity {
         return null;
     }
 
+    /**
+     * Configure.
+     */
     public void configure() {
         int[] bonus = definition.getConfiguration(NPCConfigParser.BONUSES, new int[3]);
         int highest = 0;
@@ -537,6 +663,12 @@ public class NPC extends Entity {
         task = Tasks.forId(getId());
     }
 
+    /**
+     * Can attack boolean.
+     *
+     * @param victim the victim
+     * @return the boolean
+     */
     public boolean canAttack(final Entity victim) {
         return true;
     }
@@ -546,6 +678,12 @@ public class NPC extends Entity {
         return getProperties().getProtectStyle() == style;
     }
 
+    /**
+     * Is ignore attack restrictions boolean.
+     *
+     * @param victim the victim
+     * @return the boolean
+     */
     public boolean isIgnoreAttackRestrictions(Entity victim) {
         return false;
     }
@@ -555,6 +693,12 @@ public class NPC extends Entity {
         return "NPC " + id + ", " + getLocation() + ", " + getIndex();
     }
 
+    /**
+     * Transform npc.
+     *
+     * @param id the id
+     * @return the npc
+     */
     public NPC transform(int id) {
         this.id = id;
         this.definition = NPCDefinition.forId(id);
@@ -572,6 +716,9 @@ public class NPC extends Entity {
         return this;
     }
 
+    /**
+     * Re transform.
+     */
     public void reTransform() {
         if (originalId == this.id) {
             return;
@@ -579,6 +726,11 @@ public class NPC extends Entity {
         transform(originalId);
     }
 
+    /**
+     * Gets movement destination.
+     *
+     * @return the movement destination
+     */
     protected Location getMovementDestination() {
         if (!pathBoundMovement || movementPath == null || movementPath.length < 1) {
             Location returnToSpawnLocation = getProperties().getSpawnLocation().transform(-5 + RandomFunction.random(getWalkRadius()), -5 + RandomFunction.random(getWalkRadius()), 0);
@@ -597,18 +749,39 @@ public class NPC extends Entity {
         return l;
     }
 
+    /**
+     * Gets drop location.
+     *
+     * @return the drop location
+     */
     public Location getDropLocation() {
         return getLocation();
     }
 
+    /**
+     * Can start combat boolean.
+     *
+     * @param victim the victim
+     * @return the boolean
+     */
     public boolean canStartCombat(Entity victim) {
         return true;
     }
 
+    /**
+     * Gets definition.
+     *
+     * @return the definition
+     */
     public NPCDefinition getDefinition() {
         return definition;
     }
 
+    /**
+     * Sets definition.
+     *
+     * @param definition the definition
+     */
     public void setDefinition(NPCDefinition definition) {
         this.definition = definition;
     }
@@ -617,86 +790,192 @@ public class NPC extends Entity {
         return id;
     }
 
+    /**
+     * Sets id.
+     *
+     * @param id the id
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     * Is walks boolean.
+     *
+     * @return the boolean
+     */
     public boolean isWalks() {
         return walks;
     }
 
+    /**
+     * Sets walks.
+     *
+     * @param walks the walks
+     */
     public void setWalks(boolean walks) {
         this.walks = walks;
     }
 
+    /**
+     * Is aggressive boolean.
+     *
+     * @return the boolean
+     */
     public boolean isAggressive() {
         return aggressive;
     }
 
+    /**
+     * Sets aggressive.
+     *
+     * @param aggressive the aggressive
+     */
     public void setAggressive(boolean aggressive) {
         this.aggressive = aggressive;
     }
 
+    /**
+     * Sets name.
+     *
+     * @param name the name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * Get movement path location [ ].
+     *
+     * @return the location [ ]
+     */
     public Location[] getMovementPath() {
         return movementPath;
     }
 
+    /**
+     * Is respawn boolean.
+     *
+     * @return the boolean
+     */
     public boolean isRespawn() {
         return respawn;
     }
 
+    /**
+     * Sets respawn.
+     *
+     * @param respawn the respawn
+     */
     public void setRespawn(boolean respawn) {
         this.respawn = respawn;
     }
 
+    /**
+     * Is path bound movement boolean.
+     *
+     * @return the boolean
+     */
     public boolean isPathBoundMovement() {
         return pathBoundMovement;
     }
 
+    /**
+     * Sets path bound movement.
+     *
+     * @param pathBoundMovement the path bound movement
+     */
     public void setPathBoundMovement(boolean pathBoundMovement) {
         this.pathBoundMovement = pathBoundMovement;
     }
 
+    /**
+     * Gets dialogue player.
+     *
+     * @return the dialogue player
+     */
     public Player getDialoguePlayer() {
         return dialoguePlayer;
     }
 
+    /**
+     * Sets dialogue player.
+     *
+     * @param dialoguePlayer the dialogue player
+     */
     public void setDialoguePlayer(Player dialoguePlayer) {
         this.dialoguePlayer = dialoguePlayer;
     }
 
+    /**
+     * Gets aggressive handler.
+     *
+     * @return the aggressive handler
+     */
     public AggressiveHandler getAggressiveHandler() {
         return aggressiveHandler;
     }
 
+    /**
+     * Sets aggressive handler.
+     *
+     * @param handler the handler
+     */
     public void setAggressiveHandler(AggressiveHandler handler) {
         this.aggressiveHandler = handler;
     }
 
+    /**
+     * Gets respawn tick.
+     *
+     * @return the respawn tick
+     */
     public int getRespawnTick() {
         return respawnTick;
     }
 
+    /**
+     * Sets walk radius.
+     *
+     * @param radius the radius
+     */
     public void setWalkRadius(int radius) {
         this.walkRadius = radius;
     }
 
+    /**
+     * Gets walk radius.
+     *
+     * @return the walk radius
+     */
     public int getWalkRadius() {
         return walkRadius;
     }
 
+    /**
+     * Sets respawn tick.
+     *
+     * @param respawnTick the respawn tick
+     */
     public void setRespawnTick(int respawnTick) {
         this.respawnTick = respawnTick;
     }
 
+    /**
+     * Gets original id.
+     *
+     * @return the original id
+     */
     public int getOriginalId() {
         return originalId;
     }
 
+    /**
+     * Gets shown npc.
+     *
+     * @param player the player
+     * @return the shown npc
+     */
     public NPC getShownNPC(Player player) {
         if (children == null) {
             return this;
@@ -710,26 +989,56 @@ public class NPC extends Entity {
         return this;
     }
 
+    /**
+     * Gets slayer experience.
+     *
+     * @return the slayer experience
+     */
     public double getSlayerExperience() {
         return slayerExperience;
     }
 
+    /**
+     * Sets slayer experience.
+     *
+     * @param slayerExperience the slayer experience
+     */
     public void setSlayerExperience(double slayerExperience) {
         this.slayerExperience = slayerExperience;
     }
 
+    /**
+     * Gets task.
+     *
+     * @return the task
+     */
     public Tasks getTask() {
         return task;
     }
 
+    /**
+     * Sets task.
+     *
+     * @param task the task
+     */
     public void setTask(Tasks task) {
         this.task = task;
     }
 
+    /**
+     * Is never walks boolean.
+     *
+     * @return the boolean
+     */
     public boolean isNeverWalks() {
         return neverWalks;
     }
 
+    /**
+     * Sets never walks.
+     *
+     * @param neverWalks the never walks
+     */
     public void setNeverWalks(boolean neverWalks) {
         this.neverWalks = neverWalks;
     }

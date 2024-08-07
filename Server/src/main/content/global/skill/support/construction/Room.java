@@ -10,14 +10,29 @@ import core.tools.Log;
 
 import static core.api.ContentAPIKt.log;
 
+/**
+ * Room.
+ */
 public final class Room {
 
+    /**
+     * The constant CHAMBER.
+     */
     public static final int CHAMBER = 0x0;
 
+    /**
+     * The constant ROOF.
+     */
     public static final int ROOF = 0x1;
 
+    /**
+     * The constant DUNGEON.
+     */
     public static final int DUNGEON = 0x2;
 
+    /**
+     * The constant LAND.
+     */
     public static final int LAND = 0x4;
 
     private RoomProperties properties;
@@ -28,16 +43,33 @@ public final class Room {
 
     private Direction rotation = Direction.NORTH;
 
+    /**
+     * Instantiates a new Room.
+     *
+     * @param properties the properties
+     */
     public Room(RoomProperties properties) {
         this.properties = properties;
     }
 
+    /**
+     * Create room.
+     *
+     * @param player     the player
+     * @param properties the properties
+     * @return the room
+     */
     public static Room create(Player player, RoomProperties properties) {
         Room room = new Room(properties);
         room.configure(player.getHouseManager().getStyle());
         return room;
     }
 
+    /**
+     * Configure.
+     *
+     * @param style the style
+     */
     public void configure(HousingStyle style) {
         this.hotspots = new Hotspot[properties.getHotspots().length];
         for (int i = 0; i < hotspots.length; i++) {
@@ -46,12 +78,23 @@ public final class Room {
         decorate(style);
     }
 
+    /**
+     * Decorate.
+     *
+     * @param style the style
+     */
     public void decorate(HousingStyle style) {
         Region region = RegionManager.forId(style.getRegionId());
         Region.load(region, true);
         chunk = region.getPlanes()[style.getPlane()].getRegionChunk(properties.getChunkX(), properties.getChunkY());
     }
 
+    /**
+     * Gets hotspot.
+     *
+     * @param hotspot the hotspot
+     * @return the hotspot
+     */
     public Hotspot getHotspot(BuildHotspot hotspot) {
         for (Hotspot h : hotspots) {
             if (h.getHotspot() == hotspot) {
@@ -61,11 +104,24 @@ public final class Room {
         return null;
     }
 
+    /**
+     * Is built boolean.
+     *
+     * @param hotspot the hotspot
+     * @return the boolean
+     */
     public boolean isBuilt(BuildHotspot hotspot) {
         Hotspot h = getHotspot(hotspot);
         return h != null && h.getDecorationIndex() > -1;
     }
 
+    /**
+     * Load decorations.
+     *
+     * @param housePlane the house plane
+     * @param chunk      the chunk
+     * @param house      the house
+     */
     public void loadDecorations(int housePlane, BuildRegionChunk chunk, HouseManager house) {
         for (int i = 0; i < hotspots.length; i++) {
             Hotspot spot = hotspots[i];
@@ -193,6 +249,12 @@ public final class Room {
         return room.getProperties().isDungeon() ? 13065 : house.getStyle().getWallId();
     }
 
+    /**
+     * Sets all decoration index.
+     *
+     * @param index the index
+     * @param hs    the hs
+     */
     public void setAllDecorationIndex(int index, BuildHotspot hs) {
         for (int i = 0; i < hotspots.length; i++) {
             Hotspot h = hotspots[i];
@@ -202,6 +264,11 @@ public final class Room {
         }
     }
 
+    /**
+     * Gets stairs.
+     *
+     * @return the stairs
+     */
     public Hotspot getStairs() {
         for (Hotspot h : hotspots) {
             if (h.getHotspot().getType() == BuildHotspotType.STAIRCASE
@@ -214,10 +281,21 @@ public final class Room {
         return null;
     }
 
+    /**
+     * Get exits boolean [ ].
+     *
+     * @return the boolean [ ]
+     */
     public boolean[] getExits() {
         return getExits(rotation);
     }
 
+    /**
+     * Get exits boolean [ ].
+     *
+     * @param rotation the rotation
+     * @return the boolean [ ]
+     */
     public boolean[] getExits(Direction rotation) {
         boolean[] exits = properties.getExits();
         if (chunk.getRotation() != rotation.toInteger()) {
@@ -231,6 +309,14 @@ public final class Room {
         return exits;
     }
 
+    /**
+     * Gets hotspot.
+     *
+     * @param build the build
+     * @param x     the x
+     * @param y     the y
+     * @return the hotspot
+     */
     public Hotspot getHotspot(BuildHotspot build, int x, int y) {
         for (int i = 0; i < getHotspots().length; i++) {
             Hotspot h = getHotspots()[i];
@@ -241,6 +327,12 @@ public final class Room {
         return null;
     }
 
+    /**
+     * Update properties.
+     *
+     * @param player     the player
+     * @param properties the properties
+     */
     public void updateProperties(Player player, RoomProperties properties) {
         this.properties = properties;
         decorate(player.getHouseManager().getStyle());
@@ -256,30 +348,65 @@ public final class Room {
         }
     }
 
+    /**
+     * Gets chunk.
+     *
+     * @return the chunk
+     */
     public RegionChunk getChunk() {
         return chunk;
     }
 
+    /**
+     * Sets chunk.
+     *
+     * @param chunk the chunk
+     */
     public void setChunk(RegionChunk chunk) {
         this.chunk = chunk;
     }
 
+    /**
+     * Get hotspots hotspot [ ].
+     *
+     * @return the hotspot [ ]
+     */
     public Hotspot[] getHotspots() {
         return hotspots;
     }
 
+    /**
+     * Sets hotspots.
+     *
+     * @param hotspots the hotspots
+     */
     public void setHotspots(Hotspot[] hotspots) {
         this.hotspots = hotspots;
     }
 
+    /**
+     * Gets properties.
+     *
+     * @return the properties
+     */
     public RoomProperties getProperties() {
         return properties;
     }
 
+    /**
+     * Sets rotation.
+     *
+     * @param rotation the rotation
+     */
     public void setRotation(Direction rotation) {
         this.rotation = rotation;
     }
 
+    /**
+     * Gets rotation.
+     *
+     * @return the rotation
+     */
     public Direction getRotation() {
         return rotation;
     }

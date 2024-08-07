@@ -10,8 +10,17 @@ import core.game.node.item.Item
 import core.game.world.map.Direction
 import core.game.world.map.Location
 
+/**
+ * Energy barrier utils.
+ */
 object EnergyBarrierUtils {
 
+    /**
+     * Pass gate.
+     *
+     * @param player the player.
+     * @param node the node.
+     */
     fun passGate(player: Player, node: Node) {
         val force = node.location
             .equals(3659, 3508, 0) && player.location.y < 3508 || node.location
@@ -29,6 +38,12 @@ object EnergyBarrierUtils {
         }
     }
 
+    /**
+     * Pass gate by talk.
+     *
+     * @param player the player.
+     * @param node the node.
+     */
     fun passGateByTalk(player: Player, node: Node) {
         if (removeItem(player, Item(Items.ECTO_TOKEN_4278, 2))) {
             val direction = Direction.getLogicalDirection(player.location, node.location)
@@ -53,6 +68,12 @@ object EnergyBarrierUtils {
         }
     }
 
+    /**
+     * Pass gate after quest.
+     *
+     * @param player the player.
+     * @param node the node.
+     */
     fun passGateAfterQuest(player: Player, node: Node) {
         val force = node.location
             .equals(3659, 3508, 0) && player.location.y < 3508 || node.location

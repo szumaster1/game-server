@@ -8,6 +8,9 @@ import core.game.world.map.Location;
 import core.plugin.Initializable;
 import core.tools.RandomFunction;
 
+/**
+ * Lumber kitten npc.
+ */
 @Initializable
 public final class LumberKittenNPC extends AbstractNPC {
 
@@ -17,6 +20,9 @@ public final class LumberKittenNPC extends AbstractNPC {
 
     private int hideDelay;
 
+    /**
+     * Instantiates a new Lumber kitten npc.
+     */
     public LumberKittenNPC() {
         super(0, null);
     }

@@ -11,8 +11,12 @@ import core.plugin.Plugin
 private const val HALF_BAKED_CRUNCHY = 2201
 private const val CRUNCHY_INTERFACE = 437
 
+/**
+ * Gnome crunchy prepare handler.
+ */
 @Initializable
 class GnomeCrunchyPrepareHandler : OptionHandler() {
+
     override fun newInstance(arg: Any?): Plugin<Any> {
         ItemDefinition.forId(HALF_BAKED_CRUNCHY).handlers["option:prepare"] = this
         return this

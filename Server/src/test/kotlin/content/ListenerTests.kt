@@ -8,11 +8,20 @@ import core.game.node.item.Item
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
+/**
+ * Listener tests
+ *
+ * @constructor Listener tests
+ */
 class ListenerTests : InteractionListener {
     init {
         TestUtils.preTestSetup()
     }
 
+    /**
+     * Double defined listener should throw illegal state exception
+     *
+     */
     @Test
     fun doubleDefinedListenerShouldThrowIllegalStateException() {
         on(0, IntType.ITEM, "touch") { _, _ -> return@on true }
@@ -21,6 +30,10 @@ class ListenerTests : InteractionListener {
         }
     }
 
+    /**
+     * Double defined use with should throw illegal state exception
+     *
+     */
     @Test
     fun doubleDefinedUseWithShouldThrowIllegalStateException() {
         onUseWith(IntType.SCENERY, 0, 1) { _, _, _ -> return@onUseWith true }
@@ -29,6 +42,10 @@ class ListenerTests : InteractionListener {
         }
     }
 
+    /**
+     * Conflicting catchall should throw illegal state exception
+     *
+     */
     @Test
     fun conflictingCatchallShouldThrowIllegalStateException() {
         on(IntType.ITEM, "boop") { _, _ -> return@on true }
@@ -37,6 +54,10 @@ class ListenerTests : InteractionListener {
         }
     }
 
+    /**
+     * Specific listener should override catchall listener
+     *
+     */
     @Test
     fun specificListenerShouldOverrideCatchallListener() {
         var specificRan = false

@@ -21,6 +21,11 @@ import core.game.world.map.zone.ZoneBorders
 import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
 
+/**
+ * Enchanting zone
+ *
+ * @constructor Enchanting zone
+ */
 class EnchantingZone :
     MTAZone("Enchantment Chamber", arrayOf(Item(6899), Item(6898), Item(6900), Item(6901), Item(6903), Item(6902))) {
 
@@ -68,6 +73,11 @@ class EnchantingZone :
     }
 
 
+    /**
+     * Create ground spawns
+     *
+     * @param player
+     */
     fun createGroundSpawns(player: Player) {
         if (DSPAWNS.containsKey(player.name)) {
             val items = getGroundSpawns(player)
@@ -102,6 +112,12 @@ class EnchantingZone :
         DSPAWNS[player.name] = items
     }
 
+    /**
+     * Get respawn pulse
+     *
+     * @param item
+     * @return
+     */
     fun getRespawnPulse(item: GroundItem?): Pulse {
         return object : Pulse(if (settings!!.isDevMode) 45 else RandomFunction.random(700, 800)) {
             override fun pulse(): Boolean {
@@ -111,6 +127,11 @@ class EnchantingZone :
         }
     }
 
+    /**
+     * Remove ground spawns
+     *
+     * @param player
+     */
     fun removeGroundSpawns(player: Player) {
         val items: List<GroundItem> = getGroundSpawns(player)
         for (item in items) {
@@ -118,6 +139,12 @@ class EnchantingZone :
         }
     }
 
+    /**
+     * Get ground spawns
+     *
+     * @param player
+     * @return
+     */
     fun getGroundSpawns(player: Player): MutableList<GroundItem> {
         var items = DSPAWNS[player.name]
         if (items == null) {
@@ -151,12 +178,48 @@ class EnchantingZone :
     }
 
 
+    /**
+     * Shapes
+     *
+     * @property objectId
+     * @property item
+     * @constructor Shapes
+     */
     enum class Shapes(val objectId: Int, val item: Item) {
+        /**
+         * Cube
+         *
+         * @constructor Cube
+         */
         CUBE(10799, Item(6899)),
+
+        /**
+         * Cylinder
+         *
+         * @constructor Cylinder
+         */
         CYLINDER(10800, Item(6898)),
+
+        /**
+         * Pentamid
+         *
+         * @constructor Pentamid
+         */
         PENTAMID(10802, Item(6901)),
+
+        /**
+         * Icosahedron
+         *
+         * @constructor Icosahedron
+         */
         ICOSAHEDRON(10801, Item(6900));
 
+        /**
+         * Take
+         *
+         * @param player
+         * @param object
+         */
         fun take(player: Player, `object`: Scenery?) {
             if (!player.inventory.hasSpaceFor(item)) {
                 player.sendMessage("You have no space left in your inventory.")
@@ -167,6 +230,11 @@ class EnchantingZone :
             player.animate(Animation.create(827))
         }
 
+        /**
+         * Set as bonus
+         *
+         * @param player
+         */
         fun setAsBonus(player: Player) {
             for (s in values()) {
                 player.packetDispatch.sendInterfaceConfig(195, s.child, true)

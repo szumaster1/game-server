@@ -11,9 +11,6 @@ import core.game.node.item.Item
 import core.tools.RandomFunction
 import core.tools.StringUtils
 
-/*
- * @author Vexia
- */
 enum class BirdNestDropTable(val nest: ChanceItem, vararg loot: ChanceItem) {
     RED(
         ChanceItem(Items.BIRDS_NEST_5070, 1, 5),
@@ -77,6 +74,7 @@ enum class BirdNestDropTable(val nest: ChanceItem, vararg loot: ChanceItem) {
 
     val loot: Array<ChanceItem> = loot as Array<ChanceItem>
 
+    // This method is used to search for a specific item in the bird's nest.
     fun search(player: Player, item: Item) {
         if (freeSlots(player) < 1) {
             sendMessage(player, "You don't have enough inventory space.")
@@ -97,6 +95,7 @@ enum class BirdNestDropTable(val nest: ChanceItem, vararg loot: ChanceItem) {
         private val NESTS = arrayOfNulls<ChanceItem>(6)
         private val EMPTY = Item(Items.BIRDS_NEST_5075)
 
+        // This method is used to drop a bird's nest for the player.
         @JvmStatic
         fun drop(player: Player) {
             val nest = getRandomNest(false)
@@ -105,6 +104,7 @@ enum class BirdNestDropTable(val nest: ChanceItem, vararg loot: ChanceItem) {
             sendMessage(player, "<col=FF0000>A bird's nest falls out of the tree.")
         }
 
+        // This method is used to get a random bird's nest from the drop table.
         @JvmStatic
         fun getRandomNest(node: Boolean): BirdNestDropTable? {
             val item = RandomFunction.getChanceItem(NESTS)
@@ -121,6 +121,7 @@ enum class BirdNestDropTable(val nest: ChanceItem, vararg loot: ChanceItem) {
             return null
         }
 
+        // This method is used to get the BirdNestDropTable enum for a given bird's nest item.
         @JvmStatic
         fun forNest(nest: Item): BirdNestDropTable? {
             for (n in values()) {

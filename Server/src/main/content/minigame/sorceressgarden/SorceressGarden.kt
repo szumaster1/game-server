@@ -31,6 +31,9 @@ import core.network.packet.outgoing.MinimapState
 import core.plugin.Plugin
 import core.tools.RandomFunction
 
+/**
+ * Sorceress garden.
+ */
 class SorceressGarden : InteractionListener {
     val GATES = intArrayOf(21709, 21753, 21731, 21687)
     val APPRENTICE = NPCs.APPRENTICE_5532
@@ -187,12 +190,45 @@ class SorceressGarden : InteractionListener {
     }
 
 
+    /**
+     * Herb definition
+     *
+     * @property id
+     * @property exp
+     * @property respawn
+     * @constructor Herb definition
+     */
     enum class HerbDefinition(val id: Int, val exp: Double, val respawn: Location) {
-        WINTER(21671, 30.0, Location(2907, 5470, 0)), SPRING(21668, 40.0, Location(2916, 5473, 0)), AUTUMN(
+        /**
+         * Winter
+         *
+         * @constructor Winter
+         */
+        WINTER(21671, 30.0, Location(2907, 5470, 0)),
+
+        /**
+         * Spring
+         *
+         * @constructor Spring
+         */
+        SPRING(21668, 40.0, Location(2916, 5473, 0)),
+
+        /**
+         * Autumn
+         *
+         * @constructor Autumn
+         */
+        AUTUMN(
             21670,
             50.0,
             Location(2913, 5467, 0)
         ),
+
+        /**
+         * Summer
+         *
+         * @constructor Summer
+         */
         SUMMER(21669, 60.0, Location(2910, 5476, 0));
 
         companion object {
@@ -208,6 +244,23 @@ class SorceressGarden : InteractionListener {
     }
 
 
+    /**
+     * Season definitions
+     *
+     * @property treeId
+     * @property level
+     * @property farmExp
+     * @property exp
+     * @property fruitId
+     * @property juiceId
+     * @property fruitAmt
+     * @property boost
+     * @property energy
+     * @property osmanExp
+     * @property gateId
+     * @property respawn
+     * @constructor Season definitions
+     */
     enum class SeasonDefinitions(
         val treeId: Int,
         val level: Int,
@@ -222,6 +275,11 @@ class SorceressGarden : InteractionListener {
         val gateId: Int,
         val respawn: Location
     ) {
+        /**
+         * Winter
+         *
+         * @constructor Winter
+         */
         WINTER(
             21769,
             1,
@@ -236,6 +294,12 @@ class SorceressGarden : InteractionListener {
             21709,
             Location(2907, 5470, 0)
         ),
+
+        /**
+         * Spring
+         *
+         * @constructor Spring
+         */
         SPRING(
             21767,
             25,
@@ -250,6 +314,12 @@ class SorceressGarden : InteractionListener {
             21753,
             Location(2916, 5473, 0)
         ),
+
+        /**
+         * Autumn
+         *
+         * @constructor Autumn
+         */
         AUTUMN(
             21768,
             45,
@@ -264,6 +334,12 @@ class SorceressGarden : InteractionListener {
             21731,
             Location(2913, 5467, 0)
         ),
+
+        /**
+         * Summer
+         *
+         * @constructor Summer
+         */
         SUMMER(
             21766,
             65,
@@ -318,6 +394,11 @@ class SorceressGarden : InteractionListener {
     }
 
 
+    /**
+     * Sqirk juice plugin
+     *
+     * @constructor Sqirk juice plugin
+     */
     class SqirkJuicePlugin : UseWithHandler(10844, 10845, 10846, 10847) {
         override fun handle(event: NodeUsageEvent): Boolean {
             val item: Item = event.usedItem
@@ -366,6 +447,9 @@ class SorceressGarden : InteractionListener {
     }
 }
 
+/**
+ * Sqirk making dialogue.
+ */
 class SqirkMakingDialogue(player: Player? = null) : Dialogue(player) {
     private var dialogueId = 0
     private var definition: SorceressGarden.SeasonDefinitions? = null

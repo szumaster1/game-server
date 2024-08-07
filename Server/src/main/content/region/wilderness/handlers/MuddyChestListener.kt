@@ -10,7 +10,10 @@ import core.game.node.scenery.Scenery
 import core.game.node.scenery.SceneryBuilder
 import core.game.world.update.flag.context.Animation
 
-class MuddyChestHandler : InteractionListener {
+/**
+ * Muddy chest handler.
+ */
+class MuddyChestListener : InteractionListener {
 
     companion object {
         const val MUDDY_CHEST = 170
@@ -28,7 +31,7 @@ class MuddyChestHandler : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Muddy chest interaction.
          */
         on(MUDDY_CHEST, IntType.SCENERY, "open") { player, node ->

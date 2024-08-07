@@ -18,8 +18,7 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 
 /**
- * Option handler for fishing trawler
- * @author Ceikry
+ * Option handler for fishing trawler.
  */
 class FishingTrawlerInteractionHandler : InteractionListener {
     val ENTRANCE_PLANK = 2178

@@ -11,6 +11,13 @@ import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
+/**
+ * Farmer pay option dialogue
+ *
+ * @property patch
+ * @property quickPay
+ * @constructor Farmer pay option dialogue
+ */
 class FarmerPayOptionDialogue(val patch: Patch, val quickPay: Boolean = false): DialogueFile() {
 
     var item: Item? = null

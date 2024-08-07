@@ -14,6 +14,15 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.world.map.Location
 
+/**
+ * MTA type
+ *
+ * @property sceneryId
+ * @property overlay
+ * @property startLocation
+ * @property endLocation
+ * @property mtaZone
+ */
 enum class MTAType(
     val sceneryId: Int,
     val overlay: Component,
@@ -21,6 +30,9 @@ enum class MTAType(
     private val endLocation: Location,
     val mtaZone: MTAZone
 ) {
+    /**
+     * Telekinetic.
+     */
     TELEKINETIC(Scenery.TELEKINETIC_TELEPORT_10778, Component(Components.MAGICTRAINING_TELE_198), null, Location.create(3363, 3316, 0), TelekineticZone()) {
         override fun hasRequirement(player: Player): Boolean {
             if (getStatLevel(player, Skills.MAGIC) < 33) {
@@ -30,6 +42,10 @@ enum class MTAType(
             return true
         }
     },
+
+    /**
+     * Alchemists.
+     */
     ALCHEMISTS(10780, Component(Components.MAGICTRAINING_ALCH_STATS_194), Location(3366, 9623, 2), Location(3363, 3320, 0), AlchemistZone.ZONE) {
         override fun hasRequirement(player: Player): Boolean {
             if (getStatLevel(player, Skills.MAGIC) < 21) {
@@ -55,6 +71,10 @@ enum class MTAType(
             super.exit(player)
         }
     },
+
+    /**
+     * Enchanters.
+     */
     ENCHANTERS(Scenery.ENCHANTERS_TELEPORT_10779, Component(Components.MAGICTRAINING_ENCHANT_195), Location(3363, 9649, 0), Location(3361, 3318, 0), EnchantingZone.ZONE) {
         override fun hasRequirement(player: Player): Boolean {
             if (getStatLevel(player, Skills.MAGIC) < 7) {
@@ -64,6 +84,10 @@ enum class MTAType(
             return true
         }
     },
+
+    /**
+     * Graveyard.
+     */
     GRAVEYARD(Scenery.GRAVEYARD_TELEPORT_10781, Component(Components.MAGICTRAINING_GRAVE_196), Location(3363, 9639, 1), Location(3365, 3318, 0), GraveyardZone.ZONE) {
         override fun hasRequirement(player: Player): Boolean {
             if (getStatLevel(player, Skills.MAGIC) < 15) {
@@ -78,6 +102,9 @@ enum class MTAType(
         }
     };
 
+    /**
+     * Enter.
+     */
     fun enter(player: Player) {
         if (!player.getSavedData().activityData.isStartedMta || !player.inventory.containsItem(MageTrainingArena.PROGRESS_HAT) && !player.equipment.containsItem(MageTrainingArena.PROGRESS_HAT)) {
             sendDialogueLines(player, "You need a Pizazz Progress Hat in order to enter. Talk to the", "Entrance Guardian if you don't have one.")
@@ -94,14 +121,23 @@ enum class MTAType(
         sendMessage(player, "You've entered the " + mtaZone.name + ".")
     }
 
+    /**
+     * Exit.
+     */
     open fun exit(player: Player) {
         teleport(player, endLocation)
     }
 
+    /**
+     * Has requirement.
+     */
     open fun hasRequirement(player: Player): Boolean {
         return false
     }
 
+    /**
+     * Get zone.
+     */
     fun getZone(): MTAZone {
         return mtaZone
     }

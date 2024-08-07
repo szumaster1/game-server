@@ -6,6 +6,11 @@ import core.game.interaction.InteractionListener
 import core.game.node.Node
 import core.game.node.entity.player.Player
 
+/**
+ * Bird nest script listener
+ *
+ * @constructor Bird nest script listener
+ */
 class BirdNestScriptListener : InteractionListener {
 
     val nestIds = BirdNestDropTable.values().map { it.nest.id }.toIntArray()

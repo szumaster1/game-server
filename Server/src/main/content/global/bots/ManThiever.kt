@@ -5,6 +5,9 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListeners
 import core.game.node.item.Item
 
+/**
+ * Man thiever.
+ */
 class ManThiever : Script() {
 
     override fun tick() {

@@ -8,6 +8,11 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 import core.plugin.Initializable
 
+/**
+ * Merlin crystal quest
+ *
+ * @constructor Merlin crystal quest
+ */
 @Initializable
 class MerlinCrystalQuest : Quest("Merlin's Crystal", 87, 86, 6, Vars.VARP_QUEST_MERLIN_CRYSTAL_PROGRESS, 0, 1, 7) {
     override fun newInstance(`object`: Any?): Quest {

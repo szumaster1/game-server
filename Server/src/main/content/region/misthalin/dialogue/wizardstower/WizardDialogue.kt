@@ -15,6 +15,9 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.StringUtils
 
+/**
+ * Wizard dialogue.
+ */
 @Initializable
 class WizardDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -111,6 +114,12 @@ class WizardDialogue(player: Player? = null) : Dialogue(player) {
         return intArrayOf(NPCs.WIZARD_1263)
     }
 
+    /**
+     * Make
+     *
+     * @param bark
+     * @param amount
+     */
     fun make(bark: SplitBark, amount: Int) {
         val barkAmt = player.inventory.getAmount(BARK)
         if (barkAmt < amount * bark.amt) {
@@ -142,6 +151,12 @@ class WizardDialogue(player: Player? = null) : Dialogue(player) {
         end()
     }
 
+    /**
+     * Get amt
+     *
+     * @param buttonId
+     * @return
+     */
     fun getAmt(buttonId: Int): Int {
         var amount = -1
         when (buttonId) {
@@ -153,11 +168,49 @@ class WizardDialogue(player: Player? = null) : Dialogue(player) {
         return amount
     }
 
+    /**
+     * Split bark
+     *
+     * @property itemId
+     * @property cost
+     * @property amt
+     * @property buttonId
+     * @constructor Split bark
+     */
     enum class SplitBark(val itemId: Int, val cost: Int, val amt: Int, val buttonId: Int) {
+        /**
+         * Helm
+         *
+         * @constructor Helm
+         */
         HELM(3385, 6000, 2, 9),
+
+        /**
+         * Body
+         *
+         * @constructor Body
+         */
         BODY(3387, 37000, 4, 13),
+
+        /**
+         * Legs
+         *
+         * @constructor Legs
+         */
         LEGS(3389, 32000, 3, 17),
+
+        /**
+         * Gauntlets
+         *
+         * @constructor Gauntlets
+         */
         GAUNTLETS(3391, 1000, 1, 21),
+
+        /**
+         * Boots
+         *
+         * @constructor Boots
+         */
         BOOTS(3393, 1000, 1, 25);
 
         companion object {

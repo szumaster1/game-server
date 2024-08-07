@@ -8,6 +8,11 @@ import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 
+/**
+ * Hops dialogue file
+ *
+ * @constructor Hops dialogue file
+ */
 class HopsDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.HOPS_340)
@@ -74,6 +79,11 @@ class HopsDialogueFile : DialogueFile() {
     }
 }
 
+/**
+ * Hops varrock dialogue file
+ *
+ * @constructor Hops varrock dialogue file
+ */
 class HopsVarrockDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.HOPS_341)

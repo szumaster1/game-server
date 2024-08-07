@@ -1,4 +1,4 @@
-package content.global.skill.prayer
+package content.global.skill.combat.prayer
 
 import core.api.*
 import core.api.consts.Scenery
@@ -13,6 +13,9 @@ import core.game.node.entity.player.link.TeleportManager
 import core.game.node.entity.skill.Skills
 import core.game.world.map.Location
 
+/**
+ * Prayer altar listener.
+ */
 class PrayerAltarListener : InteractionListener {
 
     override fun defineListeners() {
@@ -42,6 +45,13 @@ class PrayerAltarListener : InteractionListener {
         }
     }
 
+    /**
+     * Pray
+     *
+     * @param player
+     * @param node
+     * @return
+     */
     private fun pray(player: Player, node: Node): Boolean {
         val prayerLevel = getStatLevel(player, Skills.PRAYER).plus(if (node.id in BOOSTED_ALTAR) 2 else 0)
 

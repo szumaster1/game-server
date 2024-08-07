@@ -9,6 +9,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.item.Item
 
+/**
+ * Skull sceptre assemble listener
+ *
+ * @constructor Skull sceptre assemble listener
+ */
 class SkullSceptreAssembleListener : InteractionListener {
 
     override fun defineListeners() {

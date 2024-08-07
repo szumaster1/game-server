@@ -23,6 +23,12 @@ import core.game.world.GameWorld
 import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
 
+/**
+ * Combat pulse
+ *
+ * @property entity
+ * @constructor Combat pulse
+ */
 class CombatPulse(val entity: Entity?) : Pulse(1, entity, null) {
 
     private var victim: Entity? = null
@@ -109,6 +115,11 @@ class CombatPulse(val entity: Entity?) : Pulse(1, entity, null) {
      * Sets the "in combat" flag for the victim and handles closing.
      */
 
+    /**
+     * Set combat flags
+     *
+     * @param victim
+     */
     fun setCombatFlags(victim: Entity?) {
         if (victim == null || entity == null) {
             return
@@ -171,6 +182,10 @@ class CombatPulse(val entity: Entity?) : Pulse(1, entity, null) {
      * Sets the combat style.
      */
 
+    /**
+     * Update style
+     *
+     */
     fun updateStyle() {
         if (entity == null) {
             return
@@ -197,6 +212,11 @@ class CombatPulse(val entity: Entity?) : Pulse(1, entity, null) {
      * Attacks the node.
      */
 
+    /**
+     * Attack
+     *
+     * @param victim
+     */
     fun attack(victim: Node?) {
         if (victim == null) {
             return
@@ -258,6 +278,11 @@ class CombatPulse(val entity: Entity?) : Pulse(1, entity, null) {
      * Sets the victim.
      */
 
+    /**
+     * Set victim
+     *
+     * @param victim
+     */
     fun setVictim(victim: Node?) {
         super.addNodeCheck(1, victim)
         movement.setLast(null)
@@ -270,6 +295,11 @@ class CombatPulse(val entity: Entity?) : Pulse(1, entity, null) {
      * Sets the next attack.
      */
 
+    /**
+     * Set next attack
+     *
+     * @param ticks
+     */
     fun setNextAttack(ticks: Int) {
         nextAttack = GameWorld.ticks + ticks
     }
@@ -278,6 +308,11 @@ class CombatPulse(val entity: Entity?) : Pulse(1, entity, null) {
      * Delays the next attack.
      */
 
+    /**
+     * Delay next attack
+     *
+     * @param ticks
+     */
     fun delayNextAttack(ticks: Int) {
         nextAttack += ticks
     }
@@ -286,6 +321,11 @@ class CombatPulse(val entity: Entity?) : Pulse(1, entity, null) {
      * Gets the next attack tick.
      */
 
+    /**
+     * Get next attack
+     *
+     * @return
+     */
     fun getNextAttack(): Int {
         return nextAttack
     }
@@ -294,6 +334,11 @@ class CombatPulse(val entity: Entity?) : Pulse(1, entity, null) {
      * Checks if we can fight with the victim.
      */
 
+    /**
+     * Can interact
+     *
+     * @return
+     */
     fun canInteract(): InteractionType? {
         if (victim == null) {
             return InteractionType.NO_INTERACT
@@ -354,6 +399,11 @@ class CombatPulse(val entity: Entity?) : Pulse(1, entity, null) {
      * Gets the current victim.
      */
 
+    /**
+     * Get victim
+     *
+     * @return
+     */
     fun getVictim(): Entity? {
         return victim
     }

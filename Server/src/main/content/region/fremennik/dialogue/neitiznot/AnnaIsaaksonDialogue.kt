@@ -7,6 +7,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Anna isaakson dialogue.
+ */
 @Initializable
 class AnnaIsaaksonDialogue(player: Player? = null) : Dialogue(player) {
 

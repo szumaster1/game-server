@@ -6,6 +6,11 @@ import core.api.sendDialogueOptions
 import core.api.sendItemDialogue
 import core.game.dialogue.DialogueFile
 
+/**
+ * Schematic crate dialogue
+ *
+ * @constructor Schematic crate dialogue
+ */
 class SchematicCrateDialogue : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         when (stage) {

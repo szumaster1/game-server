@@ -17,6 +17,9 @@ import core.game.world.update.flag.context.Animation
 import core.tools.Log
 import core.tools.RandomFunction
 
+/**
+ * Hunter tracking.
+ */
 abstract class HunterTracking : OptionHandler() {
     var KEBBIT_ANIM = Animation(0)
     val MISS_ANIM = Animation(5255)
@@ -32,11 +35,23 @@ abstract class HunterTracking : OptionHandler() {
     var requiredLevel = 1
 
 
+    /**
+     * Get initial trail
+     *
+     * @param obj
+     * @return
+     */
     fun getInitialTrail(obj: Scenery): TrailDefinition? {
         return initialMap[obj.id]?.random()
     }
 
 
+    /**
+     * Generate trail
+     *
+     * @param startobj
+     * @param player
+     */
     fun generateTrail(startobj: Scenery, player: Player) {
         val trail = player.getAttribute(attribute, ArrayList<TrailDefinition>())
         val initialTrail = getInitialTrail(startobj)
@@ -74,6 +89,12 @@ abstract class HunterTracking : OptionHandler() {
     }
 
 
+    /**
+     * Get linking trail
+     *
+     * @param player
+     * @return
+     */
     fun getLinkingTrail(player: Player): TrailDefinition {
         val trail = player.getAttribute(attribute, ArrayList<TrailDefinition>())
         val previousTrail = trail[trail.lastIndex]
@@ -97,6 +118,13 @@ abstract class HunterTracking : OptionHandler() {
     }
 
 
+    /**
+     * Get trail inverse
+     *
+     * @param trail
+     * @param swapLocations
+     * @return
+     */
     fun getTrailInverse(trail: TrailDefinition, swapLocations: Boolean): TrailDefinition {
         if (swapLocations) return TrailDefinition(
             trail.varbit,
@@ -116,6 +144,10 @@ abstract class HunterTracking : OptionHandler() {
     }
 
 
+    /**
+     * Add extra trails
+     *
+     */
     fun addExtraTrails() {
         linkingTrails.toTypedArray().forEach { trail ->
             linkingTrails.add(getTrailInverse(trail, true))
@@ -131,6 +163,11 @@ abstract class HunterTracking : OptionHandler() {
     }
 
 
+    /**
+     * Clear trail
+     *
+     * @param player
+     */
     fun clearTrail(player: Player) {
         player.removeAttribute(attribute)
         player.removeAttribute(indexAttribute)
@@ -138,11 +175,23 @@ abstract class HunterTracking : OptionHandler() {
     }
 
 
+    /**
+     * Has trail
+     *
+     * @param player
+     * @return
+     */
     fun hasTrail(player: Player): Boolean {
         return false
     }
 
 
+    /**
+     * Reward
+     *
+     * @param player
+     * @param success
+     */
     fun reward(player: Player, success: Boolean) {
         player.lock()
         player.animator.animate(if (success) KEBBIT_ANIM else MISS_ANIM)
@@ -163,6 +212,11 @@ abstract class HunterTracking : OptionHandler() {
     }
 
 
+    /**
+     * Update trail
+     *
+     * @param player
+     */
     fun updateTrail(player: Player) {
         val trail = player.getAttribute(attribute, ArrayList<TrailDefinition>())
         val trailIndex = player.getAttribute(indexAttribute, 0)
@@ -234,6 +288,12 @@ abstract class HunterTracking : OptionHandler() {
         return true
     }
 
+    /**
+     * Has noose wand
+     *
+     * @param player
+     * @return
+     */
     fun hasNooseWand(player: Player): Boolean {
         return inEquipment(player, Items.NOOSE_WAND_10150, 1) || inInventory(player, Items.NOOSE_WAND_10150, 1)
     }

@@ -10,6 +10,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Ollie the camel dialogue.
+ */
 @Initializable
 class OllieTheCamelDialogue(player: Player? = null) : Dialogue(player) {
 

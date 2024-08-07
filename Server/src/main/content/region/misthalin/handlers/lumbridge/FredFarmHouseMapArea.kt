@@ -7,6 +7,9 @@ import core.game.world.map.zone.ZoneBuilder
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Fred farm house map area.
+ */
 @Initializable
 class FredFarmHouseMapArea : MapZone("freds-farm-house", true), Plugin<Any?> {
 
@@ -15,10 +18,9 @@ class FredFarmHouseMapArea : MapZone("freds-farm-house", true), Plugin<Any?> {
     }
 
     override fun enter(entity: Entity): Boolean {
-        /*
+        /**
          * Visit Fred the Farmer's chicken and sheep farm.
          */
-
         if (entity.isPlayer) {
             val player = entity.asPlayer()
         }

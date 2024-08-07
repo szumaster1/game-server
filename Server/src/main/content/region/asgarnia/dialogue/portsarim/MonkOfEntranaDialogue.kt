@@ -14,6 +14,9 @@ import core.game.node.entity.player.link.diary.DiaryType
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Monk of entrana dialogue.
+ */
 @Initializable
 class MonkOfEntranaDialogue(player: Player? = null) : Dialogue(player) {
 

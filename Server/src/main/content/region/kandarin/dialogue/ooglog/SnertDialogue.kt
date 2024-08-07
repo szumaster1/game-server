@@ -10,6 +10,9 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 
+/**
+ * Snert dialogue.
+ */
 @Initializable
 class SnertDialogue(player: Player? = null) : Dialogue(player) {
 

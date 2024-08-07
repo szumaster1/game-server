@@ -11,8 +11,11 @@ import core.tools.RandomFunction
 import kotlin.math.floor
 
 /**
- * Handles the magic combat swings.
- * @author Ceikry, Emperor
+ * Magic swing handler
+ *
+ * @constructor
+ *
+ * @param flags
  */
 open class MagicSwingHandler(vararg flags: SwingHandlerFlag) : CombatSwingHandler(CombatStyle.MAGIC, *flags) {
 

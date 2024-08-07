@@ -10,6 +10,9 @@ import core.game.interaction.UseWithHandler
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Unfinished potion handler.
+ */
 @Initializable
 class UnfinishedPotionHandler : UseWithHandler(Items.VIAL_OF_WATER_227, Items.COCONUT_MILK_5935) {
 

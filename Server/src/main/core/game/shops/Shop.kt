@@ -24,8 +24,22 @@ import java.lang.Integer.min
 import kotlin.math.ceil
 import kotlin.math.roundToInt
 
+/**
+ * Shop item
+ *
+ * @property itemId
+ * @property amount
+ * @property restockRate
+ * @constructor Shop item
+ */
 data class ShopItem(var itemId: Int, var amount: Int, val restockRate: Int = 100)
 
+/**
+ * Shop listener
+ *
+ * @property player
+ * @constructor Shop listener
+ */
 class ShopListener(val player: Player) : ContainerListener {
     var enabled = false
     override fun update(c: Container?, event: ContainerEvent?) {
@@ -43,6 +57,17 @@ class ShopListener(val player: Player) : ContainerListener {
     }
 }
 
+/**
+ * Shop
+ *
+ * @property title
+ * @property stock
+ * @property general
+ * @property currency
+ * @property highAlch
+ * @property forceShared
+ * @constructor Shop
+ */
 class Shop(
     val title: String,
     val stock: Array<ShopItem>,
@@ -61,6 +86,11 @@ class Shop(
             stockInstances[ServerConstants.SERVER_NAME.hashCode()] = generateStockContainer()
     }
 
+    /**
+     * Open for
+     *
+     * @param player
+     */
     fun openFor(player: Player) {
         val cont = getContainer(player)
         setInterfaceText(player, title, 620, 22)
@@ -72,6 +102,12 @@ class Shop(
         logShop("Opening shop [Title: $title, Player: ${player.username}]")
     }
 
+    /**
+     * Show tab
+     *
+     * @param player
+     * @param main
+     */
     fun showTab(player: Player, main: Boolean) {
         val cont = if (main) getAttribute<Container?>(player, "shop-cont", null) ?: return else playerStock
 
@@ -126,6 +162,12 @@ class Shop(
         setAttribute(player, "shop-main", main)
     }
 
+    /**
+     * Get container
+     *
+     * @param player
+     * @return
+     */
     fun getContainer(player: Player): Container {
         val container = if (getServerConfig().getBoolean(Shops.personalizedShops, false) && !forceShared)
             stockInstances[player.details.uid] ?: generateStockContainer().also {
@@ -158,6 +200,10 @@ class Shop(
         return container
     }
 
+    /**
+     * Restock
+     *
+     */
     fun restock() {
         stockInstances.filter { needsUpdate[it.key] == true }.forEach { (player, cont) ->
             for (i in 0 until cont.capacity()) {
@@ -179,6 +225,13 @@ class Shop(
         }
     }
 
+    /**
+     * Get buy price
+     *
+     * @param player
+     * @param slot
+     * @return
+     */
     fun getBuyPrice(player: Player, slot: Int): Item {
         val isMainStock = getAttribute(player, "shop-main", true)
         val cont =
@@ -208,6 +261,13 @@ class Shop(
         return Item(currency, price)
     }
 
+    /**
+     * Get sell price
+     *
+     * @param player
+     * @param slot
+     * @return
+     */
     fun getSellPrice(player: Player, slot: Int): Pair<Container?, Item> {
         val shopCont = getAttribute<Container?>(player, "shop-cont", null) ?: return Pair(null, Item(-1, -1))
         val item = player.inventory[slot]
@@ -296,6 +356,14 @@ class Shop(
         return price
     }
 
+    /**
+     * Buy
+     *
+     * @param player
+     * @param slot
+     * @param amount
+     * @return
+     */
     fun buy(player: Player, slot: Int, amount: Int): TransactionStatus {
         if (amount !in 1..Integer.MAX_VALUE) return TransactionStatus.Failure("Invalid amount: $amount")
         val isMainStock = getAttribute(player, "shop-main", false)
@@ -382,6 +450,14 @@ class Shop(
         return TransactionStatus.Success()
     }
 
+    /**
+     * Sell
+     *
+     * @param player
+     * @param slot
+     * @param amount
+     * @return
+     */
     fun sell(player: Player, slot: Int, amount: Int): TransactionStatus {
         if (amount !in 1..Integer.MAX_VALUE) return TransactionStatus.Failure("Invalid amount: $amount")
         val playerInventory = player.inventory[slot]
@@ -459,6 +535,12 @@ class Shop(
         return TransactionStatus.Success()
     }
 
+    /**
+     * Get stock slot
+     *
+     * @param itemId
+     * @return
+     */
     fun getStockSlot(itemId: Int): Pair<Boolean, Int> {
         var shopSlot: Int = -1
         var isPlayerStock = false
@@ -487,8 +569,25 @@ class Shop(
         val listenerInstances = HashMap<Int, ShopListener>()
     }
 
+    /**
+     * Transaction status
+     *
+     * @constructor Transaction status
+     */
     sealed class TransactionStatus {
+        /**
+         * Success
+         *
+         * @constructor Success
+         */
         class Success : TransactionStatus()
+
+        /**
+         * Failure
+         *
+         * @property reason
+         * @constructor Failure
+         */
         class Failure(val reason: String) : TransactionStatus()
     }
 }

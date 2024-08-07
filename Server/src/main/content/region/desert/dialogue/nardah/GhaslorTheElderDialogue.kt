@@ -7,6 +7,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Ghaslor the elder dialogue.
+ */
 @Initializable
 class GhaslorTheElderDialogue(player: Player? = null) : Dialogue(player) {
 

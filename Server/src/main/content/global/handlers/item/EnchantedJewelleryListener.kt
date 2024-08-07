@@ -15,6 +15,11 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.tools.START_DIALOGUE
 
+/**
+ * Enchanted jewellery listener
+ *
+ * @constructor Enchanted jewellery listener
+ */
 class EnchantedJewelleryListener : InteractionListener {
 
     val ids = EnchantedJewellery.idMap.keys.toIntArray()
@@ -52,6 +57,14 @@ class EnchantedJewelleryListener : InteractionListener {
         }
     }
 
+    /**
+     * Enchanted jewellery dialogue file
+     *
+     * @property jewellery
+     * @property item
+     * @property isEquipped
+     * @constructor Enchanted jewellery dialogue file
+     */
     class EnchantedJewelleryDialogueFile(val jewellery: EnchantedJewellery, val item: Item, val isEquipped: Boolean) : DialogueFile() {
         override fun handle(componentID: Int, buttonID: Int) {
             when (stage) {

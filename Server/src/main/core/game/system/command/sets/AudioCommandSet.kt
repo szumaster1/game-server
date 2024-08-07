@@ -11,6 +11,11 @@ import core.network.packet.context.MusicContext
 import core.network.packet.outgoing.MusicPacket
 import core.plugin.Initializable
 
+/**
+ * Audio command set
+ *
+ * @constructor Audio command set
+ */
 @Initializable
 class AudioCommandSet : CommandSet(Privilege.STANDARD) {
     override fun defineCommands() {

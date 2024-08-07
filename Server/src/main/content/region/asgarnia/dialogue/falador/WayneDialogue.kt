@@ -8,6 +8,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Wayne dialogue.
+ */
 @Initializable
 class WayneDialogue(player: Player? = null) : Dialogue(player) {
 

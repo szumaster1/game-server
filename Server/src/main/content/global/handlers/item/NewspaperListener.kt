@@ -8,6 +8,11 @@ import core.api.setInterfaceText
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Newspaper listener
+ *
+ * @constructor Newspaper listener
+ */
 class NewspaperListener : InteractionListener {
     companion object {
 

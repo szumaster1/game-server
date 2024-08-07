@@ -7,6 +7,9 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 import core.tools.RandomFunction
 
+/**
+ * Honour guard NPC.
+ */
 @Initializable
 class HonourGuardNPC : AbstractNPC {
 

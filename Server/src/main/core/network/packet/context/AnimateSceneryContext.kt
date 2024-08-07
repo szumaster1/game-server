@@ -6,9 +6,7 @@ import core.network.packet.Context
 
 /**
  * Represents the context of animating a scenery.
- * @author Emperor
- * @author 'Vexia
- * @date 10/11/2013
+ * @author Emperor, Vexia
  */
 class AnimateSceneryContext(private val player: Player, val animation: Animation) : Context {
 

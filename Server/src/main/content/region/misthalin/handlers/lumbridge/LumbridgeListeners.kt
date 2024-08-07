@@ -11,6 +11,9 @@ import core.game.system.task.Pulse
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Lumbridge listeners.
+ */
 class LumbridgeListeners : InteractionListener {
 
     override fun defineListeners() {
@@ -20,19 +23,17 @@ class LumbridgeListeners : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * GnomeCopter sign interaction.
          */
-
         on(Scenery.ADVERTISEMENT_30037, IntType.SCENERY, "read") { player, _ ->
             sendDialogue(player, "Come check our gnome copters up north!")
             return@on true
         }
 
-        /*
+        /**
          * Cow field sign interaction.
          */
-
         on(Scenery.SIGNPOST_31297, IntType.SCENERY, "read") { player, _ ->
             val cowDeaths = GlobalStats.getDailyCowDeaths()
             if (cowDeaths > 0) {
@@ -43,10 +44,9 @@ class LumbridgeListeners : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Church sign interaction.
          */
-
         on(Scenery.SIGNPOST_31299, IntType.SCENERY, "read") { player, _ ->
             val deaths = GlobalStats.getDailyDeaths()
             if (deaths > 0) {
@@ -57,10 +57,9 @@ class LumbridgeListeners : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Warning sign interaction.
          */
-
         on(Scenery.WARNING_SIGN_15566, IntType.SCENERY, "read"){ player, _ ->
             openInterface(player, Components.MESSAGESCROLL_220).also {
                 setInterfaceText(player, "<col=8A0808>~-~-~ WARNING ~-~-~", 220, 5)
@@ -72,10 +71,9 @@ class LumbridgeListeners : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Culinaromancer's chest interaction.
          */
-
         on(Scenery.CHEST_12309, IntType.SCENERY, "buy-items", "buy-food") { player, _ ->
             CulinaromancerChestListener.openShop(player, food = getUsedOption(player).lowercase() == "buy-food")
             return@on true
@@ -86,29 +84,26 @@ class LumbridgeListeners : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Church organs interaction.
          */
-
         on(Scenery.ORGAN_36978, IntType.SCENERY, "play") { player, _ ->
             lock(player, 10)
             ActivityManager.start(player, "organ cutscene", false)
             return@on true
         }
 
-        /*
+        /**
          * Church bell interaction.
          */
-
         on(Scenery.BELL_36976, IntType.SCENERY, "ring") { player, _ ->
             sendMessage(player, "The townspeople wouldn't appreciate you ringing their bell.")
             return@on true
         }
 
-        /*
+        /**
          * Lumbridge Castle flag interaction.
          */
-
         on(Scenery.FLAG_37335, IntType.SCENERY, "raise") { player, node ->
             lock(player, 12)
             if (!FLAG_IN_USE) {
@@ -141,19 +136,17 @@ class LumbridgeListeners : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Lumbridge map interaction.
          */
-
         on(Scenery.LUMBRIDGE_MAP_37655, IntType.SCENERY, "view") { player, _ ->
             openInterface(player, 270)
             return@on true
         }
 
-        /*
+        /**
          * Training archery target interaction.
          */
-
         on(Scenery.ARCHERY_TARGET_37095, IntType.SCENERY, "shoot-at") { player, node ->
             if (!anyInEquipment(player, 9706, 9705)) {
                 sendMessage(player, "You need a training bow and arrow to practice here.")
@@ -163,10 +156,9 @@ class LumbridgeListeners : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Doomsayer toggle-warning interaction.
          */
-
         on(NPCs.DOOMSAYER_3777, IntType.NPC, "toggle-warnings") { player, _ ->
             player.warningMessages.open(player)
             return@on true
@@ -183,10 +175,9 @@ class LumbridgeListeners : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Interaction with Dark hole (Lumbridge swamp).
          */
-
         on(DARK_HOLE, IntType.SCENERY, "climb-down", "climb") { player, node ->
             when(getUsedOption(player)) {
                 "climb-down" -> {

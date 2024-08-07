@@ -11,6 +11,10 @@ import core.game.node.entity.player.link.IronmanMode
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
+/**
+ * Maximillian sackville dialogue.
+ * @author vddCore
+ */
 class MaximillianSackvilleDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {

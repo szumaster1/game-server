@@ -12,11 +12,20 @@ import core.game.world.map.zone.impl.WildernessZone
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
+/**
+ * Random event tests
+ *
+ * @constructor Random event tests
+ */
 class RandomEventTests {
     init {
         TestUtils.preTestSetup()
     }
 
+    /**
+     * Login should register random event timer
+     *
+     */
     @Test
     fun loginShouldRegisterRandomEventTimer() {
         TestUtils.getMockPlayer("antimacroAutoRegister").use { p ->
@@ -24,6 +33,10 @@ class RandomEventTests {
         }
     }
 
+    /**
+     * Login should set next spawn
+     *
+     */
     @Test
     fun loginShouldSetNextSpawn() {
         TestUtils.getMockPlayer("antimacroautosetsnextspawnifunset").use { p ->
@@ -34,6 +47,10 @@ class RandomEventTests {
         }
     }
 
+    /**
+     * Remaining delay should persist relog
+     *
+     */
     @Test
     fun remainingDelayShouldPersistRelog() {
         TestUtils.getMockPlayer("antimacrotimeremainingpersists").use { p ->
@@ -44,6 +61,10 @@ class RandomEventTests {
         }
     }
 
+    /**
+     * Delay should be restarted once depleted
+     *
+     */
     @Test
     fun delayShouldBeRestartedOnceDepleted() {
         TestUtils.getMockPlayer("delayrestartoncedepleted").use { p ->
@@ -56,6 +77,10 @@ class RandomEventTests {
         }
     }
 
+    /**
+     * Should spawn random event given no restrictions
+     *
+     */
     @Test
     fun shouldSpawnRandomEventGivenNoRestrictions() {
         TestUtils.getMockPlayer("antimacroshouldspawnrandom").use { p ->
@@ -68,6 +93,10 @@ class RandomEventTests {
         }
     }
 
+    /**
+     * Should not spawn for artificial player
+     *
+     */
     @Test
     fun shouldNotSpawnForArtificialPlayer() {
         TestUtils.getMockPlayer("antimacroshouldspawnrandom", isBot = true).use { p ->
@@ -76,6 +105,10 @@ class RandomEventTests {
         }
     }
 
+    /**
+     * Teleport and note punishment should not affect already noted items
+     *
+     */
     @Test
     fun teleportAndNotePunishmentShouldNotAffectAlreadyNotedItems() {
         TestUtils.getMockPlayer("teleportpunishment1").use { p ->
@@ -91,6 +124,10 @@ class RandomEventTests {
         }
     }
 
+    /**
+     * Teleport and note punishment should note notable unnoted items
+     *
+     */
     @Test
     fun teleportAndNotePunishmentShouldNoteNotableUnnotedItems() {
         TestUtils.getMockPlayer("teleportpunishment2").use { p ->
@@ -107,6 +144,10 @@ class RandomEventTests {
         }
     }
 
+    /**
+     * Teleport and note punishment should not affect unnotable items
+     *
+     */
     @Test
     fun teleportAndNotePunishmentShouldNotAffectUnnotableItems() {
         TestUtils.getMockPlayer("teleportpunishment3").use { p ->
@@ -122,6 +163,10 @@ class RandomEventTests {
         }
     }
 
+    /**
+     * Random event should not spawn in event restricted area
+     *
+     */
     @Test
     fun randomEventShouldNotSpawnInEventRestrictedArea() {
 
@@ -181,6 +226,10 @@ class RandomEventTests {
     }
 */
 
+    /**
+     * Random event system should support pause and unpause
+     *
+     */
     @Test
     fun randomEventSystemShouldSupportPauseAndUnpause() {
         TestUtils.getMockPlayer("antimacropause").use { p ->
@@ -199,6 +248,10 @@ class RandomEventTests {
         }
     }
 
+    /**
+     * Should be able to force random event
+     *
+     */
     @Test
     fun shouldBeAbleToForceRandomEvent() {
         TestUtils.getMockPlayer("antimacroforcerand").use { p ->
@@ -209,6 +262,10 @@ class RandomEventTests {
         }
     }
 
+    /**
+     * Should be able to force specific random event
+     *
+     */
     @Test
     fun shouldBeAbleToForceSpecificRandomEvent() {
         TestUtils.getMockPlayer("antimacroforcespecific").use { p ->
@@ -220,6 +277,10 @@ class RandomEventTests {
         }
     }
 
+    /**
+     * Parse anti macro command args should return expected values
+     *
+     */
     @Test
     fun parseAntiMacroCommandArgsShouldReturnExpectedValues() {
         val testData = arrayOf(

@@ -30,6 +30,11 @@ import io.github.classgraph.ClassInfo
 import io.github.classgraph.ScanResult
 import java.util.function.Consumer
 
+/**
+ * ClassScanner that contains various functions related to
+ * scanning and loading plugins and content interfaces.
+ * @author Ceikry
+ */
 object ClassScanner {
 
     var disabledPlugins = HashMap<String, Boolean>()
@@ -193,10 +198,13 @@ object ClassScanner {
         }
     }
 
-    /*
-     * Defines the plugin.
+    /**
+     * It retrieves the PluginManifest annotation from the plugin class or its superclass.
+     * If the manifest is not found or the type is ACTION, it creates a new instance of the plugin.
+     * Otherwise, it performs specific actions based on the type of the plugin, such as calling the
+     * init() function for Dialogue plugins or registering the plugin with the appropriate manager.
+     * Finally, it increments the numPlugins counter.
      */
-
     @JvmStatic
     fun definePlugin(plugin: Plugin<*>) {
         try {

@@ -14,6 +14,9 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Studded armour handler.
+ */
 @Initializable
 class StuddedArmourHandler : UseWithHandler(Items.STEEL_STUDS_2370) {
 
@@ -45,8 +48,28 @@ class StuddedArmourHandler : UseWithHandler(Items.STEEL_STUDS_2370) {
         return true
     }
 
+    /**
+     * Studded armour
+     *
+     * @property item
+     * @property studded
+     * @property level
+     * @property experience
+     * @constructor Studded armour
+     */
     enum class StuddedArmour(val item: Item, val studded: Item, val level: Int, val experience: Double) {
+        /**
+         * Chaps
+         *
+         * @constructor Chaps
+         */
         CHAPS(Item(Items.LEATHER_CHAPS_1095), Item(Items.STUDDED_CHAPS_1097), 44, 42.0),
+
+        /**
+         * Body
+         *
+         * @constructor Body
+         */
         BODY(Item(Items.LEATHER_BODY_1129), Item(Items.STUDDED_BODY_1133), 41, 40.0);
 
         companion object {
@@ -61,6 +84,16 @@ class StuddedArmourHandler : UseWithHandler(Items.STEEL_STUDS_2370) {
         }
     }
 
+    /**
+     * Stud armour pulse
+     *
+     * @property armour
+     * @property amount
+     * @constructor
+     *
+     * @param player
+     * @param node
+     */
     class StudArmourPulse(player: Player?, node: Item?, private val armour: StuddedArmour?, private var amount: Int) : SkillPulse<Item?>(player, node) {
 
         private var ticks = 0

@@ -8,6 +8,9 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.api.consts.NPCs
 
+/**
+ * Lumbridge swamp monk dialogue.
+ */
 @Initializable
 class LumbridgeSwampMonkDialogue(player: Player? = null) : Dialogue(player) {
 

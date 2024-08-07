@@ -11,6 +11,12 @@ import core.game.dialogue.DialogueBuilder
 import core.game.dialogue.DialogueBuilderFile
 import core.game.dialogue.FacialExpression
 
+/**
+ * Sir spishyus dialogue file
+ *
+ * @property dialogueNum
+ * @constructor Sir spishyus dialogue file
+ */
 class SirSpishyusDialogueFile(private val dialogueNum: Int = 0) : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {
         b.onPredicate { player -> getAttribute(player, RecruitmentDrive.ATTRIBUTE_RD_STAGE_PASSED, false) }

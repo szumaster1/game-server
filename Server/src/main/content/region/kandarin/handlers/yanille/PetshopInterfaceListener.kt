@@ -8,6 +8,9 @@ import core.game.interaction.InterfaceListener
 import core.game.node.item.Item
 import core.tools.RandomFunction
 
+/**
+ * Petshop interface listener.
+ */
 class PetshopInterfaceListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {

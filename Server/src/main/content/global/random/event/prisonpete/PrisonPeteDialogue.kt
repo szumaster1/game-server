@@ -10,6 +10,9 @@ import core.game.interaction.QueueStrength
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
+/**
+ * Prison pete dialogue.
+ */
 class PrisonPeteDialogue(val dialOpt: Int) : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

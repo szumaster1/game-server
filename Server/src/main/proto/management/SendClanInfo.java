@@ -3,6 +3,9 @@
 
 package proto.management;
 
+/**
+ * Send clan info.
+ */
 public final class SendClanInfo extends
         com.google.protobuf.GeneratedMessageV3 implements
         // @@protoc_insertion_point(message_implements:management.SendClanInfo)
@@ -20,14 +23,14 @@ public final class SendClanInfo extends
         members_ = java.util.Collections.emptyList();
     }
 
-    @java.lang.Override
+    @Override
     @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
+    protected Object newInstance(
             UnusedPrivateParameter unused) {
         return new SendClanInfo();
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
         return this.unknownFields;
@@ -39,7 +42,7 @@ public final class SendClanInfo extends
             throws com.google.protobuf.InvalidProtocolBufferException {
         this();
         if (extensionRegistry == null) {
-            throw new java.lang.NullPointerException();
+            throw new NullPointerException();
         }
         int mutable_bitField0_ = 0;
         com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -91,11 +94,11 @@ public final class SendClanInfo extends
                     }
                     case 66: {
                         if (!((mutable_bitField0_ & 0x00000080) != 0)) {
-                            members_ = new java.util.ArrayList<proto.management.SendClanInfo.ClanMember>();
+                            members_ = new java.util.ArrayList<ClanMember>();
                             mutable_bitField0_ |= 0x00000080;
                         }
                         members_.add(
-                                input.readMessage(proto.management.SendClanInfo.ClanMember.PARSER, extensionRegistry));
+                                input.readMessage(ClanMember.PARSER, extensionRegistry));
                         break;
                     }
                     default: {
@@ -121,39 +124,85 @@ public final class SendClanInfo extends
         }
     }
 
+    /**
+     * Gets descriptor.
+     *
+     * @return the descriptor
+     */
     public static final com.google.protobuf.Descriptors.Descriptor
     getDescriptor() {
-        return proto.management.ManagementProtos.internal_static_management_SendClanInfo_descriptor;
+        return ManagementProtos.internal_static_management_SendClanInfo_descriptor;
     }
 
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    @Override
+    protected FieldAccessorTable
     internalGetFieldAccessorTable() {
-        return proto.management.ManagementProtos.internal_static_management_SendClanInfo_fieldAccessorTable
+        return ManagementProtos.internal_static_management_SendClanInfo_fieldAccessorTable
                 .ensureFieldAccessorsInitialized(
-                        proto.management.SendClanInfo.class, proto.management.SendClanInfo.Builder.class);
+                        SendClanInfo.class, Builder.class);
     }
 
+    /**
+     * The interface Clan member or builder.
+     */
     public interface ClanMemberOrBuilder extends
             // @@protoc_insertion_point(interface_extends:management.SendClanInfo.ClanMember)
             com.google.protobuf.MessageOrBuilder {
 
+        /**
+         * Has username boolean.
+         *
+         * @return the boolean
+         */
         boolean hasUsername();
 
-        java.lang.String getUsername();
+        /**
+         * Gets username.
+         *
+         * @return the username
+         */
+        String getUsername();
 
+        /**
+         * Gets username bytes.
+         *
+         * @return the username bytes
+         */
         com.google.protobuf.ByteString
         getUsernameBytes();
 
+        /**
+         * Has world boolean.
+         *
+         * @return the boolean
+         */
         boolean hasWorld();
 
+        /**
+         * Gets world.
+         *
+         * @return the world
+         */
         int getWorld();
 
+        /**
+         * Has rank boolean.
+         *
+         * @return the boolean
+         */
         boolean hasRank();
 
+        /**
+         * Gets rank.
+         *
+         * @return the rank
+         */
         int getRank();
     }
 
+    /**
+     * Clan member.
+     */
     public static final class ClanMember extends
             com.google.protobuf.GeneratedMessageV3 implements
             // @@protoc_insertion_point(message_implements:management.SendClanInfo.ClanMember)
@@ -169,14 +218,14 @@ public final class SendClanInfo extends
             username_ = "";
         }
 
-        @java.lang.Override
+        @Override
         @SuppressWarnings({"unused"})
-        protected java.lang.Object newInstance(
+        protected Object newInstance(
                 UnusedPrivateParameter unused) {
             return new ClanMember();
         }
 
-        @java.lang.Override
+        @Override
         public final com.google.protobuf.UnknownFieldSet
         getUnknownFields() {
             return this.unknownFields;
@@ -188,7 +237,7 @@ public final class SendClanInfo extends
                 throws com.google.protobuf.InvalidProtocolBufferException {
             this();
             if (extensionRegistry == null) {
-                throw new java.lang.NullPointerException();
+                throw new NullPointerException();
             }
             int mutable_bitField0_ = 0;
             com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -237,37 +286,45 @@ public final class SendClanInfo extends
             }
         }
 
+        /**
+         * Gets descriptor.
+         *
+         * @return the descriptor
+         */
         public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-            return proto.management.ManagementProtos.internal_static_management_SendClanInfo_ClanMember_descriptor;
+            return ManagementProtos.internal_static_management_SendClanInfo_ClanMember_descriptor;
         }
 
-        @java.lang.Override
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        @Override
+        protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-            return proto.management.ManagementProtos.internal_static_management_SendClanInfo_ClanMember_fieldAccessorTable
+            return ManagementProtos.internal_static_management_SendClanInfo_ClanMember_fieldAccessorTable
                     .ensureFieldAccessorsInitialized(
-                            proto.management.SendClanInfo.ClanMember.class, proto.management.SendClanInfo.ClanMember.Builder.class);
+                            ClanMember.class, Builder.class);
         }
 
         private int bitField0_;
+        /**
+         * The constant USERNAME_FIELD_NUMBER.
+         */
         public static final int USERNAME_FIELD_NUMBER = 1;
-        private volatile java.lang.Object username_;
+        private volatile Object username_;
 
-        @java.lang.Override
+        @Override
         public boolean hasUsername() {
             return ((bitField0_ & 0x00000001) != 0);
         }
 
-        @java.lang.Override
-        public java.lang.String getUsername() {
-            java.lang.Object ref = username_;
-            if (ref instanceof java.lang.String) {
-                return (java.lang.String) ref;
+        @Override
+        public String getUsername() {
+            Object ref = username_;
+            if (ref instanceof String) {
+                return (String) ref;
             } else {
                 com.google.protobuf.ByteString bs =
                         (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
+                String s = bs.toStringUtf8();
                 if (bs.isValidUtf8()) {
                     username_ = s;
                 }
@@ -275,14 +332,14 @@ public final class SendClanInfo extends
             }
         }
 
-        @java.lang.Override
+        @Override
         public com.google.protobuf.ByteString
         getUsernameBytes() {
-            java.lang.Object ref = username_;
-            if (ref instanceof java.lang.String) {
+            Object ref = username_;
+            if (ref instanceof String) {
                 com.google.protobuf.ByteString b =
                         com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
+                                (String) ref);
                 username_ = b;
                 return b;
             } else {
@@ -290,35 +347,41 @@ public final class SendClanInfo extends
             }
         }
 
+        /**
+         * The constant WORLD_FIELD_NUMBER.
+         */
         public static final int WORLD_FIELD_NUMBER = 2;
         private int world_;
 
-        @java.lang.Override
+        @Override
         public boolean hasWorld() {
             return ((bitField0_ & 0x00000002) != 0);
         }
 
-        @java.lang.Override
+        @Override
         public int getWorld() {
             return world_;
         }
 
+        /**
+         * The constant RANK_FIELD_NUMBER.
+         */
         public static final int RANK_FIELD_NUMBER = 3;
         private int rank_;
 
-        @java.lang.Override
+        @Override
         public boolean hasRank() {
             return ((bitField0_ & 0x00000004) != 0);
         }
 
-        @java.lang.Override
+        @Override
         public int getRank() {
             return rank_;
         }
 
         private byte memoizedIsInitialized = -1;
 
-        @java.lang.Override
+        @Override
         public final boolean isInitialized() {
             byte isInitialized = memoizedIsInitialized;
             if (isInitialized == 1) return true;
@@ -340,7 +403,7 @@ public final class SendClanInfo extends
             return true;
         }
 
-        @java.lang.Override
+        @Override
         public void writeTo(com.google.protobuf.CodedOutputStream output)
                 throws java.io.IOException {
             if (((bitField0_ & 0x00000001) != 0)) {
@@ -355,7 +418,7 @@ public final class SendClanInfo extends
             unknownFields.writeTo(output);
         }
 
-        @java.lang.Override
+        @Override
         public int getSerializedSize() {
             int size = memoizedSize;
             if (size != -1) return size;
@@ -377,15 +440,15 @@ public final class SendClanInfo extends
             return size;
         }
 
-        @java.lang.Override
-        public boolean equals(final java.lang.Object obj) {
+        @Override
+        public boolean equals(final Object obj) {
             if (obj == this) {
                 return true;
             }
-            if (!(obj instanceof proto.management.SendClanInfo.ClanMember)) {
+            if (!(obj instanceof ClanMember)) {
                 return super.equals(obj);
             }
-            proto.management.SendClanInfo.ClanMember other = (proto.management.SendClanInfo.ClanMember) obj;
+            ClanMember other = (ClanMember) obj;
 
             if (hasUsername() != other.hasUsername()) return false;
             if (hasUsername()) {
@@ -406,7 +469,7 @@ public final class SendClanInfo extends
             return true;
         }
 
-        @java.lang.Override
+        @Override
         public int hashCode() {
             if (memoizedHashCode != 0) {
                 return memoizedHashCode;
@@ -430,51 +493,111 @@ public final class SendClanInfo extends
             return hash;
         }
 
-        public static proto.management.SendClanInfo.ClanMember parseFrom(
+        /**
+         * Parse from clan member.
+         *
+         * @param data the data
+         * @return the clan member
+         * @throws InvalidProtocolBufferException the invalid protocol buffer exception
+         */
+        public static ClanMember parseFrom(
                 java.nio.ByteBuffer data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
 
-        public static proto.management.SendClanInfo.ClanMember parseFrom(
+        /**
+         * Parse from clan member.
+         *
+         * @param data              the data
+         * @param extensionRegistry the extension registry
+         * @return the clan member
+         * @throws InvalidProtocolBufferException the invalid protocol buffer exception
+         */
+        public static ClanMember parseFrom(
                 java.nio.ByteBuffer data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
 
-        public static proto.management.SendClanInfo.ClanMember parseFrom(
+        /**
+         * Parse from clan member.
+         *
+         * @param data the data
+         * @return the clan member
+         * @throws InvalidProtocolBufferException the invalid protocol buffer exception
+         */
+        public static ClanMember parseFrom(
                 com.google.protobuf.ByteString data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
 
-        public static proto.management.SendClanInfo.ClanMember parseFrom(
+        /**
+         * Parse from clan member.
+         *
+         * @param data              the data
+         * @param extensionRegistry the extension registry
+         * @return the clan member
+         * @throws InvalidProtocolBufferException the invalid protocol buffer exception
+         */
+        public static ClanMember parseFrom(
                 com.google.protobuf.ByteString data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
 
-        public static proto.management.SendClanInfo.ClanMember parseFrom(byte[] data)
+        /**
+         * Parse from clan member.
+         *
+         * @param data the data
+         * @return the clan member
+         * @throws InvalidProtocolBufferException the invalid protocol buffer exception
+         */
+        public static ClanMember parseFrom(byte[] data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
 
-        public static proto.management.SendClanInfo.ClanMember parseFrom(
+        /**
+         * Parse from clan member.
+         *
+         * @param data              the data
+         * @param extensionRegistry the extension registry
+         * @return the clan member
+         * @throws InvalidProtocolBufferException the invalid protocol buffer exception
+         */
+        public static ClanMember parseFrom(
                 byte[] data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
 
-        public static proto.management.SendClanInfo.ClanMember parseFrom(java.io.InputStream input)
+        /**
+         * Parse from clan member.
+         *
+         * @param input the input
+         * @return the clan member
+         * @throws IOException the io exception
+         */
+        public static ClanMember parseFrom(java.io.InputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input);
         }
 
-        public static proto.management.SendClanInfo.ClanMember parseFrom(
+        /**
+         * Parse from clan member.
+         *
+         * @param input             the input
+         * @param extensionRegistry the extension registry
+         * @return the clan member
+         * @throws IOException the io exception
+         */
+        public static ClanMember parseFrom(
                 java.io.InputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws java.io.IOException {
@@ -482,13 +605,28 @@ public final class SendClanInfo extends
                     .parseWithIOException(PARSER, input, extensionRegistry);
         }
 
-        public static proto.management.SendClanInfo.ClanMember parseDelimitedFrom(java.io.InputStream input)
+        /**
+         * Parse delimited from clan member.
+         *
+         * @param input the input
+         * @return the clan member
+         * @throws IOException the io exception
+         */
+        public static ClanMember parseDelimitedFrom(java.io.InputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseDelimitedWithIOException(PARSER, input);
         }
 
-        public static proto.management.SendClanInfo.ClanMember parseDelimitedFrom(
+        /**
+         * Parse delimited from clan member.
+         *
+         * @param input             the input
+         * @param extensionRegistry the extension registry
+         * @return the clan member
+         * @throws IOException the io exception
+         */
+        public static ClanMember parseDelimitedFrom(
                 java.io.InputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws java.io.IOException {
@@ -496,14 +634,29 @@ public final class SendClanInfo extends
                     .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
         }
 
-        public static proto.management.SendClanInfo.ClanMember parseFrom(
+        /**
+         * Parse from clan member.
+         *
+         * @param input the input
+         * @return the clan member
+         * @throws IOException the io exception
+         */
+        public static ClanMember parseFrom(
                 com.google.protobuf.CodedInputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input);
         }
 
-        public static proto.management.SendClanInfo.ClanMember parseFrom(
+        /**
+         * Parse from clan member.
+         *
+         * @param input             the input
+         * @param extensionRegistry the extension registry
+         * @return the clan member
+         * @throws IOException the io exception
+         */
+        public static ClanMember parseFrom(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws java.io.IOException {
@@ -511,47 +664,66 @@ public final class SendClanInfo extends
                     .parseWithIOException(PARSER, input, extensionRegistry);
         }
 
-        @java.lang.Override
+        @Override
         public Builder newBuilderForType() {
             return newBuilder();
         }
 
+        /**
+         * New builder builder.
+         *
+         * @return the builder
+         */
         public static Builder newBuilder() {
             return DEFAULT_INSTANCE.toBuilder();
         }
 
-        public static Builder newBuilder(proto.management.SendClanInfo.ClanMember prototype) {
+        /**
+         * New builder builder.
+         *
+         * @param prototype the prototype
+         * @return the builder
+         */
+        public static Builder newBuilder(ClanMember prototype) {
             return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
         }
 
-        @java.lang.Override
+        @Override
         public Builder toBuilder() {
             return this == DEFAULT_INSTANCE
                     ? new Builder() : new Builder().mergeFrom(this);
         }
 
-        @java.lang.Override
+        @Override
         protected Builder newBuilderForType(
-                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+                BuilderParent parent) {
             Builder builder = new Builder(parent);
             return builder;
         }
 
+        /**
+         * Builder.
+         */
         public static final class Builder extends
                 com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
                 // @@protoc_insertion_point(builder_implements:management.SendClanInfo.ClanMember)
-                proto.management.SendClanInfo.ClanMemberOrBuilder {
+                ClanMemberOrBuilder {
+            /**
+             * Gets descriptor.
+             *
+             * @return the descriptor
+             */
             public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-                return proto.management.ManagementProtos.internal_static_management_SendClanInfo_ClanMember_descriptor;
+                return ManagementProtos.internal_static_management_SendClanInfo_ClanMember_descriptor;
             }
 
-            @java.lang.Override
-            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            @Override
+            protected FieldAccessorTable
             internalGetFieldAccessorTable() {
-                return proto.management.ManagementProtos.internal_static_management_SendClanInfo_ClanMember_fieldAccessorTable
+                return ManagementProtos.internal_static_management_SendClanInfo_ClanMember_fieldAccessorTable
                         .ensureFieldAccessorsInitialized(
-                                proto.management.SendClanInfo.ClanMember.class, proto.management.SendClanInfo.ClanMember.Builder.class);
+                                ClanMember.class, Builder.class);
             }
 
             // Construct using proto.management.SendClanInfo.ClanMember.newBuilder()
@@ -560,7 +732,7 @@ public final class SendClanInfo extends
             }
 
             private Builder(
-                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+                    BuilderParent parent) {
                 super(parent);
                 maybeForceBuilderInitialization();
             }
@@ -571,7 +743,7 @@ public final class SendClanInfo extends
                 }
             }
 
-            @java.lang.Override
+            @Override
             public Builder clear() {
                 super.clear();
                 username_ = "";
@@ -583,29 +755,29 @@ public final class SendClanInfo extends
                 return this;
             }
 
-            @java.lang.Override
+            @Override
             public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-                return proto.management.ManagementProtos.internal_static_management_SendClanInfo_ClanMember_descriptor;
+                return ManagementProtos.internal_static_management_SendClanInfo_ClanMember_descriptor;
             }
 
-            @java.lang.Override
-            public proto.management.SendClanInfo.ClanMember getDefaultInstanceForType() {
-                return proto.management.SendClanInfo.ClanMember.getDefaultInstance();
+            @Override
+            public ClanMember getDefaultInstanceForType() {
+                return ClanMember.getDefaultInstance();
             }
 
-            @java.lang.Override
-            public proto.management.SendClanInfo.ClanMember build() {
-                proto.management.SendClanInfo.ClanMember result = buildPartial();
+            @Override
+            public ClanMember build() {
+                ClanMember result = buildPartial();
                 if (!result.isInitialized()) {
                     throw newUninitializedMessageException(result);
                 }
                 return result;
             }
 
-            @java.lang.Override
-            public proto.management.SendClanInfo.ClanMember buildPartial() {
-                proto.management.SendClanInfo.ClanMember result = new proto.management.SendClanInfo.ClanMember(this);
+            @Override
+            public ClanMember buildPartial() {
+                ClanMember result = new ClanMember(this);
                 int from_bitField0_ = bitField0_;
                 int to_bitField0_ = 0;
                 if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -625,56 +797,62 @@ public final class SendClanInfo extends
                 return result;
             }
 
-            @java.lang.Override
+            @Override
             public Builder clone() {
                 return super.clone();
             }
 
-            @java.lang.Override
+            @Override
             public Builder setField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
+                    Object value) {
                 return super.setField(field, value);
             }
 
-            @java.lang.Override
+            @Override
             public Builder clearField(
                     com.google.protobuf.Descriptors.FieldDescriptor field) {
                 return super.clearField(field);
             }
 
-            @java.lang.Override
+            @Override
             public Builder clearOneof(
                     com.google.protobuf.Descriptors.OneofDescriptor oneof) {
                 return super.clearOneof(oneof);
             }
 
-            @java.lang.Override
+            @Override
             public Builder setRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, java.lang.Object value) {
+                    int index, Object value) {
                 return super.setRepeatedField(field, index, value);
             }
 
-            @java.lang.Override
+            @Override
             public Builder addRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
+                    Object value) {
                 return super.addRepeatedField(field, value);
             }
 
-            @java.lang.Override
+            @Override
             public Builder mergeFrom(com.google.protobuf.Message other) {
-                if (other instanceof proto.management.SendClanInfo.ClanMember) {
-                    return mergeFrom((proto.management.SendClanInfo.ClanMember) other);
+                if (other instanceof ClanMember) {
+                    return mergeFrom((ClanMember) other);
                 } else {
                     super.mergeFrom(other);
                     return this;
                 }
             }
 
-            public Builder mergeFrom(proto.management.SendClanInfo.ClanMember other) {
-                if (other == proto.management.SendClanInfo.ClanMember.getDefaultInstance()) return this;
+            /**
+             * Merge from builder.
+             *
+             * @param other the other
+             * @return the builder
+             */
+            public Builder mergeFrom(ClanMember other) {
+                if (other == ClanMember.getDefaultInstance()) return this;
                 if (other.hasUsername()) {
                     bitField0_ |= 0x00000001;
                     username_ = other.username_;
@@ -691,7 +869,7 @@ public final class SendClanInfo extends
                 return this;
             }
 
-            @java.lang.Override
+            @Override
             public final boolean isInitialized() {
                 if (!hasUsername()) {
                     return false;
@@ -705,16 +883,16 @@ public final class SendClanInfo extends
                 return true;
             }
 
-            @java.lang.Override
+            @Override
             public Builder mergeFrom(
                     com.google.protobuf.CodedInputStream input,
                     com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                     throws java.io.IOException {
-                proto.management.SendClanInfo.ClanMember parsedMessage = null;
+                ClanMember parsedMessage = null;
                 try {
                     parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
                 } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                    parsedMessage = (proto.management.SendClanInfo.ClanMember) e.getUnfinishedMessage();
+                    parsedMessage = (ClanMember) e.getUnfinishedMessage();
                     throw e.unwrapIOException();
                 } finally {
                     if (parsedMessage != null) {
@@ -726,34 +904,34 @@ public final class SendClanInfo extends
 
             private int bitField0_;
 
-            private java.lang.Object username_ = "";
+            private Object username_ = "";
 
             public boolean hasUsername() {
                 return ((bitField0_ & 0x00000001) != 0);
             }
 
-            public java.lang.String getUsername() {
-                java.lang.Object ref = username_;
-                if (!(ref instanceof java.lang.String)) {
+            public String getUsername() {
+                Object ref = username_;
+                if (!(ref instanceof String)) {
                     com.google.protobuf.ByteString bs =
                             (com.google.protobuf.ByteString) ref;
-                    java.lang.String s = bs.toStringUtf8();
+                    String s = bs.toStringUtf8();
                     if (bs.isValidUtf8()) {
                         username_ = s;
                     }
                     return s;
                 } else {
-                    return (java.lang.String) ref;
+                    return (String) ref;
                 }
             }
 
             public com.google.protobuf.ByteString
             getUsernameBytes() {
-                java.lang.Object ref = username_;
+                Object ref = username_;
                 if (ref instanceof String) {
                     com.google.protobuf.ByteString b =
                             com.google.protobuf.ByteString.copyFromUtf8(
-                                    (java.lang.String) ref);
+                                    (String) ref);
                     username_ = b;
                     return b;
                 } else {
@@ -761,8 +939,14 @@ public final class SendClanInfo extends
                 }
             }
 
+            /**
+             * Sets username.
+             *
+             * @param value the value
+             * @return the username
+             */
             public Builder setUsername(
-                    java.lang.String value) {
+                    String value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -772,6 +956,11 @@ public final class SendClanInfo extends
                 return this;
             }
 
+            /**
+             * Clear username builder.
+             *
+             * @return the builder
+             */
             public Builder clearUsername() {
                 bitField0_ = (bitField0_ & ~0x00000001);
                 username_ = getDefaultInstance().getUsername();
@@ -779,6 +968,12 @@ public final class SendClanInfo extends
                 return this;
             }
 
+            /**
+             * Sets username bytes.
+             *
+             * @param value the value
+             * @return the username bytes
+             */
             public Builder setUsernameBytes(
                     com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -792,16 +987,22 @@ public final class SendClanInfo extends
 
             private int world_;
 
-            @java.lang.Override
+            @Override
             public boolean hasWorld() {
                 return ((bitField0_ & 0x00000002) != 0);
             }
 
-            @java.lang.Override
+            @Override
             public int getWorld() {
                 return world_;
             }
 
+            /**
+             * Sets world.
+             *
+             * @param value the value
+             * @return the world
+             */
             public Builder setWorld(int value) {
                 bitField0_ |= 0x00000002;
                 world_ = value;
@@ -809,6 +1010,11 @@ public final class SendClanInfo extends
                 return this;
             }
 
+            /**
+             * Clear world builder.
+             *
+             * @return the builder
+             */
             public Builder clearWorld() {
                 bitField0_ = (bitField0_ & ~0x00000002);
                 world_ = 0;
@@ -818,16 +1024,22 @@ public final class SendClanInfo extends
 
             private int rank_;
 
-            @java.lang.Override
+            @Override
             public boolean hasRank() {
                 return ((bitField0_ & 0x00000004) != 0);
             }
 
-            @java.lang.Override
+            @Override
             public int getRank() {
                 return rank_;
             }
 
+            /**
+             * Sets rank.
+             *
+             * @param value the value
+             * @return the rank
+             */
             public Builder setRank(int value) {
                 bitField0_ |= 0x00000004;
                 rank_ = value;
@@ -835,6 +1047,11 @@ public final class SendClanInfo extends
                 return this;
             }
 
+            /**
+             * Clear rank builder.
+             *
+             * @return the builder
+             */
             public Builder clearRank() {
                 bitField0_ = (bitField0_ & ~0x00000004);
                 rank_ = 0;
@@ -842,13 +1059,13 @@ public final class SendClanInfo extends
                 return this;
             }
 
-            @java.lang.Override
+            @Override
             public final Builder setUnknownFields(
                     final com.google.protobuf.UnknownFieldSet unknownFields) {
                 return super.setUnknownFields(unknownFields);
             }
 
-            @java.lang.Override
+            @Override
             public final Builder mergeUnknownFields(
                     final com.google.protobuf.UnknownFieldSet unknownFields) {
                 return super.mergeUnknownFields(unknownFields);
@@ -859,20 +1076,28 @@ public final class SendClanInfo extends
         }
 
         // @@protoc_insertion_point(class_scope:management.SendClanInfo.ClanMember)
-        private static final proto.management.SendClanInfo.ClanMember DEFAULT_INSTANCE;
+        private static final ClanMember DEFAULT_INSTANCE;
 
         static {
-            DEFAULT_INSTANCE = new proto.management.SendClanInfo.ClanMember();
+            DEFAULT_INSTANCE = new ClanMember();
         }
 
-        public static proto.management.SendClanInfo.ClanMember getDefaultInstance() {
+        /**
+         * Gets default instance.
+         *
+         * @return the default instance
+         */
+        public static ClanMember getDefaultInstance() {
             return DEFAULT_INSTANCE;
         }
 
-        @java.lang.Deprecated
+        /**
+         * The constant PARSER.
+         */
+        @Deprecated
         public static final com.google.protobuf.Parser<ClanMember>
                 PARSER = new com.google.protobuf.AbstractParser<ClanMember>() {
-            @java.lang.Override
+            @Override
             public ClanMember parsePartialFrom(
                     com.google.protobuf.CodedInputStream input,
                     com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -881,40 +1106,48 @@ public final class SendClanInfo extends
             }
         };
 
+        /**
+         * Parser com . google . protobuf . parser.
+         *
+         * @return the com . google . protobuf . parser
+         */
         public static com.google.protobuf.Parser<ClanMember> parser() {
             return PARSER;
         }
 
-        @java.lang.Override
+        @Override
         public com.google.protobuf.Parser<ClanMember> getParserForType() {
             return PARSER;
         }
 
-        @java.lang.Override
-        public proto.management.SendClanInfo.ClanMember getDefaultInstanceForType() {
+        @Override
+        public ClanMember getDefaultInstanceForType() {
             return DEFAULT_INSTANCE;
         }
 
     }
 
     private int bitField0_;
+    /**
+     * The constant CLANOWNER_FIELD_NUMBER.
+     */
     public static final int CLANOWNER_FIELD_NUMBER = 1;
-    private volatile java.lang.Object clanOwner_;
+    private volatile Object clanOwner_;
 
-    @java.lang.Override
+    @Override
     public boolean hasClanOwner() {
         return ((bitField0_ & 0x00000001) != 0);
     }
 
-    @java.lang.Override
-    public java.lang.String getClanOwner() {
-        java.lang.Object ref = clanOwner_;
-        if (ref instanceof java.lang.String) {
-            return (java.lang.String) ref;
+    @Override
+    public String getClanOwner() {
+        Object ref = clanOwner_;
+        if (ref instanceof String) {
+            return (String) ref;
         } else {
             com.google.protobuf.ByteString bs =
                     (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
+            String s = bs.toStringUtf8();
             if (bs.isValidUtf8()) {
                 clanOwner_ = s;
             }
@@ -922,14 +1155,14 @@ public final class SendClanInfo extends
         }
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.ByteString
     getClanOwnerBytes() {
-        java.lang.Object ref = clanOwner_;
-        if (ref instanceof java.lang.String) {
+        Object ref = clanOwner_;
+        if (ref instanceof String) {
             com.google.protobuf.ByteString b =
                     com.google.protobuf.ByteString.copyFromUtf8(
-                            (java.lang.String) ref);
+                            (String) ref);
             clanOwner_ = b;
             return b;
         } else {
@@ -937,36 +1170,42 @@ public final class SendClanInfo extends
         }
     }
 
+    /**
+     * The constant HASINFO_FIELD_NUMBER.
+     */
     public static final int HASINFO_FIELD_NUMBER = 2;
     private boolean hasInfo_;
 
-    @java.lang.Override
+    @Override
     public boolean hasHasInfo() {
         return ((bitField0_ & 0x00000002) != 0);
     }
 
-    @java.lang.Override
+    @Override
     public boolean getHasInfo() {
         return hasInfo_;
     }
 
+    /**
+     * The constant CLANNAME_FIELD_NUMBER.
+     */
     public static final int CLANNAME_FIELD_NUMBER = 3;
-    private volatile java.lang.Object clanName_;
+    private volatile Object clanName_;
 
-    @java.lang.Override
+    @Override
     public boolean hasClanName() {
         return ((bitField0_ & 0x00000004) != 0);
     }
 
-    @java.lang.Override
-    public java.lang.String getClanName() {
-        java.lang.Object ref = clanName_;
-        if (ref instanceof java.lang.String) {
-            return (java.lang.String) ref;
+    @Override
+    public String getClanName() {
+        Object ref = clanName_;
+        if (ref instanceof String) {
+            return (String) ref;
         } else {
             com.google.protobuf.ByteString bs =
                     (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
+            String s = bs.toStringUtf8();
             if (bs.isValidUtf8()) {
                 clanName_ = s;
             }
@@ -974,14 +1213,14 @@ public final class SendClanInfo extends
         }
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.ByteString
     getClanNameBytes() {
-        java.lang.Object ref = clanName_;
-        if (ref instanceof java.lang.String) {
+        Object ref = clanName_;
+        if (ref instanceof String) {
             com.google.protobuf.ByteString b =
                     com.google.protobuf.ByteString.copyFromUtf8(
-                            (java.lang.String) ref);
+                            (String) ref);
             clanName_ = b;
             return b;
         } else {
@@ -989,91 +1228,106 @@ public final class SendClanInfo extends
         }
     }
 
+    /**
+     * The constant JOINREQUIREMENT_FIELD_NUMBER.
+     */
     public static final int JOINREQUIREMENT_FIELD_NUMBER = 4;
     private int joinRequirement_;
 
-    @java.lang.Override
+    @Override
     public boolean hasJoinRequirement() {
         return ((bitField0_ & 0x00000008) != 0);
     }
 
-    @java.lang.Override
+    @Override
     public int getJoinRequirement() {
         return joinRequirement_;
     }
 
+    /**
+     * The constant KICKREQUIREMENT_FIELD_NUMBER.
+     */
     public static final int KICKREQUIREMENT_FIELD_NUMBER = 5;
     private int kickRequirement_;
 
-    @java.lang.Override
+    @Override
     public boolean hasKickRequirement() {
         return ((bitField0_ & 0x00000010) != 0);
     }
 
-    @java.lang.Override
+    @Override
     public int getKickRequirement() {
         return kickRequirement_;
     }
 
+    /**
+     * The constant MESSAGEREQUIREMENT_FIELD_NUMBER.
+     */
     public static final int MESSAGEREQUIREMENT_FIELD_NUMBER = 6;
     private int messageRequirement_;
 
-    @java.lang.Override
+    @Override
     public boolean hasMessageRequirement() {
         return ((bitField0_ & 0x00000020) != 0);
     }
 
-    @java.lang.Override
+    @Override
     public int getMessageRequirement() {
         return messageRequirement_;
     }
 
+    /**
+     * The constant LOOTREQUIREMENT_FIELD_NUMBER.
+     */
     public static final int LOOTREQUIREMENT_FIELD_NUMBER = 7;
     private int lootRequirement_;
 
-    @java.lang.Override
+    @Override
     public boolean hasLootRequirement() {
         return ((bitField0_ & 0x00000040) != 0);
     }
 
-    @java.lang.Override
+    @Override
     public int getLootRequirement() {
         return lootRequirement_;
     }
 
+    /**
+     * The constant MEMBERS_FIELD_NUMBER.
+     */
     public static final int MEMBERS_FIELD_NUMBER = 8;
-    private java.util.List<proto.management.SendClanInfo.ClanMember> members_;
+    private java.util.List<ClanMember> members_;
 
-    @java.lang.Override
-    public java.util.List<proto.management.SendClanInfo.ClanMember> getMembersList() {
+    @Override
+    public java.util.List<ClanMember> getMembersList() {
         return members_;
     }
 
-    @java.lang.Override
-    public java.util.List<? extends proto.management.SendClanInfo.ClanMemberOrBuilder>
+    @Override
+    public java.util.List<? extends ClanMemberOrBuilder>
     getMembersOrBuilderList() {
         return members_;
     }
 
-    @java.lang.Override
+    @Override
     public int getMembersCount() {
         return members_.size();
     }
 
-    @java.lang.Override
-    public proto.management.SendClanInfo.ClanMember getMembers(int index) {
+    @Override
+    public ClanMember getMembers(int index) {
         return members_.get(index);
     }
 
-    @java.lang.Override
-    public proto.management.SendClanInfo.ClanMemberOrBuilder getMembersOrBuilder(
+    @Override
+    public ClanMemberOrBuilder getMembersOrBuilder(
             int index) {
         return members_.get(index);
     }
 
     private byte memoizedIsInitialized = -1;
 
-    @java.lang.Override
+    @Override
     public final boolean isInitialized() {
         byte isInitialized = memoizedIsInitialized;
         if (isInitialized == 1) return true;
@@ -1097,7 +1351,7 @@ public final class SendClanInfo extends
         return true;
     }
 
-    @java.lang.Override
+    @Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
             throws java.io.IOException {
         if (((bitField0_ & 0x00000001) != 0)) {
@@ -1127,7 +1381,7 @@ public final class SendClanInfo extends
         unknownFields.writeTo(output);
     }
 
-    @java.lang.Override
+    @Override
     public int getSerializedSize() {
         int size = memoizedSize;
         if (size != -1) return size;
@@ -1168,15 +1422,15 @@ public final class SendClanInfo extends
         return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
         if (obj == this) {
             return true;
         }
-        if (!(obj instanceof proto.management.SendClanInfo)) {
+        if (!(obj instanceof SendClanInfo)) {
             return super.equals(obj);
         }
-        proto.management.SendClanInfo other = (proto.management.SendClanInfo) obj;
+        SendClanInfo other = (SendClanInfo) obj;
 
         if (hasClanOwner() != other.hasClanOwner()) return false;
         if (hasClanOwner()) {
@@ -1219,7 +1473,7 @@ public final class SendClanInfo extends
         return true;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
         if (memoizedHashCode != 0) {
             return memoizedHashCode;
@@ -1264,51 +1518,111 @@ public final class SendClanInfo extends
         return hash;
     }
 
-    public static proto.management.SendClanInfo parseFrom(
+    /**
+     * Parse from send clan info.
+     *
+     * @param data the data
+     * @return the send clan info
+     * @throws InvalidProtocolBufferException the invalid protocol buffer exception
+     */
+    public static SendClanInfo parseFrom(
             java.nio.ByteBuffer data)
             throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
     }
 
-    public static proto.management.SendClanInfo parseFrom(
+    /**
+     * Parse from send clan info.
+     *
+     * @param data              the data
+     * @param extensionRegistry the extension registry
+     * @return the send clan info
+     * @throws InvalidProtocolBufferException the invalid protocol buffer exception
+     */
+    public static SendClanInfo parseFrom(
             java.nio.ByteBuffer data,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
     }
 
-    public static proto.management.SendClanInfo parseFrom(
+    /**
+     * Parse from send clan info.
+     *
+     * @param data the data
+     * @return the send clan info
+     * @throws InvalidProtocolBufferException the invalid protocol buffer exception
+     */
+    public static SendClanInfo parseFrom(
             com.google.protobuf.ByteString data)
             throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
     }
 
-    public static proto.management.SendClanInfo parseFrom(
+    /**
+     * Parse from send clan info.
+     *
+     * @param data              the data
+     * @param extensionRegistry the extension registry
+     * @return the send clan info
+     * @throws InvalidProtocolBufferException the invalid protocol buffer exception
+     */
+    public static SendClanInfo parseFrom(
             com.google.protobuf.ByteString data,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
     }
 
-    public static proto.management.SendClanInfo parseFrom(byte[] data)
+    /**
+     * Parse from send clan info.
+     *
+     * @param data the data
+     * @return the send clan info
+     * @throws InvalidProtocolBufferException the invalid protocol buffer exception
+     */
+    public static SendClanInfo parseFrom(byte[] data)
             throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
     }
 
-    public static proto.management.SendClanInfo parseFrom(
+    /**
+     * Parse from send clan info.
+     *
+     * @param data              the data
+     * @param extensionRegistry the extension registry
+     * @return the send clan info
+     * @throws InvalidProtocolBufferException the invalid protocol buffer exception
+     */
+    public static SendClanInfo parseFrom(
             byte[] data,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
     }
 
-    public static proto.management.SendClanInfo parseFrom(java.io.InputStream input)
+    /**
+     * Parse from send clan info.
+     *
+     * @param input the input
+     * @return the send clan info
+     * @throws IOException the io exception
+     */
+    public static SendClanInfo parseFrom(java.io.InputStream input)
             throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
                 .parseWithIOException(PARSER, input);
     }
 
-    public static proto.management.SendClanInfo parseFrom(
+    /**
+     * Parse from send clan info.
+     *
+     * @param input             the input
+     * @param extensionRegistry the extension registry
+     * @return the send clan info
+     * @throws IOException the io exception
+     */
+    public static SendClanInfo parseFrom(
             java.io.InputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
@@ -1316,13 +1630,28 @@ public final class SendClanInfo extends
                 .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static proto.management.SendClanInfo parseDelimitedFrom(java.io.InputStream input)
+    /**
+     * Parse delimited from send clan info.
+     *
+     * @param input the input
+     * @return the send clan info
+     * @throws IOException the io exception
+     */
+    public static SendClanInfo parseDelimitedFrom(java.io.InputStream input)
             throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
                 .parseDelimitedWithIOException(PARSER, input);
     }
 
-    public static proto.management.SendClanInfo parseDelimitedFrom(
+    /**
+     * Parse delimited from send clan info.
+     *
+     * @param input             the input
+     * @param extensionRegistry the extension registry
+     * @return the send clan info
+     * @throws IOException the io exception
+     */
+    public static SendClanInfo parseDelimitedFrom(
             java.io.InputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
@@ -1330,14 +1659,29 @@ public final class SendClanInfo extends
                 .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static proto.management.SendClanInfo parseFrom(
+    /**
+     * Parse from send clan info.
+     *
+     * @param input the input
+     * @return the send clan info
+     * @throws IOException the io exception
+     */
+    public static SendClanInfo parseFrom(
             com.google.protobuf.CodedInputStream input)
             throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
                 .parseWithIOException(PARSER, input);
     }
 
-    public static proto.management.SendClanInfo parseFrom(
+    /**
+     * Parse from send clan info.
+     *
+     * @param input             the input
+     * @param extensionRegistry the extension registry
+     * @return the send clan info
+     * @throws IOException the io exception
+     */
+    public static SendClanInfo parseFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
@@ -1345,47 +1689,66 @@ public final class SendClanInfo extends
                 .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @java.lang.Override
+    @Override
     public Builder newBuilderForType() {
         return newBuilder();
     }
 
+    /**
+     * New builder builder.
+     *
+     * @return the builder
+     */
     public static Builder newBuilder() {
         return DEFAULT_INSTANCE.toBuilder();
     }
 
-    public static Builder newBuilder(proto.management.SendClanInfo prototype) {
+    /**
+     * New builder builder.
+     *
+     * @param prototype the prototype
+     * @return the builder
+     */
+    public static Builder newBuilder(SendClanInfo prototype) {
         return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
 
-    @java.lang.Override
+    @Override
     public Builder toBuilder() {
         return this == DEFAULT_INSTANCE
                 ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            BuilderParent parent) {
         Builder builder = new Builder(parent);
         return builder;
     }
 
+    /**
+     * Builder.
+     */
     public static final class Builder extends
             com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
             // @@protoc_insertion_point(builder_implements:management.SendClanInfo)
-            proto.management.SendClanInfoOrBuilder {
+            SendClanInfoOrBuilder {
+        /**
+         * Gets descriptor.
+         *
+         * @return the descriptor
+         */
         public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-            return proto.management.ManagementProtos.internal_static_management_SendClanInfo_descriptor;
+            return ManagementProtos.internal_static_management_SendClanInfo_descriptor;
         }
 
-        @java.lang.Override
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        @Override
+        protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-            return proto.management.ManagementProtos.internal_static_management_SendClanInfo_fieldAccessorTable
+            return ManagementProtos.internal_static_management_SendClanInfo_fieldAccessorTable
                     .ensureFieldAccessorsInitialized(
-                            proto.management.SendClanInfo.class, proto.management.SendClanInfo.Builder.class);
+                            SendClanInfo.class, Builder.class);
         }
 
         // Construct using proto.management.SendClanInfo.newBuilder()
@@ -1394,7 +1757,7 @@ public final class SendClanInfo extends
         }
 
         private Builder(
-                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+                BuilderParent parent) {
             super(parent);
             maybeForceBuilderInitialization();
         }
@@ -1406,7 +1769,7 @@ public final class SendClanInfo extends
             }
         }
 
-        @java.lang.Override
+        @Override
         public Builder clear() {
             super.clear();
             clanOwner_ = "";
@@ -1432,29 +1795,29 @@ public final class SendClanInfo extends
             return this;
         }
 
-        @java.lang.Override
+        @Override
         public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-            return proto.management.ManagementProtos.internal_static_management_SendClanInfo_descriptor;
+            return ManagementProtos.internal_static_management_SendClanInfo_descriptor;
         }
 
-        @java.lang.Override
-        public proto.management.SendClanInfo getDefaultInstanceForType() {
-            return proto.management.SendClanInfo.getDefaultInstance();
+        @Override
+        public SendClanInfo getDefaultInstanceForType() {
+            return SendClanInfo.getDefaultInstance();
         }
 
-        @java.lang.Override
-        public proto.management.SendClanInfo build() {
-            proto.management.SendClanInfo result = buildPartial();
+        @Override
+        public SendClanInfo build() {
+            SendClanInfo result = buildPartial();
             if (!result.isInitialized()) {
                 throw newUninitializedMessageException(result);
             }
             return result;
         }
 
-        @java.lang.Override
-        public proto.management.SendClanInfo buildPartial() {
-            proto.management.SendClanInfo result = new proto.management.SendClanInfo(this);
+        @Override
+        public SendClanInfo buildPartial() {
+            SendClanInfo result = new SendClanInfo(this);
             int from_bitField0_ = bitField0_;
             int to_bitField0_ = 0;
             if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -1499,56 +1862,62 @@ public final class SendClanInfo extends
             return result;
         }
 
-        @java.lang.Override
+        @Override
         public Builder clone() {
             return super.clone();
         }
 
-        @java.lang.Override
+        @Override
         public Builder setField(
                 com.google.protobuf.Descriptors.FieldDescriptor field,
-                java.lang.Object value) {
+                Object value) {
             return super.setField(field, value);
         }
 
-        @java.lang.Override
+        @Override
         public Builder clearField(
                 com.google.protobuf.Descriptors.FieldDescriptor field) {
             return super.clearField(field);
         }
 
-        @java.lang.Override
+        @Override
         public Builder clearOneof(
                 com.google.protobuf.Descriptors.OneofDescriptor oneof) {
             return super.clearOneof(oneof);
         }
 
-        @java.lang.Override
+        @Override
         public Builder setRepeatedField(
                 com.google.protobuf.Descriptors.FieldDescriptor field,
-                int index, java.lang.Object value) {
+                int index, Object value) {
             return super.setRepeatedField(field, index, value);
         }
 
-        @java.lang.Override
+        @Override
         public Builder addRepeatedField(
                 com.google.protobuf.Descriptors.FieldDescriptor field,
-                java.lang.Object value) {
+                Object value) {
             return super.addRepeatedField(field, value);
         }
 
-        @java.lang.Override
+        @Override
         public Builder mergeFrom(com.google.protobuf.Message other) {
-            if (other instanceof proto.management.SendClanInfo) {
-                return mergeFrom((proto.management.SendClanInfo) other);
+            if (other instanceof SendClanInfo) {
+                return mergeFrom((SendClanInfo) other);
             } else {
                 super.mergeFrom(other);
                 return this;
             }
         }
 
-        public Builder mergeFrom(proto.management.SendClanInfo other) {
-            if (other == proto.management.SendClanInfo.getDefaultInstance()) return this;
+        /**
+         * Merge from builder.
+         *
+         * @param other the other
+         * @return the builder
+         */
+        public Builder mergeFrom(SendClanInfo other) {
+            if (other == SendClanInfo.getDefaultInstance()) return this;
             if (other.hasClanOwner()) {
                 bitField0_ |= 0x00000001;
                 clanOwner_ = other.clanOwner_;
@@ -1605,7 +1974,7 @@ public final class SendClanInfo extends
             return this;
         }
 
-        @java.lang.Override
+        @Override
         public final boolean isInitialized() {
             if (!hasClanOwner()) {
                 return false;
@@ -1621,16 +1990,16 @@ public final class SendClanInfo extends
             return true;
         }
 
-        @java.lang.Override
+        @Override
         public Builder mergeFrom(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws java.io.IOException {
-            proto.management.SendClanInfo parsedMessage = null;
+            SendClanInfo parsedMessage = null;
             try {
                 parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
             } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                parsedMessage = (proto.management.SendClanInfo) e.getUnfinishedMessage();
+                parsedMessage = (SendClanInfo) e.getUnfinishedMessage();
                 throw e.unwrapIOException();
             } finally {
                 if (parsedMessage != null) {
@@ -1642,34 +2011,34 @@ public final class SendClanInfo extends
 
         private int bitField0_;
 
-        private java.lang.Object clanOwner_ = "";
+        private Object clanOwner_ = "";
 
         public boolean hasClanOwner() {
             return ((bitField0_ & 0x00000001) != 0);
         }
 
-        public java.lang.String getClanOwner() {
-            java.lang.Object ref = clanOwner_;
-            if (!(ref instanceof java.lang.String)) {
+        public String getClanOwner() {
+            Object ref = clanOwner_;
+            if (!(ref instanceof String)) {
                 com.google.protobuf.ByteString bs =
                         (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
+                String s = bs.toStringUtf8();
                 if (bs.isValidUtf8()) {
                     clanOwner_ = s;
                 }
                 return s;
             } else {
-                return (java.lang.String) ref;
+                return (String) ref;
             }
         }
 
         public com.google.protobuf.ByteString
         getClanOwnerBytes() {
-            java.lang.Object ref = clanOwner_;
+            Object ref = clanOwner_;
             if (ref instanceof String) {
                 com.google.protobuf.ByteString b =
                         com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
+                                (String) ref);
                 clanOwner_ = b;
                 return b;
             } else {
@@ -1677,8 +2046,14 @@ public final class SendClanInfo extends
             }
         }
 
+        /**
+         * Sets clan owner.
+         *
+         * @param value the value
+         * @return the clan owner
+         */
         public Builder setClanOwner(
-                java.lang.String value) {
+                String value) {
             if (value == null) {
                 throw new NullPointerException();
             }
@@ -1688,6 +2063,11 @@ public final class SendClanInfo extends
             return this;
         }
 
+        /**
+         * Clear clan owner builder.
+         *
+         * @return the builder
+         */
         public Builder clearClanOwner() {
             bitField0_ = (bitField0_ & ~0x00000001);
             clanOwner_ = getDefaultInstance().getClanOwner();
@@ -1695,6 +2075,12 @@ public final class SendClanInfo extends
             return this;
         }
 
+        /**
+         * Sets clan owner bytes.
+         *
+         * @param value the value
+         * @return the clan owner bytes
+         */
         public Builder setClanOwnerBytes(
                 com.google.protobuf.ByteString value) {
             if (value == null) {
@@ -1708,16 +2094,22 @@ public final class SendClanInfo extends
 
         private boolean hasInfo_;
 
-        @java.lang.Override
+        @Override
         public boolean hasHasInfo() {
             return ((bitField0_ & 0x00000002) != 0);
         }
 
-        @java.lang.Override
+        @Override
         public boolean getHasInfo() {
             return hasInfo_;
         }
 
+        /**
+         * Sets has info.
+         *
+         * @param value the value
+         * @return the has info
+         */
         public Builder setHasInfo(boolean value) {
             bitField0_ |= 0x00000002;
             hasInfo_ = value;
@@ -1725,6 +2117,11 @@ public final class SendClanInfo extends
             return this;
         }
 
+        /**
+         * Clear has info builder.
+         *
+         * @return the builder
+         */
         public Builder clearHasInfo() {
             bitField0_ = (bitField0_ & ~0x00000002);
             hasInfo_ = false;
@@ -1732,34 +2129,34 @@ public final class SendClanInfo extends
             return this;
         }
 
-        private java.lang.Object clanName_ = "";
+        private Object clanName_ = "";
 
         public boolean hasClanName() {
             return ((bitField0_ & 0x00000004) != 0);
         }
 
-        public java.lang.String getClanName() {
-            java.lang.Object ref = clanName_;
-            if (!(ref instanceof java.lang.String)) {
+        public String getClanName() {
+            Object ref = clanName_;
+            if (!(ref instanceof String)) {
                 com.google.protobuf.ByteString bs =
                         (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
+                String s = bs.toStringUtf8();
                 if (bs.isValidUtf8()) {
                     clanName_ = s;
                 }
                 return s;
             } else {
-                return (java.lang.String) ref;
+                return (String) ref;
             }
         }
 
         public com.google.protobuf.ByteString
         getClanNameBytes() {
-            java.lang.Object ref = clanName_;
+            Object ref = clanName_;
             if (ref instanceof String) {
                 com.google.protobuf.ByteString b =
                         com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
+                                (String) ref);
                 clanName_ = b;
                 return b;
             } else {
@@ -1767,8 +2164,14 @@ public final class SendClanInfo extends
             }
         }
 
+        /**
+         * Sets clan name.
+         *
+         * @param value the value
+         * @return the clan name
+         */
         public Builder setClanName(
-                java.lang.String value) {
+                String value) {
             if (value == null) {
                 throw new NullPointerException();
             }
@@ -1778,6 +2181,11 @@ public final class SendClanInfo extends
             return this;
         }
 
+        /**
+         * Clear clan name builder.
+         *
+         * @return the builder
+         */
         public Builder clearClanName() {
             bitField0_ = (bitField0_ & ~0x00000004);
             clanName_ = getDefaultInstance().getClanName();
@@ -1785,6 +2193,12 @@ public final class SendClanInfo extends
             return this;
         }
 
+        /**
+         * Sets clan name bytes.
+         *
+         * @param value the value
+         * @return the clan name bytes
+         */
         public Builder setClanNameBytes(
                 com.google.protobuf.ByteString value) {
             if (value == null) {
@@ -1798,16 +2212,22 @@ public final class SendClanInfo extends
 
         private int joinRequirement_;
 
-        @java.lang.Override
+        @Override
         public boolean hasJoinRequirement() {
             return ((bitField0_ & 0x00000008) != 0);
         }
 
-        @java.lang.Override
+        @Override
         public int getJoinRequirement() {
             return joinRequirement_;
         }
 
+        /**
+         * Sets join requirement.
+         *
+         * @param value the value
+         * @return the join requirement
+         */
         public Builder setJoinRequirement(int value) {
             bitField0_ |= 0x00000008;
             joinRequirement_ = value;
@@ -1815,6 +2235,11 @@ public final class SendClanInfo extends
             return this;
         }
 
+        /**
+         * Clear join requirement builder.
+         *
+         * @return the builder
+         */
         public Builder clearJoinRequirement() {
             bitField0_ = (bitField0_ & ~0x00000008);
             joinRequirement_ = 0;
@@ -1824,16 +2249,22 @@ public final class SendClanInfo extends
 
         private int kickRequirement_;
 
-        @java.lang.Override
+        @Override
         public boolean hasKickRequirement() {
             return ((bitField0_ & 0x00000010) != 0);
         }
 
-        @java.lang.Override
+        @Override
         public int getKickRequirement() {
             return kickRequirement_;
         }
 
+        /**
+         * Sets kick requirement.
+         *
+         * @param value the value
+         * @return the kick requirement
+         */
         public Builder setKickRequirement(int value) {
             bitField0_ |= 0x00000010;
             kickRequirement_ = value;
@@ -1841,6 +2272,11 @@ public final class SendClanInfo extends
             return this;
         }
 
+        /**
+         * Clear kick requirement builder.
+         *
+         * @return the builder
+         */
         public Builder clearKickRequirement() {
             bitField0_ = (bitField0_ & ~0x00000010);
             kickRequirement_ = 0;
@@ -1850,16 +2286,22 @@ public final class SendClanInfo extends
 
         private int messageRequirement_;
 
-        @java.lang.Override
+        @Override
         public boolean hasMessageRequirement() {
             return ((bitField0_ & 0x00000020) != 0);
         }
 
-        @java.lang.Override
+        @Override
         public int getMessageRequirement() {
             return messageRequirement_;
         }
 
+        /**
+         * Sets message requirement.
+         *
+         * @param value the value
+         * @return the message requirement
+         */
         public Builder setMessageRequirement(int value) {
             bitField0_ |= 0x00000020;
             messageRequirement_ = value;
@@ -1867,6 +2309,11 @@ public final class SendClanInfo extends
             return this;
         }
 
+        /**
+         * Clear message requirement builder.
+         *
+         * @return the builder
+         */
         public Builder clearMessageRequirement() {
             bitField0_ = (bitField0_ & ~0x00000020);
             messageRequirement_ = 0;
@@ -1876,16 +2323,22 @@ public final class SendClanInfo extends
 
         private int lootRequirement_;
 
-        @java.lang.Override
+        @Override
         public boolean hasLootRequirement() {
             return ((bitField0_ & 0x00000040) != 0);
         }
 
-        @java.lang.Override
+        @Override
         public int getLootRequirement() {
             return lootRequirement_;
         }
 
+        /**
+         * Sets loot requirement.
+         *
+         * @param value the value
+         * @return the loot requirement
+         */
         public Builder setLootRequirement(int value) {
             bitField0_ |= 0x00000040;
             lootRequirement_ = value;
@@ -1893,6 +2346,11 @@ public final class SendClanInfo extends
             return this;
         }
 
+        /**
+         * Clear loot requirement builder.
+         *
+         * @return the builder
+         */
         public Builder clearLootRequirement() {
             bitField0_ = (bitField0_ & ~0x00000040);
             lootRequirement_ = 0;
@@ -1900,20 +2358,20 @@ public final class SendClanInfo extends
             return this;
         }
 
-        private java.util.List<proto.management.SendClanInfo.ClanMember> members_ =
+        private java.util.List<ClanMember> members_ =
                 java.util.Collections.emptyList();
 
         private void ensureMembersIsMutable() {
             if (!((bitField0_ & 0x00000080) != 0)) {
-                members_ = new java.util.ArrayList<proto.management.SendClanInfo.ClanMember>(members_);
+                members_ = new java.util.ArrayList<ClanMember>(members_);
                 bitField0_ |= 0x00000080;
             }
         }
 
         private com.google.protobuf.RepeatedFieldBuilderV3<
-                proto.management.SendClanInfo.ClanMember, proto.management.SendClanInfo.ClanMember.Builder, proto.management.SendClanInfo.ClanMemberOrBuilder> membersBuilder_;
+                ClanMember, ClanMember.Builder, ClanMemberOrBuilder> membersBuilder_;
 
-        public java.util.List<proto.management.SendClanInfo.ClanMember> getMembersList() {
+        public java.util.List<ClanMember> getMembersList() {
             if (membersBuilder_ == null) {
                 return java.util.Collections.unmodifiableList(members_);
             } else {
@@ -1929,7 +2387,7 @@ public final class SendClanInfo extends
             }
         }
 
-        public proto.management.SendClanInfo.ClanMember getMembers(int index) {
+        public ClanMember getMembers(int index) {
             if (membersBuilder_ == null) {
                 return members_.get(index);
             } else {
@@ -1937,8 +2395,15 @@ public final class SendClanInfo extends
             }
         }
 
+        /**
+         * Sets members.
+         *
+         * @param index the index
+         * @param value the value
+         * @return the members
+         */
         public Builder setMembers(
-                int index, proto.management.SendClanInfo.ClanMember value) {
+                int index, ClanMember value) {
             if (membersBuilder_ == null) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -1952,8 +2417,15 @@ public final class SendClanInfo extends
             return this;
         }
 
+        /**
+         * Sets members.
+         *
+         * @param index           the index
+         * @param builderForValue the builder for value
+         * @return the members
+         */
         public Builder setMembers(
-                int index, proto.management.SendClanInfo.ClanMember.Builder builderForValue) {
+                int index, ClanMember.Builder builderForValue) {
             if (membersBuilder_ == null) {
                 ensureMembersIsMutable();
                 members_.set(index, builderForValue.build());
@@ -1964,7 +2436,13 @@ public final class SendClanInfo extends
             return this;
         }
 
-        public Builder addMembers(proto.management.SendClanInfo.ClanMember value) {
+        /**
+         * Add members builder.
+         *
+         * @param value the value
+         * @return the builder
+         */
+        public Builder addMembers(ClanMember value) {
             if (membersBuilder_ == null) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -1978,8 +2456,15 @@ public final class SendClanInfo extends
             return this;
         }
 
+        /**
+         * Add members builder.
+         *
+         * @param index the index
+         * @param value the value
+         * @return the builder
+         */
         public Builder addMembers(
-                int index, proto.management.SendClanInfo.ClanMember value) {
+                int index, ClanMember value) {
             if (membersBuilder_ == null) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -1993,8 +2478,14 @@ public final class SendClanInfo extends
             return this;
         }
 
+        /**
+         * Add members builder.
+         *
+         * @param builderForValue the builder for value
+         * @return the builder
+         */
         public Builder addMembers(
-                proto.management.SendClanInfo.ClanMember.Builder builderForValue) {
+                ClanMember.Builder builderForValue) {
             if (membersBuilder_ == null) {
                 ensureMembersIsMutable();
                 members_.add(builderForValue.build());
@@ -2005,8 +2496,15 @@ public final class SendClanInfo extends
             return this;
         }
 
+        /**
+         * Add members builder.
+         *
+         * @param index           the index
+         * @param builderForValue the builder for value
+         * @return the builder
+         */
         public Builder addMembers(
-                int index, proto.management.SendClanInfo.ClanMember.Builder builderForValue) {
+                int index, ClanMember.Builder builderForValue) {
             if (membersBuilder_ == null) {
                 ensureMembersIsMutable();
                 members_.add(index, builderForValue.build());
@@ -2017,8 +2515,14 @@ public final class SendClanInfo extends
             return this;
         }
 
+        /**
+         * Add all members builder.
+         *
+         * @param values the values
+         * @return the builder
+         */
         public Builder addAllMembers(
-                java.lang.Iterable<? extends proto.management.SendClanInfo.ClanMember> values) {
+                Iterable<? extends ClanMember> values) {
             if (membersBuilder_ == null) {
                 ensureMembersIsMutable();
                 com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -2030,6 +2534,11 @@ public final class SendClanInfo extends
             return this;
         }
 
+        /**
+         * Clear members builder.
+         *
+         * @return the builder
+         */
         public Builder clearMembers() {
             if (membersBuilder_ == null) {
                 members_ = java.util.Collections.emptyList();
@@ -2041,6 +2550,12 @@ public final class SendClanInfo extends
             return this;
         }
 
+        /**
+         * Remove members builder.
+         *
+         * @param index the index
+         * @return the builder
+         */
         public Builder removeMembers(int index) {
             if (membersBuilder_ == null) {
                 ensureMembersIsMutable();
@@ -2052,12 +2567,18 @@ public final class SendClanInfo extends
             return this;
         }
 
-        public proto.management.SendClanInfo.ClanMember.Builder getMembersBuilder(
+        /**
+         * Gets members builder.
+         *
+         * @param index the index
+         * @return the members builder
+         */
+        public ClanMember.Builder getMembersBuilder(
                 int index) {
             return getMembersFieldBuilder().getBuilder(index);
         }
 
-        public proto.management.SendClanInfo.ClanMemberOrBuilder getMembersOrBuilder(
+        public ClanMemberOrBuilder getMembersOrBuilder(
                 int index) {
             if (membersBuilder_ == null) {
                 return members_.get(index);
@@ -2066,7 +2587,7 @@ public final class SendClanInfo extends
             }
         }
 
-        public java.util.List<? extends proto.management.SendClanInfo.ClanMemberOrBuilder>
+        public java.util.List<? extends ClanMemberOrBuilder>
         getMembersOrBuilderList() {
             if (membersBuilder_ != null) {
                 return membersBuilder_.getMessageOrBuilderList();
@@ -2075,28 +2596,44 @@ public final class SendClanInfo extends
             }
         }
 
-        public proto.management.SendClanInfo.ClanMember.Builder addMembersBuilder() {
+        /**
+         * Add members builder clan member . builder.
+         *
+         * @return the clan member . builder
+         */
+        public ClanMember.Builder addMembersBuilder() {
             return getMembersFieldBuilder().addBuilder(
-                    proto.management.SendClanInfo.ClanMember.getDefaultInstance());
+                    ClanMember.getDefaultInstance());
         }
 
-        public proto.management.SendClanInfo.ClanMember.Builder addMembersBuilder(
+        /**
+         * Add members builder clan member . builder.
+         *
+         * @param index the index
+         * @return the clan member . builder
+         */
+        public ClanMember.Builder addMembersBuilder(
                 int index) {
             return getMembersFieldBuilder().addBuilder(
-                    index, proto.management.SendClanInfo.ClanMember.getDefaultInstance());
+                    index, ClanMember.getDefaultInstance());
         }
 
-        public java.util.List<proto.management.SendClanInfo.ClanMember.Builder>
+        /**
+         * Gets members builder list.
+         *
+         * @return the members builder list
+         */
+        public java.util.List<ClanMember.Builder>
         getMembersBuilderList() {
             return getMembersFieldBuilder().getBuilderList();
         }
 
         private com.google.protobuf.RepeatedFieldBuilderV3<
-                proto.management.SendClanInfo.ClanMember, proto.management.SendClanInfo.ClanMember.Builder, proto.management.SendClanInfo.ClanMemberOrBuilder>
+                ClanMember, ClanMember.Builder, ClanMemberOrBuilder>
         getMembersFieldBuilder() {
             if (membersBuilder_ == null) {
                 membersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-                        proto.management.SendClanInfo.ClanMember, proto.management.SendClanInfo.ClanMember.Builder, proto.management.SendClanInfo.ClanMemberOrBuilder>(
+                        ClanMember, ClanMember.Builder, ClanMemberOrBuilder>(
                         members_,
                         ((bitField0_ & 0x00000080) != 0),
                         getParentForChildren(),
@@ -2106,13 +2643,13 @@ public final class SendClanInfo extends
             return membersBuilder_;
         }
 
-        @java.lang.Override
+        @Override
         public final Builder setUnknownFields(
                 final com.google.protobuf.UnknownFieldSet unknownFields) {
             return super.setUnknownFields(unknownFields);
         }
 
-        @java.lang.Override
+        @Override
         public final Builder mergeUnknownFields(
                 final com.google.protobuf.UnknownFieldSet unknownFields) {
             return super.mergeUnknownFields(unknownFields);
@@ -2123,20 +2660,28 @@ public final class SendClanInfo extends
     }
 
     // @@protoc_insertion_point(class_scope:management.SendClanInfo)
-    private static final proto.management.SendClanInfo DEFAULT_INSTANCE;
+    private static final SendClanInfo DEFAULT_INSTANCE;
 
     static {
-        DEFAULT_INSTANCE = new proto.management.SendClanInfo();
+        DEFAULT_INSTANCE = new SendClanInfo();
     }
 
-    public static proto.management.SendClanInfo getDefaultInstance() {
+    /**
+     * Gets default instance.
+     *
+     * @return the default instance
+     */
+    public static SendClanInfo getDefaultInstance() {
         return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated
+    /**
+     * The constant PARSER.
+     */
+    @Deprecated
     public static final com.google.protobuf.Parser<SendClanInfo>
             PARSER = new com.google.protobuf.AbstractParser<SendClanInfo>() {
-        @java.lang.Override
+        @Override
         public SendClanInfo parsePartialFrom(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2145,17 +2690,22 @@ public final class SendClanInfo extends
         }
     };
 
+    /**
+     * Parser com . google . protobuf . parser.
+     *
+     * @return the com . google . protobuf . parser
+     */
     public static com.google.protobuf.Parser<SendClanInfo> parser() {
         return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<SendClanInfo> getParserForType() {
         return PARSER;
     }
 
-    @java.lang.Override
-    public proto.management.SendClanInfo getDefaultInstanceForType() {
+    @Override
+    public SendClanInfo getDefaultInstanceForType() {
         return DEFAULT_INSTANCE;
     }
 

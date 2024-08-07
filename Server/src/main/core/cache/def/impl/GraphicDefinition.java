@@ -7,30 +7,87 @@ import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Graphic definition.
+ */
 public class GraphicDefinition {
 
+    /**
+     * The A short array 1435.
+     */
     public short[] aShortArray1435;
+    /**
+     * The A short array 1438.
+     */
     public short[] aShortArray1438;
+    /**
+     * The An int 1440.
+     */
     public int anInt1440;
+    /**
+     * The A boolean 1442.
+     */
     public boolean aBoolean1442;
+    /**
+     * The Default model.
+     */
     public int defaultModel;
+    /**
+     * The An int 1446.
+     */
     public int anInt1446;
+    /**
+     * The A boolean 1448.
+     */
     public boolean aBoolean1448 = false;
+    /**
+     * The An int 1449.
+     */
     public int anInt1449;
+    /**
+     * The Animation id.
+     */
     public int animationId;
+    /**
+     * The An int 1451.
+     */
     public int anInt1451;
+    /**
+     * The Graphics id.
+     */
     public int graphicsId;
+    /**
+     * The An int 1454.
+     */
     public int anInt1454;
+    /**
+     * The A short array 1455.
+     */
     public short[] aShortArray1455;
+    /**
+     * The A short array 1456.
+     */
     public short[] aShortArray1456;
 
-    // added
+    /**
+     * The Byte value.
+     */
+// added
     public byte byteValue;
-    // added
+    /**
+     * The Int value.
+     */
+// added
     public int intValue;
 
     private static final Map<Integer, GraphicDefinition> graphicDefinitions = new HashMap<>();
 
+    /**
+     * For id graphic definition.
+     *
+     * @param gfxId the gfx id
+     * @return the graphic definition
+     */
     public static final GraphicDefinition forId(int gfxId) {
         GraphicDefinition def = graphicDefinitions.get(gfxId);
         if (def != null) {
@@ -46,6 +103,11 @@ public class GraphicDefinition {
         return def;
     }
 
+    /**
+     * Main.
+     *
+     * @param s the s
+     */
     public static final void main(String... s) {
         try {
             Cache.init(ServerConstants.CACHE_PATH);
@@ -76,6 +138,12 @@ public class GraphicDefinition {
         }
     }
 
+    /**
+     * Read values.
+     *
+     * @param buffer the buffer
+     * @param opcode the opcode
+     */
     public void readValues(ByteBuffer buffer, int opcode) {
         if (opcode != 1) {
             if (opcode == 2)
@@ -146,6 +214,9 @@ public class GraphicDefinition {
             defaultModel = buffer.getShort();
     }
 
+    /**
+     * Instantiates a new Graphic definition.
+     */
     public GraphicDefinition() {
         byteValue = 0;
         intValue = -1;

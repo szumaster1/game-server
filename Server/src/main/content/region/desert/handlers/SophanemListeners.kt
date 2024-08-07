@@ -10,6 +10,9 @@ import core.game.node.entity.player.link.TeleportManager
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Sophanem listeners.
+ */
 class SophanemListeners : InteractionListener {
 
     companion object {
@@ -29,7 +32,7 @@ class SophanemListeners : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Quest related location, available just for unlock the music.
          */
         on(Scenery.DOOR_6614, IntType.SCENERY, "open") { player, _ ->

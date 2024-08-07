@@ -17,6 +17,11 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Graphic
 import core.tools.END_DIALOGUE
 
+/**
+ * Thrantax dialogue file
+ *
+ * @constructor Thrantax dialogue file
+ */
 class ThrantaxDialogueFile : DialogueFile() {
 
     val options = arrayOf("Snarthanto Candon Termtrick", "Snarthtrick Candanto Termon", "Snarthon Candtrick Termanto")
@@ -100,6 +105,11 @@ class ThrantaxDialogueFile : DialogueFile() {
 
     }
 
+    /**
+     * Disappear
+     *
+     * @param player
+     */
     fun disappear(player: Player) {
         val thrantax = player.getAttribute<ThrantaxNPC>(MerlinUtils.TEMP_ATTR_THRANTAX, null)
 
@@ -108,6 +118,11 @@ class ThrantaxDialogueFile : DialogueFile() {
         }
     }
 
+    /**
+     * Attack player
+     *
+     * @param player
+     */
     fun attackPlayer(player: Player) {
         val thrantax = player.getAttribute<NPC>(MerlinUtils.TEMP_ATTR_THRANTAX, null)
 
@@ -116,6 +131,12 @@ class ThrantaxDialogueFile : DialogueFile() {
         }
     }
 
+    /**
+     * Init thrantax
+     *
+     * @param player
+     * @param checkMissing
+     */
     fun initThrantax(player: Player, checkMissing: Boolean) {
         if (checkMissing) {
             val thrantax = player.getAttribute<NPC>(MerlinUtils.TEMP_ATTR_THRANTAX, null)
@@ -128,6 +149,11 @@ class ThrantaxDialogueFile : DialogueFile() {
         }
     }
 
+    /**
+     * Spawn
+     *
+     * @param player
+     */
     fun spawn(player: Player) {
         var thrantax = ThrantaxNPC(NPCs.THRANTAX_THE_MIGHTY_238, Location(2780, 3515, 0))
         thrantax.player = player

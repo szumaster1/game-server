@@ -41,6 +41,11 @@ import core.plugin.ClassScanner.definePlugin
 import core.plugin.Plugin
 import core.tools.RandomFunction
 
+/**
+ * Tourist trap plugin
+ *
+ * @constructor Tourist trap plugin
+ */
 class TouristTrapPlugin : OptionHandler() {
 
     override fun newInstance(arg: Any?): Plugin<Any> {
@@ -530,6 +535,13 @@ class TouristTrapPlugin : OptionHandler() {
         return !player.inventory.containsItem(item) && !player.bank.containsItem(item)
     }
 
+    /**
+     * Winch dialogue
+     *
+     * @constructor
+     *
+     * @param player
+     */
     class WinchDialogue(player: Player? = null) : Dialogue(player) {
 
         override fun open(vararg args: Any): Boolean {
@@ -700,7 +712,9 @@ class TouristTrapPlugin : OptionHandler() {
 
 
     /**
-     * The Anna cart handler.
+     * Anna cart handler
+     *
+     * @constructor Anna cart handler
      */
     class AnnaCartHandler
     /**
@@ -754,7 +768,9 @@ class TouristTrapPlugin : OptionHandler() {
 
 
         /**
-         * The Anna cart cutscene.
+         * Anna cart cutscene
+         *
+         * @constructor Anna cart cutscene
          */
         class AnnaCartCutscene : CutscenePlugin {
             /**
@@ -861,7 +877,11 @@ class TouristTrapPlugin : OptionHandler() {
 
 
     /**
-     * The Cart dialogue.
+     * Cart dialogue
+     *
+     * @constructor
+     *
+     * @param player
      */
     class CartDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -928,7 +948,11 @@ class TouristTrapPlugin : OptionHandler() {
 
 
     /**
-     * The Mine cart dialogue.
+     * Mine cart dialogue
+     *
+     * @constructor
+     *
+     * @param player
      */
     class MineCartDialogue(player: Player? = null) : Dialogue(player) {
         private var cart: Scenery? = null
@@ -979,9 +1003,9 @@ class TouristTrapPlugin : OptionHandler() {
 
 
         /**
-         * Enter cart.
+         * Enter cart
          *
-         * @param player the player
+         * @param player
          */
         fun enterCart(player: Player) {
             if (RandomFunction.random(3) == 1) {
@@ -1005,7 +1029,9 @@ class TouristTrapPlugin : OptionHandler() {
 
 
         /**
-         * The Mining cart cutscene.
+         * Mining cart cutscene
+         *
+         * @constructor Mining cart cutscene
          */
         class MiningCartCutscene : CutscenePlugin {
             private var index = 0
@@ -1147,7 +1173,9 @@ class TouristTrapPlugin : OptionHandler() {
 
 
     /**
-     * The Winch cutscene.
+     * Winch cutscene
+     *
+     * @constructor Winch cutscene
      */
     class WinchCutscene : CutscenePlugin {
         /**
@@ -1201,7 +1229,9 @@ class TouristTrapPlugin : OptionHandler() {
 
 
     /**
-     * The Bedabin key handler.
+     * Bedabin key handler
+     *
+     * @constructor Bedabin key handler
      */
     class BedabinKeyHandler
     /**
@@ -1222,7 +1252,11 @@ class TouristTrapPlugin : OptionHandler() {
 
 
     /**
-     * The Barrel dialogue.
+     * Barrel dialogue
+     *
+     * @constructor
+     *
+     * @param player
      */
     class BarrelDialogue(player: Player? = null) : Dialogue(player) {
         private var barrel: Scenery? = null
@@ -1307,7 +1341,9 @@ class TouristTrapPlugin : OptionHandler() {
 
 
     /**
-     * The Bedabin anvil handler.
+     * Bedabin anvil handler
+     *
+     * @constructor Bedabin anvil handler
      */
     class BedabinAnvilHandler
     /**
@@ -1334,7 +1370,9 @@ class TouristTrapPlugin : OptionHandler() {
 
 
         /**
-         * The Anna winch handler.
+         * Anna winch handler
+         *
+         * @constructor Anna winch handler
          */
         class AnnaWinchHandler
         /**
@@ -1362,7 +1400,9 @@ class TouristTrapPlugin : OptionHandler() {
 
 
         /**
-         * The Prototype dart handler.
+         * Prototype dart handler
+         *
+         * @constructor Prototype dart handler
          */
         class PrototypeDartHandler
         /**
@@ -1382,7 +1422,11 @@ class TouristTrapPlugin : OptionHandler() {
 
 
             /**
-             * The Proto type dialogue.
+             * Proto type dialogue
+             *
+             * @constructor
+             *
+             * @param player
              */
             class ProtoTypeDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -1433,6 +1477,13 @@ class TouristTrapPlugin : OptionHandler() {
             }
         }
 
+        /**
+         * Bedabin anvil dialogue
+         *
+         * @constructor
+         *
+         * @param player
+         */
         class BedabinAnvilDialogue(player: Player? = null) : Dialogue(player) {
 
             override fun open(vararg args: Any): Boolean {
@@ -1468,7 +1519,11 @@ class TouristTrapPlugin : OptionHandler() {
 
 
             /**
-             * The Proto type pulse.
+             * Proto type pulse
+             *
+             * @constructor
+             *
+             * @param player
              */
             class ProtoTypePulse
             /**

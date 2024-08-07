@@ -16,16 +16,42 @@ import java.util.concurrent.Executors
  */
 class NioReactor private constructor(private val eventHandler: IoEventHandler) : Runnable {
 
+    /**
+     * The executor service.
+     */
     private val service: ExecutorService = Executors.newSingleThreadScheduledExecutor()
+
+    /**
+     * The I/O event handling instance.
+     */
     private var channel: ServerSocketConnection? = null
+
+    /**
+     * If the reactor is running.
+     */
     private var running: Boolean = false
 
     companion object {
+        /**
+         * Creates and configures a new {@code NioReactor} with a pool size of 1.
+         *
+         * @param port The port.
+         * @return The {@code NioReactor} {@code Object}.
+         * @throws IOException When an I/O exception occurs.
+         */
         @Throws(IOException::class)
         fun configure(port: Int): NioReactor {
             return configure(port, 1)
         }
 
+        /**
+         * Creates and configures a new {@code NioReactor}.
+         *
+         * @param port The port.
+         * @param poolSize The amount of threads in the thread pool.
+         * @return The {@code NioReactor} {@code Object}.
+         * @throws IOException When an I/O exception occurs.
+         */
         @Throws(IOException::class)
         fun configure(port: Int, poolSize: Int): NioReactor {
             val reactor = NioReactor(IoEventHandler(Executors.newFixedThreadPool(poolSize)))
@@ -38,6 +64,14 @@ class NioReactor private constructor(private val eventHandler: IoEventHandler) :
             return reactor
         }
 
+        /**
+         * Starts a NIO reactor used for client connections.
+         *
+         * @param address The IP-address to connect to.
+         * @param port The port used.
+         * @return The NIO reactor object.
+         * @throws IOException When an exception occurs.
+         */
         @Throws(IOException::class)
         fun connect(address: String, port: Int): NioReactor {
             val reactor = NioReactor(MSEventHandler())
@@ -53,6 +87,9 @@ class NioReactor private constructor(private val eventHandler: IoEventHandler) :
         }
     }
 
+    /**
+     * Starts the reactor.
+     */
     fun start() {
         running = true
         service.execute(this)
@@ -88,6 +125,9 @@ class NioReactor private constructor(private val eventHandler: IoEventHandler) :
         }
     }
 
+    /**
+     * Terminates the NioReactor.
+     */
     fun terminate() {
         running = false
     }

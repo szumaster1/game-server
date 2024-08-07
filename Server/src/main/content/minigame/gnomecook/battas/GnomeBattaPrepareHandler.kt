@@ -9,6 +9,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Gnome batta prepare handler.
+ */
 @Initializable
 class GnomeBattaPrepareHandler : OptionHandler() {
 

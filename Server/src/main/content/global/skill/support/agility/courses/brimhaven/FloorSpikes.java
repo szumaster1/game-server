@@ -13,6 +13,9 @@ import core.game.world.map.RegionManager;
 import core.game.world.update.flag.context.Animation;
 import kotlin.Unit;
 
+/**
+ * Floor spikes.
+ */
 public final class FloorSpikes implements MovementHook {
 
     @Override

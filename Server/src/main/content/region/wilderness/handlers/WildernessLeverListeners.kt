@@ -12,6 +12,9 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld.Pulser
 import core.game.world.map.Location
 
+/**
+ * Wilderness lever listeners.
+ */
 class WildernessLeverListeners : InteractionListener {
 
     private val leverIds = intArrayOf(1814, 1815, 5959, 5960, 9706, 9707)

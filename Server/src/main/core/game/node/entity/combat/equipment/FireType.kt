@@ -11,12 +11,25 @@ import core.game.system.task.NodeTask
 import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
 
+/**
+ * Fire type
+ *
+ * @property animation
+ * @property projectileId
+ * @property task
+ * @constructor Fire type
+ */
 enum class FireType(val animation: Animation, val projectileId: Int, val task: NodeTask) {
 
     /*
      * The normal dragon fire type.
      */
 
+    /**
+     * Fiery Breath
+     *
+     * @constructor Fiery Breath
+     */
     FIERY_BREATH(Animation(81, Priority.HIGH), 393, object : NodeTask(0) {
         override fun exec(node: Node, vararg n: Node): Boolean {
             return true
@@ -27,6 +40,11 @@ enum class FireType(val animation: Animation, val projectileId: Int, val task: N
      * The shocking breath fire type.
      */
 
+    /**
+     * Shocking Breath
+     *
+     * @constructor Shocking Breath
+     */
     SHOCKING_BREATH(Animation(84, Priority.HIGH), 396, object : NodeTask(0) {
         override fun exec(node: Node, vararg n: Node): Boolean {
             if (RandomFunction.random(10) < 3) {
@@ -43,6 +61,11 @@ enum class FireType(val animation: Animation, val projectileId: Int, val task: N
      * The toxic breath fire type.
      */
 
+    /**
+     * Toxic Breath
+     *
+     * @constructor Toxic Breath
+     */
     TOXIC_BREATH(Animation(82, Priority.HIGH), 394, object : NodeTask(0) {
         override fun exec(node: Node, vararg n: Node): Boolean {
             applyPoison((node as Entity), (n[0] as Entity), 40)
@@ -54,6 +77,11 @@ enum class FireType(val animation: Animation, val projectileId: Int, val task: N
      * The freezing breath fire type.
      */
 
+    /**
+     * Icy Breath
+     *
+     * @constructor Icy Breath
+     */
     ICY_BREATH(Animation(83, Priority.HIGH), 395, object : NodeTask(0) {
         override fun exec(node: Node, vararg n: Node): Boolean {
             registerTimer((node as Entity), spawnTimer("frozen", 7, true))

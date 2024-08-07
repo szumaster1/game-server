@@ -9,6 +9,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
+/**
+ * Trouble brewin guide
+ *
+ * @constructor Trouble brewin guide
+ */
 class TroubleBrewinGuide : InteractionListener {
 
     // Guide for Trouble Brewing minigame.

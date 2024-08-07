@@ -9,8 +9,11 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Millie miller dialogue.
+ */
 @Initializable
-class MillieMillerCADialogue(player: Player? = null) : Dialogue(player) {
+class MillieMillerDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC

@@ -14,6 +14,9 @@ import core.plugin.Initializable;
 import core.plugin.Plugin;
 import core.tools.RandomFunction;
 
+/**
+ * Phantom strike special handler.
+ */
 @Initializable
 public final class PhantomStrikeSpecialHandler extends RangeSwingHandler implements Plugin<Object> {
     private static final int SPECIAL_ENERGY = 50;

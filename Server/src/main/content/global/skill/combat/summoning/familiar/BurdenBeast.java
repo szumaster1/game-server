@@ -12,15 +12,42 @@ import core.game.node.item.GroundItemManager;
 import core.game.node.item.Item;
 import core.game.system.config.ItemConfigParser;
 
+/**
+ * Burden beast.
+ */
 public abstract class BurdenBeast extends Familiar {
 
+    /**
+     * The Container.
+     */
     protected Container container;
 
+    /**
+     * Instantiates a new Burden beast.
+     *
+     * @param owner         the owner
+     * @param id            the id
+     * @param ticks         the ticks
+     * @param pouchId       the pouch id
+     * @param specialCost   the special cost
+     * @param containerSize the container size
+     * @param attackStyle   the attack style
+     */
     public BurdenBeast(Player owner, int id, int ticks, int pouchId, int specialCost, int containerSize, int attackStyle) {
         super(owner, id, ticks, pouchId, specialCost, attackStyle);
         this.container = new Container(containerSize).register(new BurdenContainerListener(owner));
     }
 
+    /**
+     * Instantiates a new Burden beast.
+     *
+     * @param owner         the owner
+     * @param id            the id
+     * @param ticks         the ticks
+     * @param pouchId       the pouch id
+     * @param specialCost   the special cost
+     * @param containerSize the container size
+     */
     public BurdenBeast(Player owner, int id, int ticks, int pouchId, int specialCost, int containerSize) {
         this(owner, id, ticks, pouchId, specialCost, containerSize, WeaponInterface.STYLE_DEFENSIVE);
     }
@@ -51,6 +78,13 @@ public abstract class BurdenBeast extends Familiar {
         return true;
     }
 
+    /**
+     * Is allowed boolean.
+     *
+     * @param owner the owner
+     * @param item  the item
+     * @return the boolean
+     */
     public boolean isAllowed(Player owner, Item item) {
         if (item.getValue() > 50000) {
             owner.getPacketDispatch().sendMessage("This item is too valuable to trust to this familiar.");
@@ -77,6 +111,13 @@ public abstract class BurdenBeast extends Familiar {
         return true;
     }
 
+    /**
+     * Transfer.
+     *
+     * @param item     the item
+     * @param amount   the amount
+     * @param withdraw the withdraw
+     */
     public void transfer(Item item, int amount, boolean withdraw) {
         if (this instanceof Forager && !withdraw) {
             owner.getPacketDispatch().sendMessage("You can't store your items in this familiar.");
@@ -119,6 +160,9 @@ public abstract class BurdenBeast extends Familiar {
         }
     }
 
+    /**
+     * Withdraw all.
+     */
     /*
      * Withdraw all.
      */
@@ -142,6 +186,9 @@ public abstract class BurdenBeast extends Familiar {
         owner.getInventory().update();
     }
 
+    /**
+     * Open interface.
+     */
     /*
      * Open interface.
      */
@@ -164,6 +211,11 @@ public abstract class BurdenBeast extends Familiar {
         container.refresh();
     }
 
+    /**
+     * Gets container.
+     *
+     * @return the container
+     */
     /*
      * Gets container.
      */

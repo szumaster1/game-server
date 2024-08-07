@@ -6,6 +6,9 @@ import core.api.sendChat
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
 
+/**
+ * The guns NPC.
+ */
 class TheGunsNPC : NPCBehavior(NPCs.THE_GUNS_5592) {
     private var lifts = 0
 

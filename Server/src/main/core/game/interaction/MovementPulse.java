@@ -23,10 +23,19 @@ import java.util.Deque;
 
 import static core.api.ContentAPIKt.*;
 
+/**
+ * Movement pulse.
+ */
 public abstract class MovementPulse extends Pulse {
 
+    /**
+     * The Mover.
+     */
     protected Entity mover;
 
+    /**
+     * The Destination.
+     */
     protected Node destination;
 
     private Location last;
@@ -49,39 +58,96 @@ public abstract class MovementPulse extends Pulse {
 
     private Location previousLoc;
 
+    /**
+     * Instantiates a new Movement pulse.
+     *
+     * @param mover       the mover
+     * @param destination the destination
+     */
     public MovementPulse(Entity mover, Node destination) {
         this(mover, destination, null, false);
     }
 
+    /**
+     * Instantiates a new Movement pulse.
+     *
+     * @param mover       the mover
+     * @param destination the destination
+     * @param forceRun    the force run
+     */
     public MovementPulse(Entity mover, Node destination, boolean forceRun) {
         this(mover, destination, null, forceRun);
     }
 
+    /**
+     * Instantiates a new Movement pulse.
+     *
+     * @param mover       the mover
+     * @param destination the destination
+     * @param pathfinder  the pathfinder
+     */
     public MovementPulse(Entity mover, Node destination, Pathfinder pathfinder) {
         this(mover, destination, pathfinder, false);
     }
 
+    /**
+     * Instantiates a new Movement pulse.
+     *
+     * @param mover         the mover
+     * @param destination   the destination
+     * @param optionHandler the option handler
+     */
     public MovementPulse(Entity mover, Node destination, OptionHandler optionHandler) {
         this(mover, destination, null, false);
         this.optionHandler = optionHandler;
     }
 
+    /**
+     * Instantiates a new Movement pulse.
+     *
+     * @param mover       the mover
+     * @param destination the destination
+     * @param useHandler  the use handler
+     */
     public MovementPulse(Entity mover, Node destination, UseWithHandler useHandler) {
         this(mover, destination, null, false);
         this.useHandler = useHandler;
     }
 
+    /**
+     * Instantiates a new Movement pulse.
+     *
+     * @param mover           the mover
+     * @param destination     the destination
+     * @param destinationFlag the destination flag
+     */
     public MovementPulse(Entity mover, Node destination, DestinationFlag destinationFlag) {
         this(mover, destination, null, false);
         this.destinationFlag = destinationFlag;
     }
 
+    /**
+     * Instantiates a new Movement pulse.
+     *
+     * @param mover           the mover
+     * @param destination     the destination
+     * @param destinationFlag the destination flag
+     * @param method          the method
+     */
     public MovementPulse(Entity mover, Node destination, DestinationFlag destinationFlag, Function2<Entity, Node, Location> method) {
         this(mover, destination, null, false);
         this.destinationFlag = destinationFlag;
         this.overrideMethod = method;
     }
 
+    /**
+     * Instantiates a new Movement pulse.
+     *
+     * @param mover       the mover
+     * @param destination the destination
+     * @param pathfinder  the pathfinder
+     * @param forceRun    the force run
+     */
     public MovementPulse(Entity mover, Node destination, Pathfinder pathfinder, boolean forceRun) {
         super(1, mover, destination);
         this.mover = mover;
@@ -189,6 +255,9 @@ public abstract class MovementPulse extends Pulse {
     private boolean usingTruncatedPath = false;
     private boolean isMoveNearSet = false;
 
+    /**
+     * Update path.
+     */
     public void updatePath() {
         if (mover instanceof NPC && mover.asNpc().isNeverWalks()) {
             return;
@@ -426,18 +495,38 @@ public abstract class MovementPulse extends Pulse {
         return Pathfinder.isStandingIn(l.getX(), l.getY(), mover.size(), mover.size(), loc.getX(), loc.getY(), size, size);
     }
 
+    /**
+     * Is force run boolean.
+     *
+     * @return the boolean
+     */
     public boolean isForceRun() {
         return forceRun;
     }
 
+    /**
+     * Sets force run.
+     *
+     * @param forceRun the force run
+     */
     public void setForceRun(boolean forceRun) {
         this.forceRun = forceRun;
     }
 
+    /**
+     * Sets destination.
+     *
+     * @param destination the destination
+     */
     public void setDestination(Node destination) {
         this.destination = destination;
     }
 
+    /**
+     * Sets last.
+     *
+     * @param last the last
+     */
     public void setLast(Location last) {
         this.last = last;
     }

@@ -13,6 +13,9 @@ import core.game.node.entity.player.link.emote.Emotes
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Spirit cobra dialogue.
+ */
 @Initializable
 class SpiritCobraDialogue(player: Player? = null) : Dialogue(player) {
 

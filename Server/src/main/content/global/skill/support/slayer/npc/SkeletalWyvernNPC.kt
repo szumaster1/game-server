@@ -14,6 +14,9 @@ import core.game.node.entity.player.Player
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 
+/**
+ * Skeletal wyvern NPC.
+ */
 class SkeletalWyvernNPC : NPCBehavior(*Tasks.SKELETAL_WYVERN.npcs) {
 
     private val COMBAT_HANDLER = MultiSwingHandler(SwitchAttack(CombatStyle.MELEE.swingHandler, Animation(Animations.STANDING_2985)), SwitchAttack(CombatStyle.RANGE.swingHandler, Animation(2989), Graphic(499)), DragonfireSwingHandler.get(false, 54, Animation(2988), Graphic(501), null, null, false))

@@ -8,6 +8,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.link.TeleportManager
 import core.game.system.timer.impl.AntiMacro
 
+/**
+ * Lost and found NPC.
+ */
 class LostAndFoundNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(-1) {
     /*
      * TODO:

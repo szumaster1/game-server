@@ -8,6 +8,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Captain bentley dialogue.
+ */
 @Initializable
 class CaptainBentleyDialogue(player: Player? = null): Dialogue(player) {
     private var onIsle = false

@@ -8,6 +8,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Falador women park dialogue.
+ */
 @Initializable
 class FaladorWomenParkDialogue(player: Player? = null) : Dialogue(player) {
 

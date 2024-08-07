@@ -22,28 +22,66 @@ import java.util.List;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
+/**
+ * Magic spell.
+ */
 public abstract class MagicSpell implements Plugin<SpellType> {
 
+    /**
+     * The Book.
+     */
     protected final SpellBook book;
 
+    /**
+     * The Level.
+     */
     protected final int level;
 
+    /**
+     * The Animation.
+     */
     protected final Animation animation;
 
+    /**
+     * The Graphic.
+     */
     protected final Graphic graphic;
 
+    /**
+     * The Audio.
+     */
     protected final Audio audio;
 
+    /**
+     * The Runes.
+     */
     protected final Item[] runes;
 
+    /**
+     * The Spell id.
+     */
     protected int spellId;
 
     private final double experience;
 
+    /**
+     * Instantiates a new Magic spell.
+     */
     public MagicSpell() {
         this(SpellBook.MODERN, 0, 0, null, null, null, new Item[0]);
     }
 
+    /**
+     * Instantiates a new Magic spell.
+     *
+     * @param book       the book
+     * @param level      the level
+     * @param experience the experience
+     * @param animation  the animation
+     * @param graphic    the graphic
+     * @param Audio      the audio
+     * @param runes      the runes
+     */
     public MagicSpell(SpellBook book, int level, final double experience, Animation animation, Graphic graphic, Audio Audio, Item[] runes) {
         this.book = book;
         this.level = level;
@@ -54,6 +92,15 @@ public abstract class MagicSpell implements Plugin<SpellType> {
         this.runes = runes;
     }
 
+    /**
+     * Cast spell boolean.
+     *
+     * @param p       the p
+     * @param book    the book
+     * @param spellId the spell id
+     * @param target  the target
+     * @return the boolean
+     */
     public static boolean castSpell(final Player p, SpellBook book, int spellId, Node target) {
         if (p.getAttribute("magic-delay", 0) > GameWorld.getTicks()) {
             return false;
@@ -93,18 +140,43 @@ public abstract class MagicSpell implements Plugin<SpellType> {
         return false;
     }
 
+    /**
+     * Gets delay.
+     *
+     * @return the delay
+     */
     public int getDelay() {
         return 3;
     }
 
+    /**
+     * Cast boolean.
+     *
+     * @param entity the entity
+     * @param target the target
+     * @return the boolean
+     */
     public abstract boolean cast(Entity entity, Node target);
 
+    /**
+     * Visualize.
+     *
+     * @param entity the entity
+     * @param target the target
+     */
     public void visualize(Entity entity, Node target) {
         entity.graphics(graphic);
         entity.animate(animation);
         playGlobalAudio(entity.getLocation(), audio.id, 20);
     }
 
+    /**
+     * Using staff boolean.
+     *
+     * @param p    the p
+     * @param rune the rune
+     * @return the boolean
+     */
     public boolean usingStaff(Player p, int rune) {
         Item weapon = p.getEquipment().get(3);
         if (weapon == null) {
@@ -123,6 +195,14 @@ public abstract class MagicSpell implements Plugin<SpellType> {
         return false;
     }
 
+    /**
+     * Meets requirements boolean.
+     *
+     * @param caster  the caster
+     * @param message the message
+     * @param remove  the remove
+     * @return the boolean
+     */
     public boolean meetsRequirements(Entity caster, boolean message, boolean remove) {
         if (!checkLevelRequirement(caster, message)) {
             return false;
@@ -171,6 +251,13 @@ public abstract class MagicSpell implements Plugin<SpellType> {
         return true;
     }
 
+    /**
+     * Check level requirement boolean.
+     *
+     * @param caster  the caster
+     * @param message the message
+     * @return the boolean
+     */
     public boolean checkLevelRequirement(Entity caster, boolean message) {
         if (caster instanceof Player && caster.getSkills().getLevel(Skills.MAGIC, this instanceof CombatSpell ? true : false) < levelRequirement()) {
             if (message && caster instanceof Player) {
@@ -181,6 +268,15 @@ public abstract class MagicSpell implements Plugin<SpellType> {
         return true;
     }
 
+    /**
+     * Has rune boolean.
+     *
+     * @param p        the p
+     * @param item     the item
+     * @param toRemove the to remove
+     * @param message  the message
+     * @return the boolean
+     */
     public boolean hasRune(Player p, Item item, List<Item> toRemove, boolean message) {
         if (!usingStaff(p, item.getId())) {
             boolean hasBaseRune = p.getInventory().contains(item.getId(), item.getAmount());
@@ -216,6 +312,12 @@ public abstract class MagicSpell implements Plugin<SpellType> {
         return true;
     }
 
+    /**
+     * Add experience.
+     *
+     * @param entity the entity
+     * @param hit    the hit
+     */
     public void addExperience(Entity entity, int hit) {
         entity.getSkills().addExperience(Skills.MAGIC, experience, true);
         if (!(entity instanceof Player) || hit < 1) {
@@ -231,6 +333,11 @@ public abstract class MagicSpell implements Plugin<SpellType> {
         entity.getSkills().addExperience(Skills.MAGIC, hit * (CombatSwingHandler.EXPERIENCE_MOD), true);
     }
 
+    /**
+     * Level requirement int.
+     *
+     * @return the int
+     */
     public int levelRequirement() {
         return level;
     }
@@ -240,34 +347,75 @@ public abstract class MagicSpell implements Plugin<SpellType> {
         return null;
     }
 
+    /**
+     * Gets audio.
+     *
+     * @return the audio
+     */
     public Audio getAudio() {
         return audio;
     }
 
+    /**
+     * Gets book.
+     *
+     * @return the book
+     */
     public SpellBook getBook() {
         return book;
     }
 
+    /**
+     * Get cast runes item [ ].
+     *
+     * @return the item [ ]
+     */
     public Item[] getCastRunes() {
         return runes;
     }
 
+    /**
+     * Gets spell id.
+     *
+     * @return the spell id
+     */
     public int getSpellId() {
         return spellId;
     }
 
+    /**
+     * Sets spell id.
+     *
+     * @param spellId the spell id
+     */
     public void setSpellId(int spellId) {
         this.spellId = spellId;
     }
 
+    /**
+     * Gets experience.
+     *
+     * @return the experience
+     */
     public double getExperience() {
         return experience;
     }
 
+    /**
+     * Gets experience.
+     *
+     * @param player the player
+     * @return the experience
+     */
     public double getExperience(Player player) {
         return experience;
     }
 
+    /**
+     * Gets level.
+     *
+     * @return the level
+     */
     public int getLevel() {
         return level;
     }

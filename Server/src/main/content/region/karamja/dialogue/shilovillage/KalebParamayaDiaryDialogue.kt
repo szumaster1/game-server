@@ -6,6 +6,11 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.link.diary.AchievementDiary
 import core.game.node.entity.player.link.diary.DiaryType
 
+/**
+ * Kaleb paramaya diary dialogue
+ *
+ * @constructor Kaleb paramaya diary dialogue
+ */
 class KalebParamayaDiaryDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

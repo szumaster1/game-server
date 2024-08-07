@@ -7,6 +7,9 @@ import core.game.node.entity.combat.equipment.WeaponInterface
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Praying mantis familiar.
+ */
 @Initializable
 class PrayingMantisNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.PRAYING_MANTIS_6798) : Familiar(owner, id, 6900, 12011, 6, WeaponInterface.STYLE_ACCURATE) {
 

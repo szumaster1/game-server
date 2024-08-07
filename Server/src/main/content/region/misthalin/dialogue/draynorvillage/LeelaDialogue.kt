@@ -9,6 +9,9 @@ import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 import core.plugin.Initializable
 
+/**
+ * Leela dialogue.
+ */
 @Initializable
 class LeelaDialogue(player: Player? = null) : Dialogue(player) {
 

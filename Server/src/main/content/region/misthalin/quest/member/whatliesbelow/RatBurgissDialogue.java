@@ -8,6 +8,9 @@ import core.game.node.entity.player.link.diary.AchievementDiary;
 import core.game.node.entity.player.link.diary.DiaryType;
 import core.game.node.entity.player.link.quest.Quest;
 
+/**
+ * Rat burgiss dialogue.
+ */
 public class RatBurgissDialogue extends Dialogue {
 
     private Quest quest;
@@ -15,10 +18,18 @@ public class RatBurgissDialogue extends Dialogue {
     private boolean isDiary;
     private final int level = 0;
 
+    /**
+     * Instantiates a new Rat burgiss dialogue.
+     *
+     * @param player the player
+     */
     public RatBurgissDialogue(Player player) {
         super(player);
     }
 
+    /**
+     * Instantiates a new Rat burgiss dialogue.
+     */
     public RatBurgissDialogue() {
     }
 
@@ -427,11 +438,21 @@ public class RatBurgissDialogue extends Dialogue {
     }
 
 
+    /**
+     * Is diary boolean.
+     *
+     * @return the boolean
+     */
     public boolean isDiary() {
         return isDiary;
     }
 
 
+    /**
+     * Sets diary.
+     *
+     * @param isDiary the is diary
+     */
     public void setDiary(boolean isDiary) {
         this.isDiary = isDiary;
     }

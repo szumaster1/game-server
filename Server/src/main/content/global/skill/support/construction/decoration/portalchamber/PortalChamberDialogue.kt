@@ -6,6 +6,9 @@ import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Portal chamber dialogue.
+ */
 @Initializable
 class PortalChamberDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -34,6 +37,11 @@ class PortalChamberDialogue(player: Player? = null) : Dialogue(player) {
         return true
     }
 
+    /**
+     * Direct portal
+     *
+     * @param portal
+     */
     fun directPortal(portal: String) {
         PortalChamberPlugin.direct(player, portal.uppercase())
         end()

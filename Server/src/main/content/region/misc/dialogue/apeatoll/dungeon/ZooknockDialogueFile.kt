@@ -14,6 +14,11 @@ import core.game.node.item.Item
 import core.game.world.update.flag.context.Graphic
 import core.tools.END_DIALOGUE
 
+/**
+ * Zooknock after battle dialogue file
+ *
+ * @constructor Zooknock after battle dialogue file
+ */
 class ZooknockAfterBattleDialogueFile: DialogueFile(){
     override fun handle(componentID: Int, buttonID: Int) {
         when(stage){
@@ -22,6 +27,12 @@ class ZooknockAfterBattleDialogueFile: DialogueFile(){
     }
 }
 
+/**
+ * Zooknock dialogue file
+ *
+ * @property it
+ * @constructor Zooknock dialogue file
+ */
 class ZooknockDialogueFile(val it: Int) : DialogueFile() {
 
     var i = ZooknockListener()

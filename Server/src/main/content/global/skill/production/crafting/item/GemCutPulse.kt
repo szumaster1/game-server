@@ -9,6 +9,16 @@ import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
+/**
+ * Gem cut pulse
+ *
+ * @property amount
+ * @property gem
+ * @constructor
+ *
+ * @param player
+ * @param item
+ */
 class GemCutPulse(player: Player?, item: Item?, var amount: Int, val gem: GemData) : SkillPulse<Item?>(player, item) {
 
     val ticks = 0

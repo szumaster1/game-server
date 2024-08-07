@@ -10,7 +10,9 @@ import core.game.world.map.zone.ZoneBorders
 import core.plugin.ClassScanner.definePlugin
 import core.plugin.Plugin
 
-
+/**
+ * FOG activity plugin.
+ */
 class FOGActivityPlugin : ActivityPlugin("Fist of Guthix", false, true, true) {
 
     var round = 0

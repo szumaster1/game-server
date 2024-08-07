@@ -18,6 +18,9 @@ import core.game.world.update.flag.context.Animation;
 import core.game.world.update.flag.context.Graphic;
 import core.tools.RandomFunction;
 
+/**
+ * Tzhaar fight cave npc.
+ */
 public final class TzhaarFightCaveNPC extends AbstractNPC {
     private static final int[] NPC_IDS = {2734, 2735, 2736, 2737, 2738, 2739, 2740, 2741, 2742, 2743, 2744, 2745, 2746};
 
@@ -27,11 +30,21 @@ public final class TzhaarFightCaveNPC extends AbstractNPC {
 
     private boolean spawnedMinions;
 
+    /**
+     * Instantiates a new Tzhaar fight cave npc.
+     *
+     * @param id       the id
+     * @param location the location
+     * @param activity the activity
+     */
     public TzhaarFightCaveNPC(int id, Location location, TzhaarFightCavesPlugin activity) {
         super(id, location);
         this.activity = activity;
     }
 
+    /**
+     * Instantiates a new Tzhaar fight cave npc.
+     */
     public TzhaarFightCaveNPC() {
         super(2734, null);
     }
@@ -77,6 +90,11 @@ public final class TzhaarFightCaveNPC extends AbstractNPC {
         return mover instanceof TzhaarFightCaveNPC;
     }
 
+    /**
+     * Heal.
+     *
+     * @param amount the amount
+     */
     public void heal(int amount) {
         if (getSkills().heal(amount) > 0 && getId() == 2745) {
             spawnedMinions = false;
@@ -127,12 +145,24 @@ public final class TzhaarFightCaveNPC extends AbstractNPC {
         return NPC_IDS;
     }
 
+    /**
+     * Combat action.
+     */
     static class CombatAction extends CombatSwingHandler {
         private final TzhaarFightCaveNPC npc;
         private CombatStyle main;
         private CombatStyle style;
+        /**
+         * The Jad.
+         */
         boolean jad;
 
+        /**
+         * Instantiates a new Combat action.
+         *
+         * @param npc  the npc
+         * @param main the main
+         */
         public CombatAction(TzhaarFightCaveNPC npc, CombatStyle main) {
             super(main);
             this.npc = npc;

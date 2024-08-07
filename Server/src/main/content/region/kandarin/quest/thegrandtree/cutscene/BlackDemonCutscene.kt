@@ -12,6 +12,9 @@ import core.game.world.GameWorld.settings
 import core.game.world.map.Direction
 import core.game.world.map.Location
 
+/**
+ * Black demon cutscene.
+ */
 class BlackDemonCutscene(player: Player) : Cutscene(player) {
     override fun setup() {
         setExit(Location.create(2491, 9864, 0))

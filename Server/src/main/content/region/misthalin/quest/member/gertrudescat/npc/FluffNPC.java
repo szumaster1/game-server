@@ -5,10 +5,16 @@ import core.game.node.entity.player.Player;
 import core.game.world.map.Location;
 import core.plugin.Initializable;
 
+/**
+ * Fluff npc.
+ */
 @Initializable
 public final class FluffNPC extends AbstractNPC {
     private static final int[] ID = {2997};
 
+    /**
+     * Instantiates a new Fluff npc.
+     */
     public FluffNPC() {
         super(0, null);
     }

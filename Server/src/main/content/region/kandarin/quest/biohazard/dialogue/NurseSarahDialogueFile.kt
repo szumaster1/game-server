@@ -5,6 +5,11 @@ import core.api.getQuestStage
 import core.game.dialogue.DialogueFile
 import core.game.node.entity.npc.NPC
 
+/**
+ * Nurse sarah dialogue file
+ *
+ * @constructor Nurse sarah dialogue file
+ */
 class NurseSarahDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.NURSE_SARAH_373)

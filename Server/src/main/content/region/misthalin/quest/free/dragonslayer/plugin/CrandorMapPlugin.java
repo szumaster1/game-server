@@ -5,8 +5,14 @@ import core.game.interaction.NodeUsageEvent;
 import core.game.interaction.UseWithHandler;
 import core.plugin.Plugin;
 
+/**
+ * Crandor map plugin.
+ */
 public final class CrandorMapPlugin extends UseWithHandler {
 
+    /**
+     * Instantiates a new Crandor map plugin.
+     */
     public CrandorMapPlugin() {
         super(DragonSlayer.MAGIC_PIECE.getId(), DragonSlayer.MAZE_PIECE.getId(), DragonSlayer.WORMBRAIN_PIECE.getId());
     }

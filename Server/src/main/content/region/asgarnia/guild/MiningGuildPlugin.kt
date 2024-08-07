@@ -19,6 +19,9 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Mining guild plugin.
+ */
 @Initializable
 class MiningGuildPlugin : OptionHandler() {
 

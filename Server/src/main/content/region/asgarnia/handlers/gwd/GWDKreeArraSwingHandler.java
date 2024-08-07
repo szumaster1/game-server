@@ -20,6 +20,9 @@ import core.tools.RandomFunction;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Gwd kree arra swing handler.
+ */
 public final class GWDKreeArraSwingHandler extends CombatSwingHandler {
 
     private static final ZoneBorders CHAMBER = new ZoneBorders(2824, 5296, 2842, 5308);
@@ -27,6 +30,9 @@ public final class GWDKreeArraSwingHandler extends CombatSwingHandler {
     private static final Animation RANGE_ATTACK = new Animation(6976, Priority.HIGH);
     private static final Graphic END_GRAPHIC = new Graphic(80, 96);
 
+    /**
+     * Instantiates a new Gwd kree arra swing handler.
+     */
     public GWDKreeArraSwingHandler() {
         super(CombatStyle.RANGE);
     }

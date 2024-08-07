@@ -18,6 +18,9 @@ import core.game.world.update.flag.context.Graphic;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
+/**
+ * Bind spell.
+ */
 @Initializable
 public final class BindSpell extends CombatSpell {
 
@@ -32,6 +35,9 @@ public final class BindSpell extends CombatSpell {
     private static final Graphic ENTANGLE_END = new Graphic(179, 96);
     private static final Animation ANIMATION = new Animation(710, Priority.HIGH);
 
+    /**
+     * Instantiates a new Bind spell.
+     */
     public BindSpell() {
 
     }

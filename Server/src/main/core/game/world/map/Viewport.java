@@ -7,8 +7,14 @@ import core.game.node.entity.player.Player;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Viewport.
+ */
 public final class Viewport {
 
+    /**
+     * The constant CHUNK_SIZE.
+     */
     public static final int CHUNK_SIZE = 5;
 
     private Region region;
@@ -19,12 +25,20 @@ public final class Viewport {
 
     private List<RegionPlane> viewingPlanes = new LinkedList<>();
 
+    /**
+     * Instantiates a new Viewport.
+     */
     public Viewport() {
         /*
          * empty.
          */
     }
 
+    /**
+     * Update viewport.
+     *
+     * @param entity the entity
+     */
     public void updateViewport(Entity entity) {
         RegionChunk chunk = RegionManager.getRegionChunk(entity.getLocation());
         int center = chunks.length >> 1;
@@ -40,6 +54,11 @@ public final class Viewport {
         }
     }
 
+    /**
+     * Remove.
+     *
+     * @param entity the entity
+     */
     public void remove(Entity entity) {
         if (region == null) {
             return;
@@ -59,34 +78,74 @@ public final class Viewport {
         }
     }
 
+    /**
+     * Gets region.
+     *
+     * @return the region
+     */
     public Region getRegion() {
         return region;
     }
 
+    /**
+     * Sets region.
+     *
+     * @param region the region
+     */
     public void setRegion(Region region) {
         this.region = region;
     }
 
+    /**
+     * Get chunks region chunk [ ] [ ].
+     *
+     * @return the region chunk [ ] [ ]
+     */
     public RegionChunk[][] getChunks() {
         return chunks;
     }
 
+    /**
+     * Sets chunks.
+     *
+     * @param chunks the chunks
+     */
     public void setChunks(RegionChunk[][] chunks) {
         this.chunks = chunks;
     }
 
+    /**
+     * Gets viewing planes.
+     *
+     * @return the viewing planes
+     */
     public List<RegionPlane> getViewingPlanes() {
         return viewingPlanes;
     }
 
+    /**
+     * Sets viewing planes.
+     *
+     * @param regions the regions
+     */
     public void setViewingPlanes(List<RegionPlane> regions) {
         this.viewingPlanes = regions;
     }
 
+    /**
+     * Gets current plane.
+     *
+     * @return the current plane
+     */
     public RegionPlane getCurrentPlane() {
         return currentPlane;
     }
 
+    /**
+     * Sets current plane.
+     *
+     * @param currentPlane the current plane
+     */
     public void setCurrentPlane(RegionPlane currentPlane) {
         this.currentPlane = currentPlane;
     }

@@ -10,9 +10,13 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld.Pulser
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Penguin spying handler.
+ */
 class PenguinSpyingHandler : InteractionListener {
 
     override fun defineListeners() {
+        // This method defines the listeners for the "spy-on" interaction with penguins.
         on(PENGUINS, IntType.NPC, "spy-on") { player, node ->
             val npc = node.asNpc()
             if (PenguinManager.hasTagged(player, npc.location)) {
@@ -27,7 +31,6 @@ class PenguinSpyingHandler : InteractionListener {
 
     val PENGUINS = intArrayOf(NPCs.BARREL_8104, NPCs.BUSH_8105, NPCs.CACTUS_8107, NPCs.CRATE_8108, NPCs.ROCK_8109, NPCs.TOADSTOOL_8110)
 
-
     class SpyPulse(val player: Player, val npc: NPC) : Pulse() {
         var stage = 0
         val curPoints = getAttribute(player, "phns:points", 0)
@@ -35,18 +38,19 @@ class PenguinSpyingHandler : InteractionListener {
 
         override fun pulse(): Boolean {
             when (stage++) {
-
+                // This stage locks the player for 1000 milliseconds and plays an animation.
                 0 -> {
                     lock(player,1000)
                     animate(player, 10355)
                 }
+                // This stage sends a message to the player, increments the player's points, and registers the tag on the penguin.
                 2 -> {
                     sendMessage(player, "You manage to spy on the penguin.").also {
                         setAttribute(player, "/save:phns:points", curPoints + 1)
                         PenguinManager.registerTag(player, npc.location)
                     }
                 }
-
+                // This stage unlocks the player and returns true to stop the pulse.
                 3 -> {
                     unlock(player)
                     return true

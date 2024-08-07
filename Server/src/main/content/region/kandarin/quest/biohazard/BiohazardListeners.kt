@@ -18,6 +18,11 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.tools.END_DIALOGUE
 
+/**
+ * Biohazard listeners
+ *
+ * @constructor Biohazard listeners
+ */
 class BiohazardListeners : InteractionListener {
 
     companion object {

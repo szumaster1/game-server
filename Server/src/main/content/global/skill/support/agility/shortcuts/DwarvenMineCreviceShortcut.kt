@@ -13,11 +13,14 @@ import core.game.world.GameWorld.Pulser
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Dwarven mine crevice shortcut.
+ */
 class DwarvenMineCreviceShortcut : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Squeeze through dwarven mine crevice.
          */
         on(Scenery.CREVICE_30868, IntType.SCENERY, "squeeze-through") { player, _ ->

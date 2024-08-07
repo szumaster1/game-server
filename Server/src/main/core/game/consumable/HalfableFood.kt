@@ -5,7 +5,13 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
 /**
- * Represents any food that is consumed in two parts such as pies and pizzas.
+ * Halfable food
+ *
+ * @constructor
+ *
+ * @param ids
+ * @param effect
+ * @param messages
  */
 class HalfableFood
 /**

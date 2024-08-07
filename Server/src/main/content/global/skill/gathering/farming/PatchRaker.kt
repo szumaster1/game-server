@@ -8,6 +8,7 @@ import core.game.node.entity.skill.Skills
 import core.game.system.task.Pulse
 
 object PatchRaker {
+
     val RAKE_ANIM = getAnimation(2273)
 
     @JvmStatic

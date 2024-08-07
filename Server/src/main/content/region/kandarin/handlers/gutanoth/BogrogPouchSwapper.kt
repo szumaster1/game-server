@@ -11,7 +11,9 @@ import core.game.world.map.zone.ZoneBorders
 import kotlin.math.ceil
 import kotlin.math.floor
 
-
+/**
+ * Bogrog pouch swapper.
+ */
 object BogrogPouchSwapper {
 
     private const val OP_VALUE = 0
@@ -23,6 +25,14 @@ object BogrogPouchSwapper {
 
     private val GEBorders = ZoneBorders(3151, 3501, 3175, 3477)
 
+    /**
+     * Handle
+     *
+     * @param player
+     * @param optionIndex
+     * @param slot
+     * @return
+     */
     @JvmStatic
     fun handle(player: Player, optionIndex: Int, slot: Int): Boolean {
         val item = player.inventory.get(slot) ?: return false
@@ -41,6 +51,14 @@ object BogrogPouchSwapper {
         }
     }
 
+    /**
+     * Swap
+     *
+     * @param player
+     * @param amount
+     * @param itemID
+     * @return
+     */
     private fun swap(player: Player, amount: Int, itemID: Int): Boolean {
         var amt = amount
         val value = getValue(itemID)
@@ -55,6 +73,13 @@ object BogrogPouchSwapper {
         return true
     }
 
+    /**
+     * Send value
+     *
+     * @param itemID
+     * @param player
+     * @return
+     */
     private fun sendValue(itemID: Int, player: Player): Boolean {
         val value = getValue(itemID)
         if (value == 0.0) {
@@ -65,6 +90,12 @@ object BogrogPouchSwapper {
         return true
     }
 
+    /**
+     * Get value
+     *
+     * @param itemID
+     * @return
+     */
     private fun getValue(itemID: Int): Double {
         var item = SummoningPouch.get(itemID)
         var isScroll = false

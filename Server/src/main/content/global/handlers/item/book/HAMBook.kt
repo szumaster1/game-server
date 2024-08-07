@@ -14,6 +14,11 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 import core.tools.END_DIALOGUE
 
+/**
+ * H a m book
+ *
+ * @constructor H a m book
+ */
 class HAMBook : InteractionListener {
 
     // The Book of 'h.a.m' is used during the Zogre Flesh Eaters quest.

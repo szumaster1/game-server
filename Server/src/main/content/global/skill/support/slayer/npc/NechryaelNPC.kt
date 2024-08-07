@@ -15,6 +15,9 @@ import core.game.node.entity.player.Player
 import core.game.world.GameWorld
 import core.tools.RandomFunction
 
+/**
+ * Nechryael NPC.
+ */
 class NechryaelNPC : NPCBehavior(*Tasks.NECHRYAELS.npcs) {
     private val ATTR_SPAWNS = "deathSpawns"
     private val ATTR_NEXTSPAWN = "deathSpawnNextTick"
@@ -26,6 +29,12 @@ class NechryaelNPC : NPCBehavior(*Tasks.NECHRYAELS.npcs) {
         spawnDeathSpawn(self, attacker)
     }
 
+    /**
+     * Spawn death spawn
+     *
+     * @param self
+     * @param player
+     */
     fun spawnDeathSpawn(self: NPC, player: Player) {
         val npc = NPC.create(NPCs.DEATH_SPAWN_1614, self.location.transform(self.direction, 1))
         setAttribute(npc, "parent", self)
@@ -37,6 +46,12 @@ class NechryaelNPC : NPCBehavior(*Tasks.NECHRYAELS.npcs) {
         animate(self, 9491)
     }
 
+    /**
+     * Can spawn deathspawn
+     *
+     * @param self
+     * @return
+     */
     fun canSpawnDeathspawn(self: NPC): Boolean {
         if (getSpawns(self).size >= 2) {
             setNextSpawn(self)
@@ -45,24 +60,53 @@ class NechryaelNPC : NPCBehavior(*Tasks.NECHRYAELS.npcs) {
         return getNextSpawn(self) <= GameWorld.ticks
     }
 
+    /**
+     * Get next spawn
+     *
+     * @param self
+     * @return
+     */
     fun getNextSpawn(self: NPC): Int {
         return getAttribute(self, ATTR_NEXTSPAWN, 0)
     }
 
+    /**
+     * Set next spawn
+     *
+     * @param self
+     */
     fun setNextSpawn(self: NPC) {
         setAttribute(self, ATTR_NEXTSPAWN, GameWorld.ticks + 50)
     }
 
+    /**
+     * Get spawns
+     *
+     * @param self
+     * @return
+     */
     fun getSpawns(self: NPC): ArrayList<NPC> {
         return getAttribute(self, ATTR_SPAWNS, ArrayList())
     }
 
+    /**
+     * Add spawn
+     *
+     * @param self
+     * @param spawn
+     */
     fun addSpawn(self: NPC, spawn: NPC) {
         val list = getSpawns(self)
         list.add(spawn)
         setAttribute(self, ATTR_SPAWNS, list)
     }
 
+    /**
+     * Remove spawn
+     *
+     * @param self
+     * @param spawn
+     */
     fun removeSpawn(self: NPC, spawn: NPC) {
         val list = getSpawns(self)
         list.remove(spawn)
@@ -75,6 +119,11 @@ class NechryaelNPC : NPCBehavior(*Tasks.NECHRYAELS.npcs) {
     }
 }
 
+/**
+ * Deathspawn behavior
+ *
+ * @constructor Deathspawn behavior
+ */
 class DeathspawnBehavior : NPCBehavior(NPCs.DEATH_SPAWN_1614) {
     override fun onCreation(self: NPC) {
         setAttribute(self, "despawn-time", GameWorld.ticks + 100)

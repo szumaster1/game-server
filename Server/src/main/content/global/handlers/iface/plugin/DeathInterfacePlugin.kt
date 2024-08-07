@@ -8,6 +8,11 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Death interface plugin
+ *
+ * @constructor Death interface plugin
+ */
 @Initializable
 class DeathInterfacePlugin : ComponentPlugin() {
 

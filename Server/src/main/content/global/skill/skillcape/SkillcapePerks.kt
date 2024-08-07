@@ -20,19 +20,103 @@ import core.game.world.map.Location
 import core.game.world.map.zone.impl.DarkZone
 import core.plugin.Initializable
 
+/**
+ * Skillcape perks
+ *
+ * @property attribute
+ * @property effect
+ * @constructor Skillcape perks
+ */
 enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)? = null) {
+    /**
+     * Barefisted Smithing
+     *
+     * @constructor Barefisted Smithing
+     */
     BAREFISTED_SMITHING("cape_perks:barefisted-smithing"),
+
+    /**
+     * Divine Favor
+     *
+     * @constructor Divine Favor
+     */
     DIVINE_FAVOR("cape_perks:divine-favor"),
+
+    /**
+     * Constant Glow
+     *
+     * @constructor Constant Glow
+     */
     CONSTANT_GLOW("cape_perks:eternal-glow"),
+
+    /**
+     * Precision Miner
+     *
+     * @constructor Precision Miner
+     */
     PRECISION_MINER("cape_perks:precision-miner"),
+
+    /**
+     * Great Aim
+     *
+     * @constructor Great Aim
+     */
     GREAT_AIM("cape_perks:great-aim"),
+
+    /**
+     * Nest Hunter
+     *
+     * @constructor Nest Hunter
+     */
     NEST_HUNTER("cape_perks:nest-hunter"),
+
+    /**
+     * Precision Strikes
+     *
+     * @constructor Precision Strikes
+     */
     PRECISION_STRIKES("cape_perks:precision-strikes"),
+
+    /**
+     * Fine Attunement
+     *
+     * @constructor Fine Attunement
+     */
     FINE_ATTUNEMENT("cape_perks:fine-attunement"),
+
+    /**
+     * Grand Bullwark
+     *
+     * @constructor Grand Bullwark
+     */
     GRAND_BULLWARK("cape_perks:grand-bullwark"),
+
+    /**
+     * Accurate Marksman
+     *
+     * @constructor Accurate Marksman
+     */
     ACCURATE_MARKSMAN("cape_perks:accurate-marksman"),
+
+    /**
+     * Damage Spong
+     *
+     * @constructor Damage Spong
+     */
     DAMAGE_SPONG("cape_perks:damage-sponge"),
+
+    /**
+     * Marathon Runner
+     *
+     * @constructor Marathon Runner
+     */
     MARATHON_RUNNER("cape_perks:marathon-runner"),
+
+    /**
+     * Librarian Magus
+     *
+     * @constructor Librarian Magus
+     */
     LIBRARIAN_MAGUS("cape_perks:librarian-magus", { player ->
         val store = ServerStore.getArchive("daily-librarian-magus")
         val used = store.getInt(player.name, 0)
@@ -43,6 +127,12 @@ enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)?
             store[player.name] = used + 1
         }
     }),
+
+    /**
+     * Abyss Warping
+     *
+     * @constructor Abyss Warping
+     */
     ABYSS_WARPING("cape_perks:abyss_warp", { player ->
         val store = ServerStore.getArchive("daily-abyss-warp")
         val used = store.getInt(player.name, 0)
@@ -54,6 +144,11 @@ enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)?
         }
     }),
 
+    /**
+     * Seed Attraction
+     *
+     * @constructor Seed Attraction
+     */
     SEED_ATTRACTION("cape_perks:seed_attract", { player ->
         val store = ServerStore.getArchive("daily-seed-attract")
         if (store.getBoolean(player.name)) {
@@ -75,6 +170,11 @@ enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)?
         }
     }),
 
+    /**
+     * Tricks Of The Trade
+     *
+     * @constructor Tricks Of The Trade
+     */
     TRICKS_OF_THE_TRADE("cape_perks:tott", { player ->
         val hasHelmetBonus = getAttribute(player, "cape_perks:tott:helmet-stored", false)
         if (hasHelmetBonus) {
@@ -86,10 +186,41 @@ enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)?
         }
     }),
 
-    HASTY_COOKING("cape_perks:hasty-cooking"), SMOOTH_HANDS("cape_perks:smooth-hands"), PET_MASTERY("cape_perks:pet-mastery"), BREWMASTER(
+    /**
+     * Hasty Cooking
+     *
+     * @constructor Hasty Cooking
+     */
+    HASTY_COOKING("cape_perks:hasty-cooking"),
+
+    /**
+     * Smooth Hands
+     *
+     * @constructor Smooth Hands
+     */
+    SMOOTH_HANDS("cape_perks:smooth-hands"),
+
+    /**
+     * Pet Mastery
+     *
+     * @constructor Pet Mastery
+     */
+    PET_MASTERY("cape_perks:pet-mastery"),
+
+    /**
+     * Brewmaster
+     *
+     * @constructor Brewmaster
+     */
+    BREWMASTER(
         "cape_perks:brewmaster"
     ),
 
+    /**
+     * None
+     *
+     * @constructor None
+     */
     NONE("cape_perks:none");
 
     companion object {
@@ -129,6 +260,11 @@ enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)?
         }
     }
 
+    /**
+     * Activate
+     *
+     * @param player
+     */
     fun activate(player: Player) {
         if (GameWorld.settings?.skillcape_perks != true) {
             return
@@ -140,6 +276,11 @@ enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)?
         if (this == CONSTANT_GLOW) DarkZone.checkDarkArea(player)
     }
 
+    /**
+     * Operate
+     *
+     * @param player
+     */
     fun operate(player: Player) {
         if (GameWorld.settings?.skillcape_perks != true) {
             player.sendMessage("This item can not be operated.")
@@ -148,11 +289,23 @@ enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)?
         effect?.invoke(player)
     }
 
+    /**
+     * Deactivate
+     *
+     * @param player
+     */
     fun deactivate(player: Player) {
         player.removeAttribute(attribute)
         if (this == CONSTANT_GLOW) DarkZone.checkDarkArea(player)
     }
 
+    /**
+     * Magic cape dialogue
+     *
+     * @constructor
+     *
+     * @param player
+     */
     @Initializable
     class MagicCapeDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -218,6 +371,13 @@ enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)?
 
     }
 
+    /**
+     * R c cape dialogue
+     *
+     * @constructor
+     *
+     * @param player
+     */
     @Initializable
     class RCCapeDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -265,6 +425,12 @@ enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)?
             return true
         }
 
+        /**
+         * Send altar
+         *
+         * @param player
+         * @param altar
+         */
         fun sendAltar(player: Player, altar: Altar) {
             end()
             if (altar == Altar.DEATH && !hasRequirement(player, "Mourning's End Part II")) return

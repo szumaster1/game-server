@@ -12,6 +12,9 @@ import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Moss giant rope shortcut.
+ */
 class MossGiantRopeShortcut : InteractionListener {
 
     override fun defineDestinationOverrides() {

@@ -11,6 +11,11 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 
+/**
+ * Druidic ritual
+ *
+ * @constructor Druidic ritual
+ */
 @Initializable
 class DruidicRitual : Quest("Druidic Ritual", 48, 47, 4, 80, 0, 3, 4) {
 

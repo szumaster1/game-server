@@ -11,6 +11,11 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Fairy ring command set
+ *
+ * @constructor Fairy ring command set
+ */
 @Initializable
 class FairyRingCommandSet : CommandPlugin() {
 
@@ -73,11 +78,7 @@ class FairyRingCommandSet : CommandPlugin() {
                         removeAttribute(player, "fairy-delay")
                         removeAttribute(player, "fairy_location_combo")
                         closeInterface(player)
-                        player.teleporter.send(
-                            (RING_CODES[ringCode]
-                                ?: error("RING CODES IMPROPERLY SET. Please fix fairycli.kt"))[0] as Location?,
-                            TeleportManager.TeleportType.FAIRY_RING
-                        )
+                        player.teleporter.send((RING_CODES[ringCode] ?: error("RING CODES IMPROPERLY SET. Please fix fairycli.kt"))[0] as Location?, TeleportManager.TeleportType.FAIRY_RING)
                     }
                 } else {
                     sendMessage(

@@ -25,6 +25,9 @@ import core.plugin.ClassScanner.definePlugin
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Pyre lord familiar.
+ */
 @Initializable
 class PyreLordNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 7377) : Familiar(owner, id, 3200, 12816, 6, WeaponInterface.STYLE_AGGRESSIVE) {
 
@@ -57,6 +60,11 @@ class PyreLordNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 737
         return intArrayOf(7377, 7378)
     }
 
+    /**
+     * Pyre lord firemake
+     *
+     * @constructor Pyre lord firemake
+     */
     inner class PyreLordFiremake : UseWithHandler(1511, 2862, 1521, 1519, 6333, 10810, 1517, 6332, 12581, 1515, 1513, 13567, 10329, 10328, 7406, 7405, 7404) {
 
         override fun newInstance(arg: Any?): Plugin<Any> {

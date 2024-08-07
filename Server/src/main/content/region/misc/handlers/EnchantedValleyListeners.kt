@@ -14,6 +14,9 @@ import core.game.node.entity.player.Player
 import core.game.system.task.Pulse
 import kotlin.math.ceil
 
+/**
+ * Enchanted valley listeners.
+ */
 class EnchantedValleyListeners : InteractionListener {
 
     companion object {
@@ -41,10 +44,9 @@ class EnchantedValleyListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Interact with rock for Spawn NPC.
          */
-
         on(ENCHANTED_V_ROCK, IntType.SCENERY, "mine") { player, _ ->
             val tool: SkillingTool? = SkillingTool.getPickaxe(player)
             tool ?: sendMessage(player, "You lack an pickaxe which you have the Mining level to use.").also { return@on true }
@@ -74,10 +76,9 @@ class EnchantedValleyListeners : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Interaction with Tree to spawn NPC.
          */
-
         on(ENCHANTED_V_TREE, IntType.SCENERY, "chop-down") { player, _ ->
             val tool: SkillingTool? = SkillingTool.getHatchet(player)
             tool ?: sendMessage(player, "You lack an axe which you have the Woodcutting level to use.").also { return@on true }
@@ -103,6 +104,12 @@ class EnchantedValleyListeners : InteractionListener {
 
     }
 
+    /**
+     * Get spirit.
+     *
+     * @param player the player.
+     * @return spawn the NPC.
+     */
     fun getSpirit(player: Player): NPC {
         val level = player.properties.currentCombatLevel
         var index = ceil(level / 20.0).toInt()
@@ -110,6 +117,12 @@ class EnchantedValleyListeners : InteractionListener {
         return NPC(TREE_SPIRIT_IDS[index])
     }
 
+    /**
+     * Get golem.
+     *
+     * @param player the player.
+     * @return spawn the NPC.
+     */
     fun getGolem(player: Player): NPC {
         val level = player.properties.currentCombatLevel
         var index = ceil(level / 20.0).toInt()

@@ -31,6 +31,16 @@ import core.tools.RandomFunction
 import core.tools.StringUtils
 import java.util.*
 
+/**
+ * Duel area
+ *
+ * @property border
+ * @property isObstacles
+ * @property center
+ * @constructor
+ *
+ * @param index
+ */
 class DuelArea
 @JvmOverloads constructor(
     index: Int = -1,
@@ -46,6 +56,11 @@ class DuelArea
     ZoneRestriction.FOLLOWERS
 ) {
 
+    /**
+     * Duel
+     *
+     * @param session
+     */
     fun duel(session: DuelSession) {
         val locations = getStartLocations(session)
         session.player!!.teleport(locations[0])
@@ -289,6 +304,12 @@ class DuelArea
         p.interaction.set(DuelArenaActivity.CHALLENGE_OPTION)
     }
 
+    /**
+     * Get start locations
+     *
+     * @param session
+     * @return
+     */
     fun getStartLocations(session: DuelSession): Array<Location?> {
         var start: Location? = null
         val locations = arrayOfNulls<Location>(2)
@@ -347,10 +368,23 @@ class DuelArea
         return super.death(e, killer)
     }
 
+    /**
+     * Is valid location
+     *
+     * @param location
+     * @return
+     */
     fun isValidLocation(location: Location?): Boolean {
         return isTeleportPermitted(location!!) && getObject(location) == null
     }
 
+    /**
+     * Check attack
+     *
+     * @param player
+     * @param target
+     * @return
+     */
     fun checkAttack(player: Player, target: Player): Boolean {
         val session: DuelSession = getSession(player) ?: return false
         if (session.getOpposite(player) !== target) {
@@ -364,6 +398,11 @@ class DuelArea
         return true
     }
 
+    /**
+     * Forfeit trapdoor plugin
+     *
+     * @constructor Forfeit trapdoor plugin
+     */
     class ForfeitTrapdoorPlugin : OptionHandler() {
         @Throws(Throwable::class)
         override fun newInstance(arg: Any?): Plugin<Any> {

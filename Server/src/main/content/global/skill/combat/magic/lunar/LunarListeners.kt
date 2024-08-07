@@ -30,6 +30,11 @@ import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
 import kotlin.math.floor
 
+/**
+ * Lunar listeners
+ *
+ * @constructor Lunar listeners
+ */
 class LunarListeners : SpellListener("lunar"), Commands {
 
     override fun defineListeners() {
@@ -340,10 +345,41 @@ class LunarListeners : SpellListener("lunar"), Commands {
         showMagicTab(player)
     }
 
+    /**
+     * Plank type
+     *
+     * @property log
+     * @property plank
+     * @property price
+     * @constructor Plank type
+     */
     enum class PlankType (val log: Item, val plank: Item, val price: Int) {
+        /**
+         * Wood
+         *
+         * @constructor Wood
+         */
         WOOD(Item(1511), Item(960), 70),
+
+        /**
+         * Oak
+         *
+         * @constructor Oak
+         */
         OAK(Item(1521), Item(8778), 175),
+
+        /**
+         * Teak
+         *
+         * @constructor Teak
+         */
         TEAK(Item(6333), Item(8780), 350),
+
+        /**
+         * Mahogany
+         *
+         * @constructor Mahogany
+         */
         MAHOGANY(Item(6332), Item(8782), 1050);
         companion object {
             fun getForLog(item: Item): PlankType? {
@@ -357,6 +393,12 @@ class LunarListeners : SpellListener("lunar"), Commands {
         }
     }
 
+    /**
+     * Cure plant
+     *
+     * @param player
+     * @param obj
+     */
     fun curePlant(player: Player, obj: Scenery) {
         if (CompostBins.forObject(obj) != null) {
             sendMessage(player, "Bins don't often get diseased.")

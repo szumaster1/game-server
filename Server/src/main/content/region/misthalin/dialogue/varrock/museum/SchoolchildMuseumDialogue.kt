@@ -8,6 +8,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.RandomFunction
 
+/**
+ * Schoolchild museum dialogue.
+ */
 @Initializable
 class SchoolchildMuseumDialogue(player: Player? = null) : Dialogue(player) {
 

@@ -14,6 +14,9 @@ import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Tarlock dialogue.
+ */
 @Initializable
 class TarlockDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -203,6 +206,11 @@ class TarlockDialogue(player: Player? = null) : Dialogue(player) {
         return intArrayOf(NPCs.FILLIMAN_TARLOCK_1050)
     }
 
+    /**
+     * Set quest
+     *
+     * @param stage
+     */
     fun setQuest(stage: Int) {
         player.questRepository.getQuest("Nature Spirit").setStage(player, stage)
     }

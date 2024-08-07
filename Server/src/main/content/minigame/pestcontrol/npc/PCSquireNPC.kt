@@ -10,6 +10,9 @@ import core.game.node.entity.player.Player
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Pest Control squire NPC.
+ */
 class PCSquireNPC : AbstractNPC {
     private var session: PestControlSession? = null
     private var updateLifepoints = false
@@ -56,6 +59,10 @@ class PCSquireNPC : AbstractNPC {
         super.onImpact(entity, state)
     }
 
+    /**
+     * Flag interface update
+     *
+     */
     fun FlagInterfaceUpdate() {
         updateLifepoints = true
     }

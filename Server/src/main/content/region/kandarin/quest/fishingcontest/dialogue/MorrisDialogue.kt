@@ -8,6 +8,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Morris dialogue.
+ */
 @Initializable
 class MorrisDialogue(player: Player? = null) : Dialogue(player) {
 

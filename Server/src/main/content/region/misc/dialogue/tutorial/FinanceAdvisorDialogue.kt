@@ -11,6 +11,9 @@ import core.game.node.entity.player.Player
 import core.game.world.GameWorld.settings
 import core.plugin.Initializable
 
+/**
+ * Finance advisor dialogue.
+ */
 @Initializable
 class FinanceAdvisorDialogue(player: Player? = null) : Dialogue(player) {
 

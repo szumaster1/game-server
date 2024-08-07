@@ -7,12 +7,20 @@ import java.util.List;
 
 import static core.api.ContentAPIKt.setVarp;
 
+/**
+ * Emote manager.
+ */
 public class EmoteManager {
 
     private final List<Emotes> emotes = new ArrayList<>(20);
 
     private final Player player;
 
+    /**
+     * Instantiates a new Emote manager.
+     *
+     * @param player the player
+     */
     public EmoteManager(Player player) {
         this.player = player;
         for (int i = 0; i < 22; i++) {
@@ -20,6 +28,9 @@ public class EmoteManager {
         }
     }
 
+    /**
+     * Refresh.
+     */
     public void refresh() {
         int value1 = 0;
         if (isUnlocked(Emotes.IDEA)) {
@@ -93,6 +104,12 @@ public class EmoteManager {
         setVarp(player, 1085, value3, false);
     }
 
+    /**
+     * Lock boolean.
+     *
+     * @param emote the emote
+     * @return the boolean
+     */
     public boolean lock(Emotes emote) {
         if (emote.ordinal() <= 22) {
             return false;
@@ -102,6 +119,12 @@ public class EmoteManager {
         return locked;
     }
 
+    /**
+     * Unlock boolean.
+     *
+     * @param emote the emote
+     * @return the boolean
+     */
     public boolean unlock(Emotes emote) {
         if (emotes.contains(emote)) {
             return true;
@@ -111,10 +134,21 @@ public class EmoteManager {
         return unlocked;
     }
 
+    /**
+     * Is unlocked boolean.
+     *
+     * @param emote the emote
+     * @return the boolean
+     */
     public boolean isUnlocked(Emotes emote) {
         return emotes.contains(emote);
     }
 
+    /**
+     * Is save required boolean.
+     *
+     * @return the boolean
+     */
     public boolean isSaveRequired() {
         for (Emotes emote : emotes) {
             if (emote.ordinal() > 21) {
@@ -124,10 +158,20 @@ public class EmoteManager {
         return false;
     }
 
+    /**
+     * Gets emotes.
+     *
+     * @return the emotes
+     */
     public List<Emotes> getEmotes() {
         return emotes;
     }
 
+    /**
+     * Gets player.
+     *
+     * @return the player
+     */
     public Player getPlayer() {
         return player;
     }

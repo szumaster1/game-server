@@ -13,6 +13,9 @@ import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 import core.tools.START_DIALOGUE
 
+/**
+ * Steel titan dialogue.
+ */
 @Initializable
 class SteelTitanDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -26,6 +29,11 @@ class SteelTitanDialogue(player: Player? = null) : Dialogue(player) {
     }
 }
 
+/**
+ * Steel titan dialogue file
+ *
+ * @constructor Steel titan dialogue file
+ */
 class SteelTitanDialogueFile : DialogueFile() {
 
     private val randomConversation = RandomFunction.getRandomElement(arrayOf(1, 2, 3, 4, 5))

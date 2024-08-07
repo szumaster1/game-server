@@ -16,6 +16,9 @@ import core.tools.END_DIALOGUE
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 
+/**
+ * Selene dialogue.
+ */
 @Initializable
 class SeleneDialogue(player: Player? = null): Dialogue(player) {
     private val Rellekka = Location.create(2663, 3644, 0)

@@ -10,6 +10,17 @@ import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
 import kotlin.math.ceil
 
+/**
+ * Creation skill pulse
+ *
+ * @property player
+ * @property node
+ * @property animation
+ * @property itemUsed
+ * @property baseId
+ * @property sceneryIndex
+ * @constructor Creation skill pulse
+ */
 class CreationSkillPulse(
     val player: Player,
     val node: Node,
@@ -22,15 +33,57 @@ class CreationSkillPulse(
     private lateinit var definitions: CreationScenery
     private val skillId = Skills.HUNTER
 
+    /**
+     * Creation scenery
+     *
+     * @property baseTime
+     * @property randomLife
+     * @property randomTime
+     * @property level
+     * @constructor Creation scenery
+     */
     enum class CreationScenery(val baseTime: Int, val randomLife: Int, val randomTime: Int, val level: Int) {
+        /**
+         * Class 1
+         *
+         * @constructor Class 1
+         */
         CLASS_1(10, -1, 1, 1),
+
+        /**
+         * Class 2
+         *
+         * @constructor Class 2
+         */
         CLASS_2(20, 200, 6, 20),
+
+        /**
+         * Class 3
+         *
+         * @constructor Class 3
+         */
         CLASS_3(25, 300, 12, 40),
+
+        /**
+         * Class 4
+         *
+         * @constructor Class 4
+         */
         CLASS_4(30, 400, 16, 60),
+
+        /**
+         * Class 5
+         *
+         * @constructor Class 5
+         */
         CLASS_5(35, 500, 20, 80);
     }
 
 
+    /**
+     * Animate
+     *
+     */
     fun animate() {
         animate(player, animation)
     }
@@ -46,6 +99,13 @@ class CreationSkillPulse(
         return
     }
 
+    /**
+     * Check reward
+     *
+     * @param player
+     * @param skillId
+     * @return
+     */
     fun checkReward(player: Player, skillId: Int): Int {
         val playerLevel = player.getSkills().getLevel(Skills.FISHING)
         val fishLevel = definitions.level

@@ -3,6 +3,9 @@ package core.game.node.entity.player.info;
 import core.game.node.entity.player.Player;
 import core.tools.StringUtils;
 
+/**
+ * Uid info.
+ */
 public class UIDInfo {
 
     private String ip;
@@ -13,12 +16,23 @@ public class UIDInfo {
 
     private String serial;
 
+    /**
+     * Instantiates a new Uid info.
+     */
     public UIDInfo() {
         /*
          * empty.
          */
     }
 
+    /**
+     * Instantiates a new Uid info.
+     *
+     * @param ip       the ip
+     * @param compName the comp name
+     * @param mac      the mac
+     * @param serial   the serial
+     */
     public UIDInfo(String ip, String compName, String mac, String serial) {
         this.ip = ip;
         this.compName = compName;
@@ -26,6 +40,11 @@ public class UIDInfo {
         this.serial = serial;
     }
 
+    /**
+     * Translate.
+     *
+     * @param other the other
+     */
     public void translate(UIDInfo other) {
         ip = other.ip;
         compName = other.compName;
@@ -33,6 +52,13 @@ public class UIDInfo {
         serial = other.serial;
     }
 
+    /**
+     * To string string.
+     *
+     * @param player the player
+     * @param target the target
+     * @return the string
+     */
     public String toString(Player player, Player target) {
         boolean admin = player.isAdmin();
         String format = toString();
@@ -47,18 +73,38 @@ public class UIDInfo {
         return format;
     }
 
+    /**
+     * Gets comp name.
+     *
+     * @return the comp name
+     */
     public String getCompName() {
         return compName;
     }
 
+    /**
+     * Gets ip.
+     *
+     * @return the ip
+     */
     public String getIp() {
         return ip;
     }
 
+    /**
+     * Gets mac.
+     *
+     * @return the mac
+     */
     public String getMac() {
         return mac;
     }
 
+    /**
+     * Gets serial.
+     *
+     * @return the serial
+     */
     public String getSerial() {
         return serial;
     }

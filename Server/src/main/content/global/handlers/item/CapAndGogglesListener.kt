@@ -6,6 +6,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.item.Item
 
+/**
+ * Cap and goggles listener
+ *
+ * @constructor Cap and goggles listener
+ */
 class CapAndGogglesListener : InteractionListener {
 
     private val capAndGoggles = Items.CAP_AND_GOGGLES_9946

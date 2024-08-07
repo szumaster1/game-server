@@ -6,6 +6,9 @@ import core.game.interaction.InteractionListener
 import java.text.SimpleDateFormat
 import java.util.*
 
+/**
+ * Clock listener.
+ */
 class ClockListener : InteractionListener {
 
     private val clockIds = intArrayOf(13169, 13170, 13171)

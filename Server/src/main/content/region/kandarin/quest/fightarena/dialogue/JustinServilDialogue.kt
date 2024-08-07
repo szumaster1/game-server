@@ -9,6 +9,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Justin servil dialogue.
+ */
 @Initializable
 class JustinServilDialogue(player: Player? = null) : Dialogue(player) {
     override fun handle(componentID: Int, buttonID: Int): Boolean {

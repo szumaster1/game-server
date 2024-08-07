@@ -4,6 +4,15 @@ import core.api.sendMessage
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
+/**
+ * Barbarian mix
+ *
+ * @constructor
+ *
+ * @param ids
+ * @param effect
+ * @param messages
+ */
 class BarbarianMix(ids: IntArray?, effect: ConsumableEffect?, vararg messages: String?) :
     Potion(ids, effect, *messages) {
 

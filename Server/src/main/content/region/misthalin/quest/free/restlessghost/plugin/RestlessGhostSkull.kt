@@ -11,6 +11,11 @@ import core.game.node.scenery.Scenery
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Restless ghost skull
+ *
+ * @constructor Restless ghost skull
+ */
 @Initializable
 class RestlessGhostSkull : UseWithHandler(Items.SKULL_964) {
 

@@ -11,6 +11,10 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Private pierreb dialogue.
+ * @author Szumaster
+ */
 @Initializable
 class PrivatePierrebDialogue(player: Player? = null) : Dialogue(player) {
 

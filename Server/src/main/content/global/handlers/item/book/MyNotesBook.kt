@@ -9,6 +9,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
+/**
+ * My notes book
+ *
+ * @constructor My notes book
+ */
 class MyNotesBook : InteractionListener {
 
     // book given during Barbarian

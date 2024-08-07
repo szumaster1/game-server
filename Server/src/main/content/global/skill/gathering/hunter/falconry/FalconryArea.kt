@@ -11,6 +11,9 @@ import core.game.node.item.Item
 import core.game.world.map.zone.ZoneBorders
 import core.game.world.map.zone.ZoneRestriction
 
+/**
+ * Falconry area.
+ */
 class FalconryArea : MapArea {
 
     companion object {

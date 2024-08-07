@@ -13,6 +13,9 @@ import core.tools.Log;
 
 import static core.api.ContentAPIKt.log;
 
+/**
+ * Construction interface.
+ */
 @Initializable
 public final class ConstructionInterface extends ComponentPlugin {
 

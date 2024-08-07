@@ -7,8 +7,19 @@ import core.network.packet.IoBuffer;
 import core.network.packet.OutgoingPacket;
 import core.network.packet.context.BuildItemContext;
 
+/**
+ * Clear ground item.
+ * @author Emperor
+ */
 public final class ClearGroundItem implements OutgoingPacket<BuildItemContext> {
 
+    /**
+     * Write io buffer.
+     *
+     * @param buffer the buffer
+     * @param item   the item
+     * @return the io buffer
+     */
     public static IoBuffer write(IoBuffer buffer, Item item) {
         Location l = item.getLocation();
         buffer.put(240);

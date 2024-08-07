@@ -13,6 +13,9 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.game.node.scenery.Scenery as CoreScenery
 
+/**
+ * Silver crafting listener.
+ */
 class SilverCraftingListener : InterfaceListener, InteractionListener {
     companion object {
         private const val OP_MAKE_ONE = 155

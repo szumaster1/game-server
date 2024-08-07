@@ -17,7 +17,9 @@ import javax.imageio.ImageIO
 
 class SmartPathfinder
 /**
- * Constructs a new `SmartPathfinder` `Object`.
+ * Smart pathfinder
+ *
+ * @constructor Smart pathfinder
  */
 internal constructor() : Pathfinder() {
     /**
@@ -71,7 +73,8 @@ internal constructor() : Pathfinder() {
     private var foundPath = false
 
     /**
-     * Resets the pathfinder.
+     * Reset
+     *
      */
     fun reset() {
         queueX = IntArray(4096)
@@ -82,11 +85,13 @@ internal constructor() : Pathfinder() {
     }
 
     /**
-     * Checks a tile.
-     * @param x The x-coordinate.
-     * @param y The y-coordinate.
-     * @param dir The direction.
-     * @param currentCost The current cost.
+     * Check
+     *
+     * @param x
+     * @param y
+     * @param dir
+     * @param currentCost
+     * @param diagonalPenalty
      */
     fun check(x: Int, y: Int, dir: Int, currentCost: Int, diagonalPenalty: Int = 0) {
         if (cost[x][y] > currentCost + diagonalPenalty) {
@@ -298,6 +303,12 @@ internal constructor() : Pathfinder() {
         return path
     }
 
+    /**
+     * U int as point comparator
+     *
+     * @property end
+     * @constructor U int as point comparator
+     */
     class UIntAsPointComparator(val end: Location) : Comparator<UInt> {
         override fun compare(p: UInt, q: UInt): Int {
             val pc: UInt = (p and 0x00ff0000u) shr 16

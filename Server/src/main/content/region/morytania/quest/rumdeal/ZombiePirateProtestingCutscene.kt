@@ -10,6 +10,9 @@ import core.game.node.entity.player.Player
 import core.game.world.map.Direction
 import core.game.world.map.Location
 
+/**
+ * Zombie pirate protesting cutscene.
+ */
 class ZombiePirateProtestingCutscene(player: Player) : Cutscene(player) {
 
     /*

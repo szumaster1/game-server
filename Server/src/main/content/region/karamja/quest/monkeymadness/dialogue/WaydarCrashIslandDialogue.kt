@@ -8,6 +8,11 @@ import core.api.setQuestStage
 import core.game.dialogue.DialogueFile
 import core.tools.END_DIALOGUE
 
+/**
+ * Waydar crash island dialogue
+ *
+ * @constructor Waydar crash island dialogue
+ */
 class WaydarCrashIslandDialogue: DialogueFile(){
 
     override fun handle(componentID: Int, buttonID: Int) {

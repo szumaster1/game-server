@@ -9,6 +9,9 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld
 import core.game.world.map.Location
 
+/**
+ * Giant lobster NPC.
+ */
 class GiantLobsterNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 
     override fun construct(id: Int, location: Location, vararg objects: Any): AbstractNPC {

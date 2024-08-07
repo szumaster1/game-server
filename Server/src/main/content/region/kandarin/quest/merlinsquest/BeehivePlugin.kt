@@ -20,6 +20,11 @@ import core.plugin.ClassScanner.definePlugin
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Beehive plugin
+ *
+ * @constructor Beehive plugin
+ */
 @Initializable
 class BeehivePlugin : OptionHandler() {
 

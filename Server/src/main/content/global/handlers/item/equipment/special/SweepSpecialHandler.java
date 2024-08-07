@@ -23,6 +23,9 @@ import java.util.List;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
+/**
+ * Sweep special handler.
+ */
 @Initializable
 public final class SweepSpecialHandler extends MeleeSwingHandler implements Plugin<Object> {
 

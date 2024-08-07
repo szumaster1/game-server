@@ -2,7 +2,19 @@ package core.game.node.entity.combat.spell
 
 import core.api.consts.Items
 
+/**
+ * Magic staff
+ *
+ * @property runeId
+ * @property staves
+ * @constructor Magic staff
+ */
 enum class MagicStaff(val runeId: Int, vararg val staves: Int) {
+    /**
+     * Fire Rune
+     *
+     * @constructor Fire Rune
+     */
     FIRE_RUNE(
         Items.FIRE_RUNE_554,
         Items.STAFF_OF_FIRE_1387,
@@ -15,6 +27,12 @@ enum class MagicStaff(val runeId: Int, vararg val staves: Int) {
         Items.STEAM_BATTLESTAFF_11736,
         Items.MYSTIC_STEAM_STAFF_11738
     ),
+
+    /**
+     * Water Rune
+     *
+     * @constructor Water Rune
+     */
     WATER_RUNE(
         Items.WATER_RUNE_555,
         Items.STAFF_OF_WATER_1383,
@@ -25,12 +43,24 @@ enum class MagicStaff(val runeId: Int, vararg val staves: Int) {
         Items.MYSTIC_STEAM_STAFF_11738,
         Items.MUD_BATTLESTAFF_6562
     ),
+
+    /**
+     * Air Rune
+     *
+     * @constructor Air Rune
+     */
     AIR_RUNE(
         Items.AIR_RUNE_556,
         Items.STAFF_OF_AIR_1381,
         Items.AIR_BATTLESTAFF_1397,
         Items.MYSTIC_AIR_STAFF_1405
     ),
+
+    /**
+     * Earth Rune
+     *
+     * @constructor Earth Rune
+     */
     EARTH_RUNE(
         Items.EARTH_RUNE_557,
         Items.LAVA_BATTLESTAFF_3053,

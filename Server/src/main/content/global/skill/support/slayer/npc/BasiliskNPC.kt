@@ -8,6 +8,9 @@ import core.game.node.entity.npc.AbstractNPC
 import core.game.world.map.Location
 import core.plugin.Initializable
 
+/**
+ * Basilisk NPC.
+ */
 @Initializable
 class BasiliskNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 

@@ -14,6 +14,9 @@ import core.plugin.ClassScanner.definePlugin
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Elnock inquisitor dialogue.
+ */
 @Initializable
 class ElnockInquisitorDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -166,6 +169,11 @@ class ElnockInquisitorDialogue(player: Player? = null) : Dialogue(player) {
     }
 
 
+    /**
+     * Elnock exchange interface handler
+     *
+     * @constructor Elnock exchange interface handler
+     */
     class ElnockExchangeInterfaceHandler : ComponentPlugin() {
         @Throws(Throwable::class)
         override fun newInstance(arg: Any?): Plugin<Any> {
@@ -221,10 +229,44 @@ class ElnockInquisitorDialogue(player: Player? = null) : Dialogue(player) {
         }
 
 
+        /**
+         * Elnock exchange
+         *
+         * @property button
+         * @property configValue
+         * @property sendItem
+         * @property reward
+         * @constructor
+         *
+         * @param required
+         */
         enum class ElnockExchange(val button: Int, val configValue: Int, val sendItem: Int, val reward: Item, vararg required: Item) {
+            /**
+             * Imp Repellant
+             *
+             * @constructor Imp Repellant
+             */
             IMP_REPELLANT(23, 444928, 11271, Item(11262), Item(11238, 3), Item(11240, 2), Item(11242)),
+
+            /**
+             * Magic Butterfly
+             *
+             * @constructor Magic Butterfly
+             */
             MAGIC_BUTTERFLY(26, 707072, 11268, Item(11259), Item(11242, 3), Item(11244, 2), Item(11246)),
+
+            /**
+             * Jar Generator
+             *
+             * @constructor Jar Generator
+             */
             JAR_GENERATOR(29, 969216, 11267, Item(11258), Item(11246, 3), Item(11248, 2), Item(11250)),
+
+            /**
+             * Impling Jar
+             *
+             * @constructor Impling Jar
+             */
             IMPLING_JAR(32, 1231360, 11269, Item(11260, 3)) {
                 override fun hasItems(player: Player): Boolean {
                     for (node in BNetTypes.getImplings()) {
@@ -242,6 +284,12 @@ class ElnockInquisitorDialogue(player: Player? = null) : Dialogue(player) {
                 this.required = required as Array<Item>
             }
 
+            /**
+             * Has items
+             *
+             * @param player
+             * @return
+             */
             open fun hasItems(player: Player): Boolean {
                 return player.inventory.containsItems(*required)
             }

@@ -10,7 +10,9 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.tools.RandomFunction
 
-
+/**
+ * Big frog NPC.
+ */
 class BigFrogNPC : NPCBehavior(*bigFrogIds) {
 
     companion object {

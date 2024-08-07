@@ -9,7 +9,9 @@ import core.game.node.scenery.Scenery
 import core.game.system.timer.impl.AntiMacro
 import core.game.world.map.Location
 
-
+/**
+ * Pinball utils.
+ */
 object PinballUtils {
     const val PINBALL_LOGOUT = "pinball-logout"
     const val PINBALL_SAVE_LOCATION = "/save:original-loc"

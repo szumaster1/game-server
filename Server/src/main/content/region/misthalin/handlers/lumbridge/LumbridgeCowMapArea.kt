@@ -10,6 +10,9 @@ import core.game.world.map.zone.ZoneBuilder
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Lumbridge cow map area.
+ */
 @Initializable
 class LumbridgeCowMapArea : MapZone("lumbridge cows", true), Plugin<Any?> {
 

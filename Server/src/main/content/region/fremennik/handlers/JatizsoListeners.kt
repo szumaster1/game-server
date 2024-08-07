@@ -14,6 +14,9 @@ import core.game.world.map.Direction
 import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 
+/**
+ * Jatizso listeners.
+ */
 class JatizsoListeners : InteractionListener {
 
     companion object {

@@ -17,6 +17,9 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
 
+/**
+ * Kolodion NPC.
+ */
 class KolodionNPC(id: Int = 0, location: Location? = null, session: KolodionSession? = null) :
     AbstractNPC(id, location) {
 
@@ -58,6 +61,10 @@ class KolodionNPC(id: Int = 0, location: Location? = null, session: KolodionSess
         super.startDeath(killer)
     }
 
+    /**
+     * Set random spell
+     *
+     */
     fun setRandomSpell() {
         val spell = SpellBook.MODERN.getSpell(SPELL_IDS[RandomFunction.random(SPELL_IDS.size)]) as CombatSpell?
         properties.spell = spell
@@ -98,20 +105,70 @@ class KolodionNPC(id: Int = 0, location: Location? = null, session: KolodionSess
         return intArrayOf(NPCs.KOLODION_907, NPCs.KOLODION_908, NPCs.KOLODION_909, NPCs.KOLODION_910, NPCs.KOLODION_911)
     }
 
+    /**
+     * Kolodion type
+     *
+     * @property npcId
+     * @property appearAnimation
+     * @property graphcId
+     * @property appearMessage
+     * @constructor Kolodion type
+     */
     enum class KolodionType(
         val npcId: Int,
         val appearAnimation: Animation?,
         val graphcId: Int,
         val appearMessage: String?
     ) {
+        /**
+         * Human
+         *
+         * @constructor Human
+         */
         HUMAN(NPCs.KOLODION_907, Animation(6941), -1, "You must prove yourself... now!"),
+
+        /**
+         * Ogre
+         *
+         * @constructor Ogre
+         */
         OGRE(NPCs.KOLODION_908, Animation(6941), 188, "This is only the beginning; you can't beat me!"),
+
+        /**
+         * Spider
+         *
+         * @constructor Spider
+         */
         SPIDER(NPCs.KOLODION_909, Animation(5324), 190, "Foolish mortal; I am unstoppable."),
+
+        /**
+         * Ghost
+         *
+         * @constructor Ghost
+         */
         GHOST(NPCs.KOLODION_910, Animation(715), 188, "Now you feel it.. The dark energy."),
+
+        /**
+         * Demon
+         *
+         * @constructor Demon
+         */
         DEMON(NPCs.KOLODION_911, Animation(4623), 190, "Aaaaaaaarrgghhhh! The power!"),
+
+        /**
+         * End
+         *
+         * @constructor End
+         */
         END(NPCs.KOLODION_906, Animation(6941), 188, null);
 
 
+        /**
+         * Transform
+         *
+         * @param kolodion
+         * @param player
+         */
         fun transform(kolodion: KolodionNPC, player: Player) {
             val newType = next()
             kolodion.lock()
@@ -177,6 +234,11 @@ class KolodionNPC(id: Int = 0, location: Location? = null, session: KolodionSess
             })
         }
 
+        /**
+         * Next
+         *
+         * @return
+         */
         fun next(): KolodionType {
             return values()[ordinal + 1]
         }

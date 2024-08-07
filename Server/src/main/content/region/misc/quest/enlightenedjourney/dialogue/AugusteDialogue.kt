@@ -17,6 +17,9 @@ import core.game.world.GameWorld
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Auguste dialogue.
+ */
 @Initializable
 class AugusteDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -457,6 +460,11 @@ class AugusteDialogue(player: Player? = null) : Dialogue(player) {
     }
 }
 
+/**
+ * Auguste e j dialogue file
+ *
+ * @constructor Auguste e j dialogue file
+ */
 class AugusteEJDialogueFile : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

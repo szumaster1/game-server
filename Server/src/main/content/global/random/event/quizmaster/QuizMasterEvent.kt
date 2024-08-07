@@ -5,13 +5,23 @@ import core.cache.def.impl.ItemDefinition
 import core.game.interaction.InteractionListener
 import core.tools.RandomFunction
 
+/**
+ * Quiz master event.
+ */
 class QuizMasterEvent : InteractionListener {
     var score = 0
     var isStartedQuiz = false
+
+    /**
+     * Reset score.
+     */
     fun resetScore() {
         score = 0
     }
 
+    /**
+     * Increment score.
+     */
     fun incrementScore() {
         score++
     }
@@ -19,13 +29,38 @@ class QuizMasterEvent : InteractionListener {
     override fun defineListeners() {}
 }
 
+/**
+ * Quiz set.
+ */
 enum class QuizSet(vararg val ids: Int) {
+    /**
+     * Fish.
+     */
     FISH(Items.NULL_6189, Items.NULL_6190),
+
+    /**
+     * Weaponry.
+     */
     WEAPONRY(Items.NULL_6191, Items.NULL_6192),
+
+    /**
+     * Armour.
+     */
     ARMOUR(Items.NULL_6193, Items.NULL_6194),
+
+    /**
+     * Tools.
+     */
     TOOLS(Items.NULL_6195, Items.NULL_6196),
+
+    /**
+     * Jewellery.
+     */
     JEWELLERY(Items.NULL_6197, Items.NULL_6198);
 
+    /**
+     * Get model.
+     */
     fun getModel(index: Int): Int {
         return ItemDefinition.forId(ids[index]).interfaceModelId
     }

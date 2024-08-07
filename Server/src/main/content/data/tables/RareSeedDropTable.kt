@@ -19,11 +19,8 @@ import javax.xml.parsers.DocumentBuilder
 import javax.xml.parsers.DocumentBuilderFactory
 import javax.xml.parsers.ParserConfigurationException
 
-/*
- * @author Von Hresvelg
- * @date 30.11.2022
- */
 class RareSeedDropTable: StartupListener {
+
     override fun startup() {
         if (ServerConstants.RSDT_DATA_PATH != null && !File(ServerConstants.RSDT_DATA_PATH).exists()) {
             log(this.javaClass, Log.ERR, "Can't locate RSDT file at " + ServerConstants.RSDT_DATA_PATH)

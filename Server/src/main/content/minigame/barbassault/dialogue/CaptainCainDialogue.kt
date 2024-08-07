@@ -10,6 +10,10 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Captain cain dialogue.
+ * @author Szumaster
+ */
 @Initializable
 class CaptainCainDialogue(player: Player? = null) : Dialogue(player) {
 

@@ -2,6 +2,9 @@ package content.minigame.blastfurnace
 
 import core.game.world.map.Location
 
+/**
+ * Blast utils.
+ */
 object BlastUtils {
     val ENTRANCE_LOC = Location(1940, 4958, 0)
     val EXIT_LOC = Location(2931, 10197, 0)

@@ -5,6 +5,11 @@ import core.api.isQuestComplete
 import core.api.sendMessage
 import core.game.interaction.InteractionListener
 
+/**
+ * Animal magnetism listeners
+ *
+ * @constructor Animal magnetism listeners
+ */
 class AnimalMagnetismListeners : InteractionListener {
 
     override fun defineListeners() {

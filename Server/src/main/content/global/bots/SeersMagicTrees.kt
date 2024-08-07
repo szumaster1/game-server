@@ -12,6 +12,9 @@ import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 import core.tools.RandomFunction
 
+/**
+ * Seers magic trees.
+ */
 @PlayerCompatible
 @ScriptName("Seers Magics")
 @ScriptDescription("Start in Seers Bank with an axe equipped or in your inventory.")
@@ -98,8 +101,67 @@ class SeersMagicTrees : Script() {
         skills[Skills.WOODCUTTING] == RandomFunction.random(75, 99)
     }
 
+    /**
+     * State
+     *
+     * @constructor State
+     */
     enum class State {
-        CHOPPING, FIND_BANK, BANKING, RETURN_TO_TREES, TELE_GE, SELL_GE, TELE_SEERS, INIT
+        /**
+         * Chopping
+         *
+         * @constructor Chopping
+         */
+        CHOPPING,
+
+        /**
+         * Find Bank
+         *
+         * @constructor Find Bank
+         */
+        FIND_BANK,
+
+        /**
+         * Banking
+         *
+         * @constructor Banking
+         */
+        BANKING,
+
+        /**
+         * Return To Trees
+         *
+         * @constructor Return To Trees
+         */
+        RETURN_TO_TREES,
+
+        /**
+         * Tele Ge
+         *
+         * @constructor Tele Ge
+         */
+        TELE_GE,
+
+        /**
+         * Sell Ge
+         *
+         * @constructor Sell Ge
+         */
+        SELL_GE,
+
+        /**
+         * Tele Seers
+         *
+         * @constructor Tele Seers
+         */
+        TELE_SEERS,
+
+        /**
+         * Init
+         *
+         * @constructor Init
+         */
+        INIT
     }
 
     override fun newInstance(): Script {

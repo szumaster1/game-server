@@ -3,25 +3,68 @@
 
 package proto.management;
 
+/**
+ * The interface Clan leave notification or builder.
+ */
 public interface ClanLeaveNotificationOrBuilder extends
         // @@protoc_insertion_point(interface_extends:management.ClanLeaveNotification)
         com.google.protobuf.MessageOrBuilder {
 
+    /**
+     * Has username boolean.
+     *
+     * @return the boolean
+     */
     boolean hasUsername();
 
-    java.lang.String getUsername();
+    /**
+     * Gets username.
+     *
+     * @return the username
+     */
+    String getUsername();
 
+    /**
+     * Gets username bytes.
+     *
+     * @return the username bytes
+     */
     com.google.protobuf.ByteString
     getUsernameBytes();
 
+    /**
+     * Has clan name boolean.
+     *
+     * @return the boolean
+     */
     boolean hasClanName();
 
-    java.lang.String getClanName();
+    /**
+     * Gets clan name.
+     *
+     * @return the clan name
+     */
+    String getClanName();
 
+    /**
+     * Gets clan name bytes.
+     *
+     * @return the clan name bytes
+     */
     com.google.protobuf.ByteString
     getClanNameBytes();
 
+    /**
+     * Has world boolean.
+     *
+     * @return the boolean
+     */
     boolean hasWorld();
 
+    /**
+     * Gets world.
+     *
+     * @return the world
+     */
     int getWorld();
 }

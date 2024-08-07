@@ -2,7 +2,24 @@ package content.global.skill.production.fletching.data
 
 import core.api.consts.Items
 
+/**
+ * Bow string
+ *
+ * @property unfinished
+ * @property product
+ * @property level
+ * @property experience
+ * @property animation
+ * @constructor
+ *
+ * @param indicator
+ */
 enum class BowString(indicator: Byte, val unfinished: Int, val product: Int, val level: Int, val experience: Double, val animation: Int) {
+    /**
+     * Short Bow
+     *
+     * @constructor Short Bow
+     */
     SHORT_BOW(
         indicator = 1,
         unfinished = Items.SHORTBOW_U_50,
@@ -11,6 +28,12 @@ enum class BowString(indicator: Byte, val unfinished: Int, val product: Int, val
         experience = 5.0,
         animation = 6678
     ),
+
+    /**
+     * Long Bow
+     *
+     * @constructor Long Bow
+     */
     LONG_BOW(
         indicator = 1,
         unfinished = Items.LONGBOW_U_48,
@@ -19,6 +42,12 @@ enum class BowString(indicator: Byte, val unfinished: Int, val product: Int, val
         experience = 10.0,
         animation = 6684
     ),
+
+    /**
+     * Oak Shortbow
+     *
+     * @constructor Oak Shortbow
+     */
     OAK_SHORTBOW(
         indicator = 1,
         unfinished = Items.OAK_SHORTBOW_U_54,
@@ -27,6 +56,12 @@ enum class BowString(indicator: Byte, val unfinished: Int, val product: Int, val
         experience = 16.5,
         animation = 6679
     ),
+
+    /**
+     * Oak Longbow
+     *
+     * @constructor Oak Longbow
+     */
     OAK_LONGBOW(
         indicator = 1,
         unfinished = Items.OAK_LONGBOW_U_56,
@@ -35,6 +70,12 @@ enum class BowString(indicator: Byte, val unfinished: Int, val product: Int, val
         experience = 25.0,
         animation = 6685
     ),
+
+    /**
+     * Comp Ogre Bow
+     *
+     * @constructor Comp Ogre Bow
+     */
     COMP_OGRE_BOW(
         indicator = 1,
         unfinished = Items.UNSTRUNG_COMP_BOW_4825,
@@ -43,6 +84,12 @@ enum class BowString(indicator: Byte, val unfinished: Int, val product: Int, val
         experience = 40.0,
         animation = -1
     ),
+
+    /**
+     * Willow Shortbow
+     *
+     * @constructor Willow Shortbow
+     */
     WILLOW_SHORTBOW(
         indicator = 1,
         unfinished = Items.WILLOW_SHORTBOW_U_60,
@@ -51,6 +98,12 @@ enum class BowString(indicator: Byte, val unfinished: Int, val product: Int, val
         experience = 33.3,
         animation = 6680
     ),
+
+    /**
+     * Willow Longbow
+     *
+     * @constructor Willow Longbow
+     */
     WILLOW_LONGBOW(
         indicator = 1,
         unfinished = Items.WILLOW_LONGBOW_U_58,
@@ -59,6 +112,12 @@ enum class BowString(indicator: Byte, val unfinished: Int, val product: Int, val
         experience = 41.5,
         animation = 6686
     ),
+
+    /**
+     * Maple Shortbow
+     *
+     * @constructor Maple Shortbow
+     */
     MAPLE_SHORTBOW(
         indicator = 1,
         unfinished = Items.MAPLE_SHORTBOW_U_64,
@@ -67,6 +126,12 @@ enum class BowString(indicator: Byte, val unfinished: Int, val product: Int, val
         experience = 50.0,
         animation = 6681
     ),
+
+    /**
+     * Maple Longbow
+     *
+     * @constructor Maple Longbow
+     */
     MAPLE_LONGBOW(
         indicator = 1,
         unfinished = Items.MAPLE_LONGBOW_U_62,
@@ -75,6 +140,12 @@ enum class BowString(indicator: Byte, val unfinished: Int, val product: Int, val
         experience = 58.3,
         animation = 6687
     ),
+
+    /**
+     * Yew Shortbow
+     *
+     * @constructor Yew Shortbow
+     */
     YEW_SHORTBOW(
         indicator = 1,
         unfinished = Items.YEW_SHORTBOW_U_68,
@@ -83,6 +154,12 @@ enum class BowString(indicator: Byte, val unfinished: Int, val product: Int, val
         experience = 67.5,
         animation = 6682
     ),
+
+    /**
+     * Yew Longbow
+     *
+     * @constructor Yew Longbow
+     */
     YEW_LONGBOW(
         indicator = 1,
         unfinished = Items.YEW_LONGBOW_U_66,
@@ -91,6 +168,12 @@ enum class BowString(indicator: Byte, val unfinished: Int, val product: Int, val
         experience = 75.0,
         animation = 6688
     ),
+
+    /**
+     * Magic Shortbow
+     *
+     * @constructor Magic Shortbow
+     */
     MAGIC_SHORTBOW(
         indicator = 1,
         unfinished = Items.MAGIC_SHORTBOW_U_72,
@@ -99,6 +182,12 @@ enum class BowString(indicator: Byte, val unfinished: Int, val product: Int, val
         experience = 83.3,
         animation = 6683
     ),
+
+    /**
+     * Magic Longbow
+     *
+     * @constructor Magic Longbow
+     */
     MAGIC_LONGBOW(
         indicator = 1,
         unfinished = Items.MAGIC_LONGBOW_U_70,
@@ -107,6 +196,12 @@ enum class BowString(indicator: Byte, val unfinished: Int, val product: Int, val
         experience = 91.5,
         animation = 6689
     ),
+
+    /**
+     * Bronze Cbow
+     *
+     * @constructor Bronze Cbow
+     */
     BRONZE_CBOW(
         indicator = 2,
         unfinished = Items.BRONZE_CBOW_U_9454,
@@ -115,6 +210,12 @@ enum class BowString(indicator: Byte, val unfinished: Int, val product: Int, val
         experience = 6.0,
         animation = 6671
     ),
+
+    /**
+     * Blurite Cbow
+     *
+     * @constructor Blurite Cbow
+     */
     BLURITE_CBOW(
         indicator = 2,
         unfinished = Items.BLURITE_CBOW_U_9456,
@@ -123,6 +224,12 @@ enum class BowString(indicator: Byte, val unfinished: Int, val product: Int, val
         experience = 16.0,
         animation = 6672
     ),
+
+    /**
+     * Iron Cbow
+     *
+     * @constructor Iron Cbow
+     */
     IRON_CBOW(
         indicator = 2,
         unfinished = Items.IRON_CBOW_U_9457,
@@ -131,6 +238,12 @@ enum class BowString(indicator: Byte, val unfinished: Int, val product: Int, val
         experience = 22.0,
         animation = 6673
     ),
+
+    /**
+     * Steel Cbow
+     *
+     * @constructor Steel Cbow
+     */
     STEEL_CBOW(
         indicator = 2,
         unfinished = Items.STEEL_CBOW_U_9459,
@@ -139,6 +252,12 @@ enum class BowString(indicator: Byte, val unfinished: Int, val product: Int, val
         experience = 27.0,
         animation = 6674
     ),
+
+    /**
+     * Mithiril Cbow
+     *
+     * @constructor Mithiril Cbow
+     */
     MITHIRIL_CBOW(
         indicator = 2,
         unfinished = Items.MITHRIL_CBOW_U_9461,
@@ -147,6 +266,12 @@ enum class BowString(indicator: Byte, val unfinished: Int, val product: Int, val
         experience = 32.0,
         animation = 6675
     ),
+
+    /**
+     * Adamant Cbow
+     *
+     * @constructor Adamant Cbow
+     */
     ADAMANT_CBOW(
         indicator = 2,
         unfinished = Items.ADAMANT_CBOW_U_9463,
@@ -155,6 +280,12 @@ enum class BowString(indicator: Byte, val unfinished: Int, val product: Int, val
         experience = 41.0,
         animation = 6676
     ),
+
+    /**
+     * Runite Cbow
+     *
+     * @constructor Runite Cbow
+     */
     RUNITE_CBOW(
         indicator = 2,
         unfinished = Items.RUNITE_CBOW_U_9465,

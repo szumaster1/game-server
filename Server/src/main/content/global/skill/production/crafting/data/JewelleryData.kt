@@ -7,6 +7,11 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
+/**
+ * Jewellery data
+ *
+ * @constructor Create empty Jewellery data
+ */
 object JewelleryData {
 
     const val RING_MOULD: Int = 1592

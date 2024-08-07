@@ -1,14 +1,14 @@
-package core.network.event
+package core.network.event;
 
-import core.api.log
-import core.network.IoReadEvent
-import core.network.IoSession
-import core.network.packet.IoBuffer
-import core.network.packet.PacketProcessor.enqueue
-import core.network.packet.incoming.Decoders530.Companion.process
-import core.network.packet.incoming.Packet.*
-import core.tools.Log
-import java.nio.ByteBuffer
+import core.api.log;
+import core.network.IoReadEvent;
+import core.network.IoSession;
+import core.network.packet.IoBuffer;
+import core.network.packet.PacketProcessor.enqueue;
+import core.network.packet.incoming.Decoders530.Companion.process;
+import core.network.packet.incoming.Packet.*;
+import core.tools.Log;
+import java.nio.ByteBuffer;
 
 /**
  * Handles game packet reading.
@@ -65,10 +65,11 @@ class GameReadEvent(session: IoSession, buffer: ByteBuffer) : IoReadEvent(sessio
 
     /**
      * Gets the packet size for the given opcode.
+     *
      * @param buffer The buffer.
      * @param opcode The opcode.
      * @param header The packet header.
-     * @param last The last opcode.
+     * @param last   The last opcode.
      * @return The packet size.
      */
     private fun getPacketSize(buffer: ByteBuffer, opcode: Int, header: Int, last: Int): Int {
@@ -90,7 +91,7 @@ class GameReadEvent(session: IoSession, buffer: ByteBuffer) : IoReadEvent(sessio
     }
 
     companion object {
-        /*
+        /**
          * The incoming packet sizes, sorted by opcode.
          */
         internal val PACKET_SIZES = intArrayOf(

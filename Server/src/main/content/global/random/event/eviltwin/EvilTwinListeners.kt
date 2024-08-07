@@ -13,6 +13,9 @@ import core.network.packet.PacketRepository
 import core.network.packet.context.CameraContext
 import core.network.packet.outgoing.CameraViewPacket
 
+/**
+ * Evil twin listeners.
+ */
 class EvilTwinListeners : InteractionListener, MapArea {
 
     private val mollyId = (3892..3911).toIntArray()

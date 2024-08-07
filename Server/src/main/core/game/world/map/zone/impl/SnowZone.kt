@@ -11,6 +11,11 @@ import core.game.node.entity.player.Player
 import core.game.world.map.zone.MapZone
 import core.game.world.map.zone.ZoneBorders
 
+/**
+ * Snow zone
+ *
+ * @constructor Snow zone
+ */
 class SnowZone : MapZone("snow", true) {
 
     private val BASE_ZONE = ZoneBorders(2728, 3716, 2732, 3731)

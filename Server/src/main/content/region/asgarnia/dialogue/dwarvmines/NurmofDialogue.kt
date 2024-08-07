@@ -10,6 +10,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Nurmof dialogue.
+ */
 @Initializable
 class NurmofDialogue(player: Player? = null) : Dialogue(player) {
 

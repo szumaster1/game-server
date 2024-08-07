@@ -10,6 +10,9 @@ import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.item.Item
 import core.plugin.Initializable
 
+/**
+ * Geoffrey dialogue.
+ */
 @Initializable
 class GeoffreyDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -70,6 +73,12 @@ class GeoffreyDialogue(player: Player? = null) : Dialogue(player) {
         return true
     }
 
+    /**
+     * Reward flax
+     *
+     * @param n
+     * @param messages
+     */
     fun rewardFlax(n: Int, vararg messages: String): Unit {
         npc(*messages)
         player.inventory.add(Item(Items.FLAX_1780, n))

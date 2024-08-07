@@ -8,6 +8,9 @@ import core.game.interaction.InteractionListener
 import core.game.node.item.Item
 import core.tools.Log
 
+/**
+ * Light source listener.
+ */
 class LightSourceListener : InteractionListener {
 
     override fun defineListeners() {

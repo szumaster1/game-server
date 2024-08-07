@@ -27,6 +27,11 @@ import org.json.simple.JSONObject
 import java.util.Map
 import kotlin.math.min
 
+/**
+ * Grave controller
+ *
+ * @constructor Grave controller
+ */
 class GraveController : PersistWorld, TickListener, InteractionListener, Commands {
     override fun defineListeners() {
         on(GraveType.ids, IntType.NPC, "read", handler = this::onGraveReadOption)

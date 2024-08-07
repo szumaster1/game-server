@@ -9,6 +9,9 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Cat blanket listener.
+ */
 class CatBlanketListener : InteractionListener {
 
     val CAT_BLANKET = intArrayOf(13574, 13575, 13576)

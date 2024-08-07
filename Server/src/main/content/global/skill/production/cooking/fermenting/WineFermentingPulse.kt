@@ -10,6 +10,14 @@ import core.game.node.item.Item
 import core.game.system.task.Pulse
 import core.tools.RandomFunction
 
+/**
+ * Wine fermenting pulse
+ *
+ * @property player
+ * @constructor
+ *
+ * @param delay
+ */
 class WineFermentingPulse(delay: Int, val player: Player) : Pulse(delay) {
     private var count = 0
 

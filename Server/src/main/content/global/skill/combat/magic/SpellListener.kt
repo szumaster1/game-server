@@ -13,6 +13,9 @@ import core.game.world.GameWorld
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 
+/**
+ * Spell listener.
+ */
 abstract class SpellListener(val bookName: String) : Listener {
     companion object {
         @JvmField
@@ -34,10 +37,29 @@ abstract class SpellListener(val bookName: String) : Listener {
         val GROUND_ITEM = -6
     }
 
+    /**
+     * On cast
+     *
+     * @param spellID
+     * @param type
+     * @param range
+     * @param method
+     * @receiver
+     */
     fun onCast(spellID: Int, type: Int, range: Int = 10, method: (player: Player, node: Node?) -> Unit) {
         SpellListeners.add(spellID, type, bookName, range, method)
     }
 
+    /**
+     * On cast
+     *
+     * @param spellID
+     * @param type
+     * @param ids
+     * @param range
+     * @param method
+     * @receiver
+     */
     fun onCast(
         spellID: Int,
         type: Int,
@@ -48,6 +70,14 @@ abstract class SpellListener(val bookName: String) : Listener {
         SpellListeners.add(spellID, type, ids, bookName, range, method)
     }
 
+    /**
+     * Requires
+     *
+     * @param player
+     * @param magicLevel
+     * @param runes
+     * @param specialEquipment
+     */
     fun requires(
         player: Player,
         magicLevel: Int = 0,
@@ -78,6 +108,12 @@ abstract class SpellListener(val bookName: String) : Listener {
         }
     }
 
+    /**
+     * Remove runes
+     *
+     * @param player
+     * @param removeAttr
+     */
     fun removeRunes(player: Player, removeAttr: Boolean = true) {
         player.inventory.remove(*player.getAttribute("spell:runes", ArrayList<Item>()).toTypedArray())
         if (removeAttr) {
@@ -86,18 +122,26 @@ abstract class SpellListener(val bookName: String) : Listener {
         }
     }
 
+    /**
+     * Add x p
+     *
+     * @param player
+     * @param amount
+     */
     fun addXP(player: Player, amount: Double) {
         if (player.getAttribute("tablet-spell", false)) return
         player.skills.addExperience(Skills.MAGIC, amount)
     }
 
     /**
-     * @param player The player to visualize the spell on
-     * @param anim The animation object. I.e. Animation(Animations.LUNAR_SPELLBOOK_*)
-     * @param gfx The graphics object. I.e. Graphic(Graphic.LUNAR_SPELLBOOK_*, height in int)
-     * @param soundID The sound to play, either raw integer or from the Sounds ConstLib. Defaults to -1 (Nothing).
-     * @param delay The delay that should be applied before the sound plays, defaults to 0.
-     * @param global Whether the sound should be played globally instead of per-player. Defaults to true.
+     * Visualize spell
+     *
+     * @param player
+     * @param anim
+     * @param gfx
+     * @param soundID
+     * @param delay
+     * @param global
      */
     fun visualizeSpell(
         player: Player,
@@ -116,13 +160,15 @@ abstract class SpellListener(val bookName: String) : Listener {
     }
 
     /**
-     * @param player The player to visualize the spell on
-     * @param anim The integer ID of the animation, found in the Animations ConstLib.
-     * @param gfx The integer ID of the graphics to show, found in the Graphic ConstLib.
-     * @param height How high the graphics should display above the ground(?). Defaults to 0.
-     * @param soundID The sound to play, either raw integer or from the Sounds ConstLib. Defaults to -1 (Nothing).
-     * @param delay The delay that should be applied before the sound plays, defaults to 0.
-     * @param global Whether the sound should be played globally instead of per-player. Defaults to true.
+     * Visualize spell
+     *
+     * @param player
+     * @param anim
+     * @param gfx
+     * @param height
+     * @param soundID
+     * @param delay
+     * @param global
      */
     fun visualizeSpell(
         player: Player,
@@ -141,6 +187,12 @@ abstract class SpellListener(val bookName: String) : Listener {
         }
     }
 
+    /**
+     * Set delay
+     *
+     * @param player
+     * @param isTeleport
+     */
     fun setDelay(player: Player, isTeleport: Boolean = false) {
         if (!isTeleport) player.setAttribute("magic-delay", GameWorld.ticks + 3) else player.setAttribute(
             "magic-delay",
@@ -148,14 +200,30 @@ abstract class SpellListener(val bookName: String) : Listener {
         )
     }
 
+    /**
+     * Set delay
+     *
+     * @param player
+     * @param delay
+     */
     fun setDelay(player: Player, delay: Int) {
         setAttribute(player, "magic-delay", GameWorld.ticks + delay)
     }
 
+    /**
+     * Interrupt
+     *
+     * @param player
+     */
     fun interrupt(player: Player) {
         player.pulseManager.clear()
     }
 
+    /**
+     * Show magic tab
+     *
+     * @param player
+     */
     fun showMagicTab(player: Player) {
         player.interfaceManager.setViewedTab(6)
     }

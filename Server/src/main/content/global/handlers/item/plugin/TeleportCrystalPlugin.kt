@@ -18,6 +18,11 @@ import core.game.world.map.zone.impl.WildernessZone
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Teleport crystal plugin
+ *
+ * @constructor Teleport crystal plugin
+ */
 @Initializable
 class TeleportCrystalPlugin : OptionHandler() {
 
@@ -46,6 +51,13 @@ class TeleportCrystalPlugin : OptionHandler() {
         return false
     }
 
+    /**
+     * Teleport crystal dialogue
+     *
+     * @constructor
+     *
+     * @param player
+     */
     class TeleportCrystalDialogue(player: Player? = null) : Dialogue(player) {
         private var itemId: Int? = null
 

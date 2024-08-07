@@ -9,12 +9,31 @@ import core.game.world.map.RegionManager;
 import core.game.world.map.build.LandscapeParser;
 import core.game.world.update.flag.chunk.ObjectUpdateFlag;
 
+/**
+ * Scenery builder.
+ */
 public final class SceneryBuilder {
 
+    /**
+     * Replace boolean.
+     *
+     * @param remove    the remove
+     * @param construct the construct
+     * @return the boolean
+     */
     public static boolean replace(Scenery remove, Scenery construct) {
         return replace(remove, construct, true, false);
     }
 
+    /**
+     * Replace boolean.
+     *
+     * @param remove    the remove
+     * @param construct the construct
+     * @param clip      the clip
+     * @param permanent the permanent
+     * @return the boolean
+     */
     public static boolean replace(Scenery remove, Scenery construct, boolean clip, boolean permanent) {
         if (!clip) {
             return replaceClientSide(remove, construct, -1);
@@ -59,10 +78,27 @@ public final class SceneryBuilder {
         return true;
     }
 
+    /**
+     * Replace boolean.
+     *
+     * @param remove       the remove
+     * @param construct    the construct
+     * @param restoreTicks the restore ticks
+     * @return the boolean
+     */
     public static boolean replace(Scenery remove, Scenery construct, int restoreTicks) {
         return replace(remove, construct, restoreTicks, true);
     }
 
+    /**
+     * Replace boolean.
+     *
+     * @param remove       the remove
+     * @param construct    the construct
+     * @param restoreTicks the restore ticks
+     * @param clip         the clip
+     * @return the boolean
+     */
     public static boolean replace(Scenery remove, Scenery construct, int restoreTicks, final boolean clip) {
         if (!clip) {
             return replaceClientSide(remove, construct, restoreTicks);
@@ -101,10 +137,24 @@ public final class SceneryBuilder {
         return true;
     }
 
+    /**
+     * Add constructed.
+     *
+     * @param object the object
+     * @return the constructed
+     */
     public static Constructed add(Scenery object) {
         return add(object, -1);
     }
 
+    /**
+     * Add constructed.
+     *
+     * @param object the object
+     * @param ticks  the ticks
+     * @param items  the items
+     * @return the constructed
+     */
     public static Constructed add(Scenery object, int ticks, final GroundItem... items) {
         object = object.getWrapper();
         final Constructed constructed = object.asConstructed();
@@ -127,6 +177,14 @@ public final class SceneryBuilder {
         return constructed;
     }
 
+    /**
+     * Remove all boolean.
+     *
+     * @param objectId  the object id
+     * @param southWest the south west
+     * @param northEast the north east
+     * @return the boolean
+     */
     public static boolean removeAll(int objectId, Location southWest, Location northEast) {
         if (southWest.getX() > northEast.getX() || southWest.getY() > northEast.getY())
             return false;
@@ -143,6 +201,12 @@ public final class SceneryBuilder {
         return true;
     }
 
+    /**
+     * Remove boolean.
+     *
+     * @param object the object
+     * @return the boolean
+     */
     public static boolean remove(Scenery object) {
         if (object == null) {
             return false;
@@ -156,6 +220,13 @@ public final class SceneryBuilder {
         return true;
     }
 
+    /**
+     * Remove boolean.
+     *
+     * @param object       the object
+     * @param respawnTicks the respawn ticks
+     * @return the boolean
+     */
     public static boolean remove(final Scenery object, int respawnTicks) {
         if (remove(object)) {
             GameWorld.getPulser().submit(new Pulse(respawnTicks) {
@@ -172,6 +243,11 @@ public final class SceneryBuilder {
         return false;
     }
 
+    /**
+     * Update.
+     *
+     * @param objects the objects
+     */
     public static void update(Scenery... objects) {
         for (Scenery o : objects) {
             if (o == null) {

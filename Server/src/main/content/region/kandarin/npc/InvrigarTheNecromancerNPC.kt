@@ -9,6 +9,9 @@ import core.game.node.entity.npc.NPCBehavior
 import core.game.node.entity.player.Player
 import core.tools.RandomFunction
 
+/**
+ * Invrigar the necromancer NPC.
+ */
 class InvrigarTheNecromancerNPC : NPCBehavior(NPCs.INVRIGAR_THE_NECROMANCER_173) {
 
     override fun afterDamageReceived(self: NPC, attacker: Entity, state: BattleState) {

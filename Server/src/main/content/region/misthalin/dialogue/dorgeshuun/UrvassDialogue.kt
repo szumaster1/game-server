@@ -8,6 +8,9 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 import core.api.consts.NPCs
 
+/**
+ * Urvass dialogue.
+ */
 @Initializable
 class UrvassDialogue(player: Player? = null) : Dialogue(player) {
 

@@ -7,6 +7,10 @@ import core.api.submitIndividualPulse
 import core.game.interaction.InterfaceListener
 import core.game.system.task.Pulse
 
+/**
+ * Blast furnace interface listener.
+ * @author Ceikry
+ */
 class BlastFurnaceInterfaceListener : InterfaceListener {
     override fun defineInterfaceListeners() {
         onOpen(Components.BLAST_FURNACE_BAR_STOCK_28) { player, _ ->

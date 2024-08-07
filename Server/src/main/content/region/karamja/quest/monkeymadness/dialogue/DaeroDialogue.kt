@@ -10,6 +10,11 @@ import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.tools.END_DIALOGUE
 
+/**
+ * Daero dialogue
+ *
+ * @constructor Daero dialogue
+ */
 class DaeroDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

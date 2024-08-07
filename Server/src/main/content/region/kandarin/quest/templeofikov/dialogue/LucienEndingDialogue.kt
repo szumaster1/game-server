@@ -10,6 +10,9 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Lucien ending dialogue.
+ */
 @Initializable
 class LucienEndingDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -24,6 +27,11 @@ class LucienEndingDialogue(player: Player? = null) : Dialogue(player) {
 
 }
 
+/**
+ * Lucien ending dialogue file
+ *
+ * @constructor Lucien ending dialogue file
+ */
 class LucienEndingDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {
         b.onQuestStages("Temple of Ikov", 100)

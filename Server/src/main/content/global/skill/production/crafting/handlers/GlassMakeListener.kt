@@ -8,6 +8,9 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import kotlin.math.min
 
+/**
+ * Glass make listener.
+ */
 class GlassMakeListener : InteractionListener {
 
     companion object {

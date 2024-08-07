@@ -1,6 +1,5 @@
 package content.global.skill.gathering.fishing
 
-
 import content.global.handlers.item.equipment.gloves.FOGGlovesManager
 import content.global.skill.combat.summoning.familiar.Forager
 import content.global.skill.gathering.fishing.data.Fish
@@ -24,6 +23,9 @@ import core.game.world.map.path.Pathfinder
 import core.tools.RandomFunction
 import core.tools.colorize
 
+/**
+ * Fishing listener.
+ */
 class FishingListener : InteractionListener {
     override fun defineListeners() {
         val spotIds = FishingSpot.values().flatMap { it.ids.toList() }.toIntArray()

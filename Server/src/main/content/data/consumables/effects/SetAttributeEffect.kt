@@ -5,11 +5,14 @@ import core.game.consumable.ConsumableEffect
 import core.game.node.entity.player.Player
 import core.game.world.GameWorld.ticks
 
+/**
+ * Set attribute effect.
+ */
 class SetAttributeEffect : ConsumableEffect {
 
-    private var attrString: String
-    private var attrValue: Any
-    private var isTicks: Boolean = false
+    private var attrString: String  // Attribute name
+    private var attrValue: Any  // Attribute value
+    private var isTicks: Boolean = false  // Flag to check if the value is in ticks
 
     constructor(attr: String, value: Any, isTicks: Boolean) {
         this.attrString = attr
@@ -25,11 +28,11 @@ class SetAttributeEffect : ConsumableEffect {
 
     override fun activate(player: Player) {
         if (isTicks) {
-            val value = attrValue as Int + ticks
-            setAttribute(player,attrString, value)
+            val value = attrValue as Int + ticks  // Calculate value in ticks
+            setAttribute(player, attrString, value)  // Set attribute with the calculated value
             return
         }
-        setAttribute(player,attrString, attrValue)
+        setAttribute(player, attrString, attrValue)  // Set attribute with the provided value
     }
 
 }

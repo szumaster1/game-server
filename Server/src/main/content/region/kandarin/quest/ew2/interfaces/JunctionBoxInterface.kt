@@ -5,6 +5,11 @@ import core.api.consts.Components
 import core.game.dialogue.FacialExpression
 import core.game.interaction.InterfaceListener
 
+/**
+ * Junction box interface
+ *
+ * @constructor Junction box interface
+ */
 class JunctionBoxInterface : InterfaceListener {
     private val junctionBox = Components.JUNCTION_BOX_262
     override fun defineInterfaceListeners() {

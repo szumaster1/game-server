@@ -7,8 +7,19 @@ import core.network.packet.IoBuffer;
 import core.network.packet.OutgoingPacket;
 import core.network.packet.context.BuildSceneryContext;
 
+/**
+ * Clear scenery.
+ * @author Emperor
+ */
 public final class ClearScenery implements OutgoingPacket<BuildSceneryContext> {
 
+    /**
+     * Write io buffer.
+     *
+     * @param buffer the buffer
+     * @param object the object
+     * @return the io buffer
+     */
     public static IoBuffer write(IoBuffer buffer, Scenery object) {
         Location l = object.getLocation();
         /*

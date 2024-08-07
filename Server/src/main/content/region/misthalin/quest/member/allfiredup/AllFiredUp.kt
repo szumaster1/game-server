@@ -10,8 +10,9 @@ import core.api.*
 import core.api.consts.Items
 
 /**
- * Represents the "All Fired Up" quest.
- * @author Ceikry
+ * All fired up
+ *
+ * @constructor All fired up
  */
 @Initializable
 class AllFiredUp : Quest("All Fired Up", 157, 156, 1){

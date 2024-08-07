@@ -15,6 +15,11 @@ import core.game.node.item.Item
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
+/**
+ * Equip tests
+ *
+ * @constructor Equip tests
+ */
 class EquipTests {
     companion object {
         init {
@@ -22,6 +27,10 @@ class EquipTests {
         }
     }
 
+    /**
+     * Equip should fire equip listeners
+     *
+     */
     @Test
     fun equipShouldFireEquipListeners() {
         var didRun = false
@@ -39,6 +48,10 @@ class EquipTests {
         Assertions.assertEquals(true, didRun)
     }
 
+    /**
+     * Unequip should fire unequip listeners
+     *
+     */
     @Test
     fun unequipShouldFireUnequipListeners() {
         var didRun = false
@@ -56,6 +69,10 @@ class EquipTests {
         Assertions.assertEquals(true, didRun)
     }
 
+    /**
+     * Equipping item that replaces another item should call unequip listeners for the replaced item
+     *
+     */
     @Test
     fun equippingItemThatReplacesAnotherItemShouldCallUnequipListenersForTheReplacedItem() {
         var didRun = false
@@ -75,6 +92,10 @@ class EquipTests {
         Assertions.assertEquals(true, didRun, p.equipment.toString())
     }
 
+    /**
+     * Equipping item should add unequipped item to existing stack in inventory
+     *
+     */
     @Test
     fun equippingItemShouldAddUnequippedItemToExistingStackInInventory() {
         val p = TestUtils.getMockPlayer("bill")
@@ -91,6 +112,10 @@ class EquipTests {
         )
     }
 
+    /**
+     * Equipping item that unequips two items should be allowed with only one initially free slot
+     *
+     */
     @Test
     fun equippingItemThatUnequipsTwoItemsShouldBeAllowedWithOnlyOneInitiallyFreeSlot() {
         val p = TestUtils.getMockPlayer("bill")
@@ -108,6 +133,10 @@ class EquipTests {
         Assertions.assertEquals(Items.WOODEN_SHIELD_1171, p.inventory[27].id)
     }
 
+    /**
+     * Should not be able to equip a2h weapon and a shield at the same time
+     *
+     */
     @Test
     fun shouldNotBeAbleToEquipA2HWeaponAndAShieldAtTheSameTime() {
         val p = TestUtils.getMockPlayer("bill")
@@ -121,6 +150,10 @@ class EquipTests {
         Assertions.assertEquals(Items.BRONZE_2H_SWORD_1307, p.inventory[1]?.id ?: -1)
     }
 
+    /**
+     * Equipping shield should not unequip one handed weapon
+     *
+     */
     @Test
     fun equippingShieldShouldNotUnequipOneHandedWeapon() {
         val p = TestUtils.getMockPlayer("bill")
@@ -134,6 +167,10 @@ class EquipTests {
         Assertions.assertEquals(Items.BRONZE_SWORD_1277, p.equipment[EquipmentSlot.WEAPON.ordinal]?.id ?: -1)
     }
 
+    /**
+     * Equipping stackable item should add to existing stack in equipment if applicable
+     *
+     */
     @Test
     fun equippingStackableItemShouldAddToExistingStackInEquipmentIfApplicable() {
         val p = TestUtils.getMockPlayer("bill")
@@ -144,6 +181,10 @@ class EquipTests {
         Assertions.assertEquals(300, p.equipment[EquipmentSlot.AMMO.ordinal].amount)
     }
 
+    /**
+     * Swapping equipment should preserve inventory slots
+     *
+     */
     @Test
     fun swappingEquipmentShouldPreserveInventorySlots() {
         val p = TestUtils.getMockPlayer("bill")
@@ -160,6 +201,10 @@ class EquipTests {
         Assertions.assertEquals(p.inventory.getSlot(Item(Items.RUNE_DEFENDER_8850)), 0)
     }
 
+    /**
+     * Grave death with equipped item should fire unequip hooks
+     *
+     */
     @Test
     fun graveDeathWithEquippedItemShouldFireUnequipHooks() {
         TestUtils.getMockPlayer("graveunequip").use { p ->

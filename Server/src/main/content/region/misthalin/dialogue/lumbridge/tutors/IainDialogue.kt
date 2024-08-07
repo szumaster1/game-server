@@ -9,6 +9,9 @@ import core.tools.END_DIALOGUE
 import core.api.consts.NPCs
 
 
+/**
+ * Iain dialogue.
+ */
 @Initializable
 class IainDialogue(player: Player? = null) : Dialogue(player) {
 

@@ -9,6 +9,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.item.Item
 
+/**
+ * Fermenting vat
+ *
+ * @constructor Fermenting vat
+ */
 class FermentingVat : InteractionListener {
 
     override fun defineListeners() {

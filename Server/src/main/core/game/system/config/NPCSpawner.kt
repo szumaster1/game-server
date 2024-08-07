@@ -11,9 +11,16 @@ import org.json.simple.JSONObject
 import org.json.simple.parser.JSONParser
 import java.io.FileReader
 
+/**
+ * NPC spawner.
+ */
 class NPCSpawner {
     val parser = JSONParser()
     var reader: FileReader? = null
+
+    /**
+     * Load.
+     */
     fun load() {
         var count = 0
         reader = FileReader(ServerConstants.CONFIG_PATH + "npc_spawns.json")

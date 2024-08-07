@@ -6,16 +6,27 @@ import java.util.ArrayList;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
+/**
+ * Initializing node list.
+ *
+ * @param <T> the type parameter
+ */
 public final class InitializingNodeList<T extends Node> extends ArrayList<T> {
 
     private static final long serialVersionUID = 7727358901001709156L;
 
     private final Queue<InitializationEntry> queue = new ConcurrentLinkedQueue<>();
 
+    /**
+     * Instantiates a new Initializing node list.
+     */
     public InitializingNodeList() {
         super();
     }
 
+    /**
+     * Sync.
+     */
     @SuppressWarnings("unchecked")
     public void sync() {
         while (!queue.isEmpty()) {

@@ -8,6 +8,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Commander veldaban d dialogue.
+ */
 @Initializable
 class CommanderVeldabanDDialogue(player: Player? = null) : Dialogue(player) {
     override fun handle(componentID: Int, buttonID: Int): Boolean {

@@ -16,6 +16,9 @@ import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 import kotlin.math.floor
 
+/**
+ * Evil turnip familiar.
+ */
 @Initializable
 class EvilTurnipNPC(owner: Player? = null, id: Int = NPCs.EVIL_TURNIP_6833) : Forager(owner, id, 3000, 12051, 6, WeaponInterface.STYLE_RANGE_ACCURATE, EVIL_TURNIP) {
 

@@ -7,7 +7,16 @@ import content.global.skill.production.smithing.data.Bar
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
+/**
+ * Blast furnace ore container tests
+ *
+ * @constructor Blast furnace ore container tests
+ */
 class BlastFurnaceOreContainerTests {
+    /**
+     * Should be able to add coal
+     *
+     */
     @Test
     fun shouldBeAbleToAddCoal() {
         val cont = BFOreContainer()
@@ -15,6 +24,10 @@ class BlastFurnaceOreContainerTests {
         Assertions.assertEquals(15, cont.coalAmount())
     }
 
+    /**
+     * Add coal should return extra amount if adding more than possible
+     *
+     */
     @Test
     fun addCoalShouldReturnExtraAmountIfAddingMoreThanPossible() {
         val cont = BFOreContainer()
@@ -22,6 +35,10 @@ class BlastFurnaceOreContainerTests {
         Assertions.assertEquals(2, cont.addCoal(28))
     }
 
+    /**
+     * Should be able to add ores
+     *
+     */
     @Test
     fun shouldBeAbleToAddOres() {
         val cont = BFOreContainer()
@@ -29,6 +46,10 @@ class BlastFurnaceOreContainerTests {
         Assertions.assertEquals(20, cont.getOreAmount(Items.IRON_ORE_440))
     }
 
+    /**
+     * Add ore should return extra amount if adding more than possible
+     *
+     */
     @Test
     fun addOreShouldReturnExtraAmountIfAddingMoreThanPossible() {
         val cont = BFOreContainer()
@@ -36,6 +57,10 @@ class BlastFurnaceOreContainerTests {
         Assertions.assertEquals(3, cont.addOre(Items.IRON_ORE_440, 5))
     }
 
+    /**
+     * Add ore should return extra amount when adding more copper or tin than possible
+     *
+     */
     @Test
     fun addOreShouldReturnExtraAmountWhenAddingMoreCopperOrTinThanPossible() {
         val contTin = BFOreContainer()
@@ -45,6 +70,10 @@ class BlastFurnaceOreContainerTests {
         Assertions.assertEquals(28, contCopper.addOre(Items.COPPER_ORE_436, 56))
     }
 
+    /**
+     * Convert to bars should yield expected results
+     *
+     */
     @Test
     fun convertToBarsShouldYieldExpectedResults() {
         data class Data(
@@ -132,6 +161,10 @@ class BlastFurnaceOreContainerTests {
         }
     }
 
+    /**
+     * Convert to bars should not consume materials for already filled bar type
+     *
+     */
     @Test
     fun convertToBarsShouldNotConsumeMaterialsForAlreadyFilledBarType() {
         val cont = BFOreContainer()
@@ -145,6 +178,10 @@ class BlastFurnaceOreContainerTests {
         Assertions.assertEquals(28, cont.getOreAmount(Items.IRON_ORE_440))
     }
 
+    /**
+     * Ore container should cleanly serialize and deserialize from json
+     *
+     */
     @Test
     fun oreContainerShouldCleanlySerializeAndDeserializeFromJson() {
         val cont = BFOreContainer()
@@ -164,6 +201,10 @@ class BlastFurnaceOreContainerTests {
         Assertions.assertEquals(150, cont.coalAmount())
     }
 
+    /**
+     * Should be able to remove bars
+     *
+     */
     @Test
     fun shouldBeAbleToRemoveBars() {
         val cont = BFOreContainer()
@@ -175,6 +216,10 @@ class BlastFurnaceOreContainerTests {
         Assertions.assertEquals(13, cont.getBarAmount(Bar.IRON))
     }
 
+    /**
+     * Should not be able to remove more bars than possible
+     *
+     */
     @Test
     fun shouldNotBeAbleToRemoveMoreBarsThanPossible() {
         val cont = BFOreContainer()
@@ -186,6 +231,10 @@ class BlastFurnaceOreContainerTests {
         Assertions.assertEquals(0, cont.getBarAmount(Bar.IRON))
     }
 
+    /**
+     * Convert to bars should return x p reward
+     *
+     */
     @Test
     fun convertToBarsShouldReturnXPReward() {
         val cont = BFOreContainer()
@@ -194,6 +243,10 @@ class BlastFurnaceOreContainerTests {
         Assertions.assertEquals(350.0, cont.convertToBars())
     }
 
+    /**
+     * Removing bars with no stock returns null
+     *
+     */
     @Test
     fun removingBarsWithNoStockReturnsNull() {
         val cont = BFOreContainer()

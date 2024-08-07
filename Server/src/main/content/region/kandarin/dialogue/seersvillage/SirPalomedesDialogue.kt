@@ -9,6 +9,9 @@ import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Sir palomedes dialogue.
+ */
 @Initializable
 class SirPalomedesDialogue(player: Player? = null) : Dialogue(player) {
 

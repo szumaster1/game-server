@@ -8,6 +8,11 @@ import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.*
 import java.io.File
 
+/**
+ * Exchange tests
+ *
+ * @constructor Exchange tests
+ */
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class ExchangeTests {
     companion object {
@@ -73,6 +78,10 @@ class ExchangeTests {
         }
     }
 
+    /**
+     * Test place offer
+     *
+     */
     @Test
     fun testPlaceOffer() {
         val offer = generateOffer(4151, 1, 100000, true)
@@ -86,6 +95,10 @@ class ExchangeTests {
         }
     }
 
+    /**
+     * Test buy first sell after favors sell
+     *
+     */
     @Test
     fun testBuyFirstSellAfterFavorsSell() {
         val buyOffer = generateOffer(4151, 1, 100000, false)
@@ -98,6 +111,10 @@ class ExchangeTests {
         ) //should get no coins back
     }
 
+    /**
+     * Test sell first buy after favors buy
+     *
+     */
     @Test
     fun testSellFirstBuyAfterFavorsBuy() {
         val sellOffer = generateOffer(4151, 1, 85000, true)
@@ -110,6 +127,10 @@ class ExchangeTests {
         ) //should get coins back
     }
 
+    /**
+     * Buyer cannot buy higher sell offer
+     *
+     */
     @Test
     fun buyerCannotBuyHigherSellOffer() {
         val sellOffer = generateOffer(4151, 1, 125000, true)
@@ -118,6 +139,10 @@ class ExchangeTests {
         Assertions.assertEquals(null, buyOffer.withdraw[0]) //Buyer should not get any items, sell offer is higher
     }
 
+    /**
+     * Many completed offers above default price should influence price upwards
+     *
+     */
     @Test
     fun manyCompletedOffersAboveDefaultPriceShouldInfluencePriceUpwards() {
         val defaultPrice = GrandExchange.getRecommendedPrice(4151)
@@ -138,6 +163,10 @@ class ExchangeTests {
         )
     }
 
+    /**
+     * Player trading with themselves should not be able to influence prices
+     *
+     */
     @Test
     fun playerTradingWithThemselvesShouldNotBeAbleToInfluencePrices() {
         val defaultPrice = GrandExchange.getRecommendedPrice(4151)
@@ -152,6 +181,10 @@ class ExchangeTests {
         Assertions.assertEquals(defaultPrice, GrandExchange.getRecommendedPrice(4151))
     }
 
+    /**
+     * Concurrently submitted offers should not throw exceptions
+     *
+     */
     @Test
     fun concurrentlySubmittedOffersShouldNotThrowExceptions() {
         runBlocking {
@@ -172,6 +205,10 @@ class ExchangeTests {
         }
     }
 
+    /**
+     * Offer with combined noted and unnoted amount should suceed
+     *
+     */
     @Test
     fun offerWithCombinedNotedAndUnnotedAmountShouldSuceed() {
         TestUtils.getMockPlayer("combinedNotendAndUnnotedExcTest").use { p ->
@@ -185,6 +222,10 @@ class ExchangeTests {
         }
     }
 
+    /**
+     * Offer with only noted amount should succeed
+     *
+     */
     @Test
     fun offerWithOnlyNotedAmountShouldSucceed() {
         TestUtils.getMockPlayer("onlyNotedOfferSucceed").use { p ->
@@ -197,6 +238,10 @@ class ExchangeTests {
         }
     }
 
+    /**
+     * Offer with more unnoted items than offer amount should succeed
+     *
+     */
     @Test
     fun offerWithMoreUnnotedItemsThanOfferAmountShouldSucceed() {
         TestUtils.getMockPlayer("onlyUnnotedOfferWithExtraItemsSucceed").use { p ->
@@ -209,6 +254,10 @@ class ExchangeTests {
         }
     }
 
+    /**
+     * Offer with only unnoted amount should succeed
+     *
+     */
     @Test
     fun offerWithOnlyUnnotedAmountShouldSucceed() {
         TestUtils.getMockPlayer("onlyUnnotedOfferSucceed").use { p ->
@@ -221,6 +270,10 @@ class ExchangeTests {
         }
     }
 
+    /**
+     * Offer with not enough noted items should fail
+     *
+     */
     @Test
     fun offerWithNotEnoughNotedItemsShouldFail() {
         TestUtils.getMockPlayer("combinedNotedAndUnnotedFailure").use { p ->
@@ -237,6 +290,10 @@ class ExchangeTests {
         }
     }
 
+    /**
+     * Offer with not enough unnoted items should fail
+     *
+     */
     @Test
     fun offerWithNotEnoughUnnotedItemsShouldFail() {
         TestUtils.getMockPlayer("combinedNotedAndUnnotedFailure2").use { p ->

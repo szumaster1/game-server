@@ -6,6 +6,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
 import core.tools.RandomFunction
 
+/**
+ * Museum worker NPC.
+ */
 class MuseumWorkerNPC : NPCBehavior(*archelogistsNPCs) {
 
     companion object {

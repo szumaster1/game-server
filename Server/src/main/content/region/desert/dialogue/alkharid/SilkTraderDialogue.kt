@@ -11,6 +11,9 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Silk trader dialogue.
+ */
 @Initializable
 class SilkTraderDialogue(player: Player? = null) : Dialogue(player) {
 

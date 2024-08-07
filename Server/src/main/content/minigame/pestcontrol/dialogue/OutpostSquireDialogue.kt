@@ -7,6 +7,9 @@ import core.game.node.entity.player.Player
 import core.game.world.GameWorld.settings
 import core.plugin.Initializable
 
+/**
+ * Outpost squire dialogue.
+ */
 @Initializable
 class OutpostSquireDialogue(player: Player? = null) : Dialogue(player) {
 

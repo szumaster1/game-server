@@ -10,6 +10,11 @@ import core.game.interaction.InteractionListener
 import core.game.node.item.Item
 import core.game.system.task.Pulse
 
+/**
+ * Regicide listeners
+ *
+ * @constructor Regicide listeners
+ */
 class RegicideListeners : InteractionListener {
 
     private val FURNACES = intArrayOf(Scenery.FURNACE_4304, Scenery.FURNACE_6189, Scenery.FURNACE_11010, Scenery.FURNACE_11666, Scenery.FURNACE_12100, Scenery.FURNACE_12809, Scenery.FURNACE_18497, Scenery.FURNACE_26814, Scenery.FURNACE_30021, Scenery.FURNACE_30510, Scenery.FURNACE_36956, Scenery.FURNACE_37651)

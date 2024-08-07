@@ -11,6 +11,11 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
 
+/**
+ * Milling interaction listener
+ *
+ * @constructor Milling interaction listener
+ */
 class MillingInteractionListener : InteractionListener {
 
     override fun defineListeners() {

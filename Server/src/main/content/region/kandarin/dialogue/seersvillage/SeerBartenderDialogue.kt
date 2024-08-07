@@ -10,6 +10,9 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.Initializable
 
+/**
+ * Seer bartender dialogue.
+ */
 @Initializable
 class SeerBartenderDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -19,6 +22,12 @@ class SeerBartenderDialogue(player: Player? = null) : Dialogue(player) {
         return true
     }
 
+    /**
+     * Buy
+     *
+     * @param item
+     * @param ammount
+     */
     fun buy(item: Int, ammount: Int) {
         if (freeSlots(player) == 0) {
             player(FacialExpression.HALF_GUILTY, "I don't seem to have room, sorry.")

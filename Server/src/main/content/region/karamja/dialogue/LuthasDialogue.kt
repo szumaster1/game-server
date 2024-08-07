@@ -15,6 +15,9 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Luthas dialogue.
+ */
 @Initializable
 class LuthasDialogue(player: Player? = null) : Dialogue(player) {
 

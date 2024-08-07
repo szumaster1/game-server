@@ -12,6 +12,9 @@ import core.game.world.GameWorld
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Natural historian north dialogue.
+ */
 @Initializable
 class NaturalHistorianNorthDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -116,6 +119,11 @@ class NaturalHistorianNorthDialogue(player: Player? = null) : Dialogue(player) {
 
 }
 
+/**
+ * Talk about lizards
+ *
+ * @constructor Talk about lizards
+ */
 class TalkAboutLizards : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
@@ -140,6 +148,11 @@ class TalkAboutLizards : DialogueFile() {
 
 }
 
+/**
+ * Talk about tortoises
+ *
+ * @constructor Talk about tortoises
+ */
 class TalkAboutTortoises : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
@@ -165,6 +178,11 @@ class TalkAboutTortoises : DialogueFile() {
 
 }
 
+/**
+ * Talk about dragons
+ *
+ * @constructor Talk about dragons
+ */
 class TalkAboutDragons : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
@@ -195,6 +213,11 @@ class TalkAboutDragons : DialogueFile() {
 
 }
 
+/**
+ * Talk about wyverns
+ *
+ * @constructor Talk about wyverns
+ */
 class TalkAboutWyverns : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

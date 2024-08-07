@@ -11,8 +11,11 @@ import core.game.system.communication.ClanRank
 import core.plugin.Plugin
 import java.util.*
 
+/**
+ * CW challenge option.
+ */
 class CWChallengeOption : OptionHandler() {
-    @Throws(Throwable::class)
+
     override fun newInstance(arg: Any?): Plugin<Any> {
         OPTION.setHandler(this)
         return this

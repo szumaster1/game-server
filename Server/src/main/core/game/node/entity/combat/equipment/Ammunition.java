@@ -13,6 +13,9 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Ammunition.
+ */
 public final class Ammunition {
 
     private static final Map<Integer, Ammunition> AMMUNITION = new HashMap<Integer, Ammunition>();
@@ -29,6 +32,15 @@ public final class Ammunition {
 
     private BoltEffect effect;
 
+    /**
+     * Instantiates a new Ammunition.
+     *
+     * @param itemId         the item id
+     * @param startGraphic   the start graphic
+     * @param darkBowGraphic the dark bow graphic
+     * @param projectile     the projectile
+     * @param poisonDamage   the poison damage
+     */
     public Ammunition(int itemId, Graphic startGraphic, Graphic darkBowGraphic, Projectile projectile, int poisonDamage) {
         this.itemId = itemId;
         this.startGraphic = startGraphic;
@@ -37,6 +49,11 @@ public final class Ammunition {
         this.projectile = projectile;
     }
 
+    /**
+     * Initialize boolean.
+     *
+     * @return the boolean
+     */
     public static final boolean initialize() {
         Document doc;
         try {
@@ -87,42 +104,93 @@ public final class Ammunition {
         return true;
     }
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String... args) {
         initialize();
     }
 
+    /**
+     * Gets ammunition.
+     *
+     * @return the ammunition
+     */
     public static Map<Integer, Ammunition> getAmmunition() {
         return AMMUNITION;
     }
 
+    /**
+     * Get ammunition.
+     *
+     * @param id the id
+     * @return the ammunition
+     */
     public static final Ammunition get(int id) {
         return AMMUNITION.get(id);
     }
 
+    /**
+     * Gets item id.
+     *
+     * @return the item id
+     */
     public int getItemId() {
         return itemId;
     }
 
+    /**
+     * Gets start graphics.
+     *
+     * @return the start graphics
+     */
     public Graphic getStartGraphics() {
         return startGraphic;
     }
 
+    /**
+     * Gets dark bow graphics.
+     *
+     * @return the dark bow graphics
+     */
     public Graphic getDarkBowGraphics() {
         return darkBowGraphic;
     }
 
+    /**
+     * Gets projectile.
+     *
+     * @return the projectile
+     */
     public Projectile getProjectile() {
         return projectile;
     }
 
+    /**
+     * Gets poison damage.
+     *
+     * @return the poison damage
+     */
     public int getPoisonDamage() {
         return poisonDamage;
     }
 
+    /**
+     * Gets effect.
+     *
+     * @return the effect
+     */
     public BoltEffect getEffect() {
         return effect;
     }
 
+    /**
+     * Sets effect.
+     *
+     * @param effect the effect
+     */
     public void setEffect(BoltEffect effect) {
         this.effect = effect;
     }

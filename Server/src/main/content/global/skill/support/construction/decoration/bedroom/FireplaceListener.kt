@@ -12,6 +12,9 @@ import core.game.node.scenery.SceneryBuilder
 import core.game.world.update.flag.context.Animation
 import core.api.consts.Scenery as Object
 
+/**
+ * Fireplace listener.
+ */
 class FireplaceListener : InteractionListener {
 
     private val animationId: Animation = Animation.create(3658)

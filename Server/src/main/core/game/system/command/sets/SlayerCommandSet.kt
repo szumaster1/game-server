@@ -9,6 +9,11 @@ import core.game.node.entity.npc.NPC
 import core.game.system.command.Privilege
 import core.plugin.Initializable
 
+/**
+ * Slayer command set
+ *
+ * @constructor Slayer command set
+ */
 @Initializable
 class SlayerCommandSet : CommandSet(Privilege.ADMIN) {
     override fun defineCommands() {

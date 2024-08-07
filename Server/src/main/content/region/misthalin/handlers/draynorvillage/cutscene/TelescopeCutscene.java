@@ -19,16 +19,27 @@ import kotlin.Unit;
 
 import static core.api.ContentAPIKt.*;
 
+/**
+ * Telescope cutscene.
+ */
 @Initializable
 public final class TelescopeCutscene extends CutscenePlugin {
 
     private static final Component INTERFACE = new Component(386);
     private static final Animation TELESCOPE_ANIM = new Animation(2171);
 
+    /**
+     * Instantiates a new Telescope cutscene.
+     */
     public TelescopeCutscene() {
         super("draynor telescope");
     }
 
+    /**
+     * Instantiates a new Telescope cutscene.
+     *
+     * @param player the player
+     */
     public TelescopeCutscene(Player player) {
         super("draynor telescope");
         this.player = player;
@@ -104,12 +115,23 @@ public final class TelescopeCutscene extends CutscenePlugin {
 
     }
 
+    /**
+     * End dialogue.
+     */
     public static final class EndDialogue extends Dialogue {
 
+        /**
+         * Instantiates a new End dialogue.
+         *
+         * @param player the player
+         */
         public EndDialogue(final Player player) {
             super(player);
         }
 
+        /**
+         * Instantiates a new End dialogue.
+         */
         public EndDialogue() {
 
         }

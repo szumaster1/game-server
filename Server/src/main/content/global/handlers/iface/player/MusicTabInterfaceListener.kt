@@ -5,6 +5,11 @@ import core.api.sendMessage
 import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.link.music.MusicEntry
 
+/**
+ * Music tab interface listener
+ *
+ * @constructor Music tab interface listener
+ */
 class MusicTabInterfaceListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {

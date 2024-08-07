@@ -9,6 +9,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Rufus dialogue.
+ */
 @Initializable
 class RufusDialogue(player: Player? = null) : Dialogue(player) {
 

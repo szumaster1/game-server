@@ -8,6 +8,11 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
 
+/**
+ * Production authenticator tests
+ *
+ * @constructor Production authenticator tests
+ */
 class ProductionAuthenticatorTests {
     companion object {
         private val authProvider = ProductionAuthenticator()
@@ -29,22 +34,38 @@ class ProductionAuthenticatorTests {
         }
     }
 
+    /**
+     * Should reject login with invalid details
+     *
+     */
     @Test
     fun shouldRejectLoginWithInvalidDetails() {
         Assertions.assertEquals(AuthResponse.InvalidCredentials, authProvider.checkLogin("test", "test2").first)
     }
 
+    /**
+     * Login username is not case sensitive
+     *
+     */
     @Test
     fun loginUsernameIsNotCaseSensitive() {
         Assertions.assertEquals(AuthResponse.Success, authProvider.checkLogin("Test", "testing").first)
         Assertions.assertEquals(AuthResponse.Success, authProvider.checkLogin("test", "testing").first)
     }
 
+    /**
+     * Should hash passwords
+     *
+     */
     @Test
     fun shouldHashPasswords() {
         Assertions.assertNotEquals("testing", storageProvider.getAccountInfo("test").password)
     }
 
+    /**
+     * Should not allow banned login
+     *
+     */
     @Test
     fun shouldNotAllowBannedLogin() {
         val info = storageProvider.getAccountInfo("test")
@@ -56,6 +77,10 @@ class ProductionAuthenticatorTests {
         Assertions.assertEquals(AuthResponse.Success, authProvider.checkLogin("test", "testing").first)
     }
 
+    /**
+     * Should not allow already online login
+     *
+     */
     @Test
     fun shouldNotAllowAlreadyOnlineLogin() {
         val info = storageProvider.getAccountInfo("test")

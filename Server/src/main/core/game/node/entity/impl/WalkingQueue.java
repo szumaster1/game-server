@@ -19,6 +19,9 @@ import java.util.Deque;
 import static core.api.ContentAPIKt.hasTimerActive;
 import static core.api.ContentAPIKt.log;
 
+/**
+ * Walking queue.
+ */
 public final class WalkingQueue {
 
     private final Deque<Point> walkingQueue = new ArrayDeque<Point>();
@@ -35,13 +38,24 @@ public final class WalkingQueue {
 
     private Location footPrint;
 
+    /**
+     * The Route items.
+     */
     public ArrayList<GroundItem> routeItems = new ArrayList<GroundItem>();
 
+    /**
+     * Instantiates a new Walking queue.
+     *
+     * @param entity the entity
+     */
     public WalkingQueue(Entity entity) {
         this.entity = entity;
         this.footPrint = entity.getLocation();
     }
 
+    /**
+     * Update.
+     */
     public void update() {
         boolean isPlayer = entity instanceof Player;
         this.walkDir = -1;
@@ -162,6 +176,11 @@ public final class WalkingQueue {
         return rate;
     }
 
+    /**
+     * Update run energy.
+     *
+     * @param decrease the decrease
+     */
     public void updateRunEnergy(boolean decrease) {
         if (!(entity instanceof Player)) {
             return;
@@ -181,6 +200,11 @@ public final class WalkingQueue {
         p.getSettings().updateRunEnergy(drain);
     }
 
+    /**
+     * Update teleport boolean.
+     *
+     * @return the boolean
+     */
     public boolean updateTeleport() {
         if (entity.getProperties().getTeleportLocation() != null) {
             reset(false);
@@ -206,6 +230,13 @@ public final class WalkingQueue {
         return false;
     }
 
+    /**
+     * Update region boolean.
+     *
+     * @param location the location
+     * @param move     the move
+     * @return the boolean
+     */
     public boolean updateRegion(Location location, boolean move) {
         Player p = (Player) entity;
         Location lastRegion = p.getPlayerFlags().getLastSceneGraph();
@@ -233,16 +264,32 @@ public final class WalkingQueue {
         return false;
     }
 
+    /**
+     * Walk back.
+     */
     public void walkBack() {
         entity.getPulseManager().clear();
         reset();
         addPath(footPrint.getX(), footPrint.getY());
     }
 
+    /**
+     * Add path.
+     *
+     * @param x the x
+     * @param y the y
+     */
     public void addPath(int x, int y) {
         addPath(x, y, runDisabled);
     }
 
+    /**
+     * Add path.
+     *
+     * @param x           the x
+     * @param y           the y
+     * @param runDisabled the run disabled
+     */
     public void addPath(int x, int y, boolean runDisabled) {
         Point point = walkingQueue.peekLast();
         if (point == null) {
@@ -272,6 +319,13 @@ public final class WalkingQueue {
         }
     }
 
+    /**
+     * Add point.
+     *
+     * @param x           the x
+     * @param y           the y
+     * @param runDisabled the run disabled
+     */
     public void addPoint(int x, int y, boolean runDisabled) {
         Point point = walkingQueue.peekLast();
         if (point == null) {
@@ -284,6 +338,11 @@ public final class WalkingQueue {
         }
     }
 
+    /**
+     * Is running both boolean.
+     *
+     * @return the boolean
+     */
     public boolean isRunningBoth() {
         if (isRunDisabled()) return false;
         if (entity instanceof Player && ((Player) entity).getSettings().isRunToggled()) {
@@ -292,18 +351,36 @@ public final class WalkingQueue {
         return running;
     }
 
+    /**
+     * Has path boolean.
+     *
+     * @return the boolean
+     */
     public boolean hasPath() {
         return !walkingQueue.isEmpty();
     }
 
+    /**
+     * Is moving boolean.
+     *
+     * @return the boolean
+     */
     public boolean isMoving() {
         return walkDir != -1 || runDir != -1;
     }
 
+    /**
+     * Reset.
+     */
     public void reset() {
         reset(running);
     }
 
+    /**
+     * Reset.
+     *
+     * @param running the running
+     */
     public void reset(boolean running) {
         Location loc = entity.getLocation();
 
@@ -319,38 +396,83 @@ public final class WalkingQueue {
         this.running = running;
     }
 
+    /**
+     * Gets walk dir.
+     *
+     * @return the walk dir
+     */
     public int getWalkDir() {
         return walkDir;
     }
 
+    /**
+     * Gets run dir.
+     *
+     * @return the run dir
+     */
     public int getRunDir() {
         return runDir;
     }
 
+    /**
+     * Sets running.
+     *
+     * @param running the running
+     */
     public void setRunning(boolean running) {
         this.running = running;
     }
 
+    /**
+     * Is running boolean.
+     *
+     * @return the boolean
+     */
     public boolean isRunning() {
         return running;
     }
 
+    /**
+     * Gets foot print.
+     *
+     * @return the foot print
+     */
     public Location getFootPrint() {
         return footPrint;
     }
 
+    /**
+     * Sets foot print.
+     *
+     * @param footPrint the foot print
+     */
     public void setFootPrint(Location footPrint) {
         this.footPrint = footPrint;
     }
 
+    /**
+     * Gets queue.
+     *
+     * @return the queue
+     */
     public Deque<Point> getQueue() {
         return walkingQueue;
     }
 
+    /**
+     * Is run disabled boolean.
+     *
+     * @return the boolean
+     */
     public boolean isRunDisabled() {
         return runDisabled;
     }
 
+    /**
+     * Sets run disabled.
+     *
+     * @param runDisabled the run disabled
+     */
     public void setRunDisabled(boolean runDisabled) {
         this.runDisabled = runDisabled;
     }

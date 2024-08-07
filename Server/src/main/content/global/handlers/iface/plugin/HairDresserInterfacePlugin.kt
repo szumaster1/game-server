@@ -122,6 +122,11 @@ private val femaleStyleButtonRange = (148..181)
 
 private val COINS = Item(995, 2000)
 
+/**
+ * Hair dresser interface plugin
+ *
+ * @constructor Hair dresser interface plugin
+ */
 @Initializable
 class HairDresserInterfacePlugin : ComponentPlugin() {
     override fun open(player: Player?, component: Component?) {
@@ -212,6 +217,11 @@ class HairDresserInterfacePlugin : ComponentPlugin() {
         return this
     }
 
+    /**
+     * Pay
+     *
+     * @param player
+     */
     fun pay(player: Player) {
         if (player.inventory.containsItem(COINS)) {
             player.inventory.remove(COINS)
@@ -222,6 +232,12 @@ class HairDresserInterfacePlugin : ComponentPlugin() {
         }
     }
 
+    /**
+     * Update beard
+     *
+     * @param player
+     * @param button
+     */
     fun updateBeard(player: Player, button: Int) {
         var subtractor = 105
         when (button) {
@@ -233,6 +249,12 @@ class HairDresserInterfacePlugin : ComponentPlugin() {
         syncAppearance(player)
     }
 
+    /**
+     * Update hair
+     *
+     * @param player
+     * @param button
+     */
     fun updateHair(player: Player, button: Int) {
         val usedInterface = if (player.isMale) HAIRDRESSER_MALE_COMPONENT_ID else HAIRDRESSER_FEMALE_COMPONENT_ID
 
@@ -259,6 +281,12 @@ class HairDresserInterfacePlugin : ComponentPlugin() {
         syncAppearance(player)
     }
 
+    /**
+     * Update color
+     *
+     * @param player
+     * @param button
+     */
     fun updateColor(player: Player, button: Int) {
         val usedInterface = if (player.isMale) HAIRDRESSER_MALE_COMPONENT_ID else HAIRDRESSER_FEMALE_COMPONENT_ID
 
@@ -274,6 +302,11 @@ class HairDresserInterfacePlugin : ComponentPlugin() {
         syncAppearance(player)
     }
 
+    /**
+     * Sync appearance
+     *
+     * @param player
+     */
     fun syncAppearance(player: Player) {
         player.appearance.sync()
     }

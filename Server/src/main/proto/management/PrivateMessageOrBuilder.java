@@ -3,32 +3,90 @@
 
 package proto.management;
 
+/**
+ * The interface Private message or builder.
+ */
 public interface PrivateMessageOrBuilder extends
         // @@protoc_insertion_point(interface_extends:management.PrivateMessage)
         com.google.protobuf.MessageOrBuilder {
 
+    /**
+     * Has sender boolean.
+     *
+     * @return the boolean
+     */
     boolean hasSender();
 
-    java.lang.String getSender();
+    /**
+     * Gets sender.
+     *
+     * @return the sender
+     */
+    String getSender();
 
+    /**
+     * Gets sender bytes.
+     *
+     * @return the sender bytes
+     */
     com.google.protobuf.ByteString
     getSenderBytes();
 
+    /**
+     * Has receiver boolean.
+     *
+     * @return the boolean
+     */
     boolean hasReceiver();
 
-    java.lang.String getReceiver();
+    /**
+     * Gets receiver.
+     *
+     * @return the receiver
+     */
+    String getReceiver();
 
+    /**
+     * Gets receiver bytes.
+     *
+     * @return the receiver bytes
+     */
     com.google.protobuf.ByteString
     getReceiverBytes();
 
+    /**
+     * Has message boolean.
+     *
+     * @return the boolean
+     */
     boolean hasMessage();
 
-    java.lang.String getMessage();
+    /**
+     * Gets message.
+     *
+     * @return the message
+     */
+    String getMessage();
 
+    /**
+     * Gets message bytes.
+     *
+     * @return the message bytes
+     */
     com.google.protobuf.ByteString
     getMessageBytes();
 
+    /**
+     * Has rank boolean.
+     *
+     * @return the boolean
+     */
     boolean hasRank();
 
+    /**
+     * Gets rank.
+     *
+     * @return the rank
+     */
     int getRank();
 }

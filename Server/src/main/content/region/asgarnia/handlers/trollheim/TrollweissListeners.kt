@@ -5,14 +5,16 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.world.map.Location
 
+/**
+ * Trollweiss listeners.
+ */
 class TrollweissListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Keldagrim side tunnel to trollweiss mountain
          */
-
         on(Scenery.TUNNEL_5012, IntType.SCENERY, "enter") { player, _ ->
             player.properties.teleportLocation = Location.create(2799, 10134, 0)
             return@on true
@@ -23,10 +25,9 @@ class TrollweissListeners : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Trollheim north to Trollweiss dungeon.
          */
-
         on(Scenery.CAVE_ENTRANCE_5007, IntType.SCENERY, "enter") { player, _ ->
             player.properties.teleportLocation = Location.create(2803, 10187, 0)
             return@on true
@@ -37,10 +38,9 @@ class TrollweissListeners : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Keldagrim side tunnel to Trollweiss mountain.
          */
-
         on(Scenery.CREVASSE_33185, IntType.SCENERY, "enter") { player, _ ->
             player.properties.teleportLocation = Location.create(2778, 3869, 0)
             return@on true

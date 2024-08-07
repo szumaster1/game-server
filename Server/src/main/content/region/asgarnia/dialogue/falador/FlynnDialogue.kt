@@ -9,6 +9,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Flynn dialogue.
+ */
 @Initializable
 class FlynnDialogue(player: Player? = null) : Dialogue(player) {
 

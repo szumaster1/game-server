@@ -6,6 +6,18 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import java.util.*
 
+/**
+ * Slayer master
+ *
+ * @property npc
+ * @property requiredCombat
+ * @property requirements
+ * @property assigmentCount
+ * @property taskPoints
+ * @constructor
+ *
+ * @param tasks
+ */
 enum class SlayerMaster(
     var npc: Int,
     var requiredCombat: Int,
@@ -14,7 +26,11 @@ enum class SlayerMaster(
     var taskPoints: IntArray,
     vararg tasks: Task
 ) {
-    /*
+    /**
+     * Turael
+     *
+     * @constructor Turael
+     *//*
      * The Turael.
      */
     TURAEL(
@@ -47,7 +63,11 @@ enum class SlayerMaster(
         Task(Tasks.ZOMBIES, 7)
     ),
 
-    /*
+    /**
+     * Mazchna
+     *
+     * @constructor Mazchna
+     *//*
      * The Mazchna.
      */
     MAZCHNA(
@@ -84,7 +104,11 @@ enum class SlayerMaster(
         Task(Tasks.ZOMBIES, 7)
     ),
 
-    /*
+    /**
+     * Vannaka
+     *
+     * @constructor Vannaka
+     *//*
      * The Vannaka.
      */
     VANNAKA(
@@ -144,7 +168,11 @@ enum class SlayerMaster(
         Task(Tasks.WEREWOLFS, 7)
     ),
 
-    /*
+    /**
+     * Chaeldar
+     *
+     * @constructor Chaeldar
+     *//*
      * The Chaeldar.
      */
     CHAELDAR(
@@ -193,7 +221,11 @@ enum class SlayerMaster(
         Task(Tasks.TUROTHS, 10)
     ),
 
-    /*
+    /**
+     * Sumona
+     *
+     * @constructor Sumona
+     *//*
      * The Sumona.
      */
     SUMONA(
@@ -231,7 +263,11 @@ enum class SlayerMaster(
         Task(Tasks.VAMPIRES, 10)
     ),
 
-    /*
+    /**
+     * Duradel
+     *
+     * @constructor Duradel
+     *//*
      * The Duradel.
      */
     DURADEL(
@@ -274,10 +310,23 @@ enum class SlayerMaster(
 
     var tasks: List<Task> = ArrayList(arrayListOf(*tasks))
 
+    /**
+     * Has requirements
+     *
+     * @param player
+     * @return
+     */
     fun hasRequirements(player: Player): Boolean {
         return player.properties.currentCombatLevel >= this.requiredCombat && player.getSkills().getLevel(Skills.SLAYER) >= this.requirements
     }
 
+    /**
+     * Task
+     *
+     * @property task
+     * @property weight
+     * @constructor Task
+     */
     class Task internal constructor(
         var task: Tasks,
         var weight: Int

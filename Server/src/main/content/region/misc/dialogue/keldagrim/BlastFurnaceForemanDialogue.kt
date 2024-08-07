@@ -17,6 +17,9 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 
+/**
+ * Blast furnace foreman dialogue.
+ */
 @Initializable
 class BlastFurnaceForemanDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -269,6 +272,12 @@ class BlastFurnaceForemanDialogue(player: Player? = null) : Dialogue(player) {
     }
 
 
+    /**
+     * Chat pulse
+     *
+     * @property npc
+     * @constructor Chat pulse
+     */
     class ChatPulse(val npc: NPC) : Pulse() {
         companion object {
             val forceChat = arrayOf(

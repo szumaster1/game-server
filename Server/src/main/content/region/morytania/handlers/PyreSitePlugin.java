@@ -30,6 +30,9 @@ import core.plugin.ClassScanner;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Pyre site plugin.
+ */
 @Initializable
 public final class PyreSitePlugin extends OptionHandler {
 
@@ -180,6 +183,12 @@ public final class PyreSitePlugin extends OptionHandler {
         return null;
     }
 
+    /**
+     * Gets animation.
+     *
+     * @param tool the tool
+     * @return the animation
+     */
     /*
      * Gets the animation for the skilling tool.
      */
@@ -216,19 +225,52 @@ public final class PyreSitePlugin extends OptionHandler {
         return animation;
     }
 
+    /**
+     * The enum Log type.
+     */
     /*
      * The enum Log type.
      */
     public enum LogType {
+        /**
+         * The Normal.
+         */
         NORMAL(Log.NORMAL, 11, new double[]{10, 40}, 1),
+        /**
+         * The Achey.
+         */
         ACHEY(Log.ACHEY, 11, new double[]{10, 40}, 1),
+        /**
+         * The Oak.
+         */
         OAK(Log.OAK, 25, new double[]{15, 60}, 2),
+        /**
+         * The Willow.
+         */
         WILLOW(Log.WILLOW, 40, new double[]{22.5, 90}, 2),
+        /**
+         * The Teak.
+         */
         TEAK(Log.TEAK, 45, new double[]{26.2, 105}, 3),
+        /**
+         * The Arctic pine.
+         */
         ARCTIC_PINE(Log.ARCTIC_PINE, 52, new double[]{31.2, 125}, 3),
+        /**
+         * The Maple.
+         */
         MAPLE(Log.MAPLE, 55, new double[]{33.7, 135}, 3),
+        /**
+         * The Mahogany.
+         */
         MAHOGANY(Log.MAHOGANY, 60, new double[]{39.3, 157.5}, 3),
+        /**
+         * The Yew.
+         */
         YEW(Log.YEW, 70, new double[]{50.6, 202.5}, 4),
+        /**
+         * The Magic.
+         */
         MAGIC(Log.MAGIC, 85, new double[]{75.9, 303.8}, 5);
 
         private final Log log;
@@ -243,6 +285,12 @@ public final class PyreSitePlugin extends OptionHandler {
             this.enhancedExp = enhancedExp;
         }
 
+        /**
+         * Gets type.
+         *
+         * @param player the player
+         * @return the type
+         */
         public static LogType getType(Player player) {
             for (LogType type : values()) {
                 if (player.getInventory().contains(type.getLog().getLogId(), 1)) {
@@ -252,33 +300,65 @@ public final class PyreSitePlugin extends OptionHandler {
             return null;
         }
 
+        /**
+         * Gets log.
+         *
+         * @return the log
+         */
         public Log getLog() {
             return log;
         }
 
+        /**
+         * Gets level.
+         *
+         * @return the level
+         */
         public int getLevel() {
             return level;
         }
 
+        /**
+         * Get experiences double [ ].
+         *
+         * @return the double [ ]
+         */
         public double[] getExperiences() {
             return experiences;
         }
 
+        /**
+         * Gets enhanced exp.
+         *
+         * @return the enhanced exp
+         */
         public int getEnhancedExp() {
             return enhancedExp;
         }
 
     }
 
+    /**
+     * Ferocious barbarian npc.
+     */
     public class FerociousBarbarianNPC extends AbstractNPC {
         private Player target;
 
+        /**
+         * Instantiates a new Ferocious barbarian npc.
+         *
+         * @param id       the id
+         * @param location the location
+         */
         public FerociousBarbarianNPC(int id, Location location) {
             super(id, location);
             this.setRespawn(false);
             this.setAggressive(true);
         }
 
+        /**
+         * Instantiates a new Ferocious barbarian npc.
+         */
         public FerociousBarbarianNPC() {
             this(-1, null);
         }

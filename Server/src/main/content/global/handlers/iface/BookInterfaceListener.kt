@@ -6,6 +6,11 @@ import core.api.consts.Sounds
 import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.Player
 
+/**
+ * Book interface listener
+ *
+ * @constructor Book interface listener
+ */
 class BookInterfaceListener : InterfaceListener {
 
     companion object {
@@ -206,18 +211,44 @@ class BookInterfaceListener : InterfaceListener {
     }
 }
 
+/**
+ * Page set
+ *
+ * @constructor
+ *
+ * @param pages
+ */
 class PageSet(vararg pages: Page) {
 
     val pages: Array<Page> = pages as Array<Page>
 }
 
+/**
+ * Page
+ *
+ * @constructor
+ *
+ * @param lines
+ */
 class Page(vararg lines: BookLine) {
 
     val lines: Array<BookLine> = lines as Array<BookLine>
 }
 
+/**
+ * Book line
+ *
+ * @property message
+ * @property child
+ * @constructor Book line
+ */
 class BookLine(val message: String, val child: Int)
 
+/**
+ * Scroll interface
+ *
+ * @constructor Scroll interface
+ */
 class ScrollInterface {
 
     companion object {
@@ -246,4 +277,11 @@ class ScrollInterface {
     }
 }
 
+/**
+ * Scroll line
+ *
+ * @property message
+ * @property child
+ * @constructor Scroll line
+ */
 class ScrollLine(val message: String, val child: Int)

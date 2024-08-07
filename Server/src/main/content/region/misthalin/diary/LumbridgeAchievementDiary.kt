@@ -26,6 +26,9 @@ import core.api.consts.Items
 import core.api.consts.NPCs
 import core.api.consts.Scenery
 
+/**
+ * Lumbridge achievement diary.
+ */
 class LumbridgeAchievementDiary : DiaryEventHookBase(DiaryType.LUMBRIDGE) {
 
     companion object {

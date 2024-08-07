@@ -10,6 +10,12 @@ import core.game.dialogue.DialogueBuilder
 import core.game.dialogue.DialogueBuilderFile
 import core.game.dialogue.FacialExpression
 
+/**
+ * Sir ren itchwood dialogue file
+ *
+ * @property dialogueNum
+ * @constructor Sir ren itchwood dialogue file
+ */
 class SirRenItchwoodDialogueFile(private val dialogueNum: Int = 0) : DialogueBuilderFile() {
 
     companion object {

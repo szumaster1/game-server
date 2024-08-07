@@ -11,7 +11,6 @@ import java.util.concurrent.CopyOnWriteArrayList
 
 /**
  * The repository holding all node lists, etc in the game world.
- * @author Emperor
  */
 object Repository {
     /**

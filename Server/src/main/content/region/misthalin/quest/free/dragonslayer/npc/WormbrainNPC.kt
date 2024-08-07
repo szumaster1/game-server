@@ -9,6 +9,11 @@ import core.game.node.entity.player.Player
 import core.game.node.item.GroundItemManager
 import core.game.world.map.Location
 
+/**
+ * Wormbrain NPC
+ *
+ * @constructor Wormbrain NPC
+ */
 class WormbrainNPC : AbstractNPC {
 
     constructor() : super(0, null)

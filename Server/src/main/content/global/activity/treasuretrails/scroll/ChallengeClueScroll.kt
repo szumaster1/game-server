@@ -10,6 +10,19 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.world.map.zone.ZoneBorders
 
+/**
+ * Challenge clue scroll
+ *
+ * @property question
+ * @property npc
+ * @property answer
+ * @constructor
+ *
+ * @param name
+ * @param clueId
+ * @param level
+ * @param borders
+ */
 abstract class ChallengeClueScroll(
     name: String?,
     clueId: Int,

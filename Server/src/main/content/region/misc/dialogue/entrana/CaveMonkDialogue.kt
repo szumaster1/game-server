@@ -1,5 +1,7 @@
 package content.region.misc.dialogue.entrana
 
+import core.api.consts.NPCs
+import core.api.getStatLevel
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
@@ -9,6 +11,9 @@ import core.game.node.entity.skill.Skills
 import core.game.world.map.Location
 import core.plugin.Initializable
 
+/**
+ * Cave monk dialogue.
+ */
 @Initializable
 class CaveMonkDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -24,11 +29,7 @@ class CaveMonkDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             else -> {
-                npc(FacialExpression.HALF_GUILTY,
-                    "Be careful going in there! You are unarmed, and there",
-                    "is much evilness lurking down there! The evilness seems",
-                    "to block off our contact with our gods,"
-                )
+                npc(FacialExpression.HALF_GUILTY, "Be careful going in there! You are unarmed, and there", "is much evilness lurking down there! The evilness seems", "to block off our contact with our gods,")
                 stage = 0
             }
         }
@@ -44,50 +45,36 @@ class CaveMonkDialogue(player: Player? = null) : Dialogue(player) {
 
             101 -> end()
             0 -> {
-                npc(FacialExpression.HALF_GUILTY,
-                    "so our prayers seem to have less effect down there. Oh,",
-                    "also, you won't be able to come back this way - This",
-                    "ladder only goes one way!"
-                )
+                npc(FacialExpression.HALF_GUILTY, "so our prayers seem to have less effect down there. Oh,", "also, you won't be able to come back this way - This", "ladder only goes one way!")
                 stage = 1
             }
 
             1 -> {
-                npc(FacialExpression.HALF_GUILTY,
-                    "The only exit from the caves below is a portal which",
-                    "leads only to the deepest wilderness!"
-                )
+                npc(FacialExpression.HALF_GUILTY, "The only exit from the caves below is a portal which", "leads only to the deepest wilderness!")
                 stage = 2
             }
 
             2 -> {
-                options("I don't think I'm strong enough to enter then.",
-                    "Well that is a risk I will have to take."
-                )
+                options("I don't think I'm strong enough to enter then.", "Well that is a risk I will have to take.")
                 stage = 3
             }
 
             3 -> when (buttonId) {
                 1 -> {
-                    player(FacialExpression.HALF_GUILTY,
-                        "I don't think I'm strong enough to enter then."
-                    )
+                    player(FacialExpression.HALF_GUILTY, "I don't think I'm strong enough to enter then.")
                     stage = 10
                 }
 
                 2 -> {
-                    player(FacialExpression.HALF_GUILTY,
-                        "Well that is a risk I will have to take."
-                    )
+                    player(FacialExpression.HALF_GUILTY, "Well that is a risk I will have to take.")
                     stage = 20
                 }
             }
 
             10 -> end()
             20 -> {
-                if (player.getSkills().getLevel(Skills.PRAYER) > 2 && player.getSkills().prayerPoints > 2) {
-                    player.getSkills()
-                        .decrementPrayerPoints((player.getSkills().getLevel(Skills.PRAYER) - 2).toDouble())
+                if (getStatLevel(player, Skills.PRAYER) > 2 && player.getSkills().prayerPoints > 2) {
+                    player.getSkills().decrementPrayerPoints((player.getSkills().getLevel(Skills.PRAYER) - 2).toDouble())
                 }
                 player.properties.teleportLocation = DUNGEON
                 end()
@@ -97,7 +84,7 @@ class CaveMonkDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun getIds(): IntArray {
-        return intArrayOf(656)
+        return intArrayOf(NPCs.CAVE_MONK_656)
     }
 
     companion object {

@@ -7,6 +7,11 @@ import core.api.consts.NPCs
 import core.game.dialogue.DialogueFile
 import core.game.node.entity.npc.NPC
 
+/**
+ * Da vinci dialogue file
+ *
+ * @constructor Da vinci dialogue file
+ */
 class DaVinciDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.DA_VINCI_336)
@@ -72,6 +77,11 @@ class DaVinciDialogueFile : DialogueFile() {
     }
 }
 
+/**
+ * Da vinci varrock dialogue file
+ *
+ * @constructor Da vinci varrock dialogue file
+ */
 class DaVinciVarrockDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.DA_VINCI_337)

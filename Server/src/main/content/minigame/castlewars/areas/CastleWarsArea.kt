@@ -10,6 +10,11 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
 
+/**
+ * Castle wars area
+ *
+ * @constructor Castle wars area
+ */
 abstract class CastleWarsArea : MapArea, LogoutListener, InteractionListener {
 
     override fun areaLeave(entity: Entity, logout: Boolean) {
@@ -28,6 +33,11 @@ abstract class CastleWarsArea : MapArea, LogoutListener, InteractionListener {
         exitArea(player)
     }
 
+    /**
+     * Exit area
+     *
+     * @param player
+     */
     open fun exitArea(player: Player) {
         // Remove any transformation
         player.appearance.transformNPC(-1)

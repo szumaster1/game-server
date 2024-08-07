@@ -10,9 +10,12 @@ private const val GIANNE_DOUGH = 2171
 private const val CRUNCHY_TRAY = 2165
 private const val RAW_CRUNCHIES = 2202
 
-
+/**
+ * Gnome crunchy tray filler.
+ */
 @Initializable
 class GnomeCrunchyTrayFiller : UseWithHandler(GIANNE_DOUGH) {
+
     override fun newInstance(arg: Any?): Plugin<Any> {
         addHandler(CRUNCHY_TRAY, ITEM_TYPE, this)
         return this

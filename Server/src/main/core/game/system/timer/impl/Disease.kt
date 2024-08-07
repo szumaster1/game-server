@@ -12,6 +12,11 @@ import core.game.system.timer.TimerFlag
 import core.tools.RandomFunction
 import org.json.simple.JSONObject
 
+/**
+ * Disease
+ *
+ * @constructor Disease
+ */
 class Disease : PersistTimer(
     runInterval = 30,
     identifier = "disease",

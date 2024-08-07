@@ -13,11 +13,13 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.world.map.zone.ZoneBorders
 
+/**
+ * Coal miner.
+ */
 @PlayerCompatible
 @ScriptName("Falador Coal Miner")
 @ScriptDescription("Start in Falador East Bank with a pick equipped", "or in your inventory.")
 @ScriptIdentifier("fally_coal")
-
 class CoalMiner : Script() {
     var state = State.INIT
     var ladderSwitch = false
@@ -130,6 +132,13 @@ class CoalMiner : Script() {
         }
     }
 
+    /**
+     * Banking pulse
+     *
+     * @property script
+     * @property bank
+     * @constructor Banking pulse
+     */
     open class BankingPulse(val script: Script, val bank: Node) :
         MovementPulse(script.bot!!, bank, DestinationFlag.OBJECT) {
         override fun pulse(): Boolean {
@@ -144,8 +153,67 @@ class CoalMiner : Script() {
         return script
     }
 
+    /**
+     * State
+     *
+     * @constructor State
+     */
     enum class State {
-        MINING, TO_MINE, TO_BANK, BANKING, TO_GE, SELLING, GO_BACK, INIT
+        /**
+         * Mining
+         *
+         * @constructor Mining
+         */
+        MINING,
+
+        /**
+         * To Mine
+         *
+         * @constructor To Mine
+         */
+        TO_MINE,
+
+        /**
+         * To Bank
+         *
+         * @constructor To Bank
+         */
+        TO_BANK,
+
+        /**
+         * Banking
+         *
+         * @constructor Banking
+         */
+        BANKING,
+
+        /**
+         * To Ge
+         *
+         * @constructor To Ge
+         */
+        TO_GE,
+
+        /**
+         * Selling
+         *
+         * @constructor Selling
+         */
+        SELLING,
+
+        /**
+         * Go Back
+         *
+         * @constructor Go Back
+         */
+        GO_BACK,
+
+        /**
+         * Init
+         *
+         * @constructor Init
+         */
+        INIT
     }
 
     init {

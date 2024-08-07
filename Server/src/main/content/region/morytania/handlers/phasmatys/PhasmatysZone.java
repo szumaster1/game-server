@@ -24,13 +24,28 @@ import core.plugin.Plugin;
 import static core.api.ContentAPIKt.playAudio;
 import static core.api.ContentAPIKt.sendMessage;
 
+/**
+ * Phasmatys zone.
+ */
 @Initializable
 public final class PhasmatysZone extends MapZone implements Plugin<Object> {
 
+    /**
+     * The Bones.
+     */
     Bones[] bones;
+    /**
+     * The Player.
+     */
     Player player;
+    /**
+     * The Bone.
+     */
     Bones bone;
 
+    /**
+     * Instantiates a new Phasmatys zone.
+     */
     public PhasmatysZone() {
         super("Port phasmatys", true);
     }
@@ -108,6 +123,12 @@ public final class PhasmatysZone extends MapZone implements Plugin<Object> {
         return super.interact(e, target, option);
     }
 
+    /**
+     * Has amulet boolean.
+     *
+     * @param player the player
+     * @return the boolean
+     */
     public static boolean hasAmulet(Player player) {
         return player.getEquipment().contains(552, 1);
     }

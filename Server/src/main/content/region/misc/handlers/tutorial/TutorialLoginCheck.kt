@@ -7,6 +7,9 @@ import core.game.node.entity.player.Player
 import core.game.system.task.Pulse
 import core.game.world.GameWorld
 
+/**
+ * Tutorial login check.
+ */
 class TutorialLoginCheck : LoginListener {
 
     override fun login(player: Player) {

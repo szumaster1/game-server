@@ -22,6 +22,9 @@ import core.plugin.Plugin;
 
 import static core.api.ContentAPIKt.setAttribute;
 
+/**
+ * Ge cutscene plugin.
+ */
 @Initializable
 public final class GECutscenePlugin extends CutscenePlugin {
 
@@ -33,10 +36,18 @@ public final class GECutscenePlugin extends CutscenePlugin {
 
     private static final Component HOUR_GLASS = new Component(646);
 
+    /**
+     * Instantiates a new Ge cutscene plugin.
+     */
     public GECutscenePlugin() {
         this(null);
     }
 
+    /**
+     * Instantiates a new Ge cutscene plugin.
+     *
+     * @param player the player
+     */
     public GECutscenePlugin(final Player player) {
         super("ge tutorial");
         this.player = player;
@@ -85,11 +96,22 @@ public final class GECutscenePlugin extends CutscenePlugin {
         camera(player, x, y, xRot, yRot, height, speed);
     }
 
+    /**
+     * Brugsen bursen dialogue.
+     */
     public static final class BrugsenBursenDialogue extends Dialogue {
 
+        /**
+         * Instantiates a new Brugsen bursen dialogue.
+         */
         public BrugsenBursenDialogue() {
         }
 
+        /**
+         * Instantiates a new Brugsen bursen dialogue.
+         *
+         * @param player the player
+         */
         public BrugsenBursenDialogue(final Player player) {
             super(player);
         }
@@ -429,6 +451,9 @@ public final class GECutscenePlugin extends CutscenePlugin {
      * The Tutorial interface plugin.
      */
 
+    /**
+     * Tutorial interface plugin.
+     */
     public final class TutorialInterfacePlugin extends ComponentPlugin {
 
         @Override

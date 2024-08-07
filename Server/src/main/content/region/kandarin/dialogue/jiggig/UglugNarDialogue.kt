@@ -8,6 +8,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Uglug nar dialogue.
+ */
 @Initializable
 class UglugNarDialogue(player: Player? = null) : Dialogue(player) {
 

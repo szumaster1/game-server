@@ -11,6 +11,9 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.tools.RandomFunction
 
+/**
+ * Barb fishing pulse.
+ */
 class BarbFishingPulse(player: Player) : SkillPulse<NPC>(player, NPC(NPCs.FISHING_SPOT_1176)) {
 
     private val fishingBait = anyInInventory(player, Items.FISHING_BAIT_313, Items.FEATHER_314, Items.ROE_11324, Items.FISH_OFFCUTS_11334, Items.CAVIAR_11326)
@@ -85,6 +88,12 @@ class BarbFishingPulse(player: Player) : SkillPulse<NPC>(player, NPC(NPCs.FISHIN
 
     }
 
+    /**
+     * Roll success
+     *
+     * @param fish
+     * @return
+     */
     fun rollSuccess(fish: Int): Boolean {
         val level = 1 + player.skills.getLevel(Skills.FISHING) + player.familiarManager.getBoost(Skills.FISHING)
         val hostRatio: Double = Math.random() * fish
@@ -92,6 +101,11 @@ class BarbFishingPulse(player: Player) : SkillPulse<NPC>(player, NPC(NPCs.FISHIN
         return hostRatio < clientRatio
     }
 
+    /**
+     * Get random fish
+     *
+     * @return
+     */
     fun getRandomFish(): Item {
         val fish = arrayOf(Items.LEAPING_TROUT_11328, Items.LEAPING_SALMON_11330, Items.LEAPING_STURGEON_11332)
         val fishing = player.skills.getLevel(Skills.FISHING)

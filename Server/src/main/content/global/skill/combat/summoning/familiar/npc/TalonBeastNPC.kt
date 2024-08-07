@@ -7,6 +7,9 @@ import core.game.node.entity.combat.equipment.WeaponInterface
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Talon beast familiar.
+ */
 @Initializable
 class TalonBeastNPC(owner: Player? = null, id: Int = 7347) : Familiar(owner, id, 4900, 12794, 6, WeaponInterface.STYLE_AGGRESSIVE) {
 

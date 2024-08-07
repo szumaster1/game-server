@@ -12,6 +12,17 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import kotlin.math.min
 
+/**
+ * Enchant tiara pulse
+ *
+ * @property talisman
+ * @property altar
+ * @property tiara
+ * @property amount
+ * @constructor
+ *
+ * @param player
+ */
 class EnchantTiaraPulse(
     player: Player?,
     val talisman: Talisman,

@@ -9,6 +9,9 @@ import core.game.node.entity.player.Player
 import core.game.node.scenery.Scenery
 import core.plugin.Initializable
 
+/**
+ * Hydra familiar.
+ */
 @Initializable
 class HydraNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.HYDRA_6811) :
     Familiar(owner, id, 4900, 12025, 6, WeaponInterface.STYLE_RANGE_ACCURATE) {

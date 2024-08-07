@@ -12,6 +12,11 @@ import core.game.interaction.InteractionListener
 import core.game.interaction.QueueStrength
 import core.game.system.task.Pulse
 
+/**
+ * Horror from the deep listeners
+ *
+ * @constructor Horror from the deep listeners
+ */
 class HorrorFromTheDeepListeners : InteractionListener {
     override fun defineListeners() {
 

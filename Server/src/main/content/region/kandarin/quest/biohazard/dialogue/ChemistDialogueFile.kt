@@ -7,6 +7,11 @@ import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 
+/**
+ * Chemist dialogue file
+ *
+ * @constructor Chemist dialogue file
+ */
 class ChemistDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.CHEMIST_367)

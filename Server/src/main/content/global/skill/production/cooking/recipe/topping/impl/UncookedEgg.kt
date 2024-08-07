@@ -4,6 +4,9 @@ import content.global.skill.production.cooking.recipe.topping.ToppingRecipe
 import core.api.consts.Items
 import core.game.node.item.Item
 
+/**
+ * Uncooked egg.
+ */
 class UncookedEgg : ToppingRecipe() {
 
     override fun getLevel(): Int {

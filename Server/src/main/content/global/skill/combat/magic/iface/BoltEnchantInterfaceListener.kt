@@ -11,6 +11,11 @@ import core.game.node.entity.combat.spell.Runes
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
+/**
+ * Bolt enchant interface listener
+ *
+ * @constructor Bolt enchant interface listener
+ */
 class BoltEnchantInterfaceListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {
@@ -42,7 +47,6 @@ class BoltEnchantInterfaceListener : InterfaceListener {
                 sendMessage(player, "Not enough space in your inventory!")
                 return@on true
             }
-
             visualize(player, 4462, 759)
             queueScript(player, 1, QueueStrength.SOFT) {
                 var enchant = amount
@@ -70,16 +74,86 @@ class BoltEnchantInterfaceListener : InterfaceListener {
         }
     }
 
+    /**
+     * Bolts
+     *
+     * @property button
+     * @property bolt
+     * @property level
+     * @property runes
+     * @property exp
+     * @property enchanted
+     * @constructor Bolts
+     */
     enum class Bolts(val button: Int, val bolt: Int, val level: Int, val runes: Array<Item>, val exp: Double, val enchanted: Int) {
+        /**
+         * Opal
+         *
+         * @constructor Opal
+         */
         OPAL(14, Items.OPAL_BOLTS_879, 4, arrayOf(Item(Runes.COSMIC_RUNE.id, 1), Item(Runes.AIR_RUNE.id, 2)), 9.0, Items.OPAL_BOLTS_E_9236),
+
+        /**
+         * Sapphire
+         *
+         * @constructor Sapphire
+         */
         SAPPHIRE(29, Items.SAPPHIRE_BOLTS_9337, 7, arrayOf(Item(Runes.COSMIC_RUNE.id, 1), Item(Runes.MIND_RUNE.id, 1), Item(Runes.WATER_RUNE.id, 1)), 17.0, Items.SAPPHIRE_BOLTS_E_9240),
+
+        /**
+         * Jade
+         *
+         * @constructor Jade
+         */
         JADE(18, Items.JADE_BOLTS_9335, 14, arrayOf(Item(Runes.COSMIC_RUNE.id, 1), Item(Runes.EARTH_RUNE.id, 2)), 19.0, Items.JADE_BOLTS_E_9237),
+
+        /**
+         * Pearl
+         *
+         * @constructor Pearl
+         */
         PEARL(22, Items.PEARL_BOLTS_880, 24, arrayOf(Item(Runes.COSMIC_RUNE.id, 1), Item(Runes.WATER_RUNE.id, 2)), 29.0, Items.PEARL_BOLTS_E_9238),
+
+        /**
+         * Emerald
+         *
+         * @constructor Emerald
+         */
         EMERALD(32, Items.EMERALD_BOLTS_9338, 27, arrayOf(Item(Runes.NATURE_RUNE.id, 1), Item(Runes.COSMIC_RUNE.id, 1), Item(Runes.AIR_RUNE.id, 3)), 37.0, Items.EMERALD_BOLTS_E_9241),
+
+        /**
+         * Red Topaz
+         *
+         * @constructor Red Topaz
+         */
         RED_TOPAZ(26, Items.TOPAZ_BOLTS_9336, 29, arrayOf(Item(Runes.COSMIC_RUNE.id, 1), Item(Runes.FIRE_RUNE.id, 2)), 33.0, Items.TOPAZ_BOLTS_E_9239),
+
+        /**
+         * Ruby
+         *
+         * @constructor Ruby
+         */
         RUBY(35, Items.RUBY_BOLTS_9339, 49, arrayOf(Item(Runes.BLOOD_RUNE.id, 1), Item(Runes.COSMIC_RUNE.id, 1), Item(Runes.FIRE_RUNE.id, 5)), 59.0, Items.RUBY_BOLTS_E_9242),
+
+        /**
+         * Diamond
+         *
+         * @constructor Diamond
+         */
         DIAMOND(38, Items.DIAMOND_BOLTS_9340, 57, arrayOf(Item(Runes.LAW_RUNE.id, 2), Item(Runes.COSMIC_RUNE.id, 1), Item(Runes.EARTH_RUNE.id, 10)), 67.0, Items.DIAMOND_BOLTS_E_9243),
+
+        /**
+         * Dragonstone
+         *
+         * @constructor Dragonstone
+         */
         DRAGONSTONE(41, Items.DRAGON_BOLTS_9341, 68, arrayOf(Item(Runes.SOUL_RUNE.id, 1), Item(Runes.COSMIC_RUNE.id, 1), Item(Runes.EARTH_RUNE.id, 15)), 78.0, Items.DRAGON_BOLTS_E_9244),
+
+        /**
+         * Onyx
+         *
+         * @constructor Onyx
+         */
         ONYX(44, Items.ONYX_BOLTS_9342, 87, arrayOf(Item(Runes.DEATH_RUNE.id, 1), Item(Runes.COSMIC_RUNE.id, 1), Item(Runes.FIRE_RUNE.id, 20)), 97.0, Items.ONYX_BOLTS_E_9245);
 
         companion object {

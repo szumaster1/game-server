@@ -8,6 +8,11 @@ import core.api.sendMessage
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Royal trouble listeners
+ *
+ * @constructor Royal trouble listeners
+ */
 class RoyalTroubleListeners : InteractionListener {
 
     private val FIRE_REMAINS = intArrayOf(15206, 15207, 15208, 15209, 15210)

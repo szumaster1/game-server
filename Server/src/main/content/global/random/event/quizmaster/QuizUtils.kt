@@ -7,6 +7,9 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.world.map.Location
 
+/**
+ * Quiz utils.
+ */
 object QuizUtils {
 
     const val PLAYER_LOCATION = "/save:original-loc"

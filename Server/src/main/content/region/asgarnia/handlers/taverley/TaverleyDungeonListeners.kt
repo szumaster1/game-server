@@ -9,6 +9,9 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.npc.NPC
 import core.game.world.map.Location
 
+/**
+ * Taverley dungeon listeners.
+ */
 class TaverleyDungeonListeners : InteractionListener {
 
     private val SUITS = intArrayOf(2143, 2144)

@@ -9,6 +9,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Guardian mummy dialogue.
+ */
 @Initializable
 class GuardianMummyDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -62,5 +65,5 @@ class GuardianMummyDialogue(player: Player? = null) : Dialogue(player) {
     override fun getIds(): IntArray {
         return intArrayOf(NPCs.GUARDIAN_MUMMY_4476)
     }
-    
+
 }

@@ -12,6 +12,9 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 
+/**
+ * War tortoise familiar.
+ */
 @Initializable
 class WarTortoiseNPC(owner: Player? = null, id: Int = NPCs.WAR_TORTOISE_6815) : BurdenBeast(owner, id, 4300, 12031, 20, 18, WeaponInterface.STYLE_DEFENSIVE) {
 

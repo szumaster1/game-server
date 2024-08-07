@@ -8,6 +8,9 @@ import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 import core.plugin.Initializable
 
+/**
+ * Manor fountain dialogue.
+ */
 @Initializable
 class ManorFountainDialogue(player: Player? = null) : Dialogue(player) {
 

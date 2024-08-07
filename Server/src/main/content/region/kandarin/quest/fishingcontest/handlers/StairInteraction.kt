@@ -11,6 +11,11 @@ import core.game.world.repository.Repository.findNPC
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Stair interaction
+ *
+ * @constructor Stair interaction
+ */
 @Initializable
 class StairInteraction : PluginInteraction() {
 

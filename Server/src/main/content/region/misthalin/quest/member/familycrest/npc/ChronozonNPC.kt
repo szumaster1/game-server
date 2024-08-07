@@ -8,6 +8,9 @@ import core.game.node.entity.player.Player
 import core.game.world.map.Location
 import core.api.consts.NPCs
 
+/**
+ * Chronozon NPC.
+ */
 class ChronozonNPC(id: Int, location: Location?) : AbstractNPC(NPCs.CHRONOZON_667, Location(3086, 9936, 0)) {
 
     private lateinit var targetplayer: Player
@@ -78,6 +81,11 @@ class ChronozonNPC(id: Int, location: Location?) : AbstractNPC(NPCs.CHRONOZON_66
     }
 
 
+    /**
+     * Set player
+     *
+     * @param player
+     */
     fun setPlayer(player: Player) {
         targetplayer = player
     }

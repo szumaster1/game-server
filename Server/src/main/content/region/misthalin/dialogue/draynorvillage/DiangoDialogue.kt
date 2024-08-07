@@ -9,6 +9,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.api.consts.NPCs
 
+/**
+ * Diango dialogue.
+ */
 @Initializable
 class DiangoDialogue(player: Player? = null) : Dialogue(player) {
 

@@ -16,10 +16,19 @@ import static core.api.ContentAPIKt.setVarp;
 import static core.tools.GlobalsKt.RED;
 
 
+/**
+ * Music player.
+ */
 public final class MusicPlayer {
 
+    /**
+     * The constant TUTORIAL_MUSIC.
+     */
     public static final int TUTORIAL_MUSIC = 62;
 
+    /**
+     * The constant DEFAULT_MUSIC_ID.
+     */
     public static final int DEFAULT_MUSIC_ID = 76;
 
     private static final int[] CONFIG_IDS = {20, 21, 22, 23, 24, 25, 298, 311, 346, 414, 464, 598, 662, 721, 906, 1009, 1104, 1136, 1180, 1202};
@@ -34,11 +43,19 @@ public final class MusicPlayer {
 
     private boolean looping;
 
+    /**
+     * Instantiates a new Music player.
+     *
+     * @param player the player
+     */
     public MusicPlayer(Player player) {
         this.player = player;
         this.unlocked = new HashMap<>();
     }
 
+    /**
+     * Init.
+     */
     public void init() {
         refreshList();
         setVarp(player, 19, looping ? 1 : 0);
@@ -59,14 +76,28 @@ public final class MusicPlayer {
         }
     }
 
+    /**
+     * Clear unlocked.
+     */
     public void clearUnlocked() {
         this.unlocked.clear();
     }
 
+    /**
+     * Has air guitar boolean.
+     *
+     * @return the boolean
+     */
     public boolean hasAirGuitar() {
         return unlocked.size() >= 200 || unlocked.size() == MusicEntry.getSongs().size();
     }
 
+    /**
+     * Has unlocked boolean.
+     *
+     * @param musicId the music id
+     * @return the boolean
+     */
     public boolean hasUnlocked(int musicId) {
         MusicEntry entry = MusicEntry.forId(musicId);
         if (entry == null) {
@@ -75,10 +106,19 @@ public final class MusicPlayer {
         return hasUnlockedIndex(entry.getIndex());
     }
 
+    /**
+     * Has unlocked index boolean.
+     *
+     * @param index the index
+     * @return the boolean
+     */
     public boolean hasUnlockedIndex(int index) {
         return unlocked.containsKey(index);
     }
 
+    /**
+     * Refresh list.
+     */
     public void refreshList() {
         int[] values = new int[CONFIG_IDS.length];
         for (MusicEntry entry : unlocked.values()) {
@@ -94,6 +134,9 @@ public final class MusicPlayer {
         }
     }
 
+    /**
+     * Play default.
+     */
     public void playDefault() {
         MusicEntry entry = MusicEntry.forId(DEFAULT_MUSIC_ID);
         if (entry != null) {
@@ -101,6 +144,9 @@ public final class MusicPlayer {
         }
     }
 
+    /**
+     * Replay.
+     */
     public void replay() {
         MusicEntry entry = MusicEntry.forId(currentMusicId);
         if (entry != null) {
@@ -108,6 +154,11 @@ public final class MusicPlayer {
         }
     }
 
+    /**
+     * Play.
+     *
+     * @param entry the entry
+     */
     public void play(MusicEntry entry) {
         if (!looping || currentMusicId == entry.getId()) {
             PacketRepository.send(MusicPacket.class, new MusicContext(player, entry.getId()));
@@ -117,10 +168,21 @@ public final class MusicPlayer {
         }
     }
 
+    /**
+     * Unlock.
+     *
+     * @param id the id
+     */
     public void unlock(int id) {
         unlock(id, true);
     }
 
+    /**
+     * Unlock.
+     *
+     * @param id   the id
+     * @param play the play
+     */
     public void unlock(int id, boolean play) {
         MusicEntry entry = MusicEntry.forId(id);
         if (entry == null) {
@@ -145,6 +207,9 @@ public final class MusicPlayer {
         }
     }
 
+    /**
+     * Tick.
+     */
     public void tick() {
         if (GameWorld.getTicks() % 20 == 0) {
             if (!isPlaying()) {
@@ -156,6 +221,9 @@ public final class MusicPlayer {
         }
     }
 
+    /**
+     * Toggle looping.
+     */
     public void toggleLooping() {
         looping = !looping;
         setVarp(player, 19, looping ? 1 : 0);
@@ -165,30 +233,65 @@ public final class MusicPlayer {
         return currentMusicId > 0 && playing;
     }
 
+    /**
+     * Gets unlocked.
+     *
+     * @return the unlocked
+     */
     public Map<Integer, MusicEntry> getUnlocked() {
         return unlocked;
     }
 
+    /**
+     * Gets current music id.
+     *
+     * @return the current music id
+     */
     public int getCurrentMusicId() {
         return currentMusicId;
     }
 
+    /**
+     * Sets current music id.
+     *
+     * @param currentMusicId the current music id
+     */
     public void setCurrentMusicId(int currentMusicId) {
         this.currentMusicId = currentMusicId;
     }
 
+    /**
+     * Is playing boolean.
+     *
+     * @return the boolean
+     */
     public boolean isPlaying() {
         return playing;
     }
 
+    /**
+     * Sets playing.
+     *
+     * @param playing the playing
+     */
     public void setPlaying(boolean playing) {
         this.playing = playing;
     }
 
+    /**
+     * Is looping boolean.
+     *
+     * @return the boolean
+     */
     public boolean isLooping() {
         return looping;
     }
 
+    /**
+     * Sets looping.
+     *
+     * @param looping the looping
+     */
     public void setLooping(boolean looping) {
         this.looping = looping;
         setVarp(player, 19, looping ? 1 : 0);

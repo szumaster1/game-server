@@ -22,12 +22,21 @@ import java.util.List;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
+/**
+ * Stat boost spell.
+ */
 @Initializable
 public final class StatBoostSpell extends MagicSpell {
     private static final Animation ANIMATION = new Animation(4413);
     private static final Graphic GRAPHIC = new Graphic(733, 130);
+    /**
+     * The constant VIAL.
+     */
     public static final int VIAL = 229;
 
+    /**
+     * Instantiates a new Stat boost spell.
+     */
     public StatBoostSpell() {
         super(SpellBook.LUNAR, 84, 88, null, null, null, new Item[]{new Item(Runes.ASTRAL_RUNE.getId(), 3), new Item(Runes.EARTH_RUNE.getId(), 12), new Item(Runes.WATER_RUNE.getId(), 10)});
     }

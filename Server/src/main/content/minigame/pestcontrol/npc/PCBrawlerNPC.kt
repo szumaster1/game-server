@@ -8,6 +8,9 @@ import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player
 import core.game.world.map.Location
 
+/**
+ * Pest Control brawler NPC.
+ */
 class PCBrawlerNPC : AbstractNPC {
 
     private var session: PestControlSession? = null

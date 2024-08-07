@@ -8,6 +8,9 @@ import core.api.utils.WeightBasedTable
 import core.game.node.entity.npc.NPC
 import core.game.system.timer.impl.AntiMacro
 
+/**
+ * Quiz master NPC.
+ */
 class QuizMasterNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs.QUIZ_MASTER_2477) {
 
     override fun init() {

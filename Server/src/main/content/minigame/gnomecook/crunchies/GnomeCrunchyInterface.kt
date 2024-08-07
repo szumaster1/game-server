@@ -17,6 +17,9 @@ private const val CHOC_CHIP_CRUNCHIES = 9544
 private const val WORM_CRUNCHIES = 9542
 private const val HALF_BAKED_CRUNCHY = 2201
 
+/**
+ * Gnome crunchy interface.
+ */
 @Initializable
 class GnomeCrunchyInterface : ComponentPlugin() {
 
@@ -86,10 +89,41 @@ class GnomeCrunchyInterface : ComponentPlugin() {
         return this
     }
 
+    /**
+     * Half made crunchy
+     *
+     * @property product
+     * @property reqLevel
+     * @property requiredItems
+     * @constructor Half made crunchy
+     */
     internal enum class HalfMadeCrunchy(val product: Int, val reqLevel: Int, val requiredItems: Array<Item>) {
+        /**
+         * Chocchip
+         *
+         * @constructor Chocchip
+         */
         CHOCCHIP(9577, 16, arrayOf(Item(Items.CHOCOLATE_BAR_1973, 2))),
+
+        /**
+         * Spicy
+         *
+         * @constructor Spicy
+         */
         SPICY(9579, 12, arrayOf(Item(Items.EQUA_LEAVES_2128, 2))),
+
+        /**
+         * Toad
+         *
+         * @constructor Toad
+         */
         TOAD(9581, 10, arrayOf(Item(Items.TOADS_LEGS_2152, 2))),
+
+        /**
+         * Worm
+         *
+         * @constructor Worm
+         */
         WORM(9583, 14, arrayOf(Item(Items.EQUA_LEAVES_2128), Item(Items.KING_WORM_2162, 2)))
     }
 

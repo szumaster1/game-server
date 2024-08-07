@@ -12,6 +12,9 @@ import core.plugin.Initializable
 import core.tools.RandomFunction
 import kotlin.math.ceil
 
+/**
+ * Bloated leech familiar.
+ */
 @Initializable
 class BloatedLeechNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 6843) :
     Familiar(owner, id, 3400, 12061, 6, WeaponInterface.STYLE_ACCURATE) {

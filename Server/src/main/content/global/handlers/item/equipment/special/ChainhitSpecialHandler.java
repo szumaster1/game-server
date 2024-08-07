@@ -28,6 +28,9 @@ import java.util.List;
 import static core.api.ContentAPIKt.playGlobalAudio;
 import static core.api.ContentAPIKt.removeAttribute;
 
+/**
+ * Chainhit special handler.
+ */
 @Initializable
 public final class ChainhitSpecialHandler extends RangeSwingHandler implements Plugin<Object> {
 
@@ -109,6 +112,14 @@ public final class ChainhitSpecialHandler extends RangeSwingHandler implements P
         // Empty.
     }
 
+    /**
+     * Handle hit.
+     *
+     * @param entity the entity
+     * @param victim the victim
+     * @param player the player
+     * @param state  the state
+     */
     public void handleHit(final Entity entity, final Entity victim, final Player player, final BattleState state) {
         GameWorld.getPulser().submit(new Pulse(1, player, victim) {
             @Override

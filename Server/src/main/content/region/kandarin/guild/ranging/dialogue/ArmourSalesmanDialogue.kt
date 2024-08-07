@@ -10,6 +10,9 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 
+/**
+ * Armour salesman dialogue.
+ */
 @Initializable
 class ArmourSalesmanDialogue(player: Player? = null) : Dialogue(player) {
 

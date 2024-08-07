@@ -21,6 +21,9 @@ import java.util.List;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
+/**
+ * Blood spells.
+ */
 @Initializable
 public final class BloodSpells extends CombatSpell {
 
@@ -31,6 +34,9 @@ public final class BloodSpells extends CombatSpell {
     private static final Graphic BLITZ_END = new Graphic(375, 96);
     private static final Graphic BARRAGE_END = new Graphic(377, 0);
 
+    /**
+     * Instantiates a new Blood spells.
+     */
     public BloodSpells() {
 
     }

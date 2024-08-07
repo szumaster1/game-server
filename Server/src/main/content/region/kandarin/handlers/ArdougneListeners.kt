@@ -15,6 +15,9 @@ import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
+/**
+ * Ardougne listeners.
+ */
 class ArdougneListeners : InteractionListener {
 
     override fun defineListeners() {
@@ -46,10 +49,9 @@ class ArdougneListeners : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Use ferret on Charlie interaction in Ardougne zoo.
          */
-
         onUseWith(IntType.NPC, Items.FERRET_10092, NPCs.CHARLIE_5138) { player, _, _ ->
             if (!hasRequirement(player, "Eagles' Peak")) return@onUseWith true
             openDialogue(player, object : DialogueFile() {

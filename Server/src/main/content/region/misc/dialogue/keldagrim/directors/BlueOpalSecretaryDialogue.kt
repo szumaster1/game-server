@@ -8,6 +8,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Blue opal secretary dialogue.
+ */
 @Initializable
 class BlueOpalSecretaryDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any?): Boolean {
@@ -20,7 +23,7 @@ class BlueOpalSecretaryDialogue(player: Player? = null) : Dialogue(player) {
             4 -> npcl(FacialExpression.OLD_DEFAULT, "Say what you want or get out of our office, human!").also { stage++ }
             5 -> npcl(FacialExpression.OLD_DEFAULT, "Do not test the patience of the Blue Opal, human. Say what you need!").also { stage++ }
             6 -> npcl(FacialExpression.OLD_DEFAULT, "I think I've misplaced my quill somewhere...").also { stage++ }
-            7 -> npcl(FacialExpression.OLD_DEFAULT, "Oh, and what did you want?").also { stage = 100 }
+            7 -> npcl(FacialExpression.OLD_DEFAULT, "Oh, and what did you want?").also { stage = END_DIALOGUE }
         }
         stage = 0
         return true

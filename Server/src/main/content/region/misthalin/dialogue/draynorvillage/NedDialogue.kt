@@ -15,6 +15,10 @@ import core.game.node.item.Item
 import core.game.world.GameWorld.settings
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
+
+/**
+ * Ned dialogue.
+ */
 @Initializable
 class NedDialogue(player: Player? = null) : Dialogue(player) {
 

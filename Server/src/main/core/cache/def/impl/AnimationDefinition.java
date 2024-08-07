@@ -7,36 +7,114 @@ import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Animation definition.
+ */
 public final class AnimationDefinition {
 
+    /**
+     * The An int 2136.
+     */
     public int anInt2136;
+    /**
+     * The An int 2137.
+     */
     public int anInt2137;
+    /**
+     * The An int array 2139.
+     */
     public int[] anIntArray2139;
+    /**
+     * The An int 2140.
+     */
     public int anInt2140;
+    /**
+     * The A boolean 2141.
+     */
     public boolean aBoolean2141 = false;
+    /**
+     * The An int 2142.
+     */
     public int anInt2142;
+    /**
+     * The Emote item.
+     */
     public int emoteItem;
+    /**
+     * The An int 2144.
+     */
     public int anInt2144 = -1;
+    /**
+     * The Handled sounds.
+     */
     public int[][] handledSounds;
+    /**
+     * The A boolean array 2149.
+     */
     public boolean[] aBooleanArray2149;
+    /**
+     * The An int array 2151.
+     */
     public int[] anIntArray2151;
+    /**
+     * The A boolean 2152.
+     */
     public boolean aBoolean2152;
+    /**
+     * The Durations.
+     */
     public int[] durations;
+    /**
+     * The An int 2155.
+     */
     public int anInt2155;
+    /**
+     * The A boolean 2158.
+     */
     public boolean aBoolean2158;
+    /**
+     * The A boolean 2159.
+     */
     public boolean aBoolean2159;
+    /**
+     * The An int 2162.
+     */
     public int anInt2162;
+    /**
+     * The An int 2163.
+     */
     public int anInt2163;
+    /**
+     * The New header.
+     */
     boolean newHeader;
 
-    // added
+    /**
+     * The Sound min delay.
+     */
+// added
     public int[] soundMinDelay;
+    /**
+     * The Sound max delay.
+     */
     public int[] soundMaxDelay;
+    /**
+     * The An int array 1362.
+     */
     public int[] anIntArray1362;
+    /**
+     * The Effect 2 sound.
+     */
     public boolean effect2Sound;
 
     private static final Map<Integer, AnimationDefinition> animDefs = new HashMap<>();
 
+    /**
+     * For id animation definition.
+     *
+     * @param emoteId the emote id
+     * @return the animation definition
+     */
     public static final AnimationDefinition forId(int emoteId) {
         try {
             AnimationDefinition defs = animDefs.get(emoteId);
@@ -66,6 +144,11 @@ public final class AnimationDefinition {
         }
     }
 
+    /**
+     * Gets duration.
+     *
+     * @return the duration
+     */
     public int getDuration() {
         if (durations == null) {
             return 0;
@@ -81,6 +164,11 @@ public final class AnimationDefinition {
     }
 
 
+    /**
+     * Gets cycles.
+     *
+     * @return the cycles
+     */
     public int getCycles() {
         if (durations == null) return 0;
         int duration = 0;
@@ -89,6 +177,11 @@ public final class AnimationDefinition {
         return duration;
     }
 
+    /**
+     * Gets duration ticks.
+     *
+     * @return the duration ticks
+     */
     public int getDurationTicks() {
         int ticks = getDuration() / 600;
         return Math.max(ticks, 1);
@@ -159,6 +252,9 @@ public final class AnimationDefinition {
         } else anInt2163 = buffer.getShort() & 0xFFFF;
     }
 
+    /**
+     * Method 2394.
+     */
     public void method2394() {
         if (anInt2140 == -1) {
             if (aBooleanArray2149 == null) anInt2140 = 0;
@@ -170,6 +266,9 @@ public final class AnimationDefinition {
         }
     }
 
+    /**
+     * Instantiates a new Animation definition.
+     */
     public AnimationDefinition() {
         anInt2136 = 99;
         emoteItem = -1;

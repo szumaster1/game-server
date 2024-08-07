@@ -4,6 +4,9 @@ import core.api.closeTabInterface
 import core.api.consts.Components
 import core.game.interaction.InterfaceListener
 
+/**
+ * Gnome copter sign interface listener.
+ */
 class GnomeCopterSignInterfaceListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {

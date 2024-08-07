@@ -11,14 +11,28 @@ import core.game.world.GameWorld;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Pulse manager.
+ */
 public final class PulseManager {
 
     private final HashMap<PulseType, Pulse> currentPulses = new HashMap<>();
 
+    /**
+     * Run.
+     *
+     * @param pulse the pulse
+     */
     public void run(Pulse pulse) {
         run(pulse, PulseType.STANDARD);
     }
 
+    /**
+     * Run.
+     *
+     * @param pulse     the pulse
+     * @param pulseType the pulse type
+     */
     public void run(Pulse pulse, PulseType pulseType) {
         ArrayList<PulseType> toRemove = new ArrayList<>(currentPulses.size());
         currentPulses.forEach((key, value) -> {
@@ -48,12 +62,21 @@ public final class PulseManager {
         }
     }
 
+    /**
+     * Clear.
+     */
     public void clear() {
         currentPulses.forEach((type, pulse) -> {
             if (type != PulseType.STRONG && pulse != null) pulse.stop();
         });
     }
 
+    /**
+     * Clear boolean.
+     *
+     * @param pulseType the pulse type
+     * @return the boolean
+     */
     public boolean clear(PulseType pulseType) {
         Pulse pulse = currentPulses.get(pulseType);
 
@@ -64,6 +87,13 @@ public final class PulseManager {
         return true;
     }
 
+    /**
+     * Run unhandled action pulse.
+     *
+     * @param player    the player
+     * @param pulseType the pulse type
+     * @return the pulse
+     */
     public Pulse runUnhandledAction(final Player player, PulseType pulseType) {
         Pulse pulse = new Pulse(1, player) {
             @Override
@@ -76,6 +106,11 @@ public final class PulseManager {
         return pulse;
     }
 
+    /**
+     * Is moving pulse boolean.
+     *
+     * @return the boolean
+     */
     public boolean isMovingPulse() {
         if (!hasPulseRunning()) {
             return false;
@@ -85,10 +120,20 @@ public final class PulseManager {
         return current instanceof MovementPulse || current instanceof CombatPulse;
     }
 
+    /**
+     * Has pulse running boolean.
+     *
+     * @return the boolean
+     */
     public boolean hasPulseRunning() {
         return getCurrent() != null && getCurrent().isRunning();
     }
 
+    /**
+     * Cancel death task.
+     *
+     * @param e the e
+     */
     public static void cancelDeathTask(Entity e) {
         if (!DeathTask.isDead(e) || e.getPulseManager().getCurrent() == null) {
             return;
@@ -96,6 +141,11 @@ public final class PulseManager {
         e.getPulseManager().getCurrent().stop();
     }
 
+    /**
+     * Gets current.
+     *
+     * @return the current
+     */
     public Pulse getCurrent() {
         PulseType[] types = PulseType.values();
         for (PulseType type : types) {

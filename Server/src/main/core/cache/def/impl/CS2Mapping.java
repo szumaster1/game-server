@@ -11,6 +11,9 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Cs 2 mapping.
+ */
 public final class CS2Mapping {
 
     private static final Map<Integer, CS2Mapping> maps = new HashMap<>();
@@ -29,10 +32,21 @@ public final class CS2Mapping {
 
     private Object[] array;
 
+    /**
+     * Instantiates a new Cs 2 mapping.
+     *
+     * @param scriptId the script id
+     */
     public CS2Mapping(int scriptId) {
         this.scriptId = scriptId;
     }
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     * @throws Throwable the throwable
+     */
     public static void main(String... args) throws Throwable {
         GameWorld.prompt(false);
         BufferedWriter bw = Files.newBufferedWriter(Paths.get("./cs2.txt"));
@@ -55,6 +69,12 @@ public final class CS2Mapping {
         bw.close();
     }
 
+    /**
+     * For id cs 2 mapping.
+     *
+     * @param scriptId the script id
+     * @return the cs 2 mapping
+     */
     public static CS2Mapping forId(int scriptId) {
         CS2Mapping mapping = maps.get(scriptId);
         if (mapping != null) {
@@ -112,50 +132,110 @@ public final class CS2Mapping {
         }
     }
 
+    /**
+     * Get array object [ ].
+     *
+     * @return the object [ ]
+     */
     public Object[] getArray() {
         return array;
     }
 
+    /**
+     * Gets script id.
+     *
+     * @return the script id
+     */
     public int getScriptId() {
         return scriptId;
     }
 
+    /**
+     * Gets unknown.
+     *
+     * @return the unknown
+     */
     public int getUnknown() {
         return unknown;
     }
 
+    /**
+     * Sets unknown.
+     *
+     * @param unknown the unknown
+     */
     public void setUnknown(int unknown) {
         this.unknown = unknown;
     }
 
+    /**
+     * Gets unknown 1.
+     *
+     * @return the unknown 1
+     */
     public int getUnknown1() {
         return unknown1;
     }
 
+    /**
+     * Sets unknown 1.
+     *
+     * @param unknown1 the unknown 1
+     */
     public void setUnknown1(int unknown1) {
         this.unknown1 = unknown1;
     }
 
+    /**
+     * Gets default string.
+     *
+     * @return the default string
+     */
     public String getDefaultString() {
         return defaultString;
     }
 
+    /**
+     * Sets default string.
+     *
+     * @param defaultString the default string
+     */
     public void setDefaultString(String defaultString) {
         this.defaultString = defaultString;
     }
 
+    /**
+     * Gets default int.
+     *
+     * @return the default int
+     */
     public int getDefaultInt() {
         return defaultInt;
     }
 
+    /**
+     * Sets default int.
+     *
+     * @param defaultInt the default int
+     */
     public void setDefaultInt(int defaultInt) {
         this.defaultInt = defaultInt;
     }
 
+    /**
+     * Gets map.
+     *
+     * @return the map
+     */
     public HashMap<Integer, Object> getMap() {
         return map;
     }
 
+    /**
+     * Sets map.
+     *
+     * @param map the map
+     */
     public void setMap(HashMap<Integer, Object> map) {
         this.map = map;
     }

@@ -13,6 +13,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Gunnjorn dialogue.
+ */
 @Initializable
 class GunnjornDialogue(player: Player? = null) : Dialogue(player) {
 

@@ -11,6 +11,9 @@ import core.game.dialogue.FacialExpression
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Draynor village listeners.
+ */
 class DraynorVillageListeners : InteractionListener {
 
     companion object {
@@ -30,20 +33,18 @@ class DraynorVillageListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Make dyes interaction.
          */
-
         on(NPCs.AGGIE_922, IntType.NPC, "make-dyes") { player, node ->
             openDialogue(player, node.asNpc().id, node, true)
             return@on true
         }
 
-        /*
+        /**
          * Interaction that allows you to see through the
          * telescope in the wise old man's house.
          */
-
         on(Scenery.TELESCOPE_7092, IntType.SCENERY, "observe") { player, _ ->
             ActivityManager.start(player, "draynor telescope", false)
             return@on true
@@ -54,19 +55,17 @@ class DraynorVillageListeners : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Diango holiday items reclaimable interaction.
          */
-
         on(NPCs.DIANGO_970, IntType.NPC, "holiday-items") { player, _ ->
             DiangoReclaimInterfacePlugin.open(player)
             return@on true
         }
 
-        /*
+        /**
          * Searching the bookshelves in the Wise Old Man's house.
          */
-
         on(BOOKSHELVES, IntType.SCENERY, "search") { player, node ->
             if (freeSlots(player) == 0) {
                 sendDialogue(player, "You need at least one free inventory space to take from the shelves.")
@@ -93,10 +92,9 @@ class DraynorVillageListeners : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Darius 'Suave' Aniseed interaction.
          */
-
         on(Scenery.TREE_10041, IntType.SCENERY, "chop down", "talk to") { player, _ ->
             when (getUsedOption(player)) {
                 "chop down" -> sendNPCDialogue(

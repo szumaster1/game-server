@@ -8,8 +8,8 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.npc.NPC
 
 /**
- * @author Ceikry
- * @date 12.03.2021
+ * Handles the work-for actions for the NPCs.
+ * @author Ceikry, vddCore
  */
 class WorkForInteractionListener : InteractionListener {
     override fun defineListeners() {

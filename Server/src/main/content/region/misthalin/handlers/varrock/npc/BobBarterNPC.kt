@@ -6,6 +6,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
 import core.tools.RandomFunction
 
+/**
+ * Bob barter NPC.
+ */
 class BobBarterNPC : NPCBehavior(NPCs.BOB_BARTER_HERBS_6524) {
 
     private val forceChat = arrayOf(

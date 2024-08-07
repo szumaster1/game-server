@@ -12,6 +12,9 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
+/**
+ * High priest entrana dialogue.
+ */
 @Initializable
 class HighPriestEntranaDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -31,24 +34,12 @@ class HighPriestEntranaDialogue(player: Player? = null) : Dialogue(player) {
                     }
                 }
             }
-            1 -> {
-                npcl(FacialExpression.FRIENDLY, "You are standing on the holy island of Entrana. It was here that Saradomin first stepped upon Gielinor.").also { stage++ }
-            }
-            2 -> {
-                npcl(FacialExpression.FRIENDLY, "In homage to Saradomin's first arrival, we have built a great church, and devoted the island to those who wish peace for the world.").also { stage++ }
-            }
-            3 -> {
-                npcl(FacialExpression.FRIENDLY, "The inhabitants of this island are mostly monks who spend their time meditating on Saradomin's ways.").also { stage++ }
-            }
-            4 -> {
-                npcl(FacialExpression.FRIENDLY, "Of course, there are now more pilgrims to this holy site, since Saradomin defeated Zamorak in the battle of Lumbridge.").also { stage++ }
-            }
-            5 -> {
-                npcl(FacialExpression.FRIENDLY, "It is good that so many see Saradomin's true glory!").also { stage = END_DIALOGUE }
-            }
-            6 -> {
-                playerl(FacialExpression.FRIENDLY, "Hi, I was wondering, can you quickly bless this for me?").also { stage++ }
-            }
+            1 -> npcl(FacialExpression.FRIENDLY, "You are standing on the holy island of Entrana. It was here that Saradomin first stepped upon Gielinor.").also { stage++ }
+            2 -> npcl(FacialExpression.FRIENDLY, "In homage to Saradomin's first arrival, we have built a great church, and devoted the island to those who wish peace for the world.").also { stage++ }
+            3 -> npcl(FacialExpression.FRIENDLY, "The inhabitants of this island are mostly monks who spend their time meditating on Saradomin's ways.").also { stage++ }
+            4 -> npcl(FacialExpression.FRIENDLY, "Of course, there are now more pilgrims to this holy site, since Saradomin defeated Zamorak in the battle of Lumbridge.").also { stage++ }
+            5 -> npcl(FacialExpression.FRIENDLY, "It is good that so many see Saradomin's true glory!").also { stage = END_DIALOGUE }
+            6 -> playerl(FacialExpression.FRIENDLY, "Hi, I was wondering, can you quickly bless this for me?").also { stage++ }
             7 -> {
                 npc(FacialExpression.FRIENDLY, "A somewhat strange request, but I see no harm in it.", "There you go.", "May Saradomin walk with you.").also {
                     when {

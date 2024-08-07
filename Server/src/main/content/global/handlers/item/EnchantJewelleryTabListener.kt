@@ -8,6 +8,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.interaction.QueueStrength
 
+/**
+ * Enchant jewellery tab listener
+ *
+ * @constructor Enchant jewellery tab listener
+ */
 class EnchantJewelleryTabListener : InteractionListener {
     private val LVL_1_ENCHANT = mapOf(
         Items.SAPPHIRE_RING_1637 to Items.RING_OF_RECOIL_2550,

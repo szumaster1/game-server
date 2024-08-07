@@ -11,6 +11,9 @@ import core.game.node.entity.npc.AbstractNPC
 import core.game.node.entity.player.Player
 import core.game.world.map.Location
 
+/**
+ * Fire warrior of lesarkus NPC.
+ */
 class FireWarriorOfLesarkusNPC(id: Int = 0, val player: Player?, location: Location? = null) : AbstractNPC(id, location) {
 
     var clearTime = 0

@@ -25,10 +25,11 @@ import core.tools.RandomFunction
 import kotlin.random.Random
 
 /**
- * A bot script for killing green dragons in the wilderness.. Capable of banking, selling on ge, eating, trash talking, buries bones when fleeing and more.
+ * A bot script for killing green dragons in the wilderness.
+ * Capable of banking, selling on ge, eating, trash talking, buries bones when fleeing and more.
+ *
  * @param style The combat style the bot is going to use.
  * @param area (optional) What area the bot tries to kill dragons in.
- * @author Ceikry
  */
 class GreenDragonKiller(val style: CombatStyle, area: ZoneBorders? = null) : Script() {
     companion object {

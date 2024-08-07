@@ -13,6 +13,9 @@ import core.game.world.map.zone.ZoneBorders
 import core.game.world.update.flag.context.Graphic
 import core.tools.RandomFunction
 
+/**
+ * Prison utils.
+ */
 object PrisonUtils {
 
     val PRISON_LOCATION: Location = Location.create(2086, 4462, 0)

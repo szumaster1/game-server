@@ -36,6 +36,12 @@ private const val HOLE_SOUTH_Y = 23
 private const val LEAKING_ID = 2167
 private const val PATCHED_ID = 2168
 
+/**
+ * Fishing trawler session
+ *
+ * @property activity the activity.
+ * @return Fishing trawler session.
+ */
 class FishingTrawlerSession(val activity: FishingTrawlerActivity? = null) : MapArea {
     constructor(region: DynamicRegion, activity: FishingTrawlerActivity) : this(activity) {
         this.region = region; this.base = region.baseLocation
@@ -58,6 +64,11 @@ class FishingTrawlerSession(val activity: FishingTrawlerActivity? = null) : MapA
     val npcs = ArrayList<NPC>()
     var inactiveTicks = 0
 
+    /**
+     * Start.
+     *
+     * @param pl the players.
+     */
     fun start(pl: ArrayList<Player>) {
         if (RandomFunction.roll(2)) {
             region.setMusicId(38)
@@ -87,12 +98,23 @@ class FishingTrawlerSession(val activity: FishingTrawlerActivity? = null) : MapA
         zone.register(getRegionBorders(region.id))
     }
 
+    /**
+     * Swap boat type.
+     *
+     * @param fromRegion from region.
+     */
     fun swapBoatType(fromRegion: Int) {
         val newRegion = DynamicRegion.create(fromRegion)
         GameWorld.Pulser.submit(SwapBoatPulse(players, newRegion))
     }
 
 
+    /**
+     * Swap boat pulse.
+     *
+     * @property playerList the player list.
+     * @property newRegion the region.
+     */
     class SwapBoatPulse(val playerList: ArrayList<Player>, val newRegion: DynamicRegion) : Pulse(3) {
         override fun pulse(): Boolean {
             val session: FishingTrawlerSession? = playerList[0].getAttribute("ft-session", null)
@@ -113,6 +135,11 @@ class FishingTrawlerSession(val activity: FishingTrawlerActivity? = null) : MapA
     }
 
 
+    /**
+     * Trawler pulse.
+     *
+     * @property session the session.
+     */
     class TrawlerPulse(val session: FishingTrawlerSession) : Pulse() {
         var ticks = 0
         override fun pulse(): Boolean {
@@ -171,6 +198,9 @@ class FishingTrawlerSession(val activity: FishingTrawlerActivity? = null) : MapA
         }
     }
 
+    /**
+     * Init holes.
+     */
     fun initHoles() {
         maxHoles = players.size
         if (maxHoles > 16) maxHoles = 16
@@ -194,6 +224,12 @@ class FishingTrawlerSession(val activity: FishingTrawlerActivity? = null) : MapA
         hole_locations.addAll(tempLocationList)
     }
 
+    /**
+     * Init murphy.
+     *
+     * @param localX the location x.
+     * @param localY the location y.
+     */
     fun initMurphy(localX: Int, localY: Int) {
         murphy = NPC(463)
         murphy?.isWalks = false
@@ -208,6 +244,9 @@ class FishingTrawlerSession(val activity: FishingTrawlerActivity? = null) : MapA
         npcs.add(murphy!!)
     }
 
+    /**
+     * Clear NPCs.
+     */
     fun clearNPCs() {
         npcs.forEach {
             it.clear()
@@ -215,6 +254,9 @@ class FishingTrawlerSession(val activity: FishingTrawlerActivity? = null) : MapA
         npcs.clear()
     }
 
+    /**
+     * Tick murphy.
+     */
     fun tickMurphy() {
         var phrase = if (boatSank) {
             arrayOf(
@@ -245,6 +287,10 @@ class FishingTrawlerSession(val activity: FishingTrawlerActivity? = null) : MapA
         }
     }
 
+    /**
+     * Init gulls
+     *
+     */
     fun initGulls() {
         for (loc in arrayOf(
             base.transform(38, 17, 0),
@@ -263,6 +309,10 @@ class FishingTrawlerSession(val activity: FishingTrawlerActivity? = null) : MapA
         }
     }
 
+    /**
+     * Spawn hole
+     *
+     */
     fun spawnHole() {
         if (hole_locations.isEmpty() && used_locations.isEmpty()) return
         val holeLocation = hole_locations.random().also { hole_locations.remove(it) }
@@ -278,10 +328,21 @@ class FishingTrawlerSession(val activity: FishingTrawlerActivity? = null) : MapA
         }
     }
 
+    /**
+     * Get leaking holes
+     *
+     * @return
+     */
     fun getLeakingHoles(): Int {
         return maxHoles - hole_locations.size
     }
 
+    /**
+     * Repair hole
+     *
+     * @param player
+     * @param obj
+     */
     fun repairHole(player: Player, obj: Scenery) {
         if (player.inventory.remove(Item(Items.SWAMP_PASTE_1941))) {
             SceneryBuilder.replace(obj, Scenery(PATCHED_ID, obj.location, obj.rotation))
@@ -294,10 +355,19 @@ class FishingTrawlerSession(val activity: FishingTrawlerActivity? = null) : MapA
         }
     }
 
+    /**
+     * Rip net
+     *
+     */
     fun ripNet() {
         netRipped = true
     }
 
+    /**
+     * Repair net
+     *
+     * @param player
+     */
     fun repairNet(player: Player) {
         if (player.inventory.remove(Item(Items.ROPE_954))) {
             netRipped = false
@@ -307,6 +377,11 @@ class FishingTrawlerSession(val activity: FishingTrawlerActivity? = null) : MapA
         }
     }
 
+    /**
+     * Update overlay
+     *
+     * @param player
+     */
     fun updateOverlay(player: Player) {
         FishingTrawlerOverlay.sendUpdate(
             player,

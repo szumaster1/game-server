@@ -12,6 +12,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Shadow realm ghost dialogue.
+ */
 @Initializable
 class ShadowRealmGhostDialogue(player: Player? = null) : Dialogue(player) {
 

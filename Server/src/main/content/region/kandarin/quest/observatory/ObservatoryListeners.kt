@@ -14,6 +14,11 @@ import core.game.system.task.Pulse
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Observatory listeners
+ *
+ * @constructor Observatory listeners
+ */
 class ObservatoryListeners : InteractionListener {
 
     companion object {

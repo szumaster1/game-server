@@ -9,11 +9,13 @@ import core.game.node.scenery.Scenery
 import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 
+/**
+ * Law crafter.
+ */
 @PlayerCompatible
 @ScriptName("Law Rune Crafter")
 @ScriptDescription("Crafts law runes. Start near Draynor bank w/ law tiara.")
 @ScriptIdentifier("law_crafter")
-
 class LawCrafter : Script() {
     var state = State.INIT
     var runeCounter = 0
@@ -192,8 +194,81 @@ class LawCrafter : Script() {
         return this
     }
 
+    /**
+     * State
+     *
+     * @constructor State
+     */
     enum class State {
-        INIT, BANKING, TO_BOAT_GUY, CROSS_GANGPLANK, RUNNING_TO_ALTER, CRAFTING, LEAVING_ALTER, RETURN_TO_BOAT_GUY, HALF_BANK, INVALID
+        /**
+         * Init
+         *
+         * @constructor Init
+         */
+        INIT,
+
+        /**
+         * Banking
+         *
+         * @constructor Banking
+         */
+        BANKING,
+
+        /**
+         * To Boat Guy
+         *
+         * @constructor To Boat Guy
+         */
+        TO_BOAT_GUY,
+
+        /**
+         * Cross Gangplank
+         *
+         * @constructor Cross Gangplank
+         */
+        CROSS_GANGPLANK,
+
+        /**
+         * Running To Alter
+         *
+         * @constructor Running To Alter
+         */
+        RUNNING_TO_ALTER,
+
+        /**
+         * Crafting
+         *
+         * @constructor Crafting
+         */
+        CRAFTING,
+
+        /**
+         * Leaving Alter
+         *
+         * @constructor Leaving Alter
+         */
+        LEAVING_ALTER,
+
+        /**
+         * Return To Boat Guy
+         *
+         * @constructor Return To Boat Guy
+         */
+        RETURN_TO_BOAT_GUY,
+
+        /**
+         * Half Bank
+         *
+         * @constructor Half Bank
+         */
+        HALF_BANK,
+
+        /**
+         * Invalid
+         *
+         * @constructor Invalid
+         */
+        INVALID
     }
 
 }

@@ -13,6 +13,9 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 
+/**
+ * Sir mordred NPC.
+ */
 @Initializable
 class SirMordredNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 

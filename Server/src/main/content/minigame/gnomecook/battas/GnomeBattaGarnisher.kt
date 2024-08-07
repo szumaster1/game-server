@@ -8,6 +8,9 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Gnome batta garnisher.
+ */
 @Initializable
 class GnomeBattaGarnisher : UseWithHandler(9479, 9481, 9484, 9486) {
 

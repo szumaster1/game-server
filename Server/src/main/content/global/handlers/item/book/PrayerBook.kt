@@ -9,6 +9,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
+/**
+ * Prayer book
+ *
+ * @constructor Prayer book
+ */
 class PrayerBook
     : InteractionListener {
 

@@ -9,6 +9,9 @@ import core.game.world.map.Location;
 import core.plugin.Initializable;
 import core.tools.RandomFunction;
 
+/**
+ * Rock crab npc.
+ */
 @Initializable
 public final class RockCrabNPC extends AbstractNPC {
     private static final AggressiveBehavior AGGRO_BEHAVIOR = new AggressiveBehavior() {
@@ -37,6 +40,12 @@ public final class RockCrabNPC extends AbstractNPC {
 
     private Entity target;
 
+    /**
+     * Instantiates a new Rock crab npc.
+     *
+     * @param id       the id
+     * @param location the location
+     */
     public RockCrabNPC(int id, Location location) {
         super(id, location, false);
         super.setAggressiveHandler(new AggressiveHandler(this, AGGRO_BEHAVIOR));
@@ -44,6 +53,9 @@ public final class RockCrabNPC extends AbstractNPC {
         this.setWalks(false);
     }
 
+    /**
+     * Instantiates a new Rock crab npc.
+     */
     public RockCrabNPC() {
         super(-1, null);
     }

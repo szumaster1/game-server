@@ -9,6 +9,9 @@ import core.game.interaction.QueueStrength
 import core.game.node.item.Item
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Calquat keg listener.
+ */
 class CalquatKegListener : InteractionListener {
 
     override fun defineListeners() {

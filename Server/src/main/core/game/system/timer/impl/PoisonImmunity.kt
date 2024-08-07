@@ -14,10 +14,10 @@ import core.tools.secondsToTicks
 import org.json.simple.JSONObject
 
 /**
- * A timer that replicates the behavior of poison immunity mechanics. Runs every tick.
- * Will notify the player of various levels of remaining poison immunity, and then remove itself once it has run out.
- * This timer is a "soft" timer, meaning it will tick down even while other timers would normally stall (e.g. during entity delays or when the entity has a modal open.)
- **/
+ * Poison immunity
+ *
+ * @constructor Poison immunity
+ */
 class PoisonImmunity : PersistTimer(
     runInterval = 1,
     identifier = "poison:immunity",

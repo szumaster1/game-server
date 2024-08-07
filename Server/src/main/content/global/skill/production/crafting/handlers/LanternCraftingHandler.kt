@@ -12,6 +12,9 @@ import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Lantern crafting handler.
+ */
 @Initializable
 class LanternCraftingHandler : UseWithHandler(
     Items.CANDLE_36,

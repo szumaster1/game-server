@@ -9,6 +9,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Radimus erke dialogue.
+ */
 @Initializable
 class RadimusErkeDialogue(player: Player? = null) : Dialogue(player) {
 

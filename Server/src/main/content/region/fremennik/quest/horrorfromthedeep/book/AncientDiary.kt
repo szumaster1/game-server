@@ -9,6 +9,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
+/**
+ * Ancient diary
+ *
+ * @constructor Ancient diary
+ */
 class AncientDiary : InteractionListener {
     companion object {
         private val TITLE = "Diary"

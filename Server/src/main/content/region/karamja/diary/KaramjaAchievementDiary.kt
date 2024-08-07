@@ -15,6 +15,9 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.diary.DiaryType
 import core.game.world.map.zone.ZoneBorders
 
+/**
+ * Karamja achievement diary.
+ */
 class KaramjaAchievementDiary : DiaryEventHookBase(DiaryType.KARAMJA) {
 
     companion object {
@@ -109,7 +112,6 @@ class KaramjaAchievementDiary : DiaryEventHookBase(DiaryType.KARAMJA) {
              * Earn 100% favour in the village of Tai Bwo Wannai Cleanup.
              */
             const val TAI_BWO_WANNAI_EARN_FULL_FAVOR = 4
-
             /*
              * Cook a spider on stick.
              */

@@ -5,6 +5,9 @@ import core.tools.StringUtils;
 
 import java.nio.ByteBuffer;
 
+/**
+ * Cache file manager.
+ */
 public final class CacheFileManager {
 
     private CacheFile cacheFile;
@@ -15,6 +18,12 @@ public final class CacheFileManager {
 
     private byte[][][] filesData;
 
+    /**
+     * Instantiates a new Cache file manager.
+     *
+     * @param cacheFile        the cache file
+     * @param discardFilesData the discard files data
+     */
     public CacheFileManager(CacheFile cacheFile, boolean discardFilesData) {
         this.cacheFile = cacheFile;
         this.discardFilesData = discardFilesData;
@@ -26,14 +35,30 @@ public final class CacheFileManager {
         resetFilesData();
     }
 
+    /**
+     * Gets cache file.
+     *
+     * @return the cache file
+     */
     public CacheFile getCacheFile() {
         return cacheFile;
     }
 
+    /**
+     * Gets containers size.
+     *
+     * @return the containers size
+     */
     public int getContainersSize() {
         return information.getContainers().length;
     }
 
+    /**
+     * Gets files size.
+     *
+     * @param containerId the container id
+     * @return the files size
+     */
     public int getFilesSize(int containerId) {
         if (!validContainer(containerId)) {
             return -1;
@@ -41,10 +66,20 @@ public final class CacheFileManager {
         return information.getContainers()[containerId].getFiles().length;
     }
 
+    /**
+     * Reset files data.
+     */
     public void resetFilesData() {
         filesData = new byte[information.getContainers().length][][];
     }
 
+    /**
+     * Valid file boolean.
+     *
+     * @param containerId the container id
+     * @param fileId      the file id
+     * @return the boolean
+     */
     public boolean validFile(int containerId, int fileId) {
         if (!validContainer(containerId)) {
             return false;
@@ -53,10 +88,22 @@ public final class CacheFileManager {
 
     }
 
+    /**
+     * Valid container boolean.
+     *
+     * @param containerId the container id
+     * @return the boolean
+     */
     public boolean validContainer(int containerId) {
         return containerId >= 0 && information.getContainers().length > containerId;
     }
 
+    /**
+     * Get file ids int [ ].
+     *
+     * @param containerId the container id
+     * @return the int [ ]
+     */
     public int[] getFileIds(int containerId) {
         if (!validContainer(containerId)) {
             return null;
@@ -64,6 +111,12 @@ public final class CacheFileManager {
         return information.getContainers()[containerId].getFilesIndexes();
     }
 
+    /**
+     * Gets archive id.
+     *
+     * @param name the name
+     * @return the archive id
+     */
     public int getArchiveId(String name) {
         if (name == null) {
             return -1;
@@ -77,10 +130,24 @@ public final class CacheFileManager {
         return -1;
     }
 
+    /**
+     * Get file data byte [ ].
+     *
+     * @param containerId the container id
+     * @param fileId      the file id
+     * @return the byte [ ]
+     */
     public byte[] getFileData(int containerId, int fileId) {
         return getFileData(containerId, fileId, null);
     }
 
+    /**
+     * Load files data boolean.
+     *
+     * @param archiveId the archive id
+     * @param keys      the keys
+     * @return the boolean
+     */
     public boolean loadFilesData(int archiveId, int[] keys) {
         byte[] data = cacheFile.getContainerUnpackedData(archiveId, keys);
         if (data == null) {
@@ -132,6 +199,14 @@ public final class CacheFileManager {
 
     }
 
+    /**
+     * Get file data byte [ ].
+     *
+     * @param containerId the container id
+     * @param fileId      the file id
+     * @param xteaKeys    the xtea keys
+     * @return the byte [ ]
+     */
     public byte[] getFileData(int containerId, int fileId, int[] xteaKeys) {
         if (!validFile(containerId, fileId)) {
             return null;
@@ -152,30 +227,65 @@ public final class CacheFileManager {
         return data;
     }
 
+    /**
+     * Gets information.
+     *
+     * @return the information
+     */
     public ContainersInformation getInformation() {
         return information;
     }
 
+    /**
+     * Is discard files data boolean.
+     *
+     * @return the boolean
+     */
     public boolean isDiscardFilesData() {
         return discardFilesData;
     }
 
+    /**
+     * Sets discard files data.
+     *
+     * @param discardFilesData the discard files data
+     */
     public void setDiscardFilesData(boolean discardFilesData) {
         this.discardFilesData = discardFilesData;
     }
 
+    /**
+     * Get files data byte [ ] [ ] [ ].
+     *
+     * @return the byte [ ] [ ] [ ]
+     */
     public byte[][][] getFilesData() {
         return filesData;
     }
 
+    /**
+     * Sets files data.
+     *
+     * @param filesData the files data
+     */
     public void setFilesData(byte[][][] filesData) {
         this.filesData = filesData;
     }
 
+    /**
+     * Sets cache file.
+     *
+     * @param cacheFile the cache file
+     */
     public void setCacheFile(CacheFile cacheFile) {
         this.cacheFile = cacheFile;
     }
 
+    /**
+     * Sets information.
+     *
+     * @param information the information
+     */
     public void setInformation(ContainersInformation information) {
         this.information = information;
     }

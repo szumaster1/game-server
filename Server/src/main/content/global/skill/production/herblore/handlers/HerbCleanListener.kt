@@ -7,6 +7,9 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
+/**
+ * Herb clean listener.
+ */
 class HerbCleanListener : InteractionListener {
 
     override fun defineListeners() {

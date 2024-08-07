@@ -19,7 +19,9 @@ import core.network.packet.context.MinimapStateContext
 import core.network.packet.outgoing.MinimapState
 import core.tools.BLUE
 
-
+/**
+ * Tutorial stage.
+ */
 object TutorialStage {
 
     fun load(player: Player, stage: Int, login: Boolean = false) {

@@ -3,6 +3,11 @@ import core.game.ge.PriceIndex
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
+/**
+ * Price index tests
+ *
+ * @constructor Price index tests
+ */
 class PriceIndexTests {
     companion object {
         init {
@@ -10,6 +15,10 @@ class PriceIndexTests {
         }
     }
 
+    /**
+     * Should allow checking if item can be sold on g e
+     *
+     */
     @Test
     fun shouldAllowCheckingIfItemCanBeSoldOnGE() {
         PriceIndex.allowItem(4151)
@@ -17,6 +26,10 @@ class PriceIndexTests {
         Assertions.assertEquals(true, canSellWhip)
     }
 
+    /**
+     * Should allow banning items
+     *
+     */
     @Test
     fun shouldAllowBanningItems() {
         PriceIndex.allowItem(1333)
@@ -25,6 +38,10 @@ class PriceIndexTests {
         Assertions.assertEquals(false, PriceIndex.canTrade(1333))
     }
 
+    /**
+     * Should allow value to be influenced
+     *
+     */
     @Test
     fun shouldAllowValueToBeInfluenced() {
         PriceIndex.allowItem(1333)
@@ -33,6 +50,10 @@ class PriceIndexTests {
         Assertions.assertNotEquals(defaultValue, PriceIndex.getValue(1333))
     }
 
+    /**
+     * Should allow value to go down with high volume of lower value trades
+     *
+     */
     @Test
     fun shouldAllowValueToGoDownWithHighVolumeOfLowerValueTrades() {
         PriceIndex.allowItem(1334)

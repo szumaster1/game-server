@@ -5,6 +5,9 @@ import core.game.node.entity.player.Player
 import core.game.world.GameWorld.ticks
 import core.game.world.map.Location
 
+/**
+ * Lady keli NPC.
+ */
 class LadyKeliNPC : AbstractNPC {
 
     constructor() : super(0, null, true)

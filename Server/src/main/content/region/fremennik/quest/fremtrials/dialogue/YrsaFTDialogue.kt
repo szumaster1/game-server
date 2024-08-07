@@ -14,6 +14,9 @@ import core.game.node.entity.player.link.diary.DiaryType
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Yrsa f t dialogue.
+ */
 @Initializable
 class YrsaFTDialogue(player: Player? = null): Dialogue(player) {
 

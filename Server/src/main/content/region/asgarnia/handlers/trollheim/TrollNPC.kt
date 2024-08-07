@@ -5,6 +5,9 @@ import core.game.node.entity.npc.AbstractNPC
 import core.game.world.map.Location
 import core.plugin.Initializable
 
+/**
+ * Troll NPC.
+ */
 @Initializable
 class TrollNPC : AbstractNPC {
 

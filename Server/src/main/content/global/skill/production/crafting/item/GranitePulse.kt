@@ -8,6 +8,15 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.skill.SkillPulse
 import core.game.node.item.Item
 
+/**
+ * Granite pulse
+ *
+ * @property amount
+ * @constructor
+ *
+ * @param player
+ * @param node
+ */
 class GranitePulse(player: Player, node: Item, var amount : Int) : SkillPulse<Item>(player, node) {
 
     companion object {

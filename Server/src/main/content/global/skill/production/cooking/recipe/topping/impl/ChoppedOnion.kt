@@ -8,6 +8,9 @@ import core.game.interaction.NodeUsageEvent
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
+/**
+ * Chopped onion.
+ */
 class ChoppedOnion : ToppingRecipe() {
 
     override fun mix(player: Player, event: NodeUsageEvent) {

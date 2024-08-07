@@ -7,6 +7,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import kotlin.math.min
 
+/**
+ * F o g gloves listener
+ *
+ * @constructor F o g gloves listener
+ */
 class FOGGlovesListener : InteractionListener {
     companion object {
         val MAX_CHARGES = intArrayOf(100, 100, 100, 100, 1000, 1000, 1000, 1000, 1000, 1000)

@@ -4,6 +4,11 @@ import core.api.setVarp
 import core.game.system.command.Privilege
 import core.plugin.Initializable
 
+/**
+ * Config command set
+ *
+ * @constructor Config command set
+ */
 @Initializable
 class ConfigCommandSet : CommandSet(Privilege.ADMIN) {
     override fun defineCommands() {

@@ -3,6 +3,11 @@ package content.region.kandarin.quest.toweroflife.dialogue
 import core.game.dialogue.DialogueFile
 import core.tools.END_DIALOGUE
 
+/**
+ * Machines dialogue
+ *
+ * @constructor Machines dialogue
+ */
 class MachinesDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
@@ -25,6 +30,11 @@ class MachinesDialogue : DialogueFile() {
     }
 
 
+    /**
+     * Pipe machine dialogue
+     *
+     * @constructor Pipe machine dialogue
+     */
     class PipeMachineDialogue : DialogueFile() {
         override fun handle(componentID: Int, buttonID: Int) {
             when (stage) {
@@ -47,6 +57,11 @@ class MachinesDialogue : DialogueFile() {
     }
 
 
+    /**
+     * Cage dialogue
+     *
+     * @constructor Cage dialogue
+     */
     class CageDialogue : DialogueFile() {
         override fun handle(componentID: Int, buttonID: Int) {
             when (stage) {
@@ -68,6 +83,11 @@ class MachinesDialogue : DialogueFile() {
         }
     }
 
+    /**
+     * Tower dialogue
+     *
+     * @constructor Tower dialogue
+     */
     class TowerDialogue : DialogueFile() {
         override fun handle(componentID: Int, buttonID: Int) {
             when (stage) {

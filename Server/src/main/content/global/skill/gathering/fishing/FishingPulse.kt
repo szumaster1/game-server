@@ -22,6 +22,15 @@ import core.game.world.map.path.Pathfinder
 import core.tools.RandomFunction
 import core.tools.colorize
 
+/**
+ * Fishing pulse
+ *
+ * @property option
+ * @constructor
+ *
+ * @param player
+ * @param npc
+ */
 class FishingPulse(player: Player?, npc: NPC, private val option: FishingOption?) : SkillPulse<NPC?>(player, npc) {
 
     private var fish: Fish? = null

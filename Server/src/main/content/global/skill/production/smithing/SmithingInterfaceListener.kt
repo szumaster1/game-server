@@ -9,6 +9,9 @@ import core.api.sendInputDialogue
 import core.game.interaction.InterfaceListener
 import core.game.node.item.Item
 
+/**
+ * Smithing interface listener.
+ */
 class SmithingInterfaceListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {

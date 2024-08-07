@@ -13,6 +13,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Tool leprechaun dialogue.
+ */
 @Initializable
 class ToolLeprechaunDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -74,6 +77,9 @@ class ToolLeprechaunDialogue(player: Player? = null) : Dialogue(player) {
     }
 }
 
+/**
+ * Tool leprechaun goth dialogue.
+ */
 @Initializable
 class ToolLeprechaunGothDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
@@ -125,6 +131,9 @@ class ToolLeprechaunGothDialogue(player: Player? = null) : Dialogue(player) {
     }
 }
 
+/**
+ * Tool leprechaun on vacation dialogue.
+ */
 @Initializable
 class ToolLeprechaunOnVacationDialogue(player: Player? = null) : Dialogue(player) {
 

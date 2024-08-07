@@ -8,6 +8,9 @@ import core.api.sendMessage
 import core.api.utils.WeightBasedTable
 import core.game.node.entity.npc.NPC
 
+/**
+ * Prison pete NPC.
+ */
 class PrisonPeteNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs.EVIL_BOB_2478) {
 
     override fun init() {

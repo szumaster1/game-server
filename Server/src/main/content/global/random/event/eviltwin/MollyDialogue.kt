@@ -1,5 +1,6 @@
 package content.global.random.event.eviltwin
 
+import core.api.face
 import core.api.getAttribute
 import core.api.setAttribute
 import core.game.dialogue.DialogueFile
@@ -8,18 +9,27 @@ import core.game.node.entity.npc.NPC
 import core.game.world.GameWorld
 import core.tools.END_DIALOGUE
 
+/**
+ * Molly dialogue.
+ */
 class MollyDialogue(var type: Int) : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(EvilTwinUtils.mollyNPC!!.originalId)
         when (type) {
             0 -> when (stage) {
-                    0 -> npc(FacialExpression.HAPPY, "Well done! You managed to catch my sister!").also { stage++ }
+                    0 -> {
+                        face(npc!!,player!!, 3)
+                        npc(FacialExpression.HAPPY, "Well done! You managed to catch my sister!").also { stage++ }
+                    }
                     1 -> npc(FacialExpression.HAPPY, "Come next door and talk to me.").also { stage = END_DIALOGUE }
             }
 
             1 -> when (stage) {
-                0 -> npc(FacialExpression.ANGRY, "Such incompetence! I should never have asked a", "baboon like you to do a complex task like this!", "Get out of my sight!").also { stage++ }
+                0 -> {
+                    face(npc!!,player!!, 3)
+                    npc(FacialExpression.ANGRY, "Such incompetence! I should never have asked a", "baboon like you to do a complex task like this!", "Get out of my sight!").also { stage++ }
+                }
                 1 -> player(FacialExpression.SAD, "Err, sorry. I seem to have messed it up a little.").also { stage++ }
                 2 -> {
                     end()
@@ -28,7 +38,10 @@ class MollyDialogue(var type: Int) : DialogueFile() {
             }
 
             2 -> when (stage) {
-                0 -> player("Well, I've managed to get her into the cage.").also { stage++ }
+                0 -> {
+                    face(npc!!,player!!, 3)
+                    player("Well, I've managed to get her into the cage.").also { stage++ }
+                }
                 1 -> npc(FacialExpression.HAPPY, "Fantastic! For so many years I've had to put up with", "her and now she's locked up for good.").also { stage++ }
                 2 -> npc("Thank you for all your help. Take this as a reward.").also { stage++ }
                 3 -> {
@@ -40,9 +53,18 @@ class MollyDialogue(var type: Int) : DialogueFile() {
 
             3 -> when (stage) {
                 0 -> when {
-                    !getAttribute(player!!, EvilTwinUtils.talkBefore, false) -> npc(FacialExpression.SAD, "I'm sorry for abducting you like that, but I really need", "your help ${player!!.username}.").also { setAttribute(player!!, "/save:${EvilTwinUtils.talkBefore}", true); stage = 4 }
-                    !getAttribute(player!!, EvilTwinUtils.doorDialogue, false) -> npc(FacialExpression.ASKING, "Wait! Do you know what you're doing here?").also { setAttribute(player!!, "/save:${EvilTwinUtils.doorDialogue}", true); stage++ }
-                    else -> npc(FacialExpression.HAPPY, "Good luck!").also { stage = END_DIALOGUE }
+                    !getAttribute(player!!, EvilTwinUtils.talkBefore, false) -> {
+                        face(npc!!,player!!, 3)
+                        npc(FacialExpression.SAD, "I'm sorry for abducting you like that, but I really need", "your help ${player!!.username}.").also { setAttribute(player!!, "/save:${EvilTwinUtils.talkBefore}", true); stage = 4 }
+                    }
+                    !getAttribute(player!!, EvilTwinUtils.doorDialogue, false) -> {
+                        face(npc!!,player!!, 3)
+                        npc(FacialExpression.ASKING, "Wait! Do you know what you're doing here?").also { setAttribute(player!!, "/save:${EvilTwinUtils.doorDialogue}", true); stage++ }
+                    }
+                    else -> {
+                        face(npc!!,player!!, 3)
+                        npc(FacialExpression.HAPPY, "Good luck!").also { stage = END_DIALOGUE }
+                    }
                 }
                 1 -> options("Yes, I know.", "Erm, no I don't actually.").also { stage++ }
                 2 -> when (buttonID) {

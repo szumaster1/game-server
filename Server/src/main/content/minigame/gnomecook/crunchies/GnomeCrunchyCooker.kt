@@ -16,8 +16,12 @@ private const val UNFINISHED_CRUNCHY_SPICY = 9580
 private const val UNFINISHED_CRUNCHY_TOAD = 9582
 private const val UNFINISHED_CRUNCHY_WORM = 9584
 
+/**
+ * Gnome crunchy cooker.
+ */
 @Initializable
 class GnomeCrunchyCooker : UseWithHandler(9577, 9579, 9581, 9583, 2202) {
+
     override fun newInstance(arg: Any?): Plugin<Any> {
         addHandler(17131, OBJECT_TYPE, this)
         addHandler(2728, OBJECT_TYPE, this)

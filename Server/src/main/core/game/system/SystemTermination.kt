@@ -18,9 +18,17 @@ import core.tools.Log
 import java.io.File
 import java.util.function.Consumer
 
+/**
+ * System termination
+ *
+ * @constructor System termination
+ */
 class SystemTermination {
 
-    /*
+    /**
+     * Terminate
+     *
+     *//*
      * Terminates the system safely.
      */
     fun terminate() {
@@ -62,7 +70,11 @@ class SystemTermination {
         log(this.javaClass, Log.INFO, "Server successfully terminated!")
     }
 
-    /*
+    /**
+     * Save
+     *
+     * @param directory
+     *//*
      * Saves all system data on the directory.
      */
     fun save(directory: String?) {

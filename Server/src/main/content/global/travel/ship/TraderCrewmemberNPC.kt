@@ -6,6 +6,9 @@ import core.game.node.entity.npc.NPCBehavior
 import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 
+/**
+ * Trader crewmember NPC.
+ */
 class TraderCrewmemberNPC : NPCBehavior(4651,4654) {
 
     override fun onCreation(self: NPC) {

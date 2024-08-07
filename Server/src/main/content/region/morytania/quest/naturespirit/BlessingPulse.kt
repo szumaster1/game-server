@@ -9,6 +9,13 @@ import core.game.system.task.Pulse
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 
+/**
+ * Blessing pulse
+ *
+ * @property drezel
+ * @property player
+ * @constructor Blessing pulse
+ */
 class BlessingPulse(val drezel: NPC, val player: Player) : Pulse() {
     var ticks = 0
 

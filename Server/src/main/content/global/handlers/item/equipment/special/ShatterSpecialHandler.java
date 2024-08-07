@@ -15,6 +15,9 @@ import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
+/**
+ * Shatter special handler.
+ */
 @Initializable
 public final class ShatterSpecialHandler extends MeleeSwingHandler implements Plugin<Object> {
     private static final int SPECIAL_ENERGY = 25;

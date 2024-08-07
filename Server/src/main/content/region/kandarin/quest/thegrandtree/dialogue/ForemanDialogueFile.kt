@@ -14,6 +14,11 @@ import core.game.world.map.Location
 import core.game.world.map.RegionManager
 import core.tools.END_DIALOGUE
 
+/**
+ * Foreman dialogue file
+ *
+ * @constructor Foreman dialogue file
+ */
 class ForemanDialogueFile : DialogueFile() {
 
     private fun attackPlayer() {

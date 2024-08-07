@@ -14,6 +14,9 @@ import core.game.world.map.zone.ZoneBorders
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Summon familiar plugin.
+ */
 @Initializable
 class SummonFamiliarPlugin : OptionHandler() {
 

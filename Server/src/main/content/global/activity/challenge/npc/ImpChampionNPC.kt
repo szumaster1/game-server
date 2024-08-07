@@ -15,6 +15,9 @@ import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.plugin.Initializable
 
+/**
+ * Represents the Imp champion NPC for Champions challenge.
+ */
 @Initializable
 class ImpChampionNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
     var clearTime = 0

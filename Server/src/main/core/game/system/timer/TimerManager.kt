@@ -8,16 +8,31 @@ import core.game.node.entity.player.Player
 import core.tools.Log
 import org.json.simple.JSONObject
 
+/**
+ * Timer manager
+ *
+ * @property entity
+ * @constructor Timer manager
+ */
 class TimerManager(val entity: Entity) {
     val activeTimers = ArrayList<RSTimer>()
     val newTimers = ArrayList<RSTimer>()
     val toRemoveTimers = ArrayList<RSTimer>()
 
+    /**
+     * Register timer
+     *
+     * @param timer
+     */
     fun registerTimer(timer: RSTimer) {
         timer.onRegister(entity)
         newTimers.add(timer)
     }
 
+    /**
+     * Process timers
+     *
+     */
     fun processTimers() {
         activeTimers.removeAll(toRemoveTimers.toSet())
         newTimers.removeAll(toRemoveTimers.toSet())
@@ -52,12 +67,20 @@ class TimerManager(val entity: Entity) {
         newTimers.clear()
     }
 
+    /**
+     * Clear timers
+     *
+     */
     fun clearTimers() {
         activeTimers.clear()
         newTimers.clear()
         toRemoveTimers.clear()
     }
 
+    /**
+     * On entity death
+     *
+     */
     fun onEntityDeath() {
         for (timer in activeTimers) {
             if (timer.flags.contains(TimerFlag.ClearOnDeath))
@@ -65,6 +88,11 @@ class TimerManager(val entity: Entity) {
         }
     }
 
+    /**
+     * Save timers
+     *
+     * @param root
+     */
     fun saveTimers(root: JSONObject) {
         for (timer in activeTimers) {
             if (timer !is PersistTimer) continue
@@ -80,6 +108,11 @@ class TimerManager(val entity: Entity) {
         }
     }
 
+    /**
+     * Parse timers
+     *
+     * @param root
+     */
     fun parseTimers(root: JSONObject) {
         for ((identifier, dataObj) in root) {
             val data = dataObj as JSONObject
@@ -99,6 +132,11 @@ class TimerManager(val entity: Entity) {
         }
     }
 
+    /**
+     * Remove timer
+     *
+     * @param T
+     */
     inline fun <reified T : RSTimer> removeTimer() {
         for (timer in activeTimers)
             if (timer is T)
@@ -108,6 +146,12 @@ class TimerManager(val entity: Entity) {
                 removeTimer(timer)
     }
 
+    /**
+     * Get timer
+     *
+     * @param T
+     * @return
+     */
     inline fun <reified T : RSTimer> getTimer(): T? {
         var t: T? = null
         for (timer in activeTimers)
@@ -122,6 +166,12 @@ class TimerManager(val entity: Entity) {
         return t
     }
 
+    /**
+     * Get timer
+     *
+     * @param identifier
+     * @return
+     */
     fun getTimer(identifier: String): RSTimer? {
         var t: RSTimer? = null
         for (timer in activeTimers)
@@ -135,6 +185,11 @@ class TimerManager(val entity: Entity) {
         return t
     }
 
+    /**
+     * Remove timer
+     *
+     * @param identifier
+     */
     fun removeTimer(identifier: String) {
         for (timer in activeTimers)
             if (timer.identifier == identifier)
@@ -144,6 +199,11 @@ class TimerManager(val entity: Entity) {
                 removeTimer(timer)
     }
 
+    /**
+     * Remove timer
+     *
+     * @param timer
+     */
     fun removeTimer(timer: RSTimer) {
         timer.nextExecution = Int.MAX_VALUE
         toRemoveTimers.add(timer)

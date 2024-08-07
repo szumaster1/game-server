@@ -8,6 +8,11 @@ import core.game.interaction.UseWithHandler
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Snelm craft plugin
+ *
+ * @constructor Snelm craft plugin
+ */
 @Initializable
 class SnelmCraftPlugin : UseWithHandler(Items.CHISEL_1755) {
 

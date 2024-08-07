@@ -4,6 +4,10 @@ import core.network.packet.IoBuffer;
 import core.network.packet.OutgoingPacket;
 import core.network.packet.context.InterfaceContext;
 
+/**
+ * The interface outgoing packet.
+ * @author Emperor
+ */
 public final class Interface implements OutgoingPacket<InterfaceContext> {
 
     @Override

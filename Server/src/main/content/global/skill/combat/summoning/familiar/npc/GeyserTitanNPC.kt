@@ -11,6 +11,9 @@ import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 import core.tools.RandomFunction
 
+/**
+ * Geyser titan familiar.
+ */
 @Initializable
 class GeyserTitanNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 7339) :
     Familiar(owner, id, 6900, 12786, 6, WeaponInterface.STYLE_RANGE_ACCURATE) {

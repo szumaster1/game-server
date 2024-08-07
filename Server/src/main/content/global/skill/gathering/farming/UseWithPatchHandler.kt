@@ -13,6 +13,9 @@ import core.game.system.task.Pulse
 import core.tools.StringUtils
 import core.tools.prependArticle
 
+/**
+ * Use with patch handler.
+ */
 class UseWithPatchHandler : InteractionListener {
     val RAKE = Items.RAKE_5341
     val SEED_DIBBER = Items.SEED_DIBBER_5343
@@ -312,6 +315,10 @@ class UseWithPatchHandler : InteractionListener {
         }
     }
 
+    /**
+     * Load nodes
+     *
+     */
     fun loadNodes() {
         for (p in Plantable.values()) {
             allowedNodes.add(p.itemID)

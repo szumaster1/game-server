@@ -13,6 +13,9 @@ import core.game.world.update.flag.context.Animation;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
+/**
+ * Spirit kyatt option plugin.
+ */
 @Initializable
 public final class SpiritKyattOptionPlugin extends OptionHandler {
 

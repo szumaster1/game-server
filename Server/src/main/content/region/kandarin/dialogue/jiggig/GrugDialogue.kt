@@ -8,6 +8,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Grug dialogue.
+ */
 @Initializable
 class GrugDialogue(player: Player? = null) : Dialogue(player) {
 

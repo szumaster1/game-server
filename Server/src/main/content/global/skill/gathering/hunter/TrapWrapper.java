@@ -12,6 +12,9 @@ import core.game.world.update.flag.context.Graphic;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Trap wrapper.
+ */
 public final class TrapWrapper {
     private final List<Item> items = new ArrayList<>(10);
     private final Player player;
@@ -29,6 +32,13 @@ public final class TrapWrapper {
     private int ticks;
     private final HunterManager instance;
 
+    /**
+     * Instantiates a new Trap wrapper.
+     *
+     * @param player the player
+     * @param type   the type
+     * @param object the object
+     */
     public TrapWrapper(final Player player, Traps type, Scenery object) {
         this.player = player;
         this.type = type;
@@ -40,6 +50,11 @@ public final class TrapWrapper {
     }
 
 
+    /**
+     * Cycle boolean.
+     *
+     * @return the boolean
+     */
     public boolean cycle() {
         if (isTimeUp() && type.settings.clear(this, 0)) {
             if (!isCaught()) {
@@ -51,6 +66,11 @@ public final class TrapWrapper {
     }
 
 
+    /**
+     * Sets object.
+     *
+     * @param id the id
+     */
     public void setObject(final int id) {
         Scenery newObject = object.transform(id);
         SceneryBuilder.remove(object);
@@ -59,6 +79,9 @@ public final class TrapWrapper {
     }
 
 
+    /**
+     * Smoke.
+     */
     public void smoke() {
         if (smoked) {
             player.sendMessage("This trap has already been smoked.");
@@ -75,6 +98,11 @@ public final class TrapWrapper {
     }
 
 
+    /**
+     * Bait.
+     *
+     * @param bait the bait
+     */
     public void bait(Item bait) {
         if (baited) {
             player.sendMessage("This trap has already been baited.");
@@ -90,6 +118,11 @@ public final class TrapWrapper {
     }
 
 
+    /**
+     * Gets chance rate.
+     *
+     * @return the chance rate
+     */
     public double getChanceRate() {
         double chance = 0.0;
         if (baited) {
@@ -103,6 +136,11 @@ public final class TrapWrapper {
     }
 
 
+    /**
+     * Add item.
+     *
+     * @param items the items
+     */
     public void addItem(Item... items) {
         for (Item item : items) {
             addItem(item);
@@ -110,6 +148,11 @@ public final class TrapWrapper {
     }
 
 
+    /**
+     * Add item.
+     *
+     * @param item the item
+     */
     public void addItem(Item item) {
         items.add(item);
     }
@@ -120,133 +163,263 @@ public final class TrapWrapper {
     }
 
 
+    /**
+     * Gets type.
+     *
+     * @return the type
+     */
     public Traps getType() {
         return type;
     }
 
 
+    /**
+     * Gets object.
+     *
+     * @return the object
+     */
     public Scenery getObject() {
         return object;
     }
 
 
+    /**
+     * Gets original id.
+     *
+     * @return the original id
+     */
     public int getOriginalId() {
         return originalId;
     }
 
 
+    /**
+     * Gets player.
+     *
+     * @return the player
+     */
     public Player getPlayer() {
         return player;
     }
 
 
+    /**
+     * Gets ticks.
+     *
+     * @return the ticks
+     */
     public int getTicks() {
         return ticks;
     }
 
 
+    /**
+     * Sets ticks.
+     *
+     * @param ticks the ticks
+     */
     public void setTicks(int ticks) {
         this.ticks = ticks;
     }
 
 
+    /**
+     * Is smoked boolean.
+     *
+     * @return the boolean
+     */
     public boolean isSmoked() {
         return smoked;
     }
 
 
+    /**
+     * Sets smoked.
+     *
+     * @param smoked the smoked
+     */
     public void setSmoked(boolean smoked) {
         this.smoked = smoked;
     }
 
 
+    /**
+     * Gets hook.
+     *
+     * @return the hook
+     */
     public TrapHook getHook() {
         return hook;
     }
 
 
+    /**
+     * Sets hook.
+     *
+     * @param hook the hook
+     */
     public void setHook(TrapHook hook) {
         this.hook = hook;
     }
 
 
+    /**
+     * Is baited boolean.
+     *
+     * @return the boolean
+     */
     public boolean isBaited() {
         return baited;
     }
 
 
+    /**
+     * Sets baited.
+     *
+     * @param baited the baited
+     */
     public void setBaited(boolean baited) {
         this.baited = baited;
     }
 
 
+    /**
+     * Is caught boolean.
+     *
+     * @return the boolean
+     */
     public boolean isCaught() {
         return getReward() != null;
     }
 
 
+    /**
+     * Gets reward.
+     *
+     * @return the reward
+     */
     public TrapNode getReward() {
         return reward;
     }
 
 
+    /**
+     * Sets reward.
+     *
+     * @param reward the reward
+     */
     public void setReward(TrapNode reward) {
         this.reward = reward;
         this.addItem(reward.rewards);
     }
 
 
+    /**
+     * Is busy boolean.
+     *
+     * @return the boolean
+     */
     public boolean isBusy() {
         return getBusyTicks() > GameWorld.getTicks();
     }
 
 
+    /**
+     * Gets busy ticks.
+     *
+     * @return the busy ticks
+     */
     public int getBusyTicks() {
         return busyTicks;
     }
 
 
+    /**
+     * Sets busy ticks.
+     *
+     * @param busyTicks the busy ticks
+     */
     public void setBusyTicks(int busyTicks) {
         this.busyTicks = GameWorld.getTicks() + busyTicks;
     }
 
 
+    /**
+     * Gets items.
+     *
+     * @return the items
+     */
     public List<Item> getItems() {
         return items;
     }
 
 
+    /**
+     * Gets secondary.
+     *
+     * @return the secondary
+     */
     public Scenery getSecondary() {
         return secondary;
     }
 
 
+    /**
+     * Sets secondary.
+     *
+     * @param secondary the secondary
+     */
     public void setSecondary(Scenery secondary) {
         this.secondary = secondary;
         this.secondary.getAttributes().setAttribute("trap-uid", player.getName().hashCode());
     }
 
 
+    /**
+     * Gets net type.
+     *
+     * @return the net type
+     */
     public NetTrapSetting.NetTrap getNetType() {
         return netType;
     }
 
 
+    /**
+     * Sets net type.
+     *
+     * @param netType the net type
+     */
     public void setNetType(NetTrapSetting.NetTrap netType) {
         this.netType = netType;
     }
 
 
+    /**
+     * Sets object.
+     *
+     * @param object the object
+     */
     public void setObject(Scenery object) {
         this.object = object;
     }
 
 
+    /**
+     * Is failed boolean.
+     *
+     * @return the boolean
+     */
     public boolean isFailed() {
         return failed;
     }
 
 
+    /**
+     * Sets failed.
+     *
+     * @param failed the failed
+     */
     public void setFailed(boolean failed) {
         this.failed = failed;
     }

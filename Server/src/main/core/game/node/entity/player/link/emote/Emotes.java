@@ -17,9 +17,21 @@ import core.game.world.update.flag.context.Graphic;
 import static core.api.ContentAPIKt.playJingle;
 import static core.api.ContentAPIKt.setAttribute;
 
+/**
+ * The enum Emotes.
+ */
 public enum Emotes {
+    /**
+     * Yes emotes.
+     */
     YES(2, Animation.create(855)),
+    /**
+     * No emotes.
+     */
     NO(3, Animation.create(856)),
+    /**
+     * The Bow.
+     */
     BOW(4, Animation.create(858)) {
         @Override
         public void play(Player player) {
@@ -31,6 +43,9 @@ public enum Emotes {
             super.play(player);
         }
     },
+    /**
+     * The Angry.
+     */
     ANGRY(5, Animation.create(859)) {
         @Override
         public void play(Player player) {
@@ -42,7 +57,13 @@ public enum Emotes {
             super.play(player);
         }
     },
+    /**
+     * Think emotes.
+     */
     THINK(6, Animation.create(857)),
+    /**
+     * The Wave.
+     */
     WAVE(7, Animation.create(863)) {
         @Override
         public void play(Player player) {
@@ -54,7 +75,13 @@ public enum Emotes {
             super.play(player);
         }
     },
+    /**
+     * Shrug emotes.
+     */
     SHRUG(8, Animation.create(2113)),
+    /**
+     * The Cheer.
+     */
     CHEER(9, Animation.create(862)) {
         @Override
         public void play(Player player) {
@@ -66,6 +93,9 @@ public enum Emotes {
             super.play(player);
         }
     },
+    /**
+     * The Beckon.
+     */
     BECKON(10, Animation.create(864)) {
         @Override
         public void play(Player player) {
@@ -82,8 +112,17 @@ public enum Emotes {
             super.play(player);
         }
     },
+    /**
+     * Jump for joy emotes.
+     */
     JUMP_FOR_JOY(11, Animation.create(Animations.JUMP_FOR_JOY_2109)),
+    /**
+     * Laugh emotes.
+     */
     LAUGH(12, Animation.create(Animations.LAUGH_861)),
+    /**
+     * The Yawn.
+     */
     YAWN(13, Animation.create(Animations.YAWN_2111)) {
         @Override
         public void play(Player player) {
@@ -95,6 +134,9 @@ public enum Emotes {
             super.play(player);
         }
     },
+    /**
+     * The Dance.
+     */
     DANCE(14, Animation.create(Animations.DANCE_866)) {
         @Override
         public void play(Player player) {
@@ -106,13 +148,37 @@ public enum Emotes {
             super.play(player);
         }
     },
+    /**
+     * Jig emotes.
+     */
     JIG(15, Animation.create(Animations.JIG_EMOTE_2106)),
+    /**
+     * Spin emotes.
+     */
     SPIN(16, Animation.create(Animations.TWIRL_2107)),
+    /**
+     * Headbang emotes.
+     */
     HEADBANG(17, Animation.create(Animations.HEADBANG_EMOTE_2108)),
+    /**
+     * Cry emotes.
+     */
     CRY(18, Animation.create(Animations.CRY_860)),
+    /**
+     * Blow kiss emotes.
+     */
     BLOW_KISS(19, Animation.create(Animations.RUNNING_WITH_WEAPON_1368), Graphic.create(Graphics.HEART_574)),
+    /**
+     * Panic emotes.
+     */
     PANIC(20, Animation.create(Animations.PANIC_2105)),
+    /**
+     * Raspberry emotes.
+     */
     RASPBERRY(21, Animation.create(Animations.RASPBERRY_2110)),
+    /**
+     * The Clap.
+     */
     CLAP(22, Animation.create(Animations.CLAP_865)) {
         @Override
         public void play(Player player) {
@@ -124,6 +190,9 @@ public enum Emotes {
             super.play(player);
         }
     },
+    /**
+     * The Salute.
+     */
     SALUTE(23, Animation.create(Animations.SALUTE_2112)) {
         @Override
         public void play(Player player) {
@@ -140,6 +209,9 @@ public enum Emotes {
             super.play(player);
         }
     },
+    /**
+     * The Goblin bow.
+     */
     GOBLIN_BOW(24, Animation.create(Animations.GOBLIN_BOW_EMOTE_E_2127), "This emote can be unlocked during the Lost Tribe quest.") {
         @Override
         public void play(Player player) {
@@ -154,13 +226,37 @@ public enum Emotes {
             super.play(player);
         }
     },
+    /**
+     * The Goblin salute.
+     */
     GOBLIN_SALUTE(25, Animation.create(Animations.GOBLIN_SALUTE_EMOTE_E_2128), "This emote can be unlocked during the Lost Tribe quest."),
+    /**
+     * The Glass box.
+     */
     GLASS_BOX(26, Animation.create(Animations.GLASS_BOX_EMOTE_E_1131), "This emote can be unlocked during the Mime random event."),
+    /**
+     * The Climb rope.
+     */
     CLIMB_ROPE(27, Animation.create(Animations.CLIMB_ROPE_EMOTE_E_1130), "This emote can be unlocked during the Mime random event."),
+    /**
+     * The Lean on air.
+     */
     LEAN_ON_AIR(28, Animation.create(Animations.LEAN_EMOTE_E_1129), "This emote can be unlocked during the Mime random event."),
+    /**
+     * The Glass wall.
+     */
     GLASS_WALL(29, Animation.create(Animations.HUMAN_GLASS_WALL_1128), "This emote can be unlocked during the Mime random event."),
+    /**
+     * The Idea.
+     */
     IDEA(33, Animation.create(Animations.HUMAN_IDEA_4276), Graphic.create(Graphics.LIGHT_BULB_IDEA_EMOTE_712), "You can't use this emote yet. <br>Visit the Stronghold of Security to unlock it."),
+    /**
+     * The Stomp.
+     */
     STOMP(31, Animation.create(Animations.HUMAN_STOMP_4278), "You can't use this emote yet. <br>Visit the Stronghold of Security to unlock it."),
+    /**
+     * The Flap.
+     */
     FLAP(32, Animation.create(Animations.FLAP_EMOTE_E_4280), "You can't use this emote yet. <br>Visit the Strongshold of Security to unlock it.") {
         @Override
         public void play(Player player) {
@@ -177,12 +273,33 @@ public enum Emotes {
             super.play(player);
         }
     },
+    /**
+     * The Slap head.
+     */
     SLAP_HEAD(30, Animation.create(4275), "You can't use this emote yet. <br>Visit the Stronghold of Security to unlock it."),
+    /**
+     * The Zombie walk.
+     */
     ZOMBIE_WALK(34, Animation.create(3544), "This emote can be unlocked during the Gravedigger random event."),
+    /**
+     * The Zombie dance.
+     */
     ZOMBIE_DANCE(35, Animation.create(3543), "This emote can be unlocked during the Gravedigger random event."),
+    /**
+     * The Zombie hand.
+     */
     ZOMBIE_HAND(36, Animation.create(7272), Graphic.create(1244), "This emote can be unlocked during the Gravedigger random event."),
+    /**
+     * The Scared.
+     */
     SCARED(37, Animation.create(2836), "This emote can be unlocked by playing a Halloween holiday event."),
+    /**
+     * The Bunny hop.
+     */
     BUNNY_HOP(38, Animation.create(6111), "This emote can be unlocked by playing an Easter holiday event."),
+    /**
+     * The Skillcape.
+     */
     SKILLCAPE(39) {
         @Override
         public void play(Player player) {
@@ -205,17 +322,38 @@ public enum Emotes {
             player.getPacketDispatch().sendMessage("You need to be wearing a skillcape in order to perform this emote.");
         }
     },
+    /**
+     * The Snowman dance.
+     */
     SNOWMAN_DANCE(40, Animation.create(7531), "This emote can be unlocked by playing a Christmas holiday event."),
+    /**
+     * The Air guitar.
+     */
     AIR_GUITAR(41, Animation.create(2414), Graphic.create(1537), "This emote can be accessed by unlocking 200 pieces of music.") {
         public void play(Player player) {
             playJingle(player, 302);
             super.play(player);
         }
     },
+    /**
+     * The Safety first.
+     */
     SAFETY_FIRST(42, Animation.create(8770), Graphic.create(1553), "You can't use this emote yet. Visit the Stronghold of Player safety to<br>unlock it."),
+    /**
+     * The Explore.
+     */
     EXPLORE(43, Animation.create(9990), Graphic.create(1734), "You can't use this emote yet. You must complete all the Lumbridge <br>and Draynor beginner tasks to unlock it."),
+    /**
+     * The Trick.
+     */
     TRICK(44, Animation.create(10530), Graphic.create(1863), "This emote can be unlocked by playing a Halloween holiday event."),
+    /**
+     * The Freeze.
+     */
     FREEZE(45, Animation.create(11044), Graphic.create(1973), "This emote can be unlocked by playing a Christmas holiday event."),
+    /**
+     * The Give thanks.
+     */
     GIVE_THANKS(46, "This emote can be unlocked by playing a Thanksgiving holiday event.") {
         @Override
         public void play(final Player player) {
@@ -281,6 +419,12 @@ public enum Emotes {
         this(buttonId, null, null, lockedMessage);
     }
 
+    /**
+     * Handle.
+     *
+     * @param player   the player
+     * @param buttonId the button id
+     */
     public static void handle(Player player, int buttonId) {
         if (player.getLocks().isLocked("emote")) {
             player.getPacketDispatch().sendMessage("You're already doing an emote!");
@@ -326,6 +470,11 @@ public enum Emotes {
         emote.play(player);
     }
 
+    /**
+     * Play.
+     *
+     * @param player the player
+     */
     public void play(Player player) {
         forceEmote(player, animation, graphic);
     }
@@ -337,6 +486,12 @@ public enum Emotes {
         }
     }
 
+    /**
+     * For id emotes.
+     *
+     * @param buttonId the button id
+     * @return the emotes
+     */
     public static Emotes forId(int buttonId) {
         for (Emotes emote : values()) {
             if (emote.getButtonId() == buttonId) {
@@ -346,18 +501,38 @@ public enum Emotes {
         return null;
     }
 
+    /**
+     * Gets button id.
+     *
+     * @return the button id
+     */
     public int getButtonId() {
         return buttonId;
     }
 
+    /**
+     * Gets animation.
+     *
+     * @return the animation
+     */
     public Animation getAnimation() {
         return animation;
     }
 
+    /**
+     * Gets graphics.
+     *
+     * @return the graphics
+     */
     public Graphic getGraphics() {
         return graphic;
     }
 
+    /**
+     * Gets locked message.
+     *
+     * @return the locked message
+     */
     public String getLockedMessage() {
         return lockedMessage;
     }

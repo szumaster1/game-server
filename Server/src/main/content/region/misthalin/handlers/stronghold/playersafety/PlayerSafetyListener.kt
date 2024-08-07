@@ -15,6 +15,9 @@ import core.game.node.entity.player.link.emote.Emotes
 import core.game.node.scenery.Scenery
 import core.game.world.map.Location
 
+/**
+ * Player safety listener.
+ */
 class PlayerSafetyListener : InteractionListener {
 
     companion object {
@@ -35,10 +38,9 @@ class PlayerSafetyListener : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Test exam item interaction.
          */
-
         on(Items.TEST_PAPER_12626, IntType.ITEM, "take exam") { player, _ ->
             if (player.savedData.globalData.getTestStage() == 2) {
                 sendDialogue(player, "You have already completed the test. Hand it in to Professor Henry for marking.")
@@ -48,19 +50,17 @@ class PlayerSafetyListener : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Interaction with students.
          */
-
         on((7151..7157).toIntArray(), IntType.NPC, "Talk-to") { player, _ ->
             sendDialogue(player, "This student is trying to focus on their work.")
             return@on true
         }
 
-        /*
+        /**
          * Jail teleports interaction.
          */
-
         on(29603, IntType.SCENERY, "use") { player, _ ->
             teleport(player, Location.create(3082, 4229, 0))
             return@on true
@@ -81,10 +81,9 @@ class PlayerSafetyListener : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Exam room door interaction.
          */
-
         on(29732, IntType.SCENERY, "open") { player, node ->
             if (player.globalData.getTestStage() > 0) {
                 DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
@@ -98,10 +97,9 @@ class PlayerSafetyListener : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Crevice interaction (and rope).
          */
-
         on(29728, IntType.SCENERY, "enter") { player, _ ->
             if (getAttribute(player, ATTRIBUTE_CLIMB_CREVICE, false)) {
                 teleport(player, Location.create(3159, 4279, 3))
@@ -119,10 +117,9 @@ class PlayerSafetyListener : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Plaques interaction.
          */
-
         on((29595..29601).toIntArray(), IntType.SCENERY, "Read-plaque on") { player, node ->
             player.lock() // Prevent client crash.
             read(player, node)
@@ -146,10 +143,9 @@ class PlayerSafetyListener : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Jail doors interaction in 4 different places.
          */
-
         on(29624, IntType.SCENERY, "open") { player, _ ->
             if (getVarp(player, 1203) and (1 shl 26) == 0) {
                 // The door is locked
@@ -175,10 +171,9 @@ class PlayerSafetyListener : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Stairs in the middle of the 1st/2nd floor interaction.
          */
-
         on(29667, IntType.SCENERY, "climb-down") { player, _ ->
             teleport(player, Location.create(3160, 4249, 1))
             return@on true
@@ -219,10 +214,9 @@ class PlayerSafetyListener : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Rewards chest interaction.
          */
-
         on(29577, IntType.SCENERY, "open") { player, _ ->
             setVarbit(player, 4499, 1, true)
             return@on true
@@ -256,11 +250,20 @@ class PlayerSafetyListener : InteractionListener {
         }
     }
 
+    /**
+     * Read
+     *
+     * @param player the player.
+     * @param plaque the node.
+     */
     fun read(player: Player, plaque: Node) {
         if (plaque !is Scenery) return
         player.interfaceManager.openChatbox(DTI_MAP[plaque.id]!!)
     }
 
+    /**
+     * Plaque listener.
+     */
     class PlaqueListener : InterfaceListener {
 
         var scene: PlaqueCutscene? = null
@@ -291,6 +294,12 @@ class PlayerSafetyListener : InteractionListener {
             }
         }
 
+        /**
+         * Plaque cutscene
+         *
+         * @property component component id.
+         * @param player the player.
+         */
         class PlaqueCutscene(player: Player, val component: Component) : Cutscene(player) {
 
             /*

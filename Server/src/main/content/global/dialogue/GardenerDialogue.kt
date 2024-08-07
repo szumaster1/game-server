@@ -16,6 +16,9 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
+/**
+ * Gardener dialogue.
+ */
 @Initializable
 class GardenerDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -200,6 +203,12 @@ class GardenerDialogue(player: Player? = null) : Dialogue(player) {
         return true
     }
 
+    /**
+     * Open pay gardener dialogue
+     *
+     * @param player
+     * @param fPatch
+     */
     fun openPayGardenerDialogue(player: Player, fPatch: FarmingPatch) {
         end()
         openDialogue(player, FarmerPayOptionDialogue(fPatch.getPatchFor(player)), npc)

@@ -12,6 +12,11 @@ import core.game.world.map.Direction
 import core.game.world.map.Location
 import core.tools.BLUE
 
+/**
+ * Zogre flesh eaters listeners
+ *
+ * @constructor Zogre flesh eaters listeners
+ */
 class ZogreFleshEatersListeners : InteractionListener {
 
     override fun defineListeners() {

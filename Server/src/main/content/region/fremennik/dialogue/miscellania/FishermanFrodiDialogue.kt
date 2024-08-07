@@ -5,6 +5,11 @@ import core.game.dialogue.DialogueFile
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
+/**
+ * Fisherman frodi dialogue
+ *
+ * @constructor Fisherman frodi dialogue
+ */
 class FishermanFrodiDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

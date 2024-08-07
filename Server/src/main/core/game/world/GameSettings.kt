@@ -6,6 +6,41 @@ import java.io.FileInputStream
 import java.io.IOException
 import java.util.*
 
+/**
+ * Game settings
+ *
+ * @property name
+ * @property isBeta
+ * @property isDevMode
+ * @property isGui
+ * @property worldId
+ * @property countryIndex
+ * @property activity
+ * @property isMembers
+ * @property isPvp
+ * @property isQuickChat
+ * @property isLootshare
+ * @property msAddress
+ * @property default_xp_rate
+ * @property allow_slayer_reroll
+ * @property enable_default_clan
+ * @property enable_bots
+ * @property autostock_ge
+ * @property allow_token_purchase
+ * @property skillcape_perks
+ * @property increased_door_time
+ * @property enabled_botting
+ * @property max_adv_bots
+ * @property enable_doubling_money_scammers
+ * @property wild_pvp_enabled
+ * @property jad_practice_enabled
+ * @property ge_announcement_limit
+ * @property smartpathfinder_bfs
+ * @property enable_castle_wars
+ * @property message_model
+ * @property message_string
+ * @constructor Game settings
+ */
 class GameSettings internal constructor(
     var name: String,
     var isBeta: Boolean,

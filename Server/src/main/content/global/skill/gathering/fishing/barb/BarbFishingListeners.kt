@@ -8,6 +8,9 @@ import core.api.consts.Scenery
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Barb fishing listeners.
+ */
 class BarbFishingListeners : InteractionListener {
 
     private val fishCuttingIds = intArrayOf(Items.LEAPING_TROUT_11328, Items.LEAPING_SALMON_11330, Items.LEAPING_STURGEON_11332)

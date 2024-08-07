@@ -14,6 +14,11 @@ import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Museum listeners
+ *
+ * @constructor Museum listeners
+ */
 class MuseumListeners : InteractionListener, InterfaceListener, MapArea {
 
     override fun areaEnter(entity: Entity) {
@@ -36,10 +41,9 @@ class MuseumListeners : InteractionListener, InterfaceListener, MapArea {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Varrock museum interactions.
          */
-
         on(BUTTON_PLUS_PLAQUES, IntType.SCENERY, "study", "push") { player, node ->
             when (node.id) {
                 /*
@@ -77,10 +81,9 @@ class MuseumListeners : InteractionListener, InterfaceListener, MapArea {
             return@on true
         }
 
-        /*
+        /**
          * Museum stairs.
          */
-
         on(MUSEUM_STAIRS, IntType.SCENERY, "walk-up", "walk-down") { player, node ->
             when (node.id) {
                 24427 -> ClimbActionHandler.climb(player, Animation(-1), Location(3258, 3452, 0))
@@ -89,19 +92,17 @@ class MuseumListeners : InteractionListener, InterfaceListener, MapArea {
             return@on true
         }
 
-        /*
+        /**
          * Museum archaeologists doors.
          */
-
         on(MUSEUM_DOOR, IntType.SCENERY, "open") { player, node ->
             DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
             return@on true
         }
 
-        /*
+        /**
          * Varrock digsite gates.
          */
-
         on(MUSEUM_GATE, IntType.SCENERY, "open") { player, node ->
             if (player.location.y >= 3447) {
                 openDialogue(player, MuseumGuardEntranceDialogue())
@@ -111,10 +112,9 @@ class MuseumListeners : InteractionListener, InterfaceListener, MapArea {
             return@on true
         }
 
-        /*
+        /**
          * All items available for staff clean off incoming samples.
          */
-
         on(TOOL_RACK, IntType.SCENERY, "take") { player, node ->
             face(player, node)
             setTitle(player, 5)
@@ -139,10 +139,9 @@ class MuseumListeners : InteractionListener, InterfaceListener, MapArea {
             return@on true
         }
 
-        /*
+        /**
          * On path to digsite gate interaction.
          */
-
         on(intArrayOf(Scenery.GATE_24560, Scenery.GATE_24561), IntType.SCENERY, "open") { player, node ->
             if (!isQuestComplete(player, "The Dig Site")) {
                 sendMessage(player, "You can't go through there, it's for Dig Site workmen only.")
@@ -153,19 +152,17 @@ class MuseumListeners : InteractionListener, InterfaceListener, MapArea {
             return@on true
         }
 
-        /*
+        /**
          * Information booth interacton.
          */
-
         on(Scenery.INFORMATION_BOOTH_24452, IntType.SCENERY, "look-at") { player, _ ->
             openDialogue(player, NPCs.INFORMATION_CLERK_5938)
             return@on true
         }
 
-        /*
+        /**
          * Museum map interaction.
          */
-
         on(intArrayOf(Scenery.MAP_24390, Scenery.MAP_24391, Scenery.MAP_24392), IntType.SCENERY, "look-at", "take") { player, node ->
             if (getUsedOption(player) == "take") {
                 if (!addItem(player, Items.MUSEUM_MAP_11184)) {

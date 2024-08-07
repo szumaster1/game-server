@@ -28,8 +28,6 @@ import java.awt.datatransfer.StringSelection
 
 /**
  * Represents the the command plugin used for visual commands.
- * @author Vexia
- * @author Emperor
  */
 @Initializable
 class VisualCommand : CommandPlugin() {

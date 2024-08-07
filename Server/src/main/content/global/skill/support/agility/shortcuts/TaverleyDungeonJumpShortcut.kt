@@ -13,14 +13,16 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import kotlin.random.Random
 
+/**
+ * Taverley dungeon jump shortcut.
+ */
 class TaverleyDungeonJumpShortcut : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Jump over the spiked blade trap near the entrance of Taverley Dungeon.
          */
-
         on(Scenery.STRANGE_FLOOR_9294, IntType.SCENERY, "jump-over") { player, node ->
             if (!hasLevelDyn(player, Skills.AGILITY, 80)) {
                 sendDialogue(player, "You need an Agility level of at least 80 to do this.")

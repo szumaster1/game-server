@@ -25,28 +25,58 @@ import java.util.Arrays;
 
 import static core.api.ContentAPIKt.*;
 
+/**
+ * Building utils.
+ */
 public final class BuildingUtils {
 
+    /**
+     * The constant DIRECTIONS.
+     */
     public static final Direction[] DIRECTIONS = {
         Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST
     };
 
+    /**
+     * The constant BUILD_LOW_ANIM.
+     */
     public static final Animation BUILD_LOW_ANIM = Animation.create(3683);
 
+    /**
+     * The constant BUILD_MID_ANIM.
+     */
     public static final Animation BUILD_MID_ANIM = Animation.create(3676);
 
+    /**
+     * The constant BUILD_HIGH_ANIM.
+     */
     public static final Animation BUILD_HIGH_ANIM = Animation.create(3684);
 
+    /**
+     * The constant PLANT_ANIM.
+     */
     public static final Animation PLANT_ANIM = Animation.create(3691);
 
     private static final Animation REMOVE_ANIMATION = Animation.create(3685);
 
+    /**
+     * The constant PLANK.
+     */
     public static final Item PLANK = new Item(Items.PLANK_960);
 
+    /**
+     * The constant WATERING_CAN.
+     */
     public static final int WATERING_CAN = 5340;
 
     private static final int[] BUILD_INDEXES = { 0, 2, 4, 6, 1, 3, 5 };
 
+    /**
+     * Open build interface.
+     *
+     * @param player  the player
+     * @param hotspot the hotspot
+     */
     public static void openBuildInterface(Player player, BuildHotspot hotspot) {
         player.getInterfaceManager().open(new Component(396));
         Item[] items = new Item[7];
@@ -109,14 +139,37 @@ public final class BuildingUtils {
         PacketRepository.send(ContainerPacket.class, new ContainerContext(player, 396, 132, 8, items, false));
     }
 
+    /**
+     * Is door hotspot boolean.
+     *
+     * @param object the object
+     * @return the boolean
+     */
     public static boolean isDoorHotspot(Scenery object) {
         return object.getId() >= 15305 && object.getId() <= 15322;
     }
 
+    /**
+     * Build decoration.
+     *
+     * @param player  the player
+     * @param hotspot the hotspot
+     * @param deco    the deco
+     * @param object  the object
+     */
     public static void buildDecoration(final Player player, final Hotspot hotspot, final Decoration deco, final Scenery object) {
         buildDecoration(player, hotspot, deco, object, false);
     }
 
+    /**
+     * Build decoration.
+     *
+     * @param player        the player
+     * @param hotspot       the hotspot
+     * @param deco          the deco
+     * @param object        the object
+     * @param usingFlatpack the using flatpack
+     */
     public static void buildDecoration(final Player player, final Hotspot hotspot, final Decoration deco, final Scenery object, final boolean usingFlatpack) {
 
         final int nailAmount = deco.getNailAmount();
@@ -207,6 +260,13 @@ public final class BuildingUtils {
         }
     }
 
+    /**
+     * Create flatpack.
+     *
+     * @param player the player
+     * @param deco   the deco
+     * @param debug  the debug
+     */
     public static void createFlatpack(final Player player, final Decoration deco, final Boolean debug) {
         System.out.println("Building flatpack in BuildingUtils for item: " + deco.name());
 //		System.out.println(deco.name());
@@ -324,6 +384,12 @@ public final class BuildingUtils {
         }
     }
 
+    /**
+     * Remove decoration.
+     *
+     * @param player the player
+     * @param object the object
+     */
     public static void removeDecoration(Player player, Scenery object) {
         if (object.getId() == Decoration.PORTAL.getObjectId() && player.getHouseManager().getPortalAmount() <= 1) {
             sendMessage(player, "You need at least one portal, how else would you leave your house?");
@@ -486,6 +552,17 @@ public final class BuildingUtils {
         }
     }
 
+    /**
+     * Build room.
+     *
+     * @param player the player
+     * @param room   the room
+     * @param z      the z
+     * @param x      the x
+     * @param y      the y
+     * @param exits  the exits
+     * @param reload the reload
+     */
     public static void buildRoom(Player player, Room room, int z, int x, int y, boolean[] exits, boolean reload) {
         player.getHouseManager().getRooms()[z][x][y] = room;
         player.getPacketDispatch().sendMessage("Building room " + room.getProperties() + ".");
@@ -520,6 +597,13 @@ public final class BuildingUtils {
         }
     }
 
+    /**
+     * Room exists int [ ].
+     *
+     * @param player the player
+     * @param door   the door
+     * @return the int [ ]
+     */
     public static int[] roomExists(Player player, Scenery door) {
         int[] location = getRoomPosition(player, door);
         int z = player.getLocation().getZ();
@@ -532,6 +616,13 @@ public final class BuildingUtils {
         return null;
     }
 
+    /**
+     * Get room position int [ ].
+     *
+     * @param player the player
+     * @param door   the door
+     * @return the int [ ]
+     */
     public static int[] getRoomPosition(Player player, Scenery door) {
         Location l = door.getLocation();
         int rotation = door.getRotation();
@@ -552,6 +643,16 @@ public final class BuildingUtils {
         return null;
     }
 
+    /**
+     * Get available rotations direction [ ].
+     *
+     * @param player the player
+     * @param exits  the exits
+     * @param z      the z
+     * @param roomX  the room x
+     * @param roomY  the room y
+     * @return the direction [ ]
+     */
     public static Direction[] getAvailableRotations(Player player, boolean[] exits, int z, int roomX, int roomY) {
         Direction[] directions = new Direction[4];
         boolean[] exit = Arrays.copyOf(exits, exits.length); //(0=east, 1=south, 2=west, 3=north)

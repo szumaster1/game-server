@@ -10,6 +10,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Anna dialogue.
+ */
 @Initializable
 class AnnaDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -67,7 +70,7 @@ class AnnaDialogue(player: Player? = null) : Dialogue(player) {
                     setQuestStage(player!!, "Murder Mystery", 4)
                 }
             }
-            
+
             100 -> when (stage) {
                 0 -> npcl(FacialExpression.FRIENDLY, "Apparently you aren't as stupid as you look.").also { stage = END_DIALOGUE }
             }

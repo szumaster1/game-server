@@ -15,6 +15,9 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 import core.tools.RandomFunction
 
+/**
+ * Banshee NPC.
+ */
 @Initializable
 class BansheeNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 

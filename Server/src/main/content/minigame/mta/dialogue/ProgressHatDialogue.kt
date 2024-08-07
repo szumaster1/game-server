@@ -10,6 +10,9 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Progress hat dialogue.
+ */
 @Initializable
 class ProgressHatDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -51,6 +54,12 @@ class ProgressHatDialogue(player: Player? = null) : Dialogue(player) {
         return true
     }
 
+    /**
+     * Get points
+     *
+     * @param index
+     * @return
+     */
     fun getPoints(index: Int): Int {
         return player.getSavedData().activityData.getPizazzPoints(index)
     }

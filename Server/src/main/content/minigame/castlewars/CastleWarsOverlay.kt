@@ -4,7 +4,9 @@ import core.api.setVarbit
 import core.api.setVarp
 import core.game.node.entity.player.Player
 
-
+/**
+ * Castle wars overlay.
+ */
 object CastleWarsOverlay {
     @JvmStatic
     fun sendLobbyUpdate(player: Player, bothTeamsHavePlayers: Boolean, gameStartMinutes: Int) {

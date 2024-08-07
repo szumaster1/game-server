@@ -9,14 +9,18 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.skill.Skills
 
+/**
+ * Summoning obelisk listener
+ *
+ * @constructor Summoning obelisk listener
+ */
 class SummoningObeliskListener : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Interaction with Summoning obelisk.
          */
-
         on(IntType.SCENERY, "infuse-pouch", "renew-points") { player, node ->
             when (getUsedOption(player)) {
                 "infuse-pouch" -> {

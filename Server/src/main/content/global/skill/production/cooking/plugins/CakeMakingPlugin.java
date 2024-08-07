@@ -8,6 +8,9 @@ import core.plugin.Initializable;
 import core.plugin.Plugin;
 
 
+/**
+ * Cake making plugin.
+ */
 @Initializable
 public final class CakeMakingPlugin extends UseWithHandler {
 
@@ -18,6 +21,9 @@ public final class CakeMakingPlugin extends UseWithHandler {
     private static final Item UNCOOKED_CAKE = new Item(Items.UNCOOKED_CAKE_1889);
 
 
+    /**
+     * Instantiates a new Cake making plugin.
+     */
     public CakeMakingPlugin() {
         super(Items.POT_OF_FLOUR_1933);
     }

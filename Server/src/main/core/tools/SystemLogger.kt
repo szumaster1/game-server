@@ -13,6 +13,7 @@ object SystemLogger {
     val errT = t.forStdErr()
     val formatter = SimpleDateFormat("HH:mm:ss")
 
+    // Function returns the current time in the format [HH:mm:ss]
     private fun getTime(): String {
         return "[" + formatter.format(Date(System.currentTimeMillis())) + "]"
     }

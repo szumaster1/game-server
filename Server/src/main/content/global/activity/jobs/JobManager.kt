@@ -20,13 +20,14 @@ import org.json.simple.JSONObject
 import java.lang.Integer.min
 
 /**
- * @author Swizey
- * @date 14.02.2023
+ * Manages the player's job data & progression.
  */
 class JobManager(val player: Player? = null) : LoginListener, PersistPlayer {
     var job: Job? = null
     var jobAmount: Int = 0
     var jobOriginalAmount: Int = 0
+
+    // Checks if the player has the required level for a specific job
     private fun hasLevelRequirement(job: ProductionJobs): Boolean {
         if (player == null) return false
         if (player.isArtificial) return false
@@ -34,11 +35,13 @@ class JobManager(val player: Player? = null) : LoginListener, PersistPlayer {
         return getStatLevel(player, job.skill) >= job.lvlReq
     }
 
+    // Checks if the player has an active job
     fun hasJob(): Boolean = this.job != null
 
-    // Historically the job limit would be 6 jobs per hour of play-time, using 3 per day for balance purposes
+    // Checks if the player has reached the job limit
     fun hasReachedJobLimit(): Boolean = player?.let { getStoreFile().getInt(it.username.lowercase()) >= 3 } ?: false
 
+    // Generates a job for the player based on the NPC being interacted with
     fun generate(npc: NPC) {
         if (player == null) return
         if (player.isArtificial) return
@@ -46,8 +49,12 @@ class JobManager(val player: Player? = null) : LoginListener, PersistPlayer {
         val instance = getInstance(player)
 
         // Create a list of jobs that the player can do and are given by the NPC being interacted with
-        val potentialJobs: List<Job> = (ProductionJobs.values()
-            .filter { hasLevelRequirement(it) } + BoneBuryingJobs.values() + CombatJobs.values()).filter { job -> job.employer.npcId == npc.id }
+        val potentialJobs: List<Job> = (
+                ProductionJobs.values().filter { hasLevelRequirement(it) }
+                        + BoneBuryingJobs.values()
+                        + CombatJobs.values()
+                )
+            .filter { job -> job.employer.npcId == npc.id }
 
         val job = potentialJobs.randomOrNull() ?: return
 
@@ -59,6 +66,7 @@ class JobManager(val player: Player? = null) : LoginListener, PersistPlayer {
         getStoreFile()[player.username.lowercase()] = getStoreFile().getInt(player.username.lowercase()) + 1
     }
 
+    // Gets the assignment message for the player's current job
     fun getAssignmentMessage(): String? {
         if (player == null) return null
         if (player.isArtificial) return null
@@ -90,7 +98,7 @@ class JobManager(val player: Player? = null) : LoginListener, PersistPlayer {
         }
     }
 
-
+    // Turns in the required items for the player's current job
     fun turnInItems() {
         if (player == null) return
         if (player.isArtificial) return
@@ -106,6 +114,7 @@ class JobManager(val player: Player? = null) : LoginListener, PersistPlayer {
         instance.jobAmount -= amountToTurnIn
     }
 
+    // Rewards the player for completing their job
     fun rewardPlayer() {
         if (player == null) return
         if (player.isArtificial) return

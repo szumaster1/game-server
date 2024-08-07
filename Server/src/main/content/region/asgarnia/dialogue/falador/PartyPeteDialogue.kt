@@ -11,6 +11,9 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Party pete dialogue.
+ */
 @Initializable
 class PartyPeteDialogue(player: Player? = null) : Dialogue(player) {
 

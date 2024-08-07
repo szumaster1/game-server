@@ -1,7 +1,17 @@
 package core.network.packet;
 
+/**
+ * Represents an outgoing packet.
+ * @author Emperor
+ * @param <Context> The context type.
+ */
 public interface OutgoingPacket<Context> {
 
-	void send(Context context);
+    /**
+     * Sends the packet.
+     *
+     * @param context The context.
+     */
+    void send(Context context);
 
 }

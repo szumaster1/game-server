@@ -15,6 +15,13 @@ import core.game.world.map.zone.ZoneBorders
 import core.tools.RandomFunction
 import core.tools.StringUtils
 
+/**
+ * Fletching pulse.
+ *
+ * @param node
+ * @param amount
+ * @param fletch
+ */
 class FletchingPulse(player: Player?, node: Item?, amount: Int, fletch: FletchingItems) : SkillPulse<Item?>(player, node) {
 
     private val fletch: FletchingItems

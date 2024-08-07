@@ -6,6 +6,11 @@ import core.game.node.Node
 import core.game.node.entity.player.Player
 import core.plugin.Plugin
 
+/**
+ * Consumable plugin
+ *
+ * @constructor Consumable plugin
+ */
 class ConsumablePlugin : OptionHandler() {
 
     override fun newInstance(arg: Any?): Plugin<Any> {

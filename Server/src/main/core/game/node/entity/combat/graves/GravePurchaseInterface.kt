@@ -6,6 +6,11 @@ import core.api.consts.Items
 import core.game.interaction.InterfaceListener
 import core.game.node.item.Item
 
+/**
+ * Grave purchase interface
+ *
+ * @constructor Grave purchase interface
+ */
 class GravePurchaseInterface : InterfaceListener {
     val BUTTON_CONFIRM = 34
     val AVAILABLE_GRAVES_BITFIELD = 0xFFF //Enable all graves, authentically the quest-locked ones should be excluded from the bitfield, but y'know.

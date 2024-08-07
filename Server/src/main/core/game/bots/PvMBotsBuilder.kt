@@ -4,7 +4,9 @@ import content.minigame.pestcontrol.bots.PestControlTestBot
 import content.minigame.pestcontrol.bots.PestControlTestBot2
 import core.game.world.map.Location
 
-// import sun.util.resources.CalendarData;
+/**
+ * Pvm bots builder.
+ */// import sun.util.resources.CalendarData;
 class PvMBotsBuilder {
 
     companion object {

@@ -5,14 +5,28 @@ import java.sql.ResultSetMetaData;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Results.
+ */
 public class Results {
 
     private ResultSet set;
 
+    /**
+     * Instantiates a new Results.
+     *
+     * @param set the set
+     */
     public Results(ResultSet set) {
         this.set = set;
     }
 
+    /**
+     * String string.
+     *
+     * @param column the column
+     * @return the string
+     */
     public String string(String column) {
 
         try {
@@ -29,6 +43,12 @@ public class Results {
 
     }
 
+    /**
+     * Integer int.
+     *
+     * @param column the column
+     * @return the int
+     */
     public int integer(String column) {
 
         try {
@@ -45,6 +65,11 @@ public class Results {
 
     }
 
+    /**
+     * Columns list.
+     *
+     * @return the list
+     */
     public List<String> columns() {
 
         try {
@@ -67,6 +92,11 @@ public class Results {
 
     }
 
+    /**
+     * Empty boolean.
+     *
+     * @return the boolean
+     */
     public boolean empty() {
 
         try {
@@ -78,6 +108,12 @@ public class Results {
         return true;
     }
 
+    /**
+     * Integers int [ ].
+     *
+     * @param values the values
+     * @return the int [ ]
+     */
     public static int[] integers(String[] values) {
 
         int[] integers = new int[values.length];
@@ -89,6 +125,12 @@ public class Results {
 
     }
 
+    /**
+     * Doubles double [ ].
+     *
+     * @param values the values
+     * @return the double [ ]
+     */
     public static double[] doubles(String[] values) {
 
         double[] integers = new double[values.length];
@@ -100,6 +142,11 @@ public class Results {
 
     }
 
+    /**
+     * Set result set.
+     *
+     * @return the result set
+     */
     public ResultSet set() {
         return set;
     }

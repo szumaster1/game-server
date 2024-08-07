@@ -11,6 +11,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.RandomFunction
 
+/**
+ * Elly the camel dialogue.
+ */
 @Initializable
 class EllyTheCamelDialogue(player: Player? = null) : Dialogue(player) {
 

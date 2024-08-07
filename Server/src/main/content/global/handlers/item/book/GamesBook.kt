@@ -9,6 +9,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
+/**
+ * Games book
+ *
+ * @constructor Games book
+ */
 class GamesBook : InteractionListener {
 
     // It features guides to all the games the player,

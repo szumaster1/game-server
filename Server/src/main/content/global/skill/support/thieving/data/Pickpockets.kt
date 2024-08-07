@@ -9,6 +9,21 @@ import core.game.node.entity.skill.Skills
 import core.tools.RandomFunction
 import java.util.stream.IntStream
 
+/**
+ * Pickpockets
+ *
+ * @property ids
+ * @property requiredLevel
+ * @property low
+ * @property high
+ * @property experience
+ * @property stunDamageMin
+ * @property stunDamageMax
+ * @property stunTime
+ * @property message
+ * @property table
+ * @constructor Pickpockets
+ */
 enum class Pickpockets(
     val ids: IntArray,
     val requiredLevel: Int,
@@ -21,6 +36,11 @@ enum class Pickpockets(
     val message : String?,
     val table: WeightBasedTable
 ) {
+    /**
+     * Man
+     *
+     * @constructor Man
+     */
     MAN(
         ids = intArrayOf(NPCs.MAN_1, NPCs.MAN_2, NPCs.MAN_3, NPCs.WOMAN_4, NPCs.WOMAN_5, NPCs.WOMAN_6, NPCs.MAN_16, NPCs.MAN_24, NPCs.WOMAN_25, NPCs.MAN_170, NPCs.MAN_1086, NPCs.MAN_3224, NPCs.MAN_3915, NPCs.WOMAN_3226, NPCs.WOMAN_3227, NPCs.WOMAN_5924, NPCs.MAN_5923),
         requiredLevel = 1,
@@ -34,6 +54,12 @@ enum class Pickpockets(
         table = WeightBasedTable.create(
             WeightedItem(id = Items.COINS_995, minAmt = 3, maxAmt = 3, weight = 1.0, guaranteed = true))
     ),
+
+    /**
+     * Curator Haig Helen
+     *
+     * @constructor Curator Haig Helen
+     */
     CURATOR_HAIG_HELEN(
         ids = intArrayOf(NPCs.CURATOR_HAIG_HALEN_646),
         requiredLevel = 1,
@@ -47,6 +73,12 @@ enum class Pickpockets(
         table = WeightBasedTable.create(
             WeightedItem(id = Items.DISPLAY_CABINET_KEY_4617, minAmt = 1, maxAmt = 1, weight = 1.0, guaranteed = true))
     ),
+
+    /**
+     * Gang Of Thieves
+     *
+     * @constructor Gang Of Thieves
+     */
     GANG_OF_THIEVES(
         ids = intArrayOf(NPCs.CUFFS_3237, NPCs.NARF_3238, NPCs.RUSTY_3239, NPCs.JEFF_3240),
         requiredLevel = 1,
@@ -60,6 +92,12 @@ enum class Pickpockets(
         table = WeightBasedTable.create(
             WeightedItem(id = Items.COINS_995, minAmt = 3, maxAmt = 3, weight = 1.0, guaranteed = true))
     ),
+
+    /**
+     * Tower Of Life Quest Npcs
+     *
+     * @constructor Tower Of Life Quest Npcs
+     */
     TOWER_OF_LIFE_QUEST_NPCS(
         ids = intArrayOf(NPCs.BLACK_EYE_5589, NPCs.NO_FINGERS_5590, NPCs.GUMMY_5591, NPCs.THE_GUNS_5592),
         requiredLevel = 1,
@@ -73,6 +111,12 @@ enum class Pickpockets(
         table = WeightBasedTable.create(
             WeightedItem(id = Items.TRIANGLE_SANDWICH_6962, minAmt = 1, maxAmt = 1, weight = 1.0, guaranteed = true))
     ),
+
+    /**
+     * Farmer
+     *
+     * @constructor Farmer
+     */
     FARMER(
         ids = intArrayOf(NPCs.FARMER_7, NPCs.FARMER_1757, NPCs.FARMER_1758),
         requiredLevel = 10,
@@ -88,6 +132,12 @@ enum class Pickpockets(
             WeightedItem(id = Items.POTATO_SEED_5318, minAmt = 1, maxAmt = 1, weight = 1.0, guaranteed = true)
         )
     ),
+
+    /**
+     * Male Ham Member
+     *
+     * @constructor Male Ham Member
+     */
     MALE_HAM_MEMBER(
         ids = intArrayOf(NPCs.HAM_MEMBER_1714),
         requiredLevel = 20,
@@ -127,6 +177,12 @@ enum class Pickpockets(
             WeightedItem(id = Items.BUTTONS_688, minAmt = 1, maxAmt = 1, weight = 3.0)
         ).insertEasyClue(1.0)
     ),
+
+    /**
+     * Female Ham Member
+     *
+     * @constructor Female Ham Member
+     */
     FEMALE_HAM_MEMBER(
         ids = intArrayOf(NPCs.HAM_MEMBER_1715),
         requiredLevel = 15,
@@ -139,6 +195,12 @@ enum class Pickpockets(
         message = "Stop! @name is a thief!",
         table = WeightBasedTable.create(WeightedItem(Items.COINS_995, 1, 21, 5.5), WeightedItem(Items.TINDERBOX_590, 1, 1, 5.0), WeightedItem(Items.LOGS_1511, 1, 1, 7.0), WeightedItem(Items.UNCUT_JADE_1627, 1, 1, 2.5), WeightedItem(Items.UNCUT_OPAL_1625, 1, 1, 2.5), WeightedItem(Items.RAW_ANCHOVIES_321, 1, 1, 7.0), WeightedItem(Items.RAW_CHICKEN_2138, 1, 1, 3.5), WeightedItem(Items.HAM_CLOAK_4304, 1, 1, 0.25), WeightedItem(Items.HAM_HOOD_4302, 1, 1, 0.25), WeightedItem(Items.HAM_LOGO_4306, 1, 1, 0.25), WeightedItem(Items.HAM_SHIRT_4298, 1, 1, 0.25), WeightedItem(Items.HAM_ROBE_4300, 1, 1, 0.25), WeightedItem(Items.BOOTS_4310, 1, 1, 1.0), WeightedItem(Items.GLOVES_4308, 1, 1, 1.0), WeightedItem(Items.BRONZE_PICKAXE_1265, 1, 1, 5.0), WeightedItem(Items.IRON_PICKAXE_1267, 1, 1, 5.0), WeightedItem(Items.STEEL_PICKAXE_1269, 1, 1, 2.5), WeightedItem(Items.GRIMY_GUAM_199, 1, 1, 2.0), WeightedItem(Items.GRIMY_HARRALANDER_205, 1, 1, 2.0), WeightedItem(Items.GRIMY_KWUARM_213, 1, 1, 2.0), WeightedItem(Items.GRIMY_MARRENTILL_201, 1, 1, 1.5), WeightedItem(Items.RUSTY_SWORD_686, 1, 1, 3.5), WeightedItem(Items.BROKEN_ARMOUR_698, 1, 1, 3.5), WeightedItem(Items.BROKEN_STAFF_689, 1, 1, 3.2), WeightedItem(Items.BROKEN_ARROW_687, 1, 1, 3.1), WeightedItem(Items.BUTTONS_688, 1, 1, 3.0)).insertEasyClue(1.0)
     ),
+
+    /**
+     * Warrior
+     *
+     * @constructor Warrior
+     */
     WARRIOR(
         ids = intArrayOf(NPCs.WARRIOR_WOMAN_15, NPCs.AL_KHARID_WARRIOR_18),
         requiredLevel = 25,
@@ -152,6 +214,12 @@ enum class Pickpockets(
         table = WeightBasedTable.create(
             WeightedItem(id = Items.COINS_995, minAmt = 18, maxAmt = 18, weight = 1.0, guaranteed = true))
     ),
+
+    /**
+     * Rogue
+     *
+     * @constructor Rogue
+     */
     ROGUE(
         ids = intArrayOf(NPCs.ROGUE_187, NPCs.ROGUE_GUARD_2267, NPCs.ROGUE_GUARD_2268, NPCs.ROGUE_GUARD_2269, NPCs.ROGUE_8122),
         requiredLevel = 32,
@@ -170,6 +238,12 @@ enum class Pickpockets(
             WeightedItem(id = Items.IRON_DAGGERP_1219, minAmt = 1, maxAmt = 1, weight = 1.0)
         )
     ),
+
+    /**
+     * Cave Goblin
+     *
+     * @constructor Cave Goblin
+     */
     CAVE_GOBLIN(
         ids = IntStream.rangeClosed(NPCs.CAVE_GOBLIN_5752, NPCs.CAVE_GOBLIN_5768).toArray(),
         requiredLevel = 36,
@@ -193,6 +267,12 @@ enum class Pickpockets(
             WeightedItem(id = Items.IRON_ORE_441, minAmt = 1, maxAmt = 4, weight = 0.25)
         )
     ),
+
+    /**
+     * Master Farmer
+     *
+     * @constructor Master Farmer
+     */
     MASTER_FARMER(
         ids = intArrayOf(NPCs.MASTER_FARMER_2234, NPCs.MASTER_FARMER_2235, NPCs.MARTIN_THE_MASTER_GARDENER_3299),
         requiredLevel = 38,
@@ -244,6 +324,12 @@ enum class Pickpockets(
             WeightedItem(id = Items.TORSTOL_SEED_5304, minAmt = 1, maxAmt = 1, weight = 5.0)
         )
     ),
+
+    /**
+     * Guard
+     *
+     * @constructor Guard
+     */
     GUARD(
         ids = intArrayOf(NPCs.GUARD_9, NPCs.GUARD_32, NPCs.GUARD_206, NPCs.GUARD_296, NPCs.GUARD_297, NPCs.GUARD_298, NPCs.GUARD_299, NPCs.GUARD_344, NPCs.GUARD_345, NPCs.GUARD_346, NPCs.GUARD_368, NPCs.GUARD_678, NPCs.GUARD_812, NPCs.GUARD_9, NPCs.GUARD_32, NPCs.GUARD_296, NPCs.GUARD_297, NPCs.GUARD_298, NPCs.GUARD_299, NPCs.GUARD_2699, NPCs.GUARD_2700, NPCs.GUARD_2701, NPCs.GUARD_2702, NPCs.GUARD_2703, NPCs.GUARD_3228, NPCs.GUARD_3229, NPCs.GUARD_3230, NPCs.GUARD_3231, NPCs.GUARD_3232, NPCs.GUARD_3233, NPCs.GUARD_3241, NPCs.GUARD_3407, NPCs.GUARD_3408, NPCs.GUARD_4307, NPCs.GUARD_4308, NPCs.GUARD_4309, NPCs.GUARD_4310, NPCs.GUARD_4311, NPCs.GUARD_5919, NPCs.GUARD_5920),
         requiredLevel = 40,
@@ -258,6 +344,12 @@ enum class Pickpockets(
             WeightedItem(id = Items.COINS_995, minAmt = 30, maxAmt = 30, weight = 1.0, guaranteed = true)
         )
     ),
+
+    /**
+     * Fremennik Citizen
+     *
+     * @constructor Fremennik Citizen
+     */
     FREMENNIK_CITIZEN(
         ids = intArrayOf(NPCs.AGNAR_1305, NPCs.FREIDIR_1306, NPCs.BORROKAR_1307, NPCs.LANZIG_1308, NPCs.PONTAK_1309, NPCs.FREYGERD_1310, NPCs.LENSA_1311, NPCs.JENNELLA_1312, NPCs.SASSILIK_1313, NPCs.INGA_1314),
         requiredLevel = 45,
@@ -272,6 +364,12 @@ enum class Pickpockets(
             WeightedItem(id = Items.COINS_995, minAmt = 40, maxAmt = 40, weight = 1.0, guaranteed = true)
         )
     ),
+
+    /**
+     * Bearded Bandit
+     *
+     * @constructor Bearded Bandit
+     */
     BEARDED_BANDIT(
         ids = intArrayOf(NPCs.BANDIT_1880, NPCs.BANDIT_1881, NPCs.BANDIT_6174, NPCs.BANDIT_6388),
         requiredLevel = 45,
@@ -288,6 +386,12 @@ enum class Pickpockets(
             WeightedItem(id = Items.COINS_995, minAmt = 1, maxAmt = 1, weight = 4.0)
         )
     ),
+
+    /**
+     * Desert Bandit
+     *
+     * @constructor Desert Bandit
+     */
     DESERT_BANDIT(
         ids = intArrayOf(NPCs.BANDIT_1926, NPCs.BARTENDER_1921),
         requiredLevel = 53,
@@ -304,6 +408,12 @@ enum class Pickpockets(
             WeightedItem(Items.LOCKPICK_1523, 1, 1, 1.0)
         )
     ),
+
+    /**
+     * Knight Of Adrougne
+     *
+     * @constructor Knight Of Adrougne
+     */
     KNIGHT_OF_ADROUGNE(
         ids = intArrayOf(NPCs.KNIGHT_OF_ARDOUGNE_23, NPCs.KNIGHT_OF_ARDOUGNE_26),
         requiredLevel = 55,
@@ -318,6 +428,12 @@ enum class Pickpockets(
             WeightedItem(Items.COINS_995, 50, 50, 1.0, true)
         )
     ),
+
+    /**
+     * Yanille Watchman
+     *
+     * @constructor Yanille Watchman
+     */
     YANILLE_WATCHMAN(
         ids = intArrayOf(NPCs.WATCHMAN_34),
         requiredLevel = 65,
@@ -333,6 +449,12 @@ enum class Pickpockets(
             WeightedItem(Items.BREAD_2309, 1, 1, 1.0, true)
         )
     ),
+
+    /**
+     * Menaphite Thug
+     *
+     * @constructor Menaphite Thug
+     */
     MENAPHITE_THUG(
         ids = intArrayOf(NPCs.MENAPHITE_THUG_1905),
         requiredLevel = 65,
@@ -347,6 +469,12 @@ enum class Pickpockets(
             WeightedItem(Items.COINS_995, 60, 60, 1.0, true)
         )
     ),
+
+    /**
+     * Paladin
+     *
+     * @constructor Paladin
+     */
     PALADIN(
         ids = intArrayOf(NPCs.PALADIN_20, NPCs.PALADIN_2256),
         requiredLevel = 70,
@@ -362,6 +490,12 @@ enum class Pickpockets(
             WeightedItem(Items.CHAOS_RUNE_562, 2, 2, 1.0, true)
         )
     ),
+
+    /**
+     * Gnome
+     *
+     * @constructor Gnome
+     */
     GNOME(
         ids = intArrayOf(NPCs.GNOME_66, NPCs.GNOME_67, NPCs.GNOME_68, NPCs.GNOME_WOMAN_168, NPCs.GNOME_WOMAN_169, NPCs.GNOME_2249, NPCs.GNOME_2250, NPCs.GNOME_2251, NPCs.GNOME_2371, NPCs.GNOME_2649, NPCs.GNOME_2650, NPCs.GNOME_6002, NPCs.GNOME_6004),
         requiredLevel = 75,
@@ -381,6 +515,12 @@ enum class Pickpockets(
             WeightedItem(id = Items.KING_WORM_2162, minAmt = 1, maxAmt = 1, weight = 9.0)
         )
     ),
+
+    /**
+     * Hero
+     *
+     * @constructor Hero
+     */
     HERO(
         ids = intArrayOf(NPCs.HERO_21),
         requiredLevel = 80,
@@ -416,6 +556,13 @@ enum class Pickpockets(
             return idMap[id]
         }
     }
+
+    /**
+     * Get success chance
+     *
+     * @param player
+     * @return
+     */
     fun getSuccessChance(player: Player): Double {
         return RandomFunction.getSkillSuccessChance(low, high, player.skills.getLevel(Skills.THIEVING))
     }

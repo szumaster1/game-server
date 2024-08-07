@@ -8,6 +8,9 @@ import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Master fisher dialogue.
+ */
 @Initializable
 class MasterFisherDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -15,11 +18,7 @@ class MasterFisherDialogue(player: Player? = null) : Dialogue(player) {
         if (!Skillcape.isMaster(player, Skills.FISHING)) {
             npc("Hello, I'm afraid only the top fishers are allowed to use", "our premier fishing facilities.")
         } else {
-            npc(
-                "Hello, only the top fishers are allowed to use",
-                "our premier fishing facilities and you seem",
-                "to meet the criteria. Enjoy!"
-            )
+            npc("Hello, only the top fishers are allowed to use", "our premier fishing facilities and you seem", "to meet the criteria. Enjoy!")
         }
         stage = 0
         return true
@@ -34,20 +33,8 @@ class MasterFisherDialogue(player: Player? = null) : Dialogue(player) {
                     player("Can you tell me about that skillcape you're wearing?").also { stage++ }
                 }
             }
-
-            1 -> npc(
-                "I'm happy to, my friend. This beautiful cape was",
-                "presented to me in recognition of my skills and",
-                "experience as a fisherman and I was asked to be the",
-                "head of this guild at the same time. As the best"
-            ).also { stage++ }
-
-            2 -> npc(
-                "fisherman in the guild it is my duty to control who has",
-                "access to the guild and to say who can buy similar",
-                "skillcapes."
-            ).also { stage = END_DIALOGUE }
-
+            1 -> npc("I'm happy to, my friend. This beautiful cape was", "presented to me in recognition of my skills and", "experience as a fisherman and I was asked to be the", "head of this guild at the same time. As the best").also { stage++ }
+            2 -> npc("fisherman in the guild it is my duty to control who has", "access to the guild and to say who can buy similar", "skillcapes.").also { stage = END_DIALOGUE }
             3 -> npc("Certainly! Right when you pay me 99000 coins.").also { stage++ }
             4 -> options("Okay, here you go.", "No, thanks.").also { stage++ }
             5 -> when (buttonId) {

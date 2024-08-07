@@ -3,12 +3,28 @@ package content.global.skill.production.runecrafting.data
 import core.api.consts.Items
 import core.game.node.item.Item
 
+/**
+ * Combination rune
+ *
+ * @property rune
+ * @property level
+ * @property experience
+ * @property altars
+ * @constructor
+ *
+ * @param runes
+ */
 enum class CombinationRune(
     val rune: Item,
     val level: Int,
     val experience: Double,
     val altars: Array<Altar>, vararg runes: Rune
 ) {
+    /**
+     * Mist
+     *
+     * @constructor Mist
+     */
     MIST(
         rune = Item(Items.MIST_RUNE_4695),
         level = 6,
@@ -16,6 +32,12 @@ enum class CombinationRune(
         altars = arrayOf(Altar.WATER, Altar.AIR),
         Rune.AIR, Rune.WATER
     ),
+
+    /**
+     * Dust
+     *
+     * @constructor Dust
+     */
     DUST(
         rune = Item(Items.DUST_RUNE_4696),
         level = 10,
@@ -23,6 +45,12 @@ enum class CombinationRune(
         altars = arrayOf(Altar.EARTH, Altar.AIR),
         Rune.AIR, Rune.EARTH
     ),
+
+    /**
+     * Mud
+     *
+     * @constructor Mud
+     */
     MUD(
         rune = Item(Items.MUD_RUNE_4698),
         level = 13,
@@ -30,6 +58,12 @@ enum class CombinationRune(
         altars = arrayOf(Altar.EARTH, Altar.WATER),
         Rune.WATER, Rune.EARTH
     ),
+
+    /**
+     * Smoke
+     *
+     * @constructor Smoke
+     */
     SMOKE(
         rune = Item(Items.SMOKE_RUNE_4697),
         level = 15,
@@ -37,6 +71,12 @@ enum class CombinationRune(
         altars = arrayOf(Altar.FIRE, Altar.AIR),
         Rune.AIR, Rune.FIRE
     ),
+
+    /**
+     * Steam
+     *
+     * @constructor Steam
+     */
     STEAM(
         rune = Item(Items.STEAM_RUNE_4694),
         level = 19,
@@ -44,6 +84,12 @@ enum class CombinationRune(
         altars = arrayOf(Altar.WATER, Altar.FIRE),
         Rune.WATER, Rune.FIRE
     ),
+
+    /**
+     * Lava
+     *
+     * @constructor Lava
+     */
     LAVA(
         rune = Item(Items.LAVA_RUNE_4699),
         level = 23,

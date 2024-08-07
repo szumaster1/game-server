@@ -9,6 +9,11 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 
+/**
+ * Nature spirit
+ *
+ * @constructor Nature spirit
+ */
 @Initializable
 class NatureSpirit : Quest("Nature Spirit", 95, 94, 2, Vars.VARP_QUEST_NATURE_SPIRIT_PROGRESS, 0, 1, 110) {
 

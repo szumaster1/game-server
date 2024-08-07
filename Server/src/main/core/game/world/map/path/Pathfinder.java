@@ -9,38 +9,104 @@ import core.game.world.map.Direction;
 import core.game.world.map.Location;
 import core.game.world.map.RegionManager;
 
+/**
+ * Pathfinder.
+ */
 public abstract class Pathfinder {
+    /**
+     * The constant PREVENT_NORTH.
+     */
     public static final int PREVENT_NORTH = 0x12c0120;
+    /**
+     * The constant PREVENT_EAST.
+     */
     public static final int PREVENT_EAST = 0x12c0180;
+    /**
+     * The constant PREVENT_NORTHEAST.
+     */
     public static final int PREVENT_NORTHEAST = 0x12c01e0;
+    /**
+     * The constant PREVENT_SOUTH.
+     */
     public static final int PREVENT_SOUTH = 0x12c0102;
+    /**
+     * The constant PREVENT_SOUTHEAST.
+     */
     public static final int PREVENT_SOUTHEAST = 0x12c0183;
+    /**
+     * The constant PREVENT_WEST.
+     */
     public static final int PREVENT_WEST = 0x12c0108;
+    /**
+     * The constant PREVENT_SOUTHWEST.
+     */
     public static final int PREVENT_SOUTHWEST = 0x12c010e;
+    /**
+     * The constant PREVENT_NORTHWEST.
+     */
     public static final int PREVENT_NORTHWEST = 0x12c0138;
 
+    /**
+     * The constant SMART.
+     */
     public static final SmartPathfinder SMART = new SmartPathfinder();
 
+    /**
+     * The constant DUMB.
+     */
     public static final DumbPathfinder DUMB = new DumbPathfinder();
 
+    /**
+     * The constant PROJECTILE.
+     */
     public static final ProjectilePathfinder PROJECTILE = new ProjectilePathfinder();
 
+    /**
+     * The constant SOUTH_FLAG.
+     */
     public static final int SOUTH_FLAG = 0x1;
 
+    /**
+     * The constant WEST_FLAG.
+     */
     public static final int WEST_FLAG = 0x2;
 
+    /**
+     * The constant NORTH_FLAG.
+     */
     public static final int NORTH_FLAG = 0x4;
 
+    /**
+     * The constant EAST_FLAG.
+     */
     public static final int EAST_FLAG = 0x8;
 
+    /**
+     * The constant SOUTH_WEST_FLAG.
+     */
     public static final int SOUTH_WEST_FLAG = SOUTH_FLAG | WEST_FLAG;
 
+    /**
+     * The constant NORTH_WEST_FLAG.
+     */
     public static final int NORTH_WEST_FLAG = NORTH_FLAG | WEST_FLAG;
 
+    /**
+     * The constant SOUTH_EAST_FLAG.
+     */
     public static final int SOUTH_EAST_FLAG = SOUTH_FLAG | EAST_FLAG;
 
+    /**
+     * The constant NORTH_EAST_FLAG.
+     */
     public static final int NORTH_EAST_FLAG = NORTH_FLAG | EAST_FLAG;
 
+    /**
+     * Flag for direction int.
+     *
+     * @param d the d
+     * @return the int
+     */
     public static int flagForDirection(Direction d) {
         switch (d) {
             case NORTH_WEST:
@@ -64,12 +130,43 @@ public abstract class Pathfinder {
         }
     }
 
+    /**
+     * Find path.
+     *
+     * @param location         the location
+     * @param size             the size
+     * @param end              the end
+     * @param sizeX            the size x
+     * @param sizeY            the size y
+     * @param rotation         the rotation
+     * @param type             the type
+     * @param walkingFlag      the walking flag
+     * @param near             the near
+     * @param clipMaskSupplier the clip mask supplier
+     * @return the path
+     */
     public abstract Path find(Location location, int size, Location end, int sizeX, int sizeY, int rotation, int type, int walkingFlag, boolean near, ClipMaskSupplier clipMaskSupplier);
 
+    /**
+     * Find path.
+     *
+     * @param mover       the mover
+     * @param destination the destination
+     * @return the path
+     */
     public static Path find(Entity mover, Node destination) {
         return find(mover, destination, true, SMART);
     }
 
+    /**
+     * Find path.
+     *
+     * @param mover       the mover
+     * @param destination the destination
+     * @param near        the near
+     * @param finder      the finder
+     * @return the path
+     */
     public static Path find(Entity mover, Node destination, boolean near, Pathfinder finder) {
         ClipMaskSupplier cms = null;
         if (mover instanceof NPC) {
@@ -80,26 +177,80 @@ public abstract class Pathfinder {
         return find(mover.getLocation(), mover.size(), destination, near, finder, cms);
     }
 
+    /**
+     * Find water path.
+     *
+     * @param mover       the mover
+     * @param destination the destination
+     * @param near        the near
+     * @param finder      the finder
+     * @return the path
+     */
     public static Path findWater(Entity mover, Node destination, boolean near, Pathfinder finder) {
         return find(mover.getLocation(), mover.size(), destination, near, finder, RegionManager::getWaterClipFlag);
     }
 
+    /**
+     * Find path.
+     *
+     * @param mover            the mover
+     * @param destination      the destination
+     * @param near             the near
+     * @param finder           the finder
+     * @param clipMaskSupplier the clip mask supplier
+     * @return the path
+     */
     public static Path find(Entity mover, Node destination, boolean near, Pathfinder finder, ClipMaskSupplier clipMaskSupplier) {
         return find(mover.getLocation(), mover.size(), destination, near, finder, clipMaskSupplier);
     }
 
+    /**
+     * Find path.
+     *
+     * @param start       the start
+     * @param destination the destination
+     * @return the path
+     */
     public static Path find(Location start, Node destination) {
         return find(start, destination, true, SMART);
     }
 
+    /**
+     * Find path.
+     *
+     * @param start       the start
+     * @param destination the destination
+     * @param moverSize   the mover size
+     * @return the path
+     */
     public static Path find(Location start, Node destination, int moverSize) {
         return find(start, moverSize, destination, true, SMART, RegionManager::getClippingFlag);
     }
 
+    /**
+     * Find path.
+     *
+     * @param start       the start
+     * @param destination the destination
+     * @param near        the near
+     * @param finder      the finder
+     * @return the path
+     */
     public static Path find(Location start, Node destination, boolean near, Pathfinder finder) {
         return find(start, 1, destination, near, finder, RegionManager::getClippingFlag);
     }
 
+    /**
+     * Find path.
+     *
+     * @param start            the start
+     * @param moverSize        the mover size
+     * @param destination      the destination
+     * @param near             the near
+     * @param finder           the finder
+     * @param clipMaskSupplier the clip mask supplier
+     * @return the path
+     */
     public static Path find(Location start, int moverSize, Node destination, boolean near, Pathfinder finder, ClipMaskSupplier clipMaskSupplier) {
         if (destination instanceof Scenery) {
             Scenery object = (Scenery) destination;
@@ -129,6 +280,20 @@ public abstract class Pathfinder {
         return finder.find(start, moverSize, destination.getLocation(), size, size, 0, 0, 0, near, clipMaskSupplier);
     }
 
+    /**
+     * Can decoration interact boolean.
+     *
+     * @param curX             the cur x
+     * @param curY             the cur y
+     * @param size             the size
+     * @param destX            the dest x
+     * @param destY            the dest y
+     * @param rotation         the rotation
+     * @param type             the type
+     * @param z                the z
+     * @param clipMaskSupplier the clip mask supplier
+     * @return the boolean
+     */
     public static boolean canDecorationInteract(int curX, int curY, int size, int destX, int destY, int rotation, int type, int z, ClipMaskSupplier clipMaskSupplier) {
         if (size != 1) {
             if (destX >= curX && destX <= (curX + size) - 1 && destY <= (destY + size) - 1) {
@@ -242,6 +407,20 @@ public abstract class Pathfinder {
         return false;
     }
 
+    /**
+     * Can door interact boolean.
+     *
+     * @param curX             the cur x
+     * @param curY             the cur y
+     * @param size             the size
+     * @param destX            the dest x
+     * @param destY            the dest y
+     * @param type             the type
+     * @param rotation         the rotation
+     * @param z                the z
+     * @param clipMaskSupplier the clip mask supplier
+     * @return the boolean
+     */
     public static boolean canDoorInteract(int curX, int curY, int size, int destX, int destY, int type, int rotation, int z, ClipMaskSupplier clipMaskSupplier) {
         if (size != 1) {
             if (destX >= curX && destX <= size + curX - 1 && destY <= destY + size - 1) {
@@ -481,6 +660,19 @@ public abstract class Pathfinder {
         return false;
     }
 
+    /**
+     * Is standing in boolean.
+     *
+     * @param x          the x
+     * @param y          the y
+     * @param moverSizeX the mover size x
+     * @param moverSizeY the mover size y
+     * @param destX      the dest x
+     * @param destY      the dest y
+     * @param sizeX      the size x
+     * @param sizeY      the size y
+     * @return the boolean
+     */
     public static boolean isStandingIn(int x, int y, int moverSizeX, int moverSizeY, int destX, int destY, int sizeX, int sizeY) {
         if (x >= sizeX + destX || moverSizeX + x <= destX) {
             return false;
@@ -491,6 +683,21 @@ public abstract class Pathfinder {
         return true;
     }
 
+    /**
+     * Can interact boolean.
+     *
+     * @param x                the x
+     * @param y                the y
+     * @param moverSize        the mover size
+     * @param destX            the dest x
+     * @param destY            the dest y
+     * @param sizeX            the size x
+     * @param sizeY            the size y
+     * @param walkFlag         the walk flag
+     * @param z                the z
+     * @param clipMaskSupplier the clip mask supplier
+     * @return the boolean
+     */
     public static boolean canInteract(int x, int y, int moverSize, int destX, int destY, int sizeX, int sizeY, int walkFlag, int z, ClipMaskSupplier clipMaskSupplier) {
         if (moverSize > 1) {
             return isStandingIn(x, y, moverSize, moverSize, destX, destY, sizeX, sizeY) || canInteractSized(x, y, moverSize, moverSize, destX, destY, sizeX, sizeY, walkFlag, z);
@@ -516,6 +723,21 @@ public abstract class Pathfinder {
         return false;
     }
 
+    /**
+     * Can interact sized boolean.
+     *
+     * @param curX        the cur x
+     * @param curY        the cur y
+     * @param moverSizeX  the mover size x
+     * @param moverSizeY  the mover size y
+     * @param destX       the dest x
+     * @param destY       the dest y
+     * @param sizeX       the size x
+     * @param sizeY       the size y
+     * @param walkingFlag the walking flag
+     * @param z           the z
+     * @return the boolean
+     */
     public static boolean canInteractSized(int curX, int curY, int moverSizeX, int moverSizeY, int destX, int destY, int sizeX, int sizeY, int walkingFlag, int z) {
         int fromCornerY = curY + moverSizeY;
         int fromCornerX = curX + moverSizeX;

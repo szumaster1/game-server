@@ -32,11 +32,15 @@ import java.util.PriorityQueue;
 import static core.api.ContentAPIKt.curePoison;
 import static core.api.ContentAPIKt.isPoisoned;
 
-
+/**
+ * Pest control activity plugin.
+ */
 @Initializable
 public final class PestControlActivityPlugin extends ActivityPlugin {
 
-
+    /**
+     * The Max team size.
+     */
     static final int MAX_TEAM_SIZE = 25;
     private static final int MIN_TEAM_SIZE = 5; //GameWorld.getSettings().isDevMode() ? 1 : 5;
     private final BoatType type;
@@ -75,17 +79,28 @@ public final class PestControlActivityPlugin extends ActivityPlugin {
     };
 
 
+    /**
+     * Instantiates a new Pest control activity plugin.
+     */
     public PestControlActivityPlugin() {
         this(BoatType.NOVICE);
     }
 
 
+    /**
+     * Instantiates a new Pest control activity plugin.
+     *
+     * @param type the type
+     */
     public PestControlActivityPlugin(BoatType type) {
         super("pest control " + type.name().toLowerCase(), false, true, true, ZoneRestriction.CANNON);
         this.safeRespawn = Location.create(2657, 2646, 0);
         this.type = type;
     }
 
+    /**
+     * Start.
+     */
     public void start() {
         PestControlSession session = new PestControlSession(DynamicRegion.create(10536), this);
         session.startGame(waitingPlayers);
@@ -95,6 +110,12 @@ public final class PestControlActivityPlugin extends ActivityPlugin {
         updatePlayerCount();
     }
 
+    /**
+     * End.
+     *
+     * @param session the session
+     * @param success the success
+     */
     public void end(PestControlSession session, boolean success) {
         if (!session.isActive()) {
             return;
@@ -138,6 +159,11 @@ public final class PestControlActivityPlugin extends ActivityPlugin {
         session.setActive(false);
     }
 
+    /**
+     * Gets leave location.
+     *
+     * @return the leave location
+     */
     public Location getLeaveLocation() {
         switch (type) {
             case NOVICE:
@@ -208,6 +234,11 @@ public final class PestControlActivityPlugin extends ActivityPlugin {
     }
 
 
+    /**
+     * Open lander interface.
+     *
+     * @param p the p
+     */
     public void openLanderInterface(Player p) {
         p.getInterfaceManager().openOverlay(new Component(407));
         updateTime(p);
@@ -217,6 +248,11 @@ public final class PestControlActivityPlugin extends ActivityPlugin {
     }
 
 
+    /**
+     * Update time.
+     *
+     * @param p the p
+     */
     public void updateTime(Player p) {
         int ticks = 500 - this.ticks;
         if (ticks > 99) {
@@ -229,6 +265,9 @@ public final class PestControlActivityPlugin extends ActivityPlugin {
     }
 
 
+    /**
+     * Update player count.
+     */
     public void updatePlayerCount() {
         for (Player p : waitingPlayers) {
             p.getPacketDispatch().sendString("Players Ready: " + waitingPlayers.size(), 407, 14);
@@ -264,23 +303,45 @@ public final class PestControlActivityPlugin extends ActivityPlugin {
     }
 
 
+    /**
+     * Gets waiting players.
+     *
+     * @return the waiting players
+     */
     public PriorityQueue<Player> getWaitingPlayers() {
         return waitingPlayers;
     }
 
 
+    /**
+     * Gets type.
+     *
+     * @return the type
+     */
     public BoatType getType() {
         return type;
     }
 
 
+    /**
+     * The enum Boat type.
+     */
     public enum BoatType {
 
 
+        /**
+         * Novice boat type.
+         */
         NOVICE(40),
 
+        /**
+         * Intermediate boat type.
+         */
         INTERMEDIATE(70),
 
+        /**
+         * Veteran boat type.
+         */
         VETERAN(100);
 
 
@@ -292,6 +353,11 @@ public final class PestControlActivityPlugin extends ActivityPlugin {
         }
 
 
+        /**
+         * Gets requirement.
+         *
+         * @return the requirement
+         */
         public int getRequirement() {
             return requirement;
         }

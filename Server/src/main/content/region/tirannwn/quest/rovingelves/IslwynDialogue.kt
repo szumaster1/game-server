@@ -7,6 +7,9 @@ import core.game.node.entity.player.Player
 import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 
+/**
+ * Islwyn dialogue.
+ */
 class IslwynDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
@@ -391,6 +394,12 @@ class IslwynDialogue(player: Player? = null) : Dialogue(player) {
         return intArrayOf(DialogueInterpreter.getDialogueKey("islwyn_dialogue"), 1680)
     }
 
+    /**
+     * Crystal weapon price
+     *
+     * @param timesRecharged
+     * @return
+     */
     fun crystalWeaponPrice(timesRecharged: Int): Int {
         return Math.max(900000 - 180000 * timesRecharged, 180000)
     }

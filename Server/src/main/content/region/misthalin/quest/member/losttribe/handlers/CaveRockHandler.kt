@@ -12,6 +12,11 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Cave rock handler
+ *
+ * @constructor Cave rock handler
+ */
 @Initializable
 class CaveRockHandler : OptionHandler() {
 
@@ -34,6 +39,12 @@ class CaveRockHandler : OptionHandler() {
     }
 
 
+    /**
+     * Show rock
+     *
+     * @param player
+     * @param model
+     */
     fun showRock(player: Player, model: Int) {
         openInterface(player, Components.CAVE_GOBLIN_MARKERS_62)
         player.packetDispatch.sendModelOnInterface(model, 62, 1, 1)

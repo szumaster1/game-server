@@ -8,6 +8,9 @@ import core.api.setInterfaceText
 import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.Player
 
+/**
+ * Stealing creation shop.
+ */
 class StealingCreationShop : InterfaceListener {
 
     override fun defineInterfaceListeners() {

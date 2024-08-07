@@ -26,6 +26,9 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.world.map.zone.ZoneBorders
 
+/**
+ * Varrock achievement diary.
+ */
 class VarrockAchievementDiary : DiaryEventHookBase(DiaryType.VARROCK) {
     companion object {
 

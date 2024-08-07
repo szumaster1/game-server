@@ -8,6 +8,9 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Desert scout dialogue.
+ */
 @Initializable
 class DesertScoutDialogue(player: Player? = null) : Dialogue(player) {
 

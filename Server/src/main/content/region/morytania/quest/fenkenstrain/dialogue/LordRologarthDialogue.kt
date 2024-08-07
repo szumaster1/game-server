@@ -11,6 +11,9 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Lord rologarth dialogue.
+ */
 @Initializable
 class LordRologarthDialogue(player: Player? = null) : Dialogue(player) {
     override fun newInstance(player: Player): Dialogue {
@@ -28,6 +31,11 @@ class LordRologarthDialogue(player: Player? = null) : Dialogue(player) {
     }
 }
 
+/**
+ * Lord rologarth dialogue file
+ *
+ * @constructor Lord rologarth dialogue file
+ */
 class LordRologarthDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {
         b.onQuestStages("Creature of Fenkenstrain", 6)

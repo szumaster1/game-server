@@ -9,6 +9,13 @@ import core.game.node.entity.npc.NPC
 import core.tools.DARK_RED
 import core.tools.END_DIALOGUE
 
+/**
+ * Sergeant damien dialogue
+ *
+ * @property isCorrect
+ * @property eventStart
+ * @constructor Sergeant damien dialogue
+ */
 class SergeantDamienDialogue(var isCorrect: Boolean = false, var eventStart: Boolean = false) : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.SERGEANT_DAMIEN_2790)

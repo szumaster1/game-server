@@ -12,6 +12,9 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 
+/**
+ * Abbot langley dialogue.
+ */
 @Initializable
 class AbbotLangleyDialogue(player: Player? = null) : Dialogue(player) {
 

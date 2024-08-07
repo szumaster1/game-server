@@ -24,19 +24,37 @@ import java.util.List;
 import static core.api.ContentAPIKt.removeAttribute;
 import static core.api.ContentAPIKt.setAttribute;
 
+/**
+ * Demon slayer.
+ */
 @Initializable
 public class DemonSlayer extends Quest {
 
+    /**
+     * The constant SILVERLIGHT.
+     */
     public static final Item SILVERLIGHT = new Item(2402);
 
     private static final String[] INCANTATIONS = new String[]{"Carlem", "Aber", "Purchai", "Camerinthum", "Gabindo"};
 
+    /**
+     * The constant FIRST_KEY.
+     */
     public static final Item FIRST_KEY = new Item(2401);
 
+    /**
+     * The constant SECOND_KEY.
+     */
     public static final Item SECOND_KEY = new Item(2400);
 
+    /**
+     * The constant THIRD_KEY.
+     */
     public static final Item THIRD_KEY = new Item(2399);
 
+    /**
+     * Instantiates a new Demon slayer.
+     */
     public DemonSlayer() {
         super("Demon Slayer", 16, 15, 3, Vars.VARP_QUEST_DEMON_SLAYER_PROGRESS, 0, 1, 3);
     }
@@ -115,10 +133,22 @@ public class DemonSlayer extends Quest {
         player.getQuestRepository().syncronizeTab(player);
     }
 
+    /**
+     * Gets incantation.
+     *
+     * @param player the player
+     * @return the incantation
+     */
     public static String getIncantation(final Player player) {
         return player.getAttribute("demon-slayer:incantation", generateIncantation(player));
     }
 
+    /**
+     * Generate incantation string.
+     *
+     * @param player the player
+     * @return the string
+     */
     public static String generateIncantation(final Player player) {
         final String incantation = player.getAttribute("demon-slayer:incantation", generateIncantation());
         setAttribute(player, "/save:demon-slayer:incantation", incantation);
@@ -132,17 +162,28 @@ public class DemonSlayer extends Quest {
         return incantations.get(0) + "... " + incantations.get(1) + "... " + incantations.get(2) + "... " + incantations.get(3) + "... " + incantations.get(4);
     }
 
+    /**
+     * Captain rovin dialogue.
+     */
     public final class CaptainRovinDialogue extends Dialogue {
 
 
         private Quest quest;
 
 
+        /**
+         * Instantiates a new Captain rovin dialogue.
+         */
         public CaptainRovinDialogue() {
 
         }
 
 
+        /**
+         * Instantiates a new Captain rovin dialogue.
+         *
+         * @param player the player
+         */
         public CaptainRovinDialogue(Player player) {
             super(player);
         }

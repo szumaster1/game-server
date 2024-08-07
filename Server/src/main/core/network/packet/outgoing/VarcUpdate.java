@@ -5,6 +5,9 @@ import core.network.packet.IoBuffer;
 import core.network.packet.OutgoingPacket;
 import core.network.packet.context.VarcUpdateContext;
 
+/**
+ * Varc update.
+ */
 public class VarcUpdate implements OutgoingPacket<VarcUpdateContext> {
     @Override
     public void send(VarcUpdateContext varcUpdateContext) {

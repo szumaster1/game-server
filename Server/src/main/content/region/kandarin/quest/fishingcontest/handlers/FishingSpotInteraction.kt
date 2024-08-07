@@ -12,6 +12,11 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Fishing spot interaction
+ *
+ * @constructor Fishing spot interaction
+ */
 @Initializable
 class FishingSpotInteraction : PluginInteraction() {
 

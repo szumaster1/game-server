@@ -6,11 +6,14 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Black jack seller dialogue.
+ */
 @Initializable
 class BlackJackSellerDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
-        npc("The Blackjack Seller doesn't seem interested in you.").also { stage = END_DIALOGUE }
+        sendDialogue("The Blackjack Seller doesn't seem interested in you.").also { stage = END_DIALOGUE }
         return true
     }
 

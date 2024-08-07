@@ -16,7 +16,14 @@ import core.game.world.update.flag.context.Graphic
 import core.tools.StringUtils
 import core.api.consts.Scenery as Sceneries
 
+/**
+ * A god type.
+ * @author Vexia
+ */
 enum class GodType(val cape: Item, val staff: Item, val statueId: Int, val npcId: Int, val dropMessage: String) {
+    /**
+     * Saradomin.
+     */
     SARADOMIN(
         cape = Item(Items.SARADOMIN_CAPE_2412),
         staff = Item(Items.SARADOMIN_STAFF_2415),
@@ -24,6 +31,10 @@ enum class GodType(val cape: Item, val staff: Item, val statueId: Int, val npcId
         npcId = NPCs.BATTLE_MAGE_913,
         dropMessage = "The cape disappears in a flash of light as it touches the ground."
     ),
+
+    /**
+     * Guthix.
+     */
     GUTHIX(
         cape = Item(Items.GUTHIX_CAPE_2413),
         staff = Item(Items.GUTHIX_STAFF_2416),
@@ -31,6 +42,10 @@ enum class GodType(val cape: Item, val staff: Item, val statueId: Int, val npcId
         npcId = NPCs.BATTLE_MAGE_914,
         dropMessage = "The cape disintegrates as it touches the earth."
     ),
+
+    /**
+     * Zamorak.
+     */
     ZAMORAK(
         cape = Item(Items.ZAMORAK_CAPE_2414),
         staff = Item(Items.ZAMORAK_STAFF_2417),
@@ -39,7 +54,14 @@ enum class GodType(val cape: Item, val staff: Item, val statueId: Int, val npcId
         dropMessage = "The cape ignites and burns up as it touches the ground."
     );
 
+    /**
+     * Pray interaction.
+     *
+     * @param player the player.
+     * @param statue the scenery id.
+     */
     fun pray(player: Player, statue: Scenery) {
+        // Perform the pray interaction if the player has any cape of this GodType.
         if (hasAny(player)) {
             lock(player, 3)
             animate(player, Animations.HUMAN_PRAY_645)
@@ -99,10 +121,21 @@ enum class GodType(val cape: Item, val staff: Item, val statueId: Int, val npcId
         }
     }
 
+    /**
+     * Is friendly.
+     *
+     * @param player the player.
+     * @return player equip cape.
+     */
     fun isFriendly(player: Player): Boolean {
         return player.equipment.containsItem(cape)
     }
 
+    /**
+     * Get name.
+     *
+     * @return string to lowercase.
+     */
     fun getName(): String {
         return StringUtils.formatDisplayName(name.lowercase())
     }

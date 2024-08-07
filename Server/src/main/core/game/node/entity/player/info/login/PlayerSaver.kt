@@ -28,7 +28,6 @@ import javax.script.ScriptEngineManager
  * Class used for saving the player's data in JSON format.
  * Files are saved in the directory defined in ServerConstants.PLAYER_SAVE_PATH
  * @param player: the player to save for.
- * @author Ceikry
  */
 class PlayerSaver(val player: Player) {
     companion object {

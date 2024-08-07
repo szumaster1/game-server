@@ -26,6 +26,11 @@ import java.awt.Toolkit
 import java.awt.datatransfer.StringSelection
 import kotlin.streams.toList
 
+/**
+ * Fun command set
+ *
+ * @constructor Fun command set
+ */
 @Initializable
 class FunCommandSet : CommandSet(Privilege.ADMIN) {
 
@@ -264,6 +269,11 @@ class FunCommandSet : CommandSet(Privilege.ADMIN) {
         }
     }
 
+    /**
+     * Bury
+     *
+     * @param player
+     */
     fun bury(player: Player) {
         val loc = Location.create(player.location)
         val inv = player.inventory.toArray().filterNotNull()

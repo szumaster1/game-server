@@ -25,6 +25,9 @@ val livesBased = arrayOf(
     PatchType.SPECIAL_PATCH,
 )
 
+/**
+ * Crop harvester.
+ */
 @Initializable
 class CropHarvester : OptionHandler() {
 

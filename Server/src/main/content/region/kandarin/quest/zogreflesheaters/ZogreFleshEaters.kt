@@ -9,6 +9,11 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 
+/**
+ * Zogre flesh eaters
+ *
+ * @constructor Zogre flesh eaters
+ */
 @Initializable
 class ZogreFleshEaters : Quest("Zogre Flesh Eaters", 40, 39, 1, Vars.VARBIT_QUEST_ZORGE_FLESH_EATERS_PROGRESS, 0, 1, 13) {
 

@@ -16,6 +16,9 @@ import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Kolodion dialogue.
+ */
 @Initializable
 class KolodionDialogue(player: Player? = null) : Dialogue(player) {
 

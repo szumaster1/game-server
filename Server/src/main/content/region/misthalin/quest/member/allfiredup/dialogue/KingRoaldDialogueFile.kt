@@ -6,6 +6,12 @@ import core.game.node.entity.skill.Skills
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
+/**
+ * King roald dialogue file.
+ *
+ * @property questStage
+ * @constructor King roald dialogue file
+ */
 class KingRoaldDialogueFile(val questStage: Int) : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

@@ -4,6 +4,11 @@ import core.game.interaction.NodeUsageEvent
 import core.game.interaction.UseWithHandler
 import core.plugin.Plugin
 
+/**
+ * B k cabbage plugin
+ *
+ * @constructor B k cabbage plugin
+ */
 class BKCabbagePlugin: UseWithHandler(1965, 1967) {
 
     override fun newInstance(arg: Any?): Plugin<Any> {

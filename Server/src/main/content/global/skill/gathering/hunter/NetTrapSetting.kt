@@ -8,6 +8,9 @@ import core.game.node.scenery.Scenery
 import core.game.node.scenery.SceneryBuilder
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Net trap setting.
+ */
 class NetTrapSetting : TrapSetting(intArrayOf(19652, 19663, 19671, 19679, 28564), arrayOf(Item(303), Item(954)), NetTrap.ids, intArrayOf(10142, 10143, 10144, 10145), "set-trap", 29, -1, Animation(5215), Animation.create(5207), true) {
 
     override fun hasItems(player: Player): Boolean {
@@ -117,7 +120,16 @@ class NetTrapSetting : TrapSetting(intArrayOf(19652, 19663, 19671, 19679, 28564)
     }
 
     /**
-     * The enum Net trap.
+     * Net trap
+     *
+     * @property original
+     * @property bent
+     * @property failing
+     * @property failed
+     * @property catching
+     * @property caught
+     * @property net
+     * @constructor Net trap
      */
     enum class NetTrap(
         val original: Int,
@@ -128,7 +140,11 @@ class NetTrapSetting : TrapSetting(intArrayOf(19652, 19663, 19671, 19679, 28564)
         @JvmField val caught: Int,
         @JvmField val net: Int
     ) {
-        /*
+        /**
+         * Green
+         *
+         * @constructor Green
+         *//*
          * Green net trap.
          */
         GREEN(
@@ -141,7 +157,11 @@ class NetTrapSetting : TrapSetting(intArrayOf(19652, 19663, 19671, 19679, 28564)
             net = 19651
         ),
 
-        /*
+        /**
+         * Squirel
+         *
+         * @constructor Squirel
+         *//*
          * Squirel net trap.
          */
         SQUIREL(
@@ -154,7 +174,11 @@ class NetTrapSetting : TrapSetting(intArrayOf(19652, 19663, 19671, 19679, 28564)
             net = 28566
         ),
 
-        /*
+        /**
+         * Orange
+         *
+         * @constructor Orange
+         *//*
          * Orange net trap.
          */
         ORANGE(
@@ -167,7 +191,11 @@ class NetTrapSetting : TrapSetting(intArrayOf(19652, 19663, 19671, 19679, 28564)
             net = 19665
         ),
 
-        /*
+        /**
+         * Red
+         *
+         * @constructor Red
+         *//*
          * Red net trap.
          */
         RED(
@@ -180,7 +208,11 @@ class NetTrapSetting : TrapSetting(intArrayOf(19652, 19663, 19671, 19679, 28564)
             net = 19673
         ),
 
-        /*
+        /**
+         * Black
+         *
+         * @constructor Black
+         *//*
          * Black net trap.
          */
         BLACK(

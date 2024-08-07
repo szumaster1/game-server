@@ -8,6 +8,9 @@ import core.game.dialogue.DialogueFile
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
+/**
+ * Akharanu dialogue file.
+ */
 class AkharanuDialogueFile : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

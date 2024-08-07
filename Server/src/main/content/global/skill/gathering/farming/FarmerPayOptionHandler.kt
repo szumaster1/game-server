@@ -6,6 +6,9 @@ import core.game.interaction.InteractionListener
 import core.game.node.Node
 import core.game.node.entity.player.Player
 
+/**
+ * Farmer pay option handler.
+ */
 class FarmerPayOptionHandler : InteractionListener {
 
     override fun defineListeners() {
@@ -18,6 +21,14 @@ class FarmerPayOptionHandler : InteractionListener {
         }
     }
 
+    /**
+     * Attempt pay
+     *
+     * @param player
+     * @param node
+     * @param index
+     * @return
+     */
     fun attemptPay(player: Player, node: Node, index: Int): Boolean {
         val farmer = Farmers.forId(node.id) ?: return false
         val patch = farmer.patches[index].getPatchFor(player)

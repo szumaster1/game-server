@@ -12,6 +12,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Old man dialogue.
+ */
 @Initializable
 class OldManDialogue(player: Player? = null) : Dialogue(player) {
 

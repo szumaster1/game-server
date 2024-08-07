@@ -30,7 +30,6 @@ import core.tools.Log
 
 /**
  * A utility class for making cutscenes.
- * @author Ceikry
  */
 abstract class Cutscene(val player: Player) {
     lateinit var region: Region

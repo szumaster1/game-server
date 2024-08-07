@@ -7,6 +7,11 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
+/**
+ * Sir pelleas dialogue file
+ *
+ * @constructor Sir pelleas dialogue file
+ */
 class SirPelleasDialogueFile  : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

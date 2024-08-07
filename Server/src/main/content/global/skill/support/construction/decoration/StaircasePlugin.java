@@ -17,6 +17,9 @@ import core.plugin.ClassScanner;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
+/**
+ * Staircase plugin.
+ */
 @Initializable
 public final class StaircasePlugin extends OptionHandler {
 
@@ -128,16 +131,27 @@ public final class StaircasePlugin extends OptionHandler {
         }
     }
 
+    /**
+     * Climb poh ladder.
+     */
     static final class ClimbPohLadder extends Dialogue {
 
         private HouseManager house;
 
         private Scenery ladder;
 
+        /**
+         * Instantiates a new Climb poh ladder.
+         */
         public ClimbPohLadder() {
             super();
         }
 
+        /**
+         * Instantiates a new Climb poh ladder.
+         *
+         * @param player the player
+         */
         public ClimbPohLadder(final Player player) {
             super(player);
         }
@@ -197,6 +211,9 @@ public final class StaircasePlugin extends OptionHandler {
 
     }
 
+    /**
+     * Build dialogue.
+     */
     static final class BuildDialogue extends Dialogue {
 
         private int plane;
@@ -209,12 +226,20 @@ public final class StaircasePlugin extends OptionHandler {
 
         private Scenery stairs;
 
+        /**
+         * Instantiates a new Build dialogue.
+         */
         public BuildDialogue() {
             /**
              * empty.
              */
         }
 
+        /**
+         * Instantiates a new Build dialogue.
+         *
+         * @param player the player
+         */
         public BuildDialogue(final Player player) {
             super(player);
         }

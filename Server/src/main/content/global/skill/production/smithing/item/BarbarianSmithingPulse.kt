@@ -9,6 +9,16 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import kotlin.math.min
 
+/**
+ * Barbarian smithing pulse
+ *
+ * @property weapon
+ * @property amount
+ * @property button
+ * @constructor
+ *
+ * @param player
+ */
 class BarbarianSmithingPulse(player: Player?, val weapon: BarbarianWeapon, var amount: Int, var button: Int) :
     SkillPulse<Item>(player, null) {
 

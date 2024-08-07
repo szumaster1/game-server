@@ -11,6 +11,13 @@ import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 import java.util.concurrent.TimeUnit
 
+/**
+ * Compost bin
+ *
+ * @property player
+ * @property bin
+ * @constructor Compost bin
+ */
 class CompostBin(val player: Player, val bin: CompostBins) {
     private var items = ArrayList<Int>()
     var isSuperCompost = true
@@ -20,7 +27,7 @@ class CompostBin(val player: Player, val bin: CompostBins) {
     var isFinished = false
 
     /**
-     * Resets the compost bin to its initial state.
+     * Reset
      */
     fun reset() {
         items.clear()
@@ -32,10 +39,18 @@ class CompostBin(val player: Player, val bin: CompostBins) {
         updateBit()
     }
 
+    /**
+     * Is full
+     *
+     * @return
+     */
     fun isFull() : Boolean {
         return items.size == 15
     }
 
+    /**
+     * Close
+     */
     fun close() {
         isClosed = true
         sendMessage(player, "You close the compost bin.")
@@ -46,6 +61,9 @@ class CompostBin(val player: Player, val bin: CompostBins) {
         updateBit()
     }
 
+    /**
+     * Open
+     */
     fun open(){
         isClosed = false
         animate(player, 810)
@@ -54,6 +72,11 @@ class CompostBin(val player: Player, val bin: CompostBins) {
         updateBit()
     }
 
+    /**
+     * Take item
+     *
+     * @return
+     */
     fun takeItem(): Item?{
         if(items.isEmpty()) return null
         val item = items[0]
@@ -72,14 +95,30 @@ class CompostBin(val player: Player, val bin: CompostBins) {
         return Item(item)
     }
 
+    /**
+     * Is default state
+     *
+     * @return
+     */
     fun isDefaultState() : Boolean {
         return (isFinished == false && finishedTime == 0L && items.size == 0)
     }
 
+    /**
+     * Is ready
+     *
+     * @return
+     */
     fun isReady(): Boolean {
         return System.currentTimeMillis() > finishedTime && finishedTime != 0L
     }
 
+    /**
+     * Check super compost item
+     *
+     * @param id
+     * @return
+     */
     fun checkSuperCompostItem(id: Int): Boolean{
         return when (id){
             Items.WATERMELON_5982,
@@ -116,6 +155,11 @@ class CompostBin(val player: Player, val bin: CompostBins) {
         }
     }
 
+    /**
+     * Add item
+     *
+     * @param item
+     */
     fun addItem(item: Int){
         if(!isFull()) {
             items.add(item)
@@ -127,6 +171,11 @@ class CompostBin(val player: Player, val bin: CompostBins) {
         updateBit()
     }
 
+    /**
+     * Add item
+     *
+     * @param item
+     */
     fun addItem(item: Item){
         val remaining = 15 - items.size
         val amount = if(item.amount > remaining){
@@ -139,6 +188,9 @@ class CompostBin(val player: Player, val bin: CompostBins) {
         }
     }
 
+    /**
+     * Update bit
+     */
     fun updateBit(){
         if(items.isNotEmpty()) {
             if (isClosed) {
@@ -156,6 +208,11 @@ class CompostBin(val player: Player, val bin: CompostBins) {
         } else setVarbit(player, bin.varbit, 0)
     }
 
+    /**
+     * Save
+     *
+     * @param root
+     */
     fun save(root: JSONObject){
         val binObject = JSONObject()
         binObject["isSuper"] = this.isSuperCompost
@@ -171,6 +228,11 @@ class CompostBin(val player: Player, val bin: CompostBins) {
         root["binData"] = binObject
     }
 
+    /**
+     * Parse
+     *
+     * @param _data
+     */
     fun parse(_data: JSONObject){
         val isSuper = if(_data.containsKey("isSuper")) (_data["isSuper"] as Boolean) else true
         if(_data.containsKey("items")){
@@ -185,6 +247,9 @@ class CompostBin(val player: Player, val bin: CompostBins) {
         updateBit()
     }
 
+    /**
+     * Finish
+     */
     fun finish(){
         if(isTomatoes) items = items.map { Items.ROTTEN_TOMATO_2518 } as ArrayList<Int>
         else if(isSuperCompost) items = items.map { Items.SUPERCOMPOST_6034 } as ArrayList<Int>
@@ -192,6 +257,9 @@ class CompostBin(val player: Player, val bin: CompostBins) {
         isFinished = true
     }
 
+    /**
+     * Convert
+     */
     fun convert(){
         if(!isSuperCompost){
             items = items.map { Items.SUPERCOMPOST_6034 } as ArrayList<Int>

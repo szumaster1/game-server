@@ -7,6 +7,9 @@ import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
+/**
+ * Tool leprechaun interface.
+ */
 class ToolLeprechaunInterface : InterfaceListener {
     private val FARMING_TOOLS = Components.FARMING_TOOLS_125
     private val TOOLS_SIDE = Components.FARMING_TOOLS_SIDE_126
@@ -224,6 +227,12 @@ class ToolLeprechaunInterface : InterfaceListener {
         updateQuantityMethod.invoke(player, -finalAmount)
     }
 
+    /**
+     * Get amount
+     *
+     * @param opcode
+     * @return
+     */
     fun getAmount(opcode: Int): Int {
         return when (opcode) {
             155 -> 1
@@ -275,7 +284,7 @@ class ToolLeprechaunInterface : InterfaceListener {
         if (can == 1) can = 0
         return Items.WATERING_CAN_5331 + can
     }
-    
+
     private fun setWateringCan(player: Player?, item: Item) {
         val can = when (item.id) {
             Items.WATERING_CAN_5331 -> 1

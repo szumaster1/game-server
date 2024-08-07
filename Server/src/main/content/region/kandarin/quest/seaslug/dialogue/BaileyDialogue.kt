@@ -13,6 +13,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Bailey dialogue.
+ */
 @Initializable
 class BaileyDialogue(player: Player? = null) : Dialogue(player) {
 

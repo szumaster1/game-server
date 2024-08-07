@@ -9,6 +9,12 @@ import core.game.node.item.Item
 import core.api.consts.Items
 import core.game.dialogue.DialogueFile
 
+/**
+ * Archaeologistcal expert used on dialogue file
+ *
+ * @property it
+ * @constructor Archaeologistcal expert used on dialogue file
+ */
 class ArchaeologistcalExpertUsedOnDialogueFile(val it: Int) : DialogueFile() {
 
     var i = ArchaeologicalExpertListener()
@@ -112,6 +118,12 @@ class ArchaeologistcalExpertUsedOnDialogueFile(val it: Int) : DialogueFile() {
         }
     }
 
+    /**
+     * Replace all
+     *
+     * @param originalItem
+     * @param newItem
+     */
     fun replaceAll(originalItem: Int, newItem: Int) {
         for (a in 0..player!!.inventory.getAmount(originalItem)) {
             if (player!!.inventory.contains(originalItem, 1)) {

@@ -31,6 +31,9 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 import core.tools.RandomFunction
 
+/**
+ * Cyclopes room.
+ */
 @Initializable
 class CyclopesRoom : MapZone("wg cyclopes", true, ZoneRestriction.RANDOM_EVENTS), Plugin<Any> {
     override fun leave(e: Entity, logout: Boolean): Boolean {

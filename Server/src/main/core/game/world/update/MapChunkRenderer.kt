@@ -8,7 +8,6 @@ import core.network.packet.outgoing.ClearRegionChunk
 
 /**
  * Handles the rendering of the player's surrounding map chunks.
- * @author Emperor
  */
 object MapChunkRenderer {
 

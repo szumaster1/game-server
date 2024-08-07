@@ -9,6 +9,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Rometti dialogue.
+ */
 @Initializable
 class RomettiDialogue(player: Player? = null) : Dialogue(player) {
 

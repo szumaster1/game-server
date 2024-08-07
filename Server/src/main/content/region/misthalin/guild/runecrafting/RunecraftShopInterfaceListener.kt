@@ -8,12 +8,22 @@ import core.tools.Log
 import core.api.consts.Components
 import core.api.consts.Items
 
+/**
+ * Runecraft shop interface listener.
+ */
 class RunecraftShopInterfaceListener : InterfaceListener {
 
     /*
      * Runecrafting shop (tokens are purchased for coins).
      */
 
+    /**
+     * Shop item.
+     *
+     * @property id the id.
+     * @property price the price.
+     * @property amount the amount.
+     */
     class ShopItem(val id: Int, val price: Int, val amount: Int)
 
     override fun defineInterfaceListeners() {

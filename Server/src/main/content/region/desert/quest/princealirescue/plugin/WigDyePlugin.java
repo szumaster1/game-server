@@ -6,6 +6,9 @@ import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
 import core.plugin.Plugin;
 
+/**
+ * Wig dye plugin.
+ */
 public final class WigDyePlugin extends UseWithHandler {
 
     private static final Item YELLOW_DYE = new Item(1765);
@@ -14,6 +17,9 @@ public final class WigDyePlugin extends UseWithHandler {
 
     private static final Item YELLOW_WIG = new Item(2419);
 
+    /**
+     * Instantiates a new Wig dye plugin.
+     */
     public WigDyePlugin() {
         super(1765);
     }

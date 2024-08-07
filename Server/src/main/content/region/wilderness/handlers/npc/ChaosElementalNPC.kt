@@ -24,6 +24,9 @@ import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 import core.tools.RandomFunction
 
+/**
+ * Chaos elemental NPC.
+ */
 @Initializable
 class ChaosElementalNPC @JvmOverloads constructor(id: Int = -1, location: Location? = null) : AbstractNPC(id, location) {
 
@@ -63,6 +66,11 @@ class ChaosElementalNPC @JvmOverloads constructor(id: Int = -1, location: Locati
         addtoKillcount(killer as Player, this.id)
     }
 
+    /**
+     * Chaos combat handler
+     *
+     * @constructor Chaos combat handler
+     */
     class ChaosCombatHandler : MultiSwingHandler(*ATTACKS) {
 
         override fun impact(entity: Entity?, victim: Entity?, state: BattleState?) {
@@ -105,6 +113,12 @@ class ChaosElementalNPC @JvmOverloads constructor(id: Int = -1, location: Locati
             }
         }
 
+        /**
+         * Get random loc
+         *
+         * @param entity
+         * @return
+         */
         fun getRandomLoc(entity: Entity): Location {
             val l = entity.location
             val negative = RandomFunction.random(2) == 1

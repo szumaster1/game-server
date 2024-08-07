@@ -7,6 +7,11 @@ import core.api.setQuestStage
 import core.game.dialogue.DialogueFile
 import core.tools.END_DIALOGUE
 
+/**
+ * Lumdo dialogue
+ *
+ * @constructor Lumdo dialogue
+ */
 class LumdoDialogue: DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

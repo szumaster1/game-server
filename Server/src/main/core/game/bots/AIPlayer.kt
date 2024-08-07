@@ -30,9 +30,7 @@ import kotlin.math.max
 import kotlin.math.min
 
 /**
- * Represents an **A**rtificial **I**ntelligent **P**layer.
- *
- * @author Emperor
+ * Represents an Artifical inteligent player.
  */
 open class AIPlayer @Suppress("deprecation") private constructor(name: String, l: Location, ignored: String?) : Player(PlayerDetails("/aip" + (currentUID + 1) + ":" + name)) {
 

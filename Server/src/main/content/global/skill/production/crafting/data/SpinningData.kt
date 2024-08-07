@@ -2,6 +2,16 @@ package content.global.skill.production.crafting.data
 
 import core.api.consts.Items
 
+/**
+ * Spinning data
+ *
+ * @property button
+ * @property need
+ * @property product
+ * @property level
+ * @property exp
+ * @constructor Spinning data
+ */
 enum class SpinningData(
     val button: Int,
     val need: Int,
@@ -9,12 +19,23 @@ enum class SpinningData(
     val level: Int,
     val exp: Double
 ) {
+    /**
+     * Wool
+     *
+     * @constructor Wool
+     */
     WOOL(
         button = 19,
         need = Items.WOOL_1737,
         product = Items.BALL_OF_WOOL_1759,
         level = 1,
         exp = 2.5),
+
+    /**
+     * Flax
+     *
+     * @constructor Flax
+     */
     FLAX(
         button = 17,
         need = Items.FLAX_1779,
@@ -22,6 +43,12 @@ enum class SpinningData(
         level = 10,
         exp = 15.0
     ),
+
+    /**
+     * Root
+     *
+     * @constructor Root
+     */
     ROOT(
         button = 23,
         need = Items.MAGIC_ROOTS_6051,
@@ -29,6 +56,12 @@ enum class SpinningData(
         level = 19,
         exp = 30.0
     ),
+
+    /**
+     * Root1
+     *
+     * @constructor Root1
+     */
     ROOT1(
         button = 23,
         need = Items.OAK_ROOTS_6043,
@@ -36,6 +69,12 @@ enum class SpinningData(
         level = 19,
         exp = 30.0
     ),
+
+    /**
+     * Root2
+     *
+     * @constructor Root2
+     */
     ROOT2(
         button = 23,
         need = Items.WILLOW_ROOTS_6045,
@@ -43,6 +82,12 @@ enum class SpinningData(
         level = 19,
         exp = 30.0
     ),
+
+    /**
+     * Root3
+     *
+     * @constructor Root3
+     */
     ROOT3(
         button = 23,
         need = Items.MAPLE_ROOTS_6047,
@@ -50,6 +95,12 @@ enum class SpinningData(
         level = 19,
         exp = 30.0
     ),
+
+    /**
+     * Root4
+     *
+     * @constructor Root4
+     */
     ROOT4(
         button = 23,
         need = Items.YEW_ROOTS_6049,
@@ -57,6 +108,12 @@ enum class SpinningData(
         level = 19,
         exp = 30.0
     ),
+
+    /**
+     * Root5
+     *
+     * @constructor Root5
+     */
     ROOT5(
         button = 23,
         need = Items.SPIRIT_ROOTS_6053,
@@ -64,6 +121,12 @@ enum class SpinningData(
         level = 19,
         exp = 30.0
     ),
+
+    /**
+     * Sinew
+     *
+     * @constructor Sinew
+     */
     SINEW(
         button = 27,
         need = Items.SINEW_9436,
@@ -71,6 +134,12 @@ enum class SpinningData(
         level = 10,
         exp = 15.0
     ),
+
+    /**
+     * Tree Roots
+     *
+     * @constructor Tree Roots
+     */
     TREE_ROOTS(
         button = 31,
         need = Items.OAK_ROOTS_6043,
@@ -78,6 +147,12 @@ enum class SpinningData(
         level = 10,
         exp = 15.0
     ),
+
+    /**
+     * Yak
+     *
+     * @constructor Yak
+     */
     YAK(
         button = 35,
         need = Items.HAIR_10814,

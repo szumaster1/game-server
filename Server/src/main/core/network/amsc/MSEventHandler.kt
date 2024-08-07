@@ -10,6 +10,9 @@ import java.nio.channels.Selector
 import java.nio.channels.SocketChannel
 import java.util.concurrent.Executors
 
+/**
+ * MS event handler.
+ */
 class MSEventHandler : IoEventHandler(Executors.newSingleThreadExecutor()) {
 
     @Throws(IOException::class)

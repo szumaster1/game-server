@@ -27,6 +27,13 @@ import core.game.world.map.RegionManager.getLocalPlayers
 import core.tools.RandomFunction
 import java.util.stream.Collectors
 
+/**
+ * Woodcutting pulse
+ *
+ * @property player
+ * @property node
+ * @constructor Woodcutting pulse
+ */
 class WoodcuttingPulse(private val player: Player, private val node: Scenery) : Pulse(1, player, node) {
 
     private val woodcuttingSounds = intArrayOf(
@@ -47,6 +54,11 @@ class WoodcuttingPulse(private val player: Player, private val node: Scenery) : 
         super.stop()
     }
 
+    /**
+     * Message
+     *
+     * @param type
+     */
     fun message(type: Int) {
         if (type == 0) {
             sendMessage(player, "You swing your axe at the tree.")
@@ -80,6 +92,11 @@ class WoodcuttingPulse(private val player: Player, private val node: Scenery) : 
         }
     }
 
+    /**
+     * Check requirements
+     *
+     * @return
+     */
     fun checkRequirements(): Boolean {
         if (getStatLevel(player, Skills.WOODCUTTING) < resource!!.level) {
             sendMessage(player,"You need a woodcutting level of " + resource!!.level + " to chop this tree.")
@@ -96,6 +113,10 @@ class WoodcuttingPulse(private val player: Player, private val node: Scenery) : 
         return true
     }
 
+    /**
+     * Animate
+     *
+     */
     fun animate() {
         if (!player.animator.isAnimating) {
             player.animate(getHatchet(player)!!.animation)
@@ -105,8 +126,10 @@ class WoodcuttingPulse(private val player: Player, private val node: Scenery) : 
         }
     }
 
-    /*
-     * Reward.
+    /**
+     * Reward
+     *
+     * @return
      */
     fun reward(): Boolean {
         if (++ticks % 4 != 0) {
@@ -120,7 +143,7 @@ class WoodcuttingPulse(private val player: Player, private val node: Scenery) : 
             return false
         }
 
-        /*
+        /**
          * 20% chance to auto burn logs when using "inferno adze" item.
          */
         if (getHatchet(player)!!.id == 13661 && RandomFunction.random(100) < 25) {
@@ -131,7 +154,7 @@ class WoodcuttingPulse(private val player: Player, private val node: Scenery) : 
             return rollDepletion()
         }
 
-        /*
+        /**
          * Actual reward calculations.
          */
         var reward = resource!!.reward
@@ -140,13 +163,13 @@ class WoodcuttingPulse(private val player: Player, private val node: Scenery) : 
             reward = calculateReward(reward) // calculate rewards.
             rewardAmount = calculateRewardAmount(reward) // calculate amount.
 
-            /*
+            /**
              * Add experience.
              */
             val experience = calculateExperience(resource!!.reward, rewardAmount)
             rewardXP(player, Skills.WOODCUTTING, experience)
 
-            /*
+            /**
              * Send the message for the resource reward.
              */
             if (resource == WoodcuttingNode.DRAMEN_TREE) {
@@ -156,7 +179,7 @@ class WoodcuttingPulse(private val player: Player, private val node: Scenery) : 
                 sendMessage(player, "You get some " + getItemName(reward).lowercase() + ".")
             }
 
-            /*
+            /**
              * Give the reward.
              */
             addItem(player, reward, rewardAmount)
@@ -164,7 +187,7 @@ class WoodcuttingPulse(private val player: Player, private val node: Scenery) : 
             var cutLogs = getAttribute(player, "$STATS_BASE:$STATS_LOGS", 0)
             setAttribute(player, "/save:$STATS_BASE:$STATS_LOGS", ++cutLogs)
 
-            /*
+            /**
              * Calculate bonus bird nest for mining.
              */
             val chance = 282
@@ -183,13 +206,12 @@ class WoodcuttingPulse(private val player: Player, private val node: Scenery) : 
     }
 
     private fun rollDepletion(): Boolean {
-        /*
+        /**
          * transform to depleted version.
          * OSRS and RS3 Wikis both agree: All trees present in 2009 are a 1/8 fell chance, aside from normal trees/dead trees which are 100%
          * OSRS: https://oldschool.runescape.wiki/w/Woodcutting scroll down to the mechanics section
          * RS3 : https://runescape.wiki/w/Woodcutting scroll down to the mechanics section, and expand the tree felling chances table
          */
-
         if (resource!!.respawnRate > 0) {
             if (RandomFunction.roll(8) || resource!!.identifier.toInt() == 1 || resource!!.identifier.toInt() == 2 || resource!!.identifier.toInt() == 3 || resource!!.identifier.toInt() == 6 || resource!!.identifier.toInt() == 19) {
                 if (resource!!.isFarming) {
@@ -216,13 +238,13 @@ class WoodcuttingPulse(private val player: Player, private val node: Scenery) : 
 
     private fun calculateRewardAmount(reward: Int): Int {
         var amount = 1
-        /*
+        /**
          * Hollow tree 10% chance of obtaining.
          */
         if (reward == 3239 && RandomFunction.random(100) >= 10) {
             amount = 0
         }
-        /*
+        /**
          * Seers village medium reward - extra normal log while in seer's village.
          */
         if (reward == 1511 && isDiaryComplete(player, DiaryType.SEERS_VILLAGE, 1) && player.viewport.region.id == 10806) {
@@ -239,7 +261,7 @@ class WoodcuttingPulse(private val player: Player, private val node: Scenery) : 
             return 1.0
         }
         if (reward == 3239) {
-            /*
+            /**
              * If we receive the item, give the full experience points otherwise give the base amount.
              */
             if (amount >= 1) {
@@ -248,7 +270,7 @@ class WoodcuttingPulse(private val player: Player, private val node: Scenery) : 
                 amount = 1
             }
         }
-        /*
+        /**
          * Seers village medium reward - extra 10% xp from maples while wearing headband.
          */
         if (reward == 1517 && player.achievementDiaryManager.getDiary(DiaryType.SEERS_VILLAGE)!!.isComplete(1) && player.equipment[EquipmentContainer.SLOT_HAT] != null && player.equipment[EquipmentContainer.SLOT_HAT].id == 14631) {

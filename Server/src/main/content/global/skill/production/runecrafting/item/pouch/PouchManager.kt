@@ -11,7 +11,10 @@ import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 
 /**
- * @author Ceikry, Player Name.
+ * Pouch manager
+ *
+ * @property player
+ * @constructor Create empty Pouch manager
  */
 class PouchManager(val player: Player) {
 

@@ -4,6 +4,10 @@ import core.network.packet.IoBuffer;
 import core.network.packet.OutgoingPacket;
 import core.network.packet.context.PlayerContext;
 
+/**
+ * The run energy outgoing packet.
+ * @author Emperor
+ */
 public class RunEnergy implements OutgoingPacket<PlayerContext> {
 
     @Override

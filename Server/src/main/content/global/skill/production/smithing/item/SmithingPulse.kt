@@ -15,6 +15,16 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.tools.StringUtils
 
+/**
+ * Smithing pulse
+ *
+ * @property bars
+ * @property amount
+ * @constructor
+ *
+ * @param player
+ * @param item
+ */
 class SmithingPulse(player: Player?, item: Item?, private val bars: Bars, private var amount: Int) :
     SkillPulse<Item?>(player, item) {
 

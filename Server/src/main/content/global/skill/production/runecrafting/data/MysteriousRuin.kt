@@ -3,6 +3,16 @@ package content.global.skill.production.runecrafting.data
 import core.game.node.scenery.Scenery
 import core.game.world.map.Location
 
+/**
+ * Mysterious ruin
+ *
+ * @property scenery
+ * @property base
+ * @property end
+ * @property talisman
+ * @property tiara
+ * @constructor Mysterious ruin
+ */
 enum class MysteriousRuin(
     val scenery: IntArray,
     val base: Location,
@@ -10,6 +20,11 @@ enum class MysteriousRuin(
     val talisman: Talisman,
     val tiara: Tiara
 ) {
+    /**
+     * Air
+     *
+     * @constructor Air
+     */
     AIR(
         scenery = intArrayOf(2452, 7103, 7104),
         base = Location.create(2983, 3292, 0),
@@ -17,6 +32,12 @@ enum class MysteriousRuin(
         talisman = Talisman.AIR,
         tiara = Tiara.AIR
     ),
+
+    /**
+     * Mind
+     *
+     * @constructor Mind
+     */
     MIND(
         scenery = intArrayOf(2453, 7105, 7106),
         base = Location.create(2980, 3514, 0),
@@ -24,6 +45,12 @@ enum class MysteriousRuin(
         talisman = Talisman.MIND,
         tiara = Tiara.MIND
     ),
+
+    /**
+     * Water
+     *
+     * @constructor Water
+     */
     WATER(
         scenery = intArrayOf(2454, 7107, 7108),
         base = Location.create(3183, 3163, 0),
@@ -31,6 +58,12 @@ enum class MysteriousRuin(
         talisman = Talisman.WATER,
         tiara = Tiara.WATER
     ),
+
+    /**
+     * Earth
+     *
+     * @constructor Earth
+     */
     EARTH(
         scenery = intArrayOf(2455, 7109, 7110),
         base = Location.create(3304, 3475, 0),
@@ -38,6 +71,12 @@ enum class MysteriousRuin(
         talisman = Talisman.EARTH,
         tiara = Tiara.EARTH
     ),
+
+    /**
+     * Fire
+     *
+     * @constructor Fire
+     */
     FIRE(
         scenery = intArrayOf(2456, 7111, 7112),
         base = Location.create(3312, 3253, 0),
@@ -45,6 +84,12 @@ enum class MysteriousRuin(
         talisman = Talisman.FIRE,
         tiara = Tiara.FIRE
     ),
+
+    /**
+     * Body
+     *
+     * @constructor Body
+     */
     BODY(
         scenery = intArrayOf(2457, 7113, 7114),
         base = Location.create(3051, 3443, 0),
@@ -52,6 +97,12 @@ enum class MysteriousRuin(
         talisman = Talisman.BODY,
         tiara = Tiara.BODY
     ),
+
+    /**
+     * Cosmic
+     *
+     * @constructor Cosmic
+     */
     COSMIC(
         scenery = intArrayOf(2458, 7115, 7116),
         base = Location.create(2407, 4375, 0),
@@ -59,6 +110,12 @@ enum class MysteriousRuin(
         talisman = Talisman.COSMIC,
         tiara = Tiara.COSMIC
     ),
+
+    /**
+     * Chaos
+     *
+     * @constructor Chaos
+     */
     CHAOS(
         scenery = intArrayOf(2461, 7121, 7122),
         base = Location.create(3059, 3589, 0),
@@ -66,6 +123,12 @@ enum class MysteriousRuin(
         talisman = Talisman.CHAOS,
         tiara = Tiara.CHAOS
     ),
+
+    /**
+     * Nature
+     *
+     * @constructor Nature
+     */
     NATURE(
         scenery = intArrayOf(2460, 7119, 7120),
         base = Location.create(2869, 3021, 0),
@@ -73,6 +136,12 @@ enum class MysteriousRuin(
         talisman = Talisman.NATURE,
         tiara = Tiara.NATURE
     ),
+
+    /**
+     * Law
+     *
+     * @constructor Law
+     */
     LAW(
         scenery = intArrayOf(2459, 7117, 7118),
         base = Location.create(2857, 3379, 0),
@@ -80,6 +149,12 @@ enum class MysteriousRuin(
         talisman = Talisman.LAW,
         tiara = Tiara.LAW
     ),
+
+    /**
+     * Death
+     *
+     * @constructor Death
+     */
     DEATH(
         scenery = intArrayOf(2462, 7123, 7124),
         base = Location.create(1862, 4639, 0),
@@ -87,6 +162,12 @@ enum class MysteriousRuin(
         talisman = Talisman.DEATH,
         tiara = Tiara.DEATH
     ),
+
+    /**
+     * Blood
+     *
+     * @constructor Blood
+     */
     BLOOD(
         scenery = intArrayOf(2464, 30529, 30530),
         base = Location.create(3561, 9779, 0),

@@ -2,7 +2,23 @@ package content.global.skill.production.fletching.data
 
 import core.api.consts.Items
 
+/**
+ * Limb
+ *
+ * @property stock
+ * @property limb
+ * @property product
+ * @property level
+ * @property experience
+ * @property animation
+ * @constructor Limb
+ */
 enum class Limb(val stock: Int, val limb: Int, val product: Int, val level: Int, val experience: Double, val animation: Int) {
+    /**
+     * Wooden Stock
+     *
+     * @constructor Wooden Stock
+     */
     WOODEN_STOCK(
         stock = Items.WOODEN_STOCK_9440,
         limb = Items.BRONZE_LIMBS_9420,
@@ -11,6 +27,12 @@ enum class Limb(val stock: Int, val limb: Int, val product: Int, val level: Int,
         experience = 12.0,
         animation = 4436
     ),
+
+    /**
+     * Oak Stock
+     *
+     * @constructor Oak Stock
+     */
     OAK_STOCK(
         stock = Items.OAK_STOCK_9442,
         limb = Items.BLURITE_LIMBS_9422,
@@ -19,6 +41,12 @@ enum class Limb(val stock: Int, val limb: Int, val product: Int, val level: Int,
         experience = 32.0,
         animation = 4437
     ),
+
+    /**
+     * Willow Stock
+     *
+     * @constructor Willow Stock
+     */
     WILLOW_STOCK(
         stock = Items.WILLOW_STOCK_9444,
         limb = Items.IRON_LIMBS_9423,
@@ -27,6 +55,12 @@ enum class Limb(val stock: Int, val limb: Int, val product: Int, val level: Int,
         experience = 44.0,
         animation = 4438
     ),
+
+    /**
+     * Teak Stock
+     *
+     * @constructor Teak Stock
+     */
     TEAK_STOCK(
         stock = Items.TEAK_STOCK_9446,
         limb = Items.STEEL_LIMBS_9425,
@@ -35,6 +69,12 @@ enum class Limb(val stock: Int, val limb: Int, val product: Int, val level: Int,
         experience = 54.0,
         animation = 4439
     ),
+
+    /**
+     * Maple Stock
+     *
+     * @constructor Maple Stock
+     */
     MAPLE_STOCK(
         stock = Items.MAPLE_STOCK_9448,
         limb = Items.MITHRIL_LIMBS_9427,
@@ -43,6 +83,12 @@ enum class Limb(val stock: Int, val limb: Int, val product: Int, val level: Int,
         experience = 64.0,
         animation = 4440
     ),
+
+    /**
+     * Mahogany Stock
+     *
+     * @constructor Mahogany Stock
+     */
     MAHOGANY_STOCK(
         stock = Items.MAHOGANY_STOCK_9450,
         limb = Items.ADAMANTITE_LIMBS_9429,
@@ -51,6 +97,12 @@ enum class Limb(val stock: Int, val limb: Int, val product: Int, val level: Int,
         experience = 82.0,
         animation = 4441
     ),
+
+    /**
+     * Yew Stock
+     *
+     * @constructor Yew Stock
+     */
     YEW_STOCK(
         stock = Items.YEW_STOCK_9452,
         limb = Items.RUNITE_LIMBS_9431,

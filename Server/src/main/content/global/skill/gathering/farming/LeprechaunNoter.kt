@@ -7,6 +7,9 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.item.Item
 
+/**
+ * Leprechaun noter.
+ */
 class LeprechaunNoter : InteractionListener {
 
     val CROPS = Plantable.values().map{ it.harvestItem }.toIntArray()

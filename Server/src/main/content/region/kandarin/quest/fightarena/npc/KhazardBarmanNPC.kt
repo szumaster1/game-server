@@ -6,6 +6,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
 import core.game.world.map.Location
 
+/**
+ * Khazard barman NPC
+ */
 class KhazardBarmanNPC : NPCBehavior(NPCs.KHAZARD_BARMAN_259) {
     override fun onCreation(self: NPC) {
         if (inBorders(self, 2563, 3139, 2572, 3144)) {

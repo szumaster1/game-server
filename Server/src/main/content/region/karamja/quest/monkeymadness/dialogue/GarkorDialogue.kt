@@ -4,6 +4,11 @@ import core.api.setQuestStage
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 
+/**
+ * Garkor dialogue
+ *
+ * @constructor Garkor dialogue
+ */
 class GarkorDialogue: DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

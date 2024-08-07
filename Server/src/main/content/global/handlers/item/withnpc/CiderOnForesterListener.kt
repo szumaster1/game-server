@@ -8,6 +8,11 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.item.Item
 
+/**
+ * Cider on forester listener
+ *
+ * @constructor Cider on forester listener
+ */
 class CiderOnForesterListener : InteractionListener {
 
     private val ids = intArrayOf(1,2,3,4,5)

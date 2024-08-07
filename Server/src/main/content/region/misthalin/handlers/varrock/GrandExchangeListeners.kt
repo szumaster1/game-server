@@ -12,6 +12,9 @@ import core.game.node.entity.npc.NPC
 import core.api.consts.NPCs
 import core.api.consts.Scenery
 
+/**
+ * Grand exchange listeners.
+ */
 class GrandExchangeListeners : InteractionListener {
 
     companion object {
@@ -27,10 +30,9 @@ class GrandExchangeListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Interaction with NPC (clerks) at Grand Exchange.
          */
-
         on(CLERK, IntType.NPC, "talk-to", "exchange", "history", "sets") { player, node ->
             val records = GrandExchangeRecords.getInstance()
             if (getUsedOption(player) == "talk-to") {
@@ -43,10 +45,9 @@ class GrandExchangeListeners : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Interaction with desk (between players and clerks) at Grand Exchange.
          */
-
         on(Scenery.DESK_28089, IntType.SCENERY, "use", "exchange", "collect", "history") { player, _ ->
             val records = GrandExchangeRecords.getInstance(player)
             when (getUsedOption(player)) {
@@ -58,10 +59,9 @@ class GrandExchangeListeners : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Interaction with NPCs around Grand Exchange.
          */
-
         on(NPCs.FARID_MORRISANE_ORES_6523, IntType.NPC, "info-ores") { player, _ ->
             GEGuidePrice.open(player, GEGuidePrice.GuideType.ORES)
             return@on true

@@ -8,6 +8,12 @@ import core.game.node.entity.player.link.emote.Emotes
 import core.game.system.timer.impl.AntiMacro
 import core.tools.END_DIALOGUE
 
+/**
+ * Certer dialogue
+ *
+ * @property initial
+ * @constructor Certer dialogue
+ */
 class CerterDialogue(val initial: Boolean) : DialogueFile() {
 
     val CERTER_INTERFACE = 184

@@ -6,6 +6,9 @@ import core.api.openNpcShop
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Nardah listeners.
+ */
 class NardahListeners : InteractionListener {
 
     companion object {

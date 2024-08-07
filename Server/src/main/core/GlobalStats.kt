@@ -3,6 +3,9 @@ package core
 import core.ServerStore.Companion.getInt
 import org.json.simple.JSONObject
 
+/**
+ * Global stats
+ */
 object GlobalStats {
 
     @JvmStatic

@@ -5,6 +5,9 @@ import core.api.getAttribute
 import core.api.removeAttributes
 import core.game.node.entity.player.Player
 
+/**
+ * Pillory utils.
+ */
 object PilloryUtils {
     val COMPLETE_RANDOM = "pillory:complete"
     val CORRECT_ANSWER = "pillory:correct_answer"

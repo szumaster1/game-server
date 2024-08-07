@@ -9,6 +9,9 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.item.Item
 
+/**
+ * Decant listener.
+ */
 class DecantListener : InteractionListener {
 
     override fun defineListeners() {

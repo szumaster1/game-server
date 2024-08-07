@@ -10,6 +10,9 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.world.map.zone.ZoneBorders
 
+/**
+ * Farmer thiever.
+ */
 class FarmerThiever : Script() {
     val pickpocketZone = ZoneBorders(3074, 3245, 3086, 3255)
     val bankZone = ZoneBorders(3092, 3245, 3092, 3242)
@@ -55,8 +58,25 @@ class FarmerThiever : Script() {
         return script
     }
 
+    /**
+     * State
+     *
+     * @constructor State
+     */
     enum class State {
-        BANKING, PICKPOCKETING
+        /**
+         * Banking
+         *
+         * @constructor Banking
+         */
+        BANKING,
+
+        /**
+         * Pickpocketing
+         *
+         * @constructor Pickpocketing
+         */
+        PICKPOCKETING
     }
 
     init {

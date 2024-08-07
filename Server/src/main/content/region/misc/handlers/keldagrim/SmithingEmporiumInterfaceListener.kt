@@ -37,6 +37,9 @@ private val COINS = Item(995, 500)
  * 67SF 68NF 127GF 33SM 34NM 84GM
  */
 
+/**
+ * Smithing emporium interface listener.
+ */
 class SmithingEmporiumInterfaceListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {
@@ -80,6 +83,11 @@ class SmithingEmporiumInterfaceListener : InterfaceListener {
     }
 
 
+    /**
+     * Confirm.
+     *
+     * @param player the player.
+     */
     fun confirm(player: Player) {
         if (player.inventory.containsItem(COINS)) {
             player.inventory.remove(COINS)
@@ -90,6 +98,12 @@ class SmithingEmporiumInterfaceListener : InterfaceListener {
         }
     }
 
+    /**
+     * Send model.
+     *
+     * @param id the id.
+     * @param player the player.
+     */
     fun sendModel(id: Int, player: Player) {
         var appearanceIndex = when (id) {
             SILVER_CLASPS -> 117

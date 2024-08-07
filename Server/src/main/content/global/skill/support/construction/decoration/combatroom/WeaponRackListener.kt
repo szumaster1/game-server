@@ -10,6 +10,9 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.item.Item
 
+/**
+ * Weapon rack listener.
+ */
 class WeaponRackListener : InteractionListener{
 
     private val WEAPON_RACK = intArrayOf(13381,13382,13383)

@@ -4,6 +4,9 @@ import core.api.MapArea
 import core.game.world.map.zone.ZoneBorders
 import core.game.world.map.zone.ZoneRestriction
 
+/**
+ * Tormented demon map area.
+ */
 class TormentedDemonMapArea : MapArea {
 
     override fun defineAreaBorders(): Array<ZoneBorders> {

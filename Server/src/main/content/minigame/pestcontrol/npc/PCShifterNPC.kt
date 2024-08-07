@@ -15,6 +15,9 @@ import core.game.world.update.flag.context.Graphic
 import core.tools.RandomFunction
 import java.util.*
 
+/**
+ * Pest Control shifter NPC.
+ */
 class PCShifterNPC : AbstractNPC {
     private var session: PestControlSession? = null
 

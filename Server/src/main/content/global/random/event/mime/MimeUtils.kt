@@ -11,7 +11,9 @@ import core.game.system.task.Pulse
 import core.game.world.map.Location
 import core.tools.RandomFunction
 
-
+/**
+ * Mime utils.
+ */
 object MimeUtils {
 
     val MIME_EVENT_LOCATION = Location(2008, 4764, 0)

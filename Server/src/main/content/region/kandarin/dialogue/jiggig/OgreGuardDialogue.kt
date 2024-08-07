@@ -13,6 +13,9 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Ogre guard dialogue.
+ */
 @Initializable
 class OgreGuardDialogue(player: Player? = null) : Dialogue(player) {
 

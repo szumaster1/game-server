@@ -10,6 +10,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.item.Item
 
+/**
+ * Tool interaction listener
+ *
+ * @constructor Tool interaction listener
+ */
 class ToolInteractionListener : InteractionListener {
 
     override fun defineListeners() {

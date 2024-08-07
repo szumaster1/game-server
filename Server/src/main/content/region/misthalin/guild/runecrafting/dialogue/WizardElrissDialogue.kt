@@ -16,6 +16,9 @@ import core.game.world.GameWorld
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Wizard elriss dialogue.
+ */
 @Initializable
 class WizardElrissDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -214,6 +217,11 @@ class WizardElrissDialogue(player: Player? = null) : Dialogue(player) {
 
 }
 
+/**
+ * Show elriss dialogue
+ *
+ * @constructor Show elriss dialogue
+ */
 class ShowElrissDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

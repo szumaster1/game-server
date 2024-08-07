@@ -11,7 +11,21 @@ import java.nio.charset.StandardCharsets
 import kotlin.math.max
 import kotlin.reflect.typeOf
 
+/**
+ * Player flags530
+ *
+ * @constructor
+ *
+ * @param p
+ * @param o
+ * @param f
+ */
 sealed class PlayerFlags530(p: Int, o: Int, f: EntityFlag) : EFlagProvider(530, EFlagType.Player, p, o, f) {
+    /**
+     * Chat
+     *
+     * @constructor Chat
+     */
     class Chat : PlayerFlags530(0x80, 0, EntityFlag.Chat) {
         override fun writeTo(buffer: IoBuffer, context: Any?) {
             if (context !is ChatMessage) {
@@ -36,6 +50,11 @@ sealed class PlayerFlags530(p: Int, o: Int, f: EntityFlag) : EFlagProvider(530, 
         }
     }
 
+    /**
+     * Primary hit
+     *
+     * @constructor Primary hit
+     */
     class PrimaryHit : PlayerFlags530(0x1, 1, EntityFlag.PrimaryHit) {
         override fun writeTo(buffer: IoBuffer, context: Any?) {
             if (context !is HitMark) {
@@ -54,6 +73,11 @@ sealed class PlayerFlags530(p: Int, o: Int, f: EntityFlag) : EFlagProvider(530, 
         }
     }
 
+    /**
+     * Animate
+     *
+     * @constructor Animate
+     */
     class Animate : PlayerFlags530(0x8, 2, EntityFlag.Animate) {
         override fun writeTo(buffer: IoBuffer, context: Any?) {
             if (context !is Animation) {
@@ -65,6 +89,11 @@ sealed class PlayerFlags530(p: Int, o: Int, f: EntityFlag) : EFlagProvider(530, 
         }
     }
 
+    /**
+     * Appearance
+     *
+     * @constructor Appearance
+     */
     class Appearance : PlayerFlags530(0x4, 3, EntityFlag.Appearance) {
         override fun writeTo(buffer: IoBuffer, context: Any?) {
             if (context !is Player) {
@@ -142,6 +171,11 @@ sealed class PlayerFlags530(p: Int, o: Int, f: EntityFlag) : EFlagProvider(530, 
         }
     }
 
+    /**
+     * Face entity
+     *
+     * @constructor Face entity
+     */
     class FaceEntity : PlayerFlags530(0x2, 4, EntityFlag.FaceEntity) {
         override fun writeTo(buffer: IoBuffer, context: Any?) {
             if (context !is Entity?) {
@@ -155,6 +189,11 @@ sealed class PlayerFlags530(p: Int, o: Int, f: EntityFlag) : EFlagProvider(530, 
         }
     }
 
+    /**
+     * Force move
+     *
+     * @constructor Force move
+     */
     class ForceMove : PlayerFlags530(0x400, 5, EntityFlag.ForceMove) {
         override fun writeToDynamic(buffer: IoBuffer, context: Any?, e: Entity) {
             if (context !is ForceMoveCtx) {
@@ -184,6 +223,11 @@ sealed class PlayerFlags530(p: Int, o: Int, f: EntityFlag) : EFlagProvider(530, 
         }
     }
 
+    /**
+     * Force chat
+     *
+     * @constructor Force chat
+     */
     class ForceChat : PlayerFlags530(0x20, 6, EntityFlag.ForceChat) {
         override fun writeTo(buffer: IoBuffer, context: Any?) {
             if (context !is String) {
@@ -194,6 +238,11 @@ sealed class PlayerFlags530(p: Int, o: Int, f: EntityFlag) : EFlagProvider(530, 
         }
     }
 
+    /**
+     * Secondary hit
+     *
+     * @constructor Secondary hit
+     */
     class SecondaryHit : PlayerFlags530(0x200, 7, EntityFlag.SecondaryHit) {
         override fun writeTo(buffer: IoBuffer, context: Any?) {
             if (context !is HitMark) {
@@ -205,10 +254,20 @@ sealed class PlayerFlags530(p: Int, o: Int, f: EntityFlag) : EFlagProvider(530, 
         }
     }
 
+    /**
+     * Animation sequence
+     *
+     * @constructor Animation sequence
+     */
     class AnimationSequence : PlayerFlags530(0x800, 8, EntityFlag.AnimSeq) {
         //TODO
     }
 
+    /**
+     * Spot anim
+     *
+     * @constructor Spot anim
+     */
     class SpotAnim : PlayerFlags530(0x100, 9, EntityFlag.SpotAnim) {
         override fun writeTo(buffer: IoBuffer, context: Any?) {
             if (context !is Graphic) {
@@ -220,6 +279,11 @@ sealed class PlayerFlags530(p: Int, o: Int, f: EntityFlag) : EFlagProvider(530, 
         }
     }
 
+    /**
+     * Face location
+     *
+     * @constructor Face location
+     */
     class FaceLocation : PlayerFlags530(0x40, 10, EntityFlag.FaceLocation) {
         override fun writeTo(buffer: IoBuffer, context: Any?) {
             if (context !is Location) {

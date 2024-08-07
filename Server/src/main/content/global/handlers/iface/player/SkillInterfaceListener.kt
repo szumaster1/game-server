@@ -5,6 +5,11 @@ import core.api.getAttribute
 import core.api.setVarbit
 import core.game.interaction.InterfaceListener
 
+/**
+ * Skill interface listener
+ *
+ * @constructor Skill interface listener
+ */
 class SkillInterfaceListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {

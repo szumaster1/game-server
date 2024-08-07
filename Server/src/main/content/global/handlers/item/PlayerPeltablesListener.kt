@@ -14,6 +14,11 @@ import core.game.system.task.Pulse
 import core.game.world.map.path.Pathfinder
 import core.game.world.update.flag.context.Graphic
 
+/**
+ * Player peltables listener
+ *
+ * @constructor Player peltables listener
+ */
 class PlayerPeltablesListener : InteractionListener {
     companion object {
         private const val PROJECTILE_DELAY = 41
@@ -67,6 +72,16 @@ class PlayerPeltablesListener : InteractionListener {
     }
 
 
+    /**
+     * Pelting pulse
+     *
+     * @property player
+     * @property other
+     * @property gfx
+     * @property hitDelay
+     * @property peltable
+     * @constructor Pelting pulse
+     */
     class PeltingPulse(val player: Player, val other: Player, val gfx: IntArray, val hitDelay: Int, val peltable: Int) :
         Pulse() {
         private val throwAnimation = getPeltableAnim(peltable)

@@ -8,11 +8,20 @@ import core.game.node.entity.skill.Skills
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
+/**
+ * Patch tests
+ *
+ * @constructor Patch tests
+ */
 class PatchTests {
     init {
         TestUtils.preTestSetup()
     }
 
+    /**
+     * Patch getting diseased or dying should not go into invalid state
+     *
+     */
     @Test
     fun patchGettingDiseasedOrDyingShouldNotGoIntoInvalidState() {
         //Dead/Watered (state | 0x40) and Diseased (state | 0x80) are both invalid stages for limpwurt when fully grown (stage 4/state 32), so we use this as our testcase
@@ -47,6 +56,10 @@ class PatchTests {
         }
     }
 
+    /**
+     * Raking patch at invalid stages should do nothing
+     *
+     */
     @Test
     fun rakingPatchAtInvalidStagesShouldDoNothing() {
         TestUtils.getMockPlayer("Patchraker").use { p ->

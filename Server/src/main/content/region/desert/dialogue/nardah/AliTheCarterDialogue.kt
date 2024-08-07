@@ -11,6 +11,9 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Ali the carter dialogue.
+ */
 @Initializable
 class AliTheCarterDialogue(player: Player? = null) : Dialogue(player) {
 

@@ -5,7 +5,6 @@ import core.network.packet.Context
 
 /**
  * The update scene graph packet context.
- * @author Emperor
  */
 open class SceneGraphContext(
     private val player: Player,

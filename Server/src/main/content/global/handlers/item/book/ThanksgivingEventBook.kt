@@ -9,6 +9,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
+/**
+ * Thanksgiving event book
+ *
+ * @constructor Thanksgiving event book
+ */
 class ThanksgivingEventBook : InteractionListener {
 
     // The turkey book is a book that players could obtain as part of the 2008,

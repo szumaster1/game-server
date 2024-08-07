@@ -10,6 +10,11 @@ import core.game.system.timer.RSTimer
 import core.game.system.timer.TimerFlag
 import org.json.simple.JSONObject
 
+/**
+ * Frozen immunity
+ *
+ * @constructor Frozen immunity
+ */
 class FrozenImmunity : PersistTimer(
     runInterval = 1,
     identifier = "frozen:immunity",

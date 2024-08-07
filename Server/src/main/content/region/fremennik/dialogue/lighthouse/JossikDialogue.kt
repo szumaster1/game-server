@@ -80,7 +80,7 @@ class JossikDialogue(player: Player? = null) : Dialogue(player) {
                 val names = arrayOfNulls<String>(uncompleted!!.size + 1)
                 var i = 0
                 while (i < uncompleted!!.size) {
-                    names[i] = uncompleted!![i].name
+                    names[i] = uncompleted!![i].bookName
                     i++
                 }
                 names[names.size - 1] = "Don't buy anything."

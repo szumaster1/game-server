@@ -9,6 +9,9 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Shamus dialogue.
+ */
 @Initializable
 class ShamusDialogue(player: Player? = null) : Dialogue(player) {
 

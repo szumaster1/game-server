@@ -15,6 +15,9 @@ import core.game.node.scenery.Scenery
 import core.game.system.task.Pulse
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Mysterious ruin listeners.
+ */
 class MysteriousRuinListeners : InteractionListener {
 
     private val animation = Animation(827)

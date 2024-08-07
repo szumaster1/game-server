@@ -19,6 +19,11 @@ import core.game.world.map.Direction
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Temple of ikov listeners
+ *
+ * @constructor Temple of ikov listeners
+ */
 class TempleOfIkovListeners : InteractionListener {
 
     companion object {

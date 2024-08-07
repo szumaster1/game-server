@@ -9,12 +9,24 @@ import core.network.packet.outgoing.ClearGroundItem;
 import core.network.packet.outgoing.ConstructGroundItem;
 import core.network.packet.outgoing.UpdateGroundItemAmount;
 
+/**
+ * Item update flag.
+ */
 public final class ItemUpdateFlag extends UpdateFlag<Object> {
 
+    /**
+     * The constant CONSTRUCT_TYPE.
+     */
     public static final int CONSTRUCT_TYPE = 0;
 
+    /**
+     * The constant REMOVE_TYPE.
+     */
     public static final int REMOVE_TYPE = 1;
 
+    /**
+     * The constant UPDATE_AMOUNT_TYPE.
+     */
     public static final int UPDATE_AMOUNT_TYPE = 2;
 
     private final GroundItem item;
@@ -23,10 +35,23 @@ public final class ItemUpdateFlag extends UpdateFlag<Object> {
 
     private int oldAmount;
 
+    /**
+     * Instantiates a new Item update flag.
+     *
+     * @param item the item
+     * @param type the type
+     */
     public ItemUpdateFlag(GroundItem item, int type) {
         this(item, type, 0);
     }
 
+    /**
+     * Instantiates a new Item update flag.
+     *
+     * @param item      the item
+     * @param type      the type
+     * @param oldAmount the old amount
+     */
     public ItemUpdateFlag(GroundItem item, int type, int oldAmount) {
         super(null);
         this.item = item;
@@ -53,14 +78,29 @@ public final class ItemUpdateFlag extends UpdateFlag<Object> {
         }
     }
 
+    /**
+     * Is remove boolean.
+     *
+     * @return the boolean
+     */
     public boolean isRemove() {
         return type == REMOVE_TYPE;
     }
 
+    /**
+     * Is construct boolean.
+     *
+     * @return the boolean
+     */
     public boolean isConstruct() {
         return type == CONSTRUCT_TYPE;
     }
 
+    /**
+     * Is amount update boolean.
+     *
+     * @return the boolean
+     */
     public boolean isAmountUpdate() {
         return type == UPDATE_AMOUNT_TYPE;
     }

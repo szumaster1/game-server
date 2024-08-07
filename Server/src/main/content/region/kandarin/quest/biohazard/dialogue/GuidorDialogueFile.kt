@@ -8,6 +8,11 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
+/**
+ * Guidor dialogue file
+ *
+ * @constructor Guidor dialogue file
+ */
 class GuidorDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.GUIDOR_343)

@@ -19,6 +19,11 @@ private const val SQUASH_ANIM_END = 4546
 private const val LAUNCH_GRAPHICS = 768
 private const val LAUNCH_ANIMATION = 4547
 
+/**
+ * Grand seed pod listener
+ *
+ * @constructor Grand seed pod listener
+ */
 class GrandSeedPodListener : InteractionListener {
 
     override fun defineListeners() {

@@ -8,14 +8,27 @@ import core.game.node.entity.player.Player;
 import core.game.node.entity.skill.Skills;
 import core.game.world.map.Location;
 
+/**
+ * Idle abstract npc.
+ */
 public abstract class IdleAbstractNPC extends AbstractNPC {
 
     private int activeId;
 
     private boolean idle = true;
 
+    /**
+     * The Timeout.
+     */
     protected int timeout = 30; //18 second time out to go idle again
 
+    /**
+     * Instantiates a new Idle abstract npc.
+     *
+     * @param idleId   the idle id
+     * @param activeId the active id
+     * @param location the location
+     */
     public IdleAbstractNPC(int idleId, int activeId, Location location) {
         super(idleId, location);
         this.activeId = activeId;
@@ -56,6 +69,12 @@ public abstract class IdleAbstractNPC extends AbstractNPC {
         return true;
     }
 
+    /**
+     * In disturbing range boolean.
+     *
+     * @param disturber the disturber
+     * @return the boolean
+     */
     public boolean inDisturbingRange(Entity disturber) {
         if (idle && disturber.getSwingHandler(false).canSwing(disturber, this) != InteractionType.NO_INTERACT) {
             return true;
@@ -63,10 +82,21 @@ public abstract class IdleAbstractNPC extends AbstractNPC {
         return false;
     }
 
+    /**
+     * Can disturb boolean.
+     *
+     * @param disturber the disturber
+     * @return the boolean
+     */
     public boolean canDisturb(Entity disturber) {
         return idle;
     }
 
+    /**
+     * Disturb.
+     *
+     * @param disturber the disturber
+     */
     public void disturb(Entity disturber) {
         if (disturber != null) {
             disturber.getProperties().getCombatPulse().setCombatFlags(this);
@@ -78,6 +108,9 @@ public abstract class IdleAbstractNPC extends AbstractNPC {
         idle = false;
     }
 
+    /**
+     * Go idle.
+     */
     public void goIdle() {
         if (idle) {
             return;
@@ -86,10 +119,20 @@ public abstract class IdleAbstractNPC extends AbstractNPC {
         reTransform();
     }
 
+    /**
+     * Is idle boolean.
+     *
+     * @return the boolean
+     */
     public boolean isIdle() {
         return idle;
     }
 
+    /**
+     * Sets idle.
+     *
+     * @param idle the idle
+     */
     public void setIdle(boolean idle) {
         this.idle = idle;
     }

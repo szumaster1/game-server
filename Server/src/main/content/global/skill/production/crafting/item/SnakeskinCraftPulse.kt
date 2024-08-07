@@ -13,6 +13,16 @@ import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
+/**
+ * Snakeskin craft pulse
+ *
+ * @property amount
+ * @property skin
+ * @constructor
+ *
+ * @param player
+ * @param node
+ */
 class SnakeskinCraftPulse(player: Player?, node: Item?, var amount: Int, val skin: SnakeskinData) : SkillPulse<Item?>(player, node) {
 
     var ticks = 0

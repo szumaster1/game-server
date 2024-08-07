@@ -1,13 +1,28 @@
 package core.cache.crypto;
 
+/**
+ * Isaac cipher.
+ */
 public class ISAACCipher {
 
+    /**
+     * The constant RATIO.
+     */
     public static final int RATIO = 0x9e3779b9;
 
+    /**
+     * The constant SIZE_LOG.
+     */
     public static final int SIZE_LOG = 8;
 
+    /**
+     * The constant SIZE.
+     */
     public static final int SIZE = 1 << SIZE_LOG;
 
+    /**
+     * The constant MASK.
+     */
     public static final int MASK = (SIZE - 1) << 2;
 
     private int count = 0;
@@ -22,6 +37,11 @@ public class ISAACCipher {
 
     private int c;
 
+    /**
+     * Instantiates a new Isaac cipher.
+     *
+     * @param seed the seed
+     */
     public ISAACCipher(int[] seed) {
         for (int i = 0; i < seed.length; i++) {
             results[i] = seed[i];
@@ -29,6 +49,11 @@ public class ISAACCipher {
         init(true);
     }
 
+    /**
+     * Gets next value.
+     *
+     * @return the next value
+     */
     public int getNextValue() {
         if (count-- == 0) {
             isaac();
@@ -37,6 +62,9 @@ public class ISAACCipher {
         return 0;//results[count];
     }
 
+    /**
+     * Isaac.
+     */
     public void isaac() {
         int i, j, x, y;
         b += ++c;
@@ -92,6 +120,11 @@ public class ISAACCipher {
         }
     }
 
+    /**
+     * Init.
+     *
+     * @param flag the flag
+     */
     public void init(boolean flag) {
         int i;
         int a, b, c, d, e, f, g, h;

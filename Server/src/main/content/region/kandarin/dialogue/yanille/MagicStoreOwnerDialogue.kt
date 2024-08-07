@@ -7,6 +7,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Magic store owner dialogue.
+ */
 @Initializable
 class MagicStoreOwnerDialogue(player: Player? = null) : Dialogue(player) {
 

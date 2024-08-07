@@ -4,6 +4,10 @@ import core.network.packet.IoBuffer;
 import core.network.packet.OutgoingPacket;
 import core.network.packet.context.PlayerContext;
 
+/**
+ * Handles the outgoing weight update packet.
+ * @author Emperor
+ */
 public final class WeightUpdate implements OutgoingPacket<PlayerContext> {
 
     @Override

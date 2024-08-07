@@ -12,6 +12,11 @@ import core.plugin.ClassScanner
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * God book plugin
+ *
+ * @constructor God book plugin
+ */
 @Initializable
 class GodBookPlugin : OptionHandler() {
 
@@ -49,6 +54,11 @@ class GodBookPlugin : OptionHandler() {
      * A god book item.
      */
 
+    /**
+     * God book item
+     *
+     * @constructor God book item
+     */
     inner class GodBookItem : ItemPlugin() {
 
         override fun newInstance(arg: Any?): Plugin<Any?> {
@@ -72,6 +82,11 @@ class GodBookPlugin : OptionHandler() {
      * The page handler.
      */
 
+    /**
+     * Page handler
+     *
+     * @constructor Page handler
+     */
     inner class PageHandler : UseWithHandler(3839, 3841, 3843) {
 
         override fun newInstance(arg: Any?): Plugin<Any?> {

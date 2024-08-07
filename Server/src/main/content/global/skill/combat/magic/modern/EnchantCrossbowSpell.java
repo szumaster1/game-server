@@ -10,9 +10,15 @@ import core.game.node.entity.player.link.SpellBookManager.SpellBook;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
+/**
+ * Enchant crossbow spell.
+ */
 @Initializable
 public final class EnchantCrossbowSpell extends MagicSpell {
 
+    /**
+     * Instantiates a new Enchant crossbow spell.
+     */
     public EnchantCrossbowSpell() {
         super(SpellBook.MODERN, 4, 0, null, null, null, null);
     }

@@ -14,6 +14,9 @@ private const val ICE_MOUNTAIN_CONDUCTOR = 2180
 private const val WHITE_WOLF_CONDUCTOR = 2181
 private const val KELDAGRIM_CONDUCTOR = 2182
 
+/**
+ * Cart conductor dialogue.
+ */
 @Initializable
 class CartConductorDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -62,6 +65,12 @@ class CartConductorDialogue(player: Player? = null) : Dialogue(player) {
         return true
     }
 
+    /**
+     * Purchase trip
+     *
+     * @param player
+     * @param cost
+     */
     fun purchaseTrip(player: Player, cost: Int) {
         val coins = Item(995, cost)
         if (player.inventory.containsItem(coins)) {

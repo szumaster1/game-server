@@ -4,6 +4,11 @@ import core.api.setQuestStage
 import core.game.dialogue.DialogueFile
 import core.tools.END_DIALOGUE
 
+/**
+ * G l o caranock dialogue
+ *
+ * @constructor G l o caranock dialogue
+ */
 class GLOCaranockDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

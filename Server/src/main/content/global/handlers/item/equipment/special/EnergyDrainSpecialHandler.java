@@ -15,6 +15,9 @@ import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
+/**
+ * Energy drain special handler.
+ */
 @Initializable
 public final class EnergyDrainSpecialHandler extends MeleeSwingHandler implements Plugin<Object> {
 

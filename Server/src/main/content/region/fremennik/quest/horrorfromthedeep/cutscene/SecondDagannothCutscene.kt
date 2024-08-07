@@ -10,6 +10,9 @@ import core.game.node.entity.player.Player
 import core.game.world.GameWorld
 import core.game.world.map.Direction
 
+/**
+ * Second dagannoth cutscene.
+ */
 class SecondDagannothCutscene(player: Player) : Cutscene(player) {
     override fun setup() {
         setExit(player.location.transform(0, 0, 0))

@@ -11,8 +11,16 @@ import core.game.world.GameWorld
 import core.game.world.map.Direction
 import core.game.world.map.Location
 
+/**
+ * Minecart travel.
+ */
 object MinecartTravel {
 
+    /**
+     * Go to keldagrim.
+     *
+     * @param player the player.
+     */
     @JvmStatic
     fun goToKeldagrim(player: Player) {
         if (!hasRequirement(player, "The Giant Dwarf"))
@@ -20,6 +28,12 @@ object MinecartTravel {
         GameWorld.Pulser.submit(TravelToKeldagrimPulse(player))
     }
 
+    /**
+     * Leave keldagrim to.
+     *
+     * @param player the player.
+     * @param dest the destination.
+     */
     @JvmStatic
     fun leaveKeldagrimTo(player: Player, dest: Location) {
         if (!hasRequirement(player, "The Giant Dwarf"))
@@ -28,6 +42,13 @@ object MinecartTravel {
     }
 
 
+    /**
+     * Travel from keldagrim pulse.
+     *
+     * @param player the player.
+     * @param dest the destination.
+     * @return travel.
+     */
     class TravelFromKeldagrimPulse(val player: Player, val dest: Location) : Pulse() {
         var counter = 0
         override fun pulse(): Boolean {
@@ -73,6 +94,12 @@ object MinecartTravel {
         }
     }
 
+    /**
+     * Travel to keldagrim pulse.
+     *
+     * @property player the player.
+     * @return Travel to keldagrim.
+     */
     class TravelToKeldagrimPulse(val player: Player) : Pulse() {
         var counter = 0
         var cartNPC = NPC(NPCs.MINE_CART_1544)

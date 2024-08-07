@@ -16,6 +16,9 @@ import core.network.packet.context.CameraContext
 import core.network.packet.context.CameraContext.CameraType
 import core.network.packet.outgoing.CameraViewPacket
 
+/**
+ * Romeo dialogue.
+ */
 class RomeoDialogue(player: Player? = null) : Dialogue(player) {
 
     private var cutscene: RomeoAndJulietCutscene? = null

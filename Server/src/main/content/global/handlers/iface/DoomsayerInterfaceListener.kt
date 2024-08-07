@@ -3,6 +3,11 @@ package content.global.handlers.iface
 import core.api.consts.Components
 import core.game.interaction.InterfaceListener
 
+/**
+ * Doomsayer interface listener
+ *
+ * @constructor Doomsayer interface listener
+ */
 class DoomsayerInterfaceListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {

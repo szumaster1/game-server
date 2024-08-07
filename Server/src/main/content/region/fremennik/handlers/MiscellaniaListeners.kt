@@ -7,6 +7,9 @@ import core.api.openDialogue
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Miscellania listeners.
+ */
 class MiscellaniaListeners : InteractionListener{
 
     override fun defineListeners() {

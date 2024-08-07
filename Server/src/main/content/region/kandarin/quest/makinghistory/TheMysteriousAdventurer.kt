@@ -6,6 +6,11 @@ import content.global.handlers.iface.Page
 import content.global.handlers.iface.PageSet
 import core.game.node.entity.player.Player
 
+/**
+ * The mysterious adventurer
+ *
+ * @constructor The mysterious adventurer
+ */
 class TheMysteriousAdventurer {
     companion object {
         private val TITLE = "The Mysterious Adventurer"

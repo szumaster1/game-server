@@ -10,6 +10,9 @@ import core.game.node.entity.player.Player
 import core.game.node.scenery.Scenery
 import core.plugin.Initializable
 
+/**
+ * Magic door dialogue.
+ */
 @Initializable
 class MagicDoorDialogue(player: Player? = null) : Dialogue(player) {
 

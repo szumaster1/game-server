@@ -11,8 +11,14 @@ import core.game.world.GameWorld
 import core.tools.RandomFunction
 import core.tools.colorize
 
+/**
+ * The pulse used to handle mining shooting stars.
+ */
 class ShootingStarMiningPulse(player: Player?, node: Scenery?, val star: ShootingStar) : SkillPulse<Scenery?>(player, node) {
 
+    /**
+     * The amount of ticks it takes to get star dust.
+     */
     private var ticks = 0
 
     override fun start() {
@@ -101,6 +107,11 @@ class ShootingStarMiningPulse(player: Player?, node: Scenery?, val star: Shootin
         return false
     }
 
+    /**
+     * Roll blueprint
+     *
+     * @param player
+     */
     fun rollBlueprint(player: Player) {
         val chance = when (star.level) {
             ShootingStarType.LEVEL_9 -> 250
@@ -127,6 +138,10 @@ class ShootingStarMiningPulse(player: Player?, node: Scenery?, val star: Shootin
         }
     }
 
+    /**
+     * Checks if the player gets rewarded.
+     * @return `True` if so.
+     */
     private fun checkReward(): Boolean {
         val skill = Skills.MINING
         val level = 1 + player.skills.getLevel(skill) + player.familiarManager.getBoost(skill)

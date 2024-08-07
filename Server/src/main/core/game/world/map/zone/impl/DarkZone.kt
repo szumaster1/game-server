@@ -22,6 +22,11 @@ import core.game.world.GameWorld.Pulser
 import core.game.world.map.zone.MapZone
 import core.game.world.map.zone.ZoneBorders
 
+/**
+ * Dark zone
+ *
+ * @constructor Dark zone
+ */
 class DarkZone : MapZone("Dark zone", true), EventHook<UseWithEvent> {
 
     override fun configure() {
@@ -85,6 +90,11 @@ class DarkZone : MapZone("Dark zone", true), EventHook<UseWithEvent> {
         return true
     }
 
+    /**
+     * Update overlay
+     *
+     * @param player
+     */
     fun updateOverlay(player: Player) {
         val source = getActiveLightSource(player)
         if (isActive(SkillcapePerks.CONSTANT_GLOW, player)) {

@@ -18,6 +18,9 @@ import core.plugin.Initializable
 import core.tools.RandomFunction
 import java.util.concurrent.TimeUnit
 
+/**
+ * Tormented demon NPC.
+ */
 @Initializable
 class TormentedDemonNPC @JvmOverloads constructor(id: Int = -1, location: Location? = null) : AbstractNPC(id, location) {
 
@@ -68,19 +71,17 @@ class TormentedDemonNPC @JvmOverloads constructor(id: Int = -1, location: Locati
     }
 
     override fun checkImpact(state: BattleState) {
-        /*
+        /**
          * Use the formatted hit to ensure protection prayers
          * are applied (i.e. can't darklight while the demon is praying melee).
          */
-
         val formattedHit = state.attacker.getFormattedHit(state, state.estimatedHit).toInt()
         if (state.attacker.isPlayer && formattedHit > 0 && state.weapon != null && (state.weapon.id == 6746 || state.weapon.id == 732)) {
-            /*
+            /**
              * The message doesn't get sent twice, but additional
              * darklight strikes while the shield is down do delay
              * the shield's return.
              */
-
             if (fireShield) {
                 state.attacker.asPlayer().sendMessage("The demon is temporarily weakened by your weapon.")
             }
@@ -96,7 +97,7 @@ class TormentedDemonNPC @JvmOverloads constructor(id: Int = -1, location: Locati
             return
         }
 
-        /*
+        /**
          * Use formattedHit for the prayer swap calculation since it's before the fire
          * shield reduction was applied (a ranged hit of 8 through the shield corresponds to a
          * pre-shield hit of 32, which should cause the demon to switch to praying range).
@@ -106,14 +107,13 @@ class TormentedDemonNPC @JvmOverloads constructor(id: Int = -1, location: Locati
     }
 
     override fun onImpact(entity: Entity, state: BattleState) {
-        /*
+        /**
          * Call the parent class's onImpact handler to ensure that
          * retaliation happens if the TD is non-aggressive.
          */
-
         super.onImpact(entity, state)
 
-        /*
+        /**
          * The demon will switch prayers after it receives 31 damage from one attack style.
          * This is done in onImpact so that it happens after the damage that caused the switch is dealt.
          */
@@ -128,7 +128,7 @@ class TormentedDemonNPC @JvmOverloads constructor(id: Int = -1, location: Locati
             transformDemon(RandomFunction.getRandomElement(getAlternateStyle(TD_SWING_HANDLER.style)), null)
             lastSwitch = System.currentTimeMillis() + 15000
 
-            /*
+            /**
              * The roar animation that TDs do when they change attack styles
              * shouldn't be interrupted by attack/defence animations.
              * Source: https://youtu.be/VcWncVTev1s?t=220
@@ -154,16 +154,15 @@ class TormentedDemonNPC @JvmOverloads constructor(id: Int = -1, location: Locati
 
     /**
      * Transform demon.
-     * @param attackStyle     the attack style
-     * @param protectionStyle the protection style
+     *
+     * @param attackStyle the attack style (combat style).
+     * @param protectionStyle the protection style (combat style).
      */
     fun transformDemon(attackStyle: CombatStyle?, protectionStyle: CombatStyle?) {
-        /*
+        /**
          * If either attackStyle or protectionStyle are
          * null, use the current form's values.
          */
-
-
         var attackStyle = attackStyle
         var protectionStyle = protectionStyle
         if (attackStyle == null) {
@@ -181,7 +180,7 @@ class TormentedDemonNPC @JvmOverloads constructor(id: Int = -1, location: Locati
     }
 
     val mostDamagedStyle: CombatStyle?
-        /*
+        /**
          * Gets most damaged style.
          */
         get() {
@@ -196,18 +195,34 @@ class TormentedDemonNPC @JvmOverloads constructor(id: Int = -1, location: Locati
             return style
         }
 
-    /*
+    /**
      * Gets combat style demon.
+     *
+     * @param protection the protection.
+     * @param style the combat style.
+     * @return
      */
     fun getCombatStyleDemon(protection: CombatStyle?, style: CombatStyle): Int {
         return getDemonIds(protection)[2 - style.ordinal]
     }
 
+    /**
+     * Get demon ids.
+     *
+     * @param style the style.
+     * @return
+     */
     fun getDemonIds(style: CombatStyle?): IntArray {
         val ids = if (style == CombatStyle.MELEE) MELEE else if (style == CombatStyle.RANGE) RANGE else MAGE
         return ids[if (startId == getIds()[0]) 0 else 1]
     }
 
+    /**
+     * Get alternate style.
+     *
+     * @param style the style.
+     * @return
+     */
     fun getAlternateStyle(style: CombatStyle): Array<CombatStyle?> {
         val styles = arrayOfNulls<CombatStyle>(2)
         var index = 0
@@ -246,7 +261,7 @@ class TormentedDemonNPC @JvmOverloads constructor(id: Int = -1, location: Locati
         )
     }
 
-    /*
+    /**
      * The Tormented demon swing handler.
      */
     inner class TormentedDemonSwingHandler : CombatSwingHandler(CombatStyle.MELEE) {

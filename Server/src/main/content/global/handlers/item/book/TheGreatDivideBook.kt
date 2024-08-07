@@ -9,6 +9,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
+/**
+ * The great divide book
+ *
+ * @constructor The great divide book
+ */
 class TheGreatDivideBook : InteractionListener {
 
     // The great divide, written by Cerridwyn Cadarn,

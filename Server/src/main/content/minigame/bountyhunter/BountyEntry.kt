@@ -4,11 +4,27 @@ import core.api.removeAttribute
 import core.game.node.entity.player.Player
 import core.game.world.GameWorld
 
+/**
+ * Holds a player's bounty hunter data.
+ * @author Emperor
+ */
 class BountyEntry {
 
+    /**
+     * The target.
+     */
     var target: Player? = null
+
+    /**
+     * The player hunting this player.
+     */
     var hunter: Player? = null
 
+    /**
+     * Updates the overlay.
+     *
+     * @param player The player.
+     */
     fun update(player: Player) {
         var name: String? = "No one"
         if (target != null) {
@@ -18,6 +34,12 @@ class BountyEntry {
         updatePenalty(player, false)
     }
 
+    /**
+     * Updates the current penalty.
+     *
+     * @param player The player.
+     * @param unlock If the components should be unlocked.
+     */
     fun updatePenalty(player: Player, unlock: Boolean) {
         var penalty = player.getAttribute("pickup_penalty", 0)
         var child = -1

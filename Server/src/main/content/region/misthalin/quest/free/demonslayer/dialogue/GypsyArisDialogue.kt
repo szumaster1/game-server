@@ -20,6 +20,9 @@ import core.network.packet.context.CameraContext
 import core.network.packet.context.CameraContext.CameraType
 import core.network.packet.outgoing.CameraViewPacket
 
+/**
+ * Gypsy aris dialogue.
+ */
 class GypsyArisDialogue(player: Player? = null) : Dialogue(player) {
 
     private var quest: Quest? = null

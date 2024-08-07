@@ -6,6 +6,9 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.combat.CombatStyle
 
+/**
+ * Attack listener.
+ */
 class AttackListener : InteractionListener {
     override fun defineListeners() {
         flagInstant()

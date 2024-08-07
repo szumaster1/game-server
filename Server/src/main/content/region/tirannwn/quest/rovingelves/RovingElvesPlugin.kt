@@ -12,6 +12,11 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.plugin.Plugin
 
+/**
+ * Roving elves plugin
+ *
+ * @constructor Roving elves plugin
+ */
 class RovingElvesPlugin : OptionHandler() {
 
     override fun newInstance(arg: Any?): Plugin<Any> {

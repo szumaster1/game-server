@@ -10,6 +10,11 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
+/**
+ * Abyssal book
+ *
+ * @constructor Abyssal book
+ */
 @Initializable
 class AbyssalBook : InteractionListener {
     companion object {

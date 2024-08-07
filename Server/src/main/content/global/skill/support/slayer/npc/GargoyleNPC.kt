@@ -14,6 +14,9 @@ import core.plugin.ClassScanner.definePlugin
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Gargoyle NPC.
+ */
 @Initializable
 class GargoyleNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 
@@ -56,6 +59,11 @@ class GargoyleNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, loc
         return Tasks.GARGOYLES.npcs
     }
 
+    /**
+     * Rock hammer handler
+     *
+     * @constructor Rock hammer handler
+     */
     inner class RockHammerHandler : UseWithHandler(Items.ROCK_HAMMER_4162) {
 
         override fun newInstance(arg: Any?): Plugin<Any> {

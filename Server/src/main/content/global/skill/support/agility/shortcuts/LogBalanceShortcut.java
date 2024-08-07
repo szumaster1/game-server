@@ -10,18 +10,34 @@ import core.game.world.update.flag.context.Animation;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
+/**
+ * Log balance shortcut.
+ */
 @Initializable
 public class LogBalanceShortcut extends AgilityShortcut {
 
     private Location start;
     private Location end;
 
+    /**
+     * Instantiates a new Log balance shortcut.
+     *
+     * @param ids        the ids
+     * @param level      the level
+     * @param experience the experience
+     * @param start      the start
+     * @param end        the end
+     * @param options    the options
+     */
     public LogBalanceShortcut(int[] ids, int level, double experience, Location start, Location end, String... options) {
         super(ids, level, experience, options);
         this.start = start;
         this.end = end;
     }
 
+    /**
+     * Instantiates a new Log balance shortcut.
+     */
     public LogBalanceShortcut() {
         super(new int[]{}, 0, 0.0);
     }

@@ -11,12 +11,18 @@ import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.tools.RandomFunction
 
+/**
+ * GBC tick.
+ */
 class GBCTick : TickListener {
     override fun tick() {
         GeneralBotCreator.botPulsesTriggeredThisTick = 0
     }
 }
 
+/**
+ * General bot creator.
+ */
 class GeneralBotCreator {
 
     constructor(botScript: Script, loc: Location?) {
@@ -43,6 +49,13 @@ class GeneralBotCreator {
         var botPulsesTriggeredThisTick = 0
     }
 
+    /**
+     * Bot script pulse.
+     *
+     * @property botScript botscript.
+     * @property isPlayer is player.
+     * @constructor Bot script pulse.
+     */
     inner class BotScriptPulse(val botScript: Script, val isPlayer: Boolean = false) : Pulse(1) {
         var ticks = 0
 
@@ -122,6 +135,12 @@ class GeneralBotCreator {
         }
     }
 
+    /**
+     * Transition pulse.
+     *
+     * @property script the script.
+     * @constructor Transition pulse
+     */
     inner class TransitionPulse(val script: Script) : Pulse(RandomFunction.random(60, 200)) {
         override fun pulse(): Boolean {
             // This does not get called and should be removed

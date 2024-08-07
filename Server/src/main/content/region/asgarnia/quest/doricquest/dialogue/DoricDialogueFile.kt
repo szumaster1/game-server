@@ -9,6 +9,12 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
+/**
+ * Doric dialogue file
+ *
+ * @property questStage
+ * @constructor Doric dialogue file
+ */
 class DoricDialogueFile(private val questStage: Int) : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         when (questStage) {

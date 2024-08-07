@@ -13,6 +13,9 @@ import core.network.packet.outgoing.RepositionChild
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Herb tar handler.
+ */
 @Initializable
 class HerbTarHandler : UseWithHandler(Items.SWAMP_TAR_1939) {
 

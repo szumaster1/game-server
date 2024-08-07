@@ -6,7 +6,13 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
 /**
- * Represents any cake item that is made of three even slices.
+ * Cake
+ *
+ * @constructor
+ *
+ * @param ids
+ * @param effect
+ * @param messages
  */
 class Cake(
     /**

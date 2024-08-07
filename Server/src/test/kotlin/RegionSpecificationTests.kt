@@ -11,6 +11,11 @@ import core.game.world.map.build.DynamicRegion
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
+/**
+ * Region specification tests
+ *
+ * @constructor Region specification tests
+ */
 class RegionSpecificationTests {
     companion object {
         init {
@@ -18,6 +23,10 @@ class RegionSpecificationTests {
         }
     }
 
+    /**
+     * Should create empty dynamic region when build without args
+     *
+     */
     @Test
     fun shouldCreateEmptyDynamicRegionWhenBuildWithoutArgs() {
         val specification = RegionSpecification()
@@ -25,6 +34,10 @@ class RegionSpecificationTests {
         Assertions.assertNotNull(region)
     }
 
+    /**
+     * Should copy existing region if requested
+     *
+     */
     @Test
     fun shouldCopyExistingRegionIfRequested() {
         val specification = RegionSpecification(copyOf(12850))
@@ -32,6 +45,10 @@ class RegionSpecificationTests {
         Assertions.assertEquals(36782, RegionManager.getObject(region.baseLocation.transform(23, 17, 0))?.id)
     }
 
+    /**
+     * Should allow filling region with given chunk
+     *
+     */
     @Test
     fun shouldAllowFillingRegionWithGivenChunk() {
         val base = RegionManager.forId(12850)
@@ -42,6 +59,10 @@ class RegionSpecificationTests {
         Assertions.assertEquals(36782, RegionManager.getObject(region.baseLocation.transform(23, 17, 0))?.id)
     }
 
+    /**
+     * Should allow custom rules for filling chunks
+     *
+     */
     @Test
     fun shouldAllowCustomRulesForFillingChunks() {
         val base = RegionManager.forId(12850)
@@ -58,6 +79,10 @@ class RegionSpecificationTests {
         Assertions.assertNull(RegionManager.getObject(region.baseLocation.transform(15, 9, 0)))
     }
 
+    /**
+     * Should allow multiple rules for filling chunks
+     *
+     */
     @Test
     fun shouldAllowMultipleRulesForFillingChunks() {
         val base = RegionManager.forId(12850)
@@ -94,6 +119,10 @@ class RegionSpecificationTests {
         )
     }*/
 
+    /**
+     * Should allow use existing dynamic region
+     *
+     */
     @Test
     fun shouldAllowUseExistingDynamicRegion() {
         val base = RegionManager.forId(12850)
@@ -110,6 +139,10 @@ class RegionSpecificationTests {
         Assertions.assertEquals(36782, RegionManager.getObject(dyn.baseLocation.transform(7, 1, 0))?.id)
     }
 
+    /**
+     * Fill chunk contract should allow chunk set callback
+     *
+     */
     @Test
     fun fillChunkContractShouldAllowChunkSetCallback() {
         class TemporaryFillContract(chunk: RegionChunk) : FillChunkContract(chunk) {

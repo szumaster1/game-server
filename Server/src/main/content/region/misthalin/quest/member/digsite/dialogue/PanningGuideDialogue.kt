@@ -11,6 +11,9 @@ import core.plugin.Initializable
 import core.api.consts.Items
 import core.api.consts.NPCs
 
+/**
+ * Panning guide dialogue.
+ */
 @Initializable
 class PanningGuideDialogue (player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
@@ -24,6 +27,11 @@ class PanningGuideDialogue (player: Player? = null) : Dialogue(player) {
 
 }
 
+/**
+ * Panning guide dialogue file
+ *
+ * @constructor Panning guide dialogue file
+ */
 class PanningGuideDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {
         b.onPredicate { getAttribute(player!!, TheDigSite.attributePanningGuideTea, false) }
@@ -75,6 +83,12 @@ class PanningGuideDialogueFile : DialogueBuilderFile() {
                 }
     }
 }
+
+/**
+ * Panning guide cannot pan dialogue file
+ *
+ * @constructor Panning guide cannot pan dialogue file
+ */
 class PanningGuideCannotPanDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {
         b.onPredicate { _ -> true }

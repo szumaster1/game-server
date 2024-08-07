@@ -6,6 +6,9 @@ import core.game.node.entity.npc.NPCBehavior
 import core.tools.RandomFunction
 import core.api.consts.NPCs
 
+/**
+ * Durgok NPC.
+ */
 class DurgokNPC : NPCBehavior(NPCs.DURGOK_5794) {
 
     private val forceChat = arrayOf(

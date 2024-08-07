@@ -24,8 +24,14 @@ import java.util.regex.Pattern;
 import static core.tools.DialogueHelperKt.END_DIALOGUE;
 
 
+/**
+ * Dialogue interpreter.
+ */
 @PluginManifest(type = PluginType.DIALOGUE)
 public final class DialogueInterpreter {
+    /**
+     * The Active topics.
+     */
     public ArrayList<Topic<?>> activeTopics = new ArrayList<>();
 
     private static final Map<Integer, Dialogue> PLUGINS = new HashMap<>();
@@ -38,18 +44,42 @@ public final class DialogueInterpreter {
 
     private final Player player;
 
+    /**
+     * Instantiates a new Dialogue interpreter.
+     *
+     * @param player the player
+     */
     public DialogueInterpreter(Player player) {
         this.player = player;
     }
 
+    /**
+     * Sets dialogue.
+     *
+     * @param dialogue the dialogue
+     */
     public void setDialogue(Dialogue dialogue) {
         this.dialogue = dialogue;
     }
 
+    /**
+     * Open boolean.
+     *
+     * @param dialogueType the dialogue type
+     * @param args         the args
+     * @return the boolean
+     */
     public boolean open(String dialogueType, Object... args) {
         return open(getDialogueKey(dialogueType), args);
     }
 
+    /**
+     * Open boolean.
+     *
+     * @param dialogueKey the dialogue key
+     * @param args        the args
+     * @return the boolean
+     */
     public boolean open(int dialogueKey, Object... args) {
         key = dialogueKey;
         if (args.length > 0 && args[0] instanceof NPC) {
@@ -84,11 +114,23 @@ public final class DialogueInterpreter {
         return true;
     }
 
+    /**
+     * Open.
+     *
+     * @param file the file
+     * @param args the args
+     */
     public void open(DialogueFile file, Object... args) {
         this.dialogue = new EmptyDialogue(player, file);
         this.dialogue.open(args);
     }
 
+    /**
+     * Handle.
+     *
+     * @param componentId the component id
+     * @param buttonId    the button id
+     */
     public void handle(int componentId, int buttonId) {
         player.setAttribute("chatbox-buttonid", buttonId);
         if ((player.getDialogueInterpreter().getDialogue().file != null && player.getDialogueInterpreter().getDialogue().file.getCurrentStage() == END_DIALOGUE) || player.getDialogueInterpreter().getDialogue().stage == END_DIALOGUE) {
@@ -131,6 +173,11 @@ public final class DialogueInterpreter {
         }
     }
 
+    /**
+     * Close boolean.
+     *
+     * @return the boolean
+     */
     public boolean close() {
         if (dialogue != null) {
             actions.clear();
@@ -149,6 +196,12 @@ public final class DialogueInterpreter {
         return dialogue == null;
     }
 
+    /**
+     * Add.
+     *
+     * @param id     the id
+     * @param plugin the plugin
+     */
     public static void add(int id, Dialogue plugin) {
         if (PLUGINS.containsKey(id)) {
             throw new IllegalArgumentException("dialogue " + (id & 0xFFFF) + " is already in use - [old=" + PLUGINS.get(id).getClass().getSimpleName() + ", new=" + plugin.getClass().getSimpleName() + "]!");
@@ -156,6 +209,12 @@ public final class DialogueInterpreter {
         PLUGINS.put(id, plugin);
     }
 
+    /**
+     * Send dialogue component.
+     *
+     * @param messages the messages
+     * @return the component
+     */
     public Component sendDialogue(String... messages) {
         if (messages.length < 1 || messages.length > 4) {
             return null;
@@ -169,12 +228,26 @@ public final class DialogueInterpreter {
         return player.getInterfaceManager().getChatbox();
     }
 
+    /**
+     * Send plain message component.
+     *
+     * @param hideContinue the hide continue
+     * @param messages     the messages
+     * @return the component
+     */
     public Component sendPlainMessage(final boolean hideContinue, String... messages) {
         sendDialogue(messages);
         player.getPacketDispatch().sendInterfaceConfig(player.getInterfaceManager().getChatbox().getId(), (messages.length + 1), hideContinue);
         return player.getInterfaceManager().getChatbox();
     }
 
+    /**
+     * Send destroy item component.
+     *
+     * @param id      the id
+     * @param message the message
+     * @return the component
+     */
     public Component sendDestroyItem(int id, String message) {
         String text = ItemDefinition.forId(id).getConfiguration(ItemConfigParser.DESTROY_MESSAGE, "Are you sure you want to destroy this object?");
         if (text.length() > 200) {
@@ -198,6 +271,13 @@ public final class DialogueInterpreter {
         return player.getInterfaceManager().getChatbox();
     }
 
+    /**
+     * Send plane message with blue title component.
+     *
+     * @param title    the title
+     * @param messages the messages
+     * @return the component
+     */
     public Component sendPlaneMessageWithBlueTitle(String title, String... messages) {
         player.getPacketDispatch().sendString(title, 372, 0);
         for (int i = 0; i < messages.length; i++) {
@@ -207,6 +287,13 @@ public final class DialogueInterpreter {
         return player.getInterfaceManager().getChatbox();
     }
 
+    /**
+     * Send scroll message with blue title component.
+     *
+     * @param title    the title
+     * @param messages the messages
+     * @return the component
+     */
     public Component sendScrollMessageWithBlueTitle(String title, String... messages) {
         for (int i = 0; i < 11; i++) {
             player.getPacketDispatch().sendString(" ", 421, i + 2);
@@ -219,6 +306,13 @@ public final class DialogueInterpreter {
         return player.getInterfaceManager().getChatbox();
     }
 
+    /**
+     * Send item message component.
+     *
+     * @param itemId   the item id
+     * @param messages the messages
+     * @return the component
+     */
     public Component sendItemMessage(int itemId, String... messages) {
         if (1 <= messages.length && messages.length < 4) {
             ArrayList<String> packedMessages = new ArrayList();
@@ -278,10 +372,25 @@ public final class DialogueInterpreter {
         return player.getInterfaceManager().getChatbox();
     }
 
+    /**
+     * Send item message component.
+     *
+     * @param item     the item
+     * @param messages the messages
+     * @return the component
+     */
     public Component sendItemMessage(final Item item, String... messages) {
         return sendItemMessage(item.getId(), messages);
     }
 
+    /**
+     * Send double item message component.
+     *
+     * @param first   the first
+     * @param second  the second
+     * @param message the message
+     * @return the component
+     */
     public Component sendDoubleItemMessage(int first, int second, String message) {
         player.getInterfaceManager().openChatbox(131);
         player.getPacketDispatch().sendString(message, 131, 1);
@@ -290,6 +399,14 @@ public final class DialogueInterpreter {
         return player.getInterfaceManager().getChatbox();
     }
 
+    /**
+     * Send double item message component.
+     *
+     * @param first   the first
+     * @param second  the second
+     * @param message the message
+     * @return the component
+     */
     public Component sendDoubleItemMessage(Item first, Item second, String message) {
         player.getInterfaceManager().openChatbox(131);
         player.getPacketDispatch().sendString(message, 131, 1);
@@ -298,32 +415,93 @@ public final class DialogueInterpreter {
         return player.getInterfaceManager().getChatbox();
     }
 
+    /**
+     * Send dialogues component.
+     *
+     * @param entity     the entity
+     * @param expression the expression
+     * @param messages   the messages
+     * @return the component
+     */
     public Component sendDialogues(Entity entity, FacialExpression expression, String... messages) {
         return sendDialogues(entity, expression == null ? -1 : expression.getAnimationId(), messages);
     }
 
+    /**
+     * Send dialogues component.
+     *
+     * @param entity     the entity
+     * @param expression the expression
+     * @param messages   the messages
+     * @return the component
+     */
     public Component sendDialogues(Entity entity, int expression, String... messages) {
         return sendDialogues(entity instanceof Player ? -1 : ((NPC) entity).getShownNPC(player).getId(), expression, false, messages);
     }
 
+    /**
+     * Send dialogues component.
+     *
+     * @param npcId      the npc id
+     * @param expression the expression
+     * @param hide       the hide
+     * @param messages   the messages
+     * @return the component
+     */
     public Component sendDialogues(int npcId, FacialExpression expression, boolean hide, String... messages) {
         return sendDialogues(npcId, expression == null ? -1 : expression.getAnimationId(), hide, messages);
     }
 
+    /**
+     * Send dialogues component.
+     *
+     * @param entity     the entity
+     * @param expression the expression
+     * @param hide       the hide
+     * @param messages   the messages
+     * @return the component
+     */
     public Component sendDialogues(Entity entity, FacialExpression expression, boolean hide, String... messages) {
         return sendDialogues(entity.getId(), expression == null ? -1 : expression.getAnimationId(), hide, messages);
     }
 
+    /**
+     * Send dialogues component.
+     *
+     * @param entity     the entity
+     * @param expression the expression
+     * @param hide       the hide
+     * @param messages   the messages
+     * @return the component
+     */
     public Component sendDialogues(Entity entity, int expression, boolean hide, String... messages) {
         return sendDialogues(entity.getId(), expression, hide, messages);
     }
 
+    /**
+     * Send dialogues component.
+     *
+     * @param npcId      the npc id
+     * @param expression the expression
+     * @param messages   the messages
+     * @return the component
+     */
     public Component sendDialogues(int npcId, FacialExpression expression, String... messages) {
         return sendDialogues(npcId, expression == null ? -1 : expression.getAnimationId(), false, messages);
     }
 
+    /**
+     * The Gendered substitution.
+     */
     static Pattern GENDERED_SUBSTITUTION = Pattern.compile("@g\\[([^,]*),([^\\]]*)\\]");
 
+    /**
+     * Do substitutions string.
+     *
+     * @param player the player
+     * @param msg    the msg
+     * @return the string
+     */
     public static String doSubstitutions(Player player, String msg) {
         msg = msg.replace("@name", player.getUsername());
         StringBuilder sb = new StringBuilder();
@@ -336,10 +514,27 @@ public final class DialogueInterpreter {
         return sb.toString();
     }
 
+    /**
+     * Send dialogues component.
+     *
+     * @param npcId      the npc id
+     * @param expression the expression
+     * @param messages   the messages
+     * @return the component
+     */
     public Component sendDialogues(int npcId, int expression, String... messages) {
         return sendDialogues(npcId, expression, false, messages);
     }
 
+    /**
+     * Send dialogues component.
+     *
+     * @param npcId      the npc id
+     * @param expression the expression
+     * @param hide       the hide
+     * @param messages   the messages
+     * @return the component
+     */
     public Component sendDialogues(int npcId, int expression, boolean hide, String... messages) {
         if (messages.length < 1 || messages.length > 4) {
             System.err.println("Invalid amount of messages: " + messages.length);
@@ -369,6 +564,13 @@ public final class DialogueInterpreter {
         return player.getInterfaceManager().getChatbox();
     }
 
+    /**
+     * Send options component.
+     *
+     * @param title   the title
+     * @param options the options
+     * @return the component
+     */
     public Component sendOptions(Object title, String... options) {
         int interfaceId = 224 + (2 * options.length);
         if (options.length < 2 || options.length > 5) {
@@ -384,6 +586,16 @@ public final class DialogueInterpreter {
         return player.getInterfaceManager().getChatbox();
     }
 
+    /**
+     * Send double item options component.
+     *
+     * @param title the title
+     * @param i1    the 1
+     * @param i2    the 2
+     * @param o1    the o 1
+     * @param o2    the o 2
+     * @return the component
+     */
     public Component sendDoubleItemOptions(String title, int i1, int i2, String o1, String o2) {
         player.getInterfaceManager().openChatbox(140);
 
@@ -397,6 +609,16 @@ public final class DialogueInterpreter {
         return player.getInterfaceManager().getChatbox();
     }
 
+    /**
+     * Send double item options component.
+     *
+     * @param title the title
+     * @param i1    the 1
+     * @param i2    the 2
+     * @param o1    the o 1
+     * @param o2    the o 2
+     * @return the component
+     */
     public Component sendDoubleItemOptions(String title, Item i1, Item i2, String o1, String o2) {
         player.getInterfaceManager().openChatbox(140);
 
@@ -410,34 +632,77 @@ public final class DialogueInterpreter {
         return player.getInterfaceManager().getChatbox();
     }
 
+    /**
+     * Send input.
+     *
+     * @param string  the string
+     * @param objects the objects
+     */
     public void sendInput(boolean string, Object... objects) {
         player.getPacketDispatch().sendRunScript(string ? 109 : 108, "s", objects);
     }
 
+    /**
+     * Send long input.
+     *
+     * @param objects the objects
+     */
     public void sendLongInput(Object... objects) {
         player.getPacketDispatch().sendRunScript(110, "s", objects);
     }
 
+    /**
+     * Send message input.
+     *
+     * @param receiver the receiver
+     */
     public void sendMessageInput(String receiver) {
         player.getPacketDispatch().sendRunScript(107, "s", receiver);
     }
 
+    /**
+     * Contains boolean.
+     *
+     * @param id the id
+     * @return the boolean
+     */
     public static boolean contains(int id) {
         return PLUGINS.containsKey(id);
     }
 
+    /**
+     * Gets dialogue.
+     *
+     * @return the dialogue
+     */
     public Dialogue getDialogue() {
         return dialogue;
     }
 
+    /**
+     * Gets dialogue key.
+     *
+     * @param name the name
+     * @return the dialogue key
+     */
     public static int getDialogueKey(String name) {
         return 1 << 16 | name.hashCode();
     }
 
+    /**
+     * Add action.
+     *
+     * @param action the action
+     */
     public void addAction(DialogueAction action) {
         actions.add(action);
     }
 
+    /**
+     * Gets actions.
+     *
+     * @return the actions
+     */
     public List<DialogueAction> getActions() {
         return actions;
     }

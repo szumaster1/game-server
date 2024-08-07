@@ -10,6 +10,9 @@ import core.game.interaction.InteractionListener
 import core.game.interaction.QueueStrength
 import core.game.node.entity.player.link.TeleportManager.TeleportType
 
+/**
+ * Lunar isle listeners.
+ */
 class LunarIsleListeners : InteractionListener {
 
     companion object {

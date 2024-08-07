@@ -14,10 +14,12 @@ import java.nio.ByteBuffer
  */
 class RegistryEventProducer : EventProducer {
 
+    // Override method to produce a reader event.
     override fun produceReader(session: IoSession, buffer: ByteBuffer): IoReadEvent {
         return RegistryReadEvent(session, buffer)
     }
 
+    // Override method to produce a writer event.
     override fun produceWriter(session: IoSession, context: Any): IoWriteEvent {
         return RegistryWriteEvent(session, context)
     }

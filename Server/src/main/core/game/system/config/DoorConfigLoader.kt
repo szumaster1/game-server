@@ -8,6 +8,11 @@ import org.json.simple.JSONObject
 import org.json.simple.parser.JSONParser
 import java.io.FileReader
 
+/**
+ * Door config loader
+ *
+ * @constructor Door config loader
+ */
 class DoorConfigLoader {
     companion object {
         val DOORS = hashMapOf<Int, Door>()
@@ -20,6 +25,10 @@ class DoorConfigLoader {
     val parser = JSONParser()
     var reader: FileReader? = null
 
+    /**
+     * Load
+     *
+     */
     fun load() {
         var count = 0
         reader = FileReader(ServerConstants.CONFIG_PATH + "door_configs.json")
@@ -46,6 +55,12 @@ class DoorConfigLoader {
     }
 
 
+    /**
+     * Door
+     *
+     * @property id
+     * @constructor Door
+     */
     class Door(val id: Int) {
         var replaceId = 0
         var isFence = false

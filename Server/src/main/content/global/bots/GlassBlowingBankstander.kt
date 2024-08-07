@@ -8,6 +8,9 @@ import core.game.bots.SkillingBotAssembler
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
+/**
+ * Glass blowing bankstander.
+ */
 class GlassBlowingBankstander : Script() {
 
     var state = State.BLOWING
@@ -40,7 +43,24 @@ class GlassBlowingBankstander : Script() {
         skills[Skills.CRAFTING] == 99
     }
 
+    /**
+     * State
+     *
+     * @constructor State
+     */
     enum class State {
-        BLOWING, BANKING
+        /**
+         * Blowing
+         *
+         * @constructor Blowing
+         */
+        BLOWING,
+
+        /**
+         * Banking
+         *
+         * @constructor Banking
+         */
+        BANKING
     }
 }

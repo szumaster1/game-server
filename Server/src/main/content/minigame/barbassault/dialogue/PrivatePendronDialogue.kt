@@ -8,6 +8,10 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Private pendron dialogue.
+ * @author Szumaster
+ */
 @Initializable
 class PrivatePendronDialogue(player: Player? = null) : Dialogue(player) {
 

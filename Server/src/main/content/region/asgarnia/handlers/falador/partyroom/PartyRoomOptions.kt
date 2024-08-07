@@ -19,6 +19,9 @@ import core.plugin.ClassScanner.definePlugin
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Party room options.
+ */
 @Initializable
 class PartyRoomOptions : OptionHandler() {
 
@@ -60,6 +63,11 @@ class PartyRoomOptions : OptionHandler() {
         }
     }
 
+    /**
+     * Deposit interface handler
+     *
+     * @constructor Deposit interface handler
+     */
     class DepositInterfaceHandler : ComponentPlugin() {
 
         override fun newInstance(arg: Any?): Plugin<Any> {

@@ -7,6 +7,15 @@ import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
+/**
+ * Grapple pulse
+ *
+ * @property amount
+ * @constructor
+ *
+ * @param player
+ * @param node
+ */
 @Suppress("unused")
 class GrapplePulse(player: Player?, node: Item?, private var amount: Int) : SkillPulse<Item?>(player, node) {
 

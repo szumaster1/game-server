@@ -10,11 +10,13 @@ import core.game.world.map.Location
 import core.game.world.map.path.Pathfinder
 import core.game.world.map.zone.ZoneBorders
 
+/**
+ * Varrock essence miner.
+ */
 @PlayerCompatible
 @ScriptDescription("Start in varrock bank with rune mysteries complete and a pickaxe equipped/in inventory")
 @ScriptName("Varrock Essence Miner")
 @ScriptIdentifier("essence_miner")
-
 class VarrockEssenceMiner : Script() {
 
     var state = State.TO_ESSENCE

@@ -7,6 +7,11 @@ import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 import core.api.consts.Items
 
+/**
+ * The dig site
+ *
+ * @constructor The dig site
+ */
 @Initializable
 class TheDigSite : Quest("The Dig Site", 47, 46, 2, 131, 0, 1, 9) {
 

@@ -16,6 +16,9 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
+/**
+ * Spirit kyatt dialogue.
+ */
 @Initializable
 class SpiritKyattDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -54,6 +57,11 @@ class SpiritKyattDialogue(player: Player? = null) : Dialogue(player) {
     }
 }
 
+/**
+ * Spirit kyatt dialogue file
+ *
+ * @constructor Spirit kyatt dialogue file
+ */
 class SpiritKyattDialogueFile : DialogueFile() {
 
     private val randomConversation = (0..3).random()

@@ -8,46 +8,101 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.item.Item
 
+/**
+ * Tanning data
+ *
+ * @property button
+ * @property item
+ * @property product
+ * @constructor Tanning data
+ */
 enum class TanningData(
     val button: Int,
     val item: Int,
     val product: Int
 ) {
+    /**
+     * Soft Leather
+     *
+     * @constructor Soft Leather
+     */
     SOFT_LEATHER(
         button = 1,
         item = Items.COWHIDE_1739,
         product = Items.LEATHER_1741
     ),
+
+    /**
+     * Hard Leather
+     *
+     * @constructor Hard Leather
+     */
     HARD_LEATHER(
         button = 2,
         item = Items.COWHIDE_1739,
         product = Items.HARD_LEATHER_1743
     ),
+
+    /**
+     * Snakeskin
+     *
+     * @constructor Snakeskin
+     */
     SNAKESKIN(
         button = 3,
         item = Items.SNAKE_HIDE_6287,
         product = Items.SNAKESKIN_6289
     ),
+
+    /**
+     * Snakeskin2
+     *
+     * @constructor Snakeskin2
+     */
     SNAKESKIN2(
         button = 4,
         item = Items.SNAKE_HIDE_7801,
         product = Items.SNAKESKIN_6289
     ),
+
+    /**
+     * Green Dhide
+     *
+     * @constructor Green Dhide
+     */
     GREEN_DHIDE(
         button = 5,
         item = Items.GREEN_DRAGONHIDE_1753,
         product = Items.GREEN_D_LEATHER_1745
     ),
+
+    /**
+     * Bluedhide
+     *
+     * @constructor Bluedhide
+     */
     BLUEDHIDE(
         button = 6,
         item = Items.BLUE_DRAGONHIDE_1751,
         product = Items.BLUE_D_LEATHER_2505
     ),
+
+    /**
+     * Reddhide
+     *
+     * @constructor Reddhide
+     */
     REDDHIDE(
         button = 7,
         item = Items.RED_DRAGONHIDE_1749,
         product = Items.RED_DRAGON_LEATHER_2507
     ),
+
+    /**
+     * Blackdhide
+     *
+     * @constructor Blackdhide
+     */
     BLACKDHIDE(
         button = 8,
         item = Items.BLACK_DRAGONHIDE_1747,

@@ -15,6 +15,9 @@ import core.tools.Log;
 
 import static core.api.ContentAPIKt.log;
 
+/**
+ * Build option plugin.
+ */
 @Initializable
 public final class BuildOptionPlugin extends OptionHandler {
 
@@ -115,10 +118,18 @@ public final class BuildOptionPlugin extends OptionHandler {
 
         private Scenery object;
 
+        /**
+         * Instantiates a new Remove dialogue.
+         */
         public RemoveDialogue() {
             super();
         }
 
+        /**
+         * Instantiates a new Remove dialogue.
+         *
+         * @param player the player
+         */
         public RemoveDialogue(Player player) {
             super(player);
         }

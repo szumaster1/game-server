@@ -7,6 +7,11 @@ import core.game.node.entity.player.Player
 import core.game.system.task.Pulse
 import core.game.world.map.zone.ZoneBorders
 
+/**
+ * Gu tanoth crypt map area
+ *
+ * @constructor Gu tanoth crypt map area
+ */
 class GuTanothCryptMapArea : MapArea {
 
     /*

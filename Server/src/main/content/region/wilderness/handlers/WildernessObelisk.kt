@@ -20,6 +20,9 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 import core.tools.RandomFunction
 
+/**
+ * Wilderness obelisk option handler.
+ */
 @Initializable
 class WildernessObelisk : OptionHandler() {
 
@@ -139,12 +142,53 @@ class WildernessObelisk : OptionHandler() {
         return true
     }
 
+    /**
+     * Obelisk
+     *
+     * @property location
+     * @constructor Obelisk
+     */
     enum class Obelisk(val location: Location) {
+        /**
+         * Level 13
+         *
+         * @constructor Level 13
+         */
         LEVEL_13(Location(3156, 3620, 0)),
+
+        /**
+         * Level 19
+         *
+         * @constructor Level 19
+         */
         LEVEL_19(Location(3219, 3656, 0)),
+
+        /**
+         * Level 27
+         *
+         * @constructor Level 27
+         */
         LEVEL_27(Location(3035, 3732, 0)),
+
+        /**
+         * Level 35
+         *
+         * @constructor Level 35
+         */
         LEVEL_35(Location(3106, 3794, 0)),
+
+        /**
+         * Level 44
+         *
+         * @constructor Level 44
+         */
         LEVEL_44(Location(2980, 3866, 0)),
+
+        /**
+         * Level 50
+         *
+         * @constructor Level 50
+         */
         LEVEL_50(Location(3307, 3916, 0));
 
 

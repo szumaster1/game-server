@@ -8,6 +8,9 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.Initializable
 
+/**
+ * Wilough dialogue.
+ */
 @Initializable
 class WiloughDialogue(player: Player? = null) : Dialogue(player) {
 

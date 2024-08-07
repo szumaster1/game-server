@@ -217,11 +217,6 @@ class ShootingStar(var level: ShootingStarType = ShootingStarType.values().rando
         get() = (level.ordinal + 1) * 10
 }
 
-/*
- * Various levels of shooting stars
- * @author Ceikry
- */
-
 enum class ShootingStarType(val objectId: Int, val exp: Int, val totalStardust: Int, val rate: Double) {
     LEVEL_1(38668, 14, 1200, 0.05),
     LEVEL_2(38667, 25, 700, 0.1),

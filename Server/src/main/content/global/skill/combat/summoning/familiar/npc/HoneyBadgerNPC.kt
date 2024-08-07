@@ -12,6 +12,9 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 
+/**
+ * Honey badger familiar.
+ */
 @Initializable
 class HoneyBadgerNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.HONEY_BADGER_6845) :
     Familiar(owner, id, 2500, 12065, 4, WeaponInterface.STYLE_AGGRESSIVE) {

@@ -14,6 +14,11 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 
+/**
+ * Ectophial listener
+ *
+ * @constructor Ectophial listener
+ */
 class EctophialListener : InteractionListener {
     private val fillAnimation = Animation(832)
     private val emptyAnimation = Animation(9609)

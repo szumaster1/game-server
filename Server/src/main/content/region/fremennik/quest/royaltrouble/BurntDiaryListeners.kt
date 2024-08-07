@@ -9,6 +9,11 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 import core.tools.DARK_RED
 
+/**
+ * Burnt diary listeners
+ *
+ * @constructor Burnt diary listeners
+ */
 class BurntDiaryListeners : InteractionListener {
 
     companion object {

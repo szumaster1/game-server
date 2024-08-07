@@ -14,6 +14,9 @@ import core.game.node.item.Item
 import core.game.system.task.Pulse
 import core.game.world.GameWorld.Pulser
 
+/**
+ * MTA shop interface listener.
+ */
 class MTAShopInterfaceListener : InterfaceListener {
     private val container = Container(ITEMS.size, ContainerType.SHOP)
     private val viewers: MutableList<Player> = ArrayList(100)
@@ -44,6 +47,11 @@ class MTAShopInterfaceListener : InterfaceListener {
         })
     }
 
+    /**
+     * Open
+     *
+     * @param player
+     */
     fun open(player: Player) {
         viewers.add(player)
         player.interfaceManager.open(component)
@@ -66,6 +74,13 @@ class MTAShopInterfaceListener : InterfaceListener {
         }
     }
 
+    /**
+     * Buy
+     *
+     * @param player
+     * @param item
+     * @param slot
+     */
     fun buy(player: Player, item: Item, slot: Int) {
         var item = item
         val prices = PRICES[slot]
@@ -115,12 +130,24 @@ class MTAShopInterfaceListener : InterfaceListener {
         update()
     }
 
+    /**
+     * Value
+     *
+     * @param player
+     * @param item
+     * @param slot
+     */
     fun value(player: Player, item: Item, slot: Int) {
         val prices = PRICES[slot]
         sendMessage(player, "The " + item.name + " costs " + prices[0] + " Telekinetic, " + prices[1] + " Alchemist,")
         sendMessage(player, prices[2].toString() + " Enchantment and " + prices[3] + " Graveyard Pizazz Points.")
     }
 
+    /**
+     * Update points
+     *
+     * @param player
+     */
     fun updatePoints(player: Player) {
         setInterfaceText(player, getPoints(player, 0).toString(), Components.MAGICTRAINING_SHOP_197, 8)
         setInterfaceText(player, getPoints(player, 2).toString(), Components.MAGICTRAINING_SHOP_197, 9)
@@ -128,14 +155,35 @@ class MTAShopInterfaceListener : InterfaceListener {
         setInterfaceText(player, getPoints(player, 3).toString(), Components.MAGICTRAINING_SHOP_197, 11)
     }
 
+    /**
+     * Increment points
+     *
+     * @param player
+     * @param index
+     * @param increment
+     */
     fun incrementPoints(player: Player, index: Int, increment: Int) {
         player.getSavedData().activityData.incrementPizazz(index, increment)
     }
 
+    /**
+     * Decrement points
+     *
+     * @param player
+     * @param index
+     * @param decrement
+     */
     fun decrementPoints(player: Player, index: Int, decrement: Int) {
         player.getSavedData().activityData.decrementPizazz(index, decrement)
     }
 
+    /**
+     * Get points
+     *
+     * @param player
+     * @param index
+     * @return
+     */
     fun getPoints(player: Player, index: Int): Int {
         return player.getSavedData().activityData.getPizazzPoints(index)
     }

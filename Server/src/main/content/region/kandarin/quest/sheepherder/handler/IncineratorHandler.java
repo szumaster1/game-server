@@ -14,6 +14,9 @@ import java.util.Objects;
 import static core.api.ContentAPIKt.sendDialogueLines;
 import static core.api.ContentAPIKt.setAttribute;
 
+/**
+ * Incinerator handler.
+ */
 @Initializable
 public class IncineratorHandler extends PluginInteraction {
     @Override

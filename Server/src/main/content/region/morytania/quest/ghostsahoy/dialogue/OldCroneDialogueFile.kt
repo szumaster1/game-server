@@ -10,6 +10,9 @@ import core.game.node.entity.npc.NPC
 import core.game.world.update.flag.context.Animation
 import core.tools.END_DIALOGUE
 
+/**
+ * Old crone dialogue file.
+ */
 class OldCroneDialogueFile : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

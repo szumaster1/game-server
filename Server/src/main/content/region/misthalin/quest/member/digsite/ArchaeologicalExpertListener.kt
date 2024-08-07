@@ -12,6 +12,11 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
+/**
+ * Archaeological expert listener
+ *
+ * @constructor Archaeological expert listener
+ */
 class ArchaeologicalExpertListener : InteractionListener {
 
     val staff = Items.ANCIENT_STAFF_4675
@@ -53,6 +58,12 @@ class ArchaeologicalExpertListener : InteractionListener {
     }
 }
 
+/**
+ * Archaeological expert listener dialogue file
+ *
+ * @property it
+ * @constructor Archaeological expert listener dialogue file
+ */
 class ArchaeologicalExpertListenerDialogueFile(val it: Int) : DialogueBuilderFile() {
 
     companion object {

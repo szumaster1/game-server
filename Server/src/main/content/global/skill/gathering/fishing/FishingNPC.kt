@@ -7,6 +7,9 @@ import core.tools.RandomFunction
 
 private val fishingSpots = FishingSpot.getAllIds()
 
+/**
+ * Fishing NPC.
+ */
 class FishingNPC : NPCBehavior(*fishingSpots) {
 
     override fun onCreation(self: NPC) {

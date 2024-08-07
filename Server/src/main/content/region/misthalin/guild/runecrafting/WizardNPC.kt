@@ -8,6 +8,9 @@ import core.game.node.entity.player.link.SpellBookManager.SpellBook
 import core.game.world.map.Location
 import core.plugin.Initializable
 
+/**
+ * Wizard NPC.
+ */
 @Initializable
 class WizardNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 

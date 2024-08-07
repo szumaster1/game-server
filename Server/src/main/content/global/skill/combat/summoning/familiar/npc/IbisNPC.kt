@@ -20,6 +20,9 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 import core.tools.RandomFunction
 
+/**
+ * Ibis familiar.
+ */
 @Initializable
 class IbisNPC @JvmOverloads constructor(owner: Player? = null, id: Int = NPCs.IBIS_6991) :
     Forager(owner, id, 3800, 12531, 12, Item(Items.TUNA_361), Item(Items.SWORDFISH_373)) {

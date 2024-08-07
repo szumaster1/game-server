@@ -14,6 +14,9 @@ import core.game.node.entity.player.link.TeleportManager
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Rellekka listeners.
+ */
 class RellekkaListeners : InteractionListener {
 
     companion object {

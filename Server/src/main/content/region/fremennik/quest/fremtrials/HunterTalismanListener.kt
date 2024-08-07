@@ -16,6 +16,11 @@ import core.game.world.map.Location
 import kotlin.math.abs
 import kotlin.math.atan2
 
+/**
+ * Hunter talisman listener
+ *
+ * @constructor Hunter talisman listener
+ */
 class HunterTalismanListener : InteractionListener {
 
     val TALISMAN = Items.HUNTERS_TALISMAN_3696
@@ -46,6 +51,12 @@ class HunterTalismanListener : InteractionListener {
     }
 
 
+    /**
+     * Draugen pulse
+     *
+     * @property player
+     * @constructor Draugen pulse
+     */
     class DraugenPulse(val player: Player) : Pulse() {
         var count = 0
         override fun pulse(): Boolean {
@@ -70,6 +81,12 @@ class HunterTalismanListener : InteractionListener {
     )
 
 
+    /**
+     * Get direction
+     *
+     * @param entity
+     * @return
+     */
     fun Location.getDirection(entity: Entity): String {
         val loc: Location = this
         val difX: Double = (loc.x - entity.location.x).toDouble()
@@ -110,6 +127,13 @@ class HunterTalismanListener : InteractionListener {
         return "Dunno. $angle"
     }
 
+    /**
+     * Diff
+     *
+     * @param x
+     * @param y
+     * @return
+     */
     fun diff(x: Double, y: Double): Double {
         return abs(x - y)
     }

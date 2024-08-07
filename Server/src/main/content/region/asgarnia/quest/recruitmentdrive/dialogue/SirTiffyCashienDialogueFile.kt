@@ -8,6 +8,11 @@ import core.game.dialogue.DialogueBuilder
 import core.game.dialogue.DialogueBuilderFile
 import core.game.dialogue.FacialExpression
 
+/**
+ * Sir tiffy cashien dialogue file
+ *
+ * @constructor Sir tiffy cashien dialogue file
+ */
 class SirTiffyCashienDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {
 
@@ -140,6 +145,11 @@ class SirTiffyCashienDialogueFile : DialogueBuilderFile() {
     }
 }
 
+/**
+ * Sir tiffy cashien failed dialogue file
+ *
+ * @constructor Sir tiffy cashien failed dialogue file
+ */
 class SirTiffyCashienFailedDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {
         b.onPredicate { _ -> true }

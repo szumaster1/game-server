@@ -7,6 +7,9 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
+/**
+ * Draugen NPC.
+ */
 class DraugenNPC(val player: Player) : NPC(1279, player.location?.transform(1, 0, 0)) {
 
     override fun init() {

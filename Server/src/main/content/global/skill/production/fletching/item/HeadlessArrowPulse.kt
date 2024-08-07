@@ -8,6 +8,16 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import kotlin.math.min
 
+/**
+ * Headless arrow pulse
+ *
+ * @property feather
+ * @property sets
+ * @constructor
+ *
+ * @param player
+ * @param node
+ */
 class HeadlessArrowPulse(player: Player?, node: Item?, private val feather: Item?, private var sets: Int) : SkillPulse<Item?>(player, node) {
 
     private val headlessArrow = Item(Items.HEADLESS_ARROW_53)

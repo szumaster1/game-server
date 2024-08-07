@@ -6,6 +6,11 @@ import core.api.openInterface
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Spinning wheel listener
+ *
+ * @constructor Spinning wheel listener
+ */
 class SpinningWheelListener : InteractionListener {
 
     override fun defineListeners() {

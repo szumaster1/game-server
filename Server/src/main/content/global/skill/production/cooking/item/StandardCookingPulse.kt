@@ -18,6 +18,16 @@ import core.game.system.task.Pulse
 import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
 
+/**
+ * Standard cooking pulse
+ *
+ * @property player
+ * @property scenery
+ * @property initial
+ * @property product
+ * @property amount
+ * @constructor Standard cooking pulse
+ */
 open class StandardCookingPulse(
     open val player: Player,
     open val scenery: Scenery,
@@ -47,10 +57,19 @@ open class StandardCookingPulse(
         return reward()
     }
 
+    /**
+     * Animate
+     *
+     */
     fun animate() {
         player.animate(getAnimation(scenery))
     }
 
+    /**
+     * Check requirements
+     *
+     * @return
+     */
     open fun checkRequirements(): Boolean {
         this.experience = 0.0
         if (properties != null) {
@@ -77,6 +96,11 @@ open class StandardCookingPulse(
         return scenery.isActive
     }
 
+    /**
+     * Reward
+     *
+     * @return
+     */
     open fun reward(): Boolean {
         if (delay == 1) {
             var delay = if (scenery.name.lowercase().contains("range")) 5 else 4
@@ -95,6 +119,14 @@ open class StandardCookingPulse(
         return amount < 1
     }
 
+    /**
+     * Is burned
+     *
+     * @param player
+     * @param scenery
+     * @param food
+     * @return
+     */
     open fun isBurned(player: Player, scenery: Scenery, food: Int): Boolean {
         val hasGauntlets = player.equipment.containsItem(Item(Items.COOKING_GAUNTLETS_775))
         var effectiveCookingLevel = player.getSkills().getLevel(Skills.COOKING)
@@ -124,6 +156,16 @@ open class StandardCookingPulse(
         return host_ratio > client_ratio
     }
 
+    /**
+     * Cook
+     *
+     * @param player
+     * @param sceneryId
+     * @param burned
+     * @param initial
+     * @param product
+     * @return
+     */
     open fun cook(player: Player, sceneryId: Scenery?, burned: Boolean, initial: Int, product: Int): Boolean {
         val initialItem = Item(initial)
         val productItem = Item(product)
@@ -165,6 +207,14 @@ open class StandardCookingPulse(
         return false
     }
 
+    /**
+     * Get message
+     *
+     * @param food
+     * @param product
+     * @param burned
+     * @return
+     */
     open fun getMessage(food: Item, product: Item, burned: Boolean): String? {
         if (food.id == Items.RAW_OOMLIE_2337) {
             return "The meat is far too delicate to cook like this. Perhaps you should wrap something around it to protect it from the heat."

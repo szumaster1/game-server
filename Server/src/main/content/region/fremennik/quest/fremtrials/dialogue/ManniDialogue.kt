@@ -16,6 +16,9 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Manni dialogue.
+ */
 @Initializable
 class ManniDialogue(player: Player? = null): Dialogue(player) {
     private var curNPC: NPC? = NPC(0, Location(0, 0, 0))
@@ -168,6 +171,14 @@ class ManniDialogue(player: Player? = null): Dialogue(player) {
     }
 
 
+    /**
+     * Drinking pulse
+     *
+     * @property player
+     * @property npc
+     * @property lowAlcohol
+     * @constructor Drinking pulse
+     */
     class DrinkingPulse(val player: Player?, val npc: NPC?, val lowAlcohol: Boolean? = false) : Pulse() {
         var counter = 0
         override fun pulse(): Boolean {

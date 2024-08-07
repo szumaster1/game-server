@@ -7,6 +7,11 @@ import core.api.isNextLast
 import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
+/**
+ * Equipment degrader
+ *
+ * @constructor Equipment degrader
+ */
 class EquipmentDegrader {
 
     companion object StaticDegrader {
@@ -29,6 +34,11 @@ class EquipmentDegrader {
 
     var p: Player? = null
 
+    /**
+     * Can degrade
+     *
+     * @return
+     */
     fun Int.canDegrade(): Boolean {
         /*
          * Extension function that checks if an item can degrade.
@@ -41,6 +51,11 @@ class EquipmentDegrader {
      * non-null, checks if it can degrade etc.
      */
 
+    /**
+     * Check armour degrades
+     *
+     * @param player
+     */
     fun checkArmourDegrades(player: Player?) {
         p = player
         for (slot in 0..12) {
@@ -51,11 +66,21 @@ class EquipmentDegrader {
         }
     }
 
+    /**
+     * Check weapon degrades
+     *
+     * @param player
+     */
     fun checkWeaponDegrades(player: Player?) {
         p = player
         player?.equipment?.get(3)?.let { if (it.id.canDegrade()) it.degrade(3) }
     }
 
+    /**
+     * Degrade
+     *
+     * @param slot
+     */
     fun Item.degrade(slot: Int) { //extension function that degrades items
         val set = getDegradableSet(this.id)
         val charges = itemCharges.getOrElse(this.id) { 1000 }

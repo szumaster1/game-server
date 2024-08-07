@@ -13,6 +13,11 @@ import org.json.simple.JSONObject
 import org.json.simple.parser.JSONParser
 import java.io.FileReader
 
+/**
+ * Music config loader
+ *
+ * @constructor Music config loader
+ */
 class MusicConfigLoader {
     //1351 -> buttonID:songID
     //1345 -> buttonID:songName (capitalized)
@@ -20,6 +25,11 @@ class MusicConfigLoader {
 
     val parser = JSONParser()
     var reader: FileReader? = null
+
+    /**
+     * Load
+     *
+     */
     fun load() {
         var count = 0
         reader = FileReader(ServerConstants.CONFIG_PATH + "music_configs.json")

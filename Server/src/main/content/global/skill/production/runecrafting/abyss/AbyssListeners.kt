@@ -31,6 +31,9 @@ import kotlin.math.sin
 import kotlin.random.Random
 import core.api.consts.Scenery as Object
 
+/**
+ * Abyss listener.
+ */
 class Abyss : InteractionListener {
 
     override fun defineListeners() {
@@ -222,19 +225,34 @@ class Abyss : InteractionListener {
     }
 }
 
-/*
+/**
+ * Abyss loc
+ *
+ * @property radius
+ * @property angle
+ * @constructor Abyss loc
+ *//*
  * Polar coordinates class for abyss.
  */
 class AbyssLoc(val radius: Double, val angle: Double) {
 
-    /*
+    /**
+     * Attract
+     *
+     * @param steps
+     * @return
+     *//*
      * Attract the location towards the center.
      */
     fun attract(steps: Int = 1): AbyssLoc {
         return AbyssLoc(radius - steps.toDouble(), angle)
     }
 
-    /*
+    /**
+     * Get segment
+     *
+     * @return
+     *//*
      * Get the segment of an abyssloc - its angle as an integer modulo 12,
      * with south = 0 and positive = clockwise this is used to determine
      * which of the 12 evenly spaced obstacles around the outer ring the
@@ -252,7 +270,11 @@ class AbyssLoc(val radius: Double, val angle: Double) {
         return normalSegment
     }
 
-    /*
+    /**
+     * To abs
+     *
+     * @return
+     *//*
      * Transform back to absolute coordinates
      */
     fun toAbs(): Location {
@@ -261,7 +283,11 @@ class AbyssLoc(val radius: Double, val angle: Double) {
         return origin.transform(x, y, 0)
     }
 
-    /*
+    /**
+     * Is valid
+     *
+     * @return
+     *//*
      * Check if location is valid
      */
     fun isValid(): Boolean {

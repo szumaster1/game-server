@@ -9,7 +9,6 @@ import kotlin.random.Random
 
 /**
  * Assembles combat-style bots, intended to replace PVMBotBuilder.
- * @author Ceikry
  */
 class CombatBotAssembler {
     enum class Type {
@@ -22,11 +21,11 @@ class CombatBotAssembler {
 
     /**
      * Produces a bot with the specified parameters.
+     *
      * @param type     the type of bot to produce. Melee, Ranged, or Mage.
      * @param tier     specifies the range of skills the bot can have, and thereby, the gear. LOW, MED, or HIGH.
      * @param location the location that the bot spawns and respawns at.
      * @return an AIPlayer with the specified values.
-     * @author Ceikry
      */
     fun produce(type: Type, tier: Tier, location: Location): AIPlayer {
         return when (type) {
@@ -38,11 +37,11 @@ class CombatBotAssembler {
 
     /**
      * Assembles a ranged bot with the specified values.
+     *
      * @param tier     the tier to use which defines skill ranges and gear.
      * @param location the bot's spawn and respawn location
      * @param crossbow (optional) whether or not this bot should use a crossbow
      * @return a CombatBot with the specified values.
-     * @author Ceikry
      */
     fun assembleRangedBot(tier: Tier, location: Location, crossbow: Boolean? = null): CombatBot {
         val bot = CombatBot(location)
@@ -54,10 +53,10 @@ class CombatBotAssembler {
 
     /**
      * Assembles a melee bot with the specified values.
+     *
      * @param tier     the tier of the bot. Specifies levels and gear.
      * @param location the spawn and respawn location of the bot.
      * @return a CombatBot with the specified values.
-     * @author Ceikry
      */
     fun assembleMeleeBot(tier: Tier, location: Location): CombatBot {
         val bot = CombatBot(location)
@@ -72,7 +71,6 @@ class CombatBotAssembler {
      * @param tier     the tier of the bot, specifying levels and gear.
      * @param location the spawn and respawn location of the bot.
      * @return a CombatBot suited for killing dragons.
-     * @author Kermit
      */
     fun MeleeAdventurer(tier: Tier, location: Location): CombatBot {
         val bot = CombatBot(location)
@@ -101,10 +99,10 @@ class CombatBotAssembler {
 
     /**
      * Assembles a melee bot with gear appropriate for killing dragons.
+     *
      * @param tier     the tier of the bot, specifying levels and gear.
      * @param location the spawn and respawn location of the bot.
      * @return a CombatBot suited for killing dragons.
-     * @author Kermit
      */
     fun RangeAdventurer(tier: Tier, location: Location): CombatBot {
         val bot = CombatBot(location)
@@ -135,10 +133,10 @@ class CombatBotAssembler {
 
     /**
      * Assembles a melee bot with gear appropriate for killing dragons.
+     *
      * @param tier     the tier of the bot, specifying levels and gear.
      * @param location the spawn and respawn location of the bot.
      * @return a CombatBot suited for killing dragons.
-     * @author Ceikry
      */
     fun assembleMeleeDragonBot(tier: Tier, location: Location): CombatBot {
         val bot = CombatBot(location)
@@ -156,10 +154,10 @@ class CombatBotAssembler {
 
     /**
      * Assembles a ranged bot with gear appropriate for killing dragons.
+     *
      * @param tier     the tier of the bot, specifying levels and gear.
      * @param location the spawn and respawn location of the bot.
      * @return a CombatBot suited for killing dragons.
-     * @author Ceikry
      */
     fun assembleRangeDragonBot(tier: Tier, location: Location): CombatBot {
         val bot = CombatBot(location)
@@ -179,9 +177,9 @@ class CombatBotAssembler {
 
     /**
      * Gears a ranged bot with the best gear for its stats.
+     *
      * @param bot      the bot to gear
      * @param crossbow (optional) whether or not this bot should use a crossbow. Default is false.
-     * @author Ceikry
      */
     fun gearRangedBot(bot: AIPlayer, crossbow: Boolean? = false) {
         equipHighest(bot, RANGE_HELMS)
@@ -204,8 +202,8 @@ class CombatBotAssembler {
 
     /**
      * Gears a melee bot with the best gear for its stats.
+     *
      * @param bot the bot to gear.
-     * @author Ceikry
      */
     fun gearMeleeBot(bot: AIPlayer) {
         equipHighest(bot, MELEE_HELMS)
@@ -221,7 +219,6 @@ class CombatBotAssembler {
 
     /**
      * Gears a Novice Pest control bot.
-     * @author Sir Kermit & Ceikry
      */
     fun gearPCnRangedBot(bot: AIPlayer, crossbow: Boolean? = false, vararg skills: Int) {
         var max = 0
@@ -309,7 +306,6 @@ class CombatBotAssembler {
 
     /**
      * Gears an Intermediate Pest control bot.
-     * @author Sir Kermit & Ceikry
      */
     fun gearPCiRangedBot(bot: AIPlayer, crossbow: Boolean? = false, vararg skills: Int) {
         var max = 0
@@ -402,10 +398,10 @@ class CombatBotAssembler {
 
     /**
      * Generates the stats for a bot with the given tier.
+     *
      * @param bot    the bot to gear
      * @param tier   the Tier of stats and gear. LOW, MED, HIGH, PURE.
      * @param skills the skills that we should generate.
-     * @author Ceikry and Eli
      */
     fun generateStats(bot: AIPlayer, tier: Tier, vararg skills: Int) {
         var totalXPAdd = 0.0
@@ -450,10 +446,10 @@ class CombatBotAssembler {
 
     /**
      * Equips the highest piece of gear from a set for the stats the bot has.
+     *
      * @param bot      the bot to equip gear to.
      * @param set      the IntArray set to check
      * @param levelcap (optional) the max level of gear to equip.
-     * @author Ceikry
      */
     private fun equipHighest(bot: AIPlayer, set: Array<Int>, levelcap: Int? = null) {
         val highestItems = ArrayList<Item>()
@@ -490,7 +486,6 @@ class CombatBotAssembler {
 
     /**
      * Extension function for the Item class that gets the average of its level requirements.
-     * @author Ceikry
      */
     fun Item.lvlAvg(): Int {
         var total = 1
@@ -518,279 +513,27 @@ class CombatBotAssembler {
     val PCBOWS = arrayOf(841, 843, 847, 853)
     val PCCROSSBOWS = arrayOf(9185, 9174, 9177, 9176, 9179, 9181, 9183)
 
-    val MELEE_HELMS = arrayOf(
-        1137,
-        1139,
-        1141,
-        6621,
-        1143,
-        1145,
-        1147,
-        1149,
-        1151,
-        1153,
-        6623,
-        1159,
-        1163,
-        1165,
-        3748,
-        3751,
-        3753,
-        4716,
-        4724,
-        4745,
-        4753
-    )
-    val MELEE_TOP = arrayOf(
-        1101,
-        1103,
-        1105,
-        1107,
-        1109,
-        1111,
-        1113,
-        2513,
-        1115,
-        1117,
-        1119,
-        1121,
-        1123,
-        1125,
-        1127,
-        4720,
-        4728,
-        4749,
-        4749
-    )
-    val MELEE_LEG = arrayOf(
-        1081,
-        1083,
-        1085,
-        1087,
-        1089,
-        1091,
-        1093,
-        4759,
-        1067,
-        1069,
-        1071,
-        1073,
-        1075,
-        1077,
-        1079,
-        4722,
-        4751,
-        4722,
-        4751
-    )
-    val MELEE_SHIELD =
-        arrayOf(1171, 1173, 1175, 1177, 1179, 1181, 1183, 1185, 1187, 1189, 1191, 1193, 1195, 1197, 1199, 1201)
-    val MELEE_WEP = arrayOf(
-        1277,
-        1279,
-        1281,
-        1283,
-        1285,
-        1287,
-        1289,
-        1291,
-        1293,
-        1295,
-        1297,
-        1299,
-        1301,
-        1303,
-        1305,
-        1321,
-        1323,
-        1325,
-        1327,
-        1329,
-        1331,
-        1333,
-        4587,
-        4151,
-        1363,
-        1365,
-        1367,
-        1369,
-        1371,
-        1373,
-        1375,
-        1377
-    )
+    val MELEE_HELMS = arrayOf(1137, 1139, 1141, 6621, 1143, 1145, 1147, 1149, 1151, 1153, 6623, 1159, 1163, 1165, 3748, 3751, 3753, 4716, 4724, 4745, 4753)
+    val MELEE_TOP = arrayOf(1101, 1103, 1105, 1107, 1109, 1111, 1113, 2513, 1115, 1117, 1119, 1121, 1123, 1125, 1127, 4720, 4728, 4749, 4749)
+    val MELEE_LEG = arrayOf(1081, 1083, 1085, 1087, 1089, 1091, 1093, 4759, 1067, 1069, 1071, 1073, 1075, 1077, 1079, 4722, 4751, 4722, 4751)
+    val MELEE_SHIELD = arrayOf(1171, 1173, 1175, 1177, 1179, 1181, 1183, 1185, 1187, 1189, 1191, 1193, 1195, 1197, 1199, 1201)
+    val MELEE_WEP = arrayOf(1277, 1279, 1281, 1283, 1285, 1287, 1289, 1291, 1293, 1295, 1297, 1299, 1301, 1303, 1305, 1321, 1323, 1325, 1327, 1329, 1331, 1333, 4587, 4151, 1363, 1365, 1367, 1369, 1371, 1373, 1375, 1377)
     val NGLOVES = arrayOf(1059, 2922, 2912, 2902, 2932, 2942, 3799)
     val NBOOTS = arrayOf(4121, 4123, 4125, 4127, 4129, 4131, 1061, 1837, 2579, 9005)
     val NRBOOTS = arrayOf(9006, 626, 628, 630, 632, 634)
     val NNECK = arrayOf(1704, 1725, 1729, 1731)
     val NRANGENECK = arrayOf(1478, 1704)
     val NRANGESHIELD = arrayOf(1191, 1193, 1195, 1197, 1199, 1201)
-
-    val PCMELEE_HELMS = arrayOf(
-        1137,
-        1139,
-        1141,
-        6621,
-        1143,
-        1145,
-        1147,
-        1149,
-        1151,
-        1153,
-        6623,
-        1159,
-        1163,
-        1165,
-        3748,
-        3751,
-        10828,
-        11335,
-        3753,
-        4716,
-        4724,
-        4745,
-        4753,
-        3751
-    )
-    val PCMELEE_TOP = arrayOf(
-        1101,
-        1103,
-        1105,
-        1107,
-        1109,
-        1111,
-        1113,
-        2513,
-        1115,
-        1117,
-        1119,
-        1121,
-        1123,
-        1125,
-        1127,
-        4720,
-        4728,
-        4749,
-        4749,
-        11724,
-        14479,
-        2513
-    )
-    val PCMELEE_LEG = arrayOf(
-        1081,
-        1083,
-        1085,
-        1087,
-        1089,
-        1091,
-        1093,
-        4759,
-        1067,
-        1069,
-        1071,
-        1073,
-        1075,
-        1077,
-        1079,
-        4722,
-        4751,
-        4722,
-        4751,
-        11726,
-        4087
-    )
-    val PCMELEE_SHIELD = arrayOf(
-        1171,
-        1173,
-        1175,
-        1177,
-        1179,
-        1181,
-        1183,
-        1185,
-        1187,
-        1189,
-        1191,
-        1193,
-        1195,
-        1197,
-        1199,
-        1201,
-        6524,
-        13742,
-        13740,
-        13738,
-        13736,
-        13734
-    )
-    val PCMELEE_WEP = arrayOf(
-        1277,
-        1279,
-        1281,
-        1283,
-        1285,
-        1287,
-        1289,
-        1291,
-        1293,
-        1295,
-        1297,
-        1299,
-        1301,
-        1303,
-        1305,
-        1321,
-        1323,
-        1325,
-        1327,
-        1329,
-        1331,
-        1333,
-        4587,
-        4151,
-        1363,
-        1365,
-        1367,
-        1369,
-        1371,
-        1373,
-        1375,
-        1377,
-        1434,
-        5698
-    )
-
+    val PCMELEE_HELMS = arrayOf(1137, 1139, 1141, 6621, 1143, 1145, 1147, 1149, 1151, 1153, 6623, 1159, 1163, 1165, 3748, 3751, 10828, 11335, 3753, 4716, 4724, 4745, 4753, 3751)
+    val PCMELEE_TOP = arrayOf(1101, 1103, 1105, 1107, 1109, 1111, 1113, 2513, 1115, 1117, 1119, 1121, 1123, 1125, 1127, 4720, 4728, 4749, 4749, 11724, 14479, 2513)
+    val PCMELEE_LEG = arrayOf(1081, 1083, 1085, 1087, 1089, 1091, 1093, 4759, 1067, 1069, 1071, 1073, 1075, 1077, 1079, 4722, 4751, 4722, 4751, 11726, 4087)
+    val PCMELEE_SHIELD = arrayOf(1171, 1173, 1175, 1177, 1179, 1181, 1183, 1185, 1187, 1189, 1191, 1193, 1195, 1197, 1199, 1201, 6524, 13742, 13740, 13738, 13736, 13734)
+    val PCMELEE_WEP = arrayOf(1277, 1279, 1281, 1283, 1285, 1287, 1289, 1291, 1293, 1295, 1297, 1299, 1301, 1303, 1305, 1321, 1323, 1325, 1327, 1329, 1331, 1333, 4587, 4151, 1363, 1365, 1367, 1369, 1371, 1373, 1375, 1377, 1434, 5698)
     val NECK = arrayOf(1704, 6585)
-    val CAPE = arrayOf(
-        1019,
-        1021,
-        1023,
-        6568,
-        4315,
-        4317,
-        4319,
-        4321,
-        4323,
-        4325,
-        4327,
-        4329,
-        4331,
-        4333,
-        4335,
-        4337,
-        4339,
-        4341,
-        4343,
-        4345,
-        4347,
-        4349,
-        4351
-    )
+    val CAPE = arrayOf(1019, 1021, 1023, 6568, 4315, 4317, 4319, 4321, 4323, 4325, 4327, 4329, 4331, 4333, 4335, 4337, 4339, 4341, 4343, 4345, 4347, 4349, 4351)
     val GLOVES = arrayOf(1059, 7456, 7457, 7458, 7459, 7460, 7461, 7462)
     val BOOTS = arrayOf(1061, 4131, 11732, 11728, 4131)
     val RING_BERS = arrayOf(6737)
     val RING_ARCH = arrayOf(6733)
-
-    val RICH_MELEE_HELMS =
-        arrayOf(2587, 2595, 2605, 2613, 2619, 2627, 2657, 2665, 2673, 3486, 1149, 10828, 4716, 4724, 4753)
+    val RICH_MELEE_HELMS = arrayOf(2587, 2595, 2605, 2613, 2619, 2627, 2657, 2665, 2673, 3486, 1149, 10828, 4716, 4724, 4753)
 }

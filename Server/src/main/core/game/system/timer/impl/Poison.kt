@@ -11,13 +11,10 @@ import core.game.world.repository.Repository
 import org.json.simple.JSONObject
 
 /**
- * A timer that replicates the behavior of poison mechanics. Runs every 30 ticks.
- * If you wish to construct an instance of this Timer, consider using the ContentAPI function `applyPoison` instead.
- * If that doesn't suit your needs, then use `Poison.getTimer (source, severity)` and then `registerTimer(entity, timer)`
- * Poison mechanics are driven by the `severity` value, which is not a 1:1 representation of damage. Instead the formula `floor((severity + 4) / 5)` is used.
- * Every time the damage is applied, the severity decreases by 1. Poison ends when severity reaches 0.
- * Example: 30 Severity. Deals 6 damage 5 times, then 5 damage 5 times, and so on.
- **/
+ * Poison
+ *
+ * @constructor Poison
+ */
 class Poison : PersistTimer(
     runInterval = 30,
     identifier = "poison",

@@ -21,6 +21,9 @@ import core.game.world.map.zone.ZoneBorders
 import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
 
+/**
+ * Thieving listeners.
+ */
 class ThievingListeners : InteractionListener {
 
     companion object {

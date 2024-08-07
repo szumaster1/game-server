@@ -5,6 +5,10 @@ import core.network.packet.OutgoingPacket;
 import core.network.packet.PacketHeader;
 import core.network.packet.context.InteractionOptionContext;
 
+/**
+ * Interaction option.
+ * @author Emperor
+ */
 public final class InteractionOption implements OutgoingPacket<InteractionOptionContext> {
 
     @Override

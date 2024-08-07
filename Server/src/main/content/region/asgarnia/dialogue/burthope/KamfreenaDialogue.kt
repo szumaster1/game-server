@@ -7,6 +7,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Kamfreena dialogue.
+ */
 @Initializable
 class KamfreenaDialogue(player: Player? = null) : Dialogue(player) {
 

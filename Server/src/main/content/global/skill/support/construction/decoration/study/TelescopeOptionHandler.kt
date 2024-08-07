@@ -19,6 +19,9 @@ import core.plugin.Plugin
 import core.tools.RandomFunction
 import java.util.concurrent.TimeUnit
 
+/**
+ * Telescope option handler.
+ */
 @Initializable
 class TelescopeOptionHandler : OptionHandler() {
     @Throws(Throwable::class)

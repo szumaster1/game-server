@@ -13,6 +13,9 @@ import core.game.world.update.flag.context.Animation;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
+/**
+ * Sheep poison handler.
+ */
 @Initializable
 public class SheepPoisonHandler extends PluginInteraction {
     @Override
@@ -34,6 +37,12 @@ public class SheepPoisonHandler extends PluginInteraction {
         return false;
     }
 
+    /**
+     * Handle poisoning.
+     *
+     * @param p the p
+     * @param n the n
+     */
     public void handlePoisoning(Player p, HerderSheepNPC n) {
         p.lock(1);
         Pulse deathPulse = new Pulse() {

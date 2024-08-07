@@ -10,6 +10,9 @@ import core.game.interaction.InteractionListener
 import core.game.node.item.Item
 import core.game.world.map.Location
 
+/**
+ * Hand dust listener.
+ */
 class HandDustListener : InteractionListener {
 
     override fun defineListeners() {

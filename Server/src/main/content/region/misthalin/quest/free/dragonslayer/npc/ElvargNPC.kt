@@ -27,7 +27,9 @@ import core.plugin.Initializable
 import core.tools.RandomFunction
 import kotlin.math.ceil
 
-
+/**
+ * Elvarg NPC.
+ */
 @Initializable
 class ElvargNPC : AbstractNPC {
 
@@ -128,6 +130,11 @@ class ElvargNPC : AbstractNPC {
         return 0x2 or 0x4 or 0x8
     }
 
+    /**
+     * Elvarg combat swing handler
+     *
+     * @constructor Elvarg combat swing handler
+     */
     internal class ElvargCombatSwingHandler : CombatSwingHandler(CombatStyle.RANGE) {
 
         private var style = CombatStyle.RANGE

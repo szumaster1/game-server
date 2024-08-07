@@ -22,6 +22,13 @@ private val runecrafting: IntArray = intArrayOf(2, 5, 6, 9, 10, 11, 13, 14, 15, 
 private val slayer: IntArray = intArrayOf(5, 7, 10, 15, 17, 20, 22, 25, 30, 32, 33, 35, 37, 39, 40, 42, 45, 47, 50, 51, 52, 55, 56, 57, 58, 59, 60, 63, 65, 68, 70, 72, 75, 80, 83, 85, 90, 99)
 private val farming: IntArray = intArrayOf(2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 36, 38, 39, 42, 44, 45, 47, 48, 50, 51, 52, 53, 55, 56, 57, 59, 60, 62, 63, 67, 68, 70, 72, 73, 75, 79, 83, 85, 99)
 
+/**
+ * Get skill jingle
+ *
+ * @param player
+ * @param slot
+ * @return
+ */
 fun getSkillJingle(player: Player, slot: Int) : Int {
     val skillLevel = getStatLevel(player, slot)
     when (slot) {

@@ -9,6 +9,9 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.api.consts.NPCs
 
+/**
+ * Lumbridge shop keeper dialogue.
+ */
 @Initializable
 class LumbridgeShopKeeperDialogue(player: Player? = null) : Dialogue(player) {
 

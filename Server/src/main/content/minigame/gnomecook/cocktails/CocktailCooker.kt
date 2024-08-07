@@ -13,6 +13,9 @@ import core.plugin.Plugin
 private const val UNCOOKED_CHOC_SAT = 9572
 private const val UNCOOKED_DRUN_DRA = 9576
 
+/**
+ * Cocktail cooker.
+ */
 @Initializable
 class CocktailCooker : UseWithHandler(UNCOOKED_CHOC_SAT, UNCOOKED_DRUN_DRA) {
     override fun newInstance(arg: Any?): Plugin<Any> {
@@ -49,8 +52,25 @@ class CocktailCooker : UseWithHandler(UNCOOKED_CHOC_SAT, UNCOOKED_DRUN_DRA) {
         })
     }
 
+    /**
+     * Cooked drinks
+     *
+     * @property product
+     * @constructor Cooked drinks
+     */
     internal enum class CookedDrinks(val product: Int) {
+        /**
+         * Cooked Choc Sat
+         *
+         * @constructor Cooked Choc Sat
+         */
         COOKED_CHOC_SAT(9573),
+
+        /**
+         * Cooked Drun Dra
+         *
+         * @constructor Cooked Drun Dra
+         */
         COOKED_DRUN_DRA(2092)
     }
 

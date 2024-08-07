@@ -8,6 +8,9 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
+/**
+ * Bentamir dialogue.
+ */
 @Initializable
 class BentamirDialogue(player: Player? = null) : Dialogue(player) {
 

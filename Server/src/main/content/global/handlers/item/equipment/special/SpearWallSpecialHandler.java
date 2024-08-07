@@ -20,6 +20,9 @@ import java.util.List;
 
 import static core.api.ContentAPIKt.playGlobalAudio;
 
+/**
+ * Spear wall special handler.
+ */
 @Initializable
 public final class SpearWallSpecialHandler extends MeleeSwingHandler implements Plugin<Object> {
 

@@ -20,8 +20,6 @@ import java.awt.Point
 
 /**
  * Handles door actions.
- *
- * @author Emperor
  */
 object DoorActionHandler {
     /**

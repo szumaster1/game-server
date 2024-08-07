@@ -15,6 +15,11 @@ import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Graphic
 
+/**
+ * Wizard tower listener
+ *
+ * @constructor Wizard tower listener
+ */
 class WizardTowerListener : InteractionListener {
 
     companion object {

@@ -14,6 +14,11 @@ import core.game.node.entity.skill.Skills
 import core.game.world.map.Location
 import org.json.simple.JSONObject
 
+/**
+ * Explorers ring listener
+ *
+ * @constructor Explorers ring listener
+ */
 class ExplorersRingListener : InteractionListener {
 
     companion object {
@@ -97,10 +102,21 @@ class ExplorersRingListener : InteractionListener {
         }
     }
 
+    /**
+     * Teleport
+     *
+     * @param player
+     */
     fun teleport(player: Player) {
         teleport(player, CABBAGE_PORT, TeleportType.CABBAGE)
     }
 
+    /**
+     * Get ring level
+     *
+     * @param id
+     * @return
+     */
     fun getRingLevel(id: Int): Int {
         return when (id) {
             Items.EXPLORERS_RING_1_13560 -> 1
@@ -110,6 +126,11 @@ class ExplorersRingListener : InteractionListener {
         }
     }
 
+    /**
+     * Get store file
+     *
+     * @return
+     */
     fun getStoreFile(): JSONObject {
         return ServerStore.getArchive("daily-explorer-ring")
     }

@@ -10,6 +10,11 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 import core.game.world.GameWorld.settings
 
+/**
+ * Gloughs journal
+ *
+ * @constructor Gloughs journal
+ */
 class GloughsJournal : InteractionListener {
 
     // Glough's journal is found during The

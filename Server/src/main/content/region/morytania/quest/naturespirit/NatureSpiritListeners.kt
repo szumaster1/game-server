@@ -21,6 +21,11 @@ import core.game.world.map.Location
 import core.tools.END_DIALOGUE
 import core.tools.Log
 
+/**
+ * Nature spirit listeners
+ *
+ * @constructor Nature spirit listeners
+ */
 class NatureSpiritListeners : InteractionListener {
 
     val GROTTO_TREE = 3517
@@ -226,6 +231,11 @@ class NatureSpiritListeners : InteractionListener {
     }
 }
 
+/**
+ * N s journal dialogue
+ *
+ * @constructor N s journal dialogue
+ */
 class NSJournalDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
@@ -236,6 +246,11 @@ class NSJournalDialogue : DialogueFile() {
     }
 }
 
+/**
+ * Filliman completion dialogue
+ *
+ * @constructor Filliman completion dialogue
+ */
 class FillimanCompletionDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
@@ -251,6 +266,12 @@ class FillimanCompletionDialogue : DialogueFile() {
     }
 }
 
+/**
+ * Complete spell pulse
+ *
+ * @property player
+ * @constructor Complete spell pulse
+ */
 class CompleteSpellPulse(val player: Player) : Pulse(2) {
     var counter = 0
     val locations = arrayOf(Location.create(3444, 9740, 0), Location.create(3439, 9740, 0), Location.create(3439, 9737, 0), Location.create(3444, 9737, 0), Location.create(3444, 9735, 0), Location.create(3438, 9735, 0))

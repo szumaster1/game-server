@@ -6,9 +6,6 @@ import core.game.interaction.InterfaceListener
 import core.game.node.entity.skill.LevelUp
 import core.game.node.entity.skill.Skills
 
-/**
- * @author joshking071
- */
 class StatsTabInterfaceListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {

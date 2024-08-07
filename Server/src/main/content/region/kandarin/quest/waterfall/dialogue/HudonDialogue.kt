@@ -6,6 +6,9 @@ import core.game.dialogue.DialogueInterpreter
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 
+/**
+ * Hudon dialogue.
+ */
 class HudonDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun getIds(): IntArray {

@@ -4,6 +4,17 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
+/**
+ * Box trap node
+ *
+ * @property summoningLevel
+ * @constructor
+ *
+ * @param npcIds
+ * @param level
+ * @param experience
+ * @param rewards
+ */
 open class BoxTrapNode(
     npcIds: IntArray,
     level: Int,

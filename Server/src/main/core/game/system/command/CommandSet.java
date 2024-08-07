@@ -7,26 +7,44 @@ import core.game.world.GameWorld;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The enum Command set.
+ */
 public enum CommandSet {
+    /**
+     * Player command set.
+     */
     PLAYER(),
+    /**
+     * The Moderator.
+     */
     MODERATOR() {
         @Override
         public boolean validate(Player player) {
             return player.getDetails().getRights().ordinal() > 0;
         }
     },
+    /**
+     * The Administrator.
+     */
     ADMINISTRATOR() {
         @Override
         public boolean validate(Player player) {
             return player.getDetails().getRights().equals(Rights.ADMINISTRATOR);
         }
     },
+    /**
+     * The Developer.
+     */
     DEVELOPER() {
         @Override
         public boolean validate(Player player) {
             return player.getDetails().getRights().equals(Rights.ADMINISTRATOR);
         }
     },
+    /**
+     * The Beta.
+     */
     BETA() {
         @Override
         public boolean validate(Player player) {
@@ -42,10 +60,24 @@ public enum CommandSet {
          */
     }
 
+    /**
+     * Validate boolean.
+     *
+     * @param player the player
+     * @return the boolean
+     */
     public boolean validate(final Player player) {
         return true;
     }
 
+    /**
+     * Interpret boolean.
+     *
+     * @param player    the player
+     * @param name      the name
+     * @param arguments the arguments
+     * @return the boolean
+     */
     public boolean interpret(final Player player, final String name, final String... arguments) {
         if (player == null) {
             return false;
@@ -68,6 +100,11 @@ public enum CommandSet {
         return false;
     }
 
+    /**
+     * Gets plugins.
+     *
+     * @return the plugins
+     */
     public List<CommandPlugin> getPlugins() {
         return plugins;
     }

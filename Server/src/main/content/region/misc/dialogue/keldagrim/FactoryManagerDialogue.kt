@@ -8,6 +8,9 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
+/**
+ * Factory manager dialogue.
+ */
 @Initializable
 class FactoryManagerDialogue(player: Player? = null) : Dialogue(player) {
 

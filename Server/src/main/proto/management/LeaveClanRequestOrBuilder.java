@@ -3,21 +3,54 @@
 
 package proto.management;
 
+/**
+ * The interface Leave clan request or builder.
+ */
 public interface LeaveClanRequestOrBuilder extends
         // @@protoc_insertion_point(interface_extends:management.LeaveClanRequest)
         com.google.protobuf.MessageOrBuilder {
 
+    /**
+     * Has username boolean.
+     *
+     * @return the boolean
+     */
     boolean hasUsername();
 
-    java.lang.String getUsername();
+    /**
+     * Gets username.
+     *
+     * @return the username
+     */
+    String getUsername();
 
+    /**
+     * Gets username bytes.
+     *
+     * @return the username bytes
+     */
     com.google.protobuf.ByteString
     getUsernameBytes();
 
+    /**
+     * Has clan name boolean.
+     *
+     * @return the boolean
+     */
     boolean hasClanName();
 
-    java.lang.String getClanName();
+    /**
+     * Gets clan name.
+     *
+     * @return the clan name
+     */
+    String getClanName();
 
+    /**
+     * Gets clan name bytes.
+     *
+     * @return the clan name bytes
+     */
     com.google.protobuf.ByteString
     getClanNameBytes();
 }

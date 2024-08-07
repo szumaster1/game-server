@@ -14,6 +14,9 @@ import core.game.system.task.Pulse
 import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 
+/**
+ * Sedridor dialogue.
+ */
 @Initializable
 class SedridorDialogue(player: Player? = null) : Dialogue(player) {
 

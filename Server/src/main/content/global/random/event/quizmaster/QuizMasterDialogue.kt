@@ -15,6 +15,9 @@ import core.network.packet.outgoing.DisplayModel
 import core.tools.Log
 import core.tools.RandomFunction
 
+/**
+ * Quiz master dialogue.
+ */
 //@Initializable
 class QuizMasterDialogue(player: Player? = null) : Dialogue(player) {
     private var randomEvent: QuizMasterEvent? = null
@@ -115,6 +118,11 @@ class QuizMasterDialogue(player: Player? = null) : Dialogue(player) {
     }
 
 
+    /**
+     * Reward
+     *
+     * @param player
+     */
     fun reward(player: Player) {
         QuizUtils.cleanup(player)
         player.pulseManager.run(object : Pulse() {
@@ -145,6 +153,12 @@ class QuizMasterDialogue(player: Player? = null) : Dialogue(player) {
         )
     }
 
+    /**
+     * Get dialogue
+     *
+     * @param dialogues
+     * @return
+     */
     fun getDialogue(dialogues: Array<Array<String?>>): Array<String?> {
         return dialogues[RandomFunction.random(dialogues.size)]
     }

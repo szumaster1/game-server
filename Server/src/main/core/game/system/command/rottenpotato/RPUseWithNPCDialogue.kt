@@ -9,7 +9,6 @@ import core.tools.colorize
 
 /**
  * Rotten potato -> npc interaction menu
- * @author Ceikry
  */
 @Initializable
 class RPUseWithNPCDialogue(player: Player? = null) : Dialogue(player) {

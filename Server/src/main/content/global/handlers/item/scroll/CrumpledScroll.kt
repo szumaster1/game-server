@@ -7,6 +7,11 @@ import core.api.setInterfaceText
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Crumpled scroll
+ *
+ * @constructor Crumpled scroll
+ */
 class CrumpledScroll : InteractionListener {
     companion object {
         private const val MESSAGE_SCROLL = Components.BLANK_SCROLL_222

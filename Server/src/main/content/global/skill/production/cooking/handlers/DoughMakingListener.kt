@@ -9,6 +9,9 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
+/**
+ * Dough making listener.
+ */
 class DoughMakingListener : InteractionListener {
 
     companion object {

@@ -2,13 +2,33 @@ package content.global.skill.production.fletching.data
 
 import core.api.consts.Items
 
+/**
+ * Kebbit bolt
+ *
+ * @property base
+ * @property product
+ * @property level
+ * @property experience
+ * @constructor Kebbit bolt
+ */
 enum class KebbitBolt(val base: Int, val product: Int, val level: Int, val experience: Double) {
+    /**
+     * Kebbit Bolt
+     *
+     * @constructor Kebbit Bolt
+     */
     KEBBIT_BOLT(
         base = Items.KEBBIT_SPIKE_10105,
         product = Items.KEBBIT_BOLTS_10158,
         level = 32,
         experience = 5.80
     ),
+
+    /**
+     * Long Kebbit Bolt
+     *
+     * @constructor Long Kebbit Bolt
+     */
     LONG_KEBBIT_BOLT(
         base = Items.LONG_KEBBIT_SPIKE_10107,
         product = Items.LONG_KEBBIT_BOLTS_10159,

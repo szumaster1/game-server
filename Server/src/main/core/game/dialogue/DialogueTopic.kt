@@ -1,5 +1,15 @@
 package core.game.dialogue
 
+/**
+ * Topic
+ *
+ * @param T
+ * @property expr
+ * @property text
+ * @property toStage
+ * @property skipPlayer
+ * @constructor Topic
+ */
 open class Topic<T> @JvmOverloads constructor(
     val expr: FacialExpression,
     val text: String,
@@ -12,6 +22,18 @@ open class Topic<T> @JvmOverloads constructor(
     )
 }
 
+/**
+ * If topic
+ *
+ * @param T
+ * @property showCondition
+ * @constructor
+ *
+ * @param expr
+ * @param text
+ * @param toStage
+ * @param skipPlayer
+ */
 class IfTopic<T> @JvmOverloads constructor(
     expr: FacialExpression,
     text: String,

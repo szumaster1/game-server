@@ -17,6 +17,13 @@ import core.tools.RandomFunction
 import kotlin.math.floor
 import kotlin.math.max
 
+/**
+ * Archery competition pulse
+ *
+ * @property player
+ * @property sceneryId
+ * @constructor Archery competition pulse
+ */
 class ArcheryCompetitionPulse(private val player: Player, private val sceneryId: Scenery) : Pulse(1, player, sceneryId) {
 
     private fun showInterface(points: Int, arrowsLeft: Int, target: Int, msg: String) {

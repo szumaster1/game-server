@@ -3,96 +3,204 @@
 
 package proto.management;
 
+/**
+ * Management protos.
+ */
 public final class ManagementProtos {
     private ManagementProtos() {
     }
 
+    /**
+     * Register all extensions.
+     *
+     * @param registry the registry
+     */
     public static void registerAllExtensions(
             com.google.protobuf.ExtensionRegistryLite registry) {
     }
 
+    /**
+     * Register all extensions.
+     *
+     * @param registry the registry
+     */
     public static void registerAllExtensions(
             com.google.protobuf.ExtensionRegistry registry) {
         registerAllExtensions(
                 (com.google.protobuf.ExtensionRegistryLite) registry);
     }
 
+    /**
+     * The Internal static management player status update descriptor.
+     */
     static final com.google.protobuf.Descriptors.Descriptor
             internal_static_management_PlayerStatusUpdate_descriptor;
+    /**
+     * The Internal static management player status update field accessor table.
+     */
     static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internal_static_management_PlayerStatusUpdate_fieldAccessorTable;
+    /**
+     * The Internal static management clan message descriptor.
+     */
     static final com.google.protobuf.Descriptors.Descriptor
             internal_static_management_ClanMessage_descriptor;
+    /**
+     * The Internal static management clan message field accessor table.
+     */
     static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internal_static_management_ClanMessage_fieldAccessorTable;
+    /**
+     * The Internal static management private message descriptor.
+     */
     static final com.google.protobuf.Descriptors.Descriptor
             internal_static_management_PrivateMessage_descriptor;
+    /**
+     * The Internal static management private message field accessor table.
+     */
     static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internal_static_management_PrivateMessage_fieldAccessorTable;
+    /**
+     * The Internal static management request contact info descriptor.
+     */
     static final com.google.protobuf.Descriptors.Descriptor
             internal_static_management_RequestContactInfo_descriptor;
+    /**
+     * The Internal static management request contact info field accessor table.
+     */
     static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internal_static_management_RequestContactInfo_fieldAccessorTable;
+    /**
+     * The Internal static management send contact info descriptor.
+     */
     static final com.google.protobuf.Descriptors.Descriptor
             internal_static_management_SendContactInfo_descriptor;
+    /**
+     * The Internal static management send contact info field accessor table.
+     */
     static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internal_static_management_SendContactInfo_fieldAccessorTable;
+    /**
+     * The Internal static management send contact info contact descriptor.
+     */
     static final com.google.protobuf.Descriptors.Descriptor
             internal_static_management_SendContactInfo_Contact_descriptor;
+    /**
+     * The Internal static management send contact info contact field accessor table.
+     */
     static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internal_static_management_SendContactInfo_Contact_fieldAccessorTable;
+    /**
+     * The Internal static management friend update descriptor.
+     */
     static final com.google.protobuf.Descriptors.Descriptor
             internal_static_management_FriendUpdate_descriptor;
+    /**
+     * The Internal static management friend update field accessor table.
+     */
     static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internal_static_management_FriendUpdate_fieldAccessorTable;
+    /**
+     * The Internal static management blocked update descriptor.
+     */
     static final com.google.protobuf.Descriptors.Descriptor
             internal_static_management_BlockedUpdate_descriptor;
+    /**
+     * The Internal static management blocked update field accessor table.
+     */
     static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internal_static_management_BlockedUpdate_fieldAccessorTable;
+    /**
+     * The Internal static management request clan info descriptor.
+     */
     static final com.google.protobuf.Descriptors.Descriptor
             internal_static_management_RequestClanInfo_descriptor;
+    /**
+     * The Internal static management request clan info field accessor table.
+     */
     static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internal_static_management_RequestClanInfo_fieldAccessorTable;
+    /**
+     * The Internal static management send clan info descriptor.
+     */
     static final com.google.protobuf.Descriptors.Descriptor
             internal_static_management_SendClanInfo_descriptor;
+    /**
+     * The Internal static management send clan info field accessor table.
+     */
     static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internal_static_management_SendClanInfo_fieldAccessorTable;
+    /**
+     * The Internal static management send clan info clan member descriptor.
+     */
     static final com.google.protobuf.Descriptors.Descriptor
             internal_static_management_SendClanInfo_ClanMember_descriptor;
+    /**
+     * The Internal static management send clan info clan member field accessor table.
+     */
     static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internal_static_management_SendClanInfo_ClanMember_fieldAccessorTable;
+    /**
+     * The Internal static management join clan request descriptor.
+     */
     static final com.google.protobuf.Descriptors.Descriptor
             internal_static_management_JoinClanRequest_descriptor;
+    /**
+     * The Internal static management join clan request field accessor table.
+     */
     static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internal_static_management_JoinClanRequest_fieldAccessorTable;
+    /**
+     * The Internal static management leave clan request descriptor.
+     */
     static final com.google.protobuf.Descriptors.Descriptor
             internal_static_management_LeaveClanRequest_descriptor;
+    /**
+     * The Internal static management leave clan request field accessor table.
+     */
     static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internal_static_management_LeaveClanRequest_fieldAccessorTable;
+    /**
+     * The Internal static management clan join notification descriptor.
+     */
     static final com.google.protobuf.Descriptors.Descriptor
             internal_static_management_ClanJoinNotification_descriptor;
+    /**
+     * The Internal static management clan join notification field accessor table.
+     */
     static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internal_static_management_ClanJoinNotification_fieldAccessorTable;
+    /**
+     * The Internal static management clan leave notification descriptor.
+     */
     static final com.google.protobuf.Descriptors.Descriptor
             internal_static_management_ClanLeaveNotification_descriptor;
+    /**
+     * The Internal static management clan leave notification field accessor table.
+     */
     static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internal_static_management_ClanLeaveNotification_fieldAccessorTable;
 
+    /**
+     * Gets descriptor.
+     *
+     * @return the descriptor
+     */
     public static com.google.protobuf.Descriptors.FileDescriptor
     getDescriptor() {
         return descriptor;
@@ -102,7 +210,7 @@ public final class ManagementProtos {
             descriptor;
 
     static {
-        java.lang.String[] descriptorData = {
+        String[] descriptorData = {
                 "\n\020Management.proto\022\nmanagement\"P\n\022Player" +
                         "StatusUpdate\022\020\n\010username\030\001 \002(\t\022\r\n\005world\030" +
                         "\002 \002(\005\022\031\n\021notifyFriendsOnly\030\003 \002(\010\"N\n\013Clan" +
@@ -148,91 +256,91 @@ public final class ManagementProtos {
         internal_static_management_PlayerStatusUpdate_fieldAccessorTable = new
                 com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
                 internal_static_management_PlayerStatusUpdate_descriptor,
-                new java.lang.String[]{"Username", "World", "NotifyFriendsOnly",});
+                new String[]{"Username", "World", "NotifyFriendsOnly",});
         internal_static_management_ClanMessage_descriptor =
                 getDescriptor().getMessageTypes().get(1);
         internal_static_management_ClanMessage_fieldAccessorTable = new
                 com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
                 internal_static_management_ClanMessage_descriptor,
-                new java.lang.String[]{"Sender", "ClanName", "Message", "Rank",});
+                new String[]{"Sender", "ClanName", "Message", "Rank",});
         internal_static_management_PrivateMessage_descriptor =
                 getDescriptor().getMessageTypes().get(2);
         internal_static_management_PrivateMessage_fieldAccessorTable = new
                 com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
                 internal_static_management_PrivateMessage_descriptor,
-                new java.lang.String[]{"Sender", "Receiver", "Message", "Rank",});
+                new String[]{"Sender", "Receiver", "Message", "Rank",});
         internal_static_management_RequestContactInfo_descriptor =
                 getDescriptor().getMessageTypes().get(3);
         internal_static_management_RequestContactInfo_fieldAccessorTable = new
                 com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
                 internal_static_management_RequestContactInfo_descriptor,
-                new java.lang.String[]{"Username", "World",});
+                new String[]{"Username", "World",});
         internal_static_management_SendContactInfo_descriptor =
                 getDescriptor().getMessageTypes().get(4);
         internal_static_management_SendContactInfo_fieldAccessorTable = new
                 com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
                 internal_static_management_SendContactInfo_descriptor,
-                new java.lang.String[]{"Username", "Contacts", "Blocked",});
+                new String[]{"Username", "Contacts", "Blocked",});
         internal_static_management_SendContactInfo_Contact_descriptor =
                 internal_static_management_SendContactInfo_descriptor.getNestedTypes().get(0);
         internal_static_management_SendContactInfo_Contact_fieldAccessorTable = new
                 com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
                 internal_static_management_SendContactInfo_Contact_descriptor,
-                new java.lang.String[]{"Username", "World", "Rank",});
+                new String[]{"Username", "World", "Rank",});
         internal_static_management_FriendUpdate_descriptor =
                 getDescriptor().getMessageTypes().get(5);
         internal_static_management_FriendUpdate_fieldAccessorTable = new
                 com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
                 internal_static_management_FriendUpdate_descriptor,
-                new java.lang.String[]{"Type", "Username", "Friend",});
+                new String[]{"Type", "Username", "Friend",});
         internal_static_management_BlockedUpdate_descriptor =
                 getDescriptor().getMessageTypes().get(6);
         internal_static_management_BlockedUpdate_fieldAccessorTable = new
                 com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
                 internal_static_management_BlockedUpdate_descriptor,
-                new java.lang.String[]{"Type", "Username", "Friend",});
+                new String[]{"Type", "Username", "Friend",});
         internal_static_management_RequestClanInfo_descriptor =
                 getDescriptor().getMessageTypes().get(7);
         internal_static_management_RequestClanInfo_fieldAccessorTable = new
                 com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
                 internal_static_management_RequestClanInfo_descriptor,
-                new java.lang.String[]{"World", "ClanOwner",});
+                new String[]{"World", "ClanOwner",});
         internal_static_management_SendClanInfo_descriptor =
                 getDescriptor().getMessageTypes().get(8);
         internal_static_management_SendClanInfo_fieldAccessorTable = new
                 com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
                 internal_static_management_SendClanInfo_descriptor,
-                new java.lang.String[]{"ClanOwner", "HasInfo", "ClanName", "JoinRequirement", "KickRequirement", "MessageRequirement", "LootRequirement", "Members",});
+                new String[]{"ClanOwner", "HasInfo", "ClanName", "JoinRequirement", "KickRequirement", "MessageRequirement", "LootRequirement", "Members",});
         internal_static_management_SendClanInfo_ClanMember_descriptor =
                 internal_static_management_SendClanInfo_descriptor.getNestedTypes().get(0);
         internal_static_management_SendClanInfo_ClanMember_fieldAccessorTable = new
                 com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
                 internal_static_management_SendClanInfo_ClanMember_descriptor,
-                new java.lang.String[]{"Username", "World", "Rank",});
+                new String[]{"Username", "World", "Rank",});
         internal_static_management_JoinClanRequest_descriptor =
                 getDescriptor().getMessageTypes().get(9);
         internal_static_management_JoinClanRequest_fieldAccessorTable = new
                 com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
                 internal_static_management_JoinClanRequest_descriptor,
-                new java.lang.String[]{"Username", "ClanName",});
+                new String[]{"Username", "ClanName",});
         internal_static_management_LeaveClanRequest_descriptor =
                 getDescriptor().getMessageTypes().get(10);
         internal_static_management_LeaveClanRequest_fieldAccessorTable = new
                 com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
                 internal_static_management_LeaveClanRequest_descriptor,
-                new java.lang.String[]{"Username", "ClanName",});
+                new String[]{"Username", "ClanName",});
         internal_static_management_ClanJoinNotification_descriptor =
                 getDescriptor().getMessageTypes().get(11);
         internal_static_management_ClanJoinNotification_fieldAccessorTable = new
                 com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
                 internal_static_management_ClanJoinNotification_descriptor,
-                new java.lang.String[]{"Username", "ClanName", "World",});
+                new String[]{"Username", "ClanName", "World",});
         internal_static_management_ClanLeaveNotification_descriptor =
                 getDescriptor().getMessageTypes().get(12);
         internal_static_management_ClanLeaveNotification_fieldAccessorTable = new
                 com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
                 internal_static_management_ClanLeaveNotification_descriptor,
-                new java.lang.String[]{"Username", "ClanName", "World",});
+                new String[]{"Username", "ClanName", "World",});
     }
 
     // @@protoc_insertion_point(outer_class_scope)

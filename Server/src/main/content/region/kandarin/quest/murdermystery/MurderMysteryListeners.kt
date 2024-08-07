@@ -9,6 +9,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.tools.RandomFunction
 
+/**
+ * Murder mystery listeners
+ *
+ * @constructor Murder mystery listeners
+ */
 class MurderMysteryListeners : InteractionListener {
 
     override fun defineListeners() {

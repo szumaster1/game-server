@@ -20,6 +20,9 @@ import core.tools.RandomFunction
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
+/**
+ * Mort myre ghast NPC.
+ */
 @Initializable
 class MortMyreGhastNPC : AbstractNPC {
 
@@ -31,6 +34,9 @@ class MortMyreGhastNPC : AbstractNPC {
         return MortMyreGhastNPC(id, location)
     }
 
+    /**
+     * Handle tick actions.
+     */
     override fun handleTickActions() {
         super.handleTickActions()
         if (id == ids[0] && RandomFunction.roll(35)) {
@@ -57,6 +63,11 @@ class MortMyreGhastNPC : AbstractNPC {
         return intArrayOf(NPCs.GHAST_1052, NPCs.GHAST_1053)
     }
 
+    /**
+     * Attempt life siphon.
+     *
+     * @param player the player.
+     */
     fun attemptLifeSiphon(player: Player) {
         var hasFood = false
 
@@ -84,10 +95,20 @@ class MortMyreGhastNPC : AbstractNPC {
         }
     }
 
+    /**
+     * Commence death
+     *
+     * @param killer the killer (player).
+     */
     override fun commenceDeath(killer: Entity?) {
         super.commenceDeath(killer)
     }
 
+    /**
+     * Finalize death.
+     *
+     * @param killer the killer (player).
+     */
     override fun finalizeDeath(killer: Entity?) {
         super.finalizeDeath(killer)
         if (id == ids[1]) {

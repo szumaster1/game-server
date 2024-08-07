@@ -14,6 +14,12 @@ import core.game.system.task.Pulse
 import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 
+/**
+ * Sir tinley dialogue file
+ *
+ * @property dialogueNum
+ * @constructor Sir tinley dialogue file
+ */
 class SirTinleyDialogueFile(private val dialogueNum: Int = 0) : DialogueBuilderFile(), MapArea {
     companion object {
         const val RD_DONT_MOVE_ATTR = "rd:donotmove"

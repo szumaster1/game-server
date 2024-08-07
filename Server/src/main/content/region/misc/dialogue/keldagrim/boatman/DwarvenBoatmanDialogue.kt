@@ -13,6 +13,9 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
+/**
+ * Dwarven boatman forth dialogue.
+ */
 @Initializable
 class DwarvenBoatmanForthDialogue(player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
@@ -63,6 +66,12 @@ class DwarvenBoatmanForthDialogue(player: Player? = null) : Dialogue(player) {
     }
 }
 
+/**
+ * Travel forth pulse
+ *
+ * @property player
+ * @constructor Travel forth pulse
+ */
 class TravelForthPulse(val player: Player) : Pulse(1) {
     var counter = 0
     override fun pulse(): Boolean {

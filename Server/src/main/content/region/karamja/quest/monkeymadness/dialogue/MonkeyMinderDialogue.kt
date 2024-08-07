@@ -9,6 +9,11 @@ import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.tools.END_DIALOGUE
 
+/**
+ * Monkey minder dialogue
+ *
+ * @constructor Monkey minder dialogue
+ */
 class MonkeyMinderDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

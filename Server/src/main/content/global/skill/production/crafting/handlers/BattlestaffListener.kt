@@ -9,6 +9,9 @@ import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.entity.skill.Skills
 import kotlin.math.min
 
+/**
+ * Battlestaff listener.
+ */
 class BattlestaffListener : InteractionListener {
 
     private val battlestaff = Items.BATTLESTAFF_1391

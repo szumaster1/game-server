@@ -15,12 +15,25 @@ import core.game.world.update.flag.context.Graphic
 import core.tools.RandomFunction
 import kotlin.math.ceil
 
+/**
+ * Bolt effect
+ *
+ * @property itemId
+ * @property graphic
+ * @property sound
+ * @constructor Bolt effect
+ */
 enum class BoltEffect(val itemId: Int, private val graphic: Graphic, private val sound: Audio) {
 
     /*
      * The Opal.
      */
 
+    /**
+     * Opal
+     *
+     * @constructor Opal
+     */
     OPAL(Items.OPAL_BOLTS_E_9236, Graphic.create(749), Audio(2918)) {
         override fun impact(state: BattleState) {
             state.estimatedHit += RandomFunction.random(3, 20)
@@ -35,6 +48,11 @@ enum class BoltEffect(val itemId: Int, private val graphic: Graphic, private val
      * The Jade.
      */
 
+    /**
+     * Jade
+     *
+     * @constructor Jade
+     */
     JADE(Items.JADE_BOLTS_E_9237, Graphic(755), Audio(2916)) {
         override fun impact(state: BattleState) {
             if (state.victim is Player) {
@@ -62,6 +80,11 @@ enum class BoltEffect(val itemId: Int, private val graphic: Graphic, private val
      * The Pearl.
      */
 
+    /**
+     * Pearl
+     *
+     * @constructor Pearl
+     */
     PEARL(Items.PEARL_BOLTS_E_9238, Graphic.create(750), Audio(2920)) {
         override fun impact(state: BattleState) {
             state.estimatedHit += RandomFunction.random(3, 20)
@@ -89,6 +112,11 @@ enum class BoltEffect(val itemId: Int, private val graphic: Graphic, private val
      * The Topaz.
      */
 
+    /**
+     * Topaz
+     *
+     * @constructor Topaz
+     */
     TOPAZ(Items.TOPAZ_BOLTS_E_9239, Graphic.create(757), Audio(2914)) {
         override fun impact(state: BattleState) {
             if (state.victim is Player) {
@@ -104,6 +132,11 @@ enum class BoltEffect(val itemId: Int, private val graphic: Graphic, private val
      * The Sapphire.
      */
 
+    /**
+     * Sapphire
+     *
+     * @constructor Sapphire
+     */
     SAPPHIRE(
         Items.SAPPHIRE_BOLTS_E_9240,
         Graphic(759, 100), Audio(2912)
@@ -126,6 +159,11 @@ enum class BoltEffect(val itemId: Int, private val graphic: Graphic, private val
      * The Emerald.
      */
 
+    /**
+     * Emerald
+     *
+     * @constructor Emerald
+     */
     EMERALD(Items.EMERALD_BOLTS_E_9241, Graphic(752), Audio(2919)) {
         override fun impact(state: BattleState) {
             applyPoison(state.victim, state.attacker, 40)
@@ -137,6 +175,11 @@ enum class BoltEffect(val itemId: Int, private val graphic: Graphic, private val
      * The Ruby.
      */
 
+    /**
+     * Ruby
+     *
+     * @constructor Ruby
+     */
     RUBY(Items.RUBY_BOLTS_E_9242, Graphic(754), Audio(2911, 1)) {
         // in this case, volume is the number of times to play the sound.
         override fun impact(state: BattleState) {
@@ -164,6 +207,11 @@ enum class BoltEffect(val itemId: Int, private val graphic: Graphic, private val
      * The Diamond.
      */
 
+    /**
+     * Diamond
+     *
+     * @constructor Diamond
+     */
     DIAMOND(Items.DIAMOND_BOLTS_E_9243, Graphic(758), Audio(2913)) {
         override fun impact(state: BattleState) {
             state.estimatedHit += RandomFunction.random(5, 14) // unauthentic, needs fixing
@@ -175,6 +223,11 @@ enum class BoltEffect(val itemId: Int, private val graphic: Graphic, private val
      * The Dragon.
      */
 
+    /**
+     * Dragon
+     *
+     * @constructor Dragon
+     */
     DRAGON(Items.DRAGON_BOLTS_E_9244, Graphic(756), Audio(2915)) {
         override fun impact(state: BattleState) {
             state.estimatedHit += RandomFunction.random(17, 29)
@@ -205,6 +258,11 @@ enum class BoltEffect(val itemId: Int, private val graphic: Graphic, private val
      * The Onyx.
      */
 
+    /**
+     * Onyx
+     *
+     * @constructor Onyx
+     */
     ONYX(Items.ONYX_BOLTS_E_9245, Graphic(753), Audio(2917)) {
         override fun impact(state: BattleState) {
             val newDamage = (state.estimatedHit * 0.25).toInt()
@@ -229,6 +287,11 @@ enum class BoltEffect(val itemId: Int, private val graphic: Graphic, private val
     };
 
 
+    /**
+     * Impact
+     *
+     * @param state
+     */
     open fun impact(state: BattleState) {
         val victim = state.victim
         val attacker = state.attacker
@@ -242,6 +305,12 @@ enum class BoltEffect(val itemId: Int, private val graphic: Graphic, private val
     }
 
 
+    /**
+     * Can fire
+     *
+     * @param state
+     * @return
+     */
     open fun canFire(state: BattleState): Boolean {
         return RandomFunction.random(13) == 5
     }

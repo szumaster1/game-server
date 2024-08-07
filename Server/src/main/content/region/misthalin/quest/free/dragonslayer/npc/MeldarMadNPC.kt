@@ -15,6 +15,9 @@ import core.game.world.map.Location
 import core.game.world.map.RegionManager.isTeleportPermitted
 import core.tools.RandomFunction
 
+/**
+ * Meldar mad NPC.
+ */
 class MeldarMadNPC : AbstractNPC {
     private val combatHandler = MeldarSwingHandler()
 
@@ -56,6 +59,11 @@ class MeldarMadNPC : AbstractNPC {
     }
 
 
+    /**
+     * Meldar swing handler
+     *
+     * @constructor Meldar swing handler
+     */
     inner class MeldarSwingHandler : CombatSwingHandler(CombatStyle.MAGIC) {
         private var style = CombatStyle.MAGIC
         private val SPELL_IDS = intArrayOf(8, 2, 7, 11)

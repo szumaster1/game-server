@@ -4,7 +4,20 @@ import content.global.activity.jobs.Job
 import content.global.activity.jobs.JobType
 import core.game.node.entity.skill.Skills
 
-enum class ProductionJobs(override val lower: Int, override val upper: Int, val lvlReq: Int, val itemId: Int, val skill: Int, override val employer: Employers) : Job {
+/**
+ * An enum of the possible production jobs that can be assigned to a player.
+ *
+ * Note: Due to how player save files keep track of the player's current job, it is essential that
+ * new entries are only appended to the end of this enum, and the ordering of existing entries is not changed.
+ */
+enum class ProductionJobs(
+    override val lower: Int,
+    override val upper: Int,
+    val lvlReq: Int,
+    val itemId: Int,
+    val skill: Int,
+    override val employer: Employers
+) : Job {
     LOG(20, 28, 1, 1511, Skills.WOODCUTTING, Employers.WOODCUTTING_TUTOR),
     COWHIDES(20, 25, 1, 1739, 0, Employers.HANS),
     OAK(22, 28, 15, 1521, Skills.WOODCUTTING, Employers.WOODCUTTING_TUTOR),
@@ -37,7 +50,7 @@ enum class ProductionJobs(override val lower: Int, override val upper: Int, val 
     LEATHER_CHAPS(22, 25, 18, 1095, Skills.CRAFTING, Employers.CRAFTING_TUTOR),
     LEATHER_BODY(22, 25, 14, 1129, Skills.CRAFTING, Employers.CRAFTING_TUTOR),
     LEATHER_COWL(22, 25, 9, 1167, Skills.CRAFTING, Employers.CRAFTING_TUTOR),
-    LEATHER_VAMPS(22,25,11, 1063, Skills.CRAFTING, Employers.IAIN),
+    LEATHER_VAMPS(22, 25, 11, 1063, Skills.CRAFTING, Employers.IAIN),
     COIF(22, 25, 38, 1169, Skills.CRAFTING, Employers.IAIN),
     HARD_LEATHER_BODY(22, 25, 28, 1131, Skills.CRAFTING, Employers.IAIN),
     RAW_SHRIMP(22, 28, 1, 317, Skills.FISHING, Employers.FISHING_TUTOR),

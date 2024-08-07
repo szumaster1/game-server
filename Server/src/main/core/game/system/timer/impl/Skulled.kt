@@ -6,6 +6,11 @@ import core.game.system.timer.PersistTimer
 import core.game.system.timer.RSTimer
 import core.game.system.timer.TimerFlag
 
+/**
+ * Skulled
+ *
+ * @constructor Skulled
+ */
 class Skulled : PersistTimer(
     runInterval = 1,
     identifier = "skulled",

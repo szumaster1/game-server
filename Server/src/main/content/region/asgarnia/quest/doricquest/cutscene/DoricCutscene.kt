@@ -9,6 +9,9 @@ import core.game.node.entity.player.Player
 import core.game.world.map.Direction
 import core.game.world.map.Location
 
+/**
+ * Doric cutscene.
+ */
 class DoricCutscene(player: Player) : Cutscene(player) {
     override fun setup() {
         setExit(Location(2952, 3450))

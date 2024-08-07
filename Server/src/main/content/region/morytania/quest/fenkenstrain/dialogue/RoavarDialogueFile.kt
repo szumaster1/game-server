@@ -12,6 +12,12 @@ import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
+/**
+ * Roavar dialogue file
+ *
+ * @property dialogueNum
+ * @constructor Roavar dialogue file
+ */
 class RoavarDialogueFile(private val dialogueNum: Int = 0) : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
         when (stage) {

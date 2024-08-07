@@ -13,6 +13,9 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 import kotlin.math.min
 
+/**
+ * Balloon crafting listener.
+ */
 class BalloonCraftingListener : InteractionListener {
 
     override fun defineListeners() {

@@ -12,6 +12,9 @@ import core.game.world.map.Location;
 import core.plugin.Initializable;
 import core.plugin.Plugin;
 
+/**
+ * Tzhaar city plugin.
+ */
 @Initializable
 public final class TzhaarCityPlugin extends OptionHandler {
 
@@ -69,11 +72,22 @@ public final class TzhaarCityPlugin extends OptionHandler {
         return true;
     }
 
+    /**
+     * Tzhaar dialogue.
+     */
     public static final class TzhaarDialogue extends Dialogue {
+        /**
+         * Instantiates a new Tzhaar dialogue.
+         */
         public TzhaarDialogue() {
 
         }
 
+        /**
+         * Instantiates a new Tzhaar dialogue.
+         *
+         * @param player the player
+         */
         public TzhaarDialogue(Player player) {
             super(player);
         }

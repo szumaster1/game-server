@@ -13,6 +13,9 @@ import core.game.node.item.Item
 import core.game.system.command.sets.STATS_ALKHARID_GATE
 import core.game.system.command.sets.STATS_BASE
 
+/**
+ * Alkharid listeners.
+ */
 class AlkharidListeners : InteractionListener {
 
     companion object {

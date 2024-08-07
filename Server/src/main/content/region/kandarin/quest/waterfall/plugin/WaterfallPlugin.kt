@@ -26,6 +26,11 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.ClassScanner.definePlugin
 import core.plugin.Plugin
 
+/**
+ * Waterfall plugin
+ *
+ * @constructor Waterfall plugin
+ */
 class WaterfallPlugin : OptionHandler() {
 
     override fun newInstance(arg: Any?): Plugin<Any> {
@@ -239,6 +244,12 @@ class WaterfallPlugin : OptionHandler() {
         return false
     }
 
+    /**
+     * Handle objects
+     *
+     * @param add
+     * @param player
+     */
     fun handleObjects(add: Boolean, player: Player?) {
         if (add) {
             ROPES.add(Scenery(1997, Location.create(2512, 3468, 0), 10, 0))
@@ -261,6 +272,11 @@ class WaterfallPlugin : OptionHandler() {
         }
     }
 
+    /**
+     * Play runestone graphics
+     *
+     * @param player
+     */
     fun playRunestoneGraphics(player: Player) {
         player.packetDispatch.sendGlobalPositionGraphic(580, Location(2562, 9914))
         player.packetDispatch.sendGlobalPositionGraphic(580, Location(2562, 9912))
@@ -271,6 +287,11 @@ class WaterfallPlugin : OptionHandler() {
     }
 
 
+    /**
+     * Waterfall use with handler
+     *
+     * @constructor Waterfall use with handler
+     */
     inner class WaterfallUseWithHandler : UseWithHandler(ROPE.id, KEY.id, PEBBLE.id, KEY_2.id, AMULET.id, URN.id, AIR_RUNE.id, EARTH_RUNE.id, WATER_RUNE.id) {
         private val OBJECTS = intArrayOf(1996, 1997, 2020, 1991, 1992, 2002, 2006, 2014, 2004)
 

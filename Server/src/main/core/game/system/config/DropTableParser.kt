@@ -14,9 +14,19 @@ import org.json.simple.parser.JSONParser
 import java.io.FileReader
 
 
+/**
+ * Drop table parser
+ *
+ * @constructor Drop table parser
+ */
 class DropTableParser {
     val parser = JSONParser()
     var reader: FileReader? = null
+
+    /**
+     * Load
+     *
+     */
     fun load() {
         var count = 0
         reader = FileReader(ServerConstants.CONFIG_PATH + "drop_tables.json")

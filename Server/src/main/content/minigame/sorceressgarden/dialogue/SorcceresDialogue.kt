@@ -9,6 +9,9 @@ import core.game.world.GameWorld.Pulser
 import core.game.world.map.Location
 import core.plugin.Initializable
 
+/**
+ * Sorcceres dialogue.
+ */
 @Initializable
 class SorcceresDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -111,6 +114,10 @@ class SorcceresDialogue(player: Player? = null) : Dialogue(player) {
         return intArrayOf(5531)
     }
 
+    /**
+     * Tele
+     *
+     */
     fun tele() {
         npc.sendChat("Be gone intruder!")
         player.lock()

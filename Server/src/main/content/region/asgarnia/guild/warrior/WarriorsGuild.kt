@@ -18,6 +18,9 @@ import core.plugin.ClassScanner.definePlugin
 import core.plugin.Initializable
 import core.plugin.Plugin
 
+/**
+ * Warriors guild.
+ */
 @Initializable
 class WarriorsGuild : OptionHandler() {
 
@@ -59,6 +62,11 @@ class WarriorsGuild : OptionHandler() {
             .getStaticLevel(Skills.ATTACK) == 99 || player.getSkills().getStaticLevel(Skills.STRENGTH) == 99
     }
 
+    /**
+     * Claim token dialogue
+     *
+     * @constructor Claim token dialogue
+     */
     class ClaimTokenDialogue : Dialogue {
         private var npcId = 0
 

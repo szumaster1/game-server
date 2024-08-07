@@ -16,6 +16,9 @@ import core.network.packet.context.MinimapStateContext
 import core.network.packet.outgoing.MinimapState
 import core.tools.END_DIALOGUE
 
+/**
+ * Leo dialogue.
+ */
 class LeoDialogue : DialogueFile() {
     private fun graveFaq(player: Player) {
         val graveFAQ = arrayOf(

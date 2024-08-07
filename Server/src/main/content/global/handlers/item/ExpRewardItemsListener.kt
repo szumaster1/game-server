@@ -11,6 +11,11 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.tools.BLUE
 
+/**
+ * Exp reward items listener
+ *
+ * @constructor Exp reward items listener
+ */
 class ExpRewardItemsListener : InteractionListener {
 
     private val xpGainItems = Lamps.values().map { it.item }.toIntArray()

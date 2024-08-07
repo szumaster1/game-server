@@ -7,6 +7,11 @@ import core.api.setCharge
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+/**
+ * Bracelet of clay listener
+ *
+ * @constructor Bracelet of clay listener
+ */
 class BraceletOfClayListener : InteractionListener {
 
     private val clayBracelet = Items.BRACELET_OF_CLAY_11074

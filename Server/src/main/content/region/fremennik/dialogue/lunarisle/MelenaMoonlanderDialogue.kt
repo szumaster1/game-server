@@ -9,6 +9,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Melena moonlander dialogue.
+ */
 @Initializable
 class MelenaMoonlanderDialogue(player: Player? = null): Dialogue(player) {
 

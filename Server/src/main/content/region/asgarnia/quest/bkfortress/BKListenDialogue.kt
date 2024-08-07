@@ -13,6 +13,9 @@ import core.game.node.entity.player.Player
 import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 
+/**
+ * B k listen dialogue.
+ */
 @Initializable
 class BKListenDialogue(player: Player? = null) : Dialogue(player) {
 

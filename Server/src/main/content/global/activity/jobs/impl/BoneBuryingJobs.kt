@@ -5,6 +5,12 @@ import content.global.activity.jobs.JobType
 import core.api.consts.Items
 import core.game.world.map.zone.ZoneBorders
 
+/**
+ * An enum of the possible bone-burying jobs that can be assigned to a player.
+ *
+ * Note: Due to how player save files keep track of the player's current job, it is essential that
+ * new entries are only appended to the end of this enum, and the ordering of existing entries is not changed.
+ */
 enum class BoneBuryingJobs(val buryArea: BuryArea, val boneIds: List<Int>, override val employer: Employers) : Job {
     BURY_DRAYNOR(BuryArea.DRAYNOR_WHEAT_FIELD, Bones.BONES, Employers.PRAYER_TUTOR),
     BURY_LUMBRIDGE_GRAVEYARD(BuryArea.LUMBRIDGE_GRAVEYARD, Bones.BONES, Employers.PRAYER_TUTOR);

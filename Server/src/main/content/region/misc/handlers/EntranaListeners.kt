@@ -9,6 +9,9 @@ import core.game.interaction.InteractionListener
 import core.game.world.map.Location
 import core.game.world.repository.Repository.findNPC
 
+/**
+ * Entrana listeners.
+ */
 class EntranaListeners : InteractionListener {
 
     companion object {
@@ -20,11 +23,10 @@ class EntranaListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Glassblowing Book can be found on 1 Floor
          * in the house west of the Furnace on Entrana.
          */
-
         on(ENTRANA_BOOKCASE, IntType.SCENERY, "Search") { player, _ ->
             if (!inInventory(player, GLASSBLOWING_BOOK)) {
                 addItem(player, GLASSBLOWING_BOOK)
@@ -38,19 +40,17 @@ class EntranaListeners : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Ladder lead to Spirit tree (Lost City quest).
          */
-
         on(Scenery.LADDER_2408, IntType.SCENERY, "climb-down") { player, _ ->
             openDialogue(player, CAVE_MONK, findNPC(CAVE_MONK)!!.asNpc())
             return@on true
         }
 
-        /*
+        /**
          * Secret doors lead to Brimhaven dungeon.
          */
-
         on(MAGIC_DOOR, IntType.SCENERY, "open") { player, _ ->
             sendMessage(player, "You feel the world around you dissolve...")
             teleport(player, Location(3208, 3764, 0))

@@ -9,6 +9,17 @@ import core.game.node.entity.skill.Skills
 import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
 
+/**
+ * Fishing option
+ *
+ * @property tool
+ * @property level
+ * @property animation
+ * @property bait
+ * @property option
+ * @property fish
+ * @constructor Fishing option
+ */
 enum class FishingOption(
     val tool: Int,
     val level: Int,
@@ -17,6 +28,9 @@ enum class FishingOption(
     val option: String,
     vararg val fish: Fish
 ) {
+    /**
+     * Crayfish Cage.
+     */
     CRAYFISH_CAGE(
         tool = Items.CRAYFISH_CAGE_13431,
         level = 1,
@@ -25,6 +39,10 @@ enum class FishingOption(
         option = "cage",
         Fish.CRAYFISH
     ),
+
+    /**
+     * Small Net.
+     */
     SMALL_NET(
         tool = Items.SMALL_FISHING_NET_303,
         level = 1,
@@ -33,6 +51,10 @@ enum class FishingOption(
         option = "net",
         Fish.SHRIMP, Fish.ANCHOVIE
     ),
+
+    /**
+     * Bait.
+     */
     BAIT(
         tool = Items.FISHING_ROD_307,
         level = 5,
@@ -41,6 +63,10 @@ enum class FishingOption(
         option = "bait",
         Fish.SARDINE, Fish.HERRING
     ),
+
+    /**
+     * Lure.
+     */
     LURE(
         tool = Items.FLY_FISHING_ROD_309,
         level = 20,
@@ -49,6 +75,10 @@ enum class FishingOption(
         option = "lure",
         Fish.TROUT, Fish.SALMON, Fish.RAINBOW_FISH
     ),
+
+    /**
+     * Pike Bait.
+     */
     PIKE_BAIT(
         tool = Items.FISHING_ROD_307,
         level = 25,
@@ -57,6 +87,10 @@ enum class FishingOption(
         option = "bait",
         Fish.PIKE
     ),
+
+    /**
+     * Lobster Cage.
+     */
     LOBSTER_CAGE(
         tool = Items.LOBSTER_POT_301,
         level = 40,
@@ -65,6 +99,10 @@ enum class FishingOption(
         option = "cage",
         Fish.LOBSTER
     ),
+
+    /**
+     * Harpoon.
+     */
     HARPOON(
         tool = Items.HARPOON_311,
         level = 35,
@@ -73,6 +111,10 @@ enum class FishingOption(
         option = "harpoon",
         Fish.TUNA, Fish.SWORDFISH
     ),
+
+    /**
+     * Barb Harpoon.
+     */
     BARB_HARPOON(
         tool = Items.BARB_TAIL_HARPOON_10129,
         level = 35,
@@ -81,6 +123,10 @@ enum class FishingOption(
         option = "harpoon",
         Fish.TUNA, Fish.SWORDFISH
     ),
+
+    /**
+     * Big Net.
+     */
     BIG_NET(
         tool = Items.BIG_FISHING_NET_305,
         level = 16,
@@ -89,6 +135,10 @@ enum class FishingOption(
         option = "net",
         Fish.MACKEREL, Fish.COD, Fish.BASS, Fish.SEAWEED
     ),
+
+    /**
+     * Shark Harpoon.
+     */
     SHARK_HARPOON(
         tool = Items.HARPOON_311,
         level = 76,
@@ -97,6 +147,10 @@ enum class FishingOption(
         option = "harpoon",
         Fish.SHARK
     ),
+
+    /**
+     * Monkfish Net.
+     */
     MONKFISH_NET(
         tool = Items.SMALL_FISHING_NET_303,
         level = 62,
@@ -105,6 +159,10 @@ enum class FishingOption(
         option = "net",
         Fish.MONKFISH
     ),
+
+    /**
+     * Mortmyre Rod.
+     */
     MORTMYRE_ROD(
         tool = Items.FISHING_ROD_307,
         level = 5,
@@ -113,6 +171,10 @@ enum class FishingOption(
         option = "bait",
         Fish.SLIMY_EEL
     ),
+
+    /**
+     * Lumbdswamp Rod.
+     */
     LUMBDSWAMP_ROD(
         tool = Items.FISHING_ROD_307,
         level = 5,
@@ -121,6 +183,10 @@ enum class FishingOption(
         option = "bait",
         Fish.SLIMY_EEL, Fish.FROG_SPAWN
     ),
+
+    /**
+     * Kbwanji Net.
+     */
     KBWANJI_NET(
         tool = Items.SMALL_FISHING_NET_303, level = 5,
         animation = Animation(Animations.NET_FISHING_621),
@@ -128,6 +194,10 @@ enum class FishingOption(
         option = "net",
         Fish.KARAMBWANJI
     ),
+
+    /**
+     * Karambwan Ves.
+     */
     KARAMBWAN_VES(
         tool = Items.KARAMBWAN_VESSEL_3157,
         level = 65,
@@ -136,6 +206,10 @@ enum class FishingOption(
         option = "fish",
         Fish.KARAMBWAN
     ),
+
+    /**
+     * Oily Fishing Rod.
+     */
     OILY_FISHING_ROD(
         tool = Items.OILY_FISHING_ROD_1585,
         level = 53,
@@ -159,6 +233,12 @@ enum class FishingOption(
         }
     }
 
+    /**
+     * Roll fish
+     *
+     * @param player
+     * @return
+     */
     fun rollFish(player: Player): Fish? {
         if (this == BIG_NET) {
             when (RandomFunction.randomize(100)) {
@@ -184,6 +264,11 @@ enum class FishingOption(
         return null
     }
 
+    /**
+     * Get bait name
+     *
+     * @return
+     */
     fun getBaitName(): String {
         if (bait != null && bait.isNotEmpty()) {
             return getItemName(bait[0])
@@ -191,6 +276,12 @@ enum class FishingOption(
         return "none"
     }
 
+    /**
+     * Has bait
+     *
+     * @param player
+     * @return
+     */
     fun hasBait(player: Player): Boolean {
         return if (bait == null) true else {
             var anyBait = false
@@ -201,6 +292,12 @@ enum class FishingOption(
         }
     }
 
+    /**
+     * Remove bait
+     *
+     * @param player
+     * @return
+     */
     fun removeBait(player: Player): Boolean {
         return if (bait == null) {
             true
@@ -214,6 +311,11 @@ enum class FishingOption(
         }
     }
 
+    /**
+     * Get start message
+     *
+     * @return
+     */
     fun getStartMessage(): String {
         return if (option == "net")
             "You cast out your net..."

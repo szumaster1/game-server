@@ -12,6 +12,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.tools.END_DIALOGUE
 
+/**
+ * Enchanted gem listener
+ *
+ * @constructor Enchanted gem listener
+ */
 class EnchantedGemListener : InteractionListener {
 
     private val master: SlayerMaster? = null

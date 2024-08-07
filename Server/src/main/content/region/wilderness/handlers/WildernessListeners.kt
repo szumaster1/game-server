@@ -11,6 +11,9 @@ import core.game.node.entity.player.Player
 import core.game.node.scenery.Scenery
 import core.api.consts.Components
 
+/**
+ * Wilderness listeners.
+ */
 class WildernessListeners : InteractionListener {
 
     override fun defineListeners() {
@@ -33,6 +36,12 @@ class WildernessListeners : InteractionListener {
         }
     }
 
+    /**
+     * Handle ditch
+     *
+     * @param player
+     * @param node
+     */
     fun handleDitch(player: Player, node: Node) {
         player.faceLocation(node.location)
         val ditch = node as Scenery

@@ -11,6 +11,9 @@ import core.game.world.map.Direction
 import core.game.world.map.Location
 import core.tools.DARK_RED
 
+/**
+ * The observatory cutscene.
+ */
 class TheObservatoryCutscene(player: Player) : Cutscene(player) {
 
     override fun setup() {

@@ -10,6 +10,11 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
+/**
+ * Gnome translation book
+ *
+ * @constructor Gnome translation book
+ */
 class GnomeTranslationBook : InteractionListener {
     companion object {
         private val TITLE = "Gnome-English Translation"

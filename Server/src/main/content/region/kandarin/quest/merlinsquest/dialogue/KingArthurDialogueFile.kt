@@ -8,6 +8,11 @@ import core.game.dialogue.Topic
 import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
+/**
+ * King arthur dialogue file
+ *
+ * @constructor King arthur dialogue file
+ */
 class KingArthurDialogueFile : DialogueFile() {
 
     val STAGE_MERLIN_FINISH = 20

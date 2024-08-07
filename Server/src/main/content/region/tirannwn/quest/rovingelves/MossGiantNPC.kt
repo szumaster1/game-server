@@ -14,6 +14,9 @@ import core.game.world.map.Location
 import core.plugin.ClassScanner.definePlugin
 import core.plugin.Plugin
 
+/**
+ * Moss giant NPC.
+ */
 class MossGiantNPC : AbstractNPC {
 
     constructor() : super(0, null)

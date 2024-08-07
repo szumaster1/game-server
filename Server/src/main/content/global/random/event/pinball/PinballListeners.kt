@@ -13,6 +13,9 @@ import core.game.world.map.zone.ZoneRestriction
 import core.tools.BLUE
 import core.tools.RandomFunction
 
+/**
+ * Pinball listeners.
+ */
 class PinballListeners : InteractionListener, MapArea {
 
     init {

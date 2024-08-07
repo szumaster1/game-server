@@ -8,6 +8,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Wilderness bandits dialogue.
+ */
 @Initializable
 class WildernessBanditsDialogue(player: Player? = null) : Dialogue(player) {
 

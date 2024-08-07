@@ -13,6 +13,9 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.Initializable
 
+/**
+ * Dr fenkenstrain dialogue.
+ */
 @Initializable
 class DrFenkenstrainDialogue(player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
@@ -30,6 +33,11 @@ class DrFenkenstrainDialogue(player: Player? = null) : Dialogue(player) {
     }
 }
 
+/**
+ * Dr fenkenstrain dialogue file
+ *
+ * @constructor Dr fenkenstrain dialogue file
+ */
 class DrFenkenstrainDialogueFile : DialogueBuilderFile() {
 
     companion object {

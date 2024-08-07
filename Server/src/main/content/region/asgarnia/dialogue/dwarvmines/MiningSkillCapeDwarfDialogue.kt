@@ -10,6 +10,9 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.plugin.Initializable
 
+/**
+ * Mining skill cape dwarf dialogue.
+ */
 @Initializable
 class MiningSkillCapeDwarfDialogue(player: Player? = null) : Dialogue(player) {
 

@@ -16,17 +16,38 @@ import java.util.ArrayList;
 
 import static core.api.ContentAPIKt.log;
 
+/**
+ * Build region chunk.
+ */
 public class BuildRegionChunk extends RegionChunk {
 
+    /**
+     * The constant ARRAY_SIZE.
+     */
     public static final int ARRAY_SIZE = 10;
 
     private final Scenery[][][] objects;
 
+    /**
+     * Instantiates a new Build region chunk.
+     *
+     * @param base     the base
+     * @param rotation the rotation
+     * @param plane    the plane
+     */
     public BuildRegionChunk(Location base, int rotation, RegionPlane plane) {
         super(base, rotation, plane);
         this.objects = new Scenery[ARRAY_SIZE][8][8];
     }
 
+    /**
+     * Instantiates a new Build region chunk.
+     *
+     * @param base     the base
+     * @param rotation the rotation
+     * @param plane    the plane
+     * @param objects  the objects
+     */
     public BuildRegionChunk(Location base, int rotation, RegionPlane plane, Scenery[][] objects) {
         this(base, rotation, plane);
         for (int x = 0; x < SIZE; x++) {
@@ -183,6 +204,11 @@ public class BuildRegionChunk extends RegionChunk {
         }
     }
 
+    /**
+     * Remove.
+     *
+     * @param object the object
+     */
     public void remove(Scenery object) {
         int chunkX = object.getLocation().getChunkOffsetX();
         int chunkY = object.getLocation().getChunkOffsetY();
@@ -205,6 +231,11 @@ public class BuildRegionChunk extends RegionChunk {
         object.setRenderable(false);
     }
 
+    /**
+     * Add.
+     *
+     * @param object the object
+     */
     public void add(Scenery object) {
         int chunkX = object.getLocation().getChunkOffsetX();
         int chunkY = object.getLocation().getChunkOffsetY();
@@ -229,6 +260,11 @@ public class BuildRegionChunk extends RegionChunk {
         object.setRenderable(true);
     }
 
+    /**
+     * Store.
+     *
+     * @param object the object
+     */
     public void store(Scenery object) {
         if (object == null) {
             return;
@@ -255,6 +291,14 @@ public class BuildRegionChunk extends RegionChunk {
         throw new IllegalStateException("Insufficient array length for storing all objects! ");
     }
 
+    /**
+     * Gets index.
+     *
+     * @param x        the x
+     * @param y        the y
+     * @param objectId the object id
+     * @return the index
+     */
     public int getIndex(int x, int y, int objectId) {
         for (int i = 0; i < objects.length; i++) {
             Scenery o = get(x, y, i);
@@ -265,6 +309,14 @@ public class BuildRegionChunk extends RegionChunk {
         return 0;
     }
 
+    /**
+     * Get scenery.
+     *
+     * @param x     the x
+     * @param y     the y
+     * @param index the index
+     * @return the scenery
+     */
     public Scenery get(int x, int y, int index) {
         return objects[index][x][y];
     }
@@ -278,6 +330,12 @@ public class BuildRegionChunk extends RegionChunk {
         return objects;
     }
 
+    /**
+     * Get objects scenery [ ] [ ].
+     *
+     * @param index the index
+     * @return the scenery [ ] [ ]
+     */
     public Scenery[][] getObjects(int index) {
         return objects[index];
     }

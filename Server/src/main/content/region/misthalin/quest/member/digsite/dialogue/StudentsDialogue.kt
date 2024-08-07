@@ -11,6 +11,9 @@ import core.plugin.Initializable
 import core.api.consts.Items
 import core.api.consts.NPCs
 
+/**
+ * Student green dialogue.
+ */
 @Initializable
 class StudentGreenDialogue (player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
@@ -24,6 +27,11 @@ class StudentGreenDialogue (player: Player? = null) : Dialogue(player) {
 
 }
 
+/**
+ * Student green dialogue file
+ *
+ * @constructor Student green dialogue file
+ */
 class StudentGreenDialogueFile : DialogueBuilderFile() {
 
     override fun create(b: DialogueBuilder) {
@@ -113,6 +121,9 @@ class StudentGreenDialogueFile : DialogueBuilderFile() {
 }
 
 
+/**
+ * Student purple dialogue.
+ */
 @Initializable
 class StudentPurpleDialogue (player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
@@ -124,6 +135,12 @@ class StudentPurpleDialogue (player: Player? = null) : Dialogue(player) {
         return intArrayOf(NPCs.STUDENT_617)
     }
 }
+
+/**
+ * Student purple dialogue file
+ *
+ * @constructor Student purple dialogue file
+ */
 class StudentPurpleDialogueFile : DialogueBuilderFile() {
 
     override fun create(b: DialogueBuilder) {
@@ -254,6 +271,9 @@ class StudentPurpleDialogueFile : DialogueBuilderFile() {
 }
 
 
+/**
+ * Student brown dialogue.
+ */
 @Initializable
 class StudentBrownDialogue (player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
@@ -267,6 +287,12 @@ class StudentBrownDialogue (player: Player? = null) : Dialogue(player) {
         return intArrayOf(NPCs.STUDENT_616)
     }
 }
+
+/**
+ * Student brown dialogue file
+ *
+ * @constructor Student brown dialogue file
+ */
 class StudentBrownDialogueFile : DialogueBuilderFile() {
 
     override fun create(b: DialogueBuilder) {
