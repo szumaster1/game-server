@@ -17,6 +17,7 @@ import core.game.node.entity.skill.Skills
 class MagicAltarListener : InteractionListener {
 
     override fun defineListeners() {
+        // Triggered when the player interacts with the ancient or lunar altar.
         on(intArrayOf(ANCIENT_ALTAR, LUNAR_ALTAR), IntType.SCENERY, "pray-at", "pray") { player, node ->
             if (meetsRequirements(player, node)) {
                 swapSpellBook(player, node)
@@ -28,6 +29,10 @@ class MagicAltarListener : InteractionListener {
 
     /**
      * Meets requirements.
+     *
+     * @param player The player who is interacting with the altar.
+     * @param altar  The altar node that the player is interacting with.
+     * @return True if the player meets the requirements to interact with the altar, false otherwise.
      */
     private fun meetsRequirements(player: Player, altar: Node): Boolean {
         val level = if (altar.id == ANCIENT_ALTAR) 50 else 65
@@ -46,6 +51,9 @@ class MagicAltarListener : InteractionListener {
 
     /**
      * Swap spell book.
+     *
+     * @param player The player who is swapping the spell book.
+     * @param altar  The altar node that the player is interacting with.
      */
     private fun swapSpellBook(player: Player, altar: Node) {
         lock(player, 3)

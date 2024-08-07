@@ -8,9 +8,7 @@ import core.game.node.entity.combat.equipment.WeaponInterface
 import core.game.node.entity.player.Player
 
 /**
- * Autocast interface listener
- *
- * @constructor Autocast interface listener
+ * Autocast interface listener.
  */
 class AutocastInterfaceListener : InterfaceListener {
 

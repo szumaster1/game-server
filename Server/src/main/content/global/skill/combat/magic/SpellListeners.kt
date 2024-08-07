@@ -20,14 +20,13 @@ object SpellListeners {
     val spellRanges = HashMap<String, Int>()
 
     /**
-     * Add
+     * Add a spell listener.
      *
-     * @param spellID
-     * @param type
-     * @param book
-     * @param distance
-     * @param method
-     * @receiver
+     * @param spellID  The ID of the spell.
+     * @param type     The type of the spell.
+     * @param book     The spell book.
+     * @param distance The casting distance of the spell.
+     * @param method   The method to be invoked when the spell is cast.
      */
     fun add(spellID: Int, type: Int, book: String, distance: Int, method: (Player, Node?) -> Unit) {
         castMap["$book:$spellID:$type"] = method
@@ -35,15 +34,14 @@ object SpellListeners {
     }
 
     /**
-     * Add
+     * Add a spell listener with multiple IDs.
      *
-     * @param spellID
-     * @param type
-     * @param ids
-     * @param book
-     * @param distance
-     * @param method
-     * @receiver
+     * @param spellID  The ID of the spell.
+     * @param type     The type of the spell.
+     * @param ids      The array of IDs.
+     * @param book     The spell book.
+     * @param distance The casting distance of the spell.
+     * @param method   The method to be invoked when the spell is cast.
      */
     fun add(spellID: Int, type: Int, ids: IntArray, book: String, distance: Int, method: (Player, Node?) -> Unit) {
         for (id in ids) {
@@ -53,12 +51,12 @@ object SpellListeners {
     }
 
     /**
-     * Get
+     * Get the casting range and method for a spell.
      *
-     * @param spellID
-     * @param type
-     * @param book
-     * @return
+     * @param spellID The ID of the spell.
+     * @param type    The type of the spell.
+     * @param book    The spell book.
+     * @return a pair containing the casting range and the method to be invoked.
      */
     fun get(spellID: Int, type: Int, book: String): Pair<Int, ((Player, Node?) -> Unit)?> {
         log(this::class.java, Log.FINE, "Getting $book:$spellID:$type")
@@ -66,13 +64,13 @@ object SpellListeners {
     }
 
     /**
-     * Get
+     * Get the casting range and method for a spell with a specific ID.
      *
-     * @param spellID
-     * @param type
-     * @param id
-     * @param book
-     * @return
+     * @param spellID The ID of the spell.
+     * @param type    The type of the spell.
+     * @param id      The ID of the spell instance.
+     * @param book    The spell book.
+     * @return a pair containing the casting range and the method to be invoked.
      */
     fun get(spellID: Int, type: Int, id: Int, book: String): Pair<Int, ((Player, Node?) -> Unit)?> {
         log(this::class.java, Log.FINE, "Getting $book:$spellID:$type:$id")
@@ -80,13 +78,13 @@ object SpellListeners {
     }
 
     /**
-     * Run
+     * Run the spell casting process.
      *
-     * @param button
-     * @param type
-     * @param book
-     * @param player
-     * @param node
+     * @param button The button ID.
+     * @param type   The type of the spell.
+     * @param book   The spell book.
+     * @param player The player casting the spell.
+     * @param node   The target node of the spell.
      */
     @JvmStatic
     fun run(button: Int, type: Int, book: String, player: Player, node: Node? = null) {

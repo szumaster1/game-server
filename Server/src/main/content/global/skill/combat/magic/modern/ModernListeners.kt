@@ -36,9 +36,7 @@ import core.network.packet.context.MinimapStateContext
 import core.network.packet.outgoing.MinimapState
 
 /**
- * Modern listeners
- *
- * @constructor Modern listeners
+ * Modern listeners.
  */
 class ModernListeners : SpellListener("modern") {
 
@@ -205,6 +203,12 @@ class ModernListeners : SpellListener("modern") {
         onCast(Modern.CHARGE_AIR_ORB, OBJECT, Scenery.OBELISK_OF_AIR_2152, 3, method = ::chargeOrb)
     }
 
+    /**
+     * Function to convert bones.
+     *
+     * @param player  The player object.
+     * @param bananas A boolean indicating if bananas are involved.
+     */
     private fun boneConvert(player: Player, bananas: Boolean) {
         val isInMTA = player.zoneMonitor.isInZone("Creature Graveyard")
         if (isInMTA && player.getAttribute("tablet-spell", false)) {
@@ -249,6 +253,12 @@ class ModernListeners : SpellListener("modern") {
         setDelay(player, false)
     }
 
+    /**
+     * Function to perform the superheat action.
+     *
+     * @param player The player performing the action.
+     * @param item   The item to be superheated.
+     */
     private fun superheat(player: Player, item: Item) {
         if (!item.name.contains("ore") && !item.name.equals("coal", true)) {
             player.sendMessage("You can only cast this spell on ore.")
@@ -293,13 +303,13 @@ class ModernListeners : SpellListener("modern") {
     }
 
     /**
-     * Alchemize
+     * Alchemize function performs the alchemy process on an item.
      *
-     * @param player
-     * @param item
-     * @param high
-     * @param explorersRing
-     * @return
+     * @param player        The player performing the alchemy.
+     * @param item          The item to be alchemized.
+     * @param high          A boolean flag indicating if high alchemy is used.
+     * @param explorersRing A boolean flag indicating if an explorer's ring is used.
+     * @return Boolean value indicating the success of alchemizing the item.
      */
     fun alchemize(player: Player, item: Item, high: Boolean, explorersRing: Boolean = false): Boolean {
         if (item.name == "Coins") sendMessage(player, "You can't alchemize something that's already gold!").also { return false }
@@ -360,6 +370,13 @@ class ModernListeners : SpellListener("modern") {
         return true
     }
 
+    /**
+     * Sends a teleport request to a player.
+     *
+     * @param player   The player to teleport.
+     * @param xp       The experience points associated with the teleport.
+     * @param location The destination location for the teleport.
+     */
     private fun sendTeleport(player: Player, xp: Double, location: Location) {
         if (player.isTeleBlocked) {
             removeAttribute(player, "spell:runes")
@@ -378,6 +395,11 @@ class ModernListeners : SpellListener("modern") {
         }
     }
 
+    /**
+     * Function to attempt house teleport for a player.
+     *
+     * @param player The player to teleport.
+     */
     private fun attemptHouseTeleport(player: Player) {
         if (player.isTeleBlocked) {
             removeAttribute(player, "spell:runes")
@@ -407,6 +429,12 @@ class ModernListeners : SpellListener("modern") {
         })
     }
 
+    /**
+     * Charges the orb for a specific player.
+     *
+     * @param player The player for whom the orb is being charged.
+     * @param node   The node representing the orb to be charged.
+     */
     private fun chargeOrb(player: Player, node: Node?) {
         if (node == null) return
         val spell = ChargeOrbData.spellMap[node.id] ?: return

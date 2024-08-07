@@ -9,9 +9,7 @@ import core.game.node.item.Item
 import core.tools.StringUtils
 
 /**
- * Enchant interface listener
- *
- * @constructor Enchant interface listener
+ * Enchant interface listener.
  */
 class EnchantInterfaceListener : InterfaceListener {
 

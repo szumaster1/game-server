@@ -12,9 +12,7 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
 /**
- * Bolt enchant interface listener
- *
- * @constructor Bolt enchant interface listener
+ * Bolt enchant interface listener.
  */
 class BoltEnchantInterfaceListener : InterfaceListener {
 

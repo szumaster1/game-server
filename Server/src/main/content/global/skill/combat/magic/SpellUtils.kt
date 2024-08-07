@@ -13,11 +13,11 @@ import core.game.node.item.Item
 object SpellUtils {
 
     /**
-     * Using staff
+     * Using staff.
      *
-     * @param p
-     * @param rune
-     * @return
+     * @param p    The player.
+     * @param rune The rune ID.
+     * @return True if the player is using the specified staff, false otherwise.
      */
     fun usingStaff(p: Player, rune: Int): Boolean {
         val weapon = p.equipment[3] ?: return false
@@ -32,11 +32,11 @@ object SpellUtils {
     }
 
     /**
-     * Has rune
+     * Has rune.
      *
-     * @param p
-     * @param rune
-     * @return
+     * @param p    The player.
+     * @param rune The rune item.
+     * @return True if the player has the specified rune, false otherwise.
      */
     fun hasRune(p: Player, rune: Item): Boolean {
         val removeItems = p.getAttribute("spell:runes", ArrayList<Item>())
@@ -66,13 +66,13 @@ object SpellUtils {
     }
 
     /**
-     * Has rune
+     * Has rune.
      *
-     * @param p
-     * @param item
-     * @param toRemove
-     * @param message
-     * @return
+     * @param p        The player.
+     * @param item     The item.
+     * @param toRemove The list of items to remove.
+     * @param message  Whether to display a message.
+     * @return True if the player has the specified rune, false otherwise.
      */
     fun hasRune(p: Player, item: Item, toRemove: MutableList<Item?>, message: Boolean): Boolean {
         if (!usingStaff(p, item.id)) {
@@ -110,20 +110,20 @@ object SpellUtils {
     }
 
     /**
-     * Attackable NPC
+     * Attackable NPC.
      *
-     * @param npc
-     * @return
+     * @param npc The NPC.
+     * @return True if the NPC is attackable, false otherwise.
      */
     fun attackableNPC(npc: NPC): Boolean {
         return npc.definition.hasAction("attack")
     }
 
     /**
-     * Get book from interface
+     * Get book from interface.
      *
-     * @param id
-     * @return
+     * @param id The interface ID.
+     * @return The book type (modern, ancient, lunar, none).
      */
     @JvmStatic
     fun getBookFromInterface(id: Int): String {

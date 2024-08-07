@@ -8,6 +8,7 @@ import core.api.sendMessage
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
+// Array of items in the Hunter Kit.
 private val HunterKitContents = intArrayOf(
     Items.NOOSE_WAND_10150,
     Items.BUTTERFLY_NET_10010,
@@ -18,11 +19,19 @@ private val HunterKitContents = intArrayOf(
     Items.BOX_TRAP_10008
 )
 
+/**
+ * Interaction listener for the Hunter Kit.
+ */
 class HunterKitInteraction : InteractionListener {
+
     override fun defineListeners() {
+        // Listener for opening the Hunter Kit.
         on(Items.HUNTER_KIT_11159, IntType.ITEM, "open") { player, _ ->
+            // Check if the player has enough inventory space.
             if(freeSlots(player) < 6) sendMessage(player, "You don't have enough inventory space.").also { return@on false }
+            // Remove the Hunter Kit from the player's inventory.
             if(removeItem(player, Items.HUNTER_KIT_11159)) {
+                // Add each item from the Hunter Kit Contents array to the player's inventory.
                 for(item in HunterKitContents) {
                     addItemOrDrop(player, item)
                 }
@@ -32,6 +41,9 @@ class HunterKitInteraction : InteractionListener {
     }
 }
 
+/**
+ * Enum class for String Jewellery items.
+ */
 enum class StringJewelleryItems(val unstrung: Int, val strung: Int) {
     GOLD(
         unstrung = Items.GOLD_AMULET_1673,
@@ -75,16 +87,21 @@ enum class StringJewelleryItems(val unstrung: Int, val strung: Int) {
     );
     companion object {
         private val productOfString = values().associate { it.unstrung to it.strung }
+        // Get the strung item ID for a given unstrung item ID.
         fun forId(id: Int): Int {
             return productOfString[id]!!
         }
 
+        // Check if the unstrung item ID exists in the enum.
         fun unstrungContains(id: Int): Boolean {
             return productOfString.contains(id)
         }
     }
 }
 
+/**
+ * Enum class for Humidify items.
+ */
 enum class HumidifyItems(val empty: Int, val full: Int) {
     VIAL(Items.VIAL_229, Items.VIAL_OF_WATER_227),
     WATERSKIN0(Items.WATERSKIN0_1831, Items.WATERSKIN4_1823),
@@ -108,13 +125,14 @@ enum class HumidifyItems(val empty: Int, val full: Int) {
     CUP(Items.EMPTY_CUP_1980, Items.CUP_OF_WATER_4458);
     companion object {
         private val productOfFill = values().associate { it.empty to it.full }
+        // Get the full item ID for a given empty item ID.
         fun forId(id: Int): Int {
             return productOfFill[id]!!
         }
 
+        // Check if the empty item ID exists in the enum.
         fun emptyContains(id: Int): Boolean {
             return productOfFill.contains(id)
         }
     }
 }
-

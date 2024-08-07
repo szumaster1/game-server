@@ -6,9 +6,7 @@ import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.link.TeleportManager.TeleportType
 
 /**
- * Teleother interface listener
- *
- * @constructor Teleother interface listener
+ * Teleport others interface listener.
  */
 class TeleotherInterfaceListener : InterfaceListener {
 
