@@ -19,9 +19,7 @@ import core.game.world.update.flag.context.Graphic
 import core.network.packet.PacketRepository
 import core.network.packet.context.CameraContext
 import core.network.packet.context.CameraContext.CameraType
-import core.network.packet.context.MinimapStateContext
 import core.network.packet.outgoing.CameraViewPacket
-import core.network.packet.outgoing.MinimapState
 import core.tools.RandomFunction
 
 /**
@@ -82,8 +80,6 @@ object EvilTwinUtils {
         setAttribute(player, originalLocation, player.location)
         queueScript(player, 4, QueueStrength.SOFT) {
             teleport(player, mollyNPC!!, hash)
-            face(NPC(getMollyId(npcId)), player, 3)
-            mollyNPC!!.faceLocation(Location(4,18,0))
             mollyNPC!!.locks.lockMovement(3000)
             openDialogue(player, MollyDialogue(3))
             return@queueScript stopExecuting(player)
@@ -99,8 +95,9 @@ object EvilTwinUtils {
      * @param hash The hash value used to identify the Evil Twin.
      */
     fun teleport(player: Player, npc: NPC, hash: Int) {
-        PacketRepository.send(MinimapState::class.java, MinimapStateContext(player, 2))
+        setMinimapState(player, 2)
         npc.properties.teleportLocation = region.baseLocation.transform(4, 15, 0)
+        npc.direction = Direction.NORTH
         player.properties.teleportLocation = region.baseLocation.transform(4, 16, 0)
         registerLogoutListener(player, logout) { p ->
             p.location = getAttribute(p, originalLocation, player.location)

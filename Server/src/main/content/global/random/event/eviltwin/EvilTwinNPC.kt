@@ -6,10 +6,12 @@ import core.api.utils.WeightBasedTable
 import core.game.node.entity.npc.NPC
 import core.game.system.timer.impl.AntiMacro
 
+val MOLLY: Int = 3892 + (0 and 0xFF) + (((0 shr 16) and 0xFF) * EvilTwinColors.values().size)
+
 /**
  * Evil twin NPC.
  */
-class EvilTwinNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(-1) {
+class EvilTwinNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(MOLLY) {
 
     override fun init() {
         super.init()
@@ -20,7 +22,6 @@ class EvilTwinNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(
     }
 
     override fun talkTo(npc: NPC) {
-
     }
 
 }
