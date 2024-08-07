@@ -32,6 +32,7 @@ class EvilTwinListeners : InteractionListener, MapArea {
 
     override fun defineListeners() {
 
+        // Handles the interaction with Molly NPCs.
         on(mollyId, IntType.NPC, "talk-to") { player, node ->
             if ((EvilTwinUtils.tries < 1 || EvilTwinUtils.success) && node.id >= 3892 && node.id <= 3911) {
                 openDialogue(player, MollyDialogue(if (EvilTwinUtils.success) 2 else 1), node.id)
@@ -39,6 +40,7 @@ class EvilTwinListeners : InteractionListener, MapArea {
             return@on true
         }
 
+        // Handles the interaction with the control panel.
         on(controlPanel, IntType.SCENERY, "use") { player, _ ->
             if (EvilTwinUtils.success) {
                 sendMessage(player, "You already caught the evil twin.")
@@ -59,6 +61,7 @@ class EvilTwinListeners : InteractionListener, MapArea {
             return@on false
         }
 
+        // Handles the interaction with the doors.
         on(doorsId, IntType.SCENERY, "open") { player, node ->
             if (player.location.localX < 9 && !player.getAttribute(EvilTwinUtils.talkBefore, false)) {
                 openDialogue(player, MollyDialogue(3), EvilTwinUtils.mollyNPC!!)

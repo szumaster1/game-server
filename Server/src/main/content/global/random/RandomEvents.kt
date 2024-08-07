@@ -31,10 +31,10 @@ import core.game.node.entity.skill.Skills
 /**
  * Random events.
  *
- * @property npc the npc id.
- * @property loot the loot.
- * @property skillIds the skill ids.
- * @property type the type.
+ * @property npc The NPC associated with the random event.
+ * @property loot The loot table for the random event.
+ * @property skillIds The skill IDs associated with the random event.
+ * @property type The type of the random event.
  */
 enum class RandomEvents(
     val npc: RandomEventNPC,
@@ -167,10 +167,21 @@ enum class RandomEvents(
             populateMappings()
         }
 
+        /**
+         * Get a skill-based random event based on the given skill.
+         *
+         * @param skill The skill ID.
+         * @return The random event associated with the skill.
+         */
         fun getSkillBasedRandomEvent(skill: Int): RandomEvents? {
             return skillMap[skill]?.random()
         }
 
+        /**
+         * Get a non-skill random event.
+         *
+         * @return The random event.
+         */
         fun getNonSkillRandom(): RandomEvents {
             return nonSkillList.random()
         }
@@ -185,5 +196,4 @@ enum class RandomEvents(
             }
         }
     }
-
 }

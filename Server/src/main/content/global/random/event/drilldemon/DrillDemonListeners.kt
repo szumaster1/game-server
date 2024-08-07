@@ -16,9 +16,7 @@ import core.game.world.map.zone.ZoneRestriction
 import core.tools.secondsToTicks
 
 /**
- * Drill demon listeners
- *
- * @constructor Drill demon listeners
+ * Drill demon listeners.
  */
 class DrillDemonListeners : InteractionListener, MapArea {
     val MATS = intArrayOf(10076, 10077, 10078, 10079)

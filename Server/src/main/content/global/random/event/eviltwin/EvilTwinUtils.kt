@@ -1,6 +1,7 @@
 package content.global.random.event.eviltwin
 
 import core.api.*
+import core.api.consts.Items
 import core.api.consts.Regions
 import core.api.utils.PlayerCamera
 import core.game.interaction.QueueStrength
@@ -23,8 +24,12 @@ import core.network.packet.outgoing.CameraViewPacket
 import core.network.packet.outgoing.MinimapState
 import core.tools.RandomFunction
 
+/**
+ * Evil twin utils.
+ */
 object EvilTwinUtils {
 
+    // Constants
     val randomEvent = "/save:evil_twin:random"
     val doorDialogue = "evil_twin:door-interact"
     val talkBefore = "evil_twin:npc-interact"
@@ -33,9 +38,18 @@ object EvilTwinUtils {
     val crane_x_loc = "/save:evil_twin:ccx"
     val crane_y_loc = "/save:evil_twin:ccy"
 
-    val rewards = arrayOf(Item(1618, 2), Item(1620, 3), Item(1622, 3), Item(1624, 4))
+    // Rewards
+    val rewards = arrayOf(
+        Item(Items.UNCUT_DIAMOND_1618, 2),
+        Item(Items.UNCUT_RUBY_1620, 3),
+        Item(Items.UNCUT_EMERALD_1622, 3),
+        Item(Items.UNCUT_SAPPHIRE_1624, 4)
+    )
+
+    // Dynamic Region
     val region: DynamicRegion = DynamicRegion.create(Regions.RANDOM_EVENT_EVIL_TWIN_7504)
 
+    // Variables
     var success = false
     var tries = 3
     var offsetX = 0
@@ -45,7 +59,14 @@ object EvilTwinUtils {
     var craneNPC: NPC? = null
     var currentCrane: Scenery? = null
 
+    /**
+     * Starts the Evil Twin random event for the player.
+     *
+     * @param player The player starting the event.
+     * @return True if the event was started successfully, false otherwise.
+     */
     fun start(player: Player): Boolean {
+        region.add(player)
         region.setMusicId(612)
         currentCrane = Scenery(14976, region.baseLocation.transform(14, 12, 0), 10, 0)
         val color: EvilTwinColors = RandomFunction.getRandomElement(EvilTwinColors.values())
@@ -70,6 +91,13 @@ object EvilTwinUtils {
         return true
     }
 
+    /**
+     * Teleports the player and the NPC to the Evil Twin region.
+     *
+     * @param player The player to teleport.
+     * @param npc The NPC to teleport.
+     * @param hash The hash value used to identify the Evil Twin.
+     */
     fun teleport(player: Player, npc: NPC, hash: Int) {
         PacketRepository.send(MinimapState::class.java, MinimapStateContext(player, 2))
         npc.properties.teleportLocation = region.baseLocation.transform(4, 15, 0)
@@ -81,6 +109,11 @@ object EvilTwinUtils {
         showNPCs(true)
     }
 
+    /**
+     * Cleans up after the Evil Twin random event for the player.
+     *
+     * @param player The player to clean up.
+     */
     fun cleanup(player: Player) {
         craneNPC = null
         success = false
@@ -93,6 +126,11 @@ object EvilTwinUtils {
         clearLogoutListener(player, logout)
     }
 
+    /**
+     * Decreases the number of tries the player has left.
+     *
+     * @param player The player.
+     */
     fun decreaseTries(player: Player) {
         tries--
         setInterfaceText(player, "Tries: $tries", 240, 27)
@@ -103,6 +141,13 @@ object EvilTwinUtils {
         }
     }
 
+    /**
+     * Updates the location of the player and entity.
+     *
+     * @param player The player.
+     * @param entity The entity.
+     * @param last The last location.
+     */
     fun locationUpdate(player: Player, entity: Entity, last: Location?) {
         if (entity == craneNPC && entity.walkingQueue.queue.size > 1 && player.interfaceManager.singleTab != null) {
             val l: Location = entity.location
@@ -118,6 +163,13 @@ object EvilTwinUtils {
         return locationUpdate(player, entity, last)
     }
 
+    /**
+     * Updates the camera view of the crane.
+     *
+     * @param player The player.
+     * @param x The x-coordinate of the crane.
+     * @param y The y-coordinate of the crane.
+     */
     fun updateCraneCam(player: Player, x: Int, y: Int) {
         if (player.interfaceManager.singleTab != null) {
             var loc = region.baseLocation.transform(14, 20, 0)
@@ -129,6 +181,12 @@ object EvilTwinUtils {
         setAttribute(player, crane_y_loc, y)
     }
 
+    /**
+     * Moves the crane in the specified direction.
+     *
+     * @param player The player.
+     * @param direction The direction to move the crane.
+     */
     fun moveCrane(player: Player, direction: Direction) {
         submitWorldPulse(object : Pulse(1, player) {
             override fun pulse(): Boolean {
@@ -152,6 +210,11 @@ object EvilTwinUtils {
         })
     }
 
+    /**
+     * Shows or hides the NPCs in the Evil Twin region.
+     *
+     * @param showMolly True to show Molly, false to hide Molly.
+     */
     fun showNPCs(showMolly: Boolean) {
         for (npc in region.planes[0].npcs) {
             if (npc.id in 3852..3891) {
@@ -162,6 +225,13 @@ object EvilTwinUtils {
         }
     }
 
+    /**
+     * Checks if an NPC is the Evil Twin.
+     *
+     * @param npc The NPC to check.
+     * @param hash The hash value used to identify the Evil Twin.
+     * @return True if the NPC is the Evil Twin, false otherwise.
+     */
     fun isEvilTwin(npc: NPC, hash: Int): Boolean {
         val npcId = npc.id - 3852
         val type: Int = npcId / EvilTwinColors.values().size
@@ -169,6 +239,11 @@ object EvilTwinUtils {
         return hash == (color or (type shl 16))
     }
 
+    /**
+     * Removes the non-Evil Twin suspects from the Evil Twin region.
+     *
+     * @param player The player.
+     */
     fun removeSuspects(player: Player) {
         val hash: Int = player.getAttribute(randomEvent, 0)
         for (npc in region.planes[0].npcs) {
@@ -179,6 +254,11 @@ object EvilTwinUtils {
         }
     }
 
+    /**
+     * Spawns the Evil Twin suspects in the Evil Twin region.
+     *
+     * @param hash The hash value used to identify the Evil Twin.
+     */
     fun spawnSuspects(hash: Int) {
         if (region.planes[0].npcs.size > 3) {
             return
@@ -193,6 +273,11 @@ object EvilTwinUtils {
         }
     }
 
+    /**
+     * Rewards the player with a random item.
+     *
+     * @param player The player.
+     */
     fun reward(player: Player) {
         val item = RandomFunction.getRandomElement(rewards)
         addItemOrDrop(player, item.id, item.amount)
@@ -201,6 +286,12 @@ object EvilTwinUtils {
         }
     }
 
+    /**
+     * Gets the Molly NPC ID based on the hash value.
+     *
+     * @param hash The hash value used to identify the Evil Twin.
+     * @return The Molly NPC ID.
+     */
     fun getMollyId(hash: Int): Int {
         return 3892 + (hash and 0xFF) + (((hash shr 16) and 0xFF) * EvilTwinColors.values().size)
     }

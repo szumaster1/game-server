@@ -7,6 +7,9 @@ import core.api.setAttribute
 import core.game.activity.Cutscene
 import core.game.node.entity.player.Player
 
+/**
+ * Servant cutscene.
+ */
 class ServantCutsceneN(player: Player) : Cutscene(player) {
 
     override fun setup() {

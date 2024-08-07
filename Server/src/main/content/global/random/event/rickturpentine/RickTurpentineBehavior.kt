@@ -12,9 +12,6 @@ import core.tools.RandomFunction
  */
 class RickTurpentineBehavior : NPCBehavior(NPCs.RICK_TURPENTINE_2476) {
 
-    /**
-     * Before attack finalized.
-     */
     override fun beforeAttackFinalized(self: NPC, victim: Entity, state: BattleState) {
         state.estimatedHit = RandomFunction.getRandom(3)
     }

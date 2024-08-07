@@ -11,6 +11,9 @@ import core.game.system.timer.impl.AntiMacro
 import core.game.world.GameWorld
 import core.game.world.map.Location
 
+/**
+ * Evil bob NPC.
+ */
 class EvilBobNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs.EVIL_BOB_2478) {
 
     override fun init() {

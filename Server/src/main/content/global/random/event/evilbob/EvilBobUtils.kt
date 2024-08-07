@@ -11,7 +11,9 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 import core.tools.RandomFunction
 
-
+/**
+ * Evil bob utils.
+ */
 object EvilBobUtils {
     const val prevLocation = "/save:original-loc"
     const val eventComplete = "/save:evilbob:eventcomplete"

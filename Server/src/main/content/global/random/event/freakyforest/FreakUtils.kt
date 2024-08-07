@@ -7,7 +7,9 @@ import core.game.node.entity.player.Player
 import core.game.world.map.zone.ZoneBorders
 import core.tools.RandomFunction
 
-
+/**
+ * Freak utils.
+ */
 object FreakUtils {
     const val freakNpc = NPCs.FREAKY_FORESTER_2458
     const val freakPreviousLoc = "/save:original-loc"
@@ -17,7 +19,13 @@ object FreakUtils {
 
     val freakArea = ZoneBorders(2587, 4758, 2616, 4788)
 
+    /**
+     * Give freak task.
+     *
+     * @param player The player to give the task to.
+     */
     fun giveFreakTask(player: Player) {
+        // Randomly select a pheasant NPC to assign as the task
         when (RandomFunction.getRandom(4)) {
             0 -> setAttribute(player, freakTask, NPCs.PHEASANT_2459)
             1 -> setAttribute(player, freakTask, NPCs.PHEASANT_2460)
@@ -28,6 +36,11 @@ object FreakUtils {
         player.dialogueInterpreter.open(FreakyForesterDialogue(), freakNpc)
     }
 
+    /**
+     * Cleanup.
+     *
+     * @param player The player to clean up.
+     */
     fun cleanup(player: Player) {
         player.locks.unlockTeleport()
         player.properties.teleportLocation = getAttribute(player, freakPreviousLoc, null)
@@ -38,6 +51,11 @@ object FreakUtils {
         removeAll(player, Items.RAW_PHEASANT_6179, Container.BANK)
     }
 
+    /**
+     * Reward.
+     *
+     * @param player The player to reward.
+     */
     fun reward(player: Player) {
         val hasHat = hasAnItem(player, Items.LEDERHOSEN_HAT_6182).container != null
         val hasTop = hasAnItem(player, Items.LEDERHOSEN_TOP_6180).container != null

@@ -8,9 +8,7 @@ import core.game.node.item.Item
 import core.game.system.timer.impl.AntiMacro
 
 /**
- * Certer event interface
- *
- * @constructor Certer event interface
+ * Certer event interface.
  */
 class CerterEventInterface : InterfaceListener {
 

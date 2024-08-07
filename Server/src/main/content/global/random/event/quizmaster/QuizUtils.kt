@@ -11,13 +11,17 @@ import core.game.world.map.Location
  * Quiz utils.
  */
 object QuizUtils {
-
+    // Attributes
     const val PLAYER_LOCATION = "/save:original-loc"
 
+    // Items
     val COINS = Item(Items.COINS_995, 1000)
     val MYSTERY_BOX = Item(Items.MYSTERY_BOX_6199)
+
+    // Locations
     val EVENT_LOCATION: Location = Location.create(1952, 4764, 1)
 
+    // Correct dialogues
     val CORRECT = arrayOf(
         arrayOf("Hey, you're good at this!", "CORRECT!", "Okay, next question!"),
         arrayOf("Absolutely RIGHT!", "Keep going for the win!", "Okay, next question!"),
@@ -27,6 +31,7 @@ object QuizUtils {
         arrayOf("YES!", "You're RIGHT!", "Okay, next question!")
     )
 
+    // Wrong dialogues
     val WRONG = arrayOf(
         arrayOf(
             "Huh...? Didn't you know that one?",
@@ -51,6 +56,11 @@ object QuizUtils {
         arrayOf("BZZZZZZZ! WRONG!", "You're supposed to pick the ODD ONE OUT.", "Now, let's start again...")
     )
 
+    /**
+     * Cleanup.
+     *
+     * @param player The player to clean up.
+     */
     fun cleanup(player: Player) {
         player.locks.unlockTeleport()
         player.properties.teleportLocation = getAttribute(player, PLAYER_LOCATION, null)

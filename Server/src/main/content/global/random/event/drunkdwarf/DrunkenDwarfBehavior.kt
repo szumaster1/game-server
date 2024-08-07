@@ -8,11 +8,10 @@ import core.game.node.entity.npc.NPCBehavior
 import core.tools.RandomFunction
 
 /**
- * Drunken dwarf behavior
- *
- * @constructor Drunken dwarf behavior
+ * Drunken dwarf behavior.
  */
 class DrunkenDwarfBehavior : NPCBehavior(NPCs.DRUNKEN_DWARF_956) {
+
     override fun beforeAttackFinalized(self: NPC, victim: Entity, state: BattleState) {
         state.estimatedHit = RandomFunction.getRandom(3)
     }

@@ -9,10 +9,7 @@ import core.game.system.timer.impl.AntiMacro
 import core.tools.END_DIALOGUE
 
 /**
- * Certer dialogue
- *
- * @property initial
- * @constructor Certer dialogue
+ * Certer dialogue.
  */
 class CerterDialogue(val initial: Boolean) : DialogueFile() {
 

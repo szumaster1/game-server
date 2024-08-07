@@ -8,6 +8,9 @@ import core.game.interaction.InterfaceListener
 import core.game.interaction.QueueStrength
 import core.game.world.map.Location
 
+/**
+ * Evil bob interface.
+ */
 class EvilBobInterface : InterfaceListener {
 
     override fun defineInterfaceListeners() {

@@ -14,6 +14,9 @@ import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 import core.game.world.map.zone.ZoneRestriction
 
+/**
+ * Evil bob listeners.
+ */
 class EvilBobListeners : InteractionListener, MapArea {
 
     override fun defineListeners() {

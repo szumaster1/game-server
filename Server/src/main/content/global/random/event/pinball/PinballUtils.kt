@@ -20,14 +20,24 @@ object PinballUtils {
     const val PINBALL_SCORE = "pinball-event-score"
     const val GET_PILLAR = "pinball-pillars"
 
+    // Array of wrong pillars
     val wrongPillars = intArrayOf(15001, 15003, 15005, 15007, 15009)
+    // Array of all pillars
     val pillars = intArrayOf(15000, 15001, 15002, 15004, 15005, 15006, 15007, 15008, 15009)
 
     const val CAVE_EXIT = 15010
+    // Array of guards
     val guards = intArrayOf(NPCs.FLIPPA_3912,NPCs.TILT_3913)
+    // Mysterious old man NPC
     val oldMan = NPC(NPCs.MYSTERIOUS_OLD_MAN_410, Location.create(1971, 5046, 0))
+    // Pinball location
     val PINBALL_LOCATION = Location.create(1972, 5046, 0)
 
+    /**
+     * Cleanup.
+     *
+     * @param player The player to clean up.
+     */
     fun cleanup(player: Player) {
         player.properties.teleportLocation = getAttribute(player, PINBALL_SAVE_LOCATION, null)
         clearLogoutListener(player, PINBALL_LOGOUT)
@@ -39,6 +49,12 @@ object PinballUtils {
         AntiMacro.terminateEventNpc(player)
     }
 
+    /**
+     * Handle pinball event.
+     *
+     * @param player The player to handle the event for.
+     * @return True if the event is handled successfully, false otherwise.
+     */
     fun handlePinballEvent(player: Player): Boolean {
         if (inBorders(player, 1965, 5038, 1979, 5048)) {
             openDialogue(player, OldManDialogue())
@@ -46,6 +62,7 @@ object PinballUtils {
         return true
     }
 
+    // Array of scenery objects representing the pillars
     private val getPillar = arrayOf(
         Scenery(15001, Location(1967, 5046, 0)),
         Scenery(15003, Location(1969, 5049, 0)),
@@ -54,6 +71,11 @@ object PinballUtils {
         Scenery(15009, Location(1977, 5046, 0))
     )
 
+    /**
+     * Generate tag.
+     *
+     * @param player The player to generate the tag for.
+     */
     fun generateTag(player: Player) {
         for (i in 0..4) if (getAttribute(player, GET_PILLAR, -1) == i) {
             replaceScenery(getPillar[i], getPillar[i].id - 1, -1)
@@ -62,6 +84,11 @@ object PinballUtils {
         }
     }
 
+    /**
+     * Replace tag.
+     *
+     * @param player The player to replace the tag for.
+     */
     fun replaceTag(player : Player) {
         for (i in 0..4) if (getAttribute(player, PILLAR_TOUCHED, -1) == i) {
             when (i) {
@@ -74,5 +101,3 @@ object PinballUtils {
         }
     }
 }
-
-

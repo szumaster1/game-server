@@ -13,10 +13,7 @@ import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
 
 /**
- * Drunken dwarf NPC
- *
- * @property loot
- * @constructor Drunken dwarf NPC
+ * Drunken dwarf NPC.
  */
 class DrunkenDwarfNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs.DRUNKEN_DWARF_956) {
 
