@@ -11,9 +11,7 @@
 
 ## 2009Scape
 
-Fork for educational purposes & single-player experience. 
-
-
+Fork for educational purposes & single-player experience.
 
 ##### Setting Up the Project
 
