@@ -3,9 +3,9 @@ package content.global.skill.gathering.farming
 /**
  * Farmers.
  *
- * @property id
- * @property patches
- * @constructor Farmers
+ * @property id      The ID of the farmer.
+ * @property patches The farming patches associated with the farmer.
+ * @constructor Creates a new instance of the Farmers enum.
  */
 enum class Farmers(val id: Int, val patches: Array<FarmingPatch>) {
     /**
@@ -134,6 +134,12 @@ enum class Farmers(val id: Int, val patches: Array<FarmingPatch>) {
         @JvmField
         val farmers = values().map { it.id to it }.toMap()
 
+        /**
+         * Returns the Farmers enum instance for the given ID.
+         *
+         * @param id The ID of the farmer.
+         * @return The Farmers enum instance or null if not found.
+         */
         @JvmStatic
         fun forId(id: Int): Farmers?{
             return farmers[id]

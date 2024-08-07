@@ -12,19 +12,19 @@ import kotlin.math.ceil
 import kotlin.math.min
 
 /**
- * Patch
+ * Patch class represents a farming patch.
  *
- * @property player
- * @property patch
- * @property plantable
- * @property currentGrowthStage
- * @property isDiseased
- * @property isDead
- * @property isWatered
- * @property nextGrowth
- * @property harvestAmt
- * @property isCheckHealth
- * @constructor Patch
+ * @property player             The player interacting with the patch.
+ * @property patch              The specific farming patch.
+ * @property plantable          The plantable item in the patch.
+ * @property currentGrowthStage The current growth stage of the plant.
+ * @property isDiseased         Indicates if the plant is diseased.
+ * @property isDead             Indicates if the plant is dead.
+ * @property isWatered          Indicates if the plant has been watered.
+ * @property nextGrowth         The timestamp for the next growth stage.
+ * @property harvestAmt         The amount of harvestable items.
+ * @property isCheckHealth      Indicates if the plant's health should be checked.
+ * @constructor Creates a Patch instance with initial values.
  */
 class Patch(val player: Player, val patch: FarmingPatch, var plantable: Plantable?, var currentGrowthStage: Int, var isDiseased: Boolean, var isDead: Boolean, var isWatered: Boolean, var nextGrowth: Long, var harvestAmt: Int, var isCheckHealth: Boolean) {
     constructor(player: Player, patch: FarmingPatch) : this(player,patch,null,0,false,false,false,0L,0,false)
@@ -35,8 +35,7 @@ class Patch(val player: Player, val patch: FarmingPatch, var plantable: Plantabl
     var cropLives = 3
 
     /**
-     * Set new harvest amount
-     *
+     * Set new harvest amount.
      */
     fun setNewHarvestAmount() {
         val compostMod = when(compost) {
@@ -59,10 +58,10 @@ class Patch(val player: Player, val patch: FarmingPatch, var plantable: Plantabl
     }
 
     /**
-     * Roll lives decrement
+     * Function to decrement the number of lives for a farming activity based on the farming level and magic secateurs.
      *
-     * @param farmingLevel
-     * @param magicSecateurs
+     * @param farmingLevel   The level of farming skill of the player.
+     * @param magicSecateurs the Boolean indicating whether the player is using magic secateurs.
      */
     fun rollLivesDecrement(farmingLevel: Int, magicSecateurs: Boolean){
         if(patch.type == PatchType.HERB_PATCH){
@@ -114,27 +113,27 @@ class Patch(val player: Player, val patch: FarmingPatch, var plantable: Plantabl
     }
 
     /**
-     * Is weedy
+     * Checks if the plant is weedy.
      *
-     * @return
+     * @return true if the plant is weedy, false otherwise.
      */
     fun isWeedy(): Boolean {
         return getCurrentState() in 0..2
     }
 
     /**
-     * Is empty and weeded
+     * Checks if the list is empty and all weeds are removed.
      *
-     * @return
+     * @return true if the list is empty and weeded; false otherwise.
      */
     fun isEmptyAndWeeded(): Boolean {
         return getCurrentState() == 3
     }
 
     /**
-     * Get current state
+     * Function to retrieve the current state.
      *
-     * @return
+     * @return The current state as an integer.
      */
     fun getCurrentState(): Int{
         return getVarbit(player, patch.varbit)

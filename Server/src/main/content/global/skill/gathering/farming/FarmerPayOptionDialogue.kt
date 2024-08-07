@@ -12,11 +12,11 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Farmer pay option dialogue
+ * Class representing a dialogue for farmer payment options.
  *
- * @property patch
- * @property quickPay
- * @constructor Farmer pay option dialogue
+ * @property patch      The patch object associated with the payment.
+ * @property quickPay   A boolean indicating if quick payment is selected.
+ * @constructor Creates a FarmerPayOptionDialogue with the provided patch and quickPay status.
  */
 class FarmerPayOptionDialogue(val patch: Patch, val quickPay: Boolean = false): DialogueFile() {
 

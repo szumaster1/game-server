@@ -12,11 +12,11 @@ import org.json.simple.JSONObject
 import java.util.concurrent.TimeUnit
 
 /**
- * Compost bin
+ * Compost bin.
  *
- * @property player
- * @property bin
- * @constructor Compost bin
+ * @property player The player using the compost bin.
+ * @property bin    The type of compost bin.
+ * @constructor Creates a compost bin object.
  */
 class CompostBin(val player: Player, val bin: CompostBins) {
     private var items = ArrayList<Int>()
@@ -27,7 +27,7 @@ class CompostBin(val player: Player, val bin: CompostBins) {
     var isFinished = false
 
     /**
-     * Reset
+     * Reset the compost bin to its default state.
      */
     fun reset() {
         items.clear()
@@ -40,16 +40,16 @@ class CompostBin(val player: Player, val bin: CompostBins) {
     }
 
     /**
-     * Is full
+     * Check if the compost bin is full.
      *
-     * @return
+     * @return true if the compost bin is full, false otherwise.
      */
     fun isFull() : Boolean {
         return items.size == 15
     }
 
     /**
-     * Close
+     * Close the compost bin.
      */
     fun close() {
         isClosed = true
@@ -62,7 +62,7 @@ class CompostBin(val player: Player, val bin: CompostBins) {
     }
 
     /**
-     * Open
+     * Open the compost bin.
      */
     fun open(){
         isClosed = false
@@ -73,9 +73,9 @@ class CompostBin(val player: Player, val bin: CompostBins) {
     }
 
     /**
-     * Take item
+     * Take an item from the compost bin.
      *
-     * @return
+     * @return the item taken from the compost bin, or null if the bin is empty.
      */
     fun takeItem(): Item?{
         if(items.isEmpty()) return null
@@ -96,28 +96,28 @@ class CompostBin(val player: Player, val bin: CompostBins) {
     }
 
     /**
-     * Is default state
+     * Check if the compost bin is in its default state.
      *
-     * @return
+     * @return true if the compost bin is in its default state, false otherwise.
      */
     fun isDefaultState() : Boolean {
         return (isFinished == false && finishedTime == 0L && items.size == 0)
     }
 
     /**
-     * Is ready
+     * Check if the compost bin is ready to be harvested.
      *
-     * @return
+     * @return true if the compost bin is ready to be harvested, false otherwise.
      */
     fun isReady(): Boolean {
         return System.currentTimeMillis() > finishedTime && finishedTime != 0L
     }
 
     /**
-     * Check super compost item
+     * Check if an item is a super compost item.
      *
-     * @param id
-     * @return
+     * @param id the ID of the item to check.
+     * @return true if the item is a super compost item, false otherwise.
      */
     fun checkSuperCompostItem(id: Int): Boolean{
         return when (id){
@@ -156,9 +156,9 @@ class CompostBin(val player: Player, val bin: CompostBins) {
     }
 
     /**
-     * Add item
+     * Add an item to the compost bin.
      *
-     * @param item
+     * @param item the ID of the item to add.
      */
     fun addItem(item: Int){
         if(!isFull()) {
@@ -172,9 +172,9 @@ class CompostBin(val player: Player, val bin: CompostBins) {
     }
 
     /**
-     * Add item
+     * Add an item to the compost bin.
      *
-     * @param item
+     * @param item the item to add.
      */
     fun addItem(item: Item){
         val remaining = 15 - items.size
@@ -189,7 +189,7 @@ class CompostBin(val player: Player, val bin: CompostBins) {
     }
 
     /**
-     * Update bit
+     * Update the varbit value of the compost bin.
      */
     fun updateBit(){
         if(items.isNotEmpty()) {
@@ -209,9 +209,9 @@ class CompostBin(val player: Player, val bin: CompostBins) {
     }
 
     /**
-     * Save
+     * Save the state of the compost bin to a JSON object.
      *
-     * @param root
+     * @param root the root JSON object to save the data to.
      */
     fun save(root: JSONObject){
         val binObject = JSONObject()
@@ -229,9 +229,9 @@ class CompostBin(val player: Player, val bin: CompostBins) {
     }
 
     /**
-     * Parse
+     * Parse the state of the compost bin from a JSON object.
      *
-     * @param _data
+     * @param _data the JSON object containing the data.
      */
     fun parse(_data: JSONObject){
         val isSuper = if(_data.containsKey("isSuper")) (_data["isSuper"] as Boolean) else true
@@ -248,7 +248,7 @@ class CompostBin(val player: Player, val bin: CompostBins) {
     }
 
     /**
-     * Finish
+     * Finish the composting process.
      */
     fun finish(){
         if(isTomatoes) items = items.map { Items.ROTTEN_TOMATO_2518 } as ArrayList<Int>
@@ -258,7 +258,7 @@ class CompostBin(val player: Player, val bin: CompostBins) {
     }
 
     /**
-     * Convert
+     * Convert the compost to super compost.
      */
     fun convert(){
         if(!isSuperCompost){

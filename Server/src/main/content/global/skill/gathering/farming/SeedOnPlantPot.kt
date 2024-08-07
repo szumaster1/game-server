@@ -14,17 +14,19 @@ import core.tools.prependArticle
  */
 class SeedlingListener : InteractionListener {
     override fun defineListeners() {
+        // Define listener for using tree seeds with plant pots
         onUseWith(IntType.ITEM, TREE_SEEDS, Items.PLANT_POT_5354, handler = ::addSeedToPot)
+        // Define listener for using tree seedlings with watering cans
         onUseWith(IntType.ITEM, TREE_SEEDLINGS, *WATERING_CANS, handler = ::waterSeedling)
     }
 
     /**
-     * Add seed to pot
+     * Add seed to pot.
      *
-     * @param player
-     * @param used
-     * @param with
-     * @return
+     * @param player The player performing the action.
+     * @param used   The item being used (tree seed).
+     * @param with   The item being used with (plant pot).
+     * @return True if the action was successful, false otherwise.
      */
     fun addSeedToPot(player: Player, used: Node, with: Node) : Boolean {
         val seed = used.asItem() ?: return false
@@ -45,12 +47,12 @@ class SeedlingListener : InteractionListener {
     }
 
     /**
-     * Water seedling
+     * Water seedling.
      *
-     * @param player
-     * @param used
-     * @param with
-     * @return
+     * @param player The player performing the action.
+     * @param used   The item being used (seedling).
+     * @param with   The item being used with (watering can).
+     * @return True if the action was successful, false otherwise.
      */
     fun waterSeedling(player: Player, used: Node, with: Node) : Boolean {
         val seedling = used.asItem() ?: return false
@@ -75,10 +77,10 @@ class SeedlingListener : InteractionListener {
     }
 
     /**
-     * Get seedling
+     * Get seedling.
      *
-     * @param id
-     * @return
+     * @param id The ID of the seed.
+     * @return The ID of the corresponding seedling, or -1 if not found.
      */
     fun getSeedling(id: Int) : Int {
         return when (id) {

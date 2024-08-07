@@ -4,342 +4,1091 @@ import core.api.consts.Items
 import core.game.node.item.Item
 
 /**
- * Plantable
+ * Plantable.
  *
- * @property itemID
- * @property displayName
- * @property value
- * @property stages
- * @property plantingXP
- * @property harvestXP
- * @property checkHealthXP
- * @property requiredLevel
- * @property applicablePatch
- * @property harvestItem
- * @property protectionItem
- * @property protectionFlower
- * @constructor Plantable
+ * @param itemID           The unique identifier of the item.
+ * @param displayName      The name displayed for the item.
+ * @param value            The value of the item.
+ * @param stages           The growth stages of the plant.
+ * @param plantingXP       The experience gained from planting the item.
+ * @param harvestXP        The experience gained from harvesting the item.
+ * @param checkHealthXP    The experience gained from checking the health of the plant.
+ * @param requiredLevel    The level required to plant the item.
+ * @param applicablePatch  The type of patch where the item can be planted.
+ * @param harvestItem      The item ID obtained from harvesting the plant
+ * @param protectionItem   The item that protects the plant.
+ * @param protectionFlower The protective flower for the plant.
+ * @constructor Plantable.
  */
-enum class Plantable(val itemID: Int, val displayName: String, val value: Int, val stages: Int, val plantingXP: Double, val harvestXP: Double, val checkHealthXP: Double, val requiredLevel: Int, val applicablePatch: PatchType, val harvestItem: Int, val protectionItem: Item? = null, val protectionFlower: Plantable? = null) {
+enum class Plantable(
+    val itemID: Int,
+    val displayName: String,
+    val value: Int,
+    val stages: Int,
+    val plantingXP: Double,
+    val harvestXP: Double,
+    val checkHealthXP: Double,
+    val requiredLevel: Int,
+    val applicablePatch: PatchType,
+    val harvestItem: Int,
+    val protectionItem: Item? = null,
+    val protectionFlower: Plantable? = null
+) {
 
     /**
      * Marigold Seed.
      */
-    MARIGOLD_SEED(Items.MARIGOLD_SEED_5096,"marigold seed",8,4,8.5,47.0,0.0,2,PatchType.FLOWER_PATCH,Items.MARIGOLDS_6010),
+    MARIGOLD_SEED(
+        itemID = Items.MARIGOLD_SEED_5096, // Item ID for Marigold Seed
+        displayName = "marigold seed", // Display name for Marigold Seed
+        value = 8, // Value of Marigold Seed
+        stages = 4, // Number of growth stages for Marigold Seed
+        plantingXP = 8.5, // Planting experience gained from planting Marigold Seed
+        harvestXP = 47.0, // Harvest experience gained from harvesting Marigold Seed
+        checkHealthXP = 0.0, // Health check experience gained from checking Marigold Seed
+        requiredLevel = 2, // Required level to plant Marigold Seed
+        applicablePatch = PatchType.FLOWER_PATCH, // Marigold Seed can be planted in a flower patch
+        harvestItem = Items.MARIGOLDS_6010 // Item obtained from harvesting Marigold Seed
+    ),
 
     /**
      * Rosemary Seed.
      */
-    ROSEMARY_SEED(Items.ROSEMARY_SEED_5097,"rosemary seed",13,4,12.0,66.5,0.0,11,PatchType.FLOWER_PATCH, Items.ROSEMARY_6014),
+    ROSEMARY_SEED(
+        itemID = Items.ROSEMARY_SEED_5097,
+        displayName = "rosemary seed",
+        value = 13,
+        stages = 4,
+        plantingXP = 12.0,
+        harvestXP = 66.5,
+        checkHealthXP = 0.0,
+        requiredLevel = 11,
+        applicablePatch = PatchType.FLOWER_PATCH,
+        harvestItem = Items.ROSEMARY_6014
+    ),
 
     /**
      * Nasturtium Seed.
      */
-    NASTURTIUM_SEED(Items.NASTURTIUM_SEED_5098,"nasturtium seed",18,4,19.5,111.0,0.0,24,PatchType.FLOWER_PATCH,Items.NASTURTIUMS_6012),
+    NASTURTIUM_SEED(
+        itemID = Items.NASTURTIUM_SEED_5098,
+        displayName = "nasturtium seed",
+        value = 18,
+        stages = 4,
+        plantingXP = 19.5,
+        harvestXP = 111.0,
+        checkHealthXP = 0.0,
+        requiredLevel = 24,
+        applicablePatch = PatchType.FLOWER_PATCH,
+        harvestItem = Items.NASTURTIUMS_6012
+    ),
 
     /**
      * Woad Seed.
      */
-    WOAD_SEED(Items.WOAD_SEED_5099,"woad seed",23,4,20.5,115.5,0.0,25,PatchType.FLOWER_PATCH,Items.WOAD_LEAF_1793),
+    WOAD_SEED(
+        itemID = Items.WOAD_SEED_5099,
+        displayName = "woad seed",
+        value = 23,
+        stages = 4,
+        plantingXP = 20.5,
+        harvestXP = 115.5,
+        checkHealthXP = 0.0,
+        requiredLevel = 25,
+        applicablePatch = PatchType.FLOWER_PATCH,
+        harvestItem = Items.WOAD_LEAF_1793
+    ),
 
     /**
      * Limpwurt Seed.
      */
-    LIMPWURT_SEED(Items.LIMPWURT_SEED_5100,"limpwurt seed",28,4,21.5,120.0,0.0,26,PatchType.FLOWER_PATCH,Items.LIMPWURT_ROOT_225),
+    LIMPWURT_SEED(
+        itemID = Items.LIMPWURT_SEED_5100,
+        displayName = "limpwurt seed",
+        value = 28,
+        stages = 4,
+        plantingXP = 21.5,
+        harvestXP = 120.0,
+        checkHealthXP = 0.0,
+        requiredLevel = 26,
+        applicablePatch = PatchType.FLOWER_PATCH,
+        harvestItem = Items.LIMPWURT_ROOT_225
+    ),
 
     /**
      * White Lily Seed.
      */
-    WHITE_LILY_SEED(Items.WHITE_LILY_SEED_14589,"white lily seed",37,4,42.0,250.0,0.0,52,PatchType.FLOWER_PATCH,Items.WHITE_LILY_14583),
+    WHITE_LILY_SEED(
+        itemID = Items.WHITE_LILY_SEED_14589,
+        displayName = "white lily seed",
+        value = 37,
+        stages = 4,
+        plantingXP = 42.0,
+        harvestXP = 250.0,
+        checkHealthXP = 0.0,
+        requiredLevel = 52,
+        applicablePatch = PatchType.FLOWER_PATCH,
+        harvestItem = Items.WHITE_LILY_14583
+    ),
 
     /**
      * Scarecrow.
      */
-    SCARECROW(Items.SCARECROW_6059,"scarecrow",33,3,0.0,0.0,0.0,23,PatchType.FLOWER_PATCH,Items.SCARECROW_6059),
+    SCARECROW(
+        itemID = Items.SCARECROW_6059,
+        displayName = "scarecrow",
+        value = 33,
+        stages = 3,
+        plantingXP = 0.0,
+        harvestXP = 0.0,
+        checkHealthXP = 0.0,
+        requiredLevel = 23,
+        applicablePatch = PatchType.FLOWER_PATCH,
+        harvestItem = Items.SCARECROW_6059
+    ),
 
     /**
      * Potato Seed.
      */
-    POTATO_SEED(Items.POTATO_SEED_5318, "potato seed", 6, 4, 8.0, 9.0, 0.0, 1, PatchType.ALLOTMENT, Items.POTATO_1942,Item(Items.COMPOST_6032,2),MARIGOLD_SEED),
+    POTATO_SEED(
+        itemID = Items.POTATO_SEED_5318,
+        displayName = "potato seed",
+        value = 6,
+        stages = 4,
+        plantingXP = 8.0,
+        harvestXP = 9.0,
+        checkHealthXP = 0.0,
+        requiredLevel = 1,
+        applicablePatch = PatchType.ALLOTMENT,
+        harvestItem = Items.POTATO_1942,
+        protectionItem = Item(Items.COMPOST_6032, 2),
+        protectionFlower = MARIGOLD_SEED
+    ),
 
     /**
      * Onion Seed.
      */
-    ONION_SEED(Items.ONION_SEED_5319, "onion seed", 13, 4, 9.5, 10.5,0.0, 5, PatchType.ALLOTMENT,Items.ONION_1957,Item(Items.POTATOES10_5438),MARIGOLD_SEED),
+    ONION_SEED(
+        itemID = Items.ONION_SEED_5319,
+        displayName = "onion seed",
+        value = 13,
+        stages = 4,
+        plantingXP = 9.5,
+        harvestXP = 10.5,
+        checkHealthXP = 0.0,
+        requiredLevel = 5,
+        applicablePatch = PatchType.ALLOTMENT,
+        harvestItem = Items.ONION_1957,
+        protectionItem = Item(Items.POTATOES10_5438),
+        protectionFlower = MARIGOLD_SEED
+    ),
 
     /**
      * Cabbage Seed.
      */
-    CABBAGE_SEED(Items.CABBAGE_SEED_5324, "cabbage seed", 20, 4, 10.0, 11.5, 0.0,7, PatchType.ALLOTMENT,Items.CABBAGE_1965,Item(Items.ONIONS10_5458),ROSEMARY_SEED),
+    CABBAGE_SEED(
+        itemID = Items.CABBAGE_SEED_5324,
+        displayName = "cabbage seed",
+        value = 20,
+        stages = 4,
+        plantingXP = 10.0,
+        harvestXP = 11.5,
+        checkHealthXP = 0.0,
+        requiredLevel = 7,
+        applicablePatch = PatchType.ALLOTMENT,
+        harvestItem = Items.CABBAGE_1965,
+        protectionItem = Item(Items.ONIONS10_5458),
+        protectionFlower = ROSEMARY_SEED
+    ),
 
     /**
      * Tomato Seed.
      */
-    TOMATO_SEED(Items.TOMATO_SEED_5322,"tomato seed",27,4,12.5,14.0,0.0,12,PatchType.ALLOTMENT,Items.TOMATO_1982,Item(Items.CABBAGES10_5478,2),MARIGOLD_SEED),
+    TOMATO_SEED(
+        itemID = Items.TOMATO_SEED_5322,
+        displayName = "tomato seed",
+        value = 27,
+        stages = 4,
+        plantingXP = 12.5,
+        harvestXP = 14.0,
+        checkHealthXP = 0.0,
+        requiredLevel = 12,
+        applicablePatch = PatchType.ALLOTMENT,
+        harvestItem = Items.TOMATO_1982,
+        protectionItem = Item(Items.CABBAGES10_5478, 2),
+        protectionFlower = MARIGOLD_SEED
+    ),
 
     /**
      * Sweetcorn Seed.
      */
-    SWEETCORN_SEED(Items.SWEETCORN_SEED_5320,"sweetcorn seed",34,6,17.0,19.0,0.0,20,PatchType.ALLOTMENT,Items.SWEETCORN_5986,Item(Items.JUTE_FIBRE_5931,10),SCARECROW),
+    SWEETCORN_SEED(
+        itemID = Items.SWEETCORN_SEED_5320,
+        displayName = "sweetcorn seed",
+        value = 34,
+        stages = 6,
+        plantingXP = 17.0,
+        harvestXP = 19.0,
+        checkHealthXP = 0.0,
+        requiredLevel = 20,
+        applicablePatch = PatchType.ALLOTMENT,
+        harvestItem = Items.SWEETCORN_5986,
+        protectionItem = Item(Items.JUTE_FIBRE_5931, 10),
+        protectionFlower = SCARECROW
+    ),
 
     /**
      * Strawberry Seed.
      */
-    STRAWBERRY_SEED(Items.STRAWBERRY_SEED_5323,"strawberry seed",43,6,26.0,29.0,0.0,31,PatchType.ALLOTMENT,Items.STRAWBERRY_5504,Item(Items.APPLES5_5386)),
+    STRAWBERRY_SEED(
+        itemID = Items.STRAWBERRY_SEED_5323,
+        displayName = "strawberry seed",
+        value = 43,
+        stages = 6,
+        plantingXP = 26.0,
+        harvestXP = 29.0,
+        checkHealthXP = 0.0,
+        requiredLevel = 31,
+        applicablePatch = PatchType.ALLOTMENT,
+        harvestItem = Items.STRAWBERRY_5504,
+        protectionItem = Item(Items.APPLES5_5386)
+    ),
 
     /**
      * Watermelon Seed.
      */
-    WATERMELON_SEED(Items.WATERMELON_SEED_5321,"watermelon seed",52,8,48.5,54.5,0.0,47,PatchType.ALLOTMENT,Items.WATERMELON_5982,Item(Items.CURRY_LEAF_5970,10),NASTURTIUM_SEED),
+    WATERMELON_SEED(
+        itemID = Items.WATERMELON_SEED_5321,
+        displayName = "watermelon seed",
+        value = 52,
+        stages = 8,
+        plantingXP = 48.5,
+        harvestXP = 54.5,
+        checkHealthXP = 0.0,
+        requiredLevel = 47,
+        applicablePatch = PatchType.ALLOTMENT,
+        harvestItem = Items.WATERMELON_5982,
+        protectionItem = Item(Items.CURRY_LEAF_5970, 10),
+        protectionFlower = NASTURTIUM_SEED
+    ),
 
     /**
      * Barley Seed.
      */
-    BARLEY_SEED(Items.BARLEY_SEED_5305,"barley seed",49,4,8.5,9.5,0.0,3,PatchType.HOPS_PATCH,Items.BARLEY_6006,Item(Items.COMPOST_6032,3)),
+    BARLEY_SEED(
+        itemID = Items.BARLEY_SEED_5305,
+        displayName = "barley seed",
+        value = 49,
+        stages = 4,
+        plantingXP = 8.5,
+        harvestXP = 9.5,
+        checkHealthXP = 0.0,
+        requiredLevel = 3,
+        applicablePatch = PatchType.HOPS_PATCH,
+        harvestItem = Items.BARLEY_6006,
+        protectionItem = Item(Items.COMPOST_6032, 3)
+    ),
 
     /**
      * Hammerstone Seed.
      */
-    HAMMERSTONE_SEED(Items.HAMMERSTONE_SEED_5307,"Hammerstone hop seed",4,4,9.0,10.0,0.0,4,PatchType.HOPS_PATCH,Items.HAMMERSTONE_HOPS_5994,Item(Items.MARIGOLDS_6010)),
+    HAMMERSTONE_SEED(
+        itemID = Items.HAMMERSTONE_SEED_5307,
+        displayName = "Hammerstone hop seed",
+        value = 4,
+        stages = 4,
+        plantingXP = 9.0,
+        harvestXP = 10.0,
+        checkHealthXP = 0.0,
+        requiredLevel = 4,
+        applicablePatch = PatchType.HOPS_PATCH,
+        harvestItem = Items.HAMMERSTONE_HOPS_5994,
+        protectionItem = Item(Items.MARIGOLDS_6010)
+    ),
 
     /**
      * Asgarnian Seed.
      */
-    ASGARNIAN_SEED(Items.ASGARNIAN_SEED_5308,"Asgarnian hop seed",11,5,10.9,12.0,0.0,8,PatchType.HOPS_PATCH,Items.ASGARNIAN_HOPS_5996,Item(Items.ONIONS10_5458)),
+    ASGARNIAN_SEED(
+        itemID = Items.ASGARNIAN_SEED_5308,
+        displayName = "Asgarnian hop seed",
+        value = 11,
+        stages = 5,
+        plantingXP = 10.9,
+        harvestXP = 12.0,
+        checkHealthXP = 0.0,
+        requiredLevel = 8,
+        applicablePatch = PatchType.HOPS_PATCH,
+        harvestItem = Items.ASGARNIAN_HOPS_5996,
+        protectionItem = Item(Items.ONIONS10_5458)
+    ),
 
     /**
      * Jute Seed.
      */
-    JUTE_SEED(Items.JUTE_SEED_5306,"jute plant seed",56,5,13.0,14.5,0.0,13,PatchType.HOPS_PATCH,Items.JUTE_FIBRE_5931,Item(Items.BARLEY_MALT_6008,6)),
+    JUTE_SEED(
+        itemID = Items.JUTE_SEED_5306,
+        displayName = "jute plant seed",
+        value = 56,
+        stages = 5,
+        plantingXP = 13.0,
+        harvestXP = 14.5,
+        checkHealthXP = 0.0,
+        requiredLevel = 13,
+        applicablePatch = PatchType.HOPS_PATCH,
+        harvestItem = Items.JUTE_FIBRE_5931,
+        protectionItem = Item(Items.BARLEY_MALT_6008, 6)
+    ),
 
     /**
      * Yanillian Seed.
      */
-    YANILLIAN_SEED(Items.YANILLIAN_SEED_5309,"Yanillian hop seed",19,6,14.5,16.0,0.0,16,PatchType.HOPS_PATCH,Items.YANILLIAN_HOPS_5998,Item(Items.TOMATOES5_5968)),
+    YANILLIAN_SEED(
+        itemID = Items.YANILLIAN_SEED_5309,
+        displayName = "Yanillian hop seed",
+        value = 19,
+        stages = 6,
+        plantingXP = 14.5,
+        harvestXP = 16.0,
+        checkHealthXP = 0.0,
+        requiredLevel = 16,
+        applicablePatch = PatchType.HOPS_PATCH,
+        harvestItem = Items.YANILLIAN_HOPS_5998,
+        protectionItem = Item(Items.TOMATOES5_5968)
+    ),
 
     /**
      * Krandorian Seed.
      */
-    KRANDORIAN_SEED(Items.KRANDORIAN_SEED_5310,"Krandorian hop seed",28,7,17.5,19.5,0.0,21,PatchType.HOPS_PATCH,Items.KRANDORIAN_HOPS_6000,Item(Items.CABBAGES10_5478,3)),
+    KRANDORIAN_SEED(
+        itemID = Items.KRANDORIAN_SEED_5310,
+        displayName = "Krandorian hop seed",
+        value = 28,
+        stages = 7,
+        plantingXP = 17.5,
+        harvestXP = 19.5,
+        checkHealthXP = 0.0,
+        requiredLevel = 21,
+        applicablePatch = PatchType.HOPS_PATCH,
+        harvestItem = Items.KRANDORIAN_HOPS_6000,
+        protectionItem = Item(Items.CABBAGES10_5478, 3)
+    ),
 
     /**
      * Wildblood Seed.
      */
-    WILDBLOOD_SEED(Items.WILDBLOOD_SEED_5311,"Wildblood hop seed",38,8,23.0,26.0,0.0,28,PatchType.HOPS_PATCH,Items.WILDBLOOD_HOPS_6002,Item(Items.NASTURTIUMS_6012)),
+    WILDBLOOD_SEED(
+        itemID = Items.WILDBLOOD_SEED_5311,
+        displayName = "Wildblood hop seed",
+        value = 38,
+        stages = 8,
+        plantingXP = 23.0,
+        harvestXP = 26.0,
+        checkHealthXP = 0.0,
+        requiredLevel = 28,
+        applicablePatch = PatchType.HOPS_PATCH,
+        harvestItem = Items.WILDBLOOD_HOPS_6002,
+        protectionItem = Item(Items.NASTURTIUMS_6012)
+    ),
 
     /**
      * Oak Sapling.
      */
-    OAK_SAPLING(Items.OAK_SAPLING_5370,"oak sapling",8,4,14.0,0.0,467.3,15,PatchType.TREE_PATCH,Items.OAK_ROOTS_6043,Item(Items.TOMATOES5_5968)),
+    OAK_SAPLING(
+        itemID = Items.OAK_SAPLING_5370,
+        displayName = "oak sapling",
+        value = 8,
+        stages = 4,
+        plantingXP = 14.0,
+        harvestXP = 0.0,
+        checkHealthXP = 467.3,
+        requiredLevel = 15,
+        applicablePatch = PatchType.TREE_PATCH,
+        harvestItem = Items.OAK_ROOTS_6043,
+        protectionItem = Item(Items.TOMATOES5_5968)
+    ),
 
     /**
      * Willow Sapling.
      */
-    WILLOW_SAPLING(Items.WILLOW_SAPLING_5371,"willow sapling",15,6,25.0,0.0,1456.5,30,PatchType.TREE_PATCH,Items.WILLOW_ROOTS_6045,Item(Items.APPLES5_5386)),
+    WILLOW_SAPLING(
+        itemID = Items.WILLOW_SAPLING_5371,
+        displayName = "willow sapling",
+        value = 15,
+        stages = 6,
+        plantingXP = 25.0,
+        harvestXP = 0.0,
+        checkHealthXP = 1456.5,
+        requiredLevel = 30,
+        applicablePatch = PatchType.TREE_PATCH,
+        harvestItem = Items.WILLOW_ROOTS_6045,
+        protectionItem = Item(Items.APPLES5_5386)
+    ),
 
     /**
      * Maple Sapling.
      */
-    MAPLE_SAPLING(Items.MAPLE_SAPLING_5372,"maple sapling",24,8,45.0,0.0,3403.4,45,PatchType.TREE_PATCH,Items.MAPLE_ROOTS_6047,Item(Items.ORANGES5_5396)),
+    MAPLE_SAPLING(
+        itemID = Items.MAPLE_SAPLING_5372,
+        displayName = "maple sapling",
+        value = 24,
+        stages = 8,
+        plantingXP = 45.0,
+        harvestXP = 0.0,
+        checkHealthXP = 3403.4,
+        requiredLevel = 45,
+        applicablePatch = PatchType.TREE_PATCH,
+        harvestItem = Items.MAPLE_ROOTS_6047,
+        protectionItem = Item(Items.ORANGES5_5396)
+    ),
 
     /**
      * Yew Sapling.
      */
-    YEW_SAPLING(Items.YEW_SAPLING_5373,"yew sapling",35,10,81.0,0.0,7069.9,60,PatchType.TREE_PATCH,Items.YEW_ROOTS_6049,Item(Items.CACTUS_SPINE_6016,10)),
+    YEW_SAPLING(
+        itemID = Items.YEW_SAPLING_5373,
+        displayName = "yew sapling",
+        value = 35,
+        stages = 10,
+        plantingXP = 81.0,
+        harvestXP = 0.0,
+        checkHealthXP = 7069.9,
+        requiredLevel = 60,
+        applicablePatch = PatchType.TREE_PATCH,
+        harvestItem = Items.YEW_ROOTS_6049,
+        protectionItem = Item(Items.CACTUS_SPINE_6016, 10)
+    ),
 
     /**
      * Magic Sapling.
      */
-    MAGIC_SAPLING(Items.MAGIC_SAPLING_5374,"magic Tree sapling",48,12,145.5,0.0,13768.3,75,PatchType.TREE_PATCH,Items.MAGIC_ROOTS_6051,Item(Items.COCONUT_5974,25)),
+    MAGIC_SAPLING(
+        itemID = Items.MAGIC_SAPLING_5374,
+        displayName = "magic Tree sapling",
+        value = 48,
+        stages = 12,
+        plantingXP = 145.5,
+        harvestXP = 0.0,
+        checkHealthXP = 13768.3,
+        requiredLevel = 75,
+        applicablePatch = PatchType.TREE_PATCH,
+        harvestItem = Items.MAGIC_ROOTS_6051,
+        protectionItem = Item(Items.COCONUT_5974, 25)
+    ),
 
     /**
      * Apple Sapling.
      */
-    APPLE_SAPLING(Items.APPLE_SAPLING_5496,"apple tree sapling",8,6,22.0,8.5,1199.5,27,PatchType.FRUIT_TREE_PATCH,Items.COOKING_APPLE_1955,Item(Items.SWEETCORN_5986,9)),
+    APPLE_SAPLING(
+        itemID = Items.APPLE_SAPLING_5496,
+        displayName = "apple tree sapling",
+        value = 8,
+        stages = 6,
+        plantingXP = 22.0,
+        harvestXP = 8.5,
+        checkHealthXP = 1199.5,
+        requiredLevel = 27,
+        applicablePatch = PatchType.FRUIT_TREE_PATCH,
+        harvestItem = Items.COOKING_APPLE_1955,
+        protectionItem = Item(Items.SWEETCORN_5986, 9)
+    ),
 
     /**
      * Banana Sapling.
      */
-    BANANA_SAPLING(Items.BANANA_SAPLING_5497,"banana tree sapling",35,6,28.0,10.5,1750.5,33,PatchType.FRUIT_TREE_PATCH,Items.BANANA_1963,Item(Items.APPLES5_5386,4)),
+    BANANA_SAPLING(
+        itemID = Items.BANANA_SAPLING_5497,
+        displayName = "banana tree sapling",
+        value = 35,
+        stages = 6,
+        plantingXP = 28.0,
+        harvestXP = 10.5,
+        checkHealthXP = 1750.5,
+        requiredLevel = 33,
+        applicablePatch = PatchType.FRUIT_TREE_PATCH,
+        harvestItem = Items.BANANA_1963,
+        protectionItem = Item(Items.APPLES5_5386, 4)
+    ),
 
     /**
      * Orange Sapling.
      */
-    ORANGE_SAPLING(Items.ORANGE_SAPLING_5498,"orange tree sapling",72,6,35.5,13.5,2470.2,39,PatchType.FRUIT_TREE_PATCH,Items.ORANGE_2108,Item(Items.STRAWBERRIES5_5406,3)),
+    ORANGE_SAPLING(
+        itemID = Items.ORANGE_SAPLING_5498,
+        displayName = "orange tree sapling",
+        value = 72,
+        stages = 6,
+        plantingXP = 35.5,
+        harvestXP = 13.5,
+        checkHealthXP = 2470.2,
+        requiredLevel = 39,
+        applicablePatch = PatchType.FRUIT_TREE_PATCH,
+        harvestItem = Items.ORANGE_2108,
+        protectionItem = Item(Items.STRAWBERRIES5_5406, 3)
+    ),
 
     /**
      * Curry Sapling.
      */
-    CURRY_SAPLING(Items.CURRY_SAPLING_5499,"curry tree sapling",99,6,40.0,15.0,2906.9,42,PatchType.FRUIT_TREE_PATCH,Items.CURRY_LEAF_5970,Item(Items.BANANAS5_5416,5)),
+    CURRY_SAPLING(
+        itemID = Items.CURRY_SAPLING_5499,
+        displayName = "curry tree sapling",
+        value = 99,
+        stages = 6,
+        plantingXP = 40.0,
+        harvestXP = 15.0,
+        checkHealthXP = 2906.9,
+        requiredLevel = 42,
+        applicablePatch = PatchType.FRUIT_TREE_PATCH,
+        harvestItem = Items.CURRY_LEAF_5970,
+        protectionItem = Item(Items.BANANAS5_5416, 5)
+    ),
 
     /**
      * Pineapple Sapling.
      */
-    PINEAPPLE_SAPLING(Items.PINEAPPLE_SAPLING_5500,"pineapple plant",136,6,57.0,21.5,4605.7,51,PatchType.FRUIT_TREE_PATCH,Items.PINEAPPLE_2114,Item(Items.WATERMELON_5982,10)),
+    PINEAPPLE_SAPLING(
+        itemID = Items.PINEAPPLE_SAPLING_5500,
+        displayName = "pineapple plant",
+        value = 136,
+        stages = 6,
+        plantingXP = 57.0,
+        harvestXP = 21.5,
+        checkHealthXP = 4605.7,
+        requiredLevel = 51,
+        applicablePatch = PatchType.FRUIT_TREE_PATCH,
+        harvestItem = Items.PINEAPPLE_2114,
+        protectionItem = Item(Items.WATERMELON_5982, 10)
+    ),
 
     /**
      * Papaya Sapling.
      */
-    PAPAYA_SAPLING(Items.PAPAYA_SAPLING_5501,"papaya tree sapling",163,6,72.0,27.0,6146.4,57,PatchType.FRUIT_TREE_PATCH,Items.PAPAYA_FRUIT_5972,Item(Items.PINEAPPLE_2114,10)),
+    PAPAYA_SAPLING(
+        itemID = Items.PAPAYA_SAPLING_5501,
+        displayName = "papaya tree sapling",
+        value = 163,
+        stages = 6,
+        plantingXP = 72.0,
+        harvestXP = 27.0,
+        checkHealthXP = 6146.4,
+        requiredLevel = 57,
+        applicablePatch = PatchType.FRUIT_TREE_PATCH,
+        harvestItem = Items.PAPAYA_FRUIT_5972,
+        protectionItem = Item(Items.PINEAPPLE_2114, 10)
+    ),
 
     /**
      * Palm Sapling.
      */
-    PALM_SAPLING(Items.PALM_SAPLING_5502,"palm tree sapling",200,6,110.5,41.5,10150.1,68,PatchType.FRUIT_TREE_PATCH,Items.COCONUT_5974,Item(Items.PAPAYA_FRUIT_5972,15)),
+    PALM_SAPLING(
+        itemID = Items.PALM_SAPLING_5502,
+        displayName = "palm tree sapling",
+        value = 200,
+        stages = 6,
+        plantingXP = 110.5,
+        harvestXP = 41.5,
+        checkHealthXP = 10150.1,
+        requiredLevel = 68,
+        applicablePatch = PatchType.FRUIT_TREE_PATCH,
+        harvestItem = Items.COCONUT_5974,
+        protectionItem = Item(Items.PAPAYA_FRUIT_5972, 15)
+    ),
 
     /**
      * Calquat Tree Sapling.
      */
-    CALQUAT_TREE_SAPLING(Items.CALQUAT_SAPLING_5503, "calquat tree sapling",4,8,129.5,0.0,12096.0,72,PatchType.FRUIT_TREE_PATCH,Items.CALQUAT_FRUIT_5980,Item(Items.POISON_IVY_BERRIES_6018, 8)),
+    CALQUAT_TREE_SAPLING(
+        itemID = Items.CALQUAT_SAPLING_5503,
+        displayName = "calquat tree sapling",
+        value = 4,
+        stages = 8,
+        plantingXP = 129.5,
+        harvestXP = 0.0,
+        checkHealthXP = 12096.0,
+        requiredLevel = 72,
+        applicablePatch = PatchType.FRUIT_TREE_PATCH,
+        harvestItem = Items.CALQUAT_FRUIT_5980,
+        protectionItem = Item(Items.POISON_IVY_BERRIES_6018, 8)
+    ),
 
     /**
      * Redberry Seed.
      */
-    REDBERRY_SEED(Items.REDBERRY_SEED_5101,"redberry bush seed",5,5,11.5,4.5,64.0,10,PatchType.BUSH_PATCH,Items.REDBERRIES_1951,Item(Items.CABBAGES10_5478,4)),
+    REDBERRY_SEED(
+        itemID = Items.REDBERRY_SEED_5101,
+        displayName = "redberry bush seed",
+        value = 5,
+        stages = 5,
+        plantingXP = 11.5,
+        harvestXP = 4.5,
+        checkHealthXP = 64.0,
+        requiredLevel = 10,
+        applicablePatch = PatchType.BUSH_PATCH,
+        harvestItem = Items.REDBERRIES_1951,
+        protectionItem = Item(Items.CABBAGES10_5478, 4)
+    ),
 
     /**
      * Cadavaberry Seed.
      */
-    CADAVABERRY_SEED(Items.CADAVABERRY_SEED_5102,"cadavaberry bush seed",15,6,18.0,7.0,102.5,22,PatchType.BUSH_PATCH,Items.CADAVA_BERRIES_753,Item(Items.TOMATOES5_5968,3)),
+    CADAVABERRY_SEED(
+        itemID = Items.CADAVABERRY_SEED_5102,
+        displayName = "cadavaberry bush seed",
+        value = 15,
+        stages = 6,
+        plantingXP = 18.0,
+        harvestXP = 7.0,
+        checkHealthXP = 102.5,
+        requiredLevel = 22,
+        applicablePatch = PatchType.BUSH_PATCH,
+        harvestItem = Items.CADAVA_BERRIES_753,
+        protectionItem = Item(Items.TOMATOES5_5968, 3)
+    ),
 
     /**
      * Dwellberry Seed.
      */
-    DWELLBERRY_SEED(Items.DWELLBERRY_SEED_5103,"dwellberry bush seed",26,27,31.5,12.0,177.5,36,PatchType.BUSH_PATCH,Items.DWELLBERRIES_2126,Item(Items.STRAWBERRIES5_5406,3)),
+    DWELLBERRY_SEED(
+        itemID = Items.DWELLBERRY_SEED_5103,
+        displayName = "dwellberry bush seed",
+        value = 26,
+        stages = 27,
+        plantingXP = 31.5,
+        harvestXP = 12.0,
+        checkHealthXP = 177.5,
+        requiredLevel = 36,
+        applicablePatch = PatchType.BUSH_PATCH,
+        harvestItem = Items.DWELLBERRIES_2126,
+        protectionItem = Item(Items.STRAWBERRIES5_5406, 3)
+    ),
 
     /**
      * Jangerberry Seed.
      */
-    JANGERBERRY_SEED(Items.JANGERBERRY_SEED_5104,"jangerberry bush seed",38,8,50.5,19.0,284.5,48,PatchType.BUSH_PATCH,Items.JANGERBERRIES_247,Item(Items.WATERMELON_5982,6)),
+    JANGERBERRY_SEED(
+        itemID = Items.JANGERBERRY_SEED_5104,
+        displayName = "jangerberry bush seed",
+        value = 38,
+        stages = 8,
+        plantingXP = 50.5,
+        harvestXP = 19.0,
+        checkHealthXP = 284.5,
+        requiredLevel = 48,
+        applicablePatch = PatchType.BUSH_PATCH,
+        harvestItem = Items.JANGERBERRIES_247,
+        protectionItem = Item(Items.WATERMELON_5982, 6)
+    ),
 
     /**
      * Whiteberry Seed.
      */
-    WHITEBERRY_SEED(Items.WHITEBERRY_SEED_5105,"whiteberry bush seed",51,8,78.0,29.0,437.5,59,PatchType.BUSH_PATCH,Items.WHITE_BERRIES_239,null),
+    WHITEBERRY_SEED(
+        itemID = Items.WHITEBERRY_SEED_5105,
+        displayName = "whiteberry bush seed",
+        value = 51,
+        stages = 8,
+        plantingXP = 78.0,
+        harvestXP = 29.0,
+        checkHealthXP = 437.5,
+        requiredLevel = 59,
+        applicablePatch = PatchType.BUSH_PATCH,
+        harvestItem = Items.WHITE_BERRIES_239,
+        protectionItem = null
+    ),
 
     /**
      * Poison Ivy Seed.
      */
-    POISON_IVY_SEED(Items.POISON_IVY_SEED_5106,"poison ivy bush seed",197,8,120.0,45.0,675.0,70,PatchType.BUSH_PATCH,Items.POISON_IVY_BERRIES_6018,null),
+    POISON_IVY_SEED(
+        itemID = Items.POISON_IVY_SEED_5106,
+        displayName = "poison ivy bush seed",
+        value = 197,
+        stages = 8,
+        plantingXP = 120.0,
+        harvestXP = 45.0,
+        checkHealthXP = 675.0,
+        requiredLevel = 70,
+        applicablePatch = PatchType.BUSH_PATCH,
+        harvestItem = Items.POISON_IVY_BERRIES_6018,
+        protectionItem = null
+    ),
 
     /**
      * Guam Seed.
      */
-    GUAM_SEED(Items.GUAM_SEED_5291,"guam seed",4,4,11.0,12.5,0.0,9,PatchType.HERB_PATCH,Items.GRIMY_GUAM_199),
+    GUAM_SEED(
+        itemID = Items.GUAM_SEED_5291,
+        displayName = "guam seed",
+        value = 4,
+        stages = 4,
+        plantingXP = 11.0,
+        harvestXP = 12.5,
+        checkHealthXP = 0.0,
+        requiredLevel = 9,
+        applicablePatch = PatchType.HERB_PATCH,
+        harvestItem = Items.GRIMY_GUAM_199
+    ),
 
     /**
      * Marrentill Seed.
      */
-    MARRENTILL_SEED(Items.MARRENTILL_SEED_5292,"marrentill seed",11,4,13.5,15.0,0.0,14,PatchType.HERB_PATCH,Items.GRIMY_MARRENTILL_201),
+    MARRENTILL_SEED(
+        itemID = Items.MARRENTILL_SEED_5292,
+        displayName = "marrentill seed",
+        value = 11,
+        stages = 4,
+        plantingXP = 13.5,
+        harvestXP = 15.0,
+        checkHealthXP = 0.0,
+        requiredLevel = 14,
+        applicablePatch = PatchType.HERB_PATCH,
+        harvestItem = Items.GRIMY_MARRENTILL_201
+    ),
 
     /**
      * Tarromin Seed.
      */
-    TARROMIN_SEED(Items.TARROMIN_SEED_5293,"tarromin seed",18,4,16.0,18.0,0.0,19,PatchType.HERB_PATCH,Items.GRIMY_TARROMIN_203),
+    TARROMIN_SEED(
+        itemID = Items.TARROMIN_SEED_5293,
+        displayName = "tarromin seed",
+        value = 18,
+        stages = 4,
+        plantingXP = 16.0,
+        harvestXP = 18.0,
+        checkHealthXP = 0.0,
+        requiredLevel = 19,
+        applicablePatch = PatchType.HERB_PATCH,
+        harvestItem = Items.GRIMY_TARROMIN_203
+    ),
 
     /**
      * Harralander Seed.
      */
-    HARRALANDER_SEED(Items.HARRALANDER_SEED_5294,"harralander seed",25,4,21.5,24.0,0.0,26,PatchType.HERB_PATCH,Items.GRIMY_HARRALANDER_205),
+    HARRALANDER_SEED(
+        itemID = Items.HARRALANDER_SEED_5294,
+        displayName = "harralander seed",
+        value = 25,
+        stages = 4,
+        plantingXP = 21.5,
+        harvestXP = 24.0,
+        checkHealthXP = 0.0,
+        requiredLevel = 26,
+        applicablePatch = PatchType.HERB_PATCH,
+        harvestItem = Items.GRIMY_HARRALANDER_205
+    ),
 
     /**
      * Ranarr Seed.
      */
-    RANARR_SEED(Items.RANARR_SEED_5295,"ranarr seed",32,4,27.0,30.5,0.0,32,PatchType.HERB_PATCH,Items.GRIMY_RANARR_207),
+    RANARR_SEED(
+        itemID = Items.RANARR_SEED_5295,
+        displayName = "ranarr seed",
+        value = 32,
+        stages = 4,
+        plantingXP = 27.0,
+        harvestXP = 30.5,
+        checkHealthXP = 0.0,
+        requiredLevel = 32,
+        applicablePatch = PatchType.HERB_PATCH,
+        harvestItem = Items.GRIMY_RANARR_207
+    ),
 
     /**
      * Avantoe Seed.
      */
-    AVANTOE_SEED(Items.AVANTOE_SEED_5298,"avantoe seed",39,4,54.5,61.5,0.0,50,PatchType.HERB_PATCH,Items.GRIMY_AVANTOE_211),
+    AVANTOE_SEED(
+        itemID = Items.AVANTOE_SEED_5298,
+        displayName = "avantoe seed",
+        value = 39,
+        stages = 4,
+        plantingXP = 54.5,
+        harvestXP = 61.5,
+        checkHealthXP = 0.0,
+        requiredLevel = 50,
+        applicablePatch = PatchType.HERB_PATCH,
+        harvestItem = Items.GRIMY_AVANTOE_211
+    ),
 
     /**
      * Toadflax Seed.
      */
-    TOADFLAX_SEED(Items.TOADFLAX_SEED_5296,"toadflax seed",46,4,34.0,38.5,0.0,38,PatchType.HERB_PATCH,Items.GRIMY_TOADFLAX_3049),
+    TOADFLAX_SEED(
+        itemID = Items.TOADFLAX_SEED_5296,
+        displayName = "toadflax seed",
+        value = 46,
+        stages = 4,
+        plantingXP = 34.0,
+        harvestXP = 38.5,
+        checkHealthXP = 0.0,
+        requiredLevel = 38,
+        applicablePatch = PatchType.HERB_PATCH,
+        harvestItem = Items.GRIMY_TOADFLAX_3049
+    ),
 
     /**
      * Irit Seed.
      */
-    IRIT_SEED(Items.IRIT_SEED_5297,"irit seed",53,4,43.0,48.5,0.0,44,PatchType.HERB_PATCH,Items.GRIMY_IRIT_209),
+    IRIT_SEED(
+        itemID = Items.IRIT_SEED_5297,
+        displayName = "irit seed",
+        value = 53,
+        stages = 4,
+        plantingXP = 43.0,
+        harvestXP = 48.5,
+        checkHealthXP = 0.0,
+        requiredLevel = 44,
+        applicablePatch = PatchType.HERB_PATCH,
+        harvestItem = Items.GRIMY_IRIT_209
+    ),
 
     /**
      * Kwuarm Seed.
      */
-    KWUARM_SEED(Items.KWUARM_SEED_5299,"kwuarm seed",68,4,69.0,78.0,0.0,56,PatchType.HERB_PATCH,Items.GRIMY_KWUARM_213),
+    KWUARM_SEED(
+        itemID = Items.KWUARM_SEED_5299,
+        displayName = "kwuarm seed",
+        value = 68,
+        stages = 4,
+        plantingXP = 69.0,
+        harvestXP = 78.0,
+        checkHealthXP = 0.0,
+        requiredLevel = 56,
+        applicablePatch = PatchType.HERB_PATCH,
+        harvestItem = Items.GRIMY_KWUARM_213
+    ),
 
     /**
      * Snapdragon Seed.
      */
-    SNAPDRAGON_SEED(Items.SNAPDRAGON_SEED_5300,"snapdragon seed",75,4,87.5,98.5,0.0,62,PatchType.HERB_PATCH,Items.GRIMY_SNAPDRAGON_3051),
+    SNAPDRAGON_SEED(
+        itemID = Items.SNAPDRAGON_SEED_5300,
+        displayName = "snapdragon seed",
+        value = 75,
+        stages = 4,
+        plantingXP = 87.5,
+        harvestXP = 98.5,
+        checkHealthXP = 0.0,
+        requiredLevel = 62,
+        applicablePatch = PatchType.HERB_PATCH,
+        harvestItem = Items.GRIMY_SNAPDRAGON_3051
+    ),
 
     /**
      * Cadantine Seed.
      */
-    CADANTINE_SEED(Items.CADANTINE_SEED_5301,"cadantine seed",82,4,106.5,120.0,0.0,67,PatchType.HERB_PATCH,Items.GRIMY_CADANTINE_215),
+    CADANTINE_SEED(
+        itemID = Items.CADANTINE_SEED_5301,
+        displayName = "cadantine seed",
+        value = 82,
+        stages = 4,
+        plantingXP = 106.5,
+        harvestXP = 120.0,
+        checkHealthXP = 0.0,
+        requiredLevel = 67,
+        applicablePatch = PatchType.HERB_PATCH,
+        harvestItem = Items.GRIMY_CADANTINE_215
+    ),
 
     /**
      * Lantadyme Seed.
      */
-    LANTADYME_SEED(Items.LANTADYME_SEED_5302,"lantadyme seed",89,4,134.5,151.5,0.0,73,PatchType.HERB_PATCH,Items.GRIMY_LANTADYME_2485),
+    LANTADYME_SEED(
+        itemID = Items.LANTADYME_SEED_5302,
+        displayName = "lantadyme seed",
+        value = 89,
+        stages = 4,
+        plantingXP = 134.5,
+        harvestXP = 151.5,
+        checkHealthXP = 0.0,
+        requiredLevel = 73,
+        applicablePatch = PatchType.HERB_PATCH,
+        harvestItem = Items.GRIMY_LANTADYME_2485
+    ),
 
     /**
      * Dwarf Weed Seed.
      */
-    DWARF_WEED_SEED(Items.DWARF_WEED_SEED_5303,"dwarf weed seed",96,4,170.5,192.0,0.0,79,PatchType.HERB_PATCH,Items.GRIMY_DWARF_WEED_217),
+    DWARF_WEED_SEED(
+        itemID = Items.DWARF_WEED_SEED_5303,
+        displayName = "dwarf weed seed",
+        value = 96,
+        stages = 4,
+        plantingXP = 170.5,
+        harvestXP = 192.0,
+        checkHealthXP = 0.0,
+        requiredLevel = 79,
+        applicablePatch = PatchType.HERB_PATCH,
+        harvestItem = Items.GRIMY_DWARF_WEED_217
+    ),
 
     /**
      * Torstol Seed.
      */
-    TORSTOL_SEED(Items.TORSTOL_SEED_5304,"torstol seed",103,4,199.5,224.5,0.0,85,PatchType.HERB_PATCH,Items.GRIMY_TORSTOL_219),
+    TORSTOL_SEED(
+        itemID = Items.TORSTOL_SEED_5304,
+        displayName = "torstol seed",
+        value = 103,
+        stages = 4,
+        plantingXP = 199.5,
+        harvestXP = 224.5,
+        checkHealthXP = 0.0,
+        requiredLevel = 85,
+        applicablePatch = PatchType.HERB_PATCH,
+        harvestItem = Items.GRIMY_TORSTOL_219
+    ),
 
     /**
      * Gout Tuber.
      */
-    GOUT_TUBER(Items.GOUT_TUBER_6311,"gout tuber",192,4,105.0,45.0,0.0,29,PatchType.HERB_PATCH,Items.GOUTWEED_3261),
+    GOUT_TUBER(
+        itemID = Items.GOUT_TUBER_6311,
+        displayName = "gout tuber",
+        value = 192,
+        stages = 4,
+        plantingXP = 105.0,
+        harvestXP = 45.0,
+        checkHealthXP = 0.0,
+        requiredLevel = 29,
+        applicablePatch = PatchType.HERB_PATCH,
+        harvestItem = Items.GOUTWEED_3261
+    ),
 
     /**
      * Spirit Weed Seed.
      */
-    SPIRIT_WEED_SEED(Items.SPIRIT_WEED_SEED_12176,"spirit weed seed", 204, 4, 32.0, 36.0, 0.0, 36, PatchType.HERB_PATCH, Items.GRIMY_SPIRIT_WEED_12174),
+    SPIRIT_WEED_SEED(
+        itemID = Items.SPIRIT_WEED_SEED_12176,
+        displayName = "spirit weed seed",
+        value = 204,
+        stages = 4,
+        plantingXP = 32.0,
+        harvestXP = 36.0,
+        checkHealthXP = 0.0,
+        requiredLevel = 36,
+        applicablePatch = PatchType.HERB_PATCH,
+        harvestItem = Items.GRIMY_SPIRIT_WEED_12174
+    ),
 
     /**
      * Belladonna Seed.
      */
-    BELLADONNA_SEED(Items.BELLADONNA_SEED_5281, "belladonna seed", 4, 4, 91.0, 128.0, 0.0, 63, PatchType.BELLADONNA_PATCH, Items.CAVE_NIGHTSHADE_2398),
+    BELLADONNA_SEED(
+        itemID = Items.BELLADONNA_SEED_5281,
+        displayName = "belladonna seed",
+        value = 4,
+        stages = 4,
+        plantingXP = 91.0,
+        harvestXP = 128.0,
+        checkHealthXP = 0.0,
+        requiredLevel = 63,
+        applicablePatch = PatchType.BELLADONNA_PATCH,
+        harvestItem = Items.CAVE_NIGHTSHADE_2398
+    ),
 
     /**
      * Mushroom Spore.
      */
-    MUSHROOM_SPORE(Items.MUSHROOM_SPORE_5282, "mushroom spore", 6, 7, 61.5, 57.7, 0.0, 53, PatchType.MUSHROOM_PATCH, Items.MUSHROOM_6004),
+    MUSHROOM_SPORE(
+        itemID = Items.MUSHROOM_SPORE_5282,
+        displayName = "mushroom spore",
+        value = 6,
+        stages = 7,
+        plantingXP = 61.5,
+        harvestXP = 57.7,
+        checkHealthXP = 0.0,
+        requiredLevel = 53,
+        applicablePatch = PatchType.MUSHROOM_PATCH,
+        harvestItem = Items.MUSHROOM_6004
+    ),
 
     /**
      * Cactus Seed.
      */
-    CACTUS_SEED(Items.CACTUS_SEED_5280, "cactus seed", 8, 7, 66.5, 25.0, 374.0, 55, PatchType.CACTUS_PATCH, Items.CACTUS_SPINE_6016),
+    CACTUS_SEED(
+        itemID = Items.CACTUS_SEED_5280,
+        displayName = "cactus seed",
+        value = 8,
+        stages = 7,
+        plantingXP = 66.5,
+        harvestXP = 25.0,
+        checkHealthXP = 374.0,
+        requiredLevel = 55,
+        applicablePatch = PatchType.CACTUS_PATCH,
+        harvestItem = Items.CACTUS_SPINE_6016
+    ),
 
     /**
      * Evil Turnip Seed.
      */
-    EVIL_TURNIP_SEED(Items.EVIL_TURNIP_SEED_12148, "evil turnip seed", 4, 1, 41.0, 46.0, 0.0, 42, PatchType.EVIL_TURNIP_PATCH, Items.EVIL_TURNIP_12134),
+    EVIL_TURNIP_SEED(
+        itemID = Items.EVIL_TURNIP_SEED_12148,
+        displayName = "evil turnip seed",
+        value = 4,
+        stages = 1,
+        plantingXP = 41.0,
+        harvestXP = 46.0,
+        checkHealthXP = 0.0,
+        requiredLevel = 42,
+        applicablePatch = PatchType.EVIL_TURNIP_PATCH,
+        harvestItem = Items.EVIL_TURNIP_12134
+    ),
 
     /**
      * Enriched Seed.
      */
-    ENRICHED_SEED(Items.ENRICHED_SNAPDRAGON_SEED_14506, "enriched snapdragon seed", 12, 4, 0.0,0.0,0.0,65,PatchType.SPECIAL_PATCH, Items.ENRICHED_SNAPDRAGON_14487)
+    ENRICHED_SEED(
+        itemID = Items.ENRICHED_SNAPDRAGON_SEED_14506,
+        displayName = "enriched snapdragon seed",
+        value = 12,
+        stages = 4,
+        plantingXP = 0.0,
+        harvestXP = 0.0,
+        checkHealthXP = 0.0,
+        requiredLevel = 65,
+        applicablePatch = PatchType.SPECIAL_PATCH,
+        harvestItem = Items.ENRICHED_SNAPDRAGON_14487
+    )
     ;
 
-    constructor(itemID: Int, displayName: String, value: Int, stages: Int, plantingXP: Double, harvestXP: Double, checkHealthXP: Double, requiredLevel: Int, applicablePatch: PatchType, harvestItem: Int, protectionFlower: Plantable) : this(itemID,displayName,value,stages,plantingXP,harvestXP,checkHealthXP,requiredLevel,applicablePatch,harvestItem,null,protectionFlower)
+    constructor(
+        itemID: Int,
+        displayName: String,
+        value: Int,
+        stages: Int,
+        plantingXP: Double,
+        harvestXP: Double,
+        checkHealthXP: Double,
+        requiredLevel: Int,
+        applicablePatch: PatchType,
+        harvestItem: Int,
+        protectionFlower: Plantable
+    ) : this(
+        itemID,
+        displayName,
+        value,
+        stages,
+        plantingXP,
+        harvestXP,
+        checkHealthXP,
+        requiredLevel,
+        applicablePatch,
+        harvestItem,
+        null,
+        protectionFlower
+    )
+
     companion object {
         @JvmField
-        val plantables = values().map { it.itemID to it }.toMap()
+        val plantables = values().map { it.itemID to it }.toMap() // Map of item IDs to corresponding Plantable objects
 
         @JvmStatic
-        fun forItemID(id: Int): Plantable?{
+        fun forItemID(id: Int): Plantable? { // Retrieve Plantable object based on item ID
             return plantables[id]
         }
 
         @JvmStatic
-        fun forItem(item: Item): Plantable?{
+        fun forItem(item: Item): Plantable? { // Retrieve Plantable object based on Item object
             return forItemID(item.id)
         }
     }

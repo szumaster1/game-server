@@ -7,10 +7,19 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 import core.game.system.task.Pulse
 
+/**
+ * Patch raker.
+ */
 object PatchRaker {
 
     val RAKE_ANIM = getAnimation(2273)
 
+    /**
+     * Rake.
+     *
+     * @param player The player who is raking the patch.
+     * @param patch  The farming patch to be raked.
+     */
     @JvmStatic
     fun rake(player: Player, patch: FarmingPatch) {
         val p = patch.getPatchFor(player)
