@@ -11,7 +11,7 @@ import core.plugin.Initializable
 /**
  * Giant snail NPC.
  */
-@Initializable
+//@Initializable
 class GiantSnailNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 
     override fun construct(id: Int, location: Location, vararg objects: Any): AbstractNPC {

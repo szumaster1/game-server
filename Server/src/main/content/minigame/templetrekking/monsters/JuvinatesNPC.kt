@@ -11,7 +11,7 @@ import core.plugin.Initializable
 /**
  * Juvinates NPC.
  */
-@Initializable
+//@Initializable
 class JuvinatesNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 
     override fun construct(id: Int, location: Location, vararg objects: Any): AbstractNPC {

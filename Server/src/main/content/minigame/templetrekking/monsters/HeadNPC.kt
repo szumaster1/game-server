@@ -16,7 +16,7 @@ import core.plugin.Initializable
 /**
  * Head NPC.
  */
-@Initializable
+//@Initializable
 class HeadNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 
     val killCounter = "tentacle-kills"

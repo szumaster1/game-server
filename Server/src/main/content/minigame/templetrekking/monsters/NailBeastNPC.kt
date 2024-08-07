@@ -11,7 +11,7 @@ import core.plugin.Initializable
 /**
  * Nail beast NPC.
  */
-@Initializable
+//@Initializable
 class NailBeastNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 
     override fun construct(id: Int, location: Location, vararg objects: Any): AbstractNPC {
