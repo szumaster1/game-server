@@ -31,7 +31,7 @@ class MuddyChestListener : InteractionListener {
 
     override fun defineListeners() {
 
-        /**
+        /*
          * Muddy chest interaction.
          */
         on(MUDDY_CHEST, IntType.SCENERY, "open") { player, node ->

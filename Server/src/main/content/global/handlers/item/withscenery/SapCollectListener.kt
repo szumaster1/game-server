@@ -12,9 +12,7 @@ import core.game.system.task.Pulse
 import core.game.world.update.flag.context.Animation
 
 /**
- * Sap collect listener
- *
- * @constructor Sap collect listener
+ * Sap collect listener.
  */
 class SapCollectListener : InteractionListener {
 

@@ -7,10 +7,10 @@ import core.game.system.task.Pulse
 import core.game.world.map.Location
 
 /**
- * Kolodion session
+ * Represents a session for Kolodion.
  *
- * @property player
- * @constructor Kolodion session
+ * @property player the player associated with the session
+ * @constructor Creates a new Kolodion session for the specified player.
  */
 class KolodionSession(val player: Player) {
 

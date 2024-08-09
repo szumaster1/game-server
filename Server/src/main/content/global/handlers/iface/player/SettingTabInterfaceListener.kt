@@ -8,9 +8,7 @@ import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.link.IronmanMode
 
 /**
- * Setting tab interface listener
- *
- * @constructor Setting tab interface listener
+ * Setting tab interface listener.
  */
 class SettingTabInterfaceListener : InterfaceListener {
 

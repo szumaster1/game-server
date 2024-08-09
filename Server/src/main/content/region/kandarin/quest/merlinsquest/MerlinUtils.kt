@@ -1,5 +1,8 @@
 package content.region.kandarin.quest.merlinsquest
 
+/**
+ * Merlin Crystal utils.
+ */
 object MerlinUtils {
     const val TEMP_ATTR_MORGAN = "morgan"
     const val TEMP_ATTR_BEGGAR = "beggar"

@@ -10,9 +10,7 @@ import core.game.system.task.Pulse
 import core.game.world.update.flag.context.Animation
 
 /**
- * Water source listener
- *
- * @constructor Water source listener
+ * Water source listener.
  */
 class WaterSourceListener : InteractionListener {
 

@@ -8,9 +8,7 @@ import core.game.node.item.GroundItem
 import core.game.world.map.RegionManager
 
 /**
- * Take wine of zamorak listener
- *
- * @constructor Take wine of zamorak listener
+ * Take wine of zamorak listener.
  */
 class TakeWineOfZamorakListener : InteractionListener {
 

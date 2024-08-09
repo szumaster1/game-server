@@ -17,9 +17,7 @@ import kotlin.random.Random
 @Initializable
 class ChieftanBrundtDialogue(player: Player? = null): Dialogue(player) {
 
-    val gender = if (player?.isMale == true) {
-        "brother"
-    } else "sister"
+    val gender = if (player?.isMale == true) { "brother" } else "sister"
     val fName = player?.getAttribute("fremennikname", "fremmyname")
 
     override fun open(vararg args: Any): Boolean {

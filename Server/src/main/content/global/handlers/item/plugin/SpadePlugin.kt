@@ -12,9 +12,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Spade plugin
- *
- * @constructor Spade plugin
+ * Spade plugin.
  */
 @Initializable
 class SpadePlugin : OptionHandler() {

@@ -5,9 +5,7 @@ import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.link.request.assist.AssistSession
 
 /**
- * Request assist interface listener
- *
- * @constructor Request assist interface listener
+ * Request assist interface listener.
  */
 class RequestAssistInterfaceListener : InterfaceListener {
 

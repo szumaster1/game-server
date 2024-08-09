@@ -11,9 +11,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Jorral dialogue file
- *
- * @constructor Jorral dialogue file
+ * Jorral dialogue file.
  */
 class JorralDialogueFile : DialogueFile() {
 

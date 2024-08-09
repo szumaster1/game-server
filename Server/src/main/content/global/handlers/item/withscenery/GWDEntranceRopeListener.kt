@@ -8,9 +8,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * G w d entrance rope listener
- *
- * @constructor G w d entrance rope listener
+ * GWD Entrance rope listener.
  */
 class GWDEntranceRopeListener : InteractionListener {
 

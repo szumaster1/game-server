@@ -14,9 +14,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 
 /**
- * The grand tree
- *
- * @constructor The grand tree
+ * The grand tree.
  */
 @Initializable
 class TheGrandTree : Quest("The Grand Tree", 71, 70, 5, Vars.VARP_QUEST_THE_GRAND_TREE_PROGRESS, 0, 1, 160) {

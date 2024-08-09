@@ -10,9 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Drozal journal
- *
- * @constructor Drozal journal
+ * Drozal journal.
  */
 class DrozalJournal : InteractionListener {
     companion object {

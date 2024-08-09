@@ -24,16 +24,12 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
 /**
- * The grand tree listeners
- *
- * @constructor The grand tree listeners
+ * The grand tree listeners.
  */
 class TheGrandTreeListeners : InteractionListener {
 
     /**
-     * Unlock t u z o door
-     *
-     * @param player
+     * Unlock t u z o door.
      */
     fun unlockTUZODoor(player: Player) {
         if (getAttribute(player, GTUtils.TWIG_0, false) &&

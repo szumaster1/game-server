@@ -37,7 +37,7 @@ private const val LEAKING_ID = 2167
 private const val PATCHED_ID = 2168
 
 /**
- * Fishing trawler session
+ * Fishing trawler session.
  *
  * @property activity the activity.
  * @return Fishing trawler session.

@@ -11,9 +11,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Abyssal book
- *
- * @constructor Abyssal book
+ * Abyssal book.
  */
 @Initializable
 class AbyssalBook : InteractionListener {

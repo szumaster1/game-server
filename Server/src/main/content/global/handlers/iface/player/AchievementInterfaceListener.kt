@@ -7,9 +7,7 @@ import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.link.diary.DiaryType
 
 /**
- * Achievement interface listener
- *
- * @constructor Achievement interface listener
+ * Achievement interface listener.
  */
 class AchievementInterfaceListener : InterfaceListener {
 

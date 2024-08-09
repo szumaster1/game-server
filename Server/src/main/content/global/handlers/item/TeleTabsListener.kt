@@ -10,18 +10,16 @@ import core.game.node.item.Item
 import core.game.world.map.Location
 
 /**
- * Tele tabs
+ * Enum class representing Teleport Tabs.
  *
- * @property item
- * @property location
- * @property exp
- * @constructor Tele tabs
+ * @property item The item ID of the teleport tab.
+ * @property location The destination location of the teleport tab.
+ * @property exp The experience gained when using the teleport tab.
+ * @constructor Creates a Teleport Tab with the specified item ID, location, and experience.
  */
 enum class TeleTabs(val item: Int, val location: Location, val exp: Double) {
     /**
-     * Addougne Teleport
-     *
-     * @constructor Addougne Teleport
+     * Addougne Teleport.
      */
     ADDOUGNE_TELEPORT(
         item = Items.ARDOUGNE_TELEPORT_8011,
@@ -30,9 +28,7 @@ enum class TeleTabs(val item: Int, val location: Location, val exp: Double) {
     ),
 
     /**
-     * Air Altar Teleport
-     *
-     * @constructor Air Altar Teleport
+     * Air Altar Teleport.
      */
     AIR_ALTAR_TELEPORT(
         item = Items.AIR_ALTAR_TELEPORT_13599,
@@ -41,9 +37,7 @@ enum class TeleTabs(val item: Int, val location: Location, val exp: Double) {
     ),
 
     /**
-     * Astral Altar Teleport
-     *
-     * @constructor Astral Altar Teleport
+     * Astral Altar Teleport.
      */
     ASTRAL_ALTAR_TELEPORT(
         item = Items.ASTRAL_ALTAR_TELEPORT_13611,
@@ -52,9 +46,7 @@ enum class TeleTabs(val item: Int, val location: Location, val exp: Double) {
     ),
 
     /**
-     * Blood Altar Teleport
-     *
-     * @constructor Blood Altar Teleport
+     * Blood Altar Teleport.
      */
     BLOOD_ALTAR_TELEPORT(
         item = Items.BLOOD_ALTAR_TELEPORT_13610,
@@ -63,9 +55,7 @@ enum class TeleTabs(val item: Int, val location: Location, val exp: Double) {
     ),
 
     /**
-     * Body Altar Teleport
-     *
-     * @constructor Body Altar Teleport
+     * Body Altar Teleport.
      */
     BODY_ALTAR_TELEPORT(
         item = Items.BODY_ALTAR_TELEPORT_13604,
@@ -74,9 +64,7 @@ enum class TeleTabs(val item: Int, val location: Location, val exp: Double) {
     ),
 
     /**
-     * Camelot Teleport
-     *
-     * @constructor Camelot Teleport
+     * Camelot Teleport.
      */
     CAMELOT_TELEPORT(
         item = Items.CAMELOT_TELEPORT_8010,
@@ -85,9 +73,7 @@ enum class TeleTabs(val item: Int, val location: Location, val exp: Double) {
     ),
 
     /**
-     * Chaos Altar Teleport
-     *
-     * @constructor Chaos Altar Teleport
+     * Chaos Altar Teleport.
      */
     CHAOS_ALTAR_TELEPORT(
         item = Items.CHAOS_ALTAR_TELEPORT_13606,
@@ -96,9 +82,7 @@ enum class TeleTabs(val item: Int, val location: Location, val exp: Double) {
     ),
 
     /**
-     * Cosmic Altar Teleport
-     *
-     * @constructor Cosmic Altar Teleport
+     * Cosmic Altar Teleport.
      */
     COSMIC_ALTAR_TELEPORT(
         item = Items.COSMIC_ALTAR_TELEPORT_13605,
@@ -107,9 +91,7 @@ enum class TeleTabs(val item: Int, val location: Location, val exp: Double) {
     ),
 
     /**
-     * Death Altar Teleport
-     *
-     * @constructor Death Altar Teleport
+     * Death Altar Teleport.
      */
     DEATH_ALTAR_TELEPORT(
         item = Items.DEATH_ALTAR_TELEPORT_13609,
@@ -118,9 +100,7 @@ enum class TeleTabs(val item: Int, val location: Location, val exp: Double) {
     ),
 
     /**
-     * Earth Altar Teleport
-     *
-     * @constructor Earth Altar Teleport
+     * Earth Altar Teleport.
      */
     EARTH_ALTAR_TELEPORT(
         item = Items.EARTH_ALTAR_TELEPORT_13602,
@@ -129,9 +109,7 @@ enum class TeleTabs(val item: Int, val location: Location, val exp: Double) {
     ),
 
     /**
-     * Falador Teleport
-     *
-     * @constructor Falador Teleport
+     * Falador Teleport.
      */
     FALADOR_TELEPORT(
         item = Items.FALADOR_TELEPORT_8009,
@@ -140,9 +118,7 @@ enum class TeleTabs(val item: Int, val location: Location, val exp: Double) {
     ),
 
     /**
-     * Fire Altar Teleport
-     *
-     * @constructor Fire Altar Teleport
+     * Fire Altar Teleport.
      */
     FIRE_ALTAR_TELEPORT(
         item = Items.FIRE_ALTAR_TELEPORT_13603,
@@ -151,9 +127,7 @@ enum class TeleTabs(val item: Int, val location: Location, val exp: Double) {
     ),
 
     /**
-     * Law Altar Teleport
-     *
-     * @constructor Law Altar Teleport
+     * Law Altar Teleport.
      */
     LAW_ALTAR_TELEPORT(
         item = Items.LAW_ALTAR_TELEPORT_13608,
@@ -162,9 +136,7 @@ enum class TeleTabs(val item: Int, val location: Location, val exp: Double) {
     ),
 
     /**
-     * Lumbridge Teleport
-     *
-     * @constructor Lumbridge Teleport
+     * Lumbridge Teleport.
      */
     LUMBRIDGE_TELEPORT(
         item = Items.LUMBRIDGE_TELEPORT_8008,
@@ -173,9 +145,7 @@ enum class TeleTabs(val item: Int, val location: Location, val exp: Double) {
     ),
 
     /**
-     * Mind Altar Teleport
-     *
-     * @constructor Mind Altar Teleport
+     * Mind Altar Teleport.
      */
     MIND_ALTAR_TELEPORT(
         item = Items.MIND_ALTAR_TELEPORT_13600,
@@ -184,9 +154,7 @@ enum class TeleTabs(val item: Int, val location: Location, val exp: Double) {
     ),
 
     /**
-     * Nature Altar Teleport
-     *
-     * @constructor Nature Altar Teleport
+     * Nature Altar Teleport.
      */
     NATURE_ALTAR_TELEPORT(
         item = Items.NATURE_ALTAR_TELEPORT_13607,
@@ -195,9 +163,7 @@ enum class TeleTabs(val item: Int, val location: Location, val exp: Double) {
     ),
 
     /**
-     * Varrock Teleport
-     *
-     * @constructor Varrock Teleport
+     * Varrock Teleport.
      */
     VARROCK_TELEPORT(
         item = Items.VARROCK_TELEPORT_8007,
@@ -206,9 +172,7 @@ enum class TeleTabs(val item: Int, val location: Location, val exp: Double) {
     ),
 
     /**
-     * Watch Tower Teleport
-     *
-     * @constructor Watch Tower Teleport
+     * Watch Tower Teleport.
      */
     WATCH_TOWER_TELEPORT(
         item = Items.WATCHTOWER_TPORT_8012,
@@ -217,9 +181,7 @@ enum class TeleTabs(val item: Int, val location: Location, val exp: Double) {
     ),
 
     /**
-     * Water Altar Teleport
-     *
-     * @constructor Water Altar Teleport
+     * Water Altar Teleport.
      */
     WATER_ALTAR_TELEPORT(
         item = Items.WATER_ALTAR_TELEPORT_13601,
@@ -228,9 +190,7 @@ enum class TeleTabs(val item: Int, val location: Location, val exp: Double) {
     ),
 
     /**
-     * Runecrafting Guild Teleport
-     *
-     * @constructor Runecrafting Guild Teleport
+     * Runecrafting Guild Teleport.
      */
     RUNECRAFTING_GUILD_TELEPORT(
         item = Items.RUNECRAFTING_GUILD_TELEPORT_13598,
@@ -247,9 +207,7 @@ enum class TeleTabs(val item: Int, val location: Location, val exp: Double) {
 }
 
 /**
- * Tele tabs listener
- *
- * @constructor Tele tabs listener
+ * Tele tabs listener.
  */
 class TeleTabsListener : InteractionListener {
 

@@ -9,29 +9,18 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 
 /**
- * Chancy dialogue file
- *
- * @constructor Chancy dialogue file
+ * Chancy dialogue file.
  */
 class ChancyDialogueFile : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.CHANCY_338)
         when (stage) {
             0 -> player("Hello, I've got a vial for you to take to Varrock.").also { stage++ }
-            1 -> npc(
-                FacialExpression.SCARED,
-                "Tssch... that chemist asks for a lot for the wages he",
-                "pays."
-            ).also { stage++ }
-
+            1 -> npc(FacialExpression.SCARED, "Tssch... that chemist asks for a lot for the wages he", "pays.").also { stage++ }
             2 -> player("Maybe you should ask him for more money.").also { stage++ }
             3 -> npc("Nah... I just use my initiative here and there.").also { stage++ }
-            4 -> options(
-                "You give him the vial of ethenea...",
-                "You give him the vial of liquid honey...",
-                "You give him the vial of sulphuric broline..."
-            ).also { stage++ }
-
+            4 -> options("You give him the vial of ethenea...", "You give him the vial of liquid honey...", "You give him the vial of sulphuric broline...").also { stage++ }
             5 -> when (buttonID) {
                 1 -> {
                     if (!removeItem(player!!, Items.ETHENEA_415)) {
@@ -80,21 +69,16 @@ class ChancyDialogueFile : DialogueFile() {
 }
 
 /**
- * Chancy varrock dialogue file
- *
- * @constructor Chancy varrock dialogue file
+ * Chancy varrock dialogue file.
  */
 class ChancyVarrockDialogueFile : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.CHANCY_339)
         when (stage) {
             0 -> player("Hi, thanks for doing that.").also { stage++ }
             1 -> npc("No problem.").also { stage++ }
-            2 -> npc(
-                "Next time give me something more valuable...",
-                "I couldn't get anything for this on the blackmarket."
-            ).also { stage++ }
-
+            2 -> npc("Next time give me something more valuable...", "I couldn't get anything for this on the blackmarket.").also { stage++ }
             3 -> {
                 end()
                 player("That was the idea.")

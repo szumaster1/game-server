@@ -51,12 +51,6 @@ class MacawDialogue(player: Player? = null) : Dialogue(player) {
         return true
     }
 
-
-    /**
-     * Get view animation
-     *
-     * @return
-     */
     fun getViewAnimation(): Animation {
         return Animation.create(8013)
     }

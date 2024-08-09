@@ -10,9 +10,7 @@ import core.game.node.item.Item
 import core.game.world.update.flag.context.Animation
 
 /**
- * Spirit shield bless listener
- *
- * @constructor Spirit shield bless listener
+ * Spirit shield bless listener.
  */
 class SpiritShieldBlessListener : InteractionListener {
 

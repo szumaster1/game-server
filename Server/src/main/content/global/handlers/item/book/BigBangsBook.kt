@@ -10,9 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Big bangs book
- *
- * @constructor Big bangs book
+ * Big bangs book.
  */
 class BigBangsBook : InteractionListener {
 

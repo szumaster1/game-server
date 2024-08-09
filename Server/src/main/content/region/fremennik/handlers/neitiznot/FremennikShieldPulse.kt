@@ -10,13 +10,13 @@ import core.game.node.item.Item
 import core.game.world.update.flag.context.Animation
 
 /**
- * Fremennik shield pulse
+ * Represents a pulse for Fremennik shield.
  *
- * @property item
- * @property amount
- * @constructor
+ * @property item The item associated with the pulse.
+ * @property amount The amount of the item.
+ * @constructor Initializes the FremennikShieldPulse.
  *
- * @param player
+ * @param player The player associated with the pulse.
  */
 class FremennikShieldPulse(player: Player?, val item: Item, var amount: Int) : SkillPulse<Item>(player, Item(Items.FREMENNIK_ROUND_SHIELD_10826)) {
 

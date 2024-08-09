@@ -9,9 +9,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Gnome copter plugin
- *
- * @constructor Gnome copter plugin
+ * Gnome copter plugin.
  */
 @Initializable
 class GnomeCopterPlugin : Plugin<Any> {

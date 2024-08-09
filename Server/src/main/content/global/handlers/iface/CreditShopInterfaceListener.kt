@@ -10,9 +10,7 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
 /**
- * Credit shop interface listener
- *
- * @constructor Credit shop interface listener
+ * Credit shop interface listener.
  */
 class CreditShopInterfaceListener : InterfaceListener {
 

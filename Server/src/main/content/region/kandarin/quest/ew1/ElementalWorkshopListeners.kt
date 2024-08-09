@@ -24,9 +24,7 @@ import core.game.world.update.flag.context.Animation
 import core.tools.Log
 
 /**
- * Elemental workshop listeners
- *
- * @constructor Elemental workshop listeners
+ * Elemental workshop listeners.
  */
 class ElementalWorkshopListeners : InteractionListener {
 

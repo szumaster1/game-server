@@ -11,9 +11,7 @@ import core.plugin.Plugin
 import core.tools.RandomFunction
 
 /**
- * Christmass cracker handler
- *
- * @constructor Christmass cracker handler
+ * Christmass cracker handler.
  */
 @Initializable
 class ChristmassCrackerHandler : UseWithHandler() {

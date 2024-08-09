@@ -11,9 +11,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.item.Item
 
 /**
- * Empty option listener
- *
- * @constructor Empty option listener
+ * Empty option listener/
  */
 class EmptyOptionListener : InteractionListener {
 
@@ -39,13 +37,13 @@ class EmptyOptionListener : InteractionListener {
     }
 
     /**
-     * Empty item
+     * Enum class representing an Empty Item.
      *
-     * @property fullId
-     * @property emptyId
-     * @property emptyMessage
-     * @property audioId
-     * @constructor Empty item
+     * @property fullId The ID for the full item.
+     * @property emptyId The ID for the empty item.
+     * @property emptyMessage The message to display for the empty item.
+     * @property audioId The ID for the audio associated with the item (default is -1 if no audio).
+     * @constructor Creates an Empty Item with the provided properties.
      */
     enum class EmptyItem(var fullId: Int, var emptyId: Int, var emptyMessage: String, var audioId: Int = -1) {
         /**

@@ -9,18 +9,13 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 
 /**
- * Ew2
- *
- * @constructor Ew2
- *///@Initializable
+ * Elemental Workshop II.
+ */
+//@Initializable
 class EW2 : Quest("Elemental Workshop II", 53, 52, 1, Vars.VARBIT_QUEST_ELEMENTAL_WORKSHOP_II_PROGRESS, 0, 1, 11) {
 
     /**
-     * Skill requirement
-     *
-     * @property skill
-     * @property level
-     * @constructor Skill requirement
+     * Skill requirement.
      */
     class SkillRequirement(val skill: Int?, val level: Int?)
 
@@ -43,16 +38,8 @@ class EW2 : Quest("Elemental Workshop II", 53, 52, 1, Vars.VARBIT_QUEST_ELEMENTA
                 line++
             }
             line(player, "Minimum requirements:", line++)
-            line(
-                player,
-                if (hasLevelStat(player, Skills.MAGIC, 20)) "---Level 20 Magic/--" else "!!Level 20 Magic??",
-                line++
-            )
-            line(
-                player,
-                if (hasLevelStat(player, Skills.SMITHING, 30)) "---Level 30 Smithing/--" else "!!Level 30 Smithing??",
-                line++
-            )
+            line(player, if (hasLevelStat(player, Skills.MAGIC, 20)) "---Level 20 Magic/--" else "!!Level 20 Magic??", line++)
+            line(player, if (hasLevelStat(player, Skills.SMITHING, 30)) "---Level 30 Smithing/--" else "!!Level 30 Smithing??", line++)
             line++
         } else if (stage == 1) {
             line(player, "---I have found a book at the Dig site./--", line++)
@@ -74,56 +61,26 @@ class EW2 : Quest("Elemental Workshop II", 53, 52, 1, Vars.VARBIT_QUEST_ELEMENTA
             line(player, "I was able to !!find a key??.", line++, stage > 5)
         }
         if (stage >= 5) {
-            line(
-                player,
-                "The !!key?? I've found opens the !!large hatch?? in the !!workshop??; there are !!4 machines?? on this level to fix:",
-                line++,
-                false
-            )
+            line(player, "The !!key?? I've found opens the !!large hatch?? in the !!workshop??; there are !!4 machines?? on this level to fix:", line++, false)
             line++
         }
         if (stage >= 6) {
-            line(
-                player,
-                "The crane - now the claw has been replaced the crane looks like it's in good working order.",
-                line++,
-                false
-            )
-            line(
-                player,
-                "The pipes - the pipes have now been fitted and it should work as long as it's powered.",
-                line++,
-                false
-            )
+            line(player, "The crane - now the claw has been replaced the crane looks like it's in good working order.", line++, false)
+            line(player, "The pipes - the pipes have now been fitted and it should work as long as it's powered.", line++, false)
             line(player, "The tank - this should work fine now I have replaced the pipe.", line++, false)
             line(player, "A wind tunnel - I have fitted all the cogs on to the pins. ", line++, false)
             line(player, "The win tunnel should now work as long as it's powered.", line++, false)
             line(player, "Once I have fixed all the equipment I'll need to work out how to use it.", line++, false)
-            line(
-                player,
-                "I have found a track-mounted jig on which I was able to clamp an elemental bar.",
-                line++,
-                false
-            )
+            line(player, "I have found a track-mounted jig on which I was able to clamp an elemental bar.", line++, false)
             line(player, "I was able to operate the crane and dip the elemental bar into the lava.", line++, false)
             line(player, "The bar is now very hot.", line++, false)
             line(player, "I used the press to flatten the hot elemental bar.", line++, false)
             line(player, "The water tank was used to cool the elemental bar down.", line++, false)
             line(player, "The wind tunnel proved a great way to dry off the wet bar.", line++, false)
             line(player, "I have primed a bar of elemental ore.", line++, false)
-            line(
-                player,
-                "I placed the primed bar on the device found in the room with the mind symbols on the door.",
-                line++,
-                false
-            )
+            line(player, "I placed the primed bar on the device found in the room with the mind symbols on the door.", line++, false)
             line(player, "Operating the device charged the primed bar with some of my own mind power.", line++, false)
-            line(
-                player,
-                "I have made an elemental mind bar, now I just have to make one of the helms from it.",
-                line++,
-                false
-            )
+            line(player, "I have made an elemental mind bar, now I just have to make one of the helms from it.", line++, false)
             line(player, "Creating the elemental mind helm was easy with the book for instruction.", line++, false)
         }
         if (stage == 100) {

@@ -10,14 +10,13 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * My notes book
- *
- * @constructor My notes book
+ * My notes book.
  */
 class MyNotesBook : InteractionListener {
 
     // book given during Barbarian
     // Training by Otto Godblessed.
+
     companion object {
         private val TITLE = "My notes"
         private val CONTENTS = arrayOf(

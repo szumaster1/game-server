@@ -5,9 +5,7 @@ import core.game.component.Component
 import core.game.interaction.InterfaceListener
 
 /**
- * World map interface listener
- *
- * @constructor World map interface listener
+ * World map interface listener.
  */
 class WorldMapInterfaceListener : InterfaceListener {
 

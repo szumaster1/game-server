@@ -15,9 +15,7 @@ import core.plugin.Initializable
 import kotlin.random.Random
 
 /**
- * Big chompy bird hunting
- *
- * @constructor Big chompy bird hunting
+ * Big chompy bird hunting.
  */
 @Initializable
 class BigChompyBirdHunting : Quest("Big Chompy Bird Hunting", 35, 34, 2, Vars.VARP_QUEST_CHOMPY_PROGRESS, 0, 1, 65),
@@ -44,12 +42,7 @@ class BigChompyBirdHunting : Quest("Big Chompy Bird Hunting", 35, 34, 2, Vars.VA
             line(player, "Level 5 !!Fletching??", ln++, getStatLevel(player, Skills.FLETCHING) >= 5)
             line(player, "Level 30 !!Cooking??", ln++, getStatLevel(player, Skills.COOKING) >= 30)
             line(player, "Level 30 !!Ranged??", ln++, getStatLevel(player, Skills.RANGE) >= 30)
-            line(
-                player,
-                "Ability to defend against !!level 64 wolves?? and !!level 70 ogres<n>??for short periods of time.",
-                ln,
-                false
-            )
+            line(player, "Ability to defend against !!level 64 wolves?? and !!level 70 ogres<n>??for short periods of time.", ln, false)
         } else {
             if (stage == 10) {
                 line(player, "Rantz needs me to make 'stabbers'. To do this I need:", ln++, false)

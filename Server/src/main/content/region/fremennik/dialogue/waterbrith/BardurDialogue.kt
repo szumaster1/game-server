@@ -75,9 +75,7 @@ class BardurDialogue(player: Player? = null): Dialogue(player) {
 }
 
 /**
- * Bardur exchange dialogue
- *
- * @constructor Bardur exchange dialogue
+ * Bardur exchange dialogue.
  */
 class BardurExchangeDialogue : DialogueFile() {
 

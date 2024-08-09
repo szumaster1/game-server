@@ -11,9 +11,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Holgart dialogue file
- *
- * @constructor Holgart dialogue file
+ * Holgart dialogue file.
  */
 class HolgartDialogueFile : DialogueFile() {
     /*

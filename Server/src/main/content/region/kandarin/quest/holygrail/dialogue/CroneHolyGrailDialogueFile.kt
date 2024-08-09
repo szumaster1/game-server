@@ -11,10 +11,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Crone holy grail dialogue file
- *
- * @property forced
- * @constructor Crone holy grail dialogue file
+ * Crone holy grail dialogue file.
  */
 class CroneHolyGrailDialogueFile(val forced: Boolean) : DialogueFile() {
 

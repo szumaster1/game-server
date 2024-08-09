@@ -7,9 +7,7 @@ import core.tools.RandomFunction
 import core.tools.START_DIALOGUE
 
 /**
- * Woman dialogue
- *
- * @constructor Woman dialogue
+ * Woman dialogue.
  */
 class WomanDialogue : DialogueFile() {
 

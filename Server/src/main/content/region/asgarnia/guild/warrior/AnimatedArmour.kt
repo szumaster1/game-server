@@ -15,13 +15,13 @@ import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
 
 /**
- * Animated armour
+ * Animated armour.
  *
- * @property player
- * @property set
- * @constructor
+ * @property player The player interacting with the animated armour.
+ * @property set The set of armour the animated armour belongs to.
+ * @constructor Creates an instance of the AnimatedArmour class.
  *
- * @param location
+ * @param location The location of the animated armour.
  */
 class AnimatedArmour internal constructor(
     private val player: Player,
@@ -34,7 +34,7 @@ class AnimatedArmour internal constructor(
     override fun init() {
         super.init()
         animate(Animation.create(4166))
-        sendChat("I'M ALIVE!")
+        sendChat("I'M ALIVE!") // Comment: Sends a chat message to indicate that the animated armour is alive.
         properties.combatPulse.attack(player)
         HintIconManager.registerHintIcon(player, this)
     }
@@ -85,14 +85,13 @@ class AnimatedArmour internal constructor(
             for (piece in set.pieces) {
                 if (canTake && !takenPiece && index == takeIndex) {
                     takenPiece = true
-                    sendMessage(player, "Your armour was destroyed in the fight.")
+                    sendMessage(player, "Your armour was destroyed in the fight.") // Comment: Sends a chat message to the player indicating that their armour was destroyed.
                     continue
                 }
                 GroundItemManager.create(Item(piece), location, player)
                 index++
             }
-            if (killer != null) { // Indicates the player actually killed the
-                // armour.
+            if (killer != null) { // Indicates the player actually killed the armour.
                 val amount = set.tokenAmount
                 GroundItemManager.create(Item(8851, amount), location, player)
             }

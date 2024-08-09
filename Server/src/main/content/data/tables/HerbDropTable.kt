@@ -19,6 +19,9 @@ import javax.xml.parsers.DocumentBuilder
 import javax.xml.parsers.DocumentBuilderFactory
 import javax.xml.parsers.ParserConfigurationException
 
+/**
+ * Herb drop table.
+ */
 class HerbDropTable: StartupListener {
 
     override fun startup() {

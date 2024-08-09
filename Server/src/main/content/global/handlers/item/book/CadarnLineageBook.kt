@@ -10,9 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Cadarn lineage book
- *
- * @constructor Cadarn lineage book
+ * Cadarn lineage book.
  */
 class CadarnLineageBook : InteractionListener {
 

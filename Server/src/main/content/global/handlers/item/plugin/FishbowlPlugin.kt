@@ -24,9 +24,7 @@ import core.plugin.Plugin
 import core.tools.RandomFunction
 
 /**
- * Fishbowl plugin
- *
- * @constructor Fishbowl plugin
+ * Fishbowl plugin.
  */
 @Initializable
 class FishbowlPlugin : OptionHandler() {
@@ -194,9 +192,7 @@ class FishbowlPlugin : OptionHandler() {
     }
 
     /**
-     * Aquarium plugin
-     *
-     * @constructor Aquarium plugin
+     * Aquarium plugin.
      */
     class AquariumPlugin : OptionHandler() {
 

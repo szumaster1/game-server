@@ -19,9 +19,7 @@ import core.game.world.update.flag.context.Animation
 import core.tools.END_DIALOGUE
 
 /**
- * Biohazard listeners
- *
- * @constructor Biohazard listeners
+ * Biohazard listeners.
  */
 class BiohazardListeners : InteractionListener {
 

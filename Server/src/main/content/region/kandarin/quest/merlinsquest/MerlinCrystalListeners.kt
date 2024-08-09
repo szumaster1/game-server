@@ -14,14 +14,11 @@ import core.game.node.entity.player.Player
 import core.game.world.map.Location
 
 /**
- * Merlin crystal listeners
- *
- * @constructor Merlin crystal listeners
+ * Merlin crystal listeners.
  */
 class MerlinCrystalListeners : InteractionListener {
 
     override fun defineListeners() {
-
 
         on(intArrayOf(Scenery.LARGE_DOOR_72, Scenery.LARGE_DOOR_71), IntType.SCENERY, "open") { player, node ->
             val door = node.asScenery()

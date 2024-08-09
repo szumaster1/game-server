@@ -14,7 +14,6 @@ import core.tools.END_DIALOGUE
  * Gorad dialogue.
  */
 @Initializable
-
 class GoradDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {

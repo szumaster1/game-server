@@ -11,9 +11,7 @@ import core.game.interaction.InteractionListener
 import core.tools.RandomFunction
 
 /**
- * Beer on drunken ali listener
- *
- * @constructor Beer on drunken ali listener
+ * Beer on drunken ali listener.
  */
 class BeerOnDrunkenAliListener : InteractionListener {
 

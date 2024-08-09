@@ -3,6 +3,9 @@ package content.region.fremennik.quest.horrorfromthedeep
 import core.api.consts.Items
 import core.api.consts.Scenery
 
+/**
+ * Horror from the Deep utils.
+ */
 object HFTDUtils {
 
     // Quest attributes

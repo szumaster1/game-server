@@ -12,9 +12,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.item.Item
 
 /**
- * Hat easter egg listener
- *
- * @constructor Hat easter egg listener
+ * Hat easter egg listener.
  */
 class HatEasterEggListener : InteractionListener {
 

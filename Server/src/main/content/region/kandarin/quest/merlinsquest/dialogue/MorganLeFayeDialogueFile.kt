@@ -14,9 +14,7 @@ import core.game.world.repository.Repository
 import core.tools.END_DIALOGUE
 
 /**
- * Morgan le faye dialogue file
- *
- * @constructor Morgan le faye dialogue file
+ * Morgan le faye dialogue file.
  */
 class MorganLeFayeDialogueFile : DialogueFile() {
 

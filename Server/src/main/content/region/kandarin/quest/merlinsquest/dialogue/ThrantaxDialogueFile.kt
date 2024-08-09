@@ -18,9 +18,7 @@ import core.game.world.update.flag.context.Graphic
 import core.tools.END_DIALOGUE
 
 /**
- * Thrantax dialogue file
- *
- * @constructor Thrantax dialogue file
+ * Thrantax dialogue file.
  */
 class ThrantaxDialogueFile : DialogueFile() {
 

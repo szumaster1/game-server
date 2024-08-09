@@ -6,9 +6,7 @@ import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.link.music.MusicEntry
 
 /**
- * Music tab interface listener
- *
- * @constructor Music tab interface listener
+ * Music tab interface listener.
  */
 class MusicTabInterfaceListener : InterfaceListener {
 

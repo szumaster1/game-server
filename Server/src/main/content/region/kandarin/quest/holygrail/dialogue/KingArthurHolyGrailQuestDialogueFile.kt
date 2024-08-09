@@ -12,9 +12,7 @@ import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
 /**
- * King arthur holy grail quest dialogue file
- *
- * @constructor King arthur holy grail quest dialogue file
+ * King arthur holy grail quest dialogue file.
  */
 class KingArthurHolyGrailQuestDialogueFile : DialogueFile() {
 

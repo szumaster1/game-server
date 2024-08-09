@@ -5,9 +5,7 @@ import core.game.component.Component
 import core.game.interaction.InterfaceListener
 
 /**
- * Quest interface listener
- *
- * @constructor Quest interface listener
+ * Quest interface listener.
  */
 class QuestInterfaceListener : InterfaceListener {
 

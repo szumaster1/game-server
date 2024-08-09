@@ -11,9 +11,7 @@ import core.network.amsc.WorldCommunicator
 import core.tools.StringUtils
 
 /**
- * Clan tab interface listener
- *
- * @constructor Clan tab interface listener
+ * Clan tab interface listener.
  */
 class ClanTabInterfaceListener : InterfaceListener {
 

@@ -9,9 +9,7 @@ import core.game.node.entity.player.link.quest.Quest
 import core.plugin.Initializable
 
 /**
- * Clock tower
- *
- * @constructor Clock tower
+ * Clock tower.
  */
 @Initializable
 class ClockTower : Quest("Clock Tower", 38, 37, 1, Vars.VARP_QUEST_CLOCK_TOWER_PROGRESS, 0, 1, 8) {

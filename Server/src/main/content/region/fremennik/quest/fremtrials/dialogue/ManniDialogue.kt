@@ -30,10 +30,7 @@ class ManniDialogue(player: Player? = null): Dialogue(player) {
                 stage = 170
                 return true
             } else if (inInventory(player, Items.CHAMPIONS_TOKEN_3706, 1)) {
-                playerl(
-                    FacialExpression.ASKING,
-                    "So it doesn't bother you at all that you just gave up your place here for one drink?"
-                )
+                playerl(FacialExpression.ASKING, "So it doesn't bother you at all that you just gave up your place here for one drink?")
                 stage = 180
                 return true
             } else if (getAttribute(player, "sigmundreturning", false)) {
@@ -48,10 +45,7 @@ class ManniDialogue(player: Player? = null): Dialogue(player) {
                 stage = 162
                 return true
             } else if (getAttribute(player, "sigmund-steps", 0) == 11) {
-                playerl(
-                    FacialExpression.ASKING,
-                    "I don't suppose you have any idea where I could find a token to allow a seat at the champions table, do you?"
-                )
+                playerl(FacialExpression.ASKING, "I don't suppose you have any idea where I could find a token to allow a seat at the champions table, do you?")
                 stage = 150
                 return true
             } else if (getAttribute(player, "fremtrials:manni-accepted", false)) {

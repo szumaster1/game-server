@@ -11,9 +11,7 @@ import core.game.node.entity.player.Player
 import core.game.world.GameWorld.settings
 
 /**
- * Gloughs journal
- *
- * @constructor Gloughs journal
+ * Gloughs journal.
  */
 class GloughsJournal : InteractionListener {
 

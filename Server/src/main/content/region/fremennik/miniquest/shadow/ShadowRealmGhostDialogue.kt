@@ -1,11 +1,8 @@
 package content.region.fremennik.miniquest.shadow
 
-import core.api.addItemOrDrop
+import core.api.*
 import core.api.consts.Items
 import core.api.consts.NPCs
-import core.api.getAttribute
-import core.api.hasAnItem
-import core.api.inEquipment
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
@@ -24,7 +21,7 @@ class ShadowRealmGhostDialogue(player: Player? = null) : Dialogue(player) {
         } else if (getAttribute(player, GSUtils.GS_COMPLETE, false)) {
             playerl(FacialExpression.HALF_GUILTY, "I fought a really big ghost dog in here - is he gone now?").also { stage = 0 }
         } else {
-            core.api.sendDialogue(player, "Ghost seems too busy to talk.")
+            sendDialogue(player, "Ghost seems too busy to talk.")
         }
         return true
     }

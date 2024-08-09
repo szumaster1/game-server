@@ -7,9 +7,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Plugin
 
 /**
- * Consumable plugin
- *
- * @constructor Consumable plugin
+ * Consumable plugin.
  */
 class ConsumablePlugin : OptionHandler() {
 

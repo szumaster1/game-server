@@ -53,10 +53,7 @@ class CavernCutscene(player: Player) : Cutscene(player) {
                 timedUpdate(1)
             }
 
-            5 -> playerDialogueUpdate(
-                FacialExpression.ANGRY,
-                "Khazard tricked me! This is no reward, he's trying to get me killed...AGAIN!"
-            )
+            5 -> playerDialogueUpdate(FacialExpression.ANGRY, "Khazard tricked me! This is no reward, he's trying to get me killed...AGAIN!")
 
             6 -> {
                 end()

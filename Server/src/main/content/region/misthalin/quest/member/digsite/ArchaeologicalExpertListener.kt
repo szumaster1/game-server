@@ -13,9 +13,7 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
 /**
- * Archaeological expert listener
- *
- * @constructor Archaeological expert listener
+ * Archaeological expert listener.
  */
 class ArchaeologicalExpertListener : InteractionListener {
 
@@ -59,10 +57,7 @@ class ArchaeologicalExpertListener : InteractionListener {
 }
 
 /**
- * Archaeological expert listener dialogue file
- *
- * @property it
- * @constructor Archaeological expert listener dialogue file
+ * Archaeological expert listener dialogue file.
  */
 class ArchaeologicalExpertListenerDialogueFile(val it: Int) : DialogueBuilderFile() {
 

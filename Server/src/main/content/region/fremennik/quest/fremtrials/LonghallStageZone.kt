@@ -8,9 +8,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Longhall stage zone
- *
- * @constructor Longhall stage zone
+ * Longhall stage zone.
  */
 @Initializable
 class LonghallStageZone : MapZone("LonghallStageZone", true), Plugin<Any?> {

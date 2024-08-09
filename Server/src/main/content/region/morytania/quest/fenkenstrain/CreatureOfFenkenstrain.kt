@@ -9,9 +9,7 @@ import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 
 /**
- * Creature of fenkenstrain
- *
- * @constructor Creature of fenkenstrain
+ * Creature of fenkenstrain.
  */
 @Initializable
 class CreatureOfFenkenstrain : Quest("Creature of Fenkenstrain", 41, 40, 2, Vars.VARP_QUEST_CREATURE_OF_FENKENSTRAIN_PROGRESS, 0, 1, 9) {

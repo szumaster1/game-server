@@ -8,9 +8,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 
 /**
- * Hengrad dialogue file
- *
- * @constructor Hengrad dialogue file
+ * Hengrad dialogue file.
  */
 class HengradDialogueFile : DialogueFile() {
 

@@ -10,9 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Demonic tome
- *
- * @constructor Demonic tome
+ * Demonic tome.
  */
 class DemonicTome : InteractionListener {
 

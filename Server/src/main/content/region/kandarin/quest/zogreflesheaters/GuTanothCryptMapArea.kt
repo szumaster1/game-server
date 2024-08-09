@@ -8,14 +8,12 @@ import core.game.system.task.Pulse
 import core.game.world.map.zone.ZoneBorders
 
 /**
- * Gu tanoth crypt map area
- *
- * @constructor Gu tanoth crypt map area
+ * Gu Tanoth crypt map area.
  */
 class GuTanothCryptMapArea : MapArea {
 
     /*
-        Enter the charred area where we got the quest coffins.
+     * Enter the charred area where we got the quest coffins.
      */
 
     override fun defineAreaBorders(): Array<ZoneBorders> {

@@ -8,9 +8,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.item.Item
 
 /**
- * Coal truck listener
- *
- * @constructor Coal truck listener
+ * Coal truck listener.
  */
 class CoalTruckListener : InteractionListener {
 

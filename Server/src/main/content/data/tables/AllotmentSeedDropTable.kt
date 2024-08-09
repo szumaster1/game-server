@@ -19,6 +19,9 @@ import javax.xml.parsers.DocumentBuilder
 import javax.xml.parsers.DocumentBuilderFactory
 import javax.xml.parsers.ParserConfigurationException
 
+/**
+ * Allotment seed drop table.
+ */
 class AllotmentSeedDropTable : StartupListener {
 
     override fun startup() {

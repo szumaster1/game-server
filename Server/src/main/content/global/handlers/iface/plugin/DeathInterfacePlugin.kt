@@ -9,9 +9,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Death interface plugin
- *
- * @constructor Death interface plugin
+ * Death interface plugin.
  */
 @Initializable
 class DeathInterfacePlugin : ComponentPlugin() {

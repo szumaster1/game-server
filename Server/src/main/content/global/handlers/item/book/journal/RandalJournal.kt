@@ -10,9 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Randal journal
- *
- * @constructor Randal journal
+ * Randal journal.
  */
 class RandalJournal : InteractionListener {
 

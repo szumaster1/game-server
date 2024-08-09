@@ -10,9 +10,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Kennith dialogue file
- *
- * @constructor Kennith dialogue file
+ * Kennith dialogue file.
  */
 class KennithDialogueFile : DialogueFile() {
 

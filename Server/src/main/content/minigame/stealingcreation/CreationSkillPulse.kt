@@ -11,15 +11,15 @@ import core.tools.RandomFunction
 import kotlin.math.ceil
 
 /**
- * Creation skill pulse
+ * Creation skill pulse.
  *
- * @property player
- * @property node
- * @property animation
- * @property itemUsed
- * @property baseId
- * @property sceneryIndex
- * @constructor Creation skill pulse
+ * @property player The player performing the creation skill.
+ * @property node The node where the creation skill is being performed.
+ * @property animation The animation used for the creation skill.
+ * @property itemUsed The item used for the creation skill.
+ * @property baseId The base ID for the creation skill.
+ * @property sceneryIndex The index of the scenery for the creation skill.
+ * @constructor Creates a CreationSkillPulse instance.
  */
 class CreationSkillPulse(
     val player: Player,
@@ -34,55 +34,44 @@ class CreationSkillPulse(
     private val skillId = Skills.HUNTER
 
     /**
-     * Creation scenery
+     * Creation scenery.
      *
-     * @property baseTime
-     * @property randomLife
-     * @property randomTime
-     * @property level
-     * @constructor Creation scenery
+     * @property baseTime The base time for the creation scenery.
+     * @property randomLife The random life for the creation scenery.
+     * @property randomTime The random time for the creation scenery.
+     * @property level The level required for the creation scenery.
+     * @constructor Creates a CreationScenery instance.
      */
     enum class CreationScenery(val baseTime: Int, val randomLife: Int, val randomTime: Int, val level: Int) {
         /**
-         * Class 1
-         *
-         * @constructor Class 1
+         * Class 1.
          */
         CLASS_1(10, -1, 1, 1),
 
         /**
-         * Class 2
-         *
-         * @constructor Class 2
+         * Class 2.
          */
         CLASS_2(20, 200, 6, 20),
 
         /**
-         * Class 3
-         *
-         * @constructor Class 3
+         * Class 3.
          */
         CLASS_3(25, 300, 12, 40),
 
         /**
-         * Class 4
-         *
-         * @constructor Class 4
+         * Class 4.
          */
         CLASS_4(30, 400, 16, 60),
 
         /**
-         * Class 5
-         *
-         * @constructor Class 5
+         * Class 5.
          */
         CLASS_5(35, 500, 20, 80);
     }
 
 
     /**
-     * Animate
-     *
+     * Animate the player
      */
     fun animate() {
         animate(player, animation)
@@ -100,11 +89,11 @@ class CreationSkillPulse(
     }
 
     /**
-     * Check reward
+     * Check the reward for the player.
      *
-     * @param player
-     * @param skillId
-     * @return
+     * @param player The player to check the reward for.
+     * @param skillId The skill ID to check the reward for.
+     * @return The delay for the reward.
      */
     fun checkReward(player: Player, skillId: Int): Int {
         val playerLevel = player.getSkills().getLevel(Skills.FISHING)

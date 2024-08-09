@@ -10,9 +10,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Sir palomedes holy grail quest dialogue file
- *
- * @constructor Sir palomedes holy grail quest dialogue file
+ * Sir palomedes holy grail quest dialogue file.
  */
 class SirPalomedesHolyGrailQuestDialogueFile  : DialogueFile() {
 

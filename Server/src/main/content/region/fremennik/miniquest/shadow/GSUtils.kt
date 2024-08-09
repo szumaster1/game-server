@@ -1,5 +1,8 @@
 package content.region.fremennik.miniquest.shadow
 
+/**
+ * General's shadow mini-quest utils.
+ */
 object GSUtils {
     const val START_GENERAL_SHADOW = "/save:general-shadow:start"
     const val GS_SIN_SEER_TALK = "/save:general-shadow:talk"

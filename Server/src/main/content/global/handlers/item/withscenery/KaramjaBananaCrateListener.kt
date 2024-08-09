@@ -10,9 +10,7 @@ import core.game.world.update.flag.context.Animation
 import kotlin.math.min
 
 /**
- * Karamja banana crate listener
- *
- * @constructor Karamja banana crate listener
+ * Karamja banana crate listener.
  */
 class KaramjaBananaCrateListener : InteractionListener {
 

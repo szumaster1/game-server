@@ -7,9 +7,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Knight notes dialogue
- *
- * @constructor Knight notes dialogue
+ * Knight notes dialogue.
  */
 class KnightNotesDialogue : DialogueFile() {
 

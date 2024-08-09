@@ -8,9 +8,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Sir tristram dialogue file
- *
- * @constructor Sir tristram dialogue file
+ * Sir tristram dialogue file.
  */
 class SirTristramDialogueFile : DialogueFile() {
 

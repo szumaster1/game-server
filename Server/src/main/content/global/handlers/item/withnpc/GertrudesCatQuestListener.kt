@@ -13,9 +13,7 @@ import core.game.world.map.path.Path
 import core.game.world.map.path.Pathfinder
 
 /**
- * Gertrudes cat quest listener
- *
- * @constructor Gertrudes cat quest listener
+ * Gertrudes cat quest listener.
  */
 class GertrudesCatQuestListener : InteractionListener {
 

@@ -9,9 +9,7 @@ import core.game.node.entity.player.link.diary.DiaryType
 import core.game.node.item.Item
 
 /**
- * Cider on forester listener
- *
- * @constructor Cider on forester listener
+ * Cider on forester listener.
  */
 class CiderOnForesterListener : InteractionListener {
 

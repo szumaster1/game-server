@@ -14,9 +14,7 @@ import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
 /**
- * The lady of the lake dialogue file
- *
- * @constructor The lady of the lake dialogue file
+ * The lady of the lake dialogue file.
  */
 class TheLadyOfTheLakeDialogueFile : DialogueFile() {
 

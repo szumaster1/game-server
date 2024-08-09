@@ -8,9 +8,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Crumpled scroll
- *
- * @constructor Crumpled scroll
+ * Crumpled scroll.
  */
 class CrumpledScroll : InteractionListener {
     companion object {

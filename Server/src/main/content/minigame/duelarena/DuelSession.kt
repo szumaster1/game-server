@@ -19,12 +19,12 @@ import java.text.DecimalFormat
 import java.util.*
 
 /**
- * Duel session
+ * Represents a duel session between two players.
  *
- * @property player
- * @property other
- * @property staked
- * @constructor Duel session
+ * @property player The first player participating in the duel.
+ * @property other The second player participating in the duel.
+ * @property staked Indicates if there are stakes involved in the duel.
+ * @constructor Creates a new DuelSession with optional player, other player, and stake status.
  */
 class DuelSession(val player: Player? = null, val other: Player? = null, val staked: Boolean) : ComponentPlugin() {
 
@@ -65,12 +65,6 @@ class DuelSession(val player: Player? = null, val other: Player? = null, val sta
         }
     }
 
-
-    /**
-     * Heal
-     *
-     * @param p
-     */
     fun heal(p: Player) {
         p.fullRestore()
         if (isPoisoned(p)) {
@@ -81,7 +75,7 @@ class DuelSession(val player: Player? = null, val other: Player? = null, val sta
 
 
     /**
-     * Open rules
+     * Open rules.
      */
     fun openRules() {
         setAttribute(player!!, "duel:partner", other)
@@ -119,10 +113,7 @@ class DuelSession(val player: Player? = null, val other: Player? = null, val sta
 
 
     /**
-     * Leave
-     *
-     * @param p
-     * @param type
+     * Leave.
      */
     fun leave(p: Player, type: Int) {
         if (fightState == 2) {
@@ -153,9 +144,7 @@ class DuelSession(val player: Player? = null, val other: Player? = null, val sta
 
 
     /**
-     * Victory
-     *
-     * @param player
+     * Victory.
      */
     fun victory(player: Player) {
         val component: Component =
@@ -237,24 +226,7 @@ class DuelSession(val player: Player? = null, val other: Player? = null, val sta
                     }
                 }
                 val interfaceId = if (session.staked) 626 else 639
-                val childs = if (staked) intArrayOf(
-                    28,
-                    29,
-                    30,
-                    31,
-                    34,
-                    35,
-                    36,
-                    37,
-                    38,
-                    39,
-                    40,
-                    41,
-                    42,
-                    43,
-                    44,
-                    45
-                ) else intArrayOf(16, 17, 18, 19, 20, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32)
+                val childs = if (staked) intArrayOf(28, 29, 30, 31, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45) else intArrayOf(16, 17, 18, 19, 20, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32)
                 clearChilds(session.player, interfaceId, *childs)
                 clearChilds(session.other, interfaceId, *childs)
                 var tokens: Array<String?> = before.toString().split("<br>".toRegex()).dropLastWhile { it.isEmpty() }

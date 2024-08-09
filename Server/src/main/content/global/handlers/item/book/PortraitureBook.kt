@@ -11,9 +11,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Portraiture book
- *
- * @constructor Portraiture book
+ * Portraiture book.
  */
 class PortraitureBook : InteractionListener {
 

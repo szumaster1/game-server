@@ -5,9 +5,7 @@ import core.api.consts.Components
 import core.game.interaction.InterfaceListener
 
 /**
- * Character design interface listener
- *
- * @constructor Character design interface listener
+ * Character design interface listener.
  */
 class CharacterDesignInterfaceListener : InterfaceListener {
 

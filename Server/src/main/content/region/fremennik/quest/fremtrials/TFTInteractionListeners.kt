@@ -29,9 +29,7 @@ import core.game.world.map.RegionManager
 import core.game.world.update.flag.context.Animation
 
 /**
- * T f t interaction listeners
- *
- * @constructor T f t interaction listeners
+ * The Fremennik Trials interaction listeners.
  */
 class TFTInteractionListeners : InteractionListener {
     private val BEER = intArrayOf(Items.BEER_3803, Items.BEER_1917)
@@ -303,13 +301,13 @@ class TFTInteractionListeners : InteractionListener {
 
 
     /**
-     * Dest room
+     * This class represents a destination room with its boundaries.
      *
-     * @property swx
-     * @property swy
-     * @property nex
-     * @property ney
-     * @constructor Dest room
+     * @property swx The x-coordinate of the southwest corner of the room.
+     * @property swy The y-coordinate of the southwest corner of the room.
+     * @property nex The x-coordinate of the northeast corner of the room.
+     * @property ney The y-coordinate of the northeast corner of the room.
+     * @constructor Creates a destination room with the specified boundaries.
      */
     class DestRoom(val swx: Int, val swy: Int, val nex: Int, val ney: Int)
 

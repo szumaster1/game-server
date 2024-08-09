@@ -10,9 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.item.Item
 
 /**
- * Skull sceptre assemble listener
- *
- * @constructor Skull sceptre assemble listener
+ * Skull sceptre assemble listener.
  */
 class SkullSceptreAssembleListener : InteractionListener {
 

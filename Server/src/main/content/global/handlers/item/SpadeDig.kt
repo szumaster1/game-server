@@ -3,8 +3,10 @@ package content.global.handlers.item
 import core.game.node.entity.player.Player
 import core.game.world.map.Location
 
-
-object SpadeDigListener {
+/**
+ * Spade dig listener.
+ */
+object SpadeDig {
 
     val listeners = HashMap<Location, (Player) -> Unit>()
 

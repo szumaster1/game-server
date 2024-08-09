@@ -9,9 +9,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Hangover cure listener
- *
- * @constructor Hangover cure listener
+ * Hangover cure listener.
  */
 class HangoverCureListener : InteractionListener {
 

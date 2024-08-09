@@ -10,9 +10,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Sir lancelot dialogue file
- *
- * @constructor Sir lancelot dialogue file
+ * Sir lancelot dialogue file.
  */
 class SirLancelotDialogueFile : DialogueFile() {
 

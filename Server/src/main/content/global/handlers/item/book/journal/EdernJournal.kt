@@ -10,9 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Edern journal
- *
- * @constructor Edern journal
+ * Edern journal.
  */
 class EdernJournal : InteractionListener {
 

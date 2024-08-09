@@ -11,9 +11,7 @@ import core.game.interaction.InteractionListener
 import core.game.world.update.flag.context.Animation
 
 /**
- * Cauldron of thunder listener
- *
- * @constructor Cauldron of thunder listener
+ * Cauldron of thunder listener.
  */
 class CauldronOfThunderListener : InteractionListener {
 

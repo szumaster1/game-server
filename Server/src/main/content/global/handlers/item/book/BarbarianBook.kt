@@ -12,9 +12,7 @@ import core.game.node.entity.player.Player
 import core.tools.BLUE
 
 /**
- * Barbarian book
- *
- * @constructor Barbarian book
+ * Barbarian book.
  */
 class BarbarianBook : InteractionListener {
 

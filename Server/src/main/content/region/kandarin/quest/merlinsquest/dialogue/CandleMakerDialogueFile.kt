@@ -12,9 +12,7 @@ import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
 /**
- * Candle maker dialogue file
- *
- * @constructor Candle maker dialogue file
+ * Candle maker dialogue file.
  */
 class CandleMakerDialogueFile : DialogueFile() {
 

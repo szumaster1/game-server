@@ -44,10 +44,7 @@ class BugsChompyDialogue(player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Bugs chompy dialogue file
- *
- * @property quest
- * @constructor Bugs chompy dialogue file
+ * Bugs chompy dialogue file.
  */
 class BugsChompyDialogueFile(val quest: Quest) : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {

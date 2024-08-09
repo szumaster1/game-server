@@ -17,72 +17,11 @@ object StealingCreation {
     private val blueTeam = ArrayList<Player>()
     private var lobbyTask: Timer? = null
     private var gameTask: Timer? = null
-
     val sacredClayItem = intArrayOf(14182, 14184, 14186, 14188, 14190)
-    val classItems = intArrayOf(
-        14132,
-        14122,
-        14142,
-        14152,
-        14172,
-        14162,
-        14367,
-        14357,
-        14347,
-        14411,
-        14391,
-        14401,
-        14337,
-        14317,
-        14327,
-        14297,
-        14287,
-        14307,
-        14192,
-        14202,
-        12850,
-        12851,
-        14422,
-        14377,
-        14421,
-        -1,
-        -1,
-        14215,
-        14225,
-        14235,
-        14245,
-        14255,
-        14265,
-        14275,
-        14285
-    )
+    val classItems = intArrayOf(14132, 14122, 14142, 14152, 14172, 14162, 14367, 14357, 14347, 14411, 14391, 14401, 14337, 14317, 14327, 14297, 14287, 14307, 14192, 14202, 12850, 12851, 14422, 14377, 14421, -1, -1, 14215, 14225, 14235, 14245, 14255, 14265, 14275, 14285)
     val lobbyLocation = Location(2968, 9701, 0)
-
-    private val SkillIds = intArrayOf(
-        Skills.WOODCUTTING,
-        Skills.MINING,
-        Skills.FISHING,
-        Skills.HUNTER,
-        Skills.COOKING,
-        Skills.HERBLORE,
-        Skills.CRAFTING,
-        Skills.SMITHING,
-        Skills.FLETCHING,
-        Skills.RUNECRAFTING,
-        Skills.CONSTRUCTION
-    )
-
-    private val CombatSkillIds = intArrayOf(
-        Skills.ATTACK,
-        Skills.STRENGTH,
-        Skills.DEFENCE,
-        Skills.HITPOINTS,
-        Skills.RANGE,
-        Skills.MAGIC,
-        Skills.PRAYER,
-        Skills.SUMMONING
-    )
-
+    private val SkillIds = intArrayOf(Skills.WOODCUTTING, Skills.MINING, Skills.FISHING, Skills.HUNTER, Skills.COOKING, Skills.HERBLORE, Skills.CRAFTING, Skills.SMITHING, Skills.FLETCHING, Skills.RUNECRAFTING, Skills.CONSTRUCTION)
+    private val CombatSkillIds = intArrayOf(Skills.ATTACK, Skills.STRENGTH, Skills.DEFENCE, Skills.HITPOINTS, Skills.RANGE, Skills.MAGIC, Skills.PRAYER, Skills.SUMMONING)
     private val basicAnimation = intArrayOf(10603, 10608, 10613, 10618)
 
     private class LobbyTimer(private var minutes: Int = 0) : TimerTask() {
@@ -112,12 +51,7 @@ object StealingCreation {
     fun handleKiln(player: Player, componentId: Int, index: Int, itemId: Int, amount: Int): Boolean {
         val clayId: Int = sacredClayItem[index]
         if (inInventory(player, clayId, 1)) {
-            if (addItem(
-                    player,
-                    classItems[componentId - 37] + (if ((componentId == 57 || componentId == 58 || componentId == 61)) 0 else if (componentId == 56) index else if (componentId >= 64) (-index * 2) else (index * 2)),
-                    (if (componentId in 56..58) 15 * (index + 1) else if (componentId == 61) index + 1 else 1) * amount
-                )
-            ) {
+            if (addItem(player, classItems[componentId - 37] + (if ((componentId == 57 || componentId == 58 || componentId == 61)) 0 else if (componentId == 56) index else if (componentId >= 64) (-index * 2) else (index * 2)), (if (componentId in 56..58) 15 * (index + 1) else if (componentId == 61) index + 1 else 1) * amount)) {
                 removeItem(player, Item(itemId, amount))
                 return true
             }

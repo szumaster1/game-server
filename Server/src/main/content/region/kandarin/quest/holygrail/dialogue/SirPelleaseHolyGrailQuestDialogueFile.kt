@@ -10,9 +10,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Sir pellease holy grail quest dialogue file
- *
- * @constructor Sir pellease holy grail quest dialogue file
+ * Sir pellease holy grail quest dialogue file.
  */
 class SirPelleaseHolyGrailQuestDialogueFile  : DialogueFile() {
 

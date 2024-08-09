@@ -2,6 +2,9 @@ package content.region.kandarin.quest.biohazard.util
 
 import core.game.world.map.Location
 
+/**
+ * Biohazard utils.
+ */
 object BiohazardUtils {
     const val FIRST_VIAL_CORRECT = "/save:biohazard-vial:1"
     const val SECOND_VIAL_CORRECT = "/save:biohazard-vial:2"

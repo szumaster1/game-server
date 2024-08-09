@@ -7,9 +7,7 @@ import content.global.handlers.iface.PageSet
 import core.game.node.entity.player.Player
 
 /**
- * Historyofthe outpost
- *
- * @constructor Historyofthe outpost
+ * Historyofthe outpost.
  */
 class HistoryoftheOutpost {
 

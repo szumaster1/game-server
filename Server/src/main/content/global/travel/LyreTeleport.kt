@@ -15,10 +15,10 @@ import core.game.world.update.flag.context.Graphic
 import org.json.simple.JSONObject
 
 /**
- * Lyre teleport
+ * Class representing a Lyre teleport for a player.
  *
- * @property player
- * @constructor Lyre teleport
+ * @property player the player for whom the Lyre teleport is initiated
+ * @constructor Creates a Lyre teleport instance for the specified player.
  */
 class LyreTeleport(val player: Player) : Pulse() {
 

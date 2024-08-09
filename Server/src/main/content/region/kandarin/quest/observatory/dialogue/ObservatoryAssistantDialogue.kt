@@ -11,9 +11,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Observatory assistant dialogue
- *
- * @constructor Observatory assistant dialogue
+ * Observatory assistant dialogue.
  */
 class ObservatoryAssistantDialogue : DialogueFile() {
 

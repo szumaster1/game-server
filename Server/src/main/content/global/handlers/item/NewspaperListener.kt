@@ -9,9 +9,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Newspaper listener
- *
- * @constructor Newspaper listener
+ * Newspaper listener.
  */
 class NewspaperListener : InteractionListener {
     companion object {

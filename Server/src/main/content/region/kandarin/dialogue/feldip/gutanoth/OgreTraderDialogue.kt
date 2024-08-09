@@ -1,6 +1,5 @@
 package content.region.kandarin.dialogue.feldip.gutanoth
 
-
 import core.api.consts.NPCs
 import core.api.openNpcShop
 import core.game.dialogue.Dialogue

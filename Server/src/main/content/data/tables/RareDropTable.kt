@@ -19,6 +19,11 @@ import javax.xml.parsers.DocumentBuilder
 import javax.xml.parsers.DocumentBuilderFactory
 import javax.xml.parsers.ParserConfigurationException
 
+/**
+ * Rare drop table
+ *
+ * @constructor Create empty Rare drop table
+ */
 class RareDropTable : StartupListener {
 
     override fun startup() {

@@ -10,9 +10,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Sir tristram holy grail quest dialogue file
- *
- * @constructor Sir tristram holy grail quest dialogue file
+ * Sir tristram holy grail quest dialogue file.
  */
 class SirTristramHolyGrailQuestDialogueFile: DialogueFile() {
 

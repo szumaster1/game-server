@@ -13,9 +13,7 @@ import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
 /**
- * Border guard dialogue
- *
- * @constructor Border guard dialogue
+ * Border guard dialogue.
  */
 class BorderGuardDialogue : DialogueFile() {
 

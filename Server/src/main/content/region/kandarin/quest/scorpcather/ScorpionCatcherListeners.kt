@@ -13,11 +13,8 @@ import core.game.system.config.NPCConfigParser
 import core.game.system.task.Pulse
 import core.game.world.GameWorld
 
-
 /**
- * Scorpion catcher listeners
- *
- * @constructor Scorpion catcher listeners
+ * Scorpion catcher listeners.
  */
 class ScorpionCatcherListeners : InteractionListener {
 

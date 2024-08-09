@@ -17,9 +17,7 @@ import core.game.world.map.RegionManager.getLocalNpcs
 import core.game.world.update.flag.context.Animation
 
 /**
- * Warning interface listener
- *
- * @constructor Warning interface listener
+ * Warning interface listener.
  */
 class WarningInterfaceListener : InterfaceListener {
 

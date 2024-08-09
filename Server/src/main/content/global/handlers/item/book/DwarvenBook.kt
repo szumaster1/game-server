@@ -11,9 +11,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Dwarven book
- *
- * @constructor Dwarven book
+ * Dwarven book.
  */
 class DwarvenBook : InteractionListener {
 

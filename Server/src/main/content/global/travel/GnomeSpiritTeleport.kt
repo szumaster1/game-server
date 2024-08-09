@@ -52,10 +52,7 @@ class GnomeSpiritTreeTeleportDialogue: DialogueFile() {
     )
 
     /**
-     * Has quest completed
-     *
-     * @param player
-     * @return
+     * Has quest completed.
      */
     fun hasQuestCompleted(player: Player): Boolean {
         if (!isQuestComplete(player, "Tree Gnome Village")) {

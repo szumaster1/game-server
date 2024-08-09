@@ -12,9 +12,7 @@ import core.game.node.item.Item
 import core.game.world.update.flag.context.Graphic
 
 /**
- * Staff of the raven
- *
- * @constructor Staff of the raven
+ * Staff of the raven.
  */
 class StaffOfTheRaven : InteractionListener {
 

@@ -8,9 +8,7 @@ import core.game.dialogue.FacialExpression
 import core.tools.END_DIALOGUE
 
 /**
- * Larrissa dialogue file
- *
- * @constructor Larrissa dialogue file
+ * Larrissa dialogue file related to Horror from the deep quest.
  */
 class LarrissaDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {

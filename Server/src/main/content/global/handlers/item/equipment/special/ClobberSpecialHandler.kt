@@ -21,9 +21,7 @@ import core.plugin.Plugin
 import core.tools.RandomFunction
 
 /**
- * Clobber special handler
- *
- * @constructor Clobber special handler
+ * Clobber special handler.
  */
 @Initializable
 class ClobberSpecialHandler : MeleeSwingHandler(), Plugin<Any> {

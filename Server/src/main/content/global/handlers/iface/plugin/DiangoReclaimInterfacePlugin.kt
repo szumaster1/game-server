@@ -15,9 +15,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Diango reclaim interface plugin
- *
- * @constructor Diango reclaim interface plugin
+ * Diango reclaim interface plugin.
  */
 @Initializable
 class DiangoReclaimInterfacePlugin : ComponentPlugin() {

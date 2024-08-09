@@ -8,9 +8,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Sir lucan dialogue file
- *
- * @constructor Sir lucan dialogue file
+ * Sir lucan dialogue file.
  */
 class SirLucanDialogueFile : DialogueFile() {
 

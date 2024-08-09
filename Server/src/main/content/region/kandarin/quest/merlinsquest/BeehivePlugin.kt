@@ -21,9 +21,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Beehive plugin
- *
- * @constructor Beehive plugin
+ * Beehive plugin.
  */
 @Initializable
 class BeehivePlugin : OptionHandler() {

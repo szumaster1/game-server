@@ -101,12 +101,10 @@ class GeneralKhazardDialogue(player: Player? = null) : Dialogue(player) {
                 setAttribute(player, GSUtils.GS_START, true)
                 setAttribute(player, GSUtils.GS_PROGRESS, 0)
             }
-            34 -> {
-                if (getAttribute(player, GSUtils.GS_PROGRESS, 0) == 0) {
-                    player("I haven't found any. Where were they headed?").also { stage++ }
-                } else {
-                    player("I've found ${getAttribute(player, GSUtils.GS_PROGRESS, 0)}, but they're kind of hard to find.", "Where were they headed again?").also { stage++ }
-                }
+            34 -> if (getAttribute(player, GSUtils.GS_PROGRESS, 0) == 0) {
+                player("I haven't found any. Where were they headed?").also { stage++ }
+            } else {
+                player("I've found ${getAttribute(player, GSUtils.GS_PROGRESS, 0)}, but they're kind of hard to find.", "Where were they headed again?").also { stage++ }
             }
             35 -> npc("One was to go to a jungle to the south.").also { stage++ }
             36 -> npc("One was to go to the land of the gnomes and explore", "their holdings.").also { stage++ }

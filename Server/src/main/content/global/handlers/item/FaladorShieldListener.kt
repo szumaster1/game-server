@@ -14,9 +14,7 @@ import core.game.world.update.flag.context.Graphic
 import java.util.concurrent.TimeUnit
 
 /**
- * Falador shield listener
- *
- * @constructor Falador shield listener
+ * Falador shield listener.
  */
 class FaladorShieldListener : InteractionListener {
 

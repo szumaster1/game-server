@@ -11,9 +11,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Godsword dismantle plugin
- *
- * @constructor Godsword dismantle plugin
+ * Godsword dismantle plugin.
  */
 @Initializable
 class GodswordDismantlePlugin : OptionHandler() {

@@ -19,9 +19,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Teleport crystal plugin
- *
- * @constructor Teleport crystal plugin
+ * Teleport crystal plugin.
  */
 @Initializable
 class TeleportCrystalPlugin : OptionHandler() {

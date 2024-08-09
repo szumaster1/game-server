@@ -8,9 +8,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Scrumpled paper recipe scroll
- *
- * @constructor Scrumpled paper recipe scroll
+ * Scrumpled paper recipe scroll.
  */
 class ScrumpledPaperRecipeScroll : InteractionListener {
 

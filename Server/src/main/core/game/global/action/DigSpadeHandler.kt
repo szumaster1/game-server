@@ -1,6 +1,6 @@
 package core.game.global.action
 
-import content.global.handlers.item.SpadeDigListener.runListener
+import content.global.handlers.item.SpadeDig.runListener
 import core.api.log
 import core.game.node.entity.player.Player
 import core.game.system.communication.CommunicationInfo

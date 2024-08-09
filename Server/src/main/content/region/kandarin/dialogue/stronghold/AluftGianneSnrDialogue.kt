@@ -20,29 +20,7 @@ import kotlinx.coroutines.launch
 import java.util.concurrent.TimeUnit
 
 
-val gnomeItems = arrayOf(
-    Items.FRUIT_BATTA_2277,
-    Items.TOAD_BATTA_2255,
-    Items.CHEESE_PLUSTOM_BATTA_2259,
-    Items.WORM_BATTA_2253,
-    Items.VEGETABLE_BATTA_2281,
-    Items.CHOCOLATE_BOMB_2185,
-    Items.VEG_BALL_2195,
-    Items.TANGLED_TOADS_LEGS_2187,
-    Items.WORM_HOLE_2191,
-    Items.TOAD_CRUNCHIES_2217,
-    Items.WORM_CRUNCHIES_2205,
-    Items.CHOCCHIP_CRUNCHIES_2209,
-    Items.SPICY_CRUNCHIES_2213,
-    Items.FRUIT_BLAST_9514,
-    Items.DRUNK_DRAGON_2092,
-    Items.CHOC_SATURDAY_2074,
-    Items.SHORT_GREEN_GUY_9510,
-    Items.BLURBERRY_SPECIAL_9520,
-    Items.PINEAPPLE_PUNCH_9512,
-    Items.WIZARD_BLIZZARD_9508
-)
-
+val gnomeItems = arrayOf(Items.FRUIT_BATTA_2277, Items.TOAD_BATTA_2255, Items.CHEESE_PLUSTOM_BATTA_2259, Items.WORM_BATTA_2253, Items.VEGETABLE_BATTA_2281, Items.CHOCOLATE_BOMB_2185, Items.VEG_BALL_2195, Items.TANGLED_TOADS_LEGS_2187, Items.WORM_HOLE_2191, Items.TOAD_CRUNCHIES_2217, Items.WORM_CRUNCHIES_2205, Items.CHOCCHIP_CRUNCHIES_2209, Items.SPICY_CRUNCHIES_2213, Items.FRUIT_BLAST_9514, Items.DRUNK_DRAGON_2092, Items.CHOC_SATURDAY_2074, Items.SHORT_GREEN_GUY_9510, Items.BLURBERRY_SPECIAL_9520, Items.PINEAPPLE_PUNCH_9512, Items.WIZARD_BLIZZARD_9508)
 val ALUFT_ALOFT_BOX = Item(Items.ALUFT_ALOFT_BOX_9477)
 
 /**
@@ -98,7 +76,7 @@ class AluftGianneSnrDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             /*
-                Toad Batta completion check.
+             * Toad Batta completion check.
              */
 
             10 -> if (player.inventory.containsItem(Item(Items.TOAD_BATTA_2255))) {
@@ -125,7 +103,7 @@ class AluftGianneSnrDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             /*
-                Toad Crunchies completion check.
+             * Toad Crunchies completion check.
              */
 
             15 -> if (inInventory(player, Items.TOAD_CRUNCHIES_2217)) {
@@ -142,7 +120,7 @@ class AluftGianneSnrDialogue(player: Player? = null) : Dialogue(player) {
             18 -> npc("Very nice indeed. Now I'd like you to go see my friend", "Blurberry at the bar.").also { stage = END_DIALOGUE }
 
             /*
-                dialogue for getting jobs.
+             * Dialogue for getting jobs.
              */
 
             300 -> options("I'd like to take on a hard job.", "I'd like an easy job please.").also { stage++ }
@@ -191,11 +169,11 @@ class AluftGianneSnrDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     /**
-     * Gnome restaurant pulse
+     * Class representing a pulse for Gnome Restaurant activity.
      *
-     * @property player
-     * @property minutes
-     * @constructor Gnome restaurant pulse
+     * @property player The player participating in the activity.
+     * @property minutes The duration of the pulse in minutes.
+     * @constructor Creates a GnomeRestaurantPulse with the specified player and duration.
      */
     internal class GnomeRestaurantPulse(val player: Player, val minutes: Long) : Pulse() {
         var endTime = 0L

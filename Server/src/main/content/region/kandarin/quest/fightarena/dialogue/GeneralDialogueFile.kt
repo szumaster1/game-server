@@ -13,9 +13,7 @@ import core.game.world.map.RegionManager
 import core.tools.END_DIALOGUE
 
 /**
- * General dialogue file
- *
- * @constructor General dialogue file
+ * General dialogue file.
  */
 class GeneralDialogueFile : DialogueFile() {
 
@@ -24,10 +22,7 @@ class GeneralDialogueFile : DialogueFile() {
         when (getQuestStage(player!!, "Fight Arena")) {
 
             in 68..70 -> when (stage) {
-                0 -> npcl(
-                    FacialExpression.FRIENDLY,
-                    "Out of the way, guard! I don't tolerate disruption when I'm watching slaves being slaughtered."
-                ).also { stage = END_DIALOGUE }
+                0 -> npcl(FacialExpression.FRIENDLY, "Out of the way, guard! I don't tolerate disruption when I'm watching slaves being slaughtered.").also { stage = END_DIALOGUE }
             }
 
             71 -> when (stage) {

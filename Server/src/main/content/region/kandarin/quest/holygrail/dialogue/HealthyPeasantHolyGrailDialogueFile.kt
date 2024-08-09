@@ -7,9 +7,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Healthy peasant holy grail dialogue file
- *
- * @constructor Healthy peasant holy grail dialogue file
+ * Healthy peasant holy grail dialogue file.
  */
 class HealthyPeasantHolyGrailDialogueFile : DialogueFile() {
 

@@ -31,13 +31,6 @@ class ArheinDialogue(player: Player? = null) : Dialogue(player) {
     private var goodsName = ""
     private var stock = 0
 
-    /**
-     * Get goods
-     *
-     * @param requestedItem
-     * @param requestedAmount
-     * @return
-     */
     fun getGoods(requestedItem: Int, requestedAmount: Int): Int {
         val price = 2
         val afford = player.inventory.getAmount(Items.COINS_995) / price
@@ -68,11 +61,6 @@ class ArheinDialogue(player: Player? = null) : Dialogue(player) {
         return 0
     }
 
-    /**
-     * Select goods
-     *
-     * @param requestedItem
-     */
     fun selectGoods(requestedItem: Int) {
         this.goods = requestedItem
         this.stock =

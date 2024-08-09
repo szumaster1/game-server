@@ -9,9 +9,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Poison salesman dialogue file
- *
- * @constructor Poison salesman dialogue file
+ * Poison salesman dialogue file.
  */
 class PoisonSalesmanDialogueFile : DialogueFile() {
 

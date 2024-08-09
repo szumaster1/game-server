@@ -77,9 +77,7 @@ private val ITEMS = arrayOf(
 )
 
 /**
- * Fur clothing interface plugin
- *
- * @constructor Fur clothing interface plugin
+ * Fur clothing interface plugin.
  */
 @Initializable
 class FurClothingInterfacePlugin : ComponentPlugin() {

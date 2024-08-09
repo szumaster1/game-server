@@ -12,9 +12,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Pickup plugin
- *
- * @constructor Pickup plugin
+ * Pickup plugin.
  */
 @Initializable
 class PickupPlugin : OptionHandler() {

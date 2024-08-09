@@ -8,9 +8,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Hay on spear listener
- *
- * @constructor Hay on spear listener
+ * Hay on spear listener.
  */
 class HayOnSpearListener : InteractionListener {
 

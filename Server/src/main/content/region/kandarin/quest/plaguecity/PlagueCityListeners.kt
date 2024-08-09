@@ -21,9 +21,7 @@ import core.game.world.map.Location
 import core.tools.END_DIALOGUE
 
 /**
- * Plague city listeners
- *
- * @constructor Plague city listeners
+ * Plague city listeners.
  */
 class PlagueCityListeners : InteractionListener {
 
@@ -374,13 +372,7 @@ class PlagueCityListeners : InteractionListener {
 
     private fun scruffyNote(player: Player) {
         val scruffynotes =
-            arrayOf(
-                "Got a bncket of nnilk",
-                "Tlen grind sorne lhoculate",
-                "vnith a pestal and rnortar",
-                "ald the grourd dlocolate to tho milt",
-                "finales add 5cme snape gras5",
-            )
+            arrayOf("Got a bncket of nnilk", "Tlen grind sorne lhoculate", "vnith a pestal and rnortar", "ald the grourd dlocolate to tho milt", "finales add 5cme snape gras5")
         setInterfaceText(player, scruffynotes.joinToString("<br>"), Components.BLANK_SCROLL_222, 5)
     }
 

@@ -12,9 +12,7 @@ import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 
 /**
- * Observatory
- *
- * @constructor Observatory
+ * Observatory.
  */
 @Initializable
 class Observatory : Quest("Observatory Quest", 96, 95, 2, Vars.VARP_QUEST_OBSERVATORY_QUEST_PROGRESS, 0, 1, 7) {
@@ -85,6 +83,6 @@ class Observatory : Quest("Observatory Quest", 96, 95, 2, Vars.VARP_QUEST_OBSERV
 
 }
 /*
-    When the Assistant gives you the wine after the quest and you talk to him without drinking it, he asks,"How was the wine?". And you respond,"That was good stuff, *hic*! Wheresh the professher?" even though you didn't drink the wine.
-    After completing the quest, if you talk to Juna, your character will say, "...And when I had fixed the telescope, I looked through and saw the stars." to which she replies, "It is long since I have seen the stars..."
+ * When the Assistant gives you the wine after the quest and you talk to him without drinking it, he asks,"How was the wine?". And you respond,"That was good stuff, *hic*! Wheresh the professher?" even though you didn't drink the wine.
+ * After completing the quest, if you talk to Juna, your character will say, "...And when I had fixed the telescope, I looked through and saw the stars." to which she replies, "It is long since I have seen the stars..."
  */

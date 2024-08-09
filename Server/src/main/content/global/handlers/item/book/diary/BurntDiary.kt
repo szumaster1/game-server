@@ -11,9 +11,7 @@ import core.game.node.entity.player.Player
 import core.tools.DARK_RED
 
 /**
- * Burnt diary
- *
- * @constructor Burnt diary
+ * Burnt diary.
  */
 class BurntDiary : InteractionListener {
 

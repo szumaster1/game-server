@@ -27,9 +27,7 @@ import core.plugin.ClassScanner.definePlugin
 import core.plugin.Plugin
 
 /**
- * Waterfall plugin
- *
- * @constructor Waterfall plugin
+ * Waterfall plugin.
  */
 class WaterfallPlugin : OptionHandler() {
 

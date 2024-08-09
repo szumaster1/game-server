@@ -8,9 +8,7 @@ import core.game.node.entity.player.link.TeleportManager
 import core.game.node.item.Item
 
 /**
- * House teleport tab listener
- *
- * @constructor House teleport tab listener
+ * House teleport tab listener.
  */
 class HouseTeleportTabListener : InteractionListener {
 

@@ -7,7 +7,9 @@ import core.api.consts.Scenery
 import core.game.node.entity.npc.NPC
 import core.game.world.map.Location
 
-
+/**
+ * Elemental Workshop II utils.
+ */
 object EW2Utils {
     const val foundBook = "/save:ew2:book-found"
     const val questProgress = "/save:ew2:progress"

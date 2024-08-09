@@ -13,9 +13,7 @@ import core.game.interaction.InteractionListener
 import core.tools.END_DIALOGUE
 
 /**
- * Enchanted gem listener
- *
- * @constructor Enchanted gem listener
+ * Enchanted gem listener.
  */
 class EnchantedGemListener : InteractionListener {
 

@@ -12,9 +12,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Seers dialogue file
- *
- * @constructor Seers dialogue file
+ * Seers dialogue file.
  */
 class SeersDialogueFile : DialogueFile() {
 

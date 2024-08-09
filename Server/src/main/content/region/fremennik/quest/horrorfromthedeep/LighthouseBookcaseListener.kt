@@ -8,9 +8,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Lighthouse bookcase listener
- *
- * @constructor Lighthouse bookcase listener
+ * Lighthouse bookcase listener.
  */
 class LighthouseBookcaseListener : DialogueFile(), InteractionListener {
     override fun handle(componentID: Int, buttonID: Int) {

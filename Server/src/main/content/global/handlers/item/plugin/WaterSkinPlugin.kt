@@ -8,9 +8,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Water skin plugin
- *
- * @constructor Water skin plugin
+ * Water skin plugin.
  */
 @Initializable
 class WaterSkinPlugin :

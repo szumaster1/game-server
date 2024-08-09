@@ -28,9 +28,7 @@ class PanningGuideDialogue (player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Panning guide dialogue file
- *
- * @constructor Panning guide dialogue file
+ * Panning guide dialogue file.
  */
 class PanningGuideDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {

@@ -10,9 +10,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Sir lancelot holy grail quest dialogue file
- *
- * @constructor Sir lancelot holy grail quest dialogue file
+ * Sir lancelot holy grail quest dialogue file.
  */
 class SirLancelotHolyGrailQuestDialogueFile  : DialogueFile() {
 

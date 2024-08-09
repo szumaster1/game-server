@@ -207,9 +207,9 @@ class TarlockDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     /**
-     * Set quest
+     * Set quest.
      *
-     * @param stage
+     * @param stage the stage.
      */
     fun setQuest(stage: Int) {
         player.questRepository.getQuest("Nature Spirit").setStage(player, stage)

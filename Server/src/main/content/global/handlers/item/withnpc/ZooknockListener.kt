@@ -7,11 +7,8 @@ import core.api.openDialogue
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
-
 /**
- * Zooknock listener
- *
- * @constructor Zooknock listener
+ * Zooknock listener.
  */
 open class ZooknockListener : InteractionListener {
 

@@ -17,10 +17,7 @@ import core.game.world.map.Location
 import core.tools.END_DIALOGUE
 
 /**
- * Beggar dialogue file
- *
- * @property door
- * @constructor Beggar dialogue file
+ * Beggar dialogue file.
  */
 class BeggarDialogueFile(val door: Scenery?) : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {

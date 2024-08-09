@@ -15,9 +15,7 @@ import core.game.node.entity.npc.NPC
 import core.game.world.map.Location
 
 /**
- * Fight arena listeners
- *
- * @constructor Fight arena listeners
+ * Fight arena listeners.
  */
 class FightArenaListeners : InteractionListener {
     companion object {

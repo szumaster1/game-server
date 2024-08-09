@@ -20,10 +20,7 @@ import kotlin.math.ceil
 import kotlin.math.floor
 
 /**
- * Salamander swing handler
- *
- * @property style
- * @constructor Salamander swing handler
+ * Salamander swing handler.
  */
 class SalamanderSwingHandler(private var style: CombatStyle) : CombatSwingHandler(style) {
     override fun canSwing(entity: Entity, victim: Entity): InteractionType {

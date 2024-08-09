@@ -11,9 +11,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Fisher king holy grail dialogue file
- *
- * @constructor Fisher king holy grail dialogue file
+ * Fisher king holy grail dialogue file.
  */
 class FisherKingHolyGrailDialogueFile : DialogueFile() {
 

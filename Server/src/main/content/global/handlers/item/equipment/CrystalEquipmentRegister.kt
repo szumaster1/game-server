@@ -4,9 +4,7 @@ import core.api.StartupListener
 import core.api.consts.Items
 
 /**
- * Crystal equipment register
- *
- * @constructor Crystal equipment register
+ * Crystal equipment register.
  */
 class CrystalEquipmentRegister : StartupListener {
 

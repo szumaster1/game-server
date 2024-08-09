@@ -9,9 +9,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Swamp hole rope listener
- *
- * @constructor Swamp hole rope listener
+ * Swamp hole rope listener.
  */
 class SwampHoleRopeListener : InteractionListener {
 

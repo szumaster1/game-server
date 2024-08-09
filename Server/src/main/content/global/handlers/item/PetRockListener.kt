@@ -15,9 +15,7 @@ import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 
 /**
- * Pet rock listener
- *
- * @constructor Pet rock listener
+ * Pet rock listener.
  */
 class PetRockListener : InteractionListener {
 

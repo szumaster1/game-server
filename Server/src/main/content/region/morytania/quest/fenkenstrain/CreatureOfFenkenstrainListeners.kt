@@ -17,9 +17,7 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
 /**
- * Creature of fenkenstrain listeners
- *
- * @constructor Creature of fenkenstrain listeners
+ * Creature of fenkenstrain listeners.
  */
 class CreatureOfFenkenstrainListeners : InteractionListener {
     companion object {
@@ -34,12 +32,7 @@ class CreatureOfFenkenstrainListeners : InteractionListener {
             GRAVE1(Location(3541, 3541), "Anton Hayes", "...but the grave is empty.", null),
             GRAVE2(Location(3542, 3486), "Callum Elding", "...but the grave is empty.", null),
             GRAVE3(Location(3585, 3497), "Domin O'Raleigh", "...but the grave is empty.", null),
-            GRAVE4(
-                Location(3608, 3491),
-                "Ed Lestwit",
-                "...and you unearth a decapitated head.",
-                Items.DECAPITATED_HEAD_4197
-            ),
+            GRAVE4(Location(3608, 3491), "Ed Lestwit", "...and you unearth a decapitated head.", Items.DECAPITATED_HEAD_4197),
             GRAVE5(Location(3588, 3472), "Elena Frey", "...but the grave is empty.", null),
             GRAVE6(Location(3593, 3509), "Eryn Treforest", "...but the grave is empty.", null),
             GRAVE7(Location(3594, 3491), "Isla Skye", "...but the grave is empty.", null),

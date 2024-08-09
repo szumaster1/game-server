@@ -11,9 +11,7 @@ import core.game.world.GameWorld
 import core.tools.END_DIALOGUE
 
 /**
- * Yrsa diary dialogue
- *
- * @constructor Yrsa diary dialogue
+ * Yrsa diary dialogue.
  */
 class YrsaDiaryDialogue : DialogueFile() {
 

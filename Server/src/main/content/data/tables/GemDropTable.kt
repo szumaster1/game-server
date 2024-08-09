@@ -19,6 +19,9 @@ import javax.xml.parsers.DocumentBuilder
 import javax.xml.parsers.DocumentBuilderFactory
 import javax.xml.parsers.ParserConfigurationException
 
+/**
+ * Gem drop table.
+ */
 class GemDropTable: StartupListener {
 
     override fun startup() {

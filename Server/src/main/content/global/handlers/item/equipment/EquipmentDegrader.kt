@@ -8,9 +8,7 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
 /**
- * Equipment degrader
- *
- * @constructor Equipment degrader
+ * Equipment degrader.
  */
 class EquipmentDegrader {
 

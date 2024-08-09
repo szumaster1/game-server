@@ -19,8 +19,9 @@ class MournerDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
+
         /*
-            Speaking to a mourner on the groundfloor - Biohazard Quest.
+         * Speaking to a mourner on the groundfloor - Biohazard Quest.
          */
 
         if (inBorders(player, 2547, 3321, 2555, 3327)) {
@@ -34,7 +35,7 @@ class MournerDialogue(player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
             /*
-                Plague City dialogue.
+             * Plague City dialogue.
              */
 
             0 -> npcl(FacialExpression.SAD, "What are you up to?").also { stage++ }
@@ -45,7 +46,7 @@ class MournerDialogue(player: Player? = null) : Dialogue(player) {
             5 -> playerl(FacialExpression.FRIENDLY, "Thanks for the advice.").also { stage = END_DIALOGUE }
 
             /*
-                Biohazard quest dialogue.
+             * Biohazard quest dialogue.
              */
 
             100 -> {

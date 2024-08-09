@@ -11,9 +11,7 @@ import core.game.node.item.Item
 import core.tools.StringUtils
 
 /**
- * Opening casket listener
- *
- * @constructor Opening casket listener
+ * Opening casket listener.
  */
 class OpeningCasketListener : InteractionListener {
 

@@ -8,9 +8,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Doogle sardine listener
- *
- * @constructor Doogle sardine listener
+ * Doogle sardine listener.
  */
 class DoogleSardineListener : InteractionListener {
 

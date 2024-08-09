@@ -17,9 +17,7 @@ private const val BUTTON_ADD_COLD = 16
 private const val BUTTON_ADD_HOT = 18
 
 /**
- * Incubation interface
- *
- * @constructor Incubation interface
+ * Incubation interface.
  */
 class IncubationInterface : ComponentPlugin() {
 

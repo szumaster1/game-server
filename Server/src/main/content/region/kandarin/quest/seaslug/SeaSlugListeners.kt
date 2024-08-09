@@ -16,9 +16,7 @@ import core.game.node.item.Item
 import core.game.world.map.Location
 
 /**
- * Sea slug listeners
- *
- * @constructor Sea slug listeners
+ * Sea slug listeners.
  */
 class SeaSlugListeners : InteractionListener {
 

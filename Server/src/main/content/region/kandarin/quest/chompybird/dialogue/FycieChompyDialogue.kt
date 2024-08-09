@@ -43,10 +43,7 @@ class FycieChompyDialogue(player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Fycie chompy dialogue file
- *
- * @property quest
- * @constructor Fycie chompy dialogue file
+ * Fycie chompy dialogue file.
  */
 class FycieChompyDialogueFile(val quest: Quest) : DialogueFile() {
 

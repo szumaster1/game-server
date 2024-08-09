@@ -26,9 +26,7 @@ import core.tools.minutesToTicks
 import core.tools.secondsToTicks
 
 /**
- * Dragonfire shield listener
- *
- * @constructor Dragonfire shield listener
+ * Dragonfire shield listener.
  */
 class DragonfireShieldListener : InteractionListener {
 
@@ -165,9 +163,7 @@ class DragonfireShieldListener : InteractionListener {
 }
 
 /**
- * D f s item plugin
- *
- * @constructor D f s item plugin
+ * Dragonfire Shield plugin.
  */
 
 @Initializable

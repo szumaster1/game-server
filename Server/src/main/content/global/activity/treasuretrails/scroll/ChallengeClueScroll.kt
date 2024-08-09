@@ -11,17 +11,17 @@ import core.game.node.entity.player.Player
 import core.game.world.map.zone.ZoneBorders
 
 /**
- * Challenge clue scroll
+ * Abstract class representing a challenge clue scroll.
  *
- * @property question
- * @property npc
- * @property answer
- * @constructor
+ * @property question the question associated with the clue.
+ * @property npc the NPC related to the clue.
+ * @property answer the answer to the clue.
+ * @constructor initializes the challenge clue scroll.
  *
- * @param name
- * @param clueId
- * @param level
- * @param borders
+ * @param name the name of the clue scroll.
+ * @param clueId the unique identifier of the clue.
+ * @param level the difficulty level of the clue.
+ * @param borders the zone borders where the clue is located.
  */
 abstract class ChallengeClueScroll(
     name: String?,

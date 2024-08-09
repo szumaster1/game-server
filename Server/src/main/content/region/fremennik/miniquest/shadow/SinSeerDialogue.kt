@@ -47,15 +47,12 @@ class SinSeerDialogue(player: Player? = null) : Dialogue(player) {
             12 -> npc("He'll know it's a lie. But I do need the cash, so I'll do", "it. Gimme 40 gold coins and you'll be as", "trustworthy as a newborn.").also { stage++ }
             13 -> options("Here's the money.", "Never mind.").also { stage++ }
             14 -> when (buttonId) {
-                1 -> {
-                    if (!removeItem(player, Item(Items.COINS_995, 40))) {
-                        end()
-                        sendDialogue(player!!, "You don't have enough money.")
-                    } else {
-                        player("Here's the money.").also { stage++ }
-                    }
+                1 -> if (!removeItem(player, Item(Items.COINS_995, 40))) {
+                    end()
+                    sendDialogue(player!!, "You don't have enough money.")
+                } else {
+                    player("Here's the money.").also { stage++ }
                 }
-
                 2 -> player("Never mind.").also { stage = END_DIALOGUE }
             }
             15 -> npc("Fine. I declare you trustworthy. If you consider bribing", "a seer a trustworthy transaction.").also { stage++ }
@@ -74,13 +71,11 @@ class SinSeerDialogue(player: Player? = null) : Dialogue(player) {
                 1 -> player("Here's the money.").also { stage++ }
                 2 -> player("Never mind.").also { stage = END_DIALOGUE }
             }
-            23 -> {
-                if (!removeItem(player, Item(Items.COINS_995, 40))) {
-                    end()
-                    sendDialogue(player!!, "You don't have enough money.")
-                } else {
-                    npcl(FacialExpression.NEUTRAL, "You have done many great deeds...but many terrible deeds. Sometimes you do them by accident, but they are still sins.").also { stage++ }
-                }
+            23 -> if (!removeItem(player, Item(Items.COINS_995, 40))) {
+                end()
+                sendDialogue(player!!, "You don't have enough money.")
+            } else {
+                npcl(FacialExpression.NEUTRAL, "You have done many great deeds...but many terrible deeds. Sometimes you do them by accident, but they are still sins.").also { stage++ }
             }
             24 -> npc("No, I would not trust you to walk my dog.").also { stage++ }
             25 -> npc("Give this note to Khazard it will prove you have been to see me.").also { stage++ }
@@ -95,14 +90,12 @@ class SinSeerDialogue(player: Player? = null) : Dialogue(player) {
                 2 -> player("Yes, I should get to that.").also { stage = END_DIALOGUE }
             }
 
-            28 -> {
-                if (hasAnItem(player, Items.SIN_SEERS_NOTE_10856).container != null) {
-                    end()
-                    npc("You already have one. Get on with you!")
-                } else {
-                    addItemOrDrop(player, Items.SIN_SEERS_NOTE_10856)
-                    sendItemDialogue(player, Items.SIN_SEERS_NOTE_10856, "You receive a note from the Sin Seer.")
-                }
+            28 -> if (hasAnItem(player, Items.SIN_SEERS_NOTE_10856).container != null) {
+                end()
+                npc("You already have one. Get on with you!")
+            } else {
+                addItemOrDrop(player, Items.SIN_SEERS_NOTE_10856)
+                sendItemDialogue(player, Items.SIN_SEERS_NOTE_10856, "You receive a note from the Sin Seer.")
             }
         }
         return true

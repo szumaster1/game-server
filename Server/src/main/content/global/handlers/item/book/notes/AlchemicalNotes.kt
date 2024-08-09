@@ -11,9 +11,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Alchemical notes
- *
- * @constructor Alchemical notes
+ * Alchemical notes.
  */
 class AlchemicalNotes : InteractionListener {
     companion object {

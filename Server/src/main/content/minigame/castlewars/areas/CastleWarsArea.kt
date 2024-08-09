@@ -11,9 +11,7 @@ import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
 
 /**
- * Castle wars area
- *
- * @constructor Castle wars area
+ * Castle wars area.
  */
 abstract class CastleWarsArea : MapArea, LogoutListener, InteractionListener {
 

@@ -19,9 +19,7 @@ import core.game.world.map.zone.ZoneBorders
 import core.game.world.update.flag.context.Animation
 
 /**
- * Seers house listeners
- *
- * @constructor Seers house listeners
+ * Seers house listeners.
  */
 class SeersHouseListeners : InteractionListener {
 

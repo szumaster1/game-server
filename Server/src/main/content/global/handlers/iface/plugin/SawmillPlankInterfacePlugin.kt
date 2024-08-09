@@ -14,9 +14,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Sawmill plank interface plugin
- *
- * @constructor Sawmill plank interface plugin
+ * Sawmill plank interface plugin.
  */
 @Initializable
 class SawmillPlankInterfacePlugin : ComponentPlugin() {

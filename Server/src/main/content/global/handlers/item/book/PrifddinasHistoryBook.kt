@@ -10,9 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Prifddinas history book
- *
- * @constructor Prifddinas history book
+ * Prifddinas history book.
  */
 class PrifddinasHistoryBook : InteractionListener {
     companion object {

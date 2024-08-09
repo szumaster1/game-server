@@ -9,9 +9,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Hairdresser cheese listener
- *
- * @constructor Hairdresser cheese listener
+ * Hairdresser cheese listener.
  */
 class HairdresserCheeseListener : InteractionListener {
 

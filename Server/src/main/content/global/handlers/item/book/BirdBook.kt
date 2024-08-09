@@ -10,9 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Bird book
- *
- * @constructor Bird book
+ * Bird book.
  */
 class BirdBook : InteractionListener {
 

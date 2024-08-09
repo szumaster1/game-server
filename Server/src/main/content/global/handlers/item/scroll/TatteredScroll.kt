@@ -8,9 +8,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Tattered scroll
- *
- * @constructor Tattered scroll
+ * Tattered scroll.
  */
 class TatteredScroll : InteractionListener {
     companion object {

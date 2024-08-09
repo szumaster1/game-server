@@ -9,9 +9,7 @@ import core.game.interaction.InteractionListener
 import core.game.interaction.QueueStrength
 
 /**
- * Enchant jewellery tab listener
- *
- * @constructor Enchant jewellery tab listener
+ * Enchant jewellery tab listener.
  */
 class EnchantJewelleryTabListener : InteractionListener {
     private val LVL_1_ENCHANT = mapOf(

@@ -10,9 +10,7 @@ import core.game.node.entity.player.Player
 import core.game.world.GameWorld
 
 /**
- * General rule book
- *
- * @constructor General rule book
+ * General rule book.
  */
 class GeneralRuleBook {
 

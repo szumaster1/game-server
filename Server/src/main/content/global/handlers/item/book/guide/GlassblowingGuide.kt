@@ -11,9 +11,7 @@ import core.game.node.entity.player.Player
 import core.game.world.GameWorld
 
 /**
- * Glassblowing guide
- *
- * @constructor Glassblowing guide
+ * Glassblowing guide.
  */
 class GlassblowingGuide : InteractionListener {
 

@@ -83,14 +83,14 @@ class GrandExchangeInterfacePlugin : ComponentPlugin() {
     }
 
     /**
-     * Handle search interface
+     * Handle search interface.
      *
-     * @param player
-     * @param opcode
-     * @param button
-     * @param slot
-     * @param itemId
-     * @return
+     * @param player the player object.
+     * @param opcode the operation code.
+     * @param button the button clicked.
+     * @param slot the slot number.
+     * @param itemId the item ID.
+     * @return true if the operation is successful, false otherwise.
      */
     fun handleSearchInterface(player: Player, opcode: Int, button: Int, slot: Int, itemId: Int): Boolean {
         when (button) {
@@ -103,14 +103,14 @@ class GrandExchangeInterfacePlugin : ComponentPlugin() {
     }
 
     /**
-     * Handle collection box
+     * Handle collection box.
      *
-     * @param player
-     * @param opcode
-     * @param button
-     * @param slot
-     * @param itemId
-     * @return
+     * @param player the player object.
+     * @param opcode the operation code.
+     * @param button the button clicked.
+     * @param slot the slot number.
+     * @param itemId the item ID.
+     * @return true if the operation is successful, false otherwise.
      */
     fun handleCollectionBox(player: Player?, opcode: Int, button: Int, slot: Int, itemId: Int): Boolean {
         var index = -1

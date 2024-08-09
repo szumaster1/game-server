@@ -17,7 +17,6 @@ import core.plugin.Plugin;
 import static core.api.ContentAPIKt.sendMessage;
 import static core.api.ContentAPIKt.setAttribute;
 
-
 /**
  * Sinclair flour barrel plugin.
  */
@@ -34,9 +33,9 @@ public final class SinclairFlourBarrelPlugin extends OptionHandler {
     /**
      * Gets flour.
      *
-     * @param player the player
-     * @param object the object
-     * @return the flour
+     * @param player the player.
+     * @param object the object.
+     * @return the flour.
      */
     public boolean getFlour(final Player player, final Scenery object) {
         if (!player.getInventory().containsItem(EMPTY_POT)) {

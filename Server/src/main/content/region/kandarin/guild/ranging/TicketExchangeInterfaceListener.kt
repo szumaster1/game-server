@@ -10,13 +10,13 @@ import core.game.interaction.InterfaceListener
 import core.game.node.item.Item
 
 /**
- * Ticket exchange
+ * Ticket exchange.
  *
- * @property item
- * @property tickets
- * @property slot
- * @property value
- * @constructor Ticket exchange
+ * @property item The item to be exchanged.
+ * @property tickets The number of tickets required for the exchange.
+ * @property slot The slot number of the exchange.
+ * @property value The value of the exchange.
+ * @constructor Creates a TicketExchange instance.
  */
 enum class TicketExchange(val item: Item, val tickets: Int, val slot: Int, val value: String) {
     /**

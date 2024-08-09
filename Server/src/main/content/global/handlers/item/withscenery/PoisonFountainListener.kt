@@ -9,9 +9,7 @@ import core.game.system.task.Pulse
 import core.game.world.update.flag.context.Animation
 
 /**
- * Poison fountain listener
- *
- * @constructor Poison fountain listener
+ * Poison fountain listener.
  */
 class PoisonFountainListener : InteractionListener {
 

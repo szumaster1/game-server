@@ -32,14 +32,13 @@ import core.tools.StringUtils
 import java.util.*
 
 /**
- * Duel area
+ * Represents a Duel Area in the game.
  *
- * @property border
- * @property isObstacles
- * @property center
- * @constructor
- *
- * @param index
+ * @property border The borders of the Duel Area.
+ * @property isObstacles Indicates if there are obstacles in the Duel Area.
+ * @property center The central location of the Duel Area.
+ * @constructor Creates a Duel Area with optional parameters.
+ * @param index The index of the Duel Area.
  */
 class DuelArea
 @JvmOverloads constructor(

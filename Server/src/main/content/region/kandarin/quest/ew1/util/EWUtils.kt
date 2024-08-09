@@ -6,7 +6,9 @@ import content.global.handlers.iface.PageSet
 import core.api.getVarbit
 import core.game.node.entity.player.Player
 
-
+/**
+ * Elemental Workshop I utils.
+ */
 object EWUtils {
 
     val PAGES = arrayOf(

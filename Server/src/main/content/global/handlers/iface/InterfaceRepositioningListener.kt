@@ -8,9 +8,7 @@ import core.network.packet.context.ChildPositionContext
 import core.network.packet.outgoing.RepositionChild
 
 /**
- * Interface repositioning listener
- *
- * @constructor Interface repositioning listener
+ * Interface repositioning listener.
  */
 class InterfaceRepositioningListener : InterfaceListener {
 

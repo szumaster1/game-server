@@ -17,9 +17,7 @@ import kotlin.math.abs
 import kotlin.math.atan2
 
 /**
- * Hunter talisman listener
- *
- * @constructor Hunter talisman listener
+ * Hunter talisman listener.
  */
 class HunterTalismanListener : InteractionListener {
 
@@ -27,6 +25,7 @@ class HunterTalismanListener : InteractionListener {
 
     override fun defineListeners() {
 
+        // This listener is triggered when the player interacts with the talisman and selects the "locate" option.
         on(TALISMAN, IntType.ITEM, "locate") { player, _ ->
             var locationString = getAttribute(player, "fremtrials:draugen-loc", "none")
             if (locationString == "none") {
@@ -50,12 +49,11 @@ class HunterTalismanListener : InteractionListener {
 
     }
 
-
     /**
      * Draugen pulse
      *
-     * @property player
-     * @constructor Draugen pulse
+     * @property player The player triggering the pulse.
+     * @constructor Initializes the DraugenPulse class with the given player.
      */
     class DraugenPulse(val player: Player) : Pulse() {
         var count = 0
@@ -80,12 +78,11 @@ class HunterTalismanListener : InteractionListener {
         Location(2664, 3592)
     )
 
-
     /**
      * Get direction
      *
-     * @param entity
-     * @return
+     * @param entity The entity for which to determine the direction.
+     * @return The direction as a string.
      */
     fun Location.getDirection(entity: Entity): String {
         val loc: Location = this
@@ -130,9 +127,9 @@ class HunterTalismanListener : InteractionListener {
     /**
      * Diff
      *
-     * @param x
-     * @param y
-     * @return
+     * @param x The first value.
+     * @param y The second value.
+     * @return The absolute difference between x and y.
      */
     fun diff(x: Double, y: Double): Double {
         return abs(x - y)

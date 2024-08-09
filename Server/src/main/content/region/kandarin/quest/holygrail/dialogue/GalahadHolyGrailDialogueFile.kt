@@ -14,9 +14,7 @@ import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
 /**
- * Galahad holy grail dialogue file
- *
- * @constructor Galahad holy grail dialogue file
+ * Galahad holy grail dialogue file.
  */
 class GalahadHolyGrailDialogueFile : DialogueFile() {
 

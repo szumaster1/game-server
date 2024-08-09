@@ -28,15 +28,11 @@ import core.tools.RandomFunction
  */
 @Initializable
 class DummyRoom : OptionHandler() {
-    private enum class Dummy(
-        val scenery: Scenery,
-        val attackStyle: Int,
-        val bonusType: Int
-    ) {
+
+    private enum class Dummy(val scenery: Scenery, val attackStyle: Int, val bonusType: Int) {
+
         /**
-         * Stab
-         *
-         * @constructor Stab
+         * Stab.
          */
         STAB(
             scenery = Scenery(15629, 2857, 3549, 0, 10, 2),
@@ -45,9 +41,7 @@ class DummyRoom : OptionHandler() {
         ),
 
         /**
-         * Slash
-         *
-         * @constructor Slash
+         * Slash.
          */
         SLASH(
             scenery = Scenery(15625, 2858, 3554, 0),
@@ -56,9 +50,7 @@ class DummyRoom : OptionHandler() {
         ),
 
         /**
-         * Crush
-         *
-         * @constructor Crush
+         * Crush.
          */
         CRUSH(
             scenery = Scenery(15628, 2859, 3549, 0, 10, 2),
@@ -67,9 +59,7 @@ class DummyRoom : OptionHandler() {
         ),
 
         /**
-         * Controlled
-         *
-         * @constructor Controlled
+         * Controlled.
          */
         CONTROLLED(
             scenery = Scenery(15627, 2855, 3552, 0, 10, 3),
@@ -78,9 +68,7 @@ class DummyRoom : OptionHandler() {
         ),
 
         /**
-         * Defence
-         *
-         * @constructor Defence
+         * Defence.
          */
         DEFENCE(
             scenery = Scenery(15630, 2855, 3550, 0, 10, 3),
@@ -89,9 +77,7 @@ class DummyRoom : OptionHandler() {
         ),
 
         /**
-         * Aggressive
-         *
-         * @constructor Aggressive
+         * Aggressive.
          */
         AGGRESSIVE(
             scenery = Scenery(15626, 2860, 3553, 0, 10, 1),
@@ -100,9 +86,7 @@ class DummyRoom : OptionHandler() {
         ),
 
         /**
-         * Accurate
-         *
-         * @constructor Accurate
+         * Accurate.
          */
         ACCURATE(
             scenery = Scenery(15624, 2856, 3554, 0),

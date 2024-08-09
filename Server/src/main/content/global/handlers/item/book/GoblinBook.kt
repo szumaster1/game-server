@@ -11,9 +11,7 @@ import core.game.node.entity.player.Player
 import core.tools.RED
 
 /**
- * Goblin book
- *
- * @constructor Goblin book
+ * Goblin book.
  */
 class GoblinBook : InteractionListener {
     companion object {

@@ -19,9 +19,7 @@ import core.plugin.Plugin
 import core.tools.RandomFunction
 
 /**
- * Morphing plugin
- *
- * @constructor Morphing plugin
+ * Morphing plugin.
  */
 @Initializable
 class MorphingPlugin : Plugin<Any> {
@@ -73,9 +71,7 @@ class MorphingPlugin : Plugin<Any> {
     }
 
     /**
-     * Morph interface plugin
-     *
-     * @constructor Morph interface plugin
+     * Morph interface plugin.
      */
     inner class MorphInterfacePlugin : ComponentPlugin() {
 

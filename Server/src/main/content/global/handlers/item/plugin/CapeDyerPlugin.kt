@@ -17,9 +17,7 @@ private val CAPES = arrayOf(Items.BLACK_CAPE_1019, Items.RED_CAPE_1007, Items.BL
 private val DYES = Dyes.values().map { it.item.id }.toIntArray()
 
 /**
- * Cape dyer plugin
- *
- * @constructor Cape dyer plugin
+ * Cape dyer plugin.
  */
 @Initializable
 class CapeDyerPlugin : UseWithHandler(*CAPES.copyOfRange(0, CAPES.size - 1).toIntArray()) {
@@ -62,17 +60,15 @@ class CapeDyerPlugin : UseWithHandler(*CAPES.copyOfRange(0, CAPES.size - 1).toIn
     }
 
     /**
-     * Cape
+     * Enum representing different types of capes with associated dye and product.
      *
-     * @property dye
-     * @property product
-     * @constructor Cape
+     * @property dye the dye color of the cape.
+     * @property product the product associated with the cape.
+     * @constructor Creates a Cape with the specified dye and product.
      */
     internal enum class Cape(val dye: Dyes, val product: Item) {
         /**
-         * Black
-         *
-         * @constructor Black
+         * Black.
          */
         BLACK(
             dye = Dyes.BLACK,
@@ -80,9 +76,7 @@ class CapeDyerPlugin : UseWithHandler(*CAPES.copyOfRange(0, CAPES.size - 1).toIn
         ),
 
         /**
-         * Red
-         *
-         * @constructor Red
+         * Red.
          */
         RED(
             dye = Dyes.RED,
@@ -90,9 +84,7 @@ class CapeDyerPlugin : UseWithHandler(*CAPES.copyOfRange(0, CAPES.size - 1).toIn
         ),
 
         /**
-         * Blue
-         *
-         * @constructor Blue
+         * Blue.
          */
         BLUE(
             dye = Dyes.BLUE,
@@ -100,9 +92,7 @@ class CapeDyerPlugin : UseWithHandler(*CAPES.copyOfRange(0, CAPES.size - 1).toIn
         ),
 
         /**
-         * Yellow
-         *
-         * @constructor Yellow
+         * Yellow.
          */
         YELLOW(
             dye = Dyes.YELLOW,
@@ -110,9 +100,7 @@ class CapeDyerPlugin : UseWithHandler(*CAPES.copyOfRange(0, CAPES.size - 1).toIn
         ),
 
         /**
-         * Green
-         *
-         * @constructor Green
+         * Green.
          */
         GREEN(
             dye = Dyes.GREEN,
@@ -120,9 +108,7 @@ class CapeDyerPlugin : UseWithHandler(*CAPES.copyOfRange(0, CAPES.size - 1).toIn
         ),
 
         /**
-         * Purple
-         *
-         * @constructor Purple
+         * Purple.
          */
         PURPLE(
             dye = Dyes.PURPLE,
@@ -130,9 +116,7 @@ class CapeDyerPlugin : UseWithHandler(*CAPES.copyOfRange(0, CAPES.size - 1).toIn
         ),
 
         /**
-         * Orange
-         *
-         * @constructor Orange
+         * Orange.
          */
         ORANGE(
             dye = Dyes.ORANGE,
@@ -140,9 +124,7 @@ class CapeDyerPlugin : UseWithHandler(*CAPES.copyOfRange(0, CAPES.size - 1).toIn
         ),
 
         /**
-         * Pink
-         *
-         * @constructor Pink
+         * Pink.
          */
         PINK(
             dye = Dyes.PINK,

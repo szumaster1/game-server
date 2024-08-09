@@ -12,9 +12,7 @@ import core.game.interaction.InteractionListener
 import core.game.world.update.flag.context.Animation
 
 /**
- * Feed sheepdog listener
- *
- * @constructor Feed sheepdog listener
+ * Feed sheepdog listener.
  */
 class FeedSheepdogListener : InteractionListener {
 

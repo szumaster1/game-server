@@ -8,6 +8,9 @@ import core.tools.colorize
 import kotlin.math.max
 import kotlin.math.min
 
+/**
+ * Quest tab utils.
+ */
 object QuestTabUtils {
     @JvmStatic
     fun showRequirementsInterface(player: Player, button: Int) {

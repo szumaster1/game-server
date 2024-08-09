@@ -19,9 +19,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Snow globe plugin
- *
- * @constructor Snow globe plugin
+ * Snow globe plugin.
  */
 @Initializable
 class SnowGlobePlugin : OptionHandler() {
@@ -42,9 +40,7 @@ class SnowGlobePlugin : OptionHandler() {
     }
 
     /**
-     * Snow globe interface
-     *
-     * @constructor Snow globe interface
+     * Snow globe interface.
      */
     inner class SnowGlobeInterface : ComponentPlugin() {
         override fun newInstance(arg: Any?): Plugin<Any?> {

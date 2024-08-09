@@ -10,9 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Locked diary
- *
- * @constructor Locked diary
+ * Locked diary.
  */
 class LockedDiary : InteractionListener {
 

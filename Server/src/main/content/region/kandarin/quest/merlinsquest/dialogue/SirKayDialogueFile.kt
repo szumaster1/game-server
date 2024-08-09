@@ -13,9 +13,7 @@ import core.game.node.entity.player.link.diary.DiaryType
 import core.tools.END_DIALOGUE
 
 /**
- * Sir kay dialogue file
- *
- * @constructor Sir kay dialogue file
+ * Sir kay dialogue file.
  */
 class SirKayDialogueFile : DialogueFile() {
 

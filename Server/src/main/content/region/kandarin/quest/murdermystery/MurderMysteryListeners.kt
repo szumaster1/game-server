@@ -10,9 +10,7 @@ import core.game.interaction.InteractionListener
 import core.tools.RandomFunction
 
 /**
- * Murder mystery listeners
- *
- * @constructor Murder mystery listeners
+ * Murder mystery listeners.
  */
 class MurderMysteryListeners : InteractionListener {
 

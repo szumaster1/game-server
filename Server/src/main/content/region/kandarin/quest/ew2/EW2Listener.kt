@@ -17,9 +17,7 @@ import core.game.system.task.Pulse
 import core.game.world.map.Location
 
 /**
- * E w2listener
- *
- * @constructor E w2listener
+ * Elemental Workshop II listener.
  */
 class EW2Listener : InteractionListener {
 

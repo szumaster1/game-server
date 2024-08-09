@@ -10,9 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Embalming manual
- *
- * @constructor Embalming manual
+ * Embalming manual.
  */
 class EmbalmingManual : InteractionListener {
 

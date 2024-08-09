@@ -31,12 +31,7 @@ class CouncilWorkerDialogue(val questStage: Int, var isBeerInteraction: Boolean 
                 }
 
                 1 -> {
-                    npc(
-                        COUNCIL_WORKER,
-                        "Ta very much like. That'll hit the spot nicely.. Here,",
-                        "You can have this. I picked it up as a souvenir on me",
-                        "last holz."
-                    )
+                    npc(COUNCIL_WORKER, "Ta very much like. That'll hit the spot nicely.. Here,", "You can have this. I picked it up as a souvenir on me", "last holz.")
                     if (beerId != null) {
                         if (removeItem(player!!, beerId)) {
                             addItem(player!!, Items.STRANGE_OBJECT_3713)
@@ -62,11 +57,7 @@ class CouncilWorkerDialogue(val questStage: Int, var isBeerInteraction: Boolean 
                 }
 
                 2 -> {
-                    npc(
-                        COUNCIL_WORKER,
-                        "Say, would you do me a favor? I'm quite parched.",
-                        "If you bring me a beer, I'll make it worthwhile."
-                    );stage++
+                    npc(COUNCIL_WORKER, "Say, would you do me a favor? I'm quite parched.", "If you bring me a beer, I'll make it worthwhile.");stage++
                 }
 
                 3 -> if (inInventory(player!!, Items.BEER_3803) || inInventory(player!!, Items.BEER_1917)) {

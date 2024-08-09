@@ -8,9 +8,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Liquefy special handler
- *
- * @constructor Liquefy special handler
+ * Liquefy special handler.
  */
 @Initializable
 class LiquefySpecialHandler : MeleeSwingHandler(), Plugin<Any> {

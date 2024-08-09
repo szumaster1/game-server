@@ -13,9 +13,7 @@ import core.plugin.Plugin
 import core.tools.RandomFunction
 
 /**
- * Gnomecopter ticket plugin
- *
- * @constructor Gnomecopter ticket plugin
+ * Gnomecopter ticket plugin.
  */
 @Initializable
 class GnomecopterTicketPlugin : OptionHandler() {

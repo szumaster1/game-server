@@ -16,9 +16,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Fishfood plugin
- *
- * @constructor Fishfood plugin
+ * Fishfood plugin.
  */
 @Initializable
 class FishfoodPlugin : UseWithHandler(*FishFoodUses.usables) {
@@ -30,14 +28,15 @@ class FishfoodPlugin : UseWithHandler(*FishFoodUses.usables) {
     }
 
     /**
-     * Fish food uses
+     * Enum class representing different uses of fish food.
      *
-     * @property used
-     * @property with
-     * @property product
-     * @property msg
-     * @constructor Fish food uses
-     *//*
+     * @property used The amount of fish food used.
+     * @property with The ingredient used with the fish food.
+     * @property product The resulting product after using the fish food.
+     * @property msg Additional message related to the use of fish food.
+     * @constructor Initializes a specific use of fish food.
+     */
+    /*
      * The enum Fish food uses.
      */
     enum class FishFoodUses(
@@ -47,44 +46,32 @@ class FishfoodPlugin : UseWithHandler(*FishFoodUses.usables) {
         private val msg: String
     ) {
         /**
-         * Poisoned
-         *
-         * @constructor Poisoned
+         * Poisoned.
          */
         POISONED(POISON, FISH_FOOD, POISONED_FISH_FOOD, "You poison the fish food."),
 
         /**
-         * Guambox
-         *
-         * @constructor Guambox
+         * Guambox.
          */
         GUAMBOX(Items.GROUND_GUAM_6681, Items.AN_EMPTY_BOX_6675, Items.GUAM_IN_A_BOX_6677, "You put the ground Guam into the box."),
 
         /**
-         * Seaweedbox
-         *
-         * @constructor Seaweedbox
+         * Seaweedbox.
          */
         SEAWEEDBOX(Items.GROUND_SEAWEED_6683, Items.AN_EMPTY_BOX_6675, Items.SEAWEED_IN_A_BOX_6679, "You put the ground Seaweed into the box."),
 
         /**
-         * Food1
-         *
-         * @constructor Food1
+         * Food 1.
          */
         FOOD1(Items.GROUND_SEAWEED_6683, Items.GUAM_IN_A_BOX_6677, FISH_FOOD, "You put the ground Seaweed into the box and make Fish Food."),
 
         /**
-         * Food2
-         *
-         * @constructor Food2
+         * Food 2.
          */
         FOOD2(Items.GROUND_GUAM_6681, Items.SEAWEED_IN_A_BOX_6679, FISH_FOOD, "You put the ground Guam into the box and make Fish Food."),
 
         /**
-         * Fishbowl
-         *
-         * @constructor Fishbowl
+         * Fishbowl.
          */
         FISHBOWL(Items.FISHBOWL_6668, Items.SEAWEED_401, Items.FISHBOWL_6669, "You place the seaweed in the bowl.");
 

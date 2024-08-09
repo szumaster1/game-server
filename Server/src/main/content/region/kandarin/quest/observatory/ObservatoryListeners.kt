@@ -15,9 +15,7 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
 /**
- * Observatory listeners
- *
- * @constructor Observatory listeners
+ * Observatory listeners.
  */
 class ObservatoryListeners : InteractionListener {
 
@@ -65,7 +63,7 @@ class ObservatoryListeners : InteractionListener {
     override fun defineListeners() {
 
         /*
-            Observatory assistant interaction.
+         * Observatory assistant interaction.
          */
 
         on(OBSERVATORY_ASSISTANT, IntType.NPC, "Talk-to") { player, _ ->
@@ -86,7 +84,7 @@ class ObservatoryListeners : InteractionListener {
         }
 
         /*
-            Climb down to goblin dungeon.
+         * Climb down to goblin dungeon.
          */
 
         on(DUNGEON_STAIRS_DOWN, IntType.SCENERY, "climb-down") { player, _ ->
@@ -99,7 +97,7 @@ class ObservatoryListeners : InteractionListener {
         }
 
         /*
-            Climb up from goblin dungeon.
+         * Climb up from goblin dungeon.
          */
 
         on(DUNGEON_STAIRS_UP, IntType.SCENERY, "climb up") { player, node ->
@@ -119,7 +117,7 @@ class ObservatoryListeners : InteractionListener {
         }
 
         /*
-            Prod interaction on Sleeping guard near kitchen gate.
+         * Prod interaction on Sleeping guard near kitchen gate.
          */
 
         on(SLEEPING_GUARD, IntType.NPC, "Prod") { player, _ ->
@@ -137,7 +135,7 @@ class ObservatoryListeners : InteractionListener {
         }
 
         /*
-            Open chest interaction.
+         * Open chest interaction.
          */
 
         on(KEY_CHEST, IntType.SCENERY, "open") { player, node ->
@@ -158,7 +156,7 @@ class ObservatoryListeners : InteractionListener {
         }
 
         /*
-            Search chest interaction.
+         * Search chest interaction.
          */
 
         on(KEY_CHEST_OPEN, IntType.SCENERY, "search") { player, _ ->
@@ -186,7 +184,7 @@ class ObservatoryListeners : InteractionListener {
         }
 
         /*
-            Close chest interaction.
+         * Close chest interaction.
          */
 
         on(KEY_CHEST_OPEN, IntType.SCENERY, "close") { player, node ->
@@ -202,7 +200,7 @@ class ObservatoryListeners : InteractionListener {
         }
 
         /*
-            Kitchen gates leads to goblin stove.
+         * Kitchen gates leads to goblin stove.
          */
 
         on(KITCHEN_GATES, IntType.SCENERY, "open") { player, node ->
@@ -224,7 +222,7 @@ class ObservatoryListeners : InteractionListener {
         }
 
         /*
-            Inspect interaction on goblin stove.
+         * Inspect interaction on goblin stove.
          */
 
         on(GOBLIN_STOVE, IntType.SCENERY, "inspect") { player, _ ->
@@ -242,7 +240,7 @@ class ObservatoryListeners : InteractionListener {
         }
 
         /*
-            Inspect interaction on goblin stove after take lens.
+         * Inspect interaction on goblin stove after take lens.
          */
 
         on(EMPTY_GOBLIN_STOVE, IntType.SCENERY, "inspect") { player, _ ->
@@ -251,7 +249,7 @@ class ObservatoryListeners : InteractionListener {
         }
 
         /*
-            Used molten glass on lens mould.
+         * Used molten glass on lens mould.
          */
 
         onUseWith(IntType.ITEM, MOLTEN_GLASS, LENS_MOULD) { player, used, _ ->
@@ -267,7 +265,7 @@ class ObservatoryListeners : InteractionListener {
         }
 
         /*
-            Interaction with Orrey.
+         * Interaction with Orrey.
          */
 
         on(ORRERY, IntType.SCENERY, "view") { player, _ ->
@@ -301,7 +299,7 @@ class ObservatoryListeners : InteractionListener {
         }
 
         /*
-            Gates inside observatory.
+         * Gates inside observatory.
          */
 
         on(OBSERVATORY_GATES, IntType.SCENERY, "open") { player, _ ->
@@ -310,7 +308,7 @@ class ObservatoryListeners : InteractionListener {
         }
 
         /*
-            Stairs inside observatory.
+         * Stairs inside observatory.
          */
 
         on(OBSERVATORY_STAIRS, IntType.SCENERY, "climb-down") { player, _ ->
@@ -320,7 +318,7 @@ class ObservatoryListeners : InteractionListener {
         }
 
         /*
-            Interaction with repaired telescope.
+         * Interaction with repaired telescope.
          */
 
         on(TELESCOPE_SCENERY, IntType.SCENERY, "view") { player, _ ->
@@ -335,7 +333,7 @@ class ObservatoryListeners : InteractionListener {
         }
 
         /*
-            Look-at star chart interaction.
+         * Look-at star chart interaction.
          */
 
         on(STAR_CHART, IntType.SCENERY, "Look-at") { player, _ ->

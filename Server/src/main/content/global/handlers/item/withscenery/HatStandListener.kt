@@ -7,9 +7,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Hat stand listener
- *
- * @constructor Hat stand listener
+ * Hat stand listener.
  */
 class HatStandListener : InteractionListener {
 

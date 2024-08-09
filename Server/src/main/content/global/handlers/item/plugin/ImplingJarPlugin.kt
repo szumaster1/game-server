@@ -11,9 +11,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Impling jar plugin
- *
- * @constructor Impling jar plugin
+ * Impling jar plugin.
  */
 @Initializable
 class ImplingJarPlugin : UseWithHandler(

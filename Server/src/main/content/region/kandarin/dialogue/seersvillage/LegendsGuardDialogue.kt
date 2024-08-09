@@ -15,10 +15,11 @@ import core.tools.END_DIALOGUE
 class LegendsGuardDialogue(player: Player? = null) : Dialogue(player) {
 
     /**
-     * Gender
+     * Function to determine the appropriate gender salutation based on the player's gender.
      *
-     * @param male
-     * @param female
+     * @param male The salutation for male players (default: "sir").
+     * @param female The salutation for female players (default: "madam").
+     * @return The appropriate salutation based on the player's gender.
      */
     fun gender(male: String = "sir", female: String = "madam") = if (player.isMale) male else female
 

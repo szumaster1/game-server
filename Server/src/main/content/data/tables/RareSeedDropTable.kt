@@ -19,6 +19,9 @@ import javax.xml.parsers.DocumentBuilder
 import javax.xml.parsers.DocumentBuilderFactory
 import javax.xml.parsers.ParserConfigurationException
 
+/**
+ * Rare seed drop table.
+ */
 class RareSeedDropTable: StartupListener {
 
     override fun startup() {

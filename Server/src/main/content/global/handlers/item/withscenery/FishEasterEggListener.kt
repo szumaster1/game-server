@@ -7,9 +7,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Fish easter egg listener
- *
- * @constructor Fish easter egg listener
+ * Fish easter egg listener.
  */
 class FishEasterEggListener : InteractionListener {
 

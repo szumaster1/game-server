@@ -7,6 +7,9 @@ import core.api.setQuestStage
 import core.game.node.entity.player.Player
 import core.game.world.map.zone.ZoneBorders
 
+/**
+ * Mystery utils.
+ */
 object MysteryUtils {
 
     val ATTRIBUTE_ELIZABETH = "murdermystery:elizabeth"

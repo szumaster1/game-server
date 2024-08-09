@@ -14,9 +14,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Combat tab interface plugin
- *
- * @constructor Combat tab interface plugin
+ * Combat tab interface plugin.
  */
 @Initializable
 class CombatTabInterfacePlugin : ComponentPlugin() {

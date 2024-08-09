@@ -17,6 +17,7 @@ class MoonclanManual : InteractionListener {
     // Player can buy the book for one coin from Baba Yaga on the Lunar Isle.
     // Book tells the history of how the Astral Altar came to exist and some of
     // the history of the origin of magic.
+
     companion object {
         private val TITLE = "The Basics of Magic"
         private val CONTENTS = arrayOf(

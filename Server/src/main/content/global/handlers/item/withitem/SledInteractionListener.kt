@@ -11,9 +11,7 @@ import core.game.node.item.Item
 import core.game.world.update.flag.context.Animation
 
 /**
- * Sled interaction listener
- *
- * @constructor Sled interaction listener
+ * Sled interaction listener.
  */
 class SledInteractionListener : InteractionListener {
 

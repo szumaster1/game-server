@@ -10,9 +10,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Impling jar listener
- *
- * @constructor Impling jar listener
+ * Impling jar listener.
  */
 class ImplingJarListener : InteractionListener {
 
@@ -36,17 +34,11 @@ class ImplingJarListener : InteractionListener {
 
 
 /**
- * Impling loot
- *
- * @property jarId
- * @property table
- * @constructor Impling loot
+ * Impling loot.
  */
 enum class ImplingLoot(val jarId: Int, val table: WeightBasedTable) {
     /**
-     * Baby Impling
-     *
-     * @constructor Baby Impling
+     * Baby Impling.
      */
     BABY_IMPLING(
         Items.BABY_IMPLING_JAR_11238, WeightBasedTable.create(
@@ -72,9 +64,7 @@ enum class ImplingLoot(val jarId: Int, val table: WeightBasedTable) {
     ),
 
     /**
-     * Young Impling
-     *
-     * @constructor Young Impling
+     * Young Impling.
      */
     YOUNG_IMPLING(
         Items.YOUNG_IMPLING_JAR_11240, WeightBasedTable.create(
@@ -101,9 +91,7 @@ enum class ImplingLoot(val jarId: Int, val table: WeightBasedTable) {
     ),
 
     /**
-     * Gourmet Impling
-     *
-     * @constructor Gourmet Impling
+     * Gourmet Impling.
      */
     GOURMET_IMPLING(
         Items.GOURM_IMPLING_JAR_11242, WeightBasedTable.create(
@@ -129,9 +117,7 @@ enum class ImplingLoot(val jarId: Int, val table: WeightBasedTable) {
     ),
 
     /**
-     * Earth Impling
-     *
-     * @constructor Earth Impling
+     * Earth Impling.
      */
     EARTH_IMPLING(
         Items.EARTH_IMPLING_JAR_11244, WeightBasedTable.create(
@@ -158,9 +144,7 @@ enum class ImplingLoot(val jarId: Int, val table: WeightBasedTable) {
     ),
 
     /**
-     * Essence Impling
-     *
-     * @constructor Essence Impling
+     * Essence Impling.
      */
     ESSENCE_IMPLING(
         Items.ESS_IMPLING_JAR_11246, WeightBasedTable.create(
@@ -187,9 +171,7 @@ enum class ImplingLoot(val jarId: Int, val table: WeightBasedTable) {
     ),
 
     /**
-     * Eclectic Impling
-     *
-     * @constructor Eclectic Impling
+     * Eclectic Impling.
      */
     ECLECTIC_IMPLING(
         Items.ECLECTIC_IMPLING_JAR_11248, WeightBasedTable.create(
@@ -216,9 +198,7 @@ enum class ImplingLoot(val jarId: Int, val table: WeightBasedTable) {
     ),
 
     /**
-     * Nature Impling
-     *
-     * @constructor Nature Impling
+     * Nature Impling.
      */
     NATURE_IMPLING(
         Items.NATURE_IMPLING_JAR_11250, WeightBasedTable.create(
@@ -245,9 +225,7 @@ enum class ImplingLoot(val jarId: Int, val table: WeightBasedTable) {
     ),
 
     /**
-     * Magpie Impling
-     *
-     * @constructor Magpie Impling
+     * Magpie Impling.
      */
     MAGPIE_IMPLING(
         Items.MAGPIE_IMPLING_JAR_11252, WeightBasedTable.create(
@@ -274,9 +252,7 @@ enum class ImplingLoot(val jarId: Int, val table: WeightBasedTable) {
     ),
 
     /**
-     * Ninja Impling
-     *
-     * @constructor Ninja Impling
+     * Ninja Impling.
      */
     NINJA_IMPLING(
         Items.NINJA_IMPLING_JAR_11254, WeightBasedTable.create(
@@ -303,9 +279,7 @@ enum class ImplingLoot(val jarId: Int, val table: WeightBasedTable) {
     ),
 
     /**
-     * Dragon Impling
-     *
-     * @constructor Dragon Impling
+     * Dragon Impling.
      */
     DRAGON_IMPLING(
         Items.DRAGON_IMPLING_JAR_11256, WeightBasedTable.create(

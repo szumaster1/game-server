@@ -28,9 +28,7 @@ class StudentGreenDialogue (player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Student green dialogue file
- *
- * @constructor Student green dialogue file
+ * Student green dialogue file.
  */
 class StudentGreenDialogueFile : DialogueBuilderFile() {
 
@@ -137,9 +135,7 @@ class StudentPurpleDialogue (player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Student purple dialogue file
- *
- * @constructor Student purple dialogue file
+ * Student purple dialogue file.
  */
 class StudentPurpleDialogueFile : DialogueBuilderFile() {
 
@@ -289,9 +285,7 @@ class StudentBrownDialogue (player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Student brown dialogue file
- *
- * @constructor Student brown dialogue file
+ * Student brown dialogue file.
  */
 class StudentBrownDialogueFile : DialogueBuilderFile() {
 

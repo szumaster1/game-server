@@ -58,14 +58,14 @@ class GhostBouncerNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id,
             animate(killer.asPlayer(), Animation(5812)) //6896
             sendChat(killer.asPlayer(), "Away, darn spot!")
             spawnProjectile(
-                Projectile.getLocation(killer),
-                Location.getRandomLocation(Projectile.getLocation(killer.asPlayer()), 5, true),
-                1024,
-                40,
-                30,
-                0,
-                250,
-                0
+                source = Projectile.getLocation(killer),
+                dest = Location.getRandomLocation(Projectile.getLocation(killer.asPlayer()), 5, true),
+                projectile = 1024,
+                startHeight = 40,
+                endHeight = 30,
+                delay = 0,
+                speed = 250,
+                angle = 0
             )
         }
         if (removeItem(killer!!.asPlayer(), Items.SEVERED_LEG_10857)) {

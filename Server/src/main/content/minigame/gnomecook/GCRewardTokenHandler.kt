@@ -14,6 +14,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 import core.tools.RandomFunction
 
+// Array of gnome items
 val gnomeItems = arrayOf(
     Items.FRUIT_BATTA_2277,
     Items.TOAD_BATTA_2255,

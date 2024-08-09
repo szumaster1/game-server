@@ -10,9 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Ancient book
- *
- * @constructor Ancient book
+ * Ancient book.
  */
 class AncientBook : InteractionListener {
     companion object {

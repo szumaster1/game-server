@@ -16,8 +16,6 @@ import org.json.simple.JSONObject
 
 /**
  * Explorers ring listener
- *
- * @constructor Explorers ring listener
  */
 class ExplorersRingListener : InteractionListener {
 

@@ -9,9 +9,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Knights notes scroll
- *
- * @constructor Knights notes scroll
+ * Knights notes scroll.
  */
 class KnightsNotesScroll : InteractionListener {
     companion object {

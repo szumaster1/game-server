@@ -12,9 +12,7 @@ import core.game.system.task.Pulse
 import core.game.world.update.flag.context.Animation
 
 /**
- * Demonic sigil listener
- *
- * @constructor Demonic sigil listener
+ * Demonic sigil listener.
  */
 class DemonicSigilListener : InteractionListener {
 

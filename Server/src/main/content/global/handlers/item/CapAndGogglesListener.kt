@@ -7,9 +7,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.item.Item
 
 /**
- * Cap and goggles listener
- *
- * @constructor Cap and goggles listener
+ * Cap and goggles listener.
  */
 class CapAndGogglesListener : InteractionListener {
 

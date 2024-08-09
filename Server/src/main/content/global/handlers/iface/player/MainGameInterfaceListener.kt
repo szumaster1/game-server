@@ -10,9 +10,7 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.info.Rights
 
 /**
- * Main game interface listener
- *
- * @constructor Main game interface listener
+ * Main game interface listener.
  */
 class MainGameInterfaceListener : InterfaceListener {
 

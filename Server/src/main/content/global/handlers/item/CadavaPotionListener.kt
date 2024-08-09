@@ -6,9 +6,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Cadava potion listener
- *
- * @constructor Cadava potion listener
+ * Cadava potion listener.
  */
 class CadavaPotionListener : InteractionListener {
 

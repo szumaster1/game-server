@@ -10,9 +10,7 @@ import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 
 /**
- * Horror from the deep
- *
- * @constructor Horror from the deep
+ * Horror from the deep.
  */
 @Initializable
 class HorrorFromTheDeep : Quest("Horror from the Deep", 77, 76, 2, Vars.VARBIT_QUEST_HORROR_FROM_THE_DEEP_PROGRESS, 0, 1, 10) {

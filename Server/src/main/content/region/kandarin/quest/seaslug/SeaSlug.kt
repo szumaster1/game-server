@@ -10,18 +10,16 @@ import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 
 /**
- * Sea slug
- *
- * @constructor Sea slug
+ * Sea slug.
  */
 @Initializable
 class SeaSlug : Quest("Sea Slug", 109, 108, 1, Vars.VARP_QUEST_SEA_SLUG_PROGRESS, 0, 1, 13) {
 
     /*
-        Quest Description:
-        Something strange is happening on the Fishing Platform.
-        Missing fishermen and the presence of dozens of strange sea creatures gives cause for concern.
-        Investigate the platform and discover the truth before it's too late.
+     * Quest Description:
+     * Something strange is happening on the Fishing Platform.
+     * Missing fishermen and the presence of dozens of strange sea creatures gives cause for concern.
+     * Investigate the platform and discover the truth before it's too late.
      */
 
     companion object {

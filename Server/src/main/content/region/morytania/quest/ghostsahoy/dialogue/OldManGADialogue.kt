@@ -9,7 +9,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Old man g a dialogue.
+ * Old Man Ghosts Ahoy dialogue.
  */
 class OldManGADialogue : DialogueFile() {
 

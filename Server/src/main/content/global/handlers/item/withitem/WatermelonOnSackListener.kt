@@ -7,9 +7,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.skill.Skills
 
 /**
- * Watermelon on sack listener
- *
- * @constructor Watermelon on sack listener
+ * Watermelon on sack listener.
  */
 class WatermelonOnSackListener : InteractionListener {
 

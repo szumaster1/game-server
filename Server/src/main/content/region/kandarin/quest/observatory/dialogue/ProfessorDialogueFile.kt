@@ -14,9 +14,7 @@ import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
 /**
- * Professor dialogue file
- *
- * @constructor Professor dialogue file
+ * Professor dialogue file.
  */
 class ProfessorDialogueFile : DialogueFile() {
 
@@ -80,7 +78,7 @@ class ProfessorDialogueFile : DialogueFile() {
             }
 
             /*
-                Gathering Planks.
+             * Gathering Planks.
              */
 
             40 -> npcl(FacialExpression.HAPPY, "It's my helping hand, back again.").also { stage++ }
@@ -139,7 +137,7 @@ class ProfessorDialogueFile : DialogueFile() {
             }
 
             /*
-                Gathering Molten glass.
+             * Gathering Molten glass.
              */
 
             61 -> if(!inInventory(player!!, Items.MOLTEN_GLASS_1775)){
@@ -169,7 +167,7 @@ class ProfessorDialogueFile : DialogueFile() {
             }
 
             /*
-                Getting Lens mould.
+             * Getting Lens mould.
              */
 
             72 -> if(!inInventory(player!!, Items.LENS_MOULD_602)){
@@ -198,7 +196,7 @@ class ProfessorDialogueFile : DialogueFile() {
             }
 
             /*
-                Made Observatory lens.
+             * Made Observatory lens.
              */
 
             82 -> if(!inInventory(player!!, Items.OBSERVATORY_LENS_603)){
@@ -227,7 +225,7 @@ class ProfessorDialogueFile : DialogueFile() {
             }
 
             /*
-                Observatory after cutscene.
+             * Observatory after cutscene.
              */
 
             92 -> player("Hi, this really is impressive.").also { stage++ }
@@ -244,9 +242,7 @@ class ProfessorDialogueFile : DialogueFile() {
 }
 
 /**
- * Professor constellations dialogue
- *
- * @constructor Professor constellations dialogue
+ * Professor constellations dialogue.
  */
 class ProfessorConstellationsDialogue() : DialogueFile() {
 

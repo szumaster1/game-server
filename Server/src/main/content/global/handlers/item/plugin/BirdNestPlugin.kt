@@ -8,9 +8,7 @@ import core.game.node.item.Item
 import core.plugin.Plugin
 
 /**
- * Bird nest plugin
- *
- * @constructor Bird nest plugin
+ * Bird nest plugin.
  */
 class BirdNestPlugin : OptionHandler() {
 

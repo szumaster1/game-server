@@ -43,18 +43,7 @@ class CapeMerchantDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun getIds(): IntArray {
-        return intArrayOf(
-            NPCs.WILLIAM_1778,
-            NPCs.IAN_1779,
-            NPCs.LARRY_1780,
-            NPCs.DARREN_1781,
-            NPCs.EDWARD_1782,
-            NPCs.RICHARD_1783,
-            NPCs.NEIL_1784,
-            NPCs.EDMOND_1785,
-            NPCs.SIMON_1786,
-            NPCs.SAM_1787
-        )
+        return intArrayOf(NPCs.WILLIAM_1778, NPCs.IAN_1779, NPCs.LARRY_1780, NPCs.DARREN_1781, NPCs.EDWARD_1782, NPCs.RICHARD_1783, NPCs.NEIL_1784, NPCs.EDMOND_1785, NPCs.SIMON_1786, NPCs.SAM_1787)
     }
 
 }

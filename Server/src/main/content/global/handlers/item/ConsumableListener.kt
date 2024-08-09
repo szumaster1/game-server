@@ -13,9 +13,7 @@ import core.game.node.item.Item
 import core.game.world.GameWorld
 
 /**
- * Consumable listener
- *
- * @constructor Consumable listener
+ * Consumable listener.
  */
 class ConsumableListener : InteractionListener {
 

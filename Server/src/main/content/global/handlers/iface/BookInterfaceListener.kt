@@ -7,9 +7,7 @@ import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.Player
 
 /**
- * Book interface listener
- *
- * @constructor Book interface listener
+ * Book interface listener.
  */
 class BookInterfaceListener : InterfaceListener {
 

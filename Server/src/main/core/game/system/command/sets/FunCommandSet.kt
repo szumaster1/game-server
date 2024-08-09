@@ -1,6 +1,6 @@
 package core.game.system.command.sets
 
-import content.global.handlers.item.SpadeDigListener
+import content.global.handlers.item.SpadeDig
 import content.region.misc.handlers.tutorial.CharacterDesign
 import core.api.*
 import core.api.consts.Sounds
@@ -27,9 +27,7 @@ import java.awt.datatransfer.StringSelection
 import kotlin.streams.toList
 
 /**
- * Fun command set
- *
- * @constructor Fun command set
+ * Fun command set.
  */
 @Initializable
 class FunCommandSet : CommandSet(Privilege.ADMIN) {
@@ -277,13 +275,13 @@ class FunCommandSet : CommandSet(Privilege.ADMIN) {
     fun bury(player: Player) {
         val loc = Location.create(player.location)
         val inv = player.inventory.toArray().filterNotNull()
-        SpadeDigListener.registerListener(player.location) { p ->
+        SpadeDig.registerListener(player.location) { p ->
             for (item in inv) {
                 addItemOrDrop(p, item.id, item.amount)
                 sendMessage(p, "You dig and find ${if (item.amount > 1) "some" else "a"} ${item.name}")
             }
             sendNews("${player.username} has found the hidden treasure! Congratulations!!!")
-            SpadeDigListener.listeners.remove(loc)
+            SpadeDig.listeners.remove(loc)
         }
         player.inventory.clear()
         notify(player, "You have buried your loot at $loc")

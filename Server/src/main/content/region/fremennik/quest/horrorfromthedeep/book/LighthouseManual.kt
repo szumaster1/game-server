@@ -10,9 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Lighthouse manual
- *
- * @constructor Lighthouse manual
+ * Lighthouse manual.
  */
 class LighthouseManual : InteractionListener {
     companion object {

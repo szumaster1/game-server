@@ -8,9 +8,7 @@ import core.game.interaction.InteractionListener
 import kotlin.math.min
 
 /**
- * F o g gloves listener
- *
- * @constructor F o g gloves listener
+ * F o g gloves listener.
  */
 class FOGGlovesListener : InteractionListener {
     companion object {

@@ -10,9 +10,7 @@ val NUMBER_PATTERN1 = Pattern.compile("^(\\d+) \\[label", Pattern.MULTILINE)
 val NUMBER_PATTERN2 = Pattern.compile("(\\d+) -> (\\d+)")
 
 /**
- * Dialogue builder file
- *
- * @constructor Dialogue builder file
+ * Dialogue builder.
  */
 abstract class DialogueBuilderFile : DialogueFile() {
     var data: ArrayList<DialogueClause> = ArrayList()
@@ -20,14 +18,18 @@ abstract class DialogueBuilderFile : DialogueFile() {
     //var stages: ArrayList<Int> = ArrayList()
 
     /**
-     * Create
+     * Abstract function to create a dialogue.
      *
-     * @param b
+     * @param b The DialogueBuilder object used to build the dialogue.
      */
     abstract fun create(b: DialogueBuilder)
 
     init {
+        // Initialize the dialogue creation process by
+        // calling the create function with a new DialogueBuilder object.
         create(DialogueBuilder(this))
+        // Check if DEBUG_DIALOGUE flag is enabled
+        // for debugging purposes.
         if (DEBUG_DIALOGUE) {
             var graphSb = StringBuilder("digraph {\n")
             var nodeIndex = 0
@@ -79,29 +81,28 @@ abstract class DialogueBuilderFile : DialogueFile() {
 }
 
 /**
- * Dialogue node
- *
- * @constructor Dialogue node
+ * Interface representing a Dialogue Node in the conversation flow.
+ * This interface defines a method to handle dialogue interactions.
  */
 interface DialogueNode {
     /**
-     * Handle
+     * Handles the dialogue flow based on the provided parameters.
      *
-     * @param df
-     * @param componentID
-     * @param buttonID
-     * @param stage
-     * @return
+     * @param df The DialogueFile containing the conversation data.
+     * @param componentID The ID of the dialogue component.
+     * @param buttonID The ID of the button clicked.
+     * @param stage The current stage of the conversation.
+     * @return The updated stage after handling the interaction.
      */
     fun handle(df: DialogueFile, componentID: Int, buttonID: Int, stage: Int): Int
 }
 
 /**
- * Npc l node
+ * Represents a node in the NPC dialogue tree.
  *
- * @property expression
- * @property value
- * @constructor Npc l node
+ * @property expression The facial expression associated with the NPC node.
+ * @property value The value or text content of the NPC node.
+ * @constructor Creates an NPC dialogue node with the given facial expression and value.
  */
 class NpcLNode(val expression: FacialExpression, val value: String) : DialogueNode {
     override fun toString(): String {
@@ -115,11 +116,11 @@ class NpcLNode(val expression: FacialExpression, val value: String) : DialogueNo
 }
 
 /**
- * Npc node
+ * Represents a node in the dialogue tree for an NPC.
  *
- * @property expression
- * @property values
- * @constructor Npc node
+ * @property expression The facial expression of the NPC in this node.
+ * @property values The array of possible dialogue values for this node.
+ * @constructor Creates an instance of NpcNode with the given expression and values.
  */
 class NpcNode(val expression: FacialExpression, val values: Array<String>) : DialogueNode {
     override fun toString(): String {
@@ -133,11 +134,11 @@ class NpcNode(val expression: FacialExpression, val values: Array<String>) : Dia
 }
 
 /**
- * Item node
+ * Item node.
  *
- * @property item
- * @property values
- * @constructor Item node
+ * @property item The item value.
+ * @property values The array of string values.
+ * @constructor Initializes an ItemNode object with the given item and values.
  */
 class ItemNode(val item: Int, val values: Array<String>) : DialogueNode {
     override fun toString(): String {
@@ -151,11 +152,11 @@ class ItemNode(val item: Int, val values: Array<String>) : DialogueNode {
 }
 
 /**
- * Player l node
+ * Player l node.
  *
- * @property expression
- * @property value
- * @constructor Player l node
+ * @property expression The facial expression.
+ * @property value The string value.
+ * @constructor Initializes a PlayerLNode object with the given expression and value.
  */
 class PlayerLNode(val expression: FacialExpression, val value: String) : DialogueNode {
     override fun toString(): String {
@@ -169,11 +170,11 @@ class PlayerLNode(val expression: FacialExpression, val value: String) : Dialogu
 }
 
 /**
- * Player node
+ * Player node.
  *
- * @property expression
- * @property values
- * @constructor Player node
+ * @property expression The facial expression.
+ * @property values The array of string values.
+ * @constructor Initializes a PlayerNode object with the given expression and values.
  */
 class PlayerNode(val expression: FacialExpression, val values: Array<String>) : DialogueNode {
     override fun toString(): String {
@@ -187,10 +188,10 @@ class PlayerNode(val expression: FacialExpression, val values: Array<String>) : 
 }
 
 /**
- * Between stage node
+ * Between stage node.
  *
- * @property f
- * @constructor Between stage node
+ * @property f The callback function.
+ * @constructor Initializes a BetweenStageNode object with the given callback function.
  */
 class BetweenStageNode(val f: (DialogueFile, Player, Int, Int) -> Unit) : DialogueNode {
     override fun toString(): String {
@@ -206,10 +207,10 @@ class BetweenStageNode(val f: (DialogueFile, Player, Int, Int) -> Unit) : Dialog
 }
 
 /**
- * Manual stage node
+ * Manual stage node.
  *
- * @property f
- * @constructor Manual stage node
+ * @property f The callback function.
+ * @constructor Initializes a ManualStageNode object with the given callback function.
  */
 class ManualStageNode(val f: (DialogueFile, Player, Int, Int) -> Unit) : DialogueNode {
     override fun toString(): String {
@@ -223,12 +224,12 @@ class ManualStageNode(val f: (DialogueFile, Player, Int, Int) -> Unit) : Dialogu
 }
 
 /**
- * Manual stage with goto node
+ * Manual stage with goto node.
  *
- * @property f
- * @constructor
+ * @property f The callback function.
+ * @constructor Initializes a ManualStageWithGotoNode object with the given callback function and goto function.
  *
- * @param g
+ * @param g The goto function.
  */
 class ManualStageWithGotoNode(val f: (DialogueFile, Player, Int, Int, Int) -> Int, g: (Int) -> Int) : DialogueNode {
     override fun toString(): String {
@@ -241,12 +242,12 @@ class ManualStageWithGotoNode(val f: (DialogueFile, Player, Int, Int, Int) -> In
 }
 
 /**
- * Placeholder node
+ * Placeholder node.
  *
- * @property dbf
- * @property clauseIndex
- * @property targetStage
- * @constructor Placeholder node
+ * @property dbf The DialogueBuilderFile object.
+ * @property clauseIndex The index of the clause.
+ * @property targetStage The target stage.
+ * @constructor Initializes a PlaceholderNode object with the given DialogueBuilderFile, clause index, and target stage.
  */
 class PlaceholderNode(val dbf: DialogueBuilderFile, val clauseIndex: Int, var targetStage: Int) : DialogueNode {
     override fun toString(): String {
@@ -260,9 +261,9 @@ class PlaceholderNode(val dbf: DialogueBuilderFile, val clauseIndex: Int, var ta
     }
 
     /**
-     * Builder
+     * Builder.
      *
-     * @return
+     * @return The DialogueBuilder object.
      */
     fun builder(): DialogueBuilder {
         targetStage = dbf.data[clauseIndex].nodes.size
@@ -271,10 +272,10 @@ class PlaceholderNode(val dbf: DialogueBuilderFile, val clauseIndex: Int, var ta
 }
 
 /**
- * Goto node
+ * Goto node.
  *
- * @property node
- * @constructor Goto node
+ * @property node The PlaceholderNode object.
+ * @constructor Initializes a GotoNode object with the given PlaceholderNode.
  */
 class GotoNode(val node: PlaceholderNode) : DialogueNode {
     override fun toString(): String {
@@ -289,30 +290,30 @@ class GotoNode(val node: PlaceholderNode) : DialogueNode {
 }
 
 /**
- * Option entry
+ * Option entry.
  *
- * @property text
- * @property nextStage
- * @property predicate
- * @constructor Option entry
+ * @property text The text of the option.
+ * @property nextStage The next stage to proceed to.
+ * @property predicate The condition for the option to be available.
+ * @constructor Creates an OptionEntry.
  */
 class OptionEntry(val text: String, val nextStage: Int, val predicate: (Player) -> Boolean = { _ -> true })
 
 /**
- * Options data
+ * Options data.
  *
- * @property header
- * @property entries
- * @property attr
- * @constructor Options data
+ * @property header The header of the options.
+ * @property entries The list of OptionEntry objects.
+ * @property attr The attribute associated with the options.
+ * @constructor Creates an OptionsData object.
  */
 class OptionsData(val header: String, val entries: ArrayList<OptionEntry>, var attr: String? = null)
 
 /**
- * Options node
+ * Options node.
  *
- * @property options
- * @constructor Options node
+ * @property options The OptionsData object.
+ * @constructor Creates an OptionsNode.
  */
 class OptionsNode(var options: OptionsData) : DialogueNode {
     override fun toString(): String {
@@ -324,10 +325,10 @@ class OptionsNode(var options: OptionsData) : DialogueNode {
     }
 
     /**
-     * Option names
+     * Get the names of the available options for a player.
      *
-     * @param player
-     * @return
+     * @param player The player object.
+     * @return An array of option names.
      */
     fun optionNames(player: Player): Array<String?> {
         return options.entries.asSequence().filter({ it.predicate(player) }).map({ it.text }).toList().toTypedArray()
@@ -359,10 +360,10 @@ class OptionsNode(var options: OptionsData) : DialogueNode {
 }
 
 /**
- * Options dispatch node
+ * Options dispatch node.
  *
- * @property options
- * @constructor Options dispatch node
+ * @property options The OptionsData object.
+ * @constructor Creates an OptionsDispatchNode.
  */
 class OptionsDispatchNode(var options: OptionsData) : DialogueNode {
     override fun toString(): String {
@@ -383,22 +384,24 @@ class OptionsDispatchNode(var options: OptionsData) : DialogueNode {
     }
 }
 
+
 /**
- * Dialogue clause
+ * Dialogue clause.
  *
- * @property predicate
- * @property nodes
- * @constructor Dialogue clause
+ * @property predicate A function that takes a Player object as a parameter and returns a Boolean value.
+ * @property nodes An ArrayList of DialogueNode objects.
+ * @constructor Creates a DialogueClause object.
  */
 class DialogueClause(val predicate: (player: Player) -> Boolean, val nodes: ArrayList<DialogueNode>) {
+
     /**
-     * Handle
+     * Handle method.
      *
-     * @param df
-     * @param componentID
-     * @param buttonID
-     * @param stage
-     * @return
+     * @param df A DialogueFile object.
+     * @param componentID An integer representing the component ID.
+     * @param buttonID An integer representing the button ID.
+     * @param stage An integer representing the stage.
+     * @return An integer representing the result of the handle operation.
      */
     fun handle(df: DialogueFile, componentID: Int, buttonID: Int, stage: Int): Int {
         if (stage < nodes.size) {
@@ -410,19 +413,20 @@ class DialogueClause(val predicate: (player: Player) -> Boolean, val nodes: Arra
 }
 
 /**
- * Dialogue options builder
+ * Dialogue options builder.
  *
- * @property target
- * @property clauseIndex
- * @property options
- * @constructor Dialogue options builder
+ * @property target A DialogueBuilderFile object.
+ * @property clauseIndex An integer representing the clause index.
+ * @property options An OptionsData object.
+ * @constructor Creates a DialogueOptionsBuilder object.
  */
 class DialogueOptionsBuilder(var target: DialogueBuilderFile, val clauseIndex: Int, var options: OptionsData) {
+
     /**
-     * Option
+     * Option method.
      *
-     * @param value
-     * @return
+     * @param value A string representing the option value.
+     * @return A DialogueBuilder object.
      */
     fun option(value: String): DialogueBuilder {
         options.entries.add(OptionEntry(value, target.data[clauseIndex].nodes.size))
@@ -430,12 +434,11 @@ class DialogueOptionsBuilder(var target: DialogueBuilderFile, val clauseIndex: I
     }
 
     /**
-     * Option if
+     * OptionIf method.
      *
-     * @param value
-     * @param predicate
-     * @receiver
-     * @return
+     * @param value A string representing the option value.
+     * @param predicate A function that takes a Player object as a parameter and returns a Boolean value.
+     * @return A DialogueBuilder object.
      */
     fun optionIf(value: String, predicate: (Player) -> Boolean): DialogueBuilder {
         options.entries.add(OptionEntry(value, target.data[clauseIndex].nodes.size, predicate))
@@ -443,20 +446,20 @@ class DialogueOptionsBuilder(var target: DialogueBuilderFile, val clauseIndex: I
     }
 
     /**
-     * Option_playerl
+     * Option_playerl method.
      *
-     * @param value
-     * @return
+     * @param value A string representing the option value.
+     * @return A DialogueBuilder object.
      */
     fun option_playerl(value: String): DialogueBuilder {
         return option(value).playerl(value)
     }
 
     /**
-     * Record attribute
+     * RecordAttribute method.
      *
-     * @param name
-     * @return
+     * @param name A string representing the attribute name.
+     * @return A DialogueOptionsBuilder object.
      */
     fun recordAttribute(name: String): DialogueOptionsBuilder {
         options.attr = name
@@ -465,19 +468,19 @@ class DialogueOptionsBuilder(var target: DialogueBuilderFile, val clauseIndex: I
 }
 
 /**
- * Branches data
+ * Represents the data for branches in a dialogue.
  *
- * @property branches
- * @property f
- * @constructor Branches data
+ * @property branches A HashMap containing branch IDs and corresponding dialogue node IDs.
+ * @property f A lambda function that takes a Player and returns an Int.
+ * @constructor Creates a BranchesData instance with the provided branches and lambda function.
  */
 class BranchesData(val branches: HashMap<Int, Int>, val f: (Player) -> Int)
 
 /**
- * Branch node
+ * Represents a node in a dialogue tree that contains branches.
  *
- * @property branches
- * @constructor Branch node
+ * @property branches The BranchesData associated with this branch node.
+ * @constructor Creates a BranchNode with the provided BranchesData.
  */
 class BranchNode(val branches: BranchesData) : DialogueNode {
     override fun toString(): String {
@@ -505,10 +508,11 @@ class BranchNode(val branches: BranchesData) : DialogueNode {
  */
 class DialogueBranchBuilder(var target: DialogueBuilderFile, val clauseIndex: Int, var branches: BranchesData) {
     /**
-     * On value
+     * Converts a Boolean value to an Integer and calls the overloaded
+     * onValue function.
      *
-     * @param value
-     * @return
+     * @param value the Boolean value to be converted.
+     * @return a DialogueBuilder object.
      */
     fun onValue(value: Boolean): DialogueBuilder {
         return onValue(
@@ -521,10 +525,11 @@ class DialogueBranchBuilder(var target: DialogueBuilderFile, val clauseIndex: In
     }
 
     /**
-     * On value
+     * Maps an Integer value to an index and updates the branches,
+     * then returns a DialogueBuilder object.
      *
-     * @param value
-     * @return
+     * @param value the Integer value to be mapped.
+     * @return a DialogueBuilder object.
      */
     fun onValue(value: Int): DialogueBuilder {
         val index = target.data[clauseIndex].nodes.size
@@ -534,10 +539,10 @@ class DialogueBranchBuilder(var target: DialogueBuilderFile, val clauseIndex: In
 }
 
 /**
- * End with node
+ * Represents an EndWithNode with a function property.
  *
- * @property f
- * @constructor End with node
+ * @property f the function property of the EndWithNode.
+ * @constructor Creates an EndWithNode object with a function property.
  */
 class EndWithNode(val f: (DialogueFile, Player) -> Unit) : DialogueNode {
     override fun toString(): String {
@@ -551,11 +556,11 @@ class EndWithNode(val f: (DialogueFile, Player) -> Unit) : DialogueNode {
 }
 
 /**
- * Dialogue builder
+ * Represents a DialogueBuilder with target and clauseIndex properties.
  *
- * @property target
- * @property clauseIndex
- * @constructor Dialogue builder
+ * @property target the target property of the DialogueBuilder.
+ * @property clauseIndex the clauseIndex property of the DialogueBuilder.
+ * @constructor Creates a DialogueBuilder object with target and clauseIndex properties.
  */
 class DialogueBuilder(var target: DialogueBuilderFile, var clauseIndex: Int = -1) {
     companion object DialogueBuilderStatic {
@@ -565,11 +570,11 @@ class DialogueBuilder(var target: DialogueBuilderFile, var clauseIndex: Int = -1
     }
 
     /**
-     * On predicate
+     * On predicate.
      *
-     * @param predicate
-     * @receiver
-     * @return
+     * @param predicate The predicate function that takes a Player object as a parameter and returns a Boolean value.
+     * @receiver The current instance of the DialogueBuilder class.
+     * @return The updated instance of the DialogueBuilder class.
      */
     fun onPredicate(predicate: (player: Player) -> Boolean): DialogueBuilder {
         target.data.add(DialogueClause(predicate, ArrayList()))
@@ -578,20 +583,20 @@ class DialogueBuilder(var target: DialogueBuilderFile, var clauseIndex: Int = -1
     }
 
     /**
-     * Default dialogue
+     * Default dialogue.
      *
-     * @return
+     * @return The updated instance of the DialogueBuilder class.
      */
     fun defaultDialogue(): DialogueBuilder {
         return onPredicate({ _ -> return@onPredicate true })
     }
 
     /**
-     * On quest stages
+     * On quest stages.
      *
-     * @param name
-     * @param stages
-     * @return
+     * @param name The name of the quest.
+     * @param stages The stages of the quest.
+     * @return The updated instance of the DialogueBuilder class.
      */
     fun onQuestStages(name: String, vararg stages: Int): DialogueBuilder {
         return onPredicate { player ->
@@ -601,10 +606,10 @@ class DialogueBuilder(var target: DialogueBuilderFile, var clauseIndex: Int = -1
     }
 
     /**
-     * Playerl
+     * Playerl.
      *
-     * @param value
-     * @return
+     * @param value The value to be displayed for the player.
+     * @return The updated instance of the DialogueBuilder class.
      */
     fun playerl(value: String): DialogueBuilder {
         target.data[clauseIndex].nodes.add(PlayerLNode(FacialExpression.NEUTRAL, value))
@@ -612,11 +617,11 @@ class DialogueBuilder(var target: DialogueBuilderFile, var clauseIndex: Int = -1
     }
 
     /**
-     * Playerl
+     * Playerl.
      *
-     * @param expression
-     * @param value
-     * @return
+     * @param expression the facial expression of the player.
+     * @param value the value associated with the expression.
+     * @return the DialogueBuilder instance.
      */
     fun playerl(expression: FacialExpression, value: String): DialogueBuilder {
         target.data[clauseIndex].nodes.add(PlayerLNode(expression, value))
@@ -624,10 +629,10 @@ class DialogueBuilder(var target: DialogueBuilderFile, var clauseIndex: Int = -1
     }
 
     /**
-     * Player
+     * Player.
      *
-     * @param values
-     * @return
+     * @param values the values to be used in the dialogue.
+     * @return the DialogueBuilder instance.
      */
     fun player(vararg values: String): DialogueBuilder {
         target.data[clauseIndex].nodes.add(PlayerNode(FacialExpression.NEUTRAL, values as Array<String>))
@@ -635,11 +640,11 @@ class DialogueBuilder(var target: DialogueBuilderFile, var clauseIndex: Int = -1
     }
 
     /**
-     * Player
+     * Player.
      *
-     * @param expression
-     * @param values
-     * @return
+     * @param expression the facial expression of the player.
+     * @param values the values to be used in the dialogue.
+     * @return the DialogueBuilder instance.
      */
     fun player(expression: FacialExpression, vararg values: String): DialogueBuilder {
         target.data[clauseIndex].nodes.add(PlayerNode(expression, values as Array<String>))
@@ -647,10 +652,10 @@ class DialogueBuilder(var target: DialogueBuilderFile, var clauseIndex: Int = -1
     }
 
     /**
-     * Npcl
+     * Npcl.
      *
-     * @param value
-     * @return
+     * @param value the value associated with the NPC line.
+     * @return the DialogueBuilder instance.
      */
     fun npcl(value: String): DialogueBuilder {
         target.data[clauseIndex].nodes.add(NpcLNode(FacialExpression.NEUTRAL, value))
@@ -658,11 +663,11 @@ class DialogueBuilder(var target: DialogueBuilderFile, var clauseIndex: Int = -1
     }
 
     /**
-     * Npcl
+     * Npcl.
      *
-     * @param expression
-     * @param value
-     * @return
+     * @param expression the facial expression of the NPC.
+     * @param value the value associated with the NPC line.
+     * @return the DialogueBuilder instance.
      */
     fun npcl(expression: FacialExpression, value: String): DialogueBuilder {
         target.data[clauseIndex].nodes.add(NpcLNode(expression, value))
@@ -670,10 +675,10 @@ class DialogueBuilder(var target: DialogueBuilderFile, var clauseIndex: Int = -1
     }
 
     /**
-     * Npc
+     * Npc.
      *
-     * @param values
-     * @return
+     * @param values the values to be used in the dialogue.
+     * @return the DialogueBuilder instance.
      */
     fun npc(vararg values: String): DialogueBuilder {
         target.data[clauseIndex].nodes.add(NpcNode(FacialExpression.NEUTRAL, values as Array<String>))
@@ -681,11 +686,11 @@ class DialogueBuilder(var target: DialogueBuilderFile, var clauseIndex: Int = -1
     }
 
     /**
-     * Npc
+     * Npc.
      *
-     * @param expression
-     * @param values
-     * @return
+     * @param expression the facial expression of the NPC.
+     * @param values the values to be used in the dialogue.
+     * @return the DialogueBuilder instance.
      */
     fun npc(expression: FacialExpression, vararg values: String): DialogueBuilder {
         target.data[clauseIndex].nodes.add(NpcNode(expression, values as Array<String>))
@@ -693,11 +698,11 @@ class DialogueBuilder(var target: DialogueBuilderFile, var clauseIndex: Int = -1
     }
 
     /**
-     * Item
+     * Item.
      *
-     * @param item
-     * @param values
-     * @return
+     * @param item the item ID.
+     * @param values the values to be used in the dialogue.
+     * @return the DialogueBuilder instance.
      */
     fun item(item: Int, vararg values: String): DialogueBuilder {
         target.data[clauseIndex].nodes.add(ItemNode(item, values as Array<String>))
@@ -705,21 +710,21 @@ class DialogueBuilder(var target: DialogueBuilderFile, var clauseIndex: Int = -1
     }
 
     /**
-     * Iteml
+     * Iteml.
      *
-     * @param item
-     * @param value
-     * @return
+     * @param item the item ID.
+     * @param value the value associated with the item line.
+     * @return the DialogueBuilder instance.
      */
     fun iteml(item: Int, value: String): DialogueBuilder {
         return item(item, *splitLines(value))
     }
 
     /**
-     * Line
+     * Line.
      *
-     * @param values
-     * @return
+     * @param values the values to be used in the dialogue.
+     * @return the DialogueBuilder instance.
      */
     fun line(vararg values: String): DialogueBuilder {
         return manualStage { df, player, _, _ ->
@@ -728,10 +733,10 @@ class DialogueBuilder(var target: DialogueBuilderFile, var clauseIndex: Int = -1
     }
 
     /**
-     * Linel
+     * Linel.
      *
-     * @param value
-     * @return
+     * @param value the value associated with the line.
+     * @return the DialogueBuilder instance.
      */
     fun linel(value: String): DialogueBuilder {
         return manualStage { df, _, _, _ ->
@@ -740,10 +745,10 @@ class DialogueBuilder(var target: DialogueBuilderFile, var clauseIndex: Int = -1
     }
 
     /**
-     * End with
+     * End with.
      *
-     * @param f
-     * @receiver
+     * @param f the function to be executed at the end of the dialogue.
+     * @receiver the DialogueFile instance.
      */
     fun endWith(f: (DialogueFile, Player) -> Unit) {
         target.data[clauseIndex].nodes.add(EndWithNode(f))
@@ -751,18 +756,17 @@ class DialogueBuilder(var target: DialogueBuilderFile, var clauseIndex: Int = -1
 
     /**
      * End
-     *
      */
     fun end() {
         target.data[clauseIndex].nodes.add(EndWithNode(::endWithNoop))
     }
 
     /**
-     * Between stage
+     * Between stage.
      *
-     * @param f
-     * @receiver
-     * @return
+     * @param f the function to be executed between stages of the dialogue.
+     * @receiver the DialogueFile instance.
+     * @return the DialogueBuilder instance.
      */
     fun betweenStage(f: (DialogueFile, Player, Int, Int) -> Unit): DialogueBuilder {
         target.data[clauseIndex].nodes.add(BetweenStageNode(f))
@@ -770,11 +774,11 @@ class DialogueBuilder(var target: DialogueBuilderFile, var clauseIndex: Int = -1
     }
 
     /**
-     * Manual stage
+     * Manual stage.
      *
-     * @param f
-     * @receiver
-     * @return
+     * @param f the function to be executed at a manual stage of the dialogue.
+     * @receiver the DialogueFile instance.
+     * @return the DialogueBuilder instance.
      */
     fun manualStage(f: (DialogueFile, Player, Int, Int) -> Unit): DialogueBuilder {
         target.data[clauseIndex].nodes.add(ManualStageNode(f))
@@ -782,13 +786,12 @@ class DialogueBuilder(var target: DialogueBuilderFile, var clauseIndex: Int = -1
     }
 
     /**
-     * Manual stage with goto
+     * Manual stage with goto.
      *
-     * @param f
-     * @param g
-     * @receiver
-     * @receiver
-     * @return
+     * @param f The function that defines the behavior of the manual stage.
+     * @param g The function that defines the behavior of the goto.
+     * @receiver The receiver of the function.
+     * @return The updated DialogueBuilder object.
      */
     fun manualStageWithGoto(f: (DialogueFile, Player, Int, Int, Int) -> Int, g: (Int) -> Int): DialogueBuilder {
         target.data[clauseIndex].nodes.add(ManualStageWithGotoNode(f, g))
@@ -796,19 +799,19 @@ class DialogueBuilder(var target: DialogueBuilderFile, var clauseIndex: Int = -1
     }
 
     /**
-     * Options
+     * Options.
      *
-     * @return
+     * @return The DialogueOptionsBuilder object.
      */
     fun options(): DialogueOptionsBuilder {
         return options("Select an Option")
     }
 
     /**
-     * Options
+     * Options.
      *
-     * @param header
-     * @return
+     * @param header The header text for the options.
+     * @return The DialogueOptionsBuilder object.
      */
     fun options(header: String): DialogueOptionsBuilder {
         val options: ArrayList<OptionEntry> = ArrayList()
@@ -821,9 +824,9 @@ class DialogueBuilder(var target: DialogueBuilderFile, var clauseIndex: Int = -1
     }
 
     /**
-     * Placeholder
+     * Placeholder.
      *
-     * @return
+     * @return The PlaceholderNode object.
      */
     fun placeholder(): PlaceholderNode {
         val node = PlaceholderNode(target, clauseIndex, END_DIALOGUE)
@@ -832,10 +835,10 @@ class DialogueBuilder(var target: DialogueBuilderFile, var clauseIndex: Int = -1
     }
 
     /**
-     * Goto
+     * Goto.
      *
-     * @param node
-     * @return
+     * @param node The PlaceholderNode to go to.
+     * @return The updated DialogueBuilder object.
      */
     fun goto(node: PlaceholderNode): DialogueBuilder {
         target.data[clauseIndex].nodes.add(GotoNode(node))
@@ -843,11 +846,11 @@ class DialogueBuilder(var target: DialogueBuilderFile, var clauseIndex: Int = -1
     }
 
     /**
-     * Branch
+     * Branch.
      *
-     * @param f
-     * @receiver
-     * @return
+     * @param f The function that defines the behavior of the branch.
+     * @receiver The receiver of the function.
+     * @return The DialogueBranchBuilder object.
      */
     fun branch(f: (Player) -> Int): DialogueBranchBuilder {
         var branches = BranchesData(HashMap(), f)
@@ -856,11 +859,11 @@ class DialogueBuilder(var target: DialogueBuilderFile, var clauseIndex: Int = -1
     }
 
     /**
-     * Branch stages
+     * Branch stages.
      *
-     * @param f
-     * @receiver
-     * @return
+     * @param f The function that defines the behavior of the branch stages.
+     * @receiver The receiver of the function.
+     * @return The DialogueBranchBuilder object.
      */
     fun branchStages(f: (Player) -> Int): DialogueBranchBuilder {
         var branches = BranchesData(HashMap(), f)
@@ -869,11 +872,11 @@ class DialogueBuilder(var target: DialogueBuilderFile, var clauseIndex: Int = -1
     }
 
     /**
-     * Branch bool attribute
+     * Branch bool attribute.
      *
-     * @param attrName
-     * @param defaultVal
-     * @return
+     * @param attrName The name of the boolean attribute.
+     * @param defaultVal The default value of the boolean attribute.
+     * @return The DialogueBranchBuilder object.
      */
     fun branchBoolAttribute(attrName: String, defaultVal: Boolean): DialogueBranchBuilder {
         return branch({ player ->

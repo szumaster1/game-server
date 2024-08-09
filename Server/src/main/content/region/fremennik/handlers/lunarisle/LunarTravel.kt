@@ -32,25 +32,21 @@ object PiratesCoveUtils {
 }
 
 /**
- * Reach destination
+ * Enum class representing reaching a destination.
  *
- * @property destName
- * @property destLoc
- * @property ladyZayAnim
- * @constructor Reach destination
+ * @property destName The name of the destination.
+ * @property destLoc The location of the destination.
+ * @property ladyZayAnim The animation for Lady Zay.
+ * @constructor Creates an instance of ReachDestination.
  */
 enum class ReachDestination(val destName: String, val destLoc: Location, val ladyZayAnim: Int) {
     /**
-     * Pirates Cove To Moonclan Island
-     *
-     * @constructor Pirates Cove To Moonclan Island
+     * Pirates Cove To Moonclan Island.
      */
     PIRATES_COVE_TO_MOONCLAN_ISLAND("Pirates' Cove", Location.create(2131, 3900, 2), 2344),
 
     /**
-     * Moonclan Island To Pirates Cove
-     *
-     * @constructor Moonclan Island To Pirates Cove
+     * Moonclan Island To Pirates Cove.
      */
     MOONCLAN_ISLAND_TO_PIRATES_COVE("Moonclan Island", Location.create(2216, 3797, 2), 2345),
 }

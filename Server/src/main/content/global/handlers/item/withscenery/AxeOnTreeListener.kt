@@ -8,9 +8,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Axe on tree listener
- *
- * @constructor Axe on tree listener
+ * Axe on tree listener.
  */
 class AxeOnTreeListener : InteractionListener {
 

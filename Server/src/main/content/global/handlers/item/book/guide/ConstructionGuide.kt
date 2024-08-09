@@ -13,9 +13,7 @@ import core.game.node.item.Item
 import core.game.world.GameWorld.settings
 
 /**
- * Construction guide
- *
- * @constructor Construction guide
+ * Construction guide.
  */
 class ConstructionGuide : InteractionListener {
 

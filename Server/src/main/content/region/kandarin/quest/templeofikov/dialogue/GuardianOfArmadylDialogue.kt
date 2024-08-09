@@ -33,9 +33,7 @@ class GuardianOfArmadylDialogue(player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Guardian of armadyl dialogue file
- *
- * @constructor Guardian of armadyl dialogue file
+ * Guardian of armadyl dialogue file.
  */
 class GuardianOfArmadylDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {

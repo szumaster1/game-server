@@ -9,9 +9,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Scrumpled note
- *
- * @constructor Scrumpled note
+ * Scrumpled note.
  */
 class ScrumpledNote : InteractionListener {
 

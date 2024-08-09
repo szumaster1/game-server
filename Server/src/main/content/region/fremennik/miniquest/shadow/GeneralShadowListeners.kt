@@ -8,9 +8,7 @@ import core.game.interaction.InteractionListener
 import core.game.world.map.Location
 
 /**
- * General shadow listeners
- *
- * @constructor General shadow listeners
+ * General shadow listeners.
  */
 class GeneralShadowListeners : InteractionListener {
 

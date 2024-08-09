@@ -10,9 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Feathered journal
- *
- * @constructor Feathered journal
+ * Feathered journal.
  */
 class FeatheredJournal : InteractionListener {
 

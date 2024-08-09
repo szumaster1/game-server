@@ -8,9 +8,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Field ration usage handler
- *
- * @constructor Field ration usage handler
+ * Field ration usage handler.
  */
 @Initializable
 class FieldRationUsageHandler : UseWithHandler() {

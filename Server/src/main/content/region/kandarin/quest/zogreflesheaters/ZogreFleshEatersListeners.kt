@@ -13,16 +13,14 @@ import core.game.world.map.Location
 import core.tools.BLUE
 
 /**
- * Zogre flesh eaters listeners
- *
- * @constructor Zogre flesh eaters listeners
+ * Zogre flesh eaters listeners.
  */
 class ZogreFleshEatersListeners : InteractionListener {
 
     override fun defineListeners() {
 
         /*
-            Interaction after start quest and talk to Ogre guard.
+         * Interaction after start quest and talk to Ogre guard.
          */
 
         on(intArrayOf(Scenery.CRUSHED_BARRICADE_6881,Scenery.CRUSHED_BARRICADE_6882), IntType.SCENERY, "climb-over") { player, _ ->
@@ -43,7 +41,7 @@ class ZogreFleshEatersListeners : InteractionListener {
         }
 
         /*
-            Quest items interaction with Grish NPC.
+         * Quest items interaction with Grish NPC.
          */
 
         onUseWith(IntType.NPC, ZogreQuestUtils.QUEST_ITEMS, NPCs.GRISH_2038) { player, used, _ ->
@@ -56,7 +54,7 @@ class ZogreFleshEatersListeners : InteractionListener {
         }
 
         /*
-            Quest items interaction with Bartender NPC.
+         * Quest items interaction with Bartender NPC.
          */
 
         onUseWith(IntType.NPC, ZogreQuestUtils.QUEST_ITEMS, NPCs.BARTENDER_739) { player, used, _ ->
@@ -87,7 +85,7 @@ class ZogreFleshEatersListeners : InteractionListener {
         }
 
         /*
-            Ring the bell for spawn Zavistic Rarve.
+         * Ring the bell for spawn Zavistic Rarve.
          */
 
         on(Scenery.BELL_6847, IntType.SCENERY, "ring") { player, _ ->
@@ -103,7 +101,7 @@ class ZogreFleshEatersListeners : InteractionListener {
         }
 
         /*
-           Look-at signed portrait of Sithik.
+         * Look-at signed portrait of Sithik.
          */
 
         on(Items.SIGNED_PORTRAIT_4816, IntType.ITEM, "look-at") { player, _ ->
@@ -121,7 +119,7 @@ class ZogreFleshEatersListeners : InteractionListener {
         }
 
         /*
-            Selling Relicym balm to Uglug Nar.
+         * Selling Relicym balm to Uglug Nar.
          */
         onUseWith(IntType.NPC, Items.RELICYMS_BALM3_4844, NPCs.UGLUG_NAR_2039) { player, _, _ ->
             if ((getVarbit(player, Vars.VARBIT_QUEST_ZORGE_FLESH_EATERS_PROGRESS) < 7)) {

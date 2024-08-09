@@ -11,9 +11,7 @@ import core.game.node.entity.player.Player
 import core.game.world.GameWorld
 
 /**
- * Security book
- *
- * @constructor Security book
+ * Security book.
  */
 class SecurityBook : InteractionListener {
     companion object {

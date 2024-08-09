@@ -17,9 +17,7 @@ import core.plugin.Plugin
 import core.tools.RandomFunction
 
 /**
- * Mithril seeds plugin
- *
- * @constructor Mithril seeds plugin
+ * Mithril seeds plugin.
  */
 @Initializable
 class MithrilSeedsPlugin : OptionHandler() {

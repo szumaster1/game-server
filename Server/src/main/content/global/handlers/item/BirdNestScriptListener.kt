@@ -8,8 +8,6 @@ import core.game.node.entity.player.Player
 
 /**
  * Bird nest script listener
- *
- * @constructor Bird nest script listener
  */
 class BirdNestScriptListener : InteractionListener {
 

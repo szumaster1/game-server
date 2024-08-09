@@ -8,9 +8,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Mining helmet listener
- *
- * @constructor Mining helmet listener
+ * Mining helmet listener.
  */
 class MiningHelmetListener : InteractionListener {
 

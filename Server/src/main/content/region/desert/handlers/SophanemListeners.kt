@@ -32,7 +32,7 @@ class SophanemListeners : InteractionListener {
             return@on true
         }
 
-        /**
+        /*
          * Quest related location, available just for unlock the music.
          */
         on(Scenery.DOOR_6614, IntType.SCENERY, "open") { player, _ ->

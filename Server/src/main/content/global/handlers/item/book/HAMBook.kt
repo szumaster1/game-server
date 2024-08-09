@@ -15,9 +15,7 @@ import core.game.node.entity.player.Player
 import core.tools.END_DIALOGUE
 
 /**
- * H a m book
- *
- * @constructor H a m book
+ * H a m book.
  */
 class HAMBook : InteractionListener {
 

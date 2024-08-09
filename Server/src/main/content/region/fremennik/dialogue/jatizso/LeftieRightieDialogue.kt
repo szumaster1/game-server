@@ -8,9 +8,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Leftie rightie dialogue
- *
- * @constructor Leftie rightie dialogue
+ * Leftie rightie dialogue.
  */
 class LeftieRightieDialogue : DialogueFile() {
 
@@ -33,11 +31,6 @@ class LeftieRightieDialogue : DialogueFile() {
         }
     }
 
-    /**
-     * Npc2
-     *
-     * @param messages
-     */
     fun npc2(messages: String) {
         sendNormalDialogue(leftie, FacialExpression.NEUTRAL, *splitLines(messages))
     }

@@ -11,9 +11,7 @@ import core.game.system.task.Pulse
 import core.game.world.update.flag.context.Animation
 
 /**
- * Oil fishing rod listener
- *
- * @constructor Oil fishing rod listener
+ * Oil fishing rod listener.
  */
 class OilFishingRodListener : InteractionListener {
 

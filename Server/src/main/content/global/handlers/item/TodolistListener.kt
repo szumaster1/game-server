@@ -8,9 +8,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Todolist listener
- *
- * @constructor Todolist listener
+ * Todolist listener.
  */
 class TodolistListener : InteractionListener {
 	companion object {

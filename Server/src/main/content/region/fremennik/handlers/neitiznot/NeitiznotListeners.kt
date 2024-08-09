@@ -18,7 +18,6 @@ import core.game.world.map.zone.ZoneBorders
  */
 class NeitiznotListeners : InteractionListener {
 
-
     override fun defineListeners() {
         val zone = object : MapZone("Yakzone", true) {
             override fun handleUseWith(player: Player, used: Item?, with: Node?): Boolean {

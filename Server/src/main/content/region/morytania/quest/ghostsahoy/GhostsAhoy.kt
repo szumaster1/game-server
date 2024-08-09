@@ -10,9 +10,7 @@ import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 
 /**
- * Ghosts ahoy
- *
- * @constructor Ghosts ahoy
+ * Ghosts ahoy.
  */
 @Initializable
 class GhostsAhoy : Quest("Ghosts Ahoy", 68, 67, 2, Vars.VARBIT_QUEST_GHOST_AHOY_PROGRESS, 0, 1, 8) {

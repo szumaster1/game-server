@@ -10,9 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Tale of iban book
- *
- * @constructor Tale of iban book
+ * Tale of iban book.
  */
 class TaleOfIbanBook : InteractionListener {
 

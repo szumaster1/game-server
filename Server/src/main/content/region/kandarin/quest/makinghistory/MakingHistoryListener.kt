@@ -14,9 +14,7 @@ import core.game.world.map.Location
 import core.tools.END_DIALOGUE
 
 /**
- * Making history listener
- *
- * @constructor Making history listener
+ * Making history listener.
  */
 class MakingHistoryListener : InteractionListener {
 

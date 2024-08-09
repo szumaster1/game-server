@@ -37,7 +37,7 @@ class MorytaniaListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        /**
+        /*
          * Swamp boat interaction.
          * Source: https://www.youtube.com/watch?v=4RXc67VBEiY&ab_channel=noob2smart
          */
@@ -72,7 +72,7 @@ class MorytaniaListeners : InteractionListener {
             return@on true
         }
 
-        /**
+        /*
          * Gate to mort myre interaction.
          */
         on(swampGate, IntType.SCENERY, "open") { player, node ->
@@ -91,7 +91,7 @@ class MorytaniaListeners : InteractionListener {
             return@on true
         }
 
-        /**
+        /*
          * Enter grotto (Nature spirit quest).
          */
         on(GROTTO_EXIT, IntType.SCENERY, "exit") { player, _ ->
@@ -99,7 +99,7 @@ class MorytaniaListeners : InteractionListener {
             return@on true
         }
 
-        /**
+        /*
          * Jump the bridge to Grotto island.
          */
         on(GROTTO_BRIDGE, IntType.SCENERY, "jump") { player, node ->
@@ -133,7 +133,7 @@ class MorytaniaListeners : InteractionListener {
             return@on true
         }
 
-        /**
+        /*
          * Interaction with Mort myre bridge.
          */
         on(Scenery.TREE_5005, IntType.SCENERY, "climb up", "climb down") { player, node ->
@@ -151,7 +151,7 @@ class MorytaniaListeners : InteractionListener {
             return@on true
         }
 
-        /**
+        /*
          * Interaction with rope bridge.
          */
         on(Scenery.ROPE_BRIDGE_5002, IntType.SCENERY, "walk-here") { player, node ->

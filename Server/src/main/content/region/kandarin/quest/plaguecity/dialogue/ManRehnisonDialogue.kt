@@ -5,9 +5,7 @@ import core.game.dialogue.FacialExpression
 import core.tools.END_DIALOGUE
 
 /**
- * Man rehnison dialogue
- *
- * @constructor Man rehnison dialogue
+ * Man rehnison dialogue.
  */
 class ManRehnisonDialogue : DialogueFile() {
 

@@ -13,9 +13,7 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Plugin
 
 /**
- * Roving elves plugin
- *
- * @constructor Roving elves plugin
+ * Roving elves plugin.
  */
 class RovingElvesPlugin : OptionHandler() {
 

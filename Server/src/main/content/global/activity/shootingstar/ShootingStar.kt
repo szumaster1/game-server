@@ -13,7 +13,7 @@ import core.game.node.scenery.SceneryBuilder
 import core.game.world.map.Location
 
 /**
- * Represents a shooting star object (Only ever initialized once) (ideally)
+ * Represents a shooting star object (Only ever initialized once) (ideally).
  * @author Ceikry
  */
 class ShootingStar(var level: ShootingStarType = ShootingStarType.values().random()) {

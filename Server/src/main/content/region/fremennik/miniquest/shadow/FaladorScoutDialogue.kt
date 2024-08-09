@@ -37,12 +37,10 @@ class FaladorScoutDialogue(player: Player? = null) : Dialogue(player) {
             5 -> player("The other what? Who are you slaughtering?").also { stage++ }
             6 -> npc("Ah, not for your ears, messenger!").also { stage++ }
             7 -> player("So how's your mission going. Enjoying the Draynor", "woods?").also { stage++ }
-            8 -> {
-                if (isQuestComplete(player, "Vampire Slayer")) {
-                    npc("There is talk in the village that the Count of Draynor", "Manor has been Slain by some meddling adventurer. I will", "need to enter the manor to verify this.").also { stage++ }
-                } else {
-                    player("Have you been in touch with any of the other scouts?").also { stage = 10 }
-                }
+            8 -> if (isQuestComplete(player, "Vampire Slayer")) {
+                npc("There is talk in the village that the Count of Draynor", "Manor has been Slain by some meddling adventurer. I will", "need to enter the manor to verify this.").also { stage++ }
+            } else {
+                player("Have you been in touch with any of the other scouts?").also { stage = 10 }
             }
             9 -> npc("Other than that, nothing of interest.").also { stage = 12 }
             10 -> npc(FacialExpression.FRIENDLY, "I'm too busy scouting to be in touch. One headed this", "direction with me seeking the place of heat and sand, another sought a place of moisture and growth and the last sought gnomes.").also { stage++ }

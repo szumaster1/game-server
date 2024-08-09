@@ -13,9 +13,7 @@ import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
 /**
- * Chalice on king arthur listener
- *
- * @constructor Chalice on king arthur listener
+ * Chalice on king arthur listener.
  */
 class ChaliceOnKingArthurListener : InteractionListener {
 

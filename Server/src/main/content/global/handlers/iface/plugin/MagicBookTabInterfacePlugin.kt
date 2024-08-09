@@ -16,9 +16,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Magic book tab interface plugin
- *
- * @constructor Magic book tab interface plugin
+ * Magic book tab interface plugin.
  */
 @Initializable
 class MagicBookTabInterfacePlugin : ComponentPlugin() {

@@ -11,6 +11,14 @@ import core.game.node.item.Item
 import core.tools.RandomFunction
 import core.tools.StringUtils
 
+/**
+ * Bird nest drop table
+ *
+ * @property nest
+ * @constructor
+ *
+ * @param loot
+ */
 enum class BirdNestDropTable(val nest: ChanceItem, vararg loot: ChanceItem) {
     RED(
         ChanceItem(Items.BIRDS_NEST_5070, 1, 5),

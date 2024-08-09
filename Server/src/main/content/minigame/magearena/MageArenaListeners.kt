@@ -21,21 +21,20 @@ import core.game.world.update.flag.context.Graphic
 class MageArenaListeners : InteractionListener {
 
     private val godCapes = intArrayOf(Items.SARADOMIN_CAPE_2412, Items.GUTHIX_CAPE_2413, Items.ZAMORAK_CAPE_2414)
-    private val godStatue =
-        intArrayOf(Scenery.STATUE_OF_SARADOMIN_2873, Scenery.STATUE_OF_ZAMORAK_2874, Scenery.STATUE_OF_GUTHIX_2875)
+    private val godStatue = intArrayOf(Scenery.STATUE_OF_SARADOMIN_2873, Scenery.STATUE_OF_ZAMORAK_2874, Scenery.STATUE_OF_GUTHIX_2875)
     private val sparklingPool = intArrayOf(Scenery.SPARKLING_POOL_2878, Scenery.SPARKLING_POOL_2879)
 
     override fun defineListeners() {
+        /*
+         * Listener for god capes.
+         */
         on(godCapes, IntType.ITEM, "take", "drop") { player, node ->
             val type = GodType.forCape(node.asItem())
             if (getUsedOption(player) == "take") {
                 val capeOnGround = node as GroundItem
                 if (GodType.hasAny(player)) {
                     GroundItemManager.destroy(capeOnGround)
-                    sendMessage(
-                        player,
-                        "You may only possess one sacred cape at a time. The conflicting powers of the capes drive them apart."
-                    )
+                    sendMessage(player, "You may only possess one sacred cape at a time. The conflicting powers of the capes drive them apart.")
                 } else {
                     take(player, capeOnGround)
                 }
@@ -49,6 +48,9 @@ class MageArenaListeners : InteractionListener {
             return@on true
         }
 
+        /*
+         * Listener for god statues.
+         */
         on(godStatue, IntType.SCENERY, "pray at") { player, node ->
             queueScript(player, 1, QueueStrength.STRONG) { stage: Int ->
                 when (stage) {
@@ -69,17 +71,16 @@ class MageArenaListeners : InteractionListener {
             return@on true
         }
 
+        /*
+         * Listener for sparkling pools.
+         */
         on(sparklingPool, IntType.SCENERY, "step-into") { player, node ->
             if (node.id != Scenery.SPARKLING_POOL_2879) {
                 if (!player.getSavedData().activityData.hasKilledKolodion()) {
                     sendMessage(player, "You step into the pool.")
                     sendMessageWithDelay(player, "Your boots get wet.", 1)
                 } else {
-                    sendDialogueLines(
-                        player,
-                        "You step into the pool of sparkling water. You feel energy rush",
-                        "through your veins."
-                    )
+                    sendDialogueLines(player, "You step into the pool of sparkling water. You feel energy rush", "through your veins.")
                     addDialogueAction(player) { _, _ ->
                         queueScript(player, 1, QueueStrength.STRONG) { stage: Int ->
                             when (stage) {

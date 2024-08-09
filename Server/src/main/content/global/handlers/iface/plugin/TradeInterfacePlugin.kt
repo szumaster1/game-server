@@ -11,9 +11,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Trade interface plugin
- *
- * @constructor Trade interface plugin
+ * Trade interface plugin.
  */
 @Initializable
 class TradeInterfacePlugin : ComponentPlugin() {

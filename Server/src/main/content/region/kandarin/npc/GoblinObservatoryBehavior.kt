@@ -7,9 +7,7 @@ import core.game.node.entity.npc.NPCBehavior
 import core.tools.RandomFunction
 
 /**
- * Goblin observatory behavior
- *
- * @constructor Goblin observatory behavior
+ * Goblin observatory behavior.
  */
 class GoblinObservatoryBehavior : NPCBehavior(NPCs.GREASYCHEEKS_6127, NPCs.SMELLYTOES_6128, NPCs.CREAKYKNEES_6129) {
 

@@ -55,10 +55,9 @@ class PollnivneahListeners : InteractionListener {
             return@on true
         }
 
-        /**
+        /*
          * The Snake charmer basket interaction.
          */
-
         onUseWith(IntType.SCENERY, MONEY_POT, COINS){ player, _, _ ->
             if (removeItem(player, Item(Items.COINS_995, 3))) {
                 player.dialogueInterpreter.open(SNAKE_CHARMER, true)

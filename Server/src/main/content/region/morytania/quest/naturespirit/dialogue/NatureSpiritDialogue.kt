@@ -102,11 +102,11 @@ class NatureSpiritDialogue(player: Player? = null) : Dialogue(player) {
 
 
     /**
-     * Sickle bless pulse
+     * Represents a pulse that blesses a player with a spirit.
      *
-     * @property player
-     * @property spirit
-     * @constructor Sickle bless pulse
+     * @property player the player to be blessed
+     * @property spirit the spirit NPC providing the blessing
+     * @constructor Creates a SickleBlessPulse instance with the given player and spirit
      */
     internal class SickleBlessPulse(val player: Player, val spirit: NPC) : Pulse() {
         var ticks = 0
@@ -144,9 +144,9 @@ class NatureSpiritDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     /**
-     * Set quest
+     * Set quest.
      *
-     * @param stage
+     * @param stage the stage.
      */
     fun setQuest(stage: Int) {
         player!!.questRepository.getQuest("Nature Spirit").setStage(player!!, stage)

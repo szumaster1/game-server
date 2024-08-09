@@ -7,9 +7,7 @@ import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.info.login.LoginConfiguration
 
 /**
- * Login interface listener
- *
- * @constructor Login interface listener
+ * Login interface listener.
  */
 class LoginInterfaceListener : InterfaceListener {
 

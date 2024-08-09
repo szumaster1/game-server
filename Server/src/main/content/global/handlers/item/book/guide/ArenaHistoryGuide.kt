@@ -10,9 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Arena history guide
- *
- * @constructor Arena history guide
+ * Arena history guide.
  */
 class ArenaHistoryGuide : InteractionListener {
     companion object {

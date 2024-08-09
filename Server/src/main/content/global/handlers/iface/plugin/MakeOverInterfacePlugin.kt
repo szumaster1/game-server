@@ -19,9 +19,7 @@ private const val TEXT_CHILD = 88
 private val skincolorButtons = (93..100)
 
 /**
- * Make over interface plugin
- *
- * @constructor Make over interface plugin
+ * Make over interface plugin.
  */
 @Initializable
 class MakeOverInterfacePlugin : ComponentPlugin() {

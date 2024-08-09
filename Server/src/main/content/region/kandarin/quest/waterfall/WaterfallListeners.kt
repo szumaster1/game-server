@@ -10,9 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.world.map.Location
 
 /**
- * Waterfall listeners
- *
- * @constructor Waterfall listeners
+ * Waterfall listeners.
  */
 class WaterfallListeners : InteractionListener {
 

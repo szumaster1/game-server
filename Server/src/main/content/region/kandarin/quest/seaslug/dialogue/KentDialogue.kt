@@ -85,9 +85,7 @@ class KentDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     /**
-     * Kent dialogue file
-     *
-     * @constructor Kent dialogue file
+     * Kent dialogue file.
      */
     internal class KentDialogueFile : DialogueFile() {
         override fun handle(componentID: Int, buttonID: Int) {

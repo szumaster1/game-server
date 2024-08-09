@@ -11,6 +11,9 @@ import core.game.world.map.Location
 import core.tools.GREEN
 import core.tools.RED
 
+/**
+ * The Grand tree utils.
+ */
 object GTUtils {
 
     const val TWIG_0 = "/save:grandtree:twig:0"

@@ -13,9 +13,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * God book plugin
- *
- * @constructor God book plugin
+ * God book plugin.
  */
 @Initializable
 class GodBookPlugin : OptionHandler() {
@@ -55,9 +53,7 @@ class GodBookPlugin : OptionHandler() {
      */
 
     /**
-     * God book item
-     *
-     * @constructor God book item
+     * God book item.
      */
     inner class GodBookItem : ItemPlugin() {
 
@@ -83,9 +79,7 @@ class GodBookPlugin : OptionHandler() {
      */
 
     /**
-     * Page handler
-     *
-     * @constructor Page handler
+     * Page handler.
      */
     inner class PageHandler : UseWithHandler(3839, 3841, 3843) {
 

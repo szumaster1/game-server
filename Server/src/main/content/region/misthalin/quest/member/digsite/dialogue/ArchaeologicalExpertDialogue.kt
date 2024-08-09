@@ -9,7 +9,6 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
-
 /**
  * Archaeological expert dialogue.
  */
@@ -26,9 +25,7 @@ class ArchaeologicalExpertDialogue (player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Archaeological expert dialogue file
- *
- * @constructor Archaeological expert dialogue file
+ * Archaeological expert dialogue file.
  */
 class ArchaeologicalExpertDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {

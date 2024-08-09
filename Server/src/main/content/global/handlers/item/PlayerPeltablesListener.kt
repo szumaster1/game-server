@@ -15,9 +15,7 @@ import core.game.world.map.path.Pathfinder
 import core.game.world.update.flag.context.Graphic
 
 /**
- * Player peltables listener
- *
- * @constructor Player peltables listener
+ * Player peltables listener.
  */
 class PlayerPeltablesListener : InteractionListener {
     companion object {
@@ -73,14 +71,14 @@ class PlayerPeltablesListener : InteractionListener {
 
 
     /**
-     * Pelting pulse
+     * Represents a Pelting Pulse spell effect.
      *
-     * @property player
-     * @property other
-     * @property gfx
-     * @property hitDelay
-     * @property peltable
-     * @constructor Pelting pulse
+     * @property player The player casting the spell.
+     * @property other The target player of the spell.
+     * @property gfx The graphical effects of the spell.
+     * @property hitDelay The delay before the spell hits.
+     * @property peltable The pelting ability of the spell.
+     * @constructor Creates a Pelting Pulse spell effect.
      */
     class PeltingPulse(val player: Player, val other: Player, val gfx: IntArray, val hitDelay: Int, val peltable: Int) :
         Pulse() {

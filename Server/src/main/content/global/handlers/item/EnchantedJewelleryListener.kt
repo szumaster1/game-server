@@ -16,9 +16,7 @@ import core.game.node.item.Item
 import core.tools.START_DIALOGUE
 
 /**
- * Enchanted jewellery listener
- *
- * @constructor Enchanted jewellery listener
+ * Enchanted jewellery listener.
  */
 class EnchantedJewelleryListener : InteractionListener {
 
@@ -58,12 +56,12 @@ class EnchantedJewelleryListener : InteractionListener {
     }
 
     /**
-     * Enchanted jewellery dialogue file
+     * Class representing a dialogue file for enchanted jewellery.
      *
-     * @property jewellery
-     * @property item
-     * @property isEquipped
-     * @constructor Enchanted jewellery dialogue file
+     * @property jewellery The enchanted jewellery object associated with the dialogue.
+     * @property item The item object related to the dialogue.
+     * @property isEquipped A boolean indicating if the jewellery is equipped.
+     * @constructor Creates a new instance of EnchantedJewelleryDialogueFile.
      */
     class EnchantedJewelleryDialogueFile(val jewellery: EnchantedJewellery, val item: Item, val isEquipped: Boolean) : DialogueFile() {
         override fun handle(componentID: Int, buttonID: Int) {

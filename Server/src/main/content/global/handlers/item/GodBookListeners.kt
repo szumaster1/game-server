@@ -13,9 +13,7 @@ import core.game.system.task.Pulse
 import core.game.world.update.flag.context.Animation
 
 /**
- * God book listeners
- *
- * @constructor God book listeners
+ * God book listeners.
  */
 class GodBookListeners : InteractionListener {
 
@@ -67,38 +65,16 @@ class GodBookListeners : InteractionListener {
     }
 
     /**
-     * Book
-     *
-     * @constructor Book
+     * Book.
      */
     internal enum class BOOK {
-        /**
-         * Sara
-         *
-         * @constructor Sara
-         */
         SARA,
-
-        /**
-         * Guthix
-         *
-         * @constructor Guthix
-         */
         GUTHIX,
-
-        /**
-         * Zam
-         *
-         * @constructor Zam
-         */
         ZAM
     }
 
     /**
-     * Holy Dialogue
-     *
-     * @property book
-     * @constructor Holy Dialogue
+     * Holy Dialogue.
      */
     internal class HOLY_DIALOGUE(val book: BOOK) : DialogueFile() {
 

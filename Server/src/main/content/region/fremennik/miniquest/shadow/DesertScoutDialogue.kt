@@ -43,16 +43,13 @@ class DesertScoutDialogue(player: Player? = null) : Dialogue(player) {
             12 -> player("So what have you discovered on your travels though", "the desert?").also { stage++ }
             13 -> npc("The fighting in the desert has come to a stop. However, ", "there is still much distrust between Menaphos and Al", "Kharid. It seems like it would be possible to reignite the", "war if needed.").also { stage++ }
 
-            14 -> {
-                if (isQuestComplete(player, "Desert Treasure")) {
-                    npc("I have heard whisperings in the bandit camp that the", "prisoner of Jaldraocht is now free.").also { stage++ }
-                } else if (isQuestComplete(player, "Enakhra's Lament") && !isQuestComplete(player, "Desert Treasure")) {
-                    npc("I followed one called Lazim. He let slip that he had", "discovered the buried temple. Now the two others who", "were there are on the move. The General may find there are new players at", "the ritual this time.").also { stage++ }
-                } else {
-                    player("The Desert seems to be a hotbed of information.", "Do you want me to relay any of this to the", "General?").also { stage++ }
-                }
+            14 -> if (isQuestComplete(player, "Desert Treasure")) {
+                npc("I have heard whisperings in the bandit camp that the", "prisoner of Jaldraocht is now free.").also { stage++ }
+            } else if (isQuestComplete(player, "Enakhra's Lament") && !isQuestComplete(player, "Desert Treasure")) {
+                npc("I followed one called Lazim. He let slip that he had", "discovered the buried temple. Now the two others who", "were there are on the move. The General may find there are new players at", "the ritual this time.").also { stage++ }
+            } else {
+                player("The Desert seems to be a hotbed of information.", "Do you want me to relay any of this to the", "General?").also { stage++ }
             }
-
             15 -> npc("Not at this time. I must investigate further.").also { stage++ }
             16 -> player(FacialExpression.SAD, "Any idea where I can find the other scouts?").also { stage++ }
             17 -> npc("Hmm. I left one of them near a haunted wood - the", "trees kept trying to hit us. One scout headed for a", "jungle and the other for the gnomes.").also { stage++ }

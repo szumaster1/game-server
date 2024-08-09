@@ -10,9 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Stronghold notes
- *
- * @constructor Stronghold notes
+ * Stronghold notes.
  */
 class StrongholdNotes : InteractionListener {
     companion object {

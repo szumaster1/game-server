@@ -15,9 +15,7 @@ import core.game.node.entity.player.link.prayer.PrayerType
 import core.tools.Log
 
 /**
- * Equipment tab interface
- *
- * @constructor Equipment tab interface
+ * Equipment tab interface.
  */
 class EquipmentTabInterface : InterfaceListener {
 

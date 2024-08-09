@@ -27,9 +27,7 @@ class DougDeepingDialogue (player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Doug deeping dialogue file
- *
- * @constructor Doug deeping dialogue file
+ * Doug deeping dialogue file.
  */
 class DougDeepingDialogueFile : DialogueBuilderFile() {
 

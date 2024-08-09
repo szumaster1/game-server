@@ -5,10 +5,7 @@ import core.game.dialogue.FacialExpression
 import core.tools.END_DIALOGUE
 
 /**
- * Ali the leaflet dropper dialogue
- *
- * @property it
- * @constructor Ali the leaflet dropper dialogue
+ * Ali the leaflet dropper dialogue.
  */
 class AliTheLeafletDropperDialogue(val it: Int) : DialogueFile() {
 

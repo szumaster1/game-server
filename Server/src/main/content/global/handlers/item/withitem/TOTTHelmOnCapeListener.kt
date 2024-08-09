@@ -8,9 +8,7 @@ import core.game.interaction.InteractionListener
 import core.tools.END_DIALOGUE
 
 /**
- * T o t t helm on cape listener
- *
- * @constructor T o t t helm on cape listener
+ * TOTTHelm on cape listener.
  */
 class TOTTHelmOnCapeListener : InteractionListener {
 

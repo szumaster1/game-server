@@ -17,9 +17,7 @@ import core.plugin.Plugin
 import core.tools.END_DIALOGUE
 
 /**
- * Yrsa shoe store interface plugin
- *
- * @constructor Yrsa shoe store interface plugin
+ * Yrsa shoe store interface plugin.
  */
 @Initializable
 class YrsaShoeStoreInterfacePlugin : ComponentPlugin() {

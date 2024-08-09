@@ -10,9 +10,7 @@ import core.tools.colorize
 import kotlin.math.min
 
 /**
- * F o g gloves manager
- *
- * @constructor F o g gloves manager
+ * FOG gloves manager.
  */
 class FOGGlovesManager {
     companion object {

@@ -9,9 +9,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 
 /**
- * Jossik reward dialogue
- *
- * @constructor Jossik reward dialogue
+ * Jossik reward dialogue related to Horror from the deep quest.
  */
 class JossikRewardDialogue : DialogueFile() {
 

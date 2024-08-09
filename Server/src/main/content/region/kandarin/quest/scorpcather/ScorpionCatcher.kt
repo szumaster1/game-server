@@ -10,9 +10,7 @@ import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 
 /**
- * Scorpion catcher
- *
- * @constructor Scorpion catcher
+ * Scorpion catcher.
  */
 @Initializable
 class ScorpionCatcher : Quest("Scorpion Catcher", 108, 107, 1, Vars.VARP_QUEST_SCORPION_CATCHER_PROGRESS, 0, 1, 6) {

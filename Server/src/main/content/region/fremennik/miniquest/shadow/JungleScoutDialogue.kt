@@ -38,19 +38,15 @@ class JungleScoutDialogue(player: Player? = null) : Dialogue(player) {
             7 -> npc("Thank you, messenger.").also { stage++ }
             8 -> player("So, how's your mission going?").also { stage++ }
             9 -> npc("There is nothing pleasant about this land. The animals", "are vile, the temperature is unbearable and the plant life", "is often more dangerous than the animals.").also { stage++ }
-            10 -> {
-                if (isQuestComplete(player, "Jungle Potion")) {
-                    npc("There were some strange occurrences in Tai Bwo", "Wannai. The people fled their village because their gods", "were angry with them, or the like, but now they have", "returned. I must investigate why.").also { stage++ }
-                } else {
-                    player("Well, there's always something interesting going on here.").also { stage++ }
-                }
+            10 -> if (isQuestComplete(player, "Jungle Potion")) {
+                npc("There were some strange occurrences in Tai Bwo", "Wannai. The people fled their village because their gods", "were angry with them, or the like, but now they have", "returned. I must investigate why.").also { stage++ }
+            } else {
+                player("Well, there's always something interesting going on here.").also { stage++ }
             }
-            11 -> {
-                if (isQuestComplete(player, "Shilo Village")) {
-                    npc("Shilo Village was overrun with the undead, but someone", "of great ability has brought the situation under control.").also { stage++ }
-                } else {
-                    player("Well, there's always something interesting going on here.").also { stage++ }
-                }
+            11 -> if (isQuestComplete(player, "Shilo Village")) {
+                npc("Shilo Village was overrun with the undead, but someone", "of great ability has brought the situation under control.").also { stage++ }
+            } else {
+                player("Well, there's always something interesting going on here.").also { stage++ }
             }
             12 -> player("Any idea where the other scouts are?").also { stage++ }
             13 -> npc("I am a scout, not a spy. I do not keep track of them.").also { stage++ }

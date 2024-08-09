@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Khazard guard1dialogue.
+ * Khazard guard1 dialogue.
  */
 @Initializable
 class KhazardGuard1Dialogue(player: Player? = null) : Dialogue(player) {

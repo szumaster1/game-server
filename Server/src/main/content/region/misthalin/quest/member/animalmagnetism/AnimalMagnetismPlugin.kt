@@ -32,9 +32,7 @@ import core.plugin.Plugin
 import core.tools.RandomFunction
 
 /**
- * Animal magnetism plugin
- *
- * @constructor Animal magnetism plugin
+ * Animal magnetism plugin.
  */
 @Initializable
 class AnimalMagnetismPlugin : OptionHandler() {

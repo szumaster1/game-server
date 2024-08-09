@@ -11,9 +11,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Baxtorian book
- *
- * @constructor Baxtorian book
+ * Baxtorian book.
  */
 class BaxtorianBook : InteractionListener {
 

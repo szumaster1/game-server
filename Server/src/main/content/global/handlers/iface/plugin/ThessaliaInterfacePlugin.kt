@@ -212,37 +212,13 @@ private val femaleLegIDs = intArrayOf(
 private val COINS = Item(995, 1000)
 
 /**
- * Thessalia interface plugin
- *
- * @constructor Thessalia interface plugin
+ * Thessalia interface plugin.
  */
 @Initializable
 class ThessaliaInterfacePlugin : ComponentPlugin() {
-    /**
-     * Color type
-     *
-     * @constructor Color type
-     */
     enum class colorType {
-        /**
-         * Torso
-         *
-         * @constructor Torso
-         */
         TORSO,
-
-        /**
-         * Arms
-         *
-         * @constructor Arms
-         */
         ARMS,
-
-        /**
-         * Legs
-         *
-         * @constructor Legs
-         */
         LEGS
     }
 
@@ -321,9 +297,9 @@ class ThessaliaInterfacePlugin : ComponentPlugin() {
     }
 
     /**
-     * Pay
+     * Pay.
      *
-     * @param player
+     * @param player The player who wants to pay.
      */
     fun pay(player: Player) {
         if (player.inventory.containsItem(COINS)) {
@@ -331,16 +307,16 @@ class ThessaliaInterfacePlugin : ComponentPlugin() {
             setAttribute(player, "thes-paid", true)
             player.interfaceManager.close()
         } else {
-            player.dialogueInterpreter.sendDialogue("You can not afford that.")
+            player.dialogueInterpreter.sendDialogue("You cannot afford that.")
         }
     }
 
     /**
-     * Update top
+     * Update top.
      *
-     * @param player
-     * @param button
-     * @param male
+     * @param player The player whose top needs to be updated.
+     * @param button The button that was clicked.
+     * @param male   Whether the player is male or not.
      */
     fun updateTop(player: Player, button: Int, male: Boolean) {
         val usedArray = if (male) maleTorsoIDs else femaleTopIDs
@@ -350,11 +326,11 @@ class ThessaliaInterfacePlugin : ComponentPlugin() {
     }
 
     /**
-     * Update legs
+     * Update legs.
      *
-     * @param player
-     * @param button
-     * @param male
+     * @param player The player whose legs need to be updated.
+     * @param button The button that was clicked.
+     * @param male   Whether the player is male or not.
      */
     fun updateLegs(player: Player, button: Int, male: Boolean) {
         val usedArray = if (male) maleLegIDs else femaleLegIDs
@@ -364,11 +340,11 @@ class ThessaliaInterfacePlugin : ComponentPlugin() {
     }
 
     /**
-     * Update arms
+     * Update arms.
      *
-     * @param player
-     * @param button
-     * @param male
+     * @param player The player whose arms need to be updated.
+     * @param button The button that was clicked.
+     * @param male   Whether the player is male or not.
      */
     fun updateArms(player: Player, button: Int, male: Boolean) {
         val usedArray = if (male) maleSleeveIDs else femaleArmIDs
@@ -378,12 +354,12 @@ class ThessaliaInterfacePlugin : ComponentPlugin() {
     }
 
     /**
-     * Update color
+     * Update color.
      *
-     * @param player
-     * @param button
-     * @param male
-     * @param type
+     * @param player The player whose color needs to be updated.
+     * @param button The button that was clicked.
+     * @param male   Whether the player is male or not.
+     * @param type   The type of color to update.
      */
     fun updateColor(player: Player, button: Int, male: Boolean, type: colorType) {
         val subtractor = if (male) maleColorButtonRange.first else femaleColorButtonRange.first

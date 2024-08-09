@@ -12,9 +12,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.npc.NPC
 
 /**
- * Fremennik sea boots listener
- *
- * @constructor Fremennik sea boots listener
+ * Fremennik sea boots listener.
  */
 class FremennikSeaBootsListener : InteractionListener {
 

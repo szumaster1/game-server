@@ -10,9 +10,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Cat on civilians listener
- *
- * @constructor Cat on civilians listener
+ * Cat on civilians listener.
  */
 class CatOnCiviliansListener : InteractionListener {
 

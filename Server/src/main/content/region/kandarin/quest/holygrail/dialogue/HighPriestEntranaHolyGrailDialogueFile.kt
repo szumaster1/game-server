@@ -7,9 +7,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 
 /**
- * High priest entrana holy grail dialogue file
- *
- * @constructor High priest entrana holy grail dialogue file
+ * High priest entrana holy grail dialogue file.
  */
 class HighPriestEntranaHolyGrailDialogueFile : DialogueFile() {
 

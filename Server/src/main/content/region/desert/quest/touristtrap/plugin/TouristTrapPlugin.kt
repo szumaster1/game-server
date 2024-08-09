@@ -42,9 +42,7 @@ import core.plugin.Plugin
 import core.tools.RandomFunction
 
 /**
- * Tourist trap plugin
- *
- * @constructor Tourist trap plugin
+ * Tourist trap plugin.
  */
 class TouristTrapPlugin : OptionHandler() {
 

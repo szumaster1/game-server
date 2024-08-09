@@ -8,26 +8,25 @@ import core.api.setAttribute
 import core.game.interaction.InterfaceListener
 
 /**
- * Seer lock interface listener
- *
- * @constructor Seer lock interface listener
+ * Seer lock interface listener.
  */
 class SeerLockInterfaceListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {
-        val letterOneBack = 39
-        val letterOneForward = 40
-        val letterTwoBack = 35
-        val letterTwoForward = 36
-        val letterThreeBack = 31
-        val letterThreeForward = 32
-        val letterFourBack = 27
-        val letterFourForward = 28
-        val enterButton = 1
-        val exitButton = 2
-        val doorLockInterface = Components.SEER_COMBOLOCK_298
-        val letters = arrayOf("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z")
+        val letterOneBack = 39 // Button ID for moving the first letter back
+        val letterOneForward = 40 // Button ID for moving the first letter forward
+        val letterTwoBack = 35 // Button ID for moving the second letter back
+        val letterTwoForward = 36 // Button ID for moving the second letter forward
+        val letterThreeBack = 31 // Button ID for moving the third letter back
+        val letterThreeForward = 32 // Button ID for moving the third letter forward
+        val letterFourBack = 27 // Button ID for moving the fourth letter back
+        val letterFourForward = 28 // Button ID for moving the fourth letter forward
+        val enterButton = 1 // Button ID for the enter button
+        val exitButton = 2 // Button ID for the exit button
+        val doorLockInterface = Components.SEER_COMBOLOCK_298 // Interface ID for the door lock interface
+        val letters = arrayOf("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z") // Array of letters
 
+        // Called when the door lock interface is opened
         onOpen(doorLockInterface) { player, _ ->
             player.packetDispatch.sendVarcUpdate(618, 0)
             player.packetDispatch.sendVarcUpdate(619, 0)
@@ -41,6 +40,7 @@ class SeerLockInterfaceListener : InterfaceListener {
             return@onOpen true
         }
 
+        // Called when the door lock interface is closed
         onClose(doorLockInterface) { player, _ ->
             removeAttribute(player, "riddle-letter-one")
             removeAttribute(player, "riddle-letter-two")
@@ -49,6 +49,7 @@ class SeerLockInterfaceListener : InterfaceListener {
             return@onClose true
         }
 
+        // Called when a button is clicked in the door lock interface
         on(doorLockInterface) { player, _, _, buttonID, _, _ ->
             when (buttonID) {
                 letterOneBack -> {

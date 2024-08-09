@@ -11,9 +11,7 @@ import core.game.node.entity.player.Player
 import core.game.world.GameWorld
 
 /**
- * Astronomy book
- *
- * @constructor Astronomy book
+ * Astronomy book.
  */
 class AstronomyBook : InteractionListener {
     companion object {

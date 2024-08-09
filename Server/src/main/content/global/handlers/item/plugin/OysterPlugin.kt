@@ -11,9 +11,7 @@ import core.plugin.Plugin
 import core.tools.RandomFunction
 
 /**
- * Oyster plugin
- *
- * @constructor Oyster plugin
+ * Oyster plugin.
  */
 @Initializable
 class OysterPlugin : OptionHandler() {

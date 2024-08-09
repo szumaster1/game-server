@@ -9,8 +9,6 @@ import core.game.interaction.InteractionListener
 
 /**
  * Bracelet of clay listener
- *
- * @constructor Bracelet of clay listener
  */
 class BraceletOfClayListener : InteractionListener {
 

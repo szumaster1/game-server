@@ -10,9 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Jossik journal
- *
- * @constructor Jossik journal
+ * Jossik journal.
  */
 class JossikJournal : InteractionListener {
     companion object {

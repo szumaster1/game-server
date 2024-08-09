@@ -60,9 +60,7 @@ class DigsiteWorkmanDialogue (player: Player? = null) : Dialogue(player), Intera
 }
 
 /**
- * Digsite workman dialogue file
- *
- * @constructor Digsite workman dialogue file
+ * Digsite workman dialogue file.
  */
 class DigsiteWorkmanDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {

@@ -7,6 +7,9 @@ import core.api.setVarbit
 import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 
+/**
+ * Making History utils.
+ */
 object MHUtils {
     const val PROGRESS = 1383
     const val ERIN_PROGRESS = 1384

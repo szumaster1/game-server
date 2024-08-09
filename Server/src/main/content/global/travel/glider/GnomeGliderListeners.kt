@@ -19,6 +19,8 @@ import core.network.packet.outgoing.CameraViewPacket
 class GnomeGliderListeners : InteractionListener {
 
     override fun defineListeners() {
+        // Add comment to explain the purpose of this listener
+        // This listener is triggered when a player interacts with a gnome glider NPC
         on(intArrayOf(NPCs.CAPTAIN_DALBUR_3809, NPCs.CAPTAIN_BLEEMADGE_3810, NPCs.CAPTAIN_ERRDO_3811, NPCs.CAPTAIN_KLEMFOODLE_3812), IntType.NPC, "glider") { player, node ->
             if (!isQuestComplete(player, "The Grand Tree")) {
                 sendMessage(player, "You must complete The Grand Tree Quest to access the gnome glider.")
@@ -31,13 +33,12 @@ class GnomeGliderListeners : InteractionListener {
     }
 
     /**
-     * Glider pulse
+     * Represents a Glider Pulse that handles glider functionality for a player.
      *
-     * @property player
-     * @property glider
-     * @constructor
-     *
-     * @param delay
+     * @property player the player associated with the glider pulse
+     * @property glider the glider object for the player
+     * @constructor initializes the GliderPulse with a delay, player, and glider
+     * @param delay the delay for the pulse
      */
     class GliderPulse(delay: Int, private val player: Player, private val glider: GnomeGlider) : Pulse(delay, player) {
         private var count: Int = 0

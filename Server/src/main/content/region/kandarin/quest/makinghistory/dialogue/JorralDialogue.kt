@@ -20,10 +20,10 @@ import core.tools.END_DIALOGUE
 class JorralDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        Jorral is a historian who starts the Making History and
-        Meeting History quests. He can be found in his Outpost
-        south of the Gnome Stronghold.
-        Location: 2437,3347
+     * Jorral is a historian who starts the Making History and
+     * Meeting History quests. He can be found in his Outpost
+     * south of the Gnome Stronghold.
+     * Location: 2437,3347
      */
 
     override fun open(vararg args: Any): Boolean {

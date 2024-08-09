@@ -9,11 +9,10 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 
 /**
- * Hops dialogue file
- *
- * @constructor Hops dialogue file
+ * Hops dialogue file.
  */
 class HopsDialogueFile : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.HOPS_340)
         when (stage) {
@@ -21,11 +20,7 @@ class HopsDialogueFile : DialogueFile() {
             1 -> npc("Sounds like pretty thirsty work.").also { stage++ }
             2 -> player("Well, there's an Inn in Varrock if you're desperate.").also { stage++ }
             3 -> npc("Don't worry, I'm a pretty resourceful fellow you know.").also { stage++ }
-            4 -> options(
-                "You give him the vial of ethenea...",
-                "You give him the vial of liquid honey...",
-                "You give him the vial of sulphuric broline..."
-            ).also { stage++ }
+            4 -> options("You give him the vial of ethenea...", "You give him the vial of liquid honey...", "You give him the vial of sulphuric broline...").also { stage++ }
 
             5 -> when (buttonID) {
                 1 -> {
@@ -60,11 +55,7 @@ class HopsDialogueFile : DialogueFile() {
                 }
             }
 
-            6 -> npc(
-                FacialExpression.HAPPY,
-                "Sure, I'm a regular at the Dancing Donkey Inn as it",
-                "happens."
-            ).also { stage++ }
+            6 -> npc(FacialExpression.HAPPY, "Sure, I'm a regular at the Dancing Donkey Inn as it", "happens.").also { stage++ }
 
             7 -> {
                 end()
@@ -80,11 +71,10 @@ class HopsDialogueFile : DialogueFile() {
 }
 
 /**
- * Hops varrock dialogue file
- *
- * @constructor Hops varrock dialogue file
+ * Hops varrock dialogue file.
  */
 class HopsVarrockDialogueFile : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.HOPS_341)
         when (stage) {

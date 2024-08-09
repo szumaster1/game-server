@@ -7,9 +7,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Peksa dialogue file
- *
- * @constructor Peksa dialogue file
+ * Peksa dialogue file.
  */
 class PeksaDialogueFile : DialogueFile() {
 

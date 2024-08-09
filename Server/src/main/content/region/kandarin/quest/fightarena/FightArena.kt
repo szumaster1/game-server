@@ -12,9 +12,7 @@ import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 
 /**
- * Fight arena
- *
- * @constructor Fight arena
+ * Fight arena.
  */
 @Initializable
 class FightArena : Quest("Fight Arena", 61, 60, 2, Vars.VARP_QUEST_FIGHT_ARENA_PROGRESS, 0, 1, 14) {

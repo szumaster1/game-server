@@ -21,9 +21,7 @@ import core.tools.BLUE
 import core.tools.RandomFunction
 
 /**
- * Gu tanoth crypt listeners
- *
- * @constructor Gu tanoth crypt listeners
+ * Gu tanoth crypt listeners.
  */
 class GuTanothCryptListeners : InteractionListener {
 

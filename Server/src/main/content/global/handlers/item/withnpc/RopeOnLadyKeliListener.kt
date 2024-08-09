@@ -7,9 +7,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Rope on lady keli listener
- *
- * @constructor Rope on lady keli listener
+ * Rope on lady keli listener.
  */
 class RopeOnLadyKeliListener : InteractionListener {
 

@@ -12,9 +12,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Necromancy book
- *
- * @constructor Necromancy book
+ * Necromancy book.
  */
 class NecromancyBook : InteractionListener {
 

@@ -23,10 +23,10 @@ class SeerBartenderDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     /**
-     * Buy
+     * Function to purchase an item.
      *
-     * @param item
-     * @param ammount
+     * @param item The item to be purchased.
+     * @param amount The quantity of the item to be purchased.
      */
     fun buy(item: Int, ammount: Int) {
         if (freeSlots(player) == 0) {

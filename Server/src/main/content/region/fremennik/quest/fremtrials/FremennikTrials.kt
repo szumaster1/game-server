@@ -10,20 +10,14 @@ import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 
 /**
- * Fremennik trials
- *
- * @constructor Fremennik trials
+ * Fremennik trials.
  */
 @Initializable
 class FremennikTrials : Quest("Fremennik Trials", 64, 63, 3, Vars.VARP_QUEST_FREMENNIK_TRIALS_PROGRESS, 0, 1, 10) {
 
 
     /**
-     * Skill requirement
-     *
-     * @property skill
-     * @property level
-     * @constructor Skill requirement
+     * Skill requirements.
      */
     class SkillRequirement(val skill: Int?, val level: Int?)
 
@@ -104,24 +98,9 @@ class FremennikTrials : Quest("Fremennik Trials", 64, 63, 3, Vars.VARP_QUEST_FRE
     }
 
     override fun newInstance(`object`: Any?): Quest {
-        requirements.add(
-            SkillRequirement(
-                Skills.FLETCHING,
-                25
-            )
-        )
-        requirements.add(
-            SkillRequirement(
-                Skills.CRAFTING,
-                40
-            )
-        )
-        requirements.add(
-            SkillRequirement(
-                Skills.WOODCUTTING,
-                40
-            )
-        )
+        requirements.add(SkillRequirement(Skills.FLETCHING, 25))
+        requirements.add(SkillRequirement(Skills.CRAFTING, 40))
+        requirements.add(SkillRequirement(Skills.WOODCUTTING, 40))
         return this
     }
 

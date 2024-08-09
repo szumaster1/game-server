@@ -4,9 +4,7 @@ import core.game.interaction.InteractionListener
 import core.plugin.Initializable
 
 /**
- * In search of the myreque listeners
- *
- * @constructor In search of the myreque listeners
+ * In search of the myreque listeners.
  */
 @Initializable
 class InSearchOfTheMyrequeListeners : InteractionListener {

@@ -10,9 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Blurberry cocktail guide
- *
- * @constructor Blurberry cocktail guide
+ * Blurberry cocktail guide.
  */
 class BlurberryCocktailGuide : InteractionListener {
 

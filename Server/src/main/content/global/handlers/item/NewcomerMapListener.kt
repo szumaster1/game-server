@@ -6,9 +6,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Newcomer map listener
- *
- * @constructor Newcomer map listener
+ * Newcomer map listener.
  */
 class NewcomerMapListener : InteractionListener {
 

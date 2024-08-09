@@ -13,9 +13,7 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
 /**
- * Lighthouse bridge listener
- *
- * @constructor Lighthouse bridge listener
+ * Lighthouse bridge listener.
  */
 class LighthouseBridgeListener : InteractionListener {
 

@@ -8,137 +8,101 @@ import core.game.node.entity.player.Player
 import core.tools.colorize
 
 /**
- * Chompy bird hunting
+ * Chompy bird hunting.
  *
- * @property id
- * @property kills
- * @property rankName
- * @constructor Chompy bird hunting
+ * @property id The ID of the Chompy bird hunting.
+ * @property kills The number of kills required for the Chompy bird hunting.
+ * @property rankName The rank name of the Chompy bird hunting.
+ * @constructor Initializes a Chompy bird hunting with the given ID, kills, and rank name.
  */
 enum class ChompyBirdHunting(val id: Int, val kills: Int, val rankName: String) {
     /**
-     * O Bowman
-     *
-     * @constructor O Bowman
+     * Ogre Bowman Chompy bird hunting.
      */
     O_BOWMAN(Items.CHOMPY_BIRD_HAT_2978, 30, "an Ogre Bowman"),
 
     /**
-     * Bowman
-     *
-     * @constructor Bowman
+     * Bowman Chompy bird hunting.
      */
     BOWMAN(Items.CHOMPY_BIRD_HAT_2979, 40, "a Bowman"),
 
     /**
-     * O Yeoman
-     *
-     * @constructor O Yeoman
+     * Ogre Yeoman Chompy bird hunting.
      */
     O_YEOMAN(Items.CHOMPY_BIRD_HAT_2980, 50, "an Ogre Yeoman"),
 
     /**
-     * Yeoman
-     *
-     * @constructor Yeoman
+     * Yeoman Chompy bird hunting.
      */
     YEOMAN(Items.CHOMPY_BIRD_HAT_2981, 70, "a Yeoman"),
 
     /**
-     * O Marksman
-     *
-     * @constructor O Marksman
+     * Ogre Marksman Chompy bird hunting.
      */
     O_MARKSMAN(Items.CHOMPY_BIRD_HAT_2982, 95, "an Ogre Marksman"),
 
     /**
-     * Marksman
-     *
-     * @constructor Marksman
+     * Marksman Chompy bird hunting.
      */
     MARKSMAN(Items.CHOMPY_BIRD_HAT_2983, 125, "a Marksman"),
 
     /**
-     * O Woodsman
-     *
-     * @constructor O Woodsman
+     * Ogre Woodsman Chompy bird hunting.
      */
     O_WOODSMAN(Items.CHOMPY_BIRD_HAT_2984, 170, "an Ogre Woodsman"),
 
     /**
-     * Woodsman
-     *
-     * @constructor Woodsman
+     * Woodsman Chompy bird hunting.
      */
     WOODSMAN(Items.CHOMPY_BIRD_HAT_2985, 225, "a Woodsman"),
 
     /**
-     * O Forester
-     *
-     * @constructor O Forester
+     * Ogre Forester Chompy bird hunting.
      */
     O_FORESTER(Items.CHOMPY_BIRD_HAT_2986, 300, "an Ogre Forester"),
 
     /**
-     * Forester
-     *
-     * @constructor Forester
+     * Forester Chompy bird hunting.
      */
     FORESTER(Items.CHOMPY_BIRD_HAT_2987, 400, "a Forester"),
 
     /**
-     * O Bowmaster
-     *
-     * @constructor O Bowmaster
+     * Ogre Bowmaster Chompy bird hunting.
      */
     O_BOWMASTER(Items.CHOMPY_BIRD_HAT_2988, 550, "an Ogre Bowmaster"),
 
     /**
-     * Bowmaster
-     *
-     * @constructor Bowmaster
+     *  Bowmaster Chompy bird hunting.
      */
     BOWMASTER(Items.CHOMPY_BIRD_HAT_2989, 700, "a Bowmaster"),
 
     /**
-     * O Expert
-     *
-     * @constructor O Expert
+     * Ogre Expert Chompy bird hunting.
      */
     O_EXPERT(Items.CHOMPY_BIRD_HAT_2990, 1000, "an Ogre Expert"),
 
     /**
-     * Expert
-     *
-     * @constructor Expert
+     * Expert Chompy bird hunting.
      */
     EXPERT(Items.CHOMPY_BIRD_HAT_2991, 1300, "an Expert"),
 
     /**
-     * O Da
-     *
-     * @constructor O Da
+     * Ogre Dragon Archer.
      */
     O_DA(Items.CHOMPY_BIRD_HAT_2992, 1700, "an Ogre Dragon Archer"),
 
     /**
-     * Da
-     *
-     * @constructor Da
+     * Dragon Archer.
      */
     DA(Items.CHOMPY_BIRD_HAT_2993, 2250, "a Dragon Archer"),
 
     /**
-     * Eo Da
-     *
-     * @constructor Eo Da
+     * Expert Ogre Dragon Archer.
      */
     EO_DA(Items.CHOMPY_BIRD_HAT_2994, 3000, "an Expert Ogre Dragon Archer"),
 
     /**
-     * E Da
-     *
-     * @constructor E Da
+     * Expert Dragon Archer.
      */
     E_DA(Items.CHOMPY_BIRD_HAT_2995, 4000, "an Expert Dragon Archer");
 
@@ -146,6 +110,12 @@ enum class ChompyBirdHunting(val id: Int, val kills: Int, val rankName: String) 
 
         val killMap = values().map { it.kills to it }.toMap()
 
+        /**
+         * Checks if the player has reached a new rank based on
+         * their number of kills.
+         *
+         * @param player The player to check.
+         */
         fun checkForNewRank(player: Player) {
             val kills = getAttribute(player, "chompy-kills", 0)
             val newRank = killMap[kills] ?: return
@@ -157,6 +127,12 @@ enum class ChompyBirdHunting(val id: Int, val kills: Int, val rankName: String) 
             )
         }
 
+        /**
+         * Gets the applicable Chompy bird hunting hats for the player.
+         *
+         * @param player The player to get the hats for.
+         * @return The list of applicable hat IDs.
+         */
         fun getApplicableHats(player: Player): List<Int> {
             val kills = getAttribute(player, "chompy-kills", 0)
             val hats = ArrayList<Int>()
@@ -171,9 +147,7 @@ enum class ChompyBirdHunting(val id: Int, val kills: Int, val rankName: String) 
 }
 
 /**
- * Chompy equip listener
- *
- * @constructor Chompy equip listener
+ * Chompy equip listener.
  */
 class ChompyEquipListener : InteractionListener {
 

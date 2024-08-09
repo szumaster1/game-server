@@ -10,9 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Games book
- *
- * @constructor Games book
+ * Games book.
  */
 class GamesBook : InteractionListener {
 

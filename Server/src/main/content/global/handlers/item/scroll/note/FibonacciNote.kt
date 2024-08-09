@@ -9,12 +9,9 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Fibonacci note
- *
- * @constructor Fibonacci note
+ * Fibonacci note.
  */
 class FibonacciNote : InteractionListener {
-
 
     companion object {
         private fun NotesTheFeud(player: Player) {
