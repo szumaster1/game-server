@@ -133,10 +133,11 @@ enum class EnchantedJewellery(val options: Array<String>, val locations: Array<L
                         if (isLastItemIndex(itemIndex)) {
                             if (isCrumble) crumbleJewellery(player, item, isEquipped)
                         } else {
-                            sendMessage(player, "Your " + getJewelleryType(item) + " has " + NumberConverter.convert(nextJewellery.name.replace("[^\\d-]|-(?=\\D)".toRegex(), "").toInt()) + " uses left.")
                             replaceJewellery(player, item, nextJewellery, isEquipped)
                         }
                         unlock(player)
+                        val jewellery = nextJewellery.name.replace("[^\\d-]|-(?=\\D)".toRegex(), "").toInt()
+                        sendMessage(player, "Your " + getJewelleryType(item) + " has " + NumberConverter.convert(jewellery) + " uses left.")
                         player.dispatch(TeleportEvent(TeleportManager.TeleportType.NORMAL, TeleportMethod.JEWELRY, item, location))
                         return true
                     }
