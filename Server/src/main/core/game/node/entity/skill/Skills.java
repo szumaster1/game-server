@@ -37,7 +37,7 @@ public final class Skills {
     /**
      * The Experience multiplier.
      */
-    public double experienceMultiplier = 50.0;
+    public double experienceMultiplier = 500.0;
     /**
      * The constant SKILL_NAME.
      */
@@ -429,7 +429,7 @@ public final class Skills {
                 setLifepoints(staticLevels[i]);
             }
         }
-        experienceMultiplier = 50.0;
+        experienceMultiplier = 500.0;
         updateCombatLevel();
     }
 

@@ -106,7 +106,7 @@ class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
                     }
                     2 -> {
                         setTitle(player!!, 4)
-                        sendDialogueOptions(player!!, "What experience multiplier do you choose?", "1.0x", "25.0x", "50.0x", "100x")
+                        sendDialogueOptions(player!!, "What experience multiplier do you choose?", "1.0x", "25.0x", "500.0x", "1000x")
                         stage = 20
                     }
                     3 -> npcl(FacialExpression.FRIENDLY, "Well, you're all finished here now. I'll give you a reasonable number of starting items when you leave.").also { stage = 30 }
@@ -118,17 +118,17 @@ class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
                         val mode = IronmanMode.values()[buttonId - 1]
                         sendDialogue(player,"You set your ironman mode to: ${mode.name}.")
                         player.ironmanManager.mode = mode
-                        if (player.skills.experienceMultiplier == 100.0 && mode != IronmanMode.HARDCORE) player.skills.experienceMultiplier = 50.0
+                        if (player.skills.experienceMultiplier == 1000.0 && mode != IronmanMode.HARDCORE) player.skills.experienceMultiplier = 500.0
                     } else {
                         handle(interfaceId, 0)
                     }
                 }
 
                 20 -> {
-                    val rates = arrayOf(1.0, 25.0, 50.0, 100.0)
+                    val rates = arrayOf(1.0, 25.0, 500.0, 1000.0)
                     val rate = rates[buttonId - 1]
-                    if (rate == 100.0 && player.ironmanManager.mode != IronmanMode.HARDCORE) {
-                        sendDialogue(player,"100.0x is only available to Hardcore Ironmen!")
+                    if (rate == 1000.0 && player.ironmanManager.mode != IronmanMode.HARDCORE) {
+                        sendDialogue(player,"1000.0x is only available to Hardcore Ironmen!")
                         stage = 0
                         return true
                     }
@@ -196,8 +196,8 @@ class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
                     )
                     if (player.ironmanManager.mode == IronmanMode.HARDCORE) {
                         setAttribute(player, "/save:permadeath", true)
-                    } else if (player.skills.experienceMultiplier == 100.0) {
-                        player.skills.experienceMultiplier = 50.0
+                    } else if (player.skills.experienceMultiplier == 1000.0) {
+                        player.skills.experienceMultiplier = 500.0
                     }
 
                     stage = 39
