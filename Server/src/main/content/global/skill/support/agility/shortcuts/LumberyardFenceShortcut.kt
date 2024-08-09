@@ -1,5 +1,6 @@
 package content.global.skill.support.agility.shortcuts
 
+import content.global.skill.support.agility.AgilityHandler
 import core.api.*
 import core.api.consts.Animations
 import core.api.consts.Scenery
@@ -20,36 +21,21 @@ class LumberyardFenceShortcut : InteractionListener {
          */
         on(BROKEN_FENCE, IntType.SCENERY, "squeeze-under") { player, node ->
             lock(player, 1)
-            queueScript(player, 0, QueueStrength.SOFT) { stage: Int ->
-                when (stage) {
-                    0 -> {
-                        if (player.location.y != 3498)
-                            forceWalk(player, node.location, "Smart")
-                        return@queueScript keepRunning(player)
-                    }
-
-                    1 -> {
-                        forceMove(
-                            player,
-                            player.location,
-                            player.location.transform(
-                                if (player.location.x < 3296) Direction.EAST else Direction.WEST, 1
-                            ),
-                            0,
-                            30,
-                            null,
-                            SQUEEZE_UNDER_ANIM.id
-                        )
-                        return@queueScript stopExecuting(player)
-
-                    }
-
-                    else -> return@queueScript stopExecuting(player)
-                }
-            }
+            AgilityHandler.forceWalk(
+                player,
+                0,
+                player.location,
+                player.location.transform(
+                    if (player.location.x < 3296) Direction.EAST else Direction.WEST, 1
+                ),
+                SQUEEZE_UNDER_ANIM,
+                15,
+                0.0,
+                ""
+            )
             return@on true
         }
     }
-
-
 }
+
+

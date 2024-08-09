@@ -65,4 +65,5 @@ object Regions {
     const val DESERT_REGION_13617 = 13617
     const val DESERT_REGION_13872 = 13872
     const val DESERT_REGION_13873 = 13873
+    const val LUMBERYARD_13110 = 13110
 }
