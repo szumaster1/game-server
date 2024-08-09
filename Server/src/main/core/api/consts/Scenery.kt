@@ -504,6 +504,7 @@ object Scenery {
     const val LADDER_743 = 743
     const val SCAFFOLD_744 = 744
     const val CAVE_ENTRANCE_748 = 748
+    const val CRATE_767 = 767
     const val BAMBOO_DOOR_779 = 779
     const val LOOM_787 = 787
     const val CITY_GATE_788 = 788

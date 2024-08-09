@@ -2,10 +2,10 @@ package content.region.misthalin.handlers.varrock
 
 import content.region.misthalin.dialogue.varrock.SawmillOperatorDialogue
 import core.api.*
-import core.api.consts.Components
-import core.api.consts.Items
+import core.api.consts.*
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
+import core.game.interaction.QueueStrength
 import core.game.node.entity.npc.NPC
 import core.game.world.map.Direction
 import core.game.world.map.Location
@@ -18,16 +18,16 @@ import core.tools.RandomFunction
 class LumberyardListeners : InteractionListener {
 
     companion object {
-        private val CRATE = intArrayOf(767, 2620)
-        private val SQUEEZE_UNDER_ANIM = Animation.create(9221)
-        private const val SAWMILL_OPERATOR = 4250
-        private const val LUMBERYARD_FENCE = 31149
+        private val CRATE = intArrayOf(Scenery.CRATE_767, Scenery.CRATE_2620)
+        private val SQUEEZE_UNDER_ANIM = Animation.create(Animations.ENTER_LUMBER_YARD_9221)
+        private const val SAWMILL_OPERATOR = NPCs.SAWMILL_OPERATOR_4250
+        private const val BROKEN_FENCE = Scenery.FENCE_31149
     }
 
     override fun defineListeners() {
 
         /**
-         * Quest related interaction with crates. (Gertrude's Cat)
+         * Gertrude's Cat quest related interaction.
          */
         on(CRATE, IntType.SCENERY, "search") { player, node ->
 
@@ -60,16 +60,42 @@ class LumberyardListeners : InteractionListener {
         }
 
         /**
-         * Squeeze-under hole interaction
-         * on the yard's west wall.
+         * Squeeze-under hole on the yard's west wall.
          */
-        on(LUMBERYARD_FENCE, IntType.SCENERY, "squeeze-under") { player, _ ->
-            forceMove(player, player.location, player.location.transform(if (player.location.x < 3296) Direction.EAST else Direction.WEST, 1), 0, SQUEEZE_UNDER_ANIM.duration, null, SQUEEZE_UNDER_ANIM.id)
+        on(BROKEN_FENCE, IntType.SCENERY, "squeeze-under") { player, node ->
+            lock(player, 1)
+            queueScript(player, 0, QueueStrength.SOFT) { stage: Int ->
+                when (stage) {
+                    0 -> {
+                        if (player.location.y != 3498)
+                            forceWalk(player, node.location, "Smart")
+                        return@queueScript keepRunning(player)
+                    }
+
+                    1 -> {
+                        forceMove(
+                            player,
+                            player.location,
+                            player.location.transform(
+                                if (player.location.x < 3296) Direction.EAST else Direction.WEST, 1
+                            ),
+                            0,
+                            30,
+                            null,
+                            SQUEEZE_UNDER_ANIM.id
+                        )
+                        return@queueScript stopExecuting(player)
+
+                    }
+
+                    else -> return@queueScript stopExecuting(player)
+                }
+            }
             return@on true
         }
 
         /**
-         * Sawmill operator interactions.
+         * Sawmill operator option listeners.
          */
         on(SAWMILL_OPERATOR, IntType.NPC, "talk-to") { player, _ ->
             openDialogue(player, SawmillOperatorDialogue())
