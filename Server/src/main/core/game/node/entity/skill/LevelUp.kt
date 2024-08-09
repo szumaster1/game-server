@@ -72,13 +72,20 @@ object LevelUp {
             // Display random graphic.
             Graphic.send(Graphic(GRAPHIC.random(), 0, 50), player.location)
 
-            // Check if the player has reached the maximum total level.
-            if (player.skills.getTotalLevel() == 2376) {
-                // Send news message for achieving maximum total level.
-                sendNews(player.username + " has just achieved level 99 in all skills!")
-                // Send congratulations message to the player.
-                sendMessage(player, DARK_RED + "Congratulations! Well done! You've reached the maximum Total level possible!")
-            }
+        }
+
+        // Send news message for achieving skill milestone.
+        if (TOTAL_LEVEL_MILESTONES.contains(player.skills.getTotalLevel())) {
+            Graphic.send(Graphic(GRAPHIC.random(), 0, 50), player.location)
+            sendMessage(player,DARK_RED + "Well done! You've reached the total level ${player.skills.getTotalLevel()} milestone!")
+        }
+
+        if (player.skills.getTotalLevel() == 2376) {
+            Graphic.send(Graphic(GRAPHIC.random(), 0, 50), player.location)
+            // Send news message for achieving maximum total level.
+            sendNews(player.username + " has just achieved level 99 in all skills!")
+            // Send congratulations message to the player.
+            sendMessage(player, DARK_RED + "Congratulations! Well done! You've reached the maximum Total level possible!")
         }
 
         // Set attribute to save level up state.
@@ -134,13 +141,6 @@ object LevelUp {
                     value = value or 0x4
                     player.getSkills().skillMilestone = i
                 }
-                break
-            }
-
-            // Check if total level milestone is reached.
-            if (player.skills.getTotalLevel() in TOTAL_LEVEL_MILESTONES.indices) {
-                Graphic.send(Graphic(GRAPHIC.random(), 0, 50), player.location)
-                sendMessage(player, DARK_RED + "Well done! You've reached the total level $totalLevel milestone!")
                 break
             }
         }
