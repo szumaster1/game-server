@@ -1,5 +1,7 @@
 package content.region.misthalin.handlers
 
+import core.api.consts.NPCs
+import core.api.consts.Scenery
 import core.game.global.action.ClimbActionHandler
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
@@ -11,7 +13,7 @@ import core.game.world.map.Location
 class MonasteryListeners : InteractionListener {
 
     companion object {
-        private const val STAIRS = 2641
+        private const val LADDER = Scenery.LADDER_2641
     }
 
     override fun defineListeners() {
@@ -19,13 +21,13 @@ class MonasteryListeners : InteractionListener {
         /**
          * Entrance leading to the 1st floor of the monastery.
          */
-        on(STAIRS, IntType.SCENERY, "climb-up"){ player, node ->
+        on(LADDER, IntType.SCENERY, "climb-up"){ player, node ->
             when (node.id) {
-                2641 -> {
+                LADDER -> {
                     val option = "climb-up"
                     val abbot = node.location.equals(Location(3057, 3483, 0))
                     if (!player.getSavedData().globalData.isJoinedMonastery()) {
-                        player.dialogueInterpreter.open(if (abbot) 801 else 7727, true)
+                        player.dialogueInterpreter.open(if (abbot) NPCs.ABBOT_LANGLEY_801 else NPCs.MONK_7727, true)
                     } else {
                         ClimbActionHandler.climbLadder(player, node.asScenery(), option)
                     }

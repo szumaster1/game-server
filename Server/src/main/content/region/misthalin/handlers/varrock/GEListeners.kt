@@ -15,7 +15,7 @@ import core.api.consts.Scenery
 /**
  * Grand exchange listeners.
  */
-class GrandExchangeListeners : InteractionListener {
+class GEListeners : InteractionListener {
 
     companion object {
         private val CLERK = intArrayOf(6531, 6529, 6530, 6528)

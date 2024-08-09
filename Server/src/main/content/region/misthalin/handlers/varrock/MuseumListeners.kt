@@ -15,9 +15,7 @@ import core.game.world.map.zone.ZoneBorders
 import core.game.world.update.flag.context.Animation
 
 /**
- * Museum listeners
- *
- * @constructor Museum listeners
+ * Museum listeners.
  */
 class MuseumListeners : InteractionListener, InterfaceListener, MapArea {
 
