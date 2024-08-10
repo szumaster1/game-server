@@ -88,12 +88,12 @@ class SawmillPlankInterfacePlugin : ComponentPlugin() {
 }
 
 /**
- * Plank
+ * Plank enum class.
  *
- * @property log
- * @property plank
- * @property price
- * @constructor Plank
+ * @param log   The log id.
+ * @param plank The plank id.
+ * @param price The currency.
+ * @return plank.
  */
 enum class Plank(val log: Item, val plank: Item, val price: Int) {
     /**

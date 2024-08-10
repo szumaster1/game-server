@@ -1,6 +1,10 @@
 package content.global.handlers.iface.plugin
 
+import core.api.closeChatBox
 import core.api.consts.Components
+import core.api.openOverlay
+import core.api.sendMessage
+import core.api.setInterfaceText
 import core.game.component.Component
 import core.game.component.ComponentDefinition
 import core.game.component.ComponentPlugin
@@ -34,20 +38,22 @@ class GameInterfacePlugin : ComponentPlugin() {
         when (component.id) {
             Components.GAME_INTERFACE_740 -> {
                 when (button) {
-                    3 -> player.interfaceManager.closeChatbox()
+                    3 -> closeChatBox(player)
                 }
                 return true
             }
 
             Components.TOPLEVEL_FULLSCREEN_746 -> {
                 when (button) {
-                    12 -> player.packetDispatch.sendString(
+                    12 -> setInterfaceText(
+                        player,
                         "When you have finished playing " + settings!!.name + ", always use the button below to logout safely. ",
                         182,
                         0
                     )
 
-                    49 -> player.packetDispatch.sendString(
+                    49 -> setInterfaceText(
+                        player,
                         "Friends List - " + settings!!.name + " " + settings!!.worldId,
                         550,
                         3
@@ -63,7 +69,8 @@ class GameInterfacePlugin : ComponentPlugin() {
                     player.interfaceManager.currentTabIndex = getTabIndex(button)
                 }
                 when (button) {
-                    21 -> player.packetDispatch.sendString(
+                    21 -> setInterfaceText(
+                        player,
                         "Friends List -" + settings!!.name + " " + settings!!.worldId,
                         Components.FRIENDS2_550,
                         3
@@ -87,7 +94,8 @@ class GameInterfacePlugin : ComponentPlugin() {
                     43 -> {}
                     44 -> {}
                     66, 110 -> configureWorldMap(player)
-                    69 -> player.packetDispatch.sendString(
+                    69 -> setInterfaceText(
+                        player,
                         "When you have finished playing " + settings!!.name + ", always use the button below to logout safely. ",
                         182,
                         0
@@ -121,14 +129,14 @@ class GameInterfacePlugin : ComponentPlugin() {
 
     private fun configureWorldMap(player: Player) {
         if (player.inCombat()) {
-            player.packetDispatch.sendMessage("It wouldn't be very wise opening the world map during combat.")
+            sendMessage(player, "It wouldn't be very wise opening the world map during combat.")
             return
         }
         if (player.locks.isInteractionLocked || player.locks.isMovementLocked) {
-            player.packetDispatch.sendMessage("You can't do this right now.")
+            sendMessage(player, "You can't do this right now.")
             return
         }
-        player.interfaceManager.openWindowsPane(Component(755))
+        openOverlay(player, Components.WORLDMAP_755)
         val posHash = (player.location.z shl 28) or (player.location.x shl 14) or player.location.y
         player.packetDispatch.sendScriptConfigs(622, posHash, "", 0)
         player.packetDispatch.sendScriptConfigs(674, posHash, "", 0)

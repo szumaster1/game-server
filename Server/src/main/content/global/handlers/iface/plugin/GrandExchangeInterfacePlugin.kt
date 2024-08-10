@@ -1,9 +1,12 @@
 package content.global.handlers.iface.plugin
 
 import content.global.handlers.iface.ge.StockMarketInterfaceListener.Companion.withdraw
+import core.api.closeChatBox
 import core.api.consts.Components
 import core.api.consts.Sounds
+import core.api.freeSlots
 import core.api.playAudio
+import core.api.sendMessage
 import core.cache.def.impl.CS2Mapping
 import core.cache.def.impl.ItemDefinition
 import core.game.component.Component
@@ -85,17 +88,17 @@ class GrandExchangeInterfacePlugin : ComponentPlugin() {
     /**
      * Handle search interface.
      *
-     * @param player the player object.
-     * @param opcode the operation code.
-     * @param button the button clicked.
-     * @param slot the slot number.
-     * @param itemId the item ID.
+     * @param player The player object.
+     * @param opcode The operation code.
+     * @param button The button clicked.
+     * @param slot   The slot number.
+     * @param itemId The item ID.
      * @return true if the operation is successful, false otherwise.
      */
     fun handleSearchInterface(player: Player, opcode: Int, button: Int, slot: Int, itemId: Int): Boolean {
         when (button) {
             10 -> {
-                player.interfaceManager.closeChatbox()
+                closeChatBox(player)
                 return true
             }
         }
@@ -105,11 +108,11 @@ class GrandExchangeInterfacePlugin : ComponentPlugin() {
     /**
      * Handle collection box.
      *
-     * @param player the player object.
-     * @param opcode the operation code.
-     * @param button the button clicked.
-     * @param slot the slot number.
-     * @param itemId the item ID.
+     * @param player The player object.
+     * @param opcode The operation code.
+     * @param button The button clicked.
+     * @param slot   The slot number.
+     * @param itemId The item ID.
      * @return true if the operation is successful, false otherwise.
      */
     fun handleCollectionBox(player: Player?, opcode: Int, button: Int, slot: Int, itemId: Int): Boolean {
@@ -148,15 +151,15 @@ class GrandExchangeInterfacePlugin : ComponentPlugin() {
         }
 
         if (opcode != 127 && inventory && set == null) {
-            player.packetDispatch.sendMessage("This isn't a set item.")
+            sendMessage(player, "This isn't a set item.")
             return
         }
         when (opcode) {
-            124 -> player.packetDispatch.sendMessage(item.definition.examine)
+            124 -> sendMessage(player, item.definition.examine)
             196 -> {
                 if (inventory) {
-                    if (player.inventory.freeSlots() < set.components.size - 1) {
-                        player.packetDispatch.sendMessage("You don't have enough inventory space for the component parts.")
+                    if (freeSlots(player) < set.components.size - 1) {
+                        sendMessage(player, "You don't have enough inventory space for the component parts.")
                         return
                     }
                     if (!player.inventory.remove(item, false)) {
@@ -166,17 +169,17 @@ class GrandExchangeInterfacePlugin : ComponentPlugin() {
                         player.inventory.add(Item(id, 1))
                     }
                     player.inventory.refresh()
-                    player.packetDispatch.sendMessage("You successfully traded your set for its component items!")
+                    sendMessage(player, "You successfully traded your set for its component items!")
                 } else {
                     if (!player.inventory.containItems(*set.components)) {
-                        player.packetDispatch.sendMessage("You don't have the parts that make up this set.")
+                        sendMessage(player, "You don't have the parts that make up this set.")
                     }
                     for (id in set.components) {
                         player.inventory.remove(Item(id, 1), false)
                     }
                     player.inventory.add(item)
                     player.inventory.refresh()
-                    player.packetDispatch.sendMessage("You successfully traded your item components for a set!")
+                    sendMessage(player, "You successfully traded your item components for a set!")
                 }
                 playAudio(player, Sounds.GE_TRADE_OK_4044)
                 PacketRepository.send(
@@ -214,7 +217,7 @@ class GrandExchangeInterfacePlugin : ComponentPlugin() {
                 if (buttonId >= 167 && buttonId <= 182) {
                     subtract = 167
                 }
-                player.packetDispatch.sendMessage(ItemDefinition.forId(type.items[buttonId - subtract].item).examine)
+                sendMessage(player, ItemDefinition.forId(type.items[buttonId - subtract].item).examine)
             }
         }
     }

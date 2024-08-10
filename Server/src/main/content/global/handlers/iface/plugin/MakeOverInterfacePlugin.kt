@@ -1,6 +1,7 @@
 package content.global.handlers.iface.plugin
 
 import core.api.*
+import core.api.consts.Components
 import core.api.consts.Items
 import core.game.component.Component
 import core.game.component.ComponentDefinition
@@ -35,7 +36,7 @@ class MakeOverInterfacePlugin : ComponentPlugin() {
         sendAnimationOnInterface(player, FacialExpression.SILENT.animationId, component.id, FEMALE_CHILD_ID)
 
         if (inInventory(player, Items.MAKEOVER_VOUCHER_5606)) {
-            player.packetDispatch.sendString("USE MAKEOVER VOUCHER", component.id, TEXT_CHILD)
+            setInterfaceText(player, "USE MAKEOVER VOUCHER", component.id, TEXT_CHILD)
         }
 
         val currentSkin = player.appearance.skin.color
@@ -100,7 +101,7 @@ class MakeOverInterfacePlugin : ComponentPlugin() {
         val newGender = player.getAttribute("mm-gender", player.appearance.gender.ordinal)
 
         if (newColor == player.appearance.skin.color && Gender.values()[newGender] == player.appearance.gender) {
-            player.interfaceManager.close()
+            closeInterface(player)
         } else {
             val currency = if (inInventory(player, Items.MAKEOVER_VOUCHER_5606)) {
                 Item(Items.MAKEOVER_VOUCHER_5606, 1)
@@ -108,10 +109,10 @@ class MakeOverInterfacePlugin : ComponentPlugin() {
 
             if (player.inventory.containsItem(currency)) {
                 setAttribute(player, "mm-paid", true)
-                player.inventory.remove(currency)
-                player.interfaceManager.close()
+                removeItem(player, currency)
+                closeInterface(player)
             } else {
-                player.dialogueInterpreter.sendDialogue("You can not afford that.")
+                sendDialogue(player, "You can not afford that.")
             }
         }
     }
@@ -131,7 +132,7 @@ class MakeOverInterfacePlugin : ComponentPlugin() {
     }
 
     override fun newInstance(arg: Any?): Plugin<Any> {
-        ComponentDefinition.put(205, this)
+        ComponentDefinition.put(Components.MAKEOVER_MAGE_205, this)
         return this
     }
 

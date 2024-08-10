@@ -6,7 +6,6 @@ import core.game.component.ComponentPlugin
 import core.game.node.entity.player.Player
 import core.plugin.Plugin
 
-
 private const val GAUGE_UPDATE_SCRIPT = 894
 private const val COLD_OFFSET = 22
 private const val HOT_OFFSET = 18
