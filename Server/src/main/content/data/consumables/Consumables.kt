@@ -248,6 +248,13 @@ enum class Consumables {
     CAVE_EEL(Food(intArrayOf(Items.CAVE_EEL_5003), HealingEffect(7))),
 
     /**
+     * Caviar
+     *
+     * @constructor Caviar
+     */
+    CAVIAR(Food(intArrayOf(Items.CAVIAR_11326), HealingEffect(5))),
+
+    /**
      * Lobster
      *
      * @constructor Lobster
