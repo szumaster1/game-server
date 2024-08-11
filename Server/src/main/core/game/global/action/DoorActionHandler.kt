@@ -30,7 +30,7 @@ object DoorActionHandler {
     /**
      * Handles a door reward.
      *
-     * @param player The player.
+     * @param player  The player.
      * @param scenery The object.
      */
     @JvmStatic
@@ -112,8 +112,8 @@ object DoorActionHandler {
     /**
      * Method wrapper for handling the auto walk door.
      *
-     * @param entity the entity.
-     * @param scenery the object.
+     * @param entity  The entity.
+     * @param scenery The object.
      * @return the boolean
      */
     @JvmStatic
@@ -201,8 +201,8 @@ object DoorActionHandler {
     /**
      * Gets the end location to walk to.
      *
-     * @param entity the entity.
-     * @param object the object.
+     * @param entity The entity.
+     * @param object The object.
      * @return the end location.
      */
     fun getEndLocation(entity: Entity, `object`: Scenery): Location {
@@ -212,9 +212,9 @@ object DoorActionHandler {
     /**
      * Gets end location.
      *
-     * @param entity     the entity
-     * @param object     the object
-     * @param isAutoWalk the is auto walk
+     * @param entity     The entity
+     * @param object     The object
+     * @param isAutoWalk The is auto walk
      * @return the end location
      */
     fun getEndLocation(entity: Entity, `object`: Scenery, isAutoWalk: Boolean?): Location {
@@ -311,10 +311,10 @@ object DoorActionHandler {
      *
      * @param object          The door object.
      * @param second          The second door object.
-     * @param replaceId       The replace id.
+     * @param replaceId       The replacement id.
      * @param secondReplaceId The second replace id.
      * @param clip            If clipping should be changed due to opening the door.
-     * @param restoreTicks    The amount of ticks before the door(s) should be                        closed again.
+     * @param restoreTicks    The amount of ticks before the door(s) should be closed again.
      * @param fence           the fence
      */
     fun open(
@@ -371,9 +371,9 @@ object DoorActionHandler {
     /**
      * Handles the opening of a fence.
      *
-     * @param scenery          The fence object.
+     * @param scenery         The fence object.
      * @param second          The second fence object.
-     * @param replaceId       The replace id.
+     * @param replaceId       The replacement id.
      * @param secondReplaceId The second replace id.
      * @param clip            If clipping should be changed due to opening the door.
      * @param restoreTicks    The amount of ticks before the door(s) should be
@@ -434,9 +434,9 @@ object DoorActionHandler {
     /**
      * Handles the opening of a fence.
      *
-     * @param entity          the entity
-     * @param scenery          The fence object.
-     * @param replaceId       The replace id.
+     * @param entity          The entity.
+     * @param scenery         The fence object.
+     * @param replaceId       The replacement id.
      * @param secondReplaceId The second replace id.
      * @return the boolean
      */
@@ -499,7 +499,7 @@ object DoorActionHandler {
     /**
      * Gets the rotation point for the object.
      *
-     * @param rotation the rotation
+     * @param rotation The rotation.
      * @return The rotation point.
      */
     @JvmStatic
@@ -517,7 +517,7 @@ object DoorActionHandler {
      * Gets the door next to this door.
      *
      * @param scenery The door.
-     * @param entity the entity
+     * @param entity  The entity.
      * @return The second door, if any, `null` if no second door existed.
      */
     @JvmStatic
@@ -544,8 +544,8 @@ object DoorActionHandler {
      * Gets the rotations to set the opened doors to.
      *
      * @param scenery The first door.
-     * @param second The second door.
-     * @param rp     The rotation point.
+     * @param second  The second door.
+     * @param rp      The rotation point.
      * @return An int-array, with index 0 being first door rotation and index 1 being second door rotation.
      */
     fun getRotation(scenery: Scenery, second: Scenery?, rp: Point): IntArray {

@@ -7,28 +7,31 @@ import core.game.node.entity.player.info.PlayerMonitor.log
 import core.game.system.command.CommandMapping.get
 
 /**
- * Abuse report
+ * Abuse report.
  *
- * @property reporter
- * @property victim
- * @property rule
- * @constructor Abuse report
+ * @property reporter The player reporting the abuse.
+ * @property victim   The player being reported.
+ * @property rule     The rule violated.
+ * @constructor Initializes an AbuseReport instance with reporter, victim, and rule.
  */
 class AbuseReport(val reporter: String, val victim: String, val rule: Rule) {
 
     var messages: String? = null
 
     /**
-     * Construct
+     * Construct method to handle abuse report.
      *
-     * @param player
-     * @param mute
+     * @param player The player making the report.
+     * @param mute   Flag indicating if the player should be muted.
      */
     fun construct(player: Player, mute: Boolean) {
         if (mute) {
+            // Attempt to mute the reported player for 48 hours
             get("mute")!!.attemptHandling(player, arrayOf("mute", victim, "48h"))
         }
+        // Send a confirmation message to the reporting player
         sendMessage(player, "Thank-you, your abuse report has been received.")
-        log(player, LogType.COMMAND, reporter + "-" + victim + "-" + "Abuse Report - " + rule.name)
+        // Log the abuse report action
+        log(player, LogType.COMMAND, "$reporter-$victim-Abuse Report - ${rule.name}")
     }
 }

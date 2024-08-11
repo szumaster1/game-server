@@ -11,10 +11,10 @@ import core.tools.*
 import java.util.concurrent.atomic.AtomicBoolean
 
 /**
- * Update masks
+ * Update masks.
  *
- * @property owner
- * @constructor Update masks
+ * @property owner The owner of the update masks.
+ * @constructor Initializes the update masks.
  */
 class UpdateMasks(val owner: Entity) {
     var appearanceStamp: Long = 0
@@ -28,12 +28,12 @@ class UpdateMasks(val owner: Entity) {
     private data class MaskElement(val encoder: EFlagProvider, val context: Any?)
 
     /**
-     * Register
+     * Register an update mask.
      *
-     * @param flag
-     * @param context
-     * @param sync
-     * @return
+     * @param flag    The flag to register.
+     * @param context The context for the flag.
+     * @param sync    Whether to sync the flag or not.
+     * @return `true` if the registration was successful, `false` otherwise.
      */
     @JvmOverloads
     fun register(flag: EntityFlag, context: Any?, sync: Boolean = false): Boolean {
@@ -63,10 +63,10 @@ class UpdateMasks(val owner: Entity) {
     }
 
     /**
-     * Unregister synced
+     * Unregister a synced update mask.
      *
-     * @param ordinal
-     * @return
+     * @param ordinal The ordinal of the mask element to unregister.
+     * @return `true` if the unregistration was successful, `false` otherwise.
      */
     fun unregisterSynced(ordinal: Int): Boolean {
         if (syncedElements[ordinal] != null) {
@@ -78,11 +78,11 @@ class UpdateMasks(val owner: Entity) {
     }
 
     /**
-     * Write
+     * Write the update masks to the buffer.
      *
-     * @param p
-     * @param e
-     * @param buffer
+     * @param p      The player.
+     * @param e      The entity.
+     * @param buffer The buffer to write to.
      */
     fun write(p: Player?, e: Entity?, buffer: IoBuffer) {
         var maskData = presenceFlags
@@ -99,12 +99,12 @@ class UpdateMasks(val owner: Entity) {
     }
 
     /**
-     * Write synced
+     * Write the synced update masks to the buffer.
      *
-     * @param p
-     * @param e
-     * @param buffer
-     * @param appearance
+     * @param p          The player.
+     * @param e          The entity.
+     * @param buffer     The buffer to write to.
+     * @param appearance Whether to include the appearance flag or not.
      */
     fun writeSynced(p: Player?, e: Entity?, buffer: IoBuffer, appearance: Boolean) {
         var maskData = presenceFlags
@@ -133,9 +133,9 @@ class UpdateMasks(val owner: Entity) {
     }
 
     /**
-     * Prepare
+     * Prepare the update masks for an entity.
      *
-     * @param entity
+     * @param entity The entity to prepare the update masks for.
      */
     fun prepare(entity: Entity) {
         val handler = entity.impactHandler
@@ -150,9 +150,10 @@ class UpdateMasks(val owner: Entity) {
     }
 
     /**
-     * Registers the hit update for the given [Impact].
-     * @param e The entity.
-     * @param impact The impact to update.
+     * Registers the hit update for the given impact.
+     *
+     * @param e         The entity.
+     * @param impact    The impact to update.
      * @param secondary If the hit update is secondary.
      */
     private fun registerHitUpdate(e: Entity, impact: ImpactHandler.Impact, secondary: Boolean): HitMark {
@@ -162,8 +163,7 @@ class UpdateMasks(val owner: Entity) {
     }
 
     /**
-     * Reset
-     *
+     * Reset the update masks.
      */
     fun reset() {
         for (i in elements.indices) {
@@ -174,25 +174,26 @@ class UpdateMasks(val owner: Entity) {
     }
 
     /**
-     * Is updating
+     * Check if the update masks are currently being updated.
      *
-     * @return
+     * @return `true` if the update masks are being updated, `false` otherwise.
      */
     fun isUpdating(): Boolean {
         return updating.get()
     }
 
     /**
-     * Checks if an update is required.
-     * @return `True` if so.
+     * Check if an update is required.
+     *
+     * @return `true` if an update is required, `false` otherwise.
      */
     val isUpdateRequired: Boolean
         get() = presenceFlags != 0
 
     /**
-     * Has synced
+     * Check if there are synced update masks.
      *
-     * @return
+     * @return `true` if there are synced update masks, `false` otherwise.
      */
     fun hasSynced(): Boolean {
         return syncedPresenceFlags != 0

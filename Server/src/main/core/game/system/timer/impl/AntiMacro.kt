@@ -16,9 +16,7 @@ import core.tools.colorize
 import org.json.simple.JSONObject
 
 /**
- * Anti macro
- *
- * @constructor Anti macro
+ * Anti macro.
  */
 class AntiMacro : PersistTimer(
     runInterval = 0,

@@ -3,6 +3,9 @@ package core.game.system
 import core.game.system.security.EncryptionManager
 import core.game.world.GameWorld.majorUpdateWorker
 
+/**
+ * System manager.
+ */
 object SystemManager {
     private var state = SystemState.TERMINATED
     val updater = SystemUpdate()
@@ -10,7 +13,7 @@ object SystemManager {
     val systemConfig = SystemConfig()
     val encryption = EncryptionManager()
 
-    /*
+    /**
      * Sets the current state and handles it accordingly.
      */
     @JvmStatic

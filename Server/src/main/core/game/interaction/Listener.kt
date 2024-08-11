@@ -3,9 +3,7 @@ package core.game.interaction
 import core.api.StartupListener
 
 /**
- * Listener
- *
- * @constructor Listener
+ * Listener.
  */
 interface Listener : StartupListener {
     override fun startup() {

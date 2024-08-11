@@ -14,9 +14,7 @@ import org.json.simple.parser.JSONParser
 import java.io.FileReader
 
 /**
- * Music config loader
- *
- * @constructor Music config loader
+ * Music config loader.
  */
 class MusicConfigLoader {
     //1351 -> buttonID:songID

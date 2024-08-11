@@ -9,14 +9,18 @@ import org.json.simple.parser.JSONParser
 import java.io.FileReader
 
 /**
- * Door config loader
- *
- * @constructor Door config loader
+ * Door config loader.
  */
 class DoorConfigLoader {
     companion object {
         val DOORS = hashMapOf<Int, Door>()
 
+        /**
+         * Get door by ID.
+         *
+         * @param id The ID of the door.
+         * @return The door object with the specified ID, or null if not found.
+         */
         fun forId(id: Int): Door? {
             return DOORS[id]
         }
@@ -26,8 +30,7 @@ class DoorConfigLoader {
     var reader: FileReader? = null
 
     /**
-     * Load
-     *
+     * Load door configurations from file.
      */
     fun load() {
         var count = 0
@@ -56,10 +59,10 @@ class DoorConfigLoader {
 
 
     /**
-     * Door
+     * Door class.
      *
-     * @property id
-     * @constructor Door
+     * @property id The ID of the door.
+     * @constructor Door.
      */
     class Door(val id: Int) {
         var replaceId = 0

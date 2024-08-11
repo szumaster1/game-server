@@ -16,8 +16,7 @@ import java.io.FileReader
 /**
  * NPC config parser.
  */
-class
-NPCConfigParser {
+class NPCConfigParser {
     companion object {
         const val WEAKNESS = "weakness"
         const val LIFEPOINTS = "lifepoints"

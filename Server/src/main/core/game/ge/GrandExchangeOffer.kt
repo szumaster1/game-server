@@ -118,7 +118,10 @@ class GrandExchangeOffer {
         }
     }
 
-    /** Called when writing a brand new offer to the database. Should not be used under any other circumstance **/
+    /**
+     * Called when writing a brand new offer to the database.
+     * Should not be used under any other circumstance
+     */
     fun writeNew() {
         GEDB.run { conn ->
             if (isBot) {

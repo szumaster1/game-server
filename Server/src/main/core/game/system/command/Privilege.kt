@@ -1,29 +1,10 @@
 package core.game.system.command
 
 /**
- * Privilege
- *
- * @constructor Privilege
+ * Privileges.
  */
 enum class Privilege {
-    /**
-     * Standard
-     *
-     * @constructor Standard
-     */
     STANDARD,
-
-    /**
-     * Moderator
-     *
-     * @constructor Moderator
-     */
     MODERATOR,
-
-    /**
-     * Admin
-     *
-     * @constructor Admin
-     */
     ADMIN
 }

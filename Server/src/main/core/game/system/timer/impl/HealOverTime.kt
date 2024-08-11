@@ -10,9 +10,7 @@ import org.json.simple.JSONObject
 import kotlin.math.min
 
 /**
- * Heal over time
- *
- * @constructor Heal over time
+ * Heal over time.
  */
 class HealOverTime : PersistTimer(
     runInterval = 1,

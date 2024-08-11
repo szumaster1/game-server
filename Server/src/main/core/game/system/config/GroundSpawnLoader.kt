@@ -19,16 +19,14 @@ import java.io.StringWriter
 import java.nio.ByteBuffer
 
 /**
- * Ground spawn loader
- *
- * @constructor Ground spawn loader
+ * Ground spawn loader.
  */
 class GroundSpawnLoader {
     val parser = JSONParser()
     var reader: FileReader? = null
 
     /**
-     * Load
+     * Load.
      *
      */
     fun load() {
@@ -62,13 +60,13 @@ class GroundSpawnLoader {
     }
 
     /**
-     * Ground spawn
+     * Ground spawn.
      *
-     * @property respawnRate
-     * @constructor
+     * @property respawnRate The rate at which the ground item respawns.
+     * @constructor Creates a new GroundSpawn instance.
      *
-     * @param item
-     * @param location
+     * @param item The item to be spawned on the ground.
+     * @param location The location where the item should be spawned.
      */
     class GroundSpawn(var respawnRate: Int, item: Item?, location: Location?) : GroundItem(item, location) {
 
@@ -77,9 +75,9 @@ class GroundSpawnLoader {
         }
 
         /**
-         * Save
+         * Save.
          *
-         * @param buffer
+         * @param buffer The buffer to save the ground spawn data to.
          */
         fun save(buffer: ByteBuffer) {
             buffer.putInt(respawnRate)
@@ -90,9 +88,9 @@ class GroundSpawnLoader {
         }
 
         /**
-         * Init
+         * Init.
          *
-         * @return
+         * @return The initialized GroundItem.
          */
         fun init(): GroundItem {
             return GroundItemManager.create(this)
@@ -120,10 +118,10 @@ class GroundSpawnLoader {
         }
 
         /**
-         * Set respawn rate
+         * Set respawn rate.
          *
-         * @param min
-         * @param max
+         * @param min The minimum respawn rate.
+         * @param max The maximum respawn rate.
          */
         fun setRespawnRate(min: Int, max: Int) {
             respawnRate = min or max shl 16

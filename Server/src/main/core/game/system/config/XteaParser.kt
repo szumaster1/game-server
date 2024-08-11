@@ -9,9 +9,7 @@ import org.json.simple.parser.JSONParser
 import java.io.FileReader
 
 /**
- * Xtea parser
- *
- * @constructor Xtea parser
+ * Xtea parser.
  */
 class XteaParser {
     companion object {

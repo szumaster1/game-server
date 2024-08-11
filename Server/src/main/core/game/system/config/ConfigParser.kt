@@ -9,47 +9,64 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 /**
- * Config parser
- *
- * @constructor Config parser
+ * Config parser.
  */
 class ConfigParser : Commands {
-    /**
-     * Pre plugin
-     *
-     */
+
     fun prePlugin() {
+        // Load NPC configurations
         NPCConfigParser().load()
+
+        // Load Item configurations
         ItemConfigParser().load()
+
+        // Load Object configurations
         ObjectConfigParser().load()
+
+        // Load Xtea configurations
         XteaParser().load()
+
+        // Load Interface configurations
         InterfaceConfigParser().load()
     }
 
-    /**
-     * Post plugin
-     *
-     */
     fun postPlugin() {
+        // Load Shop configurations
         ShopParser().load()
+
+        // Load DropTable configurations
         DropTableParser().load()
+
+        // Load NPC Spawner configurations
         NPCSpawner().load()
+
+        // Load Door configurations
         DoorConfigLoader().load()
+
+        // Load Ground Spawn configurations
         GroundSpawnLoader().load()
+
+        // Load Music configurations
         MusicConfigLoader().load()
+
+        // Load Ranged configurations
         RangedConfigLoader().load()
+
+        // Load Custom Varbit configurations
         CustomVarbitParser().load()
+
+        // Load Clue Reward configurations
         ClueRewardParser().load()
     }
 
     /**
-     * Reload configs
+     * Function to reload configurations.
      *
-     * @param callback
-     * @receiver
+     * @param callback a lambda function to be executed after reloading configurations.
      */
     fun reloadConfigs(callback: () -> Unit) {
         GlobalScope.launch {
+            // Reset NPCs
             Repository.npcs.toTypedArray().forEach { npc ->
                 npc.isRespawn = false
                 npc.clear()
@@ -57,11 +74,13 @@ class ConfigParser : Commands {
                 Repository.removeRenderableNPC(npc)
             }
 
+            // Remove ground items
             GroundItemManager.getItems().toTypedArray().forEach { gi ->
                 GroundItemManager.getItems().remove(gi)
                 RegionManager.getRegionPlane(gi.location).remove(gi)
             }
 
+            // Reload configurations
             prePlugin()
             postPlugin()
 

@@ -13,11 +13,8 @@ import org.json.simple.JSONObject
 import org.json.simple.parser.JSONParser
 import java.io.FileReader
 
-
 /**
- * Drop table parser
- *
- * @constructor Drop table parser
+ * Drop table parser.
  */
 class DropTableParser {
     val parser = JSONParser()

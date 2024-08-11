@@ -6,27 +6,22 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 /**
- * System config
- *
- * @constructor System config
+ * System config.
  */
 class SystemConfig {
-    /*
+
+    /**
      * The system-object configurations.
      */
     private val configs: MutableMap<String, Any?> = HashMap()
     val betaUsers: List<String> = ArrayList(20)
 
     /**
-     * Parse
-     *
-     */
-    /*
      * Parses system configurations from the SQL database.
      */
     fun parse() {}
 
-    /*
+    /**
      * Parses a config using the SQL info given.
      */
     private fun parseConfig(key: String, value: String?, dataType: String?) {
@@ -57,19 +52,17 @@ class SystemConfig {
     }
 
     /**
-     * Valid login
-     *
-     * @param player
-     * @return
-     *//*
      * Checks if the player passes the system configuration validation.
+     *
+     * @param player The player object containing login information.
+     * @return Boolean value indicating if the login is valid.
      */
     fun validLogin(player: Player?): Boolean {
         return true
     }
 
     val isDoubleExp: Boolean
-        /*
+        /**
          * Checks if double experience is active.
          */
         get() {
@@ -78,13 +71,11 @@ class SystemConfig {
         }
 
     /**
-     * Split
-     *
-     * @param data
-     * @param regex
-     * @return
-     *//*
      * Splits the data into an array list using a regex.
+     *
+     * @param data the string to be split.
+     * @param regex the regular expression to split the string.
+     * @return a list of strings after splitting.
      */
     fun split(data: String, regex: String): List<String> {
         if (!data.contains(regex)) {
@@ -101,25 +92,21 @@ class SystemConfig {
     }
 
     /**
-     * Is beta user
-     *
-     * @param name
-     * @return
-     *//*
      * Checks if a username is a beta user.
+     *
+     * @param name the name.
+     * @return
      */
     fun isBetaUser(name: String): Boolean {
         return betaUsers.contains(name)
     }
 
     /**
-     * Get config
+     * Gets an attribute.
      *
      * @param T
      * @param key
      * @return
-     *//*
-     * Gets an attribute.
      */
     fun <T> getConfig(key: String): T? {
         return if (!configs.containsKey(key)) {

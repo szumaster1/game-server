@@ -9,9 +9,7 @@ import core.tools.Log
 import java.util.concurrent.LinkedBlockingQueue
 
 /**
- * Pulse runner
- *
- * @constructor Pulse runner
+ * Pulse runner.
  */
 class PulseRunner {
     private val pulses = LinkedBlockingQueue<Pulse>()
@@ -19,17 +17,16 @@ class PulseRunner {
     val currentPulses: Array<Pulse> get() = pulses.toTypedArray()
 
     /**
-     * Submit
+     * Submit.
      *
-     * @param pulse
+     * @param pulse The pulse to be submitted.
      */
     fun submit(pulse: Pulse) {
         pulses.add(pulse)
     }
 
     /**
-     * Update all
-     *
+     * Update all pulses.
      */
     fun updateAll() {
         val pulseCount = pulses.size

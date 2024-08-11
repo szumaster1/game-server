@@ -13,6 +13,7 @@ import core.game.node.item.Item
  */
 object Skillcape {
 
+    // Array of skillcapes
     val SKILLCAPES = intArrayOf(
         Items.ATTACK_CAPE_9747,
         Items.DEFENCE_CAPE_9753,
@@ -40,6 +41,13 @@ object Skillcape {
         Items.SUMMONING_CAPE_12169
     )
 
+    /**
+     * Purchase skillcape.
+     *
+     * @param player The player purchasing the skillcape.
+     * @param skill  The skill index of the skillcape.
+     * @return True if the purchase is successful, false otherwise.
+     */
     @JvmStatic
     fun purchase(player: Player, skill: Int): Boolean {
         if (!isMaster(player, skill)) {
@@ -54,10 +62,14 @@ object Skillcape {
             closeDialogue(player)
             sendDialogue(player, "You don't have enough coins.")
             return false
-        }
-        else return player.inventory.add(*getItems(player, skill))
+        } else return player.inventory.add(*getItems(player, skill))
     }
 
+    /**
+     * Trim skillcapes.
+     *
+     * @param player The player to trim the skillcapes for.
+     */
     @JvmStatic
     fun trim(player: Player) {
         val containers = arrayOf(player.inventory, player.equipment, player.bank)
@@ -76,11 +88,25 @@ object Skillcape {
         }
     }
 
+    /**
+     * Check if the player is a master of the given skill.
+     *
+     * @param player The player to check.
+     * @param skill  The skill index to check.
+     * @return True if the player is a master, false otherwise.
+     */
     @JvmStatic
     fun isMaster(player: Player, skill: Int): Boolean {
         return player.getSkills().getStaticLevel(skill) == 99
     }
 
+    /**
+     * Get the items required to purchase a skillcape.
+     *
+     * @param player The player purchasing the skillcape.
+     * @param skill  The skill index of the skillcape.
+     * @return An array of items required to purchase the skillcape.
+     */
     fun getItems(player: Player, skill: Int): Array<Item> {
         return arrayOf(
             Item(SKILLCAPES[skill] + if (player.getSkills().getMasteredSkills() > 1) 1 else 0),
@@ -88,10 +114,22 @@ object Skillcape {
         )
     }
 
+    /**
+     * Get the trimmed version of a skillcape.
+     *
+     * @param skill The skill index of the skillcape.
+     * @return The trimmed skillcape item.
+     */
     private fun getTrimmed(skill: Int): Item {
         return Item(SKILLCAPES[skill] + 1)
     }
 
+    /**
+     * Get the index of a skillcape in the SKILLCAPES array.
+     *
+     * @param item The skillcape item.
+     * @return The index of the skillcape in the SKILLCAPES array, or -1 if not found.
+     */
     private fun getCapeIndex(item: Item): Int {
         for (i in SKILLCAPES.indices) {
             if (SKILLCAPES[i] == item.id) {

@@ -25,20 +25,20 @@ import kotlin.math.ceil
 import kotlin.math.roundToInt
 
 /**
- * Shop item
+ * Data class representing a shop item.
  *
- * @property itemId
- * @property amount
- * @property restockRate
- * @constructor Shop item
+ * @property itemId      The unique identifier of the item.
+ * @property amount      The quantity of the item available in the shop.
+ * @property restockRate The rate at which the item is restocked.
+ * @constructor Creates a new ShopItem.
  */
 data class ShopItem(var itemId: Int, var amount: Int, val restockRate: Int = 100)
 
 /**
- * Shop listener
+ * Listener for shop events.
  *
- * @property player
- * @constructor Shop listener
+ * @property player The player associated with the shop.
+ * @constructor Creates a new ShopListener.
  */
 class ShopListener(val player: Player) : ContainerListener {
     var enabled = false
@@ -58,15 +58,15 @@ class ShopListener(val player: Player) : ContainerListener {
 }
 
 /**
- * Shop
+ * Shop class represents a shop entity in the system.
  *
- * @property title
- * @property stock
- * @property general
- * @property currency
- * @property highAlch
- * @property forceShared
- * @constructor Shop
+ * @property title       The title of the shop
+ * @property stock       An array of ShopItem objects representing the items in stock.
+ * @property general     A boolean flag indicating if the shop is a general store.
+ * @property currency    An integer representing the currency used in the shop.
+ * @property highAlch    A boolean flag indicating if high alchemy is enabled.
+ * @property forceShared A boolean flag indicating if the shop forces shared stock.
+ * @constructor Creates  A new Shop with the specified properties.
  */
 class Shop(
     val title: String,
@@ -87,9 +87,9 @@ class Shop(
     }
 
     /**
-     * Open for
+     * Function to open a specific feature for a player.
      *
-     * @param player
+     * @param player The player for whom the feature is being opened.
      */
     fun openFor(player: Player) {
         val cont = getContainer(player)
@@ -103,10 +103,10 @@ class Shop(
     }
 
     /**
-     * Show tab
+     * Function to display a tab for a player.
      *
-     * @param player
-     * @param main
+     * @param player The player for whom the tab is displayed.
+     * @param main A boolean flag indicating if it's the main tab.
      */
     fun showTab(player: Player, main: Boolean) {
         val cont = if (main) getAttribute<Container?>(player, "shop-cont", null) ?: return else playerStock
@@ -163,10 +163,10 @@ class Shop(
     }
 
     /**
-     * Get container
+     * Function to retrieve the container for a specific player.
      *
-     * @param player
-     * @return
+     * @param player The player for whom the container is retrieved.
+     * @return The container associated with the player.
      */
     fun getContainer(player: Player): Container {
         val container = if (getServerConfig().getBoolean(Shops.personalizedShops, false) && !forceShared)
@@ -201,8 +201,7 @@ class Shop(
     }
 
     /**
-     * Restock
-     *
+     * Restock.
      */
     fun restock() {
         stockInstances.filter { needsUpdate[it.key] == true }.forEach { (player, cont) ->
@@ -226,11 +225,11 @@ class Shop(
     }
 
     /**
-     * Get buy price
+     * Get the buy price of an item for a specific player and slot.
      *
-     * @param player
-     * @param slot
-     * @return
+     * @param player The player for whom to get the buy price.
+     * @param slot   The slot of the item.
+     * @return The buy price of the item.
      */
     fun getBuyPrice(player: Player, slot: Int): Item {
         val isMainStock = getAttribute(player, "shop-main", true)
@@ -262,11 +261,11 @@ class Shop(
     }
 
     /**
-     * Get sell price
+     * Function to calculate the sell price of an item in a player's inventory.
      *
-     * @param player
-     * @param slot
-     * @return
+     * @param player The player whose inventory is being checked.
+     * @param slot   The slot in the player's inventory where the item is located.
+     * @return A Pair containing the Container and Item to be sold.
      */
     fun getSellPrice(player: Player, slot: Int): Pair<Container?, Item> {
         val shopCont = getAttribute<Container?>(player, "shop-cont", null) ?: return Pair(null, Item(-1, -1))
@@ -357,12 +356,12 @@ class Shop(
     }
 
     /**
-     * Buy
+     * Function to handle the purchase of an item by a player.
      *
-     * @param player
-     * @param slot
-     * @param amount
-     * @return
+     * @param player The player making the purchase.
+     * @param slot   The slot of the item being purchased.
+     * @param amount The quantity of the item being purchased.
+     * @return The status of the transaction.
      */
     fun buy(player: Player, slot: Int, amount: Int): TransactionStatus {
         if (amount !in 1..Integer.MAX_VALUE) return TransactionStatus.Failure("Invalid amount: $amount")
@@ -451,12 +450,12 @@ class Shop(
     }
 
     /**
-     * Sell
+     * Function to sell items from a player's inventory.
      *
-     * @param player
-     * @param slot
-     * @param amount
-     * @return
+     * @param player The player selling the items.
+     * @param slot   The slot in the player's inventory from which the item is being sold.
+     * @param amount The amount of the item to be sold.
+     * @return The status of the transaction after selling the item.
      */
     fun sell(player: Player, slot: Int, amount: Int): TransactionStatus {
         if (amount !in 1..Integer.MAX_VALUE) return TransactionStatus.Failure("Invalid amount: $amount")

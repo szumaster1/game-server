@@ -11,9 +11,7 @@ import core.game.world.repository.Repository
 import org.json.simple.JSONObject
 
 /**
- * Poison
- *
- * @constructor Poison
+ * Poison.
  */
 class Poison : PersistTimer(
     runInterval = 30,

@@ -34,7 +34,7 @@ class AnimatedArmour internal constructor(
     override fun init() {
         super.init()
         animate(Animation.create(4166))
-        sendChat("I'M ALIVE!") // Comment: Sends a chat message to indicate that the animated armour is alive.
+        sendChat("I'M ALIVE!") // Sends a chat message to indicate that the animated armour is alive.
         properties.combatPulse.attack(player)
         HintIconManager.registerHintIcon(player, this)
     }
@@ -85,7 +85,7 @@ class AnimatedArmour internal constructor(
             for (piece in set.pieces) {
                 if (canTake && !takenPiece && index == takeIndex) {
                     takenPiece = true
-                    sendMessage(player, "Your armour was destroyed in the fight.") // Comment: Sends a chat message to the player indicating that their armour was destroyed.
+                    sendMessage(player, "Your armour was destroyed in the fight.") // Sends a chat message to the player indicating that their armour was destroyed.
                     continue
                 }
                 GroundItemManager.create(Item(piece), location, player)

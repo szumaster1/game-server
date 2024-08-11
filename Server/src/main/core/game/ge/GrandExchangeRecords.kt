@@ -46,7 +46,7 @@ class GrandExchangeRecords(private val player: Player? = null) : PersistPlayer, 
         }
 
         /**
-         * Read offers from the database
+         * Read offers from the database.
          */
         val needsIndex = ArrayDeque<GrandExchangeOffer>()
         val instance = getInstance(player)
@@ -88,7 +88,7 @@ class GrandExchangeRecords(private val player: Player? = null) : PersistPlayer, 
 
     override fun savePlayer(player: Player, save: JSONObject) {
         /**
-         * Save history to JSON
+         * Save history to JSON.
          */
         val history = JSONArray()
         getInstance(player).history.map {

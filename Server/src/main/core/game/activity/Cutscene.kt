@@ -82,9 +82,9 @@ abstract class Cutscene(val player: Player) {
      * Teleports an entity to a pair of coordinates within the
      * currently active cutscene region.
      *
-     * @param entity  the entity to teleport
-     * @param regionX the region X coordinate to teleport the entity to (0-63)
-     * @param regionY the region Y coordinate to teleport the entity to (0-63)
+     * @param entity  The entity to teleport
+     * @param regionX The region X coordinate to teleport the entity to (0-63)
+     * @param regionY The region Y coordinate to teleport the entity to (0-63)
      * @param plane   (optional) the plane to teleport to (0-3)
      */
     fun teleport(entity: Entity, regionX: Int, regionY: Int, plane: Int = 0) {
@@ -97,9 +97,9 @@ abstract class Cutscene(val player: Player) {
      * Moves an entity to the given coordinates within
      * the currently active cutscene region.
      *
-     * @param entity  the entity to move
-     * @param regionX the region X coordinate to move the entity to (0-63)
-     * @param regionY the region Y coordinate to move the entity to (0-63)
+     * @param entity  The entity to move
+     * @param regionX The region X coordinate to move the entity to (0-63)
+     * @param regionY The region Y coordinate to move the entity to (0-63)
      */
     fun move(entity: Entity, regionX: Int, regionY: Int) {
         logCutscene("Moving ${entity.username} to LOCAL[$regionX,$regionY].")
@@ -114,11 +114,11 @@ abstract class Cutscene(val player: Player) {
      * Sends a dialogue to the player using the given NPC ID,
      * which updates the cutscene stage by default when continued.
      *
-     * @param npcId      the ID of the NPC to send a dialogue for
-     * @param expression the FacialExpression the NPC should use
-     * @param message    the message to send
+     * @param npcId      The ID of the NPC to send a dialogue for
+     * @param expression The FacialExpression the NPC should use
+     * @param message    The message to send
      * @param onContinue (optional) a method that runs when the dialogue is "continued."
-     *                  Increments the cutscene stage by default.
+     *                   Increments the cutscene stage by default.
      */
     fun dialogueUpdate(
         npcId: Int,
@@ -136,11 +136,11 @@ abstract class Cutscene(val player: Player) {
      * Sends a dialogue to the player using the given NPC ID,
      * which updates the cutscene stage by default when continued.
      *
-     * @param npcId      the ID of the NPC to send a dialogue for
-     * @param expression the FacialExpression the NPC should use
-     * @param message    the message to send
+     * @param npcId      The ID of the NPC to send a dialogue for
+     * @param expression The FacialExpression the NPC should use
+     * @param message    The message to send
      * @param onContinue (optional) a method that runs when the dialogue is "continued."
-     *                  Increments the cutscene stage by default.
+     *                   Increments the cutscene stage by default.
      */
     fun dialogueLinesUpdate(
         npcId: Int,
@@ -165,9 +165,9 @@ abstract class Cutscene(val player: Player) {
      * Sends a non-NPC dialogue to the player, which updates the cutscene stage
      * by default when continued.
      *
-     * @param message    the message to send
+     * @param message    The message to send
      * @param onContinue (optional) a method that runs when the dialogue is "continued."
-     *                  Increments the cutscene stage by default.
+     *                   Increments the cutscene stage by default.
      */
     fun dialogueUpdate(message: String, onContinue: () -> Unit = { incrementStage() }) {
         logCutscene("Sending standard dialogue update.")
@@ -179,10 +179,10 @@ abstract class Cutscene(val player: Player) {
      * Sends a player dialogue, which updates the cutscene stage
      * by default when continued.
      *
-     * @param expression the FacialExpression to use
-     * @param message    the message to send
+     * @param expression The FacialExpression to use
+     * @param message    The message to send
      * @param onContinue (optional) a method that runs when the dialogue is "continued."
-     *                  Increments the cutscene stage by default.
+     *                   Increments the cutscene stage by default.
      */
     fun playerDialogueUpdate(
         expression: FacialExpression,
@@ -197,9 +197,9 @@ abstract class Cutscene(val player: Player) {
     /**
      * Updates the stage after a set number of ticks.
      *
-     * @param ticks    the number of ticks to wait
+     * @param ticks    The number of ticks to wait
      * @param newStage (optional) the new stage to update to.
-     *                If not passed, stage is incremented instead.
+     *                 If not passed, stage is incremented instead.
      */
     fun timedUpdate(ticks: Int, newStage: Int = -1) {
         logCutscene("Executing timed updated for $ticks ticks.")
@@ -215,7 +215,7 @@ abstract class Cutscene(val player: Player) {
     }
 
     /**
-     * Retrieves the first NPC from the added-to-cutscene
+     * Retrieves the first NPC from the added-to-cutscene.
      * NPCs with a matching ID.
      *
      * @param id the ID to grab for.
@@ -240,9 +240,9 @@ abstract class Cutscene(val player: Player) {
      * Retrieves the object in the region at the
      * given regionX and regionY.
      *
-     * @param regionX the region-local X coordinate to grab the object from (0-63)
-     * @param regionY the region-local Y coordinate to grab the object from (0-63)
-     * @param plane   the plane to grab the object from (0-3)
+     * @param regionX The region-local X coordinate to grab the object from (0-63).
+     * @param regionY The region-local Y coordinate to grab the object from (0-63).
+     * @param plane   The plane to grab the object from (0-3).
      */
     fun getObject(regionX: Int, regionY: Int, plane: Int = 0): Scenery? {
         val obj = RegionManager.getObject(base.transform(regionX, regionY, plane))
@@ -254,11 +254,11 @@ abstract class Cutscene(val player: Player) {
      * Adds an NPC to the cutscene with the given ID,
      * at the region-local X and Y coordinates.
      *
-     * @param id        the ID of the NPC to add.
-     * @param regionX   the region-local X coordinate to place the NPC at
-     * @param regionY   the region-local Y coordinate to place the NPC at
-     * @param direction the direction the NPC faces when it is initially placed.
-     * @param plane     the plane to place te NPC on. Default is 0.
+     * @param id        The ID of the NPC to add.
+     * @param regionX   The region-local X coordinate to place the NPC at.
+     * @param regionY   The region-local Y coordinate to place the NPC at.
+     * @param direction The direction the NPC faces when it is initially placed.
+     * @param plane     The plane to place te NPC on. Default is 0.
      */
     fun addNPC(id: Int, regionX: Int, regionY: Int, direction: Direction, plane: Int = 0) {
         val npc = NPC(id)
@@ -298,7 +298,7 @@ abstract class Cutscene(val player: Player) {
      * Ends this cutscene, teleporting the player to the exit location,
      * and then fading it back in and executing the endActions passed to this method.
      *
-     * @param endActions (optional) a method that executes when the cutscene fully completes
+     * @param endActions (optional) a method that executes when the cutscene fully completes.
      */
     fun endWithoutFade(endActions: (() -> Unit)? = null) {
         ended = true
@@ -347,8 +347,7 @@ abstract class Cutscene(val player: Player) {
      * teleporting the player to the exit location, and then
      * fading it back in and executing the endActions passed to this method.
      *
-     * @param endActions (optional) a method that executes when the cutscene
-     *                  fully completes
+     * @param endActions (optional) a method that executes when the cutscene fully completes.
      */
     fun end(endActions: (() -> Unit)? = null) {
         ended = true
@@ -397,8 +396,8 @@ abstract class Cutscene(val player: Player) {
     /**
      * Moves the camera to the specified regionX and regionY.
      *
-     * @param regionX the region-local X coordinate to move the camera to (0-63)
-     * @param regionY the region-local Y coordinate to move the camera to (0-63)
+     * @param regionX The region-local X coordinate to move the camera to (0-63).
+     * @param regionY The region-local Y coordinate to move the camera to (0-63).
      * @param height  (optional) the height of the camera, defaults to 300.
      * @param speed   (optional) the speed of the camera transition, defaults to 100.
      */
@@ -410,8 +409,8 @@ abstract class Cutscene(val player: Player) {
     /**
      * Rotates the camera to face the given region-local X and Y coordinates.
      *
-     * @param regionX the region-local X coordinate to rotate the camera to (0-63)
-     * @param regionY the region-local Y coordinate to rotate the camera to (0-63)
+     * @param regionX The region-local X coordinate to rotate the camera to (0-63).
+     * @param regionY The region-local Y coordinate to rotate the camera to (0-63).
      * @param height  (optional) the height of the camera, defaults to 300.
      * @param speed   (optional) the speed of the camera transition, defaults to 100.
      */
@@ -423,8 +422,8 @@ abstract class Cutscene(val player: Player) {
     /**
      * Rotates the camera to face the given difference of the X and Y coordinates.
      *
-     * @param regionX the difference X value to rotate the camera to (0-63)
-     * @param regionY the difference Y value to rotate the camera to (0-63)
+     * @param regionX The difference X value to rotate the camera to (0-63)
+     * @param regionY The difference Y value to rotate the camera to (0-63)
      * @param height  (optional) the height of the camera, defaults to 300.
      * @param speed   (optional) the speed of the camera transition, defaults to 100.
      */
@@ -435,11 +434,11 @@ abstract class Cutscene(val player: Player) {
     /**
      * Manipulates the camera using different camera types. Also known as "shake".
      *
-     * @param cameraType the "type" of shake: TRUCK, PEDESTAL, DOLLY, PAN, TILT
-     * @param jitter     (optional) the amount to rock the camera while looping
-     * @param amplitude  (optional) the maximum extent of camera vibration
-     * @param frequency  (optional) the rate at which jitter and amplitude are repeated
-     * @param speed      (optional) the rate at which the whole camera "shake" loop is repeated
+     * @param cameraType The "type" of shake: TRUCK, PEDESTAL, DOLLY, PAN, TILT.
+     * @param jitter     (optional) the amount to rock the camera while looping.
+     * @param amplitude  (optional) the maximum extent of camera vibration.
+     * @param frequency  (optional) the rate at which jitter and amplitude are repeated.
+     * @param speed      (optional) the rate at which the whole camera "shake" loop is repeated.
      *
      * WARNING: Playing around with camera shake values may potentially
      * trigger seizures for people with photosensitive epilepsy.
@@ -456,7 +455,7 @@ abstract class Cutscene(val player: Player) {
     }
 
     /**
-     * Resets the camera to the current player position
+     * Resets the camera to the current player position.
      */
     fun resetCamera() {
         camera.reset()
@@ -475,7 +474,7 @@ abstract class Cutscene(val player: Player) {
     }
 
     /**
-     * Increments the player's stage attribute by 1
+     * Increments the player's stage attribute by 1.
      */
     fun incrementStage() {
         setAttribute(player, ATTRIBUTE_CUTSCENE_STAGE, player.getCutsceneStage() + 1)
@@ -483,7 +482,7 @@ abstract class Cutscene(val player: Player) {
     }
 
     /**
-     * Sets the player's stage attribute to a new stage
+     * Sets the player's stage attribute to a new stage.
      */
     fun updateStage(newStage: Int) {
         setAttribute(player, ATTRIBUTE_CUTSCENE_STAGE, newStage)

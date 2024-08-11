@@ -14,9 +14,7 @@ import core.tools.secondsToTicks
 import org.json.simple.JSONObject
 
 /**
- * Poison immunity
- *
- * @constructor Poison immunity
+ * Poison immunity.
  */
 class PoisonImmunity : PersistTimer(
     runInterval = 1,

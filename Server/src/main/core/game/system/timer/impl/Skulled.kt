@@ -7,9 +7,7 @@ import core.game.system.timer.RSTimer
 import core.game.system.timer.TimerFlag
 
 /**
- * Skulled
- *
- * @constructor Skulled
+ * Skulled.
  */
 class Skulled : PersistTimer(
     runInterval = 1,

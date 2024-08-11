@@ -8,9 +8,7 @@ import core.game.system.timer.RSTimer
 import core.game.system.timer.TimerFlag
 
 /**
- * Miasmic immunity
- *
- * @constructor Miasmic immunity
+ * Miasmic immunity.
  */
 class MiasmicImmunity : PersistTimer(
     runInterval = 1,

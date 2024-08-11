@@ -12,9 +12,7 @@ import core.game.node.entity.skill.Skills
 import core.game.system.timer.RSTimer
 
 /**
- * Skill restore
- *
- * @constructor Skill restore
+ * Skill restore.
  */
 class SkillRestore : RSTimer(
     runInterval = 1,

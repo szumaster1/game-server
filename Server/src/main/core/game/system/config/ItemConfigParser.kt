@@ -13,9 +13,7 @@ import org.json.simple.parser.JSONParser
 import java.io.FileReader
 
 /**
- * Item config parser
- *
- * @constructor Item config parser
+ * Item config parser.
  */
 class ItemConfigParser {
 

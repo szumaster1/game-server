@@ -18,9 +18,7 @@ import core.game.system.config.ItemConfigParser
 import core.plugin.Plugin
 
 /**
- * Equip handler
- *
- * @constructor Equip handler
+ * Equip handler.
  */
 class EquipHandler : InteractionListener {
 
@@ -30,7 +28,6 @@ class EquipHandler : InteractionListener {
             return@on true
         }
     }
-
 
     companion object {
 

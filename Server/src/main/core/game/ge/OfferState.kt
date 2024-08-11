@@ -1,7 +1,8 @@
 package core.game.ge
 
 /**
- * Represents the state of a Grand Exchange offer.
+ * Represents the state of a
+ * Grand Exchange offer.
  */
 enum class OfferState {
     PENDING,

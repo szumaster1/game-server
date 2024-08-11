@@ -5,14 +5,14 @@ import core.game.node.entity.player.Player
 import core.game.world.GameWorld
 
 /**
- * Command
+ * Command class represents a game command.
  *
- * @property name
- * @property privilege
- * @property usage
- * @property description
- * @property handle
- * @constructor Command
+ * @property name The name of the command.
+ * @property privilege The privilege level required to execute the command.
+ * @property usage The usage information of the command.
+ * @property description The description of the command.
+ * @property handle The function that handles the command execution.
+ * @constructor Creates a new Command instance.
  */
 class Command(
     val name: String,
@@ -22,15 +22,15 @@ class Command(
     val handle: (Player, Array<String>) -> Unit
 ) {
     /**
-     * Attempt handling
+     * Attempts to handle the command.
      *
-     * @param player
-     * @param args
+     * @param player The player executing the command.
+     * @param args The arguments passed with the command.
      */
     fun attemptHandling(player: Player, args: Array<String>?) {
-        args ?: return
+        args ?: return // Check if arguments are null and return if so.
         if (player.rights.ordinal >= privilege.ordinal || GameWorld.settings?.isDevMode == true || ServerConstants.I_AM_A_CHEATER) {
-            handle(player, args)
+            handle(player, args) // Execute the command handling function.
         }
     }
 }
@@ -38,22 +38,49 @@ class Command(
 object CommandMapping {
     private val mapping = hashMapOf<String, Command>()
 
+    /**
+     * Retrieves a command by name.
+     *
+     * @param name The name of the command to retrieve.
+     * @return The Command instance associated with the given name.
+     */
     fun get(name: String): Command? {
         return mapping[name]
     }
 
+    /**
+     * Registers a new command.
+     *
+     * @param command The Command instance to register.
+     */
     fun register(command: Command) {
         mapping[command.name] = command
     }
 
+    /**
+     * Retrieves all registered commands.
+     *
+     * @return An array of all registered Command instances.
+     */
     fun getCommands(): Array<Command> {
         return mapping.values.toTypedArray()
     }
 
+    /**
+     * Retrieves the names of all registered commands.
+     *
+     * @return An array of names of all registered commands.
+     */
     fun getNames(): Array<String> {
         return mapping.keys.toTypedArray()
     }
 
+    /**
+     * Calculates the page indices for displaying commands based on user rights.
+     *
+     * @param rights The privilege level of the user.
+     * @return An array of page indices for command display.
+     */
     fun getPageIndices(rights: Int): IntArray {
         val list = ArrayList<Int>()
         list.add(0)

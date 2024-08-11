@@ -9,10 +9,10 @@ import core.game.node.entity.player.link.diary.DiaryType
 import core.game.world.map.zone.ZoneBorders
 
 /**
- * Diary event hook base
+ * Diary event hook base.
  *
- * @property diaryType
- * @constructor Diary event hook base
+ * @property diaryType diary type.
+ * @constructor Diary event hook base.
  */
 abstract class DiaryEventHookBase(private val diaryType: DiaryType) : MapArea, LoginListener {
     protected companion object {
@@ -25,12 +25,12 @@ abstract class DiaryEventHookBase(private val diaryType: DiaryType) : MapArea, L
     }
 
     /**
-     * Event handler
+     * Event handler.
      *
-     * @param T
-     * @property owner
-     * @property handler
-     * @constructor Event handler
+     * @param T Represents the type of event.
+     * @property owner   The owner of the event handler.
+     * @property handler The function to handle the event.
+     * @constructor Initializes the Event handler with the specified owner and handler.
      */
     class EventHandler<T : core.game.event.Event>(
         private val owner: DiaryEventHookBase,

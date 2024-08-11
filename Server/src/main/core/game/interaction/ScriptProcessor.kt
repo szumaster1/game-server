@@ -17,10 +17,10 @@ import java.io.StringWriter
 import java.lang.Integer.max
 
 /**
- * Script processor
+ * Class representing a Script Processor that operates on an Entity.
  *
- * @property entity
- * @constructor Script processor
+ * @property entity The Entity on which the Script Processor operates.
+ * @constructor Creates a new Script Processor with the specified Entity.
  */
 class ScriptProcessor(val entity: Entity) {
     private var apScript: Script<*>? = null
@@ -36,10 +36,6 @@ class ScriptProcessor(val entity: Entity) {
     var persistent = false
     var targetDestination: Location? = null
 
-    /**
-     * Pre movement
-     *
-     */
     fun preMovement() {
         var allSkipped = false
         while (!allSkipped) {
@@ -68,9 +64,9 @@ class ScriptProcessor(val entity: Entity) {
     }
 
     /**
-     * Post movement
+     * Function to handle posting movement.
      *
-     * @param didMove
+     * @param didMove a boolean flag indicating if movement occurred.
      */
     fun postMovement(didMove: Boolean) {
         if (didMove)
@@ -102,8 +98,7 @@ class ScriptProcessor(val entity: Entity) {
     }
 
     /**
-     * Process queue
-     *
+     * Process queue.
      * @return
      */
     fun processQueue(): Boolean {
@@ -175,19 +170,19 @@ class ScriptProcessor(val entity: Entity) {
     }
 
     /**
-     * Is persist
+     * Checks if the script is persisted in the database.
      *
-     * @param script
-     * @return
+     * @param script the script to be checked.
+     * @return true if the script is persisted, false otherwise.
      */
     fun isPersist(script: Script<*>): Boolean {
         return script.persist
     }
 
     /**
-     * Process interact script
+     * This function processes an interact script.
      *
-     * @param script
+     * @param script The script to be processed.
      */
     fun processInteractScript(script: Script<*>) {
         if (interactTarget == null || !interactTarget!!.isActive) {
@@ -204,10 +199,10 @@ class ScriptProcessor(val entity: Entity) {
     }
 
     /**
-     * Execute script
+     * Executes a given script.
      *
-     * @param script
-     * @return
+     * @param script The script to be executed.
+     * @return True if the script execution was successful, false otherwise.
      */
     fun executeScript(script: Script<*>): Boolean {
         currentScript = script
@@ -246,26 +241,24 @@ class ScriptProcessor(val entity: Entity) {
     }
 
     /**
-     * Remove weak scripts
-     *
+     * Remove weak scripts.
      */
     fun removeWeakScripts() {
         queue.removeAll(queue.filter { it is QueuedScript && it.strength == QueueStrength.WEAK || it is QueuedUseWith && it.strength == QueueStrength.WEAK }.toSet())
     }
 
     /**
-     * Remove normal scripts
-     *
+     * Remove normal scripts.
      */
     fun removeNormalScripts() {
         queue.removeAll(queue.filter { it is QueuedScript && it.strength == QueueStrength.NORMAL || it is QueuedUseWith && it.strength == QueueStrength.NORMAL }.toSet())
     }
 
     /**
-     * In approach distance
+     * Checks if the given script is within the approach distance.
      *
-     * @param script
-     * @return
+     * @param script the script to check.
+     * @return true if the script is within the approach distance, false otherwise.
      */
     fun inApproachDistance(script: Script<*>): Boolean {
         val distance = when (script) {
@@ -280,9 +273,9 @@ class ScriptProcessor(val entity: Entity) {
     }
 
     /**
-     * In operable distance
+     * Checks if the object is within the operable distance.
      *
-     * @return
+     * @return true if the object is within operable distance, false otherwise.
      */
     fun inOperableDistance(): Boolean {
         targetDestination?.let {
@@ -292,8 +285,7 @@ class ScriptProcessor(val entity: Entity) {
     }
 
     /**
-     * Reset
-     *
+     * Reset.
      */
     fun reset() {
         apScript = null
@@ -309,10 +301,10 @@ class ScriptProcessor(val entity: Entity) {
     }
 
     /**
-     * Set interaction script
+     * Set interaction script for a specific target node.
      *
-     * @param target
-     * @param script
+     * @param target The target node to set the interaction script for.
+     * @param script The script to be set for the interaction.
      */
     fun setInteractionScript(target: Node, script: Script<*>?) {
         if (apScript != null && script != null && script.execution == apScript!!.execution) return
@@ -353,10 +345,7 @@ class ScriptProcessor(val entity: Entity) {
     }
 
     /**
-     * Add to queue
-     *
-     * @param script
-     * @param strength
+     * Functional interface for button listeners.
      */
     fun addToQueue(script: Script<*>, strength: QueueStrength) {
         if (script !is QueuedScript && script !is QueuedUseWith) {
@@ -377,9 +366,7 @@ class ScriptProcessor(val entity: Entity) {
     }
 
     /**
-     * Get active script
-     *
-     * @return
+     * Functional interface for open listeners.
      */
     fun getActiveScript(): Script<*>? {
         return currentScript ?: getActiveInteraction()
@@ -390,10 +377,7 @@ class ScriptProcessor(val entity: Entity) {
     }
 
     /**
-     * Has type in queue
-     *
-     * @param type
-     * @return
+     * Functional interface for close listeners.
      */
     fun hasTypeInQueue(type: QueueStrength): Boolean {
         for (script in queue) {

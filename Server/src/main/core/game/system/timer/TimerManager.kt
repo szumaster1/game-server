@@ -9,10 +9,10 @@ import core.tools.Log
 import org.json.simple.JSONObject
 
 /**
- * Timer manager
+ * Timer manager.
  *
- * @property entity
- * @constructor Timer manager
+ * @property entity The entity associated with the timer manager.
+ * @constructor Creates a timer manager for the given entity.
  */
 class TimerManager(val entity: Entity) {
     val activeTimers = ArrayList<RSTimer>()
@@ -20,9 +20,9 @@ class TimerManager(val entity: Entity) {
     val toRemoveTimers = ArrayList<RSTimer>()
 
     /**
-     * Register timer
+     * Register timer.
      *
-     * @param timer
+     * @param timer The timer to register.
      */
     fun registerTimer(timer: RSTimer) {
         timer.onRegister(entity)
@@ -30,7 +30,7 @@ class TimerManager(val entity: Entity) {
     }
 
     /**
-     * Process timers
+     * Process timers.
      *
      */
     fun processTimers() {
@@ -68,7 +68,7 @@ class TimerManager(val entity: Entity) {
     }
 
     /**
-     * Clear timers
+     * Clear timers.
      *
      */
     fun clearTimers() {
@@ -78,7 +78,7 @@ class TimerManager(val entity: Entity) {
     }
 
     /**
-     * On entity death
+     * On entity death.
      *
      */
     fun onEntityDeath() {
@@ -89,9 +89,9 @@ class TimerManager(val entity: Entity) {
     }
 
     /**
-     * Save timers
+     * Save timers.
      *
-     * @param root
+     * @param root The root JSON object to save the timers to.
      */
     fun saveTimers(root: JSONObject) {
         for (timer in activeTimers) {
@@ -109,9 +109,9 @@ class TimerManager(val entity: Entity) {
     }
 
     /**
-     * Parse timers
+     * Parse timers.
      *
-     * @param root
+     * @param root The root JSON object to parse the timers from.
      */
     fun parseTimers(root: JSONObject) {
         for ((identifier, dataObj) in root) {
@@ -133,9 +133,9 @@ class TimerManager(val entity: Entity) {
     }
 
     /**
-     * Remove timer
+     * Remove timer.
      *
-     * @param T
+     * @param T The type of timer to remove.
      */
     inline fun <reified T : RSTimer> removeTimer() {
         for (timer in activeTimers)
@@ -147,10 +147,10 @@ class TimerManager(val entity: Entity) {
     }
 
     /**
-     * Get timer
+     * Get timer.
      *
-     * @param T
-     * @return
+     * @param T The type of timer to get.
+     * @return The timer of the specified type, or null if not found.
      */
     inline fun <reified T : RSTimer> getTimer(): T? {
         var t: T? = null
@@ -167,10 +167,10 @@ class TimerManager(val entity: Entity) {
     }
 
     /**
-     * Get timer
+     * Get timer.
      *
-     * @param identifier
-     * @return
+     * @param identifier The identifier of the timer to get.
+     * @return The timer with the specified identifier, or null if not found.
      */
     fun getTimer(identifier: String): RSTimer? {
         var t: RSTimer? = null
@@ -186,9 +186,9 @@ class TimerManager(val entity: Entity) {
     }
 
     /**
-     * Remove timer
+     * Remove timer.
      *
-     * @param identifier
+     * @param identifier The identifier of the timer to remove.
      */
     fun removeTimer(identifier: String) {
         for (timer in activeTimers)
@@ -200,9 +200,9 @@ class TimerManager(val entity: Entity) {
     }
 
     /**
-     * Remove timer
+     * Remove timer.
      *
-     * @param timer
+     * @param timer The timer to remove.
      */
     fun removeTimer(timer: RSTimer) {
         timer.nextExecution = Int.MAX_VALUE

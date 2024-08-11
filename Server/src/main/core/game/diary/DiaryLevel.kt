@@ -1,36 +1,36 @@
 package core.game.diary
 
 /**
- * Diary level
+ * Diary level.
  *
- * @constructor Diary level
+ * @constructor Diary level.
  */
 enum class DiaryLevel {
     /**
-     * Beginner
+     * Beginner.
      *
-     * @constructor Beginner
+     * @constructor Beginner.
      */
     BEGINNER,
 
     /**
-     * Easy
+     * Easy.
      *
-     * @constructor Easy
+     * @constructor Easy.
      */
     EASY,
 
     /**
-     * Medium
+     * Medium.
      *
-     * @constructor Medium
+     * @constructor Medium.
      */
     MEDIUM,
 
     /**
-     * Hard
+     * Hard.
      *
-     * @constructor Hard
+     * @constructor Hard.
      */
     HARD
 }

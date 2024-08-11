@@ -10,9 +10,7 @@ import org.json.simple.parser.JSONParser
 import java.io.FileReader
 
 /**
- * Custom varbit parser
- *
- * @constructor Custom varbit parser
+ * Custom varbit parser.
  */
 class CustomVarbitParser {
     val parser = JSONParser()

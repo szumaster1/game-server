@@ -18,9 +18,7 @@ import org.json.simple.parser.JSONParser
 import java.io.FileReader
 
 /**
- * Ranged config loader
- *
- * @constructor Ranged config loader
+ * Ranged config loader.
  */
 class RangedConfigLoader {
     val parser = JSONParser()

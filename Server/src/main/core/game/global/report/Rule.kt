@@ -3,108 +3,95 @@ package core.game.global.report
 import core.game.node.entity.player.Player
 
 /**
- * Rule
+ * Rule enum class.
  *
- * @property rule
- * @constructor Rule
+ * @property rule The rule ID.
+ * @constructor Creates a Rule instance with the given rule ID.
  */
 enum class Rule(val rule: Int) {
     /**
-     * Offensive Language
-     *
-     * @constructor Offensive Language
+     * Offensive Language.
+     * @constructor Creates a Rule instance for offensive language.
      */
     OFFENSIVE_LANGUAGE(0),
 
     /**
-     * Item Scamming
-     *
-     * @constructor Item Scamming
+     * Item Scamming.
+     * @constructor Creates a Rule instance for item scamming.
      */
     ITEM_SCAMMING(1),
 
     /**
-     * Password Scamming
-     *
-     * @constructor Password Scamming
+     * Password Scamming.
+     * @constructor Creates a Rule instance for password scamming.
      */
     PASSWORD_SCAMMING(2),
 
     /**
      * Bug Abuse
-     *
-     * @constructor Bug Abuse
+     * @constructor Creates a Rule instance for bug abuse.
      */
     BUG_ABUSE(3),
 
     /**
-     * Staff Impersonation
-     *
-     * @constructor Staff Impersonation
+     * Staff Impersonation.
+     * @constructor Creates a Rule instance for staff impersonation.
      */
     STAFF_IMPERSONATION(4),
 
     /**
-     * Acccount Sharing
-     *
-     * @constructor Acccount Sharing
+     * Account Sharing.
+     * @constructor Creates a Rule instance for account sharing.
      */
-    ACCCOUNT_SHARING(5),
+    ACCOUNT_SHARING(5),
 
     /**
-     * Macroing
-     *
-     * @constructor Macroing
+     * Macroing.
+     * @constructor Creates a Rule instance for macroing.
      */
     MACROING(6),
 
     /**
-     * Multiple Logging
-     *
-     * @constructor Multiple Logging
+     * Multiple Logging.
+     * @constructor Creates a Rule instance for multiple logging.
      */
     MULTIPLE_LOGGING(7),
 
     /**
-     * Encouraging To Break Rules
-     *
-     * @constructor Encouraging To Break Rules
+     * Encouraging To Break Rules.
+     * @constructor Creates a Rule instance for encouraging to break rules.
      */
     ENCOURAGING_TO_BREAK_RULES(8),
 
     /**
-     * Misuse Of Customer Support
-     *
-     * @constructor Misuse Of Customer Support
+     * Misuse Of Customer Support.
+     * @constructor Creates a Rule instance for misuse of customer support.
      */
     MISUSE_OF_CUSTOMER_SUPPORT(9),
 
     /**
-     * Adveristing
-     *
-     * @constructor Adveristing
+     * Advertising.
+     * @constructor Creates a Rule instance for advertising.
      */
-    ADVERISTING(10),
+    ADVERTISING(10),
 
     /**
-     * Real World Item Trading
-     *
-     * @constructor Real World Item Trading
+     * Real World Item Trading.
+     * @constructor Creates a Rule instance for real world item trading.
      */
     REAL_WORLD_ITEM_TRADING(11),
 
     /**
-     * Asking Personal Details
-     *
-     * @constructor Asking Personal Details
+     * Asking Personal Details.
+     * @constructor Creates a Rule instance for asking personal details.
      */
     ASKING_PERSONAL_DETAILS(12);
 
     /**
-     * Can request
+     * Checks if a player can request a report for this rule.
      *
-     * @param target
-     * @return
+     * @param target The player to check.
+     * @return True if the player can request a report, false otherwise.
      */
     fun canRequest(target: Player?): Boolean {
         if (target == null) {
@@ -117,6 +104,12 @@ enum class Rule(val rule: Int) {
     }
 
     companion object {
+        /**
+         * Retrieves the Rule instance for the given rule ID.
+         *
+         * @param id The rule ID.
+         * @return The Rule instance, or null if not found.
+         */
         @JvmStatic
         fun forId(id: Int): Rule? {
             for (rule in values()) {

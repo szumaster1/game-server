@@ -9,9 +9,7 @@ import org.json.simple.parser.JSONParser
 import java.io.FileReader
 
 /**
- * Shop parser
- *
- * @constructor Shop parser
+ * Shop parser.
  */
 class ShopParser {
     val parser = JSONParser()

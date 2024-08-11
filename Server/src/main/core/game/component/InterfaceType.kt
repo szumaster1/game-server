@@ -3,13 +3,13 @@ package core.game.component
 import core.api.consts.Components
 
 /**
- * Interface type
+ * InterfaceType Enum Class.
  *
- * @property fixedPaneId
- * @property resizablePaneId
- * @property fixedChildId
- * @property resizableChildId
- * @constructor Interface type
+ * @property fixedPaneId      The ID of the fixed pane.
+ * @property resizablePaneId  The ID of the resizable pane.
+ * @property fixedChildId     The ID of the fixed child.
+ * @property resizableChildId The ID of the resizable child.
+ * @constructor Initializes InterfaceType with the provided IDs.
  */
 enum class InterfaceType(
     @JvmField val fixedPaneId: Int,
@@ -18,65 +18,47 @@ enum class InterfaceType(
     @JvmField val resizableChildId: Int
 ) {
     /**
-     * Default
-     *
-     * @constructor Default
+     * Default interface type.
      */
     DEFAULT(Components.TOPLEVEL_548, Components.TOPLEVEL_FULLSCREEN_746, 11, 6),
 
     /**
-     * Overlay
-     *
-     * @constructor Overlay
+     * Overlay interface type.
      */
     OVERLAY(Components.TOPLEVEL_548, Components.TOPLEVEL_FULLSCREEN_746, 4, 5),
 
     /**
-     * Tab
-     *
-     * @constructor Tab
+     * Tab interface type.
      */
     TAB(Components.TOPLEVEL_548, Components.TOPLEVEL_FULLSCREEN_746, 83, 93),
 
     /**
-     * Single Tab
-     *
-     * @constructor Single Tab
+     * Single Tab interface type.
      */
     SINGLE_TAB(Components.TOPLEVEL_548, Components.TOPLEVEL_FULLSCREEN_746, 80, 76),
 
     /**
-     * Dialogue
-     *
-     * @constructor Dialogue
+     * Dialogue interface type.
      */
     DIALOGUE(Components.CHATTOP_752, Components.CHATTOP_752, 12, 12),
 
     /**
-     * Window Pane
-     *
-     * @constructor Window Pane
+     * Window Pane interface type.
      */
     WINDOW_PANE(Components.TOPLEVEL_548, Components.TOPLEVEL_FULLSCREEN_746, 0, 0),
 
     /**
-     * Cs Chatbox
-     *
-     * @constructor Cs Chatbox
+     * Cs Chatbox interface type.
      */
     CS_CHATBOX(Components.CHATTOP_752, Components.CHATTOP_752, 6, 6),
 
     /**
-     * Chatbox
-     *
-     * @constructor Chatbox
+     * Chatbox interface type.
      */
     CHATBOX(Components.CHATTOP_752, Components.CHATTOP_752, 8, 8),
 
     /**
-     * Overlay B
-     *
-     * @constructor Overlay B
+     * Overlay B interface type.
      */
     OVERLAY_B(Components.TOPLEVEL_548, Components.TOPLEVEL_FULLSCREEN_746, 11, 3)
 }

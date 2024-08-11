@@ -8,7 +8,7 @@ import org.json.simple.JSONObject
 import java.sql.Connection
 
 /**
- * Collection of methods for interacting with the grand exchange databases
+ * Collection of methods for interacting with the grand exchange databases.
  */
 object GEDB {
     lateinit var db: DatabaseManager

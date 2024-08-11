@@ -1,8 +1,6 @@
 package core.game.event
 
 /**
- * Event
- *
- * @constructor Event
+ * Event.
  */
 interface Event

@@ -9,23 +9,23 @@ import core.plugin.Plugin;
 public abstract class ComponentPlugin implements Plugin<Object> {
 
     /**
-     * Handle boolean.
+     * Handle method to process player input.
      *
-     * @param player    the player
-     * @param component the component
-     * @param opcode    the opcode
-     * @param button    the button
-     * @param slot      the slot
-     * @param itemId    the item id
-     * @return the boolean
+     * @param player    the player object.
+     * @param component the component being interacted with.
+     * @param opcode    the operation code.
+     * @param button    the button pressed.
+     * @param slot      the slot involved.
+     * @param itemId    the item ID.
+     * @return true if the input is handled successfully, false otherwise.
      */
     public abstract boolean handle(final Player player, Component component, final int opcode, final int button, int slot, int itemId);
 
     /**
-     * Open.
+     * Open method to handle component opening.
      *
-     * @param player    the player
-     * @param component the component
+     * @param player    the player object.
+     * @param component the component to be opened.
      */
     public void open(Player player, Component component) {
     }

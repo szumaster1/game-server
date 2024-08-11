@@ -7,39 +7,39 @@ import java.io.IOException
 import java.util.*
 
 /**
- * Game settings
+ * Game settings class to store various game settings.
  *
- * @property name
- * @property isBeta
- * @property isDevMode
- * @property isGui
- * @property worldId
- * @property countryIndex
- * @property activity
- * @property isMembers
- * @property isPvp
- * @property isQuickChat
- * @property isLootshare
- * @property msAddress
- * @property default_xp_rate
- * @property allow_slayer_reroll
- * @property enable_default_clan
- * @property enable_bots
- * @property autostock_ge
- * @property allow_token_purchase
- * @property skillcape_perks
- * @property increased_door_time
- * @property enabled_botting
- * @property max_adv_bots
- * @property enable_doubling_money_scammers
- * @property wild_pvp_enabled
- * @property jad_practice_enabled
- * @property ge_announcement_limit
- * @property smartpathfinder_bfs
- * @property enable_castle_wars
- * @property message_model
- * @property message_string
- * @constructor Game settings
+ * @param name The name of the game.
+ * @param isBeta Flag indicating if the game is in beta mode.
+ * @param isDevMode Flag indicating if the game is in developer mode.
+ * @param isGui Flag indicating if the game has a graphical user interface.
+ * @param worldId The ID of the game world.
+ * @param countryIndex The index of the country.
+ * @param activity The current activity in the game.
+ * @param isMembers Flag indicating if the game is for members only.
+ * @param isPvp Flag indicating if player versus player mode is enabled.
+ * @param isQuickChat Flag indicating if quick chat feature is enabled.
+ * @param isLootshare Flag indicating if loot sharing is enabled.
+ * @param msAddress The address of the game's server.
+ * @param default_xp_rate The default experience rate.
+ * @param allow_slayer_reroll Flag indicating if slayer reroll is allowed.
+ * @param enable_default_clan Flag indicating if default clan is enabled.
+ * @param enable_bots Flag indicating if bots are enabled.
+ * @param autostock_ge Flag indicating if automatic stocking at the Grand Exchange is enabled.
+ * @param allow_token_purchase Flag indicating if token purchase is allowed.
+ * @param skillcape_perks The perks of skill capes.
+ * @param increased_door_time The time increase for doors.
+ * @param enabled_botting Flag indicating if botting is enabled.
+ * @param max_adv_bots The maximum number of advanced bots.
+ * @param enable_doubling_money_scammers Flag indicating if doubling money scammers are enabled.
+ * @param wild_pvp_enabled Flag indicating if wilderness player versus player is enabled.
+ * @param jad_practice_enabled Flag indicating if Jad practice is enabled.
+ * @param ge_announcement_limit The limit for Grand Exchange announcements.
+ * @param smartpathfinder_bfs Flag indicating if smart pathfinding using BFS is enabled.
+ * @param enable_castle_wars Flag indicating if Castle Wars is enabled.
+ * @param message_model The model for messages.
+ * @param message_string The message string.
+ * @constructor Creates a new instance of GameSettings.
  */
 class GameSettings internal constructor(
     var name: String,
@@ -71,7 +71,8 @@ class GameSettings internal constructor(
     var smartpathfinder_bfs: Boolean,
     var enable_castle_wars: Boolean,
 
-    /*"Lobby" interface
+    /**
+     * "Lobby" interface
      * The message of the week models to display
      * 15 & 22 = keys & lock || 16 = fly swat || 17 = person with question marks || 18 & 447 = wise old man
      * 19 = man & woman with mouth closed || 20 = man & lock & key || 21 = closed chests
@@ -81,10 +82,10 @@ class GameSettings internal constructor(
      */
     var message_model: Int,
 
-    /*"Lobby" interface
+    /**
+     * "Lobby" interface
      * The message of the week text
-     * The "child" for writing text to these interfaces is located inside of LoginConfiguration.java
-     * method: getMessageChild
+     * The "child" for writing text to these interfaces is located inside of LoginConfiguration.java method: getMessageChild
      */
     var message_string: String
 ) {
@@ -96,7 +97,7 @@ class GameSettings internal constructor(
     }
 
     companion object {
-        /*
+        /**
          * Parses a JSONObject and creates a new GameSettings object from it.
          */
         fun parse(data: JSONObject): GameSettings {
@@ -130,7 +131,7 @@ class GameSettings internal constructor(
             return GameSettings(name, debug, dev, startGui, worldId, countryId, activity, true, pvpWorld, false, false, msip, default_xp_rate, allow_slayer_reroll, enable_default_clan, enable_bots, autostock_ge, allow_token_purchase, skillcape_perks, increased_door_time, enable_botting, max_adv_bots, enable_doubling_money_scammers, wild_pvp_enabled, jad_practice_enabled, ge_announcement_limit, smartpathfinder_bfs, enable_castle_wars, message_of_the_week_identifier, message_of_the_week_text)
         }
 
-        /*
+        /**
          * Gets the properties.
          */
         private fun getProperties(path: String): Properties {

@@ -10,9 +10,7 @@ import org.json.simple.parser.JSONParser
 import java.io.FileReader
 
 /**
- * Interface config parser
- *
- * @constructor Interface config parser
+ * Interface config parser.
  */
 class InterfaceConfigParser {
     val parser = JSONParser()

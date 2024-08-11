@@ -3,6 +3,9 @@ package core.game.ge
 import core.api.itemDefinition
 import java.sql.ResultSet
 
+/**
+ * Price index.
+ */
 object PriceIndex {
 
     fun canTrade(id: Int): Boolean {

@@ -5,7 +5,7 @@ import core.game.node.entity.player.Player;
 import core.tools.StringUtils;
 
 /**
- * Ge guide price.
+ * GE Guide price.
  */
 public final class GEGuidePrice {
 

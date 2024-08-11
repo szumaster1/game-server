@@ -9,9 +9,7 @@ import core.game.system.timer.TimerFlag
 import org.json.simple.JSONObject
 
 /**
- * Frozen
- *
- * @constructor Frozen
+ * Frozen.
  */
 class Frozen : PersistTimer(
     runInterval = 1,

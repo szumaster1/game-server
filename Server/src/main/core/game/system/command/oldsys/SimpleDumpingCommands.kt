@@ -12,9 +12,7 @@ import java.io.BufferedWriter
 import java.io.File
 
 /**
- * Simple dumping commands
- *
- * @constructor Simple dumping commands
+ * Simple dumping commands.
  */
 @Initializable
 class SimpleDumpingCommands : CommandPlugin() {

@@ -9,9 +9,7 @@ import java.io.File
 import java.io.FileReader
 
 /**
- * G e auto stock
- *
- * @constructor G e auto stock
+ * GE Auto stock.
  */
 class GEAutoStock : StartupListener {
     override fun startup() {

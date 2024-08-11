@@ -1,36 +1,26 @@
 package core.game.system
 
 /**
- * System state
- *
- * @constructor System state
+ * System state.
  */
 enum class SystemState {
     /**
-     * Active
-     *
-     * @constructor Active
+     * Active.
      */
     ACTIVE,
 
     /**
-     * Updating
-     *
-     * @constructor Updating
+     * Updating.
      */
     UPDATING,
 
     /**
-     * Private
-     *
-     * @constructor Private
+     * Private.
      */
     PRIVATE,
 
     /**
-     * Terminated
-     *
-     * @constructor Terminated
+     * Terminated.
      */
     TERMINATED
 }

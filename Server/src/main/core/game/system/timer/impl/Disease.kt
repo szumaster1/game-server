@@ -13,9 +13,7 @@ import core.tools.RandomFunction
 import org.json.simple.JSONObject
 
 /**
- * Disease
- *
- * @constructor Disease
+ * Disease.
  */
 class Disease : PersistTimer(
     runInterval = 30,

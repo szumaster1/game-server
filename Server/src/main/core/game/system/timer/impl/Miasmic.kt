@@ -10,9 +10,7 @@ import core.game.system.timer.RSTimer
 import core.game.system.timer.TimerFlag
 
 /**
- * Miasmic
- *
- * @constructor Miasmic
+ * Miasmic.
  */
 class Miasmic : PersistTimer(
     runInterval = 1,

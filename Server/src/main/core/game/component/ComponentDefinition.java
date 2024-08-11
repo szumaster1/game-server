@@ -8,14 +8,19 @@ import java.util.Map;
  */
 public final class ComponentDefinition {
 
+    // Map to store component definitions
     private static final Map<Integer, ComponentDefinition> DEFINITIONS = new HashMap<Integer, ComponentDefinition>();
 
+    // Type of the interface
     private InterfaceType type = InterfaceType.DEFAULT;
 
+    // Flag to indicate if the component is walkable
     private boolean walkable;
 
+    // Tab index of the component
     private int tabIndex = -1;
 
+    // Plugin associated with the component
     private ComponentPlugin plugin;
 
     /**
@@ -43,7 +48,7 @@ public final class ComponentDefinition {
     }
 
     /**
-     * For id component definition.
+     * Retrieves the component definition for the given component ID.
      *
      * @param componentId the component id
      * @return the component definition
@@ -57,7 +62,7 @@ public final class ComponentDefinition {
     }
 
     /**
-     * Put.
+     * Associates the given plugin with the specified component ID.
      *
      * @param id     the id
      * @param plugin the plugin
@@ -67,7 +72,7 @@ public final class ComponentDefinition {
     }
 
     /**
-     * Gets definitions.
+     * Gets all the component definitions.
      *
      * @return the definitions
      */
@@ -76,7 +81,7 @@ public final class ComponentDefinition {
     }
 
     /**
-     * Gets plugin.
+     * Gets the plugin associated with the component.
      *
      * @return the plugin
      */
@@ -85,7 +90,7 @@ public final class ComponentDefinition {
     }
 
     /**
-     * Sets plugin.
+     * Sets the plugin associated with the component.
      *
      * @param plugin the plugin
      */
@@ -94,7 +99,7 @@ public final class ComponentDefinition {
     }
 
     /**
-     * Gets window pane id.
+     * Gets the window pane ID based on the resizable flag.
      *
      * @param resizable the resizable
      * @return the window pane id
@@ -104,7 +109,7 @@ public final class ComponentDefinition {
     }
 
     /**
-     * Gets child id.
+     * Gets the child ID based on the resizable flag.
      *
      * @param resizable the resizable
      * @return the child id
@@ -114,7 +119,7 @@ public final class ComponentDefinition {
     }
 
     /**
-     * Gets type.
+     * Gets the type of the component.
      *
      * @return the type
      */
@@ -123,7 +128,7 @@ public final class ComponentDefinition {
     }
 
     /**
-     * Sets type.
+     * Sets the type of the component.
      *
      * @param type the type
      */
@@ -132,7 +137,7 @@ public final class ComponentDefinition {
     }
 
     /**
-     * Is walkable boolean.
+     * Checks if the component is walkable.
      *
      * @return the boolean
      */
@@ -141,7 +146,7 @@ public final class ComponentDefinition {
     }
 
     /**
-     * Sets walkable.
+     * Sets the walkable flag of the component.
      *
      * @param walkable the walkable
      */
@@ -150,7 +155,7 @@ public final class ComponentDefinition {
     }
 
     /**
-     * Gets tab index.
+     * Gets the tab index of the component.
      *
      * @return the tab index
      */
@@ -159,7 +164,7 @@ public final class ComponentDefinition {
     }
 
     /**
-     * Sets tab index.
+     * Sets the tab index of the component.
      *
      * @param tabIndex the tab index
      */

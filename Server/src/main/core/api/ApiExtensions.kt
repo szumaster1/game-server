@@ -4,9 +4,9 @@ import core.game.node.item.Item
 import java.util.*
 
 /**
- * To int array
+ * Extension function to convert IntProgression to IntArray.
  *
- * @return
+ * @return IntArray.
  */
 fun IntProgression.toIntArray(): IntArray {
     val result = IntArray((last - first) / step + 1)
@@ -15,18 +15,18 @@ fun IntProgression.toIntArray(): IntArray {
 }
 
 /**
- * As item
+ * Extension function to convert Int to Item.
  *
- * @return
+ * @return Item.
  */
 fun Int.asItem(): Item {
     return Item(this)
 }
 
 /**
- * To int array
+ * Extension function to convert Collection<IntArray> to IntArray.
  *
- * @return
+ * @return IntArray.
  */
 fun Collection<IntArray>.toIntArray(): IntArray {
     val list = ArrayList<Int>()
@@ -35,22 +35,20 @@ fun Collection<IntArray>.toIntArray(): IntArray {
 }
 
 /**
- * Is last
+ * Inline function to check if an element is the last one in a Collection.
  *
- * @param T
- * @param element
- * @return
+ * @param T element.
+ * @return Boolean.
  */
 inline fun <reified T> Collection<T>.isLast(element: T): Boolean {
     return this.indexOf(element) == this.size - 1
 }
 
 /**
- * Get next
+ * Inline function to get the next element in a Collection.
  *
- * @param T
- * @param element
- * @return
+ * @param T element.
+ * @return T.
  */
 inline fun <reified T> Collection<T>.getNext(element: T): T {
     val idx = this.indexOf(element)
@@ -59,31 +57,30 @@ inline fun <reified T> Collection<T>.getNext(element: T): T {
 }
 
 /**
- * Is next last
+ * Inline function to check if the next element is the last one in a Collection.
  *
- * @param T
- * @param element
- * @return
+ * @param T element.
+ * @return Boolean.
  */
 inline fun <reified T> Collection<T>.isNextLast(element: T): Boolean {
     return this.isLast(this.getNext(element))
 }
 
 /**
- * Is last
+ * Function to check if an element is the last one in an IntArray.
  *
- * @param element
- * @return
+ * @param Int element.
+ * @return Boolean.
  */
 fun IntArray.isLast(element: Int): Boolean {
     return this.indexOf(element) == this.size - 1
 }
 
 /**
- * Get next
+ * Function to get the next element in an IntArray.
  *
- * @param element
- * @return
+ * @param Int element.
+ * @return Int.
  */
 fun IntArray.getNext(element: Int): Int {
     val idx = this.indexOf(element)
@@ -92,21 +89,20 @@ fun IntArray.getNext(element: Int): Int {
 }
 
 /**
- * Is next last
+ * Function to check if the next element is the last one in an IntArray.
  *
- * @param element
- * @return
+ * @param Int element.
+ * @return Boolean.
  */
 fun IntArray.isNextLast(element: Int): Boolean {
     return this.isLast(this.getNext(element))
 }
 
 /**
- * Try pop
+ * Function to try to pop an element from a LinkedList.
  *
- * @param T
- * @param default
- * @return
+ * @param T default.
+ * @return T?.
  */
 fun <T> LinkedList<T>.tryPop(default: T?): T? {
     this.peek() ?: return default
@@ -114,11 +110,10 @@ fun <T> LinkedList<T>.tryPop(default: T?): T? {
 }
 
 /**
- * Parse enum entry
+ * Inline function to parse an enum entry by name.
  *
- * @param E
- * @param name
- * @return
+ * @param E name.
+ * @return E?.
  */
 inline fun <reified E : Enum<E>> parseEnumEntry(name: String): E? {
     return try {

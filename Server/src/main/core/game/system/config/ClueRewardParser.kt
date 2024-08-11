@@ -9,9 +9,7 @@ import org.json.simple.parser.JSONParser
 import java.io.FileReader
 
 /**
- * Clue reward parser
- *
- * @constructor Clue reward parser
+ * Clue reward parser.
  */
 class ClueRewardParser {
     companion object {

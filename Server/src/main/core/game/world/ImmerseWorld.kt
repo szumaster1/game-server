@@ -13,9 +13,7 @@ import java.util.concurrent.Executors
 import kotlin.concurrent.schedule
 
 /**
- * Immerse world
- *
- * @constructor Immerse world
+ * Immerse world.
  */
 class ImmerseWorld : StartupListener {
 

@@ -11,9 +11,7 @@ import core.game.system.timer.TimerFlag
 import org.json.simple.JSONObject
 
 /**
- * Frozen immunity
- *
- * @constructor Frozen immunity
+ * Frozen immunity.
  */
 class FrozenImmunity : PersistTimer(
     runInterval = 1,

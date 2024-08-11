@@ -8,9 +8,7 @@ import core.game.node.entity.player.Player
 import core.tools.START_DIALOGUE
 
 /**
- * Dialogue file
- *
- * @constructor Dialogue file
+ * Dialogue file.
  */
 abstract class DialogueFile {
     var player: Player? = null
@@ -20,20 +18,20 @@ abstract class DialogueFile {
     var dialogue: Dialogue? = null
 
     /**
-     * Handle
+     * Handle method to process button clicks on a specific component.
      *
-     * @param componentID
-     * @param buttonID
+     * @param componentID The ID of the component where the button is located
+     * @param buttonID The ID of the button clicked
      */
     abstract fun handle(componentID: Int, buttonID: Int)
 
     /**
-     * Load
+     * Load method to initialize dialogue processing.
      *
-     * @param player
-     * @param npc
-     * @param interpreter
-     * @return
+     * @param player The player object initiating the dialogue
+     * @param npc The NPC object involved in the dialogue
+     * @param interpreter The dialogue interpreter for processing
+     * @return The initialized DialogueFile object
      */
     fun load(player: Player, npc: NPC?, interpreter: DialogueInterpreter): DialogueFile {
         this.player = player
@@ -45,10 +43,10 @@ abstract class DialogueFile {
     }
 
     /**
-     * Npc
+     * This method sends a dialogue to an NPC with the specified ID and messages.
      *
-     * @param messages
-     * @return
+     * @param messages The messages to be sent to the NPC
+     * @return The Component object representing the dialogue box
      */
     open fun npc(vararg messages: String?): Component? {
         if (npc != null) {
@@ -60,22 +58,25 @@ abstract class DialogueFile {
     }
 
     /**
-     * Npc
+     * This method sends a dialogue to an NPC with the specified ID and messages.
+     * It returns a Component object representing the dialogue box.
      *
-     * @param id
-     * @param messages
-     * @return
+     * @param id The ID of the NPC
+     * @param messages The messages to be sent to the NPC
+     * @return The Component object representing the dialogue box
      */
     open fun npc(id: Int, vararg messages: String?): Component? {
         return interpreter!!.sendDialogues(id, FacialExpression.FRIENDLY, *messages)
     }
 
     /**
-     * Npc
+     * This method sends a dialogue to an NPC with the specified expression and messages.
+     * If the NPC is null, it sends the dialogue to the player instead.
+     * It returns a Component object representing the dialogue box.
      *
-     * @param expression
-     * @param messages
-     * @return
+     * @param expression The facial expression of the NPC
+     * @param messages The messages to be sent to the NPC
+     * @return The Component object representing the dialogue box
      */
     open fun npc(expression: FacialExpression?, vararg messages: String?): Component? {
         return if (npc == null) {
@@ -84,12 +85,13 @@ abstract class DialogueFile {
     }
 
     /**
-     * Npc
+     * This method sends a dialogue to an NPC with the specified ID, expression, and messages.
+     * It returns a Component object representing the dialogue box.
      *
-     * @param id
-     * @param expression
-     * @param messages
-     * @return
+     * @param id The ID of the NPC
+     * @param expression The facial expression of the NPC
+     * @param messages The messages to be sent to the NPC
+     * @return The Component object representing the dialogue box
      */
     open fun npc(id: Int, expression: FacialExpression?, vararg messages: String?): Component? {
         val chatBoxComponent = interpreter!!.sendDialogues(id, expression, *messages)
@@ -97,13 +99,15 @@ abstract class DialogueFile {
     }
 
     /**
-     * Npc
+     * This method sends a dialogue to an NPC with the specified ID, title, expression, and messages.
+     * It also sets the title of the dialogue box.
+     * It returns a Component object representing the dialogue box.
      *
-     * @param id
-     * @param title
-     * @param expression
-     * @param messages
-     * @return
+     * @param id The ID of the NPC
+     * @param title The title of the dialogue box
+     * @param expression The facial expression of the NPC
+     * @param messages The messages to be sent to the NPC
+     * @return The Component object representing the dialogue box
      */
     open fun npc(id: Int, title: String, expression: FacialExpression?, vararg messages: String?): Component? {
         val chatBoxComponent = interpreter!!.sendDialogues(id, expression, *messages)
@@ -112,88 +116,97 @@ abstract class DialogueFile {
     }
 
     /**
-     * Player
+     * This method sends a dialogue to the player with the specified messages.
+     * It returns a Component object representing the dialogue box.
      *
-     * @param messages
-     * @return
+     * @param messages The messages to be sent to the player
+     * @return The Component object representing the dialogue box
      */
     open fun player(vararg messages: String?): Component? {
         return interpreter!!.sendDialogues(player, null, *messages)
     }
 
+
     /**
-     * Player
+     * This method sends a dialogue to the player with the specified expression and messages.
+     * It returns a Component object representing the dialogue box.
      *
-     * @param expression
-     * @param messages
-     * @return
+     * @param expression The facial expression of the player.
+     * @param messages The messages to be sent to the player.
+     * @return The Component object representing the dialogue box.
      */
     open fun player(expression: FacialExpression?, vararg messages: String?): Component? {
         return interpreter!!.sendDialogues(player, expression, *messages)
     }
 
     /**
-     * Npcl
+     * This method sends a dialogue to an NPC with the specified expression and message.
+     * It returns a Component object representing the dialogue box.
      *
-     * @param expr
-     * @param msg
-     * @return
+     * @param expr The facial expression of the NPC.
+     * @param msg The message to be sent to the NPC.
+     * @return The Component object representing the dialogue box.
      */
     open fun npcl(expr: FacialExpression?, msg: String?): Component? {
         return npc(expr, *splitLines(msg!!))
     }
 
     /**
-     * Npcl
+     * This method sends a dialogue to an NPC with the specified ID, expression, and message.
+     * It returns a Component object representing the dialogue box.
      *
-     * @param id
-     * @param expr
-     * @param msg
-     * @return
+     * @param id The ID of the NPC.
+     * @param expr The facial expression of the NPC.
+     * @param msg The message to be sent to the NPC.
+     * @return The Component object representing the dialogue box.
      */
     open fun npcl(id: Int, expr: FacialExpression?, msg: String?): Component? {
         return npc(id, expr, *splitLines(msg!!))
     }
 
     /**
-     * Npcl
+     * This method sends a dialogue to an NPC with the specified ID, title, expression, and message.
+     * It returns a Component object representing the dialogue box.
      *
-     * @param id
-     * @param title
-     * @param expr
-     * @param msg
-     * @return
+     * @param id The ID of the NPC.
+     * @param title The title of the dialogue box.
+     * @param expr The facial expression of the NPC.
+     * @param msg The message to be sent to the NPC.
+     * @return The Component object representing the dialogue box.
      */
     open fun npcl(id: Int, title: String, expr: FacialExpression?, msg: String?): Component? {
         return npc(id, title, expr, *splitLines(msg!!))
     }
 
     /**
-     * Npcl
+     * This method sends a dialogue to an NPC with the specified message.
+     * It returns a Component object representing the dialogue box.
      *
-     * @param msg
-     * @return
+     * @param msg The message to be sent to the NPC.
+     * @return The Component object representing the dialogue box.
      */
     open fun npcl(msg: String?): Component? {
         return npc(*splitLines(msg!!))
     }
 
     /**
-     * Playerl
+     * This method sends a dialogue to the player with the specified expression and message.
+     * It returns a Component object representing the dialogue box.
      *
-     * @param expr
-     * @param msg
-     * @return
+     * @param expr The facial expression of the player.
+     * @param msg The message to be sent to the player.
+     * @return The Component object representing the dialogue box.
      */
     open fun playerl(expr: FacialExpression?, msg: String?): Component? {
         return player(expr, *splitLines(msg!!))
     }
 
     /**
-     * Playerl
+     * This method sends a dialogue to the player with the specified message.
+     * It returns a Component object representing the dialogue box.
      *
-     * @param msg
-     * @return
+     * @param msg The message to be sent to the player.
+     * @return The Component object representing the dialogue box.
      */
     open fun playerl(msg: String?): Component? {
         return player(*splitLines(msg!!))
@@ -207,40 +220,39 @@ abstract class DialogueFile {
         if (interpreter != null) interpreter!!.close()
     }
 
+
     /**
      * Send normal dialogue
      *
-     * @param entity
-     * @param expression
-     * @param messages
+     * @param entity the entity to send the dialogue to
+     * @param expression the facial expression to use
+     * @param messages the messages to be sent
      */
     open fun sendNormalDialogue(entity: Entity?, expression: FacialExpression?, vararg messages: String?) {
         interpreter!!.sendDialogues(entity, expression, *messages)
     }
 
     /**
-     * Options
+     * Display options for selection
      *
-     * @param options
-     * @param title
+     * @param options the options to display
+     * @param title the title of the options
      */
     open fun options(vararg options: String?, title: String = "Select an Option") {
         interpreter!!.sendOptions(title, *options)
     }
 
     /**
-     * End file
-     *
+     * End the current dialogue file
      */
     fun endFile() {
         interpreter!!.dialogue.file = null
-
     }
 
     /**
-     * Return at stage
+     * Return to a specific stage in the dialogue
      *
-     * @param toStage
+     * @param toStage the stage to return to
      */
     fun returnAtStage(toStage: Int) {
         dialogue!!.file = null
@@ -248,8 +260,7 @@ abstract class DialogueFile {
     }
 
     /**
-     * Abandon file
-     *
+     * Abandon the current dialogue file
      */
     fun abandonFile() {
         interpreter!!.dialogue.file = null
@@ -257,39 +268,39 @@ abstract class DialogueFile {
     }
 
     /**
-     * Get current stage
+     * Get the current stage of the dialogue
      *
-     * @return
+     * @return the current stage
      */
     open fun getCurrentStage(): Int {
         return stage
     }
 
     /**
-     * Substage
+     * Calculate the substage based on the current stage
      *
-     * @param stage
-     * @return
+     * @param stage the current stage
+     * @return the calculated substage
      */
     fun Int.substage(stage: Int): Int {
         return this + stage
     }
 
     /**
-     * Dialogue
+     * Initiate a dialogue with the player
      *
-     * @param messages
+     * @param messages the messages to be displayed in the dialogue
      */
     fun dialogue(vararg messages: String) {
         player?.dialogueInterpreter?.sendDialogue(*messages)
     }
 
     /**
-     * Show topics
+     * Function to display topics
      *
-     * @param topics
-     * @param title
-     * @return
+     * @param topics The list of topics to display
+     * @param title The title of the topic selection
+     * @return Boolean indicating if the topics were successfully displayed
      */
     fun showTopics(vararg topics: Topic<*>, title: String = "Select an Option:"): Boolean {
         val validTopics = ArrayList<String>()
