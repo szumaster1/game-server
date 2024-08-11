@@ -1,10 +1,6 @@
 package core.api.utils
 
 /**
- * Config parse exception
- *
- * @constructor
- *
- * @param message
+ * Config parse exception.
  */
 class ConfigParseException(message: String) : Exception(message)

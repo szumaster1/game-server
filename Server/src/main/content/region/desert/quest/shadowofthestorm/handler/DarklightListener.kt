@@ -9,9 +9,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Darklight listener
- *
- * @constructor Darklight listener
+ * Darklight listener.
  */
 class DarklightListener : InteractionListener {
     override fun defineListeners() {

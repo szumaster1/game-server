@@ -15,10 +15,7 @@ import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 
 /**
- * Sir tinley dialogue file
- *
- * @property dialogueNum
- * @constructor Sir tinley dialogue file
+ * Sir tinley dialogue file.
  */
 class SirTinleyDialogueFile(private val dialogueNum: Int = 0) : DialogueBuilderFile(), MapArea {
     companion object {

@@ -6,8 +6,6 @@ import core.game.dialogue.DialogueFile
 
 /**
  * Curator haig halen dialogue file.
- *
- * @constructor Curator haig halen dialogue file
  */
 class CuratorHaigHalenDialogueFile : DialogueFile() {
 

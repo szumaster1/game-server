@@ -16,9 +16,7 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * Shamus tree listener
- *
- * @constructor Shamus tree listener
+ * Shamus tree listener.
  */
 @Initializable
 class ShamusTreeListener : InteractionListener {

@@ -10,9 +10,6 @@ import core.tools.START_DIALOGUE
 
 /**
  * Duke horacio lost tribe dialogue.
- *
- * @property questStage
- * @constructor Duke horacio lost tribe dialogue
  */
 class DukeHoracioLostTribeDialogue(val questStage: Int) : DialogueFile() {
 

@@ -53,25 +53,14 @@ class CocktailFinisher : OptionHandler() {
     }
 
     /**
-     * Finished drinks
+     * Enum representing finished drinks.
      *
-     * @property product
-     * @property requiredItems
-     * @constructor Finished drinks
+     * @property product The product code of the finished drink.
+     * @property requiredItems The array of items required to make the finished drink.
+     * @constructor Creates a new FinishedDrinks enum instance.
      */
     internal enum class FinishedDrinks(val product: Int, val requiredItems: Array<Item>) {
-        /**
-         * Fin Choc Sat
-         *
-         * @constructor Fin Choc Sat
-         */
         FIN_CHOC_SAT(2074, arrayOf(Item(Items.CHOCOLATE_DUST_1975), Item(Items.POT_OF_CREAM_2130))),
-
-        /**
-         * Fin Drun Dra
-         *
-         * @constructor Fin Drun Dra
-         */
         FIN_DRUN_DRA(9576, arrayOf(Item(Items.PINEAPPLE_CHUNKS_2116), Item(Items.POT_OF_CREAM_2130)))
     }
 

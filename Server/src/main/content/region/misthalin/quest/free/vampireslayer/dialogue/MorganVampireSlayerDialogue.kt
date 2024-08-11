@@ -10,8 +10,6 @@ import core.tools.END_DIALOGUE
 
 /**
  * Morgan vampire slayer dialogue.
- *
- * @constructor Morgan vampire slayer dialogue
  */
 class MorganVampireSlayerDialogue : DialogueFile() {
 

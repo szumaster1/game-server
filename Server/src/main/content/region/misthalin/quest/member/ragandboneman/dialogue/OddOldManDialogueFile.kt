@@ -10,7 +10,6 @@ import core.game.node.entity.player.Player
 import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
-
 /**
  * Odd old man dialogue file.
  */
@@ -185,16 +184,17 @@ class OddOldManDialogueFile : DialogueFile() {
                 }
             }
         }
-        /*
-        Unfortunately from OSRS 2016: https://www.youtube.com/watch?v=31QNg1E0qf0
-        Wonderful! I'll put this with the rest.
-        No problem. I'll be back if I find some more.
 
-        This one is closest RS 2012: https://www.youtube.com/watch?v=0I8fNTeAwA8
-        I have some bones for you...
-        Great! Let me take a look at them.
-        Thanks the museum will be so pleased.
-        Come and see me when you have the rest.
+        /*
+         * Unfortunately from OSRS 2016: https://www.youtube.com/watch?v=31QNg1E0qf0
+         * Wonderful! I'll put this with the rest.
+         * No problem. I'll be back if I find some more.
+         *
+         * This one is closest RS 2012: https://www.youtube.com/watch?v=0I8fNTeAwA8
+         * I have some bones for you...
+         * Great! Let me take a look at them.
+         * Thanks the museum will be so pleased.
+         * Come and see me when you have the rest.
          */
     }
 

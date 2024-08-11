@@ -28,21 +28,25 @@ class PollnivneahListeners : InteractionListener {
 
     override fun defineListeners() {
 
+        // Open dialogue with the camel NPC.
         on(CAMEL, IntType.NPC, "talk-to"){ player, _ ->
             openDialogue(player, CAMEL)
             return@on true
         }
 
+        // Open dialogue with the bandit NPC.
         on(BANDIT, IntType.NPC, "talk-to"){ player, _ ->
             openDialogue(player, BANDIT)
             return@on true
         }
 
+        // Open dialogue with the barman NPC.
         on(BARMAN, IntType.NPC, "talk-to"){ player, _ ->
             openDialogue(player, AliTheBarmanDialogue())
             return@on true
         }
 
+        // Take beer from the bar table.
         on(BAR_TABLE, IntType.SCENERY, "take-beer") { player, node ->
             if (freeSlots(player) < 1) {
                 sendDialogue(player, "You don't have enough inventory space.")
@@ -55,9 +59,7 @@ class PollnivneahListeners : InteractionListener {
             return@on true
         }
 
-        /*
-         * The Snake charmer basket interaction.
-         */
+        // The Snake charmer basket interaction.
         onUseWith(IntType.SCENERY, MONEY_POT, COINS){ player, _, _ ->
             if (removeItem(player, Item(Items.COINS_995, 3))) {
                 player.dialogueInterpreter.open(SNAKE_CHARMER, true)
@@ -67,6 +69,7 @@ class PollnivneahListeners : InteractionListener {
     }
 
     override fun defineDestinationOverrides() {
+        // Set the destination for talking to the barman NPC.
         setDest(IntType.NPC, intArrayOf(BARMAN), "talk-to") { _, _ ->
             return@setDest Location.create(3361, 2956, 0)
         }

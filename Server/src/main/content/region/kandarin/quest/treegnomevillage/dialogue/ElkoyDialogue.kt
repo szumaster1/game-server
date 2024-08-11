@@ -14,16 +14,14 @@ import core.game.world.map.Location
 import core.tools.END_DIALOGUE
 
 /**
- * Elkoy dialogue
- *
- * @constructor Elkoy dialogue
+ * Elkoy dialogue.
  */
 class ElkoyDialogue : DialogueFile() {
     /**
-     * Travel cutscene
+     * Function to display a cutscene when the player travels to a new location.
      *
-     * @param player
-     * @param location
+     * @param player The player object initiating the travel.
+     * @param location The destination location the player is traveling to.
      */
     fun travelCutscene(player: Player, location: Location) {
         sendDialogue(player, "Elkoy escorts you through the maze...")

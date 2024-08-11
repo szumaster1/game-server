@@ -7,9 +7,7 @@ import core.game.node.entity.player.Player
 import core.game.system.task.Pulse
 
 /**
- * Dice game interface listener
- *
- * @constructor Dice game interface listener
+ * Dice game interface listener.
  */
 class DiceGameInterfaceListener : InterfaceListener {
     companion object {

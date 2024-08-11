@@ -60,9 +60,7 @@ class MeldarMadNPC : AbstractNPC {
 
 
     /**
-     * Meldar swing handler
-     *
-     * @constructor Meldar swing handler
+     * Meldar swing handler.
      */
     inner class MeldarSwingHandler : CombatSwingHandler(CombatStyle.MAGIC) {
         private var style = CombatStyle.MAGIC

@@ -13,9 +13,6 @@ import core.tools.END_DIALOGUE
 
 /**
  * Capn izzy dialogue.
- *
- * @property it
- * @constructor Capn izzy dialogue
  */
 class CapnIzzyDialogue(private val it: Int) : DialogueFile() {
 

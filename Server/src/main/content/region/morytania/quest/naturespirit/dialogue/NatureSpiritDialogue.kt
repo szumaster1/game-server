@@ -100,13 +100,12 @@ class NatureSpiritDialogue(player: Player? = null) : Dialogue(player) {
         return intArrayOf(NPCs.NATURE_SPIRIT_1051)
     }
 
-
     /**
      * Represents a pulse that blesses a player with a spirit.
      *
-     * @property player the player to be blessed
-     * @property spirit the spirit NPC providing the blessing
-     * @constructor Creates a SickleBlessPulse instance with the given player and spirit
+     * @property player the player to be blessed.
+     * @property spirit the spirit NPC providing the blessing.
+     * @constructor Creates a SickleBlessPulse instance with the given player and spirit.
      */
     internal class SickleBlessPulse(val player: Player, val spirit: NPC) : Pulse() {
         var ticks = 0

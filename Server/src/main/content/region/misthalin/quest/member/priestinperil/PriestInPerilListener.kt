@@ -9,9 +9,7 @@ import core.game.world.map.Location
 import core.game.node.item.Item
 
 /**
- * Priest in peril listener
- *
- * @constructor Priest in peril listener
+ * Priest in peril listener.
  */
 class PriestInPerilListener : InteractionListener {
 

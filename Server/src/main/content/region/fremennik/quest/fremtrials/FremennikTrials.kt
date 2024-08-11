@@ -15,10 +15,6 @@ import core.plugin.Initializable
 @Initializable
 class FremennikTrials : Quest("Fremennik Trials", 64, 63, 3, Vars.VARP_QUEST_FREMENNIK_TRIALS_PROGRESS, 0, 1, 10) {
 
-
-    /**
-     * Skill requirements.
-     */
     class SkillRequirement(val skill: Int?, val level: Int?)
 
     val requirements = arrayListOf<SkillRequirement>()

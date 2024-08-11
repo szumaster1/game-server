@@ -16,9 +16,7 @@ import core.plugin.Plugin
 import core.tools.RandomFunction
 
 /**
- * Cave zone
- *
- * @constructor Cave zone
+ * Cave zone.
  */
 @Initializable
 class CaveZone : MapZone("TLT Cave Zone", true), Plugin<Unit> {

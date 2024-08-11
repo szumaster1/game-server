@@ -273,10 +273,7 @@ class BlastFurnaceForemanDialogue(player: Player? = null) : Dialogue(player) {
 
 
     /**
-     * Chat pulse
-     *
-     * @property npc
-     * @constructor Chat pulse
+     * Chat pulse.
      */
     class ChatPulse(val npc: NPC) : Pulse() {
         companion object {

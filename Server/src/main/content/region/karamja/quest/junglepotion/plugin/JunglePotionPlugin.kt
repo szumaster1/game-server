@@ -19,9 +19,7 @@ import core.game.world.map.Location
 import core.plugin.Plugin
 
 /**
- * Jungle potion plugin
- *
- * @constructor Jungle potion plugin
+ * "Jungle potion" quest plugin.
  */
 class JunglePotionPlugin : OptionHandler() {
 
@@ -75,9 +73,7 @@ class JunglePotionPlugin : OptionHandler() {
     }
 
     /**
-     * Jogre cavern dialogue
-     *
-     * @constructor Jogre cavern dialogue
+     * Jogre cavern dialogue.
      */
     class JogreCavernDialogue : Dialogue {
 

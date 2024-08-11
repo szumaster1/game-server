@@ -14,12 +14,14 @@ class MiscellaniaListeners : InteractionListener{
 
     override fun defineListeners() {
 
-        on(NPCs.FISHERMAN_FRODI_1397, IntType.NPC, "talk-to") { player, node ->
+        // Define listener for talking to Fisherman Frodi NPC.
+        on(NPCs.FISHERMAN_FRODI_1397, IntType.NPC, "talk-to") { player, _ ->
             openDialogue(player, FishermanFrodiDialogue())
             return@on true
         }
 
-        on(NPCs.FARMER_FROMUND_3917, IntType.NPC, "talk-to") { player, node ->
+        // Define listener for talking to Farmer Fromund NPC.
+        on(NPCs.FARMER_FROMUND_3917, IntType.NPC, "talk-to") { player, _ ->
             openDialogue(player, FarmerFromundDialogue())
             return@on true
         }

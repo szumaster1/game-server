@@ -15,9 +15,9 @@ import core.api.consts.NPCs
 class SethGroatsDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        Seth Groats is a farmer who lives on the north-east side
-        of Lumbridge (east of the river and north of the goblins).
-        Seth is the father of Gillie Groats, a young milkmaid in Lumbridge.
+     * Seth Groats is a farmer who lives on the north-east side
+     * of Lumbridge (east of the river and north of the goblins).
+     * Seth is the father of Gillie Groats, a young milkmaid in Lumbridge.
      */
 
     override fun open(vararg args: Any): Boolean {

@@ -40,6 +40,9 @@ public final class RugMerchantDialogue extends Dialogue {
      * Instantiates a new Rug merchant dialogue.
      */
     public RugMerchantDialogue() {
+        /*
+         * Empty.
+         */
 	}
 
 	@Override
@@ -86,7 +89,7 @@ public final class RugMerchantDialogue extends Dialogue {
 		return true;
 	}
 
-	/*
+	/**
 	 * Handles the defeault dialogue.
 	 */
 	private final void handleDefault(final int buttonId) {
@@ -156,7 +159,7 @@ public final class RugMerchantDialogue extends Dialogue {
 		}
 	}
 
-	/*
+	/**
 	 * Sends the rug travelling destination options.
 	 */
 	private void sendOptions(RugDestination[] destinations) {
@@ -173,14 +176,11 @@ public final class RugMerchantDialogue extends Dialogue {
 	}
 
     /**
-     * Get destination rug destination [ ].
+     * Gets the rug destinations for an npc id.
      *
      * @param npcId the npc id
-     * @return the rug destination [ ]
+     * @return the rug destination
      */
-    /*
-	 * Gets the rug destinations for an npc id.
-	 */
 	public static RugDestination[] getDestination(int npcId) {
 		switch (npcId) {
 		case 2291:
@@ -204,11 +204,8 @@ public final class RugMerchantDialogue extends Dialogue {
 	}
 
     /**
-     * Rug merchant plugin.
+     * Handles the right click on the rug merchant.
      */
-    /*
-	 * Handles the right click on the rug merchant.
-	 */
 	public class RugMerchantPlugin extends OptionHandler {
 
 		@Override
@@ -228,11 +225,8 @@ public final class RugMerchantDialogue extends Dialogue {
 	}
 
     /**
-     * The enum Rug destination.
+     * A destination for a rug.
      */
-    /*
-	 * A destination for a rug.
-	 */
 	public enum RugDestination {
         /**
          * The Shantay pass.
@@ -283,7 +277,7 @@ public final class RugMerchantDialogue extends Dialogue {
          */
         public void travel(final RugDestination current, final Player player) {
 			player.lock();
-                        setVarp(player, 499, 0);
+            setVarp(player, 499, 0);
 			player.getImpactHandler().setDisabledTicks(GameWorld.getTicks() + 200);
 			player.getInterfaceManager().removeTabs(0,1,2,3,4,5,6,7,8,9,10,11,12,13);
 			player.getEquipment().replace(new Item(Items.MAGIC_CARPET_5614),EquipmentContainer.SLOT_WEAPON);
@@ -323,7 +317,7 @@ public final class RugMerchantDialogue extends Dialogue {
 						player.faceLocation(getLocation());
 						break;
 					case 4:
-                                                setVarp(player, 499, 1);
+                        setVarp(player, 499, 1);
 						break;
 					case 200:
 						break;
@@ -379,14 +373,11 @@ public final class RugMerchantDialogue extends Dialogue {
 		}
 
         /**
-         * For id rug destination.
+         * Gets the rug destination object for the npc id.
          *
          * @param id the id
          * @return the rug destination
          */
-        /*
-		 * Gets the rug destination object for the npc id.
-		 */
 		public static RugDestination forId(int id) {
 			for (RugDestination dest : values()) {
 				if (dest.getNpc() == id) {
@@ -397,49 +388,37 @@ public final class RugMerchantDialogue extends Dialogue {
 		}
 
         /**
-         * Gets npc.
+         * Gets the npc.
          *
          * @return the npc
          */
-        /*
-		 * Gets the npc.
-		 */
 		public int getNpc() {
 			return npc;
 		}
 
         /**
-         * Gets location.
+         * Gets the destination.
          *
          * @return the location
          */
-        /*
-		 * Gets the destination.
-		 */
 		public Location getLocation() {
 			return location;
 		}
 
         /**
-         * Gets name.
+         * Gets the name.
          *
          * @return the name
          */
-        /*
-		 * Gets the name.
-		 */
 		public String getName() {
 			return name;
 		}
 
         /**
-         * Get loc data location [ ].
+         * Gets the location.
          *
-         * @return the location [ ]
+         * @return the location.
          */
-        /*
-		 * Gets the location.
-		 */
 		public Location[] getLocData() {
 			return locData;
 		}

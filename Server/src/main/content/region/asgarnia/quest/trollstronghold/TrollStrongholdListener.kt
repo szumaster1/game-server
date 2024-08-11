@@ -18,9 +18,7 @@ import core.tools.RandomFunction
 import kotlin.math.ceil
 
 /**
- * Troll stronghold listener
- *
- * @constructor Troll stronghold listener
+ * Troll stronghold listener.
  */
 class TrollStrongholdListener : InteractionListener {
 

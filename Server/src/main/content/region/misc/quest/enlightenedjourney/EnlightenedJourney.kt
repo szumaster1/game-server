@@ -10,21 +10,11 @@ import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 
 /**
- * Enlightened journey
- *
- * @constructor Enlightened journey
+ * Enlightened journey quest.
  */
 @Initializable
-class EnlightenedJourney :
-    Quest("Enlightened Journey", 55, 54, 1, Vars.VARBIT_QUEST_ENLIGHTENED_JOURNEY_PROGRESS, 0, 1, 200) {
+class EnlightenedJourney : Quest("Enlightened Journey", 55, 54, 1, Vars.VARBIT_QUEST_ENLIGHTENED_JOURNEY_PROGRESS, 0, 1, 200) {
 
-    /**
-     * Skill requirement
-     *
-     * @property skill
-     * @property level
-     * @constructor Skill requirement
-     */
     class SkillRequirement(val skill: Int?, val level: Int?)
 
     val requirements = arrayListOf<SkillRequirement>()

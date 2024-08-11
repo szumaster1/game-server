@@ -9,9 +9,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Royal trouble listeners
- *
- * @constructor Royal trouble listeners
+ * Royal trouble listeners.
  */
 class RoyalTroubleListeners : InteractionListener {
 

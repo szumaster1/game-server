@@ -4,9 +4,7 @@ import core.game.dialogue.DialogueFile
 import core.tools.END_DIALOGUE
 
 /**
- * Machines dialogue
- *
- * @constructor Machines dialogue
+ * Machines dialogue.
  */
 class MachinesDialogue : DialogueFile() {
 
@@ -29,11 +27,8 @@ class MachinesDialogue : DialogueFile() {
         }
     }
 
-
     /**
-     * Pipe machine dialogue
-     *
-     * @constructor Pipe machine dialogue
+     * Pipe machine dialogue.
      */
     class PipeMachineDialogue : DialogueFile() {
         override fun handle(componentID: Int, buttonID: Int) {
@@ -56,11 +51,8 @@ class MachinesDialogue : DialogueFile() {
         }
     }
 
-
     /**
-     * Cage dialogue
-     *
-     * @constructor Cage dialogue
+     * Cage dialogue.
      */
     class CageDialogue : DialogueFile() {
         override fun handle(componentID: Int, buttonID: Int) {
@@ -84,9 +76,7 @@ class MachinesDialogue : DialogueFile() {
     }
 
     /**
-     * Tower dialogue
-     *
-     * @constructor Tower dialogue
+     * Tower dialogue.
      */
     class TowerDialogue : DialogueFile() {
         override fun handle(componentID: Int, buttonID: Int) {

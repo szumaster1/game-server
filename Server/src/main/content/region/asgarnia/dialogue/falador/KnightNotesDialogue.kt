@@ -44,9 +44,7 @@ class KnightNotesDialogue : DialogueFile() {
     }
 
     /**
-     * Broken knight notes
-     *
-     * @constructor Broken knight notes
+     * Broken knight notes.
      */
     class BrokenKnightNotes : DialogueFile() {
         override fun handle(componentID: Int, buttonID: Int) {

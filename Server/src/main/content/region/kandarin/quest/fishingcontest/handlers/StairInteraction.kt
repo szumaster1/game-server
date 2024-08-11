@@ -12,9 +12,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Stair interaction
- *
- * @constructor Stair interaction
+ * Stair interaction.
  */
 @Initializable
 class StairInteraction : PluginInteraction() {

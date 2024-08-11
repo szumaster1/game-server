@@ -12,6 +12,9 @@ import core.game.world.map.Location
 
 object RowingBoat {
 
+    // This method allows the player to sail with between
+    // Piscatoris Fishing Colony & Tree Gnome Stronghold (West side).
+    @JvmStatic
     fun sail(player: Player, npc: NPC): Boolean {
         lock(player, 1000)
         lockInteractions(player, 1000)

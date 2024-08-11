@@ -339,9 +339,7 @@ class TrollheimPlugin : OptionHandler() {
     }
 
     /**
-     * Warning zone
-     *
-     * @constructor Warning zone
+     * Warning zone.
      */
     class WarningZone : MapZone("trollheim-warning", true), Plugin<Any?> {
         override fun enter(entity: Entity): Boolean {
@@ -374,9 +372,7 @@ class TrollheimPlugin : OptionHandler() {
     }
 
     /**
-     * Warning cutscene
-     *
-     * @constructor Warning cutscene
+     * Warning cutscene.
      */
     class WarningCutscene : CutscenePlugin {
         constructor() : super("trollheim-warning")

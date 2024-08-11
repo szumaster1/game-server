@@ -1,7 +1,7 @@
 package content.region.fremennik.dialogue.piratescove
 
-import content.region.fremennik.handlers.lunarisle.PiratesCoveUtils.sail
-import content.region.fremennik.handlers.lunarisle.ReachDestination
+import content.region.fremennik.handlers.lunarisle.Destinaton
+import content.region.fremennik.handlers.lunarisle.LunarTravel.sail
 import core.api.consts.NPCs
 import core.game.dialogue.Dialogue
 import core.game.node.entity.npc.NPC
@@ -32,7 +32,7 @@ class CaptainBentleyDialogue(player: Player? = null): Dialogue(player) {
             0 -> npc("Sure matey!").also { stage++ }
             1 -> {
                 end()
-                sail(player, ReachDestination.PIRATES_COVE_TO_MOONCLAN_ISLAND)
+                sail(player, Destinaton.PIRATES_COVE_TO_MOONCLAN_ISLAND)
             }
 
             2 -> npc("And you're wanting what now?").also { stage++ }
@@ -44,7 +44,7 @@ class CaptainBentleyDialogue(player: Player? = null): Dialogue(player) {
             5 -> npc("I'll take you as far as Pirates' Cove. You'll have to find", "the rest of the way back yourself.").also { stage++ }
             6 -> {
                 end()
-                sail(player, ReachDestination.MOONCLAN_ISLAND_TO_PIRATES_COVE)
+                sail(player, Destinaton.MOONCLAN_ISLAND_TO_PIRATES_COVE)
             }
             7 -> npc("Yep. You're free to explore the island. Be careful though, ", "the Moon Clan are very powerful, it wouldn't be wise to", "wrong them.").also { stage++ }
             8 -> player("Thanks, i'll keep that seal of passage close.").also { stage++ }

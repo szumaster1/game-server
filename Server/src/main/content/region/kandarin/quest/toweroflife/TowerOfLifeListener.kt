@@ -13,9 +13,7 @@ import core.game.interaction.QueueStrength
 import core.tools.RandomFunction
 
 /**
- * Tower of life listener
- *
- * @constructor Tower of life listener
+ * Tower of life listener.
  */
 class TowerOfLifeListener : InteractionListener {
     companion object {

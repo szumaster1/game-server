@@ -16,9 +16,9 @@ import core.tools.END_DIALOGUE
 class GabootyDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        Gabooty is one of the natives in Tai Bwo Wannai Village,
-        a small village located on Karamja. He wanders around
-        inside the village walls and acts as the village store.
+     * Gabooty is one of the natives in Tai Bwo Wannai Village,
+     * a small village located on Karamja. He wanders around
+     * inside the village walls and acts as the village store.
      */
 
     override fun open(vararg args: Any): Boolean {

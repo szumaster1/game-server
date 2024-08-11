@@ -10,9 +10,6 @@ import core.tools.START_DIALOGUE
 
 /**
  * Duke horacio rune mysteries dialogue.
- *
- * @property questStage
- * @constructor Duke horacio rune mysteries dialogue
  */
 class DukeHoracioRuneMysteriesDialogue(val questStage: Int) : DialogueFile() {
 

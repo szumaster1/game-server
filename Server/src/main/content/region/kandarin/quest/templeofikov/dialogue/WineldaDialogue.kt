@@ -35,9 +35,7 @@ class WineldaDialogue(player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Winelda dialogue file
- *
- * @constructor Winelda dialogue file
+ * Winelda dialogue file.
  */
 class WineldaDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {

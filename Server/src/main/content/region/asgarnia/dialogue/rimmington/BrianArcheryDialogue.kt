@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Brian archery dialogue.
+ * Brian Archery dialogue.
  */
 @Initializable
 class BrianArcheryDialogue(player: Player? = null) : Dialogue(player) {

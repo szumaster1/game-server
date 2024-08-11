@@ -37,50 +37,51 @@ class KharidianDesertListeners : InteractionListener {
 
     override fun defineListeners() {
 
+        // Listener for entering the tunnel
         on(TUNNEL, IntType.SCENERY, "enter") { player, _ ->
             teleport(player, Location(3233, 9313, 0))
             return@on true
         }
 
+        // Listener for opening the pyramid entrance
         on(PYRAMID_ENTRANCE, IntType.SCENERY, "open") { player, node ->
             // sendMessage(player, "A mystical power has sealed this door...")
             DoorActionHandler.handleAutowalkDoor(player, node.asScenery())
             return@on true
         }
 
+        // Listener for using the portal
         on(PORTAL, IntType.SCENERY, "use") { player, _ ->
             teleport(player, Location(3233, 2887, 0))
             return@on true
         }
 
-        /*
-            https://runescape.wiki/w/Battle_of_Ullek
-         */
-
+        // Listener for going up the stairs
+        // https://runescape.wiki/w/Battle_of_Ullek
         on(STAIRS, IntType.SCENERY, "enter") { player, _ ->
             player.properties.teleportLocation = Location.create(3448, 9252, 1)
             return@on true
         }
 
+        // Listener for leaving through the exit
         on(EXIT, IntType.SCENERY, "leave through") { player, _ ->
             player.properties.teleportLocation = Location.create(3412, 2848, 1)
             return@on true
         }
 
+        // Listener for climbing the first fallen pillar
         on(FALLEN_PILLAR_1, IntType.SCENERY, "climb") { player, _ ->
             player.properties.teleportLocation = Location.create(3419, 2803, 1)
             return@on true
         }
 
+        // Listener for climbing the second fallen pillar
         on(FALLEN_PILLAR_2, IntType.SCENERY, "climb") { player, _ ->
             player.properties.teleportLocation = Location.create(3419, 2801, 0)
             return@on true
         }
 
-        /*
-            Interaction with kharidian cactus's.
-         */
-
+        // Listener for cutting the cactus
         on(CACTUS, IntType.SCENERY, "cut") { player, node ->
             if (!inInventory(player, KNIFE)) {
                 sendMessage(player, "You need a knife to cut this Cactus...")
@@ -115,10 +116,7 @@ class KharidianDesertListeners : InteractionListener {
     }
 
     /**
-     * Get water skin
-     *
-     * @param player
-     * @return
+     * This function retrieves the water skin item for a given player.
      */
     fun getWaterSkin(player: Player): Item? {
         for (item in WATER_SKINS) {

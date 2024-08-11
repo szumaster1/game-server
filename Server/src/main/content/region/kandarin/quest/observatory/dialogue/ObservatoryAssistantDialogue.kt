@@ -47,10 +47,7 @@ class ObservatoryAssistantDialogue : DialogueFile() {
 }
 
 /**
- * Assistant talk about planks dialogue
- *
- * @property planks
- * @constructor Assistant talk about planks dialogue
+ * Assistant talk about planks dialogue.
  */
 class AssistantTalkAboutPlanksDialogue(val planks : Int) : DialogueFile() {
 
@@ -89,9 +86,7 @@ class AssistantTalkAboutPlanksDialogue(val planks : Int) : DialogueFile() {
 }
 
 /**
- * Assistant talk about bronze bar dialogue
- *
- * @constructor Assistant talk about bronze bar dialogue
+ * Assistant talk about bronze bar dialogue.
  */
 class AssistantTalkAboutBronzeBarDialogue : DialogueFile() {
 
@@ -117,9 +112,7 @@ class AssistantTalkAboutBronzeBarDialogue : DialogueFile() {
 }
 
 /**
- * Assistant talk about molten glass dialogue
- *
- * @constructor Assistant talk about molten glass dialogue
+ * Assistant talk about molten glass dialogue.
  */
 class AssistantTalkAboutMoltenGlassDialogue : DialogueFile() {
 
@@ -147,9 +140,7 @@ class AssistantTalkAboutMoltenGlassDialogue : DialogueFile() {
 }
 
 /**
- * Assistant talk about the mould dialogue
- *
- * @constructor Assistant talk about the mould dialogue
+ * Assistant talk about the mould dialogue.
  */
 class AssistantTalkAboutTheMouldDialogue : DialogueFile() {
 
@@ -181,9 +172,7 @@ class AssistantTalkAboutTheMouldDialogue : DialogueFile() {
 }
 
 /**
- * Assistant talk about observatory lens dialogue
- *
- * @constructor Assistant talk about observatory lens dialogue
+ * Assistant talk about observatory lens dialogue.
  */
 class AssistantTalkAboutObservatoryLensDialogue : DialogueFile() {
 
@@ -207,9 +196,7 @@ class AssistantTalkAboutObservatoryLensDialogue : DialogueFile() {
 }
 
 /**
- * Assistant talk about observatory dialogue
- *
- * @constructor Assistant talk about observatory dialogue
+ * Assistant talk about observatory dialogue.
  */
 class AssistantTalkAboutObservatoryDialogue : DialogueFile() {
 

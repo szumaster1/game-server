@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Port sarim brian dialogue.
+ * Port Sarim brian dialogue.
  */
 @Initializable
 class PortSarimBrianDialogue(player: Player? = null) : Dialogue(player) {

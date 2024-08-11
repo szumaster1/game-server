@@ -10,7 +10,7 @@ import core.game.node.entity.player.Player
 import core.tools.RandomFunction
 
 /**
- * Invrigar the necromancer NPC.
+ * Invrigar the Necromancer NPC.
  */
 class InvrigarTheNecromancerNPC : NPCBehavior(NPCs.INVRIGAR_THE_NECROMANCER_173) {
 

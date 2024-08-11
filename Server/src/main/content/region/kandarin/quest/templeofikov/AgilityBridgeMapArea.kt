@@ -10,9 +10,7 @@ import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 
 /**
- * Agility bridge map area
- *
- * @constructor Agility bridge map area
+ * Agility bridge map area.
  */
 class AgilityBridgeMapArea: MapArea {
 

@@ -81,9 +81,7 @@ class BloatedToadNPC : AbstractNPC {
 }
 
 /**
- * Bloated toad listeners
- *
- * @constructor Bloated toad listeners
+ * Bloated toad listeners.
  */
 class BloatedToadListeners : InteractionListener, StartupListener, Commands {
     lateinit var borders: ZoneBorders

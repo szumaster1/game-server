@@ -80,19 +80,17 @@ class SewInterfaceListener : InterfaceListener {
 
 
     /**
-     * Pirate clothes
+     * Enum class representing Pirate Clothes.
      *
-     * @property firstItem
-     * @property secondItem
-     * @property product
-     * @property buttonId
-     * @constructor Pirate clothes
+     * @property firstItem The first item.
+     * @property secondItem The second item.
+     * @property product The product item.
+     * @property buttonId The button ID.
+     * @constructor Initializes Pirate Clothes with specified parameters.
      */
     enum class PirateClothes(val firstItem: Int, val secondItem: Int, val product: Item, val buttonId: Int) {
         /**
-         * White Right Eye
-         *
-         * @constructor White Right Eye
+         * White Right Eye.
          */
         WHITE_RIGHT_EYE(
             firstItem = Items.PIRATE_BANDANA_7112,
@@ -102,9 +100,7 @@ class SewInterfaceListener : InterfaceListener {
         ),
 
         /**
-         * White Double Eye
-         *
-         * @constructor White Double Eye
+         * White Double Eye.
          */
         WHITE_DOUBLE_EYE(
             firstItem = Items.PIRATE_BANDANA_7112,
@@ -114,9 +110,7 @@ class SewInterfaceListener : InterfaceListener {
         ),
 
         /**
-         * White Left Eye
-         *
-         * @constructor White Left Eye
+         * White Left Eye.
          */
         WHITE_LEFT_EYE(
             firstItem = Items.PIRATE_BANDANA_7112,
@@ -126,9 +120,7 @@ class SewInterfaceListener : InterfaceListener {
         ),
 
         /**
-         * Red Right Eye
-         *
-         * @constructor Red Right Eye
+         * Red Right Eye.
          */
         RED_RIGHT_EYE(
             firstItem = Items.PIRATE_BANDANA_7124,
@@ -138,9 +130,7 @@ class SewInterfaceListener : InterfaceListener {
         ),
 
         /**
-         * Red Double Eye
-         *
-         * @constructor Red Double Eye
+         * Red Double Eye.
          */
         RED_DOUBLE_EYE(
             firstItem = Items.PIRATE_BANDANA_7124,
@@ -150,9 +140,7 @@ class SewInterfaceListener : InterfaceListener {
         ),
 
         /**
-         * Red Left Eye
-         *
-         * @constructor Red Left Eye
+         * Red Left Eye.
          */
         RED_LEFT_EYE(
             firstItem = Items.PIRATE_BANDANA_7124,
@@ -162,9 +150,7 @@ class SewInterfaceListener : InterfaceListener {
         ),
 
         /**
-         * Blue Right Eye
-         *
-         * @constructor Blue Right Eye
+         * Blue Right Eye.
          */
         BLUE_RIGHT_EYE(
             firstItem = Items.PIRATE_BANDANA_7130,
@@ -174,9 +160,7 @@ class SewInterfaceListener : InterfaceListener {
         ),
 
         /**
-         * Blue Double Eye
-         *
-         * @constructor Blue Double Eye
+         * Blue Double Eye.
          */
         BLUE_DOUBLE_EYE(
             firstItem = Items.PIRATE_BANDANA_7130,
@@ -186,9 +170,7 @@ class SewInterfaceListener : InterfaceListener {
         ),
 
         /**
-         * Blue Left Eye
-         *
-         * @constructor Blue Left Eye
+         * Blue Left Eye.
          */
         BLUE_LEFT_EYE(
             firstItem = Items.PIRATE_BANDANA_7130,
@@ -198,9 +180,7 @@ class SewInterfaceListener : InterfaceListener {
         ),
 
         /**
-         * Brown Right Eye
-         *
-         * @constructor Brown Right Eye
+         * Brown Right Eye.
          */
         BROWN_RIGHT_EYE(
             firstItem = Items.PIRATE_BANDANA_7136,
@@ -210,9 +190,7 @@ class SewInterfaceListener : InterfaceListener {
         ),
 
         /**
-         * Brown Double Eye
-         *
-         * @constructor Brown Double Eye
+         * Brown Double Eye.
          */
         BROWN_DOUBLE_EYE(
             firstItem = Items.PIRATE_BANDANA_7136,
@@ -222,9 +200,7 @@ class SewInterfaceListener : InterfaceListener {
         ),
 
         /**
-         * Brown Left Eye
-         *
-         * @constructor Brown Left Eye
+         * Brown Left Eye.
          */
         BROWN_LEFT_EYE(
             firstItem = Items.PIRATE_BANDANA_7136,
@@ -234,9 +210,7 @@ class SewInterfaceListener : InterfaceListener {
         ),
 
         /**
-         * Grey Right Eye
-         *
-         * @constructor Grey Right Eye
+         * Grey Right Eye.
          */
         GREY_RIGHT_EYE(
             firstItem = Items.BANDANA_13370,
@@ -246,9 +220,7 @@ class SewInterfaceListener : InterfaceListener {
         ),
 
         /**
-         * Grey Left Eye
-         *
-         * @constructor Grey Left Eye
+         * Grey Left Eye.
          */
         GREY_LEFT_EYE(
             firstItem = Items.BANDANA_13370,
@@ -258,9 +230,7 @@ class SewInterfaceListener : InterfaceListener {
         ),
 
         /**
-         * Grey Double Eye
-         *
-         * @constructor Grey Double Eye
+         * Grey Double Eye.
          */
         GREY_DOUBLE_EYE(
             firstItem = Items.BANDANA_13370,
@@ -270,9 +240,7 @@ class SewInterfaceListener : InterfaceListener {
         ),
 
         /**
-         * Purple Right Eye
-         *
-         * @constructor Purple Right Eye
+         * Purple Right Eye.
          */
         PURPLE_RIGHT_EYE(
             firstItem = Items.BANDANA_13372,
@@ -282,9 +250,7 @@ class SewInterfaceListener : InterfaceListener {
         ),
 
         /**
-         * Purple Left Eye
-         *
-         * @constructor Purple Left Eye
+         * Purple Left Eye.
          */
         PURPLE_LEFT_EYE(
             firstItem = Items.BANDANA_13372,
@@ -294,9 +260,7 @@ class SewInterfaceListener : InterfaceListener {
         ),
 
         /**
-         * Purple Double Eye
-         *
-         * @constructor Purple Double Eye
+         * Purple Double Eye.
          */
         PURPLE_DOUBLE_EYE(
             firstItem = Items.BANDANA_13372,
@@ -306,9 +270,7 @@ class SewInterfaceListener : InterfaceListener {
         ),
 
         /**
-         * Orange Right Eye
-         *
-         * @constructor Orange Right Eye
+         * Orange Right Eye.
          */
         ORANGE_RIGHT_EYE(
             firstItem = Items.BANDANA_13374,
@@ -318,9 +280,7 @@ class SewInterfaceListener : InterfaceListener {
         ),
 
         /**
-         * Orange Double Eye
-         *
-         * @constructor Orange Double Eye
+         * Orange Double Eye.
          */
         ORANGE_DOUBLE_EYE(
             firstItem = Items.BANDANA_13374,
@@ -330,9 +290,7 @@ class SewInterfaceListener : InterfaceListener {
         ),
 
         /**
-         * Orange Left Double Eye
-         *
-         * @constructor Orange Left Double Eye
+         * Orange Left Double Eye.
          */
         ORANGE_LEFT_DOUBLE_EYE(
             firstItem = Items.BANDANA_13374,
@@ -342,9 +300,7 @@ class SewInterfaceListener : InterfaceListener {
         ),
 
         /**
-         * Pirate Hat Right Eye
-         *
-         * @constructor Pirate Hat Right Eye
+         * Pirate Hat Right Eye.
          */
         PIRATE_HAT_RIGHT_EYE(
             firstItem = Items.PIRATES_HAT_2651,
@@ -354,9 +310,7 @@ class SewInterfaceListener : InterfaceListener {
         ),
 
         /**
-         * Pirate Hat Double Eye
-         *
-         * @constructor Pirate Hat Double Eye
+         * Pirate Hat Double Eye.
          */
         PIRATE_HAT_DOUBLE_EYE(
             firstItem = Items.PIRATES_HAT_2651,
@@ -366,9 +320,7 @@ class SewInterfaceListener : InterfaceListener {
         ),
 
         /**
-         * Pirate Hat Left Eye
-         *
-         * @constructor Pirate Hat Left Eye
+         * Pirate Hat Left Eye.
          */
         PIRATE_HAT_LEFT_EYE(
             firstItem = Items.PIRATES_HAT_2651,
@@ -378,9 +330,7 @@ class SewInterfaceListener : InterfaceListener {
         ),
 
         /**
-         * Double Patch
-         *
-         * @constructor Double Patch
+         * Double Patch.
          */
         DOUBLE_PATCH(
             firstItem = Items.LEFT_EYEPATCH_13355,
@@ -390,9 +340,7 @@ class SewInterfaceListener : InterfaceListener {
         ),
 
         /**
-         * Crab Hand
-         *
-         * @constructor Crab Hand
+         * Crab Hand.
          */
         CRAB_HAND(
             firstItem = Items.CRAB_CLAW_7537,
@@ -402,9 +350,7 @@ class SewInterfaceListener : InterfaceListener {
         ),
 
         /**
-         * Cavalier And Mask
-         *
-         * @constructor Cavalier And Mask
+         * Cavalier And Mask.
          */
         CAVALIER_AND_MASK(
             firstItem = Items.HIGHWAYMAN_MASK_2631,
@@ -414,9 +360,7 @@ class SewInterfaceListener : InterfaceListener {
         ),
 
         /**
-         * Beret And Mask
-         *
-         * @constructor Beret And Mask
+         * Beret And Mask.
          */
         BERET_AND_MASK(
             firstItem = Items.MIME_MASK_3057,

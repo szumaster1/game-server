@@ -9,9 +9,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.item.Item
 
 /**
- * Enlightened journey listeners
- *
- * @constructor Enlightened journey listeners
+ * Enlightened journey listeners.
  */
 class EnlightenedJourneyListeners : InteractionListener {
 

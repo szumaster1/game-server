@@ -25,9 +25,7 @@ import core.plugin.Initializable
 import core.tools.RandomFunction
 
 /**
- * The golem quest
- *
- * @constructor The golem quest
+ * The golem quest.
  */
 @Initializable
 class TheGolemQuest : Quest("The Golem", 70, 69, 1, Vars.VARBIT_QUEST_THE_GOLEM_PROGRESS, 0, 1, 10) {

@@ -16,7 +16,6 @@ import core.game.world.update.flag.context.Animation
 
 /**
  * Koschei NPC.
- * @param session
  */
 class KoscheiNPC(id: Int = 0, location: Location? = null, session: KoscheiSession? = null) :
     AbstractNPC(id, location) {
@@ -116,65 +115,40 @@ class KoscheiNPC(id: Int = 0, location: Location? = null, session: KoscheiSessio
         )
     }
 
-
     /**
-     * Koschei type
+     * Enum class representing different types of Koschei.
      *
-     * @property npcId
-     * @property appearMessage
-     * @property appearDialogues
-     * @constructor Koschei type
+     * @property npcId The unique identifier for the NPC.
+     * @property appearMessage The message displayed when the NPC appears.
+     * @property appearDialogues The dialogues spoken by the NPC upon appearance.
+     * @constructor Initializes KoscheiType with the provided parameters.
      */
     enum class KoscheiType(var npcId: Int, var appearMessage: String?, vararg var appearDialogues: String?) {
         /**
-         * First Form
-         *
-         * @constructor First Form
+         * First Form.
          */
         FIRST_FORM(NPCs.KOSCHEI_THE_DEATHLESS_1290, "You must prove yourself... now!"),
 
         /**
-         * Second Form
-         *
-         * @constructor Second Form
+         * Second Form.
          */
-        SECOND_FORM(
-            NPCs.KOSCHEI_THE_DEATHLESS_1291,
-            "This is only the beginning; you can't beat me!",
-            "It seems you have some idea of combat after all,",
-            "outerlander! I will not hold back so much this time!"
-        ),
+        SECOND_FORM(NPCs.KOSCHEI_THE_DEATHLESS_1291, "This is only the beginning; you can't beat me!", "It seems you have some idea of combat after all,", "outerlander! I will not hold back so much this time!"),
 
         /**
-         * Third Form
-         *
-         * @constructor Third Form
+         * Third Form.
          */
-        THIRD_FORM(
-            NPCs.KOSCHEI_THE_DEATHLESS_1292,
-            "Foolish mortal; I am unstoppable.",
-            "Impressive start... But now we fight for real!"
-        ),
+        THIRD_FORM(NPCs.KOSCHEI_THE_DEATHLESS_1292, "Foolish mortal; I am unstoppable.", "Impressive start... But now we fight for real!"),
 
         /**
-         * Fourth Form
-         *
-         * @constructor Fourth Form
+         * Fourth Form.
          */
-        FOURTH_FORM(
-            NPCs.KOSCHEI_THE_DEATHLESS_1293,
-            "Aaaaaaaarrgghhhh! The power!",
-            "You show some skill at combat... I will hold back no",
-            "longer! This time you lose your prayer however, and",
-            "fight like a warrior!"
-        );
-
+        FOURTH_FORM(NPCs.KOSCHEI_THE_DEATHLESS_1293, "Aaaaaaaarrgghhhh! The power!", "You show some skill at combat... I will hold back no", "longer! This time you lose your prayer however, and", "fight like a warrior!");
 
         /**
-         * Transform
+         * This function transforms the player using the KoscheiNPC.
          *
-         * @param koschei
-         * @param player
+         * @param koschei The KoscheiNPC used for transformation.
+         * @param player The player to be transformed.
          */
         fun transform(koschei: KoscheiNPC, player: Player) {
             val newType = next()
@@ -189,9 +163,8 @@ class KoscheiNPC(id: Int = 0, location: Location? = null, session: KoscheiSessio
         }
 
         /**
-         * Next
-         *
-         * @return
+         * This function defines the behavior for the 'next' operator.
+         * It returns a KoscheiType object.
          */
         operator fun next(): KoscheiType {
             return values()[ordinal + 1]
@@ -210,13 +183,12 @@ class KoscheiNPC(id: Int = 0, location: Location? = null, session: KoscheiSessio
         }
     }
 
-
     /**
-     * Koschei spawn pulse
+     * Class representing a pulse for spawning Koschei.
      *
-     * @property player
-     * @property koschei
-     * @constructor Koschei spawn pulse
+     * @property player The player triggering the spawn.
+     * @property koschei The Koschei NPC to be spawned.
+     * @constructor Creates a KoscheiSpawnPulse instance with the specified player and Koschei NPC.
      */
     class KoscheiSpawnPulse(val player: Player?, val koschei: KoscheiNPC) : Pulse() {
         var counter = 0
@@ -243,13 +215,12 @@ class KoscheiNPC(id: Int = 0, location: Location? = null, session: KoscheiSessio
         }
     }
 
-
     /**
-     * Fight end pulse
+     * Class representing the pulse at the end of a fight.
      *
-     * @property player
-     * @property koschei
-     * @constructor Fight end pulse
+     * @property player The player involved in the fight.
+     * @property koschei The NPC opponent in the fight.
+     * @constructor Creates a FightEndPulse instance with the given player and NPC.
      */
     class FightEndPulse(val player: Player?, val koschei: KoscheiNPC) : Pulse() {
         var counter = 0

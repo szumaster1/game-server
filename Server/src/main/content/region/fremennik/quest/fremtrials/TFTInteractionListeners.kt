@@ -312,19 +312,19 @@ class TFTInteractionListeners : InteractionListener {
     class DestRoom(val swx: Int, val swy: Int, val nex: Int, val ney: Int)
 
     /**
-     * Get center
+     * Get center of the destination room.
      *
-     * @return
+     * @return the center location of the room
      */
     fun DestRoom.getCenter(): Location {
         return Location((swx + nex) / 2, (swy + ney) / 2).transform(1, 0, 0)
     }
 
     /**
-     * Get random location
+     * Get a random location for the player.
      *
-     * @param player
-     * @return
+     * @param player the player for whom the location is generated
+     * @return a random location
      */
     fun getRandomLocation(player: Player?): Location {
         var obj: Scenery? = null
@@ -340,10 +340,10 @@ class TFTInteractionListeners : InteractionListener {
     }
 
     /**
-     * Has equippable items
+     * Check if the player has equippable items.
      *
-     * @param player
-     * @return
+     * @param player the player to check for equippable items
+     * @return true if the player has equippable items, false otherwise
      */
     fun hasEquippableItems(player: Player?): Boolean {
         val container = arrayOf(player!!.inventory, player.equipment)
@@ -367,13 +367,12 @@ class TFTInteractionListeners : InteractionListener {
         return false
     }
 
-
     /**
-     * Spirit pulse
+     * Represents a Spirit Pulse that interacts with a player and a fish.
      *
-     * @property player
-     * @property fish
-     * @constructor Spirit pulse
+     * @property player the player interacting with the spirit pulse.
+     * @property fish the fish involved in the interaction.
+     * @constructor Creates a Spirit Pulse with the specified player and fish.
      */
     class SpiritPulse(val player: Player, val fish: Int) : Pulse() {
         var counter = 0
@@ -430,13 +429,12 @@ class TFTInteractionListeners : InteractionListener {
         }
     }
 
-
     /**
-     * Lyre concert pulse
+     * Represents a Lyre concert pulse.
      *
-     * @property player
-     * @property Lyre
-     * @constructor Lyre concert pulse
+     * @property player The player associated with the Lyre concert.
+     * @property Lyre The Lyre identifier.
+     * @constructor Creates a Lyre concert pulse with the given player and Lyre identifier.
      */
     class LyreConcertPulse(val player: Player, val Lyre: Int) : Pulse() {
         val GENERIC_LYRICS = arrayOf(
@@ -535,15 +533,19 @@ class TFTInteractionListeners : InteractionListener {
         }
     }
 
-
     /**
-     * Branch fletching pulse
+     * Branch fletching pulse.
      *
-     * @property player
-     * @constructor Branch fletching pulse
+     * @property player The player object.
+     * @constructor Initializes a new instance of the BranchFletchingPulse class with the specified player.
      */
     class BranchFletchingPulse(val player: Player) : Pulse() {
         var counter = 0
+        /**
+         * Executes the pulse logic.
+         *
+         * @return True if the pulse is complete, False otherwise.
+         */
         override fun pulse(): Boolean {
             when (counter++) {
                 0 -> player.animator?.animate(Animation(1248)).also { player.lock() }
@@ -558,12 +560,11 @@ class TFTInteractionListeners : InteractionListener {
         }
     }
 
-
     /**
-     * Koschei pulse
+     * Class representing a Koschei pulse for a player.
      *
-     * @property player
-     * @constructor Koschei pulse
+     * @property player The player associated with the pulse.
+     * @constructor Creates a Koschei pulse for the specified player.
      */
     class KoscheiPulse(val player: Player) : Pulse() {
         var counter = 0

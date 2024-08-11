@@ -15,9 +15,9 @@ import core.tools.END_DIALOGUE
 class CaranockDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        G.L.O. Caranock is the Gnome Liaison Officer
-        for the Karamja Shipyard.
-        Location: 2957,3025
+     * G.L.O. Caranock is the Gnome Liaison Officer
+     * for the Karamja Shipyard.
+     * Location: 2957,3025
      */
 
     override fun open(vararg args: Any): Boolean {

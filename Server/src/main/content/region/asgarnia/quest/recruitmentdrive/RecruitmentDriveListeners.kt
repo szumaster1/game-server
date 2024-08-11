@@ -25,9 +25,7 @@ import core.network.packet.context.MinimapStateContext
 import core.network.packet.outgoing.MinimapState
 
 /**
- * Recruitment drive listeners
- *
- * @constructor Recruitment drive listeners
+ * Recruitment drive quest listeners.
  */
 class RecruitmentDriveListeners : InteractionListener, MapArea {
 
@@ -228,11 +226,7 @@ class RecruitmentDriveListeners : InteractionListener, MapArea {
     }
 
     /**
-     * Start test cutscene
-     *
-     * @constructor
-     *
-     * @param player
+     * Start test cutscene.
      */
     class StartTestCutscene(player: Player) : Cutscene(player) {
         override fun setup() {
@@ -298,11 +292,7 @@ class RecruitmentDriveListeners : InteractionListener, MapArea {
     }
 
     /**
-     * Fail test cutscene
-     *
-     * @constructor
-     *
-     * @param player
+     * Fail test cutscene.
      */
     class FailTestCutscene(player: Player) : Cutscene(player) {
         override fun setup() {
@@ -350,11 +340,7 @@ class RecruitmentDriveListeners : InteractionListener, MapArea {
     }
 
     /**
-     * Complete test cutscene
-     *
-     * @constructor
-     *
-     * @param player
+     * Complete test cutscene.
      */
     class CompleteTestCutscene(player: Player) : Cutscene(player) {
         override fun setup() {

@@ -46,21 +46,25 @@ class YanilleDungeonListeners : InteractionListener, MapZone("Yanille agility", 
 
         ZoneBuilder.configure(this)
 
+        // Handles the action of climbing down the stairs
         on(STAIRS_DOWN, IntType.SCENERY, "climb-down") { player, _ ->
             teleport(player, Location(2620, 9565, 0))
             return@on true
         }
 
+        // Handles the action of climbing up the stairs
         on(STAIRS_UP, IntType.SCENERY, "climb-up") { player, _ ->
             teleport(player, Location(2620, 9496, 0))
             return@on true
         }
 
+        // Handles the action of climbing up the second set of stairs
         on(STAIRS_UP_2, IntType.SCENERY, "climb-up") { player, _ ->
             teleport(player, Location(2569, 9525, 0))
             return@on true
         }
 
+        // Handles the action of climbing up or down the stairs
         on(STAIRS_2, IntType.SCENERY, "climb-up", "climb-down") { player, target ->
             if (getStatLevel(player, Skills.AGILITY) < 67) {
                 sendMessage(player, "You need an agility level of at least 67 in order to do this.")
@@ -77,11 +81,13 @@ class YanilleDungeonListeners : InteractionListener, MapZone("Yanille agility", 
             return@on true
         }
 
+        // Handles the action of walking across the balancing ledge
         on(BALANCING_LEDGE, IntType.SCENERY, "walk-across") { player, target ->
             handleBalancingLedge(player, target.asScenery())
             return@on true
         }
 
+        // Handles the action of opening the closed chest
         on(CLOSED_CHEST, IntType.SCENERY, "open") { player, target ->
             if (!inInventory(player, Items.SINISTER_KEY_993, 1)) {
                 sendMessage(player, "The chest is locked.")
@@ -103,22 +109,24 @@ class YanilleDungeonListeners : InteractionListener, MapZone("Yanille agility", 
             return@on true
         }
 
+        // Handles the action of searching the empty chest
         on(SEARCH_CHEST, IntType.SCENERY, "search") { player, _ ->
             sendMessage(player, "The chest is empty.")
             return@on true
         }
 
+        // Handles the action of shutting the chest
         on(SEARCH_CHEST, IntType.SCENERY, "shut") { _, _ ->
             return@on true
         }
     }
 
-
     /**
-     * Handle balancing ledge
+     * This function handles the player's interaction with a balancing ledge.
+     * It takes the player and scenery as parameters.
      *
-     * @param player
-     * @param scenery
+     * @param player The player interacting with the balancing ledge.
+     * @param scenery The scenery object representing the balancing ledge.
      */
     fun handleBalancingLedge(player: Player, scenery: Scenery) {
         if (getStatLevel(player, Skills.AGILITY) < 40) {

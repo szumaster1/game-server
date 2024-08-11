@@ -9,9 +9,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Denulth dialogue file2
- *
- * @constructor Denulth dialogue file2
+ * Denulth dialogue file 2.
  */
 class DenulthDialogueFile2 : DialogueFile() {
 

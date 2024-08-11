@@ -51,9 +51,7 @@ class MuseumGuardDialogue(player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Museum guard entrance dialogue
- *
- * @constructor Museum guard entrance dialogue
+ * Museum guard entrance dialogue.
  */
 class MuseumGuardEntranceDialogue : DialogueFile() {
 

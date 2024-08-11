@@ -243,10 +243,7 @@ class WaterfallPlugin : OptionHandler() {
     }
 
     /**
-     * Handle objects
-     *
-     * @param add
-     * @param player
+     * Handle objects.
      */
     fun handleObjects(add: Boolean, player: Player?) {
         if (add) {
@@ -271,9 +268,7 @@ class WaterfallPlugin : OptionHandler() {
     }
 
     /**
-     * Play runestone graphics
-     *
-     * @param player
+     * Play runestone graphics.
      */
     fun playRunestoneGraphics(player: Player) {
         player.packetDispatch.sendGlobalPositionGraphic(580, Location(2562, 9914))
@@ -284,11 +279,8 @@ class WaterfallPlugin : OptionHandler() {
         player.packetDispatch.sendGlobalPositionGraphic(580, Location(2569, 9910))
     }
 
-
     /**
-     * Waterfall use with handler
-     *
-     * @constructor Waterfall use with handler
+     * Waterfall use with handler.
      */
     inner class WaterfallUseWithHandler : UseWithHandler(ROPE.id, KEY.id, PEBBLE.id, KEY_2.id, AMULET.id, URN.id, AIR_RUNE.id, EARTH_RUNE.id, WATER_RUNE.id) {
         private val OBJECTS = intArrayOf(1996, 1997, 2020, 1991, 1992, 2002, 2006, 2014, 2004)

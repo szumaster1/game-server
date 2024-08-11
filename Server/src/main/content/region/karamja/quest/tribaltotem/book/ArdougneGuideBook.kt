@@ -10,9 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Ardougne guide book
- *
- * @constructor Ardougne guide book
+ * Ardougne Guide book.
  */
 class ArdougneGuideBook : InteractionListener {
 

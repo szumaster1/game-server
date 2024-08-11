@@ -19,6 +19,7 @@ class TaverleyDungeonListeners : InteractionListener {
 
     override fun defineListeners() {
 
+        // This listener handles the interaction with the gate scenery in Taverley dungeon.
         on(Scenery.GATE_2623, IntType.SCENERY, "open") { player, node ->
             if (!inInventory(player, Items.DUSTY_KEY_1590)) {
                 sendMessage(player, "This gate seems to be locked.")
@@ -28,6 +29,7 @@ class TaverleyDungeonListeners : InteractionListener {
             return@on true
         }
 
+        // This listener handles the interaction with the armour suits scenery in Taverley dungeon.
         on(SUITS, IntType.SCENERY, "open") { player, node ->
             if (player.location.x < node.location.x && !player.getAttribute<Boolean>("spawned_suits", false)) {
                 var alive = true

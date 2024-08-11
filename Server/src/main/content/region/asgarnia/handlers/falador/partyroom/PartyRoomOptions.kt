@@ -64,9 +64,7 @@ class PartyRoomOptions : OptionHandler() {
     }
 
     /**
-     * Deposit interface handler
-     *
-     * @constructor Deposit interface handler
+     * Deposit interface handler.
      */
     class DepositInterfaceHandler : ComponentPlugin() {
 

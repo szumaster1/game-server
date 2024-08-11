@@ -115,7 +115,7 @@ class NatureSpiritListeners : InteractionListener {
         }
 
         on(JOURNAL, IntType.ITEM, "read") { player, _ ->
-            player.dialogueInterpreter.open(NSJournalDialogue())
+            player.dialogueInterpreter.open(JournalDialogue())
             return@on true
         }
 
@@ -230,11 +230,9 @@ class NatureSpiritListeners : InteractionListener {
 }
 
 /**
- * N s journal dialogue
- *
- * @constructor N s journal dialogue
+ * Journal dialogue.
  */
-class NSJournalDialogue : DialogueFile() {
+class JournalDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
         when (stage) {
@@ -245,9 +243,7 @@ class NSJournalDialogue : DialogueFile() {
 }
 
 /**
- * Filliman completion dialogue
- *
- * @constructor Filliman completion dialogue
+ * Filliman completion dialogue.
  */
 class FillimanCompletionDialogue : DialogueFile() {
 
@@ -267,8 +263,8 @@ class FillimanCompletionDialogue : DialogueFile() {
 /**
  * Represents a Complete Spell Pulse that handles spell completion for a player.
  *
- * @property player the player for whom the spell is completed
- * @constructor Creates a CompleteSpellPulse with the specified player
+ * @property player the player for whom the spell is completed.
+ * @constructor Creates a CompleteSpellPulse with the specified player.
  */
 class CompleteSpellPulse(val player: Player) : Pulse(2) {
     var counter = 0

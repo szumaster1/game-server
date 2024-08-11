@@ -22,10 +22,13 @@ import core.plugin.Plugin
 class KalphiteEntranceHandler : OptionHandler() {
 
     override fun newInstance(arg: Any?): Plugin<Any> {
+        // Create a new instance of the UseWithHandler and override its handle() function.
         val handler = object : UseWithHandler(Items.ROPE_954) {
             override fun handle(event: NodeUsageEvent): Boolean {
                 val node = event.usedWith as Scenery
+                // Check if the node id matches any of the specified ids.
                 if (node.id == 3827 || node.id == 23609) {
+                    // If the player has the required item, remove it and replace the scenery node.
                     if (removeItem(event.player, event.usedItem)) {
                         replaceScenery(node, node.id + 1, 500)
                         return true
@@ -39,12 +42,16 @@ class KalphiteEntranceHandler : OptionHandler() {
             }
         }
 
+        // Add the UseWithHandler to the specified object ids.
         UseWithHandler.addHandler(3827, UseWithHandler.OBJECT_TYPE, handler)
         UseWithHandler.addHandler(23609, UseWithHandler.OBJECT_TYPE, handler)
+
+        // Add this OptionHandler to the specified scenery definitions
         SceneryDefinition.forId(3828).handlers["option:climb-down"] = this
         SceneryDefinition.forId(3829).handlers["option:climb-up"] = this
         SceneryDefinition.forId(23610).handlers["option:climb-down"] = this
         SceneryDefinition.forId(3832).handlers["option:climb-up"] = this
+
         return this
     }
 

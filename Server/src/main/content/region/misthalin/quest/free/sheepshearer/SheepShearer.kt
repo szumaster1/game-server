@@ -11,12 +11,11 @@ import core.plugin.Initializable
 import kotlin.math.min
 
 /**
- * Sheep shearer
- *
- * @constructor Sheep shearer
+ * Sheep shearer quest.
  */
 @Initializable
 class SheepShearer : Quest("Sheep Shearer", 28, 27, 1, Vars.VARP_QUEST_SHEEP_SHEARER_PROGRESS, 0, 20, 21) {
+
     companion object {
         val ATTR_NUM_BALLS_OF_WOOL_DELIVERED = "/save:sheep-shearer:num-balls-of-wool-delivered"
         val ATTR_IS_PENGUIN_SHEEP_SHEARED = "/save:sheep-shearer:is-penguin-sheep-sheared"

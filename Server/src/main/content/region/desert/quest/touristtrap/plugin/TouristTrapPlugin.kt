@@ -534,11 +534,7 @@ class TouristTrapPlugin : OptionHandler() {
     }
 
     /**
-     * Winch dialogue
-     *
-     * @constructor
-     *
-     * @param player
+     * Winch dialogue.
      */
     class WinchDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -710,9 +706,7 @@ class TouristTrapPlugin : OptionHandler() {
 
 
     /**
-     * Anna cart handler
-     *
-     * @constructor Anna cart handler
+     * Anna cart handler.
      */
     class AnnaCartHandler
     /**
@@ -766,9 +760,7 @@ class TouristTrapPlugin : OptionHandler() {
 
 
         /**
-         * Anna cart cutscene
-         *
-         * @constructor Anna cart cutscene
+         * Anna cart cutscene.
          */
         class AnnaCartCutscene : CutscenePlugin {
             /**
@@ -875,11 +867,7 @@ class TouristTrapPlugin : OptionHandler() {
 
 
     /**
-     * Cart dialogue
-     *
-     * @constructor
-     *
-     * @param player
+     * Cart dialogue.
      */
     class CartDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -946,11 +934,7 @@ class TouristTrapPlugin : OptionHandler() {
 
 
     /**
-     * Mine cart dialogue
-     *
-     * @constructor
-     *
-     * @param player
+     * Mine cart dialogue.
      */
     class MineCartDialogue(player: Player? = null) : Dialogue(player) {
         private var cart: Scenery? = null
@@ -1027,9 +1011,7 @@ class TouristTrapPlugin : OptionHandler() {
 
 
         /**
-         * Mining cart cutscene
-         *
-         * @constructor Mining cart cutscene
+         * Mining cart cutscene.
          */
         class MiningCartCutscene : CutscenePlugin {
             private var index = 0
@@ -1171,9 +1153,7 @@ class TouristTrapPlugin : OptionHandler() {
 
 
     /**
-     * Winch cutscene
-     *
-     * @constructor Winch cutscene
+     * Winch cutscene.
      */
     class WinchCutscene : CutscenePlugin {
         /**
@@ -1227,9 +1207,7 @@ class TouristTrapPlugin : OptionHandler() {
 
 
     /**
-     * Bedabin key handler
-     *
-     * @constructor Bedabin key handler
+     * Bedabin key handler.
      */
     class BedabinKeyHandler
     /**
@@ -1250,11 +1228,7 @@ class TouristTrapPlugin : OptionHandler() {
 
 
     /**
-     * Barrel dialogue
-     *
-     * @constructor
-     *
-     * @param player
+     * Barrel dialogue.
      */
     class BarrelDialogue(player: Player? = null) : Dialogue(player) {
         private var barrel: Scenery? = null
@@ -1339,9 +1313,7 @@ class TouristTrapPlugin : OptionHandler() {
 
 
     /**
-     * Bedabin anvil handler
-     *
-     * @constructor Bedabin anvil handler
+     * Bedabin anvil handler.
      */
     class BedabinAnvilHandler
     /**
@@ -1368,9 +1340,7 @@ class TouristTrapPlugin : OptionHandler() {
 
 
         /**
-         * Anna winch handler
-         *
-         * @constructor Anna winch handler
+         * Anna winch handler.
          */
         class AnnaWinchHandler
         /**
@@ -1398,9 +1368,7 @@ class TouristTrapPlugin : OptionHandler() {
 
 
         /**
-         * Prototype dart handler
-         *
-         * @constructor Prototype dart handler
+         * Prototype dart handler.
          */
         class PrototypeDartHandler
         /**
@@ -1420,11 +1388,7 @@ class TouristTrapPlugin : OptionHandler() {
 
 
             /**
-             * Proto type dialogue
-             *
-             * @constructor
-             *
-             * @param player
+             * Proto type dialogue.
              */
             class ProtoTypeDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -1476,11 +1440,7 @@ class TouristTrapPlugin : OptionHandler() {
         }
 
         /**
-         * Bedabin anvil dialogue
-         *
-         * @constructor
-         *
-         * @param player
+         * Bedabin anvil dialogue.
          */
         class BedabinAnvilDialogue(player: Player? = null) : Dialogue(player) {
 
@@ -1517,11 +1477,7 @@ class TouristTrapPlugin : OptionHandler() {
 
 
             /**
-             * Proto type pulse
-             *
-             * @constructor
-             *
-             * @param player
+             * Proto type pulse.
              */
             class ProtoTypePulse
             /**

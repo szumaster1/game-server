@@ -41,11 +41,11 @@ class GnomeBowlCooker : UseWithHandler(Items.RAW_GNOMEBOWL_2178, 9558, 9559, 956
     }
 
     /**
-     * Cook
+     * This method represents the action of cooking in the game.
      *
-     * @param player
-     * @param raw
-     * @param product
+     * @param player The player who is cooking.
+     * @param raw The raw item being cooked.
+     * @param product The resulting cooked item.
      */
     fun cook(player: Player, raw: Item, product: Item) {
         GameWorld.Pulser.submit(object : Pulse() {

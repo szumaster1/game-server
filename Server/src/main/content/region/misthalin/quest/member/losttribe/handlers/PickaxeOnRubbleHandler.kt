@@ -12,9 +12,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Pickaxe on rubble handler
- *
- * @constructor Pickaxe on rubble handler
+ * Pickaxe on rubble handler.
  */
 @Initializable
 class PickaxeOnRubbleHandler : UseWithHandler(

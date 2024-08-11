@@ -15,9 +15,9 @@ import core.plugin.Initializable
 class JungleForesterDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        Jungle foresters are found near the border of the Kharazi Jungle in Karamja.
-        They are loggers interested in selling some of Karamja's rarer woods, which
-        can be found in abundance near Shilo Village.
+     * Jungle foresters are found near the border of the Kharazi Jungle in Karamja.
+     * They are loggers interested in selling some of Karamja's rarer woods, which
+     * can be found in abundance near Shilo Village.
      */
 
     override fun open(vararg args: Any): Boolean {

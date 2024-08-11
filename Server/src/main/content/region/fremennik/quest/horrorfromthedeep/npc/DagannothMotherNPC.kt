@@ -17,7 +17,6 @@ import core.tools.RandomFunction
 
 /**
  * Dagannoth mother NPC.
- * @param session
  */
 class DagannothMotherNPC(id: Int = 0, location: Location? = null, session: DagannothSession? = null) :
     AbstractNPC(id, location) {
@@ -63,6 +62,9 @@ class DagannothMotherNPC(id: Int = 0, location: Location? = null, session: Dagan
         return
     }
 
+    /**
+     * Check what spell player use.
+     */
     override fun checkImpact(state: BattleState) {
         if (state.attacker is Player) {
             if (state.victim is NPC) {
@@ -169,7 +171,6 @@ class DagannothMotherNPC(id: Int = 0, location: Location? = null, session: Dagan
         }
     }
 
-
     override fun finalizeDeath(killer: Entity?) {
         super.finalizeDeath(killer)
         if (killer is Player) {
@@ -223,61 +224,49 @@ class DagannothMotherNPC(id: Int = 0, location: Location? = null, session: Dagan
     }
 
     /**
-     * Dagannoth type
+     * Enum class representing different types of Dagannoth.
      *
-     * @property npcId
-     * @property sendChat
-     * @property sendMessage
-     * @constructor Dagannoth type
+     * @property npcId The ID of the NPC.
+     * @property sendChat The chat message to send.
+     * @property sendMessage The message to send.
+     * @constructor Initializes a Dagannoth type with the specified properties.
      */
     enum class DagannothType(var npcId: Int, var sendChat: String?, var sendMessage: String?) {
         /**
-         * White
-         *
-         * @constructor White
+         * White.
          */
         WHITE(NPCs.DAGANNOTH_MOTHER_1351, "Tktktktktktkt", null),
 
         /**
-         * Blue
-         *
-         * @constructor Blue
+         * Blue.
          */
         BLUE(NPCs.DAGANNOTH_MOTHER_1352, "Krrrrrrk", "the dagannoth changes to blue..."),
 
         /**
-         * Red
-         *
-         * @constructor Red
+         * Red.
          */
         RED(NPCs.DAGANNOTH_MOTHER_1353, "Sssssrrrkkkkk", "the dagannoth changes to red..."),
 
         /**
-         * Brown
-         *
-         * @constructor Brown
+         * Brown.
          */
         BROWN(NPCs.DAGANNOTH_MOTHER_1354, "Krrrrrrssssssss", "the dagannoth changes to brown..."),
 
         /**
-         * Green
-         *
-         * @constructor Green
+         * Green.
          */
         GREEN(NPCs.DAGANNOTH_MOTHER_1355, "Krkrkrkrkrkrkrkr", "the dagannoth changes to green..."),
 
         /**
-         * Orange
-         *
-         * @constructor Orange
+         * Orange.
          */
         ORANGE(NPCs.DAGANNOTH_MOTHER_1356, "Chkhkhkhkhk", "the dagannoth changes to orange...");
 
         /**
-         * Transform
+         * This function transforms a Dagannoth Mother NPC into a different form based on certain conditions.
          *
-         * @param dagannoth
-         * @param player
+         * @param dagannoth The Dagannoth Mother NPC to be transformed.
+         * @param player The player triggering the transformation.
          */
         fun transform(dagannoth: DagannothMotherNPC, player: Player) {
             val newType = next()
@@ -290,15 +279,21 @@ class DagannothMotherNPC(id: Int = 0, location: Location? = null, session: Dagan
         }
 
         /**
-         * Next
+         * Next.
          *
-         * @return
+         * @return A random DagannothType.
          */
         operator fun next(): DagannothType {
             return values().random()
         }
 
         companion object {
+            /**
+             * Get DagannothType for the given id.
+             *
+             * @param id The id of the DagannothType.
+             * @return The DagannothType corresponding to the id, or null if not found.
+             */
             fun forId(id: Int): DagannothType? {
                 for (type in values()) {
                     if (type.npcId == id) {
@@ -310,13 +305,12 @@ class DagannothMotherNPC(id: Int = 0, location: Location? = null, session: Dagan
         }
     }
 
-
     /**
-     * Dagannoth transform
+     * Dagannoth transform.
      *
-     * @property player
-     * @property dagannoth
-     * @constructor Dagannoth transform
+     * @property player The player object.
+     * @property dagannoth The DagannothMotherNPC object.
+     * @constructor Creates a DagannothTransform object.
      */
     class DagannothTransform(val player: Player?, val dagannoth: DagannothMotherNPC) : Pulse() {
         var counter = 0

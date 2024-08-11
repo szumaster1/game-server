@@ -2,6 +2,9 @@ package content.global.activity.enchkey
 
 import core.game.world.map.Location
 
+/**
+ * Enchanted key utils.
+ */
 object EnchantedKeyHelper {
 
     // Rewards:  https://runescape.wiki/w/Enchanted_key_(lore_activity)?oldid=15922945

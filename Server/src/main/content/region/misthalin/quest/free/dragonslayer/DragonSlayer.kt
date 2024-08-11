@@ -33,9 +33,7 @@ import core.plugin.ClassScanner.definePlugins
 import core.plugin.Initializable
 
 /**
- * Dragon slayer
- *
- * @constructor Dragon slayer
+ * Dragon slayer quest.
  */
 @Initializable
 class DragonSlayer : Quest("Dragon Slayer", 18, 17, 2, Vars.VARP_QUEST_DRAGON_SLAYER_PROGRESS, 0, 1, 10), LoginListener {

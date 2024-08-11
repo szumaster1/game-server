@@ -13,9 +13,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Cave rock handler
- *
- * @constructor Cave rock handler
+ * Cave rock handler.
  */
 @Initializable
 class CaveRockHandler : OptionHandler() {

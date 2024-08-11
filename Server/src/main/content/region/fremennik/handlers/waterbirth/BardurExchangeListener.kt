@@ -20,7 +20,6 @@ class BardurExchangeListener : InteractionListener {
          * Interaction with Bardur NPC.
          * Cooked shark exchange for a Fremennik helm, blade, or shield.
          */
-
         onUseWith(IntType.NPC, FREMENNIK_EQUIPMENT, NPCs.BARDUR_2879) { player, _, _ ->
             if (!isQuestComplete(player, "Fremennik Trials")) {
                 sendNPCDialogue(player, NPCs.BARDUR_2879, "I do not trust you outerlander, I will not accept your gifts, no matter what your intention...")

@@ -8,7 +8,7 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * Salarin twisted NPC.
+ * Salarin Twisted NPC.
  */
 @Initializable
 class SalarinTwistedNPC : AbstractNPC {

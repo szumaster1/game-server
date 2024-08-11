@@ -33,9 +33,7 @@ class OrdanDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     /**
-     * Ordan unnote listener
-     *
-     * @constructor Ordan unnote listener
+     * Ordan unnote listener.
      */
     class OrdanUnnoteListener : InteractionListener {
         val notedOre = intArrayOf(

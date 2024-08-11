@@ -121,9 +121,7 @@ class NaturalHistorianEastDialogue(player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Talk about snails
- *
- * @constructor Talk about snails
+ * Talk about snails.
  */
 class TalkAboutSnails : DialogueFile() {
 
@@ -154,9 +152,7 @@ class TalkAboutSnails : DialogueFile() {
 }
 
 /**
- * Talk about monkeys
- *
- * @constructor Talk about monkeys
+ * Talk about monkeys.
  */
 class TalkAboutMonkeys : DialogueFile() {
 
@@ -187,9 +183,7 @@ class TalkAboutMonkeys : DialogueFile() {
 }
 
 /**
- * Talk about sea slugs
- *
- * @constructor Talk about sea slugs
+ * Talk about sea slugs.
  */
 class TalkAboutSeaSlugs : DialogueFile() {
 
@@ -220,9 +214,7 @@ class TalkAboutSeaSlugs : DialogueFile() {
 }
 
 /**
- * Talk about snakes
- *
- * @constructor Talk about snakes
+ * Talk about snakes.
  */
 class TalkAboutSnakes : DialogueFile() {
 

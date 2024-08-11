@@ -17,7 +17,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Customs officer dialogue.
+ * Customs Officer dialogue.
  */
 @Initializable
 class CustomsOfficerDialogue(player: Player? = null): Dialogue(player) {

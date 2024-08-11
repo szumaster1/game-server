@@ -15,12 +15,12 @@ import core.tools.END_DIALOGUE
 class JiminuaDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        Jiminua is a lady on the north side of Tai Bwo Wannai village.
-        She runs Jiminua's Jungle Store and helps people crafting
-        nature runes by un-noting Pure essence at a cost of 2 coins
-        per essence. To use this service, just Use the noted essence
-        on her (not trade). She wears a cat training medal.
-        Location: 2767,3122
+     * Jiminua is a lady on the north side of Tai Bwo Wannai village.
+     * She runs Jiminua's Jungle Store and helps people crafting
+     * nature runes by un-noting Pure essence at a cost of 2 coins
+     * per essence. To use this service, just Use the noted essence
+     * on her (not trade). She wears a cat training medal.
+     * Location: 2767,3122
      */
 
     override fun open(vararg args: Any): Boolean {

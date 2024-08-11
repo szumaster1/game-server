@@ -11,7 +11,7 @@ import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 
 /**
- * Malignius mortifer dialogue.
+ * Malignius Mortifer dialogue.
  */
 @Initializable
 class MaligniusMortiferDialogue(player: Player? = null) : Dialogue(player) {

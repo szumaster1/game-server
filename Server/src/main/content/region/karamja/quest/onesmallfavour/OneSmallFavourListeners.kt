@@ -6,9 +6,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * One small favour listeners
- *
- * @constructor One small favour listeners
+ * One small favour listeners.
  */
 class OneSmallFavourListeners : InteractionListener {
 

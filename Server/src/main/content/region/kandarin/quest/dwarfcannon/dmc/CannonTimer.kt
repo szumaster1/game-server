@@ -7,9 +7,7 @@ import core.game.system.timer.RSTimer
 import core.tools.colorize
 
 /**
- * Cannon timer
- *
- * @constructor Cannon timer
+ * Cannon timer.
  */
 class CannonTimer : RSTimer(1, "dmc:timer") {
     lateinit var dmcHandler: DMCHandler

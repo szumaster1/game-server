@@ -8,9 +8,7 @@ import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 
 /**
- * Recruitment drive
- *
- * @constructor Recruitment drive
+ * Recruitment drive quest.
  */
 @Initializable
 class RecruitmentDrive : Quest("Recruitment Drive", 103, 102, 1, 496, 0, 1, 2) {

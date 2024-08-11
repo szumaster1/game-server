@@ -8,9 +8,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Grimechin dialogue
- *
- * @constructor Grimechin dialogue
+ * Grimechin dialogue.
  */
 class GrimechinDialogue : DialogueFile() {
 

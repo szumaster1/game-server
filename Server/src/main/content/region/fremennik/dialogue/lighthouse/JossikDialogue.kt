@@ -10,6 +10,9 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.plugin.Initializable
 
+/**
+ * Jossik lighthouse dialogue.
+ */
 @Initializable
 class JossikDialogue(player: Player? = null) : Dialogue(player) {
 

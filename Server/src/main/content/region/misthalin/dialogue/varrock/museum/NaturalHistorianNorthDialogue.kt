@@ -120,9 +120,7 @@ class NaturalHistorianNorthDialogue(player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Talk about lizards
- *
- * @constructor Talk about lizards
+ * Talk about lizards.
  */
 class TalkAboutLizards : DialogueFile() {
 
@@ -149,9 +147,7 @@ class TalkAboutLizards : DialogueFile() {
 }
 
 /**
- * Talk about tortoises
- *
- * @constructor Talk about tortoises
+ * Talk about tortoises.
  */
 class TalkAboutTortoises : DialogueFile() {
 
@@ -179,9 +175,7 @@ class TalkAboutTortoises : DialogueFile() {
 }
 
 /**
- * Talk about dragons
- *
- * @constructor Talk about dragons
+ * Talk about dragons.
  */
 class TalkAboutDragons : DialogueFile() {
 
@@ -214,9 +208,7 @@ class TalkAboutDragons : DialogueFile() {
 }
 
 /**
- * Talk about wyverns
- *
- * @constructor Talk about wyverns
+ * Talk about wyverns.
  */
 class TalkAboutWyverns : DialogueFile() {
 

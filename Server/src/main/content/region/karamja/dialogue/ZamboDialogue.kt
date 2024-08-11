@@ -16,9 +16,9 @@ import core.tools.END_DIALOGUE
 class ZamboDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        Zambo runs the Karamja Wines, Spirits,
-        and Beers bar on Musa Point on north-eastern Karamja.
-        Location: 2925,3143
+     * Zambo runs the Karamja Wines, Spirits,
+     * and Beers bar on Musa Point on north-eastern Karamja.
+     * Location: 2925,3143
      */
 
     override fun open(vararg args: Any?): Boolean {

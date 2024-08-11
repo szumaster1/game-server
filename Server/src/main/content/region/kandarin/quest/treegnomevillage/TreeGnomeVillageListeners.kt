@@ -25,9 +25,7 @@ import core.game.world.map.RegionManager
 import core.game.world.update.flag.context.Animation
 
 /**
- * Tree gnome village listeners
- *
- * @constructor Tree gnome village listeners
+ * Tree gnome village listeners.
  */
 class TreeGnomeVillageListeners : InteractionListener {
 

@@ -8,9 +8,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Witch potion listeners
- *
- * @constructor Witch potion listeners
+ * Witch potion listeners.
  */
 class WitchPotionListeners : InteractionListener {
 

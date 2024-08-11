@@ -17,9 +17,7 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 
 /**
- * Miss cheevers room listeners
- *
- * @constructor Miss cheevers room listeners
+ * Miss cheevers room listeners.
  */
 class MissCheeversRoomListeners : InteractionListener {
 

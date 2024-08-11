@@ -12,11 +12,8 @@ import core.tools.BLUE
 import core.tools.DARK_BLUE
 import core.tools.END_DIALOGUE
 
-
 /**
- * Grish dialogue files
- *
- * @constructor Grish dialogue files
+ * Grish dialogue files.
  */
 class GrishDialogueFiles : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
@@ -30,9 +27,7 @@ class GrishDialogueFiles : DialogueFile() {
 }
 
 /**
- * Grish black prism dialogue file
- *
- * @constructor Grish black prism dialogue file
+ * Grish black prism dialogue file.
  */
 class GrishBlackPrismDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
@@ -46,9 +41,7 @@ class GrishBlackPrismDialogueFile : DialogueFile() {
 }
 
 /**
- * Grish torn page dialogue file
- *
- * @constructor Grish torn page dialogue file
+ * Grish torn page dialogue file.
  */
 class GrishTornPageDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
@@ -62,9 +55,7 @@ class GrishTornPageDialogueFile : DialogueFile() {
 }
 
 /**
- * Grish finish dialogue
- *
- * @constructor Grish finish dialogue
+ * Grish finish dialogue.
  */
 class GrishFinishDialogue : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {

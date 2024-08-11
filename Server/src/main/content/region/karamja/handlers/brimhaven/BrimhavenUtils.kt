@@ -20,28 +20,38 @@ import core.game.world.update.flag.context.Animation
  */
 object BrimhavenUtils {
     /**
-     * Get vine destination
+     * Get vine destination.
      *
-     * @param player
-     * @param node
-     * @return
+     * @param player The player object.
+     * @param node The scenery object representing the vine.
+     * @return The destination location for the player.
      */
     fun getVineDestination(player: Player, node: Scenery): Location {
+        // Check if the vine is rotated
         if (node.rotation % 2 != 0) {
-            return if (player.location.x > node.location.x) {
-                node.location.transform(-1, 0, 0)
-            } else node.location.transform(1, 0, 0)
+            // If the player is to the right of the vine, return the location to the left of the vine
+            if (player.location.x > node.location.x) {
+                return node.location.transform(-1, 0, 0)
+            } else {
+                // If the player is to the left of the vine, return the location to the right of the vine
+                return node.location.transform(1, 0, 0)
+            }
         }
-        return if (player.location.y > node.location.y) {
-            node.location.transform(0, -1, 0)
-        } else node.location.transform(0, 1, 0)
+        // If the vine is not rotated
+        // If the player is above the vine, return the location below the vine
+        if (player.location.y > node.location.y) {
+            return node.location.transform(0, -1, 0)
+        } else {
+            // If the player is below the vine, return the location above the vine
+            return node.location.transform(0, 1, 0)
+        }
     }
 
     /**
-     * Handle stairs
+     * Handle stairs.
      *
-     * @param node
-     * @param player
+     * @param node The scenery object representing the stairs.
+     * @param player The player object.
      */
     fun handleStairs(node: Scenery, player: Player) {
         when (node.id) {
@@ -53,12 +63,13 @@ object BrimhavenUtils {
     }
 
     /**
-     * Handle stepping stones
+     * Handle stepping stones.
      *
-     * @param player
-     * @param node
+     * @param player The player object.
+     * @param node The scenery object representing the stepping stones.
      */
     fun handleSteppingStones(player: Player, node: Scenery) {
+        // Check if the player's agility level is less than 12
         if (player.skills.getLevel(Skills.AGILITY) < 12) {
             player.packetDispatch.sendMessage("You need an agility level of 12 to cross this.")
             return
@@ -98,10 +109,10 @@ object BrimhavenUtils {
     }
 
     /**
-     * Handle vines
+     * Handle vines.
      *
-     * @param player
-     * @param node
+     * @param player The player object.
+     * @param node The scenery object representing the vines.
      */
     fun handleVines(player: Player, node: Scenery) {
         val level: Int = 10 + (node.id - 5103) * 6
@@ -128,4 +139,5 @@ object BrimhavenUtils {
             }
         })
     }
+
 }

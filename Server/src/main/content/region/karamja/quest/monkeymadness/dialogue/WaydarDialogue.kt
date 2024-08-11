@@ -9,9 +9,7 @@ import core.game.dialogue.DialogueFile
 import core.tools.END_DIALOGUE
 
 /**
- * Waydar dialogue
- *
- * @constructor Waydar dialogue
+ * Waydar dialogue.
  */
 class WaydarDialogue: DialogueFile(){
 

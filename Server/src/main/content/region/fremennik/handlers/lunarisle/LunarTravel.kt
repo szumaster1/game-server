@@ -7,12 +7,18 @@ import core.game.system.task.Pulse
 import core.game.world.map.Location
 
 /**
- * Pirates cove utils.
+ * Lunar travel utils.
  */
-object PiratesCoveUtils {
+object LunarTravel {
 
+    /**
+     * Function to sail the player to a destination.
+     *
+     * @param player The player to sail.
+     * @param destination The destination to reach.
+     */
     @JvmStatic
-    fun sail(player: Player, destination: ReachDestination) {
+    fun sail(player: Player, destination: Destinaton) {
         lock(player, destination.ladyZayAnim)
         lockInteractions(player, destination.ladyZayAnim)
         openInterface(player, Components.LUNAR_COVE_BOAT_MAP_431)
@@ -34,12 +40,12 @@ object PiratesCoveUtils {
 /**
  * Enum class representing reaching a destination.
  *
- * @property destName The name of the destination.
- * @property destLoc The location of the destination.
+ * @property destName    The name of the destination.
+ * @property destLoc     The location of the destination.
  * @property ladyZayAnim The animation for Lady Zay.
  * @constructor Creates an instance of ReachDestination.
  */
-enum class ReachDestination(val destName: String, val destLoc: Location, val ladyZayAnim: Int) {
+enum class Destinaton(val destName: String, val destLoc: Location, val ladyZayAnim: Int) {
     /**
      * Pirates Cove To Moonclan Island.
      */

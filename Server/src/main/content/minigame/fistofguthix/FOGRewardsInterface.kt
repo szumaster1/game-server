@@ -19,12 +19,11 @@ import core.tools.Log
 class FOGRewardsInterface : ComponentPlugin() {
 
     /**
-     * Shop item
-     *
-     * @property id
-     * @property price
-     * @property amount
-     * @constructor Shop item
+     * This class represents a Shop Item. It has properties such as id, price, and amount.
+     * @property id The unique identifier of the item.
+     * @property price The price of the item.
+     * @property amount The available quantity of the item.
+     * @constructor Creates a new Shop Item with the specified id, price, and amount.
      */
     class ShopItem(val id: Int, val price: Int, val amount: Int)
 
@@ -105,7 +104,6 @@ class FOGRewardsInterface : ComponentPlugin() {
             }
         }
     }
-
 
     val Druidic_Mage_Top = (ShopItem(12894, 300, 1))
     val Druidic_Mage_Hood = (ShopItem(12887, 100, 1))

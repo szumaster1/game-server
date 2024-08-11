@@ -19,8 +19,7 @@ import core.plugin.Initializable
 @Initializable
 class Biohazard : Quest("Biohazard", 36, 35, 3, Vars.VARP_QUEST_BIOHAZARD_PROGRESS, 0, 1, 16) {
 
-    // Base created by Bushtail.
-    // https://gitlab.com/bushtail
+    // Base created by Bushtail. https://gitlab.com/bushtail
 
     override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
@@ -32,12 +31,7 @@ class Biohazard : Quest("Biohazard", 36, 35, 3, Vars.VARP_QUEST_BIOHAZARD_PROGRE
             line(player, "!!Ardougne??.", line++)
             line++
             line(player, "Requirements:", line++)
-            line(
-                player,
-                "!!I need to complete Plague City before I can attempt this??",
-                line++,
-                isQuestComplete(player, "Plague City")
-            )
+            line(player, "!!I need to complete Plague City before I can attempt this??", line++, isQuestComplete(player, "Plague City"))
             line(player, "!!Quest??.", line++, isQuestComplete(player, "Plague City"))
         } else {
             if (stage > 0) {

@@ -32,9 +32,7 @@ class LucienDialogue(player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Lucien dialogue file
- *
- * @constructor Lucien dialogue file
+ * Lucien dialogue file.
  */
 class LucienDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {

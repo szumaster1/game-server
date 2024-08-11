@@ -14,8 +14,6 @@ import core.tools.END_DIALOGUE
 
 /**
  * Wizard mizgog dialogue file.
- *
- * @constructor Wizard mizgog dialogue file
  */
 class WizardMizgogDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {

@@ -92,13 +92,13 @@ class GnomeCocktailInterface : ComponentPlugin() {
     }
 
     /**
-     * Fruit cocktail
+     * Enum representing different types of Fruit Cocktails.
      *
-     * @property levelReq
-     * @property experience
-     * @property product
-     * @property requiredItems
-     * @constructor Fruit cocktail
+     * @property levelReq The level required to make the Fruit Cocktail.
+     * @property experience The experience gained by making the Fruit Cocktail.
+     * @property product The product ID of the Fruit Cocktail.
+     * @property requiredItems The array of items required to make the Fruit Cocktail.
+     * @constructor Creates a new Fruit Cocktail with the specified properties.
      */
     internal enum class FruitCocktail(
         val levelReq: Int,
@@ -107,99 +107,73 @@ class GnomeCocktailInterface : ComponentPlugin() {
         val requiredItems: Array<Item>
     ) {
         /**
-         * Fruit Blast
-         *
-         * @constructor Fruit Blast
+         * Fruit Blast.
          */
         FRUIT_BLAST(
-            6,
-            50.0,
-            9568,
-            arrayOf(Item(Items.PINEAPPLE_2114), Item(Items.LEMON_2102), Item(Items.ORANGE_2108))
+            levelReq = 6,
+            experience = 50.0,
+            product = 9568,
+            requiredItems = arrayOf(Item(Items.PINEAPPLE_2114), Item(Items.LEMON_2102), Item(Items.ORANGE_2108))
         ),
 
         /**
-         * Pineapple Punch
-         *
-         * @constructor Pineapple Punch
+         * Pineapple Punch.
          */
         PINEAPPLE_PUNCH(
-            8,
-            70.0,
-            9569,
-            arrayOf(Item(Items.PINEAPPLE_2114, 2), Item(Items.LEMON_2102), Item(Items.ORANGE_2108))
+            levelReq = 8,
+            experience = 70.0,
+            product = 9569,
+            requiredItems = arrayOf(Item(Items.PINEAPPLE_2114, 2), Item(Items.LEMON_2102), Item(Items.ORANGE_2108))
         ),
 
         /**
-         * Wizard Blizzard
-         *
-         * @constructor Wizard Blizzard
+         * Wizard Blizzard.
          */
         WIZARD_BLIZZARD(
-            18,
-            110.0,
-            9566,
-            arrayOf(
-                Item(Items.VODKA_2015, 2),
-                Item(Items.GIN_2019),
-                Item(Items.LIME_2120),
-                Item(Items.LEMON_2102),
-                Item(Items.ORANGE_2108)
-            )
+            levelReq = 18,
+            experience = 110.0,
+            product = 9566,
+            requiredItems = arrayOf(Item(Items.VODKA_2015, 2), Item(Items.GIN_2019), Item(Items.LIME_2120), Item(Items.LEMON_2102), Item(Items.ORANGE_2108))
         ),
 
         /**
-         * Short Green Guy
-         *
-         * @constructor Short Green Guy
+         * Short Green Guy.
          */
-        SHORT_GREEN_GUY(20, 120.0, 9567, arrayOf(Item(Items.VODKA_2015), Item(Items.LIME_2120, 3))),
+        SHORT_GREEN_GUY(
+            levelReq = 20,
+            experience = 120.0,
+            product = 9567,
+            requiredItems = arrayOf(Item(Items.VODKA_2015), Item(Items.LIME_2120, 3))
+        ),
 
         /**
-         * Drunk Dragon
-         *
-         * @constructor Drunk Dragon
+         * Drunk Dragon.
          */
         DRUNK_DRAGON(
-            32,
-            160.0,
-            9574,
-            arrayOf(Item(Items.VODKA_2015), Item(Items.GIN_2019), Item(Items.DWELLBERRIES_2126))
+            levelReq = 32,
+            experience = 160.0,
+            product = 9574,
+            requiredItems = arrayOf(Item(Items.VODKA_2015), Item(Items.GIN_2019), Item(Items.DWELLBERRIES_2126))
         ),
 
         /**
-         * Choc Saturday
-         *
-         * @constructor Choc Saturday
+         * Choc Saturday.
          */
         CHOC_SATURDAY(
-            33,
-            170.0,
-            9571,
-            arrayOf(
-                Item(Items.WHISKY_2017),
-                Item(Items.CHOCOLATE_BAR_1973),
-                Item(Items.EQUA_LEAVES_2128),
-                Item(Items.BUCKET_OF_MILK_1927)
-            )
+            levelReq = 33,
+            experience = 170.0,
+            product = 9571,
+            requiredItems = arrayOf(Item(Items.WHISKY_2017), Item(Items.CHOCOLATE_BAR_1973), Item(Items.EQUA_LEAVES_2128), Item(Items.BUCKET_OF_MILK_1927))
         ),
 
         /**
-         * Blurberry Spec
-         *
-         * @constructor Blurberry Spec
+         * Blurberry Spec.
          */
         BLURBERRY_SPEC(
-            37,
-            180.0,
-            9570,
-            arrayOf(
-                Item(Items.VODKA_2015),
-                Item(Items.BRANDY_2021),
-                Item(Items.GIN_2019),
-                Item(Items.LEMON_2102, 2),
-                Item(Items.ORANGE_2108)
-            )
+            levelReq = 37,
+            experience = 180.0,
+            product = 9570,
+            requiredItems = arrayOf(Item(Items.VODKA_2015), Item(Items.BRANDY_2021), Item(Items.GIN_2019), Item(Items.LEMON_2102, 2), Item(Items.ORANGE_2108))
         )
     }
 

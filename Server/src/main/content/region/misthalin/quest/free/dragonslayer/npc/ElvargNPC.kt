@@ -131,9 +131,7 @@ class ElvargNPC : AbstractNPC {
     }
 
     /**
-     * Elvarg combat swing handler
-     *
-     * @constructor Elvarg combat swing handler
+     * Elvarg combat swing handler.
      */
     internal class ElvargCombatSwingHandler : CombatSwingHandler(CombatStyle.RANGE) {
 

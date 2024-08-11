@@ -19,6 +19,7 @@ class KeldagrimListeners : InteractionListener {
 
     // SceneryDefinition.forId(Scenery.STAIRS_9084).handlers["option:climb-down"] = this
     // SceneryDefinition.forId(Scenery.STAIRS_9138).handlers["option:climb-up"] = this
+
     companion object {
         private val ENTRANCE = intArrayOf(5973,5998)
         private const val DOORWAY_1 = Scenery.DOORWAY_23286
@@ -105,6 +106,7 @@ class KeldagrimListeners : InteractionListener {
         /**
          * Library +1 bookcase interaction.
          */
+        // Perform different actions based on the player's inventory and available slots.
         on(Scenery.BOOKCASE_6091, IntType.SCENERY, "search") { player, _ ->
             if (inInventory(player, Items.EXPLORERS_NOTES_11677)) {
                 sendMessage(player, "You search the books...")

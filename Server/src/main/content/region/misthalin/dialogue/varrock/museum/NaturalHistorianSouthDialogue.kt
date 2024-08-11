@@ -85,9 +85,7 @@ class NaturalHistorianSouthDialogue(player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Talk about terror birds
- *
- * @constructor Talk about terror birds
+ * Talk about terror birds.
  */
 class TalkAboutTerrorBirds : DialogueFile() {
 
@@ -119,9 +117,7 @@ class TalkAboutTerrorBirds : DialogueFile() {
 }
 
 /**
- * Talk about kalphite queen
- *
- * @constructor Talk about kalphite queen
+ * Talk about kalphite queen.
  */
 class TalkAboutKalphiteQueen : DialogueFile() {
 

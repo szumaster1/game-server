@@ -218,9 +218,7 @@ class WizardElrissDialogue(player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Show elriss dialogue
- *
- * @constructor Show elriss dialogue
+ * Show elriss dialogue.
  */
 class ShowElrissDialogue : DialogueFile() {
 

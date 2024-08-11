@@ -215,9 +215,7 @@ class BorkNPC : AbstractNPC {
     }
 
     /**
-     * Ork legion
-     *
-     * @constructor Ork legion
+     * Ork legion.
      */
     inner class OrkLegion : AbstractNPC {
         private var player: Player? = null
@@ -262,9 +260,7 @@ class BorkNPC : AbstractNPC {
     }
 
     /**
-     * Dagon elite
-     *
-     * @constructor Dagon elite
+     * Dagon elite NPC.
      */
     inner class DagonElite : AbstractNPC {
         private var player: Player? = null
@@ -311,9 +307,7 @@ class BorkNPC : AbstractNPC {
     }
 
     /**
-     * Bork cutscene
-     *
-     * @constructor Bork cutscene
+     * Bork cutscene.
      */
     inner class BorkCutscene() : CutscenePlugin("Bork cutscene") {
         private var bork: BorkNPC? = null
@@ -420,9 +414,7 @@ class BorkNPC : AbstractNPC {
     }
 
     /**
-     * Dagon dialogue
-     *
-     * @constructor Dagon dialogue
+     * Dagon dialogue.
      */
     inner class DagonDialogue : Dialogue {
         private var cutscene: BorkCutscene? = null

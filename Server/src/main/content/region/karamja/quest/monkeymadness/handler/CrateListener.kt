@@ -9,9 +9,7 @@ import core.game.system.task.Pulse
 import core.game.world.update.flag.context.Animation
 
 /**
- * Crate listener
- *
- * @constructor Crate listener
+ * Crate listener.
  */
 class CrateListener : InteractionListener {
 

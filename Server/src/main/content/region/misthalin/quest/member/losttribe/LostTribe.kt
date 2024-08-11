@@ -13,15 +13,10 @@ import core.plugin.Initializable
 
 
 /**
- * Lost tribe
- *
- * @constructor Lost tribe
+ * Lost tribe quest.
  */
 @Initializable
 class LostTribe : Quest("Lost Tribe", 84, 83, 1) {
-    override fun newInstance(`object`: Any?): Quest {
-        return this
-    }
 
     override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)
@@ -92,6 +87,10 @@ class LostTribe : Quest("Lost Tribe", 84, 83, 1) {
             }
         }
 
+    }
+
+    override fun newInstance(`object`: Any?): Quest {
+        return this
     }
 
     override fun finish(player: Player) {

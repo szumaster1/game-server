@@ -12,7 +12,6 @@ import core.game.node.item.Item
  */
 class ShantayPassListeners : InteractionListener {
 
-
     companion object {
         private const val SHANTAY_NPC = NPCs.SHANTAY_836
         private const val SHANTAY_PASS_TICKET = Items.SHANTAY_PASS_1854

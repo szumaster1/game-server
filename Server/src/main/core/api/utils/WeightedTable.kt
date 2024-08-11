@@ -3,20 +3,20 @@ package core.api.utils
 import core.tools.RandomFunction
 
 /**
- * Weighted table
+ * Weighted table.
  *
- * @param T
- * @constructor Weighted table
+ * @param T The type of elements in the table.
+ * @constructor Initializes a new instance of the WeightedTable class.
  */
 class WeightedTable<T> : ArrayList<Pair<T?, Double>>() {
     var totalWeight: Double = 0.0
 
     /**
-     * Add
+     * Add an element with a specified weight to the table.
      *
-     * @param element
-     * @param weight
-     * @return
+     * @param element The element to add.
+     * @param weight The weight of the element.
+     * @return True if the element was added successfully, false otherwise.
      */
     fun add(element: T?, weight: Double): Boolean {
         totalWeight += weight
@@ -24,10 +24,10 @@ class WeightedTable<T> : ArrayList<Pair<T?, Double>>() {
     }
 
     /**
-     * Remove
+     * Remove an element from the table.
      *
-     * @param element
-     * @return
+     * @param element The element to remove.
+     * @return True if the element was removed successfully, false otherwise.
      */
     fun remove(element: T?): Boolean {
         var index = -1
@@ -51,9 +51,9 @@ class WeightedTable<T> : ArrayList<Pair<T?, Double>>() {
     }
 
     /**
-     * Roll
+     * Roll the weighted table and return a random element based on their weights.
      *
-     * @return
+     * @return A random element from the table, or null if the table is empty.
      */
     fun roll(): T? {
         if (this.size == 1) return this[0].component1()
@@ -71,6 +71,12 @@ class WeightedTable<T> : ArrayList<Pair<T?, Double>>() {
     }
 
     companion object {
+        /**
+         * Create a new weighted table with the specified elements and their weights.
+         *
+         * @param elements The elements and their weights.
+         * @return A new weighted table.
+         */
         fun <T> create(vararg elements: Pair<T?, Double>): WeightedTable<T> {
             var table = WeightedTable<T>()
             for ((element, weight) in elements) table.add(element, weight)

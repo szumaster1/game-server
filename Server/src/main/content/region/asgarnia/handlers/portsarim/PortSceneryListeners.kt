@@ -32,10 +32,7 @@ class PortSceneryListeners : InteractionListener {
             return@on true
         }
 
-        /*
-         * Cross gangplank to ship related to Dragon slayer interaction.
-         */
-
+        // Cross gangplank to ship related to Dragon slayer interaction.
         on(Scenery.GANGPLANK_2593, IntType.SCENERY, "cross"){ player, _ ->
             if (isQuestComplete(player, "Dragon Slayer")) {
                 player.dialogueInterpreter.open(NPCs.KLARENSE_744, findNPC(NPCs.KLARENSE_744), true)
@@ -55,10 +52,7 @@ class PortSceneryListeners : InteractionListener {
             return@on true
         }
 
-        /*
-         * Cross the gangplank to Ship.
-         */
-
+        // Cross the gangplank to Ship.
         on(PLANK, IntType.SCENERY, "cross") { player, node ->
             forceMove(player, player.location, node.location, 10, 30, null, Animations.HUMAN_WALK_SHORT_819)
             if (getUsedOption(player) == "cross") {
@@ -123,9 +117,7 @@ class PortSceneryListeners : InteractionListener {
         private val MOS_SHIP = arrayOf(Location(3684, 2950, 1), Location(3684, 2953, 0))
         private val TYRAS = arrayOf(Location(2142, 3125, 1), Location(2142, 3122, 0))
         private val SHIP_YARD = arrayOf(Location.create(2998, 3032, 1), Location(3000,3032,0))
-        /*
-         * 17.07.2009
-         */
+
         fun cross(player: Player, location: Location?) {
             queueScript(player, 1, QueueStrength.STRONG) {
                 player.properties.teleportLocation = location

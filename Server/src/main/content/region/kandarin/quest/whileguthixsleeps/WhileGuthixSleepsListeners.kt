@@ -11,9 +11,7 @@ import core.game.system.task.Pulse
 import core.game.world.map.Location
 
 /**
- * While guthix sleeps listeners
- *
- * @constructor While guthix sleeps listeners
+ * While guthix sleeps listeners.
  */
 class WhileGuthixSleepsListeners : InteractionListener {
     override fun defineListeners() {

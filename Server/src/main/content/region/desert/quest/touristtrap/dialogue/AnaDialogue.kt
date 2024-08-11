@@ -273,9 +273,7 @@ class AnaDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     /**
-     * Ana barrel handler
-     *
-     * @constructor Ana barrel handler
+     * Ana barrel handler.
      */
     class AnaBarrelHandler: UseWithHandler(TouristTrap.BARREL.id) {
         override fun newInstance(arg: Any?): Plugin<Any> {

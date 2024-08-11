@@ -6,46 +6,38 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
 /**
- * Grub foot
+ * Enum class representing different types of GrubFoot.
  *
- * @property id
- * @property value
- * @property mail
- * @constructor Grub foot
+ * @property id unique identifier for the GrubFoot type.
+ * @property value numerical value associated with the GrubFoot type.
+ * @property mail item associated with the GrubFoot type.
+ * @constructor Initializes a GrubFoot with the specified id, value, and mail item.
  */
 enum class GrubFoot(val id: Int, val value: Int, val mail: Item) {
     /**
-     * Normal
-     *
-     * @constructor Normal
+     * Normal.
      */
     NORMAL(4495, 1, Item(288)),
 
     /**
-     * Orange
-     *
-     * @constructor Orange
+     * Orange.
      */
     ORANGE(4497, 4, Item(286)),
 
     /**
-     * Blue
-     *
-     * @constructor Blue
+     * Blue.
      */
     BLUE(4498, 5, Item(287)),
 
     /**
-     * Brown
-     *
-     * @constructor Brown
+     * Brown.
      */
     BROWN(4496, 6, Item(288));
 
     /**
      * Set config
      *
-     * @param player
+     * @param player the player.
      */
     fun setConfig(player: Player?) {
         setVarp(player!!, 62, value)

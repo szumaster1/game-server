@@ -8,9 +8,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Skull drop plugin
- *
- * @constructor Skull drop plugin
+ * Skull drop plugin.
  */
 @Initializable
 class SkullDropPlugin : OptionHandler() {

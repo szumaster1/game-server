@@ -26,20 +26,25 @@ class LunarIsleListeners : InteractionListener {
 
     override fun defineListeners() {
 
+        // This listener handles the action of opening the closed door.
         on(CLOSED_DOOR, IntType.SCENERY, "open") { player, _ ->
             teleport(player, location(2101, 3926, 0), TeleportType.LUNAR)
             return@on true
         }
+
+        // This listener handles the action of closing the opened door.
         on(OPENED_DOOR, IntType.SCENERY, "close") { player, _ ->
             teleport(player, location(2101, 3926, 0), TeleportType.LUNAR)
             return@on true
         }
 
+        // This listener handles the action of going inside the house.
         on(HOUSE, IntType.NPC, "go-inside") { player, _ ->
             teleport(player, location(2451, 4645, 0), TeleportType.LUNAR)
             return@on true
         }
 
+        // This listener handles the action of climbing up the ladder.
         on(LADDER_UP, IntType.SCENERY, "climb-up") { player, _ ->
             animate(player, Animations.HUMAN_CLIMB_STAIRS_828)
             queueScript(player, 1, QueueStrength.SOFT) {
@@ -48,6 +53,7 @@ class LunarIsleListeners : InteractionListener {
             return@on true
         }
 
+        // This listener handles the action of climbing down the ladder.
         on(LADDER_DOWN, IntType.SCENERY, "climb-down") { player, _ ->
             animate(player, Animations.HUMAN_CLIMB_STAIRS_828)
             queueScript(player, 1, QueueStrength.SOFT) {
@@ -56,10 +62,10 @@ class LunarIsleListeners : InteractionListener {
             return@on true
         }
 
+        // This listener handles the action of using Cave Nightshade item on Cyrissus NPC.
         onUseWith(IntType.NPC, Items.CAVE_NIGHTSHADE_2398, *CYRISUS) { player, _, _ ->
             sendMessage(player, "How evil! Are you trying to kill him?")
             return@onUseWith true
         }
     }
-
 }

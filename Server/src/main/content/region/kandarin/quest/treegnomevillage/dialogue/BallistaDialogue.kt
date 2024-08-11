@@ -5,9 +5,7 @@ import core.game.dialogue.DialogueFile
 import core.tools.END_DIALOGUE
 
 /**
- * Ballista dialogue
- *
- * @constructor Ballista dialogue
+ * Ballista dialogue.
  */
 class BallistaDialogue : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {

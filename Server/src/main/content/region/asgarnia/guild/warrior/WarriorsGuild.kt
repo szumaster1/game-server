@@ -63,9 +63,7 @@ class WarriorsGuild : OptionHandler() {
     }
 
     /**
-     * Claim token dialogue
-     *
-     * @constructor Claim token dialogue
+     * Claim token dialogue.
      */
     class ClaimTokenDialogue : Dialogue {
         private var npcId = 0

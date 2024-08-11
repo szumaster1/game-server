@@ -7,7 +7,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * R p d t employee dialogue.
+ * RPDT employee dialogue.
  */
 @Initializable
 class RPDTEmployeeDialogue(player: Player? = null) : Dialogue(player) {

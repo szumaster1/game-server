@@ -39,10 +39,7 @@ class DwarvenBoatmanBackDialogue(player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Travel back pulse
- *
- * @property player
- * @constructor Travel back pulse
+ * Travel back pulse.
  */
 class TravelBackPulse(val player: Player) : Pulse(1) {
     var counter = 0

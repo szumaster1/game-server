@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Alfonse waiter dialogue.
+ * Alfonse Waiter dialogue.
  */
 @Initializable
 class AlfonseWaiterDialogue(player: Player? = null): Dialogue(player) {

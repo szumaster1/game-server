@@ -10,9 +10,7 @@ import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
 /**
- * Captain barnaby dialogue
- *
- * @constructor Captain barnaby dialogue
+ * Captain barnaby dialogue.
  */
 class CaptainBarnabyDialogue : DialogueFile() {
 

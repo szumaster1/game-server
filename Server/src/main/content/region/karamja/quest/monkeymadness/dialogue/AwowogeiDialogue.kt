@@ -6,9 +6,7 @@ import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 
 /**
- * Awowogei dialogue
- *
- * @constructor Awowogei dialogue
+ * Awowogei dialogue.
  */
 class AwowogeiDialogue : DialogueFile() {
 

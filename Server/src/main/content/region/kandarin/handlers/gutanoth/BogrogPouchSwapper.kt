@@ -26,12 +26,12 @@ object BogrogPouchSwapper {
     private val GEBorders = ZoneBorders(3151, 3501, 3175, 3477)
 
     /**
-     * Handle
+     * This function handles the player's interaction with a specific option in a slot.
      *
-     * @param player
-     * @param optionIndex
-     * @param slot
-     * @return
+     * @param player The player interacting with the option.
+     * @param optionIndex The index of the option selected.
+     * @param slot The slot where the option is located.
+     * @return Boolean value indicating the success of handling the interaction.
      */
     @JvmStatic
     fun handle(player: Player, optionIndex: Int, slot: Int): Boolean {
@@ -52,12 +52,12 @@ object BogrogPouchSwapper {
     }
 
     /**
-     * Swap
+     * Swap function to exchange items between players.
      *
-     * @param player
-     * @param amount
-     * @param itemID
-     * @return
+     * @param player the player initiating the swap.
+     * @param amount the quantity of items to swap.
+     * @param itemID the unique identifier of the item to be swapped.
+     * @return true if the swap was successful, false otherwise.
      */
     private fun swap(player: Player, amount: Int, itemID: Int): Boolean {
         var amt = amount
@@ -74,11 +74,11 @@ object BogrogPouchSwapper {
     }
 
     /**
-     * Send value
+     * Sends the value of an item to a player.
      *
-     * @param itemID
-     * @param player
-     * @return
+     * @param itemID the ID of the item to send.
+     * @param player the player to send the item value to.
+     * @return true if the value was successfully sent, false otherwise.
      */
     private fun sendValue(itemID: Int, player: Player): Boolean {
         val value = getValue(itemID)
@@ -91,10 +91,10 @@ object BogrogPouchSwapper {
     }
 
     /**
-     * Get value
+     * This function retrieves the value associated with a specific item ID.
      *
-     * @param itemID
-     * @return
+     * @param itemID The ID of the item for which the value is requested.
+     * @return The value associated with the provided item ID.
      */
     private fun getValue(itemID: Int): Double {
         var item = SummoningPouch.get(itemID)

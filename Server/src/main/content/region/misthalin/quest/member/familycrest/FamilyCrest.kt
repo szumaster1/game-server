@@ -14,9 +14,7 @@ import core.plugin.Initializable
 import core.tools.Log
 
 /**
- * Family crest
- *
- * @constructor Family crest
+ * Family crest quest.
  */
 @Initializable
 class FamilyCrest : Quest("Family Crest", 59, 58, 1, Vars.VARP_QUEST_FAMILY_CREST_PROGRESS, 0, 1, 11) {

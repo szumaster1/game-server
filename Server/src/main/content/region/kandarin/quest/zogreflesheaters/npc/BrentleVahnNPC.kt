@@ -20,10 +20,10 @@ import core.plugin.Initializable
 class BrentleVahnNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 
     /*
-        Brentle Vahn is a dead member of the group of H.A.M.
-        has a reputation for selling his fighting skills unwisely.
-        He was last seen with a shady wizard, and presumably died
-        while completing a task for this wizard.
+     * Brentle Vahn is a dead member of the group of H.A.M.
+     * has a reputation for selling his fighting skills unwisely.
+     * He was last seen with a shady wizard, and presumably died
+     * while completing a task for this wizard.
      */
 
     var despawnTime = 0

@@ -13,9 +13,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * History of the goblin race
- *
- * @constructor History of the goblin race
+ * History of the goblin race.
  */
 @Initializable
 class HistoryOfTheGoblinRace : ComponentPlugin() {
@@ -50,11 +48,6 @@ class HistoryOfTheGoblinRace : ComponentPlugin() {
         return true
     }
 
-    /**
-     * Update
-     *
-     * @param player
-     */
     fun update(player: Player) {
         val index = getIndex(player)
         player.packetDispatch.sendInterfaceConfig(183, 32, index != 0)
@@ -64,22 +57,10 @@ class HistoryOfTheGoblinRace : ComponentPlugin() {
         player.packetDispatch.sendInterfaceConfig(183, 17, index == 0)
     }
 
-    /**
-     * Set index
-     *
-     * @param player
-     * @param index
-     */
     fun setIndex(player: Player, index: Int) {
         setAttribute(player, "hgr-index", index)
     }
 
-    /**
-     * Get index
-     *
-     * @param player
-     * @return
-     */
     fun getIndex(player: Player): Int {
         return player.getAttribute("hgr-index", 0)
     }

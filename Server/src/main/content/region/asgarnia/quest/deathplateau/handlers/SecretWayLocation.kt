@@ -6,9 +6,7 @@ import core.game.node.entity.player.Player
 import core.game.world.map.zone.ZoneBorders
 
 /**
- * Secret way location
- *
- * @constructor Secret way location
+ * Secret way location.
  */
 class SecretWayLocation : MapArea {
     override fun defineAreaBorders(): Array<ZoneBorders> {

@@ -10,7 +10,6 @@ import core.game.interaction.InteractionListener
 
 /**
  * Barbarian assault listeners.
- * @author Szumaster
  */
 class BarbarianAssaultListeners : InteractionListener {
 

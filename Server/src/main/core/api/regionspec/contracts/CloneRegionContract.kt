@@ -3,10 +3,10 @@ package core.api.regionspec.contracts
 import core.game.world.map.build.DynamicRegion
 
 /**
- * Clone region contract
+ * Represents a contract for cloning a region.
  *
- * @property regionId
- * @constructor Clone region contract
+ * @property regionId The ID of the region to be cloned.
+ * @constructor Initializes a new CloneRegionContract with the specified region ID.
  */
 class CloneRegionContract(val regionId: Int) : RegionSpecContract {
     override fun instantiateRegion(): DynamicRegion {

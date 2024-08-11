@@ -6,9 +6,7 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
 /**
- * Swap gauntlets helper
- *
- * @constructor Swap gauntlets helper
+ * Swap gauntlets helper.
  */
 class SwapGauntletsHelper {
 

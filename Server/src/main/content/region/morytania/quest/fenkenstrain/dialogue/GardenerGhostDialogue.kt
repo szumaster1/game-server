@@ -41,9 +41,7 @@ class GardenerGhostDialogue(player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Gardener ghost dialogue file
- *
- * @constructor Gardener ghost dialogue file
+ * Gardener ghost dialogue file.
  */
 class GardenerGhostDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {

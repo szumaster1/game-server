@@ -19,9 +19,6 @@ class AFUSession(val player: Player? = null) : LogoutListener {
     private val beaconWatched = Array(14) { false }
     private var isActive = false
 
-    /**
-     * Init.
-     */
     fun init() {
         isActive = true
         GameWorld.Pulser.submit(object : Pulse() {
@@ -76,9 +73,6 @@ class AFUSession(val player: Player? = null) : LogoutListener {
         return beaconTimers.count { it.ticks > 0 }
     }
 
-    /**
-     * End.
-     */
     fun end() {
         isActive = false
     }

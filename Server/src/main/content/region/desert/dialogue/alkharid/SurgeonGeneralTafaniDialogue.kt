@@ -20,10 +20,10 @@ import core.tools.END_DIALOGUE
 class SurgeonGeneralTafaniDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        She can be found in a building in northern Al'Kharid.
-        She, along with Surgeon General Tafani.
-        Can heal players for free, restoring life points.
-        Location: 3377,3276
+     * She can be found in a building in northern Al'Kharid.
+     * She, along with Surgeon General Tafani.
+     * Can heal players for free, restoring life points.
+     * Location: 3377,3276
      */
 
     override fun open(vararg args: Any?): Boolean {

@@ -19,7 +19,7 @@ import core.game.world.map.Location
 class ZavisticRarveNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 
     /*
-        NPC spawn after interact with Bell - outside Wizard guild.
+     *  NPC spawn after interact with Bell outside Wizard guild.
      */
 
     var clearTime = 0

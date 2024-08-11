@@ -4,9 +4,7 @@ import core.api.setQuestStage
 import core.game.dialogue.DialogueFile
 
 /**
- * Awowogei challenge dialogue
- *
- * @constructor Awowogei challenge dialogue
+ * Awowogei challenge dialogue.
  */
 class AwowogeiChallengeDialogue: DialogueFile() {
 

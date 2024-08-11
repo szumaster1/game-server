@@ -73,9 +73,7 @@ class CorporealBeastNPC: NPCBehavior(NPCs.CORPOREAL_BEAST_8133) {
     }
 
     /**
-     * Combat handler
-     *
-     * @constructor Combat handler
+     * Combat handler.
      */
     internal class CombatHandler : MultiSwingHandler(
         /*

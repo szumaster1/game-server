@@ -10,9 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Explorers notes
- *
- * @constructor Explorers notes
+ * Explorers notes.
  */
 class ExplorersNotes : InteractionListener {
 

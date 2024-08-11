@@ -30,10 +30,7 @@ class PortSarimListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
-         * Ahab's beer is a glass of beer in the Port Sarim pub.
-         */
-
+        // Ahab's beer is a glass of beer in the Port Sarim pub.
         on(Items.AHABS_BEER_6561, IntType.GROUNDITEM, "take") { player, node ->
             face(player, node)
             animate(player, Animations.HUMAN_MULTI_USE_832)
@@ -41,20 +38,14 @@ class PortSarimListeners : InteractionListener {
             return@on true
         }
 
-        /*
-         * Seaman (Karamja travel) interaction.
-         */
-
+        // Seaman (Karamja travel) interaction.
         on(SEAMAN, IntType.NPC, "pay-fare") { player, node ->
             val npc = node as NPC
             player.dialogueInterpreter.open(npc.id, npc, true)
             return@on true
         }
 
-        /*
-         * Wydin's Food Store doors.
-         */
-
+        // Wydin's Food Store doors.
         on(WYDIN_STORE_DOOR, IntType.SCENERY, "open") { player, node ->
             if (!inEquipment(player, Items.WHITE_APRON_1005) && player.location.x == 3012) {
                 player.dialogueInterpreter.open(NPCs.WYDIN_557, true, true)
@@ -64,10 +55,7 @@ class PortSarimListeners : InteractionListener {
             return@on true
         }
 
-        /*
-         * Banana create - Wydin's store.
-         */
-
+        // Banana create - Wydin's store.
         on(WYDIN_BANANA_CRATE, IntType.SCENERY, "search") { player, _ ->
             if (freeSlots(player) == 0) {
                 sendMessage(player, "Not enough inventory space.")
@@ -127,19 +115,13 @@ class PortSarimListeners : InteractionListener {
             return@on true
         }
 
-        /*
-         * Monks take-boat interaction (Entrana travel).
-         */
-
+        // Monks take-boat interaction (Entrana travel).
         on(MONKS_OF_ENTRANA, IntType.NPC, "take-boat") { player, node ->
             openDialogue(player, (node as NPC).id, node)
             return@on true
         }
 
-        /*
-         * The Sleeping Guard in Port Sarim Jail.
-         */
-
+        // The Sleeping Guard in Port Sarim Jail.
         on(SLEEPING_GUARD, IntType.NPC, "talk-to") { player, node ->
             val forceChat = arrayOf("Hmph... heh heh heh...", "Mmmm... big pint of beer... kebab...", "Mmmmmm... donuts...", "Guh.. mwww... zzzzzz...")
             lock(player, 2)
@@ -151,10 +133,7 @@ class PortSarimListeners : InteractionListener {
             return@on true
         }
 
-        /*
-         * Dragon slayer related interaction.
-         */
-
+        // Dragon slayer related interaction.
         on(WORMBRAIN, IntType.NPC, "attack") { player, node ->
             if (getQuestStage(player, "Dragon Slayer") != 20) {
                 sendDialogue(player, "The goblin is already in prison. You have no reason to attack him.")
@@ -164,10 +143,7 @@ class PortSarimListeners : InteractionListener {
             return@on true
         }
 
-        /*
-         * Asgarnian Ice Dungeon - cave entrance to Wyverns.
-         */
-
+        // Asgarnian Ice Dungeon - cave entrance to Wyverns.
         on(CAVE_ENTRANCE, IntType.SCENERY, "enter") { player, _ ->
             queueScript(player, 1, QueueStrength.SOFT) {
                 player.properties.teleportLocation = Location(3056, 9562, 0)
@@ -177,10 +153,7 @@ class PortSarimListeners : InteractionListener {
             return@on true
         }
 
-        /*
-         * Exit interaction from Ice dungeon.
-         */
-
+        // Exit interaction from Ice dungeon.
         on(CAVE_EXIT, IntType.SCENERY, "exit") { player, _ ->
             openInterface(player, Components.CWS_WARNING_1_574)
             return@on true

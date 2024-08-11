@@ -62,9 +62,7 @@ class KingBlackDragonNPC : AbstractNPC {
     }
 
     /**
-     * K b d combat swing handler
-     *
-     * @constructor K b d combat swing handler
+     * King Black Dragon combat swing handler.
      */
     internal class KBDCombatSwingHandler : CombatSwingHandler(CombatStyle.RANGE) {
 

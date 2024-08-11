@@ -1128,9 +1128,7 @@ class SeersHouseListeners : InteractionListener {
 }
 
 /**
- * Bull head dialogue
- *
- * @constructor Bull head dialogue
+ * Bull head dialogue.
  */
 class BullHeadDialogue : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
@@ -1154,9 +1152,7 @@ class BullHeadDialogue : DialogueFile() {
 }
 
 /**
- * Unicorn head dialogue
- *
- * @constructor Unicorn head dialogue
+ * Unicorn head dialogue.
  */
 class UnicornHeadDialogue : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {

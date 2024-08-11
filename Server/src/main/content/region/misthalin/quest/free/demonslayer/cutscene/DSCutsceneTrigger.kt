@@ -9,8 +9,6 @@ import core.game.world.map.zone.ZoneBorders
 
 /**
  * Demon slayer cutscene trigger.
- *
- * @constructor D s cutscene trigger
  */
 class DSCutsceneTrigger : MapArea {
 

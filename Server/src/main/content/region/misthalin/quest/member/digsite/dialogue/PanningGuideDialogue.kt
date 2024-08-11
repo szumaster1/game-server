@@ -83,9 +83,7 @@ class PanningGuideDialogueFile : DialogueBuilderFile() {
 }
 
 /**
- * Panning guide cannot pan dialogue file
- *
- * @constructor Panning guide cannot pan dialogue file
+ * Panning guide cannot pan dialogue file.
  */
 class PanningGuideCannotPanDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {

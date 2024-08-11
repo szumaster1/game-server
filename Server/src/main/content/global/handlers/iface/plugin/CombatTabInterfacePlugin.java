@@ -15,7 +15,6 @@ import core.plugin.Plugin;
 
 /**
  * The Combat tab interface plugin.
- *
  * @author Emperor, Vexia
  */
 @Initializable

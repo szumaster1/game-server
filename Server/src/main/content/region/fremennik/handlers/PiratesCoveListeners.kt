@@ -22,6 +22,7 @@ class PiratesCoveListeners : InteractionListener {
 
     override fun defineListeners() {
 
+        // This listener is triggered when a player tries to take an item from a full barrel.
         on(FULL_BARREL, IntType.SCENERY, "take-from") { player, node ->
             val incrementAmount = RandomFunction.random(83, 1000)
 
@@ -31,6 +32,7 @@ class PiratesCoveListeners : InteractionListener {
             }
 
             if (node.asScenery().charge >= 0) {
+                // Decrease the charge of the barrel by the increment amount.
                 node.asScenery().charge -= incrementAmount
                 when (node.id) {
                     Scenery.BARREL_16884 -> addItem(player, Items.ROTTEN_APPLE_1984)

@@ -6,9 +6,7 @@ import core.game.dialogue.DialogueFile
 import core.game.node.entity.skill.Skills
 
 /**
- * Daero training post quest dialogue
- *
- * @constructor Daero training post quest dialogue
+ * Daero training post quest dialogue.
  */
 class DaeroTrainingPostQuestDialogue : DialogueFile() {
 

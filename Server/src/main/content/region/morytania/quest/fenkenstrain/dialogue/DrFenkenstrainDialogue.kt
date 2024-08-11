@@ -34,9 +34,7 @@ class DrFenkenstrainDialogue(player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Dr fenkenstrain dialogue file
- *
- * @constructor Dr fenkenstrain dialogue file
+ * Dr fenkenstrain dialogue file.
  */
 class DrFenkenstrainDialogueFile : DialogueBuilderFile() {
 

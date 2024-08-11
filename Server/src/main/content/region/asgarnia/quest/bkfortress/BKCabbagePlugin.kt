@@ -5,9 +5,7 @@ import core.game.interaction.UseWithHandler
 import core.plugin.Plugin
 
 /**
- * B k cabbage plugin
- *
- * @constructor B k cabbage plugin
+ * Black knight quest cabbage plugin.
  */
 class BKCabbagePlugin: UseWithHandler(1965, 1967) {
 

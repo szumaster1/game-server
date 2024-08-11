@@ -16,8 +16,8 @@ import core.api.consts.NPCs
 class IainDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        Iain was a religious pilgrim from the Asgarnian capital city of Falador.
-        He is visiting Lumbridge, has work-for option.
+     * Iain was a religious pilgrim from the Asgarnian capital city of Falador.
+     * He is visiting Lumbridge, has work-for option.
      */
 
     override fun open(vararg args: Any): Boolean {

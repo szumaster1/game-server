@@ -18,9 +18,7 @@ import core.tools.StringUtils
 import java.util.*
 
 /**
- * Goblin diplomacy plugin
- *
- * @constructor Goblin diplomacy plugin
+ * Goblin diplomacy plugin.
  */
 class GoblinDiplomacyPlugin : OptionHandler() {
 
@@ -66,9 +64,7 @@ class GoblinDiplomacyPlugin : OptionHandler() {
     }
 
     /**
-     * Goblin mail plugin
-     *
-     * @constructor Goblin mail plugin
+     * Goblin mail plugin.
      */
     class GoblinMailPlugin : UseWithHandler(1763, 1769, 1765, 1771, 1767, 1773, 4622, 11808, 6955) {
 
@@ -100,11 +96,11 @@ class GoblinDiplomacyPlugin : OptionHandler() {
         }
 
         /**
-         * Handle dye mix
+         * Function to handle dye mixing process.
          *
-         * @param player
-         * @param dye
-         * @param event
+         * @param player The player performing the dye mix.
+         * @param dye The type of dye being used.
+         * @param event The event triggering the dye mix.
          */
         fun handleDyeMix(player: Player, dye: Dyes?, event: NodeUsageEvent?) {
             if (dye == null) {
@@ -121,17 +117,15 @@ class GoblinDiplomacyPlugin : OptionHandler() {
         }
 
         /**
-         * Goblin mail
+         * Enum class representing Goblin mail with dye and product items.
          *
-         * @property dye
-         * @property product
-         * @constructor Goblin mail
+         * @property dye The dye item used for coloring the Goblin mail.
+         * @property product The final product of the Goblin mail after dyeing.
+         * @constructor Initializes GoblinMail with dye and product items.
          */
         enum class GoblinMail(val dye: Item, val product: Item) {
             /**
-             * Red
-             *
-             * @constructor Red
+             * Red.
              */
             RED(
                 dye = Item(1763),
@@ -139,9 +133,7 @@ class GoblinDiplomacyPlugin : OptionHandler() {
             ),
 
             /**
-             * Orange
-             *
-             * @constructor Orange
+             * Orange.
              */
             ORANGE(
                 dye = Item(1769),
@@ -149,9 +141,7 @@ class GoblinDiplomacyPlugin : OptionHandler() {
             ),
 
             /**
-             * Yellow
-             *
-             * @constructor Yellow
+             * Yellow.
              */
             YELLOW(
                 dye = Item(1765),
@@ -159,9 +149,7 @@ class GoblinDiplomacyPlugin : OptionHandler() {
             ),
 
             /**
-             * Green
-             *
-             * @constructor Green
+             * Green.
              */
             GREEN(
                 dye = Item(1771),
@@ -169,9 +157,7 @@ class GoblinDiplomacyPlugin : OptionHandler() {
             ),
 
             /**
-             * Blue
-             *
-             * @constructor Blue
+             * Blue.
              */
             BLUE(
                 dye = Item(1767),
@@ -179,9 +165,7 @@ class GoblinDiplomacyPlugin : OptionHandler() {
             ),
 
             /**
-             * Purple
-             *
-             * @constructor Purple
+             * Purple.
              */
             PURPLE(
                 dye = Item(1773),
@@ -189,9 +173,7 @@ class GoblinDiplomacyPlugin : OptionHandler() {
             ),
 
             /**
-             * Black
-             *
-             * @constructor Black
+             * Black.
              */
             BLACK(
                 dye = Item(4622),
@@ -199,9 +181,7 @@ class GoblinDiplomacyPlugin : OptionHandler() {
             ),
 
             /**
-             * White
-             *
-             * @constructor White
+             * White.
              */
             WHITE(
                 dye = Item(11808),
@@ -209,9 +189,7 @@ class GoblinDiplomacyPlugin : OptionHandler() {
             ),
 
             /**
-             * Pink
-             *
-             * @constructor Pink
+             * Pink.
              */
             PINK(
                 dye = Item(6955),
@@ -233,18 +211,16 @@ class GoblinDiplomacyPlugin : OptionHandler() {
         }
 
         /**
-         * Dyes
+         * Dyes.
          *
-         * @property product
-         * @constructor
+         * @property product The resulting dye item.
+         * @constructor Initializes a dye with the given materials.
          *
-         * @param materials
+         * @param materials The materials required to create the dye.
          */
         enum class Dyes(val product: Item, vararg materials: Item) {
             /**
-             * Orange
-             *
-             * @constructor Orange
+             * Orange dye with the required materials.
              */
             ORANGE(
                 Item(1769),
@@ -253,9 +229,7 @@ class GoblinDiplomacyPlugin : OptionHandler() {
             ),
 
             /**
-             * Green
-             *
-             * @constructor Green
+             * Green dye with the required materials.
              */
             GREEN(
                 Item(1771),
@@ -264,9 +238,7 @@ class GoblinDiplomacyPlugin : OptionHandler() {
             ),
 
             /**
-             * Purple
-             *
-             * @constructor Purple
+             * Purple dye with the required materials.
              */
             PURPLE(
                 Item(1773),
@@ -277,7 +249,13 @@ class GoblinDiplomacyPlugin : OptionHandler() {
             val materials: Array<Item> = materials as Array<Item>
 
             companion object {
-
+                /**
+                 * Returns the dye that can be created using the given materials.
+                 *
+                 * @param item The first material item.
+                 * @param second The second material item.
+                 * @return The dye that can be created using the given materials, or null if no dye can be created.
+                 */
                 fun forItem(item: Item, second: Item): Dyes? {
                     for (dye in values()) {
                         if (dye.materials[0].id == item.id && dye.materials[1].id == second.id || dye.materials[0].id == second.id && dye.materials[1].id == item.id) {

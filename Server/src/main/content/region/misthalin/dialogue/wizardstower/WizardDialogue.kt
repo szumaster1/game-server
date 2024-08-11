@@ -115,10 +115,10 @@ class WizardDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     /**
-     * Make
+     * This function creates a specific bark based on the input parameters.
      *
-     * @param bark
-     * @param amount
+     * @param bark The type of bark to be created.
+     * @param amount The quantity of bark to be produced.
      */
     fun make(bark: SplitBark, amount: Int) {
         val barkAmt = player.inventory.getAmount(BARK)
@@ -152,10 +152,10 @@ class WizardDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     /**
-     * Get amt
+     * This function retrieves the amount associated with a specific button.
      *
-     * @param buttonId
-     * @return
+     * @param buttonId The ID of the button for which the amount is requested.
+     * @return The amount associated with the button.
      */
     fun getAmt(buttonId: Int): Int {
         var amount = -1
@@ -169,47 +169,37 @@ class WizardDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     /**
-     * Split bark
+     * Enum class representing different types of Split Bark.
      *
-     * @property itemId
-     * @property cost
-     * @property amt
-     * @property buttonId
-     * @constructor Split bark
+     * @property itemId The unique identifier of the Split Bark item.
+     * @property cost The cost of the Split Bark.
+     * @property amt The amount of Split Bark.
+     * @property buttonId The identifier of the button associated with the Split Bark.
+     * @constructor Initializes a Split Bark with the specified properties.
      */
     enum class SplitBark(val itemId: Int, val cost: Int, val amt: Int, val buttonId: Int) {
         /**
-         * Helm
-         *
-         * @constructor Helm
+         * Helm.
          */
         HELM(3385, 6000, 2, 9),
 
         /**
-         * Body
-         *
-         * @constructor Body
+         * Body.
          */
         BODY(3387, 37000, 4, 13),
 
         /**
-         * Legs
-         *
-         * @constructor Legs
+         * Legs.
          */
         LEGS(3389, 32000, 3, 17),
 
         /**
-         * Gauntlets
-         *
-         * @constructor Gauntlets
+         * Gauntlets.
          */
         GAUNTLETS(3391, 1000, 1, 21),
 
         /**
-         * Boots
-         *
-         * @constructor Boots
+         * Boots.
          */
         BOOTS(3393, 1000, 1, 25);
 

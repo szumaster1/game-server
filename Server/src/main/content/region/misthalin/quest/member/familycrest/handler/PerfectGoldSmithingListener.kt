@@ -8,9 +8,7 @@ import core.game.interaction.*
 import core.game.node.entity.skill.Skills
 
 /**
- * Perfect gold smithing listener
- *
- * @constructor Perfect gold smithing listener
+ * Perfect gold smithing listener.
  */
 class PerfectGoldSmithingListener : InteractionListener {
 

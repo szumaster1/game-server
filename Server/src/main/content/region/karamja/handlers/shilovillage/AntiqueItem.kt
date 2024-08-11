@@ -10,7 +10,7 @@ import core.game.node.item.Item
  * @property price    the offered price.
  * @property message  the message.
  * @property dialogue the dialogue.
- * @constructor Antique item
+ * @constructor Antique item.
  */
 enum class AntiqueItem(val item: Item, val price: Int, val message: String, val dialogue: String){
     /**

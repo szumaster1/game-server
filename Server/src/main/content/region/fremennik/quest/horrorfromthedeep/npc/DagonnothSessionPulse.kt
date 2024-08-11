@@ -5,10 +5,7 @@ import core.game.node.entity.player.Player
 import core.game.system.task.Pulse
 
 /**
- * Dagonnoth session pulse
- *
- * @property player
- * @constructor Dagonnoth session pulse
+ * Dagonnoth session pulse.
  */
 class DagonnothSessionPulse(val player: Player) : Pulse() {
     var counter = 0

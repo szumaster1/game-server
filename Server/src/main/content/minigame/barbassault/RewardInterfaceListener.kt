@@ -13,11 +13,7 @@ import core.game.node.item.Item
 class RewardInterfaceListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {
-
-        /*
-         * Reset points.
-         */
-
+        // Reset points.
         onOpen(Components.BARBASSAULT_REWARD_SHOP_491) { player, components ->
             for (i in BA_POINTS) {
                 setInterfaceText(player, "0", 491, i)

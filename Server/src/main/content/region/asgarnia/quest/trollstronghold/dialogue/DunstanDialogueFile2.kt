@@ -9,9 +9,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Dunstan dialogue file2
- *
- * @constructor Dunstan dialogue file2
+ * Dunstan dialogue file 2.
  */
 class DunstanDialogueFile2 : DialogueFile() {
 

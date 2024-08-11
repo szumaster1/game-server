@@ -92,13 +92,13 @@ class GnomeBattaInterface : ComponentPlugin() {
     }
 
     /**
-     * Cooked product
+     * Enum representing a cooked product.
      *
-     * @property product
-     * @property levelReq
-     * @property experience
-     * @property requiredItems
-     * @constructor Cooked product
+     * @property product The ID of the cooked product.
+     * @property levelReq The level required to cook the product.
+     * @property experience The experience gained from cooking the product.
+     * @property requiredItems The array of items required to cook the product.
+     * @constructor Creates a new CookedProduct enum instance.
      */
     internal enum class CookedProduct(
         val product: Int,
@@ -106,75 +106,35 @@ class GnomeBattaInterface : ComponentPlugin() {
         val experience: Double,
         val requiredItems: Array<Item>
     ) {
-        /**
-         * Half Made Ct
-         *
-         * @constructor Half Made Ct
-         */
         HALF_MADE_CT(
-            9478,
-            29,
-            40.0,
-            arrayOf(Item(Items.TOMATO_1982), Item(Items.CHEESE_1985))
+            product = 9478,
+            levelReq = 29,
+            experience = 40.0,
+            requiredItems = arrayOf(Item(Items.TOMATO_1982), Item(Items.CHEESE_1985))
         ),
-
-        /**
-         * Half Made Fr
-         *
-         * @constructor Half Made Fr
-         */
         HALF_MADE_FR(
-            9480,
-            25,
-            40.0,
-            arrayOf(
-                Item(Items.EQUA_LEAVES_2128, 4),
-                Item(Items.LIME_CHUNKS_2122),
-                Item(Items.ORANGE_CHUNKS_2110),
-                Item(Items.PINEAPPLE_CHUNKS_2116)
-            )
+            product = 9480,
+            levelReq = 25,
+            experience = 40.0,
+            requiredItems = arrayOf(Item(Items.EQUA_LEAVES_2128, 4), Item(Items.LIME_CHUNKS_2122), Item(Items.ORANGE_CHUNKS_2110), Item(Items.PINEAPPLE_CHUNKS_2116))
         ),
-
-        /**
-         * Half Made To
-         *
-         * @constructor Half Made To
-         */
         HALF_MADE_TO(
-            9482,
-            26,
-            40.0,
-            arrayOf(Item(Items.EQUA_LEAVES_2128), Item(Items.CHEESE_1985), Item(Items.TOADS_LEGS_2152))
+            product = 9482,
+            levelReq = 26,
+            experience = 40.0,
+            requiredItems = arrayOf(Item(Items.EQUA_LEAVES_2128), Item(Items.CHEESE_1985), Item(Items.TOADS_LEGS_2152))
         ),
-
-        /**
-         * Half Made Ve
-         *
-         * @constructor Half Made Ve
-         */
         HALF_MADE_VE(
-            9483,
-            28,
-            40.0,
-            arrayOf(
-                Item(Items.TOMATO_1982, 2),
-                Item(Items.CHEESE_1985),
-                Item(Items.DWELLBERRIES_2126),
-                Item(Items.ONION_1957),
-                Item(Items.CABBAGE_1965)
-            )
+            product = 9483,
+            levelReq = 28,
+            experience = 40.0,
+            requiredItems = arrayOf(Item(Items.TOMATO_1982, 2), Item(Items.CHEESE_1985), Item(Items.DWELLBERRIES_2126), Item(Items.ONION_1957), Item(Items.CABBAGE_1965))
         ),
-
-        /**
-         * Half Made Wo
-         *
-         * @constructor Half Made Wo
-         */
         HALF_MADE_WO(
-            9485,
-            27,
-            40.0,
-            arrayOf(Item(Items.KING_WORM_2162), Item(Items.CHEESE_1985))
+            product = 9485,
+            levelReq = 27,
+            experience = 40.0,
+            requiredItems = arrayOf(Item(Items.KING_WORM_2162), Item(Items.CHEESE_1985))
         )
     }
 

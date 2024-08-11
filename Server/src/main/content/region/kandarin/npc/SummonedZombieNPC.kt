@@ -10,10 +10,9 @@ import core.game.world.GameWorld
 import core.game.world.map.Location
 import core.plugin.Initializable
 
-// https://runescape.wiki/w/Summoned_Zombie?oldid=1887450
-
 /**
  * Summoned zombie NPC.
+ * https://runescape.wiki/w/Summoned_Zombie?oldid=1887450
  */
 @Initializable
 class SummonedZombieNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {

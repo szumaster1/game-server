@@ -12,9 +12,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Restless ghost skull
- *
- * @constructor Restless ghost skull
+ * Restless ghost skull.
  */
 @Initializable
 class RestlessGhostSkull : UseWithHandler(Items.SKULL_964) {

@@ -11,7 +11,7 @@ import core.game.interaction.InteractionListener
  */
 class SkippyListeners : InteractionListener {
 
-    // Array of Skippy wrapper IDs for interaction
+    // Array of Skippy wrapper IDs for interaction.
     private val skippyWrapperIDs = intArrayOf(2795,2796,2797,2798,2799)
 
     override fun defineListeners() {

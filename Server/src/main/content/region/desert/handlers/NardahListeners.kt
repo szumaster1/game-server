@@ -17,6 +17,8 @@ class NardahListeners : InteractionListener {
     }
 
     override fun defineListeners() {
+
+        // Define listener for interactions with Kazemde.
         on(KAZEMDE_NPC, IntType.NPC, "talk-to", "trade") { player, _ ->
             if(getUsedOption(player) == "trade") {
                 openNpcShop(player, KAZEMDE_NPC)
@@ -27,6 +29,7 @@ class NardahListeners : InteractionListener {
             return@on true
         }
 
+        // Define listener for interactions with Rokuh.
         on(ROKUH_NPC, IntType.NPC, "talk-to", "trade") { player, _ ->
             if(getUsedOption(player) == "trade") {
                 openNpcShop(player, ROKUH_NPC)

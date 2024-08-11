@@ -14,10 +14,7 @@ import core.game.node.entity.npc.NPC
 import core.game.system.task.Pulse
 
 /**
- * Lady table dialogue file
- *
- * @property dialogueNum
- * @constructor Lady table dialogue file
+ * Lady table dialogue file.
  */
 class LadyTableDialogueFile(private val dialogueNum: Int = 0) : DialogueBuilderFile(), InteractionListener {
 

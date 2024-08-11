@@ -1,4 +1,4 @@
-package content.region.karamja.quest.monkeymadness
+package content.region.karamja.quest.monkeymadness.handler
 
 import core.api.consts.Components
 import core.api.getAttribute
@@ -11,11 +11,9 @@ import core.network.packet.outgoing.ContainerPacket
 import kotlin.math.abs
 
 /**
- * Waydar puzzle interface listener
- *
- * @constructor Waydar puzzle interface listener
+ * Reinitialisation Panel.
  */
-class WaydarPuzzleInterfaceListener : InterfaceListener {
+class ReinitialisationPanelListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {
         on(Components.TRAIL_PUZZLE_363) { player, _, _, buttonID, slot, _ ->

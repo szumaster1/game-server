@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Brimhaven pirate dialogue.
+ * Brimhaven Pirate dialogue.
  */
 @Initializable
 class BrimhavenPirateDialogue(player: Player? = null): Dialogue(player) {

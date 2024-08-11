@@ -24,7 +24,7 @@ import java.util.List;
 import static core.api.ContentAPIKt.setVarp;
 
 /**
- * Balloon manager.
+ * The Balloon manager handler.
  */
 public final class BalloonManager extends OptionHandler {
     private static final List<Scenery> balloons = new ArrayList<>(20);
@@ -200,29 +200,11 @@ public final class BalloonManager extends OptionHandler {
          * Red party balloon.
          */
         RED(116, 124),
-        /**
-         * Blue party balloon.
-         */
         BLUE(117, 125),
-        /**
-         * Green party balloon.
-         */
         GREEN(118, 126),
-        /**
-         * Purple party balloon.
-         */
         PURPLE(119, 127),
-        /**
-         * White party balloon.
-         */
         WHITE(120, 128),
-        /**
-         * Green blue party balloon.
-         */
         GREEN_BLUE(121, 129),
-        /**
-         * Tri party balloon.
-         */
         TRI(122, 130);
 
         private final int balloonId;

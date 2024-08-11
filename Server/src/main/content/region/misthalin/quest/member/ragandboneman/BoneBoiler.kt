@@ -3,7 +3,6 @@ package content.region.misthalin.quest.member.ragandboneman
 import content.region.misthalin.quest.member.ragandboneman.BoneBoiler.values
 import core.api.consts.Items
 
-
 /**
  * Bone boiler.
  *

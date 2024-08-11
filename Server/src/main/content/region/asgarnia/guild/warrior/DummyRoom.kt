@@ -30,64 +30,36 @@ import core.tools.RandomFunction
 class DummyRoom : OptionHandler() {
 
     private enum class Dummy(val scenery: Scenery, val attackStyle: Int, val bonusType: Int) {
-
-        /**
-         * Stab.
-         */
         STAB(
             scenery = Scenery(15629, 2857, 3549, 0, 10, 2),
             attackStyle = -1,
             bonusType = WeaponInterface.BONUS_STAB
         ),
-
-        /**
-         * Slash.
-         */
         SLASH(
             scenery = Scenery(15625, 2858, 3554, 0),
             attackStyle = -1,
             bonusType = WeaponInterface.BONUS_SLASH
         ),
-
-        /**
-         * Crush.
-         */
         CRUSH(
             scenery = Scenery(15628, 2859, 3549, 0, 10, 2),
             attackStyle = -1,
             bonusType = WeaponInterface.BONUS_CRUSH
         ),
-
-        /**
-         * Controlled.
-         */
         CONTROLLED(
             scenery = Scenery(15627, 2855, 3552, 0, 10, 3),
             attackStyle = WeaponInterface.STYLE_CONTROLLED,
             bonusType = -1
         ),
-
-        /**
-         * Defence.
-         */
         DEFENCE(
             scenery = Scenery(15630, 2855, 3550, 0, 10, 3),
             attackStyle = WeaponInterface.STYLE_DEFENSIVE,
             bonusType = -1
         ),
-
-        /**
-         * Aggressive.
-         */
         AGGRESSIVE(
             scenery = Scenery(15626, 2860, 3553, 0, 10, 1),
             attackStyle = WeaponInterface.STYLE_AGGRESSIVE,
             bonusType = -1
         ),
-
-        /**
-         * Accurate.
-         */
         ACCURATE(
             scenery = Scenery(15624, 2856, 3554, 0),
             attackStyle = WeaponInterface.STYLE_ACCURATE,

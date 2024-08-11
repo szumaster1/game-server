@@ -17,9 +17,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Garlic pipe interaction
- *
- * @constructor Garlic pipe interaction
+ * Garlic pipe interaction.
  */
 @Initializable
 class GarlicPipeInteraction : PluginInteraction() {

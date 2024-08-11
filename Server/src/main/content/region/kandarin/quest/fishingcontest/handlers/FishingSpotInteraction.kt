@@ -13,9 +13,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Fishing spot interaction
- *
- * @constructor Fishing spot interaction
+ * Fishing spot interaction.
  */
 @Initializable
 class FishingSpotInteraction : PluginInteraction() {

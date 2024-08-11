@@ -51,10 +51,7 @@ class DadDialogue(player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Dad t s dialogue file
- *
- * @property dialogueNum
- * @constructor Dad t s dialogue file
+ * Dad "Troll stronghold quest" dialogue file.
  */
 class DadTSDialogueFile(private val dialogueNum: Int = 0) : DialogueFile() {
 

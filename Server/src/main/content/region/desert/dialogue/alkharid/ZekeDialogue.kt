@@ -16,9 +16,9 @@ import core.tools.END_DIALOGUE
 class ZekeDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        Zeke is the owner of Zeke's Superior Scimitars in
-        Al Kharid which sells scimitars up to Adamant.
-        Location: 3288,3190
+     * Zeke is the owner of Zeke's Superior Scimitars in
+     * Al Kharid which sells scimitars up to Adamant.
+     * Location: 3288,3190
      */
 
     override fun open(vararg args: Any): Boolean {

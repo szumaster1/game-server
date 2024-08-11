@@ -19,9 +19,7 @@ import core.game.world.map.Location
 import core.plugin.Plugin
 
 /**
- * Pirates treasure plugin
- *
- * @constructor Pirates treasure plugin
+ * Pirates treasure plugin.
  */
 class PiratesTreasurePlugin : OptionHandler() {
 
@@ -64,9 +62,7 @@ class PiratesTreasurePlugin : OptionHandler() {
     }
 
     /**
-     * Treasure dig plugin
-     *
-     * @constructor Treasure dig plugin
+     * Treasure dig plugin.
      */
     class TreasureDigPlugin : DigAction {
         override fun run(player: Player?) {

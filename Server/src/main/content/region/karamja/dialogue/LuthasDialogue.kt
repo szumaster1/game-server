@@ -22,10 +22,10 @@ import core.tools.END_DIALOGUE
 class LuthasDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        Owns a banana plantation on Karamja.
-        He is an NPC who plays a small role in the Pirate's Treasure quest.
-        He can be found in his living quarters next to the plantation.
-        Will pay 30 coins to players that fill a crate with 10 bananas.
+     * Owns a banana plantation on Karamja.
+     * He is an NPC who plays a small role in the Pirate's Treasure quest.
+     * He can be found in his living quarters next to the plantation.
+     * Will pay 30 coins to players that fill a crate with 10 bananas.
      */
 
     override fun open(vararg args: Any): Boolean {

@@ -13,9 +13,7 @@ import core.game.node.item.Item
 import core.game.world.map.zone.ZoneBorders
 
 /**
- * Chicken fox and grain listener
- *
- * @constructor Chicken fox and grain listener
+ * Chicken fox and grain listener.
  */
 class ChickenFoxAndGrainListener : InteractionListener {
     companion object {

@@ -3,9 +3,7 @@ package content.region.karamja.quest.monkeymadness.dialogue
 import core.game.dialogue.DialogueFile
 
 /**
- * Lumo dialogue
- *
- * @constructor  Lumo dialogue
+ * Lumo dialogue.
  */
 class LumoDialogue : DialogueFile() {
 

@@ -10,9 +10,7 @@ import core.game.dialogue.DialogueFile
 import core.tools.END_DIALOGUE
 
 /**
- * Cart travel dialogue
- *
- * @constructor Cart travel dialogue
+ * Cart travel dialogue.
  */
 class CartTravelDialogue : DialogueFile() {
 

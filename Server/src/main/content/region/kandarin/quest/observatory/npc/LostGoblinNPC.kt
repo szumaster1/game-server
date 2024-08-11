@@ -12,10 +12,10 @@ import core.tools.RandomFunction
 class LostGoblinNPC : NPCBehavior(NPCs.GOBLIN_6126) {
 
     /*
-        There is a lost goblin wandering aimlessly around the dungeon
-        trying to find his way out. He constantly exclaims about how
-        confusing the tunnels are.
-        These goblins speak proper English unlike most other goblins.
+     * There is a lost goblin wandering aimlessly around the dungeon
+     * trying to find his way out. He constantly exclaims about how
+     * confusing the tunnels are.
+     * These goblins speak proper English unlike most other goblins.
      */
 
     val forceChat = arrayOf(

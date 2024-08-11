@@ -10,10 +10,10 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Rimmington shop keeper dialogue.
+ * Rimmington shopkeeper dialogue.
  */
 @Initializable
-class RimmingtonShopKeeperDialogue(player: Player? = null) : Dialogue(player) {
+class RimmingtonShopDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC

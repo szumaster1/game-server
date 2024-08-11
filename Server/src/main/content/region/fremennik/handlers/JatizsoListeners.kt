@@ -51,6 +51,7 @@ class JatizsoListeners : InteractionListener {
 
     override fun defineListeners() {
 
+        // This listener handles the opening of closed gates.
         on(GATES_CLOSED, IntType.SCENERY, "open") { player, node ->
             if (NORTH_GATE_ZONE.insideBorder(player)) {
                 if (node.id == GATES_CLOSED.first()) {
@@ -87,6 +88,7 @@ class JatizsoListeners : InteractionListener {
             return@on true
         }
 
+        // This listener handles the behavior of tower guards.
         on(TOWER_GUARDS, IntType.NPC, "watch-shouting") { player, _ ->
             val local = findLocalNPC(player, NPCs.GUARD_5489)
             lock(player, 200)
@@ -132,30 +134,31 @@ class JatizsoListeners : InteractionListener {
             return@on true
         }
 
+        // This listener handles the ringing of the bell.
         on(BELL, IntType.SCENERY, "ring-bell") { player, _ ->
             playAudio(player, Sounds.STEEL_15)
             sendMessage(player, "You ring the warning bell, but everyone ignores it!")
             return@on true
         }
 
+        // This listener handles the interaction with guards.
         on(GUARDS, IntType.NPC, "talk-to") { player, _ ->
             player.dialogueInterpreter.open(LeftieRightieDialogue(), NPC(NPCs.GUARD_5491))
             return@on true
         }
 
+        // This listener handles the opening of the king's chest.
         on(KING_CHEST, IntType.SCENERY, "open") { player, _ ->
             sendPlayerDialogue(player, "I probably shouldn't mess with that.", FacialExpression.HALF_THINKING)
             return@on true
         }
 
+        // This listener sets the destination for the Magnus NPC.
         setDest(IntType.NPC, MAGNUS_NPC) { _, _ ->
             return@setDest Location.create(2416, 3801, 0)
         }
 
-        /*
-            Climb handling for the ladders in the towers around the city walls.
-         */
-
+        // This section handles the climbing of ladders in the towers around the city walls.
         addClimbDest(Location.create(2388, 3804, 0), Location.create(2387, 3804, 2))
         addClimbDest(Location.create(2388, 3804, 2), Location.create(2387, 3804, 0))
         addClimbDest(Location.create(2388, 3793, 0), Location.create(2387, 3793, 2))

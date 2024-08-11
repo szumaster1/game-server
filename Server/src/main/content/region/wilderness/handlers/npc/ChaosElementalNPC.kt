@@ -67,9 +67,7 @@ class ChaosElementalNPC @JvmOverloads constructor(id: Int = -1, location: Locati
     }
 
     /**
-     * Chaos combat handler
-     *
-     * @constructor Chaos combat handler
+     * Chaos combat handler.
      */
     class ChaosCombatHandler : MultiSwingHandler(*ATTACKS) {
 

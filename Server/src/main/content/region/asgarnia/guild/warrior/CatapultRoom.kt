@@ -46,9 +46,7 @@ class CatapultRoom : MapZone("wg catapult", true), Plugin<Any> {
         val fail: Animation
     ) {
         /**
-         * Spiky Ball
-         *
-         * @constructor Spiky Ball
+         * Spiky Ball.
          */
         SPIKY_BALL(
             graphicId = 679,
@@ -58,9 +56,7 @@ class CatapultRoom : MapZone("wg catapult", true), Plugin<Any> {
         ),
 
         /**
-         * Flung Anvil
-         *
-         * @constructor Flung Anvil
+         * Flung Anvil.
          */
         FLUNG_ANVIL(
             graphicId = 680,
@@ -70,9 +66,7 @@ class CatapultRoom : MapZone("wg catapult", true), Plugin<Any> {
         ),
 
         /**
-         * Slashing Blades
-         *
-         * @constructor Slashing Blades
+         * Slashing Blades.
          */
         SLASHING_BLADES(
             graphicId = 681,
@@ -82,9 +76,7 @@ class CatapultRoom : MapZone("wg catapult", true), Plugin<Any> {
         ),
 
         /**
-         * Magic Missile
-         *
-         * @constructor Magic Missile
+         * Magic Missile.
          */
         MAGIC_MISSILE(
             graphicId = 682,

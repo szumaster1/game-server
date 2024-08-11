@@ -33,9 +33,7 @@ class ClayGolemDialogue(player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Clay golem dialogue file
- *
- * @constructor Clay golem dialogue file
+ * Clay golem dialogue file.
  */
 class ClayGolemDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {
@@ -115,9 +113,7 @@ class ClayGolemDialogueFile : DialogueBuilderFile() {
 }
 
 /**
- * Clay golem program dialogue file
- *
- * @constructor Clay golem program dialogue file
+ * Clay golem program dialogue file.
  */
 class ClayGolemProgramDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {
@@ -130,9 +126,7 @@ class ClayGolemProgramDialogueFile : DialogueBuilderFile() {
 }
 
 /**
- * Curator haig halen golem dialogue
- *
- * @constructor Curator haig halen golem dialogue
+ * Curator haig halen golem dialogue.
  */
 class CuratorHaigHalenGolemDialogue : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {

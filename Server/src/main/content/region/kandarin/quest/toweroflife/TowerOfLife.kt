@@ -1,3 +1,4 @@
+/*
 package content.region.kandarin.quest.toweroflife
 
 import core.api.consts.Components
@@ -12,10 +13,11 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 
 /**
- * Tower of life
+ * Tower of life quest.
  *
  * @constructor Tower of life
- *///@Initializable
+ */
+//@Initializable
 class TowerOfLife : Quest("Tower of Life", 134, 133, 2, Vars.VARBIT_QUEST_TOWER_OF_LIFE_PROGRESS, 0, 1, 18) {
 
     override fun drawJournal(player: Player, stage: Int) {
@@ -79,5 +81,5 @@ class TowerOfLife : Quest("Tower of Life", 134, 133, 2, Vars.VARBIT_QUEST_TOWER_
     override fun newInstance(`object`: Any?): Quest {
         return this
     }
-
 }
+*/

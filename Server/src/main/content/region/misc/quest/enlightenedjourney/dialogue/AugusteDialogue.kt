@@ -402,7 +402,7 @@ class AugusteDialogue(player: Player? = null) : Dialogue(player) {
                 23 -> {
                     end()
                     openInterface(player, Components.ZEP_INTERFACE_SIDE_471)
-                    openDialogue(player, AugusteEJDialogueFile())
+                    openDialogue(player, AugusteDialogueFile())
                 }
             }
 
@@ -461,11 +461,9 @@ class AugusteDialogue(player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Auguste e j dialogue file
- *
- * @constructor Auguste e j dialogue file
+ * Auguste "Enlightened Journey" quest related dialogue file.
  */
-class AugusteEJDialogueFile : DialogueFile() {
+class AugusteDialogueFile : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.AUGUSTE_5049)

@@ -1,3 +1,4 @@
+/*
 package content.region.kandarin.quest.ew2
 
 import content.region.kandarin.quest.ew2.util.EW2Utils
@@ -14,9 +15,6 @@ import core.game.node.entity.skill.Skills
 //@Initializable
 class EW2 : Quest("Elemental Workshop II", 53, 52, 1, Vars.VARBIT_QUEST_ELEMENTAL_WORKSHOP_II_PROGRESS, 0, 1, 11) {
 
-    /**
-     * Skill requirement.
-     */
     class SkillRequirement(val skill: Int?, val level: Int?)
 
     val requirements = arrayListOf<SkillRequirement>()
@@ -113,3 +111,4 @@ class EW2 : Quest("Elemental Workshop II", 53, 52, 1, Vars.VARBIT_QUEST_ELEMENTA
     }
 
 }
+*/

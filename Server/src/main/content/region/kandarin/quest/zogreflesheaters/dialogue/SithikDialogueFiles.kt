@@ -12,9 +12,7 @@ import core.game.system.task.Pulse
 import core.tools.END_DIALOGUE
 
 /**
- * Sithik dialogue files
- *
- * @constructor Sithik dialogue files
+ * Sithik dialogue files.
  */
 class SithikDialogueFiles : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
@@ -40,9 +38,7 @@ class SithikDialogueFiles : DialogueFile() {
 }
 
 /**
- * Sithik permission dialogue file
- *
- * @constructor Sithik permission dialogue file
+ * Sithik permission dialogue file.
  */
 class SithikPermissionDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
@@ -56,9 +52,7 @@ class SithikPermissionDialogueFile : DialogueFile() {
 }
 
 /**
- * Sithik quest dialogue file
- *
- * @constructor Sithik quest dialogue file
+ * Sithik quest dialogue file.
  */
 class SithikQuestDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
@@ -118,9 +112,7 @@ class SithikQuestDialogueFile : DialogueFile() {
 }
 
 /**
- * Sithik ints portraiture book dialogue file
- *
- * @constructor Sithik ints portraiture book dialogue file
+ * Sithik ints portraiture book dialogue file.
  */
 class SithikIntsPortraitureBookDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
@@ -136,9 +128,7 @@ class SithikIntsPortraitureBookDialogueFile : DialogueFile() {
 }
 
 /**
- * Sithik ints ham book dialogue file
- *
- * @constructor Sithik ints ham book dialogue file
+ * Sithik ints ham book dialogue file.
  */
 class SithikIntsHamBookDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
@@ -155,9 +145,7 @@ class SithikIntsHamBookDialogueFile : DialogueFile() {
 }
 
 /**
- * Sithik ints necromancy book dialogue file
- *
- * @constructor Sithik ints necromancy book dialogue file
+ * Sithik ints necromancy book dialogue file.
  */
 class SithikIntsNecromancyBookDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
@@ -174,9 +162,7 @@ class SithikIntsNecromancyBookDialogueFile : DialogueFile() {
 }
 
 /**
- * Sithik ints torn page dialogue file
- *
- * @constructor Sithik ints torn page dialogue file
+ * Sithik ints torn page dialogue file.
  */
 class SithikIntsTornPageDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
@@ -192,9 +178,7 @@ class SithikIntsTornPageDialogueFile : DialogueFile() {
 }
 
 /**
- * Sithik ints black prism dialogue file
- *
- * @constructor Sithik ints black prism dialogue file
+ * Sithik ints black prism dialogue file.
  */
 class SithikIntsBlackPrismDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
@@ -210,9 +194,7 @@ class SithikIntsBlackPrismDialogueFile : DialogueFile() {
 }
 
 /**
- * Sithik ints dragon tankard dialogue file
- *
- * @constructor Sithik ints dragon tankard dialogue file
+ * Sithik ints dragon tankard dialogue file.
  */
 class SithikIntsDragonTankardDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
@@ -229,9 +211,7 @@ class SithikIntsDragonTankardDialogueFile : DialogueFile() {
 }
 
 /**
- * Sithik ints portrait dialogue file
- *
- * @constructor Sithik ints portrait dialogue file
+ * Sithik ints portrait dialogue file.
  */
 class SithikIntsPortraitDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
@@ -270,9 +250,7 @@ class SithikIntsPortraitDialogueFile : DialogueFile() {
 }
 
 /**
- * Sithik ints used portrait dialogue file
- *
- * @constructor Sithik ints used portrait dialogue file
+ * Sithik ints used portrait dialogue file.
  */
 class SithikIntsUsedPortraitDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
@@ -291,9 +269,7 @@ class SithikIntsUsedPortraitDialogueFile : DialogueFile() {
 }
 
 /**
- * Sithik ints signed portrait dialogue file
- *
- * @constructor Sithik ints signed portrait dialogue file
+ * Sithik ints signed portrait dialogue file.
  */
 class SithikIntsSignedPortraitDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
@@ -328,9 +304,7 @@ class SithikIntsSignedPortraitDialogueFile : DialogueFile() {
 }
 
 /**
- * Sithik ints strange potion dialogue file
- *
- * @constructor Sithik ints strange potion dialogue file
+ * Sithik ints strange potion dialogue file.
  */
 class SithikIntsStrangePotionDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
@@ -343,9 +317,7 @@ class SithikIntsStrangePotionDialogueFile : DialogueFile() {
 }
 
 /**
- * Sithik ints after transform dialogue file
- *
- * @constructor Sithik ints after transform dialogue file
+ * Sithik ints after transform dialogue file.
  */
 class SithikIntsAfterTransformDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
@@ -380,9 +352,7 @@ class SithikIntsAfterTransformDialogueFile : DialogueFile() {
 }
 
 /**
- * Sithik talk again after transform dialogue file
- *
- * @constructor Sithik talk again after transform dialogue file
+ * Sithik talk again after transform dialogue file.
  */
 class SithikTalkAgainAfterTransformDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {

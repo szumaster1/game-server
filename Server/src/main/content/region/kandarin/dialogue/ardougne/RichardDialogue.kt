@@ -15,9 +15,9 @@ import core.tools.END_DIALOGUE
 class RichardDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        Richard runs a Farming shop in Ardougne
-        called Richard's Farming Shop.
-        Location: 2643,3363
+     * Richard runs a Farming shop in Ardougne
+     * called Richard's Farming Shop.
+     * Location: 2643,3363
      */
 
     override fun open(vararg args: Any?): Boolean {

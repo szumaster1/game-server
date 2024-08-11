@@ -134,9 +134,7 @@ class MercenaryCaptainDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     /**
-     * Mercenary captain
-     *
-     * @constructor Mercenary captain
+     * Mercenary captain.
      */
     class MercenaryCaptain : AbstractNPC {
         /**

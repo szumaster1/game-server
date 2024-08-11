@@ -11,9 +11,7 @@ import core.game.world.map.zone.ZoneBorders
 import core.game.world.update.flag.context.Graphic
 
 /**
- * Monkey gree grees listener
- *
- * @constructor Monkey gree grees listener
+ * Monkey gree grees listener.
  */
 class MonkeyGreeGreesListener : InteractionListener, MapArea {
 

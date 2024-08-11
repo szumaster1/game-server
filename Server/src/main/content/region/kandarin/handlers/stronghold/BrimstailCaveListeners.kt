@@ -26,26 +26,31 @@ class BrimstailCaveListeners : InteractionListener {
 
     override fun defineListeners() {
 
+        // Listener for entering the cave
         on(CAVE_ENTER, IntType.SCENERY, "enter") { player, _ ->
             teleport(player, Location.create(2408, 9812, 0))
             return@on true
         }
 
+        // Listener for exiting the cave
         on(CAVE_EXIT, IntType.SCENERY, "exit") { player, _ ->
             teleport(player, Location(2402, 3419, 0))
             return@on true
         }
 
+        // Listener for interacting with the table
         on(TABLE, IntType.SCENERY, "take-bowl") { player, _ ->
             sendNPCDialogue(player, BRIMSTAIL, "Stop, I don't want you to spill water on my books!", FacialExpression.OLD_ANGRY1)
             return@on true
         }
 
+        // Listener for searching the aspidistra plant
         on(ASPIDISTRA_PLANT, IntType.SCENERY, "search") { player, _ ->
             sendDialogue(player, "Gronda Gronda!")
             return@on true
         }
 
+        // Listener for teleporting with Brimstail
         on(BRIMSTAIL, IntType.NPC, "teleport") { player, node ->
             EssenceTeleport.teleport(node.asNpc(), player)
             return@on true

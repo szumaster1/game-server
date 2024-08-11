@@ -10,9 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Nulodions notes
- *
- * @constructor Nulodions notes
+ * Nulodions notes.
  */
 class NulodionsNotes : InteractionListener {
     companion object {

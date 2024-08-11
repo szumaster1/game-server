@@ -67,10 +67,7 @@ class DwarvenBoatmanForthDialogue(player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Travel forth pulse
- *
- * @property player
- * @constructor Travel forth pulse
+ * Travel forth pulse.
  */
 class TravelForthPulse(val player: Player) : Pulse(1) {
     var counter = 0

@@ -10,11 +10,10 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Shieldof arrav book
- *
- * @constructor Shieldof arrav book
+ * Shieldof arrav book.
  */
 class ShieldofArravBook : InteractionListener {
+
     companion object {
         private val TITLE = "Shield of Arrav"
         private val CONTENTS = arrayOf(

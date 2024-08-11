@@ -15,7 +15,7 @@ import core.plugin.Initializable
 import core.tools.RandomFunction
 
 /**
- * Ignatius vulcan NPC.
+ * Ignatius Vulcan NPC.
  */
 @Initializable
 class IgnatiusVulcanNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {

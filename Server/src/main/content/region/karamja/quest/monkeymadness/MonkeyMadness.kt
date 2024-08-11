@@ -1,3 +1,4 @@
+/*
 package content.region.karamja.quest.monkeymadness
 
 
@@ -10,10 +11,9 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.item.Item
 
 /**
- * Monkey madness
- *
- * @constructor Monkey madness
- */// @Initializable
+ * Monkey madness.
+ */
+// @Initializable
 class MonkeyMadness : Quest("Monkey Madness", 88, 87, 3, Vars.VARP_QUEST_MONKEY_MADNESS_PROGRESS, 0, 1, 9) {
 
     override fun drawJournal(player: Player, stage: Int) {
@@ -115,3 +115,4 @@ class MonkeyMadness : Quest("Monkey Madness", 88, 87, 3, Vars.VARP_QUEST_MONKEY_
         return this
     }
 }
+*/

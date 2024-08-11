@@ -11,10 +11,7 @@ import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
 /**
- * Chompy dialogues handler
- *
- * @property quest
- * @constructor Chompy dialogues handler
+ * Chompy dialogues handler.
  */
 class ChompyDialoguesHandler(val quest: Quest) : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {

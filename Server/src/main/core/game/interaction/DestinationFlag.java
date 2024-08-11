@@ -9,17 +9,18 @@ import core.game.world.map.Location;
 import core.game.world.map.RegionManager;
 
 /**
- * Destination flag.
+ * Holds the destination flags for all types of nodes.
+ * @author Emperor
  */
 public class DestinationFlag {
 
     /**
-     * The constant LOCATION.
+     * The Location destination flag.
      */
     public static final DestinationFlag LOCATION = new DestinationFlag();
 
     /**
-     * The constant ENTITY.
+     * The entity destination flag.
      */
     public static final DestinationFlag ENTITY = new DestinationFlag() {
 
@@ -39,7 +40,7 @@ public class DestinationFlag {
     };
 
     /**
-     * The constant FOLLOW_ENTITY.
+     * The following an entity destination flag.
      */
     public static final DestinationFlag FOLLOW_ENTITY = new DestinationFlag() {
 
@@ -63,7 +64,7 @@ public class DestinationFlag {
     };
 
     /**
-     * The constant COMBAT.
+     * The entity destination flag.
      */
     public static final DestinationFlag COMBAT = new DestinationFlag() {
 
@@ -74,7 +75,7 @@ public class DestinationFlag {
     };
 
     /**
-     * The constant ITEM.
+     * The item destination flag.
      */
     public static final DestinationFlag ITEM = new DestinationFlag() {
 
@@ -89,7 +90,7 @@ public class DestinationFlag {
     };
 
     /**
-     * The constant OBJECT.
+     * The object destination flag.
      */
     public static final DestinationFlag OBJECT = new DestinationFlag() {
 
@@ -172,7 +173,7 @@ public class DestinationFlag {
     };
 
     /**
-     * Instantiates a new Destination flag.
+     * Constructs a new {@code DestinationFlag} {@code Object}.
      */
     public DestinationFlag() {
         /*
@@ -181,34 +182,32 @@ public class DestinationFlag {
     }
 
     /**
-     * Gets destination.
-     *
-     * @param mover the mover
-     * @param node  the node
-     * @return the destination
+     * Gets the default destination location.
+     * @param mover The moving entity.
+     * @param node The node to move to.
+     * @return The location to walk to.
      */
     public Location getDestination(Entity mover, Node node) {
         return node.getLocation();
     }
 
     /**
-     * Check traversal boolean.
-     *
-     * @param l   the l
-     * @param dir the dir
-     * @return the boolean
+     * Checks if traversal is permitted.
+     * @param l The location to check.
+     * @param dir The direction to move.
+     * @return {@code True}.
      */
     public boolean checkTraversal(Location l, Direction dir) {
         return Direction.get((dir.toInteger() + 2) % 4).canMove(l);
     }
 
     /**
-     * Gets closest to.
-     *
-     * @param mover      the mover
-     * @param node       the node
-     * @param suggestion the suggestion
-     * @return the closest to
+     * Gets the closest destination to the current destination, to reach the
+     * node.
+     * @param mover The moving entity.
+     * @param node The node to move to.
+     * @param suggestion The suggested destination location.
+     * @return The destination location.
      */
     public Location getClosestTo(Entity mover, Node node, Location suggestion) {
         Location nl = node.getLocation();
@@ -248,13 +247,8 @@ public class DestinationFlag {
                 }
             }
             moveDir = Direction.get((moveDir.toInteger() + 1) % 4);
-            int offsetX = Math.abs(moveDir.getStepY() * (node.size() >> 1)); // Not
-            // a
-            // mixup
-            // between
-            // x
-            // &
-            // y!
+            int offsetX = Math.abs(moveDir.getStepY() * (node.size() >> 1));
+            // Not a mixup between x & y!
             int offsetY = Math.abs(moveDir.getStepX() * (node.size() >> 1));
             if (moveDir.toInteger() < 2) {
                 suggestion = node.getLocation().transform(-moveDir.getStepX() + offsetX, -moveDir.getStepY() + offsetY, 0);

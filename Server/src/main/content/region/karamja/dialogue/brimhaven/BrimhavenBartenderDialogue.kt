@@ -14,7 +14,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Brimhaven bartender dialogue.
+ * Brimhaven Bartender dialogue.
  */
 @Initializable
 class BrimhavenBartenderDialogue(player: Player? = null): Dialogue(player) {

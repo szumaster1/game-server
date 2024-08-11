@@ -23,38 +23,38 @@ interface InteractionListener : ContentInterface {
         get() = IntType.SCENERY
 
     /**
-     * On
+     * Defines a function 'on' that registers a handler for a specific event.
      *
-     * @param id
-     * @param type
-     * @param option
-     * @param handler
-     * @receiver
+     * @param id The unique identifier of the event.
+     * @param type The type of the event.
+     * @param option Additional options for the event.
+     * @param handler The function that handles the event.
+     * @receiver The context in which the event is triggered.
      */
     fun on(id: Int, type: IntType, vararg option: String, handler: (player: Player, node: Node) -> Boolean) {
         InteractionListeners.add(id, type.ordinal, option, handler)
     }
 
     /**
-     * On
+     * Defines a function 'on' that handles events based on the provided parameters.
      *
-     * @param ids
-     * @param type
-     * @param option
-     * @param handler
-     * @receiver
+     * @param ids An array of integers representing event IDs.
+     * @param type An enum representing the type of event.
+     * @param option Variable number of strings representing additional options.
+     * @param handler A lambda function that takes a player and a node, returning a boolean.
+     * @receiver Implicit receiver for extension functions.
      */
     fun on(ids: IntArray, type: IntType, vararg option: String, handler: (player: Player, node: Node) -> Boolean) {
         InteractionListeners.add(ids, type.ordinal, option, handler)
     }
 
     /**
-     * On
+     * Defines a function 'on' that handles a specific option with a given type and handler.
      *
-     * @param option
-     * @param type
-     * @param handler
-     * @receiver
+     * @param option The option to handle
+     * @param type The type of the option
+     * @param handler The handler function that takes a player and a node and returns a boolean
+     * @receiver The context in which the function is called
      */
     @Deprecated("Don't use")
     fun on(option: String, type: IntType, handler: (player: Player, node: Node) -> Boolean) {
@@ -62,86 +62,86 @@ interface InteractionListener : ContentInterface {
     }
 
     /**
-     * On
+     * Defines a function to handle events based on the type and options provided.
      *
-     * @param type
-     * @param option
-     * @param handler
-     * @receiver
+     * @param type The type of event to handle.
+     * @param option The options related to the event.
+     * @param handler The function that handles the event.
+     * @receiver The context in which the event is triggered.
      */
     fun on(type: IntType, vararg option: String, handler: (player: Player, node: Node) -> Boolean) {
         InteractionListeners.add(option, type.ordinal, handler)
     }
 
     /**
-     * On use with
+     * Defines a function to handle the interaction when using an item with another item.
      *
-     * @param type
-     * @param used
-     * @param with
-     * @param handler
-     * @receiver
+     * @param type The type of interaction.
+     * @param used The item being used.
+     * @param with The item being used with.
+     * @param handler The handler function to execute.
+     * @receiver The context in which the function is called.
      */
     fun onUseWith(type: IntType, used: Int, vararg with: Int, handler: (player: Player, used: Node, with: Node) -> Boolean) {
         InteractionListeners.add(type.ordinal, used, with, handler)
     }
 
     /**
-     * On use with
+     * Defines a function to handle the action of using an item with another item.
      *
-     * @param type
-     * @param used
-     * @param with
-     * @param handler
-     * @receiver
+     * @param type The type of interaction.
+     * @param used The item being used.
+     * @param with The item being used with.
+     * @param handler The handler function to execute the action.
+     * @receiver The context in which the function is called.
      */
     fun onUseWith(type: IntType, used: IntArray, vararg with: Int, handler: (player: Player, used: Node, with: Node) -> Boolean) {
         InteractionListeners.add(type.ordinal, used, with, handler)
     }
 
     /**
-     * On use any with
+     * Defines a function to handle the event when any item is used with another item.
      *
-     * @param type
-     * @param with
-     * @param handler
-     * @receiver
+     * @param type The type of the item being used.
+     * @param with The item(s) being used with.
+     * @param handler The handler function to execute when the event occurs.
+     * @receiver The context in which the function is called.
      */
     fun onUseAnyWith(type: IntType, vararg with: Int, handler: (player: Player, used: Node, with: Node) -> Boolean) {
         InteractionListeners.add(type.ordinal, with, handler)
     }
 
     /**
-     * On use with player
+     * Defines a function that handles the action of using an item with a player.
      *
-     * @param used
-     * @param handler
-     * @receiver
+     * @param used The item(s) used
+     * @param handler The handler function that takes player, used node, and with node as parameters
+     * @receiver The context in which the function is called
      */
     fun onUseWithPlayer(vararg used: Int, handler: (player: Player, used: Node, with: Node) -> Boolean) {
         InteractionListeners.add(IntType.PLAYER.ordinal, used, handler)
     }
 
     /**
-     * On use with wildcard
+     * Defines a function to handle wildcard interactions.
      *
-     * @param type
-     * @param predicate
-     * @param handler
-     * @receiver
-     * @receiver
-     */// Note: wildcard listeners incur overhead on every use-with interaction, only use them as a space-time tradeoff when something
-    // is actually supposed to have a response to every item used with it (e.g. imp boxes, certain quest npcs)
+     * @param type The type of interaction.
+     * @param predicate The condition for the interaction.
+     * @param handler The action to perform on interaction.
+     * @receiver The receiver of the interaction.
+     *
+     * Note: Using wildcard listeners incurs overhead on every interaction, so use them judiciously for items that require a response to every use-with interaction, like important quest NPCs.
+     */
     fun onUseWithWildcard(type: IntType, predicate: (used: Int, with: Int) -> Boolean, handler: (player: Player, used: Node, with: Node) -> Boolean) {
         InteractionListeners.addWildcard(type.ordinal, predicate, handler)
     }
 
     /**
-     * On equip
+     * Function to handle equipment actions
      *
-     * @param id
-     * @param handler
-     * @receiver
+     * @param id The ID of the equipment
+     * @param handler The handler function for equipment actions
+     * @receiver The receiver of the equipment action
      */
     fun onEquip(id: Int, handler: (player: Player, node: Node) -> Boolean) {
         InteractionListeners.addEquip(id, handler)

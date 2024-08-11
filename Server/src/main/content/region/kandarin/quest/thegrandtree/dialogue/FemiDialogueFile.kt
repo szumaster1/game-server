@@ -11,9 +11,7 @@ import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
 /**
- * Femi dialogue file
- *
- * @constructor Femi dialogue file
+ * Femi dialogue file.
  */
 class FemiDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
@@ -56,9 +54,7 @@ class FemiDialogueFile : DialogueFile() {
 }
 
 /**
- * Femi cart dialogue file
- *
- * @constructor Femi cart dialogue file
+ * Femi cart dialogue file.
  */
 class FemiCartDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {

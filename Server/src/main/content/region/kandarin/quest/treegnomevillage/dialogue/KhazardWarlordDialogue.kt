@@ -5,11 +5,10 @@ import core.game.dialogue.DialogueFile
 import core.tools.END_DIALOGUE
 
 /**
- * Khazard warlord dialogue
- *
- * @constructor Khazard warlord dialogue
+ * Khazard warlord dialogue.
  */
 class KhazardWarlordDialogue : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         val questStage = getQuestStage(player!!, "Tree Gnome Village")
         if (questStage == 31) {

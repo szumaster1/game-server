@@ -28,9 +28,7 @@ class LucienEndingDialogue(player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Lucien ending dialogue file
- *
- * @constructor Lucien ending dialogue file
+ * Lucien ending dialogue file.
  */
 class LucienEndingDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {

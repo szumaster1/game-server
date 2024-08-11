@@ -20,11 +20,11 @@ import core.tools.END_DIALOGUE
 class JaraahDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        He can be found in a building in northern Al'Kharid.
-        He, along with Jaraah.
-        Can heal players for free, restoring life points.
-        Location: 3362,3276
-    */
+     * He can be found in a building in northern Al'Kharid.
+     * He, along with Jaraah.
+     * Can heal players for free, restoring life points.
+     * Location: 3362,3276
+     */
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC

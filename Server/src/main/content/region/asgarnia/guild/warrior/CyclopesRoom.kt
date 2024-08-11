@@ -1,41 +1,42 @@
-package content.region.asgarnia.guild.warrior
+package content.region.asgarnia.guild.warrior;
 
-import core.api.clearLogoutListener
-import core.api.registerLogoutListener
-import core.api.removeAttribute
-import core.api.setAttribute
-import core.cache.def.impl.SceneryDefinition
-import core.game.container.impl.EquipmentContainer
-import core.game.dialogue.Dialogue
-import core.game.dialogue.DialogueInterpreter
-import core.game.global.action.DoorActionHandler.handleAutowalkDoor
-import core.game.interaction.OptionHandler
-import core.game.node.Node
-import core.game.node.entity.Entity
-import core.game.node.entity.npc.NPC
-import core.game.node.entity.player.Player
-import core.game.node.item.GroundItemManager
-import core.game.node.item.Item
-import core.game.node.scenery.Scenery
-import core.game.system.task.Pulse
-import core.game.world.GameWorld.Pulser
-import core.game.world.map.Location
-import core.game.world.map.RegionManager.getObject
-import core.game.world.map.path.Pathfinder
-import core.game.world.map.zone.MapZone
-import core.game.world.map.zone.ZoneBorders
-import core.game.world.map.zone.ZoneBuilder
-import core.game.world.map.zone.ZoneRestriction
-import core.plugin.ClassScanner.definePlugin
-import core.plugin.Initializable
-import core.plugin.Plugin
-import core.tools.RandomFunction
+import core.api.clearLogoutListener;
+import core.api.registerLogoutListener;
+import core.api.removeAttribute;
+import core.api.setAttribute;
+import core.cache.def.impl.SceneryDefinition;
+import core.game.container.impl.EquipmentContainer;
+import core.game.dialogue.Dialogue;
+import core.game.dialogue.DialogueInterpreter;
+import core.game.global.action.DoorActionHandler.handleAutowalkDoor;
+import core.game.interaction.OptionHandler;
+import core.game.node.Node;
+import core.game.node.entity.Entity;
+import core.game.node.entity.npc.NPC;
+import core.game.node.entity.player.Player;
+import core.game.node.item.GroundItemManager;
+import core.game.node.item.Item;
+import core.game.node.scenery.Scenery;
+import core.game.system.task.Pulse;
+import core.game.world.GameWorld.Pulser;
+import core.game.world.map.Location;
+import core.game.world.map.RegionManager.getObject;
+import core.game.world.map.path.Pathfinder;
+import core.game.world.map.zone.MapZone;
+import core.game.world.map.zone.ZoneBorders;
+import core.game.world.map.zone.ZoneBuilder;
+import core.game.world.map.zone.ZoneRestriction;
+import core.plugin.ClassScanner.definePlugin;
+import core.plugin.Initializable;
+import core.plugin.Plugin;
+import core.tools.RandomFunction;
 
 /**
  * Cyclopes room.
  */
 @Initializable
 class CyclopesRoom : MapZone("wg cyclopes", true, ZoneRestriction.RANDOM_EVENTS), Plugin<Any> {
+    // This method is called when a player leaves the Cyclopes room.
     override fun leave(e: Entity, logout: Boolean): Boolean {
         if (e is Player) {
             leave(e)
@@ -48,6 +49,7 @@ class CyclopesRoom : MapZone("wg cyclopes", true, ZoneRestriction.RANDOM_EVENTS)
         return super.leave(e, logout)
     }
 
+    // This method is called when an entity dies in the Cyclopes room.
     override fun death(e: Entity, killer: Entity): Boolean {
         if (killer is Player && e is NPC && (e.getId() == 4292 || e.getId() == 4291)) {
             var defenderId = getDefenderIndex(killer)
@@ -61,11 +63,12 @@ class CyclopesRoom : MapZone("wg cyclopes", true, ZoneRestriction.RANDOM_EVENTS)
         return false
     }
 
+    // This method is called to configure the Cyclopes room zone.
     override fun configure() {
         super.register(ZoneBorders(2838, 3534, 2876, 3556, 2))
     }
 
-
+    // This method is called to create a new instance of the Cyclopes room plugin.
     override fun newInstance(arg: Any?): Plugin<Any> {
         ZoneBuilder.configure(this)
         PULSE.stop()
@@ -82,12 +85,7 @@ class CyclopesRoom : MapZone("wg cyclopes", true, ZoneRestriction.RANDOM_EVENTS)
                     val tokens = Item(8851, 100)
                     val tokens10 = Item(8851, 10)
                     if (!player.inventory.containsItem(tokens)) {
-                        player.dialogueInterpreter.sendItemMessage(
-                            tokens,
-                            "You don't have enough Warrior Guild Tokens to enter",
-                            "the cyclopes enclosure yet, collect at least 100 then",
-                            "come back."
-                        )
+                        player.dialogueInterpreter.sendItemMessage(tokens, "You don't have enough Warrior Guild Tokens to enter", "the cyclopes enclosure yet, collect at least 100 then", "come back.")
                         return true
                     }
                     if (!player.getAttribute("sent_dialogue", false)) {
@@ -250,5 +248,4 @@ class CyclopesRoom : MapZone("wg cyclopes", true, ZoneRestriction.RANDOM_EVENTS)
             removeAttribute(player, "cyclops_ticks")
         }
     }
-
 }

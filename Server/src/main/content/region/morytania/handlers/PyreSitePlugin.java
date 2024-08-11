@@ -1,6 +1,7 @@
 package content.region.morytania.handlers;
 
 import content.global.skill.support.firemaking.data.Log;
+import core.api.consts.NPCs;
 import core.cache.def.impl.SceneryDefinition;
 import core.game.interaction.OptionHandler;
 import core.game.node.Node;
@@ -143,7 +144,7 @@ public final class PyreSitePlugin extends OptionHandler {
         };
     }
 
-    /*
+    /**
      * Replaces the pyre site with a new object.
      */
     private void replace(int newId, Scenery ship, Player player) {
@@ -151,7 +152,7 @@ public final class PyreSitePlugin extends OptionHandler {
         SceneryBuilder.add(newShip);
     }
 
-    /*
+    /**
      * Gets the location of where the object should be.
      */
     private Location getLocation(int newId, Scenery ship) {
@@ -184,13 +185,10 @@ public final class PyreSitePlugin extends OptionHandler {
     }
 
     /**
-     * Gets animation.
+     * Gets the animation for the skilling tool.
      *
      * @param tool the tool
      * @return the animation
-     */
-    /*
-     * Gets the animation for the skilling tool.
      */
     public Animation getAnimation(final SkillingTool tool) {
         Animation animation = null;
@@ -226,9 +224,6 @@ public final class PyreSitePlugin extends OptionHandler {
     }
 
     /**
-     * The enum Log type.
-     */
-    /*
      * The enum Log type.
      */
     public enum LogType {
@@ -319,9 +314,9 @@ public final class PyreSitePlugin extends OptionHandler {
         }
 
         /**
-         * Get experiences double [ ].
+         * Get experiences double.
          *
-         * @return the double [ ]
+         * @return the double.
          */
         public double[] getExperiences() {
             return experiences;
@@ -402,7 +397,7 @@ public final class PyreSitePlugin extends OptionHandler {
 
         @Override
         public int[] getIds() {
-            return new int[]{752};
+            return new int[]{NPCs.FEROCIOUS_BARBARIAN_SPIRIT_752};
         }
     }
 }

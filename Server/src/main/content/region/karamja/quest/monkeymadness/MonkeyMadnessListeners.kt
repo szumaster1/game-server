@@ -179,7 +179,7 @@ class MonkeyMadnessListeners : InteractionListener {
         }
 
         on(Scenery.CRATE_4746, IntType.SCENERY, "Search") { player, npc ->
-            openDialogue(player, MonkeyMadnessHangarCrate(), npc)
+            openDialogue(player, HangarCrateDialogue(), npc)
             return@on true
         }
 
@@ -319,33 +319,4 @@ class MonkeyMadnessListeners : InteractionListener {
             return@onEquip true
         }
     }
-}
-
-class MonkeyMadnessHangarCrate : DialogueFile() {
-    override fun handle(componentID: Int, buttonID: Int) {
-        when (stage) {
-            0 -> sendItemDialogue(
-                player!!,
-                Items.SPARE_CONTROLS_4002,
-                "This crate is full of ... spare controls!"
-            ).also { stage++ }
-
-            1 -> {
-                setTitle(player!!, 2)
-                sendDialogueOptions(player!!, "Do you wish to take one?", "Yes", "No").also { stage++ }
-            }
-
-            2 -> when (buttonID) {
-                1 -> addItemOrDrop(player!!, Items.SPARE_CONTROLS_4002).also { end() }
-                2 -> end()
-            }
-        }
-    }
-}
-
-class MonkeyMadnessPrisionersDialogue : DialogueFile() {
-    override fun handle(componentID: Int, buttonID: Int) {
-
-    }
-
 }

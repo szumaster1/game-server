@@ -17,11 +17,10 @@ import core.tools.RandomFunction
 /**
  * Animated armour.
  *
- * @property player The player interacting with the animated armour.
- * @property set The set of armour the animated armour belongs to.
- * @constructor Creates an instance of the AnimatedArmour class.
- *
+ * @param player The player interacting with the animated armour.
  * @param location The location of the animated armour.
+ * @param set The set of armour the animated armour belongs to.
+ * @constructor Creates an instance of the AnimatedArmour class.
  */
 class AnimatedArmour internal constructor(
     private val player: Player,

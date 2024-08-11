@@ -8,9 +8,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Contact listeners
- *
- * @constructor Contact listeners
+ * Contact listeners.
  */
 class ContactListeners : InteractionListener {
 

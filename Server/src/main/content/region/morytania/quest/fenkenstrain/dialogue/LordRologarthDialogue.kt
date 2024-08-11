@@ -32,9 +32,7 @@ class LordRologarthDialogue(player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Lord rologarth dialogue file
- *
- * @constructor Lord rologarth dialogue file
+ * Lord rologarth dialogue file.
  */
 class LordRologarthDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {

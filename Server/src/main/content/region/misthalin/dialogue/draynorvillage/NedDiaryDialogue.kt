@@ -6,9 +6,7 @@ import core.game.node.entity.player.link.diary.DiaryType
 import core.game.world.GameWorld
 
 /**
- * Ned diary dialogue
- *
- * @constructor Ned diary dialogue
+ * Ned diary dialogue.
  */
 class NedDiaryDialogue : DialogueFile() {
 

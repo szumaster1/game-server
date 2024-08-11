@@ -7,23 +7,23 @@ import core.game.node.entity.player.Player
  */
 class FOGPlayer(val player: Player, val target: FOGPlayer) {
 
-    var isHunted = false
-    var charges = 0
+    var isHunted = false // Flag to indicate if the player is being hunted
+    var charges = 0 // Number of charges the player has
 
     /**
      * Switch roles
      *
      */
     fun switchRoles() {
-        isHunted = !isHunted
+        isHunted = !isHunted // Toggle the hunted status of the player
     }
 
     /**
      * Increment charges
      *
-     * @param increment
+     * @param increment the amount by which charges should be incremented
      */
     fun incrementCharges(increment: Int) {
-        charges += increment
+        charges += increment // Increase the charges by the specified increment
     }
 }

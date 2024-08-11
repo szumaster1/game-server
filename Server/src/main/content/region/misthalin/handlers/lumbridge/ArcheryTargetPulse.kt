@@ -14,9 +14,9 @@ import kotlin.math.floor
 /**
  * Archery target pulse.
  *
- * @property player the player.
- * @property node the node.
- * @constructor Archery target pulse.
+ * @property player The player performing the action.
+ * @property node The archery target scenery node.
+ * @constructor Creates an instance of the ArcheryTargetPulse class.
  */
 class ArcheryTargetPulse(private val player: Player, private val node: Scenery) : Pulse(1, player, node) {
 

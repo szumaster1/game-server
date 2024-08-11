@@ -20,8 +20,8 @@ import core.tools.END_DIALOGUE
 class SilkMerchantDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        The Silk Merchant located at East Ardougne (Market) that buys silk.
-        Location: 2656,3300
+     * The Silk Merchant located at East Ardougne (Market) that buys silk.
+     * Location: 2656,3300
      */
 
     private val silk = Item(950)

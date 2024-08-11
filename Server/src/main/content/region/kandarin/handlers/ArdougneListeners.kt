@@ -33,11 +33,13 @@ class ArdougneListeners : InteractionListener {
             return@on true
         }
 
+        // Handling talk-to interaction with Captain Barnaby.
         on(NPCs.CAPTAIN_BARNABY_4974, IntType.NPC, "talk-to") { player, npc ->
             openDialogue(player, CaptainBarnabyDialogue(), npc)
             return@on true
         }
 
+        // Handling fast-travel.
         on(NPCs.CAPTAIN_BARNABY_4974, IntType.NPC, "pay-fare") { player, _ ->
             if (!removeItem(player, Item(Items.COINS_995, 30))) {
                 sendMessage(player, "You don't have enough coins.")
@@ -49,9 +51,7 @@ class ArdougneListeners : InteractionListener {
             return@on true
         }
 
-        /**
-         * Use ferret on Charlie interaction in Ardougne zoo.
-         */
+        // Handling using Ferret on Charlie in Ardougne zoo.
         onUseWith(IntType.NPC, Items.FERRET_10092, NPCs.CHARLIE_5138) { player, _, _ ->
             if (!hasRequirement(player, "Eagles' Peak")) return@onUseWith true
             openDialogue(player, object : DialogueFile() {

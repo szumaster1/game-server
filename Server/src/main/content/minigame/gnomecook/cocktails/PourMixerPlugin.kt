@@ -75,11 +75,11 @@ class PourMixerPlugin : OptionHandler() {
     }
 
     /**
-     * Poured drink
+     * Enum representing different poured drinks.
      *
-     * @property product
-     * @property requiredItems
-     * @constructor Poured drink
+     * @property product The product code of the drink.
+     * @property requiredItems The array of items required to make the drink.
+     * @constructor Creates a new PouredDrink with the specified product code and required items.
      */
     internal enum class PouredDrink(val product: Int, val requiredItems: Array<Item>) {
         /**

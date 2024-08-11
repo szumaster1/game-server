@@ -12,9 +12,10 @@ import core.tools.RandomFunction
 class GoblinDungeonNPC : NPCBehavior(NPCs.WAGCHIN_6124, NPCs.NAGHEAD_6123) {
 
     /*
-        Two goblins due east of the ladder that leads to and from their camp,
-        will be discussing gossip.
+     * Two goblins due east of the ladder that leads to and from their camp,
+     * will be discussing gossip.
      */
+
     val wagchinChat = arrayOf(
         "Weren't you going to tell me about the rumour?",
         "Carry on.",

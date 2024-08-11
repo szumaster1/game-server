@@ -11,9 +11,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Bartender dialogue files
- *
- * @constructor Bartender dialogue files
+ * Bartender dialogue files.
  */
 class BartenderDialogueFiles : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
@@ -40,9 +38,7 @@ class BartenderDialogueFiles : DialogueFile() {
 }
 
 /**
- * Bartender black prism dialogue file
- *
- * @constructor Bartender black prism dialogue file
+ * Bartender black prism dialogue file.
  */
 class BartenderBlackPrismDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
@@ -56,9 +52,7 @@ class BartenderBlackPrismDialogueFile : DialogueFile() {
 }
 
 /**
- * Bartender torn page dialogue file
- *
- * @constructor Bartender torn page dialogue file
+ * Bartender torn page dialogue file.
  */
 class BartenderTornPageDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
@@ -72,9 +66,7 @@ class BartenderTornPageDialogueFile : DialogueFile() {
 }
 
 /**
- * Bartender wrong portrait dialogue file
- *
- * @constructor Bartender wrong portrait dialogue file
+ * Bartender wrong portrait dialogue file.
  */
 class BartenderWrongPortraitDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
@@ -90,9 +82,7 @@ class BartenderWrongPortraitDialogueFile : DialogueFile() {
 }
 
 /**
- * Bartender correct portrait dialogue file
- *
- * @constructor Bartender correct portrait dialogue file
+ * Bartender correct portrait dialogue file.
  */
 class BartenderCorrectPortraitDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {

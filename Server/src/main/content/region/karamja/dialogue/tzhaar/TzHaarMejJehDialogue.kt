@@ -15,7 +15,7 @@ import core.game.world.GameWorld.settings
 import core.plugin.Initializable
 
 /**
- * Tz haar mej jeh dialogue.
+ * Tz-Haar Mej Jeh dialogue.
  */
 @Initializable
 class TzHaarMejJehDialogue(player: Player? = null): Dialogue(player) {

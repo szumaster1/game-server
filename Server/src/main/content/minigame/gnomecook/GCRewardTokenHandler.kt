@@ -14,7 +14,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 import core.tools.RandomFunction
 
-// Array of gnome items
+// Array of gnome items.
 val gnomeItems = arrayOf(
     Items.FRUIT_BATTA_2277,
     Items.TOAD_BATTA_2255,
@@ -62,11 +62,7 @@ class GCRewardTokenHandler : OptionHandler() {
     }
 
     /**
-     * Reward token activation dialogue
-     *
-     * @constructor
-     *
-     * @param player
+     * Reward token activation dialogue.
      */
     @Initializable
     class RewardTokenActivationDialogue(player: Player? = null) : Dialogue(player) {
@@ -90,12 +86,6 @@ class GCRewardTokenHandler : OptionHandler() {
             return true
         }
 
-        /**
-         * Send charges
-         *
-         * @param amount
-         * @param player
-         */
         fun sendCharges(amount: Int, player: Player) {
             val playerCharges = player.getAttribute("$GC_BASE_ATTRIBUTE:$GC_REDEEMABLE_FOOD", 0)
             if (playerCharges < amount) {
@@ -119,13 +109,12 @@ class GCRewardTokenHandler : OptionHandler() {
             setAttribute(player, "/save:$GC_BASE_ATTRIBUTE:$GC_REDEEMABLE_FOOD", playerCharges - amount)
         }
 
-
         /**
-         * Delivery pulse
+         * Represents a delivery pulse for a player.
          *
-         * @property player
-         * @property items
-         * @constructor Delivery pulse
+         * @property player The player receiving the delivery.
+         * @property items The items being delivered.
+         * @constructor Creates a DeliveryPulse object with a random duration between 15 and 30.
          */
         class DeliveryPulse(val player: Player, val items: ArrayList<Item>) : Pulse(RandomFunction.random(15, 30)) {
             override fun pulse(): Boolean {

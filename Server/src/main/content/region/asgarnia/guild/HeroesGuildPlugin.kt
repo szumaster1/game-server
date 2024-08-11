@@ -50,9 +50,7 @@ class HeroesGuildPlugin : OptionHandler() {
     }
 
     /**
-     * Jewellery recharge plugin
-     *
-     * @constructor Jewellery recharge plugin
+     * Jewellery recharge plugin.
      */
     class JewelleryRechargePlugin : UseWithHandler(*IDS) {
 

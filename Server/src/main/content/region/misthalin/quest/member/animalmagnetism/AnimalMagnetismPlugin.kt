@@ -87,25 +87,14 @@ class AnimalMagnetismPlugin : OptionHandler() {
         removeAttribute(player, "note-disabled")
     }
 
-    /**
-     * Open
-     *
-     * @param player
-     */
     fun open(player: Player) {
         clearCache(player)
         openInterface(player, Components.ANMA_RGB_480)
         sendMessage(player, "You fiddle with the notes.")
     }
 
-    /*
-     * Handles the hammering of a magnet.
-     */
-
     /**
-     * Hammer magnet plugin
-     *
-     * @constructor Hammer magnet plugin
+     * Handles the hammering of a magnet.
      */
     class HammerMagnetPlugin : UseWithHandler(2347) {
 
@@ -146,14 +135,8 @@ class AnimalMagnetismPlugin : OptionHandler() {
         }
     }
 
-    /*
-     * Handles the axe on a undead tree.
-     */
-
     /**
-     * Undead tree plugin
-     *
-     * @constructor Undead tree plugin
+     * Handles the axe on an undead tree.
      */
     class UndeadTreePlugin : UseWithHandler(Items.MITHRIL_AXE_1355, Items.ADAMANT_AXE_1357, Items.RUNE_AXE_1359, Items.DRAGON_AXE_6739) {
 
@@ -220,12 +203,6 @@ class AnimalMagnetismPlugin : OptionHandler() {
             return true
         }
 
-        /**
-         * Get animation
-         *
-         * @param itemId
-         * @return
-         */
         fun getAnimation(itemId: Int): Animation? {
             for (i in IDS.indices) {
                 if (IDS[i] == itemId) {
@@ -236,14 +213,8 @@ class AnimalMagnetismPlugin : OptionHandler() {
         }
     }
 
-    /*
-     * Handles the research note handler.
-     */
-
     /**
-     * Research note handler
-     *
-     * @constructor Research note handler
+     * Handles the research note handler.
      */
     class ResearchNoteHandler : ComponentPlugin() {
 
@@ -344,14 +315,8 @@ class AnimalMagnetismPlugin : OptionHandler() {
         }
     }
 
-    /*
-     * Handles the creating of a container.
-     */
-
     /**
-     * Container handler
-     *
-     * @constructor Container handler
+     * Handles the creating of a container.
      */
     class ContainerHandler : UseWithHandler(10496, 1743) {
 

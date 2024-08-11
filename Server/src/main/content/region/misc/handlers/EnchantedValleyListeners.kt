@@ -44,7 +44,7 @@ class EnchantedValleyListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        /**
+        /*
          * Interact with rock for Spawn NPC.
          */
         on(ENCHANTED_V_ROCK, IntType.SCENERY, "mine") { player, _ ->
@@ -76,7 +76,7 @@ class EnchantedValleyListeners : InteractionListener {
             return@on true
         }
 
-        /**
+        /*
          * Interaction with Tree to spawn NPC.
          */
         on(ENCHANTED_V_TREE, IntType.SCENERY, "chop-down") { player, _ ->

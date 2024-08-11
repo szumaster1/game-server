@@ -23,14 +23,12 @@ import core.plugin.Plugin;
 import static core.api.ContentAPIKt.*;
 
 /**
- * Gnome stronghold plugin.
+ * Handles Gnome stronghold options.
+ * @author Emperor
  */
 @Initializable
 public final class GnomeStrongholdPlugin extends OptionHandler {
 
-    /**
-     * The constant GRAND_TREE.
-     */
     public static final ZoneBorders GRAND_TREE = new ZoneBorders(2465, 3491, 2466, 3493);
 
     @Override
@@ -80,6 +78,11 @@ public final class GnomeStrongholdPlugin extends OptionHandler {
         return true;
     }
 
+    /**
+     * Opens the tree doors.
+     * @param player the player.
+     * @param object the object.
+     */
     private void openTreeDoor(final Player player, final Scenery object) {
         if (object.getCharge() == 88) {
             return;
@@ -96,6 +99,11 @@ public final class GnomeStrongholdPlugin extends OptionHandler {
         });
     }
 
+    /**
+     * Opens the stronghold gates.
+     * @param player The player.
+     * @param object The door.
+     */
     private void openGates(Player player, final Scenery object) {
         if (inBorders(player, 2460, 3381, 2463, 3383) && getQuestStage(player, "The Grand Tree") == 55) {
             openDialogue(player, new GnomeGateGuardDialogue());

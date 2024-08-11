@@ -6,10 +6,7 @@ import core.game.world.map.RegionChunk
 import core.game.world.map.build.DynamicRegion
 
 /**
- * Fill chunk contract
- *
- * @property chunk
- * @constructor Fill chunk contract
+ * Fill chunk contract.
  */
 open class FillChunkContract(var chunk: RegionChunk? = null) : ChunkSpecContract {
     constructor(chunk: (Int, Int, Int, Region) -> RegionChunk?) : this(null) {

@@ -16,12 +16,12 @@ import core.plugin.Initializable
 class AliTheDyerDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        Ali the Dyer is a woman on the north side of Pollnivneach who can make red,
-        blue, and yellow dyes if players provide her with the correct materials similarly
-        to Aggie, the witch in Draynor Village who provides the same services. However,
-        Ali is far less popular, as she is in an area not frequently visited by players
-        due to distance between banks. She is in, or just outside, the most north-eastern house.
-    */
+     * Ali the Dyer is a woman on the north side of Pollnivneach who can make red,
+     * blue, and yellow dyes if players provide her with the correct materials similarly
+     * to Aggie, the witch in Draynor Village who provides the same services. However,
+     * Ali is far less popular, as she is in an area not frequently visited by players
+     * due to distance between banks. She is in, or just outside, the most north-eastern house.
+     */
 
     override fun open(vararg args: Any): Boolean {
         playerl(FacialExpression.AMAZED, "Wow! look at this place, it's so colourful.")

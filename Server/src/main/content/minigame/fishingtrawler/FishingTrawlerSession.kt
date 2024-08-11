@@ -70,31 +70,47 @@ class FishingTrawlerSession(val activity: FishingTrawlerActivity? = null) : MapA
      * @param pl the players.
      */
     fun start(pl: ArrayList<Player>) {
+        // Set the music ID based on a random roll
         if (RandomFunction.roll(2)) {
             region.setMusicId(38)
         } else {
             region.setMusicId(51)
         }
+        // Add the players to the session
         this.players.addAll(pl)
         isActive = true
+        // Initialize the holes
         initHoles()
+        // Initialize Murphy NPC
         initMurphy(29, 25)
+        // Initialize the seagulls
         initGulls()
+        // Submit the TrawlerPulse task to the GameWorld.Pulser
         GameWorld.Pulser.submit(TrawlerPulse(this))
+        // Perform actions for each player in the session
         for (player in pl) {
+            // Open the overlay and tutorial interfaces for the player
             player.interfaceManager.openOverlay(Component(OVERLAY_ID))
             player.interfaceManager.open(Component(TUTORIAL_ID))
+            // Update the overlay for the player
             updateOverlay(player)
+            // Set the teleport location for the player
             player.properties.teleportLocation = base.transform(36, 24, 0)
+            // Set the "ft-session" attribute for the player
             setAttribute(player, "ft-session", this)
+            // Register a logout listener for the player
             registerLogoutListener(player, "ft-logout") {
                 val session =
                     player.getAttribute<FishingTrawlerSession?>("ft-session", null) ?: return@registerLogoutListener
+                // Teleport the player to a specific location
                 player.location = Location.create(2667, 3161, 0)
+                // Remove the player from the session
                 session.players.remove(player)
+                // Unlock the player's teleport
                 player.locks.unlockTeleport()
             }
         }
+        // Register the session's region borders
         zone.register(getRegionBorders(region.id))
     }
 
@@ -104,10 +120,11 @@ class FishingTrawlerSession(val activity: FishingTrawlerActivity? = null) : MapA
      * @param fromRegion from region.
      */
     fun swapBoatType(fromRegion: Int) {
+        // Create a new DynamicRegion based on the fromRegion parameter
         val newRegion = DynamicRegion.create(fromRegion)
+        // Submit the SwapBoatPulse task to the GameWorld.Pulser
         GameWorld.Pulser.submit(SwapBoatPulse(players, newRegion))
     }
-
 
     /**
      * Swap boat pulse.
@@ -117,28 +134,35 @@ class FishingTrawlerSession(val activity: FishingTrawlerActivity? = null) : MapA
      */
     class SwapBoatPulse(val playerList: ArrayList<Player>, val newRegion: DynamicRegion) : Pulse(3) {
         override fun pulse(): Boolean {
+            // Get the FishingTrawlerSession from the first player in the playerList
             val session: FishingTrawlerSession? = playerList[0].getAttribute("ft-session", null)
             session ?: return true
+            // Update the session's region and base location
             session.region = newRegion
             session.base = newRegion.baseLocation
+            // Clear the NPCs in the session
             session.clearNPCs()
+            // Initialize Murphy NPC in the new location
             session.initMurphy(26, 26)
+            // Initialize the seagulls in the new location
             session.initGulls()
+            // Perform actions for each player in the playerList
             for (player in playerList) {
+                // Close the overlay interface for the player
                 player.interfaceManager.closeOverlay()
+                // Set the animations for the player
                 player.appearance.setAnimations(Animation(188))
+                // Set the teleport location for the player
                 player.properties.teleportLocation = session.base.transform(36, 24, 0)
+                // Increment the "FISHING_TRAWLER_SHIPS_SANK" attribute for the player
                 player.incrementAttribute("/save:$STATS_BASE:$FISHING_TRAWLER_SHIPS_SANK")
             }
             return true
         }
     }
 
-
     /**
      * Trawler pulse.
-     *
-     * @property session the session.
      */
     class TrawlerPulse(val session: FishingTrawlerSession) : Pulse() {
         var ticks = 0
@@ -226,9 +250,6 @@ class FishingTrawlerSession(val activity: FishingTrawlerActivity? = null) : MapA
 
     /**
      * Init murphy.
-     *
-     * @param localX the location x.
-     * @param localY the location y.
      */
     fun initMurphy(localX: Int, localY: Int) {
         murphy = NPC(463)
@@ -259,20 +280,11 @@ class FishingTrawlerSession(val activity: FishingTrawlerActivity? = null) : MapA
      */
     fun tickMurphy() {
         var phrase = if (boatSank) {
-            arrayOf(
-                "No fishes for you today!",
-                "Keep your head above water, shipmate.",
-                "Arrrgh! We sunk!",
-                "You'll be joining Davy Jones!"
-            ).random()
+            arrayOf("No fishes for you today!", "Keep your head above water, shipmate.", "Arrrgh! We sunk!", "You'll be joining Davy Jones!").random()
         } else if (waterAmount < 200) {
             arrayOf("Blistering barnacles!", "Let's get a net full of fishes!").random()
         } else {
-            arrayOf(
-                "We'll all end up in a watery grave!",
-                "My mother could bail better than that!",
-                "It's a fierce sea today traveller."
-            ).random()
+            arrayOf("We'll all end up in a watery grave!", "My mother could bail better than that!", "It's a fierce sea today traveller.").random()
         }
         if (getLeakingHoles() > 0 && RandomFunction.random(100) <= 15) {
             phrase = "The water is coming in matey!"
@@ -288,17 +300,10 @@ class FishingTrawlerSession(val activity: FishingTrawlerActivity? = null) : MapA
     }
 
     /**
-     * Init gulls
-     *
+     * Init gulls.
      */
     fun initGulls() {
-        for (loc in arrayOf(
-            base.transform(38, 17, 0),
-            base.transform(33, 18, 0),
-            base.transform(28, 16, 0),
-            base.transform(28, 30, 0),
-            base.transform(34, 32, 0)
-        )) {
+        for (loc in arrayOf(base.transform(38, 17, 0), base.transform(33, 18, 0), base.transform(28, 16, 0), base.transform(28, 30, 0), base.transform(34, 32, 0))) {
             val npc = NPC(1179)
             npc.location = loc
             npcs.add(npc)
@@ -310,8 +315,7 @@ class FishingTrawlerSession(val activity: FishingTrawlerActivity? = null) : MapA
     }
 
     /**
-     * Spawn hole
-     *
+     * Spawn hole.
      */
     fun spawnHole() {
         if (hole_locations.isEmpty() && used_locations.isEmpty()) return
@@ -329,19 +333,14 @@ class FishingTrawlerSession(val activity: FishingTrawlerActivity? = null) : MapA
     }
 
     /**
-     * Get leaking holes
-     *
-     * @return
+     * Get leaking holes.
      */
     fun getLeakingHoles(): Int {
         return maxHoles - hole_locations.size
     }
 
     /**
-     * Repair hole
-     *
-     * @param player
-     * @param obj
+     * Repair hole.
      */
     fun repairHole(player: Player, obj: Scenery) {
         if (player.inventory.remove(Item(Items.SWAMP_PASTE_1941))) {
@@ -357,16 +356,13 @@ class FishingTrawlerSession(val activity: FishingTrawlerActivity? = null) : MapA
 
     /**
      * Rip net
-     *
      */
     fun ripNet() {
         netRipped = true
     }
 
     /**
-     * Repair net
-     *
-     * @param player
+     * Repair net.
      */
     fun repairNet(player: Player) {
         if (player.inventory.remove(Item(Items.ROPE_954))) {
@@ -378,9 +374,7 @@ class FishingTrawlerSession(val activity: FishingTrawlerActivity? = null) : MapA
     }
 
     /**
-     * Update overlay
-     *
-     * @param player
+     * Update overlay.
      */
     fun updateOverlay(player: Player) {
         FishingTrawlerOverlay.sendUpdate(

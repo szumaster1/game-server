@@ -6,9 +6,7 @@ import core.game.interaction.InteractionListener
 import core.api.consts.Scenery
 
 /**
- * A souls bane listener
- *
- * @constructor A souls bane listener
+ * A souls bane listener.
  */
 class ASoulsBaneListener : InteractionListener {
 

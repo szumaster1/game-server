@@ -8,9 +8,7 @@ import core.game.interaction.InterfaceListener
 import core.game.node.entity.npc.NPC
 
 /**
- * Combo lock interface listener
- *
- * @constructor Combo lock interface listener
+ * Combo lock interface listener.
  */
 class ComboLockInterfaceListener : InterfaceListener {
 

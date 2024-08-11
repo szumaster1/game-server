@@ -90,41 +90,34 @@ class GnomeCrunchyInterface : ComponentPlugin() {
     }
 
     /**
-     * Half made crunchy
+     * Enum representing a half-made crunchy item.
      *
-     * @property product
-     * @property reqLevel
-     * @property requiredItems
-     * @constructor Half made crunchy
+     * @property product The ID of the product.
+     * @property reqLevel The required level to make the item.
+     * @property requiredItems An array of items required to make the item.
+     * @constructor Creates a new HalfMadeCrunchy enum instance.
      */
     internal enum class HalfMadeCrunchy(val product: Int, val reqLevel: Int, val requiredItems: Array<Item>) {
-        /**
-         * Chocchip
-         *
-         * @constructor Chocchip
-         */
-        CHOCCHIP(9577, 16, arrayOf(Item(Items.CHOCOLATE_BAR_1973, 2))),
-
-        /**
-         * Spicy
-         *
-         * @constructor Spicy
-         */
-        SPICY(9579, 12, arrayOf(Item(Items.EQUA_LEAVES_2128, 2))),
-
-        /**
-         * Toad
-         *
-         * @constructor Toad
-         */
-        TOAD(9581, 10, arrayOf(Item(Items.TOADS_LEGS_2152, 2))),
-
-        /**
-         * Worm
-         *
-         * @constructor Worm
-         */
-        WORM(9583, 14, arrayOf(Item(Items.EQUA_LEAVES_2128), Item(Items.KING_WORM_2162, 2)))
+        CHOCCHIP(
+            product = 9577,
+            reqLevel = 16,
+            requiredItems = arrayOf(Item(Items.CHOCOLATE_BAR_1973, 2))
+        ),
+        SPICY(
+            product = 9579,
+            reqLevel = 12,
+            requiredItems = arrayOf(Item(Items.EQUA_LEAVES_2128, 2))
+        ),
+        TOAD(
+            product = 9581,
+            reqLevel = 10,
+            requiredItems = arrayOf(Item(Items.TOADS_LEGS_2152, 2))
+        ),
+        WORM(
+            product = 9583,
+            reqLevel = 14,
+            requiredItems = arrayOf(Item(Items.EQUA_LEAVES_2128), Item(Items.KING_WORM_2162, 2))
+        )
     }
 
 }

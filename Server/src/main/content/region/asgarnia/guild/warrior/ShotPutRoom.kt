@@ -36,13 +36,14 @@ class ShotPutRoom(player: Player? = null) : Dialogue(player) {
 
     private var lowWeight = false
 
-
+    // This method is called when the dialogue is opened.
     override fun open(vararg args: Any): Boolean {
         lowWeight = args[0] as Boolean
         interpreter.sendOptions("Choose your style", "Standing throw", "Step and throw", "Spin and throw")
         return true
     }
 
+    // This method is called when a button is clicked in the dialogue.
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (buttonId) {
             1 -> {
@@ -66,6 +67,7 @@ class ShotPutRoom(player: Player? = null) : Dialogue(player) {
         return true
     }
 
+    // This method returns the dialogue IDs associated with this class.
     override fun getIds(): IntArray {
         return intArrayOf(DialogueInterpreter.getDialogueKey("shot_put"))
     }
@@ -73,6 +75,7 @@ class ShotPutRoom(player: Player? = null) : Dialogue(player) {
     companion object {
         init {
             definePlugin(object : OptionHandler() {
+                // This method is called when the player interacts with the scenery or item associated with this plugin.
                 override fun handle(player: Player, node: Node, option: String): Boolean {
                     val lowWeight = node.id == 15664
                     if (node is GroundItem) {
@@ -99,6 +102,7 @@ class ShotPutRoom(player: Player? = null) : Dialogue(player) {
                     return true
                 }
 
+                // This method returns the destination location when the player interacts with the scenery.
                 override fun getDestination(n: Node, node: Node): Location? {
                     if (node is Scenery) {
                         return node.getLocation().transform(0, -1, 0)
@@ -106,6 +110,7 @@ class ShotPutRoom(player: Player? = null) : Dialogue(player) {
                     return null
                 }
 
+                // This method initializes the plugin and assigns it to the appropriate scenery and item IDs.
                 override fun newInstance(arg: Any?): Plugin<Any> {
                     SceneryDefinition.forId(15664).handlers["option:throw"] = this
                     SceneryDefinition.forId(15665).handlers["option:throw"] = this
@@ -116,6 +121,7 @@ class ShotPutRoom(player: Player? = null) : Dialogue(player) {
             })
         }
 
+        // This method is called when the player throws the shot put.
         private fun throwShotPut(player: Player, delay: Int, lowWeight: Boolean, message: String) {
             player.lock()
             var cost = if (lowWeight) 6 else 12

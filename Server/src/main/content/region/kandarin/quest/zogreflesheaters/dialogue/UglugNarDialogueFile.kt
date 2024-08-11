@@ -9,9 +9,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 
 /**
- * Uglug nar dialogue file
- *
- * @constructor Uglug nar dialogue file
+ * Uglug nar dialogue file.
  */
 class UglugNarDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {

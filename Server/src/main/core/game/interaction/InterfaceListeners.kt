@@ -8,12 +8,12 @@ object InterfaceListeners {
     val openListeners = HashMap<String, (Player, Component) -> Boolean>(100)
 
     /**
-     * Add
+     * Add button listener
      *
-     * @param componentID
-     * @param buttonID
-     * @param handler
-     * @receiver
+     * @param componentID the ID of the component
+     * @param buttonID the ID of the button
+     * @param handler the handler function to be executed
+     * @receiver the receiver object
      */
     @JvmStatic
     fun add(componentID: Int, buttonID: Int, handler: (Player, Component, Int, Int, Int, Int) -> Boolean) {
@@ -21,11 +21,11 @@ object InterfaceListeners {
     }
 
     /**
-     * Add
+     * Add button listener
      *
-     * @param componentID
-     * @param handler
-     * @receiver
+     * @param componentID the ID of the component
+     * @param handler the handler function to be executed
+     * @receiver the receiver object
      */
     @JvmStatic
     fun add(componentID: Int, handler: (Player, Component, Int, Int, Int, Int) -> Boolean) {
@@ -35,9 +35,9 @@ object InterfaceListeners {
     /**
      * Add open listener
      *
-     * @param componentID
-     * @param handler
-     * @receiver
+     * @param componentID the ID of the component
+     * @param handler the handler function to be executed
+     * @receiver the receiver object
      */
     @JvmStatic
     fun addOpenListener(componentID: Int, handler: (Player, Component) -> Boolean) {
@@ -47,9 +47,9 @@ object InterfaceListeners {
     /**
      * Add close listener
      *
-     * @param componentID
-     * @param handler
-     * @receiver
+     * @param componentID the ID of the component
+     * @param handler the handler function to be executed
+     * @receiver the receiver object
      */
     @JvmStatic
     fun addCloseListener(componentID: Int, handler: (Player, Component) -> Boolean) {
@@ -57,11 +57,11 @@ object InterfaceListeners {
     }
 
     /**
-     * Get
+     * Get button listener
      *
-     * @param componentID
-     * @param buttonID
-     * @return
+     * @param componentID the ID of the component
+     * @param buttonID the ID of the button
+     * @return the button listener function
      */
     @JvmStatic
     fun get(componentID: Int, buttonID: Int): ((Player, Component, Int, Int, Int, Int) -> Boolean)? {
@@ -69,10 +69,10 @@ object InterfaceListeners {
     }
 
     /**
-     * Get
+     * Get button listener
      *
-     * @param componentID
-     * @return
+     * @param componentID the ID of the component
+     * @return the button listener function
      */
     @JvmStatic
     fun get(componentID: Int): ((Player, Component, Int, Int, Int, Int) -> Boolean)? {
@@ -82,8 +82,8 @@ object InterfaceListeners {
     /**
      * Get open listener
      *
-     * @param componentID
-     * @return
+     * @param componentID the ID of the component
+     * @return the open listener function
      */
     @JvmStatic
     fun getOpenListener(componentID: Int): ((Player, Component) -> Boolean)? {
@@ -93,8 +93,8 @@ object InterfaceListeners {
     /**
      * Get close listener
      *
-     * @param componentID
-     * @return
+     * @param componentID the ID of the component
+     * @return the close listener function
      */
     @JvmStatic
     fun getCloseListener(componentID: Int): ((Player, Component) -> Boolean)? {
@@ -102,11 +102,11 @@ object InterfaceListeners {
     }
 
     /**
-     * Run open
+     * Run open listener
      *
-     * @param player
-     * @param component
-     * @return
+     * @param player the player object
+     * @param component the component object
+     * @return true if the listener was executed successfully, false otherwise
      */
     @JvmStatic
     fun runOpen(player: Player, component: Component): Boolean {
@@ -115,11 +115,11 @@ object InterfaceListeners {
     }
 
     /**
-     * Run close
+     * Run close listener
      *
-     * @param player
-     * @param component
-     * @return
+     * @param player the player object
+     * @param component the component object
+     * @return true if the listener was executed successfully, true otherwise
      */
     @JvmStatic
     fun runClose(player: Player, component: Component): Boolean {
@@ -128,15 +128,15 @@ object InterfaceListeners {
     }
 
     /**
-     * Run
+     * Run button listener
      *
-     * @param player
-     * @param component
-     * @param opcode
-     * @param buttonID
-     * @param slot
-     * @param itemID
-     * @return
+     * @param player the player object
+     * @param component the component object
+     * @param opcode the opcode
+     * @param buttonID the ID of the button
+     * @param slot the slot
+     * @param itemID the ID of the item
+     * @return true if the listener was executed successfully, false otherwise
      */
     @JvmStatic
     fun run(player: Player, component: Component, opcode: Int, buttonID: Int, slot: Int, itemID: Int): Boolean {

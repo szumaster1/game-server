@@ -18,11 +18,11 @@ import core.tools.END_DIALOGUE
 class SilkTraderDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-        The Silk trader, located to the north of the Al'Kharid palace,
-        and he sells silk for 3 coins each. It is possible for players
-        to lower the purchase price of the silk by refusing the original
-        offer by the Silk trader and instead settling for a price of 2 coins.
-        Location: 3299,3204
+     * The Silk trader, located to the north of the Al'Kharid palace,
+     * and he sells silk for 3 coins each. It is possible for players
+     * to lower the purchase price of the silk by refusing the original
+     * offer by the Silk trader and instead settling for a price of 2 coins.
+     * Location: 3299,3204
      */
 
     override fun open(vararg args: Any): Boolean {

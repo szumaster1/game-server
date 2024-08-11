@@ -11,10 +11,7 @@ import core.game.world.map.Location
 import core.tools.RandomFunction
 
 /**
- * Crate monkey madness dialogue
- *
- * @property it
- * @constructor Crate monkey madness dialogue
+ * Crate monkey madness dialogue.
  */
 class CrateMonkeyMadnessDialogue(val it: Int) : DialogueFile() {
 

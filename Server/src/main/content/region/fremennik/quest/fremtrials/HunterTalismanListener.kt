@@ -50,7 +50,7 @@ class HunterTalismanListener : InteractionListener {
     }
 
     /**
-     * Draugen pulse
+     * Draugen pulse.
      *
      * @property player The player triggering the pulse.
      * @constructor Initializes the DraugenPulse class with the given player.
@@ -79,7 +79,7 @@ class HunterTalismanListener : InteractionListener {
     )
 
     /**
-     * Get direction
+     * Get direction.
      *
      * @param entity The entity for which to determine the direction.
      * @return The direction as a string.
@@ -125,7 +125,7 @@ class HunterTalismanListener : InteractionListener {
     }
 
     /**
-     * Diff
+     * Diff.
      *
      * @param x The first value.
      * @param y The second value.

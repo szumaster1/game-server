@@ -24,9 +24,7 @@ import core.tools.RandomFunction
 import core.tools.StringUtils
 
 /**
- * Graveyard zone
- *
- * @constructor Graveyard zone
+ * Graveyard zone.
  */
 class GraveyardZone :
     MTAZone("Creature Graveyard", arrayOf(Item(6904), Item(6905), Item(6906), Item(6907), Item(1963), Item(6883))) {
@@ -130,49 +128,40 @@ class GraveyardZone :
         register(ZoneBorders(3333, 9610, 3390, 9663, 1, true))
     }
 
-
     /**
-     * Bone type
+     * Enum representing different types of bones.
      *
-     * @property objectId
-     * @property item
-     * @constructor Bone type
+     * @property objectId The unique identifier for the bone type.
+     * @property item The corresponding item object for the bone type.
+     * @constructor Creates a new BoneType with the specified objectId and item.
      */
     enum class BoneType(val objectId: Int, val item: Item) {
 
         /**
-         * First
-         *
-         * @constructor First
+         * First.
          */
         FIRST(10725, Item(6904)),
 
         /**
-         * Second
-         *
-         * @constructor Second
+         * Second.
          */
         SECOND(10726, Item(6905)),
 
         /**
-         * Third
-         *
-         * @constructor Third
+         * Third.
          */
         THIRD(10727, Item(6906)),
 
         /**
-         * Fourth
-         *
-         * @constructor Fourth
+         * Fourth.
          */
         FOURTH(10728, Item(6907));
 
         /**
-         * Grab
+         * This method allows the player to grab an object from the scenery.
          *
-         * @param player
-         * @param object
+         * @param player The player performing the action.
+         * @param object The object to be grabbed from the scenery.
          */
         fun grab(player: Player, `object`: Scenery) {
             if (player.inventory.freeSlots() < 1) {
@@ -216,7 +205,6 @@ class GraveyardZone :
     }
 
     companion object {
-
         val ZONE = GraveyardZone()
         private val PLAYERS: MutableList<Player> = ArrayList(20)
         private val RUNES = arrayOf(Item(561), Item(555), Item(557))

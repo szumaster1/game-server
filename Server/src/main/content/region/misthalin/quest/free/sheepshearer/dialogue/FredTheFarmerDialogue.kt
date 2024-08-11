@@ -10,9 +10,6 @@ import core.tools.START_DIALOGUE
 
 /**
  * Fred the farmer dialogue.
- *
- * @property questStage
- * @constructor Fred the farmer dialogue
  */
 class FredTheFarmerDialogue(val questStage: Int) : DialogueFile() {
     companion object {

@@ -13,9 +13,7 @@ import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 
 /**
- * Witch potion
- *
- * @constructor Witch potion
+ * Witch potion quest.
  */
 @Initializable
 class WitchPotion : Quest("Witch's Potion", 31, 30, 1, Vars.VARP_QUEST_WITCHS_POTION_PROGRESS, 0, 1, 3) {

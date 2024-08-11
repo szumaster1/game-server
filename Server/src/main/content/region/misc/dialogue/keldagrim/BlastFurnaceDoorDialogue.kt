@@ -9,10 +9,7 @@ import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
 /**
- * Blast furnace door dialogue
- *
- * @property fee
- * @constructor Blast furnace door dialogue
+ * Blast furnace door dialogue.
  */
 class BlastFurnaceDoorDialogue(val fee: Int) : DialogueFile() {
 

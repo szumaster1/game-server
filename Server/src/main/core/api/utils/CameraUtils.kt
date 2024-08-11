@@ -3,43 +3,31 @@ package core.api.utils
 object CameraUtils
 
 /**
- * Camera shake type
- *
- * @constructor Camera shake type
+ * Camera shake type.
  */
 enum class CameraShakeType {
     /**
-     * Truck
-     *
-     * @constructor Truck
+     * Truck.
      */
-    TRUCK,      // Camera movement from left to right.
+    TRUCK, // Camera movement from left to right.
 
     /**
-     * Pedestal
-     *
-     * @constructor Pedestal
+     * Pedestal.
      */
-    PEDESTAL,   // Camera movement vertically up to down, fixated on one location.
+    PEDESTAL, // Camera movement vertically up to down, fixated on one location.
 
     /**
-     * Dolly
-     *
-     * @constructor Dolly
+     * Dolly.
      */
-    DOLLY,      // Camera movement forwards to backwards.
+    DOLLY, // Camera movement forwards to backwards.
 
     /**
-     * Pan
-     *
-     * @constructor Pan
+     * Pan.
      */
-    PAN,        // Camera movement horizontally, fixed on a certain point.
+    PAN, // Camera movement horizontally, fixed on a certain point.
 
     /**
-     * Tilt
-     *
-     * @constructor Tilt
+     * Tilt.
      */
-    TILT        // Camera movement vertically, fixed on a certain point.
+    TILT // Camera movement vertically, fixed on a certain point.
 }

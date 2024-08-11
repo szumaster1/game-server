@@ -398,9 +398,7 @@ class DuelArea
     }
 
     /**
-     * Forfeit trapdoor plugin
-     *
-     * @constructor Forfeit trapdoor plugin
+     * Forfeit trapdoor plugin.
      */
     class ForfeitTrapdoorPlugin : OptionHandler() {
         @Throws(Throwable::class)

@@ -10,9 +10,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Tenzing dialogue file
- *
- * @constructor Tenzing dialogue file
+ * Tenzing dialogue file.
  */
 class TenzingDialogueFile : DialogueFile() {
 

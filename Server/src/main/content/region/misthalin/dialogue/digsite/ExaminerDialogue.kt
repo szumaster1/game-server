@@ -26,9 +26,7 @@ class ExaminerDialogue (player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Examiner dialogue file
- *
- * @constructor Examiner dialogue file
+ * Examiner dialogue file.
  */
 class ExaminerDialogueFile : DialogueBuilderFile() {
 

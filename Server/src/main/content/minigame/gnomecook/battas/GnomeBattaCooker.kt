@@ -43,11 +43,11 @@ class GnomeBattaCooker : UseWithHandler(Items.RAW_BATTA_2250, 9478, 9480, 9482, 
     }
 
     /**
-     * Cook
+     * This method represents the action of cooking in the game.
      *
-     * @param player
-     * @param raw
-     * @param product
+     * @param player The player who is cooking.
+     * @param raw The raw item being cooked.
+     * @param product The resulting cooked item.
      */
     fun cook(player: Player, raw: Item, product: Item) {
         GameWorld.Pulser.submit(object : Pulse() {

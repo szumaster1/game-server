@@ -9,10 +9,7 @@ import core.game.node.entity.skill.Skills
 import core.tools.END_DIALOGUE
 
 /**
- * Al kharid heal dialogue
- *
- * @property skipFirst
- * @constructor Al kharid heal dialogue
+ * Al kharid heal dialogue.
  */
 class AlKharidHealDialogue(val skipFirst: Boolean) : DialogueFile() {
 

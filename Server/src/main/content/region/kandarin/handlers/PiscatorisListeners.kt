@@ -25,19 +25,13 @@ class PiscatorisListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
-         * Rowing boat travel interaction.
-         */
-
+        // Rowing boat travel interaction.
         on(KATHY_CORKAT, IntType.NPC, "travel") { player, node ->
             RowingBoat.sail(player, node.asNpc())
             return@on true
         }
 
-        /*
-         * Net scenery interaction.
-         */
-
+        // Net scenery interaction.
         on(NET_SCENERY, IntType.SCENERY, "Take-from") { player, node ->
             if (!hasRequirement(player, "Swan Song")) return@on true
 

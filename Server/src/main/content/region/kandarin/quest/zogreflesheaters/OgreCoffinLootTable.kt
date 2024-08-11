@@ -6,19 +6,18 @@ import core.api.utils.WeightBasedTable
 import core.api.utils.WeightedItem
 
 /**
- * Ogre coffin loot table
+ * Enum class representing the loot table for Ogre coffins.
  *
- * @property sceneryId
- * @property table
- * @constructor Ogre coffin loot table
+ * @property sceneryId Array of scenery IDs associated with the loot table.
+ * @property table Weighted table containing loot items.
+ * @constructor Initializes the Ogre coffin loot table with scenery IDs and loot table.
  */
 enum class OgreCoffinLootTable(val sceneryId: IntArray, val table: WeightBasedTable) {
-    /**
-     * Ogre Coffin
-     *
-     * @constructor Ogre Coffin
-     */
-    OGRE_COFFIN(intArrayOf(Scenery.OGRE_COFFIN_6848, Scenery.OGRE_COFFIN_6850),
+    OGRE_COFFIN(
+        intArrayOf(
+            Scenery.OGRE_COFFIN_6848,
+            Scenery.OGRE_COFFIN_6850
+        ),
         WeightBasedTable.create(
             WeightedItem(Items.COINS_995, 6, 20, 15.0),
             WeightedItem(Items.BRONZE_AXE_1351, 1, 1, 3.0),

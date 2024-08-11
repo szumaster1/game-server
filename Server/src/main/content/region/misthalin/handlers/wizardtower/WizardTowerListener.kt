@@ -16,9 +16,7 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Graphic
 
 /**
- * Wizard tower listener
- *
- * @constructor Wizard tower listener
+ * Wizard tower listener.
  */
 class WizardTowerListener : InteractionListener {
 
@@ -38,22 +36,26 @@ class WizardTowerListener : InteractionListener {
 
     override fun defineListeners() {
 
+        // This listener is triggered when the player interacts with the bookcases in the Wizard's Tower.
         on(intArrayOf(WIZARDS_TOWER_BOOKCASE_1, WIZARDS_TOWER_BOOKCASE_2), IntType.SCENERY, "search") { player, _ ->
             openDialogue(player, 458543948)
             return@on true
         }
 
+        // This listener is triggered when the player interacts with Sedridor to teleport.
         on(SEDRIDOR_TELEPORT_OPTION, IntType.NPC, "teleport") { player, node ->
             if (!hasRequirement(player, "Rune Mysteries")) return@on true
             EssenceTeleport.teleport((node as NPC), player)
             return@on true
         }
 
+        // This listener is triggered when the player interacts with the ladder to climb down.
         on(WIZARDS_TOWER_LADDER_DOWN, IntType.SCENERY, "climb-down") { player, _ ->
             teleport(player, location(3104, 9576, 0))
             return@on true
         }
 
+        // This listener is triggered when the player interacts with the railing to taunt the demon.
         on(WIZARDS_TOWER_DEMON_TAUNT, IntType.SCENERY, "taunt-through") { player, _ ->
             val demon = findLocalNPC(player, NPCs.LESSER_DEMON_82) ?: return@on true
             forceWalk(demon, player.location, "smart")
@@ -65,6 +67,7 @@ class WizardTowerListener : InteractionListener {
             return@on true
         }
 
+        // This listener is triggered when the player interacts with the magic portals.
         on(intArrayOf(WIZARDS_TOWER_PORTAL, DARK_WIZARDS_TOWER_PORTAL, THORMAC_SORC_HOUSE_PORTAL), IntType.SCENERY, "enter") { player, node ->
             when (node.id) {
                 WIZARDS_TOWER_PORTAL -> {
@@ -83,18 +86,19 @@ class WizardTowerListener : InteractionListener {
                     teleport(player, Location.create(2703, 3406, 0))
                     sendMessage(player, "You enter the magic portal...")
                     sendMessage(player, "You teleport to Thormac the Sorcerer's house.")
-
                 }
             }
             return@on true
         }
 
+        // This listener is triggered when the player interacts with the closed basement cabinet.
         on(CABINET_BASEMENT_CLOSED, IntType.SCENERY, "open") { player, node ->
             replaceScenery(node.asScenery(), CABINET_BASEMENT_OPEN, 100)
             playAudio(player, Sounds.OPEN_CABINET_44)
             return@on true
         }
 
+        // This listener is triggered when the player interacts with the open basement cabinet.
         on(CABINET_BASEMENT_OPEN, IntType.SCENERY, "close") { player, node ->
             if (getUsedOption(player) == "close") {
                 replaceScenery(node.asScenery(), CABINET_BASEMENT_CLOSED, -1)
@@ -109,10 +113,7 @@ class WizardTowerListener : InteractionListener {
             }
         }
 
-        /*
-         * https://runescape.fandom.com/wiki/2009_Christmas_event
-         */
-
+        // This listener is triggered when the player interacts with the portal to the Land of Snow.
         on(LAND_OF_SNOW_PORTAL, IntType.SCENERY, "exit") { player, node ->
             Projectile.create(node.location, player.location, 109, 15, 10, 0, 10, 0, 2).send()
             GameWorld.Pulser.submit(object : Pulse(1) {
@@ -137,5 +138,4 @@ class WizardTowerListener : InteractionListener {
             return@on true
         }
     }
-
 }

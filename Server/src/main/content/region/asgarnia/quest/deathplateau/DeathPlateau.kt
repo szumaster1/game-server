@@ -9,9 +9,7 @@ import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 
 /**
- * Death plateau
- *
- * @constructor Death plateau
+ * Death plateau quest.
  */
 @Initializable
 class DeathPlateau : Quest("Death Plateau", 44, 43, 1, 314, 0, 1, 80) {

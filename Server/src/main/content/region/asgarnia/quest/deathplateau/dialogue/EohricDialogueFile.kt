@@ -8,9 +8,7 @@ import core.game.dialogue.Topic
 import core.tools.END_DIALOGUE
 
 /**
- * Eohric dialogue file
- *
- * @constructor Eohric dialogue file
+ * Eohric dialogue file.
  */
 class EohricDialogueFile : DialogueFile() {
 

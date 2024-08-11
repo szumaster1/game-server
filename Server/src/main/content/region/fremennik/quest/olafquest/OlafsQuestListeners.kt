@@ -7,9 +7,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Olafs quest listeners
- *
- * @constructor Olafs quest listeners
+ * Olafs quest listeners.
  */
 class OlafsQuestListeners : InteractionListener {
 

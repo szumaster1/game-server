@@ -110,9 +110,7 @@ class NaturalHistorianWestDialogue(player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Talk about camels
- *
- * @constructor Talk about camels
+ * Talk about camels.
  */
 class TalkAboutCamels : DialogueFile() {
 
@@ -140,9 +138,7 @@ class TalkAboutCamels : DialogueFile() {
 }
 
 /**
- * Talk about leeches
- *
- * @constructor Talk about leeches
+ * Talk about leeches.
  */
 class TalkAboutLeeches : DialogueFile() {
 
@@ -175,9 +171,7 @@ class TalkAboutLeeches : DialogueFile() {
 }
 
 /**
- * Talk about moles
- *
- * @constructor Talk about moles
+ * Talk about moles.
  */
 class TalkAboutMoles : DialogueFile() {
 
@@ -206,9 +200,7 @@ class TalkAboutMoles : DialogueFile() {
 }
 
 /**
- * Talk about penguins
- *
- * @constructor Talk about penguins
+ * Talk about penguins.
  */
 class TalkAboutPenguins : DialogueFile() {
 

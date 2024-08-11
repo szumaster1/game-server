@@ -11,9 +11,7 @@ import core.game.node.item.Item
 import core.game.system.task.Pulse
 
 /**
- * Regicide listeners
- *
- * @constructor Regicide listeners
+ * Regicide listeners.
  */
 class RegicideListeners : InteractionListener {
 

@@ -12,9 +12,7 @@ import core.game.world.map.Location
 import core.tools.END_DIALOGUE
 
 /**
- * Shipyard worker dialogue file
- *
- * @constructor Shipyard worker dialogue file
+ * Shipyard worker dialogue file.
  */
 class ShipyardWorkerDialogueFile : DialogueFile() {
 

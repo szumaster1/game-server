@@ -15,18 +15,16 @@ import core.plugin.Initializable
 
 
 /**
- * Imp catcher
- *
- * @constructor Imp catcher
+ * Imp catcher quest.
  */
 @Initializable
 class ImpCatcher : Quest("Imp Catcher", 21, 20, 1, Vars.VARP_QUEST_IMP_CATCHER_PROGRESS, 0, 1, 2) {
 
     /*
-        Quest description:
-        The Wizard Grayzag has summoned hundreds of little imps.
-        They have stolen a lot of things belonging to the Wizard Mizgog, including his magic beads.
-    */
+     * Quest description:
+     * The Wizard Grayzag has summoned hundreds of little imps.
+     * They have stolen a lot of things belonging to the Wizard Mizgog, including his magic beads.
+     */
 
     override fun drawJournal(player: Player, stage: Int) {
         super.drawJournal(player, stage)

@@ -11,9 +11,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Varmens notes
- *
- * @constructor Varmens notes
+ * Varmens notes.
  */
 class VarmensNotes : InteractionListener {
     companion object {

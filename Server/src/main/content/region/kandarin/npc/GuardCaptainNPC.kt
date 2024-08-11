@@ -7,7 +7,7 @@ import core.game.node.entity.npc.NPCBehavior
 import core.tools.RandomFunction
 
 /**
- * Guard captain NPC.
+ * Guard Captain NPC.
  */
 class GuardCaptainNPC : NPCBehavior(NPCs.GUARD_CAPTAIN_3109) {
 

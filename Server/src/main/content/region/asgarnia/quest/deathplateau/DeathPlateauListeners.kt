@@ -11,9 +11,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.item.GroundItemManager
 
 /**
- * Death plateau listeners
- *
- * @constructor Death plateau listeners
+ * Death plateau listeners.
  */
 class DeathPlateauListeners : InteractionListener {
 

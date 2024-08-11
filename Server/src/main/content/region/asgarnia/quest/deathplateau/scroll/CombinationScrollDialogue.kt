@@ -8,9 +8,7 @@ import core.game.dialogue.FacialExpression
 import core.tools.END_DIALOGUE
 
 /**
- * Combination scroll dialogue
- *
- * @constructor Combination scroll dialogue
+ * Combination scroll dialogue.
  */
 class CombinationScrollDialogue : DialogueFile() {
     var a = 0

@@ -11,7 +11,7 @@ import core.game.world.GameWorld
 import core.plugin.Initializable
 
 /**
- * The face dialogue.
+ * The Face dialogue.
  */
 @Initializable
 class TheFaceDialogue(player: Player? = null) : Dialogue(player) {

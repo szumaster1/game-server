@@ -19,10 +19,7 @@ class CraftingGuildListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
-         * Interaction with crafting guild doors.
-         */
-
+        // Handling open interaction crafting guild doors.
         on(guildDoor, IntType.SCENERY, "open") { player, door ->
             if (player.location == Location.create(2933, 3289, 0)) {
                 if (hasLevelStat(player, Skills.CRAFTING, 40)) {

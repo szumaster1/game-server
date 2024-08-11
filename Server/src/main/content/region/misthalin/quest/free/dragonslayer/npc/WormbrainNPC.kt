@@ -10,9 +10,7 @@ import core.game.node.item.GroundItemManager
 import core.game.world.map.Location
 
 /**
- * Wormbrain NPC
- *
- * @constructor Wormbrain NPC
+ * Wormbrain NPC.
  */
 class WormbrainNPC : AbstractNPC {
 
