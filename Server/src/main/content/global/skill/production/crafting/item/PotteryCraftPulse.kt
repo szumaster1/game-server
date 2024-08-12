@@ -16,12 +16,12 @@ import core.tools.StringUtils
 /**
  * Pottery craft pulse
  *
- * @property amount
- * @property pottery
- * @constructor
+ * @property amount The quantity of pottery being crafted.
+ * @property pottery The data related to the specific pottery item.
+ * @constructor Initializes a PotteryCraftPulse instance.
  *
- * @param player
- * @param node
+ * @param player The player who is performing the pottery crafting.
+ * @param node The item node associated with the crafting process.
  */
 class PotteryCraftPulse(player: Player?, node: Item?, var amount: Int, val pottery: PotteryData) : SkillPulse<Item?>(player, node) {
 

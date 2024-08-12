@@ -11,9 +11,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Gem cut plugin
- *
- * @constructor Gem cut plugin
+ * Gem cut plugin.
  */
 @Initializable
 class GemCutPlugin : UseWithHandler(

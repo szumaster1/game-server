@@ -12,9 +12,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Jewellery craft plugin
- *
- * @constructor Jewellery craft plugin
+ * Jewellery craft plugin.
  */
 @Initializable
 class JewelleryCraftPlugin : UseWithHandler(Items.GOLD_BAR_2357, Items.PERFECT_GOLD_BAR_2365) {

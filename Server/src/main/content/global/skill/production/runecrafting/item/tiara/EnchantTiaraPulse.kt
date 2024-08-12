@@ -15,21 +15,21 @@ import kotlin.math.min
 /**
  * Enchant tiara pulse
  *
- * @property talisman
- * @property altar
- * @property tiara
- * @property amount
+ * @property talisman Represents the talisman used in the enchantment process.
+ * @property altar Represents the altar where the enchantment takes place.
+ * @property tiara Represents the tiara that is being enchanted.
+ * @property amount Represents the number of times the enchantment will be applied.
  * @constructor
  *
- * @param player
+ * @param player The player who is performing the enchantment.
  */
 class EnchantTiaraPulse(
-    player: Player?,
-    val talisman: Talisman,
-    val altar: Altar,
-    val tiara: TalismanStaff,
-    var amount: Int,
-) : SkillPulse<Item>(player, null) {
+    player: Player?, // The player initiating the enchantment, can be null if not applicable.
+    val talisman: Talisman, // The talisman used for the enchantment, must be provided.
+    val altar: Altar, // The altar where the enchantment occurs, must be provided.
+    val tiara: TalismanStaff, // The tiara that is being enchanted, must be provided.
+    var amount: Int, // The number of enchantments to perform, can be modified.
+) : SkillPulse<Item>(player, null) { // Inherits from SkillPulse, passing player and null as parameters.
 
     private val plainTiara = Item(Items.TIARA_5525)
 

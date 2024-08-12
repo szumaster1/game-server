@@ -13,11 +13,11 @@ import core.game.node.item.Item
 /**
  * Cannonball pulse
  *
- * @property item
- * @property amount
- * @constructor
+ * @property item Represents the item associated with the cannonball pulse.
+ * @property amount Indicates the quantity of the item.
+ * @constructor Initializes a new instance of CannonballPulse.
  *
- * @param player
+ * @param player The player associated with this cannonball pulse.
  */
 class CannonballPulse(player: Player?, val item: Item?, private var amount: Int) :
     SkillPulse<Item?>(player, null) {

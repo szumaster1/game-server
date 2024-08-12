@@ -10,21 +10,21 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
 /**
- * Jewellery craft pulse
+ * Represents a pulse for jewellery crafting activities.
  *
- * @property type
- * @property amount
- * @constructor
+ * @property type The type of jewellery item being crafted.
+ * @property amount The quantity of the jewellery item to be crafted.
+ * @constructor Initializes a new instance of the JewelleryCraftPulse class.
  *
- * @param player
- * @param node
+ * @param player The player who is crafting the jewellery.
+ * @param node The item node associated with the crafting process.
  */
 class JewelleryCraftPulse(
-    player: Player?,
-    node: Item?,
-    val type: JewelleryData.JewelleryItem,
-    var amount: Int
-) : SkillPulse<Item?>(player, node) {
+    player: Player?, // The player involved in the crafting process, can be null if not applicable.
+    node: Item?, // The item node that represents the crafting item, can also be null.
+    val type: JewelleryData.JewelleryItem, // The specific type of jewellery item being crafted.
+    var amount: Int // The number of items to be crafted, mutable to allow changes.
+) : SkillPulse<Item?>(player, node) { // Inherits from SkillPulse, passing player and node parameters.
 
     companion object {
         private const val ANIMATION = Animations.HUMAN_FURNACE_SMELTING_3243

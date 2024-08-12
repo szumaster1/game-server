@@ -4,9 +4,7 @@ import core.ServerConstants
 import core.game.world.repository.Repository.players
 
 /**
- * Woodcutting node
- *
- * @constructor Woodcutting node
+ * Woodcutting node.
  */
 enum class WoodcuttingNode {
     /**

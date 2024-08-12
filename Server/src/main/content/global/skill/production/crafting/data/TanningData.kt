@@ -11,15 +11,15 @@ import core.game.node.item.Item
 /**
  * Tanning data
  *
- * @property button
- * @property item
- * @property product
+ * @property button Represents the button resource ID associated with the tanning data.
+ * @property item Represents the item resource ID associated with the tanning data.
+ * @property product Represents the product resource ID associated with the tanning data.
  * @constructor Tanning data
  */
 enum class TanningData(
-    val button: Int,
-    val item: Int,
-    val product: Int
+    val button: Int,  // Holds the resource ID for the button
+    val item: Int,    // Holds the resource ID for the item
+    val product: Int  // Holds the resource ID for the product
 ) {
     /**
      * Soft Leather

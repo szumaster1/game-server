@@ -12,14 +12,24 @@ private const val BUTTON_LIGHTNING_ROD = 37
 private const val BUTTON_SILVTHRILL_ROD = 52
 private const val BUTTON_CROSSBOW_BOLTS = 66
 
+/**
+ * Enum class representing SilverData with various properties.
+ * @param buttonId The ID of the button associated with the silver data.
+ * @param requiredItemId The ID of the item required to produce silver.
+ * @param producedItemId The ID of the item produced from silver.
+ * @param amountProduced The quantity of the item produced.
+ * @param minimumLevel The minimum level required to use this silver data.
+ * @param xpReward The experience points rewarded for using this silver data.
+ * @param strungId The ID of the strung item associated with the silver data.
+ */
 enum class SilverData(
-    val buttonId: Int,
-    val requiredItemId: Int,
-    val producedItemId: Int,
-    val amountProduced: Int,
-    val minimumLevel: Int,
-    val xpReward: Double,
-    val strungId: Int
+    val buttonId: Int,          // The ID of the button associated with the silver data.
+    val requiredItemId: Int,   // The ID of the item required to produce silver.
+    val producedItemId: Int,    // The ID of the item produced from silver.
+    val amountProduced: Int,    // The quantity of the item produced.
+    val minimumLevel: Int,      // The minimum level required to use this silver data.
+    val xpReward: Double,       // The experience points rewarded for using this silver data.
+    val strungId: Int           // The ID of the strung item associated with the silver data.
 ) {
     HOLY(
         buttonId = BUTTON_UNBLESSED,

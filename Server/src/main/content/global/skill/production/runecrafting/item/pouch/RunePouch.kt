@@ -14,19 +14,19 @@ import java.util.*
 /**
  * Rune pouch
  *
- * @property pouch
- * @property level
- * @property capacity
- * @property cumulativeCapacity
- * @property uses
- * @constructor Rune pouch
+ * @property pouch Represents the item contained in the rune pouch.
+ * @property level Indicates the required level to use the rune pouch.
+ * @property capacity Defines the maximum number of runes the pouch can hold.
+ * @property cumulativeCapacity Represents the total capacity of the pouch over time.
+ * @property uses Specifies how many times the pouch can be used.
+ * @constructor Rune pouch Initializes a new instance of the RunePouch enum class.
  */
 enum class RunePouch(
-    val pouch: Item,
-    val level: Int,
-    private val capacity: Int,
-    val cumulativeCapacity: Int,
-    val uses: Int
+    val pouch: Item, // The item that the rune pouch holds
+    val level: Int, // The level required to utilize the pouch
+    private val capacity: Int, // The maximum capacity of the pouch
+    val cumulativeCapacity: Int, // The total capacity accumulated over time
+    val uses: Int // The number of uses available for the pouch
 ) {
     /**
      * Small

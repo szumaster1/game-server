@@ -11,10 +11,10 @@ import core.game.system.task.Pulse
 /**
  * Glass make pulse
  *
- * @property player
- * @property product
- * @property amount
- * @constructor Glass make pulse
+ * @property player Represents the player associated with this pulse.
+ * @property product Represents the product identifier for this pulse.
+ * @property amount Represents the quantity of the product in this pulse.
+ * @constructor Initializes a GlassMakePulse instance with the specified player, product, and amount.
  */
 class GlassMakePulse(private val player: Player, val product: Int, private var amount: Int) : Pulse() {
 

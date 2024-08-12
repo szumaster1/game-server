@@ -30,9 +30,9 @@ import java.util.stream.Collectors
 /**
  * Woodcutting pulse
  *
- * @property player
- * @property node
- * @constructor Woodcutting pulse
+ * @property player Represents the player associated with the woodcutting action.
+ * @property node Represents the scenery node that the player interacts with.
+ * @constructor Woodcutting pulse initializes the pulse with a player and a node.
  */
 class WoodcuttingPulse(private val player: Player, private val node: Scenery) : Pulse(1, player, node) {
 
@@ -54,11 +54,6 @@ class WoodcuttingPulse(private val player: Player, private val node: Scenery) : 
         super.stop()
     }
 
-    /**
-     * Message
-     *
-     * @param type
-     */
     fun message(type: Int) {
         if (type == 0) {
             sendMessage(player, "You swing your axe at the tree.")
@@ -92,11 +87,6 @@ class WoodcuttingPulse(private val player: Player, private val node: Scenery) : 
         }
     }
 
-    /**
-     * Check requirements
-     *
-     * @return
-     */
     fun checkRequirements(): Boolean {
         if (getStatLevel(player, Skills.WOODCUTTING) < resource!!.level) {
             sendMessage(player,"You need a woodcutting level of " + resource!!.level + " to chop this tree.")
@@ -127,9 +117,7 @@ class WoodcuttingPulse(private val player: Player, private val node: Scenery) : 
     }
 
     /**
-     * Reward
-     *
-     * @return
+     * Reward.
      */
     fun reward(): Boolean {
         if (++ticks % 4 != 0) {

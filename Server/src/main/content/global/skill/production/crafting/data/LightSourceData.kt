@@ -6,26 +6,24 @@ import core.api.consts.Sounds
 /**
  * Light source data
  *
- * @property emptyId
- * @property fullId
- * @property litId
- * @property sfxId
- * @property levelRequired
- * @property openFlame
- * @constructor Light source data
+ * @property emptyId Represents the ID for an empty light source.
+ * @property fullId Represents the ID for a fully charged light source.
+ * @property litId Represents the ID for a lit light source.
+ * @property sfxId Represents the ID for the sound effect associated with the light source.
+ * @property levelRequired Represents the level required to use this light source.
+ * @property openFlame Indicates whether the light source produces an open flame.
+ * @constructor Light source data Initializes a new instance of LightSourceData with specified parameters.
  */
 enum class LightSourceData(
-    val emptyId: Int,
-    val fullId: Int,
-    val litId: Int,
-    val sfxId: Int,
-    val levelRequired: Int,
-    val openFlame: Boolean
+    val emptyId: Int,      // ID for an empty light source
+    val fullId: Int,       // ID for a fully charged light source
+    val litId: Int,        // ID for a lit light source
+    val sfxId: Int,        // ID for the sound effect associated with the light source
+    val levelRequired: Int, // Level required to use this light source
+    val openFlame: Boolean  // Indicates if the light source produces an open flame
 ) {
     /**
-     * White Candle
-     *
-     * @constructor White Candle
+     * White Candle.
      */
     WHITE_CANDLE(
         emptyId = 0,
@@ -37,9 +35,7 @@ enum class LightSourceData(
     ),
 
     /**
-     * Black Candle
-     *
-     * @constructor Black Candle
+     * Black Candle.
      */
     BLACK_CANDLE(
         emptyId = 0,
@@ -51,9 +47,7 @@ enum class LightSourceData(
     ),
 
     /**
-     * Torch
-     *
-     * @constructor Torch
+     * Torch.
      */
     TORCH(
         emptyId = 0,
@@ -65,9 +59,7 @@ enum class LightSourceData(
     ),
 
     /**
-     * White Candle Lantern
-     *
-     * @constructor White Candle Lantern
+     * White Candle Lantern.
      */
     WHITE_CANDLE_LANTERN(
         emptyId = Items.CANDLE_LANTERN_4527,
@@ -79,9 +71,7 @@ enum class LightSourceData(
     ),
 
     /**
-     * Black Candle Lantern
-     *
-     * @constructor Black Candle Lantern
+     * Black Candle Lantern.
      */
     BLACK_CANDLE_LANTERN(
         emptyId = Items.CANDLE_LANTERN_4527,
@@ -93,9 +83,7 @@ enum class LightSourceData(
     ),
 
     /**
-     * Oil Lamp
-     *
-     * @constructor Oil Lamp
+     * Oil Lamp.
      */
     OIL_LAMP(
         emptyId = Items.OIL_LAMP_4525,
@@ -107,9 +95,7 @@ enum class LightSourceData(
     ),
 
     /**
-     * Bug Lantern
-     *
-     * @constructor Bug Lantern
+     * Bug Lantern.
      */
     BUG_LANTERN(
         emptyId = Items.UNLIT_BUG_LANTERN_7051,
@@ -121,9 +107,7 @@ enum class LightSourceData(
     ),
 
     /**
-     * Oil Lantern
-     *
-     * @constructor Oil Lantern
+     * Oil Lantern.
      */
     OIL_LANTERN(
         emptyId = Items.OIL_LANTERN_4535,
@@ -135,9 +119,7 @@ enum class LightSourceData(
     ),
 
     /**
-     * Bullseye Lantern
-     *
-     * @constructor Bullseye Lantern
+     * Bullseye Lantern.
      */
     BULLSEYE_LANTERN(
         emptyId = Items.BULLSEYE_LANTERN_4546,
@@ -149,9 +131,7 @@ enum class LightSourceData(
     ),
 
     /**
-     * Sapphire Lantern
-     *
-     * @constructor Sapphire Lantern
+     * Sapphire Lantern.
      */
     SAPPHIRE_LANTERN(
         emptyId = 0,
@@ -163,9 +143,7 @@ enum class LightSourceData(
     ),
 
     /**
-     * Mining Helmet
-     *
-     * @constructor Mining Helmet
+     * Mining Helmet.
      */
     MINING_HELMET(
         emptyId = 0,
@@ -177,9 +155,7 @@ enum class LightSourceData(
     ),
 
     /**
-     * Emerald Lantern
-     *
-     * @constructor Emerald Lantern
+     * Emerald Lantern.
      */
     EMERALD_LANTERN(
         emptyId = 0,

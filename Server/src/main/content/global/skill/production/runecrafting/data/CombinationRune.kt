@@ -6,19 +6,20 @@ import core.game.node.item.Item
 /**
  * Combination rune
  *
- * @property rune
- * @property level
- * @property experience
- * @property altars
+ * @property rune Represents the item associated with the combination rune.
+ * @property level Indicates the required level to use the combination rune.
+ * @property experience Specifies the experience gained from using the combination rune.
+ * @property altars Lists the altars where the combination rune can be utilized.
  * @constructor
  *
- * @param runes
+ * @param runes A variable number of runes that can be combined with this combination rune.
  */
 enum class CombinationRune(
-    val rune: Item,
-    val level: Int,
-    val experience: Double,
-    val altars: Array<Altar>, vararg runes: Rune
+    val rune: Item, // The item that represents the combination rune.
+    val level: Int, // The level required to use this combination rune.
+    val experience: Double, // The experience points awarded for using this rune.
+    val altars: Array<Altar>, // The altars where this combination rune can be used.
+    vararg runes: Rune // A variable number of runes that can be combined with this combination rune.
 ) {
     /**
      * Mist

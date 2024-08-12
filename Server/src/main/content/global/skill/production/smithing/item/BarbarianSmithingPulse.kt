@@ -12,12 +12,12 @@ import kotlin.math.min
 /**
  * Barbarian smithing pulse
  *
- * @property weapon
- * @property amount
- * @property button
- * @constructor
+ * @property weapon Represents the type of weapon being crafted.
+ * @property amount Indicates the quantity of weapons to be crafted.
+ * @property button Refers to the specific button pressed by the player.
+ * @constructor Initializes a new instance of BarbarianSmithingPulse.
  *
- * @param player
+ * @param player The player who is performing the smithing action.
  */
 class BarbarianSmithingPulse(player: Player?, val weapon: BarbarianWeapon, var amount: Int, var button: Int) :
     SkillPulse<Item>(player, null) {

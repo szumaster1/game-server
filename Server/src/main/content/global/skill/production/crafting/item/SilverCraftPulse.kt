@@ -14,18 +14,18 @@ import core.game.system.task.Pulse
 /**
  * Silver craft pulse
  *
- * @property player
- * @property product
- * @property furnace
- * @property amount
- * @constructor Silver craft pulse
+ * @property player Represents the player involved in the crafting process.
+ * @property product Represents the silver product being crafted.
+ * @property furnace Represents the furnace used for crafting.
+ * @property amount Represents the quantity of the product to be crafted.
+ * @constructor Silver craft pulse initializes the crafting process with the specified parameters.
  */
 class SilverCraftPulse(
-    val player: Player,
-    val product: SilverData,
-    val furnace: Scenery,
-    var amount: Int
-) : Pulse() {
+    val player: Player, // The player who is crafting the silver product
+    val product: SilverData, // The specific silver product being crafted
+    val furnace: Scenery, // The furnace where the crafting takes place
+    var amount: Int // The number of silver products to be crafted
+) : Pulse() { // Inherits from the Pulse class, indicating it is part of a larger crafting system
 
     override fun pulse(): Boolean {
         if (amount < 1) return true

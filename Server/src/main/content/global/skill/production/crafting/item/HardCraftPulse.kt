@@ -15,11 +15,11 @@ import core.game.node.item.Item
 /**
  * Hard craft pulse
  *
- * @property amount
- * @constructor
+ * @property amount The amount of items to be crafted.
+ * @constructor Initializes a new instance of HardCraftPulse.
  *
- * @param player
- * @param node
+ * @param player The player who is performing the crafting action.
+ * @param node The item node that represents the item being crafted.
  */
 class HardCraftPulse(player: Player?, node: Item?, var amount: Int) : SkillPulse<Item?>(player, node) {
 

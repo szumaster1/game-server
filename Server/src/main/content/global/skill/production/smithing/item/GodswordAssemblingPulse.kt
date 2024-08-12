@@ -11,10 +11,10 @@ import core.game.node.item.Item
 /**
  * Godsword assembling pulse
  *
- * @property used
- * @constructor
+ * @property used Represents the item used in the godsword assembly process.
+ * @constructor Initializes a new instance of GodswordAssemblingPulse.
  *
- * @param player
+ * @param player The player who is assembling the godsword.
  */
 class GodswordAssemblingPulse(player: Player?, val used: Item) : SkillPulse<Item>(player, null) {
 

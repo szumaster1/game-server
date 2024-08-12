@@ -17,12 +17,12 @@ import core.tools.StringUtils
 /**
  * Soft craft pulse
  *
- * @property soft
- * @property amount
- * @constructor
+ * @property soft Represents the soft leather used in crafting.
+ * @property amount Indicates the quantity of soft leather to be used.
+ * @constructor Initializes a SoftCraftPulse instance.
  *
- * @param player
- * @param node
+ * @param player The player who is performing the crafting action.
+ * @param node The item node associated with the crafting process.
  */
 class SoftCraftPulse(player: Player?, node: Item?, val soft: SoftLeather, var amount: Int) :
     SkillPulse<Item?>(player, node) {

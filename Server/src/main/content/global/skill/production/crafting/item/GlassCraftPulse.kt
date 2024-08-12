@@ -13,16 +13,16 @@ import core.game.system.task.Pulse
 /**
  * Glass craft pulse
  *
- * @property player
- * @property product
- * @property amount
- * @constructor Glass craft pulse
+ * @property player Represents the player involved in the glass crafting process.
+ * @property product Represents the specific glass product being crafted.
+ * @property amount Indicates the quantity of the product to be crafted.
+ * @constructor Initializes a new instance of GlassCraftPulse with the specified player, product, and amount.
  */
 class GlassCraftPulse(
-    private val player: Player,
-    private val product: GlassData,
-    private var amount: Int
-) : Pulse() {
+    private val player: Player, // The player who is crafting the glass
+    private val product: GlassData, // The glass product that is being crafted
+    private var amount: Int // The number of glass products to be crafted
+) : Pulse() { // Inherits from the Pulse class
 
     override fun pulse(): Boolean {
         if (amount < 1) {

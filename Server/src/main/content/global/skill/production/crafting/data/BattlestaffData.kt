@@ -5,19 +5,19 @@ import core.api.consts.Items
 /**
  * Battlestaff data
  *
- * @property required
- * @property productId
- * @property amount
- * @property requiredLevel
- * @property experience
+ * @property required The minimum level required to use the battlestaff
+ * @property productId Unique identifier for the battlestaff product
+ * @property amount The quantity of battlestaff available
+ * @property requiredLevel The level needed to wield the battlestaff
+ * @property experience The experience points gained from using the battlestaff
  * @constructor Battlestaff data
  */
 enum class BattlestaffData(
-    val required: Int,
-    val productId: Int,
-    val amount: Int,
-    val requiredLevel: Int,
-    val experience: Double,
+    val required: Int,          // Minimum level required to use the battlestaff
+    val productId: Int,        // Unique identifier for the battlestaff product
+    val amount: Int,           // Quantity of battlestaff available
+    val requiredLevel: Int,    // Level needed to wield the battlestaff
+    val experience: Double,     // Experience points gained from using the battlestaff
 ) {
     /**
      * Water Battlestaff

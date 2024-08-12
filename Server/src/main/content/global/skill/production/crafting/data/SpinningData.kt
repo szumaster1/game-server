@@ -1,23 +1,22 @@
 package content.global.skill.production.crafting.data
 
 import core.api.consts.Items
-
 /**
  * Spinning data
  *
- * @property button
- * @property need
- * @property product
- * @property level
- * @property exp
+ * @property button Represents the button identifier for the spinning action.
+ * @property need Indicates the amount of resources required to perform the spin.
+ * @property product Represents the product obtained from the spinning action.
+ * @property level Indicates the level of the spinning action.
+ * @property exp Represents the experience points gained from the spinning action.
  * @constructor Spinning data
  */
 enum class SpinningData(
-    val button: Int,
-    val need: Int,
-    val product: Int,
-    val level: Int,
-    val exp: Double
+    val button: Int,  // The button identifier for the spinning action
+    val need: Int,    // The amount of resources required to perform the spin
+    val product: Int, // The product obtained from the spinning action
+    val level: Int,   // The level of the spinning action
+    val exp: Double   // The experience points gained from the spinning action
 ) {
     /**
      * Wool

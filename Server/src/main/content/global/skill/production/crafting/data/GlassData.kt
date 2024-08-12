@@ -5,24 +5,22 @@ import core.api.consts.Items
 /**
  * Glass data
  *
- * @property buttonId
- * @property productId
- * @property amount
- * @property requiredLevel
- * @property experience
+ * @property buttonId Unique identifier for the button associated with the glass.
+ * @property productId Unique identifier for the product represented by the glass.
+ * @property amount Current quantity of the product in the glass.
+ * @property requiredLevel Minimum level required to use the glass.
+ * @property experience Experience points gained from using the glass.
  * @constructor Glass data
  */
 enum class GlassData(
-    val buttonId: Int,
-    val productId: Int,
-    var amount: Int,
-    val requiredLevel: Int,
-    val experience: Double
+    val buttonId: Int,          // Unique identifier for the button associated with the glass.
+    val productId: Int,         // Unique identifier for the product represented by the glass.
+    var amount: Int,            // Current quantity of the product in the glass.
+    val requiredLevel: Int,     // Minimum level required to use the glass.
+    val experience: Double       // Experience points gained from using the glass.
 ) {
     /**
-     * Empty Vial
-     *
-     * @constructor Empty Vial
+     * Empty Vial.
      */
     EMPTY_VIAL(
         buttonId = 38,
@@ -33,9 +31,7 @@ enum class GlassData(
     ),
 
     /**
-     * Unpowered Orb
-     *
-     * @constructor Unpowered Orb
+     * Unpowered Orb.
      */
     UNPOWERED_ORB(
         buttonId = 39,
@@ -46,9 +42,7 @@ enum class GlassData(
     ),
 
     /**
-     * Beer Glass
-     *
-     * @constructor Beer Glass
+     * Beer Glass.
      */
     BEER_GLASS(
         buttonId = 40,
@@ -59,9 +53,7 @@ enum class GlassData(
     ),
 
     /**
-     * Empty Candle Lantern
-     *
-     * @constructor Empty Candle Lantern
+     * Empty Candle Lantern.
      */
     EMPTY_CANDLE_LANTERN(
         buttonId = 41,
@@ -72,9 +64,7 @@ enum class GlassData(
     ),
 
     /**
-     * Empty Oil Lamp
-     *
-     * @constructor Empty Oil Lamp
+     * Empty Oil Lamp.
      */
     EMPTY_OIL_LAMP(
         buttonId = 42,
@@ -85,9 +75,7 @@ enum class GlassData(
     ),
 
     /**
-     * Lantern Lens
-     *
-     * @constructor Lantern Lens
+     * Lantern Lens.
      */
     LANTERN_LENS(
         buttonId = 43,
@@ -98,9 +86,7 @@ enum class GlassData(
     ),
 
     /**
-     * Fishbowl
-     *
-     * @constructor Fishbowl
+     * Fishbowl.
      */
     FISHBOWL(
         buttonId = 44,
@@ -111,9 +97,7 @@ enum class GlassData(
     ),
 
     /**
-     * Empty Light Orb
-     *
-     * @constructor Empty Light Orb
+     * Empty Light Orb.
      */
     EMPTY_LIGHT_ORB(
         buttonId = 45,

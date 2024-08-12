@@ -6,16 +6,14 @@ import core.api.consts.Items
 /**
  * Origami data
  *
- * @property requiredDye
- * @property ballonId
- * @property gfxId
+ * @property requiredDye The amount of dye required to create the origami.
+ * @property ballonId The identifier for the balloon associated with the origami.
+ * @property gfxId The graphical identifier for rendering the origami.
  * @constructor Origami data
  */
 enum class OrigamiData(val requiredDye: Int, val ballonId: Int, val gfxId: Int) {
     /**
-     * Yellow
-     *
-     * @constructor Yellow
+     * Yellow.
      */
     YELLOW(
         requiredDye = Items.YELLOW_DYE_1765,
@@ -24,9 +22,7 @@ enum class OrigamiData(val requiredDye: Int, val ballonId: Int, val gfxId: Int) 
     ),
 
     /**
-     * Blue
-     *
-     * @constructor Blue
+     * Blue.
      */
     BLUE(
         requiredDye = Items.BLUE_DYE_1767,
@@ -35,9 +31,7 @@ enum class OrigamiData(val requiredDye: Int, val ballonId: Int, val gfxId: Int) 
     ),
 
     /**
-     * Red
-     *
-     * @constructor Red
+     * Red.
      */
     RED(
         requiredDye = Items.RED_DYE_1763,
@@ -46,9 +40,7 @@ enum class OrigamiData(val requiredDye: Int, val ballonId: Int, val gfxId: Int) 
     ),
 
     /**
-     * Orange
-     *
-     * @constructor Orange
+     * Orange.
      */
     ORANGE(
         requiredDye = Items.ORANGE_DYE_1769,
@@ -57,9 +49,7 @@ enum class OrigamiData(val requiredDye: Int, val ballonId: Int, val gfxId: Int) 
     ),
 
     /**
-     * Green
-     *
-     * @constructor Green
+     * Green.
      */
     GREEN(
         requiredDye = Items.GREEN_DYE_1771,
@@ -68,9 +58,7 @@ enum class OrigamiData(val requiredDye: Int, val ballonId: Int, val gfxId: Int) 
     ),
 
     /**
-     * Purple
-     *
-     * @constructor Purple
+     * Purple.
      */
     PURPLE(
         requiredDye = Items.PURPLE_DYE_1773,
@@ -79,9 +67,7 @@ enum class OrigamiData(val requiredDye: Int, val ballonId: Int, val gfxId: Int) 
     ),
 
     /**
-     * Pink
-     *
-     * @constructor Pink
+     * Pink.
      */
     PINK(
         requiredDye = Items.PINK_DYE_6955,
@@ -90,9 +76,7 @@ enum class OrigamiData(val requiredDye: Int, val ballonId: Int, val gfxId: Int) 
     ),
 
     /**
-     * Black
-     *
-     * @constructor Black
+     * Black.
      */
     BLACK(
         requiredDye = Items.BLACK_MUSHROOM_INK_4622,

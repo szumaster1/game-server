@@ -8,9 +8,7 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
 /**
- * Jewellery data
- *
- * @constructor Create empty Jewellery data
+ * Jewellery data.
  */
 object JewelleryData {
 

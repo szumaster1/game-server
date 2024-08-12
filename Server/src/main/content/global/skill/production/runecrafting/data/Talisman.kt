@@ -8,13 +8,13 @@ import core.game.node.item.Item
 /**
  * Talisman
  *
- * @property talisman
- * @property ruin
- * @constructor Talisman
+ * @property talisman Represents the item associated with the talisman.
+ * @property ruin Represents an optional mysterious ruin associated with the talisman.
+ * @constructor Talisman Initializes a new instance of the Talisman enum class.
  */
 enum class Talisman(
-    val talisman: Item,
-    private val ruin: MysteriousRuin?
+    val talisman: Item, // The item that this talisman represents
+    private val ruin: MysteriousRuin? // An optional mysterious ruin that may be linked to this talisman
 ) {
     /**
      * Air

@@ -11,10 +11,10 @@ import core.game.node.item.Item
 /**
  * Dragonfire shield pulse
  *
- * @property item
- * @constructor
+ * @property item Represents the item associated with the Dragonfire shield pulse.
+ * @constructor Initializes a new instance of DragonfireShieldPulse.
  *
- * @param player
+ * @param player The player who is using the Dragonfire shield pulse.
  */
 class DragonfireShieldPulse(player: Player?, val item: Item) : SkillPulse<Item>(player, null) {
 

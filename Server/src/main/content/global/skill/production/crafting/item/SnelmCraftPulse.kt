@@ -8,8 +8,8 @@ import core.game.node.item.Item
 
 /**
  * Snelm craft pulse.
- * @param node
- * @param data
+ * @param node Represents the item being crafted.
+ * @param data Contains additional data related to the crafting process.
  */
 class SnelmCraftPulse(player: Player?, node: Item?, data: IntArray) : SkillPulse<Item?>(player, node) {
 

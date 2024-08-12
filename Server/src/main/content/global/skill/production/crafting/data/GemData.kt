@@ -8,14 +8,20 @@ import core.game.world.update.flag.context.Animation
 /**
  * Gem data
  *
- * @property uncut
- * @property gem
- * @property level
- * @property animation
- * @property exp
+ * @property uncut Represents the uncut version of the gem.
+ * @property gem Represents the cut version of the gem.
+ * @property level Indicates the level required to use the gem.
+ * @property animation Represents the animation associated with the gem.
+ * @property exp Represents the experience points gained from using the gem.
  * @constructor Gem data
  */
-enum class GemData(val uncut: Item, val gem: Item, val level: Int, val animation: Animation, val exp: Double) {
+enum class GemData(
+    val uncut: Item, // The uncut version of the gem, which is an instance of Item.
+    val gem: Item, // The cut version of the gem, also an instance of Item.
+    val level: Int, // The level required to utilize the gem.
+    val animation: Animation, // The animation that plays when the gem is used.
+    val exp: Double // The experience points awarded for using the gem.
+) {
     /**
      * Sapphire
      *

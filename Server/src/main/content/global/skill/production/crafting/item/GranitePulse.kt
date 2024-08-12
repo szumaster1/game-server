@@ -11,11 +11,11 @@ import core.game.node.item.Item
 /**
  * Granite pulse
  *
- * @property amount
- * @constructor
+ * @property amount The amount of granite involved in the pulse.
+ * @constructor Initializes a GranitePulse instance with the specified player, node, and amount.
  *
- * @param player
- * @param node
+ * @param player The player associated with this GranitePulse.
+ * @param node The item node associated with this GranitePulse.
  */
 class GranitePulse(player: Player, node: Item, var amount : Int) : SkillPulse<Item>(player, node) {
 

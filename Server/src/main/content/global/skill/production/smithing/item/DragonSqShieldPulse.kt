@@ -11,10 +11,10 @@ import core.game.node.item.Item
 /**
  * Dragon sq shield pulse
  *
- * @property item
- * @constructor
+ * @property item Represents the item associated with the Dragon Square Shield.
+ * @constructor Initializes the DragonSqShieldPulse with a player and an item.
  *
- * @param player
+ * @param player The player who is using the Dragon Square Shield.
  */
 class DragonSqShieldPulse(player: Player?, val item: Item) : SkillPulse<Item>(player, null) {
 

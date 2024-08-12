@@ -6,18 +6,22 @@ import core.game.node.item.Item
 /**
  * Pottery data
  *
- * @property unfinished
- * @property product
- * @property level
- * @property exp
- * @property fireExp
- * @constructor Pottery data
+ * @property unfinished Represents the unfinished state of the pottery item.
+ * @property product Represents the final product of the pottery item.
+ * @property level Indicates the level of the pottery item.
+ * @property exp Represents the experience points associated with the pottery item.
+ * @property fireExp Represents the experience points gained from firing the pottery item.
+ * @constructor Pottery data Initializes the properties of the PotteryData enum.
  */
-enum class PotteryData(val unfinished: Item, val product: Item, val level: Int, val exp: Double, val fireExp: Double) {
+enum class PotteryData(
+    val unfinished: Item, // Holds the unfinished item representation
+    val product: Item,    // Holds the final product representation
+    val level: Int,       // Indicates the level of the pottery item
+    val exp: Double,      // Experience points for the pottery item
+    val fireExp: Double    // Experience points gained from firing the pottery item
+) {
     /**
-     * Pot
-     *
-     * @constructor Pot
+     * Pot.
      */
     POT(
         unfinished = Item(Items.UNFIRED_POT_1787),
@@ -28,9 +32,7 @@ enum class PotteryData(val unfinished: Item, val product: Item, val level: Int, 
     ),
 
     /**
-     * Dish
-     *
-     * @constructor Dish
+     * Dish.
      */
     DISH(
         unfinished = Item(Items.UNFIRED_PIE_DISH_1789),
@@ -41,9 +43,7 @@ enum class PotteryData(val unfinished: Item, val product: Item, val level: Int, 
     ),
 
     /**
-     * Bowl
-     *
-     * @constructor Bowl
+     * Bowl.
      */
     BOWL(unfinished = Item(Items.UNFIRED_BOWL_1791),
         product = Item(Items.BOWL_1923),
@@ -52,9 +52,7 @@ enum class PotteryData(val unfinished: Item, val product: Item, val level: Int, 
     ),
 
     /**
-     * Plant
-     *
-     * @constructor Plant
+     * Plant.
      */
     PLANT(
         unfinished = Item(Items.UNFIRED_PLANT_POT_5352),
@@ -65,9 +63,7 @@ enum class PotteryData(val unfinished: Item, val product: Item, val level: Int, 
     ),
 
     /**
-     * Lid
-     *
-     * @constructor Lid
+     * Lid.
      */
     LID(
         unfinished = Item(Items.UNFIRED_POT_LID_4438),

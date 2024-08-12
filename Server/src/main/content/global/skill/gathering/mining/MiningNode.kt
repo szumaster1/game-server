@@ -7,15 +7,15 @@ import core.game.world.repository.Repository.players
 /**
  * Mining node
  *
- * @property id
- * @property emptyId
- * @property identifier
- * @constructor Mining node
+ * @property id Unique identifier for the mining node
+ * @property emptyId Identifier for an empty mining node
+ * @property identifier Byte representation of the mining node
+ * @constructor Initializes a MiningNode with specified parameters
  */
 enum class MiningNode(
-    var id: Int,
-    var emptyId: Int,
-    var identifier: Byte
+    var id: Int,          // Unique identifier for the mining node
+    var emptyId: Int,    // Identifier for an empty mining node
+    var identifier: Byte  // Byte representation of the mining node
 ) {
     /**
      * Copper Ore 0

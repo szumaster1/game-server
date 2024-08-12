@@ -17,12 +17,12 @@ import core.game.world.update.flag.context.Animation
 /**
  * Spinning pulse
  *
- * @property amount
- * @property type
- * @constructor
+ * @property amount Represents the quantity of the spinning pulse.
+ * @property type Defines the type of spinning data associated with the pulse.
+ * @constructor Initializes a SpinningPulse instance.
  *
- * @param player
- * @param node
+ * @param player The player associated with this spinning pulse.
+ * @param node The item node associated with this spinning pulse.
  */
 class SpinningPulse(player: Player?, node: Item?, var amount: Int, val type: SpinningData) : SkillPulse<Item?>(player, node) {
 

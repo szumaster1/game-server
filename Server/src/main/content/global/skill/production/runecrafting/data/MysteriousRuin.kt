@@ -6,24 +6,22 @@ import core.game.world.map.Location
 /**
  * Mysterious ruin
  *
- * @property scenery
- * @property base
- * @property end
- * @property talisman
- * @property tiara
- * @constructor Mysterious ruin
+ * @property scenery An array representing the visual elements of the ruin.
+ * @property base The starting location of the ruin.
+ * @property end The ending location of the ruin.
+ * @property talisman An instance of Talisman associated with the ruin.
+ * @property tiara An instance of Tiara associated with the ruin.
+ * @constructor Mysterious ruin Initializes a new instance of the MysteriousRuin enum.
  */
 enum class MysteriousRuin(
-    val scenery: IntArray,
-    val base: Location,
-    val end: Location,
-    val talisman: Talisman,
-    val tiara: Tiara
+    val scenery: IntArray, // Holds the visual representation of the ruin as an array of integers.
+    val base: Location,    // Represents the initial point of the ruin.
+    val end: Location,     // Represents the final point of the ruin.
+    val talisman: Talisman, // The Talisman object linked to this ruin.
+    val tiara: Tiara       // The Tiara object linked to this ruin.
 ) {
     /**
-     * Air
-     *
-     * @constructor Air
+     * Air.
      */
     AIR(
         scenery = intArrayOf(2452, 7103, 7104),
@@ -34,9 +32,7 @@ enum class MysteriousRuin(
     ),
 
     /**
-     * Mind
-     *
-     * @constructor Mind
+     * Mind.
      */
     MIND(
         scenery = intArrayOf(2453, 7105, 7106),
@@ -47,9 +43,7 @@ enum class MysteriousRuin(
     ),
 
     /**
-     * Water
-     *
-     * @constructor Water
+     * Water.
      */
     WATER(
         scenery = intArrayOf(2454, 7107, 7108),
@@ -60,9 +54,7 @@ enum class MysteriousRuin(
     ),
 
     /**
-     * Earth
-     *
-     * @constructor Earth
+     * Earth.
      */
     EARTH(
         scenery = intArrayOf(2455, 7109, 7110),
@@ -73,9 +65,7 @@ enum class MysteriousRuin(
     ),
 
     /**
-     * Fire
-     *
-     * @constructor Fire
+     * Fire.
      */
     FIRE(
         scenery = intArrayOf(2456, 7111, 7112),
@@ -86,9 +76,7 @@ enum class MysteriousRuin(
     ),
 
     /**
-     * Body
-     *
-     * @constructor Body
+     * Body.
      */
     BODY(
         scenery = intArrayOf(2457, 7113, 7114),
@@ -99,9 +87,7 @@ enum class MysteriousRuin(
     ),
 
     /**
-     * Cosmic
-     *
-     * @constructor Cosmic
+     * Cosmic.
      */
     COSMIC(
         scenery = intArrayOf(2458, 7115, 7116),
@@ -112,9 +98,7 @@ enum class MysteriousRuin(
     ),
 
     /**
-     * Chaos
-     *
-     * @constructor Chaos
+     * Chaos.
      */
     CHAOS(
         scenery = intArrayOf(2461, 7121, 7122),
@@ -125,9 +109,7 @@ enum class MysteriousRuin(
     ),
 
     /**
-     * Nature
-     *
-     * @constructor Nature
+     * Nature.
      */
     NATURE(
         scenery = intArrayOf(2460, 7119, 7120),
@@ -138,9 +120,7 @@ enum class MysteriousRuin(
     ),
 
     /**
-     * Law
-     *
-     * @constructor Law
+     * Law.
      */
     LAW(
         scenery = intArrayOf(2459, 7117, 7118),
@@ -151,9 +131,7 @@ enum class MysteriousRuin(
     ),
 
     /**
-     * Death
-     *
-     * @constructor Death
+     * Death.
      */
     DEATH(
         scenery = intArrayOf(2462, 7123, 7124),
@@ -164,9 +142,7 @@ enum class MysteriousRuin(
     ),
 
     /**
-     * Blood
-     *
-     * @constructor Blood
+     * Blood.
      */
     BLOOD(
         scenery = intArrayOf(2464, 30529, 30530),

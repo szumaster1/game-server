@@ -6,15 +6,13 @@ import core.game.node.item.Item
 /**
  * Tiara
  *
- * @property item
- * @property experience
- * @constructor Tiara
+ * @property item Represents the item associated with the Tiara.
+ * @property experience Represents the experience points gained from the Tiara.
+ * @constructor Tiara Initializes a new instance of the Tiara enum class with the specified item and experience.
  */
 enum class Tiara(val item: Item, val experience: Double) {
     /**
-     * Air
-     *
-     * @constructor Air
+     * Air.
      */
     AIR(
         item = Item(Items.AIR_TIARA_5527),
@@ -22,9 +20,7 @@ enum class Tiara(val item: Item, val experience: Double) {
     ),
 
     /**
-     * Mind
-     *
-     * @constructor Mind
+     * Mind.
      */
     MIND(
         item = Item(Items.MIND_TIARA_5529),
@@ -32,9 +28,7 @@ enum class Tiara(val item: Item, val experience: Double) {
     ),
 
     /**
-     * Water
-     *
-     * @constructor Water
+     * Water.
      */
     WATER(
         item = Item(Items.WATER_TIARA_5531),
@@ -42,9 +36,7 @@ enum class Tiara(val item: Item, val experience: Double) {
     ),
 
     /**
-     * Earth
-     *
-     * @constructor Earth
+     * Earth.
      */
     EARTH(
         item = Item(Items.EARTH_TIARA_5535),
@@ -52,9 +44,7 @@ enum class Tiara(val item: Item, val experience: Double) {
     ),
 
     /**
-     * Fire
-     *
-     * @constructor Fire
+     * Fire.
      */
     FIRE(
         item = Item(Items.FIRE_TIARA_5537),
@@ -62,9 +52,7 @@ enum class Tiara(val item: Item, val experience: Double) {
     ),
 
     /**
-     * Body
-     *
-     * @constructor Body
+     * Body.
      */
     BODY(
         item = Item(Items.BODY_TIARA_5533),
@@ -72,9 +60,7 @@ enum class Tiara(val item: Item, val experience: Double) {
     ),
 
     /**
-     * Cosmic
-     *
-     * @constructor Cosmic
+     * Cosmic.
      */
     COSMIC(
         item = Item(Items.COSMIC_TIARA_5539),
@@ -82,9 +68,7 @@ enum class Tiara(val item: Item, val experience: Double) {
     ),
 
     /**
-     * Chaos
-     *
-     * @constructor Chaos
+     * Chaos.
      */
     CHAOS(
         item = Item(Items.CHAOS_TIARA_5543),
@@ -92,9 +76,7 @@ enum class Tiara(val item: Item, val experience: Double) {
     ),
 
     /**
-     * Nature
-     *
-     * @constructor Nature
+     * Nature.
      */
     NATURE(
         item = Item(Items.NATURE_TIARA_5541),
@@ -102,9 +84,7 @@ enum class Tiara(val item: Item, val experience: Double) {
     ),
 
     /**
-     * Law
-     *
-     * @constructor Law
+     * Law.
      */
     LAW(
         item = Item(Items.LAW_TIARA_5545),
@@ -112,9 +92,7 @@ enum class Tiara(val item: Item, val experience: Double) {
     ),
 
     /**
-     * Death
-     *
-     * @constructor Death
+     * Death.
      */
     DEATH(
         item = Item(Items.DEATH_TIARA_5547),
@@ -122,9 +100,7 @@ enum class Tiara(val item: Item, val experience: Double) {
     ),
 
     /**
-     * Blood
-     *
-     * @constructor Blood
+     * Blood.
      */
     BLOOD(
         item = Item(Items.BLOOD_TIARA_5549),

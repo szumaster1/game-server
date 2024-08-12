@@ -17,12 +17,12 @@ import core.tools.StringUtils
 /**
  * Dragon craft pulse
  *
- * @property hide
- * @property amount
- * @constructor
+ * @property hide Represents the dragon hide used in crafting.
+ * @property amount Indicates the quantity of the dragon hide.
+ * @constructor Initializes a DragonCraftPulse instance.
  *
- * @param player
- * @param node
+ * @param player The player associated with this crafting pulse.
+ * @param node The item node involved in the crafting process.
  */
 class DragonCraftPulse(player: Player?, node: Item?, val hide: DragonHide, var amount: Int) : SkillPulse<Item?>(player, node) {
 

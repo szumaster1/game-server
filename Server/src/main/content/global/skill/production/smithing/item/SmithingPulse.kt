@@ -18,12 +18,12 @@ import core.tools.StringUtils
 /**
  * Smithing pulse
  *
- * @property bars
- * @property amount
- * @constructor
+ * @property bars Represents the type of bars used in smithing.
+ * @property amount Indicates the quantity of items to be crafted.
+ * @constructor Initializes a new instance of SmithingPulse.
  *
- * @param player
- * @param item
+ * @param player The player who is performing the smithing action.
+ * @param item The item that is being crafted.
  */
 class SmithingPulse(player: Player?, item: Item?, private val bars: Bars, private var amount: Int) :
     SkillPulse<Item?>(player, item) {
