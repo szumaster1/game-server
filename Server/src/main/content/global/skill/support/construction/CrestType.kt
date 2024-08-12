@@ -23,18 +23,11 @@ private val VARROCK_CREST_SYMBOL    = "the symbol of Varrock"
 private val ZAMORAK_CREST_SYMBOL    = "the symbol of Zamorak"
 
 /**
- * Crest type
- *
- * @property cost
- * @constructor
- *
- * @param name
+ * Crest type.
  */
 enum class CrestType(name: String, val cost: Int = 5000) : CrestRequirement {
     /**
-     * Arrav
-     *
-     * @constructor Arrav
+     * Arrav.
      */
     ARRAV(ARRAV_CREST_SYMBOL) {
         override fun eligible(player: Player): Boolean {
@@ -43,16 +36,12 @@ enum class CrestType(name: String, val cost: Int = 5000) : CrestRequirement {
     },
 
     /**
-     * Asgarnia
-     *
-     * @constructor Asgarnia
+     * Asgarnia.
      */
     ASGARNIA(ASGARNIA_CREST_SYMBOL),
 
     /**
-     * Dorgeshuun
-     *
-     * @constructor Dorgeshuun
+     * Dorgeshuun.
      */
     DORGESHUUN(DORGESHUUN_CREST_SYMBOL) {
         override fun eligible(player: Player): Boolean {
@@ -61,9 +50,7 @@ enum class CrestType(name: String, val cost: Int = 5000) : CrestRequirement {
     },
 
     /**
-     * Dragon
-     *
-     * @constructor Dragon
+     * Dragon.
      */
     DRAGON(DRAGON_CREST_SYMBOL) {
         override fun eligible(player: Player): Boolean {
@@ -72,9 +59,7 @@ enum class CrestType(name: String, val cost: Int = 5000) : CrestRequirement {
     },
 
     /**
-     * Fairy
-     *
-     * @constructor Fairy
+     * Fairy.
      */
     FAIRY(FAIRY_CREST_SYMBOL) {
         override fun eligible(player: Player): Boolean {
@@ -83,9 +68,7 @@ enum class CrestType(name: String, val cost: Int = 5000) : CrestRequirement {
     },
 
     /**
-     * Guthix
-     *
-     * @constructor Guthix
+     * Guthix.
      */
     GUTHIX(GUTHIX_CREST_SYMBOL) {
         override fun eligible(player: Player): Boolean {
@@ -94,16 +77,12 @@ enum class CrestType(name: String, val cost: Int = 5000) : CrestRequirement {
     },
 
     /**
-     * Ham
-     *
-     * @constructor Ham
+     * Ham.
      */
     HAM(H_A_M_CREST_SYMBOL),
 
     /**
-     * Horse
-     *
-     * @constructor Horse
+     * Horse.
      */
     HORSE(HORSE_CREST_SYMBOL) {
         override fun eligible(player: Player): Boolean {
@@ -114,37 +93,27 @@ enum class CrestType(name: String, val cost: Int = 5000) : CrestRequirement {
     },
 
     /**
-     * Jogre
-     *
-     * @constructor Jogre
+     * Jogre.
      */
     JOGRE(JOGRE_CREST_SYMBOL),
 
     /**
-     * Kandarin
-     *
-     * @constructor Kandarin
+     * Kandarin.
      */
     KANDARIN(KANDARIN_CREST_SYMBOL),
 
     /**
-     * Misthalin
-     *
-     * @constructor Misthalin
+     * Misthalin.
      */
     MISTHALIN(MISTHALIN_CREST_SYMBOL),
 
     /**
-     * Money
-     *
-     * @constructor Money
+     * Money.
      */
     MONEY(MONEY_CREST_SYMBOL, 500000),
 
     /**
-     * Saradomin
-     *
-     * @constructor Saradomin
+     * Saradomin.
      */
     SARADOMIN(SARADOMIN_CREST_SYMBOL) {
         override fun eligible(player: Player): Boolean {
@@ -153,9 +122,7 @@ enum class CrestType(name: String, val cost: Int = 5000) : CrestRequirement {
     },
 
     /**
-     * Skull
-     *
-     * @constructor Skull
+     * Skull.
      */
     SKULL(SKULL_CREST_SYMBOL) {
         override fun eligible(player: Player): Boolean {
@@ -164,16 +131,12 @@ enum class CrestType(name: String, val cost: Int = 5000) : CrestRequirement {
     },
 
     /**
-     * Varrock
-     *
-     * @constructor Varrock
+     * Varrock.
      */
     VARROCK(VARROCK_CREST_SYMBOL),
 
     /**
-     * Zamorak
-     *
-     * @constructor Zamorak
+     * Zamorak.
      */
     ZAMORAK(ZAMORAK_CREST_SYMBOL) {
         override fun eligible(player: Player): Boolean {

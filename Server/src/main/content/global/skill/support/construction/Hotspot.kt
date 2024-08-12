@@ -2,13 +2,6 @@ package content.global.skill.support.construction
 
 /**
  * Hotspot
- *
- * @property hotspot
- * @property chunkX
- * @property chunkY
- * @property chunkX2
- * @property chunkY2
- * @constructor Hotspot
  */
 class Hotspot (val hotspot: BuildHotspot, val chunkX: Int, val chunkY: Int, var chunkX2: Int, var chunkY2: Int) {
 

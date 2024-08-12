@@ -22,14 +22,6 @@ import core.plugin.Plugin
  */
 @Initializable
 class SorceressElementalNPC : AbstractNPC {
-
-    /**
-     * Elemental definition
-     *
-     * @property npcId
-     * @property locations
-     * @constructor Elemental definition
-     */
     internal enum class ElementalDefinition(private val npcId: Int, private val locations: Array<Location>) {
         /**
          * Autumn Elemental 5533.

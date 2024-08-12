@@ -1,11 +1,7 @@
 package content.global.skill.support.construction
 
 /**
- * Room template
- *
- * @constructor
- *
- * @param properties
+ * Room template.
  */
 class RoomTemplate(properties: RoomProperties) {
     var hotspots: MutableList<Hotspot> = ArrayList<Hotspot>()
@@ -17,9 +13,7 @@ class RoomTemplate(properties: RoomProperties) {
     }
 
     /**
-     * Rotate
-     *
-     * @param clockwise
+     * Rotate.
      */
     fun rotate(clockwise: Boolean){
         hotspots = hotspots.map{
