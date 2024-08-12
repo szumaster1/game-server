@@ -16,11 +16,11 @@ import core.tools.RandomFunction
 import core.tools.StringUtils
 
 /**
- * Fletching pulse.
+ * Fletching pulse class that handles the fletching skill actions.
  *
- * @param node
- * @param amount
- * @param fletch
+ * @param node The item node that is being fletched.
+ * @param amount The quantity of items to be fletched.
+ * @param fletch The specific fletching item being used.
  */
 class FletchingPulse(player: Player?, node: Item?, amount: Int, fletch: FletchingItems) : SkillPulse<Item?>(player, node) {
 

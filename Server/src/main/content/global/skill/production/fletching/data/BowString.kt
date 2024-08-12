@@ -3,16 +3,16 @@ package content.global.skill.production.fletching.data
 import core.api.consts.Items
 
 /**
- * Bow string
+ * Enum class representing different types of bow strings.
  *
- * @property unfinished
- * @property product
- * @property level
- * @property experience
- * @property animation
+ * @property unfinished Represents the unfinished state of the bow string.
+ * @property product Represents the product ID associated with the bow string.
+ * @property level Represents the level required to use the bow string.
+ * @property experience Represents the experience gained from using the bow string.
+ * @property animation Represents the animation ID associated with the bow string.
  * @constructor
  *
- * @param indicator
+ * @param indicator A byte value indicating a specific characteristic of the bow string.
  */
 enum class BowString(indicator: Byte, val unfinished: Int, val product: Int, val level: Int, val experience: Double, val animation: Int) {
     /**

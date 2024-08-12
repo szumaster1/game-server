@@ -6,17 +6,17 @@ import core.game.node.item.Item
 /**
  * Tar
  *
- * @property ingredient
- * @property level
- * @property experience
- * @property tar
- * @constructor Tar
+ * @property ingredient Represents the main ingredient used in the Tar.
+ * @property level Indicates the required level to use the Tar.
+ * @property experience Represents the experience gained from using the Tar.
+ * @property tar Represents the resulting item after using the Tar.
+ * @constructor Tar Initializes a Tar instance with the specified ingredient, level, experience, and resulting tar item.
  */
 enum class Tar(
-    val ingredient: Item,
-    val level: Int,
-    val experience: Double,
-    val tar: Item
+    val ingredient: Item, // The main ingredient for the Tar
+    val level: Int, // The level required to use this Tar
+    val experience: Double, // Experience points gained from using this Tar
+    val tar: Item // The resulting item after using the Tar
 ) {
     /**
      * Guam Tar

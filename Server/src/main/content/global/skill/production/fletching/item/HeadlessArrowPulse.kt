@@ -11,12 +11,12 @@ import kotlin.math.min
 /**
  * Headless arrow pulse
  *
- * @property feather
- * @property sets
- * @constructor
+ * @property feather Represents the feather item associated with the arrow pulse.
+ * @property sets Indicates the number of sets for the arrow pulse.
+ * @constructor Initializes a new instance of HeadlessArrowPulse.
  *
- * @param player
- * @param node
+ * @param player The player associated with this arrow pulse.
+ * @param node The item node associated with this arrow pulse.
  */
 class HeadlessArrowPulse(player: Player?, node: Item?, private val feather: Item?, private var sets: Int) : SkillPulse<Item?>(player, node) {
 

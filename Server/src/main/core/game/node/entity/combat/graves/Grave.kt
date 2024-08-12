@@ -18,9 +18,7 @@ import core.tools.secondsToTicks
 import core.tools.ticksToSeconds
 
 /**
- * Grave
- *
- * @constructor Grave
+ * Grave.
  */
 @Initializable
 class Grave : AbstractNPC {
@@ -43,9 +41,7 @@ class Grave : AbstractNPC {
     }
 
     /**
-     * Configure type
-     *
-     * @param type
+     * Configure type.
      */
     fun configureType(type: GraveType) {
         this.type = type
@@ -56,9 +52,9 @@ class Grave : AbstractNPC {
     /**
      * Initialize
      *
-     * @param player
-     * @param location
-     * @param inventory
+     * @param player The player object that will be initialized.
+     * @param location The location where the player will be placed.
+     * @param inventory The array of items that the player will have.
      */
     fun initialize(player: Player, location: Location, inventory: Array<Item>) {
         if (!GraveController.allowGenerate(player))
@@ -112,11 +108,11 @@ class Grave : AbstractNPC {
     /**
      * Setup from json params
      *
-     * @param playerUid
-     * @param ticks
-     * @param location
-     * @param items
-     * @param username
+     * @param playerUid Unique identifier for the player
+     * @param ticks Number of ticks to process
+     * @param location The player's current location in the game
+     * @param items Array of items associated with the player
+     * @param username The name of the player
      */
     fun setupFromJsonParams(playerUid: Int, ticks: Int, location: Location, items: Array<Item>, username: String) {
         this.ownerUid = playerUid
@@ -148,7 +144,7 @@ class Grave : AbstractNPC {
     /**
      * Add time
      *
-     * @param ticks
+     * @param ticks The number of ticks to add to the remaining time.
      */
     fun addTime(ticks: Int) {
         ticksRemaining += ticks
@@ -199,7 +195,7 @@ class Grave : AbstractNPC {
     /**
      * Get items
      *
-     * @return
+     * @return An array of GroundItem objects.
      */
     fun getItems(): Array<GroundItem> {
         return this.items.toTypedArray()
@@ -208,7 +204,7 @@ class Grave : AbstractNPC {
     /**
      * Retrieve formatted text
      *
-     * @return
+     * @return A formatted string with the owner's username and remaining time.
      */
     fun retrieveFormattedText(): String {
         return type.text
@@ -219,7 +215,7 @@ class Grave : AbstractNPC {
     /**
      * Get formatted time remaining
      *
-     * @return
+     * @return A string representing the remaining time in a human-readable format.
      */
     fun getFormattedTimeRemaining(): String {
         val seconds = ticksToSeconds(ticksRemaining)

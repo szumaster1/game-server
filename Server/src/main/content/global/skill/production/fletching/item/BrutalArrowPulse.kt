@@ -9,10 +9,11 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
 /**
- * Brutal arrow pulse.
- * @param node
- * @param arrow
- * @param sets
+ * Represents a brutal arrow pulse skill.
+ * @param player The player who is using the skill.
+ * @param node The item node associated with the skill.
+ * @param arrow The specific brutal arrow being used.
+ * @param sets The number of sets for the skill.
  */
 class BrutalArrowPulse(player: Player?, node: Item?, arrow: BrutalArrow, sets: Int) : SkillPulse<Item?>(player, node) {
 

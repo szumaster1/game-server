@@ -9,18 +9,17 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
 /**
- * Bolt pulse
+ * Bolt pulse class representing a skill pulse related to bolts.
  *
- * @property feather
- * @property sets
- * @constructor
+ * @property feather Represents the feather item associated with the bolt pulse.
+ * @property sets Indicates the number of sets for the bolt pulse.
+ * @constructor Initializes a BoltPulse instance with the specified parameters.
  *
- * @param player
- * @param node
- * @param bolt
+ * @param player The player associated with this bolt pulse.
+ * @param node The item node associated with this bolt pulse.
+ * @param bolt The bolt object related to this pulse.
  */
 class BoltPulse(player: Player?, node: Item?, bolt: Bolt, private val feather: Item, private var sets: Int) : SkillPulse<Item?>(player, node) {
-
     private val bolt: Bolt = bolt
 
     private val useSets = false

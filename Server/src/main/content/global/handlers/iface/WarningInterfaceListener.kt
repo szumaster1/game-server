@@ -152,15 +152,15 @@ class WarningInterfaceListener : InterfaceListener {
     }
 
     /**
-     * Handle
+     * Handle the interaction for a player with a specific component.
      *
-     * @param player
-     * @param component
-     * @param opcode
-     * @param button
-     * @param slot
-     * @param itemId
-     * @return
+     * @param player The player who is interacting with the component.
+     * @param component The component that the player is interacting with.
+     * @param opcode The operation code that indicates the type of interaction.
+     * @param button The button that was pressed during the interaction.
+     * @param slot The slot index of the item being interacted with.
+     * @param itemId The unique identifier of the item being interacted with.
+     * @return Returns true if the interaction was handled successfully, false otherwise.
      */
     fun handle(player: Player, component: Component, opcode: Int, button: Int, slot: Int, itemId: Int): Boolean {
         closeInterface(player)

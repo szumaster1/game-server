@@ -30,20 +30,21 @@ import kotlin.math.max
 /**
  * Runecrafting pulse
  *
- * @property altar
- * @property combination
- * @property combo
+ * @property altar Represents the altar used in the runecrafting process.
+ * @property combination Indicates whether a combination of runes is being used.
+ * @property combo Holds the specific combination of runes, if applicable.
  * @constructor
  *
- * @param player
- * @param node
+ * @param player The player who is performing the runecrafting action.
+ * @param node The item associated with the runecrafting action.
  */
 class RunecraftingPulse(
-    player: Player?, node: Item?,
-    val altar: Altar,
-    private val combination: Boolean,
-    private val combo: CombinationRune?
-) : SkillPulse<Item?>(player, node) {
+    player: Player?, // The player involved in the runecrafting process, can be null.
+    node: Item?, // The item that is being used in the runecrafting, can also be null.
+    val altar: Altar, // The altar where the runecrafting takes place.
+    private val combination: Boolean, // A flag indicating if a combination of runes is used.
+    private val combo: CombinationRune? // The specific combination of runes, if any.
+) : SkillPulse<Item?>(player, node) { // Inherits from SkillPulse, passing player and node.
 
     private val rune: Rune
     private var talisman: Talisman? = null

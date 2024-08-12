@@ -3,13 +3,13 @@ package content.global.skill.production.fletching.data
 import core.api.consts.Items
 
 /**
- * Brutal arrow
+ * Enum class representing different types of Brutal Arrows.
  *
- * @property base
- * @property product
- * @property level
- * @property experience
- * @constructor Brutal arrow
+ * @property base The base damage of the arrow.
+ * @property product The multiplier for the arrow's damage.
+ * @property level The level required to use the arrow.
+ * @property experience The experience points gained from using the arrow.
+ * @constructor Initializes a BrutalArrow with specified base, product, level, and experience.
  */
 enum class BrutalArrow(var base: Int, var product: Int, var level: Int, var experience: Double) {
     /**

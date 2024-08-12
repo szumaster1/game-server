@@ -5,13 +5,13 @@ import core.api.consts.Items
 /**
  * Limb
  *
- * @property stock
- * @property limb
- * @property product
- * @property level
- * @property experience
- * @property animation
- * @constructor Limb
+ * @param stock      Represents the quantity of the limb available.
+ * @param limb       Represents the identifier for the limb type.
+ * @param product    Represents the product associated with the limb.
+ * @param level      Represents the required level to use the limb.
+ * @param experience Represents the experience points gained from using the limb.
+ * @param animation  Represents the animation ID associated with the limb.
+ * @constructor limb
  */
 enum class Limb(val stock: Int, val limb: Int, val product: Int, val level: Int, val experience: Double, val animation: Int) {
     /**

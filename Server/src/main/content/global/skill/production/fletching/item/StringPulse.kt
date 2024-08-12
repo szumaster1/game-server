@@ -12,12 +12,12 @@ import core.game.world.map.zone.ZoneBorders
 /**
  * String pulse
  *
- * @property bow
- * @property amount
- * @constructor
+ * @property bow Represents the bow string used in the pulse.
+ * @property amount Indicates the quantity of the bow string.
+ * @constructor Initializes a StringPulse instance with the specified player, node, bow, and amount.
  *
- * @param player
- * @param node
+ * @param player The player associated with this StringPulse.
+ * @param node The item node associated with this StringPulse.
  */
 open class StringPulse(player: Player, node: Item, private val bow: BowString, private var amount: Int) : SkillPulse<Item>(player, node) {
 

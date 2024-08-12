@@ -19,8 +19,8 @@ import kotlin.math.ceil
 
 /**
  * Fire making pulse.
- * @param node
- * @param groundItem
+ * @param node The item node that represents the fire-making action.
+ * @param groundItem The ground item that may be involved in the fire-making process, can be null.
  */
 class FireMakingPulse(player: Player, node: Item, groundItem: GroundItem?) : SkillPulse<Item?>(player, node) {
 

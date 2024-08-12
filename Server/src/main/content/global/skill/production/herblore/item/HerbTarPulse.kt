@@ -10,14 +10,14 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
 /**
- * Herb tar pulse
+ * Herblore pulse
  *
- * @property tar
- * @property amount
- * @constructor
+ * @property amount The number of potions to be crafted.
+ * @property potion The specific potion being crafted.
+ * @constructor Initializes a HerblorePulse instance.
  *
- * @param player
- * @param node
+ * @param player The player who is performing the herblore action.
+ * @param node The item node associated with the herblore action.
  */
 class HerbTarPulse(player: Player?, node: Item?, val tar: Tar, private var amount: Int) :
     SkillPulse<Item?>(player, node) {

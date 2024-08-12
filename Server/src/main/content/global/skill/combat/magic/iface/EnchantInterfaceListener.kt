@@ -53,61 +53,20 @@ class EnchantInterfaceListener : InterfaceListener {
     }
 
     /**
-     * Enchanted staff
+     * Enum representing different types of enchanted staff.
      *
-     * @property enchanted
-     * @property basic
-     * @property child
-     * @constructor Enchanted staff
+     * @property enchanted The enchanted value of the staff.
+     * @property basic The basic value of the staff.
+     * @property child The child value of the staff.
+     * @constructor Creates an enchanted staff with the specified values.
      */
     enum class EnchantedStaff(val enchanted: Int, val basic: Int, val child: Int) {
-        /**
-         * Air
-         *
-         * @constructor Air
-         */
         AIR(Items.MYSTIC_AIR_STAFF_1405, Items.AIR_BATTLESTAFF_1397, 21),
-
-        /**
-         * Water
-         *
-         * @constructor Water
-         */
         WATER(Items.MYSTIC_WATER_STAFF_1403, Items.WATER_BATTLESTAFF_1395, 22),
-
-        /**
-         * Earth
-         *
-         * @constructor Earth
-         */
         EARTH(Items.MYSTIC_EARTH_STAFF_1407, Items.EARTH_BATTLESTAFF_1399, 23),
-
-        /**
-         * Fire
-         *
-         * @constructor Fire
-         */
         FIRE(Items.MYSTIC_FIRE_STAFF_1401, Items.FIRE_BATTLESTAFF_1393, 24),
-
-        /**
-         * Lava
-         *
-         * @constructor Lava
-         */
         LAVA(Items.MYSTIC_LAVA_STAFF_3054, Items.LAVA_BATTLESTAFF_3053, 25),
-
-        /**
-         * Mud
-         *
-         * @constructor Mud
-         */
         MUD(Items.MYSTIC_MUD_STAFF_6563, Items.MUD_BATTLESTAFF_6562, 26),
-
-        /**
-         * Steam
-         *
-         * @constructor Steam
-         */
         STEAM(Items.MYSTIC_STEAM_STAFF_11738, Items.STEAM_BATTLESTAFF_11736, 27);
 
         companion object {

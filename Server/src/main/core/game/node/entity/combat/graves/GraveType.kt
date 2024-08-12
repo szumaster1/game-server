@@ -3,15 +3,15 @@ package core.game.node.entity.combat.graves
 import core.api.consts.NPCs
 
 /**
- * Grave type
+ * Grave type.
  *
- * @property npcId
- * @property cost
- * @property durationMinutes
- * @property isMembers
- * @property requiredQuest
- * @property text
- * @constructor Grave type
+ * @property npcId Unique identifier for the NPC associated with the grave type.
+ * @property cost Cost associated with the grave type.
+ * @property durationMinutes Duration in minutes for which the grave type is valid.
+ * @property isMembers Boolean indicating if the grave type is available to members only.
+ * @property requiredQuest Optional quest required to access this grave type.
+ * @property text Descriptive text for the grave type.
+ * @constructor Grave type.
  */
 enum class GraveType(
     val npcId: Int,
@@ -22,9 +22,7 @@ enum class GraveType(
     val text: String
 ) {
     /**
-     * Mem Plaque
-     *
-     * @constructor Mem Plaque
+     * Mem Plaque.
      */
     MEM_PLAQUE(
         npcId = NPCs.GRAVE_MARKER_6565,
@@ -35,9 +33,7 @@ enum class GraveType(
     ),
 
     /**
-     * Flag
-     *
-     * @constructor Flag
+     * Flag.
      */
     FLAG(
         npcId = NPCs.GRAVE_MARKER_6568,
@@ -48,9 +44,7 @@ enum class GraveType(
     ),
 
     /**
-     * Small Gs
-     *
-     * @constructor Small Gs
+     * Small Gs.
      */
     SMALL_GS(
         npcId = NPCs.GRAVESTONE_6571,
@@ -61,9 +55,7 @@ enum class GraveType(
     ),
 
     /**
-     * Ornate Gs
-     *
-     * @constructor Ornate Gs
+     * Ornate Gs.
      */
     ORNATE_GS(
         npcId = NPCs.GRAVESTONE_6574,
@@ -74,9 +66,7 @@ enum class GraveType(
     ),
 
     /**
-     * Font Of Life
-     *
-     * @constructor Font Of Life
+     * Font Of Life.
      */
     FONT_OF_LIFE(
         npcId = NPCs.GRAVESTONE_6577,
@@ -87,9 +77,7 @@ enum class GraveType(
     ),
 
     /**
-     * Stele
-     *
-     * @constructor Stele
+     * Stele.
      */
     STELE(
         npcId = NPCs.STELE_6580,
@@ -100,9 +88,7 @@ enum class GraveType(
     ),
 
     /**
-     * Sara Symbol
-     *
-     * @constructor Sara Symbol
+     * Sara Symbol.
      */
     SARA_SYMBOL(
         npcId = NPCs.SARADOMIN_SYMBOL_6583,
@@ -113,9 +99,7 @@ enum class GraveType(
     ),
 
     /**
-     * Zam Symbol
-     *
-     * @constructor Zam Symbol
+     * Zam Symbol.
      */
     ZAM_SYMBOL(
         npcId = NPCs.ZAMORAK_SYMBOL_6586,
@@ -126,9 +110,7 @@ enum class GraveType(
     ),
 
     /**
-     * Guth Symbol
-     *
-     * @constructor Guth Symbol
+     * Guthix Symbol.
      */
     GUTH_SYMBOL(
         npcId = NPCs.GUTHIX_SYMBOL_6589,
@@ -139,9 +121,7 @@ enum class GraveType(
     ),
 
     /**
-     * Band Symbol
-     *
-     * @constructor Band Symbol
+     * Bandos Symbol.
      */
     BAND_SYMBOL(
         npcId = NPCs.BANDOS_SYMBOL_6592,
@@ -153,9 +133,7 @@ enum class GraveType(
     ),
 
     /**
-     * Arma Symbol
-     *
-     * @constructor Arma Symbol
+     * Arma Symbol.
      */
     ARMA_SYMBOL(
         npcId = NPCs.ARMADYL_SYMBOL_6595,
@@ -167,9 +145,7 @@ enum class GraveType(
     ),
 
     /**
-     * Zaro Symbol
-     *
-     * @constructor Zaro Symbol
+     * Zaro Symbol.
      */
     ZARO_SYMBOL(
         npcId = NPCs.MEMORIAL_STONE_6598,
@@ -181,9 +157,7 @@ enum class GraveType(
     ),
 
     /**
-     * Angel Death
-     *
-     * @constructor Angel Death
+     * Angel Death.
      */
     ANGEL_DEATH(
         npcId = NPCs.MEMORIAL_STONE_6601,

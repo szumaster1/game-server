@@ -7,16 +7,15 @@ import core.game.node.entity.skill.SkillPulse
 import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
-
 /**
  * Dart pulse
  *
- * @property dart
- * @property sets
- * @constructor
+ * @property dart Represents the dart object associated with this pulse.
+ * @property sets Indicates the number of sets for the dart pulse.
+ * @constructor Initializes a DartPulse instance with the specified player, node, dart, and sets.
  *
- * @param player
- * @param node
+ * @param player The player associated with this pulse, can be null.
+ * @param node The item node associated with this pulse, can be null.
  */
 class DartPulse(player: Player?, node: Item?, private val dart: Dart, private var sets: Int) : SkillPulse<Item?>(player, node) {
 

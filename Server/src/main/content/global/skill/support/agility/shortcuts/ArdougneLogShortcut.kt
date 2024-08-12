@@ -20,7 +20,7 @@ import kotlin.random.Random
  */
 class ArdougneLogShortcut : InteractionListener {
 
-    /**
+    /*
      * Name: Log balance (East Ardougne).
      * Location: West of the Ardougne west bank.
      * Source: https://youtu.be/7z8DOcTqmdk?si=zs0NWttntU9gSqDL&t=121

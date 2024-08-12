@@ -14,12 +14,12 @@ import core.game.node.item.Item
 /**
  * Gem bolt cut pulse
  *
- * @property gem
- * @property amount
- * @constructor
+ * @property gem Represents the gem bolt being used in the pulse.
+ * @property amount Indicates the quantity of gems involved in the pulse.
+ * @constructor Initializes a new instance of GemBoltCutPulse.
  *
- * @param player
- * @param node
+ * @param player The player who is executing the pulse.
+ * @param node The item node associated with the pulse.
  */
 class GemBoltCutPulse(player: Player?, node: Item?, private val gem: GemBolt, private var amount: Int) : SkillPulse<Item?>(player, node) {
 
