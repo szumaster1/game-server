@@ -1,29 +1,26 @@
 package content.region.kandarin.diary
 
-import content.global.handlers.item.withnpc.ChaliceOnKingArthurListener
-import content.region.kandarin.quest.holygrail.dialogue.GalahadHolyGrailDialogueFile
-import content.region.kandarin.quest.scorpcather.dialogue.ThormacDialogueFile
+import content.global.handlers.item.withnpc.PoisonChaliceOnKingArthurDialogue
 import content.region.misc.handlers.zanaris.FairyRing
-import core.api.*
-import core.api.consts.Items
-import core.api.consts.NPCs
+import core.api.inBorders
+import core.api.inEquipment
 import core.game.diary.DiaryEventHookBase
 import core.game.diary.DiaryLevel
 import core.game.event.*
 import core.game.node.entity.player.Player
-import core.game.node.entity.player.link.SpellBookManager
 import core.game.node.entity.player.link.diary.DiaryType
-import core.game.node.entity.player.link.prayer.PrayerType
-import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
+import core.api.consts.Items
+import core.api.consts.NPCs
+import core.api.consts.Scenery
+import core.api.hasLevelDyn
+import core.game.node.entity.player.link.SpellBookManager
+import core.game.node.entity.player.link.prayer.PrayerType
+import core.game.node.entity.skill.Skills
 
-/**
- * Seers village achievement diary.
- */
 class SeersVillageAchievementDiary : DiaryEventHookBase(DiaryType.SEERS_VILLAGE) {
-
     companion object {
         private const val ATTRIBUTE_CUT_YEW_COUNT = "diary:seers:cut-yew"
         private const val ATTRIBUTE_BASS_CAUGHT = "diary:seers:bass-caught"
@@ -36,16 +33,36 @@ class SeersVillageAchievementDiary : DiaryEventHookBase(DiaryType.SEERS_VILLAGE)
 
         private val SEERS_VILLAGE_AREA = ZoneBorders(2687, 3455, 2742, 3507)
         private val SEERS_BANK_AREA = ZoneBorders(2721, 3490, 2730, 3493)
-        private val SEERS_CHURCH = getRegionBorders(10806)
         private val SEERS_COAL_TRUCKS_AREA = ZoneBorders(2690, 3502, 2699, 3508)
         private val SEERS_COURTHOUSE_AREA = ZoneBorders(2732, 3467, 2739, 3471)
-        private val RANGING_GUILD_LOCATION_AREA = Location(2657, 3439)
+        private val RANGING_GUILD_LOCATION = Location(2657, 3439)
 
-        private val COMBAT_BRACELETS = arrayOf(Items.COMBAT_BRACELET_11126, Items.COMBAT_BRACELET4_11118, Items.COMBAT_BRACELET3_11120, Items.COMBAT_BRACELET2_11122, Items.COMBAT_BRACELET1_11124)
+        private val COMBAT_BRACELETS = arrayOf(
+            Items.COMBAT_BRACELET_11126,
+            Items.COMBAT_BRACELET4_11118,
+            Items.COMBAT_BRACELET3_11120,
+            Items.COMBAT_BRACELET2_11122,
+            Items.COMBAT_BRACELET1_11124
+        )
+
+        private val RANGING_GUILD_ARCHERS =
+            arrayOf(NPCs.TOWER_ARCHER_688, NPCs.TOWER_ARCHER_689, NPCs.TOWER_ARCHER_690, NPCs.TOWER_ARCHER_691)
+        private val WORKSHOP_ELEMENTALS = arrayOf(
+            NPCs.FIRE_ELEMENTAL_1019,
+            NPCs.EARTH_ELEMENTAL_1020,
+            NPCs.AIR_ELEMENTAL_1021,
+            NPCs.WATER_ELEMENTAL_1022
+        )
+
         private val CHURN_PRODUCT = arrayOf(Items.CHEESE_1985, Items.POT_OF_CREAM_2130, Items.PAT_OF_BUTTER_6697)
-        private val RANGING_GUILD_ARCHERS = arrayOf(NPCs.TOWER_ARCHER_688, NPCs.TOWER_ARCHER_689, NPCs.TOWER_ARCHER_690, NPCs.TOWER_ARCHER_691)
-        private val RANGING_GUILD_STOCK = arrayOf(Items.BARB_BOLTTIPS_47, Items.RUNE_ARROW_892, Items.GREEN_DHIDE_BODY_1135, Items.ADAMANT_JAVELIN_829, Items.STUDDED_BODY_1133, Items.COIF_1169)
-        private val WORKSHOP_ELEMENTALS = arrayOf(NPCs.FIRE_ELEMENTAL_1019, NPCs.EARTH_ELEMENTAL_1020, NPCs.AIR_ELEMENTAL_1021, NPCs.WATER_ELEMENTAL_1022)
+        private val RANGING_GUILD_STOCK = arrayOf(
+            Items.BARB_BOLTTIPS_47,
+            Items.RUNE_ARROW_892,
+            Items.GREEN_DHIDE_BODY_1135,
+            Items.ADAMANT_JAVELIN_829,
+            Items.STUDDED_BODY_1133,
+            Items.COIF_1169
+        )
 
         object EasyTasks {
             const val PICK_5_FLAX = 0
@@ -103,31 +120,40 @@ class SeersVillageAchievementDiary : DiaryEventHookBase(DiaryType.SEERS_VILLAGE)
     }
 
     override fun onResourceProduced(player: Player, event: ResourceProducedEvent) {
-        when (player.viewport.region.id) {
-            10807 -> if (event.itemId in CHURN_PRODUCT) {
-                finishTask(
-                    player,
-                    DiaryLevel.EASY,
-                    EasyTasks.SINCLAIR_MANSION_USE_CHURN
-                )
-            }
+        if (event.source.id == Scenery.OBELISK_OF_WATER_2151 && event.amount >= 5) {
+            finishTask(
+                player,
+                DiaryLevel.HARD,
+                HardTasks.CHARGE_5_WATER_ORBS_AT_ONCE
+            )
+        }
 
+        when (player.viewport.region.id) {
             10805 -> if (event.itemId == Items.FLAX_1779) {
                 progressIncrementalTask(
                     player,
                     DiaryLevel.EASY,
                     EasyTasks.PICK_5_FLAX,
-                    ATTRIBUTE_FLAX_PICKED, 5
+                    ATTRIBUTE_FLAX_PICKED,
+                    5
                 )
             }
-
 
             10806 -> if (event.itemId == Items.YEW_LOGS_1515) {
                 progressIncrementalTask(
                     player,
                     DiaryLevel.HARD,
                     HardTasks.CUT_5_YEW_LOGS,
-                    ATTRIBUTE_CUT_YEW_COUNT, 5
+                    ATTRIBUTE_CUT_YEW_COUNT,
+                    5
+                )
+            }
+
+            10807 -> if (event.itemId in CHURN_PRODUCT) {
+                finishTask(
+                    player,
+                    DiaryLevel.EASY,
+                    EasyTasks.SINCLAIR_MANSION_USE_CHURN
                 )
             }
 
@@ -144,7 +170,8 @@ class SeersVillageAchievementDiary : DiaryEventHookBase(DiaryType.SEERS_VILLAGE)
                     fulfillTaskRequirement(
                         player,
                         DiaryLevel.MEDIUM,
-                        MediumTasks.CATHERBY_CATCH_AND_COOK_BASS, ATTRIBUTE_BASS_CAUGHT
+                        MediumTasks.CATHERBY_CATCH_AND_COOK_BASS,
+                        ATTRIBUTE_BASS_CAUGHT
                     )
                 }
 
@@ -163,7 +190,8 @@ class SeersVillageAchievementDiary : DiaryEventHookBase(DiaryType.SEERS_VILLAGE)
                         player,
                         DiaryLevel.HARD,
                         HardTasks.CATHERBY_CATCH_5_SHARKS,
-                        ATTRIBUTE_SHARK_CAUGHT_COUNT, 5
+                        ATTRIBUTE_SHARK_CAUGHT_COUNT,
+                        5
                     )
                 }
 
@@ -173,7 +201,8 @@ class SeersVillageAchievementDiary : DiaryEventHookBase(DiaryType.SEERS_VILLAGE)
                             player,
                             DiaryLevel.HARD,
                             HardTasks.CATHERBY_COOK_5_SHARKS_WITH_COOKING_GAUNTLETS,
-                            ATTRIBUTE_SHARK_COOKED_COUNT, 5
+                            ATTRIBUTE_SHARK_COOKED_COUNT,
+                            5
                         )
                     }
                 }
@@ -210,7 +239,7 @@ class SeersVillageAchievementDiary : DiaryEventHookBase(DiaryType.SEERS_VILLAGE)
     override fun onTeleported(player: Player, event: TeleportEvent) {
         when (event.source) {
             is Item -> if (event.source.id in COMBAT_BRACELETS) {
-                if (event.location == RANGING_GUILD_LOCATION_AREA) {
+                if (event.location == RANGING_GUILD_LOCATION) {
                     finishTask(
                         player,
                         DiaryLevel.HARD,
@@ -248,46 +277,17 @@ class SeersVillageAchievementDiary : DiaryEventHookBase(DiaryType.SEERS_VILLAGE)
                     }
                 }
             }
-            inBorders(player, SEERS_CHURCH) -> {
-                if (event.option == "pray-at") {
-                    finishTask(
-                        player,
-                        DiaryLevel.EASY,
-                        EasyTasks.PRAY_AT_ALTAR
-                    )
-                }
-            }
         }
     }
 
     override fun onDialogueOptionSelected(player: Player, event: DialogueOptionSelectionEvent) {
         when (event.dialogue) {
-            is ChaliceOnKingArthurListener -> {
+            is PoisonChaliceOnKingArthurDialogue -> {
                 if (event.currentStage == 4) {
                     finishTask(
                         player,
                         DiaryLevel.EASY,
                         EasyTasks.TAKE_POISON_TO_KING_ARTHUR
-                    )
-                }
-            }
-
-            is GalahadHolyGrailDialogueFile -> {
-                if (event.currentStage == 3) {
-                    finishTask(
-                        player,
-                        DiaryLevel.EASY,
-                        EasyTasks.SIR_GALAHAD_MAKE_TEA
-                    )
-                }
-            }
-
-            is ThormacDialogueFile -> {
-                if (isQuestComplete(player, "Scorpion Catcher") && event.currentStage == 4) {
-                    finishTask(
-                        player,
-                        DiaryLevel.MEDIUM,
-                        MediumTasks.THORMAC_SORCERER_TALK_ABOUT_MYSTIC_STAVES
                     )
                 }
             }
@@ -332,7 +332,6 @@ class SeersVillageAchievementDiary : DiaryEventHookBase(DiaryType.SEERS_VILLAGE)
         }
     }
 
-
     override fun onItemPurchasedFromShop(player: Player, event: ItemShopPurchaseEvent) {
         if (event.itemId == Items.CANDLE_36 && player.viewport.region.id == 11061) {
             finishTask(
@@ -351,8 +350,25 @@ class SeersVillageAchievementDiary : DiaryEventHookBase(DiaryType.SEERS_VILLAGE)
         }
     }
 
+    override fun onPrayerPointsRecharged(player: Player, event: PrayerPointsRechargeEvent) {
+        if (player.viewport.region.id == 10806) {
+            if (event.altar.id == Scenery.ALTAR_409 || event.altar.id == Scenery.ALTAR_19145) {
+                finishTask(
+                    player,
+                    DiaryLevel.EASY,
+                    EasyTasks.PRAY_AT_ALTAR
+                )
+            }
+        }
+    }
+
     override fun onSpellCast(player: Player, event: SpellCastEvent) {
-        if (event.spellBook == SpellBookManager.SpellBook.MODERN && event.spellId == 26 && hasLevelDyn(player, Skills.MAGIC, 45)) {
+        if (event.spellBook == SpellBookManager.SpellBook.MODERN && event.spellId == 26 && hasLevelDyn(
+                player,
+                Skills.MAGIC,
+                45
+            )
+        ) {
             finishTask(
                 player,
                 DiaryLevel.MEDIUM,
@@ -360,5 +376,4 @@ class SeersVillageAchievementDiary : DiaryEventHookBase(DiaryType.SEERS_VILLAGE)
             )
         }
     }
-
 }

@@ -486,7 +486,7 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN) {
         }
 
         define("completediaries", Privilege.ADMIN, "", "Completes all diaries.") { player, _ ->
-            player.achievementDiaryManager.diaries.forEach {
+            player.achievementDiaryManager.diarys.forEach {
                 for (level in it.taskCompleted.indices) {
                     for (task in it.taskCompleted[level].indices) {
                         it.finishTask(player, level, task)

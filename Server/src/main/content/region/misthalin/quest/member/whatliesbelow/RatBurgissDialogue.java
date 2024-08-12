@@ -418,12 +418,12 @@ public class RatBurgissDialogue extends Dialogue {
 
     private void sendDiaryDialogue() {
         isDiary = true;
-        if (AchievementDiary.Companion.canClaimLevelRewards(player, DiaryType.VARROCK, level)) {
+        if (AchievementDiary.canClaimLevelRewards(player, DiaryType.VARROCK, level)) {
             player("I think I've finished all of the tasks in my Varrock", "Achievement Diary.");
             stage = 440;
             return;
         }
-        if (AchievementDiary.Companion.canReplaceReward(player, DiaryType.VARROCK, level)) {
+        if (AchievementDiary.canReplaceReward(player, DiaryType.VARROCK, level)) {
             player("I've seemed to have lost my armour...");
             stage = 460;
             return;

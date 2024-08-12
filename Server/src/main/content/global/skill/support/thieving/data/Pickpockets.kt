@@ -12,34 +12,32 @@ import java.util.stream.IntStream
 /**
  * Pickpockets
  *
- * @property ids
- * @property requiredLevel
- * @property low
- * @property high
- * @property experience
- * @property stunDamageMin
- * @property stunDamageMax
- * @property stunTime
- * @property message
- * @property table
+ * @param ids An array of integers representing the IDs of the pickpocketing targets.
+ * @param requiredLevel The level required to attempt pickpocketing.
+ * @param low The minimum amount of loot that can be obtained.
+ * @param high The maximum amount of loot that can be obtained.
+ * @param experience The experience gained from successful pickpocketing.
+ * @param stunDamageMin The minimum damage inflicted when stunning the target.
+ * @param stunDamageMax The maximum damage inflicted when stunning the target.
+ * @param stunTime The duration for which the target is stunned.
+ * @param message An optional message to display upon successful pickpocketing.
+ * @param table A WeightBasedTable that determines the probability of success based on weights.
  * @constructor Pickpockets
  */
 enum class Pickpockets(
-    val ids: IntArray,
-    val requiredLevel: Int,
-    val low: Double,
-    val high: Double,
-    val experience: Double,
-    val stunDamageMin: Int,
-    val stunDamageMax: Int,
-    val stunTime: Int,
-    val message : String?,
-    val table: WeightBasedTable
+    val ids: IntArray, // Array of IDs for the pickpocketing targets
+    val requiredLevel: Int, // Level required to perform the pickpocketing action
+    val low: Double, // Minimum loot value obtainable
+    val high: Double, // Maximum loot value obtainable
+    val experience: Double, // Experience points awarded for successful pickpocketing
+    val stunDamageMin: Int, // Minimum damage dealt to stun the target
+    val stunDamageMax: Int, // Maximum damage dealt to stun the target
+    val stunTime: Int, // Duration of the stun effect on the target
+    val message: String?, // Optional message displayed upon success
+    val table: WeightBasedTable // Table that defines success probabilities based on weights
 ) {
     /**
-     * Man
-     *
-     * @constructor Man
+     * Man.
      */
     MAN(
         ids = intArrayOf(NPCs.MAN_1, NPCs.MAN_2, NPCs.MAN_3, NPCs.WOMAN_4, NPCs.WOMAN_5, NPCs.WOMAN_6, NPCs.MAN_16, NPCs.MAN_24, NPCs.WOMAN_25, NPCs.MAN_170, NPCs.MAN_1086, NPCs.MAN_3224, NPCs.MAN_3915, NPCs.WOMAN_3226, NPCs.WOMAN_3227, NPCs.WOMAN_5924, NPCs.MAN_5923),
@@ -56,9 +54,7 @@ enum class Pickpockets(
     ),
 
     /**
-     * Curator Haig Helen
-     *
-     * @constructor Curator Haig Helen
+     * Curator Haig Helen.
      */
     CURATOR_HAIG_HELEN(
         ids = intArrayOf(NPCs.CURATOR_HAIG_HALEN_646),
@@ -75,9 +71,7 @@ enum class Pickpockets(
     ),
 
     /**
-     * Gang Of Thieves
-     *
-     * @constructor Gang Of Thieves
+     * Gang Of Thieves.
      */
     GANG_OF_THIEVES(
         ids = intArrayOf(NPCs.CUFFS_3237, NPCs.NARF_3238, NPCs.RUSTY_3239, NPCs.JEFF_3240),
@@ -94,9 +88,7 @@ enum class Pickpockets(
     ),
 
     /**
-     * Tower Of Life Quest Npcs
-     *
-     * @constructor Tower Of Life Quest Npcs
+     * Tower Of Life quest related NPC's.
      */
     TOWER_OF_LIFE_QUEST_NPCS(
         ids = intArrayOf(NPCs.BLACK_EYE_5589, NPCs.NO_FINGERS_5590, NPCs.GUMMY_5591, NPCs.THE_GUNS_5592),
@@ -113,9 +105,7 @@ enum class Pickpockets(
     ),
 
     /**
-     * Farmer
-     *
-     * @constructor Farmer
+     * Farmer.
      */
     FARMER(
         ids = intArrayOf(NPCs.FARMER_7, NPCs.FARMER_1757, NPCs.FARMER_1758),
@@ -134,9 +124,7 @@ enum class Pickpockets(
     ),
 
     /**
-     * Male Ham Member
-     *
-     * @constructor Male Ham Member
+     * Male H.A.M. Member.
      */
     MALE_HAM_MEMBER(
         ids = intArrayOf(NPCs.HAM_MEMBER_1714),
@@ -179,9 +167,7 @@ enum class Pickpockets(
     ),
 
     /**
-     * Female Ham Member
-     *
-     * @constructor Female Ham Member
+     * Female H.A.M. Member.
      */
     FEMALE_HAM_MEMBER(
         ids = intArrayOf(NPCs.HAM_MEMBER_1715),
@@ -197,9 +183,7 @@ enum class Pickpockets(
     ),
 
     /**
-     * Warrior
-     *
-     * @constructor Warrior
+     * Warrior.
      */
     WARRIOR(
         ids = intArrayOf(NPCs.WARRIOR_WOMAN_15, NPCs.AL_KHARID_WARRIOR_18),
@@ -216,9 +200,7 @@ enum class Pickpockets(
     ),
 
     /**
-     * Rogue
-     *
-     * @constructor Rogue
+     * Rogue.
      */
     ROGUE(
         ids = intArrayOf(NPCs.ROGUE_187, NPCs.ROGUE_GUARD_2267, NPCs.ROGUE_GUARD_2268, NPCs.ROGUE_GUARD_2269, NPCs.ROGUE_8122),
@@ -240,9 +222,7 @@ enum class Pickpockets(
     ),
 
     /**
-     * Cave Goblin
-     *
-     * @constructor Cave Goblin
+     * Cave Goblin.
      */
     CAVE_GOBLIN(
         ids = IntStream.rangeClosed(NPCs.CAVE_GOBLIN_5752, NPCs.CAVE_GOBLIN_5768).toArray(),
@@ -269,9 +249,7 @@ enum class Pickpockets(
     ),
 
     /**
-     * Master Farmer
-     *
-     * @constructor Master Farmer
+     * Master Farmer.
      */
     MASTER_FARMER(
         ids = intArrayOf(NPCs.MASTER_FARMER_2234, NPCs.MASTER_FARMER_2235, NPCs.MARTIN_THE_MASTER_GARDENER_3299),
@@ -326,9 +304,7 @@ enum class Pickpockets(
     ),
 
     /**
-     * Guard
-     *
-     * @constructor Guard
+     * Guard.
      */
     GUARD(
         ids = intArrayOf(NPCs.GUARD_9, NPCs.GUARD_32, NPCs.GUARD_206, NPCs.GUARD_296, NPCs.GUARD_297, NPCs.GUARD_298, NPCs.GUARD_299, NPCs.GUARD_344, NPCs.GUARD_345, NPCs.GUARD_346, NPCs.GUARD_368, NPCs.GUARD_678, NPCs.GUARD_812, NPCs.GUARD_9, NPCs.GUARD_32, NPCs.GUARD_296, NPCs.GUARD_297, NPCs.GUARD_298, NPCs.GUARD_299, NPCs.GUARD_2699, NPCs.GUARD_2700, NPCs.GUARD_2701, NPCs.GUARD_2702, NPCs.GUARD_2703, NPCs.GUARD_3228, NPCs.GUARD_3229, NPCs.GUARD_3230, NPCs.GUARD_3231, NPCs.GUARD_3232, NPCs.GUARD_3233, NPCs.GUARD_3241, NPCs.GUARD_3407, NPCs.GUARD_3408, NPCs.GUARD_4307, NPCs.GUARD_4308, NPCs.GUARD_4309, NPCs.GUARD_4310, NPCs.GUARD_4311, NPCs.GUARD_5919, NPCs.GUARD_5920),
@@ -346,9 +322,7 @@ enum class Pickpockets(
     ),
 
     /**
-     * Fremennik Citizen
-     *
-     * @constructor Fremennik Citizen
+     * Fremennik Citizen.
      */
     FREMENNIK_CITIZEN(
         ids = intArrayOf(NPCs.AGNAR_1305, NPCs.FREIDIR_1306, NPCs.BORROKAR_1307, NPCs.LANZIG_1308, NPCs.PONTAK_1309, NPCs.FREYGERD_1310, NPCs.LENSA_1311, NPCs.JENNELLA_1312, NPCs.SASSILIK_1313, NPCs.INGA_1314),
@@ -366,9 +340,7 @@ enum class Pickpockets(
     ),
 
     /**
-     * Bearded Bandit
-     *
-     * @constructor Bearded Bandit
+     * Bearded Bandit.
      */
     BEARDED_BANDIT(
         ids = intArrayOf(NPCs.BANDIT_1880, NPCs.BANDIT_1881, NPCs.BANDIT_6174, NPCs.BANDIT_6388),
@@ -388,9 +360,7 @@ enum class Pickpockets(
     ),
 
     /**
-     * Desert Bandit
-     *
-     * @constructor Desert Bandit
+     * Desert Bandit.
      */
     DESERT_BANDIT(
         ids = intArrayOf(NPCs.BANDIT_1926, NPCs.BARTENDER_1921),
@@ -410,9 +380,7 @@ enum class Pickpockets(
     ),
 
     /**
-     * Knight Of Adrougne
-     *
-     * @constructor Knight Of Adrougne
+     * Knight Of Adrougne.
      */
     KNIGHT_OF_ADROUGNE(
         ids = intArrayOf(NPCs.KNIGHT_OF_ARDOUGNE_23, NPCs.KNIGHT_OF_ARDOUGNE_26),
@@ -430,9 +398,7 @@ enum class Pickpockets(
     ),
 
     /**
-     * Yanille Watchman
-     *
-     * @constructor Yanille Watchman
+     * Yanille Watchman.
      */
     YANILLE_WATCHMAN(
         ids = intArrayOf(NPCs.WATCHMAN_34),
@@ -451,9 +417,7 @@ enum class Pickpockets(
     ),
 
     /**
-     * Menaphite Thug
-     *
-     * @constructor Menaphite Thug
+     * Menaphite Thug.
      */
     MENAPHITE_THUG(
         ids = intArrayOf(NPCs.MENAPHITE_THUG_1905),
@@ -471,9 +435,7 @@ enum class Pickpockets(
     ),
 
     /**
-     * Paladin
-     *
-     * @constructor Paladin
+     * Paladin.
      */
     PALADIN(
         ids = intArrayOf(NPCs.PALADIN_20, NPCs.PALADIN_2256),
@@ -492,9 +454,7 @@ enum class Pickpockets(
     ),
 
     /**
-     * Gnome
-     *
-     * @constructor Gnome
+     * Gnome.
      */
     GNOME(
         ids = intArrayOf(NPCs.GNOME_66, NPCs.GNOME_67, NPCs.GNOME_68, NPCs.GNOME_WOMAN_168, NPCs.GNOME_WOMAN_169, NPCs.GNOME_2249, NPCs.GNOME_2250, NPCs.GNOME_2251, NPCs.GNOME_2371, NPCs.GNOME_2649, NPCs.GNOME_2650, NPCs.GNOME_6002, NPCs.GNOME_6004),
@@ -517,9 +477,7 @@ enum class Pickpockets(
     ),
 
     /**
-     * Hero
-     *
-     * @constructor Hero
+     * Hero.
      */
     HERO(
         ids = intArrayOf(NPCs.HERO_21),
@@ -560,8 +518,8 @@ enum class Pickpockets(
     /**
      * Get success chance
      *
-     * @param player
-     * @return
+     * @param player The player whose success chance is to be calculated
+     * @return The calculated success chance as a Double
      */
     fun getSuccessChance(player: Player): Double {
         return RandomFunction.getSkillSuccessChance(low, high, player.skills.getLevel(Skills.THIEVING))

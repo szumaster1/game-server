@@ -5,9 +5,7 @@ import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 
 /**
- * Global data
- *
- * @constructor Global data
+ * Global data.
  */
 class GlobalData {
     private var runReplenishCharges: Int = 0
@@ -18,7 +16,8 @@ class GlobalData {
     private var barrowsLoots: Int = 0
     private var lootSharePoints: Int = 0
     private var tutorialStage: Int = 0
-    @JvmField var karamjaBananas: Int = 0
+    @JvmField
+    var karamjaBananas: Int = 0
     private var savedX: Int = 0
     private var savedY: Int = 0
     private var savedH: Int = 0

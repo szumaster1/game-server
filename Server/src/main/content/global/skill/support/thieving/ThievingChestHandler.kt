@@ -57,59 +57,47 @@ class ThievingChestHandler : OptionHandler() {
     /**
      * Chest
      *
-     * @property objectIds
-     * @property level
-     * @property experience
-     * @property rewards
-     * @property respawn
-     * @constructor Chest
+     * @property objectIds An array of integers representing the IDs of the chest objects.
+     * @property level The level required to access or interact with the chest.
+     * @property experience The amount of experience gained from interacting with the chest.
+     * @property rewards An array of items that can be obtained from the chest.
+     * @property respawn The time in seconds before the chest can respawn after being opened.
+     * @constructor Chest Initializes a new instance of the Chest enum class.
      */
     enum class Chest(
-        val objectIds: IntArray,
-        val level: Int,
-        val experience: Double,
-        val rewards: Array<Item>,
-        val respawn: Int,
+        val objectIds: IntArray, // Holds the IDs of the chest objects.
+        val level: Int, // Specifies the level required to access the chest.
+        val experience: Double, // Indicates the experience points awarded for interacting with the chest.
+        val rewards: Array<Item>, // Contains the items that can be rewarded from the chest.
+        val respawn: Int, // Defines the respawn time in seconds for the chest.
     ) {
         /**
-         * Ten Coin
-         *
-         * @constructor Ten Coin
+         * Ten Coin.
          */
         TEN_COIN(2566, 13, 7.8, arrayOf(Item(Items.COINS_995, 10)), 7),
 
         /**
-         * Nature Rune
-         *
-         * @constructor Nature Rune
+         * Nature Rune.
          */
         NATURE_RUNE(2567, 28, 25.0, arrayOf(Item(Items.COINS_995, 3), Item(Items.NATURE_RUNE_561, 1)), 8),
 
         /**
-         * Fifty Coin
-         *
-         * @constructor Fifty Coin
+         * Fifty Coin.
          */
         FIFTY_COIN(2568, 43, 125.0, arrayOf(Item(Items.COINS_995, 50)), 55),
 
         /**
-         * Steel Arrowheads
-         *
-         * @constructor Steel Arrowheads
+         * Steel Arrowheads.
          */
         STEEL_ARROWHEADS(2573, 47, 150.0, arrayOf(Item(41, 5)), 210),
 
         /**
-         * Blood Runes
-         *
-         * @constructor Blood Runes
+         * Blood Runes.
          */
         BLOOD_RUNES(2569, 59, 250.0, arrayOf(Item(Items.COINS_995, 500), Item(Items.BLOOD_RUNE_565, 2)), 135),
 
         /**
-         * Paladin
-         *
-         * @constructor Paladin
+         * Paladin.
          */
         PALADIN(2570, 72, 500.0, arrayOf(Item(Items.COINS_995, 1000), Item(Items.RAW_SHARK_383, 1), Item(Items.ADAMANTITE_ORE_449, 1), Item(Items.UNCUT_SAPPHIRE_1623, 1)), 120);
 
@@ -124,10 +112,10 @@ class ThievingChestHandler : OptionHandler() {
         ) : this(intArrayOf(objectId), level, experience, rewards, respawn)
 
         /**
-         * Open
+         * Open a specific scenery for the player.
          *
-         * @param player
-         * @param scenery
+         * @param player The player who is interacting with the scenery.
+         * @param scenery The scenery that the player is opening.
          */
         internal fun open(player: Player, scenery: Scenery) {
             if (isRespawning) {
@@ -142,8 +130,8 @@ class ThievingChestHandler : OptionHandler() {
         /**
          * Search traps
          *
-         * @param player
-         * @param scenery
+         * @param player Represents the player who is searching for traps.
+         * @param scenery Represents the environment in which the player is searching for traps.
          */
         fun searchTraps(player: Player, scenery: Scenery) {
             player.faceLocation(scenery.location)

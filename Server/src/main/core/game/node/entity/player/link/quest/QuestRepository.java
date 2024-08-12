@@ -14,7 +14,6 @@ import java.util.Map;
 import static core.api.ContentAPIKt.log;
 import static core.api.ContentAPIKt.*;
 
-
 /**
  * Quest repository.
  */

@@ -9,28 +9,24 @@ import java.util.*
 /**
  * Slayer master
  *
- * @property npc
- * @property requiredCombat
- * @property requirements
- * @property assigmentCount
- * @property taskPoints
+ * @property npc Represents the NPC (Non-Player Character) ID associated with the Slayer Master.
+ * @property requiredCombat Indicates the minimum combat level required to engage with this Slayer Master.
+ * @property requirements Specifies any additional requirements needed to access this Slayer Master.
+ * @property assigmentCount An array that holds the count of assignments available from this Slayer Master.
+ * @property taskPoints An array that contains the points awarded for completing tasks assigned by this Slayer Master.
  * @constructor
  *
- * @param tasks
+ * @param tasks A variable number of Task objects that represent the tasks assigned by this Slayer Master.
  */
 enum class SlayerMaster(
-    var npc: Int,
-    var requiredCombat: Int,
-    var requirements: Int,
-    var assigmentCount: IntArray,
-    var taskPoints: IntArray,
-    vararg tasks: Task
+    var npc: Int, // The ID of the NPC representing the Slayer Master.
+    var requiredCombat: Int, // The minimum combat level required to interact with this Slayer Master.
+    var requirements: Int, // Additional requirements to access this Slayer Master.
+    var assigmentCount: IntArray, // An array holding the number of assignments available.
+    var taskPoints: IntArray, // An array of points awarded for completing tasks.
+    vararg tasks: Task // A variable argument list of Task objects assigned by this Slayer Master.
 ) {
     /**
-     * Turael
-     *
-     * @constructor Turael
-     *//*
      * The Turael.
      */
     TURAEL(
@@ -64,10 +60,6 @@ enum class SlayerMaster(
     ),
 
     /**
-     * Mazchna
-     *
-     * @constructor Mazchna
-     *//*
      * The Mazchna.
      */
     MAZCHNA(
@@ -105,10 +97,6 @@ enum class SlayerMaster(
     ),
 
     /**
-     * Vannaka
-     *
-     * @constructor Vannaka
-     *//*
      * The Vannaka.
      */
     VANNAKA(
@@ -169,10 +157,6 @@ enum class SlayerMaster(
     ),
 
     /**
-     * Chaeldar
-     *
-     * @constructor Chaeldar
-     *//*
      * The Chaeldar.
      */
     CHAELDAR(
@@ -222,10 +206,6 @@ enum class SlayerMaster(
     ),
 
     /**
-     * Sumona
-     *
-     * @constructor Sumona
-     *//*
      * The Sumona.
      */
     SUMONA(
@@ -264,10 +244,6 @@ enum class SlayerMaster(
     ),
 
     /**
-     * Duradel
-     *
-     * @constructor Duradel
-     *//*
      * The Duradel.
      */
     DURADEL(
@@ -308,45 +284,58 @@ enum class SlayerMaster(
         Task(Tasks.WATERFIENDS, 2)
     );
 
+    // Initialize a list of tasks using an ArrayList, allowing for dynamic resizing
     var tasks: List<Task> = ArrayList(arrayListOf(*tasks))
 
     /**
-     * Has requirements
+     * Checks if the player meets the requirements for the task.
      *
-     * @param player
-     * @return
+     * @param player The player whose properties are being checked.
+     * @return True if the player meets the combat level and slayer skill requirements, otherwise false.
      */
     fun hasRequirements(player: Player): Boolean {
-        return player.properties.currentCombatLevel >= this.requiredCombat && player.getSkills().getLevel(Skills.SLAYER) >= this.requirements
+        // Compare player's current combat level with the required combat level for the task
+        return player.properties.currentCombatLevel >= this.requiredCombat &&
+                // Compare player's Slayer skill level with the task's requirements
+                player.getSkills().getLevel(Skills.SLAYER) >= this.requirements
     }
 
     /**
-     * Task
+     * Represents a task with a specific weight.
      *
-     * @property task
-     * @property weight
-     * @constructor Task
+     * @property task The type of task to be performed.
+     * @property weight The weight or importance of the task.
+     * @constructor Initializes a Task with the specified task type and weight.
      */
     class Task internal constructor(
-        var task: Tasks,
-        var weight: Int
+        var task: Tasks, // The task to be executed
+        var weight: Int  // The weight associated with the task
     )
 
     companion object {
+        // A map to associate NPC IDs with their corresponding SlayerMaster instances
         private val idMap = HashMap<Int, SlayerMaster>()
 
+        // Initialize the idMap with SlayerMaster instances based on their NPC IDs
         init {
-            Arrays.stream(values()).forEach { m: SlayerMaster -> idMap.putIfAbsent(m.npc, m) }
+            Arrays.stream(values()).forEach { m: SlayerMaster ->
+                idMap.putIfAbsent(m.npc, m) // Add SlayerMaster to the map if not already present
+            }
         }
 
+        // Retrieve a SlayerMaster instance based on its NPC ID
         @JvmStatic
         fun forId(id: Int): SlayerMaster {
-            return idMap[id]!!
+            return idMap[id]!! // Return the SlayerMaster associated with the given ID
         }
 
+        // Check if the given master has the same task as the player's current task
         @JvmStatic
         fun hasSameTask(master: SlayerMaster, player: Player): Boolean {
-            return master.tasks.stream().filter { task: Task -> task.task == getInstance(player).task }.count() != 0L
+            // Filter the tasks of the master and check if any match the player's current task
+            return master.tasks.stream().filter { task: Task ->
+                task.task == getInstance(player).task
+            }.count() != 0L // Return true if there is at least one matching task
         }
     }
 }

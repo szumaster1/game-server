@@ -4,10 +4,7 @@ import core.game.node.entity.player.Player
 import core.game.world.GameWorld.ticks
 
 /**
- * Request manager
- *
- * @property player
- * @constructor Request manager
+ * Request manager.
  */
 class RequestManager(val player: Player) {
     /*
@@ -17,86 +14,97 @@ class RequestManager(val player: Player) {
         private set
 
     /**
-     * Request
-     *
-     * @param target
-     * @param type
-     * @return
-     *//*
      * Method used to send a request type to a target.
+     *
+     * @param target The player to whom the request is being sent.
+     * @param type The type of request being sent.
+     * @return Returns true if the request was successfully sent, false otherwise.
      */
     fun request(target: Player, type: RequestType): Boolean {
+        // Check if the request can be made to the target
         if (!canRequest(type, target)) {
-            return false
+            return false // Return false if the request cannot be made
         }
+        // Check if an existing request can be accepted
         if (acceptExisting(target, type)) {
-            return true
+            return true // Return true if the existing request is accepted
         }
+        // Send a message to the player about the request type
         player.packetDispatch.sendMessage(type.message)
+        // Send a request message to the target player
         target.packetDispatch.sendMessage(type.getRequestMessage(player))
+        // Set the last request type for the player
         player.setAttribute("lastRequest", type)
+        // Set the target for the request manager
         this.target = target
-        return true
+        return true // Return true indicating the request was successful
     }
 
     /*
      * Method used to check if a player can continue with a request.
      */
     private fun canRequest(type: RequestType, target: Player): Boolean {
+        // Ensure the target is not the player themselves
         if (target === player) {
-            return false
+            return false // Return false if the target is the player
         }
+        // Check if the target is within a certain distance
         if (!target.location.withinDistance(player.location, 15)) {
             player.packetDispatch.sendMessage("Unable to find " + target.username + ".")
-            return false
+            return false // Return false if the target is too far away
         }
+        // Check if the target is active and not busy
         if (!target.isActive || target.interfaceManager.isOpened) {
             player.packetDispatch.sendMessage("Other player is busy at the moment.")
-            return false
+            return false // Return false if the target is busy
         }
+        // Check if either player is marked as busy
         if (target.getAttribute("busy", 0) > ticks || player.getAttribute("busy", 0) > ticks) {
             player.packetDispatch.sendMessage("Other player is busy at the moment.")
-            return false
+            return false // Return false if either player is busy
         }
+        // Check if the request can be made based on zone monitoring
         return if (!player.zoneMonitor.canRequest(type, target)) {
-            false
-        } else type.canRequest(player, target)
+            false // Return false if the request cannot be made in the current zone
+        } else type.canRequest(player, target) // Return the result of the request type check
     }
 
     /*
      * Method used to check if we can accept an existing request.
      */
     private fun acceptExisting(target: Player, type: RequestType): Boolean {
+        // Retrieve the last request type from the target
         val lastType = target.getAttribute<RequestType>("lastRequest", null)
+        // Check if the last request type matches and if the player is the target's current request
         if (lastType === type && player === target.requestManager.target) {
-            close(player)
-            clear()
-            target.requestManager.clear()
+            close(player) // Close the player's interface
+            clear() // Clear the current request
+            target.requestManager.clear() // Clear the target's request manager
+            // Set both players as busy for a short duration
             player.setAttribute("busy", ticks + 2)
             target.setAttribute("busy", ticks + 2)
+            // Open the request module for both players
             type.module.open(player, target)
-            return true
+            return true // Return true indicating the existing request was accepted
         }
-        close(player)
-        return false
+        close(player) // Close the player's interface if the request is not accepted
+        return false // Return false indicating the existing request was not accepted
     }
 
     /*
      * Closes the components for the player.
      */
     private fun close(player: Player) {
-        player.dialogueInterpreter.close()
-        player.interfaceManager.close()
-        player.interfaceManager.closeChatbox()
+        player.dialogueInterpreter.close() // Close any open dialogues for the player
+        player.interfaceManager.close() // Close the player's interface
+        player.interfaceManager.closeChatbox() // Close the chatbox for the player
     }
 
     /**
-     * Clear
-     *
-     *//*
      * Method used to clear the cached target.
+     *
      */
     fun clear() {
-        target = null
+        target = null // Set the target to null, clearing the cached target
     }
 }

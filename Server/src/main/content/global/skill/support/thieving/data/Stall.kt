@@ -9,21 +9,25 @@ import java.util.*
 /**
  * Stall
  *
- * @property level
- * @property rewards
- * @property experience
- * @property delay
- * @property message
- * @constructor
- *
- * @param full
- * @param empty
+ * @param level The current level of the stall.
+ * @param rewards An array of items that can be rewarded.
+ * @param experience The experience points gained from the stall.
+ * @param delay The time delay associated with the stall's operation.
+ * @param message A message that can be displayed regarding the stall.
+ * @param full An array representing the stall's full state.
+ * @param empty An array representing the stall's empty state.
  */
-enum class Stall(full: Array<Int>, empty: Array<Int>, var level: Int, var rewards: Array<Item>, var experience: Double, var delay: Int, var message: String) {
+enum class Stall(
+    full: Array<Int>, // Represents the stall's full state with an array of integers.
+    empty: Array<Int>, // Represents the stall's empty state with an array of integers.
+    var level: Int, // The current level of the stall, mutable to allow changes.
+    var rewards: Array<Item>, // An array of items that can be rewarded, mutable to allow updates.
+    var experience: Double, // The experience points gained from the stall, mutable for adjustments.
+    var delay: Int, // The time delay for stall operations, mutable to modify as needed.
+    var message: String // A message related to the stall's operation, mutable for flexibility.
+) {
     /**
-     * Vegetable Stall
-     *
-     * @constructor Vegetable Stall
+     * Vegetable Stall.
      */
     VEGETABLE_STALL(
         full = arrayOf(4706, 4708),
@@ -36,9 +40,7 @@ enum class Stall(full: Array<Int>, empty: Array<Int>, var level: Int, var reward
     ),
 
     /**
-     * Baker Stall
-     *
-     * @constructor Baker Stall
+     * Baker Stall.
      */
     BAKER_STALL(
         full = arrayOf(2561, 6163, 34384),
@@ -51,9 +53,7 @@ enum class Stall(full: Array<Int>, empty: Array<Int>, var level: Int, var reward
     ),
 
     /**
-     * Crafting Stall
-     *
-     * @constructor Crafting Stall
+     * Crafting Stall.
      */
     CRAFTING_STALL(
         full = arrayOf(4874, 6166),
@@ -66,9 +66,7 @@ enum class Stall(full: Array<Int>, empty: Array<Int>, var level: Int, var reward
     ),
 
     /**
-     * Tea Stall
-     *
-     * @constructor Tea Stall
+     * Tea Stall.
      */
     TEA_STALL(
         full = arrayOf(635, 6574),
@@ -81,9 +79,7 @@ enum class Stall(full: Array<Int>, empty: Array<Int>, var level: Int, var reward
     ),
 
     /**
-     * Silk Stall
-     *
-     * @constructor Silk Stall
+     * Silk Stall.
      */
     SILK_STALL(
         full = arrayOf(34383, 2560),
@@ -96,9 +92,7 @@ enum class Stall(full: Array<Int>, empty: Array<Int>, var level: Int, var reward
     ),
 
     /**
-     * Wine Stall
-     *
-     * @constructor Wine Stall
+     * Wine Stall.
      */
     WINE_STALL(
         full = arrayOf(14011),
@@ -111,9 +105,7 @@ enum class Stall(full: Array<Int>, empty: Array<Int>, var level: Int, var reward
     ),
 
     /**
-     * Market Seed Stall
-     *
-     * @constructor Market Seed Stall
+     * Market Seed Stall.
      */
     MARKET_SEED_STALL(
         full = arrayOf(7053),
@@ -133,9 +125,7 @@ enum class Stall(full: Array<Int>, empty: Array<Int>, var level: Int, var reward
     ),
 
     /**
-     * Fur Stall
-     *
-     * @constructor Fur Stall
+     * Fur Stall.
      */
     FUR_STALL(
         full = arrayOf(34387, 2563, 4278),
@@ -148,9 +138,7 @@ enum class Stall(full: Array<Int>, empty: Array<Int>, var level: Int, var reward
     ),
 
     /**
-     * Fish Stall
-     *
-     * @constructor Fish Stall
+     * Fish Stall.
      */
     FISH_STALL(
         full = arrayOf(4277, 4705, 4707),
@@ -163,9 +151,7 @@ enum class Stall(full: Array<Int>, empty: Array<Int>, var level: Int, var reward
     ),
 
     /**
-     * Crossbow Stall
-     *
-     * @constructor Crossbow Stall
+     * Crossbow Stall.
      */
     CROSSBOW_STALL(
         full = arrayOf(17031),
@@ -178,9 +164,7 @@ enum class Stall(full: Array<Int>, empty: Array<Int>, var level: Int, var reward
     ),
 
     /**
-     * Silver Stall
-     *
-     * @constructor Silver Stall
+     * Silver Stall.
      */
     SILVER_STALL(
         full = arrayOf(2565, 6164, 34382),
@@ -193,9 +177,7 @@ enum class Stall(full: Array<Int>, empty: Array<Int>, var level: Int, var reward
     ),
 
     /**
-     * Spice Stall
-     *
-     * @constructor Spice Stall
+     * Spice Stall.
      */
     SPICE_STALL(
         full = arrayOf(34386, 6166),
@@ -208,9 +190,7 @@ enum class Stall(full: Array<Int>, empty: Array<Int>, var level: Int, var reward
     ),
 
     /**
-     * Gem Stall
-     *
-     * @constructor Gem Stall
+     * Gem Stall.
      */
     GEM_STALL(
         full = arrayOf(2562, 6162, 34385),
@@ -223,10 +203,8 @@ enum class Stall(full: Array<Int>, empty: Array<Int>, var level: Int, var reward
     ),
 
     /**
-     * Scimitar Stall
-     *
-     * @constructor Scimitar Stall
-     *///Ape Atoll Stalls
+     * Scimitar Stall, (Ape Atoll Stalls).
+     */
     SCIMITAR_STALL(
         full = arrayOf(4878),
         empty = arrayOf(4797),
@@ -238,9 +216,7 @@ enum class Stall(full: Array<Int>, empty: Array<Int>, var level: Int, var reward
     ),
 
     /**
-     * Magic Stall
-     *
-     * @constructor Magic Stall
+     * Magic Stall.
      */
     MAGIC_STALL(
         full = arrayOf(4877),
@@ -253,9 +229,7 @@ enum class Stall(full: Array<Int>, empty: Array<Int>, var level: Int, var reward
     ),
 
     /**
-     * General Stall
-     *
-     * @constructor General Stall
+     * General Stall.
      */
     GENERAL_STALL(
         full = arrayOf(4876),
@@ -268,9 +242,7 @@ enum class Stall(full: Array<Int>, empty: Array<Int>, var level: Int, var reward
     ),
 
     /**
-     * Food Stall
-     *
-     * @constructor Food Stall
+     * Food Stall.
      */
     FOOD_STALL(
         full = arrayOf(4875),
@@ -283,9 +255,7 @@ enum class Stall(full: Array<Int>, empty: Array<Int>, var level: Int, var reward
     ),
 
     /**
-     * Candles
-     *
-     * @constructor Candles
+     * Candles.
      */
     CANDLES(
         full = arrayOf(core.api.consts.Scenery.CANDLES_19127),
@@ -306,31 +276,40 @@ enum class Stall(full: Array<Int>, empty: Array<Int>, var level: Int, var reward
     var fullIDs: List<Int> = ArrayList(Arrays.asList(*full))
     var empty_ids: List<Int> = ArrayList(Arrays.asList(*empty))
 
-
     /**
      * Get empty
      *
-     * @param id
-     * @return
+     * @param id The identifier for which we want to retrieve the empty ID.
+     * @return The empty ID corresponding to the provided identifier.
      */
     fun getEmpty(id: Int): Int {
+        // Find the index of the provided ID in the fullIDs list
         val fullIndex = fullIDs.indexOf(id)
+        // Return the empty ID at the found index
         return empty_ids[fullIndex]
     }
 
+    // Property to get a random loot item from the rewards list
     val randomLoot: Item
+        // Use a custom random function to select an item from the rewards
         get() = rewards[RandomFunction.random(rewards.size)]
 
     companion object {
+        // A HashMap to map IDs to their corresponding Stall objects
         var idMap: HashMap<Int, Stall> = HashMap()
 
+        // Initialization block to populate the idMap with Stall entries
         init {
+            // Stream through all Stall values
             Arrays.stream(values()).forEach { entry: Stall ->
+                // For each full ID in the entry, add it to the idMap if it doesn't already exist
                 entry.fullIDs.stream().forEach { id: Int -> idMap.putIfAbsent(id, entry) }
             }
         }
 
+        // Function to retrieve a Stall object based on the provided scenery
         fun forScenery(scenery: Scenery): Stall? {
+            // Return the Stall object associated with the scenery's ID from the idMap
             return idMap[scenery.id]
         }
     }

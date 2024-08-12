@@ -6,11 +6,11 @@ import core.game.world.map.Location
 /**
  * Ships
  *
- * @property location
- * @property config
- * @property delay
- * @property destination
- * @constructor Ships
+ * @property location Represents the current location of the ship.
+ * @property config Configuration settings for the ship.
+ * @property delay Delay time for the ship's operations, in milliseconds.
+ * @property destination The intended destination of the ship.
+ * @constructor Ships Initializes a new instance of the Ships enum class.
  */
 enum class Ships(
     @JvmField val location: Location,
@@ -19,9 +19,7 @@ enum class Ships(
     val destination: String
 ) {
     /**
-     * Port Sarim To Entrana
-     *
-     * @constructor Port Sarim To Entrana
+     * Port Sarim To Entrana.
      */
     PORT_SARIM_TO_ENTRANA(
         location = Location.create(2834, 3331, 1),
@@ -31,9 +29,7 @@ enum class Ships(
     ),
 
     /**
-     * Entrana To Port Sarim
-     *
-     * @constructor Entrana To Port Sarim
+     * Entrana To Port Sarim.
      */
     ENTRANA_TO_PORT_SARIM(
         location = Location.create(3048, 3234, 0),
@@ -43,9 +39,7 @@ enum class Ships(
     ),
 
     /**
-     * Port Sarim To Crandor
-     *
-     * @constructor Port Sarim To Crandor
+     * Port Sarim To Crandor.
      */
     PORT_SARIM_TO_CRANDOR(
         location = Location.create(2849, 3238, 0),
@@ -55,9 +49,7 @@ enum class Ships(
     ),
 
     /**
-     * Crandor To Port Sarim
-     *
-     * @constructor Crandor To Port Sarim
+     * Crandor To Port Sarim.
      */
     CRANDOR_TO_PORT_SARIM(
         location = Location.create(2834, 3335, 0),
@@ -67,9 +59,7 @@ enum class Ships(
     ),
 
     /**
-     * Port Sarim To Karamaja
-     *
-     * @constructor Port Sarim To Karamaja
+     * Port Sarim To Karamaja.
      */
     PORT_SARIM_TO_KARAMAJA(
         location = Location.create(2956, 3143, 1),
@@ -79,9 +69,7 @@ enum class Ships(
     ),
 
     /**
-     * Karamjama To Port Sarim
-     *
-     * @constructor Karamjama To Port Sarim
+     * Karamjama To Port Sarim.
      */
     KARAMJAMA_TO_PORT_SARIM(
         location = Location.create(3029, 3217, 0),
@@ -91,9 +79,7 @@ enum class Ships(
     ),
 
     /**
-     * Ardougne To Brimhaven
-     *
-     * @constructor Ardougne To Brimhaven
+     * Ardougne To Brimhaven.
      */
     ARDOUGNE_TO_BRIMHAVEN(
         location = Location.create(2775, 3234, 1),
@@ -103,9 +89,7 @@ enum class Ships(
     ),
 
     /**
-     * Brimhaven To Ardougne
-     *
-     * @constructor Brimhaven To Ardougne
+     * Brimhaven To Ardougne.
      */
     BRIMHAVEN_TO_ARDOUGNE(
         location = Location.create(2683, 3268, 1),
@@ -115,9 +99,7 @@ enum class Ships(
     ),
 
     /**
-     * Cairn Island To Port Khazard
-     *
-     * @constructor Cairn Island To Port Khazard
+     * Cairn Island To Port Khazard.
      */
     CAIRN_ISLAND_TO_PORT_KHAZARD(
         location = Location.create(2676, 3170, 0),
@@ -127,11 +109,9 @@ enum class Ships(
     ),
 
     /**
-     * Port Khazard To Ship Yard
-     *
-     * @constructor Port Khazard To Ship Yard
+     * Port Khazard To Shipyard.
      */
-    PORT_KHAZARD_TO_SHIP_YARD(
+    PORT_KHAZARD_TO_SHIPYARD(
         location = Location.create(2998, 3043, 0),
         config = 11,
         delay = 23,
@@ -139,11 +119,9 @@ enum class Ships(
     ),
 
     /**
-     * Ship Yard To Port Khazard
-     *
-     * @constructor Ship Yard To Port Khazard
+     * Shipyard To Port Khazard.
      */
-    SHIP_YARD_TO_PORT_KHAZARD(
+    SHIPYARD_TO_PORT_KHAZARD(
         location = Location.create(2676, 3170, 0),
         config = 12,
         delay = 23,
@@ -151,9 +129,7 @@ enum class Ships(
     ),
 
     /**
-     * Port Sarim
-     *
-     * @constructor Port Sarim
+     * Port Sarim.
      */
     PORT_SARIM(
         location = Location.create(3048, 3234, 0),
@@ -163,9 +139,7 @@ enum class Ships(
     ),
 
     /**
-     * Port Sarim To Pest Control
-     *
-     * @constructor Port Sarim To Pest Control
+     * Port Sarim To Pest Control.
      */
     PORT_SARIM_TO_PEST_CONTROL(
         location = Location.create(2663, 2676, 1),
@@ -175,9 +149,7 @@ enum class Ships(
     ),
 
     /**
-     * Pest To Port Sarim
-     *
-     * @constructor Pest To Port Sarim
+     * Pest To Port Sarim.
      */
     PEST_TO_PORT_SARIM(
         location = Location.create(3041, 3198, 1),
@@ -187,9 +159,7 @@ enum class Ships(
     ),
 
     /**
-     * Feldip To Karamja
-     *
-     * @constructor Feldip To Karamja
+     * Feldip To Karamja.
      */
     FELDIP_TO_KARAMJA(
         location = Location.create(2763, 2956, 0),
@@ -199,9 +169,7 @@ enum class Ships(
     ),
 
     /**
-     * Karamja To Feldip
-     *
-     * @constructor Karamja To Feldip
+     * Karamja To Feldip.
      */
     KARAMJA_TO_FELDIP(
         location = Location.create(2763, 2956, 0),
@@ -211,16 +179,24 @@ enum class Ships(
     );
 
     /**
-     * Sail
+     * Sail.
      *
-     * @param player
+     * @param player The player who is initiating the sail action.
      */
     fun sail(player: Player) {
+        // Initiates the sailing process for the player by running a pulse manager.
         player.pulseManager.run(ShipTravelPulse(player, this))
     }
 
     companion object {
+        /**
+         * Sail with a specific ship.
+         *
+         * @param player The player who is initiating the sail action.
+         * @param ship The ship that the player is sailing.
+         */
         fun sail(player: Player, ship: Ships) {
+            // Initiates the sailing process for the player with a specified ship.
             player.pulseManager.run(ShipTravelPulse(player, ship))
         }
     }

@@ -9,9 +9,7 @@ import java.sql.SQLDataException
 import java.sql.Timestamp
 
 /**
- * Production authenticator
- *
- * @constructor Production authenticator
+ * Production authenticator.
  */
 class ProductionAuthenticator : AuthProvider<AccountStorageProvider>() {
     override fun configureFor(provider: AccountStorageProvider) {

@@ -157,12 +157,12 @@ public final class BobDialogue extends Dialogue {
                 end();
                 break;
             case 30:
-                if (AchievementDiary.Companion.canClaimLevelRewards(player, DiaryType.LUMBRIDGE, level)) {
+                if (AchievementDiary.canClaimLevelRewards(player, DiaryType.LUMBRIDGE, level)) {
                     player("I've done all the medium tasks in my Lumbridge", "Achievement Diary.");
                     stage = 150;
                     break;
                 }
-                if (AchievementDiary.Companion.canReplaceReward(player, DiaryType.LUMBRIDGE, level)) {
+                if (AchievementDiary.canReplaceReward(player, DiaryType.LUMBRIDGE, level)) {
                     player("I've seemed to have lost my explorer's ring...");
                     stage = 160;
                     break;
@@ -230,7 +230,7 @@ public final class BobDialogue extends Dialogue {
                 stage++;
                 break;
             case 152:
-                AchievementDiary.Companion.flagRewarded(player, DiaryType.LUMBRIDGE, level);
+                AchievementDiary.flagRewarded(player, DiaryType.LUMBRIDGE, level);
                 npc("This ring is a representation of the adventures you", "went on to complete your tasks.");
                 stage++;
                 break;
@@ -239,7 +239,7 @@ public final class BobDialogue extends Dialogue {
                 stage = 30;
                 break;
             case 160:
-                AchievementDiary.Companion.grantReplacement(player, DiaryType.LUMBRIDGE, level);
+                AchievementDiary.grantReplacement(player, DiaryType.LUMBRIDGE, level);
                 npc("You better be more careful this time.");
                 stage = -1;
                 break;

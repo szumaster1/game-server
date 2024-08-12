@@ -124,11 +124,11 @@ class WallsafeListener : InteractionListener {
     }
 
     /**
-     * Success
+     * Success function to determine if a player successfully performs a skill.
      *
-     * @param player
-     * @param skill
-     * @return
+     * @param player The player object representing the individual attempting the skill.
+     * @param skill An integer representing the skill level or identifier.
+     * @return Returns true if the skill is successfully performed, otherwise false.
      */
     fun success(player: Player, skill: Int): Boolean {
         val level = player.getSkills().getLevel(skill).toDouble()

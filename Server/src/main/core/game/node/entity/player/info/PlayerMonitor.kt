@@ -267,8 +267,7 @@ object PlayerMonitor {
     }
 
     private const val CHAT_LOG_INSERT = "INSERT INTO chat_logs(player,uid,type,message,timestamp) VALUES (?,?,?,?,?);"
-    private const val TRADE_LOG_INSERT =
-        "INSERT INTO trade_logs(player_a,player_b,uid_a,uid_b,items_a,items_b,timestamp) VALUES (?,?,?,?,?,?,?);"
+    private const val TRADE_LOG_INSERT = "INSERT INTO trade_logs(player_a,player_b,uid_a,uid_b,items_a,items_b,timestamp) VALUES (?,?,?,?,?,?,?);"
     private const val MISC_LOG_INSERT = "INSERT INTO misc_logs(player,uid,type,details,timestamp) VALUES (?,?,?,?,?);"
     private const val WEALTH_LOG_INSERT = "INSERT INTO wealth_logs(player,uid,total,diff,timestamp) VALUES (?,?,?,?,?);"
 
@@ -277,49 +276,49 @@ object PlayerMonitor {
 /**
  * Log type
  *
- * @property token
- * @constructor Log type
+ * @property token Represents the unique identifier for each log type.
+ * @constructor Initializes a LogType with a specific token.
  */
 enum class LogType(val token: String) {
     /**
      * Dupe Alert
      *
-     * @constructor Dupe Alert
+     * @constructor Initializes the DUPE_ALERT log type with its token.
      */
     DUPE_ALERT("dupe_warning"),
 
     /**
      * Duel Info
      *
-     * @constructor Duel Info
+     * @constructor Initializes the DUEL_INFO log type with its token.
      */
     DUEL_INFO("Duel"),
 
     /**
      * Pk
      *
-     * @constructor Pk
+     * @constructor Initializes the PK log type with its token.
      */
     PK("PK"),
 
     /**
      * Drop Trade
      *
-     * @constructor Drop Trade
+     * @constructor Initializes the DROP_TRADE log type with its token.
      */
     DROP_TRADE("DropTrade"),
 
     /**
      * Command
      *
-     * @constructor Command
+     * @constructor Initializes the COMMAND log type with its token.
      */
     COMMAND("CommandUsed"),
 
     /**
      * Ip Log
      *
-     * @constructor Ip Log
+     * @constructor Initializes the IP_LOG log type with its token.
      */
     IP_LOG("login_ip")
 }

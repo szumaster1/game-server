@@ -172,7 +172,7 @@ class PlayerSaver(val player: Player) {
 
     fun saveAchievementData(root: JSONObject) {
         val achievementData = JSONArray()
-        player.achievementDiaryManager.diaries.map {
+        player.achievementDiaryManager.diarys.map {
             val diary = JSONObject()
             val startedLevels = JSONArray()
             it.levelStarted.map {
@@ -194,7 +194,7 @@ class PlayerSaver(val player: Player) {
             }
             diary["rewardedLevels"] = rewardedLevels
             val diaryCollector = JSONObject()
-            diaryCollector[it.type.diaryName] = diary
+            diaryCollector[it.type.name] = diary
             achievementData.add(diaryCollector)
         }
         root["achievementDiaries"] = achievementData
