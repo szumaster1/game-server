@@ -20,25 +20,25 @@ import kotlin.random.Random
 /**
  * B net pulse
  *
- * @property type
- * @constructor
+ * @property type Represents the type of BNetNode associated with this pulse.
+ * @constructor Initializes a BNetPulse instance with the specified player, node, and type.
  *
- * @param player
- * @param node
+ * @param player The player associated with this pulse, can be null.
+ * @param node The NPC associated with this pulse, can be null.
  */
 class BNetPulse(player: Player?, node: NPC?, private val type: BNetNode) : SkillPulse<NPC?>(player, node) {
-    private var success = false
+    private var success = false // Indicates whether the pulse was successful.
 
-    private var ticks = 0
+    private var ticks = 0 // Tracks the number of ticks for the pulse.
 
     /**
      * Update lumbridge impling task
      *
-     * @param player
-     * @return
+     * @param player The player whose task is being updated.
+     * @return Returns true if the player is in the "puro puro" zone, otherwise false.
      */
     fun updateLumbridgeImplingTask(player: Player): Boolean {
-        return player.zoneMonitor.isInZone("puro puro")
+        return player.zoneMonitor.isInZone("puro puro") // Checks if the player is in the specified zone.
     }
 
     init {

@@ -5,8 +5,8 @@ import core.game.world.map.Location
 /**
  * Fish spots
  *
- * @property locations
- * @constructor Fish spots
+ * @property locations A variable-length argument that holds the locations of fish spots.
+ * @constructor Fish spots Initializes the enum with the provided locations.
  */
 enum class FishSpots(vararg val locations: Location) {
     /**
@@ -283,23 +283,35 @@ enum class FishSpots(vararg val locations: Location) {
     );
 
     companion object {
+        // Initialize an ArrayList to hold Location objects
         private val locs: ArrayList<Location> = ArrayList()
+
+        // Initialize a HashMap to associate Location objects with FishSpots
         private val locMap: HashMap<Location, FishSpots> = HashMap()
 
+        // Initialization block to populate locMap and locs
         init {
+            // Iterate through all values of the enum or class
             for (value in values()) {
+                // Iterate through each location in the current value
                 for (loc in value.locations) {
+                    // Map the location to the corresponding FishSpots value
                     locMap[loc] = value
+                    // Add the location to the locs ArrayList
                     locs.add(loc)
                 }
             }
         }
 
+        // Static method to retrieve FishSpots for a given Location
         @JvmStatic
         fun forLocation(loc: Location): FishSpots? {
+            // Check if the location exists in locMap
             return if (locMap[loc] == null) {
+                // Return TUTORIAL_ISLAND if the location is not found
                 TUTORIAL_ISLAND
             } else {
+                // Return the corresponding FishSpots for the found location
                 locMap[loc]
             }
         }

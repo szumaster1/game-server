@@ -25,11 +25,11 @@ import core.tools.colorize
 /**
  * Fishing pulse
  *
- * @property option
- * @constructor
+ * @property option Represents the fishing option selected by the player.
+ * @constructor Initializes a FishingPulse instance with the specified player, NPC, and fishing option.
  *
- * @param player
- * @param npc
+ * @param player The player who is engaged in fishing.
+ * @param npc The non-player character associated with the fishing activity.
  */
 class FishingPulse(player: Player?, npc: NPC, private val option: FishingOption?) : SkillPulse<NPC?>(player, npc) {
 

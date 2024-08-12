@@ -5,15 +5,15 @@ import core.api.consts.Items
 /**
  * Bones
  *
- * @property itemId
- * @property experience
- * @property bonemealId
- * @constructor Bones
+ * @property itemId Unique identifier for the bone item.
+ * @property experience Amount of experience gained from using the bone.
+ * @property bonemealId Optional identifier for the associated bonemeal item.
+ * @constructor Bones Enum class representing different types of bones.
  */
 enum class Bones(
-    val itemId: Int,
-    val experience: Double,
-    val bonemealId: Int?
+    val itemId: Int, // Unique identifier for the bone item.
+    val experience: Double, // Amount of experience gained from using the bone.
+    val bonemealId: Int? // Optional identifier for the associated bonemeal item.
 ) {
     /**
      * Bones.

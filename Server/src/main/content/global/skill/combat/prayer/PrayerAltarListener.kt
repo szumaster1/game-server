@@ -48,9 +48,9 @@ class PrayerAltarListener : InteractionListener {
     /**
      * Pray
      *
-     * @param player
-     * @param node
-     * @return
+     * @param player The player who is performing the prayer action.
+     * @param node The node representing the location or context of the prayer.
+     * @return Returns true if the prayer action was successful, false otherwise.
      */
     private fun pray(player: Player, node: Node): Boolean {
         val prayerLevel = getStatLevel(player, Skills.PRAYER).plus(if (node.id in BOOSTED_ALTAR) 2 else 0)

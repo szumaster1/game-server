@@ -8,9 +8,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 
 /**
- * Gathering listener
- *
- * @constructor Gathering listener
+ * Gathering listener.
  */
 class GatheringListener : InteractionListener {
 
@@ -21,10 +19,10 @@ class GatheringListener : InteractionListener {
     /**
      * Fish
      *
-     * @param player
-     * @param node
-     * @param opt
-     * @return
+     * @param player The player who is attempting to fish.
+     * @param node The fishing node where the player is fishing.
+     * @param opt Optional parameters that may affect the fishing action.
+     * @return Returns true if the fishing action is successful, otherwise false.
      */
     fun fish(player: Player, node: Node, opt: String): Boolean {
         val npc = node as NPC

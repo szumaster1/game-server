@@ -31,9 +31,7 @@ import core.tools.RandomFunction
 import kotlin.math.floor
 
 /**
- * Lunar listeners
- *
- * @constructor Lunar listeners
+ * Lunar listeners.
  */
 class LunarListeners : SpellListener("lunar"), Commands {
 

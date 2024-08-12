@@ -10,9 +10,9 @@ import core.game.world.map.path.ClipMaskSupplier
 /**
  * Impling
  *
- * @property npcId
- * @property puroId
- * @constructor Impling
+ * @property npcId The unique identifier for the NPC (Non-Player Character) associated with the Impling.
+ * @property puroId The unique identifier for the Puro Puro location associated with the Impling.
+ * @constructor Impling Initializes an instance of the Impling enum with the specified npcId and puroId.
  */
 enum class Impling(val npcId: Int, val puroId: Int) {
     /**
@@ -80,15 +80,13 @@ enum class Impling(val npcId: Int, val puroId: Int) {
 /**
  * Impling spawner
  *
- * @property npcId
- * @property table
- * @constructor Impling spawner
+ * @param npcId The unique identifier for the NPC (Non-Player Character).
+ * @param table The weighted table that contains the possible Implings.
+ * @constructor Impling spawner initializes the NPC ID and the weighted table for Implings.
  */
 enum class ImplingSpawner(val npcId: Int, val table: WeightedTable<Impling>) {
     /**
-     * Low tier
-     *
-     * @constructor Low tier
+     * Low tier.
      */
     LowTier(
         npcId = 1024, WeightedTable.create
@@ -103,9 +101,7 @@ enum class ImplingSpawner(val npcId: Int, val table: WeightedTable<Impling>) {
     ),
 
     /**
-     * Mid tier
-     *
-     * @constructor Mid tier
+     * Mid tier.
      */
     MidTier(
         npcId = 1025, WeightedTable.create
@@ -121,9 +117,7 @@ enum class ImplingSpawner(val npcId: Int, val table: WeightedTable<Impling>) {
     ),
 
     /**
-     * High tier
-     *
-     * @constructor High tier
+     * High tier.
      */
     HighTier(
         npcId = 1026, WeightedTable.create
@@ -136,9 +130,7 @@ enum class ImplingSpawner(val npcId: Int, val table: WeightedTable<Impling>) {
     ),
 
     /**
-     * Low puro tier
-     *
-     * @constructor Low puro tier
+     * Low puro tier.
      */
     LowPuroTier(
         npcId = 6065, WeightedTable.create
@@ -153,9 +145,7 @@ enum class ImplingSpawner(val npcId: Int, val table: WeightedTable<Impling>) {
     ),
 
     /**
-     * Mid puro tier
-     *
-     * @constructor Mid puro tier
+     * Mid puro tier.
      */
     MidPuroTier(
         npcId = 6066, WeightedTable.create
@@ -171,9 +161,7 @@ enum class ImplingSpawner(val npcId: Int, val table: WeightedTable<Impling>) {
     ),
 
     /**
-     * High puro tier
-     *
-     * @constructor High puro tier
+     * High puro tier.
      */
     HighPuroTier(
         npcId = 6067, WeightedTable.create
@@ -186,9 +174,7 @@ enum class ImplingSpawner(val npcId: Int, val table: WeightedTable<Impling>) {
     ),
 
     /**
-     * Nothing
-     *
-     * @constructor Nothing
+     * Nothing.
      */
     Nothing(npcId = -1, WeightedTable<Impling>());
 
@@ -208,15 +194,13 @@ enum class ImplingSpawner(val npcId: Int, val table: WeightedTable<Impling>) {
 /**
  * Impling spawn types
  *
- * @property table
- * @property spawnRolls
- * @constructor Impling spawn types
+ * @param table Represents the data structure that holds spawn information.
+ * @param spawnRolls Indicates the number of attempts to spawn an Impling.
+ * @constructor Impling spawn types initializes the spawn types with the given parameters.
  */
 enum class ImplingSpawnTypes(val table: WeightedTable<ImplingSpawner>, val spawnRolls: Int) {
     /**
-     * Standard
-     *
-     * @constructor Standard
+     * Standard.
      */
     Standard(
         WeightedTable.create
@@ -229,9 +213,7 @@ enum class ImplingSpawnTypes(val table: WeightedTable<ImplingSpawner>, val spawn
     ),
 
     /**
-     * Low tier only
-     *
-     * @constructor Low tier only
+     * Low tier only.
      */
     LowTierOnly(
         WeightedTable.create
@@ -241,9 +223,7 @@ enum class ImplingSpawnTypes(val table: WeightedTable<ImplingSpawner>, val spawn
     ),
 
     /**
-     * Mid tier only
-     *
-     * @constructor Mid tier only
+     * Mid tier only.
      */
     MidTierOnly(
         WeightedTable.create
@@ -253,9 +233,7 @@ enum class ImplingSpawnTypes(val table: WeightedTable<ImplingSpawner>, val spawn
     ),
 
     /**
-     * High tier only
-     *
-     * @constructor High tier only
+     * High tier only.
      */
     HighTierOnly(
         WeightedTable.create
@@ -265,9 +243,7 @@ enum class ImplingSpawnTypes(val table: WeightedTable<ImplingSpawner>, val spawn
     ),
 
     /**
-     * High puro tier only
-     *
-     * @constructor High puro tier only
+     * High puro tier only.
      */
     HighPuroTierOnly(
         WeightedTable.create
@@ -278,17 +254,15 @@ enum class ImplingSpawnTypes(val table: WeightedTable<ImplingSpawner>, val spawn
 }
 
 /**
- * Impling spawn locations
+ * Enum class representing the spawn locations of Implings.
  *
- * @property type
- * @property locations
- * @constructor Impling spawn locations
+ * @param type The type of Impling associated with the spawn location.
+ * @param locations Vararg parameter representing multiple locations where the Impling can spawn.
+ * @constructor Initializes an ImplingSpawnLocations instance with a specific type and its corresponding locations.
  */
 enum class ImplingSpawnLocations(val type: ImplingSpawnTypes, vararg val locations: Location) {
     /**
-     * Standard spawns
-     *
-     * @constructor Standard spawns
+     * Standard spawns.
      */
     StandardSpawns(
         ImplingSpawnTypes.Standard,
@@ -326,9 +300,7 @@ enum class ImplingSpawnLocations(val type: ImplingSpawnTypes, vararg val locatio
     ),
 
     /**
-     * Low tier only spawns
-     *
-     * @constructor Low tier only spawns
+     * Low tier only spawns.
      */
     LowTierOnlySpawns(
         ImplingSpawnTypes.LowTierOnly,

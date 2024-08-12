@@ -91,29 +91,51 @@ class BarbFishingPulse(player: Player) : SkillPulse<NPC>(player, NPC(NPCs.FISHIN
     /**
      * Roll success
      *
-     * @param fish
-     * @return
+     * @param fish The fish value used to determine the success of the roll
+     * @return Returns true if the roll is successful, false otherwise
      */
     fun rollSuccess(fish: Int): Boolean {
+        // Calculate the player's effective fishing level, including boosts from skills and familiars
         val level = 1 + player.skills.getLevel(Skills.FISHING) + player.familiarManager.getBoost(Skills.FISHING)
+
+        // Generate a random value based on the fish parameter
         val hostRatio: Double = Math.random() * fish
+
+        // Generate a random value based on the player's effective fishing level
         val clientRatio: Double = Math.random() * (level * 3.0 - fish)
+
+        // Return true if the host's random value is less than the client's, indicating a successful roll
         return hostRatio < clientRatio
     }
 
     /**
      * Get random fish
      *
-     * @return
+     * @return Returns a random fish item based on the player's fishing level and other skills
      */
     fun getRandomFish(): Item {
+        // Array of possible fish items that can be caught
         val fish = arrayOf(Items.LEAPING_TROUT_11328, Items.LEAPING_SALMON_11330, Items.LEAPING_STURGEON_11332)
+
+        // Retrieve the player's fishing level
         val fishing = player.skills.getLevel(Skills.FISHING)
+
+        // Retrieve the player's strength level
         val strength = player.skills.getLevel(Skills.STRENGTH)
+
+        // Retrieve the player's agility level
         val agility = player.skills.getLevel(Skills.AGILITY)
+
+        // Initialize the possible index for selecting a fish
         var possibleIndex = 0
+
+        // Check if the player meets the requirements for the first fish type
         if (fishing >= 58 && (strength >= 30 && agility >= 30)) possibleIndex++
+
+        // Check if the player meets the requirements for the second fish type
         if (fishing >= 70 && (strength >= 45 && agility >= 45)) possibleIndex++
+
+        // Return a random fish item based on the possible index calculated
         return Item(fish[RandomFunction.random(possibleIndex + 1)])
     }
 

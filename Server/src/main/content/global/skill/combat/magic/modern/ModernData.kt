@@ -30,8 +30,6 @@ enum class ChargeOrbData(
 ) {
     /**
      * Charge Water Orb.
-     *
-     * @constructor Creates a new ChargeOrbData instance for charging a Water Orb.
      */
     CHARGE_WATER_ORB(
         obelisk = Scenery.OBELISK_OF_WATER_2151,
@@ -49,8 +47,6 @@ enum class ChargeOrbData(
 
     /**
      * Charge Earth Orb.
-     *
-     * @constructor Creates a new ChargeOrbData instance for charging an Earth Orb.
      */
     CHARGE_EARTH_ORB(
         obelisk = Scenery.OBELISK_OF_EARTH_29415,
@@ -68,8 +64,6 @@ enum class ChargeOrbData(
 
     /**
      * Charge Fire Orb.
-     *
-     * @constructor Creates a new ChargeOrbData instance for charging a Fire Orb.
      */
     CHARGE_FIRE_ORB(
         obelisk = Scenery.OBELISK_OF_FIRE_2153,
@@ -87,8 +81,6 @@ enum class ChargeOrbData(
 
     /**
      * Charge Air Orb.
-     *
-     * @constructor Creates a new ChargeOrbData instance for charging an Air Orb.
      */
     CHARGE_AIR_ORB(
         obelisk = Scenery.OBELISK_OF_AIR_2152,

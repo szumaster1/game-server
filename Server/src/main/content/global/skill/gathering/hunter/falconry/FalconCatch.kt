@@ -6,11 +6,11 @@ import core.game.node.item.Item
 /**
  * Falcon catch
  *
- * @property npc
- * @property level
- * @property experience
- * @property item
- * @constructor Falcon catch
+ * @property npc Represents the NPC (Non-Player Character) associated with the Falcon catch.
+ * @property level Indicates the required level to perform the Falcon catch.
+ * @property experience Specifies the amount of experience gained from the Falcon catch.
+ * @property item Represents the item obtained from the Falcon catch.
+ * @constructor Falcon catch Initializes a FalconCatch enum with the specified parameters.
  */
 enum class FalconCatch(val npc: Int, val level: Int, val experience: Double, val item: Item) {
     /**

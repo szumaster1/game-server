@@ -5,177 +5,127 @@ package content.global.skill.skillcape
  */
 enum class Skillcape {
     /**
-     * Attack
-     *
-     * @constructor Attack
+     * Attack.
      */
     ATTACK,
 
     /**
-     * Strength
-     *
-     * @constructor Strength
+     * Strength.
      */
     STRENGTH,
 
     /**
-     * Defence
-     *
-     * @constructor Defence
+     * Defence.
      */
     DEFENCE,
 
     /**
-     * Ranging
-     *
-     * @constructor Ranging
+     * Ranging.
      */
     RANGING,
 
     /**
-     * Prayer
-     *
-     * @constructor Prayer
+     * Prayer.
      */
     PRAYER,
 
     /**
-     * Magic
-     *
-     * @constructor Magic
+     * Magic.
      */
     MAGIC,
 
     /**
-     * Runecrafting
-     *
-     * @constructor Runecrafting
+     * Runecrafting.
      */
     RUNECRAFTING,
 
     /**
-     * Hitpoints
-     *
-     * @constructor Hitpoints
+     * Hitpoints.
      */
     HITPOINTS,
 
     /**
-     * Agility
-     *
-     * @constructor Agility
+     * Agility.
      */
     AGILITY,
 
     /**
-     * Herblore
-     *
-     * @constructor Herblore
+     * Herblore.
      */
     HERBLORE,
 
     /**
-     * Thieving
-     *
-     * @constructor Thieving
+     * Thieving.
      */
     THIEVING,
 
     /**
-     * Crafting
-     *
-     * @constructor Crafting
+     * Crafting.
      */
     CRAFTING,
 
     /**
-     * Fletching
-     *
-     * @constructor Fletching
+     * Fletching.
      */
     FLETCHING,
 
     /**
-     * Slayer
-     *
-     * @constructor Slayer
+     * Slayer.
      */
     SLAYER,
 
     /**
-     * Construction
-     *
-     * @constructor Construction
+     * Construction.
      */
     CONSTRUCTION,
 
     /**
-     * Mining
-     *
-     * @constructor Mining
+     * Mining.
      */
     MINING,
 
     /**
-     * Smithing
-     *
-     * @constructor Smithing
+     * Smithing.
      */
     SMITHING,
 
     /**
-     * Fishing
-     *
-     * @constructor Fishing
+     * Fishing.
      */
     FISHING,
 
     /**
-     * Cooking
-     *
-     * @constructor Cooking
+     * Cooking.
      */
     COOKING,
 
     /**
-     * Firemaking
-     *
-     * @constructor Firemaking
+     * Firemaking.
      */
     FIREMAKING,
 
     /**
-     * Woodcutting
-     *
-     * @constructor Woodcutting
+     * Woodcutting.
      */
     WOODCUTTING,
 
     /**
-     * Farming
-     *
-     * @constructor Farming
+     * Farming.
      */
     FARMING,
 
     /**
-     * Hunting
-     *
-     * @constructor Hunting
+     * Hunting.
      */
     HUNTING,
 
     /**
-     * Summoning
-     *
-     * @constructor Summoning
+     * Summoning.
      */
     SUMMONING,
 
     /**
-     * None
-     *
-     * @constructor None
+     * None.
      */
     NONE;
 

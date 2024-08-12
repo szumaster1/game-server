@@ -7,12 +7,12 @@ import core.game.node.item.Item
 /**
  * Fish
  *
- * @property id
- * @property level
- * @property experience
- * @property lowChance
- * @property highChance
- * @constructor Fish
+ * @property id Unique identifier for the fish species
+ * @property level The level required to catch this fish
+ * @property experience The experience points gained from catching this fish
+ * @property lowChance The minimum chance of catching this fish
+ * @property highChance The maximum chance of catching this fish
+ * @constructor Fish Enum class representing different fish species with their attributes
  */
 enum class Fish(val id: Int, val level: Int, val experience: Double, val lowChance: Double, val highChance: Double) {
     /**

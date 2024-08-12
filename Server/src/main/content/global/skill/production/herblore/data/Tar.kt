@@ -19,9 +19,7 @@ enum class Tar(
     val tar: Item // The resulting item after using the Tar
 ) {
     /**
-     * Guam Tar
-     *
-     * @constructor Guam Tar
+     * Guam Tar.
      */
     GUAM_TAR(
         ingredient = Herb.GUAM.product,
@@ -31,9 +29,7 @@ enum class Tar(
     ),
 
     /**
-     * Marrentill Tar
-     *
-     * @constructor Marrentill Tar
+     * Marrentill Tar.
      */
     MARRENTILL_TAR(
         ingredient = Herb.MARRENTILL.product,
@@ -43,9 +39,7 @@ enum class Tar(
     ),
 
     /**
-     * Tarromin Tar
-     *
-     * @constructor Tarromin Tar
+     * Tarromin Tar.
      */
     TARROMIN_TAR(
         ingredient = Herb.TARROMIN.product,
@@ -55,9 +49,7 @@ enum class Tar(
     ),
 
     /**
-     * Harralander Tar
-     *
-     * @constructor Harralander Tar
+     * Harralander Tar.
      */
     HARRALANDER_TAR(
         ingredient = Herb.HARRALANDER.product,

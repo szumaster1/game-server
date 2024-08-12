@@ -38,8 +38,8 @@ abstract class HunterTracking : OptionHandler() {
     /**
      * Get initial trail
      *
-     * @param obj
-     * @return
+     * @param obj The scenery object used to define the trail.
+     * @return A TrailDefinition object representing the initial trail, or null if not applicable.
      */
     fun getInitialTrail(obj: Scenery): TrailDefinition? {
         return initialMap[obj.id]?.random()
@@ -49,8 +49,8 @@ abstract class HunterTracking : OptionHandler() {
     /**
      * Generate trail
      *
-     * @param startobj
-     * @param player
+     * @param startobj Represents the starting scenery object for the trail.
+     * @param player Represents the player who is generating the trail.
      */
     fun generateTrail(startobj: Scenery, player: Player) {
         val trail = player.getAttribute(attribute, ArrayList<TrailDefinition>())
@@ -92,8 +92,8 @@ abstract class HunterTracking : OptionHandler() {
     /**
      * Get linking trail
      *
-     * @param player
-     * @return
+     * @param player The player for whom the linking trail is being retrieved
+     * @return The TrailDefinition associated with the specified player
      */
     fun getLinkingTrail(player: Player): TrailDefinition {
         val trail = player.getAttribute(attribute, ArrayList<TrailDefinition>())
@@ -117,13 +117,12 @@ abstract class HunterTracking : OptionHandler() {
         return possibleTrails.random()
     }
 
-
     /**
      * Get trail inverse
      *
-     * @param trail
-     * @param swapLocations
-     * @return
+     * @param trail The trail definition that needs to be inverted.
+     * @param swapLocations A boolean indicating whether to swap locations in the trail.
+     * @return The inverted trail definition.
      */
     fun getTrailInverse(trail: TrailDefinition, swapLocations: Boolean): TrailDefinition {
         if (swapLocations) return TrailDefinition(
@@ -162,11 +161,10 @@ abstract class HunterTracking : OptionHandler() {
         }
     }
 
-
     /**
      * Clear trail
      *
-     * @param player
+     * @param player The player whose trail is to be cleared.
      */
     fun clearTrail(player: Player) {
         player.removeAttribute(attribute)
@@ -176,21 +174,20 @@ abstract class HunterTracking : OptionHandler() {
 
 
     /**
-     * Has trail
+     * Checks if the specified player has a trail.
      *
-     * @param player
-     * @return
+     * @param player The player whose trail status is being checked.
+     * @return True if the player has a trail, otherwise false.
      */
     fun hasTrail(player: Player): Boolean {
         return false
     }
 
-
     /**
      * Reward
      *
-     * @param player
-     * @param success
+     * @param player The player who is receiving the reward.
+     * @param success Indicates whether the reward is granted based on success.
      */
     fun reward(player: Player, success: Boolean) {
         player.lock()

@@ -20,11 +20,11 @@ import core.tools.RandomFunction
 /**
  * Falconry catch pulse
  *
- * @property falconCatch
- * @constructor
+ * @property falconCatch Represents the falcon's catch status.
+ * @constructor Initializes the falconry catch pulse with player and node parameters.
  *
- * @param player
- * @param node
+ * @param player The player involved in the falconry activity.
+ * @param node The node representing the location of the falconry activity.
  */
 class FalconryCatchPulse(player: Player?, node: NPC, private val falconCatch: FalconCatch) :
     SkillPulse<NPC?>(player, node) {

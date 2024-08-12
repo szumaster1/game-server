@@ -23,99 +23,73 @@ import core.plugin.Initializable
 /**
  * Skillcape perks
  *
- * @property attribute
- * @property effect
- * @constructor Skillcape perks
+ * @property attribute Represents the specific attribute associated with the skillcape.
+ * @property effect A lambda function that defines the effect of the skillcape on a Player.
+ * @constructor Skillcape perks Initializes a SkillcapePerks enum with the given attribute and effect.
  */
 enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)? = null) {
     /**
-     * Barefisted Smithing
-     *
-     * @constructor Barefisted Smithing
+     * Barefisted Smithing.
      */
     BAREFISTED_SMITHING("cape_perks:barefisted-smithing"),
 
     /**
-     * Divine Favor
-     *
-     * @constructor Divine Favor
+     * Divine Favor.
      */
     DIVINE_FAVOR("cape_perks:divine-favor"),
 
     /**
-     * Constant Glow
-     *
-     * @constructor Constant Glow
+     * Constant Glow.
      */
     CONSTANT_GLOW("cape_perks:eternal-glow"),
 
     /**
-     * Precision Miner
-     *
-     * @constructor Precision Miner
+     * Precision Miner.
      */
     PRECISION_MINER("cape_perks:precision-miner"),
 
     /**
-     * Great Aim
-     *
-     * @constructor Great Aim
+     * Great Aim.
      */
     GREAT_AIM("cape_perks:great-aim"),
 
     /**
-     * Nest Hunter
-     *
-     * @constructor Nest Hunter
+     * Nest Hunter.
      */
     NEST_HUNTER("cape_perks:nest-hunter"),
 
     /**
-     * Precision Strikes
-     *
-     * @constructor Precision Strikes
+     * Precision Strikes.
      */
     PRECISION_STRIKES("cape_perks:precision-strikes"),
 
     /**
-     * Fine Attunement
-     *
-     * @constructor Fine Attunement
+     * Fine Attunement.
      */
     FINE_ATTUNEMENT("cape_perks:fine-attunement"),
 
     /**
-     * Grand Bullwark
-     *
-     * @constructor Grand Bullwark
+     * Grand Bullwark.
      */
     GRAND_BULLWARK("cape_perks:grand-bullwark"),
 
     /**
-     * Accurate Marksman
-     *
-     * @constructor Accurate Marksman
+     * Accurate Marksman.
      */
     ACCURATE_MARKSMAN("cape_perks:accurate-marksman"),
 
     /**
-     * Damage Spong
-     *
-     * @constructor Damage Spong
+     * Damage Spong.
      */
     DAMAGE_SPONG("cape_perks:damage-sponge"),
 
     /**
-     * Marathon Runner
-     *
-     * @constructor Marathon Runner
+     * Marathon Runner.
      */
     MARATHON_RUNNER("cape_perks:marathon-runner"),
 
     /**
-     * Librarian Magus
-     *
-     * @constructor Librarian Magus
+     * Librarian Magus.
      */
     LIBRARIAN_MAGUS("cape_perks:librarian-magus", { player ->
         val store = ServerStore.getArchive("daily-librarian-magus")
@@ -129,9 +103,7 @@ enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)?
     }),
 
     /**
-     * Abyss Warping
-     *
-     * @constructor Abyss Warping
+     * Abyss Warping.
      */
     ABYSS_WARPING("cape_perks:abyss_warp", { player ->
         val store = ServerStore.getArchive("daily-abyss-warp")
@@ -145,9 +117,7 @@ enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)?
     }),
 
     /**
-     * Seed Attraction
-     *
-     * @constructor Seed Attraction
+     * Seed Attraction.
      */
     SEED_ATTRACTION("cape_perks:seed_attract", { player ->
         val store = ServerStore.getArchive("daily-seed-attract")
@@ -171,9 +141,7 @@ enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)?
     }),
 
     /**
-     * Tricks Of The Trade
-     *
-     * @constructor Tricks Of The Trade
+     * Tricks Of The Trade.
      */
     TRICKS_OF_THE_TRADE("cape_perks:tott", { player ->
         val hasHelmetBonus = getAttribute(player, "cape_perks:tott:helmet-stored", false)
@@ -187,39 +155,29 @@ enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)?
     }),
 
     /**
-     * Hasty Cooking
-     *
-     * @constructor Hasty Cooking
+     * Hasty Cooking.
      */
     HASTY_COOKING("cape_perks:hasty-cooking"),
 
     /**
-     * Smooth Hands
-     *
-     * @constructor Smooth Hands
+     * Smooth Hands.
      */
     SMOOTH_HANDS("cape_perks:smooth-hands"),
 
     /**
-     * Pet Mastery
-     *
-     * @constructor Pet Mastery
+     * Pet Mastery.
      */
     PET_MASTERY("cape_perks:pet-mastery"),
 
     /**
-     * Brewmaster
-     *
-     * @constructor Brewmaster
+     * Brewmaster.
      */
     BREWMASTER(
         "cape_perks:brewmaster"
     ),
 
     /**
-     * None
-     *
-     * @constructor None
+     * None.
      */
     NONE("cape_perks:none");
 
@@ -263,39 +221,49 @@ enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)?
     /**
      * Activate
      *
-     * @param player
+     * @param player The player who is activating the skillcape.
      */
     fun activate(player: Player) {
+        // Check if skillcape perks are enabled in the game settings
         if (GameWorld.settings?.skillcape_perks != true) {
-            return
+            return // Exit the function if perks are not enabled
         }
+        // Check if the skillcape is not already active for the player
         if (!isActive(this, player)) {
+            // Set the attribute to indicate the skillcape is active
             player.setAttribute("/save:$attribute", true)
         }
+        // Log the activation of the skillcape for debugging purposes
         player.debug("Activated ${this.name}")
+        // If the skillcape is the constant glow, check if the player is in a dark area
         if (this == CONSTANT_GLOW) DarkZone.checkDarkArea(player)
     }
 
     /**
      * Operate
      *
-     * @param player
+     * @param player The player who is operating the skillcape.
      */
     fun operate(player: Player) {
+        // Check if skillcape perks are enabled in the game settings
         if (GameWorld.settings?.skillcape_perks != true) {
+            // Inform the player that the item cannot be operated
             player.sendMessage("This item can not be operated.")
-            return
+            return // Exit the function if perks are not enabled
         }
+        // Invoke the effect associated with the skillcape on the player
         effect?.invoke(player)
     }
 
     /**
      * Deactivate
      *
-     * @param player
+     * @param player The player who is deactivating the skillcape.
      */
     fun deactivate(player: Player) {
+        // Remove the active attribute of the skillcape from the player
         player.removeAttribute(attribute)
+        // If the skillcape is the constant glow, check if the player is in a dark area
         if (this == CONSTANT_GLOW) DarkZone.checkDarkArea(player)
     }
 
@@ -304,7 +272,7 @@ enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)?
      *
      * @constructor
      *
-     * @param player
+     * @param player The player associated with the magic cape dialogue.
      */
     @Initializable
     class MagicCapeDialogue(player: Player? = null) : Dialogue(player) {

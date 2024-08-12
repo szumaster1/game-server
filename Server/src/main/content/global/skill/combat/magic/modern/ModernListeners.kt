@@ -312,8 +312,14 @@ class ModernListeners : SpellListener("modern") {
      * @return Boolean value indicating the success of alchemizing the item.
      */
     fun alchemize(player: Player, item: Item, high: Boolean, explorersRing: Boolean = false): Boolean {
-        if (item.name == "Coins") sendMessage(player, "You can't alchemize something that's already gold!").also { return false }
-        if ((!item.definition.isTradeable) && (!item.definition.isAlchemizable)) sendMessage(player, "You can't cast this spell on something like that.").also { return false }
+        if (item.name == "Coins") sendMessage(
+            player,
+            "You can't alchemize something that's already gold!"
+        ).also { return false }
+        if ((!item.definition.isTradeable) && (!item.definition.isAlchemizable)) sendMessage(
+            player,
+            "You can't cast this spell on something like that."
+        ).also { return false }
 
         if (player.zoneMonitor.isInZone("Alchemists' Playground")) {
             sendMessage(player, "You can only alch items from the cupboards!")

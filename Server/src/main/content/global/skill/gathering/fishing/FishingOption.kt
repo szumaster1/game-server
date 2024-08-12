@@ -12,21 +12,21 @@ import core.tools.RandomFunction
 /**
  * Fishing option
  *
- * @property tool
- * @property level
- * @property animation
- * @property bait
- * @property option
- * @property fish
- * @constructor Fishing option
+ * @property tool Represents the tool required for fishing.
+ * @property level Indicates the level of fishing skill needed.
+ * @property animation Defines the animation associated with the fishing action.
+ * @property bait Specifies the bait used for fishing, if any.
+ * @property option Describes the fishing option in a string format.
+ * @property fish Represents the various fish that can be caught with this option.
+ * @constructor Fishing option Initializes a new FishingOption with the specified parameters.
  */
 enum class FishingOption(
-    val tool: Int,
-    val level: Int,
-    val animation: Animation,
-    val bait: IntArray?,
-    val option: String,
-    vararg val fish: Fish
+    val tool: Int, // The integer value representing the fishing tool.
+    val level: Int, // The integer value representing the required fishing level.
+    val animation: Animation, // The Animation object that defines the fishing action's animation.
+    val bait: IntArray?, // An optional array of integers representing the bait types.
+    val option: String, // A string that describes the fishing option.
+    vararg val fish: Fish // A variable number of Fish objects that can be caught with this option.
 ) {
     /**
      * Crayfish Cage.
@@ -267,27 +267,34 @@ enum class FishingOption(
     /**
      * Get bait name
      *
-     * @return
+     * @return The name of the first bait item if available, otherwise "none".
      */
     fun getBaitName(): String {
+        // Check if bait is not null and not empty
         if (bait != null && bait.isNotEmpty()) {
+            // Return the name of the first bait item
             return getItemName(bait[0])
         }
+        // Return "none" if no bait is available
         return "none"
     }
 
     /**
      * Has bait
      *
-     * @param player
-     * @return
+     * @param player The player whose inventory is checked for bait.
+     * @return True if the player has any bait, otherwise false.
      */
     fun hasBait(player: Player): Boolean {
+        // If bait is null, return true indicating the player has no bait
         return if (bait == null) true else {
-            var anyBait = false
+            var anyBait = false // Initialize a flag to check for any bait
+            // Iterate through each bait item
             for (b in bait) {
+                // Check if the player has the current bait in their inventory
                 anyBait = anyBait || inInventory(player, b)
             }
+            // Return true if any bait was found in the player's inventory
             anyBait
         }
     }
@@ -295,18 +302,23 @@ enum class FishingOption(
     /**
      * Remove bait
      *
-     * @param player
-     * @return
+     * @param player The player from whom bait will be removed.
+     * @return True if any bait was successfully removed, otherwise false.
      */
     fun removeBait(player: Player): Boolean {
+        // If bait is null, return true indicating nothing to remove
         return if (bait == null) {
             true
         } else {
+            // Iterate through the bait list in reverse order
             for (i in bait.size downTo 1) {
+                // Attempt to remove the current bait item from the player's inventory
                 if (removeItem(player, bait[i - 1], Container.INVENTORY)) {
+                    // Return true if an item was successfully removed
                     return true
                 }
             }
+            // Return false if no items were removed
             false
         }
     }
@@ -314,9 +326,10 @@ enum class FishingOption(
     /**
      * Get start message
      *
-     * @return
+     * @return A message indicating the action taken when starting to fish.
      */
     fun getStartMessage(): String {
+        // Return a specific message based on the selected option
         return if (option == "net")
             "You cast out your net..."
         else

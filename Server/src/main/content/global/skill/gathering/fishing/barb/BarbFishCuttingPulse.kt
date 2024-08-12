@@ -13,16 +13,14 @@ import core.game.world.update.flag.context.Animation
 /**
  * Barb fish cutting pulse
  *
- * @property player
- * @property fish
- * @constructor Barb fish cutting pulse
+ * @property player Represents the player who is performing the action.
+ * @property fish Represents the type of fish being cut.
+ * @constructor Initializes a new instance of BarbFishCuttingPulse with the specified player and fish type.
  */
 class BarbFishCuttingPulse(val player: Player, val fish: Int) : Pulse(0) {
 
     /**
-     * Check requirements
-     *
-     * @return
+     * Check requirements.
      */
     fun checkRequirements(): Boolean {
         if (!(freeSlots(player) >= 2 || (freeSlots(player) >= 1 && inInventory(player, Items.FISH_OFFCUTS_11334)))) {

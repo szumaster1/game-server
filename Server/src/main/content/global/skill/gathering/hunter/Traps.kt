@@ -14,10 +14,10 @@ import core.tools.Log
 /**
  * Traps
  *
- * @property settings
- * @constructor
+ * @property settings Holds the configuration settings for the trap.
+ * @constructor Initializes a new instance of the Traps enum.
  *
- * @param nodes
+ * @param nodes A variable number of TrapNode instances associated with the trap.
  */
 enum class Traps(@JvmField val settings: TrapSetting, vararg nodes: TrapNode) {
     /**

@@ -10,17 +10,17 @@ import core.game.node.item.Item
  * @property summoningLevel
  * @constructor
  *
- * @param npcIds
- * @param level
- * @param experience
- * @param rewards
+ * @param npcIds Array of NPC IDs associated with the box trap.
+ * @param level The level required to use the box trap.
+ * @param experience The experience gained from using the box trap.
+ * @param rewards Array of items that can be obtained from the box trap.
  */
 open class BoxTrapNode(
-    npcIds: IntArray,
-    level: Int,
-    experience: Double,
-    rewards: Array<Item>,
-    private val summoningLevel: Int
+    npcIds: IntArray, // Array of NPC IDs associated with the box trap.
+    level: Int, // The level required to use the box trap.
+    experience: Double, // The experience gained from using the box trap.
+    rewards: Array<Item>, // Array of items that can be obtained from the box trap.
+    private val summoningLevel: Int // The summoning level required to use the box trap.
 ) : TrapNode(npcIds, level, experience, intArrayOf(19188, 19189), rewards) {
 
     override fun canCatch(wrapper: TrapWrapper, npc: NPC): Boolean {
