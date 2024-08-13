@@ -22,6 +22,7 @@ import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 
 class TrickOrTreatHandler : InteractionListener {
+
     override fun defineListeners() {
         on(IntType.NPC, "trick-or-treat") { player, node ->
             val hasDone5 = getDailyTrickOrTreats(player) == 5

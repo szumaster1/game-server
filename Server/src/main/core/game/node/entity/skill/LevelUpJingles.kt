@@ -25,9 +25,9 @@ private val farming: IntArray = intArrayOf(2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 
 /**
  * Get skill jingle
  *
- * @param player
- * @param slot
- * @return
+ * @param player The player object that is invoking the skill jingle
+ * @param slot The specific slot number associated with the skill
+ * @return The jingle ID corresponding to the skill
  */
 fun getSkillJingle(player: Player, slot: Int) : Int {
     val skillLevel = getStatLevel(player, slot)

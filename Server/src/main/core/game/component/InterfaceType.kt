@@ -12,10 +12,10 @@ import core.api.consts.Components
  * @constructor Represents InterfaceType with the provided IDs.
  */
 enum class InterfaceType(
-    @JvmField val fixedPaneId: Int,
-    @JvmField val resizablePaneId: Int,
-    @JvmField val fixedChildId: Int,
-    @JvmField val resizableChildId: Int
+    @JvmField val fixedPaneId: Int,          // ID for the fixed pane
+    @JvmField val resizablePaneId: Int,      // ID for the resizable pane
+    @JvmField val fixedChildId: Int,         // ID for the fixed child
+    @JvmField val resizableChildId: Int      // ID for the resizable child
 ) {
     /**
      * Default interface type.

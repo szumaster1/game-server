@@ -9,6 +9,7 @@ import core.tools.RandomFunction
 import core.tools.colorize
 
 class CandyRewardPlugin : XPGainPlugin() {
+
     override fun run(player: Player, skill: Int, amount: Double) {
         val awardCandy = RandomFunction.random(1, 200) == 55
         val candy = Item(14084)

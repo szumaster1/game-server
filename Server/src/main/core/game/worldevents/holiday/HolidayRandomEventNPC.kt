@@ -14,11 +14,11 @@ import core.tools.secondsToTicks
 import kotlin.reflect.full.createInstance
 
 /**
- * Holiday random even NPC
+ * Holiday random event NPC
  *
  * @constructor
  *
- * @param id
+ * @param id Unique identifier for the NPC
  */
 abstract class HolidayRandomEventNPC(id: Int) : NPC(id) {
     lateinit var player: Player
@@ -29,11 +29,11 @@ abstract class HolidayRandomEventNPC(id: Int) : NPC(id) {
     var ticksLeft = secondsToTicks(30)
 
     /**
-     * Create
+     * Create a new instance of HolidayRandomEventNPC
      *
-     * @param player
-     * @param type
-     * @return
+     * @param player The player interacting with the NPC
+     * @param type Type of the event (default is an empty string)
+     * @return Newly created instance of HolidayRandomEventNPC
      */
     open fun create(player: Player, type: String = ""): HolidayRandomEventNPC {
         val event = this::class.createInstance()
@@ -43,7 +43,7 @@ abstract class HolidayRandomEventNPC(id: Int) : NPC(id) {
     }
 
     /**
-     * Terminate
+     * Terminate the NPC event
      *
      */
     open fun terminate() {
@@ -56,7 +56,7 @@ abstract class HolidayRandomEventNPC(id: Int) : NPC(id) {
     }
 
     /**
-     * Follow
+     * Follow the player
      *
      */
     open fun follow() {
@@ -69,49 +69,46 @@ abstract class HolidayRandomEventNPC(id: Int) : NPC(id) {
     }
 
     override fun tick() {
-        super.tick()
-        if (player.getAttribute<HolidayRandomEventNPC?>("holiday-npc", null) != this) {
-            terminate()
-            return
+        super.tick() // Call the superclass tick method
+        if (player.getAttribute<HolidayRandomEventNPC?>("holiday-npc", null) != this) { // Check if the NPC is still associated with the player
+            terminate() // Terminate if not associated
+            return // Exit the method
         }
-        if (!player.getAttribute("holidayrandom:pause", false)) {
-            ticksLeft--
+        if (!player.getAttribute("holidayrandom:pause", false)) { // Check if the timer is not paused
+            ticksLeft-- // Decrement the ticks left
         }
-        if (!pulseManager.hasPulseRunning() && !finalized) {
-            follow()
+        if (!pulseManager.hasPulseRunning() && !finalized) { // Check if no pulse is running and not finalized
+            follow() // Call follow method
         }
-        if (!player.isActive || !player.location.withinDistance(location, 10)) {
-            terminate()
+        if (!player.isActive || !player.location.withinDistance(location, 10)) { // Check if the player is inactive or out of range
+            terminate() // Terminate the NPC
         }
-        if (ticksLeft <= 0 && initialized) {
-            terminate()
-            initialized = false
+        if (ticksLeft <= 0 && initialized) { // Check if time is up and initialized
+            terminate() // Terminate the NPC
+            initialized = false // Reset initialized flag
         }
     }
 
     override fun init() {
-        initialized = true
-        finalized = false
-        timerPaused = false
-        spawnLocation ?: terminate()
-        location = spawnLocation
-        player.setAttribute("holiday-npc", this)
-        super.init()
+        initialized = true // Set initialized flag to true
+        finalized = false // Reset finalized flag
+        timerPaused = false // Reset timer paused flag
+        spawnLocation ?: terminate() // Terminate if spawn location is null
+        location = spawnLocation // Set NPC location to spawn location
+        player.setAttribute("holiday-npc", this) // Associate the NPC with the player
+        super.init() // Call the superclass init method
     }
 
     override fun clear() {
-        super.clear()
-        if (player.getAttribute<HolidayRandomEventNPC?>(
-                "holiday-npc",
-                null
-            ) == this
-        ) player.removeAttribute("holiday-npc")
+        super.clear() // Call the superclass clear method
+        if (player.getAttribute<HolidayRandomEventNPC?>("holiday-npc", null) == this) // Check if the NPC is associated with the player
+            player.removeAttribute("holiday-npc") // Remove the association
     }
 
     /**
-     * Talk to
+     * Talk to the NPC
      *
-     * @param npc
+     * @param npc The NPC to talk to
      */
     abstract fun talkTo(npc: NPC)
 }

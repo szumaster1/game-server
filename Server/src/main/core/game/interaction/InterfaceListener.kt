@@ -13,6 +13,7 @@ interface InterfaceListener : ContentInterface {
     /**
      * Define interface listeners.
      *
+     * This method should be implemented to set up the necessary listeners for interface interactions.
      */
     fun defineInterfaceListeners()
 
@@ -25,6 +26,7 @@ interface InterfaceListener : ContentInterface {
      * @receiver the receiver of the function.
      */
     fun on(componentID: Int, buttonID: Int, handler: (player: Player, component: Component, opcode: Int, buttonID: Int, slot: Int, itemID: Int) -> Boolean) {
+        // Add the button click handler to the InterfaceListeners for the specified component and button IDs
         InterfaceListeners.add(componentID, buttonID, handler)
     }
 
@@ -36,6 +38,7 @@ interface InterfaceListener : ContentInterface {
      * @receiver the receiver of the function.
      */
     fun on(componentID: Int, handler: (player: Player, component: Component, opcode: Int, buttonID: Int, slot: Int, itemID: Int) -> Boolean) {
+        // Add the component interaction handler to the InterfaceListeners for the specified component ID
         InterfaceListeners.add(componentID, handler)
     }
 
@@ -47,6 +50,7 @@ interface InterfaceListener : ContentInterface {
      * @receiver the receiver of the function.
      */
     fun onOpen(componentID: Int, handler: (player: Player, component: Component) -> Boolean) {
+        // Add the open listener for the specified component ID to the InterfaceListeners
         InterfaceListeners.addOpenListener(componentID, handler)
     }
 
@@ -58,6 +62,7 @@ interface InterfaceListener : ContentInterface {
      * @receiver the receiver of the function.
      */
     fun onClose(componentID: Int, handler: (player: Player, component: Component) -> Boolean) {
+        // Add the close listener for the specified component ID to the InterfaceListeners
         InterfaceListeners.addCloseListener(componentID, handler)
     }
 }

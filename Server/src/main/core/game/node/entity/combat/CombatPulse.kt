@@ -26,8 +26,8 @@ import core.tools.RandomFunction
 /**
  * Combat pulse
  *
- * @param entity
- * @constructor Combat pulse
+ * @param entity The entity associated with this combat pulse.
+ * @constructor Initializes a CombatPulse with the specified entity.
  */
 class CombatPulse(val entity: Entity?) : Pulse(1, entity, null) {
 
@@ -111,12 +111,8 @@ class CombatPulse(val entity: Entity?) : Pulse(1, entity, null) {
         return victim != null && victim!!.skills.lifepoints < 1 || entity.skills.lifepoints < 1
     }
 
-    /*
-     * Sets the "in combat" flag for the victim and handles closing.
-     */
-
     /**
-     * Set combat flags
+     * Sets the "in combat" flag for the victim and handles closing.
      *
      * @param victim
      */
@@ -147,10 +143,9 @@ class CombatPulse(val entity: Entity?) : Pulse(1, entity, null) {
         victim.setAttribute("combat-attacker", entity)
     }
 
-    /*
+    /**
      * Checks if the mover can interact with the victim.
      */
-
     private fun interactable(): Boolean {
         if (victim == null) {
             return false
@@ -208,14 +203,8 @@ class CombatPulse(val entity: Entity?) : Pulse(1, entity, null) {
         }
     }
 
-    /*
-     * Attacks the node.
-     */
-
     /**
-     * Attack
-     *
-     * @param victim
+     * Attacks the node.
      */
     fun attack(victim: Node?) {
         if (victim == null) {
@@ -274,12 +263,9 @@ class CombatPulse(val entity: Entity?) : Pulse(1, entity, null) {
             entity.pulseManager.run(this)
     }
 
-    /*
-     * Sets the victim.
-     */
 
     /**
-     * Set victim
+     * Sets the victim.
      *
      * @param victim
      */
@@ -291,12 +277,8 @@ class CombatPulse(val entity: Entity?) : Pulse(1, entity, null) {
         combatTimeOut = 0
     }
 
-    /*
-     * Sets the next attack.
-     */
-
     /**
-     * Set next attack
+     * Sets the next attack.
      *
      * @param ticks
      */
@@ -304,12 +286,8 @@ class CombatPulse(val entity: Entity?) : Pulse(1, entity, null) {
         nextAttack = GameWorld.ticks + ticks
     }
 
-    /*
-     * Delays the next attack.
-     */
-
     /**
-     * Delay next attack
+     * Delays the next attack.
      *
      * @param ticks
      */
@@ -317,12 +295,8 @@ class CombatPulse(val entity: Entity?) : Pulse(1, entity, null) {
         nextAttack += ticks
     }
 
-    /*
-     * Gets the next attack tick.
-     */
-
     /**
-     * Get next attack
+     * Gets the next attack tick.
      *
      * @return
      */
@@ -330,12 +304,8 @@ class CombatPulse(val entity: Entity?) : Pulse(1, entity, null) {
         return nextAttack
     }
 
-    /*
-     * Checks if we can fight with the victim.
-     */
-
     /**
-     * Can interact
+     * Checks if we can fight with the victim.
      *
      * @return
      */
@@ -395,12 +365,8 @@ class CombatPulse(val entity: Entity?) : Pulse(1, entity, null) {
             return entity != null && entity.properties.combatPulse.isAttacking
         }
 
-    /*
-     * Gets the current victim.
-     */
-
     /**
-     * Get victim
+     * Gets the current victim.
      *
      * @return
      */

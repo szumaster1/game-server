@@ -18,95 +18,95 @@ import core.tools.secondsToTicks
 import core.tools.ticksToSeconds
 
 /**
- * Grave.
+ * Grave class representing a player's grave in the game.
  */
 @Initializable
 class Grave : AbstractNPC {
-    lateinit var type: GraveType
-    private val items = ArrayList<GroundItem>()
-    var ownerUsername: String = ""
-    var ownerUid: Int = -1
+    lateinit var type: GraveType // Type of the grave
+    private val items = ArrayList<GroundItem>() // List to hold ground items associated with the grave
+    var ownerUsername: String = "" // Username of the grave owner
+    var ownerUid: Int = -1 // Unique identifier for the grave owner
 
-    var ticksRemaining = -1
+    var ticksRemaining = -1 // Remaining ticks before the grave expires
 
-    constructor() : super(NPCs.GRAVESTONE_6571, Location.create(0, 0, 0), false)
-    private constructor(id: Int, location: Location) : super(id, location)
+    constructor() : super(NPCs.GRAVESTONE_6571, Location.create(0, 0, 0), false) // Default constructor
+    private constructor(id: Int, location: Location) : super(id, location) // Private constructor for custom ID and location
 
     override fun construct(id: Int, location: Location, vararg objects: Any): AbstractNPC {
-        return Grave(id, location)
+        return Grave(id, location) // Constructs a new Grave instance
     }
 
     override fun getIds(): IntArray {
-        return GraveType.ids
+        return GraveType.ids // Returns the IDs associated with the grave type
     }
 
     /**
-     * Configure type.
+     * Configure the type of the grave.
      */
     fun configureType(type: GraveType) {
-        this.type = type
-        this.transform(type.npcId)
-        this.ticksRemaining = secondsToTicks(type.durationMinutes * 60)
+        this.type = type // Set the grave type
+        this.transform(type.npcId) // Transform the NPC to the corresponding grave type
+        this.ticksRemaining = secondsToTicks(type.durationMinutes * 60) // Set the remaining ticks based on duration
     }
 
     /**
-     * Initialize
+     * Initialize the grave for a player.
      *
      * @param player The player object that will be initialized.
      * @param location The location where the player will be placed.
      * @param inventory The array of items that the player will have.
      */
     fun initialize(player: Player, location: Location, inventory: Array<Item>) {
-        if (!GraveController.allowGenerate(player))
-            return
+        if (!GraveController.allowGenerate(player)) // Check if grave generation is allowed
+            return // Exit if not allowed
 
-        this.ownerUid = player.details.uid
-        this.ownerUsername = player.username
-        this.location = player.getAttribute("/save:original-loc", location)
-        this.isRespawn = false
-        this.isWalks = false
-        this.isNeverWalks = true
+        this.ownerUid = player.details.uid // Set the owner's unique ID
+        this.ownerUsername = player.username // Set the owner's username
+        this.location = player.getAttribute("/save:original-loc", location) // Get the original location of the player
+        this.isRespawn = false // Set respawn flag to false
+        this.isWalks = false // Set walking flag to false
+        this.isNeverWalks = true // Set never walks flag to true
 
-        for (item in inventory) {
-            if (GraveController.shouldRelease(item.id)) {
-                sendMessage(player, "Your ${item.name.lowercase().replace("jar", "")} has escaped.")
-                continue
+        for (item in inventory) { // Iterate through the player's inventory
+            if (GraveController.shouldRelease(item.id)) { // Check if the item should be released
+                sendMessage(player, "Your ${item.name.lowercase().replace("jar", "")} has escaped.") // Notify player
+                continue // Skip to the next item
             }
 
-            if (GraveController.shouldCrumble(item.id)) {
-                sendMessage(player, "Your ${item.name.lowercase()} has crumbled to dust.")
-                continue
+            if (GraveController.shouldCrumble(item.id)) { // Check if the item should crumble
+                sendMessage(player, "Your ${item.name.lowercase()} has crumbled to dust.") // Notify player
+                continue // Skip to the next item
             }
 
-            val finalItem = GraveController.checkTransform(item)
+            val finalItem = GraveController.checkTransform(item) // Check if the item needs transformation
 
-            val gi = GroundItemManager.create(finalItem, this.location, player)
-            gi.isRemainPrivate = true
-            gi.decayTime = secondsToTicks(type.durationMinutes * 60)
-            this.items.add(gi)
+            val gi = GroundItemManager.create(finalItem, this.location, player) // Create a ground item
+            gi.isRemainPrivate = true // Set the ground item to remain private
+            gi.decayTime = secondsToTicks(type.durationMinutes * 60) // Set decay time for the item
+            this.items.add(gi) // Add the ground item to the list
         }
 
-        if (items.isEmpty()) {
-            clear()
-            return
+        if (items.isEmpty()) { // Check if there are no items
+            clear() // Clear the grave
+            return // Exit the function
         }
 
-        this.init()
+        this.init() // Initialize the grave
 
-        if (GraveController.activeGraves[ownerUid] != null) {
-            val oldGrave = GraveController.activeGraves[ownerUid]
-            oldGrave?.collapse()
+        if (GraveController.activeGraves[ownerUid] != null) { // Check if there is an existing grave for the owner
+            val oldGrave = GraveController.activeGraves[ownerUid] // Get the old grave
+            oldGrave?.collapse() // Collapse the old grave if it exists
         }
 
-        GraveController.activeGraves[ownerUid] = this
+        GraveController.activeGraves[ownerUid] = this // Register the new grave
         sendMessage(
             player,
-            colorize("%RBecause of your current gravestone, you have ${type.durationMinutes} minutes to get your items back.")
+            colorize("%RBecause of your current gravestone, you have ${type.durationMinutes} minutes to get your items back.") // Notify player of time limit
         )
     }
 
     /**
-     * Setup from json params
+     * Setup the grave from JSON parameters.
      *
      * @param playerUid Unique identifier for the player
      * @param ticks Number of ticks to process
@@ -115,112 +115,112 @@ class Grave : AbstractNPC {
      * @param username The name of the player
      */
     fun setupFromJsonParams(playerUid: Int, ticks: Int, location: Location, items: Array<Item>, username: String) {
-        this.ownerUid = playerUid
-        this.ticksRemaining = ticks
-        this.location = location
-        this.isRespawn = false
-        this.isWalks = false
-        this.isNeverWalks = true
-        this.ownerUsername = username
+        this.ownerUid = playerUid // Set the owner's unique ID
+        this.ticksRemaining = ticks // Set the remaining ticks
+        this.location = location // Set the grave location
+        this.isRespawn = false // Set respawn flag to false
+        this.isWalks = false // Set walking flag to false
+        this.isNeverWalks = true // Set never walks flag to true
+        this.ownerUsername = username // Set the owner's username
 
-        for (item in items) {
-            val gi = GroundItemManager.create(item, location, playerUid, GameWorld.ticks + ticksRemaining)
-            gi.isRemainPrivate = true
-            this.items.add(gi)
+        for (item in items) { // Iterate through the items
+            val gi = GroundItemManager.create(item, location, playerUid, GameWorld.ticks + ticksRemaining) // Create a ground item
+            gi.isRemainPrivate = true // Set the ground item to remain private
+            this.items.add(gi) // Add the ground item to the list
         }
 
-        this.transform(type.npcId)
-        this.init()
+        this.transform(type.npcId) // Transform the NPC to the corresponding grave type
+        this.init() // Initialize the grave
     }
 
     override fun tick() {
-        //Grave should not do anything else on tick, that is all handled by GraveController.
-        if (Repository.uid_map[ownerUid] != null) {
-            val p = Repository.uid_map[ownerUid] ?: return
-            registerHintIcon(p, this)
+        // Grave should not do anything else on tick, that is all handled by GraveController.
+        if (Repository.uid_map[ownerUid] != null) { // Check if the owner exists in the repository
+            val p = Repository.uid_map[ownerUid] ?: return // Get the player from the repository
+            registerHintIcon(p, this) // Register the hint icon for the player
         }
     }
 
     /**
-     * Add time
+     * Add time to the grave.
      *
      * @param ticks The number of ticks to add to the remaining time.
      */
     fun addTime(ticks: Int) {
-        ticksRemaining += ticks
-        for (gi in items) {
-            gi.decayTime = ticksRemaining
+        ticksRemaining += ticks // Increase the remaining ticks
+        for (gi in items) { // Iterate through the ground items
+            gi.decayTime = ticksRemaining // Update the decay time for each item
         }
-        if (ticksRemaining < 30)
-            transform(type.npcId + 2)
-        else if (ticksRemaining < 90)
-            transform(type.npcId + 1)
+        if (ticksRemaining < 30) // Check if remaining time is less than 30 ticks
+            transform(type.npcId + 2) // Transform to a different NPC type
+        else if (ticksRemaining < 90) // Check if remaining time is less than 90 ticks
+            transform(type.npcId + 1) // Transform to another NPC type
         else
-            transform(type.npcId)
+            transform(type.npcId) // Transform back to the original NPC type
     }
 
     /**
-     * Collapse
+     * Collapse the grave.
      *
      */
     fun collapse() {
-        for (item in items) {
-            GroundItemManager.destroy(item)
+        for (item in items) { // Iterate through the ground items
+            GroundItemManager.destroy(item) // Destroy each ground item
         }
-        clear()
-        GraveController.activeGraves.remove(ownerUid)
-        if (Repository.uid_map[ownerUid] != null) {
-            val p = Repository.uid_map[ownerUid] ?: return
-            clearHintIcon(p)
+        clear() // Clear the grave
+        GraveController.activeGraves.remove(ownerUid) // Remove the grave from active graves
+        if (Repository.uid_map[ownerUid] != null) { // Check if the owner exists in the repository
+            val p = Repository.uid_map[ownerUid] ?: return // Get the player from the repository
+            clearHintIcon(p) // Clear the hint icon for the player
         }
     }
 
     /**
-     * Demolish
+     * Demolish the grave.
      *
      */
     fun demolish() {
-        val owner = Repository.uid_map[ownerUid] ?: return
-        for (item in items) {
-            if (!item.isRemoved)
-                item.decayTime = secondsToTicks(45)
+        val owner = Repository.uid_map[ownerUid] ?: return // Get the owner from the repository
+        for (item in items) { // Iterate through the ground items
+            if (!item.isRemoved) // Check if the item is not removed
+                item.decayTime = secondsToTicks(45) // Set decay time for the item
         }
-        clear()
-        sendMessage(owner, "It looks like it'll last another ${getFormattedTimeRemaining()}.")
-        sendMessage(owner, "You demolish it anyway.")
-        GraveController.activeGraves.remove(ownerUid)
-        clearHintIcon(owner)
+        clear() // Clear the grave
+        sendMessage(owner, "It looks like it'll last another ${getFormattedTimeRemaining()}.") // Notify owner of remaining time
+        sendMessage(owner, "You demolish it anyway.") // Notify owner of demolition
+        GraveController.activeGraves.remove(ownerUid) // Remove the grave from active graves
+        clearHintIcon(owner) // Clear the hint icon for the owner
     }
 
     /**
-     * Get items
+     * Get items associated with the grave.
      *
      * @return An array of GroundItem objects.
      */
     fun getItems(): Array<GroundItem> {
-        return this.items.toTypedArray()
+        return this.items.toTypedArray() // Return the list of ground items as an array
     }
 
     /**
-     * Retrieve formatted text
+     * Retrieve formatted text for the grave.
      *
      * @return A formatted string with the owner's username and remaining time.
      */
     fun retrieveFormattedText(): String {
         return type.text
-            .replace("@name", ownerUsername)
-            .replace("@mins", getFormattedTimeRemaining())
+            .replace("@name", ownerUsername) // Replace placeholder with owner's username
+            .replace("@mins", getFormattedTimeRemaining()) // Replace placeholder with formatted remaining time
     }
 
     /**
-     * Get formatted time remaining
+     * Get formatted time remaining.
      *
      * @return A string representing the remaining time in a human-readable format.
      */
     fun getFormattedTimeRemaining(): String {
-        val seconds = ticksToSeconds(ticksRemaining)
-        val timeQty = if (seconds / 60 > 0) seconds / 60 else seconds
-        val timeUnit = (if (seconds / 60 > 0) "minute" else "second") + if (timeQty > 1) "s" else ""
-        return "$timeQty $timeUnit"
+        val seconds = ticksToSeconds(ticksRemaining) // Convert ticks to seconds
+        val timeQty = if (seconds / 60 > 0) seconds / 60 else seconds // Determine time quantity
+        val timeUnit = (if (seconds / 60 > 0) "minute" else "second") + if (timeQty > 1) "s" else "" // Determine time unit
+        return "$timeQty $timeUnit" // Return formatted time string
     }
 }

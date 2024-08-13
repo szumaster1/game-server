@@ -9,6 +9,7 @@ import core.game.node.entity.player.link.emote.Emotes
 import core.game.worldevents.holiday.HolidayRandoms
 
 class SnowmanHolidayRandomDialogue : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         if (HolidayRandoms.getEventNpc(player!!) == null)
             player!!.dialogueInterpreter.close()

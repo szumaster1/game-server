@@ -17,9 +17,7 @@ import java.time.LocalDate
 import java.time.Month
 
 /**
- * Holiday randoms
- *
- * @constructor Holiday randoms
+ * Holiday randoms.
  */
 class HolidayRandoms : PersistTimer(0, "holiday", isAuto = true), Commands {
     var paused = false
@@ -83,7 +81,7 @@ class HolidayRandoms : PersistTimer(0, "holiday", isAuto = true), Commands {
     /**
      * Check if holiday
      *
-     * @return
+     * @return A string indicating whether today is a holiday or not.
      */
     fun checkIfHoliday(): String {
         val currentDate = LocalDate.now()
@@ -149,12 +147,7 @@ class HolidayRandoms : PersistTimer(0, "holiday", isAuto = true), Commands {
     }
 
     override fun defineCommands() {
-        define(
-            "hrevent",
-            Privilege.ADMIN,
-            "::hrevent [-p] <lt>player name<gt> [-e <lt>event name<gt>]",
-            "Spawns a holiday random event for the target player.<br>Optional -e parameter to pass a specific event."
-        ) { player, args ->
+        define("hrevent", Privilege.ADMIN, "::hrevent [-p] <lt>player name<gt> [-e <lt>event name<gt>]", "Spawns a holiday random event for the target player.<br>Optional -e parameter to pass a specific event.") { player, args ->
             if (args.size == 1) {
                 val possible = HolidayRandomEvents.values()
                 for (event in possible) {
@@ -178,12 +171,7 @@ class HolidayRandoms : PersistTimer(0, "holiday", isAuto = true), Commands {
             forceEvent(target!!, arg.targetEvent)
         }
 
-        define(
-            "forcehrevents",
-            Privilege.ADMIN,
-            "::forcehrevents [eventname]",
-            "Force enable holiday random events."
-        ) { player, args ->
+        define("forcehrevents", Privilege.ADMIN, "::forcehrevents [eventname]", "Force enable holiday random events.") { player, args ->
             if (args.size == 1) {
                 notify(player, "Holidays: halloween, christmas")
                 return@define
@@ -238,9 +226,9 @@ class HolidayRandoms : PersistTimer(0, "holiday", isAuto = true), Commands {
     /**
      * Command args
      *
-     * @param targetPlayer
-     * @param targetEvent
-     * @constructor Command args
+     * @param targetPlayer The name of the player that the command is targeting.
+     * @param targetEvent The event associated with the command, which can be null.
+     * @constructor Command args Initializes the CommandArgs data class with the specified player and event.
      */
     data class CommandArgs(val targetPlayer: String, val targetEvent: HolidayRandomEvents?)
 

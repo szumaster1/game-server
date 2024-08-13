@@ -14,6 +14,7 @@ import core.tools.RandomFunction
 import core.tools.colorize
 
 class ZombieHolidayRandomNPC : HolidayRandomEventNPC(NPCs.ZOMBIE_2714) {
+
     override fun init() {
         super.init()
         this.isAggressive = false

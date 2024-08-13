@@ -5,29 +5,23 @@ import core.game.node.entity.player.link.prayer.PrayerType
 /**
  * Combat style
  *
- * @param swingHandler
- * @param protectionPrayer
+ * @param swingHandler The handler responsible for the combat swing mechanics.
+ * @param protectionPrayer The type of prayer that provides protection against this combat style.
  * @constructor Combat style
  */
 enum class CombatStyle(val swingHandler: CombatSwingHandler, val protectionPrayer: PrayerType) {
     /**
      * Melee
-     *
-     * @constructor Melee
      */
     MELEE(MeleeSwingHandler(), PrayerType.PROTECT_FROM_MELEE),
 
     /**
      * Range
-     *
-     * @constructor Range
      */
     RANGE(RangeSwingHandler(), PrayerType.PROTECT_FROM_MISSILES),
 
     /**
      * Magic
-     *
-     * @constructor Magic
      */
     MAGIC(MagicSwingHandler(), PrayerType.PROTECT_FROM_MAGIC);
 

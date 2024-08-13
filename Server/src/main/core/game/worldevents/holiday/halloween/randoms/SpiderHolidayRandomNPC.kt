@@ -11,6 +11,7 @@ import core.game.worldevents.holiday.HolidayRandomEventNPC
 import core.game.worldevents.holiday.HolidayRandoms
 
 class SpiderHolidayRandomNPC : HolidayRandomEventNPC(NPCs.SPIDER_61) {
+
     override fun init() {
         super.init()
         this.behavior = SpiderHolidayRandomBehavior()

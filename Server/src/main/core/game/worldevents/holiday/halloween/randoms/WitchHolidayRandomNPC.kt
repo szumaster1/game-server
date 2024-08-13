@@ -14,6 +14,7 @@ import core.game.worldevents.holiday.ResetHolidayAppearance
 import core.tools.RandomFunction
 
 class WitchHolidayRandomNPC : HolidayRandomEventNPC(NPCs.WITCH_611) {
+
     override fun init() {
         super.init()
         when (RandomFunction.getRandom(4)) {

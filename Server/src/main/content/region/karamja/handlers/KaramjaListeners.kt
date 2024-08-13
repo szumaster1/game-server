@@ -172,9 +172,7 @@ class KaramjaListeners : InteractionListener {
             return@on true
         }
 
-        /**
-         * Un-note essences interaction with Jiminua NPC.
-         */
+        // Un-note essences interaction with Jiminua NPC.
         onUseWith(IntType.NPC, NOTED_PURE_ESSENCE, JIMINUA) { player, used, _ ->
             assert(used.id == Items.PURE_ESSENCE_7937)
             val ess: Int = amountInInventory(player, Items.PURE_ESSENCE_7937)
@@ -208,9 +206,7 @@ class KaramjaListeners : InteractionListener {
             return@onUseWith true
         }
 
-        /**
-         * Trade interaction with NPC Tiadeche NPC.
-         */
+        // Trade interaction with NPC Tiadeche NPC.
         on(TIADECHE, IntType.NPC, "trade") { player, _ ->
             if (!hasRequirement(player, "Tai Bwo Wannai Trio")) return@on true
             openNpcShop(player, TIADECHE)

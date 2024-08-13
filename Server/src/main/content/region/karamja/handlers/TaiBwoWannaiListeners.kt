@@ -11,11 +11,7 @@ import core.game.shops.Shops
 class TaiBwoWannaiListeners : InteractionListener {
 
     override fun defineListeners() {
-
-        /**
-         * Gabooty NPC interaction.
-         */
-
+        // Gabooty NPC interaction.
         on(GABOOTY_NPC_WRAPPERS, IntType.NPC, "trade-co-op", "trade-drinks") { player, node ->
             if(node.id in GABOOTY_NPC_WRAPPERS){
                 when (getUsedOption(player)) {

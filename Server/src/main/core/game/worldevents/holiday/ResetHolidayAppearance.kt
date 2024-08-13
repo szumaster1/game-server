@@ -9,9 +9,7 @@ import core.game.system.timer.RSTimer
 import core.tools.minutesToTicks
 
 /**
- * Reset holiday appearance
- *
- * @constructor Reset holiday appearance
+ * Reset holiday appearance.
  */
 class ResetHolidayAppearance : RSTimer(minutesToTicks(1), "reset-holiday-appearance") {
     override fun run(entity: Entity): Boolean {

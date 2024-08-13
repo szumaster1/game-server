@@ -7,27 +7,27 @@ object CameraUtils
  */
 enum class CameraShakeType {
     /**
-     * Truck.
+     * Camera movement from left to right.
      */
-    TRUCK, // Camera movement from left to right.
+    TRUCK,
 
     /**
-     * Pedestal.
+     * Camera movement vertically up to down, fixated on one location.
      */
-    PEDESTAL, // Camera movement vertically up to down, fixated on one location.
+    PEDESTAL,
 
     /**
-     * Dolly.
+     * Camera movement forwards to backwards.
      */
-    DOLLY, // Camera movement forwards to backwards.
+    DOLLY,
 
     /**
-     * Pan.
+     * Camera movement horizontally, fixed on a certain point.
      */
-    PAN, // Camera movement horizontally, fixed on a certain point.
+    PAN,
 
     /**
-     * Tilt.
+     * Camera movement vertically, fixed on a certain point.
      */
-    TILT // Camera movement vertically, fixed on a certain point.
+    TILT
 }

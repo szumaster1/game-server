@@ -39,9 +39,10 @@ class DragonforgeListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        /**
-         * Dragonkin anvil interaction.
+        /*
+         * Dragonkin anvil interactions.
          */
+
         onUseWith(IntType.SCENERY, DRAGON_ANVIL, *RUINED_PIECES) { player, _, _ ->
             // Check if the player has the required quest "While Guthix Sleeps"
             if (!hasRequirement(player, "While Guthix Sleeps")) return@onUseWith false
@@ -95,9 +96,10 @@ class DragonforgeListeners : InteractionListener {
             return@onUseWith true
         }
 
-        /**
-         * Mithril doors interaction.
+        /*
+         * Mithril doors interactions.
          */
+
         on(MITHRIL_DOOR, IntType.SCENERY, "open") { player, node ->
             // Check if the player has the Dragonkin key or has completed the quest "While Guthix Sleeps"
             if (!inInventory(player, Items.DRAGONKIN_KEY_14471) && !hasRequirement(player, "While Guthix Sleeps", false)) {
@@ -127,9 +129,10 @@ class DragonforgeListeners : InteractionListener {
             return@onUseWith true
         }
 
-        /**
+        /*
          * Dragonkin key fusing.
          */
+
         onUseWith(IntType.NPC, STRANGE_KEYS, *MITHRIL_DRAGON_NPC) { player, _, with ->
             val npc = with.asNpc()
             // Check if the player has the strange keys and the required shield equipped

@@ -27,9 +27,12 @@ import kotlin.math.floor
 /**
  * Range swing handler
  *
- * @constructor
+ * This class is responsible for managing the behavior of a range swing component.
  *
- * @param flags
+ * @constructor
+ * Initializes the range swing handler with the specified flags.
+ *
+ * @param flags A set of flags that configure the behavior of the range swing.
  */
 open class RangeSwingHandler(vararg flags: SwingHandlerFlag) : CombatSwingHandler(CombatStyle.RANGE, *flags) {
     override fun canSwing(entity: Entity, victim: Entity): InteractionType? {

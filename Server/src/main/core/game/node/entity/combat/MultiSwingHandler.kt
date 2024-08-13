@@ -10,8 +10,8 @@ import core.tools.RandomFunction
  *
  * @constructor
  *
- * @param meleeDistance
- * @param attacks
+ * @param meleeDistance Indicates if the melee distance is applicable.
+ * @param attacks A variable number of SwitchAttack instances to be handled.
  */
 open class MultiSwingHandler(meleeDistance: Boolean, vararg attacks: SwitchAttack) :
     CombatSwingHandler(CombatStyle.RANGE) {

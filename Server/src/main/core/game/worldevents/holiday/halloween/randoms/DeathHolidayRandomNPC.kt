@@ -11,6 +11,7 @@ import core.game.worldevents.holiday.HolidayRandoms
 import core.tools.RandomFunction
 
 class DeathHolidayRandomNPC : HolidayRandomEventNPC(NPCs.DEATH_2862) {
+
     override fun init() {
         super.init()
         playJingle(player, 337)

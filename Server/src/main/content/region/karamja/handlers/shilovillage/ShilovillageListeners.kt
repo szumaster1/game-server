@@ -33,10 +33,7 @@ class ShilovillageListeners : InteractionListener {
         private val BOARD = intArrayOf(2265, 2230, 511, 510)
         val ANTIQUE_ITEMS = intArrayOf(605, 606, 607, 608, 611, 616, 624, 4808)
 
-        /**
-         * Shilo cart interactions.
-         */
-
+        // Shilo cart interactions.
         class CartQuickPay : DialogueFile() {
             override fun handle(componentID: Int, buttonID: Int) {
                 if (!hasRequirement(player!!, "Shilo Village", true)) return
@@ -78,10 +75,7 @@ class ShilovillageListeners : InteractionListener {
     }
 
     override fun defineListeners() {
-
-        /**
-         * Drop "Bervirius Notes" interaction.
-         */
+        // Drop "Bervirius Notes" interaction.
         on(NOTES, IntType.ITEM, "drop") { player, node ->
             if (removeItem(player, node.asItem())) {
                 sendMessage(player, "As you drop the delicate scrolls onto the floor, they disintegrate immediately.")
@@ -89,10 +83,7 @@ class ShilovillageListeners : InteractionListener {
             return@on true
         }
 
-        /**
-         * Blacksmith door interaction.
-         */
-
+        // Blacksmith door interaction.
         on(BLACKSMITH_DOOR, IntType.SCENERY, "open") { player, node ->
             if (!getAttribute(player, "shilo-village:blacksmith-doors", false)) {
                 sendNPCDialogue(player, NPCs.YOHNUS_513, "Sorry but the blacksmiths is closed. But I can let you use the furnace at the cost of 20 gold pieces.")
@@ -102,10 +93,7 @@ class ShilovillageListeners : InteractionListener {
             return@on true
         }
 
-        /**
-         * Broken cart interaction.
-         */
-
+        // Broken cart interaction.
         on(BROKEN_CART, IntType.SCENERY, "look-at") { player, node ->
             if (!hasRequirement(player, "Shilo Village")) return@on true
             var location = Location(0, 0)
@@ -132,10 +120,7 @@ class ShilovillageListeners : InteractionListener {
             return@on true
         }
 
-        /**
-         * Cart travel interactions.
-         */
-
+        // Cart travel interactions.
         on(BOARD, IntType.SCENERY, "board") { player, node ->
             if (getUsedOption(player) == "talk-to") {
                 openDialogue(player, CartTravelDialogue(), if (node.id == 510) NPC(NPCs.HAJEDY_510) else NPC(NPCs.VIGROY_511))
@@ -161,10 +146,7 @@ class ShilovillageListeners : InteractionListener {
             return@on true
         }
 
-        /**
-         * Antique exchange interactions.
-         */
-
+        // Antique exchange interactions.
         onUseWith(IntType.NPC, ANTIQUE_ITEMS, YANNI) { player, used, _ ->
             val item = AntiqueItem.antiqueMap[used.id] ?: return@onUseWith true
             if (amountInInventory(player, used.id) == 1) {

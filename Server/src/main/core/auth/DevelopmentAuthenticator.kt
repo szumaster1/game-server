@@ -5,9 +5,7 @@ import core.game.node.entity.player.Player
 import core.storage.AccountStorageProvider
 
 /**
- * Development authenticator
- *
- * @constructor Development authenticator
+ * Development authenticator.
  */
 class DevelopmentAuthenticator : AuthProvider<AccountStorageProvider>() {
     override fun configureFor(provider: AccountStorageProvider) {

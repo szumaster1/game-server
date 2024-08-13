@@ -6,132 +6,158 @@ import core.game.worldevents.holiday.halloween.randoms.*
 /**
  * Holiday random events
  *
- * @param npc
- * @param type
- * @constructor Holiday random events
+ * @param npc Represents the non-player character associated with the event
+ * @param type Specifies the type of holiday for the event
+ * @constructor Initializes a HolidayRandomEvents instance with the given NPC and type
  */
 enum class HolidayRandomEvents(val npc: HolidayRandomEventNPC, val type: String) {
     /**
-     * Black Cat
-     *
-     * @constructor Black Cat
+     * Black Cat.
      */
-    BLACK_CAT(npc = BlackCatHolidayRandomNPC(), "halloween"),
+    BLACK_CAT(
+        npc = BlackCatHolidayRandomNPC(),
+        "halloween"
+    ),
 
     /**
-     * Spider
-     *
-     * @constructor Spider
+     * Spider.
      */
-    SPIDER(npc = SpiderHolidayRandomNPC(), "halloween"),
+    SPIDER(
+        npc = SpiderHolidayRandomNPC(),
+        "halloween"
+    ),
 
     /**
-     * Ghost
-     *
-     * @constructor Ghost
+     * Ghost.
      */
-    GHOST(npc = GhostHolidayRandomNPC(), "halloween"),
+    GHOST(
+        npc = GhostHolidayRandomNPC(),
+        "halloween"
+    ),
 
     /**
-     * Zombie
-     *
-     * @constructor Zombie
+     * Zombie.
      */
-    ZOMBIE(npc = ZombieHolidayRandomNPC(), "halloween"),
+    ZOMBIE(
+        npc = ZombieHolidayRandomNPC(),
+        "halloween"
+    ),
 
     /**
-     * Witch
-     *
-     * @constructor Witch
+     * Witch.
      */
-    WITCH(npc = WitchHolidayRandomNPC(), "halloween"),
+    WITCH(
+        npc = WitchHolidayRandomNPC(),
+        "halloween"
+    ),
 
     /**
-     * Death
-     *
-     * @constructor Death
+     * Death.
      */
-    DEATH(npc = DeathHolidayRandomNPC(), "halloween"),
+    DEATH(
+        npc = DeathHolidayRandomNPC(),
+        "halloween"
+    ),
 
     /**
-     * Vampire
-     *
-     * @constructor Vampire
+     * Vampire.
      */
-    VAMPIRE(npc = VampireHolidayRandomNPC(), "halloween"),
+    VAMPIRE(
+        npc = VampireHolidayRandomNPC(),
+        "halloween"
+    ),
 
     /**
-     * Choir
-     *
-     * @constructor Choir
+     * Choir.
      */
-    CHOIR(npc = ChoirHolidayRandomNPC(), "christmas"),
+    CHOIR(
+        npc = ChoirHolidayRandomNPC(),
+        "christmas"
+    ),
 
     /**
-     * Santa
-     *
-     * @constructor Santa
+     * Santa.
      */
-    SANTA(npc = SantaHolidayRandomNPC(), "christmas"),
+    SANTA(
+        npc = SantaHolidayRandomNPC(),
+        "christmas"
+    ),
 
     /**
-     * Snowman Fight
-     *
-     * @constructor Snowman Fight
+     * Snowman Fight.
      */
-    SNOWMAN_FIGHT(npc = SnowmanFightHolidayRandom(), "christmas"),
+    SNOWMAN_FIGHT(
+        npc = SnowmanFightHolidayRandom(),
+        "christmas"
+    ),
 
     /**
-     * Jack Frost
-     *
-     * @constructor Jack Frost
+     * Jack Frost.
      */
-    JACK_FROST(npc = JackFrostHolidayRandomNPC(), "christmas"),
+    JACK_FROST(
+        npc = JackFrostHolidayRandomNPC(),
+        "christmas"
+    ),
 
     /**
-     * Snowman
-     *
-     * @constructor Snowman
+     * Snowman.
      */
-    SNOWMAN(npc = SnowmanHolidayRandomNPC(), "christmas"),
+    SNOWMAN(
+        npc = SnowmanHolidayRandomNPC(),
+        "christmas"
+    ),
 
     /**
-     * Snowstorm
-     *
-     * @constructor Snowstorm
+     * Snowstorm.
      */
-    SNOWSTORM(npc = SnowStormHolidayRandomNPC(), "christmas"),
+    SNOWSTORM(
+        npc = SnowStormHolidayRandomNPC(),
+        "christmas"
+    ),
 
     /**
-     * Cook
-     *
-     * @constructor Cook
+     * Cook.
      */
-    COOK(npc = CookHolidayRandomNPC(), "christmas");
+    COOK(
+        npc = CookHolidayRandomNPC(),
+        "christmas"
+    );
 
     companion object {
         @JvmField
+        // List to hold Halloween events
         val halloweenEventsList = ArrayList<HolidayRandomEvents>()
+        // List to hold Christmas events
         val christmasEventsList = ArrayList<HolidayRandomEvents>()
+        // List of holiday random event IDs
         val holidayRandomIDs = HolidayRandomEvents.values().map { it.npc.id }.toList()
 
         init {
+            // Populate the event lists with corresponding events
             populateMappings()
         }
 
+        /**
+         * Retrieves a random holiday event based on the specified type
+         *
+         * @param type The type of holiday to retrieve an event for
+         * @return A random HolidayRandomEvents instance
+         * @throws Exception if the event type is invalid
+         */
         fun getHolidayRandom(type: String): HolidayRandomEvents {
             return when (type) {
-                "halloween" -> halloweenEventsList.random()
-                "christmas" -> christmasEventsList.random()
-                else -> throw Exception("Invalid event type!")
+                "halloween" -> halloweenEventsList.random() // Return a random Halloween event
+                "christmas" -> christmasEventsList.random() // Return a random Christmas event
+                else -> throw Exception("Invalid event type!") // Throw an exception for invalid types
             }
         }
 
+        // Populates the Halloween and Christmas event lists
         private fun populateMappings() {
             for (event in values()) {
                 when (event.type) {
-                    "halloween" -> halloweenEventsList.add(event)
-                    "christmas" -> christmasEventsList.add(event)
+                    "halloween" -> halloweenEventsList.add(event) // Add Halloween events to the list
+                    "christmas" -> christmasEventsList.add(event) // Add Christmas events to the list
                 }
             }
         }

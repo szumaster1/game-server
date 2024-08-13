@@ -10,187 +10,188 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Render info.
+ * Render info class responsible for managing
+ * rendering information for players and NPCs.
  */
 public final class RenderInfo {
 
-    private final Player player;
+    private final Player player; // The player associated with this RenderInfo instance
 
-    private List<Player> localPlayers = new LinkedList<Player>();
+    private List<Player> localPlayers = new LinkedList<Player>(); // List of local players in the vicinity
 
-    private List<NPC> localNpcs = new LinkedList<NPC>();
+    private List<NPC> localNpcs = new LinkedList<NPC>(); // List of local NPCs in the vicinity
 
-    private final long[] appearanceStamps = new long[ServerConstants.MAX_PLAYERS];
+    private final long[] appearanceStamps = new long[ServerConstants.MAX_PLAYERS]; // Array to store appearance timestamps for players
 
-    private Entity[] maskUpdates = new Entity[256];
+    private Entity[] maskUpdates = new Entity[256]; // Array to hold mask updates for entities
 
-    private int maskUpdateCount;
+    private int maskUpdateCount; // Counter for the number of mask updates
 
-    private Location lastLocation;
+    private Location lastLocation; // The last known location of the player
 
-    private boolean onFirstCycle = true;
+    private boolean onFirstCycle = true; // Flag to indicate if this is the first cycle
 
-    private boolean preparedAppearance;
+    private boolean preparedAppearance; // Flag to indicate if the appearance is prepared
 
     /**
      * Instantiates a new Render info.
      *
-     * @param player the player
+     * @param player the player associated with this RenderInfo
      */
     public RenderInfo(Player player) {
-        this.player = player;
+        this.player = player; // Assign the player to the instance variable
     }
 
     /**
-     * Update information.
+     * Update information about the player's state.
      */
     public void updateInformation() {
-        onFirstCycle = false;
-        lastLocation = player.getLocation();
-        preparedAppearance = false;
+        onFirstCycle = false; // Set the first cycle flag to false after the first update
+        lastLocation = player.getLocation(); // Update the last known location of the player
+        preparedAppearance = false; // Reset the prepared appearance flag
     }
 
     /**
-     * Register mask update.
+     * Register a mask update for an entity.
      *
-     * @param entity the entity
+     * @param entity the entity to register for mask updates
      */
     public void registerMaskUpdate(Entity entity) {
-        maskUpdates[maskUpdateCount++] = entity;
+        maskUpdates[maskUpdateCount++] = entity; // Add the entity to the mask updates array and increment the count
     }
 
     /**
-     * Gets local npcs.
+     * Gets the list of local NPCs.
      *
-     * @return the local npcs
+     * @return the list of local NPCs
      */
     public List<NPC> getLocalNpcs() {
-        return localNpcs;
+        return localNpcs; // Return the list of local NPCs
     }
 
     /**
-     * Sets local npcs.
+     * Sets the list of local NPCs.
      *
-     * @param localNpcs the local npcs
+     * @param localNpcs the list of local NPCs to set
      */
     public void setLocalNpcs(List<NPC> localNpcs) {
-        this.localNpcs = localNpcs;
+        this.localNpcs = localNpcs; // Update the local NPCs list
     }
 
     /**
-     * Is on first cycle boolean.
+     * Checks if it is the first cycle.
      *
-     * @return the boolean
+     * @return true if it is the first cycle, false otherwise
      */
     public boolean isOnFirstCycle() {
-        return onFirstCycle;
+        return onFirstCycle; // Return the status of the first cycle flag
     }
 
     /**
-     * Sets on first cycle.
+     * Sets the first cycle status.
      *
-     * @param onFirstCycle the on first cycle
+     * @param onFirstCycle the status to set for the first cycle
      */
     public void setOnFirstCycle(boolean onFirstCycle) {
-        this.onFirstCycle = onFirstCycle;
+        this.onFirstCycle = onFirstCycle; // Update the first cycle flag
     }
 
     /**
-     * Gets last location.
+     * Gets the last known location of the player.
      *
-     * @return the last location
+     * @return the last location of the player
      */
     public Location getLastLocation() {
-        return lastLocation;
+        return lastLocation; // Return the last known location
     }
 
     /**
-     * Sets last location.
+     * Sets the last known location of the player.
      *
-     * @param lastLocation the last location
+     * @param lastLocation the last location to set
      */
     public void setLastLocation(Location lastLocation) {
-        this.lastLocation = lastLocation;
+        this.lastLocation = lastLocation; // Update the last known location
     }
 
     /**
-     * Gets local players.
+     * Gets the list of local players.
      *
-     * @return the local players
+     * @return the list of local players
      */
     public List<Player> getLocalPlayers() {
-        return localPlayers;
+        return localPlayers; // Return the list of local players
     }
 
     /**
-     * Sets local players.
+     * Sets the list of local players.
      *
-     * @param localPlayers the local players
+     * @param localPlayers the list of local players to set
      */
     public void setLocalPlayers(List<Player> localPlayers) {
-        this.localPlayers = localPlayers;
+        this.localPlayers = localPlayers; // Update the local players list
     }
 
     /**
-     * Get appearance stamps long [ ].
+     * Gets the appearance stamps for players.
      *
-     * @return the long [ ]
+     * @return the array of appearance stamps
      */
     public long[] getAppearanceStamps() {
-        return appearanceStamps;
+        return appearanceStamps; // Return the array of appearance stamps
     }
 
     /**
-     * Gets mask update count.
+     * Gets the count of mask updates.
      *
-     * @return the mask update count
+     * @return the count of mask updates
      */
     public int getMaskUpdateCount() {
-        return maskUpdateCount;
+        return maskUpdateCount; // Return the current count of mask updates
     }
 
     /**
-     * Sets mask update count.
+     * Sets the count of mask updates.
      *
-     * @param maskUpdateCount the mask update count
+     * @param maskUpdateCount the count to set for mask updates
      */
     public void setMaskUpdateCount(int maskUpdateCount) {
-        this.maskUpdateCount = maskUpdateCount;
+        this.maskUpdateCount = maskUpdateCount; // Update the mask update count
     }
 
     /**
-     * Get mask updates entity [ ].
+     * Gets the array of mask updates.
      *
-     * @return the entity [ ]
+     * @return the array of mask updates
      */
     public Entity[] getMaskUpdates() {
-        return maskUpdates;
+        return maskUpdates; // Return the array of mask updates
     }
 
     /**
-     * Sets mask updates.
+     * Sets the array of mask updates.
      *
-     * @param maskUpdates the mask updates
+     * @param maskUpdates the array of mask updates to set
      */
     public void setMaskUpdates(Entity[] maskUpdates) {
-        this.maskUpdates = maskUpdates;
+        this.maskUpdates = maskUpdates; // Update the mask updates array
     }
 
     /**
-     * Sets prepared appearance.
+     * Sets the prepared appearance status.
      *
-     * @param prepared the prepared
+     * @param prepared the status to set for prepared appearance
      */
     public void setPreparedAppearance(boolean prepared) {
-        this.preparedAppearance = prepared;
+        this.preparedAppearance = prepared; // Update the prepared appearance flag
     }
 
     /**
-     * Prepared appearance boolean.
+     * Checks if the appearance is prepared.
      *
-     * @return the boolean
+     * @return true if the appearance is prepared, false otherwise
      */
     public boolean preparedAppearance() {
-        return preparedAppearance;
+        return preparedAppearance; // Return the status of the prepared appearance flag
     }
 }

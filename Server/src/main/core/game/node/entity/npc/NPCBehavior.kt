@@ -12,10 +12,7 @@ import core.game.world.map.path.ClipMaskSupplier
 import core.game.world.map.path.Pathfinder
 
 /**
- * NPC behavior
- *
- * @param ids to toIntArray()
- * @constructor NPC behavior
+ * NPC behavior.
  */
 open class NPCBehavior(vararg val ids: Int = intArrayOf()) : ContentInterface {
     companion object {

@@ -11,79 +11,73 @@ import java.util.*
 /**
  * World event
  *
- * @param name
+ * @param name The name of the world event.
  * @constructor World event
  */
 abstract class WorldEvent(var name: String) : ContentInterface {
-    var plugins = PluginSet()
+    var plugins = PluginSet() // Initialize a set of plugins associated with the world event.
 
     /**
      * Check active
      *
-     * @param cal
-     * @return
+     * @param cal The calendar instance used to check the event's activity.
+     * @return Boolean indicating if the event is active.
      */
     /*
-     * if the event is active or not. Can be used to check dates or just always return true
-     * whatever you need for this specific event
+     * This function checks if the event is active or not.
+     * It can be customized to check specific dates or simply return true
+     * based on the requirements of the specific event.
      */
     open fun checkActive(cal: Calendar): Boolean {
-        return false
+        return false // Default implementation returns false, indicating the event is not active.
     }
 
     /**
-     * Init event
+     * This function is used to initialize the event.
+     * The WorldEventInitializer will call this method if checkActive() returns true.
      *
-     */
-    /*
-     * Used to initialize the event
-     * The WorldEventInitializer runs this if checkActive() returns true.
      */
     open fun initEvent() {
+        // Default implementation does nothing; subclasses can override to provide specific initialization logic.
     }
 
     /**
-     * Log
+     * This function is used to log messages related to the world event
+     * in a standard and organized manner.
      *
-     * @param message
-     */
-    /*
-     * Used to log world event messages in a standard and organized way.
+     * @param message The message to log.
      */
     fun log(message: String) {
-        core.api.log(this::class.java, Log.FINE, "[World Events($name)] $message")
+        core.api.log(this::class.java, Log.FINE, "[World Events($name)] $message") // Log the message with the event's name.
     }
 }
 
-
 /**
- * Plugin set
+ * This class holds a set of plugins that should not be initialized by default.
+ * It provides a clean way to initialize all of its plugins when needed.
  *
- * @param plugins
+ * @param plugins The plugins to be included in the set.
  * @constructor Plugin set
  */
-/*
- * A class that holds a set of plugins that shouldn't be initialized by default.
- * Can be used to initialize all of its plugins cleanly.
- */
 class PluginSet(vararg val plugins: Plugin<*>) {
-    val set = ArrayList(plugins.asList())
+    val set = ArrayList(plugins.asList()) // Create a list to hold the provided plugins.
 
     /**
-     * Initialize
+     * This function initializes the plugins in the set by defining them
+     * using the ClassScanner utility.
      *
      */
     fun initialize() {
-        ClassScanner.definePlugins(*set.toTypedArray())
+        ClassScanner.definePlugins(*set.toTypedArray()) // Convert the list to an array and define the plugins.
     }
 
     /**
-     * Add
+     * This function adds a new plugin to the set of plugins.
      *
-     * @param plugin
+     * @param plugin The plugin to be added to the set.
      */
     fun add(plugin: Plugin<*>) {
-        set.add(plugin)
+        set.add(plugin) // Add the specified plugin to the internal list.
     }
 }
 
@@ -91,17 +85,17 @@ class PluginSet(vararg val plugins: Plugin<*>) {
  * Static object for storing instances of loaded events.
  */
 object WorldEvents {
-    private var events = hashMapOf<String, WorldEvent>()
+    private var events = hashMapOf<String, WorldEvent>() // A map to store events by their lowercase names.
 
     fun add(event: WorldEvent) {
-        events[event.name.lowercase(Locale.getDefault())] = event
+        events[event.name.lowercase(Locale.getDefault())] = event // Add the event to the map with its lowercase name as the key.
     }
 
     fun get(name: String): WorldEvent? {
-        return events[name.lowercase(Locale.getDefault())]
+        return events[name.lowercase(Locale.getDefault())] // Retrieve the event by its lowercase name.
     }
 
     fun getArchive(): JSONObject {
-        return ServerStore.getArchive("world-event-status")
+        return ServerStore.getArchive("world-event-status") // Fetch the archive of world event statuses from the server store.
     }
 }

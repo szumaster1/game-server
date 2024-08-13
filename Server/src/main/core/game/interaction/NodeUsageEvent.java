@@ -9,13 +9,13 @@ import core.game.node.item.Item;
  */
 public final class NodeUsageEvent {
 
-    private final Player player;
+    private final Player player; // The player involved in the event
 
-    private final int componentId;
+    private final int componentId; // The ID of the component being interacted with
 
-    private final Node used;
+    private final Node used; // The node that is being used
 
-    private final Node with;
+    private final Node with; // The node that is being used with
 
     /**
      * Instantiates a new Node usage event.
@@ -26,10 +26,10 @@ public final class NodeUsageEvent {
      * @param with        the with
      */
     public NodeUsageEvent(Player player, int componentId, Node used, Node with) {
-        this.player = player;
-        this.componentId = componentId;
-        this.used = used;
-        this.with = with;
+        this.player = player; // Assigning the player to the instance variable
+        this.componentId = componentId; // Assigning the component ID to the instance variable
+        this.used = used; // Assigning the used node to the instance variable
+        this.with = with; // Assigning the with node to the instance variable
     }
 
     /**
@@ -38,7 +38,7 @@ public final class NodeUsageEvent {
      * @return the base item
      */
     public Item getBaseItem() {
-        return with instanceof Item ? (Item) with : null;
+        return with instanceof Item ? (Item) with : null; // Returns the 'with' node as an Item if applicable
     }
 
     /**
@@ -47,7 +47,7 @@ public final class NodeUsageEvent {
      * @return the used item
      */
     public Item getUsedItem() {
-        return used instanceof Item ? (Item) used : null;
+        return used instanceof Item ? (Item) used : null; // Returns the 'used' node as an Item if applicable
     }
 
     /**
@@ -56,7 +56,7 @@ public final class NodeUsageEvent {
      * @return the player
      */
     public Player getPlayer() {
-        return player;
+        return player; // Returns the player involved in the event
     }
 
     /**
@@ -65,7 +65,7 @@ public final class NodeUsageEvent {
      * @return the component id
      */
     public int getComponentId() {
-        return componentId;
+        return componentId; // Returns the component ID
     }
 
     /**
@@ -74,7 +74,7 @@ public final class NodeUsageEvent {
      * @return the used
      */
     public Node getUsed() {
-        return used;
+        return used; // Returns the node that is being used
     }
 
     /**
@@ -83,7 +83,7 @@ public final class NodeUsageEvent {
      * @return the used with
      */
     public Node getUsedWith() {
-        return with;
+        return with; // Returns the node that is being used with
     }
 
 }

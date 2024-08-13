@@ -1,6 +1,8 @@
 package content.region.kandarin.diary
 
 import content.global.handlers.item.withnpc.PoisonChaliceOnKingArthurDialogue
+import content.region.kandarin.quest.holygrail.dialogue.GalahadHolyGrailDialogueFile
+import content.region.kandarin.quest.scorpcather.dialogue.ThormacDialogueFile
 import content.region.misc.handlers.zanaris.FairyRing
 import core.api.inBorders
 import core.api.inEquipment
@@ -16,10 +18,14 @@ import core.api.consts.Items
 import core.api.consts.NPCs
 import core.api.consts.Scenery
 import core.api.hasLevelDyn
+import core.api.isQuestComplete
 import core.game.node.entity.player.link.SpellBookManager
 import core.game.node.entity.player.link.prayer.PrayerType
 import core.game.node.entity.skill.Skills
 
+/**
+ * Seers village achievement diary.
+ */
 class SeersVillageAchievementDiary : DiaryEventHookBase(DiaryType.SEERS_VILLAGE) {
     companion object {
         private const val ATTRIBUTE_CUT_YEW_COUNT = "diary:seers:cut-yew"
@@ -37,32 +43,13 @@ class SeersVillageAchievementDiary : DiaryEventHookBase(DiaryType.SEERS_VILLAGE)
         private val SEERS_COURTHOUSE_AREA = ZoneBorders(2732, 3467, 2739, 3471)
         private val RANGING_GUILD_LOCATION = Location(2657, 3439)
 
-        private val COMBAT_BRACELETS = arrayOf(
-            Items.COMBAT_BRACELET_11126,
-            Items.COMBAT_BRACELET4_11118,
-            Items.COMBAT_BRACELET3_11120,
-            Items.COMBAT_BRACELET2_11122,
-            Items.COMBAT_BRACELET1_11124
-        )
+        private val COMBAT_BRACELETS = arrayOf(Items.COMBAT_BRACELET_11126, Items.COMBAT_BRACELET4_11118, Items.COMBAT_BRACELET3_11120, Items.COMBAT_BRACELET2_11122, Items.COMBAT_BRACELET1_11124)
 
-        private val RANGING_GUILD_ARCHERS =
-            arrayOf(NPCs.TOWER_ARCHER_688, NPCs.TOWER_ARCHER_689, NPCs.TOWER_ARCHER_690, NPCs.TOWER_ARCHER_691)
-        private val WORKSHOP_ELEMENTALS = arrayOf(
-            NPCs.FIRE_ELEMENTAL_1019,
-            NPCs.EARTH_ELEMENTAL_1020,
-            NPCs.AIR_ELEMENTAL_1021,
-            NPCs.WATER_ELEMENTAL_1022
-        )
+        private val RANGING_GUILD_ARCHERS = arrayOf(NPCs.TOWER_ARCHER_688, NPCs.TOWER_ARCHER_689, NPCs.TOWER_ARCHER_690, NPCs.TOWER_ARCHER_691)
+        private val WORKSHOP_ELEMENTALS = arrayOf(NPCs.FIRE_ELEMENTAL_1019, NPCs.EARTH_ELEMENTAL_1020, NPCs.AIR_ELEMENTAL_1021, NPCs.WATER_ELEMENTAL_1022)
 
         private val CHURN_PRODUCT = arrayOf(Items.CHEESE_1985, Items.POT_OF_CREAM_2130, Items.PAT_OF_BUTTER_6697)
-        private val RANGING_GUILD_STOCK = arrayOf(
-            Items.BARB_BOLTTIPS_47,
-            Items.RUNE_ARROW_892,
-            Items.GREEN_DHIDE_BODY_1135,
-            Items.ADAMANT_JAVELIN_829,
-            Items.STUDDED_BODY_1133,
-            Items.COIF_1169
-        )
+        private val RANGING_GUILD_STOCK = arrayOf(Items.BARB_BOLTTIPS_47, Items.RUNE_ARROW_892, Items.GREEN_DHIDE_BODY_1135, Items.ADAMANT_JAVELIN_829, Items.STUDDED_BODY_1133, Items.COIF_1169)
 
         object EasyTasks {
             const val PICK_5_FLAX = 0
@@ -291,6 +278,26 @@ class SeersVillageAchievementDiary : DiaryEventHookBase(DiaryType.SEERS_VILLAGE)
                     )
                 }
             }
+
+            is ThormacDialogueFile -> {
+                if (isQuestComplete(player, "Scorpion Catcher") && event.currentStage == 4) {
+                    finishTask(
+                        player,
+                        DiaryLevel.MEDIUM,
+                        MediumTasks.THORMAC_SORCERER_TALK_ABOUT_MYSTIC_STAVES
+                    )
+                }
+            }
+
+            is GalahadHolyGrailDialogueFile -> {
+                if (event.currentStage == 3) {
+                    finishTask(
+                        player,
+                        DiaryLevel.EASY,
+                        EasyTasks.SIR_GALAHAD_MAKE_TEA
+                    )
+                }
+            }
         }
     }
 
@@ -363,12 +370,7 @@ class SeersVillageAchievementDiary : DiaryEventHookBase(DiaryType.SEERS_VILLAGE)
     }
 
     override fun onSpellCast(player: Player, event: SpellCastEvent) {
-        if (event.spellBook == SpellBookManager.SpellBook.MODERN && event.spellId == 26 && hasLevelDyn(
-                player,
-                Skills.MAGIC,
-                45
-            )
-        ) {
+        if (event.spellBook == SpellBookManager.SpellBook.MODERN && event.spellId == 26 && hasLevelDyn(player, Skills.MAGIC, 45)) {
             finishTask(
                 player,
                 DiaryLevel.MEDIUM,

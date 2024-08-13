@@ -7,6 +7,9 @@ import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
 import core.game.world.map.Location
 
+/**
+ * Interaction listeners.
+ */
 object InteractionListeners {
     private val listeners = HashMap<String, (Player, Node) -> Boolean>(1000)
     private val useWithListeners = HashMap<String, (Player, Node, Node) -> Boolean>(1000)

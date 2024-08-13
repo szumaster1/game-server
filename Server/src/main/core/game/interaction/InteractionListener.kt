@@ -8,9 +8,7 @@ import core.game.node.entity.player.Player
 import core.game.world.map.Location
 
 /**
- * Interaction listener
- *
- * @constructor Interaction listener
+ * Interaction listener.
  */
 interface InteractionListener : ContentInterface {
     val ITEM
