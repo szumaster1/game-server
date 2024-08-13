@@ -19,7 +19,7 @@ class JadeDialogue(player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
             START_DIALOGUE -> if (hasIronmanRestriction(player, IronmanMode.ULTIMATE)) {
-                npcl(FacialExpression.NEUTRAL, "Greetings, warrior. I wish I could help you, but " + "our services are not available for Ultimate ${if (player.isMale) "Ironmen" else "Ironwomen"}.").also { stage = END_DIALOGUE }
+                npcl(FacialExpression.NEUTRAL, "Greetings, warrior. I wish I could help you, but " + "our services are not available for Ultimate ${if (player.isMale) "Ironman" else "Ironwoman"}.").also { stage = END_DIALOGUE }
             } else {
                 npcl(FacialExpression.NEUTRAL, "Greetings warrior, how may I help you?").also {
                     if (hasAwaitingGrandExchangeCollections(player)) {

@@ -39,7 +39,7 @@ class BankerDialogue(player: Player? = null) : Dialogue(player) {
                 hasIronmanRestriction(player, IronmanMode.ULTIMATE) -> {
                     npcl(
                         FacialExpression.ANNOYED,
-                        "My apologies, dear ${if (player.isMale) "sir" else "madam"}, " + "our services are not available for Ultimate ${if (player.isMale) "Ironmen" else "Ironwomen"}"
+                        "My apologies, dear ${if (player.isMale) "sir" else "madam"}, " + "our services are not available for Ultimate ${if (player.isMale) "Ironman" else "Ironwoman"}"
                     ).also { stage = END_DIALOGUE }
                 }
 

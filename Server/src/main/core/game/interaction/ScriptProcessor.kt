@@ -110,7 +110,9 @@ class ScriptProcessor(val entity: Entity) {
 
         if (softInQueue || strongInQueue) {
             if (entity is Player) {
-                closeAllInterfaces(entity.asPlayer())
+                entity.interfaceManager.close()
+                entity.interfaceManager.closeChatbox()
+                entity.dialogueInterpreter.close()
             }
         }
 
@@ -128,7 +130,9 @@ class ScriptProcessor(val entity: Entity) {
                     if (script.nextExecution > GameWorld.ticks)
                         continue
                     if ((script.strength == QueueStrength.STRONG || script.strength == QueueStrength.SOFT) && entity is Player) {
-                        closeAllInterfaces(entity.asPlayer())
+                        entity.interfaceManager.close()
+                        entity.interfaceManager.closeChatbox()
+                        entity.dialogueInterpreter.close()
                     }
                     script.nextExecution = GameWorld.ticks + 1
                     val finished = executeScript(script)
@@ -151,7 +155,9 @@ class ScriptProcessor(val entity: Entity) {
                     if (script.nextExecution > GameWorld.ticks)
                         continue
                     if ((script.strength == QueueStrength.STRONG || script.strength == QueueStrength.SOFT)) {
-                        closeAllInterfaces(entity.asPlayer())
+                        entity.interfaceManager.close()
+                        entity.interfaceManager.closeChatbox()
+                        entity.dialogueInterpreter.close()
                     }
                     script.nextExecution = GameWorld.ticks + 1
                     val finished = executeScript(script)

@@ -1,10 +1,7 @@
 package content.region.misc.handlers.tutorial
 
+import core.api.*
 import core.api.consts.NPCs
-import core.api.getAttribute
-import core.api.sendChat
-import core.api.setAttribute
-import core.api.submitWorldPulse
 import core.game.dialogue.FacialExpression
 import core.game.global.action.ClimbActionHandler
 import core.game.global.action.DoorActionHandler
@@ -35,56 +32,68 @@ class TutorialListeners : InteractionListener {
     val RAT_GATES = intArrayOf(3022, 3023)
 
     override fun defineListeners() {
-        on(GUIDE_HOUSE_DOOR, IntType.SCENERY, "open") { player, door ->
+        // Listener for skipping the basic tutorial.
+        on(NPCs.TUTORIAL_GUIDE_8591, IntType.NPC, "Skip-tutorial") { player, _ ->
+            openDialogue(player, NPCs.TUTORIAL_GUIDE_8591)
+            return@on true
+        }
+
+        // Listener for opening the guide house door.
+        on(GUIDE_HOUSE_DOOR, IntType.SCENERY, "open") { player, node ->
             if (getAttribute(player, "tutorial:stage", 0) != 3)
                 return@on true
             setAttribute(player, "tutorial:stage", 4)
             TutorialStage.load(player, 4)
-            DoorActionHandler.handleAutowalkDoor(player, door as Scenery, Location.create(3098, 3107, 0))
+            DoorActionHandler.handleAutowalkDoor(player, node as Scenery, Location.create(3098, 3107, 0))
             return@on true
         }
 
-        on(FIRST_GATE, IntType.SCENERY, "open") { player, gate ->
+        // Listener for opening the first gate.
+        on(FIRST_GATE, IntType.SCENERY, "open") { player, node ->
             if (getAttribute(player, "tutorial:stage", 0) != 16)
                 return@on true
 
             setAttribute(player, "tutorial:stage", 17)
             TutorialStage.load(player, 17)
-            DoorActionHandler.handleAutowalkDoor(player, gate as Scenery)
+            DoorActionHandler.handleAutowalkDoor(player, node as Scenery)
             return@on true
         }
 
-        on(COOKS_DOOR, IntType.SCENERY, "open") { player, door ->
+        // Listener for opening the cooks' door.
+        on(COOKS_DOOR, IntType.SCENERY, "open") { player, node ->
             if (getAttribute(player, "tutorial:stage", 0) != 17)
                 return@on true
 
             setAttribute(player, "tutorial:stage", 18)
             TutorialStage.load(player, 18)
-            DoorActionHandler.handleAutowalkDoor(player, door as Scenery)
+            DoorActionHandler.handleAutowalkDoor(player, node as Scenery)
             return@on true
         }
 
-        on(COOKS_EXIT, IntType.SCENERY, "open") { player, door ->
+        // Listener for opening the cooks exit.
+        on(COOKS_EXIT, IntType.SCENERY, "open") { player, node ->
             if (getAttribute(player, "tutorial:stage", 0) != 22)
                 return@on true
 
             setAttribute(player, "tutorial:stage", 23)
             TutorialStage.load(player, 23)
-            DoorActionHandler.handleAutowalkDoor(player, door as Scenery)
+            DoorActionHandler.handleAutowalkDoor(player, node as Scenery)
             return@on true
         }
 
-        on(QUEST_ENTER, IntType.SCENERY, "open") { player, door ->
+        // Listener for entering the quest guide area.
+        on(QUEST_ENTER, IntType.SCENERY, "open") { player, node ->
             if (getAttribute(player, "tutorial:stage", 0) != 26)
                 return@on true
 
             setAttribute(player, "tutorial:stage", 27)
             TutorialStage.load(player, 27)
-            DoorActionHandler.handleAutowalkDoor(player, door as Scenery)
+            DoorActionHandler.handleAutowalkDoor(player, node as Scenery)
             return@on true
         }
 
-        on(QUEST_LADDER, IntType.SCENERY, "climb-down") { player, ladder ->
+        // Listener for climbing up the quest exit ladder.
+        on(QUEST_LADDER, IntType.SCENERY, "climb-down") { player, node ->
             if (getAttribute(player, "tutorial:stage", 0) < 29)
                 return@on true
 
@@ -92,11 +101,11 @@ class TutorialListeners : InteractionListener {
                 setAttribute(player, "tutorial:stage", 30)
                 TutorialStage.load(player, 30)
             }
-            ClimbActionHandler.climbLadder(player, ladder.asScenery(), "climb-down")
+            ClimbActionHandler.climbLadder(player, node.asScenery(), "climb-down")
         }
 
-        on(QUEST_EXIT_LADDER, IntType.SCENERY, "climb-up") { player, ladder ->
-            ClimbActionHandler.climbLadder(player, ladder.asScenery(), "climb-up")
+        on(QUEST_EXIT_LADDER, IntType.SCENERY, "climb-up") { player, node ->
+            ClimbActionHandler.climbLadder(player, node.asScenery(), "climb-up")
             submitWorldPulse(object : Pulse(2) {
                 override fun pulse(): Boolean {
                     val questTutor = Repository.findNPC(NPCs.QUEST_GUIDE_949) ?: return true
@@ -108,67 +117,68 @@ class TutorialListeners : InteractionListener {
             return@on true
         }
 
-        on(COMBAT_GATES, IntType.SCENERY, "open") { player, gate ->
+        // Listener for opening combat gates.
+        on(COMBAT_GATES, IntType.SCENERY, "open") { player, node ->
             if (getAttribute(player, "tutorial:stage", 0) != 43)
                 return@on true
             setAttribute(player, "tutorial:stage", 44)
             TutorialStage.load(player, 44)
-            DoorActionHandler.handleAutowalkDoor(player, gate as Scenery)
+            DoorActionHandler.handleAutowalkDoor(player, node as Scenery)
         }
 
-        on(RAT_GATES, IntType.SCENERY, "open") { player, gate ->
+        // Listener for opening rat gates.
+        on(RAT_GATES, IntType.SCENERY, "open") { player, node ->
             val stage = getAttribute(player, "tutorial:stage", 0)
             if (stage !in 50..53) {
-                player.dialogueInterpreter.sendDialogues(
-                    NPCs.COMBAT_INSTRUCTOR_944,
-                    FacialExpression.ANGRY,
-                    "Oi, get away from there!",
-                    "Don't enter my rat pen unless I say so!"
-                )
+                player.dialogueInterpreter.sendDialogues(NPCs.COMBAT_INSTRUCTOR_944, FacialExpression.ANGRY, "Oi, get away from there!", "Don't enter my rat pen unless I say so!")
                 return@on true
             }
             if (stage == 50) {
                 setAttribute(player, "tutorial:stage", 51)
                 TutorialStage.load(player, 51)
             }
-            DoorActionHandler.handleAutowalkDoor(player, gate as Scenery)
+            DoorActionHandler.handleAutowalkDoor(player, node as Scenery)
             return@on true
         }
 
-        on(COMBAT_EXIT, IntType.SCENERY, "climb-up") { player, ladder ->
+        // Listener for climbing up from combat tutorial.
+        on(COMBAT_EXIT, IntType.SCENERY, "climb-up") { player, node ->
             if (getAttribute(player, "tutorial:stage", 0) != 55)
                 return@on true
 
             setAttribute(player, "tutorial:stage", 56)
             TutorialStage.load(player, 56)
-            ClimbActionHandler.climbLadder(player, ladder.asScenery(), "climb-up")
+            ClimbActionHandler.climbLadder(player, node.asScenery(), "climb-up")
         }
 
-        on(BANK_EXIT, IntType.SCENERY, "open") { player, door ->
+        // Listener for opening the door lead to bank guide.
+        on(BANK_EXIT, IntType.SCENERY, "open") { player, node ->
             if (getAttribute(player, "tutorial:stage", 0) != 57)
                 return@on true
 
             setAttribute(player, "tutorial:stage", 58)
             TutorialStage.load(player, 58)
-            DoorActionHandler.handleAutowalkDoor(player, door as Scenery)
+            DoorActionHandler.handleAutowalkDoor(player, node as Scenery)
         }
 
-        on(FINANCE_EXIT, IntType.SCENERY, "open") { player, door ->
+        // Listener for opening the finance exit.
+        on(FINANCE_EXIT, IntType.SCENERY, "open") { player, node ->
             if (getAttribute(player, "tutorial:stage", 0) != 59)
                 return@on true
 
             setAttribute(player, "tutorial:stage", 60)
             TutorialStage.load(player, 60)
-            DoorActionHandler.handleAutowalkDoor(player, door as Scenery)
+            DoorActionHandler.handleAutowalkDoor(player, node as Scenery)
         }
 
-        on(CHURCH_EXIT, IntType.SCENERY, "open") { player, door ->
+        // Listener for opening the church exit.
+        on(CHURCH_EXIT, IntType.SCENERY, "open") { player, node ->
             if (getAttribute(player, "tutorial:stage", 0) != 66)
                 return@on true
 
             setAttribute(player, "tutorial:stage", 67)
             TutorialStage.load(player, 67)
-            DoorActionHandler.handleAutowalkDoor(player, door as Scenery)
+            DoorActionHandler.handleAutowalkDoor(player, node as Scenery)
         }
 
     }

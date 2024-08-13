@@ -94,23 +94,28 @@ class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
 
             71 -> when (stage) {
                 0 -> {
-                    setTitle(player, 3)
-                    options("Set Ironman Mode (current: ${player.ironmanManager.mode.name})", "Change XP Rate (current: ${player.skills.experienceMultiplier}x)", "I'm ready now.").also { stage++ }
+                    setTitle(player, 4)
+                    options("What is an Ironman account?", "Set Ironman Mode (current: ${player.ironmanManager.mode.name})", "Change XP Rate (current: ${player.skills.experienceMultiplier}x)", "I'm ready now.").also { stage++ }
                 }
 
                 1 -> when (buttonId) {
-                    1 -> {
+                    1 -> player(FacialExpression.HALF_THINKING, "What is an Ironman account?").also { stage++ }
+                    2 -> {
                         setTitle(player, 5)
-                        sendDialogueOptions(player!!, "What game mode do you want to choose?", "None", "Standard", "Hardcore (Permadeath!)", "Ultimate", "Nevermind.")
+                        sendDialogueOptions(player!!, "What game mode do you want to choose?", "None", "Standard", "Hardcore", "Ultimate", "Nevermind.")
                         stage = 10
                     }
-                    2 -> {
+                    3 -> {
                         setTitle(player!!, 4)
                         sendDialogueOptions(player!!, "What experience multiplier do you choose?", "1.0x", "25.0x", "500.0x", "1000x")
                         stage = 20
                     }
-                    3 -> npcl(FacialExpression.FRIENDLY, "Well, you're all finished here now. I'll give you a reasonable number of starting items when you leave.").also { stage = 30 }
+                    4 -> npcl(FacialExpression.FRIENDLY, "Well, you're all finished here now. I'll give you a reasonable number of starting items when you leave.").also { stage = 30 }
                 }
+
+                2 -> npc("An Ironman account is a style of playing where players", "are completely self-sufficient.").also { stage++ }
+                3 -> npc("A standard Ironman does not receieve items or", "assistance from other players. They cannot trade, stake,", "receieve PK loot, scavenge dropped items, nor player", "certain minigames.").also { stage++ }
+                4 -> npc("In addition to the standard Ironman rules. An", "Ultimate Ironman cannot use banks, nor retain any", "items on death in dangerous areas.").also { stage = 0 }
 
                 10 -> {
                     stage = 0
@@ -128,7 +133,7 @@ class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
                     val rates = arrayOf(1.0, 25.0, 500.0, 1000.0)
                     val rate = rates[buttonId - 1]
                     if (rate == 1000.0 && player.ironmanManager.mode != IronmanMode.HARDCORE) {
-                        sendDialogue(player,"1000.0x is only available to Hardcore Ironmen!")
+                        sendDialogue(player,"1000.0x is only available to Hardcore Ironman!")
                         stage = 0
                         return true
                     }

@@ -20,7 +20,7 @@ class EniolaDialogue(player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
             START_DIALOGUE -> if (hasIronmanRestriction(player, IronmanMode.ULTIMATE)) {
-                npcl(FacialExpression.NEUTRAL, "My apologies, dear ${if (player.isMale) "sir" else "madam"}, " + "our services are not available for Ultimate ${if (player.isMale) "Ironmen" else "Ironwomen"}.").also { stage = END_DIALOGUE }
+                npcl(FacialExpression.NEUTRAL, "My apologies, dear ${if (player.isMale) "sir" else "madam"}, " + "our services are not available for Ultimate ${if (player.isMale) "Ironman" else "Ironwoman"}.").also { stage = END_DIALOGUE }
             } else {
                 npcl(FacialExpression.NEUTRAL, "Good day, how may I help you?").also {
                     if (hasAwaitingGrandExchangeCollections(player)) {

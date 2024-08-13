@@ -2827,7 +2827,7 @@ fun hasAwaitingGrandExchangeCollections(player: Player): Boolean {
 
 /**
  * Opens the given player's Grand Exchange collection box.
- * It will send a prohibition message to Ultimate Ironmen.
+ * It will send a prohibition message to Ultimate Ironman.
  *
  * @param player The player whose collection box to open.
  */
@@ -2841,7 +2841,7 @@ fun openGrandExchangeCollectionBox(player: Player) {
 /**
  * Opens the given player's bank account. If the player has a PIN set,
  * the PIN interface will be shown first. It will send a prohibition message
- * to Ultimate Ironmen.
+ * to Ultimate Ironman.
  *
  * @param player The player whose bank account to open.
  */
@@ -2853,7 +2853,7 @@ fun openBankAccount(player: Player) {
 
 /**
  * Opens the given player's bank deposit box interface.
- * It will send a prohibition message to Ultimate Ironmen.
+ * It will send a prohibition message to Ultimate Ironman.
  *
  * @param player The player whose bank account to open.
  */
@@ -2865,7 +2865,7 @@ fun openDepositBox(player: Player) {
 
 /**
  * Opens the given player's bank PIN settings interface.
- * It will send a prohibition message to Ultimate Ironmen.
+ * It will send a prohibition message to Ultimate Ironman.
  *
  * @param player The player whose PIN settings to open.
  */
@@ -2938,7 +2938,7 @@ fun hasActivatedSecondaryBankAccount(player: Player): Boolean {
 /**
  * Toggles between the player's primary and/or secondary bank account.
  * Has no effect if the secondary bank account hasn't been activated.
- * It will send a prohibition message to Ultimate Ironmen.
+ * It will send a prohibition message to Ultimate Ironman.
  *
  * @param player The player whose bank accounts to toggle.
  */
@@ -3620,18 +3620,6 @@ fun restoreTabs(player: Player) {
  */
 fun hasPet(player: Player): Boolean {
     return player.familiarManager.hasPet()
-}
-
-/**
- * Closes any open (both chat and non-chat) interfaces
- * for the player.
- *
- * @param player the player to close the interfaces for.
- */
-fun closeAllInterfaces(player: Player) {
-    player.interfaceManager.close()
-    player.interfaceManager.closeChatbox()
-    player.dialogueInterpreter.close()
 }
 
 private class ContentAPI
