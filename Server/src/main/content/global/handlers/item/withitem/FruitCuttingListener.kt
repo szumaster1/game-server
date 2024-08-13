@@ -67,10 +67,7 @@ class FruitCuttingListener : InteractionListener {
 
     override fun defineListeners() {
 
-        /**
-         * Fruit slice interaction.
-         */
-
+        // Fruit slice interaction.
         onUseWith(IntType.ITEM, Fruits.cutable, Items.KNIFE_946) { player, used, _ ->
             openDialogue(player, FruitCuttingDialogue(used.id, Fruits.forChunkId(used.id), Fruits.forSliceId(used.id)))
             return@onUseWith true

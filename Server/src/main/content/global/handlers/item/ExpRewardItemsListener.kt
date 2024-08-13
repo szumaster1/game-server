@@ -32,17 +32,9 @@ class ExpRewardItemsListener : InteractionListener {
                         } else {
                             rewardXP(player, skill, lamp.experience.toDouble())
                             if (lamp.item in intArrayOf(9656, 9657, 9658, 13160, 13161, 13162)) {
-                                player.dialogueInterpreter.sendPlainMessage(
-                                    false,
-                                    BLUE + "You read a fascinating chapter and earn experience!",
-                                    "You have been awarded " + lamp.experience + " " + Skills.SKILL_NAME[skill] + " experience!"
-                                )
+                                player.dialogueInterpreter.sendPlainMessage(false, BLUE + "You read a fascinating chapter and earn experience!", "You have been awarded " + lamp.experience + " " + Skills.SKILL_NAME[skill] + " experience!")
                             } else {
-                                player.dialogueInterpreter.sendPlainMessage(
-                                    false,
-                                    BLUE + "Your wish has been granted!",
-                                    "You have been awarded " + lamp.experience + " " + Skills.SKILL_NAME[skill] + " experience!"
-                                )
+                                player.dialogueInterpreter.sendPlainMessage(false, BLUE + "Your wish has been granted!", "You have been awarded " + lamp.experience + " " + Skills.SKILL_NAME[skill] + " experience!")
                             }
                         }
                     }

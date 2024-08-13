@@ -41,12 +41,12 @@ class WeaveOptionHandler : OptionHandler() {
     /**
      * Weave pulse
      *
-     * @param type
-     * @param amount
+     * @param type The type of weaving item associated with this pulse.
+     * @param amount The quantity of the weaving item.
      * @constructor
      *
-     * @param player
-     * @param node
+     * @param player The player who is executing the weaving action.
+     * @param node The scenery node where the weaving action takes place.
      */
     class WeavePulse(player: Player?, node: Scenery?, private val type: WeavingItem, private var amount: Int) :
         SkillPulse<Scenery?>(player, node) {
@@ -101,17 +101,15 @@ class WeaveOptionHandler : OptionHandler() {
     /**
      * Weaving item
      *
-     * @param product
-     * @param required
-     * @param level
-     * @param experience
+     * @param product The item that is produced through weaving.
+     * @param required The item that is needed to create the weaving product.
+     * @param level The skill level required to weave the item.
+     * @param experience The amount of experience gained from weaving the item.
      * @constructor Weaving item
      */
     enum class WeavingItem(val product: Item, val required: Item, val level: Int, val experience: Double) {
         /**
-         * Sack
-         *
-         * @constructor Sack
+         * Sack.
          */
         SACK(
             product = Item(Items.EMPTY_SACK_5418),
@@ -121,9 +119,7 @@ class WeaveOptionHandler : OptionHandler() {
         ),
 
         /**
-         * Basket
-         *
-         * @constructor Basket
+         * Basket.
          */
         BASKET(
             product = Item(Items.BASKET_5376),
@@ -133,9 +129,7 @@ class WeaveOptionHandler : OptionHandler() {
         ),
 
         /**
-         * Cloth
-         *
-         * @constructor Cloth
+         * Cloth.
          */
         CLOTH(
             product = Item(Items.STRIP_OF_CLOTH_3224),

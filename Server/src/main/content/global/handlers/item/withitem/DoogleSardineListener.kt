@@ -17,11 +17,7 @@ class DoogleSardineListener : InteractionListener {
     private val doogleSardine = Items.DOOGLE_SARDINE_1552
 
     override fun defineListeners() {
-
-        /*
-         * Creating doodle sardine interaction.
-         */
-
+        // Creating doodle sardine interaction.
         onUseWith(IntType.ITEM, rawSardine, doogleLeaves) { player, used, with ->
             if (removeItem(player, used.asItem()) && removeItem(player, with.asItem())) {
                 sendDialogue(player, "You rub the doogle leaves over the sardine.")

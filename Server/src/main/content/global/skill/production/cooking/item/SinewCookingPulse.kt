@@ -7,17 +7,17 @@ import core.game.node.scenery.Scenery
 
 /**
  * Sinew cooking pulse.
- * @param scenery
- * @param initial
- * @param product
- * @param amount
+ * @param scenery Represents the cooking scenery or environment.
+ * @param initial The initial state or value for the cooking process.
+ * @param product The product being cooked, represented as an integer.
+ * @param amount The quantity of the product to be cooked.
  */
 class SinewCookingPulse(
-    player: Player?,
-    scenery: Scenery?,
-    initial: Int,
-    product: Int,
-    amount: Int
+    player: Player?, // The player who is performing the cooking action, can be null.
+    scenery: Scenery?, // The scenery where the cooking takes place, can be null.
+    initial: Int, // The starting point for the cooking process.
+    product: Int, // The identifier for the product being cooked.
+    amount: Int // The total amount of the product to be cooked.
 ) : StandardCookingPulse(player!!, scenery!!, initial, product, amount) {
 
     override fun checkRequirements(): Boolean {

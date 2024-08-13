@@ -20,7 +20,7 @@ class FaladorShieldListener : InteractionListener {
 
     override fun defineListeners() {
 
-        /**
+        /*
          * Interaction with Falador diary shields.
          */
 

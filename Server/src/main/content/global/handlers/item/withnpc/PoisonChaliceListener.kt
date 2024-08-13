@@ -9,6 +9,9 @@ import core.game.interaction.InteractionListener
 import core.game.interaction.IntType
 import core.tools.END_DIALOGUE
 
+/**
+ * Poison chalice on King Arthur listener.
+ */
 class PoisonChaliceListener : InteractionListener {
 
     override fun defineListeners() {

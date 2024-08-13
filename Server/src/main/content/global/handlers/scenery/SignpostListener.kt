@@ -9,16 +9,14 @@ import core.game.interaction.InteractionListener
 import core.game.world.map.Location
 
 /**
- * Signpost listener
- *
- * @constructor Signpost listener
+ * Signpost listener.
  */
 class SignpostListener : InteractionListener {
 
     override fun defineListeners() {
 
         /*
-            Signpost Lumbridge.
+         * Signpost Lumbridge.
          */
 
         on(Scenery.SIGNPOST_18493, IntType.SCENERY, "read") { player, node ->
@@ -57,7 +55,7 @@ class SignpostListener : InteractionListener {
         }
 
         /*
-            Signpost Lumbridge.
+         * Signpost Lumbridge.
          */
 
         on(Scenery.SIGNPOST_24263, IntType.SCENERY, "read") { player, node ->
@@ -84,8 +82,8 @@ class SignpostListener : InteractionListener {
         }
 
         /*
-            Signpost Lumbridge.
-        */
+         * Signpost Lumbridge.
+         */
 
         on(Scenery.SIGNPOST_4132, IntType.SCENERY, "read") { player, node ->
              if (node.asScenery().location.equals(Location(3166, 3286))) {
@@ -135,7 +133,7 @@ class SignpostListener : InteractionListener {
         }
 
         /*
-            Signpost Fremennik.
+         * Signpost Fremennik.
          */
 
         on(Scenery.SIGNPOST_4134, IntType.SCENERY, "read") { player, node ->
@@ -162,7 +160,7 @@ class SignpostListener : InteractionListener {
         }
 
         /*
-            Signpost Observatory.
+         * Signpost Observatory.
          */
 
         on(Scenery.SIGNPOST_25397, IntType.SCENERY, "read") { player, _ ->

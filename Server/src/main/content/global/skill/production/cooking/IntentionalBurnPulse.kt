@@ -13,20 +13,20 @@ import core.game.node.scenery.Scenery
 /**
  * Intentional burn pulse
  *
- * @param player
- * @param scenery
- * @param initial
- * @param product
- * @param amount
- * @constructor Intentional burn pulse
+ * @param player Represents the player involved in the burn pulse action.
+ * @param scenery Represents the environment or setting where the burn pulse occurs.
+ * @param initial Represents the initial state or value before the burn pulse.
+ * @param product Represents the product that is being affected by the burn pulse.
+ * @param amount Represents the quantity of the product involved in the burn pulse.
+ * @constructor Intentional burn pulse initializes the properties for the burn pulse action.
  */
 class IntentionalBurnPulse
 internal constructor(
-    override var player: Player,
-    override var scenery: Scenery,
-    override var initial: Int,
-    override var product: Int,
-    override var amount: Int
+    override var player: Player, // The player executing the burn pulse action
+    override var scenery: Scenery, // The scenery where the action takes place
+    override var initial: Int, // The initial state before the burn pulse
+    override var product: Int, // The product being affected by the burn pulse
+    override var amount: Int // The amount of product involved in the burn pulse
 ) : StandardCookingPulse(player, scenery, initial, product, amount) {
 
     override fun checkRequirements(): Boolean {

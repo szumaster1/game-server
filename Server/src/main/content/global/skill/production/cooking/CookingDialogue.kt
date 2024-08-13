@@ -11,8 +11,8 @@ import core.tools.START_DIALOGUE
 /**
  * Cooking dialogue
  *
- * @param args
- * @constructor Cooking dialogue
+ * @param args Variable arguments of type Any, representing the dialogue inputs.
+ * @constructor Initializes a CookingDialogue instance with the provided arguments.
  */
 class CookingDialogue(vararg val args: Any) : DialogueFile() {
 

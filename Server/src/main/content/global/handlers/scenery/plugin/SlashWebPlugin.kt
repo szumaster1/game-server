@@ -21,9 +21,7 @@ import core.plugin.Plugin
 import core.tools.RandomFunction
 
 /**
- * Slash web plugin
- *
- * @constructor Slash web plugin
+ * Slash web plugin.
  */
 @Initializable
 class SlashWebPlugin : OptionHandler() {

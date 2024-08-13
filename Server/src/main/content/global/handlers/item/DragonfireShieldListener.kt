@@ -37,7 +37,7 @@ class DragonfireShieldListener : InteractionListener {
 
     override fun defineListeners() {
 
-        /**
+        /*
          * Interaction allow to use dragonfire shield special.
          */
 
@@ -116,7 +116,7 @@ class DragonfireShieldListener : InteractionListener {
             return@on true
         }
 
-        /**
+        /*
          * Releasing charges from DFS interaction.
          */
 
@@ -143,7 +143,7 @@ class DragonfireShieldListener : InteractionListener {
             return@on true
         }
 
-        /**
+        /*
          * Drop interaction for DFS.
          */
 
@@ -162,7 +162,7 @@ class DragonfireShieldListener : InteractionListener {
     }
 }
 
-/**
+/*
  * Dragonfire Shield plugin.
  */
 

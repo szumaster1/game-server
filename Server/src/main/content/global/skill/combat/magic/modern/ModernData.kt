@@ -7,7 +7,6 @@ import core.api.consts.Sounds
 import core.game.node.item.Item
 import core.game.world.update.flag.context.Graphic
 
-
 /**
  * Charge orb data.
  *

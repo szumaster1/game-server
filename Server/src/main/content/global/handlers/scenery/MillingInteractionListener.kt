@@ -12,9 +12,7 @@ import core.game.node.item.Item
 
 
 /**
- * Milling interaction listener
- *
- * @constructor Milling interaction listener
+ * Milling interaction listener.
  */
 class MillingInteractionListener : InteractionListener {
 

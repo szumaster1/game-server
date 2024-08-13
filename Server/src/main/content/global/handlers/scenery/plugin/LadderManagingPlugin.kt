@@ -12,9 +12,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Ladder managing plugin
- *
- * @constructor Ladder managing plugin
+ * Ladder managing plugin.
  */
 @Initializable
 class LadderManagingPlugin : OptionHandler() {

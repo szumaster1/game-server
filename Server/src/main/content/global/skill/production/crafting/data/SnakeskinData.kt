@@ -18,9 +18,7 @@ enum class SnakeskinData(
     val requiredAmount: Int     // The amount of snakeskin necessary for a specific task.
 ) {
     /**
-     * Snakeskin Boot
-     *
-     * @constructor Snakeskin Boot
+     * Snakeskin Boot.
      */
     SNAKESKIN_BOOT(
         product = Item(Items.SNAKESKIN_BOOTS_6328),
@@ -30,9 +28,7 @@ enum class SnakeskinData(
     ),
 
     /**
-     * Snakeskin Vambraces
-     *
-     * @constructor Snakeskin Vambraces
+     * Snakeskin Vambraces.
      */
     SNAKESKIN_VAMBRACES(
         product = Item(Items.SNAKESKIN_VBRACE_6330),
@@ -42,9 +38,7 @@ enum class SnakeskinData(
     ),
 
     /**
-     * Snakeskin Bandana
-     *
-     * @constructor Snakeskin Bandana
+     * Snakeskin Bandana.
      */
     SNAKESKIN_BANDANA(
         product = Item(Items.SNAKESKIN_BANDANA_6326),
@@ -54,9 +48,7 @@ enum class SnakeskinData(
     ),
 
     /**
-     * Snakeskin Chaps
-     *
-     * @constructor Snakeskin Chaps
+     * Snakeskin Chaps.
      */
     SNAKESKIN_CHAPS(
         product = Item(Items.SNAKESKIN_CHAPS_6324),
@@ -66,9 +58,7 @@ enum class SnakeskinData(
     ),
 
     /**
-     * Snakeskin Body
-     *
-     * @constructor Snakeskin Body
+     * Snakeskin Body.
      */
     SNAKESKIN_BODY(
         product = Item(Items.SNAKESKIN_BODY_6322),

@@ -39,10 +39,9 @@ class FletchingListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
-            String.
+        /**
+         * String.
          */
-
         onUseWith(IntType.ITEM, stringIds, *unstrungBows) { player, string, bow ->
             val enum = BowString.productMap[bow.id] ?: return@onUseWith false
             if (enum.string != string.id) {
@@ -70,10 +69,9 @@ class FletchingListeners : InteractionListener {
             return@onUseWith true
         }
 
-        /*
-            Headless arrows.
+        /**
+         * Headless arrows.
          */
-
         onUseWith(IntType.ITEM, arrowShaftId, *featherIds) { player, shaft, feather ->
             val handler: SkillDialogueHandler =
                 object : SkillDialogueHandler(player, SkillDialogue.MAKE_SET_ONE_OPTION, Item(fletchedShaftId)) {
@@ -92,10 +90,9 @@ class FletchingListeners : InteractionListener {
             return@onUseWith true
         }
 
-        /*
-            Arrow heads.
+        /**
+         * Arrow heads.
          */
-
         onUseWith(IntType.ITEM, fletchedShaftId, *unfinishedArrows) { player, shaft, unfinished ->
             val head = ArrowHead.productMap[unfinished.id] ?: return@onUseWith false
             val handler: SkillDialogueHandler =
@@ -116,10 +113,9 @@ class FletchingListeners : InteractionListener {
             return@onUseWith true
         }
 
-        /*
-            Grapple.
-        */
-
+        /**
+         * Grapple.
+         */
         onUseWith(IntType.ITEM, Items.MITHRIL_BOLTS_9142, Items.MITH_GRAPPLE_TIP_9416) { player, used, with ->
             if (getStatLevel(player, Skills.FLETCHING) < 59) {
                 sendMessage(player, "You need a fletching level of 59 to make this.")
@@ -142,10 +138,9 @@ class FletchingListeners : InteractionListener {
             return@onUseWith true
         }
 
-        /*
-            Limbs.
+        /**
+         * Limbs.
          */
-
         onUseWith(IntType.ITEM, limbIds, *stockIds) { player, limb, stock ->
             val limbEnum = Limb.productMap[stock.id] ?: return@onUseWith false
             if (limbEnum.limb != limb.id) {
@@ -173,10 +168,9 @@ class FletchingListeners : InteractionListener {
             return@onUseWith true
         }
 
-        /*
-            Bolt gem tips.
+        /**
+         * Bolt gem tips.
          */
-
         onUseWith(IntType.ITEM, Items.CHISEL_1755, *gemIds) { player, used, with ->
             val gem = GemBolt.productMap[with.id] ?: return@onUseWith true
             object : SkillDialogueHandler(player, SkillDialogue.ONE_OPTION, Item(gem.gem)) {
@@ -195,10 +189,9 @@ class FletchingListeners : InteractionListener {
             return@onUseWith true
         }
 
-        /*
-            Bolt tips.
+        /**
+         * Bolt tips.
          */
-
         onUseWith(IntType.ITEM, boltBaseIds, *boltTipIds) { player, used, with ->
             val bolt = GemBolt.productMap[with.id] ?: return@onUseWith true
             if (used.id != bolt.base || with.id != bolt.tip) return@onUseWith true
@@ -220,10 +213,9 @@ class FletchingListeners : InteractionListener {
             return@onUseWith true
         }
 
-        /*
-            Kebbit bolts.
+        /**
+         * Kebbit bolts.
          */
-
         onUseWith(IntType.ITEM, Items.CHISEL_1755, *kebbitSpikeIds) { player, _, base ->
             val bolt = KebbitBolt.productMap[base.id] ?: return@onUseWith false
             val handler: SkillDialogueHandler =
@@ -247,10 +239,9 @@ class FletchingListeners : InteractionListener {
             return@onUseWith true
         }
 
-        /*
-            Brutal arrows.
+        /**
+         * Brutal arrows.
          */
-
         onUseWith(IntType.ITEM, Items.OGRE_ARROW_SHAFT_2864, *featherIds) { player, used, with ->
             val shaftAmount = amountInInventory(player, used.id)
             val featherAmount = amountInInventory(player, with.id)

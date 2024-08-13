@@ -8,9 +8,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Doogle leaf listener
- *
- * @constructor Doogle leaf listener
+ * Doogle leaf listener.
  */
 class DoogleLeafListener : InteractionListener {
 

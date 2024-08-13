@@ -23,9 +23,7 @@ import core.plugin.Plugin
 import core.tools.RandomFunction
 
 /**
- * Field picking plugin
- *
- * @constructor Field picking plugin
+ * Field picking plugin.
  */
 @Initializable
 class FieldPickingPlugin : OptionHandler() {

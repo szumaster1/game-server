@@ -15,9 +15,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Search option plugin
- *
- * @constructor Search option plugin
+ * Search option plugin.
  */
 @Initializable
 class SearchOptionPlugin : OptionHandler() {
@@ -25,16 +23,11 @@ class SearchOptionPlugin : OptionHandler() {
     /**
      * Search
      *
-     * @param scenery
-     * @param item
-     * @constructor Search
+     * @param scenery Represents the visual aspect of the search context.
+     * @param item Represents the specific item being searched for.
+     * @constructor Initializes a Search instance with the given scenery and item.
      */
     enum class Search(val scenery: Int, val item: Item) {
-        /**
-         * Default
-         *
-         * @constructor Default
-         */
         DEFAULT(-1, Item(Items.LEATHER_GLOVES_1059, 1));
 
         companion object {

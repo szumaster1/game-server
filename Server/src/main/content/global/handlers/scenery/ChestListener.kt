@@ -7,16 +7,14 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Chest listener
- *
- * @constructor Chest listener
+ * Chest listener.
  */
 class ChestListener : InteractionListener {
 
     override fun defineListeners() {
 
         /*
-            Zanaris chest interaction (Fairy bank).
+         * Zanaris chest interaction (Fairy bank).
          */
 
         on(Scenery.OPEN_CHEST_12121, IntType.SCENERY, "shut") { _, node ->
@@ -30,7 +28,7 @@ class ChestListener : InteractionListener {
         }
 
         /*
-            Fred farm house chest interaction.
+         * Fred farm house chest interaction.
          */
 
         on(Scenery.CLOSED_CHEST_37009, IntType.SCENERY, "open") { _, node ->

@@ -21,19 +21,19 @@ import core.tools.RandomFunction
 /**
  * Standard cooking pulse
  *
- * @param player
- * @param scenery
- * @param initial
- * @param product
- * @param amount
- * @constructor Standard cooking pulse
+ * @param player Represents the player involved in the cooking process.
+ * @param scenery Represents the environment or setting where the cooking takes place.
+ * @param initial Represents the initial state or value related to the cooking pulse.
+ * @param product Represents the type of product being cooked.
+ * @param amount Represents the quantity of the product being cooked.
+ * @constructor Standard cooking pulse initializes the cooking parameters.
  */
 open class StandardCookingPulse(
-    open val player: Player,
-    open val scenery: Scenery,
-    open val initial: Int,
-    open val product: Int,
-    open var amount: Int
+    open val player: Player, // The player who is performing the cooking action.
+    open val scenery: Scenery, // The environment where the cooking occurs.
+    open val initial: Int, // The initial value for the cooking pulse.
+    open val product: Int, // The identifier for the product being cooked.
+    open var amount: Int // The amount of the product to be cooked.
 ) : Pulse() {
 
     private var experience = 0.0

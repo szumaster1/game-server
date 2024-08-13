@@ -7,19 +7,19 @@ import core.game.node.item.Item
 /**
  * Finished potion
  *
- * @param unfinished
- * @param ingredient
- * @param level
- * @param experience
- * @param potion
+ * @param unfinished Represents the unfinished potion that is being completed.
+ * @param ingredient The item used to finish the potion.
+ * @param level The required level to create the finished potion.
+ * @param experience The experience gained from creating the finished potion.
+ * @param potion The final item that represents the finished potion.
  * @constructor Finished potion
  */
 enum class FinishedPotion(
-    val unfinished: UnfinishedPotion,
-    val ingredient: Item,
-    val level: Int,
-    val experience: Double,
-    val potion: Item
+    val unfinished: UnfinishedPotion, // Holds the reference to the unfinished potion
+    val ingredient: Item, // Represents the ingredient used to complete the potion
+    val level: Int, // Indicates the level required to craft the potion
+    val experience: Double, // The experience points awarded for crafting the potion
+    val potion: Item // The resulting finished potion item
 ) {
     /**
      * Attack Potion

@@ -20,11 +20,7 @@ class PoisonedWeaponListeners : InteractionListener {
     private val karamwanWeapons = KarambwanPoisonSets.values().map(KarambwanPoisonSets::base).toIntArray()
 
     override fun defineListeners() {
-
-        /**
-         * Used weapon poison potion on poison able items.
-         */
-
+        // Used weapon poison potion on poison able items.
         onUseWith(IntType.ITEM, poisons, *poisonableItems) { player, used, with ->
             val index = poisons.indexOf(used.id)
             val product = PoisonSets.itemMap[with.id]!![index]
@@ -39,10 +35,7 @@ class PoisonedWeaponListeners : InteractionListener {
             return@onUseWith true
         }
 
-        /**
-         * Used karambwan poison on karambwan weapons.
-         */
-
+        // Used karambwan poison on karambwan weapons.
         onUseWith(IntType.ITEM, karambwanPoison, *karamwanWeapons) { player, used, with ->
             val product = KarambwanPoisonSets.poisonMap[with.id] ?: return@onUseWith true
             if (removeItem(player, used.asItem())) {
@@ -52,10 +45,7 @@ class PoisonedWeaponListeners : InteractionListener {
             return@onUseWith true
         }
 
-        /**
-         * Remove poison from the karambwan weapon interaction.
-         */
-
+        // Remove poison from the karambwan weapon interaction.
         onUseWith(IntType.ITEM, cleaningCloth, *karamwanWeapons) { player, used, with ->
             val product = KarambwanPoisonSets.poisonMap[with.id] ?: return@onUseWith true
             if (removeItem(player, used.asItem())) {
@@ -64,10 +54,7 @@ class PoisonedWeaponListeners : InteractionListener {
             return@onUseWith true
         }
 
-        /**
-         * Remove poison from the poison weapon interaction.
-         */
-
+        // Remove poison from the poison weapon interaction.
         onUseWith(IntType.ITEM, cleaningCloth, *poisonedItems) { player, _, with ->
             val base = PoisonSets.getBase(with.id) ?: return@onUseWith false
             val amt = min(5, with.asItem().amount)

@@ -6,9 +6,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Danger sign listener
- *
- * @constructor Danger sign listener
+ * Danger sign listener.
  */
 class DangerSignListener : InteractionListener {
 

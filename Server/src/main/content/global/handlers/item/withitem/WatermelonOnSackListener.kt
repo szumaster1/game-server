@@ -16,11 +16,7 @@ class WatermelonOnSackListener : InteractionListener {
     private val scarecrow = Items.SCARECROW_6059
 
     override fun defineListeners() {
-
-        /**
-         * Special interaction for creating Scarecrow.
-         */
-
+        // Special interaction for creating Scarecrow.
         onUseWith(IntType.ITEM, haySack, watermelon) { player, _, _ ->
             if (getStatLevel(player, Skills.FARMING) < 23) {
                 removeItem(player, haySack)

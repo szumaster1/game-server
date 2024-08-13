@@ -20,9 +20,7 @@ enum class BattlestaffData(
     val experience: Double,     // Experience points gained from using the battlestaff
 ) {
     /**
-     * Water Battlestaff
-     *
-     * @constructor Water Battlestaff
+     * Water Battlestaff.
      */
     WATER_BATTLESTAFF(
         required = Items.WATER_ORB_571,
@@ -33,9 +31,7 @@ enum class BattlestaffData(
     ),
 
     /**
-     * Earth Battlestaff
-     *
-     * @constructor Earth Battlestaff
+     * Earth Battlestaff.
      */
     EARTH_BATTLESTAFF(
         required = Items.EARTH_ORB_575,
@@ -46,9 +42,7 @@ enum class BattlestaffData(
     ),
 
     /**
-     * Fire Battlestaff
-     *
-     * @constructor Fire Battlestaff
+     * Fire Battlestaff.
      */
     FIRE_BATTLESTAFF(
         required = Items.FIRE_ORB_569,
@@ -59,9 +53,7 @@ enum class BattlestaffData(
     ),
 
     /**
-     * Air Battlestaff
-     *
-     * @constructor Air Battlestaff
+     * Air Battlestaff.
      */
     AIR_BATTLESTAFF(
         required = Items.AIR_ORB_573,

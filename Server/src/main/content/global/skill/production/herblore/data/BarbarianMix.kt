@@ -7,9 +7,7 @@ import core.api.consts.Items
  */
 enum class BarbarianMix {
     /**
-     * Attack Potion
-     *
-     * @constructor Attack Potion
+     * Attack Potion.
      */
     ATTACK_POTION(
         item = Items.ATTACK_POTION2_123,
@@ -20,9 +18,7 @@ enum class BarbarianMix {
     ),
 
     /**
-     * Anti Poision Potion
-     *
-     * @constructor Anti Poision Potion
+     * Anti Poision Potion.
      */
     ANTI_POISION_POTION(
         item = Items.ANTIPOISON2_177,
@@ -33,9 +29,7 @@ enum class BarbarianMix {
     ),
 
     /**
-     * Relic
-     *
-     * @constructor Relic
+     * Relic.
      */
     RELIC(
         item = Items.RELICYMS_BALM2_4846,
@@ -46,9 +40,7 @@ enum class BarbarianMix {
     ),
 
     /**
-     * Strength Potion
-     *
-     * @constructor Strength Potion
+     * Strength Potion.
      */
     STRENGTH_POTION(
         item = Items.STRENGTH_POTION2_117,
@@ -59,9 +51,7 @@ enum class BarbarianMix {
     ),
 
     /**
-     * Restore Potion
-     *
-     * @constructor Restore Potion
+     * Restore Potion.
      */
     RESTORE_POTION(
         item = Items.RESTORE_POTION2_129,
@@ -72,9 +62,7 @@ enum class BarbarianMix {
     ),
 
     /**
-     * Energy Potion
-     *
-     * @constructor Energy Potion
+     * Energy Potion.
      */
     ENERGY_POTION(
         item = Items.ENERGY_POTION2_3012,
@@ -85,9 +73,7 @@ enum class BarbarianMix {
     ),
 
     /**
-     * Defence Potion
-     *
-     * @constructor Defence Potion
+     * Defence Potion.
      */
     DEFENCE_POTION(
         item = Items.DEFENCE_POTION2_135,
@@ -98,9 +84,7 @@ enum class BarbarianMix {
     ),
 
     /**
-     * Agility Potion
-     *
-     * @constructor Agility Potion
+     * Agility Potion.
      */
     AGILITY_POTION(
         item = Items.AGILITY_POTION2_3036,
@@ -111,9 +95,7 @@ enum class BarbarianMix {
     ),
 
     /**
-     * Combat Potion
-     *
-     * @constructor Combat Potion
+     * Combat Potion.
      */
     COMBAT_POTION(
         item = Items.COMBAT_POTION2_9743,
@@ -124,9 +106,7 @@ enum class BarbarianMix {
     ),
 
     /**
-     * Prayer Potion
-     *
-     * @constructor Prayer Potion
+     * Prayer Potion.
      */
     PRAYER_POTION(
         item = Items.PRAYER_POTION2_141,
@@ -137,9 +117,7 @@ enum class BarbarianMix {
     ),
 
     /**
-     * Super Attack Potion
-     *
-     * @constructor Super Attack Potion
+     * Super Attack Potion.
      */
     SUPER_ATTACK_POTION(
         item = Items.SUPER_ATTACK2_147,
@@ -150,9 +128,7 @@ enum class BarbarianMix {
     ),
 
     /**
-     * Super Antipoision Potion
-     *
-     * @constructor Super Antipoision Potion
+     * Super Antipoision Potion.
      */
     SUPER_ANTIPOISION_POTION(
         item = Items.SUPER_ANTIPOISON2_183,
@@ -163,9 +139,7 @@ enum class BarbarianMix {
     ),
 
     /**
-     * Fishing Potion
-     *
-     * @constructor Fishing Potion
+     * Fishing Potion.
      */
     FISHING_POTION(
         item = Items.FISHING_POTION2_153,
@@ -176,9 +150,7 @@ enum class BarbarianMix {
     ),
 
     /**
-     * Super Energy Potion
-     *
-     * @constructor Super Energy Potion
+     * Super Energy Potion.
      */
     SUPER_ENERGY_POTION(
         item = Items.SUPER_ENERGY2_3020,
@@ -189,9 +161,7 @@ enum class BarbarianMix {
     ),
 
     /**
-     * Hunter Potion
-     *
-     * @constructor Hunter Potion
+     * Hunter Potion.
      */
     HUNTER_POTION(
         item = Items.HUNTER_POTION2_10002,
@@ -202,9 +172,7 @@ enum class BarbarianMix {
     ),
 
     /**
-     * Super Strength Potion
-     *
-     * @constructor Super Strength Potion
+     * Super Strength Potion.
      */
     SUPER_STRENGTH_POTION(
         item = Items.SUPER_STRENGTH2_159,
@@ -215,9 +183,7 @@ enum class BarbarianMix {
     ),
 
     /**
-     * Super Restore
-     *
-     * @constructor Super Restore
+     * Super Restore.
      */
     SUPER_RESTORE(
         item = Items.SUPER_RESTORE2_3028,
@@ -228,9 +194,7 @@ enum class BarbarianMix {
     ),
 
     /**
-     * Super Defence Potion
-     *
-     * @constructor Super Defence Potion
+     * Super Defence Potion.
      */
     SUPER_DEFENCE_POTION(
         item = Items.SUPER_DEFENCE2_165,
@@ -241,9 +205,7 @@ enum class BarbarianMix {
     ),
 
     /**
-     * Antidote Plus
-     *
-     * @constructor Antidote Plus
+     * Antidote Plus.
      */
     ANTIDOTE_PLUS(
         item = Items.ANTIPOISON_PLUS2_5947,
@@ -254,9 +216,7 @@ enum class BarbarianMix {
     ),
 
     /**
-     * Antifire Potion
-     *
-     * @constructor Antifire Potion
+     * Antifire Potion.
      */
     ANTIFIRE_POTION(
         item = Items.ANTIFIRE_POTION2_2456,
@@ -267,9 +227,7 @@ enum class BarbarianMix {
     ),
 
     /**
-     * Ranging Potion
-     *
-     * @constructor Ranging Potion
+     * Ranging Potion.
      */
     RANGING_POTION(
         item = Items.RANGING_POTION2_171,
@@ -280,9 +238,7 @@ enum class BarbarianMix {
     ),
 
     /**
-     * Magic Potion
-     *
-     * @constructor Magic Potion
+     * Magic Potion.
      */
     MAGIC_POTION(
         item = Items.MAGIC_POTION2_3044,
@@ -293,9 +249,7 @@ enum class BarbarianMix {
     ),
 
     /**
-     * Zamorak Brew
-     *
-     * @constructor Zamorak Brew
+     * Zamorak Brew.
      */
     ZAMORAK_BREW(
         item = Items.ZAMORAK_BREW2_191,
@@ -305,74 +259,84 @@ enum class BarbarianMix {
         both = false
     );
 
+    // Constructor to initialize the properties of the class
     constructor(item: Int, level: Int, product: Int, exp: Double, both: Boolean) {
-        this.item = item
-        this.level = level
-        this.product = product
-        this.exp = exp
-        this.both = both
+        this.item = item // Assigning the item parameter to the class property
+        this.level = level // Assigning the level parameter to the class property
+        this.product = product // Assigning the product parameter to the class property
+        this.exp = exp // Assigning the exp parameter to the class property
+        this.both = both // Assigning the both parameter to the class property
     }
 
+    // Declaring a private property to hold the item value
     private val item: Int
+    // Declaring a private property to hold the product value
     private val product: Int
+    // Declaring a private property to hold the level value
     private val level: Int
+    // Declaring a private property to hold the experience value
     private val exp: Double
+    // Declaring a private property to indicate if both conditions are true
     private val both: Boolean
 
     /**
-     * Get item
-     *
-     * @return
+     * Get item.
+     * This function returns the value of the item property.
      */
     fun getItem(): Int {
-        return item
+        return item // Returning the item property value
     }
 
     /**
-     * Get product
-     *
-     * @return
+     * Get product.
+     * This function returns the value of the product property.
      */
     fun getProduct(): Int {
-        return product
+        return product // Returning the product property value
     }
 
     /**
      * Get level
+     * This function returns the value of the level property.
      *
-     * @return
+     * @return The level of the item.
      */
     fun getLevel(): Int {
-        return level
+        return level // Returning the level property value
     }
 
     /**
      * Get exp
+     * This function returns the value of the exp property.
      *
-     * @return
+     * @return The experience associated with the item.
      */
     fun getExp(): Double {
-        return exp
+        return exp // Returning the exp property value
     }
 
     /**
      * Is both
+     * This function checks if the both property is true.
      *
-     * @return
+     * @return True if both conditions are met, otherwise false.
      */
     fun isBoth(): Boolean {
-        return both
+        return both // Returning the both property value
     }
 
+    // Companion object to provide static-like functionality
     companion object {
+        // Function to retrieve a BarbarianMix instance by its ID
         fun forId(id: Int): BarbarianMix? {
+            // Iterating through all values of BarbarianMix
             for (pot in BarbarianMix.values()) {
+                // Checking if the current item's ID matches the provided ID
                 if (pot.getItem() == id) {
-                    return pot
+                    return pot // Returning the matching BarbarianMix instance
                 }
             }
-            return null
+            return null // Returning null if no match is found
         }
     }
-
 }

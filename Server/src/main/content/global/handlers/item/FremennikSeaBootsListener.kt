@@ -22,7 +22,7 @@ class FremennikSeaBootsListener : InteractionListener {
 
     override fun defineListeners() {
 
-        /**
+        /*
          * Fremennik sea boots option interactions.
          */
 

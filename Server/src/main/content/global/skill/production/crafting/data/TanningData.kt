@@ -22,9 +22,7 @@ enum class TanningData(
     val product: Int  // Holds the resource ID for the product
 ) {
     /**
-     * Soft Leather
-     *
-     * @constructor Soft Leather
+     * Soft Leather.
      */
     SOFT_LEATHER(
         button = 1,
@@ -33,9 +31,7 @@ enum class TanningData(
     ),
 
     /**
-     * Hard Leather
-     *
-     * @constructor Hard Leather
+     * Hard Leather.
      */
     HARD_LEATHER(
         button = 2,
@@ -44,9 +40,7 @@ enum class TanningData(
     ),
 
     /**
-     * Snakeskin
-     *
-     * @constructor Snakeskin
+     * Snakeskin.
      */
     SNAKESKIN(
         button = 3,
@@ -55,9 +49,7 @@ enum class TanningData(
     ),
 
     /**
-     * Snakeskin2
-     *
-     * @constructor Snakeskin2
+     * Snakeskin2.
      */
     SNAKESKIN2(
         button = 4,
@@ -66,9 +58,7 @@ enum class TanningData(
     ),
 
     /**
-     * Green Dhide
-     *
-     * @constructor Green Dhide
+     * Green Dhide.
      */
     GREEN_DHIDE(
         button = 5,
@@ -77,9 +67,7 @@ enum class TanningData(
     ),
 
     /**
-     * Bluedhide
-     *
-     * @constructor Bluedhide
+     * Bluedhide.
      */
     BLUEDHIDE(
         button = 6,
@@ -88,9 +76,7 @@ enum class TanningData(
     ),
 
     /**
-     * Reddhide
-     *
-     * @constructor Reddhide
+     * Reddhide.
      */
     REDDHIDE(
         button = 7,
@@ -99,9 +85,7 @@ enum class TanningData(
     ),
 
     /**
-     * Blackdhide
-     *
-     * @constructor Blackdhide
+     * Blackdhide.
      */
     BLACKDHIDE(
         button = 8,

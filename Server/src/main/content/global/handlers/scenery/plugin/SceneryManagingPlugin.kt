@@ -19,9 +19,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Scenery managing plugin
- *
- * @constructor Scenery managing plugin
+ * Scenery managing plugin.
  */
 @Initializable
 class SceneryManagingPlugin : OptionHandler() {

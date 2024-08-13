@@ -19,9 +19,7 @@ enum class SpinningData(
     val exp: Double   // The experience points gained from the spinning action
 ) {
     /**
-     * Wool
-     *
-     * @constructor Wool
+     * Wool.
      */
     WOOL(
         button = 19,
@@ -31,9 +29,7 @@ enum class SpinningData(
         exp = 2.5),
 
     /**
-     * Flax
-     *
-     * @constructor Flax
+     * Flax.
      */
     FLAX(
         button = 17,
@@ -44,9 +40,7 @@ enum class SpinningData(
     ),
 
     /**
-     * Root
-     *
-     * @constructor Root
+     * Root.
      */
     ROOT(
         button = 23,
@@ -57,9 +51,7 @@ enum class SpinningData(
     ),
 
     /**
-     * Root1
-     *
-     * @constructor Root1
+     * Root1.
      */
     ROOT1(
         button = 23,
@@ -70,9 +62,7 @@ enum class SpinningData(
     ),
 
     /**
-     * Root2
-     *
-     * @constructor Root2
+     * Root2.
      */
     ROOT2(
         button = 23,
@@ -83,9 +73,7 @@ enum class SpinningData(
     ),
 
     /**
-     * Root3
-     *
-     * @constructor Root3
+     * Root3.
      */
     ROOT3(
         button = 23,
@@ -96,9 +84,7 @@ enum class SpinningData(
     ),
 
     /**
-     * Root4
-     *
-     * @constructor Root4
+     * Root4.
      */
     ROOT4(
         button = 23,
@@ -109,9 +95,7 @@ enum class SpinningData(
     ),
 
     /**
-     * Root5
-     *
-     * @constructor Root5
+     * Root5.
      */
     ROOT5(
         button = 23,
@@ -122,9 +106,7 @@ enum class SpinningData(
     ),
 
     /**
-     * Sinew
-     *
-     * @constructor Sinew
+     * Sinew.
      */
     SINEW(
         button = 27,
@@ -135,9 +117,7 @@ enum class SpinningData(
     ),
 
     /**
-     * Tree Roots
-     *
-     * @constructor Tree Roots
+     * Tree Roots.
      */
     TREE_ROOTS(
         button = 31,
@@ -148,9 +128,7 @@ enum class SpinningData(
     ),
 
     /**
-     * Yak
-     *
-     * @constructor Yak
+     * Yak.
      */
     YAK(
         button = 35,

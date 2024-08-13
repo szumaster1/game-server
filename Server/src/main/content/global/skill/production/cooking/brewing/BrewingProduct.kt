@@ -7,17 +7,18 @@ import java.util.*
 /**
  * Brewing product
  *
- * @param level
- * @param experience
- * @param product
+ * @param level The level of the brewing product, represented as an integer.
+ * @param experience The experience points gained from brewing this product, represented as a double.
+ * @param product The item produced by brewing, represented as an instance of the Item class.
  * @constructor
  *
- * @param inputs
+ * @param inputs An array of items required for brewing this product.
  */
 enum class BrewingProduct(
-    val level: Int,
-    val experience: Double,
-    val product: Item, inputs: Array<Item>
+    val level: Int, // The level of the brewing product
+    val experience: Double, // The experience points gained from brewing this product
+    val product: Item, // The item produced by brewing
+    inputs: Array<Item> // An array of items required for brewing this product
 ) {
     /**
      * Asgarnian Ale.

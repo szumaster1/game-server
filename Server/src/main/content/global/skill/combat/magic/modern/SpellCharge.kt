@@ -8,9 +8,7 @@ import core.game.node.entity.player.Player
 import core.game.system.timer.PersistTimer
 
 /**
- * Spell charge
- *
- * @constructor Spell charge
+ * Spell charge.
  */
 class SpellCharge : PersistTimer(700, "magic:spellcharge") {
 

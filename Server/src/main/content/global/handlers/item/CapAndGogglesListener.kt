@@ -16,11 +16,7 @@ class CapAndGogglesListener : InteractionListener {
     private val gnomeGoggles = Items.GNOME_GOGGLES_9472
 
     override fun defineListeners() {
-
-        /**
-         * Disassemble cap and goggles interaction.
-         */
-
+        // Disassemble cap and goggles interaction.
         on(capAndGoggles, IntType.ITEM, "split") { player, node ->
             if (freeSlots(player) < 2) {
                 sendDialogue(player, "You don't have enough inventory space for that.")

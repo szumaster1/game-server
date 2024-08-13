@@ -14,9 +14,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Janger berry plugin
- *
- * @constructor Janger berry plugin
+ * Janger berry plugin.
  */
 @Initializable
 class JangerBerryPlugin : OptionHandler() {

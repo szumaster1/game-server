@@ -7,17 +7,18 @@ import java.util.*
 /**
  * Dairy product
  *
- * @param level
- * @param experience
- * @param product
+ * @param level The level of the dairy product, represented as an integer.
+ * @param experience The experience points associated with the dairy product, represented as a double.
+ * @param product The item representing the dairy product.
  * @constructor
  *
- * @param inputs
+ * @param inputs An array of integers representing additional inputs related to the dairy product.
  */
 enum class DairyProduct(
-    val level: Int,
-    val experience: Double,
-    val product: Item, inputs: Array<Int>
+    val level: Int, // The level of the dairy product
+    val experience: Double, // The experience points gained from the dairy product
+    val product: Item, // The item that corresponds to the dairy product
+    inputs: Array<Int> // Additional inputs related to the dairy product
 ) {
     /**
      * Pot Of Cream.

@@ -21,11 +21,7 @@ class OilFishingRodListener : InteractionListener {
     private val pestleAndMortar = Items.PESTLE_AND_MORTAR_233
 
     override fun defineListeners() {
-
-        /**
-         * Creating Oily fishing rod interaction.
-         */
-
+        // Creating Oily fishing rod interaction.
         onUseWith(IntType.ITEM, blamishOil, fishingRod) { player, used, with ->
             player.pulseManager.run(object : Pulse() {
                 var counter = 0
@@ -44,10 +40,7 @@ class OilFishingRodListener : InteractionListener {
             return@onUseWith true
         }
 
-        /**
-         * Creating blamish snail slime.
-         */
-
+        // Creating blamish snail slime.
         onUseWith(IntType.ITEM, thinSnail, pestleAndMortar) { player, _, _ ->
             if (inInventory(player, Items.SAMPLE_BOTTLE_3377, 1)) {
                 player.pulseManager.run(object : Pulse() {

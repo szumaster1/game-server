@@ -15,7 +15,7 @@ class ToysListener : InteractionListener {
 
     override fun defineListeners() {
 
-        /**
+        /*
          * Interaction with Marionettes.
          */
 
@@ -45,7 +45,7 @@ class ToysListener : InteractionListener {
             return@on true
         }
 
-        /**
+        /*
          * Interaction with Yo-yo.
          */
 
@@ -62,7 +62,7 @@ class ToysListener : InteractionListener {
             return@on true
         }
 
-        /**
+        /*
          * Interaction with Rubber chicken.
          */
 
@@ -74,7 +74,7 @@ class ToysListener : InteractionListener {
             return@on true
         }
 
-        /**
+        /*
          * Interaction with Zombie head.
          */
 
@@ -98,7 +98,7 @@ class ToysListener : InteractionListener {
         }
 
 
-        /**
+        /*
          * Interaction with Reindeer hat.
          */
 
@@ -108,7 +108,7 @@ class ToysListener : InteractionListener {
             return@on true
         }
 
-        /**
+        /*
          * Interaction with Snow globe.
          */
 
@@ -124,7 +124,7 @@ class ToysListener : InteractionListener {
             return@on true
         }
 
-        /**
+        /*
          * Interaction with Chocatrice cape.
          */
 
@@ -134,7 +134,7 @@ class ToysListener : InteractionListener {
             return@on true
         }
 
-        /**
+        /*
          * Interaction with Toy kite.
          */
 

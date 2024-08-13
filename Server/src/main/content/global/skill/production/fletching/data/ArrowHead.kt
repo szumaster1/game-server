@@ -5,10 +5,10 @@ import core.api.consts.Items
 /**
  * Arrow head
  *
- * @param unfinished
- * @param finished
- * @param level
- * @param experience
+ * @param unfinished Represents the unfinished state of the arrow head.
+ * @param finished Represents the finished state of the arrow head.
+ * @param level Indicates the level of the arrow head.
+ * @param experience Represents the experience associated with the arrow head.
  * @constructor Arrow head
  */
 enum class ArrowHead(var unfinished: Int, var finished: Int, var level: Int, var experience: Double) {

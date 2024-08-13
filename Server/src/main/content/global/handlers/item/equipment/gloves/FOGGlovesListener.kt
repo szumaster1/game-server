@@ -8,7 +8,7 @@ import core.game.interaction.InteractionListener
 import kotlin.math.min
 
 /**
- * F o g gloves listener.
+ * Fist of guthix gloves listener.
  */
 class FOGGlovesListener : InteractionListener {
 

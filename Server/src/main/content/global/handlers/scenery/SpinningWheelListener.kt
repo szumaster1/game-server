@@ -7,9 +7,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Spinning wheel listener
- *
- * @constructor Spinning wheel listener
+ * Spinning wheel listener.
  */
 class SpinningWheelListener : InteractionListener {
 

@@ -14,8 +14,6 @@ import java.util.*
  * @param requirements Specifies any additional requirements needed to access this Slayer Master.
  * @param assigmentCount An array that holds the count of assignments available from this Slayer Master.
  * @param taskPoints An array that contains the points awarded for completing tasks assigned by this Slayer Master.
- * @constructor
- *
  * @param tasks A variable number of Task objects that represent the tasks assigned by this Slayer Master.
  */
 enum class SlayerMaster(

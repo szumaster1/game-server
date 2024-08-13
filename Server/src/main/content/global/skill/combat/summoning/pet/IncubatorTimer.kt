@@ -11,9 +11,7 @@ import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 
 /**
- * Incubator timer
- *
- * @constructor Incubator timer
+ * Incubator timer.
  */
 class IncubatorTimer : PersistTimer(500, "incubation") {
 

@@ -6,17 +6,17 @@ import core.game.node.item.Item
 /**
  * Incubator egg
  *
- * @param egg
- * @param level
- * @param incubationTime
- * @param product
+ * @param egg Represents the item that is the egg.
+ * @param level Indicates the level required for incubation.
+ * @param incubationTime Specifies the time needed for the egg to incubate.
+ * @param product Represents the item produced after incubation.
  * @constructor Incubator egg
  */
 enum class IncubatorEgg(
-    val egg: Item,
-    val level: Int,
-    val incubationTime: Int,
-    val product: Item
+    val egg: Item, // The egg item being incubated
+    val level: Int, // The level required for successful incubation
+    val incubationTime: Int, // The duration of the incubation process
+    val product: Item // The resulting item after incubation
 ) {
     /**
      * Penguin

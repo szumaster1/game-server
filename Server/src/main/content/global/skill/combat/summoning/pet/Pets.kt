@@ -9,27 +9,27 @@ import core.tools.Log
 /**
  * Pets
  *
- * @param babyItemId
- * @param grownItemId
- * @param overgrownItemId
- * @param babyNpcId
- * @param grownNpcId
- * @param overgrownNpcId
- * @param growthRate
- * @param summoningLevel
- * @param food
- * @constructor Pets
+ * @param babyItemId      The item ID representing the baby version of the pet.
+ * @param grownItemId     The item ID representing the grown version of the pet.
+ * @param overgrownItemId The item ID representing the overgrown version of the pet.
+ * @param babyNpcId       The NPC ID for the baby version of the pet.
+ * @param grownNpcId      The NPC ID for the grown version of the pet.
+ * @param overgrownNpcId  The NPC ID for the overgrown version of the pet.
+ * @param growthRate      The rate at which the pet grows.
+ * @param summoningLevel  The level required to summon the pet.
+ * @param food            The food items required for the pet.
+ * @constructor Pets      Enum class representing different stages of pets.
  */
 enum class Pets(
-    @JvmField val babyItemId: Int,
-    @JvmField val grownItemId: Int,
-    @JvmField val overgrownItemId: Int,
-    @JvmField val babyNpcId: Int,
-    val grownNpcId: Int,
-    val overgrownNpcId: Int,
-    @JvmField val growthRate: Double,
-    @JvmField val summoningLevel: Int,
-    @JvmField vararg val food: Int
+    @JvmField val babyItemId: Int,          // ID for the baby pet item
+    @JvmField val grownItemId: Int,         // ID for the grown pet item
+    @JvmField val overgrownItemId: Int,     // ID for the overgrown pet item
+    @JvmField val babyNpcId: Int,           // NPC ID for the baby pet
+    val grownNpcId: Int,                     // NPC ID for the grown pet
+    val overgrownNpcId: Int,                 // NPC ID for the overgrown pet
+    @JvmField val growthRate: Double,        // Growth rate of the pet
+    @JvmField val summoningLevel: Int,       // Required summoning level for the pet
+    @JvmField vararg val food: Int           // Vararg for food items for the pet
 ) {
     /**
      * Cat

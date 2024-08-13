@@ -2,6 +2,7 @@ package content.global.skill.production.herblore.data
 
 import core.api.consts.Items
 import core.game.node.item.Item
+
 /**
  * Herb
  *
@@ -18,9 +19,7 @@ enum class Herb(
     val product: Item        // The resulting product derived from the herb.
 ) {
     /**
-     * Guam
-     *
-     * @constructor Guam
+     * Guam.
      */
     GUAM(
         herb = Item(Items.GRIMY_GUAM_199),
@@ -30,9 +29,7 @@ enum class Herb(
     ),
 
     /**
-     * Marrentill
-     *
-     * @constructor Marrentill
+     * Marrentill.
      */
     MARRENTILL(
         herb = Item(Items.GRIMY_MARRENTILL_201),
@@ -42,9 +39,7 @@ enum class Herb(
     ),
 
     /**
-     * Tarromin
-     *
-     * @constructor Tarromin
+     * Tarromin.
      */
     TARROMIN(
         herb = Item(Items.GRIMY_TARROMIN_203),
@@ -54,9 +49,7 @@ enum class Herb(
     ),
 
     /**
-     * Harralander
-     *
-     * @constructor Harralander
+     * Harralander.
      */
     HARRALANDER(
         herb = Item(Items.GRIMY_HARRALANDER_205),
@@ -66,9 +59,7 @@ enum class Herb(
     ),
 
     /**
-     * Ranarr
-     *
-     * @constructor Ranarr
+     * Ranarr.
      */
     RANARR(
         herb = Item(Items.GRIMY_RANARR_207),
@@ -78,9 +69,7 @@ enum class Herb(
     ),
 
     /**
-     * Toadflax
-     *
-     * @constructor Toadflax
+     * Toadflax.
      */
     TOADFLAX(
         herb = Item(Items.GRIMY_TOADFLAX_3049),
@@ -90,9 +79,7 @@ enum class Herb(
     ),
 
     /**
-     * Spirit Weed
-     *
-     * @constructor Spirit Weed
+     * Spirit Weed.
      */
     SPIRIT_WEED(
         herb = Item(Items.GRIMY_SPIRIT_WEED_12174),
@@ -102,9 +89,7 @@ enum class Herb(
     ),
 
     /**
-     * Irit
-     *
-     * @constructor Irit
+     * Irit.
      */
     IRIT(
         herb = Item(Items.GRIMY_IRIT_209),
@@ -114,9 +99,7 @@ enum class Herb(
     ),
 
     /**
-     * Avantoe
-     *
-     * @constructor Avantoe
+     * Avantoe.
      */
     AVANTOE(
         herb = Item(Items.GRIMY_AVANTOE_211),
@@ -126,9 +109,7 @@ enum class Herb(
     ),
 
     /**
-     * Kwuarm
-     *
-     * @constructor Kwuarm
+     * Kwuarm.
      */
     KWUARM(
         herb = Item(Items.GRIMY_KWUARM_213),
@@ -138,9 +119,7 @@ enum class Herb(
     ),
 
     /**
-     * Snapdragon
-     *
-     * @constructor Snapdragon
+     * Snapdragon.
      */
     SNAPDRAGON(
         herb = Item(Items.GRIMY_SNAPDRAGON_3051),
@@ -150,9 +129,7 @@ enum class Herb(
     ),
 
     /**
-     * Cadantine
-     *
-     * @constructor Cadantine
+     * Cadantine.
      */
     CADANTINE(
         herb = Item(Items.GRIMY_CADANTINE_215),
@@ -162,9 +139,7 @@ enum class Herb(
     ),
 
     /**
-     * Lantadyme
-     *
-     * @constructor Lantadyme
+     * Lantadyme.
      */
     LANTADYME(
         herb = Item(Items.GRIMY_LANTADYME_2485),
@@ -174,9 +149,7 @@ enum class Herb(
     ),
 
     /**
-     * Dwarf Weed
-     *
-     * @constructor Dwarf Weed
+     * Dwarf Weed.
      */
     DWARF_WEED(
         herb = Item(Items.GRIMY_DWARF_WEED_217),
@@ -186,9 +159,7 @@ enum class Herb(
     ),
 
     /**
-     * Torstol
-     *
-     * @constructor Torstol
+     * Torstol.
      */
     TORSTOL(
         herb = Item(Items.GRIMY_TORSTOL_219),
@@ -198,9 +169,7 @@ enum class Herb(
     ),
 
     /**
-     * Snake Weed
-     *
-     * @constructor Snake Weed
+     * Snake Weed.
      */
     SNAKE_WEED(
         herb = Item(Items.GRIMY_SNAKE_WEED_1525),
@@ -210,9 +179,7 @@ enum class Herb(
     ),
 
     /**
-     * Ardrigal
-     *
-     * @constructor Ardrigal
+     * Ardrigal.
      */
     ARDRIGAL(
         herb = Item(Items.GRIMY_ARDRIGAL_1527),
@@ -222,9 +189,7 @@ enum class Herb(
     ),
 
     /**
-     * Sito Foil
-     *
-     * @constructor Sito Foil
+     * Sito Foil.
      */
     SITO_FOIL(
         herb = Item(Items.GRIMY_SITO_FOIL_1529),
@@ -234,9 +199,7 @@ enum class Herb(
     ),
 
     /**
-     * Volencia Moss
-     *
-     * @constructor Volencia Moss
+     * Volencia Moss.
      */
     VOLENCIA_MOSS(
         herb = Item(Items.GRIMY_VOLENCIA_MOSS_1531),
@@ -246,9 +209,7 @@ enum class Herb(
     ),
 
     /**
-     * Rogues Puse
-     *
-     * @constructor Rogues Puse
+     * Rogues Puse.
      */
     ROGUES_PUSE(
         herb = Item(Items.GRIMY_ROGUES_PURSE_1533),

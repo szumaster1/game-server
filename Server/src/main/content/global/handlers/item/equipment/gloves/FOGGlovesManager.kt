@@ -10,7 +10,7 @@ import core.tools.colorize
 import kotlin.math.min
 
 /**
- * FOG gloves manager.
+ * Fist of guthix gloves manager.
  */
 class FOGGlovesManager {
 

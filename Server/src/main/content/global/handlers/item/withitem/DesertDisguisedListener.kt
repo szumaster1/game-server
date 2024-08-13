@@ -17,11 +17,7 @@ class DesertDisguisedListener : InteractionListener {
     private val desertDisguise = Items.DESERT_DISGUISE_4611
 
     override fun defineListeners() {
-
-        /*
-         * Creating Desert disguise (The Feud quest).
-         */
-
+        // Creating Desert disguise (The Feud quest).
         onUseWith(IntType.ITEM, headPiece, fakeBeard) { player, used, with ->
             if (removeItem(player, used.asItem()) && removeItem(player, with.asItem())) {
                 addItemOrDrop(player, desertDisguise)

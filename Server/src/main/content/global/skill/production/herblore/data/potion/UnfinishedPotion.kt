@@ -8,17 +8,17 @@ import core.game.node.item.Item
 /**
  * Unfinished potion
  *
- * @param base
- * @param ingredient
- * @param level
- * @param potion
+ * @param base The base item used for the potion.
+ * @param ingredient The additional ingredient required for the potion.
+ * @param level The level of complexity or skill required to create the potion.
+ * @param potion The final item that represents the potion.
  * @constructor Unfinished potion
  */
 enum class UnfinishedPotion(
-    val base: Item,
-    val ingredient: Item,
-    val level: Int,
-    val potion: Item
+    val base: Item, // The base item used for the potion
+    val ingredient: Item, // The additional ingredient required for the potion
+    val level: Int, // The level of complexity or skill required to create the potion
+    val potion: Item // The final item that represents the potion
 ) {
     /**
      * Guam

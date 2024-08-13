@@ -16,11 +16,7 @@ import core.game.node.item.Item
 class EmptyOptionListener : InteractionListener {
 
     override fun defineListeners() {
-
-        /**
-         * A collection that allows you to empty containers such as vials, buckets, pots.
-         */
-
+        // A collection that allows you to empty containers such as vials, buckets, pots.
         on(EmptyItem.emptyItemList.toIntArray(), IntType.ITEM, "empty", "empty bowl", "empty dish") { player, node ->
             if (node.name.contains("brew") || node.name.contains("potion") || node.name.lowercase().contains("poison") || node.name.lowercase().contains("serum") || node.name.contains("cure") || node.name.contains("mix") || node.name.contains("balm") ) {
                 replaceSlot(player, node.asItem().slot, Item(EmptyItem.getEmpty(Items.POTION_195)!!), node.asItem())

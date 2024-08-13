@@ -23,9 +23,7 @@ enum class GemData(
     val exp: Double // The experience points awarded for using the gem.
 ) {
     /**
-     * Sapphire
-     *
-     * @constructor Sapphire
+     * Sapphire.
      */
     SAPPHIRE(
         uncut = Item(Items.UNCUT_SAPPHIRE_1623),
@@ -36,9 +34,7 @@ enum class GemData(
     ),
 
     /**
-     * Emerald
-     *
-     * @constructor Emerald
+     * Emerald.
      */
     EMERALD(
         uncut = Item(Items.UNCUT_EMERALD_1621),
@@ -49,9 +45,7 @@ enum class GemData(
     ),
 
     /**
-     * Ruby
-     *
-     * @constructor Ruby
+     * Ruby.
      */
     RUBY(
         uncut = Item(Items.UNCUT_RUBY_1619),
@@ -62,9 +56,7 @@ enum class GemData(
     ),
 
     /**
-     * Diamond
-     *
-     * @constructor Diamond
+     * Diamond.
      */
     DIAMOND(
         uncut = Item(Items.UNCUT_DIAMOND_1617),
@@ -75,9 +67,7 @@ enum class GemData(
     ),
 
     /**
-     * Dragonstone
-     *
-     * @constructor Dragonstone
+     * Dragonstone.
      */
     DRAGONSTONE(
         uncut = Item(Items.UNCUT_DRAGONSTONE_1631),
@@ -88,9 +78,7 @@ enum class GemData(
     ),
 
     /**
-     * Onyx
-     *
-     * @constructor Onyx
+     * Onyx.
      */
     ONYX(
         uncut = Item(Items.UNCUT_ONYX_6571),
@@ -101,9 +89,7 @@ enum class GemData(
     ),
 
     /**
-     * Opal
-     *
-     * @constructor Opal
+     * Opal.
      */
     OPAL(
         uncut = Item(Items.UNCUT_OPAL_1625),
@@ -114,9 +100,7 @@ enum class GemData(
     ),
 
     /**
-     * Jade
-     *
-     * @constructor Jade
+     * Jade.
      */
     JADE(
         uncut = Item(Items.UNCUT_JADE_1627),
@@ -127,9 +111,7 @@ enum class GemData(
     ),
 
     /**
-     * Red Topaz
-     *
-     * @constructor Red Topaz
+     * Red Topaz.
      */
     RED_TOPAZ(
         uncut = Item(Items.UNCUT_RED_TOPAZ_1629),

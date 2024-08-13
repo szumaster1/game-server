@@ -13,9 +13,7 @@ import core.game.node.item.Item
  */
 enum class GrindingItem(val items: Array<Item>, val product: Item, val message: String) {
     /**
-     * Unicorn Horn
-     *
-     * @constructor Unicorn Horn
+     * Unicorn Horn.
      */
     UNICORN_HORN(
         items = arrayOf(Item(Items.UNICORN_HORN_237)),
@@ -24,9 +22,7 @@ enum class GrindingItem(val items: Array<Item>, val product: Item, val message: 
     ),
 
     /**
-     * Kebbit Teeth
-     *
-     * @constructor Kebbit Teeth
+     * Kebbit Teeth.
      */
     KEBBIT_TEETH(
         items = arrayOf(Item(Items.KEBBIT_TEETH_10109)),
@@ -35,9 +31,7 @@ enum class GrindingItem(val items: Array<Item>, val product: Item, val message: 
     ),
 
     /**
-     * Birds Nest
-     *
-     * @constructor Birds Nest
+     * Birds Nest.
      */
     BIRDS_NEST(
         items = arrayOf(Item(Items.BIRDS_NEST_5070), Item(Items.BIRDS_NEST_5071), Item(Items.BIRDS_NEST_5072), Item(Items.BIRDS_NEST_5073), Item(Items.BIRDS_NEST_5074), Item(Items.BIRDS_NEST_5075)),
@@ -46,9 +40,7 @@ enum class GrindingItem(val items: Array<Item>, val product: Item, val message: 
     ),
 
     /**
-     * Goat Horn
-     *
-     * @constructor Goat Horn
+     * Goat Horn.
      */
     GOAT_HORN(
         items = arrayOf(Item(Items.DESERT_GOAT_HORN_9735)),
@@ -57,9 +49,7 @@ enum class GrindingItem(val items: Array<Item>, val product: Item, val message: 
     ),
 
     /**
-     * Mud Rune
-     *
-     * @constructor Mud Rune
+     * Mud Rune.
      */
     MUD_RUNE(
         items = arrayOf(Item(Items.MUD_RUNE_4698)),
@@ -68,9 +58,7 @@ enum class GrindingItem(val items: Array<Item>, val product: Item, val message: 
     ),
 
     /**
-     * Ashes
-     *
-     * @constructor Ashes
+     * Ashes.
      */
     ASHES(
         items = arrayOf(Item(Items.ASHES_592)),
@@ -79,9 +67,7 @@ enum class GrindingItem(val items: Array<Item>, val product: Item, val message: 
     ),
 
     /**
-     * Raw Karambwan
-     *
-     * @constructor Raw Karambwan
+     * Raw Karambwan.
      */
     RAW_KARAMBWAN(
         items = arrayOf(Item(Items.RAW_KARAMBWAN_3142)),
@@ -90,9 +76,7 @@ enum class GrindingItem(val items: Array<Item>, val product: Item, val message: 
     ),
 
     /**
-     * Poison Karambwan
-     *
-     * @constructor Poison Karambwan
+     * Poison Karambwan.
      */
     POISON_KARAMBWAN(
         items = arrayOf(Item(Items.POISON_KARAMBWAN_3146)),
@@ -101,9 +85,7 @@ enum class GrindingItem(val items: Array<Item>, val product: Item, val message: 
     ),
 
     /**
-     * Fishing Bait
-     *
-     * @constructor Fishing Bait
+     * Fishing Bait.
      */
     FISHING_BAIT(
         items = arrayOf(Item(Items.FISHING_BAIT_313)),
@@ -112,9 +94,7 @@ enum class GrindingItem(val items: Array<Item>, val product: Item, val message: 
     ),
 
     /**
-     * Seaweed
-     *
-     * @constructor Seaweed
+     * Seaweed.
      */
     SEAWEED(
         items = arrayOf(Item(Items.SEAWEED_401)),
@@ -123,9 +103,7 @@ enum class GrindingItem(val items: Array<Item>, val product: Item, val message: 
     ),
 
     /**
-     * Bat Bones
-     *
-     * @constructor Bat Bones
+     * Bat Bones.
      */
     BAT_BONES(
         items = arrayOf(Item(Items.BAT_BONES_530)),
@@ -134,9 +112,7 @@ enum class GrindingItem(val items: Array<Item>, val product: Item, val message: 
     ),
 
     /**
-     * Charcoal
-     *
-     * @constructor Charcoal
+     * Charcoal.
      */
     CHARCOAL(
         items = arrayOf(Item(Items.CHARCOAL_973)),
@@ -145,9 +121,7 @@ enum class GrindingItem(val items: Array<Item>, val product: Item, val message: 
     ),
 
     /**
-     * Astral Rune Shards
-     *
-     * @constructor Astral Rune Shards
+     * Astral Rune Shards.
      */
     ASTRAL_RUNE_SHARDS(
         items = arrayOf(Item(Items.ASTRAL_RUNE_SHARDS_11156)),
@@ -156,9 +130,7 @@ enum class GrindingItem(val items: Array<Item>, val product: Item, val message: 
     ),
 
     /**
-     * Garlic
-     *
-     * @constructor Garlic
+     * Garlic.
      */
     GARLIC(
         items = arrayOf(Item(Items.GARLIC_1550)),
@@ -167,9 +139,7 @@ enum class GrindingItem(val items: Array<Item>, val product: Item, val message: 
     ),
 
     /**
-     * Dragon Scale
-     *
-     * @constructor Dragon Scale
+     * Dragon Scale.
      */
     DRAGON_SCALE(
         items = arrayOf(Item(Items.BLUE_DRAGON_SCALE_243)),
@@ -178,9 +148,7 @@ enum class GrindingItem(val items: Array<Item>, val product: Item, val message: 
     ),
 
     /**
-     * Anchovies
-     *
-     * @constructor Anchovies
+     * Anchovies.
      */
     ANCHOVIES(
         items = arrayOf(Item(Items.ANCHOVIES_319)),
@@ -189,9 +157,7 @@ enum class GrindingItem(val items: Array<Item>, val product: Item, val message: 
     ),
 
     /**
-     * Chocolate Bar
-     *
-     * @constructor Chocolate Bar
+     * Chocolate Bar.
      */
     CHOCOLATE_BAR(
         items = arrayOf(Item(Items.CHOCOLATE_BAR_1973)),
@@ -200,9 +166,7 @@ enum class GrindingItem(val items: Array<Item>, val product: Item, val message: 
     ),
 
     /**
-     * Sulphur
-     *
-     * @constructor Sulphur
+     * Sulphur.
      */
     SULPHUR(items = arrayOf(Item(Items.SULPHUR_3209)),
         product = Item(Items.GROUND_SULPHUR_3215),
@@ -210,9 +174,7 @@ enum class GrindingItem(val items: Array<Item>, val product: Item, val message: 
     ),
 
     /**
-     * Guam Leaf
-     *
-     * @constructor Guam Leaf
+     * Guam Leaf.
      */
     GUAM_LEAF(
         items = arrayOf(Item(Items.CLEAN_GUAM_249)),

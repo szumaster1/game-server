@@ -26,7 +26,7 @@ class ExplorersRingListener : InteractionListener {
 
     override fun defineListeners() {
 
-        /**
+        /*
          * Explorer ring interaction.
          */
 
@@ -50,7 +50,7 @@ class ExplorersRingListener : InteractionListener {
             return@on true
         }
 
-        /**
+        /*
          * Low alchemy spell ring interaction.
          */
 
@@ -76,7 +76,7 @@ class ExplorersRingListener : InteractionListener {
             return@on true
         }
 
-        /**
+        /*
          * Teleport to Port Sarim farm interaction using Explorer ring.
          */
 
@@ -85,7 +85,7 @@ class ExplorersRingListener : InteractionListener {
             return@on true
         }
 
-        /**
+        /*
          * Interaction needed to open the ring options.
          */
 

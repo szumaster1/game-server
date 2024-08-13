@@ -12,9 +12,7 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.request.RequestType
 
 /**
- * Player option listeners
- *
- * @constructor Player option listeners
+ * Player option listeners.
  */
 class PlayerOptionListeners : InteractionListener {
 

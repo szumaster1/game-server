@@ -14,11 +14,7 @@ class BirdNestScriptListener : InteractionListener {
     val nestIds = BirdNestDropTable.values().map { it.nest.id }.toIntArray()
 
     override fun defineListeners() {
-
-        /**
-         * Bird nest open interaction.
-         */
-
+        // Bird nest open interaction.
         on(nestIds, IntType.ITEM, "search", handler = ::handleNest)
     }
 

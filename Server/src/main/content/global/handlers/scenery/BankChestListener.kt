@@ -6,9 +6,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Bank chest listener
- *
- * @constructor Bank chest listener
+ * Bank chest listener.
  */
 class BankChestListener : InteractionListener {
 

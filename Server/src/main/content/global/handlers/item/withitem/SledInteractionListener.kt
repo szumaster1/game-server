@@ -20,11 +20,7 @@ class SledInteractionListener : InteractionListener {
     private val AVAILABLE_EMOTES = Emotes.values().map { it.buttonId }.toIntArray()
 
     override fun defineListeners() {
-
-        /**
-         * Creating The wax.
-         */
-
+        // Creating The wax.
         onUseWith(IntType.ITEM, Items.SWAMP_TAR_1939, Items.BUCKET_OF_WAX_30) { player, used, with ->
             if (!inInventory(player, Items.CAKE_TIN_1887)) {
                 sendMessage(player, "Nothing interesting happens.")
@@ -36,10 +32,7 @@ class SledInteractionListener : InteractionListener {
             return@onUseWith true
         }
 
-        /**
-         * Used wax with sled to create waxed sled.
-         */
-
+        // Used wax with sled to create waxed sled.
         onUseWith(IntType.ITEM, Items.WAX_4085, Items.SLED_4083) { player, used, with ->
             lock(player, 6)
             lockInteractions(player, 6)
@@ -53,10 +46,7 @@ class SledInteractionListener : InteractionListener {
             return@onUseWith true
         }
 
-        /**
-         * "Ride sled" interaction.
-         */
-
+        // "Ride sled" interaction.
         on(SLED, IntType.ITEM, "ride") { player, _ ->
             removeItem(player, SLED)
             player.animate(Animation.create(1461))
@@ -72,10 +62,7 @@ class SledInteractionListener : InteractionListener {
             return@on true
         }
 
-        /**
-         * Equip sled interaction.
-         */
-
+        // Equip sled interaction.
         onEquip(SLED) { player, _ ->
             lock(player, 2)
             lockInteractions(player, 2)
@@ -84,10 +71,7 @@ class SledInteractionListener : InteractionListener {
             return@onEquip true
         }
 
-        /**
-         * Un-equip sled interaction.
-         */
-
+        // Un-equip sled interaction.
         onUnequip(SLED) { _, _ ->
             return@onUnequip true
         }

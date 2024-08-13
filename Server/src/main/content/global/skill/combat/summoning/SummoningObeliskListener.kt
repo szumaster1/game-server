@@ -10,9 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.skill.Skills
 
 /**
- * Summoning obelisk listener
- *
- * @constructor Summoning obelisk listener
+ * Summoning obelisk listener.
  */
 class SummoningObeliskListener : InteractionListener {
 

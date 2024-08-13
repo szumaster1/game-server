@@ -11,9 +11,7 @@ import core.game.node.entity.combat.ImpactHandler
 import core.tools.RandomFunction
 
 /**
- * Hay interaction listener
- *
- * @constructor Hay interaction listener
+ * Hay interaction listener.
  */
 class HayInteractionListener : InteractionListener {
 

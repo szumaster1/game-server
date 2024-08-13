@@ -8,20 +8,20 @@ import core.game.node.scenery.Scenery
 /**
  * Pizza cooking pulse
  *
- * @param player
- * @param scenery
+ * @param player The player who is cooking the pizza
+ * @param scenery The environment in which the pizza is being cooked
  * @constructor
  *
- * @param initial
- * @param product
- * @param amount
+ * @param initial The initial state of the cooking process
+ * @param product The type of pizza product being cooked
+ * @param amount The quantity of pizza being cooked
  */
 class PizzaCookingPulse(
-    override var player: Player,
-    override var scenery: Scenery,
-    initial: Int,
-    product: Int,
-    amount: Int
+    override var player: Player, // The player instance involved in the cooking process
+    override var scenery: Scenery, // The scenery instance representing the cooking environment
+    initial: Int, // The initial cooking state passed to the superclass
+    product: Int, // The specific pizza product identifier
+    amount: Int // The amount of pizza to be cooked
 ) : StandardCookingPulse(player, scenery, initial, product, amount) {
 
     override fun checkRequirements(): Boolean {

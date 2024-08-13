@@ -13,9 +13,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Moderator plugin
- *
- * @constructor Moderator plugin
+ * Moderator plugin.
  */
 @Initializable
 class ModeratorPlugin : OptionHandler() {
