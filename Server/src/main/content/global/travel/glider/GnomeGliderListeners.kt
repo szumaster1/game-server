@@ -35,8 +35,8 @@ class GnomeGliderListeners : InteractionListener {
     /**
      * Represents a Glider Pulse that handles glider functionality for a player.
      *
-     * @property player the player associated with the glider pulse
-     * @property glider the glider object for the player
+     * @param player the player associated with the glider pulse
+     * @param glider the glider object for the player
      * @constructor initializes the GliderPulse with a delay, player, and glider
      * @param delay the delay for the pulse
      */

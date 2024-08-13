@@ -13,8 +13,8 @@ import core.tools.StringUtils
 /**
  * Skill dialogue handler
  *
- * @property player
- * @property type
+ * @param player
+ * @param type
  * @constructor
  *
  * @param data
@@ -77,9 +77,9 @@ open class SkillDialogueHandler(val player: Player, val type: SkillDialogue?, va
     /**
      * Skill dialogue
      *
-     * @property interfaceId
-     * @property baseButton
-     * @property length
+     * @param interfaceId
+     * @param baseButton
+     * @param length
      * @constructor Skill dialogue
      */
     enum class SkillDialogue(val interfaceId: Int, private val baseButton: Int, private val length: Int) {

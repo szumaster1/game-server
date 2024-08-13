@@ -24,10 +24,10 @@ class SteppingStoneShortcut : OptionHandler() {
     /**
      * Stepping stone instance
      *
-     * @property pointA
-     * @property pointB
-     * @property option
-     * @property levelReq
+     * @param pointA
+     * @param pointB
+     * @param option
+     * @param levelReq
      * @constructor Stepping stone instance
      */
     internal class SteppingStoneInstance(val pointA: Location, val pointB: Location, val option: String, val levelReq: Int)

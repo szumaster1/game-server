@@ -5,9 +5,9 @@ import core.api.consts.Items
 /**
  * Bones
  *
- * @property itemId Unique identifier for the bone item.
- * @property experience Amount of experience gained from using the bone.
- * @property bonemealId Optional identifier for the associated bonemeal item.
+ * @param itemId Unique identifier for the bone item.
+ * @param experience Amount of experience gained from using the bone.
+ * @param bonemealId Optional identifier for the associated bonemeal item.
  * @constructor Bones Enum class representing different types of bones.
  */
 enum class Bones(

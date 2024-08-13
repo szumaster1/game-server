@@ -8,11 +8,11 @@ import core.game.world.update.flag.context.Animation
 /**
  * Gem data
  *
- * @property uncut Represents the uncut version of the gem.
- * @property gem Represents the cut version of the gem.
- * @property level Indicates the level required to use the gem.
- * @property animation Represents the animation associated with the gem.
- * @property exp Represents the experience points gained from using the gem.
+ * @param uncut Represents the uncut version of the gem.
+ * @param gem Represents the cut version of the gem.
+ * @param level Indicates the level required to use the gem.
+ * @param animation Represents the animation associated with the gem.
+ * @param exp Represents the experience points gained from using the gem.
  * @constructor Gem data
  */
 enum class GemData(

@@ -8,8 +8,8 @@ import core.plugin.Plugin
 /**
  * Degradable equipment
  *
- * @property slot
- * @property itemIds
+ * @param slot
+ * @param itemIds
  * @constructor Degradable equipment
  */
 abstract class DegradableEquipment(val slot: Int, vararg val itemIds: Int) : Plugin<Any?> {

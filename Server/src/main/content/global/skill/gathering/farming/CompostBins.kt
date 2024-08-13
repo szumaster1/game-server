@@ -9,7 +9,7 @@ import core.game.node.scenery.Scenery
 /**
  * Compost bins.
  *
- * @property varbit Represents the varbit associated with each CompostBin.
+ * @param varbit Represents the varbit associated with each CompostBin.
  * @constructor Represents the CompostBins enum class.
  */
 enum class CompostBins(val varbit: Int) {

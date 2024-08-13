@@ -14,8 +14,8 @@ import java.util.concurrent.TimeUnit
 /**
  * Compost bin.
  *
- * @property player The player using the compost bin.
- * @property bin    The type of compost bin.
+ * @param player The player using the compost bin.
+ * @param bin    The type of compost bin.
  * @constructor Creates a compost bin object.
  */
 class CompostBin(val player: Player, val bin: CompostBins) {

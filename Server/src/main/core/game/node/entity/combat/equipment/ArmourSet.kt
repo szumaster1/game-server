@@ -13,7 +13,7 @@ import core.tools.RandomFunction
 /**
  * Armour set
  *
- * @property endGraphic
+ * @param endGraphic
  * @constructor
  *
  * @param set

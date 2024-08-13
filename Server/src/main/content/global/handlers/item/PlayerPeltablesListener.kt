@@ -18,6 +18,7 @@ import core.game.world.update.flag.context.Graphic
  * Player peltables listener.
  */
 class PlayerPeltablesListener : InteractionListener {
+
     companion object {
         private const val PROJECTILE_DELAY = 41
         private const val PROJECTILE_SPEED = 60
@@ -73,11 +74,11 @@ class PlayerPeltablesListener : InteractionListener {
     /**
      * Represents a Pelting Pulse spell effect.
      *
-     * @property player The player casting the spell.
-     * @property other The target player of the spell.
-     * @property gfx The graphical effects of the spell.
-     * @property hitDelay The delay before the spell hits.
-     * @property peltable The pelting ability of the spell.
+     * @param player The player casting the spell.
+     * @param other The target player of the spell.
+     * @param gfx The graphical effects of the spell.
+     * @param hitDelay The delay before the spell hits.
+     * @param peltable The pelting ability of the spell.
      * @constructor Creates a Pelting Pulse spell effect.
      */
     class PeltingPulse(val player: Player, val other: Player, val gfx: IntArray, val hitDelay: Int, val peltable: Int) :

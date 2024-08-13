@@ -3,7 +3,7 @@ package core.game.node.entity.player.link
 /**
  * Ironman mode
  *
- * @property icon Represents the icon associated with the Ironman mode.
+ * @param icon Represents the icon associated with the Ironman mode.
  * @constructor Represents the Ironman mode with a specific icon.
  */
 enum class IronmanMode(@JvmField val icon: Int) {

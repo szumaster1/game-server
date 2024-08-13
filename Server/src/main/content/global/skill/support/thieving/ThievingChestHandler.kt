@@ -57,11 +57,11 @@ class ThievingChestHandler : OptionHandler() {
     /**
      * Chest
      *
-     * @property objectIds An array of integers representing the IDs of the chest objects.
-     * @property level The level required to access or interact with the chest.
-     * @property experience The amount of experience gained from interacting with the chest.
-     * @property rewards An array of items that can be obtained from the chest.
-     * @property respawn The time in seconds before the chest can respawn after being opened.
+     * @param objectIds An array of integers representing the IDs of the chest objects.
+     * @param level The level required to access or interact with the chest.
+     * @param experience The amount of experience gained from interacting with the chest.
+     * @param rewards An array of items that can be obtained from the chest.
+     * @param respawn The time in seconds before the chest can respawn after being opened.
      * @constructor Chest Represents a new instance of the Chest enum class.
      */
     enum class Chest(

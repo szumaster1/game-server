@@ -7,9 +7,9 @@ import java.util.*
 /**
  * Brewing product
  *
- * @property level
- * @property experience
- * @property product
+ * @param level
+ * @param experience
+ * @param product
  * @constructor
  *
  * @param inputs

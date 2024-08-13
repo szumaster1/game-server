@@ -3,9 +3,9 @@ package content.minigame.gnomecook
 /**
  * Gnome cooking job.
  *
- * @property level The level of difficulty for the cooking job.
- * @property npc_id The ID of the NPC associated with the cooking job.
- * @property tip A tip or hint related to the cooking job.
+ * @param level The level of difficulty for the cooking job.
+ * @param npc_id The ID of the NPC associated with the cooking job.
+ * @param tip A tip or hint related to the cooking job.
  * @constructor Creates a Gnome cooking job with the specified level, NPC ID, and tip.
  */
 enum class GnomeCookingJob(val level: GnomeTipper.LEVEL, val npc_id: Int, val tip: String) {

@@ -13,8 +13,10 @@ import kotlin.math.min
  * FOG gloves manager.
  */
 class FOGGlovesManager {
+
     companion object {
         private val MAX_CHARGES = intArrayOf(100, 100, 100, 100, 1000, 1000, 1000, 1000, 1000, 1000)
+
         @JvmStatic
         fun updateCharges(player: Player, charges: Int = 1): Int {
             val gloves = getItemFromEquipment(player, EquipmentSlot.HANDS) ?: return 0

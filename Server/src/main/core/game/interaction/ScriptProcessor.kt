@@ -19,7 +19,7 @@ import java.lang.Integer.max
 /**
  * Class representing a Script Processor that operates on an Entity.
  *
- * @property entity The Entity on which the Script Processor operates.
+ * @param entity The Entity on which the Script Processor operates.
  * @constructor Creates a new Script Processor with the specified Entity.
  */
 class ScriptProcessor(val entity: Entity) {

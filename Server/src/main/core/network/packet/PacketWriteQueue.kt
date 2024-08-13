@@ -95,8 +95,8 @@ class PacketWriteQueue {
  * Queued packet
  *
  * @param T The type of the packet.
- * @property out The outgoing packet.
- * @property context The context in which the packet is being handled.
+ * @param out The outgoing packet.
+ * @param context The context in which the packet is being handled.
  * @constructor Represents the QueuedPacket class.
  */
 class QueuedPacket<T>(val out: OutgoingPacket<T>, val context: T)

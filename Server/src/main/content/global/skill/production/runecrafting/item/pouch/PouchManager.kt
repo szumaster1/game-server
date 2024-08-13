@@ -13,7 +13,7 @@ import org.json.simple.JSONObject
 /**
  * Pouch manager
  *
- * @property player
+ * @param player
  * @constructor Create empty Pouch manager
  */
 class PouchManager(val player: Player) {

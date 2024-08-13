@@ -11,8 +11,8 @@ import kotlin.math.min
 /**
  * Headless arrow pulse
  *
- * @property feather Represents the feather item associated with the arrow pulse.
- * @property sets Indicates the number of sets for the arrow pulse.
+ * @param feather Represents the feather item associated with the arrow pulse.
+ * @param sets Indicates the number of sets for the arrow pulse.
  * @constructor Represents a new instance of HeadlessArrowPulse.
  *
  * @param player The player associated with this arrow pulse.

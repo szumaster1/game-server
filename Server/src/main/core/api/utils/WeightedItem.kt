@@ -6,11 +6,11 @@ import core.tools.RandomFunction
 /**
  * Weighted item
  *
- * @property id
- * @property minAmt
- * @property maxAmt
- * @property weight
- * @property guaranteed
+ * @param id
+ * @param minAmt
+ * @param maxAmt
+ * @param weight
+ * @param guaranteed
  * @constructor Weighted item
  */
 class WeightedItem(var id: Int, var minAmt: Int, var maxAmt: Int, var weight: Double, var guaranteed: Boolean = false) {

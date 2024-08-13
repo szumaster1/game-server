@@ -7,11 +7,11 @@ import core.game.node.item.Item
 /**
  * Finished potion
  *
- * @property unfinished
- * @property ingredient
- * @property level
- * @property experience
- * @property potion
+ * @param unfinished
+ * @param ingredient
+ * @param level
+ * @param experience
+ * @param potion
  * @constructor Finished potion
  */
 enum class FinishedPotion(

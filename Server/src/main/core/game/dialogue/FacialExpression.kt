@@ -3,7 +3,7 @@ package core.game.dialogue
 /**
  * Facial expression
  *
- * @property animationId
+ * @param animationId
  * @constructor Facial expression
  */
 enum class FacialExpression(val animationId: Int) {

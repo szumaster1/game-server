@@ -22,7 +22,7 @@ class HangoverCureListener : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Creating Chocolate milk.
          */
 
@@ -36,7 +36,7 @@ class HangoverCureListener : InteractionListener {
             return@onUseWith true
         }
 
-        /*
+        /**
          * Creating Hangover cure.
          */
 

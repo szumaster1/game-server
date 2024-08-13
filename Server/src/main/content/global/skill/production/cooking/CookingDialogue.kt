@@ -11,7 +11,7 @@ import core.tools.START_DIALOGUE
 /**
  * Cooking dialogue
  *
- * @property args
+ * @param args
  * @constructor Cooking dialogue
  */
 class CookingDialogue(vararg val args: Any) : DialogueFile() {

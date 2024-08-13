@@ -5,7 +5,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * P v p equipment register.
+ * PVP equipment register.
  */
 @Initializable
 class PVPEquipmentRegister : Plugin<Any> {

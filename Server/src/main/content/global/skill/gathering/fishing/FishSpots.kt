@@ -5,7 +5,7 @@ import core.game.world.map.Location
 /**
  * Fish spots
  *
- * @property locations A variable-length argument that holds the locations of fish spots.
+ * @param locations A variable-length argument that holds the locations of fish spots.
  * @constructor Fish spots Represents the enum with the provided locations.
  */
 enum class FishSpots(vararg val locations: Location) {

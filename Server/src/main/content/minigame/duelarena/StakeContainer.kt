@@ -13,8 +13,8 @@ import core.network.packet.outgoing.ContainerPacket
 /**
  * Stake container for holding items during a duel.
  *
- * @property player the player involved in the duel
- * @property session the duel session associated with the container
+ * @param player the player involved in the duel
+ * @param session the duel session associated with the container
  * @constructor Creates a StakeContainer with the specified player and duel session.
  */
 class StakeContainer(private val player: Player, val session: DuelSession) :

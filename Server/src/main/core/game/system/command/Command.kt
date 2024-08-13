@@ -7,11 +7,11 @@ import core.game.world.GameWorld
 /**
  * Command class represents a game command.
  *
- * @property name The name of the command.
- * @property privilege The privilege level required to execute the command.
- * @property usage The usage information of the command.
- * @property description The description of the command.
- * @property handle The function that handles the command execution.
+ * @param name The name of the command.
+ * @param privilege The privilege level required to execute the command.
+ * @param usage The usage information of the command.
+ * @param description The description of the command.
+ * @param handle The function that handles the command execution.
  * @constructor Creates a new Command instance.
  */
 class Command(

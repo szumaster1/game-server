@@ -6,7 +6,7 @@ import core.game.node.entity.player.Player
 /**
  * Gnome copter sign.
  *
- * @property button the button (string).
+ * @param button the button (string).
  * @param info the info (string).
  */
 enum class GnomeCopterSign(private val button: String, vararg info: String) {

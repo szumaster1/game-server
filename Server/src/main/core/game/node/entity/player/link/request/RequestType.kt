@@ -7,9 +7,9 @@ import core.game.node.entity.player.link.request.trade.TradeModule
 /**
  * Request type
  *
- * @property message
- * @property requestMessage
- * @property module
+ * @param message
+ * @param requestMessage
+ * @param module
  * @constructor Request type
  */
 open class RequestType(

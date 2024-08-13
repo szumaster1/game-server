@@ -13,8 +13,8 @@ import java.util.concurrent.locks.ReentrantLock
 /**
  * Database manager
  *
- * @property path The path to the database file
- * @property expectedTables A map of expected tables and their creation SQL statements
+ * @param path The path to the database file
+ * @param expectedTables A map of expected tables and their creation SQL statements
  * @constructor Creates a DatabaseManager instance
  */
 class DatabaseManager(private val path: String, private val expectedTables: HashMap<String, String>? = null) {

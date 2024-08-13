@@ -4,10 +4,10 @@ package core.game.dialogue
  * Topic
  *
  * @param T
- * @property expr
- * @property text
- * @property toStage
- * @property skipPlayer
+ * @param expr
+ * @param text
+ * @param toStage
+ * @param skipPlayer
  * @constructor Topic
  */
 open class Topic<T> @JvmOverloads constructor(
@@ -26,7 +26,7 @@ open class Topic<T> @JvmOverloads constructor(
  * If topic
  *
  * @param T
- * @property showCondition
+ * @param showCondition
  * @constructor
  *
  * @param expr

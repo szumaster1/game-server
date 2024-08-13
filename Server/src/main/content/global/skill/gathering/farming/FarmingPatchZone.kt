@@ -65,7 +65,7 @@ class FarmingPatchZone : MapArea, TickListener {
     /**
      * Spirit dialogue
      *
-     * @property firstDialogue
+     * @param firstDialogue
      * @constructor Spirit dialogue
      */
     internal class SpiritDialogue(private val firstDialogue: Boolean) : DialogueFile(){

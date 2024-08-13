@@ -125,8 +125,8 @@ class AntiMacro : PersistTimer(
     /**
      * Command args
      *
-     * @property targetPlayer
-     * @property targetEvent
+     * @param targetPlayer
+     * @param targetEvent
      * @constructor Command args
      */
     data class CommandArgs(val targetPlayer: String, val targetEvent: RandomEvents?)

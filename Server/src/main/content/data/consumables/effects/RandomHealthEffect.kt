@@ -7,8 +7,8 @@ import core.tools.RandomFunction
 /**
  * Random health effect.
  *
- * @property a Lower bound for random health effect value.
- * @property b Upper bound for random health effect value.
+ * @param a Lower bound for random health effect value.
+ * @param b Upper bound for random health effect value.
  * @constructor Represents a RandomHealthEffect with given bounds.
  */
 class RandomHealthEffect(val a: Int, val b: Int) : ConsumableEffect() {

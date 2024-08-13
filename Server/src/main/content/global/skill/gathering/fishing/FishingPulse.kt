@@ -25,7 +25,7 @@ import core.tools.colorize
 /**
  * Fishing pulse
  *
- * @property option Represents the fishing option selected by the player.
+ * @param option Represents the fishing option selected by the player.
  * @constructor Represents a FishingPulse instance with the specified player, NPC, and fishing option.
  *
  * @param player The player who is engaged in fishing.

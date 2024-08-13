@@ -22,7 +22,7 @@ class DemonicSigilListener : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Demonic sigil basic interaction.
          */
 

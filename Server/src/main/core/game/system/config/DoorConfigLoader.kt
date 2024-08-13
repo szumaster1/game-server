@@ -61,7 +61,7 @@ class DoorConfigLoader {
     /**
      * Door class.
      *
-     * @property id The ID of the door.
+     * @param id The ID of the door.
      * @constructor Door.
      */
     class Door(val id: Int) {

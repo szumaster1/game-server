@@ -17,8 +17,8 @@ import core.tools.StringUtils
 /**
  * Dragon craft pulse
  *
- * @property hide Represents the dragon hide used in crafting.
- * @property amount Indicates the quantity of the dragon hide.
+ * @param hide Represents the dragon hide used in crafting.
+ * @param amount Indicates the quantity of the dragon hide.
  * @constructor Represents a DragonCraftPulse instance.
  *
  * @param player The player associated with this crafting pulse.

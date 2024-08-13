@@ -14,11 +14,11 @@ import java.util.*
 /**
  * Rune pouch
  *
- * @property pouch Represents the item contained in the rune pouch.
- * @property level Indicates the required level to use the rune pouch.
- * @property capacity Defines the maximum number of runes the pouch can hold.
- * @property cumulativeCapacity Represents the total capacity of the pouch over time.
- * @property uses Specifies how many times the pouch can be used.
+ * @param pouch Represents the item contained in the rune pouch.
+ * @param level Indicates the required level to use the rune pouch.
+ * @param capacity Defines the maximum number of runes the pouch can hold.
+ * @param cumulativeCapacity Represents the total capacity of the pouch over time.
+ * @param uses Specifies how many times the pouch can be used.
  * @constructor Rune pouch Represents a new instance of the RunePouch enum class.
  */
 enum class RunePouch(

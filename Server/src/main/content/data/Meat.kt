@@ -30,8 +30,8 @@ enum class MeatState {
 /**
  * Enum class representing different types of meat.
  *
- * @property id The id for the meat type.
- * @property state The state of the meat (e.g., raw, cooked).
+ * @param id The id for the meat type.
+ * @param state The state of the meat (e.g., raw, cooked).
  */
 enum class Meat(val id: Int, val state: MeatState) {
     /**

@@ -7,7 +7,7 @@ import core.cache.def.impl.ItemDefinition
 /**
  * Charged item
  *
- * @property ids - The array of item IDs for this charged item
+ * @param ids - The array of item IDs for this charged item
  * @constructor Charged item
  */
 enum class ChargedItem(val ids: IntArray) {

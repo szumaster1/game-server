@@ -26,7 +26,7 @@ class ExplorersRingListener : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Explorer ring interaction.
          */
 
@@ -50,7 +50,7 @@ class ExplorersRingListener : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Low alchemy spell ring interaction.
          */
 
@@ -76,7 +76,7 @@ class ExplorersRingListener : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Teleport to Port Sarim farm interaction using Explorer ring.
          */
 
@@ -85,7 +85,7 @@ class ExplorersRingListener : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Interaction needed to open the ring options.
          */
 
@@ -103,34 +103,36 @@ class ExplorersRingListener : InteractionListener {
     /**
      * Teleport
      *
-     * @param player
+     * @param player The player to be teleported.
      */
     fun teleport(player: Player) {
+        // Calls the overloaded teleport function with specific parameters for cabbage teleportation.
         teleport(player, CABBAGE_PORT, TeleportType.CABBAGE)
     }
 
     /**
      * Get ring level
      *
-     * @param id
-     * @return
+     * @param id The ID of the ring to determine its level.
+     * @return The level of the ring based on its ID, or -1 if the ID is not recognized.
      */
     fun getRingLevel(id: Int): Int {
+        // Uses a when expression to match the ring ID to its corresponding level.
         return when (id) {
-            Items.EXPLORERS_RING_1_13560 -> 1
-            Items.EXPLORERS_RING_2_13561 -> 2
-            Items.EXPLORERS_RING_3_13562 -> 3
-            else -> -1
+            Items.EXPLORERS_RING_1_13560 -> 1 // Level 1 for the first explorer's ring.
+            Items.EXPLORERS_RING_2_13561 -> 2 // Level 2 for the second explorer's ring.
+            Items.EXPLORERS_RING_3_13562 -> 3 // Level 3 for the third explorer's ring.
+            else -> -1 // Returns -1 for unrecognized ring IDs.
         }
     }
 
     /**
      * Get store file
      *
-     * @return
+     * @return The JSON object representing the store file for the daily explorer ring.
      */
     fun getStoreFile(): JSONObject {
+        // Retrieves the archive for the daily explorer ring from the server store.
         return ServerStore.getArchive("daily-explorer-ring")
     }
-
 }

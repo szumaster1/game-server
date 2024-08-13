@@ -5,14 +5,14 @@ import core.game.node.item.Item
 /**
  * Summoning pouch
  *
- * @property slot
- * @property pouchId
- * @property levelRequired
- * @property createExperience
- * @property npcId
- * @property summonExperience
- * @property summonCost
- * @property peaceful
+ * @param slot
+ * @param pouchId
+ * @param levelRequired
+ * @param createExperience
+ * @param npcId
+ * @param summonExperience
+ * @param summonCost
+ * @param peaceful
  * @constructor
  *
  * @param items

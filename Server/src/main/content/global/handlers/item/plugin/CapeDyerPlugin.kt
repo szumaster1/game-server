@@ -62,8 +62,8 @@ class CapeDyerPlugin : UseWithHandler(*CAPES.copyOfRange(0, CAPES.size - 1).toIn
     /**
      * Enum representing different types of capes with associated dye and product.
      *
-     * @property dye the dye color of the cape.
-     * @property product the product associated with the cape.
+     * @param dye the dye color of the cape.
+     * @param product the product associated with the cape.
      * @constructor Creates a Cape with the specified dye and product.
      */
     internal enum class Cape(val dye: Dyes, val product: Item) {

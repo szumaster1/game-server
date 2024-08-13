@@ -6,9 +6,9 @@ import core.game.node.item.Item;
 /**
  * Repair item.
  *
- * @property item    The broken item to be repaired.
- * @property product The repaired item.
- * @property cost    The cost of repairing the item.
+ * @param item    The broken item to be repaired.
+ * @param product The repaired item.
+ * @param cost    The cost of repairing the item.
  * @constructor Repair item
  */
 enum class RepairItem(val item: Item, val product: Item, val cost: Int) {

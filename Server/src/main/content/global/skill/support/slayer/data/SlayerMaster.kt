@@ -9,11 +9,11 @@ import java.util.*
 /**
  * Slayer master
  *
- * @property npc Represents the NPC (Non-Player Character) ID associated with the Slayer Master.
- * @property requiredCombat Indicates the minimum combat level required to engage with this Slayer Master.
- * @property requirements Specifies any additional requirements needed to access this Slayer Master.
- * @property assigmentCount An array that holds the count of assignments available from this Slayer Master.
- * @property taskPoints An array that contains the points awarded for completing tasks assigned by this Slayer Master.
+ * @param npc Represents the NPC (Non-Player Character) ID associated with the Slayer Master.
+ * @param requiredCombat Indicates the minimum combat level required to engage with this Slayer Master.
+ * @param requirements Specifies any additional requirements needed to access this Slayer Master.
+ * @param assigmentCount An array that holds the count of assignments available from this Slayer Master.
+ * @param taskPoints An array that contains the points awarded for completing tasks assigned by this Slayer Master.
  * @constructor
  *
  * @param tasks A variable number of Task objects that represent the tasks assigned by this Slayer Master.
@@ -303,8 +303,8 @@ enum class SlayerMaster(
     /**
      * Represents a task with a specific weight.
      *
-     * @property task The type of task to be performed.
-     * @property weight The weight or importance of the task.
+     * @param task The type of task to be performed.
+     * @param weight The weight or importance of the task.
      * @constructor Represents a Task with the specified task type and weight.
      */
     class Task internal constructor(

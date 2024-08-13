@@ -25,8 +25,8 @@ class SearchOptionPlugin : OptionHandler() {
     /**
      * Search
      *
-     * @property scenery
-     * @property item
+     * @param scenery
+     * @param item
      * @constructor Search
      */
     enum class Search(val scenery: Int, val item: Item) {

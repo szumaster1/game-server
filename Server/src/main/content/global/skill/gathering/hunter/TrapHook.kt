@@ -7,8 +7,8 @@ import core.tools.RandomFunction
 /**
  * Trap hook
  *
- * @property wrapper This property holds a reference to the TrapWrapper instance.
- * @property locations This property contains an array of Location instances.
+ * @param wrapper This property holds a reference to the TrapWrapper instance.
+ * @param locations This property contains an array of Location instances.
  * @constructor Trap hook Represents a new instance of TrapHook with the specified wrapper and locations.
  */
 class TrapHook(val wrapper: TrapWrapper, val locations: Array<Location>) {

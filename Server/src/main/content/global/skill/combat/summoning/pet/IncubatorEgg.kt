@@ -6,10 +6,10 @@ import core.game.node.item.Item
 /**
  * Incubator egg
  *
- * @property egg
- * @property level
- * @property incubationTime
- * @property product
+ * @param egg
+ * @param level
+ * @param incubationTime
+ * @param product
  * @constructor Incubator egg
  */
 enum class IncubatorEgg(

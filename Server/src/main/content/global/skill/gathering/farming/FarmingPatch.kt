@@ -9,8 +9,8 @@ import core.game.node.scenery.Scenery
 /**
  * Farming patch.
  *
- * @property varbit The varbit value of the farming patch.
- * @property type   The type of patch (e.g., ALLOTMENT, HERB_PATCH, etc.).
+ * @param varbit The varbit value of the farming patch.
+ * @param type   The type of patch (e.g., ALLOTMENT, HERB_PATCH, etc.).
  * @constructor Creates a farming patch with the specified varbit and type.
  */
 enum class FarmingPatch(val varbit: Int, val type: PatchType) {

@@ -13,12 +13,12 @@ import kotlin.math.ceil
 /**
  * Creation skill pulse.
  *
- * @property player The player performing the creation skill.
- * @property node The node where the creation skill is being performed.
- * @property animation The animation used for the creation skill.
- * @property itemUsed The item used for the creation skill.
- * @property baseId The base ID for the creation skill.
- * @property sceneryIndex The index of the scenery for the creation skill.
+ * @param player The player performing the creation skill.
+ * @param node The node where the creation skill is being performed.
+ * @param animation The animation used for the creation skill.
+ * @param itemUsed The item used for the creation skill.
+ * @param baseId The base ID for the creation skill.
+ * @param sceneryIndex The index of the scenery for the creation skill.
  * @constructor Creates a CreationSkillPulse instance.
  */
 class CreationSkillPulse(
@@ -36,10 +36,10 @@ class CreationSkillPulse(
     /**
      * Creation scenery.
      *
-     * @property baseTime The base time for the creation scenery.
-     * @property randomLife The random life for the creation scenery.
-     * @property randomTime The random time for the creation scenery.
-     * @property level The level required for the creation scenery.
+     * @param baseTime The base time for the creation scenery.
+     * @param randomLife The random life for the creation scenery.
+     * @param randomTime The random time for the creation scenery.
+     * @param level The level required for the creation scenery.
      * @constructor Creates a CreationScenery instance.
      */
     enum class CreationScenery(val baseTime: Int, val randomLife: Int, val randomTime: Int, val level: Int) {

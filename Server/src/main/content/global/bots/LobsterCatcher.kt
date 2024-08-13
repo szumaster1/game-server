@@ -38,7 +38,7 @@ class LobsterCatcher : Script() {
     /**
      * Sets
      *
-     * @property equipment
+     * @param equipment
      * @constructor Sets
      */
     internal enum class Sets(val equipment: List<Item>) {

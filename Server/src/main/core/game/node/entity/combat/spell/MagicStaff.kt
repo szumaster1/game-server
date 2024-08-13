@@ -5,8 +5,8 @@ import core.api.consts.Items
 /**
  * Magic staff
  *
- * @property runeId
- * @property staves
+ * @param runeId
+ * @param staves
  * @constructor Magic staff
  */
 enum class MagicStaff(val runeId: Int, vararg val staves: Int) {

@@ -5,11 +5,11 @@ import core.game.node.item.Item
 /**
  * Generic potion
  *
- * @property base
- * @property ingredient
- * @property level
- * @property experience
- * @property product
+ * @param base
+ * @param ingredient
+ * @param level
+ * @param experience
+ * @param product
  * @constructor Generic potion
  */
 class GenericPotion(

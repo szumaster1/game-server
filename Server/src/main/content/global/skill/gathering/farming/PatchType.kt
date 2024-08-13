@@ -3,7 +3,7 @@ package content.global.skill.gathering.farming
 /**
  * Patch type.
  *
- * @property stageGrowthTime The time it takes for a patch of this type to go through each growth stage.
+ * @param stageGrowthTime The time it takes for a patch of this type to go through each growth stage.
  * @constructor Creates a new PatchType with the specified stage growth time.
  */
 enum class PatchType(val stageGrowthTime: Int) {

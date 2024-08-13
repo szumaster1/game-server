@@ -15,7 +15,7 @@ import java.util.*
 /**
  * Combat state.
  *
- * @property bot the bot id.
+ * @param bot the bot id.
  */
 class CombatState(val bot: PestControlTestBot) {
     private val Random = Random()

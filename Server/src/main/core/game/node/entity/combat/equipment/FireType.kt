@@ -14,9 +14,9 @@ import core.tools.RandomFunction
 /**
  * Fire type
  *
- * @property animation
- * @property projectileId
- * @property task
+ * @param animation
+ * @param projectileId
+ * @param task
  * @constructor Fire type
  */
 enum class FireType(val animation: Animation, val projectileId: Int, val task: NodeTask) {

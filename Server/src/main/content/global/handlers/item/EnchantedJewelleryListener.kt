@@ -58,9 +58,9 @@ class EnchantedJewelleryListener : InteractionListener {
     /**
      * Class representing a dialogue file for enchanted jewellery.
      *
-     * @property jewellery The enchanted jewellery object associated with the dialogue.
-     * @property item The item object related to the dialogue.
-     * @property isEquipped A boolean indicating if the jewellery is equipped.
+     * @param jewellery The enchanted jewellery object associated with the dialogue.
+     * @param item The item object related to the dialogue.
+     * @param isEquipped A boolean indicating if the jewellery is equipped.
      * @constructor Creates a new instance of EnchantedJewelleryDialogueFile.
      */
     class EnchantedJewelleryDialogueFile(val jewellery: EnchantedJewellery, val item: Item, val isEquipped: Boolean) : DialogueFile() {

@@ -18,7 +18,7 @@ class TOTTHelmOnCapeListener : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Combining interaction  Slayer helmet + Slayer skillcape.
          */
 

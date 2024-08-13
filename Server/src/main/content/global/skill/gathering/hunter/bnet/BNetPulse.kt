@@ -20,7 +20,7 @@ import kotlin.random.Random
 /**
  * B net pulse
  *
- * @property type Represents the type of BNetNode associated with this pulse.
+ * @param type Represents the type of BNetNode associated with this pulse.
  * @constructor Represents a BNetPulse instance with the specified player, node, and type.
  *
  * @param player The player associated with this pulse, can be null.

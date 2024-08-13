@@ -7,10 +7,10 @@ import core.game.world.map.zone.ZoneBorders
 /**
  * Represents a task related to an area in the diary.
  *
- * @property zoneBorders The borders of the zone for the task.
- * @property diaryLevel The level of the diary.
- * @property taskId The ID of the task.
- * @property condition The condition that needs to be met for the task.
+ * @param zoneBorders The borders of the zone for the task.
+ * @param diaryLevel The level of the diary.
+ * @param taskId The ID of the task.
+ * @param condition The condition that needs to be met for the task.
  * @constructor Creates an AreaDiaryTask with the specified parameters.
  */
 class AreaDiaryTask(

@@ -18,9 +18,9 @@ import kotlin.math.ceil
 /**
  * Bolt effect
  *
- * @property itemId
- * @property graphic
- * @property sound
+ * @param itemId
+ * @param graphic
+ * @param sound
  * @constructor Bolt effect
  */
 enum class BoltEffect(val itemId: Int, private val graphic: Graphic, private val sound: Audio) {

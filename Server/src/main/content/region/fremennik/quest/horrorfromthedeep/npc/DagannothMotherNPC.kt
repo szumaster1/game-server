@@ -226,9 +226,9 @@ class DagannothMotherNPC(id: Int = 0, location: Location? = null, session: Dagan
     /**
      * Enum class representing different types of Dagannoth.
      *
-     * @property npcId The ID of the NPC.
-     * @property sendChat The chat message to send.
-     * @property sendMessage The message to send.
+     * @param npcId The ID of the NPC.
+     * @param sendChat The chat message to send.
+     * @param sendMessage The message to send.
      * @constructor Represents a Dagannoth type with the specified properties.
      */
     enum class DagannothType(var npcId: Int, var sendChat: String?, var sendMessage: String?) {
@@ -308,8 +308,8 @@ class DagannothMotherNPC(id: Int = 0, location: Location? = null, session: Dagan
     /**
      * Dagannoth transform.
      *
-     * @property player The player object.
-     * @property dagannoth The DagannothMotherNPC object.
+     * @param player The player object.
+     * @param dagannoth The DagannothMotherNPC object.
      * @constructor Creates a DagannothTransform object.
      */
     class DagannothTransform(val player: Player?, val dagannoth: DagannothMotherNPC) : Pulse() {

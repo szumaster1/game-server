@@ -12,8 +12,8 @@ import core.game.node.item.Item
 /**
  * Gem cut pulse
  *
- * @property amount The number of gems to be cut.
- * @property gem The specific type of gem being cut.
+ * @param amount The number of gems to be cut.
+ * @param gem The specific type of gem being cut.
  * @constructor Represents a GemCutPulse instance.
  *
  * @param player The player who is performing the gem cutting action.

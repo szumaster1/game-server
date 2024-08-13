@@ -22,7 +22,7 @@ class FremennikSeaBootsListener : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Fremennik sea boots option interactions.
          */
 
@@ -105,7 +105,7 @@ class FremennikSeaBootsListener : InteractionListener {
 
                         6 -> when (buttonID) {
                             1 -> {
-                                /*
+                                /**
                                  * This must be done at the altar; the remote contact option on the Fremennik sea boots 1 does not count.
                                  */
                                 if(inInventory(player, Items.RAW_BASS_363) && inEquipmentOrInventory(player, Items.RING_OF_CHAROSA_6465) || inEquipmentOrInventory(player, Items.RING_OF_CHAROS_4202)){

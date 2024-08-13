@@ -21,11 +21,11 @@ import core.tools.RandomFunction
 /**
  * Standard cooking pulse
  *
- * @property player
- * @property scenery
- * @property initial
- * @property product
- * @property amount
+ * @param player
+ * @param scenery
+ * @param initial
+ * @param product
+ * @param amount
  * @constructor Standard cooking pulse
  */
 open class StandardCookingPulse(

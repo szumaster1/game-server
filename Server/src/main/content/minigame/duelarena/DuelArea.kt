@@ -34,9 +34,9 @@ import java.util.*
 /**
  * Represents a Duel Area in the game.
  *
- * @property border The borders of the Duel Area.
- * @property isObstacles Indicates if there are obstacles in the Duel Area.
- * @property center The central location of the Duel Area.
+ * @param border The borders of the Duel Area.
+ * @param isObstacles Indicates if there are obstacles in the Duel Area.
+ * @param center The central location of the Duel Area.
  * @constructor Creates a Duel Area with optional parameters.
  * @param index The index of the Duel Area.
  */

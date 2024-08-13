@@ -6,9 +6,9 @@ import core.game.node.entity.player.Player
 /**
  * Skill effect class for consumable effects.
  *
- * @property skillSlot the slot of the skill affected.
- * @property base the base value of the effect.
- * @property bonus the bonus value of the effect.
+ * @param skillSlot the slot of the skill affected.
+ * @param base the base value of the effect.
+ * @param bonus the bonus value of the effect.
  * @constructor Represents a SkillEffect with skillSlot, base, and bonus.
  */
 class SkillEffect(var skillSlot: Int, var base: Double, var bonus: Double) : ConsumableEffect() {

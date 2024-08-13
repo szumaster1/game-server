@@ -4,11 +4,11 @@ import core.api.consts.Items
 /**
  * Spinning data
  *
- * @property button Represents the button identifier for the spinning action.
- * @property need Indicates the amount of resources required to perform the spin.
- * @property product Represents the product obtained from the spinning action.
- * @property level Indicates the level of the spinning action.
- * @property exp Represents the experience points gained from the spinning action.
+ * @param button Represents the button identifier for the spinning action.
+ * @param need Indicates the amount of resources required to perform the spin.
+ * @param product Represents the product obtained from the spinning action.
+ * @param level Indicates the level of the spinning action.
+ * @param exp Represents the experience points gained from the spinning action.
  * @constructor Spinning data
  */
 enum class SpinningData(

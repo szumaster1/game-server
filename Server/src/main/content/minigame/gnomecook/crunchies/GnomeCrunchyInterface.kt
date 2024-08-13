@@ -92,9 +92,9 @@ class GnomeCrunchyInterface : ComponentPlugin() {
     /**
      * Enum representing a half-made crunchy item.
      *
-     * @property product The ID of the product.
-     * @property reqLevel The required level to make the item.
-     * @property requiredItems An array of items required to make the item.
+     * @param product The ID of the product.
+     * @param reqLevel The required level to make the item.
+     * @param requiredItems An array of items required to make the item.
      * @constructor Creates a new HalfMadeCrunchy enum instance.
      */
     internal enum class HalfMadeCrunchy(val product: Int, val reqLevel: Int, val requiredItems: Array<Item>) {

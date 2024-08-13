@@ -12,8 +12,8 @@ import core.game.world.map.zone.ZoneBorders
 /**
  * String pulse
  *
- * @property bow Represents the bow string used in the pulse.
- * @property amount Indicates the quantity of the bow string.
+ * @param bow Represents the bow string used in the pulse.
+ * @param amount Indicates the quantity of the bow string.
  * @constructor Represents a StringPulse instance with the specified player, node, bow, and amount.
  *
  * @param player The player associated with this StringPulse.

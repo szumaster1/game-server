@@ -31,10 +31,10 @@ import core.game.node.entity.skill.Skills
 /**
  * Random events.
  *
- * @property npc The NPC associated with the random event.
- * @property loot The loot table for the random event.
- * @property skillIds The skill IDs associated with the random event.
- * @property type The type of the random event.
+ * @param npc The NPC associated with the random event.
+ * @param loot The loot table for the random event.
+ * @param skillIds The skill IDs associated with the random event.
+ * @param type The type of the random event.
  */
 enum class RandomEvents(
     val npc: RandomEventNPC,

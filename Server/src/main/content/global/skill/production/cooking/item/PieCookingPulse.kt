@@ -9,8 +9,8 @@ import core.game.node.scenery.Scenery
 /**
  * Pie cooking pulse
  *
- * @property player
- * @property scenery
+ * @param player
+ * @param scenery
  * @constructor
  *
  * @param initial

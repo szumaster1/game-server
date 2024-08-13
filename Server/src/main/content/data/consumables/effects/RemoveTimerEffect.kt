@@ -7,7 +7,7 @@ import core.game.node.entity.player.Player
 /**
  * Remove timer effect.
  *
- * @property identifier Unique identifier for the timer to be removed.
+ * @param identifier Unique identifier for the timer to be removed.
  * @constructor Represents the RemoveTimerEffect with a specific identifier.
  */
 class RemoveTimerEffect(val identifier: String) : ConsumableEffect() {

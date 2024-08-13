@@ -74,8 +74,8 @@ val pitVarpOffsets = hashMapOf(19264 to 3, 19265 to 6, 19266 to 9, 19267 to 12, 
 /**
  * Pit.
  *
- * @property varbitId the varbit id.
- * @property horizontal boolean.
+ * @param varbitId the varbit id.
+ * @param horizontal boolean.
  */
 data class Pit(val varbitId: Int, val horizontal: Boolean)
 

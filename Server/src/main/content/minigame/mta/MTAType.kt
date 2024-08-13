@@ -17,11 +17,11 @@ import core.game.world.map.Location
 /**
  * MTA type
  *
- * @property sceneryId
- * @property overlay
- * @property startLocation
- * @property endLocation
- * @property mtaZone
+ * @param sceneryId
+ * @param overlay
+ * @param startLocation
+ * @param endLocation
+ * @param mtaZone
  */
 enum class MTAType(
     val sceneryId: Int,

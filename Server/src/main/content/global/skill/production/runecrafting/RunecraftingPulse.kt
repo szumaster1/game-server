@@ -30,9 +30,9 @@ import kotlin.math.max
 /**
  * Runecrafting pulse
  *
- * @property altar Represents the altar used in the runecrafting process.
- * @property combination Indicates whether a combination of runes is being used.
- * @property combo Holds the specific combination of runes, if applicable.
+ * @param altar Represents the altar used in the runecrafting process.
+ * @param combination Indicates whether a combination of runes is being used.
+ * @param combo Holds the specific combination of runes, if applicable.
  * @constructor
  *
  * @param player The player who is performing the runecrafting action.

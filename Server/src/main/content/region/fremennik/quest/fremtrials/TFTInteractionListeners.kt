@@ -303,10 +303,10 @@ class TFTInteractionListeners : InteractionListener {
     /**
      * This class represents a destination room with its boundaries.
      *
-     * @property swx The x-coordinate of the southwest corner of the room.
-     * @property swy The y-coordinate of the southwest corner of the room.
-     * @property nex The x-coordinate of the northeast corner of the room.
-     * @property ney The y-coordinate of the northeast corner of the room.
+     * @param swx The x-coordinate of the southwest corner of the room.
+     * @param swy The y-coordinate of the southwest corner of the room.
+     * @param nex The x-coordinate of the northeast corner of the room.
+     * @param ney The y-coordinate of the northeast corner of the room.
      * @constructor Creates a destination room with the specified boundaries.
      */
     class DestRoom(val swx: Int, val swy: Int, val nex: Int, val ney: Int)
@@ -370,8 +370,8 @@ class TFTInteractionListeners : InteractionListener {
     /**
      * Represents a Spirit Pulse that interacts with a player and a fish.
      *
-     * @property player the player interacting with the spirit pulse.
-     * @property fish the fish involved in the interaction.
+     * @param player the player interacting with the spirit pulse.
+     * @param fish the fish involved in the interaction.
      * @constructor Creates a Spirit Pulse with the specified player and fish.
      */
     class SpiritPulse(val player: Player, val fish: Int) : Pulse() {
@@ -432,8 +432,8 @@ class TFTInteractionListeners : InteractionListener {
     /**
      * Represents a Lyre concert pulse.
      *
-     * @property player The player associated with the Lyre concert.
-     * @property Lyre The Lyre identifier.
+     * @param player The player associated with the Lyre concert.
+     * @param Lyre The Lyre identifier.
      * @constructor Creates a Lyre concert pulse with the given player and Lyre identifier.
      */
     class LyreConcertPulse(val player: Player, val Lyre: Int) : Pulse() {
@@ -536,7 +536,7 @@ class TFTInteractionListeners : InteractionListener {
     /**
      * Branch fletching pulse.
      *
-     * @property player The player object.
+     * @param player The player object.
      * @constructor Represents a new instance of the BranchFletchingPulse class with the specified player.
      */
     class BranchFletchingPulse(val player: Player) : Pulse() {
@@ -563,7 +563,7 @@ class TFTInteractionListeners : InteractionListener {
     /**
      * Class representing a Koschei pulse for a player.
      *
-     * @property player The player associated with the pulse.
+     * @param player The player associated with the pulse.
      * @constructor Creates a Koschei pulse for the specified player.
      */
     class KoscheiPulse(val player: Player) : Pulse() {

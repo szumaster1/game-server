@@ -36,9 +36,9 @@ class GutanothChestInteractionHandler : InteractionListener {
     /**
      * Represents a pulse related to a chest interaction.
      *
-     * @property player The player interacting with the chest.
-     * @property isLoot Indicates if the interaction is for looting.
-     * @property chest The chest being interacted with.
+     * @param player The player interacting with the chest.
+     * @param isLoot Indicates if the interaction is for looting.
+     * @param chest The chest being interacted with.
      * @constructor Creates a ChestPulse instance with the specified player, interaction type, and chest.
      */
     class ChestPulse(val player: Player, val isLoot: Boolean, val chest: Scenery) : Pulse() {
@@ -97,9 +97,9 @@ class GutanothChestInteractionHandler : InteractionListener {
         /**
          * Rewards.
          *
-         * @property id The ID of the reward.
-         * @property type The type of the reward (ITEM or NPC).
-         * @property message The message associated with the reward.
+         * @param id The ID of the reward.
+         * @param type The type of the reward (ITEM or NPC).
+         * @param message The message associated with the reward.
          * @constructor Creates a reward with the given properties.
          */
         enum class Rewards(val id: Int, val type: Type, val message: String) {

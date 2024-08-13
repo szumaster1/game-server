@@ -42,7 +42,7 @@ class CrystalChestListeners : InteractionListener {
     /**
      * Enum class representing different rewards with associated chances.
      *
-     * @property chance The chance of obtaining this reward.
+     * @param chance The chance of obtaining this reward.
      * @param items The items that can be obtained as rewards.
      * @constructor Represents the Reward with the given chance and items.
      */

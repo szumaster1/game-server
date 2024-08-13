@@ -12,8 +12,8 @@ import core.game.world.update.flag.context.Graphic
 /**
  * Class representing a Blessing Pulse.
  *
- * @property drezel The NPC associated with the Blessing Pulse.
- * @property player The Player associated with the Blessing Pulse.
+ * @param drezel The NPC associated with the Blessing Pulse.
+ * @param player The Player associated with the Blessing Pulse.
  * @constructor Creates a Blessing Pulse with the given NPC and Player.
  */
 class BlessingPulse(val drezel: NPC, val player: Player) : Pulse() {

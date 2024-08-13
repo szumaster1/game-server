@@ -7,7 +7,7 @@ import core.game.node.item.Item
 /**
  * Box trap node
  *
- * @property summoningLevel
+ * @param summoningLevel
  * @constructor
  *
  * @param npcIds Array of NPC IDs associated with the box trap.

@@ -118,9 +118,9 @@ class KoscheiNPC(id: Int = 0, location: Location? = null, session: KoscheiSessio
     /**
      * Enum class representing different types of Koschei.
      *
-     * @property npcId The unique identifier for the NPC.
-     * @property appearMessage The message displayed when the NPC appears.
-     * @property appearDialogues The dialogues spoken by the NPC upon appearance.
+     * @param npcId The unique identifier for the NPC.
+     * @param appearMessage The message displayed when the NPC appears.
+     * @param appearDialogues The dialogues spoken by the NPC upon appearance.
      * @constructor Represents KoscheiType with the provided parameters.
      */
     enum class KoscheiType(var npcId: Int, var appearMessage: String?, vararg var appearDialogues: String?) {
@@ -186,8 +186,8 @@ class KoscheiNPC(id: Int = 0, location: Location? = null, session: KoscheiSessio
     /**
      * Class representing a pulse for spawning Koschei.
      *
-     * @property player The player triggering the spawn.
-     * @property koschei The Koschei NPC to be spawned.
+     * @param player The player triggering the spawn.
+     * @param koschei The Koschei NPC to be spawned.
      * @constructor Creates a KoscheiSpawnPulse instance with the specified player and Koschei NPC.
      */
     class KoscheiSpawnPulse(val player: Player?, val koschei: KoscheiNPC) : Pulse() {
@@ -218,8 +218,8 @@ class KoscheiNPC(id: Int = 0, location: Location? = null, session: KoscheiSessio
     /**
      * Class representing the pulse at the end of a fight.
      *
-     * @property player The player involved in the fight.
-     * @property koschei The NPC opponent in the fight.
+     * @param player The player involved in the fight.
+     * @param koschei The NPC opponent in the fight.
      * @constructor Creates a FightEndPulse instance with the given player and NPC.
      */
     class FightEndPulse(val player: Player?, val koschei: KoscheiNPC) : Pulse() {

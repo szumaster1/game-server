@@ -16,8 +16,8 @@ import core.tools.StringUtils
 /**
  * Pottery craft pulse
  *
- * @property amount The quantity of pottery being crafted.
- * @property pottery The data related to the specific pottery item.
+ * @param amount The quantity of pottery being crafted.
+ * @param pottery The data related to the specific pottery item.
  * @constructor Represents a PotteryCraftPulse instance.
  *
  * @param player The player who is performing the pottery crafting.

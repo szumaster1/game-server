@@ -29,10 +29,10 @@ class PlayerSafetyInterfaceListener : InterfaceListener {
     /**
      * Test question.
      *
-     * @property interfaceId the base ID for the test question.
-     * @property baseChild the ID of the Component child.
-     * @property answers A map of button press: child to display.
-     * @property correctOption The button number for the correct option.
+     * @param interfaceId the base ID for the test question.
+     * @param baseChild the ID of the Component child.
+     * @param answers A map of button press: child to display.
+     * @param correctOption The button number for the correct option.
      * @constructor Test question.
      */
     class TestQuestion(val interfaceId: Int, val baseChild: Int, val answers: Map<Int, Int>, val correctOption: Int) {

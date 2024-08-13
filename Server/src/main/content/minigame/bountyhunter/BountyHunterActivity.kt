@@ -40,7 +40,7 @@ import java.util.*
 /**
  * Handles the Bounty hunter activity.
  *
- * @property type
+ * @param type
  * @constructor Bounty hunter activity
  */
 @Initializable

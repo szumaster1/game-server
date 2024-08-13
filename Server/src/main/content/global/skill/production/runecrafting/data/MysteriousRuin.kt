@@ -6,11 +6,11 @@ import core.game.world.map.Location
 /**
  * Mysterious ruin
  *
- * @property scenery An array representing the visual elements of the ruin.
- * @property base The starting location of the ruin.
- * @property end The ending location of the ruin.
- * @property talisman An instance of Talisman associated with the ruin.
- * @property tiara An instance of Tiara associated with the ruin.
+ * @param scenery An array representing the visual elements of the ruin.
+ * @param base The starting location of the ruin.
+ * @param end The ending location of the ruin.
+ * @param talisman An instance of Talisman associated with the ruin.
+ * @param tiara An instance of Tiara associated with the ruin.
  * @constructor Mysterious ruin Represents a new instance of the MysteriousRuin enum.
  */
 enum class MysteriousRuin(

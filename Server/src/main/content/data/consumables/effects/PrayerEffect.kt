@@ -12,8 +12,8 @@ import kotlin.math.floor
 /**
  * Prayer effect.
  *
- * @property base The base value for the prayer effect.
- * @property bonus The bonus value for the prayer effect.
+ * @param base The base value for the prayer effect.
+ * @param bonus The bonus value for the prayer effect.
  * @constructor Represents the PrayerEffect class with base and bonus values.
  */
 class PrayerEffect(var base: Double, var bonus: Double) : ConsumableEffect() {

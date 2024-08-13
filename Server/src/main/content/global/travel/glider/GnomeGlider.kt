@@ -9,10 +9,10 @@ import core.game.world.map.Location
 /**
  * Gnome glider.
  *
- * @property button The button ID for the gnome glider.
- * @property location The location where the gnome glider is located.
- * @property config The configuration value for the gnome glider.
- * @property npc The NPC associated with the gnome glider.
+ * @param button The button ID for the gnome glider.
+ * @param location The location where the gnome glider is located.
+ * @param config The configuration value for the gnome glider.
+ * @param npc The NPC associated with the gnome glider.
  * @constructor Creates a new instance of the GnomeGlider enum.
  */
 enum class GnomeGlider(val button: Int, val location: Location, val config: Int, val npc: Int) {

@@ -13,11 +13,11 @@ import org.json.simple.JSONObject
 /**
  * Blast furnace belt ore.
  *
- * @property player The player who is interacting with the blast furnace belt ore.
- * @property id The ID of the ore.
- * @property amount The amount of ore.
- * @property location The current location of the ore.
- * @property npcInstance The instance of the NPC associated with the ore.
+ * @param player The player who is interacting with the blast furnace belt ore.
+ * @param id The ID of the ore.
+ * @param amount The amount of ore.
+ * @param location The current location of the ore.
+ * @param npcInstance The instance of the NPC associated with the ore.
  * @constructor Represents the BFBeltOre class.
  */
 class BFBeltOre(

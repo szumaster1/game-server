@@ -5,11 +5,11 @@ import core.api.consts.Items
 /**
  * Enum class representing different types of bow strings.
  *
- * @property unfinished Represents the unfinished state of the bow string.
- * @property product Represents the product ID associated with the bow string.
- * @property level Represents the level required to use the bow string.
- * @property experience Represents the experience gained from using the bow string.
- * @property animation Represents the animation ID associated with the bow string.
+ * @param unfinished Represents the unfinished state of the bow string.
+ * @param product Represents the product ID associated with the bow string.
+ * @param level Represents the level required to use the bow string.
+ * @param experience Represents the experience gained from using the bow string.
+ * @param animation Represents the animation ID associated with the bow string.
  * @constructor
  *
  * @param indicator A byte value indicating a specific characteristic of the bow string.

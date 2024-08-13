@@ -20,8 +20,8 @@ import kotlin.math.max
 /**
  * Represents a pulse for an archery competition event.
  *
- * @property player the player participating in the competition.
- * @property sceneryId the scenery where the competition takes place.
+ * @param player the player participating in the competition.
+ * @param sceneryId the scenery where the competition takes place.
  * @constructor Creates an instance of ArcheryCompetitionPulse.
  */
 class ArcheryCompetitionPulse(private val player: Player, private val sceneryId: Scenery) : Pulse(1, player, sceneryId) {

@@ -11,6 +11,7 @@ import core.tools.END_DIALOGUE
  * Dusty scroll.
  */
 class DustyScroll : InteractionListener {
+
     companion object {
         const val DUSTY_SCROLL = Items.DUSTY_SCROLL_7629
 

@@ -21,7 +21,7 @@ class PoisonedWeaponListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Used weapon poison potion on poison able items.
          */
 
@@ -39,7 +39,7 @@ class PoisonedWeaponListeners : InteractionListener {
             return@onUseWith true
         }
 
-        /*
+        /**
          * Used karambwan poison on karambwan weapons.
          */
 
@@ -52,7 +52,7 @@ class PoisonedWeaponListeners : InteractionListener {
             return@onUseWith true
         }
 
-        /*
+        /**
          * Remove poison from the karambwan weapon interaction.
          */
 
@@ -64,7 +64,7 @@ class PoisonedWeaponListeners : InteractionListener {
             return@onUseWith true
         }
 
-        /*
+        /**
          * Remove poison from the poison weapon interaction.
          */
 
@@ -80,8 +80,8 @@ class PoisonedWeaponListeners : InteractionListener {
     /**
      * Enum class representing different sets of Karambwan poison.
      *
-     * @property base The base value of the poison set.
-     * @property kp The kp value of the poison set.
+     * @param base The base value of the poison set.
+     * @param kp The kp value of the poison set.
      * @constructor Creates a new instance of KarambwanPoisonSets with the given base and kp values.
      */
     internal enum class KarambwanPoisonSets(val base: Int, val kp: Int) {
@@ -168,10 +168,10 @@ class PoisonedWeaponListeners : InteractionListener {
     /**
      * Enum representing different poison sets.
      *
-     * @property base The base poison level.
-     * @property p The first poison level.
-     * @property pp The second poison level.
-     * @property ppp The third poison level.
+     * @param base The base poison level.
+     * @param p The first poison level.
+     * @param pp The second poison level.
+     * @param ppp The third poison level.
      * @constructor Creates a PoisonSets enum with specified poison levels.
      */
     internal enum class PoisonSets(val base: Int, val p: Int, val pp: Int, val ppp: Int) {

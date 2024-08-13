@@ -9,8 +9,8 @@ import core.game.node.entity.player.Player
 /**
  * Add timer effect.
  *
- * @property identifier The unique identifier for the timer.
- * @property args       Additional arguments for the timer.
+ * @param identifier The unique identifier for the timer.
+ * @param args       Additional arguments for the timer.
  * @constructor Add timer effect with specified identifier and arguments.
  */
 class AddTimerEffect(val identifier: String, vararg val args: Any) : ConsumableEffect() {

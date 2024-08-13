@@ -35,8 +35,8 @@ class SkeweredFoodListener : InteractionListener {
 /**
  * Skewered set
  *
- * @property raw
- * @property product
+ * @param raw
+ * @param product
  * @constructor Skewered set
  */
 enum class SkeweredSet(val raw: Item, val product: Item) {

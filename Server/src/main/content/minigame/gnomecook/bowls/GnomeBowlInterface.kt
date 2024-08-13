@@ -70,9 +70,9 @@ class GnomeBowlInterface : ComponentPlugin() {
     /**
      * Enum representing prepared products.
      *
-     * @property product The ID of the prepared product.
-     * @property levelReq The level requirement to prepare the product.
-     * @property requiredItems The array of items required to prepare the product.
+     * @param product The ID of the prepared product.
+     * @param levelReq The level requirement to prepare the product.
+     * @param requiredItems The array of items required to prepare the product.
      * @constructor Creates a new PreparedProduct enum instance.
      */
     internal enum class PreparedProduct(val product: Int, val levelReq: Int, val requiredItems: Array<Item>) {

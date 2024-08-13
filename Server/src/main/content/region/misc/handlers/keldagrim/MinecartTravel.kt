@@ -97,7 +97,7 @@ object MinecartTravel {
     /**
      * Travel to keldagrim pulse.
      *
-     * @property player the player.
+     * @param player the player.
      * @return Travel to keldagrim.
      */
     class TravelToKeldagrimPulse(val player: Player) : Pulse() {

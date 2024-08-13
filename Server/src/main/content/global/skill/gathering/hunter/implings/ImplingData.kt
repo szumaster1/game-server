@@ -10,8 +10,8 @@ import core.game.world.map.path.ClipMaskSupplier
 /**
  * Impling
  *
- * @property npcId The unique identifier for the NPC (Non-Player Character) associated with the Impling.
- * @property puroId The unique identifier for the Puro Puro location associated with the Impling.
+ * @param npcId The unique identifier for the NPC (Non-Player Character) associated with the Impling.
+ * @param puroId The unique identifier for the Puro Puro location associated with the Impling.
  * @constructor Impling Represents an instance of the Impling enum with the specified npcId and puroId.
  */
 enum class Impling(val npcId: Int, val puroId: Int) {

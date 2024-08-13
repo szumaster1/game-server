@@ -6,10 +6,10 @@ import core.api.consts.Items
 /**
  * Bone boiler.
  *
- * @property bone The ID of the bone item.
- * @property boneInVinegar The ID of the bone in vinegar item.
- * @property polishedBone The ID of the polished bone item.
- * @property boneDescription The description of the bone.
+ * @param bone The ID of the bone item.
+ * @param boneInVinegar The ID of the bone in vinegar item.
+ * @param polishedBone The ID of the polished bone item.
+ * @param boneDescription The description of the bone.
  * @constructor Creates a BoneBoiler enum instance.
  */
 enum class BoneBoiler(val bone: Int, val boneInVinegar: Int, val polishedBone: Int, val boneDescription: String) {

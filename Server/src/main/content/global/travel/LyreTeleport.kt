@@ -17,7 +17,7 @@ import org.json.simple.JSONObject
 /**
  * Class representing a Lyre teleport for a player.
  *
- * @property player the player for whom the Lyre teleport is initiated
+ * @param player the player for whom the Lyre teleport is initiated
  * @constructor Creates a Lyre teleport instance for the specified player.
  */
 class LyreTeleport(val player: Player) : Pulse() {

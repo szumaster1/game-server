@@ -13,9 +13,9 @@ import core.game.world.map.zone.ZoneBorders
 /**
  * Abstract class representing a challenge clue scroll.
  *
- * @property question the question associated with the clue.
- * @property npc the NPC related to the clue.
- * @property answer the answer to the clue.
+ * @param question the question associated with the clue.
+ * @param npc the NPC related to the clue.
+ * @param answer the answer to the clue.
  * @constructor initializes the challenge clue scroll.
  *
  * @param name the name of the clue scroll.

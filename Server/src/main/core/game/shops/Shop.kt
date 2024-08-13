@@ -27,9 +27,9 @@ import kotlin.math.roundToInt
 /**
  * Data class representing a shop item.
  *
- * @property itemId      The unique identifier of the item.
- * @property amount      The quantity of the item available in the shop.
- * @property restockRate The rate at which the item is restocked.
+ * @param itemId      The unique identifier of the item.
+ * @param amount      The quantity of the item available in the shop.
+ * @param restockRate The rate at which the item is restocked.
  * @constructor Creates a new ShopItem.
  */
 data class ShopItem(var itemId: Int, var amount: Int, val restockRate: Int = 100)
@@ -37,7 +37,7 @@ data class ShopItem(var itemId: Int, var amount: Int, val restockRate: Int = 100
 /**
  * Listener for shop events.
  *
- * @property player The player associated with the shop.
+ * @param player The player associated with the shop.
  * @constructor Creates a new ShopListener.
  */
 class ShopListener(val player: Player) : ContainerListener {
@@ -60,12 +60,12 @@ class ShopListener(val player: Player) : ContainerListener {
 /**
  * Shop class represents a shop entity in the system.
  *
- * @property title       The title of the shop
- * @property stock       An array of ShopItem objects representing the items in stock.
- * @property general     A boolean flag indicating if the shop is a general store.
- * @property currency    An integer representing the currency used in the shop.
- * @property highAlch    A boolean flag indicating if high alchemy is enabled.
- * @property forceShared A boolean flag indicating if the shop forces shared stock.
+ * @param title       The title of the shop
+ * @param stock       An array of ShopItem objects representing the items in stock.
+ * @param general     A boolean flag indicating if the shop is a general store.
+ * @param currency    An integer representing the currency used in the shop.
+ * @param highAlch    A boolean flag indicating if high alchemy is enabled.
+ * @param forceShared A boolean flag indicating if the shop forces shared stock.
  * @constructor Creates  A new Shop with the specified properties.
  */
 class Shop(
@@ -584,7 +584,7 @@ class Shop(
         /**
          * Failure
          *
-         * @property reason
+         * @param reason
          * @constructor Failure
          */
         class Failure(val reason: String) : TransactionStatus()

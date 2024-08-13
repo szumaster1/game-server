@@ -15,7 +15,7 @@ import java.util.*
 /**
  * Combat state intermediate.
  *
- * @property bot the bot id.
+ * @param bot the bot id.
  */
 class CombatStateIntermediate(val bot: PestControlTestBot2) {
     private val Random = Random()

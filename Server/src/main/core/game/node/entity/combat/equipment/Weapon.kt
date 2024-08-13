@@ -5,9 +5,9 @@ import core.game.node.item.Item
 /**
  * Weapon
  *
- * @property item
- * @property ammunitionSlot
- * @property ammunition
+ * @param item
+ * @param ammunitionSlot
+ * @param ammunition
  * @constructor
  *
  * @param type

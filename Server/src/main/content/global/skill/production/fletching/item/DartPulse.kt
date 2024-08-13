@@ -10,8 +10,8 @@ import core.game.node.item.Item
 /**
  * Dart pulse
  *
- * @property dart Represents the dart object associated with this pulse.
- * @property sets Indicates the number of sets for the dart pulse.
+ * @param dart Represents the dart object associated with this pulse.
+ * @param sets Indicates the number of sets for the dart pulse.
  * @constructor Represents a DartPulse instance with the specified player, node, dart, and sets.
  *
  * @param player The player associated with this pulse, can be null.

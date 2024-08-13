@@ -14,10 +14,10 @@ import core.game.system.task.Pulse
 /**
  * Silver craft pulse
  *
- * @property player Represents the player involved in the crafting process.
- * @property product Represents the silver product being crafted.
- * @property furnace Represents the furnace used for crafting.
- * @property amount Represents the quantity of the product to be crafted.
+ * @param player Represents the player involved in the crafting process.
+ * @param product Represents the silver product being crafted.
+ * @param furnace Represents the furnace used for crafting.
+ * @param amount Represents the quantity of the product to be crafted.
  * @constructor Silver craft pulse initializes the crafting process with the specified parameters.
  */
 class SilverCraftPulse(

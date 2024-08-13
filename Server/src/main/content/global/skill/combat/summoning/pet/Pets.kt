@@ -9,15 +9,15 @@ import core.tools.Log
 /**
  * Pets
  *
- * @property babyItemId
- * @property grownItemId
- * @property overgrownItemId
- * @property babyNpcId
- * @property grownNpcId
- * @property overgrownNpcId
- * @property growthRate
- * @property summoningLevel
- * @property food
+ * @param babyItemId
+ * @param grownItemId
+ * @param overgrownItemId
+ * @param babyNpcId
+ * @param grownNpcId
+ * @param overgrownNpcId
+ * @param growthRate
+ * @param summoningLevel
+ * @param food
  * @constructor Pets
  */
 enum class Pets(

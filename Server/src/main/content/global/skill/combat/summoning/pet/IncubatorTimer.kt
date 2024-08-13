@@ -60,10 +60,10 @@ class IncubatorTimer : PersistTimer(500, "incubation") {
     /**
      * Incubating egg
      *
-     * @property region
-     * @property egg
-     * @property endTime
-     * @property finished
+     * @param region
+     * @param egg
+     * @param endTime
+     * @param finished
      * @constructor Incubating egg
      */
     data

@@ -5,7 +5,7 @@ import core.game.node.entity.player.Player
 /**
  * Rule enum class.
  *
- * @property rule The rule ID.
+ * @param rule The rule ID.
  * @constructor Creates a Rule instance with the given rule ID.
  */
 enum class Rule(val rule: Int) {

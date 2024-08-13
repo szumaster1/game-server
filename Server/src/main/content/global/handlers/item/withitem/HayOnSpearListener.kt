@@ -14,7 +14,7 @@ class HayOnSpearListener : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Bronze spear used on the hay sack to create a hay sack spear.
          */
 

@@ -5,10 +5,10 @@ import core.api.consts.Items
 /**
  * Bolt
  *
- * @property unfinished Represents the number of unfinished tasks associated with the Bolt.
- * @property finished Represents the number of completed tasks associated with the Bolt.
- * @property level Indicates the current level of the Bolt.
- * @property experience Represents the experience points accumulated by the Bolt.
+ * @param unfinished Represents the number of unfinished tasks associated with the Bolt.
+ * @param finished Represents the number of completed tasks associated with the Bolt.
+ * @param level Indicates the current level of the Bolt.
+ * @param experience Represents the experience points accumulated by the Bolt.
  * @constructor Bolt Represents a new instance of the Bolt enum with specified properties.
  */
 enum class Bolt(var unfinished: Int, var finished: Int, var level: Int, var experience: Double) {

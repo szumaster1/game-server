@@ -16,7 +16,7 @@ class BraceletOfClayListener : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Clay bracelet interaction.
          */
 

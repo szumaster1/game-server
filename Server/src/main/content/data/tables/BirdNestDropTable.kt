@@ -14,7 +14,7 @@ import core.tools.StringUtils
 /**
  * Bird nest drop table
  *
- * @property nest
+ * @param nest
  * @constructor
  *
  * @param loot

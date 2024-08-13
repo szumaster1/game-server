@@ -5,7 +5,7 @@ import core.api.consts.Items
 /**
  * Enum representing different gods in the game.
  *
- * @property validItems The list of valid items associated with the god.
+ * @param validItems The list of valid items associated with the god.
  * @constructor Creates a new God with the specified valid items.
  */
 enum class God(vararg val validItems: Int) {

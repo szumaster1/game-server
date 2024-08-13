@@ -17,8 +17,8 @@ import core.tools.StringUtils
 /**
  * Soft craft pulse
  *
- * @property soft Represents the soft leather used in crafting.
- * @property amount Indicates the quantity of soft leather to be used.
+ * @param soft Represents the soft leather used in crafting.
+ * @param amount Indicates the quantity of soft leather to be used.
  * @constructor Represents a SoftCraftPulse instance.
  *
  * @param player The player who is performing the crafting action.

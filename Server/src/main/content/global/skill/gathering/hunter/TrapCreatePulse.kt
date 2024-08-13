@@ -17,7 +17,7 @@ import core.game.world.map.RegionManager.getObject
 /**
  * Trap create pulse
  *
- * @property trap Represents the type of trap being created.
+ * @param trap Represents the type of trap being created.
  * @constructor Represents a new instance of TrapCreatePulse.
  *
  * @param player The player who is creating the trap.

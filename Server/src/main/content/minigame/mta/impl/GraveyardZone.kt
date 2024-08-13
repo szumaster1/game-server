@@ -131,8 +131,8 @@ class GraveyardZone :
     /**
      * Enum representing different types of bones.
      *
-     * @property objectId The unique identifier for the bone type.
-     * @property item The corresponding item object for the bone type.
+     * @param objectId The unique identifier for the bone type.
+     * @param item The corresponding item object for the bone type.
      * @constructor Creates a new BoneType with the specified objectId and item.
      */
     enum class BoneType(val objectId: Int, val item: Item) {

@@ -6,9 +6,9 @@ import core.game.node.item.Item
 /**
  * Represents a Grinding Item in the system.
  *
- * @property items An array of items that can be ground.
- * @property product The resulting product after grinding the items.
- * @property message A message associated with the grinding process.
+ * @param items An array of items that can be ground.
+ * @param product The resulting product after grinding the items.
+ * @param message A message associated with the grinding process.
  * @constructor Represents a GrindingItem with specified items, product, and message.
  */
 enum class GrindingItem(val items: Array<Item>, val product: Item, val message: String) {

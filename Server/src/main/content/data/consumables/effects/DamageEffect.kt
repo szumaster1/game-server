@@ -8,8 +8,8 @@ import core.game.node.entity.player.Player
 /**
  * Damage effect.
  *
- * @property amt The amount of damage to be inflicted.
- * @property isPercent Indicates if the damage is in percentage.
+ * @param amt The amount of damage to be inflicted.
+ * @param isPercent Indicates if the damage is in percentage.
  * @constructor Damage effect constructor.
  */
 class DamageEffect(val amt: Double, val isPercent: Boolean) : ConsumableEffect() {

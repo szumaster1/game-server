@@ -13,8 +13,8 @@ import core.game.node.item.Item
 /**
  * Cannonball pulse
  *
- * @property item Represents the item associated with the cannonball pulse.
- * @property amount Indicates the quantity of the item.
+ * @param item Represents the item associated with the cannonball pulse.
+ * @param amount Indicates the quantity of the item.
  * @constructor Represents a new instance of CannonballPulse.
  *
  * @param player The player associated with this cannonball pulse.

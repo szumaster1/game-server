@@ -62,11 +62,11 @@ class WaterSourceListener : InteractionListener {
     /**
      * Water vessel
      *
-     * @property inputs
-     * @property output
-     * @property wellable
-     * @property autofill
-     * @property fillMsg
+     * @param inputs
+     * @param output
+     * @param wellable
+     * @param autofill
+     * @param fillMsg
      * @constructor Water vessel
      */
     internal enum class WaterVessel(val inputs: IntArray, val output: Int, val wellable: Boolean = false, val autofill: Boolean = true, val fillMsg: String = "You fill the @.") {

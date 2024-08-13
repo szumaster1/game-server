@@ -62,7 +62,7 @@ class GroundSpawnLoader {
     /**
      * Ground spawn.
      *
-     * @property respawnRate The rate at which the ground item respawns.
+     * @param respawnRate The rate at which the ground item respawns.
      * @constructor Creates a new GroundSpawn instance.
      *
      * @param item The item to be spawned on the ground.

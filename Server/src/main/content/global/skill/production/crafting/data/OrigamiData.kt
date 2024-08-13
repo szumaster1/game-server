@@ -6,9 +6,9 @@ import core.api.consts.Items
 /**
  * Origami data
  *
- * @property requiredDye The amount of dye required to create the origami.
- * @property ballonId The identifier for the balloon associated with the origami.
- * @property gfxId The graphical identifier for rendering the origami.
+ * @param requiredDye The amount of dye required to create the origami.
+ * @param ballonId The identifier for the balloon associated with the origami.
+ * @param gfxId The graphical identifier for rendering the origami.
  * @constructor Origami data
  */
 enum class OrigamiData(val requiredDye: Int, val ballonId: Int, val gfxId: Int) {

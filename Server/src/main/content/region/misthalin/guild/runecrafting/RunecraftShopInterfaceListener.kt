@@ -20,9 +20,9 @@ class RunecraftShopInterfaceListener : InterfaceListener {
     /**
      * Shop item.
      *
-     * @property id the id.
-     * @property price the price.
-     * @property amount the amount.
+     * @param id the id.
+     * @param price the price.
+     * @param amount the amount.
      */
     class ShopItem(val id: Int, val price: Int, val amount: Int)
 

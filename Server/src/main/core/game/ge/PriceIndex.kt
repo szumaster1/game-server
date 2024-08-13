@@ -120,11 +120,11 @@ object PriceIndex {
 /**
  * Price info
  *
- * @property itemId
- * @property currentValue
- * @property totalValue
- * @property uniqueTrades
- * @property lastUpdate
+ * @param itemId
+ * @param currentValue
+ * @param totalValue
+ * @param uniqueTrades
+ * @param lastUpdate
  * @constructor Price info
  */
 data class PriceInfo(

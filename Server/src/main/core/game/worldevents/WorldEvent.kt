@@ -11,7 +11,7 @@ import java.util.*
 /**
  * World event
  *
- * @property name
+ * @param name
  * @constructor World event
  */
 abstract class WorldEvent(var name: String) : ContentInterface {
@@ -59,7 +59,7 @@ abstract class WorldEvent(var name: String) : ContentInterface {
 /**
  * Plugin set
  *
- * @property plugins
+ * @param plugins
  * @constructor Plugin set
  */
 /*

@@ -6,11 +6,11 @@ import core.game.world.map.Location
 /**
  * Force move ctx
  *
- * @property start
- * @property dest
- * @property startArrive
- * @property destArrive
- * @property direction
+ * @param start
+ * @param dest
+ * @param startArrive
+ * @param destArrive
+ * @param direction
  * @constructor Force move ctx
  */
 data class ForceMoveCtx(

@@ -122,13 +122,13 @@ class NetTrapSetting : TrapSetting(intArrayOf(19652, 19663, 19671, 19679, 28564)
     /**
      * Net trap
      *
-     * @property original
-     * @property bent
-     * @property failing
-     * @property failed
-     * @property catching
-     * @property caught
-     * @property net
+     * @param original
+     * @param bent
+     * @param failing
+     * @param failed
+     * @param catching
+     * @param caught
+     * @param net
      * @constructor Net trap
      */
     enum class NetTrap(

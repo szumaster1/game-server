@@ -5,9 +5,9 @@ import core.api.consts.Items
 /**
  * Rogue jewellery enum class.
  *
- * @property item the item id.
- * @property amount amount.
- * @property price the price.
+ * @param item the item id.
+ * @param amount amount.
+ * @param price the price.
  */
 enum class RogueJewellery(val item: Int, val amount: Int, val price: Int) {
     /**

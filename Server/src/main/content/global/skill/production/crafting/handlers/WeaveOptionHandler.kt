@@ -41,8 +41,8 @@ class WeaveOptionHandler : OptionHandler() {
     /**
      * Weave pulse
      *
-     * @property type
-     * @property amount
+     * @param type
+     * @param amount
      * @constructor
      *
      * @param player
@@ -101,10 +101,10 @@ class WeaveOptionHandler : OptionHandler() {
     /**
      * Weaving item
      *
-     * @property product
-     * @property required
-     * @property level
-     * @property experience
+     * @param product
+     * @param required
+     * @param level
+     * @param experience
      * @constructor Weaving item
      */
     enum class WeavingItem(val product: Item, val required: Item, val level: Int, val experience: Double) {

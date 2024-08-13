@@ -11,7 +11,7 @@ import org.json.simple.JSONObject
 /**
  * Timer manager.
  *
- * @property entity The entity associated with the timer manager.
+ * @param entity The entity associated with the timer manager.
  * @constructor Creates a timer manager for the given entity.
  */
 class TimerManager(val entity: Entity) {

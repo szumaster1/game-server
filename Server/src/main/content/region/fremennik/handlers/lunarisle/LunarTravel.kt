@@ -40,9 +40,9 @@ object LunarTravel {
 /**
  * Enum class representing reaching a destination.
  *
- * @property destName    The name of the destination.
- * @property destLoc     The location of the destination.
- * @property ladyZayAnim The animation for Lady Zay.
+ * @param destName    The name of the destination.
+ * @param destLoc     The location of the destination.
+ * @param ladyZayAnim The animation for Lady Zay.
  * @constructor Creates an instance of ReachDestination.
  */
 enum class Destinaton(val destName: String, val destLoc: Location, val ladyZayAnim: Int) {

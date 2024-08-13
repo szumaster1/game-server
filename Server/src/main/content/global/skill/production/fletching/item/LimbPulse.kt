@@ -10,8 +10,8 @@ import core.game.node.item.Item
 /**
  * Limb pulse
  *
- * @property limb Represents the specific limb associated with the pulse.
- * @property amount Indicates the quantity of the pulse effect.
+ * @param limb Represents the specific limb associated with the pulse.
+ * @param amount Indicates the quantity of the pulse effect.
  * @constructor Represents a LimbPulse instance with the specified parameters.
  *
  * @param player The player associated with this pulse, can be null.

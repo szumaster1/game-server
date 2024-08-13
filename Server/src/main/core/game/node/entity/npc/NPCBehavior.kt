@@ -14,7 +14,7 @@ import core.game.world.map.path.Pathfinder
 /**
  * NPC behavior
  *
- * @property ids to toIntArray()
+ * @param ids to toIntArray()
  * @constructor NPC behavior
  */
 open class NPCBehavior(vararg val ids: Int = intArrayOf()) : ContentInterface {

@@ -69,8 +69,8 @@ fun getNewLoc(): Location {
 /**
  * Barb fishing spot
  *
- * @property loc The location of the fishing spot
- * @property ttl The time-to-live for the fishing spot
+ * @param loc The location of the fishing spot
+ * @param ttl The time-to-live for the fishing spot
  * @constructor Barb fishing spot
  */
 class BarbFishingSpot(var loc: Location? = null, var ttl: Int) : NPC(1176) {

@@ -9,9 +9,9 @@ import core.game.system.command.CommandMapping.get
 /**
  * Abuse report.
  *
- * @property reporter The player reporting the abuse.
- * @property victim   The player being reported.
- * @property rule     The rule violated.
+ * @param reporter The player reporting the abuse.
+ * @param victim   The player being reported.
+ * @param rule     The rule violated.
  * @constructor Represents an AbuseReport instance with reporter, victim, and rule.
  */
 class AbuseReport(val reporter: String, val victim: String, val rule: Rule) {

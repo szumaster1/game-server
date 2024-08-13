@@ -29,7 +29,7 @@ import kotlin.math.abs
 /**
  * Revenant NPC.
  *
- * @property routes the routes.
+ * @param routes the routes.
  * @param id the id.
  * @param location the location.
  */

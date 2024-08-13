@@ -82,8 +82,8 @@ class SurokMagisDialogue(player: Player? = null) : Dialogue(player) {
         /**
          * Enum class representing different scenes in the Surok game.
          *
-         * @property regionId The unique identifier for the region.
-         * @property startData The initial data for the scene.
+         * @param regionId The unique identifier for the region.
+         * @param startData The initial data for the scene.
          * @constructor Represents a Surok scene with a regionId and startData.
          */
         enum class SurokScene(val regionId: Int, val startData: IntArray) {

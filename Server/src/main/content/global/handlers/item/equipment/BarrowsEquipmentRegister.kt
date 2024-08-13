@@ -9,7 +9,8 @@ import core.plugin.Plugin
 @Initializable
 class BarrowsEquipmentRegister : Plugin<Any> {
     companion object {
-        // Barrows equipment lasts for 15 hours of combat, and each piece has 4 stages of degredation
+        // Barrows equipment lasts for 15 hours of combat, and each piece has 4 stages
+        // of degredation.
         @JvmField
         val TICKS = (15 * 6000) / 4
     }

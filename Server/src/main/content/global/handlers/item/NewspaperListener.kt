@@ -12,10 +12,9 @@ import core.game.interaction.InteractionListener
  * Newspaper listener.
  */
 class NewspaperListener : InteractionListener {
+
     companion object {
-
         const val NEWSPAPER_INTERFACE_530 = Components.V_NEWSPAPER_530
-
         val leftPage = "" +
                 "Varrock gets " +
                 "Makeover" +

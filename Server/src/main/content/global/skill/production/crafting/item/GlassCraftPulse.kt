@@ -13,9 +13,9 @@ import core.game.system.task.Pulse
 /**
  * Glass craft pulse
  *
- * @property player Represents the player involved in the glass crafting process.
- * @property product Represents the specific glass product being crafted.
- * @property amount Indicates the quantity of the product to be crafted.
+ * @param player Represents the player involved in the glass crafting process.
+ * @param product Represents the specific glass product being crafted.
+ * @param amount Indicates the quantity of the product to be crafted.
  * @constructor Represents a new instance of GlassCraftPulse with the specified player, product, and amount.
  */
 class GlassCraftPulse(

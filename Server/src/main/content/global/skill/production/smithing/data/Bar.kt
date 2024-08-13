@@ -6,9 +6,9 @@ import core.game.node.item.Item
 /**
  * Bar enum class.
  *
- * @property level      the level.
- * @property experience the experience.
- * @property product    the product id.
+ * @param level      the level.
+ * @param experience the experience.
+ * @param product    the product id.
  */
 enum class Bar(
     val level: Int,

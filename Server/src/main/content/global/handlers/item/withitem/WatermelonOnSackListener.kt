@@ -17,7 +17,7 @@ class WatermelonOnSackListener : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Special interaction for creating Scarecrow.
          */
 

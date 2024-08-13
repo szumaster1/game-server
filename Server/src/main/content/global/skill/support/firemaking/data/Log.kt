@@ -6,12 +6,12 @@ import core.api.consts.Scenery
 /**
  * Log
  *
- * @property logId
- * @property defaultLevel
- * @property barbarianLevel
- * @property life
- * @property fireId
- * @property xp
+ * @param logId
+ * @param defaultLevel
+ * @param barbarianLevel
+ * @param life
+ * @param fireId
+ * @param xp
  * @constructor Log
  */
 enum class Log(val logId: Int, val defaultLevel: Int, val barbarianLevel : Int, val life: Int, val fireId: Int, val xp: Double) {

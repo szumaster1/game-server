@@ -26,7 +26,7 @@ import core.tools.RandomFunction
 /**
  * Telekinetic zone
  *
- * @property player
+ * @param player
  * @constructor Telekinetic zone
  */
 class TelekineticZone(val player: Player? = null) :
@@ -298,12 +298,12 @@ class TelekineticZone(val player: Player? = null) :
     /**
      * Maze
      *
-     * @property base
-     * @property statueLocation
-     * @property guardianLocation
-     * @property endLocation
-     * @property cameraLocation
-     * @property data
+     * @param base
+     * @param statueLocation
+     * @param guardianLocation
+     * @param endLocation
+     * @param cameraLocation
+     * @param data
      * @constructor Maze
      */
     enum class Maze(

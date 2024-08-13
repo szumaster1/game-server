@@ -12,12 +12,12 @@ import core.tools.RandomFunction
 /**
  * Fishing option
  *
- * @property tool Represents the tool required for fishing.
- * @property level Indicates the level of fishing skill needed.
- * @property animation Defines the animation associated with the fishing action.
- * @property bait Specifies the bait used for fishing, if any.
- * @property option Describes the fishing option in a string format.
- * @property fish Represents the various fish that can be caught with this option.
+ * @param tool Represents the tool required for fishing.
+ * @param level Indicates the level of fishing skill needed.
+ * @param animation Defines the animation associated with the fishing action.
+ * @param bait Specifies the bait used for fishing, if any.
+ * @param option Describes the fishing option in a string format.
+ * @param fish Represents the various fish that can be caught with this option.
  * @constructor Fishing option Represents a new FishingOption with the specified parameters.
  */
 enum class FishingOption(

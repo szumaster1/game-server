@@ -8,8 +8,8 @@ import core.game.node.scenery.Scenery
 /**
  * Pizza cooking pulse
  *
- * @property player
- * @property scenery
+ * @param player
+ * @param scenery
  * @constructor
  *
  * @param initial

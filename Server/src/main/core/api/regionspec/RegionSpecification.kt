@@ -8,8 +8,8 @@ import core.game.world.map.build.DynamicRegion
 /**
  * Class representing a region specification.
  *
- * @property regionContract The contract defining the region.
- * @property chunkContracts The contracts defining the chunks within the region.
+ * @param regionContract The contract defining the region.
+ * @param chunkContracts The contracts defining the chunks within the region.
  * @constructor Represents a RegionSpecification with a region contract and chunk contracts.
  */
 class RegionSpecification(

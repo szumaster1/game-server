@@ -36,6 +36,7 @@ class ShilovillageListeners : InteractionListener {
         /**
          * Shilo cart interactions.
          */
+
         class CartQuickPay : DialogueFile() {
             override fun handle(componentID: Int, buttonID: Int) {
                 if (!hasRequirement(player!!, "Shilo Village", true)) return
@@ -91,6 +92,7 @@ class ShilovillageListeners : InteractionListener {
         /**
          * Blacksmith door interaction.
          */
+
         on(BLACKSMITH_DOOR, IntType.SCENERY, "open") { player, node ->
             if (!getAttribute(player, "shilo-village:blacksmith-doors", false)) {
                 sendNPCDialogue(player, NPCs.YOHNUS_513, "Sorry but the blacksmiths is closed. But I can let you use the furnace at the cost of 20 gold pieces.")
@@ -103,6 +105,7 @@ class ShilovillageListeners : InteractionListener {
         /**
          * Broken cart interaction.
          */
+
         on(BROKEN_CART, IntType.SCENERY, "look-at") { player, node ->
             if (!hasRequirement(player, "Shilo Village")) return@on true
             var location = Location(0, 0)
@@ -128,6 +131,10 @@ class ShilovillageListeners : InteractionListener {
             })
             return@on true
         }
+
+        /**
+         * Cart travel interactions.
+         */
 
         on(BOARD, IntType.SCENERY, "board") { player, node ->
             if (getUsedOption(player) == "talk-to") {
@@ -157,6 +164,7 @@ class ShilovillageListeners : InteractionListener {
         /**
          * Antique exchange interactions.
          */
+
         onUseWith(IntType.NPC, ANTIQUE_ITEMS, YANNI) { player, used, _ ->
             val item = AntiqueItem.antiqueMap[used.id] ?: return@onUseWith true
             if (amountInInventory(player, used.id) == 1) {

@@ -13,11 +13,11 @@ import core.game.node.scenery.Scenery
 /**
  * Intentional burn pulse
  *
- * @property player
- * @property scenery
- * @property initial
- * @property product
- * @property amount
+ * @param player
+ * @param scenery
+ * @param initial
+ * @param product
+ * @param amount
  * @constructor Intentional burn pulse
  */
 class IntentionalBurnPulse

@@ -232,10 +232,10 @@ class ElnockInquisitorDialogue(player: Player? = null) : Dialogue(player) {
         /**
          * Elnock exchange
          *
-         * @property button
-         * @property configValue
-         * @property sendItem
-         * @property reward
+         * @param button
+         * @param configValue
+         * @param sendItem
+         * @param reward
          * @constructor
          *
          * @param required

@@ -8,7 +8,7 @@ import core.game.system.task.Pulse
 /**
  * Teleport pulse
  *
- * @property entity The entity that this teleport pulse is associated with.
+ * @param entity The entity that this teleport pulse is associated with.
  * @constructor Teleport pulse Represents a new instance of TeleportPulse with the specified entity.
  */
 internal abstract class TeleportPulse(private val entity: Entity) : Pulse() {

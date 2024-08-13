@@ -6,15 +6,15 @@ import core.game.node.item.Item
 /**
  * Cookable items
  *
- * @property cooked
- * @property raw
- * @property burnt
- * @property level
- * @property experience
- * @property low
- * @property high
- * @property lowRange
- * @property highRange
+ * @param cooked
+ * @param raw
+ * @param burnt
+ * @param level
+ * @param experience
+ * @param low
+ * @param high
+ * @param lowRange
+ * @param highRange
  * @constructor Cookable items
  */
 enum class CookableItems(val cooked: Int, val raw: Int, val burnt: Int, val level: Int, val experience: Double, val low: Int, val high: Int, val lowRange: Int, val highRange: Int) {

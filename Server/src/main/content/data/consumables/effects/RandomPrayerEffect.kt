@@ -7,8 +7,8 @@ import core.tools.RandomFunction
 /**
  * Random prayer effect.
  *
- * @property a Represents the lower bound for the random value generation.
- * @property b Represents the upper bound for the random value generation.
+ * @param a Represents the lower bound for the random value generation.
+ * @param b Represents the upper bound for the random value generation.
  * @constructor Represents a RandomPrayerEffect with given range.
  */
 class RandomPrayerEffect(val a: Int, val b: Int) : ConsumableEffect() {

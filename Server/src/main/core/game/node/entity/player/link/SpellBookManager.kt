@@ -36,7 +36,7 @@ class SpellBookManager {
     /**
      * Spell book
      *
-     * @property interfaceId The interface ID of the spell book
+     * @param interfaceId The interface ID of the spell book
      * @constructor Spell book
      */
     enum class SpellBook(val interfaceId: Int) {

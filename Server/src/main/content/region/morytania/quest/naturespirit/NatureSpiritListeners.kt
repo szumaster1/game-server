@@ -263,7 +263,7 @@ class FillimanCompletionDialogue : DialogueFile() {
 /**
  * Represents a Complete Spell Pulse that handles spell completion for a player.
  *
- * @property player the player for whom the spell is completed.
+ * @param player the player for whom the spell is completed.
  * @constructor Creates a CompleteSpellPulse with the specified player.
  */
 class CompleteSpellPulse(val player: Player) : Pulse(2) {

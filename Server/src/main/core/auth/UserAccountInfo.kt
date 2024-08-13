@@ -5,24 +5,24 @@ import java.sql.Timestamp
 /**
  * User account info
  *
- * @property username The username of the user
- * @property password The password of the user
- * @property uid Unique identifier for the user
- * @property rights User rights level
- * @property credits User credits balance
- * @property ip Current IP address of the user
- * @property lastUsedIp Last used IP address of the user
- * @property muteEndTime Timestamp for when the mute ends
- * @property banEndTime Timestamp for when the ban ends
- * @property contacts User's contacts information
- * @property blocked Blocked users information
- * @property clanName Name of the user's clan
- * @property currentClan Current clan the user is part of
- * @property clanReqs Clan requirements
- * @property timePlayed Total time played by the user
- * @property lastLogin Timestamp of the last login
- * @property online User's online status
- * @property joinDate Timestamp of when the user joined
+ * @param username The username of the user
+ * @param password The password of the user
+ * @param uid Unique identifier for the user
+ * @param rights User rights level
+ * @param credits User credits balance
+ * @param ip Current IP address of the user
+ * @param lastUsedIp Last used IP address of the user
+ * @param muteEndTime Timestamp for when the mute ends
+ * @param banEndTime Timestamp for when the ban ends
+ * @param contacts User's contacts information
+ * @param blocked Blocked users information
+ * @param clanName Name of the user's clan
+ * @param currentClan Current clan the user is part of
+ * @param clanReqs Clan requirements
+ * @param timePlayed Total time played by the user
+ * @param lastLogin Timestamp of the last login
+ * @param online User's online status
+ * @param joinDate Timestamp of when the user joined
  * @constructor User account info
  */
 class UserAccountInfo(

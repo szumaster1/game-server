@@ -5,12 +5,12 @@ import core.api.consts.NPCs
 /**
  * Grave type.
  *
- * @property npcId Unique identifier for the NPC associated with the grave type.
- * @property cost Cost associated with the grave type.
- * @property durationMinutes Duration in minutes for which the grave type is valid.
- * @property isMembers Boolean indicating if the grave type is available to members only.
- * @property requiredQuest Optional quest required to access this grave type.
- * @property text Descriptive text for the grave type.
+ * @param npcId Unique identifier for the NPC associated with the grave type.
+ * @param cost Cost associated with the grave type.
+ * @param durationMinutes Duration in minutes for which the grave type is valid.
+ * @param isMembers Boolean indicating if the grave type is available to members only.
+ * @param requiredQuest Optional quest required to access this grave type.
+ * @param text Descriptive text for the grave type.
  * @constructor Grave type.
  */
 enum class GraveType(

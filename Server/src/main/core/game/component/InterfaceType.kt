@@ -5,10 +5,10 @@ import core.api.consts.Components
 /**
  * InterfaceType Enum Class.
  *
- * @property fixedPaneId      The ID of the fixed pane.
- * @property resizablePaneId  The ID of the resizable pane.
- * @property fixedChildId     The ID of the fixed child.
- * @property resizableChildId The ID of the resizable child.
+ * @param fixedPaneId      The ID of the fixed pane.
+ * @param resizablePaneId  The ID of the resizable pane.
+ * @param fixedChildId     The ID of the fixed child.
+ * @param resizableChildId The ID of the resizable child.
  * @constructor Represents InterfaceType with the provided IDs.
  */
 enum class InterfaceType(

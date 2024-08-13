@@ -6,12 +6,12 @@ import core.api.consts.Sounds
 /**
  * Light source data
  *
- * @property emptyId Represents the ID for an empty light source.
- * @property fullId Represents the ID for a fully charged light source.
- * @property litId Represents the ID for a lit light source.
- * @property sfxId Represents the ID for the sound effect associated with the light source.
- * @property levelRequired Represents the level required to use this light source.
- * @property openFlame Indicates whether the light source produces an open flame.
+ * @param emptyId Represents the ID for an empty light source.
+ * @param fullId Represents the ID for a fully charged light source.
+ * @param litId Represents the ID for a lit light source.
+ * @param sfxId Represents the ID for the sound effect associated with the light source.
+ * @param levelRequired Represents the level required to use this light source.
+ * @param openFlame Indicates whether the light source produces an open flame.
  * @constructor Light source data Represents a new instance of LightSourceData with specified parameters.
  */
 enum class LightSourceData(

@@ -171,8 +171,8 @@ class AluftGianneSnrDialogue(player: Player? = null) : Dialogue(player) {
     /**
      * Class representing a pulse for Gnome Restaurant activity.
      *
-     * @property player The player participating in the activity.
-     * @property minutes The duration of the pulse in minutes.
+     * @param player The player participating in the activity.
+     * @param minutes The duration of the pulse in minutes.
      * @constructor Creates a GnomeRestaurantPulse with the specified player and duration.
      */
     internal class GnomeRestaurantPulse(val player: Player, val minutes: Long) : Pulse() {

@@ -5,8 +5,8 @@ import core.cache.def.impl.NPCDefinition
 /**
  * Revenant type.
  *
- * @property maxHit the max hit.
- * @property ids the ids.
+ * @param maxHit the max hit.
+ * @param ids the ids.
  */
 enum class RevenantType(val maxHit: Int, vararg val ids: Int) {
     /**

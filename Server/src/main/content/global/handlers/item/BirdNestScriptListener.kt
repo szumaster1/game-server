@@ -15,7 +15,7 @@ class BirdNestScriptListener : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Bird nest open interaction.
          */
 

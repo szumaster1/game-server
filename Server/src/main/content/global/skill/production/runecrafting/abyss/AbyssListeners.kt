@@ -228,8 +228,8 @@ class Abyss : InteractionListener {
 /**
  * Abyss loc
  *
- * @property radius
- * @property angle
+ * @param radius
+ * @param angle
  * @constructor Abyss loc
  *//*
  * Polar coordinates class for abyss.

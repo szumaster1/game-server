@@ -9,8 +9,8 @@ import kotlin.math.sqrt
 /**
  * Vector
  *
- * @property x The x-component of the vector
- * @property y The y-component of the vector
+ * @param x The x-component of the vector
+ * @param y The y-component of the vector
  * @constructor Represents a Vector object with the given x and y components
  */
 class Vector(val x: Double, val y: Double) {

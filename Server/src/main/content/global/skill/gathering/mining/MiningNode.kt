@@ -7,9 +7,9 @@ import core.game.world.repository.Repository.players
 /**
  * Mining node
  *
- * @property id Unique identifier for the mining node
- * @property emptyId Identifier for an empty mining node
- * @property identifier Byte representation of the mining node
+ * @param id Unique identifier for the mining node
+ * @param emptyId Identifier for an empty mining node
+ * @param identifier Byte representation of the mining node
  * @constructor Represents a MiningNode with specified parameters
  */
 enum class MiningNode(

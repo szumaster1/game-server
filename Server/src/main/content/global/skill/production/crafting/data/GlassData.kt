@@ -5,11 +5,11 @@ import core.api.consts.Items
 /**
  * Glass data
  *
- * @property buttonId Unique identifier for the button associated with the glass.
- * @property productId Unique identifier for the product represented by the glass.
- * @property amount Current quantity of the product in the glass.
- * @property requiredLevel Minimum level required to use the glass.
- * @property experience Experience points gained from using the glass.
+ * @param buttonId Unique identifier for the button associated with the glass.
+ * @param productId Unique identifier for the product represented by the glass.
+ * @param amount Current quantity of the product in the glass.
+ * @param requiredLevel Minimum level required to use the glass.
+ * @param experience Experience points gained from using the glass.
  * @constructor Glass data
  */
 enum class GlassData(

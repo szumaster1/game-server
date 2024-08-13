@@ -61,7 +61,7 @@ class WarningMessages {
     /**
      * Warning message
      *
-     * @property index The index of the warning message
+     * @param index The index of the warning message
      * @constructor Warning message
      */
     inner class WarningMessage(val index: Int) {

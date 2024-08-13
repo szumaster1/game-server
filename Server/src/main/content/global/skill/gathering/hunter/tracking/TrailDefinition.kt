@@ -5,12 +5,12 @@ import core.game.world.map.Location
 /**
  * Trail definition
  *
- * @property varbit
- * @property type
- * @property inverted
- * @property startLocation
- * @property endLocation
- * @property triggerObjectLocation
+ * @param varbit
+ * @param type
+ * @param inverted
+ * @param startLocation
+ * @param endLocation
+ * @param triggerObjectLocation
  * @constructor Trail definition
  */
 class TrailDefinition(

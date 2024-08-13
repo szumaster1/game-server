@@ -15,10 +15,10 @@ import kotlin.math.min
 /**
  * Enchant tiara pulse
  *
- * @property talisman Represents the talisman used in the enchantment process.
- * @property altar Represents the altar where the enchantment takes place.
- * @property tiara Represents the tiara that is being enchanted.
- * @property amount Represents the number of times the enchantment will be applied.
+ * @param talisman Represents the talisman used in the enchantment process.
+ * @param altar Represents the altar where the enchantment takes place.
+ * @param tiara Represents the tiara that is being enchanted.
+ * @param amount Represents the number of times the enchantment will be applied.
  * @constructor
  *
  * @param player The player who is performing the enchantment.

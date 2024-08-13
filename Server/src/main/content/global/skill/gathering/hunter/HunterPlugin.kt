@@ -205,7 +205,7 @@ class HunterPlugin : OptionHandler() {
         /**
          * Release type
          *
-         * @property ids
+         * @param ids
          * @constructor Release type
          *//*
          * The enum Release type.

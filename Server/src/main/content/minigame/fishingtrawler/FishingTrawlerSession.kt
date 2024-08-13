@@ -39,7 +39,7 @@ private const val PATCHED_ID = 2168
 /**
  * Fishing trawler session.
  *
- * @property activity the activity.
+ * @param activity the activity.
  * @return Fishing trawler session.
  */
 class FishingTrawlerSession(val activity: FishingTrawlerActivity? = null) : MapArea {
@@ -129,8 +129,8 @@ class FishingTrawlerSession(val activity: FishingTrawlerActivity? = null) : MapA
     /**
      * Swap boat pulse.
      *
-     * @property playerList the player list.
-     * @property newRegion the region.
+     * @param playerList the player list.
+     * @param newRegion the region.
      */
     class SwapBoatPulse(val playerList: ArrayList<Player>, val newRegion: DynamicRegion) : Pulse(3) {
         override fun pulse(): Boolean {

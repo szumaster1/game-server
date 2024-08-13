@@ -9,7 +9,7 @@ import java.nio.ByteBuffer
 /**
  * Struct
  *
- * @property id
+ * @param id
  * @constructor Struct
  */
 class Struct(val id: Int) {

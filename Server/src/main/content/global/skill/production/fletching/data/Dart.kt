@@ -5,10 +5,10 @@ import core.api.consts.Items
 /**
  * Dart
  *
- * @property unfinished Represents the number of unfinished darts.
- * @property finished Represents the number of finished darts.
- * @property level Represents the current level of the player.
- * @property experience Represents the experience points of the player.
+ * @param unfinished Represents the number of unfinished darts.
+ * @param finished Represents the number of finished darts.
+ * @param level Represents the current level of the player.
+ * @param experience Represents the experience points of the player.
  * @constructor Dart Represents a Dart instance with the specified properties.
  */
 enum class Dart(var unfinished: Int, var finished: Int, var level: Int, var experience: Double) {

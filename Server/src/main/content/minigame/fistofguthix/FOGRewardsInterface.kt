@@ -20,9 +20,9 @@ class FOGRewardsInterface : ComponentPlugin() {
 
     /**
      * This class represents a Shop Item. It has properties such as id, price, and amount.
-     * @property id The unique identifier of the item.
-     * @property price The price of the item.
-     * @property amount The available quantity of the item.
+     * @param id The unique identifier of the item.
+     * @param price The price of the item.
+     * @param amount The available quantity of the item.
      * @constructor Creates a new Shop Item with the specified id, price, and amount.
      */
     class ShopItem(val id: Int, val price: Int, val amount: Int)

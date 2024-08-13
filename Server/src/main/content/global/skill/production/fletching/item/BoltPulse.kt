@@ -11,8 +11,8 @@ import core.game.node.item.Item
 /**
  * Bolt pulse class representing a skill pulse related to bolts.
  *
- * @property feather Represents the feather item associated with the bolt pulse.
- * @property sets Indicates the number of sets for the bolt pulse.
+ * @param feather Represents the feather item associated with the bolt pulse.
+ * @param sets Indicates the number of sets for the bolt pulse.
  * @constructor Represents a BoltPulse instance with the specified parameters.
  *
  * @param player The player associated with this bolt pulse.

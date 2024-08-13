@@ -17,8 +17,8 @@ import core.tools.RandomFunction
 /**
  * Herblore pulse
  *
- * @property amount The number of potions to be crafted.
- * @property potion The specific potion being crafted.
+ * @param amount The number of potions to be crafted.
+ * @param potion The specific potion being crafted.
  * @constructor Represents a HerblorePulse instance.
  *
  * @param player The player who is performing the herblore action.

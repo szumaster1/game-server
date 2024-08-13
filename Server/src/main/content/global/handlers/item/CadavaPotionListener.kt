@@ -14,7 +14,7 @@ class CadavaPotionListener : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Cadava potion interaction.
          */
 

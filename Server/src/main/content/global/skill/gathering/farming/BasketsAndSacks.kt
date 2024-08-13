@@ -5,9 +5,9 @@ import core.api.consts.Items
 /**
  * Baskets and sacks.
  *
- * @property produceID     The ID of the produce.
- * @property baseContainer The ID of the base container.
- * @property capacity      The capacity of the container.
+ * @param produceID     The ID of the produce.
+ * @param baseContainer The ID of the base container.
+ * @param capacity      The capacity of the container.
  * @constructor Represents a new instance of the BasketsAndSacks enum class.
  */
 enum class BasketsAndSacks(val produceID: Int, val baseContainer: Int, val capacity : Int) {

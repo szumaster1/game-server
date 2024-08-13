@@ -236,8 +236,8 @@ class Page(vararg lines: BookLine) {
 /**
  * Book line
  *
- * @property message
- * @property child
+ * @param message
+ * @param child
  * @constructor Book line
  */
 class BookLine(val message: String, val child: Int)
@@ -278,8 +278,8 @@ class ScrollInterface {
 /**
  * Scroll line
  *
- * @property message
- * @property child
+ * @param message
+ * @param child
  * @constructor Scroll line
  */
 class ScrollLine(val message: String, val child: Int)

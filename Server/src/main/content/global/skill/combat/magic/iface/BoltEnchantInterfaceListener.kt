@@ -75,12 +75,12 @@ class BoltEnchantInterfaceListener : InterfaceListener {
     /**
      * Bolts
      *
-     * @property button
-     * @property bolt
-     * @property level
-     * @property runes
-     * @property exp
-     * @property enchanted
+     * @param button
+     * @param bolt
+     * @param level
+     * @param runes
+     * @param exp
+     * @param enchanted
      * @constructor Bolts
      */
     enum class Bolts(val button: Int, val bolt: Int, val level: Int, val runes: Array<Item>, val exp: Double, val enchanted: Int) {

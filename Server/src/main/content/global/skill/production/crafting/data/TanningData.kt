@@ -11,9 +11,9 @@ import core.game.node.item.Item
 /**
  * Tanning data
  *
- * @property button Represents the button resource ID associated with the tanning data.
- * @property item Represents the item resource ID associated with the tanning data.
- * @property product Represents the product resource ID associated with the tanning data.
+ * @param button Represents the button resource ID associated with the tanning data.
+ * @param item Represents the item resource ID associated with the tanning data.
+ * @param product Represents the product resource ID associated with the tanning data.
  * @constructor Tanning data
  */
 enum class TanningData(

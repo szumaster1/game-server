@@ -7,7 +7,7 @@ import core.tools.START_DIALOGUE
 /**
  * Empty dialogue
  *
- * @property file
+ * @param file
  * @constructor
  *
  * @param player

@@ -3,8 +3,8 @@ package content.global.skill.gathering.farming
 /**
  * Farmers.
  *
- * @property id      The ID of the farmer.
- * @property patches The farming patches associated with the farmer.
+ * @param id      The ID of the farmer.
+ * @param patches The farming patches associated with the farmer.
  * @constructor Creates a new instance of the Farmers enum.
  */
 enum class Farmers(val id: Int, val patches: Array<FarmingPatch>) {

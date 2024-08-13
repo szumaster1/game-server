@@ -21,7 +21,7 @@ class SledInteractionListener : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Creating The wax.
          */
 
@@ -36,7 +36,7 @@ class SledInteractionListener : InteractionListener {
             return@onUseWith true
         }
 
-        /*
+        /**
          * Used wax with sled to create waxed sled.
          */
 
@@ -53,7 +53,7 @@ class SledInteractionListener : InteractionListener {
             return@onUseWith true
         }
 
-        /*
+        /**
          * "Ride sled" interaction.
          */
 
@@ -72,7 +72,7 @@ class SledInteractionListener : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Equip sled interaction.
          */
 
@@ -84,7 +84,7 @@ class SledInteractionListener : InteractionListener {
             return@onEquip true
         }
 
-        /*
+        /**
          * Un-equip sled interaction.
          */
 

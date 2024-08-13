@@ -39,8 +39,8 @@ class SpiritCobraNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 
     /**
      * Egg
      *
-     * @property egg
-     * @property product
+     * @param egg
+     * @param product
      * @constructor Egg
      */
     enum class Egg(val egg: Item, val product: Item) {

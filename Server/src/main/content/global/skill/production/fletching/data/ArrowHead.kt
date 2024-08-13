@@ -5,10 +5,10 @@ import core.api.consts.Items
 /**
  * Arrow head
  *
- * @property unfinished
- * @property finished
- * @property level
- * @property experience
+ * @param unfinished
+ * @param finished
+ * @param level
+ * @param experience
  * @constructor Arrow head
  */
 enum class ArrowHead(var unfinished: Int, var finished: Int, var level: Int, var experience: Double) {

@@ -162,9 +162,9 @@ class FairyRingInterfaceListener : InterfaceListener {
 /**
  * Fairy ring.
  *
- * @property tile the title.
- * @property tip the tip.
- * @property childId the childid.
+ * @param tile the title.
+ * @param tip the tip.
+ * @param childId the childid.
  */
 enum class FairyRing(val tile: Location?, val tip: String = "", val childId: Int = -1) {
     /**

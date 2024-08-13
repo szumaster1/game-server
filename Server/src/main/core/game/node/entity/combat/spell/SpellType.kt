@@ -10,7 +10,7 @@ import core.game.node.entity.skill.Skills
 /**
  * Spell type enum class.
  *
- * @property accuracyMod to double
+ * @param accuracyMod to double
  * @constructor Spell type
  */
 enum class SpellType(val accuracyMod: Double) {

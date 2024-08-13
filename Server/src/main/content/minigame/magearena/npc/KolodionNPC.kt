@@ -108,10 +108,10 @@ class KolodionNPC(id: Int = 0, location: Location? = null, session: KolodionSess
     /**
      * Kolodion type
      *
-     * @property npcId
-     * @property appearAnimation
-     * @property graphcId
-     * @property appearMessage
+     * @param npcId
+     * @param appearAnimation
+     * @param graphcId
+     * @param appearMessage
      * @constructor Kolodion type
      */
     enum class KolodionType(

@@ -5,10 +5,10 @@ import core.game.node.item.Item
 /**
  * Herb
  *
- * @property herb Represents the item associated with the herb.
- * @property experience The experience points gained from using the herb.
- * @property level The required level to use or obtain the herb.
- * @property product The product that can be created from the herb.
+ * @param herb Represents the item associated with the herb.
+ * @param experience The experience points gained from using the herb.
+ * @param level The required level to use or obtain the herb.
+ * @param product The product that can be created from the herb.
  * @constructor Herb Represents a new instance of the Herb enum class.
  */
 enum class Herb(

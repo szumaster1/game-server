@@ -5,8 +5,8 @@ import core.game.node.entity.player.link.prayer.PrayerType
 /**
  * Combat style
  *
- * @property swingHandler
- * @property protectionPrayer
+ * @param swingHandler
+ * @param protectionPrayer
  * @constructor Combat style
  */
 enum class CombatStyle(val swingHandler: CombatSwingHandler, val protectionPrayer: PrayerType) {

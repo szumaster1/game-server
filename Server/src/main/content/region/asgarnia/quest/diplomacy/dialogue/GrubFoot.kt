@@ -8,9 +8,9 @@ import core.game.node.item.Item
 /**
  * Enum class representing different types of GrubFoot.
  *
- * @property id unique identifier for the GrubFoot type.
- * @property value numerical value associated with the GrubFoot type.
- * @property mail item associated with the GrubFoot type.
+ * @param id unique identifier for the GrubFoot type.
+ * @param value numerical value associated with the GrubFoot type.
+ * @param mail item associated with the GrubFoot type.
  * @constructor Represents a GrubFoot with the specified id, value, and mail item.
  */
 enum class GrubFoot(val id: Int, val value: Int, val mail: Item) {

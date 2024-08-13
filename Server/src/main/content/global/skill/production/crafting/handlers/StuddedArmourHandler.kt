@@ -51,10 +51,10 @@ class StuddedArmourHandler : UseWithHandler(Items.STEEL_STUDS_2370) {
     /**
      * Studded armour
      *
-     * @property item
-     * @property studded
-     * @property level
-     * @property experience
+     * @param item
+     * @param studded
+     * @param level
+     * @param experience
      * @constructor Studded armour
      */
     enum class StuddedArmour(val item: Item, val studded: Item, val level: Int, val experience: Double) {
@@ -87,8 +87,8 @@ class StuddedArmourHandler : UseWithHandler(Items.STEEL_STUDS_2370) {
     /**
      * Stud armour pulse
      *
-     * @property armour
-     * @property amount
+     * @param armour
+     * @param amount
      * @constructor
      *
      * @param player

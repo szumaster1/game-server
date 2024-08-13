@@ -6,9 +6,9 @@ import core.tools.RandomFunction
 /**
  * Item delivery.
  *
- * @property item The item being delivered.
- * @property min The minimum quantity of the item.
- * @property max The maximum quantity of the item.
+ * @param item The item being delivered.
+ * @param min The minimum quantity of the item.
+ * @param max The maximum quantity of the item.
  * @constructor Creates an instance of ItemDelivery.
  */
 enum class ItemDelivery(val item: Int, val min: Int, val max: Int) {

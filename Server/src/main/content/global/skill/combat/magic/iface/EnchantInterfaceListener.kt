@@ -55,9 +55,9 @@ class EnchantInterfaceListener : InterfaceListener {
     /**
      * Enum representing different types of enchanted staff.
      *
-     * @property enchanted The enchanted value of the staff.
-     * @property basic The basic value of the staff.
-     * @property child The child value of the staff.
+     * @param enchanted The enchanted value of the staff.
+     * @param basic The basic value of the staff.
+     * @param child The child value of the staff.
      * @constructor Creates an enchanted staff with the specified values.
      */
     enum class EnchantedStaff(val enchanted: Int, val basic: Int, val child: Int) {

@@ -11,11 +11,11 @@ import core.api.consts.Scenery as Object
 /**
  * Altar
  *
- * @property scenery Represents the visual aspect of the altar.
- * @property portal Indicates the portal associated with the altar.
- * @property riftId Unique identifier for the rift linked to the altar.
- * @property ruin Optional property that may hold a reference to a MysteriousRuin.
- * @property rune Optional property that may hold a reference to a Rune.
+ * @param scenery Represents the visual aspect of the altar.
+ * @param portal Indicates the portal associated with the altar.
+ * @param riftId Unique identifier for the rift linked to the altar.
+ * @param ruin Optional property that may hold a reference to a MysteriousRuin.
+ * @param rune Optional property that may hold a reference to a Rune.
  * @constructor Altar Represents an instance of the Altar enum with specified properties.
  */
 enum class Altar(val scenery: Int, val portal: Int, val riftId: Int, val ruin: MysteriousRuin?, val rune: Rune?) {

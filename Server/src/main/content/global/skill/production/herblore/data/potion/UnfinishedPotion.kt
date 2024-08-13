@@ -8,10 +8,10 @@ import core.game.node.item.Item
 /**
  * Unfinished potion
  *
- * @property base
- * @property ingredient
- * @property level
- * @property potion
+ * @param base
+ * @param ingredient
+ * @param level
+ * @param potion
  * @constructor Unfinished potion
  */
 enum class UnfinishedPotion(

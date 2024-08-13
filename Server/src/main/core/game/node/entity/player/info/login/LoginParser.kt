@@ -14,7 +14,7 @@ import java.util.function.Consumer
 /**
  * Login parser
  *
- * @property details
+ * @param details
  * @constructor Login parser
  */
 class LoginParser(val details: PlayerDetails) {

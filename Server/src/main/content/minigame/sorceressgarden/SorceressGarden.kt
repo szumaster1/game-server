@@ -193,9 +193,9 @@ class SorceressGarden : InteractionListener {
     /**
      * Herb definition
      *
-     * @property id
-     * @property exp
-     * @property respawn
+     * @param id
+     * @param exp
+     * @param respawn
      * @constructor Herb definition
      */
     enum class HerbDefinition(val id: Int, val exp: Double, val respawn: Location) {
@@ -247,18 +247,18 @@ class SorceressGarden : InteractionListener {
     /**
      * Season definitions
      *
-     * @property treeId
-     * @property level
-     * @property farmExp
-     * @property exp
-     * @property fruitId
-     * @property juiceId
-     * @property fruitAmt
-     * @property boost
-     * @property energy
-     * @property osmanExp
-     * @property gateId
-     * @property respawn
+     * @param treeId
+     * @param level
+     * @param farmExp
+     * @param exp
+     * @param fruitId
+     * @param juiceId
+     * @param fruitAmt
+     * @param boost
+     * @param energy
+     * @param osmanExp
+     * @param gateId
+     * @param respawn
      * @constructor Season definitions
      */
     enum class SeasonDefinitions(

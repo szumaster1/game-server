@@ -42,8 +42,8 @@ class PassGnomeBallListeners : InteractionListener {
     /**
      * Player pass pulse.
      *
-     * @property thrower the thrower.
-     * @property catcher the catcher.
+     * @param thrower the thrower.
+     * @param catcher the catcher.
      */
     internal class PlayerPlayerPassPulse(private val thrower: Player, private val catcher: Player) : Pulse() {
         override fun pulse(): Boolean {
@@ -63,8 +63,8 @@ class PassGnomeBallListeners : InteractionListener {
     /**
      * Player NPC pass pulse.
      *
-     * @property player the player.
-     * @property npc the npc id.
+     * @param player the player.
+     * @param npc the npc id.
      */
     internal class PlayerNPCPassPulse(private val player: Player, private val npc: NPC) : Pulse() {
         override fun pulse(): Boolean {

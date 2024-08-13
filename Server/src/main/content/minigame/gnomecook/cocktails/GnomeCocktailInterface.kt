@@ -94,10 +94,10 @@ class GnomeCocktailInterface : ComponentPlugin() {
     /**
      * Enum representing different types of Fruit Cocktails.
      *
-     * @property levelReq The level required to make the Fruit Cocktail.
-     * @property experience The experience gained by making the Fruit Cocktail.
-     * @property product The product ID of the Fruit Cocktail.
-     * @property requiredItems The array of items required to make the Fruit Cocktail.
+     * @param levelReq The level required to make the Fruit Cocktail.
+     * @param experience The experience gained by making the Fruit Cocktail.
+     * @param product The product ID of the Fruit Cocktail.
+     * @param requiredItems The array of items required to make the Fruit Cocktail.
      * @constructor Creates a new Fruit Cocktail with the specified properties.
      */
     internal enum class FruitCocktail(

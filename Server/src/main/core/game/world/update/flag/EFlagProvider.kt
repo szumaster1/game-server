@@ -38,11 +38,11 @@ enum class EFlagType {
 /**
  * E flag provider
  *
- * @property revision
- * @property type
- * @property presenceFlag
- * @property ordinal
- * @property flag
+ * @param revision
+ * @param type
+ * @param presenceFlag
+ * @param ordinal
+ * @param flag
  * @constructor E flag provider
  */
 open class EFlagProvider(

@@ -6,7 +6,7 @@ import core.game.node.item.Item
 /**
  * Runes
  *
- * @property id
+ * @param id
  * @constructor Runes
  */
 enum class Runes(val id: Int) {

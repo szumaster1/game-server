@@ -3,7 +3,7 @@ package core.game.bots
 /**
  * Script description
  *
- * @property value
+ * @param value
  * @constructor Script description
  */
 annotation class ScriptDescription(vararg val value: String)

@@ -11,9 +11,9 @@ import core.game.node.entity.player.Player
 /**
  * Enchant tiara dialogue
  *
- * @property talisman Represents the talisman used in the enchantment process.
- * @property tiara Represents the tiara that will be enchanted.
- * @property altar Represents the altar where the enchantment takes place.
+ * @param talisman Represents the talisman used in the enchantment process.
+ * @param tiara Represents the tiara that will be enchanted.
+ * @param altar Represents the altar where the enchantment takes place.
  * @constructor
  *
  * @param player The player who is interacting with the enchantment dialogue.

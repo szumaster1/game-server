@@ -30,8 +30,8 @@ import java.util.stream.Collectors
 /**
  * Woodcutting pulse
  *
- * @property player Represents the player associated with the woodcutting action.
- * @property node Represents the scenery node that the player interacts with.
+ * @param player Represents the player associated with the woodcutting action.
+ * @param node Represents the scenery node that the player interacts with.
  * @constructor Woodcutting pulse initializes the pulse with a player and a node.
  */
 class WoodcuttingPulse(private val player: Player, private val node: Scenery) : Pulse(1, player, node) {

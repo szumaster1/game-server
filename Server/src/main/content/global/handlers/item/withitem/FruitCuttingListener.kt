@@ -19,9 +19,9 @@ class FruitCuttingListener : InteractionListener {
     /**
      * Enum class representing different types of fruits.
      *
-     * @property fruit The type of fruit.
-     * @property chunk The size of the fruit in chunks.
-     * @property slice The sliced version of the fruit.
+     * @param fruit The type of fruit.
+     * @param chunk The size of the fruit in chunks.
+     * @param slice The sliced version of the fruit.
      * @constructor Creates a new instance of the Fruits enum.
      */
     internal enum class Fruits(val fruit: Int, val chunk: Int, val slice: Item) {
@@ -67,7 +67,7 @@ class FruitCuttingListener : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Fruit slice interaction.
          */
 
@@ -80,9 +80,9 @@ class FruitCuttingListener : InteractionListener {
     /**
      * Class representing a dialogue for cutting fruits.
      *
-     * @property fruit The type of fruit being cut.
-     * @property chunk The number of chunks the fruit is cut into.
-     * @property slice The item representing a slice of the fruit.
+     * @param fruit The type of fruit being cut.
+     * @param chunk The number of chunks the fruit is cut into.
+     * @param slice The item representing a slice of the fruit.
      * @constructor Creates a FruitCuttingDialogue instance.
      */
     internal class FruitCuttingDialogue(val fruit: Int, val chunk: Int, val slice: Item) : DialogueFile() {

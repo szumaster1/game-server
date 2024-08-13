@@ -23,8 +23,8 @@ import core.plugin.Initializable
 /**
  * Skillcape perks
  *
- * @property attribute Represents the specific attribute associated with the skillcape.
- * @property effect A lambda function that defines the effect of the skillcape on a Player.
+ * @param attribute Represents the specific attribute associated with the skillcape.
+ * @param effect A lambda function that defines the effect of the skillcape on a Player.
  * @constructor Skillcape perks Represents a SkillcapePerks enum with the given attribute and effect.
  */
 enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)? = null) {

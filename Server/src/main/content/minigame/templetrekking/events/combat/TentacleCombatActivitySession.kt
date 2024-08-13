@@ -11,7 +11,7 @@ import core.game.world.map.zone.ZoneRestriction
 /**
  * Tentacle combat activity session
  *
- * @property activity
+ * @param activity
  * @constructor Tentacle combat activity session
  */
 class TentacleCombatActivitySession(val activity: TentacleCombatActivity? = null) : MapArea {

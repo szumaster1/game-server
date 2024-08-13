@@ -17,7 +17,7 @@ class CapAndGogglesListener : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Disassemble cap and goggles interaction.
          */
 

@@ -61,10 +61,10 @@ object PlunderData {
 /**
  * Plunder room.
  *
- * @property room Room number.
- * @property entrance Entrance location.
- * @property mummyLoc Mummy location.
- * @property spearDirection Direction of the spear.
+ * @param room Room number.
+ * @param entrance Entrance location.
+ * @param mummyLoc Mummy location.
+ * @param spearDirection Direction of the spear.
  * @constructor Create a Plunder room.
  */
 data class PlunderRoom(val room: Int, val entrance: Location, val mummyLoc: Location, val spearDirection: Direction)

@@ -5,8 +5,8 @@ import core.api.consts.NPCs
 /**
  * Fishing spot
  *
- * @property ids An array of integers representing unique identifiers for the fishing spot.
- * @property options Vararg parameter that allows multiple FishingOption instances to be passed.
+ * @param ids An array of integers representing unique identifiers for the fishing spot.
+ * @param options Vararg parameter that allows multiple FishingOption instances to be passed.
  * @constructor Fishing spot Represents a new instance of the FishingSpot enum with specified ids and options.
  */
 enum class FishingSpot(val ids: IntArray, vararg val options: FishingOption) {

@@ -6,7 +6,7 @@ import core.game.node.item.Item
 /**
  * Hunter gear
  *
- * @property chanceRate Represents the probability of a successful hunt with this gear.
+ * @param chanceRate Represents the probability of a successful hunt with this gear.
  * @constructor Represents the HunterGear enum with a chance rate and associated equipment.
  *
  * @param equipment Vararg parameter that allows multiple items to be associated with the gear.

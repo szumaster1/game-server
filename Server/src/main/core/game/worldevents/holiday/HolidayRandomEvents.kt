@@ -6,8 +6,8 @@ import core.game.worldevents.holiday.halloween.randoms.*
 /**
  * Holiday random events
  *
- * @property npc
- * @property type
+ * @param npc
+ * @param type
  * @constructor Holiday random events
  */
 enum class HolidayRandomEvents(val npc: HolidayRandomEventNPC, val type: String) {

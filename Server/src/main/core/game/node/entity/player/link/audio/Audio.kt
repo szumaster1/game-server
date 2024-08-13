@@ -3,10 +3,10 @@ package core.game.node.entity.player.link.audio
 /**
  * Audio
  *
- * @property id
- * @property delay
- * @property loops
- * @property radius
+ * @param id
+ * @param delay
+ * @param loops
+ * @param radius
  * @constructor Audio
  */
 class Audio

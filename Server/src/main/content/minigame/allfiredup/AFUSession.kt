@@ -186,8 +186,8 @@ class AFUSession(val player: Player? = null) : LogoutListener {
     /**
      * Beacon timer.
      *
-     * @property ticks The number of ticks remaining.
-     * @property beacon The beacon associated with the timer.
+     * @param ticks The number of ticks remaining.
+     * @param beacon The beacon associated with the timer.
      * @constructor Creates a beacon timer.
      */
     internal class BeaconTimer(var ticks: Int, val beacon: AFUBeacon)

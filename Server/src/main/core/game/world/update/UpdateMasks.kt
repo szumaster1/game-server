@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicBoolean
 /**
  * Update masks.
  *
- * @property owner The owner of the update masks.
+ * @param owner The owner of the update masks.
  * @constructor Represents the update masks.
  */
 class UpdateMasks(val owner: Entity) {

@@ -50,7 +50,7 @@ class LarxusDialogue(player: Player? = null) : Dialogue(player) {
 /**
  * Larxus dialogue file
  *
- * @property challengeStart
+ * @param challengeStart
  * @constructor Larxus dialogue file
  */
 class LarxusDialogueFile(val challengeStart: Boolean = false) : DialogueFile() {

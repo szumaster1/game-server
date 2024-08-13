@@ -306,7 +306,7 @@ internal constructor() : Pathfinder() {
     /**
      * U int as point comparator
      *
-     * @property end
+     * @param end
      * @constructor U int as point comparator
      */
     class UIntAsPointComparator(val end: Location) : Comparator<UInt> {

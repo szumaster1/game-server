@@ -6,7 +6,7 @@ import core.game.node.entity.player.Player
 /**
  * Koschei session.
  *
- * @property player The player associated with this session.
+ * @param player The player associated with this session.
  * @constructor Represents a Koschei session with the given player.
  */
 class KoscheiSession(val player: Player) {

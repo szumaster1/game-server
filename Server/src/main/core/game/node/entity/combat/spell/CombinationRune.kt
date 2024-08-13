@@ -5,8 +5,8 @@ import core.api.consts.Items
 /**
  * Combination rune
  *
- * @property id
- * @property types
+ * @param id
+ * @param types
  * @constructor Combination rune
  */
 enum class CombinationRune(@JvmField var id: Int, vararg var types: Runes) {

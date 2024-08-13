@@ -175,11 +175,11 @@ class FurClothingInterfacePlugin : ComponentPlugin() {
     /**
      * Fur Clothing
      *
-     * @property requiredFur
-     * @property price
-     * @property product
-     * @property textChildID
-     * @property textContent
+     * @param requiredFur
+     * @param price
+     * @param product
+     * @param textChildID
+     * @param textContent
      * @constructor Fur Clothing
      */
     internal enum class FUR_CLOTHING(val requiredFur: Item, val price: Int, val product: Item, val textChildID: Int, val textContent: String) {

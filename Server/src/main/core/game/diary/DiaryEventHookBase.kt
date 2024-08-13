@@ -11,7 +11,7 @@ import core.game.world.map.zone.ZoneBorders
 /**
  * Diary event hook base.
  *
- * @property diaryType diary type.
+ * @param diaryType diary type.
  * @constructor Diary event hook base.
  */
 abstract class DiaryEventHookBase(private val diaryType: DiaryType) : MapArea, LoginListener {
@@ -28,8 +28,8 @@ abstract class DiaryEventHookBase(private val diaryType: DiaryType) : MapArea, L
      * Event handler.
      *
      * @param T Represents the type of event.
-     * @property owner   The owner of the event handler.
-     * @property handler The function to handle the event.
+     * @param owner   The owner of the event handler.
+     * @param handler The function to handle the event.
      * @constructor Represents the Event handler with the specified owner and handler.
      */
     class EventHandler<T : core.game.event.Event>(

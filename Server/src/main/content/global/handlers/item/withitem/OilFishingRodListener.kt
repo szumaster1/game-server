@@ -22,7 +22,7 @@ class OilFishingRodListener : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Creating Oily fishing rod interaction.
          */
 
@@ -44,7 +44,7 @@ class OilFishingRodListener : InteractionListener {
             return@onUseWith true
         }
 
-        /*
+        /**
          * Creating blamish snail slime.
          */
 

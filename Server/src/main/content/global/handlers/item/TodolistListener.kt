@@ -11,7 +11,8 @@ import core.game.interaction.InteractionListener
  * Todolist listener.
  */
 class TodolistListener : InteractionListener {
-	companion object {
+
+    companion object {
 		private const val SCROLL_INTERFACE = Components.MESSAGESCROLL_220
 		val THE_TODO_LIST = arrayOf(
 			ScrollLine("Things to do: ", 3),

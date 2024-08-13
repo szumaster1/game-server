@@ -15,10 +15,10 @@ import core.game.world.map.RegionManager.getTeleportLocation
  * Handles a barrows crypt.
  * @author Emperor
  *
- * @property index The index of the crypt
- * @property npcId The ID of the NPC associated with the crypt
- * @property enterLocation The location where players enter the crypt
- * @property exitLocation The location where players exit the crypt
+ * @param index The index of the crypt
+ * @param npcId The ID of the NPC associated with the crypt
+ * @param enterLocation The location where players enter the crypt
+ * @param exitLocation The location where players exit the crypt
  * @constructor Creates a Barrows crypt with the specified properties
  */
 open class BarrowsCrypt(val index: Int, val npcId: Int, val enterLocation: Location, val exitLocation: Location) {

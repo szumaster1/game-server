@@ -93,8 +93,8 @@ class CreditShopInterfaceListener : InterfaceListener {
     /**
      * Shop item
      *
-     * @property id
-     * @property price
+     * @param id
+     * @param price
      * @constructor Shop item
      */
     internal class ShopItem(val id: Int, val price: Int)

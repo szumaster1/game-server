@@ -8,7 +8,7 @@ import core.tools.START_DIALOGUE
 /**
  * King roald dialogue priest in peril.
  *
- * @property questStage the quest stage.
+ * @param questStage the quest stage.
  */
 class KingRoaldDialoguePriestInPeril(val questStage: Int) : DialogueFile() {
 

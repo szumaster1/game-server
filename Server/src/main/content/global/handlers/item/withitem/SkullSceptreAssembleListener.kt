@@ -16,7 +16,7 @@ class SkullSceptreAssembleListener : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Assemble left skull half with the right skull half.
          */
 
@@ -28,7 +28,7 @@ class SkullSceptreAssembleListener : InteractionListener {
             return@onUseWith true
         }
 
-        /*
+        /**
          * Assemble top of sceptre with the bottom of sceptre.
          */
 
@@ -40,7 +40,7 @@ class SkullSceptreAssembleListener : InteractionListener {
             return@onUseWith true
         }
 
-        /*
+        /**
          * Assemble Sceptre using runed sceptre with strange skull.
          */
 

@@ -6,11 +6,11 @@ import core.game.node.item.Item
 /**
  * Furniture flatpack
  *
- * @property interfaceItem
- * @property producedItemId
- * @property requiredLevel
- * @property experience
- * @property items
+ * @param interfaceItem
+ * @param producedItemId
+ * @param requiredLevel
+ * @param experience
+ * @param items
  * @constructor Furniture flatpack
  */
 enum class FurnitureFlatpack(val interfaceItem: Int, val producedItemId: Int, val requiredLevel: Int, val experience: Double, val items: Array<Item>) {

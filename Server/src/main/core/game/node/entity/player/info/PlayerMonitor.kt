@@ -276,7 +276,7 @@ object PlayerMonitor {
 /**
  * Log type
  *
- * @property token Represents the unique identifier for each log type.
+ * @param token Represents the unique identifier for each log type.
  * @constructor Represents a LogType with a specific token.
  */
 enum class LogType(val token: String) {

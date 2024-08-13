@@ -10,9 +10,9 @@ import core.tools.colorize
 /**
  * Chompy bird hunting.
  *
- * @property id The ID of the Chompy bird hunting.
- * @property kills The number of kills required for the Chompy bird hunting.
- * @property rankName The rank name of the Chompy bird hunting.
+ * @param id The ID of the Chompy bird hunting.
+ * @param kills The number of kills required for the Chompy bird hunting.
+ * @param rankName The rank name of the Chompy bird hunting.
  * @constructor Represents a Chompy bird hunting with the given ID, kills, and rank name.
  */
 enum class ChompyBirdHunting(val id: Int, val kills: Int, val rankName: String) {

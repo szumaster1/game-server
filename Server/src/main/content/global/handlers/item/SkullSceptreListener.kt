@@ -19,7 +19,7 @@ class SkullSceptreListener : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Skull sceptre options interaction.
          */
 
@@ -61,7 +61,7 @@ class SkullSceptreListener : InteractionListener {
         }
     }
 
-    /*
+    /**
      * Sceptre teleport.
      */
 

@@ -14,9 +14,9 @@ const val COUNCIL_WORKER = 1287
 /**
  * Represents the dialogue of a council worker in the game.
  *
- * @property questStage The stage of the quest the council worker is related to.
- * @property isBeerInteraction A flag indicating if the interaction involves beer.
- * @property beerId The ID of the beer involved in the interaction, if any.
+ * @param questStage The stage of the quest the council worker is related to.
+ * @param isBeerInteraction A flag indicating if the interaction involves beer.
+ * @param beerId The ID of the beer involved in the interaction, if any.
  * @constructor Creates a CouncilWorkerDialogue with the specified quest stage, beer interaction flag, and beer ID.
  */
 class CouncilWorkerDialogue(val questStage: Int, var isBeerInteraction: Boolean = false, val beerId: Int? = null) :

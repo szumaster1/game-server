@@ -181,8 +181,8 @@ class EnchantingZone :
     /**
      * Shapes
      *
-     * @property objectId
-     * @property item
+     * @param objectId
+     * @param item
      * @constructor Shapes
      */
     enum class Shapes(val objectId: Int, val item: Item) {

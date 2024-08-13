@@ -167,9 +167,9 @@ class ManniDialogue(player: Player? = null): Dialogue(player) {
     /**
      * Class representing a Drinking Pulse.
      *
-     * @property player The player involved in the drinking action.
-     * @property npc The NPC involved in the drinking action.
-     * @property lowAlcohol Flag indicating if the drink has low alcohol content.
+     * @param player The player involved in the drinking action.
+     * @param npc The NPC involved in the drinking action.
+     * @param lowAlcohol Flag indicating if the drink has low alcohol content.
      * @constructor Represents a Drinking Pulse with the provided parameters.
      */
     class DrinkingPulse(val player: Player?, val npc: NPC?, val lowAlcohol: Boolean? = false) : Pulse() {

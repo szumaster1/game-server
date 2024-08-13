@@ -281,9 +281,9 @@ class VinesweeperMinigame : InteractionListener, InterfaceListener, MapArea {
     /**
      * Seed destination
      *
-     * @property player
-     * @property loc
-     * @property alive
+     * @param player
+     * @param loc
+     * @param alive
      * @constructor Seed destination
      */
     data class SeedDestination(val player: Player, val loc: Location, val alive: Boolean) {

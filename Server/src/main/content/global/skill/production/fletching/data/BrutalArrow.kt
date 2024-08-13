@@ -5,10 +5,10 @@ import core.api.consts.Items
 /**
  * Enum class representing different types of Brutal Arrows.
  *
- * @property base The base damage of the arrow.
- * @property product The multiplier for the arrow's damage.
- * @property level The level required to use the arrow.
- * @property experience The experience points gained from using the arrow.
+ * @param base The base damage of the arrow.
+ * @param product The multiplier for the arrow's damage.
+ * @param level The level required to use the arrow.
+ * @param experience The experience points gained from using the arrow.
  * @constructor Represents a BrutalArrow with specified base, product, level, and experience.
  */
 enum class BrutalArrow(var base: Int, var product: Int, var level: Int, var experience: Double) {

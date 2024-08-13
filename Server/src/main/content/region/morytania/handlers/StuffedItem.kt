@@ -5,10 +5,10 @@ import core.api.consts.Items
 /**
  * Stuffed item enum class.
  *
- * @property dropId the item to become stuffed id.
- * @property stuffedId the product id.
- * @property price the price.
- * @property message the message.
+ * @param dropId the item to become stuffed id.
+ * @param stuffedId the product id.
+ * @param price the price.
+ * @param message the message.
  */
 enum class StuffedItem(val dropId: Int, val stuffedId: Int, val price: Int, val message: String) {
     /**

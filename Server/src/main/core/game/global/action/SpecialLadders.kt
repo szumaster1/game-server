@@ -9,8 +9,8 @@ import java.util.*
 /**
  * Enum class representing special ladders in a game.
  *
- * @property ladderLoc the location of the ladder
- * @property destLoc the destination location of the ladder
+ * @param ladderLoc the location of the ladder
+ * @param destLoc the destination location of the ladder
  * @constructor Represents a special ladder with its location and destination.
  */
 enum class SpecialLadders(private val ladderLoc: Location, private val destLoc: Location) : LadderAchievementCheck {

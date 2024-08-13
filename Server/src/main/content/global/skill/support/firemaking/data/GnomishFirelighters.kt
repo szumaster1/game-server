@@ -5,8 +5,8 @@ import core.api.consts.Items
 /**
  * Gnomish firelighters
  *
- * @property base
- * @property product
+ * @param base
+ * @param product
  * @constructor Gnomish firelighters
  */
 enum class GnomishFirelighters(val base: Int, val product: Int) {

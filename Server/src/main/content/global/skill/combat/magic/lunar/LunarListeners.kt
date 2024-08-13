@@ -353,9 +353,9 @@ class LunarListeners : SpellListener("lunar"), Commands {
     /**
      * Represents the type of plank.
      *
-     * @property log   The log item used to create the plank.
-     * @property plank The plank item produced.
-     * @property price The price of the plank.
+     * @param log   The log item used to create the plank.
+     * @param plank The plank item produced.
+     * @param price The price of the plank.
      * @constructor Creates a PlankType with the specified log, plank, and price.
      */
     enum class PlankType(val log: Item, val plank: Item, val price: Int) {

@@ -12,9 +12,9 @@ import core.game.world.map.Location
 /**
  * Enum class representing Teleport Tabs.
  *
- * @property item The item ID of the teleport tab.
- * @property location The destination location of the teleport tab.
- * @property exp The experience gained when using the teleport tab.
+ * @param item The item ID of the teleport tab.
+ * @param location The destination location of the teleport tab.
+ * @param exp The experience gained when using the teleport tab.
  * @constructor Creates a Teleport Tab with the specified item ID, location, and experience.
  */
 enum class TeleTabs(val item: Int, val location: Location, val exp: Double) {

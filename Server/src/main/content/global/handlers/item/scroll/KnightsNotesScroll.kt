@@ -12,6 +12,7 @@ import core.game.interaction.InteractionListener
  * Knights notes scroll.
  */
 class KnightsNotesScroll : InteractionListener {
+
     companion object {
         val CONTENTS = arrayOf(
             ScrollLine("My friend, you were right to send me to investigate the", 3),

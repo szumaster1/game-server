@@ -50,7 +50,7 @@ import kotlin.math.sqrt
 /**
  * Script API
  *
- * @property bot the bot.
+ * @param bot the bot.
  */
 class ScriptAPI(private val bot: Player) {
     val GRAPHICSUP = Graphic(1576)
@@ -1009,7 +1009,7 @@ class ScriptAPI(private val bot: Player) {
     /**
      * Botting overlay
      *
-     * @property player
+     * @param player
      * @constructor Botting overlay
      */
     class BottingOverlay(val player: Player) {

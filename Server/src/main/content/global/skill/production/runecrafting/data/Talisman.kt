@@ -8,8 +8,8 @@ import core.game.node.item.Item
 /**
  * Talisman
  *
- * @property talisman Represents the item associated with the talisman.
- * @property ruin Represents an optional mysterious ruin associated with the talisman.
+ * @param talisman Represents the item associated with the talisman.
+ * @param ruin Represents an optional mysterious ruin associated with the talisman.
  * @constructor Talisman Represents a new instance of the Talisman enum class.
  */
 enum class Talisman(

@@ -13,7 +13,7 @@ import core.tools.RandomFunction
 /**
  * Wine fermenting pulse
  *
- * @property player
+ * @param player
  * @constructor
  *
  * @param delay

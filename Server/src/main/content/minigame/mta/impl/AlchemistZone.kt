@@ -160,7 +160,7 @@ class AlchemistZone :
     /**
      * Alchemist session
      *
-     * @property player
+     * @param player
      * @constructor Alchemist session
      */
     class AlchemistSession(val player: Player) {
@@ -243,7 +243,7 @@ class AlchemistZone :
     /**
      * Alchemist item
      *
-     * @property item
+     * @param item
      * @constructor Alchemist item
      */
     enum class AlchemistItem(val item: Item) {

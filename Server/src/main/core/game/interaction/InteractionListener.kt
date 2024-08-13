@@ -150,95 +150,105 @@ interface InteractionListener : ContentInterface {
     /**
      * On unequip
      *
-     * @param id
-     * @param handler
-     * @receiver
+     * @param id The identifier for the item being unequipped.
+     * @param handler A function that handles the unequip action.
+     * @receiver This function is an extension function for a specific receiver type.
      */
     fun onUnequip(id: Int, handler: (player: Player, node: Node) -> Boolean) {
+        // Add the unequip listener for the specified item ID and handler function.
         InteractionListeners.addUnequip(id, handler)
     }
 
     /**
      * On equip
      *
-     * @param ids
-     * @param handler
-     * @receiver
+     * @param ids An array of identifiers for the items being equipped.
+     * @param handler A function that handles the equip action.
+     * @receiver This function is an extension function for a specific receiver type.
      */
     fun onEquip(ids: IntArray, handler: (player: Player, node: Node) -> Boolean) {
+        // Iterate through each ID and add an equip listener for each item.
         ids.forEach { id -> InteractionListeners.addEquip(id, handler) }
     }
 
     /**
      * On unequip
      *
-     * @param ids
-     * @param handler
-     * @receiver
+     * @param ids An array of identifiers for the items being unequipped.
+     * @param handler A function that handles the unequip action.
+     * @receiver This function is an extension function for a specific receiver type.
      */
     fun onUnequip(ids: IntArray, handler: (player: Player, node: Node) -> Boolean) {
+        // Iterate through each ID and add an unequip listener for each item.
         ids.forEach { id -> InteractionListeners.addUnequip(id, handler) }
     }
 
     /**
      * Define destination overrides
      *
+     * This function is a placeholder for defining destination overrides.
      */
     fun defineDestinationOverrides() {}
 
     /**
      * Set dest
      *
-     * @param type
-     * @param id
-     * @param handler
-     * @receiver
+     * @param type The type of the destination.
+     * @param id The identifier for the destination.
+     * @param handler A function that determines the location based on the entity and node.
+     * @receiver This function is an extension function for a specific receiver type.
      */
     fun setDest(type: IntType, id: Int, handler: (Entity, Node) -> Location) {
+        // Add a destination override for the specified type and ID with the provided handler.
         InteractionListeners.addDestOverride(type.ordinal, id, handler)
     }
 
     /**
      * Set dest
      *
-     * @param type
-     * @param options
-     * @param handler
-     * @receiver
+     * @param type The type of the destination.
+     * @param options A variable number of options for the destination.
+     * @param handler A function that determines the location based on the entity and node.
+     * @receiver This function is an extension function for a specific receiver type.
      */
     fun setDest(type: IntType, vararg options: String, handler: (Entity, Node) -> Location) {
+        // Add destination overrides for the specified type and options with the provided handler.
         InteractionListeners.addDestOverrides(type.ordinal, options, handler)
     }
 
     /**
      * Set dest
      *
-     * @param type
-     * @param ids
-     * @param options
-     * @param handler
-     * @receiver
+     * @param type The type of the destination.
+     * @param ids An array of identifiers for the destinations.
+     * @param options A variable number of options for the destination.
+     * @param handler A function that determines the location based on the entity and node.
+     * @receiver This function is an extension function for a specific receiver type.
      */
     fun setDest(type: IntType, ids: IntArray, vararg options: String, handler: (Entity, Node) -> Location) {
+        // Add destination overrides for the specified type, IDs, and options with the provided handler.
         InteractionListeners.addDestOverrides(type.ordinal, ids, options, handler)
     }
 
     /**
      * On dig
      *
-     * @param location
-     * @param method
-     * @receiver
+     * @param location The location where the digging action occurs.
+     * @param method A function that handles the digging action for the player.
+     * @receiver This function is an extension function for a specific receiver type.
      */
     fun onDig(location: Location, method: (player: Player) -> Unit) {
+        // Register a listener for the digging action at the specified location.
         SpadeDig.registerListener(location, method)
     }
 
     /**
      * Flag instant
      *
+     * This function flags the current class as an instant class for interaction listeners.
      */
     fun flagInstant() {
+        // Get the name of the current class and add it to the instant classes list.
         val name = this::class.java.name
         InteractionListeners.instantClasses.add(name)
     }
@@ -246,38 +256,40 @@ interface InteractionListener : ContentInterface {
     /**
      * Define interaction
      *
-     * @param type
-     * @param ids
-     * @param options
-     * @param persistent
-     * @param allowedDistance
-     * @param handler
-     * @receiver
+     * @param type The type of interaction.
+     * @param ids An array of identifiers for the items involved in the interaction.
+     * @param options A variable number of options for the interaction.
+     * @param persistent A flag indicating if the interaction should persist.
+     * @param allowedDistance The maximum distance allowed for the interaction.
+     * @param handler A function that handles the interaction.
+     * @receiver This function is an extension function for a specific receiver type.
      */
     fun defineInteraction(type: IntType, ids: IntArray, vararg options: String, persistent: Boolean = false, allowedDistance: Int = 1, handler: (player: Player, node: Node, state: Int) -> Boolean) {
+        // Add metadata for the interaction with the specified parameters.
         InteractionListeners.addMetadata(ids, type, options, InteractionMetadata(handler, allowedDistance, persistent))
     }
 
     /**
      * Define interaction
      *
-     * @param type
-     * @param options
-     * @param persist
-     * @param allowedDistance
-     * @param handler
-     * @receiver
+     * @param type The type of interaction.
+     * @param options A variable number of options for the interaction.
+     * @param persist A flag indicating if the interaction should persist.
+     * @param allowedDistance The maximum distance allowed for the interaction.
+     * @param handler A function that handles the interaction.
+     * @receiver This function is an extension function for a specific receiver type.
      */
     fun defineInteraction(type: IntType, vararg options: String, persist: Boolean = false, allowedDistance: Int = 1, handler: (player: Player, node: Node, state: Int) -> Boolean) {
+        // Add generic metadata for the interaction with the specified parameters.
         InteractionListeners.addGenericMetadata(options, type, InteractionMetadata(handler, allowedDistance, persist))
     }
 
     /**
      * Interaction metadata
      *
-     * @property handler
-     * @property distance
-     * @property persist
+     * @param handler A function that handles the interaction.
+     * @param distance The maximum distance allowed for the interaction.
+     * @param persist A flag indicating if the interaction should persist.
      * @constructor Interaction metadata
      */
     data class InteractionMetadata(
@@ -289,9 +301,9 @@ interface InteractionListener : ContentInterface {
     /**
      * Use with metadata
      *
-     * @property handler
-     * @property distance
-     * @property persist
+     * @param handler A function that handles the use action with metadata.
+     * @param distance The maximum distance allowed for the use action.
+     * @param persist A flag indicating if the use action should persist.
      * @constructor Use with metadata
      */
     data class UseWithMetadata(
@@ -303,6 +315,7 @@ interface InteractionListener : ContentInterface {
     /**
      * Define listeners
      *
+     * This function is a placeholder for defining interaction listeners.
      */
-    fun defineListeners()
+    fun defineListeners() {}
 }

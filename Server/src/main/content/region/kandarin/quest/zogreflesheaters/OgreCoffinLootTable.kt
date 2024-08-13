@@ -8,8 +8,8 @@ import core.api.utils.WeightedItem
 /**
  * Enum class representing the loot table for Ogre coffins.
  *
- * @property sceneryId Array of scenery IDs associated with the loot table.
- * @property table Weighted table containing loot items.
+ * @param sceneryId Array of scenery IDs associated with the loot table.
+ * @param table Weighted table containing loot items.
  * @constructor Represents the Ogre coffin loot table with scenery IDs and loot table.
  */
 enum class OgreCoffinLootTable(val sceneryId: IntArray, val table: WeightBasedTable) {

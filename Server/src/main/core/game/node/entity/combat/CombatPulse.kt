@@ -26,7 +26,7 @@ import core.tools.RandomFunction
 /**
  * Combat pulse
  *
- * @property entity
+ * @param entity
  * @constructor Combat pulse
  */
 class CombatPulse(val entity: Entity?) : Pulse(1, entity, null) {

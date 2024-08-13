@@ -15,7 +15,7 @@ class ToysListener : InteractionListener {
 
     override fun defineListeners() {
 
-        /*
+        /**
          * Interaction with Marionettes.
          */
 
@@ -45,7 +45,7 @@ class ToysListener : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Interaction with Yo-yo.
          */
 
@@ -62,7 +62,7 @@ class ToysListener : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Interaction with Rubber chicken.
          */
 
@@ -74,7 +74,7 @@ class ToysListener : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Interaction with Zombie head.
          */
 
@@ -98,7 +98,7 @@ class ToysListener : InteractionListener {
         }
 
 
-        /*
+        /**
          * Interaction with Reindeer hat.
          */
 
@@ -108,7 +108,7 @@ class ToysListener : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Interaction with Snow globe.
          */
 
@@ -124,7 +124,7 @@ class ToysListener : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Interaction with Chocatrice cape.
          */
 
@@ -134,7 +134,7 @@ class ToysListener : InteractionListener {
             return@on true
         }
 
-        /*
+        /**
          * Interaction with Toy kite.
          */
 
@@ -152,11 +152,22 @@ class ToysListener : InteractionListener {
         private val MARIONETTE_WALK = Animation(Animations.MARIONETTE_WALK_3004)
         private val MARIONETTE_BOW = Animation(Animations.MARIONETTE_BOW_3005)
         private val MARIONETTE_DANCE = Animation(Animations.MARIONETTE_DANCE_3006)
-        private val MARIONETTE_GFX = arrayOf(
-            intArrayOf(Graphics.JUMP_MARIONETTE_RED_507, Graphics.WALK_MARIONETTE_RED_508, Graphics.BOW_MARIONETTE_RED_509, Graphics.DANCE_MARIONETTE_RED_510),
-            intArrayOf(Graphics.JUMP_MARIONETTE_BLUE_511, Graphics.WALK_MARIONETTE_BLUE_512, Graphics.BOW_MARIONETTE_BLUE_513, Graphics.DANCE_MARIONETTE_BLUE_514),
-            intArrayOf(Graphics.JUMP_MARIONETTE_GREEN_515, Graphics.WALK_MARIONETTE_GREEN_516, Graphics.BOW_MARIONETTE_GREEN_517, Graphics.DANCE_MARIONETTE_GREEN_518)
-        )
+        private val MARIONETTE_GFX = arrayOf(intArrayOf(
+                Graphics.JUMP_MARIONETTE_RED_507,
+                Graphics.WALK_MARIONETTE_RED_508,
+                Graphics.BOW_MARIONETTE_RED_509,
+                Graphics.DANCE_MARIONETTE_RED_510
+            ), intArrayOf(
+                Graphics.JUMP_MARIONETTE_BLUE_511,
+                Graphics.WALK_MARIONETTE_BLUE_512,
+                Graphics.BOW_MARIONETTE_BLUE_513,
+                Graphics.DANCE_MARIONETTE_BLUE_514
+            ), intArrayOf(
+                Graphics.JUMP_MARIONETTE_GREEN_515,
+                Graphics.WALK_MARIONETTE_GREEN_516,
+                Graphics.BOW_MARIONETTE_GREEN_517,
+                Graphics.DANCE_MARIONETTE_GREEN_518
+            ))
         private val SNOWGLOBE_SHAKE = Animation(Animations.SNOWGLOBE_SHAKE_7535)
         private val SNOWGLOBE_HOLDFACE = Animation(Animations.SNOWGLOBE_HOLD_FACE_7536)
         private val SNOWGLOBE_INTERFACE = Components.SNOWGLOBE_INTERFACE_659

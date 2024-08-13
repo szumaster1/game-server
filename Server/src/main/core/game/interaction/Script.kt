@@ -36,8 +36,8 @@ enum class QueueStrength {
  * Script.
  *
  * @param T The type parameter for the Script class.
- * @property execution The execution function of the script.
- * @property persist Indicates if the script should persist.
+ * @param execution The execution function of the script.
+ * @param persist Indicates if the script should persist.
  * @constructor Represents the Script class.
  */
 open class Script<T>(val execution: T, val persist: Boolean) {
@@ -48,7 +48,7 @@ open class Script<T>(val execution: T, val persist: Boolean) {
 /**
  * Interaction.
  *
- * @property distance The distance for the interaction.
+ * @param distance The distance for the interaction.
  * @constructor Represents the Interaction class.
  *
  * @param execution The execution function for the interaction.
@@ -60,9 +60,9 @@ class Interaction(execution: InteractExecutor, val distance: Int, persist: Boole
 /**
  * Use with interaction.
  *
- * @property distance The distance for the use-with interaction.
- * @property used The node being used.
- * @property with The node being used with.
+ * @param distance The distance for the use-with interaction.
+ * @param used The node being used.
+ * @param with The node being used with.
  * @constructor Represents the UseWithInteraction class.
  *
  * @param execution The execution function for the use-with interaction.
@@ -79,7 +79,7 @@ class UseWithInteraction(
 /**
  * Queued script.
  *
- * @property strength The strength of the queued script.
+ * @param strength The strength of the queued script.
  * @constructor Represents the QueuedScript class.
  *
  * @param executor The executor function for the queued script.
@@ -91,9 +91,9 @@ class QueuedScript(executor: VoidExecutor, val strength: QueueStrength, persist:
 /**
  * Queued use with.
  *
- * @property strength The strength of the queued use-with interaction.
- * @property used The node being used.
- * @property with The node being used with.
+ * @param strength The strength of the queued use-with interaction.
+ * @param used The node being used.
+ * @param with The node being used with.
  * @constructor Represents the QueuedUseWith class.
  *
  * @param executor The executor function for the queued use-with interaction.

@@ -8,11 +8,11 @@ import core.game.world.map.zone.ZoneBorders
  * Represents the crater types.
  * @author Emperor
  *
- * @property level The level of the crater type
- * @property roomLocation The location of the room
- * @property craterLocation The location of the crater
- * @property exitLocation The location of the exit
- * @property zone The zone borders of the crater
+ * @param level The level of the crater type
+ * @param roomLocation The location of the room
+ * @param craterLocation The location of the crater
+ * @param exitLocation The location of the exit
+ * @param zone The zone borders of the crater
  * @constructor Creates a new CraterType
  */
 enum class CraterType(

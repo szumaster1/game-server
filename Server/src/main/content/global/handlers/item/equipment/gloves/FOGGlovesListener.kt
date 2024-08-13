@@ -11,10 +11,12 @@ import kotlin.math.min
  * F o g gloves listener.
  */
 class FOGGlovesListener : InteractionListener {
+
     companion object {
         val MAX_CHARGES = intArrayOf(100, 100, 100, 100, 1000, 1000, 1000, 1000, 1000, 1000)
         private val FOG_GLOVES = (Items.IRIT_GLOVES_12856..Items.EARTH_RUNECRAFTING_GLOVES_12865).toIntArray()
     }
+
     override fun defineListeners() {
 
         on(FOG_GLOVES, IntType.ITEM, "inspect") { player, node ->

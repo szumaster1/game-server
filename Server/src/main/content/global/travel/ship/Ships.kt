@@ -6,10 +6,10 @@ import core.game.world.map.Location
 /**
  * Ships
  *
- * @property location Represents the current location of the ship.
- * @property config Configuration settings for the ship.
- * @property delay Delay time for the ship's operations, in milliseconds.
- * @property destination The intended destination of the ship.
+ * @param location Represents the current location of the ship.
+ * @param config Configuration settings for the ship.
+ * @param delay Delay time for the ship's operations, in milliseconds.
+ * @param destination The intended destination of the ship.
  * @constructor Ships Represents a new instance of the Ships enum class.
  */
 enum class Ships(

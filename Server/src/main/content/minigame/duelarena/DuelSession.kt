@@ -21,9 +21,9 @@ import java.util.*
 /**
  * Represents a duel session between two players.
  *
- * @property player The first player participating in the duel.
- * @property other The second player participating in the duel.
- * @property staked Indicates if there are stakes involved in the duel.
+ * @param player The first player participating in the duel.
+ * @param other The second player participating in the duel.
+ * @param staked Indicates if there are stakes involved in the duel.
  * @constructor Creates a new DuelSession with optional player, other player, and stake status.
  */
 class DuelSession(val player: Player? = null, val other: Player? = null, val staked: Boolean) : ComponentPlugin() {

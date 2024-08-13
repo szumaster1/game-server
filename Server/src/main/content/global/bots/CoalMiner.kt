@@ -135,8 +135,8 @@ class CoalMiner : Script() {
     /**
      * Banking pulse
      *
-     * @property script
-     * @property bank
+     * @param script
+     * @param bank
      * @constructor Banking pulse
      */
     open class BankingPulse(val script: Script, val bank: Node) :

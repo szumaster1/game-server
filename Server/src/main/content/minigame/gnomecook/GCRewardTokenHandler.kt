@@ -112,8 +112,8 @@ class GCRewardTokenHandler : OptionHandler() {
         /**
          * Represents a delivery pulse for a player.
          *
-         * @property player The player receiving the delivery.
-         * @property items The items being delivered.
+         * @param player The player receiving the delivery.
+         * @param items The items being delivered.
          * @constructor Creates a DeliveryPulse object with a random duration between 15 and 30.
          */
         class DeliveryPulse(val player: Player, val items: ArrayList<Item>) : Pulse(RandomFunction.random(15, 30)) {

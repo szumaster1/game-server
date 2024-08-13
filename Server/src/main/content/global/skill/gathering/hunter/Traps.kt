@@ -14,7 +14,7 @@ import core.tools.Log
 /**
  * Traps
  *
- * @property settings Holds the configuration settings for the trap.
+ * @param settings Holds the configuration settings for the trap.
  * @constructor Represents a new instance of the Traps enum.
  *
  * @param nodes A variable number of TrapNode instances associated with the trap.

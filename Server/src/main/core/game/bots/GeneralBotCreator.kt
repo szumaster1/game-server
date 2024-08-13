@@ -52,8 +52,8 @@ class GeneralBotCreator {
     /**
      * Bot script pulse.
      *
-     * @property botScript botscript.
-     * @property isPlayer is player.
+     * @param botScript botscript.
+     * @param isPlayer is player.
      * @constructor Bot script pulse.
      */
     inner class BotScriptPulse(val botScript: Script, val isPlayer: Boolean = false) : Pulse(1) {
@@ -138,7 +138,7 @@ class GeneralBotCreator {
     /**
      * Transition pulse.
      *
-     * @property script the script.
+     * @param script the script.
      * @constructor Transition pulse
      */
     inner class TransitionPulse(val script: Script) : Pulse(RandomFunction.random(60, 200)) {

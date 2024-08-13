@@ -5,12 +5,12 @@ import core.api.consts.Items
 /**
  * Gem bolt
  *
- * @property base Represents the base value of the gem bolt.
- * @property gem Represents the type of gem used in the bolt.
- * @property tip Represents the type of tip used in the bolt.
- * @property product Represents the resulting product from combining the base, gem, and tip.
- * @property level Represents the required level to create the gem bolt.
- * @property experience Represents the experience gained from creating the gem bolt.
+ * @param base Represents the base value of the gem bolt.
+ * @param gem Represents the type of gem used in the bolt.
+ * @param tip Represents the type of tip used in the bolt.
+ * @param product Represents the resulting product from combining the base, gem, and tip.
+ * @param level Represents the required level to create the gem bolt.
+ * @param experience Represents the experience gained from creating the gem bolt.
  * @constructor Gem bolt Represents a new instance of the GemBolt enum class with specified properties.
  */
 enum class GemBolt(var base: Int, var gem: Int, var tip: Int, var product: Int, var level: Int, var experience: Double) {

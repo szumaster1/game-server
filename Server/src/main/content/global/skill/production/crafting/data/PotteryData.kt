@@ -6,11 +6,11 @@ import core.game.node.item.Item
 /**
  * Pottery data
  *
- * @property unfinished Represents the unfinished state of the pottery item.
- * @property product Represents the final product of the pottery item.
- * @property level Indicates the level of the pottery item.
- * @property exp Represents the experience points associated with the pottery item.
- * @property fireExp Represents the experience points gained from firing the pottery item.
+ * @param unfinished Represents the unfinished state of the pottery item.
+ * @param product Represents the final product of the pottery item.
+ * @param level Indicates the level of the pottery item.
+ * @param exp Represents the experience points associated with the pottery item.
+ * @param fireExp Represents the experience points gained from firing the pottery item.
  * @constructor Pottery data Represents the properties of the PotteryData enum.
  */
 enum class PotteryData(

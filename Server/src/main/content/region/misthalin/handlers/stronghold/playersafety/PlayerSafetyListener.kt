@@ -297,7 +297,7 @@ class PlayerSafetyListener : InteractionListener {
         /**
          * Plaque cutscene
          *
-         * @property component component id.
+         * @param component component id.
          * @param player the player.
          */
         class PlaqueCutscene(player: Player, val component: Component) : Cutscene(player) {
