@@ -33,7 +33,7 @@ class NPCInteractionListener : InteractionListener {
 
     override fun defineListeners() {
 
-        /**
+        /*
          * Milk cow interaction.
          */
 
@@ -42,7 +42,7 @@ class NPCInteractionListener : InteractionListener {
             return@onUseWith true
         }
 
-        /**
+        /*
          * Hair-cut interaction.
          */
 
@@ -51,7 +51,7 @@ class NPCInteractionListener : InteractionListener {
             return@on true
         }
 
-        /**
+        /*
          * Interaction with dummy scenery.
          */
 
@@ -78,7 +78,7 @@ class NPCInteractionListener : InteractionListener {
             return@on true
         }
 
-        /**
+        /*
          * Deposit interaction for Peer the Seer.
          */
 
@@ -92,7 +92,7 @@ class NPCInteractionListener : InteractionListener {
             return@on true
         }
 
-        /**
+        /*
          * Barcrawl NPC interaction.
          */
 
@@ -107,7 +107,7 @@ class NPCInteractionListener : InteractionListener {
             return@on true
         }
 
-        /**
+        /*
          * Global Interactions.
          */
 
@@ -179,7 +179,7 @@ class NPCInteractionListener : InteractionListener {
         val cowSceneryIds = intArrayOf(8689, 12111)
         val items: Array<Item> = arrayOf(Item(1925, 1), Item(3727, 1), Item(1927, 1))
 
-        /**
+        /*
          * Milking pulse.
          */
 

@@ -1,6 +1,5 @@
 package content.global.bots
 
-
 import core.api.amountInInventory
 import core.api.consts.Items
 import core.game.bots.*

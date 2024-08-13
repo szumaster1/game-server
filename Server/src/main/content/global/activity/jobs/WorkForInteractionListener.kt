@@ -13,9 +13,7 @@ import core.game.node.entity.npc.NPC
  */
 class WorkForInteractionListener : InteractionListener {
     override fun defineListeners() {
-        on(
-            Employers.values().map { employer -> employer.npcId }.toIntArray(), IntType.NPC, "work-for"
-        ) { player, node ->
+        on(Employers.values().map { employer -> employer.npcId }.toIntArray(), IntType.NPC, "work-for") { player, node ->
             val playerJobManager = JobManager.getInstance(player)
             val job = playerJobManager.job
 

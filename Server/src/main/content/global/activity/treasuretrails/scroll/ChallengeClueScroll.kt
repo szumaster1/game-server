@@ -16,8 +16,6 @@ import core.game.world.map.zone.ZoneBorders
  * @param question the question associated with the clue.
  * @param npc the NPC related to the clue.
  * @param answer the answer to the clue.
- * @constructor initializes the challenge clue scroll.
- *
  * @param name the name of the clue scroll.
  * @param clueId the unique identifier of the clue.
  * @param level the difficulty level of the clue.
