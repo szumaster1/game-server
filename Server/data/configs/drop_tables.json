@@ -59047,20 +59047,6 @@
       }
     ],
     "charm": [],
-    "ids": "2880",
-    "description": "Dagannoth fledgeling",
-    "main": []
-  },
-  {
-    "default": [
-      {
-        "minAmount": "1",
-        "weight": "1.0",
-        "id": "526",
-        "maxAmount": "1"
-      }
-    ],
-    "charm": [],
     "ids": "66,67,68",
     "description": "Gnome",
     "main": []
