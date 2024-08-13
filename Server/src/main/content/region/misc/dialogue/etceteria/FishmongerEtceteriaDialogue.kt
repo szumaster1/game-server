@@ -9,10 +9,10 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Fishmonger etc dialogue.
+ * Fishmonger dialogue.
  */
 @Initializable
-class FishmongerEtcDialogue(player: Player? = null) : Dialogue(player) {
+class FishmongerEtceteriaDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC

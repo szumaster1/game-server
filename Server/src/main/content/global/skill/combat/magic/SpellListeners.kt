@@ -16,7 +16,9 @@ import core.tools.Log
  */
 object SpellListeners {
 
+    // A map to hold spell casting methods associated with their identifiers.
     val castMap = HashMap<String, (Player, Node?) -> Unit>()
+    // A map to hold the casting ranges for spells.
     val spellRanges = HashMap<String, Int>()
 
     /**
@@ -29,7 +31,9 @@ object SpellListeners {
      * @param method   The method to be invoked when the spell is cast.
      */
     fun add(spellID: Int, type: Int, book: String, distance: Int, method: (Player, Node?) -> Unit) {
+        // Store the method in the castMap using a unique key.
         castMap["$book:$spellID:$type"] = method
+        // Store the casting distance in the spellRanges map.
         spellRanges["$book:$spellID:$type"] = distance
     }
 
@@ -44,6 +48,7 @@ object SpellListeners {
      * @param method   The method to be invoked when the spell is cast.
      */
     fun add(spellID: Int, type: Int, ids: IntArray, book: String, distance: Int, method: (Player, Node?) -> Unit) {
+        // Iterate through each ID and store the method and distance in the maps.
         for (id in ids) {
             castMap["$book:$spellID:$type:$id"] = method
             spellRanges["$book:$spellID:$type:$id"] = distance
@@ -59,7 +64,9 @@ object SpellListeners {
      * @return a pair containing the casting range and the method to be invoked.
      */
     fun get(spellID: Int, type: Int, book: String): Pair<Int, ((Player, Node?) -> Unit)?> {
+        // Log the retrieval of the spell information.
         log(this::class.java, Log.FINE, "Getting $book:$spellID:$type")
+        // Return the casting range and method, defaulting to a range of 10 if not found.
         return Pair(spellRanges["$book:$spellID:$type"] ?: 10, castMap["$book:$spellID:$type"])
     }
 
@@ -73,7 +80,9 @@ object SpellListeners {
      * @return a pair containing the casting range and the method to be invoked.
      */
     fun get(spellID: Int, type: Int, id: Int, book: String): Pair<Int, ((Player, Node?) -> Unit)?> {
+        // Log the retrieval of the spell information with a specific ID.
         log(this::class.java, Log.FINE, "Getting $book:$spellID:$type:$id")
+        // Return the casting range and method, defaulting to a range of 10 if not found.
         return Pair(spellRanges["$book:$spellID:$type:$id"] ?: 10, castMap["$book:$spellID:$type:$id"])
     }
 
@@ -88,19 +97,25 @@ object SpellListeners {
      */
     @JvmStatic
     fun run(button: Int, type: Int, book: String, player: Player, node: Node? = null) {
+        // Retrieve the casting range and method for the spell.
         var (range, method) = get(button, type, node?.id ?: 0, book)
+        // If no method is found, retrieve the default method and range.
         if (method == null) {
             var next = get(button, type, book)
             range = next.first
             method = next.second ?: return
         }
 
+        // Check if the spell type is one of the specified types.
         if (type in intArrayOf(SpellListener.NPC, SpellListener.OBJECT, SpellListener.PLAYER, SpellListener.GROUND_ITEM)) {
+            // Create a movement pulse for the player to cast the spell.
             player.pulseManager.run(object : MovementPulse(player, node, Pathfinder.SMART) {
                 override fun pulse(): Boolean {
                     try {
+                        // Invoke the spell method with the player and target node.
                         method.invoke(player, node)
                     } catch (e: IllegalStateException) {
+                        // Remove the spell runes attribute if an exception occurs.
                         player.removeAttribute("spell:runes")
                         return true
                     }
@@ -108,21 +123,26 @@ object SpellListeners {
                 }
 
                 override fun update(): Boolean {
+                    // Check if the player is within range and has line of sight to the target node.
                     if (player.location.withinMaxnormDistance(node!!.centerLocation, range) && hasLineOfSight(player, node)) {
+                        // Face the target node and reset the walking queue.
                         player.faceLocation(node.getFaceLocation(player.location))
                         player.walkingQueue.reset()
-                        pulse()
-                        stop()
+                        pulse() // Execute the pulse method.
+                        stop() // Stop the movement pulse.
                         return true
                     }
-                    return super.update()
+                    return super.update() // Call the superclass update method.
                 }
             })
         } else {
             try {
+                // Invoke the spell method directly if not a movement pulse.
                 method.invoke(player, node)
+                // Dispatch a spell cast event.
                 player.dispatch(SpellCastEvent(SpellBookManager.SpellBook.valueOf(book.uppercase()), button, node))
             } catch (e: IllegalStateException) {
+                // Remove the spell runes attribute if an exception occurs.
                 removeAttribute(player, "spell:runes")
                 return
             }

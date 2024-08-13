@@ -5,19 +5,27 @@ import core.game.node.item.Item
 /**
  * Summoning pouch
  *
- * @param slot
- * @param pouchId
- * @param levelRequired
- * @param createExperience
- * @param npcId
- * @param summonExperience
- * @param summonCost
- * @param peaceful
- * @constructor
- *
- * @param items
+ * @param slot The inventory slot where the pouch is stored
+ * @param pouchId Unique identifier for the pouch
+ * @param levelRequired The level required to use the pouch
+ * @param createExperience The experience gained when creating the pouch
+ * @param npcId Identifier for the NPC associated with the pouch
+ * @param summonExperience The experience gained when summoning from the pouch
+ * @param summonCost The cost in resources to summon from the pouch
+ * @param peaceful Indicates if the summon is peaceful or aggressive
+ * @param items Vararg parameter representing the items contained in the pouch
  */
-enum class SummoningPouch(val slot: Int, val pouchId: Int, val levelRequired: Int, val createExperience: Double, val npcId: Int, val summonExperience: Double, val summonCost: Int, val peaceful: Boolean, vararg items: Item) {
+enum class SummoningPouch(
+    val slot: Int,                  // The inventory slot where the pouch is stored
+    val pouchId: Int,               // Unique identifier for the pouch
+    val levelRequired: Int,         // The level required to use the pouch
+    val createExperience: Double,   // The experience gained when creating the pouch
+    val npcId: Int,                 // Identifier for the NPC associated with the pouch
+    val summonExperience: Double,   // The experience gained when summoning from the pouch
+    val summonCost: Int,            // The cost in resources to summon from the pouch
+    val peaceful: Boolean,          // Indicates if the summon is peaceful or aggressive
+    vararg items: Item              // Vararg parameter representing the items contained in the pouch
+) {
     /**
      * Spirit Wolf Pouch.
      */

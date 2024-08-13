@@ -21,13 +21,16 @@ class TutorialGuideDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
-            1 -> {
-                end()
-                setAttribute(player!!, "/save:tutorial:stage", 71)
-                TutorialStage.load(player!!, 71)
-                teleport(player!!, Location.create(3141, 3089, 0))
+            0 -> when (buttonId) {
+                1 -> {
+                    end()
+                    setAttribute(player!!, "/save:tutorial:stage", 71)
+                    TutorialStage.load(player!!, 71)
+                    teleport(player!!, Location.create(3141, 3089, 0))
+                }
+
+                2 -> end()
             }
-            2 -> end()
         }
         return true
     }

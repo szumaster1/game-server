@@ -12,9 +12,6 @@ class RoomTemplate(properties: RoomProperties) {
         }
     }
 
-    /**
-     * Rotate.
-     */
     fun rotate(clockwise: Boolean){
         hotspots = hotspots.map{
             if(!clockwise) {

@@ -1,7 +1,7 @@
 package content.global.skill.support.construction
 
 /**
- * Hotspot
+ * Hotspot.
  */
 class Hotspot (val hotspot: BuildHotspot, val chunkX: Int, val chunkY: Int, var chunkX2: Int, var chunkY2: Int) {
 
@@ -13,11 +13,6 @@ class Hotspot (val hotspot: BuildHotspot, val chunkX: Int, val chunkY: Int, var 
 
     var decorationIndex = -1
 
-    /**
-     * Copy
-     *
-     * @return
-     */
     fun copy(): Hotspot {
         return Hotspot(hotspot, chunkX, chunkY, chunkX2, chunkY2)
     }

@@ -22,7 +22,6 @@ import java.util.stream.IntStream
  * @param stunTime The duration for which the target is stunned.
  * @param message An optional message to display upon successful pickpocketing.
  * @param table A WeightBasedTable that determines the probability of success based on weights.
- * @constructor Pickpockets
  */
 enum class Pickpockets(
     val ids: IntArray, // Array of IDs for the pickpocketing targets

@@ -16,10 +16,10 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Fritz glass blower dialogue.
+ * Fritz The Glassblower dialogue.
  */
 @Initializable
-class FritzGlassBlowerDialogue(player: Player? = null) : Dialogue(player) {
+class FritzTheGlassblowerDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC

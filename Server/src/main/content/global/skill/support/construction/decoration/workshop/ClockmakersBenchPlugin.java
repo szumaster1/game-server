@@ -18,10 +18,11 @@ import core.plugin.Initializable;
 import core.plugin.Plugin;
 
 /**
- * Crafting table plugin.
+ * Handles the clockmakers bench in the workshop.
+ * @author Hope
  */
 @Initializable
-public class CraftingTablePlugin extends OptionHandler {
+public class ClockmakersBenchPlugin extends OptionHandler {
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
@@ -91,7 +92,6 @@ public class CraftingTablePlugin extends OptionHandler {
     }
 
     private final class CraftingTableDialogue extends Dialogue {
-
 
         /**
          * The Decoration.

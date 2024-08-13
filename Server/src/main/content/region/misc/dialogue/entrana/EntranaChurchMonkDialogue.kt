@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Entrana church monk dialogue.
+ * Entrana Church Monk dialogue.
  */
 @Initializable
 class EntranaChurchMonkDialogue(player: Player? = null) : Dialogue(player) {

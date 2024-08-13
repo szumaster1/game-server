@@ -14,7 +14,6 @@ class SlayerFlags {
     var completedTasks = 0
     // Variable to track the current task streak
     var taskStreak = 0
-
     // List to hold removed tasks, initialized with a capacity of 4
     val removed: ArrayList<Tasks> = ArrayList(4)
 
@@ -33,7 +32,7 @@ class SlayerFlags {
     /**
      * Set master
      *
-     * @param master - the SlayerMaster to set
+     * @param master the SlayerMaster to set
      */
     fun setMaster(master: SlayerMaster) {
         // Update taskFlags to set the new master while preserving other flags
@@ -43,7 +42,7 @@ class SlayerFlags {
     /**
      * Get task
      *
-     * @return Tasks - the current task based on taskFlags
+     * @return Tasks the current task based on taskFlags
      */
     fun getTask(): Tasks {
         // Extract the task ordinal from taskFlags using bitwise operations
@@ -55,7 +54,7 @@ class SlayerFlags {
     /**
      * Set task
      *
-     * @param tasks - the Tasks to set
+     * @param tasks the Tasks to set
      */
     fun setTask(tasks: Tasks) {
         // Update taskFlags to set the new task while preserving other flags
@@ -65,7 +64,7 @@ class SlayerFlags {
     /**
      * Get task amount
      *
-     * @return Int - the amount of the current task
+     * @return the amount of the current task
      */
     fun getTaskAmount(): Int {
         // Extract the task amount from taskFlags using bitwise operations
@@ -75,7 +74,7 @@ class SlayerFlags {
     /**
      * Set task amount
      *
-     * @param amount - the amount of the task to set
+     * @param amount the amount of the task to set
      */
     fun setTaskAmount(amount: Int) {
         // Update taskFlags to set the new task amount while preserving other flags
@@ -85,7 +84,7 @@ class SlayerFlags {
     /**
      * Decrement task amount
      *
-     * @param amount - the amount to decrement from the current task amount
+     * @param amount the amount to decrement from the current task amount
      */
     fun decrementTaskAmount(amount: Int) {
         // Decrease the current task amount by the specified amount
@@ -171,7 +170,7 @@ class SlayerFlags {
     /**
      * Set points
      *
-     * @param amount - the amount of points to set
+     * @param amount the amount of points to set
      */
     fun setPoints(amount: Int) {
         // Update rewardFlags to set the new points while preserving other flags
@@ -191,7 +190,7 @@ class SlayerFlags {
     /**
      * Increment points
      *
-     * @param amount - the amount to increment the current points
+     * @param amount the amount to increment the current points
      */
     fun incrementPoints(amount: Int) {
         // Increase the current points by the specified amount

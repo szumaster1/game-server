@@ -13,7 +13,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * High priest entrana dialogue.
+ * High Priest on Entrana dialogue.
  */
 @Initializable
 class HighPriestEntranaDialogue(player: Player? = null) : Dialogue(player) {

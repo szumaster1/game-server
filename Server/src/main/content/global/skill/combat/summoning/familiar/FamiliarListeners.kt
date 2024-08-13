@@ -5,9 +5,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Familiar listeners
- *
- * @constructor Familiar listeners
+ * Familiar listeners.
  */
 class FamiliarListeners : InteractionListener {
 

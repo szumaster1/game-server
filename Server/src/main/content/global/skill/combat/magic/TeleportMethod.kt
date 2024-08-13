@@ -5,17 +5,17 @@ package content.global.skill.combat.magic
  */
 enum class TeleportMethod {
     /**
-     * Jewelry.
+     * Represents a teleportation method using jewelry items.
      */
     JEWELRY,
 
     /**
-     * Spell.
+     * Represents a teleportation method using magical spells.
      */
     SPELL,
 
     /**
-     * Npc.
+     * Represents a teleportation method involving NPC.
      */
     NPC
 }

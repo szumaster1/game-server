@@ -7,6 +7,7 @@ import core.api.consts.Sounds
 import core.game.node.item.Item
 import core.game.world.update.flag.context.Graphic
 
+
 /**
  * Charge orb data.
  *
@@ -20,13 +21,13 @@ import core.game.world.update.flag.context.Graphic
  * @constructor Creates a new ChargeOrbData instance.
  */
 enum class ChargeOrbData(
-    val obelisk: Int,
-    val requiredRunes: Array<Item>,
-    val level: Int,
-    val experience: Double,
-    val graphics: Graphic,
-    val sound: Int,
-    val chargedOrb: Int
+    val obelisk: Int, // The ID of the obelisk used for charging
+    val requiredRunes: Array<Item>, // Array of required runes for charging
+    val level: Int, // Required Magic level for charging
+    val experience: Double, // Experience gained from charging
+    val graphics: Graphic, // Graphic displayed during charging
+    val sound: Int, // Sound played during charging
+    val chargedOrb: Int // ID of the resulting charged orb
 ) {
     /**
      * Charge Water Orb.
@@ -97,10 +98,13 @@ enum class ChargeOrbData(
     );
 
     companion object {
+        // Map to associate obelisk IDs with ChargeOrbData
         val spellMap = HashMap<Int, ChargeOrbData>()
 
         init {
+            // Iterate through all ChargeOrbData values
             for (spell in ChargeOrbData.values()) {
+                // Map obelisk ID to corresponding ChargeOrbData
                 spellMap[spell.obelisk] = spell
             }
         }
