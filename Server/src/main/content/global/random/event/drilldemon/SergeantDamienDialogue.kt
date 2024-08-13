@@ -13,6 +13,7 @@ import core.tools.END_DIALOGUE
  * Sergeant damien dialogue.
  */
 class SergeantDamienDialogue(var isCorrect: Boolean = false, var eventStart: Boolean = false) : DialogueFile() {
+
     override fun handle(componentID: Int, buttonID: Int) {
         npc = NPC(NPCs.SERGEANT_DAMIEN_2790)
         val correctCounter = player!!.getAttribute(DrillDemonUtils.DD_CORRECT_COUNTER, 0)

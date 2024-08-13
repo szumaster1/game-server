@@ -42,7 +42,7 @@ class GraveListener : InteractionListener {
             return@on true
         }
 
-        // check coffin interface
+        // Check coffin interface
 
         on(GraveUtils.itemsCoffin, IntType.ITEM, "check") { player, _ ->
             openInterface(player, GraveUtils.COFFIN_INTERFACE)
@@ -50,7 +50,7 @@ class GraveListener : InteractionListener {
             return@on true
         }
 
-        // checking gravestone interface
+        // Checking gravestone interface
 
         on(GraveUtils.graveStones, IntType.SCENERY, "read") { player, _ ->
             openInterface(player, GraveUtils.GRAVESTONE_INTERFACE)
@@ -59,7 +59,7 @@ class GraveListener : InteractionListener {
             return@on true
         }
 
-        // take coffin item from grave
+        // Take coffin item from grave
 
         on(grave1, IntType.SCENERY, "take-coffin") { player, _ ->
             lock(player, 3)
@@ -106,7 +106,7 @@ class GraveListener : InteractionListener {
             return@on true
         }
 
-        // drop coffin item to grave
+        // Drop coffin item to grave
 
         onUseWith(SCENERY, GraveUtils.itemsCoffin, emptygrave1) { player, used, _ ->
             lock(player, 3)
