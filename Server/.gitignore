@@ -17,6 +17,7 @@
 /build/libs/
 /build/tmp/
 /out/
+/reports/
 
 bin/**
 data/eco/offer_dispatch_db.emp
