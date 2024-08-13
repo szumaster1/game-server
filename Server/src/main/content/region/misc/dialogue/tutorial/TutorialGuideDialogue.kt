@@ -15,13 +15,18 @@ import core.plugin.Initializable
 class TutorialGuideDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
-        sendDialogueOptions(player, "Are you sure?", "YES", "NO")
+        options("Skip tutorial island?", "Nevermind.")
         return true
     }
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
             0 -> when (buttonId) {
+                1 -> sendDialogueOptions(player, "Are you sure?", "YES", "NO").also { stage++ }
+                2 -> end()
+            }
+
+            1 -> when (buttonId) {
                 1 -> {
                     end()
                     setAttribute(player!!, "/save:tutorial:stage", 71)
