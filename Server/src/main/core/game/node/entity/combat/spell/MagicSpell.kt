@@ -1,153 +1,50 @@
-package core.game.node.entity.combat.spell;
+package core.game.node.entity.combat.spell
 
-import core.game.component.Component;
-import core.game.event.SpellCastEvent;
-import core.game.node.Node;
-import core.game.node.entity.Entity;
-import core.game.node.entity.combat.CombatSwingHandler;
-import core.game.node.entity.combat.equipment.WeaponInterface;
-import core.game.node.entity.player.Player;
-import core.game.node.entity.player.link.SpellBookManager.SpellBook;
-import core.game.node.entity.player.link.audio.Audio;
-import core.game.node.entity.skill.Skills;
-import core.game.node.item.Item;
-import core.game.world.GameWorld;
-import core.game.world.update.flag.context.Animation;
-import core.game.world.update.flag.context.Graphic;
-import core.plugin.Plugin;
-import core.tools.RandomFunction;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import static core.api.ContentAPIKt.playGlobalAudio;
+import core.api.playGlobalAudio
+import core.game.component.Component
+import core.game.event.SpellCastEvent
+import core.game.node.Node
+import core.game.node.entity.Entity
+import core.game.node.entity.combat.CombatSwingHandler
+import core.game.node.entity.combat.equipment.WeaponInterface
+import core.game.node.entity.combat.spell.MagicStaff.Companion.forId
+import core.game.node.entity.player.Player
+import core.game.node.entity.player.link.SpellBookManager.SpellBook
+import core.game.node.entity.player.link.audio.Audio
+import core.game.node.entity.skill.Skills
+import core.game.node.item.Item
+import core.game.world.GameWorld.ticks
+import core.game.world.update.flag.context.Animation
+import core.game.world.update.flag.context.Graphic
+import core.plugin.Plugin
+import core.tools.RandomFunction
+import java.util.function.Consumer
 
 /**
  * Magic spell.
+ *
+ * @param book       The book.
+ * @param level      The level.
+ * @param experience The experience.
+ * @param animation  The animation.
+ * @param graphic    The graphic.
+ * @param audio      The audio.
+ * @param castRunes  The runes.
  */
-public abstract class MagicSpell implements Plugin<SpellType> {
+abstract class MagicSpell @JvmOverloads constructor(
+    val book: SpellBook = SpellBook.MODERN, // Default spell book is MODERN
+    val level: Int = 0, // Default level is set to 0
+    @JvmField val experience: Double = 0.0, // Experience points for casting the spell
+    @JvmField protected val animation: Animation? = null, // Optional animation for the spell
+    @JvmField protected val graphic: Graphic? = null, // Optional graphic representation of the spell
+    @JvmField val audio: Audio? = null, // Optional audio effect for the spell
+    val castRunes: Array<Item?>? = arrayOfNulls(0) // Array of runes required to cast the spell, default is an empty array
+) : Plugin<SpellType?> { // This class implements the Plugin interface for SpellType
+    @JvmField
+    var spellId: Int = 0
 
-    /**
-     * The Book.
-     */
-    protected final SpellBook book;
-
-    /**
-     * The Level.
-     */
-    protected final int level;
-
-    /**
-     * The Animation.
-     */
-    protected final Animation animation;
-
-    /**
-     * The Graphic.
-     */
-    protected final Graphic graphic;
-
-    /**
-     * The Audio.
-     */
-    protected final Audio audio;
-
-    /**
-     * The Runes.
-     */
-    protected final Item[] runes;
-
-    /**
-     * The Spell id.
-     */
-    protected int spellId;
-
-    private final double experience;
-
-    /**
-     * Instantiates a new Magic spell.
-     */
-    public MagicSpell() {
-        this(SpellBook.MODERN, 0, 0, null, null, null, new Item[0]);
-    }
-
-    /**
-     * Instantiates a new Magic spell.
-     *
-     * @param book       the book
-     * @param level      the level
-     * @param experience the experience
-     * @param animation  the animation
-     * @param graphic    the graphic
-     * @param Audio      the audio
-     * @param runes      the runes
-     */
-    public MagicSpell(SpellBook book, int level, final double experience, Animation animation, Graphic graphic, Audio Audio, Item[] runes) {
-        this.book = book;
-        this.level = level;
-        this.experience = experience;
-        this.animation = animation;
-        this.graphic = graphic;
-        this.audio = Audio;
-        this.runes = runes;
-    }
-
-    /**
-     * Cast spell boolean.
-     *
-     * @param p       the p
-     * @param book    the book
-     * @param spellId the spell id
-     * @param target  the target
-     * @return the boolean
-     */
-    public static boolean castSpell(final Player p, SpellBook book, int spellId, Node target) {
-        if (p.getAttribute("magic-delay", 0) > GameWorld.getTicks()) {
-            return false;
-        }
-        MagicSpell spell = book.getSpell(spellId);
-        if (spell == null) {
-            return false;
-        }
-        if (spell.book != book || p.getSpellBookManager().getSpellBook() != book.getInterfaceId()) {
-            return false;
-        }
-        if (target.getLocation() != null && target != p) {
-            if (!target.getLocation().withinDistance(p.getLocation(), 15)) {
-                return false;
-            }
-            p.faceLocation(target.getLocation());
-        }
-        boolean combatSpell = spell instanceof CombatSpell;
-        if (!combatSpell && target instanceof Entity) {
-            p.faceTemporary((Entity) target, 1);
-        }
-        if (spell.cast(p, target)) {
-            if (book != SpellBook.LUNAR && p.getAttribute("spell:swap", 0) != 0) {
-                p.removeAttribute("spell:swap");
-                p.getSpellBookManager().setSpellBook(SpellBook.LUNAR);
-                p.getInterfaceManager().openTab(new Component(SpellBook.LUNAR.getInterfaceId()));
-            }
-            if (!combatSpell) {
-                p.getSkills().addExperience(Skills.MAGIC, spell.getExperience(p), true);
-            }
-            if (p.getAttribute("magic-delay", 0) <= GameWorld.getTicks()) {
-                p.setAttribute("magic-delay", GameWorld.getTicks() + spell.getDelay());
-            }
-            p.dispatch(new SpellCastEvent(book, spellId, target));
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * Gets delay.
-     *
-     * @return the delay
-     */
-    public int getDelay() {
-        return 3;
-    }
+    open val delay: Int
+        get() = 3
 
     /**
      * Cast boolean.
@@ -156,7 +53,7 @@ public abstract class MagicSpell implements Plugin<SpellType> {
      * @param target the target
      * @return the boolean
      */
-    public abstract boolean cast(Entity entity, Node target);
+    abstract fun cast(entity: Entity, target: Node): Boolean
 
     /**
      * Visualize.
@@ -164,10 +61,10 @@ public abstract class MagicSpell implements Plugin<SpellType> {
      * @param entity the entity
      * @param target the target
      */
-    public void visualize(Entity entity, Node target) {
-        entity.graphics(graphic);
-        entity.animate(animation);
-        playGlobalAudio(entity.getLocation(), audio.id, 20);
+    open fun visualize(entity: Entity, target: Node) {
+        entity.graphics(graphic)
+        entity.animate(animation)
+        playGlobalAudio(entity.location, audio!!.id, 20)
     }
 
     /**
@@ -177,78 +74,72 @@ public abstract class MagicSpell implements Plugin<SpellType> {
      * @param rune the rune
      * @return the boolean
      */
-    public boolean usingStaff(Player p, int rune) {
-        Item weapon = p.getEquipment().get(3);
-        if (weapon == null) {
-            return false;
-        }
-        MagicStaff staff = MagicStaff.forId(rune);
-        if (staff == null) {
-            return false;
-        }
-        int[] staves = staff.getStaves();
-        for (int id : staves) {
-            if (weapon.getId() == id) {
-                return true;
+    fun usingStaff(p: Player, rune: Int): Boolean {
+        val weapon = p.equipment[3] ?: return false
+        val staff = forId(rune) ?: return false
+        val staves = staff.staves
+        for (id in staves) {
+            if (weapon.id == id) {
+                return true
             }
         }
-        return false;
+        return false
     }
 
     /**
-     * Meets requirements boolean.
+     * Checks if the given entity meets the specified requirements.
      *
-     * @param caster  the caster
-     * @param message the message
-     * @param remove  the remove
-     * @return the boolean
+     * @param caster  the entity that is casting the action
+     * @param message the boolean flag indicating if a message should be processed
+     * @param remove  the boolean flag indicating if an item should be removed
+     * @return true if the requirements are met, false otherwise
      */
-    public boolean meetsRequirements(Entity caster, boolean message, boolean remove) {
+    open fun meetsRequirements(caster: Entity, message: Boolean, remove: Boolean): Boolean {
         if (!checkLevelRequirement(caster, message)) {
-            return false;
+            return false
         }
-        if (caster instanceof Player) {
-            CombatSpell spell = ((Player) caster).getProperties().getAutocastSpell();
+        if (caster is Player) {
+            val spell = caster.properties.autocastSpell
             if (spell != null) {
-                boolean slayer = ((Player) caster).getEquipment().get(3).getName().contains("layer's staff");
-                boolean voidKnight = ((Player) caster).getEquipment().get(3).getName().contains("knight mace");
-                if ((spell.getSpellId() == 31 && !slayer) || (spell.getSpellId() == 42 && !voidKnight)) {
-                    ((Player) caster).getPacketDispatch().sendMessage("You need the proper staff to autocast this spell.");
-                    return false;
+                val slayer = caster.equipment[3].name.contains("layer's staff")
+                val voidKnight = caster.equipment[3].name.contains("knight mace")
+                if ((spell.spellId == 31 && !slayer) || (spell.spellId == 42 && !voidKnight)) {
+                    caster.packetDispatch.sendMessage("You need the proper staff to autocast this spell.")
+                    return false
                 }
             }
         }
-        if ((spellId == 12 || spellId == 30 || spellId == 56) && caster instanceof Player) {
-            if (caster.getAttribute("entangleDelay", 0) > GameWorld.getTicks()) {
-                caster.asPlayer().sendMessage("You have recently cast a binding spell.");
-                return false;
+        if ((spellId == 12 || spellId == 30 || spellId == 56) && caster is Player) {
+            if (caster.getAttribute("entangleDelay", 0) > ticks) {
+                caster.asPlayer().sendMessage("You have recently cast a binding spell.")
+                return false
             }
         }
-        if (caster instanceof Player) {
-            Player p = (Player) caster;
-            if (p.getEquipment().get(3) != null && p.getEquipment().get(3).getId() == 14726) {
+        if (caster is Player) {
+            val p = caster
+            if (p.equipment[3] != null && p.equipment[3].id == 14726) {
                 if (RandomFunction.getRandom(100) < 13) {
-                    p.sendMessage("Your staff negates the rune requirement of the spell.");
-                    return true;
+                    p.sendMessage("Your staff negates the rune requirement of the spell.")
+                    return true
                 }
             }
-            if (runes == null) {
-                return true;
+            if (castRunes == null) {
+                return true
             }
-            List<Item> toRemove = new ArrayList<>(20);
-            for (Item item : runes) {
+            val toRemove: MutableList<Item?> = ArrayList(20)
+            for (item in castRunes) {
                 if (!hasRune(p, item, toRemove, message)) {
-                    return false;
+                    return false
                 }
             }
             if (remove) {
-                toRemove.forEach(i -> {
-                    p.getInventory().remove(i);
-                });
+                toRemove.forEach(Consumer { i: Item? ->
+                    p.inventory.remove(i)
+                })
             }
-            return true;
+            return true
         }
-        return true;
+        return true
     }
 
     /**
@@ -258,58 +149,62 @@ public abstract class MagicSpell implements Plugin<SpellType> {
      * @param message the message
      * @return the boolean
      */
-    public boolean checkLevelRequirement(Entity caster, boolean message) {
-        if (caster instanceof Player && caster.getSkills().getLevel(Skills.MAGIC, this instanceof CombatSpell ? true : false) < levelRequirement()) {
-            if (message && caster instanceof Player) {
-                ((Player) caster).getPacketDispatch().sendMessage("You need a Magic level of " + levelRequirement() + " to cast this spell.");
+    fun checkLevelRequirement(caster: Entity, message: Boolean): Boolean {
+        if (caster is Player && caster.getSkills()
+                .getLevel(Skills.MAGIC, if (this is CombatSpell) true else false) < levelRequirement()
+        ) {
+            if (message && caster is Player) {
+                caster.packetDispatch.sendMessage("You need a Magic level of " + levelRequirement() + " to cast this spell.")
             }
-            return false;
+            return false
         }
-        return true;
+        return true
     }
 
     /**
-     * Has rune boolean.
+     * Checks if a player has a specific rune.
      *
-     * @param p        the p
-     * @param item     the item
-     * @param toRemove the to remove
-     * @param message  the message
-     * @return the boolean
+     * @param p        the player whose runes are being checked
+     * @param item     the item associated with the rune
+     * @param toRemove the list of items to be removed if the rune is found
+     * @param message  indicates whether to display a message
+     * @return true if the player has the rune, false otherwise
      */
-    public boolean hasRune(Player p, Item item, List<Item> toRemove, boolean message) {
-        if (!usingStaff(p, item.getId())) {
-            boolean hasBaseRune = p.getInventory().contains(item.getId(), item.getAmount());
+    fun hasRune(p: Player, item: Item?, toRemove: MutableList<Item?>, message: Boolean): Boolean {
+        if (!usingStaff(p, item!!.id)) {
+            val hasBaseRune = p.inventory.contains(item.id, item.amount)
             if (!hasBaseRune) {
-                int baseAmt = p.getInventory().getAmount(item.getId());
+                val baseAmt = p.inventory.getAmount(item.id)
                 if (baseAmt > 0) {
-                    toRemove.add(new Item(item.getId(), p.getInventory().getAmount(item.getId())));
+                    toRemove.add(Item(item.id, p.inventory.getAmount(item.id)))
                 }
-                int amtRemaining = item.getAmount() - baseAmt;
-                List<CombinationRune> possibleComboRunes = CombinationRune.eligibleFor(Runes.forId(item.getId()));
-                for (CombinationRune r : possibleComboRunes) {
-                    if (p.getInventory().containsItem(new Item(r.id)) && amtRemaining > 0) {
-                        int amt = p.getInventory().getAmount(r.id);
+                var amtRemaining = item.amount - baseAmt
+                val possibleComboRunes = CombinationRune.eligibleFor(
+                    Runes.forId(item.id)!!
+                )
+                for (r in possibleComboRunes) {
+                    if (p.inventory.containsItem(Item(r.id)) && amtRemaining > 0) {
+                        val amt = p.inventory.getAmount(r.id)
                         if (amtRemaining < amt) {
-                            toRemove.add(new Item(r.id, amtRemaining));
-                            amtRemaining = 0;
-                            continue;
+                            toRemove.add(Item(r.id, amtRemaining))
+                            amtRemaining = 0
+                            continue
                         }
-                        amtRemaining -= p.getInventory().getAmount(r.id);
-                        toRemove.add(new Item(r.id, p.getInventory().getAmount(r.id)));
+                        amtRemaining -= p.inventory.getAmount(r.id)
+                        toRemove.add(Item(r.id, p.inventory.getAmount(r.id)))
                     }
                 }
                 if (amtRemaining <= 0) {
-                    return true;
+                    return true
                 } else {
-                    p.getPacketDispatch().sendMessage("You don't have enough " + item.getName() + "s to cast this spell.");
-                    return false;
+                    p.packetDispatch.sendMessage("You don't have enough " + item.name + "s to cast this spell.")
+                    return false
                 }
             }
-            toRemove.add(item);
-            return true;
+            toRemove.add(item)
+            return true
         }
-        return true;
+        return true
     }
 
     /**
@@ -318,19 +213,19 @@ public abstract class MagicSpell implements Plugin<SpellType> {
      * @param entity the entity
      * @param hit    the hit
      */
-    public void addExperience(Entity entity, int hit) {
-        entity.getSkills().addExperience(Skills.MAGIC, experience, true);
-        if (!(entity instanceof Player) || hit < 1) {
-            return;
+    open fun addExperience(entity: Entity, hit: Int) {
+        entity.getSkills().addExperience(Skills.MAGIC, experience, true)
+        if (entity !is Player || hit < 1) {
+            return
         }
-        entity.getSkills().addExperience(Skills.HITPOINTS, hit * 1.33, true);
-        if (entity.getProperties().getAttackStyle().getStyle() == WeaponInterface.STYLE_DEFENSIVE_CAST) {
-            double baseXpReward = (CombatSwingHandler.EXPERIENCE_MOD * hit) / 2.0;
-            entity.getSkills().addExperience(Skills.DEFENCE, baseXpReward, true);
-            entity.getSkills().addExperience(Skills.MAGIC, baseXpReward, true);
-            return;
+        entity.getSkills().addExperience(Skills.HITPOINTS, hit * 1.33, true)
+        if (entity.getProperties().attackStyle.style == WeaponInterface.STYLE_DEFENSIVE_CAST) {
+            val baseXpReward = (CombatSwingHandler.EXPERIENCE_MOD * hit) / 2.0
+            entity.getSkills().addExperience(Skills.DEFENCE, baseXpReward, true)
+            entity.getSkills().addExperience(Skills.MAGIC, baseXpReward, true)
+            return
         }
-        entity.getSkills().addExperience(Skills.MAGIC, hit * (CombatSwingHandler.EXPERIENCE_MOD), true);
+        entity.getSkills().addExperience(Skills.MAGIC, hit * (CombatSwingHandler.EXPERIENCE_MOD), true)
     }
 
     /**
@@ -338,67 +233,12 @@ public abstract class MagicSpell implements Plugin<SpellType> {
      *
      * @return the int
      */
-    public int levelRequirement() {
-        return level;
+    fun levelRequirement(): Int {
+        return level
     }
 
-    @Override
-    public Object fireEvent(String identifier, Object... args) {
-        return null;
-    }
-
-    /**
-     * Gets audio.
-     *
-     * @return the audio
-     */
-    public Audio getAudio() {
-        return audio;
-    }
-
-    /**
-     * Gets book.
-     *
-     * @return the book
-     */
-    public SpellBook getBook() {
-        return book;
-    }
-
-    /**
-     * Get cast runes item [ ].
-     *
-     * @return the item [ ]
-     */
-    public Item[] getCastRunes() {
-        return runes;
-    }
-
-    /**
-     * Gets spell id.
-     *
-     * @return the spell id
-     */
-    public int getSpellId() {
-        return spellId;
-    }
-
-    /**
-     * Sets spell id.
-     *
-     * @param spellId the spell id
-     */
-    public void setSpellId(int spellId) {
-        this.spellId = spellId;
-    }
-
-    /**
-     * Gets experience.
-     *
-     * @return the experience
-     */
-    public double getExperience() {
-        return experience;
+    override fun fireEvent(identifier: String, vararg args: Any): Any? {
+        return null
     }
 
     /**
@@ -407,16 +247,54 @@ public abstract class MagicSpell implements Plugin<SpellType> {
      * @param player the player
      * @return the experience
      */
-    public double getExperience(Player player) {
-        return experience;
+    open fun getExperience(player: Player): Double {
+        return experience
     }
 
-    /**
-     * Gets level.
-     *
-     * @return the level
-     */
-    public int getLevel() {
-        return level;
+    companion object {
+        /**
+         * Cast spell boolean.
+         *
+         * @param p       the player who is casting the spell
+         * @param book    the spell book containing the spells
+         * @param spellId the unique identifier for the spell being cast
+         * @param target  the target node that the spell will affect
+         * @return true if the spell was successfully cast, false otherwise
+         */
+        fun castSpell(p: Player, book: SpellBook, spellId: Int, target: Node): Boolean {
+            if (p.getAttribute("magic-delay", 0) > ticks) {
+                return false
+            }
+            val spell = book.getSpell(spellId) ?: return false
+            if (spell.book != book || p.spellBookManager.spellBook != book.interfaceId) {
+                return false
+            }
+            if (target.location != null && target !== p) {
+                if (!target.location.withinDistance(p.location, 15)) {
+                    return false
+                }
+                p.faceLocation(target.location)
+            }
+            val combatSpell = spell is CombatSpell
+            if (!combatSpell && target is Entity) {
+                p.faceTemporary(target, 1)
+            }
+            if (spell.cast(p, target)) {
+                if (book != SpellBook.LUNAR && p.getAttribute("spell:swap", 0) != 0) {
+                    p.removeAttribute("spell:swap")
+                    p.spellBookManager.setSpellBook(SpellBook.LUNAR)
+                    p.interfaceManager.openTab(Component(SpellBook.LUNAR.interfaceId))
+                }
+                if (!combatSpell) {
+                    p.getSkills().addExperience(Skills.MAGIC, spell.getExperience(p), true)
+                }
+                if (p.getAttribute("magic-delay", 0) <= ticks) {
+                    p.setAttribute("magic-delay", ticks + spell.delay)
+                }
+                p.dispatch(SpellCastEvent(book, spellId, target))
+                return true
+            }
+            return false
+        }
     }
 }

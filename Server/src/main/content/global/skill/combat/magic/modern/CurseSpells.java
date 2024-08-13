@@ -90,7 +90,7 @@ public final class CurseSpells extends CombatSpell {
 
     @Override
     public void addExperience(Entity entity, int hit) {
-        entity.getSkills().addExperience(Skills.MAGIC, getExperience());
+        entity.getSkills().addExperience(Skills.MAGIC, experience);
     }
 
     @Override

@@ -9,7 +9,7 @@ import core.api.consts.Items
  * @param types Types of runes that can be combined to create this rune
  * @constructor Combination rune
  */
-enum class CombinationRune(@JvmField var id: Int, vararg var types: Runes) {
+enum class CombinationRune(var id: Int, vararg var types: Runes) {
     /**
      * Lava Rune
      *

@@ -25,7 +25,7 @@ import kotlin.math.ceil
 import kotlin.math.floor
 
 /**
- * Range swing handler
+ * Range swing handler.
  *
  * This class is responsible for managing the behavior of a range swing component.
  *

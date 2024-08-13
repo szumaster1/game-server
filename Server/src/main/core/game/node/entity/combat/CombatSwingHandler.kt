@@ -432,7 +432,8 @@ abstract class CombatSwingHandler(var type: CombatStyle?) {
         entity.sendImpact(state)
         victim.checkImpact(state)
         /*
-            Prevents lumbridge dummies from dying (true to how rs3 / 2009scape in 2009 does it)
+         * Prevents lumbridge dummies from dying (true to how rs3 / 2009scape in 2009
+         * does it)
          */
         if (victim.id == 4474 && type == CombatStyle.MAGIC || victim.id == 7891 && type == CombatStyle.MELEE) {
             EXPERIENCE_MOD = 0.1
@@ -448,7 +449,8 @@ abstract class CombatSwingHandler(var type: CombatStyle?) {
             EXPERIENCE_MOD = 0.01
         }
         /*
-            Recursively adjustBattleState targets so that multi-target attacks have protection prayers applied.
+         * Recursively adjustBattleState targets so that multi-target attacks
+         * have protection prayers applied.
          */
         if (state.targets != null && state.targets.isNotEmpty()) {
             if (!(state.targets.size == 1 && state.targets[0] == state)) {
@@ -628,11 +630,7 @@ abstract class CombatSwingHandler(var type: CombatStyle?) {
             specialHandlers = HashMap()
         }
         if (specialHandlers!!.containsKey(itemId)) {
-            log(
-                this::class.java,
-                Log.ERR,
-                "Already contained special attack handler for item " + itemId + " - [old=" + specialHandlers!![itemId]!!::class.java.simpleName + ", new=" + handler.javaClass.simpleName + "]."
-            )
+            log(this::class.java, Log.ERR, "Already contained special attack handler for item " + itemId + " - [old=" + specialHandlers!![itemId]!!::class.java.simpleName + ", new=" + handler.javaClass.simpleName + "].")
             return false
         }
         return specialHandlers!!.put(itemId, handler) == null

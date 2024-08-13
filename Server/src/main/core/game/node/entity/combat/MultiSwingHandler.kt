@@ -6,7 +6,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.RandomFunction
 
 /**
- * Multi swing handler
+ * Multi swing handler.
  *
  * @constructor
  *

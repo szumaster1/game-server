@@ -157,7 +157,6 @@ enum class Runes(val id: Int) {
 
     companion object {
 
-        @JvmStatic
         fun forId(id: Int): Runes? {
             for (rune in values()) { // Iterates through all rune values
                 if (rune.id == id) { // Checks if the current rune's id matches the provided id

@@ -18,7 +18,7 @@ import kotlin.math.ceil
 import kotlin.math.floor
 
 /**
- * Melee swing handler
+ * Melee swing handler.
  *
  * @constructor
  *

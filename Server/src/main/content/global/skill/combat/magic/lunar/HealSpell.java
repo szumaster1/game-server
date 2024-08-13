@@ -61,7 +61,7 @@ public final class HealSpell extends MagicSpell {
     @Override
     public boolean cast(Entity entity, Node target) {
         final Player player = (Player) entity;
-        boolean group = getSpellId() == 30;
+        boolean group = spellId == 30;
         int eleven = (int) (player.getSkills().getStaticLevel(Skills.HITPOINTS) * 0.11);
         if (player.getSkills().getLifepoints() < eleven) {
             player.sendMessage("You need at least 11 percent of your original hitpoints in order to do this.");

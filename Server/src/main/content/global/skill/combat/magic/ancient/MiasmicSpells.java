@@ -74,7 +74,7 @@ public final class MiasmicSpells extends CombatSpell {
     @Override
     public void fireEffect(Entity entity, Entity victim, BattleState state) {
         if (!hasTimerActive(victim, "miasmic:immunity")) {
-            registerTimer(victim, spawnTimer("miasmic", (getSpellId() - 15) * 20));
+            registerTimer(victim, spawnTimer("miasmic", (spellId - 15) * 20));
         }
     }
 

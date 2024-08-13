@@ -19,6 +19,7 @@ object SpellUtils {
      * @param rune The rune ID.
      * @return True if the player is using the specified staff, false otherwise.
      */
+    @JvmStatic
     fun usingStaff(p: Player, rune: Int): Boolean {
         val weapon = p.equipment[3] ?: return false
         val staff = MagicStaff.forId(rune) ?: return false
@@ -38,6 +39,7 @@ object SpellUtils {
      * @param rune The rune item.
      * @return True if the player has the specified rune, false otherwise.
      */
+    @JvmStatic
     fun hasRune(p: Player, rune: Item): Boolean {
         val removeItems = p.getAttribute("spell:runes", ArrayList<Item>())
         if (usingStaff(p, rune.id)) return true
@@ -48,17 +50,19 @@ object SpellUtils {
 
         val baseAmt = p.inventory.getAmount(rune.id)
         var amtRemaining = rune.amount - baseAmt
-        val possibleComboRunes = CombinationRune.eligibleFor(Runes.forId(rune.id)!!)
-        for (r in possibleComboRunes) {
-            if (p.inventory.containsItem(Item(r.id)) && amtRemaining > 0) {
-                val amt = p.inventory.getAmount(r.id)
-                if (amtRemaining <= amt) {
-                    removeItems.add(Item(r.id, amtRemaining))
-                    amtRemaining = 0
-                    break
+        val possibleComboRunes = Runes.forId(rune.id)?.let { CombinationRune.eligibleFor(it) }
+        if (possibleComboRunes != null) {
+            for (r in possibleComboRunes) {
+                if (p.inventory.containsItem(Item(r.id)) && amtRemaining > 0) {
+                    val amt = p.inventory.getAmount(r.id)
+                    if (amtRemaining <= amt) {
+                        removeItems.add(Item(r.id, amtRemaining))
+                        amtRemaining = 0
+                        break
+                    }
+                    removeItems.add(Item(r.id, p.inventory.getAmount(r.id)))
+                    amtRemaining -= p.inventory.getAmount(r.id)
                 }
-                removeItems.add(Item(r.id, p.inventory.getAmount(r.id)))
-                amtRemaining -= p.inventory.getAmount(r.id)
             }
         }
         p.setAttribute("spell:runes", removeItems)
@@ -74,6 +78,7 @@ object SpellUtils {
      * @param message  Whether to display a message.
      * @return True if the player has the specified rune, false otherwise.
      */
+    @JvmStatic
     fun hasRune(p: Player, item: Item, toRemove: MutableList<Item?>, message: Boolean): Boolean {
         if (!usingStaff(p, item.id)) {
             val hasBaseRune = p.inventory.contains(item.id, item.amount)

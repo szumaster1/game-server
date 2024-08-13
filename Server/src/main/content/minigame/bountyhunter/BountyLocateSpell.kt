@@ -89,7 +89,7 @@ class BountyLocateSpell
         return false
     }
 
-    override fun newInstance(arg: SpellType?): Plugin<SpellType> {
+    override fun newInstance(arg: SpellType?): Plugin<SpellType?> {
         SpellBookManager.SpellBook.MODERN.register(60, this)
         return this
     }

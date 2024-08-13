@@ -160,7 +160,7 @@ public abstract class CombatSpell extends MagicSpell {
         }
         if (entity.getProperties().getAutocastSpell() == this && (entity instanceof Player || animation == null)) {
             Player p = entity.asPlayer();
-            if (p.getProperties().getAutocastSpell().getSpellId() == 31) {
+            if (p.getProperties().getAutocastSpell().spellId == 31) {
                 entity.animate(new Animation(1576));
             } else {
                 entity.animate(AUTOCAST_ANIMATION);

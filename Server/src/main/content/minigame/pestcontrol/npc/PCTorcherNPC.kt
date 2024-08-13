@@ -117,7 +117,7 @@ internal class TorcherSpell : CombatSpell(
         return entity.properties.currentCombatLevel / 7
     }
 
-    override fun newInstance(arg: SpellType): Plugin<SpellType> {
+    override fun newInstance(arg: SpellType?): Plugin<SpellType?> {
         return this
     }
 }

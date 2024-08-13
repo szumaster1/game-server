@@ -30,7 +30,7 @@ import core.plugin.Plugin
  */
 class TelekineticGrabSpell : MagicSpell(SpellBookManager.SpellBook.MODERN, 33, 43.0, ANIMATION, START_GRAPHIC, SOUND, arrayOf(Item(Runes.AIR_RUNE.id), Item(Runes.LAW_RUNE.id, 1))) {
 
-    override fun newInstance(arg: SpellType?): Plugin<SpellType> {
+    override fun newInstance(arg: SpellType?): Plugin<SpellType?> {
         SpellBookManager.SpellBook.MODERN.register(SPELL_ID, this)
         return this
     }

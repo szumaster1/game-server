@@ -419,7 +419,7 @@ object PacketProcessor {
         if (book != "none")
             SpellListeners.run(child, type, book, player, target)
         when (iface) {
-            430,192,193 -> MagicSpell.castSpell(player, SpellBookManager.SpellBook.forInterface(iface), child, target)
+            430,192,193 -> MagicSpell.castSpell(player, SpellBookManager.SpellBook.forInterface(iface)!!, child, target)
             662 -> {
                 if (player.familiarManager.hasFamiliar())
                     player.familiarManager.familiar.executeSpecialMove(FamiliarSpecial(target, iface, child, target as? Item))

@@ -331,7 +331,7 @@ public final class WeaponInterface extends Component {
         int configStart = modern ? 45 : 13;
         if (current != null) {
             for (int index = 0; index < data.length; index++) {
-                if (data[index] == current.getSpellId()) {
+                if (data[index] == current.spellId) {
                     player.getPacketDispatch().sendInterfaceConfig(Components.WEAPON_STAFF_SEL_90, configStart + (2 * index), true);
                     player.getPacketDispatch().sendInterfaceConfig(Components.WEAPON_STAFF_SEL_90, 100 + configStart + (2 * index), true);
                 }

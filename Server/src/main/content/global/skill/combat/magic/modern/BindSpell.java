@@ -61,9 +61,9 @@ public final class BindSpell extends CombatSpell {
         if (getType() == SpellType.BIND) {
             state.setEstimatedHit(-2);
         }
-        if (state.getSpell().getSpellId() == 30) {
+        if (state.getSpell().spellId == 30) {
             tick = 17;
-        } else if (state.getSpell().getSpellId() == 56) {
+        } else if (state.getSpell().spellId == 56) {
             tick = 25;
         }
         if (!victim.getLocks().isMovementLocked() && victim instanceof Player) {

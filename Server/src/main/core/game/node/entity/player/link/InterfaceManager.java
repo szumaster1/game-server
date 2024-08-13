@@ -386,7 +386,7 @@ public final class InterfaceManager {
         openTab(13, new Component(Components.MUSIC_V3_187)); // Music
         openTab(14, new Component(Components.LOGOUT_182)); // LogoutPacket
         if (player.getProperties().getAutocastSpell() != null) {
-            inter.selectAutoSpell(inter.getAutospellId(player.getProperties().getAutocastSpell().getSpellId()), true);
+            inter.selectAutoSpell(inter.getAutospellId(player.getProperties().getAutocastSpell().spellId), true);
         }
     }
 

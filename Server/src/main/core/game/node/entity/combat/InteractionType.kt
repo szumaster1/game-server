@@ -1,9 +1,7 @@
 package core.game.node.entity.combat
 
 /**
- * Interaction type
- *
- * @constructor Interaction type
+ * Interaction type.
  */
 enum class InteractionType {
     /**

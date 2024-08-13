@@ -49,7 +49,7 @@ public final class AncientTeleportSpells extends MagicSpell {
             entity.asPlayer().sendMessage("A magical force has stopped you from teleporting.");
             return false;
         }
-        if (entity.getTeleporter().send(location.transform(0, RandomFunction.random(3), 0), getSpellId() == 28 ? TeleportType.HOME : TeleportType.ANCIENT)) {
+        if (entity.getTeleporter().send(location.transform(0, RandomFunction.random(3), 0), spellId == 28 ? TeleportType.HOME : TeleportType.ANCIENT)) {
             if (!super.meetsRequirements(entity, true, true)) {
                 entity.getTeleporter().getCurrentTeleport().stop();
                 return false;
@@ -58,7 +58,7 @@ public final class AncientTeleportSpells extends MagicSpell {
             if (entity.isPlayer() && location.equals(Location.create(3087, 3495, 0))) {
                 entity.asPlayer().getAchievementDiaryManager().finishTask(entity.asPlayer(), DiaryType.VARROCK, 2, 11);
             }
-            entity.setAttribute("teleport:items", super.runes);
+            entity.setAttribute("teleport:items", super.getCastRunes());
             entity.setAttribute("magic-delay", GameWorld.getTicks() + 5);
             return true;
         }
@@ -67,23 +67,23 @@ public final class AncientTeleportSpells extends MagicSpell {
 
     @Override
     public Plugin<SpellType> newInstance(SpellType arg) throws Throwable {
-        // home
+        // Home
         SpellBook.ANCIENT.register(28, new AncientTeleportSpells(0, 0, Location.create(3087, 3495, 0)));
-        // paddewwa teleport
+        // Paddewwa teleport
         SpellBook.ANCIENT.register(20, new AncientTeleportSpells(54, 64, Location.create(3098, 9882, 0), new Item(Runes.LAW_RUNE.getId(), 2), new Item(Runes.FIRE_RUNE.getId(), 1), new Item(Runes.AIR_RUNE.getId(), 1)));
-        // sennisten teleport
+        // Sennisten teleport
         SpellBook.ANCIENT.register(21, new AncientTeleportSpells(60, 70, Location.create(3320, 3338, 0), new Item(Runes.SOUL_RUNE.getId(), 1), new Item(Runes.LAW_RUNE.getId(), 2)));
-        // karyll teleport
+        // Karyll teleport
         SpellBook.ANCIENT.register(22, new AncientTeleportSpells(66, 76, Location.create(3493, 3472, 0), new Item(Runes.LAW_RUNE.getId(), 2), new Item(Runes.BLOOD_RUNE.getId(), 1)));
-        // lassar teleport
+        // Lassar teleport
         SpellBook.ANCIENT.register(23, new AncientTeleportSpells(72, 82, Location.create(3003, 3470, 0), new Item(Runes.LAW_RUNE.getId(), 2), new Item(Runes.WATER_RUNE.getId(), 4)));
-        // dareeyak teleport
+        // Dareeyak teleport
         SpellBook.ANCIENT.register(24, new AncientTeleportSpells(78, 88, Location.create(2966, 3696, 0), new Item(Runes.LAW_RUNE.getId(), 2), new Item(Runes.FIRE_RUNE.getId(), 3), new Item(Runes.AIR_RUNE.getId(), 2)));
-        // carralangar teleport
+        // Carralangar teleport
         SpellBook.ANCIENT.register(25, new AncientTeleportSpells(84, 82, Location.create(3163, 3664, 0), new Item(Runes.SOUL_RUNE.getId(), 2), new Item(Runes.LAW_RUNE.getId(), 2)));
-        // annakarl teleport
+        // Annakarl teleport
         SpellBook.ANCIENT.register(26, new AncientTeleportSpells(90, 100, Location.create(3287, 3883, 0), new Item(Runes.BLOOD_RUNE.getId(), 2), new Item(Runes.LAW_RUNE.getId(), 2)));
-        // ghorrock teleport
+        // Ghorrock teleport
         SpellBook.ANCIENT.register(27, new AncientTeleportSpells(96, 106, Location.create(2972, 3873, 0), new Item(Runes.LAW_RUNE.getId(), 2), new Item(Runes.WATER_RUNE.getId(), 8)));
         return this;
     }
