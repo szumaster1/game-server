@@ -14,9 +14,10 @@ import core.game.node.entity.player.Player
  */
 class BirdBook : InteractionListener {
 
-    // Find as part of the Eagles' Peak quest.
-    // It is written by William Oddity,
-    // an expert on hunting.
+    /*
+     * Find as part of the Eagles' Peak quest.
+     * It is written by William Oddity, an expert on hunting.
+     */
 
     companion object {
         private val TITLE = "William Oddity's Guide to the Avian"

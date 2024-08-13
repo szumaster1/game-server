@@ -15,12 +15,13 @@ import core.tools.DARK_RED
  */
 class BurntDiary : InteractionListener {
 
-    // Quest item [Royal Trouble quest].
-    // Player find the pages of the book in the remains of fires in the,
-    // tunnels beneath Miscellania and Etceteria during the quest.
-    // Players put them together to make this book.
-    // The item's examine text also seems to change to reflect
-    // how many of the five pages the player has found so far.
+    /*
+     * Royal Trouble quest Player find the pages of
+     * the book in the remains of fires in the, tunnels beneath Miscellania
+     * and Etceteria during the quest. Players put them together to make this book.
+     * The item's examine text also seems to change to reflect how many of the five
+     * pages the player has found so far.
+     */
 
     companion object {
         private val TITLE = "Armod's Burnt Diary"

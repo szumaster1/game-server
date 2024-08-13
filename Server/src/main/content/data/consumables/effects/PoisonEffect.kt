@@ -9,7 +9,7 @@ import core.game.node.entity.player.Player
  * Poison effect.
  *
  * @property amount Represents the intensity of the poison effect.
- * @constructor Initializes a PoisonEffect object with a specified amount of poison.
+ * @constructor Represents a PoisonEffect object with a specified amount of poison.
  */
 class PoisonEffect(var amount: Int) : ConsumableEffect() {
 

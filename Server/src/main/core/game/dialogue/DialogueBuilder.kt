@@ -138,7 +138,7 @@ class NpcNode(val expression: FacialExpression, val values: Array<String>) : Dia
  *
  * @property item The item value.
  * @property values The array of string values.
- * @constructor Initializes an ItemNode object with the given item and values.
+ * @constructor Represents an ItemNode object with the given item and values.
  */
 class ItemNode(val item: Int, val values: Array<String>) : DialogueNode {
     override fun toString(): String {
@@ -156,7 +156,7 @@ class ItemNode(val item: Int, val values: Array<String>) : DialogueNode {
  *
  * @property expression The facial expression.
  * @property value The string value.
- * @constructor Initializes a PlayerLNode object with the given expression and value.
+ * @constructor Represents a PlayerLNode object with the given expression and value.
  */
 class PlayerLNode(val expression: FacialExpression, val value: String) : DialogueNode {
     override fun toString(): String {
@@ -174,7 +174,7 @@ class PlayerLNode(val expression: FacialExpression, val value: String) : Dialogu
  *
  * @property expression The facial expression.
  * @property values The array of string values.
- * @constructor Initializes a PlayerNode object with the given expression and values.
+ * @constructor Represents a PlayerNode object with the given expression and values.
  */
 class PlayerNode(val expression: FacialExpression, val values: Array<String>) : DialogueNode {
     override fun toString(): String {
@@ -191,7 +191,7 @@ class PlayerNode(val expression: FacialExpression, val values: Array<String>) : 
  * Between stage node.
  *
  * @property f The callback function.
- * @constructor Initializes a BetweenStageNode object with the given callback function.
+ * @constructor Represents a BetweenStageNode object with the given callback function.
  */
 class BetweenStageNode(val f: (DialogueFile, Player, Int, Int) -> Unit) : DialogueNode {
     override fun toString(): String {
@@ -210,7 +210,7 @@ class BetweenStageNode(val f: (DialogueFile, Player, Int, Int) -> Unit) : Dialog
  * Manual stage node.
  *
  * @property f The callback function.
- * @constructor Initializes a ManualStageNode object with the given callback function.
+ * @constructor Represents a ManualStageNode object with the given callback function.
  */
 class ManualStageNode(val f: (DialogueFile, Player, Int, Int) -> Unit) : DialogueNode {
     override fun toString(): String {
@@ -227,7 +227,7 @@ class ManualStageNode(val f: (DialogueFile, Player, Int, Int) -> Unit) : Dialogu
  * Manual stage with goto node.
  *
  * @property f The callback function.
- * @constructor Initializes a ManualStageWithGotoNode object with the given callback function and goto function.
+ * @constructor Represents a ManualStageWithGotoNode object with the given callback function and goto function.
  *
  * @param g The goto function.
  */
@@ -247,7 +247,7 @@ class ManualStageWithGotoNode(val f: (DialogueFile, Player, Int, Int, Int) -> In
  * @property dbf The DialogueBuilderFile object.
  * @property clauseIndex The index of the clause.
  * @property targetStage The target stage.
- * @constructor Initializes a PlaceholderNode object with the given DialogueBuilderFile, clause index, and target stage.
+ * @constructor Represents a PlaceholderNode object with the given DialogueBuilderFile, clause index, and target stage.
  */
 class PlaceholderNode(val dbf: DialogueBuilderFile, val clauseIndex: Int, var targetStage: Int) : DialogueNode {
     override fun toString(): String {
@@ -275,7 +275,7 @@ class PlaceholderNode(val dbf: DialogueBuilderFile, val clauseIndex: Int, var ta
  * Goto node.
  *
  * @property node The PlaceholderNode object.
- * @constructor Initializes a GotoNode object with the given PlaceholderNode.
+ * @constructor Represents a GotoNode object with the given PlaceholderNode.
  */
 class GotoNode(val node: PlaceholderNode) : DialogueNode {
     override fun toString(): String {

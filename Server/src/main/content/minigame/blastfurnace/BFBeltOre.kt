@@ -18,7 +18,7 @@ import org.json.simple.JSONObject
  * @property amount The amount of ore.
  * @property location The current location of the ore.
  * @property npcInstance The instance of the NPC associated with the ore.
- * @constructor Initializes the BFBeltOre class.
+ * @constructor Represents the BFBeltOre class.
  */
 class BFBeltOre(
     val player: Player,

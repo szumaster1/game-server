@@ -8,7 +8,7 @@ import core.game.node.item.Item
  *
  * @property item Represents the item associated with the Tiara.
  * @property experience Represents the experience points gained from the Tiara.
- * @constructor Tiara Initializes a new instance of the Tiara enum class with the specified item and experience.
+ * @constructor Tiara Represents a new instance of the Tiara enum class with the specified item and experience.
  */
 enum class Tiara(val item: Item, val experience: Double) {
     /**

@@ -86,7 +86,7 @@ class SewInterfaceListener : InterfaceListener {
      * @property secondItem The second item.
      * @property product The product item.
      * @property buttonId The button ID.
-     * @constructor Initializes Pirate Clothes with specified parameters.
+     * @constructor Represents Pirate Clothes with specified parameters.
      */
     enum class PirateClothes(val firstItem: Int, val secondItem: Int, val product: Item, val buttonId: Int) {
         /**

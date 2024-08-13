@@ -84,7 +84,7 @@ class SurokMagisDialogue(player: Player? = null) : Dialogue(player) {
          *
          * @property regionId The unique identifier for the region.
          * @property startData The initial data for the scene.
-         * @constructor Initializes a Surok scene with a regionId and startData.
+         * @constructor Represents a Surok scene with a regionId and startData.
          */
         enum class SurokScene(val regionId: Int, val startData: IntArray) {
             /**

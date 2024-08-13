@@ -14,8 +14,9 @@ import core.game.node.entity.player.Player
  */
 class GhrimsBook : InteractionListener {
 
-    // Obtainable during the
-    // Throne of Miscellania quest.
+    /*
+     * Obtainable during the Throne of Miscellania quest.
+     */
 
     companion object {
         private val TITLE = "Managing Thine Kingdom"

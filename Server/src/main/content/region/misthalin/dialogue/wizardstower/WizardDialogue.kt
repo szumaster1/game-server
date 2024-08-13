@@ -175,7 +175,7 @@ class WizardDialogue(player: Player? = null) : Dialogue(player) {
      * @property cost The cost of the Split Bark.
      * @property amt The amount of Split Bark.
      * @property buttonId The identifier of the button associated with the Split Bark.
-     * @constructor Initializes a Split Bark with the specified properties.
+     * @constructor Represents a Split Bark with the specified properties.
      */
     enum class SplitBark(val itemId: Int, val cost: Int, val amt: Int, val buttonId: Int) {
         /**

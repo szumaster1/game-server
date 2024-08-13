@@ -16,10 +16,11 @@ import core.game.node.entity.player.Player
  */
 class BeatenBook : InteractionListener {
 
-    // begins the Elemental Workshop II quest.
-    // It can be found in the
-    // Varrock Dig Site's library south-east
-    // of Varrock.
+    /*
+     * Begins the Elemental Workshop II quest.
+     * It can be found in the Varrock Dig Site's
+     * library south-east of Varrock.
+     */
 
     companion object {
         private val TITLE = "Book of the Elemental Helm"

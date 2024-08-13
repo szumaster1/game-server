@@ -14,7 +14,10 @@ import core.game.node.entity.player.Player
  */
 class SinkethsDiary : InteractionListener {
 
-    // Obtainable during the What Lies Below quest.
+    /*
+     * Obtainable during the What Lies Below quest.
+     */
+
     companion object {
         private val TITLE = "Sin'keth's diary"
         private val CONTENTS = arrayOf(

@@ -5,7 +5,7 @@ import core.game.node.item.Item
 /**
  * Preset class represents a preset configuration of equipment and inventory items.
  *
- * @constructor Initializes a new Preset with the provided equipment and inventory items.
+ * @constructor Represents a new Preset with the provided equipment and inventory items.
  *
  * @param equipment The list of equipment items in the preset.
  * @param inventory The list of inventory items in the preset.

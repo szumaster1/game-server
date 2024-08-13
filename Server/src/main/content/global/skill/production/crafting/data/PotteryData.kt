@@ -11,7 +11,7 @@ import core.game.node.item.Item
  * @property level Indicates the level of the pottery item.
  * @property exp Represents the experience points associated with the pottery item.
  * @property fireExp Represents the experience points gained from firing the pottery item.
- * @constructor Pottery data Initializes the properties of the PotteryData enum.
+ * @constructor Pottery data Represents the properties of the PotteryData enum.
  */
 enum class PotteryData(
     val unfinished: Item, // Holds the unfinished item representation

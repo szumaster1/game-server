@@ -4,7 +4,7 @@ import core.game.node.entity.player.Player
 import java.util.*
 
 /**
- * Initializes the PresetManager class with a nullable Player instance
+ * Represents the PresetManager class with a nullable Player instance
  * and an empty map of presets.
  */
 class PresetManager {

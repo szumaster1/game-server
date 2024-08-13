@@ -18,7 +18,7 @@ import core.tools.RandomFunction
  * @property bait Specifies the bait used for fishing, if any.
  * @property option Describes the fishing option in a string format.
  * @property fish Represents the various fish that can be caught with this option.
- * @constructor Fishing option Initializes a new FishingOption with the specified parameters.
+ * @constructor Fishing option Represents a new FishingOption with the specified parameters.
  */
 enum class FishingOption(
     val tool: Int, // The integer value representing the fishing tool.

@@ -9,7 +9,7 @@ import core.game.node.entity.player.Player
  * @property skillSlot the slot of the skill affected.
  * @property base the base value of the effect.
  * @property bonus the bonus value of the effect.
- * @constructor Initializes a SkillEffect with skillSlot, base, and bonus.
+ * @constructor Represents a SkillEffect with skillSlot, base, and bonus.
  */
 class SkillEffect(var skillSlot: Int, var base: Double, var bonus: Double) : ConsumableEffect() {
 

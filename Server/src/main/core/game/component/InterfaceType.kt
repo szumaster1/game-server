@@ -9,7 +9,7 @@ import core.api.consts.Components
  * @property resizablePaneId  The ID of the resizable pane.
  * @property fixedChildId     The ID of the fixed child.
  * @property resizableChildId The ID of the resizable child.
- * @constructor Initializes InterfaceType with the provided IDs.
+ * @constructor Represents InterfaceType with the provided IDs.
  */
 enum class InterfaceType(
     @JvmField val fixedPaneId: Int,

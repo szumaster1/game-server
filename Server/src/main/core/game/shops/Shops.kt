@@ -23,9 +23,7 @@ import org.json.simple.parser.JSONParser
 import java.io.FileReader
 
 /**
- * Shops
- *
- * @constructor Shops
+ * Shops.
  */
 class Shops : StartupListener, TickListener, InteractionListener, InterfaceListener, Commands {
 

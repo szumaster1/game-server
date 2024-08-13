@@ -7,7 +7,7 @@ import java.nio.ByteBuffer
  * Class representing saved data for a player.
  *
  * @property player The player associated with this saved data.
- * @constructor Initializes the saved data with the specified player.
+ * @constructor Represents the saved data with the specified player.
  */
 class SavedData(val player: Player) {
 

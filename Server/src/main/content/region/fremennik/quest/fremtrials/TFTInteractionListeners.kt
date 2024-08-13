@@ -537,7 +537,7 @@ class TFTInteractionListeners : InteractionListener {
      * Branch fletching pulse.
      *
      * @property player The player object.
-     * @constructor Initializes a new instance of the BranchFletchingPulse class with the specified player.
+     * @constructor Represents a new instance of the BranchFletchingPulse class with the specified player.
      */
     class BranchFletchingPulse(val player: Player) : Pulse() {
         var counter = 0

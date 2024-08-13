@@ -16,11 +16,11 @@ import core.game.node.entity.player.Player
  */
 class NecromancyBook : InteractionListener {
 
-    // The necromancy book is used during the
-    // Zogre Flesh Eaters quest. It is found in
-    // the room of Sithik Ints, in the cupboards.
-    // Using the Torn page on the book reveals
-    // that it comes from this book.
+    /*
+     * The necromancy book is used during the Zogre Flesh Eaters quest.
+     * It is found in the room of Sithik Ints, in the cupboards. Using
+     * the Torn page on the book reveals that it comes from this book.
+     */
 
     companion object {
         private val TITLE = "necromancy book"

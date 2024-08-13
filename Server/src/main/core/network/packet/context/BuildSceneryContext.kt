@@ -10,7 +10,7 @@ import core.network.packet.Context
  *
  * @property player The player associated with the context
  * @property scenery The scenery object to be built
- * @constructor Initializes the BuildSceneryContext with a player and scenery
+ * @constructor Represents the BuildSceneryContext with a player and scenery
  */
 class BuildSceneryContext(
     private val player: Player,

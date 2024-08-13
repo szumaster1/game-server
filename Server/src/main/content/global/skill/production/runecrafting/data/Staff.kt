@@ -8,7 +8,7 @@ import core.game.node.item.Item
  *
  * @property item Represents the item associated with the staff member.
  * @property experience Represents the years of experience the staff member has.
- * @constructor Initializes a Staff instance with the specified item and experience.
+ * @constructor Represents a Staff instance with the specified item and experience.
  */
 enum class Staff(val item: Item, val experience: Double) {
     /**

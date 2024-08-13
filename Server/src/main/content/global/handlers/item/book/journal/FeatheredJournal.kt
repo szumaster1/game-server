@@ -14,9 +14,11 @@ import core.game.node.entity.player.Player
  */
 class FeatheredJournal : InteractionListener {
 
-    // Book that players will find as part of the Eagles' Peak quest.
-    // The book is the journal of the criminal Arthur Artimus,
-    // and documents the rise and fall of his gang.
+    /*
+     * Book that players will find as part of the Eagles' Peak quest.
+     * The book is the journal of the criminal Arthur Artimus, and
+     * documents the rise and fall of his gang.
+     */
 
     companion object {
         private val TITLE = "Feathered journal"

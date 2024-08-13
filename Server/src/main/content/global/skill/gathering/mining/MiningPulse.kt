@@ -29,7 +29,7 @@ import core.tools.prependArticle
  *
  * @property player Represents the player involved in the mining process.
  * @property node Represents the mining node being interacted with.
- * @constructor Initializes a MiningPulse instance with the specified player and node.
+ * @constructor Represents a MiningPulse instance with the specified player and node.
  */
 class MiningPulse(private val player: Player, private val node: Node) : Pulse(1, player, node) {
     private var resource: MiningNode? = null

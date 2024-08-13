@@ -14,8 +14,9 @@ import core.game.node.entity.player.Player
  */
 class EmbalmingManual : InteractionListener {
 
-    // The book is used in the
-    // Icthlarin's Little Helper quest.
+    /*
+     * The book is used in the Icthlarin's Little Helper quest.
+     */
 
     companion object {
         private val TITLE = "Embalming Manual"

@@ -16,7 +16,7 @@ import core.game.system.task.Pulse
  * @property player Represents the player involved in the glass crafting process.
  * @property product Represents the specific glass product being crafted.
  * @property amount Indicates the quantity of the product to be crafted.
- * @constructor Initializes a new instance of GlassCraftPulse with the specified player, product, and amount.
+ * @constructor Represents a new instance of GlassCraftPulse with the specified player, product, and amount.
  */
 class GlassCraftPulse(
     private val player: Player, // The player who is crafting the glass

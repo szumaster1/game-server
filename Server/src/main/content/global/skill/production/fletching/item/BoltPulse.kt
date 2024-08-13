@@ -13,7 +13,7 @@ import core.game.node.item.Item
  *
  * @property feather Represents the feather item associated with the bolt pulse.
  * @property sets Indicates the number of sets for the bolt pulse.
- * @constructor Initializes a BoltPulse instance with the specified parameters.
+ * @constructor Represents a BoltPulse instance with the specified parameters.
  *
  * @param player The player associated with this bolt pulse.
  * @param node The item node associated with this bolt pulse.

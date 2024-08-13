@@ -13,6 +13,7 @@ import core.game.node.entity.player.Player
  * Giannes cook book.
  */
 class GiannesCookBook : InteractionListener {
+
     companion object {
         private val TITLE = "Gianne's cook book"
         private val CONTENTS = arrayOf(

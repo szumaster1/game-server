@@ -11,7 +11,7 @@ import core.game.node.item.Item
  * @property id unique identifier for the GrubFoot type.
  * @property value numerical value associated with the GrubFoot type.
  * @property mail item associated with the GrubFoot type.
- * @constructor Initializes a GrubFoot with the specified id, value, and mail item.
+ * @constructor Represents a GrubFoot with the specified id, value, and mail item.
  */
 enum class GrubFoot(val id: Int, val value: Int, val mail: Item) {
     /**

@@ -15,16 +15,18 @@ import core.game.node.entity.player.Player
 import core.tools.END_DIALOGUE
 
 /**
- * H a m book.
+ * H.A.M. book.
  */
 class HAMBook : InteractionListener {
 
-    // The Book of 'h.a.m' is used during the Zogre Flesh Eaters quest.
-    // It is found in the wardrobe in Sithik Ints' room. When used
-    // on Sithik Ints, he asks if the player has fought for their life
-    // against the odd monster or two. In response to the player
-    // accusing him of hating monsters and ogres in particular,
-    // he challenges the player to back it up with facts.
+    /*
+     * The Book of 'h.a.m' is used during the Zogre Flesh Eaters quest.
+     * It is found in the wardrobe in Sithik Ints' room. When used on
+     * Sithik Ints, he asks if the player has fought for their life
+     * against the odd monster or two. In response to the player accusing
+     * him of hating monsters and ogres in particular, he challenges the
+     * player to back it up with facts.
+     */
 
     companion object {
         private val TITLE = "Book of 'h.a.m'"

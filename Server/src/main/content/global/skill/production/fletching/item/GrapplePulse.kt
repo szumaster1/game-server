@@ -11,7 +11,7 @@ import core.game.node.item.Item
  * Grapple pulse
  *
  * @property amount The amount of the grapple pulse, representing its strength or intensity.
- * @constructor Initializes a new instance of GrapplePulse with the specified player, node, and amount.
+ * @constructor Represents a new instance of GrapplePulse with the specified player, node, and amount.
  *
  * @param player The player associated with this grapple pulse.
  * @param node The item node associated with this grapple pulse.

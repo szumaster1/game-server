@@ -15,8 +15,9 @@ import core.game.node.entity.player.Player
  */
 class DwarvenBook : InteractionListener {
 
-    // Obtainable from Rolad during
-    // the Between a Rock... quest.
+    /*
+     * Obtainable from Rolad during the Between a Rock... quest.
+     */
 
     companion object {
         private val TITLE = "The Arzinian Being of Bordanzan"

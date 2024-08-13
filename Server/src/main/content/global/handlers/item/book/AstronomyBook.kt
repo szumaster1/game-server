@@ -14,6 +14,7 @@ import core.game.world.GameWorld
  * Astronomy book.
  */
 class AstronomyBook : InteractionListener {
+
     companion object {
         private val TITLE = "The tales of Scorpius"
         private val CONTENTS = arrayOf(

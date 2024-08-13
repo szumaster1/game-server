@@ -14,6 +14,7 @@ import core.game.node.entity.player.Player
  * Gnome translation book.
  */
 class GnomeTranslationBook : InteractionListener {
+
     companion object {
         private val TITLE = "Gnome-English Translation"
         private val CONTENTS = arrayOf(

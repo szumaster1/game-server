@@ -14,9 +14,10 @@ import core.game.node.entity.player.Player
  */
 class EdernJournal : InteractionListener {
 
-    // Edern's journal can be found by searching
-    // the dead guard that is located outside
-    // the Temple of Light.
+    /*
+     * Edern's journal can be found by searching the
+     * dead guard that is located outside the Temple of Light.
+     */
 
     companion object {
         private val TITLE = "Journal of Nissyen Edern"

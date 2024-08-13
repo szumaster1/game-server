@@ -1,23 +1,23 @@
 package core.game.container
 
 /**
- * Container listener
+ * Container listener interface that defines methods for handling container events.
  *
  * @constructor Container listener
  */
 interface ContainerListener {
     /**
-     * Update
+     * Update method to handle updates to the container.
      *
-     * @param c
-     * @param event
+     * @param c The container that is being updated.
+     * @param event The event that triggered the update.
      */
     fun update(c: Container?, event: ContainerEvent?)
 
     /**
-     * Refresh
+     * Refresh method to refresh the state of the container.
      *
-     * @param c
+     * @param c The container that needs to be refreshed.
      */
     fun refresh(c: Container?)
 }

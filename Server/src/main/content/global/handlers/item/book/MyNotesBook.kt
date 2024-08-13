@@ -14,8 +14,9 @@ import core.game.node.entity.player.Player
  */
 class MyNotesBook : InteractionListener {
 
-    // book given during Barbarian
-    // Training by Otto Godblessed.
+    /*
+     * Book given during Barbarian Training by Otto Godblessed.
+     */
 
     companion object {
         private val TITLE = "My notes"

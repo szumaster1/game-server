@@ -11,7 +11,7 @@ import java.util.*
  *
  * @property ladderLoc the location of the ladder
  * @property destLoc the destination location of the ladder
- * @constructor Initializes a special ladder with its location and destination.
+ * @constructor Represents a special ladder with its location and destination.
  */
 enum class SpecialLadders(private val ladderLoc: Location, private val destLoc: Location) : LadderAchievementCheck {
     ALKHARID_CRAFTING_DOWN(

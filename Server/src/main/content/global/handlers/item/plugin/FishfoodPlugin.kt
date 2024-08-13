@@ -34,7 +34,7 @@ class FishfoodPlugin : UseWithHandler(*FishFoodUses.usables) {
      * @property with The ingredient used with the fish food.
      * @property product The resulting product after using the fish food.
      * @property msg Additional message related to the use of fish food.
-     * @constructor Initializes a specific use of fish food.
+     * @constructor Represents a specific use of fish food.
      */
     /*
      * The enum Fish food uses.
@@ -78,11 +78,10 @@ class FishfoodPlugin : UseWithHandler(*FishFoodUses.usables) {
         companion object {
             val usables = values().map { it.used }.toIntArray()
 
-
-            /*
+            /**
              * Product for item.
+             * This function retrieves the product associated with the given 'used' and 'with' values.
              */
-
             fun productFor(used: Int, with: Int): Item? {
                 for (value in values()) {
                     if (value.used == used && value.with == with) {
@@ -92,6 +91,9 @@ class FishfoodPlugin : UseWithHandler(*FishFoodUses.usables) {
                 return null
             }
 
+            /**
+             * Function to retrieve a message based on 'used' and 'with' values
+             */
             fun msgFor(used: Int, with: Int): String? {
                 for (value in values()) {
                     if (value.used == used && value.with == with) {

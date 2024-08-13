@@ -12,7 +12,7 @@ import core.tools.StringUtils
  *
  * @property player Represents the player associated with the ship.
  * @property ship Represents the ship that is being traveled.
- * @constructor Initializes a new instance of Ship travel pulse with the specified player and ship.
+ * @constructor Represents a new instance of Ship travel pulse with the specified player and ship.
  */
 class ShipTravelPulse(private val player: Player, private val ship: Ships) : Pulse(1) {
 

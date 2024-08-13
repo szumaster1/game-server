@@ -13,7 +13,6 @@ import core.game.node.entity.player.Player
  */
 class ScrawledNote : InteractionListener {
 
-
     companion object {
         private fun ScrawledNoteContent(player: Player) {
             val scrawledNoteContent =

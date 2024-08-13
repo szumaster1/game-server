@@ -6,7 +6,7 @@ import core.tools.RandomFunction
  * Weighted table.
  *
  * @param T The type of elements in the table.
- * @constructor Initializes a new instance of the WeightedTable class.
+ * @constructor Represents a new instance of the WeightedTable class.
  */
 class WeightedTable<T> : ArrayList<Pair<T?, Double>>() {
     var totalWeight: Double = 0.0

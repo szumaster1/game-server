@@ -14,8 +14,9 @@ import core.game.node.entity.player.Player
  */
 class DagonHaiHistoryBook : InteractionListener {
 
-    // Book found in the Varrock library.
-    // Telling story of "What lies below" quest.
+    /*
+     * Book found in the Varrock library. Telling story of "What lies below" quest.
+     */
 
     companion object {
         private val TITLE = "The Fall of the Dagon'hai"

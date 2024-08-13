@@ -15,7 +15,7 @@ import core.game.world.update.flag.context.Animation
  * @param player The player associated with the pulse.
  * @param item The item associated with the pulse.
  * @param amount The amount of the item.
- * @constructor Initializes the FremennikShieldPulse.
+ * @constructor Represents the FremennikShieldPulse.
  */
 class FremennikShieldPulse(player: Player?, val item: Item, var amount: Int) : SkillPulse<Item>(player, Item(Items.FREMENNIK_ROUND_SHIELD_10826)) {
 

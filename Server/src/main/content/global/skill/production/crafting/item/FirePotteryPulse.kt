@@ -14,7 +14,7 @@ import core.game.world.map.Location
  *
  * @property pottery Represents the data related to the pottery being fired.
  * @property amount Indicates the quantity of pottery to be processed.
- * @constructor Initializes a FirePotteryPulse instance with the specified player, node, pottery data, and amount.
+ * @constructor Represents a FirePotteryPulse instance with the specified player, node, pottery data, and amount.
  *
  * @param player The player who is performing the pottery firing action.
  * @param node The item node associated with the pottery.

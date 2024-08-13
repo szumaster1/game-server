@@ -14,8 +14,9 @@ import core.game.node.entity.player.Player
  */
 class TaleOfIbanBook : InteractionListener {
 
-    // Obtainable during the
-    // Underground pass quest.
+    /*
+     * Obtainable during the Underground pass quest.
+     */
 
     companion object {
         private val TITLE = "The Tale of Iban"

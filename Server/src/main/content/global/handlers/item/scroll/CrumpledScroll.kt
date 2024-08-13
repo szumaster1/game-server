@@ -11,6 +11,7 @@ import core.game.interaction.InteractionListener
  * Crumpled scroll.
  */
 class CrumpledScroll : InteractionListener {
+
     companion object {
         private const val MESSAGE_SCROLL = Components.BLANK_SCROLL_222
         val crumpledScrollContent = arrayOf(

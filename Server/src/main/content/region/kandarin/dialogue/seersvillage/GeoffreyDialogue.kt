@@ -23,7 +23,7 @@ class GeoffreyDialogue(player: Player? = null) : Dialogue(player) {
             /*
              * If 1 day has not passed since last flax reward.
              */
-            if (player.getAttribute("diary:seers:flax-timer", 0) > System.currentTimeMillis()) {
+            if (player.getAttribute("diary:seers:flax-timer", 0L) > System.currentTimeMillis()) {
                 stage = 98
                 return true
             }

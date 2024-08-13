@@ -21,7 +21,7 @@ import core.tools.RandomFunction
  * Falconry catch pulse
  *
  * @property falconCatch Represents the falcon's catch status.
- * @constructor Initializes the falconry catch pulse with player and node parameters.
+ * @constructor Represents the falconry catch pulse with player and node parameters.
  *
  * @param player The player involved in the falconry activity.
  * @param node The node representing the location of the falconry activity.

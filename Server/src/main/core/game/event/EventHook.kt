@@ -6,7 +6,7 @@ import core.game.node.entity.Entity
  * Event hook interface for handling events.
  *
  * @param T the type of event.
- * @constructor Initializes the EventHook interface.
+ * @constructor Represents the EventHook interface.
  */
 interface EventHook<T : Event> {
     /**

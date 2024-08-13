@@ -5,12 +5,7 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
 /**
- * Fake consumable
- *
- * @constructor
- *
- * @param id
- * @param messages
+ * Fake consumable.
  */
 class FakeConsumable
 /**

@@ -121,7 +121,7 @@ class KoscheiNPC(id: Int = 0, location: Location? = null, session: KoscheiSessio
      * @property npcId The unique identifier for the NPC.
      * @property appearMessage The message displayed when the NPC appears.
      * @property appearDialogues The dialogues spoken by the NPC upon appearance.
-     * @constructor Initializes KoscheiType with the provided parameters.
+     * @constructor Represents KoscheiType with the provided parameters.
      */
     enum class KoscheiType(var npcId: Int, var appearMessage: String?, vararg var appearDialogues: String?) {
         /**

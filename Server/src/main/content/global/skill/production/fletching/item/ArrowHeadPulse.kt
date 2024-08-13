@@ -12,7 +12,7 @@ import core.game.node.item.Item
  * Arrow head pulse
  *
  * @property sets Number of sets for the pulse
- * @constructor Initializes the ArrowHeadPulse with player, node, arrow, and sets
+ * @constructor Represents the ArrowHeadPulse with player, node, arrow, and sets
  *
  * @param player The player associated with this pulse
  * @param node The item node associated with this pulse

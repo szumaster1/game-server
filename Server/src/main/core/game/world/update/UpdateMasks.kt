@@ -14,7 +14,7 @@ import java.util.concurrent.atomic.AtomicBoolean
  * Update masks.
  *
  * @property owner The owner of the update masks.
- * @constructor Initializes the update masks.
+ * @constructor Represents the update masks.
  */
 class UpdateMasks(val owner: Entity) {
     var appearanceStamp: Long = 0

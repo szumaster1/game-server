@@ -47,7 +47,7 @@ class YakArmourCraftingHandler : UseWithHandler(Items.NEEDLE_1733) {
      *
      * @property index Represents the index of the yak armour pulse.
      * @property amount Represents the amount of yak armour.
-     * @constructor Initializes a YakArmourPulse instance.
+     * @constructor Represents a YakArmourPulse instance.
      *
      * @param player The player associated with the yak armour pulse.
      * @param node The item node associated with the yak armour pulse.

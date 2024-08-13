@@ -14,8 +14,10 @@ import core.game.node.entity.player.Player
  */
 class LeatherBook : InteractionListener {
 
-    // Obtained from the ancient library during
-    // the In Aid of the Myreque quest at Temple of Salve.
+    /*
+     * Obtained from the ancient library during the In Aid of
+     * the Myreque quest at Temple of Salve.
+     */
 
     companion object {
         private val TITLE = "Modern day Morytania"

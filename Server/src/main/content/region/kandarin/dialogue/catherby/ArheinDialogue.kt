@@ -73,8 +73,7 @@ class ArheinDialogue(player: Player? = null) : Dialogue(player) {
             npcl(FacialExpression.ANGRY, "Hey buddy! Get away from my ship alright?")
             stage = 701
         } else {
-            npc(FacialExpression.HAPPY, "Hello! Would you like to trade? I've a variety of wares!",
-                "for sale, as well as a special supply of pineapples and", "seaweed!")
+            npc(FacialExpression.HAPPY, "Hello! Would you like to trade? I've a variety of wares!", "for sale, as well as a special supply of pineapples and", "seaweed!")
             stage = 1
         }
         return true
@@ -84,8 +83,8 @@ class ArheinDialogue(player: Player? = null) : Dialogue(player) {
         when (stage) {
             1 -> showTopics(
                 Topic("Yes.", 7),
-                Topic("I hear you sell seaweed...", 800),
-                Topic("Someone told me you sell pineapples...", 900),
+                Topic("I hear you sell seaweed...", 900),
+                Topic("Someone told me you sell pineapples...", 800),
                 Topic("No thank you.", END_DIALOGUE),
                 Topic("Is that your ship?", 100)
             )

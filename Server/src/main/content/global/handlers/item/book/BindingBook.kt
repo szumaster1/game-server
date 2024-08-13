@@ -13,6 +13,7 @@ import core.game.node.entity.player.Player
  * Binding book.
  */
 class BindingBook : InteractionListener {
+
     companion object {
         private val TITLE = "Book of Binding"
         private val CONTENTS = arrayOf(

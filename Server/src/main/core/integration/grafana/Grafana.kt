@@ -22,33 +22,32 @@ class Grafana : StartupListener {
     /**
      * Grafana data
      *
-     * @property playerTickTime
-     * @property npcTickTime
-     * @property playerRenderTime
-     * @property totalTickTime
-     * @property packetProcessTime
-     * @property botPulseTime
-     * @property otherPulseTime
-     * @property pulseTimes
-     * @property pulseCounts
-     * @property botCount
-     * @property timeSecs
-     * @constructor Grafana data
+     * @param playerTickTime Time taken for player tick updates in milliseconds
+     * @param npcTickTime Time taken for NPC tick updates in milliseconds
+     * @param playerRenderTime Time taken for rendering player graphics in milliseconds
+     * @param totalTickTime Total time taken for all tick updates in milliseconds
+     * @param packetProcessTime Time taken to process network packets in milliseconds
+     * @param botPulseTime Time taken for bot pulse updates in milliseconds
+     * @param otherPulseTime Time taken for other pulse updates in milliseconds
+     * @param pulseTimes Array of pulse times associated with different entities
+     * @param pulseCounts Array of pulse counts associated with different entities
+     * @param botCount Total number of bots present
+     * @param timeSecs Total time in seconds for the data collection
+     * @return Grafana data encapsulating various performance metrics
      */
     data class GrafanaData(
-        val playerTickTime: Int,
-        val npcTickTime: Int,
-        val playerRenderTime: Int,
-        val totalTickTime: Int,
-        val packetProcessTime: Int,
-        val botPulseTime: Int,
-        val otherPulseTime: Int,
-        val pulseTimes: Array<Map.Entry<String, Int>>,
-        val pulseCounts: Array<Map.Entry<String, Int>>,
-        val botCount: Int,
-        val timeSecs: Int
+        val playerTickTime: Int, // Time taken for player tick updates in milliseconds
+        val npcTickTime: Int, // Time taken for NPC tick updates in milliseconds
+        val playerRenderTime: Int, // Time taken for rendering player graphics in milliseconds
+        val totalTickTime: Int, // Total time taken for all tick updates in milliseconds
+        val packetProcessTime: Int, // Time taken to process network packets in milliseconds
+        val botPulseTime: Int, // Time taken for bot pulse updates in milliseconds
+        val otherPulseTime: Int, // Time taken for other pulse updates in milliseconds
+        val pulseTimes: Array<Map.Entry<String, Int>>, // Array of pulse times associated with different entities
+        val pulseCounts: Array<Map.Entry<String, Int>>, // Array of pulse counts associated with different entities
+        val botCount: Int, // Total number of bots present
+        val timeSecs: Int // Total time in seconds for the data collection
     )
-
     companion object {
         var playerTickTime = 0
         var npcTickTime = 0

@@ -14,9 +14,11 @@ import core.game.node.entity.player.Player
  */
 class FolkloreBook : InteractionListener {
 
-    // Book found on the  bookshelves in the Wise Old Man's house
-    // in Draynor Village.
-    // Sources: https://youtu.be/b2lzW1rA_5E?si=qoE0ug7OmaNZgTB1&t=257
+    /*
+     * Book found on the  bookshelves in the Wise Old Man's
+     * house in Draynor Village.
+     * Sources: https://youtu.be/b2lzW1rA_5E?si=qoE0ug7OmaNZgTB1&t=257
+     */
 
     companion object {
         private val TITLE = "The Myth of the Elder-dragons"

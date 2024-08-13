@@ -11,8 +11,10 @@ import core.game.interaction.InteractionListener
  */
 class IorwerthsMessageScroll : InteractionListener {
 
-    // Receive from the Lord Iorwerth after
-    // killing King Tyras in Regicide quest.
+    /*
+     * Receive from the Lord Iorwerth after
+     * killing King Tyras in Regicide quest.
+     */
 
     override fun defineListeners() {
         val kingsmessage = Components.KINGS_LETTER_V2_463

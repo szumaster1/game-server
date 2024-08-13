@@ -13,6 +13,7 @@ import core.game.node.entity.player.Player
  * Castlewars manual.
  */
 class CastlewarsManual : InteractionListener {
+
     companion object {
         private val TITLE = "Castlewars Manual"
         private val CONTENTS = arrayOf(

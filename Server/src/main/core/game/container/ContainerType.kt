@@ -1,36 +1,26 @@
 package core.game.container
 
 /**
- * Container type
- *
- * @constructor Container type
+ * Container type.
  */
 enum class ContainerType {
     /**
-     * Default
-     *
-     * @constructor Default
+     * Default.
      */
     DEFAULT,
 
     /**
-     * Shop
-     *
-     * @constructor Shop
+     * Shop.
      */
     SHOP,
 
     /**
-     * Always Stack
-     *
-     * @constructor Always Stack
+     * Always Stack.
      */
     ALWAYS_STACK,
 
     /**
-     * Never Stack
-     *
-     * @constructor Never Stack
+     * Never Stack.
      */
     NEVER_STACK
 }

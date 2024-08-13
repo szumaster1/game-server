@@ -14,6 +14,7 @@ import core.game.world.GameWorld
  * Security book.
  */
 class SecurityBook : InteractionListener {
+
     companion object {
         private const val BLUE = "<col=08088A>"
         private val TITLE = "" + GameWorld.settings!!.name + " Account Security"

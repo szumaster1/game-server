@@ -9,7 +9,7 @@ import core.game.world.map.Location
  * Trouble brewing rum effect.
  *
  * @property forceChatMessage The message to be displayed when the effect is activated.
- * @constructor Initializes the Trouble brewing rum effect with a force chat message.
+ * @constructor Represents the Trouble brewing rum effect with a force chat message.
  */
 class TroubleBrewingRumEffect(val forceChatMessage: String) : ConsumableEffect() {
 

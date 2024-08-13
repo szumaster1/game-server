@@ -15,8 +15,11 @@ import core.game.world.GameWorld
  */
 class GlassblowingGuide : InteractionListener {
 
-    // The glassblowing book is a book that players can obtain from the reception
-    // at the Observatory north of Castle Wars.
+    /*
+     * The glassblowing book is a book that players can obtain from the
+     * reception at the Observatory north of Castle Wars.
+     */
+
     companion object {
         private val TITLE = "Ultimate Guide to Glassblowing"
         private val CONTENTS = arrayOf(

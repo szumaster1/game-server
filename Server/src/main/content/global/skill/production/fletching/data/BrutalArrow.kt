@@ -9,7 +9,7 @@ import core.api.consts.Items
  * @property product The multiplier for the arrow's damage.
  * @property level The level required to use the arrow.
  * @property experience The experience points gained from using the arrow.
- * @constructor Initializes a BrutalArrow with specified base, product, level, and experience.
+ * @constructor Represents a BrutalArrow with specified base, product, level, and experience.
  */
 enum class BrutalArrow(var base: Int, var product: Int, var level: Int, var experience: Double) {
     /**

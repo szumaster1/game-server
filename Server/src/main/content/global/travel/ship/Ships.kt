@@ -10,7 +10,7 @@ import core.game.world.map.Location
  * @property config Configuration settings for the ship.
  * @property delay Delay time for the ship's operations, in milliseconds.
  * @property destination The intended destination of the ship.
- * @constructor Ships Initializes a new instance of the Ships enum class.
+ * @constructor Ships Represents a new instance of the Ships enum class.
  */
 enum class Ships(
     @JvmField val location: Location,

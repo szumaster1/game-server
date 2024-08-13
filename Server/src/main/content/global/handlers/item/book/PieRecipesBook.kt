@@ -14,9 +14,10 @@ import core.game.node.entity.player.Player
  */
 class PieRecipesBook : InteractionListener {
 
-    // It can be purchased from Romily
-    // Weaklax on the bottom floor of
-    // the cooking guild.
+    /*
+     * It can be purchased from Romily Weaklax on
+     * the bottom floor of the cooking guild.
+     */
 
     companion object {
         private val TITLE = "Pie recipe book"

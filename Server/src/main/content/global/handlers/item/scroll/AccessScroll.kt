@@ -13,9 +13,9 @@ import core.game.interaction.InteractionListener
 class AccessScroll : InteractionListener {
 
     /*
-        The Scroll is given to the player by King Vargas
-        during Royal Trouble. Granting you access into
-        the underground caves.
+     * The Scroll is given to the player by King Vargas
+     * during Royal Trouble. Granting you access into
+     * the underground caves.
      */
 
     companion object {

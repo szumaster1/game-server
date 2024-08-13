@@ -9,7 +9,7 @@ import core.game.node.entity.skill.Skills
  *
  * @property base The base value for the summoning effect
  * @property bonus The bonus value for the summoning effect
- * @constructor Initializes the Summoning effect with base and bonus values
+ * @constructor Represents the Summoning effect with base and bonus values
  */
 class SummoningEffect(var base: Double, var bonus: Double) : ConsumableEffect() {
 

@@ -13,7 +13,7 @@ import core.game.world.GameWorld.ticks
  *
  * @property bolts Represents the type of Kebbit bolt used in the pulse.
  * @property amount Indicates the quantity of Kebbit bolts involved in the pulse.
- * @constructor Initializes a new instance of KebbitBoltPulse.
+ * @constructor Represents a new instance of KebbitBoltPulse.
  *
  * @param player The player associated with this pulse, can be null.
  * @param node The item node that this pulse interacts with.

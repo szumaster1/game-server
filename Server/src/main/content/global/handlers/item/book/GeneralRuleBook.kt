@@ -14,9 +14,10 @@ import core.game.world.GameWorld
  */
 class GeneralRuleBook {
 
-    //  This is not an item book,
-    //  but opened when asking a
-    //  Town Crier for the Rules.
+    /*
+     * This is not an item book, but opened when asking
+     * a Town Crier for the Rules.
+     */
 
     companion object {
         private const val BLUE = "<col=08088A>"

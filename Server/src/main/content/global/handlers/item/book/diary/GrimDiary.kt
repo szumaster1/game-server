@@ -14,7 +14,10 @@ import core.game.node.entity.player.Player
  */
 class GrimDiary : InteractionListener {
 
-    // Obtained during the Halloween event.
+    /*
+     * Obtained during the Halloween event.
+     */
+
     companion object {
         private val TITLE = "Diary of Death"
         private val CONTENTS = arrayOf(

@@ -1,22 +1,16 @@
 package core.game.container
 
 /**
- * Sort type
- *
- * @constructor Sort type
+ * Sort type.
  */
 enum class SortType {
     /**
-     * Id
-     *
-     * @constructor Id
+     * Id.
      */
     ID,
 
     /**
-     * Hash
-     *
-     * @constructor Hash
+     * Hash.
      */
     HASH
 }

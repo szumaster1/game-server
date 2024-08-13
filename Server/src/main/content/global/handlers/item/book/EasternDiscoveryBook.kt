@@ -14,8 +14,9 @@ import core.game.node.entity.player.Player
  */
 class EasternDiscoveryBook : InteractionListener {
 
-    // Explains some of the history
-    // after the God Wars.
+    /*
+     * Explains some of the history after the God Wars.
+     */
 
     companion object {
         private val TITLE = "Exploration of the Eastern Realm"

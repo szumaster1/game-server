@@ -83,7 +83,7 @@ class VarbitDefinition {
         private val BITS = IntArray(32)
 
         /**
-         * Initializes the bit flags.
+         * Represents the bit flags.
          */
         init {
             var flag = 2

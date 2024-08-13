@@ -11,7 +11,7 @@ import java.util.*
 /**
  * Packet write queue.
  *
- * @constructor Initializes the PacketWriteQueue class.
+ * @constructor Represents the PacketWriteQueue class.
  */
 class PacketWriteQueue {
     companion object {
@@ -97,6 +97,6 @@ class PacketWriteQueue {
  * @param T The type of the packet.
  * @property out The outgoing packet.
  * @property context The context in which the packet is being handled.
- * @constructor Initializes the QueuedPacket class.
+ * @constructor Represents the QueuedPacket class.
  */
 class QueuedPacket<T>(val out: OutgoingPacket<T>, val context: T)

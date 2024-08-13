@@ -15,11 +15,11 @@ import core.game.world.GameWorld.settings
  */
 class GloughsJournal : InteractionListener {
 
-    // Glough's journal is found during The
-    // Grand Tree quest and looks a little deeper
-    // into the mind and motives of Glough the gnome.
-    // It's used as a key piece of evidence as to
-    // what he's planning.
+    /*
+     * Glough's journal is found during The Grand Tree quest and looks
+     * a little deeper into the mind and motives of Glough the gnome.
+     * It's used as a key piece of evidence as to what he's planning.
+     */
 
     companion object {
         private val TITLE = "Glough's Journal"

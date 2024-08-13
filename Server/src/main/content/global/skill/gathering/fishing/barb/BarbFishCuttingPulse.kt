@@ -15,7 +15,7 @@ import core.game.world.update.flag.context.Animation
  *
  * @property player Represents the player who is performing the action.
  * @property fish Represents the type of fish being cut.
- * @constructor Initializes a new instance of BarbFishCuttingPulse with the specified player and fish type.
+ * @constructor Represents a new instance of BarbFishCuttingPulse with the specified player and fish type.
  */
 class BarbFishCuttingPulse(val player: Player, val fish: Int) : Pulse(0) {
 

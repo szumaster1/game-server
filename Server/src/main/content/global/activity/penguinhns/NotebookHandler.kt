@@ -21,7 +21,7 @@ class NotebookHandler : OptionHandler() {
         return true
     }
 
-    // Initializes a new instance of the NotebookHandler plugin.
+    // Represents a new instance of the NotebookHandler plugin.
     override fun newInstance(arg: Any?): Plugin<Any> {
         // Assigns the read option to the NotebookHandler for the spy notebook item.
         ItemDefinition.forId(Items.SPY_NOTEBOOK_13732).handlers["option:read"] = this

@@ -14,8 +14,10 @@ import core.game.node.entity.player.Player
  */
 class DemonicTome : InteractionListener {
 
-    // Obtainable during the
-    // Shadow of the Storm quest.
+    /*
+     * Obtainable during the Shadow of the Storm quest.
+     */
+
     companion object {
         private val TITLE = "The Confession of Ellemar"
         private val CONTENTS = arrayOf(

@@ -14,10 +14,10 @@ import core.game.node.entity.player.Player
  */
 class BlurberryCocktailGuide : InteractionListener {
 
-    // Contains a collection of recipes for
-    // the various gnome cocktails.
-    // It is useful for the
-    // Gnome Restaurant minigame.
+    /*
+     * Contains a collection of recipes for the various gnome cocktails.
+     * It is useful for the Gnome Restaurant minigame.
+     */
 
     companion object {
         private val TITLE = "The Blurberry Cocktail Guide"

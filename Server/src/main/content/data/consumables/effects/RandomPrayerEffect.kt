@@ -9,7 +9,7 @@ import core.tools.RandomFunction
  *
  * @property a Represents the lower bound for the random value generation.
  * @property b Represents the upper bound for the random value generation.
- * @constructor Initializes a RandomPrayerEffect with given range.
+ * @constructor Represents a RandomPrayerEffect with given range.
  */
 class RandomPrayerEffect(val a: Int, val b: Int) : ConsumableEffect() {
 

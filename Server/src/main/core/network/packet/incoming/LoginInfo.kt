@@ -19,7 +19,7 @@ import core.cache.crypto.ISAACPair
  * @param isaacPair          The ISAAC pair
  * @param opcode             The opcode
  * @param crcSums            The CRC sums
- * @constructor Initializes login information with provided parameters
+ * @constructor Represents login information with provided parameters
  */
 class LoginInfo(
     var showAds: Boolean, // Indicates if ads are shown (Unused)

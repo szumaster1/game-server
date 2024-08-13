@@ -21,7 +21,7 @@ class RockCakeEffect : ConsumableEffect() {
     }
 
     companion object {
-        private val effect = DamageEffect(10.0, true) // Initializes the DamageEffect with a value of 10.0 and true
+        private val effect = DamageEffect(10.0, true) // Represents the DamageEffect with a value of 10.0 and true
     }
 
 }

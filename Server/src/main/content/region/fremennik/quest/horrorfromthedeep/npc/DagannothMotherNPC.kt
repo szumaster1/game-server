@@ -229,7 +229,7 @@ class DagannothMotherNPC(id: Int = 0, location: Location? = null, session: Dagan
      * @property npcId The ID of the NPC.
      * @property sendChat The chat message to send.
      * @property sendMessage The message to send.
-     * @constructor Initializes a Dagannoth type with the specified properties.
+     * @constructor Represents a Dagannoth type with the specified properties.
      */
     enum class DagannothType(var npcId: Int, var sendChat: String?, var sendMessage: String?) {
         /**

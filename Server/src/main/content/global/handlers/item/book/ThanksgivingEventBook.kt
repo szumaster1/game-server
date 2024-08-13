@@ -14,14 +14,16 @@ import core.game.node.entity.player.Player
  */
 class ThanksgivingEventBook : InteractionListener {
 
-    // The turkey book is a book that players could obtain as part of the 2008,
-    // 2014, 2015, and 2016 Thanksgiving events. It gives clues on where to find
-    // disguised turkeys around Gielinor, which players could find and spy on.
-    // Spying on all ten during the events unlocked the Give Thanks emote.
-    // Players could obtain the book from the cook's brother in Lumbridge Castle.
-    // The book itself gives no instructions, and players must rely on
-    // dialogue from the cook's brother to know what the locations mean
-    // and what they should look for.
+    /*
+     * The turkey book is a book that players could obtain as part of the
+     * 2008, 2014, 2015, and 2016 Thanksgiving events. It gives clues on
+     * where to find disguised turkeys around Gielinor, which players could
+     * find and spy on. Spying on all ten during the events unlocked the Give
+     * Thanks emote. Players could obtain the book from the cook's brother in
+     * Lumbridge Castle. The book itself gives no instructions, and players must
+     * rely on dialogue from the cook's brother to know what the locations
+     * mean and what they should look for.
+     */
 
     companion object {
         private val TITLE = "turkey book"

@@ -9,7 +9,7 @@ import core.game.node.item.Item
  * @property level Indicates the required level to use or craft the snakeskin.
  * @property experience Denotes the experience points gained from using the snakeskin.
  * @property requiredAmount Specifies the quantity of snakeskin needed for a particular action.
- * @constructor Snakeskin data Initializes the properties of the SnakeskinData enum.
+ * @constructor Snakeskin data Represents the properties of the SnakeskinData enum.
  */
 enum class SnakeskinData(
     val product: Item,          // The item that corresponds to the snakeskin.

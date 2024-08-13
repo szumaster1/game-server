@@ -14,10 +14,12 @@ import core.game.node.entity.player.Player
  */
 class ChickenBook : InteractionListener {
 
-    // Book about the Evil Chicken found on
-    // the bookshelves in the
-    // Wise Old Man's house in Draynor Village.
-    // The information contained therein probably points to chicken lair in Zanaris.
+    /*
+     * Book about the Evil Chicken found on the bookshelves
+     * in the Wise Old Man's house in Draynor Village. The
+     * information contained therein probably points to chicken
+     * lair in Zanaris.
+     */
 
     companion object {
         private val TITLE = "The Origins of the Bird of Evil"

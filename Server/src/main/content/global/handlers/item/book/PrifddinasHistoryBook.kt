@@ -13,6 +13,7 @@ import core.game.node.entity.player.Player
  * Prifddinas history book.
  */
 class PrifddinasHistoryBook : InteractionListener {
+
     companion object {
         private val TITLE = "The Creation of Prifddinas"
         private val CONTENTS = arrayOf(

@@ -14,8 +14,11 @@ import core.game.node.entity.player.Player
  */
 class GamesBook : InteractionListener {
 
-    // It features guides to all the games the player,
-    // can make and play at poh, for Games or Combat Room.
+    /*
+     * It features guides to all the games the player, can
+     * make and play at poh, for Games or Combat Room.
+     */
+
     companion object {
         private val TITLE = "Party Pete's Bumper Book of Games"
         private val CONTENTS = arrayOf(

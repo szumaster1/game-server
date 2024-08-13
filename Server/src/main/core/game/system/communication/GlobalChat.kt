@@ -9,9 +9,7 @@ import core.game.world.repository.Repository
 import core.tools.colorize
 
 /**
- * Global chat
- *
- * @constructor Global chat
+ * Global chat.
  */
 class GlobalChat : Commands {
 

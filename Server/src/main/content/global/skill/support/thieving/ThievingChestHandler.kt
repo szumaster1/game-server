@@ -62,7 +62,7 @@ class ThievingChestHandler : OptionHandler() {
      * @property experience The amount of experience gained from interacting with the chest.
      * @property rewards An array of items that can be obtained from the chest.
      * @property respawn The time in seconds before the chest can respawn after being opened.
-     * @constructor Chest Initializes a new instance of the Chest enum class.
+     * @constructor Chest Represents a new instance of the Chest enum class.
      */
     enum class Chest(
         val objectIds: IntArray, // Holds the IDs of the chest objects.

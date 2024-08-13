@@ -14,11 +14,13 @@ import core.game.node.entity.player.Player
  */
 class RandalJournal : InteractionListener {
 
-    // Randas's Journal is a quest item used in the Underground pass quest.
-    // Obtaining and reading it is not required to complete the quest.
-    // It is found on the ground in a room next to the long dead warrior Randas.
-    // The room it is found in has an altar and a well,
-    // and is located deep within the Underground Pass.
+    /*
+     * Randas's Journal is a quest item used in the Underground pass quest.
+     * Obtaining and reading it is not required to complete the quest.
+     * It is found on the ground in a room next to the long dead warrior Randas.
+     * The room it is found in has an altar and a well, and is located deep
+     * within the Underground Pass.
+     */
 
     companion object {
         private val TITLE = "Randas's Journal"

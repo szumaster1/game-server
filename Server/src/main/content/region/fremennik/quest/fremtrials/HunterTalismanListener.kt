@@ -53,7 +53,7 @@ class HunterTalismanListener : InteractionListener {
      * Draugen pulse.
      *
      * @property player The player triggering the pulse.
-     * @constructor Initializes the DraugenPulse class with the given player.
+     * @constructor Represents the DraugenPulse class with the given player.
      */
     class DraugenPulse(val player: Player) : Pulse() {
         var count = 0

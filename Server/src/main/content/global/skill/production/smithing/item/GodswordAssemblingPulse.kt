@@ -12,7 +12,7 @@ import core.game.node.item.Item
  * Godsword assembling pulse
  *
  * @property used Represents the item used in the godsword assembly process.
- * @constructor Initializes a new instance of GodswordAssemblingPulse.
+ * @constructor Represents a new instance of GodswordAssemblingPulse.
  *
  * @param player The player who is assembling the godsword.
  */

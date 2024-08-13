@@ -15,6 +15,7 @@ import core.plugin.Initializable
  */
 @Initializable
 class AbyssalBook : InteractionListener {
+
     companion object {
         private val TITLE = "Abyssal book"
         private val CONTENTS = arrayOf(

@@ -9,7 +9,7 @@ import core.tools.RandomFunction
  *
  * @property a Represents the lower bound of the random energy effect range.
  * @property b Represents the upper bound of the random energy effect range.
- * @constructor Initializes a Random energy effect with given range.
+ * @constructor Represents a Random energy effect with given range.
  */
 class RandomEnergyEffect(val a: Int, val b: Int) : ConsumableEffect() {
 

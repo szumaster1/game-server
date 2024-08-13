@@ -7,7 +7,7 @@ import core.game.node.entity.player.Player
  * Healing effect
  *
  * @property amt The amount of healing to be applied
- * @constructor Initializes a HealingEffect object with a specified amount
+ * @constructor Represents a HealingEffect object with a specified amount
  */
 class HealingEffect(var amt: Int) : ConsumableEffect() {
 

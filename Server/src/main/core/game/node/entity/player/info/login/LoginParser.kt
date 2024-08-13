@@ -63,7 +63,7 @@ class LoginParser(val details: PlayerDetails) {
     }
 
     /**
-     * Initializes a reconnecting player.
+     * Represents a reconnecting player.
      * @param player The player.
      * @param type The login type.
      */

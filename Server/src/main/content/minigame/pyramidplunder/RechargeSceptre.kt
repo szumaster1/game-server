@@ -12,7 +12,7 @@ import core.plugin.Plugin
 class RechargeSceptre : UseWithHandler(9046, 9048, 9050) {
 
     /**
-     * Initializes the plugin.
+     * Represents the plugin.
      * Adds a handler for a specific NPC type.
      */
     @Throws(Throwable::class)

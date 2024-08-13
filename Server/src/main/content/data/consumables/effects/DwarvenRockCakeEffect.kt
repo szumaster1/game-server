@@ -22,7 +22,7 @@ class DwarvenRockCakeEffect : ConsumableEffect() {
     }
 
     companion object {
-        private val effect = DamageEffect(1.0, false) // Initializes the DamageEffect with a multiplier of 1.0 and false flag.
+        private val effect = DamageEffect(1.0, false) // Represents the DamageEffect with a multiplier of 1.0 and false flag.
     }
 
 }

@@ -11,7 +11,7 @@ import core.game.node.entity.player.link.diary.DiaryType
  * @property diary  Represents the type of diary for the achievement effect.
  * @property level  Represents the level of the achievement effect.
  * @property task   Represents the task ID for the achievement effect.
- * @constructor Initializes an AchievementEffect with diary, level, and task.
+ * @constructor Represents an AchievementEffect with diary, level, and task.
  */
 class AchievementEffect(var diary: DiaryType, var level: Int, var task: Int) : ConsumableEffect() {
 

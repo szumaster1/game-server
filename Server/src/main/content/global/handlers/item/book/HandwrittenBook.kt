@@ -14,8 +14,9 @@ import core.game.node.entity.player.Player
  */
 class HandwrittenBook : InteractionListener {
 
-    // Obtainable while The
-    // Eyes of Glouphrie quest.
+    /*
+     * Obtainable while The Eyes of Glouphrie quest.
+     */
 
     companion object {
         private val TITLE = "The Eyes of Glouphrie"

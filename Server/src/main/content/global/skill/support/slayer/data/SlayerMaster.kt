@@ -305,7 +305,7 @@ enum class SlayerMaster(
      *
      * @property task The type of task to be performed.
      * @property weight The weight or importance of the task.
-     * @constructor Initializes a Task with the specified task type and weight.
+     * @constructor Represents a Task with the specified task type and weight.
      */
     class Task internal constructor(
         var task: Tasks, // The task to be executed

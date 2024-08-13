@@ -14,6 +14,7 @@ import core.tools.RED
  * Goblin book.
  */
 class GoblinBook : InteractionListener {
+
     companion object {
         private val TITLE = "The Book of the Big High War God"
         private val CONTENTS = arrayOf(

@@ -7,9 +7,7 @@ import java.lang.Long.max
 import java.sql.*
 
 /**
- * SQL storage provider
- *
- * @constructor SQL storage provider.
+ * SQL storage provider.
  */
 class SQLStorageProvider : AccountStorageProvider {
     var connectionString = ""

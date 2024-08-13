@@ -12,7 +12,7 @@ import core.game.node.item.Item
  * Dragon sq shield pulse
  *
  * @property item Represents the item associated with the Dragon Square Shield.
- * @constructor Initializes the DragonSqShieldPulse with a player and an item.
+ * @constructor Represents the DragonSqShieldPulse with a player and an item.
  *
  * @param player The player who is using the Dragon Square Shield.
  */

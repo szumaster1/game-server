@@ -15,7 +15,9 @@ import core.game.world.GameWorld.settings
  */
 class HallowlandBook : InteractionListener {
 
-    // Obtainable during In Aid of the Myreque.
+    /*
+     * Obtainable during In Aid of the Myreque.
+     */
 
     companion object {
         private val TITLE = "Histories of the Hallowland"

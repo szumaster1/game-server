@@ -121,7 +121,7 @@ class GoblinDiplomacyPlugin : OptionHandler() {
          *
          * @property dye The dye item used for coloring the Goblin mail.
          * @property product The final product of the Goblin mail after dyeing.
-         * @constructor Initializes GoblinMail with dye and product items.
+         * @constructor Represents GoblinMail with dye and product items.
          */
         enum class GoblinMail(val dye: Item, val product: Item) {
             /**
@@ -214,7 +214,7 @@ class GoblinDiplomacyPlugin : OptionHandler() {
          * Dyes.
          *
          * @property product The resulting dye item.
-         * @constructor Initializes a dye with the given materials.
+         * @constructor Represents a dye with the given materials.
          *
          * @param materials The materials required to create the dye.
          */

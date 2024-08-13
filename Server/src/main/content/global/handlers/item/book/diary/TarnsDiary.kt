@@ -14,8 +14,10 @@ import core.game.node.entity.player.Player
  */
 class TarnsDiary : InteractionListener {
 
-    // Tarn is a necromancer who has
-    // discovered the power of the Salve crystal.
+    /*
+     * Tarn is a necromancer who has discovered the power
+     * of the Salve crystal.
+     */
 
     companion object {
         private val TITLE = "The Diary of Tarn Razorlor"

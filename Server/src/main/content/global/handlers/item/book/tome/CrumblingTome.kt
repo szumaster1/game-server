@@ -14,10 +14,11 @@ import core.game.node.entity.player.Player
  */
 class CrumblingTome : InteractionListener {
 
-    // The crumbling tome, also known as
-    // Legend of the Brothers, is found
-    // on a desk in a building just east
-    // of the entrance to the Barrows.
+    /*
+     * The crumbling tome, also known as Legend of the Brothers,
+     * is found on a desk in a building just east of the entrance
+     * to the Barrows.
+     */
 
     companion object {
         private val TITLE = "Legend of the Brothers"

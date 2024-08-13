@@ -28,7 +28,7 @@ class GrandExchange : StartupListener, Commands {
     var isRunning = false
 
     /**
-     * Initializes the offer manager and spawns an update thread.
+     * Represents the offer manager and spawns an update thread.
      * @param local whether or not the GE should be the local in-code server rather than some hypothetical remote implementation.
      */
     fun boot() {

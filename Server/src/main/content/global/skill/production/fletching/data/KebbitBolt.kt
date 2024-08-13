@@ -9,7 +9,7 @@ import core.api.consts.Items
  * @property product The product value of the Kebbit bolt, indicating its output or result.
  * @property level The level required to utilize or craft the Kebbit bolt.
  * @property experience The experience gained from using or crafting the Kebbit bolt.
- * @constructor Kebbit bolt Initializes a new instance of the Kebbit bolt with specified attributes.
+ * @constructor Kebbit bolt Represents a new instance of the Kebbit bolt with specified attributes.
  */
 enum class KebbitBolt(val base: Int, val product: Int, val level: Int, val experience: Double) {
     /**

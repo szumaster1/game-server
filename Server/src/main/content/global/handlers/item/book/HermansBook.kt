@@ -15,9 +15,10 @@ import core.game.world.GameWorld
  */
 class HermansBook : InteractionListener {
 
-    // Obtainable during
-    // the Swan Song quest.
-    // Dionysius, also known as the Wise Old Man.
+    /*
+     * Obtainable during the Swan Song quest.
+     * Dionysius, also known as the Wise Old Man.
+     */
 
     companion object {
         private val TITLE = "Dionysius: A Legend in his own Lifetime"

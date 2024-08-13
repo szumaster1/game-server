@@ -14,17 +14,16 @@ import core.game.node.entity.player.Player
  */
 class TheGreatDivideBook : InteractionListener {
 
-    // The great divide, written by Cerridwyn Cadarn,
-    // is a book which goes on to tell of a time when
-    // the Underground Pass was found to be blocked off and,
-    // after sending scouts to try to discern what was going on,
-    // the elves of the eastern regions found that during their absence,
-    // Prifddinas had fallen into a gruesome, bloody civil war,
-    // with Lord Iorwerth seizing control of much of the city.
-    // The book ends with the elves travelling to return to the city.
-
-    // The book can be found on the shelves in your house after
-    // the completion of Mourner's End Part 1.
+    /*
+     * The great divide, written by Cerridwyn Cadarn, is a book which goes on
+     * to tell of a time when the Underground Pass was found to be blocked off
+     * and, after sending scouts to try to discern what was going on, the elves
+     * of the eastern regions found that during their absence, Prifddinas had
+     * fallen into a gruesome, bloody civil war, with Lord Iorwerth seizing
+     * control of much of the city. The book ends with the elves travelling to
+     * return to the city. The book can be found on the shelves in your house after
+     * the completion of Mourner's End Part 1.
+     */
 
     companion object {
         private val TITLE = "The great divide"

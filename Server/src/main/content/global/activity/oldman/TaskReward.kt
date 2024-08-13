@@ -10,13 +10,13 @@ import core.api.utils.WeightedItem
  *
  * @property npc An array of NPC IDs that can give rewards.
  * @property table The reward table containing weighted items.
- * @constructor Initializes the TaskReward enum.
+ * @constructor Represents the TaskReward enum.
  */
 enum class TaskReward(val npc: IntArray, val table: WeightBasedTable) {
     /**
      * Reward Table.
      *
-     * @constructor Initializes the Reward Table enum.
+     * @constructor Represents the Reward Table enum.
      */
     REWARD_TABLE(
         intArrayOf(NPCs.WISE_OLD_MAN_2253),

@@ -13,7 +13,6 @@ import core.game.node.entity.player.Player
  */
 class TheFeudNote : InteractionListener {
 
-
     companion object {
         private fun NotesTheFeud(player: Player) {
             val notesthefeudContent =

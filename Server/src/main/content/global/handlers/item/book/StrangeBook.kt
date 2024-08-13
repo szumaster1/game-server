@@ -14,8 +14,11 @@ import core.game.node.entity.player.Player
  */
 class StrangeBook : InteractionListener {
 
-    // The strange book is a book found on
-    // the bookshelves in the Wise Old Man's.
+    /*
+     * The strange book is a book found on the bookshelves
+     * in the Wise Old Man's.
+     */
+
     companion object {
         private val TITLE = "Stange book"
         private val CONTENTS = arrayOf(

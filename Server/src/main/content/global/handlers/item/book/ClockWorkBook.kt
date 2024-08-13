@@ -14,7 +14,10 @@ import core.game.node.entity.player.Player
  */
 class ClockWorkBook : InteractionListener {
 
-    // Obtainable during the Cold War quest.
+    /*
+     * Obtainable during the Cold War quest.
+     */
+
     companion object {
         private val TITLE = "A Clockwork Mechanism, Chapter 1.0"
         private val CONTENTS = arrayOf(

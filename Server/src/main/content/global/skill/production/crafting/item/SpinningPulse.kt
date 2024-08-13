@@ -19,7 +19,7 @@ import core.game.world.update.flag.context.Animation
  *
  * @property amount Represents the quantity of the spinning pulse.
  * @property type Defines the type of spinning data associated with the pulse.
- * @constructor Initializes a SpinningPulse instance.
+ * @constructor Represents a SpinningPulse instance.
  *
  * @param player The player associated with this spinning pulse.
  * @param node The item node associated with this spinning pulse.

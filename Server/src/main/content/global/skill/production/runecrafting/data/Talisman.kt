@@ -10,7 +10,7 @@ import core.game.node.item.Item
  *
  * @property talisman Represents the item associated with the talisman.
  * @property ruin Represents an optional mysterious ruin associated with the talisman.
- * @constructor Talisman Initializes a new instance of the Talisman enum class.
+ * @constructor Talisman Represents a new instance of the Talisman enum class.
  */
 enum class Talisman(
     val talisman: Item, // The item that this talisman represents

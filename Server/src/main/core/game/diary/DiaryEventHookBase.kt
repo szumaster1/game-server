@@ -30,7 +30,7 @@ abstract class DiaryEventHookBase(private val diaryType: DiaryType) : MapArea, L
      * @param T Represents the type of event.
      * @property owner   The owner of the event handler.
      * @property handler The function to handle the event.
-     * @constructor Initializes the Event handler with the specified owner and handler.
+     * @constructor Represents the Event handler with the specified owner and handler.
      */
     class EventHandler<T : core.game.event.Event>(
         private val owner: DiaryEventHookBase,

@@ -14,9 +14,10 @@ import core.game.node.entity.player.Player
  */
 class LockedDiary : InteractionListener {
 
-    // Found by searching Sandy's desk in Brimhaven
-    // during the Returning Clarence miniquest
-    // after the Back to my Roots quest.
+    /*
+     * Found by searching Sandy's desk in Brimhaven during
+     * the Returning Clarence miniquest after the Back to my Roots quest.
+     */
 
     companion object {
         private val TITLE = "Locked diary"

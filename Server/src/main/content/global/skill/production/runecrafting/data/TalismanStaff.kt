@@ -9,7 +9,7 @@ import core.game.node.item.Item
  * @property item Represents the item associated with the Talisman staff.
  * @property staff Represents the staff associated with the Talisman staff.
  * @property tiara Represents the integer value of the tiara associated with the Talisman staff.
- * @constructor Talisman staff Initializes a new instance of the Talisman staff with the specified item, staff, and tiara.
+ * @constructor Talisman staff Represents a new instance of the Talisman staff with the specified item, staff, and tiara.
  */
 enum class TalismanStaff(val item: Item, val staff: Staff, val tiara: Int) {
     /**

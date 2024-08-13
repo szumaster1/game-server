@@ -15,12 +15,12 @@ import core.game.node.entity.player.Player
  */
 class PortraitureBook : InteractionListener {
 
-    // The book of portraiture is a quest item
-    // and has no use other than the one involved
-    // in Zogre Flesh Eaters quest, in which it provides
-    // a hint to the player. It is found, along with
-    // charcoal and a piece of papyrus, in the drawers
-    // in the room of Sithik Ints.
+    /*
+     * The book of portraiture is a quest item and has no use other than
+     * the one involved in Zogre Flesh Eaters quest, in which it provides
+     * a hint to the player. It is found, along with charcoal and a piece
+     * of papyrus, in the drawers in the room of Sithik Ints.
+     */
 
     companion object {
         private val TITLE = "book of portraiture"

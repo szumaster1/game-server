@@ -14,8 +14,9 @@ import core.game.node.entity.player.Player
  */
 class ThePiracyBook : InteractionListener {
 
-    // Obtainable during the
-    // Cabin fever quest.
+    /*
+     * Obtainable during the Cabin fever quest.
+     */
 
     companion object {
         private val TITLE = "The Little Book o' Piracy"

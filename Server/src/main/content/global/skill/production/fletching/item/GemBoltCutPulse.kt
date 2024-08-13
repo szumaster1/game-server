@@ -16,7 +16,7 @@ import core.game.node.item.Item
  *
  * @property gem Represents the gem bolt being used in the pulse.
  * @property amount Indicates the quantity of gems involved in the pulse.
- * @constructor Initializes a new instance of GemBoltCutPulse.
+ * @constructor Represents a new instance of GemBoltCutPulse.
  *
  * @param player The player who is executing the pulse.
  * @param node The item node associated with the pulse.

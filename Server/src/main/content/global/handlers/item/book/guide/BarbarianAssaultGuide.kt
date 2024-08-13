@@ -14,7 +14,10 @@ import core.game.node.entity.player.Player
  */
 class BarbarianAssaultGuide : InteractionListener {
 
-    // Obtainable during the Barbarian Assault minigame.
+    /*
+     * Obtainable during the Barbarian Assault minigame.
+     */
+
     companion object {
         private val TITLE = "Queen help book"
         private val CONTENTS = arrayOf(

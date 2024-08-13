@@ -14,7 +14,10 @@ import core.game.node.entity.player.Player
  */
 class TroubleBrewinGuide : InteractionListener {
 
-    // Guide for Trouble Brewing minigame.
+    /*
+     * Guide for Trouble Brewing minigame.
+     */
+
     companion object {
         private val TITLE = "Brewin' guide"
         private val CONTENTS = arrayOf(

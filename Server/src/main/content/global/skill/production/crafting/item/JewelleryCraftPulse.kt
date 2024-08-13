@@ -14,7 +14,7 @@ import core.game.node.item.Item
  *
  * @property type The type of jewellery item being crafted.
  * @property amount The quantity of the jewellery item to be crafted.
- * @constructor Initializes a new instance of the JewelleryCraftPulse class.
+ * @constructor Represents a new instance of the JewelleryCraftPulse class.
  *
  * @param player The player who is crafting the jewellery.
  * @param node The item node associated with the crafting process.

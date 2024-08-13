@@ -14,6 +14,7 @@ import core.game.node.entity.player.Player
  * Alchemical notes.
  */
 class AlchemicalNotes : InteractionListener {
+
     companion object {
         private val TITLE = "Alchemical Reactions Study"
         private val CONTENTS = arrayOf(

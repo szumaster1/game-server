@@ -12,13 +12,14 @@ import core.game.node.entity.player.Player
 /**
  * Prayer book.
  */
-class PrayerBook
-    : InteractionListener {
+class PrayerBook : InteractionListener {
 
-    // Reward from the Great Brain Robbery quest.
-    // By right-clicking on it while wearing the Holy symbol,
-    // the player can use Prayer to heal poison at the cost of prayer points.
-    // Sometimes the poison will only be partially healed if you run out of prayer points.
+    /*
+     * Reward from the Great Brain Robbery quest. By right-clicking on
+     * it while wearing the Holy symbol, the player can use Prayer to
+     * heal poison at the cost of prayer points. Sometimes the poison
+     * will only be partially healed if you run out of prayer points.
+     */
 
     companion object {
         private val TITLE = "Prayer of Deliverance from Poisons"

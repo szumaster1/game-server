@@ -10,6 +10,7 @@ import core.game.interaction.InteractionListener
  * Kings message scroll.
  */
 class KingsMessageScroll : InteractionListener {
+
     override fun defineListeners() {
         val kingsmessage = Components.KINGS_LETTER_V2_463
         val kingsscroll = Items.KINGS_MESSAGE_3206

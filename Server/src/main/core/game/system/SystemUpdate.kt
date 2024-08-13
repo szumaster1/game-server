@@ -11,9 +11,7 @@ import core.game.world.repository.Repository.players
 import java.util.concurrent.Executors
 
 /**
- * System update
- *
- * @constructor System update
+ * System update.
  */
 class SystemUpdate : Pulse(DEFAULT_COUNTDOWN) {
 
@@ -33,9 +31,6 @@ class SystemUpdate : Pulse(DEFAULT_COUNTDOWN) {
     }
 
     /**
-     * Notify players
-     *
-     *//*
      * Notifies the players.
      */
     fun notifyPlayers() {
@@ -54,9 +49,6 @@ class SystemUpdate : Pulse(DEFAULT_COUNTDOWN) {
     }
 
     /**
-     * Schedule
-     *
-     *//*
      * Schedules an update.
      */
     fun schedule() {
@@ -82,10 +74,6 @@ class SystemUpdate : Pulse(DEFAULT_COUNTDOWN) {
     }
 
     /**
-     * Set countdown
-     *
-     * @param ticks
-     *//*
      * Sets the system update countdown.
      */
     fun setCountdown(ticks: Int) {
@@ -100,9 +88,6 @@ class SystemUpdate : Pulse(DEFAULT_COUNTDOWN) {
     }
 
     /**
-     * Cancel
-     *
-     *//*
      * Cancels the system update task.
      */
     fun cancel() {
@@ -111,12 +96,12 @@ class SystemUpdate : Pulse(DEFAULT_COUNTDOWN) {
     }
 
     companion object {
-        /*
+        /**
          * The default countdown for an update, in ticks.
          */
         const val DEFAULT_COUNTDOWN = 100
 
-        /*
+        /**
          * The amount of ticks left of when to create a backup.
          */
         const val BACKUP_TICK = 10

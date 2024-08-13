@@ -18,7 +18,7 @@ import core.game.node.item.Item
  *
  * @property amount The number of skins to be crafted.
  * @property skin The specific type of snakeskin being used.
- * @constructor Initializes a new instance of SnakeskinCraftPulse.
+ * @constructor Represents a new instance of SnakeskinCraftPulse.
  *
  * @param player The player who is performing the crafting action.
  * @param node The item node associated with the crafting process.

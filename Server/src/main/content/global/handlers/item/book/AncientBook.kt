@@ -13,6 +13,7 @@ import core.game.node.entity.player.Player
  * Ancient book.
  */
 class AncientBook : InteractionListener {
+
     companion object {
         private val TITLE = "Ancient book"
         private val CONTENTS = arrayOf(

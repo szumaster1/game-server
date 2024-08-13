@@ -10,7 +10,7 @@ import core.game.node.item.Item
  * @property level Indicates the level of the rune.
  * @property experience Represents the experience points gained from the rune.
  * @property multiple Allows for multiple values associated with the rune.
- * @constructor Rune Initializes a new instance of the Rune enum class.
+ * @constructor Rune Represents a new instance of the Rune enum class.
  */
 enum class Rune(
     val rune: Item, // The item that this rune represents

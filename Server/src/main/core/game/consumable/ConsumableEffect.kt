@@ -2,7 +2,6 @@ package core.game.consumable
 
 import core.game.node.entity.player.Player
 
-
 /**
  * Consumable effect.
  */

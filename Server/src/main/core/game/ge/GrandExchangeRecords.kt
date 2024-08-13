@@ -196,7 +196,7 @@ class GrandExchangeRecords(private val player: Player? = null) : PersistPlayer, 
     }
 
     /**
-     * Initializes the grand exchange.
+     * Represents the grand exchange.
      */
     fun init() {
         // Were trades made while gone?

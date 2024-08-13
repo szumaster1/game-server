@@ -14,10 +14,11 @@ import core.game.node.entity.player.Player
  */
 class CadarnLineageBook : InteractionListener {
 
-    // Obtainable from Golrie is a gnome found
-    // in the jail of the Gnome Village Dungeon
-    // While doing Roving elves,
-    // but I not found source when.
+    /*
+     * Obtainable from Golrie is a gnome found in the jail
+     * of the Gnome Village Dungeon While doing Roving elves,
+     * but I not found source when.
+     */
 
     companion object {
         private val TITLE = "Cadarn Lineage"

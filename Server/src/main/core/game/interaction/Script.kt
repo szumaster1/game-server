@@ -8,28 +8,26 @@ typealias InteractExecutor = (Player, Node, Int) -> Boolean
 typealias VoidExecutor = (Int) -> Boolean
 
 /**
- * Queue strength
- *
- * @constructor Initializes the QueueStrength enum class.
+ * Represents the QueueStrength enum class.
  */
 enum class QueueStrength {
     /**
-     * @constructor Initializes the QueueStrength enum with Weak strength.
+     * Weak strength.
      */
     WEAK,
 
     /**
-     * Initializes the QueueStrength enum with Normal strength.
+     * Normal strength.
      */
     NORMAL,
 
     /**
-     * Initializes the QueueStrength enum with Strong strength.
+     * Strong strength.
      */
     STRONG,
 
     /**
-     * Initializes the QueueStrength enum with Soft strength.
+     * Soft strength.
      */
     SOFT
 }
@@ -40,7 +38,7 @@ enum class QueueStrength {
  * @param T The type parameter for the Script class.
  * @property execution The execution function of the script.
  * @property persist Indicates if the script should persist.
- * @constructor Initializes the Script class.
+ * @constructor Represents the Script class.
  */
 open class Script<T>(val execution: T, val persist: Boolean) {
     var state: Int = 0
@@ -51,7 +49,7 @@ open class Script<T>(val execution: T, val persist: Boolean) {
  * Interaction.
  *
  * @property distance The distance for the interaction.
- * @constructor Initializes the Interaction class.
+ * @constructor Represents the Interaction class.
  *
  * @param execution The execution function for the interaction.
  * @param persist Indicates if the interaction should persist.
@@ -65,7 +63,7 @@ class Interaction(execution: InteractExecutor, val distance: Int, persist: Boole
  * @property distance The distance for the use-with interaction.
  * @property used The node being used.
  * @property with The node being used with.
- * @constructor Initializes the UseWithInteraction class.
+ * @constructor Represents the UseWithInteraction class.
  *
  * @param execution The execution function for the use-with interaction.
  * @param persist Indicates if the use-with interaction should persist.
@@ -82,7 +80,7 @@ class UseWithInteraction(
  * Queued script.
  *
  * @property strength The strength of the queued script.
- * @constructor Initializes the QueuedScript class.
+ * @constructor Represents the QueuedScript class.
  *
  * @param executor The executor function for the queued script.
  * @param persist Indicates if the queued script should persist.
@@ -96,7 +94,7 @@ class QueuedScript(executor: VoidExecutor, val strength: QueueStrength, persist:
  * @property strength The strength of the queued use-with interaction.
  * @property used The node being used.
  * @property with The node being used with.
- * @constructor Initializes the QueuedUseWith class.
+ * @constructor Represents the QueuedUseWith class.
  *
  * @param executor The executor function for the queued use-with interaction.
  * @param persist Indicates if the queued use-with interaction should persist.

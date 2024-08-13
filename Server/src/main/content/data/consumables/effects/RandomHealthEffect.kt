@@ -9,7 +9,7 @@ import core.tools.RandomFunction
  *
  * @property a Lower bound for random health effect value.
  * @property b Upper bound for random health effect value.
- * @constructor Initializes a RandomHealthEffect with given bounds.
+ * @constructor Represents a RandomHealthEffect with given bounds.
  */
 class RandomHealthEffect(val a: Int, val b: Int) : ConsumableEffect() {
 

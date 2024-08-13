@@ -12,7 +12,7 @@ import core.game.world.map.path.ClipMaskSupplier
  *
  * @property npcId The unique identifier for the NPC (Non-Player Character) associated with the Impling.
  * @property puroId The unique identifier for the Puro Puro location associated with the Impling.
- * @constructor Impling Initializes an instance of the Impling enum with the specified npcId and puroId.
+ * @constructor Impling Represents an instance of the Impling enum with the specified npcId and puroId.
  */
 enum class Impling(val npcId: Int, val puroId: Int) {
     /**
@@ -258,7 +258,7 @@ enum class ImplingSpawnTypes(val table: WeightedTable<ImplingSpawner>, val spawn
  *
  * @param type The type of Impling associated with the spawn location.
  * @param locations Vararg parameter representing multiple locations where the Impling can spawn.
- * @constructor Initializes an ImplingSpawnLocations instance with a specific type and its corresponding locations.
+ * @constructor Represents an ImplingSpawnLocations instance with a specific type and its corresponding locations.
  */
 enum class ImplingSpawnLocations(val type: ImplingSpawnTypes, vararg val locations: Location) {
     /**

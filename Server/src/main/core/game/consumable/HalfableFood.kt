@@ -5,23 +5,13 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
 /**
- * Halfable food
- *
- * @constructor
- *
- * @param ids
- * @param effect
- * @param messages
- */
-class HalfableFood
-/**
  * Instantiates a new Half able food.
  *
  * @param ids      the ids
  * @param effect   the effect
  * @param messages the messages
- */
-    (ids: IntArray?, effect: ConsumableEffect?, vararg messages: String?) : Food(ids, effect, *messages) {
+*/
+class HalfableFood(ids: IntArray?, effect: ConsumableEffect?, vararg messages: String?) : Food(ids, effect, *messages) {
     override fun sendDefaultMessages(player: Player, item: Item) {
         if (item.id == ids[0]) {
             sendMessage(player, "You eat half the " + getFormattedName(item) + ".")

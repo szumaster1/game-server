@@ -12,7 +12,7 @@ import core.api.consts.Sounds
  * @property sfxId Represents the ID for the sound effect associated with the light source.
  * @property levelRequired Represents the level required to use this light source.
  * @property openFlame Indicates whether the light source produces an open flame.
- * @constructor Light source data Initializes a new instance of LightSourceData with specified parameters.
+ * @constructor Light source data Represents a new instance of LightSourceData with specified parameters.
  */
 enum class LightSourceData(
     val emptyId: Int,      // ID for an empty light source

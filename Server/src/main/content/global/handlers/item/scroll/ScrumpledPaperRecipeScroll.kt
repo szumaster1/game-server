@@ -12,7 +12,6 @@ import core.game.interaction.InteractionListener
  */
 class ScrumpledPaperRecipeScroll : InteractionListener {
 
-
     companion object {
         private const val SCROLL_INTERFACE = Components.MESSAGESCROLL_220
         val ugthankiKebabRecipe = arrayOf(

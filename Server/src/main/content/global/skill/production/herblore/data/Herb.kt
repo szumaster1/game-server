@@ -9,7 +9,7 @@ import core.game.node.item.Item
  * @property experience The experience points gained from using the herb.
  * @property level The required level to use or obtain the herb.
  * @property product The product that can be created from the herb.
- * @constructor Herb Initializes a new instance of the Herb enum class.
+ * @constructor Herb Represents a new instance of the Herb enum class.
  */
 enum class Herb(
     val herb: Item,          // The item that represents the herb.

@@ -18,7 +18,7 @@ import java.util.*
  *
  * @property questionModels Array of question models
  * @property answerModels Variable number of answer models
- * @constructor Initializes a Barrows puzzle with question and answer models
+ * @constructor Represents a Barrows puzzle with question and answer models
  */
 class BarrowsPuzzle private constructor(private val questionModels: IntArray, private vararg val answerModels: Int) :
     ComponentPlugin() {

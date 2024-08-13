@@ -13,6 +13,7 @@ import core.game.node.entity.player.Player
  * Arena history guide.
  */
 class ArenaHistoryGuide : InteractionListener {
+
     companion object {
         private val TITLE = "The Arena's History"
         private val CONTENTS = arrayOf(

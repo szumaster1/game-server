@@ -10,7 +10,7 @@ import core.game.world.map.build.DynamicRegion
  *
  * @property regionContract The contract defining the region.
  * @property chunkContracts The contracts defining the chunks within the region.
- * @constructor Initializes a RegionSpecification with a region contract and chunk contracts.
+ * @constructor Represents a RegionSpecification with a region contract and chunk contracts.
  */
 class RegionSpecification(
     val regionContract: RegionSpecContract = EmptyRegionContract(),

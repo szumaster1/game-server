@@ -14,9 +14,10 @@ import core.game.node.entity.player.Player
  */
 class BigBangsBook : InteractionListener {
 
-    // Obtainable from Lord Iorwerth and
-    // used in the Regicide and
-    // Mourning's End Part I quests.
+    /*
+     * Obtainable from Lord Iorwerth and used in the Regicide and
+     * Mourning's End Part I quests.
+     */
 
     companion object {
         private val TITLE = "The Big Book of Bangs"

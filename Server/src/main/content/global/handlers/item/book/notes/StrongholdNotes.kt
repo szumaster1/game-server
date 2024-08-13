@@ -13,6 +13,7 @@ import core.game.node.entity.player.Player
  * Stronghold notes.
  */
 class StrongholdNotes : InteractionListener {
+
     companion object {
         private const val BLUE = "<col=08088A>"
         private const val TITLE = "Stronghold of Security - Notes"
