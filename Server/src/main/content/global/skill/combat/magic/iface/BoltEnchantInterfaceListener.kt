@@ -75,82 +75,62 @@ class BoltEnchantInterfaceListener : InterfaceListener {
     /**
      * Bolts
      *
-     * @param button
-     * @param bolt
-     * @param level
-     * @param runes
-     * @param exp
-     * @param enchanted
-     * @constructor Bolts
+     * @param button The button identifier associated with the bolt.
+     * @param bolt The identifier for the bolt itself.
+     * @param level The required level to use the bolt.
+     * @param runes An array of runes needed for crafting or using the bolt.
+     * @param exp The experience gained from using the bolt.
+     * @param enchanted The identifier for the enchanted state of the bolt.
+     * @constructor Bolts Initializes a new instance of the Bolts enum class.
      */
     enum class Bolts(val button: Int, val bolt: Int, val level: Int, val runes: Array<Item>, val exp: Double, val enchanted: Int) {
         /**
-         * Opal
-         *
-         * @constructor Opal
+         * Opal.
          */
         OPAL(14, Items.OPAL_BOLTS_879, 4, arrayOf(Item(Runes.COSMIC_RUNE.id, 1), Item(Runes.AIR_RUNE.id, 2)), 9.0, Items.OPAL_BOLTS_E_9236),
 
         /**
-         * Sapphire
-         *
-         * @constructor Sapphire
+         * Sapphire.
          */
         SAPPHIRE(29, Items.SAPPHIRE_BOLTS_9337, 7, arrayOf(Item(Runes.COSMIC_RUNE.id, 1), Item(Runes.MIND_RUNE.id, 1), Item(Runes.WATER_RUNE.id, 1)), 17.0, Items.SAPPHIRE_BOLTS_E_9240),
 
         /**
-         * Jade
-         *
-         * @constructor Jade
+         * Jade.
          */
         JADE(18, Items.JADE_BOLTS_9335, 14, arrayOf(Item(Runes.COSMIC_RUNE.id, 1), Item(Runes.EARTH_RUNE.id, 2)), 19.0, Items.JADE_BOLTS_E_9237),
 
         /**
-         * Pearl
-         *
-         * @constructor Pearl
+         * Pearl.
          */
         PEARL(22, Items.PEARL_BOLTS_880, 24, arrayOf(Item(Runes.COSMIC_RUNE.id, 1), Item(Runes.WATER_RUNE.id, 2)), 29.0, Items.PEARL_BOLTS_E_9238),
 
         /**
-         * Emerald
-         *
-         * @constructor Emerald
+         * Emerald.
          */
         EMERALD(32, Items.EMERALD_BOLTS_9338, 27, arrayOf(Item(Runes.NATURE_RUNE.id, 1), Item(Runes.COSMIC_RUNE.id, 1), Item(Runes.AIR_RUNE.id, 3)), 37.0, Items.EMERALD_BOLTS_E_9241),
 
         /**
-         * Red Topaz
-         *
-         * @constructor Red Topaz
+         * Red Topaz.
          */
         RED_TOPAZ(26, Items.TOPAZ_BOLTS_9336, 29, arrayOf(Item(Runes.COSMIC_RUNE.id, 1), Item(Runes.FIRE_RUNE.id, 2)), 33.0, Items.TOPAZ_BOLTS_E_9239),
 
         /**
-         * Ruby
-         *
-         * @constructor Ruby
+         * Ruby.
          */
         RUBY(35, Items.RUBY_BOLTS_9339, 49, arrayOf(Item(Runes.BLOOD_RUNE.id, 1), Item(Runes.COSMIC_RUNE.id, 1), Item(Runes.FIRE_RUNE.id, 5)), 59.0, Items.RUBY_BOLTS_E_9242),
 
         /**
-         * Diamond
-         *
-         * @constructor Diamond
+         * Diamond.
          */
         DIAMOND(38, Items.DIAMOND_BOLTS_9340, 57, arrayOf(Item(Runes.LAW_RUNE.id, 2), Item(Runes.COSMIC_RUNE.id, 1), Item(Runes.EARTH_RUNE.id, 10)), 67.0, Items.DIAMOND_BOLTS_E_9243),
 
         /**
-         * Dragonstone
-         *
-         * @constructor Dragonstone
+         * Dragonstone.
          */
         DRAGONSTONE(41, Items.DRAGON_BOLTS_9341, 68, arrayOf(Item(Runes.SOUL_RUNE.id, 1), Item(Runes.COSMIC_RUNE.id, 1), Item(Runes.EARTH_RUNE.id, 15)), 78.0, Items.DRAGON_BOLTS_E_9244),
 
         /**
-         * Onyx
-         *
-         * @constructor Onyx
+         * Onyx.
          */
         ONYX(44, Items.ONYX_BOLTS_9342, 87, arrayOf(Item(Runes.DEATH_RUNE.id, 1), Item(Runes.COSMIC_RUNE.id, 1), Item(Runes.FIRE_RUNE.id, 20)), 97.0, Items.ONYX_BOLTS_E_9245);
 

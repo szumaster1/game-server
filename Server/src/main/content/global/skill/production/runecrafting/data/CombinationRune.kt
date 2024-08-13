@@ -10,8 +10,7 @@ import core.game.node.item.Item
  * @param level Indicates the required level to use the combination rune.
  * @param experience Specifies the experience gained from using the combination rune.
  * @param altars Lists the altars where the combination rune can be utilized.
- * @constructor
- *
+*
  * @param runes A variable number of runes that can be combined with this combination rune.
  */
 enum class CombinationRune(

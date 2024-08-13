@@ -64,12 +64,7 @@ class CockatriceFamiliarNPC : Plugin<Any> {
     }
 
     /**
-     * Spirit cockatrice
-     *
-     * @constructor
-     *
-     * @param owner
-     * @param id
+     * Spirit cockatrice.
      */
     inner class SpiritCockatrice @JvmOverloads constructor(owner: Player? = null, id: Int = 6875) :
         Forager(owner, id, 3600, 12095, 3, WeaponInterface.STYLE_CAST, COCKATRICE_EGG) {
@@ -87,12 +82,7 @@ class CockatriceFamiliarNPC : Plugin<Any> {
     }
 
     /**
-     * Spirit guthatrice
-     *
-     * @constructor
-     *
-     * @param owner
-     * @param id
+     * Spirit guthatrice.
      */
     inner class SpiritGuthatrice @JvmOverloads constructor(owner: Player? = null, id: Int = 6877) :
         Forager(owner, id, 3600, 12097, 3, WeaponInterface.STYLE_CAST, COCKATRICE_EGG) {
@@ -110,12 +100,7 @@ class CockatriceFamiliarNPC : Plugin<Any> {
     }
 
     /**
-     * Spirit zamatrice
-     *
-     * @constructor
-     *
-     * @param owner
-     * @param id
+     * Spirit zamatrice.
      */
     inner class SpiritZamatrice @JvmOverloads constructor(owner: Player? = null, id: Int = 6881) :
         Forager(owner, id, 3600, 12101, 3, WeaponInterface.STYLE_CAST, COCKATRICE_EGG) {
@@ -133,12 +118,7 @@ class CockatriceFamiliarNPC : Plugin<Any> {
     }
 
     /**
-     * Spirit pengatrice
-     *
-     * @constructor
-     *
-     * @param owner
-     * @param id
+     * Spirit pengatrice.
      */
     inner class SpiritPengatrice @JvmOverloads constructor(owner: Player? = null, id: Int = 6883) :
         Forager(owner, id, 3600, 12103, 3, WeaponInterface.STYLE_CAST, COCKATRICE_EGG) {
@@ -156,12 +136,7 @@ class CockatriceFamiliarNPC : Plugin<Any> {
     }
 
     /**
-     * Spirit coraxatrice
-     *
-     * @constructor
-     *
-     * @param owner
-     * @param id
+     * Spirit coraxatrice.
      */
     inner class SpiritCoraxatrice @JvmOverloads constructor(owner: Player? = null, id: Int = 6885) :
         Forager(owner, id, 3600, 12105, 3, WeaponInterface.STYLE_CAST, COCKATRICE_EGG) {
@@ -179,12 +154,7 @@ class CockatriceFamiliarNPC : Plugin<Any> {
     }
 
     /**
-     * Spirit vulatrice
-     *
-     * @constructor
-     *
-     * @param owner
-     * @param id
+     * Spirit vulatrice.
      */
     inner class SpiritVulatrice @JvmOverloads constructor(owner: Player? = null, id: Int = 6887) :
         Forager(owner, id, 3600, 12107, 3, WeaponInterface.STYLE_CAST, COCKATRICE_EGG) {
@@ -202,12 +172,7 @@ class CockatriceFamiliarNPC : Plugin<Any> {
     }
 
     /**
-     * Spirit saratrice
-     *
-     * @constructor
-     *
-     * @param owner
-     * @param id
+     * Spirit saratrice.
      */
     inner class SpiritSaratrice @JvmOverloads constructor(owner: Player? = null, id: Int = 6879) :
         Forager(owner, id, 3600, 12099, 3, WeaponInterface.STYLE_CAST, COCKATRICE_EGG) {

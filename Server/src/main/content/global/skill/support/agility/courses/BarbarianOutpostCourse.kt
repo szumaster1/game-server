@@ -173,11 +173,7 @@ class BarbarianOutpostCourse
 
 
     /**
-     * Barbarian guard dialogue
-     *
-     * @constructor
-     *
-     * @param player
+     * Barbarian guard dialogue.
      */
     class BarbarianGuardDialogue(player: Player? = null) : Dialogue(player) {
 

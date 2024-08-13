@@ -11,8 +11,7 @@ import core.game.node.scenery.Scenery
  *
  * @param player The player who is cooking the pie
  * @param scenery The scenery where the cooking takes place
- * @constructor
- *
+*
  * @param initial The initial state of the cooking process
  * @param product The type of product being cooked (in this case, a pie)
  * @param amount The amount of product being cooked

@@ -8,8 +8,6 @@ import core.tools.RandomFunction
 /**
  * Multi swing handler.
  *
- * @constructor
- *
  * @param meleeDistance Indicates if the melee distance is applicable.
  * @param attacks A variable number of SwitchAttack instances to be handled.
  */

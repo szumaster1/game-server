@@ -12,8 +12,6 @@ import core.game.node.item.Item
  * Dragon sq shield pulse
  *
  * @param item Represents the item associated with the Dragon Square Shield.
- * @constructor Represents the DragonSqShieldPulse with a player and an item.
- *
  * @param player The player who is using the Dragon Square Shield.
  */
 class DragonSqShieldPulse(player: Player?, val item: Item) : SkillPulse<Item>(player, null) {

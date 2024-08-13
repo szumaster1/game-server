@@ -210,11 +210,7 @@ class BookInterfaceListener : InterfaceListener {
 }
 
 /**
- * Page set
- *
- * @constructor
- *
- * @param pages
+ * Page set.
  */
 class PageSet(vararg pages: Page) {
 
@@ -222,11 +218,7 @@ class PageSet(vararg pages: Page) {
 }
 
 /**
- * Page
- *
- * @constructor
- *
- * @param lines
+ * Page.
  */
 class Page(vararg lines: BookLine) {
 

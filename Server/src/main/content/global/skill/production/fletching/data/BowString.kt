@@ -10,8 +10,7 @@ import core.api.consts.Items
  * @param level Represents the level required to use the bow string.
  * @param experience Represents the experience gained from using the bow string.
  * @param animation Represents the animation ID associated with the bow string.
- * @constructor
- *
+*
  * @param indicator A byte value indicating a specific characteristic of the bow string.
  */
 enum class BowString(indicator: Byte, val unfinished: Int, val product: Int, val level: Int, val experience: Double, val animation: Int) {

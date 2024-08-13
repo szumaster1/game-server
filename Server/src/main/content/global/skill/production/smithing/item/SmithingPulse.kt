@@ -20,8 +20,6 @@ import core.tools.StringUtils
  *
  * @param bars Represents the type of bars used in smithing.
  * @param amount Indicates the quantity of items to be crafted.
- * @constructor Represents a new instance of SmithingPulse.
- *
  * @param player The player who is performing the smithing action.
  * @param item The item that is being crafted.
  */

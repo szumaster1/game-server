@@ -93,11 +93,7 @@ class FishbowlPlugin : OptionHandler() {
     }
 
     /**
-     * Fishbowl dialogue
-     *
-     * @constructor
-     *
-     * @param player
+     * Fishbowl dialogue.
      */
     inner class FishbowlDialogue(player: Player? = null) : Dialogue(player) {
         private var fishbowl: Item? = null

@@ -11,8 +11,7 @@ import core.plugin.Plugin
  * Water skin plugin.
  */
 @Initializable
-class WaterSkinPlugin :
-    UseWithHandler(Items.WATERSKIN3_1825, Items.WATERSKIN2_1827, Items.WATERSKIN1_1829, Items.WATERSKIN0_1831) {
+class WaterSkinPlugin : UseWithHandler(Items.WATERSKIN3_1825, Items.WATERSKIN2_1827, Items.WATERSKIN1_1829, Items.WATERSKIN0_1831) {
 
     private val FULL_SKIN = Item(Items.WATERSKIN4_1823)
 

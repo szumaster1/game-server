@@ -50,11 +50,7 @@ class TeleportCrystalPlugin : OptionHandler() {
     }
 
     /**
-     * Teleport crystal dialogue
-     *
-     * @constructor
-     *
-     * @param player
+     * Teleport crystal dialogue.
      */
     class TeleportCrystalDialogue(player: Player? = null) : Dialogue(player) {
         private var itemId: Int? = null

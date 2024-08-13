@@ -10,8 +10,7 @@ import core.game.node.scenery.Scenery
  *
  * @param player The player who is cooking the pizza
  * @param scenery The environment in which the pizza is being cooked
- * @constructor
- *
+*
  * @param initial The initial state of the cooking process
  * @param product The type of pizza product being cooked
  * @param amount The quantity of pizza being cooked

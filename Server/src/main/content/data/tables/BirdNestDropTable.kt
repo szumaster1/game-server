@@ -12,12 +12,7 @@ import core.tools.RandomFunction
 import core.tools.StringUtils
 
 /**
- * Bird nest drop table
- *
- * @param nest
- * @constructor
- *
- * @param loot
+ * Bird nest drop table.
  */
 enum class BirdNestDropTable(val nest: ChanceItem, vararg loot: ChanceItem) {
     RED(

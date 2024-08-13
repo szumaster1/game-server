@@ -16,9 +16,7 @@ import core.api.consts.Scenery
  */
 enum class Log(val logId: Int, val defaultLevel: Int, val barbarianLevel: Int, val life: Int, val fireId: Int, val xp: Double) {
     /**
-     * Normal
-     *
-     * @constructor Normal
+     * Normal.
      */
     NORMAL(
         logId = Items.LOGS_1511, // Unique ID for Normal log
@@ -30,9 +28,7 @@ enum class Log(val logId: Int, val defaultLevel: Int, val barbarianLevel: Int, v
     ),
 
     /**
-     * Purple
-     *
-     * @constructor Purple
+     * Purple.
      */
     PURPLE(
         logId = Items.PURPLE_LOGS_10329, // Unique ID for Purple log
@@ -44,9 +40,7 @@ enum class Log(val logId: Int, val defaultLevel: Int, val barbarianLevel: Int, v
     ),
 
     /**
-     * White
-     *
-     * @constructor White
+     * White.
      */
     WHITE(
         logId = Items.WHITE_LOGS_10328, // Unique ID for White log
@@ -58,9 +52,7 @@ enum class Log(val logId: Int, val defaultLevel: Int, val barbarianLevel: Int, v
     ),
 
     /**
-     * Blue
-     *
-     * @constructor Blue
+     * Blue.
      */
     BLUE(
         logId = Items.BLUE_LOGS_7406, // Unique ID for Blue log
@@ -72,9 +64,7 @@ enum class Log(val logId: Int, val defaultLevel: Int, val barbarianLevel: Int, v
     ),
 
     /**
-     * Green
-     *
-     * @constructor Green
+     * Green.
      */
     GREEN(
         logId = Items.GREEN_LOGS_7405, // Unique ID for Green log
@@ -86,9 +76,7 @@ enum class Log(val logId: Int, val defaultLevel: Int, val barbarianLevel: Int, v
     ),
 
     /**
-     * Red
-     *
-     * @constructor Red
+     * Red.
      */
     RED(
         logId = Items.RED_LOGS_7404, // Unique ID for Red log
@@ -100,9 +88,7 @@ enum class Log(val logId: Int, val defaultLevel: Int, val barbarianLevel: Int, v
     ),
 
     /**
-     * Jogre
-     *
-     * @constructor Jogre
+     * Jogre.
      */
     JOGRE(
         logId = Items.JOGRE_BONES_3125, // Unique ID for Jogre log
@@ -114,9 +100,7 @@ enum class Log(val logId: Int, val defaultLevel: Int, val barbarianLevel: Int, v
     ),
 
     /**
-     * Achey
-     *
-     * @constructor Achey
+     * Achey.
      */
     ACHEY(
         logId = Items.ACHEY_TREE_LOGS_2862, // Unique ID for Achey log
@@ -128,9 +112,7 @@ enum class Log(val logId: Int, val defaultLevel: Int, val barbarianLevel: Int, v
     ),
 
     /**
-     * Oak
-     *
-     * @constructor Oak
+     * Oak.
      */
     OAK(
         logId = Items.OAK_LOGS_1521, // Unique ID for Oak log
@@ -142,9 +124,7 @@ enum class Log(val logId: Int, val defaultLevel: Int, val barbarianLevel: Int, v
     ),
 
     /**
-     * Willow
-     *
-     * @constructor Willow
+     * Willow.
      */
     WILLOW(
         logId = Items.WILLOW_LOGS_1519, // Unique ID for Willow log
@@ -156,9 +136,7 @@ enum class Log(val logId: Int, val defaultLevel: Int, val barbarianLevel: Int, v
     ),
 
     /**
-     * Teak
-     *
-     * @constructor Teak
+     * Teak.
      */
     TEAK(
         logId = Items.TEAK_LOGS_6333, // Unique ID for Teak log
@@ -170,9 +148,7 @@ enum class Log(val logId: Int, val defaultLevel: Int, val barbarianLevel: Int, v
     ),
 
     /**
-     * Arctic Pine
-     *
-     * @constructor Arctic Pine
+     * Arctic Pine.
      */
     ARCTIC_PINE(
         logId = Items.ARCTIC_PINE_LOGS_10810, // Unique ID for Arctic Pine log
@@ -184,9 +160,7 @@ enum class Log(val logId: Int, val defaultLevel: Int, val barbarianLevel: Int, v
     ),
 
     /**
-     * Maple
-     *
-     * @constructor Maple
+     * Maple.
      */
     MAPLE(
         logId = Items.MAPLE_LOGS_1517, // Unique ID for Maple log
@@ -198,9 +172,7 @@ enum class Log(val logId: Int, val defaultLevel: Int, val barbarianLevel: Int, v
     ),
 
     /**
-     * Mahogany
-     *
-     * @constructor Mahogany
+     * Mahogany.
      */
     MAHOGANY(
         logId = Items.MAHOGANY_LOGS_6332, // Unique ID for Mahogany log
@@ -212,9 +184,7 @@ enum class Log(val logId: Int, val defaultLevel: Int, val barbarianLevel: Int, v
     ),
 
     /**
-     * Eucalyptus
-     *
-     * @constructor Eucalyptus
+     * Eucalyptus.
      */
     EUCALYPTUS(
         logId = Items.EUCALYPTUS_LOGS_12581, // Unique ID for Eucalyptus log
@@ -226,9 +196,7 @@ enum class Log(val logId: Int, val defaultLevel: Int, val barbarianLevel: Int, v
     ),
 
     /**
-     * Yew
-     *
-     * @constructor Yew
+     * Yew.
      */
     YEW(
         logId = Items.YEW_LOGS_1515, // Unique ID for Yew log
@@ -240,9 +208,7 @@ enum class Log(val logId: Int, val defaultLevel: Int, val barbarianLevel: Int, v
     ),
 
     /**
-     * Magic
-     *
-     * @constructor Magic
+     * Magic.
      */
     MAGIC(
         logId = Items.MAGIC_LOGS_1513, // Unique ID for Magic log
@@ -254,9 +220,7 @@ enum class Log(val logId: Int, val defaultLevel: Int, val barbarianLevel: Int, v
     ),
 
     /**
-     * Cursed Magic
-     *
-     * @constructor Cursed Magic
+     * Cursed Magic.
      */
     CURSED_MAGIC(
         logId = Items.CURSED_MAGIC_LOGS_13567, // Unique ID for Cursed Magic log

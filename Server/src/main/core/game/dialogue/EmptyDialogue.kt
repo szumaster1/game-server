@@ -5,12 +5,7 @@ import core.game.node.entity.player.Player
 import core.tools.START_DIALOGUE
 
 /**
- * Empty dialogue
- *
- * @param file
- * @constructor
- *
- * @param player
+ * Empty dialogue.
  */
 class EmptyDialogue(player: Player? = null, val file: DialogueFile?) : Dialogue(player) {
 

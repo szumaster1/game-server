@@ -14,8 +14,6 @@ import core.game.node.entity.player.Player
  * @param talisman Represents the talisman used in the enchantment process.
  * @param tiara Represents the tiara that will be enchanted.
  * @param altar Represents the altar where the enchantment takes place.
- * @constructor
- *
  * @param player The player who is interacting with the enchantment dialogue.
  */
 class EnchantTiaraDialogue(player: Player, val talisman: Talisman, val tiara: TalismanStaff, val altar: Altar) :

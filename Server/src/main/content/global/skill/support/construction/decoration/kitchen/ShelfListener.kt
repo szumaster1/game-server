@@ -25,11 +25,7 @@ class ShelfListener : InteractionListener {
     }
 
     /**
-     * Shelf dialogue
-     *
-     * @constructor
-     *
-     * @param player
+     * Shelf dialogue.
      */
     inner class ShelfDialogue(player: Player? = null) : Dialogue(player) {
 

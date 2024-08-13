@@ -270,8 +270,7 @@ enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)?
     /**
      * Magic cape dialogue
      *
-     * @constructor
-     *
+        *
      * @param player The player associated with the magic cape dialogue.
      */
     @Initializable
@@ -340,11 +339,7 @@ enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)?
     }
 
     /**
-     * R c cape dialogue
-     *
-     * @constructor
-     *
-     * @param player
+     * RC cape dialogue/
      */
     @Initializable
     class RCCapeDialogue(player: Player? = null) : Dialogue(player) {

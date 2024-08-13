@@ -11,8 +11,6 @@ import core.game.world.update.flag.context.Graphic
 /**
  * Switch attack
  *
- * @constructor
- *
  * @param handler The combat swing handler associated with the attack.
  * @param animation The animation to be played during the attack.
  * @param startGraphic The graphic to be displayed at the start of the attack (optional).

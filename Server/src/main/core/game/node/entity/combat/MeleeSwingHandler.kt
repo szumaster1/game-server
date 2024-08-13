@@ -20,8 +20,6 @@ import kotlin.math.floor
 /**
  * Melee swing handler.
  *
- * @constructor
- *
  * @param flags Vararg parameter to accept multiple SwingHandlerFlag instances.
  */
 open class MeleeSwingHandler(vararg flags: SwingHandlerFlag) : CombatSwingHandler(CombatStyle.MELEE, *flags) {

@@ -15,8 +15,6 @@ import core.game.node.item.Item
  *
  * @param item Represents the item associated with the cannonball pulse.
  * @param amount Indicates the quantity of the item.
- * @constructor Represents a new instance of CannonballPulse.
- *
  * @param player The player associated with this cannonball pulse.
  */
 class CannonballPulse(player: Player?, val item: Item?, private var amount: Int) :

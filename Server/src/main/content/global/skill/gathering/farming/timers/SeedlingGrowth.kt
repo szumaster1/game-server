@@ -10,18 +10,14 @@ import org.json.simple.JSONObject
 import java.util.concurrent.TimeUnit
 
 /**
- * Seedling growth
- *
- * @constructor Seedling growth
+ * Seedling growth.
  */
 class SeedlingGrowth : PersistTimer (1, "farming:seedling", isSoft = true) {
     val seedlings = ArrayList<Seedling>()
     lateinit var player: Player
 
     /**
-     * Add seedling
-     *
-     * @param seedling
+     * Add seedling.
      */
     fun addSeedling(seedling: Int){
         seedlings.add(

@@ -63,38 +63,45 @@ class CreditShopInterfaceListener : InterfaceListener {
     /**
      * Send credits
      *
-     * @param player
+     * @param player The player to whom credits are being sent.
      */
     fun sendCredits(player: Player) {
+        // Set the interface text to display the player's current credits
         setInterfaceText(player, "You have ${player.details.credits} credits to spend.", Components.CREDIT_SHOP_837, 39)
     }
 
     /**
      * Attempt purchase
      *
-     * @param player
-     * @param item
-     * @param price
+     * @param player The player attempting to make a purchase.
+     * @param item The ID of the item being purchased.
+     * @param price The price of the item.
      */
     fun attemptPurchase(player: Player, item: Int, price: Int) {
+        // Check if the player has enough credits to make the purchase
         if (player.details.credits < price) {
+            // Inform the player they do not have enough credits
             sendDialogue(player, "You don't have enough credits for that.")
-            return
+            return // Exit the function if credits are insufficient
         }
 
+        // Attempt to add the item to the player's inventory
         if (player.inventory.add(Item(item))) {
+            // Deduct the price from the player's credits if the item was added successfully
             player.details.credits -= price
         } else {
+            // Inform the player they do not have enough inventory space
             sendDialogue(player, "You don't have enough inventory space for that.")
         }
+        // Update the player on their remaining credits
         sendCredits(player)
     }
 
     /**
      * Shop item
      *
-     * @param id
-     * @param price
+     * @param id The ID of the shop item.
+     * @param price The price of the shop item.
      * @constructor Shop item
      */
     internal class ShopItem(val id: Int, val price: Int)

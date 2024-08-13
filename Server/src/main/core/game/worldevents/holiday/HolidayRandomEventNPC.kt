@@ -14,11 +14,7 @@ import core.tools.secondsToTicks
 import kotlin.reflect.full.createInstance
 
 /**
- * Holiday random event NPC
- *
- * @constructor
- *
- * @param id Unique identifier for the NPC
+ * Holiday random event NPC.
  */
 abstract class HolidayRandomEventNPC(id: Int) : NPC(id) {
     lateinit var player: Player

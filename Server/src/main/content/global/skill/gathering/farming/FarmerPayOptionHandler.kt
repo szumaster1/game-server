@@ -24,10 +24,10 @@ class FarmerPayOptionHandler : InteractionListener {
     /**
      * Attempt pay
      *
-     * @param player
-     * @param node
-     * @param index
-     * @return
+     * @param player The player attempting to make a payment
+     * @param node The node representing the payment destination
+     * @param index The index of the payment attempt
+     * @return Returns true if the payment was successful, false otherwise
      */
     fun attemptPay(player: Player, node: Node, index: Int): Boolean {
         val farmer = Farmers.forId(node.id) ?: return false

@@ -28,16 +28,13 @@ class FishfoodPlugin : UseWithHandler(*FishFoodUses.usables) {
     }
 
     /**
-     * Enum class representing different uses of fish food.
+     * The enum Fish food uses.
      *
      * @param used The amount of fish food used.
      * @param with The ingredient used with the fish food.
      * @param product The resulting product after using the fish food.
      * @param msg Additional message related to the use of fish food.
      * @constructor Represents a specific use of fish food.
-     */
-    /*
-     * The enum Fish food uses.
      */
     enum class FishFoodUses(
         private val used: Int,

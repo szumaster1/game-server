@@ -43,9 +43,9 @@ class VoidFamiliarNPC : Plugin<Any> {
     /**
      * Handles the call to arms scroll.
      *
-     * @param familiar
-     * @param special
-     * @return
+     * @param familiar The familiar that is being summoned.
+     * @param special An optional special ability associated with the familiar.
+     * @return Returns true if the call to arms was successful, false otherwise.
      */
     fun callToArms(familiar: Familiar, special: FamiliarSpecial?): Boolean {
         val owner = familiar.owner
@@ -70,12 +70,7 @@ class VoidFamiliarNPC : Plugin<Any> {
     }
 
     /**
-     * Void ravager NPC
-     *
-     * @constructor
-     *
-     * @param owner the owner id.
-     * @param id the id.
+     * Void ravager NPC.
      */
     inner class VoidRavagerNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 7370) :
         Forager(owner, id, 2700, 12818, 3, WeaponInterface.STYLE_AGGRESSIVE, *ITEMS) {
@@ -98,12 +93,7 @@ class VoidFamiliarNPC : Plugin<Any> {
     }
 
     /**
-     * Void shifter NPC
-     *
-     * @constructor
-     *
-     * @param owner the owner id.
-     * @param id the id.
+     * Void shifter NPC.
      */
     inner class VoidShifterNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 7367) :
         Familiar(owner, id, 9400, 12814, 3, WeaponInterface.STYLE_ACCURATE) {
@@ -131,12 +121,7 @@ class VoidFamiliarNPC : Plugin<Any> {
 
 
     /**
-     * Void spinner NPC
-     *
-     * @constructor
-     *
-     * @param owner the owner id.
-     * @param id the id.
+     * Void spinner NPC.
      */
     inner class VoidSpinnerNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 7333) :
         Familiar(owner, id, 2700, 12780, 3, WeaponInterface.STYLE_DEFENSIVE) {
@@ -165,12 +150,7 @@ class VoidFamiliarNPC : Plugin<Any> {
     }
 
     /**
-     * Void torcher NPC
-     *
-     * @constructor
-     *
-     * @param owner the owner id.
-     * @param id the id.
+     * Void torcher NPC.
      */
     inner class VoidTorcherNPC @JvmOverloads constructor(owner: Player? = null, id: Int = 7351) :
         Familiar(owner, id, 9400, 12798, 3, WeaponInterface.STYLE_CAST) {

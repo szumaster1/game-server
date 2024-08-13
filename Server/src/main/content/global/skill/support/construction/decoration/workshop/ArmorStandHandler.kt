@@ -109,11 +109,7 @@ class ArmorStandHandler : UseWithHandler(494, 468, 474, 476, 478, 470, 472, 496,
     }
 
     /**
-     * Repair dialogue
-     *
-     * @constructor
-     *
-     * @param player
+     * Repair dialogue.
      */
     @Initializable
     class RepairDialogue(player: Player? = null) : Dialogue(player) {

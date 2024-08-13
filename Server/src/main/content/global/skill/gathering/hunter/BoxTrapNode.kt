@@ -8,8 +8,6 @@ import core.game.node.item.Item
  * Box trap node
  *
  * @param summoningLevel
- * @constructor
- *
  * @param npcIds Array of NPC IDs associated with the box trap.
  * @param level The level required to use the box trap.
  * @param experience The experience gained from using the box trap.

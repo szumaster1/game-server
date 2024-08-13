@@ -12,8 +12,6 @@ import kotlin.math.floor
 
 /**
  * Magic swing handler.
- *
- * @constructor
  * This constructor initializes the MagicSwingHandler with the provided flags.
  *
  * @param flags

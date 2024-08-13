@@ -9,9 +9,7 @@ import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 
 /**
- * Compost
- *
- * @constructor Compost
+ * Compost.
  */
 class Compost : PersistTimer (500, "farming:compost", isSoft = true) {
     private val binMap = HashMap<CompostBins, CompostBin>()

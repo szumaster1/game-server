@@ -33,9 +33,7 @@ class BabyChinchompaNPC : Metamorphosis(*CHINCHOMPA_IDS) {
     }
 
     /**
-     * Baby chinchompa dialogue
-     *
-     * @constructor Baby chinchompa dialogue
+     * Baby chinchompa dialogue.
      */
     inner class BabyChinchompaDialogue : Dialogue {
         constructor()

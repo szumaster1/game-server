@@ -18,9 +18,7 @@ import core.tools.SystemLogger
 import kotlin.math.min
 
 /**
- * Stock market interface listener
- *
- * @constructor Stock market interface listener
+ * Stock market interface listener.
  */
 class StockMarketInterfaceListener : InterfaceListener {
 

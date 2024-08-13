@@ -19,8 +19,6 @@ import kotlin.math.min
  * @param altar Represents the altar where the enchantment takes place.
  * @param tiara Represents the tiara that is being enchanted.
  * @param amount Represents the number of times the enchantment will be applied.
- * @constructor
- *
  * @param player The player who is performing the enchantment.
  */
 class EnchantTiaraPulse(

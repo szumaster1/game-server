@@ -10,8 +10,6 @@ import java.util.*
  * @param level The level of the dairy product, represented as an integer.
  * @param experience The experience points associated with the dairy product, represented as a double.
  * @param product The item representing the dairy product.
- * @constructor
- *
  * @param inputs An array of integers representing additional inputs related to the dairy product.
  */
 enum class DairyProduct(

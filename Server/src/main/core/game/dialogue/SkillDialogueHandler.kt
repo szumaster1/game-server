@@ -13,14 +13,11 @@ import core.tools.StringUtils
 /**
  * Skill dialogue handler
  *
- * @param player
- * @param type
- * @constructor
- *
- * @param data
+ * @param player The player associated with this skill dialogue handler
+ * @param type The type of skill dialogue being handled
+ * @param data Additional data related to the skill dialogue
  */
 open class SkillDialogueHandler(val player: Player, val type: SkillDialogue?, vararg data: Any) {
-
     /**
      * Represents the object data passed through.
      */

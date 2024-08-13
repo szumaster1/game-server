@@ -43,8 +43,7 @@ class WeaveOptionHandler : OptionHandler() {
      *
      * @param type The type of weaving item associated with this pulse.
      * @param amount The quantity of the weaving item.
-     * @constructor
-     *
+        *
      * @param player The player who is executing the weaving action.
      * @param node The scenery node where the weaving action takes place.
      */

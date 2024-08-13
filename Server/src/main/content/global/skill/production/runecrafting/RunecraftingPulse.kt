@@ -33,8 +33,7 @@ import kotlin.math.max
  * @param altar Represents the altar used in the runecrafting process.
  * @param combination Indicates whether a combination of runes is being used.
  * @param combo Holds the specific combination of runes, if applicable.
- * @constructor
- *
+*
  * @param player The player who is performing the runecrafting action.
  * @param node The item associated with the runecrafting action.
  */
