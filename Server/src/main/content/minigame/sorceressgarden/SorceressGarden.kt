@@ -189,13 +189,12 @@ class SorceressGarden : InteractionListener {
         })
     }
 
-
     /**
      * Herb definition
      *
-     * @param id
-     * @param exp
-     * @param respawn
+     * @param id Unique identifier for the herb
+     * @param exp Experience points gained from harvesting the herb
+     * @param respawn Location where the herb will respawn after being harvested
      * @constructor Herb definition
      */
     enum class HerbDefinition(val id: Int, val exp: Double, val respawn: Location) {
@@ -232,13 +231,19 @@ class SorceressGarden : InteractionListener {
         SUMMER(21669, 60.0, Location(2910, 5476, 0));
 
         companion object {
+            /**
+             * Retrieves a HerbDefinition based on its unique identifier
+             *
+             * @param id Unique identifier for the herb
+             * @return HerbDefinition? Returns the corresponding HerbDefinition or null if not found
+             */
             fun forId(id: Int): HerbDefinition? {
                 for (def in values()) {
                     if (def.id == id) {
-                        return def
+                        return def // Return the matching HerbDefinition
                     }
                 }
-                return null
+                return null // Return null if no match is found
             }
         }
     }
@@ -247,33 +252,33 @@ class SorceressGarden : InteractionListener {
     /**
      * Season definitions
      *
-     * @param treeId
-     * @param level
-     * @param farmExp
-     * @param exp
-     * @param fruitId
-     * @param juiceId
-     * @param fruitAmt
-     * @param boost
-     * @param energy
-     * @param osmanExp
-     * @param gateId
-     * @param respawn
+     * @param treeId Unique identifier for the tree associated with the season
+     * @param level The level required to access this season
+     * @param farmExp Experience points gained from farming in this season
+     * @param exp General experience points gained in this season
+     * @param fruitId Unique identifier for the fruit produced in this season
+     * @param juiceId Unique identifier for the juice made from the fruit
+     * @param fruitAmt Amount of fruit produced in this season
+     * @param boost Boost effect provided by this season
+     * @param energy Energy cost associated with activities in this season
+     * @param osmanExp Experience points gained from Osman-related activities in this season
+     * @param gateId Unique identifier for the gate associated with this season
+     * @param respawn Location where entities respawn in this season
      * @constructor Season definitions
      */
     enum class SeasonDefinitions(
-        val treeId: Int,
-        val level: Int,
-        val farmExp: Double,
-        val exp: Double,
-        val fruitId: Int,
-        val juiceId: Int,
-        val fruitAmt: Int,
-        val boost: Int,
-        val energy: Int,
-        val osmanExp: Double,
-        val gateId: Int,
-        val respawn: Location
+        val treeId: Int, // Unique identifier for the tree associated with the season
+        val level: Int, // The level required to access this season
+        val farmExp: Double, // Experience points gained from farming in this season
+        val exp: Double, // General experience points gained in this season
+        val fruitId: Int, // Unique identifier for the fruit produced in this season
+        val juiceId: Int, // Unique identifier for the juice made from the fruit
+        val fruitAmt: Int, // Amount of fruit produced in this season
+        val boost: Int, // Boost effect provided by this season
+        val energy: Int, // Energy cost associated with activities in this season
+        val osmanExp: Double, // Experience points gained from Osman-related activities in this season
+        val gateId: Int, // Unique identifier for the gate associated with this season
+        val respawn: Location // Location where entities respawn in this season
     ) {
         /**
          * Winter
@@ -281,18 +286,18 @@ class SorceressGarden : InteractionListener {
          * @constructor Winter
          */
         WINTER(
-            21769,
-            1,
-            30.0,
-            70.0,
-            10847,
-            10851,
-            5,
-            0,
-            10,
-            350.0,
-            21709,
-            Location(2907, 5470, 0)
+            treeId = 21769,
+            level = 1,
+            farmExp = 30.0,
+            exp = 70.0,
+            fruitId = 10847,
+            juiceId = 10851,
+            fruitAmt = 5,
+            boost = 0,
+            energy = 10,
+            osmanExp = 350.0,
+            gateId = 21709,
+            respawn = Location(2907, 5470, 0)
         ),
 
         /**
@@ -301,18 +306,18 @@ class SorceressGarden : InteractionListener {
          * @constructor Spring
          */
         SPRING(
-            21767,
-            25,
-            40.0,
-            337.5,
-            10844,
-            10848,
-            4,
-            1,
-            20,
-            1350.0,
-            21753,
-            Location(2916, 5473, 0)
+            treeId = 21767,
+            level = 25,
+            farmExp = 40.0,
+            exp = 337.5,
+            fruitId = 10844,
+            juiceId = 10848,
+            fruitAmt = 4,
+            boost = 1,
+            energy = 20,
+            osmanExp = 1350.0,
+            gateId = 21753,
+            respawn = Location(2916, 5473, 0)
         ),
 
         /**
@@ -321,18 +326,18 @@ class SorceressGarden : InteractionListener {
          * @constructor Autumn
          */
         AUTUMN(
-            21768,
-            45,
-            50.0,
-            783.3,
-            10846,
-            10850,
-            3,
-            2,
-            30,
-            2350.0,
-            21731,
-            Location(2913, 5467, 0)
+            treeId = 21768,
+            level = 45,
+            farmExp = 50.0,
+            exp = 783.3,
+            fruitId = 10846,
+            juiceId = 10850,
+            fruitAmt = 3,
+            boost = 2,
+            energy = 30,
+            osmanExp = 2350.0,
+            gateId = 21731,
+            respawn = Location(2913, 5467, 0)
         ),
 
         /**
@@ -341,53 +346,89 @@ class SorceressGarden : InteractionListener {
          * @constructor Summer
          */
         SUMMER(
-            21766,
-            65,
-            60.0,
-            1500.0,
-            10845,
-            10849,
-            2,
-            3,
-            40,
-            3000.0,
-            21687,
-            Location(2910, 5476, 0)
+            treeId = 21766,
+            level = 65,
+            farmExp = 60.0,
+            exp = 1500.0,
+            fruitId = 10845,
+            juiceId = 10849,
+            fruitAmt = 2,
+            boost = 3,
+            energy = 40,
+            osmanExp = 3000.0,
+            gateId = 21687,
+            respawn = Location(2910, 5476, 0)
         );
 
         companion object {
+            /**
+             * For fruit id
+             *
+             * @param fruitId The ID of the fruit to search for
+             * @return The corresponding SeasonDefinitions object or null if not found
+             */
             fun forFruitId(fruitId: Int): SeasonDefinitions? {
+                // Iterate through all defined SeasonDefinitions values
                 for (def in values()) {
+                    // Skip null definitions
                     if (def == null) continue
+                    // Check if the current definition's fruitId matches the provided fruitId
                     if (fruitId == def.fruitId) return def
                 }
+                // Return null if no matching definition is found
                 return null
             }
 
-
+            /**
+             * For gate id
+             *
+             * @param gateId The ID of the gate to search for
+             * @return The corresponding SeasonDefinitions object or null if not found
+             */
             @JvmStatic
             fun forGateId(gateId: Int): SeasonDefinitions? {
+                // Iterate through all defined SeasonDefinitions values
                 for (def in values()) {
+                    // Check if the current definition's gateId matches the provided gateId
                     if (gateId == def.gateId) return def
                 }
+                // Return null if no matching definition is found
                 return null
             }
 
-
+            /**
+             * For juice id
+             *
+             * @param juiceId The ID of the juice to search for
+             * @return The corresponding SeasonDefinitions object or null if not found
+             */
             fun forJuiceId(juiceId: Int): SeasonDefinitions? {
+                // Iterate through all defined SeasonDefinitions values
                 for (def in values()) {
+                    // Skip null definitions
                     if (def == null) continue
+                    // Check if the current definition's juiceId matches the provided juiceId
                     if (juiceId == def.juiceId) return def
                 }
+                // Return null if no matching definition is found
                 return null
             }
 
-
+            /**
+             * For tree id
+             *
+             * @param treeId The ID of the tree to search for
+             * @return The corresponding SeasonDefinitions object or null if not found
+             */
             fun forTreeId(treeId: Int): SeasonDefinitions? {
+                // Iterate through all defined SeasonDefinitions values
                 for (def in values()) {
+                    // Skip null definitions
                     if (def == null) continue
+                    // Check if the current definition's treeId matches the provided treeId
                     if (treeId == def.treeId) return def
                 }
+                // Return null if no matching definition is found
                 return null
             }
         }
@@ -395,9 +436,7 @@ class SorceressGarden : InteractionListener {
 
 
     /**
-     * Sqirk juice plugin
-     *
-     * @constructor Sqirk juice plugin
+     * Sqirk juice plugin.
      */
     class SqirkJuicePlugin : UseWithHandler(10844, 10845, 10846, 10847) {
         override fun handle(event: NodeUsageEvent): Boolean {
@@ -438,8 +477,7 @@ class SorceressGarden : InteractionListener {
 
     companion object {
         private val ANIMATION = Animation(827)
-        private val HERBS =
-            intArrayOf(199, 201, 203, 205, 207, 209, 211, 213, 215, 217, 219, 2485, 3049, 3051, 199, 201, 203, 205)
+        private val HERBS = intArrayOf(199, 201, 203, 205, 207, 209, 211, 213, 215, 217, 219, 2485, 3049, 3051, 199, 201, 203, 205)
         private val DRINK_ANIM = Animation(5796)
         private val TELE = Animation(714)
         private val Graphic = Graphic(111, 100, 1)
@@ -476,20 +514,12 @@ class SqirkMakingDialogue(player: Player? = null) : Dialogue(player) {
     override fun open(vararg args: Any): Boolean {
         dialogueId = args[0] as Int
         when (dialogueId) {
-            0 -> player(
-                FacialExpression.THINKING,
-                "I should get an empty beer glass to",
-                "hold the juice before I squeeze the fruit."
-            )
+            0 -> player(FacialExpression.THINKING, "I should get an empty beer glass to", "hold the juice before I squeeze the fruit.")
 
             1 -> {
                 definition = SorceressGarden.SeasonDefinitions.forFruitId(args[1] as Int)
                 if (definition == null) end()
-                player(
-                    FacialExpression.THINKING,
-                    "I think I should wait till I have",
-                    "enough fruits to make a full glass."
-                )
+                player(FacialExpression.THINKING, "I think I should wait till I have", "enough fruits to make a full glass.")
             }
         }
         stage = 0

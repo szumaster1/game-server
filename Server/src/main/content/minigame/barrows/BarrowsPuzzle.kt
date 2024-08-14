@@ -93,6 +93,7 @@ class BarrowsPuzzle private constructor(private val questionModels: IntArray, pr
 
         /**
          * Opens a random barrows puzzle.
+         *
          * @param player The player.
          */
         fun open(player: Player) {
@@ -105,6 +106,7 @@ class BarrowsPuzzle private constructor(private val questionModels: IntArray, pr
 
         /**
          * Opens the barrows puzzle for the given index.
+         *
          * @param player The player.
          * @param index The index (0 = shapes, 1 = lines, 2 = squares, 3 =
          * triangle-on-circle).
@@ -158,6 +160,7 @@ class BarrowsPuzzle private constructor(private val questionModels: IntArray, pr
 
         /**
          * Gets the answer model id.
+         *
          * @param modelId The model id.
          * @param correct If the answer is correct.
          * @return The model id hash.

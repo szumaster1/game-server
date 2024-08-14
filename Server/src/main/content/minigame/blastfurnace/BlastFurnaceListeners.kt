@@ -147,10 +147,12 @@ class BlastFurnaceListeners : InteractionListener {
                             animate(p, Animations.USE_SPADEFUL_OF_COKE_BLAST_FURNACE_2442)
                             return@queueScript delayScript(p, animDuration)
                         }
+
                         1 -> {
                             addItem(p, Items.SPADE_952)
                             return@queueScript stopExecuting(p)
                         }
+
                         else -> return@queueScript stopExecuting(p)
                     }
                 }

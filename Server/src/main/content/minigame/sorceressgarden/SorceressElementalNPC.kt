@@ -153,22 +153,21 @@ class SorceressElementalNPC : AbstractNPC {
          */
         WINTER_ELEMENTAL_5558(NPCs.WINTER_ELEMENTAL_5558, arrayOf(Location(2889, 5485, 0), Location(2900, 5485, 0)));
 
-
         /**
          * Get id.
          *
-         * @return
+         * @return The unique identifier for the NPC.
          */
         fun getId(): Int {
-            return npcId
+            return npcId // Return the unique identifier of the NPC
         }
 
         /**
          * Get location.
          *
-         * @return
+         * @return An array of Location objects representing the NPC's locations.
          */
-        fun getLocation(): Array<Location> {
+        fun getLocation(): Array<Location> { // Implementation to retrieve the NPC's locations will go here
             return locations
         }
 
@@ -193,25 +192,33 @@ class SorceressElementalNPC : AbstractNPC {
      * Can teleport.
      *
      * @param t the teleport.
-     * @return
+     * @return true if teleportation is possible, false otherwise.
      */
     fun canTeleport(t: Entity): Boolean {
+        // Check if the direction is EAST and if the target entity is within teleportation range
         if (getDirection() == Direction.EAST && t.location.x - getLocation().x < 4 && t.location.x - getLocation().x > -1 && t.location.y - getLocation().y == 0) return true
+
+        // Check if the direction is WEST and if the target entity is within teleportation range
         if (getDirection() == Direction.WEST && getLocation().x - t.location.x < 4 && getLocation().x - t.location.x > -1 && t.location.y - getLocation().y == 0) return true
+
+        // Check if the direction is NORTH and if the target entity is within teleportation range
         if (getDirection() == Direction.NORTH && t.location.y - getLocation().y < 4 && t.location.y - getLocation().y > -1 && t.location.x - getLocation().x == 0) return true
+
+        // Check if the direction is SOUTH and if the target entity is within teleportation range
         return if (getDirection() == Direction.SOUTH && getLocation().y - t.location.y < 4 && getLocation().y - t.location.y > -1 && t.location.x - getLocation().x == 0) true else false
     }
 
     override fun configure() {
-        super.configure()
-        definition = ElementalDefinition.forId(id)
-        if (definition != null) {
-            configureMovementPath(*definition!!.getLocation())
-            isWalks = true
+        super.configure() // Call the superclass's configure method
+        definition = ElementalDefinition.forId(id) // Retrieve the elemental definition based on the ID
+        if (definition != null) { // Check if the definition is not null
+            configureMovementPath(*definition!!.getLocation()) // Configure the movement path using the location from the definition
+            isWalks = true // Set the walking state to true
         }
     }
 
     override fun construct(id: Int, location: Location, vararg objects: Any): AbstractNPC {
+        // Create and return a new instance of SorceressElementalNPC with the given ID and location
         return SorceressElementalNPC(id, location)
     }
 
