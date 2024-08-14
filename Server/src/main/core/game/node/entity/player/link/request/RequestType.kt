@@ -5,38 +5,34 @@ import core.game.node.entity.player.link.request.assist.AssistSession
 import core.game.node.entity.player.link.request.trade.TradeModule
 
 /**
- * Request type
+ * Request type.
  *
- * @param message
- * @param requestMessage
- * @param module
+ * @param message The message to be displayed for the request.
+ * @param requestMessage The formatted request message.
+ * @param module The module associated with the request.
  * @constructor Request type
  */
 open class RequestType(
-    val message: String,
-    val requestMessage: String,
-    val module: RequestModule
+    val message: String, // The message to be displayed for the request.
+    val requestMessage: String, // The formatted request message.
+    val module: RequestModule // The module associated with the request.
 ) {
     /**
-     * Can request
-     *
-     * @param player
-     * @param target
-     * @return
-     *//*
      * Checks if the request can be made.
+     *
+     * @param player The player making the request.
+     * @param target The player receiving the request.
+     * @return True if the request can be made, otherwise false.
      */
     open fun canRequest(player: Player?, target: Player?): Boolean {
-        return true
+        return true // Always returns true, indicating the request can be made.
     }
 
     /**
-     * Get request message
+     * Gets the requesting message formatted with the target's name.
      *
-     * @param target
-     * @return
-     *//*
-     * Gets the requesting message formated with the targets name.
+     * @param target The player who is the target of the request.
+     * @return The formatted request message including the target's username.
      */
     fun getRequestMessage(target: Player): String {
         return target.username + requestMessage

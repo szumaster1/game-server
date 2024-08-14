@@ -10,16 +10,28 @@ import java.nio.ByteBuffer
 
 /**
  * Produces JS-5 I/O events.
- * @author Tyler
- * @author Emperor
+ * @author Tyler, Emperor
  */
 class JS5EventProducer : EventProducer {
 
-    // his method produces a reader event based on the session and buffer provided.
+    /**
+     * Produce reader.
+     *
+     * @param session The IoSession associated with the read event.
+     * @param buffer The ByteBuffer containing the data to be read.
+     * @return An instance of IoReadEvent representing the read operation.
+     */
     override fun produceReader(session: IoSession, buffer: ByteBuffer): IoReadEvent {
         return JS5ReadEvent(session, buffer)
     }
-    // This method produces a writer event based on the session and context provided.
+
+    /**
+     * Produce writer.
+     *
+     * @param session The IoSession associated with the write event.
+     * @param context The context data to be written.
+     * @return An instance of IoWriteEvent representing the write operation.
+     */
     override fun produceWriter(session: IoSession, context: Any): IoWriteEvent {
         return JS5WriteEvent(session, context)
     }

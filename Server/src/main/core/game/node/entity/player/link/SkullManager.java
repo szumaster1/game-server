@@ -7,10 +7,10 @@ import core.game.node.entity.Entity;
 import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
 
-import static core.api.ContentAPIKt.*;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import static core.api.ContentAPIKt.*;
 
 /**
  * Skull manager.

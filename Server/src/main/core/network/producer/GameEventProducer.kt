@@ -10,12 +10,13 @@ import java.nio.ByteBuffer
 
 /**
  * Produces game packet I/O events.
- * This class implements the EventProducer interface to generate IoReadEvent and IoWriteEvent instances for game packets.
  * @author Emperor
  */
 class GameEventProducer : EventProducer {
+
     /**
      * Produces an IoReadEvent for reading game packets.
+     *
      * @param session The IoSession for the current session.
      * @param buffer The ByteBuffer containing the packet data.
      * @return A new GameReadEvent instance for processing the read event.
@@ -26,6 +27,7 @@ class GameEventProducer : EventProducer {
 
     /**
      * Produces an IoWriteEvent for writing game packets.
+     *
      * @param session The IoSession for the current session.
      * @param context The context or data to be written.
      * @return A new GameWriteEvent instance for processing the write event.

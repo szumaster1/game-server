@@ -4,7 +4,6 @@ import core.api.*
 import core.api.consts.Animations
 import core.api.consts.Items
 import core.api.consts.Regions
-import core.cache.def.impl.ItemDefinition
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.ImpactHandler.HitsplatType
 import core.game.node.entity.player.Player

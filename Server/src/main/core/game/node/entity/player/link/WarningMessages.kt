@@ -5,7 +5,6 @@ import core.api.consts.Vars
 import core.api.openInterface
 import core.api.sendMessage
 import core.api.setVarp
-import core.game.component.Component
 import core.game.node.entity.player.Player
 
 /**

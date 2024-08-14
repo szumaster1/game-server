@@ -4,8 +4,10 @@ import content.data.consumables.Consumables
 import content.data.consumables.effects.HealingEffect
 import core.ServerConstants
 import core.ServerConstants.Companion.SERVER_GE_NAME
-import core.api.*
 import core.api.consts.Items
+import core.api.itemDefinition
+import core.api.log
+import core.api.sendNews
 import core.api.utils.Vector
 import core.cache.def.impl.ItemDefinition
 import core.game.component.Component
@@ -30,7 +32,7 @@ import core.game.world.map.Location
 import core.game.world.map.RegionManager
 import core.game.world.map.path.Pathfinder
 import core.game.world.repository.Repository
-import core.game.world.update.flag.*
+import core.game.world.update.flag.EntityFlag
 import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.ChatMessage
 import core.game.world.update.flag.context.Graphic
@@ -41,7 +43,6 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
-import java.util.*
 import java.util.concurrent.CountDownLatch
 import kotlin.math.max
 import kotlin.math.pow

@@ -2,18 +2,17 @@ package core.game.node.entity.player.link.diary;
 
 import core.cache.def.impl.NPCDefinition;
 import core.game.component.Component;
+import core.game.diary.DiaryLevel;
 import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import core.game.diary.DiaryLevel;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
  * Represents an achievement diary.
- *
  * @author Vexia
  */
 public class AchievementDiary {

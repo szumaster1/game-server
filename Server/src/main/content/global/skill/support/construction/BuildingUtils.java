@@ -268,8 +268,7 @@ public final class BuildingUtils {
      * @param debug  the debug
      */
     public static void createFlatpack(final Player player, final Decoration deco, final Boolean debug) {
-        System.out.println("Building flatpack in BuildingUtils for item: " + deco.name());
-//		System.out.println(deco.name());
+//      System.out.println("Building flatpack in BuildingUtils for item: " + deco.name());
         if (!player.skills.hasLevel(Skills.CONSTRUCTION, deco.getLevel())) {
             player.sendMessage("You need to have a Construction level of " + deco.getLevel() + " to build that.");
             return;
@@ -565,7 +564,7 @@ public final class BuildingUtils {
      */
     public static void buildRoom(Player player, Room room, int z, int x, int y, boolean[] exits, boolean reload) {
         player.getHouseManager().getRooms()[z][x][y] = room;
-        player.getPacketDispatch().sendMessage("Building room " + room.getProperties() + ".");
+//      player.getPacketDispatch().sendMessage("Building room " + room.getProperties() + ".");
         if (z == 3) {
             player.getHouseManager().setHasDungeon(true);
         }

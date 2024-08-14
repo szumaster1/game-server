@@ -1,7 +1,7 @@
 package core.cache.def.impl
 
 /**
- * Linked scripts.
+ * Represents a collection of linked scripts that can be triggered by various events.
  */
 class LinkedScripts {
     @JvmField

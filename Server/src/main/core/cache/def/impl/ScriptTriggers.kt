@@ -1,9 +1,7 @@
 package core.cache.def.impl
 
 /**
- * Script triggers
- *
- * @constructor Script triggers
+ * Script triggers.
  */
 class ScriptTriggers {
     lateinit var varpTriggers: IntArray

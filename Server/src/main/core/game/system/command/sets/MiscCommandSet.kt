@@ -32,6 +32,7 @@ import core.game.world.map.build.DynamicRegion
 import core.game.world.repository.Repository
 import core.plugin.Initializable
 import core.tools.Log
+import core.tools.RandomFunction
 import core.tools.StringUtils
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -98,50 +99,31 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN) {
             }
         }
 
+        define(
+            "r2",
+            Privilege.STANDARD,
+            "",
+            ""
+        ) { player, _ ->
+            val roll = RandomFunction.roll(2)
+            notify(player, roll.toString())
+        }
         /*
          * Prints player's current location
          */
 
-        define(
-            "loc",
-            Privilege.STANDARD,
-            "",
-            "Prints quite a lot of information about your current location."
-        ) { player, _ ->
+        define("loc", Privilege.STANDARD, "", "Prints quite a lot of information about your current location.") { player, _ ->
             val l = player.location
             val r = player.viewport.region
             var obj: Scenery? = null
-            notify(
-                player,
-                "Absolute: " + l + ", regional: [" + l.localX + ", " + l.localY + "], chunk: [" + l.chunkOffsetX + ", " + l.chunkOffsetY + "], flag: [" + RegionManager.isTeleportPermitted(
-                    l
-                ) + ", " + RegionManager.getClippingFlag(l) + ", " + RegionManager.isLandscape(l) + "]."
-            )
-            notify(
-                player,
-                "Region: [id=" + l.regionId + ", active=" + r.isActive + ", instanced=" + (r is DynamicRegion) + "], obj=" + RegionManager.getObject(
-                    l
-                ) + "."
-            )
+            notify(player, "Absolute: " + l + ", regional: [" + l.localX + ", " + l.localY + "], chunk: [" + l.chunkOffsetX + ", " + l.chunkOffsetY + "], flag: [" + RegionManager.isTeleportPermitted(l) + ", " + RegionManager.getClippingFlag(l) + ", " + RegionManager.isLandscape(l) + "].")
+            notify(player, "Region: [id=" + l.regionId + ", active=" + r.isActive + ", instanced=" + (r is DynamicRegion) + "], obj=" + RegionManager.getObject(l) + ".")
             notify(player, "Jagex: ${l.z}_${l.regionId shr 8}_${l.regionId and 0xFF}_${l.localX}_${l.localY}")
             notify(player, "Object: " + RegionManager.getObject(l).also { obj = it } + ".")
-            notify(
-                player,
-                "Object Varp: " + obj?.definition?.configFile?.varpId + " offset: " + obj?.definition?.configFile?.startBit + " size: " + (obj?.definition?.configFile?.startBit?.minus(
-                    obj?.definition?.configFile?.startBit!!
-                ))
-            )
-            log(
-                this::class.java,
-                Log.FINE,
-                "Viewport: " + l.getSceneX(player.playerFlags.lastSceneGraph) + "," + l.getSceneY(player.playerFlags.lastSceneGraph)
-            )
+            notify(player, "Object Varp: " + obj?.definition?.configFile?.varpId + " offset: " + obj?.definition?.configFile?.startBit + " size: " + (obj?.definition?.configFile?.startBit?.minus(obj?.definition?.configFile?.startBit!!)))
+            log(this::class.java, Log.FINE, "Viewport: " + l.getSceneX(player.playerFlags.lastSceneGraph) + "," + l.getSceneY(player.playerFlags.lastSceneGraph))
             val loc = "Location.create(" + l.x + ", " + l.y + ", " + l.z + ")"
-            log(
-                this::class.java,
-                Log.FINE,
-                loc + "; " + player.playerFlags.lastSceneGraph + ", " + l.localX + ", " + l.localY
-            )
+            log(this::class.java, Log.FINE, loc + "; " + player.playerFlags.lastSceneGraph + ", " + l.localX + ", " + l.localY)
             try {
                 val stringSelection = StringSelection(loc)
                 val clpbrd = Toolkit.getDefaultToolkit().systemClipboard
@@ -193,7 +175,7 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN) {
             "Sends the given string as a News message."
         ) { _, args ->
             val message = args.slice(1 until args.size).joinToString(" ")
-            Repository.sendNews(message)
+            sendNews(message)
         }
 
         /*
@@ -208,15 +190,15 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN) {
             player.interfaceManager.open(Component(Components.QUESTJOURNAL_SCROLL_275))
             var i = 0
             while (i < 257) {
-                player.packetDispatch.sendString("", 275, i)
+                setInterfaceText(player,"", 275, i)
                 i++
             }
             val red = "<col=8A0808>"
-            player.packetDispatch.sendString("<col=8A0808>" + "Players" + "</col>", 275, 2)
+            setInterfaceText(player, "<col=8A0808>" + "Players" + "</col>", 275, 2)
             var lineStart = 11
             for (p in Repository.players) {
                 if (!p.isArtificial)
-                    player.packetDispatch.sendString(
+                    setInterfaceText(player,
                         red + "<img=" + (Rights.getChatIcon(p) - 1) + ">" + p.username + if (rights > 0) " [ip=" + p.details.ipAddress + ", name=" + p.details.compName + "]" else "",
                         275,
                         lineStart++
@@ -291,7 +273,7 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN) {
             "commands",
             Privilege.STANDARD,
             "::commands <lt>page<gt>",
-            "Lists all the commands (you are here.)"
+            "Lists all the commands."
         ) { player, args ->
             val page = if (args.size > 1) (args[1].toIntOrNull() ?: 1) - 1 else 0
             var lineid = 11

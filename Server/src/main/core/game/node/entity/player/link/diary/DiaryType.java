@@ -1,12 +1,11 @@
 package core.game.node.entity.player.link.diary;
 
-import core.game.node.entity.player.Player;
 import core.api.consts.Items;
+import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
 
 /**
  * An achievement diary type.
- *
  * @author afaroutdude
  */
 // TODO reset all players tasks upon commit to master

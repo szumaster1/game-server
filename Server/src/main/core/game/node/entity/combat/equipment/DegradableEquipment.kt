@@ -6,7 +6,7 @@ import core.game.node.item.Item
 import core.plugin.Plugin
 
 /**
- * Degradable equipment
+ * Degradable equipment.
  *
  * @param slot The equipment slot where the item is equipped.
  * @param itemIds The IDs of the items that can be degraded.

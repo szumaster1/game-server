@@ -11,7 +11,7 @@ import core.game.world.update.flag.context.Graphic
 import core.tools.RandomFunction
 
 /**
- * Armour set
+ * Armour set.
  *
  * @param endGraphic The graphic to display at the end of the effect.
  * @constructor Creates an ArmourSet with a specific graphic and item set.

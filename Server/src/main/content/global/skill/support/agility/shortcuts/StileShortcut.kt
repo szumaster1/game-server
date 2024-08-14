@@ -1,6 +1,9 @@
 package content.global.skill.support.agility.shortcuts
 
-import core.api.*
+import core.api.animationCycles
+import core.api.forceMove
+import core.api.queueScript
+import core.api.stopExecuting
 import core.api.utils.Vector
 import core.game.activity.ActivityManager
 import core.game.interaction.IntType

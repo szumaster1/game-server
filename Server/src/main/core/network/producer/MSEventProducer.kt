@@ -14,12 +14,24 @@ import java.nio.ByteBuffer
  */
 class MSEventProducer : EventProducer {
 
-    // This method produces a reader event based on the IoSession and ByteBuffer provided.
+    /**
+     * Produce reader.
+     *
+     * @param session The IoSession associated with the reader.
+     * @param buffer The ByteBuffer that contains the data to be read.
+     * @return An instance of IoReadEvent that represents the read operation.
+     */
     override fun produceReader(session: IoSession, buffer: ByteBuffer): IoReadEvent {
         return MSReadEvent(session, buffer)
     }
 
-    // This method produces a writer event based on the IoSession and context provided.
+    /**
+     * Produce writer.
+     *
+     * @param session The IoSession associated with the writer.
+     * @param context The context object that contains data for writing.
+     * @return An instance of IoWriteEvent that represents the write operation.
+     */
     override fun produceWriter(session: IoSession, context: Any): IoWriteEvent {
         return MSWriteEvent(session, context)
     }

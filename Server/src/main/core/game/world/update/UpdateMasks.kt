@@ -1,13 +1,16 @@
 package core.game.world.update
 
-import core.api.*
+import core.api.logWithStack
 import core.game.node.entity.Entity
 import core.game.node.entity.combat.ImpactHandler
 import core.game.node.entity.player.Player
-import core.game.world.update.flag.*
+import core.game.world.update.flag.EFlagProvider
+import core.game.world.update.flag.EFlagType
+import core.game.world.update.flag.EntityFlag
+import core.game.world.update.flag.EntityFlags
 import core.game.world.update.flag.context.HitMark
 import core.network.packet.IoBuffer
-import core.tools.*
+import core.tools.Log
 import java.util.concurrent.atomic.AtomicBoolean
 
 /**

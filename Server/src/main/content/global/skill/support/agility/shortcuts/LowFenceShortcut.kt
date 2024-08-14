@@ -1,9 +1,12 @@
 package content.global.skill.support.agility.shortcuts
 
 import content.global.skill.support.agility.AgilityHandler
-import core.api.*
 import core.api.consts.Animations
 import core.api.consts.Scenery
+import core.api.hasLevelDyn
+import core.api.queueScript
+import core.api.sendMessage
+import core.api.stopExecuting
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.interaction.QueueStrength

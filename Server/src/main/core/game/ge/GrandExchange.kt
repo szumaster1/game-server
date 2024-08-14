@@ -23,13 +23,16 @@ import java.util.concurrent.LinkedBlockingDeque
 class GrandExchange : StartupListener, Commands {
 
     /**
-     * Fallback safety check to make sure we don't start the GE twice under any circumstance
+     * Fallback safety check to make sure we don't start the GE twice under any
+     * circumstance
      */
     var isRunning = false
 
     /**
      * Represents the offer manager and spawns an update thread.
-     * @param local whether or not the GE should be the local in-code server rather than some hypothetical remote implementation.
+     *
+     * @param local whether or not the GE should be the local in-code server
+     *    rather than some hypothetical remote implementation.
      */
     fun boot() {
         if (isRunning) return

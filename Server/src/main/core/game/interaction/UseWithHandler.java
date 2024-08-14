@@ -1,18 +1,17 @@
 package core.game.interaction;
 
-import core.game.event.UseWithEvent;
 import core.cache.def.impl.SceneryDefinition;
+import core.game.event.UseWithEvent;
 import core.game.node.Node;
 import core.game.node.entity.impl.PulseType;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
 import core.game.node.scenery.Scenery;
-import core.tools.Log;
-import core.tools.SystemLogger;
 import core.game.system.task.Pulse;
 import core.game.world.map.Location;
 import core.plugin.Plugin;
+import core.tools.Log;
 
 import java.util.ArrayList;
 import java.util.HashMap;

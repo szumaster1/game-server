@@ -10,8 +10,8 @@ import core.game.system.command.CommandMapping.get
  * Abuse report.
  *
  * @param reporter The player reporting the abuse.
- * @param victim   The player being reported.
- * @param rule     The rule violated.
+ * @param victim The player being reported.
+ * @param rule The rule violated.
  * @constructor Represents an AbuseReport instance with reporter, victim, and rule.
  */
 class AbuseReport(val reporter: String, val victim: String, val rule: Rule) {
@@ -22,7 +22,7 @@ class AbuseReport(val reporter: String, val victim: String, val rule: Rule) {
      * Construct method to handle abuse report.
      *
      * @param player The player making the report.
-     * @param mute   Flag indicating if the player should be muted.
+     * @param mute Flag indicating if the player should be muted.
      */
     fun construct(player: Player, mute: Boolean) {
         if (mute) {

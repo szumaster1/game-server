@@ -9,7 +9,7 @@ import core.plugin.PluginType;
 import java.util.Arrays;
 import java.util.Random;
 
-import static core.api.ContentAPIKt.*;
+import static core.api.ContentAPIKt.playJingle;
 
 /**
  * Quest.

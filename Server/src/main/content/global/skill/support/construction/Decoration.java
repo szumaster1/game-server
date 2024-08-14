@@ -1,10 +1,10 @@
 package content.global.skill.support.construction;
 
+import core.api.consts.Items;
 import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
 import core.game.node.scenery.Scenery;
 import core.game.world.map.Location;
-import core.api.consts.Items;
 
 /**
  * The enum Decoration.

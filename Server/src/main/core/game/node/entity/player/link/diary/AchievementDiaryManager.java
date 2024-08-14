@@ -10,7 +10,6 @@ import org.json.simple.JSONObject;
 
 /**
  * Manages the achievement diary of a player.
- *
  * @author Vexia
  */
 public class AchievementDiaryManager {

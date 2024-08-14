@@ -9,7 +9,7 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 
 /**
- * Switch attack
+ * Switch attack.
  *
  * @param handler The combat swing handler associated with the attack.
  * @param animation The animation to be played during the attack.

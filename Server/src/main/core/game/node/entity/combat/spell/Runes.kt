@@ -4,7 +4,7 @@ import core.api.consts.Items
 import core.game.node.item.Item
 
 /**
- * Runes
+ * Runes.
  *
  * @param id Unique identifier for the rune
  * @constructor Runes Enum representing different types of runes

@@ -104,16 +104,16 @@ object DoorActionHandler {
     /**
      * Handles the opening and walking through a door.
      *
-     * @param entity      The entity walking through the door.
-     * @param object      The door object.
+     * @param entity      the entity walking through the door.
+     * @param object      the door object.
      * @param endLocation the end location
      * @return boolean
      */
     /**
      * Method wrapper for handling the auto walk door.
      *
-     * @param entity  The entity.
-     * @param scenery The object.
+     * @param entity  the entity.
+     * @param scenery the object.
      * @return the boolean
      */
     @JvmStatic
@@ -201,8 +201,8 @@ object DoorActionHandler {
     /**
      * Gets the end location to walk to.
      *
-     * @param entity The entity.
-     * @param object The object.
+     * @param entity the entity.
+     * @param object the object.
      * @return the end location.
      */
     fun getEndLocation(entity: Entity, `object`: Scenery): Location {
@@ -212,9 +212,9 @@ object DoorActionHandler {
     /**
      * Gets end location.
      *
-     * @param entity     The entity
-     * @param object     The object
-     * @param isAutoWalk The is auto walk
+     * @param entity     the entity
+     * @param object     the object
+     * @param isAutoWalk the is auto walk
      * @return the end location
      */
     fun getEndLocation(entity: Entity, `object`: Scenery, isAutoWalk: Boolean?): Location {
@@ -243,7 +243,7 @@ object DoorActionHandler {
      * Gets the destination for the door.
      *
      * @param entity the entity
-     * @param door   The door.
+     * @param door   the door.
      * @return The destination location.
      */
     @JvmStatic
@@ -309,12 +309,12 @@ object DoorActionHandler {
     /**
      * Opens the doors.
      *
-     * @param object          The door object.
-     * @param second          The second door object.
-     * @param replaceId       The replacement id.
-     * @param secondReplaceId The second replace id.
-     * @param clip            If clipping should be changed due to opening the door.
-     * @param restoreTicks    The amount of ticks before the door(s) should be closed again.
+     * @param object          the door object.
+     * @param second          the second door object.
+     * @param replaceId       the replacement id.
+     * @param secondReplaceId the second replace id.
+     * @param clip            if clipping should be changed due to opening the door.
+     * @param restoreTicks    the amount of ticks before the door(s) should be closed again.
      * @param fence           the fence
      */
     fun open(
@@ -371,12 +371,12 @@ object DoorActionHandler {
     /**
      * Handles the opening of a fence.
      *
-     * @param scenery         The fence object.
-     * @param second          The second fence object.
-     * @param replaceId       The replacement id.
-     * @param secondReplaceId The second replace id.
-     * @param clip            If clipping should be changed due to opening the door.
-     * @param restoreTicks    The amount of ticks before the door(s) should be
+     * @param scenery         the fence object.
+     * @param second          the second fence object.
+     * @param replaceId       the replacement id.
+     * @param secondReplaceId the second replace id.
+     * @param clip            if clipping should be changed due to opening the door.
+     * @param restoreTicks    the amount of ticks before the door(s) should be
      * closed again.
      */
     private fun openFence(
@@ -434,10 +434,10 @@ object DoorActionHandler {
     /**
      * Handles the opening of a fence.
      *
-     * @param entity          The entity.
-     * @param scenery         The fence object.
-     * @param replaceId       The replacement id.
-     * @param secondReplaceId The second replace id.
+     * @param entity          the entity.
+     * @param scenery         the fence object.
+     * @param replaceId       the replacement id.
+     * @param secondReplaceId the second replace id.
      * @return the boolean
      */
     fun autowalkFence(entity: Entity, scenery: Scenery, replaceId: Int, secondReplaceId: Int): Boolean {
@@ -483,7 +483,7 @@ object DoorActionHandler {
     /**
      * Gets the closing rotation point.
      *
-     * @param object The object.
+     * @param object the object.
      * @return The point.
      */
     private fun getCloseRotation(`object`: Scenery): Point {
@@ -499,7 +499,7 @@ object DoorActionHandler {
     /**
      * Gets the rotation point for the object.
      *
-     * @param rotation The rotation.
+     * @param rotation the rotation.
      * @return The rotation point.
      */
     @JvmStatic
@@ -516,8 +516,8 @@ object DoorActionHandler {
     /**
      * Gets the door next to this door.
      *
-     * @param scenery The door.
-     * @param entity  The entity.
+     * @param scenery the door.
+     * @param entity  the entity.
      * @return The second door, if any, `null` if no second door existed.
      */
     @JvmStatic
@@ -543,9 +543,9 @@ object DoorActionHandler {
     /**
      * Gets the rotations to set the opened doors to.
      *
-     * @param scenery The first door.
-     * @param second  The second door.
-     * @param rp      The rotation point.
+     * @param scenery the first door.
+     * @param second  the second door.
+     * @param rp      the rotation point.
      * @return An int-array, with index 0 being first door rotation and index 1 being second door rotation.
      */
     fun getRotation(scenery: Scenery, second: Scenery?, rp: Point): IntArray {

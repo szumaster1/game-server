@@ -23,13 +23,13 @@ import java.util.function.Consumer
 /**
  * Magic spell.
  *
- * @param book       The book.
- * @param level      The level.
- * @param experience The experience.
- * @param animation  The animation.
- * @param graphic    The graphic.
- * @param audio      The audio.
- * @param castRunes  The runes.
+ * @param book       the book.
+ * @param level      the level.
+ * @param experience the experience.
+ * @param animation  the animation.
+ * @param graphic    the graphic.
+ * @param audio      the audio.
+ * @param castRunes  the runes.
  */
 abstract class MagicSpell @JvmOverloads constructor(
     val book: SpellBook = SpellBook.MODERN, // Default spell book is MODERN

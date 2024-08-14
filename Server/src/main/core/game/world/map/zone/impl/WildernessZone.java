@@ -22,7 +22,6 @@ import core.game.world.map.Location;
 import core.game.world.map.zone.MapZone;
 import core.game.world.map.zone.ZoneBorders;
 import core.game.world.map.zone.ZoneRestriction;
-import core.game.world.repository.Repository;
 import core.tools.RandomFunction;
 
 import static core.api.ContentAPIKt.sendNews;

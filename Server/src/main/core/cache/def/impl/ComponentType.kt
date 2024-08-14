@@ -1,9 +1,7 @@
 package core.cache.def.impl
 
 /**
- * Component type
- *
- * @constructor Component type
+ * Component type.
  */
 enum class ComponentType {
     /**

@@ -13,7 +13,7 @@ import java.text.DecimalFormat
 
 /**
  * Trade module.
- * @param target
+ * @param target The player that the current player wants to trade with.
  */
 class TradeModule(player: Player?, target: Player?) : RequestModule {
     /**
