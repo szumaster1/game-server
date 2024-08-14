@@ -233,11 +233,10 @@ public final class PestControlActivityPlugin extends ActivityPlugin {
         return true;
     }
 
-
     /**
      * Open lander interface.
      *
-     * @param p the p
+     * @param p the player instance to open the interface for.
      */
     public void openLanderInterface(Player p) {
         p.getInterfaceManager().openOverlay(new Component(407));
@@ -247,23 +246,31 @@ public final class PestControlActivityPlugin extends ActivityPlugin {
         p.getPacketDispatch().sendString(StringUtils.formatDisplayName(type.name()), 407, 3);
     }
 
-
     /**
      * Update time.
      *
-     * @param p the p
+     * @param p the player object that will receive the update.
      */
     public void updateTime(Player p) {
+        // Calculate the remaining ticks until the next departure
         int ticks = 500 - this.ticks;
+
+        // Check if there are more than 99 ticks remaining
         if (ticks > 99) {
+            // Send a message to the player indicating the time until the next departure in minutes
             p.getPacketDispatch().sendString("Next Departure: " + (ticks / 100) + " min", 407, 13);
-        } else if (ticks > 50) {
+        }
+        // Check if there are more than 50 ticks but less than or equal to 99
+        else if (ticks > 50) {
+            // Send a message to the player indicating the next departure is in 1 minute
             p.getPacketDispatch().sendString("Next Departure: 1 min", 407, 13);
-        } else {
+        }
+        // If there are 50 ticks or less remaining
+        else {
+            // Send a message to the player indicating the next departure is in 30 seconds
             p.getPacketDispatch().sendString("Next Departure: 30 seconds", 407, 13);
         }
     }
-
 
     /**
      * Update player count.
@@ -287,79 +294,75 @@ public final class PestControlActivityPlugin extends ActivityPlugin {
         return super.death(e, killer);
     }
 
+    // Override method to create a new instance of ActivityPlugin with a Player parameter
     @Override
     public ActivityPlugin newInstance(Player p) throws Throwable {
-        return this;
+        return this; // Return the current instance of ActivityPlugin
     }
 
+    // Override method to get the spawn location of the server
     @Override
     public Location getSpawnLocation() {
-        return ServerConstants.HOME_LOCATION;
+        return ServerConstants.HOME_LOCATION; // Return the predefined home location
     }
 
+    // Override method to configure the plugin settings
     @Override
     public void configure() {
-        registerRegion(10536);
+        registerRegion(10536); // Register a specific region with ID 10536
     }
-
 
     /**
      * Gets waiting players.
      *
-     * @return the waiting players
+     * @return the waiting players.
      */
     public PriorityQueue<Player> getWaitingPlayers() {
-        return waitingPlayers;
+        return waitingPlayers; // Return the queue of players currently waiting
     }
-
 
     /**
      * Gets type.
      *
-     * @return the type
+     * @return the type.
      */
     public BoatType getType() {
-        return type;
+        return type; // Return the type of the boat
     }
-
 
     /**
      * The enum Boat type.
      */
     public enum BoatType {
 
-
         /**
          * Novice boat type.
          */
-        NOVICE(40),
+        NOVICE(40), // Define NOVICE boat type with a requirement of 40
 
         /**
          * Intermediate boat type.
          */
-        INTERMEDIATE(70),
+        INTERMEDIATE(70), // Define INTERMEDIATE boat type with a requirement of 70
 
         /**
          * Veteran boat type.
          */
         VETERAN(100);
 
-
         private final int requirement;
-
 
         BoatType(int requirement) {
             this.requirement = requirement;
         }
 
-
         /**
          * Gets requirement.
          *
-         * @return the requirement
+         * @return the requirement.
          */
         public int getRequirement() {
-            return requirement;
+            return requirement; // Return the requirement for the boat type
         }
     }
 }

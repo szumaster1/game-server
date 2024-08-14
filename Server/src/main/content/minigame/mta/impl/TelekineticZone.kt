@@ -24,13 +24,9 @@ import core.network.packet.outgoing.CameraViewPacket
 import core.tools.RandomFunction
 
 /**
- * Telekinetic zone
- *
- * @param player
- * @constructor Telekinetic zone
+ * Telekinetic zone.
  */
-class TelekineticZone(val player: Player? = null) :
-    MTAZone("Telekinetic Theatre", arrayOf()) {
+class TelekineticZone(val player: Player? = null) : MTAZone("Telekinetic Theatre", arrayOf()) {
 
     private val mazes: MutableList<Maze> = ArrayList(20)
     private var region: DynamicRegion? = null
@@ -106,17 +102,31 @@ class TelekineticZone(val player: Player? = null) :
      *
      */
     fun setup() {
-        // TODO CHECK
+        // Initialize maze variable; if it's null, get a random maze from the Maze enum
         var maze = if (maze == null) RandomFunction.getRandomElement(Maze.values()) else null
+
+        // Loop until a valid maze is found
         while (maze == null) {
+            // Get a random maze from the Maze enum
             maze = RandomFunction.getRandomElement(Maze.values())
+
+            // Check if the newly selected maze is the same as the current maze
             if (maze == this.maze) {
+                // If it is, reset maze to null to continue searching
                 maze = null
             }
         }
+
+        // Remove the selected maze from the available mazes
         mazes.remove(maze)
+
+        // Set the current maze to the selected maze
         this.maze = maze
+
+        // Initialize nodes for the maze
         setNodes()
+
+        // Teleport the player to the base location of the selected maze
         player!!.teleport(base!!.transform(maze.base))
     }
 
@@ -125,38 +135,57 @@ class TelekineticZone(val player: Player? = null) :
      *
      */
     fun setNodes() {
+        // Check if the statue exists before attempting to destroy it
         if (statue != null) {
+            // Destroy the existing statue
             GroundItemManager.destroy(statue)
         }
+
+        // Check if the guardian exists before attempting to clear it
         if (guardian != null) {
+            // Clear the existing guardian
             guardian!!.clear()
         }
+
+        // Move the statue to the specified location in the maze
         moveStatue(base!!.transform(maze!!.statueLocation))
+
+        // Create a new guardian NPC at the specified location in the maze
         guardian = NPC.create(3098, base!!.transform(maze!!.guardianLocation))
+
+        // Set the guardian to be able to walk
         guardian!!.isWalks = true
+
+        // Initialize the guardian NPC
         guardian!!.init()
     }
 
     /**
      * Move statue
      *
-     * @param location
+     * @param location The new location where the statue will be moved.
      */
     fun moveStatue(location: Location?) {
+        // Check if the statue exists before attempting to destroy it
         if (statue != null) {
+            // Destroy the existing statue
             GroundItemManager.destroy(statue)
         }
+
+        // Create a new ground item for the statue at the specified location
         GroundItemManager.create(createGroundItem(location).also { statue = it })
     }
 
     /**
      * Create ground item
      *
-     * @param location
-     * @return
+     * @param location The location where the ground item will be created
+     * @return A new instance of GroundItem created at the specified location
      */
     fun createGroundItem(location: Location?): GroundItem {
+        // Create and return a new GroundItem object for the statue
         return object : GroundItem(Item(STATUE), location, player) {
+            // Override the isActive method to check if the item is removed
             override fun isActive(): Boolean {
                 return !isRemoved
             }

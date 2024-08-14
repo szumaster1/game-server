@@ -17,18 +17,18 @@ import core.game.world.map.Location
 /**
  * MTA type
  *
- * @param sceneryId
- * @param overlay
- * @param startLocation
- * @param endLocation
- * @param mtaZone
+ * @param sceneryId Unique identifier for the scenery.
+ * @param overlay The visual component associated with the MTA type.
+ * @param startLocation The starting location for the MTA route, can be null.
+ * @param endLocation The ending location for the MTA route, must not be null.
+ * @param mtaZone The zone in which the MTA operates.
  */
 enum class MTAType(
-    val sceneryId: Int,
-    val overlay: Component,
-    private val startLocation: Location?,
-    private val endLocation: Location,
-    val mtaZone: MTAZone
+    val sceneryId: Int, // Unique identifier for the scenery associated with this MTA type.
+    val overlay: Component, // The visual representation of the MTA type.
+    private val startLocation: Location?, // Optional starting location for the MTA route.
+    private val endLocation: Location, // Mandatory ending location for the MTA route.
+    val mtaZone: MTAZone // The operational zone of the MTA.
 ) {
     /**
      * Telekinetic.
@@ -122,46 +122,59 @@ enum class MTAType(
     }
 
     /**
-     * Exit.
+     * Exit the game or current activity.
      */
     open fun exit(player: Player) {
+        // Teleport the player to the designated end location
         teleport(player, endLocation)
     }
 
     /**
-     * Has requirement.
+     * Check if the player meets the requirements.
      */
     open fun hasRequirement(player: Player): Boolean {
+        // Currently, this function always returns false, indicating no requirements are met
         return false
     }
 
     /**
-     * Get zone.
+     * Retrieve the current zone.
      */
     fun getZone(): MTAZone {
+        // Return the MTAZone associated with this instance
         return mtaZone
     }
 
     companion object {
         @JvmStatic
         fun forZone(mtaZone: MTAZone): MTAType {
+            // Iterate through all MTAType values
             for (type in values()) {
+                // Skip null types
                 if (type == null) {
                     continue
                 }
+                // Check if the current type's zone matches the provided zone
                 if (type.getZone() === mtaZone) {
+                    // Return the matching MTAType
                     return type
                 }
             }
+            // Default return value if no match is found
             return TELEKINETIC
         }
+
         @JvmStatic
         fun forId(id: Int): MTAType? {
+            // Iterate through all MTAType values
             for (t in values()) {
+                // Check if the sceneryId matches the provided id
                 if (t.sceneryId == id) {
+                    // Return the matching MTAType
                     return t
                 }
             }
+            // Return null if no matching MTAType is found
             return null
         }
     }

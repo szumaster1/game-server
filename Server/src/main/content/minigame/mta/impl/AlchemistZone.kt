@@ -24,9 +24,7 @@ import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
 
 /**
- * Alchemist zone
- *
- * @constructor Alchemist zone
+ * Alchemist zone.
  */
 class AlchemistZone :
     MTAZone("Alchemists' Playground", arrayOf(Item(8890), Item(6893), Item(6894), Item(6895), Item(6896), Item(6897))) {
@@ -160,23 +158,21 @@ class AlchemistZone :
     /**
      * Alchemist session
      *
-     * @param player
-     * @constructor Alchemist session
+     * @param player The player participating in the alchemist session
+     * @constructor Initializes an Alchemist session with the specified player
      */
     class AlchemistSession(val player: Player) {
-        private var indexer = 0
-
+        private var indexer = 0 // Indexer to track the current position in the session
 
         init {
-            shuffleObjects()
+            shuffleObjects() // Shuffle objects at the start of the session
         }
-
 
         /**
          * Get item
          *
-         * @param id
-         * @return
+         * @param id The identifier of the item to retrieve
+         * @return The AlchemistItem associated with the given id, or null if not found
          */
         fun getItem(id: Int): AlchemistItem? {
             val ids = intArrayOf(10797, 10795, 10793, 10791, 10789, 10787, 10785, 10783)
@@ -243,59 +239,69 @@ class AlchemistZone :
     /**
      * Alchemist item
      *
-     * @param item
-     * @constructor Alchemist item
+     * @param item Represents the item associated with the AlchemistItem.
+     * @constructor Alchemist item initializes the enum with a specific item.
      */
     enum class AlchemistItem(val item: Item) {
         /**
          * Leather Boots
          *
-         * @constructor Leather Boots
+         * @constructor Leather Boots initializes the enum with the item ID for Leather Boots.
          */
         LEATHER_BOOTS(Item(6893)),
 
         /**
          * Adamant Kiteshield
          *
-         * @constructor Adamant Kiteshield
+         * @constructor Adamant Kiteshield initializes the enum with the item ID for Adamant Kiteshield.
          */
         ADAMANT_KITESHIELD(Item(6894)),
 
         /**
          * Adamant Helm
          *
-         * @constructor Adamant Helm
+         * @constructor Adamant Helm initializes the enum with the item ID for Adamant Helm.
          */
         ADAMANT_HELM(Item(6895)),
 
         /**
          * Emerald
          *
-         * @constructor Emerald
+         * @constructor Emerald initializes the enum with the item ID for Emerald.
          */
         EMERALD(Item(6896)),
 
         /**
          * Rune Longsword
          *
-         * @constructor Rune Longsword
+         * @constructor Rune Longsword initializes the enum with the item ID for Rune Longsword.
          */
         RUNE_LONGSWORD(Item(6897));
 
+        // Cost of the item, initialized to 0 and can only be modified within the class.
         var cost = 0
             private set
+
+        // Calculates the child value based on the ordinal position of the enum.
         val child: Int
             get() = 14 + ordinal
 
         companion object {
-
+            /**
+             * Retrieves the AlchemistItem associated with a given item ID.
+             *
+             * @param id The ID of the item to search for.
+             * @return The corresponding AlchemistItem or null if not found.
+             */
             fun forItem(id: Int): AlchemistItem? {
+                // Iterates through all values of the enum to find a match.
                 for (item in values()) {
+                    // Checks if the current item's ID matches the provided ID.
                     if (item.item.id == id) {
-                        return item
+                        return item // Returns the matching AlchemistItem.
                     }
                 }
-                return null
+                return null // Returns null if no match is found.
             }
         }
     }

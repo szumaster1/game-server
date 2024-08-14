@@ -55,9 +55,9 @@ class TelekineticGrabSpell : MagicSpell(SpellBookManager.SpellBook.MODERN, 33, 4
     /**
      * Get grab pulse
      *
-     * @param entity
-     * @param ground
-     * @return
+     * @param entity The entity that is attempting to grab the item.
+     * @param ground The ground item that is being targeted for grabbing.
+     * @return A Pulse object that represents the grabbing action.
      */
     fun getGrabPulse(entity: Entity, ground: GroundItem): Pulse {
         return object : Pulse(getDelay(ground.location.getDistance(entity.location)), entity) {
@@ -102,37 +102,43 @@ class TelekineticGrabSpell : MagicSpell(SpellBookManager.SpellBook.MODERN, 33, 4
     /**
      * Can cast
      *
-     * @param entity
-     * @param item
-     * @return
+     * @param entity The entity attempting to cast
+     * @param item The item to be cast
+     * @return True if the entity can cast the item, false otherwise
      */
     fun canCast(entity: Entity, item: GroundItem?): Boolean {
+        // Check if the entity's interaction is locked
         if (entity.locks.isInteractionLocked || entity.locks.isComponentLocked) {
-            return false
+            return false // Return false if locked
         }
+        // Check if the entity is a Player
         if (entity is Player) {
-            val player = entity
+            val player = entity // Cast entity to Player
+            // Check if the player's inventory has space for the item
             if (!player.inventory.hasSpaceFor(item as Item?)) {
-                sendMessage(player, "You don't have enough inventory space.")
-                return false
+                sendMessage(player, "You don't have enough inventory space.") // Notify player
+                return false // Return false if no space
             }
+            // Check if the player can take the item
             if (!canTake(player, item!!, 1)) {
-                return false
+                return false // Return false if cannot take
             }
         }
+        // Check if the action is blocked for the item
         if (isBlocked(SPELL_ID, (item as Node?)!!)) {
-            (entity as? Player)?.asPlayer()?.dialogueInterpreter?.sendDialogue("You can't do that.")
-            return false
+            (entity as? Player)?.asPlayer()?.dialogueInterpreter?.sendDialogue("You can't do that.") // Notify player
+            return false // Return false if blocked
         }
-        return super.meetsRequirements(entity, true, true)
+        // Check if the entity meets the requirements to cast
+        return super.meetsRequirements(entity, true, true) // Return true if requirements are met
     }
 
     /**
      * Get projectile
      *
-     * @param entity
-     * @param item
-     * @return
+     * @param entity The entity that will launch the projectile
+     * @param item The item associated with the projectile
+     * @return The created projectile
      */
     fun getProjectile(entity: Entity, item: GroundItem): Projectile {
         return Projectile.create(entity.location, item.location, PROJECTILE_ID, START_HEIGHT, END_HEIGHT, START_DELAY, Projectile.getSpeed(entity, item.location), ANGLE, 11)
@@ -141,8 +147,8 @@ class TelekineticGrabSpell : MagicSpell(SpellBookManager.SpellBook.MODERN, 33, 4
     /**
      * Get delay
      *
-     * @param distance
-     * @return
+     * @param distance The distance to calculate the delay for
+     * @return The calculated delay based on distance
      */
     fun getDelay(distance: Double): Int {
         return (2 + distance * 0.5).toInt()

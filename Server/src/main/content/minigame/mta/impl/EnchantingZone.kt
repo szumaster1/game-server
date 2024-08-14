@@ -22,12 +22,9 @@ import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
 
 /**
- * Enchanting zone
- *
- * @constructor Enchanting zone
+ * Enchanting zone.
  */
-class EnchantingZone :
-    MTAZone("Enchantment Chamber", arrayOf(Item(6899), Item(6898), Item(6900), Item(6901), Item(6903), Item(6902))) {
+class EnchantingZone : MTAZone("Enchantment Chamber", arrayOf(Item(6899), Item(6898), Item(6900), Item(6901), Item(6903), Item(6902))) {
 
     override fun leave(entity: Entity, logout: Boolean): Boolean {
         if (entity is Player && PLAYERS.contains(entity)) {
@@ -76,7 +73,7 @@ class EnchantingZone :
     /**
      * Create ground spawns
      *
-     * @param player
+     * @param player The player for whom the ground spawns are created
      */
     fun createGroundSpawns(player: Player) {
         if (DSPAWNS.containsKey(player.name)) {
@@ -115,13 +112,17 @@ class EnchantingZone :
     /**
      * Get respawn pulse
      *
-     * @param item
-     * @return
+     * @param item The ground item to respawn
+     * @return A Pulse object that handles the respawn logic
      */
     fun getRespawnPulse(item: GroundItem?): Pulse {
+        // Create a new Pulse object with a duration based on the development mode setting
         return object : Pulse(if (settings!!.isDevMode) 45 else RandomFunction.random(700, 800)) {
+            // Override the pulse method to define what happens on each pulse
             override fun pulse(): Boolean {
+                // Create the ground item using the GroundItemManager
                 GroundItemManager.create(item)
+                // Return true to indicate the pulse has completed successfully
                 return true
             }
         }
@@ -130,7 +131,7 @@ class EnchantingZone :
     /**
      * Remove ground spawns
      *
-     * @param player
+     * @param player The player whose ground spawns will be removed
      */
     fun removeGroundSpawns(player: Player) {
         val items: List<GroundItem> = getGroundSpawns(player)
@@ -142,8 +143,8 @@ class EnchantingZone :
     /**
      * Get ground spawns
      *
-     * @param player
-     * @return
+     * @param player The player for whom to retrieve ground spawns
+     * @return A mutable list of ground items associated with the player
      */
     fun getGroundSpawns(player: Player): MutableList<GroundItem> {
         var items = DSPAWNS[player.name]
@@ -177,68 +178,75 @@ class EnchantingZone :
         register(ZoneBorders(3335, 9612, 3389, 9663, 0, true))
     }
 
-
     /**
      * Shapes
      *
-     * @param objectId
-     * @param item
-     * @constructor Shapes
+     * @param objectId Unique identifier for the shape
+     * @param item The item associated with the shape
+     * @constructor Shapes Initializes a shape with its objectId and item
      */
     enum class Shapes(val objectId: Int, val item: Item) {
         /**
          * Cube
          *
-         * @constructor Cube
+         * @constructor Cube Initializes a Cube shape with its specific objectId and item
          */
         CUBE(10799, Item(6899)),
 
         /**
          * Cylinder
          *
-         * @constructor Cylinder
+         * @constructor Cylinder Initializes a Cylinder shape with its specific objectId and item
          */
         CYLINDER(10800, Item(6898)),
 
         /**
          * Pentamid
          *
-         * @constructor Pentamid
+         * @constructor Pentamid Initializes a Pentamid shape with its specific objectId and item
          */
         PENTAMID(10802, Item(6901)),
 
         /**
          * Icosahedron
          *
-         * @constructor Icosahedron
+         * @constructor Icosahedron Initializes an Icosahedron shape with its specific objectId and item
          */
         ICOSAHEDRON(10801, Item(6900));
 
         /**
          * Take
          *
-         * @param player
-         * @param object
+         * @param player The player attempting to take the item
+         * @param object The scenery object being interacted with
          */
         fun take(player: Player, `object`: Scenery?) {
+            // Check if the player's inventory has space for the item
             if (!player.inventory.hasSpaceFor(item)) {
+                // Notify the player that their inventory is full
                 player.sendMessage("You have no space left in your inventory.")
-                return
+                return // Exit the function if there is no space
             }
+            // Lock the player for a brief moment to prevent further actions
             player.lock(1)
+            // Add the item to the player's inventory
             player.inventory.add(item)
+            // Animate the player to show the action of taking the item
             player.animate(Animation.create(827))
         }
 
         /**
          * Set as bonus
          *
-         * @param player
+         * @param player The player to whom the bonus is being set
          */
         fun setAsBonus(player: Player) {
+            // Iterate through all shapes to configure the interface for the player
             for (s in values()) {
+                // Send interface configuration for each shape
                 player.packetDispatch.sendInterfaceConfig(195, s.child, true)
             }
+            // Set the current shape as not a bonus in the interface
             player.packetDispatch.sendInterfaceConfig(195, child, false)
         }
 

@@ -50,7 +50,7 @@ class MTAShopInterfaceListener : InterfaceListener {
     /**
      * Open
      *
-     * @param player
+     * @param player The player who is opening the interface.
      */
     fun open(player: Player) {
         viewers.add(player)
@@ -77,65 +77,65 @@ class MTAShopInterfaceListener : InterfaceListener {
     /**
      * Buy
      *
-     * @param player
-     * @param item
-     * @param slot
+     * @param player The player making the purchase.
+     * @param item The item to be purchased.
+     * @param slot The slot in which the item is located.
      */
     fun buy(player: Player, item: Item, slot: Int) {
-        var item = item
-        val prices = PRICES[slot]
-        if (item.amount < 1) {
-            sendMessage(player, "The shop has ran out of stock.")
-            return
+        var item = item // Create a mutable reference to the item.
+        val prices = PRICES[slot] // Retrieve the prices for the item based on the slot.
+        if (item.amount < 1) { // Check if the item is out of stock.
+            sendMessage(player, "The shop has ran out of stock.") // Notify the player.
+            return // Exit the function.
         }
-        item = Item(item.id, 1)
-        if (!player.inventory.hasSpaceFor(item)) {
-            sendMessage(player, "You don't have enough inventory space.")
-            return
+        item = Item(item.id, 1) // Create a new item instance with a quantity of 1.
+        if (!player.inventory.hasSpaceFor(item)) { // Check if the player has space in their inventory.
+            sendMessage(player, "You don't have enough inventory space.") // Notify the player.
+            return // Exit the function.
         }
-        for (i in prices.indices) {
-            if (getPoints(player, i) < prices[i]) {
-                sendMessage(player, "You cannot afford that item.")
-                return
+        for (i in prices.indices) { // Iterate through the prices.
+            if (getPoints(player, i) < prices[i]) { // Check if the player can afford the item.
+                sendMessage(player, "You cannot afford that item.") // Notify the player.
+                return // Exit the function.
             }
         }
-        if (item.id == Items.BONES_TO_PEACHES_6926 && player.getSavedData().activityData.isBonesToPeaches) {
-            sendMessage(player, "You already unlocked that spell.")
-            return
+        if (item.id == Items.BONES_TO_PEACHES_6926 && player.getSavedData().activityData.isBonesToPeaches) { // Check if the player already unlocked the spell.
+            sendMessage(player, "You already unlocked that spell.") // Notify the player.
+            return // Exit the function.
         }
-        var itemToRemove: ContainerisedItem? = null
-        if (slot in 1..3) {
-            val required = ITEMS[slot - 1]
-            itemToRemove = hasAnItem(player, required.id)
-            if (!itemToRemove.exists() && !player.hasItem(Item(6914, 1))) {
-                sendMessage(player, "You don't have the required wand in order to buy this upgrade.")
-                return
+        var itemToRemove: ContainerisedItem? = null // Initialize a variable to hold an item to remove.
+        if (slot in 1..3) { // Check if the slot is within the valid range.
+            val required = ITEMS[slot - 1] // Get the required item for the upgrade.
+            itemToRemove = hasAnItem(player, required.id) // Check if the player has the required item.
+            if (!itemToRemove.exists() && !player.hasItem(Item(6914, 1))) { // Check if the player has the required wand.
+                sendMessage(player, "You don't have the required wand in order to buy this upgrade.") // Notify the player.
+                return // Exit the function.
             }
         }
-        if (container.getAmount(item) - 1 <= 0) {
-            container[slot].amount = 0
+        if (container.getAmount(item) - 1 <= 0) { // Check if the item amount in the container will drop to zero.
+            container[slot].amount = 0 // Set the item amount in the container to zero.
         } else {
-            container.remove(item)
+            container.remove(item) // Remove the item from the container.
         }
-        if (item.id == Items.BONES_TO_PEACHES_6926) {
-            player.getSavedData().activityData.isBonesToPeaches = true
-            sendDialogue(player, "The guardian teaches you how to use the Bones to Peaches spell!")
+        if (item.id == Items.BONES_TO_PEACHES_6926) { // Check if the item is the Bones to Peaches spell.
+            player.getSavedData().activityData.isBonesToPeaches = true // Mark the spell as unlocked for the player.
+            sendDialogue(player, "The guardian teaches you how to use the Bones to Peaches spell!") // Notify the player.
         } else {
-            if (itemToRemove == null || itemToRemove.remove()) player.inventory.add(item)
+            if (itemToRemove == null || itemToRemove.remove()) player.inventory.add(item) // Add the item to the player's inventory if conditions are met.
         }
-        for (i in prices.indices) {
-            decrementPoints(player, i, prices[i])
+        for (i in prices.indices) { // Iterate through the prices again.
+            decrementPoints(player, i, prices[i]) // Deduct the points from the player for each price.
         }
-        updatePoints(player)
-        update()
+        updatePoints(player) // Update the player's points display after the purchase.
+        update() // Refresh the interface to reflect changes.
     }
 
     /**
      * Value
      *
-     * @param player
-     * @param item
-     * @param slot
+     * @param player The player requesting the item's value.
+     * @param item The item whose value is being checked.
+     * @param slot The slot in which the item is located.
      */
     fun value(player: Player, item: Item, slot: Int) {
         val prices = PRICES[slot]
@@ -146,7 +146,7 @@ class MTAShopInterfaceListener : InterfaceListener {
     /**
      * Update points
      *
-     * @param player
+     * @param player The player whose points are being updated.
      */
     fun updatePoints(player: Player) {
         setInterfaceText(player, getPoints(player, 0).toString(), Components.MAGICTRAINING_SHOP_197, 8)
@@ -158,9 +158,9 @@ class MTAShopInterfaceListener : InterfaceListener {
     /**
      * Increment points
      *
-     * @param player
-     * @param index
-     * @param increment
+     * @param player The player whose points are being incremented.
+     * @param index The index of the points to increment.
+     * @param increment The amount to increment the points by.
      */
     fun incrementPoints(player: Player, index: Int, increment: Int) {
         player.getSavedData().activityData.incrementPizazz(index, increment)
@@ -169,9 +169,9 @@ class MTAShopInterfaceListener : InterfaceListener {
     /**
      * Decrement points
      *
-     * @param player
-     * @param index
-     * @param decrement
+     * @param player The player whose points are being decremented.
+     * @param index The index of the points to decrement.
+     * @param decrement The amount to decrement the points by.
      */
     fun decrementPoints(player: Player, index: Int, decrement: Int) {
         player.getSavedData().activityData.decrementPizazz(index, decrement)
@@ -180,9 +180,9 @@ class MTAShopInterfaceListener : InterfaceListener {
     /**
      * Get points
      *
-     * @param player
-     * @param index
-     * @return
+     * @param player The player whose points are being retrieved.
+     * @param index The index of the points to retrieve.
+     * @return The number of points the player has at the specified index.
      */
     fun getPoints(player: Player, index: Int): Int {
         return player.getSavedData().activityData.getPizazzPoints(index)

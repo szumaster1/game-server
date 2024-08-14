@@ -25,7 +25,8 @@ class EnchantSpell : MagicSpell {
         jewellery = null
     }
 
-    constructor(level: Int, experience: Double, jewellery: Map<Int, Item>, runes: Array<Item?>?
+    constructor(
+        level: Int, experience: Double, jewellery: Map<Int, Item>, runes: Array<Item?>?
     ) : super(SpellBook.MODERN, level, experience, ANIMATION, GRAPHIC, Audio(115, 1, 0), runes) {
         this.jewellery = jewellery
     }
@@ -47,10 +48,26 @@ class EnchantSpell : MagicSpell {
 
         if (entity.inventory.remove(target)) {
             val (visualId, graphic) = when (target.id) {
-                Items.SAPPHIRE_RING_1637, Items.EMERALD_RING_1639, Items.RUBY_RING_1641, Items.DIAMOND_RING_1643, Items.DRAGONSTONE_RING_1645, Items.ONYX_RING_6575 -> Pair(712, Graphic(238, 92))
-                Items.SAPPHIRE_NECKLACE_1656, Items.SAPPHIRE_AMULET_1694, Items.SAPPHIRE_BRACELET_11072, Items.EMERALD_NECKLACE_1658, Items.EMERALD_AMULET_1696, Items.EMERALD_BRACELET_11076 -> Pair(719, Graphic(114, 92))
-                Items.RUBY_NECKLACE_1660, Items.RUBY_AMULET_1698, Items.RUBY_BRACELET_11085, Items.DIAMOND_NECKLACE_1662, Items.DIAMOND_AMULET_1700, Items.DIAMOND_BRACELET_11092 -> Pair(720, Graphic(115, 92))
-                Items.DRAGON_NECKLACE_1664, Items.DRAGONSTONE_AMMY_1702, Items.DRAGON_BRACELET_11115, Items.ONYX_NECKLACE_6577, Items.ONYX_AMULET_6581, Items.ONYX_BRACELET_11130 -> Pair(721, Graphic(116, 92))
+                Items.SAPPHIRE_RING_1637, Items.EMERALD_RING_1639, Items.RUBY_RING_1641, Items.DIAMOND_RING_1643, Items.DRAGONSTONE_RING_1645, Items.ONYX_RING_6575 -> Pair(
+                    712,
+                    Graphic(238, 92)
+                )
+
+                Items.SAPPHIRE_NECKLACE_1656, Items.SAPPHIRE_AMULET_1694, Items.SAPPHIRE_BRACELET_11072, Items.EMERALD_NECKLACE_1658, Items.EMERALD_AMULET_1696, Items.EMERALD_BRACELET_11076 -> Pair(
+                    719,
+                    Graphic(114, 92)
+                )
+
+                Items.RUBY_NECKLACE_1660, Items.RUBY_AMULET_1698, Items.RUBY_BRACELET_11085, Items.DIAMOND_NECKLACE_1662, Items.DIAMOND_AMULET_1700, Items.DIAMOND_BRACELET_11092 -> Pair(
+                    720,
+                    Graphic(115, 92)
+                )
+
+                Items.DRAGON_NECKLACE_1664, Items.DRAGONSTONE_AMMY_1702, Items.DRAGON_BRACELET_11115, Items.ONYX_NECKLACE_6577, Items.ONYX_AMULET_6581, Items.ONYX_BRACELET_11130 -> Pair(
+                    721,
+                    Graphic(116, 92)
+                )
+
                 else -> Pair(719, Graphic(114, 92))
             }
             core.api.visualize(entity, visualId, graphic)
@@ -62,7 +79,8 @@ class EnchantSpell : MagicSpell {
             entity.graphics(Graphic.create(237, 110))
             var pizazz = 0
             if (target.id == 6903) {
-                pizazz = (if (spellId == 5) 1 else if (spellId == 16) 2 else if (spellId == 28) 3 else if (spellId == 36) 4 else if (spellId == 51) 5 else 6) * 2
+                pizazz =
+                    (if (spellId == 5) 1 else if (spellId == 16) 2 else if (spellId == 28) 3 else if (spellId == 36) 4 else if (spellId == 51) 5 else 6) * 2
             } else {
                 val shape = EnchantingZone.Shapes.forItem(target)
                 if (shape != null) {
