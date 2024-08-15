@@ -7,13 +7,15 @@ import core.game.node.entity.player.Player;
 import core.game.node.entity.skill.Skills;
 
 /**
- * Mirror shield handler.
+ * The type Mirror shield handler.
  */
 public final class MirrorShieldHandler extends MeleeSwingHandler {
+
     /**
-     * The constant SINGLETON.
+     * The constants.
      */
     public static final MirrorShieldHandler SINGLETON = new MirrorShieldHandler();
+
     private static final int[] SKILLS = new int[]{Skills.ATTACK, Skills.STRENGTH, Skills.DEFENCE, Skills.RANGE};
 
     @Override

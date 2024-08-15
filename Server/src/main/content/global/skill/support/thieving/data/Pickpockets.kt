@@ -10,18 +10,19 @@ import core.tools.RandomFunction
 import java.util.stream.IntStream
 
 /**
- * Pickpockets
+ * Enum class representing different pickpocketing targets and their attributes.
  *
- * @param ids An array of integers representing the IDs of the pickpocketing targets.
- * @param requiredLevel The level required to attempt pickpocketing.
- * @param low The minimum amount of loot that can be obtained.
- * @param high The maximum amount of loot that can be obtained.
- * @param experience The experience gained from successful pickpocketing.
- * @param stunDamageMin The minimum damage inflicted when stunning the target.
- * @param stunDamageMax The maximum damage inflicted when stunning the target.
- * @param stunTime The duration for which the target is stunned.
- * @param message An optional message to display upon successful pickpocketing.
- * @param table A WeightBasedTable that determines the probability of success based on weights.
+ * @param ids Array of IDs for the pickpocketing targets
+ * @param requiredLevel Level required to perform the pickpocketing action
+ * @param low Minimum loot value obtainable
+ * @param high Maximum loot value obtainable
+ * @param experience Experience points awarded for successful pickpocketing
+ * @param stunDamageMin Minimum damage dealt to stun the target
+ * @param stunDamageMax Maximum damage dealt to stun the target
+ * @param stunTime Duration of the stun effect on the target
+ * @param message Optional message displayed upon success
+ * @param table Table that defines success probabilities based on weights
+ * @return Returns an instance of the Pickpockets enum with specified attributes
  */
 enum class Pickpockets(
     val ids: IntArray, // Array of IDs for the pickpocketing targets

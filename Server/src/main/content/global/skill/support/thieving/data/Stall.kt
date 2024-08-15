@@ -7,7 +7,7 @@ import core.tools.RandomFunction
 import java.util.*
 
 /**
- * Stall
+ * Enum class representing a Stall with various properties and states.
  *
  * @param level The current level of the stall.
  * @param rewards An array of items that can be rewarded.

@@ -82,51 +82,51 @@ class SlayerListeners : InteractionListener {
     }
 
     override fun defineListeners() {
-        // Define listeners for digging locations
+        // Define listeners for digging locations.
         for (location in SVENS_DIG_LOCATIONS) {
             onDig(location) { player: Player ->
                 enterCavern(player)
             }
         }
 
-        // Listener for trapdoor interaction
+        // Listener for trapdoor interaction.
         on(TRAPDOOR, IntType.SCENERY, "open") { player, _ ->
             teleport(player, Location(2044, 4649, 0), TeleportManager.TeleportType.INSTANT)
             return@on true
         }
 
-        // Listener for ladder interaction
+        // Listener for ladder interaction.
         on(LADDER, IntType.SCENERY, "climb-up") { player, _ ->
             teleport(player, Location(2543, 3327, 0), TeleportManager.TeleportType.INSTANT)
             return@on true
         }
 
-        // Listener for stairs interaction
+        // Listener for stairs interaction.
         on(STAIRS, IntType.SCENERY, "climb-up") { player, _ ->
             ClimbActionHandler.climb(player, null, Location(2649, 9804, 0))
             return@on true
         }
 
-        // Listener for second stairs interaction
+        // Listener for second stairs' interaction.
         on(STAIRS_2, IntType.SCENERY, "climb-up") { player, _ ->
             ClimbActionHandler.climb(player, null, Location(2641, 9763, 0))
             return@on true
         }
 
-        // Listener for cave entrance interaction
+        // Listener for cave entrance interaction.
         on(CAVE_ENTRANCE, IntType.SCENERY, "enter") { player, _ ->
             if (!hasRequirement(player, "Cabin Fever")) return@on true
             teleport(player, Location(3748, 9373, 0), TeleportManager.TeleportType.INSTANT)
-            return@on true // Indicate successful interaction
+            return@on true
         }
 
-        // Listener for cave exit interaction
+        // Listener for cave exit interaction.
         on(CAVE_EXIT, IntType.SCENERY, "exit") { player, node ->
             when (node.id) {
                 Scenery.CAVE_23157, Scenery.CAVE_23158 -> teleport(player, Location(2729, 3733, 0), TeleportManager.TeleportType.INSTANT) // Teleport for specific cave exits
                 else -> teleport(player, Location(3749, 2973, 0), TeleportManager.TeleportType.INSTANT) // Default teleport for other exits
             }
-            return@on true // Indicate successful interaction
+            return@on true
         }
     }
 }

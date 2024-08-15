@@ -7,10 +7,10 @@ import core.game.node.entity.player.Player
  */
 interface CrestRequirement {
     /**
-     * Eligible
+     * Checks if the player is eligible for the crest.
      *
-     * @param player
-     * @return
+     * @param player The player whose eligibility is being checked.
+     * @return True if the player is eligible, false otherwise.
      */
     fun eligible(player: Player): Boolean {
         return true

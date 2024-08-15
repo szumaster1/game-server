@@ -339,7 +339,7 @@ enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)?
     }
 
     /**
-     * RC cape dialogue/
+     * RC cape dialogue.
      */
     @Initializable
     class RCCapeDialogue(player: Player? = null) : Dialogue(player) {
@@ -391,8 +391,8 @@ enum class SkillcapePerks(val attribute: String, val effect: ((Player) -> Unit)?
         /**
          * Send altar
          *
-         * @param player
-         * @param altar
+         * @param player The player who will receive the altar.
+         * @param altar The altar object that is being sent to the player.
          */
         fun sendAltar(player: Player, altar: Altar) {
             end()

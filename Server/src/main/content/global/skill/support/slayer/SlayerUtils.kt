@@ -15,6 +15,14 @@ import core.tools.RandomFunction
  * Slayer utils.
  */
 object SlayerUtils {
+
+    /**
+     * Generates a random task for the player based on their combat level and task requirements.
+     *
+     * @param player The player for whom the task is being generated.
+     * @param master The SlayerMaster who assigns the task.
+     * @return A randomly selected task or null if no task can be assigned.
+     */
     fun generate(player: Player, master: SlayerMaster): Tasks? {
         val tasks: MutableList<SlayerMaster.Task?> = ArrayList(10)
         val taskWeightSum = intArrayOf(0)
@@ -33,6 +41,13 @@ object SlayerUtils {
         return null
     }
 
+    /**
+     * Checks if a task can be assigned to the player based on their Slayer level and quest requirements.
+     *
+     * @param player The player to check against.
+     * @param task The task to be checked.
+     * @return True if the task can be assigned, false otherwise.
+     */
     fun canBeAssigned(player: Player, task: Tasks): Boolean {
         return player.getSkills()
             .getLevel(Skills.SLAYER) >= task.levelReq && !SlayerManager.getInstance(player).flags.removed.contains(task) && task.hasQuestRequirements(
@@ -40,6 +55,13 @@ object SlayerUtils {
         )
     }
 
+    /**
+     * Assigns a task to the player and updates their task-related information.
+     *
+     * @param player The player to whom the task is assigned.
+     * @param task The task to be assigned.
+     * @param master The SlayerMaster assigning the task.
+     */
     fun assign(player: Player, task: Tasks, master: SlayerMaster) {
         SlayerManager.getInstance(player).master = master
         SlayerManager.getInstance(player).task = task
@@ -53,6 +75,13 @@ object SlayerUtils {
         setVarp(player, 2502, SlayerManager.getInstance(player).flags.taskFlags shr 4)
     }
 
+    /**
+     * Checks if the player has a broad weapon equipped.
+     *
+     * @param player The player to check.
+     * @param state The current battle state of the player.
+     * @return True if a broad weapon is equipped, false otherwise.
+     */
     @JvmStatic
     fun hasBroadWeaponEquipped(player: Player, state: BattleState): Boolean {
         return (state.weapon != null && state.weapon.id == Items.LEAF_BLADED_SPEAR_4158 || state.weapon != null && state.weapon.id == Items.LEAF_BLADED_SWORD_13290 || state.ammunition != null && (state.ammunition.itemId == Items.BROAD_ARROW_4160 || state.ammunition.itemId == Items.BROAD_TIPPED_BOLTS_13280) || state.spell != null && state.spell.spellId == 31 && player.spellBookManager.spellBook == SpellBook.MODERN.interfaceId)

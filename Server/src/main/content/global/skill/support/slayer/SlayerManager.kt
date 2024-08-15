@@ -89,9 +89,8 @@ class SlayerManager(val player: Player? = null) : LoginListener, PersistPlayer, 
         flags.completedTasks = completedTasks.toString().toInt()
         if (flags.completedTasks >= 4) flags.flagCanEarnPoints()
 
-        //New system parsing
-        if (slayerData.containsKey("equipmentFlags")) flags.equipmentFlags =
-            slayerData["equipmentFlags"].toString().toInt()
+        //New system parsing.
+        if (slayerData.containsKey("equipmentFlags")) flags.equipmentFlags = slayerData["equipmentFlags"].toString().toInt()
         if (slayerData.containsKey("taskFlags")) flags.taskFlags = slayerData["taskFlags"].toString().toInt()
         if (slayerData.containsKey("rewardFlags")) flags.rewardFlags = slayerData["rewardFlags"].toString().toInt()
     }
@@ -144,11 +143,10 @@ class SlayerManager(val player: Player? = null) : LoginListener, PersistPlayer, 
         }
     }
 
-
     /**
-     * Generate
+     * Generate a new task based on the provided SlayerMaster.
      *
-     * @param master
+     * @param master The SlayerMaster instance that contains the task details.
      */
     fun generate(master: SlayerMaster) {
         val task = SlayerUtils.generate(player!!, master) ?: return
@@ -157,13 +155,11 @@ class SlayerManager(val player: Player? = null) : LoginListener, PersistPlayer, 
 
 
     /**
-     * Clear
-     *
+     * Clear the current task amount to zero.
      */
     fun clear() {
         amount = 0
     }
-
 
     val taskName: String
         get() {
@@ -194,16 +190,14 @@ class SlayerManager(val player: Player? = null) : LoginListener, PersistPlayer, 
             flags.setMaster(master!!)
         }
 
-
     /**
-     * Has task
+     * Check if there is an active task.
      *
-     * @return
+     * @return True if there is an active task, otherwise false.
      */
     fun hasTask(): Boolean {
         return amount > 0
     }
-
 
     val isCompleted: Boolean
         get() = flags.getTaskAmount() <= 0
@@ -215,25 +209,23 @@ class SlayerManager(val player: Player? = null) : LoginListener, PersistPlayer, 
         }
 
     /**
-     * Decrement amount
+     * Decrement the task amount by a specified value.
      *
-     * @param amount
+     * @param amount The amount to decrement from the current task amount.
      */
     fun decrementAmount(amount: Int) {
-        flags.decrementTaskAmount(amount)
-        setVarp(player!!, 2502, flags.taskFlags shr 4)
+        flags.decrementTaskAmount(amount) // Decrement the task amount in flags.
+        setVarp(player!!, 2502, flags.taskFlags shr 4) // Update the player's variable with the new task flags.
     }
 
-
     /**
-     * Has started
+     * Check if the task has started.
      *
-     * @return
+     * @return True if the task has started, otherwise false.
      */
     fun hasStarted(): Boolean {
         return flags.completedTasks > 0 || flags.getTaskAmount() > 0
     }
-
 
     var slayerPoints: Int
         get() = flags.getPoints()
@@ -241,16 +233,16 @@ class SlayerManager(val player: Player? = null) : LoginListener, PersistPlayer, 
             flags.setPoints(slayerPoints)
         }
 
-
     val removed: List<Tasks>
         get() = flags.removed
+
     val isCanEarnPoints: Boolean
         get() = flags.canEarnPoints()
 
     companion object {
         @JvmStatic
         fun getInstance(player: Player): SlayerManager {
-            return getAttribute(player, "slayer-manager", SlayerManager())
+            return getAttribute(player, "slayer-manager", SlayerManager()) // Retrieve the SlayerManager instance for the given player.
         }
     }
 }

@@ -23,7 +23,12 @@ private val VARROCK_CREST_SYMBOL    = "the symbol of Varrock"
 private val ZAMORAK_CREST_SYMBOL    = "the symbol of Zamorak"
 
 /**
- * Crest type.
+ * Crest type
+ *
+ * @property cost The cost associated with the crest type, (default `5000`).
+ * @constructor Initializes a CrestType with a name and an optional cost.
+ *
+ * @param name The name of the crest type.
  */
 enum class CrestType(name: String, val cost: Int = 5000) : CrestRequirement {
     /**

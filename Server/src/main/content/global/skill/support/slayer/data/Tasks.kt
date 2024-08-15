@@ -1368,34 +1368,41 @@ enum class Tasks {
     /**
      * Has quest requirements
      *
-     * @param player
-     * @return
+     * @param player The player object that is being checked for quest requirements
+     * @return True if the quest requirements are met, otherwise false
      */
     fun hasQuestRequirements(player: Player?): Boolean {
+        // Check if questReq is empty or if the player meets the specific quest requirement
         return questReq == "" || hasRequirement(player!!, questReq, false)
     }
 
     /**
      * Get name
      *
-     * @return
+     * @return The name of the NPC associated with the first NPC ID in the list
      */
     fun getName(): String {
+        // Retrieve the first NPC ID or default to 0 if the list is empty
         val npcId = npcs.firstOrNull() ?: 0
+        // Fetch and return the name of the NPC using the NPC ID
         return NPCDefinition.forId(npcId).name
     }
 
     companion object {
+        // Initialize a HashMap to store task mappings from NPC IDs to Tasks
         val taskMap: HashMap<Int, Tasks> = HashMap()
 
         init {
+            // Populate the taskMap with entries from the Tasks enum
             Arrays.stream(values()).forEach { entry: Tasks ->
+                // For each NPC ID in the current task, add it to the taskMap if it doesn't already exist
                 Arrays.stream(entry.npcs).forEach { id: Int -> taskMap.putIfAbsent(id, entry) }
             }
         }
 
         @JvmStatic
         fun forId(id: Int): Tasks? {
+            // Retrieve the task associated with the given NPC ID from the taskMap
             return taskMap[id]
         }
     }
