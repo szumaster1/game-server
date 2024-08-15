@@ -1,19 +1,21 @@
 package content.minigame.tbwcleanup
 
 import core.api.*
+import core.api.consts.Items
+import core.api.consts.Scenery
+import core.api.consts.Sounds
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.Node
 import core.game.node.entity.player.Player
 import core.tools.RandomFunction.random
-import org.rs09.consts.Scenery
-import org.rs09.consts.Items
 import core.game.node.scenery.SceneryBuilder
 import core.game.world.update.flag.context.Animation
 import core.game.interaction.QueueStrength
-import org.rs09.consts.Sounds
 
-
+/**
+ * Spade on gout tubber plant.
+ */
 class SpadeOnGoutTubberPlant : InteractionListener {
     override fun defineListeners() {
         onUseWith(IntType.SCENERY, Items.SPADE_952, Scenery.GOUT_TUBER_PLANT_9033, handler = ::digForGoutTubber)
@@ -21,19 +23,19 @@ class SpadeOnGoutTubberPlant : InteractionListener {
 
     fun digForGoutTubber(player: Player, used: Node, with: Node): Boolean {
         tryDiggingForGoutTubber(player, with)
-    return true
+        return true
     }
 
     fun tryDiggingForGoutTubber(player: Player, with: Node): Boolean {
         val locationStart = player.location
-        val digTime = random(2,12)
+        val digTime = random(2, 12)
         var dugUp = false
         clearScripts(player)
         player.sendMessage("You start digging up the plant 1.${digTime}")
 
         player.animate(Animation(831))
         player.sendMessage("You start digging up the plant 2.${digTime}")
-        playAudio(player, Sounds.DIGSPADE_1470 , 0, digTime/2 + digTime%2 )
+        playAudio(player, Sounds.DIGSPADE_1470, 0, digTime / 2 + digTime % 2)
         queueScript(player, digTime, QueueStrength.SOFT) {
             if (player.animator.animation.id == 831 && locationStart == player.location) {
                 player.animate(Animation(2697), 0)
@@ -41,14 +43,14 @@ class SpadeOnGoutTubberPlant : InteractionListener {
             }
             return@queueScript stopExecuting(player)
         }
-        queueScript(player,digTime + 2, QueueStrength.SOFT) {
+        queueScript(player, digTime + 2, QueueStrength.SOFT) {
             if (dugUp) {
                 player.sendMessage("You dig up the plant and find a gout tuber.")
                 addItem(player, Items.GOUT_TUBER_6311, 1)
-                val node = when(with.asScenery().asConstructed().replaced.id) {
-                    9010,9011,9012,9013,9014 -> 9010
-                    9015,9016,9017,9018,9019 -> 9015
-                    9020,9021,9022,9023,9024 -> 9020
+                val node = when (with.asScenery().asConstructed().replaced.id) {
+                    9010, 9011, 9012, 9013, 9014 -> 9010
+                    9015, 9016, 9017, 9018, 9019 -> 9015
+                    9020, 9021, 9022, 9023, 9024 -> 9020
                     else -> 0
                 }
                 player.sendMessage("replace node id: ${node}")

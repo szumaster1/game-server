@@ -27,7 +27,7 @@ import kotlin.streams.toList
 /**
  * Hack jungle.
  */
-class HackJungle: InteractionListener {
+class HackJungleListener : InteractionListener {
 
     private var eventTriggered = false
     private val woodcuttingSounds = intArrayOf(
@@ -38,24 +38,32 @@ class HackJungle: InteractionListener {
         Sounds.WOODCUTTING_HIT_3042
     )
     private val junglePlants = intArrayOf(
-        9010,9011,9012,9013, //Light Jungle Plants
-        9015,9016,9017,9018, //Medium Jungle Plants
-        9020,9021,9022,9023 //Dense Jungle Plants
+        9010, 9011, 9012, 9013, //Light Jungle Plants
+        9015, 9016, 9017, 9018, //Medium Jungle Plants
+        9020, 9021, 9022, 9023 //Dense Jungle Plants
     )
     private val jungleRegions = arrayOf(11056, 11055)
 
     override fun defineListeners() {
         defineInteraction(
-                IntType.SCENERY,
-                ids = WoodcuttingNode.values().map { it.id }.toIntArray(),
-                "hack",
-                persistent = true,
-                allowedDistance = 1,
-                handler = ::handleJungleHacking
+            IntType.SCENERY,
+            ids = WoodcuttingNode.values().map { it.id }.toIntArray(),
+            "hack",
+            persistent = true,
+            allowedDistance = 1,
+            handler = ::handleJungleHacking
         )
     }
 
-    private fun handleJungleHacking(player: Player, node: Node, state: Int) : Boolean {
+    /**
+     * Handle jungle hacking
+     *
+     * @param player The player who is attempting to hack the jungle.
+     * @param node The specific node in the jungle being hacked.
+     * @param state The current state of the hacking process.
+     * @return Returns true if the hacking was successful, false otherwise.
+     */
+    private fun handleJungleHacking(player: Player, node: Node, state: Int): Boolean {
         val resource = WoodcuttingNode.forId(node.id)
         val tool = SkillingTool.getMachete(player)
 
@@ -84,11 +92,11 @@ class HackJungle: InteractionListener {
 
             //if reward rolls the rest should stop
             if (!eventTriggered) {
-                queueScript(player,-1, QueueStrength.SOFT) {
-                    depletionEvent(player, node.asScenery(), resource!!, resource!!.reward)
+                queueScript(player, -1, QueueStrength.SOFT) {
+                    depletionEvent(player, node.asScenery(), resource, resource.reward)
                 }
-                }
-            if (!checkRequirements(player, resource!!, node)) {
+            }
+            if (!checkRequirements(player, resource, node)) {
                 return clearScripts(player)
             }
         }
@@ -100,15 +108,16 @@ class HackJungle: InteractionListener {
         if (regionId !in jungleRegions) {
             return false
         }
-        if (!player.getAttribute("/save:startedTBWCleanup",false)) {
+        if (!player.getAttribute("/save:startedTBWCleanup", false)) {
             player.sendMessage("I should probably talk to someone like Murcaily before I start hacking away at this.")
             return false
         }
         if (player.getSkills().getLevel(Skills.WOODCUTTING) < resource.level) {
-            player.getPacketDispatch().sendMessage("You need a woodcutting level of " + resource.level + " to hack this jungle plant.")
+            player.getPacketDispatch()
+                .sendMessage("You need a woodcutting level of " + resource.level + " to hack this jungle plant.")
             return false
         }
-        if (SkillingTool.getMachete(player) == null && node.id in junglePlants ) {
+        if (SkillingTool.getMachete(player) == null && node.id in junglePlants) {
             player.packetDispatch.sendMessage("You do not have a machete to use.")
             return false
         }
@@ -124,17 +133,21 @@ class HackJungle: InteractionListener {
         animate(player, SkillingTool.getMachete(player)!!.animation, true)
 
         val playersAroundMe: List<Player> = RegionManager.getLocalPlayers(player, 2)
-                .stream()
-                .toList()
+            .stream()
+            .toList()
         val soundIndex = random(1, woodcuttingSounds.size)
 
-        for (p in playersAroundMe) { playAudio(p, woodcuttingSounds[soundIndex]) }
+        for (p in playersAroundMe) {
+            playAudio(p, woodcuttingSounds[soundIndex])
+        }
     }
 
-    //This is a direct copy-paste of the woodcutting checkReward function
+    /**
+     * Check reward (woodcutting).
+     */
     private fun checkReward(player: Player, resource: WoodcuttingNode, tool: SkillingTool): Boolean {
         val skill = Skills.WOODCUTTING
-        val level: Int = player.getSkills().getLevel(skill) + player.getFamiliarManager().getBoost(skill)
+        val level: Int = player.getSkills().getLevel(skill) + player.familiarManager.getBoost(skill)
         val hostRatio = RandomFunction.randomDouble(100.0)
         val lowMod: Double = resource.tierModLow
         val low: Double = resource.baseLow + tool.ordinal * lowMod
@@ -144,14 +157,22 @@ class HackJungle: InteractionListener {
         return hostRatio < clientRatio
     }
 
-    // This function contains actions that happen when a player succesfully hacks a thatch spar from a jungle plant
+    /**
+     * This function contains actions that happen when a player successfully hacks a thatch spar from a jungle plant
+     *
+     * @param player The player who is performing the action
+     * @param node The scenery node being interacted with
+     * @param resource The type of resource being harvested
+     * @param reward The reward given to the player for the action
+     * @return Returns true if the action was successful, false otherwise
+     */
     private fun depletionEvent(player: Player, node: Scenery, resource: WoodcuttingNode, reward: Int): Boolean {
         if (resource.respawnRate > 0) {
             lock(player, 1)
-            player.animate(Animation(2387),0) //Animate succesfully cut dense jungle plant
+            player.animate(Animation(2387), 0) //Animate succesfully cut dense jungle plant
             playAudio(player, 1288)
 
-            queueScript(player,1, QueueStrength.SOFT) {
+            queueScript(player, 1, QueueStrength.SOFT) {
                 SceneryBuilder.replaceWithTempBeforeNew(
                     node,
                     node.transform(resource.id + 1),
@@ -159,7 +180,7 @@ class HackJungle: InteractionListener {
                     140,
                     true
                 )
-                when(reward) {
+                when (reward) {
                     Items.THATCH_SPAR_LIGHT_6281 -> awardTBWCleanupPoints(player, 1)
                     Items.THATCH_SPAR_MED_6283 -> awardTBWCleanupPoints(player, 5)
                     Items.THATCH_SPAR_DENSE_6285 -> awardTBWCleanupPoints(player, 10)
@@ -189,11 +210,11 @@ class HackJungle: InteractionListener {
     private fun rollJungleEvent(player: Player, node: Node, resource: Int) {
         val roll = random(1, 101)
         if (roll <= 22) {
-            spawnNPC(player, NPCs.JUNGLE_SPIDER_2491, node, random(10,20))
+            spawnNPC(player, NPCs.JUNGLE_SPIDER_2491, node, random(10, 20))
             return
         }
         if (roll <= 43) {
-            spawnNPC(player, NPCs.TRIBESMAN_2497, node, random(10,20))
+            spawnNPC(player, NPCs.TRIBESMAN_2497, node, random(10, 20))
             return
         }
         if (roll <= 64) {
@@ -227,20 +248,32 @@ class HackJungle: InteractionListener {
         if (roll <= 99) {
             playAudio(player, 1270)
 
-            val GEMROCK_ID = when(node.id) {
+            val GEMROCK_ID = when (node.id) {
                 in 9020..9024 -> 9032
                 in 9015..9019 -> 9031
                 in 9010..9014 -> 9030
                 else -> 0
             }
 
-            SceneryBuilder.replaceWithTempBeforeNew( node.asScenery(), node.asScenery().transform(GEMROCK_ID),node.asScenery().transform(resource), 200, true)
+            SceneryBuilder.replaceWithTempBeforeNew(
+                node.asScenery(),
+                node.asScenery().transform(GEMROCK_ID),
+                node.asScenery().transform(resource),
+                200,
+                true
+            )
             return
         }
         if (roll <= 100) {
             playAudio(player, 1282)
-            SceneryBuilder.replaceWithTempBeforeNew( node.asScenery(), node.asScenery().transform(9033),node.asScenery().transform(resource), 200, true)
-            animateScenery(node.asScenery(),2383)
+            SceneryBuilder.replaceWithTempBeforeNew(
+                node.asScenery(),
+                node.asScenery().transform(9033),
+                node.asScenery().transform(resource),
+                200,
+                true
+            )
+            animateScenery(node.asScenery(), 2383)
             player.sendMessage("You find a Gout Tuber.")
             return
         }

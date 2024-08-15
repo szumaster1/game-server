@@ -14,6 +14,9 @@ import core.game.dialogue.Topic
 import core.api.consts.Items
 import kotlin.math.min
 
+/**
+ * Murcaily dialogue.
+ */
 @Initializable
 class MurcailyDialogue(player: Player? = null) : Dialogue(player) {
     override fun newInstance(player: Player?): Dialogue {
