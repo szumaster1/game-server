@@ -4,20 +4,30 @@ import core.api.consts.Items
 import core.cache.def.impl.ItemDefinition
 
 /**
- * Bot prices
- *
- * @constructor Bot prices
+ * Bot prices.
  */
 class BotPrices {
 
     companion object {
+        /**
+         * Get price
+         *
+         * @param id The identifier for the item whose price is to be retrieved.
+         * @return The price of the item as an integer.
+         */
         @JvmStatic
         fun getPrice(id: Int): Int {
             return getPriceOverrides(id) ?: ItemDefinition.forId(id).value
         }
 
+        /**
+         * Get price overrides
+         *
+         * @param id The identifier for the item whose price overrides are to be retrieved.
+         * @return The overridden price of the item, if available.
+         */
         @JvmStatic
-        private fun getPriceOverrides(id: Int): Int? {
+        fun getPriceOverrides(id: Int): Int? {
             return when (id) {
                 Items.PURE_ESSENCE_7936 -> 50
                 Items.BOW_STRING_1777 -> 250

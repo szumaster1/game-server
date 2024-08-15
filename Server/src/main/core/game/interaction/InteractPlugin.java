@@ -156,6 +156,13 @@ public class InteractPlugin {
         }
     }
 
+    /**
+     * Handles the walking option for a player.
+     *
+     * @param player The player who is performing the action.
+     * @param option The option selected by the player.
+     * @param pulseType The type of pulse for the action.
+     */
     private void handleWalkOption(final Player player, final Option option, PulseType pulseType) {
         if (node.getLocation() == null) {
             player.getPulseManager().runUnhandledAction(player, pulseType);
@@ -185,6 +192,13 @@ public class InteractPlugin {
         }, pulseType);
     }
 
+    /**
+     * Handles the default option for a player.
+     *
+     * @param player The player who is performing the action.
+     * @param option The option selected by the player.
+     * @param pulseType The type of pulse for the action.
+     */
     private void handleDefaultOption(final Player player, final Option option, PulseType pulseType) {
         if (!option.getHandler().isDelayed(player)) {
             if (player.getZoneMonitor().interact(node, option)) {

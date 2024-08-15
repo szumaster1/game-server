@@ -24,16 +24,14 @@ open class SkillDialogueHandler(val player: Player, val type: SkillDialogue?, va
     val data: Array<Any>
 
     /**
-     * Open
-     *
+     * Opens the skill dialogue for the player using the dialogue interpreter.
      */
     fun open() {
         player.dialogueInterpreter.open(SKILL_DIALOGUE, this)
     }
 
     /**
-     * Display
-     *
+     * Displays the skill dialogue to the player.
      */
     fun display() {
         if (type == null) {
@@ -46,16 +44,16 @@ open class SkillDialogueHandler(val player: Player, val type: SkillDialogue?, va
     /**
      * Create
      *
-     * @param amount
-     * @param index
+     * @param amount The amount to create
+     * @param index The index of the item
      */
     open fun create(amount: Int, index: Int) {}
 
     /**
      * Get all
      *
-     * @param index
-     * @return
+     * @param index The index to retrieve items from
+     * @return The amount of items in the player's inventory
      */
     open fun getAll(index: Int): Int {
         return player.inventory.getAmount(data[0] as Item)
@@ -64,8 +62,8 @@ open class SkillDialogueHandler(val player: Player, val type: SkillDialogue?, va
     /**
      * Get name
      *
-     * @param item
-     * @return
+     * @param item The item whose name is to be retrieved
+     * @return The formatted name of the item
      */
     protected open fun getName(item: Item): String {
         return StringUtils.formatDisplayName(item.name.replace("Unfired", ""))
@@ -74,16 +72,14 @@ open class SkillDialogueHandler(val player: Player, val type: SkillDialogue?, va
     /**
      * Skill dialogue
      *
-     * @param interfaceId
-     * @param baseButton
-     * @param length
+     * @param interfaceId The ID of the interface
+     * @param baseButton The base button associated with the dialogue
+     * @param length The length of the dialogue
      * @constructor Skill dialogue
      */
     enum class SkillDialogue(val interfaceId: Int, private val baseButton: Int, private val length: Int) {
         /**
-         * One Option
-         *
-         * @constructor One Option
+         * One option.
          */
         ONE_OPTION(309, 5, 1) {
             override fun display(player: Player, handler: SkillDialogueHandler) {
@@ -113,9 +109,7 @@ open class SkillDialogueHandler(val player: Player, val type: SkillDialogue?, va
         },
 
         /**
-         * Make Set One Option
-         *
-         * @constructor Make Set One Option
+         * Make set one option.
          */
         MAKE_SET_ONE_OPTION(582, 4, 1) {
             override fun display(player: Player, handler: SkillDialogueHandler) {
@@ -148,9 +142,7 @@ open class SkillDialogueHandler(val player: Player, val type: SkillDialogue?, va
         },
 
         /**
-         * Two Option
-         *
-         * @constructor Two Option
+         * Two option.
          */
         TWO_OPTION(303, 7, 2) {
             override fun display(player: Player, handler: SkillDialogueHandler) {
@@ -185,9 +177,7 @@ open class SkillDialogueHandler(val player: Player, val type: SkillDialogue?, va
         },
 
         /**
-         * Three Option
-         *
-         * @constructor Three Option
+         * Three option.
          */
         THREE_OPTION(304, 8, 3) {
             override fun display(player: Player, handler: SkillDialogueHandler) {
@@ -222,9 +212,7 @@ open class SkillDialogueHandler(val player: Player, val type: SkillDialogue?, va
         },
 
         /**
-         * Four Option
-         *
-         * @constructor Four Option
+         * Four option.
          */
         FOUR_OPTION(305, 9, 4) {
             override fun display(player: Player, handler: SkillDialogueHandler) {
@@ -260,9 +248,7 @@ open class SkillDialogueHandler(val player: Player, val type: SkillDialogue?, va
         },
 
         /**
-         * Five Option
-         *
-         * @constructor Five Option
+         * Five option.
          */
         FIVE_OPTION(306, 7, 5) {
             /**
@@ -311,24 +297,19 @@ open class SkillDialogueHandler(val player: Player, val type: SkillDialogue?, va
         };
 
         /**
-         * Gets the interfaceId.
-         * @return The interfaceId.
-         */
-
-        /**
          * Display
          *
-         * @param player
-         * @param handler
+         * @param player The player object that will interact with the skill dialogue.
+         * @param handler The handler responsible for managing the skill dialogue.
          */
         open fun display(player: Player, handler: SkillDialogueHandler) {}
 
         /**
          * Get amount
          *
-         * @param handler
-         * @param buttonId
-         * @return
+         * @param handler The handler managing the skill dialogue.
+         * @param buttonId The ID of the button pressed by the player.
+         * @return The amount corresponding to the button pressed.
          */
         open fun getAmount(handler: SkillDialogueHandler, buttonId: Int): Int {
             for (k in 0..3) {
@@ -345,9 +326,9 @@ open class SkillDialogueHandler(val player: Player, val type: SkillDialogue?, va
         /**
          * Get index
          *
-         * @param handler
-         * @param buttonId
-         * @return
+         * @param handler The handler managing the skill dialogue.
+         * @param buttonId The ID of the button pressed by the player.
+         * @return The index of the button pressed.
          */
         open fun getIndex(handler: SkillDialogueHandler?, buttonId: Int): Int {
             var index = 0
@@ -368,8 +349,8 @@ open class SkillDialogueHandler(val player: Player, val type: SkillDialogue?, va
         companion object {
             /**
              * Gets the type for the length.
-             * @param length2 the length to compare.
-             * @return the type.
+             * @param length2 The length to compare.
+             * @return The corresponding SkillDialogue type or null if not found.
              */
             fun forLength(length2: Int): SkillDialogue? {
                 for (dial in values()) {
@@ -392,9 +373,10 @@ open class SkillDialogueHandler(val player: Player, val type: SkillDialogue?, va
 
     /**
      * Constructs a new `SkillDialogueHandler` `Object`.
-     * @param player the player.
-     * @param type the type.
-     * @param data the data.
+     *
+     * @param player The player interacting with the skill dialogue.
+     * @param type The type of skill dialogue being used.
+     * @param data The data associated with the skill dialogue.
      */
     init {
         this.data = data as Array<Any>

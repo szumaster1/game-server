@@ -116,40 +116,45 @@ object PriceIndex {
     const val INSERT_QUERY = "INSERT INTO price_index (item_id, value, total_value, unique_trades, last_update) VALUES (?,?,?,?,?);"
     const val GET_VALUE_QUERY = "SELECT value FROM price_index WHERE item_id = ?;"
 }
-
 /**
  * Price info
  *
- * @param itemId
- * @param currentValue
- * @param totalValue
- * @param uniqueTrades
- * @param lastUpdate
+ * @param itemId Unique identifier for the item
+ * @param currentValue Current market value of the item
+ * @param totalValue Total value of all trades for the item
+ * @param uniqueTrades Number of unique trades for the item
+ * @param lastUpdate Timestamp of the last update for the item's price
  * @constructor Price info
  */
 data class PriceInfo(
-    var itemId: Int,
-    var currentValue: Int,
-    var totalValue: Long,
-    var uniqueTrades: Int,
-    var lastUpdate: Long
+    var itemId: Int, // Unique identifier for the item
+    var currentValue: Int, // Current market value of the item
+    var totalValue: Long, // Total value of all trades for the item
+    var uniqueTrades: Int, // Number of unique trades for the item
+    var lastUpdate: Long // Timestamp of the last update for the item's price
 ) {
     /**
      * Copy
      *
-     * @return
+     * @return A new instance of PriceInfo with the same values
      */
     fun copy() : PriceInfo {
-        return PriceInfo(itemId, currentValue, totalValue, uniqueTrades, lastUpdate)
+        return PriceInfo(itemId, currentValue, totalValue, uniqueTrades, lastUpdate) // Returns a new PriceInfo object with the same properties
     }
     companion object {
+        /**
+         * Creates a PriceInfo instance from a ResultSet
+         *
+         * @param result ResultSet containing the data
+         * @return A new PriceInfo object populated with data from the ResultSet
+         */
         fun fromQuery(result: ResultSet) : PriceInfo {
             return PriceInfo(
-                result.getInt(1),
-                result.getInt(2),
-                result.getLong(3),
-                result.getInt(4),
-                result.getLong(5)
+                result.getInt(1), // Retrieves the itemId from the ResultSet
+                result.getInt(2), // Retrieves the currentValue from the ResultSet
+                result.getLong(3), // Retrieves the totalValue from the ResultSet
+                result.getInt(4), // Retrieves the uniqueTrades from the ResultSet
+                result.getLong(5) // Retrieves the lastUpdate from the ResultSet
             )
         }
     }

@@ -1,598 +1,430 @@
 package core.game.dialogue
 
 /**
- * Facial expression
+ * Enum class representing different facial expressions.
  *
- * @param animationId
- * @constructor Facial expression
+ * @param animationId Unique identifier for the animation associated with the facial expression.
+ * @constructor Initializes a FacialExpression with a specific animation ID.
  */
 enum class FacialExpression(val animationId: Int) {
 
     /**
-     * Old Happy
-     *
-     * @constructor Old Happy
+     * Old Happy.
      */
     OLD_HAPPY(588),
 
     /**
-     * Old Calm Talk1
-     *
-     * @constructor Old Calm Talk1
+     * Old Calm Talk 1.
      */
     OLD_CALM_TALK1(589),
 
     /**
-     * Old Calm Talk2
-     *
-     * @constructor Old Calm Talk2
+     * Old Calm Talk 2.
      */
     OLD_CALM_TALK2(590),
 
     /**
-     * Old Default
-     *
-     * @constructor Old Default
+     * Old Default.
      */
     OLD_DEFAULT(591),
 
     /**
-     * Old Evil1
-     *
-     * @constructor Old Evil1
+     * Old Evil 1.
      */
     OLD_EVIL1(592),
 
     /**
-     * Old Evil2
-     *
-     * @constructor Old Evil2
+     * Old Evil 2.
      */
     OLD_EVIL2(593),
 
     /**
-     * Old Normal
-     *
-     * @constructor Old Normal
+     * Old Normal.
      */
     OLD_NORMAL(594),
 
     /**
-     * Old Sneaky
-     *
-     * @constructor Old Sneaky
+     * Old Sneaky.
      */
     OLD_SNEAKY(595),
 
     /**
-     * Old Distressed
-     *
-     * @constructor Old Distressed
+     * Old Distressed.
      */
     OLD_DISTRESSED(596),
 
     /**
-     * Old Distressed2
-     *
-     * @constructor Old Distressed2
+     * Old Distressed 2.
      */
     OLD_DISTRESSED2(597),
 
     /**
-     * Old Almost Crying
-     *
-     * @constructor Old Almost Crying
+     * Old Almost Crying.
      */
     OLD_ALMOST_CRYING(598),
 
     /**
-     * Old Bows Head Sad
-     *
-     * @constructor Old Bows Head Sad
+     * Old Bows Head Sad.
      */
     OLD_BOWS_HEAD_SAD(599),
 
     /**
-     * Old Drunk Left
-     *
-     * @constructor Old Drunk Left
+     * Old Drunk Left.
      */
     OLD_DRUNK_LEFT(600),
 
     /**
-     * Old Drunk Right
-     *
-     * @constructor Old Drunk Right
+     * Old Drunk Right.
      */
     OLD_DRUNK_RIGHT(601),
 
     /**
-     * Old Not Interested
-     *
-     * @constructor Old Not Interested
+     * Old Not Interested.
      */
     OLD_NOT_INTERESTED(602),
 
     /**
-     * Old Sleepy
-     *
-     * @constructor Old Sleepy
+     * Old Sleepy.
      */
     OLD_SLEEPY(603),
 
     /**
-     * Old Plain Evil
-     *
-     * @constructor Old Plain Evil
+     * Old Plain Evil.
      */
     OLD_PLAIN_EVIL(604),
 
     /**
-     * Old Laugh1
-     *
-     * @constructor Old Laugh1
+     * Old Laugh 1,
      */
     OLD_LAUGH1(605),
 
     /**
-     * Old Laugh2
-     *
-     * @constructor Old Laugh2
+     * Old Laugh 2.
      */
     OLD_LAUGH2(606),
 
     /**
-     * Old Laugh3
-     *
-     * @constructor Old Laugh3
+     * Old Laugh 3.
      */
     OLD_LAUGH3(607),
 
     /**
-     * Old Laugh4
-     *
-     * @constructor Old Laugh4
+     * Old Laugh 4.
      */
     OLD_LAUGH4(608),
 
     /**
-     * Old Evil Laugh
-     *
-     * @constructor Old Evil Laugh
+     * Old Evil Laugh.
      */
     OLD_EVIL_LAUGH(609),
 
     /**
-     * Old Sad
-     *
-     * @constructor Old Sad
+     * Old Sad.
      */
     OLD_SAD(610),
 
     /**
-     * Old More Sad
-     *
-     * @constructor Old More Sad
+     * Old More Sad.
      */
     OLD_MORE_SAD(611),
 
     /**
-     * Old On One Hand
-     *
-     * @constructor Old On One Hand
+     * Old On One Hand.
      */
     OLD_ON_ONE_HAND(612),
 
     /**
-     * Old Nearly Crying
-     *
-     * @constructor Old Nearly Crying
+     * Old Nearly Crying.
      */
     OLD_NEARLY_CRYING(613),
 
     /**
-     * Old Angry1
-     *
-     * @constructor Old Angry1
+     * Old Angry 1.
      */
     OLD_ANGRY1(614),
 
     /**
-     * Old Angry2
-     *
-     * @constructor Old Angry2
+     * Old Angry 2.
      */
     OLD_ANGRY2(615),
 
     /**
-     * Old Angry3
-     *
-     * @constructor Old Angry3
+     * Old Angry 3.
      */
     OLD_ANGRY3(616),
 
     /**
-     * Old Angry4
-     *
-     * @constructor Old Angry4
+     * Old Angry 4.
      */
     OLD_ANGRY4(617),
 
     /**
-     * Surely Not
-     *
-     * @constructor Surely Not
+     * Surely Not.
      */
     SURELY_NOT(9740),
 
     /**
-     * Nod Yes
-     *
-     * @constructor Nod Yes
+     * Nod Yes.
      */
     NOD_YES(9741),
 
     /**
-     * Nod No
-     *
-     * @constructor Nod No
+     * Nod No.
      */
     NOD_NO(9742),
 
     /**
-     * Worried
-     *
-     * @constructor Worried
+     * Worried.
      */
     WORRIED(9743),
 
     /**
-     * Half Worried
-     *
-     * @constructor Half Worried
+     * Half Worried.
      */
     HALF_WORRIED(9745),
 
     /**
-     * Amazed
-     *
-     * @constructor Amazed
+     * Amazed.
      */
     AMAZED(9746),
 
     /**
-     * Extremely Shocked
-     *
-     * @constructor Extremely Shocked
+     * Extremely Shocked.
      */
     EXTREMELY_SHOCKED(9750),
 
     /**
-     * Guilty
-     *
-     * @constructor Guilty
+     * Guilty.
      */
     GUILTY(9758),
 
     /**
-     * Half Guilty
-     *
-     * @constructor Half Guilty
+     * Half Guilty.
      */
     HALF_GUILTY(9760),
 
     /**
-     * Sad
-     *
-     * @constructor Sad
+     * Sad.
      */
     SAD(9761),
 
     /**
-     * Crying
-     *
-     * @constructor Crying
+     * Crying.
      */
     CRYING(9765),
 
     /**
-     * Half Crying
-     *
-     * @constructor Half Crying
+     * Half Crying.
      */
     HALF_CRYING(9768),
 
     /**
-     * Afraid
-     *
-     * @constructor Afraid
+     * Afraid.
      */
     AFRAID(9772),
 
     /**
-     * Scared
-     *
-     * @constructor Scared
+     * Scared.
      */
     SCARED(9776),
 
     /**
-     * Panicked
-     *
-     * @constructor Panicked
+     * Panicked.
      */
     PANICKED(9780),
 
     /**
-     * Annoyed
-     *
-     * @constructor Annoyed
+     * Annoyed.
      */
     ANNOYED(9784),
 
     /**
-     * Angry
-     *
-     * @constructor Angry
+     * Angry.
      */
     ANGRY(9785),
 
     /**
-     * Furious
-     *
-     * @constructor Furious
+     * Furious.
      */
     FURIOUS(9792),
 
     /**
-     * Angry With Smile
-     *
-     * @constructor Angry With Smile
+     * Angry With Smile.
      */
     ANGRY_WITH_SMILE(9796),
 
     /**
-     * Angry With Smile And Evil Eye
-     *
-     * @constructor Angry With Smile And Evil Eye
+     * Angry With Smile And Evil Eye.
      */
     ANGRY_WITH_SMILE_AND_EVIL_EYE(9798),
 
     /**
-     * Sleeping
-     *
-     * @constructor Sleeping
+     * Sleeping.
      */
     SLEEPING(9802),
 
     /**
-     * Silent
-     *
-     * @constructor Silent
+     * Silent.
      */
     SILENT(9804),
 
     /**
-     * Neutral
-     *
-     * @constructor Neutral
+     * Neutral.
      */
     NEUTRAL(9808),
 
     /**
-     * Thinking
-     *
-     * @constructor Thinking
+     * Thinking.
      */
     THINKING(9812),
 
     /**
-     * Half Thinking
-     *
-     * @constructor Half Thinking
+     * Half Thinking.
      */
     HALF_THINKING(9814),
 
     /**
-     * Disgusted
-     *
-     * @constructor Disgusted
+     * Disgusted.
      */
     DISGUSTED(9816),
 
     /**
-     * Disgusted Head Shake
-     *
-     * @constructor Disgusted Head Shake
+     * Disgusted Head Shake.
      */
     DISGUSTED_HEAD_SHAKE(9823),
 
     /**
-     * Asking
-     *
-     * @constructor Asking
+     * Asking.
      */
     ASKING(9827),
 
     /**
-     * Half Asking
-     *
-     * @constructor Half Asking
+     * Half Asking.
      */
     HALF_ASKING(9830),
 
     /**
-     * Rolling Eyes
-     *
-     * @constructor Rolling Eyes
+     * Rolling Eyes.
      */
     ROLLING_EYES(9831),
 
     /**
-     * Half Rolling Eyes
-     *
-     * @constructor Half Rolling Eyes
+     * Half Rolling Eyes.
      */
     HALF_ROLLING_EYES(9834),
 
     /**
-     * Drunk
-     *
-     * @constructor Drunk
+     * Drunk.
      */
     DRUNK(9835),
 
     /**
-     * Suspicious
-     *
-     * @constructor Suspicious
+     * Suspicious.
      */
     SUSPICIOUS(9836),
 
     /**
-     * Laugh
-     *
-     * @constructor Laugh
+     * Laugh.
      */
     LAUGH(9840),
 
     /**
-     * Loudly Laughing
-     *
-     * @constructor Loudly Laughing
+     * Loudly Laughing.
      */
     LOUDLY_LAUGHING(9841),
 
     /**
-     * Evil Laugh
-     *
-     * @constructor Evil Laugh
+     * Evil Laugh.
      */
     EVIL_LAUGH(9842),
 
     /**
-     * Cheer Talk
-     *
-     * @constructor Cheer Talk
+     * Cheer Talk.
      */
     CHEER_TALK(9843),
 
     /**
-     * Friendly
-     *
-     * @constructor Friendly
+     * Friendly.
      */
     FRIENDLY(9844),
 
     /**
-     * Happy
-     *
-     * @constructor Happy
+     * Happy.
      */
     HAPPY(9847),
 
     /**
-     * Jolly
-     *
-     * @constructor Jolly
+     * Jolly.
      */
     JOLLY(9851),
 
     /**
-     * Struggle
-     *
-     * @constructor Struggle
+     * Struggle.
      */
     STRUGGLE(9865),
 
     /**
-     * Calm Talk
-     *
-     * @constructor Calm Talk
+     * Calm Talk.
      */
     CALM_TALK(9810),
 
     /**
-     * Mad
-     *
-     * @constructor Mad
+     * Mad.
      */
     MAD(9789),
 
     /**
-     * Calm
-     *
-     * @constructor Calm
+     * Calm.
      */
     CALM(9805),
 
     /**
-     * Cheer Yes
-     *
-     * @constructor Cheer Yes
+     * Cheer Yes.
      */
     CHEER_YES(9864),
 
     /**
-     * Child Evil Laugh
-     *
-     * @constructor Child Evil Laugh
+     * Child Evil Laugh.
      */
     CHILD_EVIL_LAUGH(7171),
 
     /**
-     * Child Friendly
-     *
-     * @constructor Child Friendly
+     * Child Friendly.
      */
     CHILD_FRIENDLY(7172),
 
     /**
-     * Child Normal
-     *
-     * @constructor Child Normal
+     * Child Normal.
      */
     CHILD_NORMAL(7173),
 
     /**
-     * Child Neutral
-     *
-     * @constructor Child Neutral
+     * Child Neutral.
      */
     CHILD_NEUTRAL(7174),
 
     /**
-     * Child Loudly Laughing
-     *
-     * @constructor Child Loudly Laughing
+     * Child Loudly Laughing.
      */
     CHILD_LOUDLY_LAUGHING(7175),
 
     /**
-     * Child Thinking
-     *
-     * @constructor Child Thinking
+     * Child Thinking.
      */
     CHILD_THINKING(7176),
 
     /**
-     * Child Sad
-     *
-     * @constructor Child Sad
+     * Child Sad.
      */
     CHILD_SAD(7177),
 
     /**
-     * Child Guilty
-     *
-     * @constructor Child Guilty
+     * Child Guilty.
      */
     CHILD_GUILTY(7178),
 
     /**
-     * Child Suspicious
-     *
-     * @constructor Child Suspicious
+     * Child Suspicious.
      */
     CHILD_SUSPICIOUS(7179)
 }

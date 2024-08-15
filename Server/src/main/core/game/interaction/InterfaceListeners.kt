@@ -3,6 +3,9 @@ package core.game.interaction
 import core.game.component.Component
 import core.game.node.entity.player.Player
 
+/**
+ * Interface listeners.
+ */
 object InterfaceListeners {
     val buttonListeners = HashMap<String, (Player, Component, Int, Int, Int, Int) -> Boolean>(1000)
     val openListeners = HashMap<String, (Player, Component) -> Boolean>(100)

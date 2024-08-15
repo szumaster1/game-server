@@ -322,6 +322,14 @@ class Shop(
         return Pair(if (isPlayerStock) playerStock else shopCont, Item(currency, price))
     }
 
+    /**
+     * Get GP cost
+     *
+     * @param item The item for which the GP cost is being calculated
+     * @param stockAmount The total amount of stock available for the item
+     * @param currentAmt The current amount of the item in stock
+     * @return The calculated GP cost as an integer
+     */
     private fun getGPCost(item: Item, stockAmount: Int, currentAmt: Int): Int {
         var mod: Int
         mod = if (stockAmount == 0) 100
@@ -339,6 +347,14 @@ class Shop(
         return max(price, 1)
     }
 
+    /**
+     * Get GP sell
+     *
+     * @param item The item for which the GP sell is calculated
+     * @param stockAmount The total amount of stock available for the item
+     * @param currentAmt The current amount of the item being sold
+     * @return The calculated GP sell value
+     */
     private fun getGPSell(item: Item, stockAmount: Int, currentAmt: Int): Int {
         val base = item.definition.getAlchemyValue(highAlch)
         var overstock = currentAmt - stockAmount
@@ -537,8 +553,8 @@ class Shop(
     /**
      * Get stock slot
      *
-     * @param itemId
-     * @return
+     * @param itemId The ID of the item for which the stock slot is being retrieved.
+     * @return A Pair containing a Boolean indicating success or failure, and an Int representing the stock slot number.
      */
     fun getStockSlot(itemId: Int): Pair<Boolean, Int> {
         var shopSlot: Int = -1
@@ -567,7 +583,6 @@ class Shop(
         val generalPlayerStock = Container(40, ContainerType.SHOP)
         val listenerInstances = HashMap<Int, ShopListener>()
     }
-
     /**
      * Transaction status
      *
@@ -579,14 +594,14 @@ class Shop(
          *
          * @constructor Success
          */
-        class Success : TransactionStatus()
+        class Success : TransactionStatus() // Represents a successful transaction
 
         /**
          * Failure
          *
-         * @param reason
+         * @param reason The reason for the failure
          * @constructor Failure
          */
-        class Failure(val reason: String) : TransactionStatus()
+        class Failure(val reason: String) : TransactionStatus() // Represents a failed transaction with a reason
     }
 }

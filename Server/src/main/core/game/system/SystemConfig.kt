@@ -18,11 +18,17 @@ class SystemConfig {
 
     /**
      * Parses system configurations from the SQL database.
+     * This function is responsible for initiating the parsing process
+     * of configurations stored in the database.
      */
     fun parse() {}
 
     /**
      * Parses a config using the SQL info given.
+     *
+     * @param key The identifier for the configuration setting.
+     * @param value The value associated with the configuration setting, can be null.
+     * @param dataType The type of data for the configuration setting, can be null.
      */
     private fun parseConfig(key: String, value: String?, dataType: String?) {
         if (dataType == null) {
@@ -94,8 +100,8 @@ class SystemConfig {
     /**
      * Checks if a username is a beta user.
      *
-     * @param name the name.
-     * @return
+     * @param name the name to check.
+     * @return Boolean indicating if the name is in the beta users list.
      */
     fun isBetaUser(name: String): Boolean {
         return betaUsers.contains(name)
@@ -104,9 +110,9 @@ class SystemConfig {
     /**
      * Gets an attribute.
      *
-     * @param T
-     * @param key
-     * @return
+     * @param T The type of the attribute to retrieve.
+     * @param key The key for the attribute.
+     * @return The value associated with the key, or null if not found.
      */
     fun <T> getConfig(key: String): T? {
         return if (!configs.containsKey(key)) {
@@ -115,14 +121,12 @@ class SystemConfig {
     }
 
     /**
-     * Get config
-     *
-     * @param T
-     * @param string
-     * @param fail
-     * @return
-     *//*
      * Gets an attribute.
+     *
+     * @param T The type of the attribute to retrieve.
+     * @param string The key for the attribute.
+     * @param fail The default value to return if the key is not found.
+     * @return The value associated with the key, or the default value if not found.
      */
     fun <T> getConfig(string: String, fail: T): T {
         val `object` = configs[string]
@@ -132,11 +136,9 @@ class SystemConfig {
     }
 
     /**
-     * Get configs
-     *
-     * @return
-     *//*
      * Gets the configs.
+     *
+     * @return A map of all configurations.
      */
     fun getConfigs(): Map<String, Any?> {
         return configs

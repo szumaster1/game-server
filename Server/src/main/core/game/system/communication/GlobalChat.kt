@@ -36,6 +36,15 @@ class GlobalChat : Commands {
             }
         }
 
+        /**
+         * Prepare a message for sending.
+         *
+         * @param sender The sender's identifier (e.g., email or username).
+         * @param message The content of the message to be sent.
+         * @param isResizable Indicates whether the message window can be resized.
+         * @param rights The permissions associated with the sender (e.g., user rights).
+         * @return A formatted string representing the prepared message.
+         */
         private fun prepare(sender: String, message: String, isResizable: Boolean, rights: Int): String {
             val baseColor = if (isResizable) "%f1b04c" else "%7512ff"
             val bracketColor = if (isResizable) "%ffffff" else "%000000"

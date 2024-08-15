@@ -5,9 +5,7 @@ import core.tools.Log
 import java.lang.management.ManagementFactory
 
 /**
- * Deadlock detector
- *
- * @constructor Deadlock detector
+ * Deadlock detector.
  */
 class DeadlockDetector : Runnable {
     override fun run() {
