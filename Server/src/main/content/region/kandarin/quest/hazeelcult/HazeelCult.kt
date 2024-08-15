@@ -10,6 +10,9 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 
+/**
+ * Hazeel cult quest.
+ */
 @Initializable
 class HazeelCult : Quest("Hazeel Cult", 74, 73, 1, Vars.VARP_QUEST_HAZEEL_CULT_PROGRESS, 0, 1, 9) {
 

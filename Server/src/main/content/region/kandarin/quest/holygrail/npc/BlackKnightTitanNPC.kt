@@ -1,4 +1,4 @@
-package content.region.kandarin.seers.quest.holygrail.npc
+package content.region.kandarin.quest.holygrail.npc
 
 import core.api.consts.NPCs
 import core.game.node.entity.Entity

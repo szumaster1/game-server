@@ -79,6 +79,9 @@ class LumbridgeListeners : InteractionListener {
             return@on true
         }
 
+        /**
+         * Culinaromancer's chest interaction.
+         */
         on(Scenery.CHEST_12309, IntType.SCENERY, "bank") { player, _ ->
             openBankAccount(player)
             return@on true
@@ -210,6 +213,9 @@ class LumbridgeListeners : InteractionListener {
     }
 
     companion object {
+        /**
+         * Various constants.
+         */
         var FLAG_IN_USE: Boolean = false
         private val DARK_HOLE = intArrayOf(Scenery.DARK_HOLE_5947, Scenery.CLIMBING_ROPE_5946)
         private val GAME_INSTRUCTOR = intArrayOf(4707, 1861)

@@ -1,6 +1,5 @@
-package content.region.kandarin.seers.quest.holygrail
+package content.region.kandarin.quest.holygrail
 
-import content.region.kandarin.quest.holygrail.HolyGrail
 import content.region.kandarin.quest.holygrail.dialogue.BlackKnightTitanDialogueFile
 import core.api.consts.Items
 import core.api.consts.NPCs

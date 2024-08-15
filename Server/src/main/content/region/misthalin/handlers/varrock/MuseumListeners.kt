@@ -219,7 +219,7 @@ class MuseumListeners : InteractionListener, InterfaceListener, MapArea {
             return@onOpen true
         }
 
-        on(NATURAL_HISTORY_EXAM_533) { player, component, opcode, buttonID, slot, itemID ->
+        on(NATURAL_HISTORY_EXAM_533) { player, _, _, buttonID, _, _ ->
             if (buttonID in 29..31) {
                 closeInterface(player)
                 setVarbit(player, 3637, 1, false)

@@ -1,4 +1,4 @@
-package content.region.misthalin.diary
+package content.region.misthalin.handlers.lumbridge
 
 import content.global.dialogue.TownCrierDialogue
 import content.global.skill.combat.magic.TeleportMethod

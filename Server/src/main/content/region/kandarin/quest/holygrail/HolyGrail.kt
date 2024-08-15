@@ -1,6 +1,5 @@
 package content.region.kandarin.quest.holygrail
 
-
 import core.api.consts.Items
 import core.api.getAttribute
 import core.api.rewardXP
@@ -12,9 +11,8 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * Holy grail.
+ * Holy grail quest.
  */
-
 @Initializable
 class HolyGrail : Quest("Holy Grail", 76, 75, 1, 5, 0, 1, 10) {
 

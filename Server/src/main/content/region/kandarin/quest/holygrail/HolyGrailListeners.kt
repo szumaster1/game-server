@@ -67,7 +67,8 @@ class HolyGrailListeners : InteractionListener {
             }
 
             var dest = Location.create(2962, 3505, 0)
-            var direction = "to the "+Direction.getDirection(player.location, dest).toString().lowercase().replace("_", " ")
+            var direction =
+                "to the " + Direction.getDirection(player.location, dest).toString().lowercase().replace("_", " ")
 
             var zoneInBuilding = ZoneBorders(Location.create(2959, 3504, 0), Location.create(2962, 3507, 0))
 
@@ -86,12 +87,15 @@ class HolyGrailListeners : InteractionListener {
             var zoneIsDiseased = ZoneBorders(Location.create(2741, 4650, 0), Location.create(2811, 4742, 0))
             var zoneIsHealthy = ZoneBorders(Location.create(2614, 4661, 0), Location.create(2698, 4746, 0))
 
-            if (!zoneCanTeleport.insideBorder(player) && !zoneIsDiseased.insideBorder(player) && !zoneIsHealthy.insideBorder(player)) {
+            if (!zoneCanTeleport.insideBorder(player) && !zoneIsDiseased.insideBorder(player) && !zoneIsHealthy.insideBorder(
+                    player
+                )
+            ) {
                 sendDialogueLines(player, "The whistle makes no noise. It will not work in this location.")
                 return@on true
             }
 
-            // default to diseased
+            // default to diseased.
             var destLoc = Location.create(2806, 4715, 0)
 
             if (zoneCanTeleport.insideBorder(player)) {
@@ -118,7 +122,11 @@ class HolyGrailListeners : InteractionListener {
             }
 
             if (getQuestStage(player, HolyGrail.HOLY_GRAIL) <= 40) {
-                sendDialogueLines(player, "You feel that the Grail shouldn't be moved.", "You must complete some task here before you are worthy.")
+                sendDialogueLines(
+                    player,
+                    "You feel that the Grail shouldn't be moved.",
+                    "You must complete some task here before you are worthy."
+                )
             } else {
                 addItem(player, Items.HOLY_GRAIL_19, 1)
             }
@@ -163,8 +171,13 @@ class HolyGrailListeners : InteractionListener {
                 return@on false
             }
 
-            val moveToX = if (player.location.x <= HolyGrail.MERLIN_DOOR_LOCATION_CLOSED.x) HolyGrail.MERLIN_DOOR_LOCATION_OPEN.x else HolyGrail.MERLIN_DOOR_LOCATION_CLOSED.x
-            DoorActionHandler.handleAutowalkDoor(player, door as Scenery, Location.create(moveToX, HolyGrail.MERLIN_DOOR_LOCATION_OPEN.y, HolyGrail.MERLIN_DOOR_LOCATION_OPEN.z))
+            val moveToX =
+                if (player.location.x <= HolyGrail.MERLIN_DOOR_LOCATION_CLOSED.x) HolyGrail.MERLIN_DOOR_LOCATION_OPEN.x else HolyGrail.MERLIN_DOOR_LOCATION_CLOSED.x
+            DoorActionHandler.handleAutowalkDoor(
+                player,
+                door as Scenery,
+                Location.create(moveToX, HolyGrail.MERLIN_DOOR_LOCATION_OPEN.y, HolyGrail.MERLIN_DOOR_LOCATION_OPEN.z)
+            )
             return@on true
         }
 
@@ -177,10 +190,30 @@ class HolyGrailListeners : InteractionListener {
             val moveToY = if (player.location.y <= 3361) 3362 else 3361
             DoorActionHandler.handleAutowalkDoor(player, door as Scenery, Location.create(3106, moveToY, 2))
 
-            if (getQuestStage(player, HolyGrail.HOLY_GRAIL) == 30 && player.hasItem(Item(Items.HOLY_TABLE_NAPKIN_15, 1))) {
+            if (getQuestStage(player, HolyGrail.HOLY_GRAIL) == 30 && player.hasItem(
+                    Item(
+                        Items.HOLY_TABLE_NAPKIN_15,
+                        1
+                    )
+                )
+            ) {
                 // For some reason 2 whistles always spawn: https://youtu.be/qD36sjWAGZA?si=P6xG-tSw9XbdWOpX&t=233
-                GroundItemManager.create(GroundItem(Item(Items.MAGIC_WHISTLE_16, 1), Location.create(3107, 3359, 2), secondsToTicks(60), player))
-                GroundItemManager.create(GroundItem(Item(Items.MAGIC_WHISTLE_16, 1), Location.create(3107, 3359, 2), secondsToTicks(60), player))
+                GroundItemManager.create(
+                    GroundItem(
+                        Item(Items.MAGIC_WHISTLE_16, 1),
+                        Location.create(3107, 3359, 2),
+                        secondsToTicks(60),
+                        player
+                    )
+                )
+                GroundItemManager.create(
+                    GroundItem(
+                        Item(Items.MAGIC_WHISTLE_16, 1),
+                        Location.create(3107, 3359, 2),
+                        secondsToTicks(60),
+                        player
+                    )
+                )
             }
 
             return@on true
