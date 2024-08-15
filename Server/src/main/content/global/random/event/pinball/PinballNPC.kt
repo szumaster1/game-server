@@ -42,7 +42,7 @@ class PinballNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(N
                         findNPC(NPCs.MYSTERIOUS_OLD_MAN_410)
                         face(player, findNPC(NPCs.MYSTERIOUS_OLD_MAN_410)!!)
                         openDialogue(player, OldManDialogue())
-                        AntiMacro.terminateEventNpc(player)
+                        AntiMacro.terminateEventNpc(player!!)
                         return true
                     }
                 }

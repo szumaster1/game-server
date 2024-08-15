@@ -1,20 +1,21 @@
 package content.global.random
 
 import content.global.random.event.surpriseexam.SurpriseExamNPC
-import core.api.addItem
-import core.api.poofClear
-import core.api.removeItem
+import core.api.*
+import core.api.consts.Graphics
+import core.api.consts.Sounds
 import core.api.utils.WeightBasedTable
-import core.api.withinDistance
 import core.game.interaction.MovementPulse
 import core.game.node.entity.impl.PulseType
 import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
+import core.game.node.item.Item
 import core.game.world.map.Location
 import core.game.world.map.RegionManager
 import core.game.world.map.path.Pathfinder
 import core.game.world.update.flag.context.Graphic
 import core.tools.secondsToTicks
+import core.tools.ticksToCycles
 import kotlin.random.Random
 import kotlin.reflect.full.createInstance
 
@@ -26,7 +27,7 @@ abstract class RandomEventNPC(id: Int) : NPC(id) {
     lateinit var player: Player
     abstract var loot: WeightBasedTable?
     var spawnLocation: Location? = null
-    val smokeGraphics = Graphic(86)
+    val smokeGraphics = Graphic(Graphics.RANDOM_EVENT_PUFF_OF_SMOKE_86)
     var initialized = false
     var finalized = false
     var timerPaused = false
@@ -48,12 +49,14 @@ abstract class RandomEventNPC(id: Int) : NPC(id) {
      * Terminate.
      */
     open fun terminate() {
-        finalized = true
-        pulseManager.clear(PulseType.STRONG)
-        if (initialized) {
+        pulseManager.clear(PulseType.STANDARD)
+        if (initialized && !finalized) {
             poofClear(this)
+            playGlobalAudio(this.location, Sounds.SMOKEPUFF_1930, ticksToCycles(1))
         }
+        finalized = true
     }
+
 
     /**
      * Follow.
@@ -115,8 +118,8 @@ abstract class RandomEventNPC(id: Int) : NPC(id) {
         for (item in player.inventory.toArray()) {
             if (item == null) continue
             if (item.definition.isUnnoted) {
-                removeItem(player, item)
-                addItem(player, item.noteChange, item.amount)
+                player.inventory.remove(item)
+                player.inventory.add(Item(item.noteChange, item.amount))
             }
         }
         if (Random.nextBoolean()) {
@@ -125,11 +128,13 @@ abstract class RandomEventNPC(id: Int) : NPC(id) {
             player.properties.teleportLocation = Location.create(3212, 9620, 0)
         }
         player.graphics(smokeGraphics)
+        // Discord.postPlayerAlert(player.username, "Ignored Random.")
     }
+
 
     override fun clear() {
         super.clear()
-        if (player.getAttribute<RandomEventNPC?>("re-npc", null) == this) player.removeAttribute("re-npc")
+        if(player.getAttribute<RandomEventNPC?>("re-npc", null) == this) player.removeAttribute("re-npc")
     }
 
     /**

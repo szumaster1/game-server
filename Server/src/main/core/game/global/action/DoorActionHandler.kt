@@ -109,13 +109,6 @@ object DoorActionHandler {
      * @param endLocation the end location
      * @return boolean
      */
-    /**
-     * Method wrapper for handling the auto walk door.
-     *
-     * @param entity  the entity.
-     * @param scenery the object.
-     * @return the boolean
-     */
     @JvmStatic
     @JvmOverloads
     fun handleAutowalkDoor(

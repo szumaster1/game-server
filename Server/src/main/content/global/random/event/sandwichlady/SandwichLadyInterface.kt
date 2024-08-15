@@ -22,7 +22,7 @@ class SandwichLadyInterface : InterfaceListener {
 
     override fun defineInterfaceListeners() {
         on(SANDWICH_INTERFACE) { player, _, _, buttonID, _, _ ->
-            val event = AntiMacro.getEventNpc(player)
+            val event = AntiMacro.getEventNpc(player!!)
             if (event == null) {
                 player.interfaceManager.close()
                 return@on true

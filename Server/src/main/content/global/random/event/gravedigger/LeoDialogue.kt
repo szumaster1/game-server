@@ -20,6 +20,7 @@ import core.tools.END_DIALOGUE
  * Leo dialogue.
  */
 class LeoDialogue : DialogueFile() {
+
     private fun graveFaq(player: Player) {
         val graveFAQ = arrayOf(
             "<br><col=FFF900>You need to:</br></col=FFF900>",

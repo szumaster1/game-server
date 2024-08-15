@@ -125,8 +125,8 @@ class AntiMacro : PersistTimer(
     /**
      * Command args
      *
-     * @param targetPlayer
-     * @param targetEvent
+     * @param targetPlayer The name of the player that the command is targeting.
+     * @param targetEvent The event associated with the command, which can be a random event or null.
      * @constructor Command args
      */
     data class CommandArgs(val targetPlayer: String, val targetEvent: RandomEvents?)

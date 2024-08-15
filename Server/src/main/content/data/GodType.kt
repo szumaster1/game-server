@@ -81,7 +81,7 @@ enum class GodType(val cape: Item, val staff: Item, val statueId: Int, val npcId
                         if (g == null) {
                             GroundItemManager.create(cape, loc, player)
                         }
-                        sendGraphics(Graphic(Graphics.GIVE_THANKS_86, 0, 0), loc)
+                        sendGraphics(Graphic(Graphics.RANDOM_EVENT_PUFF_OF_SMOKE_86, 0, 0), loc)
                         return true
                     }
                 })

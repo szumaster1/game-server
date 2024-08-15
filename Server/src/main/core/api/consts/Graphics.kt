@@ -88,7 +88,7 @@ object Graphics {
     const val GIANT_TENTICAL_BLOOD_RED_83 = 83
     const val MONK_CAST_HEAL_84 = 84
     const val MAGIC_SPELL_SPLASH_85 = 85
-    const val GIVE_THANKS_86 = 86
+    const val RANDOM_EVENT_PUFF_OF_SMOKE_86 = 86
     const val IBANS_BLAST_87 = 87
     const val IBAN_BLAST_PROJECTILE_SKULL_88 = 88
     const val IBAN_BLAST_CONTACT_WITH_TARGET_89 = 89

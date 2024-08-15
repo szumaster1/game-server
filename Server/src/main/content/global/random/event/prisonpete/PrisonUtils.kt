@@ -117,7 +117,7 @@ object PrisonUtils {
                 2 -> {
                     // Reset the pop key attribute and terminate the AntiMacro event NPC
                     setAttribute(player, POP_KEY, 0)
-                    AntiMacro.terminateEventNpc(player)
+                    AntiMacro.terminateEventNpc(player!!)
                     resetAnimator(player)
                     return@queueScript stopExecuting(player)
                 }

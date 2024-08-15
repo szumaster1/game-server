@@ -9,6 +9,7 @@ import core.tools.RandomFunction
  * Quiz master event.
  */
 class QuizMasterEvent : InteractionListener {
+
     var score = 0
     var isStartedQuiz = false
 

@@ -16,18 +16,22 @@ import core.game.world.update.flag.context.Animation
  */
 class EvilTwinInterface : InterfaceListener {
 
+    // Method to define interface listeners for the Evil Twin event
     override fun defineInterfaceListeners() {
 
+        // Listener for when the crane control interface is opened
         onOpen(Components.CRANE_CONTROL_240) { player, _ ->
             player.lock()
             return@onOpen true
         }
 
+        // Listener for when the crane control interface is closed
         onClose(Components.CRANE_CONTROL_240) { player, _ ->
             player.unlock()
             return@onClose true
         }
 
+        // Listener for button interactions within the crane control interface
         on(Components.CRANE_CONTROL_240) { player, _, _, buttonID, _, _ ->
             if (EvilTwinUtils.success) return@on false
             when (buttonID) {

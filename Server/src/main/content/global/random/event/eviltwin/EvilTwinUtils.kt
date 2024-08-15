@@ -11,6 +11,7 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 import core.game.node.scenery.Scenery
 import core.game.system.task.Pulse
+import core.game.system.timer.impl.AntiMacro
 import core.game.world.map.Direction
 import core.game.world.map.Location
 import core.game.world.map.build.DynamicRegion
@@ -28,13 +29,13 @@ import core.tools.RandomFunction
 object EvilTwinUtils {
 
     // Constants
-    val randomEvent = "/save:evil_twin:random"
-    val doorDialogue = "evil_twin:door-interact"
-    val talkBefore = "evil_twin:npc-interact"
-    val originalLocation = "/save:original-loc"
-    val logout = "/save:evil_twin:logout"
-    val crane_x_loc = "/save:evil_twin:ccx"
-    val crane_y_loc = "/save:evil_twin:ccy"
+    const val randomEvent = "/save:evil_twin:random"
+    const val doorDialogue = "evil_twin:door-interact"
+    const val talkBefore = "evil_twin:npc-interact"
+    const val originalLocation = "/save:original-loc"
+    const val logout = "/save:evil_twin:logout"
+    const val crane_x_loc = "/save:evil_twin:ccx"
+    const val crane_y_loc = "/save:evil_twin:ccy"
 
     // Rewards
     val rewards = arrayOf(
@@ -74,7 +75,6 @@ object EvilTwinUtils {
         setAttribute(player, randomEvent, hash)
         mollyNPC = NPC.create(npcId, Location.getRandomLocation(player.location, 1, true))
         mollyNPC!!.init()
-        visualize(NPC(getMollyId(npcId)), Animation(-1), Graphic.create(86, 96))
         sendChat(mollyNPC!!, "I need your help, ${player.username}.")
         mollyNPC!!.faceTemporary(player, 3)
         setAttribute(player, originalLocation, player.location)

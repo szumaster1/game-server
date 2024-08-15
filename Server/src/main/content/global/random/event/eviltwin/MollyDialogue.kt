@@ -1,6 +1,7 @@
 package content.global.random.event.eviltwin
 
 import core.api.getAttribute
+import core.api.sendMessage
 import core.api.setAttribute
 import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression

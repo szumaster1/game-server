@@ -20,8 +20,10 @@ import core.tools.RandomFunction
  */
 //@Initializable
 class QuizMasterDialogue(player: Player? = null) : Dialogue(player) {
+
     private var randomEvent: QuizMasterEvent? = null
     private var wrongAnswer = 0
+
     override fun open(vararg args: Any): Boolean {
         randomEvent = args[0] as QuizMasterEvent
         if (!randomEvent!!.isStartedQuiz) {

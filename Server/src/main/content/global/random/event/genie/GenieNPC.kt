@@ -15,8 +15,7 @@ import core.tools.RandomFunction
  */
 class GenieNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs.GENIE_409) {
 
-    val phrases =
-        arrayOf("Greetings, @name!", "Ehem... Master @name?", "Are you there, Master @name?", "No one ignores me!")
+    val phrases = arrayOf("Greetings, @name!", "Ehem... Master @name?", "Are you there, Master @name?", "No one ignores me!")
     var assigned_item = 0
     val items = arrayOf(Items.LAMP_2528)
 

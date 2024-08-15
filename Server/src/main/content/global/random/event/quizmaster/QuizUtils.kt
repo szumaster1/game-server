@@ -11,6 +11,7 @@ import core.game.world.map.Location
  * Quiz utils.
  */
 object QuizUtils {
+
     // Attributes
     const val PLAYER_LOCATION = "/save:original-loc"
 

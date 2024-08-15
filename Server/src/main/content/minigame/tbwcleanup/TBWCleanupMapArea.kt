@@ -29,8 +29,7 @@ class TBWCleanupMapArea : MapArea {
 }
 
 // value to change for debugging
-var ChanceOfEventPerRewardTick =
-    16 // (realistic is around 16 I believe) chance out of 1000 to spawn event when hacking jungle
+var ChanceOfEventPerRewardTick = 16 // (realistic is around 16 I believe) chance out of 1000 to spawn event when hacking jungle
 
 fun changeSpawnChance(chance: Int) {
     ChanceOfEventPerRewardTick = chance

@@ -16,6 +16,7 @@ import core.tools.RandomFunction
  * Leo NPC.
  */
 class LeoNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs.LEO_3508) {
+
     override fun init() {
         super.init()
         sendChat("Can I borrow you for a minute, ${player.username}?")

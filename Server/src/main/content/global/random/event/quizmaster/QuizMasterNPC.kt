@@ -25,7 +25,7 @@ class QuizMasterNPC(override var loot: WeightBasedTable? = null) : RandomEventNP
             lockInteractions(player, 1000)
             core.api.setAttribute(player, QuizUtils.PLAYER_LOCATION, player.location)
             player.properties.teleportLocation = QuizUtils.EVENT_LOCATION
-            AntiMacro.terminateEventNpc(player)
+            AntiMacro.terminateEventNpc(player!!)
         }
     }
 

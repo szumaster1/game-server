@@ -50,8 +50,7 @@ data class BoneBuryEvent(val boneId: Int) : Event
  * @param location the location.
  * @constructor Teleport event
  */
-data class TeleportEvent(val type: TeleportType, val method: TeleportMethod, val source: Any, val location: Location) :
-    Event
+data class TeleportEvent(val type: TeleportType, val method: TeleportMethod, val source: Any, val location: Location) : Event
 
 /**
  * Lit fire event.

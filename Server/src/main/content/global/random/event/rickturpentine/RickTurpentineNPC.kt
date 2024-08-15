@@ -11,6 +11,7 @@ import core.game.node.entity.npc.NPC
  * Rick turpentine NPC.
  */
 class RickTurpentineNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs.RICK_TURPENTINE_2476) {
+
     private var attackDelay = 0
 
     override fun init() {

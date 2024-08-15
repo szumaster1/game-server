@@ -29,7 +29,7 @@ class MimeNPC(override var loot: WeightBasedTable? = null) : RandomEventNPC(NPCs
                     }
                     removeTabs(player, 0, 1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14)
                     teleport(player, MimeUtils.MIME_EVENT_LOCATION, TeleportManager.TeleportType.NORMAL)
-                    AntiMacro.terminateEventNpc(player)
+                    AntiMacro.terminateEventNpc(player!!)
                     return@queueScript delayScript(player, 8)
                 }
 

@@ -31,6 +31,13 @@ class EquipHandler : InteractionListener {
 
     companion object {
 
+        /**
+         * This function unequips an item from a player's specified slot.
+         *
+         * @param player The player who is unequipping the item.
+         * @param slot The slot from which the item will be unequipped.
+         * @param itemId The ID of the item to be unequipped.
+         */
         @JvmStatic
         fun unequip(player: Player, slot: Int, itemId: Int) {
             if (slot < 0 || slot > 13) {
@@ -74,6 +81,12 @@ class EquipHandler : InteractionListener {
             }
         }
 
+        /**
+         * This function handles the equipment of an item for a player.
+         *
+         * @param player The player who is equipping the item.
+         * @param node The node representing the item to be equipped.
+         */
         @JvmStatic
         fun handleEquip(player: Player, node: Node) {
             val item = node.asItem()

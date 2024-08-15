@@ -107,7 +107,6 @@ class GraveListener : InteractionListener {
         }
 
         // Drop coffin item to grave
-
         onUseWith(SCENERY, GraveUtils.itemsCoffin, emptygrave1) { player, used, _ ->
             lock(player, 3)
             removeItem(player, used.asItem())

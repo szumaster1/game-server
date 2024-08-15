@@ -83,7 +83,13 @@ class PulseRunner {
         }
     }
 
-    // Measure the execution time of a given logic block
+    /**
+     * Measure the execution time of a given logic block
+     *
+     * @param logic A lambda function representing the logic to be executed
+     * @receiver This function does not have a receiver
+     * @return The time taken to execute the logic block in milliseconds
+     */
     private fun measure(logic: () -> Unit): Long {
         val startTime = System.currentTimeMillis() // Record the start time
 
@@ -92,7 +98,12 @@ class PulseRunner {
         return System.currentTimeMillis() - startTime // Return the elapsed time
     }
 
-    // Notify if the pulse execution time is too long
+    /**
+     * Notify if the pulse execution time is too long
+     *
+     * @param pulse The Pulse object that is being monitored
+     * @param elapsedTime The time taken for the pulse execution in milliseconds
+     */
     private fun notifyIfTooLong(pulse: Pulse, elapsedTime: Long) {
         // Check if the elapsed time exceeds the critical threshold
         if (elapsedTime >= 100) {

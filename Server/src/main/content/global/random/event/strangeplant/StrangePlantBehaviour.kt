@@ -15,6 +15,7 @@ import core.tools.RandomFunction
  * Strange plant behavior.
  */
 class StrangePlantBehavior : NPCBehavior(NPCs.STRANGE_PLANT_408) {
+
     override fun canBeAttackedBy(self: NPC, attacker: Entity, style: CombatStyle, shouldSendMessage: Boolean): Boolean {
         return !(attacker !is Player || AntiMacro.getEventNpc(attacker.asPlayer()) != self)
     }
