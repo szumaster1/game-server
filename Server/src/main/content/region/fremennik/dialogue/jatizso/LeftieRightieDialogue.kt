@@ -8,7 +8,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Leftie rightie dialogue.
+ * Leftie Rightie dialogue.
  */
 class LeftieRightieDialogue : DialogueFile() {
 

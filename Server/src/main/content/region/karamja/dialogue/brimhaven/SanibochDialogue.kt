@@ -18,8 +18,7 @@ import core.tools.END_DIALOGUE
 class SanibochDialogue(player: Player? = null): Dialogue(player) {
 
     /*
-     * Saniboch is a tribesman responsible for
-     * guarding the entrance to Brimhaven Dungeon.
+     * Saniboch is a tribesman responsible for guarding the entrance to Brimhaven Dungeon.
      * Location: 2744,3152
      */
 

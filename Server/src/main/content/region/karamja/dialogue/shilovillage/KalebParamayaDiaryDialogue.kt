@@ -7,7 +7,7 @@ import core.game.node.entity.player.link.diary.AchievementDiary
 import core.game.node.entity.player.link.diary.DiaryType
 
 /**
- * Kaleb paramaya diary dialogue.
+ * Kaleb Paramaya diary dialogue.
  */
 class KalebParamayaDiaryDialogue : DialogueFile() {
 

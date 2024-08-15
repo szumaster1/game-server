@@ -25,7 +25,7 @@ class HunterTalismanListener : InteractionListener {
 
     override fun defineListeners() {
 
-        // This listener is triggered when the player interacts with the talisman and selects the "locate" option.
+        // Handling interaction with the talisman and selects the "locate" option.
         on(TALISMAN, IntType.ITEM, "locate") { player, _ ->
             var locationString = getAttribute(player, "fremtrials:draugen-loc", "none")
             if (locationString == "none") {

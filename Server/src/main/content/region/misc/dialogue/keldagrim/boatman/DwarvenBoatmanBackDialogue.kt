@@ -18,6 +18,7 @@ import core.tools.START_DIALOGUE
  */
 @Initializable
 class DwarvenBoatmanBackDialogue(player: Player? = null) : Dialogue(player) {
+
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
             START_DIALOGUE -> npcl(FacialExpression.OLD_HAPPY, "Want me to take you back to the mines?").also { stage++ }

@@ -50,6 +50,9 @@ class DraynorVillageListeners : InteractionListener {
             return@on true
         }
 
+        /**
+         * Handling trapdoor interaction.
+         */
         on(Scenery.TRAPDOOR_6434, IntType.SCENERY, "open") { _, node ->
             replaceScenery(node.asScenery(), 6435, 500)
             return@on true

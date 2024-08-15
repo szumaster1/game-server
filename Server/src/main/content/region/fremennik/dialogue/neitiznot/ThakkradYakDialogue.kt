@@ -12,7 +12,7 @@ import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
 /**
- * Thakkrad yak dialogue.
+ * Thakkrad Yak dialogue.
  */
 class ThakkradYakDialogue(player: Player? = null) : Dialogue(player) {
 

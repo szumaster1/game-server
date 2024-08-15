@@ -6,11 +6,11 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * King roald dialogue priest in peril.
+ * King Roald dialogue priest in peril.
  *
  * @param questStage the quest stage.
  */
-class KingRoaldDialoguePriestInPeril(val questStage: Int) : DialogueFile() {
+class KingRoaldPriestInPerilDialogue(val questStage: Int) : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
         if (stage == START_DIALOGUE) {

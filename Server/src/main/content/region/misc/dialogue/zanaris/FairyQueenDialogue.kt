@@ -14,6 +14,7 @@ import core.tools.END_DIALOGUE
  */
 @Initializable
 class FairyQueenDialogue(player: Player? = null) : Dialogue(player) {
+
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         if (!isQuestComplete(player, "Fairytale II - Cure a Queen")) {

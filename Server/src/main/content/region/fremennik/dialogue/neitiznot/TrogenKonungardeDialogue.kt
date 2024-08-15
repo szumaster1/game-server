@@ -8,7 +8,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Trogen konungarde dialogue.
+ * Trogen Konungarde dialogue.
  */
 @Initializable
 class TrogenKonungardeDialogue(player: Player? = null): Dialogue(player) {

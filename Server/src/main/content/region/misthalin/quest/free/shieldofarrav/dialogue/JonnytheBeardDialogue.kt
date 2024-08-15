@@ -10,7 +10,7 @@ import core.game.node.entity.player.Player
 import core.tools.END_DIALOGUE
 
 /**
- * Jonnythe beard dialogue.
+ * Jonny the Beard dialogue.
  */
 class JonnytheBeardDialogue(player: Player? = null) : Dialogue(player) {
 

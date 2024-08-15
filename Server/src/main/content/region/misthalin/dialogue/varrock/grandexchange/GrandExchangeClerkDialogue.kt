@@ -59,10 +59,6 @@ class GrandExchangeClerkDialogue(player: Player? = null) : Dialogue(player) {
         return true
     }
 
-    override fun newInstance(player: Player): Dialogue {
-        return GrandExchangeClerkDialogue(player)
-    }
-
     override fun getIds(): IntArray {
         return intArrayOf(
             NPCs.GRAND_EXCHANGE_CLERK_6528,

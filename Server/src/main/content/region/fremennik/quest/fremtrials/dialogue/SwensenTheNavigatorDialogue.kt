@@ -14,10 +14,9 @@ import core.plugin.Initializable
 @Initializable
 class SwensenTheNavigatorDialogue(player: Player? = null): Dialogue(player) {
 
-    val gender = if (player?.isMale == true) {
-        "brother"
-    } else "sister"
+    val gender = if (player?.isMale == true) { "brother" } else "sister"
     val fName = player?.getAttribute("fremennikname", "fremmyname")
+
     override fun open(vararg args: Any): Boolean {
         if (inInventory(player, Items.WEATHER_FORECAST_3705, 1)) {
             playerl(FacialExpression.HAPPY, "I would like your map of fishing spots.")

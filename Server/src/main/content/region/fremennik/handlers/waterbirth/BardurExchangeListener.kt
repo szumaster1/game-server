@@ -17,8 +17,7 @@ class BardurExchangeListener : InteractionListener {
     override fun defineListeners() {
 
         /*
-         * Interaction with Bardur NPC.
-         * Cooked shark exchange for a Fremennik helm, blade, or shield.
+         * Handling Bardur NPC exchange items.
          */
         onUseWith(IntType.NPC, FREMENNIK_EQUIPMENT, NPCs.BARDUR_2879) { player, _, _ ->
             if (!isQuestComplete(player, "Fremennik Trials")) {

@@ -14,12 +14,12 @@ import core.tools.END_DIALOGUE
 class DakhThoulanAegisDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-       Info: Member of the Dagon'hai order.
-       He can be found in the Tunnel of Chaos beneath the outskirts of Varrock.
-       During The Hunt for Surok miniquest, he indicates that Surok has entered the Chaos tunnels,
-       and can be spoken to after the miniquest.
-       Location: 3159,5211
-    */
+     * Info: Member of the Dagon'hai order.
+     * He can be found in the Tunnel of Chaos beneath the outskirts of Varrock.
+     * During The Hunt for Surok miniquest, he indicates that Surok has entered the Chaos tunnels,
+     * and can be spoken to after the miniquest.
+     * Location: 3159,5211
+     */
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC

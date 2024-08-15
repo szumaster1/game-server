@@ -14,12 +14,12 @@ import core.tools.END_DIALOGUE
 class MishkalunDornDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-       Info: Member of the Dagon'hai order.
-       He can be found in the Tunnel of Chaos. He uses his magic to grant him the specific
-       ability of seeing into the future, reading people's minds of what they are about to say,
-       and answering them before they even say it. He has no use besides talking to him at the moment.
-       Location: 3183,5205
-    */
+     * Info: Member of the Dagon'hai order.
+     * He can be found in the Tunnel of Chaos. He uses his magic to grant him the specific
+     * ability of seeing into the future, reading people's minds of what they are about to say,
+     * and answering them before they even say it. He has no use besides talking to him at the moment.
+     * Location: 3183,5205
+     */
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC

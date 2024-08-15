@@ -39,18 +39,7 @@ class RagAndBoneManListeners : InteractionListener {
         }
 
         // Scenery: Placing logs on grate.
-        onUseWith(
-            IntType.SCENERY,
-            intArrayOf(
-                Items.LOGS_1511,
-                Items.OAK_LOGS_1521,
-                Items.WILLOW_LOGS_1519,
-                Items.MAPLE_LOGS_1517,
-                Items.YEW_LOGS_1515,
-                Items.MAGIC_LOGS_1513
-            ),
-            Scenery.POT_BOILER_14006
-        ) { player, used, _ ->
+        onUseWith(IntType.SCENERY, intArrayOf(Items.LOGS_1511, Items.OAK_LOGS_1521, Items.WILLOW_LOGS_1519, Items.MAPLE_LOGS_1517, Items.YEW_LOGS_1515, Items.MAGIC_LOGS_1513), Scenery.POT_BOILER_14006) { player, used, _ ->
             if (removeItem(player, used)) {
                 sendMessage(player, "You place the logs into the grate.")
                 setVarbit(player, 2046, 1)

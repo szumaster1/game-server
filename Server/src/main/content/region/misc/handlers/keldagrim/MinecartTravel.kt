@@ -41,7 +41,6 @@ object MinecartTravel {
         GameWorld.Pulser.submit(TravelFromKeldagrimPulse(player, dest))
     }
 
-
     /**
      * Travel from keldagrim pulse.
      *

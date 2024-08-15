@@ -9,7 +9,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Factory worker dialogue4.
+ * Factory worker 4 dialogue.
  */
 @Initializable
 class FactoryWorkerDialogue4(player: Player? = null) : Dialogue(player) {

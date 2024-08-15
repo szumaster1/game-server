@@ -14,6 +14,7 @@ import core.plugin.Initializable
  */
 @Initializable
 class SigliTheHuntsmanDialogue(player: Player? = null): Dialogue(player) {
+
     override fun open(vararg args: Any): Boolean {
         if (inInventory(player, Items.CUSTOM_BOW_STRING_3702, 1)) {
             npcl(FacialExpression.HAPPY, "Greetings outerlander.")

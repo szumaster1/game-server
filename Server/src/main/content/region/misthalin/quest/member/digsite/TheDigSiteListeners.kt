@@ -91,6 +91,7 @@ class TheDigSiteListeners : InteractionListener {
             WeightedItem(Items.OLD_TOOTH_695, 1, 1, 1.0, false),
             WeightedItem(Items.PIE_DISH_2313, 1, 1, 1.0, false),
         )
+
         val specimenTrayTable = WeightBasedTable.create(
             WeightedItem(0, 0, 0, 2.0, false),
             WeightedItem(Items.BONES_526, 1, 1, 2.0, false),
@@ -141,12 +142,14 @@ class TheDigSiteListeners : InteractionListener {
             setInterfaceText(player, player.username, 440, 5)
             return@on true
         }
+
         // 3: Certificate Level 2
         on(Items.LEVEL_2_CERTIFICATE_692, ITEM, "look-at") { player, _ ->
             openInterface(player, 441)
             setInterfaceText(player, player.username, 441, 5)
             return@on true
         }
+
         // 3: Certificate Level 3
         on(Items.LEVEL_3_CERTIFICATE_693, ITEM, "look-at") { player, _ ->
             openInterface(player, 444)
@@ -308,7 +311,6 @@ class TheDigSiteListeners : InteractionListener {
         }
         // 3 Brown: Search Panning Point for Special Cup
         on(Scenery.PANNING_POINT_2363, SCENERY, "pan") { player, _ ->
-            //
             if (getAttribute(player, TheDigSite.attributePanningGuideTea, false)) {
                 if (inInventory(player, Items.PANNING_TRAY_677)) {
                     queueScript(player, 0, QueueStrength.NORMAL) { stage: Int ->

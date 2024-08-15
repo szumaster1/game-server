@@ -16,7 +16,7 @@ import core.game.world.map.Location
 import core.tools.END_DIALOGUE
 
 /**
- * Ghosts ahoy listeners.
+ * Ghosts Ahoy listeners.
  */
 class GhostsAhoyListeners : InteractionListener, InterfaceListener {
 

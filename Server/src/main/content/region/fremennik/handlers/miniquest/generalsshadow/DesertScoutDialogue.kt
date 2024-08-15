@@ -9,7 +9,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Desert scout dialogue.
+ * Desert Scout dialogue.
  */
 @Initializable
 class DesertScoutDialogue(player: Player? = null) : Dialogue(player) {

@@ -9,7 +9,7 @@ import core.game.node.item.GroundItemManager
 import core.game.world.map.Location
 
 /**
- * Johnny beard NPC.
+ * Johnny Beard NPC.
  */
 class JohnnyBeardNPC : AbstractNPC {
 

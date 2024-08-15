@@ -8,7 +8,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Brother kojo dialogue.
+ * Brother Kojo dialogue.
  */
 @Initializable
 class BrotherKojoDialogue(player: Player? = null) : Dialogue(player) {

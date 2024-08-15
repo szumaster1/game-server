@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Jofridr mordstatter dialogue.
+ * Jofridr Mordstatter dialogue.
  */
 @Initializable
 class JofridrMordstatterDialogue(player: Player? = null): Dialogue(player) {

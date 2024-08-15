@@ -1,11 +1,14 @@
 package content.region.misthalin.dialogue.stronghold.security
 
+import core.api.*
+import core.api.consts.Items
 import core.game.container.Container
 import core.game.dialogue.Dialogue
 import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.emote.Emotes
 import core.game.node.item.Item
+import core.tools.END_DIALOGUE
 
 /**
  * Cradle of life dialogue.
@@ -27,17 +30,11 @@ class CradleOfLifeDialogue(player: Player? = null) : Dialogue(player) {
             return true
         }
         if (player.getSavedData().globalData.getStrongHoldRewards()[3]) {
-            interpreter.sendDialogue(
-                "As your hand touches the cradle, you hear a voice in your head of a",
-                "million dead adventurers...."
-            )
+            sendDialogueLines(player, "As your hand touches the cradle, you hear a voice in your head of a", "million dead adventurers....")
             stage = 100
             return true
         }
-        interpreter.sendDialogue(
-            "As your hand touches the cradle, you hear a voice in your head of a",
-            "million dead adventurers...."
-        )
+        sendDialogueLines(player, "As your hand touches the cradle, you hear a voice in your head of a", "million dead adventurers....")
         stage = 0
         return true
     }
@@ -45,36 +42,28 @@ class CradleOfLifeDialogue(player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
             0 -> {
-                interpreter.sendDialogue("....welcome adventurer... you have a choice....")
+                sendDialogue(player, "....welcome adventurer... you have a choice....")
                 stage = 1
             }
 
             1 -> {
-                interpreter.sendDoubleItemMessage(9005, 9006, "You can choose between these two pair of boots.")
+                sendDoubleItemDialogue(player, Items.FANCY_BOOTS_9005, Items.FIGHTING_BOOTS_9006, "You can choose between these two pair of boots.")
                 stage = 2
             }
 
             2 -> {
-                interpreter.sendDialogue(
-                    "They will both protect your feet exactly the same, however they look",
-                    "very different. You can always come back and get another pair if",
-                    "you lose them, or even swap them for the other style!"
-                )
+                sendDialogueLines(player, "They will both protect your feet exactly the same, however they look", "very different. You can always come back and get another pair if", "you lose them, or even swap them for the other style!")
                 stage = 4
             }
 
             4 -> {
-                interpreter.sendOptions(
-                    "Choose your style of boots",
-                    "I'll take the colourful ones!",
-                    "I'll take the fighting ones!"
-                )
+                sendDialogueOptions(player, "Choose your style of boots", "I'll take the colourful ones!", "I'll take the fighting ones!")
                 stage = 5
             }
 
             5 -> when (buttonId) {
                 1 -> {
-                    interpreter.sendDialogues(player, FacialExpression.HALF_GUILTY, "I'll take the colourful ones!")
+                    playerl(FacialExpression.HALF_GUILTY, "I'll take the colourful ones!")
                     player.inventory.add(ITEMS[0])
                     player.emoteManager.unlock(Emotes.STOMP)
                     stage = 6
@@ -82,7 +71,7 @@ class CradleOfLifeDialogue(player: Player? = null) : Dialogue(player) {
                 }
 
                 2 -> {
-                    interpreter.sendDialogues(player, FacialExpression.HALF_GUILTY, "I'll take the fighting ones!")
+                    playerl(FacialExpression.HALF_GUILTY, "I'll take the fighting ones!")
                     player.inventory.add(ITEMS[1])
                     player.emoteManager.unlock(Emotes.STOMP)
                     player.getSavedData().globalData.getStrongHoldRewards()[3] = true
@@ -91,47 +80,20 @@ class CradleOfLifeDialogue(player: Player? = null) : Dialogue(player) {
             }
 
             6 -> {
-                interpreter.sendDialogue(
-                    "Congratulations! You have succesfully navigated the Stronghold of",
-                    "Security and learned to secure your account. You have unlocked",
-                    "the 'Stamp Foot' emote. Remember to keep your account secure in",
-                    "the future!"
-                )
+                sendDialogueLines(player, "Congratulations! You have succesfully navigated the Stronghold of", "Security and learned to secure your account. You have unlocked", "the 'Stamp Foot' emote. Remember to keep your account secure in", "the future!")
                 stage = 7
             }
 
             7 -> end()
-            100 -> if (!player.inventory.contains(9005, 1) && !player.bank.contains(
-                    900,
-                    1
-                ) && !player.equipment.contains(9005, 1) && !player.inventory.contains(
-                    9006,
-                    1
-                ) && !player.bank.contains(9006, 1) && !player.equipment.contains(9006, 1)
-            ) {
-                interpreter.sendDialogue("You appear to have lost your boots!")
-                stage = 101
+            100 -> if (!inInventory(player, Items.FANCY_BOOTS_9005, 1) && !inBank(player, Items.FIGHTING_BOOTS_9006, 1) && !inEquipment(player, Items.FANCY_BOOTS_9005, 1) && !inInventory(player, Items.FIGHTING_BOOTS_9006, 1) && !inBank(player, Items.FIGHTING_BOOTS_9006, 1) && !inBank(player, Items.FIGHTING_BOOTS_9006, 1)) {
+                sendDialogue(player, "You appear to have lost your boots!").also { stage = 101 }
             } else {
-                options("Yes, I'd like the other pair instead please!",
-                    "No thanks, I'll keep these!"
-                )
-                stage = 200
+                options("Yes, I'd like the other pair instead please!", "No thanks, I'll keep these!").also { stage = 200 }
             }
 
             200 -> when (buttonId) {
-                1 -> {
-                    interpreter.sendDialogues(
-                        player,
-                        FacialExpression.HALF_GUILTY,
-                        "Yes, I'd like the other pair instead please!"
-                    )
-                    stage = 800
-                }
-
-                2 -> {
-                    interpreter.sendDialogues(player, FacialExpression.HALF_GUILTY, "No thanks, I'll keep these!")
-                    stage = 900
-                }
+                1 -> playerl(FacialExpression.HALF_GUILTY, "Yes, I'd like the other pair instead please!").also { stage = 800 }
+                2 -> playerl(FacialExpression.HALF_GUILTY, "No thanks, I'll keep these!").also { stage = END_DIALOGUE }
             }
 
             800 -> {
@@ -142,11 +104,8 @@ class CradleOfLifeDialogue(player: Player? = null) : Dialogue(player) {
                 }
                 end()
             }
-
-            900 -> end()
             101 -> {
-                interpreter.sendDialogue("....welcome adventurer... you have a choice....")
-                stage = 1
+                sendDialogue(player, "....welcome adventurer... you have a choice....").also { stage = 1 }
             }
         }
         return true

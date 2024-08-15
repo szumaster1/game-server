@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Pauline polaris dialogue.
+ * Pauline Polaris dialogue.
  */
 @Initializable
 class PaulinePolarisDialogue(player: Player? = null): Dialogue(player) {

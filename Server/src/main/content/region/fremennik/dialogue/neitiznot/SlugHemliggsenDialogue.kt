@@ -8,7 +8,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Slug hemliggsen dialogue.
+ * Slug Hemliggsen dialogue.
  */
 @Initializable
 class SlugHemliggsenDialogue(player: Player? = null): Dialogue(player) {

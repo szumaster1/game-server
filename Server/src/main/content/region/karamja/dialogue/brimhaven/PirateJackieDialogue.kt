@@ -15,9 +15,8 @@ import core.tools.END_DIALOGUE
 class PirateJackieDialogue : DialogueFile() {
 
     /*
-     * Pirate Jackie the Fruit can be found
-     * at the Brimhaven Agility Arena entrance.
-     * Also run the Agility Arena Ticket Exchange.
+     * Pirate Jackie the Fruit can be found at the Brimhaven Agility Arena entrance
+     * also run the Agility Arena Ticket Exchange.
      * Location: 2811,3191
      */
 
@@ -52,4 +51,5 @@ class PirateJackieDialogue : DialogueFile() {
             }
         }
     }
+
 }

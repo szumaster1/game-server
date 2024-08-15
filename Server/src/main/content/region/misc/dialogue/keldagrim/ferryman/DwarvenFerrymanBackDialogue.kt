@@ -20,6 +20,7 @@ import core.tools.START_DIALOGUE
  */
 @Initializable
 class DwarvenFerrymanBackDialogue(player: Player? = null) : Dialogue(player) {
+
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
             START_DIALOGUE -> npcl(FacialExpression.OLD_DEFAULT, "Hello there, want a ride?").also { stage++ }

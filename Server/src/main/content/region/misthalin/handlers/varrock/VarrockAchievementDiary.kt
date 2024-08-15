@@ -1,4 +1,4 @@
-package content.region.misthalin.diary
+package content.region.misthalin.handlers.varrock
 
 import content.global.skill.combat.magic.TeleportMethod
 import content.global.skill.combat.prayer.Bones

@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Tree gnome scout dialogue.
+ * Tree Gnome Scout dialogue.
  */
 @Initializable
 class TreeGnomeScoutDialogue(player: Player? = null) : Dialogue(player) {

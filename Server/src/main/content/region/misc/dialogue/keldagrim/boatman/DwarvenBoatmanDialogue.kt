@@ -18,6 +18,7 @@ import core.tools.START_DIALOGUE
  */
 @Initializable
 class DwarvenBoatmanForthDialogue(player: Player? = null) : Dialogue(player) {
+
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         if (!getAttribute(player, "/save:keldagrim-visited", false)) {
             when (stage) {

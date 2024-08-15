@@ -13,7 +13,6 @@ import core.tools.START_DIALOGUE
 class MistagLostTribeDialogue(val isGreeting: Boolean, val questStage: Int) : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {
-
         if (isGreeting) {
             when (stage) {
                 START_DIALOGUE -> npc("Perhaps you are a friend after all!").also { stage++ }

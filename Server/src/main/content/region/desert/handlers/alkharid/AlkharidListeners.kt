@@ -34,7 +34,7 @@ class AlkharidListeners : InteractionListener {
         }
 
         /*
-            Toll gates interaction between Lumbridge and Al-Kharid.
+         * Toll gates interaction between Lumbridge and Al-Kharid.
          */
 
         on(TOLL_GATES, IntType.SCENERY, "open", "pay-toll(10gp)") { player, node ->
@@ -59,7 +59,7 @@ class AlkharidListeners : InteractionListener {
         }
 
         /*
-            Duel arena healers.
+         * Duel arena healers.
          */
 
         on(HEALERS_NPC, IntType.NPC, "heal") { player, _ ->
@@ -67,11 +67,17 @@ class AlkharidListeners : InteractionListener {
             return@on true
         }
 
+        /*
+         * Fadli shop interaction.
+         */
         on(FADLI_NPC, IntType.NPC, "buy") { player, _ ->
             openNpcShop(player, NPCs.FADLI_958)
             return@on true
         }
 
+        /*
+         * Interaction with Ali the leaflet.
+         */
         on(LEAFLET_DROPPER, IntType.NPC, "Take-flyer") { player, _ ->
             if (player.inventory.containItems(Items.AL_KHARID_FLYER_7922)) {
                 openDialogue(player, AliTheLeafletDropperDialogue(2))

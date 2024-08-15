@@ -8,7 +8,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Anna isaakson dialogue.
+ * Anna Isaakson dialogue.
  */
 @Initializable
 class AnnaIsaaksonDialogue(player: Player? = null) : Dialogue(player) {

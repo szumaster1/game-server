@@ -22,9 +22,7 @@ class EntranaListeners : InteractionListener {
     }
 
     override fun defineListeners() {
-
-        // Glassblowing Book can be found on 1 Floor in the house west of
-        // the Furnace on Entrana.
+        // Glassblowing Book can be found on 1 Floor in the house west of the Furnace on Entrana.
         on(ENTRANA_BOOKCASE, IntType.SCENERY, "Search") { player, _ ->
             if (!inInventory(player, GLASSBLOWING_BOOK)) {
                 addItem(player, GLASSBLOWING_BOOK)

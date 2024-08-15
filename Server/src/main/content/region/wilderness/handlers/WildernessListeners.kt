@@ -19,7 +19,7 @@ class WildernessListeners : InteractionListener {
     override fun defineListeners() {
 
         /*
-         * Crossing the wilderness ditch interaction.
+         * Handling the wilderness ditch "cross" interaction.
          */
         on(WILDERNESS_DITCH, IntType.SCENERY, "cross") { player, node ->
             if (player.location.getDistance(node.location) < 3) {
@@ -39,8 +39,8 @@ class WildernessListeners : InteractionListener {
     /**
      * Handle ditch
      *
-     * @param player
-     * @param node
+     * @param player Represents the player interacting with the ditch.
+     * @param node Represents the specific node associated with the ditch.
      */
     fun handleDitch(player: Player, node: Node) {
         player.faceLocation(node.location)

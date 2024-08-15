@@ -10,7 +10,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Vanstrom klause dialogue.
+ * Vanstrom Klause dialogue.
  */
 @Initializable
 class VanstromKlauseDialogue(player: Player? = null) : Dialogue(player) {

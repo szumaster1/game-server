@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Monkey minder dialogue.
+ * Monkey Minder dialogue.
  */
 @Initializable
 class MonkeyMinderDialogue(player: Player? = null) : Dialogue(player) {

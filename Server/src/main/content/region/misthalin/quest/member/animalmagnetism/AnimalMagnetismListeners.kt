@@ -6,7 +6,7 @@ import core.api.sendMessage
 import core.game.interaction.InteractionListener
 
 /**
- * Animal magnetism listeners.
+ * Animal Magnetism listeners.
  */
 class AnimalMagnetismListeners : InteractionListener {
 

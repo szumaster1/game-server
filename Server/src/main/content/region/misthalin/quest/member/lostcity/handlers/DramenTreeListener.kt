@@ -14,7 +14,7 @@ import core.game.world.map.Location
 import core.api.consts.Scenery as Sceneries
 
 /**
- * Dramen tree listener.
+ * Dramen Tree listener.
  */
 class DramenTreeListener : InteractionListener {
 

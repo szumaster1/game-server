@@ -14,7 +14,7 @@ import core.game.global.action.ClimbActionHandler
 import core.game.world.update.flag.context.Animation
 
 /**
- * Tolna rift listener.
+ * Tolna Rift listener.
  */
 class TolnaRiftListener : InteractionListener {
 

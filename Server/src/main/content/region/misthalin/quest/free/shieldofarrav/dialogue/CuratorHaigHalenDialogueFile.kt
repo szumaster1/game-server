@@ -5,7 +5,7 @@ import core.api.sendItemDialogue
 import core.game.dialogue.DialogueFile
 
 /**
- * Curator haig halen dialogue file.
+ * Curator Haig Halen dialogue file.
  */
 class CuratorHaigHalenDialogueFile : DialogueFile() {
 

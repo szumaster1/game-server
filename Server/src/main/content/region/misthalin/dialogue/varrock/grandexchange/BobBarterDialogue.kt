@@ -56,10 +56,6 @@ class BobBarterDialogue(player: Player? = null) : Dialogue(player) {
         return true
     }
 
-    override fun newInstance(player: Player): Dialogue {
-        return BobBarterDialogue(player)
-    }
-
     override fun getIds(): IntArray {
         return intArrayOf(NPCs.BOB_BARTER_HERBS_6524)
     }

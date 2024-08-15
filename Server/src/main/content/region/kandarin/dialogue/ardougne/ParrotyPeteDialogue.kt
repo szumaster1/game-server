@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Parroty pete dialogue.
+ * Parroty Pete dialogue.
  */
 @Initializable
 class ParrotyPeteDialogue(player: Player? = null) : Dialogue(player) {

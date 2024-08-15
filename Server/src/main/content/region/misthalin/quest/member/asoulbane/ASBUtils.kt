@@ -2,6 +2,9 @@ package content.region.misthalin.quest.member.asoulbane
 
 import core.api.getAnimation
 
+/**
+ * A soulbane utils.
+ */
 object ASBUtils {
 
     val ANIMATION_TOLNA_RIFT_CRAWL = getAnimation(3838)

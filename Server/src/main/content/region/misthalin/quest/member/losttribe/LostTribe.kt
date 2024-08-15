@@ -11,9 +11,8 @@ import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 import core.plugin.Initializable
 
-
 /**
- * Lost tribe quest.
+ * Lost Tribe quest.
  */
 @Initializable
 class LostTribe : Quest("Lost Tribe", 84, 83, 1) {

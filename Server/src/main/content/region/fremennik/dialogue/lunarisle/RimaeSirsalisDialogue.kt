@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Rimae sirsalis dialogue.
+ * Rimae Sirsalis dialogue.
  */
 @Initializable
 class RimaeSirsalisDialogue(player: Player? = null): Dialogue(player) {

@@ -25,8 +25,9 @@ import proto.management.JoinClanRequest
  */
 @Initializable
 class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
-    private val STARTER_PACK = arrayOf(
 
+    private val STARTER_PACK = arrayOf(
+        // Supplies
         Item(Items.BRONZE_AXE_1351, 1),
         Item(Items.TINDERBOX_590, 1),
         Item(Items.SMALL_FISHING_NET_303, 1),
@@ -34,14 +35,14 @@ class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {
         Item(Items.BUCKET_1925, 1),
         Item(Items.EMPTY_POT_1931, 1),
         Item(Items.BREAD_2309, 1),
-
+        // Weapons
         Item(Items.BRONZE_PICKAXE_1265, 1),
         Item(Items.BRONZE_DAGGER_1205, 1),
         Item(Items.BRONZE_SWORD_1277, 1),
         Item(Items.WOODEN_SHIELD_1171, 1),
         Item(Items.SHORTBOW_841, 1),
         Item(Items.BRONZE_ARROW_882, 25),
-
+        // Runes
         Item(Items.AIR_RUNE_556, 25),
         Item(Items.MIND_RUNE_558, 15),
         Item(Items.WATER_RUNE_555, 6),

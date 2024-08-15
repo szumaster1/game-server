@@ -13,6 +13,7 @@ import core.tools.START_DIALOGUE
  */
 @Initializable
 class BrownEngineDirectorDialogue(player: Player? = null) : Dialogue(player) {
+
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
             START_DIALOGUE -> when ((0..9).random()) {

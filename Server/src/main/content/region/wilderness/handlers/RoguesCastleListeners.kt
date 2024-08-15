@@ -30,17 +30,20 @@ class RoguesCastleListeners : InteractionListener {
 
     override fun defineListeners() {
 
+        // Handling interaction with jail doors.
         on(JAIL_DOORS, IntType.SCENERY, "open") { player, _ ->
             sendMessage(player, "The door is locked.")
             return@on true
         }
 
+        // Handling interaction with chest (1 floor).
         on(FLOOR_1_CHESTS, IntType.SCENERY, "open") { player, node ->
             val scenery = node.asScenery()
             openChest(player, scenery)
             return@on true
         }
 
+        // Handling interaction with chest (1 floor).
         on(FLOOR_1_CHESTS, IntType.SCENERY, "search") { player, node ->
             val scenery = node.asScenery()
             if (getCharge(scenery) == 0) {
@@ -59,11 +62,13 @@ class RoguesCastleListeners : InteractionListener {
             return@on true
         }
 
+        // Handling interaction with chest (2nd floor).
         on(FLOOR_2_CHESTS, IntType.SCENERY, "open") { player, _ ->
             sendMessage(player, "This chest appears to be locked.")
             return@on true
         }
 
+        // Handling interaction with chest (2nd floor).
         on(FLOOR_2_CHESTS, IntType.SCENERY, "pick-lock") { player, node ->
             val scenery = node.asScenery()
             if (!inInventory(player, Items.LOCKPICK_1523)) {
@@ -99,6 +104,7 @@ class RoguesCastleListeners : InteractionListener {
             return@on true
         }
 
+        // Handling interaction with chest (2nd floor).
         on(FLOOR_2_CHESTS, IntType.SCENERY, "search") { player, node ->
             val scenery = node.asScenery()
 
@@ -135,10 +141,10 @@ class RoguesCastleListeners : InteractionListener {
     }
 
     /**
-     * Add loot
+     * Add loot to a player's inventory.
      *
-     * @param player
-     * @param item
+     * @param player The player who will receive the loot
+     * @param item The item to be added to the player's inventory
      */
     fun addLoot(player: Player, item: Item) {
         sendMessage(player, "You search the chest...")

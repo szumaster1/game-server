@@ -1,6 +1,5 @@
 package content.region.misthalin.handlers.barbvillage
 
-
 import core.api.consts.NPCs
 import core.api.sendChat
 import core.game.node.entity.Entity

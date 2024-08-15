@@ -4,7 +4,7 @@ import core.api.consts.NPCs
 import content.minigame.allfiredup.KingRoaldAFUDialogue
 import content.region.misthalin.quest.free.shieldofarrav.dialogue.KingRoaldDialogue
 import content.region.misthalin.quest.member.allfiredup.dialogue.KingRoaldDialogueFile
-import content.region.misthalin.quest.member.priestinperil.dialogue.KingRoaldDialoguePriestInPeril
+import content.region.misthalin.quest.member.priestinperil.dialogue.KingRoaldPriestInPerilDialogue
 import core.api.getAttribute
 import core.api.getQuestStage
 import core.api.isQuestComplete
@@ -39,7 +39,7 @@ class KingRoaldDialogue(player: Player? = null) : Dialogue(player) {
                 addOption("All Fired Up", KingRoaldDialogueFile(getQuestStage(player, "All Fired Up")))
             }
         } else {
-            addOption("Priest in Peril", KingRoaldDialoguePriestInPeril(getQuestStage(player, "Priest in Peril")))
+            addOption("Priest in Peril", KingRoaldPriestInPerilDialogue(getQuestStage(player, "Priest in Peril")))
         }
         if (player.questRepository.getQuest("Shield of Arrav").isStarted(player) && !isQuestComplete(player, "Shield of Arrav")) {
             addOption("Shield of Arrav", KingRoaldDialogue())

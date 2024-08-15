@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Melena moonlander dialogue.
+ * Melena Moonlander dialogue.
  */
 @Initializable
 class MelenaMoonlanderDialogue(player: Player? = null): Dialogue(player) {

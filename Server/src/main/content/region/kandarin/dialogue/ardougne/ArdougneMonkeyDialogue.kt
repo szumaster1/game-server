@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Ardougne monkey dialogue.
+ * Ardougne Monkey dialogue.
  */
 @Initializable
 class ArdougneMonkeyDialogue(player: Player? = null) : Dialogue(player) {

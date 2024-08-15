@@ -35,16 +35,25 @@ class EdgevilleListeners : InteractionListener {
             return@on true
         }
 
+        /**
+         * Trapdoor interaction.
+         */
         on(Scenery.OPEN_TRAPDOOR_12268, IntType.SCENERY, "close") { player, node ->
             setVarbit(player, 1888, 0)
             return@on true
         }
 
+        /**
+         * Trapdoor interaction.
+         */
         on(Scenery.OPEN_TRAPDOOR_12268, IntType.SCENERY, "go-down") { player, _ ->
             ClimbActionHandler.climb(player, Animation(Animations.MULTI_USE_BEND_OVER_827), Location(3077, 9893, 0))
             return@on true
         }
 
+        /**
+         * Trapdoor interaction.
+         */
         on(Scenery.CELLAR_STAIRS_12265, IntType.SCENERY, "climb") { player, _ ->
             ClimbActionHandler.climb(player, null, Location(3078, 3493, 0))
             return@on true

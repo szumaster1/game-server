@@ -3,6 +3,8 @@ package content.region.misthalin.dialogue.stronghold.security
 import core.api.Container
 import core.api.addItem
 import core.api.consts.Items
+import core.api.sendDialogueLines
+import core.api.sendMessage
 import core.game.dialogue.Dialogue
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.emote.Emotes
@@ -22,11 +24,11 @@ class GrainOfPlentyDialogue(player: Player? = null) : Dialogue(player) {
         when (stage) {
             0 -> {
                 if (!addItem(player, Items.COINS_995, 3000, Container.INVENTORY)) {
-                    player.packetDispatch.sendMessage("You don't have enough inventory space.")
+                    sendMessage(player, "You don't have enough inventory space.")
                     end()
                 }
                 player.getSavedData().globalData.getStrongHoldRewards()[1] = true
-                interpreter.sendDialogue("...congratualtions adventurer, you have been deemed worthy of this", "reward. You have also unlocked the Slap Head emote!")
+                sendDialogueLines(player, "...congratualtions adventurer, you have been deemed worthy of this", "reward. You have also unlocked the Slap Head emote!")
                 stage = 1
                 player.emoteManager.unlock(Emotes.SLAP_HEAD)
             }

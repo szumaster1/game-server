@@ -11,7 +11,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 
 /**
- * Jossik lighthouse dialogue.
+ * Jossik Lighthouse dialogue.
  */
 @Initializable
 class JossikDialogue(player: Player? = null) : Dialogue(player) {

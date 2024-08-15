@@ -11,7 +11,6 @@ import core.api.consts.NPCs
  */
 class MiltogNPC : NPCBehavior(NPCs.MILTOG_5781) {
 
-
     private val forceChat = arrayOf(
         "Lamps!",
         "Lanterns!",

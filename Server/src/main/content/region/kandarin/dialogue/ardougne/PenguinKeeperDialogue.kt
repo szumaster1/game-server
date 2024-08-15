@@ -14,7 +14,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Penguin keeper dialogue.
+ * Penguin Keeper dialogue.
  */
 @Initializable
 class PenguinKeeperDialogue(player: Player? = null) : Dialogue(player) {

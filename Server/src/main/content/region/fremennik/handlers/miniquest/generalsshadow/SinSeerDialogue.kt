@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Sin seer dialogue.
+ * Sin Seer dialogue.
  */
 @Initializable
 class SinSeerDialogue(player: Player? = null) : Dialogue(player) {

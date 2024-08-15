@@ -14,7 +14,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Kaleb paramaya dialogue.
+ * Kaleb Paramaya dialogue.
  */
 @Initializable
 class KalebParamayaDialogue(player: Player? = null): Dialogue(player) {

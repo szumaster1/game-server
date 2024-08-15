@@ -13,12 +13,8 @@ import core.api.consts.Items
  */
 class RunecraftShopInterfaceListener : InterfaceListener {
 
-    /*
-     * Runecrafting shop (tokens are purchased for coins).
-     */
-
     /**
-     * Shop item.
+     * Runecrafting shop (tokens are purchased for coins).
      *
      * @param id the id.
      * @param price the price.

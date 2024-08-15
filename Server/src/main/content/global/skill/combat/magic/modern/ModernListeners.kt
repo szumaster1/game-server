@@ -340,15 +340,7 @@ class ModernListeners : SpellListener("modern") {
             visualize(entity = player, anim = LOW_ALCH_ANIM, gfx = EXPLORERS_RING_GFX)
         } else {
 
-            val staves = intArrayOf(
-                Items.STAFF_OF_FIRE_1387,
-                Items.FIRE_BATTLESTAFF_1393,
-                Items.MYSTIC_FIRE_STAFF_1401,
-                Items.LAVA_BATTLESTAFF_3053,
-                Items.MYSTIC_LAVA_STAFF_3054,
-                Items.STEAM_BATTLESTAFF_11736,
-                Items.MYSTIC_STEAM_STAFF_11738
-            )
+            val staves = intArrayOf(Items.STAFF_OF_FIRE_1387, Items.FIRE_BATTLESTAFF_1393, Items.MYSTIC_FIRE_STAFF_1401, Items.LAVA_BATTLESTAFF_3053, Items.MYSTIC_LAVA_STAFF_3054, Items.STEAM_BATTLESTAFF_11736, Items.MYSTIC_STEAM_STAFF_11738)
             if (anyInEquipment(player, *staves)) {
                 visualize(
                     entity = player,

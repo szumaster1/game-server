@@ -11,6 +11,7 @@ import core.game.interaction.InteractionListener
  * Lighthouse bookcase listener.
  */
 class LighthouseBookcaseListener : DialogueFile(), InteractionListener {
+
     override fun handle(componentID: Int, buttonID: Int) {
         when (stage) {
             0 -> {

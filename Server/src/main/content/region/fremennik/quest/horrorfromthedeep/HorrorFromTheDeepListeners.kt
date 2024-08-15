@@ -16,6 +16,7 @@ import core.game.system.task.Pulse
  * Horror from the deep listeners.
  */
 class HorrorFromTheDeepListeners : InteractionListener {
+
     override fun defineListeners() {
 
         // Jossik underground.

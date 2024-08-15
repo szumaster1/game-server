@@ -9,7 +9,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Gem merchant dialogue.
+ * Gem Merchant dialogue.
  */
 @Initializable
 class GemMerchantDialogue(player: Player? = null) : Dialogue(player) {

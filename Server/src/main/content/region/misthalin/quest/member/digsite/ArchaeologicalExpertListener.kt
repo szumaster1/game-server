@@ -13,7 +13,7 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
 /**
- * Archaeological expert listener.
+ * Archaeological Expert listener.
  */
 class ArchaeologicalExpertListener : InteractionListener {
 

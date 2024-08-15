@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Kjedelig uppsen dialogue.
+ * Kjedelig Uppsen dialogue.
  */
 @Initializable
 class KjedeligUppsenDialogue(player: Player? = null): Dialogue(player) {

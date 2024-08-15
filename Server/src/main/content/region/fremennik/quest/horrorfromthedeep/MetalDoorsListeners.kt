@@ -14,6 +14,7 @@ import core.game.interaction.QueueStrength
  * Metal doors listeners.
  */
 class MetalDoorsListeners : InteractionListener, InterfaceListener {
+
     override fun defineListeners() {
         on(HFTDUtils.METAL_DOORS, IntType.SCENERY, "study") { player, _ ->
             when (player.location.y) {

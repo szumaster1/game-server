@@ -16,10 +16,10 @@ import core.tools.END_DIALOGUE
 class VarrockShopKeeperDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-       Info: Runs the Varrock General Store, located in Varrock.
-       He is assisted by a shop assistant.
-       Location: 3218,3415
-    */
+     * Info: Runs the Varrock General Store, located in Varrock.
+     * He is assisted by a shop assistant.
+     * Location: 3218,3415
+     */
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC

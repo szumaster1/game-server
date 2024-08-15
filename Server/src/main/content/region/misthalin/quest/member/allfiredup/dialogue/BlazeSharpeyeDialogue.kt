@@ -8,7 +8,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Blaze sharpeye dialogue.
+ * Blaze Sharpeye dialogue.
  */
 @Initializable
 class BlazeSharpeyeDialogue(player: Player? = null) : Dialogue(player) {

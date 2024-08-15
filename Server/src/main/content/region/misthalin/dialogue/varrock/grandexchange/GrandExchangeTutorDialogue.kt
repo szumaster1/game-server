@@ -52,10 +52,6 @@ class GrandExchangeTutorDialogue(player: Player? = null) : Dialogue(player) {
         return true
     }
 
-    override fun newInstance(player: Player): Dialogue {
-        return GrandExchangeTutorDialogue(player)
-    }
-
     override fun getIds(): IntArray {
         return intArrayOf(NPCs.GRAND_EXCHANGE_TUTOR_6521)
     }

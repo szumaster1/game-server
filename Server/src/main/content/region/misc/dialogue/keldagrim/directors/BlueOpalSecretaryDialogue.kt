@@ -13,6 +13,7 @@ import core.tools.END_DIALOGUE
  */
 @Initializable
 class BlueOpalSecretaryDialogue(player: Player? = null) : Dialogue(player) {
+
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
         when((0..7).random()){

@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Hring hring dialogue.
+ * Hring Hring dialogue.
  */
 @Initializable
 class HringHringDialogue(player: Player? = null): Dialogue(player) {

@@ -44,7 +44,7 @@ class DorgeshuunListeners : InteractionListener {
          * Talk-to Ambassador.
          */
         on(NPCs.AMBASSADOR_ALVIJAR_5863, IntType.NPC, "talk-to") { player, _ ->
-            /**
+            /*
              * (WrapperID for Abassador Alvijar).
              */
             player.dialogueInterpreter.open(5887)

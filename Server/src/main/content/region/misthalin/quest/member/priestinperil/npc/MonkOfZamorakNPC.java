@@ -10,7 +10,7 @@ import core.game.world.map.Location;
 import core.plugin.Initializable;
 
 /**
- * Monk of zamorak npc.
+ * Monk of Zamorak NPC.
  */
 @Initializable
 public final class MonkOfZamorakNPC extends AbstractNPC {
@@ -19,7 +19,7 @@ public final class MonkOfZamorakNPC extends AbstractNPC {
     private static final Item GOLDEN_KEY = new Item(2944, 1);
 
     /**
-     * Instantiates a new Monk of zamorak npc.
+     * Instantiates a new Monk of Zamorak NPC.
      */
     public MonkOfZamorakNPC() {
         super(0, null);

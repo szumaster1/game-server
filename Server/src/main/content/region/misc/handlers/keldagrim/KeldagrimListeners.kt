@@ -35,11 +35,13 @@ class KeldagrimListeners : InteractionListener {
 
     override fun defineListeners() {
 
+        // Handling interaction with doorway.
         on(DOORWAY_1, IntType.SCENERY, "enter") { player, _ ->
             teleport(player, Location(2941, 10179, 0))
             return@on true
         }
 
+        // Handling interaction with doorway.
         on(DOORWAY_2, IntType.SCENERY, "enter") { player, _ ->
             teleport(player, Location(2435, 5535, 0))
             return@on true

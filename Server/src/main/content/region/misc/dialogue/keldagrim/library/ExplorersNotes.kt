@@ -14,10 +14,8 @@ import core.game.node.entity.player.Player
  */
 class ExplorersNotes : InteractionListener {
 
-    // Explorer Notes
-    // The book details his journey beyond Trollheim,
-    // where he discovered the God Wars Dungeon.
-    // It can be found in the Keldagrim Library,
+    // Explorer Notes. The book details his journey beyond Trollheim, where he
+    // discovered the God Wars Dungeon. It can be found in the Keldagrim Library,
     // on the second level.
 
     companion object {

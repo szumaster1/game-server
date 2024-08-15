@@ -9,7 +9,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * SquireFyre dialogue.
+ * Squire Fyre dialogue.
  */
 @Initializable
 class SquireFyreDialogue(player: Player? = null) : Dialogue(player) {

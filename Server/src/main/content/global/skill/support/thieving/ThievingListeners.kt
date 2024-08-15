@@ -124,7 +124,7 @@ class ThievingListeners : InteractionListener {
                 sendMessage(player, "You pick the $npcName pocket.")
                 lootTable.forEach {
                     player.inventory.add(it)
-                    sendMessage(player, "You steal some ${getItemName(it.id).lowercase()}.")
+                    sendMessageWithDelay(player, "You steal some ${getItemName(it.id).lowercase()}.", 1)
                 }
                 if(inBorders(player, ZoneBorders(3201, 3456, 3227, 3468)) && npc.id == NPCs.GUARD_5920){
                     finishDiaryTask(player, DiaryType.VARROCK, 1, 12)

@@ -19,6 +19,7 @@ import core.tools.START_DIALOGUE
  */
 @Initializable
 class BarmaidDialogue(player: Player? = null) : Dialogue(player) {
+
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         when (stage) {
             START_DIALOGUE -> npcl(FacialExpression.OLD_DEFAULT, "Welcome to the Laughing Miner pub, human traveller.").also { stage++ }

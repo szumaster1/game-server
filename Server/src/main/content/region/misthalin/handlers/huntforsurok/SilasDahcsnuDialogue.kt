@@ -14,10 +14,10 @@ import core.tools.END_DIALOGUE
 class SilasDahcsnuDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
-       Info: Member of the Dagon'hai order.
-       He can be found in the Tunnel of Chaos.
-       Location: 3176,5215
-    */
+     * Info: Member of the Dagon'hai order.
+     * He can be found in the Tunnel of Chaos.
+     * Location: 3176,5215
+     */
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC

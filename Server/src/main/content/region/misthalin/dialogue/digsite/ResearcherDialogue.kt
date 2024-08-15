@@ -14,6 +14,7 @@ import core.api.consts.NPCs
  */
 @Initializable
 class ResearcherDialogue(player: Player? = null) : Dialogue(player) {
+
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         if (isQuestComplete(player, "The Dig Site")) {
             when (stage) {

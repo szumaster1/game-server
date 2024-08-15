@@ -12,10 +12,9 @@ import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
 /**
- * Mawnis burowgar dialogue.
+ * Mawnis Burowgar dialogue.
  */
 class MawnisBurowgarDialogue(player: Player? = null) : Dialogue(player) {
-
 
     override fun open(vararg args: Any): Boolean {
         npc = args[0] as NPC

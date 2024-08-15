@@ -15,6 +15,7 @@ import core.tools.END_DIALOGUE
  */
 @Initializable
 class LalliDialogue(player: Player? = null): Dialogue(player) {
+
     override fun open(vararg args: Any): Boolean {
         player?.let {
             println(it.getAttribute("lalliEatStew", false))

@@ -10,7 +10,7 @@ import core.tools.START_DIALOGUE
 private val CERTIFICATE = Item(769)
 
 /**
- * King roald dialogue.
+ * King Roald dialogue.
  */
 class KingRoaldDialogue : DialogueFile() {
 

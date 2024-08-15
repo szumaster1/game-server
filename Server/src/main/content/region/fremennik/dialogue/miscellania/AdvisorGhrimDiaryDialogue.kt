@@ -11,7 +11,7 @@ import core.game.world.GameWorld
 import core.tools.END_DIALOGUE
 
 /**
- * Advisor ghrim diary dialogue.
+ * Advisor Ghrim diary dialogue.
  */
 class AdvisorGhrimDiaryDialogue : DialogueFile() {
 

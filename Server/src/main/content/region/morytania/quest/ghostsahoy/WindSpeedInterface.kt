@@ -15,7 +15,7 @@ import core.plugin.Initializable
 import core.tools.RandomFunction
 
 /**
- * Wind speed interface.
+ * Wind Speed interface.
  */
 @Initializable
 class WindSpeedInterface : InterfaceListener, InteractionListener, EventHook<TickEvent>, MapArea {

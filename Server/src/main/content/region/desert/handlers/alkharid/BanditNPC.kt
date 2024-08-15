@@ -13,6 +13,7 @@ import core.tools.RandomFunction
  * Bandit NPC.
  */
 class BanditNPC : NPCBehavior(NPCs.BANDIT_1926) {
+
     override fun tick(self: NPC): Boolean {
         if (!self.inCombat() && RandomFunction.roll(3) && getWorldTicks() % 5 == 0) {
             val players = RegionManager.getLocalPlayers(self, 5)

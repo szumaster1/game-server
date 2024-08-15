@@ -168,7 +168,6 @@ class TheDigSite : Quest("The Dig Site", 47, 46, 2, 131, 0, 1, 9) {
                 line(player, "exam.", line++)
             }
 
-
             if (stage >= 4 || getAttribute(player, attributeStudentBrownExam1ObtainAnswer, false)) {
                 line(player, "I have agreed to help the student in the brown top.", line++, true)
                 line(player, "He has lost his special cup and thinks he may have dropped", line++, true)
@@ -189,7 +188,6 @@ class TheDigSite : Quest("The Dig Site", 47, 46, 2, 131, 0, 1, 9) {
                 line(player, "He gave me an answer to one of the questions on the first", line++)
                 line(player, "exam.", line++)
             }
-
 
             if (stage >= 4) {
                 line(player, "I should talk to an examiner to take my first exam. If I", line++, true)

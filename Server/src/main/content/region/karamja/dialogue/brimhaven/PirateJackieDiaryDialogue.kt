@@ -14,8 +14,8 @@ import core.tools.END_DIALOGUE
 class PirateJackieDiaryDialogue : DialogueFile() {
 
     /*
-     * Found at the Brimhaven Agility Arena entrance.
-     * dialogue file related to Achievements diary.
+     * Found at the Brimhaven Agility Arena entrance. dialogue file related to
+     * Achievements diary.
      * Location: 2811,3191
      */
 

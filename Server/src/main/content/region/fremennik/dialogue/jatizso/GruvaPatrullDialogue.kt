@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Gruva patrull dialogue.
+ * Gruva Patrull dialogue.
  */
 @Initializable
 class GruvaPatrullDialogue(player: Player? = null): Dialogue(player) {

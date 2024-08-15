@@ -13,16 +13,20 @@ import core.api.consts.NPCs
  */
 @Initializable
 class ExaminerDialogue (player: Player? = null) : Dialogue(player) {
+
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
         openDialogue(player, ExaminerDialogueFile(), npc)
         return true
     }
+
     override fun newInstance(player: Player): Dialogue {
         return ExaminerDialogue(player)
     }
+
     override fun getIds(): IntArray {
         return intArrayOf(NPCs.EXAMINER_618, NPCs.EXAMINER_4566, NPCs.EXAMINER_4567)
     }
+
 }
 
 /**

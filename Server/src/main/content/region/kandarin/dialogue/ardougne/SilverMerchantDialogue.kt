@@ -15,7 +15,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Silver merchant dialogue.
+ * Silver Merchant dialogue.
  */
 @Initializable
 class SilverMerchantDialogue(player: Player? = null) : Dialogue(player) {

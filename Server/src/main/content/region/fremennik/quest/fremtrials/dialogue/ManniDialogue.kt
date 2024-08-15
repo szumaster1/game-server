@@ -21,7 +21,9 @@ import core.tools.END_DIALOGUE
  */
 @Initializable
 class ManniDialogue(player: Player? = null): Dialogue(player) {
+
     private var curNPC: NPC? = NPC(0, Location(0, 0, 0))
+
     override fun open(vararg args: Any): Boolean {
         curNPC = args[0] as? NPC
         if (getQuestStage(player, "Fremennik Trials") > 0) {

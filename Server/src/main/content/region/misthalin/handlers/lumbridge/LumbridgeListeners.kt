@@ -18,6 +18,9 @@ class LumbridgeListeners : InteractionListener {
 
     override fun defineListeners() {
 
+        /**
+         * Handling npc interaction.
+         */
         on(GAME_INSTRUCTOR, IntType.NPC, "claim") { player, node ->
             openDialogue(player, node.asNpc().id, node, true)
             return@on true

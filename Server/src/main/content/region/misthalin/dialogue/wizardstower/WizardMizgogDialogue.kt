@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Wizard mizgog dialogue.
+ * Wizard Mizgog dialogue.
  */
 @Initializable
 class WizardMizgogDialogue(player: Player? = null) : Dialogue(player) {

@@ -11,7 +11,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Brother cedric dialogue.
+ * Brother Cedric dialogue.
  */
 @Initializable
 class BrotherCedricDialogue(player: Player? = null) : Dialogue(player) {

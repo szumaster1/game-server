@@ -20,7 +20,7 @@ import core.tools.START_DIALOGUE
 class ProfessorHenryDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {
-        when (stage){
+        when (stage) {
             START_DIALOGUE -> {
                 if (player.savedData.globalData.getTestStage() == 2 && inInventory(player, Items.TEST_PAPER_12626)) {
                     player("Hello, Professor.").also { stage = HAND_IN_TEST }
@@ -33,8 +33,7 @@ class ProfessorHenryDialogue(player: Player? = null) : Dialogue(player) {
             }
             MEETING -> npcl(FacialExpression.ANNOYED, "Hello what?").also { stage++ }
             MEETING + 1 -> playerl(FacialExpression.HALF_GUILTY, "Uh...hello there?").also { stage++ }
-            MEETING + 2 -> npcl(FacialExpression.HALF_GUILTY, "Hello, 'Professor'. Manners cost nothing, you know. " +
-                    "When you're in my classroom, I ask that you use the proper address for my station.").also { stage++ }
+            MEETING + 2 -> npcl(FacialExpression.HALF_GUILTY, "Hello, 'Professor'. Manners cost nothing, you know. " + "When you're in my classroom, I ask that you use the proper address for my station.").also { stage++ }
             MEETING + 3 -> playerl(FacialExpression.HALF_GUILTY, "Your station?").also { stage++ }
             MEETING + 4 -> npcl(FacialExpression.HALF_GUILTY, "Yes. It means 'position', so to speak.").also { stage++ }
             MEETING + 5 -> playerl(FacialExpression.HALF_GUILTY, "Oh, okay.").also { stage++ }
@@ -53,25 +52,22 @@ class ProfessorHenryDialogue(player: Player? = null) : Dialogue(player) {
                 } else {
                     player.savedData.globalData.setTestStage(1)
                     addItem(player, Items.TEST_PAPER_12626)
-                    npcl( FacialExpression.HALF_GUILTY, "Right then. Here is the test paper. " + "When you have completed all the questions, bring it back to me for marking.").also { stage ++ }
+                    npcl(FacialExpression.HALF_GUILTY, "Right then. Here is the test paper. " + "When you have completed all the questions, bring it back to me for marking.").also { stage++ }
                 }
             }
+
             GET_TEST + 1 -> playerl(FacialExpression.HALF_GUILTY, "Okay, thanks.").also { stage = END_DIALOGUE }
-            HAND_IN_TEST -> npcl(FacialExpression.HAPPY, "Ah, ${player.name}. How's the test going?").also { stage ++ }
+            HAND_IN_TEST -> npcl(FacialExpression.HAPPY, "Ah, ${player.name}. How's the test going?").also { stage++ }
             HAND_IN_TEST + 1 -> playerl(FacialExpression.NEUTRAL, "I think I've finished.").also { stage++ }
             HAND_IN_TEST + 2 -> npcl(FacialExpression.HAPPY, "Excellent! Let me just mark the paper for you then.").also { stage++ }
-            HAND_IN_TEST + 3 -> npcl(FacialExpression.HAPPY, "Hmm. Uh-huh, yes I see. Good! Yes, that's right.").also{ stage++ }
-            HAND_IN_TEST + 4-> npcl(FacialExpression.HAPPY, "Excellent! Allow me to reward you for your work. " + "I have these two old lamps that you may find useful.").also { stage++ }
-            // This needs to be npc for word wrap.
+            HAND_IN_TEST + 3 -> npcl(FacialExpression.HAPPY, "Hmm. Uh-huh, yes I see. Good! Yes, that's right.").also { stage++ }
+            HAND_IN_TEST + 4 -> npcl(FacialExpression.HAPPY, "Excellent! Allow me to reward you for your work. " + "I have these two old lamps that you may find useful.").also { stage++ }
             HAND_IN_TEST + 5 -> npc("Also, there is an old jail block connected to the cells", "below the training centre, which have been overrun with", "vicious creatures. If you search around the jail cells", "downstairs, you should find it easily enough.").also { stage++ }
             HAND_IN_TEST + 6 -> npcl(FacialExpression.HAPPY, "Now, your rewards.").also { stage++ }
-            HAND_IN_TEST + 7 ->{
-                // Check for at least 1 slot Player will get 2 lamps,
-                // but we will take the test from them.
-                if (freeSlots(player) >= 1){
+            HAND_IN_TEST + 7 -> {
+                if (freeSlots(player) >= 1) {
                     showReward().also { stage = END_DIALOGUE }
-                }
-                else {
+                } else {
                     npcl(FacialExpression.SAD, "You do not have space in your inventory for the rewards").also { stage = END_DIALOGUE }
                 }
             }
@@ -83,9 +79,9 @@ class ProfessorHenryDialogue(player: Player? = null) : Dialogue(player) {
         return intArrayOf(NPCs.PROFESSOR_HENRY_7143)
     }
 
-    private fun showReward(){
+    private fun showReward() {
         /*
-            Show the poster tunnel.
+         * Show the poster tunnel.
          */
 
         setVarp(player, 1203, 1 shl 29, true)
@@ -98,20 +94,22 @@ class ProfessorHenryDialogue(player: Player? = null) : Dialogue(player) {
 
         openInterface(player, INTERFACE)
 
-        // Clear the other lines.
-        for (i in 9.. 18){
-            setInterfaceText(player,"", INTERFACE, i)
+        /*
+         * Clear the other lines.
+         */
+        for (i in 9..18) {
+            setInterfaceText(player, "", INTERFACE, i)
         }
         setInterfaceText(player, "You have completed the Player Safety test!", INTERFACE, 4)
         setInterfaceText(player, getQuestPoints(player).toString(), INTERFACE, 7)
-        setInterfaceText(player,"2 Experience lamps", INTERFACE, 9)
-        setInterfaceText(player,"Access to the Stronghold of", INTERFACE, 10)
-        setInterfaceText(player,"Player Safety Dungeon", INTERFACE, 11)
-        setInterfaceText(player,"The Safety First' emote", INTERFACE, 12)
+        setInterfaceText(player, "2 Experience lamps", INTERFACE, 9)
+        setInterfaceText(player, "Access to the Stronghold of", INTERFACE, 10)
+        setInterfaceText(player, "Player Safety Dungeon", INTERFACE, 11)
+        setInterfaceText(player, "The Safety First' emote", INTERFACE, 12)
         sendItemZoomOnInterface(player, INTERFACE, 5, Items.TEST_PAPER_12626)
     }
 
-    companion object{
+    companion object {
         const val HAND_IN_TEST = 10
         const val MEETING = 100
         const val GET_TEST = 200

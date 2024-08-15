@@ -10,7 +10,7 @@ import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 
 /**
- * Fremennik trials.
+ * Fremennik trials quest.
  */
 @Initializable
 class FremennikTrials : Quest("Fremennik Trials", 64, 63, 3, Vars.VARP_QUEST_FREMENNIK_TRIALS_PROGRESS, 0, 1, 10) {

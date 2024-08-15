@@ -36,7 +36,7 @@ import java.util.List;
 import static core.api.ContentAPIKt.isQuestComplete;
 
 /**
- * Water birth dungeon zone.
+ * Waterbirth dungeon zone.
  */
 @Initializable
 public final class WaterBirthDungeonZone extends MapZone implements Plugin<Object> {

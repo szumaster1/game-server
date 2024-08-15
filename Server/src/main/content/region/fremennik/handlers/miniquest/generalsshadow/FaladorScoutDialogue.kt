@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Falador scout dialogue.
+ * Falador Scout dialogue.
  */
 @Initializable
 class FaladorScoutDialogue(player: Player? = null) : Dialogue(player) {

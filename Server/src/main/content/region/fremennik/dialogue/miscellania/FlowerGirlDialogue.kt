@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Flower girl dialogue.
+ * Flower Girl dialogue.
  */
 @Initializable
 class FlowerGirlDialogue(player: Player? = null): Dialogue(player) {
