@@ -23,11 +23,8 @@ import java.io.FileReader
 import java.util.concurrent.TimeUnit
 import kotlin.math.abs
 
-
 /**
- * Moderation command set
- *
- * @constructor Moderation command set
+ * Moderation command set.
  */
 @Initializable
 class ModerationCommandSet : CommandSet(Privilege.MODERATOR) {

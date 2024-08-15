@@ -394,26 +394,29 @@ class KaramjaAchievementDiary : DiaryEventHookBase(DiaryType.KARAMJA) {
                     MediumTasks.BRIMHAVEN_DUNGEON_CLIMB_STAIRS
                 )
             }
-            11058 -> if(event.target.id == NPCs.HAJEDY_510 && event.option == "pay-fare") {
-                finishTask(
-                    player,
-                    DiaryLevel.MEDIUM,
-                    MediumTasks.USE_VIGROY_HAJEDY_CARTS
-                )
+
+            11058 -> {
+                if (event.target.id == NPCs.HAJEDY_510 && event.option == "pay-fare") {
+                    finishTask(
+                        player,
+                        DiaryLevel.MEDIUM,
+                        MediumTasks.USE_VIGROY_HAJEDY_CARTS
+                    )
+                }
+                if (event.target.id in FRUIT_TREES) {
+                    finishTask(
+                        player,
+                        DiaryLevel.MEDIUM,
+                        MediumTasks.BRIMHAVEN_GROW_HEALTHY_FRUIT_TREE
+                    )
+                }
             }
-            11054,11055 -> if (event.target.id == 19231) {
+
+            11054, 11055 -> if (event.target.id == 19231) {
                 finishTask(
                     player,
                     DiaryLevel.MEDIUM,
                     MediumTasks.TRAP_HORNED_GRAAHK
-                )
-            }
-
-            11058 -> if (event.target.id in FRUIT_TREES) {
-                finishTask(
-                    player,
-                    DiaryLevel.MEDIUM,
-                    MediumTasks.BRIMHAVEN_GROW_HEALTHY_FRUIT_TREE
                 )
             }
         }

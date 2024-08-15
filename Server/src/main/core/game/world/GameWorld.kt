@@ -5,6 +5,7 @@ import core.ServerStore
 import core.api.*
 import core.api.auth.Auth
 import core.api.auth.AuthProvider
+import core.storage.AccountStorageProvider
 import core.cache.Cache
 import core.cache.def.impl.SceneryDefinition
 import core.game.node.entity.player.Player
@@ -19,7 +20,6 @@ import core.game.world.map.RegionManager
 import core.game.world.repository.Repository
 import core.plugin.ClassScanner
 import core.plugin.type.StartupPlugin
-import core.storage.AccountStorageProvider
 import core.tools.Log
 import core.tools.RandomFunction
 import core.worker.MajorUpdateWorker

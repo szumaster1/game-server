@@ -1,8 +1,8 @@
 package core.api.auth
 
 import core.ServerConstants
-import core.game.node.entity.player.Player
 import core.storage.AccountStorageProvider
+import core.game.node.entity.player.Player
 
 /**
  * Development authenticator.

@@ -1,4 +1,4 @@
-package core.api.storage
+package core.storage
 
 import core.api.auth.UserAccountInfo
 

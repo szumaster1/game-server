@@ -1,7 +1,7 @@
 package core.api.auth
 
-import core.game.node.entity.player.Player
 import core.storage.AccountStorageProvider
+import core.game.node.entity.player.Player
 
 /**
  * Auth provider

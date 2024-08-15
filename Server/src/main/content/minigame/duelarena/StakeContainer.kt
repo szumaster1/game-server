@@ -28,7 +28,7 @@ class StakeContainer(private val player: Player, val session: DuelSession) :
     }
 
     /**
-     * Open
+     * Open the overlay interface for the player.
      */
     fun open() {
         player.interfaceManager.openSingleTab(OVERLAY)
@@ -38,10 +38,10 @@ class StakeContainer(private val player: Player, val session: DuelSession) :
     }
 
     /**
-     * Offer
+     * Offer an item from the player's inventory for trade.
      *
-     * @param slot
-     * @param amount
+     * @param slot The inventory slot of the item to offer.
+     * @param amount The amount of the item to offer.
      */
     fun offer(slot: Int, amount: Int) {
         val item = player.inventory[slot] ?: return
@@ -69,10 +69,10 @@ class StakeContainer(private val player: Player, val session: DuelSession) :
     }
 
     /**
-     * Withdraw
+     * Withdraw an item from the player's inventory.
      *
-     * @param slot
-     * @param amount
+     * @param slot The inventory slot of the item to withdraw.
+     * @param amount The amount of the item to withdraw.
      */
     fun withdraw(slot: Int, amount: Int) {
         val item = get(slot) ?: return
