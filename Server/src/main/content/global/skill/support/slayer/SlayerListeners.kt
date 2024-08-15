@@ -21,14 +21,14 @@ class SlayerListeners : InteractionListener {
 
     companion object {
         val NULL = -1 // Constant representing a null value
-        private const val FADE_START = Components.FADE_TO_BLACK_115 // Component for fade-in effect
-        private const val FADE_END = Components.FADE_FROM_BLACK_170 // Component for fade-out effect
-        private const val TRAPDOOR = Scenery.TRAPDOOR_8783 // Scenery constant for trapdoor
-        private const val LADDER = Scenery.LADDER_8785 // Scenery constant for ladder
-        private const val STAIRS = Scenery.STAIRS_96 // Scenery constant for stairs
-        private const val STAIRS_2 = Scenery.STAIRS_35121 // Scenery constant for a second set of stairs
-        private const val CAVE_ENTRANCE = Scenery.CAVE_ENTRANCE_15767 // Scenery constant for cave entrance
-        private val CAVE_EXIT = intArrayOf(Scenery.CAVE_15811, Scenery.CAVE_15812, Scenery.CAVE_23157, Scenery.CAVE_23158) // Array of cave exit scenery constants
+        private const val FADE_START = Components.FADE_TO_BLACK_115
+        private const val FADE_END = Components.FADE_FROM_BLACK_170
+        private const val TRAPDOOR = Scenery.TRAPDOOR_8783
+        private const val LADDER = Scenery.LADDER_8785
+        private const val STAIRS = Scenery.STAIRS_96
+        private const val STAIRS_2 = Scenery.STAIRS_35121
+        private const val CAVE_ENTRANCE = Scenery.CAVE_ENTRANCE_15767
+        private val CAVE_EXIT = intArrayOf(Scenery.CAVE_15811, Scenery.CAVE_15812, Scenery.CAVE_23157, Scenery.CAVE_23158)
         private val SVENS_DIG_LOCATIONS = arrayOf(
             // Array of locations for digging
             Location(2749, 3733, 0),
@@ -45,10 +45,10 @@ class SlayerListeners : InteractionListener {
     override fun defineDestinationOverrides() {
         // Override destination for specific scenery types
         setDest(IntType.SCENERY, intArrayOf(Scenery.CAVE_23157, Scenery.CAVE_23158), "exit") { _, _ ->
-            return@setDest Location(2690, 10124, 0) // Set exit location
+            return@setDest Location(2690, 10124, 0)
         }
         setDest(IntType.SCENERY, intArrayOf(STAIRS), "climb-up") { _, _ ->
-            return@setDest Location(2641, 9763, 0) // Set climb-up location for stairs
+            return@setDest Location(2641, 9763, 0)
         }
     }
 
@@ -57,26 +57,26 @@ class SlayerListeners : InteractionListener {
         queueScript(player, 1, QueueStrength.SOFT) { stage: Int ->
             when (stage) {
                 0 -> {
-                    sendMessage(player, "You dig a hole...") // Notify player they are digging
-                    openOverlay(player, FADE_START) // Start fade-in effect
-                    return@queueScript delayScript(player, 3) // Delay for 3 seconds
+                    sendMessage(player, "You dig a hole...")
+                    openOverlay(player, FADE_START)
+                    return@queueScript delayScript(player, 3)
                 }
 
                 1 -> {
-                    closeOverlay(player) // Close the overlay
-                    openInterface(player, FADE_END) // Start fade-out effect
-                    teleport(player, Location(2697, 10119, 0), TeleportManager.TeleportType.INSTANT) // Teleport player to cavern
-                    return@queueScript keepRunning(player) // Continue the script
+                    closeOverlay(player)
+                    openInterface(player, FADE_END)
+                    teleport(player, Location(2697, 10119, 0), TeleportManager.TeleportType.INSTANT)
+                    return@queueScript keepRunning(player)
                 }
 
                 2 -> {
-                    playAudio(player, Sounds.STUNNED_2727) // Play stunned sound effect
-                    visualize(player, NULL, Graphic(Graphics.STUN_BIRDIES_ABOVE_HEAD_80, 96)) // Visual effect for player
-                    sendMessage(player, "...And fall into a dark and slimy pit!") // Notify player of falling
-                    return@queueScript stopExecuting(player) // Stop the script
+                    playAudio(player, Sounds.STUNNED_2727)
+                    visualize(player, NULL, Graphic(Graphics.STUN_BIRDIES_ABOVE_HEAD_80, 96))
+                    sendMessage(player, "...And fall into a dark and slimy pit!")
+                    return@queueScript stopExecuting(player)
                 }
 
-                else -> return@queueScript stopExecuting(player) // Stop the script for any other stage
+                else -> return@queueScript stopExecuting(player)
             }
         }
     }
@@ -85,38 +85,38 @@ class SlayerListeners : InteractionListener {
         // Define listeners for digging locations
         for (location in SVENS_DIG_LOCATIONS) {
             onDig(location) { player: Player ->
-                enterCavern(player) // Call enterCavern when player digs
+                enterCavern(player)
             }
         }
 
         // Listener for trapdoor interaction
         on(TRAPDOOR, IntType.SCENERY, "open") { player, _ ->
-            teleport(player, Location(2044, 4649, 0), TeleportManager.TeleportType.INSTANT) // Teleport player through trapdoor
-            return@on true // Indicate successful interaction
+            teleport(player, Location(2044, 4649, 0), TeleportManager.TeleportType.INSTANT)
+            return@on true
         }
 
         // Listener for ladder interaction
         on(LADDER, IntType.SCENERY, "climb-up") { player, _ ->
-            teleport(player, Location(2543, 3327, 0), TeleportManager.TeleportType.INSTANT) // Teleport player up the ladder
-            return@on true // Indicate successful interaction
+            teleport(player, Location(2543, 3327, 0), TeleportManager.TeleportType.INSTANT)
+            return@on true
         }
 
         // Listener for stairs interaction
         on(STAIRS, IntType.SCENERY, "climb-up") { player, _ ->
-            ClimbActionHandler.climb(player, null, Location(2649, 9804, 0)) // Handle climbing action for stairs
-            return@on true // Indicate successful interaction
+            ClimbActionHandler.climb(player, null, Location(2649, 9804, 0))
+            return@on true
         }
 
         // Listener for second stairs interaction
         on(STAIRS_2, IntType.SCENERY, "climb-up") { player, _ ->
-            ClimbActionHandler.climb(player, null, Location(2641, 9763, 0)) // Handle climbing action for second stairs
-            return@on true // Indicate successful interaction
+            ClimbActionHandler.climb(player, null, Location(2641, 9763, 0))
+            return@on true
         }
 
         // Listener for cave entrance interaction
         on(CAVE_ENTRANCE, IntType.SCENERY, "enter") { player, _ ->
-            if (!hasRequirement(player, "Cabin Fever")) return@on true // Check if player meets requirements
-            teleport(player, Location(3748, 9373, 0), TeleportManager.TeleportType.INSTANT) // Teleport player into the cave
+            if (!hasRequirement(player, "Cabin Fever")) return@on true
+            teleport(player, Location(3748, 9373, 0), TeleportManager.TeleportType.INSTANT)
             return@on true // Indicate successful interaction
         }
 

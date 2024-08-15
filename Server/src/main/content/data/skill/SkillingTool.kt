@@ -409,6 +409,7 @@ enum class SkillingTool(@JvmField val id: Int, val level: Int, @JvmField val rat
             return tool
         }
 
+        @JvmStatic
         fun getFiremakingTool(player: Player): SkillingTool? {
             var tool: SkillingTool? = null
             val bowPriority = arrayOf(

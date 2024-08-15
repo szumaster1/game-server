@@ -178,7 +178,7 @@ public final class SlayerMasterDialogue extends Dialogue {
             case 999:
                 end();
                 break;
-            case -1: // vannaka - has options for achievement diary
+            case -1:
                 if (!SlayerManager.getInstance(player).hasStarted()) {
                     options("Who are you?", "Do you have anything for trade?", "Er...nothing...", "I have a question about my Achievement Diary.");
                     stage = 1;

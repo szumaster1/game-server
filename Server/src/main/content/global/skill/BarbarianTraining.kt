@@ -29,6 +29,8 @@ object BarbarianTraining {
     /*
      * Barbarian training - firemaking attributes.
      */
+    @JvmField
     val BARBARIAN_FIREMAKING_TUTORIAL = "barbtraining:firemaking-start"
+    @JvmField
     val BARBARIAN_FIREMAKING_COMPLETE = "barbtraining:firemaking"
 }
