@@ -56,8 +56,8 @@ class MiningPulse(private val player: Player, private val node: Node) : Pulse(1,
      * @param player
      * @param type
      */
-    fun message(player : Player, type : Int){
-        if(type == 0)
+    fun message(player: Player, type: Int) {
+        if (type == 0)
             return sendMessage(player, "You swing your pickaxe at the rock.")
     }
 
@@ -144,7 +144,10 @@ class MiningPulse(private val player: Player, private val node: Node) : Pulse(1,
                 sendDialogue(player, "Your inventory is too full to hold any more granite.")
                 return false
             }
-            sendDialogue(player, "Your inventory is too full to hold any more ${ItemDefinition.forId(resource!!.reward).name.lowercase()}.")
+            sendDialogue(
+                player,
+                "Your inventory is too full to hold any more ${ItemDefinition.forId(resource!!.reward).name.lowercase()}."
+            )
             return false
         }
         return true
@@ -155,13 +158,18 @@ class MiningPulse(private val player: Player, private val node: Node) : Pulse(1,
      *
      */
     fun animate() {
-        animate(player, (if (resource?.id != 2491 || resource?.id != 16684) SkillingTool.getPickaxe(player)!!.animation else SkillingTool.getPickaxe(player)!!.animation.id + 6128))
+        animate(
+            player,
+            (if (resource?.id != 2491 || resource?.id != 16684) SkillingTool.getPickaxe(player)!!.animation else SkillingTool.getPickaxe(
+                player
+            )!!.animation.id + 6128)
+        )
     }
 
     /**
      * Reward
      *
-     * @return
+     * @return Boolean indicating success or failure of reward processing
      */
     fun reward(): Boolean {
         if (!checkReward()) {
@@ -251,7 +259,10 @@ class MiningPulse(private val player: Player, private val node: Node) : Pulse(1,
                     val gem = GEM_REWARDS.random()
                     sendMessage(player, "You find a ${gem.name}!")
                     if (freeSlots(player) == 0) {
-                        sendMessage(player, "You do not have enough space in your inventory, so you drop the gem on the floor.")
+                        sendMessage(
+                            player,
+                            "You do not have enough space in your inventory, so you drop the gem on the floor."
+                        )
                     }
                     addItemOrDrop(player, gem.id)
                 }
@@ -260,7 +271,7 @@ class MiningPulse(private val player: Player, private val node: Node) : Pulse(1,
             /**
              * Handing limestone.
              */
-            if(resource!!.id == 4030 && !isMiningEssence && resource!!.respawnRate != 0) {
+            if (resource!!.id == 4030 && !isMiningEssence && resource!!.respawnRate != 0) {
                 removeScenery(node as Scenery)
                 GameWorld.Pulser.submit(object : Pulse(resource!!.respawnDuration, player) {
                     override fun pulse(): Boolean {
@@ -276,7 +287,11 @@ class MiningPulse(private val player: Player, private val node: Node) : Pulse(1,
              * Transform ore to depleted version.
              */
             if (!isMiningEssence && resource!!.respawnRate != 0) {
-                SceneryBuilder.replace(node as Scenery, Scenery(resource!!.emptyId, node.getLocation(), node.type, node.rotation), resource!!.respawnDuration)
+                SceneryBuilder.replace(
+                    node as Scenery,
+                    Scenery(resource!!.emptyId, node.getLocation(), node.type, node.rotation),
+                    resource!!.respawnDuration
+                )
                 node.setActive(false)
                 return true
             }
@@ -292,14 +307,22 @@ class MiningPulse(private val player: Player, private val node: Node) : Pulse(1,
          */
         if (!isMiningEssence && player.achievementDiaryManager.getDiary(DiaryType.VARROCK)!!.level != -1) {
             when (reward) {
-                Items.CLAY_434, Items.COPPER_ORE_436, Items.TIN_ORE_438, Items.LIMESTONE_3211, Items.BLURITE_ORE_668, Items.IRON_ORE_440, Items.ELEMENTAL_ORE_2892, Items.SILVER_ORE_442, Items.COAL_453 -> if (player.achievementDiaryManager.armour >= 0 && RandomFunction.random(100) <= 4) {
+                Items.CLAY_434, Items.COPPER_ORE_436, Items.TIN_ORE_438, Items.LIMESTONE_3211, Items.BLURITE_ORE_668, Items.IRON_ORE_440, Items.ELEMENTAL_ORE_2892, Items.SILVER_ORE_442, Items.COAL_453 -> if (player.achievementDiaryManager.armour >= 0 && RandomFunction.random(
+                        100
+                    ) <= 4
+                ) {
                     amount += 1
                     sendMessage(player, "The Varrock armour allows you to mine an additional ore.")
                 }
-                Items.GOLD_ORE_444, Items.GRANITE_500G_6979, Items.GRANITE_2KG_6981, Items.GRANITE_5KG_6983, Items.MITHRIL_ORE_447 -> if (player.achievementDiaryManager.armour >= 1 && RandomFunction.random(100) <= 3) {
+
+                Items.GOLD_ORE_444, Items.GRANITE_500G_6979, Items.GRANITE_2KG_6981, Items.GRANITE_5KG_6983, Items.MITHRIL_ORE_447 -> if (player.achievementDiaryManager.armour >= 1 && RandomFunction.random(
+                        100
+                    ) <= 3
+                ) {
                     amount += 1
                     sendMessage(player, "The Varrock armour allows you to mine an additional ore.")
                 }
+
                 Items.ADAMANTITE_ORE_449 -> if (player.achievementDiaryManager.armour >= 2 && RandomFunction.random(100) <= 2) {
                     amount += 1
                     sendMessage(player, "The Varrock armour allows you to mine an additional ore.")

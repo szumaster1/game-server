@@ -8,7 +8,8 @@ import core.game.system.task.Pulse
 import core.tools.StringUtils
 
 /**
- * Ship travel pulse
+ * Represents a pulse used to travel a player to a location.
+ * @author Vexia
  *
  * @param player Represents the player associated with the ship.
  * @param ship Represents the ship that is being traveled.
@@ -32,6 +33,9 @@ class ShipTravelPulse(private val player: Player, private val ship: Ships) : Pul
         return false
     }
 
+    /**
+     * Method used to arrive at a location.
+     */
     private fun arrive() {
         unlock(player)
         setVarp(player, 75, 0)
@@ -58,6 +62,9 @@ class ShipTravelPulse(private val player: Player, private val ship: Ships) : Pul
         }
     }
 
+    /**
+     * Method used to prepare the player.
+     */
     private fun prepare() {
         lock(player, ship.delay + 1)
         openInterface(player, Components.SHIP_MAP_299)

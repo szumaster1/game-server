@@ -13,6 +13,7 @@ import core.tools.StringUtils
 
 /**
  * Trader crewmember dialogue.
+ * @author Vexia
  */
 @Initializable
 class TraderCrewmemberDialogue (player: Player? = null) : Dialogue(player) {

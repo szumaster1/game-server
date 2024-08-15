@@ -56,6 +56,14 @@ class WoodcuttingListener : InteractionListener {
         )
     }
 
+    /**
+     * Handle woodcutting
+     *
+     * @param player The player who is performing the woodcutting action
+     * @param node The tree or wood source being cut down
+     * @param state The current state of the woodcutting process
+     * @return A result indicating the success or failure of the woodcutting action
+     */
     private fun handleWoodcutting(player: Player, node: Node, state: Int): Boolean {
         val resource = WoodcuttingNode.forId(node.id)
         val tool = SkillingTool.getHatchet(player)
@@ -80,7 +88,8 @@ class WoodcuttingListener : InteractionListener {
 
             if (tool.id == Items.INFERNO_ADZE_13661 && RandomFunction.roll(4)) {
                 sendMessage(player, "You chop some logs. The heat of the inferno adze incinerates them.")
-                Projectile.create(player, null, 1776, 35, 30, 20, 25).transform(player, player.location.transform(2, 0, 0), true, 25, 25).send()
+                Projectile.create(player, null, 1776, 35, 30, 20, 25)
+                    .transform(player, player.location.transform(2, 0, 0), true, 25, 25).send()
 
                 /**
                  * Add woodcutting experience.
@@ -160,7 +169,7 @@ class WoodcuttingListener : InteractionListener {
          * RS3 : https://runescape.wiki/w/Woodcutting scroll down to the mechanics section, and expand the tree felling chances table
          */
         if (resource.respawnRate > 0) {
-            if (RandomFunction.roll(8) || listOf(1, 2, 3, 4, 6, 19).contains(resource.identifier.toInt())){
+            if (RandomFunction.roll(8) || listOf(1, 2, 3, 4, 6, 19).contains(resource.identifier.toInt())) {
                 if (resource.isFarming) {
                     val fPatch = forObject(node.asScenery())
                     if (fPatch != null) {
@@ -197,7 +206,7 @@ class WoodcuttingListener : InteractionListener {
     /**
      * Animate woodcutting
      *
-     * @param player
+     * @param player The player who is performing the woodcutting action
      */
     fun animateWoodcutting(player: Player) {
         if (!player.animator.isAnimating) {
@@ -216,10 +225,10 @@ class WoodcuttingListener : InteractionListener {
     /**
      * Check woodcutting requirements
      *
-     * @param player
-     * @param resource
-     * @param node
-     * @return
+     * @param player The player attempting to cut wood
+     * @param resource The type of wood resource being cut
+     * @param node The specific node from which the wood is being cut
+     * @return True if the player meets the requirements, otherwise false
      */
     fun checkWoodcuttingRequirements(player: Player, resource: WoodcuttingNode, node: Node): Boolean {
         var regionId = player.location.regionId

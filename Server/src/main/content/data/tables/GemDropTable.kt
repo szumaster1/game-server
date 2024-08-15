@@ -20,7 +20,8 @@ import javax.xml.parsers.DocumentBuilderFactory
 import javax.xml.parsers.ParserConfigurationException
 
 /**
- * Gem drop table.
+ * Handles the gem drop table.
+ * @author Von Hresvelg
  */
 class GemDropTable: StartupListener {
 

@@ -11,6 +11,7 @@ import core.tools.END_DIALOGUE
 
 /**
  * Aabla dialogue.
+ * @author szumaster
  */
 @Initializable
 class AablaDialogue(player: Player? = null) : Dialogue(player) {

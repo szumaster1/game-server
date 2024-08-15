@@ -12,6 +12,7 @@ import core.tools.RandomFunction
 
 /**
  * SkippyNPC class representing the behavior of Skippy NPC.
+ * @author szumaster
  */
 class SkippyNPC : NPCBehavior(2795) {
 

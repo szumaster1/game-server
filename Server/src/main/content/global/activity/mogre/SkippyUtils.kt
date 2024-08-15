@@ -2,6 +2,7 @@ package content.global.activity.mogre
 
 /**
  * Object containing utility constants related to Skippy and the Mogres activity.
+ * @author szumaster
  */
 object SkippyUtils {
     // Variable representing the progress of Skippy and the Mogres activity

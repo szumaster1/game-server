@@ -7,6 +7,7 @@ import core.tools.RandomFunction
 
 /**
  * This class represents broken items that can be repaired.
+ * @author szumaster
  */
 object BrokenItem {
     // List of broken arrows

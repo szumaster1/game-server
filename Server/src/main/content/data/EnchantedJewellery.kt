@@ -19,8 +19,7 @@ import core.game.world.update.flag.context.Graphic
 import core.tools.NumberConverter
 
 /**
- * Enchanted jewellery.
- * Contains options, locations, and IDs for each jewelry type.
+ * Represents an enchanted jewellery.
  * @author Vexia, downthecrop, Player Name
  */
 enum class EnchantedJewellery(val options: Array<String>, val locations: Array<Location>, crumble: Boolean, vararg val ids: Int) {

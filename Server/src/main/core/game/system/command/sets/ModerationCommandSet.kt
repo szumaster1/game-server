@@ -4,7 +4,7 @@ import core.ServerConstants
 import core.ServerStore
 import core.ServerStore.Companion.addToList
 import core.api.sendMessage
-import core.auth.UserAccountInfo
+import core.api.auth.UserAccountInfo
 import core.game.node.entity.player.Player
 import core.game.node.entity.player.info.Rights
 import core.game.system.command.CommandMapping

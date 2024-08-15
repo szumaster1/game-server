@@ -20,7 +20,8 @@ import javax.xml.parsers.DocumentBuilderFactory
 import javax.xml.parsers.ParserConfigurationException
 
 /**
- * Rare seed drop table.
+ * Handles the rare seed drop table.
+ * @author Von Hresvelg
  */
 class RareSeedDropTable: StartupListener {
 

@@ -4,14 +4,8 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
 /**
- * Smithing type enum class.
- *
- * @param requiredBar the required bar id (int).
- * @param childId child id of smithing interafce.
- * @param nameId the name id.
- * @param button the button id.
- * @param productAmount the product amount.
- * @return Smithing type.
+ * Represents a type of smithing.
+ * @author Emperor
  */
 enum class SmithingType(
     val requiredBar: Int,

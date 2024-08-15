@@ -4,7 +4,8 @@ import core.api.consts.Items
 import core.game.node.item.Item
 
 /**
- * Lamps enum class.
+ * Represents an experience lamp.
+ * @author Vexia
  *
  * @param item The item ID of the lamp.
  * @param experience The amount of experience gained from using the lamp.

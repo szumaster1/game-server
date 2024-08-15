@@ -1,6 +1,6 @@
 package content.region.kandarin.dialogue.piscatoris
 
-import content.region.kandarin.travel.RowingBoat
+import content.region.kandarin.handlers.RowingBoat
 import core.api.*
 import core.api.consts.Items
 import core.api.consts.NPCs

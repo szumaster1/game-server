@@ -1,6 +1,6 @@
 package core.game.system.communication;
 
-import core.auth.UserAccountInfo;
+import core.api.auth.UserAccountInfo;
 import core.cache.misc.buffer.ByteBufferUtils;
 import core.game.node.entity.player.Player;
 import core.game.system.mysql.SQLTable;

@@ -3,7 +3,7 @@ package core.worker
 import com.google.protobuf.Message
 import core.ServerConstants
 import core.api.sendMessage
-import core.auth.UserAccountInfo
+import core.api.auth.UserAccountInfo
 import core.game.system.communication.ClanEntry
 import core.game.system.communication.ClanRank
 import core.game.system.communication.ClanRepository

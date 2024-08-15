@@ -4,6 +4,7 @@ import core.api.consts.Items
 
 /**
  * Bar type enum class.
+ * @author Emperor
  *
  * @param bar the bar id.
  * @param experience the experience.

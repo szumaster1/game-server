@@ -20,7 +20,8 @@ import javax.xml.parsers.DocumentBuilderFactory
 import javax.xml.parsers.ParserConfigurationException
 
 /**
- * Herb drop table.
+ * Handles the herb drop table.
+ * @author Von Hresvelg
  */
 class HerbDropTable: StartupListener {
 

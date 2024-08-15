@@ -5,10 +5,9 @@ import core.api.toIntArray
 import core.cache.def.impl.ItemDefinition
 
 /**
- * Charged item
- *
- * @param ids - The array of item IDs for this charged item
- * @constructor Charged item
+ * Represents a distinct charged item, i.e. items with (#).
+ * Not to be confused with items with internal charge, like degradation.
+ * @author RiL
  */
 enum class ChargedItem(val ids: IntArray) {
     /**

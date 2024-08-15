@@ -5,13 +5,8 @@ import core.game.node.entity.player.Player
 
 /**
  * Bars enum class.
- *
- * @param barType      the bar type.
- * @param smithingType the smithing type.
- * @param product      the product id.
- * @param level        the level.
- * @return Create Bars.
- */
+ * @author Emperor, Vexia
+*/
 enum class Bars(
     val barType: BarType,
     val smithingType: SmithingType,

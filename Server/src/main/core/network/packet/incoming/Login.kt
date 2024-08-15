@@ -6,7 +6,7 @@ import core.ServerStore;
 import core.ServerStore.Companion.addToList;
 import core.ServerStore.Companion.getList;
 import core.api.log;
-import core.auth.AuthResponse;
+import core.api.auth.AuthResponse;
 import core.cache.crypto.ISAACCipher;
 import core.cache.crypto.ISAACPair;
 import core.cache.misc.buffer.ByteBufferUtils;

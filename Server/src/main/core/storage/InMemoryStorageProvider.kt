@@ -1,6 +1,6 @@
 package core.storage
 
-import core.auth.UserAccountInfo
+import core.api.auth.UserAccountInfo
 
 /**
  * In memory storage provider.

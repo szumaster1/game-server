@@ -17,7 +17,7 @@ class GatheringListener : InteractionListener {
     }
 
     /**
-     * Fish
+     * Handling fishing in Etceteria region.
      *
      * @param player The player who is attempting to fish.
      * @param node The fishing node where the player is fishing.

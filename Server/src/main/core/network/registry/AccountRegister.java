@@ -1,7 +1,7 @@
 package core.network.registry;
 
 import core.ServerConstants;
-import core.auth.UserAccountInfo;
+import core.api.auth.UserAccountInfo;
 import core.cache.misc.buffer.ByteBufferUtils;
 import core.game.system.task.Pulse;
 import core.game.world.GameWorld;

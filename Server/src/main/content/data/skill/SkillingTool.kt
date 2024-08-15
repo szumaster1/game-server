@@ -279,7 +279,27 @@ enum class SkillingTool(@JvmField val id: Int, val level: Int, @JvmField val rat
     /**
      * Represents the sacred clay bow (Firemaking).
      */
-    SACRED_CLAY_BOW(id = Items.SACRED_CLAY_BOW_14121, level = 1, ratio = 1.00, animation = Animation(10990));
+    SACRED_CLAY_BOW(id = Items.SACRED_CLAY_BOW_14121, level = 1, ratio = 1.00, animation = Animation(10990)),
+
+    /**
+     * Represents a standard machete (woodcutting).
+     */
+    MACHETE(id = Items.MACHETE_975, level = 1, ratio = 0.24, animation = Animation(2382)),
+
+    /**
+     * Represents an opal machete (woodcutting).
+     */
+    OPAL_MACHETE(id = Items.OPAL_MACHETE_6313, level = 1, ratio = 0.26, animation = Animation(6085)),
+
+    /**
+     * Represents a jade machete (woodcutting).
+     */
+    JADE_MACHETE(id = Items.JADE_MACHETE_6315, level = 1, ratio = 0.32, animation = Animation(6086)),
+
+    /**
+     * Represents a red topaz machete (woodcutting).
+     */
+    RED_TOPAZ_MACHETE(id = Items.RED_TOPAZ_MACHETE_6317, level = 1, ratio = 0.38, animation = Animation(6087));
 
     companion object {
         fun forId(itemId: Int): SkillingTool? {
@@ -417,6 +437,23 @@ enum class SkillingTool(@JvmField val id: Int, val level: Int, @JvmField val rat
             return tool
         }
 
+        fun getMachete(player: Player?): SkillingTool? {
+            var tool: SkillingTool? = null
+            val machetePriority = arrayOf(
+                RED_TOPAZ_MACHETE,
+                JADE_MACHETE,
+                OPAL_MACHETE,
+                MACHETE
+            )
+            for (machete in machetePriority) {
+                if (checkTool(player!!, Skills.WOODCUTTING, machete)) {
+                    tool = machete
+                    break
+                }
+            }
+
+            return tool
+        }
 
         fun getToolForSkill(player: Player, skill: Int): SkillingTool? {
             return when (skill) {

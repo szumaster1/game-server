@@ -4,7 +4,7 @@ import core.game.node.entity.player.Player
 import core.game.world.map.Location
 
 /**
- * Ships
+ * Represents a ship to travel on.
  *
  * @param location Represents the current location of the ship.
  * @param config Configuration settings for the ship.

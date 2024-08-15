@@ -10,7 +10,7 @@ import core.tools.minutesToTicks
 import core.tools.secondsToTicks
 
 /**
- * Consumables.
+ * Represents a repository of active consumables in the framework.
  */
 enum class Consumables {
     /**

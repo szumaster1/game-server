@@ -4,11 +4,12 @@ import core.api.consts.Items;
 import core.game.node.item.Item;
 
 /**
- * Repair item.
+ * Represents the repair item type.
+ * @author Vexia
  *
- * @param item    The broken item to be repaired.
+ * @param item The broken item to be repaired.
  * @param product The repaired item.
- * @param cost    The cost of repairing the item.
+ * @param cost The cost of repairing the item.
  * @constructor Repair item
  */
 enum class RepairItem(val item: Item, val product: Item, val cost: Int) {

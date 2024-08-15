@@ -2727,6 +2727,27 @@ enum class MiningNode(
     GEM_ROCK_5(23562, 21298, 13.toByte()),
 
     /**
+     * Gem Rock 6 (uncut Opal)
+     *
+     * @constructor Gem Rock 6
+     */
+    GEM_ROCK_6(9030, 9010, 13.toByte()),
+
+    /**
+     * Gem Rock 7 (uncut Jade)
+     *
+     * @constructor Gem Rock 7
+     */
+    GEM_ROCK_7(9031, 9015, 13.toByte()),
+
+    /**
+     * Gem Rock 8 (uncut Red Topaz)
+     *
+     * @constructor Gem Rock 8
+     */
+    GEM_ROCK_8(9032, 9020, 13.toByte()),
+
+    /**
      * Rune Essence 0
      *
      * @constructor Rune Essence 0

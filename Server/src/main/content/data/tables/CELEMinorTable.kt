@@ -20,7 +20,8 @@ import javax.xml.parsers.DocumentBuilderFactory
 import javax.xml.parsers.ParserConfigurationException
 
 /**
- * Chaos elemental mnior table.
+ * Handles the Chaos Elemental's minor drop table. It is supposed to roll this table alongside its standard major drops on the main table.
+ * @author Crash
  */
 class CELEMinorTable : StartupListener {
 

@@ -1,6 +1,6 @@
 package core.storage
 
-import core.auth.UserAccountInfo
+import core.api.auth.UserAccountInfo
 import core.game.system.communication.CommunicationInfo
 import core.game.world.repository.Repository
 import java.lang.Long.max

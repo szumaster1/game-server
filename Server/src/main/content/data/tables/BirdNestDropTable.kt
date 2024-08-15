@@ -12,7 +12,8 @@ import core.tools.RandomFunction
 import core.tools.StringUtils
 
 /**
- * Bird nest drop table.
+ * Represents a birds nest.
+ * @author Vexia
  */
 enum class BirdNestDropTable(val nest: ChanceItem, vararg loot: ChanceItem) {
     RED(

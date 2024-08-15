@@ -3,7 +3,7 @@ package core
 import content.minigame.castlewars.CastleWars
 import core.game.system.SystemShutdownHook
 import core.game.world.map.Location
-import core.integration.mysql.Database
+import core.api.integration.mysql.Database
 import core.tools.LogLevel
 import core.tools.secondsToTicks
 import java.math.BigInteger
@@ -214,6 +214,8 @@ class ServerConstants {
             arrayOf(Location.create(3180, 3684, 0), "bounty hunter", "bh"),
             arrayOf(Location.create(3272, 3687, 0), "clan wars", "clw"),
             arrayOf(Location.create(3090, 3957, 0), "mage arena", "mage", "magearena", "arena"),
+            arrayOf(Location.create(2801, 3080, 0), "tbw", "tai bwo wannai"),
+            arrayOf(Location.create(3676, 2982, 0), "mos le'harmless", "mos leharmless", "mlh"),
             arrayOf(Location.create(3069, 10257, 0), "king black dragon", "kbd"),
             arrayOf(Location.create(3359, 3416, 0), "digsite"),
             arrayOf(Location.create(3488, 3489, 0), "canifis"),
@@ -241,6 +243,8 @@ class ServerConstants {
             arrayOf(Location.create(2328, 3677, 0), "piscatoris"),
             arrayOf(Location.create(2660, 3158, 0), "fishing trawler", "trawler"),
             arrayOf(Location.create(2800, 3667, 0), "mountain camp"),
+            arrayOf(Location.create(2544, 3759, 0), "waterbirth"),
+            arrayOf(Location.create(2899, 4450, 0), "dks"),
             arrayOf(Location.create(2575, 3250, 0), "clocktower"),
             arrayOf(
                 CastleWars.lobbyBankArea.randomLoc,

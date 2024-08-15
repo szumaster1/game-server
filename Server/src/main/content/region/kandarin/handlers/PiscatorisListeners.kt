@@ -1,6 +1,5 @@
 package content.region.kandarin.handlers
 
-import content.region.kandarin.travel.RowingBoat
 import core.api.*
 import core.api.consts.Animations
 import core.api.consts.Items

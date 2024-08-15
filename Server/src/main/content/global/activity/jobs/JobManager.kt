@@ -21,6 +21,8 @@ import java.lang.Integer.min
 
 /**
  * Manages the player's job data & progression.
+ *
+ * @source https://runescape.wiki/w/Jobs?oldid=831782
  */
 class JobManager(val player: Player? = null) : LoginListener, PersistPlayer {
     var job: Job? = null

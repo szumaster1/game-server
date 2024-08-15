@@ -1,6 +1,7 @@
 package core.game.system.command.sets
 
 import content.global.activity.jobs.JobManager
+import content.minigame.tbwcleanup.changeSpawnChance
 import core.api.*
 import core.api.consts.Items
 import core.cache.Cache
@@ -314,6 +315,31 @@ class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {
         define(name = "interface", privilege = Privilege.ADMIN, usage = "::interface <lt>Interface ID<gt>") { player, args ->
             val interfaceInt = args[1].toInt()
             openInterface(player,interfaceInt)
+        }
+
+        define("set_tbwfp", Privilege.ADMIN, "::set_tbwfp <lt>Points<gt>", "Changes your TBW cleanup points to the input number (1000=100%).") { player: Player, args: Array<String> ->
+            if(args.size != 2){
+                reject(player,"Usage: ::set_tbwfp favourPercentage")
+            }
+
+            val favourPoints = args[1].toInt()
+            player.setAttribute("/save:tbwcleanup", favourPoints)
+            sendMessage(player, "You now have ${favourPoints.toDouble()/10}% Tai Bwo Wannai Favour.")
+
+        }
+
+        define("get_tbwfp", Privilege.ADMIN, "::get_tbwfp", "Prints your current TBW cleanup points.") { player: Player, args: Array<String> ->
+            sendMessage(player, "You have ${player.getAttribute("/save:tbwcleanup", 0).toDouble()/10}% Tai Bwo Wannai Favour.")
+        }
+
+        define("tbwceventodds", Privilege.ADMIN, "::tbwceventodds <lt>Chance<gt>", "Changes the chance of an event triggering when hacking a jungle plant.<br>Chance per tick is input_value / 1000. (Realistic is around 15") { player: Player, args: Array<String> ->
+            if(args.size != 2){
+                reject(player,"Usage: ::tbwceventodds chance")
+            }
+
+            val chance = args[1].toInt()
+            changeSpawnChance(chance)
+            sendMessage(player, "TBW cleanup events now spawn with odds ${chance}/1000 per tick for players on this server.")
         }
     }
 }

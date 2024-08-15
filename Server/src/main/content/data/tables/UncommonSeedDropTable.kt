@@ -20,7 +20,8 @@ import javax.xml.parsers.DocumentBuilderFactory
 import javax.xml.parsers.ParserConfigurationException
 
 /**
- * Uncommon seed drop table.
+ * Handles the uncommon seed drop table.
+ * @author Von Hresvelg
  */
 class UncommonSeedDropTable: StartupListener {
 

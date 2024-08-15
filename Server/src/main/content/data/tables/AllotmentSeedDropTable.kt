@@ -21,6 +21,7 @@ import javax.xml.parsers.ParserConfigurationException
 
 /**
  * Allotment seed drop table.
+ * @author Von Hresvelg
  */
 class AllotmentSeedDropTable : StartupListener {
 

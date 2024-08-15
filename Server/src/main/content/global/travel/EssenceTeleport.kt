@@ -18,10 +18,13 @@ import core.game.world.update.flag.context.Graphic
 import core.tools.RandomFunction
 
 /**
- * Essence teleport.
+ * Represents a utilitity class for rune essence teleporting.
+ * @author Vexia
  */
 object EssenceTeleport {
-
+    /**
+     * Array of all the possible `Location` locations.
+     */
     val LOCATIONS = arrayOf(
         Location.create(2911, 4832, 0),
         Location.create(2913, 4837, 0),
@@ -31,12 +34,21 @@ object EssenceTeleport {
         Location.create(2922, 4820, 0),
         Location.create(2931, 4813, 0)
     )
+
+    /**
+     * Represents constants used for gfx/animation
+     */
     private const val CURSE_PROJECTILE = 109
     private val ANIMATION = Animation(437)
     private val OLD_ANIMATION = Animation(198)
     private val GLOWING_HANDS_GFX = Graphic(108)
     private val TELEPORT_GFX = Graphic(110, 150)
 
+    /**
+     * Method used to teleport a player.
+     * @param npc the npc.
+     * @param player the player.
+     */
     @JvmStatic
     fun teleport(npc: NPC, player: Player) {
         if (!isQuestComplete(player, "Rune Mysteries")) return sendMessage(
@@ -91,6 +103,10 @@ object EssenceTeleport {
         })
     }
 
+    /**
+     * Method used to teleport back to the home.
+     * @param player the prayer.
+     */
     @JvmStatic
     fun home(player: Player, node: Node) {
         val wizard = Wizard.forNPC(player.savedData.globalData.getEssenceTeleporter())
@@ -127,6 +143,9 @@ object EssenceTeleport {
             return LOCATIONS[count]
         }
 
+    /**
+     * Represents the wizard npc who can teleport.
+     */
     enum class Wizard(val npc: Int, val mask: Int, val location: Location) {
         BRIMSTAIL(171, 0x1, Location.create(2409, 9815, 0)),
         AUBURY(553, 0x2, Location(3253, 3401, 0)),
@@ -135,6 +154,11 @@ object EssenceTeleport {
         CROMPERTY(2328, 0x12, Location.create(2682, 3323, 0));
 
         companion object {
+            /**
+             * Method used to get a wizard by the npc.
+             * @param npc the npc.
+             * @return the wizard.
+             */
             fun forNPC(npc: Int): Wizard {
                 for (wizard in values()) {
                     if (npc == 844) {

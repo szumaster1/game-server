@@ -16,8 +16,7 @@ import core.tools.START_DIALOGUE
 import core.tools.StringUtils
 
 /**
- * The dialogue file to handle a player asking about work
- * with any employer which they aren't currently working for.
+ * The dialogue file to handle a player asking about work with any employer which they aren't currently working for.
  */
 class StartJobDialogueFile : DialogueFile() {
     companion object {

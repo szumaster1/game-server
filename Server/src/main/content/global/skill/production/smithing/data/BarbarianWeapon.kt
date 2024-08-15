@@ -3,7 +3,8 @@ package content.global.skill.production.smithing.data
 import core.api.consts.Items
 
 /**
- * Enum class for Barbarian weapons.
+ * Represents a type of Barbarian weapons.
+ * @author szumaster
  *
  * @param requiredWood  required wood type.
  * @param requiredBar   required bar type.

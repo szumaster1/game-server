@@ -1,6 +1,6 @@
 package core.game.node.entity.player.info;
 
-import core.auth.UserAccountInfo;
+import core.api.auth.UserAccountInfo;
 import core.game.system.communication.CommunicationInfo;
 import core.game.world.GameWorld;
 import core.network.IoSession;

@@ -18,8 +18,8 @@ import core.tools.START_DIALOGUE
 import core.tools.StringUtils
 
 /**
- * The dialogue file to handle a player asking about work with
- * the employer that assigned them their current job.
+ * The dialogue file to handle a player asking about work with the employer that assigned them
+ * their current job.
  */
 class CheckJobDialogueFile : DialogueFile() {
     companion object {

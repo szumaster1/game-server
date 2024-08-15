@@ -5,12 +5,13 @@ import core.game.node.item.Item
 
 /**
  * Antique item enum class.
+ * @author szumaster
  *
  * @param item     the item id.
  * @param price    the offered price.
  * @param message  the message.
  * @param dialogue the dialogue.
- * @constructor Antique item.
+ * @return Antique item.
  */
 enum class AntiqueItem(val item: Item, val price: Int, val message: String, val dialogue: String){
     /**

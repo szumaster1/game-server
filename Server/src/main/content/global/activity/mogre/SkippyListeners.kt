@@ -8,6 +8,7 @@ import core.game.interaction.InteractionListener
 
 /**
  * Skippy listeners.
+ * @author szumaster
  */
 class SkippyListeners : InteractionListener {
 

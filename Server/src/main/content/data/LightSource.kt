@@ -6,7 +6,8 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
 /**
- * Light source.
+ * Represents a light source.
+ * @author Vexia, Emperor
  *
  * @param level       the required level.
  * @param raw         the raw item id.

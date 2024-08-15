@@ -6,7 +6,7 @@ import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
 import core.game.world.update.flag.context.Animation;
 
-import static core.api.ContentAPIKt.replaceSlot;
+import static core.api.ContentAPIKt.*;
 
 /**
  * Consumable.
@@ -69,20 +69,30 @@ public abstract class Consumable {
      */
     public void consume(final Item item, final Player player) {
         executeConsumptionActions(player);
-        final int nextItemId = getNextItemId(item.getId());
-
-        // STACKABLE + NON-RETURN
-        if (ids.length == 1) {
-            replaceSlot(player, item.getSlot(), new Item(item.getId(), (item.getAmount() - 1)), item, Container.INVENTORY);
-        } else {
-            // ITEM HAS RETURN
-            replaceSlot(player, item.getSlot(), new Item(nextItemId, 1), item, Container.INVENTORY);
-        }
+        handleItemChangesOnConsumption(item, player);
 
         final int initialLifePoints = player.getSkills().getLifepoints();
         Consumables.getConsumableById(item.getId()).consumable.effect.activate(player);
         sendMessages(player, initialLifePoints, item, messages);
     }
+
+    public void handleItemChangesOnConsumption(final Item item, final Player player) {
+        final int nextItemId = getNextItemId(item.getId());
+        if (ids.length == 1) {
+            replaceSlot(player, item.getSlot(), new Item(item.getId(), (item.getAmount() - 1)), item, Container.INVENTORY);
+        } else {
+
+            int spiderOnStickId = 6297;
+            if(item.getId() == spiderOnStickId && inInventory(player,spiderOnStickId,1)) {
+                if (removeItem(player, item, Container.INVENTORY)) {
+                    addItem(player, nextItemId, 1, Container.INVENTORY);
+                }
+            } else {
+                replaceSlot(player, item.getSlot(), new Item(nextItemId, 1), item, Container.INVENTORY);
+            }
+        }
+    }
+
 
     /**
      * Send messages.

@@ -4,7 +4,8 @@ import core.api.consts.Items
 import core.game.node.item.Item
 
 /**
- * Dyes enum.
+ * Represents a dye.
+ * @author Vexia
  *
  * @param item the `Item(Item(Items.ID))` as example.
  */

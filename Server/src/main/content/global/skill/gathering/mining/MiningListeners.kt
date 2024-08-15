@@ -99,15 +99,15 @@ class MiningListeners : InteractionListener {
          */
         onUseWith(IntType.ITEM, PICKAXE_HANDLE, *BROKEN_PICKAXES) { player, used, with ->
             val product = when (used.id) {
-                Items.BRONZE_PICK_HEAD_480  -> Items.BRONZE_PICKAXE_1265
-                Items.IRON_PICK_HEAD_482    -> Items.IRON_PICKAXE_1267
-                Items.STEEL_PICK_HEAD_484   -> Items.STEEL_PICKAXE_1269
+                Items.BRONZE_PICK_HEAD_480 -> Items.BRONZE_PICKAXE_1265
+                Items.IRON_PICK_HEAD_482 -> Items.IRON_PICKAXE_1267
+                Items.STEEL_PICK_HEAD_484 -> Items.STEEL_PICKAXE_1269
                 Items.MITHRIL_PICK_HEAD_486 -> Items.MITHRIL_PICKAXE_1273
                 Items.ADAMANT_PICK_HEAD_488 -> Items.ADAMANT_PICKAXE_1271
-                Items.RUNE_PICK_HEAD_490    -> Items.RUNE_PICKAXE_1275
+                Items.RUNE_PICK_HEAD_490 -> Items.RUNE_PICKAXE_1275
                 else -> 0
             }
-            if(removeItem(player, used.asItem()) && removeItem(player, with.asItem())) {
+            if (removeItem(player, used.asItem()) && removeItem(player, with.asItem())) {
                 replaceSlot(player, used.asItem().slot, Item(product))
                 sendMessage(player, "You carefully reattach the head to the handle.")
                 playAudio(player, Sounds.EYEGLO_COIN_10)
@@ -247,7 +247,10 @@ class MiningListeners : InteractionListener {
                     val gem = GEM_REWARDS.random()
                     sendMessage(player, "You find a ${gem.name}!")
                     if (freeSlots(player) == 0) {
-                        sendMessage(player, "You do not have enough space in your inventory, so you drop the gem on the floor.")
+                        sendMessage(
+                            player,
+                            "You do not have enough space in your inventory, so you drop the gem on the floor."
+                        )
                     }
                     addItemOrDrop(player, gem.id)
                 }
@@ -256,7 +259,7 @@ class MiningListeners : InteractionListener {
             /**
              * Handling limestone.
              */
-            if(resource.id == 4030 && !isEssence && resource.respawnRate != 0) {
+            if (resource.id == 4030 && !isEssence && resource.respawnRate != 0) {
                 removeScenery(node as Scenery)
                 GameWorld.Pulser.submit(object : Pulse(resource.respawnDuration, player) {
                     override fun pulse(): Boolean {
@@ -271,8 +274,20 @@ class MiningListeners : InteractionListener {
             /**
              * Transform ore to depleted version.
              */
-            if (!isEssence && resource.respawnRate != 0) {
-                SceneryBuilder.replace(node as Scenery, Scenery(resource.emptyId, node.getLocation(), node.type, node.rotation), resource.respawnDuration)
+            if (resource.id in 9030..9032) {
+                SceneryBuilder.replaceWithTempBeforeNew(
+                    node.asScenery(),
+                    node.asScenery().transform(resource.emptyId + 4),
+                    node.asScenery().transform(resource.emptyId),
+                    25,
+                    true
+                )
+            } else if (!isEssence && resource!!.respawnRate != 0) {
+                SceneryBuilder.replace(
+                    node as Scenery,
+                    Scenery(resource.emptyId, node.getLocation(), node.type, node.rotation),
+                    resource.respawnDuration
+                )
                 node.setActive(false)
                 return true
             }
@@ -290,7 +305,7 @@ class MiningListeners : InteractionListener {
             when (reward) {
                 Items.CLAY_434, Items.COPPER_ORE_436, Items.TIN_ORE_438, Items.LIMESTONE_3211, Items.BLURITE_ORE_668, Items.IRON_ORE_440, Items.ELEMENTAL_ORE_2892, Items.SILVER_ORE_442, Items.COAL_453 -> if (player.achievementDiaryManager.armour >= 0 && RandomFunction.random(100) < 4) {
                     amount += 1
-                    sendMessage(player,"The Varrock armour allows you to mine an additional ore.")
+                    sendMessage(player, "The Varrock armour allows you to mine an additional ore.")
                 }
                 Items.GOLD_ORE_444, Items.GRANITE_500G_6979, Items.GRANITE_2KG_6981, Items.GRANITE_5KG_6983, Items.MITHRIL_ORE_447 -> if (player.achievementDiaryManager.armour >= 1 && RandomFunction.random(100) < 3) {
                     amount += 1
@@ -319,7 +334,13 @@ class MiningListeners : InteractionListener {
      * If the player is mining sandstone or granite, then get
      * size of sandstone/granite and xp reward for that size.
      */
-    private fun calculateReward(player: Player, resource: MiningNode, isMiningEssence: Boolean, isMiningGems: Boolean, reward: Int): Int {
+    private fun calculateReward(
+        player: Player,
+        resource: MiningNode,
+        isMiningEssence: Boolean,
+        isMiningGems: Boolean,
+        reward: Int
+    ): Int {
         var reward = reward
         if (resource == MiningNode.SANDSTONE || resource == MiningNode.GRANITE) {
             val value = RandomFunction.randomize(if (resource == MiningNode.GRANITE) 3 else 4)
@@ -356,9 +377,9 @@ class MiningListeners : InteractionListener {
     /**
      * Anim
      *
-     * @param player
-     * @param resource
-     * @param tool
+     * @param player The player performing the animation
+     * @param resource The mining resource being interacted with
+     * @param tool The skilling tool used for the animation
      */
     fun anim(player: Player, resource: MiningNode?, tool: SkillingTool) {
         val isEssence = resource!!.id in intArrayOf(2491, 16684)
@@ -369,10 +390,10 @@ class MiningListeners : InteractionListener {
     /**
      * Check requirements
      *
-     * @param player
-     * @param resource
-     * @param node
-     * @return
+     * @param player The player whose requirements are being checked
+     * @param resource The mining resource being checked
+     * @param node The mining node associated with the resource
+     * @return True if requirements are met, otherwise false
      */
     fun checkRequirements(player: Player, resource: MiningNode, node: Node): Boolean {
         if (getDynLevel(player, Skills.MINING) < resource.level) {

@@ -59078,5 +59078,89 @@
     "ids": "7727",
     "description": "Monastery Monks (level-5)",
     "main": []
-  }
+  },
+  {
+    "default": [],
+    "charm": [],
+    "ids": "2493",
+    "description": "Drop table for the Large Mosquito",
+    "main": [
+      {
+        "minAmount": "1",
+        "weight": "100.0",
+        "id": "6319",
+        "maxAmount": "1"
+      }
+    ]
+  },
+  {
+    "default": [],
+    "charm": [],
+    "ids": "2494",
+    "description": "Drop table for the Mosquito Swarm with 3 mosquitos",
+    "main": [
+      {
+        "minAmount": "3",
+        "weight": "100.0",
+        "id": "6319",
+        "maxAmount": "3"
+      }
+    ]
+  },
+  {
+    "default": [],
+    "charm": [],
+    "ids": "2495",
+    "description": "Drop table for the Mosquito Swarm with 5 mosquitos",
+    "main": [
+      {
+        "minAmount": "5",
+        "weight": "100.0",
+        "id": "6319",
+        "maxAmount": "5"
+      }
+    ]
+  },
+  {
+    "default": [
+      {
+        "minAmount": "1",
+        "weight": "100.0",
+        "id": "6335",
+        "maxAmount": "1"
+      }
+    ],
+    "charm": [],
+    "ids": "2499",
+    "description": "Green Broodoo Victim for TBCU",
+    "main": []
+  },
+  {
+    "default": [
+      {
+        "minAmount": "1",
+        "weight": "100.0",
+        "id": "6337",
+        "maxAmount": "1"
+      }
+    ],
+    "charm": [],
+    "ids": "2501",
+    "description": "Yellow Broodoo Victim for TBCU",
+    "main": []
+  },
+  {
+    "default": [
+      {
+        "minAmount": "1",
+        "weight": "100.0",
+        "id": "6339",
+        "maxAmount": "1"
+      }
+    ],
+    "charm": [],
+    "ids": "2503",
+    "description": "White Broodoo Victim for TBCU",
+    "main": []
+  },
 ]

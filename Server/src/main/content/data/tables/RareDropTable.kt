@@ -20,9 +20,8 @@ import javax.xml.parsers.DocumentBuilderFactory
 import javax.xml.parsers.ParserConfigurationException
 
 /**
- * Rare drop table
- *
- * @constructor Create empty Rare drop table
+ * Handles the rare drop table.
+ * @author Ceikry
  */
 class RareDropTable : StartupListener {
 

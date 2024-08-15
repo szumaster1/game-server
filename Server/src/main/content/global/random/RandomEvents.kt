@@ -35,6 +35,7 @@ import core.game.node.entity.skill.Skills
  * @param loot The loot table for the random event.
  * @param skillIds The skill IDs associated with the random event.
  * @param type The type of the random event.
+ * @author Ceikry
  */
 enum class RandomEvents(
     val npc: RandomEventNPC,

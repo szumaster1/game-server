@@ -628,8 +628,92 @@ enum class WoodcuttingNode {
      *
      * @constructor Windswept Tree
      */
-    WINDSWEPT_TREE(18137, 1353, 19.toByte());
+    WINDSWEPT_TREE(18137, 1353, 19.toByte()),
 
+    /**
+     * Light Jungle 1
+     *
+     * @constructor Create empty Light Jungle 1
+     */
+    LIGHT_JUNGLE_1(9010, 9010, 31.toByte()),
+
+    /**
+     * Light Jungle 2
+     *
+     * @constructor Create empty Light Jungle 2
+     */
+    LIGHT_JUNGLE_2(9011, 9010, 31.toByte()),
+
+    /**
+     * Light Jungle 3
+     *
+     * @constructor Create empty Light Jungle 3
+     */
+    LIGHT_JUNGLE_3(9012, 9010, 31.toByte()),
+
+    /**
+     * Light Jungle 4
+     *
+     * @constructor Create empty Light Jungle 4
+     */
+    LIGHT_JUNGLE_4(9013, 9010, 31.toByte()),
+
+    /**
+     * Medium Jungle 1
+     *
+     * @constructor Create empty Medium Jungle 1
+     */
+    MEDIUM_JUNGLE_1(9015, 9015, 32.toByte()),
+
+    /**
+     * Medium Jungle 2
+     *
+     * @constructor Create empty Medium Jungle 2
+     */
+    MEDIUM_JUNGLE_2(9016, 9015, 32.toByte()),
+
+    /**
+     * Medium Jungle 3
+     *
+     * @constructor Create empty Medium Jungle 3
+     */
+    MEDIUM_JUNGLE_3(9017, 9015, 32.toByte()),
+
+    /**
+     * Medium Jungle 4
+     *
+     * @constructor Create empty Medium Jungle 4
+     */
+    MEDIUM_JUNGLE_4(9018, 9015, 32.toByte()),
+
+    /**
+     * Dense Jungle 1
+     *
+     * @constructor Create empty Medium Jungle 2
+     */
+    DENSE_JUNGLE_1(9020, 9020, 33.toByte()),
+
+    /**
+     * Dense Jungle 2
+     *
+     * @constructor Create empty Dense Jungle 1
+     */
+
+    DENSE_JUNGLE_2(9021, 9020, 33.toByte()),
+
+    /**
+     * Dense Jungle 3
+     *
+     * @constructor Create empty Dense Jungle 2
+     */
+    DENSE_JUNGLE_3(9022, 9020, 33.toByte()),
+
+    /**
+     * Dense Jungle 4
+     *
+     * @constructor Create empty Dense Jungle 3
+     */
+    DENSE_JUNGLE_4(9023, 9020, 33.toByte());
 
     var id: Int
     var emptyId: Int
@@ -876,6 +960,8 @@ enum class WoodcuttingNode {
                 level = 40
                 rewardAmount = Int.MAX_VALUE
             }
+
+
         }
     }
 
@@ -929,40 +1015,95 @@ enum class WoodcuttingNode {
                 level = 75
                 rewardAmount = 50
             }
+
+            31 -> { // Just some initial values for testing
+                reward = 6281 // This should be correct
+                respawnRate = 200 or (317 shl 16)
+                rate = 0.2
+                experience = 32.0 // This should be correct
+                level = 10 // This should be correct
+                rewardAmount = 50
+                baseLow = 0.0
+                baseHigh = 9.5
+                tierModLow = 0.065
+                tierModHigh = 0.25
+            }
+
+            32 -> { // Just some initial values for testing
+                reward = 6283 // This should be correct
+                respawnRate = 200 or (317 shl 16)
+                rate = 0.2
+                experience = 55.0 // This should be correct
+                level = 20 // This should be correct
+                rewardAmount = 50
+                baseLow = 0.0
+                baseHigh = 8.0
+                tierModLow = 0.065
+                tierModHigh = 0.25
+            }
+
+            33 -> { // Just some initial values for testing
+                reward = 6285 // This should be correct
+                respawnRate = 200 or (317 shl 16)
+                rate = 0.2
+                experience = 80.0 // This should be correct
+                level = 35 // This should be correct
+                rewardAmount = 50
+                baseLow = 0.0
+                baseHigh = 6.0
+                tierModLow = 0.06
+                tierModHigh = 0.25
+            }
         }
     }
+
+    // Property to get the minimum respawn time by applying a bitwise AND operation with 0xFFFF
     val minimumRespawn: Int
         get() = respawnRate and 0xFFFF
 
+    // Property to get the maximum respawn time by shifting respawnRate 16 bits to the right and applying a bitwise AND operation with 0xFFFF
     val maximumRespawn: Int
         get() = (respawnRate shr 16) and 0xFFFF
 
+    // Property to calculate the respawn duration based on minimum and maximum respawn times and the player ratio
     val respawnDuration: Int
         get() {
+            // Calculate minimum respawn time
             val minimum = respawnRate and 0xFFFF
+            // Calculate maximum respawn time
             val maximum = (respawnRate shr 16) and 0xFFFF
+            // Calculate the ratio of maximum players to current players
             val playerRatio = ServerConstants.MAX_PLAYERS.toDouble() / players.size
+            // Return the calculated respawn duration as an integer
             return (minimum + ((maximum - minimum) / playerRatio)).toInt()
         }
 
     companion object {
+        // HashMap to store WoodcuttingNode instances by their IDs
         private val NODE_MAP = HashMap<Int, WoodcuttingNode>()
+        // HashMap to store empty node IDs and their corresponding node IDs
         private val EMPTY_MAP = HashMap<Int, Int?>()
 
+        // Initialization block to populate NODE_MAP and EMPTY_MAP with node data
         init {
             for (node in values()) {
+                // Add node to NODE_MAP if it is not already present
                 NODE_MAP.putIfAbsent(node.id, node)
+                // Add empty node ID to EMPTY_MAP if it is not already present
                 EMPTY_MAP.putIfAbsent(node.emptyId, node.id)
             }
         }
 
+        // Static method to retrieve a WoodcuttingNode by its ID
         @JvmStatic
         fun forId(id: Int): WoodcuttingNode? {
             return NODE_MAP[id] as WoodcuttingNode
         }
 
+        // Function to check if a node ID corresponds to an empty node
         fun isEmpty(id: Int): Boolean {
             return EMPTY_MAP[id] != null
         }
     }
+
 }

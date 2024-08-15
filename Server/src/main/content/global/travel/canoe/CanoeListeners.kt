@@ -20,7 +20,8 @@ import core.tools.RandomFunction
 import kotlin.math.abs
 
 /**
- * Canoe listeners.
+ * Interaction and interface listener for canoe along river Lum.
+ * This handles Components.CANOE_52, Components.CANOE_STATIONS_MAP_53 and Components.CANOE_TRAVEL_758 globally.
  */
 class CanoeListeners : InteractionListener, InterfaceListener {
 
@@ -67,6 +68,14 @@ class CanoeListeners : InteractionListener, InterfaceListener {
             }
         }
 
+        /**
+         * To scale woodcutting success. Follows WoodcuttingNode values at 15,30,45,60 (3 levels 'harder').
+         *
+         * @param player The player attempting to cut wood.
+         * @param resource The type of resource being cut, represented as Canoes.
+         * @param tool The tool used for woodcutting, represented as SkillingTool.
+         * @return Returns true if the woodcutting attempt is successful, false otherwise.
+         */
         private fun checkSuccess(player: Player, resource: Canoes, tool: SkillingTool): Boolean {
             val skill = Skills.WOODCUTTING
             val level: Int = getDynLevel(player, skill) + getFamiliarBoost(player, skill)

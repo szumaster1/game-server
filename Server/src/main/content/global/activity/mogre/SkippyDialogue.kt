@@ -13,6 +13,7 @@ import core.tools.END_DIALOGUE
 
 /**
  * Skippy dialogue.
+ * @author szumaster
  */
 @Initializable
 class SkippyDialogue(player: Player? = null) : Dialogue(player) {

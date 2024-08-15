@@ -2,8 +2,8 @@ package content.global.handlers.npc
 
 import content.global.random.RandomEvents
 import content.minigame.gnomecook.*
-import content.region.kandarin.miniquest.barcrawl.BarcrawlManager
-import content.region.kandarin.miniquest.barcrawl.BarcrawlType
+import content.region.kandarin.handlers.miniquest.barcrawl.BarcrawlManager
+import content.region.kandarin.handlers.miniquest.barcrawl.BarcrawlType
 import core.api.*
 import core.api.consts.Components
 import core.api.consts.Items
