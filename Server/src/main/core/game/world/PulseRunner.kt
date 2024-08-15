@@ -4,7 +4,7 @@ import core.ServerConstants
 import core.api.log
 import core.game.bots.GeneralBotCreator
 import core.game.system.task.Pulse
-import core.api.integration.grafana.Grafana
+import core.integration.grafana.Grafana
 import core.tools.Log
 import java.util.concurrent.LinkedBlockingQueue
 

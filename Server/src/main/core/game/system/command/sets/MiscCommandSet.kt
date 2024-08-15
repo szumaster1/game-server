@@ -99,15 +99,6 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN) {
             }
         }
 
-        define(
-            "r2",
-            Privilege.STANDARD,
-            "",
-            ""
-        ) { player, _ ->
-            val roll = RandomFunction.roll(2)
-            notify(player, roll.toString())
-        }
         /*
          * Prints player's current location
          */

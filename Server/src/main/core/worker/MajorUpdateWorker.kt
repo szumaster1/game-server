@@ -10,7 +10,7 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld
 import core.game.world.repository.Repository
 import core.game.world.update.UpdateSequence
-import core.api.integration.grafana.Grafana
+import core.integration.grafana.Grafana
 import core.network.packet.PacketProcessor
 import core.network.packet.PacketWriteQueue
 import core.plugin.type.Managers

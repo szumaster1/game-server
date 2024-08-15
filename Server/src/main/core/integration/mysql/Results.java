@@ -1,4 +1,4 @@
-package core.api.integration.mysql;
+package core.integration.mysql;
 
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
