@@ -182,6 +182,8 @@ public final class FireMakingPulse extends SkillPulse<Item> {
     /**
      * Gets the ground item ash.
      *
+     * @param player the player
+     * @param fire   the fire
      * @param object the object.
      * @return {@code GroundItem} the itemm.
      */

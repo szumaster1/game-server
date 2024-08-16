@@ -141,8 +141,7 @@ public final class BarbarianFiremakingPulse extends SkillPulse<Item> {
         if (!groundItem.isActive()) {
             return;
         }
-        // GameObject originalOnSpot =
-        // RegionManager.getObject(player.getLocation());
+        Scenery originalOnSpot = RegionManager.getObject(player.getLocation());
         final Scenery object = new Scenery(fire.getFireId(), player.getLocation());
         SceneryBuilder.add(object, fire.getLife(), getAsh(player, fire, object));
         GroundItemManager.destroy(groundItem);
@@ -195,6 +194,8 @@ public final class BarbarianFiremakingPulse extends SkillPulse<Item> {
     /**
      * Gets the ground item ash.
      *
+     * @param player the player
+     * @param fire   the fire
      * @param object the object.
      * @return {@code GroundItem} the itemm.
      */

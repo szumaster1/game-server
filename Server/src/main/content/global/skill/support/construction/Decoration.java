@@ -1280,7 +1280,7 @@ public enum Decoration {
     /**
      * The Mini obelisk.
      */
-    //OBELISK
+//OBELISK
     MINI_OBELISK(44837, 15236, 41, 676, new Item[]{new Item(Items.MARBLE_BLOCK_8786, 1), new Item(Items.SPIRIT_SHARDS_12183, 1000), new Item(Items.GOLD_CHARM_12158, 10), new Item(Items.GREEN_CHARM_12159, 10), new Item(Items.CRIMSON_CHARM_12160, 10), new Item(Items.BLUE_CHARM_12163, 10)}),
     //PET_FEEDER
     /**

@@ -21,12 +21,6 @@ class FiremakingListener : InteractionListener {
 
     override fun defineListeners() {
 
-        // Handling light option.
-        on(IntType.ITEM, "light") { player, node ->
-            submitIndividualPulse(player, FireMakingPulse(player, ((node as Item)), (node as GroundItem)))
-            return@on true
-        }
-
         // Handling fire logs from inventory.
         onUseWith(IntType.ITEM, Items.TINDERBOX_590, *logs) { player, _, with ->
             player.pulseManager.run(FireMakingPulse(player, with.asItem(), null))
