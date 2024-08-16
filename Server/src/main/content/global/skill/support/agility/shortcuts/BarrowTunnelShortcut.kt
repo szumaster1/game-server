@@ -10,7 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.world.map.Location
 
 /**
- * Barrow tunnel shortcut.
+ * Represents the Barrow tunnel shortcut interaction.
  */
 class BarrowTunnelShortcut : InteractionListener {
 

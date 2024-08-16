@@ -14,7 +14,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Stepping stone shortcut.
+ * Represents the Stepping stone shortcut interaction.
  */
 @Initializable
 class SteppingStoneShortcut : OptionHandler() {
@@ -24,10 +24,10 @@ class SteppingStoneShortcut : OptionHandler() {
     /**
      * Stepping stone instance
      *
-     * @param pointA
-     * @param pointB
-     * @param option
-     * @param levelReq
+     * @param pointA The starting location of the stepping stone
+     * @param pointB The ending location of the stepping stone
+     * @param option The interaction option for the stepping stone
+     * @param levelReq The agility level required to use the stepping stone
      * @constructor Stepping stone instance
      */
     internal class SteppingStoneInstance(val pointA: Location, val pointB: Location, val option: String, val levelReq: Int)
@@ -75,13 +75,13 @@ class SteppingStoneShortcut : OptionHandler() {
     }
 
     /**
-     * Configure
+     * Configure the stepping stone instances
      *
-     * @param objects
-     * @param pointA
-     * @param pointB
-     * @param option
-     * @param levelReq
+     * @param objects The object IDs associated with the stepping stones
+     * @param pointA The starting location of the stepping stone
+     * @param pointB The ending location of the stepping stone
+     * @param option The interaction option for the stepping stone
+     * @param levelReq The agility level required to use the stepping stone
      */
     fun configure(objects: IntArray, pointA: Location, pointB: Location, option: String, levelReq: Int) {
         val instance = SteppingStoneInstance(pointA, pointB, option, levelReq)

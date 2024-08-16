@@ -14,18 +14,17 @@ import core.game.world.update.flag.context.Animation
 import core.tools.DARK_RED
 
 /**
- * Lunar isle mine shortcut.
+ * Represents the Lunar isle mine shortcut interaction.
  */
 class LunarIsleMineShortcut : InteractionListener {
 
     /**
-     * Shortcut leading to Fallen Man which player
-     * speak to start the Dream Mentor quest in
-     * Lunar isle mine.
+     * Shortcut leading to Fallen Man which player speak to start the Dream Mentor quest
+     * in Lunar isle mine.
      */
     override fun defineListeners() {
         on(Scenery.CAVE_ENTRANCE_11399, IntType.SCENERY, "crawl-through") { player, _ ->
-            /**
+            /*
              * When introducing a quest & find location -> turn it into a cutscene.
              */
             if (player.location.x != 2335) {

@@ -15,7 +15,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Basalt rock shortcut.
+ * Represents the Basalt rock shortcut interaction.
  */
 @Initializable
 class BasaltRockShortcut : AgilityShortcut {

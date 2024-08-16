@@ -16,25 +16,13 @@ import core.game.world.update.flag.context.Graphic
 import kotlin.random.Random
 
 /**
- * Sinclair mansion log shortcut.
+ * Represents the Sinclair mansion log shortcut interaction.
  */
 class SinclairMansionLogShortcut : InteractionListener {
-
-    /**
-     * Name: Sinclair Mansion Log shortcut.
-     * Location: North of the mansion that brings you to the Fremennik Province.
-     * Source: https://youtu.be/7XSVFKnUM9Y?si=hH414fk1MUnVi4tD&t=658
-     * Required level: 48
-     * Scenery: 9322, 9324
-     * Animations: Balance 9908, Fail 2582
-     * Hit: 1-7
-     * Swimming route: https://i.imgur.com/1HWtXhB.png
-     */
 
     override fun defineListeners() {
 
         on(sinclarLog, IntType.SCENERY, "walk-across") { player, node ->
-
             if (!hasLevelDyn(player, Skills.AGILITY, 48)) {
                 sendDialogue(player, "You need an Agility level of at least 48 to do this.")
                 return@on true

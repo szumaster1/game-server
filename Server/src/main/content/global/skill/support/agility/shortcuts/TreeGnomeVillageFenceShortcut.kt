@@ -8,7 +8,7 @@ import core.game.interaction.InteractionListener
 import core.game.world.map.Direction
 
 /**
- * Tree gnome village fence shortcut.
+ * Represents the Tree gnome village fence shortcut interaction.
  */
 class TreeGnomeVillageFenceShortcut : InteractionListener {
 
@@ -18,10 +18,7 @@ class TreeGnomeVillageFenceShortcut : InteractionListener {
          * Squeeze through fence between labirynth and Tree gnome village.
          */
         on(Scenery.LOOSE_RAILING_2186, IntType.SCENERY, "squeeze-through") { player, _ ->
-            var dest = if (player.location.y >= 3161) player.location.transform(
-                Direction.SOUTH,
-                1
-            ) else player.location.transform(Direction.NORTH, 1)
+            var dest = if (player.location.y >= 3161) player.location.transform(Direction.SOUTH, 1) else player.location.transform(Direction.NORTH, 1)
             forceMove(player, player.location, dest, 0, 80, anim = 3844)
             sendMessageWithDelay(player, "You squeeze through the loose railing.", 1)
             return@on true

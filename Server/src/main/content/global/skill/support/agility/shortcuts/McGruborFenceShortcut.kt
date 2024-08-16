@@ -12,7 +12,7 @@ import core.game.world.map.Direction
 import core.game.world.update.flag.context.Animation
 
 /**
- * Mc grubor fence shortcut.
+ * Represents the Mc grubor fence shortcut interaction.
  */
 class McGruborFenceShortcut : InteractionListener {
 

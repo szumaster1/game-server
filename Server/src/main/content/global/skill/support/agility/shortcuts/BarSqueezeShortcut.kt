@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Bar squeeze shortcut.
+ * Represents the Bar squeeze shortcut interaction.
  */
 @Initializable
 class BarSqueezeShortcut : AgilityShortcut {

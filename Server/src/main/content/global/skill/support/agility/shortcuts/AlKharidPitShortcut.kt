@@ -11,7 +11,7 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 
 /**
- * Al kharid pit shortcut.
+ * Represents the Al-Kharid Pit shortcut interaction.
  */
 @Initializable
 class AlKharidPitShortcut : AgilityShortcut(intArrayOf(9331, 9332), 38, 0.0, "climb") {

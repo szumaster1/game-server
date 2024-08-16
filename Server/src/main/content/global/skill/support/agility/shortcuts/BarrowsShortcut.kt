@@ -14,7 +14,7 @@ import core.game.world.map.Direction
 import core.game.world.update.flag.context.Animation
 
 /**
- * Barrows shortcut.
+ * Represents the Broken fence shortcut interaction.
  */
 class BarrowsShortcut : InteractionListener {
 

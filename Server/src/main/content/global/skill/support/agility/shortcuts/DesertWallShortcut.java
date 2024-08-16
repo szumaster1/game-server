@@ -18,7 +18,7 @@ import core.plugin.Plugin;
 import static core.api.ContentAPIKt.sendMessage;
 
 /**
- * Desert wall shortcut.
+ * Represents the Desert wall shortcut interaction.
  */
 @Initializable
 public final class DesertWallShortcut extends OptionHandler {

@@ -15,15 +15,12 @@ import core.game.world.map.Direction
 import core.game.world.update.flag.context.Animation
 
 /**
- * Low fence shortcut.
+ * Represents the Low fence shortcut interaction.
  */
 class LowFenceShortcut : InteractionListener {
 
     override fun defineListeners() {
 
-        /**
-         * Interaction with fence.
-         */
         on(Scenery.LOW_FENCE_12776, IntType.SCENERY, "jump-over") { player, _ ->
             if (!hasLevelDyn(player, Skills.AGILITY, 25)) {
                 sendMessage(player, "You need an agility level of at least 25 to do this.")

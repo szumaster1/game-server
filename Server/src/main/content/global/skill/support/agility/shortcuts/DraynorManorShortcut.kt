@@ -15,7 +15,7 @@ import core.game.world.map.Direction
 import core.game.world.update.flag.context.Animation
 
 /**
- * Draynor manor shortcut.
+ * Represents the Draynor manor shortcut interaction.
  */
 class DraynorManorShortcut : InteractionListener {
 

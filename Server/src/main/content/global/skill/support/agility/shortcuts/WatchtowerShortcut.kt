@@ -16,7 +16,7 @@ import core.game.world.update.flag.context.Animation
 import core.tools.END_DIALOGUE
 
 /**
- * Watchtower shortcut.
+ * Represents the Watchtower shortcut interaction.
  */
 class WatchtowerShortcut : InteractionListener {
 

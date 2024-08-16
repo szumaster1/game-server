@@ -14,7 +14,7 @@ import core.game.world.update.flag.context.Animation
 import kotlin.random.Random
 
 /**
- * Taverley dungeon jump shortcut.
+ * Represents the Taverley dungeon jump shortcut interaction.
  */
 class TaverleyDungeonJumpShortcut : InteractionListener {
 

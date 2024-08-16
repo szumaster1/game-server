@@ -10,7 +10,7 @@ import core.game.world.map.Direction
 import core.game.world.update.flag.context.Animation
 
 /**
- * Squeeze-under hole on the yard's west wall.
+ * Represents the Lumberyard fence shortcut interaction.
  */
 class LumberyardFenceShortcut : InteractionListener {
 
@@ -18,6 +18,9 @@ class LumberyardFenceShortcut : InteractionListener {
     private val BROKEN_FENCE = Scenery.FENCE_31149
 
     override fun defineListeners() {
+        /**
+         * Squeeze-under hole on the yard's west wall.
+         */
         on(BROKEN_FENCE, IntType.SCENERY, "squeeze-under") { player, node ->
             lock(player, 1)
             AgilityHandler.forceWalk(

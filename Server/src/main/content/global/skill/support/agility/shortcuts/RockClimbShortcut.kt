@@ -14,7 +14,7 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 
 /**
- * Rock climb shortcut.
+ * Represents the Rock climb shortcut interaction.
  */
 @Initializable
 class RockClimbShortcut : AgilityShortcut(intArrayOf(9335, 9336, 2231, 26327, 26328, 26324, 26323, 19849, 9296, 9297), 1, 0.0, "climb") {

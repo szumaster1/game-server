@@ -14,7 +14,7 @@ import core.game.world.update.flag.context.Animation;
 import core.plugin.Initializable;
 
 /**
- * Fence jump shortcut.
+ * Represents the Fence jump shortcut interaction.
  */
 @Initializable
 public class FenceJumpShortcut extends AgilityShortcut {

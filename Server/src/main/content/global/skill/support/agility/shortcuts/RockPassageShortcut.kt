@@ -10,7 +10,7 @@ import core.game.node.entity.skill.Skills
 import core.game.world.update.flag.context.Animation
 
 /**
- * Rock passage shortcut.
+ * Represents the Rock passage shortcut interaction.
  */
 class RockPassageShortcut : InteractionListener {
 

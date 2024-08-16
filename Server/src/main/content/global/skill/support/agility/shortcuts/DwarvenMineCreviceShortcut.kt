@@ -14,7 +14,7 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
 /**
- * Dwarven mine crevice shortcut.
+ * Represents the Dwarven mine crevice shortcut interaction.
  */
 class DwarvenMineCreviceShortcut : InteractionListener {
 

@@ -13,7 +13,7 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
 /**
- * Miscellania shortcut.
+ * Represents the Miscellania shortcut interaction.
  */
 class MiscellaniaShortcut : InteractionListener {
 

@@ -14,7 +14,7 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
 /**
- * Grand exchange shortcut.
+ * Represents the Grand exchange shortcut interaction.
  */
 class GrandExchangeShortcut : InteractionListener {
 

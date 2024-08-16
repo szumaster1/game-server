@@ -10,7 +10,7 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld
 
 /**
- * Desert rock shortcut.
+ * Represents the Desert rock shortcut interaction.
  */
 class DesertRockShortcut : InteractionListener {
 

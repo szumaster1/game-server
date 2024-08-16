@@ -11,7 +11,7 @@ import core.plugin.Initializable;
 import core.plugin.Plugin;
 
 /**
- * Log balance shortcut.
+ * Represents the Log balance shortcut interaction.
  */
 @Initializable
 public class LogBalanceShortcut extends AgilityShortcut {

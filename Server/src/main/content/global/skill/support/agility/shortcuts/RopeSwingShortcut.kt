@@ -17,7 +17,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Rope swing shortcut.
+ * Represents the Rope swing shortcut interaction.
  */
 @Initializable
 class RopeSwingShortcut : UseWithHandler() {

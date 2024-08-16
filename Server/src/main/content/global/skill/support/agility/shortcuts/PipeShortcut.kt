@@ -16,7 +16,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Pipe shortcut.
+ * Represents the Pipe shortcut interaction.
  */
 @Initializable
 class PipeShortcut : AgilityShortcut {

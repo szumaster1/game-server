@@ -14,7 +14,7 @@ import core.game.world.map.Direction
 import core.game.world.map.Location
 
 /**
- * Stile shortcut.
+ * Represents the Stile shortcut interaction.
  */
 class StileShortcut : InteractionListener {
 
