@@ -1,9 +1,18 @@
 package content.global.skill.support.firemaking
 
+import content.data.skill.SkillingTool
+import content.global.skill.BarbarianTraining
+import content.global.skill.support.firemaking.barbarian.BarbarianFiremakingPulse
+import core.api.consts.Items
+import core.api.getAttribute
+import core.api.getStatLevel
+import core.api.inInventory
+import core.api.sendMessage
 import core.cache.def.impl.ItemDefinition
 import core.game.interaction.OptionHandler
 import core.game.node.Node
 import core.game.node.entity.player.Player
+import core.game.node.entity.skill.Skills
 import core.game.node.item.GroundItem
 import core.game.node.item.Item
 import core.plugin.Initializable
@@ -13,7 +22,19 @@ import core.plugin.Plugin
 class LightLogPlugin : OptionHandler() {
 
     override fun handle(player: Player, node: Node, option: String): Boolean {
-        player.pulseManager.run(FireMakingPulse(player, (node as Item), (node as GroundItem)))
+        var barbarianFiremaking = player.getAttribute(BarbarianTraining.BARBARIAN_FIREMAKING_TUTORIAL, false) == true
+        var completeBarbarianFiremaking = player.getAttribute(BarbarianTraining.BARBARIAN_FIREMAKING_COMPLETE, false) == true
+
+        if (completeBarbarianFiremaking || barbarianFiremaking) {
+            if (!inInventory(player, SkillingTool.getFiremakingTool(player)!!.id)) {
+                player.pulseManager.run(FireMakingPulse(player, (node as Item), (node as GroundItem)))
+            } else {
+                player.pulseManager.run(BarbarianFiremakingPulse(player, (node as Item), (node as GroundItem)))
+            }
+        } else {
+            if (getStatLevel(player, Skills.FIREMAKING) > 21)
+                sendMessage(player, "In order to be able to lighting fires, Otto Godblessed must be talked to.")
+        }
         return true
     }
 

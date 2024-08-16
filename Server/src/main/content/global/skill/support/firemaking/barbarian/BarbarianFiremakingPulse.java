@@ -86,16 +86,12 @@ public final class BarbarianFiremakingPulse extends SkillPulse<Item> {
             player.getPacketDispatch().sendMessage("You can't light a fire here.");
             return false;
         }
-        if (!player.getInventory().containsItem(TINDERBOX)) {
-            player.getPacketDispatch().sendMessage("You do not have the required items to light this.");
-            return false;
-        }
         if (!anyInInventory(player, SkillingTool.getFiremakingTool(player).id)) {
             sendMessage(player, "You do not have the required items to light this.");
             return false;
         }
-        if (player.getSkills().getLevel(Skills.FIREMAKING) < fire.getDefaultLevel()) {
-            player.getPacketDispatch().sendMessage("You need a firemaking level of " + fire.getDefaultLevel() + " to light this log.");
+        if (player.getSkills().getLevel(Skills.FIREMAKING) < fire.getBarbarianLevel()) {
+            player.getPacketDispatch().sendMessage("You need a firemaking level of " + fire.getBarbarianLevel() + " to light this log.");
             return false;
         }
         if (player.getAttribute("remove-log", false)) {
@@ -141,7 +137,7 @@ public final class BarbarianFiremakingPulse extends SkillPulse<Item> {
         if (!groundItem.isActive()) {
             return;
         }
-        Scenery originalOnSpot = RegionManager.getObject(player.getLocation());
+        // Scenery originalOnSpot = RegionManager.getObject(player.getLocation());
         final Scenery object = new Scenery(fire.getFireId(), player.getLocation());
         SceneryBuilder.add(object, fire.getLife(), getAsh(player, fire, object));
         GroundItemManager.destroy(groundItem);
