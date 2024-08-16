@@ -3,16 +3,12 @@ package content.global.skill.support.firemaking
 import content.data.skill.SkillingTool
 import content.global.skill.BarbarianTraining
 import content.global.skill.support.firemaking.barbarian.BarbarianFiremakingPulse
-import core.api.consts.Items
-import core.api.getAttribute
-import core.api.getStatLevel
 import core.api.inInventory
 import core.api.sendMessage
 import core.cache.def.impl.ItemDefinition
 import core.game.interaction.OptionHandler
 import core.game.node.Node
 import core.game.node.entity.player.Player
-import core.game.node.entity.skill.Skills
 import core.game.node.item.GroundItem
 import core.game.node.item.Item
 import core.plugin.Initializable
@@ -32,8 +28,7 @@ class LightLogPlugin : OptionHandler() {
                 player.pulseManager.run(BarbarianFiremakingPulse(player, (node as Item), (node as GroundItem)))
             }
         } else {
-            if (getStatLevel(player, Skills.FIREMAKING) > 21)
-                sendMessage(player, "In order to be able to lighting fires, Otto Godblessed must be talked to.")
+            sendMessage(player, "You do not have the required items to light this.")
         }
         return true
     }
@@ -45,6 +40,6 @@ class LightLogPlugin : OptionHandler() {
     }
 
     override fun handleSelectionCallback(skill: Int, player: Player) {
-        super.handleSelectionCallback(skill, player)
+            super.handleSelectionCallback(skill, player)
     }
 }

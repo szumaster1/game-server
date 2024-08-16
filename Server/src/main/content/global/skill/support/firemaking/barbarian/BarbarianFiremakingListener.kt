@@ -3,15 +3,13 @@ package content.global.skill.support.firemaking.barbarian
 import content.global.skill.BarbarianTraining
 import content.global.skill.support.firemaking.FiremakingListener
 import core.api.consts.Items
-import core.api.getAttribute
-import core.api.inInventory
 import core.api.sendMessage
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 import core.game.node.item.GroundItem
 
 /**
- * Handling interaction with log using barbarian training method.
+ * Handling interaction with logs using barbarian training method.
  */
 class BarbarianFiremakingListener : InteractionListener {
 
