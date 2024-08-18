@@ -22,7 +22,7 @@ class KhazardGuard4Dialogue(player: Player? = null) : Dialogue(player) {
         if (isQuestComplete(player, "Fight Arena")) {
             npcl(FacialExpression.FRIENDLY, "It's you! I don't believe it. You beat the General! You are a traitor to the uniform!").also { stage = END_DIALOGUE }
         } else if (allInEquipment(player, Items.KHAZARD_HELMET_74, Items.KHAZARD_ARMOUR_75)) {
-            playerl(FacialExpression.FRIENDLY, "Hello.").also { stage = 0 }
+            playerl(FacialExpression.FRIENDLY, "Hello.")
         } else {
             playerl(FacialExpression.FRIENDLY, "Hi.").also { stage = 3 }
         }

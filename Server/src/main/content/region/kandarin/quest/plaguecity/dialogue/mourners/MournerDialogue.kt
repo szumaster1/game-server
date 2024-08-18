@@ -27,7 +27,7 @@ class MournerDialogue(player: Player? = null) : Dialogue(player) {
         if (inBorders(player, 2547, 3321, 2555, 3327)) {
             player("Hello there.").also { stage = 100 }
         } else {
-            playerl(FacialExpression.FRIENDLY, "Hi.").also { stage = 0 }
+            playerl(FacialExpression.FRIENDLY, "Hi.")
         }
         return true
     }

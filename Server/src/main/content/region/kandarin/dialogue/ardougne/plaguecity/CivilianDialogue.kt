@@ -21,7 +21,7 @@ class CivilianDialogue(player: Player? = null) : Dialogue(player) {
         if (inEquipment(player, Items.GAS_MASK_1506)) {
             playerl(FacialExpression.FRIENDLY, "Hello there.").also { stage = 4 }
         } else {
-            playerl(FacialExpression.FRIENDLY, "Hello there.").also { stage = 0 }
+            playerl(FacialExpression.FRIENDLY, "Hello there.")
         }
         return true
     }

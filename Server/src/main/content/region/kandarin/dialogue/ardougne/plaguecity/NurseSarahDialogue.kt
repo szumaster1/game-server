@@ -23,7 +23,7 @@ class NurseSarahDialogue(player: Player? = null) : Dialogue(player) {
             end()
             openDialogue(player, NurseSarahDialogueFile())
         }
-        playerl(FacialExpression.FRIENDLY, "Hello there.").also { stage = 0 }
+        playerl(FacialExpression.FRIENDLY, "Hello there.")
         return true
     }
 

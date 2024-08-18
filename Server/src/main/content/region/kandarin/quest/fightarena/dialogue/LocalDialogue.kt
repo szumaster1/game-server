@@ -23,7 +23,7 @@ class LocalDialogue(player: Player? = null) : Dialogue(player) {
         } else if (getQuestStage(player, "Fight Arena") in 91..99) {
             playerl(FacialExpression.FRIENDLY, "Hello.").also { stage = 9 }
         } else if (getQuestStage(player, "Fight Arena") >= 10) {
-            playerl(FacialExpression.FRIENDLY, "Hello.").also { stage = 0 }
+            playerl(FacialExpression.FRIENDLY, "Hello.")
         } else {
             playerl(FacialExpression.FRIENDLY, "Hello.").also { stage = 7 }
         }

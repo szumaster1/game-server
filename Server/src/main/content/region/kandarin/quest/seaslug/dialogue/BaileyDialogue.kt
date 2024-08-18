@@ -27,7 +27,7 @@ class BaileyDialogue(player: Player? = null) : Dialogue(player) {
             // After light up the torch.
             getQuestStage(player, "Sea Slug") >= 20 -> player("I've managed to light the torch.").also { stage = 200 }
             // First talk.
-            else -> player("Hello there.").also { stage = 0 }
+            else -> player("Hello there.")
         }
         return true
     }

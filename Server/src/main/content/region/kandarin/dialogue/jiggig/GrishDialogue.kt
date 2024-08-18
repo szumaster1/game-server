@@ -28,7 +28,7 @@ class GrishDialogue(player: Player? = null) : Dialogue(player) {
         } else if (isQuestComplete(player, "Zogre Flesh Eaters")) {
             player("How's everything going now?").also { stage = 27 }
         } else {
-            player("Hello there, what's going on here?").also { stage = 0 }
+            player("Hello there, what's going on here?")
         }
         return true
     }
