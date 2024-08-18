@@ -6,7 +6,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Fisherman frodi dialogue.
+ * Represents the Fisherman frodi dialogue.
  */
 class FishermanFrodiDialogue : DialogueFile() {
 

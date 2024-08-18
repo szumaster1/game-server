@@ -17,7 +17,7 @@ import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 
 /**
- * Rantz chompy dialogue.
+ * Represents the Rantz chompy dialogue.
  */
 @Initializable
 class RantzChompyDialogue(player: Player? = null) : Dialogue(player) {

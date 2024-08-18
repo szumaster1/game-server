@@ -7,7 +7,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Simon scepter interaction.
+ * Represents the Simon scepter interaction.
  */
 @Initializable
 class SimonScepterInteraction : UseWithHandler(9044, 9046, 9048, 9050) {

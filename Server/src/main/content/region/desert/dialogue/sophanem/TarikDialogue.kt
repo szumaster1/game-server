@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Tarik dialogue.
+ * Represents the Tarik dialogue.
  */
 @Initializable
 class TarikDialogue(player: Player? = null) : Dialogue(player) {

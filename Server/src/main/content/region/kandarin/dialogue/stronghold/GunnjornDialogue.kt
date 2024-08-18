@@ -14,7 +14,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Gunnjorn dialogue.
+ * Represents the Gunnjorn dialogue.
  */
 @Initializable
 class GunnjornDialogue(player: Player? = null) : Dialogue(player) {

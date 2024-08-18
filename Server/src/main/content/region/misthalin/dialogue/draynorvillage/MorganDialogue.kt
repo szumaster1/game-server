@@ -14,7 +14,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Morgan dialogue.
+ * Represents the Morgan dialogue.
  */
 @Initializable
 class MorganDialogue(player: Player? = null) : Dialogue(player) {

@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Entrance guardian dialogue.
+ * Represents the Entrance guardian dialogue.
  */
 @Initializable
 class EntranceGuardianDialogue(player: Player? = null) : Dialogue(player) {

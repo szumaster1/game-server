@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Mosol Rei dialogue.
+ * Represents the Mosol Rei dialogue.
  */
 @Initializable
 class MosolReiDialogue(player: Player? = null): Dialogue(player) {

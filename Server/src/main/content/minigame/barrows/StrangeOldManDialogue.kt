@@ -12,7 +12,7 @@ import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 
 /**
- * Strange old man dialogue.
+ * Represents the Strange old man dialogue.
  */
 @Initializable
 class StrangeOldManDialogue(player: Player? = null) : Dialogue(player) {

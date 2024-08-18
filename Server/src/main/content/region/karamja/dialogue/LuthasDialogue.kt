@@ -16,7 +16,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Luthas dialogue.
+ * Represents the Luthas dialogue.
  */
 @Initializable
 class LuthasDialogue(player: Player? = null) : Dialogue(player) {

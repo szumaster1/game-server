@@ -8,7 +8,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Ali the camel man dialogue.
+ * Represents the Ali the camel man dialogue.
  */
 @Initializable
 class AliTheCamelManDialogue(player: Player? = null) : Dialogue(player) {

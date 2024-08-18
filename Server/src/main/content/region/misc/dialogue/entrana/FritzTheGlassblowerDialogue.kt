@@ -16,7 +16,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Fritz The Glassblower dialogue.
+ * Represents the Fritz The Glassblower dialogue.
  */
 @Initializable
 class FritzTheGlassblowerDialogue(player: Player? = null) : Dialogue(player) {

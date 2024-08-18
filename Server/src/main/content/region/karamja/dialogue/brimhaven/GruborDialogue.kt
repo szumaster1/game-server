@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Grubor dialogue.
+ * Represents the Grubor dialogue.
  */
 @Initializable
 class GruborDialogue(player: Player? = null): Dialogue(player) {

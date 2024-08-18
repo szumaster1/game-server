@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Dalila and perrdur dialogue.
+ * Represents the Dalila and perrdur dialogue.
  */
 @Initializable
 class DalilaAndPerrdurDialogue(player: Player? = null) : Dialogue(player) {

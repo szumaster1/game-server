@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Seddu dialogue.
+ * Represents the Seddu dialogue.
  */
 @Initializable
 class SedduDialogue(player: Player? = null) : Dialogue(player) {

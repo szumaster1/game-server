@@ -10,7 +10,7 @@ import core.game.world.GameWorld
 import core.tools.END_DIALOGUE
 
 /**
- * Servant dialogue.
+ * Represents the Servant dialogue.
  */
 class ServantDialogue : DialogueFile() {
 

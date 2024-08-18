@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Artimeus dialogue.
+ * Represents the Artimeus dialogue.
  */
 @Initializable
 class ArtimeusDialogue(player: Player? = null) : Dialogue(player) {

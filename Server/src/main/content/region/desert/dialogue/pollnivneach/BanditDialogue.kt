@@ -8,7 +8,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Bandit dialogue.
+ * Represents the Bandit dialogue.
  */
 @Initializable
 class BanditDialogue(player: Player? = null) : Dialogue(player) {

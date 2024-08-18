@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Milli rehnison dialogue.
+ * Represents the Milli rehnison dialogue.
  */
 @Initializable
 class MilliRehnisonDialogue(player: Player? = null) : Dialogue(player) {

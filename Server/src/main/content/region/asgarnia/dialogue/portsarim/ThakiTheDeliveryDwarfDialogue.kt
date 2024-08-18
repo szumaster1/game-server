@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Thaki the delivery dwarf dialogue.
+ * Represents the Thaki the delivery dwarf dialogue.
  */
 @Initializable
 class ThakiTheDeliveryDwarfDialogue(player: Player? = null) : Dialogue(player) {

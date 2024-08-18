@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Peksa dialogue.
+ * Represents the Peksa dialogue.
  */
 @Initializable
 class PeksaDialogue(player: Player? = null) : Dialogue(player) {

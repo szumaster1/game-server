@@ -7,7 +7,7 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.item.Item
 
 /**
- * Minecart driver dialogue.
+ * Represents the Minecart driver dialogue.
  */
 class MinecartDriverDialogue(player: Player? = null) : Dialogue(player) {
 

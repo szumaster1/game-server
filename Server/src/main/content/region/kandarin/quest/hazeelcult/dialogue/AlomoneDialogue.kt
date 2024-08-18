@@ -12,6 +12,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Represents the Alomone dialogue.
+ */
 @Initializable
 class AlomoneDialogue(player: Player? = null) : Dialogue(player) {
 

@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Gnome waiter dialogue.
+ * Represents the Gnome waiter dialogue.
  */
 @Initializable
 class GnomeWaiterDialogue(player: Player? = null) : Dialogue(player) {

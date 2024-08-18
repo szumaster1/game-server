@@ -10,7 +10,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 
 /**
- * Leela dialogue.
+ * Represents the Leela dialogue.
  */
 @Initializable
 class LeelaDialogue(player: Player? = null) : Dialogue(player) {

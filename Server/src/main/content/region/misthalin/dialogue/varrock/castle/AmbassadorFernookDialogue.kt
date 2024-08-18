@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Ambassador fernook dialogue.
+ * Represents the Ambassador fernook dialogue.
  */
 @Initializable
 class AmbassadorFernookDialogue(player: Player? = null) : Dialogue(player) {

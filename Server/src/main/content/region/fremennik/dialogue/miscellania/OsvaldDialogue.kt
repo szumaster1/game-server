@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Osvald dialogue.
+ * Represents the Osvald dialogue.
  */
 @Initializable
 class OsvaldDialogue(player: Player? = null): Dialogue(player) {

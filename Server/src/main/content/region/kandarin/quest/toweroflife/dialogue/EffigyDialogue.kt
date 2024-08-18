@@ -14,7 +14,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Effigy dialogue.
+ * Represents the Effigy dialogue.
  */
 @Initializable
 class EffigyDialogue(player: Player? = null) : Dialogue(player) {

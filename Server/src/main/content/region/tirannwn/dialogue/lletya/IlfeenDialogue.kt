@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Ilfeen dialogue.
+ * Represents the Ilfeen dialogue.
  */
 @Initializable
 class IlfeenDialogue(player: Player? = null): Dialogue(player) {

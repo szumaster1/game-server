@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Arianwyn dialogue.
+ * Represents the Arianwyn dialogue.
  */
 @Initializable
 class ArianwynDialogue(player: Player? = null): Dialogue(player) {

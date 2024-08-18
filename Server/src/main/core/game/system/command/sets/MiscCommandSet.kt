@@ -746,8 +746,8 @@ class MiscCommandSet : CommandSet(Privilege.ADMIN) {
     /**
      * Set plaque read status
      *
-     * @param player
-     * @param status
+     * @param player The player whose plaque read status is being set
+     * @param status The read status to be assigned (true for read, false for unread)
      */
     fun setPlaqueReadStatus(player: Player, status: Boolean) {
         // For some reason the loop has to be this way to have read write access

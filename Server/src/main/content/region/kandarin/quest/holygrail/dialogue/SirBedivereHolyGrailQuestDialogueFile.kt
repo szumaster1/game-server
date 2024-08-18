@@ -10,7 +10,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Sir bedivere holy grail quest dialogue file.
+ * Represents the Sir bedivere holy grail quest dialogue file.
  */
 class SirBedivereHolyGrailQuestDialogueFile  : DialogueFile() {
 

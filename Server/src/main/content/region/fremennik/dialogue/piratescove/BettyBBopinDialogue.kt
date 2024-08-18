@@ -8,7 +8,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Betty b bopin dialogue.
+ * Represents the Betty b bopin dialogue.
  */
 @Initializable
 class BettyBBopinDialogue(player: Player? = null): Dialogue(player) {

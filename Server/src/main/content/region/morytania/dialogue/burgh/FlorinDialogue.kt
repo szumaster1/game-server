@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Florin dialogue.
+ * Represents the Florin dialogue.
  */
 @Initializable
 class FlorinDialogue(player: Player? = null) : Dialogue(player) {

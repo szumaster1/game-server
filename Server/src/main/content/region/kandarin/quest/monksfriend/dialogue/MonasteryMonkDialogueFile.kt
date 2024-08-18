@@ -5,6 +5,9 @@ import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.tools.END_DIALOGUE
 
+/**
+ * Represents the Monastery Monks dialogue file.
+ */
 class MonasteryMonkDialogueFile : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

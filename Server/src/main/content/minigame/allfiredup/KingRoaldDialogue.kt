@@ -9,7 +9,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * King roald AFU dialogue.
+ * Represents the King roald AFU dialogue.
  */
 class KingRoaldAFUDialogue : DialogueFile() {
 

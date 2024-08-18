@@ -9,7 +9,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * King arthur dialogue file.
+ * Represents the King arthur dialogue file.
  */
 class KingArthurDialogueFile : DialogueFile() {
 

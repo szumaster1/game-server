@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Blasidar the sculptor dialogue.
+ * Represents the Blasidar the sculptor dialogue.
  */
 @Initializable
 class BlasidarTheSculptorDialogue(player: Player? = null) : Dialogue(player) {

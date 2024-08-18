@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Purple director dialogue.
+ * Represents the Purple director dialogue.
  */
 @Initializable
 class PurpleDirectorDialogue(player: Player? = null) : Dialogue(player) {

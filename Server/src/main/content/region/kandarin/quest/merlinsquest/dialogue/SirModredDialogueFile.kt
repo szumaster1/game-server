@@ -8,7 +8,7 @@ import core.game.world.repository.Repository.findNPC
 import core.tools.END_DIALOGUE
 
 /**
- * Sir modred dialogue file.
+ * Represents the Sir modred dialogue file.
  */
 class SirModredDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {

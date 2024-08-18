@@ -15,7 +15,7 @@ import core.game.world.update.flag.context.Graphic
 import core.tools.END_DIALOGUE
 
 /**
- * Zooknock after battle dialogue file.
+ * Represents the Zooknock after battle dialogue file.
  */
 class ZooknockAfterBattleDialogueFile: DialogueFile(){
     override fun handle(componentID: Int, buttonID: Int) {
@@ -26,7 +26,7 @@ class ZooknockAfterBattleDialogueFile: DialogueFile(){
 }
 
 /**
- * Zooknock dialogue file.
+ * Represents the Zooknock dialogue file.
  */
 class ZooknockDialogueFile(val it: Int) : DialogueFile() {
 

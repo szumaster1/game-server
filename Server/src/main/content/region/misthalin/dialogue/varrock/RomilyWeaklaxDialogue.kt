@@ -16,7 +16,7 @@ import core.plugin.Plugin
 import core.tools.RandomFunction
 
 /**
- * Romily weaklax dialogue.
+ * Represents the Romily weaklax dialogue.
  */
 @Initializable
 class RomilyWeaklaxDialogue(player: Player? = null) : Dialogue(player) {

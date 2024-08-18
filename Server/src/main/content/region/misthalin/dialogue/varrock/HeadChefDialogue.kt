@@ -9,7 +9,7 @@ import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 
 /**
- * Head chef dialogue.
+ * Represents the Head chef dialogue.
  */
 @Initializable
 class HeadChefDialogue(player: Player? = null) : Dialogue(player) {

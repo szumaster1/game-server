@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Dwarven mine guard dialogue.
+ * Represents the Dwarven mine guard dialogue.
  */
 @Initializable
 class DwarvenMineGuardDialogue(player: Player? = null) : Dialogue(player) {

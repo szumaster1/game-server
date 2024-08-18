@@ -8,7 +8,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Sir pelleas dialogue file.
+ * Represents the Sir pelleas dialogue file.
  */
 class SirPelleasDialogueFile  : DialogueFile() {
 

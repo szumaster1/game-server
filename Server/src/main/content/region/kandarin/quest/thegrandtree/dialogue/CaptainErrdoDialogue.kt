@@ -14,7 +14,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Captain errdo dialogue.
+ * Represents the Captain errdo dialogue.
  */
 @Initializable
 class CaptainErrdoDialogue(player: Player? = null) : Dialogue(player) {

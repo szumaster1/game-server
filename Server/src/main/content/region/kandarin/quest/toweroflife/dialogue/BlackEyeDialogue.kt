@@ -14,7 +14,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Black eye dialogue.
+ * Represents the Black eye dialogue.
  */
 @Initializable
 class BlackEyeDialogue(player: Player? = null) : Dialogue(player) {

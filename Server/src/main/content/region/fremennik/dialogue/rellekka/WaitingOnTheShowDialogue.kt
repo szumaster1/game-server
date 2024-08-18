@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Waiting on the show dialogue.
+ * Represents the Waiting on the show dialogue.
  */
 @Initializable
 class WaitingOnTheShowDialogue(player: Player? = null): Dialogue(player) {

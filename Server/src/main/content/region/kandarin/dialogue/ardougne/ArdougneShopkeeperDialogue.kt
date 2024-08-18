@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Ardougne Shopkeeper dialogue.
+ * Represents the Ardougne Shopkeeper dialogue.
  */
 @Initializable
 class ArdougneShopkeeperDialogue(player: Player? = null) : Dialogue(player) {

@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Ellamaria dialogue.
+ * Represents the Ellamaria dialogue.
  */
 @Initializable
 class EllamariaDialogue(player: Player? = null) : Dialogue(player) {

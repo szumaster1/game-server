@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Security guard dialogue.
+ * Represents the Security guard dialogue.
  */
 @Initializable
 class SecurityGuardDialogue(player: Player? = null) : Dialogue(player) {

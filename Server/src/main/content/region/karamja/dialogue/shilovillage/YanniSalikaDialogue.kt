@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Yanni salika dialogue.
+ * Represents the Yanni salika dialogue.
  */
 @Initializable
 class YanniSalikaDialogue(player: Player? = null): Dialogue(player) {

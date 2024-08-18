@@ -8,7 +8,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Horacio dialogue.
+ * Represents the Horacio dialogue.
  */
 @Initializable
 class HoracioDialogue(player: Player? = null) : Dialogue(player) {

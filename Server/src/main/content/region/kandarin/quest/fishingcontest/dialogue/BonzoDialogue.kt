@@ -9,7 +9,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 
 /**
- * Bonzo dialogue.
+ * Represents the Bonzo dialogue.
  */
 @Initializable
 class BonzoDialogue(player: Player? = null) : Dialogue(player) {

@@ -8,7 +8,7 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * Icy cavern dialogue.
+ * Represents the Icy cavern dialogue.
  */
 @Initializable
 class IcyCavernDialogue(player: Player? = null) : Dialogue(player) {

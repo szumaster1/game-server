@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Alviss dialogue.
+ * Represents the Alviss dialogue.
  */
 @Initializable
 class AlvissDialogue(player: Player? = null): Dialogue(player) {

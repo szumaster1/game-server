@@ -8,7 +8,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Thakkrad Sigmundson dialogue.
+ * Represents the Thakkrad Sigmundson dialogue.
  */
 @Initializable
 class ThakkradSigmundsonDialogue(player: Player? = null): Dialogue(player) {

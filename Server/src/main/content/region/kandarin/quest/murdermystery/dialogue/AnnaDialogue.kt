@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Anna dialogue.
+ * Represents the Anna dialogue.
  */
 @Initializable
 class AnnaDialogue(player: Player? = null) : Dialogue(player) {

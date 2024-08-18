@@ -8,7 +8,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Grimgnash dialogue.
+ * Represents the Grimgnash dialogue.
  */
 @Initializable
 class GrimgnashDialogue(player: Player? = null) : Dialogue(player) {

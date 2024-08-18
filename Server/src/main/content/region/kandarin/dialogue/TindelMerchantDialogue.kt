@@ -8,7 +8,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Tindel merchant dialogue.
+ * Represents the Tindel merchant dialogue.
  */
 class TindelMerchantDialogue : DialogueFile() {
 

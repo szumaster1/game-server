@@ -15,7 +15,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Barmaid dialogue.
+ * Represents the Barmaid dialogue.
  */
 @Initializable
 class BarmaidDialogue(player: Player? = null) : Dialogue(player) {

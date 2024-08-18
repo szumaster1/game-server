@@ -7,7 +7,7 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 
 /**
- * Lollk dialogue.
+ * Represents the Lollk dialogue.
  */
 class LollkDialogue(player: Player? = null) : Dialogue(player) {
 

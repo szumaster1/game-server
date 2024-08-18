@@ -9,7 +9,7 @@ import core.tools.END_DIALOGUE
 import core.api.consts.NPCs
 
 /**
- * Lumbridge swamp wizard dialogue.
+ * Represents the Lumbridge swamp wizard dialogue.
  */
 @Initializable
 class LumbridgeSwampWizardDialogue(player: Player? = null) : Dialogue(player) {

@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Eudav gethin dialogue.
+ * Represents the Eudav gethin dialogue.
  */
 @Initializable
 class EudavGethinDialogue(player: Player? = null): Dialogue(player) {

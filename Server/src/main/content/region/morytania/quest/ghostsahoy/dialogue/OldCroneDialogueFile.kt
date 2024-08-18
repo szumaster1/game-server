@@ -11,7 +11,7 @@ import core.game.world.update.flag.context.Animation
 import core.tools.END_DIALOGUE
 
 /**
- * Old crone dialogue file.
+ * Represents the Old crone dialogue file.
  */
 class OldCroneDialogueFile : DialogueFile() {
 

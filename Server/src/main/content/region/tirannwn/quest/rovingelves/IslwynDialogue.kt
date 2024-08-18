@@ -8,7 +8,7 @@ import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 
 /**
- * Islwyn dialogue.
+ * Represents the Islwyn dialogue.
  */
 class IslwynDialogue(player: Player? = null) : Dialogue(player) {
 

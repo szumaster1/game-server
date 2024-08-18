@@ -12,7 +12,7 @@ import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
 /**
- * Capn izzy dialogue.
+ * Represents the Capn izzy dialogue.
  */
 class CapnIzzyDialogue(private val it: Int) : DialogueFile() {
 

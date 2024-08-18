@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Fullangr dialogue.
+ * Represents the Fullangr dialogue.
  */
 @Initializable
 class FullangrDialogue(player: Player? = null): Dialogue(player) {

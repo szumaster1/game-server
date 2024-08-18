@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Professor dialogue.
+ * Represents the Professor dialogue.
  */
 @Initializable
 class ProfessorDialogue(player: Player? = null) : Dialogue(player) {

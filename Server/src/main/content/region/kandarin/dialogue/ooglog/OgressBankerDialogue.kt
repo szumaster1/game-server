@@ -9,7 +9,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Ogress banker dialogue.
+ * Represents the Ogress banker dialogue.
  */
 class OgressBankerDialogue(player: Player? = null) : Dialogue(player) {
 

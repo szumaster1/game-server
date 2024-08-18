@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Fightslave dialogue.
+ * Represents the Fightslave dialogue.
  */
 @Initializable
 class FightslaveDialogue(player: Player? = null) : Dialogue(player) {

@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Gravingas dialogue.
+ * Represents the Gravingas dialogue.
  */
 @Initializable
 class GravingasDialogue(player: Player? = null) : Dialogue(player) {

@@ -11,7 +11,7 @@ import core.api.consts.Items
 import core.api.consts.NPCs
 
 /**
- * Cooking tutor dialogue.
+ * Represents the Cooking tutor dialogue.
  */
 @Initializable
 class CookingTutorDialogue(player: Player? = null) : Dialogue(player) {

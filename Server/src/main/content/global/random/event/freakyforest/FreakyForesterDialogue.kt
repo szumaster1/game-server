@@ -8,7 +8,7 @@ import core.game.dialogue.FacialExpression
 import core.tools.END_DIALOGUE
 
 /**
- * Freaky forester dialogue.
+ * Represents the Freaky forester dialogue.
  */
 class FreakyForesterDialogue : DialogueFile() {
 

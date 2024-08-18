@@ -12,7 +12,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Brother kojo dialogue file.
+ * Represents the Brother kojo dialogue file.
  */
 class BrotherKojoDialogueFile : DialogueFile() {
 

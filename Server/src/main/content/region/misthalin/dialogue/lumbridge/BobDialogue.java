@@ -13,7 +13,7 @@ import core.game.node.item.Item;
 import core.game.world.GameWorld;
 
 /**
- * Bob dialogue.
+ * Represents the Bob dialogue.
  */
 public final class BobDialogue extends Dialogue {
 

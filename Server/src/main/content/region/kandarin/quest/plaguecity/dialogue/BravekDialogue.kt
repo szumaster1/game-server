@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Bravek dialogue.
+ * Represents the Bravek dialogue.
  */
 @Initializable
 class BravekDialogue(player: Player? = null) : Dialogue(player) {

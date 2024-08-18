@@ -9,7 +9,7 @@ import core.tools.END_DIALOGUE
 import core.api.consts.NPCs
 
 /**
- * Hari dialogue.
+ * Represents the Hari dialogue.
  */
 @Initializable
 class HariDialogue(player: Player? = null) : Dialogue(player) {

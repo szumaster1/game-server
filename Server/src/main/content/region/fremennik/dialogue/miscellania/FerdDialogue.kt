@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Ferd dialogue.
+ * Represents the Ferd dialogue.
  */
 @Initializable
 class FerdDialogue(player: Player? = null): Dialogue(player) {

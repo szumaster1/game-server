@@ -9,7 +9,7 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * Tutorial guide dialogue.
+ * Represents the Tutorial guide dialogue.
  */
 @Initializable
 class TutorialGuideDialogue(player: Player? = null) : Dialogue(player) {

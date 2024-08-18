@@ -6,7 +6,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Sinister stranger dialogue.
+ * Represents the Sinister stranger dialogue.
  */
 @Initializable
 class SinisterStrangerDialogue(player: Player? = null) : Dialogue(player) {

@@ -11,7 +11,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Fortunato dialogue.
+ * Represents the Fortunato dialogue.
  */
 @Initializable
 class FortunatoDialogue(player: Player? = null) : Dialogue(player) {

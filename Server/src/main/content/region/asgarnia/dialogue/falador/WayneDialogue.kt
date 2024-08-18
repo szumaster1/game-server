@@ -9,7 +9,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Wayne dialogue.
+ * Represents the Wayne dialogue.
  */
 @Initializable
 class WayneDialogue(player: Player? = null) : Dialogue(player) {

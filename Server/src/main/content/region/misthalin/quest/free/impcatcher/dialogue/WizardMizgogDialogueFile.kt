@@ -138,14 +138,12 @@ class WizardMizgogDialogueFile : DialogueFile() {
 
                                     6 -> {
                                         playGlobalAudio(player!!.location, Sounds.CURSE_LIFT_1634, 50)
-                                        replaceScenery(
-                                            core.game.node.scenery.Scenery(
+                                        replaceScenery(core.game.node.scenery.Scenery(
                                                 16169,
                                                 Location(3102, 3163, 2),
                                                 10,
                                                 1
-                                            ), 16170, 80
-                                        )
+                                            ), 16170, 80)
                                     }
 
                                     7 -> {

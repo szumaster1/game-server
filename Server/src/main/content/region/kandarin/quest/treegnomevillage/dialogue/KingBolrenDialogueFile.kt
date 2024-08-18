@@ -15,7 +15,7 @@ import core.game.world.update.flag.context.Animation
 import core.tools.END_DIALOGUE
 
 /**
- * King bolren dialogue file.
+ * Represents the King bolren dialogue file.
  */
 class KingBolrenDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {

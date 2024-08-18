@@ -8,7 +8,7 @@ import core.game.node.entity.player.link.diary.DiaryType
 import core.api.consts.NPCs
 
 /**
- * Chemist diary dialogue.
+ * Represents the Chemist diary dialogue.
  */
 class ChemistDiaryDialogue : DialogueFile() {
 

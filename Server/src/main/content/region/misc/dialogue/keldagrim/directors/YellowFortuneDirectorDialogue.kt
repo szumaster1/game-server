@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Yellow fortune director dialogue.
+ * Represents the Yellow fortune director dialogue.
  */
 @Initializable
 class YellowFortuneDirectorDialogue(player: Player? = null) : Dialogue(player) {

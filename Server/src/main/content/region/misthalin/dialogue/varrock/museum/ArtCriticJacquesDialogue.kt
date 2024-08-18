@@ -9,7 +9,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Art critic jacques dialogue.
+ * Represents the Art critic jacques dialogue.
  */
 @Initializable
 class ArtCriticJacquesDialogue(player: Player? = null) : Dialogue(player) {

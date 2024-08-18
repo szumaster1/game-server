@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Muggh dialogue.
+ * Represents the Muggh dialogue.
  */
 @Initializable
 class MugghDialogue(player: Player? = null) : Dialogue(player) {

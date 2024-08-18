@@ -5,7 +5,7 @@ import core.game.dialogue.DialogueFile
 import core.tools.END_DIALOGUE
 
 /**
- * Khazard warlord dialogue.
+ * Represents the Khazard warlord dialogue.
  */
 class KhazardWarlordDialogue : DialogueFile() {
 

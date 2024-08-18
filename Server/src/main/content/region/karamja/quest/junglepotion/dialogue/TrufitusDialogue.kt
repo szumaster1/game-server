@@ -11,7 +11,7 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 
 /**
- * Trufitus dialogue.
+ * Represents the Trufitus dialogue.
  */
 class TrufitusDialogue(player: Player? = null) : Dialogue(player) {
 

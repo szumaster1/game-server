@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Ali the farmer dialogue.
+ * Represents the Ali the farmer dialogue.
  */
 @Initializable
 class AliTheFarmerDialogue(player: Player? = null) : Dialogue(player) {

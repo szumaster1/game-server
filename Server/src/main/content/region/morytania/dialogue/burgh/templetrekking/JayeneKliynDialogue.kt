@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Jayene kliyn dialogue.
+ * Represents the Jayene kliyn dialogue.
  */
 @Initializable
 class JayeneKliynDialogue(player: Player? = null) : Dialogue(player) {

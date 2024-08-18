@@ -9,7 +9,7 @@ import core.game.node.entity.npc.NPC
 import core.game.world.map.Location
 
 /**
- * Kilron dialogue file.
+ * Represents the Kilron dialogue file.
  */
 class KilronDialogueFile : DialogueFile() {
 

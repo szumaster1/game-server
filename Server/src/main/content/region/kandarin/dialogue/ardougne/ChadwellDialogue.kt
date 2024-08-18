@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Chadwell dialogue.
+ * Represents the Chadwell dialogue.
  */
 @Initializable
 class ChadwellDialogue(player: Player? = null) : Dialogue(player) {

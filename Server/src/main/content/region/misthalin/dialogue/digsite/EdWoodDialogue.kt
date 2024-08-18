@@ -8,7 +8,7 @@ import core.tools.END_DIALOGUE
 import core.api.consts.NPCs
 
 /**
- * Ed wood dialogue.
+ * Represents the Ed wood dialogue.
  */
 @Initializable
 class EdWoodDialogue(player: Player? = null) : Dialogue(player) {

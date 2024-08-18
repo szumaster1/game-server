@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Franklin caranos dialogue.
+ * Represents the Franklin caranos dialogue.
  */
 @Initializable
 class FranklinCaranosDialogue(player: Player? = null) : Dialogue(player) {

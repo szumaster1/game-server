@@ -10,7 +10,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 
 /**
- * Klarense dialogue.
+ * Represents the Klarense dialogue.
  */
 @Initializable
 class KlarenseDialogue(player: Player? = null) : Dialogue(player) {

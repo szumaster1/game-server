@@ -12,7 +12,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 
 /**
- * Barlak dialogue.
+ * Represents the Barlak dialogue.
  */
 @Initializable
 class BarlakDialogue(player: Player? = null) : Dialogue(player) {

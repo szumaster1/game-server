@@ -6,7 +6,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 
 /**
- * Zombie head dialogue.
+ * Represents the Zombie head dialogue.
  */
 class ZombieHeadDialogue : DialogueFile() {
 

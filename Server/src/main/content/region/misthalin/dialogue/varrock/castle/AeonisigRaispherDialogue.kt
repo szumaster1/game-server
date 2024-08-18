@@ -8,7 +8,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Aeonisig raispher dialogue.
+ * Represents the Aeonisig raispher dialogue.
  */
 @Initializable
 class AeonisigRaispherDialogue(player: Player? = null) : Dialogue(player) {

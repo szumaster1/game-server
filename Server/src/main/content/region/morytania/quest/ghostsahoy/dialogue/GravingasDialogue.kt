@@ -9,7 +9,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Gravingas dialogue.
+ * Represents the Gravingas dialogue.
  */
 class GravingasDialogue : DialogueFile() {
 

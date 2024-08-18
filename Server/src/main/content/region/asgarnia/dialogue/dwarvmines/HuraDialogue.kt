@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Hura dialogue.
+ * Represents the Hura dialogue.
  */
 @Initializable
 class HuraDialogue(player: Player? = null) : Dialogue(player) {

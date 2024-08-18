@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * First mate davey boy dialogue.
+ * Represents the First mate davey boy dialogue.
  */
 @Initializable
 class FirstMateDaveyBoyDialogue(player: Player? = null): Dialogue(player) {

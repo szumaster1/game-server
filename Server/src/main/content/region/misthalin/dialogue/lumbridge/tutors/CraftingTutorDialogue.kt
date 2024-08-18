@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Crafting tutor dialogue.
+ * Represents the Crafting tutor dialogue.
  */
 @Initializable
 class CraftingTutorDialogue(player: Player? = null) : Dialogue(player) {

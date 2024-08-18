@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Sarble dialogue.
+ * Represents the Sarble dialogue.
  */
 @Initializable
 class SarbleDialogue(player: Player? = null) : Dialogue(player) {

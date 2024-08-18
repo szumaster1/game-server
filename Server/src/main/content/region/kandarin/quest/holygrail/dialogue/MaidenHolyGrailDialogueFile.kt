@@ -10,7 +10,7 @@ import core.game.world.map.Location
 import core.tools.END_DIALOGUE
 
 /**
- * Maiden holy grail dialogue file.
+ * Represents the Maiden holy grail dialogue file.
  */
 class MaidenHolyGrailDialogueFile(var forced: Boolean) : DialogueFile() {
 

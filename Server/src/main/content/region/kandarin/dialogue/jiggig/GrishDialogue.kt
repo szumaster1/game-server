@@ -14,7 +14,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Grish dialogue.
+ * Represents the Grish dialogue.
  */
 @Initializable
 class GrishDialogue(player: Player? = null) : Dialogue(player) {

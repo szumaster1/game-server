@@ -10,7 +10,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Sir lancelot dialogue.
+ * Represents the Sir lancelot dialogue.
  */
 @Initializable
 class SirLancelotDialogue(player: Player? = null) : Dialogue(player) {

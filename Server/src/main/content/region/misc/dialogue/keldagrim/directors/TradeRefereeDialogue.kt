@@ -7,7 +7,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Trade referee dialogue.
+ * Represents the Trade referee dialogue.
  */
 @Initializable
 class TradeRefereeDialogue(player: Player? = null) : Dialogue(player) {

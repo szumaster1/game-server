@@ -16,7 +16,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Dwarven ferryman back dialogue.
+ * Represents the Dwarven ferryman back dialogue.
  */
 @Initializable
 class DwarvenFerrymanBackDialogue(player: Player? = null) : Dialogue(player) {

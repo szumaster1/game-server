@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Jack seagull dialogue.
+ * Represents the Jack seagull dialogue.
  */
 @Initializable
 class JackSeagullDialogue(player: Player? = null) : Dialogue(player) {

@@ -17,7 +17,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Gardener dialogue.
+ * Represents the Gardener dialogue.
  */
 @Initializable
 class GardenerDialogue(player: Player? = null) : Dialogue(player) {

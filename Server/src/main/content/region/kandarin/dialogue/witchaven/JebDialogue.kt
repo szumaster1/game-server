@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Jeb dialogue.
+ * Represents the Jeb dialogue.
  */
 @Initializable
 class JebDialogue(player: Player? = null) : Dialogue(player) {

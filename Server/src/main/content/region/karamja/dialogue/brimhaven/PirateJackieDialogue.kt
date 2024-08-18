@@ -10,7 +10,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Pirate jackie dialogue.
+ * Represents the Pirate jackie dialogue.
  */
 class PirateJackieDialogue : DialogueFile() {
 

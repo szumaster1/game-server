@@ -1,5 +1,6 @@
 package content.region.asgarnia.quest.bkfortress;
 
+import content.region.asgarnia.quest.bkfortress.dialogue.SirAmikVarzeDialogue;
 import core.api.consts.Vars;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.quest.Quest;

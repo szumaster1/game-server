@@ -11,7 +11,7 @@ import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 
 /**
- * Canifis citizen dialogue.
+ * Represents the Canifis citizen dialogue.
  */
 @Initializable
 class CanifisCitizenDialogue(player: Player? = null) : Dialogue(player) {

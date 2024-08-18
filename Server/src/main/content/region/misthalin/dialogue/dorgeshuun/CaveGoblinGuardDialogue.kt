@@ -10,7 +10,7 @@ import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 
 /**
- * Cave goblin guard dialogue.
+ * Represents the Cave goblin guard dialogue.
  */
 @Initializable
 class CaveGoblinGuardDialogue(player: Player? = null) : Dialogue(player) {

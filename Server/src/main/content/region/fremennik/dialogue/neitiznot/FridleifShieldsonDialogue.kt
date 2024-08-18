@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Fridleif Shieldson dialogue.
+ * Represents the Fridleif Shieldson dialogue.
  */
 @Initializable
 class FridleifShieldsonDialogue(player: Player? = null): Dialogue(player) {

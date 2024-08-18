@@ -11,7 +11,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Brother Omad dialogue.
+ * Represents the Brother Omad dialogue.
  */
 @Initializable
 class BrotherOmadDialogue(player: Player? = null) : Dialogue(player) {

@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Afrah dialogue.
+ * Represents the Afrah dialogue.
  */
 @Initializable
 class AfrahDialogue(player: Player? = null) : Dialogue(player) {

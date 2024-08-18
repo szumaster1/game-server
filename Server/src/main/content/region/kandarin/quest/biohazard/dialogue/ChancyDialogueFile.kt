@@ -9,7 +9,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 
 /**
- * Chancy dialogue file.
+ * Represents the Chancy dialogue file.
  */
 class ChancyDialogueFile : DialogueFile() {
 
@@ -69,7 +69,7 @@ class ChancyDialogueFile : DialogueFile() {
 }
 
 /**
- * Chancy varrock dialogue file.
+ * Represents the Chancy varrock dialogue file.
  */
 class ChancyVarrockDialogueFile : DialogueFile() {
 

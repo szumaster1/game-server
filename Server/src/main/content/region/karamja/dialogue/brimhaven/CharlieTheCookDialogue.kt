@@ -8,7 +8,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Charlie the Cook dialogue.
+ * Represents the Charlie the Cook dialogue.
  */
 @Initializable
 class CharlieTheCookDialogue(player: Player? = null): Dialogue(player) {

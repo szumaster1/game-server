@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Captain cain dialogue.
+ * Represents the Captain cain dialogue.
  * @author Szumaster
  */
 @Initializable

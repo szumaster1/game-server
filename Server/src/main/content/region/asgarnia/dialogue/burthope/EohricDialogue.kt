@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Eohric dialogue.
+ * Represents the Eohric dialogue.
  */
 @Initializable
 class EohricDialogue(player: Player? = null) : Dialogue(player) {

@@ -1,4 +1,4 @@
-package content.region.misthalin.dialogue.stronghold.security
+package content.region.misthalin.handlers.stronghold.security
 
 import core.api.*
 import core.api.consts.Items

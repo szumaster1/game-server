@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Bartak dialogue.
+ * Represents the Bartak dialogue.
  */
 @Initializable
 class BartakDialogue(player: Player? = null) : Dialogue(player) {

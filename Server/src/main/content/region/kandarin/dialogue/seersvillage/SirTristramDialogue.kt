@@ -10,7 +10,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Sir tristram dialogue.
+ * Represents the Sir tristram dialogue.
  */
 @Initializable
 class SirTristramDialogue(player: Player? = null) : Dialogue(player) {

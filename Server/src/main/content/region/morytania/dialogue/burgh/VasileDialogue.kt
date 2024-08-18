@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Vasile dialogue.
+ * Represents the Vasile dialogue.
  */
 @Initializable
 class VasileDialogue(player: Player? = null) : Dialogue(player) {

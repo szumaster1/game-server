@@ -3,7 +3,7 @@ package content.region.karamja.quest.monkeymadness.dialogue
 import core.game.dialogue.DialogueFile
 
 /**
- * Kruk dialogue.
+ * Represents the Kruk dialogue.
  */
 class KrukDialogue: DialogueFile() {
 

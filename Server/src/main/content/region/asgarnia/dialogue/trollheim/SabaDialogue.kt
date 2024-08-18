@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Saba dialogue.
+ * Represents the Saba dialogue.
  */
 @Initializable
 class SabaDialogue(player: Player? = null) : Dialogue(player) {

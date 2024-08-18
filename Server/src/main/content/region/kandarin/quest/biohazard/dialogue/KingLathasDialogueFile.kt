@@ -8,7 +8,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 
 /**
- * King lathas dialogue file.
+ * Represents the King lathas dialogue file.
  */
 class KingLathasDialogueFile : DialogueFile() {
 

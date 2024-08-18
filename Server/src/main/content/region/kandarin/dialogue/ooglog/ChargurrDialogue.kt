@@ -9,7 +9,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Chargurr dialogue.
+ * Represents the Chargurr dialogue.
  */
 @Initializable
 class ChargurrDialogue(player: Player? = null) : Dialogue(player) {

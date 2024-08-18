@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Tombar dialogue.
+ * Represents the Tombar dialogue.
  */
 @Initializable
 class TombarDialogue(player: Player? = null) : Dialogue(player) {

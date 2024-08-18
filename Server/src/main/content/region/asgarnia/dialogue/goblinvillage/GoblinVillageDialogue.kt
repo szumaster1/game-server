@@ -10,7 +10,7 @@ import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 
 /**
- * Goblin village dialogue.
+ * Represents the Goblin village dialogue.
  */
 @Initializable
 class GoblinVillageDialogue(player: Player? = null) : Dialogue(player) {

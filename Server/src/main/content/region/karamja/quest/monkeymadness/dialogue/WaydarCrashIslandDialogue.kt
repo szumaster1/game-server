@@ -9,7 +9,7 @@ import core.game.dialogue.DialogueFile
 import core.tools.END_DIALOGUE
 
 /**
- * Waydar crash island dialogue.
+ * Represents the Waydar crash island dialogue.
  */
 class WaydarCrashIslandDialogue: DialogueFile(){
 

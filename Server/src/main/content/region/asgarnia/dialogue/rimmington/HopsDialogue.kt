@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.START_DIALOGUE
 
 /**
- * Hops dialogue.
+ * Represents the Hops dialogue.
  */
 @Initializable
 class HopsDialogue(player: Player? = null) : Dialogue(player) {

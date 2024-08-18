@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Oracle dialogue.
+ * Represents the Oracle dialogue.
  */
 @Initializable
 class OracleDialogue(player: Player? = null) : Dialogue(player) {

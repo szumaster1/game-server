@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Elena dialogue.
+ * Represents the Elena dialogue.
  */
 @Initializable
 class ElenaDialogue(player: Player? = null) : Dialogue(player) {

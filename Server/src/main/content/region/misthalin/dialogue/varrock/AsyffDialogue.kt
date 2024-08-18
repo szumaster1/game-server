@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Asyff dialogue.
+ * Represents the Asyff dialogue.
  */
 @Initializable
 class AsyffDialogue(player: Player? = null) : Dialogue(player) {

@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Irwin feaselbaum dialogue.
+ * Represents the Irwin feaselbaum dialogue.
  */
 @Initializable
 class IrwinFeaselbaumDialogue(player: Player? = null) : Dialogue(player) {

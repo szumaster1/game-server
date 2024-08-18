@@ -11,7 +11,7 @@ import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 
 /**
- * Snert dialogue.
+ * Represents the Snert dialogue.
  */
 @Initializable
 class SnertDialogue(player: Player? = null) : Dialogue(player) {

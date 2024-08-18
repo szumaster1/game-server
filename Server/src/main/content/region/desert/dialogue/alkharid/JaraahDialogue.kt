@@ -14,7 +14,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Jaraah dialogue.
+ * Represents the Jaraah dialogue.
  */
 @Initializable
 class JaraahDialogue(player: Player? = null) : Dialogue(player) {

@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Lakki dwarf dialogue.
+ * Represents the Lakki dwarf dialogue.
  */
 @Initializable
 class LakkiDwarfDialogue(player: Player? = null) : Dialogue(player) {

@@ -13,7 +13,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 
 /**
- * Seaman dialogue.
+ * Represents the Seaman dialogue.
  */
 @Initializable
 class SeamanDialogue(player: Player? = null) : Dialogue(player) {

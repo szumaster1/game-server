@@ -10,7 +10,7 @@ import core.game.world.map.Location
 import core.game.world.map.RegionManager.getObject
 
 /**
- * Bedabin nomad dialogue.
+ * Represents the Bedabin nomad dialogue.
  */
 class BedabinNomadDialogue(player: Player? = null) : Dialogue(player) {
 

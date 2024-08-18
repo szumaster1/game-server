@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Wise old man dialogue.
+ * Represents the Wise old man dialogue.
  */
 @Initializable
 class WiseOldManDialogue(player: Player? = null) : Dialogue(player) {

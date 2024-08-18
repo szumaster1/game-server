@@ -10,7 +10,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Sir tristram holy grail quest dialogue file.
+ * Represents the Sir tristram holy grail quest dialogue file.
  */
 class SirTristramHolyGrailQuestDialogueFile: DialogueFile() {
 

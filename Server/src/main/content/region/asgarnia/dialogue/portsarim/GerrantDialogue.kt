@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Gerrant dialogue.
+ * Represents the Gerrant dialogue.
  */
 @Initializable
 class GerrantDialogue(player: Player? = null) : Dialogue(player) {

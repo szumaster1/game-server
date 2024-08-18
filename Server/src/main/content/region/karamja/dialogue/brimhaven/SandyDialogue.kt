@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Sandy dialogue.
+ * Represents the Sandy dialogue.
  */
 @Initializable
 class SandyDialogue(player: Player? = null): Dialogue(player) {

@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Private pendron dialogue.
+ * Represents the Private pendron dialogue.
  * @author Szumaster
  */
 @Initializable

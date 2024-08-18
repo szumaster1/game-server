@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Customer dwarf dialogue.
+ * Represents the Customer dwarf dialogue.
  */
 @Initializable
 class CustomerDwarfDialogue(player: Player? = null) : Dialogue(player) {

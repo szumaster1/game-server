@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Commander montai dialogue.
+ * Represents the Commander montai dialogue.
  */
 @Initializable
 class CommanderMontaiDialogue(player: Player? = null) : Dialogue(player) {

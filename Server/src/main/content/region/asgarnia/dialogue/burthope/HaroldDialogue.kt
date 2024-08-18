@@ -14,7 +14,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Harold dialogue.
+ * Represents the Harold dialogue.
  */
 @Initializable
 class HaroldDialogue(player: Player? = null) : Dialogue(player) {

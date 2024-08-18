@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Cuffs dialogue.
+ * Represents the Cuffs dialogue.
  */
 @Initializable
 class CuffsDialogue(player: Player? = null) : Dialogue(player) {

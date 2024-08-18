@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Cats dialogue.
+ * Represents the Cats dialogue.
  */
 @Initializable
 class CatsDialogue(player: Player? = null) : Dialogue(player) {

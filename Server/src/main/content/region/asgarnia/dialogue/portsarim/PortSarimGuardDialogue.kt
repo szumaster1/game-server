@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Port Sarim guard dialogue.
+ * Represents the Port Sarim guard dialogue.
  */
 @Initializable
 class PortSarimGuardDialogue(player: Player? = null) : Dialogue(player) {

@@ -10,7 +10,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Sawmill operator dialogue.
+ * Represents the Sawmill operator dialogue.
  */
 class SawmillOperatorDialogue : DialogueFile() {
 

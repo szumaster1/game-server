@@ -7,7 +7,7 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 
 /**
- * Captain siad dialogue.
+ * Represents the Captain siad dialogue.
  */
 class CaptainSiadDialogue(player: Player? = null) : Dialogue(player) {
 

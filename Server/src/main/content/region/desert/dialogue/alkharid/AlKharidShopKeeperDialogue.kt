@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Al kharid shop keeper dialogue.
+ * Represents the Al kharid shop keeper dialogue.
  */
 @Initializable
 class AlKharidShopKeeperDialogue(player: Player? = null) : Dialogue(player) {

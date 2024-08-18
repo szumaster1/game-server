@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Guidors wife dialogue.
+ * Represents the Guidors wife dialogue.
  */
 @Initializable
 class GuidorsWifeDialogue(player: Player? = null) : Dialogue(player) {

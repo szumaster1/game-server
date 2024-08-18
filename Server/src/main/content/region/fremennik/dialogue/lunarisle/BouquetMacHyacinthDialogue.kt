@@ -17,7 +17,7 @@ import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 
 /**
- * Bouquet Mac Hyacinth dialogue.
+ * Represents the Bouquet Mac Hyacinth dialogue.
  */
 @Initializable
 class BouquetMacHyacinthDialogue(player: Player? = null): Dialogue(player) {

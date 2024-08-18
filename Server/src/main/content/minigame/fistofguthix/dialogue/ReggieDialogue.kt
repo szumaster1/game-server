@@ -9,7 +9,7 @@ import core.game.world.GameWorld
 import core.plugin.Initializable
 
 /**
- * Reggie dialogue.
+ * Represents the Reggie dialogue.
  */
 @Initializable
 class ReggieDialogue(player: Player? = null) : Dialogue(player) {

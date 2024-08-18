@@ -10,7 +10,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Merlin dialogue.
+ * Represents the Merlin dialogue.
  */
 @Initializable
 class MerlinDialogue(player: Player? = null) : Dialogue(player) {

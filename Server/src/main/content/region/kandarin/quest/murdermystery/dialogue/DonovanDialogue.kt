@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Donovan dialogue.
+ * Represents the Donovan dialogue.
  */
 @Initializable
 class DonovanDialogue(player: Player? = null) : Dialogue(player) {

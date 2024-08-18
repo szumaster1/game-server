@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Gabooty dialogue.
+ * Represents the Gabooty dialogue.
  */
 @Initializable
 class GabootyDialogue(player: Player? = null) : Dialogue(player) {

@@ -15,7 +15,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Leon dialogue.
+ * Represents the Leon dialogue.
  */
 @Initializable
 class LeonDialogue(player: Player? = null) : Dialogue(player) {

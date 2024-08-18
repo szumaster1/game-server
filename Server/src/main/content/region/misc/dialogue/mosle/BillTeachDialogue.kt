@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Bill teach dialogue.
+ * Represents the Bill teach dialogue.
  */
 @Initializable
 class BillTeachDialogue(player: Player? = null) : Dialogue(player) {

@@ -9,7 +9,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Unferth dialogue.
+ * Represents the Unferth dialogue.
  */
 @Initializable
 class UnferthDialogue(player: Player? = null) : Dialogue(player) {

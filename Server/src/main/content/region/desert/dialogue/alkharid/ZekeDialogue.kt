@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Zeke dialogue.
+ * Represents the Zeke dialogue.
  */
 @Initializable
 class ZekeDialogue(player: Player? = null) : Dialogue(player) {

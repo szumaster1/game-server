@@ -9,7 +9,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Brown engine director dialogue.
+ * Represents the Brown engine director dialogue.
  */
 @Initializable
 class BrownEngineDirectorDialogue(player: Player? = null) : Dialogue(player) {

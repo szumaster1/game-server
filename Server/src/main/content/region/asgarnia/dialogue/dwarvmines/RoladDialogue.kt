@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Rolad dialogue.
+ * Represents the Rolad dialogue.
  */
 @Initializable
 class RoladDialogue(player: Player? = null) : Dialogue(player) {

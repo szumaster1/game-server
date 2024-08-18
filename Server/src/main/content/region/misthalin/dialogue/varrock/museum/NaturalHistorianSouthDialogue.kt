@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Natural historian south dialogue.
+ * Represents the Natural historian south dialogue.
  */
 @Initializable
 class NaturalHistorianSouthDialogue(player: Player? = null) : Dialogue(player) {
@@ -85,7 +85,7 @@ class NaturalHistorianSouthDialogue(player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Talk about terror birds.
+ * Represents the Talk about terror birds.
  */
 class TalkAboutTerrorBirds : DialogueFile() {
 
@@ -117,7 +117,7 @@ class TalkAboutTerrorBirds : DialogueFile() {
 }
 
 /**
- * Talk about kalphite queen.
+ * Represents the Talk about kalphite queen.
  */
 class TalkAboutKalphiteQueen : DialogueFile() {
 

@@ -9,7 +9,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Greengrocer (Miscellania) dialogue.
+ * Represents the Greengrocer (Miscellania) dialogue.
  */
 @Initializable
 class GreengrocerMiscDialogue(player: Player? = null): Dialogue(player) {

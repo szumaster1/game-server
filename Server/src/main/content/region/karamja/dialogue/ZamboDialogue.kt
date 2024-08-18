@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Zambo dialogue.
+ * Represents the Zambo dialogue.
  */
 @Initializable
 class ZamboDialogue(player: Player? = null) : Dialogue(player) {

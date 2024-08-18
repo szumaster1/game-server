@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Ghost guard dialogue.
+ * Represents the Ghost guard dialogue.
  */
 @Initializable
 class GhostGuardDialogue(player: Player? = null) : Dialogue(player) {

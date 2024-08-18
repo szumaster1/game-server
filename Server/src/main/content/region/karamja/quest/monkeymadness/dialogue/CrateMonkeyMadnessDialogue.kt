@@ -11,7 +11,7 @@ import core.game.world.map.Location
 import core.tools.RandomFunction
 
 /**
- * Crate monkey madness dialogue.
+ * Represents the Crate monkey madness dialogue.
  */
 class CrateMonkeyMadnessDialogue(val it: Int) : DialogueFile() {
 

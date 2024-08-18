@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Farmer Brumty dialogue.
+ * Represents the Farmer Brumty dialogue.
  */
 @Initializable
 class FarmerBrumtyDialogue(player: Player? = null) : Dialogue(player) {

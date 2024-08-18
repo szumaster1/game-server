@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Carla dialogue.
+ * Represents the Carla dialogue.
  */
 @Initializable
 class CarlaDialogue(player: Player? = null) : Dialogue(player) {

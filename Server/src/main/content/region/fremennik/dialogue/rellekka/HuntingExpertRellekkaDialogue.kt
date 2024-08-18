@@ -11,7 +11,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Hunting expert rellekka dialogue.
+ * Represents the Hunting expert rellekka dialogue.
  */
 @Initializable
 class HuntingExpertRellekkaDialogue(player: Player? = null): Dialogue(player) {

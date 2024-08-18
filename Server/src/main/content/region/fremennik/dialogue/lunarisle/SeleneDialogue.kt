@@ -17,7 +17,7 @@ import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 
 /**
- * Selene dialogue.
+ * Represents the Selene dialogue.
  */
 @Initializable
 class SeleneDialogue(player: Player? = null): Dialogue(player) {

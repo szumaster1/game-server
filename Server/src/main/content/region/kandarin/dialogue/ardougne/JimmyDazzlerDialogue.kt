@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Jimmy Dazzler dialogue.
+ * Represents the Jimmy Dazzler dialogue.
  */
 @Initializable
 class JimmyDazzlerDialogue(player: Player? = null) : Dialogue(player) {

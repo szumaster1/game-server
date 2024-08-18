@@ -15,7 +15,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Elsie dialogue.
+ * Represents the Elsie dialogue.
  */
 @Initializable
 class ElsieDialogue(player: Player? = null) : Dialogue(player) {

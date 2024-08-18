@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Richard dialogue.
+ * Represents the Richard dialogue.
  */
 @Initializable
 class RichardDialogue(player: Player? = null) : Dialogue(player) {

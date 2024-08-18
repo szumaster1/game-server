@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Oronwen dialogue.
+ * Represents the Oronwen dialogue.
  */
 @Initializable
 class OronwenDialogue(player: Player? = null): Dialogue(player) {

@@ -15,7 +15,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Banker dialogue.
+ * Represents the Banker dialogue.
  */
 @Initializable
 class BankerDialogue(player: Player? = null) : Dialogue(player) {
@@ -78,24 +78,15 @@ class BankerDialogue(player: Player? = null) : Dialogue(player) {
                 Topic(FacialExpression.ASKING, "What is this place?", 3),
             )
 
-            3 -> npcl(
-                checkFacialExpression,
-                "This is a branch of the Bank of Gielinor. We have branches in many towns."
-            ).also { stage++ }
+            3 -> npcl(checkFacialExpression, "This is a branch of the Bank of Gielinor. We have branches in many towns.").also { stage++ }
 
             4 -> playerl(FacialExpression.ASKING, "And what do you do?").also { stage++ }
-            5 -> npcl(
-                checkFacialExpression,
-                "We will look after your items and money for you. " + "Leave your valuables with us if you want to keep them safe."
-            ).also { stage = END_DIALOGUE }
+            5 -> npcl(checkFacialExpression, "We will look after your items and money for you. " + "Leave your valuables with us if you want to keep them safe.").also { stage = END_DIALOGUE }
 
             10 -> {
                 end()
                 if (checkRestriction) {
-                    sendDialogue(
-                        player,
-                        "The banker detected that the items in your inventory are blacklisted, which prevented you from opening a bank account. You can do it again after removing them."
-                    )
+                    sendDialogue(player, "The banker detected that the items in your inventory are blacklisted, which prevented you from opening a bank account. You can do it again after removing them.")
                 } else {
                     openBankAccount(player)
                 }
@@ -113,33 +104,16 @@ class BankerDialogue(player: Player? = null) : Dialogue(player) {
 
             13 -> {
                 toggleBankAccount(player)
-                npcl(
-                    checkFacialExpression,
-                    "Your active bank account has been switched. " + "You can now access your ${
-                        getBankAccountName(player)
-                    } account."
-                ).also { stage = 2 }
+                npcl(checkFacialExpression, "Your active bank account has been switched. " + "You can now access your ${getBankAccountName(player)} account.").also { stage = 2 }
             }
 
-            20 -> npcl(
-                checkFacialExpression,
-                "Certainly. We offer secondary accounts to all our customers."
-            ).also { stage++ }
+            20 -> npcl(checkFacialExpression, "Certainly. We offer secondary accounts to all our customers.").also { stage++ }
 
-            21 -> npcl(
-                checkFacialExpression,
-                "The secondary account comes with a standard fee of 10,000 coins. The fee is non-refundable " + "and account activation is permanent."
-            ).also { stage++ }
+            21 -> npcl(checkFacialExpression, "The secondary account comes with a standard fee of 10,000 coins. The fee is non-refundable " + "and account activation is permanent.").also { stage++ }
 
-            22 -> npcl(
-                checkFacialExpression,
-                "If your inventory does not contain enough money to cover the costs, we will complement " + "the amount with the money inside your primary bank account."
-            ).also { stage++ }
+            22 -> npcl(checkFacialExpression, "If your inventory does not contain enough money to cover the costs, we will complement " + "the amount with the money inside your primary bank account.").also { stage++ }
 
-            23 -> npcl(
-                checkFacialExpression,
-                "Knowing all this, would you like to proceed with opening your secondary bank account?"
-            ).also { stage++ }
+            23 -> npcl(checkFacialExpression, "Knowing all this, would you like to proceed with opening your secondary bank account?").also { stage++ }
 
             24 -> showTopics(
                 Topic(FacialExpression.HAPPY, "Yes, I am still interested.", 25),
@@ -149,39 +123,24 @@ class BankerDialogue(player: Player? = null) : Dialogue(player) {
             25 -> {
                 when (activateSecondaryBankAccount(player)) {
                     SecondaryBankAccountActivationResult.ALREADY_ACTIVE -> {
-                        npcl(
-                            checkFacialExpression,
-                            "Your bank account was already activated, there is no need to pay twice."
-                        ).also { stage = END_DIALOGUE }
+                        npcl(checkFacialExpression, "Your bank account was already activated, there is no need to pay twice.").also { stage = END_DIALOGUE }
                     }
 
                     SecondaryBankAccountActivationResult.INTERNAL_FAILURE -> {
-                        npcl(
-                            checkFacialExpression,
-                            "I must apologize, the transaction was not successful. Please check your " + "primary bank account and your inventory - if there's money missing, please " + "screenshot your chat box and contact the game developers."
-                        ).also { stage = END_DIALOGUE }
+                        npcl(checkFacialExpression, "I must apologize, the transaction was not successful. Please check your " + "primary bank account and your inventory - if there's money missing, please " + "screenshot your chat box and contact the game developers.").also { stage = END_DIALOGUE }
                     }
 
                     SecondaryBankAccountActivationResult.NOT_ENOUGH_MONEY -> {
-                        npcl(
-                            checkFacialExpression,
-                            "It appears that you do not have the money necessary to cover the costs " + "associated with opening a secondary bank account. I will be waiting here " + "until you do."
-                        ).also { stage = END_DIALOGUE }
+                        npcl(checkFacialExpression, "It appears that you do not have the money necessary to cover the costs " + "associated with opening a secondary bank account. I will be waiting here " + "until you do.").also { stage = END_DIALOGUE }
                     }
 
                     SecondaryBankAccountActivationResult.SUCCESS -> {
-                        npcl(
-                            checkFacialExpression,
-                            "Your secondary bank account has been opened and can be accessed through any " + "of the Bank of Gielinor's employees. Thank you for choosing our services."
-                        ).also { stage = END_DIALOGUE }
+                        npcl(checkFacialExpression, "Your secondary bank account has been opened and can be accessed through any " + "of the Bank of Gielinor's employees. Thank you for choosing our services.").also { stage = END_DIALOGUE }
                     }
                 }
             }
 
-            26 -> npcl(
-                checkFacialExpression,
-                "Very well. Should you decide a secondary bank account is needed, do not hesitate to " + "contact any of the Bank of Gielinor's stationary employees. We will be happy to help."
-            ).also { stage = END_DIALOGUE }
+            26 -> npcl(checkFacialExpression, "Very well. Should you decide a secondary bank account is needed, do not hesitate to " + "contact any of the Bank of Gielinor's stationary employees. We will be happy to help.").also { stage = END_DIALOGUE }
         }
 
         return true

@@ -1,5 +1,6 @@
-package content.region.asgarnia.quest.bkfortress
+package content.region.asgarnia.quest.bkfortress.dialogue
 
+import content.region.asgarnia.quest.bkfortress.BlackKnightsFortress
 import content.region.asgarnia.quest.recruitmentdrive.dialogue.SirAmikVarzeDialogueFile
 import core.api.openDialogue
 import core.game.dialogue.Dialogue

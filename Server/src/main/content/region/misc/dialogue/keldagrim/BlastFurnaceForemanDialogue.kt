@@ -18,7 +18,7 @@ import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 
 /**
- * Blast furnace foreman dialogue.
+ * Represents the Blast furnace foreman dialogue.
  */
 @Initializable
 class BlastFurnaceForemanDialogue(player: Player? = null) : Dialogue(player) {

@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Horvik dialogue.
+ * Represents the Horvik dialogue.
  */
 @Initializable
 class HorvikDialogue(player: Player? = null) : Dialogue(player) {

@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Ali the leaflet dialogue.
+ * Represents the Ali the leaflet dialogue.
  */
 @Initializable
 class AliTheLeafletDialogue(player: Player? = null) : Dialogue(player) {

@@ -12,7 +12,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Sirsal Banker dialogue.
+ * Represents the Sirsal Banker dialogue.
  */
 class SirsalBankerDialogue(player: Player? = null): Dialogue(player) {
 

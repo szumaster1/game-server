@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Falador gardener dialogue.
+ * Represents the Falador gardener dialogue.
  */
 @Initializable
 class FaladorGardenerDialogue(player: Player? = null) : Dialogue(player) {

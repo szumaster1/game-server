@@ -215,8 +215,7 @@ abstract class Cutscene(val player: Player) {
     }
 
     /**
-     * Retrieves the first NPC from the added-to-cutscene.
-     * NPCs with a matching ID.
+     * Retrieves the first NPC from the added-to-cutscene. NPCs with a matching ID.
      *
      * @param id the ID to grab for.
      * @return the first NPC, or null if there are no matching NPCs.
@@ -276,11 +275,17 @@ abstract class Cutscene(val player: Player) {
     }
 
     fun start() {
+        start(true)
+    }
+
+    fun start(hideMiniMap: Boolean) {
         logCutscene("Starting cutscene for ${player.username}.")
         region = RegionManager.forId(player.location.regionId)
         base = RegionManager.forId(player.location.regionId).baseLocation
         setup()
-        PacketRepository.send(MinimapState::class.java, MinimapStateContext(player, 2))
+        if (hideMiniMap) {
+            PacketRepository.send(MinimapState::class.java, MinimapStateContext(player, 2))
+        }
         runStage(player.getCutsceneStage())
         setAttribute(player, ATTRIBUTE_CUTSCENE, this)
         setAttribute(player, ATTRIBUTE_CUTSCENE_STAGE, 0)
@@ -291,6 +296,52 @@ abstract class Cutscene(val player: Player) {
         player.hook(Event.SelfDeath, CUTSCENE_DEATH_HOOK)
         player.logoutListeners["cutscene"] = { player -> player.location = exitLocation; player.getCutscene()?.end() }
         AntiMacro.pause(player)
+    }
+
+    /**
+     * Ends this cutscene, fading the screen to black, teleporting the player to the exit location, and then fading it back in and executing the endActions passed to this method.
+     * @param fade (optional) should the cutscene fade to black?
+     * @param endActions (optional) a method that executes when the cutscene fully completes
+     */
+    fun end(fade: Boolean = true, endActions: (() -> Unit)? = null) {
+        ended = true
+        if (fade) fadeToBlack()
+        GameWorld.Pulser.submit(object : Pulse() {
+            var tick: Int = 0
+            override fun pulse(): Boolean {
+                if (fade) {
+                    when (tick++) {
+                        8 -> player.properties.teleportLocation = exitLocation
+                        9 -> fadeFromBlack()
+                        16 -> return true
+                        else -> return false
+                    }
+                } else player.properties.teleportLocation = exitLocation
+                return true
+            }
+
+            override fun stop() {
+                super.stop()
+                player ?: return
+                player.removeAttribute(ATTRIBUTE_CUTSCENE)
+                player.removeAttribute(ATTRIBUTE_CUTSCENE_STAGE)
+                player.properties.isSafeZone = false
+                player.properties.safeRespawn = ServerConstants.HOME_LOCATION
+                player.interfaceManager.restoreTabs()
+                player.unlock()
+                clearNPCs()
+                player.unhook(CUTSCENE_DEATH_HOOK)
+                player.logoutListeners.remove("cutscene")
+                AntiMacro.unpause(player)
+                PacketRepository.send(MinimapState::class.java, MinimapStateContext(player, 0))
+                try {
+                    endActions?.invoke()
+                } catch (e: Exception) {
+                    log(this::class.java, Log.ERR, "There's some bad nasty code in ${this::class.java.simpleName} end actions!")
+                    e.printStackTrace()
+                }
+            }
+        })
     }
 
 

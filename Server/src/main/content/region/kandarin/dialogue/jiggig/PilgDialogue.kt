@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Pilg dialogue.
+ * Represents the Pilg dialogue.
  */
 @Initializable
 class PilgDialogue(player: Player? = null) : Dialogue(player) {

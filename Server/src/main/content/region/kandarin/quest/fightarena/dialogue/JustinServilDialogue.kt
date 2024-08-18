@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Justin servil dialogue.
+ * Represents the Justin servil dialogue.
  */
 @Initializable
 class JustinServilDialogue(player: Player? = null) : Dialogue(player) {

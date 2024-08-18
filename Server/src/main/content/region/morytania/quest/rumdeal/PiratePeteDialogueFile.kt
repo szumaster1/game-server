@@ -11,7 +11,7 @@ import core.game.world.update.flag.context.Graphic
 import core.tools.END_DIALOGUE
 
 /**
- * Pirate pete dialogue file.
+ * Represents the Pirate pete dialogue file.
  */
 class PiratePeteDialogueFile : DialogueFile() {
 

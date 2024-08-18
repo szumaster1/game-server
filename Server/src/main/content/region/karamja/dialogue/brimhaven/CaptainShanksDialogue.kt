@@ -14,7 +14,7 @@ import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 
 /**
- * Captain Shanks dialogue.
+ * Represents the Captain Shanks dialogue.
  */
 @Initializable
 class CaptainShanksDialogue(player: Player? = null) : Dialogue(player) {

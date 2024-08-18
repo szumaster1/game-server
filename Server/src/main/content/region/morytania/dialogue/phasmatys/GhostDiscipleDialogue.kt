@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Ghost disciple dialogue.
+ * Represents the Ghost disciple dialogue.
  */
 @Initializable
 class GhostDiscipleDialogue(player: Player? = null) : Dialogue(player) {

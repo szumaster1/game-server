@@ -8,7 +8,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Sir spishyus dialogue.
+ * Represents the Sir spishyus dialogue.
  */
 @Initializable
 class SirSpishyusDialogue(player: Player? = null) : Dialogue(player) {

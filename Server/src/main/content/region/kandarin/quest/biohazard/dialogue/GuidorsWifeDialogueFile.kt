@@ -7,7 +7,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 
 /**
- * Guidors wife dialogue file.
+ * Represents the Guidors wife dialogue file.
  */
 class GuidorsWifeDialogueFile : DialogueFile() {
 

@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Shanomi dialogue.
+ * Represents the Shanomi dialogue.
  */
 @Initializable
 class ShanomiDialogue(player: Player? = null) : Dialogue(player) {

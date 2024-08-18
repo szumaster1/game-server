@@ -12,7 +12,7 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * Cave Monk dialogue.
+ * Represents the Cave Monk dialogue.
  */
 @Initializable
 class CaveMonkDialogue(player: Player? = null) : Dialogue(player) {

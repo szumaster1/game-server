@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Lanthus dialogue.
+ * Represents the Lanthus dialogue.
  */
 @Initializable
 class LanthusDialogue(player: Player? = null) : Dialogue(player) {

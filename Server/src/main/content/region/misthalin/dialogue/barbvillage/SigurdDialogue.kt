@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Sigurd dialogue.
+ * Represents the Sigurd dialogue.
  */
 @Initializable
 class SigurdDialogue(player: Player? = null) : Dialogue(player) {

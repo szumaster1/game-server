@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Hirko dialogue.
+ * Represents the Hirko dialogue.
  */
 @Initializable
 class HirkoDialogue(player: Player? = null) : Dialogue(player) {

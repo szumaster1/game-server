@@ -8,7 +8,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Grimechin dialogue.
+ * Represents the Grimechin dialogue.
  */
 class GrimechinDialogue : DialogueFile() {
 

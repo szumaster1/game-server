@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Filelio dialogue.
+ * Represents the Filelio dialogue.
  */
 @Initializable
 class FilelioDialogue(player: Player? = null) : Dialogue(player) {

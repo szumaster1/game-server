@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Sir vyvin dialogue.
+ * Represents the Sir vyvin dialogue.
  */
 @Initializable
 class SirVyvinDialogue(player: Player? = null) : Dialogue(player) {

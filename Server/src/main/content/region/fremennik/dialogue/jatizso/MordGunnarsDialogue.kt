@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Mord Gunnars dialogue.
+ * Represents the Mord Gunnars dialogue.
  */
 @Initializable
 class MordGunnarsDialogue(player: Player? = null): Dialogue(player) {

@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Betty dialogue.
+ * Represents the Betty dialogue.
  */
 @Initializable
 class BettyDialogue(player: Player? = null) : Dialogue(player) {

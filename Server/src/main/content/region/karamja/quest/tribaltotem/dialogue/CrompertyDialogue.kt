@@ -19,7 +19,7 @@ import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 
 /**
- * Cromperty dialogue.
+ * Represents the Cromperty dialogue.
  */
 @Initializable
 class CrompertyDialogue(player: Player? = null) : Dialogue(player) {

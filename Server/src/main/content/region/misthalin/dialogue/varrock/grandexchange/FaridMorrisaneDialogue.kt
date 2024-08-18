@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Farid morrisane dialogue.
+ * Represents the Farid morrisane dialogue.
  */
 @Initializable
 class FaridMorrisaneDialogue(player: Player? = null) : Dialogue(player) {

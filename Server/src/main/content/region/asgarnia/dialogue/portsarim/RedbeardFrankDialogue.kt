@@ -15,7 +15,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Redbeard frank dialogue.
+ * Represents the Redbeard frank dialogue.
  */
 @Initializable
 class RedbeardFrankDialogue(player: Player? = null) : Dialogue(player) {

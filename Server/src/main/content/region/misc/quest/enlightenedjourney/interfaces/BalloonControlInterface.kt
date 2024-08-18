@@ -14,7 +14,7 @@ class BalloonControlInterface : InterfaceListener {
     private val CONTROLS = Components.ZEP_INTERFACE_SIDE_471
 
     override fun defineInterfaceListeners() {
-
+        /*
         onOpen(CONTROLS) { player, _ ->
             player.lock()
             Component(CONTROLS).definition.type = InterfaceType.SINGLE_TAB
@@ -55,5 +55,7 @@ class BalloonControlInterface : InterfaceListener {
             }
             return@on true
         }
+    }
+    */
     }
 }

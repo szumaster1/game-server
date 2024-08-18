@@ -9,7 +9,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Elder Guard dialogue.
+ * Represents the Elder Guard dialogue.
  */
 @Initializable
 class ElderGuardDialogue(player: Player? = null) : Dialogue(player){

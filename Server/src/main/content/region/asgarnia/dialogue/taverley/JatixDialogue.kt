@@ -9,7 +9,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Jatix dialogue.
+ * Represents the Jatix dialogue.
  */
 @Initializable
 class JatixDialogue(player: Player? = null) : Dialogue(player) {

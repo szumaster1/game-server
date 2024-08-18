@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Iona dialouge.
+ * Represents the Iona dialouge.
  */
 @Initializable
 class IonaDialouge(player: Player? = null): Dialogue(player) {

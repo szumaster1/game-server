@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Davon dialogue.
+ * Represents the Davon dialogue.
  */
 @Initializable
 class DavonDialogue(player: Player? = null): Dialogue(player) {

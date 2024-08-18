@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Sir tiffy cashien dialogue.
+ * Represents the Sir tiffy cashien dialogue.
  */
 @Initializable
 class SirTiffyCashienDialogue(player: Player? = null) : Dialogue(player) {

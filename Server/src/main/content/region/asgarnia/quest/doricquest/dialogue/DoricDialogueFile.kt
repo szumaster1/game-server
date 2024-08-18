@@ -10,7 +10,7 @@ import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
 /**
- * Doric dialogue file.
+ * Represents the Doric dialogue file.
  */
 class DoricDialogueFile(private val questStage: Int) : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {

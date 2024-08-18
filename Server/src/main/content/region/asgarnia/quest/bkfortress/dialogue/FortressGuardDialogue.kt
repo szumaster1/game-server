@@ -1,4 +1,4 @@
-package content.region.asgarnia.quest.bkfortress
+package content.region.asgarnia.quest.bkfortress.dialogue
 
 import core.api.consts.Items
 import core.api.consts.NPCs

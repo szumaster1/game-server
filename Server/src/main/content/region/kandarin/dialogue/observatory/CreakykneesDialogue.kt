@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Creakyknees dialogue.
+ * Represents the Creakyknees dialogue.
  */
 @Initializable
 class CreakykneesDialogue(player: Player? = null) : Dialogue(player) {

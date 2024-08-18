@@ -11,7 +11,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Rachael dialogue.
+ * Represents the Rachael dialogue.
  */
 @Initializable
 class RachaelDialogue(player: Player? = null) : Dialogue(player) {

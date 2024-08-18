@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Eagle eye shultz dialogue.
+ * Represents the Eagle eye shultz dialogue.
  */
 @Initializable
 class EagleEyeShultzDialogue(player: Player? = null): Dialogue(player) {

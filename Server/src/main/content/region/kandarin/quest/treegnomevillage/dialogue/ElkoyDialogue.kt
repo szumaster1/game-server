@@ -14,7 +14,7 @@ import core.game.world.map.Location
 import core.tools.END_DIALOGUE
 
 /**
- * Elkoy dialogue.
+ * Represents the Elkoy dialogue.
  */
 class ElkoyDialogue : DialogueFile() {
     /**

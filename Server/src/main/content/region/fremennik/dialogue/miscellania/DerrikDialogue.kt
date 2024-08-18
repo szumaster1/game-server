@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Derrik dialogue.
+ * Represents the Derrik dialogue.
  */
 @Initializable
 class DerrikDialogue(player: Player? = null): Dialogue(player) {

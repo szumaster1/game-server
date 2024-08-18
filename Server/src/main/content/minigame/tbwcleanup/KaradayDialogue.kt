@@ -18,8 +18,11 @@ import content.region.karamja.handlers.KaramjaAchievementDiary.Companion.MediumT
 import core.api.consts.Items
 import core.api.consts.NPCs
 
+/**
+ * Represents the dialogue.
+ */
 @Initializable
-class SaftaDocDialogue(player: Player? = null) : Dialogue(player) {
+class KaradayDialogue(player: Player? = null) : Dialogue(player) {
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
@@ -148,7 +151,7 @@ class SaftaDocDialogue(player: Player? = null) : Dialogue(player) {
     }
 
     override fun newInstance(player: Player?): Dialogue {
-        return SaftaDocDialogue(player)
+        return KaradayDialogue(player)
     }
 
     override fun getIds(): IntArray {

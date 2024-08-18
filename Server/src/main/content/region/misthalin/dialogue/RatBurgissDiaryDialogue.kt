@@ -11,7 +11,7 @@ import core.game.node.entity.player.link.diary.DiaryType
 import core.tools.END_DIALOGUE
 
 /**
- * Rat burgiss diary dialogue.
+ * Represents the Rat burgiss diary dialogue.
  */
 class RatBurgissDiaryDialogue : DialogueFile() {
 

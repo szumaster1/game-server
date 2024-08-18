@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Geotrix dialogue.
+ * Represents the Geotrix dialogue.
  */
 @Initializable
 class GeotrixDialogue(player: Player? = null) : Dialogue(player) {

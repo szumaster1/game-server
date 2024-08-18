@@ -11,7 +11,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Penda dialogue.
+ * Represents the Penda dialogue.
  */
 @Initializable
 class PendaDialogue(player: Player? = null) : Dialogue(player) {

@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Crone dialogue.
+ * Represents the Crone dialogue.
  */
 @Initializable
 class CroneDialogue(player: Player? = null) : Dialogue(player) {

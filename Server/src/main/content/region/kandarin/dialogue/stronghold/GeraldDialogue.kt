@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Gerald dialogue.
+ * Represents the Gerald dialogue.
  */
 @Initializable
 class GeraldDialogue(player: Player? = null) : Dialogue(player) {

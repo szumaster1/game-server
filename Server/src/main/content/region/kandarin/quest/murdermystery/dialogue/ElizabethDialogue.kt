@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Elizabeth dialogue.
+ * Represents the Elizabeth dialogue.
  */
 @Initializable
 class ElizabethDialogue(player: Player? = null) : Dialogue(player) {

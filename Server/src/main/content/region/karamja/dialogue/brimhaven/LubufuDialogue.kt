@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Lubufu dialogue.
+ * Represents the Lubufu dialogue.
  */
 @Initializable
 class LubufuDialogue(player: Player? = null): Dialogue(player) {

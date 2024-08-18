@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Frank dialogue.
+ * Represents the Frank dialogue.
  */
 @Initializable
 class FrankDialogue(player: Player? = null) : Dialogue(player) {

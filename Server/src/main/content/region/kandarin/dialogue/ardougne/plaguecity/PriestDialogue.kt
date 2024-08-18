@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Priest dialogue.
+ * Represents the Priest dialogue.
  */
 @Initializable
 class PriestDialogue(player: Player? = null) : Dialogue(player) {

@@ -8,7 +8,7 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.item.Item
 
 /**
- * Al shabim dialogue.
+ * Represents the Al shabim dialogue.
  */
 class AlShabimDialogue(player: Player? = null) : Dialogue(player) {
 

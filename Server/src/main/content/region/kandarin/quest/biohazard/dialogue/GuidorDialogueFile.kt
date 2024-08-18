@@ -9,7 +9,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Guidor dialogue file.
+ * Represents the Guidor dialogue file.
  */
 class GuidorDialogueFile : DialogueFile() {
 

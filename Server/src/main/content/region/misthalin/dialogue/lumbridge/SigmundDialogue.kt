@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Sigmund dialogue.
+ * Represents the Sigmund dialogue.
  */
 @Initializable
 class SigmundDialogue(player: Player? = null) : Dialogue(player) {

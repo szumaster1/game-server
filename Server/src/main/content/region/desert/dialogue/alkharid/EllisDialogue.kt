@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Ellis dialogue.
+ * Represents the Ellis dialogue.
  */
 @Initializable
 class EllisDialogue(player: Player? = null) : Dialogue(player) {

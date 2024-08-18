@@ -8,7 +8,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Telekinetic guardian dialogue.
+ * Represents the Telekinetic guardian dialogue.
  */
 @Initializable
 class TelekineticGuardianDialogue(player: Player? = null) : Dialogue(player) {

@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Drokar dialogue.
+ * Represents the Drokar dialogue.
  */
 @Initializable
 class DrokarDialogue(player: Player? = null) : Dialogue(player) {

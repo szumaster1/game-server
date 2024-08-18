@@ -9,7 +9,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Bert dialogue.
+ * Represents the Bert dialogue.
  */
 @Initializable
 class BertDialogue(player: Player? = null) : Dialogue(player) {

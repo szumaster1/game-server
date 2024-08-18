@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Fat tony dialogue.
+ * Represents the Fat tony dialogue.
  */
 @Initializable
 class FatTonyDialogue(player: Player? = null) : Dialogue(player) {

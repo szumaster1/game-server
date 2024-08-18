@@ -11,7 +11,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Guide dialogue.
+ * Represents the Guide dialogue.
  */
 @Initializable
 class RSGuideDialogue(player: Player? = null) : Dialogue(player) {

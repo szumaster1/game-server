@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Private paldon dialogue.
+ * Represents the Private paldon dialogue.
  * @author Szumaster
  */
 @Initializable

@@ -14,7 +14,7 @@ import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
 /**
- * Merlin holy grail quest dialogue file.
+ * Represents the Merlin holy grail quest dialogue file.
  */
 class MerlinHolyGrailQuestDialogueFile : DialogueFile() {
 

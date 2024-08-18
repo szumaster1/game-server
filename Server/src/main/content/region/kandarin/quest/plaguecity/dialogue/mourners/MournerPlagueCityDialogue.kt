@@ -10,7 +10,7 @@ import core.game.world.map.RegionManager.getObject
 import core.tools.END_DIALOGUE
 
 /**
- * Mourner plague city dialogue.
+ * Represents the Mourner plague city dialogue.
  */
 class MournerPlagueCityDialogue : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {

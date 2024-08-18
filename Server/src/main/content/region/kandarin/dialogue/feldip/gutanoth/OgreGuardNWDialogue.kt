@@ -9,7 +9,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Ogre guard North-West dialogue.
+ * Represents the Ogre guard North-West dialogue.
  */
 @Initializable
 class OgreGuardNWDialogue(player: Player? = null) : Dialogue(player) {

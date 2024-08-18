@@ -19,7 +19,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Mistag dialogue.
+ * Represents the Mistag dialogue.
  */
 @Initializable
 class MistagDialogue(player: Player? = null) : Dialogue(player) {

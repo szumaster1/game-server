@@ -8,7 +8,7 @@ import core.game.dialogue.DialogueFile
 import core.tools.END_DIALOGUE
 
 /**
- * Monkey child first dialogue.
+ * Represents the Monkey child first dialogue.
  */
 class MonkeyChildFirstDialogue: DialogueFile(){
 
@@ -26,7 +26,7 @@ class MonkeyChildFirstDialogue: DialogueFile(){
 }
 
 /**
- * Monkey child second dialogue.
+ * Represents the Monkey child second dialogue.
  */
 class MonkeyChildSecondDialogue: DialogueFile(){
 
@@ -51,7 +51,7 @@ class MonkeyChildSecondDialogue: DialogueFile(){
 }
 
 /**
- * Monkey child third dialogue.
+ * Represents the Monkey child third dialogue.
  */
 class MonkeyChildThirdDialogue: DialogueFile(){
 
@@ -82,7 +82,7 @@ class MonkeyChildThirdDialogue: DialogueFile(){
 }
 
 /**
- * Monkey child bananas dialogue.
+ * Represents the Monkey child bananas dialogue.
  */
 class MonkeyChildBananasDialogue: DialogueFile(){
 
@@ -105,7 +105,7 @@ class MonkeyChildBananasDialogue: DialogueFile(){
 }
 
 /**
- * Monkey child talisman dialogue.
+ * Represents the Monkey child talisman dialogue.
  */
 class MonkeyChildTalismanDialogue: DialogueFile(){
 
@@ -126,7 +126,7 @@ class MonkeyChildTalismanDialogue: DialogueFile(){
 }
 
 /**
- * Monkey child without amulet dialogue.
+ * Represents the Monkey child without amulet dialogue.
  */
 class MonkeyChildWithoutAmuletDialogue: DialogueFile(){
     override fun handle(componentID: Int, buttonID: Int) {

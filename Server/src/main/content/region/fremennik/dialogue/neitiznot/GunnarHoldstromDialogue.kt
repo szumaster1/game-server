@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Gunnar Holdstrom dialogue.
+ * Represents the Gunnar Holdstrom dialogue.
  */
 @Initializable
 class GunnarHoldstromDialogue(player: Player? = null): Dialogue(player) {

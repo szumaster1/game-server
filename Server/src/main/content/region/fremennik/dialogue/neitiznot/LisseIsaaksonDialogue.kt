@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Lisse Isaakson dialogue.
+ * Represents the Lisse Isaakson dialogue.
  */
 @Initializable
 class LisseIsaaksonDialogue(player: Player? = null): Dialogue(player) {

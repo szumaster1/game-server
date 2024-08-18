@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Dromund dialogue.
+ * Represents the Dromund dialogue.
  */
 @Initializable
 class DromundDialogue(player: Player? = null) : Dialogue(player) {

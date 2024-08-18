@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Head mystic dialogue.
+ * Represents the Head mystic dialogue.
  */
 @Initializable
 class HeadMysticDialogue(player: Player? = null) : Dialogue(player) {

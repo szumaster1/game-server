@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Mike dialogue.
+ * Represents the Mike dialogue.
  */
 @Initializable
 class MikeDialogue(player: Player? = null) : Dialogue(player) {

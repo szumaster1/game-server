@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Bob barter dialogue.
+ * Represents the Bob barter dialogue.
  */
 @Initializable
 class BobBarterDialogue(player: Player? = null) : Dialogue(player) {

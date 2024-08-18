@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Audmann dialogue.
+ * Represents the Audmann dialogue.
  */
 @Initializable
 class AudmannDialogue(player: Player? = null) : Dialogue(player) {

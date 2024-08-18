@@ -8,7 +8,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 
 /**
- * Chemist dialogue file.
+ * Represents the Chemist dialogue file.
  */
 class ChemistDialogueFile : DialogueFile() {
 

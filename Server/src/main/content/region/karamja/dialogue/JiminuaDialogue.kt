@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Jiminua dialogue.
+ * Represents the Jiminua dialogue.
  */
 @Initializable
 class JiminuaDialogue(player: Player? = null) : Dialogue(player) {

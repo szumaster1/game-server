@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Brimstail dialogue.
+ * Represents the Brimstail dialogue.
  */
 @Initializable
 class BrimstailDialogue(player: Player? = null) : Dialogue(player) {

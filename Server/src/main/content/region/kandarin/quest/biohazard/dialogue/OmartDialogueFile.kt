@@ -7,7 +7,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Omart dialogue file.
+ * Represents the Omart dialogue file.
  */
 class OmartDialogueFile : DialogueFile() {
 

@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Karim dialogue.
+ * Represents the Karim dialogue.
  */
 @Initializable
 class KarimDialogue(player: Player? = null) : Dialogue(player) {

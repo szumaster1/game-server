@@ -11,7 +11,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Ocga dialogue.
+ * Represents the Ocga dialogue.
  */
 @Initializable
 class OcgaDialogue(player: Player? = null) : Dialogue(player) {

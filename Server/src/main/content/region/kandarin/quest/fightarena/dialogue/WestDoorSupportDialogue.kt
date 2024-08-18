@@ -8,7 +8,7 @@ import core.game.global.action.DoorActionHandler
 import core.game.node.entity.npc.NPC
 
 /**
- * West door support dialogue.
+ * Represents the West door support dialogue.
  */
 class WestDoorSupportDialogue : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {

@@ -11,7 +11,7 @@ import core.game.node.entity.skill.Skills
 import core.plugin.Initializable
 
 /**
- * Ignatius vulcan dialogue.
+ * Represents the Ignatius vulcan dialogue.
  */
 @Initializable
 class IgnatiusVulcanDialogue(player: Player? = null) : Dialogue(player) {

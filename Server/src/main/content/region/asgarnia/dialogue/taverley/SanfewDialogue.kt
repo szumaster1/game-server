@@ -9,7 +9,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 
 /**
- * Sanfew dialogue.
+ * Represents the Sanfew dialogue.
  */
 @Initializable
 class SanfewDialogue(player: Player? = null) : Dialogue(player) {

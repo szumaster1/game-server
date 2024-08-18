@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Saro dialogue.
+ * Represents the Saro dialogue.
  */
 @Initializable
 class SaroDialogue(player: Player? = null) : Dialogue(player) {

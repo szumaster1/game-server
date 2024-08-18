@@ -11,7 +11,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Homunculus dialogue.
+ * Represents the Homunculus dialogue.
  */
 @Initializable
 class HomunculusDialogue(player: Player? = null) : Dialogue(player) {

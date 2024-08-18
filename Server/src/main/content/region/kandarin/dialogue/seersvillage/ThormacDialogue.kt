@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.START_DIALOGUE
 
 /**
- * Thormac dialogue.
+ * Represents the Thormac dialogue.
  */
 @Initializable
 class ThormacDialogue(player: Player? = null) : Dialogue(player) {

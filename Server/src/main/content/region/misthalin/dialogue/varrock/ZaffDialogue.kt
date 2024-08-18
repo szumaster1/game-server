@@ -20,7 +20,7 @@ import core.plugin.Plugin
 import org.json.simple.JSONObject
 
 /**
- * Zaff dialogue.
+ * Represents the Zaff dialogue.
  */
 @Initializable
 class ZaffDialogue : OptionHandler() {

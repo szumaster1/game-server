@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Ghost captain dialogue.
+ * Represents the Ghost captain dialogue.
  */
 @Initializable
 class GhostCaptainDialogue(player: Player? = null) : Dialogue(player) {

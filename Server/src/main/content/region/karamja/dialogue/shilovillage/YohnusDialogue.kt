@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Yohnus dialogue.
+ * Represents the Yohnus dialogue.
  */
 @Initializable
 class YohnusDialogue(player: Player? = null): Dialogue(player) {

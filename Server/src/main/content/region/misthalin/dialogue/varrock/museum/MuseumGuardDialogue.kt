@@ -17,7 +17,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Museum guard dialogue.
+ * Represents the Museum guard dialogue.
  */
 @Initializable
 class MuseumGuardDialogue(player: Player? = null) : Dialogue(player) {
@@ -51,7 +51,7 @@ class MuseumGuardDialogue(player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Museum guard entrance dialogue.
+ * Represents the Museum guard entrance dialogue.
  */
 class MuseumGuardEntranceDialogue : DialogueFile() {
 

@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Barker dialogue.
+ * Represents the Barker dialogue.
  */
 @Initializable
 class BarkerDialogue(player: Player? = null) : Dialogue(player) {

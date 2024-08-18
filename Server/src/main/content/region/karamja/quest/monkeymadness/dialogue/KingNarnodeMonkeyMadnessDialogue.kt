@@ -8,7 +8,7 @@ import core.game.dialogue.DialogueFile
 import core.tools.END_DIALOGUE
 
 /**
- * King narnode monkey madness dialogue.
+ * Represents the King narnode monkey madness dialogue.
  */
 class KingNarnodeMonkeyMadnessDialogue : DialogueFile() {
 

@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Remsai dialogue.
+ * Represents the Remsai dialogue.
  */
 @Initializable
 class RemsaiDialogue(player: Player? = null) : Dialogue(player) {

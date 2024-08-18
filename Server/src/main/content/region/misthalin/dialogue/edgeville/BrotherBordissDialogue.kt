@@ -11,7 +11,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 
 /**
- * Brother bordiss dialogue.
+ * Represents the Brother bordiss dialogue.
  */
 @Initializable
 class BrotherBordissDialogue(player: Player? = null) : Dialogue(player) {

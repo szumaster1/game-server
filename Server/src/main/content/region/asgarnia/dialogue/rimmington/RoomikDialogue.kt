@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Roomik dialogue.
+ * Represents the Roomik dialogue.
  */
 @Initializable
 class RoomikDialogue(player: Player? = null) : Dialogue(player) {

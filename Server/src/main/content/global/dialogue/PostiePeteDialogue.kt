@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Postie pete dialogue.
+ * Represents the Postie pete dialogue.
  */
 @Initializable
 class PostiePeteDialogue(player: Player? = null) : Dialogue(player) {

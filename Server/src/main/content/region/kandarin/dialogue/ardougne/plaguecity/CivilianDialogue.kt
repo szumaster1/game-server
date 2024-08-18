@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Civilian dialogue.
+ * Represents the Civilian dialogue.
  */
 @Initializable
 class CivilianDialogue(player: Player? = null) : Dialogue(player) {

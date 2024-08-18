@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Nurse Sarah dialogue.
+ * Represents the Nurse Sarah dialogue.
  */
 @Initializable
 class NurseSarahDialogue(player: Player? = null) : Dialogue(player) {

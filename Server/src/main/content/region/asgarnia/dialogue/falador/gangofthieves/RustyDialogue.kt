@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Rusty dialogue.
+ * Represents the Rusty dialogue.
  */
 @Initializable
 class RustyDialogue(player: Player? = null) : Dialogue(player) {

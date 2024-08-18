@@ -9,7 +9,7 @@ import core.game.world.GameWorld.settings
 import core.tools.END_DIALOGUE
 
 /**
- * Hadley dialogue.
+ * Represents the Hadley dialogue.
  */
 class HadleyDialogue(player: Player? = null) : Dialogue(player) {
 

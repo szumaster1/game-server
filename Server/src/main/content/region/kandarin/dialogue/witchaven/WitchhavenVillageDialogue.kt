@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Witchhaven village dialogue.
+ * Represents the Witchhaven village dialogue.
  */
 @Initializable
 class WitchhavenVillageDialogue(player: Player? = null) : Dialogue(player) {

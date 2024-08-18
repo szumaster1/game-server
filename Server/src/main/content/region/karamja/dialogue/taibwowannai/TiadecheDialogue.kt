@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Tiadeche dialogue.
+ * Represents the Tiadeche dialogue.
  */
 @Initializable
 class TiadecheDialogue(player: Player? = null) : Dialogue(player) {

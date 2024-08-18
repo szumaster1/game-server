@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Edmond dialogue.
+ * Represents the Edmond dialogue.
  */
 @Initializable
 class EdmondDialogue(player: Player? = null) : Dialogue(player) {

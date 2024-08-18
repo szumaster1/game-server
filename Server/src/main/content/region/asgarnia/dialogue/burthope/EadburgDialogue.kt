@@ -9,7 +9,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Eadburg dialogue.
+ * Represents the Eadburg dialogue.
  */
 @Initializable
 class EadburgDialogue(player: Player? = null) : Dialogue(player) {

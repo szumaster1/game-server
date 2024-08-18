@@ -6,7 +6,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Recharge sceptre.
+ * Represents the Recharge sceptre.
  */
 @Initializable
 class RechargeSceptre : UseWithHandler(9046, 9048, 9050) {

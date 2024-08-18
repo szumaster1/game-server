@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Irksol dialogue.
+ * Represents the Irksol dialogue.
  */
 @Initializable
 class IrksolDialogue(player: Player? = null) : Dialogue(player) {

@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Coordinator dialogue.
+ * Represents the Coordinator dialogue.
  */
 @Initializable
 class CoordinatorDialogue(player: Player? = null) : Dialogue(player) {

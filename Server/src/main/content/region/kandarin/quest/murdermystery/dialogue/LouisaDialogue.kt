@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Louisa dialogue.
+ * Represents the Louisa dialogue.
  */
 @Initializable
 class LouisaDialogue(player: Player? = null) : Dialogue(player) {

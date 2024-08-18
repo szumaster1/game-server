@@ -9,7 +9,7 @@ import core.tools.RandomFunction
 import core.tools.START_DIALOGUE
 
 /**
- * Freygerd dialogue.
+ * Represents the Freygerd dialogue.
  */
 @Initializable
 class FreygerdDialogue(player: Player? = null): Dialogue(player) {

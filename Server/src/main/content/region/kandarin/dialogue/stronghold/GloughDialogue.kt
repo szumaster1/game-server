@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Glough dialogue.
+ * Represents the Glough dialogue.
  */
 @Initializable
 class GloughDialogue(player: Player? = null) : Dialogue(player) {

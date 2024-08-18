@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Col o niall dialogue.
+ * Represents the Col o niall dialogue.
  */
 @Initializable
 class ColONiallDialogue(player: Player? = null) : Dialogue(player) {

@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Cape merchant dialogue.
+ * Represents the Cape merchant dialogue.
  */
 @Initializable
 class CapeMerchantDialogue(player: Player? = null) : Dialogue(player) {

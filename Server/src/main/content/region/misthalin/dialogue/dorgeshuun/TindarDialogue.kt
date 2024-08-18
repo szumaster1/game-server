@@ -12,7 +12,7 @@ import core.api.consts.Items
 import core.api.consts.NPCs
 
 /**
- * Tindar dialogue.
+ * Represents the Tindar dialogue.
  */
 @Initializable
 class TindarDialogue(player: Player? = null) : Dialogue(player) {

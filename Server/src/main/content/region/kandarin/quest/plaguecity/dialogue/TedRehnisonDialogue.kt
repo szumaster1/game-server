@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Ted rehnison dialogue.
+ * Represents the Ted rehnison dialogue.
  */
 @Initializable
 class TedRehnisonDialogue(player: Player? = null) : Dialogue(player) {

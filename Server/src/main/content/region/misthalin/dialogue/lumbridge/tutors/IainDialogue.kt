@@ -10,7 +10,7 @@ import core.api.consts.NPCs
 
 
 /**
- * Iain dialogue.
+ * Represents the Iain dialogue.
  */
 @Initializable
 class IainDialogue(player: Player? = null) : Dialogue(player) {

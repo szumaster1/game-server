@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Finn dialogue.
+ * Represents the Finn dialogue.
  */
 @Initializable
 class FinnDialogue(player: Player? = null): Dialogue(player) {

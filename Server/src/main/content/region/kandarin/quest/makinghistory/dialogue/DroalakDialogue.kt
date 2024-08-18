@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Droalak dialogue.
+ * Represents the Droalak dialogue.
  */
 @Initializable
 class DroalakDialogue(player: Player? = null) : Dialogue(player) {

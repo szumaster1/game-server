@@ -11,7 +11,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Tati dialogue.
+ * Represents the Tati dialogue.
  */
 @Initializable
 class TatiDialogue(player: Player? = null) : Dialogue(player) {

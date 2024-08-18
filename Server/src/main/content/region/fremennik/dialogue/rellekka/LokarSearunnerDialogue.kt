@@ -20,7 +20,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Lokar searunner dialogue.
+ * Represents the Lokar searunner dialogue.
  */
 @Initializable
 class LokarSearunnerDialogue(player: Player? = null): Dialogue(player) {

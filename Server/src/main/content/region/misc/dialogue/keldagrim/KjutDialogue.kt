@@ -16,7 +16,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Kjut dialogue.
+ * Represents the Kjut dialogue.
  */
 @Initializable
 class KjutDialogue(player: Player? = null) : Dialogue(player) {

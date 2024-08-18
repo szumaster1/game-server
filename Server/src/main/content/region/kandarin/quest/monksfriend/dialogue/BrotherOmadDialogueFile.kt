@@ -16,6 +16,9 @@ import core.game.world.map.RegionManager
 import core.game.world.update.flag.context.Animation
 import core.tools.END_DIALOGUE
 
+/**
+ * Represents the Brother Omad dialogue file.
+ */
 class BrotherOmadDialogueFile : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

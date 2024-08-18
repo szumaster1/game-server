@@ -10,7 +10,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Sir bedivere dialogue.
+ * Represents the Sir bedivere dialogue.
  */
 @Initializable
 class SirBedivereDialogue(player: Player? = null) : Dialogue(player) {

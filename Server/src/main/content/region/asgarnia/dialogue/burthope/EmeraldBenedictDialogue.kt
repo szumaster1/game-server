@@ -13,7 +13,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Emerald benedict dialogue.
+ * Represents the Emerald benedict dialogue.
  */
 @Initializable
 class EmeraldBenedictDialogue(player: Player? = null) : Dialogue(player) {

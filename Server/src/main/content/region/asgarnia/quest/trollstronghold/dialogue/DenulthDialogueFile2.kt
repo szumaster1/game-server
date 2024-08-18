@@ -9,7 +9,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Denulth dialogue file 2.
+ * Represents the Denulth dialogue file 2.
  */
 class DenulthDialogueFile2 : DialogueFile() {
 

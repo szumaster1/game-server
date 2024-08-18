@@ -10,7 +10,7 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * Sorcceres dialogue.
+ * Represents the Sorcceres dialogue.
  */
 @Initializable
 class SorcceresDialogue(player: Player? = null) : Dialogue(player) {

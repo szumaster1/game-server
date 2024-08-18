@@ -13,7 +13,7 @@ import core.game.world.update.flag.context.Animation
 import core.tools.END_DIALOGUE
 
 /**
- * Glough dialogue file.
+ * Represents the Glough dialogue file.
  */
 class GloughDialogueFile : DialogueFile() {
 

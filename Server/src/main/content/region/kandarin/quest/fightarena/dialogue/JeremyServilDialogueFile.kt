@@ -11,7 +11,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Jeremy servil dialogue file.
+ * Represents the Jeremy servil dialogue file.
  */
 class JeremyServilDialogueFile : DialogueFile() {
 

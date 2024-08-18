@@ -4,7 +4,7 @@ import core.game.dialogue.DialogueFile
 import core.tools.END_DIALOGUE
 
 /**
- * Machines dialogue.
+ * Represents the Machines dialogue.
  */
 class MachinesDialogue : DialogueFile() {
 

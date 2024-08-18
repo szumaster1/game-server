@@ -8,7 +8,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Phantuwti fanstuwi farsight dialogue.
+ * Represents the Phantuwti fanstuwi farsight dialogue.
  */
 @Initializable
 class PhantuwtiFanstuwiFarsightDialogue(player: Player? = null) : Dialogue(player) {

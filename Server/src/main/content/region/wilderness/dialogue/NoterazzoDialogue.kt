@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Noterazzo dialogue.
+ * Represents the Noterazzo dialogue.
  */
 @Initializable
 class NoterazzoDialogue(player: Player? = null) : Dialogue(player) {

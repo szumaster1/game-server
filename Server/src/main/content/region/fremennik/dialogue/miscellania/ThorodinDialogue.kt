@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Thorodin dialogue.
+ * Represents the Thorodin dialogue.
  */
 @Initializable
 class ThorodinDialogue(player: Player? = null): Dialogue(player) {

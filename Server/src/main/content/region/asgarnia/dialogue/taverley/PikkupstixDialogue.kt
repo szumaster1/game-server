@@ -13,7 +13,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 
 /**
- * Pikkupstix dialogue.
+ * Represents the Pikkupstix dialogue.
  */
 @Initializable
 class PikkupstixDialogue(player: Player? = null) : Dialogue(player) {

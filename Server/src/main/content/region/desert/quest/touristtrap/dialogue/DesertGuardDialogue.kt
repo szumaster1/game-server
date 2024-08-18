@@ -15,7 +15,7 @@ import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 
 /**
- * Desert guard dialogue.
+ * Represents the Desert guard dialogue.
  */
 class DesertGuardDialogue(player: Player? = null) : Dialogue(player) {
 

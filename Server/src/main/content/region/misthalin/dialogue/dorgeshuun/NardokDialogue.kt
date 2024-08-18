@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Nardok dialogue.
+ * Represents the Nardok dialogue.
  */
 @Initializable
 class NardokDialogue(player: Player? = null) : Dialogue(player) {

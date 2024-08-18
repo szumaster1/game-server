@@ -10,7 +10,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Necrovarus dialogue file.
+ * Represents the Necrovarus dialogue file.
  */
 class NecrovarusDialogueFile : DialogueFile() {
 

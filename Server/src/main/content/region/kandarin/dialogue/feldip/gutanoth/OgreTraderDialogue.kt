@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Ogre trader dialogue.
+ * Represents the Ogre trader dialogue.
  */
 @Initializable
 class OgreTraderDialogue(player: Player? = null) : Dialogue(player) {

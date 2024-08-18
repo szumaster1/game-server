@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Mining guild dwarf dialogue.
+ * Represents the Mining guild dwarf dialogue.
  */
 @Initializable
 class MiningGuildDwarfDialogue(player: Player? = null) : Dialogue(player) {

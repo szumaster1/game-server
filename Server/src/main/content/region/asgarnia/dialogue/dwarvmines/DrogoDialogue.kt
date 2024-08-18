@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Drogo dialogue.
+ * Represents the Drogo dialogue.
  */
 @Initializable
 class DrogoDialogue(player: Player? = null) : Dialogue(player) {

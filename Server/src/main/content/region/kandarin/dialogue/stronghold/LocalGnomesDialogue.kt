@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Local gnomes dialogue.
+ * Represents the Local gnomes dialogue.
  */
 @Initializable
 class LocalGnomesDialogue(player: Player? = null) : Dialogue(player) {

@@ -11,7 +11,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Combat instructor dialogue.
+ * Represents the Combat instructor dialogue.
  */
 @Initializable
 class CombatInstructorDialogue(player: Player? = null) : Dialogue(player) {

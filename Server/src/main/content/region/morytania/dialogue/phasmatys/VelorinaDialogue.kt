@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Velorina dialogue.
+ * Represents the Velorina dialogue.
  */
 @Initializable
 class VelorinaDialogue(player: Player? = null) : Dialogue(player) {

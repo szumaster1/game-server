@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Blue opal director dialogue.
+ * Represents the Blue opal director dialogue.
  */
 @Initializable
 class BlueOpalDirectorDialogue(player: Player? = null) : Dialogue(player) {

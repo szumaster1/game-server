@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Tyras guard dialogue.
+ * Represents the Tyras guard dialogue.
  */
 @Initializable
 class TyrasGuardDialogue(player: Player? = null) : Dialogue(player) {

@@ -10,7 +10,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Miltog dialogue.
+ * Represents the Miltog dialogue.
  */
 @Initializable
 class MiltogDialogue(player: Player? = null) : Dialogue(player) {

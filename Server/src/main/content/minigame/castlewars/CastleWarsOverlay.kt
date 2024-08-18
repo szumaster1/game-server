@@ -5,7 +5,7 @@ import core.api.setVarp
 import core.game.node.entity.player.Player
 
 /**
- * Castle wars overlay.
+ * Represents the Castle wars overlay.
  */
 object CastleWarsOverlay {
     @JvmStatic

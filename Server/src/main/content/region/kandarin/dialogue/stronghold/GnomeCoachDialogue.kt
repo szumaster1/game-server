@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Gnome coach dialogue.
+ * Represents the Gnome coach dialogue.
  */
 @Initializable
 class GnomeCoachDialogue (player: Player? = null) : Dialogue(player) {

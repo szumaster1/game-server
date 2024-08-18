@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Bonzara dialogue.
+ * Represents the Bonzara dialogue.
  */
 @Initializable
 class BonzaraDialogue(player: Player? = null) : Dialogue(player) {

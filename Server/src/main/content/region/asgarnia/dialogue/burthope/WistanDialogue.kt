@@ -10,7 +10,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Wistan dialogue.
+ * Represents the Wistan dialogue.
  */
 @Initializable
 class WistanDialogue(player: Player? = null) : Dialogue(player) {

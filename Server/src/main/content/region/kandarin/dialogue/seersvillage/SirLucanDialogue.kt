@@ -10,7 +10,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Sir lucan dialogue.
+ * Represents the Sir lucan dialogue.
  */
 @Initializable
 class SirLucanDialogue(player: Player? = null) : Dialogue(player) {

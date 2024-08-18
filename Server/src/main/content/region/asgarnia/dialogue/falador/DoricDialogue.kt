@@ -16,7 +16,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Doric dialogue.
+ * Represents the Doric dialogue.
  */
 @Initializable
 class DoricDialogue(player: Player? = null) : Dialogue(player) {

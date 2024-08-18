@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Pontimer dialogue.
+ * Represents the Pontimer dialogue.
  */
 @Initializable
 class PontimerDialogue(player: Player? = null) : Dialogue(player) {

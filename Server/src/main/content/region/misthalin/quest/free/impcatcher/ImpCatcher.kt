@@ -13,7 +13,6 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 import core.plugin.Initializable
 
-
 /**
  * Imp catcher quest.
  */

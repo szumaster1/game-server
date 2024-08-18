@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Sloane dialogue.
+ * Represents the Sloane dialogue.
  */
 @Initializable
 class SloaneDialogue(player: Player? = null) : Dialogue(player) {

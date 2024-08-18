@@ -14,7 +14,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Dad dialogue.
+ * Represents the Dad dialogue.
  */
 @Initializable
 class DadDialogue(player: Player? = null) : Dialogue(player) {
@@ -51,7 +51,7 @@ class DadDialogue(player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Dad "Troll stronghold quest" dialogue file.
+ * Represents the Dad "Troll stronghold quest" dialogue file.
  */
 class DadTSDialogueFile(private val dialogueNum: Int = 0) : DialogueFile() {
 

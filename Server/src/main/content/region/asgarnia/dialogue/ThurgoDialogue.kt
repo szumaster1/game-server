@@ -14,7 +14,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Thurgo dialogue.
+ * Represents the Thurgo dialogue.
  */
 @Initializable
 class ThurgoDialogue(player: Player? = null) : Dialogue(player) {

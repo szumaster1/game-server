@@ -6,7 +6,7 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
 /**
- * Recharge dialogue.
+ * Represents the Recharge dialogue.
  */
 class RechargeDialogue(player: Player? = null) : Dialogue(player) {
 

@@ -11,7 +11,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Monastery Monk dialogue.
+ * Represents the Monastery Monk dialogue.
  */
 @Initializable
 class MonasteryMonkDialogue(player: Player? = null) : Dialogue(player) {

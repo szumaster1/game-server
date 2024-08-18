@@ -7,7 +7,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 
 /**
- * Almera dialogue.
+ * Represents the Almera dialogue.
  */
 class AlmeraDialogue(player: Player? = null) : Dialogue(player) {
 

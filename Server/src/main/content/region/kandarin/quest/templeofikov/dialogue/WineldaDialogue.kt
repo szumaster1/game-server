@@ -14,7 +14,7 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * Winelda dialogue.
+ * Represents the Winelda dialogue.
  */
 @Initializable
 class WineldaDialogue(player: Player? = null) : Dialogue(player) {
@@ -35,7 +35,7 @@ class WineldaDialogue(player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Winelda dialogue file.
+ * Represents the Winelda dialogue file.
  */
 class WineldaDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {

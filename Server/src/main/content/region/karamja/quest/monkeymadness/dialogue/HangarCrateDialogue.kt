@@ -8,7 +8,7 @@ import core.api.setTitle
 import core.game.dialogue.DialogueFile
 
 /**
- * Hangr crate dialogue.
+ * Represents the Hangr crate dialogue.
  */
 class HangarCrateDialogue : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {

@@ -6,7 +6,7 @@ import core.game.dialogue.FacialExpression
 import core.game.system.timer.impl.AntiMacro
 
 /**
- * Rick turpentine dialogue.
+ * Represents the Rick turpentine dialogue.
  */
 class RickTurpentineDialogue : DialogueFile() {
 

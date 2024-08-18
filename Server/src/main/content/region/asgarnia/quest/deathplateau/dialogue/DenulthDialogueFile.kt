@@ -9,7 +9,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Denulth dialogue file.
+ * Represents the Denulth dialogue file.
  */
 class DenulthDialogueFile : DialogueFile() {
 

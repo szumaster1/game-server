@@ -12,7 +12,7 @@ import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
 /**
- * Mawnis Burowgar dialogue.
+ * Represents the Mawnis Burowgar dialogue.
  */
 class MawnisBurowgarDialogue(player: Player? = null) : Dialogue(player) {
 

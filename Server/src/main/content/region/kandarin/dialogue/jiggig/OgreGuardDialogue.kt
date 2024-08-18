@@ -14,7 +14,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Ogre guard dialogue.
+ * Represents the Ogre guard dialogue.
  */
 @Initializable
 class OgreGuardDialogue(player: Player? = null) : Dialogue(player) {

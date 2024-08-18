@@ -9,7 +9,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Gourmet dialogue.
+ * Represents the Gourmet dialogue.
  */
 @Initializable
 class GourmetDialogue(player: Player? = null) : Dialogue(player) {

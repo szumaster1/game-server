@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Falador man house dialogue.
+ * Represents the Falador man house dialogue.
  */
 @Initializable
 class FaladorManHouseDialogue(player: Player? = null) : Dialogue(player) {

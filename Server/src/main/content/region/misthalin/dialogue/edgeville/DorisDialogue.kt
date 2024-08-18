@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Doris dialogue.
+ * Represents the Doris dialogue.
  */
 @Initializable
 class DorisDialogue(player: Player? = null) : Dialogue(player) {

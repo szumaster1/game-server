@@ -10,7 +10,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 
 /**
- * Ms hynn terprett dialogue file.
+ * Represents the Ms hynn terprett dialogue file.
  */
 class MsHynnTerprettDialogueFile(private val dialogueNum: Int = 0) : DialogueBuilderFile() {
 

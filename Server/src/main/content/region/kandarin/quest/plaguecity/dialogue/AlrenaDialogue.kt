@@ -13,7 +13,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Alrena dialogue.
+ * Represents the Alrena dialogue.
  */
 @Initializable
 class AlrenaDialogue(player: Player? = null) : Dialogue(player) {

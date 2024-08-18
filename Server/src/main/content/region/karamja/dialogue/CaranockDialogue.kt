@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Caranock dialogue.
+ * Represents the Caranock dialogue.
  */
 @Initializable
 class CaranockDialogue(player: Player? = null) : Dialogue(player) {

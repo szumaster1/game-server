@@ -8,7 +8,7 @@ import core.plugin.Initializable
 import core.api.consts.NPCs
 
 /**
- * Elissa dialogue.
+ * Represents the Elissa dialogue.
  */
 @Initializable
 class ElissaDialogue(player: Player? = null) : Dialogue(player){

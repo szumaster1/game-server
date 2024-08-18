@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Baba yaga dialogue.
+ * Represents the Baba yaga dialogue.
  */
 @Initializable
 class BabaYagaDialogue(player: Player? = null): Dialogue(player) {

@@ -12,7 +12,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Currency dialogue.
+ * Represents the Currency dialogue.
  */
 @Initializable
 class CurrencyDialogue(player: Player? = null) : Dialogue(player) {

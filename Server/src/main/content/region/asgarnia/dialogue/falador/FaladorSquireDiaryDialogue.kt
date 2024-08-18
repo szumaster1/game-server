@@ -9,7 +9,7 @@ import core.game.node.entity.player.link.diary.DiaryType
 import core.tools.END_DIALOGUE
 
 /**
- * Falador squire diary dialogue.
+ * Represents the Falador squire diary dialogue.
  */
 class FaladorSquireDiaryDialogue : DialogueFile() {
 

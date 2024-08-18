@@ -10,7 +10,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 
 /**
- * Osman dialogue.
+ * Represents the Osman dialogue.
  */
 @Initializable
 class OsmanDialogue(player: Player? = null) : Dialogue(player) {

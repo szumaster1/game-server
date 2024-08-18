@@ -10,7 +10,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Sir kay dialogue.
+ * Represents the Sir kay dialogue.
  */
 @Initializable
 class SirKayDialogue(player: Player? = null) : Dialogue(player) {

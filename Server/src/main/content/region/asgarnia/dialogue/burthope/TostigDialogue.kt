@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Tostig dialogue.
+ * Represents the Tostig dialogue.
  */
 @Initializable
 class TostigDialogue(player: Player? = null) : Dialogue(player) {

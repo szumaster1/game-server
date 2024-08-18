@@ -9,7 +9,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Fenitas dialogue.
+ * Represents the Fenitas dialogue.
  */
 @Initializable
 class FenitasDialogue(player: Player? = null) : Dialogue(player) {

@@ -15,7 +15,7 @@ import core.tools.DIALOGUE_INITIAL_OPTIONS_HANDLE
 import core.tools.END_DIALOGUE
 
 /**
- * Duke horacio dialogue.
+ * Represents the Duke horacio dialogue.
  */
 class DukeHoracioDialogue(player: Player? = null) : Dialogue(player) {
 

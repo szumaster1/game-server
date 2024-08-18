@@ -1,4 +1,177 @@
-﻿Player Animation List List Compiled by Snowballrox (Snbrx), (With help from SuperKickabout).
+﻿| ANIMATION | GRAPHIC | NAME                                                                  |
+|-----------|---------|-----------------------------------------------------------------------|
+|  122      |  1471   |  Classic Cape (emote) (e)                                             |
+|  352      |  1446   |  Veteran’s Cape Emote (5 Years)                                       |
+|  356      |  307    |  Completionist Cape (Begin) (Turn into Dragon) (NPC-ID: 1830)         |
+|  361      |  122    |  Wildstalker Helmet Brag (Version Three)                              |
+|  412      |  121    |  Wildstalker Helmet Brag (Version Two)                                |
+|  442      |  23     |  Climbing Falador Wall With Grapple                                   |
+|  445      |  56     |  Spread ashes                                                         |
+|  507      |  91     |  Duellist Cap Brag (Version Two) (T1)                                 |
+|  508      |  91     |  Duellist Cap Brag (Version Two) (T2)                                 |
+|  509      |  91     |  Duellist Cap Brag (Version Two) (T3)                                 |
+|  510      |  91     |  Duellist Cap Brag (Version Two) (T4)                                 |
+|  511      |  91     |  Duellist Cap Brag (Version Two) (T5)                                 |
+|  512      |  92     |  Duellist Cap Brag (Version Three) (T1)                               |
+|  513      |  92     |  Duellist Cap Brag (Version Three) (T2)                               |
+|  530      |  92     |  Duellist Cap Brag (Version Three) (T3)                               |
+|  531      |  92     |  Duellist Cap Brag (Version Three) (T4)                               |
+|  532      |  92     |  Duellist Cap Brag (Version Three) (T5)                               |
+|  533      |  92     |  Duellist Cap Brag (Version Three) (T6)                               |
+|  711      |  108    |  Casting Spell                                                        |
+|  716      |  102    |  Casting Weaken                                                       |
+|  1060     |  251    |  Dragon Mace Special Attack                                           |
+|  1084     |  1009   |  H30 Surok Casts Spell                                                |
+|  1174     |  1443   |  Completionist Cape Emote (Middle) (As Dragon) (NPC-ID: 1830)         |
+|  1251     |  4253   |  Max Cape Emote (Step Six) (Prepare For Battle)                       |
+|  1291     |  1505   |  1686 Max Cape Emote (Step Seven) (Fighting)                          |
+|  1374     |  1702   |  Blow Kiss (emote) (e)                                                |
+|  1665     |  340    |  Maul Swipe Attack                                                    |
+|  1819     |  108    |  H92 Zaff Seals Varrock Palace Library (What Lies Below)              |
+|  2231     |  370    |  Activate Aura                                                        |
+|  2238     |  358    |  Breathe Fire (emote) (e) (LP)                                        |
+|  2414     |  1537   |  Original Air Guitar (emote) (e)                                      |
+|  2417     |  364    |  Snow (emote) (e) (LP)                                                |
+|  2553     |  432    |  Elemental Wizard Death                                               |
+|  2563     |  365    |  Storm (emote) (e) (LP)                                               |
+|  2791     |  2728   |  Cast Fire Spell                                                      |
+|  2876     |  479    |  Dragon Hatchet Special Attack (c-SA)                                 |
+|  2890     |  483    |  Darklight Special                                                    |
+|  3003     |  507    |  Red Marionette Jump                                                  |
+|  3003     |  511    |  Blue Marionette Jump                                                 |
+|  3003     |  515    |  Green Marionette Jump                                                |
+|  3004     |  508    |  Red Marionette Walk                                                  |
+|  3004     |  512    |  Blue Marionette Walk                                                 |
+|  3004     |  516    |  Green Marionette Walk                                                |
+|  3005     |  509    |  Red Marionette Bow                                                   |
+|  3005     |  513    |  Blue Marionette Bow                                                  |
+|  3005     |  517    |  Green Marionette Bow                                                 |
+|  3006     |  510    |  Red Marionette Dance                                                 |
+|  3006     |  514    |  Blue Marionette Dance  no                                            |
+|  3006     |  518    |  Green Marionette Dance                                               |
+|  3254     |  2670   |  Fairy Ring Leave                                                     |
+|  3255     |  2671   |  Fairy Ring Arrive                                                    |
+|  3566     |  609    |  Silvthril Rod Enchant                                                |
+|  3669     |  530    |  Sir Owen Teleports Away                                              |
+|  3691     |  531    |  Lunar Teleport                                                       |
+|  3804     |  630    |  Get Angry In Tolna’s Rift                                            |
+|  4001     |  666    |  Claw Picks You Up (Old Random Event)                                 |
+|  4003     |  667    |  Claw Drops You                                                       |
+|  4276     |  712    |  Idea (emote) (e)                                                     |
+|  4278     |  713    |  Stomp (emote) (e)                                                    |
+|  4410     |  726    |  Vengeance Self                                                       |
+|  4454     |  761    |  Ardougne Cloak Farm Teleport (leave)                                 |
+|  4807     |  790    |  Take sea slug and stomp on it                                        |
+|  4809     |  791    |  Use sticks and glass (Sea Slug Quest)                                |
+|  4884     |  807    |  Using Extractor Hat Chair (Elemental Workshop II) (GFX on delay)     |
+|  4885     |  808    |  Improperly Using Extractor Hat Electric Chair (Elemental Workshop II)|
+|  4937     |  812    |  Fletching Cape Emote                                                 |
+|  4939     |  813    |  Magic Cape Emote                                                     |
+|  4941     |  814    |  Mining Cape Emote                                                    |
+|  4943     |  815    |  Smithing Cape Emote                                                  |
+|  4945     |  816    |  Quest Cape Emote                                                     |
+|  4947     |  817    |  RuneCrafting Cape Emote                                              |
+|  4949     |  818    |  Crafting Cape Emote                                                  |
+|  4951     |  819    |  Fishing Cape Emote                                                   |
+|  4953     |  820    |  Construction Cape Emote                                              |
+|  4955     |  821    |  Cooking Cape Emote                                                   |
+|  4957     |  822    |  Woodcutting Cape Emote                                               |
+|  4959     |  823    |  Attack Cape Emote                                                    |
+|  4961     |  824    |  Defence Cape Emote                                                   |
+|  4963     |  825    |  Farming Cape Emote                                                   |
+|  4965     |  826    |  Thieving Cape Emote                                                  |
+|  4967     |  1656   |  Slayer Cape Emote                                                    |
+|  4969     |  835    |  Herblore Cape Emote                                                  |
+|  4973     |  832    |  Ranged Cape Emote                                                    |
+|  4975     |  831    |  Firemaking Cape Emote                                                |
+|  4977     |  830    |  Agility Cape Emote                                                   |
+|  4979     |  829    |  Prayer Cape Emote                                                    |
+|  4981     |  828    |  Strength Cape Emote                                                  |
+|  5158     |  907    |  Hunter Cape Emote                                                    |
+|  5313     |  967    |  Sleeping Cap Yawn (emote) (e)                                        |
+|  5376     |  973    |  Alice’s Husband Catches Chicken                                      |
+|  5633     |  1006   |  Zaff Saves the King (What Lies Below)                                |
+|  5714     |  1015   |  Shrunk into Penguin Suit                                             |
+|  5716     |  1016   |  Exit Penguin Suit                                                    |
+|  5759     |  1020   |  Juggling (Fremennik Isles)                                           |
+|  5870     |  1027   |  Barrelchest Anchor Special Attack (c-SA)                             |
+|  6064     |  1034   |  Moving Over Distance Sphere Goblin Teleport                          |
+|  6096     |  1037   |  H5 Surok Destroys Letter (What Lies Below)                           |
+|  6099     |  1008   |  H30 Evil King Roald is Defeated                                      |
+|  6104     |  1038   |  Enchant Runecrafting Wand (What Lies Below)                          |
+|  6147     |  1052   |  Bandos Mace Special Attack                                           |
+|  6292     |  2964   |  Anniversary Cake                                                     |
+|  6293     |  1060   |  Stat Spy                                                             |
+|  6294     |  1061   |  Humidify                                                             |
+|  6294     |  3298   |  Humidify (Summer Storm)                                              |
+|  6298     |  1063   |  Plank Make                                                           |
+|  6299     |  1062   |  Spellbook Swap                                                       |
+|  6303     |  1074   |  Make Hunter Kit                                                      |
+|  6592     |  1117   |  Jar Generator (i) (e)                                                |
+|  6601     |  1118   |  Puro Puro Crop Circle                                                |
+|  6866     |  1178   |  Town Crier Gives Player a Book                                       |
+|  7070     |  1221   |  Zamorak Godsword Special (Ice Cleave) [gfx 2104 on Target]           |
+|  7078     |  1225   |  Dragon 2H Sword Special (Power Stab)                                 |
+|  7299     |  1247   |  Request Assistance                                                   |
+|  7312     |  538    |  Clan Vexillum Teleport (arrive)                                      |
+|  7312     |  1767   |  World Window Teleport (arrive)                                       |
+|  7389     |  537    |  Clan Vexillum Teleport (leave)                                       |
+|  7389     |  1767   |  World Window Teleport (leave)                                        |
+|  7528     |  1284   |  Snowglobe (e) (item)                                                 |
+|  8137     |  2006   |  Exit Portal from Bandos Throne Room                                  |
+|  8502     |  1517   |  Recharge Summoning Points (Old)                                      |
+|  8525     |  1515   |  Summoning Skillcape Emote                                            |
+|  8694     |  1536   |  Exit Oo'glog Springs                                                 |
+|  8698     |  1535   |  Jump in Oo'glog Springs                                              |
+|  8709     |  1543   |  Digging in Vinesweeper                                               |
+|  8711     |  1541   |  VineSweeper Place Flag                                               |
+|  8767     |  1546   |  Dagon’Hai Monk Magic Attack                                          |
+|  8770     |  1553   |  Safety First (emote) (e)                                             |
+|  8847     |  1557   |  Electrocution                                                        |
+|  8848     |  1557   |  Electrocution                                                        |
+|  8901     |  1567   |  Turn into Rabbit (Easter Event)                                      |
+|  8903     |  1566   |  Chocatrice Cape Emote                                                |
+|  8939     |  1576   |  Standard Teleport (t-L)                                              |
+|  8939     |  1678   |  Ectofuntus Green Teleport (t-L)                                      |
+|  8939     |  1864   |  Drakan’s Medallion Teleport (t-L)                                    |
+|  8941     |  1577   |  Standard Teleport (t-A)                                              |
+|  8941     |  1679   |  Ectofuntus Green Teleport (t-A)                                      |
+|  8941     |  1864   |  Drakan’s Medallion Teleport (t-A)                                    |
+|  9502     |  327    |  Salt Shaker on Rock Slugs                                            |
+|  9568     |  1668   |  Resurrect Ex-Ex Parrot                                               |
+|  9597     |  1680   |  Tele Tab                                                             |
+|  9599     |  1681   |  Ancient Teleport                                                     |
+|  9600     |  1682   |  Lyre teleport                                                        |
+|  9601     |  1683   |  Skull Scepter Teleport                                               |
+|  9602     |  1690   |  Wilderness Obelisk Teleport                                          |
+|  9603     |  1684   |  Jewelry Teleport                                                     |
+|  9609     |  1688   |  Ectophial Teleport                                                   |
+|  9984     |  1731   |  Cabbage Teleport (t-l)                                               |
+|  9986     |  1732   |  Cabbage Teleport (t-a)                                               |
+|  9988     |  1733   |  Recharge Run Explorer’s Ring (i) (e)                                 |
+|  9990     |  1734   |  Explore (emote) (e)                                                  |
+|  10100    |  1745   |  Entrana Dungeon Exit Teleport (august 2008)                          |
+|  10180    |  1771   |  RuneSpan Portal                                                      |
+|  10213    |  1774   |  Wizard Playing with Runes (RuneCrafting Guild)                       |
+|  10271    |  1803   |  Tear Circus Ticket (September 2008)                                  |
+|  10499    |  1835   |  Vesta’s Spear Special Attack (Spear Wall) (October 2008)             |
+|  10503    |  1841   |  Cast Teleblock                                                       |
+|  10513    |  1843   |  Defend                                                               |
+|  10530    |  738    |  Vecna’s Skull                                                        |
+|  10530    |  1864   |  Trick (emote) (e)                                                    |
+|  10532    |  1866   |  Sweep with Broomstick                                                |
+|  10535    |  1865   |  Enchant Broomstick                                                   |
+|  10538    |  1867   |  Broomstick Teleport (t-l)                                            |
+|  10542    |  2701   |  Cast water spell                                                     |
+|  10546    |  457    |  Cast Air Wind Rush Spell                                             |
+|  10709    |  1932   |  Light Creature Descends You Into Cavern (WGS) (November 2008)        |
+|  10711    |  1933   |  Ascend light creature                                                |
+|  10940    |  721    |  Bubble Maker                                                         |
+|  10952    |  1341   |  Throw Confetti                                                       |
+|  10961    |  1950   |  Dragon Claws Spec                                                    |
+|  11044    |  1973   |  Freeze and Melt (emote) (e) (December 2008)                          |
+
+Player Animation List List Compiled by Snowballrox (Snbrx), (With help from SuperKickabout).
 anim 3 - Look side to side
 anim 5 - Cooking on range
 anim 13 - Old ghost walk

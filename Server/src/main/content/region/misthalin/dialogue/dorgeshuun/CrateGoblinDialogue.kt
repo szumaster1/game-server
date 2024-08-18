@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Crate goblin dialogue.
+ * Represents the Crate goblin dialogue.
  */
 @Initializable
 class CrateGoblinDialogue(player: Player? = null) : Dialogue(player) {

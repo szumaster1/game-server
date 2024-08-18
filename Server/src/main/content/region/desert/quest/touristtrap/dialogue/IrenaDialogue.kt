@@ -11,7 +11,7 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.entity.skill.Skills
 
 /**
- * Irena dialogue.
+ * Represents the Irena dialogue.
  */
 class IrenaDialogue(player: Player? = null) : Dialogue(player) {
 

@@ -12,7 +12,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * The guns dialogue.
+ * Represents the The guns dialogue.
  */
 @Initializable
 class TheGunsDialogue(player: Player? = null) : Dialogue(player) {

@@ -11,7 +11,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 
 /**
- * Seer bartender dialogue.
+ * Represents the Seer bartender dialogue.
  */
 @Initializable
 class SeerBartenderDialogue(player: Player? = null) : Dialogue(player) {

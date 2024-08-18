@@ -13,7 +13,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 
 /**
- * Barman dialogue.
+ * Represents the Barman dialogue.
  */
 @Initializable
 class BarmanDialogue(player: Player? = null) : Dialogue(player) {

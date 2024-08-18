@@ -25,7 +25,7 @@ import static core.api.ContentAPIKt.*;
 import static core.tools.GlobalsKt.colorize;
 
 /**
- * Rug merchant dialogue.
+ * Represents the Rug merchant dialogue.
  */
 @Initializable
 public final class RugMerchantDialogue extends Dialogue {

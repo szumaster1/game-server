@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Sarah farming dialogue.
+ * Represents the Sarah farming dialogue.
  */
 @Initializable
 class SarahFarmingDialogue(player: Player? = null) : Dialogue(player) {

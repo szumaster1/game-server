@@ -12,7 +12,7 @@ import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 
 /**
- * Anja dialogue.
+ * Represents the Anja dialogue.
  */
 @Initializable
 class AnjaDialogue(player: Player? = null) : Dialogue(player) {

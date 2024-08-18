@@ -16,7 +16,7 @@ import core.tools.END_DIALOGUE
 import core.api.consts.NPCs
 
 /**
- * Edgeville monk dialogue.
+ * Represents the Edgeville monk dialogue.
  */
 @Initializable
 class EdgevilleMonkDialogue(player: Player? = null) : Dialogue(player) {

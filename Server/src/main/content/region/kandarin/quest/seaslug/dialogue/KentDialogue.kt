@@ -14,7 +14,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Kent dialogue.
+ * Represents the Kent dialogue.
  */
 @Initializable
 class KentDialogue(player: Player? = null) : Dialogue(player) {

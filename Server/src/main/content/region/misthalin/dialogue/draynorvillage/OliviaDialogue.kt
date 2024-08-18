@@ -8,7 +8,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Olivia dialogue.
+ * Represents the Olivia dialogue.
  */
 @Initializable
 class OliviaDialogue(player: Player? = null) : Dialogue(player) {

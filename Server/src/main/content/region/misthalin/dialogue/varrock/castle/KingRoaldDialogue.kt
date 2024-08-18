@@ -17,7 +17,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * King roald dialogue.
+ * Represents the King roald dialogue.
  */
 class KingRoaldDialogue(player: Player? = null) : Dialogue(player) {
 

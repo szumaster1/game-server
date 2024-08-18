@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Lecherous lee dialogue.
+ * Represents the Lecherous lee dialogue.
  */
 @Initializable
 class LecherousLeeDialogue(player: Player? = null): Dialogue(player) {

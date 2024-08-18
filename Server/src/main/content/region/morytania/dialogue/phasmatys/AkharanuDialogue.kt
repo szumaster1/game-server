@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Akharanu dialogue.
+ * Represents the Akharanu dialogue.
  */
 @Initializable
 class AkharanuDialogue(player: Player? = null) : Dialogue(player) {

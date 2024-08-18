@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Rufus dialogue.
+ * Represents the Rufus dialogue.
  */
 @Initializable
 class RufusDialogue(player: Player? = null) : Dialogue(player) {

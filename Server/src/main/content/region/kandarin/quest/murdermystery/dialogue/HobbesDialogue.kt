@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Hobbes dialogue.
+ * Represents the Hobbes dialogue.
  */
 @Initializable
 class HobbesDialogue(player: Player? = null) : Dialogue(player) {

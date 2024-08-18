@@ -15,7 +15,7 @@ import core.game.world.GameWorld
 import core.tools.END_DIALOGUE
 
 /**
- * Thormac dialogue file.
+ * Represents the Thormac dialogue file.
  */
 class ThormacDialogueFile : DialogueFile() {
 

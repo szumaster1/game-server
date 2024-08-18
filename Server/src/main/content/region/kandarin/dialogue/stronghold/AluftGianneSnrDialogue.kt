@@ -24,7 +24,7 @@ val gnomeItems = arrayOf(Items.FRUIT_BATTA_2277, Items.TOAD_BATTA_2255, Items.CH
 val ALUFT_ALOFT_BOX = Item(Items.ALUFT_ALOFT_BOX_9477)
 
 /**
- * Aluft gianne snr dialogue.
+ * Represents the Aluft gianne snr dialogue.
  */
 @Initializable
 class AluftGianneSnrDialogue(player: Player? = null) : Dialogue(player) {

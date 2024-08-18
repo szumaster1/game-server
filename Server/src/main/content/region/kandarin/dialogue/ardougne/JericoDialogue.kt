@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Jerico dialogue.
+ * Represents the Jerico dialogue.
  */
 @Initializable
 class JericoDialogue(player: Player? = null) : Dialogue(player) {

@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Lilly dialogue.
+ * Represents the Lilly dialogue.
  */
 @Initializable
 class LillyDialogue(player: Player? = null) : Dialogue(player) {

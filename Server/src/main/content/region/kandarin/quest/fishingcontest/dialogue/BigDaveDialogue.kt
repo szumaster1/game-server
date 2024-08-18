@@ -6,7 +6,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Big dave dialogue.
+ * Represents the Big dave dialogue.
  */
 @Initializable
 class BigDaveDialogue(player: Player? = null) : Dialogue(player) {

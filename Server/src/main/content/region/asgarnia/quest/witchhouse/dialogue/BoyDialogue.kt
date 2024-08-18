@@ -9,7 +9,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 
 /**
- * Boy dialogue.
+ * Represents the Boy dialogue.
  */
 @Initializable
 class BoyDialogue(player: Player? = null) : Dialogue(player) {

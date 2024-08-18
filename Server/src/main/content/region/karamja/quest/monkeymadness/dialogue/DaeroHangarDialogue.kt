@@ -9,7 +9,7 @@ import core.game.dialogue.DialogueFile
 import core.tools.END_DIALOGUE
 
 /**
- * Daero hangar dialogue.
+ * Represents the Daero hangar dialogue.
  */
 class DaeroHangarDialogue : DialogueFile() {
 

@@ -1,4 +1,4 @@
-package content.region.misthalin.dialogue.stronghold.playersafety
+package content.region.misthalin.handlers.stronghold.playersafety
 
 import core.ServerConstants
 import core.api.*

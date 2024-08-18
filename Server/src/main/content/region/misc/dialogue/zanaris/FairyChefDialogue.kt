@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Fairy chef dialogue.
+ * Represents the Fairy chef dialogue.
  */
 @Initializable
 class FairyChefDialogue(player: Player? = null) : Dialogue(player) {

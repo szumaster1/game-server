@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Hazelmere dialogue.
+ * Represents the Hazelmere dialogue.
  */
 @Initializable
 class HazelmereDialogue(player: Player? = null) : Dialogue(player) {

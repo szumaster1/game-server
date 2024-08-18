@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Aleck dialogue.
+ * Represents the Aleck dialogue.
  */
 @Initializable
 class AleckDialogue(player: Player? = null) : Dialogue(player) {

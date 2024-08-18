@@ -9,7 +9,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 
 /**
- * Hunting expert dialogue.
+ * Represents the Hunting expert dialogue.
  */
 @Initializable
 class HuntingExpertDialogue(player: Player? = null) : Dialogue(player) {

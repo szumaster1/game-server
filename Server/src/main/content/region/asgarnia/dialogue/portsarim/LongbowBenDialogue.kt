@@ -10,7 +10,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Longbow Ben dialogue.
+ * Represents the Longbow Ben dialogue.
  */
 @Initializable
 class LongbowBenDialogue(player: Player? = null) : Dialogue(player) {

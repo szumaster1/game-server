@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Mernik dialogue.
+ * Represents the Mernik dialogue.
  */
 @Initializable
 class MernikDialogue(player: Player? = null) : Dialogue(player) {

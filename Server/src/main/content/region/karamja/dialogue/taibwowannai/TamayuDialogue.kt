@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Tamayu dialogue.
+ * Represents the Tamayu dialogue.
  */
 @Initializable
 class TamayuDialogue(player: Player? = null) : Dialogue(player) {

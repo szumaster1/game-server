@@ -15,7 +15,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Monk of Entrana dialogue.
+ * Represents the Monk of Entrana dialogue.
  */
 @Initializable
 class MonkOfEntranaDialogue(player: Player? = null) : Dialogue(player) {

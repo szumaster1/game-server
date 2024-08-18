@@ -8,7 +8,7 @@ import core.plugin.Initializable
 import core.tools.START_DIALOGUE
 
 /**
- * Seegud dialogue.
+ * Represents the Seegud dialogue.
  */
 @Initializable
 class SeegudDialogue(player: Player? = null) : Dialogue(player) {

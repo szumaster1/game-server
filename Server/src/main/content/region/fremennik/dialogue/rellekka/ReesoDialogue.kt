@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Reeso dialogue.
+ * Represents the Reeso dialogue.
  */
 @Initializable
 class ReesoDialogue(player: Player? = null): Dialogue(player) {

@@ -12,7 +12,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Halgrive dialogue.
+ * Represents the Represents the Halgrive dialogue.
  */
 @Initializable
 class HalgriveDialogue(player: Player? = null) : Dialogue(player) {

@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Aluft gianne jr dialogue.
+ * Represents the Aluft gianne jr dialogue.
  */
 @Initializable
 class AluftGianneJrDialogue(player: Player? = null) : Dialogue(player) {

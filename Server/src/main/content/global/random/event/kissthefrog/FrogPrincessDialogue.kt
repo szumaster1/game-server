@@ -11,7 +11,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Frog princess dialogue.
+ * Represents the Frog princess dialogue.
  */
 @Initializable
 class FrogPrincessDialogue(player: Player? = null) : Dialogue(player) {

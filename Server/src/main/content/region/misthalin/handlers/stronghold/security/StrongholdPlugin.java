@@ -1,9 +1,5 @@
 package content.region.misthalin.handlers.stronghold.security;
 
-import content.region.misthalin.dialogue.stronghold.security.BoxOfHealthDialogue;
-import content.region.misthalin.dialogue.stronghold.security.CradleOfLifeDialogue;
-import content.region.misthalin.dialogue.stronghold.security.GiftOfPeaceDialogue;
-import content.region.misthalin.dialogue.stronghold.security.GrainOfPlentyDialogue;
 import core.api.consts.Sounds;
 import core.cache.def.impl.SceneryDefinition;
 import core.game.component.Component;

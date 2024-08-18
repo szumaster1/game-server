@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Sabreen dialogue.
+ * Represents the Sabreen dialogue.
  */
 @Initializable
 class SabreenDialogue(player: Player? = null) : Dialogue(player) {

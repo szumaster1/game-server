@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Clerk dialogue.
+ * Represents the Clerk dialogue.
  */
 @Initializable
 class ClerkDialogue(player: Player? = null) : Dialogue(player) {

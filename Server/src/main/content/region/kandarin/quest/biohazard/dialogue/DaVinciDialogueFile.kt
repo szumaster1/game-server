@@ -8,7 +8,7 @@ import core.game.dialogue.DialogueFile
 import core.game.node.entity.npc.NPC
 
 /**
- * Da vinci dialogue file.
+ * Represents the Da vinci dialogue file.
  */
 class DaVinciDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
@@ -67,7 +67,7 @@ class DaVinciDialogueFile : DialogueFile() {
 }
 
 /**
- * Da vinci varrock dialogue file.
+ * Represents the Da vinci varrock dialogue file.
  */
 class DaVinciVarrockDialogueFile : DialogueFile() {
 

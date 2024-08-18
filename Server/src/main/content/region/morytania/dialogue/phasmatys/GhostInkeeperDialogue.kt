@@ -14,7 +14,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Ghost inkeeper dialogue.
+ * Represents the Ghost inkeeper dialogue.
  */
 @Initializable
 class GhostInkeeperDialogue(player: Player? = null) : Dialogue(player) {

@@ -15,7 +15,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Khazard barman dialogue.
+ * Represents the Khazard barman dialogue.
  */
 @Initializable
 class KhazardBarmanDialogue(player: Player? = null) : Dialogue(player) {

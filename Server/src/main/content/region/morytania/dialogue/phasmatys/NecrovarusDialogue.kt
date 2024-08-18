@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Necrovarus dialogue.
+ * Represents the Necrovarus dialogue.
  */
 @Initializable
 class NecrovarusDialogue(player: Player? = null) : Dialogue(player) {

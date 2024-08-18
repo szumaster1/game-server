@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Caroline dialogue.
+ * Represents the Caroline dialogue.
  */
 @Initializable
 class CarolineDialogue(player: Player? = null) : Dialogue(player) {

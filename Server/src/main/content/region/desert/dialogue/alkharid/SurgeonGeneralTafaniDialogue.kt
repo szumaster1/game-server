@@ -14,7 +14,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Surgeon general tafani dialogue.
+ * Represents the Surgeon general tafani dialogue.
  */
 @Initializable
 class SurgeonGeneralTafaniDialogue(player: Player? = null) : Dialogue(player) {

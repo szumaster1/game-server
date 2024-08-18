@@ -9,7 +9,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Ahab dialogue.
+ * Represents the Ahab dialogue.
  */
 @Initializable
 class AhabDialogue(player: Player? = null) : Dialogue(player) {

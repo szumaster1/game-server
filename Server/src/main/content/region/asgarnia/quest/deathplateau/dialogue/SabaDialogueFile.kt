@@ -8,7 +8,7 @@ import core.game.dialogue.Topic
 import core.tools.END_DIALOGUE
 
 /**
- * Saba dialogue file.
+ * Represents the Saba dialogue file.
  */
 class SabaDialogueFile : DialogueFile() {
 

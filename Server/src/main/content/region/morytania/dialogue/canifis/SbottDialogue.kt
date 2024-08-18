@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Sbott dialogue.
+ * Represents the Sbott dialogue.
  */
 @Initializable
 class SbottDialogue(player: Player? = null) : Dialogue(player) {

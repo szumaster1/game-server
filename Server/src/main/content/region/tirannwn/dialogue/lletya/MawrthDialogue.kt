@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Mawrth dialogue.
+ * Represents the Mawrth dialogue.
  */
 @Initializable
 class MawrthDialogue(player: Player? = null): Dialogue(player) {

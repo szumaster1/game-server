@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Stankers diary dialogue.
+ * Represents the Stankers diary dialogue.
  */
 @Initializable
 class StankersDiaryDialogue(player: Player? = null) : Dialogue(player) {

@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Mama dialogue.
+ * Represents the Mama dialogue.
  */
 @Initializable
 class MamaDialogue(player: Player? = null) : Dialogue(player) {

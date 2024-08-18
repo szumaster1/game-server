@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Dal ogre dialogue.
+ * Represents the Dal ogre dialogue.
  */
 @Initializable
 class DalOgreDialogue(player: Player? = null) : Dialogue(player) {

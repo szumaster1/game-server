@@ -15,7 +15,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Robin dialogue.
+ * Represents the Robin dialogue.
  */
 @Initializable
 class RobinDialogue(player: Player? = null) : Dialogue(player) {

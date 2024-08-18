@@ -9,7 +9,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Head mourner dialogue.
+ * Represents the Head mourner dialogue.
  */
 class HeadMournerDialogue : DialogueFile() {
 

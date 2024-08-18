@@ -12,7 +12,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Lady of the lake dialogue file.
+ * Represents the Lady of the lake dialogue file.
  */
 class LadyOfTheLakeDialogueFile : DialogueFile() {
 

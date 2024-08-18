@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Joe dialogue.
+ * Represents the Joe dialogue.
  */
 @Initializable
 class JoeDialogue(player: Player? = null) : Dialogue(player) {

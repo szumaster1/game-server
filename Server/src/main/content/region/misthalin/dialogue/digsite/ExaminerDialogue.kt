@@ -9,7 +9,7 @@ import core.api.consts.Items
 import core.api.consts.NPCs
 
 /**
- * Examiner dialogue.
+ * Represents the Examiner dialogue.
  */
 @Initializable
 class ExaminerDialogue (player: Player? = null) : Dialogue(player) {
@@ -30,7 +30,7 @@ class ExaminerDialogue (player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Examiner dialogue file.
+ * Represents the Examiner dialogue file.
  */
 class ExaminerDialogueFile : DialogueBuilderFile() {
 

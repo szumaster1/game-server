@@ -6,7 +6,7 @@ import core.api.consts.Scenery
 import core.game.world.map.zone.ZoneBorders
 
 /**
- * Castle wars.
+ * Represents the Castle wars.
  */
 object CastleWars {
     // Scenery IDs

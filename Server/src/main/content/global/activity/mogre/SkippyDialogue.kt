@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Skippy dialogue.
+ * Represents the Skippy dialogue.
  * @author szumaster
  */
 @Initializable

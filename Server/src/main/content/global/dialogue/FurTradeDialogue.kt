@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Fur trade dialogue.
+ * Represents the Fur trade dialogue.
  */
 @Initializable
 class FurTradeDialogue(player: Player? = null) : Dialogue(player) {

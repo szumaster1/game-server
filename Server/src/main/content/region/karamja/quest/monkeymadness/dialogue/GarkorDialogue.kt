@@ -5,7 +5,7 @@ import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 
 /**
- * Garkor dialogue.
+ * Represents the Garkor dialogue.
  */
 class GarkorDialogue: DialogueFile() {
 

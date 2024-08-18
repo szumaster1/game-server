@@ -8,7 +8,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Morten Holdstrom dialogue.
+ * Represents the Morten Holdstrom dialogue.
  */
 @Initializable
 class MortenHoldstromDialogue(player: Player? = null): Dialogue(player) {

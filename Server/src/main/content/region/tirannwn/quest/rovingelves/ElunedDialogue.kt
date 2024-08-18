@@ -9,7 +9,7 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
 /**
- * Eluned dialogue.
+ * Represents the Eluned dialogue.
  */
 class ElunedDialogue(player: Player? = null) : Dialogue(player) {
 

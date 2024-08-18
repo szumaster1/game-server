@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Pierre dialogue.
+ * Represents the Pierre dialogue.
  */
 @Initializable
 class PierreDialogue(player: Player? = null) : Dialogue(player) {

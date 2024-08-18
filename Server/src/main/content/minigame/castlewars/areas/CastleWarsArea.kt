@@ -11,7 +11,7 @@ import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
 
 /**
- * Castle wars area.
+ * Represents the Castle wars area.
  */
 abstract class CastleWarsArea : MapArea, LogoutListener, InteractionListener {
 

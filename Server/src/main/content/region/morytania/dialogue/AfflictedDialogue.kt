@@ -10,7 +10,7 @@ import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 
 /**
- * Afflicted dialogue.
+ * Represents the Afflicted dialogue.
  */
 @Initializable
 class AfflictedDialogue(player: Player? = null) : Dialogue(player) {

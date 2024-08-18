@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Zahra dialogue.
+ * Represents the Zahra dialogue.
  */
 @Initializable
 class ZahraDialogue(player: Player? = null) : Dialogue(player) {

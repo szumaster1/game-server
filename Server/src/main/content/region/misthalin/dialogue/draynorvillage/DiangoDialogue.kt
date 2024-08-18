@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.api.consts.NPCs
 
 /**
- * Diango dialogue.
+ * Represents the Diango dialogue.
  */
 @Initializable
 class DiangoDialogue(player: Player? = null) : Dialogue(player) {

@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Ingrid hradson dialogue.
+ * Represents the Ingrid hradson dialogue.
  */
 @Initializable
 class IngridHradsonDialogue(player: Player? = null): Dialogue(player) {

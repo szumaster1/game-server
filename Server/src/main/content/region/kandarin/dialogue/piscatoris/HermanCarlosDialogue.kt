@@ -10,7 +10,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Herman carlos dialogue.
+ * Represents the Herman carlos dialogue.
  */
 @Initializable
 class HermanCarlosDialogue(player: Player? = null) : Dialogue(player) {

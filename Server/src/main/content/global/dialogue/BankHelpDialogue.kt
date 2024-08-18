@@ -10,7 +10,7 @@ import core.game.node.item.Item
 import core.tools.START_DIALOGUE
 
 /**
- * Bank help dialogue.
+ * Represents the Bank help dialogue.
  */
 class BankHelpDialogue : DialogueFile() {
 

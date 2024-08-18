@@ -11,7 +11,7 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * Zandar horfyre dialogue.
+ * Represents the Zandar horfyre dialogue.
  */
 @Initializable
 class ZandarHorfyreDialogue(player: Player? = null) : Dialogue(player) {

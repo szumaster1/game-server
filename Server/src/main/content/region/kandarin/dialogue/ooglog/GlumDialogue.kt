@@ -10,7 +10,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Glum dialogue.
+ * Represents the Glum dialogue.
  */
 @Initializable
 class GlumDialogue(player: Player? = null) : Dialogue(player) {

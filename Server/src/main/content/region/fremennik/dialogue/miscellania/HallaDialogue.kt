@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Halla dialogue.
+ * Represents the Halla dialogue.
  */
 @Initializable
 class HallaDialogue(player: Player? = null): Dialogue(player) {

@@ -11,7 +11,7 @@ private const val STAGE_KNIT_WIG = 20
 private const val STAGE_REPAIR_HOLES = 30
 
 /**
- * Ned dialogue file.
+ * Represents the Ned dialogue file.
  */
 class NedDialogueFile(val questStage: Int) : DialogueFile() {
 

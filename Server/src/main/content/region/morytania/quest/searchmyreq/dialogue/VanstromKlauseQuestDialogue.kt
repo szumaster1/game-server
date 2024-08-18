@@ -11,7 +11,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Vanstrom klause quest dialogue.
+ * Represents the Vanstrom klause quest dialogue.
  */
 @Initializable
 class VanstromKlauseQuestDialogue : DialogueFile() {

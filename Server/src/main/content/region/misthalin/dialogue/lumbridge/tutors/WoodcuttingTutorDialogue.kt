@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Woodcutting tutor dialogue.
+ * Represents the Woodcutting tutor dialogue.
  */
 @Initializable
 class WoodcuttingTutorDialogue(player: Player? = null) : Dialogue(player) {

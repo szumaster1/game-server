@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Centaur dialogue.
+ * Represents the Centaur dialogue.
  */
 @Initializable
 class CentaurDialogue(player: Player? = null) : Dialogue(player) {

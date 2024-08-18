@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Rimmington shopkeeper dialogue.
+ * Represents the Rimmington shopkeeper dialogue.
  */
 @Initializable
 class RimmingtonShopDialogue(player: Player? = null) : Dialogue(player) {

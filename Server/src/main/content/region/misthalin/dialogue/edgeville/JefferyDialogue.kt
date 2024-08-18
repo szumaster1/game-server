@@ -14,7 +14,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Jeffery dialogue.
+ * Represents the Jeffery dialogue.
  */
 @Initializable
 class JefferyDialogue(player: Player? = null) : Dialogue(player) {

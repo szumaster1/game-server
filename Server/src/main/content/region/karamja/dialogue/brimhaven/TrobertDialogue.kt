@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Trobert dialogue.
+ * Represents the Trobert dialogue.
  */
 @Initializable
 class TrobertDialogue(player: Player? = null): Dialogue(player) {

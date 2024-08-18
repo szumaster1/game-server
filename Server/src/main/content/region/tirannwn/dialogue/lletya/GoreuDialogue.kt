@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Goreu dialogue.
+ * Represents the Goreu dialogue.
  */
 @Initializable
 class GoreuDialogue(player: Player? = null): Dialogue(player) {

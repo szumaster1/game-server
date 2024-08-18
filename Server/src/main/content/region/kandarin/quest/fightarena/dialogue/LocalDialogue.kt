@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Local dialogue.
+ * Represents the Local dialogue.
  */
 @Initializable
 class LocalDialogue(player: Player? = null) : Dialogue(player) {

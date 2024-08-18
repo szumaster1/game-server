@@ -10,7 +10,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Mordaut dialogue.
+ * Represents the Mordaut dialogue.
  */
 class MordautDialogue(
     val examComplete: Boolean,

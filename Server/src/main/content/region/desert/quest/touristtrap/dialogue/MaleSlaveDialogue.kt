@@ -11,7 +11,7 @@ import core.game.world.map.Location
 import core.tools.RandomFunction
 
 /**
- * Male slave dialogue.
+ * Represents the Male slave dialogue.
  */
 class MaleSlaveDialogue(player: Player? = null) : Dialogue(player) {
 

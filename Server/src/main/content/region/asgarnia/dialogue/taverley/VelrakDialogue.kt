@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Velrak dialogue.
+ * Represents the Velrak dialogue.
  */
 @Initializable
 class VelrakDialogue(player: Player? = null) : Dialogue(player) {

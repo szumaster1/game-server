@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Aberab dialogue.
+ * Represents the Aberab dialogue.
  */
 @Initializable
 class AberabDialogue(player: Player? = null) : Dialogue(player) {

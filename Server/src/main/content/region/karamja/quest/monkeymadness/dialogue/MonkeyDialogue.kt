@@ -4,7 +4,7 @@ import core.api.setQuestStage
 import core.game.dialogue.DialogueFile
 
 /**
- * Monkey dialogue.
+ * Represents the Monkey dialogue.
  */
 class MonkeyDialogue : DialogueFile() {
 

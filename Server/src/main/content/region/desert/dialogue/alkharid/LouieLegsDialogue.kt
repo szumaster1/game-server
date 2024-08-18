@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Louie legs dialogue.
+ * Represents the Louie legs dialogue.
  */
 @Initializable
 class LouieLegsDialogue(player: Player? = null) : Dialogue(player) {

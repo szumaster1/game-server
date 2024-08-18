@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Jukat dialogue.
+ * Represents the Jukat dialogue.
  */
 @Initializable
 class JukatDialogue(player: Player? = null) : Dialogue(player) {

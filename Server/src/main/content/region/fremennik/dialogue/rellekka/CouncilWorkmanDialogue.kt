@@ -11,7 +11,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Council workman dialogue.
+ * Represents the Council workman dialogue.
  */
 @Initializable
 class CouncilWorkmanDialogue(player: Player? = null): Dialogue(player) {

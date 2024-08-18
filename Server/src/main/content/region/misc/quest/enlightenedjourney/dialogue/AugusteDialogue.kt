@@ -18,7 +18,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Auguste dialogue.
+ * Represents the Auguste dialogue.
  */
 @Initializable
 class AugusteDialogue(player: Player? = null) : Dialogue(player) {
@@ -461,7 +461,7 @@ class AugusteDialogue(player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Auguste "Enlightened Journey" quest related dialogue file.
+ * Represents the Auguste "Enlightened Journey" quest related dialogue file.
  */
 class AugusteDialogueFile : DialogueFile() {
 

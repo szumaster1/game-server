@@ -14,7 +14,7 @@ import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 
 /**
- * Cave goblins dialogue file.
+ * Represents the Cave goblins dialogue file.
  */
 class CaveGoblinsDialogueFile : DialogueFile() {
 

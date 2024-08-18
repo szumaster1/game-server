@@ -9,7 +9,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Lidio dialogue.
+ * Represents the Lidio dialogue.
  */
 @Initializable
 class LidioDialogue(player: Player? = null) : Dialogue(player) {

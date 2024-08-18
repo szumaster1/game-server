@@ -7,7 +7,7 @@ import core.game.dialogue.DialogueFile
 import core.game.node.entity.npc.NPC
 
 /**
- * Jerico dialogue file.
+ * Represents the Jerico dialogue file.
  */
 class JericoDialogueFile : DialogueFile() {
 

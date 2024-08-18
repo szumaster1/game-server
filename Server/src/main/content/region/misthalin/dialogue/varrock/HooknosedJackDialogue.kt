@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Hooknosed jack dialogue.
+ * Represents the Hooknosed jack dialogue.
  */
 @Initializable
 class HooknosedJackDialogue(player: Player? = null) : Dialogue(player) {

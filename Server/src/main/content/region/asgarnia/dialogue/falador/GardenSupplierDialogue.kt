@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Garden supplier dialogue.
+ * Represents the Garden supplier dialogue.
  */
 @Initializable
 class GardenSupplierDialogue(player: Player? = null) : Dialogue(player) {

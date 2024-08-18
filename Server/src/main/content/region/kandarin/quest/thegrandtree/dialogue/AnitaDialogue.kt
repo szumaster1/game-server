@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Anita dialogue.
+ * Represents the Anita dialogue.
  */
 @Initializable
 class AnitaDialogue(player: Player? = null) : Dialogue(player) {

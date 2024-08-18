@@ -7,7 +7,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Gunthor brave dialogue.
+ * Represents the Gunthor brave dialogue.
  */
 @Initializable
 class GunthorBraveDialogue(player: Player? = null) : Dialogue(player) {

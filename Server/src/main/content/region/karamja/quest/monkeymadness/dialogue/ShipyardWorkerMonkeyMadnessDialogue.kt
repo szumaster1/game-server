@@ -12,7 +12,7 @@ import core.game.world.map.Location
 import core.tools.END_DIALOGUE
 
 /**
- * Shipyard worker monkey madness dialogue.
+ * Represents the Shipyard worker monkey madness dialogue.
  */
 class ShipyardWorkerMonkeyMadnessDialogue : DialogueFile() {
 

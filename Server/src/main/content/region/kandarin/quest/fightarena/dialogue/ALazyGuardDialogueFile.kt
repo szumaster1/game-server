@@ -10,7 +10,7 @@ import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
 /**
- * A lazy guard dialogue file.
+ * Represents the A lazy guard dialogue file.
  */
 class ALazyGuardDialogueFile : DialogueFile() {
 

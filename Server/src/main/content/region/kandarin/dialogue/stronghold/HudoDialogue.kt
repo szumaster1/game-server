@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Hudo dialogue.
+ * Represents the Hudo dialogue.
  */
 @Initializable
 class HudoDialogue(player: Player? = null) : Dialogue(player) {

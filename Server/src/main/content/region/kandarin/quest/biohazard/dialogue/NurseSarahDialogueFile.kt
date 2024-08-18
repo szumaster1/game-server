@@ -6,7 +6,7 @@ import core.game.dialogue.DialogueFile
 import core.game.node.entity.npc.NPC
 
 /**
- * Nurse sarah dialogue file.
+ * Represents the Nurse sarah dialogue file.
  */
 class NurseSarahDialogueFile : DialogueFile() {
 

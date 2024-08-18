@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Timble dialogue.
+ * Represents the Timble dialogue.
  */
 @Initializable
 class TimbleDialogue(player: Player? = null) : Dialogue(player) {

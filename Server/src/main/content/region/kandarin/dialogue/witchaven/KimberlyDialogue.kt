@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Kimberly dialogue.
+ * Represents the Kimberly dialogue.
  */
 @Initializable
 class KimberlyDialogue(player: Player? = null) : Dialogue(player) {

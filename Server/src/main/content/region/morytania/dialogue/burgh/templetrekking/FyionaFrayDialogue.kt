@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Fyiona fray dialogue.
+ * Represents the Fyiona fray dialogue.
  */
 @Initializable
 class FyionaFrayDialogue(player: Player? = null) : Dialogue(player) {

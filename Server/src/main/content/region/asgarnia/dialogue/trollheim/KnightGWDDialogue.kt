@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Knight GWD dialogue.
+ * Represents the Knight GWD dialogue.
  */
 @Initializable
 class KnightGWDDialogue(player: Player? = null) : Dialogue(player) {

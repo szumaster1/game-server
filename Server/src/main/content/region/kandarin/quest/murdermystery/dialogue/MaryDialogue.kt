@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Mary dialogue.
+ * Represents the Mary dialogue.
  */
 @Initializable
 class MaryDialogue(player: Player? = null) : Dialogue(player) {

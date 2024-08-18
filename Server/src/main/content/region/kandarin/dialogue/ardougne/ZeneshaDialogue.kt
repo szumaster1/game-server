@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Zenesha dialogue.
+ * Represents the Zenesha dialogue.
  */
 @Initializable
 class ZeneshaDialogue(player: Player? = null) : Dialogue(player) {

@@ -9,7 +9,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Fishmonger dialogue.
+ * Represents the Fishmonger dialogue.
  */
 @Initializable
 class FishmongerEtceteriaDialogue(player: Player? = null) : Dialogue(player) {

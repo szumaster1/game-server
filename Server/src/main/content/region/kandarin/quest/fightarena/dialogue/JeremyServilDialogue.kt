@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Jeremy servil dialogue.
+ * Represents the Jeremy servil dialogue.
  */
 @Initializable
 class JeremyServilDialogue(player: Player? = null) : Dialogue(player) {

@@ -12,7 +12,7 @@ import core.game.world.map.Location
 import core.tools.END_DIALOGUE
 
 /**
- * Fisherman holy grail dialogue file.
+ * Represents the Fisherman holy grail dialogue file.
  */
 class FishermanHolyGrailDialogueFile : DialogueFile() {
 

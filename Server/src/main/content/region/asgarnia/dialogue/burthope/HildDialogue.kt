@@ -11,7 +11,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Hild dialogue.
+ * Represents the Hild dialogue.
  */
 @Initializable
 class HildDialogue(player: Player? = null) : Dialogue(player) {

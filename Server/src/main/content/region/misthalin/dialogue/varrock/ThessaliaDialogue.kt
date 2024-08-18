@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Thessalia dialogue.
+ * Represents the Thessalia dialogue.
  */
 @Initializable
 class ThessaliaDialogue(player: Player? = null) : Dialogue(player) {

@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Natural historian dialogue.
+ * Represents the Natural historian dialogue.
  */
 @Initializable
 class NaturalHistorianDialogue(player: Player? = null) : Dialogue(player) {

@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Grand exchange clerk dialogue.
+ * Represents the Grand exchange clerk dialogue.
  */
 @Initializable
 class GrandExchangeClerkDialogue(player: Player? = null) : Dialogue(player) {

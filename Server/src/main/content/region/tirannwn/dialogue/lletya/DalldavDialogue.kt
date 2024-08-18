@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Dalldav dialogue.
+ * Represents the Dalldav dialogue.
  */
 @Initializable
 class DalldavDialogue(player: Player? = null): Dialogue(player) {

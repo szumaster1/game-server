@@ -16,7 +16,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Denulth dialogue.
+ * Represents the Denulth dialogue.
  */
 @Initializable
 class DenulthDialogue(player: Player? = null) : Dialogue(player) {

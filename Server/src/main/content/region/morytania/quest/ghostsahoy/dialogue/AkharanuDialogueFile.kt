@@ -9,7 +9,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Akharanu dialogue file.
+ * Represents the Akharanu dialogue file.
  */
 class AkharanuDialogueFile : DialogueFile() {
 

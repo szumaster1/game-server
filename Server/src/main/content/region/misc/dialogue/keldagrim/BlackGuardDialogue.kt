@@ -10,7 +10,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Black guard dialogue.
+ * Represents the Black guard dialogue.
  */
 @Initializable
 class BlackGuardDialogue(player: Player? = null) : Dialogue(player) {

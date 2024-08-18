@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Flynn dialogue.
+ * Represents the Flynn dialogue.
  */
 @Initializable
 class FlynnDialogue(player: Player? = null) : Dialogue(player) {

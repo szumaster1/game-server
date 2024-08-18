@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Bardur dialogue.
+ * Represents the Bardur dialogue.
  */
 @Initializable
 class BardurDialogue(player: Player? = null): Dialogue(player) {
@@ -75,7 +75,7 @@ class BardurDialogue(player: Player? = null): Dialogue(player) {
 }
 
 /**
- * Bardur exchange dialogue.
+ * Represents the Bardur exchange dialogue.
  */
 class BardurExchangeDialogue : DialogueFile() {
 

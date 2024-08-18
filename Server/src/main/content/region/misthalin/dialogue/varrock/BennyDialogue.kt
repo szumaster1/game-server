@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Benny dialogue.
+ * Represents the Benny dialogue.
  */
 @Initializable
 class BennyDialogue(player: Player? = null) : Dialogue(player) {

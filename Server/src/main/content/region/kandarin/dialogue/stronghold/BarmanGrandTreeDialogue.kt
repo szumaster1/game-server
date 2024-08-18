@@ -14,7 +14,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Barman grand tree dialogue.
+ * Represents the Barman grand tree dialogue.
  */
 @Initializable
 class BarmanGrandTreeDialogue(player: Player? = null) : Dialogue(player) {

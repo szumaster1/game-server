@@ -11,7 +11,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Sir gawain holy grail quest dialogue file.
+ * Represents the Sir gawain holy grail quest dialogue file.
  */
 class SirGawainHolyGrailQuestDialogueFile  : DialogueFile() {
 

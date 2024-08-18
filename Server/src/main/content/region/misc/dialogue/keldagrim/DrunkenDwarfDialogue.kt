@@ -9,7 +9,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Drunken dwarf dialogue.
+ * Represents the Drunken dwarf dialogue.
  */
 @Initializable
 class DrunkenDwarfDialogue(player: Player? = null) : Dialogue(player) {

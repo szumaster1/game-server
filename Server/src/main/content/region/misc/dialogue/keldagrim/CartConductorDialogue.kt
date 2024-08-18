@@ -15,7 +15,7 @@ private const val WHITE_WOLF_CONDUCTOR = 2181
 private const val KELDAGRIM_CONDUCTOR = 2182
 
 /**
- * Cart conductor dialogue.
+ * Represents the Cart conductor dialogue.
  */
 @Initializable
 class CartConductorDialogue(player: Player? = null) : Dialogue(player) {

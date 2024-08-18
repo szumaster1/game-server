@@ -19,7 +19,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Estate agent dialogue.
+ * Represents the Estate agent dialogue.
  */
 @Initializable
 class EstateAgentDialogue(player: Player? = null) : Dialogue(player) {

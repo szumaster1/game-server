@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.START_DIALOGUE
 
 /**
- * Kringk dialogue.
+ * Represents the Kringk dialogue.
  */
 @Initializable
 class KringkDialogue(player: Player? = null) : Dialogue(player) {

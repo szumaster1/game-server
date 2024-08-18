@@ -8,7 +8,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Sir bedivere dialogue file.
+ * Represents the Sir bedivere dialogue file.
  */
 class SirBedivereDialogueFile : DialogueFile() {
 

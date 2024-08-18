@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Ghommal dialogue.
+ * Represents the Ghommal dialogue.
  */
 @Initializable
 class GhommalDialogue(player: Player? = null) : Dialogue(player) {

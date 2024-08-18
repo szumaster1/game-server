@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Mourner ardougne dialogue.
+ * Represents the Mourner ardougne dialogue.
  */
 @Initializable
 class MournerArdougneDialogue(player: Player? = null) : Dialogue(player) {

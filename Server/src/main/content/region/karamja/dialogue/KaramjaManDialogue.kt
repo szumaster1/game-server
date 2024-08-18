@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Karamja man dialogue.
+ * Represents the Karamja man dialogue.
  */
 @Initializable
 class KaramjaManDialogue(player: Player? = null) : Dialogue(player) {

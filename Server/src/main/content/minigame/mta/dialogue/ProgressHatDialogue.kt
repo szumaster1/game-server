@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Progress hat dialogue.
+ * Represents the Progress hat dialogue.
  */
 @Initializable
 class ProgressHatDialogue(player: Player? = null) : Dialogue(player) {

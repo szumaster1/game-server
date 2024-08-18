@@ -15,13 +15,10 @@ import core.api.consts.Items
 import kotlin.math.min
 
 /**
- * Murcaily dialogue.
+ * Represents the Murcaily dialogue.
  */
 @Initializable
 class MurcailyDialogue(player: Player? = null) : Dialogue(player) {
-    override fun newInstance(player: Player?): Dialogue {
-        return MurcailyDialogue(player)
-    }
 
     override fun open(vararg args: Any?): Boolean {
         npc = args[0] as NPC
@@ -160,6 +157,10 @@ class MurcailyDialogue(player: Player? = null) : Dialogue(player) {
             }
         }
         return true
+    }
+
+    override fun newInstance(player: Player?): Dialogue {
+        return MurcailyDialogue(player)
     }
 
     override fun getIds(): IntArray {

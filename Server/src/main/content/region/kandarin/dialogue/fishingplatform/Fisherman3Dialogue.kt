@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Fisherman3 dialogue.
+ * Represents the Fisherman3 dialogue.
  */
 @Initializable
 class Fisherman3Dialogue(player: Player? = null) : Dialogue(player) {

@@ -11,7 +11,7 @@ import core.game.world.map.Location
 import core.tools.END_DIALOGUE
 
 /**
- * Daero dialogue.
+ * Represents the Daero dialogue.
  */
 class DaeroDialogue : DialogueFile() {
 

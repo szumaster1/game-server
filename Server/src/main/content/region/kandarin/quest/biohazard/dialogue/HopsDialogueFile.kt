@@ -9,7 +9,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 
 /**
- * Hops dialogue file.
+ * Represents the Hops dialogue file.
  */
 class HopsDialogueFile : DialogueFile() {
 
@@ -71,7 +71,7 @@ class HopsDialogueFile : DialogueFile() {
 }
 
 /**
- * Hops varrock dialogue file.
+ * Represents the Hops varrock dialogue file.
  */
 class HopsVarrockDialogueFile : DialogueFile() {
 

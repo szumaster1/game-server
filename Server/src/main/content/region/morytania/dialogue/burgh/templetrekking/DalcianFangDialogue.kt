@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Dalcian fang dialogue.
+ * Represents the Dalcian fang dialogue.
  */
 @Initializable
 class DalcianFangDialogue(player: Player? = null) : Dialogue(player) {

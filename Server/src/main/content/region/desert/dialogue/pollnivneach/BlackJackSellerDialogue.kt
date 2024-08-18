@@ -7,7 +7,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Black jack seller dialogue.
+ * Represents the Black jack seller dialogue.
  */
 @Initializable
 class BlackJackSellerDialogue(player: Player? = null) : Dialogue(player) {

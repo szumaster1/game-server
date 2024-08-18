@@ -17,7 +17,7 @@ import core.game.world.map.RegionManager.getNpc
 import core.plugin.Plugin
 
 /**
- * Ana dialogue.
+ * Represents the Ana dialogue.
  */
 class AnaDialogue(player: Player? = null) : Dialogue(player) {
 

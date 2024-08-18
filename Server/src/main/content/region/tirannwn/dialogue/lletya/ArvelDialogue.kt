@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Arvel dialogue.
+ * Represents the Arvel dialogue.
  */
 @Initializable
 class ArvelDialogue(player: Player? = null): Dialogue(player) {

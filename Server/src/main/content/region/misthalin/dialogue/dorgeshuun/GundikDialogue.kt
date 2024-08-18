@@ -12,7 +12,7 @@ import core.api.consts.Items
 import core.api.consts.NPCs
 
 /**
- * Gundik dialogue.
+ * Represents the Gundik dialogue.
  */
 @Initializable
 class GundikDialogue(player: Player? = null) : Dialogue(player) {

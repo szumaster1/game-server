@@ -10,7 +10,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Fishmonger (Miscellania) dialogue.
+ * Represents the Fishmonger (Miscellania) dialogue.
  */
 @Initializable
 class FishmongerMiscDialogue(player: Player? = null): Dialogue(player) {

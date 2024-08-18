@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Donal dialogue.
+ * Represents the Donal dialogue.
  */
 @Initializable
 class DonalDialogue(player: Player? = null): Dialogue(player) {

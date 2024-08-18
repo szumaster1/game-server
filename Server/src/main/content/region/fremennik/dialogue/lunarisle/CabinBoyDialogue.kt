@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Cabin Boy dialogue.
+ * Represents the Cabin Boy dialogue.
  */
 @Initializable
 class CabinBoyDialogue(player: Player? = null): Dialogue(player) {

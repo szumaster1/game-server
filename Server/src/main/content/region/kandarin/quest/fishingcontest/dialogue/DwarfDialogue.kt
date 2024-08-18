@@ -9,7 +9,7 @@ import core.game.node.item.GroundItemManager
 import core.plugin.Initializable
 
 /**
- * Dwarf dialogue.
+ * Represents the Dwarf dialogue.
  */
 @Initializable
 class DwarfDialogue(player: Player? = null) : Dialogue(player) {

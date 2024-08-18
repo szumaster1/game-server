@@ -11,6 +11,9 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
+/**
+ * Represents the Hazeel Guard dialogue.
+ */
 @Initializable
 class HazeelGuardDialogue(player: Player? = null) : Dialogue(player) {
     override fun handle(componentID: Int, buttonID: Int): Boolean {

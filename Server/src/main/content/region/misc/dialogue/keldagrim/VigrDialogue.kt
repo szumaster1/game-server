@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Vigr dialogue.
+ * Represents the Vigr dialogue.
  */
 @Initializable
 class VigrDialogue(player: Player? = null) : Dialogue(player) {

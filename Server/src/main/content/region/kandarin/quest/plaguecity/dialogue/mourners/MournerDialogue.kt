@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Mourner dialogue.
+ * Represents the Mourner dialogue.
  */
 @Initializable
 class MournerDialogue(player: Player? = null) : Dialogue(player) {

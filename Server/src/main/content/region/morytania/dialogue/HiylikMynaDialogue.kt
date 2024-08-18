@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Hiylik Myna dialogue.
+ * Represents the Hiylik Myna dialogue.
  */
 @Initializable
 class HiylikMynaDialogue(player: Player? = null) : Dialogue(player) {

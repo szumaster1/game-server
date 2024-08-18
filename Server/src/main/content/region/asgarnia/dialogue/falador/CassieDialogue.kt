@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Cassie dialogue.
+ * Represents the Cassie dialogue.
  */
 @Initializable
 class CassieDialogue(player: Player? = null) : Dialogue(player) {

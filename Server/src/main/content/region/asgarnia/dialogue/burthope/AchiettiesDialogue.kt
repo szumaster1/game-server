@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Achietties dialogue.
+ * Represents the Achietties dialogue.
  */
 @Initializable
 class AchiettiesDialogue(player: Player? = null) : Dialogue(player) {

@@ -16,7 +16,7 @@ import core.tools.Log
 import core.tools.RandomFunction
 
 /**
- * Quiz master dialogue.
+ * Represents the Quiz master dialogue.
  */
 //@Initializable
 class QuizMasterDialogue(player: Player? = null) : Dialogue(player) {

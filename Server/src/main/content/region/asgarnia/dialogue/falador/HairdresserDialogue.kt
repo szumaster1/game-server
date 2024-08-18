@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Hairdresser dialogue.
+ * Represents the Hairdresser dialogue.
  */
 @Initializable
 class HairdresserDialogue(player: Player? = null) : Dialogue(player) {

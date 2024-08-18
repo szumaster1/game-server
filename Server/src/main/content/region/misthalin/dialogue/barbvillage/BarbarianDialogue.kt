@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Barbarian dialogue.
+ * Represents the Barbarian dialogue.
  */
 @Initializable
 class BarbarianDialogue(player: Player? = null) : Dialogue(player) {

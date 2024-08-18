@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Gorad dialogue.
+ * Represents the Gorad dialogue.
  */
 @Initializable
 class GoradDialogue(player: Player? = null) : Dialogue(player) {

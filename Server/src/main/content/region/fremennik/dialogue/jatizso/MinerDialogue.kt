@@ -8,7 +8,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Miner dialogue.
+ * Represents the Miner dialogue.
  */
 @Initializable
 class MinerDialogue(player: Player? = null): Dialogue(player) {

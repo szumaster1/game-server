@@ -12,7 +12,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Guardian of armadyl dialogue.
+ * Represents the Guardian of armadyl dialogue.
  */
 @Initializable
 class GuardianOfArmadylDialogue(player: Player? = null) : Dialogue(player) {
@@ -33,7 +33,7 @@ class GuardianOfArmadylDialogue(player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Guardian of armadyl dialogue file.
+ * Represents the Guardian of armadyl dialogue file.
  */
 class GuardianOfArmadylDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {

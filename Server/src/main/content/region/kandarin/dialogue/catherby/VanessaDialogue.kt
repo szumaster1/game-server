@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Vanessa dialogue.
+ * Represents the Vanessa dialogue.
  */
 @Initializable
 class VanessaDialogue(player: Player? = null): Dialogue(player) {

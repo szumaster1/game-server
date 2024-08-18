@@ -11,7 +11,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Hygd dialogue.
+ * Represents the Hygd dialogue.
  */
 @Initializable
 class HygdDialogue(player: Player? = null) : Dialogue(player) {

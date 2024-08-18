@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Kazemde dialogue.
+ * Represents the Kazemde dialogue.
  */
 @Initializable
 class KazemdeDialogue(player: Player? = null) : Dialogue(player) {

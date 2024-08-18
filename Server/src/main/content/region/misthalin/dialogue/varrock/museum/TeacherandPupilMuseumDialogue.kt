@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Teacherand pupil museum dialogue.
+ * Represents the Teacherand pupil museum dialogue.
  */
 @Initializable
 class TeacherandPupilMuseumDialogue(player: Player? = null) : Dialogue(player) {

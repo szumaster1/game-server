@@ -13,7 +13,7 @@ import core.game.world.map.RegionManager
 import core.tools.END_DIALOGUE
 
 /**
- * General dialogue file.
+ * Represents the General dialogue file.
  */
 class GeneralDialogueFile : DialogueFile() {
 

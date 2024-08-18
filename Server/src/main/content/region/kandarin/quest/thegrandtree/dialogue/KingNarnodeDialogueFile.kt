@@ -20,7 +20,7 @@ import core.game.world.update.flag.context.Animation
 import core.tools.END_DIALOGUE
 
 /**
- * King narnode dialogue file.
+ * Represents the King narnode dialogue file.
  */
 class KingNarnodeDialogueFile : DialogueFile() {
 
@@ -364,7 +364,7 @@ class KingNarnodeDialogueFile : DialogueFile() {
 }
 
 /**
- * King narnode upstairs dialogue.
+ * Represents the King narnode upstairs dialogue.
  */
 class KingNarnodeUpstairsDialogue : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {
@@ -380,7 +380,7 @@ class KingNarnodeUpstairsDialogue : DialogueFile() {
 }
 
 /**
- * King narnode under ground dialogue.
+ * Represents the King narnode under ground dialogue.
  */
 class KingNarnodeUnderGroundDialogue : DialogueFile() {
     private fun leadUpLadder() {

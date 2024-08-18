@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Legends guard dialogue.
+ * Represents the Legends guard dialogue.
  */
 @Initializable
 class LegendsGuardDialogue(player: Player? = null) : Dialogue(player) {

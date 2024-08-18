@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Agmundi dialogue.
+ * Represents the Agmundi dialogue.
  */
 @Initializable
 class AgmundiDialogue(player: Player? = null) : Dialogue(player) {

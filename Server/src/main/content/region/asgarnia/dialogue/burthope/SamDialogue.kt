@@ -11,7 +11,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Sam dialogue.
+ * Represents the Sam dialogue.
  */
 @Initializable
 class SamDialogue(player: Player? = null) : Dialogue(player) {

@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Kelyn dialogue.
+ * Represents the Kelyn dialogue.
  */
 @Initializable
 class KelynDialogue(player: Player? = null): Dialogue(player) {

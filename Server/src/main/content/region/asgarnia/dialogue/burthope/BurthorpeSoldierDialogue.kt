@@ -9,7 +9,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Burthorpe soldier dialogue.
+ * Represents the Burthorpe soldier dialogue.
  */
 @Initializable
 class BurthorpeSoldierDialogue(player: Player? = null) : Dialogue(player) {

@@ -11,7 +11,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Cam the camel dialogue.
+ * Represents the Cam the camel dialogue.
  */
 @Initializable
 class CamTheCamelDialogue(player: Player? = null) : Dialogue(player) {

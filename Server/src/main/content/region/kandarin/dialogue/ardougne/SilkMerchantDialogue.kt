@@ -14,7 +14,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Silk Merchant dialogue.
+ * Represents the Silk Merchant dialogue.
  */
 @Initializable
 class SilkMerchantDialogue(player: Player? = null) : Dialogue(player) {

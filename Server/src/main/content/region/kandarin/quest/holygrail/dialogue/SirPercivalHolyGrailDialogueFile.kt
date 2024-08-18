@@ -16,7 +16,7 @@ import core.tools.END_DIALOGUE
 import core.tools.secondsToTicks
 
 /**
- * Sir percival holy grail dialogue file.
+ * Represents the Sir percival holy grail dialogue file.
  */
 class SirPercivalHolyGrailDialogueFile(val interactionType: String) : DialogueFile() {
 

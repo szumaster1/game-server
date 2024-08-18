@@ -12,7 +12,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Lord rologarth dialogue.
+ * Represents the Lord rologarth dialogue.
  */
 @Initializable
 class LordRologarthDialogue(player: Player? = null) : Dialogue(player) {
@@ -32,7 +32,7 @@ class LordRologarthDialogue(player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Lord rologarth dialogue file.
+ * Represents the Lord rologarth dialogue file.
  */
 class LordRologarthDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {

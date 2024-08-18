@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Helemos dialogue.
+ * Represents the Helemos dialogue.
  */
 @Initializable
 class HelemosDialogue(player: Player? = null) : Dialogue(player) {

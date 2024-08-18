@@ -9,7 +9,7 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.quest.Quest
 
 /**
- * Grubfoot dialogue.
+ * Represents the Grubfoot dialogue.
  */
 class GrubfootDialogue(player: Player? = null) : Dialogue(player) {
 

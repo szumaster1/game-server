@@ -14,7 +14,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Ordan dialogue.
+ * Represents the Ordan dialogue.
  */
 @Initializable
 class OrdanDialogue(player: Player? = null) : Dialogue(player) {

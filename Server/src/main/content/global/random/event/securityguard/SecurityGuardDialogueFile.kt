@@ -7,7 +7,7 @@ import core.game.dialogue.FacialExpression
 import core.game.system.timer.impl.AntiMacro
 
 /**
- * Security guard dialogue file.
+ * Represents the Security guard dialogue file.
  */
 class SecurityGuardDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {

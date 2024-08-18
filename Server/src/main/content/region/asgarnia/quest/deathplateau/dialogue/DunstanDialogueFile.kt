@@ -9,7 +9,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Dunstan dialogue file.
+ * Represents the Dunstan dialogue file.
  */
 class DunstanDialogueFile : DialogueFile() {
 

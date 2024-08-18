@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Ranael dialogue.
+ * Represents the Ranael dialogue.
  */
 @Initializable
 class RanaelDialogue(player: Player? = null) : Dialogue(player) {

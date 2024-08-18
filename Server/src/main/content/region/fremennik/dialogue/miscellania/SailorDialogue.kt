@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Sailor dialogue.
+ * Represents the Sailor dialogue.
  */
 @Initializable
 class SailorDialogue(player: Player? = null): Dialogue(player) {

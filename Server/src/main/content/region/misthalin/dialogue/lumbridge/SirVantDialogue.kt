@@ -8,7 +8,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Sir vant dialogue.
+ * Represents the Sir vant dialogue.
  */
 @Initializable
 class SirVantDialogue(player: Player? = null) : Dialogue(player) {

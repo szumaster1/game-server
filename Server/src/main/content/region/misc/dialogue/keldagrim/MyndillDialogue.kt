@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Myndill dialogue.
+ * Represents the Myndill dialogue.
  */
 @Initializable
 class MyndillDialogue(player: Player? = null) : Dialogue(player) {

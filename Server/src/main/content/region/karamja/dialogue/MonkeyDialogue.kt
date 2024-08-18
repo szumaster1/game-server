@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Monkey dialogue.
+ * Represents the Monkey dialogue.
  */
 @Initializable
 class MonkeyDialogue(player: Player? = null) : Dialogue(player) {

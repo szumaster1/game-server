@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Natural historian east dialogue.
+ * Represents the Natural historian east dialogue.
  */
 @Initializable
 class NaturalHistorianEastDialogue(player: Player? = null) : Dialogue(player) {
@@ -121,7 +121,7 @@ class NaturalHistorianEastDialogue(player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Talk about snails.
+ * Represents the Talk about snails.
  */
 class TalkAboutSnails : DialogueFile() {
 
@@ -152,7 +152,7 @@ class TalkAboutSnails : DialogueFile() {
 }
 
 /**
- * Talk about monkeys.
+ * Represents the Talk about monkeys.
  */
 class TalkAboutMonkeys : DialogueFile() {
 
@@ -183,7 +183,7 @@ class TalkAboutMonkeys : DialogueFile() {
 }
 
 /**
- * Talk about sea slugs.
+ * Represents the Talk about sea slugs.
  */
 class TalkAboutSeaSlugs : DialogueFile() {
 
@@ -214,7 +214,7 @@ class TalkAboutSeaSlugs : DialogueFile() {
 }
 
 /**
- * Talk about snakes.
+ * Represents the Talk about snakes.
  */
 class TalkAboutSnakes : DialogueFile() {
 

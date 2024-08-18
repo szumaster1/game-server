@@ -14,7 +14,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Tramp dialogue.
+ * Represents the Tramp dialogue.
  */
 @Initializable
 class TrampDialogue(player: Player? = null) : Dialogue(player) {

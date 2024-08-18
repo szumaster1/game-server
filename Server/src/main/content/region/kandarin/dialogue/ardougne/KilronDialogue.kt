@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Kilron dialogue.
+ * Represents the Kilron dialogue.
  */
 @Initializable
 class KilronDialogue(player: Player? = null) : Dialogue(player) {

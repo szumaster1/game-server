@@ -11,7 +11,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Gardener ghost dialogue.
+ * Represents the Gardener ghost dialogue.
  */
 @Initializable
 class GardenerGhostDialogue(player: Player? = null) : Dialogue(player) {
@@ -41,7 +41,7 @@ class GardenerGhostDialogue(player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Gardener ghost dialogue file.
+ * Represents the Gardener ghost dialogue file.
  */
 class GardenerGhostDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {

@@ -10,7 +10,7 @@ import core.game.node.entity.player.Player
 import core.tools.END_DIALOGUE
 
 /**
- * Fadli dialogue.
+ * Represents the Fadli dialogue.
  */
 class FadliDialogue(player: Player? = null) : Dialogue(player) {
 

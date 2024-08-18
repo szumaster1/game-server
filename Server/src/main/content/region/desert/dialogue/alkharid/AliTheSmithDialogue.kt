@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Ali the smith dialogue.
+ * Represents the Ali the smith dialogue.
  */
 @Initializable
 class AliTheSmithDialogue(player: Player? = null) : Dialogue(player) {

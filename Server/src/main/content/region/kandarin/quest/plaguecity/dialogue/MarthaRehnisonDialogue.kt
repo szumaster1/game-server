@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Martha rehnison dialogue.
+ * Represents the Martha rehnison dialogue.
  */
 @Initializable
 class MarthaRehnisonDialogue(player: Player? = null) : Dialogue(player) {

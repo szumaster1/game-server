@@ -9,7 +9,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Ulifed dialogue.
+ * Represents the Ulifed dialogue.
  */
 @Initializable
 class UlifedDialogue(player: Player? = null) : Dialogue(player) {

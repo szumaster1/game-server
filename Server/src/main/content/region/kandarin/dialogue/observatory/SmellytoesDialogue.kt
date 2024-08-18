@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Smellytoes dialogue.
+ * Represents the Smellytoes dialogue.
  */
 @Initializable
 class SmellytoesDialogue(player: Player? = null) : Dialogue(player) {

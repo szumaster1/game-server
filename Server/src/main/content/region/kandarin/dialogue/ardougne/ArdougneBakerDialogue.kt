@@ -8,7 +8,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Ardougne Baker dialogue.
+ * Represents the Ardougne Baker dialogue.
  */
 @Initializable
 class ArdougneBakerDialogue(player: Player? = null) : Dialogue(player) {

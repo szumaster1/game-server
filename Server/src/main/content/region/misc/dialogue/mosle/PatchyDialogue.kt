@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Patchy dialogue.
+ * Represents the Patchy dialogue.
  */
 @Initializable
 class PatchyDialogue(player: Player? = null) : Dialogue(player) {

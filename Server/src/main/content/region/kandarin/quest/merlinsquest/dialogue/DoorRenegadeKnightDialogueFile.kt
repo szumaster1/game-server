@@ -9,7 +9,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Door renegade knight dialogue file.
+ * Represents the Door renegade knight dialogue file.
  */
 class DoorRenegadeKnightDialogueFile : DialogueFile() {
 

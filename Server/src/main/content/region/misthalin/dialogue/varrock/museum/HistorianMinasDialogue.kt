@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Historian minas dialogue.
+ * Represents the Historian minas dialogue.
  */
 @Initializable
 class HistorianMinasDialogue(player: Player? = null) : Dialogue(player) {

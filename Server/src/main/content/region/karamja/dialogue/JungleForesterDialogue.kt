@@ -9,7 +9,7 @@ import core.game.node.entity.player.link.diary.DiaryType
 import core.plugin.Initializable
 
 /**
- * Jungle forester dialogue.
+ * Represents the Jungle forester dialogue.
  */
 @Initializable
 class JungleForesterDialogue(player: Player? = null) : Dialogue(player) {

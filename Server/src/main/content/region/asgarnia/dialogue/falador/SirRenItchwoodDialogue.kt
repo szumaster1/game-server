@@ -8,7 +8,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Sir ren itchwood dialogue.
+ * Represents the Sir ren itchwood dialogue.
  */
 @Initializable
 class SirRenItchwoodDialogue(player: Player? = null) : Dialogue(player) {

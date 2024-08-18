@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Harrallak menarous dialogue.
+ * Represents the Harrallak menarous dialogue.
  */
 @Initializable
 class HarrallakMenarousDialogue(player: Player? = null) : Dialogue(player) {

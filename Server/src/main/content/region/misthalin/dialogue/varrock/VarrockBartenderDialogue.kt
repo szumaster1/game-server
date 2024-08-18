@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Varrock bartender dialogue.
+ * Represents the Varrock bartender dialogue.
  */
 @Initializable
 class VarrockBartenderDialogue(player: Player? = null) : Dialogue(player) {

@@ -10,7 +10,7 @@ import core.tools.START_DIALOGUE
 import core.api.consts.NPCs
 
 /**
- * Researcher dialogue.
+ * Represents the Researcher dialogue.
  */
 @Initializable
 class ResearcherDialogue(player: Player? = null) : Dialogue(player) {

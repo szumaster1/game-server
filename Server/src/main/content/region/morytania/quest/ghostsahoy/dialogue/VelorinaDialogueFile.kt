@@ -9,7 +9,7 @@ import core.game.world.GameWorld
 import core.tools.END_DIALOGUE
 
 /**
- * Velorina dialogue file.
+ * Represents the Velorina dialogue file.
  */
 class VelorinaDialogueFile : DialogueFile() {
 

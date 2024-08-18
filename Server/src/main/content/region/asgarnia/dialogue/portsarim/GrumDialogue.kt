@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Grum dialogue.
+ * Represents the Grum dialogue.
  */
 @Initializable
 class GrumDialogue(player: Player? = null) : Dialogue(player) {

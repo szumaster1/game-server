@@ -12,7 +12,7 @@ import core.game.world.map.zone.ZoneBorders
 import core.tools.ticksPerMinute
 
 /**
- * Castle wars waiting area.
+ * Represents the Castle wars waiting area.
  */
 class CastleWarsWaitingArea : CastleWarsArea(), TickListener {
 

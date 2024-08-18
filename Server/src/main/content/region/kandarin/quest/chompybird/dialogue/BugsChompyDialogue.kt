@@ -15,7 +15,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Bugs chompy dialogue.
+ * Represents the Bugs chompy dialogue.
  */
 @Initializable
 class BugsChompyDialogue(player: Player? = null) : Dialogue(player) {

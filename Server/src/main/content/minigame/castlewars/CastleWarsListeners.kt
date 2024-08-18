@@ -19,7 +19,7 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
 /**
- * Castle wars listeners.
+ * Represents the Castle wars listeners.
  */
 @Suppress("unused")
 class CastleWarsListeners : InteractionListener {

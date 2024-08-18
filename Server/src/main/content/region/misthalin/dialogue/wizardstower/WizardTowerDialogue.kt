@@ -7,7 +7,7 @@ import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 
 /**
- * Wizard Tower dialogue.
+ * Represents the Wizard Tower dialogue.
  */
 @Initializable
 class WizardTowerDialogue(player: Player? = null) : Dialogue(player) {

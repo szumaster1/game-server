@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Fernahei dialogue.
+ * Represents the Fernahei dialogue.
  */
 @Initializable
 class FernaheiDialogue(player: Player? = null): Dialogue(player) {

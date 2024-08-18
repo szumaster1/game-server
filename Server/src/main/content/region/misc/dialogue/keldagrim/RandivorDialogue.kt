@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Randivor dialogue.
+ * Represents the Randivor dialogue.
  */
 @Initializable
 class RandivorDialogue(player: Player? = null) : Dialogue(player) {

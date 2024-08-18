@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Obli dialogue.
+ * Represents the Obli dialogue.
  */
 @Initializable
 class ObliDialogue(player: Player? = null): Dialogue(player) {

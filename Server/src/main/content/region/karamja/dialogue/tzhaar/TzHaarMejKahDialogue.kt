@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Tz-Haar Mej Kah dialogue.
+ * Represents the Tz-Haar Mej Kah dialogue.
  */
 @Initializable
 class TzHaarMejKahDialogue(player: Player? = null): Dialogue(player) {

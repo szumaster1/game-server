@@ -7,7 +7,7 @@ import core.game.system.timer.impl.AntiMacro
 import core.tools.BLUE
 
 /**
- * Pinball guard dialogue.
+ * Represents the Pinball guard dialogue.
  */
 class PinballGuardDialogue : DialogueFile() {
 

@@ -12,7 +12,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Blast fusion hammer dialogue.
+ * Represents the Blast fusion hammer dialogue.
  */
 class BlastFusionHammerDialogue : DialogueFile() {
 

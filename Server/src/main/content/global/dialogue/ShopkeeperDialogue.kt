@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Shopkeeper dialogue.
+ * Represents the Shopkeeper dialogue.
  */
 @Initializable
 class ShopkeeperDialogue(player: Player? = null) : Dialogue(player) {

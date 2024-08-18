@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Rometti dialogue.
+ * Represents the Rometti dialogue.
  */
 @Initializable
 class RomettiDialogue(player: Player? = null) : Dialogue(player) {

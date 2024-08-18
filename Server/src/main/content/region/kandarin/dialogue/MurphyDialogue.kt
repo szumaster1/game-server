@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Murphy dialogue.
+ * Represents the Murphy dialogue.
  */
 @Initializable
 class MurphyDialogue(player: Player? = null) : Dialogue(player) {

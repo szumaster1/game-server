@@ -1,27 +1,28 @@
 package content.region.misthalin.handlers.stronghold.playersafety
 
 import core.api.*
+import core.api.consts.Components
 import core.game.interaction.InterfaceListener
 import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Player safety interface listener.
+ * Represents the player safety Test interface listener.
  */
 @Initializable
 class PlayerSafetyInterfaceListener : InterfaceListener {
 
     companion object {
         private val testQuestions = listOf(
-            TestQuestion(697, 26, mapOf(4 to 37, 3 to 40, 5 to 43), 4),
-            TestQuestion(699, 20, mapOf(4 to 31, 3 to 34), 4),
-            TestQuestion(707, 20, mapOf(3 to 31, 4 to 35, 5 to 35), 3),
-            TestQuestion(710, 20, mapOf(9 to 31, 10 to 34), 9),
-            TestQuestion(704, 26, mapOf(10 to 37, 12 to 43, 11 to 40), 10),
-            // todo figure out why these 2 are not working
-            // TestQuestion(694, 20, mapOf(12 to 31, 13 to 34), 13),
-            // TestQuestion(708, 26, mapOf(12 to 31, 13 to 34), 12),
-            TestQuestion(696, 20, mapOf(4 to 31, 3 to 34, 5 to 34), 4)
+            TestQuestion(Components.PLAYER_SAFETY_EXAM_697, 26, mapOf(4 to 37, 3 to 40, 5 to 43), 4),
+            TestQuestion(Components.PLAYER_SAFETY_EXAM_699, 20, mapOf(4 to 31, 3 to 34), 4),
+            TestQuestion(Components.PLAYER_SAFETY_EXAM_707, 20, mapOf(3 to 31, 4 to 35), 3),
+            TestQuestion(Components.PLAYER_SAFETY_EXAM_710, 20, mapOf(9 to 31, 10 to 34), 9),
+            TestQuestion(Components.PLAYER_SAFETY_EXAM_704, 26, mapOf(10 to 37, 12 to 43, 11 to 40), 10),
+            TestQuestion(Components.PLAYER_SAFETY_EXAM_708, 29, mapOf(12 to 40, 13 to 43), 12),
+            TestQuestion(Components.PLAYER_SAFETY_EXAM_696, 20, mapOf(4 to 31, 3 to 34), 4),
+            TestQuestion(Components.PLAYER_SAFETY_EXAM_705, 26, mapOf(10 to 37, 12 to 43, 11 to 40), 10),
+         // TestQuestion(Components.PLAYER_SAFETY_EXAM_694, 40, mapOf(24 to 15, 23 to 16), 24),
         )
         private var testQuestionNumber = 0
     }
@@ -65,21 +66,22 @@ class PlayerSafetyInterfaceListener : InterfaceListener {
     }
 
     /**
-     * Completed test.
+     * This function processes the completion of a test for a given player.
+     * It takes a Player object as a parameter to identify which player's test is being completed.
      *
-     * @param player the player.
+     * @param player The Player object representing the player whose test is completed.
      */
     private fun completedTest(player: Player) {
         closeInterface(player)
         player.savedData.globalData.setTestStage(2)
-        sendMessage(player, "Well done! You completed the exams.")
-        sendDialogue(player, "Congratulations! The test has been completed. " + "Hand the paper in to Professor Henry for marking.")
+        sendMessage(player, "Well done! You completed the exam.")
+        sendDialogueLines(player, "Congratulations! The test has been completed. Hand the paper in to", "Professor Henry for marking.")
     }
 
     /**
-     * Update.
+     * Updates the player's information in the system.
      *
-     * @param player the player.
+     * @param player The Player object containing updated information.
      */
     fun update(player: Player) {
         closeInterface(player)
@@ -91,8 +93,8 @@ class PlayerSafetyInterfaceListener : InterfaceListener {
     }
 
     override fun defineInterfaceListeners() {
-        onOpen(697) { _, _ ->
-            testQuestionNumber = 0 // Set the testQuestionNumber back to 0 on first launch.
+        onOpen(Components.PLAYER_SAFETY_EXAM_697) { _, _ ->
+            testQuestionNumber = 0
             return@onOpen true
         }
         for (question in testQuestions) {

@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Frincos dialogue.
+ * Represents the Frincos dialogue.
  */
 @Initializable
 class FrincosDialogue(player: Player? = null) : Dialogue(player) {

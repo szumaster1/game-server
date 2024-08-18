@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Charley dialogue.
+ * Represents the Charley dialogue.
  */
 @Initializable
 class CharleyDialogue(player: Player? = null) : Dialogue(player) {

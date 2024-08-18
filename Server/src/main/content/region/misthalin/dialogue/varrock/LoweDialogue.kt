@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Lowe dialogue.
+ * Represents the Lowe dialogue.
  */
 @Initializable
 class LoweDialogue(player: Player? = null) : Dialogue(player) {

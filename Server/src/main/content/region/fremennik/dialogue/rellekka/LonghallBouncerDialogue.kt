@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Longhall bouncer dialogue.
+ * Represents the Longhall bouncer dialogue.
  */
 @Initializable
 class LonghallBouncerDialogue(player: Player? = null): Dialogue(player) {

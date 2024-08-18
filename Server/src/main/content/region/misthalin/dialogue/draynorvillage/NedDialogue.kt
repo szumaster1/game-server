@@ -17,7 +17,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Ned dialogue.
+ * Represents the Ned dialogue.
  */
 @Initializable
 class NedDialogue(player: Player? = null) : Dialogue(player) {

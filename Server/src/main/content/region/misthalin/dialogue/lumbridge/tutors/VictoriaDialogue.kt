@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Victoria dialogue.
+ * Represents the Victoria dialogue.
  */
 @Initializable
 class VictoriaDialogue(player: Player? = null) : Dialogue(player) {

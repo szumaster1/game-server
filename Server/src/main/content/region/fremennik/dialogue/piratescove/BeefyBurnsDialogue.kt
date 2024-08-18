@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Beefy burns dialogue.
+ * Represents the Beefy burns dialogue.
  */
 @Initializable
 class BeefyBurnsDialogue(player: Player? = null): Dialogue(player) {

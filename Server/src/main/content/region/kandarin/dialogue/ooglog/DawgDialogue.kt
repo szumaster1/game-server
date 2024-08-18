@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.START_DIALOGUE
 
 /**
- * Dawg dialogue.
+ * Represents the Dawg dialogue.
  */
 @Initializable
 class DawgDialogue(player: Player? = null) : Dialogue(player) {

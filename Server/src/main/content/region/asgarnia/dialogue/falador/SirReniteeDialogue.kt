@@ -18,7 +18,7 @@ import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 
 /**
- * Sir renitee dialogue.
+ * Represents the Sir renitee dialogue.
  */
 @Initializable
 class SirReniteeDialogue(player: Player? = null) : Dialogue(player) {

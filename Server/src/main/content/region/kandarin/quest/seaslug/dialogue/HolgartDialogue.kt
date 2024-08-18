@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Holgart dialogue.
+ * Represents the Holgart dialogue.
  */
 @Initializable
 class HolgartDialogue(player: Player? = null) : Dialogue(player) {

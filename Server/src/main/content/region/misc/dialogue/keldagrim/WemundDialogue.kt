@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Wemund dialogue.
+ * Represents the Wemund dialogue.
  */
 @Initializable
 class WemundDialogue(player: Player? = null) : Dialogue(player) {

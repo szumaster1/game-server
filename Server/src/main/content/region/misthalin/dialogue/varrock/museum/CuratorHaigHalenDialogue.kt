@@ -16,7 +16,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Curator haig halen dialogue.
+ * Represents the Curator haig halen dialogue.
  */
 @Initializable
 class CuratorHaigHalenDialogue(player: Player? = null) : Dialogue(player) {

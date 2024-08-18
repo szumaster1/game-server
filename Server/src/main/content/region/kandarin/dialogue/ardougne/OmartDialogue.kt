@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Omart dialogue.
+ * Represents the Omart dialogue.
  */
 @Initializable
 class OmartDialogue(player: Player? = null) : Dialogue(player) {

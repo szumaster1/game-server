@@ -12,7 +12,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Clay golem dialogue.
+ * Represents the Clay golem dialogue.
  */
 @Initializable
 class ClayGolemDialogue(player: Player? = null) : Dialogue(player) {
@@ -33,7 +33,7 @@ class ClayGolemDialogue(player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Clay golem dialogue file.
+ * Represents the Clay golem dialogue file.
  */
 class ClayGolemDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {
@@ -113,7 +113,7 @@ class ClayGolemDialogueFile : DialogueBuilderFile() {
 }
 
 /**
- * Clay golem program dialogue file.
+ * Represents the Clay golem program dialogue file.
  */
 class ClayGolemProgramDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {
@@ -126,7 +126,7 @@ class ClayGolemProgramDialogueFile : DialogueBuilderFile() {
 }
 
 /**
- * Curator haig halen golem dialogue.
+ * Represents the Curator haig halen golem dialogue.
  */
 class CuratorHaigHalenGolemDialogue : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {

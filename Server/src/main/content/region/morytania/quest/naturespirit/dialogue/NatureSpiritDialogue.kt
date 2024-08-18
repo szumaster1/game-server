@@ -14,7 +14,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Nature spirit dialogue.
+ * Represents the Nature spirit dialogue.
  */
 @Initializable
 class NatureSpiritDialogue(player: Player? = null) : Dialogue(player) {

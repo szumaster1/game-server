@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Tenzing dialogue.
+ * Represents the Tenzing dialogue.
  */
 @Initializable
 class TenzingDialogue(player: Player? = null) : Dialogue(player) {

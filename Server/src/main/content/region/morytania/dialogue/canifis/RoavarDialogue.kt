@@ -14,7 +14,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 
 /**
- * Roavar dialogue.
+ * Represents the Roavar dialogue.
  */
 @Initializable
 class RoavarDialogue(player: Player? = null) : Dialogue(player) {

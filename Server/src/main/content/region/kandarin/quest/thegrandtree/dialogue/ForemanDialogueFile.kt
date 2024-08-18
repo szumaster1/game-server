@@ -15,7 +15,7 @@ import core.game.world.map.RegionManager
 import core.tools.END_DIALOGUE
 
 /**
- * Foreman dialogue file.
+ * Represents the Foreman dialogue file.
  */
 class ForemanDialogueFile : DialogueFile() {
 

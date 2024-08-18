@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Litara dialogue.
+ * Represents the Litara dialogue.
  */
 @Initializable
 class LitaraDialogue(player: Player? = null) : Dialogue(player) {

@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * King lathas dialogue.
+ * Represents the King lathas dialogue.
  */
 @Initializable
 class KingLathasDialogue(player: Player? = null) : Dialogue(player) {

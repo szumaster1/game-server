@@ -15,7 +15,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Bartender dialogue.
+ * Represents the Bartender dialogue.
  */
 @Initializable
 class BartenderDialogue(player: Player? = null) : Dialogue(player) {

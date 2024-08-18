@@ -9,7 +9,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 
 /**
- * Ranged tutor dialogue.
+ * Represents the Ranged tutor dialogue.
  */
 @Initializable
 class RangedTutorDialogue(player: Player? = null) : Dialogue(player) {

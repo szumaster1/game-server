@@ -12,7 +12,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 
 /**
- * Joe guard dialogue.
+ * Represents the Joe guard dialogue.
  */
 @Initializable
 class JoeGuardDialogue(player: Player? = null) : Dialogue(player) {

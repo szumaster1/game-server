@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Brian o richard dialogue.
+ * Represents the Brian o richard dialogue.
  */
 @Initializable
 class BrianORichardDialogue(player: Player? = null) : Dialogue(player) {

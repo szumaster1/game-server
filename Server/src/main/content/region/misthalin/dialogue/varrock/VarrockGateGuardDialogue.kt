@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Varrock gate guard dialogue.
+ * Represents the Varrock gate guard dialogue.
  */
 @Initializable
 class VarrockGateGuardDialogue(player: Player? = null) : Dialogue(player) {

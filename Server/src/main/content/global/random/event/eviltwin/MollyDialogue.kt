@@ -10,7 +10,7 @@ import core.game.world.GameWorld
 import core.tools.END_DIALOGUE
 
 /**
- * Molly dialogue.
+ * Represents the Molly dialogue.
  */
 class MollyDialogue(var type: Int) : DialogueFile() {
 

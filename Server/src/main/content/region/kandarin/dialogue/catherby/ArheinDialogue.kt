@@ -16,7 +16,7 @@ import core.tools.END_DIALOGUE
 import core.tools.StringUtils
 
 /**
- * Arhein dialogue.
+ * Represents the Arhein dialogue.
  */
 @Initializable
 class ArheinDialogue(player: Player? = null) : Dialogue(player) {

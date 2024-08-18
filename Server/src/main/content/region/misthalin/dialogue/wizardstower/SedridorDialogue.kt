@@ -15,7 +15,7 @@ import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 
 /**
- * Sedridor dialogue.
+ * Represents the Sedridor dialogue.
  */
 @Initializable
 class SedridorDialogue(player: Player? = null) : Dialogue(player) {

@@ -7,7 +7,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.player.Player
 
 /**
- * Hudon dialogue.
+ * Represents the Hudon dialogue.
  */
 class HudonDialogue(player: Player? = null) : Dialogue(player) {
 

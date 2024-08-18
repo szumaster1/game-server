@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Dr Onglewip dialogue.
+ * Represents the Dr Onglewip dialogue.
  */
 @Initializable
 class DrOnglewipDialogue(player: Player? = null) : Dialogue(player) {

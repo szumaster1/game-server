@@ -7,7 +7,7 @@ import core.game.world.map.Location
 import core.tools.RandomFunction
 
 /**
- * Pyramid plunder swarm NPC.
+ * Represents the Pyramid plunder swarm NPC.
  */
 class PyramidPlunderSwarmNPC
     (location: Location?, player: Player?) :

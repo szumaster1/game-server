@@ -9,7 +9,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 
 /**
- * Ali the kebab seller dialogue.
+ * Represents the Ali the kebab seller dialogue.
  */
 @Initializable
 class AliTheKebabSellerDialogue(player: Player? = null) : Dialogue(player) {

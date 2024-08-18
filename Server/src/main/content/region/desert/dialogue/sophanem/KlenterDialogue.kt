@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Klenter dialogue.
+ * Represents the Klenter dialogue.
  */
 @Initializable
 class KlenterDialogue(player: Player? = null) : Dialogue(player) {

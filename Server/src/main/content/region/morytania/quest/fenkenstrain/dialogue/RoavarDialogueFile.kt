@@ -13,7 +13,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Roavar dialogue file.
+ * Represents the Roavar dialogue file.
  */
 class RoavarDialogueFile(private val dialogueNum: Int = 0) : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {

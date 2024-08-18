@@ -16,7 +16,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 
 /**
- * Aubury dialogue.
+ * Represents the Aubury dialogue.
  */
 @Initializable
 class AuburyDialogue(player: Player? = null) : Dialogue(player) {

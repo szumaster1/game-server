@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Drunken man dialogue.
+ * Represents the Drunken man dialogue.
  */
 @Initializable
 class DrunkenManDialogue(player: Player? = null) : Dialogue(player) {

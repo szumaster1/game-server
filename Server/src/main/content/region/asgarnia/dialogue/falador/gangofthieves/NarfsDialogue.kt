@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Narfs dialogue.
+ * Represents the Narfs dialogue.
  */
 @Initializable
 class NarfsDialogue(player: Player? = null) : Dialogue(player) {

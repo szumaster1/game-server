@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Alran dialogue.
+ * Represents the Alran dialogue.
  */
 @Initializable
 class AlranDialogue(player: Player? = null) : Dialogue(player) {

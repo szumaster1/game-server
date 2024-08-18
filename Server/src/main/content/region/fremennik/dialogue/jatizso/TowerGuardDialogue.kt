@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Tower Guard dialogue.
+ * Represents the Tower Guard dialogue.
  */
 @Initializable
 class TowerGuardDialogue(player: Player? = null): Dialogue(player) {

@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Durgok dialogue.
+ * Represents the Durgok dialogue.
  */
 @Initializable
 class DurgokDialogue(player: Player? = null) : Dialogue(player) {

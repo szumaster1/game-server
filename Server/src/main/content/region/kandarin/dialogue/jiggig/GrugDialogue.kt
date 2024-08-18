@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Grug dialogue.
+ * Represents the Grug dialogue.
  */
 @Initializable
 class GrugDialogue(player: Player? = null) : Dialogue(player) {

@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Mazion dialogue.
+ * Represents the Mazion dialogue.
  */
 @Initializable
 class MazionDialogue(player: Player? = null) : Dialogue(player) {

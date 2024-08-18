@@ -11,7 +11,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Thump dialogue.
+ * Represents the Thump dialogue.
  */
 @Initializable
 class ThumpDialogue(player: Player? = null) : Dialogue(player) {

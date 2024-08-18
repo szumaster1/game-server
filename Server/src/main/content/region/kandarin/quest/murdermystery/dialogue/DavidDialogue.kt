@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * David dialogue.
+ * Represents the David dialogue.
  */
 @Initializable
 class DavidDialogue(player: Player? = null) : Dialogue(player) {

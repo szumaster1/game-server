@@ -9,7 +9,7 @@ import core.tools.END_DIALOGUE
 import core.api.consts.NPCs
 
 /**
- * Lumbridge swamp archer dialogue.
+ * Represents the Lumbridge swamp archer dialogue.
  */
 @Initializable
 class LumbridgeSwampArcherDialogue(player: Player? = null) : Dialogue(player) {

@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Information clerk dialogue.
+ * Represents the Information clerk dialogue.
  */
 @Initializable
 class InformationClerkDialogue(player: Player? = null) : Dialogue(player) {

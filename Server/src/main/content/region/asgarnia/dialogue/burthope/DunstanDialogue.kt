@@ -15,7 +15,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Dunstan dialogue.
+ * Represents the Dunstan dialogue.
  */
 @Initializable
 class DunstanDialogue(player: Player? = null) : Dialogue(player) {

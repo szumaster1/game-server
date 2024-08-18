@@ -9,7 +9,7 @@ import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 
 /**
- * Castle wars respawn area.
+ * Represents the Castle wars respawn area.
  */
 class CastleWarsRespawnArea : CastleWarsArea(), TickListener {
 

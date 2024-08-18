@@ -14,7 +14,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Bailey dialogue.
+ * Represents the Bailey dialogue.
  */
 @Initializable
 class BaileyDialogue(player: Player? = null) : Dialogue(player) {

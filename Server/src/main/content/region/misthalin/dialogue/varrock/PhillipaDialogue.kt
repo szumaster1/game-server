@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Phillipa dialogue.
+ * Represents the Phillipa dialogue.
  */
 @Initializable
 class PhillipaDialogue(player: Player? = null) : Dialogue(player) {

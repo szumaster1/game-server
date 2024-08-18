@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.START_DIALOGUE
 
 /**
- * Larrissa dialogue.
+ * Represents the Larrissa dialogue.
  */
 @Initializable
 class LarrissaDialogue(player: Player? = null): Dialogue(player) {

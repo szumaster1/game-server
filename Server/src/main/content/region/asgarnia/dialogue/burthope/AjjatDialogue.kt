@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Ajjat dialogue.
+ * Represents the Ajjat dialogue.
  */
 @Initializable
 class AjjatDialogue(player: Player? = null) : Dialogue(player) {

@@ -13,7 +13,7 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 
 /**
- * Aggie dialogue.
+ * Represents the Aggie dialogue.
  */
 @Initializable
 class AggieDialogue(player: Player? = null) : Dialogue(player) {

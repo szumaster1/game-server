@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Petshop owner dialogue.
+ * Represents the Petshop owner dialogue.
  */
 @Initializable
 class PetshopOwnerDialogue(player: Player? = null) : Dialogue(player) {

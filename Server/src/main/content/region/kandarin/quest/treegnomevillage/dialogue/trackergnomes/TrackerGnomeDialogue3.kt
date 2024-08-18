@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Tracker gnome dialogue3.
+ * Represents the Tracker gnome dialogue3.
  */
 @Initializable
 class TrackerGnomeDialogue3(player: Player? = null) : Dialogue(player) {

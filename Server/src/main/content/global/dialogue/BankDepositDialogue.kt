@@ -7,7 +7,7 @@ import core.game.dialogue.DialogueFile
 import core.tools.START_DIALOGUE
 
 /**
- * Bank deposit dialogue.
+ * Represents the Bank deposit dialogue.
  */
 class BankDepositDialogue : DialogueFile() {
 

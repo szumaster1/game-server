@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Seravel dialogue.
+ * Represents the Seravel dialogue.
  */
 @Initializable
 class SeravelDialogue(player: Player? = null): Dialogue(player) {

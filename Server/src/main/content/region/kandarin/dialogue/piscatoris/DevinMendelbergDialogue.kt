@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Devin mendelberg dialogue.
+ * Represents the Devin mendelberg dialogue.
  */
 @Initializable
 class DevinMendelbergDialogue(player: Player? = null) : Dialogue(player) {

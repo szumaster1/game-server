@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Lady servil dialogue.
+ * Represents the Lady servil dialogue.
  */
 @Initializable
 class LadyServilDialogue(player: Player? = null) : Dialogue(player) {

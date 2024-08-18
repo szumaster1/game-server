@@ -9,7 +9,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Dwarf shop dialogue.
+ * Represents the Dwarf shop dialogue.
  */
 @Initializable
 class DwarfShopDialogue(player: Player? = null) : Dialogue(player) {

@@ -14,7 +14,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Lucy party room dialogue.
+ * Represents the Lucy party room dialogue.
  */
 @Initializable
 class LucyPartyRoomDialogue(player: Player? = null) : Dialogue(player) {

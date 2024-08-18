@@ -15,7 +15,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Elnock inquisitor dialogue.
+ * Represents the Elnock inquisitor dialogue.
  */
 @Initializable
 class ElnockInquisitorDialogue(player: Player? = null) : Dialogue(player) {

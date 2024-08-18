@@ -14,7 +14,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Seer dialogue.
+ * Represents the Seer dialogue.
  */
 @Initializable
 class SeerDialogue(player: Player? = null) : Dialogue(player) {

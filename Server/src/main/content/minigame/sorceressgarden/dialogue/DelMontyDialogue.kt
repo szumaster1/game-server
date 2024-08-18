@@ -8,7 +8,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Del monty dialogue.
+ * Represents the Del Nonty dialogue.
  */
 @Initializable
 class DelMontyDialogue(player: Player? = null) : Dialogue(player) {

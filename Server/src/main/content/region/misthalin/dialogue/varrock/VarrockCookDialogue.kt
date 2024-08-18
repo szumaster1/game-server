@@ -11,7 +11,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 
 /**
- * Varrock cook dialogue.
+ * Represents the Varrock cook dialogue.
  */
 @Initializable
 class VarrockCookDialogue(player: Player? = null) : Dialogue(player) {

@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Customer dialogue.
+ * Represents the Customer dialogue.
  */
 @Initializable
 class CustomerDialogue(player: Player? = null) : Dialogue(player) {

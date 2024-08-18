@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Hervi dialogue.
+ * Represents the Hervi dialogue.
  */
 @Initializable
 class HerviDialogue(player: Player? = null) : Dialogue(player) {

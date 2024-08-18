@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Zookeeper dialogue.
+ * Represents the Zookeeper dialogue.
  */
 @Initializable
 class ZookeeperDialogue(player: Player? = null) : Dialogue(player) {

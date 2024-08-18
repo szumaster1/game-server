@@ -9,7 +9,7 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
 /**
- * Waterfall tree dialogue.
+ * Represents the Waterfall tree dialogue.
  */
 class WaterfallTreeDialogue(player: Player? = null) : Dialogue(player) {
 

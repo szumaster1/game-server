@@ -17,7 +17,7 @@ import core.network.packet.outgoing.MinimapState
 import core.tools.END_DIALOGUE
 
 /**
- * Leo dialogue.
+ * Represents the Leo dialogue.
  */
 class LeoDialogue : DialogueFile() {
 

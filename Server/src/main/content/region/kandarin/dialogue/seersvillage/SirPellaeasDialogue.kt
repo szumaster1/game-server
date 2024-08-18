@@ -10,7 +10,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Sir pellaeas dialogue.
+ * Represents the Sir pellaeas dialogue.
  */
 @Initializable
 class SirPellaeasDialogue(player: Player? = null) : Dialogue(player) {

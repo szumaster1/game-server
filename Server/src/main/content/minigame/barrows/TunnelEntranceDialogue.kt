@@ -9,7 +9,7 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * The tunnel entrance dialogue handling plugin.
+ * Represents the The tunnel entrance dialogue handling plugin.
  * @author Emperor
  */
 @Initializable

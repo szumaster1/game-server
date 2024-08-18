@@ -9,7 +9,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Dwarfs dialogue.
+ * Represents the Dwarfs dialogue.
  */
 @Initializable
 class DwarfsDialogue(player: Player? = null) : Dialogue(player) {

@@ -14,7 +14,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Jorral dialogue.
+ * Represents the Jorral dialogue.
  */
 @Initializable
 class JorralDialogue(player: Player? = null) : Dialogue(player) {

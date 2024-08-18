@@ -9,7 +9,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Reinald dialogue.
+ * Represents the Reinald dialogue.
  */
 @Initializable
 class ReinaldDialogue(player: Player? = null) : Dialogue(player) {

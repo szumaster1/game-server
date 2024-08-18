@@ -11,7 +11,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Elena dialogue file.
+ * Represents the Elena dialogue file.
  */
 class ElenaDialogueFile : DialogueFile() {
 

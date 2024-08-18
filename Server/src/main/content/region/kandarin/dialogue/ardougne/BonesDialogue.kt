@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Bones dialogue.
+ * Represents the Bones dialogue.
  */
 @Initializable
 class BonesDialogue(player: Player? = null) : Dialogue(player) {

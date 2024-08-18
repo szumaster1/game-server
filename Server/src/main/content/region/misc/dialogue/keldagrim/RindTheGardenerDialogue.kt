@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Rind the gardener dialogue.
+ * Represents the Rind the gardener dialogue.
  */
 @Initializable
 class RindTheGardenerDialogue(player: Player? = null) : Dialogue(player) {

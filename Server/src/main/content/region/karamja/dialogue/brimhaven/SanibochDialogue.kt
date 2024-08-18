@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Saniboch dialogue.
+ * Represents the Saniboch dialogue.
  */
 @Initializable
 class SanibochDialogue(player: Player? = null): Dialogue(player) {

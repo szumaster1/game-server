@@ -9,7 +9,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Captain brain death dialogue file.
+ * Represents the Captain brain death dialogue file.
  */
 class CaptainBrainDeathDialogueFile(var qs: Int) : DialogueFile() {
 

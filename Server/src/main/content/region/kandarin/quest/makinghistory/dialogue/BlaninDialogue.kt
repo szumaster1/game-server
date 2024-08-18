@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Blanin dialogue.
+ * Represents the Blanin dialogue.
  */
 @Initializable
 class BlaninDialogue(player: Player? = null) : Dialogue(player) {

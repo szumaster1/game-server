@@ -11,7 +11,7 @@ import core.tools.START_DIALOGUE
 import core.api.consts.NPCs
 
 /**
- * Urtag dialogue.
+ * Represents the Urtag dialogue.
  */
 @Initializable
 class UrtagDialogue(player: Player? = null) : Dialogue(player) {

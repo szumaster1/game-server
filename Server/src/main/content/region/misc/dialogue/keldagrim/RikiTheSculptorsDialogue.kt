@@ -10,7 +10,7 @@ import core.tools.END_DIALOGUE
 
 
 /**
- * Riki the sculptors dialogue.
+ * Represents the Riki the sculptors dialogue.
  */
 @Initializable
 class RikiTheSculptorsDialogue(player: Player? = null) : Dialogue(player) {

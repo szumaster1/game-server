@@ -21,7 +21,7 @@ import core.worker.ManagementEvents
 import proto.management.JoinClanRequest
 
 /**
- * Magic tutor dialogue.
+ * Represents the Magic tutor dialogue.
  */
 @Initializable
 class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {

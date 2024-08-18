@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Charlie dialogue.
+ * Represents the Charlie dialogue.
  */
 @Initializable
 class CharlieDialogue(player: Player? = null) : Dialogue(player) {

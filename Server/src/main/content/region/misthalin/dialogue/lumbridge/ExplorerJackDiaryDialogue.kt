@@ -11,7 +11,7 @@ import core.tools.END_DIALOGUE
 import core.api.consts.NPCs
 
 /**
- * Explorer jack diary dialogue.
+ * Represents the Explorer jack diary dialogue.
  */
 @Initializable
 class ExplorerJackDiaryDialogue(player: Player? = null) : Dialogue(player) {

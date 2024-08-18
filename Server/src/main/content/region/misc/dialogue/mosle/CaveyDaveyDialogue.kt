@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Cavey davey dialogue.
+ * Represents the Cavey davey dialogue.
  */
 @Initializable
 class CaveyDaveyDialogue(player: Player? = null) : Dialogue(player) {

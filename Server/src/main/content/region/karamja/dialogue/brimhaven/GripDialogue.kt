@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Grip dialogue.
+ * Represents the Grip dialogue.
  */
 @Initializable
 class GripDialogue(player: Player? = null): Dialogue(player) {

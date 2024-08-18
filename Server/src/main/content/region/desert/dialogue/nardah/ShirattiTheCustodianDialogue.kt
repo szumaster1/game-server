@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Shiratti the custodian dialogue.
+ * Represents the Shiratti the custodian dialogue.
  */
 @Initializable
 class ShirattiTheCustodianDialogue(player: Player? = null) : Dialogue(player) {

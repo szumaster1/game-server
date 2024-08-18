@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Blaec dialogue.
+ * Represents the Blaec dialogue.
  */
 @Initializable
 class BlaecDialogue(player: Player? = null) : Dialogue(player) {

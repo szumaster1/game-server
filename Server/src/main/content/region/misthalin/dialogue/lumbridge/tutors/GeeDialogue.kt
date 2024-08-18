@@ -9,7 +9,7 @@ import core.tools.END_DIALOGUE
 import core.api.consts.NPCs
 
 /**
- * Gee dialogue.
+ * Represents the Gee dialogue.
  */
 @Initializable
 class GeeDialogue(player: Player? = null) : Dialogue(player) {

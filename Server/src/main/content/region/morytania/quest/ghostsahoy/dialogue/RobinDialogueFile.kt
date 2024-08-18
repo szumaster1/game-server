@@ -10,7 +10,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Robin dialogue file.
+ * Represents the Robin dialogue file.
  */
 class RobinDialogueFile : DialogueFile() {
 

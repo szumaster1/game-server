@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Garv dialogue.
+ * Represents the Garv dialogue.
  */
 @Initializable
 class GarvDialogue(player: Player? = null): Dialogue(player) {

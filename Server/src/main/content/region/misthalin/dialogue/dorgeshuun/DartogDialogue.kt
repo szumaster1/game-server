@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Dartog dialogue.
+ * Represents the Dartog dialogue.
  */
 @Initializable
 class DartogDialogue(player: Player? = null) : Dialogue(player) {

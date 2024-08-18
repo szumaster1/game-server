@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Herquin dialogue.
+ * Represents the Herquin dialogue.
  */
 @Initializable
 class HerquinDialogue(player: Player? = null) : Dialogue(player) {

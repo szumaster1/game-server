@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Dron dialogue.
+ * Represents the Dron dialogue.
  */
 @Initializable
 class DronDialogue(player: Player? = null) : Dialogue(player) {

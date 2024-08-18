@@ -16,7 +16,7 @@ import core.tools.END_DIALOGUE
 import core.tools.StringUtils
 
 /**
- * Wizard dialogue.
+ * Represents the Wizard dialogue.
  */
 @Initializable
 class WizardDialogue(player: Player? = null) : Dialogue(player) {

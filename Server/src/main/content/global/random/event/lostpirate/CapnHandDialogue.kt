@@ -6,7 +6,7 @@ import core.game.dialogue.FacialExpression
 import core.game.system.timer.impl.AntiMacro
 
 /**
- * Capn hand dialogue.
+ * Represents the Capn hand dialogue.
  */
 class CapnHandDialogue(val rand : Int) : DialogueFile() {
 

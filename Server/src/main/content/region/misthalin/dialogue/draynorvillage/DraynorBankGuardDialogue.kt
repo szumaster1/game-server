@@ -10,7 +10,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 
 /**
- * Draynor bank guard dialogue.
+ * Represents the Draynor bank guard dialogue.
  */
 @Initializable
 class DraynorBankGuardDialogue(player: Player? = null) : Dialogue(player) {

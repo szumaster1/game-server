@@ -7,7 +7,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.player.Player
 
 /**
- * Dagon dialogue.
+ * Represents the Dagon dialogue.
  */
 class DagonDialogue(player: Player? = null) : Dialogue(player) {
 

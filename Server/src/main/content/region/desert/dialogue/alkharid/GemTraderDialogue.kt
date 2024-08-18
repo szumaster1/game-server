@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Gem trader dialogue.
+ * Represents the Gem trader dialogue.
  */
 @Initializable
 class GemTraderDialogue(player: Player? = null) : Dialogue(player) {

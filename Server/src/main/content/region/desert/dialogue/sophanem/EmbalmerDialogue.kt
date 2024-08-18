@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Embalmer dialogue.
+ * Represents the Embalmer dialogue.
  */
 @Initializable
 class EmbalmerDialogue(player: Player? = null) : Dialogue(player) {

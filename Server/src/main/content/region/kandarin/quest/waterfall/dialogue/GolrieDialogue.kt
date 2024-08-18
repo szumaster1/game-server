@@ -14,7 +14,7 @@ import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
 /**
- * Golrie dialogue.
+ * Represents the Golrie dialogue.
  */
 class GolrieDialogue(player: Player? = null) : Dialogue(player) {
 

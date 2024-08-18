@@ -9,7 +9,7 @@ import core.game.node.entity.player.link.diary.DiaryType
 import core.tools.END_DIALOGUE
 
 /**
- * Pirate jackie diary dialogue.
+ * Represents the Pirate jackie diary dialogue.
  */
 class PirateJackieDiaryDialogue : DialogueFile() {
 

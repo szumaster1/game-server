@@ -14,7 +14,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Dwarven boatman forth dialogue.
+ * Represents the Dwarven boatman forth dialogue.
  */
 @Initializable
 class DwarvenBoatmanForthDialogue(player: Player? = null) : Dialogue(player) {
@@ -68,7 +68,7 @@ class DwarvenBoatmanForthDialogue(player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Travel forth pulse.
+ * Represents the Travel forth pulse.
  */
 class TravelForthPulse(val player: Player) : Pulse(1) {
     var counter = 0

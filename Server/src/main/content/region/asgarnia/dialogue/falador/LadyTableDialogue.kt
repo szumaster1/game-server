@@ -8,7 +8,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Lady table dialogue.
+ * Represents the Lady table dialogue.
  */
 @Initializable
 class LadyTableDialogue(player: Player? = null) : Dialogue(player) {

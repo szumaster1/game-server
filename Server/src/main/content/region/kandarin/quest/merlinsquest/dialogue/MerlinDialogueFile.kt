@@ -13,7 +13,7 @@ import core.game.world.map.Location
 import core.tools.END_DIALOGUE
 
 /**
- * Merlin dialogue file.
+ * Represents the Merlin dialogue file.
  */
 class MerlinDialogueFile(val forced: Boolean) : DialogueFile() {
 

@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Olaf hradson dialogue.
+ * Represents the Olaf hradson dialogue.
  */
 @Initializable
 class OlafHradsonDialogue(player: Player? = null): Dialogue(player) {

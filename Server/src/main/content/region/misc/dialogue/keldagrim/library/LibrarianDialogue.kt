@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Librarian dialogue.
+ * Represents the Librarian dialogue.
  */
 @Initializable
 class LibrarianDialogue(player: Player? = null) : Dialogue(player) {

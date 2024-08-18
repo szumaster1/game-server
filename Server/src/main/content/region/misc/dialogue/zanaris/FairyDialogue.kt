@@ -10,7 +10,7 @@ import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 
 /**
- * Fairy dialogue.
+ * Represents the Fairy dialogue.
  */
 @Initializable
 class FairyDialogue(player: Player? = null) : Dialogue(player) {

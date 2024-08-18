@@ -9,7 +9,7 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.item.Item
 
 /**
- * Captain lawgof dialogue.
+ * Represents the Captain lawgof dialogue.
  */
 class CaptainLawgofDialogue(player: Player? = null) : Dialogue(player) {
 

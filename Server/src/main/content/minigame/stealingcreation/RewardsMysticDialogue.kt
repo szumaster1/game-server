@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Rewards mystic dialogue.
+ * Represents the Rewards mystic dialogue.
  */
 @Initializable
 class RewardsMysticDialogue(player: Player? = null) : Dialogue(player) {

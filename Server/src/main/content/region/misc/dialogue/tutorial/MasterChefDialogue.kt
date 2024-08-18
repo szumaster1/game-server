@@ -12,7 +12,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Master chef dialogue.
+ * Represents the Master chef dialogue.
  */
 @Initializable
 class MasterChefDialogue(player: Player? = null) : Dialogue(player) {

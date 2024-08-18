@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Silk trader dialogue.
+ * Represents the Silk trader dialogue.
  */
 @Initializable
 class SilkTraderDialogue(player: Player? = null) : Dialogue(player) {

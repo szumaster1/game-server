@@ -10,7 +10,7 @@ import core.game.world.map.Location
 import core.tools.END_DIALOGUE
 
 /**
- * Monkey minder dialogue.
+ * Represents the Monkey minder dialogue.
  */
 class MonkeyMinderDialogue : DialogueFile() {
 

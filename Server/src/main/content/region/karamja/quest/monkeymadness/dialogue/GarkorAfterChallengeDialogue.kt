@@ -6,7 +6,7 @@ import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 
 /**
- * Garkor after challenge dialogue.
+ * Represents the Garkor after challenge dialogue.
  */
 class GarkorAfterChallengeDialogue : DialogueFile() {
 

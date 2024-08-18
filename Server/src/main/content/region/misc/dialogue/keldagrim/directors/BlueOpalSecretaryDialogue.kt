@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Blue opal secretary dialogue.
+ * Represents the Blue opal secretary dialogue.
  */
 @Initializable
 class BlueOpalSecretaryDialogue(player: Player? = null) : Dialogue(player) {

@@ -15,7 +15,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * King bolren dialogue.
+ * Represents the King bolren dialogue.
  */
 @Initializable
 class KingBolrenDialogue(player: Player? = null) : Dialogue(player) {

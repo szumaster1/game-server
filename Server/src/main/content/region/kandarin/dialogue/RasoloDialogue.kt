@@ -8,7 +8,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Rasolo dialogue.
+ * Represents the Rasolo dialogue.
  */
 @Initializable
 class RasoloDialogue(player: Player? = null) : Dialogue(player) {

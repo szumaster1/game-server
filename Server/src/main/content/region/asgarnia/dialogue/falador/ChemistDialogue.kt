@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Chemist dialogue.
+ * Represents the Chemist dialogue.
  */
 @Initializable
 class ChemistDialogue(player: Player? = null) : Dialogue(player) {

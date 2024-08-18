@@ -10,7 +10,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 
 /**
- * Magic tutor dialogue.
+ * Represents the Magic tutor dialogue.
  */
 @Initializable
 class MagicTutorDialogue(player: Player? = null) : Dialogue(player) {

@@ -8,7 +8,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * White knight dialogue.
+ * Represents the White knight dialogue.
  */
 @Initializable
 class WhiteKnightDialogue(player: Player? = null) : Dialogue(player) {

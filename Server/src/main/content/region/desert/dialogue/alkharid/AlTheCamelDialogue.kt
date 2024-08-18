@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.RandomFunction
 
 /**
- * Al the camel dialogue.
+ * Represents the Al the camel dialogue.
  */
 @Initializable
 class AlTheCamelDialogue(player: Player? = null) : Dialogue(player) {

@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Jethick dialogue.
+ * Represents the Jethick dialogue.
  */
 @Initializable
 class JethickDialogue(player: Player? = null) : Dialogue(player) {

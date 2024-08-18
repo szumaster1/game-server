@@ -8,7 +8,7 @@ import core.game.dialogue.FacialExpression
 import core.tools.END_DIALOGUE
 
 /**
- * Drezel dialogue file.
+ * Represents the Drezel dialogue file.
  */
 class DrezelDialogueFile : DialogueFile() {
     var questStage = 0

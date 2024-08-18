@@ -9,7 +9,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Karl dialogue.
+ * Represents the Karl dialogue.
  */
 @Initializable
 class KarlDialogue(player: Player? = null) : Dialogue(player) {

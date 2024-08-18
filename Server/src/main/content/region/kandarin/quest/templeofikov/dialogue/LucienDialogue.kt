@@ -11,7 +11,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Lucien dialogue.
+ * Represents the Lucien dialogue.
  */
 @Initializable
 class LucienDialogue(player: Player? = null) : Dialogue(player) {
@@ -32,7 +32,7 @@ class LucienDialogue(player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Lucien dialogue file.
+ * Represents the Lucien dialogue file.
  */
 class LucienDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {

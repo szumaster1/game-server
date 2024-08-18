@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Maria gunnars dialogue.
+ * Represents the Maria gunnars dialogue.
  */
 @Initializable
 class MariaGunnarsDialogue(player: Player? = null) : Dialogue(player) {

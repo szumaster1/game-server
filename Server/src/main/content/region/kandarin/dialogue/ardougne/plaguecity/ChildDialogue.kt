@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Child dialogue.
+ * Represents the Child dialogue.
  */
 @Initializable
 class ChildDialogue(player: Player? = null) : Dialogue(player) {

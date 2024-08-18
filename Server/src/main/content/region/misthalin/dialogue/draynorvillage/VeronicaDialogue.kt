@@ -8,7 +8,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Veronica dialogue.
+ * Represents the Veronica dialogue.
  */
 @Initializable
 class VeronicaDialogue(player: Player? = null) : Dialogue(player) {

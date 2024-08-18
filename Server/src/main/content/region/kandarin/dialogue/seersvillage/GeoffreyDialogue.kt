@@ -11,7 +11,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 
 /**
- * Geoffrey dialogue.
+ * Represents the Geoffrey dialogue.
  */
 @Initializable
 class GeoffreyDialogue(player: Player? = null) : Dialogue(player) {

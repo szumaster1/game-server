@@ -14,7 +14,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Hassan dialogue.
+ * Represents the Hassan dialogue.
  */
 @Initializable
 class HassanDialogue(player: Player? = null) : Dialogue(player) {

@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Captain braindeath dialogue.
+ * Represents the Captain braindeath dialogue.
  */
 @Initializable
 class CaptainBraindeathDialogue(player: Player? = null) : Dialogue(player) {

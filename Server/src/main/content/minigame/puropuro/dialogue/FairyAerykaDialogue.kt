@@ -8,7 +8,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Fairy aeryka dialogue.
+ * Represents the Fairy aeryka dialogue.
  */
 @Initializable
 class FairyAerykaDialogue(player: Player? = null) : Dialogue(player) {

@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Draul leptoc dialogue.
+ * Represents the Draul leptoc dialogue.
  */
 @Initializable
 class DraulLeptocDialogue(player: Player? = null) : Dialogue(player) {

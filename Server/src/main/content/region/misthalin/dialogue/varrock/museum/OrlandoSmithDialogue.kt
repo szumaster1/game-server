@@ -8,7 +8,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Orlando smith dialogue.
+ * Represents the Orlando smith dialogue.
  */
 @Initializable
 class OrlandoSmithDialogue(player: Player? = null) : Dialogue(player) {

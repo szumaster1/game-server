@@ -14,7 +14,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Daga dialogue.
+ * Represents the Daga dialogue.
  */
 @Initializable
 class DagaDialogue(player: Player? = null) : Dialogue(player) {

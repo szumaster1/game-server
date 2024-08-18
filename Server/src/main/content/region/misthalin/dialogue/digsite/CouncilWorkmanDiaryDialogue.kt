@@ -12,7 +12,7 @@ import core.tools.START_DIALOGUE
 import core.api.consts.NPCs
 
 /**
- * Council workman diary dialogue.
+ * Represents the Council workman diary dialogue.
  */
 class CouncilWorkmanDiaryDialogue : DialogueFile() {
 

@@ -10,7 +10,7 @@ import core.tools.START_DIALOGUE
 import core.api.consts.NPCs
 
 /**
- * Zenkog dialogue.
+ * Represents the Zenkog dialogue.
  */
 @Initializable
 class ZenkogDialogue(player: Player? = null) : Dialogue(player) {

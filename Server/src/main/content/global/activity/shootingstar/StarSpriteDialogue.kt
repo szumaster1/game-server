@@ -17,7 +17,7 @@ import core.tools.colorize
 import org.json.simple.JSONObject
 
 /**
- * Star sprite dialogue.
+ * Represents the Star sprite dialogue.
  */
 @Initializable
 class StarSpriteDialogue(player: Player? = null) : Dialogue(player) {

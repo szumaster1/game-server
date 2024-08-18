@@ -8,7 +8,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Wizard Grayzag dialogue.
+ * Represents the Wizard Grayzag dialogue.
  */
 @Initializable
 class WizardGrayzagDialogue(player: Player? = null) : Dialogue(player) {

@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Ghost shopkeeper dialogue.
+ * Represents the Ghost shopkeeper dialogue.
  */
 @Initializable
 class GhostShopkeeperDialogue(player: Player? = null) : Dialogue(player) {

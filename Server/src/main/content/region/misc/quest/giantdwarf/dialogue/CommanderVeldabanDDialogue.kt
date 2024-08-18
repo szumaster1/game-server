@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Commander veldaban d dialogue.
+ * Represents the Commander veldaban d dialogue.
  */
 @Initializable
 class CommanderVeldabanDDialogue(player: Player? = null) : Dialogue(player) {

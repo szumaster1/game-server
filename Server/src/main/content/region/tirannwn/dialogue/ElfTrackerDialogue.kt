@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Elf tracker dialogue.
+ * Represents the Elf tracker dialogue.
  */
 @Initializable
 class ElfTrackerDialogue(player: Player? = null) : Dialogue(player) {

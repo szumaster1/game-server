@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Aabla dialogue.
+ * Represents the Aabla dialogue.
  * @author szumaster
  */
 @Initializable

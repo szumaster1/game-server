@@ -10,7 +10,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 
 /**
- * Harry dialogue.
+ * Represents the Harry dialogue.
  */
 @Initializable
 class HarryDialogue(player: Player? = null) : Dialogue(player) {

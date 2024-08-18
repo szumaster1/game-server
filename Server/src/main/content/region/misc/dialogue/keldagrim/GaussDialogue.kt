@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Gauss dialogue.
+ * Represents the Gauss dialogue.
  */
 @Initializable
 class GaussDialogue(player: Player? = null) : Dialogue(player) {

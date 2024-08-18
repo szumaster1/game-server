@@ -10,7 +10,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Frawd dialogue.
+ * Represents the Frawd dialogue.
  */
 @Initializable
 class FrawdDialogue(player: Player? = null) : Dialogue(player) {

@@ -8,7 +8,7 @@ import core.game.dialogue.DialogueFile
 import core.tools.END_DIALOGUE
 
 /**
- * Lumdo dialogue.
+ * Represents the Lumdo dialogue.
  */
 class LumdoDialogue: DialogueFile() {
 

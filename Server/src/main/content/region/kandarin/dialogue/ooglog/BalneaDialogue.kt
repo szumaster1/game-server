@@ -9,7 +9,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Balnea dialogue.
+ * Represents the Balnea dialogue.
  */
 @Initializable
 class BalneaDialogue(player: Player? = null) : Dialogue(player) {

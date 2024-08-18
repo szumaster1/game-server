@@ -15,7 +15,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Shantay dialogue.
+ * Represents the Shantay dialogue.
  */
 @Initializable
 class ShantayDialogue(player: Player? = null) : Dialogue(player) {

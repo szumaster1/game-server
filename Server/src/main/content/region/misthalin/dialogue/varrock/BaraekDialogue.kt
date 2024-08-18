@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Baraek dialogue.
+ * Represents the Baraek dialogue.
  */
 @Initializable
 class BaraekDialogue(player: Player? = null) : Dialogue(player) {

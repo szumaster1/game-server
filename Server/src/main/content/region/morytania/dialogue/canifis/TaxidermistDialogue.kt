@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Taxidermist dialogue.
+ * Represents the Taxidermist dialogue.
  */
 @Initializable
 class TaxidermistDialogue(player: Player? = null) : Dialogue(player) {

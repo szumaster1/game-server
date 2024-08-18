@@ -8,7 +8,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Random children dialogue.
+ * Represents the Random children dialogue.
  */
 @Initializable
 class RandomChildrenDialogue(player: Player? = null) : Dialogue(player) {

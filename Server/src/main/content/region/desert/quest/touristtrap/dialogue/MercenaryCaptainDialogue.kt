@@ -10,7 +10,7 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.world.map.Location
 
 /**
- * Mercenary captain dialogue.
+ * Represents the Mercenary captain dialogue.
  */
 class MercenaryCaptainDialogue(player: Player? = null) : Dialogue(player) {
 

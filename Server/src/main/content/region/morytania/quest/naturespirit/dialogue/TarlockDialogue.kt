@@ -15,7 +15,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Tarlock dialogue.
+ * Represents the Tarlock dialogue.
  */
 @Initializable
 class TarlockDialogue(player: Player? = null) : Dialogue(player) {

@@ -9,7 +9,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Captain bentley dialogue.
+ * Represents the Captain bentley dialogue.
  */
 @Initializable
 class CaptainBentleyDialogue(player: Player? = null): Dialogue(player) {

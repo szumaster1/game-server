@@ -24,6 +24,7 @@ class PlayerSafetyZone : MapZone("player-safety", true) {
         val instance = PlayerSafetyZone()
         var GOBLIN_JAIL = ZoneBorders(3076, 4228, 3089, 4253, 0, true)
         var FIRST_FLOOR = ZoneBorders(3132, 4221, 3175, 4281, 3, true)
+        var CLASS_ROOM = ZoneBorders(3076, 3452, 3085, 3458,0, true)
     }
 
     override fun locationUpdate(e: Entity?, last: Location?) {
@@ -38,13 +39,16 @@ class PlayerSafetyZone : MapZone("player-safety", true) {
             }
 
             if (inBorders(player, FIRST_FLOOR)) {
-                if (!player.musicPlayer.hasUnlocked(Music.EXAM_CONDITIONS_492)) {
-                    player.musicPlayer.unlock(Music.EXAM_CONDITIONS_492)
-                }
                 if (!player.musicPlayer.hasUnlocked(Music.SAFETY_IN_NUMBERS_493)) {
                     player.musicPlayer.unlock(Music.SAFETY_IN_NUMBERS_493)
                 }
                 return
+            }
+
+            if (inBorders(player, CLASS_ROOM)) {
+                if (!player.musicPlayer.hasUnlocked(Music.EXAM_CONDITIONS_492)) {
+                    player.musicPlayer.unlock(Music.EXAM_CONDITIONS_492)
+                }
             }
         }
     }

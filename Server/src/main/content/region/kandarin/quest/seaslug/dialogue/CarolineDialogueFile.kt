@@ -9,7 +9,7 @@ import core.game.node.entity.skill.Skills
 import core.tools.END_DIALOGUE
 
 /**
- * Caroline dialogue file.
+ * Represents the Caroline dialogue file.
  */
 class CarolineDialogueFile : DialogueFile() {
 

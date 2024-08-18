@@ -8,7 +8,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Miss cheevers dialogue.
+ * Represents the Miss cheevers dialogue.
  */
 @Initializable
 class MissCheeversDialogue(player: Player? = null) : Dialogue(player) {

@@ -13,7 +13,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Larxus dialogue.
+ * Represents the Larxus dialogue.
  */
 @Initializable
 class LarxusDialogue(player: Player? = null) : Dialogue(player) {
@@ -48,10 +48,9 @@ class LarxusDialogue(player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Larxus dialogue file
+ * Represents the Larxus dialogue file.
  *
- * @param challengeStart
- * @constructor Larxus dialogue file
+ * @param challengeStart the boolean.
  */
 class LarxusDialogueFile(val challengeStart: Boolean = false) : DialogueFile() {
 

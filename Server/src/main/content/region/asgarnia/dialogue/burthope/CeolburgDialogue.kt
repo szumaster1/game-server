@@ -11,7 +11,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Ceolburg dialogue.
+ * Represents the Ceolburg dialogue.
  */
 @Initializable
 class CeolburgDialogue(player: Player? = null) : Dialogue(player) {

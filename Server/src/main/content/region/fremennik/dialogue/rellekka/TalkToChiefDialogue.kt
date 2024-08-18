@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Talk to chief dialogue.
+ * Represents the Talk to chief dialogue.
  */
 @Initializable
 class TalkToChiefDialogue(player: Player? = null): Dialogue(player) {

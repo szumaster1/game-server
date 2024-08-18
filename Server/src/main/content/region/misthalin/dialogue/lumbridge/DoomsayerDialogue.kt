@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Doomsayer dialogue.
+ * Represents the Doomsayer dialogue.
  */
 @Initializable
 class DoomsayerDialogue(player: Player? = null) : Dialogue(player) {

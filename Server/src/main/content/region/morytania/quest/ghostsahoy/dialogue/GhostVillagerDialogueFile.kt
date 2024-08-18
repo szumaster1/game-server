@@ -10,7 +10,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Ghost villager dialogue file.
+ * Represents the Ghost villager dialogue file.
  */
 class GhostVillagerDialogueFile : DialogueFile() {
 

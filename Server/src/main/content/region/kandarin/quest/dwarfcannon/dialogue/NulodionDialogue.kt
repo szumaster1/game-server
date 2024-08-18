@@ -10,7 +10,7 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.item.Item
 
 /**
- * Nulodion dialogue.
+ * Represents the Nulodion dialogue.
  */
 class NulodionDialogue(player: Player? = null) : Dialogue(player) {
 

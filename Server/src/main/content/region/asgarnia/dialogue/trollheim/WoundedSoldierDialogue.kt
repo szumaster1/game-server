@@ -8,7 +8,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Wounded soldier dialogue.
+ * Represents the Wounded soldier dialogue.
  */
 @Initializable
 class WoundedSoldierDialogue(player: Player? = null) : Dialogue(player) {

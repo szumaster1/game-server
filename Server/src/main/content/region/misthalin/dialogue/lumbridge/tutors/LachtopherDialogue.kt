@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Lachtopher dialogue.
+ * Represents the Lachtopher dialogue.
  */
 @Initializable
 class LachtopherDialogue(player: Player? = null) : Dialogue(player) {

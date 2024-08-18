@@ -12,7 +12,7 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Graphic
 
 /**
- * Sorceress apprentice dialogue.
+ * Represents the Sorceress Apprentice dialogue.
  */
 class SorceressApprenticeDialogue(player: Player? = null) : Dialogue(player) {
 

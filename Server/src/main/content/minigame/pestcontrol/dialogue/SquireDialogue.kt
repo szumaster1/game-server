@@ -10,7 +10,7 @@ import core.game.world.GameWorld.settings
 import core.plugin.Initializable
 
 /**
- * Squire dialogue.
+ * Represents the Squire dialogue.
  */
 @Initializable
 class SquireDialogue(player: Player? = null) : Dialogue(player) {

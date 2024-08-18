@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Relobo blinyo dialogue.
+ * Represents the Relobo blinyo dialogue.
  */
 @Initializable
 class ReloboBlinyoDialogue(player: Player? = null) : Dialogue(player) {

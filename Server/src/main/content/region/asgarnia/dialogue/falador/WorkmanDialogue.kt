@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Workman dialogue.
+ * Represents the Workman dialogue.
  */
 @Initializable
 class WorkmanDialogue(player: Player? = null) : Dialogue(player) {

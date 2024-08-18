@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Lord daquarius dialogue.
+ * Represents the Lord daquarius dialogue.
  */
 @Initializable
 class LordDaquariusDialogue(player: Player? = null) : Dialogue(player) {

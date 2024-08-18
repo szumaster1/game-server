@@ -8,7 +8,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Zahur dialogue.
+ * Represents the Zahur dialogue.
  */
 @Initializable
 class ZahurDialogue(player: Player? = null) : Dialogue(player) {

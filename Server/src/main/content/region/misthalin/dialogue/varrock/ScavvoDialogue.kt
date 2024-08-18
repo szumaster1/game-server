@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Scavvo dialogue.
+ * Represents the Scavvo dialogue.
  */
 @Initializable
 class ScavvoDialogue(player: Player? = null) : Dialogue(player) {

@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Jari dialogue.
+ * Represents the Jari dialogue.
  */
 @Initializable
 class JariDialogue(player: Player? = null): Dialogue(player) {

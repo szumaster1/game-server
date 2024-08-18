@@ -12,7 +12,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 
 /**
- * Candle seller dialogue.
+ * Represents the Candle seller dialogue.
  */
 @Initializable
 class CandleSellerDialogue(player: Player? = null) : Dialogue(player) {

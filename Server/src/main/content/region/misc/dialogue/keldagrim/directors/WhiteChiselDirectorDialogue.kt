@@ -8,7 +8,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * White chisel director dialogue.
+ * Represents the White chisel director dialogue.
  */
 @Initializable
 class WhiteChiselDirectorDialogue(player: Player? = null) : Dialogue(player) {

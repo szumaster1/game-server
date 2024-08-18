@@ -9,7 +9,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Runvastr dialogue.
+ * Represents the Runvastr dialogue.
  */
 @Initializable
 class RunvastrDialogue(player: Player? = null) : Dialogue(player) {

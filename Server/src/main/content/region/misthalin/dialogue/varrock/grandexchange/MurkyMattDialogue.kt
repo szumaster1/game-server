@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Murky matt dialogue.
+ * Represents the Murky matt dialogue.
  */
 @Initializable
 class MurkyMattDialogue(player: Player? = null) : Dialogue(player) {

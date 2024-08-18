@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Rokuh dialogue.
+ * Represents the Rokuh dialogue.
  */
 @Initializable
 class RokuhDialogue(player: Player? = null) : Dialogue(player) {

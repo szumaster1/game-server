@@ -17,7 +17,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Kolodion dialogue.
+ * Represents the Kolodion dialogue.
  */
 @Initializable
 class KolodionDialogue(player: Player? = null) : Dialogue(player) {

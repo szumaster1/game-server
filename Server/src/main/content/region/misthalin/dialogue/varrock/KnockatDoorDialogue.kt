@@ -10,7 +10,7 @@ import core.tools.BLUE
 import core.tools.END_DIALOGUE
 
 /**
- * Knockat door dialogue.
+ * Represents the Knockat door dialogue.
  */
 class KnockatDoorDialogue : DialogueFile() {
 

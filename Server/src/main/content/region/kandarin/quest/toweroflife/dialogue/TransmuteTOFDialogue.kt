@@ -12,7 +12,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Transmute t o f dialogue.
+ * Represents the Transmute t o f dialogue.
  */
 @Initializable
 class TransmuteTOFDialogue(player: Player? = null) : Dialogue(player) {

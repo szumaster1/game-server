@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Maze guardian dialogue.
+ * Represents the Maze guardian dialogue.
  */
 @Initializable
 class MazeGuardianDialogue(player: Player? = null) : Dialogue(player) {

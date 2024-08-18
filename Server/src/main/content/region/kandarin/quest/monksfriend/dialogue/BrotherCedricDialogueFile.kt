@@ -9,6 +9,9 @@ import core.game.dialogue.FacialExpression
 import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
+/**
+ * Represents the Brother Cedric dialogue file.
+ */
 class BrotherCedricDialogueFile : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

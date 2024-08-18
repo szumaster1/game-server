@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Hengel dialogue.
+ * Represents the Hengel dialogue.
  */
 @Initializable
 class HengelDialogue(player: Player? = null) : Dialogue(player) {

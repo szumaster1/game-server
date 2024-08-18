@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Gossip dialogue.
+ * Represents the Gossip dialogue.
  */
 @Initializable
 class GossipDialogue(player: Player? = null) : Dialogue(player) {

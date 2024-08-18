@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Lunderwin dialogue.
+ * Represents the Lunderwin dialogue.
  */
 @Initializable
 class LunderwinDialogue(player: Player? = null) : Dialogue(player) {

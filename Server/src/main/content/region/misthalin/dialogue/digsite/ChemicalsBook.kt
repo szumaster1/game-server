@@ -10,7 +10,7 @@ import core.game.node.entity.player.Player
 import core.api.consts.Items
 
 /**
- * Chemicals book.
+ * Represents the Chemicals book.
  */
 class ChemicalsBook : InteractionListener {
 

@@ -11,7 +11,7 @@ import core.game.node.scenery.Scenery
 import core.plugin.Initializable
 
 /**
- * Magic door dialogue.
+ * Represents the Magic door dialogue.
  */
 @Initializable
 class MagicDoorDialogue(player: Player? = null) : Dialogue(player) {

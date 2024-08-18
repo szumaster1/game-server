@@ -14,7 +14,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 
 /**
- * Dr fenkenstrain dialogue.
+ * Represents the Dr fenkenstrain dialogue.
  */
 @Initializable
 class DrFenkenstrainDialogue(player: Player? = null) : Dialogue(player) {
@@ -34,7 +34,7 @@ class DrFenkenstrainDialogue(player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Dr fenkenstrain dialogue file.
+ * Represents the Dr fenkenstrain dialogue file.
  */
 class DrFenkenstrainDialogueFile : DialogueBuilderFile() {
 

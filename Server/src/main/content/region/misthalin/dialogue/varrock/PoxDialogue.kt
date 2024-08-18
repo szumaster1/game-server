@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Pox dialogue.
+ * Represents the Pox dialogue.
  */
 @Initializable
 class PoxDialogue(player: Player? = null) : Dialogue(player) {

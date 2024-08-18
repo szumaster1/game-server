@@ -8,7 +8,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Citizen dialogue.
+ * Represents the Citizen dialogue.
  */
 @Initializable
 class CitizenDialogue(player: Player? = null): Dialogue(player) {

@@ -10,7 +10,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 
 /**
- * Gnome gate guard dialogue.
+ * Represents the Gnome gate guard dialogue.
  */
 class GnomeGateGuardDialogue : DialogueFile() {
 

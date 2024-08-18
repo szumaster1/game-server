@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Stanford dialogue.
+ * Represents the Stanford dialogue.
  */
 @Initializable
 class StanfordDialogue(player: Player? = null) : Dialogue(player) {

@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.StringUtils
 
 /**
- * Trader crewmember dialogue.
+ * Represents the Trader crewmember dialogue.
  * @author Vexia
  */
 @Initializable

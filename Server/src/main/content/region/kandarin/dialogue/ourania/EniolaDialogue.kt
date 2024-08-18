@@ -13,7 +13,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Eniola dialogue.
+ * Represents the Eniola dialogue.
  */
 @Initializable
 class EniolaDialogue(player: Player? = null) : Dialogue(player) {

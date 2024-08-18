@@ -14,7 +14,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Town crier dialogue.
+ * Represents the Town crier dialogue.
  */
 @Initializable
 class TownCrierDialogue(player: Player? = null) : Dialogue(player) {

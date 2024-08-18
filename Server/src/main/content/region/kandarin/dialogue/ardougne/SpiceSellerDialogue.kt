@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Spice Seller dialogue.
+ * Represents the Spice Seller dialogue.
  */
 @Initializable
 class SpiceSellerDialogue(player: Player? = null) : Dialogue(player) {

@@ -7,7 +7,7 @@ import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 
 /**
- * Garkor final battle dialogue.
+ * Represents the Garkor final battle dialogue.
  */
 class GarkorFinalBattleDialogue: DialogueFile() {
 

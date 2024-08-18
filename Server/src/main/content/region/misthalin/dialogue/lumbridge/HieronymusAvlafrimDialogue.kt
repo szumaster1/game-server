@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Hieronymus avlafrim dialogue.
+ * Represents the Hieronymus avlafrim dialogue.
  */
 @Initializable
 class HieronymusAvlafrimDialogue(player: Player? = null) : Dialogue(player) {

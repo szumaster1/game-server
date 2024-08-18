@@ -15,7 +15,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Fycie chompy dialogue.
+ * Represents the Fycie chompy dialogue.
  */
 @Initializable
 class FycieChompyDialogue(player: Player? = null) : Dialogue(player) {

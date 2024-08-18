@@ -10,7 +10,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 
 /**
- * Harlan dialogue.
+ * Represents the Harlan dialogue.
  */
 @Initializable
 class HarlanDialogue(player: Player? = null) : Dialogue(player) {

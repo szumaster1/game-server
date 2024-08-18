@@ -10,7 +10,7 @@ import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 
 /**
- * Gnome trainer dialogue.
+ * Represents the Gnome trainer dialogue.
  */
 @Initializable
 class GnomeTrainerDialogue(player: Player? = null) : Dialogue(player) {

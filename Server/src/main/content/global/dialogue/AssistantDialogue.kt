@@ -13,7 +13,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Assistant dialogue.
+ * Represents the Assistant dialogue.
  */
 @Initializable
 class AssistantDialogue(player: Player? = null) : Dialogue(player) {

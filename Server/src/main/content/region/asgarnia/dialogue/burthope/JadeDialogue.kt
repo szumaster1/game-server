@@ -12,7 +12,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Jade dialogue.
+ * Represents the Jade dialogue.
  */
 class JadeDialogue(player: Player? = null) : Dialogue(player) {
 

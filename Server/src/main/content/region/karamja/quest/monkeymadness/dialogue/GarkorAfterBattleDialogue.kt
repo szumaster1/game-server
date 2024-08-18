@@ -5,7 +5,7 @@ import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 
 /**
- * Garkor after battle dialogue.
+ * Represents the Garkor after battle dialogue.
  */
 class GarkorAfterBattleDialogue : DialogueFile() {
 

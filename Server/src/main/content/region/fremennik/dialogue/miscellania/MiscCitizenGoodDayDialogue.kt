@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Misc citizen good day dialogue.
+ * Represents the Misc citizen good day dialogue.
  */
 @Initializable
 class MiscCitizenGoodDayDialogue(player: Player? = null): Dialogue(player) {
