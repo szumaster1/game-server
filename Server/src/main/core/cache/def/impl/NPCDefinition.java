@@ -24,8 +24,8 @@ import static core.api.ContentAPIKt.getVarp;
  */
 public final class NPCDefinition extends Definition<NPC> {
     /*
-        Debug NPC Opcodes Line 483, Uncomment
-    */
+     * Debug NPC Opcodes Line 483, Uncomment
+     */
 
     private static final Map<Integer, NPCDefinition> DEFINITIONS = new HashMap<>();
 
