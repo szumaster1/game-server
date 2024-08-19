@@ -3,31 +3,39 @@ package core.game.system.monitor;
 import core.ServerConstants;
 
 /**
- * Duplication log.
+ * Handles duplication-related logging.
+ * @author Emperor
  */
 public final class DuplicationLog extends MessageLog {
 
     /**
-     * The constant LOGGING_DURATION.
+     * The amount of milliseconds the player's actions should be logged. (days *
+     * hours * minutes * milliseconds)
      */
     public static long LOGGING_DURATION = 5 * 24 * 60 * 60_000;
 
     /**
-     * The constant DUPE_TALK.
+     * The duplication flag for player talking about duping.
      */
     public static final int DUPE_TALK = 0x1;
 
     /**
-     * The constant NW_INCREASE.
+     * The duplication flag for a large networth increase.
      */
     public static final int NW_INCREASE = 0x8;
 
+    /**
+     * The current flag.
+     */
     private int flag;
 
+    /**
+     * The last time the player triggered the "large networth increase" flag.
+     */
     private long lastIncreaseFlag;
 
     /**
-     * Instantiates a new Duplication log.
+     * Constructs a new {@code DuplicationLog} {@code Object}.
      */
     public DuplicationLog() {
         super(-1, false);
@@ -47,9 +55,8 @@ public final class DuplicationLog extends MessageLog {
     }
 
     /**
-     * Gets probability.
-     *
-     * @return the probability
+     * Gets the probability of duping (scale from 0 - 3).
+     * @return The probability (where 3 is very likely and 0 is very unlikely).
      */
     public int getProbability() {
         int probability = 0;
@@ -63,18 +70,17 @@ public final class DuplicationLog extends MessageLog {
     }
 
     /**
-     * Is logging flagged boolean.
-     *
-     * @return the boolean
+     * Checks if the player's actions should be logged (to find cause of
+     * duping).
+     * @return {@code True} if so.
      */
     public boolean isLoggingFlagged() {
         return (flag & NW_INCREASE) != 0 && (System.currentTimeMillis() - lastIncreaseFlag) < LOGGING_DURATION;
     }
 
     /**
-     * Flag.
-     *
-     * @param flag the flag
+     * Adds a flag.
+     * @param flag The flag to add.
      */
     public void flag(int flag) {
         this.flag |= flag;
@@ -84,27 +90,24 @@ public final class DuplicationLog extends MessageLog {
     }
 
     /**
-     * Gets flag.
-     *
-     * @return the flag
+     * Gets the flag.
+     * @return The flag.
      */
     public int getFlag() {
         return flag;
     }
 
     /**
-     * Gets last increase flag.
-     *
-     * @return the last increase flag
+     * Gets the lastIncreaseFlag.
+     * @return The lastIncreaseFlag.
      */
     public long getLastIncreaseFlag() {
         return lastIncreaseFlag;
     }
 
     /**
-     * Sets last increase flag.
-     *
-     * @param lastIncreaseFlag the last increase flag
+     * Sets the lastIncreaseFlag.
+     * @param lastIncreaseFlag The lastIncreaseFlag to set.
      */
     public void setLastIncreaseFlag(long lastIncreaseFlag) {
         this.lastIncreaseFlag = lastIncreaseFlag;

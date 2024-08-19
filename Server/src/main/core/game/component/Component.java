@@ -1,43 +1,46 @@
 package core.game.component;
 
-import core.game.interaction.InterfaceListeners;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.InterfaceManager;
 import core.network.packet.PacketRepository;
 import core.network.packet.context.InterfaceContext;
 import core.network.packet.outgoing.Interface;
+import core.game.interaction.InterfaceListeners;
 
 /**
- * Component.
+ * Represents a component.
+ * @author Emperor
  */
 public class Component {
 
     /**
-     * The Id.
+     * The component id.
      */
     protected int id;
 
     /**
-     * The Definition.
+     * The component definitions.
      */
     protected final ComponentDefinition definition;
 
     /**
-     * The Close event.
+     * The close event.
      */
     protected CloseEvent closeEvent;
 
     /**
-     * The Plugin.
+     * The component plugin.
      */
     protected ComponentPlugin plugin;
 
+    /**
+     * If the component is hidden.
+     */
     private boolean hidden;
 
     /**
-     * Instantiates a new Component.
-     *
-     * @param id the id
+     * Constructs a new {@code Component} {@code Object}.
+     * @param id The component id.
      */
     public Component(int id) {
         this.id = id;
@@ -46,13 +49,11 @@ public class Component {
     }
 
     /**
-     * Open.
-     *
-     * @param player the player
+     * Opens the component.
      */
     public void open(Player player) {
         InterfaceManager manager = player.getInterfaceManager();
-        InterfaceListeners.runOpen(player, this);
+        InterfaceListeners.runOpen(player,this);
         if (definition == null) {
             PacketRepository.send(Interface.class, new InterfaceContext(player, manager.getWindowPaneId(), manager.getDefaultChildId(), getId(), false));
             if (plugin != null) {
@@ -77,47 +78,41 @@ public class Component {
     }
 
     /**
-     * Close boolean.
-     *
-     * @param player the player
-     * @return the boolean
+     * Closes the component.
+     * @param player The player.
+     * @return {@code True} if the component can be closed.
      */
     public boolean close(Player player) {
         return (closeEvent == null || closeEvent.close(player, this)) && InterfaceListeners.runClose(player, this);
     }
 
     /**
-     * Gets id.
-     *
-     * @return the id
+     * Gets the id.
+     * @return The id.
      */
     public int getId() {
         return id;
     }
 
     /**
-     * Gets definition.
-     *
-     * @return the definition
+     * Gets the definition.
+     * @return The definition.
      */
     public ComponentDefinition getDefinition() {
         return definition;
     }
 
     /**
-     * Gets close event.
-     *
-     * @return the close event
+     * Gets the closeEvent.
+     * @return The closeEvent.
      */
     public CloseEvent getCloseEvent() {
         return closeEvent;
     }
 
     /**
-     * Sets close event.
-     *
-     * @param closeEvent the close event
-     * @return the close event
+     * Sets the closeEvent.
+     * @param closeEvent The closeEvent to set.
      */
     public Component setCloseEvent(CloseEvent closeEvent) {
         this.closeEvent = closeEvent;
@@ -125,10 +120,8 @@ public class Component {
     }
 
     /**
-     * Sets unclosable.
-     *
-     * @param p the p
-     * @param c the c
+     * Sets the component unclosable.
+     * @param c The component.
      */
     public static void setUnclosable(Player p, Component c) {
         p.setAttribute("close_c_", true);
@@ -141,18 +134,16 @@ public class Component {
     }
 
     /**
-     * Sets plugin.
-     *
-     * @param plugin the plugin
+     * Sets the plugin.
+     * @param plugin the plugin.
      */
     public void setPlugin(ComponentPlugin plugin) {
         this.plugin = plugin;
     }
 
     /**
-     * Gets plugin.
-     *
-     * @return the plugin
+     * Gets the component plugin.
+     * @return the plugin.
      */
     public ComponentPlugin getPlugin() {
         if (plugin == null) {
@@ -165,18 +156,16 @@ public class Component {
     }
 
     /**
-     * Is hidden boolean.
-     *
-     * @return the boolean
+     * Gets the hidden value.
+     * @return The hidden.
      */
     public boolean isHidden() {
         return hidden;
     }
 
     /**
-     * Sets hidden.
-     *
-     * @param hidden the hidden
+     * Sets the hidden value.
+     * @param hidden The hidden to set.
      */
     public void setHidden(boolean hidden) {
         this.hidden = hidden;

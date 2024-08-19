@@ -18,7 +18,7 @@ import core.game.world.update.flag.context.Animation
 import core.tools.END_DIALOGUE
 
 /**
- * Phasmatys listeners.
+ * Represents the Phasmatys listeners.
  */
 class PhasmatysListeners : InteractionListener {
 

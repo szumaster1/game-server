@@ -7,6 +7,9 @@ import core.api.consts.NPCs
 import core.api.setAttribute
 import core.game.node.entity.player.Player
 
+/**
+ * Letter delivery content.
+ */
 object LetterDeliveryContent {
 
     val THE_ORACLE_LETTER_CONTENT = arrayOf(

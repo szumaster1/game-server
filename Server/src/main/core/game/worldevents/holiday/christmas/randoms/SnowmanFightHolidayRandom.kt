@@ -6,6 +6,10 @@ import core.game.node.entity.npc.NPC
 import core.game.worldevents.holiday.HolidayRandomEventNPC
 import core.tools.minutesToTicks
 
+/**
+ * Represents the Snowman Fight holiday random NPC.
+ * @author Zerken
+ */
 class SnowmanFightHolidayRandom : HolidayRandomEventNPC(NPCs.BARBARIAN_SNOWMAN_6742) {
     private lateinit var otherSnowman: NPC
     private val snowmen = listOf(NPCs.DRAGON_SNOWMAN_6743, NPCs.PIRATE_SNOWMAN_6745, NPCs.DWARF_SNOWMAN_6744)

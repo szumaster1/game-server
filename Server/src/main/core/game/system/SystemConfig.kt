@@ -6,7 +6,8 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 /**
- * System config.
+ * Holds the system configurations from the database.
+ * @author Vexia
  */
 class SystemConfig {
 
@@ -26,9 +27,9 @@ class SystemConfig {
     /**
      * Parses a config using the SQL info given.
      *
-     * @param key The identifier for the configuration setting.
-     * @param value The value associated with the configuration setting, can be null.
-     * @param dataType The type of data for the configuration setting, can be null.
+     * @param key The key identity.
+     * @param value The value.
+     * @param dataType The data type to parse.
      */
     private fun parseConfig(key: String, value: String?, dataType: String?) {
         if (dataType == null) {

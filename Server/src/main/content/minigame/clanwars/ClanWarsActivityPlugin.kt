@@ -27,7 +27,7 @@ import core.game.world.map.zone.RegionZone
 import core.game.world.map.zone.ZoneBorders
 import core.game.world.map.zone.ZoneType
 import core.game.world.map.zone.impl.MultiwayCombatZone
-import core.game.world.update.flag.chunk.AnimateObjectUpdateFlag
+import core.game.world.update.flag.chunk.AnimateSceneryUpdateFlag
 import core.game.world.update.flag.context.Animation
 import core.plugin.Initializable
 import core.plugin.Plugin
@@ -35,7 +35,7 @@ import core.tools.RandomFunction
 import java.util.*
 
 /**
- * Clan wars activity plugin.
+ * Represents the Clan wars activity plugin.
  */
 @Initializable
 class ClanWarsActivityPlugin : ActivityPlugin("Clan wars", true, false, true) {
@@ -75,7 +75,11 @@ class ClanWarsActivityPlugin : ActivityPlugin("Clan wars", true, false, true) {
                     if (scenery != null) {
                         val anim = Animation.create(7386 + (scenery.id - 28174) % 3)
                         anim.setObject(scenery)
-                        getRegionChunk(l).flag(AnimateObjectUpdateFlag(anim))
+                        getRegionChunk(l).flag(
+                            AnimateSceneryUpdateFlag(
+                                anim
+                            )
+                        )
                     }
                 }
                 Pulser.submit(object : Pulse(5) {

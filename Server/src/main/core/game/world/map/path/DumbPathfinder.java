@@ -8,15 +8,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Dumb pathfinder.
+ * A pathfinder implementation used for an easy path, where the pathfinder won't
+ * find a way around clipped objects.. <br> This is used for NPC combat
+ * following, NPC random movement, etc.
+ * @author Emperor
  */
 public final class DumbPathfinder extends Pathfinder {
+    /**
+     * If a path can be found.
+     */
     private boolean found;
 
+    /**
+     * The plane.
+     */
     private int z;
 
+    /**
+     * The x-coordinate.
+     */
     private int x;
 
+    /**
+     * The y-coordinate.
+     */
     private int y;
 
     @Override
@@ -75,6 +90,11 @@ public final class DumbPathfinder extends Pathfinder {
         return path;
     }
 
+    /**
+     * Checks traversal for a size 1 entity.
+     * @param points The points list.
+     * @param directions The directions.
+     */
     private void checkSingleTraversal(List<Point> points, ClipMaskSupplier clipMaskSupplier, Direction... directions) {
         for (Direction dir : directions) {
             found = true;
@@ -154,6 +174,11 @@ public final class DumbPathfinder extends Pathfinder {
         }
     }
 
+    /**
+     * Checks traversal for a size 1 entity.
+     * @param points The points list.
+     * @param directions The directions.
+     */
     private void checkDoubleTraversal(List<Point> points, ClipMaskSupplier clipMaskSupplier, Direction... directions) {
         for (Direction dir : directions) {
             found = true;
@@ -233,11 +258,16 @@ public final class DumbPathfinder extends Pathfinder {
         }
     }
 
+    /**
+     * Checks traversal for variable size entities.
+     * @param points The points list.
+     * @param directions The directions to check.
+     * @param size The mover size.
+     */
     private void checkVariableTraversal(List<Point> points, Direction[] directions, int size, ClipMaskSupplier clipMaskSupplier) {
         for (Direction dir : directions) {
             found = true;
-            roar:
-            switch (dir) {
+            roar: switch (dir) {
                 case NORTH:
                     if ((clipMaskSupplier.getClippingFlag(z, x, y + size) & 0x12c0138) != 0 || (clipMaskSupplier.getClippingFlag(z, x + (size - 1), y + size) & 0x12c01e0) != 0) {
                         found = false;
@@ -361,29 +391,34 @@ public final class DumbPathfinder extends Pathfinder {
         }
     }
 
+    /**
+     * Gets the direction.
+     * @param end The end direction.
+     * @return The direction.
+     */
     private static Direction[] getDirection(int startX, int startY, Location end) {
         int endX = end.getX();
         int endY = end.getY();
         if (startX == endX) {
             if (startY > endY) {
-                return new Direction[]{Direction.SOUTH};
+                return new Direction[] { Direction.SOUTH };
             } else if (startY < endY) {
-                return new Direction[]{Direction.NORTH};
+                return new Direction[] { Direction.NORTH };
             }
         } else if (startY == endY) {
             if (startX > endX) {
-                return new Direction[]{Direction.WEST};
+                return new Direction[] { Direction.WEST };
             }
-            return new Direction[]{Direction.EAST};
+            return new Direction[] { Direction.EAST };
         } else {
             if (startX < endX && startY < endY) {
-                return new Direction[]{Direction.NORTH_EAST, Direction.EAST, Direction.NORTH};
+                return new Direction[] { Direction.NORTH_EAST, Direction.EAST, Direction.NORTH };
             } else if (startX < endX && startY > endY) {
-                return new Direction[]{Direction.SOUTH_EAST, Direction.EAST, Direction.SOUTH};
+                return new Direction[] { Direction.SOUTH_EAST, Direction.EAST, Direction.SOUTH };
             } else if (startX > endX && startY < endY) {
-                return new Direction[]{Direction.NORTH_WEST, Direction.WEST, Direction.NORTH};
+                return new Direction[] { Direction.NORTH_WEST, Direction.WEST, Direction.NORTH };
             } else if (startX > endX && startY > endY) {
-                return new Direction[]{Direction.SOUTH_WEST, Direction.WEST, Direction.SOUTH};
+                return new Direction[] { Direction.SOUTH_WEST, Direction.WEST, Direction.SOUTH };
             }
         }
         return new Direction[0];

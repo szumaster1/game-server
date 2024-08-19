@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Private pierreb dialogue.
+ * Represents the Private Pierreb dialogue.
  * @author Szumaster
  */
 @Initializable

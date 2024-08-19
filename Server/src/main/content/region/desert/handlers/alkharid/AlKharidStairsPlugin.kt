@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Al kharid stairs plugin.
+ * Represents the Al kharid stairs plugin.
  */
 @Initializable
 class AlKharidStairsPlugin : OptionHandler() {

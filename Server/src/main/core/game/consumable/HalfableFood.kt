@@ -5,7 +5,7 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
 /**
- * Instantiates a new Half able food.
+ * Represents any food that is consumed in two parts such as pies and pizzas.
  *
  * @param ids      the ids
  * @param effect   the effect

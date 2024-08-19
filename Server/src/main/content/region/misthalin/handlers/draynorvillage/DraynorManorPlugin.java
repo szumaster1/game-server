@@ -24,7 +24,7 @@ import core.plugin.Plugin;
 import static core.api.ContentAPIKt.sendMessageWithDelay;
 
 /**
- * Draynor manor plugin.
+ * Represents the Draynor manor plugin.
  */
 @Initializable
 public final class DraynorManorPlugin extends OptionHandler {

@@ -7,6 +7,7 @@ import core.game.interaction.InteractionListener
 
 /**
  * Represents the Lanthus NPC.
+ * @author Dginovoker
  */
 class LanthusNPC : InteractionListener //, TickListener
 {

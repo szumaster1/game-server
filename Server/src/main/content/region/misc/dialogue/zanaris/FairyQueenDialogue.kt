@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Fairy queen dialogue.
+ * Represents the Fairy Queen dialogue.
  */
 @Initializable
 class FairyQueenDialogue(player: Player? = null) : Dialogue(player) {

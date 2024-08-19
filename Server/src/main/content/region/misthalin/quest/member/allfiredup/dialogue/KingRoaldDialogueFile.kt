@@ -7,7 +7,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * King Roald dialogue file.
+ * Represents the King Roald dialogue file.
  */
 class KingRoaldDialogueFile(val questStage: Int) : DialogueFile() {
 

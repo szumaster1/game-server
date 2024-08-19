@@ -13,6 +13,7 @@ import core.tools.END_DIALOGUE
 
 /**
  * Represents the Lanthus dialogue.
+ * @author Dginovoker
  */
 @Initializable
 class LanthusDialogue(player: Player? = null) : Dialogue(player) {

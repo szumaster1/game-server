@@ -10,7 +10,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Archaeological expert dialogue.
+ * Represents the Archaeological expert dialogue.
  */
 @Initializable
 class ArchaeologicalExpertDialogue (player: Player? = null) : Dialogue(player) {
@@ -25,7 +25,7 @@ class ArchaeologicalExpertDialogue (player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Archaeological expert dialogue file.
+ * Represents the Archaeological expert dialogue file.
  */
 class ArchaeologicalExpertDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {

@@ -3,59 +3,85 @@ package core.game.world.map;
 import core.game.world.map.path.ClipMaskSupplier;
 
 /**
- * The enum Direction.
+ * Represents a direction.
+ * @author Emperor
  */
 public enum Direction {
-
+    /**
+     * 0   1   2
+     *   \ | /
+     * 3 - . - 4
+     *   / | \
+     * 5   6   7
+     */
 
     /**
-     * North west direction.
+     * The north-west direction.
      */
     NORTH_WEST(-1, 1, 7, 0x12c0108, 0x12c0120, 0x12c0138),
 
     /**
-     * North direction.
+     * The north direction.
      */
     NORTH(0, 1, 0, 0x12c0120),
 
     /**
-     * North east direction.
+     * The north-east direction.
      */
     NORTH_EAST(1, 1, 4, 0x12c0180, 0x12c0120, 0x12c01e0),
 
     /**
-     * West direction.
+     * The west direction.
      */
     WEST(-1, 0, 3, 0x12c0108),
 
     /**
-     * East direction.
+     * The east direction.
      */
     EAST(1, 0, 1, 0x12c0180),
 
     /**
-     * South west direction.
+     * The south-west direction.
      */
     SOUTH_WEST(-1, -1, 6, 0x12c0108, 0x12c0102, 0x12c010e),
 
     /**
-     * South direction.
+     * The south direction.
      */
     SOUTH(0, -1, 2, 0x12c0102),
 
     /**
-     * South east direction.
+     * The south-east direction.
      */
     SOUTH_EAST(1, -1, 5, 0x12c0180, 0x12c0102, 0x12c0183);
 
+    /**
+     * The amounts of steps on the x-axis.
+     */
     private final int stepX;
 
+    /**
+     * The amounts of steps on the y-axis.
+     */
     private final int stepY;
 
+    /**
+     * The integer value.
+     */
     private final int value;
 
+    /**
+     * The traversal flags.
+     */
     private int[] traversal;
 
+    /**
+     * Constructs a new {@code Direction} {@code Object}.
+     * @param stepX The x-offset to move a step.
+     * @param stepY The y-offset to move a step.
+     * @param value The direction value.
+     * @param traversal The traversal flags.
+     */
     Direction(int stepX, int stepY, int value, int... traversal) {
         this.stepX = stepX;
         this.stepY = stepY;
@@ -64,10 +90,9 @@ public enum Direction {
     }
 
     /**
-     * Get direction.
-     *
-     * @param rotation the rotation
-     * @return the direction
+     * Gets the direction.
+     * @param rotation The int value.
+     * @return The direction.
      */
     public static Direction get(int rotation) {
         for (Direction dir : Direction.values()) {
@@ -79,32 +104,30 @@ public enum Direction {
     }
 
     /**
-     * Gets walk point.
-     *
-     * @param direction the direction
-     * @return the walk point
+     * Gets the walk point for a direction. <br> The point will be the offset to
+     * the location the node is facing.
+     * @param direction The direction.
+     * @return The point.
      */
     public static Point getWalkPoint(Direction direction) {
         return new Point(direction.stepX, direction.stepY);
     }
 
     /**
-     * Gets direction.
-     *
-     * @param location the location
-     * @param l        the l
-     * @return the direction
+     * Gets the direction.
+     * @param location The start location.
+     * @param l The end location.
+     * @return The direction.
      */
     public static Direction getDirection(Location location, Location l) {
         return getDirection(l.getX() - location.getX(), l.getY() - location.getY());
     }
 
     /**
-     * Gets direction.
-     *
-     * @param diffX the diff x
-     * @param diffY the diff y
-     * @return the direction
+     * Gets the direction for movement.
+     * @param diffX The difference between 2 x-coordinates.
+     * @param diffY The difference between 2 y-coordinates.
+     * @return The direction.
      */
     public static Direction getDirection(int diffX, int diffY) {
         if (diffX < 0) {
@@ -129,11 +152,10 @@ public enum Direction {
     }
 
     /**
-     * For walk flag direction.
-     *
-     * @param walkingFlag the walking flag
-     * @param rotation    the rotation
-     * @return the direction
+     * Gets the direction for the given walking flag.
+     * @param walkingFlag The walking flag.
+     * @param rotation The rotation.
+     * @return The direction, or null if the walk flag was 0.
      */
     public static Direction forWalkFlag(int walkingFlag, int rotation) {
         if (rotation != 0) {
@@ -157,20 +179,18 @@ public enum Direction {
     }
 
     /**
-     * Gets opposite.
-     *
-     * @return the opposite
+     * Gets the opposite dir.
+     * @return the direction.
      */
     public Direction getOpposite() {
         return Direction.get(toInteger() + 2 & 3);
     }
 
     /**
-     * Gets logical direction.
-     *
-     * @param location the location
-     * @param l        the l
-     * @return the logical direction
+     * Gets the most logical direction.
+     * @param location The start location.
+     * @param l The end location.
+     * @return The most logical direction.
      */
     public static Direction getLogicalDirection(Location location, Location l) {
         int offsetX = Math.abs(l.getX() - location.getX());
@@ -188,47 +208,42 @@ public enum Direction {
     }
 
     /**
-     * To name string.
-     *
-     * @param direction the direction
-     * @return the string
+     * Method used to go to clue the anme.
+     * @param direction the direction.
+     * @return the name.
      */
     public String toName(Direction direction) {
         return direction.name().toLowerCase();
     }
 
     /**
-     * To integer int.
-     *
-     * @return the int
+     * Method used to get the direction to an integer.
+     * @return the integer.
      */
     public int toInteger() {
         return value;
     }
 
     /**
-     * Gets step x.
-     *
-     * @return the step x
+     * Gets the stepX.
+     * @return The stepX.
      */
     public int getStepX() {
         return stepX;
     }
 
     /**
-     * Gets step y.
-     *
-     * @return the step y
+     * Gets the stepY.
+     * @return The stepY.
      */
     public int getStepY() {
         return stepY;
     }
 
     /**
-     * Can move boolean.
-     *
-     * @param l the l
-     * @return the boolean
+     * Checks if traversal is permitted for this direction.
+     * @param l The location.
+     * @return {@code True} if so.
      */
     public boolean canMove(Location l) {
         int flag = RegionManager.getClippingFlag(l.getZ(), l.getX(), l.getY());
@@ -240,56 +255,22 @@ public enum Direction {
         return true;
     }
 
-    /**
-     * Can move from boolean.
-     *
-     * @param z                the z
-     * @param x                the x
-     * @param y                the y
-     * @param clipMaskSupplier the clip mask supplier
-     * @return the boolean
-     */
     public boolean canMoveFrom(int z, int x, int y, ClipMaskSupplier clipMaskSupplier) {
         int dx, dy;
         boolean ret = true;
         for (int f : traversal) {
-            switch (f) {
-                case 0x12c0120:
-                    dx = 0;
-                    dy = 1;
-                    break; // north
-                case 0x12c0180:
-                    dx = 1;
-                    dy = 0;
-                    break; // east
-                case 0x12c01e0:
-                    dx = 1;
-                    dy = 1;
-                    break; // northeast
-                case 0x12c0102:
-                    dx = 0;
-                    dy = -1;
-                    break; // south
-                case 0x12c0183:
-                    dx = 1;
-                    dy = -1;
-                    break; // southeast
-                case 0x12c0108:
-                    dx = -1;
-                    dy = 0;
-                    break; // west
-                case 0x12c010e:
-                    dx = -1;
-                    dy = -1;
-                    break; // southwest
-                case 0x12c0138:
-                    dx = -1;
-                    dy = 1;
-                    break; // northwest
-                default:
-                    return false;
+            switch(f) {
+                case 0x12c0120: dx = 0; dy = 1; break; // north
+                case 0x12c0180: dx = 1; dy = 0; break; // east
+                case 0x12c01e0: dx = 1; dy = 1; break; // northeast
+                case 0x12c0102: dx = 0; dy = -1; break; // south
+                case 0x12c0183: dx = 1; dy = -1; break; // southeast
+                case 0x12c0108: dx = -1; dy = 0; break; // west
+                case 0x12c010e: dx = -1; dy = -1; break; // southwest
+                case 0x12c0138: dx = -1; dy = 1; break; // northwest
+                default: return false;
             }
-            int flag = clipMaskSupplier.getClippingFlag(z, x + dx, y + dy);
+            int flag = clipMaskSupplier.getClippingFlag(z, x+dx, y+dy);
             if ((flag & f) != 0) {
                 ret = false;
             }
@@ -297,6 +278,10 @@ public enum Direction {
         return ret;
     }
 
+    /**
+     * Sets the traversal.
+     * @param traversal The traversal to set.
+     */
     private void setTraversal(int[] traversal) {
         this.traversal = traversal;
     }

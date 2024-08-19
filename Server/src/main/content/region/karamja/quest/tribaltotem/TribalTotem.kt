@@ -12,7 +12,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 
 /**
- * Tribal totem.
+ * Tribal totem quest.
  */
 @Initializable
 class TribalTotem : Quest("Tribal Totem", 126, 125, 1, Vars.VARP_QUEST_TRIBAL_TOTEM_PROGRESS, 0, 1, 5) {

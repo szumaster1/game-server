@@ -11,7 +11,7 @@ import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
 
 /**
- * Pest Control portal NPC.
+ * Represents the Pest Control portal NPC.
  */
 class PCPortalNPC(id: Int = 6142, l: Location? = null) : AbstractNPC(id, l) {
 

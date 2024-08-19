@@ -15,7 +15,7 @@ import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 
 /**
- * Jatizso listeners.
+ * Represents the Jatizso listeners.
  */
 class JatizsoListeners : InteractionListener {
 

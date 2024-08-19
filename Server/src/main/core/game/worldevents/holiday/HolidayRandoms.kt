@@ -18,6 +18,7 @@ import java.time.Month
 
 /**
  * Holiday randoms.
+ * @author Zerken
  */
 class HolidayRandoms : PersistTimer(0, "holiday", isAuto = true), Commands {
     var paused = false

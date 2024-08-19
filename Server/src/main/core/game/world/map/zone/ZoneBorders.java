@@ -11,31 +11,53 @@ import java.util.Objects;
 import java.util.Random;
 
 /**
- * Zone borders.
+ * Represents the borders of a zone.
+ * @author Emperor
  */
 public final class ZoneBorders {
 
+    /**
+     * The south west x-coordinate.
+     */
     private final int southWestX;
 
+    /**
+     * The south west y-coordinate.
+     */
     private final int southWestY;
 
+    /**
+     * The north east x-coordinate.
+     */
     private final int northEastX;
 
+    /**
+     * The north east y-coordinate.
+     */
     private final int northEastY;
 
+    /**
+     * The plane required to be on.
+     */
     private int plane = 0;
 
+    /**
+     * The list of exceptions.
+     */
     private List<ZoneBorders> exceptions;
 
+    /**
+     * If we need to do a zero plane check.
+     */
     private boolean zeroPlaneCheck;
 
     /**
-     * Instantiates a new Zone borders.
-     *
-     * @param x1 the x 1
-     * @param y1 the y 1
-     * @param x2 the x 2
-     * @param y2 the y 2
+     * Constructs a new {@code ZoneBorders} {@code Object}.
+     * @param x1 The south west x-coordinate.
+     * @param y1 The south west y-coordinate.
+     * @param x2 The north east x-coordinate.
+     * @param y2 The north east y-coordinate.
+     * Invariant enforced at runtime.
      */
     public ZoneBorders(int x1, int y1, int x2, int y2) {
         this.southWestX = Math.min(x1, x2);
@@ -45,13 +67,13 @@ public final class ZoneBorders {
     }
 
     /**
-     * Instantiates a new Zone borders.
-     *
-     * @param x1    the x 1
-     * @param y1    the y 1
-     * @param x2    the x 2
-     * @param y2    the y 2
-     * @param plane the plane
+     * Constructs a new {@code ZoneBorders} {@code Object}.
+     * @param x1 The south west x-coordinate.
+     * @param y1 The south west y-coordinate.
+     * @param x2 The north east x-coordinate.
+     * @param y2 The north east y-coordinate.
+     * Invariant enforced at runtime.
+     * @param plane the plane.
      */
     public ZoneBorders(int x1, int y1, int x2, int y2, int plane) {
         this.southWestX = Math.min(x1, x2);
@@ -62,35 +84,28 @@ public final class ZoneBorders {
     }
 
     /**
-     * Instantiates a new Zone borders.
-     *
-     * @param x1             the x 1
-     * @param y1             the y 1
-     * @param x2             the x 2
-     * @param y2             the y 2
-     * @param plane          the plane
-     * @param zeroPlaneCheck the zero plane check
+     * Constructs a new {@code ZoneBorders} {@code Object}.
+     * @param x1 The south west x-coordinate.
+     * @param y1 The south west y-coordinate.
+     * @param x2 The north east x-coordinate.
+     * @param y2 The north east y-coordinate.
+     * Invariant enforced at runtime.
+     * @param plane the plane.
+     * @param zeroPlaneCheck the plane check.
      */
     public ZoneBorders(int x1, int y1, int x2, int y2, int plane, boolean zeroPlaneCheck) {
         this(x1, y1, x2, y2, plane);
         this.zeroPlaneCheck = zeroPlaneCheck;
     }
 
-    /**
-     * Instantiates a new Zone borders.
-     *
-     * @param l1 the l 1
-     * @param l2 the l 2
-     */
     public ZoneBorders(Location l1, Location l2) {
         this(l1.getX(), l1.getY(), l2.getX(), l2.getY(), l1.getZ());
     }
 
     /**
-     * For region zone borders.
-     *
-     * @param regionId the region id
-     * @return the zone borders
+     * Creates zone borders for the given region id.
+     * @param regionId The region id.
+     * @return The zone borders.
      */
     public static ZoneBorders forRegion(int regionId) {
         int baseX = ((regionId >> 8) & 0xFF) << 6;
@@ -100,43 +115,39 @@ public final class ZoneBorders {
     }
 
     /**
-     * Inside border boolean.
-     *
-     * @param location the location
-     * @return the boolean
+     * Checks if the location is inside the borders.
+     * @param location The location.
+     * @return {@code True} if the location is inside the zone borders.
      */
     public boolean insideBorder(Location location) {
         return insideBorder(location.getX(), location.getY(), location.getZ());
     }
 
     /**
-     * Inside border boolean.
-     *
-     * @param node the node
-     * @return the boolean
+     * Checks if the node is inside the borders.
+     * @param node the node.
+     * @return {@code True} if so.
      */
     public boolean insideBorder(Node node) {
         return insideBorder(node.getLocation());
     }
 
     /**
-     * Inside border boolean.
-     *
-     * @param x the x
-     * @param y the y
-     * @return the boolean
+     * Checks if the player is in the zone
+     * @param x the x.
+     * @param y the y.
+     * @return the z.
      */
     public boolean insideBorder(int x, int y) {
         return insideBorder(x, y, 0);
     }
 
     /**
-     * Inside border boolean.
-     *
-     * @param x the x
-     * @param y the y
-     * @param z the z
-     * @return the boolean
+     * Checks if the coordinates are inside the borders.
+     * @param x The x-coordinate.
+     * @param y The y-coordinate.
+     * @param z The z coordinate.
+     * @return {@code True} if the coordinates lay in the zone borders.
      */
     public boolean insideBorder(int x, int y, int z) {
         if (zeroPlaneCheck ? z != plane : (plane != 0 && z != plane)) {
@@ -159,9 +170,8 @@ public final class ZoneBorders {
     }
 
     /**
-     * Gets region ids.
-     *
-     * @return the region ids
+     * Gets the ids of all the regions inside these borders.
+     * @return The region ids.
      */
     public List<Integer> getRegionIds() {
         List<Integer> regionIds = new ArrayList<>(20);
@@ -177,78 +187,58 @@ public final class ZoneBorders {
     }
 
     /**
-     * Gets south west x.
-     *
-     * @return the south west x
+     * Gets the southWestX.
+     * @return The southWestX.
      */
     public int getSouthWestX() {
         return southWestX;
     }
 
     /**
-     * Gets south west y.
-     *
-     * @return the south west y
+     * Gets the southWestY.
+     * @return The southWestY.
      */
     public int getSouthWestY() {
         return southWestY;
     }
 
     /**
-     * Gets north east x.
-     *
-     * @return the north east x
+     * Gets the northEastX.
+     * @return The northEastX.
      */
     public int getNorthEastX() {
         return northEastX;
     }
 
     /**
-     * Gets north east y.
-     *
-     * @return the north east y
+     * Gets the northEastY.
+     * @return The northEastY.
      */
     public int getNorthEastY() {
         return northEastY;
     }
 
     /**
-     * Gets exceptions.
-     *
-     * @return the exceptions
+     * Gets the exceptions.
+     * @return The exceptions.
      */
     public List<ZoneBorders> getExceptions() {
         return exceptions;
     }
 
-    /**
-     * Gets weighted random loc.
-     *
-     * @param intensity the intensity
-     * @return the weighted random loc
-     */
-    public Location getWeightedRandomLoc(int intensity) {
+    public Location getWeightedRandomLoc(int intensity)
+    {
         int x = northEastX - southWestX == 0 ? southWestX : RandomFunction.normalRandDist(northEastX - southWestX, intensity) + southWestX;
         int y = northEastY - southWestY == 0 ? southWestY : RandomFunction.normalRandDist(northEastY - southWestY, intensity) + southWestY;
         return new Location(x, y);
     }
 
-    /**
-     * Gets random loc.
-     *
-     * @return the random loc
-     */
     public Location getRandomLoc() {
         int x = northEastX - southWestX == 0 ? southWestX : new Random().nextInt(northEastX - southWestX + 1) + southWestX;
         int y = northEastY - southWestY == 0 ? southWestY : new Random().nextInt(northEastY - southWestY + 1) + southWestY;
         return new Location(x, y, plane);
     }
 
-    /**
-     * Gets random walkable loc.
-     *
-     * @return the random walkable loc
-     */
     public Location getRandomWalkableLoc() {
         Location loc = getRandomLoc();
         int tries = 0; // prevent bad code from DOSing server
@@ -260,9 +250,8 @@ public final class ZoneBorders {
     }
 
     /**
-     * Add exception.
-     *
-     * @param exception the exception
+     * Adds an exception.
+     * @param exception The exception to add.
      */
     public void addException(ZoneBorders exception) {
         if (exceptions == null) {
@@ -277,8 +266,7 @@ public final class ZoneBorders {
     }
 
     /**
-     * Gets plane.
-     *
+     * Gets the bplane.
      * @return the plane
      */
     public int getPlane() {
@@ -286,20 +274,13 @@ public final class ZoneBorders {
     }
 
     /**
-     * Sets plane.
-     *
-     * @param plane the plane
+     * Sets the baplane.
+     * @param plane the plane to set.
      */
     public void setPlane(int plane) {
         this.plane = plane;
     }
 
-    /**
-     * Inside region boolean.
-     *
-     * @param n the n
-     * @return the boolean
-     */
     public boolean insideRegion(Node n) {
         return insideBorder(n.getLocation().getRegionX(), n.getLocation().getRegionY());
     }

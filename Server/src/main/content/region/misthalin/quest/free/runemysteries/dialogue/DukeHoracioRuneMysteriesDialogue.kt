@@ -9,7 +9,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Duke horacio rune mysteries dialogue.
+ * Represents the Duke horacio rune mysteries dialogue.
  */
 class DukeHoracioRuneMysteriesDialogue(val questStage: Int) : DialogueFile() {
 

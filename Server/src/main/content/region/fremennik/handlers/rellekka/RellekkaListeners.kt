@@ -15,7 +15,7 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
 /**
- * Rellekka listeners.
+ * Represents the Rellekka listeners.
  */
 class RellekkaListeners : InteractionListener {
 

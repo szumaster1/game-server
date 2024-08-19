@@ -70,7 +70,7 @@ import core.game.world.map.zone.ZoneBorders
 import core.game.world.map.zone.ZoneBuilder
 import core.game.world.repository.Repository
 import core.game.world.update.flag.*
-import core.game.world.update.flag.chunk.AnimateObjectUpdateFlag
+import core.game.world.update.flag.chunk.AnimateSceneryUpdateFlag
 import core.game.world.update.flag.context.*
 import core.network.packet.PacketRepository
 import core.network.packet.context.ChildPositionContext
@@ -749,7 +749,11 @@ fun animateScenery(player: Player, obj: Scenery, animationId: Int, global: Boole
 fun animateScenery(obj: Scenery, animationId: Int) {
     val animation = Animation(animationId)
     animation.setObject(obj)
-    getRegionChunk(obj.location).flag(AnimateObjectUpdateFlag(animation))
+    getRegionChunk(obj.location).flag(
+        AnimateSceneryUpdateFlag(
+            animation
+        )
+    )
 }
 
 /**

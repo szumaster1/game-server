@@ -1,7 +1,8 @@
 package core.game.dialogue
 
 /**
- * Enum class representing different facial expressions.
+ * Represents the facial expressions (the animations the entity does when talking).
+ * @author Emperor, Empathy
  *
  * @param animationId Unique identifier for the animation associated with the facial expression.
  * @constructor Initializes a FacialExpression with a specific animation ID.

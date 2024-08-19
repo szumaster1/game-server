@@ -1,34 +1,35 @@
 package core.game.system.communication;
 
 /**
- * Clan member.
+ * Represents a clan member.
+ * @author Emperor
  */
 public final class ClanMember {
 
+    /**
+     * Represents the rank of the player.
+     */
     private ClanRank rank = ClanRank.FRIEND;
 
     /**
-     * Instantiates a new Clan member.
-     *
-     * @param rank the rank
+     * Constructs a new {@code ClanMember} {@code Object}.
+     * @param rank The clan rank.
      */
     public ClanMember(ClanRank rank) {
         this.rank = rank;
     }
 
     /**
-     * Gets rank.
-     *
-     * @return the rank
+     * Gets the rank.
+     * @return The rank.
      */
     public ClanRank getRank() {
         return rank;
     }
 
     /**
-     * Sets rank.
-     *
-     * @param rank the rank
+     * Sets the rank.
+     * @param rank The rank to set.
      */
     public void setRank(ClanRank rank) {
         this.rank = rank;

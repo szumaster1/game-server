@@ -27,7 +27,7 @@ import java.util.*
 import kotlin.math.ceil
 
 /**
- * Corporeal beast NPC.
+ * Represents the Corporeal beast NPC.
  */
 @Initializable
 class CorporealBeastNPC: NPCBehavior(NPCs.CORPOREAL_BEAST_8133) {

@@ -3,76 +3,79 @@ package core.game.system.task;
 import core.game.node.Node;
 
 /**
- * Node task.
+ * Represents "Node pulse", which is used to execute methods with node
+ * parameters.
+ * @author Emperor
  */
 public abstract class NodeTask {
 
+    /**
+     * The amount of ticks for the pulse (if any).
+     */
     private final int ticks;
+
+    /**
+     * The pulse
+     */
     private Pulse pulse;
 
     /**
-     * Instantiates a new Node task.
+     * Constructs a new {@code NodeTask} {@code Object}.
      */
     public NodeTask() {
         this(-1);
     }
 
     /**
-     * Instantiates a new Node task.
-     *
-     * @param ticks the ticks
+     * Constructs a new {@code NodeTask} {@Code Object}
+     * @param ticks The ticks.
      */
     public NodeTask(int ticks) {
         this.ticks = ticks;
     }
 
     /**
-     * Start.
-     *
-     * @param node the node
-     * @param n    the n
+     * Called when the pulse starts.
+     * @param node The base node.
+     * @param n The other nodes.
      */
     public void start(Node node, Node... n) {
 
     }
 
     /**
-     * Exec boolean.
-     *
-     * @param node the node
-     * @param n    the n
-     * @return the boolean
+     * Runs the task.
+     * @param node The base node.
+     * @param n The other nodes.
+     * @return {@code True} if the pulse (if this is used in a pulse) should
+     * stop.
      */
     public abstract boolean exec(Node node, Node... n);
 
     /**
-     * Stop.
-     *
-     * @param node the node
-     * @param n    the n
+     * Called when the pulse is stopped.
+     * @param node The base node.
+     * @param n The other nodes.
      */
     public void stop(Node node, Node... n) {
 
     }
 
     /**
-     * Remove for boolean.
-     *
-     * @param s    the s
-     * @param node the node
-     * @param n    the n
-     * @return the boolean
+     * Checks if the node task pulse should be removed for a duplicate.
+     * @param s The command string.
+     * @param node The base node.
+     * @param n The other nodes.
      */
     public boolean removeFor(String s, Node node, Node... n) {
         return true;
     }
 
     /**
-     * Schedule pulse.
-     *
-     * @param node the node
-     * @param n    the n
-     * @return the pulse
+     * Schedules the node task.
+     * @param node The base node.
+     * @param n The other nodes.
+     * @return The pulse used for this task.
      */
     public Pulse schedule(final Node node, final Node... n) {
         pulse = new Pulse(ticks, node) {
@@ -104,18 +107,16 @@ public abstract class NodeTask {
     }
 
     /**
-     * Gets pulse.
-     *
-     * @return the pulse
+     * Gets the Pulse for this Task
+     * @return the Pulse
      */
     public Pulse getPulse() {
         return pulse;
     }
 
     /**
-     * Gets ticks.
-     *
-     * @return the ticks
+     * Gets the ticks.
+     * @return the ticks.
      */
     public int getTicks() {
         return ticks;

@@ -13,7 +13,7 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.item.GroundItemManager
 
 /**
- * Reldo dialogue.
+ * Represents the Reldo dialogue.
  */
 class ReldoDialogue(player: Player? = null) : Dialogue(player) {
     private var knightSword: Quest? = null

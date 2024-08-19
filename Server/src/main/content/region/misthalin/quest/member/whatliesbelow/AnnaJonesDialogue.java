@@ -6,7 +6,7 @@ import core.game.node.entity.player.link.quest.Quest;
 import core.game.node.item.Item;
 
 /**
- * Anna jones dialogue.
+ * Represents the Anna jones dialogue.
  */
 public class AnnaJonesDialogue extends Dialogue {
 

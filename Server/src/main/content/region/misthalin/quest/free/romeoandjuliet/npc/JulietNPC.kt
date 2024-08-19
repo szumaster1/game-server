@@ -7,7 +7,7 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * Juliet NPC.
+ * Represents the Juliet NPC.
  */
 @Initializable
 class JulietNPC : AbstractNPC {

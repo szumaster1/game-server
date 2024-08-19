@@ -18,7 +18,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Sorceress elemental NPC.
+ * Sorceress Elemental NPC.
  */
 @Initializable
 class SorceressElementalNPC : AbstractNPC {

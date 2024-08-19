@@ -17,7 +17,7 @@ import core.plugin.Initializable
 import core.api.consts.Scenery as Sceneries
 
 /**
- * Lost city listeners.
+ * Represents the Lost city listeners.
  */
 @Initializable
 class LostCityListeners : InteractionListener {

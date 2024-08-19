@@ -7,7 +7,7 @@ import core.tools.RandomFunction
 import core.api.consts.NPCs
 
 /**
- * Zenkog NPC.
+ * Represents the Zenkog NPC.
  */
 class ZenkogNPC : NPCBehavior(NPCs.ZENKOG_5797) {
 

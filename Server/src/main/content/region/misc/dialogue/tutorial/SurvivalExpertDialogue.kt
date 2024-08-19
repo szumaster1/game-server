@@ -15,7 +15,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Represents the Survival expert dialogue.
+ * Represents the Survival Expert dialogue.
  */
 @Initializable
 class SurvivalExpertDialogue(player: Player? = null) : Dialogue(player) {

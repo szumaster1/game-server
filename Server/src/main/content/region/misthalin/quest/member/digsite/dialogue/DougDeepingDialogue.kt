@@ -8,7 +8,7 @@ import core.api.consts.Items
 import core.api.consts.NPCs
 
 /**
- * Doug deeping dialogue.
+ * Represents the Doug deeping dialogue.
  */
 @Initializable
 class DougDeepingDialogue (player: Player? = null) : Dialogue(player) {
@@ -27,7 +27,7 @@ class DougDeepingDialogue (player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Doug deeping dialogue file.
+ * Represents the Doug deeping dialogue file.
  */
 class DougDeepingDialogueFile : DialogueBuilderFile() {
 

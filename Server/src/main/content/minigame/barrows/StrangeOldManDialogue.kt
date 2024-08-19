@@ -13,6 +13,7 @@ import core.tools.RandomFunction
 
 /**
  * Represents the Strange old man dialogue.
+ * @author Szumaster
  */
 @Initializable
 class StrangeOldManDialogue(player: Player? = null) : Dialogue(player) {

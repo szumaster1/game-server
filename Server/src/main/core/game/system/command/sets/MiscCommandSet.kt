@@ -41,9 +41,7 @@ import java.awt.Toolkit
 import java.awt.datatransfer.StringSelection
 
 /**
- * Misc command set
- *
- * @constructor Misc command set
+ * Misc command set.
  */
 @Initializable
 class MiscCommandSet : CommandSet(Privilege.ADMIN) {

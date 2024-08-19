@@ -6,6 +6,7 @@ import core.game.node.entity.player.Player
 
 /**
  * Represents the Castle wars overlay.
+ * @author Dginovoker
  */
 object CastleWarsOverlay {
     @JvmStatic

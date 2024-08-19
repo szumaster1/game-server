@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Charlie The Tramp dialogue.
+ * Represents the Charlie The Tramp dialogue.
  */
 @Initializable
 class CharlieTheTrampDialogue(player: Player? = null) : Dialogue(player) {

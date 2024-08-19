@@ -6,7 +6,8 @@ import core.game.system.SystemManager.isTerminated
 import core.tools.Log
 
 /**
- * System shutdown hook.
+ * Handles the shutdown hook.
+ * @author Emperor
  */
 class SystemShutdownHook : Runnable {
     override fun run() {

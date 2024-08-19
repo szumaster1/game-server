@@ -10,15 +10,13 @@ import java.io.File
 import javax.xml.parsers.DocumentBuilderFactory
 
 /**
- * Object parser
- *
- * @constructor Object parser
+ * Object parser.
+ * @author Ceikry
  */
 class ObjectParser : StartupListener {
 
     /**
-     * Parse objects
-     *
+     * Parse objects.
      */
     fun parseObjects() {
         if (ServerConstants.OBJECT_PARSER_PATH == null) return

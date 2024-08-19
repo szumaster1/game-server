@@ -8,7 +8,7 @@ import core.game.node.entity.player.link.quest.Quest
 import core.plugin.Initializable
 
 /**
- * Cabin boy jenkins dragon slayer dialogue.
+ * Represents the Cabin boy jenkins dragon slayer dialogue.
  */
 @Initializable
 class CabinBoyJenkinsDSDialogue(player: Player? = null) : Dialogue(player) {

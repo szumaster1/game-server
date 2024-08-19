@@ -14,7 +14,7 @@ import core.game.world.repository.Repository.findNPC
 import core.game.world.update.flag.context.Animation
 
 /**
- * Port scenery listeners.
+ * Represents the Port scenery listeners.
  */
 class PortSceneryListeners : InteractionListener {
 

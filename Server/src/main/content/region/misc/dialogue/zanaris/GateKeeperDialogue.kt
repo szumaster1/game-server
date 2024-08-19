@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Gate keeper dialogue.
+ * Represents the Gatekeeper dialogue.
  */
 @Initializable
 class GateKeeperDialogue(player: Player? = null) : Dialogue(player) {

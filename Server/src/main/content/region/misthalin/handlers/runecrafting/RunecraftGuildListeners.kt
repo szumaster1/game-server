@@ -10,7 +10,7 @@ import core.api.consts.*
 import core.game.node.item.Item
 
 /**
- * Runecraft guild listeners.
+ * Represents the Runecraft guild listeners.
  */
 class RunecraftGuildListeners : InteractionListener {
 

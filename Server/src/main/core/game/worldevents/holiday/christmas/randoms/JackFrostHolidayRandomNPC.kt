@@ -1,6 +1,5 @@
 package core.game.worldevents.holiday.christmas.randoms
 
-
 import core.api.*
 import core.api.consts.NPCs
 import core.api.consts.Sounds
@@ -12,6 +11,10 @@ import core.game.world.update.flag.context.Graphic
 import core.game.worldevents.holiday.HolidayRandomEventNPC
 import core.tools.minutesToTicks
 
+/**
+ * Represents the Jack Frost holiday random NPC.
+ * @author Zerken
+ */
 class JackFrostHolidayRandomNPC : HolidayRandomEventNPC(NPCs.JACK_FROST_8517) {
 
     override fun init() {

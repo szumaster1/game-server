@@ -26,7 +26,7 @@ import core.game.world.update.flag.context.Graphic
 import core.plugin.Plugin
 
 /**
- * Telekinetic grab spell.
+ * Represents the Telekinetic grab spell.
  */
 class TelekineticGrabSpell : MagicSpell(SpellBookManager.SpellBook.MODERN, 33, 43.0, ANIMATION, START_GRAPHIC, SOUND, arrayOf(Item(Runes.AIR_RUNE.id), Item(Runes.LAW_RUNE.id, 1))) {
 

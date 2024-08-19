@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.RandomFunction
 
 /**
- * Lumber kitten NPC.
+ * Represents the Lumber kitten NPC.
  */
 @Initializable
 class LumberKittenNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {

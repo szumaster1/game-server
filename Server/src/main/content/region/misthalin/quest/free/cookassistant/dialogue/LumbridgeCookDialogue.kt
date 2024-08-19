@@ -11,7 +11,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 
 /**
- * Lumbridge cook dialogue.
+ * Represents the Lumbridge cook dialogue.
  */
 @Initializable
 class LumbridgeCookDialogue(player: Player? = null) : Dialogue(player) {

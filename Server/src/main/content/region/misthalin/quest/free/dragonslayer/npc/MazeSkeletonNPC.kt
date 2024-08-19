@@ -9,7 +9,7 @@ import core.game.world.map.Location
 import core.tools.RandomFunction
 
 /**
- * Maze skeleton NPC.
+ * Represents the Maze skeleton NPC.
  */
 class MazeSkeletonNPC : AbstractNPC {
 

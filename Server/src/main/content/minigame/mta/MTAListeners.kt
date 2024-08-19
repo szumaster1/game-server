@@ -16,7 +16,7 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 
 /**
- * MTA listeners.
+ * Represents the MTA listeners.
  */
 class MTAListeners : InteractionListener {
 

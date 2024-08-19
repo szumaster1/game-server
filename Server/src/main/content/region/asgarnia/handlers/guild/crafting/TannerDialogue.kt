@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Tanner dialogue.
+ * Represents the Tanner dialogue.
  */
 @Initializable
 class TannerDialogue(player: Player? = null) : Dialogue(player) {

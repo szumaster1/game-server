@@ -7,7 +7,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.item.Item
 
 /**
- * Warriors guild listeners.
+ * Represents the Warriors guild listeners.
  */
 class WarriorsGuildListeners : InteractionListener {
 

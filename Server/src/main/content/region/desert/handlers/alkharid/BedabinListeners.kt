@@ -11,7 +11,7 @@ import core.game.interaction.InteractionListener
 import core.game.world.map.Location
 
 /**
- * Bedabin listeners.
+ * Represents the Bedabin listeners.
  */
 class BedabinListeners : InteractionListener {
 

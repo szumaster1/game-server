@@ -11,7 +11,7 @@ import core.game.node.item.Item
 import core.tools.RandomFunction
 
 /**
- * Ram NPC.
+ * Represents the Ram NPC.
  */
 class RamNPC : NPCBehavior(*ramIds) {
 

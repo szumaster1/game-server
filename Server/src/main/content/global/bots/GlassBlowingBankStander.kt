@@ -9,9 +9,9 @@ import core.game.node.entity.skill.Skills
 import core.game.node.item.Item
 
 /**
- * Glass blowing bankstander.
+ * Glass blowing bank stander.
  */
-class GlassBlowingBankstander : Script() {
+class GlassBlowingBankStander : Script() {
 
     var state = State.BLOWING
 
@@ -34,7 +34,7 @@ class GlassBlowingBankstander : Script() {
     }
 
     override fun newInstance(): Script {
-        val script = GlassBlowingBankstander()
+        val script = GlassBlowingBankStander()
         script.bot = SkillingBotAssembler().produce(SkillingBotAssembler.Wealth.AVERAGE, bot!!.startLocation)
         return script
     }

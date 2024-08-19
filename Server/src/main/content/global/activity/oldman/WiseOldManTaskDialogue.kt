@@ -10,7 +10,7 @@ import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 
 /**
- * Represents the Wise old man task dialogue.
+ * Represents the Wise Old Man task dialogue.
  */
 class WiseOldManTaskDialogue : DialogueFile() {
 

@@ -10,7 +10,7 @@ import core.game.world.map.Location
 import core.tools.RandomFunction
 
 /**
- * Zombie rat NPC.
+ * Represents the Zombie rat NPC.
  */
 class ZombieRatNPC : AbstractNPC {
 

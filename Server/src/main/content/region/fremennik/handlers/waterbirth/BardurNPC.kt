@@ -8,7 +8,7 @@ import core.plugin.Initializable
 import core.tools.RandomFunction
 
 /**
- * Bardur NPC.
+ * Represents the Bardur NPC.
  */
 @Initializable
 class BardurNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {

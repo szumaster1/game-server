@@ -8,7 +8,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Crest combining interaction.
+ * Represents the Crest combining interaction.
  */
 @Initializable
 class CrestCombiningInteraction : UseWithHandler(779, 780, 781) {

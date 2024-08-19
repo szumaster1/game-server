@@ -16,7 +16,7 @@ import core.plugin.Initializable
 import core.tools.RandomFunction
 
 /**
- * Elemental wizard NPC.
+ * Represents the Elemental wizard NPC.
  */
 @Initializable
 class ElementalWizardNPC : AbstractNPC {

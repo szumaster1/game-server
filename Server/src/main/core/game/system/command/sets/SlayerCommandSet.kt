@@ -10,9 +10,7 @@ import core.game.system.command.Privilege
 import core.plugin.Initializable
 
 /**
- * Slayer command set
- *
- * @constructor Slayer command set
+ * Slayer command set.
  */
 @Initializable
 class SlayerCommandSet : CommandSet(Privilege.ADMIN) {

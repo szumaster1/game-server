@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * General Khazard dialogue.
+ * Represents the General Khazard dialogue.
  */
 @Initializable
 class GeneralKhazardDialogue(player: Player? = null) : Dialogue(player) {

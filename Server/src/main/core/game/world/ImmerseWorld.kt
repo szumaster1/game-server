@@ -96,7 +96,7 @@ class ImmerseWorld : StartupListener {
                 )
             )
             GeneralBotCreator(
-                botScript = GlassBlowingBankstander(),
+                botScript = GlassBlowingBankStander(),
                 bot = skillingBotAssembler.produce(
                     type = SkillingBotAssembler.Wealth.AVERAGE,
                     loc = Location.create(2807, 3441, 0)
@@ -201,7 +201,7 @@ class ImmerseWorld : StartupListener {
         fun immerseVarrock() {
             val WestBankIdlerBorders = ZoneBorders(3184, 3435, 3187, 3444)
             GeneralBotCreator(
-                botScript = GlassBlowingBankstander(),
+                botScript = GlassBlowingBankStander(),
                 bot = skillingBotAssembler.produce(
                     type = SkillingBotAssembler.Wealth.RICH,
                     loc = Location.create(3189, 3435, 0)
@@ -222,7 +222,7 @@ class ImmerseWorld : StartupListener {
                 )
             )
             GeneralBotCreator(
-                botScript = GlassBlowingBankstander(),
+                botScript = GlassBlowingBankStander(),
                 bot = skillingBotAssembler.produce(
                     type = SkillingBotAssembler.Wealth.POOR,
                     loc = Location.create(3256, 3420, 0)

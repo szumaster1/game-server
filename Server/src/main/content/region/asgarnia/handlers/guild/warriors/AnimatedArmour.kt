@@ -15,7 +15,7 @@ import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
 
 /**
- * Animated armour.
+ * Represents the Animated armour.
  *
  * @param player The player interacting with the animated armour.
  * @param location The location of the animated armour.

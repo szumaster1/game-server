@@ -1,37 +1,62 @@
 package core.cache.misc;
 
-import core.cache.bzip2.BZip2Decompressor;
-import core.cache.gzip.GZipDecompressor;
-
 import java.nio.ByteBuffer;
 import java.util.Arrays;
 import java.util.zip.CRC32;
 
+import core.cache.bzip2.BZip2Decompressor;
+import core.cache.gzip.GZipDecompressor;
+
 /**
- * Containers information.
+ * A class holding the containers information.
+ * @author Dragonkk
  */
 public final class ContainersInformation {
 
+    /**
+     * The information container.
+     */
     private Container informationContainer;
 
+    /**
+     * The protocol.
+     */
     private int protocol;
 
+    /**
+     * The revision.
+     */
     private int revision;
 
+    /**
+     * The container indexes.
+     */
     private int[] containersIndexes;
 
+    /**
+     * The containers.
+     */
     private FilesContainer[] containers;
 
+    /**
+     * If files have to be named.
+     */
     private boolean filesNamed;
 
+    /**
+     * If it has to be whirpool.
+     */
     private boolean whirpool;
 
+    /**
+     * The data.
+     */
     private final byte[] data;
 
     /**
-     * Instantiates a new Containers information.
-     *
-     * @param informationContainerPackedData the information container packed data
+     * Construct a new containers information.
+     * @param informationContainerPackedData The information container data
+     * packed.
      */
     public ContainersInformation(byte[] informationContainerPackedData) {
         this.data = Arrays.copyOf(informationContainerPackedData, informationContainerPackedData.length);
@@ -44,12 +69,11 @@ public final class ContainersInformation {
     }
 
     /**
-     * Unpack cache container byte [ ].
-     *
-     * @param packedData the packed data
-     * @return the byte [ ]
+     * Unpacks a container.
+     * @param packedData The packed container data.
+     * @return The unpacked data.
      */
-    public static byte[] unpackCacheContainer(byte[] packedData) {
+    public static final byte[] unpackCacheContainer(byte[] packedData) {
         ByteBuffer buffer = ByteBuffer.wrap(packedData);
         int compression = buffer.get() & 0xFF;
         int containerSize = buffer.getInt();
@@ -58,7 +82,7 @@ public final class ContainersInformation {
             // throw new RuntimeException();
         }
         if (compression == 0) {
-            byte[] unpacked = new byte[containerSize];
+            byte unpacked[] = new byte[containerSize];
             buffer.get(unpacked, 0, containerSize);
             return unpacked;
         }
@@ -67,7 +91,7 @@ public final class ContainersInformation {
             return null;
             // throw new RuntimeException();
         }
-        byte[] decompressedData = new byte[decompressedSize];
+        byte decompressedData[] = new byte[decompressedSize];
         if (compression == 1) {
             BZip2Decompressor.decompress(decompressedData, packedData, containerSize, 9);
         } else {
@@ -77,45 +101,40 @@ public final class ContainersInformation {
     }
 
     /**
-     * Get containers indexes int [ ].
-     *
-     * @return the int [ ]
+     * Get the container indexes.
+     * @return The container indexes.
      */
     public int[] getContainersIndexes() {
         return containersIndexes;
     }
 
     /**
-     * Get containers files container [ ].
-     *
-     * @return the files container [ ]
+     * Get the containers.
+     * @return The containers.
      */
     public FilesContainer[] getContainers() {
         return containers;
     }
 
     /**
-     * Gets information container.
-     *
-     * @return the information container
+     * Get the information container.
+     * @return The information container.
      */
     public Container getInformationContainer() {
         return informationContainer;
     }
 
     /**
-     * Gets revision.
-     *
-     * @return the revision
+     * Get the revision.
+     * @return The revision.
      */
     public int getRevision() {
         return revision;
     }
 
     /**
-     * Decode containers information.
-     *
-     * @param data the data
+     * Decode the containers information.
+     * @param data The data.
      */
     public void decodeContainersInformation(byte[] data) {
         ByteBuffer buffer = ByteBuffer.wrap(data);
@@ -136,73 +155,71 @@ public final class ContainersInformation {
             }
         }
         containers = new FilesContainer[lastIndex + 1];
-        for (int i : containersIndexes) {
-            containers[i] = new FilesContainer();
+        for (int index = 0; index < containersIndexes.length; index++) {
+            containers[containersIndexes[index]] = new FilesContainer();
         }
         if (filesNamed) {
-            for (int containersIndex : containersIndexes) {
-                containers[containersIndex].setNameHash(buffer.getInt());
+            for (int index = 0; index < containersIndexes.length; index++) {
+                containers[containersIndexes[index]].setNameHash(buffer.getInt());
             }
         }
         byte[][] filesHashes = null;
         if (whirpool) {
             filesHashes = new byte[containers.length][];
-            for (int containersIndex : containersIndexes) {
-                filesHashes[containersIndex] = new byte[64];
-                buffer.get(filesHashes[containersIndex], 0, 64);
+            for (int index = 0; index < containersIndexes.length; index++) {
+                filesHashes[containersIndexes[index]] = new byte[64];
+                buffer.get(filesHashes[containersIndexes[index]], 0, 64);
             }
         }
-        for (int containersIndex : containersIndexes) {
-            containers[containersIndex].setCrc(buffer.getInt());
+        for (int index = 0; index < containersIndexes.length; index++) {
+            containers[containersIndexes[index]].setCrc(buffer.getInt());
         }
-        for (int i : containersIndexes) {
-            containers[i].setVersion(buffer.getInt());
+        for (int index = 0; index < containersIndexes.length; index++) {
+            containers[containersIndexes[index]].setVersion(buffer.getInt());
         }
-        for (int containersIndex : containersIndexes) {
-            containers[containersIndex].setFilesIndexes(new int[buffer.getShort() & 0xFFFF]);
+        for (int index = 0; index < containersIndexes.length; index++) {
+            containers[containersIndexes[index]].setFilesIndexes(new int[buffer.getShort() & 0xFFFF]);
         }
-        for (int containersIndex : containersIndexes) {
+        for (int index = 0; index < containersIndexes.length; index++) {
             int lastFileIndex = -1;
-            for (int fileIndex = 0; fileIndex < containers[containersIndex].getFilesIndexes().length; fileIndex++) {
-                containers[containersIndex].getFilesIndexes()[fileIndex] = (buffer.getShort() & 0xFFFF) + (fileIndex == 0 ? 0 : containers[containersIndex].getFilesIndexes()[fileIndex - 1]);
-                if (containers[containersIndex].getFilesIndexes()[fileIndex] > lastFileIndex) {
-                    lastFileIndex = containers[containersIndex].getFilesIndexes()[fileIndex];
+            for (int fileIndex = 0; fileIndex < containers[containersIndexes[index]].getFilesIndexes().length; fileIndex++) {
+                containers[containersIndexes[index]].getFilesIndexes()[fileIndex] = (buffer.getShort() & 0xFFFF) + (fileIndex == 0 ? 0 : containers[containersIndexes[index]].getFilesIndexes()[fileIndex - 1]);
+                if (containers[containersIndexes[index]].getFilesIndexes()[fileIndex] > lastFileIndex) {
+                    lastFileIndex = containers[containersIndexes[index]].getFilesIndexes()[fileIndex];
                 }
             }
-            containers[containersIndex].setFiles(new Container[lastFileIndex + 1]);
-            for (int fileIndex = 0; fileIndex < containers[containersIndex].getFilesIndexes().length; fileIndex++) {
-                containers[containersIndex].getFiles()[containers[containersIndex].getFilesIndexes()[fileIndex]] = new Container();
+            containers[containersIndexes[index]].setFiles(new Container[lastFileIndex + 1]);
+            for (int fileIndex = 0; fileIndex < containers[containersIndexes[index]].getFilesIndexes().length; fileIndex++) {
+                containers[containersIndexes[index]].getFiles()[containers[containersIndexes[index]].getFilesIndexes()[fileIndex]] = new Container();
             }
         }
         if (whirpool) {
-            for (int containersIndex : containersIndexes) {
-                for (int fileIndex = 0; fileIndex < containers[containersIndex].getFilesIndexes().length; fileIndex++) {
-                    containers[containersIndex].getFiles()[containers[containersIndex].getFilesIndexes()[fileIndex]].setVersion(filesHashes[containersIndex][containers[containersIndex].getFilesIndexes()[fileIndex]]);
+            for (int index = 0; index < containersIndexes.length; index++) {
+                for (int fileIndex = 0; fileIndex < containers[containersIndexes[index]].getFilesIndexes().length; fileIndex++) {
+                    containers[containersIndexes[index]].getFiles()[containers[containersIndexes[index]].getFilesIndexes()[fileIndex]].setVersion(filesHashes[containersIndexes[index]][containers[containersIndexes[index]].getFilesIndexes()[fileIndex]]);
                 }
             }
         }
         if (filesNamed) {
-            for (int containersIndex : containersIndexes) {
-                for (int fileIndex = 0; fileIndex < containers[containersIndex].getFilesIndexes().length; fileIndex++) {
-                    containers[containersIndex].getFiles()[containers[containersIndex].getFilesIndexes()[fileIndex]].setNameHash(buffer.getInt());
+            for (int index = 0; index < containersIndexes.length; index++) {
+                for (int fileIndex = 0; fileIndex < containers[containersIndexes[index]].getFilesIndexes().length; fileIndex++) {
+                    containers[containersIndexes[index]].getFiles()[containers[containersIndexes[index]].getFilesIndexes()[fileIndex]].setNameHash(buffer.getInt());
                 }
             }
         }
     }
 
     /**
-     * Is whirpool boolean.
-     *
-     * @return the boolean
+     * If is whirpool.
+     * @return If is whirpool {@code true}.
      */
     public boolean isWhirpool() {
         return whirpool;
     }
 
     /**
-     * Get data byte [ ].
-     *
-     * @return the byte [ ]
+     * Gets the data.
+     * @return The data.
      */
     public byte[] getData() {
         return data;

@@ -12,7 +12,7 @@ import java.lang.Integer.min
 import kotlin.collections.HashMap
 
 /**
- * Culinaromancer chest listener.
+ * Represents the Culinaromancer chest listener.
  */
 class CulinaromancerChestListener : LoginListener {
 

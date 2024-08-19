@@ -25,7 +25,7 @@ import core.plugin.Initializable
 import core.tools.RandomFunction
 
 /**
- * Chaos elemental NPC.
+ * Represents the Chaos elemental NPC.
  */
 @Initializable
 class ChaosElementalNPC @JvmOverloads constructor(id: Int = -1, location: Location? = null) : AbstractNPC(id, location) {

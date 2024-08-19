@@ -12,9 +12,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Fairy ring command set
- *
- * @constructor Fairy ring command set
+ * Fairy ring command set.
  */
 @Initializable
 class FairyRingCommandSet : CommandPlugin() {

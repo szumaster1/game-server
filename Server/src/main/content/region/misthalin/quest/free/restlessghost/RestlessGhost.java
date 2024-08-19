@@ -10,7 +10,7 @@ import core.plugin.Initializable;
 import static core.api.ContentAPIKt.setVarp;
 
 /**
- * Restless ghost.
+ * Represents the Restless ghost.
  */
 @Initializable
 public class RestlessGhost extends Quest {

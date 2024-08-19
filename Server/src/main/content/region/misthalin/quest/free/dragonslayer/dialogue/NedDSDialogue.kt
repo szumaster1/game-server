@@ -9,7 +9,7 @@ import core.tools.START_DIALOGUE
 private const val SHIP_DIALOGUE = 2000
 
 /**
- * Ned Dragon slayer dialogue.
+ * Represents the Ned Dragon slayer dialogue.
  */
 class NedDSDialogue(val questStage: Int) : DialogueFile() {
 

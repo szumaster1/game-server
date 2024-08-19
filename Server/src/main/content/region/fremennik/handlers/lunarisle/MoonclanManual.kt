@@ -10,7 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Moonclan manual.
+ * Represents the Moonclan manual.
  */
 class MoonclanManual : InteractionListener {
 

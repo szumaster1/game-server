@@ -11,7 +11,7 @@ import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
 
 /**
- * Wormbrain Dragon slayer dialogue.
+ * Represents the Wormbrain Dragon slayer dialogue.
  */
 class WormbrainDSDialogue(player: Player? = null) : Dialogue(player) {
 

@@ -8,7 +8,7 @@ import core.game.node.entity.player.Player
 import core.game.world.map.zone.ZoneBorders
 
 /**
- * Phasmatys map area.
+ * Represents the Phasmatys map area.
  */
 class PhasmatysMapArea : MapArea {
 

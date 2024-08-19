@@ -11,7 +11,7 @@ import core.game.node.scenery.SceneryBuilder
 import core.game.world.update.flag.context.Animation
 
 /**
- * Muddy chest handler.
+ * Represents the Muddy chest handler.
  */
 class MuddyChestListener : InteractionListener {
 

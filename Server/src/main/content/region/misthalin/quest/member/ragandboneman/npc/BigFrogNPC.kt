@@ -11,7 +11,7 @@ import core.game.node.item.Item
 import core.tools.RandomFunction
 
 /**
- * Big frog NPC.
+ * Represents the Big frog NPC.
  */
 class BigFrogNPC : NPCBehavior(*bigFrogIds) {
 

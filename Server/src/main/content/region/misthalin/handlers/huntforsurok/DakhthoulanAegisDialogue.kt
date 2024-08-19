@@ -8,10 +8,10 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Dakh thoulan aegis dialogue.
+ * Represents the Dakhthoulan Aegis dialogue.
  */
 @Initializable
-class DakhThoulanAegisDialogue(player: Player? = null) : Dialogue(player) {
+class DakhthoulanAegisDialogue(player: Player? = null) : Dialogue(player) {
 
     /*
      * Info: Member of the Dagon'hai order.

@@ -20,7 +20,7 @@ import static core.api.ContentAPIKt.removeAttribute;
 import static core.api.ContentAPIKt.setAttribute;
 
 /**
- * Pest Control reward interface.
+ * Represents the Pest Control reward interface.
  */
 @Initializable
 public final class PCRewardInterface extends ComponentPlugin {

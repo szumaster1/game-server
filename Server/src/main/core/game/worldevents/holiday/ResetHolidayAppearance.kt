@@ -10,6 +10,7 @@ import core.tools.minutesToTicks
 
 /**
  * Reset holiday appearance.
+ * @author Zerken
  */
 class ResetHolidayAppearance : RSTimer(minutesToTicks(1), "reset-holiday-appearance") {
     override fun run(entity: Entity): Boolean {

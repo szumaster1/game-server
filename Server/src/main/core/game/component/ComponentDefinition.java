@@ -1,30 +1,44 @@
 package core.game.component;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Component definition.
+ * Represents the component definitions.
+ * @author Emperor
+ *
  */
 public final class ComponentDefinition {
 
-    // Map to store component definitions
+    /**
+     * The component definitions mapping.
+     */
     private static final Map<Integer, ComponentDefinition> DEFINITIONS = new HashMap<Integer, ComponentDefinition>();
 
-    // Type of the interface
+    /**
+     * The interface type.
+     */
     private InterfaceType type = InterfaceType.DEFAULT;
 
-    // Flag to indicate if the component is walkable
+    /**
+     * The interface context.
+     */
     private boolean walkable;
 
-    // Tab index of the component
+    /**
+     * The tab index.
+     */
     private int tabIndex = -1;
 
-    // Plugin associated with the component
+    /**
+     * Represents the plugin handler.
+     */
     private ComponentPlugin plugin;
 
     /**
-     * Instantiates a new Component definition.
+     * Constructs a new {@code ComponentDefinition} {@code Object}.
      */
     public ComponentDefinition() {
         /*
@@ -33,14 +47,10 @@ public final class ComponentDefinition {
     }
 
     /**
-     * Parse component definition.
-     *
-     * @param type     the type
-     * @param walkable the walkable
-     * @param tabIndex the tab index
-     * @return the component definition
+     * Parses the definition values from a result set.
+     * @throws SQLException The exception if thrown.
      */
-    public ComponentDefinition parse(String type, String walkable, String tabIndex) {
+    public ComponentDefinition parse(String type, String walkable, String tabIndex){
         setType(InterfaceType.values()[Integer.parseInt(type)]);
         setWalkable(Boolean.parseBoolean(walkable));
         setTabIndex(Integer.parseInt(tabIndex));
@@ -48,10 +58,9 @@ public final class ComponentDefinition {
     }
 
     /**
-     * Retrieves the component definition for the given component ID.
-     *
-     * @param componentId the component id
-     * @return the component definition
+     * Gets the component definitions for the component id.
+     * @param componentId The component id.
+     * @return The component definitions.
      */
     public static ComponentDefinition forId(int componentId) {
         ComponentDefinition def = DEFINITIONS.get(componentId);
@@ -62,65 +71,58 @@ public final class ComponentDefinition {
     }
 
     /**
-     * Associates the given plugin with the specified component ID.
-     *
-     * @param id     the id
-     * @param plugin the plugin
+     * Add a plugin to a definition.
+     * @param id the id.
+     * @param plugin the plugin.
      */
     public static void put(int id, ComponentPlugin plugin) {
         ComponentDefinition.forId(id).setPlugin(plugin);
     }
 
     /**
-     * Gets all the component definitions.
-     *
-     * @return the definitions
+     * Gets the definitions mapping.
+     * @return The definitions mapping.
      */
     public static Map<Integer, ComponentDefinition> getDefinitions() {
         return DEFINITIONS;
     }
 
     /**
-     * Gets the plugin associated with the component.
-     *
-     * @return the plugin
+     * Gets the plugin.
+     * @return The plugin.
      */
     public ComponentPlugin getPlugin() {
         return plugin;
     }
 
     /**
-     * Sets the plugin associated with the component.
-     *
-     * @param plugin the plugin
+     * Sets the plugin.
+     * @param plugin The plugin to set.
      */
     public void setPlugin(ComponentPlugin plugin) {
         this.plugin = plugin;
     }
 
     /**
-     * Gets the window pane ID based on the resizable flag.
-     *
-     * @param resizable the resizable
-     * @return the window pane id
+     * Gets the window pane id.
+     * @param resizable If the player is using resizable mode.
+     * @return The window pane id.
      */
     public int getWindowPaneId(boolean resizable) {
         return resizable ? type.resizablePaneId : type.fixedPaneId;
     }
 
     /**
-     * Gets the child ID based on the resizable flag.
-     *
-     * @param resizable the resizable
-     * @return the child id
+     * Gets the child id.
+     * @param resizable If the player is using resizable mode.
+     * @return The child id.
      */
     public int getChildId(boolean resizable) {
         return resizable ? type.resizableChildId : type.fixedChildId;
     }
 
     /**
-     * Gets the type of the component.
-     *
+     * Gets the type.
      * @return the type
      */
     public InterfaceType getType() {
@@ -128,45 +130,40 @@ public final class ComponentDefinition {
     }
 
     /**
-     * Sets the type of the component.
-     *
-     * @param type the type
+     * Sets the batype.
+     * @param type the type to set.
      */
     public void setType(InterfaceType type) {
         this.type = type;
     }
 
     /**
-     * Checks if the component is walkable.
-     *
-     * @return the boolean
+     * Gets the walkable.
+     * @return the walkable
      */
     public boolean isWalkable() {
         return walkable;
     }
 
     /**
-     * Sets the walkable flag of the component.
-     *
-     * @param walkable the walkable
+     * Sets the bawalkable.
+     * @param walkable the walkable to set.
      */
     public void setWalkable(boolean walkable) {
         this.walkable = walkable;
     }
 
     /**
-     * Gets the tab index of the component.
-     *
-     * @return the tab index
+     * Gets the tabIndex.
+     * @return the tabIndex
      */
     public int getTabIndex() {
         return tabIndex;
     }
 
     /**
-     * Sets the tab index of the component.
-     *
-     * @param tabIndex the tab index
+     * Sets the batabIndex.
+     * @param tabIndex the tabIndex to set.
      */
     public void setTabIndex(int tabIndex) {
         this.tabIndex = tabIndex;

@@ -7,7 +7,7 @@ import core.tools.RandomFunction
 import core.api.consts.NPCs
 
 /**
- * Tindar NPC.
+ * Represents the Tindar NPC.
  */
 class TindarNPC : NPCBehavior(NPCs.TINDAR_5795) {
 

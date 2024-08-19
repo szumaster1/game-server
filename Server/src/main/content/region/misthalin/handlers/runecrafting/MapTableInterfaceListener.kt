@@ -10,7 +10,7 @@ import core.game.world.GameWorld
 import core.api.consts.Scenery
 
 /**
- * Map table interface listener.
+ * Represents the Map table interface listener.
  */
 class MapTableInterfaceListener : InterfaceListener, InteractionListener {
 

@@ -9,7 +9,7 @@ import core.api.consts.Components
 import core.api.consts.Items
 
 /**
- * Runecraft shop interface listener.
+ * Represents the Runecraft shop interface listener.
  */
 class RunecraftShopInterfaceListener : InterfaceListener {
 

@@ -10,6 +10,7 @@ import core.game.node.item.Item
 
 /**
  * Represents a utility class for purchasing skillcapes.
+ * @author Vexia
  */
 object Skillcape {
 
@@ -42,11 +43,11 @@ object Skillcape {
     )
 
     /**
-     * Purchase skillcape.
+     * Method used to purchase a cape of accomplishment.
      *
-     * @param player The player purchasing the skillcape.
-     * @param skill  The skill index of the skillcape.
-     * @return True if the purchase is successful, false otherwise.
+     * @param player the player.
+     * @param skill the skill.
+     * @return {@code True} if purchased.
      */
     @JvmStatic
     fun purchase(player: Player, skill: Int): Boolean {
@@ -66,9 +67,9 @@ object Skillcape {
     }
 
     /**
-     * Trim skillcapes.
+     * Method used to trim the players skillcapes.
      *
-     * @param player The player to trim the skillcapes for.
+     * @param player the player.
      */
     @JvmStatic
     fun trim(player: Player) {
@@ -89,11 +90,11 @@ object Skillcape {
     }
 
     /**
-     * Check if the player is a master of the given skill.
+     * Checks if the player has the appropriate level.
      *
-     * @param player The player to check.
-     * @param skill  The skill index to check.
-     * @return True if the player is a master, false otherwise.
+     * @param player the player.
+     * @param skill the skill.
+     * @return {@code True} if so.
      */
     @JvmStatic
     fun isMaster(player: Player, skill: Int): Boolean {
@@ -101,11 +102,11 @@ object Skillcape {
     }
 
     /**
-     * Get the items required to purchase a skillcape.
+     * Gets the items to purchase.
      *
-     * @param player The player purchasing the skillcape.
-     * @param skill  The skill index of the skillcape.
-     * @return An array of items required to purchase the skillcape.
+     * @param player the player.
+     * @param skill the skill.
+     * @return {@code Items} to buy.
      */
     fun getItems(player: Player, skill: Int): Array<Item> {
         return arrayOf(
@@ -115,20 +116,20 @@ object Skillcape {
     }
 
     /**
-     * Get the trimmed version of a skillcape.
+     * Gets the trimmed item.
      *
-     * @param skill The skill index of the skillcape.
-     * @return The trimmed skillcape item.
+     * @param skill the skill.
+     * @return the trimmed cape.
      */
     private fun getTrimmed(skill: Int): Item {
         return Item(SKILLCAPES[skill] + 1)
     }
 
     /**
-     * Get the index of a skillcape in the SKILLCAPES array.
+     * Gets the cape index by the item.
      *
-     * @param item The skillcape item.
-     * @return The index of the skillcape in the SKILLCAPES array, or -1 if not found.
+     * @param item the item.
+     * @return the skill index, if not (-1).
      */
     private fun getCapeIndex(item: Item): Int {
         for (i in SKILLCAPES.indices) {

@@ -8,7 +8,7 @@ import core.game.node.entity.npc.NPC
 import core.game.world.map.Location
 
 /**
- * Vampire slayer listener.
+ * Represents the Vampire slayer listener.
  */
 class VampireSlayerListener : InteractionListener {
 

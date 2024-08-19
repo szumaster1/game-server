@@ -98,7 +98,7 @@ object BrokenItem {
     }
 
     /**
-     * Enum representing the type of equipment that can be repaired.
+     * Representing the type of equipment that can be repaired.
      */
     enum class EquipmentType {
         ARROWS, STAVES, SWORDS, SCIMITARS, ARMOUR, LEGS

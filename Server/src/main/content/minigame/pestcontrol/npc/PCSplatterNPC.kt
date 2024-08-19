@@ -18,7 +18,7 @@ import core.game.world.update.flag.context.Graphic
 import core.tools.RandomFunction
 
 /**
- * Pest Control splatter NPC.
+ * Represents the Pest Control splatter NPC.
  */
 class PCSplatterNPC : AbstractNPC {
 

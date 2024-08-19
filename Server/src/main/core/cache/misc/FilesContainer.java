@@ -1,52 +1,55 @@
 package core.cache.misc;
 
 /**
- * Files container.
+ * A class holding the file containers.
+ * @author Dragonkk
  */
 public final class FilesContainer extends Container {
 
+    /**
+     * The file indexes.
+     */
     private int[] filesIndexes;
 
+    /**
+     * The files.
+     */
     private Container[] files;
 
     /**
-     * Instantiates a new Files container.
+     * Construct a new files container.
      */
     public FilesContainer() {
 
     }
 
     /**
-     * Sets files.
-     *
-     * @param containers the containers
+     * Set the files.
+     * @param containers The files.
      */
     public void setFiles(Container[] containers) {
         this.files = containers;
     }
 
     /**
-     * Get files container [ ].
-     *
-     * @return the container [ ]
+     * Get the files.
+     * @return The files.
      */
     public Container[] getFiles() {
         return files;
     }
 
     /**
-     * Sets files indexes.
-     *
-     * @param containersIndexes the containers indexes
+     * Set the file indexes.
+     * @param containersIndexes The file indexes.
      */
     public void setFilesIndexes(int[] containersIndexes) {
         this.filesIndexes = containersIndexes;
     }
 
     /**
-     * Get files indexes int [ ].
-     *
-     * @return the int [ ]
+     * Get the file indexes.
+     * @return The file indexes.
      */
     public int[] getFilesIndexes() {
         return filesIndexes;

@@ -4,6 +4,8 @@ import core.game.node.entity.player.Player;
 import core.game.node.item.GroundItem;
 import core.game.node.item.Item;
 import core.game.node.scenery.Scenery;
+import core.tools.Log;
+import core.tools.SystemLogger;
 import core.game.world.map.build.DynamicRegion;
 import core.game.world.map.build.LandscapeParser;
 import core.game.world.update.flag.UpdateFlag;
@@ -12,7 +14,6 @@ import core.network.packet.outgoing.ClearScenery;
 import core.network.packet.outgoing.ConstructGroundItem;
 import core.network.packet.outgoing.ConstructScenery;
 import core.network.packet.outgoing.UpdateAreaPosition;
-import core.tools.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,53 +21,55 @@ import java.util.List;
 import static core.api.ContentAPIKt.log;
 
 /**
- * Region chunk.
+ * Represents a region chunk.
+ * @author Emperor
  */
 public class RegionChunk {
 
     /**
-     * The constant SIZE.
+     * The chunk size.
      */
     public static final int SIZE = 8;
 
     /**
-     * The Base.
+     * The base location of the copied region chunk.
      */
     protected Location base;
 
     /**
-     * The Current base.
+     * The current base location.
      */
     protected Location currentBase;
 
     /**
-     * The Plane.
+     * The region plane.
      */
     protected RegionPlane plane;
 
     /**
-     * The Items.
+     * The items in this chunk.
      */
     protected List<GroundItem> items;
 
     /**
-     * The Objects.
+     * The scenerys in this chunk.
      */
     protected Scenery[][] objects;
 
     /**
-     * The Rotation.
+     * The rotation.
      */
     protected int rotation;
 
+    /**
+     * The update flags.
+     */
     private List<UpdateFlag<?>> flags = new ArrayList<>(20);
 
     /**
-     * Instantiates a new Region chunk.
-     *
-     * @param base     the base
-     * @param rotation the rotation
-     * @param plane    the plane
+     * Constructs a new {@code RegionChunk} {@code Object}.
+     * @param base The base location of the region chunk.
+     * @param rotation The rotation.
      */
     public RegionChunk(Location base, int rotation, RegionPlane plane) {
         this.base = base;
@@ -77,26 +80,24 @@ public class RegionChunk {
     }
 
     /**
-     * Copy build region chunk.
-     *
-     * @param plane the plane
-     * @return the build region chunk
+     * Copies the region chunk.
+     * @param plane The region plane.
+     * @return The region chunk.
      */
     public BuildRegionChunk copy(RegionPlane plane) {
         return new BuildRegionChunk(base, rotation, plane, this.objects);
     }
 
     /**
-     * Flag.
-     *
-     * @param flag the flag
+     * Registers an update flag.
+     * @param flag The flag.
      */
     public void flag(UpdateFlag<?> flag) {
         flags.add(flag);
     }
 
     /**
-     * Clear.
+     * Clears the region chunk.
      */
     public void clear() {
         flags.clear();
@@ -107,9 +108,8 @@ public class RegionChunk {
     }
 
     /**
-     * Synchronize.
-     *
-     * @param player the player
+     * Updates the region chunk.
+     * @param player The player.
      */
     public void synchronize(Player player) {
         IoBuffer buffer = UpdateAreaPosition.getChunkUpdateBuffer(player, currentBase);
@@ -119,11 +119,10 @@ public class RegionChunk {
     }
 
     /**
-     * Append update boolean.
-     *
-     * @param player the player
-     * @param buffer the buffer
-     * @return the boolean
+     * Writes the region chunk update data on the buffer.
+     * @param player The player we're updating for.
+     * @param buffer The buffer to write on.
+     * @return {@code True} if an update occured.
      */
     protected boolean appendUpdate(Player player, IoBuffer buffer) {
         boolean updated = false;
@@ -139,7 +138,8 @@ public class RegionChunk {
                 if (!dyn.isRenderable() && stat != null) {
                     ClearScenery.write(buffer, stat);
                     updated = true;
-                } else if (dyn != stat) {
+                }
+                else if (dyn != stat) {
                     if (stat != null) {
                         ClearScenery.write(buffer, stat);
                     }
@@ -161,13 +161,6 @@ public class RegionChunk {
     }
 
 
-    /**
-     * Draw items array list.
-     *
-     * @param items  the items
-     * @param player the player
-     * @return the array list
-     */
     public ArrayList<GroundItem> drawItems(List<GroundItem> items, Player player) {
         ArrayList<GroundItem> totalItems = items != null ? new ArrayList<GroundItem>(items) : new ArrayList<GroundItem>();
 
@@ -206,7 +199,7 @@ public class RegionChunk {
                             add = true;
 
                     if (add)
-                        totalItems.add(new GroundItem(new Item(13444), l.transform(x, y, 0), player));
+                        totalItems.add(new GroundItem(new Item(13444), l.transform(x,y,0), player));
                 }
         }
 
@@ -226,9 +219,7 @@ public class RegionChunk {
     }
 
     /**
-     * Update.
-     *
-     * @param player the player
+     * Sends all the update flags.
      */
     public void update(Player player) {
         if (isUpdated()) {
@@ -244,13 +235,12 @@ public class RegionChunk {
     }
 
     /**
-     * Rotate.
-     *
-     * @param direction the direction
+     * Rotates the chunk.
+     * @param direction The direction.
      */
     public void rotate(Direction direction) {
         if (rotation != 0) {
-            log(this.getClass(), Log.ERR, "Region chunk was already rotated!");
+            log(this.getClass(), Log.ERR,  "Region chunk was already rotated!");
             return;
         }
         Scenery[][] copy = new Scenery[SIZE][SIZE];
@@ -290,15 +280,14 @@ public class RegionChunk {
     }
 
     /**
-     * Get rotated position int [ ].
-     *
-     * @param x             the x
-     * @param y             the y
-     * @param sizeX         the size x
-     * @param sizeY         the size y
-     * @param rotation      the rotation
-     * @param chunkRotation the chunk rotation
-     * @return the int [ ]
+     * Gets the new coordinates for an object/chunk tile when rotating.
+     * @param x The current x-coordinate.
+     * @param y The current y-coordinate.
+     * @param sizeX The x-size of the object.
+     * @param sizeY The y-size of the object.
+     * @param rotation The object rotation.
+     * @param chunkRotation The chunk rotation.
+     * @return The new x-coordinate.
      */
     public static int[] getRotatedPosition(int x, int y, int sizeX, int sizeY, int rotation, int chunkRotation) {
         if ((rotation & 0x1) == 1) {
@@ -307,21 +296,20 @@ public class RegionChunk {
             sizeY = s;
         }
         if (chunkRotation == 0) {
-            return new int[]{x, y};
+            return new int[] { x, y };
         }
         if (chunkRotation == 1) {
-            return new int[]{y, 7 - x - (sizeX - 1)};
+            return new int[] { y, 7 - x - (sizeX - 1) };
         }
         if (chunkRotation == 2) {
-            return new int[]{7 - x - (sizeX - 1), 7 - y - (sizeY - 1)};
+            return new int[] { 7 - x - (sizeX - 1), 7 - y - (sizeY - 1) };
         }
-        return new int[]{7 - y - (sizeY - 1), x};
+        return new int[] { 7 - y - (sizeY - 1), x };
     }
 
     /**
-     * Gets items.
-     *
-     * @return the items
+     * Gets the items.
+     * @return The items.
      */
     public List<GroundItem> getItems() {
         if (items == null) {
@@ -331,132 +319,115 @@ public class RegionChunk {
     }
 
     /**
-     * Sets items.
-     *
-     * @param items the items
+     * Sets the items.
+     * @param items The items to set.
      */
     public void setItems(List<GroundItem> items) {
         this.items = items;
     }
 
     /**
-     * Get objects scenery [ ].
-     *
-     * @param chunkX the chunk x
-     * @param chunkY the chunk y
-     * @return the scenery [ ]
+     * Gets the scenerys located on the coordinates in this chunk.
+     * @param chunkX The chunk x-coordinate (0-7).
+     * @param chunkY The chunk y-coordinate (0-7).
+     * @return The objects.
      */
     public Scenery[] getObjects(int chunkX, int chunkY) {
-        return new Scenery[]{objects[chunkX][chunkY]};
+        return new Scenery[] { objects[chunkX][chunkY] };
     }
 
     /**
-     * Get objects scenery [ ] [ ].
-     *
-     * @return the scenery [ ] [ ]
+     * Gets the objects.
+     * @return The objects.
      */
     public Scenery[][] getObjects() {
         return objects;
     }
 
     /**
-     * Sets objects.
-     *
-     * @param objects the objects
+     * Sets the objects.
+     * @param objects The objects to set.
      */
     public void setObjects(Scenery[][] objects) {
         this.objects = objects;
     }
 
     /**
-     * Gets base.
-     *
-     * @return the base
+     * Gets the base.
+     * @return The base.
      */
     public Location getBase() {
         return base;
     }
 
     /**
-     * Sets base.
-     *
-     * @param base the base
+     * Sets the base location of the region to copy.
+     * @param base The base location.
      */
     public void setBase(Location base) {
         this.base = base;
     }
 
     /**
-     * Gets rotation.
-     *
-     * @return the rotation
+     * Gets the rotation.
+     * @return The rotation.
      */
     public int getRotation() {
         return rotation;
     }
 
     /**
-     * Sets rotation.
-     *
-     * @param rotation the rotation
+     * Sets the rotation of the region chunk.
+     * @param rotation The rotation
      */
     public void setRotation(int rotation) {
         this.rotation = rotation;
     }
 
     /**
-     * Is updated boolean.
-     *
-     * @return the boolean
+     * Gets the updated.
+     * @return The updated.
      */
     public boolean isUpdated() {
         return !flags.isEmpty();
     }
 
     /**
-     * Reset flags.
+     * Resets the flags.
      */
     public void resetFlags() {
         flags.clear();
     }
 
     /**
-     * Gets plane.
-     *
-     * @return the plane
+     * Gets the region plane.
+     * @return The plane.
      */
     public RegionPlane getPlane() {
         return plane;
     }
 
     /**
-     * Gets current base.
-     *
-     * @return the current base
+     * Gets the currentBase.
+     * @return The currentBase.
      */
     public Location getCurrentBase() {
         return currentBase;
     }
 
     /**
-     * Sets current base.
-     *
-     * @param currentBase the current base
+     * Sets the currentBase.
+     * @param currentBase The currentBase to set.
      */
     public void setCurrentBase(Location currentBase) {
         this.currentBase = currentBase;
     }
 
-    /**
-     * Rebuild flags.
-     *
-     * @param from the from
-     */
     public void rebuildFlags(RegionPlane from) {
         for (int x = 0; x < 8; x++) {
             for (int y = 0; y < 8; y++) {
-                Location loc = currentBase.transform(x, y, 0);
-                Location fromLoc = base.transform(x, y, 0);
+                Location loc = currentBase.transform(x,y,0);
+                Location fromLoc = base.transform(x,y,0);
                 plane.getFlags().getLandscape()[loc.getLocalX()][loc.getLocalY()] = from.getFlags().getLandscape()[fromLoc.getLocalX()][fromLoc.getLocalY()];
                 plane.getFlags().clearFlag(x, y);
                 Scenery obj = objects[x][y];

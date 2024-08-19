@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Fairy fixit dialogue.
+ * Represents the Fairy Fixit dialogue.
  */
 @Initializable
 class FairyFixitDialogue(player: Player? = null) : Dialogue(player) {

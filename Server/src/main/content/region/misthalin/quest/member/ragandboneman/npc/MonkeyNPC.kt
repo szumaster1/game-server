@@ -11,7 +11,7 @@ import core.api.consts.Items
 import core.api.consts.NPCs
 
 /**
- * Monkey NPC.
+ * Represents the Monkey NPC.
  */
 class MonkeyNPC : NPCBehavior(*monkeyIds) {
 

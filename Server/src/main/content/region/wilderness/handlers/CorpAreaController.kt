@@ -11,7 +11,7 @@ import core.game.world.map.zone.ZoneRestriction
 import core.tools.secondsToTicks
 
 /**
- * Corp area controller.
+ * Represents the Corp area controller.
  */
 class CorpAreaController : MapArea, TickListener {
 

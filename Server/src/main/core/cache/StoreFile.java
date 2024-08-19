@@ -3,16 +3,23 @@ package core.cache;
 import java.nio.ByteBuffer;
 
 /**
- * Store file.
+ * Represents a file used in the server store.
+ * @author Emperor
  */
 public final class StoreFile {
 
+    /**
+     * If the data can change during server runtime.
+     */
     private boolean dynamic;
 
+    /**
+     * The file data.
+     */
     private byte[] data;
 
     /**
-     * Instantiates a new Store file.
+     * Constructs a new {@code StoreFile} {@code Object}.
      */
     public StoreFile() {
         /*
@@ -21,9 +28,8 @@ public final class StoreFile {
     }
 
     /**
-     * Put.
-     *
-     * @param buffer the buffer
+     * Puts the data on the buffer.
+     * @param buffer The buffer.
      */
     public void put(ByteBuffer buffer) {
         byte[] data = new byte[buffer.remaining()];
@@ -32,36 +38,32 @@ public final class StoreFile {
     }
 
     /**
-     * Data byte buffer.
-     *
-     * @return the byte buffer
+     * Creates a byte buffer containing the file data.
+     * @return The buffer.
      */
     public ByteBuffer data() {
         return ByteBuffer.wrap(data);
     }
 
     /**
-     * Sets data.
-     *
-     * @param data the data
+     * Sets the data.
+     * @param data The data.
      */
     public void setData(byte[] data) {
         this.data = data;
     }
 
     /**
-     * Is dynamic boolean.
-     *
-     * @return the boolean
+     * Gets the dynamic.
+     * @return The dynamic.
      */
     public boolean isDynamic() {
         return dynamic;
     }
 
     /**
-     * Sets dynamic.
-     *
-     * @param dynamic the dynamic
+     * Sets the dynamic.
+     * @param dynamic The dynamic to set.
      */
     public void setDynamic(boolean dynamic) {
         this.dynamic = dynamic;

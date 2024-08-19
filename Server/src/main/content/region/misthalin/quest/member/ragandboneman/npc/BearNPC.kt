@@ -11,7 +11,7 @@ import core.game.node.item.Item
 import core.tools.RandomFunction
 
 /**
- * Bear NPC.
+ * Represents the Bear NPC.
  */
 class BearNPC : NPCBehavior(*bearIds) {
 

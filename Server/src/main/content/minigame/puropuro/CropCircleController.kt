@@ -11,6 +11,7 @@ import core.game.world.map.Location
 
 /**
  * Crop circle controller.
+ * @author Ceikry
  */
 class CropCircleController : TickListener, InteractionListener {
 

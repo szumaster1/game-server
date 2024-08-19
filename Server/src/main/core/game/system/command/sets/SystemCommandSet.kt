@@ -15,9 +15,7 @@ import core.plugin.Initializable
 import kotlin.system.exitProcess
 
 /**
- * System command set
- *
- * @constructor System command set
+ * System command set.
  */
 @Initializable
 class SystemCommandSet : CommandSet(Privilege.ADMIN) {

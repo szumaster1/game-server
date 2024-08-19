@@ -5,7 +5,7 @@ import core.game.dialogue.DialogueFile
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the GLO Caranock dialogue.
+ * Represents the G.L.O. Caranock dialogue.
  */
 class GLOCaranockDialogue : DialogueFile() {
 

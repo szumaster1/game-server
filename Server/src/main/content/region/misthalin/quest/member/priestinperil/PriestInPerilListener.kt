@@ -9,7 +9,7 @@ import core.game.world.map.Location
 import core.game.node.item.Item
 
 /**
- * Priest in peril listener.
+ * Represents the Priest in peril listener.
  */
 class PriestInPerilListener : InteractionListener {
 

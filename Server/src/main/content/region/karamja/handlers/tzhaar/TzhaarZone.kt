@@ -8,7 +8,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Tzhaar zone.
+ * Represents the Tzhaar zone.
  */
 @Initializable
 class TzhaarZone: MapZone("Tzhaar zone", true, ZoneRestriction.CANNON), Plugin<Any?> {

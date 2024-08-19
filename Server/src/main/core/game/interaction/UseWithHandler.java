@@ -22,7 +22,6 @@ import static core.api.ContentAPIKt.log;
 
 /**
  * Handles the "use {@code node a} with {@code node b}" option.
- *
  * @author Emperor
  */
 public abstract class UseWithHandler implements Plugin<Object> {

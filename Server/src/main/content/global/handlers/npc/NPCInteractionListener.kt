@@ -5,10 +5,7 @@ import content.minigame.gnomecook.*
 import content.region.kandarin.handlers.miniquest.barcrawl.BarcrawlManager
 import content.region.kandarin.handlers.miniquest.barcrawl.BarcrawlType
 import core.api.*
-import core.api.consts.Components
-import core.api.consts.Items
-import core.api.consts.NPCs
-import core.api.consts.Sounds
+import core.api.consts.*
 import core.game.dialogue.FacialExpression
 import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
@@ -27,7 +24,7 @@ import core.game.worldevents.holiday.HolidayRandoms
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the NPC interaction listener.
+ * Handling global NPC interactions.
  */
 class NPCInteractionListener : InteractionListener {
 
@@ -87,7 +84,12 @@ class NPCInteractionListener : InteractionListener {
                 openDepositBox(player)
                 setInterfaceText(player, "Peer the Seer's Deposits", Components.BANK_DEPOSIT_BOX_11, 12)
             } else {
-                sendNPCDialogue(player, NPCs.PEER_THE_SEER_1288, "Do not pester me, outerlander! I will only deposit items into the banks of those who have earned Fremennik sea boots!", FacialExpression.ANNOYED).also { END_DIALOGUE }
+                sendNPCDialogue(
+                    player,
+                    NPCs.PEER_THE_SEER_1288,
+                    "Do not pester me, outerlander! I will only deposit items into the banks of those who have earned Fremennik sea boots!",
+                    FacialExpression.ANNOYED
+                ).also { END_DIALOGUE }
             }
             return@on true
         }
@@ -173,11 +175,11 @@ class NPCInteractionListener : InteractionListener {
 
     companion object {
 
-        val barCrawlNPCs = intArrayOf(733, 848, 735, 739, 737, 738, 731, 568, 3217, 736, 734)
-        val peerTheSeerNPC = 1288
-        val dummySceneryIds = intArrayOf(2038, 15624, 15625, 15626, 15627, 15628, 15629, 15630, 18238, 25648, 28912, 823, 23921)
-        val cowSceneryIds = intArrayOf(8689, 12111)
-        val items: Array<Item> = arrayOf(Item(1925, 1), Item(3727, 1), Item(1927, 1))
+        val barCrawlNPCs = intArrayOf(NPCs.BARTENDER_733, NPCs.BLURBERRY_848, NPCs.BARTENDER_735, NPCs.BARTENDER_739, NPCs.BARTENDER_737, NPCs.BARTENDER_738, NPCs.BARTENDER_731, NPCs.ZAMBO_568, NPCs.KAYLEE_3217, NPCs.EMILY_736, NPCs.BARTENDER_734)
+        val peerTheSeerNPC = NPCs.PEER_THE_SEER_1288
+        val dummySceneryIds = intArrayOf(Scenery.DUMMY_2038, Scenery.DUMMY_15624, Scenery.DUMMY_15625, Scenery.DUMMY_15626, Scenery.DUMMY_15627, Scenery.DUMMY_15628, Scenery.DUMMY_15629, Scenery.DUMMY_15630, Scenery.DUMMY_18238, Scenery.DUMMY_25648, Scenery.DUMMY_PAWYA_CORPSE_28912, Scenery.DUMMY_823, Scenery.DUMMY_23921)
+        val cowSceneryIds = intArrayOf(Scenery.DAIRY_COW_8689, Scenery.DAIRY_COW_12111)
+        val items: Array<Item> = arrayOf(Item(Items.BUCKET_1925, 1), Item(Items.EMPTY_BUCKET_3727, 1), Item(Items.BUCKET_OF_MILK_1927, 1))
 
         /*
          * Milking pulse.
@@ -190,7 +192,7 @@ class NPCInteractionListener : InteractionListener {
             }
 
             lock(player, 8)
-            animate(player, 2305)
+            animate(player, Animations.MILKING_COW_2305)
             playAudio(player, Sounds.MILK_COW_372)
             player.pulseManager.run(object : Pulse(8, player) {
                 override fun pulse(): Boolean {
@@ -199,7 +201,7 @@ class NPCInteractionListener : InteractionListener {
                         sendMessage(player, "You milk the cow.")
                     }
                     if (inInventory(player, Items.BUCKET_1925, 1) || inInventory(player, Items.EMPTY_BUCKET_3727, 1)) {
-                        animate(player, 2305)
+                        animate(player, Animations.MILKING_COW_2305)
                         return false
                     }
                     return true

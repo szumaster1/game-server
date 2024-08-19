@@ -24,7 +24,7 @@ import core.tools.RandomFunction
 import core.tools.StringUtils
 
 /**
- * Graveyard zone.
+ * Represents the Graveyard zone.
  */
 class GraveyardZone : MTAZone("Creature Graveyard", arrayOf(Item(6904), Item(6905), Item(6906), Item(6907), Item(1963), Item(6883))) {
 

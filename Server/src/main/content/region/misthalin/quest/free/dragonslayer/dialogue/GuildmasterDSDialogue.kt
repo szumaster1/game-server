@@ -8,7 +8,7 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.item.GroundItemManager
 
 /**
- * Guildmaster dragon slayer dialogue.
+ * Represents the Guildmaster dragon slayer dialogue.
  */
 class GuildmasterDSDialogue(player: Player? = null) : Dialogue(player) {
 

@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Fairy shop assistant dialogue.
+ * Represents the Fairy Shop Assistant dialogue.
  */
 @Initializable
 class FairyShopAssistantDialogue(player: Player? = null) : Dialogue(player) {

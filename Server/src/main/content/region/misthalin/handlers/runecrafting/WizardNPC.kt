@@ -9,7 +9,7 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * Wizard NPC.
+ * Represents the Wizard NPC.
  */
 @Initializable
 class WizardNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {

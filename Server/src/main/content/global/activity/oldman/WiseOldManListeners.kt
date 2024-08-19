@@ -12,7 +12,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Wise old man listeners.
+ * Represents the Wise old man listeners.
  */
 class WiseOldManListeners : InteractionListener {
 

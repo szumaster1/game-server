@@ -1,8 +1,9 @@
 package core.game.activity;
 
 import core.game.node.entity.player.Player;
-import core.game.world.GameWorld;
 import core.tools.Log;
+import core.tools.SystemLogger;
+import core.game.world.GameWorld;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,12 +11,19 @@ import java.util.Map;
 import static core.api.ContentAPIKt.log;
 
 /**
- * Activity manager.
+ * Manages the activities.
+ * @author Emperor
  */
 public final class ActivityManager {
 
+    /**
+     * The mapping of instanced activities.
+     */
     private static final Map<String, ActivityPlugin> ACTIVITIES = new HashMap<>();
 
+    /**
+     * Constructs a new {@code ActivityManager} {@code Object}.
+     */
     private ActivityManager() {
         /*
          * empty.
@@ -23,9 +31,8 @@ public final class ActivityManager {
     }
 
     /**
-     * Register.
-     *
-     * @param plugin the plugin
+     * Registers an activity plugin.
+     * @param plugin The plugin to register.
      */
     public static void register(ActivityPlugin plugin) {
         plugin.register();
@@ -36,13 +43,11 @@ public final class ActivityManager {
     }
 
     /**
-     * Start boolean.
-     *
-     * @param player the player
-     * @param name   the name
-     * @param login  the login
-     * @param args   the args
-     * @return the boolean
+     * Starts an instanced activity.
+     * @param player The player.
+     * @param name The name.
+     * @param login If we are logging in.
+     * @param args The arguments.
      */
     public static boolean start(Player player, String name, boolean login, Object... args) {
         ActivityPlugin plugin = ACTIVITIES.get(name);
@@ -67,10 +72,9 @@ public final class ActivityManager {
     }
 
     /**
-     * Gets activity.
-     *
-     * @param name the name
-     * @return the activity
+     * Gets the activity by the name.
+     * @param name the name.
+     * @return the activity.
      */
     public static ActivityPlugin getActivity(String name) {
         return ACTIVITIES.get(name);

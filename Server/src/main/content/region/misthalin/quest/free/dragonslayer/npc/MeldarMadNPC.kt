@@ -16,7 +16,7 @@ import core.game.world.map.RegionManager.isTeleportPermitted
 import core.tools.RandomFunction
 
 /**
- * Meldar mad NPC.
+ * Represents the Meldar mad NPC.
  */
 class MeldarMadNPC : AbstractNPC {
     private val combatHandler = MeldarSwingHandler()

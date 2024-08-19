@@ -8,7 +8,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Fred farm house map area.
+ * Represents the Fred farm house map area.
  */
 @Initializable
 class FredFarmHouseMapArea : MapZone("freds-farm-house", true), Plugin<Any?> {

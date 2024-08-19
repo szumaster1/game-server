@@ -5,6 +5,7 @@ import core.game.worldevents.holiday.halloween.randoms.*
 
 /**
  * Holiday random events
+ * @author Zerken
  *
  * @param npc Represents the non-player character associated with the event
  * @param type Specifies the type of holiday for the event

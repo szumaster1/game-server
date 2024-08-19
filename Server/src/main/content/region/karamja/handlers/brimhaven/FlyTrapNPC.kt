@@ -12,7 +12,8 @@ import core.plugin.Initializable
 import core.tools.RandomFunction
 
 /**
- * Fly trap NPC.
+ * Represents the Fly trap NPC.
+ * @author Szumaster
  */
 @Initializable
 class FlyTrapNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {

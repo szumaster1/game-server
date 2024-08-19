@@ -17,7 +17,7 @@ import core.network.packet.context.CameraContext.CameraType
 import core.network.packet.outgoing.CameraViewPacket
 
 /**
- * Romeo dialogue.
+ * Represents the Romeo dialogue.
  */
 class RomeoDialogue(player: Player? = null) : Dialogue(player) {
 

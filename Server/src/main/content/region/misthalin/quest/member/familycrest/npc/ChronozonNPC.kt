@@ -9,7 +9,7 @@ import core.game.world.map.Location
 import core.api.consts.NPCs
 
 /**
- * Chronozon NPC.
+ * Represents the Chronozon NPC.
  */
 class ChronozonNPC(id: Int, location: Location?) : AbstractNPC(NPCs.CHRONOZON_667, Location(3086, 9936, 0)) {
 

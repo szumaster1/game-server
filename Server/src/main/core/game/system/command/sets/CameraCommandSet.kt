@@ -7,9 +7,7 @@ import core.game.world.map.RegionManager
 import core.plugin.Initializable
 
 /**
- * Camera command set
- *
- * @constructor Camera command set
+ * Camera command set.
  */
 @Initializable
 class CameraCommandSet : CommandSet(Privilege.ADMIN) {

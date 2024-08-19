@@ -5,7 +5,8 @@ import core.game.node.entity.player.Player
 import core.game.world.GameWorld
 
 /**
- * Command class represents a game command.
+ * Base class for Commands in the new system. Can pass a lambda as part of the constructor or after the constructor.
+ * @author Ceikry
  *
  * @param name The name of the command.
  * @param privilege The privilege level required to execute the command.

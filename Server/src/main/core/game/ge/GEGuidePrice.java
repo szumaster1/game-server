@@ -6,6 +6,7 @@ import core.tools.StringUtils;
 
 /**
  * GE Guide price.
+ * @author Vexia
  */
 public final class GEGuidePrice {
 

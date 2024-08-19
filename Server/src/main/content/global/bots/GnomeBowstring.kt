@@ -170,64 +170,46 @@ class GnomeBowstring : Script() {
 }
 
 /**
- * State
- *
- * @constructor State
+ * State.
  */
 enum class State {
     /**
-     * Picking
-     *
-     * @constructor Picking
+     * Picking.
      */
     PICKING,
 
     /**
-     * Mining
-     *
-     * @constructor Mining
+     * Mining.
      */
     MINING,
 
     /**
-     * Spinning
-     *
-     * @constructor Spinning
+     * Spinning.
      */
     SPINNING,
 
     /**
-     * To Spinner
-     *
-     * @constructor To Spinner
+     * To Spinner.
      */
     TO_SPINNER,
 
     /**
-     * Find Bank
-     *
-     * @constructor Find Bank
+     * Find Bank.
      */
     FIND_BANK,
 
     /**
-     * Return To Flax
-     *
-     * @constructor Return To Flax
+     * Return To Flax.
      */
     RETURN_TO_FLAX,
 
     /**
-     * Banking
-     *
-     * @constructor Banking
+     * Banking.
      */
     BANKING,
 
     /**
-     * Init
-     *
-     * @constructor Init
+     * Init.
      */
     INIT
 }

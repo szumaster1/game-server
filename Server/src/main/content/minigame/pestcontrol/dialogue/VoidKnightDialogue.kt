@@ -10,7 +10,7 @@ import core.game.world.GameWorld.settings
 import core.plugin.Initializable
 
 /**
- * Represents the Void knight dialogue.
+ * Represents the Void Knight dialogue.
  */
 @Initializable
 class VoidKnightDialogue(player: Player? = null) : Dialogue(player) {

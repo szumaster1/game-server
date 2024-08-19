@@ -7,7 +7,7 @@ import core.game.node.entity.npc.NPCBehavior
 import core.tools.RandomFunction
 
 /**
- * Trade refee NPC.
+ * Represents the Trade Refee NPC.
  */
 class TradeRefeeNPC : NPCBehavior(NPCs.TRADE_REFEREE_2127) {
 

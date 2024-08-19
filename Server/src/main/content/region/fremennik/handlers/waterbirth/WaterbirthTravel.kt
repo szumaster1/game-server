@@ -7,7 +7,7 @@ import core.game.system.task.Pulse
 import core.game.world.map.Location
 
 /**
- * Waterbirth travel.
+ * Represents the Waterbirth travel.
  */
 object WaterbirthTravel {
 
@@ -66,7 +66,7 @@ object WaterbirthTravel {
 }
 
 /**
- * Travel destination
+ * Represents the Travel destination
  *
  * @param destName The name of the travel destination.
  * @param destinationLoc The location coordinates of the destination.

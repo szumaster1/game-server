@@ -9,7 +9,7 @@ import core.game.node.entity.player.Player
 import core.game.world.map.Location
 
 /**
- * Pest Control brawler NPC.
+ * Represents the Pest Control brawler NPC.
  */
 class PCBrawlerNPC : AbstractNPC {
 

@@ -9,6 +9,10 @@ import core.game.node.entity.npc.NPC
 import core.game.node.entity.npc.NPCBehavior
 import core.game.worldevents.holiday.HolidayRandomEventNPC
 
+/**
+ * Represents the Spider holiday random behavior.
+ * @author Zerken
+ */
 class SpiderHolidayRandomBehavior : NPCBehavior() {
 
     override fun canBeAttackedBy(self: NPC, attacker: Entity, style: CombatStyle, shouldSendMessage: Boolean): Boolean {

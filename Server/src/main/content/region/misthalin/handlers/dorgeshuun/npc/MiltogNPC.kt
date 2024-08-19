@@ -7,7 +7,7 @@ import core.tools.RandomFunction
 import core.api.consts.NPCs
 
 /**
- * Miltog NPC.
+ * Represents the Miltog NPC.
  */
 class MiltogNPC : NPCBehavior(NPCs.MILTOG_5781) {
 

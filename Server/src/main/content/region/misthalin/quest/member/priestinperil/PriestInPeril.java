@@ -11,7 +11,7 @@ import core.plugin.Initializable;
 import static core.api.ContentAPIKt.removeAttribute;
 
 /**
- * Priest in peril quest.
+ * Represents the Priest in peril quest.
  */
 @Initializable
 public class PriestInPeril extends Quest {

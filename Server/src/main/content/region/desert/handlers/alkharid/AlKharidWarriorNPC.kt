@@ -11,7 +11,7 @@ import core.game.world.map.RegionManager
 import core.plugin.Initializable
 
 /**
- * Al kharid warrior NPC.
+ * Represents the Al kharid warrior NPC.
  */
 @Initializable
 class AlKharidWarriorNPC : AbstractNPC {

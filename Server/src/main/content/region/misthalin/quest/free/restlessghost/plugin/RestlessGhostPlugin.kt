@@ -25,7 +25,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Restless ghost plugin.
+ * Represents the Restless ghost plugin.
  */
 @Initializable
 class RestlessGhostPlugin : OptionHandler() {

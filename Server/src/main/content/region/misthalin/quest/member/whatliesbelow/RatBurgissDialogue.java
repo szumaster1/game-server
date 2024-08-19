@@ -9,7 +9,7 @@ import core.game.node.entity.player.link.diary.DiaryType;
 import core.game.node.entity.player.link.quest.Quest;
 
 /**
- * Rat burgiss dialogue.
+ * Represents the Rat burgiss dialogue.
  */
 public class RatBurgissDialogue extends Dialogue {
 

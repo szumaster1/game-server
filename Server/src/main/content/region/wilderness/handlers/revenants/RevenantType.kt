@@ -3,7 +3,7 @@ package content.region.wilderness.handlers.revenants
 import core.cache.def.impl.NPCDefinition
 
 /**
- * Revenant type.
+ * Represents the Revenant type.
  *
  * @param maxHit the max hit.
  * @param ids the ids.

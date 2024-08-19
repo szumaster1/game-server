@@ -17,7 +17,7 @@ import core.game.system.task.Pulse
 import core.tools.RandomFunction
 
 /**
- * Rogues castle listeners.
+ * Represents the Rogues castle listeners.
  */
 class RoguesCastleListeners : InteractionListener {
 

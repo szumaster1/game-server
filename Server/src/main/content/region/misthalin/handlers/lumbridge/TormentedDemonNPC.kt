@@ -19,7 +19,7 @@ import core.tools.RandomFunction
 import java.util.concurrent.TimeUnit
 
 /**
- * Tormented demon NPC.
+ * Represents the Tormented demon NPC.
  */
 @Initializable
 class TormentedDemonNPC @JvmOverloads constructor(id: Int = -1, location: Location? = null) : AbstractNPC(id, location) {

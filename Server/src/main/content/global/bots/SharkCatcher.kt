@@ -32,10 +32,10 @@ if (offer.itemId == 383 && offer.amount >= 1000) {
 
 /**
  * A bot script for fishing sharks in the Fishing Guild - Fishes, Banks, Sells.
- *
  * @param mycounter used in the bots random idling function.
  * @param pause is currently not used.
  * @param limit is the number of Raw Sharks in the GE the bots will sleep at.
+ * @author Sir Kermit, Ceikry, Angle
  */
 @PlayerCompatible
 @ScriptName("Guild Sharks")

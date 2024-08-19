@@ -27,7 +27,7 @@ import core.api.consts.NPCs
 import core.api.consts.Scenery
 
 /**
- * Lumbridge achievement diary.
+ * Represents the Lumbridge achievement diary.
  */
 class LumbridgeAchievementDiary : DiaryEventHookBase(DiaryType.LUMBRIDGE) {
 

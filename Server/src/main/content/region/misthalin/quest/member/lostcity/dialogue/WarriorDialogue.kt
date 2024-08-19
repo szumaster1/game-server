@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Warrior dialogue.
+ * Represents the Warrior dialogue.
  */
 @Initializable
 class WarriorDialogue(player: Player? = null) : Dialogue(player) {

@@ -27,6 +27,9 @@ import java.util.*
 import java.util.concurrent.BlockingDeque
 import java.util.concurrent.LinkedBlockingDeque
 
+/**
+ * Processes management-related events e.g clan messages, etc.
+ */
 object ManagementEvents {
     private var isRunning: Boolean = true
     private val eventQueue: BlockingDeque<Message> = LinkedBlockingDeque()

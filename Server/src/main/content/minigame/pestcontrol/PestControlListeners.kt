@@ -9,7 +9,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Pest control listeners.
+ * Represents the Pest control listeners.
  */
 class PestControlListeners : InteractionListener {
 

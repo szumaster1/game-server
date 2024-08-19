@@ -6,7 +6,7 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
 /**
- * Instantiates a new Cake.
+ * Represents any cake item that is made of three even slices.
  *
  * @param ids      the ids
  * @param effect   the effect

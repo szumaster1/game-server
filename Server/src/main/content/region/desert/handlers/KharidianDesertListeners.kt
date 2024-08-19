@@ -15,7 +15,7 @@ import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
 
 /**
- * Kharidian desert listeners.
+ * Represents the Kharidian desert listeners.
  */
 class KharidianDesertListeners : InteractionListener {
 

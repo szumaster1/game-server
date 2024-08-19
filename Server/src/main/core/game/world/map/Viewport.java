@@ -8,25 +8,38 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Viewport.
+ * Represents an entity's viewport.
+ * @author Emperor
  */
 public final class Viewport {
 
     /**
-     * The constant CHUNK_SIZE.
+     * The amount of chunks in a viewport.
      */
     public static final int CHUNK_SIZE = 5;
 
+    /**
+     * The region region.
+     */
     private Region region;
 
+    /**
+     * The region chunks.
+     */
     private RegionChunk[][] chunks = new RegionChunk[CHUNK_SIZE][CHUNK_SIZE];
 
+    /**
+     * The region region plane.
+     */
     private RegionPlane currentPlane;
 
+    /**
+     * The region planes the entity can see.
+     */
     private List<RegionPlane> viewingPlanes = new LinkedList<>();
 
     /**
-     * Instantiates a new Viewport.
+     * Constructs a new {@code Viewport} {@code Object}.
      */
     public Viewport() {
         /*
@@ -35,9 +48,8 @@ public final class Viewport {
     }
 
     /**
-     * Update viewport.
-     *
-     * @param entity the entity
+     * Updates the entity's viewport.
+     * @param entity The entity.
      */
     public void updateViewport(Entity entity) {
         RegionChunk chunk = RegionManager.getRegionChunk(entity.getLocation());
@@ -55,9 +67,8 @@ public final class Viewport {
     }
 
     /**
-     * Remove.
-     *
-     * @param entity the entity
+     * Removes the entity from the viewingPlanes.
+     * @param entity The entity.
      */
     public void remove(Entity entity) {
         if (region == null) {
@@ -79,72 +90,63 @@ public final class Viewport {
     }
 
     /**
-     * Gets region.
-     *
-     * @return the region
+     * Gets the region.
+     * @return The region.
      */
     public Region getRegion() {
         return region;
     }
 
     /**
-     * Sets region.
-     *
-     * @param region the region
+     * Sets the region.
+     * @param region The region to set.
      */
     public void setRegion(Region region) {
         this.region = region;
     }
 
     /**
-     * Get chunks region chunk [ ] [ ].
-     *
-     * @return the region chunk [ ] [ ]
+     * Gets the chunks.
+     * @return The chunks.
      */
     public RegionChunk[][] getChunks() {
         return chunks;
     }
 
     /**
-     * Sets chunks.
-     *
-     * @param chunks the chunks
+     * Sets the chunks.
+     * @param chunks The chunks to set.
      */
     public void setChunks(RegionChunk[][] chunks) {
         this.chunks = chunks;
     }
 
     /**
-     * Gets viewing planes.
-     *
-     * @return the viewing planes
+     * Gets the viewingPlanes.
+     * @return The viewingPlanes.
      */
     public List<RegionPlane> getViewingPlanes() {
         return viewingPlanes;
     }
 
     /**
-     * Sets viewing planes.
-     *
-     * @param regions the regions
+     * Sets the viewingPlanes.
      */
     public void setViewingPlanes(List<RegionPlane> regions) {
         this.viewingPlanes = regions;
     }
 
     /**
-     * Gets current plane.
-     *
-     * @return the current plane
+     * Gets the currentPlane.
+     * @return The currentPlane.
      */
     public RegionPlane getCurrentPlane() {
         return currentPlane;
     }
 
     /**
-     * Sets current plane.
-     *
-     * @param currentPlane the current plane
+     * Sets the currentPlane.
+     * @param currentPlane The currentPlane to set.
      */
     public void setCurrentPlane(RegionPlane currentPlane) {
         this.currentPlane = currentPlane;

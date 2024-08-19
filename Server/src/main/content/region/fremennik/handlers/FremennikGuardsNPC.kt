@@ -8,7 +8,7 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * Fremennik guards NPC.
+ * Represents the Fremennik guards NPC.
  */
 @Initializable
 class FremennikGuardsNPC : AbstractNPC {

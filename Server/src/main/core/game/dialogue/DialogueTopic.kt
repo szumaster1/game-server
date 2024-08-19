@@ -1,14 +1,15 @@
 package core.game.dialogue
 
 /**
- * Topic
+ * This class represents a generic expression evaluator.
+ * @author Ceikry
  *
- * @param T
- * @param expr
- * @param text
- * @param toStage
- * @param skipPlayer
- * @constructor Topic
+ * @param T The type of the expression being evaluated.
+ * @param expr The expression to be evaluated.
+ * @param text A textual representation of the expression.
+ * @param toStage The stage to which the expression is being evaluated.
+ * @param skipPlayer A flag indicating whether to skip the player in the evaluation.
+ * @constructor Initializes the expression evaluator with the provided parameters.
  */
 open class Topic<T> @JvmOverloads constructor(
     val expr: FacialExpression,

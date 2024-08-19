@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Jungle Scout dialogue.
+ * Represents the Jungle Scout dialogue.
  */
 @Initializable
 class JungleScoutDialogue(player: Player? = null) : Dialogue(player) {

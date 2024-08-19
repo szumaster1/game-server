@@ -11,7 +11,7 @@ import core.game.world.map.zone.ZoneBorders
 import core.game.world.update.flag.context.Graphic
 
 /**
- * Monkey gree grees listener.
+ * Represents the Monkey Gree Grees listener.
  */
 class MonkeyGreeGreesListener : InteractionListener, MapArea {
 
@@ -27,16 +27,7 @@ class MonkeyGreeGreesListener : InteractionListener, MapArea {
         private const val LARGE_ZOMBIE_MONKEY = Items.MONKEY_GREEGREE_4030
         private const val MONKEY_GREEGREE = Items.MONKEY_GREEGREE_4031
 
-        private val ALL_STAFFS = intArrayOf(
-            SMALL_NINJA_MONKEY,
-            MEDIUM_NINJA_MONKEY,
-            GORILLA_GREEGREE,
-            BEARDED_GORILLA_GREEGREE,
-            ANCIENT_MONKEY,
-            SMALL_ZOMBIE_MONKEY,
-            LARGE_ZOMBIE_MONKEY,
-            MONKEY_GREEGREE
-        )
+        private val ALL_STAFFS = intArrayOf(SMALL_NINJA_MONKEY, MEDIUM_NINJA_MONKEY, GORILLA_GREEGREE, BEARDED_GORILLA_GREEGREE, ANCIENT_MONKEY, SMALL_ZOMBIE_MONKEY, LARGE_ZOMBIE_MONKEY, MONKEY_GREEGREE)
         private val AIR_BLAST_ANIMATION = Graphic(359, 96)
     }
 

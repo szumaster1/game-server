@@ -15,7 +15,7 @@ import core.game.world.map.Location
 import core.tools.RandomFunction
 
 /**
- * Dorgeshuun listeners.
+ * Represents the Dorgeshuun listeners.
  */
 class DorgeshuunListeners : InteractionListener {
 

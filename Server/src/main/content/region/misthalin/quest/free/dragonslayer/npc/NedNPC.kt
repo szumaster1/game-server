@@ -6,7 +6,7 @@ import core.game.node.entity.player.Player
 import core.game.world.map.Location
 
 /**
- * Ned NPC.
+ * Represents the Ned NPC.
  */
 class NedNPC : AbstractNPC {
 

@@ -15,7 +15,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Neitiznot zone.
+ * Represents the Neitiznot zone.
  */
 @Initializable
 class NeitiznotZone : MapZone("Neitiznot zone", true), Plugin<Any?> {

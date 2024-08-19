@@ -2,13 +2,14 @@ package core.game.ge
 
 import core.ServerConstants
 import core.cache.def.impl.ItemDefinition
-import core.integration.mysql.DatabaseManager
+import core.integrations.mysql.DatabaseManager
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 import java.sql.Connection
 
 /**
- * Collection of methods for interacting with the grand exchange databases.
+ * Collection of methods for interacting with the grand exchange databases
+ * @author Ceikry
  */
 object GEDB {
     lateinit var db: DatabaseManager

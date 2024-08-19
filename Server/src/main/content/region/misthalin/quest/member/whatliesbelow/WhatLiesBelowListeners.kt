@@ -7,7 +7,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * What lies below listeners.
+ * Represents the What lies below listeners.
  */
 class WhatLiesBelowListeners : InteractionListener {
 

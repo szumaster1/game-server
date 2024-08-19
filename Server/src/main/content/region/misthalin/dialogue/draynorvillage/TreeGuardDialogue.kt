@@ -11,7 +11,7 @@ import core.game.world.map.Location
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Tree guard dialogue.
+ * Represents the Tree Guard dialogue.
  */
 class TreeGuardDialogue : DialogueFile() {
 

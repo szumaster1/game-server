@@ -9,27 +9,27 @@ import core.game.world.update.flag.context.Animation;
 import static core.api.ContentAPIKt.*;
 
 /**
- * Consumable.
+ * Represents any item that has a consumption option such as 'Eat' or 'Drink'.
  */
 public abstract class Consumable {
 
     /**
-     * The Ids.
+     * Represents the item IDs of all the variants of a consumable where the last one is often the empty container, if it has any.
      */
     protected final int[] ids;
 
     /**
-     * The Effect.
+     * Represents the effect to apply on the player once the item is consumed.
      */
     protected final ConsumableEffect effect;
 
     /**
-     * The Messages.
+     * Represents the messages to send to the player when it consumes the item.
      */
     protected final String[] messages;
 
     /**
-     * The Animation.
+     * Represents the animation that the player will execute when consuming the item.
      */
     protected Animation animation = null;
 

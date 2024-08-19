@@ -9,6 +9,10 @@ import core.game.node.entity.player.Player
 import core.game.worldevents.holiday.HolidayRandoms
 import core.tools.RandomFunction
 
+/**
+ * Represents the Snowman Fight holiday random behavior.
+ * @author Zerken
+ */
 class SnowmanFightBehavior : NPCBehavior() {
 
     override fun onDeathStarted(self: NPC, killer: Entity) {

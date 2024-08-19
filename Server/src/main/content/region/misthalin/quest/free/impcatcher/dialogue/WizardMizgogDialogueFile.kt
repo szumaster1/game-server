@@ -13,7 +13,7 @@ import core.game.world.update.flag.context.Animation
 import core.tools.END_DIALOGUE
 
 /**
- * Wizard mizgog dialogue file.
+ * Represents the Wizard mizgog dialogue file.
  */
 class WizardMizgogDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {

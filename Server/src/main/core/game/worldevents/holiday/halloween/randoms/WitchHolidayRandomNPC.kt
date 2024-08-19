@@ -13,6 +13,10 @@ import core.game.worldevents.holiday.HolidayRandoms
 import core.game.worldevents.holiday.ResetHolidayAppearance
 import core.tools.RandomFunction
 
+/**
+ * Witch holiday random NPC.
+ * @author Zerken
+ */
 class WitchHolidayRandomNPC : HolidayRandomEventNPC(NPCs.WITCH_611) {
 
     override fun init() {

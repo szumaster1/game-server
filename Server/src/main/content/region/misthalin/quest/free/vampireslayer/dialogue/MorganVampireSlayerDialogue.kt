@@ -9,7 +9,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Morgan vampire slayer dialogue.
+ * Represents the Morgan vampire slayer dialogue.
  */
 class MorganVampireSlayerDialogue : DialogueFile() {
 

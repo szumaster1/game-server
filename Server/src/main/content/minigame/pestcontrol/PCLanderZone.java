@@ -10,7 +10,7 @@ import core.game.world.map.zone.ZoneBorders;
 import core.game.world.map.zone.ZoneRestriction;
 
 /**
- * Pest Control lander zone.
+ * Represents the Pest Control lander zone.
  */
 public final class PCLanderZone extends MapZone {
 

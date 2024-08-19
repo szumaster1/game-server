@@ -13,39 +13,52 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Message log.
+ * Handles message monitoring.
+ * @author Emperor
  */
 public class MessageLog {
 
+    /**
+     * The date format used.
+     */
     private final DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
+    /**
+     * The messages.
+     */
     private List<String> messages;
 
+    /**
+     * The logging capacity.
+     */
     private final int capacity;
 
+    /**
+     * If all messages logged should be unique.
+     */
     private boolean uniqueLogging;
 
     /**
-     * Instantiates a new Message log.
+     * Constructs a new {@code MessageLog} {@code Object} without capacity and
+     * uniqueLogging mode disabled.
      */
     public MessageLog() {
         this(-1, false);
     }
 
     /**
-     * Instantiates a new Message log.
-     *
-     * @param capacity the capacity
+     * Constructs a new {@code MessageLog} {@code Object} with uniqueLogging
+     * mode disabled.
+     * @param capacity The capacity (-1 for no capacity).
      */
     public MessageLog(int capacity) {
         this(capacity, false);
     }
 
     /**
-     * Instantiates a new Message log.
-     *
-     * @param capacity      the capacity
-     * @param uniqueLogging the unique logging
+     * Constructs a new {@code MessageLog} {@code Object}.
+     * @param capacity The capacity (-1 for no capacity).
+     * @param uniqueLogging If all messages logged should be unique.
      */
     public MessageLog(int capacity, boolean uniqueLogging) {
         this.capacity = capacity;
@@ -54,10 +67,9 @@ public class MessageLog {
     }
 
     /**
-     * Log.
-     *
-     * @param message   the message
-     * @param timeStamp the time stamp
+     * Adds a message to the cache.
+     * @param message The message.
+     * @param timeStamp If the message should be time stamped.
      */
     public void log(String message, boolean timeStamp) {
         if (messages.size() == capacity) {
@@ -74,9 +86,8 @@ public class MessageLog {
     }
 
     /**
-     * Write.
-     *
-     * @param fileName the file name
+     * Writes the logged data to the file.
+     * @param fileName The name of the file to write on.
      */
     public void write(String fileName) {
         if (messages.isEmpty()) {
@@ -106,27 +117,24 @@ public class MessageLog {
     }
 
     /**
-     * Gets messages.
-     *
-     * @return the messages
+     * Gets the messages.
+     * @return The messages.
      */
     public List<String> getMessages() {
         return messages;
     }
 
     /**
-     * Sets messages.
-     *
-     * @param messages the messages
+     * Sets the messages.
+     * @param messages The messages to set.
      */
     public void setMessages(List<String> messages) {
         this.messages = messages;
     }
 
     /**
-     * Gets capacity.
-     *
-     * @return the capacity
+     * Gets the capacity.
+     * @return The capacity.
      */
     public int getCapacity() {
         return capacity;

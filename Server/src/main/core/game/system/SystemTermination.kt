@@ -19,7 +19,9 @@ import java.io.File
 import java.util.function.Consumer
 
 /**
- * System termination.
+ * Handles the terminating of the system.
+ * @author Emperor
+ *
  */
 class SystemTermination {
 
@@ -68,7 +70,7 @@ class SystemTermination {
     /**
      * Saves all system data on the directory.
      *
-     * @param directory The directory to save the data.
+     * @param directory The base directory.
      */
     fun save(directory: String?) {
         val file = File(directory)

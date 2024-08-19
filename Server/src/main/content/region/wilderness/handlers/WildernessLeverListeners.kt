@@ -13,7 +13,7 @@ import core.game.world.GameWorld.Pulser
 import core.game.world.map.Location
 
 /**
- * Wilderness lever listeners.
+ * Represents the Wilderness lever listeners.
  */
 class WildernessLeverListeners : InteractionListener {
 

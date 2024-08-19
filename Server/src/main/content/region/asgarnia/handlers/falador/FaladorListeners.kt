@@ -11,7 +11,7 @@ import core.game.interaction.InteractionListener
 import core.game.world.map.Location
 
 /**
- * Falador listeners.
+ * Represents the Falador listeners.
  */
 class FaladorListeners : InteractionListener {
 

@@ -18,18 +18,19 @@ import static core.tools.DialogueHelperKt.DIALOGUE_INITIAL_OPTIONS_HANDLE;
 import static core.tools.DialogueHelperKt.START_DIALOGUE;
 
 /**
- * Dialogue.
+ * Represents a dialogue plugin.
+ * @author Emperor
  */
 @PluginManifest(type = PluginType.DIALOGUE)
 public abstract class Dialogue implements Plugin<Player> {
 
     /**
-     * The constant RED.
+     * Represents the red string.
      */
     protected static final String RED = "<col=8A0808>";
 
     /**
-     * The constant BLUE.
+     * Represents the blue string.
      */
     protected static final String BLUE = "<col=08088A>";
 

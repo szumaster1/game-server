@@ -22,7 +22,7 @@ import core.game.world.update.flag.context.Animation
 import core.tools.Log
 
 /**
- * Varrock listeners.
+ * Represents the Varrock listeners.
  */
 class VarrockListeners : InteractionListener {
 

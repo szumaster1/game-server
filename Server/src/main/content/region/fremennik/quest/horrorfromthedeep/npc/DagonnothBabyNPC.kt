@@ -12,7 +12,7 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * Dagonnoth baby NPC.
+ * Represents the Dagonnoth baby NPC.
  */
 @Initializable
 class DagonnothBabyNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {

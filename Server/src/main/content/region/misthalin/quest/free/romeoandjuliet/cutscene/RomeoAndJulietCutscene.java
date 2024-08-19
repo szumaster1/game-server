@@ -15,7 +15,7 @@ import core.plugin.Initializable;
 
 
 /**
- * Romeo and juliet cutscene.
+ * Represents the Romeo and juliet cutscene.
  */
 @Initializable
 public final class RomeoAndJulietCutscene extends CutscenePlugin {

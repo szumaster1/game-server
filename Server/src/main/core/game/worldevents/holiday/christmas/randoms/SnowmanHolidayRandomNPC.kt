@@ -8,6 +8,10 @@ import core.game.worldevents.holiday.HolidayRandomEventNPC
 import core.tools.RandomFunction
 import core.tools.minutesToTicks
 
+/**
+ * Represents the Snowman holiday random NPC.
+ * @author Zerken
+ */
 class SnowmanHolidayRandomNPC : HolidayRandomEventNPC(NPCs.SNOWMAN_6746) {
     private val snowmanLines = listOf("@name, are you there?", "Excuse me, @name?", "@name, could I please speak with you?")
     private var hasTalkedWith = false

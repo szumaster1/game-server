@@ -29,7 +29,7 @@ import core.plugin.Initializable
 import core.tools.RandomFunction
 
 /**
- * Tzhaar fight pits plugin.
+ * Represents the Tzhaar fight pits plugin.
  */
 @Initializable
 class TzhaarFightPitsPlugin : ActivityPlugin("fight pits", false, true, true, ZoneRestriction.CANNON) {

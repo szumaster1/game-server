@@ -33,7 +33,7 @@ import core.network.packet.outgoing.MinimapState;
 import static core.api.ContentAPIKt.*;
 
 /**
- * Demon slayer cutscene.
+ * Represents the Demon slayer cutscene.
  */
 public final class DemonSlayerCutscene extends CutscenePlugin {
 

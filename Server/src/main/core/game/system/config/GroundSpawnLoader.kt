@@ -27,7 +27,6 @@ class GroundSpawnLoader {
 
     /**
      * Load.
-     *
      */
     fun load() {
         var count = 0

@@ -30,7 +30,7 @@ import static core.api.ContentAPIKt.sendItemDialogue;
 import static core.api.ContentAPIKt.setVarp;
 
 /**
- * Dragon slayer plugin.
+ * Represents the Dragon slayer plugin.
  */
 public final class DragonSlayerPlugin extends OptionHandler {
 

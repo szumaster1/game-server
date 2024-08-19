@@ -24,7 +24,7 @@ import java.util.Arrays;
 import static core.api.ContentAPIKt.setVarp;
 
 /**
- * Ernest the chicken plugin.
+ * Represents the Ernest the chicken plugin.
  */
 @Initializable
 public final class ErnestTheChickenPlugin extends OptionHandler {

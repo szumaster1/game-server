@@ -4,7 +4,7 @@ import content.region.misthalin.quest.member.ragandboneman.BoneBoiler.values
 import core.api.consts.Items
 
 /**
- * Bone boiler.
+ * Represents the Bone boiler.
  *
  * @param bone The ID of the bone item.
  * @param boneInVinegar The ID of the bone in vinegar item.

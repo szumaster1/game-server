@@ -10,7 +10,7 @@ import core.tools.END_DIALOGUE
 import core.api.consts.NPCs
 
 /**
- * Represents the Lumbridge shopkeeper dialogue.
+ * Represents the Lumbridge Shopkeeper dialogue.
  */
 @Initializable
 class LumbridgeShopKeeperDialogue(player: Player? = null) : Dialogue(player) {

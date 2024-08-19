@@ -7,6 +7,7 @@ import core.game.world.map.zone.ZoneBorders
 
 /**
  * Represents the Castle wars.
+ * @author Dginovoker
  */
 object CastleWars {
     // Scenery IDs

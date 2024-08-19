@@ -6,16 +6,16 @@ import core.network.packet.IoBuffer;
 import core.network.packet.outgoing.AnimateScenery;
 
 /**
- * Animate object update flag.
+ * The animate object update flag.
+ * @author Emperor
  */
-public final class AnimateObjectUpdateFlag extends UpdateFlag<Animation> {
+public final class AnimateSceneryUpdateFlag extends UpdateFlag<Animation> {
 
     /**
-     * Instantiates a new Animate object update flag.
-     *
-     * @param context the context
+     * Constructs a new {@code AnimateSceneryUpdateFlag} {@code Object}.
+     * @param context The animation.
      */
-    public AnimateObjectUpdateFlag(Animation context) {
+    public AnimateSceneryUpdateFlag(Animation context) {
         super(context);
     }
 

@@ -10,6 +10,10 @@ import core.game.worldevents.holiday.HolidayRandomEventNPC
 import core.game.worldevents.holiday.HolidayRandoms
 import core.tools.RandomFunction
 
+/**
+ * Represents the Death holiday random NPC.
+ * @author Zerken
+ */
 class DeathHolidayRandomNPC : HolidayRandomEventNPC(NPCs.DEATH_2862) {
 
     override fun init() {

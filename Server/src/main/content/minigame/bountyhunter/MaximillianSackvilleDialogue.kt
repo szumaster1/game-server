@@ -12,7 +12,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Represents the Maximillian sackville dialogue.
+ * Represents the Maximillian Sackville dialogue.
  * @author vddCore
  */
 class MaximillianSackvilleDialogue(player: Player? = null) : Dialogue(player) {

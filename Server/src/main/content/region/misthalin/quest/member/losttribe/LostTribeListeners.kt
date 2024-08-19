@@ -13,7 +13,7 @@ import core.game.world.GameWorld
 import core.game.world.update.flag.context.Animation
 
 /**
- * Lost tribe listeners.
+ * Represents the Lost tribe listeners.
  */
 class LostTribeListeners : InteractionListener {
 

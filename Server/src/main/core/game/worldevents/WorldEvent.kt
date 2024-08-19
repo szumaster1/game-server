@@ -9,7 +9,8 @@ import org.json.simple.JSONObject
 import java.util.*
 
 /**
- * World event
+ * The class other world events should extend off of.
+ * @author Ceikry
  *
  * @param name The name of the world event.
  * @constructor World event
@@ -18,15 +19,12 @@ abstract class WorldEvent(var name: String) : ContentInterface {
     var plugins = PluginSet() // Initialize a set of plugins associated with the world event.
 
     /**
-     * Check active
-     *
-     * @param cal The calendar instance used to check the event's activity.
-     * @return Boolean indicating if the event is active.
-     */
-    /*
      * This function checks if the event is active or not.
      * It can be customized to check specific dates or simply return true
      * based on the requirements of the specific event.
+     *
+     * @param cal The calendar instance used to check the event's activity.
+     * @return Boolean indicating if the event is active.
      */
     open fun checkActive(cal: Calendar): Boolean {
         return false // Default implementation returns false, indicating the event is not active.

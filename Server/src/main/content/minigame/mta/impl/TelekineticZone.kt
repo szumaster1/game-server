@@ -24,7 +24,7 @@ import core.network.packet.outgoing.CameraViewPacket
 import core.tools.RandomFunction
 
 /**
- * Telekinetic zone.
+ * Represents the Telekinetic zone.
  */
 class TelekineticZone(val player: Player? = null) : MTAZone("Telekinetic Theatre", arrayOf()) {
 

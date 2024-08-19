@@ -10,6 +10,9 @@ import core.game.node.entity.player.link.emote.Emotes
 import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
+/**
+ * Handles grim's dialogue for the 2021 halloween event.
+ */
 class GrimDialogue(player: Player? = null) : Dialogue(player) {
 
     var firstSpeak = true

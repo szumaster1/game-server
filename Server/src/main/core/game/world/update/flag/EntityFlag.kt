@@ -1,92 +1,66 @@
 package core.game.world.update.flag
 
 /**
- * Entity flag
- *
- * @constructor Entity flag
+ * Entity flag.
  */
 enum class EntityFlag {
     /**
-     * Chat
-     *
-     * @constructor Chat
+     * Chat.
      */
     Chat,
 
     /**
-     * Force chat
-     *
-     * @constructor Force chat
+     * Force chat.
      */
     ForceChat,
 
     /**
-     * Primary hit
-     *
-     * @constructor Primary hit
+     * Primary hit.
      */
     PrimaryHit,
 
     /**
-     * Secondary hit
-     *
-     * @constructor Secondary hit
+     * Secondary hit.
      */
     SecondaryHit,
 
     /**
-     * Animate
-     *
-     * @constructor Animate
+     * Animate.
      */
     Animate,
 
     /**
-     * Spot anim
-     *
-     * @constructor Spot anim
+     * Spot anim.
      */
     SpotAnim,
 
     /**
-     * Appearance
-     *
-     * @constructor Appearance
+     * Appearance.
      */
     Appearance,
 
     /**
-     * Face entity
-     *
-     * @constructor Face entity
+     * Face entity.
      */
     FaceEntity,
 
     /**
-     * Face location
-     *
-     * @constructor Face location
+     * Face location.
      */
     FaceLocation,
 
     /**
-     * Force move
-     *
-     * @constructor Force move
+     * Force move.
      */
     ForceMove,
 
     /**
-     * Anim seq
-     *
-     * @constructor Anim seq
+     * Anim seq.
      */
     AnimSeq,
 
     /**
-     * Type swap
-     *
-     * @constructor Type swap
+     * Type swap.
      */
     TypeSwap
 }

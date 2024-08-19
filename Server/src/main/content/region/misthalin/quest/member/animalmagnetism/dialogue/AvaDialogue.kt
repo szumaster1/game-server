@@ -19,7 +19,7 @@ import core.game.world.GameWorld.settings
 import core.tools.END_DIALOGUE
 
 /**
- * Ava dialogue.
+ * Represents the Ava dialogue.
  */
 class AvaDialogue(player: Player? = null) : Dialogue(player) {
 

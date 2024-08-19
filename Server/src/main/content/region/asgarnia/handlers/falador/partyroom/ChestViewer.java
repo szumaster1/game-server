@@ -12,7 +12,7 @@ import core.network.packet.outgoing.ContainerPacket;
 import static core.api.ContentAPIKt.setVarp;
 
 /**
- * Chest viewer.
+ * Represents the Chest viewer.
  */
 public final class ChestViewer {
     private static final Object[] BEING_DROPPED = new Object[]{"", "", "", "", "", "", "", "", "", -1, 0, 39, 6, 92, 647 << 16 | 27};

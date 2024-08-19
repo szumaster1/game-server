@@ -21,7 +21,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Heroes guild plugin.
+ * Represents the Heroes guild plugin.
  */
 @Initializable
 class HeroesGuildPlugin : OptionHandler() {

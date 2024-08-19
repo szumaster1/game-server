@@ -8,7 +8,7 @@ import core.game.interaction.InteractionListener
 import core.game.world.map.Location
 
 /**
- * Sawmill listeners.
+ * Represents the Sawmill listeners.
  */
 class SawmillListeners : InteractionListener {
 

@@ -16,7 +16,7 @@ import core.game.world.update.flag.context.Graphic
 import core.plugin.Plugin
 
 /**
- * Enchant spell.
+ * Represents the Enchant spell.
  */
 class EnchantSpell : MagicSpell {
     private val jewellery: Map<Int, Item>?

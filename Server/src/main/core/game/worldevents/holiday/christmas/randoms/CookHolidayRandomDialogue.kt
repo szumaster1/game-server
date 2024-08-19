@@ -6,6 +6,10 @@ import core.game.dialogue.DialogueFile
 import core.game.dialogue.FacialExpression
 import core.game.worldevents.holiday.HolidayRandoms
 
+/**
+ * Represents the Cook holiday dialogue file.
+ * @author Zerken
+ */
 class CookHolidayRandomDialogue : DialogueFile() {
 
     private val cakes = listOf(Items.CAKE_1891, Items.CHOCOLATE_CAKE_1897, Items.MINT_CAKE_9475)

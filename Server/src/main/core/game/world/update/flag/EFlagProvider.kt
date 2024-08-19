@@ -7,9 +7,7 @@ import core.tools.Log
 import kotlin.reflect.KType
 
 /**
- * E flag type
- *
- * @constructor E flag type
+ * Entity Flag provider.
  */
 enum class EFlagType {
     /**
@@ -36,14 +34,13 @@ enum class EFlagType {
 }
 
 /**
- * E flag provider
+ * EFlagProvider class is responsible for managing entity flags.
  *
- * @param revision
- * @param type
- * @param presenceFlag
- * @param ordinal
- * @param flag
- * @constructor E flag provider
+ * @param revision An integer representing the version of the flag.
+ * @param type The type of the flag, represented by EFlagType.
+ * @param presenceFlag An integer indicating the presence status of the flag.
+ * @param ordinal An integer representing the order of the flag.
+ * @param flag An instance of EntityFlag that holds the actual flag data.
  */
 open class EFlagProvider(
     val revision: Int,
@@ -53,34 +50,31 @@ open class EFlagProvider(
     val flag: EntityFlag
 ) {
     /**
-     * Write to
+     * Write to the specified IoBuffer with the given context.
      *
-     * @param buffer
-     * @param context
+     * @param buffer The IoBuffer to write to.
+     * @param context The context in which the write operation is performed.
      */
     open fun writeTo(buffer: IoBuffer, context: Any?) {}
 
     /**
-     * Write to dynamic
+     * Write to a dynamic IoBuffer with the given context and entity.
      *
-     * @param buffer
-     * @param context
-     * @param e
+     * @param buffer The IoBuffer to write to.
+     * @param context The context in which the write operation is performed.
+     * @param e The entity that is being written to the buffer.
      */
     open fun writeToDynamic(buffer: IoBuffer, context: Any?, e: Entity) {
         writeTo(buffer, context)
     }
 
     /**
-     * Log invalid type
+     * Log an invalid type error with the provided context and expected type.
      *
-     * @param context
-     * @param expected
+     * @param context The context that was passed, which may be invalid.
+     * @param expected The expected type that should have been passed.
      */
     fun logInvalidType(context: Any?, expected: KType) {
-        logWithStack(
-            this::class.java,
-            Log.ERR,
-            "Invalid context of type ${context?.let { it::class.java.simpleName } ?: "null"} passed to ${this::class.simpleName} flag which expects $expected.")
+        logWithStack(this::class.java, Log.ERR, "Invalid context of type ${context?.let { it::class.java.simpleName } ?: "null"} passed to ${this::class.simpleName} flag which expects $expected.")
     }
 }

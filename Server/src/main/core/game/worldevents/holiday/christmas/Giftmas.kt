@@ -21,7 +21,8 @@ import core.tools.colorize
 import org.json.simple.JSONObject
 
 /**
- * Giftmas.
+ * Handle various events and giftmas commands.
+ * @author Zerken
  */
 class Giftmas : Commands, StartupListener, LoginListener, InteractionListener {
     // Method called during startup to initialize the event if active

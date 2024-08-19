@@ -1,28 +1,40 @@
 package core.cache;
 
+import java.nio.ByteBuffer;
+
 import core.cache.misc.ContainersInformation;
 import core.tools.StringUtils;
 
-import java.nio.ByteBuffer;
-
 /**
- * Cache file manager.
+ * A cache file manager.
+ * @author Dragonkk
  */
 public final class CacheFileManager {
 
+    /**
+     * The cache file.
+     */
     private CacheFile cacheFile;
 
+    /**
+     * The containers information.
+     */
     private ContainersInformation information;
 
+    /**
+     * Discard a files data.
+     */
     private boolean discardFilesData;
 
+    /**
+     * A array holding file data.
+     */
     private byte[][][] filesData;
 
     /**
-     * Instantiates a new Cache file manager.
-     *
-     * @param cacheFile        the cache file
-     * @param discardFilesData the discard files data
+     * Construct a new cache file manager.
+     * @param cacheFile The cache file.
+     * @param discardFilesData To discard a files data.
      */
     public CacheFileManager(CacheFile cacheFile, boolean discardFilesData) {
         this.cacheFile = cacheFile;
@@ -36,28 +48,25 @@ public final class CacheFileManager {
     }
 
     /**
-     * Gets cache file.
-     *
-     * @return the cache file
+     * Get the cache file.
+     * @return The cache file.
      */
     public CacheFile getCacheFile() {
         return cacheFile;
     }
 
     /**
-     * Gets containers size.
-     *
-     * @return the containers size
+     * Get the containers size.
+     * @return The containers size.
      */
     public int getContainersSize() {
         return information.getContainers().length;
     }
 
     /**
-     * Gets files size.
-     *
-     * @param containerId the container id
-     * @return the files size
+     * Get the files size.
+     * @param containerId The container id.
+     * @return The files size.
      */
     public int getFilesSize(int containerId) {
         if (!validContainer(containerId)) {
@@ -67,42 +76,45 @@ public final class CacheFileManager {
     }
 
     /**
-     * Reset files data.
+     * Reset the file data.
      */
     public void resetFilesData() {
         filesData = new byte[information.getContainers().length][][];
     }
 
     /**
-     * Valid file boolean.
-     *
-     * @param containerId the container id
-     * @param fileId      the file id
-     * @return the boolean
+     * Check if a file is valid.
+     * @param containerId The container id.
+     * @param fileId The file id.
+     * @return If the file is valid {@code true}.
      */
     public boolean validFile(int containerId, int fileId) {
         if (!validContainer(containerId)) {
             return false;
         }
-        return fileId >= 0 && information.getContainers()[containerId] != null && information.getContainers()[containerId].getFiles().length > fileId;
+        if (fileId < 0 || information.getContainers()[containerId] == null || information.getContainers()[containerId].getFiles().length <= fileId) {
+            return false;
+        }
+        return true;
 
     }
 
     /**
-     * Valid container boolean.
-     *
-     * @param containerId the container id
-     * @return the boolean
+     * If a container is valid.
+     * @param containerId The container id.
+     * @return If the container is valid {@code true}.
      */
     public boolean validContainer(int containerId) {
-        return containerId >= 0 && information.getContainers().length > containerId;
+        if (containerId < 0 || information.getContainers().length <= containerId) {
+            return false;
+        }
+        return true;
     }
 
     /**
-     * Get file ids int [ ].
-     *
-     * @param containerId the container id
-     * @return the int [ ]
+     * Get the file ids.
+     * @param containerId The container id.
+     * @return The file ids.
      */
     public int[] getFileIds(int containerId) {
         if (!validContainer(containerId)) {
@@ -112,10 +124,9 @@ public final class CacheFileManager {
     }
 
     /**
-     * Gets archive id.
-     *
-     * @param name the name
-     * @return the archive id
+     * Get the archive id.
+     * @param name The archive name.
+     * @return The archive id.
      */
     public int getArchiveId(String name) {
         if (name == null) {
@@ -131,22 +142,20 @@ public final class CacheFileManager {
     }
 
     /**
-     * Get file data byte [ ].
-     *
-     * @param containerId the container id
-     * @param fileId      the file id
-     * @return the byte [ ]
+     * Get the file data.
+     * @param containerId The container id.
+     * @param fileId The file id.
+     * @return The get file data.
      */
     public byte[] getFileData(int containerId, int fileId) {
         return getFileData(containerId, fileId, null);
     }
 
     /**
-     * Load files data boolean.
-     *
-     * @param archiveId the archive id
-     * @param keys      the keys
-     * @return the boolean
+     * Load the file data.
+     * @param archiveId The container id.
+     * @param keys The container keys.
+     * @return If the file data is loaded {@code true}.
      */
     public boolean loadFilesData(int archiveId, int[] keys) {
         byte[] data = cacheFile.getContainerUnpackedData(archiveId, keys);
@@ -167,7 +176,7 @@ public final class CacheFileManager {
             int amtOfLoops = data[--readPosition] & 0xff;
             readPosition -= amtOfLoops * (information.getContainers()[archiveId].getFilesIndexes().length * 4);
             ByteBuffer buffer = ByteBuffer.wrap(data);
-            int[] filesSize = new int[information.getContainers()[archiveId].getFilesIndexes().length];
+            int filesSize[] = new int[information.getContainers()[archiveId].getFilesIndexes().length];
             buffer.position(readPosition);
             for (int loop = 0; loop < amtOfLoops; loop++) {
                 int offset = 0;
@@ -200,12 +209,11 @@ public final class CacheFileManager {
     }
 
     /**
-     * Get file data byte [ ].
-     *
-     * @param containerId the container id
-     * @param fileId      the file id
-     * @param xteaKeys    the xtea keys
-     * @return the byte [ ]
+     * Get the file data.
+     * @param containerId The container id.
+     * @param fileId The file id.
+     * @param xteaKeys The container keys.
+     * @return The file data.
      */
     public byte[] getFileData(int containerId, int fileId, int[] xteaKeys) {
         if (!validFile(containerId, fileId)) {
@@ -228,63 +236,56 @@ public final class CacheFileManager {
     }
 
     /**
-     * Gets information.
-     *
-     * @return the information
+     * Get the containers information.
+     * @return The containers information.
      */
     public ContainersInformation getInformation() {
         return information;
     }
 
     /**
-     * Is discard files data boolean.
-     *
-     * @return the boolean
+     * Gets the discardFilesData.
+     * @return the discardFilesData.
      */
     public boolean isDiscardFilesData() {
         return discardFilesData;
     }
 
     /**
-     * Sets discard files data.
-     *
-     * @param discardFilesData the discard files data
+     * Sets the discardFilesData.
+     * @param discardFilesData the discardFilesData to set
      */
     public void setDiscardFilesData(boolean discardFilesData) {
         this.discardFilesData = discardFilesData;
     }
 
     /**
-     * Get files data byte [ ] [ ] [ ].
-     *
-     * @return the byte [ ] [ ] [ ]
+     * Gets the filesData.
+     * @return the filesData.
      */
     public byte[][][] getFilesData() {
         return filesData;
     }
 
     /**
-     * Sets files data.
-     *
-     * @param filesData the files data
+     * Sets the filesData.
+     * @param filesData the filesData to set
      */
     public void setFilesData(byte[][][] filesData) {
         this.filesData = filesData;
     }
 
     /**
-     * Sets cache file.
-     *
-     * @param cacheFile the cache file
+     * Sets the cacheFile.
+     * @param cacheFile the cacheFile to set
      */
     public void setCacheFile(CacheFile cacheFile) {
         this.cacheFile = cacheFile;
     }
 
     /**
-     * Sets information.
-     *
-     * @param information the information
+     * Sets the information.
+     * @param information the information to set
      */
     public void setInformation(ContainersInformation information) {
         this.information = information;

@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Kangai mau dialogue.
+ * Represents the Kangai Mau dialogue.
  */
 @Initializable
 class KangaiMauDialogue(player: Player? = null) : Dialogue(player) {

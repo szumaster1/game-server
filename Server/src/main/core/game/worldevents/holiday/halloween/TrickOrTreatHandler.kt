@@ -21,6 +21,9 @@ import core.game.world.update.flag.context.Graphic
 import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 
+/**
+ * Trick or treat handler.
+ */
 class TrickOrTreatHandler : InteractionListener {
 
     override fun defineListeners() {

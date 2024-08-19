@@ -6,17 +6,20 @@ import core.game.world.update.flag.context.Graphic;
 import core.network.packet.IoBuffer;
 
 /**
- * Graphic update flag.
+ * Handles the location graphic update.
+ * @author Emperor
  */
 public final class GraphicUpdateFlag extends UpdateFlag<Graphic> {
 
+    /**
+     * The location.
+     */
     private final Location location;
 
     /**
-     * Instantiates a new Graphic update flag.
-     *
-     * @param graphic  the graphic
-     * @param location the location
+     * Constructs a new {@code GraphicUpdateFlag} {@code Object}.
+     * @param graphic The graphic.
+     * @param location The location.
      */
     public GraphicUpdateFlag(Graphic graphic, Location location) {
         super(graphic);

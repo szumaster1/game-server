@@ -11,7 +11,7 @@ import core.game.node.item.Item
 import core.game.world.map.Location
 
 /**
- * Hand dust listener.
+ * Represents the Hand dust listener.
  */
 class HandDustListener : InteractionListener {
 

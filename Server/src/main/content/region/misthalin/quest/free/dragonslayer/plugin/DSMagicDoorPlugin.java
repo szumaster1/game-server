@@ -9,7 +9,7 @@ import core.game.world.map.Location;
 import core.plugin.Plugin;
 
 /**
- * Ds magic door plugin.
+ * Represents the Ds magic door plugin.
  */
 public final class DSMagicDoorPlugin extends UseWithHandler {
 

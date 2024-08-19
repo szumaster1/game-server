@@ -6,7 +6,7 @@ import core.game.node.entity.player.link.quest.Quest;
 import core.plugin.Initializable;
 
 /**
- * Rune mysteries.
+ * Represents the Rune mysteries.
  */
 @Initializable
 public class RuneMysteries extends Quest {

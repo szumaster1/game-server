@@ -5,7 +5,8 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Skill dialogue.
+ * Represents the dialogue plugin used to automatically handle skill dialogues with creation amounts.
+ * @author Vexia
  */
 @Initializable
 class SkillDialogue(player: Player? = null) : Dialogue(player) {

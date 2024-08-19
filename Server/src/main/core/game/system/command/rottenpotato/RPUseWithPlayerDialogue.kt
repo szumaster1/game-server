@@ -7,6 +7,7 @@ import core.plugin.Initializable
 
 /**
  * Rotten Potato -> Player interaction dialogue
+ * @author Ceikry
  */
 @Initializable
 class RPUseWithPlayerDialogue(player: Player? = null) : Dialogue(player) {

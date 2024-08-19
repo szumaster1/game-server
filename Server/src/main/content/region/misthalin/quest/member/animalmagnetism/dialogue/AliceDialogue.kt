@@ -10,7 +10,7 @@ import core.game.node.entity.player.link.quest.Quest
 import core.tools.END_DIALOGUE
 
 /**
- * Alice dialogue.
+ * Represents the Alice dialogue.
  */
 class AliceDialogue(player: Player? = null) : Dialogue(player) {
 

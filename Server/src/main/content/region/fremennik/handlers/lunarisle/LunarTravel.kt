@@ -7,7 +7,7 @@ import core.game.system.task.Pulse
 import core.game.world.map.Location
 
 /**
- * Lunar travel utils.
+ * Represents the Lunar travel utils.
  */
 object LunarTravel {
 
@@ -38,7 +38,7 @@ object LunarTravel {
 }
 
 /**
- * Enum class representing reaching a destination.
+ * Represents the Enum class representing reaching a destination.
  *
  * @param destName    The name of the destination.
  * @param destLoc     The location of the destination.

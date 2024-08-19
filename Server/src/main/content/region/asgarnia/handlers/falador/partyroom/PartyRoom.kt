@@ -15,7 +15,7 @@ import core.game.world.GameWorld.Pulser
 import core.game.world.map.Location
 
 /**
- * Party room.
+ * Represents the Party room.
  */
 object PartyRoom {
 

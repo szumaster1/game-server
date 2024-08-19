@@ -14,7 +14,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Curator Haig Halen dialogue.
+ * Represents the Curator Haig Halen dialogue.
  */
 class CuratorHaigHalenDialogue (player: Player? = null) : Dialogue(player) {
     override fun handle(interfaceId: Int, buttonId: Int): Boolean {

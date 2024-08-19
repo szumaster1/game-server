@@ -21,7 +21,7 @@ import core.tools.RandomFunction
 import kotlin.math.ceil
 
 /**
- * King black dragon NPC.
+ * Represents the King black dragon NPC.
  */
 @Initializable
 class KingBlackDragonNPC : AbstractNPC {

@@ -14,7 +14,7 @@ import core.game.system.command.sets.STATS_ALKHARID_GATE
 import core.game.system.command.sets.STATS_BASE
 
 /**
- * Alkharid listeners.
+ * Represents the Alkharid listeners.
  */
 class AlkharidListeners : InteractionListener {
 

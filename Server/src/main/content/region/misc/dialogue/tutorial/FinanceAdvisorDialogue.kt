@@ -12,7 +12,7 @@ import core.game.world.GameWorld.settings
 import core.plugin.Initializable
 
 /**
- * Represents the Finance advisor dialogue.
+ * Represents the Finance Advisor dialogue.
  */
 @Initializable
 class FinanceAdvisorDialogue(player: Player? = null) : Dialogue(player) {

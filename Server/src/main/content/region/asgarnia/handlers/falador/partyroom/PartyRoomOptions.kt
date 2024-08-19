@@ -20,7 +20,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Party room options.
+ * Represents the Party room options.
  */
 @Initializable
 class PartyRoomOptions : OptionHandler() {

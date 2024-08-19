@@ -18,7 +18,7 @@ import core.game.world.update.flag.context.Graphic
 import core.plugin.Plugin
 
 /**
- * Pest Control torcher NPC.
+ * Represents the Pest Control torcher NPC.
  */
 class PCTorcherNPC : AbstractNPC {
     private var session: PestControlSession? = null

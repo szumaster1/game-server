@@ -14,7 +14,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Rewards guardian dialogue.
+ * Represents the Rewards Guardian dialogue.
  */
 @Initializable
 class RewardsGuardianDialogue(player: Player? = null) : Dialogue(player) {

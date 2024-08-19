@@ -1,25 +1,41 @@
 package core.cache;
 
-import core.ServerConstants;
-import core.cache.def.impl.ItemDefinition;
-import core.cache.def.impl.SceneryDefinition;
-import core.tools.Log;
-
 import java.io.File;
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 
+import core.ServerConstants;
+import core.cache.def.impl.AnimationDefinition;
+import core.cache.def.impl.GraphicDefinition;
+import core.cache.def.impl.ItemDefinition;
+import core.cache.def.impl.NPCDefinition;
+import core.cache.def.impl.SceneryDefinition;
+import core.tools.Log;
+import core.tools.SystemLogger;
+
 import static core.api.ContentAPIKt.log;
 
 /**
- * Cache.
+ * A cache reader.
+ *
+ * @author Emperor
+ * @author Dragonkk
  */
 public final class Cache {
 
+    /**
+     * The cache file manager.
+     */
     private static CacheFileManager[] cacheFileManagers;
 
+    /**
+     * The container cache file informer.
+     */
     private static CacheFile referenceFile;
 
+    /**
+     * Construct a new instance.
+     */
     private Cache(String location) {
         try {
             init(location);
@@ -29,10 +45,10 @@ public final class Cache {
     }
 
     /**
-     * Init.
+     * Initialize the cache reader.
      *
-     * @param path the path
-     * @throws Throwable the throwable
+     * @param path The cache path.x
+     * @throws Throwable When an exception occurs.
      */
     public static void init(String path) throws Throwable {
         log(Cache.class, Log.FINE, "Initializing cache...");
@@ -58,7 +74,7 @@ public final class Cache {
     }
 
     /**
-     * Init.
+     * Initializes the cache.
      */
     public static void init() {
         try {
@@ -69,13 +85,13 @@ public final class Cache {
     }
 
     /**
-     * Gets archive data.
+     * Gets the archive buffer for the grab requests.
      *
-     * @param index           the index
-     * @param archive         the archive
-     * @param priority        the priority
-     * @param encryptionValue the encryption value
-     * @return the archive data
+     * @param index           The index id.
+     * @param archive         The archive id.
+     * @param priority        The priority.
+     * @param encryptionValue The current encryption value.
+     * @return The byte buffer.
      */
     public static ByteBuffer getArchiveData(int index, int archive, boolean priority, int encryptionValue) {
         byte[] data = index == 255 ? referenceFile.getContainerData(archive) : cacheFileManagers[index].getCacheFile().getContainerData(archive);
@@ -91,6 +107,7 @@ public final class Cache {
         }
         int realLength = compression != 0 ? length + 4 : length;
 
+        // TODO There are two archives that lack two bytes at the end (The version, most likely). This causes the client CRC to be miscalculated. To combat this, we simply send two more bytes if the length seems to be off.
         realLength += (index != 255 && compression != 0 && data.length - length == 9) ? 2 : 0;
         ByteBuffer buffer = ByteBuffer.allocate((realLength + 5) + (realLength / 512) + 10);
         buffer.put((byte) index);
@@ -101,8 +118,10 @@ public final class Cache {
             if (buffer.position() % 512 == 0) {
                 buffer.put((byte) 255);
             }
-            if (data.length > i) buffer.put(data[i]);
-            else buffer.put((byte) 0);
+            if (data.length > i)
+                buffer.put(data[i]);
+            else
+                buffer.put((byte) 0);
         }
         if (encryptionValue != 0) {
             for (int i = 0; i < buffer.position(); i++) {
@@ -114,9 +133,9 @@ public final class Cache {
     }
 
     /**
-     * Generate reference data byte [ ].
+     * Generate the reference data for the cache files.
      *
-     * @return the byte [ ]
+     * @return The reference data byte array.
      */
     public static final byte[] generateReferenceData() {
         ByteBuffer buffer = ByteBuffer.allocate(cacheFileManagers.length * 8);
@@ -133,46 +152,46 @@ public final class Cache {
     }
 
     /**
-     * Get indexes cache file manager [ ].
+     * Get the cache file managers.
      *
-     * @return the cache file manager [ ]
+     * @return The cache file managers.
      */
     public static final CacheFileManager[] getIndexes() {
         return cacheFileManagers;
     }
 
     /**
-     * Gets reference file.
+     * Get the container cache file informer.
      *
-     * @return the reference file
+     * @return The container cache file informer.
      */
     public static final CacheFile getReferenceFile() {
         return referenceFile;
     }
 
     /**
-     * Gets interface definitions components size.
+     * Method used to return the component size of the interface.
      *
-     * @param interfaceId the interface id
-     * @return the interface definitions components size
+     * @param interfaceId the interface.
+     * @return the value.
      */
     public static final int getInterfaceDefinitionsComponentsSize(int interfaceId) {
         return getIndexes()[3].getFilesSize(interfaceId);
     }
 
     /**
-     * Gets interface definitions size.
+     * Method used to return the max size of the interface definitions.
      *
-     * @return the interface definitions size
+     * @return the size.
      */
     public static final int getInterfaceDefinitionsSize() {
         return getIndexes()[3].getContainersSize();
     }
 
     /**
-     * Gets npc definitions size.
+     * Method used to return the {@link NPCDefinition} size.
      *
-     * @return the npc definitions size
+     * @return the size.
      */
     public static final int getNPCDefinitionsSize() {
         int lastContainerId = getIndexes()[18].getContainersSize() - 1;
@@ -180,9 +199,9 @@ public final class Cache {
     }
 
     /**
-     * Gets graphic definitions size.
+     * Method used to return the {@link GraphicDefinition} size.
      *
-     * @return the graphic definitions size
+     * @return the size.
      */
     public static final int getGraphicDefinitionsSize() {
         int lastContainerId = getIndexes()[21].getContainersSize() - 1;
@@ -190,9 +209,9 @@ public final class Cache {
     }
 
     /**
-     * Gets animation definitions size.
+     * Method used to return the {@link AnimationDefinition} size.
      *
-     * @return the animation definitions size
+     * @return the size.
      */
     public static final int getAnimationDefinitionsSize() {
         int lastContainerId = getIndexes()[20].getContainersSize() - 1;
@@ -200,9 +219,9 @@ public final class Cache {
     }
 
     /**
-     * Gets object definitions size.
+     * Method used to return the {@link SceneryDefinition} size.
      *
-     * @return the object definitions size
+     * @return the size.
      */
     public static final int getObjectDefinitionsSize() {
         int lastContainerId = getIndexes()[16].getContainersSize() - 1;
@@ -210,9 +229,9 @@ public final class Cache {
     }
 
     /**
-     * Gets item definitions size.
+     * Method used to return the item definition size.
      *
-     * @return the item definitions size
+     * @return the size.
      */
     public static final int getItemDefinitionsSize() {
         int lastContainerId = getIndexes()[19].getContainersSize() - 1;

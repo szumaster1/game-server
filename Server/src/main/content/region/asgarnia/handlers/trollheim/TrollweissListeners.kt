@@ -6,7 +6,7 @@ import core.game.interaction.InteractionListener
 import core.game.world.map.Location
 
 /**
- * Trollweiss listeners.
+ * Represents the Trollweiss listeners.
  */
 class TrollweissListeners : InteractionListener {
 

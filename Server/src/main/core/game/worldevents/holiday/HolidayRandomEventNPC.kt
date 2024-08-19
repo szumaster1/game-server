@@ -15,6 +15,7 @@ import kotlin.reflect.full.createInstance
 
 /**
  * Holiday random event NPC.
+ * @author Zerken
  */
 abstract class HolidayRandomEventNPC(id: Int) : NPC(id) {
     lateinit var player: Player

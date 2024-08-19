@@ -19,7 +19,7 @@ import core.plugin.Plugin;
 import static core.api.ContentAPIKt.*;
 
 /**
- * Priest in peril option plugin.
+ * Represents the Priest in peril option plugin.
  */
 @Initializable
 public class PriestInPerilOptionPlugin extends OptionHandler {

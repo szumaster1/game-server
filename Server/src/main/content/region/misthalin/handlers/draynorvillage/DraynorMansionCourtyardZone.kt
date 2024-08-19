@@ -8,7 +8,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Draynor mansion courtyard zone.
+ * Represents the Draynor mansion courtyard zone.
  */
 @Initializable
 class DraynorMansionCourtyardZone : MapZone("draynor-mansion-courtyard", true), Plugin<Any?> {

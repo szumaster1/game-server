@@ -24,7 +24,7 @@ import java.util.List;
 import static core.api.ContentAPIKt.setVarp;
 
 /**
- * The Balloon manager handler.
+ * Represents the The Balloon manager handler.
  */
 public final class BalloonManager extends OptionHandler {
     private static final List<Scenery> balloons = new ArrayList<>(20);

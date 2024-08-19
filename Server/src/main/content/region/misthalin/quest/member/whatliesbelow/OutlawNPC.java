@@ -8,7 +8,7 @@ import core.game.node.item.GroundItemManager;
 import core.game.world.map.Location;
 
 /**
- * Outlaw npc.
+ * Represents the Outlaw npc.
  */
 public class OutlawNPC extends AbstractNPC {
 

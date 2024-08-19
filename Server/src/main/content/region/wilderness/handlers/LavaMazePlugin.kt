@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Lava maze plugin.
+ * Represents the Lava maze plugin.
  */
 @Initializable
 class LavaMazePlugin : OptionHandler() {

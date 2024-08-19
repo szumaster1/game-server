@@ -16,7 +16,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Master crafter dialogue.
+ * Represents the Master crafter dialogue.
  */
 @Initializable
 class MasterCrafterDialogue(player: Player? = null) : Dialogue(player) {

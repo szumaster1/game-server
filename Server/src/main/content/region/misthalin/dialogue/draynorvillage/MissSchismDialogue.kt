@@ -9,7 +9,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Represents the Miss schism dialogue.
+ * Represents the Miss Schism dialogue.
  */
 @Initializable
 class MissSchismDialogue(player: Player? = null) : Dialogue(player) {

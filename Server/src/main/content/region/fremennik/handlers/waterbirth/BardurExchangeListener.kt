@@ -10,7 +10,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Bardur exchange listener.
+ * Represents the Bardur exchange listener.
  */
 class BardurExchangeListener : InteractionListener {
 

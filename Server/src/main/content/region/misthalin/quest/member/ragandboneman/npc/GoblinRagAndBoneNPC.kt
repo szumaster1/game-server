@@ -11,7 +11,7 @@ import core.game.node.item.Item
 import core.tools.RandomFunction
 
 /**
- * Goblin rag and bone NPC.
+ * Represents the Goblin rag and bone NPC.
  */
 class GoblinRagAndBoneNPC : NPCBehavior(*goblinIds) {
 

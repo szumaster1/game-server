@@ -3,9 +3,10 @@ package core.game.interaction;
 import core.cache.def.impl.SceneryDefinition;
 import core.game.node.Node;
 import core.game.node.entity.player.Player;
+import core.tools.Log;
+import core.tools.SystemLogger;
 import core.game.world.map.Location;
 import core.plugin.Plugin;
-import core.tools.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,73 +14,68 @@ import java.util.List;
 import static core.api.ContentAPIKt.log;
 
 /**
- * Option handler.
+ * Handles an interaction option.
+ * @author Emperor
  */
 public abstract class OptionHandler implements Plugin<Object> {
 
     /**
-     * Handle boolean.
-     *
-     * @param player the player
-     * @param node   the node
-     * @param option the option
-     * @return the boolean
+     * Handles the interaction option.
+     * @param player The player who used the option.
+     * @param node The node the player selected an option on.
+     * @param option The option selected.
+     * @return {@code True} if successful.
      */
     public abstract boolean handle(Player player, Node node, String option);
 
     /**
-     * Is delayed boolean.
-     *
-     * @param player the player
-     * @return the boolean
+     * Checks if the option should be handled after 1 game tick.
+     * @param player The player.
+     * @return {@code True} if so.
      */
     public boolean isDelayed(Player player) {
         return true;
     }
 
     /**
-     * Is walk boolean.
-     *
-     * @param player the player
-     * @param node   the node
-     * @return the boolean
+     * Checks if it needs a walk..
+     * @param node the node.
+     * @return true if so.
      */
     public boolean isWalk(final Player player, final Node node) {
         return false;
     }
 
     /**
-     * Is walk boolean.
-     *
-     * @return the boolean
+     * Gets the walk.
+     * @return if a walk is required.
      */
     public boolean isWalk() {
         return true;
     }
 
     /**
-     * Gets destination.
-     *
-     * @param n    the n
-     * @param node the node
-     * @return the destination
+     * Gets the custom destination for the node.
+     * @param n The moving node.
+     * @param node The node to walk to.
+     * @return The custom destination, or {@code null} if we should use the
+     * default destination.
      */
     public Location getDestination(Node n, Node node) {
         return null;
     }
 
     /**
-     * Get valid children int [ ].
-     *
-     * @param wrapper the wrapper
-     * @return the int [ ]
+     * Gets the valid children for the wrapper id.
+     * @param wrapper the wrapper id.
+     * @return the valid children.
      */
     public int[] getValidChildren(int wrapper) {
         final SceneryDefinition definition = SceneryDefinition.forId(wrapper);
         final List<Integer> list = new ArrayList<>(20);
         if (definition.getChildrenIds() == null) {
-            log(this.getClass(), Log.ERR, "Null child wrapper in option handler wrapperId=" + wrapper);
-            return new int[]{wrapper};
+            log(this.getClass(), Log.ERR,  "Null child wrapper in option handler wrapperId=" + wrapper);
+            return new int[] { wrapper };
         }
         for (int child : definition.getChildrenIds()) {
             if (child != -1 && !list.contains(child)) {

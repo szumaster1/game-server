@@ -12,7 +12,7 @@ import core.tools.RandomFunction;
 import static core.api.ContentAPIKt.addItemOrBank;
 
 /**
- * Gertrudes cat.
+ * Represents the Gertrudes cat.
  */
 @Initializable
 public class GertrudesCat extends Quest {

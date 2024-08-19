@@ -8,7 +8,7 @@ import core.game.interaction.InteractionListener
 import core.game.world.map.Location
 
 /**
- * Monastery listeners.
+ * Represents the Monastery listeners.
  */
 class MonasteryListeners : InteractionListener {
 

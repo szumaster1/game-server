@@ -13,7 +13,7 @@ import core.plugin.Initializable;
 import core.plugin.Plugin;
 
 /**
- * Tzhaar city plugin.
+ * Represents the Tzhaar city plugin.
  */
 @Initializable
 public final class TzhaarCityPlugin extends OptionHandler {

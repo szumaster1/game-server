@@ -11,7 +11,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 
 /**
- * Caleb dialogue.
+ * Represents the Caleb dialogue.
  */
 @Initializable
 class CalebDialogue(player: Player? = null) : Dialogue(player) {

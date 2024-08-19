@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.RandomFunction
 
 /**
- * Draynor tree NPC.
+ * Represents the Draynor tree NPC.
  */
 @Initializable
 class DraynorTreeNPC : AbstractNPC {

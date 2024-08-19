@@ -10,6 +10,10 @@ import core.game.node.entity.npc.NPC
 import core.game.worldevents.holiday.HolidayRandomEventNPC
 import core.tools.RandomFunction
 
+/**
+ * Ghost holiday random NPC.
+ * @author Zerken
+ */
 class GhostHolidayRandomNPC : HolidayRandomEventNPC(NPCs.GHOST_2716) {
     override fun init() {
         super.init()

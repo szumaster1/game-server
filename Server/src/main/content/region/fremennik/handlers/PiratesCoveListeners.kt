@@ -11,7 +11,7 @@ import core.game.interaction.InteractionListener
 import core.tools.RandomFunction
 
 /**
- * Pirates cove listeners.
+ * Represents the Pirates cove listeners.
  */
 class PiratesCoveListeners : InteractionListener {
 

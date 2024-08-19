@@ -32,7 +32,7 @@ import kotlin.random.Random
  *
  * @param counter used in the bots random idling function.
  * @param random is used to generate random number.
- * @param city determines the home city of the bot!!.
+ * @param city determines the home city of the bot.
  * @param freshspawn determines if the bot has just been spawned.
  * @param random_city is the list of cities that can be randomly chosen as the home city.
  * @param tree_list is the list of trees that a bot can start cutting randomly.

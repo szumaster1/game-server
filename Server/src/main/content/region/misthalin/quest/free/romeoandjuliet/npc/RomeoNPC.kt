@@ -6,7 +6,7 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * Romeo NPC.
+ * Represents the Romeo NPC.
  */
 @Initializable
 class RomeoNPC : AbstractNPC {

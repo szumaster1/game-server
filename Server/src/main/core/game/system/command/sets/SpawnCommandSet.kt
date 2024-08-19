@@ -14,9 +14,7 @@ import java.awt.Toolkit
 import java.awt.datatransfer.StringSelection
 
 /**
- * Spawn command set
- *
- * @constructor Spawn command set
+ * Spawn command set.
  */
 @Initializable
 class SpawnCommandSet : CommandSet(Privilege.ADMIN) {

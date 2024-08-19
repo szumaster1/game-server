@@ -16,7 +16,7 @@ import core.game.world.GameWorld.ticks
 import core.plugin.Plugin
 
 /**
- * Drop party lever.
+ * Represents the Drop party lever.
  */
 class DropPartyLever : OptionHandler() {
 

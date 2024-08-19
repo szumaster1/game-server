@@ -12,7 +12,7 @@ import core.game.node.item.Item
 import core.game.world.map.Location
 
 /**
- * Pollnivneah listeners.
+ * Represents the Pollnivneah listeners.
  */
 class PollnivneahListeners : InteractionListener {
 

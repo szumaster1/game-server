@@ -6,7 +6,7 @@ import core.game.node.entity.player.link.quest.Quest;
 import core.plugin.Initializable;
 
 /**
- * Romeo and juliet.
+ * Represents the Romeo and juliet.
  */
 @Initializable
 public class RomeoAndJuliet extends Quest {

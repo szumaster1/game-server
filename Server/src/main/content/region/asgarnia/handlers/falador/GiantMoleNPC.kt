@@ -43,7 +43,7 @@ import core.plugin.Plugin
 import core.tools.RandomFunction
 
 /**
- * Giant mole NPC.
+ * Represents the Giant mole NPC.
  */
 @Initializable
 class GiantMoleNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {

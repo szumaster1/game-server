@@ -19,8 +19,17 @@ import core.game.world.GameWorld
 import core.game.world.map.RegionManager
 import core.game.world.update.flag.context.Animation
 
+/**
+ * A class used to handle the picking up of ground items.
+ * @author Vexia
+ */
 object PickupHandler {
-
+    /**
+     * Method used to take a ground item.
+     * @param player the player.
+     * @param item the item.
+     * @return `True` if taken.
+     */
     @JvmStatic
     fun take(player: Player, item: GroundItem): Boolean {
         // Check if the item's location is null

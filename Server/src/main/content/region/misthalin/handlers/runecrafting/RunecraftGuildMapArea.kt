@@ -5,7 +5,7 @@ import core.game.world.map.zone.ZoneBorders
 import core.game.world.map.zone.ZoneRestriction
 
 /**
- * Runecraft guild map area.
+ * Represents the Runecraft guild map area.
  */
 class RunecraftGuildMapArea : MapArea {
 

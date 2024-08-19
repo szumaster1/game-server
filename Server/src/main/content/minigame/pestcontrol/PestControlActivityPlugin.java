@@ -33,7 +33,7 @@ import static core.api.ContentAPIKt.curePoison;
 import static core.api.ContentAPIKt.isPoisoned;
 
 /**
- * Pest control activity plugin.
+ * Represents the Pest control activity plugin.
  */
 @Initializable
 public final class PestControlActivityPlugin extends ActivityPlugin {

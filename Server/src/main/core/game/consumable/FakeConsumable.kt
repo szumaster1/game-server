@@ -5,7 +5,8 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
 /**
- * Fake consumable.
+ * Represents a special type of consumable that cannot be consumed unless it is transformed into another item.
+ * During its 'consumption', only a message is sent to the player.
  */
 class FakeConsumable
 /**

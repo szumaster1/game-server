@@ -11,7 +11,7 @@ import core.game.world.map.Location
 import core.tools.RandomFunction
 
 /**
- * Spinolyp NPC.
+ * Represents the Spinolyp NPC.
  */
 class SpinolypNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 

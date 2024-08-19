@@ -13,7 +13,7 @@ import core.game.world.map.path.Pathfinder
 import core.tools.RandomFunction
 
 /**
- * "Gertrude's Cat" quest listeners.
+ * Represents the "Gertrude's Cat" quest listeners.
  */
 class GertrudesCatListeners : InteractionListener {
 

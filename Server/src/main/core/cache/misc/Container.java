@@ -1,20 +1,33 @@
 package core.cache.misc;
 
 /**
- * Container.
+ * A container.
+ * @author Dragonkk
  */
 public class Container {
 
+    /**
+     * The version.
+     */
     private int version;
 
+    /**
+     * The CRC.
+     */
     private int crc;
 
+    /**
+     * The name hash.
+     */
     private int nameHash;
 
+    /**
+     * If updated.
+     */
     private boolean updated;
 
     /**
-     * Instantiates a new Container.
+     * Construct a new container.
      */
     public Container() {
         nameHash = -1;
@@ -23,16 +36,15 @@ public class Container {
     }
 
     /**
-     * Sets version.
-     *
-     * @param version the version
+     * Set the version.
+     * @param version
      */
     public void setVersion(int version) {
         this.version = version;
     }
 
     /**
-     * Update version.
+     * Update the version.
      */
     public void updateVersion() {
         version++;
@@ -40,63 +52,56 @@ public class Container {
     }
 
     /**
-     * Gets version.
-     *
-     * @return the version
+     * Get the version.
+     * @return The version.
      */
     public int getVersion() {
         return version;
     }
 
     /**
-     * Gets next version.
-     *
-     * @return the next version
+     * Get the next version.
+     * @return The next version.
      */
     public int getNextVersion() {
         return updated ? version : version + 1;
     }
 
     /**
-     * Sets crc.
-     *
-     * @param crc the crc
+     * Set the CRC.
+     * @param crc The cRC.
      */
     public void setCrc(int crc) {
         this.crc = crc;
     }
 
     /**
-     * Gets crc.
-     *
-     * @return the crc
+     * Get the CRC.
+     * @return The CRC.
      */
     public int getCrc() {
         return crc;
     }
 
     /**
-     * Sets name hash.
-     *
-     * @param nameHash the name hash
+     * Set the name hash.
+     * @param nameHash The name hash.
      */
     public void setNameHash(int nameHash) {
         this.nameHash = nameHash;
     }
 
     /**
-     * Gets name hash.
-     *
-     * @return the name hash
+     * Get the name hash.
+     * @return The name hash.
      */
     public int getNameHash() {
         return nameHash;
     }
 
     /**
-     * Is updated boolean.
-     *
-     * @return the boolean
+     * If is updated.
+     * @return If is updated.
      */
     public boolean isUpdated() {
         return updated;

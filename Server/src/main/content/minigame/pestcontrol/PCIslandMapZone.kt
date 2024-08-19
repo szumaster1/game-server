@@ -6,7 +6,7 @@ import core.game.world.map.zone.MapZone
 import core.game.world.map.zone.ZoneRestriction
 
 /**
- * Pest Control island map zone.
+ * Represents the Pest Control island map zone.
  */
 class PCIslandMapZone :
     MapZone("pest control island", true, ZoneRestriction.CANNON, ZoneRestriction.FIRES, ZoneRestriction.RANDOM_EVENTS) {

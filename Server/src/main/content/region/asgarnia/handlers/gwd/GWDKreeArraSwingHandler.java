@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Gwd kree arra swing handler.
+ * Represents the Gwd kree arra swing handler.
  */
 public final class GWDKreeArraSwingHandler extends CombatSwingHandler {
 

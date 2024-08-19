@@ -8,7 +8,7 @@ import core.game.world.GameWorld.settings
 import core.plugin.Initializable
 
 /**
- * Represents the Squire type dialogue.
+ * Represents the Squire Type dialogue.
  */
 @Initializable
 class SquireTypeDialogue(player: Player? = null) : Dialogue(player) {

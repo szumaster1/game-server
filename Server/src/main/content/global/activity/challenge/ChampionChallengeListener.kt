@@ -27,6 +27,7 @@ import core.game.world.map.zone.ZoneRestriction
 
 /**
  * Represents the Champion challenge.
+ * @author Szumaster
  */
 class ChampionChallengeListener : InteractionListener, MapArea {
 

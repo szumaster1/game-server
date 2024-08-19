@@ -20,6 +20,7 @@ import core.game.world.update.flag.context.Animation
 
 /**
  * Represents the Castle wars listeners.
+ * @author Dginovoker
  */
 @Suppress("unused")
 class CastleWarsListeners : InteractionListener {

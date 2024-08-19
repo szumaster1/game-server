@@ -12,7 +12,7 @@ import core.game.world.GameWorld.Pulser
 import core.plugin.Initializable
 
 /**
- * Represents the Prince ali dialogue.
+ * Represents the Prince Ali dialogue.
  */
 @Initializable
 class PrinceAliDialogue(player: Player? = null) : Dialogue(player) {

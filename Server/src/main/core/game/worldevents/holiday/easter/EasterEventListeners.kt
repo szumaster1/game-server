@@ -4,6 +4,7 @@ import core.game.interaction.InteractionListener
 
 /**
  * Easter event listeners.
+ * @author Ceikry
  */
 class EasterEventListeners : InteractionListener {
     override fun defineListeners() {

@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Chamber guardian dialogue.
+ * Represents the Chamber Guardian dialogue.
  */
 @Initializable
 class ChamberGuardianDialogue(player: Player? = null) : Dialogue(player) {

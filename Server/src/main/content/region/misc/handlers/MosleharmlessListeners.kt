@@ -12,7 +12,7 @@ import core.game.world.map.Location
 import core.tools.START_DIALOGUE
 
 /**
- * Mosleharmless listeners.
+ * Mos Le Harmless listeners.
  */
 class MosleharmlessListeners : InteractionListener {
 

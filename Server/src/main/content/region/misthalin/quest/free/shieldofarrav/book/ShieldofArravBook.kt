@@ -10,7 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Shieldof arrav book.
+ * Represents the Shield of arrav book.
  */
 class ShieldofArravBook : InteractionListener {
 

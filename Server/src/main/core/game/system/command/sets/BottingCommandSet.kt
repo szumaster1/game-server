@@ -11,9 +11,7 @@ import core.plugin.Initializable
 import core.tools.colorize
 
 /**
- * Botting command set
- *
- * @constructor Botting command set
+ * Botting command set.
  */
 @Initializable
 class BottingCommandSet : CommandSet(Privilege.STANDARD) {

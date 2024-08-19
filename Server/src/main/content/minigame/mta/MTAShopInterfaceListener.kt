@@ -15,7 +15,7 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld.Pulser
 
 /**
- * MTA shop interface listener.
+ * Represents the MTA shop interface listener.
  */
 class MTAShopInterfaceListener : InterfaceListener {
     private val container = Container(ITEMS.size, ContainerType.SHOP)

@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Commander connad dialogue.
+ * Represents the Commander Connad dialogue.
  * @author Szumaster
  */
 @Initializable

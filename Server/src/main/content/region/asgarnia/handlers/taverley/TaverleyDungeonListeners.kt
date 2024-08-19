@@ -10,7 +10,7 @@ import core.game.node.entity.npc.NPC
 import core.game.world.map.Location
 
 /**
- * Taverley Dungeon listeners.
+ * Represents the Taverley Dungeon listeners.
  */
 class TaverleyDungeonListeners : InteractionListener {
 

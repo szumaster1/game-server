@@ -21,7 +21,7 @@ import core.game.world.map.zone.ZoneBorders
 import core.tools.RandomFunction
 
 /**
- * Pest Control ravager NPC.
+ * Represents the Pest Control ravager NPC.
  */
 class PCRavagerNPC : AbstractNPC {
 

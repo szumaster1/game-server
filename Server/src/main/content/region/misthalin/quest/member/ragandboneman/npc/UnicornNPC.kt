@@ -11,7 +11,7 @@ import core.api.consts.Items
 import core.api.consts.NPCs
 
 /**
- * Unicorn NPC.
+ * Represents the Unicorn NPC.
  */
 class UnicornNPC : NPCBehavior(*unicornIds) {
 

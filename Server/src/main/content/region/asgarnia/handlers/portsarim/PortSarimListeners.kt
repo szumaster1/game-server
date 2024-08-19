@@ -12,7 +12,7 @@ import core.game.world.map.Location
 import core.tools.RandomFunction
 
 /**
- * Port sarim listeners.
+ * Represents the Port sarim listeners.
  */
 class PortSarimListeners : InteractionListener {
 

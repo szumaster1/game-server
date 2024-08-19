@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Shadow Realm Ghost dialogue.
+ * Represents the Shadow Realm Ghost dialogue.
  */
 @Initializable
 class ShadowRealmGhostDialogue(player: Player? = null) : Dialogue(player) {

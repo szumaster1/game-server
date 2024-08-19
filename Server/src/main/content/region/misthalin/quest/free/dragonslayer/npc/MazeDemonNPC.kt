@@ -8,7 +8,7 @@ import core.game.node.item.GroundItemManager
 import core.game.world.map.Location
 
 /**
- * Maze demon NPC.
+ * Represents the Maze demon NPC.
  */
 class MazeDemonNPC : AbstractNPC {
 

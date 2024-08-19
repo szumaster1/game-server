@@ -11,7 +11,7 @@ import core.game.node.entity.combat.DeathTask
 import core.game.world.map.RegionManager.getLocalNpcs
 
 /**
- * Goblin village listeners.
+ * Represents the Goblin village listeners.
  */
 class GoblinVillageListeners : InteractionListener {
 

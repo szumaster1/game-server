@@ -7,7 +7,7 @@ import core.game.node.entity.player.Player
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Banker tutor dialogue.
+ * Represents the Banker Tutor dialogue.
  */
 class BankerTutorDialogue(player: Player? = null) : Dialogue(player) {
 

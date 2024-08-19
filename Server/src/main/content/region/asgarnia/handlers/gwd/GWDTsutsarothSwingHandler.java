@@ -16,7 +16,7 @@ import core.tools.RandomFunction;
 import static core.api.ContentAPIKt.applyPoison;
 
 /**
- * Gwd tsutsaroth swing handler.
+ * Represents the Gwd tsutsaroth swing handler.
  */
 public final class GWDTsutsarothSwingHandler extends CombatSwingHandler {
 

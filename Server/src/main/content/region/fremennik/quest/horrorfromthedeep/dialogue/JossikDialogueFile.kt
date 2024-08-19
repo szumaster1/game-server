@@ -10,7 +10,7 @@ import core.game.dialogue.FacialExpression
 import core.game.node.entity.npc.NPC
 
 /**
- * Jossik dialogue file related to Horror from the deep quest.
+ * Represents the Jossik dialogue file related to Horror from the deep quest.
  */
 class JossikDialogueFile : DialogueFile() {
     override fun handle(componentID: Int, buttonID: Int) {

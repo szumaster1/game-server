@@ -22,8 +22,15 @@ import org.json.simple.JSONObject
 import org.json.simple.parser.JSONParser
 import java.io.FileReader
 
+
 /**
- * Shops.
+ * The "controller" class for shops. Handles opening shops from various NPC interactions and updating stock, etc.
+ * Note: If you wish to enable personalized shops, add and set the personalized_shops entry to true in the world section of the server config.
+ * ex:
+ * ```toml
+ * [world]
+ * personalized_shops = true
+ * ```
  */
 class Shops : StartupListener, TickListener, InteractionListener, InterfaceListener, Commands {
 

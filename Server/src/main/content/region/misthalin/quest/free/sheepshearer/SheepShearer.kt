@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import kotlin.math.min
 
 /**
- * Sheep shearer quest.
+ * Represents the Sheep shearer quest.
  */
 @Initializable
 class SheepShearer : Quest("Sheep Shearer", 28, 27, 1, Vars.VARP_QUEST_SHEEP_SHEARER_PROGRESS, 0, 20, 21) {

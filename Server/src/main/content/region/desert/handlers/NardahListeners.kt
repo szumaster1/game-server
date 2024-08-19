@@ -7,7 +7,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Nardah listeners.
+ * Represents the Nardah listeners.
  */
 class NardahListeners : InteractionListener {
 

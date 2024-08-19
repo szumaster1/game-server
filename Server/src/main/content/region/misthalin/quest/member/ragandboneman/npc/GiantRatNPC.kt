@@ -11,7 +11,7 @@ import core.game.node.item.Item
 import core.tools.RandomFunction
 
 /**
- * Giant rat NPC.
+ * Represents the Giant rat NPC.
  */
 class GiantRatNPC : NPCBehavior(*giantRatIds) {
 

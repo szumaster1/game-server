@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Millie miller dialogue.
+ * Represents the Millie miller dialogue.
  */
 @Initializable
 class MillieMillerDialogue(player: Player? = null) : Dialogue(player) {

@@ -8,6 +8,7 @@ import core.game.node.scenery.Scenery
 
 /**
  * Rotten Potato use-with handling.
+ * @author Ceikry
  */
 object RottenPotatoUseWithHandler {
     @JvmStatic

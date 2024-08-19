@@ -19,7 +19,7 @@ import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
 /**
- * Revenant controller.
+ * Represents the Revenant controller.
  */
 class RevenantController : TickListener, Commands {
 

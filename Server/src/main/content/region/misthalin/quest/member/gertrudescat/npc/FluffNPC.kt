@@ -7,7 +7,7 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * Fluff NPC.
+ * Represents the Fluff NPC.
  */
 @Initializable
 class FluffNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {

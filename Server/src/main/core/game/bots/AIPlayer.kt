@@ -31,6 +31,7 @@ import kotlin.math.min
 
 /**
  * Represents an Artifical inteligent player.
+ * @author Emperor
  */
 open class AIPlayer @Suppress("deprecation") private constructor(name: String, l: Location, ignored: String?) : Player(PlayerDetails("/aip" + (currentUID + 1) + ":" + name)) {
 

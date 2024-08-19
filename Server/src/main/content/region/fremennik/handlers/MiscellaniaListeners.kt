@@ -8,7 +8,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Miscellania listeners.
+ * Represents the Miscellania listeners.
  */
 class MiscellaniaListeners : InteractionListener{
 

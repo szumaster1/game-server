@@ -1,46 +1,69 @@
 package core.cache.crypto;
 
 /**
- * Isaac cipher.
+ * <p> An implementation of an ISAAC cipher. See <a
+ * href="http://en.wikipedia.org/wiki/ISAAC_(cipher)">
+ * http://en.wikipedia.org/wiki/ISAAC_(cipher)</a> for more information. </p>
+ * <p> This implementation is based on the one written by Bob Jenkins, which is
+ * available at <a href="http://www.burtleburtle.net/bob/java/rand/Rand.java">
+ * http://www.burtleburtle.net/bob/java/rand/Rand.java</a>. </p>
+ * @author Graham Edgecombe
  */
 public class ISAACCipher {
 
     /**
-     * The constant RATIO.
+     * The golden ratio.
      */
     public static final int RATIO = 0x9e3779b9;
 
     /**
-     * The constant SIZE_LOG.
+     * The log of the size of the results and memory arrays.
      */
     public static final int SIZE_LOG = 8;
 
     /**
-     * The constant SIZE.
+     * The size of the results and memory arrays.
      */
     public static final int SIZE = 1 << SIZE_LOG;
 
     /**
-     * The constant MASK.
+     * For pseudorandom lookup.
      */
     public static final int MASK = (SIZE - 1) << 2;
 
+    /**
+     * The count through the results.
+     */
     private int count = 0;
 
+    /**
+     * The results.
+     */
     private int results[] = new int[SIZE];
 
+    /**
+     * The internal memory state.
+     */
     private int memory[] = new int[SIZE];
 
+    /**
+     * The accumulator.
+     */
     private int a;
 
+    /**
+     * The last result.
+     */
     private int b;
 
+    /**
+     * The counter.
+     */
     private int c;
 
     /**
-     * Instantiates a new Isaac cipher.
-     *
-     * @param seed the seed
+     * Creates the ISAAC cipher.
+     * @param seed The seed.
      */
     public ISAACCipher(int[] seed) {
         for (int i = 0; i < seed.length; i++) {
@@ -50,9 +73,8 @@ public class ISAACCipher {
     }
 
     /**
-     * Gets next value.
-     *
-     * @return the next value
+     * Gets the next value.
+     * @return The next value.
      */
     public int getNextValue() {
         if (count-- == 0) {
@@ -63,12 +85,12 @@ public class ISAACCipher {
     }
 
     /**
-     * Isaac.
+     * Generates 256 results.
      */
     public void isaac() {
         int i, j, x, y;
         b += ++c;
-        for (i = 0, j = SIZE / 2; i < SIZE / 2; ) {
+        for (i = 0, j = SIZE / 2; i < SIZE / 2;) {
             x = memory[i];
             a ^= a << 13;
             a += memory[j++];
@@ -93,7 +115,7 @@ public class ISAACCipher {
             memory[i] = y = memory[(x & MASK) >> 2] + a + b;
             results[i++] = b = memory[((y >> SIZE_LOG) & MASK) >> 2] + x;
         }
-        for (j = 0; j < SIZE / 2; ) {
+        for (j = 0; j < SIZE / 2;) {
             x = memory[i];
             a ^= a << 13;
             a += memory[j++];
@@ -121,9 +143,8 @@ public class ISAACCipher {
     }
 
     /**
-     * Init.
-     *
-     * @param flag the flag
+     * Initialises the ISAAC.
+     * @param flag Flag indicating if we should perform a second pass.
      */
     public void init(boolean flag) {
         int i;

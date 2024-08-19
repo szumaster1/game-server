@@ -13,7 +13,7 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Plugin
 
 /**
- * D slayer drain plugin.
+ * Represents the D slayer drain plugin.
  */
 class DSlayerDrainPlugin: UseWithHandler(1929) {
 

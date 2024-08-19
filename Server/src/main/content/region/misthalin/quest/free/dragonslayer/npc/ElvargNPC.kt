@@ -28,7 +28,7 @@ import core.tools.RandomFunction
 import kotlin.math.ceil
 
 /**
- * Elvarg NPC.
+ * Represents the Elvarg NPC.
  */
 @Initializable
 class ElvargNPC : AbstractNPC {

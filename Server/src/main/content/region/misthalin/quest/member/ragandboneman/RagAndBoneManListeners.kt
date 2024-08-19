@@ -10,7 +10,7 @@ import core.game.node.entity.impl.PulseType
 import core.game.system.task.Pulse
 
 /**
- * Rag and bone man listeners.
+ * Represents the Rag and bone man listeners.
  */
 class RagAndBoneManListeners : InteractionListener {
 

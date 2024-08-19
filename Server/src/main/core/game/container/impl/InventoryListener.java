@@ -1,9 +1,9 @@
 package core.game.container.impl;
 
-import content.global.skill.combat.summoning.SummoningPouch;
 import core.game.container.Container;
 import core.game.container.ContainerEvent;
 import core.game.container.ContainerListener;
+import content.global.skill.combat.summoning.SummoningPouch;
 import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
 import core.network.packet.PacketRepository;
@@ -11,25 +11,28 @@ import core.network.packet.context.ContainerContext;
 import core.network.packet.outgoing.ContainerPacket;
 
 /**
- * Inventory listener.
+ * Handles the inventory container listening.
+ * @author Emperor
  */
 public final class InventoryListener implements ContainerListener {
 
+    /**
+     * The player.
+     */
     private final Player player;
 
     /**
-     * Instantiates a new Inventory listener.
-     *
-     * @param player the player
+     * Constructs a new {@code InventoryListener} {@code Object}.
+     * @param player The player.
      */
     public InventoryListener(Player player) {
         this.player = player;
     }
 
     /**
-     * Update.
-     *
-     * @param c the c
+     * Updates the required settings etc for the player when the container
+     * updates.
+     * @param c The container.
      */
     public void update(Container c) {
         player.getSettings().updateWeight();

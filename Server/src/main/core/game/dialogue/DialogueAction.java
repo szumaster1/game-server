@@ -3,15 +3,16 @@ package core.game.dialogue;
 import core.game.node.entity.player.Player;
 
 /**
- * The interface Dialogue action.
+ * A dialogue reward.
+ * @author Vexia
  */
 public interface DialogueAction {
 
     /**
-     * Handle.
+     * Handles a dialogue click.
      *
-     * @param player   the player
-     * @param buttonId the button id
+     * @param player the player.
+     * @param buttonId the buttonId.
      */
     void handle(Player player, int buttonId);
 

@@ -7,7 +7,7 @@ import core.game.node.entity.skill.Skills;
 import core.plugin.Initializable;
 
 /**
- * Vampire slayer.
+ * Vampire slayer quest.
  */
 @Initializable
 public class VampireSlayer extends Quest {

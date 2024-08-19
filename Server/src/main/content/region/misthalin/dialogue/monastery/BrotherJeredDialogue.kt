@@ -17,7 +17,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Brother jered dialogue.
+ * Represents the Brother Jered dialogue.
  */
 @Initializable
 class BrotherJeredDialogue(player: Player? = null) : Dialogue(player) {

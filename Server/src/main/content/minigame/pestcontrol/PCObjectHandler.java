@@ -20,7 +20,7 @@ import core.plugin.Plugin;
 import java.util.ArrayList;
 
 /**
- * Pest Control object handler.
+ * Represents the Pest Control object handler.
  */
 public final class PCObjectHandler extends OptionHandler {
 

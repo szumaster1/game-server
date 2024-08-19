@@ -5,7 +5,7 @@ import core.game.node.entity.npc.AbstractNPC;
 import core.game.world.map.Location;
 
 /**
- * King roald npc.
+ * Represents the King roald npc.
  */
 public class KingRoaldNPC extends AbstractNPC {
 

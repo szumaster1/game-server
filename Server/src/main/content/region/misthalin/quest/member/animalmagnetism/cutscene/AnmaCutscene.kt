@@ -10,7 +10,7 @@ import core.game.node.entity.player.Player
 import core.game.world.map.Direction
 
 /**
- * Anma cutscene.
+ * Represents the Anma cutscene.
  */
 class AnmaCutscene(player: Player) : Cutscene(player) {
 

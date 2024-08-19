@@ -13,7 +13,7 @@ import core.game.world.map.zone.ZoneRestriction
 import core.game.world.map.zone.ZoneType
 
 /**
- * MTA zone.
+ * Represents the MTA zone.
  */
 open class MTAZone(name: String?, val items: Array<Item>) :
     MapZone(name, false, ZoneRestriction.RANDOM_EVENTS, ZoneRestriction.FOLLOWERS) {

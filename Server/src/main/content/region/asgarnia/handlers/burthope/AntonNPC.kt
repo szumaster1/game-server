@@ -7,7 +7,7 @@ import core.plugin.Initializable
 import core.tools.RandomFunction
 
 /**
- * Anton NPC.
+ * Represents the Anton NPC.
  */
 @Initializable
 class AntonNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {

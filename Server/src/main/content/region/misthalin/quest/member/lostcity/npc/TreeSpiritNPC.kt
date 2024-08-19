@@ -11,7 +11,7 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * Tree spirit NPC.
+ * Represents the Tree spirit NPC.
  */
 @Initializable
 class TreeSpiritNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {

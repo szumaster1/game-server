@@ -10,7 +10,7 @@ import core.game.node.entity.npc.NPC
 import core.game.node.item.Item
 
 /**
- * Stuffed item listener.
+ * Represents the Stuffed item listener.
  */
 class StuffedItemListener : InteractionListener {
 

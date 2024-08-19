@@ -28,7 +28,7 @@ import static core.api.ContentAPIKt.removeAttribute;
 import static core.api.ContentAPIKt.setAttribute;
 
 /**
- * What lies below cutscene.
+ * Represents the What lies below cutscene.
  */
 public class WhatLiesBelowCutscene extends CutscenePlugin {
 

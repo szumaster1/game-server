@@ -21,7 +21,7 @@ import core.game.world.map.zone.ZoneBorders
 import core.game.world.update.flag.context.Animation
 
 /**
- * Neitiznot listeners.
+ * Represents the Neitiznot listeners.
  */
 class NeitiznotListeners : InteractionListener {
 

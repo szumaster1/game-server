@@ -7,7 +7,7 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * Ice Troll NPC.
+ * Represents the Ice Troll NPC.
  */
 @Initializable
 class IceTrollNPC : AbstractNPC {

@@ -3,7 +3,7 @@ package content.region.wilderness.handlers
 import core.api.consts.Items
 
 /**
- * Rogue jewellery enum class.
+ * Represents the Rogue jewellery enum class.
  *
  * @param item the item id.
  * @param amount amount.

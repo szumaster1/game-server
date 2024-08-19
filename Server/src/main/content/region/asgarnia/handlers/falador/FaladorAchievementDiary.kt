@@ -18,7 +18,7 @@ import core.game.node.entity.skill.Skills
 import core.game.world.map.zone.ZoneBorders
 
 /**
- * Falador achievement diary.
+ * Represents the Falador achievement diary.
  */
 class FaladorAchievementDiary : DiaryEventHookBase(DiaryType.FALADOR) {
     companion object {

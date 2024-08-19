@@ -7,6 +7,10 @@ import core.game.node.entity.npc.NPC
 import core.game.worldevents.holiday.HolidayRandomEventNPC
 import core.tools.RandomFunction
 
+/**
+ * Represents the Choir holiday random NPC.
+ * @author Zerken
+ */
 class ChoirHolidayRandomNPC : HolidayRandomEventNPC(NPCs.ZANARIS_CHOIR_3312) {
 
     override fun init() {

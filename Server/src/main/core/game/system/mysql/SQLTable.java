@@ -4,26 +4,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Sql table.
+ * Represents an SQL table.
+ * @author Emperor
  */
 public final class SQLTable {
 
+    /**
+     * The columns.
+     */
     private final SQLColumn[] columns;
 
     /**
-     * Instantiates a new Sql table.
-     *
-     * @param columns the columns
+     * Constructs a new {@code SQLTable} {@code Object}.
+     * @param columns The columns.
      */
     public SQLTable(SQLColumn... columns) {
         this.columns = columns;
     }
 
     /**
-     * Gets column.
-     *
-     * @param name the name
-     * @return the column
+     * Gets the column for the given name.
+     * @param name The column name.
+     * @return The column.
      */
     public SQLColumn getColumn(String name) {
         for (SQLColumn column : columns) {
@@ -35,9 +37,8 @@ public final class SQLTable {
     }
 
     /**
-     * Gets changed.
-     *
-     * @return the changed
+     * Gets the changed columns.
+     * @return The columns.
      */
     public List<SQLColumn> getChanged() {
         List<SQLColumn> updated = new ArrayList<>(20);
@@ -51,9 +52,8 @@ public final class SQLTable {
     }
 
     /**
-     * Get columns sql column [ ].
-     *
-     * @return the sql column [ ]
+     * Gets the columns.
+     * @return The columns.
      */
     public SQLColumn[] getColumns() {
         return columns;

@@ -10,7 +10,7 @@ import core.api.*
 import core.api.consts.Items
 
 /**
- * All fired up.
+ * Represents the All fired up.
  */
 @Initializable
 class AllFiredUp : Quest("All Fired Up", 157, 156, 1){

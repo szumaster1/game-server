@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.RandomFunction
 
 /**
- * Goblin village NPC.
+ * Represents the Goblin village NPC.
  */
 @Initializable
 class GoblinVillageNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {

@@ -8,7 +8,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Silas dahcsnu dialogue.
+ * Represents the Silas Dahcsnu dialogue.
  */
 @Initializable
 class SilasDahcsnuDialogue(player: Player? = null) : Dialogue(player) {

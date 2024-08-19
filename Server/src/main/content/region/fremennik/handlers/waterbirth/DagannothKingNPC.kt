@@ -12,7 +12,7 @@ import core.game.world.map.RegionManager.getLocalPlayers
 import core.tools.RandomFunction
 
 /**
- * Dagannoth King NPC.
+ * Represents the Dagannoth King NPC.
  */
 class DagannothKingNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {
 

@@ -12,7 +12,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 
 /**
- * Lost Tribe quest.
+ * Represents the Lost Tribe quest.
  */
 @Initializable
 class LostTribe : Quest("Lost Tribe", 84, 83, 1) {

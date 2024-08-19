@@ -19,6 +19,7 @@ import core.plugin.Plugin
 
 /**
  * Orb viewing interface.
+ * @author Emperor, Vexia
  */
 class OrbViewingInterface : ComponentPlugin() {
 

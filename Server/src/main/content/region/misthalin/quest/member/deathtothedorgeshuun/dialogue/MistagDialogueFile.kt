@@ -9,7 +9,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Mistag dialogue file.
+ * Represents the Mistag dialogue file.
  */
 class MistagDialogueFile : DialogueFile() {
 

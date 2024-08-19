@@ -14,6 +14,9 @@ import core.game.system.task.Pulse
 import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
+/**
+ * Karamja listeners.
+ */
 class KaramjaListeners : InteractionListener {
 
     companion object {
@@ -59,7 +62,9 @@ class KaramjaListeners : InteractionListener {
 
     override fun defineListeners() {
 
-        // Interaction with jungle bushes.
+        /**
+         * Interaction with jungle bushes.
+         */
         on(JUNGLE_BUSH, IntType.SCENERY, "chop-down") { player, node ->
             val randomChop = (1..5).random()
             val chopDown = getAttribute(player, "chop-bush", randomChop)
@@ -95,7 +100,9 @@ class KaramjaListeners : InteractionListener {
             return@on true
         }
 
-        // Interaction with custom officers.
+        /**
+         * Interaction with custom officers.
+         */
         on(CUSTOM_OFFICERS, IntType.NPC, "pay-fare") { player, node ->
             if (!isQuestComplete(player, "Pirate's Treasure")) {
                 openDialogue(player, node.asNpc().id, node)
@@ -106,14 +113,18 @@ class KaramjaListeners : InteractionListener {
             return@on true
         }
 
-        // Interaction with Musa Point dungeon entrance.
+        /**
+         * Interaction with Musa Point dungeon entrance.
+         */
         on(MUSA_POINT_DUNGEON_ENTRANCE, IntType.SCENERY, "climb-down") { player, _ ->
             ClimbActionHandler.climb(player, ClimbActionHandler.CLIMB_DOWN, MUSA_POINT_DUNGEON)
             sendMessage(player, "You climb down through the pot hole.")
             return@on true
         }
 
-        // Interaction with Musa Point dungeon exit.
+        /**
+         * Interaction with Musa Point dungeon exit.
+         */
         on(MUSA_POINT_DUNGEON_EXIT, IntType.SCENERY, "climb-up") { player, _ ->
             ClimbActionHandler.climb(player, ClimbActionHandler.CLIMB_UP, VOLCANO_RIM)
             sendMessage(player, "You climb up the hanging rope...")
@@ -121,7 +132,9 @@ class KaramjaListeners : InteractionListener {
             return@on true
         }
 
-        // Interaction with pineapple plants.
+        /**
+         * Interaction with pineapple plants.
+         */
         on(PINEAPPLE_PLANT, IntType.SCENERY, "pick") { player, node ->
             if (!hasSpaceFor(player, Item(PINEAPPLE))) {
                 sendMessage(player, "You don't have enough space in your inventory.")
@@ -141,13 +154,17 @@ class KaramjaListeners : InteractionListener {
             return@on true
         }
 
-        // Interaction with banana trees.
+        /**
+         * Interaction with banana trees.
+         */
         on(BANANA_TREE, IntType.SCENERY, "search") { player, _ ->
             sendMessage(player, "There are no bananas left on the tree.")
             return@on true
         }
 
-        // Interaction with full palm trees.
+        /**
+         * Interaction with full palm trees.
+         */
         on(PALM_TREE_FULL, IntType.SCENERY, "Shake") { player, node ->
             queueScript(player, 0, QueueStrength.WEAK) { stage: Int ->
                 when (stage) {
@@ -172,7 +189,9 @@ class KaramjaListeners : InteractionListener {
             return@on true
         }
 
-        // Un-note essences interaction with Jiminua NPC.
+        /**
+         * Un-note essences interaction with Jiminua NPC.
+         */
         onUseWith(IntType.NPC, NOTED_PURE_ESSENCE, JIMINUA) { player, used, _ ->
             assert(used.id == Items.PURE_ESSENCE_7937)
             val ess: Int = amountInInventory(player, Items.PURE_ESSENCE_7937)
@@ -206,7 +225,9 @@ class KaramjaListeners : InteractionListener {
             return@onUseWith true
         }
 
-        // Trade interaction with NPC Tiadeche NPC.
+        /**
+         * Trade interaction with NPC Tiadeche NPC.
+         */
         on(TIADECHE, IntType.NPC, "trade") { player, _ ->
             if (!hasRequirement(player, "Tai Bwo Wannai Trio")) return@on true
             openNpcShop(player, TIADECHE)

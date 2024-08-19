@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Fairy nuff dialogue.
+ * Represents the Fairy Nuff dialogue.
  */
 @Initializable
 class FairyNuffDialogue(player: Player? = null) : Dialogue(player) {

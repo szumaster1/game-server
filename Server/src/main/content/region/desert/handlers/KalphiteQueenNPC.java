@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Kalphite queen npc.
+ * Represents the Kalphite queen npc.
  */
 @Initializable
 public final class KalphiteQueenNPC extends AbstractNPC {

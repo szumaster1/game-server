@@ -1,16 +1,17 @@
 package core.game.container
 
 /**
- * Sort type.
+ * The sort type of the container.
+ * @author Emperor
  */
 enum class SortType {
     /**
-     * Id.
+     * Sort by item id (default).
      */
     ID,
 
     /**
-     * Hash.
+     * Sort by item identification hash (bank).
      */
     HASH
 }

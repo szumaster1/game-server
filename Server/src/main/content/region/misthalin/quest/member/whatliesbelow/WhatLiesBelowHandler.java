@@ -26,7 +26,7 @@ import core.plugin.Plugin;
 import static core.api.ContentAPIKt.*;
 
 /**
- * What lies below handler.
+ * Represents the What lies below handler.
  */
 public class WhatLiesBelowHandler extends OptionHandler {
 

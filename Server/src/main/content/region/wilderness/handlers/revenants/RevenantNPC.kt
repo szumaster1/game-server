@@ -27,7 +27,7 @@ import core.tools.RandomFunction
 import kotlin.math.abs
 
 /**
- * Revenant NPC.
+ * Represents the Revenant NPC.
  *
  * @param routes the routes.
  * @param id the id.

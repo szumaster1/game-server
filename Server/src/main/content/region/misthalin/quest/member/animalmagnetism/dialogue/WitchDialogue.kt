@@ -11,7 +11,7 @@ import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
 /**
- * Witch dialogue.
+ * Represents the Witch dialogue.
  */
 class WitchDialogue(player: Player? = null) : Dialogue(player) {
 

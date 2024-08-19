@@ -12,7 +12,7 @@ import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
 /**
- * Rogue jewellery listener.
+ * Represents the Rogue jewellery listener.
  */
 class RogueJewelleryListener : InteractionListener {
 

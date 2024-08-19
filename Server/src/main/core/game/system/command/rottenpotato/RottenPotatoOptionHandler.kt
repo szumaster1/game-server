@@ -14,6 +14,7 @@ import core.tools.colorize
 
 /**
  * Handles the Rotten Potato options.
+ * @author Ceikry
  */
 private val ROTTEN_POTATO_OPTIONS = arrayOf("RS HD", "Heal", "Extra", "Commands")
 

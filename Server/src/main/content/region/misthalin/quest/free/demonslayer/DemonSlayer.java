@@ -25,7 +25,7 @@ import static core.api.ContentAPIKt.removeAttribute;
 import static core.api.ContentAPIKt.setAttribute;
 
 /**
- * Demon slayer.
+ * Represents the Demon slayer.
  */
 @Initializable
 public class DemonSlayer extends Quest {

@@ -12,7 +12,7 @@ import core.api.consts.Items
 import core.api.consts.NPCs
 
 /**
- * Student green dialogue.
+ * Represents the Student green dialogue.
  */
 @Initializable
 class StudentGreenDialogue (player: Player? = null) : Dialogue(player) {
@@ -28,7 +28,7 @@ class StudentGreenDialogue (player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Student green dialogue file.
+ * Represents the Student green dialogue file.
  */
 class StudentGreenDialogueFile : DialogueBuilderFile() {
 
@@ -120,7 +120,7 @@ class StudentGreenDialogueFile : DialogueBuilderFile() {
 
 
 /**
- * Student purple dialogue.
+ * Represents the Student purple dialogue.
  */
 @Initializable
 class StudentPurpleDialogue (player: Player? = null) : Dialogue(player) {
@@ -135,7 +135,7 @@ class StudentPurpleDialogue (player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Student purple dialogue file.
+ * Represents the Student purple dialogue file.
  */
 class StudentPurpleDialogueFile : DialogueBuilderFile() {
 
@@ -268,7 +268,7 @@ class StudentPurpleDialogueFile : DialogueBuilderFile() {
 
 
 /**
- * Student brown dialogue.
+ * Represents the Student brown dialogue.
  */
 @Initializable
 class StudentBrownDialogue (player: Player? = null) : Dialogue(player) {
@@ -285,7 +285,7 @@ class StudentBrownDialogue (player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Student brown dialogue file.
+ * Represents the Student brown dialogue file.
  */
 class StudentBrownDialogueFile : DialogueBuilderFile() {
 

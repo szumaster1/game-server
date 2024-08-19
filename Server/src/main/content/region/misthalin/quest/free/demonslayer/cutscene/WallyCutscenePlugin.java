@@ -12,7 +12,7 @@ import core.network.packet.context.CameraContext.CameraType;
 import core.network.packet.outgoing.CameraViewPacket;
 
 /**
- * Wally cutscene plugin.
+ * Represents the Wally cutscene plugin.
  */
 public class WallyCutscenePlugin extends CutscenePlugin {
 

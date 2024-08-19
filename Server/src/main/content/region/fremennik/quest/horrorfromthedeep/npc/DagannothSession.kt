@@ -5,7 +5,7 @@ import core.api.location
 import core.game.node.entity.player.Player
 
 /**
- * Dagannoth session.
+ * Represents the Dagannoth session.
  */
 class DagannothSession(val player: Player) {
     private val dagannoth: DagannothMotherNPC = DagannothMotherNPC(NPCs.DAGANNOTH_MOTHER_1351, location(2520, 4645, 0), this)

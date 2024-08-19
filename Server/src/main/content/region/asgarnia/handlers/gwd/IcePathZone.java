@@ -16,7 +16,7 @@ import core.tools.RandomFunction;
 import static core.api.ContentAPIKt.setAttribute;
 
 /**
- * Ice path zone.
+ * Represents the Ice path zone.
  */
 @Initializable
 public final class IcePathZone extends MapZone implements Plugin<Object> {

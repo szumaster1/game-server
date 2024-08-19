@@ -18,7 +18,7 @@ import core.plugin.Plugin
 import core.tools.RandomFunction
 
 /**
- * Ham hideout plugin.
+ * H.A.M. hideout plugin.
  */
 @Initializable
 class HamHideoutPlugin : OptionHandler() {

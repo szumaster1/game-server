@@ -1,26 +1,27 @@
 package core.game.container
 
 /**
- * Container type.
+ * Represents the container types.
+ * @author Emperor
  */
 enum class ContainerType {
     /**
-     * Default.
+     * The default container type.
      */
     DEFAULT,
 
     /**
-     * Shop.
+     * If the container is used for a shop.
      */
     SHOP,
 
     /**
-     * Always Stack.
+     * The container should always stack items.
      */
     ALWAYS_STACK,
 
     /**
-     * Never Stack.
+     * The container should never stack items.
      */
     NEVER_STACK
 }

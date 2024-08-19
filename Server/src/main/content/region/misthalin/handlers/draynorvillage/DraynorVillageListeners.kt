@@ -12,7 +12,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Draynor village listeners.
+ * Represents the Draynor village listeners.
  */
 class DraynorVillageListeners : InteractionListener {
 

@@ -9,7 +9,7 @@ import core.tools.RandomFunction
 import java.util.*
 
 /**
- * Pest control.
+ * Pest control bots.
  */
 class PestControlTestBot2(l: Location) : PvMBots(legitimizeLocation(l)) {
 

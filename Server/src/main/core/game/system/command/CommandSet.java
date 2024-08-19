@@ -8,7 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * The enum Command set.
+ * Represents a command set.
+ * @author Vexia
  */
 public enum CommandSet {
     /**
@@ -61,22 +62,19 @@ public enum CommandSet {
     }
 
     /**
-     * Validate boolean.
-     *
-     * @param player the player
-     * @return the boolean
+     * Checks if the player can use this set.
+     * @param player the player.
      */
     public boolean validate(final Player player) {
         return true;
     }
 
     /**
-     * Interpret boolean.
-     *
-     * @param player    the player
-     * @param name      the name
-     * @param arguments the arguments
-     * @return the boolean
+     * Interprets and incoming command by dispatching it to it's plugins.
+     * @param player the player.
+     * @param name the name.
+     * @param arguments the arguments.
+     * @return <code>True</code> if the command was interpreted.
      */
     public boolean interpret(final Player player, final String name, final String... arguments) {
         if (player == null) {
@@ -101,9 +99,8 @@ public enum CommandSet {
     }
 
     /**
-     * Gets plugins.
-     *
-     * @return the plugins
+     * Gets the list of plugins of this command set.
+     * @return the plugins of this set.
      */
     public List<CommandPlugin> getPlugins() {
         return plugins;

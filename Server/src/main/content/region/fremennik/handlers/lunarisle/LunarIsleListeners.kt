@@ -11,7 +11,7 @@ import core.game.interaction.QueueStrength
 import core.game.node.entity.player.link.TeleportManager.TeleportType
 
 /**
- * Lunar isle listeners.
+ * Represents the Lunar isle listeners.
  */
 class LunarIsleListeners : InteractionListener {
 

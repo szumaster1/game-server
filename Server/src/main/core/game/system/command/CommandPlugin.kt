@@ -6,6 +6,7 @@ import core.plugin.Plugin
 
 /**
  * Represents a command plugin that can be linked to a command set.
+ * @author Vexia
  */
 abstract class CommandPlugin : Plugin<Any?> {
     /**

@@ -17,7 +17,7 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
 /**
- * Traiborn dialogue.
+ * Represents the Traiborn dialogue.
  */
 class TraibornDialogue(player: Player? = null) : Dialogue(player) {
 

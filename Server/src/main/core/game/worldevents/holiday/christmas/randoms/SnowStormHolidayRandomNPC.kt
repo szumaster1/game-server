@@ -13,6 +13,10 @@ import core.game.worldevents.holiday.HolidayRandomEventNPC
 import core.tools.RandomFunction
 import core.tools.minutesToTicks
 
+/**
+ * Represents the Snow Storm Holiday random NPC.
+ * @author Zerken
+ */
 class SnowStormHolidayRandomNPC : HolidayRandomEventNPC(NPCs.SNOW_6740) {
     private lateinit var snowTwoNPC: NPC
     private lateinit var snowThreeNPC: NPC

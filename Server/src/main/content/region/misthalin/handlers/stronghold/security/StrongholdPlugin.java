@@ -34,7 +34,7 @@ import core.tools.RandomFunction;
 import static core.api.ContentAPIKt.*;
 
 /**
- * Stronghold plugin.
+ * Represents the Stronghold plugin.
  */
 @Initializable
 public final class StrongholdPlugin extends MapZone implements Plugin<Object> {

@@ -15,7 +15,7 @@ import core.plugin.Plugin;
 import core.tools.RandomFunction;
 
 /**
- * Tz rek jad NPC.
+ * Represents the Tz rek jad NPC.
  */
 @Initializable
 public class TzRekJadNPC extends OptionHandler {

@@ -10,7 +10,7 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld
 import core.game.world.repository.Repository
 import core.game.world.update.UpdateSequence
-import core.integration.grafana.Grafana
+import core.integrations.grafana.Grafana
 import core.network.packet.PacketProcessor
 import core.network.packet.PacketWriteQueue
 import core.plugin.type.Managers
@@ -21,6 +21,10 @@ import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.system.exitProcess
 
+/**
+ * Handles the running of pulses and writing of masks, etc
+ * @author Ceikry
+ */
 class MajorUpdateWorker {
 
     // Variable to track if the worker is running

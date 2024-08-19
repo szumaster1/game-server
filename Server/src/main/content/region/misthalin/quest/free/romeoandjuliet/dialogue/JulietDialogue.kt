@@ -20,7 +20,7 @@ import core.game.world.update.flag.context.Animation
 import core.tools.END_DIALOGUE
 
 /**
- * Juliet dialogue.
+ * Represents the Juliet dialogue.
  */
 class JulietDialogue(player: Player? = null) : Dialogue(player) {
 

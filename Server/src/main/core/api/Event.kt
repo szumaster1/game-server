@@ -2,6 +2,11 @@ package core.api
 
 import core.game.event.*
 
+/**
+ * Event
+ *
+ * @constructor Create empty Event
+ */
 object Event {
     @JvmStatic
     val ResourceProduced = ResourceProducedEvent::class.java

@@ -8,9 +8,7 @@ import core.game.system.command.Privilege
 import core.plugin.Initializable
 
 /**
- * Model viewer command set
- *
- * @constructor Model viewer command set
+ * Model viewer command set.
  */
 @Initializable
 class ModelViewerCommandSet : CommandSet(Privilege.ADMIN) {

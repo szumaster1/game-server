@@ -7,7 +7,8 @@ import core.game.node.entity.player.info.PlayerMonitor.log
 import core.game.system.command.CommandMapping.get
 
 /**
- * Abuse report.
+ * Represents an abuse report to file.
+ * @author Vexia
  *
  * @param reporter The player reporting the abuse.
  * @param victim The player being reported.
@@ -16,6 +17,9 @@ import core.game.system.command.CommandMapping.get
  */
 class AbuseReport(val reporter: String, val victim: String, val rule: Rule) {
 
+    /**
+     * The messages.
+     */
     var messages: String? = null
 
     /**

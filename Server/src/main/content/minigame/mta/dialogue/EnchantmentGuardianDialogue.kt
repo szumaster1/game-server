@@ -8,7 +8,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Enchantment guardian dialogue.
+ * Represents the Enchantment Guardian dialogue.
  */
 @Initializable
 class EnchantmentGuardianDialogue(player: Player? = null) : Dialogue(player) {

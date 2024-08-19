@@ -32,7 +32,7 @@ import core.plugin.Plugin;
 import core.tools.RandomFunction;
 
 /**
- * Cyclopes room.
+ * Represents the Cyclopes room.
  */
 @Initializable
 class CyclopesRoom : MapZone("wg cyclopes", true, ZoneRestriction.RANDOM_EVENTS), Plugin<Any> {

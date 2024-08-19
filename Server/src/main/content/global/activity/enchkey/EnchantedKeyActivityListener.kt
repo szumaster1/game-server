@@ -5,7 +5,7 @@ import core.api.consts.Items
 import core.game.interaction.InteractionListener
 
 /**
- * Enchanted key activity listener.
+ * Represents the rewards for Enchanted key activity.
  */
 class EnchantedKeyActivityListener : InteractionListener {
 

@@ -11,7 +11,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Represents the Brother brace dialogue.
+ * Represents the Brother Brace dialogue.
  */
 @Initializable
 class BrotherBraceDialogue(player: Player? = null) : Dialogue(player) {

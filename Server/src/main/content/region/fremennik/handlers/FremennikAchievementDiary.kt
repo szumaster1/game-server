@@ -24,7 +24,7 @@ import core.game.node.entity.skill.Skills
 import core.game.world.map.zone.ZoneBorders
 
 /**
- * Fremennik achievement diary.
+ * Represents the Fremennik achievement diary.
  */
 class FremennikAchievementDiary : DiaryEventHookBase(DiaryType.FREMENNIK) {
 

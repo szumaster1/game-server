@@ -13,7 +13,7 @@ import core.api.consts.NPCs
 import core.api.consts.Scenery
 
 /**
- * Grand exchange listeners.
+ * Represents the Grand exchange listeners.
  */
 class GEListeners : InteractionListener {
 

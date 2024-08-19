@@ -6,7 +6,7 @@ import core.game.interaction.UseWithHandler;
 import core.plugin.Plugin;
 
 /**
- * Crandor map plugin.
+ * Represents the Crandor map plugin.
  */
 public final class CrandorMapPlugin extends UseWithHandler {
 

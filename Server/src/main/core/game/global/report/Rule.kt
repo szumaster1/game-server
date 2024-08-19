@@ -3,7 +3,8 @@ package core.game.global.report
 import core.game.node.entity.player.Player
 
 /**
- * Rule enum class.
+ * Represents a rule.
+ * @author Vexia
  *
  * @param rule The rule ID.
  * @constructor Creates a Rule instance with the given rule ID.

@@ -11,7 +11,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 
 /**
- * Avan dialogue.
+ * Represents the Avan dialogue.
  */
 @Initializable
 class AvanDialogue(player: Player? = null) : Dialogue(player) {

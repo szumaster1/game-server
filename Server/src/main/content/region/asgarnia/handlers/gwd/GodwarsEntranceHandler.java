@@ -20,7 +20,7 @@ import core.plugin.Plugin;
 import static core.api.ContentAPIKt.*;
 
 /**
- * Godwars entrance handler.
+ * Represents the Godwars entrance handler.
  */
 @Initializable
 public final class GodwarsEntranceHandler extends OptionHandler {

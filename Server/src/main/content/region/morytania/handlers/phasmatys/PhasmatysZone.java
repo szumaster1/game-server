@@ -25,7 +25,7 @@ import static core.api.ContentAPIKt.playAudio;
 import static core.api.ContentAPIKt.sendMessage;
 
 /**
- * Phasmatys zone.
+ * Represents the Phasmatys zone.
  */
 @Initializable
 public final class PhasmatysZone extends MapZone implements Plugin<Object> {

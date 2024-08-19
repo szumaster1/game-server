@@ -17,7 +17,7 @@ import static core.api.ContentAPIKt.setAttribute;
 import static core.api.ContentAPIKt.setVarp;
 
 /**
- * Pest control session.
+ * Represents the Pest control session.
  */
 public final class PestControlSession {
 

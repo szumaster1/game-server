@@ -17,7 +17,7 @@ import core.plugin.Initializable
 import core.tools.RandomFunction
 
 /**
- * Dark energy core NPC.
+ * Represents the Dark energy core NPC.
  */
 @Initializable
 class DarkEnergyCoreNPC @JvmOverloads constructor(id: Int = 8127, location: Location? = null) : AbstractNPC(id, location, false) {

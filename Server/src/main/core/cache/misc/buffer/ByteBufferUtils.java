@@ -5,15 +5,15 @@ import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
 
 /**
- * Byte buffer utils.
+ * Holds utility methods for reading/writing a byte buffer.
+ * @author Emperor
  */
 public final class ByteBufferUtils {
 
     /**
-     * Gets string.
-     *
-     * @param buffer the buffer
-     * @return the string
+     * Gets a string from the byte buffer.
+     * @param buffer The byte buffer.
+     * @return The string.
      */
     public static String getString(ByteBuffer buffer) {
         StringBuilder sb = new StringBuilder();
@@ -25,21 +25,19 @@ public final class ByteBufferUtils {
     }
 
     /**
-     * Put string.
-     *
-     * @param s      the s
-     * @param buffer the buffer
+     * Puts a string on the byte buffer.
+     * @param s The string to put.
+     * @param buffer The byte buffer.
      */
     public static void putString(String s, ByteBuffer buffer) {
         buffer.put(s.getBytes(StandardCharsets.UTF_8)).put((byte) 0);
     }
 
     /**
-     * Put gj 2 string byte buffer.
-     *
-     * @param s      the s
-     * @param buffer the buffer
-     * @return the byte buffer
+     * Gets a string from the byte buffer.
+     * @param s The string.
+     * @param buffer The byte buffer.
+     * @return The string.
      */
     public static ByteBuffer putGJ2String(String s, ByteBuffer buffer) {
         byte[] packed = new byte[256];
@@ -48,12 +46,11 @@ public final class ByteBufferUtils {
     }
 
     /**
-     * Decode xtea.
-     *
-     * @param keys   the keys
-     * @param start  the start
-     * @param end    the end
-     * @param buffer the buffer
+     * Decodes the XTEA encryption.
+     * @param keys The keys.
+     * @param start The start index.
+     * @param end The end index.
+     * @param buffer The byte buffer.
      */
     public static void decodeXTEA(int[] keys, int start, int end, ByteBuffer buffer) {
         int l = buffer.position();
@@ -64,7 +61,7 @@ public final class ByteBufferUtils {
             int secondInt = buffer.getInt();
             int sum = 0xc6ef3720;
             int delta = 0x9e3779b9;
-            for (int j = 32; j-- > 0; ) {
+            for (int j = 32; j-- > 0;) {
                 secondInt -= keys[(sum & 0x1c84) >>> 11] + sum ^ (firstInt >>> 5 ^ firstInt << 4) + firstInt;
                 sum -= delta;
                 firstInt -= (secondInt >>> 5 ^ secondInt << 4) + secondInt ^ keys[sum & 3] + sum;
@@ -77,12 +74,11 @@ public final class ByteBufferUtils {
     }
 
     /**
-     * Pack gj string 2 int.
-     *
-     * @param position the position
-     * @param buffer   the buffer
-     * @param string   the string
-     * @return the int
+     * Converts a String to an Integer?
+     * @param position The position.
+     * @param buffer The buffer used.
+     * @param string The String to convert.
+     * @return The Integer.
      */
     public static int packGJString2(int position, byte[] buffer, String string) {
         int length = string.length();
@@ -105,20 +101,18 @@ public final class ByteBufferUtils {
     }
 
     /**
-     * Gets medium.
-     *
-     * @param buffer the buffer
-     * @return the medium
+     * Gets a tri-byte from the buffer.
+     * @param buffer The buffer.
+     * @return The value.
      */
     public static int getMedium(ByteBuffer buffer) {
         return ((buffer.get() & 0xFF) << 16) + ((buffer.get() & 0xFF) << 8) + (buffer.get() & 0xFF);
     }
 
     /**
-     * Gets smart.
-     *
-     * @param buffer the buffer
-     * @return the smart
+     * Gets a smart from the buffer.
+     * @param buffer The buffer.
+     * @return The value.
      */
     public static int getSmart(ByteBuffer buffer) {
         int peek = buffer.get() & 0xFF;
@@ -129,10 +123,9 @@ public final class ByteBufferUtils {
     }
 
     /**
-     * Gets big smart.
-     *
-     * @param buffer the buffer
-     * @return the big smart
+     * Gets a smart from the buffer.
+     * @param buffer The buffer.
+     * @return The value.
      */
     public static int getBigSmart(ByteBuffer buffer) {
         int value = 0;
@@ -145,8 +138,11 @@ public final class ByteBufferUtils {
         return value;
     }
 
-    /*	*/
-
+    /*	*//**
+     * Writes an object on the buffer.
+     * @param buffer The buffer to write on.
+     * @param o The object.
+     */
     /*
      * public static void putObject(ByteBuffer buffer, Object o) { ByteBuffer b;
      * try (ObjectOutputStream out = new ObjectOutputStream(new
@@ -157,10 +153,9 @@ public final class ByteBufferUtils {
      */
 
     /**
-     * Gets object.
-     *
-     * @param buffer the buffer
-     * @return the object
+     * Gets an object from the byte buffer.
+     * @param buffer The buffer.
+     * @return The object.
      */
     public static Object getObject(ByteBuffer buffer) {
         int length = buffer.getInt();
@@ -176,6 +171,9 @@ public final class ByteBufferUtils {
         return null;
     }
 
+    /**
+     * Constructs a new {@code ByteBufferUtils} {@code Object}.
+     */
     private ByteBufferUtils() {
         /*
          * empty.

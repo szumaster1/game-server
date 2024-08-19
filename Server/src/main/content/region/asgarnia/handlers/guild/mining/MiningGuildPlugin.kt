@@ -20,7 +20,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Mining guild plugin.
+ * Represents the Mining guild plugin.
  */
 @Initializable
 class MiningGuildPlugin : OptionHandler() {

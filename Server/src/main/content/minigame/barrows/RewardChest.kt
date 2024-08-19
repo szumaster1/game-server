@@ -14,7 +14,7 @@ import core.game.node.item.Item
 import core.tools.RandomFunction
 
 /**
- * Reward chest.
+ * Represents the Reward chest.
  * @author Ceikry, kermit, Player Name
  */
 object RewardChest {

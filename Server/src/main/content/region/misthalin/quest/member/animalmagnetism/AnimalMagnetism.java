@@ -12,7 +12,7 @@ import core.plugin.ClassScanner;
 import core.plugin.Initializable;
 
 /**
- * Animal Magnetism.
+ * Represents the Animal Magnetism.
  */
 @Initializable
 public final class AnimalMagnetism extends Quest {

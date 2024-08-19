@@ -41,7 +41,7 @@ import core.tools.RandomFunction
 import java.util.*
 
 /**
- * Bork NPC.
+ * Represents the Bork NPC.
  */
 @Initializable
 class BorkNPC : AbstractNPC {

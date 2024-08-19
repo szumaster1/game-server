@@ -9,6 +9,9 @@ import core.game.system.task.Pulse
 import core.game.world.GameWorld
 import core.game.world.map.Location
 
+/**
+ * Goblin follower.
+ */
 object GoblinFollower {
 
     fun sendToMines(player: Player) {

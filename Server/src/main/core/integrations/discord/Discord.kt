@@ -1,4 +1,4 @@
-package core.integration.discord
+package core.integrations.discord
 
 import core.ServerConstants
 import core.api.TickListener
@@ -14,7 +14,8 @@ import java.net.HttpURLConnection
 import java.net.URL
 
 /**
- * Discord.
+ * Discord integration.
+ * @author Ceikry
  */
 class Discord : TickListener {
     override fun tick() {

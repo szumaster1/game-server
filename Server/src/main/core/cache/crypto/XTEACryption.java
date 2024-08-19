@@ -3,16 +3,29 @@ package core.cache.crypto;
 import java.nio.ByteBuffer;
 
 /**
- * Xtea cryption.
+ * Holds XTEA cryption methods.
+ * @author Emperor
  */
 public final class XTEACryption {
 
+    /**
+     * The delta value
+     */
     private static final int DELTA = -1640531527;
 
+    /**
+     * The sum.
+     */
     private static final int SUM = -957401312;
 
+    /**
+     * The amount of "cryption cycles".
+     */
     private static final int NUM_ROUNDS = 32;
 
+    /**
+     * Constructs a new {@code XTEACryption}.
+     */
     private XTEACryption() {
         /*
          * empty.
@@ -20,24 +33,21 @@ public final class XTEACryption {
     }
 
     /**
-     * Decrypt byte buffer.
-     *
-     * @param keys   the keys
-     * @param buffer the buffer
-     * @return the byte buffer
+     * Decrypts the contents of the buffer.
+     * @param keys The cryption keys.
+     * @param buffer The buffer.
      */
     public static ByteBuffer decrypt(int[] keys, ByteBuffer buffer) {
         return decrypt(keys, buffer, buffer.position(), buffer.limit());
     }
 
     /**
-     * Decrypt byte buffer.
-     *
-     * @param keys   the keys
-     * @param buffer the buffer
-     * @param offset the offset
-     * @param length the length
-     * @return the byte buffer
+     * Decrypts the buffer data.
+     * @param keys The keys.
+     * @param buffer The buffer to decrypt.
+     * @param offset The offset of the data to decrypt.
+     * @param length The length.
+     * @return The decrypted data.
      */
     public static ByteBuffer decrypt(int[] keys, ByteBuffer buffer, int offset, int length) {
         int numBlocks = (length - offset) / 8;
@@ -53,32 +63,36 @@ public final class XTEACryption {
         return buffer;
     }
 
+    /**
+     * Deciphers the values.
+     * @param keys The cryption key.
+     * @param block The values to decipher.
+     */
     private static void decipher(int[] keys, int[] block) {
         long sum = SUM;
         for (int i = 0; i < NUM_ROUNDS; i++) {
-            block[1] -= (int) (keys[(int) ((sum & 0x1933) >>> 11)] + sum ^ block[0] + (block[0] << 4 ^ block[0] >>> 5));
+            block[1] -= (keys[(int) ((sum & 0x1933) >>> 11)] + sum ^ block[0] + (block[0] << 4 ^ block[0] >>> 5));
             sum -= DELTA;
-            block[0] -= (int) ((block[1] << 4 ^ block[1] >>> 5) + block[1] ^ keys[(int) (sum & 0x3)] + sum);
+            block[0] -= ((block[1] << 4 ^ block[1] >>> 5) + block[1] ^ keys[(int) (sum & 0x3)] + sum);
         }
     }
 
     /**
-     * Encrypt.
-     *
-     * @param keys   the keys
-     * @param buffer the buffer
+     * Encrypts the contents of the byte buffer.
+     * @param keys The cryption keys.
+     * @param buffer The buffer to encrypt.
      */
     public static void encrypt(int[] keys, ByteBuffer buffer) {
         encrypt(keys, buffer, buffer.position(), buffer.limit());
     }
 
     /**
-     * Encrypt.
-     *
-     * @param keys   the keys
-     * @param buffer the buffer
-     * @param offset the offset
-     * @param length the length
+     * Encrypts the buffer data.
+     * @param keys The keys.
+     * @param buffer The buffer to encrypt.
+     * @param offset The offset of the data to encrypt.
+     * @param length The length.
+     * @return The encrypted data.
      */
     public static void encrypt(int[] keys, ByteBuffer buffer, int offset, int length) {
         int numBlocks = (length - offset) / 8;
@@ -93,12 +107,17 @@ public final class XTEACryption {
         }
     }
 
+    /**
+     * Enciphers the values of the block.
+     * @param keys The cryption keys.
+     * @param block The block to encipher.
+     */
     private static void encipher(int[] keys, int[] block) {
         long sum = 0;
         for (int i = 0; i < NUM_ROUNDS; i++) {
-            block[0] += (int) ((block[1] << 4 ^ block[1] >>> 5) + block[1] ^ keys[(int) (sum & 0x3)] + sum);
+            block[0] += ((block[1] << 4 ^ block[1] >>> 5) + block[1] ^ keys[(int) (sum & 0x3)] + sum);
             sum += DELTA;
-            block[1] += (int) (keys[(int) ((sum & 0x1933) >>> 11)] + sum ^ block[0] + (block[0] << 4 ^ block[0] >>> 5));
+            block[1] += (keys[(int) ((sum & 0x1933) >>> 11)] + sum ^ block[0] + (block[0] << 4 ^ block[0] >>> 5));
         }
     }
 }

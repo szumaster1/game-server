@@ -7,7 +7,7 @@ import core.tools.RandomFunction
 import core.api.consts.NPCs
 
 /**
- * Gundik NPC.
+ * Represents the Gundik NPC.
  */
 class GundikNPC : NPCBehavior(NPCs.GUNDIK_5796) {
 

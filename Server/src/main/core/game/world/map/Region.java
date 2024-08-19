@@ -3,17 +3,18 @@ package core.game.world.map;
 import core.cache.Cache;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
+import core.game.node.entity.player.link.music.MusicEntry;
 import core.game.node.entity.player.link.music.MusicZone;
 import core.game.system.communication.CommunicationInfo;
-import core.game.system.config.XteaParser;
 import core.game.system.task.Pulse;
-import core.game.world.GameWorld;
 import core.game.world.map.build.DynamicRegion;
 import core.game.world.map.build.LandscapeParser;
 import core.game.world.map.build.MapscapeParser;
 import core.game.world.map.zone.RegionZone;
-import core.game.world.repository.Repository;
 import core.tools.Log;
+import core.game.system.config.XteaParser;
+import core.game.world.GameWorld;
+import core.game.world.repository.Repository;
 
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
@@ -24,48 +25,95 @@ import java.util.concurrent.TimeUnit;
 import static core.api.ContentAPIKt.log;
 
 /**
- * Region.
+ * Represents a region.
+ * @author Emperor
  */
 public class Region {
 
     /**
-     * The constant SIZE.
+     * The default size of a region.
      */
     public static final int SIZE = 64;
 
+    /**
+     * The region x-coordinate.
+     */
     private final int x;
 
+    /**
+     * The region y-coordinate.
+     */
     private final int y;
 
+    /**
+     * The region planes.
+     */
     private final RegionPlane[] planes = new RegionPlane[4];
 
+    /**
+     * The activity pulse.
+     */
     private final Pulse activityPulse;
 
+    /**
+     * The region zones lying in this region.
+     */
     private final List<RegionZone> regionZones = new ArrayList<>(20);
 
+    /**
+     * The region-wide music track for this region.
+     */
+    private MusicEntry music = null;
+
+    /**
+     * Any tile-specific music zones lying in this region.
+     */
     private final List<MusicZone> musicZones = new ArrayList<>(20);
 
-    private final HashMap<String, Long> tolerances = new HashMap<>();
+    /**
+     * Keeps track of players and time in region for tolerance purposes
+     */
+    private final HashMap<String,Long> tolerances = new HashMap<>();
 
+    /**
+     * If the region is active.
+     */
     private boolean active;
 
+    /**
+     * The amount of objects in this region.
+     */
     private int objectCount;
 
+    /**
+     * If the region has flags.
+     */
     private boolean hasFlags;
 
+    /**
+     * If the region has been loaded.
+     */
     private boolean loaded;
 
+    /**
+     * The amount of players viewing this region.
+     */
     private int viewAmount;
 
+    /**
+     * If the region can be edited.
+     */
     private boolean build;
 
+    /**
+     * If all planes should be updated when in this region (instead of just current one).
+     */
     private boolean updateAllPlanes;
 
     /**
-     * Instantiates a new Region.
-     *
-     * @param x the x
-     * @param y the y
+     * Constructs a new {@code Region} {@code Object}.
+     * @param x The x-coordinate of the region.
+     * @param y The y-coordinate of the region.
      */
     public Region(int x, int y) {
         this.x = x;
@@ -84,18 +132,16 @@ public class Region {
     }
 
     /**
-     * Gets base location.
-     *
-     * @return the base location
+     * Gets the base location.
+     * @return The base location.
      */
     public Location getBaseLocation() {
         return Location.create(x << 6, y << 6, 0);
     }
 
     /**
-     * Add.
-     *
-     * @param zone the zone
+     * Adds a region zone to this region.
+     * @param zone The region zone.
      */
     public void add(RegionZone zone) {
         regionZones.add(zone);
@@ -109,11 +155,6 @@ public class Region {
         }
     }
 
-    /**
-     * Remove.
-     *
-     * @param zone the zone
-     */
     public void remove(RegionZone zone) {
         regionZones.remove(zone);
         for (RegionPlane plane : planes) {
@@ -127,9 +168,8 @@ public class Region {
     }
 
     /**
-     * Add.
-     *
-     * @param player the player
+     * Adds a player to this region.
+     * @param player The player.
      */
     public void add(Player player) {
         planes[player.getLocation().getZ()].add(player);
@@ -138,18 +178,16 @@ public class Region {
     }
 
     /**
-     * Add.
-     *
-     * @param npc the npc
+     * Adds an npc to this region.
+     * @param npc The npc.
      */
     public void add(NPC npc) {
         planes[npc.getLocation().getZ()].add(npc);
     }
 
     /**
-     * Remove.
-     *
-     * @param npc the npc
+     * Removes an NPC from this region.
+     * @param npc The NPC.
      */
     public void remove(NPC npc) {
         RegionPlane plane = npc.getViewport().getCurrentPlane();
@@ -160,9 +198,8 @@ public class Region {
     }
 
     /**
-     * Remove.
-     *
-     * @param player the player
+     * Removes a player from this region.
+     * @param player The player.
      */
     public void remove(Player player) {
         player.getViewport().getCurrentPlane().remove(player);
@@ -171,29 +208,24 @@ public class Region {
     }
 
     /**
-     * Is tolerated boolean.
-     *
-     * @param player the player
-     * @return the boolean
+     * Checks if player is tolerated by enemies in this region
      */
-    public boolean isTolerated(Player player) {
+    public boolean isTolerated(Player player){
         return System.currentTimeMillis() - tolerances.getOrDefault(player.getUsername(), System.currentTimeMillis()) > TimeUnit.MINUTES.toMillis(10);
     }
 
     /**
-     * Check inactive boolean.
-     *
-     * @return the boolean
+     * Checks if the region is inactive, if so it will start the inactivity flagging.
+     * @return {@code True} if the region is inactive.
      */
     public boolean checkInactive() {
         return isInactive(true);
     }
 
     /**
-     * Is inactive boolean.
-     *
-     * @param runPulse the run pulse
-     * @return the boolean
+     * Checks if the region is inactive.
+     * @param runPulse If the pulse for flagging the region as inactive should be ran.
+     * @return {@code True} if so.
      */
     public boolean isInactive(boolean runPulse) {
         if (isViewed()) {
@@ -215,16 +247,15 @@ public class Region {
     }
 
     /**
-     * Is pending removal boolean.
-     *
-     * @return the boolean
+     * Checks if this region has the inactivity flagging pulse running.
+     * @return {@code True} if so.
      */
     public boolean isPendingRemoval() {
         return activityPulse.isRunning();
     }
 
     /**
-     * Flag active.
+     * Flags the region as active.
      */
     public void flagActive() {
         activityPulse.stop();
@@ -241,12 +272,6 @@ public class Region {
         }
     }
 
-    /**
-     * Flag inactive boolean.
-     *
-     * @param force the force
-     * @return the boolean
-     */
     public boolean flagInactive(boolean force) {
         if (unload(this, force)) {
             active = false;
@@ -257,28 +282,24 @@ public class Region {
     }
 
     /**
-     * Flag inactive boolean.
-     *
-     * @return the boolean
+     * Flags the region as inactive.
      */
     public boolean flagInactive() {
         return flagInactive(false);
     }
 
     /**
-     * Load.
-     *
-     * @param r the r
+     * Loads the flags for a region.
+     * @param r The region.
      */
     public static void load(Region r) {
         load(r, r.build);
     }
 
     /**
-     * Load.
-     *
-     * @param r     the r
-     * @param build the build
+     * Loads the flags for a region.
+     * @param r The region.
+     * @param build if all objects in this region should be stored (rather than just the ones with options).
      */
     public static void load(Region r, boolean build) {
         try {
@@ -290,7 +311,7 @@ public class Region {
             int regionId = dynamic ? ((DynamicRegion) r).getRegionId() : r.getId();
             int regionX = regionId >> 8 & 0xFF;
             int regionY = regionId & 0xFF;
-            int mapscapeId = Cache.getIndexes()[5].getArchiveId("m" + regionX + "_" + regionY);
+            int mapscapeId = Cache.getIndexes()[5].getArchiveId("m" + regionX + "_"+ regionY);
 
             if (mapscapeId < 0 && !dynamic) {
                 r.setLoaded(true);
@@ -328,22 +349,13 @@ public class Region {
         }
     }
 
-    /**
-     * Unload boolean.
-     *
-     * @param r the r
-     * @return the boolean
-     */
     public static boolean unload(Region r) {
         return unload(r, false);
     }
 
     /**
-     * Unload boolean.
-     *
-     * @param r     the r
-     * @param force the force
-     * @return the boolean
+     * Unloads a region.
+     * @param r The region.
      */
     public static boolean unload(Region r, boolean force) {
         if (!force && r.isViewed()) {
@@ -373,9 +385,8 @@ public class Region {
     }
 
     /**
-     * Is viewed boolean.
-     *
-     * @return the boolean
+     * Checks if the region is being viewed by a player.
+     * @return {@code True} if so.
      */
     public boolean isViewed() {
         synchronized (this) {
@@ -384,9 +395,8 @@ public class Region {
     }
 
     /**
-     * Increment view amount int.
-     *
-     * @return the int
+     * Increments the view amount.
+     * @return The view amount after incrementing.
      */
     public int incrementViewAmount() {
         synchronized (this) {
@@ -395,9 +405,8 @@ public class Region {
     }
 
     /**
-     * Decrement view amount int.
-     *
-     * @return the int
+     * Decrements the amount of viewers.
+     * @return The view amount after decrementing.
      */
     public int decrementViewAmount() {
         synchronized (this) {
@@ -410,18 +419,18 @@ public class Region {
     }
 
     /**
-     * Is active boolean.
-     *
-     * @return the boolean
+     * Gets the active.
+     * @return The active.
      */
     public boolean isActive() {
         return active;
     }
 
     /**
-     * Sets active.
-     *
-     * @param active the active
+     * Sets the active.
+     * @param active The active to set.
+     * @deprecated This should not be used, instead use the {@link #flagInactive()},
+     * 				{@link #flagActive()} & {@link #checkInactive()} methods to safely change the activity state.
      */
     @Deprecated
     public void setActive(boolean active) {
@@ -429,171 +438,167 @@ public class Region {
     }
 
     /**
-     * Gets id.
-     *
-     * @return the id
+     * Gets the region id.
+     * @return The region id.
      */
     public int getId() {
         return x << 8 | y;
     }
 
     /**
-     * Gets region id.
-     *
-     * @return the region id
+     * Gets the real region id (this returns the copied region id for dynamic regions).
+     * @return The region  id.
      */
     public int getRegionId() {
         return getId();
     }
 
     /**
-     * Gets x.
-     *
-     * @return the x
+     * Gets the x.
+     * @return The x.
      */
     public int getX() {
         return x;
     }
 
     /**
-     * Gets y.
-     *
-     * @return the y
+     * Gets the y.
+     * @return The y.
      */
     public int getY() {
         return y;
     }
 
     /**
-     * Get planes region plane [ ].
-     *
-     * @return the region plane [ ]
+     * Gets the planes.
+     * @return The planes.
      */
     public RegionPlane[] getPlanes() {
         return planes;
     }
 
     /**
-     * Gets region zones.
-     *
-     * @return the region zones
+     * Sets the region-wide music track.
+     */
+    public void setMusic(MusicEntry music) {
+        this.music = music;
+    }
+
+    /**
+     * Gets the region-wide music track
+     * @return The music entry
+     */
+    public MusicEntry getMusic() {
+        return this.music;
+    }
+
+    /**
+     * Gets the regionZones.
+     * @return The regionZones.
      */
     public List<RegionZone> getRegionZones() {
         return regionZones;
     }
 
     /**
-     * Gets music zones.
-     *
-     * @return the music zones
+     * Gets the musicZones.
+     * @return The musicZones.
      */
     public List<MusicZone> getMusicZones() {
         return musicZones;
     }
 
     /**
-     * Gets object count.
-     *
-     * @return the object count
+     * Gets the object count.
+     * @return The object count.
      */
     public int getObjectCount() {
         return objectCount;
     }
 
     /**
-     * Sets object count.
-     *
-     * @param objectCount the object count
+     * Sets the object count.
+     * @param objectCount The object count.
      */
     public void setObjectCount(int objectCount) {
         this.objectCount = objectCount;
     }
 
     /**
-     * Is has flags boolean.
-     *
-     * @return the boolean
+     * Gets the hasFlags.
+     * @return The hasFlags.
      */
     public boolean isHasFlags() {
         return hasFlags;
     }
 
     /**
-     * Sets has flags.
-     *
-     * @param hasFlags the has flags
+     * Sets the hasFlags.
+     * @param hasFlags The hasFlags to set.
      */
     public void setHasFlags(boolean hasFlags) {
         this.hasFlags = hasFlags;
     }
 
     /**
-     * Sets region time out.
-     *
-     * @param ticks the ticks
+     * Sets the region time out duration.
+     * @param ticks The amount of ticks before the region is flagged as inactive.
      */
     public void setRegionTimeOut(int ticks) {
         activityPulse.setDelay(ticks);
     }
 
     /**
-     * Is loaded boolean.
-     *
-     * @return the boolean
+     * Gets the loaded.
+     * @return The loaded.
      */
     public boolean isLoaded() {
         return loaded;
     }
 
     /**
-     * Sets loaded.
-     *
-     * @param loaded the loaded
+     * Sets the loaded.
+     * @param loaded The loaded to set.
      */
     public void setLoaded(boolean loaded) {
         this.loaded = loaded;
     }
 
     /**
-     * Sets view amount.
-     *
-     * @param viewAmount the view amount
+     * Sets the viewAmount.
+     * @param viewAmount The viewAmount to set.
      */
     public void setViewAmount(int viewAmount) {
         this.viewAmount = viewAmount;
     }
 
     /**
-     * Is build boolean.
-     *
-     * @return the boolean
+     * Gets the build.
+     * @return the build
      */
     public boolean isBuild() {
         return build;
     }
 
     /**
-     * Sets build.
-     *
-     * @param build the build
+     * Sets the build.
+     * @param build the build to set.
      */
     public void setBuild(boolean build) {
         this.build = build;
     }
 
     /**
-     * Is update all planes boolean.
-     *
-     * @return the boolean
+     * Gets the updateAllPlanes value.
+     * @return The updateAllPlanes.
      */
     public boolean isUpdateAllPlanes() {
         return updateAllPlanes;
     }
 
     /**
-     * Sets update all planes.
-     *
-     * @param updateAllPlanes the update all planes
+     * Sets the updateAllPlanes value.
+     * @param updateAllPlanes The updateAllPlanes to set.
      */
     public void setUpdateAllPlanes(boolean updateAllPlanes) {
         this.updateAllPlanes = updateAllPlanes;

@@ -15,7 +15,7 @@ import core.game.system.task.Pulse
 import kotlin.math.ceil
 
 /**
- * Enchanted valley listeners.
+ * Enchanted Valley listeners.
  */
 class EnchantedValleyListeners : InteractionListener {
 

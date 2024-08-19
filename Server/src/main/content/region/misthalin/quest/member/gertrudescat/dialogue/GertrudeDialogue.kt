@@ -14,7 +14,7 @@ import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 
 /**
- * Gertrude dialogue.
+ * Represents the Gertrude dialogue.
  */
 @Initializable
 class GertrudeDialogue(player: Player? = null) : Dialogue(player) {

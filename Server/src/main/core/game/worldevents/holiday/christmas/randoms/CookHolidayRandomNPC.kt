@@ -8,6 +8,10 @@ import core.game.worldevents.holiday.HolidayRandomEventNPC
 import core.tools.RandomFunction
 import core.tools.minutesToTicks
 
+/**
+ * Represents the Cook holiday random NPC.
+ * @author Zerken
+ */
 class CookHolidayRandomNPC : HolidayRandomEventNPC(NPCs.COOK_4239) {
     private val cookLines = listOf("@name, are you there?", "Would you like a fresh baked cake, @name?", "Happy Holidays, @name!")
     private var hasTalkedWith = false

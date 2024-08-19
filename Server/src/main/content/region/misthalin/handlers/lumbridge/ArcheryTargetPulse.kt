@@ -12,7 +12,7 @@ import core.game.world.update.flag.context.Animation
 import kotlin.math.floor
 
 /**
- * Archery target pulse.
+ * Represents the Archery target pulse.
  *
  * @param player The player performing the action.
  * @param node The archery target scenery node.

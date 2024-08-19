@@ -30,8 +30,7 @@ class ShopParser {
     }
 
     /**
-     * Load
-     *
+     * Load.
      */
     fun load() {
         var count = 0

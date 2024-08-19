@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Gertrude children's dialogue.
+ * Represents the Gertrude children's dialogue.
  */
 @Initializable
 class GertrudesChildrenDialogue(player: Player? = null) : Dialogue(player) {

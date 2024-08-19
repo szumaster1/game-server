@@ -4,20 +4,29 @@ import core.game.node.entity.player.Player;
 import core.game.world.GameWorld;
 
 /**
- * Clan entry.
+ * Represents a player in a clan chat.
+ * @author Emperor
  */
 public class ClanEntry {
 
+    /**
+     * The name.
+     */
     private final String name;
 
+    /**
+     * The player.
+     */
     private Player player;
 
+    /**
+     * The world id.
+     */
     private int worldId;
 
     /**
-     * Instantiates a new Clan entry.
-     *
-     * @param player the player
+     * Constructs a new {@code ClanEntry} {@code Object}
+     * @param player The player.
      */
     public ClanEntry(Player player) {
         this.player = player;
@@ -26,10 +35,9 @@ public class ClanEntry {
     }
 
     /**
-     * Instantiates a new Clan entry.
-     *
-     * @param name    the name
-     * @param worldId the world id
+     * Constructs a new {@code ClanEntry} {@code Object}
+     * @param name The player's name.
+     * @param worldId The world id.
      */
     public ClanEntry(String name, int worldId) {
         this.name = name;
@@ -38,7 +46,7 @@ public class ClanEntry {
 
     @Override
     public boolean equals(Object o) {
-        if (o == null) return false;
+        if(o == null) return false;
         ClanEntry e = (ClanEntry) o;
         if (name != null && !name.equals(e.name)) {
             return false;
@@ -47,8 +55,7 @@ public class ClanEntry {
     }
 
     /**
-     * Gets name.
-     *
+     * Gets the name.
      * @return the name
      */
     public String getName() {
@@ -56,17 +63,15 @@ public class ClanEntry {
     }
 
     /**
-     * Sets player.
-     *
-     * @param player the player
+     * Sets the player.
+     * @param player The player.
      */
     public void setPlayer(Player player) {
         this.player = player;
     }
 
     /**
-     * Gets player.
-     *
+     * Gets the player.
      * @return the player
      */
     public Player getPlayer() {
@@ -74,18 +79,16 @@ public class ClanEntry {
     }
 
     /**
-     * Gets world id.
-     *
-     * @return the world id
+     * Gets the worldId.
+     * @return the worldId
      */
     public int getWorldId() {
         return worldId;
     }
 
     /**
-     * Sets world id.
-     *
-     * @param worldId the world id
+     * Sets the worldId.
+     * @param worldId the worldId to set.
      */
     public void setWorldId(int worldId) {
         this.worldId = worldId;

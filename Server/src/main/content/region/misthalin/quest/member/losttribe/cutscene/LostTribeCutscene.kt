@@ -14,7 +14,7 @@ import core.game.world.map.Location
 import core.tools.DARK_RED
 
 /**
- * Lost tribe cutscene.
+ * Represents the Lost tribe cutscene.
  */
 class LostTribeCutscene(player: Player) : Cutscene(player) {
 

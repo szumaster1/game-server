@@ -21,7 +21,7 @@ import core.api.consts.Items;
 import static core.api.ContentAPIKt.*;
 
 /**
- * Shantay pass plugin.
+ * Represents the Shantay pass plugin.
  */
 @Initializable
 public class ShantayPassPlugin extends OptionHandler {

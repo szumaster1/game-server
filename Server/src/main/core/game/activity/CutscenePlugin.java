@@ -18,29 +18,41 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Cutscene plugin.
+ * Represents the plugin used to handle a cutscene.
+ * @author Vexia
  */
 @PluginManifest(type = PluginType.ACTIVITY)
 public abstract class CutscenePlugin extends ActivityPlugin {
 
-    private static final int[] TABS = new int[]{0, 1, 2, 3, 4, 5, 6, 11, 12};
+    /**
+     * The list of tabs to remove.
+     */
+    private static final int[] TABS = new int[] { 0, 1, 2, 3, 4, 5, 6, 11, 12 };
 
     /**
-     * The Npcs.
+     * The npcs in our cutscene.
      */
     protected final List<NPC> npcs = new ArrayList<>(100);
 
+    /**
+     * The start pulse used for effect.
+     */
     private final StartPulse startPulse = new StartPulse();
 
+    /**
+     * The ending pulse used for effect.
+     */
     private final EndPulse endPulse = new EndPulse();
 
+    /**
+     * If we should use a fade in or not.
+     */
     private final boolean fade;
 
     /**
-     * Instantiates a new Cutscene plugin.
-     *
-     * @param name the name
-     * @param fade the fade
+     * Constructs a new {@code CutscenePlugin} {@code Object}.
+     * @param name the name of the cutscene/mapzone.
+     * @param fade fading in or not.
      */
     public CutscenePlugin(String name, final boolean fade) {
         super(name, true, false, true);
@@ -48,9 +60,8 @@ public abstract class CutscenePlugin extends ActivityPlugin {
     }
 
     /**
-     * Instantiates a new Cutscene plugin.
-     *
-     * @param name the name
+     * Constructs a new {@code CutscenePlugin} {@code Object}.
+     * @param name the name.
      */
     public CutscenePlugin(final String name) {
         this(name, true);
@@ -101,9 +112,8 @@ public abstract class CutscenePlugin extends ActivityPlugin {
     }
 
     /**
-     * Stop.
-     *
-     * @param fade the fade
+     * Method used to stop the cutscene.
+     * @param fade if we should use a fade cutout.
      */
     public void stop(boolean fade) {
         if (fade) {
@@ -114,7 +124,7 @@ public abstract class CutscenePlugin extends ActivityPlugin {
     }
 
     /**
-     * End.
+     * Method used to end the cutscene.
      */
     public void end() {
         if (region != null) {
@@ -134,14 +144,21 @@ public abstract class CutscenePlugin extends ActivityPlugin {
     }
 
     /**
-     * Start pulse.
+     * Represents the pulse used when starting a cutscene. This is used to give
+     * dramatic effect for entering a cutscene. In the future allow for this to
+     * be toggled.
+     * @author Vexia
+     * @date 30/12/2013
      */
     public class StartPulse extends Pulse {
 
+        /**
+         * Represents the counter.
+         */
         private int counter = 0;
 
         /**
-         * Instantiates a new Start pulse.
+         * Constructs a new {@code StartPulse} {@code Object}.
          */
         public StartPulse() {
             super(1, player);
@@ -176,14 +193,20 @@ public abstract class CutscenePlugin extends ActivityPlugin {
     }
 
     /**
-     * End pulse.
+     * Represents the pulse used when ending a cutscene. This is used to give
+     * dramatic effect for entering a cutscene.
+     * @author Vexia
+     * @date 30/12/2013
      */
     public class EndPulse extends Pulse {
 
+        /**
+         * Represents the counter.
+         */
         private int counter = 0;
 
         /**
-         * Instantiates a new End pulse.
+         * Constructs a new {@code EndPulse} {@code Object}.
          */
         public EndPulse() {
             super(1, player);
@@ -224,99 +247,90 @@ public abstract class CutscenePlugin extends ActivityPlugin {
     }
 
     /**
-     * Open.
+     * Method called when the dim interface is closed. And you can see the
+     * cutscene.
      */
     public void open() {
 
     }
 
     /**
-     * Fade.
+     * Method called on the end of the cutscene.
      */
     public void fade() {
 
     }
 
     /**
-     * Gets map state.
-     *
-     * @return the map state
+     * Gets the mapstate to use. (override if needed).
+     * @return the state.
      */
     public int getMapState() {
         return 2;
     }
 
     /**
-     * Get removed tabs int [ ].
-     *
-     * @return the int [ ]
+     * Gets the removed tabs. (override if needed).
+     * @return the tabs.
      */
     public int[] getRemovedTabs() {
         return TABS;
     }
 
     /**
-     * Gets start location.
-     *
-     * @return the start location
+     * Gets the starting location (region based, override if needed).
+     * @return the location.
      */
     public Location getStartLocation() {
         return getBase();
     }
 
     /**
-     * Unpause.
+     * Method used to unpause this cutscene.
      */
     public final void unpause() {
         stop(true);
     }
 
+    /**
+     * Gets the player.
+     * @return The player.
+     */
     public Player getPlayer() {
         return player;
     }
 
     /**
-     * Gets region.
-     *
-     * @return the region
+     * Gets the region.
+     * @return The region.
      */
     public DynamicRegion getRegion() {
         return region;
     }
 
     /**
-     * Gets npcs.
-     *
-     * @return the npcs
+     * Gets the nPCS.
+     * @return The nPCS.
      */
     public List<NPC> getNPCS() {
         return npcs;
     }
 
     /**
-     * Is fade boolean.
-     *
-     * @return the boolean
+     * Gets the fade.
+     * @return The fade.
      */
     public boolean isFade() {
         return fade;
     }
 
     /**
-     * Gets start pulse.
-     *
-     * @return the start pulse
+     * Gets the start pulse.
+     * @return the pulse.
      */
     public Pulse getStartPulse() {
         return startPulse;
     }
 
-    /**
-     * Gets end pulse.
-     *
-     * @return the end pulse
-     */
-    public Pulse getEndPulse() {
-        return new EndPulse();
-    }
+    public Pulse getEndPulse(){return new EndPulse();}
 }

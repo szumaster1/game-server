@@ -1,45 +1,45 @@
 package core.cache.def;
 
-import core.game.node.Node;
-import core.tools.StringUtils;
-
 import java.util.HashMap;
 import java.util.Map;
 
+import core.tools.StringUtils;
+import core.game.node.Node;
+
 /**
- * Definition.
- *
- * @param <T> the type parameter
+ * Represent's a node's definitions.
+ * @author Emperor
+ * @param <T> The node type.
  */
 public class Definition<T extends Node> {
 
     /**
-     * The Id.
+     * The node id.
      */
     protected int id;
 
     /**
-     * The Name.
+     * The name.
      */
     protected String name = "null";
 
     /**
-     * The Examine.
+     * The examine info.
      */
     protected String examine;
 
     /**
-     * The Options.
+     * The options.
      */
     protected String[] options;
 
     /**
-     * The Handlers.
+     * The configurations.
      */
     protected final Map<String, Object> handlers = new HashMap<String, Object>();
 
     /**
-     * Instantiates a new Definition.
+     * Constructs a new {@code Definition} {@code Object}.
      */
     public Definition() {
         /*
@@ -48,19 +48,17 @@ public class Definition<T extends Node> {
     }
 
     /**
-     * Has options boolean.
-     *
-     * @return the boolean
+     * Checks if this node has options.
+     * @return {@code True} if so.
      */
     public boolean hasOptions() {
         return hasOptions(true);
     }
 
     /**
-     * Has options boolean.
-     *
-     * @param examine the examine
-     * @return the boolean
+     * Checks if this node has options.
+     * @param examine If examine should be treated as an option.
+     * @return {@code True} if so.
      */
     public boolean hasOptions(boolean examine) {
         if (name.equals("null") || options == null) {
@@ -77,11 +75,9 @@ public class Definition<T extends Node> {
     }
 
     /**
-     * Gets configuration.
-     *
-     * @param <V> the type parameter
-     * @param key the key
-     * @return the configuration
+     * Gets a configuration of this item's definitions.
+     * @param key The key.
+     * @return The configuration value.
      */
     @SuppressWarnings("unchecked")
     public <V> V getConfiguration(String key) {
@@ -89,12 +85,11 @@ public class Definition<T extends Node> {
     }
 
     /**
-     * Gets configuration.
-     *
-     * @param <V>  the type parameter
-     * @param key  the key
-     * @param fail the fail
-     * @return the configuration
+     * Gets a configuration from this item's definitions.
+     * @param key The key.
+     * @param fail The object to return if there was no value found for this
+     * key.
+     * @return The value, or the fail object.
      */
     @SuppressWarnings("unchecked")
     public <V> V getConfiguration(String key, V fail) {
@@ -106,54 +101,50 @@ public class Definition<T extends Node> {
     }
 
     /**
-     * Gets id.
-     *
-     * @return the id
+     * Gets the id.
+     * @return The id.
      */
     public int getId() {
         return id;
     }
 
     /**
-     * Sets id.
-     *
-     * @param id the id
+     * Sets the id.
+     * @param id The id to set.
      */
     public void setId(int id) {
         this.id = id;
     }
 
     /**
-     * Gets name.
-     *
-     * @return the name
+     * Gets the name.
+     * @return The name.
      */
     public String getName() {
         return name;
     }
 
     /**
-     * Sets name.
-     *
-     * @param name the name
+     * Sets the name.
+     * @param name The name to set.
      */
     public void setName(String name) {
         this.name = name;
     }
 
     /**
-     * Gets examine.
-     *
-     * @return the examine
+     * Gets the examine.
+     * @return The examine.
      */
     public String getExamine() {
         if (examine == null) {
             try {
-                if (handlers.get("examine") != null) examine = handlers.get("examine").toString();
-            } catch (Exception e) {
+                if(handlers.get("examine") != null)
+                    examine = handlers.get("examine").toString();
+            } catch (Exception e){
                 e.printStackTrace();
             }
-            if (examine == null) {
+            if(examine == null) {
                 if (name.length() > 0) {
                     examine = "It's a" + (StringUtils.isPlusN(name) ? "n " : " ") + name + ".";
                 } else {
@@ -165,36 +156,32 @@ public class Definition<T extends Node> {
     }
 
     /**
-     * Sets examine.
-     *
-     * @param examine the examine
+     * Sets the examine.
+     * @param examine The examine to set.
      */
     public void setExamine(String examine) {
         this.examine = examine;
     }
 
     /**
-     * Get options string [ ].
-     *
-     * @return the string [ ]
+     * Gets the options.
+     * @return The options.
      */
     public String[] getOptions() {
         return options;
     }
 
     /**
-     * Sets options.
-     *
-     * @param options the options
+     * Sets the options.
+     * @param options The options to set.
      */
     public void setOptions(String[] options) {
         this.options = options;
     }
 
     /**
-     * Gets handlers.
-     *
-     * @return the handlers
+     * Gets the configurations.
+     * @return The configurations.
      */
     public Map<String, Object> getHandlers() {
         return handlers;

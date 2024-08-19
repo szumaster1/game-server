@@ -7,7 +7,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Certificate plugin.
+ * Represents the Certificate plugin.
  */
 @Initializable
 class CertificatePlugin : UseWithHandler(11173) {

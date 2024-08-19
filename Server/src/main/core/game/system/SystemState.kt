@@ -1,26 +1,28 @@
 package core.game.system
 
 /**
- * System state.
+ * Represents the system states.
+ * @author Emperor
  */
 enum class SystemState {
+
     /**
-     * Active.
+     * The system is currently active.
      */
     ACTIVE,
 
     /**
-     * Updating.
+     * The system is being updated.
      */
     UPDATING,
 
     /**
-     * Private.
+     * The system is in development, thus only developers can connect.
      */
     PRIVATE,
 
     /**
-     * Terminated.
+     * The system has been terminated.
      */
-    TERMINATED
+    TERMINATED;
 }

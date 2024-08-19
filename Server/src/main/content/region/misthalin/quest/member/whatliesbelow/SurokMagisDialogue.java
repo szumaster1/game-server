@@ -8,7 +8,7 @@ import core.game.node.entity.player.link.quest.Quest;
 import core.game.world.update.flag.context.Animation;
 
 /**
- * Surok magis dialogue.
+ * Represents the Surok magis dialogue.
  */
 public class SurokMagisDialogue extends Dialogue {
 

@@ -19,7 +19,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Warriors guild.
+ * Represents the Warriors guild.
  */
 @Initializable
 class WarriorsGuild : OptionHandler() {

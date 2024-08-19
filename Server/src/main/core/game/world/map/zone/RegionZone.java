@@ -3,19 +3,25 @@ package core.game.world.map.zone;
 import java.util.Objects;
 
 /**
- * Region zone.
+ * Represents a zone inside a single region of the world map.
+ * @author Emperor
  */
 public final class RegionZone {
 
+    /**
+     * The map zone.
+     */
     private final MapZone zone;
 
+    /**
+     * The borders.
+     */
     private final ZoneBorders borders;
 
     /**
-     * Instantiates a new Region zone.
-     *
-     * @param zone    the zone
-     * @param borders the borders
+     * Constructs a new {@code RegionZone} {@code Object}.
+     * @param zone The map zone.
+     * @param borders The borders.
      */
     public RegionZone(MapZone zone, ZoneBorders borders) {
         this.zone = zone;
@@ -23,18 +29,16 @@ public final class RegionZone {
     }
 
     /**
-     * Gets borders.
-     *
-     * @return the borders
+     * Gets the borders.
+     * @return The borders.
      */
     public ZoneBorders getBorders() {
         return borders;
     }
 
     /**
-     * Gets zone.
-     *
-     * @return the zone
+     * Gets the zone.
+     * @return The zone.
      */
     public MapZone getZone() {
         return zone;

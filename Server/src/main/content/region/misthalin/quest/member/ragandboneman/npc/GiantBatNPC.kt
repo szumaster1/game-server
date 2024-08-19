@@ -11,7 +11,7 @@ import core.api.consts.Items
 import core.api.consts.NPCs
 
 /**
- * Giant bat NPC.
+ * Represents the Giant bat NPC.
  */
 class GiantBatNPC : NPCBehavior(*giantBatIds) {
 

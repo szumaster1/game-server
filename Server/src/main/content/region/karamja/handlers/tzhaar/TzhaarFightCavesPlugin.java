@@ -31,7 +31,7 @@ import java.util.Random;
 import static core.api.ContentAPIKt.*;
 
 /**
- * Tzhaar fight caves plugin.
+ * Represents the Tzhaar fight caves plugin.
  */
 @Initializable
 public final class TzhaarFightCavesPlugin extends ActivityPlugin {

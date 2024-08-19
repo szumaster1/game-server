@@ -27,9 +27,8 @@ import core.tools.colorize
 import java.util.*
 
 /**
- * Easter event
- *
- * @constructor Easter event
+ * Easter event.
+ * @author Ceikry
  */
 class EasterEvent : WorldEvent("easter"), TickListener, InteractionListener, LoginListener, Commands {
     private val spawnedItems = ArrayList<GroundItem>()

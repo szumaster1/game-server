@@ -12,7 +12,7 @@ import core.tools.colorize
 import core.tools.secondsToTicks
 
 /**
- * Avas device.
+ * Represents the Avas device.
  */
 class AvasDevice : InteractionListener, EventHook<TickEvent> {
 

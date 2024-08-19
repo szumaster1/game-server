@@ -12,7 +12,7 @@ import core.api.consts.Items
 import core.api.consts.NPCs
 
 /**
- * Panning guide dialogue.
+ * Represents the Panning guide dialogue.
  */
 @Initializable
 class PanningGuideDialogue (player: Player? = null) : Dialogue(player) {
@@ -28,7 +28,7 @@ class PanningGuideDialogue (player: Player? = null) : Dialogue(player) {
 }
 
 /**
- * Panning guide dialogue file.
+ * Represents the Panning guide dialogue file.
  */
 class PanningGuideDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {
@@ -83,7 +83,7 @@ class PanningGuideDialogueFile : DialogueBuilderFile() {
 }
 
 /**
- * Panning guide cannot pan dialogue file.
+ * Represents the Panning guide cannot pan dialogue file.
  */
 class PanningGuideCannotPanDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {

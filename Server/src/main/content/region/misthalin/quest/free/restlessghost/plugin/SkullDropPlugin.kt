@@ -8,7 +8,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Skull drop plugin.
+ * Represents the Skull drop plugin.
  */
 @Initializable
 class SkullDropPlugin : OptionHandler() {

@@ -12,7 +12,7 @@ import core.game.node.entity.npc.NPCBehavior
 import core.game.node.entity.player.Player
 
 /**
- * Dragonhead NPC.
+ * Dragon head NPC.
  */
 class DragonheadNPC : NPCBehavior(*DRAGON_HEAD) {
 

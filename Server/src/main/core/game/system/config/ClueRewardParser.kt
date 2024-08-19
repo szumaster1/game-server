@@ -31,8 +31,7 @@ class ClueRewardParser {
     var reader: FileReader? = null
 
     /**
-     * Load
-     *
+     * Load.
      */
     fun load() {
         reader = FileReader(ServerConstants.CONFIG_PATH + "clue_rewards.json")

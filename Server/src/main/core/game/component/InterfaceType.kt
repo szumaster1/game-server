@@ -3,7 +3,8 @@ package core.game.component
 import core.api.consts.Components
 
 /**
- * InterfaceType Enum Class.
+ * Represents an interface type.
+ * @author Emperor
  *
  * @param fixedPaneId      The ID of the fixed pane.
  * @param resizablePaneId  The ID of the resizable pane.

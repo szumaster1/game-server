@@ -10,7 +10,7 @@ import core.game.world.map.RegionManager
 import core.tools.RandomFunction
 
 /**
- * Bandit NPC.
+ * Represents the Bandit NPC.
  */
 class BanditNPC : NPCBehavior(NPCs.BANDIT_1926) {
 

@@ -8,7 +8,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Crandor zone.
+ * Represents the Crandor zone.
  */
 @Initializable
 class CrandorZone : MapZone("crandor", true), Plugin<Any?> {

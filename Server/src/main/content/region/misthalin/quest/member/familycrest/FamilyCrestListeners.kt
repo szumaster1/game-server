@@ -16,7 +16,7 @@ import core.network.packet.outgoing.ConstructScenery
 import core.network.packet.outgoing.UpdateAreaPosition
 
 /**
- * Family crest listeners.
+ * Represents the Family crest listeners.
  */
 class FamilyCrestListeners : InteractionListener {
 

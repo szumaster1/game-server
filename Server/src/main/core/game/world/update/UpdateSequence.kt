@@ -5,16 +5,21 @@ import core.game.node.entity.player.Player
 import core.game.node.item.GroundItemManager
 import core.game.world.map.RegionManager
 import core.game.world.repository.InitializingNodeList
-import core.game.world.repository.Repository
-import core.integration.grafana.Grafana
 import core.network.packet.PacketRepository
 import core.network.packet.context.PlayerContext
 import core.network.packet.outgoing.ClearMinimapFlag
+import core.game.world.repository.Repository
+import core.integrations.grafana.*
 
 /**
  * The entity update sequence.
+ * @author Emperor
  */
-class UpdateSequence {
+class UpdateSequence
+/**
+ * Constructs a new `ParallelUpdatingSequence` `Object`.
+ */
+{
     var lobbyList: List<Player>? = null
     var playersList: List<Player>? = null
     var npcList: List<NPC>? = null
@@ -25,16 +30,16 @@ class UpdateSequence {
      */
     fun start() {
         lobbyList = Repository.lobbyPlayers
-        playersList = rendererPlayers
+        playersList = renderablePlayers
         npcList = Repository.renderableNpcs
-        lobbyList!!.map { PacketRepository.send(ClearMinimapFlag::class.java, PlayerContext(it)) }
+        lobbyList!!.map{ PacketRepository.send(ClearMinimapFlag::class.java, PlayerContext(it)) }
 
         var npcTickStart = System.currentTimeMillis()
         npcList!!.forEach(NPC::tick)
         Grafana.npcTickTime = (System.currentTimeMillis() - npcTickStart).toInt()
 
         var playerTickStart = System.currentTimeMillis()
-        rendererPlayers.forEach(Player::tick)
+        renderablePlayers.forEach(Player::tick)
         Grafana.playerTickTime = (System.currentTimeMillis() - playerTickStart).toInt()
     }
 
@@ -43,14 +48,17 @@ class UpdateSequence {
      */
     fun run() {
         var playerRenderStart = System.currentTimeMillis()
-        rendererPlayers.forEach(Player::update)
+        renderablePlayers.forEach(Player::update)
         Grafana.playerRenderTime = (System.currentTimeMillis() - playerRenderStart).toInt()
     }
 
+    /**
+     * Ends the sequence, calls the [Entity.reset] method..
+     */
     fun end() {
         playersList!!.forEach(Player::reset)
         npcList!!.forEach(NPC::reset)
-        rendererPlayers.sync()
+        renderablePlayers.sync()
         RegionManager.pulse()
         GroundItemManager.pulse()
     }
@@ -62,9 +70,15 @@ class UpdateSequence {
     }
 
     companion object {
-
+        /**
+         * Gets the renderablePlayers.
+         * @return The renderablePlayers.
+         */
+        /**
+         * The list of active players.
+         */
         @JvmStatic
-        val rendererPlayers = InitializingNodeList<Player>()
+        val renderablePlayers = InitializingNodeList<Player>()
 
     }
 }

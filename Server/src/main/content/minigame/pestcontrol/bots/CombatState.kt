@@ -13,7 +13,7 @@ import core.tools.RandomFunction
 import java.util.*
 
 /**
- * Combat state.
+ * Represents the Combat state.
  *
  * @param bot the bot id.
  */

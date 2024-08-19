@@ -1,7 +1,7 @@
 package core.game.interaction;
 
-import core.game.container.Container;
 import core.game.event.InteractionEvent;
+import core.game.container.Container;
 import core.game.node.Node;
 import core.game.node.entity.impl.PulseType;
 import core.game.node.entity.npc.NPC;
@@ -9,40 +9,49 @@ import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
 import core.game.node.scenery.Scenery;
 import core.game.system.task.Pulse;
-import core.game.world.GameWorld;
 import core.network.packet.PacketRepository;
 import core.network.packet.context.InteractionOptionContext;
 import core.network.packet.outgoing.InteractionOption;
 import core.tools.Log;
+import core.tools.SystemLogger;
+import core.game.world.GameWorld;
 
 import static core.api.ContentAPIKt.log;
 
 /**
- * Interact plugin.
+ * Handles interaction between nodes.
+ * @author Emperor
  */
 public class InteractPlugin {
 
+    /**
+     * The current options.
+     */
     private Option[] options = new Option[8];
 
+    /**
+     * The player.
+     */
     private final Node node;
 
+    /**
+     * If the interaction option handlers have been initialized.
+     */
     private boolean initialized;
 
     /**
-     * Instantiates a new Interact plugin.
-     *
-     * @param node the node
+     * Constructs a new {@code Interaction} {@code Object}.
+     * @param node The node reference.
      */
     public InteractPlugin(Node node) {
         this.node = node;
     }
 
     /**
-     * Send option.
-     *
-     * @param node  the node
-     * @param index the index
-     * @param name  the name
+     * Sends the current option.
+     * @param node The node.
+     * @param index The index.
+     * @param name The option name.
      */
     public static void sendOption(Node node, int index, String name) {
         if (!(node instanceof Player)) {
@@ -52,10 +61,9 @@ public class InteractPlugin {
     }
 
     /**
-     * Handle.
-     *
-     * @param player the player
-     * @param option the option
+     * Handles an interaction option being clicked.
+     * @param player The player using the option.
+     * @param option The option used.
      */
     public void handle(final Player player, final Option option) {
         try {
@@ -77,18 +85,17 @@ public class InteractPlugin {
                 player.getPulseManager().runUnhandledAction(player, PulseType.STANDARD);
             }
             player.dispatch(new InteractionEvent(node, option.getName().toLowerCase()));
-        } catch (Exception e) {
+        } catch (Exception e){
             e.printStackTrace();
-            log(this.getClass(), Log.ERR, this.getClass().getName() + e.getMessage());
+            log(this.getClass(), Log.ERR,  this.getClass().getName() + e.getMessage());
         }
     }
 
     /**
-     * Handle item option.
-     *
-     * @param player    the player
-     * @param option    the option
-     * @param container the container
+     * Handles an item option.
+     * @param player The player.
+     * @param option The option.
+     * @param container The container the item is in.
      */
     public void handleItemOption(final Player player, final Option option, final Container container) {
         if (player.getLocks().isInteractionLocked()) {
@@ -102,7 +109,7 @@ public class InteractPlugin {
                     if (player.getLocks().isInteractionLocked() || player.getZoneMonitor().interact(node, option)) {
                         return true;
                     }
-                    if (InteractionListeners.run(node.getId(), IntType.ITEM, option.getName(), player, node)) {
+                    if(InteractionListeners.run(node.getId(), IntType.ITEM, option.getName(),player,node)){
                         return true;
                     }
                     if (option.getHandler() == null || !option.getHandler().handle(player, node, option.getName().toLowerCase())) {
@@ -111,9 +118,9 @@ public class InteractPlugin {
                     if (option.getHandler() != null) {
                         player.debug("Using item handler " + option.getHandler().getClass().getSimpleName());
                     }
-                } catch (Exception e) {
+                } catch (Exception e){
                     e.printStackTrace();
-                    log(this.getClass(), Log.ERR, this.getClass().getName() + e.getMessage());
+                    log(this.getClass(), Log.ERR,  this.getClass().getName() + e.getMessage());
                 }
                 return true;
             }
@@ -121,11 +128,9 @@ public class InteractPlugin {
     }
 
     /**
-     * Handle invalid interaction.
-     *
-     * @param player the player
-     * @param node   the node
-     * @param option the option
+     * Handles an invalid interaction.
+     * @param player The player.
+     * @param node The node to interact with.
      */
     public static void handleInvalidInteraction(final Player player, final Node node, final Option option) {
         if (node == null) {
@@ -144,9 +149,9 @@ public class InteractPlugin {
                             return true;
                         }
                         player.getPacketDispatch().sendMessage("Nothing interesting happens.");
-                    } catch (Exception e) {
+                    } catch (Exception e){
                         e.printStackTrace();
-                        log(this.getClass(), Log.ERR, this.getClass().getName() + e.getMessage());
+                        log(this.getClass(), Log.ERR,  this.getClass().getName() + e.getMessage());
                     }
                     return true;
                 }
@@ -157,11 +162,10 @@ public class InteractPlugin {
     }
 
     /**
-     * Handles the walking option for a player.
-     *
-     * @param player The player who is performing the action.
-     * @param option The option selected by the player.
-     * @param pulseType The type of pulse for the action.
+     * Handles an option requiring the player to walk to the node.
+     * @param player The player.
+     * @param option The option.
+     * @param pulseType The pulse type.
      */
     private void handleWalkOption(final Player player, final Option option, PulseType pulseType) {
         if (node.getLocation() == null) {
@@ -183,9 +187,9 @@ public class InteractPlugin {
                     if (option == null || option.getHandler() == null || !option.getHandler().handle(player, node, option.getName().toLowerCase())) {
                         player.getPacketDispatch().sendMessage("Nothing interesting happens.");
                     }
-                } catch (Exception e) {
+                } catch (Exception e){
                     e.printStackTrace();
-                    log(this.getClass(), Log.ERR, this.getClass().getName() + e.getMessage());
+                    log(this.getClass(), Log.ERR,  this.getClass().getName() + e.getMessage());
                 }
                 return true;
             }
@@ -193,11 +197,10 @@ public class InteractPlugin {
     }
 
     /**
-     * Handles the default option for a player.
-     *
-     * @param player The player who is performing the action.
-     * @param option The option selected by the player.
-     * @param pulseType The type of pulse for the action.
+     * Handles a default option.
+     * @param player The player.
+     * @param option The option.
+     * @param pulseType The pulse type.
      */
     private void handleDefaultOption(final Player player, final Option option, PulseType pulseType) {
         if (!option.getHandler().isDelayed(player)) {
@@ -225,10 +228,9 @@ public class InteractPlugin {
     }
 
     /**
-     * Init.
-     *
-     * @param nodeId the node id
-     * @param names  the names
+     * Initializes the interaction options.
+     * @param nodeId The node id.
+     * @param names The option names.
      */
     public void init(int nodeId, String... names) {
         options = new Option[names.length];
@@ -242,7 +244,7 @@ public class InteractPlugin {
     }
 
     /**
-     * Sets default.
+     * Sets the default option handlers (if not yet initialized).
      */
     public void setDefault() {
         if (initialized) {
@@ -275,9 +277,8 @@ public class InteractPlugin {
     }
 
     /**
-     * Set.
-     *
-     * @param option the option
+     * Sets a new option.
+     * @param option The option.
      */
     public void set(Option option) {
         options[option.getIndex()] = option;
@@ -285,10 +286,9 @@ public class InteractPlugin {
     }
 
     /**
-     * Remove boolean.
-     *
-     * @param option the option
-     * @return the boolean
+     * Removes an option.
+     * @return {@code True} if the option got removed, {@code false} if the
+     * option wasn't set.
      */
     public boolean remove(Option option) {
         if (options[option.getIndex()] == option) {
@@ -299,9 +299,8 @@ public class InteractPlugin {
     }
 
     /**
-     * Remove.
-     *
-     * @param index the index
+     * Removes an option.
+     * @param index The index.
      */
     public void remove(int index) {
         if (options[index] == null) {
@@ -312,37 +311,33 @@ public class InteractPlugin {
     }
 
     /**
-     * Get option.
-     *
-     * @param index the index
-     * @return the option
+     * Gets the option on the requested slot.
+     * @param index The slot index.
+     * @return The option on that slot, or {@code null} if there was no option.
      */
     public Option get(int index) {
         return options[index];
     }
 
     /**
-     * Get options option [ ].
-     *
-     * @return the option [ ]
+     * Gets the options.
+     * @return The options.
      */
     public Option[] getOptions() {
         return options;
     }
 
     /**
-     * Is initialized boolean.
-     *
-     * @return the boolean
+     * Gets the initialized value.
+     * @return The initialized.
      */
     public boolean isInitialized() {
         return initialized;
     }
 
     /**
-     * Sets initialized.
-     *
-     * @param initialized the initialized
+     * Sets the initialized value.
+     * @param initialized The initialized to set.
      */
     public void setInitialized(boolean initialized) {
         this.initialized = initialized;

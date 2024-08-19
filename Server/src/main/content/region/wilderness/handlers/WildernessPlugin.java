@@ -18,7 +18,7 @@ import static core.api.ContentAPIKt.*;
 import static core.game.node.entity.player.link.TeleportManager.WILDY_TELEPORT;
 
 /**
- * Wilderness plugin.
+ * Represents the Wilderness plugin.
  */
 @Initializable
 public final class WildernessPlugin extends OptionHandler {

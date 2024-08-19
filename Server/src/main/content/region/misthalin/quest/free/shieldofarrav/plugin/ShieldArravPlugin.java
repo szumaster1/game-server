@@ -26,7 +26,7 @@ import core.plugin.Plugin;
 import java.util.List;
 
 /**
- * Shield arrav plugin.
+ * Represents the Shield arrav plugin.
  */
 public final class ShieldArravPlugin extends OptionHandler {
 

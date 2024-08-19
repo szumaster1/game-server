@@ -9,9 +9,7 @@ import core.game.world.repository.Repository
 import core.plugin.Initializable
 
 /**
- * Quest command set
- *
- * @constructor Quest command set
+ * Quest command set.
  */
 @Initializable
 class QuestCommandSet : CommandSet(Privilege.ADMIN) {

@@ -17,6 +17,7 @@ import core.game.system.config.ItemConfigParser
 
 /**
  * Represents the item drop/destroy/dissolve handler.
+ * @author Ceikry, ovenbreado
  */
 class DropListener : InteractionListener {
     override fun defineListeners() {

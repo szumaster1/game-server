@@ -6,7 +6,7 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * Cave goblin miner NPC.
+ * Represents the Cave goblin miner NPC.
  */
 @Initializable
 class CaveGoblinMinerNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {

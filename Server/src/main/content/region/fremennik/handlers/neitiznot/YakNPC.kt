@@ -10,7 +10,7 @@ import core.game.node.entity.npc.NPCBehavior
 import core.tools.RandomFunction
 
 /**
- * Yak NPC.
+ * Represents the Yak NPC.
  */
 class YakNPC : NPCBehavior(NPCs.YAK_5529), InteractionListener {
 

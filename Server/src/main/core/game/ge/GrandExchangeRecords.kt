@@ -14,9 +14,9 @@ import org.json.simple.JSONObject
 import java.text.NumberFormat
 import java.util.*
 
-
 /**
  * Handles the grand exchange interfaces for the player.
+ * @author Emperor, Angle
  */
 class GrandExchangeRecords(private val player: Player? = null) : PersistPlayer, LoginListener {
     var history = arrayOfNulls<GrandExchangeOffer>(5)

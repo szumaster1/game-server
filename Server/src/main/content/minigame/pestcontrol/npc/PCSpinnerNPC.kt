@@ -20,7 +20,7 @@ import core.game.world.update.flag.context.Graphic
 import core.tools.RandomFunction
 
 /**
- * Pest Control spinner NPC.
+ * Represents the Pest Control spinner NPC.
  */
 class PCSpinnerNPC : AbstractNPC {
     private var session: PestControlSession? = null

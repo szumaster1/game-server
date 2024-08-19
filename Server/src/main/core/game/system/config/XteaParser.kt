@@ -35,8 +35,7 @@ class XteaParser {
 
 
     /**
-     * Load
-     *
+     * Load.
      */
     fun load() {
         var count = 0

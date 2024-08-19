@@ -11,7 +11,8 @@ import core.network.packet.outgoing.RepositionChild
 import core.tools.StringUtils
 
 /**
- * Skill dialogue handler
+ * Represents a skill dialogue handler class.
+ * @author Vexia
  *
  * @param player The player associated with this skill dialogue handler
  * @param type The type of skill dialogue being handled

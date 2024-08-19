@@ -10,7 +10,7 @@ import core.game.node.item.Item
 import core.game.world.update.flag.context.Animation
 
 /**
- * Represents a pulse for Fremennik shield.
+ * Represents the Represents a pulse for Fremennik shield.
  *
  * @param player The player associated with the pulse.
  * @param item The item associated with the pulse.

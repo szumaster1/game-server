@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Gwd zilyana swing handler.
+ * Represents the Gwd zilyana swing handler.
  */
 public class GWDZilyanaSwingHandler extends CombatSwingHandler {
 

@@ -8,7 +8,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Launa dialogue.
+ * Represents the Launa dialogue.
  */
 @Initializable
 class LaunaDialogue(player: Player? = null) : Dialogue(player) {

@@ -4,7 +4,8 @@ import core.api.StartupListener;
 import core.game.world.map.zone.impl.*;
 
 /**
- * Zone builder.
+ * Loads all the default zones.
+ * @author Emperor
  */
 public class ZoneBuilder implements StartupListener {
 
@@ -16,13 +17,11 @@ public class ZoneBuilder implements StartupListener {
         configure(new DarkZone());
         configure(new KaramjaZone());
         configure(new BankZone());
-        configure(new SnowZone());
     }
 
     /**
-     * Configure.
-     *
-     * @param zone the zone
+     * Configures the map zone.
+     * @param zone The map zone.
      */
     public static void configure(MapZone zone) {
         zone.setUid(zone.getName().hashCode());

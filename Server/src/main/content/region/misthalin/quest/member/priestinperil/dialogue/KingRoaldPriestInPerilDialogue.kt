@@ -6,7 +6,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * King Roald dialogue priest in peril.
+ * Represents the King Roald dialogue priest in peril.
  *
  * @param questStage the quest stage.
  */

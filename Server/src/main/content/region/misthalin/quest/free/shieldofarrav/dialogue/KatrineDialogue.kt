@@ -9,7 +9,7 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.item.Item
 
 /**
- * Katrine dialogue.
+ * Represents the Katrine dialogue.
  */
 class KatrineDialogue(player: Player? = null) : Dialogue(player) {
 

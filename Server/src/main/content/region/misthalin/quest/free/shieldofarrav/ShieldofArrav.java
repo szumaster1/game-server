@@ -20,7 +20,7 @@ import static core.api.ContentAPIKt.removeAttribute;
 import static core.api.ContentAPIKt.setAttribute;
 
 /**
- * Shieldof arrav.
+ * Represents the Shield of arrav quest.
  */
 @Initializable
 public class ShieldofArrav extends Quest {

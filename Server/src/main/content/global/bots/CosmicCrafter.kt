@@ -9,6 +9,7 @@ import core.game.world.map.zone.ZoneBorders
 
 /**
  * Cosmic crafter.
+ * @author Pine Stone
  */
 @PlayerCompatible
 @ScriptName("Cosmic Rune Crafter")

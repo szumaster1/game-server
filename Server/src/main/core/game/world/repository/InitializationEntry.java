@@ -3,28 +3,34 @@ package core.game.world.repository;
 import core.game.node.Node;
 
 /**
- * Initialization entry.
+ * Wraps around a node to represent its entry in a queue.
+ * @author Emperor
  */
 public class InitializationEntry {
 
+    /**
+     * The node.
+     */
     private final Node node;
 
+    /**
+     * If the node is being removed from the game, rather than added.
+     */
     private boolean removal;
 
     /**
-     * Instantiates a new Initialization entry.
-     *
-     * @param node the node
+     * Constructs a new {@code InitializationEntry} {@code Object}.
+     * @param node The node.
      */
     public InitializationEntry(Node node) {
         this(node, false);
     }
 
     /**
-     * Instantiates a new Initialization entry.
-     *
-     * @param node    the node
-     * @param removal the removal
+     * Constructs a new {@code InitializationEntry} {@code Object}.
+     * @param node The node.
+     * @param removal If the node should be removed from the game, rather than
+     * added.
      */
     public InitializationEntry(Node node, boolean removal) {
         this.node = node;
@@ -32,9 +38,8 @@ public class InitializationEntry {
     }
 
     /**
-     * Initialize node.
-     *
-     * @return the node
+     * Initializes the node.
+     * @return The node instance.
      */
     public Node initialize() {
         node.setActive(true);
@@ -58,27 +63,24 @@ public class InitializationEntry {
     }
 
     /**
-     * Gets node.
-     *
-     * @return the node
+     * Gets the node.
+     * @return The node.
      */
     public Node getNode() {
         return node;
     }
 
     /**
-     * Is removal boolean.
-     *
-     * @return the boolean
+     * Gets the removal.
+     * @return The removal.
      */
     public boolean isRemoval() {
         return removal;
     }
 
     /**
-     * Sets removal.
-     *
-     * @param removal the removal
+     * Sets the removal.
+     * @param removal The removal to set.
      */
     public void setRemoval(boolean removal) {
         this.removal = removal;

@@ -16,7 +16,6 @@ import com.google.errorprone.annotations.CheckReturnValue;
 
 /**
  * Represents a container which contains items.
- *
  * @author Emperor
  */
 public class Container {

@@ -9,6 +9,7 @@ import kotlin.random.Random
 
 /**
  * Assembles combat-style bots, intended to replace PVMBotBuilder.
+ * @author Ceikry
  */
 class CombatBotAssembler {
     enum class Type {

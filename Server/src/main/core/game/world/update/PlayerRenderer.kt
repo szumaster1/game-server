@@ -8,6 +8,7 @@ import core.network.packet.PacketHeader
 
 /**
  * Handles the player rendering.
+ * @author Emperor
  */
 object PlayerRenderer {
     /**
@@ -152,14 +153,7 @@ object PlayerRenderer {
      * @param appearance If appearance update mask should be used in the synced
      * buffer.
      */
-    private fun flagMaskUpdate(
-        local: Player,
-        player: Player,
-        buffer: IoBuffer,
-        maskBuffer: IoBuffer,
-        sync: Boolean,
-        appearance: Boolean
-    ) {
+    private fun flagMaskUpdate(local: Player, player: Player, buffer: IoBuffer, maskBuffer: IoBuffer, sync: Boolean, appearance: Boolean) {
         if (player.updateMasks.isUpdateRequired) {
             buffer.putBits(1, 1)
             writeMaskUpdates(local, player, maskBuffer, appearance, sync)

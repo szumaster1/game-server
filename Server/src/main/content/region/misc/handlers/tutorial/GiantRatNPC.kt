@@ -11,7 +11,7 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * Giant rat NPC.
+ * Represents the Giant rat NPC.
  */
 @Initializable
 class GiantRatNPC : AbstractNPC {

@@ -17,7 +17,7 @@ import core.game.world.update.flag.context.Graphic
 import core.plugin.Initializable
 
 /**
- * Represents the Professor oddenstein dialogue.
+ * Represents the Professor Oddenstein dialogue.
  */
 @Initializable
 class ProfessorOddensteinDialogue(player: Player? = null) : Dialogue(player) {

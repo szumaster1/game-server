@@ -10,7 +10,7 @@ import core.plugin.Initializable;
 import core.tools.RandomFunction;
 
 /**
- * Rock crab npc.
+ * Represents the Rock crab npc.
  */
 @Initializable
 public final class RockCrabNPC extends AbstractNPC {

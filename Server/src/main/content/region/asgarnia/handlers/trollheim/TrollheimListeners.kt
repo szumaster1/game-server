@@ -7,7 +7,7 @@ import core.game.interaction.InteractionListener
 import core.game.world.map.Location
 
 /**
- * Trollheim listeners.
+ * Represents the Trollheim listeners.
  */
 class TrollheimListeners : InteractionListener {
 

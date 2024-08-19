@@ -10,7 +10,8 @@ import core.game.world.update.UpdateSequence
 import java.util.concurrent.CopyOnWriteArrayList
 
 /**
- * The repository holding all node lists, etc in the game world.
+ * The repository holding all node lists, etc. in the game world.
+ * @author Emperor
  */
 object Repository {
     /**
@@ -159,7 +160,7 @@ object Repository {
         players.remove(player)
         uid_map.remove(player.details.uid)
         playerNames.remove(player.name)
-        UpdateSequence.rendererPlayers.remove(player)
+        UpdateSequence.renderablePlayers.remove(player)
         player.session.disconnect()
     }
 

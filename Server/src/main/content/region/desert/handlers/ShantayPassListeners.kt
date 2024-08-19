@@ -8,7 +8,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.item.Item
 
 /**
- * Shantay pass listeners.
+ * Represents the Shantay pass listeners.
  */
 class ShantayPassListeners : InteractionListener {
 

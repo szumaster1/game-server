@@ -14,7 +14,7 @@ class RewardInterfaceListener : InterfaceListener {
 
     override fun defineInterfaceListeners() {
         // Reset points.
-        onOpen(Components.BARBASSAULT_REWARD_SHOP_491) { player, components ->
+        onOpen(Components.BARBASSAULT_REWARD_SHOP_491) { player, _ ->
             for (i in BA_POINTS) {
                 setInterfaceText(player, "0", 491, i)
             }

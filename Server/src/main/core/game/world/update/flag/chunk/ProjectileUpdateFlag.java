@@ -8,14 +8,14 @@ import core.game.world.update.flag.UpdateFlag;
 import core.network.packet.IoBuffer;
 
 /**
- * Projectile update flag.
+ * Handles the projectile updating.
+ * @author Emperor
  */
 public final class ProjectileUpdateFlag extends UpdateFlag<Projectile> {
 
     /**
-     * Instantiates a new Projectile update flag.
-     *
-     * @param projectile the projectile
+     * Constructs a new {@code ProjectileUpdateFlag} {@code Object}.
+     * @param projectile The projectile.
      */
     public ProjectileUpdateFlag(Projectile projectile) {
         super(projectile);

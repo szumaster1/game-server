@@ -14,7 +14,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 
 /**
- * Imp catcher quest.
+ * Represents the Imp catcher quest.
  */
 @Initializable
 class ImpCatcher : Quest("Imp Catcher", 21, 20, 1, Vars.VARP_QUEST_IMP_CATCHER_PROGRESS, 0, 1, 2) {

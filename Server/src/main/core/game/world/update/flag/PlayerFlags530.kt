@@ -12,8 +12,7 @@ import kotlin.math.max
 import kotlin.reflect.typeOf
 
 /**
- * Player flags530
- *
+ * Player flags530.
  */
 sealed class PlayerFlags530(p: Int, o: Int, f: EntityFlag) : EFlagProvider(530, EFlagType.Player, p, o, f) {
     /**

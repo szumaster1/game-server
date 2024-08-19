@@ -26,7 +26,7 @@ import core.plugin.Plugin
 import core.tools.RandomFunction
 
 /**
- * Barrel room.
+ * Represents the Barrel room.
  */
 @Initializable
 class BarrelRoom : MapZone("wg barrel", true), Plugin<Any> {

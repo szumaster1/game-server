@@ -24,7 +24,7 @@ import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
 
 /**
- * Alchemist zone.
+ * Represents the Alchemist zone.
  */
 class AlchemistZone :
     MTAZone("Alchemists' Playground", arrayOf(Item(8890), Item(6893), Item(6894), Item(6895), Item(6896), Item(6897))) {

@@ -67,8 +67,7 @@ class ItemConfigParser {
     var reader: FileReader? = null
 
     /**
-     * Load
-     *
+     * Load.
      */
     fun load() {
         var count = 0

@@ -30,6 +30,7 @@ import core.tools.Log
 
 /**
  * A utility class for making cutscenes.
+ * @author Ceikry
  */
 abstract class Cutscene(val player: Player) {
     lateinit var region: Region
@@ -44,9 +45,8 @@ abstract class Cutscene(val player: Player) {
     abstract fun runStage(stage: Int)
 
     /**
-     * Creates a new dynamic copy of the region identified by regionId,
-     * sets this cutscene's region as this new copy, and clears any cutscene-spawned
-     * NPCs from the previous region.
+     * Creates a new dynamic copy of the region identified by regionId, sets this cutscene's
+     * region as this new copy, and clears any cutscene-spawned NPCs from the previous region.
      *
      * @param regionId the region ID to duplicate.
      */

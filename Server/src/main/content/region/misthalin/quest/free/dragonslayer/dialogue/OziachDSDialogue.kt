@@ -9,7 +9,7 @@ import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
 /**
- * Oziach Dragon slayer dialogue.
+ * Represents the Oziach Dragon slayer dialogue.
  */
 class OziachDSDialogue(player: Player? = null) : Dialogue(player) {
 

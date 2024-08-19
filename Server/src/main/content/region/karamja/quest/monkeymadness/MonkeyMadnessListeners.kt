@@ -24,6 +24,9 @@ import core.network.packet.context.ContainerContext
 import core.network.packet.outgoing.CameraViewPacket
 import core.network.packet.outgoing.ContainerPacket
 
+/**
+ * Monkey madness listeners.
+ */
 class MonkeyMadnessListeners : InteractionListener {
 
     companion object {
@@ -33,6 +36,10 @@ class MonkeyMadnessListeners : InteractionListener {
     }
 
     override fun defineListeners() {
+
+        /*
+         * Interaction with Zooknock.
+         */
         on(intArrayOf(NPCs.ZOOKNOCK_1425, NPCs.ZOOKNOCK_1426), IntType.NPC, "talk-to"){ player, npc ->
             if (getQuestStage(player, "Monkey Madness") == 96) {
                 openDialogue(player, ZooknockAfterBattleDialogueFile(), npc)
@@ -44,6 +51,9 @@ class MonkeyMadnessListeners : InteractionListener {
             return@on true
         }
 
+        /*
+         * Interaction with Waydar NPC.
+         */
         on(intArrayOf(NPCs.WAYDAR_1408, NPCs.WAYDAR_1409, NPCs.WAYDAR_1410), IntType.NPC, "talk-to"){ player, npc ->
             when(player.location.regionId) {
                 9626 -> openDialogue(player, WaydarDialogue(), npc)
@@ -52,6 +62,9 @@ class MonkeyMadnessListeners : InteractionListener {
             return@on true
         }
 
+        /*
+         * Interaction with Monkeys.
+         */
         on(NPCs.MONKEY_1463, IntType.NPC, "talk-to"){ player, npc ->
             if (player.equipment.containsAtLeastOneItem(IntArray(4031 - 4024 + 1) { it + 4024 }) &&
                 player.equipment.containsAtLeastOneItem(IntArray(4022 - 4021 + 1) { it + 4021 }) &&
@@ -62,6 +75,9 @@ class MonkeyMadnessListeners : InteractionListener {
             return@on true
         }
 
+        /*
+         * Interaction with Monkey child.
+         */
         on(NPCs.MONKEY_CHILD_1452, IntType.NPC, "talk-to"){ player, npc ->
             if (getAttribute(player, "/save:mm:first-talk", false)) {
                 openDialogue(player, MonkeyChildSecondDialogue(), npc)
@@ -83,11 +99,17 @@ class MonkeyMadnessListeners : InteractionListener {
             return@on true
         }
 
+        /*
+         * Interaction with Lumbo.
+         */
         on(NPCs.LUMDO_1419, IntType.NPC, "talk-to"){ player, npc ->
             openDialogue(player, LumdoDialogue(), npc)
             return@on true
         }
 
+        /*
+         * Interaction with Kruk.
+         */
         on(NPCs.KRUK_1441, IntType.NPC, "talk-to"){ player, npc ->
             if(player.questRepository.getQuest("Monkey Madness").getStage(player) >= 35) {
                 openDialogue(player, KrukDialogue(), npc)
@@ -95,7 +117,10 @@ class MonkeyMadnessListeners : InteractionListener {
             return@on true
         }
 
-        on(intArrayOf(4787,4788), IntType.SCENERY, "Open") { player, npc ->
+        /*
+         * Interaction with Gate.
+         */
+        on(intArrayOf(4787,4788), IntType.SCENERY, "Open") { player, _ ->
             if(player.equipment.containsItem(Item(Items.MONKEY_GREEGREE_4031))){
                 sendNPCDialogue(player, NPCs.KRUK_1441, "Open the gate! A monkey wishes to pass!")
 
@@ -118,6 +143,9 @@ class MonkeyMadnessListeners : InteractionListener {
             return@on true
         }
 
+        /*
+         * Interaction with G.L.O. Carnock NPC.
+         */
         on(NPCs.GLO_CARANOCK_1427, IntType.NPC, "talk-to"){ player, npc ->
             when (player.location.regionId) {
                 11823 -> openDialogue(player, GLOCaranockDialogue(), npc)
@@ -125,6 +153,9 @@ class MonkeyMadnessListeners : InteractionListener {
             return@on true
         }
 
+        /*
+         * Interaction with Garkor NPC.
+         */
         on(NPCs.GARKOR_1411, IntType.NPC, "talk-to"){ player, npc ->
             if(player.equipment.containsAtLeastOneItem(itemIds)) {
                 openDialogue(player, GarkorDialogue(), npc)
@@ -144,6 +175,9 @@ class MonkeyMadnessListeners : InteractionListener {
             return@on true
         }
 
+        /*
+         * Interaction with Daero NPC.
+         */
         on(NPCs.DAERO_1407, IntType.NPC, "talk-to") { player, npc ->
             if (getQuestStage(player, "Monkey Madness") == 100 &&
                 !getAttribute(player, "/save:mm:xp_reward", false)
@@ -159,6 +193,10 @@ class MonkeyMadnessListeners : InteractionListener {
             }
             return@on true
         }
+
+        /*
+         * Interaction with Awowogei NPC.
+         */
         on(Scenery.AWOWOGEI_4771, IntType.SCENERY, "talk-to") { player, npc ->
 
             if (player.questRepository.getQuest("Monkey Madness").getStage(player) == 32) {
@@ -169,6 +207,9 @@ class MonkeyMadnessListeners : InteractionListener {
             return@on true
         }
 
+        /*
+         * Interaction with Monkey Minder NPC.
+         */
         on(NPCs.MONKEY_MINDER_1469, IntType.NPC, "talk-to") { player, npc ->
             if (player.equipment.containsItem(Item(Items.MONKEY_GREEGREE_4031))) {
                 openDialogue(player, MonkeyMinderDialogue(), npc)
@@ -178,11 +219,17 @@ class MonkeyMadnessListeners : InteractionListener {
             return@on true
         }
 
+        /*
+         * Interaction with Crate.
+         */
         on(Scenery.CRATE_4746, IntType.SCENERY, "Search") { player, npc ->
             openDialogue(player, HangarCrateDialogue(), npc)
             return@on true
         }
 
+        /*
+         * Interaction with controls.
+         */
         on(Items.SPARE_CONTROLS_4002, IntType.ITEM, "View") { player, _ ->
             val puzzlePieces: Array<Item?>? = ((3904..3950 step 2).toList().map { Item(it) } + Item(-1)).toTypedArray()
 
@@ -196,6 +243,9 @@ class MonkeyMadnessListeners : InteractionListener {
             return@on true
         }
 
+        /*
+         * Interaction with Waydar Puzzle.
+         */
         on(Scenery.REINITIALISATION_PANEL_4871, IntType.SCENERY, "Operate") { player, _ ->
             if (!getAttribute(player, "/save:mm:puzzle-done", false)) {
 
@@ -236,6 +286,9 @@ class MonkeyMadnessListeners : InteractionListener {
             return@on true
         }
 
+        /*
+         * Handle creating Monkey Speak amulet (U).
+         */
         onUseWith(IntType.SCENERY, Items.ENCHANTED_BAR_4007, 37726) { player, _, _ ->
             if (!player.inventory.containsItem(Item(Items.MAMULET_MOULD_4020)))
                 sendItemDialogue(
@@ -249,6 +302,9 @@ class MonkeyMadnessListeners : InteractionListener {
             return@onUseWith true
         }
 
+        /*
+         * Handle creating Monkey Speak amulet using ball of wool and unstrug amulet.
+         */
         onUseWith(IntType.ITEM, Items.BALL_OF_WOOL_1759, mspeakAmuletUnstrung) { player, _, _ ->
             removeItem(player, Item(Items.BALL_OF_WOOL_1759))
             removeItem(player, Item(mspeakAmuletUnstrung))
@@ -256,6 +312,9 @@ class MonkeyMadnessListeners : InteractionListener {
             return@onUseWith true
         }
 
+        /*
+         * Handle Banana tree search interaction.
+         */
         on(Scenery.BANANA_TREE_4749, IntType.SCENERY, "Search") { player, npc ->
             addItem(player, Items.BANANA_1963)
             return@on true
@@ -282,6 +341,9 @@ class MonkeyMadnessListeners : InteractionListener {
             return@onUnequip true
         }
 
+        /*
+         * Handle equip the Tenth squad sigil.
+         */
         onEquip(Items.TENTH_SQUAD_SIGIL_4035) { player, _ ->
             sendDialogueOptions(player, "Let the sigil teleport you when worn?")
             setQuestStage(player, "Monkey Madness", 94)

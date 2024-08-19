@@ -16,7 +16,7 @@ import core.api.consts.Items
 import core.api.consts.NPCs
 
 /**
- * Chronozon cave zone.
+ * Represents the Chronozon cave zone.
  */
 @Initializable
 class ChronozonCaveZone : MapZone("FC ChronozoneZone", true), Plugin<Unit> {

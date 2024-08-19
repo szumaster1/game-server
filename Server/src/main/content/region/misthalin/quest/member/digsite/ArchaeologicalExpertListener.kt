@@ -13,7 +13,7 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
 /**
- * Archaeological Expert listener.
+ * Represents the Archaeological Expert listener.
  */
 class ArchaeologicalExpertListener : InteractionListener {
 
@@ -57,7 +57,7 @@ class ArchaeologicalExpertListener : InteractionListener {
 }
 
 /**
- * Archaeological expert listener dialogue file.
+ * Represents the Archaeological expert listener dialogue file.
  */
 class ArchaeologicalExpertListenerDialogueFile(val it: Int) : DialogueBuilderFile() {
 

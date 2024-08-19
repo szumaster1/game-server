@@ -13,7 +13,7 @@ import core.api.consts.Items
 import core.api.consts.NPCs
 
 /**
- * Digsite workman dialogue.
+ * Represents the Digsite workman dialogue.
  */
 @Initializable
 class DigsiteWorkmanDialogue (player: Player? = null) : Dialogue(player), InteractionListener {
@@ -60,7 +60,7 @@ class DigsiteWorkmanDialogue (player: Player? = null) : Dialogue(player), Intera
 }
 
 /**
- * Digsite workman dialogue file.
+ * Represents the Digsite workman dialogue file.
  */
 class DigsiteWorkmanDialogueFile : DialogueBuilderFile() {
     override fun create(b: DialogueBuilder) {

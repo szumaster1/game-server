@@ -12,6 +12,7 @@ import core.tools.colorize
 
 /**
  * Rotten Potato Right click -> Extra dialogue menu.
+ * @author Ceikry
  */
 @Initializable
 class RottenPotatoExtraDialogue(player: Player? = null) : Dialogue(player) {

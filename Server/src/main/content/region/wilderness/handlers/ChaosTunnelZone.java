@@ -30,7 +30,7 @@ import java.util.Map.Entry;
 import static core.api.ContentAPIKt.hasRequirement;
 
 /**
- * Chaos tunnel zone.
+ * Represents the Chaos tunnel zone.
  */
 @Initializable
 public final class ChaosTunnelZone extends MapZone implements Plugin<Object> {

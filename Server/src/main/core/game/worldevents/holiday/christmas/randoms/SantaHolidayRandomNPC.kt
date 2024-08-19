@@ -10,6 +10,10 @@ import core.game.worldevents.holiday.HolidayRandomEventNPC
 import core.tools.RandomFunction
 import core.tools.minutesToTicks
 
+/**
+ * Represents the Santa holiday random NPC.
+ * @author Zerken
+ */
 class SantaHolidayRandomNPC : HolidayRandomEventNPC(NPCs.SANTA_CLAUS_8540) {
 
     override fun init() {

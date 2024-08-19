@@ -16,7 +16,7 @@ import core.game.world.map.Location
 import core.game.world.map.zone.ZoneBorders
 
 /**
- * Morytania map area.
+ * Represents the Morytania map area.
  */
 class MorytaniaMapArea : MapArea {
 

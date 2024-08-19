@@ -3,51 +3,54 @@ package core.game.container;
 import core.game.node.item.Item;
 
 /**
- * Container event.
+ * Represents a container event.
+ * @author Emperor
  */
 public final class ContainerEvent {
 
     /**
-     * The constant NULL_ITEM.
+     * Represents a null item.
      */
     public static final Item NULL_ITEM = new Item(0, 0);
 
+    /**
+     * The array of changed items.
+     */
     private final Item[] items;
 
+    /**
+     * Clears the container.
+     */
     private boolean clear;
 
     /**
-     * Instantiates a new Container event.
-     *
-     * @param size the size
+     * Constructs a new {@code ContainerEvent} {@code Object}.
+     * @param size The container size.
      */
     public ContainerEvent(int size) {
         this.items = new Item[size];
     }
 
     /**
-     * Flag null.
-     *
-     * @param slot the slot
+     * Flags a null item on the given slot.
+     * @param slot The slot.
      */
     public void flagNull(int slot) {
         items[slot] = NULL_ITEM;
     }
 
     /**
-     * Flag.
-     *
-     * @param slot the slot
-     * @param item the item
+     * Flags an item on the given slot.
+     * @param slot The slot.
+     * @param item The item.
      */
     public void flag(int slot, Item item) {
         items[slot] = item;
     }
 
     /**
-     * Gets change count.
-     *
-     * @return the change count
+     * Gets the amount of item slots changed.
+     * @return The amount of item slots that have changed.
      */
     public int getChangeCount() {
         int count = 0;
@@ -60,9 +63,8 @@ public final class ContainerEvent {
     }
 
     /**
-     * Get slots int [ ].
-     *
-     * @return the int [ ]
+     * Gets the updated slots.
+     * @return The slots array.
      */
     public int[] getSlots() {
         int size = 0;
@@ -80,16 +82,15 @@ public final class ContainerEvent {
     }
 
     /**
-     * Get items item [ ].
-     *
-     * @return the item [ ]
+     * Gets the items.
+     * @return The items.
      */
     public Item[] getItems() {
         return items;
     }
 
     /**
-     * Flag empty.
+     * Flags an empty container.
      */
     public void flagEmpty() {
         this.clear = true;
@@ -99,18 +100,16 @@ public final class ContainerEvent {
     }
 
     /**
-     * Is clear boolean.
-     *
-     * @return the boolean
+     * Gets the clear.
+     * @return The clear.
      */
     public boolean isClear() {
         return clear;
     }
 
     /**
-     * Sets clear.
-     *
-     * @param clear the clear
+     * Sets the clear flag.
+     * @param clear The container is cleared.
      */
     public void setClear(boolean clear) {
         this.clear = clear;

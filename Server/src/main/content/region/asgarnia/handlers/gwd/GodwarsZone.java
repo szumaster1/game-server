@@ -37,7 +37,7 @@ import core.tools.StringUtils;
 import static core.api.ContentAPIKt.*;
 
 /**
- * Godwars zone.
+ * Represents the Godwars zone.
  */
 @Initializable
 public final class GodwarsZone extends MapZone implements Plugin<Object> {

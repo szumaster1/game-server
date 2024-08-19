@@ -3,6 +3,9 @@ package core.plugin.type
 import core.game.node.entity.player.Player
 import core.plugin.Plugin
 
+/**
+ * XP gain plugins.
+ */
 object XPGainPlugins {
 
     // List to store XPGainPlugin instances

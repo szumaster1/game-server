@@ -24,7 +24,7 @@ import static core.api.ContentAPIKt.playAudio;
 import static core.api.ContentAPIKt.setAttribute;
 
 /**
- * Animation room.
+ * Represents the Animation room.
  */
 @Initializable
 public final class AnimationRoom extends MapZone implements Plugin<Object> {

@@ -18,7 +18,7 @@ import core.plugin.ClassScanner;
 import core.plugin.Initializable;
 
 /**
- * Juliet cutscene.
+ * Represents the Juliet cutscene.
  */
 @Initializable
 public final class JulietCutscene extends CutscenePlugin {

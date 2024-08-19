@@ -10,7 +10,7 @@ import core.game.world.map.Location
 import core.game.world.map.MapDistance
 
 /**
- * Pest Control defiler NPC.
+ * Represents the Pest Control defiler NPC.
  */
 class PCDefilerNPC : AbstractNPC {
 

@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.RandomFunction
 
 /**
- * Burthorpe train NPC.
+ * Represents the Burthorpe train NPC.
  */
 @Initializable
 class BurthorpeTrainNPC : AbstractNPC {

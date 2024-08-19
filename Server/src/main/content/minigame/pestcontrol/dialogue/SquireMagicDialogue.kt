@@ -8,7 +8,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Represents the Squire magic dialogue.
+ * Represents the Squire Magic dialogue.
  */
 @Initializable
 class SquireMagicDialogue(player: Player? = null) : Dialogue(player) {

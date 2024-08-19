@@ -11,7 +11,7 @@ import core.api.consts.Items
 import core.api.consts.NPCs
 
 /**
- * Bat NPC.
+ * Represents the Bat NPC.
  */
 class BatNPC : NPCBehavior(*BAT_NPC) {
 

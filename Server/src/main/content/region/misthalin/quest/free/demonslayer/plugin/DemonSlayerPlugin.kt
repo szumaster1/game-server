@@ -20,7 +20,7 @@ import core.game.world.update.flag.context.Animation
 import core.plugin.Plugin
 
 /**
- * Demon slayer plugin.
+ * Represents the Demon slayer plugin.
  */
 class DemonSlayerPlugin : OptionHandler() {
 

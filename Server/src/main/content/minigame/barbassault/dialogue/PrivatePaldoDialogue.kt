@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Private paldo dialogue.
+ * Represents the Private Paldo dialogue.
  * @author Szumaster
  */
 @Initializable

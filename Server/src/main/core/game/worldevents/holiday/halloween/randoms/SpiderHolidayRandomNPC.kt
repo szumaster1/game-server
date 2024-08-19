@@ -10,6 +10,10 @@ import core.game.world.update.flag.context.Animation
 import core.game.worldevents.holiday.HolidayRandomEventNPC
 import core.game.worldevents.holiday.HolidayRandoms
 
+/**
+ * Represents the Spider holiday random NPC.
+ * @author Zerken
+ */
 class SpiderHolidayRandomNPC : HolidayRandomEventNPC(NPCs.SPIDER_61) {
 
     override fun init() {

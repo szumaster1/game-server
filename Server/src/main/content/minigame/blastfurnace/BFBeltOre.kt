@@ -12,6 +12,7 @@ import org.json.simple.JSONObject
 
 /**
  * Blast furnace belt ore.
+ * @author Ceikry
  *
  * @param player The player who is interacting with the blast furnace belt ore.
  * @param id The ID of the ore.

@@ -12,7 +12,7 @@ import core.game.node.scenery.Scenery
 import core.api.consts.Components
 
 /**
- * Wilderness listeners.
+ * Represents the Wilderness listeners.
  */
 class WildernessListeners : InteractionListener {
 

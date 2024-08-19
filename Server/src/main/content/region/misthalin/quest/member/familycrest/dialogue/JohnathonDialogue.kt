@@ -11,7 +11,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 
 /**
- * Johnathon dialogue.
+ * Represents the Johnathon dialogue.
  */
 @Initializable
 class JohnathonDialogue(player: Player? = null) : Dialogue(player) {

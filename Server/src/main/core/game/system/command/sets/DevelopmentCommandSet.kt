@@ -28,9 +28,7 @@ import java.io.File
 import java.io.FileWriter
 
 /**
- * Development command set
- *
- * @constructor Development command set
+ * Development command set.
  */
 @Initializable
 class DevelopmentCommandSet : CommandSet(Privilege.ADMIN) {

@@ -11,7 +11,7 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
 /**
- * Sophanem listeners.
+ * Represents the Sophanem listeners.
  */
 class SophanemListeners : InteractionListener {
 

@@ -16,7 +16,7 @@ import core.game.world.map.Location
 import core.tools.RandomFunction
 
 /**
- * Dagannoth mother NPC.
+ * Represents the Dagannoth mother NPC.
  */
 class DagannothMotherNPC(id: Int = 0, location: Location? = null, session: DagannothSession? = null) :
     AbstractNPC(id, location) {

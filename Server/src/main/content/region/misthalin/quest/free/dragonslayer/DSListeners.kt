@@ -8,7 +8,7 @@ import core.game.interaction.InteractionListener
 import core.game.world.map.Location
 
 /**
- * Dragon slayer listeners
+ * Represents the Dragon slayer listeners
  */
 class DSListeners : InteractionListener {
     override fun defineListeners() {

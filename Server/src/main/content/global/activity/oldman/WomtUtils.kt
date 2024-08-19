@@ -3,6 +3,9 @@ package content.global.activity.oldman
 import core.api.getAttribute
 import core.game.node.entity.player.Player
 
+/**
+ * Womt utils.
+ */
 object WomtUtils {
 
     // Constants for task-related attributes

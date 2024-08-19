@@ -4,31 +4,28 @@ import core.game.node.entity.player.Player;
 import core.plugin.Plugin;
 
 /**
- * Component plugin.
+ * Represents the plugin used to handle a component reward.
+ * @author Vexia
  */
 public abstract class ComponentPlugin implements Plugin<Object> {
 
     /**
-     * Handle method to process player input.
-     *
-     * @param player    the player object.
-     * @param component the component being interacted with.
-     * @param opcode    the operation code.
-     * @param button    the button pressed.
-     * @param slot      the slot involved.
-     * @param itemId    the item ID.
-     * @return true if the input is handled successfully, false otherwise.
+     * Handles the interface interaction.
+     * @param player The player.
+     * @param component The component.
+     * @param opcode The opcode.
+     * @param slot The slot.
+     * @param itemId The item id.
+     * @return {@code True} if successfully handled.
      */
     public abstract boolean handle(final Player player, Component component, final int opcode, final int button, int slot, int itemId);
 
     /**
-     * Open method to handle component opening.
-     *
-     * @param player    the player object.
-     * @param component the component to be opened.
+     * Called when this component opens.
+     * @param player The player
+     * @param component The component opening.
      */
-    public void open(Player player, Component component) {
-    }
+    public void open(Player player, Component component) {}
 
     @Override
     public Object fireEvent(String identifier, Object... args) {

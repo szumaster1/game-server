@@ -5,7 +5,7 @@ import core.game.world.map.zone.ZoneBorders
 import core.game.world.map.zone.ZoneRestriction
 
 /**
- * Tormented demon map area.
+ * Represents the Tormented demon map area.
  */
 class TormentedDemonMapArea : MapArea {
 

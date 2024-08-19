@@ -12,9 +12,7 @@ import core.network.packet.outgoing.MusicPacket
 import core.plugin.Initializable
 
 /**
- * Audio command set
- *
- * @constructor Audio command set
+ * Audio command set.
  */
 @Initializable
 class AudioCommandSet : CommandSet(Privilege.STANDARD) {

@@ -24,7 +24,7 @@ import core.plugin.Plugin
 import core.tools.RandomFunction
 
 /**
- * Lumbridge basement plugin.
+ * Represents the Lumbridge basement plugin.
  */
 @Initializable
 class LumbridgeBasementPlugin : OptionHandler() {

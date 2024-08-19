@@ -7,7 +7,7 @@ import core.tools.RandomFunction
 import core.api.consts.NPCs
 
 /**
- * Durgok NPC.
+ * Represents the Durgok NPC.
  */
 class DurgokNPC : NPCBehavior(NPCs.DURGOK_5794) {
 

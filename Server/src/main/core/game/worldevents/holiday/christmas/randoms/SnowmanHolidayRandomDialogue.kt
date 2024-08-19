@@ -8,6 +8,10 @@ import core.game.interaction.QueueStrength
 import core.game.node.entity.player.link.emote.Emotes
 import core.game.worldevents.holiday.HolidayRandoms
 
+/**
+ * Represents the Snowman holiday dialogue file.
+ * @author Zerken
+ */
 class SnowmanHolidayRandomDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

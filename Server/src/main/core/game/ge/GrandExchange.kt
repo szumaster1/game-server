@@ -19,6 +19,7 @@ import java.util.concurrent.LinkedBlockingDeque
 
 /**
  * Handles the exchanging of offers, offer update thread, etc.
+ * @author Ceikry
  */
 class GrandExchange : StartupListener, Commands {
 

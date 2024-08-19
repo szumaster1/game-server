@@ -4,16 +4,16 @@ import core.game.node.entity.Entity;
 import core.game.world.map.Location;
 
 /**
- * The interface Movement hook.
+ * An interface used for hooking to the MovementUpdate class.
+ * @author Emperor
  */
 public interface MovementHook {
 
     /**
-     * Handle boolean.
-     *
-     * @param e the e
-     * @param l the l
-     * @return the boolean
+     * Called when an entity has moved.
+     * @param e The moving entity.
+     * @param l The location.
+     * @return {@code True} if no further hooks should be called.
      */
     boolean handle(Entity e, Location l);
 

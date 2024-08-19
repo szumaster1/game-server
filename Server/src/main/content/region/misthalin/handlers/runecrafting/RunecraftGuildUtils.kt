@@ -5,6 +5,9 @@ import core.api.getAttribute
 import core.api.setAttribute
 import core.game.node.entity.player.Player
 
+/**
+ * Runecraft guild utils.
+ */
 object RunecraftGuildUtils {
 
     const val SHOW_ELRISS_ITEMS = "/save:rcguild:omni-talisman"

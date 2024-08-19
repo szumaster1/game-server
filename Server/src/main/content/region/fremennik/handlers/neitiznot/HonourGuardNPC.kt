@@ -8,7 +8,7 @@ import core.plugin.Initializable
 import core.tools.RandomFunction
 
 /**
- * Honour guard NPC.
+ * Represents the Honour guard NPC.
  */
 @Initializable
 class HonourGuardNPC : AbstractNPC {

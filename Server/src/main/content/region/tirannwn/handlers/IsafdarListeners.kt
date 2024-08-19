@@ -9,7 +9,7 @@ import core.game.node.entity.player.link.TeleportManager
 import core.game.world.map.Location
 
 /**
- * Isafdar listeners.
+ * Represents the Isafdar listeners.
  */
 class IsafdarListeners : InteractionListener {
 

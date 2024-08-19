@@ -34,7 +34,7 @@ import core.plugin.Plugin
 import core.tools.RandomFunction
 
 /**
- * Catapult room.
+ * Represents the Catapult room.
  */
 @Initializable
 class CatapultRoom : MapZone("wg catapult", true), Plugin<Any> {

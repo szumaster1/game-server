@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Draynor market zone.
+ * Represents the Draynor market zone.
  */
 @Initializable
 class DraynorMarketZone : MapZone("draynor-market", true), Plugin<Any?> {

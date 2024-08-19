@@ -12,12 +12,19 @@ import core.tools.Log
 
 /**
  * Handles digging with a spade.
+ * @author Emperor
  */
 object DigSpadeHandler {
 
     private val ACTIONS: MutableMap<Location, DigAction> = HashMap()
     val ANIMATION: Animation = Animation.create(830)
 
+    /**
+     * Handles a digging reward.
+     *
+     * @param player The player.
+     * @return {@code True} if the reward got handled.
+     */
     @JvmStatic
     fun dig(player: Player): Boolean {
         val action = ACTIONS[player.location]
@@ -44,8 +51,8 @@ object DigSpadeHandler {
      * Registers a new digging reward.
      *
      * @param location The location to dig on.
-     * @param action   The reward.
-     * @return `True` if the reward got registered.
+     * @param action The reward.
+     * @return {@code True} if the reward got registered.
      */
     @JvmStatic
     fun register(location: Location, action: DigAction): Boolean {

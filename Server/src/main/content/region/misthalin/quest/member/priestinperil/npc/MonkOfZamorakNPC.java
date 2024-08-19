@@ -10,7 +10,7 @@ import core.game.world.map.Location;
 import core.plugin.Initializable;
 
 /**
- * Monk of Zamorak NPC.
+ * Represents the Monk of Zamorak NPC.
  */
 @Initializable
 public final class MonkOfZamorakNPC extends AbstractNPC {

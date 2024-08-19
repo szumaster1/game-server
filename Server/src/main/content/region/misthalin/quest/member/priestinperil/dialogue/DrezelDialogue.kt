@@ -9,7 +9,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 
 /**
- * Drezel dialogue.
+ * Represents the Drezel dialogue.
  */
 @Initializable
 class DrezelDialogue(player: Player? = null) : Dialogue(player) {

@@ -16,7 +16,7 @@ import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
 /**
- * Dwarven mines listeners.
+ * Represents the Dwarven mines listeners.
  */
 class DwarvenMinesListeners : InteractionListener {
 

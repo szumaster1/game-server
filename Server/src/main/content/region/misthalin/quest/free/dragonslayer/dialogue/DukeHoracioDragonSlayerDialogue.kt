@@ -8,7 +8,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Duke horacio dragon slayer dialogue.
+ * Represents the Duke horacio dragon slayer dialogue.
  */
 class DukeHoracioDragonSlayerDialogue(val questStage: Int) : DialogueFile() {
 

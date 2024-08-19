@@ -8,7 +8,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Hooded monk dialogue.
+ * Represents the Hooded Monk dialogue.
  */
 @Initializable
 class HoodedMonkDialogue(player: Player? = null) : Dialogue(player) {

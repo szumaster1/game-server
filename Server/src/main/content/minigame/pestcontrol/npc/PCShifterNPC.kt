@@ -16,7 +16,7 @@ import core.tools.RandomFunction
 import java.util.*
 
 /**
- * Pest Control shifter NPC.
+ * Represents the Pest Control shifter NPC.
  */
 class PCShifterNPC : AbstractNPC {
     private var session: PestControlSession? = null

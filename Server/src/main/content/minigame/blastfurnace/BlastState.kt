@@ -4,6 +4,7 @@ import core.tools.RandomFunction
 
 /**
  * Blast state.
+ * @author Ceikry
  */
 class BlastState {
     var disableBreaking = false // Indicates whether breaking is disabled.

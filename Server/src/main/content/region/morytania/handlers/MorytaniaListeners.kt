@@ -20,7 +20,7 @@ import kotlinx.coroutines.launch
 import kotlin.random.Random
 
 /**
- * Morytania listeners.
+ * Represents the Morytania listeners.
  */
 class MorytaniaListeners : InteractionListener {
 

@@ -17,7 +17,7 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
 /**
- * Bone grinder listener.
+ * Represents the Bone grinder listener.
  */
 class BoneGrinderListener : InteractionListener {
 

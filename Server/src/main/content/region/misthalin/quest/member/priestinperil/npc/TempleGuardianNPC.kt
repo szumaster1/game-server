@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.api.consts.NPCs
 
 /**
- * Temple guardian NPC.
+ * Represents the Temple guardian NPC.
  */
 @Initializable
 class TempleGuardianNPC(id: Int = 0, location: Location? = null) : AbstractNPC(id, location) {

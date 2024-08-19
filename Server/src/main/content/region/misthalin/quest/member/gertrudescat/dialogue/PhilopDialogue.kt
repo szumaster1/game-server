@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Philop dialogue.
+ * Represents the Philop dialogue.
  */
 @Initializable
 class PhilopDialogue(player: Player? = null) : Dialogue(player) {

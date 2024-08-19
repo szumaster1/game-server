@@ -11,54 +11,55 @@ import core.game.world.map.RegionManager;
 import core.game.world.update.flag.context.Animation;
 
 /**
- * Climb action handler.
+ * Handles a ladder climbing reward.
+ * @author Emperor
  */
 public final class ClimbActionHandler {
 
     /**
-     * The constant CLIMB_UP.
+     * Represents the climb up animation of ladders.
      */
     public static final Animation CLIMB_UP = new Animation(828);
 
     /**
-     * The constant CLIMB_DOWN.
+     * Represents the climb down animation of ladders.
      */
     public static final Animation CLIMB_DOWN = new Animation(827);
 
     /**
-     * The constant CLIMB_DIALOGUE.
+     * The climb dialogue.
      */
     public static Dialogue CLIMB_DIALOGUE = new ClimbDialogue();
 
     /**
-     * Climb rope.
+     * Handles the climbing of a rope.
      *
-     * @param player the player
-     * @param object the object
-     * @param option the option
+     * @param player The player.
+     * @param object The rope object.
+     * @param option The option.
      */
     public static void climbRope(Player player, Scenery object, String option) {
 
     }
 
     /**
-     * Climb trapdoor.
+     * Handles the climbing of a trap door.
      *
-     * @param player the player
-     * @param object the object
-     * @param option the option
+     * @param player The player.
+     * @param object The trap door object.
+     * @param option The option.
      */
     public static void climbTrapdoor(Player player, Scenery object, String option) {
 
     }
 
     /**
-     * Climb ladder boolean.
+     * Handles the climbing of a ladder.
      *
-     * @param player      the player
-     * @param startLadder the start ladder
-     * @param option      the option
-     * @return the boolean
+     * @param player      The player.
+     * @param startLadder The scenery.
+     * @param option      The option.
+     * @return True if successfully climbed
      */
     public static boolean climbLadder(Player player, Scenery startLadder, String option) {
         Scenery endLadder = null;
@@ -109,10 +110,10 @@ public final class ClimbActionHandler {
     }
 
     /**
-     * Gets destination.
+     * Gets the teleport destination.
      *
-     * @param object the object
-     * @return the destination
+     * @param object The object to teleport to.
+     * @return The teleport destination.
      */
     public static Location getDestination(Scenery object) {
         int sizeX = object.getDefinition().sizeX;
@@ -139,6 +140,13 @@ public final class ClimbActionHandler {
         return null;
     }
 
+    /**
+     * Gets the destination for the given object.
+     *
+     * @param object The object.
+     * @param dir    The preferred direction from the object.
+     * @return The teleporting destination.
+     */
     private static Location getDestination(Scenery object, int sizeX, int sizeY, Direction dir, int count) {
         Location loc = object.getLocation();
         if (dir.toInteger() % 2 != 0) {
@@ -171,17 +179,16 @@ public final class ClimbActionHandler {
     }
 
     /**
-     * Climb.
+     * Executes the climbing reward.
      *
-     * @param player      the player
-     * @param animation   the animation
-     * @param destination the destination
-     * @param messages    the messages
+     * @param player      The player.
+     * @param animation   The climbing animation.
+     * @param destination The destination.
      */
     public static void climb(final Player player, Animation animation, final Location destination, final String... messages) {
         player.lock(2);
         player.animate(animation);
-		GameWorld.getPulser().submit(new Pulse(1) {
+        GameWorld.getPulser().submit(new Pulse(1) {
             @Override
             public boolean pulse() {
                 player.getProperties().setTeleportLocation(destination);
@@ -193,6 +200,13 @@ public final class ClimbActionHandler {
         });
     }
 
+    /**
+     * Gets the ladder the object leads to.
+     *
+     * @param object The ladder object.
+     * @param down   If the player is going down a floor.
+     * @return The ladder the current ladder object leads to.
+     */
     private static Scenery getLadder(Scenery object, boolean down) {
         int mod = down ? -1 : 1;
         Scenery ladder = RegionManager.getObject(object.getLocation().transform(0, 0, mod));
@@ -214,6 +228,12 @@ public final class ClimbActionHandler {
         return ladder;
     }
 
+    /**
+     * Finds a ladder (by searching a 10x10 area around the given location).
+     *
+     * @param l The location.
+     * @return The ladder.
+     */
     private static Scenery findLadder(Location l) {
         for (int x = -5; x < 6; x++) {
             for (int y = -5; y < 6; y++) {
@@ -226,6 +246,12 @@ public final class ClimbActionHandler {
         return null;
     }
 
+    /**
+     * Checks if the object is a ladder.
+     *
+     * @param object The object.
+     * @return {@code True} if so.
+     */
     private static boolean isLadder(Scenery object) {
         for (String option : object.getDefinition().getOptions()) {
             if (option != null && (option.contains("Climb"))) {
@@ -236,28 +262,31 @@ public final class ClimbActionHandler {
     }
 
     /**
-     * Climb dialogue.
+     * Represents the dialogue plugin used for climbing stairs or a ladder.
+     *
+     * @author Vexia
+     * @version 1.0
      */
     static final class ClimbDialogue extends Dialogue {
 
         /**
-         * The constant ID.
+         * Represents the climbing dialogue id.
          */
         public static final int ID = 8 << 16;
 
         /**
-         * Instantiates a new Climb dialogue.
+         * Constructs a new {@code ClimbDialogue} {@code Object}.
          */
         public ClimbDialogue() {
-            /*
+            /**
              * empty.
              */
         }
 
         /**
-         * Instantiates a new Climb dialogue.
+         * Constructs a new {@code ClimbDialogue} {@code Object}.
          *
-         * @param player the player
+         * @param player the player.
          */
         public ClimbDialogue(final Player player) {
             super(player);
@@ -268,6 +297,9 @@ public final class ClimbActionHandler {
             return new ClimbDialogue(player);
         }
 
+        /**
+         * Represents the object to use.
+         */
         private Scenery object;
 
         @Override
@@ -285,7 +317,7 @@ public final class ClimbActionHandler {
                     switch (buttonId) {
                         case 1:
                             player.lock(1);
-					GameWorld.getPulser().submit(new Pulse(1) {
+                            GameWorld.getPulser().submit(new Pulse(1) {
                                 @Override
                                 public boolean pulse() {
                                     climbLadder(player, object, "climb-up");
@@ -296,7 +328,7 @@ public final class ClimbActionHandler {
                             break;
                         case 2:
                             player.lock(1);
-					GameWorld.getPulser().submit(new Pulse(1) {
+                            GameWorld.getPulser().submit(new Pulse(1) {
                                 @Override
                                 public boolean pulse() {
                                     climbLadder(player, object, "climb-down");

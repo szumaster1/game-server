@@ -8,7 +8,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Mistag lost tribe dialogue.
+ * Represents the Mistag lost tribe dialogue.
  */
 class MistagLostTribeDialogue(val isGreeting: Boolean, val questStage: Int) : DialogueFile() {
 

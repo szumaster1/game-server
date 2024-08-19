@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Alchemy guardian dialogue.
+ * Represents the Alchemy Guardian dialogue.
  */
 @Initializable
 class AlchemyGuardianDialogue(player: Player? = null) : Dialogue(player) {

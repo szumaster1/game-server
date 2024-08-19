@@ -13,6 +13,10 @@ import core.game.worldevents.holiday.ResetHolidayAppearance
 import core.tools.RandomFunction
 import core.tools.colorize
 
+/**
+ * Zombie holiday random NPC.
+ * @author Zerken
+ */
 class ZombieHolidayRandomNPC : HolidayRandomEventNPC(NPCs.ZOMBIE_2714) {
 
     override fun init() {

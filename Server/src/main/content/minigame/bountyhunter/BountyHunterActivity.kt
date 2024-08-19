@@ -38,10 +38,10 @@ import core.tools.RandomFunction
 import java.util.*
 
 /**
- * Handles the Bounty hunter activity.
+ * Represents an activity plugin for bounty hunting.
  *
- * @param type
- * @constructor Bounty hunter activity
+ * @param type The type of crater associated with the bounty hunter activity.
+ * @constructor Initializes the BountyHunterActivity with a specified crater type.
  */
 @Initializable
 class BountyHunterActivity @JvmOverloads constructor(val type: CraterType = CraterType.LOW_LEVEL) : ActivityPlugin("BH " + type.name.lowercase(Locale.getDefault()), false, false, false, ZoneRestriction.FOLLOWERS) {

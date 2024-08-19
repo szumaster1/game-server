@@ -5,9 +5,7 @@ import core.game.system.command.Privilege
 import core.plugin.Initializable
 
 /**
- * Config command set
- *
- * @constructor Config command set
+ * Config command set.
  */
 @Initializable
 class ConfigCommandSet : CommandSet(Privilege.ADMIN) {

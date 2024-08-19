@@ -11,7 +11,7 @@ import core.game.node.entity.player.Player
 import core.game.world.map.Direction
 
 /**
- * Cavern cutscene.
+ * Represents the Cavern cutscene.
  */
 class CavernCutscene(player: Player) : Cutscene(player) {
 

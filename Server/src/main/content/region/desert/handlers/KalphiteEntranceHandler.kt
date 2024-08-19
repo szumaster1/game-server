@@ -16,7 +16,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Kalphite entrance handler.
+ * Represents the Kalphite entrance handler.
  */
 @Initializable
 class KalphiteEntranceHandler : OptionHandler() {

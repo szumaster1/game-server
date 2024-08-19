@@ -11,7 +11,8 @@ import core.game.world.repository.Repository.players
 import java.util.concurrent.Executors
 
 /**
- * System update.
+ * Handles a system update.
+ * @author Emperor
  */
 class SystemUpdate : Pulse(DEFAULT_COUNTDOWN) {
 
@@ -75,6 +76,7 @@ class SystemUpdate : Pulse(DEFAULT_COUNTDOWN) {
 
     /**
      * Sets the system update countdown.
+     * @param ticks The amount of ticks.
      */
     fun setCountdown(ticks: Int) {
         var ticks = ticks

@@ -10,6 +10,10 @@ import core.game.worldevents.holiday.christmas.Giftmas
 import core.tools.END_DIALOGUE
 import core.tools.RandomFunction
 
+/**
+ * Represents the Santa holiday dialogue file.
+ * @author Zerken
+ */
 class SantaHolidayRandomDialogue : DialogueFile() {
 
     override fun handle(componentID: Int, buttonID: Int) {

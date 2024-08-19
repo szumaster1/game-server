@@ -15,7 +15,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Gertrudes cat dialogue.
+ * Represents the Gertrudes cat dialogue.
  */
 @Initializable
 class GertrudesCatDialogue(player: Player? = null) : Dialogue(player) {

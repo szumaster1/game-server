@@ -11,7 +11,7 @@ import core.game.world.map.Location
 import core.game.world.update.flag.context.Animation
 
 /**
- * Pest Control squire NPC.
+ * Represents the Pest Control squire NPC.
  */
 class PCSquireNPC : AbstractNPC {
     private var session: PestControlSession? = null

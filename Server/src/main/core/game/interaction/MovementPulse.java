@@ -1,6 +1,5 @@
 package core.game.interaction;
 
-import core.api.utils.Vector;
 import core.game.node.Node;
 import core.game.node.entity.Entity;
 import core.game.node.entity.impl.WalkingQueue;
@@ -8,6 +7,7 @@ import core.game.node.entity.npc.NPC;
 import core.game.node.entity.npc.NPCBehavior;
 import core.game.node.entity.player.Player;
 import core.game.system.task.Pulse;
+import core.game.world.GameWorld;
 import core.game.world.map.Direction;
 import core.game.world.map.Location;
 import core.game.world.map.Point;
@@ -16,86 +16,115 @@ import core.game.world.map.path.Pathfinder;
 import core.network.packet.PacketRepository;
 import core.network.packet.context.PlayerContext;
 import core.network.packet.outgoing.ClearMinimapFlag;
-import kotlin.Pair;
 import kotlin.jvm.functions.Function2;
+import kotlin.Pair;
+import core.tools.SystemLogger;
+import core.api.utils.Vector;
 
-import java.util.Deque;
+import content.region.wilderness.handlers.revenants.RevenantNPC;
 
 import static core.api.ContentAPIKt.*;
 
+import java.util.Deque;
+
 /**
- * Movement pulse.
+ * Handles a movement task.
+ * @author Emperor
  */
 public abstract class MovementPulse extends Pulse {
 
     /**
-     * The Mover.
+     * The moving entity.
      */
     protected Entity mover;
 
     /**
-     * The Destination.
+     * The destination node.
      */
     protected Node destination;
 
+    /**
+     * The destination's last location.
+     */
     private Location last;
 
+    /**
+     * The pathfinder.
+     */
     private Pathfinder pathfinder;
 
+    /**
+     * If running should be forced.
+     */
     private boolean forceRun;
 
+    /**
+     * The option handler.
+     */
     private OptionHandler optionHandler;
 
+    /**
+     * The use with handler.
+     */
     private UseWithHandler useHandler;
 
+    /**
+     * The destination flag.
+     */
     private DestinationFlag destinationFlag;
 
+    /**
+     * The location to interact from.
+     */
     private Location interactLocation;
 
+    /**
+     * If the path couldn't be fully found.
+     */
     private boolean near;
 
-    private Function2<Entity, Node, Location> overrideMethod;
+    private Function2<Entity,Node,Location> overrideMethod;
 
     private Location previousLoc;
 
     /**
-     * Instantiates a new Movement pulse.
+     * Constructs a new {@code MovementPulse} {@code Object}.
      *
-     * @param mover       the mover
-     * @param destination the destination
+     * @param mover       The moving entity.
+     * @param destination The destination node.
      */
     public MovementPulse(Entity mover, Node destination) {
         this(mover, destination, null, false);
     }
 
     /**
-     * Instantiates a new Movement pulse.
+     * Constructs a new {@code MovementPulse} {@code Object}.
      *
-     * @param mover       the mover
-     * @param destination the destination
-     * @param forceRun    the force run
+     * @param mover       The moving entity.
+     * @param destination The destination node.
+     * @param forceRun    If the entity is forced to run.
      */
     public MovementPulse(Entity mover, Node destination, boolean forceRun) {
         this(mover, destination, null, forceRun);
     }
 
     /**
-     * Instantiates a new Movement pulse.
+     * Constructs a new {@code MovementPulse} {@code Object}.
      *
-     * @param mover       the mover
-     * @param destination the destination
-     * @param pathfinder  the pathfinder
+     * @param mover       The moving entity.
+     * @param destination The destination node.
+     * @param pathfinder  The pathfinder to use.
      */
     public MovementPulse(Entity mover, Node destination, Pathfinder pathfinder) {
         this(mover, destination, pathfinder, false);
     }
 
     /**
-     * Instantiates a new Movement pulse.
+     * Constructs a new {@code MovementPulse} {@code Object}.
      *
-     * @param mover         the mover
-     * @param destination   the destination
-     * @param optionHandler the option handler
+     * @param mover         The moving entity.
+     * @param destination   The destination node.
+     * @param optionHandler The option handler used.
      */
     public MovementPulse(Entity mover, Node destination, OptionHandler optionHandler) {
         this(mover, destination, null, false);
@@ -103,11 +132,11 @@ public abstract class MovementPulse extends Pulse {
     }
 
     /**
-     * Instantiates a new Movement pulse.
+     * Constructs a new {@code MovementPulse} {@code Object}.
      *
-     * @param mover       the mover
-     * @param destination the destination
-     * @param useHandler  the use handler
+     * @param mover       The moving entity.
+     * @param destination The destination node.
+     * @param useHandler  The use with handler used.
      */
     public MovementPulse(Entity mover, Node destination, UseWithHandler useHandler) {
         this(mover, destination, null, false);
@@ -115,38 +144,30 @@ public abstract class MovementPulse extends Pulse {
     }
 
     /**
-     * Instantiates a new Movement pulse.
+     * Constructs a new {@code MovementPulse} {@code Object}.
      *
-     * @param mover           the mover
-     * @param destination     the destination
-     * @param destinationFlag the destination flag
+     * @param mover           The moving entity.
+     * @param destination     The destination node.
+     * @param destinationFlag The destination flag.
      */
     public MovementPulse(Entity mover, Node destination, DestinationFlag destinationFlag) {
         this(mover, destination, null, false);
         this.destinationFlag = destinationFlag;
     }
 
-    /**
-     * Instantiates a new Movement pulse.
-     *
-     * @param mover           the mover
-     * @param destination     the destination
-     * @param destinationFlag the destination flag
-     * @param method          the method
-     */
-    public MovementPulse(Entity mover, Node destination, DestinationFlag destinationFlag, Function2<Entity, Node, Location> method) {
-        this(mover, destination, null, false);
+    public MovementPulse(Entity mover, Node destination, DestinationFlag destinationFlag, Function2<Entity,Node,Location> method){
+        this(mover,destination,null,false);
         this.destinationFlag = destinationFlag;
         this.overrideMethod = method;
     }
 
     /**
-     * Instantiates a new Movement pulse.
+     * Constructs a new {@code MovementPulse} {@code Object}.
      *
-     * @param mover       the mover
-     * @param destination the destination
-     * @param pathfinder  the pathfinder
-     * @param forceRun    the force run
+     * @param mover       The moving entity.
+     * @param destination The destination node.
+     * @param pathfinder  The pathfinder to use.
+     * @param forceRun    If the entity is forced to run.
      */
     public MovementPulse(Entity mover, Node destination, Pathfinder pathfinder, boolean forceRun) {
         super(1, mover, destination);
@@ -156,7 +177,7 @@ public abstract class MovementPulse extends Pulse {
             if (mover instanceof Player) {
                 this.pathfinder = Pathfinder.SMART;
             } else if (mover instanceof NPC) {
-                NPC npc = (NPC) mover;
+                NPC npc = (NPC)mover;
                 NPCBehavior behavior = npc.behavior;
                 Pathfinder pf = behavior != null ? behavior.getPathfinderOverride(npc) : null;
                 this.pathfinder = pf != null ? pf : Pathfinder.DUMB;
@@ -210,10 +231,8 @@ public abstract class MovementPulse extends Pulse {
 
     private boolean tryInteract() {
         Location ml = mover.getLocation();
-        /*
-         * Allow being within 1 square of moving entities to interact with them.
-         */
-        int radius = destination instanceof Entity && ((Entity) destination).getWalkingQueue().hasPath() ? 1 : 0;
+        // Allow being within 1 square of moving entities to interact with them.
+        int radius = destination instanceof Entity && ((Entity)destination).getWalkingQueue().hasPath() ? 1 : 0;
         if (interactLocation == null)
             return false;
         if (Math.max(Math.abs(ml.getX() - interactLocation.getX()), Math.abs(ml.getY() - interactLocation.getY())) <= radius) {
@@ -228,7 +247,7 @@ public abstract class MovementPulse extends Pulse {
                     stop();
                     return true;
                 }
-            } catch (Exception e) {
+            } catch (Exception e){
                 e.printStackTrace();
                 stop();
             }
@@ -252,17 +271,16 @@ public abstract class MovementPulse extends Pulse {
         last = null;
     }
 
+    /**
+     * Finds a path to the destination, if necessary.
+     */
     private boolean usingTruncatedPath = false;
     private boolean isMoveNearSet = false;
-
-    /**
-     * Update path.
-     */
     public void updatePath() {
         if (mover instanceof NPC && mover.asNpc().isNeverWalks()) {
             return;
         }
-        if (destination == null || destination.getLocation() == null) {
+        if(destination == null || destination.getLocation() == null){
             return;
         }
 
@@ -270,18 +288,20 @@ public abstract class MovementPulse extends Pulse {
 
         if (optionHandler != null) {
             loc = optionHandler.getDestination(mover, destination);
-        } else if (useHandler != null) {
+        }
+        else if (useHandler != null) {
             loc = useHandler.getDestination((Player) mover, destination);
-        } else if (isInsideEntity(mover.getLocation())) {
+        }
+        else if (isInsideEntity(mover.getLocation())) {
             loc = findBorderLocation();
         }
 
         if (loc == null && destinationFlag != null && overrideMethod == null) {
             loc = destinationFlag.getDestination(mover, destination);
-        } else if (loc == null && overrideMethod != null) {
-            loc = overrideMethod.invoke(mover, destination);
-            if (loc == destination.getLocation() && destinationFlag != null)
-                loc = destinationFlag.getDestination(mover, destination);
+        }
+        else if(loc == null && overrideMethod != null){
+            loc = overrideMethod.invoke(mover,destination);
+            if(loc == destination.getLocation() && destinationFlag != null) loc = destinationFlag.getDestination(mover,destination);
             else if (loc == destination.getLocation()) loc = null;
         }
 
@@ -348,11 +368,7 @@ public abstract class MovementPulse extends Pulse {
             Deque<Point> npcPath = e.getWalkingQueue().getQueue();
             if (e.getWalkingQueue().hasPath() && e.getProperties().getCombatPulse().isRunning() && e.getProperties().getCombatPulse().getVictim() == mover)
                 canMove = false;
-            if (!canMove) {
-                /*
-                 * If we normally shouldn't move, but the NPC's pathfinding is
-                 * not letting them move, then move.
-                 */
+            if (!canMove) { //If we normally shouldn't move, but the NPC's pathfinding is not letting them move, then move.
                 if (npcPath.size() == 1) {
                     Point pathElement = npcPath.peek();
                     if (pathElement.getX() == l.getX() && pathElement.getY() == l.getY())
@@ -366,19 +382,16 @@ public abstract class MovementPulse extends Pulse {
     private Location checkForEntityPathInterrupt(Location loc) {
         Location ml = mover.getLocation();
         Location dl = destination.getLocation();
-        /*
-         * Lead the target if they're walking/running,
-         * unless they're already within interaction range.
-         */
-        if (loc != null && destination instanceof Entity) {
-            WalkingQueue wq = ((Entity) destination).getWalkingQueue();
-            if (wq.hasPath()) {
+        // Lead the target if they're walking/running, unless they're already within interaction range
+        if(loc != null && destination instanceof Entity) {
+            WalkingQueue wq = ((Entity)destination).getWalkingQueue();
+            if(wq.hasPath()) {
                 Point[] points = wq.getQueue().toArray(new Point[0]);
-                if (points.length > 0) {
+                if(points.length > 0) {
                     Point p = points[0];
                     Point predictiveIntersection = null;
-                    for (int i = 0; i < points.length; i++) {
-                        Location closestBorder = getClosestBorderToPoint(points[i], loc.getZ());
+                    for(int i=0; i<points.length; i++) {
+                        Location closestBorder = getClosestBorderToPoint (points[i], loc.getZ());
 
                         int moverDist = Math.max(Math.abs(ml.getX() - closestBorder.getX()), Math.abs(ml.getY() - closestBorder.getY()));
                         float movementRatio = moverDist / (float) ((i + 1) / (mover.getWalkingQueue().isRunning() ? 2 : 1));
@@ -387,12 +400,9 @@ public abstract class MovementPulse extends Pulse {
                             break;
                         }
 
-                        /*
-                         * Otherwise, we target the farthest point along target's planned
-                         * movement that's within 1 tick's running, this ensures the player
-                         * will run to catch up to the target if able.
-                         */
-                        if (moverDist <= 2) {
+                        // Otherwise, we target the farthest point along target's planned movement that's within 1 tick's running,
+                        // this ensures the player will run to catch up to the target if able.
+                        if(moverDist <= 2) {
                             p = points[i];
                         }
                     }
@@ -408,8 +418,8 @@ public abstract class MovementPulse extends Pulse {
         return loc;
     }
 
-    private Location getClosestBorderToPoint(Point p, int plane) {
-        Vector pathDiff = Vector.betweenLocs(destination.getLocation(), Location.create(p.getX(), p.getY(), plane));
+    private Location getClosestBorderToPoint (Point p, int plane) {
+        Vector pathDiff = Vector.betweenLocs (destination.getLocation(), Location.create(p.getX(), p.getY(), plane));
         Location predictedCenterPos = (destination.getMathematicalCenter().plus(pathDiff)).toLocation(plane);
         Vector toPlayerNormalized = Vector.betweenLocs(predictedCenterPos, mover.getCenterLocation()).normalized();
         return predictedCenterPos.transform(toPlayerNormalized.times(destination.size() + 1));
@@ -420,6 +430,11 @@ public abstract class MovementPulse extends Pulse {
         return findBorderLocation(destination.getLocation());
     }
 
+    /**
+     * Finds the closest location next to the node.
+     *
+     * @return The location to walk to.
+     */
     private Location findBorderLocation(Location centerDestLoc) {
         int size = destination.size();
         Location centerDest = centerDestLoc.transform(size >> 1, size >> 1, 0);
@@ -483,6 +498,12 @@ public abstract class MovementPulse extends Pulse {
         return null;
     }
 
+    /**
+     * Checks if the mover is standing on an invalid position.
+     *
+     * @param l The location.
+     * @return {@code True} if so.
+     */
     private boolean isInsideEntity(Location l) {
         if (!(destination instanceof Entity)) {
             return false;
@@ -496,36 +517,36 @@ public abstract class MovementPulse extends Pulse {
     }
 
     /**
-     * Is force run boolean.
+     * Gets the forceRun.
      *
-     * @return the boolean
+     * @return The forceRun.
      */
     public boolean isForceRun() {
         return forceRun;
     }
 
     /**
-     * Sets force run.
+     * Sets the forceRun.
      *
-     * @param forceRun the force run
+     * @param forceRun The forceRun to set.
      */
     public void setForceRun(boolean forceRun) {
         this.forceRun = forceRun;
     }
 
     /**
-     * Sets destination.
+     * Sets the current destination.
      *
-     * @param destination the destination
+     * @param destination The destination.
      */
     public void setDestination(Node destination) {
         this.destination = destination;
     }
 
     /**
-     * Sets last.
+     * Sets the last location.
      *
-     * @param last the last
+     * @param last The last location.
      */
     public void setLast(Location last) {
         this.last = last;

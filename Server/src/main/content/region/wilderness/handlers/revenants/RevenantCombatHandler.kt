@@ -15,7 +15,7 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 
 /**
- * Revenant combat handler.
+ * Represents the Revenant combat handler.
  *
  * @param meleeAnimation the melee animation id.
  * @param magicAnimation the magic animation id.

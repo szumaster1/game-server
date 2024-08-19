@@ -13,7 +13,7 @@ import core.game.node.entity.skill.Skills
 import core.game.world.map.Location
 
 /**
- * Crafting guild listeners.
+ * Represents the Crafting guild listeners.
  */
 class CraftingGuildListeners : InteractionListener {
 

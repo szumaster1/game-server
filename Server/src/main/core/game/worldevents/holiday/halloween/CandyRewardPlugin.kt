@@ -8,6 +8,10 @@ import core.plugin.type.XPGainPlugin
 import core.tools.RandomFunction
 import core.tools.colorize
 
+/**
+ * Candy reward plugin.
+ * @author Ceikry
+ */
 class CandyRewardPlugin : XPGainPlugin() {
 
     override fun run(player: Player, skill: Int, amount: Double) {

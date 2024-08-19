@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.plugin.Plugin
 
 /**
- * Bob repair item handler.
+ * Represents the Bob repair item handler.
  */
 @Initializable
 class BobRepairItem : UseWithHandler() {

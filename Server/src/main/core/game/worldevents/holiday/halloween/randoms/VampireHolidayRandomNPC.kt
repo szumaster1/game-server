@@ -14,6 +14,10 @@ import core.game.worldevents.holiday.ResetHolidayAppearance
 import core.tools.RandomFunction
 import core.tools.colorize
 
+/**
+ * Vampire holiday random NPC.
+ * @author Zerken
+ */
 class VampireHolidayRandomNPC : HolidayRandomEventNPC(NPCs.VAMPIRE_1023) {
     override fun init() {
         super.init()

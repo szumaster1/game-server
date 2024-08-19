@@ -16,7 +16,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Abbot langley dialogue.
+ * Represents the Abbot Langley dialogue.
  */
 @Initializable
 class AbbotLangleyDialogue(player: Player? = null) : Dialogue(player) {

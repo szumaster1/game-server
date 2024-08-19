@@ -11,7 +11,7 @@ import core.network.packet.outgoing.ContainerPacket
 import kotlin.math.abs
 
 /**
- * Reinitialisation Panel.
+ * Represents the Reinitialisation Panel.
  */
 class ReinitialisationPanelListener : InterfaceListener {
 

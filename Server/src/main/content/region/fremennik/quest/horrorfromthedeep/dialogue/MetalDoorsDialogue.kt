@@ -8,7 +8,7 @@ import core.game.dialogue.DialogueFile
 import core.game.node.item.Item
 
 /**
- * Metal doors interaction dialogue related to Horror from the deep quest.
+ * Represents the Metal doors interaction dialogue related to Horror from the deep quest.
  */
 class MetalDoorsInteractionDialogue(private var qitems: Int) : DialogueFile() {
 

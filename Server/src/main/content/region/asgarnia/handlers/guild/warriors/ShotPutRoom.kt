@@ -29,7 +29,7 @@ import core.tools.RandomFunction
 import kotlin.math.ceil
 
 /**
- * Shot put room.
+ * Represents the Shot put room.
  */
 @Initializable
 class ShotPutRoom(player: Player? = null) : Dialogue(player) {

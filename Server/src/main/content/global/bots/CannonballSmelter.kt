@@ -18,6 +18,7 @@ import core.game.world.map.zone.ZoneBorders
 
 /**
  * Cannonball smelter.
+ * @author Avi Weinstock
  */
 @PlayerCompatible
 @ScriptName("Falador Cannonball Smelter")

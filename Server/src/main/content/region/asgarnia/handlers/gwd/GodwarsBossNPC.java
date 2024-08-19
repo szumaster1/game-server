@@ -16,7 +16,7 @@ import core.plugin.Initializable;
 import core.tools.RandomFunction;
 
 /**
- * Godwars boss npc.
+ * Represents the Godwars boss npc.
  */
 @Initializable
 public final class GodwarsBossNPC extends AbstractNPC {
