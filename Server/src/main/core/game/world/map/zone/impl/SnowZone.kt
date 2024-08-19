@@ -12,9 +12,7 @@ import core.game.world.map.zone.MapZone
 import core.game.world.map.zone.ZoneBorders
 
 /**
- * Snow zone
- *
- * @constructor Snow zone
+ * Represents the Snow zone area.
  */
 class SnowZone : MapZone("snow", true) {
 

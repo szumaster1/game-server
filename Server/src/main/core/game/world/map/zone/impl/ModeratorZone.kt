@@ -15,9 +15,7 @@ import core.game.world.map.zone.MapZone
 import core.game.world.map.zone.ZoneBorders
 
 /**
- * Moderator zone
- *
- * @constructor Moderator zone
+ * Moderator zone.
  */
 class ModeratorZone : MapZone("Moderator Zone", true) {
 

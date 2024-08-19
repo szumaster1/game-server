@@ -5,9 +5,7 @@ import core.game.world.map.zone.ZoneBorders
 import core.game.world.map.zone.ZoneRestriction
 
 /**
- * Bank zone
- *
- * @constructor Bank zone
+ * Represents the Bank zone area.
  */
 class BankZone : MapZone("bank", true) {
 

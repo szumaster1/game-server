@@ -23,9 +23,7 @@ import core.game.world.map.zone.MapZone
 import core.game.world.map.zone.ZoneBorders
 
 /**
- * Dark zone
- *
- * @constructor Dark zone
+ * Represents the Dark zone area.
  */
 class DarkZone : MapZone("Dark zone", true), EventHook<UseWithEvent> {
 

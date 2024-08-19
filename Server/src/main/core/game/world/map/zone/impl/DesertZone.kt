@@ -20,9 +20,7 @@ import core.plugin.Plugin
 import core.tools.RandomFunction
 
 /**
- * Desert zone
- *
- * @constructor Desert zone
+ * Represents the Desert zone area.
  */
 @Initializable
 class DesertZone : MapZone(DESERT_ZONE, true), Plugin<Any?> {
