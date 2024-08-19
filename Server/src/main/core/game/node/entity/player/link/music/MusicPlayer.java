@@ -1,6 +1,7 @@
 package core.game.node.entity.player.link.music;
 
 import core.game.node.entity.player.Player;
+
 import core.game.node.entity.player.link.emote.Emotes;
 import core.game.world.GameWorld;
 import core.network.packet.PacketRepository;
@@ -11,42 +12,60 @@ import core.network.packet.outgoing.StringPacket;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
-import static core.api.ContentAPIKt.setVarp;
-import static core.tools.GlobalsKt.RED;
-
+import static core.api.ContentAPIKt.*;
 
 /**
- * Music player.
+ * Handles a music playing for a player.
+ * @author Emperor
  */
 public final class MusicPlayer {
 
     /**
-     * The constant TUTORIAL_MUSIC.
+     * The tutorial island music.
      */
     public static final int TUTORIAL_MUSIC = 62;
 
     /**
-     * The constant DEFAULT_MUSIC_ID.
+     * The default music id.
      */
     public static final int DEFAULT_MUSIC_ID = 76;
 
+    /**
+     * The configuration ids.
+     */
     private static final int[] CONFIG_IDS = {20, 21, 22, 23, 24, 25, 298, 311, 346, 414, 464, 598, 662, 721, 906, 1009, 1104, 1136, 1180, 1202};
 
+    /**
+     * The player.
+     */
     private final Player player;
 
+    /**
+     * The currently unlocked songs.
+     */
     private final Map<Integer, MusicEntry> unlocked;
 
+    /**
+     * The music id of the currently played song.
+     */
     private int currentMusicId;
 
+    /**
+     * If a song is currently playing.
+     */
     private boolean playing;
 
+    /**
+     * If the song is looping.
+     */
     private boolean looping;
 
     /**
-     * Instantiates a new Music player.
+     * Constructs a new {@code MusicPlayer} {@code Object}.
      *
-     * @param player the player
+     * @param player The player.
      */
     public MusicPlayer(Player player) {
         this.player = player;
@@ -54,7 +73,7 @@ public final class MusicPlayer {
     }
 
     /**
-     * Init.
+     * Initializes the music player.
      */
     public void init() {
         refreshList();
@@ -77,26 +96,26 @@ public final class MusicPlayer {
     }
 
     /**
-     * Clear unlocked.
+     * Clears the unlocked songs. This should only be used in the permadeath code.
      */
     public void clearUnlocked() {
         this.unlocked.clear();
     }
 
     /**
-     * Has air guitar boolean.
+     * Checks if the player has enough songs unlocked for the Air guitar emote.
      *
-     * @return the boolean
+     * @return {@code True} if so.
      */
     public boolean hasAirGuitar() {
         return unlocked.size() >= 200 || unlocked.size() == MusicEntry.getSongs().size();
     }
 
     /**
-     * Has unlocked boolean.
+     * Checks if the player has unlocked the song.
      *
-     * @param musicId the music id
-     * @return the boolean
+     * @param musicId The music id.
+     * @return {@code True} if so.
      */
     public boolean hasUnlocked(int musicId) {
         MusicEntry entry = MusicEntry.forId(musicId);
@@ -107,17 +126,17 @@ public final class MusicPlayer {
     }
 
     /**
-     * Has unlocked index boolean.
+     * Checks if the player has unlocked the song for the given list index.
      *
-     * @param index the index
-     * @return the boolean
+     * @param index The list index.
+     * @return {@code True} if so.
      */
     public boolean hasUnlockedIndex(int index) {
         return unlocked.containsKey(index);
     }
 
     /**
-     * Refresh list.
+     * Refreshes the music list.
      */
     public void refreshList() {
         int[] values = new int[CONFIG_IDS.length];
@@ -135,7 +154,7 @@ public final class MusicPlayer {
     }
 
     /**
-     * Play default.
+     * Called when a player leaves a music zone without entering a new one.
      */
     public void playDefault() {
         MusicEntry entry = MusicEntry.forId(DEFAULT_MUSIC_ID);
@@ -145,7 +164,7 @@ public final class MusicPlayer {
     }
 
     /**
-     * Replay.
+     * Replays the song.
      */
     public void replay() {
         MusicEntry entry = MusicEntry.forId(currentMusicId);
@@ -155,9 +174,9 @@ public final class MusicPlayer {
     }
 
     /**
-     * Play.
+     * Plays the song.
      *
-     * @param entry the entry
+     * @param entry The song.
      */
     public void play(MusicEntry entry) {
         if (!looping || currentMusicId == entry.getId()) {
@@ -169,19 +188,19 @@ public final class MusicPlayer {
     }
 
     /**
-     * Unlock.
+     * Unlocks and plays the music id.
      *
-     * @param id the id
+     * @param id The music id to unlock.
      */
     public void unlock(int id) {
         unlock(id, true);
     }
 
     /**
-     * Unlock.
+     * Unlocks the music id.
      *
-     * @param id   the id
-     * @param play the play
+     * @param id   The music id to unlock.
+     * @param play If the song should be played.
      */
     public void unlock(int id, boolean play) {
         MusicEntry entry = MusicEntry.forId(id);
@@ -191,7 +210,7 @@ public final class MusicPlayer {
         }
         if (!unlocked.containsKey(entry.getIndex())) {
             unlocked.put(entry.getIndex(), entry);
-            player.getPacketDispatch().sendMessage(RED + "You have unlocked a new music track: " + entry.getName() + "</col>");
+            player.getPacketDispatch().sendMessage("<col=FF0000>You have unlocked a new music track: " + entry.getName() + ".</col>");
             refreshList();
             if (!player.getEmoteManager().isUnlocked(Emotes.AIR_GUITAR) && hasAirGuitar()) {
                 player.getEmoteManager().unlock(Emotes.AIR_GUITAR);
@@ -207,9 +226,6 @@ public final class MusicPlayer {
         }
     }
 
-    /**
-     * Tick.
-     */
     public void tick() {
         if (GameWorld.getTicks() % 20 == 0) {
             if (!isPlaying()) {
@@ -222,75 +238,80 @@ public final class MusicPlayer {
     }
 
     /**
-     * Toggle looping.
+     * Toggles the looping option.
      */
     public void toggleLooping() {
         looping = !looping;
         setVarp(player, 19, looping ? 1 : 0);
     }
 
+    /**
+     * If music is currently playing.
+     *
+     * @return {@code True} if so.
+     */
     private boolean isMusicPlaying() {
         return currentMusicId > 0 && playing;
     }
 
     /**
-     * Gets unlocked.
+     * Gets the unlocked songs list.
      *
-     * @return the unlocked
+     * @return The unlocked.
      */
     public Map<Integer, MusicEntry> getUnlocked() {
         return unlocked;
     }
 
     /**
-     * Gets current music id.
+     * Gets the currentMusicId.
      *
-     * @return the current music id
+     * @return The currentMusicId.
      */
     public int getCurrentMusicId() {
         return currentMusicId;
     }
 
     /**
-     * Sets current music id.
+     * Sets the currentMusicId.
      *
-     * @param currentMusicId the current music id
+     * @param currentMusicId The currentMusicId to set.
      */
     public void setCurrentMusicId(int currentMusicId) {
         this.currentMusicId = currentMusicId;
     }
 
     /**
-     * Is playing boolean.
+     * Gets the playing.
      *
-     * @return the boolean
+     * @return The playing.
      */
     public boolean isPlaying() {
         return playing;
     }
 
     /**
-     * Sets playing.
+     * Sets the playing.
      *
-     * @param playing the playing
+     * @param playing The playing to set.
      */
     public void setPlaying(boolean playing) {
         this.playing = playing;
     }
 
     /**
-     * Is looping boolean.
+     * Gets the looping.
      *
-     * @return the boolean
+     * @return The looping.
      */
     public boolean isLooping() {
         return looping;
     }
 
     /**
-     * Sets looping.
+     * Sets the looping.
      *
-     * @param looping the looping
+     * @param looping The looping to set.
      */
     public void setLooping(boolean looping) {
         this.looping = looping;

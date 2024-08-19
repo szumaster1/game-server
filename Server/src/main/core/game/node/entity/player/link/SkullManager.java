@@ -13,7 +13,8 @@ import java.util.List;
 import static core.api.ContentAPIKt.*;
 
 /**
- * Skull manager.
+ * Represents a managing class of the active player skulls.
+ * @author Vexia, Emperor
  */
 public final class SkullManager {
     /**

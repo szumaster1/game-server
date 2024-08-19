@@ -25,9 +25,8 @@ import kotlin.math.ceil
 import kotlin.math.floor
 
 /**
- * Range swing handler.
- *
- * This class is responsible for managing the behavior of a range swing component.
+ * Handles the range combat swings.
+ * @author Emperor, Ceikry
  *
  * @param flags A set of flags that configure the behavior of the range swing.
  */

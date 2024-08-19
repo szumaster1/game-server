@@ -1,10 +1,8 @@
 package core.game.node.entity.player.link
 
 /**
- * Ironman mode
- *
- * @param icon Represents the icon associated with the Ironman mode.
- * @constructor Represents the Ironman mode with a specific icon.
+ * A type of iron man mode.
+ * @author Vexia
  */
 enum class IronmanMode(@JvmField val icon: Int) {
     /**

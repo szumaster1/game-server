@@ -3,43 +3,53 @@ package core.game.node.entity.lock;
 import core.game.world.GameWorld;
 
 /**
- * Lock.
+ * Represents a lock.
+ * @author Emperor, Aero
  */
 public class Lock {
 
+    /**
+     * The expiration of the lock.
+     */
     private int expiration;
 
+    /**
+     * The custom lock elapse.
+     */
     private LockElapse elapse;
 
+    /**
+     * The message to be sent when the lock is called upon.
+     */
     private String message;
 
     /**
-     * Instantiates a new Lock.
+     * Constructs a new {@code Lock} {@code Object}.
      */
     public Lock() {
         this(null);
     }
 
     /**
-     * Instantiates a new Lock.
+     * Constructs a new {@code Lock} {@code Object}.
      *
-     * @param message the message
+     * @param message The message.
      */
     public Lock(String message) {
         this.message = message;
     }
 
     /**
-     * Lock.
+     * Locks for an indefinite time.
      */
     public void lock() {
         lock(Integer.MAX_VALUE - GameWorld.getTicks());
     }
 
     /**
-     * Lock.
+     * Locks this lock.
      *
-     * @param ticks the ticks
+     * @param ticks The amount of ticks to lock for.
      */
     public void lock(int ticks) {
         if (ticks > expiration - GameWorld.getTicks()) {
@@ -48,26 +58,26 @@ public class Lock {
     }
 
     /**
-     * Unlock.
+     * Unlocks the lock.
      */
     public void unlock() {
         this.expiration = 0;
     }
 
     /**
-     * Is locked boolean.
+     * Checks if this lock is locked.
      *
-     * @return the boolean
+     * @return {@code True} if so.
      */
     public boolean isLocked() {
         return expiration > GameWorld.getTicks();
     }
 
     /**
-     * Sets elapse.
+     * Sets the custom lock elapse.
      *
-     * @param elapse the elapse
-     * @return the elapse
+     * @param elapse The elapse.
+     * @return The lock instance for chaining.
      */
     public Lock setElapse(LockElapse elapse) {
         this.elapse = elapse;
@@ -75,27 +85,27 @@ public class Lock {
     }
 
     /**
-     * Gets elapse event.
+     * Gets the custom lock elapse event.
      *
-     * @return the elapse event
+     * @return The custom lock elapse event.
      */
     public LockElapse getElapseEvent() {
         return elapse;
     }
 
     /**
-     * Gets message.
+     * Gets the message.
      *
-     * @return the message
+     * @return The message.
      */
     public String getMessage() {
         return message;
     }
 
     /**
-     * Sets message.
+     * Sets the message.
      *
-     * @param message the message
+     * @param message The message to set.
      */
     public void setMessage(String message) {
         this.message = message;

@@ -4,7 +4,9 @@ import core.game.node.entity.player.Player
 import java.nio.ByteBuffer
 
 /**
- * Class representing saved data for a player.
+ * Represents a managing class of saved data related to ingame interactions,
+ * such as questing data, npc talking data, etc.
+ * @author Vexia
  *
  * @param player The player associated with this saved data.
  * @constructor Represents the saved data with the specified player.

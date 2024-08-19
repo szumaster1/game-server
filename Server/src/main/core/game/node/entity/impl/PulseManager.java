@@ -2,36 +2,35 @@ package core.game.node.entity.impl;
 
 import core.game.interaction.MovementPulse;
 import core.game.node.entity.Entity;
-import core.game.node.entity.combat.CombatPulse;
 import core.game.node.entity.combat.DeathTask;
 import core.game.node.entity.player.Player;
 import core.game.system.task.Pulse;
+import core.game.node.entity.combat.CombatPulse;
 import core.game.world.GameWorld;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * Pulse manager.
+ * Represents an entity's pulse manager.
+ * @author Emperor
  */
 public final class PulseManager {
 
+    /**
+     * The movement pulse.
+     */
     private final HashMap<PulseType, Pulse> currentPulses = new HashMap<>();
 
-    /**
-     * Run.
-     *
-     * @param pulse the pulse
-     */
     public void run(Pulse pulse) {
         run(pulse, PulseType.STANDARD);
     }
 
     /**
-     * Run.
+     * Runs a pulse.
      *
-     * @param pulse     the pulse
-     * @param pulseType the pulse type
+     * @param pulse     The pulse.
+     * @param pulseType The pulse type we're trying to run.
      */
     public void run(Pulse pulse, PulseType pulseType) {
         ArrayList<PulseType> toRemove = new ArrayList<>(currentPulses.size());
@@ -62,9 +61,6 @@ public final class PulseManager {
         }
     }
 
-    /**
-     * Clear.
-     */
     public void clear() {
         currentPulses.forEach((type, pulse) -> {
             if (type != PulseType.STRONG && pulse != null) pulse.stop();
@@ -72,10 +68,7 @@ public final class PulseManager {
     }
 
     /**
-     * Clear boolean.
-     *
-     * @param pulseType the pulse type
-     * @return the boolean
+     * Clears the pulses.
      */
     public boolean clear(PulseType pulseType) {
         Pulse pulse = currentPulses.get(pulseType);
@@ -88,11 +81,11 @@ public final class PulseManager {
     }
 
     /**
-     * Run unhandled action pulse.
+     * Runs the unhandled reward pulse ("Nothing interesting happens.")
      *
-     * @param player    the player
-     * @param pulseType the pulse type
-     * @return the pulse
+     * @param player    The player.
+     * @param pulseType The pulse type.
+     * @return The pulse.
      */
     public Pulse runUnhandledAction(final Player player, PulseType pulseType) {
         Pulse pulse = new Pulse(1, player) {
@@ -107,9 +100,9 @@ public final class PulseManager {
     }
 
     /**
-     * Is moving pulse boolean.
+     * Checks if the current pulse moves the entity.
      *
-     * @return the boolean
+     * @return {@code True} if so.
      */
     public boolean isMovingPulse() {
         if (!hasPulseRunning()) {
@@ -121,18 +114,18 @@ public final class PulseManager {
     }
 
     /**
-     * Has pulse running boolean.
+     * Checks if a pulse is running.
      *
-     * @return the boolean
+     * @return {@code True} if so.
      */
     public boolean hasPulseRunning() {
         return getCurrent() != null && getCurrent().isRunning();
     }
 
     /**
-     * Cancel death task.
+     * Cancels the death task, if any.
      *
-     * @param e the e
+     * @param e The entity.
      */
     public static void cancelDeathTask(Entity e) {
         if (!DeathTask.isDead(e) || e.getPulseManager().getCurrent() == null) {
@@ -142,9 +135,9 @@ public final class PulseManager {
     }
 
     /**
-     * Gets current.
+     * Gets the current.
      *
-     * @return the current
+     * @return The current.
      */
     public Pulse getCurrent() {
         PulseType[] types = PulseType.values();

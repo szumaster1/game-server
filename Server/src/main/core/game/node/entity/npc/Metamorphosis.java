@@ -4,48 +4,52 @@ import content.global.skill.combat.summoning.familiar.Familiar;
 import content.global.skill.combat.summoning.pet.Pets;
 import core.cache.def.impl.NPCDefinition;
 import core.game.dialogue.Dialogue;
+import core.game.dialogue.DialoguePlugin;
+import content.global.skill.summoning.familiar.Familiar;
+import content.global.skill.summoning.pet.Pets;
 import core.game.interaction.OptionHandler;
 import core.game.node.Node;
 import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
-import core.plugin.ClassScanner;
 import core.plugin.Plugin;
+import core.plugin.ClassScanner;
 import core.tools.RandomFunction;
 
 /**
- * Metamorphosis.
+ * A superclass plugin for any pets that have a metamorphosis option.
+ * @author Empathy
  */
 public abstract class Metamorphosis extends OptionHandler {
 
     /**
-     * The Ids.
+     * The ids of the possible npcs to metamorph into.
      */
     protected int[] ids;
 
 
     /**
-     * Instantiates a new Metamorphosis.
+     * Constructs a new {@code Metamorphosis} {@code Object}.
      *
-     * @param ids the ids
+     * @param ids the id to transform.
      */
     public Metamorphosis(int... ids) {
         this.ids = ids;
     }
 
     /**
-     * Gets dialogue.
+     * The dialogue plugin for the pet.
      *
-     * @return the dialogue
+     * @return the plugin.
      */
-    public abstract Dialogue getDialogue();
+    public abstract Dialogue getDialoguePlugin();
 
     @Override
     public Plugin<Object> newInstance(Object arg) throws Throwable {
         for (int id : getIds()) {
             NPCDefinition.forId(id).getHandlers().put("option:metamorphosis", this);
         }
-        if (getDialogue() != null) {
-            ClassScanner.definePlugin(getDialogue());
+        if (getDialoguePlugin() != null) {
+            ClassScanner.definePlugin(getDialoguePlugin());
         }
         return this;
     }
@@ -76,9 +80,9 @@ public abstract class Metamorphosis extends OptionHandler {
     }
 
     /**
-     * Gets random npc id.
+     * Gets a random npc id.
      *
-     * @return the random npc id
+     * @return
      */
     public int getRandomNpcId() {
         int i = RandomFunction.getRandom(getIds().length - 1);
@@ -86,9 +90,9 @@ public abstract class Metamorphosis extends OptionHandler {
     }
 
     /**
-     * Get ids int [ ].
+     * Gets the npc ids.
      *
-     * @return the int [ ]
+     * @return the id.
      */
     public int[] getIds() {
         return ids;

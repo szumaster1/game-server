@@ -9,38 +9,41 @@ import core.game.system.task.Pulse;
 import core.game.world.update.flag.context.Animation;
 
 /**
- * Skill pulse.
- *
- * @param <T> the type parameter
+ * Pulse class specifically used for Skills.
+ * @author Emperor
  */
 public abstract class SkillPulse<T extends Node> extends Pulse {
 
     /**
-     * The Player.
+     * The player.
      */
     protected final Player player;
+
     /**
-     * The Node.
+     * The node.
      */
     protected T node;
+
     /**
-     * The Tool.
+     * The tool used.
      */
     protected SkillingTool tool;
+
     /**
-     * The Resource.
+     * The resource.
      */
     protected SkillingResource resource;
+
     /**
-     * The Reset animation.
+     * If we should reset the anim at the end.
      */
     protected boolean resetAnimation = true;
 
     /**
-     * Instantiates a new Skill pulse.
+     * Constructs a new {@code SkillPulse} {@code Object}.
      *
-     * @param player the player
-     * @param node   the node
+     * @param player The player.
+     * @param node   The node.
      */
     public SkillPulse(Player player, T node) {
         super(1, player, node);
@@ -76,28 +79,28 @@ public abstract class SkillPulse<T extends Node> extends Pulse {
     }
 
     /**
-     * Check requirements boolean.
+     * Checks if the player meets all the requirements.
      *
-     * @return the boolean
+     * @return {@code True} if the player can continue, {@code false} if not.
      */
     public abstract boolean checkRequirements();
 
     /**
-     * Animate.
+     * Sends the animations related to the actions the player is doing.
      */
     public abstract void animate();
 
     /**
-     * Reward boolean.
+     * Rewards the player.
      *
-     * @return the boolean
+     * @return {@code True} if the player should stop this skilling pulse.
      */
     public abstract boolean reward();
 
     /**
-     * Message.
+     * Sends a message to the player.
      *
-     * @param type the type
+     * @param type The message type (0: start message, 1: stop message).
      */
     public void message(int type) {
 

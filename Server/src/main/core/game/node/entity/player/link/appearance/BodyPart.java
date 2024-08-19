@@ -3,17 +3,26 @@ package core.game.node.entity.player.link.appearance;
 
 import org.json.simple.JSONObject;
 
+import java.nio.ByteBuffer;
+
 /**
- * Body part.
+ * Represents a body part of a player encapsulating the type and color.
+ * @author Vexia
  */
 public final class BodyPart {
 
+    /**
+     * Represents the look value of the part.
+     */
     private int look;
 
+    /**
+     * Represents the color of this part.
+     */
     private int color;
 
     /**
-     * Instantiates a new Body part.
+     * Constructs a new {@code BodyPart} {@code Object}.
      */
     public BodyPart() {
         /**
@@ -22,10 +31,10 @@ public final class BodyPart {
     }
 
     /**
-     * Instantiates a new Body part.
+     * Constructs a new {@code BodyPart} {@code Object}.
      *
-     * @param look  the look
-     * @param color the color
+     * @param look  the look.
+     * @param color the color.
      */
     public BodyPart(final int look, final int color) {
         this.look = look;
@@ -33,55 +42,50 @@ public final class BodyPart {
     }
 
     /**
-     * Instantiates a new Body part.
+     * Constructs a new {@code BodyPart} {@code Object}.
      *
-     * @param look the look
+     * @param look the look.
      */
     public BodyPart(final int look) {
         this(look, 0);
     }
 
-    /**
-     * Parse.
-     *
-     * @param part the part
-     */
     public void parse(JSONObject part) {
         changeLook(Integer.parseInt(part.get("look").toString()));
         changeColor(Integer.parseInt(part.get("color").toString()));
     }
 
     /**
-     * Change look.
+     * Method used to change the look value.
      *
-     * @param look the look
+     * @param look the look value.
      */
     public void changeLook(final int look) {
         this.look = look;
     }
 
     /**
-     * Change color.
+     * Method used to change the color value.
      *
-     * @param color the color
+     * @param color the color value.
      */
     public void changeColor(final int color) {
         this.color = color;
     }
 
     /**
-     * Gets look.
+     * Gets the look.
      *
-     * @return the look
+     * @return The look.
      */
     public int getLook() {
         return look;
     }
 
     /**
-     * Gets color.
+     * Gets the color.
      *
-     * @return the color
+     * @return The color.
      */
     public int getColor() {
         return color;

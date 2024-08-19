@@ -2,134 +2,164 @@ package core.game.node.entity.npc;
 
 import content.global.skill.combat.summoning.familiar.Familiar;
 import content.global.skill.support.slayer.data.Tasks;
-import core.api.utils.GlobalKillCounter;
-import core.api.utils.Vector;
+import core.game.event.NPCKillEvent;
 import core.cache.def.impl.NPCDefinition;
 import core.game.dialogue.Dialogue;
-import core.game.event.NPCKillEvent;
 import core.game.interaction.InteractPlugin;
 import core.game.interaction.MovementPulse;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.BattleState;
-import core.game.node.entity.combat.CombatStyle;
-import core.game.node.entity.combat.CombatSwingHandler;
-import core.game.node.entity.combat.equipment.WeaponInterface;
 import core.game.node.entity.combat.spell.CombatSpell;
+import core.game.node.entity.combat.CombatPulse;
+import core.game.node.entity.combat.CombatStyle;
 import core.game.node.entity.combat.spell.DefaultCombatSpell;
+import core.game.node.entity.combat.equipment.WeaponInterface;
 import core.game.node.entity.npc.agg.AggressiveBehavior;
 import core.game.node.entity.npc.agg.AggressiveHandler;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.player.link.SpellBookManager;
 import core.game.node.entity.player.link.audio.Audio;
 import core.game.node.entity.skill.Skills;
-import core.game.shops.Shops;
-import core.game.system.config.NPCConfigParser;
-import core.game.world.GameWorld;
 import core.game.world.map.Direction;
 import core.game.world.map.Location;
 import core.game.world.map.RegionManager;
 import core.game.world.map.build.DynamicRegion;
 import core.game.world.map.path.Pathfinder;
-import core.game.world.repository.Repository;
-import core.game.world.update.flag.EFlagType;
-import core.game.world.update.flag.EntityFlag;
-import core.game.world.update.flag.EntityFlags;
 import core.game.world.update.flag.context.Animation;
 import core.game.world.update.flag.context.Graphic;
+import core.game.world.update.flag.*;
 import core.tools.RandomFunction;
+import core.api.utils.GlobalKillCounter;
+import core.api.utils.Vector;
+import core.game.shops.Shops;
+import core.game.node.entity.combat.CombatSwingHandler;
+import core.game.system.config.NPCConfigParser;
+import core.game.world.GameWorld;
+import core.game.world.repository.Repository;
 
 import static core.game.system.command.sets.StatsAttributeSetKt.STATS_BASE;
 import static core.game.system.command.sets.StatsAttributeSetKt.STATS_ENEMIES_KILLED;
 
+
 /**
- * Npc.
+ * Represents a non-player character.
+ * @author Emperor
  */
 public class NPC extends Entity {
 
+    /**
+     * The non-player character's id.
+     */
     private int id;
 
+    /**
+     * The original NPC id.
+     */
     private final int originalId;
 
+    /**
+     * The NPC definitions.
+     */
     private NPCDefinition definition;
 
+    /**
+     * If the NPC walks;
+     */
     private boolean walks;
 
+    /**
+     * If the NPC is aggressive.
+     */
     private boolean aggressive;
 
+    /**
+     * Represents if the NPC will respawn.
+     */
     private boolean respawn = true;
 
     /**
-     * The Movement path.
+     * The movement path of the NPC.
      */
     protected Location[] movementPath;
 
     /**
-     * The Walk radius.
+     * The walking radius.
      */
     protected int walkRadius = 11;
 
     /**
-     * The Movement index.
+     * The movement index.
      */
     protected int movementIndex;
 
+    /**
+     * The respawn tick.
+     */
     private int respawnTick = -1;
 
     /**
-     * The Path bound movement.
+     * If the NPC walks bound to a path.
      */
     protected boolean pathBoundMovement;
 
     /**
-     * The Dialogue player.
+     * The current dialogue.
      */
     protected Player dialoguePlayer;
 
     /**
-     * The Aggressive handler.
+     * The aggressive handler of the NPC.
      */
     protected AggressiveHandler aggressiveHandler;
 
     /**
-     * The Next walk.
+     * The walk back radius.
      */
     protected int nextWalk;
 
+    /**
+     * The children NPCs.
+     */
     private NPC[] children;
 
+    /**
+     * The amount of slayer experience received when killing this NPC.
+     */
     private double slayerExperience;
 
+    /**
+     * The slayer task.
+     */
     private Tasks task;
 
+    /**
+     * If the npc can never walk.
+     */
     private boolean neverWalks;
 
+    /**
+     * The force talk string.
+     */
     private String forceTalk;
 
-    /**
-     * The Behavior.
-     */
     public NPCBehavior behavior;
 
-    /**
-     * The Is respawning.
-     */
     public boolean isRespawning = false;
 
     /**
-     * Instantiates a new Npc.
+     * Constructs a new {@code NPC} {@code Object}.
      *
-     * @param id the id
+     * @param id The NPC id.
      */
     public NPC(int id) {
         this(id, null);
     }
 
     /**
-     * Instantiates a new Npc.
+     * Constructs a new {@code NPC} {@code Object}.
      *
-     * @param id        the id
-     * @param location  the location
-     * @param direction the direction
+     * @param id       The NPC id.
+     * @param location The location.
      */
     protected NPC(int id, Location location, Direction direction) {
         super(NPCDefinition.forId(id).getName(), location);
@@ -143,23 +173,23 @@ public class NPC extends Entity {
     }
 
     /**
-     * Instantiates a new Npc.
+     * Constructs a new {@code NPC} {@code Object}.
      *
-     * @param id       the id
-     * @param location the location
+     * @param id       the id.
+     * @param location the location.
      */
     public NPC(int id, Location location) {
         this(id, location, Direction.SOUTH);
     }
 
     /**
-     * Create npc.
+     * Creates a new NPC object.
      *
-     * @param id        the id
-     * @param location  the location
-     * @param direction the direction
-     * @param objects   the objects
-     * @return the npc
+     * @param id        The NPC id.
+     * @param location  The location.
+     * @param direction the dir.
+     * @param objects   the objects.
+     * @return The NPC object.
      */
     public static NPC create(int id, Location location, Direction direction, Object... objects) {
         NPC n = AbstractNPC.forId(id);
@@ -174,12 +204,11 @@ public class NPC extends Entity {
     }
 
     /**
-     * Create npc.
+     * Creates a new NPC object.
      *
-     * @param id       the id
-     * @param location the location
-     * @param objects  the objects
-     * @return the npc
+     * @param id       the id.
+     * @param location the location.
+     * @return the npc object.
      */
     public static NPC create(int id, Location location, Object... objects) {
         return create(id, location, Direction.SOUTH, objects);
@@ -224,7 +253,7 @@ public class NPC extends Entity {
     }
 
     /**
-     * Configure boss data.
+     * Configures default boss data.
      */
     public void configureBossData() {
         getProperties().setNPCWalkable(true);
@@ -243,7 +272,7 @@ public class NPC extends Entity {
     }
 
     /**
-     * Init config.
+     * Initializes the configurations.
      */
     public void initConfig() {
         int defaultLevel = definition.getCombatLevel() / 2;
@@ -301,10 +330,10 @@ public class NPC extends Entity {
     }
 
     /**
-     * Open shop boolean.
+     * Opens the shop for a player.
      *
-     * @param player the player
-     * @return the boolean
+     * @param player the player.
+     * @return {@code True} if so.
      */
     public boolean openShop(Player player) {
         if (getName().contains("assistant")) {
@@ -335,17 +364,17 @@ public class NPC extends Entity {
     }
 
     /**
-     * Is hidden boolean.
+     * Checks if the NPC is hidden for the player.
      *
-     * @param player the player
-     * @return the boolean
+     * @param player The player.
+     * @return {@code True} if so.
      */
     public boolean isHidden(Player player) {
         return isInvisible();
     }
 
     /**
-     * Sets default behavior.
+     * Sets the default aggressive behavior of the NPC.
      */
     public void setDefaultBehavior() {
         if (aggressive && definition.getCombatLevel() > 0) {
@@ -355,9 +384,9 @@ public class NPC extends Entity {
     }
 
     /**
-     * Configure movement path.
+     * Configures the movement path.
      *
-     * @param movementPath the movement path
+     * @param movementPath The movement path.
      */
     public void configureMovementPath(Location... movementPath) {
         this.movementPath = movementPath;
@@ -417,13 +446,13 @@ public class NPC extends Entity {
     }
 
     /**
-     * On respawn.
+     * Called when the NPC respawns.
      */
     protected void onRespawn() {
     }
 
     /**
-     * Handle tick actions.
+     * Handles the automatic actions of the NPC.
      */
     public void handleTickActions() {
         if (!behavior.tick(this))
@@ -504,22 +533,19 @@ public class NPC extends Entity {
     }
 
     /**
-     * Sets next walk.
+     * Sets the next walk.
      */
     public void setNextWalk() {
         nextWalk = GameWorld.getTicks() + 5 + RandomFunction.randomize(10);
     }
 
-    /**
-     * Reset walk.
-     */
     public void resetWalk() {
         nextWalk = GameWorld.getTicks() - 1;
         getWalkingQueue().reset();
     }
 
     /**
-     * On region inactivity.
+     * Called when the region goes inactive.
      */
     public void onRegionInactivity() {
         getWalkingQueue().reset();
@@ -564,11 +590,6 @@ public class NPC extends Entity {
         setRespawnTick(GameWorld.getTicks() + definition.getConfiguration(NPCConfigParser.RESPAWN_DELAY, 17));
     }
 
-    /**
-     * Sets respawn ticks.
-     *
-     * @param ticks the ticks
-     */
     public void setRespawnTicks(int ticks) {
         definition.getHandlers().put(NPCConfigParser.RESPAWN_DELAY, ticks);
     }
@@ -579,10 +600,10 @@ public class NPC extends Entity {
     }
 
     /**
-     * Handle drops.
+     * Handles the drops of the npc.
      *
-     * @param p      the p
-     * @param killer the killer
+     * @param p      the p.
+     * @param killer the killer.
      */
     public void handleDrops(Player p, Entity killer) {
         if (getAttribute("disable:drop", false)) {
@@ -614,10 +635,10 @@ public class NPC extends Entity {
     }
 
     /**
-     * Gets audio.
+     * Gets an audio piece.
      *
-     * @param index the index
-     * @return the audio
+     * @param index the index.
+     * @return the audio.
      */
     public Audio getAudio(int index) {
         int[] audios = getDefinition().getConfiguration(NPCConfigParser.COMBAT_AUDIO, null);
@@ -631,7 +652,8 @@ public class NPC extends Entity {
     }
 
     /**
-     * Configure.
+     * Configures the NPC. <br> <b>Override this instead of {@link #init()} when
+     * creating a sub class.</b>
      */
     public void configure() {
         int[] bonus = definition.getConfiguration(NPCConfigParser.BONUSES, new int[3]);
@@ -664,10 +686,10 @@ public class NPC extends Entity {
     }
 
     /**
-     * Can attack boolean.
+     * Method used to check if the NPC can attack the victim. This method is
+     * used for aggressive behavior.
      *
-     * @param victim the victim
-     * @return the boolean
+     * @return <code>True</code> if so.
      */
     public boolean canAttack(final Entity victim) {
         return true;
@@ -679,10 +701,11 @@ public class NPC extends Entity {
     }
 
     /**
-     * Is ignore attack restrictions boolean.
+     * Checks if the npc should ignore victim attack restrictions(i.e You can't
+     * attack this npc.")
      *
-     * @param victim the victim
-     * @return the boolean
+     * @param victim the victim.
+     * @return {@code True} if ignore.
      */
     public boolean isIgnoreAttackRestrictions(Entity victim) {
         return false;
@@ -694,10 +717,9 @@ public class NPC extends Entity {
     }
 
     /**
-     * Transform npc.
+     * Transforms this NPC.
      *
-     * @param id the id
-     * @return the npc
+     * @param id The new NPC id.
      */
     public NPC transform(int id) {
         this.id = id;
@@ -717,7 +739,7 @@ public class NPC extends Entity {
     }
 
     /**
-     * Re transform.
+     * Transforms this NPC back to original.
      */
     public void reTransform() {
         if (originalId == this.id) {
@@ -727,9 +749,9 @@ public class NPC extends Entity {
     }
 
     /**
-     * Gets movement destination.
+     * Gets the movement destination of the NPC.
      *
-     * @return the movement destination
+     * @return The movement destination.
      */
     protected Location getMovementDestination() {
         if (!pathBoundMovement || movementPath == null || movementPath.length < 1) {
@@ -750,231 +772,230 @@ public class NPC extends Entity {
     }
 
     /**
-     * Gets drop location.
+     * Gets the drop location.
      *
-     * @return the drop location
+     * @return The drop location.
      */
     public Location getDropLocation() {
         return getLocation();
     }
 
     /**
-     * Can start combat boolean.
+     * Checks if the npc can start combat.
      *
-     * @param victim the victim
-     * @return the boolean
+     * @param victim the victim.
+     * @return {@code True} if so.
      */
     public boolean canStartCombat(Entity victim) {
         return true;
     }
 
     /**
-     * Gets definition.
+     * Gets the definition.
      *
-     * @return the definition
+     * @return The definition.
      */
     public NPCDefinition getDefinition() {
         return definition;
     }
 
     /**
-     * Sets definition.
+     * Sets the definition.
      *
-     * @param definition the definition
+     * @param definition The definition to set.
      */
     public void setDefinition(NPCDefinition definition) {
         this.definition = definition;
     }
 
+    /**
+     * Get the id.
+     *
+     * @return The non-player character's id.
+     */
     public int getId() {
         return id;
     }
 
     /**
-     * Sets id.
+     * Set the id.
      *
-     * @param id the id
+     * @param id The non-player character's id.
      */
     public void setId(int id) {
         this.id = id;
     }
 
     /**
-     * Is walks boolean.
+     * Gets the walks.
      *
-     * @return the boolean
+     * @return The walks.
      */
     public boolean isWalks() {
         return walks;
     }
 
     /**
-     * Sets walks.
+     * Sets the walks.
      *
-     * @param walks the walks
+     * @param walks The walks to set.
      */
     public void setWalks(boolean walks) {
         this.walks = walks;
     }
 
     /**
-     * Is aggressive boolean.
+     * Gets the aggressive.
      *
-     * @return the boolean
+     * @return The aggressive.
      */
     public boolean isAggressive() {
         return aggressive;
     }
 
     /**
-     * Sets aggressive.
+     * Sets the aggressive.
      *
-     * @param aggressive the aggressive
+     * @param aggressive The aggressive to set.
      */
     public void setAggressive(boolean aggressive) {
         this.aggressive = aggressive;
     }
 
     /**
-     * Sets name.
+     * Sets the name.
      *
-     * @param name the name
+     * @param @name
      */
     public void setName(String name) {
         this.name = name;
     }
 
     /**
-     * Get movement path location [ ].
+     * Gets the movementPath.
      *
-     * @return the location [ ]
+     * @return The movementPath.
      */
     public Location[] getMovementPath() {
         return movementPath;
     }
 
     /**
-     * Is respawn boolean.
-     *
-     * @return the boolean
+     * @return the respawn.
      */
     public boolean isRespawn() {
         return respawn;
     }
 
     /**
-     * Sets respawn.
-     *
-     * @param respawn the respawn
+     * @param respawn the respawn to set.
      */
     public void setRespawn(boolean respawn) {
         this.respawn = respawn;
     }
 
     /**
-     * Is path bound movement boolean.
+     * Gets the pathBoundMovement.
      *
-     * @return the boolean
+     * @return The pathBoundMovement.
      */
     public boolean isPathBoundMovement() {
         return pathBoundMovement;
     }
 
     /**
-     * Sets path bound movement.
+     * Sets the pathBoundMovement.
      *
-     * @param pathBoundMovement the path bound movement
+     * @param pathBoundMovement The pathBoundMovement.
      */
     public void setPathBoundMovement(boolean pathBoundMovement) {
         this.pathBoundMovement = pathBoundMovement;
     }
 
     /**
-     * Gets dialogue player.
+     * Gets the dialoguePlayer.
      *
-     * @return the dialogue player
+     * @return The dialoguePlayer.
      */
     public Player getDialoguePlayer() {
         return dialoguePlayer;
     }
 
     /**
-     * Sets dialogue player.
-     *
-     * @param dialoguePlayer the dialogue player
+     * Sets the dialoguePlayer.
      */
     public void setDialoguePlayer(Player dialoguePlayer) {
         this.dialoguePlayer = dialoguePlayer;
     }
 
     /**
-     * Gets aggressive handler.
+     * Gets the aggressive handler.
      *
-     * @return the aggressive handler
+     * @return The aggressive handler.
      */
     public AggressiveHandler getAggressiveHandler() {
         return aggressiveHandler;
     }
 
     /**
-     * Sets aggressive handler.
+     * Sets the aggressive handler.
      *
-     * @param handler the handler
+     * @param handler The handler.
      */
     public void setAggressiveHandler(AggressiveHandler handler) {
         this.aggressiveHandler = handler;
     }
 
     /**
-     * Gets respawn tick.
+     * Gets the respawnTick.
      *
-     * @return the respawn tick
+     * @return The respawnTick.
      */
     public int getRespawnTick() {
         return respawnTick;
     }
 
     /**
-     * Sets walk radius.
+     * Sets the walking radius.
      *
-     * @param radius the radius
+     * @param radius The walking radius.
      */
     public void setWalkRadius(int radius) {
         this.walkRadius = radius;
     }
 
     /**
-     * Gets walk radius.
+     * Gets the walking radius.
      *
-     * @return the walk radius
+     * @return the walking radius.
      */
     public int getWalkRadius() {
         return walkRadius;
     }
 
     /**
-     * Sets respawn tick.
+     * Sets the respawnTick.
      *
-     * @param respawnTick the respawn tick
+     * @param respawnTick The respawnTick to set.
      */
     public void setRespawnTick(int respawnTick) {
         this.respawnTick = respawnTick;
     }
 
     /**
-     * Gets original id.
+     * Gets the originalId.
      *
-     * @return the original id
+     * @return The originalId.
      */
     public int getOriginalId() {
         return originalId;
     }
 
     /**
-     * Gets shown npc.
+     * Gets the currently shown NPC.
      *
-     * @param player the player
-     * @return the shown npc
+     * @param player The player to check for.
+     * @return The shown NPC.
      */
     public NPC getShownNPC(Player player) {
         if (children == null) {
@@ -990,54 +1011,54 @@ public class NPC extends Entity {
     }
 
     /**
-     * Gets slayer experience.
+     * Gets the slayerExperience.
      *
-     * @return the slayer experience
+     * @return The slayerExperience.
      */
     public double getSlayerExperience() {
         return slayerExperience;
     }
 
     /**
-     * Sets slayer experience.
+     * Sets the slayerExperience.
      *
-     * @param slayerExperience the slayer experience
+     * @param slayerExperience The slayerExperience to set.
      */
     public void setSlayerExperience(double slayerExperience) {
         this.slayerExperience = slayerExperience;
     }
 
     /**
-     * Gets task.
+     * Gets the task.
      *
-     * @return the task
+     * @return The task.
      */
     public Tasks getTask() {
         return task;
     }
 
     /**
-     * Sets task.
+     * Sets the task.
      *
-     * @param task the task
+     * @param task The task to set.
      */
     public void setTask(Tasks task) {
         this.task = task;
     }
 
     /**
-     * Is never walks boolean.
+     * Gets the neverWalks.
      *
-     * @return the boolean
+     * @return the neverWalks
      */
     public boolean isNeverWalks() {
         return neverWalks;
     }
 
     /**
-     * Sets never walks.
+     * Sets the baneverWalks.
      *
-     * @param neverWalks the never walks
+     * @param neverWalks the neverWalks to set.
      */
     public void setNeverWalks(boolean neverWalks) {
         this.neverWalks = neverWalks;

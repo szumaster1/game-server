@@ -8,17 +8,20 @@ import core.api.setVarp
 import core.game.node.entity.player.Player
 
 /**
- * Warning messages.
+ * Handles the warning messages of a player.
+ * @author Vexia
  */
 class WarningMessages {
 
+    /**
+     * Represents the warning messages.
+     */
     // List to hold warning messages, initialized with a capacity of 20
     private val messages: MutableList<WarningMessage> = ArrayList(20)
 
     /**
-     * Open
-     *
-     * @param player The player for whom the interface is opened
+     * Method used to open the warning messages.
+     * @param player the player.
      */
     fun open(player: Player) {
         // Opens the warning interface for the specified player
@@ -27,6 +30,10 @@ class WarningMessages {
         refresh(player)
     }
 
+    /**
+     * Method used to refresh the config.
+     * @param player the player.
+     */
     // Refreshes the player's warning interface with the current configuration
     private fun refresh(player: Player) {
         // Sets the variable for the player to update the interface
@@ -34,10 +41,9 @@ class WarningMessages {
     }
 
     /**
-     * Get message
-     *
-     * @param index The index of the warning message to retrieve
-     * @return The warning message corresponding to the index
+     * Gets a warning message by its index.
+     * @param index the index.
+     * @return the warning message.
      */
     fun getMessage(index: Int): WarningMessage {
         // Iterates through the list of messages to find the one with the matching index
@@ -58,10 +64,7 @@ class WarningMessages {
         get() = 0
 
     /**
-     * Warning message
-     *
-     * @param index The index of the warning message
-     * @constructor Warning message
+     * Represents a warning message.
      */
     inner class WarningMessage(val index: Int) {
 
@@ -83,7 +86,10 @@ class WarningMessages {
             // Refreshes the player's interface
             refresh(player)
             // Sends a message to the player indicating the new state of the warning screen
-            sendMessage(player,"You have toggled this warning screen " + (if (on) "on" else "off") + ". You will " + (if (on) "see this interface again." else "no longer see this warning screen."))
+            sendMessage(
+                player,
+                "You have toggled this warning screen " + (if (on) "on" else "off") + ". You will " + (if (on) "see this interface again." else "no longer see this warning screen.")
+            )
         }
 
         // Returns whether the warning message is currently toggled on

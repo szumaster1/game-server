@@ -1,6 +1,5 @@
 package core.game.node.item;
 
-import core.game.bots.AIRepository;
 import core.game.node.entity.player.Player;
 import core.game.world.GameWorld;
 import core.game.world.map.Location;
@@ -9,70 +8,59 @@ import core.game.world.update.flag.chunk.ItemUpdateFlag;
 import core.network.packet.PacketRepository;
 import core.network.packet.context.BuildItemContext;
 import core.network.packet.outgoing.UpdateGroundItemAmount;
+import core.game.bots.AIRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Ground item manager.
+ * Handles ground items.
+ * @author Emperor
  */
 public final class GroundItemManager {
-
+    /**
+     * The list of ground items.
+     */
     private static final List<GroundItem> GROUND_ITEMS = new ArrayList<>(20);
 
     /**
-     * Create ground item.
-     *
-     * @param item     the item
-     * @param location the location
-     * @return the ground item
+     * Creates a ground item.
+     * @param item The ground item to create.
+     * @param location The location to set the ground item on.
      */
     public static GroundItem create(Item item, Location location) {
         return create(new GroundItem(item, location, null));
     }
 
-    /**
-     * Create ground item.
-     *
-     * @param item      the item
-     * @param location  the location
-     * @param playerUid the player uid
-     * @param ticks     the ticks
-     * @return the ground item
-     */
-    public static GroundItem create(Item item, Location location, int playerUid, int ticks) {
+    public static GroundItem create (Item item, Location location, int playerUid, int ticks) {
         return create(new GroundItem(item, location, playerUid, ticks));
     }
 
     /**
-     * Create ground item.
-     *
-     * @param item   the item
-     * @param player the player
-     * @return the ground item
+     * Creates a ground item.
+     * @param item the item.
+     * @param player the player.
+     * @return
      */
     public static GroundItem create(Item item, final Player player) {
         return create(new GroundItem(item, player.getLocation(), player));
     }
 
     /**
-     * Create ground item.
-     *
-     * @param item     the item
-     * @param location the location
-     * @param player   the player
-     * @return the ground item
+     * Creates a ground item.
+     * @param item The ground item to create.
+     * @param location The location to set the ground item on.
+     * @param player The player creating the ground item.
      */
     public static GroundItem create(Item item, Location location, Player player) {
         return create(new GroundItem(item, location, player));
     }
 
     /**
-     * Create.
-     *
-     * @param item     the item
-     * @param location the location
-     * @param player   the player
+     * Creates a ground item.
+     * @param item The ground item to create.
+     * @param location The location to set the ground item on.
+     * @param player The player creating the ground item.
      */
     public static void create(Item[] item, Location location, Player player) {
         for (int i = 0; i < item.length; i++) {
@@ -81,10 +69,9 @@ public final class GroundItemManager {
     }
 
     /**
-     * Create ground item.
-     *
-     * @param item the item
-     * @return the ground item
+     * Creates a ground item.
+     * @param item The ground item to create.
+     * @return The ground item.
      */
     public static GroundItem create(GroundItem item) {
         if (!item.getDefinition().isTradeable()) {
@@ -102,10 +89,8 @@ public final class GroundItemManager {
     }
 
     /**
-     * Destroy ground item.
-     *
-     * @param item the item
-     * @return the ground item
+     * Destroys the ground item.
+     * @param item The ground item.
      */
     public static GroundItem destroy(GroundItem item) {
         if (item == null) {
@@ -120,24 +105,23 @@ public final class GroundItemManager {
     }
 
     /**
-     * Get ground item.
-     *
-     * @param itemId   the item id
-     * @param location the location
-     * @param player   the player
-     * @return the ground item
+     * Gets a ground item.
+     * @param itemId The item id.
+     * @param location The location.
+     * @param player The player.
+     * @return The ground item, or {@code null} if the ground item wasn't found.
      */
     public static GroundItem get(int itemId, Location location, Player player) {
         return RegionManager.getRegionPlane(location).getItem(itemId, location, player);
     }
 
     /**
-     * Increase ground item.
-     *
-     * @param item     the item
-     * @param location the location
-     * @param p        the p
-     * @return the ground item
+     * Increases the amount of a ground item on the floor, or creates a new
+     * ground item.
+     * @param item The item to drop.
+     * @param location The drop location.
+     * @param p The player.
+     * @return The ground item.
      */
     public static GroundItem increase(Item item, Location location, Player p) {
         GroundItem g = get(item.getId(), location, p);
@@ -151,7 +135,7 @@ public final class GroundItemManager {
     }
 
     /**
-     * Pulse.
+     * Handles the ground items.
      */
     public static void pulse() {
         Object[] giArray = GROUND_ITEMS.toArray();
@@ -163,7 +147,7 @@ public final class GroundItemManager {
             }
             if (!item.isActive()) {
                 GROUND_ITEMS.remove(item);
-                if (item.getDropper() != null) {
+                if(item.getDropper() != null) {
                     if (item.getDropper().isArtificial()) {
                         ArrayList<GroundItem> val = AIRepository.getItems(item.getDropper());
                         if (val != null)
@@ -180,9 +164,8 @@ public final class GroundItemManager {
     }
 
     /**
-     * Gets items.
-     *
-     * @return the items
+     * Gets the list of ground items.
+     * @return The ground items.
      */
     public static List<GroundItem> getItems() {
         return GROUND_ITEMS;

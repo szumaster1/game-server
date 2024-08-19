@@ -4,6 +4,7 @@ import core.api.consts.NPCs
 
 /**
  * Grave type.
+ * @author Ceikry
  *
  * @param npcId Unique identifier for the NPC associated with the grave type.
  * @param cost Cost associated with the grave type.

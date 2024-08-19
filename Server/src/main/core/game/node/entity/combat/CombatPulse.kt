@@ -24,7 +24,8 @@ import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
 
 /**
- * Combat pulse
+ * The combat-handling pulse implementation.
+ * @author Emperor
  *
  * @param entity The entity associated with this combat pulse.
  * @constructor Initializes a CombatPulse with the specified entity.

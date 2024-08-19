@@ -1,6 +1,5 @@
 package core.game.node.entity.player.link;
 
-
 import core.game.node.item.Item;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -9,24 +8,49 @@ import java.nio.ByteBuffer;
 import java.util.Arrays;
 
 /**
- * Quest data.
+ * Represents the quest data to save.
+ * @author Vexia
  */
 public final class QuestData {
 
+    /**
+     * Represents the cooks assist attribute array.
+     */
     private final boolean[] cooksAssistant = new boolean[4];
 
+    /**
+     * Represents the demon slayer boolean array.
+     */
     private final boolean[] demonSlayer = new boolean[2];
 
+    /**
+     * Represents the draynor levers for ernest the chicken.
+     */
     private final boolean[] draynorLever = new boolean[6];
 
+    /**
+     * Represents the dragon slayer attribute array.
+     */
     private final boolean[] dragonSlayer = new boolean[9];
 
+    /**
+     * The desert treasure items.
+     */
     private final Item[] desertTreasure = new Item[7];
 
+    /**
+     * Represents the dragon slayer planks.
+     */
     private int dragonSlayerPlanks;
 
+    /**
+     * Represents if the gardener has attacked.
+     */
     private boolean gardenerAttack;
 
+    /**
+     * Represents if they talked to drezel.
+     */
     private boolean talkedDrezel;
 
     private int witchsExperimentStage;
@@ -36,47 +60,46 @@ public final class QuestData {
 
 
     /**
-     * Instantiates a new Quest data.
+     * Constructs a new {@code QuestData} {@code Object}.
      */
     public QuestData() {
         Arrays.fill(draynorLever, true);
         populateDesertTreasureNode();
     }
 
-    /**
-     * Parse.
-     *
-     * @param data the data
-     */
-    public void parse(JSONObject data) {
+    public void parse(JSONObject data){
         JSONArray dl = (JSONArray) data.get("draynorLever");
-        for (int i = 0; i < dl.size(); i++) {
+        for(int i = 0; i < dl.size(); i++){
             draynorLever[i] = (boolean) dl.get(i);
         }
         JSONArray drs = (JSONArray) data.get("dragonSlayer");
-        for (int i = 0; i < drs.size(); i++) {
+        for(int i = 0; i < drs.size(); i++){
             dragonSlayer[i] = (boolean) drs.get(i);
         }
-        dragonSlayerPlanks = Integer.parseInt(data.get("dragonSlayerPlanks").toString());
+        dragonSlayerPlanks = Integer.parseInt( data.get("dragonSlayerPlanks").toString());
         JSONArray des = (JSONArray) data.get("demonSlayer");
-        for (int i = 0; i < des.size(); i++) {
+        for(int i = 0; i < des.size(); i++){
             demonSlayer[i] = (boolean) des.get(i);
         }
         JSONArray ca = (JSONArray) data.get("cooksAssistant");
-        for (int i = 0; i < ca.size(); i++) {
+        for(int i = 0; i < ca.size(); i++){
             cooksAssistant[i] = (boolean) ca.get(i);
         }
         gardenerAttack = (boolean) data.get("gardenerAttack");
         talkedDrezel = (boolean) data.get("talkedDrezel");
         JSONArray dtn = (JSONArray) data.get("desertTreasureNode");
-        for (int i = 0; i < dtn.size(); i++) {
+        for (int i = 0; i < dtn.size(); i++){
             JSONObject item = (JSONObject) dtn.get(i);
             desertTreasure[i] = new Item(Integer.parseInt(item.get("id").toString()), Integer.parseInt(item.get("amount").toString()));
         }
         witchsExperimentKilled = (boolean) data.get("witchsExperimentKilled");
-        witchsExperimentStage = Integer.parseInt(data.get("witchsExperimentStage").toString());
+        witchsExperimentStage = Integer.parseInt( data.get("witchsExperimentStage").toString());
     }
 
+    /**
+     * Saves the desert treasure node.
+     * @param buffer The buffer.
+     */
     private final void saveDesertTreasureNode(ByteBuffer buffer) {
         buffer.put((byte) 8);
         for (int i = 0; i < desertTreasure.length; i++) {
@@ -87,145 +110,133 @@ public final class QuestData {
     }
 
     /**
-     * Get draynor levers boolean [ ].
-     *
-     * @return the boolean [ ]
+     * Gets the draynorLever.
+     * @return The draynorLever.
      */
     public boolean[] getDraynorLevers() {
         return draynorLever;
     }
 
     /**
-     * Get dragon slayer items boolean [ ].
-     *
-     * @return the boolean [ ]
+     * Gets the dragon slayer items.
+     * @return the dragon slayer.
      */
     public boolean[] getDragonSlayerItems() {
         return dragonSlayer;
     }
 
     /**
-     * Gets dragon slayer item.
-     *
-     * @param name the name
-     * @return the dragon slayer item
+     * Gets the value of a inserted dragon slayer item.
+     * @param name the name.
+     * @return the value of the item being inserted.
      */
     public boolean getDragonSlayerItem(String name) {
         return name == "lobster" ? dragonSlayer[0] : name == "wizard" ? dragonSlayer[3] : name == "silk" ? dragonSlayer[2] : name == "bowl" ? dragonSlayer[1] : dragonSlayer[0];
     }
 
     /**
-     * Gets dragon slayer attribute.
-     *
-     * @param name the name
-     * @return the dragon slayer attribute
+     * Gets the dragon slayer attribute.
+     * @param name the name.
+     * @return the value of the attribute.
      */
     public boolean getDragonSlayerAttribute(String name) {
         return name == "ship" ? dragonSlayer[4] : name == "memorized" ? dragonSlayer[5] : name == "repaired" ? dragonSlayer[6] : name == "ned" ? dragonSlayer[7] : name == "poured" ? dragonSlayer[8] : dragonSlayer[8];
     }
 
     /**
-     * Sets dragon slayer attribute.
-     *
-     * @param name  the name
-     * @param value the value
+     * Method used to set a dragon slayer attribute.
+     * @param name the name.
+     * @param value the value.
      */
     public void setDragonSlayerAttribute(String name, boolean value) {
         dragonSlayer[(name == "ship" ? 4 : name == "memorized" ? 5 : name == "repaired" ? 6 : name == "ned" ? 7 : name == "poured" ? 8 : 8)] = value;
     }
 
     /**
-     * Gets cook assist.
-     *
-     * @param name the name
-     * @return the cook assist
+     * Gets the cooks assistant attribute value.
+     * @param name the name.
+     * @return the value.
      */
     public boolean getCookAssist(String name) {
         return name == "milk" ? cooksAssistant[0] : name == "egg" ? cooksAssistant[1] : name == "flour" ? cooksAssistant[2] : name == "gave" ? cooksAssistant[3] : cooksAssistant[3];
     }
 
     /**
-     * Sets cooks assistant.
-     *
-     * @param name  the name
-     * @param value the value
+     * Method used to set a cooks assistant attribute.
+     * @param name the name.
+     * @param value the value.
      */
     public void setCooksAssistant(String name, boolean value) {
         cooksAssistant[(name == "milk" ? 0 : name == "egg" ? 1 : name == "flour" ? 2 : name == "gave" ? 3 : 3)] = value;
     }
 
     /**
-     * Gets dragon slayer planks.
-     *
-     * @return the dragon slayer planks
+     * Gets the dragonSlayerPlanks.
+     * @return The dragonSlayerPlanks.
      */
     public int getDragonSlayerPlanks() {
         return dragonSlayerPlanks;
     }
 
     /**
-     * Sets dragon slayer planks.
-     *
-     * @param i the
+     * Sets the dragonSlayerPlanks.
+     * @param i The dragonSlayerPlanks to set.
      */
     public void setDragonSlayerPlanks(int i) {
         this.dragonSlayerPlanks = i;
     }
 
     /**
-     * Get demon slayer boolean [ ].
-     *
-     * @return the boolean [ ]
+     * Gets the demonSlayer.
+     * @return The demonSlayer.
      */
     public boolean[] getDemonSlayer() {
         return demonSlayer;
     }
 
     /**
-     * Get cooks assistant boolean [ ].
-     *
-     * @return the boolean [ ]
+     * Gets the cooksAssistant.
+     * @return The cooksAssistant.
      */
     public boolean[] getCooksAssistant() {
         return cooksAssistant;
     }
 
     /**
-     * Is gardener attack boolean.
-     *
-     * @return the boolean
+     * Gets the gardenerAttack.
+     * @return The gardenerAttack.
      */
     public boolean isGardenerAttack() {
         return gardenerAttack;
     }
 
     /**
-     * Sets gardener attack.
-     *
-     * @param gardenerAttack the gardener attack
+     * Sets the gardenerAttack.
+     * @param gardenerAttack The gardenerAttack to set.
      */
     public void setGardenerAttack(boolean gardenerAttack) {
         this.gardenerAttack = gardenerAttack;
     }
 
     /**
-     * Is talked drezel boolean.
-     *
-     * @return the boolean
+     * Gets the talkedDrezel.
+     * @return The talkedDrezel.
      */
     public boolean isTalkedDrezel() {
         return talkedDrezel;
     }
 
     /**
-     * Sets talked drezel.
-     *
-     * @param talkedDrezel the talked drezel
+     * Sets the talkedDrezel.
+     * @param talkedDrezel The talkedDrezel to set.
      */
     public void setTalkedDrezel(boolean talkedDrezel) {
         this.talkedDrezel = talkedDrezel;
     }
 
+    /**
+     * Populates the desert treasure node.
+     */
     private final void populateDesertTreasureNode() {
         desertTreasure[0] = new Item(1513, 12);
         desertTreasure[1] = new Item(592, 10);
@@ -237,10 +248,9 @@ public final class QuestData {
     }
 
     /**
-     * Gets desert treasure item.
-     *
-     * @param index the index
-     * @return the desert treasure item
+     * Gets the desert treasure item.
+     * @param index The index.
+     * @return The item.
      */
     public Item getDesertTreasureItem(int index) {
         if (index < 0 || index > desertTreasure.length) {
@@ -250,10 +260,9 @@ public final class QuestData {
     }
 
     /**
-     * Sets desert treasure item.
-     *
-     * @param index the index
-     * @param item  the item
+     * Sets the desert treasure item.
+     * @param index The index.
+     * @param item The item to set.
      */
     public void setDesertTreasureItem(int index, Item item) {
         if (index < 0 || index > desertTreasure.length) {
@@ -262,65 +271,29 @@ public final class QuestData {
         desertTreasure[index] = item;
     }
 
-    /**
-     * Gets witchs experiment stage.
-     *
-     * @return the witchs experiment stage
-     */
     public int getWitchsExperimentStage() {
         return witchsExperimentStage;
     }
 
-    /**
-     * Sets witchs experiment stage.
-     *
-     * @param witchsExperimentStage the witchs experiment stage
-     */
     public void setWitchsExperimentStage(int witchsExperimentStage) {
         this.witchsExperimentStage = witchsExperimentStage;
     }
-
-    /**
-     * Is witchs experiment killed boolean.
-     *
-     * @return the boolean
-     */
     public boolean isWitchsExperimentKilled() {
         return witchsExperimentKilled;
     }
 
-    /**
-     * Sets witchs experiment killed.
-     *
-     * @param witchsExperimentKilled the witchs experiment killed
-     */
     public void setWitchsExperimentKilled(boolean witchsExperimentKilled) {
         this.witchsExperimentKilled = witchsExperimentKilled;
     }
 
-    /**
-     * Get draynor lever boolean [ ].
-     *
-     * @return the boolean [ ]
-     */
     public boolean[] getDraynorLever() {
         return draynorLever;
     }
 
-    /**
-     * Get dragon slayer boolean [ ].
-     *
-     * @return the boolean [ ]
-     */
     public boolean[] getDragonSlayer() {
         return dragonSlayer;
     }
 
-    /**
-     * Get desert treasure item [ ].
-     *
-     * @return the item [ ]
-     */
     public Item[] getDesertTreasure() {
         return desertTreasure;
     }

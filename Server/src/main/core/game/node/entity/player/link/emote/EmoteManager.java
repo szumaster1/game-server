@@ -2,24 +2,33 @@ package core.game.node.entity.player.link.emote;
 
 import core.game.node.entity.player.Player;
 
+
+import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 
 import static core.api.ContentAPIKt.setVarp;
 
 /**
- * Emote manager.
+ * Manages the players unlocked/locked emotes.
+ * @author Vexia
  */
 public class EmoteManager {
 
+    /**
+     * The list of unlocked emotes.
+     */
     private final List<Emotes> emotes = new ArrayList<>(20);
 
+    /**
+     * The player.
+     */
     private final Player player;
 
     /**
-     * Instantiates a new Emote manager.
+     * Constructs a new {@Code EmoteManager} {@Code Object}
      *
-     * @param player the player
+     * @param player the player.
      */
     public EmoteManager(Player player) {
         this.player = player;
@@ -29,7 +38,7 @@ public class EmoteManager {
     }
 
     /**
-     * Refresh.
+     * Refreshes the emote tab.
      */
     public void refresh() {
         int value1 = 0;
@@ -105,10 +114,10 @@ public class EmoteManager {
     }
 
     /**
-     * Lock boolean.
+     * Locks an emote.
      *
-     * @param emote the emote
-     * @return the boolean
+     * @param emote the emote.
+     * @return {@code True} if locked.
      */
     public boolean lock(Emotes emote) {
         if (emote.ordinal() <= 22) {
@@ -120,10 +129,10 @@ public class EmoteManager {
     }
 
     /**
-     * Unlock boolean.
+     * Unlocks an emote.
      *
-     * @param emote the emote
-     * @return the boolean
+     * @param emote the emote.
+     * @return {@code True} if unlocked.
      */
     public boolean unlock(Emotes emote) {
         if (emotes.contains(emote)) {
@@ -135,19 +144,19 @@ public class EmoteManager {
     }
 
     /**
-     * Is unlocked boolean.
+     * Checks if an emote is unlocked.
      *
-     * @param emote the emote
-     * @return the boolean
+     * @param emote the emote.
+     * @return {@code True} if so.
      */
     public boolean isUnlocked(Emotes emote) {
         return emotes.contains(emote);
     }
 
     /**
-     * Is save required boolean.
+     * Checks if a save is required.
      *
-     * @return the boolean
+     * @return {@code True} if so.
      */
     public boolean isSaveRequired() {
         for (Emotes emote : emotes) {
@@ -159,18 +168,18 @@ public class EmoteManager {
     }
 
     /**
-     * Gets emotes.
+     * Gets the emotes.
      *
-     * @return the emotes
+     * @return the emotes.
      */
     public List<Emotes> getEmotes() {
         return emotes;
     }
 
     /**
-     * Gets player.
+     * Gets the player.
      *
-     * @return the player
+     * @return the player.
      */
     public Player getPlayer() {
         return player;

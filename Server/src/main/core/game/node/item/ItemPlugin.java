@@ -7,20 +7,21 @@ import core.game.world.map.Location;
 import core.plugin.Plugin;
 
 /**
- * Item plugin.
+ * Represents a plugin for an item.
+ * @author Vexia
  */
 public abstract class ItemPlugin implements Plugin<Object> {
 
     /**
-     * The constant DROP.
+     * The drop type identifier.
      */
     protected static final int DROP = 1;
 
     /**
-     * Instantiates a new Item plugin.
+     * Constructs a new {@Code ItemPlugin} {@Code Object}
      */
     public ItemPlugin() {
-        /*
+        /**
          * empty.
          */
     }
@@ -31,9 +32,8 @@ public abstract class ItemPlugin implements Plugin<Object> {
     }
 
     /**
-     * Register.
-     *
-     * @param ids the ids
+     * Registers items to this plugin.
+     * @param ids the ids.
      */
     public void register(int... ids) {
         for (int id : ids) {
@@ -42,57 +42,52 @@ public abstract class ItemPlugin implements Plugin<Object> {
     }
 
     /**
-     * Remove.
-     *
-     * @param player the player
-     * @param item   the item
-     * @param type   the type
+     * Called when the item is removed from the player.
+     * @param player the player.
+     * @param item the item.
+     * @param type the type. (1=drop)
      */
     public void remove(Player player, Item item, int type) {
 
     }
 
     /**
-     * Can pick up boolean.
-     *
-     * @param player the player
-     * @param item   the item
-     * @param type   the type
-     * @return the boolean
+     * Checks if the item can be picked up.
+     * @param player the player.
+     * @param item the item.
+     * @param type the pickup type (1=ground, 2=telegab)
+     * @return {@code True} if so.
      */
     public boolean canPickUp(Player player, GroundItem item, int type) {
         return true;
     }
 
     /**
-     * Create drop boolean.
-     *
-     * @param item   the item
-     * @param player the player
-     * @param npc    the npc
-     * @param l      the l
-     * @return the boolean
+     * Checks if the item can be made as a drop.
+     * @param item the item.
+     * @param player the player.
+     * @param npc TODO
+     * @param l the location.
+     * @return
      */
     public boolean createDrop(Item item, Player player, NPC npc, Location l) {
         return true;
     }
 
     /**
-     * Gets item.
-     *
-     * @param item the item
-     * @param npc  the npc
-     * @return the item
+     * Changes an item if needed.
+     * @param item the item.
+     * @param npc the npc.
+     * @return the item.
      */
     public Item getItem(Item item, NPC npc) {
         return item;
     }
 
     /**
-     * Gets death item.
-     *
-     * @param item the item
-     * @return the death item
+     * Gets the death item.
+     * @param item the item.
+     * @return the item.
      */
     public Item getDeathItem(Item item) {
         return item;

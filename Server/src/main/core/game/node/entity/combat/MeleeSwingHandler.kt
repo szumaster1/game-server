@@ -18,7 +18,8 @@ import kotlin.math.ceil
 import kotlin.math.floor
 
 /**
- * Melee swing handler.
+ * Handles a melee combat swing.
+ * @author Emperor, Ceikry
  *
  * @param flags Vararg parameter to accept multiple SwingHandlerFlag instances.
  */

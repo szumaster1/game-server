@@ -19,14 +19,20 @@ import core.tools.Log;
 import static core.api.ContentAPIKt.log;
 import static core.api.ContentAPIKt.setVarp;
 
-
 /**
- * Packet dispatch.
+ * Represents the class used to dispatching packets.
+ * @author Emperor, Vexia
  */
 public final class PacketDispatch {
 
+    /**
+     * The instance of the {@code Player}.
+     */
     private final Player player;
 
+    /**
+     * The player context.
+     */
     private final PlayerContext context;
 
     /**
@@ -60,9 +66,9 @@ public final class PacketDispatch {
     }
 
     /**
-     * Send message.
+     * Send a game message.
      *
-     * @param message the message
+     * @param message The game message.
      */
     public void sendMessage(String message) {
         if (message == null) {

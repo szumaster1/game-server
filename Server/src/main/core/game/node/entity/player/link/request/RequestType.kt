@@ -5,7 +5,8 @@ import core.game.node.entity.player.link.request.assist.AssistSession
 import core.game.node.entity.player.link.request.trade.TradeModule
 
 /**
- * Request type.
+ * Represents a request type.
+ * @author Vexia, Emperor, dginovker
  *
  * @param message The message to be displayed for the request.
  * @param requestMessage The formatted request message.

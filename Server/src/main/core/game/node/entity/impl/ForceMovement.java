@@ -6,71 +6,93 @@ import core.game.system.task.Pulse;
 import core.game.world.GameWorld;
 import core.game.world.map.Direction;
 import core.game.world.map.Location;
-import core.game.world.update.flag.EntityFlag;
-import core.game.world.update.flag.context.Animation;
-import core.game.world.update.flag.context.ForceMoveCtx;
+import core.game.world.update.flag.context.*;
+import core.game.world.update.flag.*;
 
 /**
- * Force movement.
+ * The force movement handler.
+ * @author Emperor
  */
 public class ForceMovement extends Pulse {
 
     /**
-     * The constant WALKING_SPEED.
+     * The walking speed.
      */
     public static final int WALKING_SPEED = 10;
 
     /**
-     * The constant RUNNING_SPEED.
+     * The running speed.
      */
     public static final int RUNNING_SPEED = 20;
 
     /**
-     * The constant WALK_ANIMATION.
+     * The walking animation.
      */
     public static final Animation WALK_ANIMATION = Animation.create(819);
 
     /**
-     * The Entity.
+     * The entity.
      */
     protected Entity entity;
 
+    /**
+     * The location to start the force movement from.
+     */
     private Location start;
 
+    /**
+     * The destination.
+     */
     private Location destination;
 
+    /**
+     * The animation.
+     */
     private Animation startAnim;
 
     /**
-     * The Animation.
+     * The animation.
      */
     protected Animation animation;
 
+    /**
+     * The ending animation.
+     */
     private Animation endAnimation = null;
 
     /**
-     * The Direction.
+     * The direction.
      */
     protected Direction direction;
 
+    /**
+     * The commencing speed.
+     */
     private int commenceSpeed;
 
+    /**
+     * The path speed.
+     */
     private int pathSpeed;
 
+    /**
+     * Whether to unlock the entity after the ForceMovement completes
+     */
     private boolean unlockAfter;
 
     /**
-     * Instantiates a new Force movement.
+     * Constructs a new {@code ForceMovement} {@code Object}.
      *
-     * @param e             the e
-     * @param start         the start
-     * @param destination   the destination
-     * @param startAnim     the start anim
-     * @param animation     the animation
-     * @param direction     the direction
-     * @param commenceSpeed the commence speed
-     * @param pathSpeed     the path speed
-     * @param unlockAfter   the unlock after
+     * @param e             The entity.
+     * @param start         The start location.
+     * @param destination   The destination.
+     * @param startAnim     The start animation.
+     * @param animation     The animation
+     * @param direction     The direction.
+     * @param commenceSpeed The commencing speed.
+     * @param pathSpeed     The path speed.
+     * @param unlockAfter   Whether to unlock the entity after the ForceMovement completes
+     * @deprecated this is no longer the preferred way to use force movement. Use the ContentAPI forceMove method instead, please.
      */
     @Deprecated
     public ForceMovement(Entity e, Location start, Location destination, Animation startAnim, Animation animation, Direction direction, int commenceSpeed, int pathSpeed, boolean unlockAfter) {
@@ -87,13 +109,14 @@ public class ForceMovement extends Pulse {
     }
 
     /**
-     * Instantiates a new Force movement.
+     * Constructs a new {@code ForceMovement} {@code Object}.
      *
-     * @param e         the e
-     * @param start     the start
-     * @param end       the end
-     * @param animation the animation
-     * @param speed     the speed
+     * @param e         the entity.
+     * @param start     the start location.
+     * @param end       the destination.
+     * @param animation the animation.
+     * @param speed     The path speed.
+     * @deprecated this is no longer the preferred way to use force movement. Use the ContentAPI forceMove method instead, please.
      */
     @Deprecated
     public ForceMovement(Entity e, Location start, Location end, Animation animation, int speed) {
@@ -101,12 +124,7 @@ public class ForceMovement extends Pulse {
     }
 
     /**
-     * Instantiates a new Force movement.
-     *
-     * @param e           the e
-     * @param destination the destination
-     * @param startSpeed  the start speed
-     * @param animSpeed   the anim speed
+     * @deprecated this is no longer the preferred way to use force movement. Use the ContentAPI forceMove method instead, please.
      */
     @Deprecated
     public ForceMovement(Entity e, Location destination, int startSpeed, int animSpeed) {
@@ -114,12 +132,13 @@ public class ForceMovement extends Pulse {
     }
 
     /**
-     * Instantiates a new Force movement.
+     * Constructs a new {@code ForceMovement} {@code Object}.
      *
-     * @param e           the e
-     * @param start       the start
-     * @param destination the destination
-     * @param animation   the animation
+     * @param e           the entity.
+     * @param start       the start location.
+     * @param destination the destination.
+     * @param animation   the animation.
+     * @deprecated this is no longer the preferred way to use force movement. Use the ContentAPI forceMove method instead, please.
      */
     @Deprecated
     public ForceMovement(Entity e, Location start, Location destination, Animation animation) {
@@ -127,11 +146,12 @@ public class ForceMovement extends Pulse {
     }
 
     /**
-     * Instantiates a new Force movement.
+     * Constructs a new {@code ForceMovement} {@code Object}.
      *
-     * @param start       the start
-     * @param destination the destination
-     * @param animation   the animation
+     * @param start       the start loc.
+     * @param destination the destination.
+     * @param animation   the animation.
+     * @deprecated this is no longer the preferred way to use force movement. Use the ContentAPI forceMove method instead, please.
      */
     @Deprecated
     public ForceMovement(Location start, Location destination, Animation animation) {
@@ -139,11 +159,12 @@ public class ForceMovement extends Pulse {
     }
 
     /**
-     * Run force movement.
+     * Creates and runs a new force movement pulse.
      *
-     * @param e           the e
-     * @param destination the destination
-     * @return the force movement
+     * @param e           The entity.
+     * @param destination The destination location.
+     * @return The created ForceMovement object.
+     * @deprecated this is no longer the preferred way to use force movement. Use the ContentAPI forceMove method instead, please.
      */
     @Deprecated
     public static ForceMovement run(Entity e, Location destination) {
@@ -151,12 +172,13 @@ public class ForceMovement extends Pulse {
     }
 
     /**
-     * Run force movement.
+     * Creates and runs a new force movement pulse.
      *
-     * @param e           the e
-     * @param start       the start
-     * @param destination the destination
-     * @return the force movement
+     * @param e           The entity.
+     * @param start       The start location.
+     * @param destination The destination location.
+     * @return The created ForceMovement object.
+     * @deprecated this is no longer the preferred way to use force movement. Use the ContentAPI forceMove method instead, please.
      */
     @Deprecated
     public static ForceMovement run(Entity e, Location start, Location destination) {
@@ -164,13 +186,14 @@ public class ForceMovement extends Pulse {
     }
 
     /**
-     * Run force movement.
+     * Creates and runs a new force movement pulse.
      *
-     * @param e           the e
-     * @param start       the start
-     * @param destination the destination
-     * @param animation   the animation
-     * @return the force movement
+     * @param e           The entity.
+     * @param start       The start location.
+     * @param destination The destination location.
+     * @param animation   The animation.
+     * @return The created ForceMovement object.
+     * @deprecated this is no longer the preferred way to use force movement. Use the ContentAPI forceMove method instead, please.
      */
     @Deprecated
     public static ForceMovement run(Entity e, Location start, Location destination, Animation animation) {
@@ -178,14 +201,15 @@ public class ForceMovement extends Pulse {
     }
 
     /**
-     * Run force movement.
+     * Creates and runs a new force movement pulse.
      *
-     * @param e           the e
-     * @param start       the start
-     * @param destination the destination
-     * @param animation   the animation
-     * @param speed       the speed
-     * @return the force movement
+     * @param e           The entity.
+     * @param start       The start location.
+     * @param destination The destination location.
+     * @param animation   The animation.
+     * @param speed       The path speed.
+     * @return The created ForceMovement object.
+     * @deprecated this is no longer the preferred way to use force movement. Use the ContentAPI forceMove method instead, please.
      */
     @Deprecated
     public static ForceMovement run(Entity e, Location start, Location destination, Animation animation, int speed) {
@@ -193,14 +217,14 @@ public class ForceMovement extends Pulse {
     }
 
     /**
-     * Run force movement.
+     * Creates and runs a new force movement pulse.
      *
-     * @param e           the e
-     * @param start       the start
-     * @param destination the destination
-     * @param startAnim   the start anim
-     * @param animation   the animation
-     * @return the force movement
+     * @param e           The entity.
+     * @param start       The start location.
+     * @param destination The destination location.
+     * @param animation   The animation.
+     * @return The created ForceMovement object.
+     * @deprecated this is no longer the preferred way to use force movement. Use the ContentAPI forceMove method instead, please.
      */
     @Deprecated
     public static ForceMovement run(Entity e, Location start, Location destination, Animation startAnim, Animation animation) {
@@ -208,15 +232,15 @@ public class ForceMovement extends Pulse {
     }
 
     /**
-     * Run force movement.
+     * Creates and runs a new force movement pulse.
      *
-     * @param e           the e
-     * @param start       the start
-     * @param destination the destination
-     * @param startAnim   the start anim
-     * @param animation   the animation
-     * @param direction   the direction
-     * @return the force movement
+     * @param e           The entity.
+     * @param start       The start location.
+     * @param destination The destination location.
+     * @param animation   The animation.
+     * @param direction   The direction.
+     * @return The created ForceMovement object.
+     * @deprecated this is no longer the preferred way to use force movement. Use the ContentAPI forceMove method instead, please.
      */
     @Deprecated
     public static ForceMovement run(Entity e, Location start, Location destination, Animation startAnim, Animation animation, Direction direction) {
@@ -224,16 +248,16 @@ public class ForceMovement extends Pulse {
     }
 
     /**
-     * Run force movement.
+     * Creates and runs a new force movement pulse.
      *
-     * @param e           the e
-     * @param start       the start
-     * @param destination the destination
-     * @param startAnim   the start anim
-     * @param animation   the animation
-     * @param direction   the direction
-     * @param pathSpeed   the path speed
-     * @return the force movement
+     * @param e           The entity.
+     * @param start       The start location.
+     * @param destination The destination location.
+     * @param animation   The animation.
+     * @param direction   The direction.
+     * @param pathSpeed   The speed (in ticks).
+     * @return The created ForceMovement object.
+     * @deprecated this is no longer the preferred way to use force movement. Use the ContentAPI forceMove method instead, please.
      */
     @Deprecated
     public static ForceMovement run(Entity e, Location start, Location destination, Animation startAnim, Animation animation, Direction direction, int pathSpeed) {
@@ -241,17 +265,7 @@ public class ForceMovement extends Pulse {
     }
 
     /**
-     * Run force movement.
-     *
-     * @param e             the e
-     * @param start         the start
-     * @param destination   the destination
-     * @param startAnim     the start anim
-     * @param animation     the animation
-     * @param direction     the direction
-     * @param commenceSpeed the commence speed
-     * @param pathSpeed     the path speed
-     * @return the force movement
+     * @deprecated this is no longer the preferred way to use force movement. Use the ContentAPI forceMove method instead, please.
      */
     @Deprecated
     public static ForceMovement run(Entity e, Location start, Location destination, Animation startAnim, Animation animation, Direction direction, int commenceSpeed, int pathSpeed) {
@@ -259,18 +273,15 @@ public class ForceMovement extends Pulse {
     }
 
     /**
-     * Run force movement.
+     * Creates and runs a new force movement pulse.
      *
-     * @param e             the e
-     * @param start         the start
-     * @param destination   the destination
-     * @param startAnim     the start anim
-     * @param animation     the animation
-     * @param direction     the direction
-     * @param commenceSpeed the commence speed
-     * @param pathSpeed     the path speed
-     * @param unlockAfter   the unlock after
-     * @return the force movement
+     * @param e           The entity.
+     * @param start       The start location.
+     * @param destination The destination location.
+     * @param animation   The animation.
+     * @param direction   The direction.
+     * @return The created ForceMovement object.
+     * @deprecated this is no longer the preferred way to use force movement. Use the ContentAPI forceMove method instead, please.
      */
     @Deprecated
     public static ForceMovement run(Entity e, Location start, Location destination, Animation startAnim, Animation animation, Direction direction, int commenceSpeed, int pathSpeed, boolean unlockAfter) {
@@ -287,15 +298,6 @@ public class ForceMovement extends Pulse {
         return fm;
     }
 
-    /**
-     * Run force movement.
-     *
-     * @param e             the e
-     * @param destination   the destination
-     * @param commenceSpeed the commence speed
-     * @param pathSpeed     the path speed
-     * @return the force movement
-     */
     /*
      * @deprecated this is no longer the preferred way to use force movement. Use the ContentAPI forceMove method instead, please.
      */
@@ -305,10 +307,10 @@ public class ForceMovement extends Pulse {
     }
 
     /**
-     * Run.
+     * Method used to run the force movement.
      *
-     * @param e     the e
-     * @param speed the speed
+     * @param e the entity.
+     * @deprecated this is no longer the preferred way to use force movement. Use the ContentAPI forceMove method instead, please.
      */
     @Deprecated
     public void run(final Entity e, final int speed) {
@@ -326,24 +328,27 @@ public class ForceMovement extends Pulse {
     }
 
     /**
-     * Run.
+     * Method used to run the movement.
      *
-     * @param e the e
+     * @param e the entity.
      */
     public void run(final Entity e) {
         run(e, 0);
     }
 
+    /**
+     * Method used to run the movement.
+     */
     public void run() {
         run(entity);
     }
 
     /**
-     * Direction direction.
+     * Gets the direction value.
      *
-     * @param s the s
-     * @param d the d
-     * @return the direction
+     * @param s The start location.
+     * @param d The destination.
+     * @return The direction object.
      */
     public static Direction direction(Location s, Location d) {
         Location delta = Location.getDelta(s, d);
@@ -398,162 +403,162 @@ public class ForceMovement extends Pulse {
     }
 
     /**
-     * Gets start.
+     * Gets the start.
      *
-     * @return the start
+     * @return The start.
      */
     public Location getStart() {
         return start;
     }
 
     /**
-     * Sets start.
+     * Sets the start.
      *
-     * @param start the start
+     * @param start The start to set.
      */
     public void setStart(Location start) {
         this.start = start;
     }
 
     /**
-     * Gets destination.
+     * Gets the destination.
      *
-     * @return the destination
+     * @return The destination.
      */
     public Location getDestination() {
         return destination;
     }
 
     /**
-     * Sets destination.
+     * Sets the destination.
      *
-     * @param destination the destination
+     * @param destination The destination to set.
      */
     public void setDestination(Location destination) {
         this.destination = destination;
     }
 
     /**
-     * Gets direction.
+     * Gets the direction.
      *
-     * @return the direction
+     * @return The direction.
      */
     public Direction getDirection() {
         return direction;
     }
 
     /**
-     * Sets direction.
+     * Sets the direction.
      *
-     * @param direction the direction
+     * @param direction The direction to set.
      */
     public void setDirection(Direction direction) {
         this.direction = direction;
     }
 
     /**
-     * Gets commence speed.
+     * Gets the commenceSpeed.
      *
-     * @return the commence speed
+     * @return The commenceSpeed.
      */
     public int getCommenceSpeed() {
         return commenceSpeed;
     }
 
     /**
-     * Sets commence speed.
+     * Sets the commenceSpeed.
      *
-     * @param commenceSpeed the commence speed
+     * @param commenceSpeed The commenceSpeed to set.
      */
     public void setCommenceSpeed(int commenceSpeed) {
         this.commenceSpeed = commenceSpeed;
     }
 
     /**
-     * Sets entity.
+     * Sets the entity.
      *
-     * @param entity the entity
+     * @param entity the entity.
      */
     public void setEntity(Entity entity) {
         this.entity = entity;
     }
 
     /**
-     * Gets path speed.
+     * Gets the pathSpeed.
      *
-     * @return the path speed
+     * @return The pathSpeed.
      */
     public int getPathSpeed() {
         return pathSpeed;
     }
 
     /**
-     * Sets path speed.
+     * Sets the pathSpeed.
      *
-     * @param pathSpeed the path speed
+     * @param pathSpeed The pathSpeed to set.
      */
     public void setPathSpeed(int pathSpeed) {
         this.pathSpeed = pathSpeed;
     }
 
     /**
-     * Gets entity.
+     * Gets the entity.
      *
-     * @return the entity
+     * @return The entity.
      */
     public Entity getEntity() {
         return entity;
     }
 
     /**
-     * Gets start anim.
+     * Gets the startAnim.
      *
-     * @return the start anim
+     * @return The startAnim.
      */
     public Animation getStartAnim() {
         return startAnim;
     }
 
     /**
-     * Sets start anim.
+     * Sets the startAnim.
      *
-     * @param startAnim the start anim
+     * @param startAnim The startAnim to set.
      */
     public void setStartAnim(Animation startAnim) {
         this.startAnim = startAnim;
     }
 
     /**
-     * Gets animation.
+     * Gets the animation.
      *
-     * @return the animation
+     * @return The animation.
      */
     public Animation getAnimation() {
         return animation;
     }
 
     /**
-     * Sets animation.
+     * Sets the animation.
      *
-     * @param animation the animation
+     * @param animation The animation to set.
      */
     public void setAnimation(Animation animation) {
         this.animation = animation;
     }
 
     /**
-     * Gets end animation.
+     * Gets the endAnimation.
      *
-     * @return the end animation
+     * @return The endAnimation.
      */
     public Animation getEndAnimation() {
         return endAnimation;
     }
 
     /**
-     * Sets end animation.
+     * Sets the endAnimation.
      *
-     * @param endAnimation the end animation
+     * @param endAnimation The endAnimation to set.
      */
     public void setEndAnimation(Animation endAnimation) {
         this.endAnimation = endAnimation;

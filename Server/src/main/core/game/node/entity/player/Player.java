@@ -98,7 +98,8 @@ import static core.game.system.command.sets.StatsAttributeSetKt.STATS_DEATHS;
 import static core.tools.GlobalsKt.colorize;
 
 /**
- * Player.
+ * Represents a player entity.
+ * @author Emperor, Vexia
  */
 public class Player extends Entity {
 

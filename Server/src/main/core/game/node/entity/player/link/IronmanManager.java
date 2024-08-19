@@ -1,39 +1,46 @@
 package core.game.node.entity.player.link;
 
 import core.game.node.entity.player.Player;
+import java.nio.ByteBuffer;
 
 /**
- * Ironman manager.
+ * Manages the iron man mode of an account.
+ * @author Vexia
  */
 public class IronmanManager {
 
+    /**
+     * The player instance.
+     */
     private final Player player;
 
+    /**
+     * The iron man mode.
+     */
     private IronmanMode mode = IronmanMode.NONE;
 
     /**
-     * Instantiates a new Ironman manager.
+     * Constructs a new {@code IronmanManager} {@code Object}
      *
-     * @param player the player
+     * @param player the player.
      */
     public IronmanManager(Player player) {
         this.player = player;
     }
 
     /**
-     * Check restriction boolean.
+     * Checks the restriction.
      *
-     * @return the boolean
+     * @return {@code True} if so.
      */
     public boolean checkRestriction() {
         return checkRestriction(IronmanMode.STANDARD);
     }
 
     /**
-     * Check restriction boolean.
+     * Checks the restriction.
      *
-     * @param mode the mode
-     * @return the boolean
+     * @return {@code True} if so.
      */
     public boolean checkRestriction(IronmanMode mode) {
         if (isIronman() && this.mode.ordinal() >= mode.ordinal()) {
@@ -44,16 +51,16 @@ public class IronmanManager {
     }
 
     /**
-     * Is ironman boolean.
+     * Checks if the player is an ironman.
      *
-     * @return the boolean
+     * @return {@code True} if one.
      */
     public boolean isIronman() {
         return mode != IronmanMode.NONE;
     }
 
     /**
-     * Gets player.
+     * Gets the player.
      *
      * @return the player
      */
@@ -62,7 +69,7 @@ public class IronmanManager {
     }
 
     /**
-     * Gets mode.
+     * Gets the mode.
      *
      * @return the mode
      */
@@ -71,9 +78,9 @@ public class IronmanManager {
     }
 
     /**
-     * Sets mode.
+     * Sets the mode.
      *
-     * @param mode the mode
+     * @param mode the mode to set.
      */
     public void setMode(IronmanMode mode) {
         this.mode = mode;

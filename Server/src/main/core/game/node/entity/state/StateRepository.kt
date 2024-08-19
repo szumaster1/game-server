@@ -5,9 +5,7 @@ import core.game.node.entity.player.Player
 import io.github.classgraph.ClassGraph
 
 /**
- * State repository
- *
- * @constructor State repository
+ * State repository.
  */
 class StateRepository : StartupListener {
     override fun startup() {

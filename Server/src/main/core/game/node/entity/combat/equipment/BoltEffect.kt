@@ -16,7 +16,8 @@ import core.tools.RandomFunction
 import kotlin.math.ceil
 
 /**
- * Bolt effect.
+ * Represents a bolt effect.
+ * @author Vexia, Aero
  *
  * @param itemId The ID of the bolt item.
  * @param graphic The graphic effect associated with the bolt.

@@ -11,8 +11,8 @@ import core.tools.RandomFunction
 import kotlin.math.floor
 
 /**
- * Magic swing handler.
- * This constructor initializes the MagicSwingHandler with the provided flags.
+ * Handles the magic combat swings.
+ * @author Emperor, Ceikry
  *
  * @param flags
  * Vararg parameter that allows passing multiple SwingHandlerFlag instances.

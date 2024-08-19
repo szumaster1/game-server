@@ -21,7 +21,8 @@ import core.tools.RandomFunction
 import java.util.function.Consumer
 
 /**
- * Magic spell.
+ * Represents a magic spell.
+ * @author Emperor
  *
  * @param book       the book.
  * @param level      the level.

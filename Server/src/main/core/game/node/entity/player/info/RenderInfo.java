@@ -10,8 +10,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Render info class responsible for managing
- * rendering information for players and NPCs.
+ * Holds a player's render information.
+ * @author Emperor
  */
 public final class RenderInfo {
 

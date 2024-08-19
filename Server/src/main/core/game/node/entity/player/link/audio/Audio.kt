@@ -1,13 +1,8 @@
 package core.game.node.entity.player.link.audio
 
 /**
- * Audio
- *
- * @param id
- * @param delay
- * @param loops
- * @param radius
- * @constructor Audio
+ * An audio object to play.
+ * @author Zerken
  */
 class Audio
 @JvmOverloads

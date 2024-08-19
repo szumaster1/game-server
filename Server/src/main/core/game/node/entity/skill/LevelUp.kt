@@ -10,6 +10,10 @@ import core.game.world.GameWorld
 import core.game.world.update.flag.context.Graphic
 import core.tools.DARK_RED
 
+/**
+ * Represents a leveling up reward.
+ * @author Emperor
+ */
 object LevelUp {
 
     private val SKILLCAPES = intArrayOf(9747, 9753, 9750, 9768, 9756, 9759, 9762, 9801, 9807, 9783, 9798, 9804, 9780, 9795, 9792, 9774, 9771, 9777, 9786, 9810, 9765, 9948, 9789, 12169)
@@ -31,7 +35,6 @@ object LevelUp {
      * @param slot The skill slot that was leveled up.
      * @param amount The amount of levels gained.
      */
-
     @JvmStatic
     fun levelUp(player: Player, slot: Int, amount: Int) {
         if (!getAttribute(player, "tutorial:complete", false)) {

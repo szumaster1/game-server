@@ -6,7 +6,8 @@ import core.game.node.entity.npc.NPC
 import core.tools.RandomFunction
 
 /**
- * Multi swing handler.
+ * Handles combat swings with switching combat styles.
+ * @author Emperor, Ceikry
  *
  * @param meleeDistance Indicates if the melee distance is applicable.
  * @param attacks A variable number of SwitchAttack instances to be handled.

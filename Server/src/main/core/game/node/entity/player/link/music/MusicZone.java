@@ -6,19 +6,25 @@ import core.game.world.map.zone.Zone;
 import core.game.world.map.zone.ZoneBorders;
 
 /**
- * Music zone.
+ * Represents a music zone.
+ * @author Emperor
  */
 public final class MusicZone implements Zone {
 
+    /**
+     * The music id.
+     */
     private final int musicId;
 
+    /**
+     * The zone borders.
+     */
     private final ZoneBorders borders;
 
     /**
-     * Instantiates a new Music zone.
+     * Constructs a new {@code MusicZone} {@code Object}.
      *
-     * @param musicId the music id
-     * @param borders the borders
+     * @param musicId The music id.
      */
     public MusicZone(int musicId, ZoneBorders borders) {
         this.musicId = musicId;
@@ -41,18 +47,18 @@ public final class MusicZone implements Zone {
     }
 
     /**
-     * Gets music id.
+     * Gets the musicId.
      *
-     * @return the music id
+     * @return The musicId.
      */
     public int getMusicId() {
         return musicId;
     }
 
     /**
-     * Gets borders.
+     * Gets the borders.
      *
-     * @return the borders
+     * @return The borders.
      */
     public ZoneBorders getBorders() {
         return borders;

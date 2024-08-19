@@ -4,119 +4,123 @@ import core.game.node.entity.npc.drop.DropFrequency;
 import core.tools.RandomFunction;
 
 /**
- * Chance item.
+ * Represents an item with a chance-rate.
+ * @author Emperor
  */
 public final class ChanceItem extends Item {
 
-    /**
-     * The constant DROP_RATES.
-     */
-    public static final int[] DROP_RATES = {5, 15, 150, 750};
+    public static final int[] DROP_RATES = { 5,15,150,750 };
 
+    /**
+     * The chance rate of this item.
+     */
     private double chanceRate;
 
+    /**
+     * The minimum amount.
+     */
     private int minimumAmount;
 
+    /**
+     * The maximum amount.
+     */
     private int maximumAmount;
 
+    /**
+     * The table slot.
+     */
     private int tableSlot;
 
+    /**
+     * The drop frequency.
+     */
     private DropFrequency dropFrequency;
 
+    /**
+     * The set rate.
+     */
     private int setRate = -1;
 
     /**
-     * Instantiates a new Chance item.
-     *
-     * @param id the id
+     * Constructs a new {@code ChanceItem} {@code Object}.
+     * @param id The item id.
      */
     public ChanceItem(int id) {
         this(id, 1, 1, 1000, 1.0);
     }
 
     /**
-     * Instantiates a new Chance item.
-     *
-     * @param id            the id
-     * @param minimumAmount the minimum amount
-     * @param chanceRate    the chance rate
+     * Constructs a new {@code ChanceItem} {@code Object}.
+     * @param id The item id.
+     * @param minimumAmount The minimum amount.
+     * @param chanceRate The chance rate.
      */
     public ChanceItem(int id, int minimumAmount, double chanceRate) {
         this(id, minimumAmount, minimumAmount, 1000, chanceRate);
     }
 
-    /**
-     * Instantiates a new Chance item.
-     *
-     * @param id            the id
-     * @param minimumAmount the minimum amount
-     * @param chanceRate    the chance rate
-     */
     public ChanceItem(int id, int minimumAmount, int chanceRate) {
-        this(id, minimumAmount, minimumAmount, 1000, (double) chanceRate);
+        this(id,minimumAmount,minimumAmount,1000,(double) chanceRate);
     }
 
     /**
-     * Instantiates a new Chance item.
-     *
-     * @param id            the id
-     * @param minimumAmount the minimum amount
-     * @param maximumAmount the maximum amount
-     * @param chanceRate    the chance rate
+     * Constructs a new {@code ChanceItem} {@code Object}.
+     * @param id The item id.
+     * @param minimumAmount The minimum amount.
+     * @param maximumAmount The maximum amount.
+     * @param chanceRate The chance rate.
      */
     public ChanceItem(int id, int minimumAmount, int maximumAmount, double chanceRate) {
         this(id, minimumAmount, maximumAmount, 1000, chanceRate);
     }
 
     /**
-     * Instantiates a new Chance item.
-     *
-     * @param id            the id
-     * @param minimumAmount the minimum amount
-     * @param maximumAmount the maximum amount
-     * @param frequency     the frequency
+     * Constructs a new {@code ChanceItem} {@code Object}.
+     * @param id the id.
+     * @param minimumAmount the min amount.
+     * @param maximumAmount the max amount.
+     * @param frequency the frequency.
      */
     public ChanceItem(int id, int minimumAmount, int maximumAmount, DropFrequency frequency) {
         this(id, minimumAmount, maximumAmount, 1000, DropFrequency.rate(frequency));
     }
 
     /**
-     * Instantiates a new Chance item.
-     *
-     * @param id            the id
-     * @param minimumAmount the minimum amount
-     * @param maximumAmount the maximum amount
-     * @param charge        the charge
-     * @param chanceRate    the chance rate
+     * Constructs a new {@code ChanceItem} {@code Object}.
+     * @param id The item id.
+     * @param minimumAmount The minimum amount.
+     * @param maximumAmount The maximum amount.
+     * @param charge The charge.		if(frequency == DropFrequency.ALWAYS){
+
+    }
+     * @param chanceRate The chance rate.
      */
     public ChanceItem(int id, int minimumAmount, int maximumAmount, int charge, double chanceRate) {
         this(id, minimumAmount, maximumAmount, charge, chanceRate, DropFrequency.UNCOMMON);
     }
 
     /**
-     * Instantiates a new Chance item.
-     *
-     * @param id            the id
-     * @param minimumAmount the minimum amount
-     * @param maximumAmount the maximum amount
-     * @param charge        the charge
-     * @param chanceRate    the chance rate
-     * @param frequency     the frequency
+     * Constructs a new {@code ChanceItem} {@code Object}.
+     * @param id The item id.
+     * @param minimumAmount The minimum amount.
+     * @param maximumAmount The maximum amount.
+     * @param charge The charge.
+     * @param frequency The drop frequency.
+     * @param chanceRate The chance rate.
      */
     public ChanceItem(int id, int minimumAmount, int maximumAmount, int charge, double chanceRate, DropFrequency frequency) {
         this(id, minimumAmount, maximumAmount, charge, chanceRate, frequency, -1);
     }
 
     /**
-     * Instantiates a new Chance item.
-     *
-     * @param id            the id
-     * @param minimumAmount the minimum amount
-     * @param maximumAmount the maximum amount
-     * @param charge        the charge
-     * @param chanceRate    the chance rate
-     * @param frequency     the frequency
-     * @param setRate       the set rate
+     * Constructs a new {@code ChanceItem} {@code Object}.
+     * @param id The item id.
+     * @param minimumAmount The minimum amount.
+     * @param maximumAmount The maximum amount.
+     * @param charge The charge.
+     * @param frequency The drop frequency.
+     * @param chanceRate The chance rate.
+     * @param setRate the set rate.
      */
     public ChanceItem(int id, int minimumAmount, int maximumAmount, int charge, double chanceRate, DropFrequency frequency, int setRate) {
         super(id, minimumAmount, charge);
@@ -127,21 +131,13 @@ public final class ChanceItem extends Item {
         this.setRate = setRate;
     }
 
-    /**
-     * Instantiates a new Chance item.
-     *
-     * @param id        the id
-     * @param amount    the amount
-     * @param frequency the frequency
-     */
-    public ChanceItem(int id, int amount, DropFrequency frequency) {
+    public ChanceItem(int id, int amount, DropFrequency frequency){
         this(id, amount, amount, frequency);
     }
 
     /**
-     * Gets random item.
-     *
-     * @return the random item
+     * Gets the item instance.
+     * @return the item.
      */
     public Item getRandomItem() {
         if (minimumAmount == maximumAmount) {
@@ -151,21 +147,18 @@ public final class ChanceItem extends Item {
     }
 
     /**
-     * Gets item.
-     *
-     * @param table the table
-     * @return the item
+     * Gets a random chance item from the table.
+     * @param table The table.
+     * @return The chance item.
      */
     public static ChanceItem getItem(ChanceItem... table) {
         return getItem(RandomFunction.getRandomDouble(75.0), table);
     }
 
     /**
-     * Gets item.
-     *
-     * @param chance the chance
-     * @param table  the table
-     * @return the item
+     * Gets a random chance item from the table.
+     * @param table The table.
+     * @return The chance item.
      */
     public static ChanceItem getItem(double chance, ChanceItem... table) {
         // TODO:
@@ -173,9 +166,8 @@ public final class ChanceItem extends Item {
     }
 
     /**
-     * Gets copy.
-     *
-     * @return the copy
+     * Gets a copy.
+     * @return the copy.
      */
     public ChanceItem getCopy() {
         ChanceItem newItem = new ChanceItem(getId(), minimumAmount, maximumAmount, getCharge(), chanceRate, dropFrequency);
@@ -183,90 +175,70 @@ public final class ChanceItem extends Item {
     }
 
     /**
-     * Gets chance rate.
-     *
-     * @return the chance rate
+     * @return the chanceRate.
      */
     public double getChanceRate() {
         return chanceRate;
     }
 
     /**
-     * Sets chance rate.
-     *
-     * @param chanceRate the chance rate
+     * @param chanceRate the chanceRate to set.
      */
     public void setChanceRate(double chanceRate) {
         this.chanceRate = chanceRate;
     }
 
     /**
-     * Gets minimum amount.
-     *
-     * @return the minimum amount
+     * @return the minimumAmount.
      */
     public int getMinimumAmount() {
         return minimumAmount;
     }
 
     /**
-     * Sets minimum amount.
-     *
-     * @param minimumAmount the minimum amount
+     * @param minimumAmount the minimumAmount to set.
      */
     public void setMinimumAmount(int minimumAmount) {
         this.minimumAmount = minimumAmount;
     }
 
     /**
-     * Gets maximum amount.
-     *
-     * @return the maximum amount
+     * @return the maximumAmount.
      */
     public int getMaximumAmount() {
         return maximumAmount;
     }
 
     /**
-     * Sets maximum amount.
-     *
-     * @param maximumAmount the maximum amount
+     * @param maximumAmount the maximumAmount to set.
      */
     public void setMaximumAmount(int maximumAmount) {
         this.maximumAmount = maximumAmount;
     }
 
     /**
-     * Gets drop frequency.
-     *
-     * @return the drop frequency
+     * @return the dropFrequency.
      */
     public DropFrequency getDropFrequency() {
         return dropFrequency;
     }
 
     /**
-     * Sets drop frequency.
-     *
-     * @param dropFrequency the drop frequency
+     * @param dropFrequency the dropFrequency to set.
      */
     public void setDropFrequency(DropFrequency dropFrequency) {
         this.dropFrequency = dropFrequency;
     }
 
     /**
-     * Gets table slot.
-     *
-     * @return the table slot
+     * @return the tableSlot.
      */
     public int getTableSlot() {
         return tableSlot;
     }
 
     /**
-     * Sets table slot.
-     *
-     * @param tableSlot the table slot
+     * @param tableSlot the tableSlot to set.
      */
     public void setTableSlot(int tableSlot) {
         this.tableSlot = tableSlot;
@@ -278,18 +250,16 @@ public final class ChanceItem extends Item {
     }
 
     /**
-     * Gets set rate.
-     *
-     * @return the set rate
+     * Gets the setRate.
+     * @return the setRate
      */
     public int getSetRate() {
         return setRate;
     }
 
     /**
-     * Sets set rate.
-     *
-     * @param setRate the set rate
+     * Sets the basetRate.
+     * @param setRate the setRate to set.
      */
     public void setSetRate(int setRate) {
         this.setRate = setRate;

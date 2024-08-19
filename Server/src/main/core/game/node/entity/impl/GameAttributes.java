@@ -1,10 +1,7 @@
 package core.game.node.entity.impl;
 
 import core.ServerConstants;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
+import org.w3c.dom.*;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -15,21 +12,28 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Game attributes.
+ * Handles an entity's game attributes.
+ * @author Emperor
  */
 public final class GameAttributes {
 
+    /**
+     * The attributes mapping.
+     */
     private final Map<String, Object> attributes = new HashMap<>();
 
+    /**
+     * The list of attributes to save.
+     */
     private final List<String> savedAttributes = new ArrayList<>(250);
 
     /**
-     * The Key expirations.
+     * The list of key expirations
      */
     public final HashMap<String, Long> keyExpirations = new HashMap<>(250);
 
     /**
-     * Instantiates a new Game attributes.
+     * Constructs a new {@code GameAttributes} {@code Object}.
      */
     public GameAttributes() {
         /*
@@ -38,9 +42,9 @@ public final class GameAttributes {
     }
 
     /**
-     * Dump.
+     * Writes the attribute data to the player buffer.
      *
-     * @param file the file
+     * @param file The player's data buffer.
      */
     @Deprecated
     public void dump(String file) {
@@ -48,9 +52,9 @@ public final class GameAttributes {
     }
 
     /**
-     * Parse.
+     * Parses the saved attributes from the buffer.
      *
-     * @param file the file
+     * @param file The buffer.
      */
     @Deprecated
     public void parse(String file) {
@@ -127,10 +131,10 @@ public final class GameAttributes {
     }
 
     /**
-     * Sets attribute.
+     * Sets an attribute value.
      *
-     * @param key   the key
-     * @param value the value
+     * @param key   The attribute name.
+     * @param value The attribute value.
      */
     public void setAttribute(String key, Object value) {
         if (key.startsWith("/save:")) {
@@ -143,11 +147,10 @@ public final class GameAttributes {
     }
 
     /**
-     * Gets attribute.
+     * Gets an attribute.
      *
-     * @param <T> the type parameter
-     * @param key the key
-     * @return the attribute
+     * @param key The attribute name.
+     * @return The attribute value.
      */
     @SuppressWarnings("unchecked")
     public <T> T getAttribute(String key) {
@@ -156,12 +159,11 @@ public final class GameAttributes {
     }
 
     /**
-     * Gets attribute.
+     * Gets an attribute.
      *
-     * @param <T>    the type parameter
-     * @param string the string
-     * @param fail   the fail
-     * @return the attribute
+     * @param string The attribute name.
+     * @param fail   The value to return if the attribute is null.
+     * @return The attribute value, or the fail argument when null.
      */
     @SuppressWarnings("unchecked")
     public <T> T getAttribute(String string, T fail) {
@@ -174,9 +176,9 @@ public final class GameAttributes {
     }
 
     /**
-     * Remove attribute.
+     * Removes an attribute.
      *
-     * @param string the string
+     * @param string The attribute name.
      */
     public void removeAttribute(String string) {
         savedAttributes.remove(string);
@@ -184,18 +186,18 @@ public final class GameAttributes {
     }
 
     /**
-     * Gets attributes.
+     * Gets the attributes.
      *
-     * @return the attributes
+     * @return The attributes.
      */
     public Map<String, Object> getAttributes() {
         return attributes;
     }
 
     /**
-     * Gets saved attributes.
+     * Gets the savedAttributes.
      *
-     * @return the saved attributes
+     * @return The savedAttributes.
      */
     public List<String> getSavedAttributes() {
         return savedAttributes;

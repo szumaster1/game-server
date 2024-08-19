@@ -4,49 +4,70 @@ import content.global.skill.skillcape.SkillcapePerks;
 import core.game.node.entity.Entity;
 import core.game.node.entity.player.Player;
 import core.game.node.entity.skill.Skills;
-import core.game.node.item.GroundItem;
 import core.game.node.item.Item;
+import core.game.node.item.GroundItem;
 import core.game.world.map.Direction;
 import core.game.world.map.Location;
 import core.game.world.map.Point;
 import core.game.world.map.RegionManager;
+import core.game.world.update.flag.chunk.ItemUpdateFlag;
 import core.tools.Log;
+import core.tools.SystemLogger;
 
+import java.util.Deque;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Deque;
 
-import static core.api.ContentAPIKt.hasTimerActive;
-import static core.api.ContentAPIKt.log;
+import static core.api.ContentAPIKt.*;
 
 /**
- * Walking queue.
+ * The walking queue.
+ * @author Emperor
  */
 public final class WalkingQueue {
 
+    /**
+     * The walking queue.
+     */
     private final Deque<Point> walkingQueue = new ArrayDeque<Point>();
 
+    /**
+     * The entity.
+     */
     private final Entity entity;
 
+    /**
+     * The current walking direction.
+     */
     private int walkDir = -1;
 
+    /**
+     * The current running direction.
+     */
     private int runDir = -1;
 
+    /**
+     * If the entity is running (set to true when holding the ctrl button +
+     * click).
+     */
     private boolean running = false;
 
+    /**
+     * If running is disabled.
+     */
     private boolean runDisabled;
 
+    /**
+     * The last location this entity walked on.
+     */
     private Location footPrint;
 
-    /**
-     * The Route items.
-     */
     public ArrayList<GroundItem> routeItems = new ArrayList<GroundItem>();
 
     /**
-     * Instantiates a new Walking queue.
+     * Constructs a new {@code WalkingQueue} {@code Object}.
      *
-     * @param entity the entity
+     * @param entity The entity.
      */
     public WalkingQueue(Entity entity) {
         this.entity = entity;
@@ -54,7 +75,7 @@ public final class WalkingQueue {
     }
 
     /**
-     * Update.
+     * Updates the walking queue.
      */
     public void update() {
         boolean isPlayer = entity instanceof Player;
@@ -160,6 +181,12 @@ public final class WalkingQueue {
         this.runDir = runDirection;
     }
 
+    /**
+     * Gets the energy drain rate for this player.
+     *
+     * @param player The player.
+     * @return The energy drain rate.
+     */
     private double getEnergyDrainRate(Player player) {
         double rate = 0.55;
         if (player.getSettings().getWeight() > 0.0) {
@@ -171,15 +198,21 @@ public final class WalkingQueue {
         return rate;
     }
 
+    /**
+     * Gets the energy restore amount.
+     *
+     * @param player The player.
+     * @return The amount to restore.
+     */
     private double getEnergyRestore(Player player) {
         double rate = 100 / ((175 - (player.getSkills().getLevel(Skills.AGILITY))) / 0.6);
         return rate;
     }
 
     /**
-     * Update run energy.
+     * Increases the current amount of run energy, and updates it.
      *
-     * @param decrease the decrease
+     * @param decrease If we should decrease the run energy.
      */
     public void updateRunEnergy(boolean decrease) {
         if (!(entity instanceof Player)) {
@@ -201,9 +234,10 @@ public final class WalkingQueue {
     }
 
     /**
-     * Update teleport boolean.
+     * Checks if the player is teleporting, if so does the teleporting and
+     * returns true.
      *
-     * @return the boolean
+     * @return {@code True} if the player is teleporting, {@code false} if not.
      */
     public boolean updateTeleport() {
         if (entity.getProperties().getTeleportLocation() != null) {
@@ -231,11 +265,10 @@ public final class WalkingQueue {
     }
 
     /**
-     * Update region boolean.
+     * Checks if the region should be updated, if so we set the update flag and
+     * return true.
      *
-     * @param location the location
-     * @param move     the move
-     * @return the boolean
+     * @return {@code True} if the region updated, {@code false} if not.
      */
     public boolean updateRegion(Location location, boolean move) {
         Player p = (Player) entity;
@@ -265,7 +298,7 @@ public final class WalkingQueue {
     }
 
     /**
-     * Walk back.
+     * Walks back to the last location.
      */
     public void walkBack() {
         entity.getPulseManager().clear();
@@ -274,21 +307,21 @@ public final class WalkingQueue {
     }
 
     /**
-     * Add path.
+     * Adds a path to the walking queue.
      *
-     * @param x the x
-     * @param y the y
+     * @param x The last x-coordinate of the path.
+     * @param y The last y-coordinate of the path.
      */
     public void addPath(int x, int y) {
         addPath(x, y, runDisabled);
     }
 
     /**
-     * Add path.
+     * Adds a path to the walking queue.
      *
-     * @param x           the x
-     * @param y           the y
-     * @param runDisabled the run disabled
+     * @param x           The last x-coordinate of the path.
+     * @param y           The last y-coordinate of the path.
+     * @param runDisabled If running is disabled for this walking path.
      */
     public void addPath(int x, int y, boolean runDisabled) {
         Point point = walkingQueue.peekLast();
@@ -320,11 +353,10 @@ public final class WalkingQueue {
     }
 
     /**
-     * Add point.
+     * Adds a point to the walking queue.
      *
-     * @param x           the x
-     * @param y           the y
-     * @param runDisabled the run disabled
+     * @param x The x-coordinate of the point.
+     * @param y The y-coordinate of the point.
      */
     public void addPoint(int x, int y, boolean runDisabled) {
         Point point = walkingQueue.peekLast();
@@ -339,9 +371,11 @@ public final class WalkingQueue {
     }
 
     /**
-     * Is running both boolean.
+     * Checks if the entity is running.
      *
-     * @return the boolean
+     * @return {@code True} if a ctrl + click reward was performed, <br> the
+     * player has the run option enabled or the NPC is a familiar, <p>
+     * {@code false} if not.
      */
     public boolean isRunningBoth() {
         if (isRunDisabled()) return false;
@@ -352,34 +386,34 @@ public final class WalkingQueue {
     }
 
     /**
-     * Has path boolean.
+     * Checks if the entity has a path to walk.
      *
-     * @return the boolean
+     * @return {@code True} if so.
      */
     public boolean hasPath() {
         return !walkingQueue.isEmpty();
     }
 
     /**
-     * Is moving boolean.
+     * Checks if the entity is moving.
      *
-     * @return the boolean
+     * @return {@code True} if so.
      */
     public boolean isMoving() {
         return walkDir != -1 || runDir != -1;
     }
 
     /**
-     * Reset.
+     * Resets the walking queue.
      */
     public void reset() {
         reset(running);
     }
 
     /**
-     * Reset.
+     * Resets the walking queue.
      *
-     * @param running the running
+     * @param running The running flag (ctrl + click reward).
      */
     public void reset(boolean running) {
         Location loc = entity.getLocation();
@@ -397,81 +431,77 @@ public final class WalkingQueue {
     }
 
     /**
-     * Gets walk dir.
+     * Gets the current walking direction.
      *
-     * @return the walk dir
+     * @return The walk direction.
      */
     public int getWalkDir() {
         return walkDir;
     }
 
     /**
-     * Gets run dir.
+     * Gets the current run direction.
      *
-     * @return the run dir
+     * @return The run direction.
      */
     public int getRunDir() {
         return runDir;
     }
 
     /**
-     * Sets running.
+     * Sets the running flag.
      *
-     * @param running the running
+     * @param running The running flag.
      */
     public void setRunning(boolean running) {
         this.running = running;
     }
 
     /**
-     * Is running boolean.
+     * Checks if the player is running.
      *
-     * @return the boolean
+     * @return {@code True} if so.
      */
     public boolean isRunning() {
         return running;
     }
 
     /**
-     * Gets foot print.
-     *
-     * @return the foot print
+     * @return the footPrint
      */
     public Location getFootPrint() {
         return footPrint;
     }
 
     /**
-     * Sets foot print.
-     *
-     * @param footPrint the foot print
+     * @param footPrint the footPrint to set
      */
     public void setFootPrint(Location footPrint) {
         this.footPrint = footPrint;
     }
 
     /**
-     * Gets queue.
+     * Gets the walking queue.
      *
-     * @return the queue
+     * @return The queue.
      */
     public Deque<Point> getQueue() {
         return walkingQueue;
     }
 
     /**
-     * Is run disabled boolean.
+     * Gets the runDisabled.
      *
-     * @return the boolean
+     * @return The runDisabled.
      */
     public boolean isRunDisabled() {
         return runDisabled;
     }
 
     /**
-     * Sets run disabled.
+     * Sets the runDisabled.
      *
-     * @param runDisabled the run disabled
+     * @param runDisabled The runDisabled to set.
      */
     public void setRunDisabled(boolean runDisabled) {
         this.runDisabled = runDisabled;

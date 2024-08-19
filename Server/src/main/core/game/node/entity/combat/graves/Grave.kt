@@ -19,6 +19,7 @@ import core.tools.ticksToSeconds
 
 /**
  * Grave class representing a player's grave in the game.
+ * @author Ceikry
  */
 @Initializable
 class Grave : AbstractNPC {

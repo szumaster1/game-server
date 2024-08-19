@@ -4,24 +4,25 @@ import core.game.node.entity.Entity;
 import core.game.node.entity.combat.DeathTask;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
-import core.game.world.map.RegionManager;
 import core.game.world.map.zone.impl.WildernessZone;
+import core.game.world.map.RegionManager;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Aggressive behavior.
+ * Handles an NPC's aggressive behaviour.
+ * @author Emperor
  */
 public class AggressiveBehavior {
 
     /**
-     * The constant DEFAULT.
+     * The default aggressive behavior.
      */
     public static final AggressiveBehavior DEFAULT = new AggressiveBehavior();
 
     /**
-     * The constant WILDERNESS.
+     * The wilderness aggressive behavior.
      */
     public static final AggressiveBehavior WILDERNESS = new AggressiveBehavior() {
 
@@ -47,7 +48,7 @@ public class AggressiveBehavior {
     };
 
     /**
-     * Instantiates a new Aggressive behavior.
+     * Constructs a new {@code AggressiveBehaviour} {@code Object}.
      */
     public AggressiveBehavior() {
         /*
@@ -56,11 +57,10 @@ public class AggressiveBehavior {
     }
 
     /**
-     * Can select target boolean.
+     * Checks if the NPC is aggressive towards the entity.
      *
-     * @param entity the entity
-     * @param target the target
-     * @return the boolean
+     * @param entity The timed entry.
+     * @return {@code True} if the NPC can select the entity as a target.
      */
     public boolean canSelectTarget(Entity entity, Entity target) {
         int regionId = target.getLocation().getRegionId();
@@ -85,20 +85,15 @@ public class AggressiveBehavior {
         return true;
     }
 
-    /**
-     * Ignore combat level difference boolean.
-     *
-     * @return the boolean
-     */
     public boolean ignoreCombatLevelDifference() {
         return false;
     }
 
     /**
-     * Gets priority flag.
+     * Gets the priority flag.
      *
-     * @param target the target
-     * @return the priority flag
+     * @param target The target.
+     * @return The priority flag.
      */
     public int getPriorityFlag(Entity target) {
         int flag = 0;
@@ -116,11 +111,11 @@ public class AggressiveBehavior {
     }
 
     /**
-     * Gets possible targets.
+     * Gets the list of possible targets.
      *
-     * @param entity the entity
-     * @param radius the radius
-     * @return the possible targets
+     * @param entity The entity.
+     * @param radius The aggressive radius.
+     * @return The list of possible targets.
      */
     public List<Entity> getPossibleTargets(Entity entity, int radius) {
         List<Entity> targets = new ArrayList<>(20);
@@ -133,11 +128,11 @@ public class AggressiveBehavior {
     }
 
     /**
-     * Gets logical target.
+     * Gets the most logical target from the targets list.
      *
-     * @param entity          the entity
-     * @param possibleTargets the possible targets
-     * @return the logical target
+     * @param entity          The entity.
+     * @param possibleTargets The possible targets list.
+     * @return The target.
      */
     public Entity getLogicalTarget(Entity entity, List<Entity> possibleTargets) {
         Entity target = null;

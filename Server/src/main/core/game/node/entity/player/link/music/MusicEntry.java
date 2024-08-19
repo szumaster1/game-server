@@ -4,24 +4,37 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Music entry.
+ * Represents a song.
+ * @author Emperor
  */
 public final class MusicEntry {
 
+    /**
+     * The songs mapping.
+     */
     private static final Map<Integer, MusicEntry> SONGS = new HashMap<>();
 
+    /**
+     * The music id.
+     */
     private final int id;
 
+    /**
+     * The song name.
+     */
     private final String name;
 
+    /**
+     * The index in the list.
+     */
     private final int index;
 
     /**
-     * Instantiates a new Music entry.
+     * Constructs a new {@code MusicEntry} {@code Object}.
      *
-     * @param id    the id
-     * @param name  the name
-     * @param index the index
+     * @param id    the music id.
+     * @param name  The name.
+     * @param index The list index.
      */
     public MusicEntry(int id, String name, int index) {
         this.id = id;
@@ -30,46 +43,46 @@ public final class MusicEntry {
     }
 
     /**
-     * For id music entry.
+     * Gets the song for the given music id.
      *
-     * @param id the id
-     * @return the music entry
+     * @param id The music id.
+     * @return The song.
      */
     public static MusicEntry forId(int id) {
         return SONGS.get(id);
     }
 
     /**
-     * Gets id.
+     * Gets the id.
      *
-     * @return the id
+     * @return The id.
      */
     public int getId() {
         return id;
     }
 
     /**
-     * Gets name.
+     * Gets the name.
      *
-     * @return the name
+     * @return The name.
      */
     public String getName() {
         return name;
     }
 
     /**
-     * Gets index.
+     * Gets the index.
      *
-     * @return the index
+     * @return The index.
      */
     public int getIndex() {
         return index;
     }
 
     /**
-     * Gets songs.
+     * Gets the songs.
      *
-     * @return the songs
+     * @return The songs.
      */
     public static Map<Integer, MusicEntry> getSongs() {
         return SONGS;

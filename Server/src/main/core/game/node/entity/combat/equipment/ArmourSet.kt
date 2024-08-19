@@ -11,7 +11,8 @@ import core.game.world.update.flag.context.Graphic
 import core.tools.RandomFunction
 
 /**
- * Armour set.
+ * Represents the types of armour sets.
+ * @author Emperor
  *
  * @param endGraphic The graphic to display at the end of the effect.
  * @constructor Creates an ArmourSet with a specific graphic and item set.

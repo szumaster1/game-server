@@ -6,7 +6,8 @@ import core.game.node.entity.combat.spell.MagicSpell
 import core.game.node.entity.player.Player
 
 /**
- * Spell book manager.
+ * Represents a managing class of a players spell book.
+ * @author Vexia
  */
 class SpellBookManager {
 

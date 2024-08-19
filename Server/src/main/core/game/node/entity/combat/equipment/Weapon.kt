@@ -3,7 +3,8 @@ package core.game.node.entity.combat.equipment
 import core.game.node.item.Item
 
 /**
- * Represents a weapon in the game.
+ * Represents the type of weapon used.
+ * @author Emperor
  *
  * @param item The item associated with the weapon.
  * @param ammunitionSlot The slot for ammunition, default is -1 indicating no slot.

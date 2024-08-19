@@ -14,20 +14,44 @@ import core.game.world.update.flag.context.Graphic;
 import static core.api.ContentAPIKt.*;
 
 /**
- * Teleport manager.
+ * Handles the entity teleport.
+ * @author SonicForce41, Woah
  */
 public class TeleportManager {
 
     /**
-     * The constant WILDY_TELEPORT.
+     * The wildy teleport type.
      */
     public static final int WILDY_TELEPORT = 1 << 16 | 8;
+
+    /**
+     * The animations used in the home teleport.
+     */
     private final static int[] HOME_ANIMATIONS = {1722, 1723, 1724, 1725, 2798, 2799, 2800, 3195, 4643, 4645, 4646, 4847, 4848, 4849, 4850, 4851, 4852, 65535};
+
+    /**
+     * The graphics used in the home teleport.
+     */
     private final static int[] HOME_GRAPHICS = {775, 800, 801, 802, 803, 804, 1703, 1704, 1705, 1706, 1707, 1708, 1709, 1710, 1711, 1712, 1713, 65535};
 
+    /**
+     * The entity being handled.
+     */
     private final Entity entity;
+
+    /**
+     * The last teleport of this <b>Entity</b>
+     */
     private Pulse lastTeleport;
+
+    /**
+     * The current teleport of this <b>Entity</b>
+     */
     private Pulse currentTeleport;
+
+    /**
+     * The current teleport type.
+     */
     private int teleportType;
 
     /**

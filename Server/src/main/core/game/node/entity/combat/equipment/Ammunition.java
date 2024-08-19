@@ -14,45 +14,65 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Ammunition.
+ * Represents range ammunition types.
+ * @author Emperor
  */
 public final class Ammunition {
 
+    /**
+     * The ammunition mapping.
+     */
     private static final Map<Integer, Ammunition> AMMUNITION = new HashMap<Integer, Ammunition>();
 
+    /**
+     * The ammunition item id.
+     */
     private final int itemId;
 
-    private final Graphic startGraphic;
+    /**
+     * The start graphics.
+     */
+    private final Graphic startGraphics;
 
-    private final Graphic darkBowGraphic;
+    /**
+     * The start graphics when using Dark bow.
+     */
+    private final Graphic darkBowGraphics;
 
+    /**
+     * The projectile.
+     */
     private final Projectile projectile;
 
+    /**
+     * The poison damage.
+     */
     private final int poisonDamage;
 
+    /**
+     * The bolt effect.
+     */
     private BoltEffect effect;
 
     /**
-     * Instantiates a new Ammunition.
-     *
-     * @param itemId         the item id
-     * @param startGraphic   the start graphic
-     * @param darkBowGraphic the dark bow graphic
-     * @param projectile     the projectile
-     * @param poisonDamage   the poison damage
+     * Constructs a new {@code Ammunition} object.
+     * @param itemId The item id.
+     * @param startGraphics The start graphics.
+     * @param darkBowGraphics The dark bow start graphics.
+     * @param projectile The projectile.
+     * @param poisonDamage The poison damage the ammunition can do.
      */
-    public Ammunition(int itemId, Graphic startGraphic, Graphic darkBowGraphic, Projectile projectile, int poisonDamage) {
+    public Ammunition(int itemId, Graphic startGraphics, Graphic darkBowGraphics, Projectile projectile, int poisonDamage) {
         this.itemId = itemId;
-        this.startGraphic = startGraphic;
-        this.darkBowGraphic = darkBowGraphic;
+        this.startGraphics = startGraphics;
+        this.darkBowGraphics = darkBowGraphics;
         this.poisonDamage = poisonDamage;
         this.projectile = projectile;
     }
 
     /**
-     * Initialize boolean.
-     *
-     * @return the boolean
+     * Loads all the {@code Ammunition} info to the mapping.
+     * @return {@code True}.
      */
     public static final boolean initialize() {
         Document doc;
@@ -72,8 +92,8 @@ public final class Ammunition {
                     NodeList list = n.getChildNodes();
                     int itemId = 0;
                     int graphicsId = 0;
-                    Graphic startGraphic = null;
-                    Graphic darkBowGraphic = null;
+                    Graphic startGraphics = null;
+                    Graphic darkBowGraphics = null;
                     Projectile projectile = null;
                     for (int a = 1; a < list.getLength(); a += 2) {
                         Node node = list.item(a);
@@ -82,11 +102,11 @@ public final class Ammunition {
                         } else if (node.getNodeName().equalsIgnoreCase("startGraphicsId")) {
                             graphicsId = Integer.parseInt(node.getTextContent());
                         } else if (node.getNodeName().equalsIgnoreCase("startGraphicsHeight")) {
-                            startGraphic = new Graphic(graphicsId, Integer.parseInt(node.getTextContent()), 0);
+                            startGraphics = new Graphic(graphicsId, Integer.parseInt(node.getTextContent()), 0);
                         } else if (node.getNodeName().equalsIgnoreCase("darkBowGraphicsId")) {
                             graphicsId = Integer.parseInt(node.getTextContent());
                         } else if (node.getNodeName().equalsIgnoreCase("darkBowGraphicsHeight")) {
-                            darkBowGraphic = new Graphic(graphicsId, Integer.parseInt(node.getTextContent()), 0);
+                            darkBowGraphics = new Graphic(graphicsId, Integer.parseInt(node.getTextContent()), 0);
                         } else if (node.getNodeName().equalsIgnoreCase("projectileId")) {
                             int startHeight = Integer.parseInt(node.getAttributes().getNamedItem("start_height").getTextContent());
                             int type = Integer.parseInt(node.getAttributes().getNamedItem("type").getTextContent());
@@ -95,7 +115,7 @@ public final class Ammunition {
                             int projectileId = Integer.parseInt(node.getTextContent());
                             projectile = Projectile.create((Entity) null, null, projectileId, startHeight, 36, type, baseSpeed, angle, 0);
                         } else if (node.getNodeName().equalsIgnoreCase("poisonDamage")) {
-                            AMMUNITION.put(itemId, new Ammunition(itemId, startGraphic, darkBowGraphic, projectile, Integer.parseInt(node.getTextContent())));
+                            AMMUNITION.put(itemId, new Ammunition(itemId, startGraphics, darkBowGraphics, projectile, Integer.parseInt(node.getTextContent())));
                         }
                     }
                 }
@@ -104,64 +124,49 @@ public final class Ammunition {
         return true;
     }
 
-    /**
-     * The entry point of application.
-     *
-     * @param args the input arguments
-     */
     public static void main(String... args) {
         initialize();
     }
 
     /**
-     * Gets ammunition.
-     *
-     * @return the ammunition
+     * Gets the ammunition mapping.
+     * @return The mapping.
      */
     public static Map<Integer, Ammunition> getAmmunition() {
         return AMMUNITION;
     }
 
     /**
-     * Get ammunition.
-     *
-     * @param id the id
-     * @return the ammunition
+     * Gets an ammunition object from the mapping.
+     * @param id The ammo id.
+     * @return The ammunition object.
      */
     public static final Ammunition get(int id) {
         return AMMUNITION.get(id);
     }
 
     /**
-     * Gets item id.
-     *
-     * @return the item id
+     * @return the itemId
      */
     public int getItemId() {
         return itemId;
     }
 
     /**
-     * Gets start graphics.
-     *
-     * @return the start graphics
+     * @return the startGraphics
      */
     public Graphic getStartGraphics() {
-        return startGraphic;
+        return startGraphics;
     }
 
     /**
-     * Gets dark bow graphics.
-     *
-     * @return the dark bow graphics
+     * @return the darkBowGraphics
      */
     public Graphic getDarkBowGraphics() {
-        return darkBowGraphic;
+        return darkBowGraphics;
     }
 
     /**
-     * Gets projectile.
-     *
      * @return the projectile
      */
     public Projectile getProjectile() {
@@ -169,17 +174,14 @@ public final class Ammunition {
     }
 
     /**
-     * Gets poison damage.
-     *
-     * @return the poison damage
+     * @return the poisonDamage
      */
     public int getPoisonDamage() {
         return poisonDamage;
     }
 
     /**
-     * Gets effect.
-     *
+     * Gets the effect.
      * @return the effect
      */
     public BoltEffect getEffect() {
@@ -187,9 +189,8 @@ public final class Ammunition {
     }
 
     /**
-     * Sets effect.
-     *
-     * @param effect the effect
+     * Sets the baeffect.
+     * @param effect the effect to set.
      */
     public void setEffect(BoltEffect effect) {
         this.effect = effect;
@@ -197,6 +198,6 @@ public final class Ammunition {
 
     @Override
     public String toString() {
-        return "Ammunition [itemId=" + itemId + ", startGraphic=" + startGraphic + ", darkBowGraphic=" + darkBowGraphic + ", projectile=" + projectile + ", poisonDamage=" + poisonDamage + ", effect=" + effect + "]";
+        return "Ammunition [itemId=" + itemId + ", startGraphics=" + startGraphics + ", darkBowGraphics=" + darkBowGraphics + ", projectile=" + projectile + ", poisonDamage=" + poisonDamage + ", effect=" + effect + "]";
     }
 }

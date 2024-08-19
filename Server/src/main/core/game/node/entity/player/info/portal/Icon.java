@@ -1,7 +1,8 @@
 package core.game.node.entity.player.info.portal;
 
 /**
- * The enum Icon represents different icons used in the game.
+ * Represents a chat icon.
+ * @author Vexia
  */
 public enum Icon {
     NOTHING(0, 0),
@@ -14,50 +15,54 @@ public enum Icon {
     PURPLE(7, 11),
     BROWN(8, 12);
 
-    private final int id; // Unique identifier for the icon
-    private final int indexId; // Index used for referencing the icon
+    /**
+     * The id.
+     */
+    private final int id;
 
     /**
-     * Constructor for the Icon enum.
-     *
-     * @param id the unique identifier for the icon
-     * @param indexId the index used for referencing the icon
+     * The index id.
+     */
+    private final int indexId;
+
+    /**
+     * Constructs a new {@Code Icons} {@Code Object}
+     * @param id the id.
+     * @param indexId the indexid.
      */
     private Icon(int id, int indexId) {
-        this.id = id; // Assigning the unique identifier
-        this.indexId = indexId; // Assigning the index identifier
+        this.id = id;
+        this.indexId = indexId;
     }
 
     /**
-     * For id icon retrieves the icon based on its id.
-     *
-     * @param id the id of the icon to retrieve
-     * @return the corresponding icon, or GREEN if not found
+     * Gets an icon for the id.
+     * @param id the id.
+     * @return the id.S
      */
     public static Icon forId(int id) {
-        for (Icon icon : values()) { // Iterating through all icon values
-            if (icon.getId() == id) { // Checking if the current icon's id matches the provided id
-                return icon; // Returning the matching icon
+        for (Icon icon : values()) {
+            if (icon.getId() == id) {
+                return icon;
             }
         }
-        return GREEN; // Returning GREEN as a default icon if no match is found
+        return GREEN;
     }
 
     /**
-     * Gets id.
-     *
-     * @return the id of the icon
+     * Gets the id.
+     * @return the id
      */
     public int getId() {
-        return id; // Returning the unique identifier of the icon
+        return id;
     }
 
     /**
-     * Gets index id.
-     *
-     * @return the index id of the icon
+     * Gets the indexId.
+     * @return the indexId
      */
     public int getIndexId() {
-        return indexId; // Returning the index identifier of the icon
+        return indexId;
     }
+
 }

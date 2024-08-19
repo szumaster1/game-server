@@ -1,27 +1,22 @@
 package core.game.node.entity.combat
 
 /**
- * Interaction type.
+ * The interaction types for combat.
+ * @author Emperor
  */
 enum class InteractionType {
     /**
-     * Still Interact
-     *
-     * @constructor Still Interact
+     * The entity can hit while standing still.
      */
     STILL_INTERACT,
 
     /**
-     * Move Interact
-     *
-     * @constructor Move Interact
+     * The entity can hit while following the victim.
      */
     MOVE_INTERACT,
 
     /**
-     * No Interact
-     *
-     * @constructor No Interact
+     * The entity can't hit its target.
      */
     NO_INTERACT
 }

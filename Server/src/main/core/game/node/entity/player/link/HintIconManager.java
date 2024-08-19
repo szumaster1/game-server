@@ -8,34 +8,38 @@ import core.network.packet.context.HintIconContext;
 import core.network.packet.outgoing.HintIcon;
 
 /**
- * Hint icon manager.
+ * The player's hint icon manager.
+ * @author Emperor
  */
 public final class HintIconManager {
 
     /**
-     * The constant MAXIMUM_SIZE.
+     * The maximum size of hint icons.
      */
     public static final int MAXIMUM_SIZE = 8;
 
     /**
-     * The constant DEFAULT_ARROW.
+     * The default arrow id.
      */
     public static final int DEFAULT_ARROW = 1;
 
     /**
-     * The constant DEFAULT_MODEL.
+     * The default model id.
      */
     public static final int DEFAULT_MODEL = -1;
 
     /**
-     * The constant ARROW_CIRCLE_MODEL.
+     * The arrow in a circle model id.
      */
     public static final int ARROW_CIRCLE_MODEL = 40497;
 
+    /**
+     * The hint icons.
+     */
     private HintIconContext[] hintIcons = new HintIconContext[MAXIMUM_SIZE];
 
     /**
-     * Instantiates a new Hint icon manager.
+     * Constructs a new {@code HintIconManager} {@code Object}.
      */
     public HintIconManager() {
         /*
@@ -44,62 +48,61 @@ public final class HintIconManager {
     }
 
     /**
-     * Register hint icon int.
+     * Registers a new hint icon.
      *
-     * @param player the player
-     * @param target the target
-     * @return the int
+     * @param player The player.
+     * @param target The entity target.
+     * @return The slot of the hint icon.
      */
     public static int registerHintIcon(Player player, Node target) {
         return registerHintIcon(player, target, DEFAULT_ARROW, DEFAULT_MODEL, player.getHintIconManager().freeSlot());
     }
 
     /**
-     * Register height hint icon int.
+     * Registers a new hint icon.
      *
-     * @param player the player
-     * @param target the target
-     * @param height the height
-     * @return the int
+     * @param player The player.
+     * @param target The entity target.
+     * @return The slot of the hint icon.
      */
     public static int registerHeightHintIcon(Player player, Node target, int height) {
         return registerHintIcon(player, target, DEFAULT_ARROW, DEFAULT_MODEL, player.getHintIconManager().freeSlot(), height);
     }
 
     /**
-     * Register hint icon int.
+     * Registers a new hint icon.
      *
-     * @param player  the player
-     * @param target  the target
-     * @param arrowId the arrow id
-     * @return the int
+     * @param player  The player.
+     * @param target  The entity target.
+     * @param arrowId The arrow id to use.
+     * @return The slot of the hint icon.
      */
     public static int registerHintIcon(Player player, Node target, int arrowId) {
         return registerHintIcon(player, target, arrowId, DEFAULT_MODEL, player.getHintIconManager().freeSlot());
     }
 
     /**
-     * Register hint icon int.
+     * Registers a new hint icon.
      *
-     * @param player  the player
-     * @param target  the target
-     * @param arrowId the arrow id
-     * @param modelId the model id
-     * @return the int
+     * @param player  The player.
+     * @param target  The entity target.
+     * @param arrowId The arrow id to use.
+     * @param modelId The model id.
+     * @return The slot of the hint icon.
      */
     public static int registerHintIcon(Player player, Node target, int arrowId, int modelId) {
         return registerHintIcon(player, target, arrowId, modelId, player.getHintIconManager().freeSlot());
     }
 
     /**
-     * Register hint icon int.
+     * Registers a new hint icon.
      *
-     * @param player  the player
-     * @param target  the target
-     * @param arrowId the arrow id
-     * @param modelId the model id
-     * @param slot    the slot
-     * @return the int
+     * @param player  The player.
+     * @param target  The entity target.
+     * @param arrowId The arrow id to use.
+     * @param modelId The model id.
+     * @param slot    The slot.
+     * @return The slot of the hint icon.
      */
     public static int registerHintIcon(Player player, Node target, int arrowId, int modelId, int slot) {
         if (slot < 0) {
@@ -116,15 +119,15 @@ public final class HintIconManager {
     }
 
     /**
-     * Register hint icon int.
+     * Registers a new hint icon.
      *
-     * @param player  the player
-     * @param target  the target
-     * @param arrowId the arrow id
-     * @param modelId the model id
-     * @param slot    the slot
-     * @param height  the height
-     * @return the int
+     * @param player  The player.
+     * @param target  The entity target.
+     * @param arrowId The arrow id to use.
+     * @param modelId The model id.
+     * @param slot    The slot.
+     * @param height  The height of the hint icon.
+     * @return The slot of the hint icon.
      */
     public static int registerHintIcon(Player player, Node target, int arrowId, int modelId, int slot, int height) {
         int type = 2;
@@ -135,16 +138,16 @@ public final class HintIconManager {
     }
 
     /**
-     * Register hint icon int.
+     * Registers a new hint icon.
      *
-     * @param player     the player
-     * @param target     the target
-     * @param arrowId    the arrow id
-     * @param modelId    the model id
-     * @param slot       the slot
-     * @param height     the height
-     * @param targetType the target type
-     * @return the int
+     * @param player     The player.
+     * @param target     The entity target.
+     * @param arrowId    The arrow id to use.
+     * @param modelId    The model id.
+     * @param slot       The slot.
+     * @param height     The height of the hint icon.
+     * @param targetType The target type.
+     * @return The slot of the hint icon.
      */
     public static int registerHintIcon(Player player, Node target, int arrowId, int modelId, int slot, int height, int targetType) {
         if (slot < 0) {
@@ -158,10 +161,10 @@ public final class HintIconManager {
     }
 
     /**
-     * Remove hint icon.
+     * Removes a hint icon.
      *
-     * @param player the player
-     * @param slot   the slot
+     * @param player The player.
+     * @param slot   The hint icon slot.
      */
     public static void removeHintIcon(Player player, int slot) {
         if (slot < 0) {
@@ -177,7 +180,7 @@ public final class HintIconManager {
     }
 
     /**
-     * Clear.
+     * Clears the hint icons.
      */
     public void clear() {
         for (int i = 0; i < hintIcons.length; i++) {
@@ -189,9 +192,9 @@ public final class HintIconManager {
     }
 
     /**
-     * Free slot int.
+     * Gets a free hint icon slot.
      *
-     * @return the int
+     * @return The free slot.
      */
     public int freeSlot() {
         for (int i = 0; i < hintIcons.length; i++) {
@@ -203,10 +206,10 @@ public final class HintIconManager {
     }
 
     /**
-     * Gets icon.
+     * Gets the hint icon for the given slot.
      *
-     * @param slot the slot
-     * @return the icon
+     * @param slot The slot.
+     * @return The hint icon context.
      */
     public HintIconContext getIcon(int slot) {
         return hintIcons[slot];

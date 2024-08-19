@@ -3,88 +3,158 @@ package core.game.node.entity.impl;
 import core.game.container.Container;
 import core.game.container.impl.EquipmentContainer;
 import core.game.node.entity.Entity;
-import core.game.node.entity.combat.CombatPulse;
+import core.game.node.entity.combat.spell.CombatSpell;
 import core.game.node.entity.combat.CombatStyle;
 import core.game.node.entity.combat.equipment.ArmourSet;
 import core.game.node.entity.combat.equipment.WeaponInterface;
-import core.game.node.entity.combat.spell.CombatSpell;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
-import core.game.system.config.ItemConfigParser;
-import core.game.system.config.NPCConfigParser;
 import core.game.world.GameWorld;
 import core.game.world.map.Location;
+import core.game.world.update.flag.EntityFlag;
 import core.game.world.update.flag.context.Animation;
 import core.game.world.update.flag.context.Graphic;
+import core.game.node.entity.combat.CombatPulse;
+import core.game.system.config.ItemConfigParser;
+import core.game.system.config.NPCConfigParser;
 
 /**
- * Properties.
+ * Holds an entity's properties.
+ * @author Emperor
  */
 public final class Properties {
 
+    /**
+     * The entity.
+     */
     private final Entity entity;
 
+    /**
+     * The entity's combat pulse.
+     */
     private CombatPulse combatPulse;
 
+    /**
+     * If the entity is retaliating.
+     */
     private boolean retaliating = true;
 
+    /**
+     * If the entity is teleporting.
+     */
     private boolean teleporting;
 
+    /**
+     * The entity's combat level.
+     */
     private int combatLevel;
 
+    /**
+     * The entity's current attack style.
+     */
     private WeaponInterface.AttackStyle attackStyle;
 
+    /**
+     * The current teleport destination location.
+     */
     private Location teleportLocation;
 
+    /**
+     * The spawn location.
+     */
     private Location spawnLocation;
 
+    /**
+     * The bonuses.
+     */
     private int[] bonuses = new int[15];
 
+    /**
+     * The current attack speed.
+     */
     private int attackSpeed = 4;
 
+    /**
+     * The last animation end.
+     */
     private long lastAnimationEnd;
 
+    /**
+     * The attack animation.
+     */
     private Animation attackAnimation = new Animation(422, Animator.Priority.HIGH);
 
+    /**
+     * The defence animation.
+     */
     private Animation defenceAnimation = new Animation(404);
 
+    /**
+     * The death animation.
+     */
     private Animation deathAnimation = new Animation(9055, Animator.Priority.HIGH);
 
-    /**
-     * The Death gfx.
-     */
     public Graphic deathGfx = new Graphic(-1);
 
+    /**
+     * The range animation.
+     */
     private Animation rangeAnimation;
 
+    /**
+     * The magic animation.
+     */
     private Animation magicAnimation;
 
+    /**
+     * The current magic spell.
+     */
     private CombatSpell spell;
 
+    /**
+     * The autocasted magic spell.
+     */
     private CombatSpell autocastSpell;
 
+    /**
+     * The current armour set used.
+     */
     private ArmourSet armourSet;
 
+    /**
+     * If the entity is standing in multizone.
+     */
     private boolean multiZone;
 
+    /**
+     * If the entity is in a safe zone.
+     */
     private boolean safeZone;
 
     /**
-     * The Safe respawn.
+     * The location which the player respawns at the event of death while safeZone = true
      */
     public Location safeRespawn;
 
+    /**
+     * The combat time out ticks.
+     */
     private int combatTimeOut = 10;
 
+    /**
+     * If the entity can walk over other NPCs in multiway combat zone.
+     */
     private boolean npcWalkable;
 
+    /**
+     * The style the npc protects against.
+     */
     private CombatStyle protectStyle;
 
     /**
-     * Instantiates a new Properties.
-     *
-     * @param entity the entity
+     * Constructs a new {@code Properties} {@code Object}.
+     * @param entity
      */
     public Properties(Entity entity) {
         this.entity = entity;
@@ -92,7 +162,7 @@ public final class Properties {
     }
 
     /**
-     * Update defence animation.
+     * Updates the defence animation.
      */
     public void updateDefenceAnimation() {
         if (entity instanceof NPC) {
@@ -114,46 +184,42 @@ public final class Properties {
     }
 
     /**
-     * Gets combat animation.
-     *
-     * @param index the index
-     * @return the combat animation
+     * Gets a combat animation by the index.
+     * @param index the index.
+     * @return the animation.
      */
     public Animation getCombatAnimation(int index) {
         return index == 0 ? attackAnimation : index == 1 ? magicAnimation : index == 2 ? rangeAnimation : index == 3 ? defenceAnimation : deathAnimation;
     }
 
     /**
-     * Gets entity.
-     *
-     * @return the entity
+     * Gets the entity.
+     * @return The entity.
      */
     public Entity getEntity() {
         return entity;
     }
 
     /**
-     * Is teleporting boolean.
-     *
-     * @return the boolean
+     * Gets the teleporting.
+     * @return The teleporting.
      */
     public boolean isTeleporting() {
         return teleporting;
     }
 
     /**
-     * Sets teleporting.
-     *
-     * @param teleporting the teleporting
+     * Sets the teleporting.
+     * @param teleporting The teleporting to set.
      */
     public void setTeleporting(boolean teleporting) {
         this.teleporting = teleporting;
     }
 
     /**
-     * Gets combat level.
-     *
-     * @return the combat level
+     * Gets the combatLevel. <br> Deprecated Due to summoning-based combat level
+     * not being calculated in.
+     * @return The combatLevel.
      */
     @Deprecated
     public int getCombatLevel() {
@@ -161,9 +227,8 @@ public final class Properties {
     }
 
     /**
-     * Gets current combat level.
-     *
-     * @return the current combat level
+     * Gets the current combat level.
+     * @return The combat level.
      */
     public int getCurrentCombatLevel() {
         if (entity instanceof Player) {
@@ -180,189 +245,168 @@ public final class Properties {
     }
 
     /**
-     * Sets combat level.
-     *
-     * @param combatLevel the combat level
+     * Sets the combatLevel.
+     * @param combatLevel The combatLevel to set.
      */
     public void setCombatLevel(int combatLevel) {
         this.combatLevel = combatLevel;
     }
 
     /**
-     * Gets attack style.
-     *
-     * @return the attack style
+     * Gets the attackStyle.
+     * @return The attackStyle.
      */
     public WeaponInterface.AttackStyle getAttackStyle() {
         return attackStyle;
     }
 
     /**
-     * Sets attack style.
-     *
-     * @param attackStyle the attack style
+     * Sets the attackStyle.
+     * @param attackStyle The attackStyle to set.
      */
     public void setAttackStyle(WeaponInterface.AttackStyle attackStyle) {
         this.attackStyle = attackStyle;
     }
 
     /**
-     * Gets teleport location.
-     *
-     * @return the teleport location
+     * Gets the teleportLocation.
+     * @return The teleportLocation.
      */
     public Location getTeleportLocation() {
         return teleportLocation;
     }
 
     /**
-     * Sets teleport location.
-     *
-     * @param teleportLocation the teleport location
+     * Sets the teleportLocation.
+     * @param teleportLocation The teleportLocation to set.
      */
     public void setTeleportLocation(Location teleportLocation) {
         this.teleportLocation = teleportLocation;
     }
 
     /**
-     * Gets spawn location.
-     *
-     * @return the spawn location
+     * Gets the spawnLocation.
+     * @return The spawnLocation.
      */
     public Location getSpawnLocation() {
         return spawnLocation;
     }
 
     /**
-     * Sets spawn location.
-     *
-     * @param spawnLocation the spawn location
+     * Sets the spawnLocation.
+     * @param spawnLocation The spawnLocation to set.
      */
     public void setSpawnLocation(Location spawnLocation) {
         this.spawnLocation = spawnLocation;
     }
 
     /**
-     * Get bonuses int [ ].
-     *
-     * @return the int [ ]
+     * Gets the bonuses.
+     * @return The bonuses.
      */
     public int[] getBonuses() {
         return bonuses;
     }
 
     /**
-     * Sets bonuses.
-     *
-     * @param bonuses the bonuses
+     * Sets the bonuses.
+     * @param bonuses The bonuses to set.
      */
     public void setBonuses(int[] bonuses) {
         this.bonuses = bonuses;
     }
 
     /**
-     * Gets last animation end.
-     *
-     * @return the last animation end
+     * Gets the last animation end.
+     * @return The last animation end.
      */
     public long getLastAnimationEnd() {
         return lastAnimationEnd;
     }
 
     /**
-     * Gets combat pulse.
-     *
-     * @return the combat pulse
+     * Gets the combatPulse.
+     * @return The combatPulse.
      */
     public CombatPulse getCombatPulse() {
         return combatPulse;
     }
 
     /**
-     * Sets combat pulse.
-     *
-     * @param combatPulse the combat pulse
+     * Sets the combatPulse.
+     * @return The void.
      */
     public void setCombatPulse(CombatPulse combatPulse) {
-        this.combatPulse = (CombatPulse) combatPulse;
+        this.combatPulse = (CombatPulse)combatPulse;
     }
 
     /**
-     * Is retaliating boolean.
-     *
-     * @return the boolean
+     * Gets the retaliating.
+     * @return The retaliating.
      */
     public boolean isRetaliating() {
         return retaliating;
     }
 
     /**
-     * Sets retaliating.
-     *
-     * @param retaliating the retaliating
+     * Sets the retaliating.
+     * @param retaliating The retaliating to set.
      */
     public void setRetaliating(boolean retaliating) {
         this.retaliating = retaliating;
     }
 
     /**
-     * Gets attack speed.
-     *
-     * @return the attack speed
+     * Gets the attackSpeed.
+     * @return The attackSpeed.
      */
     public int getAttackSpeed() {
         return attackSpeed;
     }
 
     /**
-     * Sets attack speed.
-     *
-     * @param attackSpeed the attack speed
+     * Sets the attackSpeed.
+     * @param attackSpeed The attackSpeed to set.
      */
     public void setAttackSpeed(int attackSpeed) {
         this.attackSpeed = attackSpeed;
     }
 
     /**
-     * Gets attack animation.
-     *
-     * @return the attack animation
+     * Gets the attackAnimation.
+     * @return The attackAnimation.
      */
     public Animation getAttackAnimation() {
         return attackAnimation;
     }
 
     /**
-     * Sets attack animation.
-     *
-     * @param attackAnimation the attack animation
+     * Sets the attackAnimation.
+     * @param attackAnimation The attackAnimation to set.
      */
     public void setAttackAnimation(Animation attackAnimation) {
         this.attackAnimation = attackAnimation;
     }
 
     /**
-     * Gets defence animation.
-     *
-     * @return the defence animation
+     * Gets the defenceAnimation.
+     * @return The defenceAnimation.
      */
     public Animation getDefenceAnimation() {
         return defenceAnimation;
     }
 
     /**
-     * Sets defence animation.
-     *
-     * @param defenceAnimation the defence animation
+     * Sets the defenceAnimation.
+     * @param defenceAnimation The defenceAnimation to set.
      */
     public void setDefenceAnimation(Animation defenceAnimation) {
         this.defenceAnimation = defenceAnimation;
     }
 
     /**
-     * Sets spell.
-     *
-     * @param spell the spell
+     * Sets the spell.
+     * @param spell The spell to set.
      */
     public void setSpell(CombatSpell spell) {
         this.spell = spell;
@@ -372,189 +416,164 @@ public final class Properties {
     }
 
     /**
-     * Gets spell.
-     *
-     * @return the spell
+     * Gets the spell.
+     * @return The spell.
      */
     public CombatSpell getSpell() {
         return spell;
     }
 
     /**
-     * Gets autocast spell.
-     *
-     * @return the autocast spell
+     * @return the autocastSpell.
      */
     public CombatSpell getAutocastSpell() {
         return autocastSpell;
     }
 
     /**
-     * Sets autocast spell.
-     *
-     * @param autocastSpell the autocast spell
+     * @param autocastSpell the autocastSpell to set.
      */
     public void setAutocastSpell(CombatSpell autocastSpell) {
         this.autocastSpell = autocastSpell;
     }
 
     /**
-     * Gets armour set.
-     *
-     * @return the armour set
+     * @return the armourSet.
      */
     public ArmourSet getArmourSet() {
         return armourSet;
     }
 
     /**
-     * Sets armour set.
-     *
-     * @param armourSet the armour set
+     * @param armourSet the armourSet to set.
      */
     public void setArmourSet(ArmourSet armourSet) {
         this.armourSet = armourSet;
     }
 
     /**
-     * Gets death animation.
-     *
-     * @return the death animation
+     * Gets the deathAnimation.
+     * @return The deathAnimation.
      */
     public Animation getDeathAnimation() {
         return deathAnimation;
     }
 
     /**
-     * Sets death animation.
-     *
-     * @param deathAnimation the death animation
+     * Sets the deathAnimation.
+     * @param deathAnimation The deathAnimation to set.
      */
     public void setDeathAnimation(Animation deathAnimation) {
         this.deathAnimation = deathAnimation;
     }
 
     /**
-     * Is multi zone boolean.
-     *
-     * @return the boolean
+     * Gets the multiZone.
+     * @return The multiZone.
      */
     public boolean isMultiZone() {
         return multiZone;
     }
 
     /**
-     * Sets multi zone.
-     *
-     * @param multiZone the multi zone
+     * Sets the multiZone.
+     * @param multiZone The multiZone to set.
      */
     public void setMultiZone(boolean multiZone) {
         this.multiZone = multiZone;
     }
 
     /**
-     * Is safe zone boolean.
-     *
-     * @return the boolean
+     * Gets the safeZone.
+     * @return The safeZone.
      */
     public boolean isSafeZone() {
         return safeZone;
     }
 
     /**
-     * Sets safe zone.
-     *
-     * @param safeZone the safe zone
+     * Sets the safeZone.
+     * @param safeZone The safeZone to set.
      */
     public void setSafeZone(boolean safeZone) {
         this.safeZone = safeZone;
     }
 
     /**
-     * Gets combat time out.
-     *
-     * @return the combat time out
+     * Gets the combatTimeOut.
+     * @return The combatTimeOut.
      */
     public int getCombatTimeOut() {
         return combatTimeOut;
     }
 
     /**
-     * Sets combat time out.
-     *
-     * @param combatTimeOut the combat time out
+     * Sets the combatTimeOut.
+     * @param combatTimeOut The combatTimeOut to set.
      */
     public void setCombatTimeOut(int combatTimeOut) {
         this.combatTimeOut = combatTimeOut;
     }
 
     /**
-     * Is npc walkable boolean.
-     *
-     * @return the boolean
+     * Gets the npcWalkable.
+     * @return The npcWalkable.
      */
     public boolean isNPCWalkable() {
         return npcWalkable;
     }
 
     /**
-     * Sets npc walkable.
-     *
-     * @param npcWalkable the npc walkable
+     * Sets the npcWalkable.
+     * @param npcWalkable The npcWalkable to set.
      */
     public void setNPCWalkable(boolean npcWalkable) {
         this.npcWalkable = npcWalkable;
     }
 
     /**
-     * Gets range animation.
-     *
-     * @return the range animation
+     * Gets the rangeAnimation.
+     * @return the rangeAnimation
      */
     public Animation getRangeAnimation() {
         return rangeAnimation;
     }
 
     /**
-     * Sets range animation.
-     *
-     * @param rangeAnimation the range animation
+     * Sets the rangeAnimation.
+     * @param rangeAnimation the rangeAnimation to set.
      */
     public void setRangeAnimation(Animation rangeAnimation) {
         this.rangeAnimation = rangeAnimation;
     }
 
     /**
-     * Gets magic animation.
-     *
-     * @return the magic animation
+     * Gets the magicAnimation.
+     * @return the magicAnimation
      */
     public Animation getMagicAnimation() {
         return magicAnimation;
     }
 
     /**
-     * Sets magic animation.
-     *
-     * @param magicAnimation the magic animation
+     * Sets the magicAnimation.
+     * @param magicAnimation the magicAnimation to set.
      */
     public void setMagicAnimation(Animation magicAnimation) {
         this.magicAnimation = magicAnimation;
     }
 
     /**
-     * Gets protect style.
-     *
-     * @return the protect style
+     * Gets the protectStyle.
+     * @return the protectStyle.
      */
     public CombatStyle getProtectStyle() {
         return protectStyle;
     }
 
     /**
-     * Sets protect style.
-     *
-     * @param protectStyle the protect style
+     * Sets the protectStyle.
+     * @param protectStyle the protectStyle to set
      */
     public void setProtectStyle(CombatStyle protectStyle) {
         this.protectStyle = protectStyle;

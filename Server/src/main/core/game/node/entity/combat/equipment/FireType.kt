@@ -12,7 +12,8 @@ import core.game.world.update.flag.context.Animation
 import core.tools.RandomFunction
 
 /**
- * Fire type.
+ * The fire types.
+ * @author Emperor
  *
  * @param animation The animation associated with the fire type.
  * @param projectileId The ID of the projectile used for the fire type.

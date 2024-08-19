@@ -15,36 +15,60 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Range weapon.
+ * A class holding all the range weapon definitions.
+ * @author Emperor
  */
 public final class RangeWeapon {
 
+    /**
+     * The range weapons mapping.
+     */
     private static final Map<Integer, RangeWeapon> RANGE_WEAPONS = new HashMap<Integer, RangeWeapon>();
 
+    /**
+     * The mapping containing all the possible ammunition types.
+     */
     private final List<Integer> ammunition;
 
+    /**
+     * The item id.
+     */
     private final int itemId;
 
+    /**
+     * The attack animation id.
+     */
     private final Animation animation;
 
+    /**
+     * The attack speed.
+     */
     private final int attackSpeed;
 
+    /**
+     * The equipment slot the ammunition uses, if any.
+     */
     private final int ammunitionSlot;
 
+    /**
+     * The weapon type.
+     */
     private final int type;
 
+    /**
+     * If we should drop ammo.
+     */
     private final boolean dropAmmo;
 
     /**
-     * Instantiates a new Range weapon.
-     *
-     * @param itemId         the item id
-     * @param animation      the animation
-     * @param attackSpeed    the attack speed
-     * @param ammunitionSlot the ammunition slot
-     * @param type           the type
-     * @param dropAmmo       the drop ammo
-     * @param ammunition     the ammunition
+     * Constructs a new {@code RangeWeapon} {@code Object}.
+     * @param itemId The item id.
+     * @param animation The animation.
+     * @param attackSpeed The attack speed.
+     * @param ammunitionSlot The ammunition's equipment slot, or -1 if not worn.
+     * @param type The weapon type.
+     * @param dropAmmo If the ammunition should be dropped.
+     * @param ammunition The possible ammunition vector list.
      */
     public RangeWeapon(int itemId, Animation animation, int attackSpeed, int ammunitionSlot, int type, boolean dropAmmo, List<Integer> ammunition) {
         this.itemId = itemId;
@@ -57,9 +81,8 @@ public final class RangeWeapon {
     }
 
     /**
-     * Initialize boolean.
-     *
-     * @return the boolean
+     * Populates the range weapons mapping.
+     * @return {@code True}.
      */
     public static boolean initialize() {
         Document doc;
@@ -113,36 +136,30 @@ public final class RangeWeapon {
     }
 
     /**
-     * Gets range weapons.
-     *
-     * @return the range weapons
+     * Gets the range weapons mapping.
+     * @return The range weapons.
      */
     public static Map<Integer, RangeWeapon> getRangeWeapons() {
         return RANGE_WEAPONS;
     }
 
     /**
-     * Get range weapon.
-     *
-     * @param id the id
-     * @return the range weapon
+     * Gets a range weapon instance from the mapping.
+     * @param id The item id.
+     * @return The instance.
      */
     public static RangeWeapon get(int id) {
         return RANGE_WEAPONS.get(id);
     }
 
     /**
-     * Gets item id.
-     *
-     * @return the item id
+     * @return the itemId
      */
     public int getItemId() {
         return itemId;
     }
 
     /**
-     * Gets animation.
-     *
      * @return the animation
      */
     public Animation getAnimation() {
@@ -150,17 +167,13 @@ public final class RangeWeapon {
     }
 
     /**
-     * Gets ammunition slot.
-     *
-     * @return the ammunition slot
+     * @return the ammunitionSlot
      */
     public int getAmmunitionSlot() {
         return ammunitionSlot;
     }
 
     /**
-     * Gets ammunition.
-     *
      * @return the ammunition
      */
     public List<Integer> getAmmunition() {
@@ -168,17 +181,13 @@ public final class RangeWeapon {
     }
 
     /**
-     * Gets attack speed.
-     *
-     * @return the attack speed
+     * @return the attackSpeed
      */
     public int getAttackSpeed() {
         return attackSpeed;
     }
 
     /**
-     * Gets type.
-     *
      * @return the type
      */
     public int getType() {
@@ -186,18 +195,15 @@ public final class RangeWeapon {
     }
 
     /**
-     * Gets weapon type.
-     *
-     * @return the weapon type
+     * Gets the weapon type.
+     * @return The weapon type.
      */
     public Weapon.WeaponType getWeaponType() {
         return Weapon.WeaponType.values()[type];
     }
 
     /**
-     * Is drop ammo boolean.
-     *
-     * @return the boolean
+     * @return the dropAmmo
      */
     public boolean isDropAmmo() {
         return dropAmmo;

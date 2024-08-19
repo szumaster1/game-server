@@ -1,121 +1,133 @@
 package core.game.node.entity.player.info;
 
 /**
- * Client info.
- * This class holds information about the client's display settings.
+ * Holds a player's client info.
+ * @author Emperor
  */
 public final class ClientInfo {
 
-    private int displayMode; // Variable to store the display mode of the client
-
-    private int windowMode; // Variable to store the window mode of the client
-
-    private int screenWidth; // Variable to store the width of the client's screen
-
-    private int screenHeight; // Variable to store the height of the client's screen
+    /**
+     * The current display mode.
+     */
+    private int displayMode;
 
     /**
-     * Instantiates a new Client info.
+     * The current window mode.
+     */
+    private int windowMode;
+
+    /**
+     * The screen width.
+     */
+    private int screenWidth;
+
+    /**
+     * The screen height.
+     */
+    private int screenHeight;
+
+    /**
+     * Constructs a new {@Code ClientInfo} {@Code Object}
      *
-     * @param displayMode  the display mode
-     * @param windowMode   the window mode
-     * @param screenWidth  the screen width
-     * @param screenHeight the screen height
+     * @param displayMode  The display mode.
+     * @param windowMode   The window mode.
+     * @param screenWidth  The screen width.
+     * @param screenHeight The screen height.
      */
     public ClientInfo(int displayMode, int windowMode, int screenWidth, int screenHeight) {
-        this.displayMode = displayMode; // Assigning the display mode parameter to the class variable
-        this.windowMode = windowMode; // Assigning the window mode parameter to the class variable
-        this.screenWidth = screenWidth; // Assigning the screen width parameter to the class variable
-        this.screenHeight = screenHeight; // Assigning the screen height parameter to the class variable
+        this.displayMode = displayMode;
+        this.windowMode = windowMode;
+        this.screenWidth = screenWidth;
+        this.screenHeight = screenHeight;
     }
 
     /**
-     * Is high detail boolean.
+     * Checks if the client is running HD.
      *
-     * @return the boolean
+     * @return {@code True} if so.
      */
     public boolean isHighDetail() {
-        return displayMode > 0; // Returns true if the display mode is greater than 0, indicating high detail
+        return displayMode > 0; // ?
     }
 
     /**
-     * Is resizable boolean.
+     * Checks if the client screen is resizable.
      *
-     * @return the boolean
+     * @return {@code True} if so.
      */
     public boolean isResizable() {
-        return windowMode > 1; // Returns true if the window mode is greater than 1, indicating resizable window
+        return windowMode > 1;
     }
 
     /**
-     * Gets display mode.
+     * Gets the displayMode.
      *
-     * @return the display mode
+     * @return the displayMode
      */
     public int getDisplayMode() {
-        return displayMode; // Returns the current display mode
+        return displayMode;
     }
 
     /**
-     * Sets display mode.
+     * Sets the displayMode.
      *
-     * @param displayMode the display mode
+     * @param displayMode the displayMode to set.
      */
     public void setDisplayMode(int displayMode) {
-        this.displayMode = displayMode; // Updates the display mode with the provided value
+        this.displayMode = displayMode;
     }
 
     /**
-     * Gets window mode.
+     * Gets the windowMode.
      *
-     * @return the window mode
+     * @return the windowMode
      */
     public int getWindowMode() {
-        return windowMode; // Returns the current window mode
+        return windowMode;
     }
 
     /**
-     * Sets window mode.
+     * Sets the windowMode.
      *
-     * @param windowMode the window mode
+     * @param windowMode the windowMode to set.
      */
     public void setWindowMode(int windowMode) {
-        this.windowMode = windowMode; // Updates the window mode with the provided value
+        this.windowMode = windowMode;
     }
 
     /**
-     * Gets screen width.
+     * Gets the screenWidth.
      *
-     * @return the screen width
+     * @return the screenWidth
      */
     public int getScreenWidth() {
-        return screenWidth; // Returns the current screen width
+        return screenWidth;
     }
 
     /**
-     * Sets screen width.
+     * Sets the screenWidth.
      *
-     * @param screenWidth the screen width
+     * @param screenWidth the screenWidth to set.
      */
     public void setScreenWidth(int screenWidth) {
-        this.screenWidth = screenWidth; // Updates the screen width with the provided value
+        this.screenWidth = screenWidth;
     }
 
     /**
-     * Gets screen height.
+     * Gets the screenHeight.
      *
-     * @return the screen height
+     * @return the screenHeight
      */
     public int getScreenHeight() {
-        return screenHeight; // Returns the current screen height
+        return screenHeight;
     }
 
     /**
-     * Sets screen height.
+     * Sets the screenHeight.
      *
-     * @param screenHeight the screen height
+     * @param screenHeight the screenHeight to set.
      */
     public void setScreenHeight(int screenHeight) {
-        this.screenHeight = screenHeight; // Updates the screen height with the provided value
+        this.screenHeight = screenHeight;
     }
 }

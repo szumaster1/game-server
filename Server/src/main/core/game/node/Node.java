@@ -1,6 +1,5 @@
 package core.game.node;
 
-import core.api.utils.Vector;
 import core.game.interaction.DestinationFlag;
 import core.game.interaction.InteractPlugin;
 import core.game.node.entity.npc.NPC;
@@ -10,54 +9,64 @@ import core.game.node.scenery.Scenery;
 import core.game.world.map.Direction;
 import core.game.world.map.Location;
 import core.tools.StringUtils;
+import core.api.utils.Vector;
 
 /**
- * Node.
+ * Represents a node which is anything that is interactable in 2009Scape.
+ * @author Emperor
  */
 public abstract class Node {
 
     /**
-     * The Name.
+     * The name of the node;
      */
     protected String name;
+
     /**
-     * The Location.
+     * The location.
      */
     protected Location location;
+
     /**
-     * The Index.
+     * The index of the node.
      */
     protected int index;
+
     /**
-     * The Direction.
+     * The node's direction.
      */
     protected Direction direction;
+
     /**
-     * The Size.
+     * The node's size.
      */
     protected int size = 1;
+
     /**
-     * The Active.
+     * If the node is active.
      */
     protected boolean active = true;
+
     /**
-     * The Interact plugin.
+     * The interaction instance.
      */
     protected InteractPlugin interactPlugin;
+
     /**
-     * The Destination flag.
+     * The destination flag.
      */
     protected DestinationFlag destinationFlag;
+
     /**
-     * The Renderable.
+     * If the node is renderable.
      */
     protected boolean renderable = true;
 
     /**
-     * Instantiates a new Node.
+     * Constructs a new {@code Node} {@code Object}.
      *
-     * @param name     the name
-     * @param location the location
+     * @param name     The name.
+     * @param location The location.
      */
     public Node(String name, Location location) {
         this.name = name;
@@ -65,74 +74,69 @@ public abstract class Node {
     }
 
     /**
-     * As npc npc.
+     * Casts the npc to a player.
      *
-     * @return the npc
+     * @return the npc.
      */
     public NPC asNpc() {
         return (NPC) this;
     }
 
     /**
-     * As player player.
+     * Casts the player.
      *
-     * @return the player
+     * @return the player.
      */
     public Player asPlayer() {
         return (Player) this;
     }
 
     /**
-     * As scenery scenery.
+     * Casts the scenery.
      *
-     * @return the scenery
+     * @return the object.
      */
     public Scenery asScenery() {
         return (Scenery) this;
     }
 
     /**
-     * As item item.
+     * Casts the item.
      *
-     * @return the item
+     * @return the item.
      */
     public Item asItem() {
         return (Item) this;
     }
 
     /**
-     * Gets id.
+     * Gets the node id.
      *
-     * @return the id
+     * @return the id.
      */
     public int getId() {
         return this instanceof NPC ? ((NPC) this).getId() : this instanceof Scenery ? ((Scenery) this).getId() : this instanceof Item ? ((Item) this).getId() : -1;
     }
 
     /**
-     * Gets id hash.
+     * Gets the node id hash (only relevant if the node is an item).
      *
-     * @return the id hash
+     * @return the id hash.
      */
     public int getIdHash() {
         return this instanceof Item ? ((Item) this).getIdHash() : -1;
     }
 
     /**
-     * Gets center location.
+     * Gets the center location.
      *
-     * @return the center location
+     * @return The center location.
      */
     public Location getCenterLocation() {
         int offset = size >> 1;
         return location.transform(offset, offset, 0);
     }
 
-    /**
-     * Gets mathematical center.
-     *
-     * @return the mathematical center
-     */
     public Vector getMathematicalCenter() {
         Location topRight = location.transform(size - 1, size - 1, 0);
         double x = ((double) location.getX() + (double) topRight.getX()) / 2.0;
@@ -140,12 +144,6 @@ public abstract class Node {
         return new Vector(x, y);
     }
 
-    /**
-     * Gets face location.
-     *
-     * @param fromLoc the from loc
-     * @return the face location
-     */
     public Location getFaceLocation(Location fromLoc) {
         Vector center = getMathematicalCenter();
         Vector fromVec = new Vector((double) fromLoc.getX(), (double) fromLoc.getY());
@@ -155,72 +153,72 @@ public abstract class Node {
     }
 
     /**
-     * Gets name.
+     * Gets the name of this node.
      *
-     * @return the name
+     * @return The name.
      */
     public String getName() {
         return name;
     }
 
     /**
-     * Gets username.
+     * Get a formated username.
      *
-     * @return the username
+     * @return The username.
      */
     public String getUsername() {
         return StringUtils.formatDisplayName(name);
     }
 
     /**
-     * Gets index.
+     * Gets the index.
      *
-     * @return the index
+     * @return The index.
      */
     public int getIndex() {
         return index;
     }
 
     /**
-     * Sets index.
+     * Sets the index.
      *
-     * @param index the index
+     * @param index The index to set.
      */
     public void setIndex(int index) {
         this.index = index;
     }
 
     /**
-     * Gets location.
+     * Gets the location.
      *
-     * @return the location
+     * @return The location.
      */
     public Location getLocation() {
         return location;
     }
 
     /**
-     * Sets location.
+     * Sets the location.
      *
-     * @param location the location
+     * @param location The location to set.
      */
     public void setLocation(Location location) {
         this.location = location;
     }
 
     /**
-     * Gets direction.
+     * Gets the direction.
      *
-     * @return the direction
+     * @return The direction.
      */
     public Direction getDirection() {
         return direction;
     }
 
     /**
-     * Sets direction.
+     * Sets the direction.
      *
-     * @param direction the direction
+     * @param direction The direction to set.
      */
     public void setDirection(Direction direction) {
         if (direction == null)
@@ -229,45 +227,45 @@ public abstract class Node {
     }
 
     /**
-     * Size int.
+     * Gets the size.
      *
-     * @return the int
+     * @return The size.
      */
     public int size() {
         return size;
     }
 
     /**
-     * Sets size.
+     * Sets the size.
      *
-     * @param size the size
+     * @param size The size to set.
      */
     public void setSize(int size) {
         this.size = size;
     }
 
     /**
-     * Is active boolean.
+     * Gets the active.
      *
-     * @return the boolean
+     * @return The active.
      */
     public boolean isActive() {
         return active;
     }
 
     /**
-     * Sets active.
+     * Sets the active.
      *
-     * @param active the active
+     * @param active The active to set.
      */
     public void setActive(boolean active) {
         this.active = active;
     }
 
     /**
-     * Gets interaction.
+     * Gets the interaction.
      *
-     * @return the interaction
+     * @return The interaction.
      */
     public InteractPlugin getInteraction() {
         if (interactPlugin != null && !interactPlugin.isInitialized()) {
@@ -277,45 +275,45 @@ public abstract class Node {
     }
 
     /**
-     * Sets interaction.
+     * Sets the interaction.
      *
-     * @param interactPlugin the interact plugin
+     * @param interactPlugin The interaction to set.
      */
     public void setInteraction(InteractPlugin interactPlugin) {
         this.interactPlugin = interactPlugin;
     }
 
     /**
-     * Gets destination flag.
+     * Gets the destinationFlag.
      *
-     * @return the destination flag
+     * @return The destinationFlag.
      */
     public DestinationFlag getDestinationFlag() {
         return destinationFlag;
     }
 
     /**
-     * Sets destination flag.
+     * Sets the destinationFlag.
      *
-     * @param destinationFlag the destination flag
+     * @param destinationFlag The destinationFlag to set.
      */
     public void setDestinationFlag(DestinationFlag destinationFlag) {
         this.destinationFlag = destinationFlag;
     }
 
     /**
-     * Is renderable boolean.
+     * Gets the renderable.
      *
-     * @return the boolean
+     * @return The renderable.
      */
     public boolean isRenderable() {
         return renderable;
     }
 
     /**
-     * Sets renderable.
+     * Sets the renderable.
      *
-     * @param renderable the renderable
+     * @param renderable The renderable to set.
      */
     public void setRenderable(boolean renderable) {
         this.renderable = renderable;

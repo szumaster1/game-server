@@ -4,20 +4,34 @@ import core.game.node.entity.player.Player;
 import core.tools.StringUtils;
 
 /**
- * Uid info.
+ * The unique machine information of an account.
+ * @author Vexia
+ *
  */
 public class UIDInfo {
 
+    /**
+     * The ip address.
+     */
     private String ip;
 
+    /**
+     * The computer name.
+     */
     private String compName;
 
+    /**
+     * The mac-address.
+     */
     private String mac;
 
+    /**
+     * The motherboard serial of the user.
+     */
     private String serial;
 
     /**
-     * Instantiates a new Uid info.
+     * Constructs a new {@code UIDInfo} {@code Object}
      */
     public UIDInfo() {
         /*
@@ -26,12 +40,11 @@ public class UIDInfo {
     }
 
     /**
-     * Instantiates a new Uid info.
-     *
-     * @param ip       the ip
-     * @param compName the comp name
-     * @param mac      the mac
-     * @param serial   the serial
+     * Constructs a new {@code UIDInfo} {@code Object}
+     * @param ip the ip.
+     * @param compName the computer name.
+     * @param mac the mac.
+     * @param serial the serial.
      */
     public UIDInfo(String ip, String compName, String mac, String serial) {
         this.ip = ip;
@@ -41,9 +54,8 @@ public class UIDInfo {
     }
 
     /**
-     * Translate.
-     *
-     * @param other the other
+     * Translates the unique info from another object.
+     * @param other the other information.
      */
     public void translate(UIDInfo other) {
         ip = other.ip;
@@ -53,11 +65,8 @@ public class UIDInfo {
     }
 
     /**
-     * To string string.
-     *
-     * @param player the player
-     * @param target the target
-     * @return the string
+     * Converts a to string in format mode for an admin or mod.
+     * @return the string.
      */
     public String toString(Player player, Player target) {
         boolean admin = player.isAdmin();
@@ -74,17 +83,15 @@ public class UIDInfo {
     }
 
     /**
-     * Gets comp name.
-     *
-     * @return the comp name
+     * Gets the compName.
+     * @return the compName
      */
     public String getCompName() {
         return compName;
     }
 
     /**
-     * Gets ip.
-     *
+     * Gets the ip.
      * @return the ip
      */
     public String getIp() {
@@ -92,8 +99,7 @@ public class UIDInfo {
     }
 
     /**
-     * Gets mac.
-     *
+     * Gets the mac.
      * @return the mac
      */
     public String getMac() {
@@ -101,8 +107,7 @@ public class UIDInfo {
     }
 
     /**
-     * Gets serial.
-     *
+     * Gets the serial.
      * @return the serial
      */
     public String getSerial() {

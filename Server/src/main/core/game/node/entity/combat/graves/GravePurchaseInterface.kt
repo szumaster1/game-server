@@ -8,6 +8,7 @@ import core.game.node.item.Item
 
 /**
  * Grave purchase interface.
+ * @author Ceikry
  */
 class GravePurchaseInterface : InterfaceListener {
     val BUTTON_CONFIRM = 34 // Constant for the confirm button ID

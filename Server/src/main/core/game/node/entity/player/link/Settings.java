@@ -1,55 +1,133 @@
 package core.game.node.entity.player.link;
 
+import core.game.system.config.ItemConfigParser;
+import org.json.simple.JSONObject;
 import core.game.node.entity.player.Player;
 import core.game.node.item.Item;
-import core.game.system.config.ItemConfigParser;
+import core.game.system.task.Pulse;
+import core.game.world.GameWorld;
 import core.network.packet.IoBuffer;
-import org.json.simple.JSONObject;
 
 import java.nio.ByteBuffer;
 
-import static core.api.ContentAPIKt.setVarp;
+import static core.api.ContentAPIKt.*;
 
 /**
- * Settings.
+ * Holds a player's settings.
+ * @author Emperor
  */
 public final class Settings {
 
+    /**
+     * The player.
+     */
     private final Player player;
 
+    /**
+     * The run energy.
+     */
     private double runEnergy = 100.0;
+
+    /**
+     * The player's weight.
+     */
     private double weight;
+
+    /**
+     * The brightness setting.
+     */
     private int brightness = 2;
+
+    /**
+     * The music volume.
+     */
     private int musicVolume;
+
+    /**
+     * The sound effects volume.
+     */
     private int soundEffectVolume;
+
+    /**
+     * The area sounds volume.
+     */
     private int areaSoundVolume;
+
+    /**
+     * If the player has the single mouse button setting enabled.
+     */
     private boolean singleMouseButton;
+
+    /**
+     * If the chat effects should be disabled.
+     */
     private boolean disableChatEffects;
+
+    /**
+     * If the private chat should be split from public chat.
+     */
     private boolean splitPrivateChat;
+
+    /**
+     * If the player has the accept aid setting enabled.
+     */
     private boolean acceptAid;
+
+    /**
+     * If the player's run button is toggled.
+     */
     private boolean runToggled;
 
+    /**
+     * The public chat setting.
+     */
     private int publicChatSetting = 0;
+
+    /**
+     * The private chat setting.
+     */
     private int privateChatSetting = 0;
+
+    /**
+     * The clan chat setting.
+     */
     private int clanChatSetting = 0;
+
+    /**
+     * The trade setting.
+     */
     private int tradeSetting = 0;
+
+    /**
+     * The assist setting.
+     */
     private int assistSetting = 0;
 
+    /**
+     * If the special attack is toggled.
+     */
     private boolean specialToggled;
+
+    /**
+     * The current special energy the player has left.
+     */
     private int specialEnergy = 100;
+
+    /**
+     * The current attack style index.
+     */
     private int attackStyleIndex = 0;
 
     /**
-     * Instantiates a new Settings.
-     *
-     * @param player the player
+     * Constructs a new {@code Settings} {@code Object}.
+     * @param player The player.
      */
     public Settings(Player player) {
         this.player = player;
     }
 
     /**
-     * Update.
+     * Updates the settings.
      */
     public void update() {
         setVarp(player, 166, brightness + 1);
@@ -71,9 +149,8 @@ public final class Settings {
     }
 
     /**
-     * Toggle attack style index.
-     *
-     * @param index the index
+     * Toggles the attack style index.
+     * @param index The index.
      */
     public void toggleAttackStyleIndex(int index) {
         this.attackStyleIndex = index;
@@ -81,18 +158,17 @@ public final class Settings {
     }
 
     /**
-     * Update chat settings.
+     * Updates the chat settings.
      */
     public void updateChatSettings() {
         player.getSession().write(new IoBuffer(232).put(publicChatSetting).put(privateChatSetting).put(tradeSetting));
     }
 
     /**
-     * Update chat settings.
-     *
-     * @param pub   the pub
-     * @param priv  the priv
-     * @param trade the trade
+     * Sets the chat settings.
+     * @param pub The public chat setting.
+     * @param priv The private chat setting.
+     * @param trade The trade setting.
      */
     public void updateChatSettings(int pub, int priv, int trade) {
         boolean update = false;
@@ -110,11 +186,10 @@ public final class Settings {
     }
 
     /**
-     * Sets chat settings.
-     *
-     * @param pub   the pub
-     * @param priv  the priv
-     * @param trade the trade
+     * Sets the chat settings.
+     * @param pub The public chat setting.
+     * @param priv The private chat setting.
+     * @param trade The trade setting.
      */
     public void setChatSettings(int pub, int priv, int trade) {
         publicChatSetting = pub;
@@ -123,9 +198,8 @@ public final class Settings {
     }
 
     /**
-     * Save.
-     *
-     * @param buffer the buffer
+     * Writes the settings on the byte buffer.
+     * @param buffer The byte buffer.
      */
     public void save(ByteBuffer buffer) {
         buffer.put((byte) 1).put((byte) brightness).put((byte) musicVolume).put((byte) soundEffectVolume).put((byte) areaSoundVolume).put((byte) (singleMouseButton ? 1 : 0)).put((byte) (disableChatEffects ? 1 : 0)).put((byte) (splitPrivateChat ? 1 : 0)).put((byte) (acceptAid ? 1 : 0)).put((byte) (runToggled ? 1 : 0)).put((byte) publicChatSetting).put((byte) privateChatSetting).put((byte) clanChatSetting).put((byte) tradeSetting).put((byte) assistSetting).put(((byte) runEnergy));
@@ -142,9 +216,8 @@ public final class Settings {
     }
 
     /**
-     * Parse.
-     *
-     * @param buffer the buffer
+     * Parses the settings from the byte buffer.
+     * @param buffer The byte buffer.
      */
     public void parse(ByteBuffer buffer) {
         int opcode;
@@ -180,43 +253,37 @@ public final class Settings {
         }
     }
 
-    /**
-     * Parse.
-     *
-     * @param settingsData the settings data
-     */
-    public void parse(JSONObject settingsData) {
-        brightness = Integer.parseInt(settingsData.get("brightness").toString());
-        musicVolume = Integer.parseInt(settingsData.get("musicVolume").toString());
-        soundEffectVolume = Integer.parseInt(settingsData.get("soundEffectVolume").toString());
-        areaSoundVolume = Integer.parseInt(settingsData.get("areaSoundVolume").toString());
+    public void parse(JSONObject settingsData){
+        brightness = Integer.parseInt( settingsData.get("brightness").toString());
+        musicVolume = Integer.parseInt( settingsData.get("musicVolume").toString());
+        soundEffectVolume = Integer.parseInt( settingsData.get("soundEffectVolume").toString());
+        areaSoundVolume = Integer.parseInt( settingsData.get("areaSoundVolume").toString());
         singleMouseButton = (boolean) settingsData.get("singleMouse");
         disableChatEffects = (boolean) settingsData.get("disableChatEffects");
         splitPrivateChat = (boolean) settingsData.get("splitPrivate");
         acceptAid = (boolean) settingsData.get("acceptAid");
         runToggled = (boolean) settingsData.get("runToggled");
-        publicChatSetting = Integer.parseInt(settingsData.get("publicChatSetting").toString());
-        privateChatSetting = Integer.parseInt(settingsData.get("privateChatSetting").toString());
-        clanChatSetting = Integer.parseInt(settingsData.get("clanChatSetting").toString());
-        tradeSetting = Integer.parseInt(settingsData.get("tradeSetting").toString());
-        assistSetting = Integer.parseInt(settingsData.get("assistSetting").toString());
-        runEnergy = Double.parseDouble(settingsData.get("runEnergy").toString());
-        specialEnergy = Integer.parseInt(settingsData.get("specialEnergy").toString());
-        attackStyleIndex = Integer.parseInt(settingsData.get("attackStyle").toString());
+        publicChatSetting = Integer.parseInt( settingsData.get("publicChatSetting").toString());
+        privateChatSetting = Integer.parseInt( settingsData.get("privateChatSetting").toString());
+        clanChatSetting = Integer.parseInt( settingsData.get("clanChatSetting").toString());
+        tradeSetting = Integer.parseInt( settingsData.get("tradeSetting").toString());
+        assistSetting = Integer.parseInt( settingsData.get("assistSetting").toString());
+        runEnergy = Double.parseDouble( settingsData.get("runEnergy").toString());
+        specialEnergy = Integer.parseInt( settingsData.get("specialEnergy").toString());
+        attackStyleIndex = Integer.parseInt( settingsData.get("attackStyle").toString());
         player.getProperties().setRetaliating((boolean) settingsData.get("retaliation"));
     }
 
     /**
-     * Toggle special bar.
+     * Toggles the special attack bar.
      */
     public void toggleSpecialBar() {
         setSpecialToggled(!specialToggled);
     }
 
     /**
-     * Sets special toggled.
-     *
-     * @param enable the enable
+     * Toggles the special attack bar.
+     * @param enable If the special attack should be enabled.
      */
     public void setSpecialToggled(boolean enable) {
         specialToggled = !specialToggled;
@@ -224,19 +291,18 @@ public final class Settings {
     }
 
     /**
-     * Is special toggled boolean.
-     *
-     * @return the boolean
+     * Checks if the special attack bar is toggled.
+     * @return {@code True} if so.
      */
     public boolean isSpecialToggled() {
         return specialToggled;
     }
 
     /**
-     * Drain special boolean.
-     *
-     * @param amount the amount
-     * @return the boolean
+     * Drains an amount of special attack energy.
+     * @param amount The amount to drain.
+     * @return {@code True} if succesful, {@code false} if the special attack
+     * energy amount hasn't changed after calling this method.
      */
     public boolean drainSpecial(int amount) {
         if (!specialToggled) {
@@ -252,9 +318,8 @@ public final class Settings {
     }
 
     /**
-     * Sets special energy.
-     *
-     * @param value the value
+     * Sets the special energy amount.
+     * @param value The amount to set.
      */
     public void setSpecialEnergy(int value) {
         specialEnergy = value;
@@ -262,16 +327,15 @@ public final class Settings {
     }
 
     /**
-     * Gets special energy.
-     *
-     * @return the special energy
+     * Gets the amount of special energy left.
+     * @return The amount of energy.
      */
     public int getSpecialEnergy() {
         return specialEnergy;
     }
 
     /**
-     * Toggle retaliating.
+     * Toggles the retaliating button.
      */
     public void toggleRetaliating() {
         player.getProperties().setRetaliating(!player.getProperties().isRetaliating());
@@ -279,7 +343,7 @@ public final class Settings {
     }
 
     /**
-     * Toggle mouse button.
+     * Toggles the singleMouseButton.
      */
     public void toggleMouseButton() {
         singleMouseButton = !singleMouseButton;
@@ -287,7 +351,7 @@ public final class Settings {
     }
 
     /**
-     * Toggle chat effects.
+     * Toggles the disableChatEffects.
      */
     public void toggleChatEffects() {
         disableChatEffects = !disableChatEffects;
@@ -295,7 +359,7 @@ public final class Settings {
     }
 
     /**
-     * Toggle split private chat.
+     * Toggles the splitPrivateChat.
      */
     public void toggleSplitPrivateChat() {
         splitPrivateChat = !splitPrivateChat;
@@ -303,7 +367,7 @@ public final class Settings {
     }
 
     /**
-     * Toggle accept aid.
+     * Toggles the acceptAid.
      */
     public void toggleAcceptAid() {
         acceptAid = !acceptAid;
@@ -311,16 +375,15 @@ public final class Settings {
     }
 
     /**
-     * Toggle run.
+     * Toggles the run button.
      */
     public void toggleRun() {
         setRunToggled(!runToggled);
     }
 
     /**
-     * Sets run toggled.
-     *
-     * @param enabled the enabled
+     * Toggles the run button.
+     * If the run button should be enabled.
      */
     public void setRunToggled(boolean enabled) {
         runToggled = enabled;
@@ -328,9 +391,9 @@ public final class Settings {
     }
 
     /**
-     * Update run energy.
-     *
-     * @param drain the drain
+     * Decreases the run energy with the given amount (drain parameter). <br> To
+     * increase, use a negative drain value.
+     * @param drain The drain amount.
      */
     public void updateRunEnergy(double drain) {
         runEnergy -= drain;
@@ -343,7 +406,7 @@ public final class Settings {
     }
 
     /**
-     * Update weight.
+     * Updates the weight.
      */
     public void updateWeight() {
         weight = 0.0;
@@ -368,27 +431,24 @@ public final class Settings {
     }
 
     /**
-     * Gets weight.
-     *
-     * @return the weight
+     * Gets the weight.
+     * @return The weight.
      */
     public double getWeight() {
         return weight;
     }
 
     /**
-     * Gets brightness.
-     *
-     * @return the brightness
+     * Gets the brightness.
+     * @return The brightness.
      */
     public int getBrightness() {
         return brightness;
     }
 
     /**
-     * Sets brightness.
-     *
-     * @param brightness the brightness
+     * Sets the brightness.
+     * @param brightness The brightness to set.
      */
     public void setBrightness(int brightness) {
         this.brightness = brightness;
@@ -396,18 +456,16 @@ public final class Settings {
     }
 
     /**
-     * Gets music volume.
-     *
-     * @return the music volume
+     * Gets the musicVolume.
+     * @return The musicVolume.
      */
     public int getMusicVolume() {
         return musicVolume;
     }
 
     /**
-     * Sets music volume.
-     *
-     * @param musicVolume the music volume
+     * Sets the musicVolume.
+     * @param musicVolume The musicVolume to set.
      */
     public void setMusicVolume(int musicVolume) {
         this.musicVolume = musicVolume;
@@ -415,18 +473,16 @@ public final class Settings {
     }
 
     /**
-     * Gets sound effect volume.
-     *
-     * @return the sound effect volume
+     * Gets the soundEffectVolume.
+     * @return The soundEffectVolume.
      */
     public int getSoundEffectVolume() {
         return soundEffectVolume;
     }
 
     /**
-     * Sets sound effect volume.
-     *
-     * @param soundEffectVolume the sound effect volume
+     * Sets the soundEffectVolume.
+     * @param soundEffectVolume The soundEffectVolume to set.
      */
     public void setSoundEffectVolume(int soundEffectVolume) {
         this.soundEffectVolume = soundEffectVolume;
@@ -434,18 +490,16 @@ public final class Settings {
     }
 
     /**
-     * Gets area sound volume.
-     *
-     * @return the area sound volume
+     * Gets the areaSoundVolume.
+     * @return The areaSoundVolume.
      */
     public int getAreaSoundVolume() {
         return areaSoundVolume;
     }
 
     /**
-     * Sets area sound volume.
-     *
-     * @param areaSoundVolume the area sound volume
+     * Sets the areaSoundVolume.
+     * @param areaSoundVolume The areaSoundVolume to set.
      */
     public void setAreaSoundVolume(int areaSoundVolume) {
         this.areaSoundVolume = areaSoundVolume;
@@ -453,36 +507,32 @@ public final class Settings {
     }
 
     /**
-     * Is single mouse button boolean.
-     *
-     * @return the boolean
+     * Gets the singleMouseButton.
+     * @return The singleMouseButton.
      */
     public boolean isSingleMouseButton() {
         return singleMouseButton;
     }
 
     /**
-     * Is disable chat effects boolean.
-     *
-     * @return the boolean
+     * Gets the disableChatEffects.
+     * @return The disableChatEffects.
      */
     public boolean isDisableChatEffects() {
         return disableChatEffects;
     }
 
     /**
-     * Is split private chat boolean.
-     *
-     * @return the boolean
+     * Gets the splitPrivateChat.
+     * @return The splitPrivateChat.
      */
     public boolean isSplitPrivateChat() {
         return splitPrivateChat;
     }
 
     /**
-     * Is accept aid boolean.
-     *
-     * @return the boolean
+     * Gets the acceptAid.
+     * @return The acceptAid.
      */
     public boolean isAcceptAid() {
         if (player.getIronmanManager().isIronman()) {
@@ -492,27 +542,24 @@ public final class Settings {
     }
 
     /**
-     * Is run toggled boolean.
-     *
-     * @return the boolean
+     * Gets the runToggled.
+     * @return The runToggled.
      */
     public boolean isRunToggled() {
         return runToggled;
     }
 
     /**
-     * Gets public chat setting.
-     *
-     * @return the public chat setting
+     * Gets the publicChatSetting.
+     * @return The publicChatSetting.
      */
     public int getPublicChatSetting() {
         return publicChatSetting;
     }
 
     /**
-     * Sets public chat setting.
-     *
-     * @param publicChatSetting the public chat setting
+     * Sets the publicChatSetting.
+     * @param publicChatSetting The publicChatSetting to set.
      */
     public void setPublicChatSetting(int publicChatSetting) {
         this.publicChatSetting = publicChatSetting;
@@ -520,18 +567,16 @@ public final class Settings {
     }
 
     /**
-     * Gets private chat setting.
-     *
-     * @return the private chat setting
+     * Gets the privateChatSetting.
+     * @return The privateChatSetting.
      */
     public int getPrivateChatSetting() {
         return privateChatSetting;
     }
 
     /**
-     * Sets private chat setting.
-     *
-     * @param privateChatSetting the private chat setting
+     * Sets the privateChatSetting.
+     * @param privateChatSetting The privateChatSetting to set.
      */
     public void setPrivateChatSetting(int privateChatSetting) {
         this.privateChatSetting = privateChatSetting;
@@ -539,18 +584,16 @@ public final class Settings {
     }
 
     /**
-     * Gets clan chat setting.
-     *
-     * @return the clan chat setting
+     * Gets the clanChatSetting.
+     * @return The clanChatSetting.
      */
     public int getClanChatSetting() {
         return clanChatSetting;
     }
 
     /**
-     * Sets clan chat setting.
-     *
-     * @param clanChatSetting the clan chat setting
+     * Sets the clanChatSetting.
+     * @param clanChatSetting The clanChatSetting to set.
      */
     public void setClanChatSetting(int clanChatSetting) {
         this.clanChatSetting = clanChatSetting;
@@ -558,18 +601,16 @@ public final class Settings {
     }
 
     /**
-     * Gets trade setting.
-     *
-     * @return the trade setting
+     * Gets the tradeSetting.
+     * @return The tradeSetting.
      */
     public int getTradeSetting() {
         return tradeSetting;
     }
 
     /**
-     * Sets trade setting.
-     *
-     * @param tradeSetting the trade setting
+     * Sets the tradeSetting.
+     * @param tradeSetting The tradeSetting to set.
      */
     public void setTradeSetting(int tradeSetting) {
         this.tradeSetting = tradeSetting;
@@ -577,18 +618,16 @@ public final class Settings {
     }
 
     /**
-     * Gets assist setting.
-     *
-     * @return the assist setting
+     * Gets the assistSetting.
+     * @return The assistSetting.
      */
     public int getAssistSetting() {
         return assistSetting;
     }
 
     /**
-     * Sets assist setting.
-     *
-     * @param assistSetting the assist setting
+     * Sets the assistSetting.
+     * @param assistSetting The assistSetting to set.
      */
     public void setAssistSetting(int assistSetting) {
         this.assistSetting = assistSetting;
@@ -596,36 +635,30 @@ public final class Settings {
     }
 
     /**
-     * Gets run energy.
-     *
-     * @return the run energy
+     * @return the runEnergy
      */
     public double getRunEnergy() {
         return runEnergy;
     }
 
     /**
-     * Sets run energy.
-     *
-     * @param runEnergy the run energy
+     * @param runEnergy the runEnergy to set
      */
     public void setRunEnergy(double runEnergy) {
         this.runEnergy = runEnergy;
     }
 
     /**
-     * Gets attack style index.
-     *
-     * @return the attack style index
+     * Gets the attackStyleIndex.
+     * @return The attackStyleIndex.
      */
     public int getAttackStyleIndex() {
         return attackStyleIndex;
     }
 
     /**
-     * Sets attack style index.
-     *
-     * @param attackStyleIndex the attack style index
+     * Sets the attackStyleIndex.
+     * @param attackStyleIndex The attackStyleIndex to set.
      */
     public void setAttackStyleIndex(int attackStyleIndex) {
         this.attackStyleIndex = attackStyleIndex;

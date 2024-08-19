@@ -16,9 +16,9 @@ import java.util.List;
 import static core.api.ContentAPIKt.playAudio;
 import static core.api.ContentAPIKt.setVarp;
 
-
 /**
- * The enum Prayer type.
+ * Represents a prayer type.
+ * @author Vexia, Emperor, jamix77
  */
 public enum PrayerType {
     /**

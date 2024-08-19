@@ -3,7 +3,8 @@ package core.game.node.entity.combat
 import core.game.node.entity.player.link.prayer.PrayerType
 
 /**
- * Combat style
+ * Represents the different styles of combat.
+ * @author Emperor
  *
  * @param swingHandler The handler responsible for the combat swing mechanics.
  * @param protectionPrayer The type of prayer that provides protection against this combat style.

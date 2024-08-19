@@ -3,58 +3,53 @@ package core.game.node.entity.player.link;
 import core.game.node.entity.player.Player;
 
 /**
- * Run script.
+ * Represents a run script.
+ * @author Vexia
  */
 public abstract class RunScript {
 
     /**
-     * The Player.
+     * The player instance.
      */
     protected Player player;
 
     /**
-     * The Value.
+     * The value entered.
      */
     protected Object value;
 
     /**
-     * Instantiates a new Run script.
+     * Constructs a new {@code RunScript} {@code Object}.
      */
     public RunScript() {
-        /*
+        /**
          * empty.
          */
     }
 
     /**
-     * Handle boolean.
-     *
-     * @return the boolean
+     * Handles the run script.
+     * @return the return.
      */
     public abstract boolean handle();
 
     /**
-     * Gets value.
-     *
-     * @return the value
+     * @return the value.
      */
     public Object getValue() {
         return value;
     }
 
     /**
-     * Sets value.
-     *
-     * @param value the value
+     * @param value the value to set;.
      */
     public void setValue(Object value) {
         this.value = value;
     }
 
     /**
-     * Sets player.
-     *
-     * @param player the player
+     * Sets the player.
+     * @param player the player.
      */
     public void setPlayer(Player player) {
         this.player = player;

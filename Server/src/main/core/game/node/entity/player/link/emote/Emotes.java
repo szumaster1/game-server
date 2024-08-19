@@ -18,7 +18,8 @@ import static core.api.ContentAPIKt.playJingle;
 import static core.api.ContentAPIKt.setAttribute;
 
 /**
- * The enum Emotes.
+ * Represents an emote.
+ * @author Vexia
  */
 public enum Emotes {
     /**

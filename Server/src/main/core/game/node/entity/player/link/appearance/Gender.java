@@ -1,28 +1,29 @@
 package core.game.node.entity.player.link.appearance;
 
 /**
- * The enum Gender.
+ * Rerpresents a type of gender, and it's relate base settings.
+ * @author Vexia
  */
 public enum Gender {
-    /**
-     * The Male.
-     */
     MALE(new BodyPart[]{new BodyPart(0), new BodyPart(10), new BodyPart(18), new BodyPart(26), new BodyPart(33), new BodyPart(36), new BodyPart(42)}),
-    /**
-     * The Female.
-     */
     FEMALE(new BodyPart[]{new BodyPart(45), new BodyPart(1000), new BodyPart(56), new BodyPart(61), new BodyPart(68), new BodyPart(70), new BodyPart(79)});
 
+    /**
+     * Represents the default appearance of this gender.
+     */
     private final BodyPart[] appearanceCache;
 
+    /**
+     * Constructs a new {@code Gender} {@code Object}.
+     */
     Gender(final BodyPart[] appearanceCache) {
         this.appearanceCache = appearanceCache;
     }
 
     /**
-     * Generate cache body part [ ].
+     * Method used to generate a default appearance cache.
      *
-     * @return the body part [ ]
+     * @return the cache.
      */
     public BodyPart[] generateCache() {
         final BodyPart[] cache = new BodyPart[appearanceCache.length];
@@ -33,28 +34,28 @@ public enum Gender {
     }
 
     /**
-     * Get appearance cache body part [ ].
+     * Gets the appearance cache.
      *
-     * @return the body part [ ]
+     * @return The appearance cache.
      */
     public BodyPart[] getAppearanceCache() {
         return appearanceCache;
     }
 
     /**
-     * To byte byte.
+     * Gets the representation as a byte.
      *
-     * @return the byte
+     * @return the byte.
      */
     public byte toByte() {
         return (byte) (this == MALE ? 0 : 1);
     }
 
     /**
-     * As byte gender.
+     * Gets the gender from a byte.
      *
-     * @param value the value
-     * @return the gender
+     * @param value the value.
+     * @return the gender.
      */
     public Gender asByte(byte value) {
         return value == 0 ? MALE : FEMALE;

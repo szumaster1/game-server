@@ -7,39 +7,73 @@ import core.game.world.map.RegionManager;
 import core.game.world.update.flag.chunk.ProjectileUpdateFlag;
 
 /**
- * Projectile.
+ * Represents a projectile to send.
+ * @author Emperor
  */
 public class Projectile {
 
+    /**
+     * The source node.
+     */
     private Entity source;
 
+    /**
+     * The source's centered location.
+     */
     private Location sourceLocation;
 
+    /**
+     * The victim.
+     */
     private Entity victim;
 
+    /**
+     * The projectile's gfx id.
+     */
     private int projectileId;
 
+    /**
+     * The start height.
+     */
     private int startHeight;
 
+    /**
+     * The ending height.
+     */
     private int endHeight;
 
+    /**
+     * The start delay.
+     */
     private int startDelay;
 
+    /**
+     * The speed.
+     */
     private int speed;
 
+    /**
+     * The angle.
+     */
     private int angle;
 
+    /**
+     * The distance to start.
+     */
     private int distance;
 
+    /**
+     * The end location (used for location based projectiles).
+     */
     private Location endLocation;
 
     /**
-     * Create projectile.
+     * Creates a new projectile.
      *
-     * @param source       the source
-     * @param victim       the victim
-     * @param projectileId the projectile id
-     * @return the projectile
+     * @param source       The source entity.
+     * @param victim       The victim.
+     * @param projectileId The projectile's gfx id;
+     * @return The created projectile.
      */
     public static Projectile create(Entity source, Entity victim, int projectileId) {
         int speed = (int) (46 + (getLocation(source).getDistance(victim.getLocation()) * 5));
@@ -47,14 +81,14 @@ public class Projectile {
     }
 
     /**
-     * Create projectile.
+     * Creates a new projectile.
      *
-     * @param source       the source
-     * @param victim       the victim
-     * @param projectileId the projectile id
-     * @param startHeight  the start height
-     * @param endHeight    the end height
-     * @return the projectile
+     * @param source       The source node.
+     * @param victim       The victim.
+     * @param projectileId The projectile's gfx id;
+     * @param startHeight  The starting height.
+     * @param endHeight    The ending height.
+     * @return The created projectile.
      */
     public static Projectile create(Entity source, Entity victim, int projectileId, int startHeight, int endHeight) {
         int speed = (int) (46 + (getLocation(source).getDistance(victim.getLocation()) * 5));
@@ -62,15 +96,15 @@ public class Projectile {
     }
 
     /**
-     * Create projectile.
+     * Creates a new projectile.
      *
-     * @param source       the source
-     * @param victim       the victim
-     * @param projectileId the projectile id
-     * @param startHeight  the start height
-     * @param endHeight    the end height
-     * @param startDelay   the start delay
-     * @return the projectile
+     * @param source       The source node.
+     * @param victim       The victim.
+     * @param projectileId The projectile's gfx id;
+     * @param startHeight  The starting height.
+     * @param endHeight    The ending height.
+     * @param startDelay   The start delay.
+     * @return The created projectile.
      */
     public static Projectile create(Entity source, Entity victim, int projectileId, int startHeight, int endHeight, int startDelay) {
         int speed = (int) (46 + (getLocation(source).getDistance(victim.getLocation()) * 5));
@@ -78,85 +112,84 @@ public class Projectile {
     }
 
     /**
-     * Create projectile.
+     * Creates a new projectile.
      *
-     * @param source       the source
-     * @param victim       the victim
-     * @param projectileId the projectile id
-     * @param startHeight  the start height
-     * @param endHeight    the end height
-     * @param startDelay   the start delay
-     * @param speed        the speed
-     * @return the projectile
+     * @param source       The source node.
+     * @param victim       The victim.
+     * @param projectileId The projectile's gfx id;
+     * @param startHeight  The starting height.
+     * @param endHeight    The ending height.
+     * @param startDelay   The start delay.
+     * @param speed        The projectile speed.
+     * @return The created projectile.
      */
     public static Projectile create(Entity source, Entity victim, int projectileId, int startHeight, int endHeight, int startDelay, int speed) {
         return new Projectile(source, victim, projectileId, startHeight, endHeight, startDelay, speed, 5, source == null ? 11 : source.size() << 5);
     }
 
     /**
-     * Create projectile.
+     * Creates a new projectile.
      *
-     * @param source       the source
-     * @param victim       the victim
-     * @param projectileId the projectile id
-     * @param startHeight  the start height
-     * @param endHeight    the end height
-     * @param startDelay   the start delay
-     * @param speed        the speed
-     * @param angle        the angle
-     * @return the projectile
+     * @param source       The source node.
+     * @param victim       The victim.
+     * @param projectileId The projectile's gfx id;
+     * @param startHeight  The starting height.
+     * @param endHeight    The ending height.
+     * @param startDelay   The start delay.
+     * @param speed        The projectile speed.
+     * @param angle        The angle.
+     * @return The created projectile.
      */
     public static Projectile create(Entity source, Entity victim, int projectileId, int startHeight, int endHeight, int startDelay, int speed, int angle) {
         return new Projectile(source, victim, projectileId, startHeight, endHeight, startDelay, speed, angle, source.size() << 5);
     }
 
     /**
-     * Create projectile.
+     * Creates a new projectile.
      *
-     * @param source       the source
-     * @param victim       the victim
-     * @param projectileId the projectile id
-     * @param startHeight  the start height
-     * @param endHeight    the end height
-     * @param startDelay   the start delay
-     * @param speed        the speed
-     * @param angle        the angle
-     * @param distance     the distance
-     * @return the projectile
+     * @param source       The source node.
+     * @param victim       The victim.
+     * @param projectileId The projectile's gfx id;
+     * @param startHeight  The starting height.
+     * @param endHeight    The ending height.
+     * @param startDelay   The startDelay.
+     * @param speed        The projectile speed.
+     * @param angle        The angle.
+     * @param distance     The distance to start from.
+     * @return The created projectile.
      */
     public static Projectile create(Entity source, Entity victim, int projectileId, int startHeight, int endHeight, int startDelay, int speed, int angle, int distance) {
         return new Projectile(source, victim, projectileId, startHeight, endHeight, startDelay, speed, angle, distance);
     }
 
     /**
-     * Create projectile.
+     * Creates a new projectile.
      *
-     * @param start        the start
-     * @param destination  the destination
-     * @param projectileId the projectile id
-     * @param startHeight  the start height
-     * @param endHeight    the end height
-     * @param startDelay   the start delay
-     * @param speed        the speed
-     * @param angle        the angle
-     * @param distance     the distance
-     * @return the projectile
+     * @param destination  The victim.
+     * @param projectileId The projectile's gfx id;
+     * @param startHeight  The starting height.
+     * @param endHeight    The ending height.
+     * @param startDelay   The startDelay.
+     * @param speed        The projectile speed.
+     * @param angle        The angle.
+     * @param distance     The distance to start from.
+     * @return The created projectile.
      */
     public static Projectile create(Location start, Location destination, int projectileId, int startHeight, int endHeight, int startDelay, int speed, int angle, int distance) {
         return new Projectile(start, destination, projectileId, startHeight, endHeight, startDelay, speed, angle, distance);
     }
 
     /**
-     * Magic projectile.
+     * Creates a new magic-speed based projectile.
      *
-     * @param source       the source
-     * @param victim       the victim
-     * @param projectileId the projectile id
-     * @param startHeight  the start height
-     * @param endHeight    the end height
-     * @param startDelay   the start delay
-     * @param angle        the angle
-     * @return the projectile
+     * @param source       The source node.
+     * @param victim       The victim.
+     * @param projectileId The projectile's gfx id;
+     * @param startHeight  The starting height.
+     * @param endHeight    The ending height.
+     * @param startDelay   The start delay type.
+     * @param angle        The angle.
+     * @return The created projectile.
      */
     public static Projectile magic(Entity source, Entity victim, int projectileId, int startHeight, int endHeight, int startDelay, int angle) {
         int speed = (int) (46 + (getLocation(source).getDistance(victim.getLocation()) * 10));
@@ -164,16 +197,16 @@ public class Projectile {
     }
 
     /**
-     * Ranged projectile.
+     * Creates a new range-speed based projectile.
      *
-     * @param source       the source
-     * @param victim       the victim
-     * @param projectileId the projectile id
-     * @param startHeight  the start height
-     * @param endHeight    the end height
-     * @param startDelay   the start delay
-     * @param angle        the angle
-     * @return the projectile
+     * @param source       The source node.
+     * @param victim       The victim.
+     * @param projectileId The projectile's gfx id;
+     * @param startHeight  The starting height.
+     * @param endHeight    The ending height.
+     * @param startDelay   The start delay.
+     * @param angle        The angle.
+     * @return The created projectile.
      */
     public static Projectile ranged(Entity source, Entity victim, int projectileId, int startHeight, int endHeight, int startDelay, int angle) {
         int speed = (int) (46 + (getLocation(source).getDistance(victim.getLocation()) * 5));
@@ -181,7 +214,7 @@ public class Projectile {
     }
 
     /**
-     * Instantiates a new Projectile.
+     * Constructs a new {@code Projectile} {@code Object}.
      */
     public Projectile() {
         /*
@@ -189,6 +222,19 @@ public class Projectile {
          */
     }
 
+    /**
+     * Constructs a new projectile.
+     *
+     * @param source       The source node.
+     * @param victim       The entity victim.
+     * @param projectileId The projectile gfx id.
+     * @param startHeight  The start height.
+     * @param endHeight    The end height.
+     * @param startDelay   The start delay.
+     * @param speed        The projectile speed.
+     * @param angle        The projectile angle.
+     * @param distance     The distance.
+     */
     private Projectile(Entity source, Entity victim, int projectileId, int startHeight, int endHeight, int startDelay, int speed, int angle, int distance) {
         this.source = source;
         this.sourceLocation = getLocation(source);
@@ -202,6 +248,18 @@ public class Projectile {
         this.distance = distance;
     }
 
+    /**
+     * Constructs a new {@code Projectile} {@code Object}.
+     *
+     * @param start        The start location.
+     * @param projectileId The projectile id.
+     * @param startHeight  The start height.
+     * @param endHeight    The end height.
+     * @param startDelay   The start delay.
+     * @param speed        The speed.
+     * @param angle        The angle.
+     * @param distance     The distance.
+     */
     private Projectile(Location start, Location l, int projectileId, int startHeight, int endHeight, int startDelay, int speed, int angle, int distance) {
         this.sourceLocation = start;
         this.endLocation = l;
@@ -215,21 +273,21 @@ public class Projectile {
     }
 
     /**
-     * Gets speed.
+     * Gets the speed.
      *
-     * @param source    the source
-     * @param targetLoc the target loc
-     * @return the speed
+     * @param source    the source.
+     * @param targetLoc the target location.
+     * @return
      */
     public static int getSpeed(Entity source, Location targetLoc) {
         return (int) (46 + (getLocation(source).getDistance(targetLoc) * 5));
     }
 
     /**
-     * Gets location.
+     * Gets the source location on construction.
      *
-     * @param n the n
-     * @return the location
+     * @param n The node.
+     * @return The centered location.
      */
     public static Location getLocation(Entity n) {
         if (n == null) {
@@ -239,25 +297,27 @@ public class Projectile {
     }
 
     /**
-     * Transform projectile.
+     * Changes the projectile so it sends from the source mob to the victim mob
+     * given.
      *
-     * @param source the source
-     * @param victim the victim
-     * @return the projectile
+     * @param source The source mob.
+     * @param victim The victim mob.
+     * @return The projectile instance.
      */
     public Projectile transform(Entity source, Entity victim) {
         return transform(source, victim, source instanceof NPC, 46, 5);
     }
 
     /**
-     * Transform projectile.
+     * Changes the projectile so it sends from the source mob to the victim mob
+     * given.
      *
-     * @param source        the source
-     * @param victim        the victim
-     * @param npc           the npc
-     * @param baseSpeed     the base speed
-     * @param modifiedSpeed the modified speed
-     * @return the projectile
+     * @param source        The source mob.
+     * @param victim        The victim mob.
+     * @param npc           If the source should be handled as an NPC.
+     * @param baseSpeed     The base speed.
+     * @param modifiedSpeed The modified speed.
+     * @return The projectile instance.
      */
     public Projectile transform(Entity source, Entity victim, boolean npc, int baseSpeed, int modifiedSpeed) {
         this.source = source;
@@ -271,12 +331,13 @@ public class Projectile {
     }
 
     /**
-     * Copy projectile.
+     * Gets a new {@code Projectile} {@code Object} based of this projectile
+     * object.
      *
-     * @param source          the source
-     * @param victim          the victim
-     * @param speedMultiplier the speed multiplier
-     * @return the projectile
+     * @param source          The source entity.
+     * @param victim          The victim entity.
+     * @param speedMultiplier The speed multiplier.
+     * @return The created {@code Projectile} {@code Object}.
      */
     public Projectile copy(Entity source, Entity victim, double speedMultiplier) {
         // int distance = source instanceof NPC ? source.size() << 6 : 11;
@@ -285,25 +346,26 @@ public class Projectile {
     }
 
     /**
-     * Transform projectile.
+     * Transforms the projectile so it is location based and it sends to the
+     * location.
      *
-     * @param source the source
-     * @param l      the l
-     * @return the projectile
+     * @param source The source mob.
+     * @param l      The location.
+     * @return The projectile instance.
      */
     public Projectile transform(Entity source, Location l) {
         return transform(source, l, source instanceof NPC, 46, 5);
     }
 
     /**
-     * Transform projectile.
+     * Transforms a projectile to be location based, with updated parameters.
      *
-     * @param source        the source
-     * @param l             the l
-     * @param npc           the npc
-     * @param baseSpeed     the base speed
-     * @param modifiedSpeed the modified speed
-     * @return the projectile
+     * @param source        The mob sending this projectile.
+     * @param l             The end location.
+     * @param npc           If the mob should be handled as an npc.
+     * @param baseSpeed     The base speed.
+     * @param modifiedSpeed The modified speed.
+     * @return The projectile instance.
      */
     public Projectile transform(Entity source, Location l, boolean npc, int baseSpeed, int modifiedSpeed) {
         this.source = source;
@@ -317,181 +379,151 @@ public class Projectile {
     }
 
     /**
-     * Send.
+     * Sends this projectile.
      */
     public void send() {
         send(this);
     }
 
     /**
-     * Send.
+     * Sends the projectile.
      *
-     * @param p the p
+     * @param p The projectile.
      */
     public static void send(Projectile p) {
         RegionManager.getRegionChunk(p.getSourceLocation()).flag(new ProjectileUpdateFlag(p));
     }
 
     /**
-     * Send.
+     * Transforms the projectile (to start from the source & end at the victim)
+     * and sends it.
      *
-     * @param source the source
-     * @param victim the victim
-     * @param p      the p
+     * @param source The source.
+     * @param victim The victim.
+     * @param p      The projectile to send.
      */
     public static void send(Entity source, Entity victim, Projectile p) {
         send(p.transform(source, victim));
     }
 
     /**
-     * Send.
+     * Transforms the projectile (to start from the source & end at the
+     * locations) and sends it.
      *
-     * @param source the source
-     * @param l      the l
-     * @param p      the p
+     * @param source The source.
+     * @param l      The location.
+     * @param p      The projectile to send.
      */
     public static void send(Entity source, Location l, Projectile p) {
         send(p.transform(source, l));
     }
 
     /**
-     * Sets source.
-     *
-     * @param source the source
+     * @param source The source node.
      */
     public void setSource(Entity source) {
         this.source = source;
     }
 
     /**
-     * Gets source.
-     *
-     * @return the source
+     * @return The source node.
      */
     public Entity getSource() {
         return source;
     }
 
     /**
-     * Sets source location.
-     *
-     * @param sourceLocation the source location
+     * @param sourceLocation the sourceLocation to set
      */
     public void setSourceLocation(Location sourceLocation) {
         this.sourceLocation = sourceLocation;
     }
 
     /**
-     * Gets source location.
-     *
-     * @return the source location
+     * @return the sourceLocation
      */
     public Location getSourceLocation() {
         return sourceLocation;
     }
 
     /**
-     * Sets victim.
-     *
-     * @param victim the victim
+     * @param victim The entity victim.
      */
     public void setVictim(Entity victim) {
         this.victim = victim;
     }
 
     /**
-     * Gets victim.
-     *
-     * @return the victim
+     * @return The entity victim.
      */
     public Entity getVictim() {
         return victim;
     }
 
     /**
-     * Sets projectile id.
-     *
-     * @param projectileId the projectile id
+     * @param projectileId the projectileId to set
      */
     public void setProjectileId(int projectileId) {
         this.projectileId = projectileId;
     }
 
     /**
-     * Gets projectile id.
-     *
-     * @return the projectile id
+     * @return the projectileId
      */
     public int getProjectileId() {
         return projectileId;
     }
 
     /**
-     * Sets start height.
-     *
-     * @param startHeight the start height
+     * @param startHeight the startHeight to set
      */
     public void setStartHeight(int startHeight) {
         this.startHeight = startHeight;
     }
 
     /**
-     * Gets start height.
-     *
-     * @return the start height
+     * @return the startHeight
      */
     public int getStartHeight() {
         return startHeight;
     }
 
     /**
-     * Sets end height.
-     *
-     * @param endHeight the end height
+     * @param endHeight the endHeight to set
      */
     public void setEndHeight(int endHeight) {
         this.endHeight = endHeight;
     }
 
     /**
-     * Gets end height.
-     *
-     * @return the end height
+     * @return the endHeight
      */
     public int getEndHeight() {
         return endHeight;
     }
 
     /**
-     * Sets start delay.
-     *
-     * @param delay the delay
+     * @param delay the delay to set
      */
     public void setStartDelay(int delay) {
         this.startDelay = delay;
     }
 
     /**
-     * Gets start delay.
-     *
-     * @return the start delay
+     * @return the start delay.
      */
     public int getStartDelay() {
         return startDelay;
     }
 
     /**
-     * Sets speed.
-     *
-     * @param speed the speed
+     * @param speed the speed to set
      */
     public void setSpeed(int speed) {
         this.speed = speed;
     }
 
     /**
-     * Gets speed.
-     *
      * @return the speed
      */
     public int getSpeed() {
@@ -499,17 +531,13 @@ public class Projectile {
     }
 
     /**
-     * Sets angle.
-     *
-     * @param angle the angle
+     * @param angle the angle to set
      */
     public void setAngle(int angle) {
         this.angle = angle;
     }
 
     /**
-     * Gets angle.
-     *
      * @return the angle
      */
     public int getAngle() {
@@ -517,17 +545,13 @@ public class Projectile {
     }
 
     /**
-     * Sets distance.
-     *
-     * @param distance the distance
+     * @param distance the distance to set
      */
     public void setDistance(int distance) {
         this.distance = distance;
     }
 
     /**
-     * Gets distance.
-     *
      * @return the distance
      */
     public int getDistance() {
@@ -535,27 +559,23 @@ public class Projectile {
     }
 
     /**
-     * Is location based boolean.
+     * Checks if the projectile is location based.
      *
-     * @return the boolean
+     * @return {@code True} if so, {@code false} if not.
      */
     public boolean isLocationBased() {
         return endLocation != null;
     }
 
     /**
-     * Gets end location.
-     *
-     * @return the end location
+     * @return the endLocation
      */
     public Location getEndLocation() {
         return endLocation;
     }
 
     /**
-     * Sets end location.
-     *
-     * @param endLocation the end location
+     * @param endLocation the endLocation to set
      */
     public void setEndLocation(Location endLocation) {
         this.endLocation = endLocation;

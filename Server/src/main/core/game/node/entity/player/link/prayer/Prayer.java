@@ -1,54 +1,56 @@
 package core.game.node.entity.player.link.prayer;
 
 import content.global.skill.skillcape.SkillcapePerks;
-import core.api.consts.Sounds;
-import core.game.event.PrayerDeactivatedEvent;
+import core.game.node.entity.skill.SkillBonus;
+import core.game.node.entity.skill.Skills;
 import core.game.node.entity.Entity;
 import core.game.node.entity.combat.CombatStyle;
 import core.game.node.entity.combat.ImpactHandler.HitsplatType;
 import core.game.node.entity.impl.Projectile;
 import core.game.node.entity.npc.NPC;
 import core.game.node.entity.player.Player;
-import core.game.node.entity.skill.SkillBonus;
-import core.game.node.entity.skill.Skills;
 import core.game.system.task.Pulse;
-import core.game.world.GameWorld;
 import core.game.world.map.Location;
 import core.game.world.map.RegionManager;
 import core.game.world.update.flag.context.Graphic;
 import core.tools.RandomFunction;
+import core.game.event.*;
+import core.game.world.GameWorld;
+import core.api.consts.Sounds;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static core.api.ContentAPIKt.playAudio;
-import static core.api.ContentAPIKt.setVarp;
+import static core.api.ContentAPIKt.*;
 
 /**
- * Prayer.
+ * Represents a managing class of a players prayers.
+ * @author Vexia, Emperor
  */
 public final class Prayer {
 
+    /**
+     * Represents the list of active prayers.
+     */
     private final List<PrayerType> active = new ArrayList<>(20);
 
+    /**
+     * Represents the player instance.
+     */
     private final Player player;
 
     private int prayerActiveTicks = 0;
 
     /**
-     * Instantiates a new Prayer.
-     *
-     * @param player the player
+     * Constructs a new {@code Prayer} {@code Object}.
      */
     public Prayer(Player player) {
         this.player = player;
     }
 
     /**
-     * Toggle boolean.
-     *
-     * @param type the type
-     * @return the boolean
+     * Method used to toggle a prayer.
+     * @param type the type of prayer.
      */
     public final boolean toggle(final PrayerType type) {
         if (!permitted(type)) {
@@ -58,21 +60,16 @@ public final class Prayer {
     }
 
     /**
-     * Reset.
+     * Method used to reset this prayer managers cached prayers.
      */
     public void reset() {
-        /*
-         * Immediately clear the lights on the client
-         * interface and terminate any bonuses.
-         */
+        // Immediately clear the lights on the client interface and terminate any bonuses
         for (PrayerType type : getActive()) {
             setVarp(player, type.getConfig(), 0, false);
             player.dispatch(new PrayerDeactivatedEvent(type));
         }
         getActive().clear();
-        /*
-         * Clear the overhead prayer icon a tick later.
-         */
+        // Clear the overhead prayer icon a tick later
         GameWorld.getPulser().submit(new Pulse(1) {
             @Override
             public boolean pulse() {
@@ -84,7 +81,7 @@ public final class Prayer {
     }
 
     /**
-     * Start redemption.
+     * Starts the redemption effect.
      */
     public void startRedemption() {
         playAudio(player, Sounds.REDEMPTION_HEAL_2681);
@@ -95,9 +92,8 @@ public final class Prayer {
     }
 
     /**
-     * Start retribution.
-     *
-     * @param killer the killer
+     * Starts the retribution effect.
+     * @param killer The entity who killed this player.
      */
     public void startRetribution(Entity killer) {
         Location l = player.getLocation();
@@ -131,29 +127,26 @@ public final class Prayer {
         }
     }
 
-    /**
-     * Tick.
-     */
     public void tick() {
-        if (!getActive().isEmpty()) prayerActiveTicks++;
+        if(!getActive().isEmpty()) prayerActiveTicks ++;
         else prayerActiveTicks = 0;
 
-        if (prayerActiveTicks > 0 && prayerActiveTicks % 2 == 0) {
-            if (getPlayer().getSkills().getPrayerPoints() == 0) {
+        if(prayerActiveTicks > 0 && prayerActiveTicks % 2 == 0){
+            if(getPlayer().getSkills().getPrayerPoints() == 0){
                 playAudio(getPlayer(), Sounds.PRAYER_DRAIN_2672);
                 getPlayer().sendMessage("You have run out of prayer points; you must recharge at an altar.");
                 reset();
                 return;
             }
             double amountDrain = 0;
-            for (PrayerType type : getActive()) {
+            for(PrayerType type : getActive()){
                 double drain = type.getDrain();
-                double bonus = (1 / 30f) * getPlayer().getProperties().getBonuses()[12];
+                double bonus = (1/30f) * getPlayer().getProperties().getBonuses()[12];
                 drain = drain * (1 + bonus);
                 drain = 0.6 / drain;
                 amountDrain += drain;
             }
-            if (SkillcapePerks.isActive(SkillcapePerks.DIVINE_FAVOR, getPlayer()) && RandomFunction.random(100) <= 10) {
+            if(SkillcapePerks.isActive(SkillcapePerks.DIVINE_FAVOR, getPlayer()) && RandomFunction.random(100) <= 10){
                 amountDrain = 0;
             }
 
@@ -162,10 +155,9 @@ public final class Prayer {
     }
 
     /**
-     * Gets skill bonus.
-     *
-     * @param skillId the skill id
-     * @return the skill bonus
+     * Gets the skill bonus for the given skill id.
+     * @param skillId The skill id.
+     * @return The bonus for the given skill.
      */
     public double getSkillBonus(int skillId) {
         double bonus = 0.0;
@@ -179,33 +171,36 @@ public final class Prayer {
         return bonus;
     }
 
+    /**
+     * Method used to check if we're permitted to toggle this prayer.
+     * @param type the type.
+     * @return <code>True</code> if permitted to be toggled.
+     */
     private boolean permitted(final PrayerType type) {
         return player.getSkills().getPrayerPoints() > 0 && type.permitted(player);
     }
 
     /**
-     * Get boolean.
-     *
-     * @param type the type
-     * @return the boolean
+     * Method used to return value of {@code True} if the {@link #active}
+     * prayers contains the prayer type.
+     * @param type the type of prayer.
+     * @return {@code True} if so.
      */
     public boolean get(PrayerType type) {
         return active.contains(type);
     }
 
     /**
-     * Gets player.
-     *
-     * @return the player
+     * Gets the player.
+     * @return The player.
      */
     public Player getPlayer() {
         return player;
     }
 
     /**
-     * Gets active.
-     *
-     * @return the active
+     * Gets the active prayers.
+     * @return The active.
      */
     public List<PrayerType> getActive() {
         return active;

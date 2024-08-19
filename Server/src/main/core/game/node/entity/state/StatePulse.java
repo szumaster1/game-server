@@ -7,20 +7,20 @@ import core.game.world.GameWorld;
 import java.nio.ByteBuffer;
 
 /**
- * State pulse.
+ * Represents a state pulse.
+ * @author Emperor
  */
 public abstract class StatePulse extends Pulse {
 
     /**
-     * The Entity.
+     * The entity.
      */
     protected final Entity entity;
 
     /**
-     * Instantiates a new State pulse.
-     *
-     * @param entity the entity
-     * @param ticks  the ticks
+     * Constructs a new {@code StatePulse} {@code Object}.
+     * @param entity The entity.
+     * @param ticks The amount of ticks.
      */
     public StatePulse(Entity entity, int ticks) {
         super(ticks, entity);
@@ -29,49 +29,44 @@ public abstract class StatePulse extends Pulse {
     }
 
     /**
-     * Is save required boolean.
-     *
-     * @return the boolean
+     * Checks if data has to be saved.
+     * @return {@code True} if so.
      */
     public abstract boolean isSaveRequired();
 
     /**
-     * Save.
-     *
-     * @param buffer the buffer
+     * Saves the state data.
+     * @param buffer The buffer.
      */
     public abstract void save(ByteBuffer buffer);
 
     /**
-     * Parse state pulse.
-     *
-     * @param entity the entity
-     * @param buffer the buffer
-     * @return the state pulse
+     * Parses the state data.
+     * @param entity The entity.
+     * @param buffer The buffer.
+     * @return The state pulse created.
      */
     public abstract StatePulse parse(Entity entity, ByteBuffer buffer);
 
     /**
-     * Create state pulse.
-     *
-     * @param entity the entity
-     * @param args   the args
-     * @return the state pulse
+     * Creates a new instance of this state pulse.
+     * @param entity The entity.
+     * @param args The arguments.
+     * @return The state pulse.
      */
     public abstract StatePulse create(Entity entity, Object... args);
 
     /**
-     * Can run boolean.
-     *
-     * @param entity the entity
-     * @return the boolean
+     * Checks if this pulse can be ran for the given entity.
+     * @param entity The entity.
+     * @return {@code True} if so.
      */
     public boolean canRun(Entity entity) {
         return true;
     }
 
     /**
-     * Remove.
+     * Called when the pulse gets manually removed.
      */
     public void remove() {
         /*
@@ -79,6 +74,9 @@ public abstract class StatePulse extends Pulse {
          */
     }
 
+    /**
+     * Runs the pulse.
+     */
     public void run() {
         if (isRunning()) {
             return;

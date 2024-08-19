@@ -9,7 +9,8 @@ import core.game.world.update.flag.context.Animation
 import core.game.world.update.flag.context.Graphic
 
 /**
- * Switch attack.
+ * Represents a possible attack the entity can switch to.
+ * @author Emperor
  *
  * @param handler The combat swing handler associated with the attack.
  * @param animation The animation to be played during the attack.

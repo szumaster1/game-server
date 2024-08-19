@@ -1,55 +1,57 @@
 package core.game.node.entity.player.link.request.trade
 
-import core.api.*
 import core.game.component.Component
 import core.game.container.Container
 import core.game.container.ContainerType
 import core.game.node.entity.player.Player
-import core.game.node.entity.player.info.PlayerMonitor
 import core.game.node.entity.player.link.request.RequestModule
 import core.game.node.item.GroundItemManager
 import core.game.node.item.Item
+import core.game.bots.AIRepository
+import content.global.bots.DoublingMoney
+import core.game.node.entity.player.info.PlayerMonitor
+import core.api.*
 import java.text.DecimalFormat
+import java.util.*
 
 /**
- * Trade module.
- * @param target The player that the current player wants to trade with.
+ * Represents the module use to handle a request between trading of two players.
+ * @author Vexia, dginovker
  */
-class TradeModule(player: Player?, target: Player?) : RequestModule {
+class TradeModule
+/**
+ * Constructs a new `TradeModule` `Object`.
+ * @param player the player.
+ * @param target the target.
+ */(player: Player?, target: Player?) : RequestModule {
     /**
      * If the container has been retained.
      */
     var isRetained = false
-
     /**
      * Represents the player instance.
      */
     var player: Player? = player
         private set
-
     /**
      * Represents the target instance.
      */
     var target: Player? = target
         private set
-
     /**
      * Represents the container of this session.
      */
     var container: TradeContainer? = null
         private set
-
     /**
      * Represents if this session has accepted.
      */
     var isAccepted = false
         private set
-
     /**
      * Represents if the trade is modified.
      */
     var isModified = false
-
     /**
      * Represents the stage of the trade(0=started, 1=second accept)
      */
@@ -71,8 +73,7 @@ class TradeModule(player: Player?, target: Player?) : RequestModule {
     }
 
     /**
-     * Update
-     *
+     * Method used to update the trade interfaces.
      */
     fun update() {
         display(stage)
@@ -107,31 +108,29 @@ class TradeModule(player: Player?, target: Player?) : RequestModule {
         when (stage) {
             0 -> {
                 for (i in HIDDEN_CHILDS) {
-                    setInterfaceText(player!!, "", MAIN_INTERFACE.id, i)
+                    player!!.packetDispatch.sendString("", MAIN_INTERFACE.id, i)
                 }
-                setInterfaceText(player!!, "Trading With: " + target!!.username, 335, 15)
-                setInterfaceText(
-                    player!!,
+                player!!.packetDispatch.sendString("Trading With: " + target!!.username, 335, 15)
+                player!!.packetDispatch.sendString(
                     target!!.username + " has " + (if (target!!.inventory.freeSlots() == 0) "no" else target!!.inventory.freeSlots()) + " free inventory slots.",
                     335,
                     21
                 )
-                setInterfaceText(player!!, acceptMessage, 335, 36)
+                player!!.packetDispatch.sendString(acceptMessage, 335, 36)
             }
 
             1 -> {
-                setInterfaceText(
-                    player!!,
-                    "<col=00FFFF>Trading with:<br>" + "<col=00FFFF>" + target!!.username.substring(0, 1)
-                        .uppercase() + target!!.username.substring(1),
-                    334,
-                    2
+                player!!.packetDispatch.sendString(
+                    "<col=00FFFF>Trading with:<br>" + "<col=00FFFF>" + target!!.username.substring(
+                        0,
+                        1
+                    ).uppercase(Locale.getDefault()) + target!!.username.substring(1), 334, 2
                 )
                 val acceptMessage = acceptMessage
                 if (acceptMessage !== "") {
-                    setInterfaceText(player!!, acceptMessage, 334, 33)
+                    player!!.packetDispatch.sendString(acceptMessage, 334, 33)
                 }
-                restoreTabs(player!!)
+                player!!.interfaceManager.restoreTabs()
             }
         }
         displayModified(stage)
@@ -140,19 +139,17 @@ class TradeModule(player: Player?, target: Player?) : RequestModule {
     }
 
     /**
-     * Get interface
-     *
-     * @param stage
-     * @return
+     * Gets the interface for the current stage.
+     * @param stage the stage, defaults to this TradeModule's stage.
+     * @return the component.
      */
     fun getInterface(stage: Int = this.stage): Component {
         return if (stage == 0) MAIN_INTERFACE else ACCEPT_INTERFACE
     }
 
     /**
-     * Get interface
-     *
-     * @return
+     * Gets the interface for the TradeModule stage
+     * @return the component
      */
     fun getInterface(): Component {
         return getInterface(stage)
@@ -181,9 +178,8 @@ class TradeModule(player: Player?, target: Player?) : RequestModule {
     }
 
     /**
-     * Alert
-     *
-     * @param slot
+     * Method used to display flashing alert if the trade has been modified.
+     * @param slot the slot.
      */
     fun alert(slot: Int) {
         player!!.packetDispatch.sendRunScript(143, "Iiii", *arrayOf<Any>(slot, 7, 4, 21954594))
@@ -192,12 +188,11 @@ class TradeModule(player: Player?, target: Player?) : RequestModule {
 
 
     /**
-     * Decline
-     *
+     * Method used to decline this offer.
      */
     fun decline() {
-        closeInterface(player!!)
-        sendMessage(target!!, "<col=FF0000>Other player has declined trade!</col>")
+        player!!.interfaceManager.close()
+        target!!.packetDispatch.sendMessage("<col=FF0000>Other player has declined trade!</col>")
     }
 
     /**
@@ -260,10 +255,8 @@ class TradeModule(player: Player?, target: Player?) : RequestModule {
     }
 
     /**
-     * Set accepted
-     *
-     * @param accept
-     * @param update
+     * Method used to set the value of accepted.
+     * @param accept whether the trade was accepted or declined
      */
     fun setAccepted(accept: Boolean, update: Boolean) {
         isAccepted = accept
@@ -362,6 +355,9 @@ class TradeModule(player: Player?, target: Player?) : RequestModule {
 
         PlayerMonitor.logTrade(module.player!!, module.target!!, pContainer, oContainer)
 
+        (AIRepository.PulseRepository[module.player!!.username.lowercase()]?.botScript as DoublingMoney?)?.itemsReceived(module.target!!, oContainer)
+        (AIRepository.PulseRepository[module.target!!.username.lowercase()]?.botScript as DoublingMoney?)?.itemsReceived(module.player!!, pContainer)
+
         addContainer(module.player, oContainer)
         addContainer(module.target, pContainer)
         module.target!!.packetDispatch.sendMessage("Accepted trade.")
@@ -416,8 +412,7 @@ class TradeModule(player: Player?, target: Player?) : RequestModule {
     }
 
     /**
-     * Increment stage
-     *
+     * Method used to increment the stage.
      */
     fun incrementStage() {
         stage++

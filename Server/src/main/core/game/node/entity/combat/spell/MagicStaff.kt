@@ -3,7 +3,8 @@ package core.game.node.entity.combat.spell
 import core.api.consts.Items
 
 /**
- * Magic staff.
+ * Represents a magic staff.
+ * @author Emperor
  *
  * @param runeId The ID of the rune associated with the magic staff.
  * @param staves Vararg parameter representing different staff IDs.

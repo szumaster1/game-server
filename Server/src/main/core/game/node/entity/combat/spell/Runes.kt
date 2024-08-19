@@ -4,7 +4,8 @@ import core.api.consts.Items
 import core.game.node.item.Item
 
 /**
- * Runes.
+ * Represents the constants of runes.
+ * @author Vexia
  *
  * @param id Unique identifier for the rune
  * @constructor Runes Enum representing different types of runes

@@ -29,6 +29,7 @@ import kotlin.math.min
 
 /**
  * Grave controller.
+ * @author Ceikry
  */
 class GraveController : PersistWorld, TickListener, InteractionListener, Commands {
 

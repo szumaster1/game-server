@@ -5,7 +5,8 @@ import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 
 /**
- * Global data
+ * Represents the quest data to save.
+ * @author Vexia
  */
 class GlobalData {
     // Number of charges for replenishing run energy

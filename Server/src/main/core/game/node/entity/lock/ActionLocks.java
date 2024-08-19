@@ -7,40 +7,60 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Action locks.
+ * Holds the reward locks.
+ * @author Emperor, Aero
  */
 public final class ActionLocks {
 
+    /**
+     * The movement lock.
+     */
     private Lock movementLock = new Lock();
 
+    /**
+     * The teleporting lock.
+     */
     private Lock teleportLock = new Lock();
 
+    /**
+     * The component lock.
+     */
     private Lock componentLock = new Lock();
 
+    /**
+     * The interaction lock.
+     */
     private Lock interactionLock = new Lock();
 
+    /**
+     * The equipment lock.
+     */
     private Lock equipmentLock = null;
 
+    /**
+     * A mapping of custom locks (used for eg. food delay).
+     */
     private Map<String, Lock> customLocks;
 
     /**
-     * Instantiates a new Action locks.
+     * Constructs a new {@code ActionLocks} {@code Object}.
      */
     public ActionLocks() {
         this.customLocks = new HashMap<>();
     }
 
     /**
-     * Lock.
+     * Locks all default actions (movement, teleport & interaction) for
+     * indefinite time.
      */
     public void lock() {
         lock(Integer.MAX_VALUE - GameWorld.getTicks());
     }
 
     /**
-     * Lock.
+     * Locks all the default actions (movement, teleport & interaction).
      *
-     * @param ticks the ticks
+     * @param ticks The amount of ticks to lock for.
      */
     public void lock(int ticks) {
         lockMovement(ticks);
@@ -48,7 +68,7 @@ public final class ActionLocks {
     }
 
     /**
-     * Unlock.
+     * Unlocks the default actions.
      */
     public void unlock() {
         unlockMovement();
@@ -56,123 +76,123 @@ public final class ActionLocks {
     }
 
     /**
-     * Lock movement.
+     * Locks the movement actions.
      *
-     * @param ticks the ticks
+     * @param ticks The amount of ticks to lock for.
      */
     public void lockMovement(int ticks) {
         movementLock.lock(ticks);
     }
 
     /**
-     * Unlock movement.
+     * Unlocks the movement lock.
      */
     public void unlockMovement() {
         movementLock.unlock();
     }
 
     /**
-     * Is movement locked boolean.
+     * Checks if movement actions are locked.
      *
-     * @return the boolean
+     * @return {@code True} if so.
      */
     public boolean isMovementLocked() {
         return movementLock.isLocked();
     }
 
     /**
-     * Lock teleport.
+     * Locks the teleport actions.
      *
-     * @param ticks the ticks
+     * @param ticks The amount of ticks to lock for.
      */
     public void lockTeleport(int ticks) {
         teleportLock.lock(ticks);
     }
 
     /**
-     * Unlock teleport.
+     * Unlocks the teleport lock.
      */
     public void unlockTeleport() {
         teleportLock.unlock();
     }
 
     /**
-     * Is teleport locked boolean.
+     * Checks if teleport actions are locked.
      *
-     * @return the boolean
+     * @return {@code True} if so.
      */
     public boolean isTeleportLocked() {
         return teleportLock.isLocked();
     }
 
     /**
-     * Lock component.
+     * Locks the component actions.
      *
-     * @param ticks the ticks
+     * @param ticks The amount of ticks to lock for.
      */
     public void lockComponent(int ticks) {
         componentLock.lock(ticks);
     }
 
     /**
-     * Unlock component.
+     * Unlocks the component lock.
      */
     public void unlockComponent() {
         componentLock.unlock();
     }
 
     /**
-     * Is component locked boolean.
+     * Checks if component actions are locked.
      *
-     * @return the boolean
+     * @return {@code True} if so.
      */
     public boolean isComponentLocked() {
         return componentLock.isLocked();
     }
 
     /**
-     * Lock interactions.
+     * Locks the interaction actions.
      *
-     * @param ticks the ticks
+     * @param ticks The amount of ticks to lock for.
      */
     public void lockInteractions(int ticks) {
         interactionLock.lock(ticks);
     }
 
     /**
-     * Unlock interaction.
+     * Unlocks the interaction lock.
      */
     public void unlockInteraction() {
         interactionLock.unlock();
     }
 
     /**
-     * Is interaction locked boolean.
+     * Checks if interaction actions are locked.
      *
-     * @return the boolean
+     * @return {@code True} if so.
      */
     public boolean isInteractionLocked() {
         return interactionLock.isLocked();
     }
 
     /**
-     * Lock lock.
+     * Locks the lock for the given key.
      *
-     * @param key   the key
-     * @param ticks the ticks
-     * @return the lock
+     * @param key   The key.
+     * @param ticks The amount of ticks to lock for.
+     * @return The lock object.
      */
     public Lock lock(String key, int ticks) {
         return lock(key, ticks, null);
     }
 
     /**
-     * Lock lock.
+     * Locks the lock for the given key.
      *
-     * @param key    the key
-     * @param ticks  the ticks
-     * @param elapse the elapse
-     * @return the lock
+     * @param key    The key.
+     * @param ticks  The amount of ticks to lock for.
+     * @param elapse The elapse event.
+     * @return The lock object.
      */
     public Lock lock(String key, int ticks, LockElapse elapse) {
         Lock lock = customLocks.get(key);
@@ -184,21 +204,21 @@ public final class ActionLocks {
     }
 
     /**
-     * Unlock.
+     * Unlocks the lock for the given key and removes it from the cache.
      *
-     * @param key  the key
-     * @param node the node
+     * @param key  The key.
+     * @param node The node.
      */
     public void unlock(String key, Node node) {
         unlock(key, true, node);
     }
 
     /**
-     * Unlock.
+     * Unlocks the lock for the given key.
      *
-     * @param key         the key
-     * @param cacheRemove the cache remove
-     * @param node        the node
+     * @param key         The key.
+     * @param cacheRemove If the lock can be removed from the cache.
+     * @param node        The node.
      */
     public void unlock(String key, boolean cacheRemove, Node node) {
         Lock lock = customLocks.get(key);
@@ -214,10 +234,10 @@ public final class ActionLocks {
     }
 
     /**
-     * Is locked boolean.
+     * Checks if the lock for the given key is currently locked.
      *
-     * @param key the key
-     * @return the boolean
+     * @param key The key.
+     * @return {@code True} if so.
      */
     public boolean isLocked(String key) {
         Lock lock = customLocks.get(key);
@@ -225,18 +245,18 @@ public final class ActionLocks {
     }
 
     /**
-     * Gets equipment lock.
+     * Gets the equipmentLock.
      *
-     * @return the equipment lock
+     * @return The equipmentLock.
      */
     public Lock getEquipmentLock() {
         return equipmentLock;
     }
 
     /**
-     * Sets equipment lock.
+     * Sets the equipmentLock.
      *
-     * @param equipmentLock the equipment lock
+     * @param equipmentLock The equipmentLock to set.
      */
     public void setEquipmentLock(Lock equipmentLock) {
         this.equipmentLock = equipmentLock;

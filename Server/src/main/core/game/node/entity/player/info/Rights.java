@@ -4,8 +4,8 @@ import core.ServerConstants;
 import core.game.node.entity.player.Player;
 
 /**
- * The enum Rights represents different
- * levels of player rights within the game.
+ * Represent the rights of a player.
+ * @author Vexia
  */
 public enum Rights {
     /**

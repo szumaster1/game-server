@@ -1,5 +1,6 @@
 package core.game.node.entity.player.link.quest;
 
+import core.game.component.CloseEvent;
 import core.game.component.Component;
 import core.game.node.entity.player.Player;
 import core.plugin.Plugin;
@@ -9,62 +10,93 @@ import core.plugin.PluginType;
 import java.util.Arrays;
 import java.util.Random;
 
-import static core.api.ContentAPIKt.playJingle;
+import static core.api.ContentAPIKt.*;
 
 /**
- * Quest.
+ * A skeleton plugin for a quest.
+ * @author Vexia
  */
 @PluginManifest(type = PluginType.QUEST)
 public abstract class Quest implements Plugin<Object> {
 
     /**
-     * The constant RED.
+     * Represents the red string.
      */
     public static final String RED = "<col=8A0808>";
 
     /**
-     * The constant BRIGHT_RED.
+     * Represents the bright red string.
      */
     public static final String BRIGHT_RED = "<col=FF0000>";
 
     /**
-     * The constant BLUE.
+     * Represents the blue string.
      */
     public static final String BLUE = "<col=08088A>";
 
     /**
-     * The constant BLACK.
+     * Represents the black string.
      */
     public static final String BLACK = "<col=000000>";
 
     /**
-     * The constant JOURNAL_COMPONENT.
+     * The constant representing the journal component.
      */
     public static final int JOURNAL_COMPONENT = 275;
 
     /**
-     * The constant REWARD_COMPONENT.
+     * The constant representing the quest reward component.
      */
     public static final int REWARD_COMPONENT = 277;
 
+    /**
+     * The name of the quest.
+     */
     private final String name;
 
+    /**
+     * The index id of the quest.
+     */
     private final int index;
 
+    /**
+     * The button id of the quest.
+     */
     private final int buttonId;
 
+    /**
+     * The rewarded quest points.
+     */
     private final int questPoints;
 
+    /**
+     * The config values based on stage.
+     */
     private final int[] configs;
 
     /**
-     * Instantiates a new Quest.
+     * Constructs a new {@link Quest}
      *
-     * @param name        the name
-     * @param index       the index
-     * @param buttonId    the button id
-     * @param questPoints the quest points
-     * @param configs     the configs
+     * @param name        of the quest. Prereqs reference this
+     * @param index       of the quest, usually buttonId + 1
+     * @param buttonId    of the quest on the quest list in game
+     * @param questPoints rewarded after completing quest
+     * @param configs     of Varp/Varbit and values to set the quest color to red/yellow/green. e.g. {234, 0, 1, 10}
+     *                    <br><br>
+     *                    Configs are made of either 4/5 numbers:<br>
+     *                    4 numbers: {1: VARP to set, 2: red quest name, 3: yellow quest name, 4: green quest name}<br>
+     *                    5 numbers: {1: VARP(Ignored), 2: VARPBIT to set, 3: red quest name, 4: yellow quest name, 5: green quest name}<br>
+     *                    <br>
+     *                    VARP/VARPBIT is set to values before/during/after quest at stage 0/1-99/100.
+     *                    Get these values from the VARPTOOL.<br>
+     *                    <br>
+     *                    If you see VARP (e.g. ./get_varp.sh 120):<br>
+     *                    if (VARP[26] == 80 || VARP[26] == 90) return 2; if (VARP[26] == 0) return 0; return 1; }; if (arg0 == 89)<br>
+     *                    Use 4 numbers: {26, 0, 1, 80} -> {VARP, return 0, return 1, return 2}<br>
+     *                    <br>
+     *                    If you see VARPBIT (e.g. ./get_varp.sh 119):<br>
+     *                    if (VARPBIT[451] > 1) return 2; if (VARPBIT[451] == 0) return 0; return 1; }; if (arg0 == 88)<br>
+     *                    Use 5 numbers: {0, 451, 0, 1, 2} -> {Ignore, VARPBIT, return 0, return 1, return 2}<br>
      */
     public Quest(String name, int index, int buttonId, int questPoints, int... configs) {
         this.name = name;
@@ -83,9 +115,9 @@ public abstract class Quest implements Plugin<Object> {
     public abstract Quest newInstance(Object object);
 
     /**
-     * Start.
+     * Starts this quest.
      *
-     * @param player the player
+     * @param player The player.
      */
     public void start(Player player) {
         player.getQuestRepository().setStage(this, 10);
@@ -93,10 +125,10 @@ public abstract class Quest implements Plugin<Object> {
     }
 
     /**
-     * Draw journal.
+     * Draws the text on the quest journal.
      *
-     * @param player the player
-     * @param stage  the stage
+     * @param player The player.
+     * @param stage  The stage to draw.
      */
     public void drawJournal(Player player, int stage) {
         for (int i = 0; i < 311; i++) {
@@ -107,9 +139,9 @@ public abstract class Quest implements Plugin<Object> {
     }
 
     /**
-     * Finish.
+     * Finishes the quest.
      *
-     * @param player the player
+     * @param player The player.
      */
     public void finish(Player player) {
         if (player.getQuestRepository().isComplete(name)) {
@@ -136,28 +168,25 @@ public abstract class Quest implements Plugin<Object> {
     }
 
     /**
-     * Reset.
-     *
-     * @param player the player
+     * Resets the quest. This is called when ::setQuestStage is set to 0.
+     * Useful to override and reset quest player attributes.
      */
     public void reset(Player player) {
     }
 
     /**
-     * Quest close event.
-     *
-     * @param player    the player
-     * @param component the component
+     * Function callback when closing the quest.
+     * Override this to follow up on dialogue after the component closes.
      */
     public void questCloseEvent(Player player, Component component) {
     }
 
     /**
-     * Line.
+     * Draws a line on the journal component.
      *
-     * @param player  the player
-     * @param message the message
-     * @param line    the line
+     * @param player  The player.
+     * @param message The message.
+     * @param line    The line.
      */
     public void line(Player player, String message, int line) {
         String send = BLUE + "" + message.replace("<n>", "<br><br>").replace("<blue>", BLUE).replace("<red>", RED);
@@ -174,12 +203,12 @@ public abstract class Quest implements Plugin<Object> {
     }
 
     /**
-     * Line.
+     * Draws a line on the quest journal component.
      *
-     * @param player  the player
-     * @param message the message
-     * @param line    the line
-     * @param crossed the crossed
+     * @param player  The player.
+     * @param message The message.
+     * @param line    The line number.
+     * @param crossed True if the message should be crossed out.
      */
     public void line(Player player, String message, int line, final boolean crossed) {
         String send;
@@ -194,32 +223,32 @@ public abstract class Quest implements Plugin<Object> {
     }
 
     /**
-     * Draw reward.
+     * Draws text on the quest reward component.
      *
-     * @param player the player
-     * @param string the string
-     * @param line   the line
+     * @param player The player.
+     * @param string The string to draw.
+     * @param line   The line number to draw on.
      */
     public void drawReward(Player player, final String string, final int line) {
         player.getPacketDispatch().sendString(string, REWARD_COMPONENT, line);
     }
 
     /**
-     * Sets stage.
+     * Sets the player instanced stage.
      *
-     * @param player the player
-     * @param stage  the stage
+     * @param player The player.
+     * @param stage  The stage to set.
      */
     public void setStage(Player player, int stage) {
         player.getQuestRepository().setStage(this, stage);
     }
 
     /**
-     * Get config int [ ].
+     * Gets the config id based on the stage.
      *
-     * @param player the player
-     * @param stage  the stage
-     * @return the int [ ]
+     * @param player The player.
+     * @param stage  The stage.
+     * @return The config data.
      */
     public int[] getConfig(Player player, int stage) {
         if (configs.length < 4) {
@@ -233,94 +262,89 @@ public abstract class Quest implements Plugin<Object> {
         return new int[]{configs[0], stage == 0 ? configs[1] : stage >= 100 ? configs[3] : configs[2]};
     }
 
-    /**
-     * Update varps.
-     *
-     * @param player the player
-     */
     public void updateVarps(Player player) {
     }
 
     /**
-     * Is started boolean.
+     * Checks if the quest is in progress.
      *
-     * @param player the player
-     * @return the boolean
+     * @param player The player.
+     * @return {@code True} if so.
      */
     public boolean isStarted(Player player) {
         return getStage(player) > 0 && getStage(player) < 100;
     }
 
     /**
-     * Is completed boolean.
+     * Checks if the quest is completed.
      *
-     * @param player the player
-     * @return the boolean
+     * @param player The player.
+     * @return {@code True} if so.
      */
     public boolean isCompleted(Player player) {
         return getStage(player) >= 100;
     }
 
     /**
-     * Gets stage.
+     * Gets the player instanced stage of this quest.
      *
-     * @param player the player
-     * @return the stage
+     * @param player The player.
+     * @return The stage.
      */
     public int getStage(Player player) {
         return player.getQuestRepository().getStage(this);
     }
 
     /**
-     * Has requirements boolean.
+     * Checks the requirements for the quest.
      *
-     * @param player the player
-     * @return the boolean
+     * @param player The player
+     * @return {@code True} if so.
      */
     public boolean hasRequirements(Player player) {
         return true;
     }
 
     /**
-     * Gets name.
+     * Gets the name.
      *
-     * @return the name
+     * @return the name.
      */
     public String getName() {
         return name;
     }
 
     /**
-     * Gets index.
+     * Gets the index.
      *
-     * @return the index
+     * @return the index.
      */
     public int getIndex() {
         return index;
     }
 
     /**
-     * Gets button id.
+     * Gets the buttonId.
      *
-     * @return the button id
+     * @return the buttonId.
      */
     public int getButtonId() {
         return buttonId;
     }
 
     /**
-     * Gets quest points.
+     * Gets the questPoints.
      *
-     * @return the quest points
+     * @return the questPoints.
      */
     public int getQuestPoints() {
         return questPoints;
     }
 
     /**
-     * Get configs int [ ].
+     * Gets the configs.
      *
-     * @return the int [ ]
+     * @return the configs.
      */
     public int[] getConfigs() {
         return configs;

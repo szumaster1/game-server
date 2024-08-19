@@ -8,7 +8,8 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.skill.Skills
 
 /**
- * Spell type enum class.
+ * Represents the spell types.
+ * @author Emperor
  *
  * @param accuracyMod to double.
  * @constructor Spell type.
