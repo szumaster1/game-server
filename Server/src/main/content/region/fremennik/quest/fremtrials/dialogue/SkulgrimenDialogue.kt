@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Skulgrimen dialogue.
+ * Represents the Skulgrimen dialogue.
  */
 @Initializable
 class SkulgrimenDialogue(player: Player? = null): Dialogue(player) {

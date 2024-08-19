@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Thorval dialogue.
+ * Represents the Thorval dialogue.
  */
 @Initializable
 class ThorvalDialogue(player: Player? = null): Dialogue(player) {

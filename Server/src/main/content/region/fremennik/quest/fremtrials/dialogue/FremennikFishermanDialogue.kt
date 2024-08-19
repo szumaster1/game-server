@@ -9,7 +9,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.END_DIALOGUE
 
 /**
- * Fremennik fisherman dialogue.
+ * Represents the Fremennik fisherman dialogue.
  */
 class FremennikFishermanDialogue : DialogueFile() {
 

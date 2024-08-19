@@ -10,7 +10,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 
 /**
- * Sigli the huntsman dialogue.
+ * Represents the Sigli the huntsman dialogue.
  */
 @Initializable
 class SigliTheHuntsmanDialogue(player: Player? = null): Dialogue(player) {

@@ -15,7 +15,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Yrsa f t dialogue.
+ * Represents the Yrsa dialogue related to The Fremennik Trials.
  */
 @Initializable
 class YrsaFTDialogue(player: Player? = null): Dialogue(player) {

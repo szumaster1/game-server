@@ -14,7 +14,7 @@ import core.game.node.entity.player.Player
 import core.game.shops.Shops.Companion.openId
 
 /**
- * Seersvillage listeners.
+ * Seers Village listeners.
  */
 class SeersvillageListeners : InteractionListener {
 

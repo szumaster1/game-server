@@ -1,4 +1,4 @@
-package content.region.kandarin.handlers
+package content.region.kandarin.handlers.seersvillage
 
 import content.global.handlers.item.withnpc.PoisonChaliceOnKingArthurDialogue
 import content.region.kandarin.quest.holygrail.dialogue.GalahadHolyGrailDialogueFile

@@ -11,7 +11,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Lalli dialogue.
+ * Represents the Lalli dialogue.
  */
 @Initializable
 class LalliDialogue(player: Player? = null): Dialogue(player) {

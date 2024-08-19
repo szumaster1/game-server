@@ -15,7 +15,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Poison salesman dialogue.
+ * Represents the Poison salesman dialogue.
  */
 @Initializable
 class PoisonSalesmanDialogue(player: Player? = null): Dialogue(player) {

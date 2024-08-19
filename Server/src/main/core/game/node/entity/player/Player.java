@@ -324,7 +324,7 @@ public class Player extends Entity {
         super.clear();
         getZoneMonitor().clear();
         HouseManager.leave(this);
-        UpdateSequence.getRendererPlayers().remove(this);
+        UpdateSequence.getRenderablePlayers().remove(this);
         sendLogoutEvents();
         checkForWealthUpdate(true);
     }

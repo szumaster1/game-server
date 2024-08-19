@@ -12,7 +12,7 @@ import core.tools.END_DIALOGUE
 import kotlin.random.Random
 
 /**
- * Chieftan brundt dialogue.
+ * Represents the Chieftan brundt dialogue.
  */
 @Initializable
 class ChieftanBrundtDialogue(player: Player? = null): Dialogue(player) {
@@ -306,7 +306,7 @@ class ChieftanBrundtDialogue(player: Player? = null): Dialogue(player) {
 }
 
 /**
- * Generate fremennik name
+ * Represents the Generate fremennik name
  *
  * @return
  */
@@ -321,7 +321,7 @@ fun GenerateFremennikName(): String {
 }
 
 /**
- * Cleanup attributes
+ * Represents the Cleanup attributes
  *
  * @param player
  */

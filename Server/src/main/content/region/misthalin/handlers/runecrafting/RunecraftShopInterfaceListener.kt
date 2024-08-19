@@ -10,6 +10,7 @@ import core.api.consts.Items
 
 /**
  * Represents the Runecraft shop interface listener.
+ * @author Szumaster
  */
 class RunecraftShopInterfaceListener : InterfaceListener {
 

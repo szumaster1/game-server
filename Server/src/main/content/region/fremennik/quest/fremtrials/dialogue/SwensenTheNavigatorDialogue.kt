@@ -9,7 +9,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Swensen the navigator dialogue.
+ * Represents the Swensen the navigator dialogue.
  */
 @Initializable
 class SwensenTheNavigatorDialogue(player: Player? = null): Dialogue(player) {

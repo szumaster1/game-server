@@ -11,7 +11,7 @@ import core.game.node.entity.player.link.quest.Quest
 import core.game.node.item.Item
 
 /**
- * Monkey madness.
+ * Monkey madness quest.
  */
 // @Initializable
 class MonkeyMadness : Quest("Monkey Madness", 88, 87, 3, Vars.VARP_QUEST_MONKEY_MADNESS_PROGRESS, 0, 1, 9) {

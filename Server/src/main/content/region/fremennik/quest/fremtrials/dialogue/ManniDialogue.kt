@@ -17,7 +17,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Manni dialogue.
+ * Represents the Manni dialogue.
  */
 @Initializable
 class ManniDialogue(player: Player? = null): Dialogue(player) {

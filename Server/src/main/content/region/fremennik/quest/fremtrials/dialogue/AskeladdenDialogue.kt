@@ -10,7 +10,7 @@ import core.game.node.item.Item
 import core.plugin.Initializable
 
 /**
- * Askeladden dialogue.
+ * Represents the Askeladden dialogue.
  */
 @Initializable
 class AskeladdenDialogue(player: Player? = null): Dialogue(player) {

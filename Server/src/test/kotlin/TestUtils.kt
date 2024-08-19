@@ -59,7 +59,7 @@ object TestUtils {
         p.playerFlags.lastSceneGraph = p.location ?: ServerConstants.HOME_LOCATION
         Repository.addPlayer(p)
         //Update sequence has a separate list of players for some reason...
-        UpdateSequence.rendererPlayers.add(p)
+        UpdateSequence.renderablePlayers.add(p)
         p.details.rights = rights
         return p
     }
@@ -203,7 +203,7 @@ class MockPlayer(name: String, val isBot: Boolean) : Player(PlayerDetails(name))
 
     override fun close() {
         Repository.removePlayer(this)
-        UpdateSequence.rendererPlayers.remove(this)
+        UpdateSequence.renderablePlayers.remove(this)
         finishClear()
     }
 
@@ -214,9 +214,9 @@ class MockPlayer(name: String, val isBot: Boolean) : Player(PlayerDetails(name))
     }
 
     /**
-     * Relog
+     * Relog function to handle user re-login process.
      *
-     * @param ticksToWait
+     * @param ticksToWait The number of ticks to wait before re-logging. Default is -1, which indicates no wait.
      */
     fun relog(ticksToWait: Int = -1) {
         val json = PlayerSaver(this).populate()
@@ -251,28 +251,38 @@ class MockPlayer(name: String, val isBot: Boolean) : Player(PlayerDetails(name))
 }
 
 /**
- * Mock session
- *
- * @constructor Mock session
+ * MockSession class simulates an I/O session for handling packets.
+ * It extends the IoSession class and manages received packets.
  */
 class MockSession : IoSession(null, null) {
     val receivedPackets = ArrayList<Packet>()
     var disconnected = false
 
     /**
-     * Packet
+     * Packet data class represents a network packet.
      *
-     * @property opcode
-     * @property payload
-     * @constructor Packet
+     * @property opcode The operation code of the packet.
+     * @property payload The data contained in the packet.
+     * @constructor Creates a Packet with the specified opcode and payload.
      */
     @Suppress("ArrayInDataClass")
     data class Packet(val opcode: Int, val payload: ByteArray)
 
+    /**
+     * Retrieves the remote address of the session.
+     *
+     * @return The remote address as a String, currently hardcoded to "127.0.0.1".
+     */
     override fun getRemoteAddress(): String? {
         return "127.0.0.1"
     }
 
+    /**
+     * Writes data to the session.
+     *
+     * @param context The data to be written, expected to be of type IoBuffer.
+     * @param instant A flag indicating whether the write should be immediate.
+     */
     override fun write(context: Any, instant: Boolean) {
         if (context is IoBuffer) {
             receivedPackets.add(Packet(context.opcode(), context.array()))
@@ -280,10 +290,10 @@ class MockSession : IoSession(null, null) {
     }
 
     /**
-     * Has packet ready
+     * Checks if a packet with the specified opcode is ready.
      *
-     * @param opcode
-     * @return
+     * @param opcode The opcode to check for.
+     * @return True if a packet with the specified opcode is found, otherwise false.
      */
     fun hasPacketReady(opcode: Int): Boolean {
         for (pkt in receivedPackets) if (pkt.opcode == opcode) return true
@@ -291,10 +301,10 @@ class MockSession : IoSession(null, null) {
     }
 
     /**
-     * Get packets with opcode
+     * Retrieves all packets with the specified opcode.
      *
-     * @param opcode
-     * @return
+     * @param opcode The opcode to filter packets by.
+     * @return A list of ByteArray containing the payloads of matching packets.
      */
     fun getPacketsWithOpcode(opcode: Int): ArrayList<ByteArray> {
         val list = ArrayList<ByteArray>()
@@ -302,14 +312,30 @@ class MockSession : IoSession(null, null) {
         return list
     }
 
+    /**
+     * Retrieves a pair of ISAAC ciphers for encryption/decryption.
+     *
+     * @return An ISAACPair containing two ISAACCipher instances.
+     */
     override fun getIsaacPair(): ISAACPair {
         return ISAACPair(ISAACCipher(intArrayOf(0)), ISAACCipher(intArrayOf(0)))
     }
 
+    /**
+     * Queues a ByteBuffer for processing.
+     *
+     * @param buffer The ByteBuffer to be queued.
+     */
     override fun queue(buffer: ByteBuffer?) {}
 
+    /**
+     * Writes data to the session (no implementation provided).
+     */
     override fun write() {}
 
+    /**
+     * Disconnects the session, setting the disconnected flag to true.
+     */
     override fun disconnect() {
         disconnected = true
     }
@@ -319,6 +345,7 @@ class MockSession : IoSession(null, null) {
      *
      */
     fun clear() {
+        // Clear the list of received packets
         receivedPackets.clear()
     }
 

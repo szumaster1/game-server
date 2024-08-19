@@ -11,6 +11,7 @@ import core.game.node.item.Item
 
 /**
  * Represents the Runecraft guild listeners.
+ * @author Szumaster
  */
 class RunecraftGuildListeners : InteractionListener {
 

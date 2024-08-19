@@ -9,7 +9,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Olaf the bard dialogue.
+ * Represents the Olaf the bard dialogue.
  */
 @Initializable
 class OlafTheBardDialogue(player: Player? = null): Dialogue(player) {

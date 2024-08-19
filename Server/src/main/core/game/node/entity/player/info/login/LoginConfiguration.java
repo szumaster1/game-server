@@ -111,7 +111,7 @@ public final class LoginConfiguration {
         sendGameConfiguration(player);
         Repository.getLobbyPlayers().remove(player);
         player.setPlaying(true);
-        UpdateSequence.getRendererPlayers().add(player);
+        UpdateSequence.getRenderablePlayers().add(player);
         RegionManager.move(player);
         player.getMusicPlayer().init();
         player.updateAppearance();

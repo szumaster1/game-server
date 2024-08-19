@@ -11,7 +11,7 @@ import core.game.world.map.Location
 import core.plugin.Initializable
 
 /**
- * Thora dialogue.
+ * Represents the Thora dialogue.
  */
 @Initializable
 class ThoraDialogue(player: Player? = null): Dialogue(player) {

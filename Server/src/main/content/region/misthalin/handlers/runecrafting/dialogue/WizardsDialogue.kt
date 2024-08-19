@@ -10,6 +10,7 @@ import core.tools.END_DIALOGUE
 
 /**
  * Represents the Wizards dialogue.
+ * @author Szumaster
  */
 @Initializable
 class WizardsDialogue(player: Player? = null) : Dialogue(player) {

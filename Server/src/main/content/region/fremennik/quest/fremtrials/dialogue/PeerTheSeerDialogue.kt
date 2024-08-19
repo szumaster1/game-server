@@ -13,7 +13,7 @@ import core.tools.RandomFunction
 import kotlin.random.Random
 
 /**
- * Peer the seer dialogue.
+ * Represents the Peer the seer dialogue.
  */
 @Initializable
 class PeerTheSeerDialogue(player: Player? = null): Dialogue(player) {

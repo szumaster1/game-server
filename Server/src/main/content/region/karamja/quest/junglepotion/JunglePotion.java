@@ -20,7 +20,7 @@ import static core.api.ContentAPIKt.sendMessage;
 import static core.api.ContentAPIKt.setVarbit;
 
 /**
- * Jungle potion.
+ * Jungle potion quest.
  */
 @Initializable
 public final class JunglePotion extends Quest {

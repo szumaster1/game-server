@@ -10,7 +10,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Sigmund dialogue.
+ * Represents the Sigmund dialogue.
  */
 @Initializable
 class SigmundDialogue(player: Player? = null): Dialogue(player) {

@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Fremennik sailor dialogue.
+ * Represents the Fremennik sailor dialogue.
  */
 @Initializable
 class FremennikSailorDialogue(player: Player? = null): Dialogue(player) {

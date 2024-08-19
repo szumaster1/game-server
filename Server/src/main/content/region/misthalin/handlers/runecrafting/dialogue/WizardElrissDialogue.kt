@@ -18,6 +18,7 @@ import core.tools.END_DIALOGUE
 
 /**
  * Represents the Wizard Elriss dialogue.
+ * @author Szumaster
  */
 @Initializable
 class WizardElrissDialogue(player: Player? = null) : Dialogue(player) {

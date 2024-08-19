@@ -12,7 +12,7 @@ import core.tools.START_DIALOGUE
 const val COUNCIL_WORKER = 1287
 
 /**
- * Represents the dialogue of a council worker in the game.
+ * Represents the Represents the dialogue of a council worker in the game.
  *
  * @param questStage The stage of the quest the council worker is related to.
  * @param isBeerInteraction A flag indicating if the interaction involves beer.

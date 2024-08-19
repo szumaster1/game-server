@@ -11,6 +11,7 @@ import core.api.consts.Scenery
 
 /**
  * Represents the Map table interface listener.
+ * @author Szumaster
  */
 class MapTableInterfaceListener : InterfaceListener, InteractionListener {
 
