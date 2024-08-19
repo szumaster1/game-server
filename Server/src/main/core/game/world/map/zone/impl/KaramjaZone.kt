@@ -1,7 +1,7 @@
 package core.game.world.map.zone.impl
 
-import core.api.removeItem
-import core.api.sendMessage
+import core.api.*
+import core.api.consts.Items
 import core.game.node.Node
 import core.game.node.entity.Entity
 import core.game.node.entity.player.Player
@@ -21,13 +21,12 @@ class KaramjaZone : MapZone("karamja", true) {
         }
     }
 
-    override fun teleport(entity: Entity, type: Int, node: Node): Boolean {
+    override fun teleport(entity: Entity, type: Int, node: Node?): Boolean {
         if (entity is Player) {
-            val player = entity
-            val amt = player.inventory.getAmount(KARAMJAN_RUM)
-            if (amt != 0) {
-                removeItem(player, Item(KARAMJAN_RUM.id, amt))
-                sendMessage(player, "During the trip you lose your rum to a sailor in a game of dice. Better luck next time!")
+            if(inInventory(entity.asPlayer(), Items.KARAMJAN_RUM_431)) {
+                val amount = amountInInventory(entity.asPlayer(), Items.KARAMJAN_RUM_431)
+                entity.asPlayer().inventory.remove(Item(Items.KARAMJAN_RUM_431, amount))
+                sendMessage(entity.asPlayer(), "During the trip you lose your rum to a sailor in a game of dice. Better luck next time!")
             }
         }
         return super.teleport(entity, type, node)
@@ -35,6 +34,5 @@ class KaramjaZone : MapZone("karamja", true) {
 
     companion object {
         private val REGIONS = intArrayOf(11309, 11054, 11566, 11565, 11567, 11568, 11053, 11821, 11055, 11057, 11569, 11822, 11823, 11825, 11310, 11311, 11312, 11313, 11314, 11056, 11057, 11058, 10802, 10801)
-        private val KARAMJAN_RUM = Item(431)
     }
 }
