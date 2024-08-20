@@ -10,7 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Dagon hai history book.
+ * Represents the Dagon hai history book.
  */
 class DagonHaiHistoryBook : InteractionListener {
 

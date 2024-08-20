@@ -10,7 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Pie recipes book.
+ * Represents the Pie recipes book.
  */
 class PieRecipesBook : InteractionListener {
 

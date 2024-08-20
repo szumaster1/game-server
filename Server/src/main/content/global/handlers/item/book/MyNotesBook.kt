@@ -10,7 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * My notes book.
+ * Represents the My notes book.
  */
 class MyNotesBook : InteractionListener {
 

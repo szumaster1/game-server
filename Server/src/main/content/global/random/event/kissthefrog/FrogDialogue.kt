@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Frog dialogue.
+ * Represents the Frog dialogue.
  */
 @Initializable
 class FrogDialogue(player: Player? = null) : Dialogue(player) {

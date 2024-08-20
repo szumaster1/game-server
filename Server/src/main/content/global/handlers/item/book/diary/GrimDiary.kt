@@ -10,7 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Grim diary.
+ * Represents the Grim diary.
  */
 class GrimDiary : InteractionListener {
 

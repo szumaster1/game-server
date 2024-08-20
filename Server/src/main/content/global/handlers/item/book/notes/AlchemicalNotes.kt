@@ -11,7 +11,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Alchemical notes.
+ * Represents the Alchemical notes.
  */
 class AlchemicalNotes : InteractionListener {
 

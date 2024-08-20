@@ -10,7 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Clock work book.
+ * Represents the Clock work book.
  */
 class ClockWorkBook : InteractionListener {
 

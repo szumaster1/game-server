@@ -10,7 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Barbarian assault guide.
+ * Represents the Barbarian assault guide.
  */
 class BarbarianAssaultGuide : InteractionListener {
 

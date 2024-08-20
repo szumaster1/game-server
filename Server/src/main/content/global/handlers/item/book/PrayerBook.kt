@@ -10,7 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Prayer book.
+ * Represents the Prayer book.
  */
 class PrayerBook : InteractionListener {
 

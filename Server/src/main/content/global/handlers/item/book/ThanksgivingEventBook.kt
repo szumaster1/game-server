@@ -10,7 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Thanksgiving event book.
+ * Represents the Thanksgiving event book.
  */
 class ThanksgivingEventBook : InteractionListener {
 

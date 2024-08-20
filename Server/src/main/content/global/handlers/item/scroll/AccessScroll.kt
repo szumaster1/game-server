@@ -8,7 +8,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Access scroll.
+ * Represents the Access scroll.
  */
 class AccessScroll : InteractionListener {
 

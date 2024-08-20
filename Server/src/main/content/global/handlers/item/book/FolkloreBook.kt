@@ -10,7 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Folklore book.
+ * Represents the Folklore book.
  */
 class FolkloreBook : InteractionListener {
 

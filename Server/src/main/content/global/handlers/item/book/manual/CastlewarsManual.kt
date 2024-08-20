@@ -10,7 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Castlewars manual.
+ * Represents the Castlewars manual.
  */
 class CastlewarsManual : InteractionListener {
 

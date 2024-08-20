@@ -8,7 +8,7 @@ import core.game.node.entity.npc.NPC
 import core.tools.BLUE
 
 /**
- * Represents the Old man dialogue.
+ * Represents the Old Man dialogue.
  */
 class OldManDialogue : DialogueFile() {
 

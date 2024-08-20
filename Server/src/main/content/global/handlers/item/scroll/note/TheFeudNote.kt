@@ -9,7 +9,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * The feud note.
+ * Represents the The feud note.
  */
 class TheFeudNote : InteractionListener {
 

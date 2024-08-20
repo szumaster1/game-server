@@ -11,7 +11,7 @@ import core.game.node.entity.skill.Skills
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Evil bob dialogue.
+ * Represents the Evil Bob dialogue.
  */
 class EvilBobDialogue(val rewardDialogue: Boolean = false, val rewardXpSkill: Int = Skills.FISHING) : DialogueFile() {
 

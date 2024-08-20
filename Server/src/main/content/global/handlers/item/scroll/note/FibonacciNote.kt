@@ -9,7 +9,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Fibonacci note.
+ * Represents the Fibonacci note.
  */
 class FibonacciNote : InteractionListener {
 

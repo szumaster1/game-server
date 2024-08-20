@@ -10,7 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Ratpit manual.
+ * Represents the Ratpit manual.
  */
 class RatpitManual : InteractionListener {
 

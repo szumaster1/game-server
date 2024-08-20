@@ -10,7 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Eastern discovery book.
+ * Represents the Eastern discovery book.
  */
 class EasternDiscoveryBook : InteractionListener {
 

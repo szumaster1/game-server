@@ -8,7 +8,7 @@ import core.game.interaction.InteractionListener
 import core.tools.END_DIALOGUE
 
 /**
- * Dusty scroll.
+ * Represents the Dusty scroll.
  */
 class DustyScroll : InteractionListener {
 

@@ -10,7 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Handwritten book.
+ * Represents the Handwritten book.
  */
 class HandwrittenBook : InteractionListener {
 

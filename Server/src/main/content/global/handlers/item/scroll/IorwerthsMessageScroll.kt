@@ -7,7 +7,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Iorwerths message scroll.
+ * Represents the Iorwerths message scroll.
  */
 class IorwerthsMessageScroll : InteractionListener {
 

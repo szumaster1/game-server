@@ -10,7 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Tarns diary.
+ * Represents the Tarns diary.
  */
 class TarnsDiary : InteractionListener {
 

@@ -11,7 +11,7 @@ import core.game.node.entity.player.Player
 import core.game.world.GameWorld
 
 /**
- * Hermans book.
+ * Represents the Hermans book.
  */
 class HermansBook : InteractionListener {
 

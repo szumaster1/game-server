@@ -11,7 +11,7 @@ import core.game.system.timer.impl.AntiMacro
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Sandwich lady dialogue.
+ * Represents the Sandwich Lady dialogue.
  */
 class SandwichLadyDialogue(val isChoice: Boolean) : DialogueFile() {
 

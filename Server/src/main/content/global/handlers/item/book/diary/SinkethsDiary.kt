@@ -10,7 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Sinkeths diary.
+ * Represents the Sinkeths diary.
  */
 class SinkethsDiary : InteractionListener {
 

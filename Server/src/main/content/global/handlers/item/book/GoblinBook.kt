@@ -11,7 +11,7 @@ import core.game.node.entity.player.Player
 import core.tools.RED
 
 /**
- * Goblin book.
+ * Represents the Goblin book.
  */
 class GoblinBook : InteractionListener {
 

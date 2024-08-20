@@ -17,7 +17,7 @@ import core.game.world.update.flag.context.Graphic
 import core.tools.END_DIALOGUE
 
 /**
- * Gnome spirit teleport.
+ * Represents the Gnome spirit teleport.
  */
 class GnomeSpiritTeleport: InteractionListener {
 

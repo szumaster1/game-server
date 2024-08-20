@@ -11,7 +11,7 @@ import core.game.node.entity.player.Player
 import core.game.node.item.Item
 
 /**
- * Handles bank charge interface for Eniola at ZMI altar.
+ * Handles bank charge interface for Eniola NPC at ZMI altar.
  * @author vddCore
  */
 class BankChargeInterfaceListener : InterfaceListener {

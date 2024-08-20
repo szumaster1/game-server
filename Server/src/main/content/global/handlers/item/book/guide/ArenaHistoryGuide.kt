@@ -10,7 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Arena history guide.
+ * Represents the Arena history guide.
  */
 class ArenaHistoryGuide : InteractionListener {
 

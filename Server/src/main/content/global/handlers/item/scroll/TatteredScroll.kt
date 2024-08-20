@@ -8,7 +8,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Tattered scroll.
+ * Represents the Tattered scroll.
  */
 class TatteredScroll : InteractionListener {
 

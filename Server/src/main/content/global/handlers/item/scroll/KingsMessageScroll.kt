@@ -7,7 +7,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Kings message scroll.
+ * Represents the Kings message scroll.
  */
 class KingsMessageScroll : InteractionListener {
 

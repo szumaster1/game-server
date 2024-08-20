@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Gnome pilot dialogue.
+ * Represents the Gnome Pilot dialogue.
  */
 @Initializable
 class GnomePilotDialogue(player: Player? = null) : Dialogue(player) {

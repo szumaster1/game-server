@@ -11,10 +11,10 @@ object BankUtils {
     /**
      * Transfer a specified amount of items from the bank.
      *
-     * @param player The player performing the transfer.
-     * @param slot The slot of the item in the bank.
+     * @param player   The player performing the transfer.
+     * @param slot     The slot of the item in the bank.
      * @param withdraw True if withdrawing, False if depositing.
-     * @param after Callback function to execute after the transfer.
+     * @param after    Callback function to execute after the transfer.
      */
     fun transferX(player: Player, slot: Int, withdraw: Boolean, after: (() -> Unit)? = null) {
         // Prompt the player to enter the amount

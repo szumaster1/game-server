@@ -10,7 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Leather book.
+ * Represents the Leather book.
  */
 class LeatherBook : InteractionListener {
 

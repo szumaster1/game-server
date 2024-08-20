@@ -10,7 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Giannes cook book.
+ * Represents the Giannes cook book.
  */
 class GiannesCookBook : InteractionListener {
 

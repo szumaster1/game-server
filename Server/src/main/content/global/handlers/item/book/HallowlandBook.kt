@@ -11,7 +11,7 @@ import core.game.node.entity.player.Player
 import core.game.world.GameWorld.settings
 
 /**
- * Hallowland book.
+ * Represents the Hallowland book.
  */
 class HallowlandBook : InteractionListener {
 

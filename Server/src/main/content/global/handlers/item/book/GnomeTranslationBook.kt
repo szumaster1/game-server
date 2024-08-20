@@ -11,7 +11,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Gnome translation book.
+ * Represents the Gnome translation book.
  */
 class GnomeTranslationBook : InteractionListener {
 

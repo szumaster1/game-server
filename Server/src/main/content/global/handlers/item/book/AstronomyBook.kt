@@ -11,7 +11,7 @@ import core.game.node.entity.player.Player
 import core.game.world.GameWorld
 
 /**
- * Astronomy book.
+ * Represents the Astronomy book.
  */
 class AstronomyBook : InteractionListener {
 

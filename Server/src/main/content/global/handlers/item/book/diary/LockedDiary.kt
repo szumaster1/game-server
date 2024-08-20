@@ -10,7 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Locked diary.
+ * Represents the Locked diary.
  */
 class LockedDiary : InteractionListener {
 

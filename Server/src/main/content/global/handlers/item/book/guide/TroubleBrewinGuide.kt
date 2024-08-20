@@ -10,7 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Trouble brewin guide.
+ * Represents the Trouble brewin guide.
  */
 class TroubleBrewinGuide : InteractionListener {
 

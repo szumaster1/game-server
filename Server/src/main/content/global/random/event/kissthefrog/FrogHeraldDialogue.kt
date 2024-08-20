@@ -14,7 +14,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Represents the Frog herald dialogue.
+ * Represents the Frog Herald dialogue.
  */
 class FrogHeraldDialogue(val isStarted: Boolean = false) : DialogueFile() {
 

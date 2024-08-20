@@ -10,7 +10,7 @@ import core.tools.DARK_RED
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Sergeant damien dialogue.
+ * Represents the Sergeant Damien dialogue.
  */
 class SergeantDamienDialogue(var isCorrect: Boolean = false, var eventStart: Boolean = false) : DialogueFile() {
 

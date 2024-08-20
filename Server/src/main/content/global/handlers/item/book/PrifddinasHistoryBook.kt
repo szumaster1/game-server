@@ -10,7 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Prifddinas history book.
+ * Represents the Prifddinas history book.
  */
 class PrifddinasHistoryBook : InteractionListener {
 

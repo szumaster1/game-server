@@ -10,7 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Big bangs book.
+ * Represents the Big bangs book.
  */
 class BigBangsBook : InteractionListener {
 

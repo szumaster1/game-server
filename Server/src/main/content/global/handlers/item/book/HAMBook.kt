@@ -15,7 +15,7 @@ import core.game.node.entity.player.Player
 import core.tools.END_DIALOGUE
 
 /**
- * H.A.M. book.
+ * Represents the H.A.M. book.
  */
 class HAMBook : InteractionListener {
 

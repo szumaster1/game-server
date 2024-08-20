@@ -10,7 +10,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Strange book.
+ * Represents the Strange book.
  */
 class StrangeBook : InteractionListener {
 

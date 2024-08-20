@@ -7,7 +7,7 @@ import core.game.dialogue.FacialExpression
 import core.game.system.timer.impl.AntiMacro
 
 /**
- * Represents the Drunken dwarf dialogue.
+ * Represents the Drunken Dwarf dialogue.
  */
 class DrunkenDwarfDialogue : DialogueFile() {
 

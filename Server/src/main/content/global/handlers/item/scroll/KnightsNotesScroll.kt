@@ -9,7 +9,7 @@ import core.game.interaction.IntType
 import core.game.interaction.InteractionListener
 
 /**
- * Knights notes scroll.
+ * Represents the Knights notes scroll.
  */
 class KnightsNotesScroll : InteractionListener {
 

@@ -9,7 +9,7 @@ import core.game.interaction.InteractionListener
 import core.game.node.entity.player.Player
 
 /**
- * Scrawled note.
+ * Represents the Scrawled note.
  */
 class ScrawledNote : InteractionListener {
 
