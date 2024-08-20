@@ -1,4 +1,4 @@
-package content.region.misthalin.handlers.wizardtower
+package content.region.misthalin.handlers.wizardstower
 
 import core.api.consts.NPCs
 import core.api.consts.Scenery

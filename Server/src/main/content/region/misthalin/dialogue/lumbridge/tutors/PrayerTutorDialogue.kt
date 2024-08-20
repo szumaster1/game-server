@@ -10,7 +10,7 @@ import core.tools.END_DIALOGUE
 import core.api.consts.NPCs
 
 /**
- * Represents the Prayer tutor dialogue.
+ * Represents the Prayer Tutor dialogue.
  */
 @Initializable
 class PrayerTutorDialogue(player: Player? = null) : Dialogue(player) {

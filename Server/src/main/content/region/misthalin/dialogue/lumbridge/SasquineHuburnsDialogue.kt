@@ -12,7 +12,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Sasquine huburns dialogue.
+ * Represents the Sasquine Huburns dialogue.
  */
 @Initializable
 class SasquineHuburnsDialogue(player: Player? = null) : Dialogue(player) {

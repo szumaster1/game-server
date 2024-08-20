@@ -7,7 +7,7 @@ import core.game.node.entity.npc.NPCBehavior
 import core.tools.RandomFunction
 
 /**
- * Murky matt NPC.
+ * Represents the Murky matt NPC.
  */
 class MurkyMattNPC : NPCBehavior(NPCs.MURKY_MATT_RUNES_6525) {
 

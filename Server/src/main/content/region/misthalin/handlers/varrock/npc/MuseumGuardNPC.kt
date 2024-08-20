@@ -27,7 +27,7 @@ import core.tools.RandomFunction
  */
 
 /**
- * Museum guard NPC.
+ * Represents the Museum guard NPC.
  */
 class MuseumGuardNPC : NPCBehavior(*guardsNPCs) {
 

@@ -21,7 +21,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 /**
- * Mort myre ghast NPC.
+ * Represents the Mort myre ghast NPC.
  */
 @Initializable
 class MortMyreGhastNPC : AbstractNPC {

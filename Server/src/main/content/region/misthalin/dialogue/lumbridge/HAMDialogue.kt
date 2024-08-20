@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the H a m dialogue.
+ * Represents the H.A.M. NPCs dialogue.
  */
 @Initializable
 class HAMDialogue(player: Player? = null) : Dialogue(player) {

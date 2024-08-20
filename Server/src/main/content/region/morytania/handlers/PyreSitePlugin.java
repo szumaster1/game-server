@@ -32,7 +32,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Pyre site plugin.
+ * Represents the Pyre site plugin.
  */
 @Initializable
 public final class PyreSitePlugin extends OptionHandler {

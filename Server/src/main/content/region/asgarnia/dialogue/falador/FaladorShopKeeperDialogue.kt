@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Falador shop keeper dialogue.
+ * Represents the Falador shopkeeper dialogue.
  */
 @Initializable
 class FaladorShopKeeperDialogue(player: Player? = null) : Dialogue(player) {

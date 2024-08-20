@@ -3,7 +3,7 @@ package content.region.morytania.handlers
 import core.api.consts.Items
 
 /**
- * Stuffed item enum class.
+ * Represents the Stuffed item enum class.
  *
  * @param dropId the item to become stuffed id.
  * @param stuffedId the product id.

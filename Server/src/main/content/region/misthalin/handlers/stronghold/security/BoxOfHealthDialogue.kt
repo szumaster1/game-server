@@ -7,7 +7,7 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.emote.Emotes
 
 /**
- * Box of health dialogue.
+ * Represents the Box of health dialogue.
  */
 class BoxOfHealthDialogue(player: Player? = null) : Dialogue(player) {
 

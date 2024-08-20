@@ -7,7 +7,7 @@ import core.game.node.entity.npc.NPCBehavior
 import core.tools.RandomFunction
 
 /**
- * Farid morrisane NPC.
+ * Represents the Farid morrisane NPC.
  */
 class FaridMorrisaneNPC : NPCBehavior(NPCs.FARID_MORRISANE_ORES_6523) {
 

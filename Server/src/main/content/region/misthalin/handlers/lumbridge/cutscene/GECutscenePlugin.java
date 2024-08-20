@@ -447,12 +447,8 @@ public final class GECutscenePlugin extends CutscenePlugin {
 
     }
 
-    /*
-     * The Tutorial interface plugin.
-     */
-
     /**
-     * Tutorial interface plugin.
+     * The Tutorial interface plugin.
      */
     public final class TutorialInterfacePlugin extends ComponentPlugin {
 

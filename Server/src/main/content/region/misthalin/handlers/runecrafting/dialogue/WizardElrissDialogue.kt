@@ -17,7 +17,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Wizard elriss dialogue.
+ * Represents the Wizard Elriss dialogue.
  */
 @Initializable
 class WizardElrissDialogue(player: Player? = null) : Dialogue(player) {

@@ -7,7 +7,7 @@ import core.game.node.entity.npc.NPCBehavior
 import core.tools.RandomFunction
 
 /**
- * Bob barter NPC.
+ * Represents the Bob barter NPC.
  */
 class BobBarterNPC : NPCBehavior(NPCs.BOB_BARTER_HERBS_6524) {
 

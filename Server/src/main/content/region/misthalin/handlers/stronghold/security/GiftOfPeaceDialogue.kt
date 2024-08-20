@@ -10,7 +10,7 @@ import core.game.node.entity.player.Player
 import core.game.node.entity.player.link.emote.Emotes
 
 /**
- * Gift of peace dialogue.
+ * Represents the Gift of peace dialogue.
  */
 class GiftOfPeaceDialogue(player: Player? = null) : Dialogue(player) {
 

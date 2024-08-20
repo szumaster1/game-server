@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Wizard vief dialogue.
+ * Represents the Wizard Vief dialogue.
  */
 @Initializable
 class WizardViefDialogue(player: Player? = null) : Dialogue(player) {

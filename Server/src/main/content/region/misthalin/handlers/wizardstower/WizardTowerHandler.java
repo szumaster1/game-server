@@ -1,4 +1,4 @@
-package content.region.misthalin.handlers.wizardtower;
+package content.region.misthalin.handlers.wizardstower;
 
 import core.cache.def.impl.SceneryDefinition;
 import core.game.global.action.DoorActionHandler;

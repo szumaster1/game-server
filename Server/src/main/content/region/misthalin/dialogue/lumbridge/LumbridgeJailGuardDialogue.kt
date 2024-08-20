@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Lumbridge jail guard dialogue.
+ * Represents the Lumbridge Jail guard dialogue.
  */
 @Initializable
 class LumbridgeJailGuardDialogue(player: Player? = null) : Dialogue(player) {

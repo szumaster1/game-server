@@ -12,7 +12,7 @@ import core.game.node.entity.player.Player
 import core.game.world.update.flag.context.Animation
 
 /**
- * Werewolf NPC.
+ * Represents the Werewolf NPC.
  */
 class WerewolfNPC : NPCBehavior(*HUMAN_NPCS) {
 

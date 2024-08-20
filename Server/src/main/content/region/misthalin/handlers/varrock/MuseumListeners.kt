@@ -179,12 +179,19 @@ class MuseumListeners : InteractionListener, InterfaceListener, MapArea {
     }
 
     override fun defineInterfaceListeners() {
+
+        /**
+         * Opens the museum map.
+         */
         onOpen(Components.VM_MUSEUM_MAP_527) { player, _ ->
             showMapFloor(player, getAttribute(player, FLOOR_MAP_ATTRIBUTE, "main"))
             removeAttribute(player, FLOOR_MAP_ATTRIBUTE)
             return@onOpen true
         }
 
+        /**
+         * Handling the museum map floors.
+         */
         on(Components.VM_MUSEUM_MAP_527) { player, _, _, buttonID, _, _ ->
             showMapFloor(
                 player, when (buttonID) {

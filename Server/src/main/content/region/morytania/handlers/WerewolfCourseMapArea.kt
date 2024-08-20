@@ -7,7 +7,7 @@ import core.game.node.entity.player.Player
 import core.game.world.map.zone.ZoneBorders
 
 /**
- * Werewolf course map area.
+ * Represents the Werewolf course map area.
  */
 class WerewolfCourseMapArea : MapArea {
 

@@ -12,7 +12,7 @@ import core.api.consts.Items
 import core.api.consts.NPCs
 
 /**
- * Represents the Fishing tutor dialogue.
+ * Represents the Fishing Tutor dialogue.
  */
 @Initializable
 class FishingTutorDialogue(player: Player? = null) : Dialogue(player) {

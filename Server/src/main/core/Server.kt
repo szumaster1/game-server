@@ -20,8 +20,7 @@ import kotlin.system.exitProcess
 
 /**
  * The main class, for those that are unable to read the class' name.
- * @author Emperor
- * @author Ceikry
+ * @author Emperor, Ceikry
  */
 object Server {
 

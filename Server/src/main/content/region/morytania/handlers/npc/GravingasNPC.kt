@@ -7,7 +7,7 @@ import core.game.node.entity.npc.NPCBehavior
 import core.tools.RandomFunction
 
 /**
- * Gravingas NPC.
+ * Represents the Gravingas NPC.
  */
 class GravingasNPC : NPCBehavior(NPCs.GRAVINGAS_1685) {
 

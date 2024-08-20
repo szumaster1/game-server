@@ -11,7 +11,7 @@ import core.game.node.item.Item
 import core.tools.END_DIALOGUE
 
 /**
- * Cradle of life dialogue.
+ * Represents the Cradle of life dialogue.
  */
 class CradleOfLifeDialogue(player: Player? = null) : Dialogue(player) {
 

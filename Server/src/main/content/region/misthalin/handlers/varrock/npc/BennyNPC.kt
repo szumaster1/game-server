@@ -7,7 +7,7 @@ import core.game.node.entity.npc.NPCBehavior
 import core.tools.RandomFunction
 
 /**
- * Benny NPC.
+ * Represents the Benny NPC.
  */
 class BennyNPC : NPCBehavior(NPCs.BENNY_5925) {
 

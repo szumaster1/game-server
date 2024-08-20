@@ -9,7 +9,7 @@ import core.tools.END_DIALOGUE
 import core.api.consts.NPCs
 
 /**
- * Represents the Miningtutor dialogue.
+ * Represents the Mining Tutor dialogue.
  */
 @Initializable
 class MiningtutorDialogue(player: Player? = null) : Dialogue(player) {

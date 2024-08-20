@@ -10,7 +10,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Varrock shop keeper dialogue.
+ * Represents the Varrock shopkeeper dialogue.
  */
 @Initializable
 class VarrockShopKeeperDialogue(player: Player? = null) : Dialogue(player) {

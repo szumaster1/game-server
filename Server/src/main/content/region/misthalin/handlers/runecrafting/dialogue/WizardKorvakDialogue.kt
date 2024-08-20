@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Wizard korvak dialogue.
+ * Represents the Wizard Korvak dialogue.
  */
 @Initializable
 class WizardKorvakDialogue(player: Player? = null) : Dialogue(player) {

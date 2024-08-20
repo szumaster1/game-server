@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Stray dog NPC.
+ * Represents the Stray dog NPC.
  */
 @Initializable
 public class StrayDogNPC extends AbstractNPC {

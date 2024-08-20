@@ -7,7 +7,7 @@ import core.game.node.entity.npc.NPCBehavior
 import core.tools.RandomFunction
 
 /**
- * Relobo blinyo NPC.
+ * Represents the Relobo blinyo NPC.
  */
 class ReloboBlinyoNPC : NPCBehavior(NPCs.RELOBO_BLINYO_LOGS_6526) {
 

@@ -13,7 +13,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Represents the Lumbridge guide dialogue.
+ * Represents the Lumbridge Guide dialogue.
  */
 @Initializable
 class LumbridgeGuideDialogue(player: Player? = null) : Dialogue(player) {

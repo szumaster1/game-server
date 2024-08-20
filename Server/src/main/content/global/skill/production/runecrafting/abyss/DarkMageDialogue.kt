@@ -27,7 +27,7 @@ class DarkMageDialogue(player: Player? = null) : Dialogue(player) {
                 return true
             }
         }
-        player("Hello there.").also { stage = 0 }
+        player("Hello there.")
         return true
     }
 

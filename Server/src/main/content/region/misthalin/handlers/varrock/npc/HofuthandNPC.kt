@@ -7,7 +7,7 @@ import core.game.node.entity.npc.NPCBehavior
 import core.tools.RandomFunction
 
 /**
- * Hofuthand NPC.
+ * Represents the Hofuthand NPC.
  */
 class HofuthandNPC : NPCBehavior(NPCs.HOFUTHAND_ARMOUR_AND_WEAPONS_6527) {
 

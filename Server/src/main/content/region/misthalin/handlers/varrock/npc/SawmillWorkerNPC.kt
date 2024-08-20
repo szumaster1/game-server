@@ -14,7 +14,7 @@ val movementPath = arrayOf(
 )
 
 /**
- * Sawmill worker NPC.
+ * Represents the Sawmill worker NPC.
  */
 class SawmillWorkerNPC : NPCBehavior(NPCs.WILL_7737, NPCs.WILL_7738) {
 

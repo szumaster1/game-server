@@ -7,7 +7,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Represents the Barfy bill dialogue.
+ * Represents the Barfy Bill dialogue.
  */
 @Initializable
 class BarfyBillDialogue(player: Player? = null) : Dialogue(player) {

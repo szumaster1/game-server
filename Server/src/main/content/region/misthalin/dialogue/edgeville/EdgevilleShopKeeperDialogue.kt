@@ -10,7 +10,7 @@ import core.tools.END_DIALOGUE
 import core.api.consts.NPCs
 
 /**
- * Represents the Edgeville shop keeper dialogue.
+ * Represents the Edgeville shopkeeper dialogue.
  */
 @Initializable
 class EdgevilleShopKeeperDialogue(player: Player? = null) : Dialogue(player) {

@@ -10,7 +10,7 @@ import core.game.node.entity.player.Player
 import core.plugin.Initializable
 
 /**
- * Represents the Ali morrisane dialogue.
+ * Represents the Ali Morrisane dialogue.
  */
 @Initializable
 class AliMorrisaneDialogue(player: Player? = null) : Dialogue(player) {

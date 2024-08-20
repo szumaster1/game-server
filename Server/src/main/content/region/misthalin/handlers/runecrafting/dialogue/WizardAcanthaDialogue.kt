@@ -9,7 +9,7 @@ import core.plugin.Initializable
 import core.tools.END_DIALOGUE
 
 /**
- * Wizard Acantha dialogue.
+ * Represents the Wizard Acantha dialogue.
  */
 @Initializable
 class WizardAcanthaDialogue(player: Player? = null) : Dialogue(player) {

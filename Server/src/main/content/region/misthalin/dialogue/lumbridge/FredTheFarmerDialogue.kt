@@ -15,7 +15,7 @@ import core.tools.END_DIALOGUE
 import core.tools.START_DIALOGUE
 
 /**
- * Represents the Fred the farmer dialogue.
+ * Represents the Fred the Farmer dialogue.
  */
 @Initializable
 class FredTheFarmerDialogue(player: Player? = null) : Dialogue(player) {
